@@ -17,6 +17,7 @@ The Android XR SDK has  [reached Developer Preview 3](https://android-developers
 
 
 
+
 ARCore for Jetpack XR can run on [supported mobile devices](https://developers.google.com/ar/devices)
 as well as Android XR devices. The
 [ARCore for Jetpack XR library](/jetpack/androidx/releases/xr-arcore) can use the

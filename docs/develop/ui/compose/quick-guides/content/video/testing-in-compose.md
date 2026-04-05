@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 Write your first Compose UI test. This video covers finders, assertions,
 actions, and matchers and takes a quick look at the semantics tree.
 

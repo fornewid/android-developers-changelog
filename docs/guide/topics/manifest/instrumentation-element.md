@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 syntax:
 :   ```
     <instrumentation android:functionalTest=["true" | "false"]

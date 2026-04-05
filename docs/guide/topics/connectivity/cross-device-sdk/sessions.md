@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 Building on the [Device Discovery](/guide/topics/connectivity/cross-device-sdk/device-discovery) and [Secure Connection](/guide/topics/connectivity/cross-device-sdk/secure-connection) APIs, the
 Sessions API provides a powerful abstraction to build seamless cross-device
 experiences. A session represents an application user experience that can be

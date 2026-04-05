@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 HDR, or High Dynamic Range, provides a wider range of colors and greater
 contrast between the brightest whites and darkest shadows, resulting in video
 quality that more closely resembles what the naked eye perceives.

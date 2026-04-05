@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 Sometimes your layout requires complex views that are rarely used. Whether
 they are item details, progress indicators, or undo messages, you can reduce
 memory usage and speed up rendering by loading the views only when they're

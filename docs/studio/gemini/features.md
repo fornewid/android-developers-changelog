@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Gemini in Android Studio includes features for every step of the development
 process. Gemini is a rapidly developing space, so also check Android Studio's
 [stable release notes](/studio/releases) and

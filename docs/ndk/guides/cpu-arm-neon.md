@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 The NDK supports ARM Advanced SIMD, commonly known as Neon, an optional
 instruction set extension for ARMv7 and ARMv8. Neon provides scalar/vector
 instructions and registers (shared with the FPU) comparable to MMX/SSE/3DNow!

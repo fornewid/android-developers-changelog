@@ -1,17 +1,8 @@
 ---
-title: Kotlin on Android FAQ  |  Android Developers
+title: https://developer.android.com/kotlin/faq
 url: https://developer.android.com/kotlin/faq
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [Get started](https://developer.android.com/get-started/overview)
-* [Kotlin](https://developer.android.com/kotlin)
-* [Guides](https://developer.android.com/kotlin/first)
-
-# Kotlin on Android FAQ Stay organized with collections Save and categorize content based on your preferences.
-
-
 
 #### Why did Android make Kotlin a first-class supported language?
 
@@ -22,11 +13,11 @@ so it makes it easy for developers who love Java to keep using it while
 incrementally adding Kotlin code and leveraging Kotlin libraries. Meanwhile,
 many Android developers have found that Kotlin makes development faster
 and more fun, so Google wants to better support these Kotlin users. Read
-more about [Android’s Kotlin-first approach](/kotlin/first).
+more about [Android's Kotlin-first approach](https://developer.android.com/kotlin/first).
 
 #### How do I use Kotlin with Android Studio?
 
-Kotlin is fully supported in [Android Studio](/studio). All new releases of
+Kotlin is fully supported in [Android Studio](https://developer.android.com/studio). All new releases of
 Android Studio ship with support for creating new projects with Kotlin files,
 converting Java language code to Kotlin, debugging Kotlin code, and
 more.
@@ -40,13 +31,13 @@ anything differently.
 
 autocomplete, and refactoring)?
 
-[Android Studio](/studio) has full tooling support for Kotlin.
+[Android Studio](https://developer.android.com/studio) has full tooling support for Kotlin.
 
 #### What's the future of Kotlin?
 
 JetBrains' thoughtful work on Kotlin's design is one of the reasons to
 embrace the language. Google is partnering with JetBrains to ensure a
-wonderful overall developer story—from language to framework to tools.
+wonderful overall developer story---from language to framework to tools.
 We're excited to be working together to move the Kotlin language into a
 not-for-profit foundation.
 
@@ -65,8 +56,8 @@ license.
 
 You don't have to pick! You can use both. If you need
 help discovering whether Kotlin is a good fit for you, you can
-[try it on Android](/kotlin) or learn more about the language
-with [these Kotlin resources](/kotlin/getting-started-resources).
+[try it on Android](https://developer.android.com/kotlin) or learn more about the language
+with [these Kotlin resources](https://developer.android.com/kotlin/getting-started-resources).
 
 #### Can I call Android or other Java language library APIs from Kotlin?
 
@@ -83,7 +74,7 @@ you granularly mix Java code with Kotlin code. To learn more, see
 Yep! Google is working to make all Android API documentation available with
 idiomatic Kotlin references. You can
 find links to the available Kotlin reference docs on the
-[Android reference overview page](/reference/kotlin). If you're looking for a
+[Android reference overview page](https://developer.android.com/reference/kotlin). If you're looking for a
 core Kotlin language reference, see the
 [Kotlin standard library reference](https://kotlinlang.org/api/latest/jvm/stdlib/index.html).
 
@@ -99,24 +90,24 @@ Yes, JNI is fully supported with Kotlin. Mark JNI methods with
 
 #### How do I add Kotlin to my new projects?
 
-When creating new projects, Kotlin is now the default language choice in Android Studio. For more information, see [Create a project](/studio/projects/create-project).
+When creating new projects, Kotlin is now the default language choice in Android Studio. For more information, see [Create a project](https://developer.android.com/studio/projects/create-project).
 
 #### How do I add Kotlin to my existing projects?
 
-Select your module in the **Project** window, and then select **File > New**.
+Select your module in the **Project** window, and then select **File \> New** .
 Select any Android template, and then choose **Kotlin** as the
-**Source language**. For more information, see
-[Add Kotlin to an existing app](/kotlin/add-kotlin).
+**Source language** . For more information, see
+[Add Kotlin to an existing app](https://developer.android.com/kotlin/add-kotlin).
 
 #### How do I convert Java language code to Kotlin?
 
-Open a Java file and select **Code > Convert Java File to Kotlin File**. Or,
-create a new Kotlin file (**File > New > Kotlin File/Class**), and then paste
+Open a Java file and select **Code \> Convert Java File to Kotlin File** . Or,
+create a new Kotlin file (**File \> New \> Kotlin File/Class** ), and then paste
 your Java code into that file. When prompted, click **Yes** to convert the code
 to Kotlin.
 
-**Note:** Be sure to review any converted code and ensure that your tests continue
-to pass.
+> [!NOTE]
+> **Note:** Be sure to review any converted code and ensure that your tests continue to pass.
 
 #### Will there be parallel docs, samples, codelabs, and templates in Kotlin?
 
@@ -130,7 +121,7 @@ Studio.
 
 Kotlin coroutines are stable as of Kotlin version 1.3 and work as intended on
 Android. For more information on using coroutines with Android, see
-[Improve app performance with Kotlin coroutines](/kotlin/coroutines).
+[Improve app performance with Kotlin coroutines](https://developer.android.com/kotlin/coroutines).
 
 #### Does using Kotlin have any performance impact?
 
@@ -149,4 +140,4 @@ older Android versions.
 #### Where can I learn more about using Kotlin?
 
 Check out [Additional resources for getting started with
-Kotlin](/kotlin/getting-started-resources).
+Kotlin](https://developer.android.com/kotlin/getting-started-resources).

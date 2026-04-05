@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 Represents player awards for in-game accomplishments.
 
 For a list of [methods](#methods) for this resource, see the end of this page.

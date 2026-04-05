@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Android activates a compatibility mode for apps that declare orientation or
 resizability restrictions. Compatibility mode ensures acceptable app behavior on
 large screen devices, foldable flip phones, and desktop environments but with

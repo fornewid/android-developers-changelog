@@ -1,9 +1,7 @@
 ---
-title: Android Developers
+title: https://developer.android.com/studio/releases/patch-releases
 url: https://developer.android.com/studio/releases/patch-releases
-source: html-scrape
+source: md.txt
 ---
 
-Stay organized with collections
-
-Save and categorize content based on your preferences.
+<br />

@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 The emulator automatically forwards simulated voice calls and SMS messages
 from one instance to another. To send a voice call or SMS, use the dialer app
 or SMS app, respectively, from one of the emulators.

@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 The following diagram helps you decide what API to use to implement your animation.
 
 ![Flowchart describing the decision tree for choosing the appropriate animation API](/static/develop/ui/compose/images/animations/compose_animation_decision_tree_v2.jpg)

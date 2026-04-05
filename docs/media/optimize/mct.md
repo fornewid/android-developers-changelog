@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Media apps that interact by voice with the Google Assistant on Android phones,
 cars, TVs, and headphones are powered by Android media session APIs and use media actions.
 The media action lifecycle can be hard to follow. Even a simple play from search

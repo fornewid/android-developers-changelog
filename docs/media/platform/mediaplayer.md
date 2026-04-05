@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 This document discusses the MediaPlayer APIs in the Android multimedia
 framework. However, the recommended approach for media is [Jetpack Media3](/media/media3),
 which includes [ExoPlayer](/guide/topics/media/exoplayer). To create a new app, use Jetpack Media3 instead

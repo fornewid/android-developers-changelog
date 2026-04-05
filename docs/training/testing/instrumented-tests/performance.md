@@ -1,8 +1,17 @@
 ---
-title: https://developer.android.com/training/testing/instrumented-tests/performance
+title: Performance tests  |  Test your app on Android  |  Android Developers
 url: https://developer.android.com/training/testing/instrumented-tests/performance
-source: md.txt
+source: html-scrape
 ---
+
+* [Android Developers](https://developer.android.com/)
+* [Develop](https://developer.android.com/develop)
+* [Test your app on Android](https://developer.android.com/training/testing)
+
+# Performance tests Stay organized with collections Save and categorize content based on your preferences.
+
+
+
 
 App runtime performance can be divided into local testing and field testing.
 Keep in mind that both of these areas provide different results and
@@ -13,24 +22,24 @@ acceptable.
 
 Field testing helps you to understand how an app performs with real users under
 real world conditions. It is an important area and helps to understand how an
-app performs in the field. You can use tools such as [Google Play Vitals](https://developer.android.com/topic/performance/vitals) and
+app performs in the field. You can use tools such as [Google Play Vitals](/topic/performance/vitals) and
 [Firebase Performance Monitoring](https://firebase.google.com/docs/perf-mon) to get field metrics from
 users.
 
-You can use the [AndroidX Tracing](https://developer.android.com/jetpack/androidx/releases/tracing) library to add trace points which
+You can use the [AndroidX Tracing](/jetpack/androidx/releases/tracing) library to add trace points which
 provides more context and insights to field metrics.
 
-You can also use [`ApplicationStartInfo`](https://developer.android.com/reference/android/app/ApplicationStartInfo) and [`ApplicationExitInfo`](https://developer.android.com/reference/android/app/ApplicationExitInfo) to
+You can also use [`ApplicationStartInfo`](/reference/android/app/ApplicationStartInfo) and [`ApplicationExitInfo`](/reference/android/app/ApplicationExitInfo) to
 get more detailed information on application start and exit from users.
 
-The [AndroidX JankStats](https://developer.android.com/topic/performance/jankstats) library enables aggregating and reporting of slow
+The [AndroidX JankStats](/topic/performance/jankstats) library enables aggregating and reporting of slow
 and dropped frames for further analysis.
 
 ## Local testing
 
 To locally test the runtime performance of an app we provide the benchmarking
-library. It is divided into the [macrobenchmark](https://developer.android.com/topic/performance/benchmarking/macrobenchmark-overview) library, which can be used
-to test the performance of entire user flows and the [microbenchmark](https://developer.android.com/topic/performance/benchmarking/microbenchmark-overview)
+library. It is divided into the [macrobenchmark](/topic/performance/benchmarking/macrobenchmark-overview) library, which can be used
+to test the performance of entire user flows and the [microbenchmark](/topic/performance/benchmarking/microbenchmark-overview)
 library, which is used to analyze hot loop performance of an application or
 library.
 
@@ -54,9 +63,9 @@ of performance tests in a way that they can be compared over time.
 
 You can use results of performance tests in several ways.
 
-- Performance improvement - Use measurement results to prioritize performance improvement
-- Regression avoidance - Ensure there are no performance regressions with new releases
-- Production monitoring - Understand whether there are issues you're not seeing during development
+* Performance improvement - Use measurement results to prioritize performance improvement
+* Regression avoidance - Ensure there are no performance regressions with new releases
+* Production monitoring - Understand whether there are issues you're not seeing during development
 
 To learn more about Android runtime performance testing, see the
-[guide to app performance](https://developer.android.com/performance).
+[guide to app performance](/performance).

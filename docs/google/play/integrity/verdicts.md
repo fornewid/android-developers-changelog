@@ -1,8 +1,16 @@
 ---
-title: https://developer.android.com/google/play/integrity/verdicts
+title: Integrity verdicts  |  Play Integrity  |  Android Developers
 url: https://developer.android.com/google/play/integrity/verdicts
-source: md.txt
+source: html-scrape
 ---
+
+* [Android Developers](https://developer.android.com/)
+* [Google Play](https://developer.android.com/distribute)
+* [Play Integrity](https://developer.android.com/google/play/integrity)
+
+# Integrity verdicts Stay organized with collections Save and categorize content based on your preferences.
+
+
 
 This page describes how to interpret and work with the returned integrity
 verdict. Whether you make a standard or classic API request, the integrity
@@ -19,7 +27,7 @@ developer-provided information.
 
 The general payload structure is as follows:
 
-```json
+```
 {
   "requestDetails": { ... },
   "appIntegrity": { ... },
@@ -41,7 +49,7 @@ the `nonce` for classic requests.
 
 For **standard** API requests:
 
-```json
+```
 "requestDetails": {
   // Application package name this attestation was requested for.
   // Note that this field might be spoofed in the middle of the request.
@@ -61,7 +69,7 @@ request, as shown in the following code snippet:
 
 ### Kotlin
 
-```kotlin
+```
 val requestDetails = JSONObject(payload).getJSONObject("requestDetails")
 val requestPackageName = requestDetails.getString("requestPackageName")
 val requestHash = requestDetails.getString("requestHash")
@@ -81,7 +89,7 @@ if (!requestPackageName.equals(expectedPackageName)
 
 ### Java
 
-```java
+```
 RequestDetails requestDetails =
     decodeIntegrityTokenResponse
     .getTokenPayloadExternal()
@@ -104,7 +112,7 @@ if (!requestPackageName.equals(expectedPackageName)
 
 For **classic** API requests:
 
-```json
+```
 "requestDetails": {
   // Application package name this attestation was requested for.
   // Note that this field might be spoofed in the middle of the
@@ -125,7 +133,7 @@ shown in the following code snippet:
 
 ### Kotlin
 
-```kotlin
+```
 val requestDetails = JSONObject(payload).getJSONObject("requestDetails")
 val requestPackageName = requestDetails.getString("requestPackageName")
 val nonce = requestDetails.getString("nonce")
@@ -146,7 +154,7 @@ if (!requestPackageName.equals(expectedPackageName)
 
 ### Java
 
-```java
+```
 JSONObject requestDetails =
     new JSONObject(payload).getJSONObject("requestDetails");
 String requestPackageName = requestDetails.getString("requestPackageName");
@@ -170,7 +178,7 @@ if (!requestPackageName.equals(expectedPackageName)
 
 The `appIntegrity` field contains package-related information.
 
-```json
+```
 "appIntegrity": {
   // PLAY_RECOGNIZED, UNRECOGNIZED_VERSION, or UNEVALUATED.
   "appRecognitionVerdict": "PLAY_RECOGNIZED",
@@ -206,7 +214,7 @@ snippet:
 
 ### Kotlin
 
-```kotlin
+```
 val appIntegrity = JSONObject(payload).getJSONObject("appIntegrity")
 val appRecognitionVerdict = appIntegrity.getString("appRecognitionVerdict")
 
@@ -217,7 +225,7 @@ if (appRecognitionVerdict == "PLAY_RECOGNIZED") {
 
 ### Java
 
-```java
+```
 JSONObject appIntegrity =
     new JSONObject(payload).getJSONObject("appIntegrity");
 String appRecognitionVerdict =
@@ -238,7 +246,7 @@ The `deviceIntegrity` field can contain a single value,
 device can enforce app integrity. If a device does not meet the criteria of any
 labels, then the `deviceIntegrity` field omits `deviceRecognitionVerdict`.
 
-```json
+```
 "deviceIntegrity": {
   // "MEETS_DEVICE_INTEGRITY" is one of several possible values.
   "deviceRecognitionVerdict": ["MEETS_DEVICE_INTEGRITY"]
@@ -265,7 +273,7 @@ snippet:
 
 ### Kotlin
 
-```kotlin
+```
 val deviceIntegrity =
     JSONObject(payload).getJSONObject("deviceIntegrity")
 val deviceRecognitionVerdict =
@@ -282,7 +290,7 @@ if (deviceRecognitionVerdict.contains("MEETS_DEVICE_INTEGRITY")) {
 
 ### Java
 
-```java
+```
 JSONObject deviceIntegrity =
     new JSONObject(payload).getJSONObject("deviceIntegrity");
 String deviceRecognitionVerdict =
@@ -298,11 +306,11 @@ if (deviceRecognitionVerdict.contains("MEETS_DEVICE_INTEGRITY")) {
 If you are having problems with your testing device meeting device integrity,
 make sure the factory ROM is installed (for example, by resetting the device)
 and that the bootloader is locked. You can also [create Play Integrity API tests
-in your Play Console](https://developer.android.com/google/play/integrity/additional-tools#create-tests).
+in your Play Console](/google/play/integrity/additional-tools#create-tests).
 
 ### Conditional device labels
 
-If your app is being released to [Google Play Games for PC](https://developer.android.com/games/playgames/overview), the
+If your app is being released to [Google Play Games for PC](/games/playgames/overview), the
 `deviceRecognitionVerdict` can also contain the following label:
 
 `MEETS_VIRTUAL_INTEGRITY`
@@ -313,7 +321,7 @@ If your app is being released to [Google Play Games for PC](https://developer.an
 ### Optional device information and device recall
 
 If you [opt in to receive additional
-labels](https://developer.android.com/google/play/integrity/setup#configure-api) in the integrity verdict,
+labels](/google/play/integrity/setup#configure-api) in the integrity verdict,
 `deviceRecognitionVerdict` can contain the following additional labels:
 
 `MEETS_BASIC_INTEGRITY`
@@ -323,14 +331,21 @@ labels](https://developer.android.com/google/play/integrity/setup#configure-api)
     which case Google cannot provide any security, privacy, or app
     compatibility assurances. On Android 13 and higher, the
     `MEETS_BASIC_INTEGRITY` verdict requires only that the attestation
-    [root of trust](https://developer.android.com/privacy-and-security/security-key-attestation#root_certificate) is provided by Google.
+    [root of trust](/privacy-and-security/security-key-attestation#root_certificate) is provided by Google.
 
 `MEETS_STRONG_INTEGRITY`
 :   The app is running on a genuine and certified Android device
     with a recent security update.
 
-    - On Android 13 and higher, the `MEETS_STRONG_INTEGRITY` verdict requires `MEETS_DEVICE_INTEGRITY` and security updates in the last year for all partitions of the device, including an Android OS partition patch and a vendor partition patch.
-    - On Android 12 and lower, the `MEETS_STRONG_INTEGRITY` verdict only requires hardware-backed proof of boot integrity and **does not** require the device to have a recent security update. Therefore, when using the `MEETS_STRONG_INTEGRITY`, it is recommended to also take into account the Android SDK version in the `deviceAttributes` field.
+    * On Android 13 and higher, the `MEETS_STRONG_INTEGRITY` verdict requires
+      `MEETS_DEVICE_INTEGRITY` and security updates in the last year for all
+      partitions of the device, including an Android OS partition patch and a
+      vendor partition patch.
+    * On Android 12 and lower, the `MEETS_STRONG_INTEGRITY` verdict only
+      requires hardware-backed proof of boot integrity and **does not**
+      require the device to have a recent security update. Therefore, when using
+      the `MEETS_STRONG_INTEGRITY`, it is recommended to also take into account
+      the Android SDK version in the `deviceAttributes` field.
 
 A single device will return multiple device labels in the device integrity
 verdict if each of the label's criteria is met.
@@ -342,20 +357,18 @@ the Android OS running on the device. In the future, it may be extended with
 other device attributes.
 
 The SDK version value is the Android SDK version number defined in
-[`Build.VERSION_CODES`](https://developer.android.com/reference/android/os/Build.VERSION_CODES). The SDK
+[`Build.VERSION_CODES`](/reference/android/os/Build.VERSION_CODES). The SDK
 version is not evaluated if a necessary requirement was missed. In this case,
 the `sdkVersion` field is unset; thus, the `deviceAttributes` field is empty.
 This could happen because:
 
-- The device is not trustworthy enough.
-- There were technical issues on the device.
-
-<br />
+* The device is not trustworthy enough.
+* There were technical issues on the device.
 
 If you opt in to receive `deviceAttributes`, the `deviceIntegrity` field
 will have the following extra field:
 
-```json
+```
 "deviceIntegrity": {
   "deviceRecognitionVerdict": ["MEETS_DEVICE_INTEGRITY"],
   "deviceAttributes": {
@@ -368,7 +381,7 @@ will have the following extra field:
 In case the SDK version is not evaluated, the `deviceAttributes` field will
 be set as the following:
 
-```json
+```
 "deviceIntegrity": {
   "deviceRecognitionVerdict": ["MEETS_DEVICE_INTEGRITY"],
   "deviceAttributes": {}  // sdkVersion field is not set.
@@ -388,7 +401,7 @@ integrity token each hour.
 If you opt in to receive `recentDeviceActivity` the `deviceIntegrity` field
 will have two values:
 
-```json
+```
 "deviceIntegrity": {
   "deviceRecognitionVerdict": ["MEETS_DEVICE_INTEGRITY"],
   "recentDeviceActivity": {
@@ -402,61 +415,66 @@ The `deviceActivityLevel` definitions differ between modes and can have
 one of the following values:
 
 | **Recent device activity level** | **Standard API integrity token requests on this device in the last hour per app** | **Classic API integrity token requests on this device in the last hour per app** |
-|---|---|---|
+| --- | --- | --- |
 | `LEVEL_1` (lowest) | 10 or fewer | 5 or fewer |
 | `LEVEL_2` | Between 11 and 25 | Between 6 and 10 |
 | `LEVEL_3` | Between 26 and 50 | Between 11 and 15 |
 | `LEVEL_4` (highest) | More than 50 | More than 15 |
-| `UNEVALUATED` | Recent device activity was not evaluated. This could happen because: - The device is not trustworthy enough. - The version of your app installed on the device is unknown to Google Play. - Technical issues on the device. ||
+| `UNEVALUATED` | Recent device activity was not evaluated. This could happen because:  * The device is not trustworthy enough. * The version of your app installed on the device is unknown to Google   Play. * Technical issues on the device. | |
 
-> [!NOTE]
-> **Note:** Level definitions are approximate.
+**Note:** Level definitions are approximate.
 
 #### Device recall (beta)
 
-You can also opt in to [device recall](https://developer.android.com/google/play/integrity/device-recall),
+You can also opt in to [device recall](/google/play/integrity/device-recall),
 which lets you store some custom, per-device data with specific devices that you
 can reliably retrieve when your app is installed again later on the same device.
 After requesting an integrity token, you make a separate server-to-server call
 to [modify device recall
-values](https://developer.android.com/google/play/integrity/device-recall#modify-recall) for a specific
+values](/google/play/integrity/device-recall#modify-recall) for a specific
 device.
 
 If you opt in to `deviceRecall`, the `deviceIntegrity` field will contain the
 device recall information that you set for the specific device:
 
-    "deviceIntegrity": {
-      "deviceRecognitionVerdict": ["MEETS_DEVICE_INTEGRITY"],
-      "deviceRecall": {
-        "values": {
-          "bitFirst": true,
-          "bitSecond": false,
-          "bitThird": true
-        },
-        "writeDates": {
-          // Write time in YYYYMM format in UTC.
-          "yyyymmFirst": 202401,
-          // Note that yyyymmSecond is not set because bitSecond is false.
-          "yyyymmThird": 202310
-        }
-      }
+```
+"deviceIntegrity": {
+  "deviceRecognitionVerdict": ["MEETS_DEVICE_INTEGRITY"],
+  "deviceRecall": {
+    "values": {
+      "bitFirst": true,
+      "bitSecond": false,
+      "bitThird": true
+    },
+    "writeDates": {
+      // Write time in YYYYMM format in UTC.
+      "yyyymmFirst": 202401,
+      // Note that yyyymmSecond is not set because bitSecond is false.
+      "yyyymmThird": 202310
     }
+  }
+}
+```
 
 The `deviceRecall` is split in two fields:
 
-- `values`: Recall the bit values that you previously set for this device.
-- `writeDates`: Recall the bit write dates in UTC accurate to the year and month. The write date of a recall bit will be updated every time the bit is set to `true` and will be removed when the bit is set to `false`.
+* `values`: Recall the bit values that you previously set for this device.
+* `writeDates`: Recall the bit write dates in UTC accurate to the year and
+  month. The write date of a recall bit will be updated every time the bit
+  is set to `true` and will be removed when the bit is set to `false`.
 
 In the case when device recall information is unavailable, the device recall
 value will be empty:
 
-    "deviceIntegrity": {
-      "deviceRecognitionVerdict": ["MEETS_DEVICE_INTEGRITY"],
-      "deviceRecall": {
-        "values": {},
-        "writeDates": {}
-      }
-    }
+```
+"deviceIntegrity": {
+  "deviceRecognitionVerdict": ["MEETS_DEVICE_INTEGRITY"],
+  "deviceRecall": {
+    "values": {},
+    "writeDates": {}
+  }
+}
+```
 
 ### Account details field
 
@@ -465,7 +483,7 @@ represents app's Google Play licensing status for the user account that's
 signed in on the device. If the user account has the Play license for the app,
 that means they downloaded it or bought it from Google Play.
 
-```json
+```
 "accountDetails": {
   // This field can be LICENSED, UNLICENSED, or UNEVALUATED.
   "appLicensingVerdict": "LICENSED"
@@ -478,31 +496,32 @@ that means they downloaded it or bought it from Google Play.
 :   The user has an app entitlement. In other words, the user installed
     or updated your app from Google Play on their device.
 
-> [!NOTE]
-> **Note:** On some older devices the user keeps the app entitlement after uninstalling the app, so the user account will still be licensed if the user later obtains the same app another way.
+**Note:** On some older devices the user keeps the app entitlement after
+uninstalling the app, so the user account will still be licensed if the user
+later obtains the same app another way.
 
 `UNLICENSED`
 :   The user doesn't have an app entitlement. This happens when, for
     example, the user sideloads your app or doesn't acquire it from Google Play.
-    You can show the [GET_LICENSED](https://developer.android.com/google/play/integrity/remediation#get-licensed-dialog) dialog to users to remedy this.
+    You can show the [GET\_LICENSED](/google/play/integrity/remediation#get-licensed-dialog) dialog to users to remedy this.
 
 `UNEVALUATED`
-
 :   Licensing details were not evaluated because a necessary
     requirement was missed.
 
     This could happen for several reasons, including the following:
 
-    - The device is not trustworthy enough.
-    - The version of your app installed on the device is unknown to Google Play.
-    - The user is not signed in to Google Play.
+    * The device is not trustworthy enough.
+    * The version of your app installed on the device is unknown to Google
+      Play.
+    * The user is not signed in to Google Play.
 
 To check that the user has an app entitlement for your app, verify that the
 `appLicensingVerdict` is as expected, as shown in the following code snippet:
 
 ### Kotlin
 
-```kotlin
+```
 val accountDetails = JSONObject(payload).getJSONObject("accountDetails")
 val appLicensingVerdict = accountDetails.getString("appLicensingVerdict")
 
@@ -513,7 +532,7 @@ if (appLicensingVerdict == "LICENSED") {
 
 ### Java
 
-```java
+```
 JSONObject accountDetails =
     new JSONObject(payload).getJSONObject("accountDetails");
 String appLicensingVerdict = accountDetails.getString("appLicensingVerdict");
@@ -539,40 +558,51 @@ values, `appAccessRiskVerdict` and `playProtectVerdict`.
 #### App access risk verdict
 
 Once enabled, the `environmentDetails` field in the [Play Integrity API
-payload](https://developer.android.com/google/play/integrity/verdict#returned-payload-format) will contain
+payload](/google/play/integrity/verdict#returned-payload-format) will contain
 the new app access risk verdict.
 
-    {
-      "requestDetails": { ... },
-      "appIntegrity": { ... },
-      "deviceIntegrity": { ... },
-      "accountDetails": { ... },
-      "environmentDetails": {
-          "appAccessRiskVerdict": {
-              // This field contains one or more responses, for example the following.
-              "appsDetected": ["KNOWN_INSTALLED", "UNKNOWN_INSTALLED", "UNKNOWN_CAPTURING"]
-          }
-     }
-    }
+```
+{
+  "requestDetails": { ... },
+  "appIntegrity": { ... },
+  "deviceIntegrity": { ... },
+  "accountDetails": { ... },
+  "environmentDetails": {
+      "appAccessRiskVerdict": {
+          // This field contains one or more responses, for example the following.
+          "appsDetected": ["KNOWN_INSTALLED", "UNKNOWN_INSTALLED", "UNKNOWN_CAPTURING"]
+      }
+ }
+}
+```
 
-> [!NOTE]
-> **Note:** In standard requests, the app access risk verdict is only available when using Play Integrity API library version [1.4.0](https://developer.android.com/google/play/integrity/reference/com/google/android/play/core/release-notes#1-4-0) or higher for Kotlin or Java. App access risk increases the latency of standard requests, but latency-sensitive standard requests that don't require the app access risk verdict can use the `verdictOptOut` parameter to opt out of this verdict on a per-request basis. App access risk also requires the device to be running Android Marshmallow (API level 23) or higher.
+**Note:** In standard requests, the app access risk verdict is only available when
+using Play Integrity API library version [1.4.0](/google/play/integrity/reference/com/google/android/play/core/release-notes#1-4-0) or higher
+for Kotlin or Java. App access risk increases the latency of standard requests,
+but latency-sensitive standard requests that don't require the app access risk
+verdict can use the `verdictOptOut` parameter to opt out of this verdict on a
+per-request basis. App access risk also requires the device to be running
+Android Marshmallow (API level 23) or higher.
 
 If app access risk was evaluated, `appAccessRiskVerdict` contains the field
 `appsDetected` with one or more responses. These responses fall into one of the
 following two groups depending on the install source of the detected apps:
 
-- **Play or system apps** : Apps that are installed by Google Play or preloaded
+* **Play or system apps**: Apps that are installed by Google Play or preloaded
   by the device manufacturer on the device's system partition (identified with
-  [`FLAG_SYSTEM`](https://developer.android.com/reference/android/content/pm/ApplicationInfo#FLAG_SYSTEM)).
+  [`FLAG_SYSTEM`](/reference/android/content/pm/ApplicationInfo#FLAG_SYSTEM)).
   Responses for such apps are prefixed by `KNOWN_`.
-
-- **Other apps** : Apps that are not installed by Google Play. This excludes
+* **Other apps**: Apps that are not installed by Google Play. This excludes
   apps preloaded on the system partition by the device manufacturer. Responses
   for such apps are prefixed by `UNKNOWN_`.
 
-> [!NOTE]
-> **Note:** Detected apps that are **only** installed in another profile on the device, such as a [work profile](https://support.google.com/work/android/answer/6191949), will have the `UNKNOWN_` response prefix regardless of their install source. For example, if the app requesting the app access risk verdict is in a work profile and an app installed by Google Play in the user profile is running that could capture the screen, it will return `UNKNOWN_CAPTURING` instead of `KNOWN_CAPTURING`.
+**Note:** Detected apps that are **only** installed in another profile on the
+device, such as a [work profile](https://support.google.com/work/android/answer/6191949),
+will have the `UNKNOWN_` response prefix regardless of their install source.
+For example, if the app requesting the app access risk verdict is in a work
+profile and an app installed by Google Play in the user profile is running that
+could capture the screen, it will return `UNKNOWN_CAPTURING` instead of
+`KNOWN_CAPTURING`.
 
 The following responses can be returned:
 
@@ -596,19 +626,19 @@ The following responses can be returned:
     services known to Google Play running on the device.
 
 Empty (a blank value)
-
 :   App access risk is not evaluated if a necessary requirement was missed. In
     this case the `appAccessRiskVerdict` field is empty. This could happen for
     several reasons, including the following:
 
-    - The device is not trustworthy enough.
-    - The device form factor is not a phone, tablet, or foldable.
-    - The device is not running Android 6 (API level 23) or higher.
-    - The version of your app installed on the device is unknown to Google Play.
-    - The version of the Google Play Store on the device is outdated.
-    - The user account does not have a Play license.
-    - A standard request was used with the `verdictOptOut` parameter.
-    - A standard request was used with a Play Integrity API library version that doesn't yet support app access risk for standard requests.
+    * The device is not trustworthy enough.
+    * The device form factor is not a phone, tablet, or foldable.
+    * The device is not running Android 6 (API level 23) or higher.
+    * The version of your app installed on the device is unknown to Google Play.
+    * The version of the Google Play Store on the device is outdated.
+    * The user account does not have a Play license.
+    * A standard request was used with the `verdictOptOut` parameter.
+    * A standard request was used with a Play Integrity API library version
+      that doesn't yet support app access risk for standard requests.
 
 App access risk automatically excludes verified accessibility services that
 have been through an enhanced Google Play accessibility review (installed by
@@ -625,10 +655,10 @@ The following table gives some examples of app access risk verdicts and what
 they mean (this table does not list every possible result):
 
 | Example app access risk verdict response | Interpretation |
-|---|---|
-| `appsDetected:` `["KNOWN_INSTALLED"]` | There are only apps installed that are recognized by Google Play or preloaded on the system partition by the device manufacturer. There are no apps running that would result in the capturing, controlling, or overlays verdicts. |
-| `appsDetected:` `["KNOWN_INSTALLED",` `"UNKNOWN_INSTALLED",` `"UNKNOWN_CAPTURING"]` | There are apps installed by Google Play or preloaded on the system partition by the device manufacturer. There are other apps running and have permissions enabled that could be used to view the screen or capture other inputs and outputs. |
-| `appsDetected:` `["KNOWN_INSTALLED",` `"KNOWN_CAPTURING",` `"UNKNOWN_INSTALLED",` `"UNKNOWN_CONTROLLING"]` | There are Play or system apps running that have permissions enabled that could be used to view the screen or capture other inputs and outputs. There are also other apps running that have permissions enabled that could be used to control the device and directly control inputs into your app. |
+| --- | --- |
+| `appsDetected:`  `["KNOWN_INSTALLED"]` | There are only apps installed that are recognized by Google Play or preloaded on the system partition by the device manufacturer. There are no apps running that would result in the capturing, controlling, or overlays verdicts. |
+| `appsDetected:`  `["KNOWN_INSTALLED",`  `"UNKNOWN_INSTALLED",`  `"UNKNOWN_CAPTURING"]` | There are apps installed by Google Play or preloaded on the system partition by the device manufacturer. There are other apps running and have permissions enabled that could be used to view the screen or capture other inputs and outputs. |
+| `appsDetected:`  `["KNOWN_INSTALLED",`  `"KNOWN_CAPTURING",`  `"UNKNOWN_INSTALLED",`  `"UNKNOWN_CONTROLLING"]` | There are Play or system apps running that have permissions enabled that could be used to view the screen or capture other inputs and outputs.  There are also other apps running that have permissions enabled that could be used to control the device and directly control inputs into your app. |
 | `appAccessRiskVerdict: {}` | App access risk is not evaluated because a necessary requirement was missed. For example, the device was not trustworthy enough. |
 
 Depending on your risk level, you can decide what combination of verdicts are
@@ -638,7 +668,7 @@ apps running that could capture the screen or control your app:
 
 ### Kotlin
 
-```kotlin
+```
 val environmentDetails =
     JSONObject(payload).getJSONObject("environmentDetails")
 val appAccessRiskVerdict =
@@ -654,7 +684,7 @@ if (appAccessRiskVerdict.has("appsDetected")) {
 
 ### Java
 
-```java
+```
 JSONObject environmentDetails =
     new JSONObject(payload).getJSONObject("environmentDetails");
 JSONObject appAccessRiskVerdict =
@@ -674,19 +704,21 @@ Depending on your risk level, you can decide what app access risk verdicts you
 want to take action on before letting the user complete a request or action.
 There are optional Google Play prompts you can show to the user after
 checking the app access risk verdict. You can show
-[CLOSE_UNKNOWN_ACCESS_RISK](https://developer.android.com/google/play/integrity/remediation#close-unknown-access-risk-dialog) to ask the user to close unknown apps causing the
-app access risk verdict or you can show [CLOSE_ALL_ACCESS_RISK](https://developer.android.com/google/play/integrity/remediation#close-all-access-risk-dialog) to ask the
+[CLOSE\_UNKNOWN\_ACCESS\_RISK](/google/play/integrity/remediation#close-unknown-access-risk-dialog) to ask the user to close unknown apps causing the
+app access risk verdict or you can show [CLOSE\_ALL\_ACCESS\_RISK](/google/play/integrity/remediation#close-all-access-risk-dialog) to ask the
 user to close all apps (known and unknown) causing the app access risk verdict.
 
 #### Play Protect verdict
 
 Once enabled, the `environmentDetails` field in the [Play Integrity API
-payload](https://developer.android.com/google/play/integrity/verdict#returned-payload-format) will contain
+payload](/google/play/integrity/verdict#returned-payload-format) will contain
 the Play Protect verdict:
 
-    "environmentDetails": {
-      "playProtectVerdict": "NO_ISSUES"
-    }
+```
+"environmentDetails": {
+  "playProtectVerdict": "NO_ISSUES"
+}
+```
 
 `playProtectVerdict` can have one of the following values:
 
@@ -709,13 +741,12 @@ the Play Protect verdict:
     device.
 
 `UNEVALUATED`
-
 :   The Play Protect verdict was not evaluated.
 
     This could happen for several reasons, including the following:
 
-    - The device is not trustworthy enough.
-    - The user account does not have a Play license.
+    * The device is not trustworthy enough.
+    * The user account does not have a Play license.
 
 #### Guidance on using the Play Protect verdict
 
@@ -733,3 +764,15 @@ your risk tolerance. Here are some suggestions and potential user actions:
 :   Depending on your risk tolerance, you can ask the user to launch Play
     Protect and take action on the Play Protect warnings. If the user can't fulfill
     these requirements you could block them from the server action.
+
+[Previous
+
+arrow\_back
+
+Make a classic request](/google/play/integrity/classic)
+
+[Next
+
+Use device recall
+
+arrow\_forward](/google/play/integrity/device-recall)

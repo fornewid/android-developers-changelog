@@ -15,6 +15,7 @@ Starting in 2026, we'll be transitioning away from Google Fit APIs. For more inf
 
 
 
+
 The Health Connect platform provides a [range of data types](/health-and-fitness/guides/health-connect/plan/data-types),
 mostly covering wellness and fitness use cases, enabling apps in the Android
 ecosystem to share data without the need for high-cost one-to-one

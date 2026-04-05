@@ -1,8 +1,19 @@
 ---
-title: https://developer.android.com/develop/connectivity/wifi
+title: Connect devices wirelessly  |  Connectivity  |  Android Developers
 url: https://developer.android.com/develop/connectivity/wifi
-source: md.txt
+source: html-scrape
 ---
+
+* [Android Developers](https://developer.android.com/)
+* [Develop](https://developer.android.com/develop)
+* [Core areas](https://developer.android.com/develop/core-areas)
+* [Connectivity](https://developer.android.com/develop/connectivity)
+* [Guides](https://developer.android.com/develop/connectivity/overview)
+
+# Connect devices wirelessly Stay organized with collections Save and categorize content based on your preferences.
+
+
+
 
 Besides enabling communication with the cloud, Android's wireless APIs also
 enable communication with other devices on the same local network, and even
@@ -24,27 +35,26 @@ when neither device is connected to a network.
 If you're looking for a higher-level API for your Android application to
 transfer data reliably and securely between devices using a combination of Wi-Fi
 and Bluetooth, consider using the [Nearby Connections API](https://developers.google.com/nearby/connections/overview).
-[Video](https://www.youtube.com/watch?v=oi_ARV_I8Dc)
 
 ## Lessons
 
-**[Use network service discovery](https://developer.android.com/develop/connectivity/wifi/use-nsd)**
+**[Use network service discovery](/develop/connectivity/wifi/use-nsd)**
 :   Learn how to broadcast services offered
     by your own application, discover services offered on the local network, and
     use NSD to determine the connection details for the service you want to
     connect to.
 
-**[Creating P2P connections with Wi-Fi](https://developer.android.com/develop/connectivity/wifi/wifi-direct)**
+**[Creating P2P connections with Wi-Fi](/develop/connectivity/wifi/wifi-direct)**
 :   Learn how to fetch a list of
     nearby peer devices, create an access point for legacy devices, and connect
     to other devices capable of Wi-Fi P2P connections.
 
-**[Using Wi-Fi P2P for service discovery](https://developer.android.com/develop/connectivity/wifi/nsd-wifi-direct)**
+**[Using Wi-Fi P2P for service discovery](/develop/connectivity/wifi/nsd-wifi-direct)**
 :   Learn how to discover services
     published by nearby devices without being on the same network, using Wi-Fi
     P2P.
 
 ## You should also read
 
-- [Wi-Fi P2P](https://developer.android.com/develop/connectivity/wifi/wifip2p)
-- [Nearby Connections API](https://developers.google.com/nearby/connections/overview)
+* [Wi-Fi P2P](/develop/connectivity/wifi/wifip2p)
+* [Nearby Connections API](https://developers.google.com/nearby/connections/overview)

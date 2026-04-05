@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 The Navigation component provides a straightforward and generic way of
 navigating to a destination. This interface supports a range of contexts and UI
 frameworks. For example, you can use the Navigation component with Compose,

@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 Custom Tabs are a feature in Android browsers that gives app developers
 a way to add a customized browser experience directly within their app.
 

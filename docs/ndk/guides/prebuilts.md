@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 The NDK supports the use of prebuilt libraries, both static and shared. There
 are two principal use cases for this functionality:
 

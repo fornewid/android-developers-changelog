@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 Unlike touch interfaces, TV heavily relies on different main states
 (default, focused, pressed) to draw the user's attention to the focused
 element. This serves as the starting point for navigation.

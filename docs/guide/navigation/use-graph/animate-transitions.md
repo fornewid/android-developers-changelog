@@ -12,6 +12,7 @@ source: html-scrape
 
 
 
+
 The Navigation component lets you add both property and view animations to
 actions. To create your own animations, check out
 [Animation resources](/guide/topics/resources/animation-resource).

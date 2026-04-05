@@ -12,6 +12,7 @@ source: html-scrape
 
 
 
+
 When a user searches or browses for apps to download on Google Play, the
 results are filtered based on which applications are compatible with the device.
 For example, if an app requires a camera, Google Play would not show the app to devices

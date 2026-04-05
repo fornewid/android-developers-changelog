@@ -15,6 +15,7 @@ Send feedback
 
 
 
+
 This document helps you set up your C++ project for
 v2 Native C or C++ and verify the authentication service.
 
@@ -182,6 +183,8 @@ retrieve the server authorization code by calling the
 
 For more information, see the
 [server access guide](/games/pgs/android/server-access).
+
+
 
 
 

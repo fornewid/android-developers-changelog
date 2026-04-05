@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 This guide covers communication applications, such as Voice over Internet Protocol (VoIP), that want to self-manage their audio and hearable device state.
 
 **Note:** Starting in Android 13 (API level 33), applications must migrate from [`AudioManager#startBluetoothSco()`](/reference/android/media/AudioManager#startBluetoothSco()) to [`AudioManager#setCommunicationDevice()`](/reference/android/media/AudioManager#setCommunicationDevice(android.media.AudioDeviceInfo)) to support upcoming BLE audio headsets. This change is backward-compatible with Hands-Free Profile (HFP) devices.

@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 The Android Runtime (ART) and Dalvik virtual machine use
 [paging](https://en.wikipedia.org/wiki/Paging)
 and [memory-mapping](https://en.wikipedia.org/wiki/Memory-mapped_files)

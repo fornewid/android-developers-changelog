@@ -1,17 +1,10 @@
 ---
-title: Kotlin flows on Android  |  Android Developers
+title: https://developer.android.com/kotlin/flow
 url: https://developer.android.com/kotlin/flow
-source: html-scrape
+source: md.txt
 ---
 
-* [Android Developers](https://developer.android.com/)
-* [Get started](https://developer.android.com/get-started/overview)
-* [Kotlin](https://developer.android.com/kotlin)
-* [Guides](https://developer.android.com/kotlin/first)
-
-# Kotlin flows on Android Stay organized with collections Save and categorize content based on your preferences.
-
-
+[Video](https://www.youtube.com/watch?v=fSB6_KE95bU)
 
 In coroutines, a *flow* is a type that can emit multiple values
 sequentially, as opposed to *suspend functions* that return only
@@ -31,20 +24,18 @@ thread.
 
 There are three entities involved in streams of data:
 
-* A **producer** produces data that is added to the stream. Thanks to
-  coroutines, flows can also produce data asynchronously.
-* **(Optional) Intermediaries** can modify each value emitted into the
-  stream or the stream itself.
-* A **consumer** consumes the values from the stream.
+- A **producer** produces data that is added to the stream. Thanks to coroutines, flows can also produce data asynchronously.
+- **(Optional) Intermediaries** can modify each value emitted into the stream or the stream itself.
+- A **consumer** consumes the values from the stream.
+
+<br />
 
 ![entities involved in streams of data; consumer, optional
-              intermediaries, and producer](/static/images/kotlin/flow/flow-entities.png)
+intermediaries, and producer](https://developer.android.com/static/images/kotlin/flow/flow-entities.png) **Figure 1.** Entities involved in streams of data: consumer, optional intermediaries, and producer.
 
+<br />
 
-**Figure 1.** Entities involved in streams of data:
-consumer, optional intermediaries, and producer.
-
-In Android, a *[repository](/jetpack/guide/data-layer#architecture)* is
+In Android, a *[repository](https://developer.android.com/jetpack/guide/data-layer#architecture)* is
 typically a producer of UI data that has the user interface (UI) as the consumer
 that ultimately displays the data. Other times, the UI layer is a producer of
 user input events and other layers of the hierarchy consume them. Layers in
@@ -66,39 +57,29 @@ return multiple consecutive values, the data source creates and returns
 a flow to fulfill this requirement. In this case, the data source acts
 as the producer.
 
-```
-class NewsRemoteDataSource(
-    private val newsApi: NewsApi,
-    private val refreshIntervalMs: Long = 5000
-) {
-    val latestNews: Flow<List<ArticleHeadline>> = flow {
-        while(true) {
-            val latestNews = newsApi.fetchLatestNews()
-            emit(latestNews) // Emits the result of the request to the flow
-            delay(refreshIntervalMs) // Suspends the coroutine for some time
+    class NewsRemoteDataSource(
+        private val newsApi: NewsApi,
+        private val refreshIntervalMs: Long = 5000
+    ) {
+        val latestNews: Flow<List<ArticleHeadline>> = flow {
+            while(true) {
+                val latestNews = newsApi.fetchLatestNews()
+                emit(latestNews) // Emits the result of the request to the flow
+                delay(refreshIntervalMs) // Suspends the coroutine for some time
+            }
         }
     }
-}
 
-// Interface that provides a way to make network requests with suspend functions
-interface NewsApi {
-    suspend fun fetchLatestNews(): List<ArticleHeadline>
-}
-```
+    // Interface that provides a way to make network requests with suspend functions
+    interface NewsApi {
+        suspend fun fetchLatestNews(): List<ArticleHeadline>
+    }
 
 The `flow` builder is executed within a coroutine. Thus, it benefits
 from the same asynchronous APIs, but some restrictions apply:
 
-* Flows are *sequential*. As the producer is in a coroutine, when calling
-  a suspend function, the producer suspends until the suspend function
-  returns. In the example, the producer suspends until the `fetchLatestNews`
-  network request completes. Only then is the result emitted to the stream.
-* With the `flow` builder, the producer cannot `emit` values from a
-  different `CoroutineContext`. Therefore, don't call `emit` in a different
-  `CoroutineContext` by creating new coroutines or by using `withContext`
-  blocks of code. You can use other flow builders such as
-  [`callbackFlow`](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/callback-flow.html)
-  in these cases.
+- Flows are *sequential* . As the producer is in a coroutine, when calling a suspend function, the producer suspends until the suspend function returns. In the example, the producer suspends until the `fetchLatestNews` network request completes. Only then is the result emitted to the stream.
+- With the `flow` builder, the producer cannot `emit` values from a different `CoroutineContext`. Therefore, don't call `emit` in a different `CoroutineContext` by creating new coroutines or by using `withContext` blocks of code. You can use other flow builders such as [`callbackFlow`](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/callback-flow.html) in these cases.
 
 ## Modifying the stream
 
@@ -113,24 +94,22 @@ In the example below, the repository layer uses the intermediate operator
 [`map`](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/map.html)
 to transform the data to be displayed on the `View`:
 
-```
-class NewsRepository(
-    private val newsRemoteDataSource: NewsRemoteDataSource,
-    private val userData: UserData
-) {
-    /**
-     * Returns the favorite latest news applying transformations on the flow.
-     * These operations are lazy and don't trigger the flow. They just transform
-     * the current value emitted by the flow at that point in time.
-     */
-    val favoriteLatestNews: Flow<List<ArticleHeadline>> =
-        newsRemoteDataSource.latestNews
-            // Intermediate operation to filter the list of favorite topics
-            .map { news -> news.filter { userData.isFavoriteTopic(it) } }
-            // Intermediate operation to save the latest news in the cache
-            .onEach { news -> saveInCache(news) }
-}
-```
+    class NewsRepository(
+        private val newsRemoteDataSource: NewsRemoteDataSource,
+        private val userData: UserData
+    ) {
+        /**
+         * Returns the favorite latest news applying transformations on the flow.
+         * These operations are lazy and don't trigger the flow. They just transform
+         * the current value emitted by the flow at that point in time.
+         */
+        val favoriteLatestNews: Flow<List<ArticleHeadline>> =
+            newsRemoteDataSource.latestNews
+                // Intermediate operation to filter the list of favorite topics
+                .map { news -> news.filter { userData.isFavoriteTopic(it) } }
+                // Intermediate operation to save the latest news in the cache
+                .onEach { news -> saveInCache(news) }
+    }
 
 Intermediate operators can be applied one after the other, forming a chain
 of operations that are executed lazily when an item is emitted into the
@@ -153,21 +132,19 @@ calls `collect` may suspend until the flow is closed.
 Continuing the previous example, here's a simple implementation of
 a `ViewModel` consuming the data from the repository layer:
 
-```
-class LatestNewsViewModel(
-    private val newsRepository: NewsRepository
-) : ViewModel() {
+    class LatestNewsViewModel(
+        private val newsRepository: NewsRepository
+    ) : ViewModel() {
 
-    init {
-        viewModelScope.launch {
-            // Trigger the flow and consume its elements using collect
-            newsRepository.favoriteLatestNews.collect { favoriteNews ->
-                // Update View with the latest favorite news
+        init {
+            viewModelScope.launch {
+                // Trigger the flow and consume its elements using collect
+                newsRepository.favoriteLatestNews.collect { favoriteNews ->
+                    // Update View with the latest favorite news
+                }
             }
         }
     }
-}
-```
 
 Collecting the flow triggers the producer that refreshes the latest news
 and emits the result of the network request on a fixed interval. As the
@@ -177,10 +154,8 @@ of data will be closed when the ViewModel is cleared and
 
 Flow collection can stop for the following reasons:
 
-* The coroutine that collects is cancelled, as shown in the previous example.
-  This also stops the underlying producer.
-* The producer finishes emitting items. In this case, the stream of data
-  is closed and the coroutine that called `collect` resumes execution.
+- The coroutine that collects is cancelled, as shown in the previous example. This also stops the underlying producer.
+- The producer finishes emitting items. In this case, the stream of data is closed and the coroutine that called `collect` resumes execution.
 
 Flows are *cold* and *lazy* unless specified with other intermediate
 operators. This means that the producer code is executed each time a
@@ -188,7 +163,7 @@ terminal operator is called on the flow. In the previous example,
 having multiple flow collectors causes the data source to fetch the
 latest news multiple times on different fixed intervals. To optimize and
 share a flow when multiple consumers collect at the same time, use the
-[`shareIn`](/kotlin/flow/stateflow-and-sharedflow#sharein) operator.
+[`shareIn`](https://developer.android.com/kotlin/flow/stateflow-and-sharedflow#sharein) operator.
 
 ## Catching unexpected exceptions
 
@@ -198,24 +173,22 @@ exceptions, use the
 [`catch`](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/catch.html)
 intermediate operator.
 
-```
-class LatestNewsViewModel(
-    private val newsRepository: NewsRepository
-) : ViewModel() {
+    class LatestNewsViewModel(
+        private val newsRepository: NewsRepository
+    ) : ViewModel() {
 
-    init {
-        viewModelScope.launch {
-            newsRepository.favoriteLatestNews
-                // Intermediate catch operator. If an exception is thrown,
-                // catch and update the UI
-                .catch { exception -> notifyError(exception) }
-                .collect { favoriteNews ->
-                    // Update View with the latest favorite news
-                }
+        init {
+            viewModelScope.launch {
+                newsRepository.favoriteLatestNews
+                    // Intermediate catch operator. If an exception is thrown,
+                    // catch and update the UI
+                    .catch { exception -> notifyError(exception) }
+                    .collect { favoriteNews ->
+                        // Update View with the latest favorite news
+                    }
+            }
         }
     }
-}
-```
 
 In the previous example, when an exception occurs, the `collect`
 lambda isn't called, as a new item hasn't been received.
@@ -223,16 +196,14 @@ lambda isn't called, as a new item hasn't been received.
 `catch` can also `emit` items to the flow. The example repository
 layer could `emit` the cached values instead:
 
-```
-class NewsRepository(...) {
-    val favoriteLatestNews: Flow<List<ArticleHeadline>> =
-        newsRemoteDataSource.latestNews
-            .map { news -> news.filter { userData.isFavoriteTopic(it) } }
-            .onEach { news -> saveInCache(news) }
-            // If an error happens, emit the last cached values
-            .catch { exception -> emit(lastCachedNews()) }
-}
-```
+    class NewsRepository(...) {
+        val favoriteLatestNews: Flow<List<ArticleHeadline>> =
+            newsRemoteDataSource.latestNews
+                .map { news -> news.filter { userData.isFavoriteTopic(it) } }
+                .onEach { news -> saveInCache(news) }
+                // If an error happens, emit the last cached values
+                .catch { exception -> emit(lastCachedNews()) }
+    }
 
 In this example, when an exception occurs, the `collect` lambda is
 called, as a new item has been emitted to the stream because of the
@@ -250,7 +221,7 @@ is used by `viewModelScope`.
 
 To change the `CoroutineContext` of a flow, use the intermediate operator
 [`flowOn`](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/flow-on.html).
-`flowOn` changes the `CoroutineContext` of the *upstream flow*, meaning
+`flowOn` changes the `CoroutineContext` of the *upstream flow* , meaning
 the producer and any intermediate operators applied *before (or above)*
 `flowOn`. The *downstream flow* (the intermediate operators *after* `flowOn`
 along with the consumer) is not affected and executes on the
@@ -258,28 +229,26 @@ along with the consumer) is not affected and executes on the
 multiple `flowOn` operators, each one changes the upstream from its
 current location.
 
-```
-class NewsRepository(
-    private val newsRemoteDataSource: NewsRemoteDataSource,
-    private val userData: UserData,
-    private val defaultDispatcher: CoroutineDispatcher
-) {
-    val favoriteLatestNews: Flow<List<ArticleHeadline>> =
-        newsRemoteDataSource.latestNews
-            .map { news -> // Executes on the default dispatcher
-                news.filter { userData.isFavoriteTopic(it) }
-            }
-            .onEach { news -> // Executes on the default dispatcher
-                saveInCache(news)
-            }
-            // flowOn affects the upstream flow ↑
-            .flowOn(defaultDispatcher)
-            // the downstream flow ↓ is not affected
-            .catch { exception -> // Executes in the consumer's context
-                emit(lastCachedNews())
-            }
-}
-```
+    class NewsRepository(
+        private val newsRemoteDataSource: NewsRemoteDataSource,
+        private val userData: UserData,
+        private val defaultDispatcher: CoroutineDispatcher
+    ) {
+        val favoriteLatestNews: Flow<List<ArticleHeadline>> =
+            newsRemoteDataSource.latestNews
+                .map { news -> // Executes on the default dispatcher
+                    news.filter { userData.isFavoriteTopic(it) }
+                }
+                .onEach { news -> // Executes on the default dispatcher
+                    saveInCache(news)
+                }
+                // flowOn affects the upstream flow ↑
+                .flowOn(defaultDispatcher)
+                // the downstream flow ↓ is not affected
+                .catch { exception -> // Executes in the consumer's context
+                    emit(lastCachedNews())
+                }
+    }
 
 With this code, the `onEach` and `map` operators use the `defaultDispatcher`,
 whereas the `catch` operator and the consumer are executed on
@@ -288,18 +257,16 @@ whereas the `catch` operator and the consumer are executed on
 As the data source layer is doing I/O work, you should use a dispatcher
 that is optimized for I/O operations:
 
-```
-class NewsRemoteDataSource(
-    ...,
-    private val ioDispatcher: CoroutineDispatcher
-) {
-    val latestNews: Flow<List<ArticleHeadline>> = flow {
-        // Executes on the IO dispatcher
-        ...
+    class NewsRemoteDataSource(
+        ...,
+        private val ioDispatcher: CoroutineDispatcher
+    ) {
+        val latestNews: Flow<List<ArticleHeadline>> = flow {
+            // Executes on the IO dispatcher
+            ...
+        }
+            .flowOn(ioDispatcher)
     }
-        .flowOn(ioDispatcher)
-}
-```
 
 ## Flows in Jetpack libraries
 
@@ -310,16 +277,14 @@ and endless streams of data.
 You can use
 [Flow with Room](https://medium.com/androiddevelopers/room-flow-273acffe5b57)
 to be notified of changes in a database. When using
-[data access objects (DAO)](/training/data-storage/room/accessing-data),
+[data access objects (DAO)](https://developer.android.com/training/data-storage/room/accessing-data),
 return a `Flow` type to get live updates.
 
-```
-@Dao
-abstract class ExampleDao {
-    @Query("SELECT * FROM Example")
-    abstract fun getExamples(): Flow<List<Example>>
-}
-```
+    @Dao
+    abstract class ExampleDao {
+        @Query("SELECT * FROM Example")
+        abstract fun getExamples(): Flow<List<Example>>
+    }
 
 Every time there's a change in the `Example` table, a new list is emitted
 with the new items in the database.
@@ -331,52 +296,47 @@ is a flow builder that lets you convert callback-based APIs into flows.
 As an example, the [Firebase Firestore](https://firebase.google.com/docs/firestore/quickstart#kotlin+ktx)
 Android APIs use callbacks.
 
-**Note:** Starting in [version 24.3.0](https://firebase.google.com/support/release-notes/android#firestore-ktx_v24-3-0),
-firestore-ktx includes
-[`snapshots()`](https://firebase.google.com/docs/reference/kotlin/com/google/firebase/firestore/ktx/package-summary#snapshots)
-extensions that return a `Flow`, so you don't need to perform this conversion
-yourself for this specific API.
+> [!NOTE]
+> **Note:** Starting in [version 24.3.0](https://firebase.google.com/support/release-notes/android#firestore-ktx_v24-3-0), firestore-ktx includes [`snapshots()`](https://firebase.google.com/docs/reference/kotlin/com/google/firebase/firestore/ktx/package-summary#snapshots) extensions that return a `Flow`, so you don't need to perform this conversion yourself for this specific API.
 
 To convert these APIs to flows and listen for Firestore database updates, you
 can use the following code:
 
-```
-class FirestoreUserEventsDataSource(
-    private val firestore: FirebaseFirestore
-) {
-    // Method to get user events from the Firestore database
-    fun getUserEvents(): Flow<UserEvents> = callbackFlow {
+    class FirestoreUserEventsDataSource(
+        private val firestore: FirebaseFirestore
+    ) {
+        // Method to get user events from the Firestore database
+        fun getUserEvents(): Flow<UserEvents> = callbackFlow {
 
-        // Reference to use in Firestore
-        var eventsCollection: CollectionReference? = null
-        try {
-            eventsCollection = FirebaseFirestore.getInstance()
-                .collection("collection")
-                .document("app")
-        } catch (e: Throwable) {
-            // If Firebase cannot be initialized, close the stream of data
-            // flow consumers will stop collecting and the coroutine will resume
-            close(e)
-        }
-
-        // Registers callback to firestore, which will be called on new events
-        val subscription = eventsCollection?.addSnapshotListener { snapshot, _ ->
-            if (snapshot == null) { return@addSnapshotListener }
-            // Sends events to the flow! Consumers will get the new events
+            // Reference to use in Firestore
+            var eventsCollection: CollectionReference? = null
             try {
-                trySend(snapshot.getEvents())
+                eventsCollection = FirebaseFirestore.getInstance()
+                    .collection("collection")
+                    .document("app")
             } catch (e: Throwable) {
-                // Event couldn't be sent to the flow
+                // If Firebase cannot be initialized, close the stream of data
+                // flow consumers will stop collecting and the coroutine will resume
+                close(e)
             }
-        }
 
-        // The callback inside awaitClose will be executed when the flow is
-        // either closed or cancelled.
-        // In this case, remove the callback from Firestore
-        awaitClose { subscription?.remove() }
+            // Registers callback to firestore, which will be called on new events
+            val subscription = eventsCollection?.addSnapshotListener { snapshot, _ ->
+                if (snapshot == null) { return@addSnapshotListener }
+                // Sends events to the flow! Consumers will get the new events
+                try {
+                    trySend(snapshot.getEvents())
+                } catch (e: Throwable) {
+                    // Event couldn't be sent to the flow
+                }
+            }
+
+            // The callback inside awaitClose will be executed when the flow is
+            // either closed or cancelled.
+            // In this case, remove the callback from Firestore
+            awaitClose { subscription?.remove() }
+        }
     }
-}
-```
 
 Unlike the `flow` builder, `callbackFlow`
 allows values to be emitted from a different `CoroutineContext` with the
@@ -389,7 +349,7 @@ Internally, `callbackFlow` uses a
 [channel](https://kotlinlang.org/docs/channels.html),
 which is conceptually very similar to a blocking
 [queue](https://en.wikipedia.org/wiki/Queue_(abstract_data_type)).
-A channel is configured with a *capacity*, the maximum number of elements
+A channel is configured with a *capacity* , the maximum number of elements
 that can be buffered. The channel created in `callbackFlow` has a default
 capacity of 64 elements. When you try to add a new element to a full
 channel, `send` suspends the producer until there's space for the new
@@ -402,6 +362,6 @@ successful result.
 
 ## Additional flow resources
 
-* [Testing Kotlin flows on Android](/kotlin/flow/test)
-* [`StateFlow` and `SharedFlow`](/kotlin/flow/stateflow-and-sharedflow)
-* [Additional resources for Kotlin coroutines and flow](/kotlin/coroutines/additional-resources)
+- [Testing Kotlin flows on Android](https://developer.android.com/kotlin/flow/test)
+- [`StateFlow` and `SharedFlow`](https://developer.android.com/kotlin/flow/stateflow-and-sharedflow)
+- [Additional resources for Kotlin coroutines and flow](https://developer.android.com/kotlin/coroutines/additional-resources)

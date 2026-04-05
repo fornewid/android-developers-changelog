@@ -11,7 +11,6 @@ source: html-scrape
 
 
 
-
 The following are release notes of Android Studio 3.6 and lower, and Android
 Gradle plugin 3.6.0 and lower.
 

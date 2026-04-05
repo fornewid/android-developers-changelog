@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 The [`MediaExtractorCompat`](/reference/androidx/media3/inspector/MediaExtractorCompat) class is a drop-in replacement for the platform's
 [`MediaExtractor`](/reference/android/media/MediaExtractor) class and provides identical APIs and functionality. It
 facilitates extraction of demuxed, typically encoded, media data from a data

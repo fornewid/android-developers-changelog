@@ -1,38 +1,30 @@
 ---
-title: Android Games  |  Jetpack  |  Android Developers
+title: https://developer.android.com/jetpack/androidx/releases/games
 url: https://developer.android.com/jetpack/androidx/releases/games
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [Get started](https://developer.android.com/get-started/overview)
-* [Jetpack](https://developer.android.com/jetpack)
-* [Libraries](https://developer.android.com/jetpack/androidx/explorer)
-
-Stay organized with collections
-
-Save and categorize content based on your preferences.
-
-
-
 
 # Android Games
 
-[User Guide](/games/sdk)
+[User Guide](https://developer.android.com/games/sdk) The android games library mirrors the Android Game SDK which is available as a binary download. You can use the androidx library instead of manually downloading and integrating the Android Game SDK into your build.
 
-The android games library mirrors the Android Game SDK which is available as
-a binary download. You can use the androidx library instead of manually
-downloading and integrating the Android Game SDK into your build.
+<br />
 
 For more information about the Android Game SDK,
-see the [SDK documentation](/games/sdk)
-and the [SDK release notes](/games/sdk/release-notes).
+see the [SDK documentation](https://developer.android.com/games/sdk)
+and the [SDK release notes](https://developer.android.com/games/sdk/release-notes).
+
 
 This table lists all the artifacts in the `androidx.games` group.
 
 | Artifact | Stable Release | Release Candidate | Beta Release | Alpha Release |
-| --- | --- | --- | --- | --- |
-| games-activity | [4.4.0](/jetpack/androidx/releases/games#games-activity-4.4.0) | - | - | - || games-controller | [2.0.2](/jetpack/androidx/releases/games#games-controller-2.0.2) | - | - | [2.3.0-alpha01](/jetpack/androidx/releases/games#games-controller-2.3.0-alpha01) || games-frame-pacing | [2.1.3](/jetpack/androidx/releases/games#games-frame-pacing-2.1.3) | - | - | [2.3.0-alpha01](/jetpack/androidx/releases/games#games-frame-pacing-2.3.0-alpha01) || games-memory-advice | [2.0.1](/jetpack/androidx/releases/games#games-memory-advice-2.0.1) | - | [2.1.0-beta01](/jetpack/androidx/releases/games#games-memory-advice-2.1.0-beta01) | [2.3.0-alpha01](/jetpack/androidx/releases/games#games-memory-advice-2.3.0-alpha01) || games-text-input | [4.3.0](/jetpack/androidx/releases/games#games-text-input-4.3.0) | - | - | - || games-performance-tuner | [2.0.0](/jetpack/androidx/releases/games#games-performance-tuner-2.0.0) | - | - | [2.3.0-alpha01](/jetpack/androidx/releases/games#games-performance-tuner-2.3.0-alpha01) |
+|---|---|---|---|---|
+| games-activity | [4.4.0](https://developer.android.com/jetpack/androidx/releases/games#games-activity-4.4.0) | - | - | - |
+| games-controller | [2.0.2](https://developer.android.com/jetpack/androidx/releases/games#games-controller-2.0.2) | - | - | [2.3.0-alpha01](https://developer.android.com/jetpack/androidx/releases/games#games-controller-2.3.0-alpha01) |
+| games-frame-pacing | [2.1.3](https://developer.android.com/jetpack/androidx/releases/games#games-frame-pacing-2.1.3) | - | - | [2.3.0-alpha01](https://developer.android.com/jetpack/androidx/releases/games#games-frame-pacing-2.3.0-alpha01) |
+| games-memory-advice | [2.0.1](https://developer.android.com/jetpack/androidx/releases/games#games-memory-advice-2.0.1) | - | [2.1.0-beta01](https://developer.android.com/jetpack/androidx/releases/games#games-memory-advice-2.1.0-beta01) | [2.3.0-alpha01](https://developer.android.com/jetpack/androidx/releases/games#games-memory-advice-2.3.0-alpha01) |
+| games-text-input | [4.3.0](https://developer.android.com/jetpack/androidx/releases/games#games-text-input-4.3.0) | - | - | - |
+| games-performance-tuner | [2.0.0](https://developer.android.com/jetpack/androidx/releases/games#games-performance-tuner-2.0.0) | - | - | [2.3.0-alpha01](https://developer.android.com/jetpack/androidx/releases/games#games-performance-tuner-2.3.0-alpha01) |
 
 This library was last updated on: March 11, 2026
 
@@ -46,7 +38,7 @@ r23.\* or newer.
 ## Declaring dependencies
 
 To add a dependency on game, you must add the Google Maven repository to your
-project. Read [Google's Maven repository](/studio/build/dependencies#google-maven)
+project. Read [Google's Maven repository](https://developer.android.com/studio/build/dependencies#google-maven)
 for more information.
 
 Add the dependencies for the artifacts you need in the `build.gradle` file for
@@ -56,7 +48,7 @@ the `game-text-input` library, hence `GameActivity` apps can not include the
 
 ### Groovy
 
-```
+```groovy
 android {
     ...
     // To use the Android Frame Pacing or Android Performance Tuner libraries, enable
@@ -88,7 +80,7 @@ dependencies {
 
 ### Kotlin
 
-```
+```kotlin
 android {
     ...
     // To use the Android Frame Pacing or Android Performance Tuner libraries, enable
@@ -119,7 +111,7 @@ dependencies {
 }
 ```
 
-For more information about dependencies, see [Add build dependencies](/studio/build/dependencies).
+For more information about dependencies, see [Add build dependencies](https://developer.android.com/studio/build/dependencies).
 
 ## Add Gradle properties
 
@@ -130,56 +122,46 @@ same directory as your app's (or module's) `build.gradle` file. If the
 If you are using Android Studio 4.0, make sure `gradle.properties` contains the
 following lines:
 
-```
-# Enables experimental Prefab
-android.enablePrefab=true
-# Tell Android Studio we are using AndroidX
-android.useAndroidX=true
-```
+    # Enables experimental Prefab
+    android.enablePrefab=true
+    # Tell Android Studio we are using AndroidX
+    android.useAndroidX=true
 
 If you are using Android Studio 4.1 or later, make sure `gradle.properties`
 contains the following lines:
 
-```
-# Tell Android Studio we are using AndroidX
-android.useAndroidX=true
-```
+    # Tell Android Studio we are using AndroidX
+    android.useAndroidX=true
 
 ## Add packages with CMake
 
 To make the imported Game SDK packages available, add the following to
 your main app's `CMakeLists.txt` file:
 
-```
-# Add the packages from the Android Game SDK
-find_package(games-frame-pacing REQUIRED CONFIG)
-find_package(games-performance-tuner REQUIRED CONFIG)
-```
+    # Add the packages from the Android Game SDK
+    find_package(games-frame-pacing REQUIRED CONFIG)
+    find_package(games-performance-tuner REQUIRED CONFIG)
 
 This will allow you to include header files from the Android Game SDK in your
 game code:
 
-```
-#include "swappy/swappyGL.h"
-#include "tuningfork/tuningfork.h"
-```
+    #include "swappy/swappyGL.h"
+    #include "tuningfork/tuningfork.h"
 
 In your main app's `CMakeLists.txt` file, find `target_link_libraries` for the
 main shared library. Add the references to the Android Game SDK static libraries
 to include them in your shared library:
 
-```
-target_link_libraries(...
-  games-frame-pacing::swappy_static
-  games-performance-tuner::tuningfork_static
-  ...)
-```
+    target_link_libraries(...
+      games-frame-pacing::swappy_static
+      games-performance-tuner::tuningfork_static
+      ...)
 
 ## Feedback
 
 Your feedback helps make Jetpack better. Let us know if you discover new issues or have
 ideas for improving this library. Please take a look at the
-[existing issues](https://issuetracker.google.com/issues?q=componentid:897320%20status:open)
+[existing issues](https://issuetracker.google.com/issues?q=componentid:897320+status:open)
 in this library before you create a new one. You can add your vote to an existing issue by
 clicking the star button.
 
@@ -204,11 +186,11 @@ November 15, 2023
 
 **New Features**
 
-* Updated the memory model of the library for better predictions.
+- Updated the memory model of the library for better predictions.
 
 **API Changes**
 
-* Added a new API `getAvailableMemory()` that returns an estimate for the amount of memory that can safely be allocated, in bytes.
+- Added a new API `getAvailableMemory()` that returns an estimate for the amount of memory that can safely be allocated, in bytes.
 
 ### Version 2.1.0-alpha01
 
@@ -218,12 +200,12 @@ July 26, 2023
 
 **API Changes**
 
-* Add`GetAvailableMemory` function
+- Add`GetAvailableMemory` function
 
 **Bug Fixes**
 
-* Update Memory Advice model
-* Fix shared `memory_advice` build target
+- Update Memory Advice model
+- Fix shared `memory_advice` build target
 
 ## Games-Memory-Advice version 2.0
 
@@ -235,7 +217,7 @@ September 20, 2023
 
 **Bug Fixes**
 
-* Fix the crash happening in the state watcher thread due to the thread not being attached to the JVM.
+- Fix the crash happening in the state watcher thread due to the thread not being attached to the JVM.
 
 ### Version 2.0.0
 
@@ -245,8 +227,8 @@ September 6, 2023
 
 **Major features of 2.0.0**
 
-* A new ML model has been trained and released in this version.
-* An API to predict the amount of free memory is implemented.
+- A new ML model has been trained and released in this version.
+- An API to predict the amount of free memory is implemented.
 
 ### Version 2.0.0-rc01
 
@@ -256,11 +238,11 @@ July 26, 2023
 
 **New Features**
 
-* Included a new model to better predict remaining memory.
+- Included a new model to better predict remaining memory.
 
 **Bug Fixes**
 
-* Fixed Memory Advice not working with a shared STL.
+- Fixed Memory Advice not working with a shared STL.
 
 ### Version 2.0.0-beta04
 
@@ -270,7 +252,7 @@ May 24, 2023
 
 **New Features**
 
-* Updated the machine learning model powering the library which’ll allow improved results for newer phones
+- Updated the machine learning model powering the library which'll allow improved results for newer phones
 
 ### Version 2.0.0-beta03
 
@@ -280,7 +262,7 @@ April 5, 2023
 
 **Bug Fixes**
 
-* Fixed a bug where the library couldn’t load the required tensorflow lite assets properly
+- Fixed a bug where the library couldn't load the required tensorflow lite assets properly
 
 ### Version 2.0.0-beta02
 
@@ -290,7 +272,7 @@ March 22, 2023
 
 **Bug Fixes**
 
-* Fixed a bug that prevented the static version of the library to be linked properly
+- Fixed a bug that prevented the static version of the library to be linked properly
 
 ### Version 2.0.0-beta01
 
@@ -300,7 +282,7 @@ February 22, 2023
 
 **New Features**
 
-* No new changes
+- No new changes
 
 ### Version 2.0.0-alpha01
 
@@ -310,11 +292,11 @@ February 8, 2023
 
 **API Changes**
 
-* Major version increase due to build files refactoring.
+- Major version increase due to build files refactoring.
 
 **Bug Fixes**
 
-* Incorrect configuration of library assets now gives an error instead of crashing.
+- Incorrect configuration of library assets now gives an error instead of crashing.
 
 ## Games-Memory-Advice version 1.0.0
 
@@ -326,7 +308,7 @@ November 9, 2022
 
 **New Features**
 
-* No new changes
+- No new changes
 
 ### Version 1.0.0-beta01
 
@@ -334,7 +316,7 @@ March 9, 2022
 
 `androidx.games:games-memory-advice:1.0.0-beta01` is released. [Version 1.0.0-beta01 contains these commits.](https://android.googlesource.com/platform/frameworks/opt/gamesdk/+log/e6bb74379ccaa6df74c4e6dff9479c244e5e8249..1b8430a9c2955e29d8ea667cfcc0612a9896f01d/src/memory_advice)
 
-* No changes since 1.0.0-alpha01.
+- No changes since 1.0.0-alpha01.
 
 ### Version 1.0.0-alpha01
 
@@ -344,15 +326,15 @@ February 23, 2022
 
 **New Features**
 
-* This C library gives the facility to query and receive callbacks for changes in the memory state of a device which is running a game.
+- This C library gives the facility to query and receive callbacks for changes in the memory state of a device which is running a game.
 
 **API Changes**
 
-* This is the initial release of the memory advice library. See the header at include/memory\_advice/memory\_advice.h for the full API.
+- This is the initial release of the memory advice library. See the header at include/memory_advice/memory_advice.h for the full API.
 
 **External Contribution**
 
-* The library depends on tensorflow, whose license and those of transitive dependencies can be found at <https://github.com/tensorflow/tensorflow>.
+- The library depends on tensorflow, whose license and those of transitive dependencies can be found at <https://github.com/tensorflow/tensorflow>.
 
 ## Games-Text-Input Version 4.3
 
@@ -374,7 +356,7 @@ November 19, 2025
 
 `androidx.games:games-text-input:4.3.0-beta01` is released. Version 4.3.0-beta01 contains [these commits](https://android.googlesource.com/platform/frameworks/opt/gamesdk/+log/2ae5d1f41c01ac94f38b46132b1f45f4346fa773..8f89733591eaa8e79de6ddbbb5936c8ac8904ec0/game-text-input).
 
-* This release transitions `androidx.games:games-text-input` from alpha to beta.
+- This release transitions `androidx.games:games-text-input` from alpha to beta.
 
 ## Games-Text-Input Version 3.0
 
@@ -386,7 +368,7 @@ August 7, 2024
 
 **Bug Fixes**
 
-* Fixed functionality of deletion with and without text selection.
+- Fixed functionality of deletion with and without text selection.
 
 ## Games-Activity Version 4
 
@@ -408,7 +390,7 @@ November 19, 2025
 
 `androidx.games:games-activity:4.4.0-beta01` is released. Version 4.4.0-beta01 contains [these commits](https://android.googlesource.com/platform/frameworks/opt/gamesdk/+log/c28257b2c517145c01bca12b3af2531f5bf494d6..8f89733591eaa8e79de6ddbbb5936c8ac8904ec0/game-activity).
 
-* This release transitions `androidx.games:games-activity` from alpha to beta.
+- This release transitions `androidx.games:games-activity` from alpha to beta.
 
 ### Version 4.4.0-alpha01
 
@@ -418,8 +400,8 @@ October 22, 2025
 
 **Bug Fixes**
 
-* Improved ANR protection in `native_app_glue`.
-* Migrated from deprecated `ALooper_pollAll` to `ALooper_pollOnce`.
+- Improved ANR protection in `native_app_glue`.
+- Migrated from deprecated `ALooper_pollAll` to `ALooper_pollOnce`.
 
 ### Version 4.3.0-alpha01
 
@@ -429,15 +411,15 @@ August 13, 2025
 
 **New Features**
 
-* Support 16kb page sizes by default.
-* Mouse support for GameActivity.
+- Support 16kb page sizes by default.
+- Mouse support for GameActivity.
 
 **Bug Fixes**
 
-* Fixed a race condition between `onDestroy` and `onCreate` lifecycle events.
-* Fixed an issue where apps needed to manually preserve a symbol to initialize native code.
-* Improved `GameActivity` touch handling.
-* Fixed `GameTextInput` generating as a shared library incorrectly.
+- Fixed a race condition between `onDestroy` and `onCreate` lifecycle events.
+- Fixed an issue where apps needed to manually preserve a symbol to initialize native code.
+- Improved `GameActivity` touch handling.
+- Fixed `GameTextInput` generating as a shared library incorrectly.
 
 ### Version 4.2.0-alpha01
 
@@ -447,14 +429,14 @@ March 26, 2025
 
 **New Features**
 
-* Upgrade to Gradle 8.8.1 ([1ed0153](https://android.googlesource.com/platform/frameworks/opt/gamesdk/+/1ed0153))
-* Upgrade to Java 17 ([1ed0153](https://android.googlesource.com/platform/frameworks/opt/gamesdk/+/1ed0153))
+- Upgrade to Gradle 8.8.1 ([1ed0153](https://android.googlesource.com/platform/frameworks/opt/gamesdk/+/1ed0153))
+- Upgrade to Java 17 ([1ed0153](https://android.googlesource.com/platform/frameworks/opt/gamesdk/+/1ed0153))
 
 **Bug Fixes**
 
-* Fix a bug in `GameActivity` in which `getLocaleScript`, `getLocaleCountry` and `getLocaleVariant` were reporting the locale language instead of the requested value ([1198bb0](https://android.googlesource.com/platform/frameworks/opt/gamesdk/+/1198bb0))
-* Fix a bug in `GameActivity` which caused us to misreport software keyboard open-close events. ([a63ecca](https://android.googlesource.com/platform/frameworks/opt/gamesdk/+/a63ecca))
-* Fix a bug in `GameTextInput` with multibyte emoji handling ([9d54c68](https://android.googlesource.com/platform/frameworks/opt/gamesdk/+/9d54c68))
+- Fix a bug in `GameActivity` in which `getLocaleScript`, `getLocaleCountry` and `getLocaleVariant` were reporting the locale language instead of the requested value ([1198bb0](https://android.googlesource.com/platform/frameworks/opt/gamesdk/+/1198bb0))
+- Fix a bug in `GameActivity` which caused us to misreport software keyboard open-close events. ([a63ecca](https://android.googlesource.com/platform/frameworks/opt/gamesdk/+/a63ecca))
+- Fix a bug in `GameTextInput` with multibyte emoji handling ([9d54c68](https://android.googlesource.com/platform/frameworks/opt/gamesdk/+/9d54c68))
 
 ### Version 4.0.0
 
@@ -464,12 +446,12 @@ February 12, 2025
 
 **Major features of 4.0.0**
 
-* AAR files now contain prebuilt static libraries. Application code is now expected to use those libraries via prefabs and only include headers (like `#include "GameActivity.h"`) instead of including the implementation (like `#include "GameActivity.cpp"`).
-* Also Android locale information is now available to the native code that uses `GameActivity`.
+- AAR files now contain prebuilt static libraries. Application code is now expected to use those libraries via prefabs and only include headers (like `#include "GameActivity.h"`) instead of including the implementation (like `#include "GameActivity.cpp"`).
+- Also Android locale information is now available to the native code that uses `GameActivity`.
 
 **Bug Fixes**
 
-* Numerous bugs in `GameTextInput` have been fixed. The library is now more stable and works with many popular software and hardware keyboards.
+- Numerous bugs in `GameTextInput` have been fixed. The library is now more stable and works with many popular software and hardware keyboards.
 
 ### Version 4.0.0-rc01
 
@@ -485,8 +467,8 @@ January 15, 2025
 
 **Bug Fixes**
 
-* Better documented newly added locale-related functionality.
-* Added backing types to all enumeration types.
+- Better documented newly added locale-related functionality.
+- Added backing types to all enumeration types.
 
 ### Version 4.0.0-alpha01
 
@@ -496,19 +478,19 @@ October 16, 2024
 
 **New Features**
 
-* `GameTextInput` now supports Left/Right keys.
+- `GameTextInput` now supports Left/Right keys.
 
 **API Changes**
 
-* Obsolete Java interfaces of `GameTextInput` have been removed.
-* Prefabs for both `GameActivity` and `GameTextInput` now include all source files. `#include <GameActivity.cpp>` is not recommended anymore. Please link to a proper static or dynamic library instead, like `game-activity::game-activity_static` in `CMake`. These libraries are shipped in the AAR file.
+- Obsolete Java interfaces of `GameTextInput` have been removed.
+- Prefabs for both `GameActivity` and `GameTextInput` now include all source files. `#include <GameActivity.cpp>` is not recommended anymore. Please link to a proper static or dynamic library instead, like `game-activity::game-activity_static` in `CMake`. These libraries are shipped in the AAR file.
 
 **Bug Fixes**
 
-* Numerous fixes in `GameTextInput` have been made. Typing and removing functionality has been fixed.
-* Compatibility with most popular software keyboards have been improved.
-* Fixed handling of special characters on hardware keyboards.
-* Fixed a rare null pointer access in `GameActivity`.
+- Numerous fixes in `GameTextInput` have been made. Typing and removing functionality has been fixed.
+- Compatibility with most popular software keyboards have been improved.
+- Fixed handling of special characters on hardware keyboards.
+- Fixed a rare null pointer access in `GameActivity`.
 
 ## Games-Activity Version 3.0
 
@@ -520,7 +502,7 @@ August 7, 2024
 
 **Bug Fixes**
 
-* New release of `GameActivity` to match the 3.0.4 release of `GameTextInput` (fixed functionality of text deletion in inputs).
+- New release of `GameActivity` to match the 3.0.4 release of `GameTextInput` (fixed functionality of text deletion in inputs).
 
 ### Version 3.0.4
 
@@ -530,8 +512,8 @@ July 10, 2024
 
 **Bug Fixes**
 
-* Fixed handling of null pointers.
-* Fixed missing state updates for some states in `onConfiguration()` callback.
+- Fixed handling of null pointers.
+- Fixed missing state updates for some states in `onConfiguration()` callback.
 
 ### Version 3.0.3
 
@@ -541,7 +523,7 @@ April 17, 2024
 
 **Bug Fixes**
 
-* Fixed compatibility issues with some software keyboards.
+- Fixed compatibility issues with some software keyboards.
 
 ### Version 3.0.2
 
@@ -551,7 +533,7 @@ April 3, 2024
 
 **Bug Fixes**
 
-* We made several fixes to `GamesTextInput` which are aimed to improve software and hardware keyboards support. Also a bug has been fixed that was preventing `GameTextInput` from being used without `GameActivity`.
+- We made several fixes to `GamesTextInput` which are aimed to improve software and hardware keyboards support. Also a bug has been fixed that was preventing `GameTextInput` from being used without `GameActivity`.
 
 ### Version 3.0.1
 
@@ -561,7 +543,7 @@ March 20, 2024
 
 **Bug Fixes**
 
-* Fixed a problem with special characters being typed and displayed.
+- Fixed a problem with special characters being typed and displayed.
 
 ### Version 3.0.0
 
@@ -571,13 +553,13 @@ March 6, 2024
 
 **Major features of 3.0.0**
 
-* `GameTextInput` has been reworked to be ready to use in games.
-* Some interfaces in both libraries have been changed with respect to version 2.0.0.
+- `GameTextInput` has been reworked to be ready to use in games.
+- Some interfaces in both libraries have been changed with respect to version 2.0.0.
 
 **Bug Fixes**
 
-* Fixed compatibility issues with old NDKs
-* Fixed Windows build problems
+- Fixed compatibility issues with old NDKs
+- Fixed Windows build problems
 
 ### Version 3.0.0-rc01
 
@@ -587,7 +569,7 @@ February 21, 2024
 
 **Bug Fixes**
 
-* Fixed the freeze where keyboard events were not properly handled by the looper.
+- Fixed the freeze where keyboard events were not properly handled by the looper.
 
 ### Version 3.0.0-beta01
 
@@ -603,11 +585,11 @@ November 15, 2023
 
 **API Changes**
 
-* `GameActivityMotionEvent` and `GameActivityCallbacks` structures changed their sizes.
-* `onEditorAction` changes its return type from boolean to void.
-* `setImeEditorInfo` now expects enum parameters, not integers.
-* internal functions of `GameActivityEvents` are moved into `GameActivityEvents_internal.h`.
-* `GameTextInput`’s input types are also enumerations, not integers.
+- `GameActivityMotionEvent` and `GameActivityCallbacks` structures changed their sizes.
+- `onEditorAction` changes its return type from boolean to void.
+- `setImeEditorInfo` now expects enum parameters, not integers.
+- internal functions of `GameActivityEvents` are moved into `GameActivityEvents_internal.h`.
+- `GameTextInput`'s input types are also enumerations, not integers.
 
 ## Games-Activity Version 2.1
 
@@ -619,7 +601,7 @@ September 6, 2023
 
 **Bug Fixes**
 
-* 32 bit devices compatibility has been improved.
+- 32 bit devices compatibility has been improved.
 
 ### Version 2.1.0-alpha01
 
@@ -629,21 +611,21 @@ July 26, 2023
 
 **New Features**
 
-* Provide an ability to override the creation of the `SurfaceView` instance
-* Add SDK version reporting
+- Provide an ability to override the creation of the `SurfaceView` instance
+- Add SDK version reporting
 
 **API Changes**
 
-* Use `int64_t` instead of `long` for `historicalEventTimes` to avoid overruning on 32bit systems
-* Add `GameActivity_restartInput` method
-* Add a native callback to handle software keyboard visibility change
+- Use `int64_t` instead of `long` for `historicalEventTimes` to avoid overruning on 32bit systems
+- Add `GameActivity_restartInput` method
+- Add a native callback to handle software keyboard visibility change
 
 **Bug Fixes**
 
-* Optimize touch event handling
-* Correct destruction of a `GameActivityMotionEven`
-* Fix `GameActivityMotionEvent_getHistoricalAxisValue` index calculation
-* Fix bitmasks for the motion filter
+- Optimize touch event handling
+- Correct destruction of a `GameActivityMotionEven`
+- Fix `GameActivityMotionEvent_getHistoricalAxisValue` index calculation
+- Fix bitmasks for the motion filter
 
 ## Games-Activity Version 2.0
 
@@ -655,7 +637,7 @@ May 24, 2023
 
 **Bug Fixes**
 
-* Stability fixes in `GameActivityEvents` ([b/278017467](https://issuetracker.google.com/issues/278017467))
+- Stability fixes in `GameActivityEvents` ([b/278017467](https://issuetracker.google.com/issues/278017467))
 
 ### Version 2.0.1
 
@@ -665,8 +647,8 @@ April 5, 2023
 
 **Bug Fixes**
 
-* Fixed early freeing of memory with `historicalEventTimes`.
-* Fixed issue with `historicalEventTimesNanos` overflowing on 32bit systems
+- Fixed early freeing of memory with `historicalEventTimes`.
+- Fixed issue with `historicalEventTimesNanos` overflowing on 32bit systems
 
 ### Version 2.0.0
 
@@ -676,12 +658,12 @@ March 8, 2023
 
 **Major features of 2.0.0**
 
-* Changed interface for historical event times to overcome the 32 bit limit.
-* Provided user access to configuration changes, like orientation.
-* Provided up-to-date information in the `contentRect` structure.
-* Provided an easier way to customize default `SurfaceView`.
-* Fixed default OS handling of touch events, like handling system buttons.
-* Optimized out most JNI calls in touch event handling; this used to affect performance.
+- Changed interface for historical event times to overcome the 32 bit limit.
+- Provided user access to configuration changes, like orientation.
+- Provided up-to-date information in the `contentRect` structure.
+- Provided an easier way to customize default `SurfaceView`.
+- Fixed default OS handling of touch events, like handling system buttons.
+- Optimized out most JNI calls in touch event handling; this used to affect performance.
 
 ### Version 2.0.0-rc01
 
@@ -697,7 +679,7 @@ February 8, 2023
 
 **Bug Fixes**
 
-* Fixed system buttons handling. ([2a103e](https://android.googlesource.com/platform/frameworks/opt/gamesdk/+/2a103e9985159a32bbe6db58ad69d6f4ed59a709))
+- Fixed system buttons handling. ([2a103e](https://android.googlesource.com/platform/frameworks/opt/gamesdk/+/2a103e9985159a32bbe6db58ad69d6f4ed59a709))
 
 ### Version 2.0.0-alpha01
 
@@ -715,7 +697,7 @@ December 7, 2022
 
 **Bug Fixes**
 
-* The maximum number of motion events can now be set at runtime.
+- The maximum number of motion events can now be set at runtime.
 
 ### Version 1.2.2-alpha01
 
@@ -725,13 +707,13 @@ November 9, 2022
 
 **API Changes**
 
-* API now also contains version information in the form of `GAMEACTIVITY_PACKED_VERSION`. ([I287e6](https://android-review.googlesource.com/q/I287e67f9069524ddf09ca3c83e2326d28ea6e5ba))
-* Added `onContentRectChanged` callback which is called when the rectangle in the window where the content should be placed has changed. ([I81396](https://android-review.googlesource.com/q/I81396a966a723ad0ed9280313490aa8cd97a4d82))
+- API now also contains version information in the form of `GAMEACTIVITY_PACKED_VERSION`. ([I287e6](https://android-review.googlesource.com/q/I287e67f9069524ddf09ca3c83e2326d28ea6e5ba))
+- Added `onContentRectChanged` callback which is called when the rectangle in the window where the content should be placed has changed. ([I81396](https://android-review.googlesource.com/q/I81396a966a723ad0ed9280313490aa8cd97a4d82))
 
 **Bug Fixes**
 
-* Fixed events buffer overflow. Both `inputBuffer`->`keyEvents` and `motionEvents` are now dynamically-allocated buffers. ([Ic00f6](https://android-review.googlesource.com/#/q/Ic00f68043e72b80ed3a6aee80fac04b9e20aaac1))
-* Fails gracefully if out of memory. Added handling of `realloc()` errors during buffers resizing.
+- Fixed events buffer overflow. Both `inputBuffer`-\>`keyEvents` and `motionEvents` are now dynamically-allocated buffers. ([Ic00f6](https://android-review.googlesource.com/#/q/Ic00f68043e72b80ed3a6aee80fac04b9e20aaac1))
+- Fails gracefully if out of memory. Added handling of `realloc()` errors during buffers resizing.
 
 ### Version 1.2.1
 
@@ -741,7 +723,7 @@ July 13, 2022
 
 **Bug Fixes**
 
-* Fixed issues with missing .aar file in previous release.
+- Fixed issues with missing .aar file in previous release.
 
 ### Version 1.2.0
 
@@ -751,9 +733,9 @@ June 15, 2022
 
 **Important changes since 1.1.0**
 
-* Allow derived classes of GameActivity to handle native library loading.
-* Always load the native library in GameActivity.onCreate.
-* Fallback to loading library with name "main" if no other library found.
+- Allow derived classes of GameActivity to handle native library loading.
+- Always load the native library in GameActivity.onCreate.
+- Fallback to loading library with name "main" if no other library found.
 
 ## Games-Activity Version 1.1
 
@@ -767,12 +749,12 @@ February 23, 2022
 
 Games Activity:
 
-* WindowInsets listening and querying for notch and IME response
-* Add key and motion event filters
-* Bug fixes:
-  + Add missing messages for compatibility with NativeActivity
-  + Fix signature of onNativeWindowResized
-  + Fix input event losses
+- WindowInsets listening and querying for notch and IME response
+- Add key and motion event filters
+- Bug fixes:
+  - Add missing messages for compatibility with NativeActivity
+  - Fix signature of onNativeWindowResized
+  - Fix input event losses
 
 ### Version 1.1.0-rc01
 
@@ -788,8 +770,8 @@ January 26, 2022
 
 **Bug Fixes**
 
-* Fix signature of `onNativeWindowResized`
-* Maintain handle to native window in `onSurfaceChanged`
+- Fix signature of `onNativeWindowResized`
+- Maintain handle to native window in `onSurfaceChanged`
 
 ### Version 1.1.0-beta02
 
@@ -799,7 +781,7 @@ December 15, 2021
 
 **Bug Fixes**
 
-* Fix race condition in event filter setting.
+- Fix race condition in event filter setting.
 
 ### Version 1.1.0-beta01
 
@@ -809,17 +791,17 @@ November 17, 2021
 
 **New Features**
 
-* Added support for querying window insets and listening for inset changes. This allows games to react to the IME popping-up and to deal with waterfall and camera cutout insets.
+- Added support for querying window insets and listening for inset changes. This allows games to react to the IME popping-up and to deal with waterfall and camera cutout insets.
 
 **API Changes**
 
-* `void GameActivity_getWindowInsets(GameActivity* activity,
+- `void GameActivity_getWindowInsets(GameActivity* activity,
   enum GameCommonInsetsType type,
   GameCommonInsets* insets);`
 
 **Bug Fixes**
 
-* Avoid consuming all key events: volume, camera, etc. are now passed through to the system.
+- Avoid consuming all key events: volume, camera, etc. are now passed through to the system.
 
 ### Version 1.1.0-alpha01
 
@@ -829,13 +811,13 @@ September 29, 2021
 
 **API Changes**
 
-* `onContentRectChanged` callback added to `GameActivityCallbacks`
+- `onContentRectChanged` callback added to `GameActivityCallbacks`
 
 **Bug Fixes**
 
-* Missing messages added to android\_native\_app\_glue.h:
-  + `APP_CMD_CONTENT_RECT_CHANGED`
-  + `APP_CMD_WINDOW_REDRAW_NEEDED`
+- Missing messages added to android_native_app_glue.h:
+  - `APP_CMD_CONTENT_RECT_CHANGED`
+  - `APP_CMD_WINDOW_REDRAW_NEEDED`
 
 ## Games Performance Tuner 2.0
 
@@ -847,7 +829,7 @@ August 7, 2024
 
 **Major features of 2.0.0**
 
-* No major changes since 2.0.0beta01, we’re just marking this release as stable.
+- No major changes since 2.0.0beta01, we're just marking this release as stable.
 
 ### Version 2.0.0-beta01
 
@@ -863,7 +845,7 @@ November 29, 2023
 
 **Bug Fixes**
 
-* Fixed memory telemetry reporting sometimes reporting wrong values
+- Fixed memory telemetry reporting sometimes reporting wrong values
 
 ### Version 2.0.0-alpha06
 
@@ -879,11 +861,11 @@ August 23, 2023
 
 **New Features**
 
-* Migrated Protobuf library to Protobuf lite.
+- Migrated Protobuf library to Protobuf lite.
 
 **Bug Fixes**
 
-* Fixed issues with dangling pointer.
+- Fixed issues with dangling pointer.
 
 ### Version 2.0.0-alpha04
 
@@ -893,11 +875,11 @@ April 19, 2023
 
 **New Features**
 
-* Updated the telemetry collection features in the library, allowing for more granular reporting of frame rendering times.
+- Updated the telemetry collection features in the library, allowing for more granular reporting of frame rendering times.
 
 **Bug Fixes**
 
-* Fixed a bug where the library crashes if max instrumentation keys are more than histogram count.
+- Fixed a bug where the library crashes if max instrumentation keys are more than histogram count.
 
 ### Version 2.0.0-alpha03
 
@@ -907,7 +889,7 @@ February 22, 2023
 
 **Bug Fixes**
 
-* Games-Performance-Tuner has been moved to a new release process. There should be no behavior changes.
+- Games-Performance-Tuner has been moved to a new release process. There should be no behavior changes.
 
 ### Version 2.0.0-alpha02
 
@@ -917,7 +899,7 @@ February 8, 2023
 
 **API Changes**
 
-* `TuningFork_predictQualityLevels` API added; which will help predict the correct quality level/fidelity parameters to use.
+- `TuningFork_predictQualityLevels` API added; which will help predict the correct quality level/fidelity parameters to use.
 
 ## Games Performance Tuner 1.6
 
@@ -929,7 +911,7 @@ November 9, 2022
 
 **New Features**
 
-* No new changes
+- No new changes
 
 ### Version 1.6.0
 
@@ -939,8 +921,8 @@ June 15, 2022
 
 **Important changes since 1.5.0**
 
-* Fixed getpid returning 0 while trying to get memory telemetry.
-* Stopped StopLoadingGroup from executing without an active loading group.
+- Fixed getpid returning 0 while trying to get memory telemetry.
+- Stopped StopLoadingGroup from executing without an active loading group.
 
 ## Games Performance Tuner 1.5.0
 
@@ -952,9 +934,9 @@ February 9, 2022
 
 **Important changes since 1.4.0**
 
-* Programmatically change the interval between uploads, rather than it being hard-coded in the initial settings.
-  + Added function: `TuningFork_setAggregationStrategyInterval`
-* Fix for memory corruption in API key on `API<=23`
+- Programmatically change the interval between uploads, rather than it being hard-coded in the initial settings.
+  - Added function: `TuningFork_setAggregationStrategyInterval`
+- Fix for memory corruption in API key on `API<=23`
 
 ### Version 1.5.0-rc01
 
@@ -964,7 +946,7 @@ January 26, 2022
 
 **Bug Fixes**
 
-* Fix for memory corruption in API key on API<=23
+- Fix for memory corruption in API key on API\<=23
 
 ### Version 1.5.0-beta02
 
@@ -974,7 +956,7 @@ December 15, 2021
 
 **API Changes**
 
-* Remove ABI-breaking change from `TuningFork_Settings`.
+- Remove ABI-breaking change from `TuningFork_Settings`.
 
 ### Version 1.5.0-beta01
 
@@ -984,14 +966,14 @@ September 29, 2021
 
 **New Features**
 
-* No changes from alpha release. That release had:
-  + Programmatically change the interval between uploads, rather than it being hard-coded in the initial settings.
+- No changes from alpha release. That release had:
+  - Programmatically change the interval between uploads, rather than it being hard-coded in the initial settings.
 
 **API Changes**
 
-* No changes from alpha release. That release had:
-  + New function: `TuningFork_setAggregationStrategyInterval`
-  + New field in `TuningFork_Settings: aggregation_strategy_intervalms_or_count`
+- No changes from alpha release. That release had:
+  - New function: `TuningFork_setAggregationStrategyInterval`
+  - New field in `TuningFork_Settings: aggregation_strategy_intervalms_or_count`
 
 ### Version 1.5.0-alpha01
 
@@ -1001,12 +983,12 @@ August 18, 2021
 
 **New Features**
 
-* It is now possible to set the interval between APT uploads programmatically, rather than using the settings file.
+- It is now possible to set the interval between APT uploads programmatically, rather than using the settings file.
 
 **API Changes**
 
-* Added function: `TuningFork_setAggregationStrategyInterval`
-* Added field to TuningFork\_Settings struct: `aggregation_strategy_intervalms_or_count`
+- Added function: `TuningFork_setAggregationStrategyInterval`
+- Added field to TuningFork_Settings struct: `aggregation_strategy_intervalms_or_count`
 
 ## Games-Activity Version 1.0.0
 
@@ -1028,7 +1010,7 @@ July 12, 2021
 
 **Bug Fixes**
 
-* Fix return type of `GameActivityCallbacks::onSaveInstanceState`
+- Fix return type of `GameActivityCallbacks::onSaveInstanceState`
 
 ### Version 1.0.0-beta01
 
@@ -1038,13 +1020,13 @@ June 30, 2021
 
 **API Changes**
 
-* Rename `GameActivityInputInfo` to `GameActivityPointerAxes`.
-* `onNativeWindowResized` callback now gives width and height of window.
-* `onContentRectChanged` callback has been removed.
-* `onLowMemory` was renamed to `onTrimMemory`.
-* `GameActivity_setWindowFormat` removed.
-* Improved ownership model for `GameActivityMotionEvents` and `GameActivityMotionEvent` pointers.
-* Improved ownership model of user state in `onSaveInstanceState` callback.
+- Rename `GameActivityInputInfo` to `GameActivityPointerAxes`.
+- `onNativeWindowResized` callback now gives width and height of window.
+- `onContentRectChanged` callback has been removed.
+- `onLowMemory` was renamed to `onTrimMemory`.
+- `GameActivity_setWindowFormat` removed.
+- Improved ownership model for `GameActivityMotionEvents` and `GameActivityMotionEvent` pointers.
+- Improved ownership model of user state in `onSaveInstanceState` callback.
 
 ### Version 1.0.0-alpha01
 
@@ -1054,7 +1036,7 @@ June 16, 2021
 
 **New Features**
 
-* Games-Activity is a new library that replaces NativeActivity as the recommended way to integrate a C/C++ game with Android.
+- Games-Activity is a new library that replaces NativeActivity as the recommended way to integrate a C/C++ game with Android.
 
 ## Games-Controller Version 2.3
 
@@ -1066,7 +1048,7 @@ August 13, 2025
 
 **New Features**
 
-* Support 16kb page sizes by default.
+- Support 16kb page sizes by default.
 
 ## Games-Controller Version 2.2
 
@@ -1078,9 +1060,9 @@ March 26, 2025
 
 **New Features**
 
-* Upgrade to Gradle 8.8.1 ([1ed0153](https://android.googlesource.com/platform/frameworks/opt/gamesdk/+/1ed0153))
-* Upgrade to Java 17 ([1ed0153](https://android.googlesource.com/platform/frameworks/opt/gamesdk/+/1ed0153))
-* Change `targetSdk` to 35 ([eddf605](https://android.googlesource.com/platform/frameworks/opt/gamesdk/+/eddf605))
+- Upgrade to Gradle 8.8.1 ([1ed0153](https://android.googlesource.com/platform/frameworks/opt/gamesdk/+/1ed0153))
+- Upgrade to Java 17 ([1ed0153](https://android.googlesource.com/platform/frameworks/opt/gamesdk/+/1ed0153))
+- Change `targetSdk` to 35 ([eddf605](https://android.googlesource.com/platform/frameworks/opt/gamesdk/+/eddf605))
 
 ## Games-Controller Version 2.0
 
@@ -1092,20 +1074,20 @@ June 12, 2024
 
 **Bug Fixes**
 
-* Fixed issue where controller connected callbacks were not firing for controllers already connected before `Paddleboat_init`.
-* Fixed issue where game controller touchpads were not registering touchpad presses in `Paddleboat_processGameActivityMotionInputEvent` without manually enabling the pressure axis.
-* Fixed issue where game controller touchpad events were not being marked as consumed by `Paddleboat_processGameActivityMotionInputEvent`.
+- Fixed issue where controller connected callbacks were not firing for controllers already connected before `Paddleboat_init`.
+- Fixed issue where game controller touchpads were not registering touchpad presses in `Paddleboat_processGameActivityMotionInputEvent` without manually enabling the pressure axis.
+- Fixed issue where game controller touchpad events were not being marked as consumed by `Paddleboat_processGameActivityMotionInputEvent`.
 
 ### Version 2.0.1
 
 September 20, 2023
 
-`androidx.games:games-controller:2.0.1 ' is released. [Version 2.0.1 contains these commits.](https://android.googlesource.com/platform/frameworks/opt/gamesdk/+log/e1e20061358fd38e7f014d4d02b9e2878c2169a9..f1ebe620d10210d1ec538e250b6066c487a7f42b/games-controller)
+\`androidx.games:games-controller:2.0.1 ' is released. [Version 2.0.1 contains these commits.](https://android.googlesource.com/platform/frameworks/opt/gamesdk/+log/e1e20061358fd38e7f014d4d02b9e2878c2169a9..f1ebe620d10210d1ec538e250b6066c487a7f42b/games-controller)
 
 Games Controller Bug fixes:
 
-* Fix rare `NullReferenceException` condition in `onInputDeviceChanged` handler.
-* Fix to prevent certain USB keyboards from improperly registering as game controllers.
+- Fix rare `NullReferenceException` condition in `onInputDeviceChanged` handler.
+- Fix to prevent certain USB keyboards from improperly registering as game controllers.
 
 ### Version 2.0.0
 
@@ -1115,9 +1097,9 @@ March 8, 2023
 
 **Major features of 2.0.0**
 
-* Added ability to detect connection status of hardware keyboards.
-* Added ability to report motion data (accelerometer/gyroscope) from the main device (i.e. handset) as well as controllers.
-* Changed API and format for the controller definition database to reduce memory footprint and support additional features.
+- Added ability to detect connection status of hardware keyboards.
+- Added ability to report motion data (accelerometer/gyroscope) from the main device (i.e. handset) as well as controllers.
+- Changed API and format for the controller definition database to reduce memory footprint and support additional features.
 
 ### Version 2.0.0-alpha01
 
@@ -1127,20 +1109,20 @@ January 11, 2023
 
 **New Features**
 
-* Hardware keyboard detection
-* Integrated sensor motion data reporting support (i.e. receiving gyroscope and accelerometer data from the phone itself)
-* New optimized controller mapping data format
+- Hardware keyboard detection
+- Integrated sensor motion data reporting support (i.e. receiving gyroscope and accelerometer data from the phone itself)
+- New optimized controller mapping data format
 
 **API Changes**
 
-* New API calls for hardware keyboard: `Paddleboat_getPhysicalKeyboardStatus` and `Paddleboat_setPhysicalKeyboardStatusCallback`
-* New API calls for integrated sensor motion data reporting: `Paddleboat_getIntegratedMotionSensorFlags` and `Paddleboat_setMotionDataCallbackWithIntegratedFlags`
-* New API calls for revised controller mapping data format: `Paddleboat_addControllerRemapDataFromFd`,`Paddleboat_addControllerRemapDataFromFileBuffer`
-* Deprecated old mapping API calls: `Paddleboat_addControllerRemapData` and `Paddleboat_getControllerRemapTableData`
+- New API calls for hardware keyboard: `Paddleboat_getPhysicalKeyboardStatus` and `Paddleboat_setPhysicalKeyboardStatusCallback`
+- New API calls for integrated sensor motion data reporting: `Paddleboat_getIntegratedMotionSensorFlags` and `Paddleboat_setMotionDataCallbackWithIntegratedFlags`
+- New API calls for revised controller mapping data format: `Paddleboat_addControllerRemapDataFromFd`,`Paddleboat_addControllerRemapDataFromFileBuffer`
+- Deprecated old mapping API calls: `Paddleboat_addControllerRemapData` and `Paddleboat_getControllerRemapTableData`
 
 **Bug Fixes**
 
-* Fixed compatibility issue with motion events from GameActivity 1.2.2 and higher
+- Fixed compatibility issue with motion events from GameActivity 1.2.2 and higher
 
 ## Games-Controller Version 1.1.0
 
@@ -1154,12 +1136,12 @@ February 23, 2022
 
 Games Activity:
 
-* WindowInsets listening and querying for notch and IME response
-* Add key and motion event filters
-* Bug fixes:
-  + Add missing messages for compatibility with NativeActivity
-  + Fix signature of onNativeWindowResized
-  + Fix input event losses
+- WindowInsets listening and querying for notch and IME response
+- Add key and motion event filters
+- Bug fixes:
+  - Add missing messages for compatibility with NativeActivity
+  - Fix signature of onNativeWindowResized
+  - Fix input event losses
 
 ### Version 1.1.0-rc01
 
@@ -1185,27 +1167,27 @@ Added support for battery status, dual-motor vibration, light control and motion
 
 **API Changes**
 
-* Added `Paddleboat_setMotionDataCallback` function for registering controller motion data callbacks
-* Added `Paddleboat_setControllerLight` function for changing controller light settings.
-* Added `Paddleboat_Controller_Battery` structure to `Paddleboat_Controller_Data`
-* New structures:
-  + `Paddleboat_Controller_Battery`
-  + `Paddleboat_Motion_Data`
-* New enums:
-  + `Paddleboat_BatteryStatus`
-  + `Paddleboat_LightType`
-  + `Paddleboat_Motion_Type`
-* New controller flags:
-  + `PADDLEBOAT_CONTROLLER_FLAG_ACCELEROMETER`
-  + `PADDLEBOAT_CONTROLLER_FLAG_GYROSCOPE`
-  + `PADDLEBOAT_CONTROLLER_FLAG_LIGHT_PLAYER`
-  + `PADDLEBOAT_CONTROLLER_FLAG_LIGHT_RGB`
-  + `PADDLEBOAT_CONTROLLER_FLAG_BATTERY`
+- Added `Paddleboat_setMotionDataCallback` function for registering controller motion data callbacks
+- Added `Paddleboat_setControllerLight` function for changing controller light settings.
+- Added `Paddleboat_Controller_Battery` structure to `Paddleboat_Controller_Data`
+- New structures:
+  - `Paddleboat_Controller_Battery`
+  - `Paddleboat_Motion_Data`
+- New enums:
+  - `Paddleboat_BatteryStatus`
+  - `Paddleboat_LightType`
+  - `Paddleboat_Motion_Type`
+- New controller flags:
+  - `PADDLEBOAT_CONTROLLER_FLAG_ACCELEROMETER`
+  - `PADDLEBOAT_CONTROLLER_FLAG_GYROSCOPE`
+  - `PADDLEBOAT_CONTROLLER_FLAG_LIGHT_PLAYER`
+  - `PADDLEBOAT_CONTROLLER_FLAG_LIGHT_RGB`
+  - `PADDLEBOAT_CONTROLLER_FLAG_BATTERY`
 
 **Bug Fixes**
 
-* Added alternate deviceId database entry for PS4 controller
-* Added API >=31 database entry for PS5 controller
+- Added alternate deviceId database entry for PS4 controller
+- Added API \>=31 database entry for PS5 controller
 
 ## Games-Controller Version 1.0.0
 
@@ -1227,7 +1209,7 @@ July 21, 2021
 
 **Bug Fixes**
 
-* Fixed packaging error that caused Prefab import to fail on empty, unused architecture/version permutations.
+- Fixed packaging error that caused Prefab import to fail on empty, unused architecture/version permutations.
 
 ### Version 1.0.0-rc01
 
@@ -1237,7 +1219,7 @@ July 12, 2021
 
 **Bug Fixes**
 
-* Fixed an incompatibility issue with the latest `GameActivity`
+- Fixed an incompatibility issue with the latest `GameActivity`
 
 ### Version 1.0.0-beta01
 
@@ -1247,18 +1229,18 @@ June 30, 2021
 
 **API Changes**
 
-* Functions which returned a boolean for success or failure now return a `Paddleboat_Error_Code` enum.
-* `Paddleboat_onPause` renamed to `Paddleboat_onStop`
-* `Paddleboat_onResume` renamed to `Paddleboat_onStart`
-* Paddleboat\_processGameActivityEvent split into two functions: `Paddleboat_processGameActivityKeyInputEvent` and `Paddleboat_processGameActivityMotionInputEvent`
-* Removed extended controller features that required building against a preview Android S SDK
-* Added `Paddleboat_getBackButtonConsumed` function
-* Controller and mouse status callbacks now have an optional parameter of a pointer to user defined data
-* Moved controller name string out of device info structure, now accessed via `Paddleboat_getControllerName` function
+- Functions which returned a boolean for success or failure now return a `Paddleboat_Error_Code` enum.
+- `Paddleboat_onPause` renamed to `Paddleboat_onStop`
+- `Paddleboat_onResume` renamed to `Paddleboat_onStart`
+- Paddleboat_processGameActivityEvent split into two functions: `Paddleboat_processGameActivityKeyInputEvent` and `Paddleboat_processGameActivityMotionInputEvent`
+- Removed extended controller features that required building against a preview Android S SDK
+- Added `Paddleboat_getBackButtonConsumed` function
+- Controller and mouse status callbacks now have an optional parameter of a pointer to user defined data
+- Moved controller name string out of device info structure, now accessed via `Paddleboat_getControllerName` function
 
 **Bug Fixes**
 
-* Fixed an issue where a controller that doesn’t initially report itself as a controller, but later on does via an onInputDeviceChanged message, wasn’t being properly detected as a controller connection.
+- Fixed an issue where a controller that doesn't initially report itself as a controller, but later on does via an onInputDeviceChanged message, wasn't being properly detected as a controller connection.
 
 ### Version 1.0.0-alpha01
 
@@ -1268,7 +1250,7 @@ June 16, 2021
 
 **New Features**
 
-* Games-Controller is a new library that provides a C API for detecting, reading input from, and interacting with game controller devices.
+- Games-Controller is a new library that provides a C API for detecting, reading input from, and interacting with game controller devices.
 
 ## Games-Text-Input 2.1
 
@@ -1280,18 +1262,18 @@ July 26, 2023
 
 **New Features**
 
-* Add a support of multi-line and single-line modes
+- Add a support of multi-line and single-line modes
 
 **API Changes**
 
-* Add `isSoftwareKeyboardVisible` function
-* Add bitfield definitions for `GameActivity_setImeEditorInfo`
-* Add `onEditorAction` callback
+- Add `isSoftwareKeyboardVisible` function
+- Add bitfield definitions for `GameActivity_setImeEditorInfo`
+- Add `onEditorAction` callback
 
 **Bug Fixes**
 
-* Fix for hardware and software keyboards being out of sync
-* Clear focus when soft keyboard is hidden
+- Fix for hardware and software keyboards being out of sync
+- Clear focus when soft keyboard is hidden
 
 ## Games-Text-Input 2.0
 
@@ -1303,7 +1285,7 @@ March 8, 2023
 
 **Important changes since 1.1.1**
 
-* Major version update due to the changes to the build system, there are no updates to the library/API itself.
+- Major version update due to the changes to the build system, there are no updates to the library/API itself.
 
 ## Games-Text-Input Version 1.1
 
@@ -1315,7 +1297,7 @@ November 9, 2022
 
 **New Features**
 
-* No new changes
+- No new changes
 
 ### Version 1.1.1
 
@@ -1325,7 +1307,7 @@ July 13, 2022
 
 **Bug Fixes**
 
-* Fixed issues with missing .aar file in previous release.
+- Fixed issues with missing .aar file in previous release.
 
 ### Version 1.1.0
 
@@ -1351,8 +1333,8 @@ December 15, 2021
 
 **Bug Fixes**
 
-* Fix waterfall and IME insets
-* Add missing gamecommon.h header
+- Fix waterfall and IME insets
+- Add missing gamecommon.h header
 
 ### Version 1.1.0-alpha01
 
@@ -1362,7 +1344,7 @@ October 13, 2021
 
 **API Changes**
 
-* Added IME insets functionality to GameTextInput
+- Added IME insets functionality to GameTextInput
 
 ## Games-Text-Input Version 1.0
 
@@ -1390,8 +1372,8 @@ June 30, 2021
 
 **API Changes**
 
-* Improved ownership model of GameTextInputState objects.
-* Tidying of types to be consistent with NDK.
+- Improved ownership model of GameTextInputState objects.
+- Tidying of types to be consistent with NDK.
 
 ### Version 1.0.0-alpha01
 
@@ -1401,7 +1383,7 @@ June 16, 2021
 
 **New Features**
 
-* Games-Text-Input is a new library to help game developers use Android soft keyboard input from C/C++.
+- Games-Text-Input is a new library to help game developers use Android soft keyboard input from C/C++.
 
 ## Games Frame Pacing Version 2.3
 
@@ -1413,13 +1395,13 @@ March 26, 2025
 
 **New Features**
 
-* Upgrade to Gradle 8.8.1 ([1ed0153](https://android.googlesource.com/platform/frameworks/opt/gamesdk/+/1ed0153))
-* Upgrade to Java 17 ([1ed0153](https://android.googlesource.com/platform/frameworks/opt/gamesdk/+/1ed0153))
-* Change `targetSdk` to 35 ([eddf605](https://android.googlesource.com/platform/frameworks/opt/gamesdk/+/eddf605))
+- Upgrade to Gradle 8.8.1 ([1ed0153](https://android.googlesource.com/platform/frameworks/opt/gamesdk/+/1ed0153))
+- Upgrade to Java 17 ([1ed0153](https://android.googlesource.com/platform/frameworks/opt/gamesdk/+/1ed0153))
+- Change `targetSdk` to 35 ([eddf605](https://android.googlesource.com/platform/frameworks/opt/gamesdk/+/eddf605))
 
 **Bug Fixes**
 
-* Various bug fixes ([List of fixes](https://android.googlesource.com/platform/frameworks/opt/gamesdk/+log/a29e855e6f39df2ba1ef83eb7897c257ee717d66..044fd03c4a7d3b75aeb6ca2bd7fb6155d2cdb787/games-frame-pacing))
+- Various bug fixes ([List of fixes](https://android.googlesource.com/platform/frameworks/opt/gamesdk/+log/a29e855e6f39df2ba1ef83eb7897c257ee717d66..044fd03c4a7d3b75aeb6ca2bd7fb6155d2cdb787/games-frame-pacing))
 
 ## Games Frame Pacing Version 2.1
 
@@ -1431,7 +1413,7 @@ July 2, 2025
 
 **Bug Fixes**
 
-* Enables support for 16KB page size.
+- Enables support for 16KB page size.
 
 ### Version 2.1.2
 
@@ -1441,7 +1423,7 @@ July 24, 2024
 
 **Bug Fixes**
 
-* Swappy now uses `AChoreographer_postVsyncCallback` from API 33 to calculate the presentation time more accurately. This fixes a bug on 120hz devices where frames are dropped.
+- Swappy now uses `AChoreographer_postVsyncCallback` from API 33 to calculate the presentation time more accurately. This fixes a bug on 120hz devices where frames are dropped.
 
 ### Version 2.1.1
 
@@ -1451,8 +1433,8 @@ July 10, 2024
 
 **Bug Fixes**
 
-* Properly unregister display listener from swappy to avoid a hang.
-* Fix a crash in `ChoreographerFilter::onSettingsChanged` using destroyed mutex.
+- Properly unregister display listener from swappy to avoid a hang.
+- Fix a crash in `ChoreographerFilter::onSettingsChanged` using destroyed mutex.
 
 ### Version 2.1.0
 
@@ -1474,8 +1456,8 @@ May 24, 2023
 
 **Bug Fixes**
 
-* Timeout in case `NDKChoreographer` initialization fails ([ef466d](https://android-review.googlesource.com/#/q/I02d718cb655ddf3d6a4fbf0ad74e5956dd3eeded))
-* When using `SwappyGL_getSupportedRefreshPeriodsNS` query refresh rates explicitly from the system ([c85235](https://android-review.googlesource.com/#/q/I9e31c9ac4790c75e64338f497b67d2a72c33f301))
+- Timeout in case `NDKChoreographer` initialization fails ([ef466d](https://android-review.googlesource.com/#/q/I02d718cb655ddf3d6a4fbf0ad74e5956dd3eeded))
+- When using `SwappyGL_getSupportedRefreshPeriodsNS` query refresh rates explicitly from the system ([c85235](https://android-review.googlesource.com/#/q/I9e31c9ac4790c75e64338f497b67d2a72c33f301))
 
 ### Version 2.1.0-alpha01
 
@@ -1485,18 +1467,18 @@ April 5, 2023
 
 **New Features**
 
-* New API to reset the frame-pacing state.
-* New API to disable swappy’s frame-pacing impact while still observing the CPU & GPU times.
+- New API to reset the frame-pacing state.
+- New API to disable swappy's frame-pacing impact while still observing the CPU \& GPU times.
 
 **API Changes**
 
-* `SwappyGL_resetFramePacing/SwappyVk_resetFramePacing` can now be used to reset the internal frame-pacing state. The frame pacing will now only consider data from the point when the reset API is called.
-* `SwappyGL_enableFramePacing/SwappyVk_enableFramePacing` can now be used to enable/disable swappy’s frame pacing. When disabled,
-* `SwappyGL_enableBlockingWait/SwappyVk_enableBlockingWait` can be used to control whether a blocking wait of the last frame’s GPU work happens when frame-pacing is disabled.
+- `SwappyGL_resetFramePacing/SwappyVk_resetFramePacing` can now be used to reset the internal frame-pacing state. The frame pacing will now only consider data from the point when the reset API is called.
+- `SwappyGL_enableFramePacing/SwappyVk_enableFramePacing` can now be used to enable/disable swappy's frame pacing. When disabled,
+- `SwappyGL_enableBlockingWait/SwappyVk_enableBlockingWait` can be used to control whether a blocking wait of the last frame's GPU work happens when frame-pacing is disabled.
 
 **Bug Fixes**
 
-* Performance improvements are made for GPU bound cases when using Swappy GL API.
+- Performance improvements are made for GPU bound cases when using Swappy GL API.
 
 ## Games Frame Pacing Version 2.0
 
@@ -1508,10 +1490,10 @@ March 8, 2023
 
 **Important changes since 1.10.1**
 
-* The build system went through major changes leading to only one library generated instead of multiple per SDK/NDK version.
-* Vulkan Frame Statistics are added.
-* A new API for clearing frame statistics is added.
-* The logs are all silent in release mode, they can be enabled in debug mode.
+- The build system went through major changes leading to only one library generated instead of multiple per SDK/NDK version.
+- Vulkan Frame Statistics are added.
+- A new API for clearing frame statistics is added.
+- The logs are all silent in release mode, they can be enabled in debug mode.
 
 ### Version 2.0.0-rc01
 
@@ -1521,7 +1503,7 @@ February 22, 2023
 
 **New Features**
 
-* Logging is now hidden behind a compile flag. By default release build of the library has no logging, and debug release of the library has all the logging turned on.
+- Logging is now hidden behind a compile flag. By default release build of the library has no logging, and debug release of the library has all the logging turned on.
 
 ### Version 2.0.0-beta01
 
@@ -1531,11 +1513,11 @@ February 8, 2023
 
 **New Features**
 
-* New API introduced to clear frame statistics.
+- New API introduced to clear frame statistics.
 
 **API Changes**
 
-* Added `SwappyGL_clearStats` and `SwappyGL_clearStats` APIs.
+- Added `SwappyGL_clearStats` and `SwappyGL_clearStats` APIs.
 
 ### Version 2.0.0-alpha01
 
@@ -1545,16 +1527,16 @@ January 11, 2023
 
 **New Features**
 
-* Added vulkan frame statistics
+- Added vulkan frame statistics
 
 **API Changes**
 
-* Major version increase due to build files refactoring
-* Added 3 new APIs : `SwappyVk_enableStats`, `SwappyVk_recordFrameStart`, and `SwappyVk_getStats`
+- Major version increase due to build files refactoring
+- Added 3 new APIs : `SwappyVk_enableStats`, `SwappyVk_recordFrameStart`, and `SwappyVk_getStats`
 
 **Bug Fixes**
 
-* Apply threshold only in auto swap mode ([Ic0786](https://android-review.googlesource.com/c/platform/frameworks/opt/gamesdk/+/2281447))
+- Apply threshold only in auto swap mode ([Ic0786](https://android-review.googlesource.com/c/platform/frameworks/opt/gamesdk/+/2281447))
 
 ## Games Frame Pacing 1.10
 
@@ -1566,7 +1548,7 @@ November 9, 2022
 
 **New Features**
 
-* No new changes
+- No new changes
 
 ### Version 1.10.1
 
@@ -1576,8 +1558,8 @@ June 15, 2022
 
 **Bug Fixes**
 
-* Fix for swappy not building with ndk <23 and >17.
-* Exposed API to retrieve the refresh rates supported by the display.
+- Fix for swappy not building with ndk \<23 and \>17.
+- Exposed API to retrieve the refresh rates supported by the display.
 
 ### Version 1.10.0
 
@@ -1587,8 +1569,8 @@ February 23, 2022
 
 **Important changes since 1.9.0**
 
-* Ignore polluting choreographer filter inputs and smooth more to prevent freezes on emulator
-* Add \*\_uninjectTracer functions.
+- Ignore polluting choreographer filter inputs and smooth more to prevent freezes on emulator
+- Add \*_uninjectTracer functions.
 
 ### Version 1.10.0-rc01
 
@@ -1610,11 +1592,11 @@ December 15, 2021
 
 **New Features**
 
-* Addition of `SwappyGL_uninjectTracer` function.
+- Addition of `SwappyGL_uninjectTracer` function.
 
 **API Changes**
 
-* Remove callbacks that were previously added using `SwappyGL_injectTracer` by using `SwappyGL_uninjectTracer(const SwappyTracer *t)` API.
+- Remove callbacks that were previously added using `SwappyGL_injectTracer` by using `SwappyGL_uninjectTracer(const SwappyTracer *t)` API.
 
 ## Games Frame Pacing 1.9
 
@@ -1626,7 +1608,7 @@ October 13, 2021
 
 **Bug Fixes**
 
-* Fixed [b/199487756](https://issuetracker.google.com/199487756)
+- Fixed [b/199487756](https://issuetracker.google.com/199487756)
 
 ### Version 1.9.0
 
@@ -1636,7 +1618,7 @@ July 12, 2021
 
 **Important changes since 1.7.0**
 
-* Updated to match internal versioning scheme.
+- Updated to match internal versioning scheme.
 
 ## Games Frame Pacing 1.7.0
 
@@ -1680,7 +1662,7 @@ July 12, 2021
 
 **Important changes since 1.1.0**
 
-* Updated to match internal versioning scheme.
+- Updated to match internal versioning scheme.
 
 ## Games Performance Tuner 1.1.0
 
@@ -1726,9 +1708,7 @@ August 12, 2020
 
 The Android Gaming library was renamed to the Android Games library.
 
-```
-androidx.gaming -> androidx.games
-```
+    androidx.gaming -> androidx.games
 
 ### Version 1.0.0-alpha01
 

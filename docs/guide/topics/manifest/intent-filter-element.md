@@ -12,6 +12,7 @@ source: html-scrape
 
 
 
+
 syntax:
 :   ```
     <intent-filter android:icon="drawable resource"

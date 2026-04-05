@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 The following sections describe strategies for saving your back stack and
 storing state associated with entries on your back stack.
 

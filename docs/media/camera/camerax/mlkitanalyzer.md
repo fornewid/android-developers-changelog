@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Google’s [ML Kit](https://developers.google.com/ml-kit/guides) provides on-device machine learning Vision APIs for detecting
 faces, scanning barcodes, labeling images, and more. ML Kit Analyzer makes it
 easier to integrate ML Kit with your CameraX app.

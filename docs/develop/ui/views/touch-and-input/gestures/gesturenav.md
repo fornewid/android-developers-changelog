@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 Beginning with Android 10 (API level 29), the Android system supports fully
 gesture-based navigation. There are two things app developers must do to ensure
 their apps are compatible with this feature:

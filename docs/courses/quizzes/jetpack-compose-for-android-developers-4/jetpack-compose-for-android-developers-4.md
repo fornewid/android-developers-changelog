@@ -1,61 +1,69 @@
 ---
-title: https://developer.android.com/courses/quizzes/jetpack-compose-for-android-developers-4/jetpack-compose-for-android-developers-4
+title: Accessibility, testing, and performance  |  Android Developers
 url: https://developer.android.com/courses/quizzes/jetpack-compose-for-android-developers-4/jetpack-compose-for-android-developers-4
-source: md.txt
+source: html-scrape
 ---
 
-# Accessibility, testing, and performance
+Stay organized with collections
+
+Save and categorize content based on your preferences.
+
+
 
 # Accessibility, testing, and performance
 
-<br />
+Return to pathway
 
-Return to pathway  
-1.
 
-   ## True or False: In Compose, you can test a component in isolation.
 
-   True  
-   False  
-2.
+1. ## True or False: In Compose, you can test a component in isolation.
 
-   ## Compose tests use a structure called the ___ to look for elements on the screen and read their properties.
+   True
 
-   UI tree  
-   Semantics tree  
-   TalkBack tree  
-   Descendants tree  
-3.
+   False
+2. ## Compose tests use a structure called the \_\_\_ to look for elements on the screen and read their properties.
 
-   ## On phones, an on-screen element that a user interacts with should have a width and height of at least:
+   UI tree
 
-   24 dp  
-   36 dp  
-   48 dp  
-   60 dp  
-4.
+   Semantics tree
 
-   ## Use ___ to group together actions that relate to the same list item.
+   TalkBack tree
 
-   Click labels  
-   Merging  
-   Custom actions  
-   Switch Access  
-5.
+   Descendants tree
+3. ## On phones, an on-screen element that a user interacts with should have a width and height of at least:
 
-   ## True or False: When evaluating your Compose app performance, it is very important to make sure you are running in release mode with R8 optimization enabled.
+   24 dp
 
-   True  
-   False  
-6.
+   36 dp
 
-   ## An application is ___ when deployed as debug.
+   48 dp
 
-   Performant  
-   Optimized  
-   Slower  
-   Faster  
+   60 dp
+4. ## Use \_\_\_ to group together actions that relate to the same list item.
+
+   Click labels
+
+   Merging
+
+   Custom actions
+
+   Switch Access
+5. ## True or False: When evaluating your Compose app performance, it is very important to make sure you are running in release mode with R8 optimization enabled.
+
+   True
+
+   False
+6. ## An application is \_\_\_ when deployed as debug.
+
+   Performant
+
+   Optimized
+
+   Slower
+
+   Faster
 
 Submit answers
 
-*error_outline*An error occurred when grading the quiz. Please try again.
+*error\_outline*
+An error occurred when grading the quiz. Please try again.

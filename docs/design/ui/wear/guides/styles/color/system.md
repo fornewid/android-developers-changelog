@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 The Material 3 Expressive color framework uses dynamic color theming, based on
 two seed colors mapped on the HCT (Hue, Chroma and Tone) color system.
 

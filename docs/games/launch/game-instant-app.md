@@ -13,7 +13,6 @@ Send feedback
 
 
 
-
 The steps for setting up apps to run on
 [Google Play Instant](/topic/google-play-instant/overview), as explained
 in [Create your first instant app](/topic/google-play-instant/getting-started/first-instant-app),
@@ -289,8 +288,6 @@ Learn more about Google Play Instant from these additional resources:
 
 [Codelab: Build a Multi-Feature Instant App](https://codelabs.developers.google.com/codelabs/android-multi-feature-instant-app)
 :   Modularize a multi-feature app.
-
-
 
 
 

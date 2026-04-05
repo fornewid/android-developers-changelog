@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 Android apps run on more form factors than just phones held in portrait mode.
 With the introduction of desktop windowing, connected displays,
 and foldable devices, your camera app must adapt to dynamic window sizes,

@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 This page describes the different types of surfaces that can be used for video
 playback with Media3, and how to choose the right type for your use case. To
 find out more about Surface objects in Android, read this [graphics

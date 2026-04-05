@@ -1,32 +1,45 @@
 ---
-title: https://developer.android.com/jetpack/androidx/releases/ink
+title: ink  |  Jetpack  |  Android Developers
 url: https://developer.android.com/jetpack/androidx/releases/ink
-source: md.txt
+source: html-scrape
 ---
+
+* [Android Developers](https://developer.android.com/)
+* [Get started](https://developer.android.com/get-started/overview)
+* [Jetpack](https://developer.android.com/jetpack)
+* [Libraries](https://developer.android.com/jetpack/androidx/explorer)
+
+Stay organized with collections
+
+Save and categorize content based on your preferences.
+
+
+
 
 # ink
 
 API Reference  
-[androidx.ink.authoring](https://developer.android.com/reference/kotlin/androidx/ink/authoring/package-summary)  
-[androidx.ink.authoring.compose](https://developer.android.com/reference/kotlin/androidx/ink/authoring/compose/package-summary)  
-[androidx.ink.brush](https://developer.android.com/reference/kotlin/androidx/ink/brush/package-summary)  
-[androidx.ink.brush.compose](https://developer.android.com/reference/kotlin/androidx/ink/brush/compose/package-summary)  
-[androidx.ink.geometry](https://developer.android.com/reference/kotlin/androidx/ink/geometry/package-summary)  
-[androidx.ink.geometry.compose](https://developer.android.com/reference/kotlin/androidx/ink/geometry/compose/package-summary)  
-[androidx.ink.rendering.android.canvas](https://developer.android.com/reference/kotlin/androidx/ink/rendering/android/canvas/package-summary)  
-[androidx.ink.rendering.android.view](https://developer.android.com/reference/kotlin/androidx/ink/rendering/android/view/package-summary)  
-[androidx.ink.storage](https://developer.android.com/reference/kotlin/androidx/ink/storage/package-summary)  
-[androidx.ink.strokes](https://developer.android.com/reference/kotlin/androidx/ink/strokes/package-summary)  
+[androidx.ink.authoring](/reference/kotlin/androidx/ink/authoring/package-summary)  
+[androidx.ink.authoring.compose](/reference/kotlin/androidx/ink/authoring/compose/package-summary)  
+[androidx.ink.brush](/reference/kotlin/androidx/ink/brush/package-summary)  
+[androidx.ink.brush.compose](/reference/kotlin/androidx/ink/brush/compose/package-summary)  
+[androidx.ink.geometry](/reference/kotlin/androidx/ink/geometry/package-summary)  
+[androidx.ink.geometry.compose](/reference/kotlin/androidx/ink/geometry/compose/package-summary)  
+[androidx.ink.rendering.android.canvas](/reference/kotlin/androidx/ink/rendering/android/canvas/package-summary)  
+[androidx.ink.rendering.android.view](/reference/kotlin/androidx/ink/rendering/android/view/package-summary)  
+[androidx.ink.storage](/reference/kotlin/androidx/ink/storage/package-summary)  
+[androidx.ink.strokes](/reference/kotlin/androidx/ink/strokes/package-summary)
+
 Inspire best-in-class pen apps. Lower the developer barrier to entry for high performance, beautiful inking experiences.
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
-|---|---|---|---|---|
-| March 11, 2026 | [1.0.0](https://developer.android.com/jetpack/androidx/releases/ink#1.0.0) | - | - | [1.1.0-alpha01](https://developer.android.com/jetpack/androidx/releases/ink#1.1.0-alpha01) |
+| --- | --- | --- | --- | --- |
+| March 11, 2026 | [1.0.0](/jetpack/androidx/releases/ink#1.0.0) | - | - | [1.1.0-alpha01](/jetpack/androidx/releases/ink#1.1.0-alpha01) |
 
 ## Declaring dependencies
 
 To add a dependency on Ink, you must add the Google Maven repository to your
-project. Read [Google's Maven repository](https://developer.android.com/studio/build/dependencies#google-maven)
+project. Read [Google's Maven repository](/studio/build/dependencies#google-maven)
 for more information.
 
 Add the dependencies for the artifacts you need in the `build.gradle` file for
@@ -34,7 +47,7 @@ your app or module:
 
 ### Groovy
 
-```groovy
+```
 dependencies {
   
     implementation "androidx.ink:ink-authoring:1.1.0-alpha01"
@@ -53,7 +66,7 @@ dependencies {
 
 ### Kotlin
 
-```kotlin
+```
 dependencies {
 
 
@@ -70,13 +83,13 @@ dependencies {
 }
 ```
 
-For more information about dependencies, see [Add build dependencies](https://developer.android.com/studio/build/dependencies).
+For more information about dependencies, see [Add build dependencies](/studio/build/dependencies).
 
 ## Feedback
 
 Your feedback helps make Jetpack better. Let us know if you discover new issues or have
 ideas for improving this library. Please take a look at the
-[existing issues](https://issuetracker.google.com/issues?q=componentid:1662443+status:open)
+[existing issues](https://issuetracker.google.com/issues?q=componentid:1662443%20status:open)
 in this library before you create a new one. You can add your vote to an existing issue by
 clicking the star button.
 
@@ -97,17 +110,17 @@ March 11, 2026
 
 **New Features**
 
-- Assorted small bug fixes
+* Assorted small bug fixes
 
 **API Changes**
 
-- Add `InProgressShape.isCanceled`, fix concurrency issues in authoring module. ([Ibfd32](https://android-review.googlesource.com/#/q/Ibfd32ed6aa398653461d9e86d247f09c57caa53d), [b/474385518](https://issuetracker.google.com/issues/474385518), [b/470695777](https://issuetracker.google.com/issues/470695777))
-- Expose zero-argument version of `CanvasStrokeRenderer.create` and `InProgressStroke.updateShape` to Java ([Id80a1](https://android-review.googlesource.com/#/q/Id80a171f1c2c71f3ef7fa309c4aad44c4300867d), [b/457715938](https://issuetracker.google.com/issues/457715938))
+* Add `InProgressShape.isCanceled`, fix concurrency issues in authoring module. ([Ibfd32](https://android-review.googlesource.com/#/q/Ibfd32ed6aa398653461d9e86d247f09c57caa53d), [b/474385518](https://issuetracker.google.com/issues/474385518), [b/470695777](https://issuetracker.google.com/issues/470695777))
+* Expose zero-argument version of `CanvasStrokeRenderer.create` and `InProgressStroke.updateShape` to Java ([Id80a1](https://android-review.googlesource.com/#/q/Id80a171f1c2c71f3ef7fa309c4aad44c4300867d), [b/457715938](https://issuetracker.google.com/issues/457715938))
 
 **Bug Fixes**
 
-- Fix a bug causing crashes in `InProgressStrokesView` after detach/reattach from window for API 29-32, allow Vec operations to take same `MutableVec` as input and output, merge Proguard configs into one file. ([Ia4da0](https://android-review.googlesource.com/#/q/Ia4da08aa4ed8b5b428a19ef8b00c63ef544e62ff))
-- Increase dependency on graphics-core to 1.0.4 ([Ibfa18](https://android-review.googlesource.com/#/q/Ibfa187a40ab55711f8eca9ae0ae53c181086db23))
+* Fix a bug causing crashes in `InProgressStrokesView` after detach/reattach from window for API 29-32, allow Vec operations to take same `MutableVec` as input and output, merge Proguard configs into one file. ([Ia4da0](https://android-review.googlesource.com/#/q/Ia4da08aa4ed8b5b428a19ef8b00c63ef544e62ff))
+* Increase dependency on graphics-core to 1.0.4 ([Ibfa18](https://android-review.googlesource.com/#/q/Ibfa187a40ab55711f8eca9ae0ae53c181086db23))
 
 ## Version 1.0
 
@@ -119,7 +132,7 @@ December 17, 2025
 
 **Bug Fixes**
 
-- Increase dependency on `graphics-core` to 1.0.4 ([Ibfa18](https://android-review.googlesource.com/#/q/Ibfa187a40ab55711f8eca9ae0ae53c181086db23))
+* Increase dependency on `graphics-core` to 1.0.4 ([Ibfa18](https://android-review.googlesource.com/#/q/Ibfa187a40ab55711f8eca9ae0ae53c181086db23))
 
 ### Version 1.0.0-rc01
 
@@ -129,7 +142,7 @@ December 03, 2025
 
 **Bug Fixes**
 
-- Update dependency version. ([Iecd04](https://android-review.googlesource.com/#/q/Iecd04ee1ecca5aa981c756e246e11535455a898c))
+* Update dependency version. ([Iecd04](https://android-review.googlesource.com/#/q/Iecd04ee1ecca5aa981c756e246e11535455a898c))
 
 ### Version 1.0.0-beta02
 
@@ -139,13 +152,13 @@ November 19, 2025
 
 **API Changes**
 
-- Experimental custom low latency shape APIs, assorted bug fixes ([Ib8d2f](https://android-review.googlesource.com/#/q/Ib8d2fe54389b3a2a9f5d305343878dd766d02527))
+* Experimental custom low latency shape APIs, assorted bug fixes ([Ib8d2f](https://android-review.googlesource.com/#/q/Ib8d2fe54389b3a2a9f5d305343878dd766d02527))
 
 **Bug Fixes**
 
-- Improve floating point precision on `StrokeInputBatch` serialization, fixing a drift in the values from repeated encoding and decoding
-- More robust system input sanitization.
-- Fix brush texture support in `InProgressStrokes` composable
+* Improve floating point precision on `StrokeInputBatch` serialization, fixing a drift in the values from repeated encoding and decoding
+* More robust system input sanitization.
+* Fix brush texture support in `InProgressStrokes` composable
 
 ### Version 1.0.0-beta01
 
@@ -155,9 +168,9 @@ October 22, 2025
 
 **Bug Fixes**
 
-- Bug fixes in preparation for beta01 release ([I9900e](https://android-review.googlesource.com/#/q/I9900e364054c1873f97e1e60193e92cf01d4c9ab))
-- Reduce rendering artifacts in strokes due to too many modeled inputs too close to each other.
-- Fix a rare crash in input modeling.
+* Bug fixes in preparation for beta01 release ([I9900e](https://android-review.googlesource.com/#/q/I9900e364054c1873f97e1e60193e92cf01d4c9ab))
+* Reduce rendering artifacts in strokes due to too many modeled inputs too close to each other.
+* Fix a rare crash in input modeling.
 
 ### Version 1.0.0-alpha07
 
@@ -167,18 +180,18 @@ October 08, 2025
 
 **New Features**
 
-- `SelfOverlap` parameter for `StockBrushes` `highlighter` and `emojiHighlighter`, which replaces `InProgressStrokesView` `rendererFactory`
-- Improved implementation of stroke input smoothing, which eliminates device measurement noise but which more accurately reflects user input than the previous stroke input smoothing implementation
-- Improved consistency with other Android/Jetpack APIs for angle units (degrees vs. radians), transforms (skew vs. shear), and more
+* `SelfOverlap` parameter for `StockBrushes` `highlighter` and `emojiHighlighter`, which replaces `InProgressStrokesView` `rendererFactory`
+* Improved implementation of stroke input smoothing, which eliminates device measurement noise but which more accurately reflects user input than the previous stroke input smoothing implementation
+* Improved consistency with other Android/Jetpack APIs for angle units (degrees vs. radians), transforms (skew vs. shear), and more
 
 **API Changes**
 
-- Change angle-related API to use degrees and include unit in names, be clear about units in Angle conversion utilities and support both degrees and radians, change `StockBrushes` API to take stock brush version as a factory function parameter and expose self-overlap behavior control for highlighter brushes, rename `MutableAffineTransform.populateFromTranslate` to `populateFromTranslation`, remove `InProgressStrokesView.setRenderFactory/getRenderFactory`. ([Id9eab](https://android-review.googlesource.com/#/q/Id9eab6301d2ca1803452cd8a1eb2dcf0a3cd357d), [b/436656418](https://issuetracker.google.com/issues/436656418))
-- Rename shear to skew, clarify some documentation, remove `CanvasStrokeRenderer.strokeModifiedRegionOutsetPx`, add `InProgressStroke.changesWithTime` ([Ia5e70](https://android-review.googlesource.com/#/q/Ia5e70048d15787a54bf4c848b715484366e5c629), [b/436656418](https://issuetracker.google.com/issues/436656418))
+* Change angle-related API to use degrees and include unit in names, be clear about units in Angle conversion utilities and support both degrees and radians, change `StockBrushes` API to take stock brush version as a factory function parameter and expose self-overlap behavior control for highlighter brushes, rename `MutableAffineTransform.populateFromTranslate` to `populateFromTranslation`, remove `InProgressStrokesView.setRenderFactory/getRenderFactory`. ([Id9eab](https://android-review.googlesource.com/#/q/Id9eab6301d2ca1803452cd8a1eb2dcf0a3cd357d), [b/436656418](https://issuetracker.google.com/issues/436656418))
+* Rename shear to skew, clarify some documentation, remove `CanvasStrokeRenderer.strokeModifiedRegionOutsetPx`, add `InProgressStroke.changesWithTime` ([Ia5e70](https://android-review.googlesource.com/#/q/Ia5e70048d15787a54bf4c848b715484366e5c629), [b/436656418](https://issuetracker.google.com/issues/436656418))
 
 **Bug Fixes**
 
-- Improve input modeling to make strokes more accurately reflect input. ([I93097](https://android-review.googlesource.com/#/q/I9309760022de0c30a0bc5e960da4c2467f663e9f))
+* Improve input modeling to make strokes more accurately reflect input. ([I93097](https://android-review.googlesource.com/#/q/I9309760022de0c30a0bc5e960da4c2467f663e9f))
 
 ### Version 1.0.0-alpha06
 
@@ -188,17 +201,17 @@ August 13, 2025
 
 **New Features**
 
-- Emoji highlighter stock brush: Highlight parts of a document with any emoji you choose, to add a fun flair and help stay organized.
-- More helper APIs for geometry module primitive shapes
-- Improve device compatibility and performance
+* Emoji highlighter stock brush: Highlight parts of a document with any emoji you choose, to add a fun flair and help stay organized.
+* More helper APIs for geometry module primitive shapes
+* Improve device compatibility and performance
 
 **API Changes**
 
-- Simplified API for `InProgressStrokesView`, finish geometry APIs, emoji highlighter, remove factory functions from `MutableParallelogram` in favor of populate methods, support seed for randomized brush behaviors. ([I38280](https://android-review.googlesource.com/#/q/I38280146fca9a55b06d87a835670efdd012990e7))
+* Simplified API for `InProgressStrokesView`, finish geometry APIs, emoji highlighter, remove factory functions from `MutableParallelogram` in favor of populate methods, support seed for randomized brush behaviors. ([I38280](https://android-review.googlesource.com/#/q/I38280146fca9a55b06d87a835670efdd012990e7))
 
 **Bug Fixes**
 
-- Fix a performance issue and a wet/dry color consistency issue. ([Ifcd1d](https://android-review.googlesource.com/#/q/Ifcd1da4081a01ba8165b4e8624219b1bd26bd248))
+* Fix a performance issue and a wet/dry color consistency issue. ([Ifcd1d](https://android-review.googlesource.com/#/q/Ifcd1da4081a01ba8165b4e8624219b1bd26bd248))
 
 ### Version 1.0.0-alpha05
 
@@ -208,17 +221,17 @@ June 18, 2025
 
 **New Features**
 
-- Compose interoperability modules for authoring, brush, and geometry modules
+* Compose interoperability modules for authoring, brush, and geometry modules
 
 **API Changes**
 
-- New Compose interoperability modules and APIs, API cleanup ([I0e464](https://android-review.googlesource.com/#/q/I0e4641822d568573fc8c7b3955a007a8ac9cd1c5))
-- `InProgressStroke.enqueueInputs/updateShape` methods which returned `kotlin.Result` are removed, clients should use e.g. `enqueueInputsOrThrow` or `enqueueInputsOrIgnore` instead. `InProgressStroke.getNeedsUpdate` is renamed to `isUpdateNeeded`. `InProgressStroke.populateOutlinePosition` now returns its output parameter to allow call chaining, consistent with other methods in Ink. The `TextureBitmapStore` interface is moved from the rendering module to the brush module. `BoxAccumulator.populateFrom` is made to take a nullable immutable Box instead of a mutable `BoxAccumulator`, to make it clearer what is mutated, callers should change `boxAccumulator.add(other)` to `boxAccumulator.add(other.box)`. `BrushUtil.toBuilderWithAndroidColor/createBuilderWithAndroidColor` are removed, use the `setAndroidColor` of `Brush.Builder` after constructing instead. ([Ia7155](https://android-review.googlesource.com/#/q/Ia7155560602b8319183aa12671d7f1d925873448))
-- Previously experimental property `InProgressStrokesView.textureBitmapStore` is now private. There are still public accessors for this property. ([I1d706](https://android-review.googlesource.com/#/q/I1d7064ff25c953066a4b43a6c30a4b3aa0b145d5))
+* New Compose interoperability modules and APIs, API cleanup ([I0e464](https://android-review.googlesource.com/#/q/I0e4641822d568573fc8c7b3955a007a8ac9cd1c5))
+* `InProgressStroke.enqueueInputs/updateShape` methods which returned `kotlin.Result` are removed, clients should use e.g. `enqueueInputsOrThrow` or `enqueueInputsOrIgnore` instead. `InProgressStroke.getNeedsUpdate` is renamed to `isUpdateNeeded`. `InProgressStroke.populateOutlinePosition` now returns its output parameter to allow call chaining, consistent with other methods in Ink. The `TextureBitmapStore` interface is moved from the rendering module to the brush module. `BoxAccumulator.populateFrom` is made to take a nullable immutable Box instead of a mutable `BoxAccumulator`, to make it clearer what is mutated, callers should change `boxAccumulator.add(other)` to `boxAccumulator.add(other.box)`. `BrushUtil.toBuilderWithAndroidColor/createBuilderWithAndroidColor` are removed, use the `setAndroidColor` of `Brush.Builder` after constructing instead. ([Ia7155](https://android-review.googlesource.com/#/q/Ia7155560602b8319183aa12671d7f1d925873448))
+* Previously experimental property `InProgressStrokesView.textureBitmapStore` is now private. There are still public accessors for this property. ([I1d706](https://android-review.googlesource.com/#/q/I1d7064ff25c953066a4b43a6c30a4b3aa0b145d5))
 
 **Bug Fixes**
 
-- Improved performance for custom brushes containing many particles.
+* Improved performance for custom brushes containing many particles.
 
 ### Version 1.0.0-alpha04
 
@@ -228,7 +241,7 @@ April 9, 2025
 
 **New Features**
 
-- Introduces new experimental APIs for custom `BrushFamily` objects, enabling new brushes like Pencil and Laser Pointer. The API allows for loading brushes defined by this proto. ([I8809a](https://android-review.googlesource.com/#/q/I8809a675a5527c1a7bc2f519e041a8af1ed693b3))
+* Introduces new experimental APIs for custom `BrushFamily` objects, enabling new brushes like Pencil and Laser Pointer. The API allows for loading brushes defined by this proto. ([I8809a](https://android-review.googlesource.com/#/q/I8809a675a5527c1a7bc2f519e041a8af1ed693b3))
 
 ### Version 1.0.0-alpha03
 
@@ -238,8 +251,8 @@ February 12, 2025
 
 **New Features**
 
-- Disk and network size savings: Serialization of `StrokeInputBatch`, saving many lines of code, with the resulting objects a tiny fraction of the size of traditionally stored strokes. ([Ie898d](https://android-review.googlesource.com/#/q/Ie898d91e3c77eccbf26e9ee6d7f384a3a57b974f))
-- Lasso selection: dashed line brush to draw a selection stroke, and a function to turn the selection stroke into a `PartitionedMesh` for geometry queries. ([Ia38a0](https://android-review.googlesource.com/#/q/Ia38a0e3e7a2da344d978bdfd5b8db8210a753e74))
+* Disk and network size savings: Serialization of `StrokeInputBatch`, saving many lines of code, with the resulting objects a tiny fraction of the size of traditionally stored strokes. ([Ie898d](https://android-review.googlesource.com/#/q/Ie898d91e3c77eccbf26e9ee6d7f384a3a57b974f))
+* Lasso selection: dashed line brush to draw a selection stroke, and a function to turn the selection stroke into a `PartitionedMesh` for geometry queries. ([Ia38a0](https://android-review.googlesource.com/#/q/Ia38a0e3e7a2da344d978bdfd5b8db8210a753e74))
 
 ### Version 1.0.0-alpha02
 
@@ -249,11 +262,11 @@ December 11, 2024
 
 **API Changes**
 
-- Assorted bug fixes. ([I05dd8](https://android-review.googlesource.com/#/q/I05dd84cb83c29b6f8af876164c426fee57f6f932))
+* Assorted bug fixes. ([I05dd8](https://android-review.googlesource.com/#/q/I05dd84cb83c29b6f8af876164c426fee57f6f932))
 
 **External Contribution**
 
-- Deprecate `BuildCompat.isAtLeastV`. Callers should check SDK_INT against 35 directly instead. ([I294d1](https://android-review.googlesource.com/#/q/I294d117a8fea924e7f1b739d52268a9a54be6db7))
+* Deprecate `BuildCompat.isAtLeastV`. Callers should check SDK\_INT against 35 directly instead. ([I294d1](https://android-review.googlesource.com/#/q/I294d117a8fea924e7f1b739d52268a9a54be6db7))
 
 ### Version 1.0.0-alpha01
 
@@ -263,14 +276,14 @@ October 2, 2024
 
 **New Features**
 
-- A modular and configurable library to make it easy to create, render, and manipulate beautiful ink strokes authored in your application.
+* A modular and configurable library to make it easy to create, render, and manipulate beautiful ink strokes authored in your application.
 
 **API Changes**
 
 New modules to help developers build rich inking experiences:
 
-- Authoring: Use `InProgressStrokesView` for high-performance, low latency rendering of strokes in real time as inputs are received.
-- Rendering: Use `CanvasStrokeRenderer` and `ViewStrokeRenderer` to draw the finished ink strokes as part of an app's user interface.
-- Strokes: Core data types used for inking features.
-- Brush: Configurable specification of how strokes will look and act in response to user input.
-- Geometry: Geometric operations like intersection and coverage to power tools like selection and erasing.
+* Authoring: Use `InProgressStrokesView` for high-performance, low latency rendering of strokes in real time as inputs are received.
+* Rendering: Use `CanvasStrokeRenderer` and `ViewStrokeRenderer` to draw the finished ink strokes as part of an app’s user interface.
+* Strokes: Core data types used for inking features.
+* Brush: Configurable specification of how strokes will look and act in response to user input.
+* Geometry: Geometric operations like intersection and coverage to power tools like selection and erasing.

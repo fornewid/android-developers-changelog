@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 A Player is used to represent a human player in Leaderboards and Achievements.
 
 For a list of [methods](#methods) for this resource, see the end of this page.

@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Running Android apps on a Chromebook gives users access to the vast Android
 ecosystem and gives Android developers the opportunity to reach ChromeOS users.
 

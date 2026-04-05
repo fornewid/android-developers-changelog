@@ -14,7 +14,6 @@ Save and categorize content based on your preferences.
 
 
 
-
 # GooglePlayGames.PlayGamesLocalUser
 
 Represents the Google Play Games local user, providing access to authentication and user-specific functionality.

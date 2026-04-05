@@ -15,6 +15,7 @@ Send feedback
 
 
 
+
 The [Game Mode API](/games/optimize/adpf/gamemode/gamemode-api) and
 [Game Mode interventions](/games/optimize/adpf/gamemode/gamemode-interventions)
 allow you to optimize gameplay by prioritizing characteristics, such as
@@ -46,6 +47,8 @@ performance and battery modes.
 interventions settings to OEMs, or explicitly opt-out of Game Mode
 interventions.**Warning:** OEMs may choose to implement Game Mode interventions without developer
 feedback.
+
+
 
 
 

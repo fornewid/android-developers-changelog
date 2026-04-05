@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 If you're developing an app that provides storage services for files (such as
 a cloud save service), you can make your files available through the
 Storage Access Framework (SAF) by writing a custom document provider.

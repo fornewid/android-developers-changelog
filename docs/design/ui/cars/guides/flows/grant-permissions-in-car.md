@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 On Android Automotive OS, the permissions flow is the same as granting
 permissions on Android Auto, except the user sees permission
 details on the car screen instead of the phone.

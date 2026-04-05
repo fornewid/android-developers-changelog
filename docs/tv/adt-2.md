@@ -1,10 +1,14 @@
 ---
-title: https://developer.android.com/tv/adt-2
+title: ADT-2 Developer Kit  |  Android Developers
 url: https://developer.android.com/tv/adt-2
-source: md.txt
+source: html-scrape
 ---
 
-# ADT-2 Developer Kit
+* [Android Developers](https://developer.android.com/)
+
+# ADT-2 Developer Kit Stay organized with collections Save and categorize content based on your preferences.
+
+
 
 The ADT-2 Developer Kit is a streaming media player device for running and
 testing apps that are built for Android TV.
@@ -27,13 +31,15 @@ The following information explains how you can set up and use the ADT-2 device.
 
 To turn your ADT-2 on:
 
-1. Plug the power connector of the included Y-cable into the power port on the back of the device.
+1. Plug the power connector of the included Y-cable into the power port on the
+   back of the device.
 2. Plug the power supply into the power port of the Y-cable.
 3. Plug the power supply into a power outlet.
 
    The device does not have an on and off switch.
 
-| **Note:** If you only plug the ADT-2 into a USB port on a TV, the device might not receive enough power.
+**Note:** If you only plug the ADT-2 into a USB port on a TV, the device might
+not receive enough power.
 
 **What will happen when the ADT-2 boots for the first time?**
 
@@ -54,23 +60,26 @@ whenever a update for your remote is available.
 To turn off your ADT-2, unplug the power connector of the included Y-cable from
 the power port on the back of the device. The device does not have an on and off
 switch. You can also configure your ADT-2 to go to sleep (daydream) in
-**Settings \> Device \> Display \> Daydream**.
+**Settings > Device > Display > Daydream**.
 
 **How do I connect the ADT-2 to my wireless network?**
 
 The ADT-2 has a built-in Wi-Fi adapter for connecting to your network. You can
-change the network that the device is connected to in **Settings \> Device \> Wi-
+change the network that the device is connected to in **Settings > Device > Wi-
 Fi**.
 
 **How do I use the Y-cable?**
 
 The included Y-cable has three connectors:
 
-- A small, male power connector that plugs into the power port on the back of the ADT-2
-- A standard, male USB-A connector that connects to your computer
-- A small, female power port that the included power supply plugs into
+* A small, male power connector that plugs into the power port on the back of
+  the ADT-2
+* A standard, male USB-A connector that connects to your computer
+* A small, female power port that the included power supply plugs into
 
-| **Note:** If you only plug the ADT-2 into a USB port on a TV, the device might not receive enough power. Use the included Y-cable and power supply to plug the device into a power outlet to ensure that the device receives enough power.
+**Note:** If you only plug the ADT-2 into a USB port on a TV, the device might not
+receive enough power. Use the included Y-cable and power supply to plug the
+device into a power outlet to ensure that the device receives enough power.
 
 **Can I connect to the ADT-2 without the Y-cable?**
 
@@ -79,14 +88,18 @@ TCP/IP, so you can also [connect to the ADT-2 device over Wi-
 Fi](https://developer.android.com/studio/command-line/adb#wireless).
 
 Once the device and computer are on the same network, run the following command
-to connect to the device:  
+to connect to the device:
 
-    $ adb connect <ip-address-for-adt-2>
+```
+$ adb connect <ip-address-for-adt-2>
+```
 
 You can find the IP address for your devices in
-**Settings \> Device Preferences \> About \> Status**.
-| **Note:** Make sure you have enabled USB debugging in **Settings \> Preferences \>
-| Developer options \> Debugging \> USB debugging**, so that you can use the Android Debug Bridge (adb) to connect with the ADT-2.
+**Settings > Device Preferences > About > Status**.
+
+**Note:** Make sure you have enabled USB debugging in **Settings > Preferences >
+Developer options > Debugging > USB debugging**, so that you can use the Android
+Debug Bridge (adb) to connect with the ADT-2.
 
 ## Known issues
 

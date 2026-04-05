@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 The [`Slider`](/reference/kotlin/androidx/compose/material3/Slider.composable#Slider(androidx.compose.material3.SliderState,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.compose.material3.SliderColors,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Function1,kotlin.Function1)) composable lets users make selections from a range of
 values. You might use a slider to let the user do the following:
 

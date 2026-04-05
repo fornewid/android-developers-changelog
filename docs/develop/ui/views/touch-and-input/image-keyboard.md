@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 Users often want to communicate using emoji, stickers, and other kinds of rich
 content. In previous versions of Android, soft keyboards—also known as
 [input method editors](/guide/topics/text/creating-input-method), or

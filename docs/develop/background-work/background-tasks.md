@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 Apps frequently need to do more than one thing at a time. The Android APIs
 provide a lot of different ways to let you do this. Choosing the right option is
 very important; an option might be right for one situation but very wrong for

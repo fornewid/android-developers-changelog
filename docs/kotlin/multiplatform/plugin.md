@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 The `com.android.kotlin.multiplatform.library` Gradle plugin is the officially
 supported tool for adding an Android target to a Kotlin Multiplatform (KMP)
 [library module](/studio/projects/android-library). It simplifies project configuration, improves

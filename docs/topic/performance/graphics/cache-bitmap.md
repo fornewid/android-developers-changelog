@@ -11,6 +11,7 @@ source: html-scrape
 
 
 
+
 **Note:** For most cases, we recommend
 that you use the [Glide](https://github.com/bumptech/glide)
 library to fetch, decode, and display bitmaps in your app. Glide abstracts out most of

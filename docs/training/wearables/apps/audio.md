@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 This guide describes how you can use familiar Android APIs to play audio on Wear
 OS apps.
 

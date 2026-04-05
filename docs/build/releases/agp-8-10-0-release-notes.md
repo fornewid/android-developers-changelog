@@ -12,6 +12,7 @@ source: html-scrape
 
 
 
+
 Android Gradle Plugin 8.10.0 is a major release that includes a variety of new
 features and improvements.
 

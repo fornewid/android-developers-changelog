@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 The type of app and its use case — whether it's for use while driving or parked
 — determines the design process for *Android for Cars* apps.
 

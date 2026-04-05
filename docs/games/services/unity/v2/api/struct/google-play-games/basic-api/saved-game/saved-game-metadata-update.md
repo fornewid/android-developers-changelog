@@ -14,6 +14,7 @@ Save and categorize content based on your preferences.
 
 
 
+
 # GooglePlayGames.BasicApi.SavedGame.SavedGameMetadataUpdate
 
 A struct representing the mutation of saved game metadata.

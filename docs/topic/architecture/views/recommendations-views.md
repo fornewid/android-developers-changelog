@@ -15,7 +15,6 @@ source: html-scrape
 
 
 
-
 [Concepts and Jetpack Compose implementationarrow\_forward](/topic/architecture/recommendations)
 
 This page presents several architecture best practices and recommendations.

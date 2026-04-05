@@ -15,7 +15,6 @@ Send feedback
 
 
 
-
 Leaderboards can be a fun way to drive competition among your players, both for
 your most hardcore fans (who will be fighting for the top spot in a public
 leaderboard) and for your more casual players (who will be interested in
@@ -343,8 +342,6 @@ resources:
 * [Web](/games/services/web/api/rest/v1/leaderboards)
 * [C++ API](/games/pgs/cpp/cpp-start)
 * [Best practices for implementing leaderboards](/games/pgs/quality#leaderboards)
-
-
 
 
 

@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 **Note:** Modern android development (MAD) uses a single-activity architecture based
 on Jetpack APIs, including Jetpack Compose. Activity embedding is designed for
 multiple-activity, legacy apps that can't be easily updated to MAD. Create new

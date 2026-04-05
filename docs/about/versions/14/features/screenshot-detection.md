@@ -44,7 +44,7 @@ To add screenshot detection, declare the new [`DETECT_SCREEN_CAPTURE`](/referenc
 install-time permission:
 
 ```
-<uses-permission android:name="android.permission.DETECT_SCREEN_CAPTU>RE" /
+<uses-permission android:name="android.permission.DETECT_SCREEN_CAPTURE" />
 ```
 
 Then, complete these steps for each activity in your app where users might

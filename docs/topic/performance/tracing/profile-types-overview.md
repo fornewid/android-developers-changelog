@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 You can record several types of performance profiles in Android. Collecting a
 profile helps you debug issues related to how fast your app runs, how much
 memory it uses, how much power it consumes, and more.

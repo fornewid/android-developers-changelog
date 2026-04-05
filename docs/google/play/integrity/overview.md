@@ -12,6 +12,7 @@ source: html-scrape
 
 
 
+
 The Play Integrity API helps you check that user actions and server requests are
 coming from your genuine app, installed by Google Play, running on a
 genuine and certified Android device. By detecting risky

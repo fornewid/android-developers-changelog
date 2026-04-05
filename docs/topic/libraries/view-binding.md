@@ -14,6 +14,7 @@ Save and categorize content based on your preferences.
 
 
 
+
 # View binding   Part of [Android Jetpack](/jetpack).
 
 *View binding* is a feature that makes it easier to write code that interacts

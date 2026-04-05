@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 In most cases, every Android application runs in its own Linux process.
 This process is created for the application when some of its code needs to
 run and remains running until the system needs to reclaim its memory for use

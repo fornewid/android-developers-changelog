@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 Before you [deliver one-time product](/guide/playpoints/deliver-items) to Play
 Point members, you must create the product and set up a Play Points promotion.
 

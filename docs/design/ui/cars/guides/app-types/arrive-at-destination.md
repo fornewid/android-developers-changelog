@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 You can show a user that they've arrived at their destination using the
 [Navigation template](/design/ui/cars/guides/templates/navigation-template).
 Simply switch the routing card from

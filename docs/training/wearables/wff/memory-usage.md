@@ -1,18 +1,26 @@
 ---
-title: https://developer.android.com/training/wearables/wff/memory-usage
+title: Optimize memory usage for your watch face  |  Wear OS  |  Android Developers
 url: https://developer.android.com/training/wearables/wff/memory-usage
-source: md.txt
+source: html-scrape
 ---
+
+* [Android Developers](https://developer.android.com/)
+* [Develop](https://developer.android.com/develop)
+* [Devices](https://developer.android.com/develop/devices)
+* [Wear OS](https://developer.android.com/training/wearables)
+
+# Optimize memory usage for your watch face Stay organized with collections Save and categorize content based on your preferences.
+
+
 
 Wear OS improves battery life by tracking memory use. Watch faces using the
 Watch Face Format have memory limits, as per the [Wear OS app quality
-guidelines](https://developer.android.com/docs/quality-guidelines/wear-app-quality#memory-usage):
+guidelines](/docs/quality-guidelines/wear-app-quality#memory-usage):
 
-- Ambient mode: 10 MB maximum memory use.
-- Interactive mode: 100 MB maximum memory use.
+* Ambient mode: 10 MB maximum memory use.
+* Interactive mode: 100 MB maximum memory use.
 
-> [!NOTE]
-> **Note:** Memory calculations only include bitmaps, fonts, and XML-derived layers.
+**Note:** Memory calculations only include bitmaps, fonts, and XML-derived layers.
 
 ## Memory usage calculation
 
@@ -21,31 +29,33 @@ Watch Face Format, the system does the following:
 
 1. Decompress the image or font.
 2. Check if the following optimizations apply:
-   - Resizing to better fit the screen
-   - Cropping transparent pixels
-   - Downsampling to [RGB565](https://en.wikipedia.org/wiki/List_of_monochrome_and_RGB_color_formats#16-bit_RGB_(also_known_as_RGB565)), without loss of fidelity
+   * Resizing to better fit the screen
+   * Cropping transparent pixels
+   * Downsampling to [RGB565](https://en.wikipedia.org/wiki/List_of_monochrome_and_RGB_color_formats#16-bit_RGB_(also_known_as_RGB565)), without loss of fidelity
 
 Based on the resulting bounding box, the size is computed as follows:
 
-- For images and fonts using [RGBA8888](https://en.wikipedia.org/wiki/RGBA_color_model#RGBA8888): 4 x width x height
-- For images and fonts using RGB565: 2 x width x height
-- For images and fonts using the ALPHA_8 bitmap configuration: width x height
+* For images and fonts using [RGBA8888](https://en.wikipedia.org/wiki/RGBA_color_model#RGBA8888): 4 x width x height
+* For images and fonts using RGB565: 2 x width x height
+* For images and fonts using the ALPHA\_8 bitmap configuration: width x height
 
-> [!NOTE]
-> **Note:** If an image has multiple frames (like an animated GIF), the system decompresses each frame. The union of bounding boxes across all frames is the animation's bounding box.
+**Note:** If an image has multiple frames (like an animated GIF), the system
+decompresses each frame. The union of bounding boxes across all frames is the
+animation's bounding box.
 
 ### Interactive mode
 
 To compute memory usage for interactive mode, the system sums the following
 values:
 
-1. The unprocessed size of any [vector fonts](https://developer.android.com/guide/topics/resources/font-resource)
+1. The unprocessed size of any [vector fonts](/guide/topics/resources/font-resource)
 2. The estimated usage of the system's default font
-3. The total size of the images and bitmap fonts after cropping, resizing, and reformatting is applied
+3. The total size of the images and bitmap fonts after cropping, resizing, and
+   reformatting is applied
 
 ### Configurations
 
-For watch faces with [configurations](https://developer.android.com/training/wearables/wff/user-configuration/user-configurations), the system attempts to calculate the
+For watch faces with [configurations](/training/wearables/wff/user-configuration/user-configurations), the system attempts to calculate the
 total size of the watch face resources across different configurations. If the
 number of combinations is very large, the system may overestimate how many
 resources are used simultaneously.
@@ -55,7 +65,8 @@ resources are used simultaneously.
 The system assumes ambient mode uses up to three full-screen layers, two of
 which are static. The layers include:
 
-1. The watch face background. The system treats this as one image, regardless of how many images the background comprises.
+1. The watch face background. The system treats this as one image, regardless
+   of how many images the background comprises.
 2. Moving parts like hands, digital displays, or dynamic elements.
 3. Remaining elements from the source XML file.
 
@@ -65,15 +76,15 @@ Large bitmap fonts often use the most memory in ambient mode.
 
 Use the following optimizations to reduce memory usage.
 
-> [!TIP]
-> **Tip:** Use the [Watch Face Format Optimizer](https://github.com/google/watchface/tree/main/tools/wff-optimizer) to automatically apply some optimizations.
+**Tip:** Use the [Watch Face Format Optimizer](https://github.com/google/watchface/tree/main/tools/wff-optimizer) to automatically apply some
+optimizations.
 
 ### Crop and resize bitmap fonts
 
-Crop your images and [`BitmapFont`](https://developer.android.com/training/wearables/wff/group/part/text/bitmap-font) objects to match the display size.
+Crop your images and [`BitmapFont`](/training/wearables/wff/group/part/text/bitmap-font) objects to match the display size.
 
 Wear OS draws watch faces with all images decompressed. A mostly blank
-full-screen image might consume 3 KB on disk, but 750 KB or more on a
+full-screen image might consume 3 KB on disk, but 750 KB or more on a
 450-pixel x 450-pixel screen.
 
 ### Use consistent bitmap font heights
@@ -97,12 +108,10 @@ reference it multiple times.
 ### Show progress using arcs
 
 To simulate a progress bar finishing after 1 minute or 1 hour, don't use 60
-images. Use an [`Arc`](https://developer.android.com/training/wearables/wff/group/part/draw/shape/arc) object with an expression controlling its length, as
+images. Use an [`Arc`](/training/wearables/wff/group/part/draw/shape/arc) object with an expression controlling its length, as
 shown here:
 
-<br />
-
-```xml
+```
 <PartDraw angle="0" width="400" height="400" name="ProgressBar"
     pivotX="0.5" pivotY="0.5" x="25" y="25">
     <Arc centerX="200" centerY="200" width="400" height="400"
@@ -113,12 +122,12 @@ shown here:
         <Stroke cap="ROUND" color="#654456" thickness="10" />
     </Arc>
 </PartDraw>
+
+watchface_optimize.xml
 ```
 
-<br />
-
 To display a noncontinuous line, for example to achieve a retro digital watch
-style look, use a dash property for a [`Stroke`](https://developer.android.com/training/wearables/wff/group/part/draw/style/stroke) object or a semitransparent
+style look, use a dash property for a [`Stroke`](/training/wearables/wff/group/part/draw/style/stroke) object or a semitransparent
 mask image overlay.
 
 ### Place watch hands and complications at the end of the source file
@@ -134,7 +143,7 @@ evaluator tool, available in the [`watchface`](https://github.com/google/watchfa
 
 ## Recommended for you
 
-- Note: link text is displayed when JavaScript is off
-- [Arc](https://developer.android.com/training/wearables/wff/group/part/draw/shape/arc)
-- [Line](https://developer.android.com/training/wearables/wff/group/part/draw/shape/line)
-- [Rectangle](https://developer.android.com/training/wearables/wff/group/part/draw/shape/rectangle)
+* Note: link text is displayed when JavaScript is off
+* [Arc](/training/wearables/wff/group/part/draw/shape/arc)
+* [Line](/training/wearables/wff/group/part/draw/shape/line)
+* [Rectangle](/training/wearables/wff/group/part/draw/shape/rectangle)

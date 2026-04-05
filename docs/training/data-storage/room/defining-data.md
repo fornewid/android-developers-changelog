@@ -1,10 +1,19 @@
 ---
-title: https://developer.android.com/training/data-storage/room/defining-data
+title: Define data using Room entities  |  App data and files  |  Android Developers
 url: https://developer.android.com/training/data-storage/room/defining-data
-source: md.txt
+source: html-scrape
 ---
 
-When you use the [Room persistence library](https://developer.android.com/training/data-storage/room) to
+* [Android Developers](https://developer.android.com/)
+* [Develop](https://developer.android.com/develop)
+* [Core areas](https://developer.android.com/develop/core-areas)
+* [App data and files](https://developer.android.com/training/data-storage)
+
+# Define data using Room entities Stay organized with collections Save and categorize content based on your preferences.
+
+
+
+When you use the [Room persistence library](/training/data-storage/room) to
 store your app's data, you define entities to represent the objects that you
 want to store. Each entity corresponds to a table in the associated Room
 database, and each instance of an entity represents a row of data in the
@@ -17,16 +26,16 @@ writing any SQL code.
 ## Anatomy of an entity
 
 You define each Room entity as a class annotated with
-[`@Entity`](https://developer.android.com/reference/kotlin/androidx/room/Entity). A Room entity includes
+[`@Entity`](/reference/kotlin/androidx/room/Entity). A Room entity includes
 fields for each column in the corresponding table in the database, including one
-or more columns that make up the [primary key](https://developer.android.com/training/data-storage/room/defining-data#primary-key).
+or more columns that make up the [primary key](#primary-key).
 
 The following code is an example of a simple entity that defines a `User` table
 with columns for ID, first name, and last name:
 
 ### Kotlin
 
-```kotlin
+```
 @Entity
 data class User(
     @PrimaryKey val id: Int,
@@ -38,7 +47,7 @@ data class User(
 
 ### Java
 
-```java
+```
 @Entity
 public class User {
     @PrimaryKey
@@ -49,21 +58,22 @@ public class User {
 }
 ```
 
-> [!NOTE]
-> **Note:** To persist a field, Room must have access to it. You can make sure Room has access to a field either by making it public or by providing getter and setter methods for it.
+**Note:** To persist a field, Room must have access to it. You can make sure Room
+has access to a field either by making it public or by providing getter and
+setter methods for it.
 
 By default, Room uses the class name as the database table name. If you want the
 table to have a different name, set the
-[`tableName`](https://developer.android.com/reference/kotlin/androidx/room/Entity#tableName()) property of the
+[`tableName`](/reference/kotlin/androidx/room/Entity#tableName()) property of the
 `@Entity` annotation. Similarly, Room uses the field names as column names in
 the database by default. If you want a column to have a different name, add the
-[`@ColumnInfo`](https://developer.android.com/reference/kotlin/androidx/room/ColumnInfo) annotation to the
-field and set the [`name`](https://developer.android.com/reference/kotlin/androidx/room/ColumnInfo#name())
+[`@ColumnInfo`](/reference/kotlin/androidx/room/ColumnInfo) annotation to the
+field and set the [`name`](/reference/kotlin/androidx/room/ColumnInfo#name())
 property. The following example demonstrates custom names for a table and its columns:
 
 ### Kotlin
 
-```kotlin
+```
 @Entity(tableName = "users")
 data class User (
     @PrimaryKey val id: Int,
@@ -74,7 +84,7 @@ data class User (
 
 ### Java
 
-```java
+```
 @Entity(tableName = "users")
 public class User {
     @PrimaryKey
@@ -88,43 +98,43 @@ public class User {
 }
 ```
 
-> [!NOTE]
-> **Note:** Table and column names in SQLite are *case-insensitive*.
+**Note:** Table and column names in SQLite are *case-insensitive*.
 
 ## Define a primary key
 
 Each Room entity must define a [primary key](https://learn.microsoft.com/en-us/sql/relational-databases/tables/create-primary-keys?view=sql-server-ver16)
 that uniquely identifies each row in the corresponding database table. The most
 straightforward way of doing this is to annotate a single column with
-[`@PrimaryKey`](https://developer.android.com/reference/kotlin/androidx/room/PrimaryKey):
+[`@PrimaryKey`](/reference/kotlin/androidx/room/PrimaryKey):
 
 ### Kotlin
 
-```kotlin
+```
 @PrimaryKey val id: Int
 ```
 
 ### Java
 
-```java
+```
 @PrimaryKey
 public int id;
 ```
 
-> [!NOTE]
-> **Note:** If you need Room to assign automatic IDs to entity instances, set the [`autoGenerate`](https://developer.android.com/reference/kotlin/androidx/room/PrimaryKey#autoGenerate()) property of `@PrimaryKey` to `true`.
+**Note:** If you need Room to assign automatic IDs to entity instances, set the
+[`autoGenerate`](/reference/kotlin/androidx/room/PrimaryKey#autoGenerate())
+property of `@PrimaryKey` to `true`.
 
 ### Define a composite primary key
 
 If you need instances of an entity to be uniquely identified by a combination of
 multiple columns, you can define a *composite primary key* by listing those
 columns in the
-[`primaryKeys`](https://developer.android.com/reference/kotlin/androidx/room/Entity#primaryKeys()) property of
+[`primaryKeys`](/reference/kotlin/androidx/room/Entity#primaryKeys()) property of
 `@Entity`:
 
 ### Kotlin
 
-```kotlin
+```
 @Entity(primaryKeys = ["firstName", "lastName"])
 data class User(
     val firstName: String?,
@@ -134,7 +144,7 @@ data class User(
 
 ### Java
 
-```java
+```
 @Entity(primaryKeys = {"firstName", "lastName"})
 public class User {
     public String firstName;
@@ -146,12 +156,12 @@ public class User {
 
 By default, Room creates a column for each field that's defined in the entity.
 If an entity has fields that you don't want to persist, you can annotate them
-using [`@Ignore`](https://developer.android.com/reference/androidx/room/Ignore), as
+using [`@Ignore`](/reference/androidx/room/Ignore), as
 shown in the following code snippet:
 
 ### Kotlin
 
-```kotlin
+```
 @Entity
 data class User(
     @PrimaryKey val id: Int,
@@ -163,7 +173,7 @@ data class User(
 
 ### Java
 
-```java
+```
 @Entity
 public class User {
     @PrimaryKey
@@ -179,12 +189,12 @@ public class User {
 
 In cases where an entity inherits fields from a parent entity, it's usually
 easier to use the
-[`ignoredColumns`](https://developer.android.com/reference/kotlin/androidx/room/Entity#ignoredColumns()) property of
+[`ignoredColumns`](/reference/kotlin/androidx/room/Entity#ignoredColumns()) property of
 the `@Entity` attribute:
 
 ### Kotlin
 
-```kotlin
+```
 open class User {
     var picture: Bitmap? = null
 }
@@ -198,7 +208,7 @@ data class RemoteUser(
 
 ### Java
 
-```java
+```
 @Entity(ignoredColumns = "picture")
 public class RemoteUser extends User {
     @PrimaryKey
@@ -221,13 +231,13 @@ search (FTS), have your entities backed by a virtual table that uses either
 the FTS3 or FTS4 [SQLite extension
 module](https://www.sqlite.org/fts3.html). To use this capability,
 available in Room 2.1.0 and higher, add the
-[`@Fts3`](https://developer.android.com/reference/androidx/room/Fts3) or
-[`@Fts4`](https://developer.android.com/reference/androidx/room/Fts4) annotation to a given entity, as shown
+[`@Fts3`](/reference/androidx/room/Fts3) or
+[`@Fts4`](/reference/androidx/room/Fts4) annotation to a given entity, as shown
 in the following code snippet:
 
 ### Kotlin
 
-```kotlin
+```
 // Use `@Fts3` only if your app has strict disk space requirements or if you
 // require compatibility with an older SQLite version.
 @Fts4
@@ -242,7 +252,7 @@ data class User(
 
 ### Java
 
-```java
+```
 // Use `@Fts3` only if your app has strict disk space requirements or if you
 // require compatibility with an older SQLite version.
 @Fts4
@@ -259,8 +269,9 @@ public class User {
 }
 ```
 
-> [!NOTE]
-> **Note:** FTS-enabled tables always use a primary key of type `INTEGER` and with the column name `"rowid"`. If your FTS-table-backed entity defines a primary key, it *must* use that type and column name.
+**Note:** FTS-enabled tables always use a primary key of type `INTEGER` and with the
+column name `"rowid"`. If your FTS-table-backed entity defines a primary key, it
+*must* use that type and column name.
 
 In cases where a table supports content in multiple languages, use the
 `languageId` option to specify the column that stores language information for
@@ -268,7 +279,7 @@ each row:
 
 ### Kotlin
 
-```kotlin
+```
 @Fts4(languageId = "lid")
 @Entity(tableName = "users")
 data class User(
@@ -279,7 +290,7 @@ data class User(
 
 ### Java
 
-```java
+```
 @Fts4(languageId = "lid")
 @Entity(tableName = "users")
 public class User {
@@ -293,23 +304,23 @@ public class User {
 Room provides several other options for defining FTS-backed entities, including
 result ordering, tokenizer types, and tables managed as external content. For
 more details about these options, see the
-[`FtsOptions`](https://developer.android.com/reference/androidx/room/FtsOptions) reference.
+[`FtsOptions`](/reference/androidx/room/FtsOptions) reference.
 
 ### Index specific columns
 
 If your app must support SDK versions that don't support FTS3- or
 FTS4-table-backed entities, you can still index certain columns in the database
 to speed up your queries. To add indices to an entity, include the
-[`indices`](https://developer.android.com/reference/kotlin/androidx/room/Entity#indices())
+[`indices`](/reference/kotlin/androidx/room/Entity#indices())
 property within the
-[`@Entity`](https://developer.android.com/reference/androidx/room/Entity) annotation,
+[`@Entity`](/reference/androidx/room/Entity) annotation,
 listing the names of the columns that you want to include in the index or
 composite index. The following code snippet demonstrates this annotation
 process:
 
 ### Kotlin
 
-```kotlin
+```
 @Entity(indices = [Index(value = ["last_name", "address"])])
 data class User(
     @PrimaryKey val id: Int,
@@ -322,7 +333,7 @@ data class User(
 
 ### Java
 
-```java
+```
 @Entity(indices = {@Index("name"),
         @Index(value = {"last_name", "address"})})
 public class User {
@@ -342,15 +353,15 @@ public class User {
 
 Sometimes, certain fields or groups of fields in a database must be unique.
 You can enforce this uniqueness property by setting the
-[`unique`](https://developer.android.com/reference/androidx/room#getUnique())
-property of an [`@Index`](https://developer.android.com/reference/androidx/room)
+[`unique`](/reference/androidx/room#getUnique())
+property of an [`@Index`](/reference/androidx/room)
 annotation to `true`. The following code sample prevents a table from having
 two rows that contain the same set of values for the `firstName` and
 `lastName` columns:
 
 ### Kotlin
 
-```kotlin
+```
 @Entity(indices = [Index(value = ["first_name", "last_name"],
         unique = true)])
 data class User(
@@ -363,7 +374,7 @@ data class User(
 
 ### Java
 
-```java
+```
 @Entity(indices = {@Index(value = {"first_name", "last_name"},
         unique = true)})
 public class User {
@@ -383,9 +394,11 @@ public class User {
 
 ## Include AutoValue-based objects
 
-> [!NOTE]
-> **Note:** This capability is designed for use only in Java-based entities. To achieve the same functionality in Kotlin-based entities, it's better to use [data
-> classes](https://kotlinlang.org/docs/reference/data-classes.html) instead.
+**Note:** This capability is designed for use only in Java-based entities. To
+achieve the same functionality in Kotlin-based entities, it's better to use
+[data
+classes](https://kotlinlang.org/docs/reference/data-classes.html)
+instead.
 
 In Room 2.1.0 and higher, you can use Java-based [immutable value
 classes](https://github.com/google/auto/blob/master/value/userguide/index.md),
@@ -404,7 +417,7 @@ The following code snippet shows an example of a class annotated with
 
 User.java
 
-```java
+```
 @AutoValue
 @Entity
 public abstract class User {
@@ -422,3 +435,9 @@ public abstract class User {
     }
 }
 ```
+
+[Next
+
+Access data using DAOs
+
+arrow\_forward](/training/data-storage/room/accessing-data)

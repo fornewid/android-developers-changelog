@@ -1,15 +1,39 @@
 ---
-title: https://developer.android.com/develop/xr/web
+title: Develop for the web on Android XR  |  Android XR for WebXR  |  Android Developers
 url: https://developer.android.com/develop/xr/web
-source: md.txt
+source: html-scrape
 ---
 
-<br />
+The Android XR SDK has  [reached Developer Preview 3](https://android-developers.googleblog.com/2025/12/build-for-ai-glasses-with-android-xr.html), and we want your feedback! Try things out, and visit our [support page](/develop/xr/support) to reach out.
+
+* [Android Developers](https://developer.android.com/)
+* [Develop](https://developer.android.com/develop)
+* [Devices](https://developer.android.com/develop/devices)
+* [Android XR](https://developer.android.com/develop/xr)
+* [WebXR](https://developer.android.com/develop/xr/web)
+* [Guides](https://developer.android.com/develop/xr/get-started)
+
+# Develop for the web on Android XR Stay organized with collections Save and categorize content based on your preferences.
 
 
-Applicable XR devices This guidance helps you build experiences for these types of XR devices. [Learn about XR device types →](https://developer.android.com/develop/xr/devices) ![](https://developer.android.com/static/images/develop/xr/xr-headsets-icon.svg) XR Headsets [](https://developer.android.com/develop/xr/devices#xr-headsets) ![](https://developer.android.com/static/images/develop/xr/xr-glasses-icon.svg) Wired XR Glasses [](https://developer.android.com/develop/xr/devices#xr-glasses) [Learn about XR device types →](https://developer.android.com/develop/xr/devices)
 
-<br />
+Applicable XR devices
+
+This guidance helps you build experiences for these types of XR devices.
+
+[Learn about XR device types →](/develop/xr/devices)
+
+![](/static/images/develop/xr/xr-headsets-icon.svg)
+
+
+XR Headsets
+
+![](/static/images/develop/xr/xr-glasses-icon.svg)
+
+
+Wired XR Glasses
+
+[Learn about XR device types →](/develop/xr/devices)
 
 Chrome on Android XR supports [WebXR](https://www.w3.org/TR/webxr/). WebXR is an open standard
 by [W3C](https://www.w3.org/) that brings high-performance XR APIs to
@@ -18,17 +42,17 @@ enhance existing sites with 3D models or build new immersive experiences.
 
 The following WebXR features are supported by Chrome for Android XR:
 
-- [Device API](https://www.w3.org/TR/webxr/)
-- [AR Module](https://www.w3.org/TR/webxr-ar-module-1/)
-- [Gamepads Module](https://www.w3.org/TR/webxr-gamepads-module-1/)
-- [Hit Test Module](https://immersive-web.github.io/hit-test/)
-- [Hand Input](https://www.w3.org/TR/webxr-hand-input-1/)
-- [Anchors](https://immersive-web.github.io/anchors/)
-- [Depth Sensing](https://immersive-web.github.io/depth-sensing/)
-- [Light Estimation](https://immersive-web.github.io/lighting-estimation/)
+* [Device API](https://www.w3.org/TR/webxr/)
+* [AR Module](https://www.w3.org/TR/webxr-ar-module-1/)
+* [Gamepads Module](https://www.w3.org/TR/webxr-gamepads-module-1/)
+* [Hit Test Module](https://immersive-web.github.io/hit-test/)
+* [Hand Input](https://www.w3.org/TR/webxr-hand-input-1/)
+* [Anchors](https://immersive-web.github.io/anchors/)
+* [Depth Sensing](https://immersive-web.github.io/depth-sensing/)
+* [Light Estimation](https://immersive-web.github.io/lighting-estimation/)
 
 To see WebXR in action, launch Chrome on an Android XR device or the [Android XR
-Emulator](https://developer.android.com/develop/xr/jetpack-xr-sdk/run/emulator/xr-headsets-glasses) and browse the official [WebXR samples](https://immersive-web.github.io/webxr-samples/).
+Emulator](/develop/xr/jetpack-xr-sdk/run/emulator/xr-headsets-glasses) and browse the official [WebXR samples](https://immersive-web.github.io/webxr-samples/).
 
 ## Prerequisite: Choose a WebXR framework
 
@@ -36,9 +60,12 @@ Before you begin developing, it's important to choose the right WebXR framework.
 This significantly enhances your own productivity and improves the quality of
 the experiences you create.
 
-- For full control over 3D scenes and creation of custom or complex interactions, we recommend [three.js](https://threejs.org/) and [babylon.js](https://www.babylonjs.com/).
-- For rapid prototyping or using HTML-like syntax to define 3D scenes, we recommend [A-Frame](https://aframe.io/docs/1.6.0/components/webxr.html) and [model-viewer](https://modelviewer.dev/examples/augmentedreality/).
-- You can also review more [frameworks and sample code](https://immersiveweb.dev/#a-frame).
+* For full control over 3D scenes and creation of custom or complex
+  interactions, we recommend [three.js](https://threejs.org/) and
+  [babylon.js](https://www.babylonjs.com/).
+* For rapid prototyping or using HTML-like syntax to define 3D scenes, we
+  recommend [A-Frame](https://aframe.io/docs/1.6.0/components/webxr.html) and [model-viewer](https://modelviewer.dev/examples/augmentedreality/).
+* You can also review more [frameworks and sample code](https://immersiveweb.dev/#a-frame).
 
 If you prefer using native JavaScript and WebGL, refer to [WebXR on
 GitHub](https://github.com/immersive-web/webxr-samples/tree/main) to create your first WebXR experiment.
@@ -52,7 +79,7 @@ stereo screens in Android XR. WebXR experiences targeting mobile devices or
 existing headsets may need to adapt input code to be hand-first.
 
 When working with WebXR on Android XR, you may need to update your code to
-compensate for the fact that there are two screens---one for each eye.
+compensate for the fact that there are two screens—one for each eye.
 
 ## About ensuring a sense of depth in WebXR
 
@@ -73,40 +100,49 @@ may need to update your WebXR code to properly support stereo depth frames.
 
 The following example renders depth information stereoscopically:
 
-    // Called every time a XRSession requests that a new frame be drawn.
-    function onXRFrame(t, frame) {
-      const session = frame.session;
-      session.requestAnimationFrame(onXRFrame);
-      const baseLayer = session.renderState.baseLayer;
-      const pose = frame.getViewerPose(xrRefSpace);
+```
+// Called every time a XRSession requests that a new frame be drawn.
+function onXRFrame(t, frame) {
+  const session = frame.session;
+  session.requestAnimationFrame(onXRFrame);
+  const baseLayer = session.renderState.baseLayer;
+  const pose = frame.getViewerPose(xrRefSpace);
 
-      if (pose) {
-        gl.bindFramebuffer(gl.FRAMEBUFFER, session.renderState.baseLayer.framebuffer);
+  if (pose) {
+    gl.bindFramebuffer(gl.FRAMEBUFFER, session.renderState.baseLayer.framebuffer);
 
-        // Clears the framebuffer.
-        gl.clearColor(0, 0, 0, 0);
-        gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
+    // Clears the framebuffer.
+    gl.clearColor(0, 0, 0, 0);
+    gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
 
-        // Note: Two views will be returned from pose.views.
-        for (const view of pose.views) {
-          const viewport = baseLayer.getViewport(view);
-          gl.viewport(viewport.x, viewport.y, viewport.width, viewport.height);
+    // Note: Two views will be returned from pose.views.
+    for (const view of pose.views) {
+      const viewport = baseLayer.getViewport(view);
+      gl.viewport(viewport.x, viewport.y, viewport.width, viewport.height);
 
-          const depthData = frame.getDepthInformation(view);
-          if (depthData) {
-            renderDepthInformationGPU(depthData, view, viewport);
-          }
-        }
-      } else {
-        console.error('Pose unavailable in the current frame!');  }
+      const depthData = frame.getDepthInformation(view);
+      if (depthData) {
+        renderDepthInformationGPU(depthData, view, viewport);
+      }
     }
+  } else {
+    console.error('Pose unavailable in the current frame!');  }
+}
+```
 
 **Key points about the code**
 
-- A valid pose must be returned to access depth data.
-- `pose.views` returns a view for each eye and its corresponding for loop runs twice.
+* A valid pose must be returned to access depth data.
+* `pose.views` returns a view for each eye and its
+  corresponding for loop runs twice.
 
-Alas, your browser doesn't support HTML5 video. That's OK! You can still [download the video](https://developer.android.com/static/videos/design/ui/xr/depth_01.mp4) and watch it with a video player.
+[
+
+Alas, your browser doesn't support HTML5 video. That's OK! You can still
+[download the video](/static/videos/design/ui/xr/depth_01.mp4) and watch it with a video player.
+](/static/videos/design/ui/xr/depth_01.mp4)
+
+
 Real-time depth visualization using WebXR depth sensing API. Red indicates closer pixels while blue indicates farther pixels.
 
 ## Add hand interaction in WebXR
@@ -127,7 +163,14 @@ how to integrate hand tracking into your WebXR project.
 The following animation shows an example of combining pinching with the WebXR
 API to show a user "wiping out" the surface of a virtual space to reveal a
 pass-through window into the real world.
-Alas, your browser doesn't support HTML5 video. That's OK! You can still [download the video](https://developer.android.com/static/videos/design/ui/xr/xrlabs_screenwiper_20241209_v2.mp4) and watch it with a video player.
+
+[
+
+Alas, your browser doesn't support HTML5 video. That's OK! You can still
+[download the video](/static/videos/design/ui/xr/xrlabs_screenwiper_20241209_v2.mp4) and watch it with a video player.
+](/static/videos/design/ui/xr/xrlabs_screenwiper_20241209_v2.mp4)
+
+
 WebXR demo of using hand pinch to wipe out screens to see-through the physical reality.
 
 ## Permissions in WebXR

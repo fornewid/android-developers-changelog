@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 To protect user privacy, apps that use location services must request location
 permissions.
 

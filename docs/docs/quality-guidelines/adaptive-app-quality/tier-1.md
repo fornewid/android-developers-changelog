@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Adaptive differentiated apps use the large screen and foldable form factors to
 their full potential. Differentiated apps offer a premium user experience that's
 productive and delightful.

@@ -15,6 +15,7 @@ Send feedback
 
 
 
+
 This document describes how to migrate existing games from the [games v1
 SDK](https://developers.google.com/android/games_v1/reference/com/google/android/gms/games/package-summary) to the [games v2 SDK](https://developers.google.com/android/reference/com/google/android/gms/games/package-summary).
 
@@ -825,6 +826,8 @@ Build the APK(s) and publish the game in the Play Console.
 2. Publish your game.
    For more information, see
    [Publish private apps from the Play Console](https://support.google.com/googleplay/work/answer/6145139).
+
+
 
 
 

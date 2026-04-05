@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 The following are new features in Android Studio Bumblebee.
 
 ## Support for KMP test execution

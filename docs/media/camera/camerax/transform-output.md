@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 The output of a CameraX use case is twofold: the buffer and the transformation
 info. The buffer is a byte array and the transformation info is how the buffer
 should be cropped and rotated before being shown to end users. How to apply the

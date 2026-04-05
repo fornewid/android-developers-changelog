@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Android TV uses the Android [search interface](/guide/topics/search)
 to retrieve content data from installed apps and deliver search results to the user. Your app's
 content data can be included with these results to give the user instant access to the content in

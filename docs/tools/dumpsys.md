@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 `dumpsys` is a tool that runs on Android devices and provides information about
 system services. Call `dumpsys` from the command line using the
 [Android Debug Bridge (ADB)](/studio/command-line/adb)

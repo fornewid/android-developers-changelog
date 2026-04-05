@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 Components are purpose-built building blocks for building your UI. Your app
 should utilize Jetpack Compose Glimmer for components as they are optimized for
 the unique use cases of displays on AI glasses.

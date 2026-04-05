@@ -1,16 +1,8 @@
 ---
-title: Features  |  Play for Native PC  |  Android Developers
+title: https://developer.android.com/games/playgames/native-pc/unity/features
 url: https://developer.android.com/games/playgames/native-pc/unity/features
-source: html-scrape
+source: md.txt
 ---
-
-* [Home](https://developer.android.com/)
-* [Play for Native PC](https://developer.android.com/games/playgames/native-pc)
-* [Guides](https://developer.android.com/games/playgames/native-pc/setup)
-
-# Features Stay organized with collections Save and categorize content based on your preferences.
-
-
 
 This section provides detailed implementation guides for the core modules
 supported by Google Play Games PC SDK for Unity:
@@ -32,7 +24,7 @@ You must retrieve the Unity-specific callback handler from the
 stability, we recommend wrapping the initialization logic in a safe async runner
 to handle potential exceptions and prevent double-initialization.
 
-```
+```c#
 using UnityEngine;
 using System;
 using System.Threading.Tasks;

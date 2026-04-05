@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 This guide covers how to route audio for Bluetooth devices using the
 [Telecom API](/develop/connectivity/telecom) and set the connection for
 VoIP calls. Read the

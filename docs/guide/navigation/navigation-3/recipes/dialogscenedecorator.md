@@ -13,7 +13,6 @@ Save and categorize content based on your preferences.
 
 
 
-
 # Dialog Scene Decorator Recipe
 
 This recipe demonstrates one approach to displaying a scene within a dialog. For example, this could be used to display a list-detail settings UI as an overlay when the app is in an expanded window, but as full screen pages otherwise.

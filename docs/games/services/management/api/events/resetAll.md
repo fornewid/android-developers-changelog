@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 **Requires [authorization](#auth)**
 
 Resets all player progress on all events for the currently authenticated player. This method is only accessible to whitelisted tester accounts for your application.

@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 This page lists some frequently asked questions about Gemini in Android Studio
 and how it works. For more resources, see the [troubleshooting guide](/studio/gemini/troubleshooting). If
 you still have questions, [send feedback](/studio/report-bugs).

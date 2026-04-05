@@ -1,8 +1,18 @@
 ---
-title: https://developer.android.com/kotlin/adopt-for-large-teams
+title: Adopt Kotlin for large teams  |  Android Developers
 url: https://developer.android.com/kotlin/adopt-for-large-teams
-source: md.txt
+source: html-scrape
 ---
+
+* [Android Developers](https://developer.android.com/)
+* [Get started](https://developer.android.com/get-started/overview)
+* [Kotlin](https://developer.android.com/kotlin)
+* [Guides](https://developer.android.com/kotlin/first)
+
+# Adopt Kotlin for large teams Stay organized with collections Save and categorize content based on your preferences.
+
+
+
 
 Moving to any new language can be a daunting task. The recipe for success is to
 start slow, move in chunks, and test frequently to align your team for success.
@@ -61,54 +71,58 @@ tested easily in isolation.
 
 For example, assume the following snippet of Java:
 
-    public class Person {
+```
+public class Person {
 
-       private String firstName;
-       private String lastName;
-       // ...
+   private String firstName;
+   private String lastName;
+   // ...
 
-       public String getFirstName() {
-           return firstName;
-       }
+   public String getFirstName() {
+       return firstName;
+   }
 
-       public void setFirstName(String firstName) {
-           this.firstName = firstName;
-       }
+   public void setFirstName(String firstName) {
+       this.firstName = firstName;
+   }
 
-       public String getLastName() {
-           return lastName;
-       }
+   public String getLastName() {
+       return lastName;
+   }
 
-       public void setLastName(String lastName) {
-           this.lastName = lastName;
-       }
+   public void setLastName(String lastName) {
+       this.lastName = lastName;
+   }
 
-       @Override
-       public boolean equals(Object o) {
-           if (this == o) return true;
-           if (o == null || getClass() != o.getClass()) return false;
-           Person person = (Person) o;
-           return Objects.equals(firstName, person.firstName) &&
-                   Objects.equals(lastName, person.lastName);
-       }
+   @Override
+   public boolean equals(Object o) {
+       if (this == o) return true;
+       if (o == null || getClass() != o.getClass()) return false;
+       Person person = (Person) o;
+       return Objects.equals(firstName, person.firstName) &&
+               Objects.equals(lastName, person.lastName);
+   }
 
-       @Override
-       public int hashCode() {
-           return Objects.hash(firstName, lastName);
-       }
+   @Override
+   public int hashCode() {
+       return Objects.hash(firstName, lastName);
+   }
 
-       @Override
-       public String toString() {
-           return "Person{" +
-                   "firstName='" + firstName + '\'' +
-                   ", lastName='" + lastName + '\'' +
-                   '}';
-       }
-    }
+   @Override
+   public String toString() {
+       return "Person{" +
+               "firstName='" + firstName + '\'' +
+               ", lastName='" + lastName + '\'' +
+               '}';
+   }
+}
+```
 
 You can replace the Java class with a single line of Kotlin, as shown here:
 
-    data class Person(var firstName: String?, var lastName : String?)
+```
+data class Person(var firstName: String?, var lastName : String?)
+```
 
 This code can then be unit tested against your current test suite. The idea here
 is to start small with one model at a time and transition classes that are
@@ -129,29 +143,33 @@ and used by your existing Java codebase.
 
 For example, consider you have a `StringUtils` class with a few methods:
 
-    package com.java.project;
+```
+package com.java.project;
 
-    public class StringUtils {
+public class StringUtils {
 
-       public static String foo(String receiver) {
-           return receiver...;  // Transform the receiver in some way
-       }
+   public static String foo(String receiver) {
+       return receiver...;  // Transform the receiver in some way
+   }
 
-       public static String bar(String receiver) {
-           return receiver...;  // Transform the receiver in some way
-       }
+   public static String bar(String receiver) {
+       return receiver...;  // Transform the receiver in some way
+   }
 
-    }
+}
+```
 
 These methods might then be used elsewhere in your app, as shown in the
 following example:
 
-    ...
+```
+...
 
-    String myString = ...
-    String fooString = StringUtils.foo(myString);
+String myString = ...
+String fooString = StringUtils.foo(myString);
 
-    ...
+...
+```
 
 Using Kotlin extension functions, you can provide the same `Utils` interface to
 Java callers while at the same time offering a more succinct API for your
@@ -161,61 +179,69 @@ To do this, you could start by converting this `Utils` class to Kotlin using the
 automatic conversion provided by the IDE. Example output might look similar to
 the following:
 
-    package com.java.project
+```
+package com.java.project
 
-    object StringUtils {
+object StringUtils {
 
-       fun foo(receiver: String): String {
-           return receiver...;  // Transform the receiver in some way
-       }
+   fun foo(receiver: String): String {
+       return receiver...;  // Transform the receiver in some way
+   }
 
-       fun bar(receiver: String): String {
-           return receiver...;  // Transform the receiver in some way
-       }
+   fun bar(receiver: String): String {
+       return receiver...;  // Transform the receiver in some way
+   }
 
-    }
+}
+```
 
 Next, remove the class or object definition, prefix each function name with the
 type on which this function should apply, and use this to reference the type
 inside the function, as shown in the following example:
 
-    package com.java.project
+```
+package com.java.project
 
-    fun String.foo(): String {
-        return this...;  // Transform the receiver in some way
-    }
+fun String.foo(): String {
+    return this...;  // Transform the receiver in some way
+}
 
-    fun String.bar(): String {
-        return this...;  // Transform the receiver in some way
-    }
+fun String.bar(): String {
+    return this...;  // Transform the receiver in some way
+}
+```
 
 Finally, add a `JvmName` annotation to the top of the source file to make the
 compiled name compatible with the rest of your app, as shown in the following
 example:
 
-    @file:JvmName("StringUtils")
-    package com.java.project
-    ...
+```
+@file:JvmName("StringUtils")
+package com.java.project
+...
+```
 
 The final version should look similar to the following:
 
-    @file:JvmName("StringUtils")
-    package com.java.project
+```
+@file:JvmName("StringUtils")
+package com.java.project
 
-    fun String.foo(): String {
-        return this...;  // Transform `this` string in some way
-    }
+fun String.foo(): String {
+    return this...;  // Transform `this` string in some way
+}
 
-    fun String.bar(): String {
-        return this...;  // Transform `this` string in some way
-    }
+fun String.bar(): String {
+    return this...;  // Transform `this` string in some way
+}
+```
 
 Note that these functions can now be called using Java or Kotlin with
 conventions that match each language.
 
 ### Kotlin
 
-```kotlin
+```
 ...
 val myString: String = ...
 val fooString = myString.foo()
@@ -224,7 +250,7 @@ val fooString = myString.foo()
 
 ### Java
 
-```java
+```
 ...
 String myString = ...
 String fooString = StringUtils.foo(myString);
@@ -252,12 +278,12 @@ grows:
 
 Be sure to define a standard set of coding conventions early on in your adoption
 process. You can diverge from the Android
-[Kotlin style guide](https://developer.android.com/kotlin/style-guide) where it makes sense.
+[Kotlin style guide](/kotlin/style-guide) where it makes sense.
 
 ### Static analysis tools
 
 Enforce the coding standards set for your team by using
-[Android lint](https://developer.android.com/studio/write/lint) and other static analysis tools.
+[Android lint](/studio/write/lint) and other static analysis tools.
 [klint](https://github.com/pinterest/ktlint), a third-party Kotlin
 linter, also provides additional rules for Kotlin.
 
@@ -294,14 +320,16 @@ and [lambdas](https://kotlinlang.org/docs/reference/lambdas.html).
 Here's a very common trap that newer Kotlin developers encounter. Assume the
 following Kotlin code:
 
-    val nullableFoo: Foo? = ...
+```
+val nullableFoo: Foo? = ...
 
-    // This lambda executes only if nullableFoo is not null
-    // and `foo` is of the non-nullable Foo type
-    nullableFoo?.let { foo ->
-       foo.baz()
-       foo.zap()
-    }
+// This lambda executes only if nullableFoo is not null
+// and `foo` is of the non-nullable Foo type
+nullableFoo?.let { foo ->
+   foo.baz()
+   foo.zap()
+}
+```
 
 The intent in this example is to execute `foo.baz()` and `foo.zap()` if
 `nullableFoo` is not null, thus avoiding a `NullPointerException`. While this
@@ -309,14 +337,18 @@ code works as expected, it's less intuitive to read than a simple null check and
 [smart cast](https://kotlinlang.org/docs/reference/typecasts.html#smart-casts),
 as shown in the following example:
 
-    val nullableFoo: Foo? = null
-    if (nullableFoo != null) {
-        nullableFoo.baz() // Using !! or ?. isn't required; the Kotlin compiler infers non-nullability
-        nullableFoo.zap() // from guard condition; smart casts nullableFoo to Foo inside this block
-    }
+```
+val nullableFoo: Foo? = null
+if (nullableFoo != null) {
+    nullableFoo.baz() // Using !! or ?. isn't required; the Kotlin compiler infers non-nullability
+    nullableFoo.zap() // from guard condition; smart casts nullableFoo to Foo inside this block
+}
+```
 
-> [!NOTE]
-> **Note:** Smart casting works only for read-only class properties (like those declared as a `val`) and local function variables, as the Kotlin compiler can't otherwise guarantee the variable reference wasn't set back to `null` between the `if` guard and the variable's usage.
+**Note:** Smart casting works only for read-only class properties (like those
+declared as a `val`) and local function variables, as the Kotlin compiler can't
+otherwise guarantee the variable reference wasn't set back to `null` between the
+`if` guard and the variable's usage.
 
 #### Testing
 
@@ -342,7 +374,9 @@ with both unit and instrumented tests.
 
 For more information on using Kotlin, check out the following links:
 
-- [Android's Kotlin-first approach](https://developer.android.com/kotlin/first)
-- [Resources for getting started with Kotlin](https://developer.android.com/kotlin/getting-started-resources)
-- [Resources for Java users learning Kotlin](https://developer.android.com/kotlin/kotlin-java-resources)
-- [Java to Kotlin learning pathway](https://developer.android.com/courses/pathways/kotlin-for-java), a collection of resources that help Java programmers learn and write idiomatic Kotlin.
+* [Android’s Kotlin-first approach](/kotlin/first)
+* [Resources for getting started with Kotlin](/kotlin/getting-started-resources)
+* [Resources for Java users learning Kotlin](/kotlin/kotlin-java-resources)
+* [Java to Kotlin learning pathway](/courses/pathways/kotlin-for-java),
+  a collection of resources that help Java programmers learn and write
+  idiomatic Kotlin.

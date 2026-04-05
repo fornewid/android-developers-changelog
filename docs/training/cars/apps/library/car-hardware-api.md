@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Starting with Car App API level 3, you can use Car App Library APIs to access
 vehicle properties and sensors.
 

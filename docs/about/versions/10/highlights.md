@@ -12,6 +12,7 @@ source: html-scrape
 
 
 
+
 ![](https://developer.android.com/images/about/versions/10/android10-card.png)
 
 Android 10 is built around three important themes. First, Android 10 is

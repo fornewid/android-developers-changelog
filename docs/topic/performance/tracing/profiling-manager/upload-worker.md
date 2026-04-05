@@ -1,8 +1,17 @@
 ---
-title: https://developer.android.com/topic/performance/tracing/profiling-manager/upload-worker
+title: Set up a worker for profile uploading  |  App quality  |  Android Developers
 url: https://developer.android.com/topic/performance/tracing/profiling-manager/upload-worker
-source: md.txt
+source: html-scrape
 ---
+
+* [Android Developers](https://developer.android.com/)
+* [Design & Plan](https://developer.android.com/design)
+* [App quality](https://developer.android.com/quality)
+* [Technical quality](https://developer.android.com/quality/technical)
+
+# Set up a worker for profile uploading Stay organized with collections Save and categorize content based on your preferences.
+
+
 
 ProfilingManager saves traces locally on the device. While you can retrieve
 these files using ADB for local debugging, collecting field data requires
@@ -31,20 +40,18 @@ libraries to your `build.gradle.kts` file. `WorkManager` needs them.
 
 ### Kotlin
 
-```kotlin
+```
    dependencies {
        implementation("androidx.work:work-runtime:2.11.2")
    }
-   
 ```
 
 ### Groovy
 
-```groovy
+```
    dependencies {
        implementation 'androidx.work:work-runtime:2.11.2'
    }
-   
 ```
 
 ### Code snippet
@@ -52,15 +59,15 @@ libraries to your `build.gradle.kts` file. `WorkManager` needs them.
 This code shows how to set up a job for uploading traces. The job should be
 setup when the `ProfilingResult` is received by your app. The profiling section
 is omitted in this section but an example can be found in [Record a system
-trace](https://developer.android.com/topic/performance/tracing/profiling-manager/how-to-capture#record-system-trace).
+trace](/topic/performance/tracing/profiling-manager/how-to-capture#record-system-trace).
 
-> [!NOTE]
-> **Note:** The actual upload logic is not included. `ProfilingManager` works with any cloud platform. Use this setup as a starting point, then add the specific upload details for your app's cloud service.
-
+**Note:** The actual upload logic is not included. `ProfilingManager` works with any
+cloud platform. Use this setup as a starting point, then add the specific upload
+details for your app's cloud service.
 
 ### Kotlin
 
-```kotlin
+```
 class TraceUploadWorker(context: Context, workerParams: WorkerParameters) : Worker(context, workerParams) {
     override fun doWork(): Result {
         // Perform your uploading work here
@@ -87,11 +94,13 @@ fun setupProfileUploadWorker(profileFilepath: String?) {
 
     workMgr.enqueue(workRequestBuilder.build())
 }
+
+ProfilingManagerKotlinSnippets.kt
 ```
 
 ### Java
 
-```java
+```
 public static class TraceUploadWorker extends Worker {
 
   public TraceUploadWorker(
@@ -127,42 +136,37 @@ public void setupProfileUploadWorker(String profileFilepath) {
 
   workMgr.enqueue(workRequestBuilder.build());
 }
-```
 
-<br />
+ProfilingManagerJavaSnippets.java
+```
 
 ### Code walkthrough
 
 The code does the following:
 
-- **Define the worker** : Create a `TraceUploadWorker` class extending
+* **Define the worker**: Create a `TraceUploadWorker` class extending
   `Worker`. Implement the `doWork()` method to handle the actual file upload
   logic using your preferred backend SDK or HTTP client.
-
-- **Request profiling** : Use `SystemTraceRequestBuilder` to configure the
+* **Request profiling**: Use `SystemTraceRequestBuilder` to configure the
   trace (duration, buffer policy) and `Profiling.requestProfiling` to start
   it.
+* **Schedule the work**:
 
-- **Schedule the work**:
-
-  - Create a `OneTimeWorkRequest` for your worker.
-
-  - Set constraints: Use `setRequiredNetworkType(NetworkType.UNMETERED)`,
+  + Create a `OneTimeWorkRequest` for your worker.
+  + Set constraints: Use `setRequiredNetworkType(NetworkType.UNMETERED)`,
     `setRequiresDeviceIdle(true)` and `setRequiresCharging(true)` to ensure
     the upload only happens when the user is on Wi-Fi, charging and not actively
     using the device. This is important to avoid disruption to the user with the
     upload job.
-
-  - Pass data: Use `setInputData` to pass the trace path to the worker.
-
-  - Enqueue: Submit the request to WorkManager by calling
+  + Pass data: Use `setInputData` to pass the trace path to the worker.
+  + Enqueue: Submit the request to WorkManager by calling
     `WorkManager#enqueue`.
 
 ## Next Steps
 
 After uploading traces, you can analyze them individually or perform [bulk trace
-analysis](https://developer.android.com/topic/performance/tracing/profiling-manager/bulk-trace-analysis). For guidance on setting up a scalable analysis pipeline, refer to
+analysis](/topic/performance/tracing/profiling-manager/bulk-trace-analysis). For guidance on setting up a scalable analysis pipeline, refer to
 [Deploying Bigtrace on Kubernetes](https://perfetto.dev/docs/deployment/deploying-bigtrace-on-kubernetes).
 
-> [!NOTE]
-> **Note:** You can delete profile files from the device after uploading them if they are no longer needed, as `ProfilingManager` no longer manages these files.
+**Note:** You can delete profile files from the device after uploading them if they
+are no longer needed, as `ProfilingManager` no longer manages these files.

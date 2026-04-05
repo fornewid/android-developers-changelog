@@ -1,34 +1,48 @@
 ---
-title: https://developer.android.com/develop/ui/views/touch-and-input/stylus-input/ink-api-geometry-apis
+title: Geometry APIs  |  Views  |  Android Developers
 url: https://developer.android.com/develop/ui/views/touch-and-input/stylus-input/ink-api-geometry-apis
-source: md.txt
+source: html-scrape
 ---
+
+* [Android Developers](https://developer.android.com/)
+* [Develop](https://developer.android.com/develop)
+* [Core areas](https://developer.android.com/develop/core-areas)
+* [UI](https://developer.android.com/develop/ui)
+* [Views](https://developer.android.com/develop/ui/views/layout/declaring-layout)
+
+# Geometry APIs Stay organized with collections Save and categorize content based on your preferences.
+
+
 
 The Geometry APIs let you create interactive tools such as selection
 mechanisms and erasers.
 
 This section shows how to use the Geometry APIs to implement an eraser.
 
-    private fun eraseIntersectingStrokes(
-      currentX: Float,
-      currentY: Float,
-      currentStrokes: MutableList<Stroke>,
-      ): Unit {
-        val prev = previousPoint
-        previousPoint = MutableVec(currentX, currentY)
-        if (prev == null) return
+```
+private fun eraseIntersectingStrokes(
+  currentX: Float,
+  currentY: Float,
+  currentStrokes: MutableList<Stroke>,
+  ): Unit {
+    val prev = previousPoint
+    previousPoint = MutableVec(currentX, currentY)
+    if (prev == null) return
 
-        val segment = MutableSegment(prev, MutableVec(currentX, currentY))
-        val parallelogram = MutableParallelogram().populateFromSegmentAndPadding(
-          segment,
-          eraserPadding
-        )
-        currentStrokes.removeAll {
-            it.shape.intersects(parallelogram, AffineTransform.IDENTITY)
-        }
+    val segment = MutableSegment(prev, MutableVec(currentX, currentY))
+    val parallelogram = MutableParallelogram().populateFromSegmentAndPadding(
+      segment,
+      eraserPadding
+    )
+    currentStrokes.removeAll {
+        it.shape.intersects(parallelogram, AffineTransform.IDENTITY)
     }
+}
+```
 
-> [!NOTE]
-> **Note:** You can implement an eraser that only removes the parts of strokes it touches by checking if a stroke intersects with individual line segments of a [`StrokeInputBatch`](https://developer.android.com/reference/kotlin/androidx/ink/strokes/StrokeInputBatch).  
->
-> Then, create new `StrokeInputBatch` and [`Stroke`](https://developer.android.com/reference/kotlin/androidx/ink/strokes/Stroke) objects from the line segments that weren't intersected.
+**Note:** You can implement an eraser that only removes the parts of strokes it
+touches by checking if a stroke intersects with individual line segments of a
+[`StrokeInputBatch`](/reference/kotlin/androidx/ink/strokes/StrokeInputBatch).  
+  
+Then, create new `StrokeInputBatch` and [`Stroke`](/reference/kotlin/androidx/ink/strokes/Stroke) objects from the line
+segments that weren't intersected.

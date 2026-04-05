@@ -1,8 +1,17 @@
 ---
-title: https://developer.android.com/training/tv/accessibility/custom-views
+title: Custom view accessibility support on Android TV  |  Android Developers
 url: https://developer.android.com/training/tv/accessibility/custom-views
-source: md.txt
+source: html-scrape
 ---
+
+* [Android Developers](https://developer.android.com/)
+* [Develop](https://developer.android.com/develop)
+* [Devices](https://developer.android.com/develop/devices)
+* [Android TV](https://developer.android.com/training/tv)
+
+# Custom view accessibility support on Android TV Stay organized with collections Save and categorize content based on your preferences.
+
+
 
 While many Android TV apps are built with native Android components, it's
 also important to consider the accessibility of third-party
@@ -14,12 +23,10 @@ with accessibility services like Talkback and Switch Access.
 Consider some of the following issues that might occur with Talkback switched
 on:
 
-- The accessibility focus (a green rectangle) might disappear in your app.
-- The accessibility focus might select the boundary of the whole screen.
-- The accessibility focus might not be movable.
-- The four direction keys on the D-pad might have no effect, even if your code is handling them.
-
-<br />
+* The accessibility focus (a green rectangle) might disappear in your app.
+* The accessibility focus might select the boundary of the whole screen.
+* The accessibility focus might not be movable.
+* The four direction keys on the D-pad might have no effect, even if your code is handling them.
 
 If you observe any of these issues in your app, check that your
 app exposes its [`AccessibilityNodeInfo`](https://developer.android.com/reference/android/view/accessibility/AccessibilityNodeInfo)
@@ -53,7 +60,7 @@ key events correctly.
 ## Expose information to accessibility services
 
 To provide accessibility services with sufficient information about the
-location and description of custom views, implement [`AccessibilityNodeInfo`](https://developer.android.com/reference/android/view/accessibility/AccessibilityNodeInfo)
+location and description of custom views, implement [`AccessibilityNodeInfo`](/reference/android/view/accessibility/AccessibilityNodeInfo)
 to expose details for each component.
 To define the logical relationship of views so that accessibility services can
 manage focus, implement [`ExploreByTouchHelper`](https://developer.android.com/reference/androidx/customview/widget/ExploreByTouchHelper)
@@ -65,7 +72,7 @@ When implementing `ExploreByTouchHelper`, override its four abstract methods:
 
 ### Kotlin
 
-```kotlin
+```
 // Return the virtual view ID whose view is covered by the input point (x, y).
 protected fun getVirtualViewAt(x: Float, y: Float): Int
 
@@ -82,7 +89,7 @@ protected fun onPerformActionForVirtualView(virtualViewId: Int, action: Int, @Nu
 
 ### Java
 
-```java
+```
 // Return the virtual view ID whose view is covered by the input point (x, y).
 protected int getVirtualViewAt(float x, float y)
 
@@ -103,35 +110,40 @@ or read more about [populating accessibility events](https://developer.android.c
 
 ## Best practices
 
-- **Required:** [`AccessibilityNodeInfo.getBoundsInScreen()`](https://developer.android.com/reference/android/view/accessibility/AccessibilityNodeInfo#getBoundsInScreen(android.graphics.Rect))
+* **Required:** [`AccessibilityNodeInfo.getBoundsInScreen()`](https://developer.android.com/reference/android/view/accessibility/AccessibilityNodeInfo#getBoundsInScreen(android.graphics.Rect))
   must define the position of the component.
-
-- **Required:** [`AccessibilityNodeInfo.setVisibleToUser()`](https://developer.android.com/reference/android/view/accessibility/AccessibilityNodeInfo#setVisibleToUser(boolean))
+* **Required:** [`AccessibilityNodeInfo.setVisibleToUser()`](https://developer.android.com/reference/android/view/accessibility/AccessibilityNodeInfo#setVisibleToUser(boolean))
   must reflect the visibility of the component.
-
-- **Required:** [`AccessibilityNodeInfo.getContentDescription()`](https://developer.android.com/reference/android/view/accessibility/AccessibilityNodeInfo#getContentDescription())
+* **Required:** [`AccessibilityNodeInfo.getContentDescription()`](https://developer.android.com/reference/android/view/accessibility/AccessibilityNodeInfo#getContentDescription())
   must specify the content description for Talkback to announce.
-
-- Specify [`AccessibilityNodeInfo.setClassName()`](https://developer.android.com/reference/android/view/accessibility/AccessibilityNodeInfo#setClassName(java.lang.CharSequence))
+* Specify [`AccessibilityNodeInfo.setClassName()`](https://developer.android.com/reference/android/view/accessibility/AccessibilityNodeInfo#setClassName(java.lang.CharSequence))
   so services can distinguish the component type.
-
-- When implementing [`performAction()`](https://developer.android.com/reference/android/view/accessibility/AccessibilityNodeInfo#performAction(int)),
+* When implementing [`performAction()`](https://developer.android.com/reference/android/view/accessibility/AccessibilityNodeInfo#performAction(int)),
   reflect the action using a corresponding [`AccessibilityEvent`](https://developer.android.com/reference/android/view/accessibility/AccessibilityEvent).
-
-- To implement more action types, such as `ACTION_CLICK`, invoke
+* To implement more action types, such as `ACTION_CLICK`, invoke
   [`AccessibilityNodeInfo.addAction(ACTION_CLICK)`](https://developer.android.com/reference/android/view/accessibility/AccessibilityNodeInfo#addAction(android.view.accessibility.AccessibilityNodeInfo.AccessibilityAction))
   using the corresponding logic in `performAction()`.
-
-- When applicable, reflect the component state for [`setFocusable()`](https://developer.android.com/reference/android/view/accessibility/AccessibilityNodeInfo#setFocusable(boolean)),
+* When applicable, reflect the component state for [`setFocusable()`](https://developer.android.com/reference/android/view/accessibility/AccessibilityNodeInfo#setFocusable(boolean)),
   [`setClickable()`](https://developer.android.com/reference/android/view/accessibility/AccessibilityNodeInfo#setClickable(boolean)),
   [`setScrollable()`](https://developer.android.com/reference/android/view/accessibility/AccessibilityNodeInfo#setScrollable(boolean)),
   and similar methods.
-
-- Review the documentation for [`AccessibilityNodeInfo`](https://developer.android.com/reference/android/view/accessibility/AccessibilityNodeInfo)
+* Review the documentation for [`AccessibilityNodeInfo`](/reference/android/view/accessibility/AccessibilityNodeInfo)
   to identify other ways in which accessibility services can better interact with
   your components.
 
 ## Sample
 
-Consult the [custom view accessibility sample for Android TV](https://developer.android.com/training/tv/accessibility/custom-views-sample) to see best practices for
+Consult the [custom view accessibility sample for Android TV](/training/tv/accessibility/custom-views-sample) to see best practices for
 adding accessibility support to apps using custom views.
+
+[Previous
+
+arrow\_back
+
+Adopt system caption settings](/training/tv/accessibility/system-caption-settings)
+
+[Next
+
+Custom view accessibility sample
+
+arrow\_forward](/training/tv/accessibility/custom-views-sample)

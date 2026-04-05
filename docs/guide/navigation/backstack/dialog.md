@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 This document outlines how the use of [dialog destinations](/guide/navigation/design) can introduce
 unique considerations for how you need to manage your back stack.
 

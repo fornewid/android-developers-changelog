@@ -14,7 +14,6 @@ Send feedback
 
 
 
-
 This document lists and describes the types of [Real-time developer notifications](/google/play/billing/getting-ready#configure-rtdn) that you can receive from
 Google Play.
 
@@ -240,8 +239,6 @@ Here's an example of a test notification:
   }
 }
 ```
-
-
 
 
 

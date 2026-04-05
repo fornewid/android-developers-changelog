@@ -15,7 +15,6 @@ Starting in 2026, we'll be transitioning away from Google Fit APIs. For more inf
 
 
 
-
 Aggregating data in Health Connect includes basic aggregations or aggregating
 data into buckets. The following workflows show you how to do both.
 

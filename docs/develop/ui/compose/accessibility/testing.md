@@ -1,18 +1,8 @@
 ---
-title: Testing  |  Jetpack Compose  |  Android Developers
+title: https://developer.android.com/develop/ui/compose/accessibility/testing
 url: https://developer.android.com/develop/ui/compose/accessibility/testing
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [Develop](https://developer.android.com/develop)
-* [Core areas](https://developer.android.com/develop/core-areas)
-* [UI](https://developer.android.com/develop/ui)
-* [Docs](https://developer.android.com/develop/ui/compose/documentation)
-
-# Testing Stay organized with collections Save and categorize content based on your preferences.
-
-
 
 An essential way of testing accessibility is a form of manual testing: by
 turning accessibility services, like TalkBack or Switch Access, on, and checking
@@ -23,22 +13,23 @@ In conjunction with manual verification, you should also use automated testing
 to flag any potential issues that could impact user experience as you make
 continual changes to your app.
 
-[Existing Compose testing APIs](/develop/ui/compose/testing) allow you to write automated tests that
-interact with semantic elements and to [assert the properties](/develop/ui/compose/testing/apis#assertions) defined in
+[Existing Compose testing APIs](https://developer.android.com/develop/ui/compose/testing) allow you to write automated tests that
+interact with semantic elements and to [assert the properties](https://developer.android.com/develop/ui/compose/testing/apis#assertions) defined in
 your UI.
 
 ## Accessibility checks
 
 For automated accessibility testing, you can also use the
-[Accessibility Test Framework](https://github.com/google/Accessibility-Test-Framework-for-Android)—the same underlying framework that powers
-Accessibility Scanner and accessibility checks in Espresso—to perform some
+[Accessibility Test Framework](https://github.com/google/Accessibility-Test-Framework-for-Android)---the same underlying framework that powers
+Accessibility Scanner and accessibility checks in Espresso---to perform some
 accessibility-related checks automatically, starting with Compose 1.8.0.
 
 To enable the checks, add the `ui-test-junit4-accessibility` dependency,
-call [`enableAccessibilityChecks()`](/reference/kotlin/androidx/compose/ui/test/ComposeUiTest#(androidx.compose.ui.test.ComposeUiTest).enableAccessibilityChecks(com.google.android.apps.common.testing.accessibility.framework.integrations.espresso.AccessibilityValidator)) in the [`AndroidComposeTestRule`](/reference/kotlin/androidx/compose/ui/test/junit4/AndroidComposeTestRule),
+call [`enableAccessibilityChecks()`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/ComposeUiTest#(androidx.compose.ui.test.ComposeUiTest).enableAccessibilityChecks(com.google.android.apps.common.testing.accessibility.framework.integrations.espresso.AccessibilityValidator)) in the [`AndroidComposeTestRule`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/junit4/AndroidComposeTestRule),
 and trigger an action or [`tryPerformAccessibilityChecks`](https://cs.android.com/androidx/platform/frameworks/support/+/androidx-main:compose/ui/ui-test/src/androidMain/kotlin/androidx/compose/ui/test/Actions.android.kt;drc=808c430f1ac6028d33902e3d685720f2b96f7aee;l=27):
 
-```
+
+```kotlin
 @Rule
 @JvmField
 val composeTestRule = createAndroidComposeRule<ComponentActivity>()
@@ -62,9 +53,9 @@ fun noAccessibilityLabel() {
     // Any action (such as performClick) will perform accessibility checks too:
     composeTestRule.onRoot().tryPerformAccessibilityChecks()
 }
-
-AccessibilitySnippets.kt
 ```
+
+<br />
 
 This specific test fails with an exception and a message that the item may not
 have a label readable by accessibility services.
@@ -76,7 +67,8 @@ If you're mixing Views with Compose and you're already using an
 `AccessibilityValidator`, or you need to configure one, you can set it in the
 rule:
 
-```
+
+```kotlin
 @Test
 fun lowContrastScreen() {
     composeTestRule.setContent {
@@ -100,9 +92,9 @@ fun lowContrastScreen() {
 
     composeTestRule.onRoot().tryPerformAccessibilityChecks()
 }
-
-AccessibilitySnippets.kt
 ```
+
+<br />
 
 In combination with manual testing, automated tests using both Compose APIs as
 well as the Accessibility Test Framework can help you detect possible problems
@@ -110,7 +102,7 @@ early on in the development process.
 
 ## Recommended for you
 
-* Note: link text is displayed when JavaScript is off
-* [Accessibility in Compose](/develop/ui/compose/testing)
-* [Material Design 2 in Compose][19]
-* [Testing your Compose layout](/develop/ui/compose/testing/apis#assertions)
+- Note: link text is displayed when JavaScript is off
+- [Accessibility in Compose](https://developer.android.com/develop/ui/compose/testing)
+- \[Material Design 2 in Compose\]\[19\]
+- [Testing your Compose layout](https://developer.android.com/develop/ui/compose/testing/apis#assertions)

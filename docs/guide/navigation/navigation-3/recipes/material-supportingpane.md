@@ -13,7 +13,6 @@ Save and categorize content based on your preferences.
 
 
 
-
 # Material Supporting Pane Recipe
 
 This recipe demonstrates how to create an adaptive layout with a main pane and a supporting pane using the `SupportingPaneSceneStrategy` from the Material 3 Adaptive library. This layout is useful for displaying supplementary content alongside the main content on larger screens.

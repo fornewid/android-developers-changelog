@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 Kotlin is an open-source, statically-typed programming language that supports
 both object-oriented and functional programming. Kotlin provides similar
 syntax and concepts from other languages, including C#, Java, and Scala, among

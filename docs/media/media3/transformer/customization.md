@@ -15,7 +15,6 @@ Media3 Transformer is actively under development and we are looking to hear from
 
 
 
-
 To control Transformer's behavior, you can configure options in the API surface
 or replace pieces of functionality completely by writing custom implementations
 of interfaces and passing those in. This page describes some examples.

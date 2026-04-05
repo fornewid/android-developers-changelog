@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Use Gemini in Android Studio to analyze your [App Quality Insights](/studio/debug/app-quality-insights) crash
 reports, generate insights, provide a crash summary, and (when possible)
 recommend next steps, including sample code and links to relevant documentation.

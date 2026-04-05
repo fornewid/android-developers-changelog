@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 **Warning:** Battery Historian is no longer actively maintained; if possible,
 consider using [system tracing](/topic/performance/tracing), the [Macrobenchmark power metric](/topic/performance/benchmarking/macrobenchmark-metrics#power), or the
 [Power Profiler](/studio/profile/power-profiler) to get insights into battery performance.

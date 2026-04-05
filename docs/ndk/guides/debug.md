@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 ## Debug native crashes
 
 If you're struggling to understand a native crash dump or tombstone,

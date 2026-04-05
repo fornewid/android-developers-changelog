@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 If you distribute apps only outside of Google Play, use the Android Developer
 Console to manage your developer identity and register your app's package names.
 This guide explains how to verify your account and ensure your apps are

@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 This page describes the syntax of the `Android.mk` build file used by
 `ndk-build`.
 

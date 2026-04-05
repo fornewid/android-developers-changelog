@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 The [`NavController`](/reference/androidx/navigation/NavController) type
 relies on one or more
 [`Navigator`](/reference/androidx/navigation/Navigator) objects to perform

@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 This page describes how app developers can integrate *inline install*, a new
 test feature for Google Play that presents Google Play app product details in a
 half sheet interface. Inline install enables users to experience a seamless app

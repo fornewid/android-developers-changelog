@@ -1,32 +1,60 @@
 ---
-title: https://developer.android.com/guide/fragments/communicate
+title: Communicate with fragments  |  App architecture  |  Android Developers
 url: https://developer.android.com/guide/fragments/communicate
-source: md.txt
+source: html-scrape
 ---
 
-# Communicate with fragments
+* [Android Developers](https://developer.android.com/)
+* [Design & Plan](https://developer.android.com/design)
+* [App architecture](https://developer.android.com/topic/architecture/intro)
 
-To reuse fragments, build them as completely self-contained components that define their own layout and behavior. Once you define these reusable fragments, you can associate them with an activity and connect them with the application logic to realize the overall composite UI.
+# Communicate with fragments Stay organized with collections Save and categorize content based on your preferences.
 
-To properly react to user events and to share state information, you often need to have channels of communication between an activity and its fragments or between two or more fragments. To keep fragments self-contained,*don't*have fragments communicate directly with other fragments or with their host activity.
 
-The`Fragment`library provides two options for communication: a shared[`ViewModel`](https://developer.android.com/topic/libraries/architecture/viewmodel)and the Fragment Result API. The recommended option depends on the use case. To share persistent data with custom APIs, use a`ViewModel`. For a one-time result with data that can be placed in a[`Bundle`](https://developer.android.com/reference/android/os/Bundle), use the Fragment Result API.
 
-The following sections show you how to use`ViewModel`and the Fragment Result API to communicate between your fragments and activities.
+
+To reuse fragments, build them as completely self-contained components
+that define their own layout and behavior. Once you define these
+reusable fragments, you can associate them with an activity and connect
+them with the application logic to realize the overall composite UI.
+
+To properly react to user events and to share state information, you often
+need to have channels of communication between an activity and its
+fragments or between two or more fragments. To keep fragments self-contained,
+*don't* have fragments communicate directly with other fragments or
+with their host activity.
+
+The `Fragment` library provides two options for communication: a shared
+[`ViewModel`](/topic/libraries/architecture/viewmodel) and the Fragment
+Result API. The recommended option depends on the use case. To share
+persistent data with custom APIs, use a `ViewModel`. For
+a one-time result with data that can be placed in a
+[`Bundle`](/reference/android/os/Bundle), use the Fragment
+Result API.
+
+The following sections show you how to use `ViewModel` and the Fragment
+Result API to communicate between your fragments and activities.
 
 ## Share data using a ViewModel
 
-[`ViewModel`](https://developer.android.com/reference/androidx/lifecycle/ViewModel)is an ideal choice when you need to share data between multiple fragments or between fragments and their host activity.`ViewModel`objects store and manage UI data. For more information about`ViewModel`, see[ViewModel overview](https://developer.android.com/topic/libraries/architecture/viewmodel).
+[`ViewModel`](/reference/androidx/lifecycle/ViewModel) is an ideal choice when
+you need to share data between
+multiple fragments or between fragments and their host activity.
+`ViewModel` objects store and
+manage UI data. For more information about `ViewModel`, see
+[ViewModel overview](/topic/libraries/architecture/viewmodel).
 
 ### Share data with the host activity
 
-In some cases, you might need to share data between fragments and their host activity. For example, you might want to toggle a global UI component based on an interaction within a fragment.
+In some cases, you might need to share data between fragments and
+their host activity. For example, you might want to toggle a global UI
+component based on an interaction within a fragment.
 
-Consider the following`ItemViewModel`:  
+Consider the following `ItemViewModel`:
 
 ### Kotlin
 
-```kotlin
+```
 class ItemViewModel : ViewModel() {
     private val mutableSelectedItem = MutableLiveData<Item>()
     val selectedItem: LiveData<Item> get() = mutableSelectedItem
@@ -39,7 +67,7 @@ class ItemViewModel : ViewModel() {
 
 ### Java
 
-```java
+```
 public class ItemViewModel extends ViewModel {
     private final MutableLiveData<Item> selectedItem = new MutableLiveData<Item>();
     public void selectItem(Item item) {
@@ -51,13 +79,23 @@ public class ItemViewModel extends ViewModel {
 }
 ```
 
-In this example, the stored data is wrapped in a[`MutableLiveData`](https://developer.android.com/reference/androidx/lifecycle/MutableLiveData)class.[`LiveData`](https://developer.android.com/reference/androidx/lifecycle/LiveData)is a lifecycle-aware observable data holder class.`MutableLiveData`lets its value be changed. For more information about`LiveData`, see[LiveData overview](https://developer.android.com/topic/libraries/architecture/livedata).
+In this example, the stored data is wrapped in a
+[`MutableLiveData`](/reference/androidx/lifecycle/MutableLiveData) class.
+[`LiveData`](/reference/androidx/lifecycle/LiveData) is a lifecycle-aware
+observable data holder class. `MutableLiveData` lets its value be
+changed. For more information about `LiveData`, see
+[LiveData overview](/topic/libraries/architecture/livedata).
 
-Both your fragment and its host activity can retrieve a shared instance of a`ViewModel`with activity scope by passing the activity into the[`ViewModelProvider`](https://developer.android.com/reference/androidx/lifecycle/ViewModelProvider)constructor. The`ViewModelProvider`handles instantiating the`ViewModel`or retrieving it if it already exists. Both components can observe and modify this data.  
+Both your fragment and its host activity can retrieve a shared instance
+of a `ViewModel` with activity scope by passing the activity into the
+[`ViewModelProvider`](/reference/androidx/lifecycle/ViewModelProvider)
+constructor. The `ViewModelProvider` handles instantiating the `ViewModel`
+or retrieving it if it already exists. Both components can observe and
+modify this data.
 
 ### Kotlin
 
-```kotlin
+```
 class MainActivity : AppCompatActivity() {
     // Using the viewModels() Kotlin property delegate from the activity-ktx
     // artifact to retrieve the ViewModel in the activity scope.
@@ -85,7 +123,7 @@ class ListFragment : Fragment() {
 
 ### Java
 
-```java
+```
 public class MainActivity extends AppCompatActivity {
     private ItemViewModel viewModel;
 
@@ -114,19 +152,34 @@ public class ListFragment extends Fragment {
     }
 }
 ```
-| **Caution:** Use the appropriate scope with`ViewModelProvider`. In the preceding example,`MainActivity`is used as the scope in both`MainActivity`and`ListFragment`, so they are both provided the same`ViewModel`. If`ListFragment`instead uses itself as the scope, it provides a different`ViewModel`than`MainActivity`.
+
+**Caution:** Use the appropriate scope with `ViewModelProvider`.
+In the preceding example, `MainActivity` is used as the scope in both
+`MainActivity` and `ListFragment`, so they are both provided the same
+`ViewModel`. If `ListFragment` instead uses itself as the scope,
+it provides a different `ViewModel` than `MainActivity`.
 
 ### Share data between fragments
 
-Two or more fragments in the same activity often need to communicate with each other. For example, imagine one fragment that displays a list and another that lets the user apply various filters to the list. Implementing this case isn't trivial without the fragments communicating directly, but then they are no longer self-contained. Additionally, both fragments must handle the scenario where the other fragment is not yet created or visible.
+Two or more fragments in the same activity often need to communicate with
+each other. For example, imagine one fragment that displays a list and
+another that lets the user apply various filters to the list.
+Implementing this case isn't trivial without the fragments
+communicating directly, but then they are no longer
+self-contained. Additionally, both fragments must handle the scenario
+where the other fragment is not yet created or visible.
 
-These fragments can share a`ViewModel`using their activity scope to handle this communication. By sharing the`ViewModel`in this way, the fragments don't need to know about each other, and the activity doesn't need to do anything to facilitate the communication.
+These fragments can share a `ViewModel` using their activity scope
+to handle this communication. By sharing the `ViewModel` in this way,
+the fragments don't need to know about each other, and the activity
+doesn't need to do anything to facilitate the communication.
 
-The following example shows how two fragments can use a shared`ViewModel`to communicate:  
+The following example shows how two fragments can use a shared
+`ViewModel` to communicate:
 
 ### Kotlin
 
-```kotlin
+```
 class ListViewModel : ViewModel() {
     val filters = MutableLiveData<Set<Filter>>()
 
@@ -165,7 +218,7 @@ class FilterFragment : Fragment() {
 
 ### Java
 
-```java
+```
 public class ListViewModel extends ViewModel {
     private final MutableLiveData<Set<Filter>> filters = new MutableLiveData<>();
 
@@ -219,16 +272,30 @@ public class FilterFragment extends Fragment {
 }
 ```
 
-Both fragments use their host activity as the scope for the`ViewModelProvider`. Because the fragments use the same scope, they receive the same instance of the`ViewModel`, which enables them to communicate back and forth.
-| **Caution:** The`ViewModel`remains in memory until the[`ViewModelStoreOwner`](https://developer.android.com/reference/androidx/lifecycle/ViewModelStoreOwner)to which it's scoped goes away permanently. In a single activity architecture, if the`ViewModel`is scoped to the activity, it's essentially a singleton. After the`ViewModel`is first instantiated, subsequent calls to retrieve the`ViewModel`using the activity scope always returns the same existing`ViewModel`, along with the existing data until the activity's lifecycle has permanently ended.
+Both fragments use their host activity as the scope for the
+`ViewModelProvider`. Because the fragments use the same scope, they receive
+the same instance of the `ViewModel`, which enables them to communicate
+back and forth.
+
+**Caution:** The `ViewModel` remains in memory until the
+[`ViewModelStoreOwner`](/reference/androidx/lifecycle/ViewModelStoreOwner)
+to which it's scoped goes away permanently. In a single activity
+architecture, if the `ViewModel` is scoped to the activity, it's
+essentially a singleton. After the `ViewModel` is first instantiated,
+subsequent calls to retrieve the `ViewModel` using the activity scope
+always returns the same existing `ViewModel`, along with the existing data
+until the activity's lifecycle has permanently ended.
 
 #### Share data between a parent and child fragment
 
-When working with child fragments, your parent fragment and its child fragments might need to share data with each other. To share data between these fragments, use the parent fragment as the`ViewModel`scope, as shown in the following example:  
+When working with child fragments, your parent fragment and its child
+fragments might need to share data with each other. To share data between
+these fragments, use the parent fragment as the `ViewModel` scope, as shown
+in the following example:
 
 ### Kotlin
 
-```kotlin
+```
 class ListFragment: Fragment() {
     // Using the viewModels() Kotlin property delegate from the fragment-ktx
     // artifact to retrieve the ViewModel.
@@ -250,7 +317,7 @@ class ChildFragment: Fragment() {
 
 ### Java
 
-```java
+```
 public class ListFragment extends Fragment {
     private ListViewModel viewModel;
 
@@ -275,11 +342,15 @@ public class ChildFragment extends Fragment {
 
 #### Scope a ViewModel to the Navigation Graph
 
-If you're using the[Navigation library](https://developer.android.com/guide/navigation), you can also scope a`ViewModel`to the lifecycle of a destination's[`NavBackStackEntry`](https://developer.android.com/reference/androidx/navigation/NavBackStackEntry). For example, the`ViewModel`can be scoped to the`NavBackStackEntry`for the`ListFragment`:  
+If you're using the [Navigation library](/guide/navigation), you can also
+scope a `ViewModel` to the lifecycle of a destination's
+[`NavBackStackEntry`](/reference/androidx/navigation/NavBackStackEntry). For
+example, the `ViewModel` can be scoped to the `NavBackStackEntry`
+for the `ListFragment`:
 
 ### Kotlin
 
-```kotlin
+```
 class ListFragment: Fragment() {
     // Using the navGraphViewModels() Kotlin property delegate from the fragment-ktx
     // artifact to retrieve the ViewModel using the NavBackStackEntry scope.
@@ -296,7 +367,7 @@ class ListFragment: Fragment() {
 
 ### Java
 
-```java
+```
 public class ListFragment extends Fragment {
     private ListViewModel viewModel;
 
@@ -313,21 +384,34 @@ public class ListFragment extends Fragment {
 }
 ```
 
-For more information about scoping a`ViewModel`to a`NavBackStackEntry`, see[Interact programmatically with the Navigation component](https://developer.android.com/guide/navigation/navigation-programmatic).
+For more information about scoping a `ViewModel` to a `NavBackStackEntry`, see
+[Interact programmatically with the Navigation component](/guide/navigation/navigation-programmatic).
 
 ## Get results using the Fragment Result API
 
-In some cases, you might want to pass a one-time value between two fragments or between a fragment and its host activity. For example, you might have a fragment that reads QR codes, passing the data back to a previous fragment.
+In some cases, you might want to pass a one-time value between two fragments
+or between a fragment and its host activity. For example, you might have a
+fragment that reads QR codes, passing the data back to a previous fragment.
 
-In Fragment version 1.3.0 and higher, each[`FragmentManager`](https://developer.android.com/reference/androidx/fragment/app/FragmentManager)implements[`FragmentResultOwner`](https://developer.android.com/reference/androidx/fragment/app/FragmentResultOwner). This means that a`FragmentManager`can act as a central store for fragment results. This change lets components communicate with each other by setting fragment results and listening for those results, without requiring those components to have direct references to each other.
+In Fragment version 1.3.0 and higher,
+each [`FragmentManager`](/reference/androidx/fragment/app/FragmentManager)
+implements
+[`FragmentResultOwner`](/reference/androidx/fragment/app/FragmentResultOwner).
+This means that a `FragmentManager` can act as a central store for fragment
+results. This change lets components communicate with each other by
+setting fragment results and listening for those results, without requiring
+those components to have direct references to each other.
 
 ### Pass results between fragments
 
-To pass data back to fragment A from fragment B, first set a result listener on fragment A, the fragment that receives the result. Call[`setFragmentResultListener()`](https://developer.android.com/reference/androidx/fragment/app/FragmentManager#setfragmentresultlistener)on fragment A's`FragmentManager`, as shown in the following example:  
+To pass data back to fragment A from fragment B, first set a result listener
+on fragment A, the fragment that receives the result. Call
+[`setFragmentResultListener()`](/reference/androidx/fragment/app/FragmentManager#setfragmentresultlistener)
+on fragment A's `FragmentManager`, as shown in the following example:
 
 ### Kotlin
 
-```kotlin
+```
 override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     // Use the Kotlin extension in the fragment-ktx artifact.
@@ -341,7 +425,7 @@ override fun onCreate(savedInstanceState: Bundle?) {
 
 ### Java
 
-```java
+```
 @Override
 public void onCreate(@Nullable Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -355,13 +439,22 @@ public void onCreate(@Nullable Bundle savedInstanceState) {
     });
 }
 ```
-![fragment b sends data to fragment a using a FragmentManager](https://developer.android.com/static/images/guide/fragments/fragment-a-to-b.png)**Figure 1.** Fragment B sends data to fragment A using a`FragmentManager`.
 
-In fragment B, the fragment producing the result, set the result on the same`FragmentManager`by using the same`requestKey`. You can do so by using the[`setFragmentResult()`](https://developer.android.com/reference/androidx/fragment/app/FragmentManager#setfragmentresult)API:  
+![fragment b sends data to fragment a using a FragmentManager](/static/images/guide/fragments/fragment-a-to-b.png)
+
+
+**Figure 1.** Fragment B sends data to fragment A using a
+`FragmentManager`.
+
+In fragment B, the fragment producing the result, set the result
+on the same `FragmentManager` by using the same `requestKey`. You can do
+so by using the
+[`setFragmentResult()`](/reference/androidx/fragment/app/FragmentManager#setfragmentresult)
+API:
 
 ### Kotlin
 
-```kotlin
+```
 button.setOnClickListener {
     val result = "result"
     // Use the Kotlin extension in the fragment-ktx artifact.
@@ -371,7 +464,7 @@ button.setOnClickListener {
 
 ### Java
 
-```java
+```
 button.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View v) {
@@ -382,77 +475,107 @@ button.setOnClickListener(new View.OnClickListener() {
 });
 ```
 
-Fragment A then receives the result and executes the listener callback once the fragment is[`STARTED`](https://developer.android.com/reference/androidx/lifecycle/Lifecycle.State#STARTED).
+Fragment A then receives the result and executes the listener callback
+once the fragment is
+[`STARTED`](/reference/androidx/lifecycle/Lifecycle.State#STARTED).
 
-You can have only a single listener and result for a given key. If you call`setFragmentResult()`more than once for the same key, and if the listener is not`STARTED`, the system replaces any pending results with your updated result.
+You can have only a single listener and result for a given key. If you call
+`setFragmentResult()` more than once for the same key, and if the listener
+is not `STARTED`, the system replaces any pending results with your updated
+result.
 
-If you set a result without a corresponding listener to receive it, the result is stored in the`FragmentManager`until you set a listener with the same key. Once a listener receives a result and fires the`onFragmentResult()`callback, the result is cleared. This behavior has two major implications:
+If you set a result without a corresponding listener to receive it,
+the result is stored in the `FragmentManager` until you set a listener with
+the same key. Once a listener receives a result and fires the
+`onFragmentResult()` callback, the result is cleared. This behavior has
+two major implications:
 
-- Fragments on the back stack do not receive results until they have been popped and are`STARTED`.
-- If a fragment listening for a result is`STARTED`when the result is set, the listener's callback then fires immediately.
+* Fragments on the back stack do not receive results until they have been
+  popped and are `STARTED`.
+* If a fragment listening for a result is `STARTED` when the result is set,
+  the listener's callback then fires immediately.
 
-| **Note:** Because the fragment results are stored at the`FragmentManager`level, your fragment must be attached to call`setFragmentResultListener()`or`setFragmentResult()`with the parent`FragmentManager`.
+**Note:** Because the fragment results are stored at the `FragmentManager` level, your
+fragment must be attached to call `setFragmentResultListener()` or
+`setFragmentResult()` with the parent `FragmentManager`.
 
 #### Test fragment results
 
-Use[`FragmentScenario`](https://developer.android.com/reference/androidx/fragment/app/testing/FragmentScenario)to test calls to`setFragmentResult()`and`setFragmentResultListener()`. Create a scenario for the fragment under test by using[`launchFragmentInContainer`](https://developer.android.com/reference/kotlin/androidx/fragment/app/testing/package-summary#launchFragmentInContainer(android.os.Bundle,kotlin.Int,androidx.lifecycle.Lifecycle.State,androidx.fragment.app.FragmentFactory))or[`launchFragment`](https://developer.android.com/reference/kotlin/androidx/fragment/app/testing/package-summary#top-level-functions), and then manually call the method that isn't being tested.
+Use
+[`FragmentScenario`](/reference/androidx/fragment/app/testing/FragmentScenario)
+to test calls to `setFragmentResult()` and `setFragmentResultListener()`.
+Create a scenario for the fragment under test by using
+[`launchFragmentInContainer`](/reference/kotlin/androidx/fragment/app/testing/package-summary#launchFragmentInContainer(android.os.Bundle,kotlin.Int,androidx.lifecycle.Lifecycle.State,androidx.fragment.app.FragmentFactory))
+or
+[`launchFragment`](/reference/kotlin/androidx/fragment/app/testing/package-summary#top-level-functions),
+and then manually call the method that isn't being tested.
 
-To test`setFragmentResultListener()`, create a scenario with the fragment that makes the call to`setFragmentResultListener()`. Next, call`setFragmentResult()`directly, and verify the result:  
+To test `setFragmentResultListener()`, create a scenario with the
+fragment that makes the call to `setFragmentResultListener()`. Next,
+call `setFragmentResult()` directly, and verify the result:
 
-    @Test
-    fun testFragmentResultListener() {
-        val scenario = launchFragmentInContainer<ResultListenerFragment>()
-        scenario.onFragment { fragment ->
-            val expectedResult = "result"
-            fragment.parentFragmentManager.setFragmentResult("requestKey", bundleOf("bundleKey" to expectedResult))
-            assertThat(fragment.result).isEqualTo(expectedResult)
+```
+@Test
+fun testFragmentResultListener() {
+    val scenario = launchFragmentInContainer<ResultListenerFragment>()
+    scenario.onFragment { fragment ->
+        val expectedResult = "result"
+        fragment.parentFragmentManager.setFragmentResult("requestKey", bundleOf("bundleKey" to expectedResult))
+        assertThat(fragment.result).isEqualTo(expectedResult)
+    }
+}
+
+class ResultListenerFragment : Fragment() {
+    var result : String? = null
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        // Use the Kotlin extension in the fragment-ktx artifact.
+        setFragmentResultListener("requestKey") { requestKey, bundle ->
+            result = bundle.getString("bundleKey")
         }
     }
+}
+```
 
-    class ResultListenerFragment : Fragment() {
-        var result : String? = null
-        override fun onCreate(savedInstanceState: Bundle?) {
-            super.onCreate(savedInstanceState)
+To test `setFragmentResult()`, create a scenario with the fragment that makes the
+call to `setFragmentResult()`. Next, call `setFragmentResultListener()`
+directly, and verify the result:
+
+```
+@Test
+fun testFragmentResult() {
+    val scenario = launchFragmentInContainer<ResultFragment>()
+    lateinit var actualResult: String?
+    scenario.onFragment { fragment ->
+        fragment.parentFragmentManager
+                .setFragmentResultListener("requestKey") { requestKey, bundle ->
+            actualResult = bundle.getString("bundleKey")
+        }
+    }
+    onView(withId(R.id.result_button)).perform(click())
+    assertThat(actualResult).isEqualTo("result")
+}
+
+class ResultFragment : Fragment(R.layout.fragment_result) {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        view.findViewById(R.id.result_button).setOnClickListener {
+            val result = "result"
             // Use the Kotlin extension in the fragment-ktx artifact.
-            setFragmentResultListener("requestKey") { requestKey, bundle ->
-                result = bundle.getString("bundleKey")
-            }
+            setFragmentResult("requestKey", bundleOf("bundleKey" to result))
         }
     }
-
-To test`setFragmentResult()`, create a scenario with the fragment that makes the call to`setFragmentResult()`. Next, call`setFragmentResultListener()`directly, and verify the result:  
-
-    @Test
-    fun testFragmentResult() {
-        val scenario = launchFragmentInContainer<ResultFragment>()
-        lateinit var actualResult: String?
-        scenario.onFragment { fragment ->
-            fragment.parentFragmentManager
-                    .setFragmentResultListener("requestKey") { requestKey, bundle ->
-                actualResult = bundle.getString("bundleKey")
-            }
-        }
-        onView(withId(R.id.result_button)).perform(click())
-        assertThat(actualResult).isEqualTo("result")
-    }
-
-    class ResultFragment : Fragment(R.layout.fragment_result) {
-        override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-            view.findViewById(R.id.result_button).setOnClickListener {
-                val result = "result"
-                // Use the Kotlin extension in the fragment-ktx artifact.
-                setFragmentResult("requestKey", bundleOf("bundleKey" to result))
-            }
-        }
-    }
+}
+```
 
 ### Pass results between parent and child fragments
 
-To pass a result from a child fragment to a parent, use`getChildFragmentManager()`from the parent fragment instead of`getParentFragmentManager()`when calling`setFragmentResultListener()`.  
+To pass a result from a child fragment to a parent,
+use `getChildFragmentManager()` from the parent fragment instead of
+`getParentFragmentManager()` when calling `setFragmentResultListener()`.
 
 ### Kotlin
 
-```kotlin
+```
 override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     // Set the listener on the child fragmentManager.
@@ -465,7 +588,7 @@ override fun onCreate(savedInstanceState: Bundle?) {
 
 ### Java
 
-```java
+```
 @Override
 public void onCreate(@Nullable Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -480,13 +603,20 @@ public void onCreate(@Nullable Bundle savedInstanceState) {
         });
 }
 ```
-![a child fragment can use FragmentManager to send a result to its parent](https://developer.android.com/static/images/guide/fragments/pass-parent-child.png)**Figure 2** A child fragment can use`FragmentManager`to send a result to its parent.
 
-The child fragment sets the result on its`FragmentManager`. The parent then receives the result once the fragment is`STARTED`:  
+![a child fragment can use FragmentManager to send a result
+            to its parent](/static/images/guide/fragments/pass-parent-child.png)
+
+
+**Figure 2** A child fragment can use
+`FragmentManager` to send a result to its parent.
+
+The child fragment sets the result on its `FragmentManager`. The parent
+then receives the result once the fragment is `STARTED`:
 
 ### Kotlin
 
-```kotlin
+```
 button.setOnClickListener {
     val result = "result"
     // Use the Kotlin extension in the fragment-ktx artifact.
@@ -496,7 +626,7 @@ button.setOnClickListener {
 
 ### Java
 
-```java
+```
 button.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View v) {
@@ -510,11 +640,13 @@ button.setOnClickListener(new View.OnClickListener() {
 
 ### Receive results in the host activity
 
-To receive a fragment result in the host activity, set a result listener on the fragment manager using[`getSupportFragmentManager()`](https://developer.android.com/reference/androidx/fragment/app/FragmentActivity#getSupportFragmentManager()).  
+To receive a fragment result in the host activity, set a result listener
+on the fragment manager using
+[`getSupportFragmentManager()`](/reference/androidx/fragment/app/FragmentActivity#getSupportFragmentManager()).
 
 ### Kotlin
 
-```kotlin
+```
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -530,7 +662,7 @@ class MainActivity : AppCompatActivity() {
 
 ### Java
 
-```java
+```
 class MainActivity extends AppCompatActivity {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {

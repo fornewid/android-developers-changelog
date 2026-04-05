@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 Android and ChromeOS provide a variety of APIs to help you build apps that offer
 users an exceptional stylus experience. The
 [`MotionEvent`](/reference/kotlin/android/view/MotionEvent) class exposes

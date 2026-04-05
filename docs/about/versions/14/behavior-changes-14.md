@@ -12,6 +12,7 @@ source: html-scrape
 
 
 
+
 Like previous releases, Android 14 includes behavior changes that might affect
 your app. The following behavior changes apply exclusively to apps that are
 targeting Android 14 (API level 34) or higher. If your app is targeting Android

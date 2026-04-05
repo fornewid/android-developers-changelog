@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 There are three main ways to build code with the NDK:
 
 * The Make-based [ndk-build](/ndk/guides/ndk-build).

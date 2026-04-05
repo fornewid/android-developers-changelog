@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 Activities serve as containers for every user interaction within your app, so
 it's important to test how your app's activities behave during device-level
 events such as the following:

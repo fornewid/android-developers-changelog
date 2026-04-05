@@ -15,7 +15,6 @@ Starting in 2026, we'll be transitioning away from Google Fit APIs. For more inf
 
 
 
-
 To maintain optimal system stability and performance, Health Connect imposes
 rate limits on client connections to the Health Connect API.
 

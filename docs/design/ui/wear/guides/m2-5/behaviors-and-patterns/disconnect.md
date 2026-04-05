@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 Disconnection indicators let users know when a Wear OS device is disconnected
 from its companion phone or the internet.
 

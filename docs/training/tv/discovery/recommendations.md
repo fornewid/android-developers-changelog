@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 The Android TV *home screen* displays recommended content using *channels* and
 *programs*. Channels are displayed as individual rows on the home screen, with
 cards that display all of the available programs for that channel.

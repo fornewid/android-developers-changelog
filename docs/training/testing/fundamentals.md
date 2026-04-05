@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 This page outlines the core tenets of testing Android apps, including the
 central best practices and their benefits.
 

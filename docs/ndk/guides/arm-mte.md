@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 **Note:** This document covers running Android applications under MTE. For
 information about using MTE for Android platform development, see the [AOSP
 documentation](https://source.android.com/docs/security/test/memory-safety/arm-mte).**Important:** MTE is one of many tools available for memory debugging and

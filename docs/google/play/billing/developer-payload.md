@@ -14,6 +14,7 @@ Send feedback
 
 
 
+
 Developer payload has historically been used for various purposes, including
 fraud prevention and attributing purchases to the correct user. With versions
 2.2 and higher of the Google Play Billing Library, intended use cases that
@@ -98,6 +99,8 @@ timestamp you initially stored won't exactly match the value from the `Purchase`
 [`getPurchaseTime()`](/reference/com/android/billingclient/api/Purchase#getPurchaseTime()),
 so you would need to compare them in an approximate way. For example, you can check
 if the values are within a certain time period of each other.
+
+
 
 
 

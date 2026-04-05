@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 This document provides a guide for plugin authors on how to correctly detect,
 interact with, and configure the Kotlin Multiplatform (KMP) setup, with a
 specific focus on integrating with the Android targets within a KMP project.

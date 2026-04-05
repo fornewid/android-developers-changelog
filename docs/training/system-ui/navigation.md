@@ -10,6 +10,7 @@ source: html-scrape
 
 
 
+
 This lesson describes how to hide the navigation bar, which was introduced in
 Android 4.0 (API level 14).
 

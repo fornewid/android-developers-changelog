@@ -15,6 +15,7 @@ Send feedback
 
 
 
+
 On the Android platform, the system tries to use as much system memory (RAM) as
 possible and performs various memory optimizations to free up space when needed.
 These optimizations can have a negative effect on your game, either by slowing
@@ -203,6 +204,8 @@ because it ran out of memory or if it was killed by the LMK.
 
 For more information, see
 [Capture and read bug reports](/studio/debug/bug-report).
+
+
 
 
 

@@ -15,6 +15,7 @@ Save and categorize content based on your preferences.
 
 
 
+
 # Android Studio v1.3.0 (July 2015)
 
 Fixes and enhancements:

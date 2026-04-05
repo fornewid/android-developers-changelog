@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 To provide a more enriched user experience, many apps let users contribute
 and access media that's available on an external storage volume. The framework
 provides an optimized index into media collections, called the *media store*,

@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 ![](/static/wear/images/cards/cards-hero.png)
 
 The [Card](/reference/kotlin/androidx/wear/compose/material/Card.composable#Card(kotlin.Function0,androidx.compose.ui.Modifier,androidx.compose.ui.graphics.painter.Painter,androidx.compose.ui.graphics.Color,kotlin.Boolean,androidx.compose.foundation.layout.PaddingValues,androidx.compose.ui.graphics.Shape,androidx.compose.foundation.interaction.MutableInteractionSource,androidx.compose.ui.semantics.Role,kotlin.Function1)) component contains content and actions about a single subject.

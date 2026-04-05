@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 Every Wear OS device comes with a microphone, so users can use their voice to interact with the
 device. You can divide these into three types of interactions:
 

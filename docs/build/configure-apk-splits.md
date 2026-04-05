@@ -1,14 +1,21 @@
 ---
-title: https://developer.android.com/build/configure-apk-splits
+title: Build multiple APKs  |  Android Studio  |  Android Developers
 url: https://developer.android.com/build/configure-apk-splits
-source: md.txt
+source: html-scrape
 ---
+
+* [Android Developers](https://developer.android.com/)
+* [Android Studio](https://developer.android.com/studio)
+
+# Build multiple APKs Stay organized with collections Save and categorize content based on your preferences.
+
+
 
 **Caution:** Since August 2021, all new
 apps must be published as App Bundles. If you publish your app to Google Play,
-build and upload an [Android App Bundle](https://developer.android.com/guide/app-bundle). When
+build and upload an [Android App Bundle](/guide/app-bundle). When
 you do so, Google Play automatically generates and serves optimized APKs for
-each user's device configuration, so they download only the code and resources
+each user’s device configuration, so they download only the code and resources
 they need to run your app. Publishing multiple APKs is useful if you are
 publishing to a store that doesn't support the AAB format. In that case, you
 must build, sign, and manage each APK yourself.
@@ -16,20 +23,19 @@ must build, sign, and manage each APK yourself.
 Although it is better to build a single APK to support all your target devices
 whenever possible, that might result in a very large APK due to files
 supporting multiple [Application Binary
-Interfaces](https://developer.android.com/ndk/guides/abis) (ABIs). One way to reduce the size of your APK is to create
-[multiple APKs](https://developer.android.com/google/play/publishing/multiple-apks) that
+Interfaces](/ndk/guides/abis) (ABIs). One way to reduce the size of your APK is to create
+[multiple APKs](/google/play/publishing/multiple-apks) that
 contain files for specific ABIs.
-
 
 Gradle can create separate APKs that contain only code and resources specific
 to each ABI. This page describes how to configure your build to
 generate multiple APKs. If you need to create different versions of your app
-that are not based on ABI, use [build variants](https://developer.android.com/studio/build/build-variants) instead.
+that are not based on ABI, use [build variants](/studio/build/build-variants) instead.
 
 ## Configure your build for multiple APKs
 
 To configure your build for multiple APKs, add a
-[`splits`](https://developer.android.com/reference/tools/gradle-api/7.2/com/android/build/api/dsl/Splits) block to your module-level
+[`splits`](/reference/tools/gradle-api/7.2/com/android/build/api/dsl/Splits) block to your module-level
 `build.gradle` file. Within the
 `splits` block, provide an
 `abi` block that specifies how you want Gradle
@@ -45,22 +51,17 @@ desired ABIs.
 The following Gradle DSL options are used to configure multiple APKs per
 ABI:
 
-
 `enable` for Groovy, or `isEnable` for Kotlin script
 :   If you set this element to `true`, Gradle generates multiple
     APKs based on the ABIs you define. The default value is `false`.
 
-
 `exclude`
-:
-    Specifies a comma-separated list of ABIs that you don't want Gradle to
+:   Specifies a comma-separated list of ABIs that you don't want Gradle to
     generate separate APKs for. Use `exclude` if you want to generate
     APKs for most ABIs but need to exclude a few ABIs that your app doesn't
     support.
 
-
 `reset()`
-
 :   Clears the default list of ABIs. Only use when combined with the
     `include` element to specify the ABIs you want to add.
 
@@ -73,17 +74,12 @@ ABI:
     include "x86", "x86_64" // Specifies the two ABIs we want to generate APKs for.
     ```
 
-
 `include`
-:
-    Specifies a comma-separated list of ABIs that you want Gradle to generate APKs
+:   Specifies a comma-separated list of ABIs that you want Gradle to generate APKs
     for. Only use in combination with `reset()` to specify an exact
     list of ABIs.
 
-
-`universalApk` for Groovy, or `isUniversalApk` for
-Kotlin script
-
+`universalApk` for Groovy, or `isUniversalApk` for Kotlin script
 :   If `true`, Gradle generates a universal APK in addition to
     per-ABI APKs. A universal APK contains code and resources for all ABIs in a
     single APK. The default value is `false`.
@@ -95,7 +91,7 @@ list of ABIs that each get an APK.
 
 ### Groovy
 
-```groovy
+```
 android {
   ...
   splits {
@@ -124,7 +120,7 @@ android {
 
 ### Kotlin
 
-```kotlin
+```
 android {
   ...
   splits {
@@ -161,8 +157,7 @@ For projects without native/C++ code, the **Build Variants** panel has two
 columns: **Module** and **Active Build
 Variant**, as shown in figure 1.
 
-![The Build variants panel](https://developer.android.com/static/studio/images/build/build-variants.png)  
-
+![The Build variants panel](/static/studio/images/build/build-variants.png)  
 **Figure 1.** The **Build Variants** panel has two columns for projects without
 native/C++ code.
 
@@ -174,10 +169,10 @@ and choose the desired variant from the list field.
 #### Projects with native/C++ code
 
 For projects with native/C++ code, the **Build Variants** panel has three
-columns: **Module** , **Active Build
-Variant** , and **Active ABI**, as shown in figure 2.
+columns: **Module**, **Active Build
+Variant**, and **Active ABI**, as shown in figure 2.
 
-![](https://developer.android.com/static/studio/images/build/build-variants-ndk.png)
+![](/static/studio/images/build/build-variants-ndk.png)
 **Figure 2.** The **Build Variants** panel adds the **Active ABI** column for
 projects with native/C++ code.
 
@@ -188,22 +183,22 @@ uses, but doesn't impact what is deployed.
 
 To change the build type or ABI:
 
-1. Click the cell for the **Active Build Variant** or **Active ABI** column.
-2. Choose the desired variant or ABI from the list field. A new sync automatically runs.
+1. Click the cell for the **Active Build Variant**
+   or **Active ABI** column.
+2. Choose the desired variant or ABI from the list
+   field. A new sync automatically runs.
 
 Changing either column for an app or library module applies the change to all
 dependent rows.
 
 ### Configure versioning
 
-
 By default, when Gradle generates multiple APKs, each APK has the same
 version information, as specified in the module-level
 `build.gradle` or `build.gradle.kts` file. Because the
 Google Play Store doesn't allow multiple APKs for the same app that all have
 the same version information, you need to ensure that each APK has a unique
-[`versionCode`](https://developer.android.com/studio/publish/versioning#versioningsettings) before you upload to the Play Store.
-
+[`versionCode`](/studio/publish/versioning#versioningsettings) before you upload to the Play Store.
 
 You can configure your module-level `build.gradle` file to
 override the `versionCode` for each APK. By creating a mapping
@@ -213,21 +208,15 @@ combines the version code defined within the `defaultConfig` or
 `productFlavors` block with the numeric value assigned to the
 ABI.
 
-
 In the following example, the APK for the `x86` ABI
 gets a `versionCode` of 2004 and the `x86_64` ABI
 gets a `versionCode` of 3004.
-
-<br />
 
 Assigning version codes in large increments, such as 1000, allows
 you to later assign unique version codes if you need to update your app. For
 example, if `defaultConfig.versionCode` iterates to 5 in a
 subsequent update, Gradle assigns a `versionCode` of 2005 to
 the `x86` APK and 3005 to the `x86_64` APK.
-
-<br />
-
 
 **Tip:** If your build includes a universal APK, assign it a
 `versionCode` that's lower than that of any of your other APKs.
@@ -241,7 +230,7 @@ default `versionCode`.
 
 ### Groovy
 
-```groovy
+```
 android {
   ...
   defaultConfig {
@@ -291,7 +280,7 @@ android.applicationVariants.all { variant ->
 
 ### Kotlin
 
-```kotlin
+```
 android {
   ...
   defaultConfig {
@@ -337,30 +326,26 @@ androidComponents {
 ```
 
 For more examples of alternate version code schemes, see
-[Assigning version codes](https://developer.android.com/google/play/publishing/multiple-apks#VersionCodes).
+[Assigning version codes](/google/play/publishing/multiple-apks#VersionCodes).
 
 ## Build multiple APKs
 
 Once you configure your module-level `build.gradle` or
 `build.gradle.kts` file to build multiple APKs, click
-**Build \> Build APK** to build all APKs for the currently
+**Build > Build APK** to build all APKs for the currently
 selected module in the **Project** pane. Gradle creates the APKs
 for each ABI in the project's `build/outputs/apk/`
 directory.
 
 Gradle builds an APK for each ABI you configure multiple APKs for.
 
-<br />
-
 For example, the following
 `build.gradle` snippet enables building multiple APKs for
 `x86` and `x86_64` ABIs:
 
-<br />
-
 ### Groovy
 
-```groovy
+```
 ...
   splits {
     abi {
@@ -373,7 +358,7 @@ For example, the following
 
 ### Kotlin
 
-```kotlin
+```
 ...
   splits {
     abi {
@@ -386,10 +371,10 @@ For example, the following
 
 The output from the example configuration includes the following 4 APKs:
 
-- `app-X86-release.apk`: Contains code and resources for `x86` ABI.
-- `app-X86_64-release.apk`: Contains code and resources for `x86_64` ABI.
-
-<br />
+* `app-X86-release.apk`: Contains code and resources for
+  `x86` ABI.
+* `app-X86_64-release.apk`: Contains code and resources for
+  `x86_64` ABI.
 
 When building multiple APKs based on
 ABI, Gradle only generates an APK that includes code and resources for all
@@ -399,30 +384,21 @@ ABIs if you specify `universalApk true` in the
 `splits.abi` block in your `build.gradle.kts` file
 (for Kotlin script).
 
-<br />
-
 ### APK file name format
 
 When building multiple APKs, Gradle generates APK filenames using the following
 scheme:
 
-
 `modulename-ABI-buildvariant.apk`
 
 The scheme components are:
 
-
 `modulename`
-:
-    Specifies the module name being built.
-
+:   Specifies the module name being built.
 
 `ABI`
-
 :   If multiple APKs for ABI are enabled, specifies the ABI for the APK, such
     as `x86`.
 
-
 `buildvariant`
-:
-    Specifies the build variant being built, such as `debug`.
+:   Specifies the build variant being built, such as `debug`.

@@ -14,6 +14,7 @@ Join us for ⁠the [Google for Games Developer Summit](https://gamedevsummit.wit
 
 
 
+
 The **Framebuffer** pane shows the contents of the currently-bound framebuffer.
 Depending on the item you select in the **Commands** pane, the **Framebuffer**
 pane can show onscreen or offscreen framebuffers.

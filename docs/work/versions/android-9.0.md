@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 This page provides an overview of the enterprise APIs, features, and behavior
 changes that are available in the Android 9.
 

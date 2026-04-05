@@ -1,33 +1,27 @@
 ---
-title: Productivity tools, comments, and settings  |  Gallery  |  Android Developers
+title: https://developer.android.com/design/ui/gallery/productivity/tools
 url: https://developer.android.com/design/ui/gallery/productivity/tools
-source: html-scrape
+source: md.txt
 ---
 
-* [Android Developers](https://developer.android.com/)
-* [Design & Plan](https://developer.android.com/design)
-* [UI Design](https://developer.android.com/design/ui)
-* [Gallery](https://developer.android.com/design/ui/gallery)
-
-# Productivity tools, comments, and settings Stay organized with collections Save and categorize content based on your preferences.
-
-
+<br />
 
 Give users access to more tools, larger palettes, more settings without
 obscuring content or hindering workflow.
 
-![](/static/images/large-screens/gallery/samples/productivity/gallery_productivity_tools_large.png)
+![](https://developer.android.com/static/images/large-screens/gallery/samples/productivity/gallery_productivity_tools_large.png)
 
-![](/static/images/large-screens/gallery/samples/productivity/gallery_productivity_tools_compact.png)
+![](https://developer.android.com/static/images/large-screens/gallery/samples/productivity/gallery_productivity_tools_compact.png)
 
 Enable reviews and comments on documents directly, on the same screen without
 obstructing the document or disturbing the context.
 
-![](/static/images/large-screens/gallery/samples/productivity/gallery_productivity_reviews_medium.png)
+![](https://developer.android.com/static/images/large-screens/gallery/samples/productivity/gallery_productivity_reviews_medium.png)
 
-![](/static/images/large-screens/gallery/samples/productivity/gallery_productivity_reviews_compact.png)
+![](https://developer.android.com/static/images/large-screens/gallery/samples/productivity/gallery_productivity_reviews_compact.png)
 
----
+*** ** * ** ***
+
 
 ## Android AdaptiveUI Samples
 
@@ -37,8 +31,10 @@ more.
 
 [View Figma
 Kit](https://www.figma.com/community/file/1539759053650269019/android-adaptive-ui-samples)
+![](https://developer.android.com/static/images/large-screens/gallery/samples/callouts/android-adaptive-samples.png)
 
-![](/static/images/large-screens/gallery/samples/callouts/android-adaptive-samples.png)
+<br />
+
 
 ## Implement a supporting pane
 
@@ -46,11 +42,13 @@ A mobile view may require supporting content or controls, typically in the form
 of sheets or dialogs, to help the primary view stay focused and uncluttered.
 
 [Learn
-more](/develop/ui/compose/layouts/adaptive/canonical-layouts#supporting-pane)
+more](https://developer.android.com/develop/ui/compose/layouts/adaptive/canonical-layouts#supporting-pane)
 [Material Design
 website](https://material.io/foundations/layout/canonical-layouts/supporting-pane)
+![](https://developer.android.com/static/images/large-screens/gallery/samples/callouts/supporting-pane.png)
 
-![](/static/images/large-screens/gallery/samples/callouts/supporting-pane.png)
+<br />
+
 
 ## Implement a feed
 
@@ -58,8 +56,9 @@ A feed layout arranges equivalent content elements in a configurable grid for
 quick, convenient viewing of a large amount of content.
 
 [Learn
-more](/develop/ui/compose/layouts/adaptive/canonical-layouts#feed)
+more](https://developer.android.com/develop/ui/compose/layouts/adaptive/canonical-layouts#feed)
 [Material Design
 website](https://material.io/foundations/layout/canonical-layouts/feed)
+![](https://developer.android.com/static/images/large-screens/gallery/samples/callouts/feed.png)
 
-![](/static/images/large-screens/gallery/samples/callouts/feed.png)
+<br />

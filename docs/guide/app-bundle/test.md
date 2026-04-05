@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 Android App Bundles are the recommended way to build, publish, and distribute
 your app across multiple device configurations. App bundles also enable advanced
 features, such as Play Feature Delivery, Play Asset Delivery, and instant experiences.

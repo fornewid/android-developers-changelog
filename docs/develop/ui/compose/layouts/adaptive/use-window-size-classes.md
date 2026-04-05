@@ -1,42 +1,21 @@
 ---
-title: Use window size classes  |  Jetpack Compose  |  Android Developers
+title: https://developer.android.com/develop/ui/compose/layouts/adaptive/use-window-size-classes
 url: https://developer.android.com/develop/ui/compose/layouts/adaptive/use-window-size-classes
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [Develop](https://developer.android.com/develop)
-* [Core areas](https://developer.android.com/develop/core-areas)
-* [UI](https://developer.android.com/develop/ui)
-* [Docs](https://developer.android.com/develop/ui/compose/documentation)
-
-# Use window size classes Stay organized with collections Save and categorize content based on your preferences.
-
-
-
 
 Window size classes are a set of opinionated viewport breakpoints that help you
 design, develop, and test responsive/adaptive layouts. The breakpoints balance
 layout simplicity with the flexibility of optimizing your app for unique cases.
 
 Window size classes categorize the display area available to your app as
-*compact*, *medium*, *expanded*, *large*, or *extra large*. Available width and
+*compact* , *medium* , *expanded* , *large* , or *extra large*. Available width and
 height are classified separately, so at any point in time, your app has two
-window size classes—one for width, one for height. Available width is
+window size classes---one for width, one for height. Available width is
 usually more important than available height due to the ubiquity of vertical
 scrolling, so the width window size class is likely more relevant to your app's
 UI.
-
-![](/static/develop/ui/compose/images/layouts/adaptive/window-size-classes/window_size_classes_width.png)
-
-
-**Figure 1.** Representations of width-based window size classes.
-
-
-![](/static/develop/ui/compose/images/layouts/adaptive/window-size-classes/window_size_classes_height.png)
-
-
-**Figure 2.** Representations of height-based window size classes.
+![](https://developer.android.com/static/develop/ui/compose/images/layouts/adaptive/window-size-classes/window_size_classes_width.png) **Figure 1.** Representations of width-based window size classes. ![](https://developer.android.com/static/develop/ui/compose/images/layouts/adaptive/window-size-classes/window_size_classes_height.png) **Figure 2.** Representations of height-based window size classes.
 
 As visualized in the figures, the breakpoints allow you to continue thinking
 about layouts in terms of devices and configurations. Each size class breakpoint
@@ -45,22 +24,18 @@ frame of reference as you think about the design of your breakpoint-based
 layouts.
 
 | Size class | Breakpoint | Device representation |
-| --- | --- | --- |
-| Compact width | width < 600dp | 99.96% of phones in portrait |
-| Medium width | 600dp ≤ width < 840dp | 93.73% of tablets in portrait, most large unfolded inner displays in portrait |
-| Expanded width | 840dp ≤ width < 1200dp | 97.22% of tablets in landscape, most large unfolded inner displays in landscape are at least expanded width |
-| Large width | 1200dp ≤ width < 1600dp | Large tablet displays |
+|---|---|---|
+| Compact width | width \< 600dp | 99.96% of phones in portrait |
+| Medium width | 600dp ≤ width \< 840dp | 93.73% of tablets in portrait, most large unfolded inner displays in portrait |
+| Expanded width | 840dp ≤ width \< 1200dp | 97.22% of tablets in landscape, most large unfolded inner displays in landscape are at least expanded width |
+| Large width | 1200dp ≤ width \< 1600dp | Large tablet displays |
 | Extra-large width | width ≥ 1600dp | Desktop displays |
-|
-| Compact height | height < 480dp | 99.78% of phones in landscape |
-| Medium height | 480dp ≤ height < 900dp | 96.56% of tablets in landscape, 97.59% of phones in portrait |
+| Compact height | height \< 480dp | 99.78% of phones in landscape |
+| Medium height | 480dp ≤ height \< 900dp | 96.56% of tablets in landscape, 97.59% of phones in portrait |
 | Expanded height | height ≥ 900dp | 94.25% of tablets in portrait |
 
-**Note:** Most apps can build an adaptive UI by considering only the width window
-size class. However, also consider the height window size class for scenarios
-such as phones or open flippables in landscape orientation; the window width is
-typically medium, but window height is compact, in which case two pane layouts
-are not practical.
+> [!NOTE]
+> **Note:** Most apps can build an adaptive UI by considering only the width window size class. However, also consider the height window size class for scenarios such as phones or open flippables in landscape orientation; the window width is typically medium, but window height is compact, in which case two pane layouts are not practical.
 
 Although visualizing size classes as physical devices can be useful, window size
 classes are explicitly not determined by the size of the device screen. Window
@@ -69,14 +44,15 @@ size classes are determined by the window size available to your application
 regardless of the type of device the app is running on, which has two important
 implications:
 
-* **Physical devices do not guarantee a specific window size class.** The
+- **Physical devices do not guarantee a specific window size class.** The
   screen space available to your app can differ from the screen size of the
   device for many reasons. On mobile devices, split‑screen mode can
   partition the screen between two applications. On ChromeOS, Android apps can
   be presented in desktop‑type windows that are arbitrarily resizable.
   Foldables can have two different‑sized screens individually accessed
   by folding or unfolding the device.
-* **The window size class can change throughout the lifetime of your app.**
+
+- **The window size class can change throughout the lifetime of your app.**
   While your app is running, device orientation changes, multitasking, and
   folding/unfolding can change the amount of screen space available. As a
   result, the window size class is dynamic, and your app's UI should adapt
@@ -90,22 +66,21 @@ Use window size classes to make high‑level application layout decisions,
 such as deciding whether to use a specific canonical layout to take advantage of
 additional screen space.
 
-Compute the current [`WindowSizeClass`](/reference/androidx/window/core/layout/WindowSizeClass) using the
-[`currentWindowAdaptiveInfo()`](/reference/kotlin/androidx/compose/material3/adaptive/currentWindowAdaptiveInfo.composable#currentWindowAdaptiveInfo(kotlin.Boolean)) top‑level function of the
-[`androidx.compose.material3.adaptive`](/reference/kotlin/androidx/compose/material3/adaptive/package-summary) library. The function returns an
-instance of [`WindowAdaptiveInfo`](/reference/kotlin/androidx/compose/material3/adaptive/WindowAdaptiveInfo), which contains [`windowSizeClass`](/reference/kotlin/androidx/compose/material3/adaptive/WindowAdaptiveInfo#windowSizeClass()). To
+Compute the current [`WindowSizeClass`](https://developer.android.com/reference/androidx/window/core/layout/WindowSizeClass) using the
+[`currentWindowAdaptiveInfo()`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/currentWindowAdaptiveInfo.composable#currentWindowAdaptiveInfo(kotlin.Boolean)) top‑level function of the
+[`androidx.compose.material3.adaptive`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/package-summary) library. The function returns an
+instance of [`WindowAdaptiveInfo`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/WindowAdaptiveInfo), which contains [`windowSizeClass`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/WindowAdaptiveInfo#windowSizeClass()). To
 support large and extra-large breakpoints, add the `supportLargeAndXLargeWidth`
 parameter set to `true` to the function call. The
 following example shows how to calculate the window size class and receive
 updates whenever the window size class changes:
 
-```
-val windowSizeClass = currentWindowAdaptiveInfo().windowSizeClass
 
-AdaptiveLayoutSnippets
-
-.kt
+```kotlin
+val windowSizeClass = currentWindowAdaptiveInfo().windowSizeClasshttps://github.com/android/snippets/blob/0e26519d6d4e3c3ff70cf0806b9a2df65d3929b6/compose/snippets/src/main/java/com/example/compose/snippets/layouts/AdaptiveLayoutSnippets.kt#L85-L85
 ```
+
+<br />
 
 ## Manage layouts with window size classes
 
@@ -117,7 +92,8 @@ mode.
 Localize the logic for handling display size changes by passing window size
 classes down as state to nested composables just like any other app state:
 
-```
+
+```kotlin
 @Composable
 fun MyApp(
     windowSizeClass: WindowSizeClass = currentWindowAdaptiveInfo(supportLargeAndXLargeWidth = true).windowSizeClass
@@ -131,9 +107,9 @@ fun MyApp(
         /* ... */
     )
 }
-
-AdaptiveLayoutSnippets.kt
 ```
+
+<br />
 
 ## Test window size classes
 
@@ -150,23 +126,12 @@ the medium width size class; consider adding a specialized layout.
 To learn more about how to use window size classes to create responsive/adaptive
 layouts, see the following:
 
-* For Compose-based layouts: [Support different display sizes](/develop/ui/compose/layouts/adaptive/support-different-display-sizes)
-* For view-based layouts: [Responsive/adaptive design with views](/develop/ui/views/layout/responsive-adaptive-design-with-views)
+- For Compose-based layouts: [Support different display sizes](https://developer.android.com/develop/ui/compose/layouts/adaptive/support-different-display-sizes)
+
+- For view-based layouts: [Responsive/adaptive design with views](https://developer.android.com/develop/ui/views/layout/responsive-adaptive-design-with-views)
 
 To learn more about what makes an app great on all devices and screen sizes,
 see:
 
-* [Migrate your UI to responsive layouts](/guide/topics/large-screens/migrate-to-responsive-layouts)
-* [Large screen app quality](/docs/quality-guidelines/large-screen-app-quality)
-
-[Previous
-
-arrow\_back
-
-Support different display sizes](/develop/ui/compose/layouts/adaptive/support-different-display-sizes)
-
-[Next
-
-Support multi-window mode
-
-arrow\_forward](/develop/ui/compose/layouts/adaptive/support-multi-window-mode)
+- [Migrate your UI to responsive layouts](https://developer.android.com/guide/topics/large-screens/migrate-to-responsive-layouts)
+- [Large screen app quality](https://developer.android.com/docs/quality-guidelines/large-screen-app-quality)

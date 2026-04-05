@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 Trusted Web Activities can be a bit tricky to set up, especially if all you want to do is display your website. This guide will take you through creating a basic project that uses Trusted Web Activities, covering all the gotchas.
 
 By the end of this guide, you will:

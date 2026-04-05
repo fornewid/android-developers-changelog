@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 The Navigation template presents a base map and optional routing information.
 
 When a user is driving without text-based turn-by-turn directions, apps can

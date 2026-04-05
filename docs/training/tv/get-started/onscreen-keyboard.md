@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Android TV comes with an on-screen software keyboard named Gboard. The keyboard
 supports a wide range of features, including speech-to-text (STT), which lets
 users speak and have the speech automatically translated into text for input.

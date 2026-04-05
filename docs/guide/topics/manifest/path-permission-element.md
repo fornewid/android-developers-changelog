@@ -1,15 +1,19 @@
 ---
-title: https://developer.android.com/guide/topics/manifest/path-permission-element
+title: <path-permission>  |  App architecture  |  Android Developers
 url: https://developer.android.com/guide/topics/manifest/path-permission-element
-source: md.txt
+source: html-scrape
 ---
 
-# &lt;path-permission>
+* [Android Developers](https://developer.android.com/)
+* [Design & Plan](https://developer.android.com/design)
+* [App architecture](https://developer.android.com/topic/architecture/intro)
+
+# <path-permission> Stay organized with collections Save and categorize content based on your preferences.
+
+
 
 syntax:
-:
-
-    ```xml
+:   ```
     <path-permission android:path="string"
                      android:pathPrefix="string"
                      android:pathPattern="string"
@@ -19,32 +23,52 @@ syntax:
     ```
 
 contained in:
-:   [<provider>](https://developer.android.com/guide/topics/manifest/provider-element)
+:   `<provider>`
 
 description:
-:   Defines the path and required permissions for a specific subset of data within a content provider. This element can be specified multiple times to supply multiple paths.
+:   Defines the path and required permissions for a specific subset of data
+    within a content provider. This element can be
+    specified multiple times to supply multiple paths.
 
 attributes:
-:
-
-    `android:path`
-    :   A complete URI path for a subset of content provider data. Permission can be granted only to the particular data identified by this path. When used to provide search suggestion content, it is appended with`/search_suggest_query`.
+:   `android:path`
+    :   A complete URI path for a subset of content provider data.
+        Permission can be granted only to the particular data identified by this path.
+        When used to provide search suggestion content, it is appended
+        with `/search_suggest_query`.
 
     `android:pathPrefix`
-    :   The initial part of a URI path for a subset of content provider data. Permission can be granted to all data subsets with paths that share this initial part.
+    :   The initial part of a URI path for a subset of content provider data.
+        Permission can be granted to all data subsets with paths that share this initial part.
 
     `android:pathPattern`
-    :   A complete URI path for a subset of content provider data, but one that can use the following wildcards:
+    :   A complete URI path for a subset of content provider data,
+        but one that can use the following wildcards:
 
-        - An asterisk (`*`). This matches a sequence of zero to many occurrences of the immediately preceding character.
-        - A period followed by an asterisk (`.*`). This matches any sequence of zero or more characters.
+        * An asterisk (`*`). This matches a sequence of zero to many occurrences of
+          the immediately preceding character.
+        * A period followed by an asterisk (`.*`). This matches any sequence of
+          zero or more characters.
 
-        Because the backslash (`\`) is used as an escape character when the string is read from XML, before it is parsed as a pattern, you need to double-escape. For example, a literal`*`is written as "`\\*`" and a literal`\`is written as "`\\\`". This is the same as what you write if constructing the string in the Java programming language.
+        Because the backslash (`\`) is used as an escape character when the string is read
+        from XML, before it is parsed as a pattern, you need to double-escape.
+        For example, a literal `*` is written as "`\\*`" and a
+        literal `\` is written as "`\\\`". This is
+        the same as what you write if constructing the string in the Java programming language.
 
-        For more information about these types of patterns, see the descriptions of[`PATTERN_LITERAL`](https://developer.android.com/reference/android/os/PatternMatcher#PATTERN_LITERAL),[`PATTERN_PREFIX`](https://developer.android.com/reference/android/os/PatternMatcher#PATTERN_PREFIX), and[`PATTERN_SIMPLE_GLOB`](https://developer.android.com/reference/android/os/PatternMatcher#PATTERN_SIMPLE_GLOB)in the[`PatternMatcher`](https://developer.android.com/reference/android/os/PatternMatcher)class.
+        For more information about these types of patterns, see the descriptions of
+        [`PATTERN_LITERAL`](/reference/android/os/PatternMatcher#PATTERN_LITERAL),
+        [`PATTERN_PREFIX`](/reference/android/os/PatternMatcher#PATTERN_PREFIX), and
+        [`PATTERN_SIMPLE_GLOB`](/reference/android/os/PatternMatcher#PATTERN_SIMPLE_GLOB) in the
+        [`PatternMatcher`](/reference/android/os/PatternMatcher) class.
 
     `android:permission`
-    :   The name of a permission that clients need in order to read or write the content provider's data. This attribute is a convenient way of setting a single permission for both reading and writing. However, the`readPermission`and`writePermission`attributes take precedence over this one.
+    :   The name of a permission that clients need in order to read or write the
+        content provider's data. This attribute is a convenient way of setting a
+        single permission for both reading and writing. However, the
+        `readPermission` and
+        `writePermission` attributes take precedence
+        over this one.
 
     `android:readPermission`
     :   A permission that clients need in order to query the content provider.
@@ -56,6 +80,6 @@ introduced in:
 :   API level 4
 
 see also:
-:   [SearchManager](https://developer.android.com/reference/android/app/SearchManager)
-:   [Manifest.permission](https://developer.android.com/reference/android/Manifest.permission)
-:   [Security tips](https://developer.android.com/guide/topics/security/security)
+:   `SearchManager`
+:   `Manifest.permission`
+:   [Security tips](/guide/topics/security/security)

@@ -10,7 +10,6 @@ source: html-scrape
 
 
 
-
 ![system bars](/static/images/training/system-ui.png)
 
 **Figure 1.** System bars, including the [1] status

@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 Hilt is a dependency injection library for Android that reduces the boilerplate
 of doing manual dependency injection in your project. Doing [manual dependency
 injection](/training/dependency-injection/manual) requires you to construct

@@ -1,14 +1,23 @@
 ---
-title: https://developer.android.com/privacy-and-security/security-gms-provider
+title: Update your security provider to protect against SSL exploits  |  Security  |  Android Developers
 url: https://developer.android.com/privacy-and-security/security-gms-provider
-source: md.txt
+source: html-scrape
 ---
 
-Android relies on a security `https://developer.android.com/reference/java/security/Provider` to
+* [Android Developers](https://developer.android.com/)
+* [Design & Plan](https://developer.android.com/design)
+* [Security](https://developer.android.com/security)
+* [Guides](https://developer.android.com/privacy-and-security/security-tips)
+
+# Update your security provider to protect against SSL exploits Stay organized with collections Save and categorize content based on your preferences.
+
+
+
+Android relies on a security `Provider` to
 provide secure network communications. However, from time to time,
 vulnerabilities are found in the default security provider. To protect against
 these vulnerabilities, [Google Play
-services](https://developer.android.com/google/play-services) provides a way to automatically update a device's security provider
+services](/google/play-services) provides a way to automatically update a device's security provider
 to protect against known exploits. By calling Google Play services methods, you can help ensure
 that your app is running on a device that has the latest updates to
 protect against known exploits.
@@ -23,10 +32,10 @@ on a device that's secured against that attack.
 
 **Caution:** Updating a device's security
 `Provider` does *not* update
-`https://developer.android.com/reference/android/net/SSLCertificateSocketFactory`,
+`android.net.SSLCertificateSocketFactory`,
 which remains vulnerable. Rather than using this deprecated class, we encourage app developers to
 use high-level methods for interacting with cryptography, such as
-`https://developer.android.com/reference/javax/net/ssl/HttpsURLConnection`.
+`HttpsURLConnection`.
 
 ## Patch the security provider using ProviderInstaller
 
@@ -43,9 +52,18 @@ When you call `installIfNeeded()`, the
 `ProviderInstaller`
 does the following:
 
-- If the device's `Provider` is successfully updated (or is already up to date), the method returns without throwing an exception.
-- If the device's Google Play services library is out of date, the method throws [`GooglePlayServicesRepairableException`](https://developers.google.com/android/reference/com/google/android/gms/common/GooglePlayServicesRepairableException). The app can then catch this exception and show the user an appropriate dialog box to update Google Play services.
-- If a non-recoverable error occurs, the method throws [`GooglePlayServicesNotAvailableException`](https://developers.google.com/android/reference/com/google/android/gms/common/GooglePlayServicesNotAvailableException.html) to indicate that it is unable to update the `Provider`. The app can then catch the exception and choose an appropriate course of action, such as displaying the standard [fix-it flow diagram](https://developers.google.com/android/reference/com/google/android/gms/common/SupportErrorDialogFragment.html).
+* If the device's `Provider` is successfully
+  updated (or is already up to date), the method returns without throwing an exception.
+* If the device's Google Play services library is out of date, the method
+  throws
+  [`GooglePlayServicesRepairableException`](https://developers.google.com/android/reference/com/google/android/gms/common/GooglePlayServicesRepairableException).
+  The app can then catch this exception and show
+  the user an appropriate dialog box to update Google Play services.
+* If a non-recoverable error occurs, the method throws
+  [`GooglePlayServicesNotAvailableException`](https://developers.google.com/android/reference/com/google/android/gms/common/GooglePlayServicesNotAvailableException.html)
+  to indicate that it is unable to update the `Provider`. The app can then catch the exception and choose an appropriate
+  course of action, such as displaying the standard
+  [fix-it flow diagram](https://developers.google.com/android/reference/com/google/android/gms/common/SupportErrorDialogFragment.html).
 
 The
 `installIfNeededAsync()`
@@ -56,11 +74,24 @@ success or failure.
 If the security provider is already up to date, `installIfNeeded()` takes a
 negligible amount of time. If the method
 needs to install a new `Provider`, this can take
-anywhere from 30-50 ms (on more recent devices) to 350 ms (on older
+anywhere from 30-50 ms (on more recent devices) to 350 ms (on older
 devices). To avoid affecting user experience:
 
-- Call `installIfNeeded()` from background networking threads immediately when the threads are loaded, instead of waiting for the thread to try to use the network. (There's no harm in calling the method multiple times, since it returns immediately if the security provider doesn't need updating.)
-- Call the asynchronous version of the method, `installIfNeededAsync()`, if user experience can be affected by the thread blocking---for example, if the call is from an activity in the UI thread. (If you do this, you need to wait for the operation to finish before you attempt any secure communications. The `ProviderInstaller` calls your listener's [`onProviderInstalled()`](https://developers.google.com/android/reference/com/google/android/gms/security/ProviderInstaller.ProviderInstallListener.html#onProviderInstalled()) method to signal success.)
+* Call
+  `installIfNeeded()`
+  from background networking threads immediately when the threads are loaded,
+  instead of waiting for the thread to try to use the network. (There's no harm
+  in calling the method multiple times, since it returns immediately if the
+  security provider doesn't need updating.)
+* Call the asynchronous
+  version of the method,
+  `installIfNeededAsync()`, if user experience can be affected by the thread
+  blocking—for example, if the call is from an activity in the UI thread.
+  (If you do this, you need to wait for the operation to finish
+  before you attempt any secure communications. The
+  `ProviderInstaller`
+  calls your listener's [`onProviderInstalled()`](https://developers.google.com/android/reference/com/google/android/gms/security/ProviderInstaller.ProviderInstallListener.html#onProviderInstalled())
+  method to signal success.)
 
 **Warning:** If the
 `ProviderInstaller`
@@ -81,7 +112,7 @@ method `installIfNeeded()`.
 This is appropriate if user experience won't be affected by the thread blocking
 while it waits for the operation to finish.
 
-For example, here's an implementation of a [worker](https://developer.android.com/topic/libraries/architecture/workmanager/basics) that updates the security provider. Since a worker
+For example, here's an implementation of a [worker](/topic/libraries/architecture/workmanager/basics) that updates the security provider. Since a worker
 runs in the background, it's okay if the thread blocks while waiting
 for the security provider to be updated. The worker calls
 `installIfNeeded()` to
@@ -92,7 +123,7 @@ update Google Play services).
 
 ### Kotlin
 
-```kotlin
+```
 /**
  * Sample patch Worker using {@link ProviderInstaller}.
  */
@@ -130,7 +161,7 @@ class PatchWorker(appContext: Context, workerParams: WorkerParameters): Worker(a
 
 ### Java
 
-```java
+```
 /**
  * Sample patch Worker using {@link ProviderInstaller}.
  */
@@ -170,7 +201,7 @@ public class PatchWorker extends Worker {
 
 ### Patch asynchronously
 
-Updating the security provider can take as much as 350 ms (on
+Updating the security provider can take as much as 350 ms (on
 older devices). If you're doing the update on a thread that directly affects
 user experience, such as the UI thread, you don't want to make a synchronous
 call to update the provider, since that can result in the app or device
@@ -192,7 +223,7 @@ prompting the user to update Google Play services).
 
 ### Kotlin
 
-```kotlin
+```
 private const val ERROR_DIALOG_REQUEST_CODE = 1
 
 /**
@@ -270,7 +301,7 @@ class MainActivity : Activity(), ProviderInstaller.ProviderInstallListener {
 
 ### Java
 
-```java
+```
 /**
  * Sample activity using {@link ProviderInstaller}.
  */

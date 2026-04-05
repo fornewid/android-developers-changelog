@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 A bound service is the server in a client-server interface. It lets components
 such as activities bind to the service, send requests, receive responses, and perform
 interprocess communication (IPC). A bound service typically lives only while it serves another

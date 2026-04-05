@@ -11,7 +11,6 @@ source: html-scrape
 
 
 
-
 Review the following guidelines to optimize your Wear OS app's experience for
 kids. Also, confirm that your app or game
 [satisfies requirements for kid-friendly experiences](/training/wearables/packaging#kids).

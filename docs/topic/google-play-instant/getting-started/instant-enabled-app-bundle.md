@@ -12,6 +12,7 @@ source: html-scrape
 
 
 
+
 **Warning:** Google Play Instant will no longer be available. Starting December 2025,
 Instant Apps cannot be published through Google Play, and all
 [Google Play services Instant APIs](https://developers.google.com/android/reference/com/google/android/gms/instantapps/package-summary)

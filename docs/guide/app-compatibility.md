@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 For Android, the term *app compatibility* means that your app runs properly on a
 specific version of the platform, typically the latest version. With each
 release, we make integral changes that improve privacy and security, and we

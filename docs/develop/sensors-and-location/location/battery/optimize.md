@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 Take the following actions to [improve your app's
 impact on a device's battery life](/develop/sensors-and-location/location/battery) when using location services.
 

@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 Navigation drawers are essential components in any TV app as they allow users
 to access different destinations and features. A navigation drawer is the
 backbone of the app's information architecture, providing a clear and intuitive

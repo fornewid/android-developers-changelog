@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 If your app needs access to restricted data or actions—for example,
 location—the [standard rules of Android permissions](/guide/topics/permissions/overview) apply. To request
 a permission, you can use the [`CarContext.requestPermissions()`](/reference/androidx/car/app/CarContext#requestPermissions(java.util.List%3Cjava.lang.String%3E,%20java.util.concurrent.Executor,%20androidx.car.app.OnRequestPermissionsListener)) method.

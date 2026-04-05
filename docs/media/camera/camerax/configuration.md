@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 You configure each CameraX use case to control different aspects of the use
 case's operations.
 

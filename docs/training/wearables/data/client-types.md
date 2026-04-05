@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 The Wear OS data layer APIs consist of several different types of clients, which
 are useful for different types of data and during different connectivity
 conditions.

@@ -12,6 +12,7 @@ source: html-scrape
 
 
 
+
 Testing user interactions helps ensure users don't encounter unexpected results
 or have a poor experience when interacting with your app. You should get into
 the habit of creating user interface (UI) tests if you need to verify that the

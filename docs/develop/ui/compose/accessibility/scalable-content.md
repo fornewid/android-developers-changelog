@@ -1,18 +1,8 @@
 ---
-title: Support user-scalable content  |  Jetpack Compose  |  Android Developers
+title: https://developer.android.com/develop/ui/compose/accessibility/scalable-content
 url: https://developer.android.com/develop/ui/compose/accessibility/scalable-content
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [Develop](https://developer.android.com/develop)
-* [Core areas](https://developer.android.com/develop/core-areas)
-* [UI](https://developer.android.com/develop/ui)
-* [Docs](https://developer.android.com/develop/ui/compose/documentation)
-
-# Support user-scalable content Stay organized with collections Save and categorize content based on your preferences.
-
-
 
 Implement **pinch-to-zoom** gestures to support scalable content in your app.
 This is the standard, platform-consistent method for improving accessibility,
@@ -28,7 +18,7 @@ fit the screen's width. This provides a significant accessibility benefit by
 eliminating the need for horizontal panning and the frustrating "zig-zag" motion
 that would otherwise be required to read long lines of text.
 
-**Further Reading**: Research confirms that for users with low vision, reflowing
+**Further Reading** : Research confirms that for users with low vision, reflowing
 content is significantly more readable and easier to navigate than interfaces
 that require two-dimensional panning. For more details, see [A Comparison of
 Pan-and-Scan and Reflowable Content on Mobile Devices](https://link.springer.com/chapter/10.1007/978-3-319-20612-7_18).
@@ -38,30 +28,29 @@ Pan-and-Scan and Reflowable Content on Mobile Devices](https://link.springer.com
 The following table demonstrates the visual effect of each scaling strategy.
 
 | Strategy | Density scaling | Font scaling |
-| --- | --- | --- |
+|---|---|---|
 | **Behavior** | Scales everything proportionally. The content reflows to fit its container, so the user doesn't need to pan horizontally to see all content. | Only affects text elements. The overall layout and non-text components stay the same size. |
 | **What Scales** | **All visual elements**: Text, components (buttons, icons), images, and layout spacing (padding, margins) | **Text only** |
-| **Demonstration** |  |  |
+| **Demonstration** |   |   |
 
 ### Recommendations
 
 Now that you've seen the visual differences, the following table helps you weigh
 the trade-offs and choose the best strategy for your content.
 
-|  |  |  |
-| --- | --- | --- |
+|---|---|---|
 | **UI type** | **Recommended strategy** | **Reasoning** |
-| **Reading-intensive layouts**  Examples: News articles, messaging apps | **Density or font scaling** | Density scaling is preferred to scale the entire content area, including inline images.  Font scaling is a straightforward alternative if only text needs to be scaled. |
-| **Visually structured layouts**  Examples: App stores, social media feeds | **Density scaling** | Preserves the visual relationships between images and text in carousels or grids. The reflowing nature avoids horizontal panning, which would conflict with nested scrolling elements. |
+| **Reading-intensive layouts** Examples: News articles, messaging apps | **Density or font scaling** | Density scaling is preferred to scale the entire content area, including inline images. Font scaling is a straightforward alternative if only text needs to be scaled. |
+| **Visually structured layouts** Examples: App stores, social media feeds | **Density scaling** | Preserves the visual relationships between images and text in carousels or grids. The reflowing nature avoids horizontal panning, which would conflict with nested scrolling elements. |
 
 ## Detect scaling gestures in Jetpack Compose
 
 To support user-scalable content, you must first detect multi-touch gestures. In
-Jetpack Compose, you can do this using the [`Modifier.transformable`](/reference/kotlin/androidx/compose/foundation/gestures/transformable.modifier#(androidx.compose.ui.Modifier).transformable(androidx.compose.foundation.gestures.TransformableState,kotlin.Boolean,kotlin.Boolean)).
+Jetpack Compose, you can do this using the [`Modifier.transformable`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/gestures/transformable.modifier#(androidx.compose.ui.Modifier).transformable(androidx.compose.foundation.gestures.TransformableState,kotlin.Boolean,kotlin.Boolean)).
 
-**Important:** It's critical to understand that this modifier is **purely a
-gesture detector**; it doesn't apply scaling. You must use the data it
-provides to update your own state.
+> [!IMPORTANT]
+> **Important:** It's critical to understand that this modifier is **purely a
+> gesture detector**; it doesn't apply scaling. You must use the data it provides to update your own state.
 
 The `transformable` modifier is a high-level API that provides the `zoomChange`
 delta since the last gesture event. This simplifies the state update logic to
@@ -73,22 +62,20 @@ the adaptive scaling strategies covered in this guide.
 The following examples show how to implement the density scaling and font
 scaling strategies.
 
-**Tip:** To further enhance the user experience and accommodate the user's
-preference, consider keeping the chosen scale factor. When the user returns to
-the screen or relaunches the app, their preferred scale is already applied.
-For a modern, Jetpack-recommended solution for storing preferences, see
-[Jetpack DataStore](/topic/libraries/architecture/datastore).
+> [!TIP]
+> **Tip:** To further enhance the user experience and accommodate the user's preference, consider keeping the chosen scale factor. When the user returns to the screen or relaunches the app, their preferred scale is already applied. For a modern, Jetpack-recommended solution for storing preferences, see [Jetpack DataStore](https://developer.android.com/topic/libraries/architecture/datastore).
 
 ### Density scaling
 
 This approach scales the base `density` of a UI area. As a result, all
-layout-based measurements—including padding, spacing, and component sizes—are
+layout-based measurements---including padding, spacing, and component sizes---are
 scaled, as if the screen size or resolution had changed. Because text size
 also relies on density, it also scales proportionally. This strategy is
 effective when you want to uniformly enlarge all elements within a specific
 area, maintaining the overall visual rhythm and proportions of your UI.
 
-```
+
+```kotlin
 private class DensityScalingState(
     // Note: For accessibility, typical min/max values are ~0.75x and ~3.5x.
     private val minScale: Float = 0.75f,
@@ -127,25 +114,23 @@ fun DensityScalingSample() {
         }
     }
 }
-
-ScalableContentSnippets.kt
 ```
+
+<br />
 
 ### Font scaling
 
 This strategy is more targeted, modifying only the `fontScale` factor. The
 result is that only text elements grow or shrink, while all other layout
-components—such as containers, padding, and icons—remain a fixed size. This
+components---such as containers, padding, and icons---remain a fixed size. This
 strategy is well-suited for improving text legibility in reading-intensive
 apps.
 
-**Note:** This approach leverages Android's underlying font scaling system,
-which applies a **non-linear scale** for better readability. Therefore, a
-`zoomChange` of 2.0 might not result in text that appears exactly twice as
-large, but it creates scaling behavior that is consistent with the user's
-system-wide accessibility settings.
+> [!NOTE]
+> **Note:** This approach leverages Android's underlying font scaling system, which applies a **non-linear scale** for better readability. Therefore, a `zoomChange` of 2.0 might not result in text that appears exactly twice as large, but it creates scaling behavior that is consistent with the user's system-wide accessibility settings.
 
-```
+
+```kotlin
 class FontScaleState(
     // Note: For accessibility, typical min/max values are ~0.75x and ~3.5x.
     private val minScale: Float = 0.75f,
@@ -183,16 +168,17 @@ fun FontScalingSample() {
         }
     }
 }
-
-ScalableContentSnippets.kt
 ```
+
+<br />
 
 ### Shared demo UI
 
 This is the shared `DemoCard` composable used by both of the preceding examples
 to highlight the different scaling behaviors.
 
-```
+
+```kotlin
 @Composable
 private fun DemoCard() {
     Card(
@@ -244,19 +230,14 @@ private fun DemoCard() {
         }
     }
 }
-
-ScalableContentSnippets.kt
 ```
+
+<br />
 
 ## Tips and considerations
 
 To create a more polished and accessible experience, consider the following
 recommendations:
 
-* **Consider offering non-gesture scale controls**: Some users may have
-  difficulty with gestures. To support these users, consider providing an
-  alternative way to adjust or reset the scale that doesn't rely on gestures.
-* **Build for all scales**: Test your UI against both in-app scaling and
-  system-wide font or display settings. Check that your app's layouts adapt
-  correctly without breaking, overlapping, or hiding content. Learn more about
-  how to build [adaptive layouts](/develop/ui/compose/layouts/adaptive).
+- **Consider offering non-gesture scale controls**: Some users may have difficulty with gestures. To support these users, consider providing an alternative way to adjust or reset the scale that doesn't rely on gestures.
+- **Build for all scales** : Test your UI against both in-app scaling and system-wide font or display settings. Check that your app's layouts adapt correctly without breaking, overlapping, or hiding content. Learn more about how to build [adaptive layouts](https://developer.android.com/develop/ui/compose/layouts/adaptive).

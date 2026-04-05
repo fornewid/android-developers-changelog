@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 The emulator runs best if it can use your machine’s hardware, such as
 the CPU, GPU, and modem, rather than running as pure software. The ability to use
 your machine’s hardware to improve performance is called *hardware

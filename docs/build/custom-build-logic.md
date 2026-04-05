@@ -1,17 +1,8 @@
 ---
-title: Apply custom build logic  |  Android Studio  |  Android Developers
+title: https://developer.android.com/build/custom-build-logic
 url: https://developer.android.com/build/custom-build-logic
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [Develop](https://developer.android.com/develop)
-* [Android Studio](https://developer.android.com/studio)
-* [Gradle build guides](https://developer.android.com/build/gradle-build-overview)
-
-# Apply custom build logic Stay organized with collections Save and categorize content based on your preferences.
-
-
 
 This section describes advanced topics that are useful when you want to extend
 the Android Gradle plugin or write your own plugin.
@@ -27,14 +18,13 @@ There are two separate configurations that hold the transitive dependencies of
 each classpath which must be used by consumers to consume the library as
 described below:
 
-* `variant_nameApiElements`: This configuration holds the
-  transitive dependencies that are available to consumers at compile time.
-* `variant_nameRuntimeElements`: This configuration holds
-  the transitive dependencies that are available to consumers at runtime.
+- `variant_nameApiElements`: This configuration holds the transitive dependencies that are available to consumers at compile time.
+- `variant_nameRuntimeElements`: This configuration holds the transitive dependencies that are available to consumers at runtime.
 
 To learn more about the relationships between the different configurations,
 go to [The Java Library
-plugin configurations](https://docs.gradle.org/current/userguide/java_library_plugin.html#sec:java_library_configurations_graph).
+plugin configurations](https://docs.gradle.org/current/userguide/java_library_plugin.html#s
+ec:java_library_configurations_graph).
 
 ## Custom dependency resolution strategies
 
@@ -53,10 +43,8 @@ However, this strategy might not always work as you intend. To customize the
 dependency resolution strategy, use the following configurations to
 resolve specific dependencies of a variant that are needed for your task:
 
-* `variant_nameCompileClasspath`: This configuration
-  contains the resolution strategy for a given variant’s compile classpath.
-* `variant_nameRuntimeClasspath`: This configuration
-  contains the resolution strategy for a given variant’s runtime classpath.
+- `variant_nameCompileClasspath`: This configuration contains the resolution strategy for a given variant's compile classpath.
+- `variant_nameRuntimeClasspath`: This configuration contains the resolution strategy for a given variant's runtime classpath.
 
 The Android Gradle plugin includes getters that you can use to access the
 configuration objects of each variant. Thus, you can use the variant API to
@@ -64,12 +52,12 @@ query the dependency resolution as shown in the example below:
 
 ### Kotlin
 
-```
+```kotlin
 android {
     applicationVariants.all {
         // Return compile configuration objects of a variant.
         compileConfiguration.resolutionStrategy {
-        // Use Gradle's ResolutionStrategy API
+        // Use Gradle's https://docs.gradle.org/current/dsl/org.gradle.api.artifacts.ResolutionStrategy.html
         // to customize how this variant resolves dependencies.
             ...
         }
@@ -87,12 +75,12 @@ android {
 
 ### Groovy
 
-```
+```groovy
 android {
     applicationVariants.all { variant ->
         // Return compile configuration objects of a variant.
         variant.getCompileConfiguration().resolutionStrategy {
-        // Use Gradle's ResolutionStrategy API
+        // Use Gradle's https://docs.gradle.org/current/dsl/org.gradle.api.artifacts.ResolutionStrategy.html
         // to customize how this variant resolves dependencies.
             ...
         }

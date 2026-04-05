@@ -12,6 +12,7 @@ source: html-scrape
 
 
 
+
 The Recents screen, also called the Overview screen, recent task
 list, or recent apps screen, is a system-level UI that lists recently accessed
 [activities](/guide/components/activities) and [tasks](/guide/components/activities/tasks-and-back-stack).

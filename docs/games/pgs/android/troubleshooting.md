@@ -15,7 +15,6 @@ Send feedback
 
 
 
-
 This page describes how to troubleshoot issues that you might encounter while
 developing Android games with Google Play Games Services.
 
@@ -242,8 +241,6 @@ such as the
         }
     }
 ```
-
-
 
 
 

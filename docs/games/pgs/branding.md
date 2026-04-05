@@ -15,6 +15,7 @@ Send feedback
 
 
 
+
 This page describes the design guidelines for Google Play Games Services branding elements.
 You can use these elements in your app without pre-approval provided you follow
 these guidelines. Use of Google brands in ways not expressly covered by these

@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 This document describes how app developers can use the
 security features provided by Android to define their own permissions. By
 defining custom permissions, an app can share its resources and capabilities

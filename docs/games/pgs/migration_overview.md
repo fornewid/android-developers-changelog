@@ -15,6 +15,7 @@ Send feedback
 
 
 
+
 Google Play Games Services, games v1 SDK relies on Google Sign-In for Android which is
 deprecated and will be removed from the
 [Google Play services Auth SDK](https://maven.google.com/web/index.html?q=play-services-auth#com.google.android.gms:play-services-auth)
@@ -119,6 +120,8 @@ SDKs:
 | Dependencies | Requires `play-services-auth`. | The Games module takes care of authorization and authentication. You need not add any additional dependencies. |
 | Sign-out | Uses `GoogleSignInClient.signOut`. | Sign-out API is not supported. |
 | Multiple Play Games Services accounts and per-game settings | Account management is possible within your game. | Users can change the Play Games Services profile in the mobile device settings. For more information, see [how to switch Play Games profiles on mobile](https://support.google.com/googleplay/answer/14754238). |
+
+
 
 
 

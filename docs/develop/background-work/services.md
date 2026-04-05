@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 A `Service` is an
 [application component](/guide/components/fundamentals#Components) that can perform
 long-running operations in the background. It does not provide a user interface. Once

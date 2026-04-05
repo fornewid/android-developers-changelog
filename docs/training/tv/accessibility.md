@@ -1,8 +1,17 @@
 ---
-title: https://developer.android.com/training/tv/accessibility
+title: Accessibility best practices for Android TV  |  Android Developers
 url: https://developer.android.com/training/tv/accessibility
-source: md.txt
+source: html-scrape
 ---
+
+* [Android Developers](https://developer.android.com/)
+* [Develop](https://developer.android.com/develop)
+* [Devices](https://developer.android.com/develop/devices)
+* [Android TV](https://developer.android.com/training/tv)
+
+# Accessibility best practices for Android TV Stay organized with collections Save and categorize content based on your preferences.
+
+
 
 This guide provides best practices for accessibility on Android TV and provides
 recommendations for both native and non-native apps.
@@ -40,51 +49,55 @@ help you and your team to uncover accessibility issues with your TV app.
 
 ### Android accessibility resources
 
-To learn more about accessibility on Android, see our [accessibility development resources](https://developer.android.com/guide/topics/ui/accessibility).
+To learn more about accessibility on Android, see our [accessibility development resources](/guide/topics/ui/accessibility).
 
 ## Text scaling
 
-Android TV apps should respect the user's preference for text scaling by [supporting different pixel densities](https://developer.android.com/training/multiscreen/screendensities#TaskUseDP).
+Android TV apps should respect the user's preference for text scaling by [supporting different pixel densities](/training/multiscreen/screendensities#TaskUseDP).
 
 Take special care to:
 
-- Use `wrap_content` for dimensions in UI components.
-- Ensure that layouts rearrange components as their dimensions change depending on the text scale.
-- Ensure that components still fit on the screen at larger text scales.
-- Don't use sp text size units for components that are not flexible.
-- Check the value of `FONT_SCALE` for adjustment in custom views:
+* Use `wrap_content` for dimensions in UI components.
+* Ensure that layouts rearrange components as their dimensions change depending on the text scale.
+* Ensure that components still fit on the screen at larger text scales.
+* Don't use sp text size units for components that are not flexible.
+* Check the value of `FONT_SCALE` for adjustment in custom views:
 
-      // Checking font scale with Context
-      val scale = resources.configuration.fontScale
-      Log.d(TAG, "Text scale is: " + scale)
+  ```
+  // Checking font scale with Context
+  val scale = resources.configuration.fontScale
+  Log.d(TAG, "Text scale is: " + scale)
+  ```
 
 The text scale can be changed with the following command:
 
-    adb shell settings put system font_scale 1.2f
+```
+adb shell settings put system font_scale 1.2f
+```
 
 On Android 12 and above, users can alter the text scaling from the device
 settings.
 
 ## Keyboard layouts
 
-In Android 13 (API level 33) and higher, you can use
-[`getKeyCodeForKeyLocation()`](https://developer.android.com/reference/android/view/InputDevice#getKeyCodeForKeyLocation(int))
+In Android 13 (API level 33) and higher, you can use
+[`getKeyCodeForKeyLocation()`](/reference/android/view/InputDevice#getKeyCodeForKeyLocation(int))
 to
-[look up the keycodes](https://developer.android.com/training/tv/games#keyboard-layouts) for
+[look up the keycodes](/training/tv/games#keyboard-layouts) for
 expected key locations.
 This might be necessary if the user has re-mapped some key locations or if they
 are using a keyboard that does not have a typical layout.
 
 ## Audio description
 
-In Android 13 (API level 33) and higher, a new system-wide accessibility preference
+In Android 13 (API level 33) and higher, a new system-wide accessibility preference
 lets users enable audio descriptions across all apps. Android TV apps can
 check the user's preference by querying it with
-[`isAudioDescriptionRequested()`](https://developer.android.com/reference/android/view/accessibility/AccessibilityManager#isAudioDescriptionRequested()).
+[`isAudioDescriptionRequested()`](/reference/android/view/accessibility/AccessibilityManager#isAudioDescriptionRequested()).
 
 ### Kotlin
 
-```kotlin
+```
 private lateinit var accessibilityManager: AccessibilityManager
 
 // In onCreate():
@@ -98,7 +111,7 @@ if (am.isAudioDescriptionRequested) {
 
 ### Java
 
-```java
+```
 private AccessibilityManager accessibilityManager;
 
 // In onCreate():
@@ -112,11 +125,11 @@ if(accessibilityManager.isAudioDescriptionRequested()) {
 
 Android TV apps can monitor when a user's preference changes by
 adding a listener to
-[`AccessibilityManager`](https://developer.android.com/reference/android/view/accessibility/AccessibilityManager):
+[`AccessibilityManager`](/reference/android/view/accessibility/AccessibilityManager):
 
 ### Kotlin
 
-```kotlin
+```
 private val listener =
     AccessibilityManager.AudioDescriptionRequestedChangeListener { enabled ->
         // Preference changed; reflect its state in your media player
@@ -137,7 +150,7 @@ override fun onStop() {
 
 ### Java
 
-```java
+```
 private AccessibilityManager.AudioDescriptionRequestedChangeListener listener = enabled -> {
     // Preference changed; reflect its state in your media player
 };
@@ -156,3 +169,9 @@ protected void onStop() {
     accessibilityManager.removeAudioDescriptionRequestedChangeListener(listener);
 }
 ```
+
+[Next
+
+TalkBack evaluation examples
+
+arrow\_forward](/training/tv/accessibility/talkback)

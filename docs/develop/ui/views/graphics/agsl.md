@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 Android Graphics Shading Language (AGSL) is used by Android 13 and above to
 define the behavior of programmable
 [`RuntimeShader`](/reference/android/graphics/RuntimeShader) objects. AGSL

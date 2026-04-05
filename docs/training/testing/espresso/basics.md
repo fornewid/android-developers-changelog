@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 This document explains how to complete common automated testing tasks using the
 Espresso API.
 

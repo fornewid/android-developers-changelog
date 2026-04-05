@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 Some apps, such as password managers, can fill out the components in other apps
 with data provided by the user. Apps that fill out other apps' components are
 called autofill services. The autofill framework manages the communication

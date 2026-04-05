@@ -15,7 +15,6 @@ Save and categorize content based on your preferences.
 
 
 
-
 # Palette
 
 [Code Sample](https://github.com/android/plaid)

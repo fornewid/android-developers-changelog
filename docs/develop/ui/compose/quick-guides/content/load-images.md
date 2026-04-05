@@ -1,22 +1,33 @@
 ---
-title: https://developer.android.com/develop/ui/compose/quick-guides/content/load-images
+title: Load and display images  |  Jetpack Compose  |  Android Developers
 url: https://developer.android.com/develop/ui/compose/quick-guides/content/load-images
-source: md.txt
+source: html-scrape
 ---
 
-<br />
+* [Android Developers](https://developer.android.com/)
+* [Develop](https://developer.android.com/develop)
+* [Core areas](https://developer.android.com/develop/core-areas)
+* [UI](https://developer.android.com/develop/ui)
+* [Quick Guides](https://developer.android.com/develop/ui/compose/quick-guides)
+
+# Load and display images Stay organized with collections Save and categorize content based on your preferences.
+
+
 
 To display images in your app for content and for responses to user actions,
 load the images from the disk or from an external source on the internet. You
 can load images the following ways:
 
-- From the disk
-- From a network using Coil
-- From a network using Glide
+* From the disk
+* From a network using Coil
+* From a network using Glide
 
 ## Results
 
-:dog: **Figure 1.** An image loaded and displayed.
+![An image of a dog](/static/develop/ui/compose/quick-guides/content/dog.png)
+
+
+**Figure 1.** An image loaded and displayed.
 
 ## Version compatibility
 
@@ -30,28 +41,28 @@ content and to respond to user actions.
 
 ### Dependencies
 
-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/load-images_504265100ae01120c9f8aa6e5287923881f65f7e4bc6b06f0aa1c8888205eb6f.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
-
 ### Load the image
 
 Use the following code to load a locally stored image from the disk to display
 in your app:
 
-
-```kotlin
+```
 Image(
     painter = painterResource(id = R.drawable.dog),
     contentDescription = stringResource(id = R.string.dog_content_description)
 )
-```
 
-<br />
+LoadingImagesSnippets.kt
+```
 
 #### Key points about the code
 
-- A defined Compose [`Image`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/Image.composable) object with a `painter` attribute set to a [`painterResource()`](https://developer.android.com/reference/kotlin/androidx/compose/ui/res/package-summary#painterresource) that loads an image from app resources.
-- A `contentDescription` that `TalkBack` can read to make your app more accessible.
-- A `stringResource()` to load translated content description from the `strings.xml` file.
+* A defined Compose [`Image`](/reference/kotlin/androidx/compose/foundation/Image.composable) object with a `painter` attribute set to a
+  [`painterResource()`](/reference/kotlin/androidx/compose/ui/res/package-summary#painterresource) that loads an image from app resources.
+* A `contentDescription` that `TalkBack` can read to make your app more
+  accessible.
+* A `stringResource()` to load translated content description from the
+  `strings.xml` file.
 
 ## Load an image over the network
 
@@ -68,21 +79,18 @@ this guidance to load images from the internet using Coil.
 
 ### Dependencies
 
-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/load-images_1c216fc175161e3337ffd82a20103d4cfc3fb86e7b0ce87e4279be9802ea270c.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
-
 #### Load the image
 
 Use the following code to load images using Coil:
 
-
-```kotlin
+```
 AsyncImage(
     model = "https://example.com/image.jpg",
     contentDescription = "Translated description of what the image contains"
 )
-```
 
-<br />
+LoadingImagesSnippets.kt
+```
 
 ### Load an image using Glide
 
@@ -94,32 +102,40 @@ displays it once loaded.
 
 #### Dependencies
 
-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/load-images_a172d89e175a6f158fbdb4b01c00fef52de06e00b7f640f452385b16c682179f.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
-
 #### Load the image
 
 Use the following code to load images using Glide:
 
-
-```kotlin
+```
 GlideImage(
     model = "https://example.com/image.jpg",
     contentDescription = "Translated description of what the image contains"
 )
-```
 
-<br />
+LoadingImagesSnippets.kt
+```
 
 ## Collections that contain this guide
 
 This guide is part of these curated Quick Guide collections that cover
 broader Android development goals:
-![](https://developer.android.com/static/images/quick-guides/collection-illustration.png) ![](https://developer.android.com/static/images/picto-icons/collection.svg)
+
+![](/static/images/quick-guides/collection-illustration.png)
+
+![](/static/images/picto-icons/collection.svg)
 
 ### Display images
 
-Discover techniques for using bright, engaging visuals to give your Android app a beautiful look and feel. [Quick guide collection](https://developer.android.com/develop/ui/compose/quick-guides/collections/display-images) ![](https://developer.android.com/static/images/picto-icons/help.svg)
+Discover techniques for using bright, engaging visuals to
+give your Android app a beautiful look and feel.
+
+[Quick guide collection](/develop/ui/compose/quick-guides/collections/display-images)
+
+![](/static/images/picto-icons/help.svg)
 
 ## Have questions or feedback
 
-Go to our frequently asked questions page and learn about quick guides or reach out and let us know your thoughts. [Go to FAQ](https://developer.android.com/quick-guides/faq) [Leave feedback](https://issuetracker.google.com/issues/new?component=1573691&template=1993320)
+Go to our frequently asked questions page and learn about quick guides or reach out and let us know your thoughts.
+
+[Go to FAQ](/quick-guides/faq)
+[Leave feedback](https://issuetracker.google.com/issues/new?component=1573691&template=1993320)

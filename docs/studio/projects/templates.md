@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Android Studio provides code templates that follow the Android design and
 development best practices to get you on the right track to creating
 beautiful, functional apps. You can use templates to create new app modules,

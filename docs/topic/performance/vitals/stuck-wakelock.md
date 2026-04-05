@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Partial wake locks are a mechanism in the
 [`PowerManager`](/reference/android/os/PowerManager) API
 that lets developers keep the CPU running after a device's display turns off

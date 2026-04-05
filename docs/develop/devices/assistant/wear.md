@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 Watch voice assistants enable quick and efficient on-the-go scenarios. Voice
 interactions on wearables are dynamic, meaning that the user may speak to their
 wrist without necessarily looking at the device while waiting for a response.

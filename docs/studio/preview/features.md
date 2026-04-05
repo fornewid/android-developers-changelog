@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 This page lists the new features introduced in Android Studio preview releases.
 The preview builds provide early access to the latest features and improvements
 in Android Studio. [You can download these preview versions](/studio/preview).

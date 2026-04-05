@@ -1,8 +1,17 @@
 ---
-title: https://developer.android.com/guide/navigation/navigation-3/recipes/results-state
+title: App architecture  |  Android Developers
 url: https://developer.android.com/guide/navigation/navigation-3/recipes/results-state
-source: md.txt
+source: html-scrape
 ---
+
+* [Android Developers](https://developer.android.com/)
+* [App architecture](https://developer.android.com/topic/architecture/intro)
+
+Stay organized with collections
+
+Save and categorize content based on your preferences.
+
+
 
 # Returning a Result (State-Based)
 
@@ -12,12 +21,19 @@ This recipe demonstrates how to return a result from one screen to a previous sc
 
 This example uses a `ResultStore` to manage the result as state.
 
-1. **`ResultStore`** : A `ResultStore` is created and made available to the composables. This store holds the results.
-2. **Setting the result** : The screen that produces the result calls `resultStore.setResult(person)` to save the data in the store.
-3. **Observing the result** : The screen that needs the result calls `resultStore.getResultState<Person?>()` to get a `State` object representing the result. The UI then observes this state and recomposes whenever the result changes.
+1. **`ResultStore`**: A `ResultStore` is created and made available to the composables. This store holds the results.
+2. **Setting the result**: The screen that produces the result calls `resultStore.setResult(person)` to save the data in the store.
+3. **Observing the result**: The screen that needs the result calls `resultStore.getResultState<Person?>()` to get a `State` object representing the result. The UI then observes this state and recomposes whenever the result changes.
 
 This approach is suitable when the result should be treated as persistent state that survives recomposition and configuration changes.
-[![](https://developer.android.com/static/images/picto-icons/code.svg) Explore View the full recipe on GitHub.](https://github.com/android/nav3-recipes/tree/main/app/src/main/java/com/example/nav3recipes/results/state)
+
+[![](/static/images/picto-icons/code.svg)
+
+Explore
+
+View the full recipe on GitHub.
+
+arrow\_forward](https://github.com/android/nav3-recipes/tree/main/app/src/main/java/com/example/nav3recipes/results/state)
 
 ```
 /*
@@ -46,6 +62,8 @@ import androidx.lifecycle.ViewModel
 class HomeViewModel : ViewModel() {
     var person by mutableStateOf<Person?>(null)
 }
+
+HomeViewModel.kt
 ```
 
 ```
@@ -74,7 +92,11 @@ import kotlinx.serialization.Serializable
 data object Home : NavKey
 
 @Serializable
-class PersonDetailsForm : NavKeyhttps://github.com/android/nav3-recipes/blob/80ea289c467ded68d356ef182db3920108792815/app/src/main/java/com/example/nav3recipes/results/common/NavKeys.kt
+class PersonDetailsForm : NavKey
+
+NavKeys
+
+.kt
 ```
 
 ```
@@ -100,7 +122,11 @@ import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-data class Person(val name: String, val favoriteColor: String) : Parcelablehttps://github.com/android/nav3-recipes/blob/80ea289c467ded68d356ef182db3920108792815/app/src/main/java/com/example/nav3recipes/results/common/Person.kt
+data class Person(val name: String, val favoriteColor: String) : Parcelable
+
+Person
+
+.kt
 ```
 
 ```
@@ -186,6 +212,8 @@ fun PersonDetailsScreen(
         }
     }
 }
+
+ScreenContent.kt
 ```
 
 ```
@@ -259,6 +287,8 @@ class ResultStateActivity : ComponentActivity() {
         }
     }
 }
+
+ResultStateActivity.kt
 ```
 
 ```
@@ -372,4 +402,6 @@ private fun ResultStoreSaver(): Saver<ResultStore, *> =
             }
         }
     )
+
+ResultStore.kt
 ```

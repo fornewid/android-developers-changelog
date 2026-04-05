@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 This guide explains how to create a watch face, add time-based elements, and
 include support for user-selected photos, including a multi-photo gallery. For
 additional features, see the [advanced](/training/wearables/watch-face-designer/advanced) guide.

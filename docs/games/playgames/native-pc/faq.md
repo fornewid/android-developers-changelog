@@ -1,17 +1,8 @@
 ---
-title: Frequently asked questions  |  Play for Native PC  |  Android Developers
+title: https://developer.android.com/games/playgames/native-pc/faq
 url: https://developer.android.com/games/playgames/native-pc/faq
-source: html-scrape
+source: md.txt
 ---
-
-* [Home](https://developer.android.com/)
-* [Play for Native PC](https://developer.android.com/games/playgames/native-pc)
-* [Guides](https://developer.android.com/games/playgames/native-pc/setup)
-
-# Frequently asked questions Stay organized with collections Save and categorize content based on your preferences.
-
-
-
 
 This document answers common questions about SDKs and publishing for
 Google Play Games on PC.
@@ -27,7 +18,7 @@ Guidance on enabling TUN mode and configuring the firewall can be found in
 the VPN provider's operating manual.
 
 After the TUN mode is enabled, [install](https://play.google.com/googleplaygames/?e=WebskySupportFCCInFCP::Arm_Launch) the Google Play Games on PC and
-the [emulator](/games/playgames/emulator) for testing purposes.
+the [emulator](https://developer.android.com/games/playgames/emulator) for testing purposes.
 
 ## Can you use the purchase flow without a backend server?
 
@@ -35,18 +26,16 @@ From a security perspective, processing without a backend server is generally
 not recommended.
 
 For more information,
-see [Process without a backend server](/games/playgames/native-pc/billing#process-no-backend).
+see [Process without a backend server](https://developer.android.com/games/playgames/native-pc/billing#process-no-backend).
 
-**Note:** To process purchases without a backend server, you need special
-permissions. If your game requires these permissions, contact your
-Google partner.
+> [!NOTE]
+> **Note:** To process purchases without a backend server, you need special permissions. If your game requires these permissions, contact your Google partner.
 
 ## How to start developing for Google Play Games on PC in Unity or UE Editor?
 
-* Enable the [developer Mode](/games/playgames/native-pc/setup/developer_mode) and proceed with testing.
-* Add the `manifest.xml` and `.dll` files. For more information, see
-  [developer document](/games/playgames/native-pc/setup#prerequisites).
-* Register an [early access partner GUID](/games/playgames/native-pc/setup/developer_mode#step-2) for testing purposes.
+- Enable the [developer Mode](https://developer.android.com/games/playgames/native-pc/setup/developer_mode) and proceed with testing.
+- Add the `manifest.xml` and `.dll` files. For more information, see [developer document](https://developer.android.com/games/playgames/native-pc/setup#prerequisites).
+- Register an [early access partner GUID](https://developer.android.com/games/playgames/native-pc/setup/developer_mode#step-2) for testing purposes.
 
 ## When you start a game using the Google Play Games app, does it sync your Google Account details
 
@@ -60,8 +49,8 @@ You can just submit your installer and don't need to submit your entire game
 package, the reviewer will be able to download your game package using the
 installer.
 
-**Note:** This guidance is specifically for developers using a 3P launcher to
-call your game.
+> [!NOTE]
+> **Note:** This guidance is specifically for developers using a 3P launcher to call your game.
 
 ## If a player uses a 3P launcher instead of the Google Play Client, will their Play Games Services account sync automatically?
 
@@ -100,21 +89,21 @@ Consume purchase in the developer mode has to be done within 3 minutes, otherwis
 
 ## Are there any differences between API (legacy) and Google Play Games on PC SDK?
 
-* Legacy focused only on Billing
-* The SDK will support Google Desktop Service (GDS) and full PC features
-* Developer-friendly SDK interface
-* No browser-based Google Sign-in needed
+- Legacy focused only on Billing
+- The SDK will support Google Desktop Service (GDS) and full PC features
+- Developer-friendly SDK interface
+- No browser-based Google Sign-in needed
 
 ## Is there an alternative way to initialize the SDK by launching the game directly using the game launcher, without going through Google Play Games on PC?
 
 Game has to be launched through the Google Play Games on PC client.
-For more details, see [developer document](/games/playgames/native-pc/setup#step-4)
+For more details, see [developer document](https://developer.android.com/games/playgames/native-pc/setup#step-4)
 
 ## Recurring payments or subscriptions are unsupported; are there any plans to implement this?
 
 There is no plan to add those purchase options beyond the In-App Purchase, we are welcomed to get your feedback with a specific use cases.
 
-## In the payment process, is the error code in the [billingerror](/games/playgames/native-pc/reference/namespace/google/play/billing#billingerror) returned as the response of launching the purchase flow or obtaining the payment result? For purchase flow, can't we just await the SDK result instead of using a listener?
+## In the payment process, is the error code in the [billingerror](https://developer.android.com/games/playgames/native-pc/reference/namespace/google/play/billing#billingerror) returned as the response of launching the purchase flow or obtaining the payment result? For purchase flow, can't we just await the SDK result instead of using a listener?
 
 It is the response of the payment result. LaunchPurchaseFlow will return immediately without blocking but you have to listen to the callback in-order to know when it has finished and to capture the result.
 
@@ -129,7 +118,7 @@ The URI supports detecting whether the Google Play Games on PC client is opened.
 ## `QueryProductDetails` API request limits
 
 The maximum number of products that can be queried in a single call to the
-[`QueryProductDetails`](/games/playgames/native-pc/reference/class/google/play/billing/billing-client#queryproductdetails)
+[`QueryProductDetails`](https://developer.android.com/games/playgames/native-pc/reference/class/google/play/billing/billing-client#queryproductdetails)
 API is 50. If you exceed this limit, you must split the request into multiple
 calls.
 
@@ -140,4 +129,4 @@ time WAB"), the system may automatically place it into a Managed Publishing
 holding state. This happens because there is no existing baseline to update.
 To fully release the WAB and make the game available for installation, you
 must navigate to the Google Play Console and manually execute the [required
-publish action](/games/playgames/native-pc/l) (e.g., clicking "Publish changes").
+publish action](https://developer.android.com/games/playgames/native-pc/l) (e.g., clicking "Publish changes").

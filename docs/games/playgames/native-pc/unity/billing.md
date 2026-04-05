@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 The Billing API lets you to sell digital goods and subscriptions. The C#
 wrapper provides a type-safe, asynchronous interface for the underlying Google
 Play Billing Library.

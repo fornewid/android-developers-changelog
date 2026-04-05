@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 After you have successfully [connected to a Bluetooth
 device](/develop/connectivity/bluetooth/connect-bluetooth-devices), each
 one has a connected

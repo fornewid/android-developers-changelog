@@ -1,18 +1,8 @@
 ---
-title: Purchase lifecycle and RTDNs  |  Play Billing  |  Android Developers
+title: https://developer.android.com/google/play/billing/lifecycle
 url: https://developer.android.com/google/play/billing/lifecycle
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [Google Play](https://developer.android.com/distribute)
-* [Play Monetization](https://developer.android.com/google/play/billing)
-
-Send feedback
-
-# Purchase lifecycle and RTDNs Stay organized with collections Save and categorize content based on your preferences.
-
-
 
 When you sell digital products through your app, you must consider the entire
 user experience. In-app integration lets you launch purchase flows and
@@ -29,14 +19,14 @@ user entitlements across all platforms, and provides the ability to consult
 purchase history and entitlement data in your backend.
 
 Google Play offers [real-time developer notifications
-(RTDN)](/google/play/billing/rtdn-reference) to monitor purchase lifecycle
+(RTDN)](https://developer.android.com/google/play/billing/rtdn-reference) to monitor purchase lifecycle
 events, and the Play Developer APIs for [Subscriptions and In-App
 Purchases](https://developers.google.com/android-publisher#subscriptions) can be
 used to take necessary actions based on these events. By using these tools and
 building a robust purchase lifecycle management system, you can provide a
 seamless user experience and manage purchases and entitlements efficiently.
 
-![](/static/images/google/play/billing/lifecycle/overview.svg)
+![](https://developer.android.com/static/images/google/play/billing/lifecycle/overview.svg)
 
 ## Build a real-time developer notification client
 
@@ -44,18 +34,16 @@ Purchases made on Google Play's billing system can go through several entitlemen
 changes throughout their lifecycle. Various actions can trigger these changes,
 including the following:
 
-* Actions initiated by users in your app.
-* Actions initiated by users through the Play Store app.
-* Actions initiated directly from your backend systems.
-* Actions that you initiate through the Google Play Console.
+- Actions initiated by users in your app.
+- Actions initiated by users through the Play Store app.
+- Actions initiated directly from your backend systems.
+- Actions that you initiate through the Google Play Console.
 
 For example:
 
-* A user canceling a subscription through the Play Store subscription center.
-* A developer deferring subscription billing using the Google Play Developer
-  API.
-* A developer issuing a refund and revoking entitlement for a purchase through
-  the Google Play Console.
+- A user canceling a subscription through the Play Store subscription center.
+- A developer deferring subscription billing using the Google Play Developer API.
+- A developer issuing a refund and revoking entitlement for a purchase through the Google Play Console.
 
 It is crucial that your backend is aware of the different states a purchase can
 go through and that it takes all necessary measures to adjust the entitlement
@@ -77,7 +65,7 @@ entitlement state in real time and respond to them promptly.
 ### RTDN publisher
 
 Google Play's backend acts as the publisher for RTDNs. To set up RTDN for you
-app, follow the instructions in the [Setup](/google/play/billing/getting-ready)
+app, follow the instructions in the [Setup](https://developer.android.com/google/play/billing/getting-ready)
 guide. These steps allow Google Play's billing system to act as the publisher for
 your app's RTDNs. To complete this setup, you should familiarize yourself with
 the Google Cloud Platform Console to set up a basic Pub/Sub configuration.
@@ -94,16 +82,15 @@ libraries](https://cloud.google.com/pubsub/docs/reference/libraries). See the
 Pub/Sub documentation to learn about using a
 [push](https://cloud.google.com/pubsub/docs/push) or a
 [pull](https://cloud.google.com/pubsub/docs/pull) strategy, or the [RTDN setup
-documentation](/google/play/billing/getting-ready#create-sub) for guidelines on
+documentation](https://developer.android.com/google/play/billing/getting-ready#create-sub) for guidelines on
 choosing the strategy that works best for your needs.
 
 For each message you receive, your backend should do the following:
 
-* Unpack the base-64-encoded `data` field, which contains the [RTDN
-  object](/google/play/billing/rtdn-reference#encoding).
-* Check the uniqueness of the `messageId` field and ensure that duplicate notifications are not processed. This prevents redundant processing and ensures you don't exhaust your API quota.
-* Trigger any required backend processes related to the entitlement change
-  notified by the RTDN event.
+- Unpack the base-64-encoded `data` field, which contains the [RTDN
+  object](https://developer.android.com/google/play/billing/rtdn-reference#encoding).
+- Check the uniqueness of the `messageId` field and ensure that duplicate notifications are not processed. This prevents redundant processing and ensures you don't exhaust your API quota.
+- Trigger any required backend processes related to the entitlement change notified by the RTDN event.
 
 ## Handle purchase state transitions
 
@@ -112,15 +99,10 @@ the different states and events that can affect them. Thanks to RTDN, you don't
 need to build logic to confirm state transitions. All you need to do is define
 what happens when your backend receives each type of notification.
 
-**Note:** For [pre-orders](/google/play/billing/multi-offer-one-time-product#pre-order), RTDN follows the same lifecycle as the
-one-time purchase.
+> [!NOTE]
+> **Note:** For [pre-orders](https://developer.android.com/google/play/billing/multi-offer-one-time-product#pre-order), RTDN follows the same lifecycle as the one-time purchase.
 
 See the following guides to learn more about these scenarios:
 
-* [One-time purchase lifecycle](/google/play/billing/lifecycle/one-time)
-* [Subscription purchase lifecycle](/google/play/billing/lifecycle/subscriptions)
-
-
-
-
-Send feedback
+- [One-time purchase lifecycle](https://developer.android.com/google/play/billing/lifecycle/one-time)
+- [Subscription purchase lifecycle](https://developer.android.com/google/play/billing/lifecycle/subscriptions)

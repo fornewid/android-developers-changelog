@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 Discover how to create engaging and unique user experiences for TV by
 exploring optimized UX designs. In this section, delve into some of the
 top UX designs for TV and learn how they foster engagement and

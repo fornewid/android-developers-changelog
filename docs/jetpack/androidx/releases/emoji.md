@@ -15,7 +15,6 @@ Save and categorize content based on your preferences.
 
 
 
-
 # Emoji
 
 [User Guide](/guide/topics/ui/look-and-feel/emoji-compat)  [Code Sample](https://github.com/android/user-interface-samples)

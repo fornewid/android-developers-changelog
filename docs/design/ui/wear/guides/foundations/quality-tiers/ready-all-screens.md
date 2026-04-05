@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 This tier represents a minimum quality bar for experiences across all screen
 sizes on Wear OS.
 

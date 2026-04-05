@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 ![Tier 1 adaptive differentiated icon](/static/images/docs/quality-guidelines/tier-1/tier_1_icon.png)
 
 TIER 1 — The top-quality tier of the [Adaptive app quality guidelines](/docs/quality-guidelines/adaptive-app-quality/tier-1).

@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 [`ViewPager2`](/jetpack/androidx/releases/viewpager2) is an improved version of the `ViewPager` library that offers
 enhanced functionality and addresses common difficulties with using `ViewPager`.
 If your app already uses `ViewPager`, read this page to learn more about

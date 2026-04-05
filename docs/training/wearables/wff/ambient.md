@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 All watch faces should have not only an interactive mode, but also ambient mode.
 The Wear OS App Quality guidelines specify that only [15% of pixels are
 illuminated in ambient mode](/docs/quality-guidelines/wear-app-quality#wff).

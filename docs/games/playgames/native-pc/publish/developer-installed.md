@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 This document shows you how to publish your game on Google Play Games on PC using your game installer.
 
 With the Developer Installed flow, the game installer you provide must manage the installation, update, and uninstallation of the game.

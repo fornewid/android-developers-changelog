@@ -15,6 +15,7 @@ These guides discuss the MediaCompat APIs, which are no longer updated. We stron
 
 
 
+
 Media buttons are hardware buttons found on Android devices and other peripheral devices, for example, the pause/play button on a Bluetooth headset. When a user presses a media button, Android generates a `KeyEvent`, which contains a *key code* that identifies the button. The key codes for media button KeyEvents are constants that begin with `KEYCODE_MEDIA` (for example, `KEYCODE_MEDIA_PLAY`).
 
 Apps should be able to handle media button events in three cases, in this order of

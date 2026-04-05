@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Text is at the heart of social applications, where users share thoughts, express
 emotions, and tell stories. This document explores how to work with text
 effectively, focusing on emoji, styling, and rich content integration.

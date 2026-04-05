@@ -1,19 +1,10 @@
 ---
-title: Push dynamic shortcuts to Assistant  |  Android Developers
+title: https://developer.android.com/develop/devices/assistant/dynamic-shortcuts
 url: https://developer.android.com/develop/devices/assistant/dynamic-shortcuts
-source: html-scrape
+source: md.txt
 ---
 
-* [Android Developers](https://developer.android.com/)
-* [Develop](https://developer.android.com/develop)
-* [Devices](https://developer.android.com/develop/devices)
-* [Assistant](https://developer.android.com/develop/devices/assistant/overview)
-
-# Push dynamic shortcuts to Assistant Stay organized with collections Save and categorize content based on your preferences.
-
-
-
-[Android shortcuts](/guide/topics/ui/shortcuts) provide users with quick
+[Android shortcuts](https://developer.android.com/guide/topics/ui/shortcuts) provide users with quick
 methods to perform an action or access content in an app.
 Assistant can proactively suggest your Android dynamic shortcuts to users at
 relevant times, enabling users to easily discover and replay your
@@ -22,15 +13,15 @@ voice-enabled functionality.
 For example, you can push a shortcut for each note a user creates in
 your note taking app. You make
 dynamic links eligible to display on Google surfaces, like Assistant,
-by adding the [Google Shortcuts Integration Jetpack library](/jetpack/androidx/releases/core#core-google-shortcuts-1.0.1) to your project.
+by adding the [Google Shortcuts Integration Jetpack library](https://developer.android.com/jetpack/androidx/releases/core#core-google-shortcuts-1.0.1) to your project.
 This library lets Assistant take in dynamic shortcuts you push using the
-[`ShortcutManagerCompat`](/reference/androidx/core/content/pm/ShortcutManagerCompat) class, which is a Jetpack wrapper for the
-[`ShortcutManager`](/reference/android/content/pm/ShortcutManager) API.
+[`ShortcutManagerCompat`](https://developer.android.com/reference/androidx/core/content/pm/ShortcutManagerCompat) class, which is a Jetpack wrapper for the
+[`ShortcutManager`](https://developer.android.com/reference/android/content/pm/ShortcutManager) API.
 
 When you use the Google Shortcuts Integration library in your app, dynamic
 shortcuts you push to Google are visible to users as voice shortcut suggestions
 in the Assistant app. You can push an unlimited number of dynamic shortcuts to
-Assistant using the [`pushDynamicShortcut()`](/reference/androidx/core/content/pm/ShortcutManagerCompat#pushDynamicShortcut(android.content.Context,%20androidx.core.content.pm.ShortcutInfoCompat)) method of the
+Assistant using the [`pushDynamicShortcut()`](https://developer.android.com/reference/androidx/core/content/pm/ShortcutManagerCompat#pushDynamicShortcut(android.content.Context,%20androidx.core.content.pm.ShortcutInfoCompat)) method of the
 `ShortcutManagerCompat` library.
 
 ## Configure your development project
@@ -46,22 +37,19 @@ To add this Jetpack library and configure your project, follow these steps:
 
    **gradle.properties**
 
-   ```
-   android.useAndroidX=true
-   # Automatically convert third-party libraries to use AndroidX
-   android.enableJetifier=true
-   ```
+       android.useAndroidX=true
+       # Automatically convert third-party libraries to use AndroidX
+       android.enableJetifier=true
+
 2. Add the Jetpack library dependencies to your `build.gradle`:
 
    **app/build.gradle**
 
-   ```
-   dependencies {
-    implementation "androidx.core:core:1.6.0"
-    implementation "androidx.core:core-google-shortcuts:1.0.1"
-    ...
-   }
-   ```
+       dependencies {
+        implementation "androidx.core:core:1.6.0"
+        implementation "androidx.core:core-google-shortcuts:1.0.1"
+        ...
+       }
 
    In the preceding sample code, you list two Jetpack libraries as
    dependencies. The `androidx.core:core:1.6.0` library contains the
@@ -73,8 +61,8 @@ To add this Jetpack library and configure your project, follow these steps:
    API. By adding it as a dependency, you enable Assistant to take in the
    dynamic shortcuts you push using the `ShortcutManagerCompat` class.
 
-   **Note:** Visit the [Jetpack library explorer](/jetpack/androidx/explorer) to find the latest versions of
-   the Core and Google Shortcuts Integration libraries.
+   > [!NOTE]
+   > **Note:** Visit the [Jetpack library explorer](https://developer.android.com/jetpack/androidx/explorer) to find the latest versions of the Core and Google Shortcuts Integration libraries.
 
 ## Push dynamic shortcuts
 
@@ -91,7 +79,7 @@ code pushes a shortcut every time a user creates a list in a notes and lists app
 
 ### Kotlin
 
-```
+```kotlin
 // Define the dynamic shortcut for an item
 var intent = Intent(context, DisplayOrderActivity::class.java)
 intent.action = Intent.ACTION_VIEW
@@ -110,7 +98,7 @@ ShortcutManagerCompat.pushDynamicShortcut(context, shortcutInfo)
 
 ### Java
 
-```
+```java
 // Define the dynamic shortcut for an item
 Intent intent = new Intent(context, DisplayOrderActivity.class);
 intent.setAction(Intent.ACTION_VIEW);
@@ -130,12 +118,12 @@ ShortcutManagerCompat.pushDynamicShortcut(context, shortcutInfo);
 The `id` referenced in the `ShortcutInfoCompat.Builder` method in the preceding
 sample code defines the `shortcutId` of the resulting shortcut object. This `id`
 must be a unique string literal. For details, see the
-[Android Shortcuts documentation](/reference/android/content/pm/ShortcutInfo#getId()).
+[Android Shortcuts documentation](https://developer.android.com/reference/android/content/pm/ShortcutInfo#getId()).
 
 In the preceding example, the `addCapabilityBinding` method binds the dynamic
 shortcut to a `capability` of the same `android:name` defined in
 `shortcuts.xml`. This method lets you associate the shortcut to a
-semantic [built-in intent](/guide/app-actions/intents) (BII) parameter.
+semantic [built-in intent](https://developer.android.com/guide/app-actions/intents) (BII) parameter.
 
 Dynamic shortcuts sometimes are pushed without any particular BII parameter
 association. When invoked by the user, Assistant triggers the `intent` defined
@@ -144,7 +132,7 @@ shortcut with no parameter association:
 
 ### Kotlin
 
-```
+```kotlin
 var intent: Intent = Intent(context, DisplayOrderActivity::class.java)
 intent.setPackage(this, "com.sample.app")
 intent.setAction(Intent.ACTION_VIEW)
@@ -161,7 +149,7 @@ ShortcutManagerCompat.pushDynamicShortcut(context, shortcutInfo);
 
 ### Java
 
-```
+```java
 Intent intent = new Intent(context, DisplayOrderActivity.class);
 intent.setPackage(this, "com.sample.app");
 intent.setAction(Intent.ACTION_VIEW);
@@ -185,11 +173,6 @@ pushed by your app.
 
 To test your dynamic shortcuts with Assistant, follow these steps:
 
-1. Create a preview of your App Actions and prepare your test device or
-   emulator for testing actions by following the same
-   setup requirements as for the [Google Assistant Plugin](/guide/app-actions/test-tool).
-2. Open your app and define a dynamic shortcut to push. Then complete an action.
-   For example, if you push a shortcut whenever a
-   note is created in your note taking app, then create a new note.
-3. Open **Shortcuts** in the **Assistant Settings** app on your device. Your
-   dynamic shortcut appears in the list for your app.
+1. Create a preview of your App Actions and prepare your test device or emulator for testing actions by following the same setup requirements as for the [Google Assistant Plugin](https://developer.android.com/guide/app-actions/test-tool).
+2. Open your app and define a dynamic shortcut to push. Then complete an action. For example, if you push a shortcut whenever a note is created in your note taking app, then create a new note.
+3. Open **Shortcuts** in the **Assistant Settings** app on your device. Your dynamic shortcut appears in the list for your app.

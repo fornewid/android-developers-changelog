@@ -15,7 +15,6 @@ Save and categorize content based on your preferences.
 
 
 
-
 # Paging
 
 [User Guide](https://developer.android.com/topic/libraries/architecture/paging/v3-overview)  [Code Sample](https://github.com/android/architecture-components-samples)  [Codelab](https://codelabs.developers.google.com/codelabs/android-paging)

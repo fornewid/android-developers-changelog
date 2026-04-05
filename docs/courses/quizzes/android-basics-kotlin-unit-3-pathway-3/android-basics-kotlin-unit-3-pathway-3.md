@@ -1,67 +1,60 @@
 ---
-title: Architecture components  |  Android Developers
+title: https://developer.android.com/courses/quizzes/android-basics-kotlin-unit-3-pathway-3/android-basics-kotlin-unit-3-pathway-3
 url: https://developer.android.com/courses/quizzes/android-basics-kotlin-unit-3-pathway-3/android-basics-kotlin-unit-3-pathway-3
-source: html-scrape
+source: md.txt
 ---
-
-Stay organized with collections
-
-Save and categorize content based on your preferences.
-
-
 
 # Architecture components
 
-Return to pathway
+# Architecture components
 
+<br />
 
+Return to pathway  
+1.
 
-1. ## Which of the following are reasons to use a ViewModel?
+   ## Which of the following are reasons to use a ViewModel?
 
-   Choose as many answers as you see fit.
+   Choose as many answers as you see fit.  
+   A ViewModel and its data can survive orientation changes in an Activity/Fragment.  
+   A ViewModel allows you to separate code that updates the UI from code that doesn't need to rely on the UI or its lifecycle.  
+   A ViewModel prevents your data from updating the UI automatically.  
+2.
 
-   A ViewModel and its data can survive orientation changes in an Activity/Fragment.
+   ## A ViewModel is destroyed after which of the following ?
 
-   A ViewModel allows you to separate code that updates the UI from code that doesn’t need to rely on the UI or its lifecycle.
+   always after`onStop`  
+   always after`onDestroy`  
+   after`onDestroy`, if it not a configuration change  
+3.
 
-   A ViewModel prevents your data from updating the UI automatically.
-2. ## A ViewModel is destroyed after which of the following ?
+   ## True or False: You should execute time-consuming tasks and I/O requests in your Activity/Fragment.
 
-   always after `onStop`
+   True  
+   False  
+4.
 
-   always after `onDestroy`
+   ## Why should you initialize and store LiveData in your ViewModel instead of a UI Controller?
 
-   after `onDestroy`, if it not a configuration change
-3. ## True or False: You should execute time-consuming tasks and I/O requests in your Activity/Fragment.
+   Both the ViewModel and LiveData are lifecycle aware.  
+   To ensure that the LiveData isn't destroyed when the UI Controller is destroyed.  
+   To hide or separate implementation details making your app more flexible.  
+   All of the above  
+5.
 
-   True
+   ## Which of the following allows you to use`observe`for changes?
 
-   False
-4. ## Why should you initialize and store LiveData in your ViewModel instead of a UI Controller?
+   a LiveData object  
+   any mutable object  
+   any property in a ViewModel  
+   any property in a ViewModel or LiveData object  
+6.
 
-   Both the ViewModel and LiveData are lifecycle aware.
+   ## True or False: It's OK for a ViewModel to directly reference a`View`or`LifecycleOwner`class.
 
-   To ensure that the LiveData isn’t destroyed when the UI Controller is destroyed.
-
-   To hide or separate implementation details making your app more flexible.
-
-   All of the above
-5. ## Which of the following allows you to use `observe` for changes?
-
-   a LiveData object
-
-   any mutable object
-
-   any property in a ViewModel
-
-   any property in a ViewModel or LiveData object
-6. ## True or False: It’s OK for a ViewModel to directly reference a `View` or `LifecycleOwner` class.
-
-   True
-
-   False
+   True  
+   False  
 
 Submit answers
 
-*error\_outline*
-An error occurred when grading the quiz. Please try again.
+*error_outline*An error occurred when grading the quiz. Please try again.

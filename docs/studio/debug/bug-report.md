@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 A bug report contains device logs, stack traces, and other diagnostic
 information to help you find and fix bugs in your app. To capture a bug
 report from your device, use the **Take bug report** developer

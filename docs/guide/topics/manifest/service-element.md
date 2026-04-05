@@ -12,6 +12,7 @@ source: html-scrape
 
 
 
+
 syntax:
 :   ```
     <service android:description="string resource"

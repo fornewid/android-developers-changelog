@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Optimize your layout for an Android table screen.
 
 ---

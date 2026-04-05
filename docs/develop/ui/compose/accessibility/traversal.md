@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 Traversal order is the order in which accessibility services navigate through
 UI elements. In a Compose app, elements are arranged in expected reading order,
 which is usually left-to-right, then top-to-bottom. However, there are some

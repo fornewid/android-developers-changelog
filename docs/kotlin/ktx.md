@@ -15,7 +15,6 @@ Save and categorize content based on your preferences.
 
 
 
-
 # Android KTX   Part of [Android Jetpack](/jetpack).
 
 Android KTX is a set of Kotlin extensions that are included with Android

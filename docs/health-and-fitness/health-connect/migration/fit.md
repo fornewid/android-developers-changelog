@@ -15,6 +15,7 @@ Starting in 2026, we'll be transitioning away from Google Fit APIs. For more inf
 
 
 
+
 The Google Fit APIs will be deprecated in 2026. Google offers several health
 and wellness products and services to help your users continue to achieve their
 goals after deprecation.

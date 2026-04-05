@@ -12,6 +12,7 @@ source: html-scrape
 
 
 
+
 To implement a robust navigation system, your app needs a centralized way to
 handle back gestures and other navigation signals. This page describes how to
 use [`NavigationEventDispatcher`](/reference/kotlin/androidx/navigationevent/NavigationEventDispatcher) to coordinate and distribute these

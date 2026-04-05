@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 Represents the configuration of an accomplishment.
 
 For a list of [methods](#methods) for this resource, see the end of this page.

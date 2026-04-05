@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 At the core of the ExoPlayer library is the `Player` interface. A `Player`
 exposes traditional high-level media player functionality such as the ability to
 buffer media, play, pause and seek. The default implementation `ExoPlayer` is

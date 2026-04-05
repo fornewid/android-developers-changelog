@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 You can validate input as the user types in a text field, such as entering a
 name, email, address, or other contact information. This validation reduces
 errors and saves your users time.

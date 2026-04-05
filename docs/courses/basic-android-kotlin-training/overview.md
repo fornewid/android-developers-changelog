@@ -11,6 +11,7 @@ source: html-scrape
 
 
 
+
 ![](/static/courses/images/android-new-programmers.svg)
 
 Android Basics in Kotlin is a course about building basic Android apps.

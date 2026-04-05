@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 Android apps can be written using Kotlin, the Java programming language, and C++ languages. The Android SDK tools compile
 your code along with any data and resource files into an APK or an Android App Bundle.
 

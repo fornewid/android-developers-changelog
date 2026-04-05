@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 If you notice that your workers run too often or not at all, here are some
 debugging steps that can help you discover what is happening.
 

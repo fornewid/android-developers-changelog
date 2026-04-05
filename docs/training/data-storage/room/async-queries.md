@@ -1,20 +1,33 @@
 ---
-title: https://developer.android.com/training/data-storage/room/async-queries
+title: Write asynchronous DAO queries  |  App data and files  |  Android Developers
 url: https://developer.android.com/training/data-storage/room/async-queries
-source: md.txt
+source: html-scrape
 ---
+
+* [Android Developers](https://developer.android.com/)
+* [Develop](https://developer.android.com/develop)
+* [Core areas](https://developer.android.com/develop/core-areas)
+* [App data and files](https://developer.android.com/training/data-storage)
+
+# Write asynchronous DAO queries Stay organized with collections Save and categorize content based on your preferences.
+
+
+
 
 To prevent queries from blocking the UI, Room does not allow database access on
 the main thread. This restriction means that you must make your [DAO
-queries](https://developer.android.com/training/data-storage/room/accessing-data) asynchronous. The Room
+queries](/training/data-storage/room/accessing-data) asynchronous. The Room
 library includes integrations with several different frameworks to provide
 asynchronous query execution.
 
 DAO queries fall into three categories:
 
-- *One-shot write* queries that insert, update, or delete data in the database.
-- *One-shot read* queries that read data from your database only once and return a result with the snapshot of the database at that time.
-- *Observable read* queries that read data from your database every time the underlying database tables change and emit new values to reflect those changes.
+* *One-shot write* queries that insert, update, or delete data in the database.
+* *One-shot read* queries that read data from your database only once and return
+  a result with the snapshot of the database at that time.
+* *Observable read* queries that read data from your database every time the
+  underlying database tables change and emit new values to reflect those
+  changes.
 
 ## Language and framework options
 
@@ -23,7 +36,7 @@ features and libraries. The following table shows applicable return types based
 on query type and framework:
 
 | Query type | Kotlin language features | RxJava | Guava | Jetpack Lifecycle |
-|---|---|---|---|---|
+| --- | --- | --- | --- | --- |
 | One-shot write | Coroutines (`suspend`) | `Single<T>`, `Maybe<T>`, `Completable` | `ListenableFuture<T>` | N/A |
 | One-shot read | Coroutines (`suspend`) | `Single<T>`, `Maybe<T>` | `ListenableFuture<T>` | N/A |
 | Observable read | `Flow<T>` | `Flowable<T>`, `Publisher<T>`, `Observable<T>` | N/A | `LiveData<T>` |
@@ -36,12 +49,16 @@ to implement asynchronous queries in your DAOs.
 Kotlin provides language features that allow you to write asynchronous queries
 without third-party frameworks:
 
-- In Room 2.2 and higher, you can use Kotlin's [Flow](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/-flow/) functionality to write observable queries.
-- In Room 2.1 and higher, you can use the `suspend` keyword to make your DAO queries asynchronous using [Kotlin coroutines](https://developer.android.com/kotlin/coroutines).
+* In Room 2.2 and higher, you can use Kotlin's
+  [Flow](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/-flow/)
+  functionality to write observable queries.
+* In Room 2.1 and higher, you can use the `suspend` keyword to make your DAO
+  queries asynchronous using [Kotlin coroutines](/kotlin/coroutines).
 
-> [!NOTE]
-> **Note:** To use Kotlin Flow and coroutines with Room, you must include the `room-ktx` artifact in your `build.gradle` file. For more information, see [Declaring
-> dependencies](https://developer.android.com/jetpack/androidx/releases/room#declaring_dependencies).
+**Note:** To use Kotlin Flow and coroutines with Room, you must include the
+`room-ktx` artifact in your `build.gradle` file. For more information, see
+[Declaring
+dependencies](/jetpack/androidx/releases/room#declaring_dependencies).
 
 ### Java with RxJava
 
@@ -49,14 +66,23 @@ If your app uses the Java programming language, you can use specialized return
 types from the RxJava framework to write asynchronous DAO methods. Room provides
 support for the following RxJava 2 return types:
 
-- For one-shot queries, Room 2.1 and higher supports the [`Completable`](http://reactivex.io/RxJava/javadoc/io/reactivex/Completable), [`Single<T>`](http://reactivex.io/RxJava/javadoc/io/reactivex/Single), and [`Maybe<T>`](http://reactivex.io/RxJava/javadoc/io/reactivex/Maybe) return types.
-- For observable queries, Room supports the [`Publisher<T>`](http://www.reactive-streams.org/reactive-streams-1.0.1-javadoc/org/reactivestreams/Publisher), [`Flowable<T>`](http://reactivex.io/RxJava/2.x/javadoc/io/reactivex/Flowable), and [`Observable<T>`](http://reactivex.io/RxJava/2.x/javadoc/io/reactivex/Observable) return types.
+* For one-shot queries, Room 2.1 and higher supports the
+  [`Completable`](http://reactivex.io/RxJava/javadoc/io/reactivex/Completable),
+  [`Single<T>`](http://reactivex.io/RxJava/javadoc/io/reactivex/Single),
+  and [`Maybe<T>`](http://reactivex.io/RxJava/javadoc/io/reactivex/Maybe)
+  return types.
+* For observable queries, Room supports the
+  [`Publisher<T>`](http://www.reactive-streams.org/reactive-streams-1.0.1-javadoc/org/reactivestreams/Publisher),
+  [`Flowable<T>`](http://reactivex.io/RxJava/2.x/javadoc/io/reactivex/Flowable),
+  and [`Observable<T>`](http://reactivex.io/RxJava/2.x/javadoc/io/reactivex/Observable)
+  return types.
 
 Additionally, Room 2.3 and higher supports RxJava 3.
 
-> [!NOTE]
-> **Note:** To use RxJava with Room, you must include either the `room-rxjava2` artifact or the `room-rxjava3` artifact in your `build.gradle` file. For more information, see [Declaring
-> dependencies](https://developer.android.com/jetpack/androidx/releases/room#declaring_dependencies).
+**Note:** To use RxJava with Room, you must include either the `room-rxjava2`
+artifact or the `room-rxjava3` artifact in your `build.gradle` file. For more
+information, see [Declaring
+dependencies](/jetpack/androidx/releases/room#declaring_dependencies).
 
 ### Java with LiveData and Guava
 
@@ -64,12 +90,15 @@ If your app uses the Java programming language and you do not want to use the
 RxJava framework, you can use the following alternatives to write asynchronous
 queries:
 
-- You can use the [`LiveData`](https://developer.android.com/reference/androidx/lifecycle/LiveData) wrapper class from Jetpack to write asynchronous observable queries.
-- You can use the [`ListenableFuture<T>`](https://guava.dev/releases/21.0/api/docs/com/google/common/util/concurrent/ListenableFuture) wrapper from Guava to write asynchronous one-shot queries.
+* You can use the [`LiveData`](/reference/androidx/lifecycle/LiveData) wrapper
+  class from Jetpack to write asynchronous observable queries.
+* You can use the
+  [`ListenableFuture<T>`](https://guava.dev/releases/21.0/api/docs/com/google/common/util/concurrent/ListenableFuture)
+  wrapper from Guava to write asynchronous one-shot queries.
 
-> [!NOTE]
-> **Note:** To use Guava with Room, you must include the `room-guava` artifact in your `build.gradle` file. For more information, see [Declaring
-> dependencies](https://developer.android.com/jetpack/androidx/releases/room#declaring_dependencies).
+**Note:** To use Guava with Room, you must include the `room-guava` artifact in your
+`build.gradle` file. For more information, see [Declaring
+dependencies](/jetpack/androidx/releases/room#declaring_dependencies).
 
 ## Write asynchronous one-shot queries
 
@@ -79,7 +108,7 @@ one-shot queries:
 
 ### Kotlin
 
-```kotlin
+```
 @Dao
 interface UserDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
@@ -101,7 +130,7 @@ interface UserDao {
 
 ### Java
 
-```java
+```
 @Dao
 public interface UserDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
@@ -123,7 +152,7 @@ public interface UserDao {
 
 ### Java
 
-```java
+```
 @Dao
 public interface UserDao {
     // Returns the number of users inserted.
@@ -156,7 +185,7 @@ examples of observable queries:
 
 ### Kotlin
 
-```kotlin
+```
 @Dao
 interface UserDao {
     @Query("SELECT * FROM user WHERE id = :id")
@@ -169,7 +198,7 @@ interface UserDao {
 
 ### Java
 
-```java
+```
 @Dao
 public interface UserDao {
     @Query("SELECT * FROM user WHERE id = :id")
@@ -182,7 +211,7 @@ public interface UserDao {
 
 ### Java
 
-```java
+```
 @Dao
 public interface UserDao {
     @Query("SELECT * FROM user WHERE id = :id")
@@ -193,8 +222,14 @@ public interface UserDao {
 }
 ```
 
-> [!NOTE]
-> **Note:** Observable queries in Room have one important limitation: the query reruns whenever any row in the table is updated, whether or not that row is in the result set. You can ensure that the UI is only notified when the actual query results change by applying the `distinctUntilChanged()` operator from the corresponding library: [Flow](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/distinct-until-changed), [RxJava](http://reactivex.io/documentation/operators/distinct), or [LiveData](https://developer.android.com/reference/androidx/lifecycle/Transformations#distinctUntilChanged(androidx.lifecycle.LiveData%3CX%3E)).
+**Note:** Observable queries in Room have one important limitation: the query reruns
+whenever any row in the table is updated, whether or not that row is in the
+result set. You can ensure that the UI is only notified when the actual query
+results change by applying the `distinctUntilChanged()` operator from the
+corresponding library:
+[Flow](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/distinct-until-changed),
+[RxJava](http://reactivex.io/documentation/operators/distinct), or
+[LiveData](/reference/androidx/lifecycle/Transformations#distinctUntilChanged(androidx.lifecycle.LiveData%3CX%3E)).
 
 ## Additional resources
 
@@ -203,4 +238,16 @@ resources:
 
 ### Blogs
 
-- [Room \& Flow](https://medium.com/androiddevelopers/room-flow-273acffe5b57)
+* [Room & Flow](https://medium.com/androiddevelopers/room-flow-273acffe5b57)
+
+[Previous
+
+arrow\_back
+
+Access data using DAOs](/training/data-storage/room/accessing-data)
+
+[Next
+
+Create views into a database
+
+arrow\_forward](/training/data-storage/room/creating-views)

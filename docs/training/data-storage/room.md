@@ -1,30 +1,16 @@
 ---
-title: Save data in a local database using Room  |  App data and files  |  Android Developers
+title: https://developer.android.com/training/data-storage/room
 url: https://developer.android.com/training/data-storage/room
-source: html-scrape
+source: md.txt
 ---
 
-* [Android Developers](https://developer.android.com/)
-* [Develop](https://developer.android.com/develop)
-* [Core areas](https://developer.android.com/develop/core-areas)
-* [App data and files](https://developer.android.com/training/data-storage)
-
-Stay organized with collections
-
-Save and categorize content based on your preferences.
+# Save data in a local database using Room
+Part of [Android Jetpack](https://developer.android.com/jetpack).
 
 
+Try with Kotlin Multiplatform Kotlin Multiplatform allows sharing the database layer with other platforms. Learn how to set up and work with Room Database in KMP [Set up Room Database for KMP →](https://developer.android.com/kotlin/multiplatform/room) ![](https://developer.android.com/static/images/android-kmp-logo.png)
 
-
-# Save data in a local database using Room   Part of [Android Jetpack](/jetpack).
-
-Try with Kotlin Multiplatform
-
-Kotlin Multiplatform allows sharing the database layer with other platforms. Learn how to set up and work with Room Database in KMP
-
-[Set up Room Database for KMP →](https://developer.android.com/kotlin/multiplatform/room)
-
-![](/static/images/android-kmp-logo.png)
+<br />
 
 Apps that handle non-trivial amounts of structured data can benefit greatly from
 persisting that data locally. The most common use case is to cache relevant
@@ -35,31 +21,31 @@ The Room persistence library provides an abstraction layer over SQLite to allow
 fluent database access while harnessing the full power of SQLite. In particular,
 Room provides the following benefits:
 
-* Compile-time verification of SQL queries.
-* Convenience annotations that minimize repetitive and error-prone boilerplate
-  code.
-* Streamlined database migration paths.
+- Compile-time verification of SQL queries.
+- Convenience annotations that minimize repetitive and error-prone boilerplate code.
+- Streamlined database migration paths.
 
 Because of these considerations, we highly recommend that you use Room instead
-of [using the SQLite APIs directly](/training/data-storage/sqlite).
+of [using the SQLite APIs directly](https://developer.android.com/training/data-storage/sqlite).
 
 ## Setup
 
 To use Room in your app, add the following dependencies to your app's
 `build.gradle` file.
 
-**Note:** Choose only one of `ksp` or `annotationProcessor`. Don't include both.
+> [!NOTE]
+> **Note:** Choose only one of `ksp` or `annotationProcessor`. Don't include both.
 
 ### Kotlin
 
-```
+```kotlin
 dependencies {
     val room_version = "2.8.4"
 
     implementation("androidx.room:room-runtime:$room_version")
 
     // If this project uses any Kotlin source, use Kotlin Symbol Processing (KSP)
-    // See Add the KSP plugin to your project
+    // See https://developer.android.com/build/migrate-to-ksp#add-ksp
     ksp("androidx.room:room-compiler:$room_version")
 
     // If this project only uses Java source, use the Java annotationProcessor
@@ -88,14 +74,14 @@ dependencies {
 
 ### Groovy
 
-```
+```groovy
 dependencies {
     def room_version = "2.8.4"
 
     implementation "androidx.room:room-runtime:$room_version"
 
     // If this project uses any Kotlin source, use Kotlin Symbol Processing (KSP)
-    // See KSP Quickstart to add KSP to your build
+    // See https://kotlinlang.org/docs/ksp-quickstart.html to add KSP to your build
     ksp "androidx.room:room-compiler:$room_version"
 
     // If this project only uses Java source, use the Java annotationProcessor
@@ -123,14 +109,9 @@ dependencies {
 
 There are three major components in Room:
 
-* The [database class](/reference/kotlin/androidx/room/Database) that holds the
-  database and serves as the main access point for the underlying connection to
-  your app's persisted data.
-* [Data entities](/training/data-storage/room/defining-data) that represent
-  tables in your app's database.
-* [Data access objects (DAOs)](/training/data-storage/room/accessing-data) that
-  provide methods that your app can use to query, update, insert, and delete
-  data in the database.
+- The [database class](https://developer.android.com/reference/kotlin/androidx/room/Database) that holds the database and serves as the main access point for the underlying connection to your app's persisted data.
+- [Data entities](https://developer.android.com/training/data-storage/room/defining-data) that represent tables in your app's database.
+- [Data access objects (DAOs)](https://developer.android.com/training/data-storage/room/accessing-data) that provide methods that your app can use to query, update, insert, and delete data in the database.
 
 The database class provides your app with instances of the DAOs associated with
 that database. In turn, the app can use the DAOs to retrieve data from the
@@ -138,11 +119,7 @@ database as instances of the associated data entity objects. The app can also
 use the defined data entities to update rows from the corresponding tables, or
 to create new rows for insertion. Figure 1 illustrates the relationship between
 the different components of Room.
-
-![](/static/images/training/data-storage/room_architecture.png)
-
-
-**Figure 1.** Diagram of Room library architecture.
+![](https://developer.android.com/static/images/training/data-storage/room_architecture.png) **Figure 1.** Diagram of Room library architecture.
 
 ## Sample implementation
 
@@ -156,7 +133,7 @@ represents a row in a `user` table in the app's database.
 
 ### Kotlin
 
-```
+```kotlin
 @Entity
 data class User(
     @PrimaryKey val uid: Int,
@@ -167,7 +144,7 @@ data class User(
 
 ### Java
 
-```
+```java
 @Entity
 public class User {
     @PrimaryKey
@@ -182,7 +159,7 @@ public class User {
 ```
 
 To learn more about data entities in Room, see [Defining data using Room
-entities](/training/data-storage/room/defining-data).
+entities](https://developer.android.com/training/data-storage/room/defining-data).
 
 ### Data access object (DAO)
 
@@ -191,7 +168,7 @@ methods that the rest of the app uses to interact with data in the `user` table.
 
 ### Kotlin
 
-```
+```kotlin
 @Dao
 interface UserDao {
     @Query("SELECT * FROM user")
@@ -214,7 +191,7 @@ interface UserDao {
 
 ### Java
 
-```
+```java
 @Dao
 public interface UserDao {
     @Query("SELECT * FROM user")
@@ -236,7 +213,7 @@ public interface UserDao {
 ```
 
 To learn more about DAOs, see [Accessing data using Room
-DAOs](/training/data-storage/room/accessing-data).
+DAOs](https://developer.android.com/training/data-storage/room/accessing-data).
 
 ### Database
 
@@ -245,19 +222,13 @@ The following code defines an `AppDatabase` class to hold the database.
 access point to the persisted data. The database class must satisfy the
 following conditions:
 
-* The class must be annotated with a
-  [`@Database`](/reference/kotlin/androidx/room/Database) annotation that
-  includes an [`entities`](/reference/kotlin/androidx/room/Database#entities)
-  array that lists all of the data entities associated with the database.
-* The class must be an abstract class that extends
-  [`RoomDatabase`](/reference/kotlin/androidx/room/RoomDatabase).
-* For each DAO class that is associated with the database, the database class
-  must define an abstract method that has zero arguments and returns an instance
-  of the DAO class.
+- The class must be annotated with a [`@Database`](https://developer.android.com/reference/kotlin/androidx/room/Database) annotation that includes an [`entities`](https://developer.android.com/reference/kotlin/androidx/room/Database#entities) array that lists all of the data entities associated with the database.
+- The class must be an abstract class that extends [`RoomDatabase`](https://developer.android.com/reference/kotlin/androidx/room/RoomDatabase).
+- For each DAO class that is associated with the database, the database class must define an abstract method that has zero arguments and returns an instance of the DAO class.
 
 ### Kotlin
 
-```
+```kotlin
 @Database(entities = [User::class], version = 1)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun userDao(): UserDao
@@ -266,14 +237,13 @@ abstract class AppDatabase : RoomDatabase() {
 
 ### Java
 
-```
+```java
 @Database(entities = {User.class}, version = 1)
 public abstract class AppDatabase extends RoomDatabase {
     public abstract UserDao userDao();
 }
 ```
-
-**Note:**  If your app runs in a single process, you should follow the
+**Note:** If your app runs in a single process, you should follow the
 singleton design pattern when instantiating an `AppDatabase`
 object. Each `RoomDatabase` instance is fairly expensive, and you
 rarely need access to multiple instances within a single process.
@@ -292,7 +262,7 @@ can use the following code to create an instance of the database:
 
 ### Kotlin
 
-```
+```kotlin
 val db = Room.databaseBuilder(
             applicationContext,
             AppDatabase::class.java, "database-name"
@@ -301,7 +271,7 @@ val db = Room.databaseBuilder(
 
 ### Java
 
-```
+```java
 AppDatabase db = Room.databaseBuilder(getApplicationContext(),
         AppDatabase.class, "database-name").build();
 ```
@@ -312,14 +282,14 @@ with the database:
 
 ### Kotlin
 
-```
+```kotlin
 val userDao = db.userDao()
 val users: List<User> = userDao.getAll()
 ```
 
 ### Java
 
-```
+```java
 UserDao userDao = db.userDao();
 List<User> users = userDao.getAll();
 ```
@@ -332,11 +302,11 @@ To learn more about Room, see the following additional resources:
 
 ### Codelabs
 
-* Android Room with a View [(Java)](/codelabs/android-room-with-a-view) [(Kotlin)](/codelabs/android-room-with-a-view-kotlin)
+- Android Room with a View [(Java)](https://developer.android.com/codelabs/android-room-with-a-view) [(Kotlin)](https://developer.android.com/codelabs/android-room-with-a-view-kotlin)
 
 ### Blogs
 
-* [7 Pro-tips for
+- [7 Pro-tips for
   Room](https://medium.com/androiddevelopers/7-pro-tips-for-room-fbadea4bfbd1)
-* [Incrementally migrate from SQLite to
+- [Incrementally migrate from SQLite to
   Room](https://medium.com/androiddevelopers/incrementally-migrate-from-sqlite-to-room-66c2f655b377)

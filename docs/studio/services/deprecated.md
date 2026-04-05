@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 The following Android Studio service integrations have been deprecated:
 
 ## Meerkat

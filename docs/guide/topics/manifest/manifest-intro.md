@@ -12,6 +12,7 @@ source: html-scrape
 
 
 
+
 Every app project must have an `AndroidManifest.xml` file, with precisely that
 name,
 at the root of the [project source set](/studio/build#sourcesets).

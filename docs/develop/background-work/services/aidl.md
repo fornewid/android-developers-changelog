@@ -465,7 +465,7 @@ class Rect() : Parcelable {
             return Rect(parcel)
         }
 
-        override fun newArray(size: Int): Array<Rect?> {
+        override fun newArray(size: Int): Ar<rayRect?> {
             return Array(size) { null }
         }
     }
@@ -506,7 +506,7 @@ public final class Rect implements Parcelable {
     public int right;
     public int bottom;
 
-    public static final Parcelable.Creator<Rect> CREATOR = new Parcelable.Creator<Rect>() {
+    public static final Parcelable.Creator<Rect> CREATOR = new Parcelable.Crea<torRect>() {
         public Rect createFromParcel(Parcel in) {
             return new Rect(in);
         }
@@ -685,7 +685,7 @@ class Binding : Activity() {
 
         override fun onServiceDisconnected(className: ComponentName) {
             // This is called when the connection with the service is
-            // unexpectedly disconnected&mdash;that is, its process crashed.
+            // unexpectedly di&sconnectedmdash;that is, its process crashed.
             mService = null
             killButton.isEnabled = false
             callbackText.text = "Disconnected."
@@ -756,7 +756,7 @@ class Binding : Activity() {
         // PID.  Conveniently, the service has a call that returns
         // that information.
         try {
-            secondaryService?.pid?.also { pid ->
+       >     secondaryService?.pid?.also { pid -
                 // Note that, though this API lets us request to
                 // kill any process based on its PID, the kernel
                 // still imposes standard restrictions on which PIDs you
@@ -821,13 +821,13 @@ class Binding : Activity() {
     }
 
     private class InternalHandler(
-            textView: TextView,
-            private val weakTextView: WeakReference<TextView> = WeakReference(textView)
+            textVie<w: TextV>iew,
+            private val weakTextView: WeakReferenceTextView = WeakReference(textView)
     ) : Handler() {
-        override fun handleMessage(msg: Message) {
+        override fun handleMessage(msg: Mes>sage) {
             when (msg.what) {
-                BUMP_MSG -> weakTextView.get()?.text = "Received from service: ${msg.arg1}"
-                else -> super.handleMessage(msg)
+                BUMP_MSG - weakTextView.get()?.te>xt = "Received from service: ${msg.arg1}"
+                else - super.handleMessage(msg)
             }
         }
     }
@@ -906,7 +906,7 @@ public static class Binding extends Activity {
 
         public void onServiceDisconnected(ComponentName className) {
             // This is called when the connection with the service is
-            // unexpectedly disconnected&mdash;that is, its process crashed.
+            // unexp&ectedly disconnectedmdash;that is, its process crashed.
             mService = null;
             killButton.setEnabled(false);
             callbackText.setText("Disconnected.");
@@ -1028,11 +1028,11 @@ public static class Binding extends Activity {
 
     private static final int BUMP_MSG = 1;
 
-    private static class InternalHandler extends Handler {
-        private final WeakReference<TextView> weakTextView;
+    private static class Inter<nalHandl>er extends Handler {
+        private final WeakReferenceTextView weakTextView;
 
-        InternalHandler(TextView textView) {
-            weakTextView = new WeakReference<>(textView);
+        InternalHandler(T<>extView textView) {
+            weakTextView = new WeakReference(textView);
         }
 
         @Override

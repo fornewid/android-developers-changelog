@@ -15,7 +15,6 @@ Save and categorize content based on your preferences.
 
 
 
-
 # Android Studio 2.1 (April 2016)
 
 The primary changes in this update provide support for development with the

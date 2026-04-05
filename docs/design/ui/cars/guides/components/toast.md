@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 A toast is a short, informational message that an app displays briefly near the
 bottom of the screen.
 

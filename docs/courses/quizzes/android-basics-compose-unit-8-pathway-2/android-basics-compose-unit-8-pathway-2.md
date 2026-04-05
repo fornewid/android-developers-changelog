@@ -1,64 +1,55 @@
 ---
-title: Views in Compose  |  Android Developers
+title: https://developer.android.com/courses/quizzes/android-basics-compose-unit-8-pathway-2/android-basics-compose-unit-8-pathway-2
 url: https://developer.android.com/courses/quizzes/android-basics-compose-unit-8-pathway-2/android-basics-compose-unit-8-pathway-2
-source: html-scrape
+source: md.txt
 ---
-
-Stay organized with collections
-
-Save and categorize content based on your preferences.
-
-
 
 # Views in Compose
 
-Return to pathway
+# Views in Compose
 
+<br />
 
+Return to pathway  
+1.
 
-1. ## Which Composable is used to implement a View Interop?
+   ## Which Composable is used to implement a View Interop?
 
-   `InputRow`
+   `InputRow`  
+   `Column`  
+   `TextInputRow`  
+   `AndroidView`  
+2.
 
-   `Column`
+   ## What is an`AndroidView`?
 
-   `TextInputRow`
+   A Composable that hosts a View element or hierarchy  
+   An Android View that hosts Jetpack Compose UI content inside a View layout  
+   An Android View that hosts an Android View inside a View layout  
+   A Compose View that hosts Jetpack Compose UI content inside a Compose UI  
+3.
 
-   `AndroidView`
-2. ## What is an `AndroidView`?
+   ## Which of the following are parameters of the`AndroidView`Composable? Select all that apply.
 
-   A Composable that hosts a View element or hierarchy
+   Choose as many answers as you see fit.  
+   `factory`  
+   `inputLabel`  
+   `update`  
+   `modifier`  
+4.
 
-   An Android View that hosts Jetpack Compose UI content inside a View layout
+   ## The`update`callback of the`AndroidView`Composable is called after the corresponding View is inflated.
 
-   An Android View that hosts an Android View inside a View layout
+   True  
+   False  
+5.
 
-   A Compose View that hosts Jetpack Compose UI content inside a Compose UI
-3. ## Which of the following are parameters of the `AndroidView` Composable? Select all that apply.
+   ## What is the function of the`factory`lambda of the`AndroidView`Composable?
 
-   Choose as many answers as you see fit.
-
-   `factory`
-
-   `inputLabel`
-
-   `update`
-
-   `modifier`
-4. ## The `update` callback of the `AndroidView` Composable is called after the corresponding View is inflated.
-
-   True
-
-   False
-5. ## What is the function of the `factory` lambda of the `AndroidView` Composable?
-
-   Decorates and augments the AndroidView Composable
-
-   Executes code after the View is inflated
-
-   Creates the View
+   Decorates and augments the AndroidView Composable  
+   Executes code after the View is inflated  
+   Creates the View  
 
 Submit answers
 
-*error\_outline*
-An error occurred when grading the quiz. Please try again.
+*error_outline*An error occurred when grading the quiz. Please try again.

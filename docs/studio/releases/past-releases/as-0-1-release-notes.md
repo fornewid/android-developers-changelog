@@ -15,6 +15,7 @@ Save and categorize content based on your preferences.
 
 
 
+
 # Android Studio v0.1.x (May 2013)
 
 * Various bug fixes, including a fix for a common Windows installation issue.

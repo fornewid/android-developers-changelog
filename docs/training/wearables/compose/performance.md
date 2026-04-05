@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 Performance on Wear OS is an essential consideration for apps, as many Wear OS
 devices have limited CPU and GPU resources compared to larger mobile devices.
 With the introduction of richer animations and dynamic effects in Material 3

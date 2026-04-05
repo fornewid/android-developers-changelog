@@ -14,6 +14,7 @@ The Memory Advice API beta is now deprecated, and no longer recommended for use.
 
 
 
+
 **Note:** The Memory Advice API Beta is now over and the library is deprecated.
 [learn more about alternative memory management approaches](/games/optimize/memory-allocation).
 

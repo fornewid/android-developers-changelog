@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 This page is a guide for modularizing your navigation code. It is intended to
 complement the general [guidance for app modularization](/topic/modularization).
 

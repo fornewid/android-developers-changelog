@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 Starting in Android 8.0 (API level 26), all notifications must be assigned to a
 channel. For each channel, you can set the visual and auditory behavior that is
 applied to all notifications in that channel. Users can change these settings

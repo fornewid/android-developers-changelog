@@ -1,25 +1,20 @@
 ---
-title: <ConstraintSet>  |  Android Developers
+title: https://developer.android.com/training/constraint-layout/motionlayout/ref/constraintset
 url: https://developer.android.com/training/constraint-layout/motionlayout/ref/constraintset
-source: html-scrape
+source: md.txt
 ---
 
-* [Android Developers](https://developer.android.com/)
-
-# <ConstraintSet> Stay organized with collections Save and categorize content based on your preferences.
-
-
-
+[Video](https://www.youtube.com/watch?v=-POu45WaSsc)
 
 Specifies the positions and attributes of all views at one point in a motion
 sequence. Typically, a
-[`<Transition>`](/training/constraint-layout/motionlayout/ref/transition)
+[`<Transition>`](https://developer.android.com/training/constraint-layout/motionlayout/ref/transition)
 element points to two `<ConstraintSet>` elements, one defining the beginning of
 the motion sequence and one defining the end.
 
 ## Syntax
 
-```
+```xml
 <ConstraintSet
   id="@id/name">
   [ deriveConstraintsFrom="id" ]
@@ -40,10 +35,8 @@ the motion sequence and one defining the end.
 
 ## Must contain
 
-* One or more
-  [`<Constraint>`](/training/constraint-layout/motionlayout/ref/constraint)
-  elements.
+- One or more [`<Constraint>`](https://developer.android.com/training/constraint-layout/motionlayout/ref/constraint) elements.
 
 ## Contained in
 
-* [`<MotionScene>`](/training/constraint-layout/motionlayout/ref/motionscene)
+- [`<MotionScene>`](https://developer.android.com/training/constraint-layout/motionlayout/ref/motionscene)

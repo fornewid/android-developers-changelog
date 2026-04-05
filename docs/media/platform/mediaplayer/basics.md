@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 This document introduces the basic concepts you should
 be familiar with before you work with Media Player.
 

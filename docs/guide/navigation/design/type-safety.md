@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 You can use built-in type safe APIs to provide compile-time type safety for your
 navigation graph. These APIs are available when your app uses the [Navigation
 Compose](/jetpack/compose/navigation) or [Navigation Kotlin DSL](/guide/navigation/navigation-kotlin-dsl). They are available as of `Navigation

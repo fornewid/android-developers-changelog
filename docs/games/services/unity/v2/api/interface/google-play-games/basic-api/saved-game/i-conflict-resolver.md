@@ -14,7 +14,6 @@ Save and categorize content based on your preferences.
 
 
 
-
 # GooglePlayGames.BasicApi.SavedGame.IConflictResolver
 
 An interface that allows developers to resolve metadata conflicts that may be encountered while opening saved games.

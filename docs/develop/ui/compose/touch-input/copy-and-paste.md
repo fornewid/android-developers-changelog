@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 The Android clipboard-based framework for copying and pasting
 supports primitive and complex data types, including:
 

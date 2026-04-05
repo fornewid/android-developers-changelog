@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 You can collect profiles using two primary methods: manual profile collection
 and the `ProfilingManager` API.
 

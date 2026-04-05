@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 A stylus enables artists, builders, and creators to express themselves using
 precise input and expansive canvases. Pressure sensitivity and low latency allow
 highly responsive interactions. Intuitive content management through drag and

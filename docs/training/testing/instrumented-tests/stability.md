@@ -12,6 +12,7 @@ source: html-scrape
 
 
 
+
 The asynchronous nature of mobile applications and frameworks oftentimes makes
 it challenging to write reliable and repeatable tests. When a user event is
 injected, the testing framework must wait for the app to finish reacting to it,

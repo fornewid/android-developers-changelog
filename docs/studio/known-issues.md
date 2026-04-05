@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 This page tracks known issues with
 Android Studio
 Panda 3 and Android Gradle plugin

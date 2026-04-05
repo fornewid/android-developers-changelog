@@ -11,6 +11,7 @@ source: html-scrape
 
 
 
+
 This guide outlines the process of replacing string-based routes with
 serializable Kotlin types to achieve compile-time safety and eliminate runtime
 crashes caused by typos or incorrect argument types.

@@ -1,10 +1,21 @@
 ---
-title: https://developer.android.com/develop/ui/compose/performance/baseline-profiles
+title: Use a baseline profile  |  Jetpack Compose  |  Android Developers
 url: https://developer.android.com/develop/ui/compose/performance/baseline-profiles
-source: md.txt
+source: html-scrape
 ---
 
-[Baseline Profiles](https://developer.android.com/baseline-profiles) improve code execution speed by about 30% from the first
+* [Android Developers](https://developer.android.com/)
+* [Develop](https://developer.android.com/develop)
+* [Core areas](https://developer.android.com/develop/core-areas)
+* [UI](https://developer.android.com/develop/ui)
+* [Docs](https://developer.android.com/develop/ui/compose/documentation)
+
+# Use a baseline profile Stay organized with collections Save and categorize content based on your preferences.
+
+
+
+
+[Baseline Profiles](/baseline-profiles) improve code execution speed by about 30% from the first
 launch by avoiding interpretation and just-in-time (JIT) compilation steps for
 included code paths. By shipping a Baseline Profile in an app or library, you
 enable Android Runtime (ART) to optimize included code paths through
@@ -27,7 +38,7 @@ for the first time.
 
 ## Benefits of baseline profiles
 
-You can improve performance by defining [Baseline Profiles](https://developer.android.com/topic/performance/baselineprofiles/overview). These profiles
+You can improve performance by defining [Baseline Profiles](/topic/performance/baselineprofiles/overview). These profiles
 define classes and methods needed on critical user journeys and are distributed
 with your app's APK or AAB. During app installation, ART compiles this critical
 code AOT so that it's ready for use when the app launches.
@@ -39,10 +50,10 @@ contains optimizations for the code within the Compose library.
 
 ### Macrobenchmark
 
-To get the best optimization, [create a Baseline Profile](https://developer.android.com/topic/performance/baselineprofiles/create-baselineprofile)
-for your app that uses [Macrobenchmark](https://developer.android.com/studio/profile/macrobenchmark-overview) to cover critical user journeys. When
+To get the best optimization, [create a Baseline Profile](/topic/performance/baselineprofiles/create-baselineprofile)
+for your app that uses [Macrobenchmark](/studio/profile/macrobenchmark-overview) to cover critical user journeys. When
 you define your own profile, you must test the profile to verify that it's
-helping. A good way to do that is to write [Macrobenchmark](https://developer.android.com/studio/profile/macrobenchmark-overview) tests for your
+helping. A good way to do that is to write [Macrobenchmark](/studio/profile/macrobenchmark-overview) tests for your
 app and check the test results as you write and revise your Baseline Profile.
 
 For an example of how to write Macrobenchmark tests for your Compose UI, see the
@@ -50,8 +61,12 @@ For an example of how to write Macrobenchmark tests for your Compose UI, see the
 
 ## Additional Resources
 
-- **[App performance guide](https://developer.android.com/topic/performance/overview)**: Discover best practices, libraries, and tools to improve performance on Android.
-- **[Inspect Performance](https://developer.android.com/topic/performance/inspecting-overview):** Inspect app performance.
-- **[Benchmarking](https://developer.android.com/topic/performance/benchmarking/benchmarking-overview):** Benchmark app performance.
-- **[App startup](https://developer.android.com/topic/performance/appstartup/analysis-optimization):** Optimize app startup.
-- **[Baseline profiles](https://developer.android.com/baseline-profiles):** Understand baseline profiles.
+* **[App performance guide](/topic/performance/overview)**: Discover best
+  practices, libraries, and tools to improve performance on Android.
+* **[Inspect Performance](/topic/performance/inspecting-overview):**
+  Inspect app performance.
+* **[Benchmarking](/topic/performance/benchmarking/benchmarking-overview):**
+  Benchmark app performance.
+* **[App startup](/topic/performance/appstartup/analysis-optimization):**
+  Optimize app startup.
+* **[Baseline profiles](/baseline-profiles):** Understand baseline profiles.

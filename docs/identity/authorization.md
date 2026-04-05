@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 Authentication establishes who someone is, and is commonly referred to as user
 sign-up or sign-in. Authorization is the process of granting or rejecting access
 to data or resources. For example, your app requests a user's consent to access

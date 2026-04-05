@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 ![](/static/images/quality/hero-images/core_value_highlighted.svg)
 
 The ultimate purpose of any app or game is to deliver value to users by being

@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 In ExoPlayer, every piece of media is represented by a `MediaItem`. However
 internally, the player needs `MediaSource` instances to play the content. The
 player creates these from media items using a `MediaSource.Factory`.

@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 Android 6.0 gives you an opportunity to ensure your apps work with the next
 version of the platform. This release includes a number of APIs and behavior changes that can
 impact your app, as described in the [API

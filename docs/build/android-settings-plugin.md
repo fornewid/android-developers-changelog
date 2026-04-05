@@ -1,18 +1,8 @@
 ---
-title: Configure project-wide build properties with the settings plugin  |  Android Studio  |  Android Developers
+title: https://developer.android.com/build/android-settings-plugin
 url: https://developer.android.com/build/android-settings-plugin
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [Develop](https://developer.android.com/develop)
-* [Android Studio](https://developer.android.com/studio)
-* [Gradle build guides](https://developer.android.com/build/gradle-build-overview)
-
-# Configure project-wide build properties with the settings plugin Stay organized with collections Save and categorize content based on your preferences.
-
-
-
 
 The settings plugin lets you centralize common build properties that apply to
 all modules in one place so you don't need to copy and paste the configurations
@@ -25,7 +15,7 @@ the same as the AGP version declared in the `libs.versions.toml` file:
 
 ### Kotlin
 
-```
+```kotlin
 pluginManagement {
     // Add the following.
     plugins {
@@ -40,7 +30,7 @@ plugins {
 
 ### Groovy
 
-```
+```groovy
 pluginManagement {
     // Add the following.
     plugins {
@@ -61,7 +51,7 @@ Apply the `android` block in the `settings.gradle` file. Unlike in module-level
 
 ### Kotlin
 
-```
+```kotlin
 android {
     compileSdk {
         version = release(36) {
@@ -79,7 +69,7 @@ android {
 
 ### Groovy
 
-```
+```groovy
 android {
     compileSdk {
         version = release(36) {

@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 Non-scrolling app view layouts include media players, confirmation dialogs,
 pickers, switchers, and special fitness or tracking screens using progress
 indicators. You can restrict the height of any screen, which ensures the user is

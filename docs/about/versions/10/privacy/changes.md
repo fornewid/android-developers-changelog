@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 Android 10 (API level 29) introduces a number of features and behavior changes
 to better protect users' privacy. These changes extend the transparency and
 control that users have over their data and the capabilities they give to apps.

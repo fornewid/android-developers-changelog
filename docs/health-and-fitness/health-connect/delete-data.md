@@ -15,7 +15,6 @@ Starting in 2026, we'll be transitioning away from Google Fit APIs. For more inf
 
 
 
-
 Deleting data is a key part of the CRUD operations in Health Connect. This guide
 shows you how you can delete records in two ways.
 

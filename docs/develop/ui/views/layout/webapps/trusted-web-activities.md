@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 **Trusted Web Activity** is a new way to open *your* web-app content such as *your* Progressive Web App (PWA) from *your* Android app using a protocol based on Custom Tabs.
 
 **Note**: Trusted Web Activity is available in [Chrome on Android](https://play.google.com/store/apps/details?id=com.android.chrome), version 72 and above.

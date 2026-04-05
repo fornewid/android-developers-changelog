@@ -10,7 +10,6 @@ source: html-scrape
 
 
 
-
 *Back navigation* is how users move backward through the history of screens they
 previously visited. All Android devices provide a Back button for this type of
 navigation, so don't add a Back button to your app’s UI. Depending on

@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 ![](/static/wear/images/design/larger-screens-optimized-heading.png)
 
 Apps that are **responsive and optimized** utilize responsive layouts that

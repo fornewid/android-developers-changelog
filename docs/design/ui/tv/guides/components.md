@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 Components are interactive building blocks for creating a user interface.
 They can be organized into five categories based on their purpose:
 Action, containment, navigation, selection, and text input.

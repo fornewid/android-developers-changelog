@@ -1,18 +1,8 @@
 ---
-title: APK shrinking  |  Android media  |  Android Developers
+title: https://developer.android.com/media/media3/exoplayer/shrinking
 url: https://developer.android.com/media/media3/exoplayer/shrinking
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [Essentials](https://developer.android.com/get-started)
-* [Camera & media dev center](https://developer.android.com/media)
-* [Guides](https://developer.android.com/media/guides)
-
-# APK shrinking Stay organized with collections Save and categorize content based on your preferences.
-
-
-
 
 Minimizing APK size is an important aspect of developing a good Android
 app. This is particularly true when targeting developing markets, and
@@ -28,19 +18,15 @@ as might be required for an app that only plays DASH content:
 
 ### Kotlin
 
-```
-implementation("androidx.media3:media3-exoplayer:1.10.0")
-implementation("androidx.media3:media3-exoplayer-dash:1.10.0")
-implementation("androidx.media3:media3-ui:1.10.0")
-```
+    implementation("androidx.media3:media3-exoplayer:1.10.0")
+    implementation("androidx.media3:media3-exoplayer-dash:1.10.0")
+    implementation("androidx.media3:media3-ui:1.10.0")
 
 ### Groovy
 
-```
-implementation "androidx.media3:media3-exoplayer:1.10.0"
-implementation "androidx.media3:media3-exoplayer-dash:1.10.0"
-implementation "androidx.media3:media3-ui:1.10.0"
-```
+    implementation "androidx.media3:media3-exoplayer:1.10.0"
+    implementation "androidx.media3:media3-exoplayer-dash:1.10.0"
+    implementation "androidx.media3:media3-ui:1.10.0"
 
 ## Enable code and resource shrinking
 
@@ -50,7 +36,7 @@ effectively remove unused functionality. For example, for an app that
 plays DASH content, ExoPlayer's contribution to APK size can be reduced by
 approximately 40% by enabling code shrinking.
 
-Read [Shrink, obfuscate, and optimize your app](/studio/build/shrink-code) to learn how to enable
+Read [Shrink, obfuscate, and optimize your app](https://developer.android.com/studio/build/shrink-code) to learn how to enable
 code and resource shrinking.
 
 ## Specify which renderers your app needs
@@ -63,9 +49,10 @@ needs a subset of renderers, you can specify your own `RenderersFactory`
 instead. For example, an app that only plays audio can define a factory like
 this when instantiating `ExoPlayer` instances:
 
+
 ### Kotlin
 
-```
+```kotlin
 val audioOnlyRenderersFactory =
   RenderersFactory {
     handler: Handler,
@@ -78,13 +65,11 @@ val audioOnlyRenderersFactory =
     )
   }
 val player = ExoPlayer.Builder(context, audioOnlyRenderersFactory).build()
-
-Shrinking.kt
 ```
 
 ### Java
 
-```
+```java
 RenderersFactory audioOnlyRenderersFactory =
     (handler, videoListener, audioListener, textOutput, metadataOutput) ->
         new Renderer[] {
@@ -92,9 +77,9 @@ RenderersFactory audioOnlyRenderersFactory =
               context, MediaCodecSelector.DEFAULT, handler, audioListener)
         };
 ExoPlayer player = new ExoPlayer.Builder(context, audioOnlyRenderersFactory).build();
-
-Shrinking.java
 ```
+
+<br />
 
 This will allow other `Renderer` implementations to be removed by code
 shrinking. In this particular example video, text and metadata renderers are
@@ -112,29 +97,28 @@ needs to play a small number of container formats, or doesn't play progressive
 media at all, you can specify your own `ExtractorsFactory` instead. For example,
 an app that only needs to play mp4 files can provide a factory like:
 
+
 ### Kotlin
 
-```
+```kotlin
 val mp4ExtractorFactory = ExtractorsFactory {
   arrayOf<Extractor>(Mp4Extractor(DefaultSubtitleParserFactory()))
 }
 val player =
   ExoPlayer.Builder(context, DefaultMediaSourceFactory(context, mp4ExtractorFactory)).build()
-
-Shrinking.kt
 ```
 
 ### Java
 
-```
+```java
 ExtractorsFactory mp4ExtractorFactory =
     () -> new Extractor[] {new Mp4Extractor(new DefaultSubtitleParserFactory())};
 ExoPlayer player =
     new ExoPlayer.Builder(context, new DefaultMediaSourceFactory(context, mp4ExtractorFactory))
         .build();
-
-Shrinking.java
 ```
+
+<br />
 
 This will allow other `Extractor` implementations to be removed by code
 shrinking, which can result in a significant reduction in size.
@@ -143,26 +127,25 @@ If your app is not playing progressive content at all, you should pass
 `ExtractorsFactory.EMPTY` to the `DefaultMediaSourceFactory` constructor, then
 pass that `mediaSourceFactory` to the `ExoPlayer.Builder` constructor.
 
+
 ### Kotlin
 
-```
+```kotlin
 val player =
   ExoPlayer.Builder(context, DefaultMediaSourceFactory(context, ExtractorsFactory.EMPTY))
     .build()
-
-Shrinking.kt
 ```
 
 ### Java
 
-```
+```java
 ExoPlayer player =
     new ExoPlayer.Builder(
             context, new DefaultMediaSourceFactory(context, ExtractorsFactory.EMPTY))
         .build();
-
-Shrinking.java
 ```
+
+<br />
 
 ## Custom MediaSource instantiation
 
@@ -170,45 +153,43 @@ If your app is using a custom `MediaSource.Factory` and you want
 `DefaultMediaSourceFactory` to be removed by code stripping, you should pass
 your `MediaSource.Factory` directly to the `ExoPlayer.Builder` constructor.
 
+
 ### Kotlin
 
-```
+```kotlin
 val player = ExoPlayer.Builder(context, customMediaSourceFactory).build()
-
-Shrinking.kt
 ```
 
 ### Java
 
-```
+```java
 ExoPlayer player = new ExoPlayer.Builder(context, mediaSourceFactory).build();
-
-Shrinking.java
 ```
+
+<br />
 
 If your app is using `MediaSource` directly instead of `MediaItem` you should
 pass `MediaSource.Factory.UNSUPPORTED` to the `ExoPlayer.Builder` constructor,
 to ensure `DefaultMediaSourceFactory` and `DefaultExtractorsFactory` can be
 stripped by code shrinking.
 
+
 ### Kotlin
 
-```
+```kotlin
 val player = ExoPlayer.Builder(context, MediaSource.Factory.UNSUPPORTED).build()
 val mediaSource =
   ProgressiveMediaSource.Factory(dataSourceFactory, customExtractorsFactory)
     .createMediaSource(MediaItem.fromUri(uri))
-
-Shrinking.kt
 ```
 
 ### Java
 
-```
+```java
 ExoPlayer player = new ExoPlayer.Builder(context, MediaSource.Factory.UNSUPPORTED).build();
 ProgressiveMediaSource mediaSource =
     new ProgressiveMediaSource.Factory(dataSourceFactory, customExtractorsFactory)
         .createMediaSource(MediaItem.fromUri(uri));
-
-Shrinking.java
 ```
+
+<br />

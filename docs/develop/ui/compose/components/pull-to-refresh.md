@@ -219,12 +219,12 @@ fun MyCustomIndicator(
                         }
                 )
             }
-        }
-    }
 }
-
-PullToRefreshBox.kt
+    }
+}PullToRef
 ```
+
+reshBox.kt
 
 ### Key points about the code
 

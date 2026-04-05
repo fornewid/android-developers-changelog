@@ -1,10 +1,20 @@
 ---
-title: https://developer.android.com/media/media3/transformer/demo-application
+title: Transformer demo application  |  Android media  |  Android Developers
 url: https://developer.android.com/media/media3/transformer/demo-application
-source: md.txt
+source: html-scrape
 ---
 
-# Transformer demo application
+Media3 Transformer is actively under development and we are looking to hear from you! We welcome your feedback, feature requests and bug reports in the [issue tracker](https://github.com/androidx/media/issues). Follow the [ExoPlayer blog](https://medium.com/google-exoplayer) for the latest updates.
+
+* [Android Developers](https://developer.android.com/)
+* [Essentials](https://developer.android.com/get-started)
+* [Media dev center](https://developer.android.com/media)
+* [Guides](https://developer.android.com/media/guides)
+
+# Transformer demo application Stay organized with collections Save and categorize content based on your preferences.
+
+
+
 
 The Transformer demo app lets you try out the API's capabilities and transform
 your own media, including converting media between formats, trimming, and
@@ -17,7 +27,7 @@ describes how to use the demo app to transform your own media.
 
 The source code for the main demo app can be found in the `demos/transformer`
 folder of the [GitHub project](https://github.com/androidx/media). If you
-haven't already done so, clone the project into a local directory:  
+haven't already done so, clone the project into a local directory:
 
 ```
 git clone https://github.com/androidx/media.git
@@ -25,7 +35,11 @@ git clone https://github.com/androidx/media.git
 
 Next, open the project in Android Studio. You should see the following in the
 Android Project view (the relevant folders of the demo app have been expanded):
-![The project in Android Studio](https://developer.android.com/static/guide/topics/media/transformer/images/demo-project.png) The project in Android Studio
+
+![The project in Android Studio](/static/guide/topics/media/transformer/images/demo-project.png)
+
+
+The project in Android Studio
 
 ## Compile and run the demo
 
@@ -34,7 +48,11 @@ configuration in Android Studio. The demo app will install and run on a
 connected Android-powered device. We recommend using a physical device if
 possible, because typically an emulator's implementation of Android's media
 stack has different capabilities and bugs compared to a real device.
-![Demo app configuration activity](https://developer.android.com/static/guide/topics/media/transformer/images/configuration-activity.png) Demo app configuration activity
+
+![Demo app configuration activity](/static/guide/topics/media/transformer/images/configuration-activity.png)
+
+
+Demo app configuration activity
 
 The demo app begins with the `ConfigurationActivity`, an activity where you can
 set up the input media item and the transformation you want to perform. The two
@@ -51,13 +69,15 @@ completes, the input and output videos are shown together in two ExoPlayer
 
 The demo app supports selecting media for transformation using the buttons at
 the top of the configuration screen. You can also pass a URL directly on the
-command line:  
+command line:
 
 ```
 adb shell am start -a androidx.media3.demo.transformer.action.VIEW \
     -d https://yourdomain.com/sample.mp4
 ```
-| **Tip:** If you see errors when selecting local media using this feature, check the [troubleshooting page](https://developer.android.com/media/media3/transformer/troubleshooting#local-files).
+
+**Tip:** If you see errors when selecting local media using this feature, check the
+[troubleshooting page](/media/media3/transformer/troubleshooting#local-files).
 
 ## MediaPipe integration
 

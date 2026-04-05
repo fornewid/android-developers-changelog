@@ -14,7 +14,6 @@ Join us for ⁠the [Google for Games Developer Summit](https://gamedevsummit.wit
 
 
 
-
 The AGI Frame Profiler lets you examine individual render passes that are used to compose a single frame of your app. It does this by intercepting and recording all the state necessary for executing each graphics API call. On Vulkan this is done natively using Vulkan’s layering system. On OpenGL, commands are intercepted using ANGLE, which converts OpenGL commands to Vulkan calls so that they can be executed on the hardware.
 
 ## Adreno devices

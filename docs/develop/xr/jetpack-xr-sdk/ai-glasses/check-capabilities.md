@@ -17,6 +17,7 @@ The Android XR SDK has  [reached Developer Preview 3](https://android-developers
 
 
 
+
 Different types of AI glasses have different capabilities. After [planning how
 you'll support different types of AI devices](/develop/xr/jetpack-xr-sdk/ai-glasses/support-different-types), you can check for device
 capabilities at runtime to provide the best experience for a user's device.

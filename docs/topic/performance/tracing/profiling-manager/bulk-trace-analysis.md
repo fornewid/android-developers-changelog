@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 Once you have collected multiple traces using `ProfilingManager`, exploring them
 individually to find performance problems becomes impractical. Bulk trace
 analysis lets you query a dataset of traces simultaneously to:

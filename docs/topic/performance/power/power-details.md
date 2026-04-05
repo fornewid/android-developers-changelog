@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 The system prioritizes apps' requests for resources based on the device state,
 app state and the [app's standby bucket](/topic/performance/appstandby).
 

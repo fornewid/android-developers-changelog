@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 ![](/static/wear/images/confirmation-overlay/dialogs-hero.png)
 
 [Confirmation overlays](/reference/androidx/wear/widget/ConfirmationOverlay) display a temporary message expressing a state change at the top of the current view.

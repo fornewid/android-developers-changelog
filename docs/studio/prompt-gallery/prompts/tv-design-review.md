@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Optimize a composable for viewing and interaction on a TV screen.
 
 ---

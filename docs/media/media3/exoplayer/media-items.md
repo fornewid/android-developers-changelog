@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 The [playlist API](/guide/topics/media/exoplayer/playlists) is based on `MediaItem` instances, which can be conveniently built
 using `MediaItem.Builder`. Inside the player, a `MediaItem` is converted into
 a playable `MediaSource` by a `MediaSource.Factory`. Without

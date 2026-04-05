@@ -1,8 +1,17 @@
 ---
-title: https://developer.android.com/training/testing/continuous-integration/features
+title: CI features  |  Test your app on Android  |  Android Developers
 url: https://developer.android.com/training/testing/continuous-integration/features
-source: md.txt
+source: html-scrape
 ---
+
+* [Android Developers](https://developer.android.com/)
+* [Develop](https://developer.android.com/develop)
+* [Test your app on Android](https://developer.android.com/training/testing)
+
+# CI features Stay organized with collections Save and categorize content based on your preferences.
+
+
+
 
 The following are some features that you can find in most CI systems.
 
@@ -12,11 +21,19 @@ It's important to choose and understand the hardware and software environment in
 which the system executes the workflow. Important considerations for Android
 applications are:
 
-- **Platform**: Linux, Mac, Windows, and their versions.
-- **Available memory**: Building apps and running emulators can use a lot of RAM and it's often necessary to tweak parameters such as the JVM's heap size to avoid out-of-memory errors.
-- **Preinstalled software**: CI systems usually provide images with a large collection of tools already available, such as the Java Development Kit (JDK), the Android Software Development Kit (SDK), build tools, platforms and emulators.
-- **Runner architecture and instruction set**: ARM, x86. This is important when using emulators.
-- **Environment variables** : Some are set by the CI system (for example: `ANDROID_HOME`) and you can set your own to, for example, avoid hardcoding credentials in your workflow.
+* **Platform**: Linux, Mac, Windows, and their versions.
+* **Available memory**: Building apps and running emulators can use a lot of RAM
+  and it's often necessary to tweak parameters such as the JVM's heap size to
+  avoid out-of-memory errors.
+* **Preinstalled software**: CI systems usually provide images with a large
+  collection of tools already available, such as the Java Development Kit (JDK),
+  the Android Software Development Kit (SDK), build tools, platforms and
+  emulators.
+* **Runner architecture and instruction set**: ARM, x86. This is important when
+  using emulators.
+* **Environment variables**: Some are set by the CI system (for example:
+  `ANDROID_HOME`) and you can set your own to, for example, avoid hardcoding
+  credentials in your workflow.
 
 There are many other aspects you should consider, such as the number of cores
 available, and whether virtualization is enabled to run emulators.
@@ -37,16 +54,21 @@ save all the Gradle cache files after a successful build and restore them before
 a new one. This relies on [Gradle's build cache](https://docs.gradle.org/current/userguide/build_cache.html) feature and should be
 enabled in your project.
 
-> [!NOTE]
-> **Note:** take into account the time that it takes for the cache to download as, if the cache becomes too big and it contains more than is necessary, it could be detrimental to the overall build time.
+**Note:** take into account the time that it takes for the cache to download as, if
+the cache becomes too big and it contains more than is necessary, it could be
+detrimental to the overall build time.
 
 Some ways to improve run times and reliability include:
 
-- **Modules**: Detecting which modules are affected by a change and only building and testing those.
-- **Skip caches**: If the build includes scripts that a developer has modified, ignore the build caches. It's safer to build from scratch.
-- **Shard tests**: Especially instrumented tests, it can be helpful to shard tests across multiple devices. This is supported by the Android runner, Gradle Managed Devices and Firebase Test Lab.
-- **Shard builds**: You can shard the build across multiple server instances.
-- **Remote cache** : You can also use [Gradle's remote cache](https://docs.gradle.org/current/userguide/build_cache.html).
+* **Modules**: Detecting which modules are affected by a change and only
+  building and testing those.
+* **Skip caches**: If the build includes scripts that a developer has modified,
+  ignore the build caches. It's safer to build from scratch.
+* **Shard tests**: Especially instrumented tests, it can be helpful to shard
+  tests across multiple devices. This is supported by the Android runner, Gradle
+  Managed Devices and Firebase Test Lab.
+* **Shard builds**: You can shard the build across multiple server instances.
+* **Remote cache**: You can also use [Gradle's remote cache](https://docs.gradle.org/current/userguide/build_cache.html).
 
 ## Retry failed tests
 
@@ -61,7 +83,7 @@ levels. The following table outlines the action you might take in response to a
 flaky test failure:
 
 | Failure | Action |
-|---|---|
+| --- | --- |
 | Emulator was unresponsive for a second, triggering a timeout | Rerun the failed test |
 | Emulator failed to boot | Rerun the whole task |
 | There was a connection error during the code checkout phase | Restart the workflow |

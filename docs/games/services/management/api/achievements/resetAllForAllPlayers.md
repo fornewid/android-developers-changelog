@@ -12,6 +12,7 @@ source: html-scrape
 
 
 
+
 **Requires [authorization](#auth)**
 
 Resets all draft achievements for all players. This method is only available to user accounts for your developer console.
