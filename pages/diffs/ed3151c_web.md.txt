@@ -1,0 +1,12 @@
+diff --git a/docs/develop/xr/web.md b/docs/develop/xr/web.md
+index e30ff50..76e3bb1 100644
+--- a/docs/develop/xr/web.md
++++ b/docs/develop/xr/web.md
+@@ -17,6 +17,7 @@ The Android XR SDK has  [reached Developer Preview 3](https://android-developers
+ 
+ 
+ 
++
+ Applicable XR devices
+ 
+ This guidance helps you build experiences for these types of XR devices.

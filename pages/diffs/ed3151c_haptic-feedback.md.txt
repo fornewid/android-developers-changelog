@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/views/haptics/haptic-feedback.md b/docs/develop/ui/views/haptics/haptic-feedback.md
+index 5ee6a8a..cb92791 100644
+--- a/docs/develop/ui/views/haptics/haptic-feedback.md
++++ b/docs/develop/ui/views/haptics/haptic-feedback.md
+@@ -14,6 +14,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ One of the most basic use cases for haptics is to provide feedback to user
+ interactions. Time pickers, the key press on a virtual keyboard, and text
+ selection are common examples of good use cases for haptic feedback. For more

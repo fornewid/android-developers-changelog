@@ -1,0 +1,12 @@
+diff --git a/docs/studio/gemini/transform-ui.md b/docs/studio/gemini/transform-ui.md
+index 78da42c..e2191bd 100644
+--- a/docs/studio/gemini/transform-ui.md
++++ b/docs/studio/gemini/transform-ui.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ You can use Gemini to transform UI code within the Compose preview environment
+ using natural language directly in the preview.
+ 

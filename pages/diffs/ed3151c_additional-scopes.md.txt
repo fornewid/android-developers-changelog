@@ -1,0 +1,12 @@
+diff --git a/docs/identity/legacy/gsi/additional-scopes.md b/docs/identity/legacy/gsi/additional-scopes.md
+index cf9307a..d8c737c 100644
+--- a/docs/identity/legacy/gsi/additional-scopes.md
++++ b/docs/identity/legacy/gsi/additional-scopes.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ **Warning:**
+ 
+ **The Google Sign-In for Android API is outdated and no longer supported.**

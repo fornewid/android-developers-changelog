@@ -1,0 +1,349 @@
+diff --git a/docs/build/releases/agp-7-1-0-release-notes.md b/docs/build/releases/agp-7-1-0-release-notes.md
+index 63b3933..ea33925 100644
+--- a/docs/build/releases/agp-7-1-0-release-notes.md
++++ b/docs/build/releases/agp-7-1-0-release-notes.md
+@@ -1,67 +1,61 @@
+ ---
+-title: Android Studio  |  Android Developers
++title: https://developer.android.com/build/releases/agp-7-1-0-release-notes
+ url: https://developer.android.com/build/releases/agp-7-1-0-release-notes
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-* [Develop](https://developer.android.com/develop)
+-* [Android Studio](https://developer.android.com/studio)
+-* [Gradle build guides](https://developer.android.com/build/releases/past-releases)
+-
+-Stay organized with collections
+-
+-Save and categorize content based on your preferences.
+-
+-
+-
+ # Android Gradle Plugin 7.1.0 (January 2022)
+ 
+ Android Gradle plugin 7.1.0 is a major release that includes a variety of
+ new features and improvements.
+-
+ **7.1.3 (April 2022)**
+ 
++
+ This minor update includes the following bug fixes:
+ 
+-* Duplicate class issues reported by R8
++- Duplicate class issues reported by R8
++
+ 
+ To see a complete list of bug fixes included in this release, see the
+ [Android Studio Bumblebee Patch 3 blog post](https://androidstudio.googleblog.com/2022/04/android-studio-bumblebee-202111-patch-3.html).
+ 
+ **7.1.2 (February 2022)**
+ 
++
+ This minor update includes the following bug fixes:
+ 
+-* Android Gradle Plugin 7.1.0-rc01 fails to perform ASM bytecode
+-  transformation during unit tests
+-* Gradle sync fails with "Unable to load class
+-  'com.android.build.api.extension.AndroidComponentsExtension'."
+-* Some new DSL blocks can't be used from Groovy DSL in Android Gradle
+-  Plugin 7.0.0
+-* AGP 7.1 new publishing API: created javadoc jar does not get signed
+-* ClassesDataSourceCache should use latest Asm version
+-* Android Studio BumbleBee does not always deploy latest changes
++- Android Gradle Plugin 7.1.0-rc01 fails to perform ASM bytecode transformation during unit tests
++- Gradle sync fails with "Unable to load class 'com.android.build.api.extension.AndroidComponentsExtension'."
++- Some new DSL blocks can't be used from Groovy DSL in Android Gradle Plugin 7.0.0
++- AGP 7.1 new publishing API: created javadoc jar does not get signed
++- ClassesDataSourceCache should use latest Asm version
++- Android Studio BumbleBee does not always deploy latest changes
++
+ 
+ To see a complete list of bug fixes included in this release, see the
+ [Android Studio Bumblebee Patch 2 blog post](https://androidstudio.googleblog.com/2022/02/android-studio-bumblebee-202111-patch-2.html).
+ 
+ **7.1.1 (February 2022)**
+ 
++
+ This minor update corresponds to the release of Android Studio Bumblebee
+ Patch 1.
+ 
++
+ To see a list of bug fixes included in this release, see the
+ [Android Studio Bumblebee Patch 1 blog post](https://androidstudio.googleblog.com/2022/02/android-studio-bumblebee-202111-patch-1.html).
+ 
+ ## Compatibility
+ 
+-|  | Minimum version | Default version | Notes |
+-| --- | --- | --- | --- |
+-| Gradle | 7.2 | 7.2 | To learn more, see [updating Gradle](/build/releases/gradle-plugin?buildsystem=ndk-build#updating-gradle). |
+-| SDK Build Tools | 30.0.3 | 30.0.3 | [Install](/studio/intro/update#sdk-manager) or [configure](/tools/releases/build-tools) SDK Build Tools. |
+-| NDK | N/A | 21.4.7075529 | [Install](/studio/projects/install-ndk#specific-version) or [configure](/studio/projects/install-ndk#apply-specific-version) a different version of the NDK. |
+-| JDK | 11 | 11 | To learn more, see [setting the JDK version](/studio/intro/studio-config#jdk). |
++
++|   | Minimum version | Default version | Notes |
++|---:|:---:|:---:|:---:|
++| Gradle | 7.2 | 7.2 | To learn more, see [updating Gradle](https://developer.android.com/build/releases/gradle-plugin?buildsystem=ndk-build#updating-gradle). |
++| SDK Build Tools | 30.0.3 | 30.0.3 | [Install](https://developer.android.com/studio/intro/update#sdk-manager) or [configure](https://developer.android.com/tools/releases/build-tools) SDK Build Tools. |
++| NDK | N/A | 21.4.7075529 | [Install](https://developer.android.com/studio/projects/install-ndk#specific-version) or [configure](https://developer.android.com/studio/projects/install-ndk#apply-specific-version) a different version of the NDK. |
++| JDK | 11 | 11 | To learn more, see [setting the JDK version](https://developer.android.com/studio/intro/studio-config#jdk). |
++
++<br />
+ 
+ ## Lint analysis task is now cacheable
+ 
+@@ -78,7 +72,8 @@ speed when running lint in many situations. You should see a noticeable
+ performance improvement, for example, if you have a multi-module project and
+ clean your build directory before running lint on your CI server.
+ 
+-## C/C++ modules may now reference other C/C++ modules in the same project
++## C/C++ modules may now reference other C/C++ modules in
++the same project
+ 
+ A Gradle Android module with C/C++ code may now be set up to reference
+ header files and library code in another Gradle module. The
+@@ -87,87 +82,69 @@ communicate the headers and libraries between Gradle modules.
+ 
+ ### Requirements
+ 
+-* The *consuming* module must be `CMake` and not
++- The *consuming* module must be `CMake` and not
+   `ndk-build`. Support for ndk-build will require a future
+   NDK update. The *publishing* module may be `CMake` or
+   `ndk-build`.
+-* The *consuming* module must enable `prefab` in
++
++- The *consuming* module must enable `prefab` in
+   the `build.gradle` file.
+ 
+-```
+-android {
+-  buildFeatures {
+-    prefab true
+-  }
+-}
+-```
+-
+-* The *publishing* module must enable `prefabPublishing`
+-  in the `build.gradle` file.
+-
+-```
+-android {
+-  buildFeatures {
+-    prefabPublishing true
+-  }
+-}
+-```
+-
+-* The *consuming* module must reference the *publishing*
+-  module by adding a line in the `build.gradle` file
+-  `dependencies` block. For example:
+-
+-```
+-dependencies {
+-  implementation project(':mylibrary')
+-}
+-```
+-
+-* The *publishing* module must expose a package using a
+-  `prefab` section. For example:
+-
+-```
+-android {
+-  prefab {
+-    mylibrary {
+-      libraryName "libmylibrary"
+-      headers "src/main/cpp/include"
++    android {
++      buildFeatures {
++        prefab true
++      }
+     }
+-  }
+-}
+-```
+-
+-* The consuming module's `CMakeLists.txt` file may use
+-  `find_package()` to locate the package published by the
+-  producing module. For example:
+-
+-```
+-find_package(mylibrary REQUIRED CONFIG)
+-target_link_libraries(
+-  myapplication
+-  mylibrary::mylibrary)
+-```
+-
+-* There must be [one
+-  STL for the entire application](/ndk/guides/cpp-support#one_stl_per_app). So, for example, both consuming and
+-  publishing modules can use C++ shared STL.
+-
+-```
+-   android {
+-      defaultConfig {
+-        externalNativeBuild {
+-          cmake {
+-            arguments '-DANDROID_STL=c++_shared'
+-          }
++
++- The *publishing* module must enable `prefabPublishing` in the `build.gradle` file.
++
++    android {
++      buildFeatures {
++        prefabPublishing true
++      }
++    }
++
++- The *consuming* module must reference the *publishing* module by adding a line in the `build.gradle` file `dependencies` block. For example:
++
++    dependencies {
++      implementation project(':mylibrary')
++    }
++
++- The *publishing* module must expose a package using a `prefab` section. For example:
++
++    android {
++      prefab {
++        mylibrary {
++          libraryName "libmylibrary"
++          headers "src/main/cpp/include"
+         }
+       }
+     }
+-```
++
++- The consuming module's `CMakeLists.txt` file may use `find_package()` to locate the package published by the producing module. For example:
++
++    find_package(mylibrary REQUIRED CONFIG)
++    target_link_libraries(
++      myapplication
++      mylibrary::mylibrary)
++
++- There must be [one
++  STL for the entire application](https://developer.android.com/ndk/guides/cpp-support#one_stl_per_app). So, for example, both consuming and publishing modules can use C++ shared STL.
++
++       android {
++          defaultConfig {
++            externalNativeBuild {
++              cmake {
++                arguments '-DANDROID_STL=c++_shared'
++              }
++            }
++          }
++        }
+ 
+ For further explanation of how to configure native AAR consumers and
+ producers with AGP, see
+ [Native
+-dependencies with AGP](/studio/build/dependencies?&agpversion=4.1&buildsystem=ndk-build#native-dependencies-with-agp).
++dependencies with AGP](https://developer.android.com/studio/build/dependencies?&agpversion=4.1&buildsystem=ndk-build#native-dependencies-with-agp).
+ 
+ ## Repository settings in `settings.gradle` file
+ 
+@@ -175,39 +152,35 @@ When a new project is created in Android Studio Bumblebee, the top-level
+ `build.gradle` file contains the `plugins` block,
+ followed by code to clean your build directory:
+ 
+-```
+-plugins {
+-    id 'com.android.application' version '7.1.0-beta02' apply false
+-    id 'com.android.library' version '7.1.0-beta02' apply false
+-    id 'org.jetbrains.kotlin.android' version '1.5.30' apply false
+-}
+-task clean(type: Delete) {
+-  delete rootProject.buildDir
+-}
+-```
++    plugins {
++        id 'com.android.application' version '7.1.0-beta02' apply false
++        id 'com.android.library' version '7.1.0-beta02' apply false
++        id 'org.jetbrains.kotlin.android' version '1.5.30' apply false
++    }
++    task clean(type: Delete) {
++      delete rootProject.buildDir
++    }
+ 
+ The repository settings that were previously in the top-level
+ `build.gradle` file are now in the `settings.gradle`
+ file:
+ 
+-```
+-pluginManagement {
+-  repositories {
+-    gradlePluginPortal()
+-    google()
+-    mavenCentral()
+-  }
+-}
+-dependencyResolutionManagement {
+-  repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+-  repositories {
+-    google()
+-    mavenCentral()
+-  }
+-}
+-rootProject.name = 'GradleManagedDeviceTestingNew'
+-include ':app'
+-```
++    pluginManagement {
++      repositories {
++        gradlePluginPortal()
++        google()
++        mavenCentral()
++      }
++    }
++    dependencyResolutionManagement {
++      repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
++      repositories {
++        google()
++        mavenCentral()
++      }
++    }
++    rootProject.name = 'GradleManagedDeviceTestingNew'
++    include ':app'
+ 
+ The module-level `build.gradle` file has not changed. So, use the top-level
+ `build.gradle` file and the `settings.gradle` file to define build
+@@ -284,22 +257,22 @@ block. To learn more, see the
+ ## Lint block semantic change
+ 
+ All lint methods that override the given severity level of an
+-issue—`enable`, `disable`/`ignore`,
++issue---`enable`, `disable`/`ignore`,
+ `informational`, `warning`, `error`,
+-`fatal`—now respect the order of configuration. For example,
++`fatal`---now respect the order of configuration. For example,
+ setting an issue as fatal in
+-[`finalizeDsl()`](/reference/tools/gradle-api/7.1/com/android/build/api/extension/AndroidComponentsExtension#finalizedsl)
++[`finalizeDsl()`](https://developer.android.com/reference/tools/gradle-api/7.1/com/android/build/api/extension/AndroidComponentsExtension#finalizedsl)
+ now overrides disabling it in the main DSL. For more information, see the
+-[`lint{}`](/reference/tools/gradle-api/7.1/com/android/build/api/dsl/Lint)
++[`lint{}`](https://developer.android.com/reference/tools/gradle-api/7.1/com/android/build/api/dsl/Lint)
+ block reference docs and
+ [Android build
+-flow and extension points](/studio/build/extend-agp#build-flow-extension-points).
++flow and extension points](https://developer.android.com/studio/build/extend-agp#build-flow-extension-points).
+ 
+ ## Navigation Safe Args compatibility
+ 
+ AGP APIs that the
+ [Navigation
+-Safe Args Gradle plugin](/guide/navigation/navigation-getting-started#ensure_type-safety_by_using_safe_args) depend on have been removed. AGP 7.1 does not
++Safe Args Gradle plugin](https://developer.android.com/guide/navigation/navigation-getting-started#ensure_type-safety_by_using_safe_args) depend on have been removed. AGP 7.1 does not
+ work with Navigation Safe Args versions 2.4.0-rc1 or 2.4.0, but will work
+ with versions 2.5.0-alpha01 and 2.4.1. In the meantime, as a workaround,
+ you can use AGP 7.1 with a snapshot build of Navigation Safe Args,
+@@ -319,9 +292,9 @@ which has the same name as the build variant, and an an `all`
+ component that contains all the build variants. This automatic component
+ creation will be disabled. To transition to the new behavior, you should
+ manually disable automatic component creation by setting
+-`android.disableAutomaticComponentCreation` to `true.`
++`android.disableAutomaticComponentCreation `to` true.`
+ For more information, see
+-[Use the Maven Publish plugin](/studio/build/maven-publish-plugin).
++[Use the Maven Publish plugin](https://developer.android.com/studio/build/maven-publish-plugin).
+ 
+ ## Firebase Performance Monitoring compatibility
+ 

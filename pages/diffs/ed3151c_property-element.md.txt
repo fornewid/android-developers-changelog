@@ -1,0 +1,12 @@
+diff --git a/docs/guide/topics/manifest/property-element.md b/docs/guide/topics/manifest/property-element.md
+index 1d49582..e013957 100644
+--- a/docs/guide/topics/manifest/property-element.md
++++ b/docs/guide/topics/manifest/property-element.md
+@@ -12,6 +12,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ syntax:
+ :   ```
+     <property android:name="string"

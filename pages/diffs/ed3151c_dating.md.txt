@@ -1,0 +1,12 @@
+diff --git a/docs/guide/playcore/engage/dating.md b/docs/guide/playcore/engage/dating.md
+index 7a00d9f..64ea32f 100644
+--- a/docs/guide/playcore/engage/dating.md
++++ b/docs/guide/playcore/engage/dating.md
+@@ -10,6 +10,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ **Important:** We expect to support this vertical in early 2025. Contact
+ [`engage-developers@google.com`](mailto:engage-developers@google.com) if you have
+ any questions.

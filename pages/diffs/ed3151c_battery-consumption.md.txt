@@ -1,0 +1,12 @@
+diff --git a/docs/docs/quality-guidelines/build-for-billions/battery-consumption.md b/docs/docs/quality-guidelines/build-for-billions/battery-consumption.md
+index 9b4fbdd..fa1f118 100644
+--- a/docs/docs/quality-guidelines/build-for-billions/battery-consumption.md
++++ b/docs/docs/quality-guidelines/build-for-billions/battery-consumption.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Access to reliable power supplies varies, and outages can disrupt planned
+ charges. Defend your users' batteries against unnecessary drain by benchmarking
+ your battery use, avoiding wakelocks, scheduling tasks, and monitoring sensor

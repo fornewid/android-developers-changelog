@@ -1,0 +1,12 @@
+diff --git a/docs/tools/variables.md b/docs/tools/variables.md
+index 0f17d24..019f7ef 100644
+--- a/docs/tools/variables.md
++++ b/docs/tools/variables.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ You can configure the behavior of Android Studio and the command-line tools by setting
+ environment variables. One of the most useful environment variables to set is
+ [`ANDROID_HOME`](#android_home), which many tools read to

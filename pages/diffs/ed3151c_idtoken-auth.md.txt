@@ -1,0 +1,12 @@
+diff --git a/docs/identity/legacy/one-tap/idtoken-auth.md b/docs/identity/legacy/one-tap/idtoken-auth.md
+index 347f3bd..69eebec 100644
+--- a/docs/identity/legacy/one-tap/idtoken-auth.md
++++ b/docs/identity/legacy/one-tap/idtoken-auth.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ **Caution:**
+ One Tap for Android is deprecated.
+ To ensure the continued security and usability of your app,

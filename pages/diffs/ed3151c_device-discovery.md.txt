@@ -1,0 +1,12 @@
+diff --git a/docs/guide/topics/connectivity/cross-device-sdk/device-discovery.md b/docs/guide/topics/connectivity/cross-device-sdk/device-discovery.md
+index 49a3a8e..fc2938a 100644
+--- a/docs/guide/topics/connectivity/cross-device-sdk/device-discovery.md
++++ b/docs/guide/topics/connectivity/cross-device-sdk/device-discovery.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Almost every multidevice experience begins with finding available devices. To
+ simplify this common task, we offer the Device Discovery API.
+ 

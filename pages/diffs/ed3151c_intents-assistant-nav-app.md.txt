@@ -1,0 +1,12 @@
+diff --git a/docs/develop/devices/assistant/intents-assistant-nav-app.md b/docs/develop/devices/assistant/intents-assistant-nav-app.md
+index a7c2697..d6688c2 100644
+--- a/docs/develop/devices/assistant/intents-assistant-nav-app.md
++++ b/docs/develop/devices/assistant/intents-assistant-nav-app.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Google Assistant uses three different formats of intents that your
+ navigation app can support.
+ You can achieve interoperability and integrate your app and Google Assistant by

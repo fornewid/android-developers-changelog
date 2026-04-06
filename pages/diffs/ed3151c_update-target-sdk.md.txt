@@ -1,0 +1,84 @@
+diff --git a/docs/training/wearables/versions/5/update-target-sdk.md b/docs/training/wearables/versions/5/update-target-sdk.md
+index 24bdee9..5632b1e 100644
+--- a/docs/training/wearables/versions/5/update-target-sdk.md
++++ b/docs/training/wearables/versions/5/update-target-sdk.md
+@@ -1,15 +1,25 @@
+ ---
+-title: https://developer.android.com/training/wearables/versions/5/update-target-sdk
++title: Update your app's target SDK version for Wear OS 5  |  Wear OS 5  |  Android Developers
+ url: https://developer.android.com/training/wearables/versions/5/update-target-sdk
+-source: md.txt
++source: html-scrape
+ ---
+ 
+-After you [update your app](https://developer.android.com/training/wearables/versions/5/changes) to prepare it for Wear OS 5, you can further
++* [Android Developers](https://developer.android.com/)
++* [Develop](https://developer.android.com/develop)
++* [Devices](https://developer.android.com/develop/devices)
++* [Wear OS 5](https://developer.android.com/training/wearables/versions/5)
++
++# Update your app's target SDK version for Wear OS 5 Stay organized with collections Save and categorize content based on your preferences.
++
++
++
++
++After you [update your app](/training/wearables/versions/5/changes) to prepare it for Wear OS 5, you can further
+ improve your app's compatibility with this version of Wear OS by targeting
+ Android 14 (API level 34).
+ 
+ If you update your target SDK version, handle the system behavior changes
+-that take effect for apps that [target Android 14 or higher](https://developer.android.com/about/versions/14/behavior-changes-14).
++that take effect for apps that [target Android 14 or higher](/about/versions/14/behavior-changes-14).
+ 
+ ## Update your build file
+ 
+@@ -26,7 +36,7 @@ If you are using AGP 7.0.0 or higher, update your app's `build.gradle` or
+ 
+ ### Groovy
+ 
+-```groovy
++```
+ android {
+     compileSdk 34
+     ...
+@@ -38,7 +48,7 @@ android {
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ android {
+     compileSdk = 34
+     ...
+@@ -55,7 +65,7 @@ If you are using AGP 4.2.0 or lower, update your app's `build.gradle` or
+ 
+ ### Groovy
+ 
+-```groovy
++```
+ android {
+     compileSdkVersion "34"
+     ...
+@@ -67,7 +77,7 @@ android {
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ android {
+     compileSdkVersion = "34"
+     ...
+@@ -79,7 +89,7 @@ android {
+ 
+ ## Recommended for you
+ 
+-- Note: link text is displayed when JavaScript is off
+-- [Update your app's target SDK version for Wear OS 4](https://developer.android.com/training/wearables/versions/4/update-target-sdk)
+-- [Behavior changes: Apps targeting Android 12](https://developer.android.com/about/versions/12/behavior-changes-12)
+-- [Schedule alarms](https://developer.android.com/develop/background-work/services/alarms/schedule)
+\ No newline at end of file
++* Note: link text is displayed when JavaScript is off
++* [Update your app's target SDK version for Wear OS 4](/training/wearables/versions/4/update-target-sdk)
++* [Behavior changes: Apps targeting Android 12](/about/versions/12/behavior-changes-12)
++* [Schedule alarms](/develop/background-work/services/alarms/schedule)
+\ No newline at end of file

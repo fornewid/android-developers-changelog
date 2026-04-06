@@ -1,0 +1,12 @@
+diff --git a/docs/studio/run/emulator-comparison.md b/docs/studio/run/emulator-comparison.md
+index d08ca5f..bf610d9 100644
+--- a/docs/studio/run/emulator-comparison.md
++++ b/docs/studio/run/emulator-comparison.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ The following table compares the tasks you can perform using the [emulator UI](/studio/run/emulator),
+ AVD Manager, commonly used [command-line
+ startup options](/studio/run/emulator-commandline#startup-options), and the [Emulator

@@ -1,0 +1,12 @@
+diff --git a/docs/jetpack/androidx/releases/javascriptengine.md b/docs/jetpack/androidx/releases/javascriptengine.md
+index 028aec6..1d8102c 100644
+--- a/docs/jetpack/androidx/releases/javascriptengine.md
++++ b/docs/jetpack/androidx/releases/javascriptengine.md
+@@ -15,7 +15,6 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
+-
+ # JavascriptEngine
+ 
+ API Reference  

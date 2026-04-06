@@ -1,0 +1,20 @@
+diff --git a/docs/google/play/billing/migrate-gpblv7.md b/docs/google/play/billing/migrate-gpblv7.md
+index 02908e2..7d403d2 100644
+--- a/docs/google/play/billing/migrate-gpblv7.md
++++ b/docs/google/play/billing/migrate-gpblv7.md
+@@ -14,7 +14,6 @@ Send feedback
+ 
+ 
+ 
+-
+ This document describes how to migrate from Google Play Billing Library 5 or 6
+ to Google Play Billing Library 7 and how to integrate with the new optional
+ subscription capabilities.
+@@ -181,6 +180,4 @@ information on how to integrate these changes into your app.
+ 
+ 
+ 
+-
+-
+ Send feedback
+\ No newline at end of file

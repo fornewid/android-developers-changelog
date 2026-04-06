@@ -1,0 +1,86 @@
+diff --git a/docs/develop/connectivity/bluetooth/transfer-data.md b/docs/develop/connectivity/bluetooth/transfer-data.md
+index eec0c26..06c227d 100644
+--- a/docs/develop/connectivity/bluetooth/transfer-data.md
++++ b/docs/develop/connectivity/bluetooth/transfer-data.md
+@@ -1,36 +1,27 @@
+ ---
+-title: Transfer Bluetooth data  |  Connectivity  |  Android Developers
++title: https://developer.android.com/develop/connectivity/bluetooth/transfer-data
+ url: https://developer.android.com/develop/connectivity/bluetooth/transfer-data
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-* [Develop](https://developer.android.com/develop)
+-* [Core areas](https://developer.android.com/develop/core-areas)
+-* [Connectivity](https://developer.android.com/develop/connectivity)
+-* [Guides](https://developer.android.com/develop/connectivity/overview)
+-
+-# Transfer Bluetooth data Stay organized with collections Save and categorize content based on your preferences.
+-
+-
+-
+ After you have successfully [connected to a Bluetooth
+-device](/develop/connectivity/bluetooth/connect-bluetooth-devices), each
++device](https://developer.android.com/develop/connectivity/bluetooth/connect-bluetooth-devices), each
+ one has a connected
+-[`BluetoothSocket`](/reference/android/bluetooth/BluetoothSocket). You can now
++[`BluetoothSocket`](https://developer.android.com/reference/android/bluetooth/BluetoothSocket). You can now
+ share information between devices. Using the `BluetoothSocket`, the general
+ procedure to transfer data is as follows:
+ 
+-1. Get the [`InputStream`](/reference/java/io/InputStream) and
+-   [`OutputStream`](/reference/java/io/OutputStream) that handle transmissions
++1. Get the [`InputStream`](https://developer.android.com/reference/java/io/InputStream) and
++   [`OutputStream`](https://developer.android.com/reference/java/io/OutputStream) that handle transmissions
+    through the socket using
+-   [`getInputStream()`](/reference/android/bluetooth/BluetoothSocket#getInputStream())
++   [`getInputStream()`](https://developer.android.com/reference/android/bluetooth/BluetoothSocket#getInputStream())
+    and
+-   [`getOutputStream()`](/reference/android/bluetooth/BluetoothSocket#getOutputStream()),
++   [`getOutputStream()`](https://developer.android.com/reference/android/bluetooth/BluetoothSocket#getOutputStream()),
+    respectively.
++
+ 2. Read and write data to the streams using
+-   [`read(byte[])`](/reference/java/io/InputStream#read(byte%5B%5D)) and
+-   [`write(byte[])`](/reference/java/io/OutputStream#write(byte%5B%5D)).
++   [`read(byte[])`](https://developer.android.com/reference/java/io/InputStream#read(byte%5B%5D)) and
++   [`write(byte[])`](https://developer.android.com/reference/java/io/OutputStream#write(byte%5B%5D)).
+ 
+ There are, of course, implementation details to consider. In particular, you
+ should use a dedicated thread for reading from the stream and writing to it.
+@@ -50,7 +41,7 @@ connected over Bluetooth:
+ 
+ ### Kotlin
+ 
+-```
++```kotlin
+ private const val TAG = "MY_APP_DEBUG_TAG"
+ 
+ // Defines several constants used when transmitting messages between the
+@@ -128,7 +119,7 @@ class MyBluetoothService(
+ 
+ ### Java
+ 
+-```
++```java
+ public class MyBluetoothService {
+    private static final String TAG = "MY_APP_DEBUG_TAG";
+    private Handler handler; // handler that gets info from Bluetooth service
+@@ -230,13 +221,13 @@ public class MyBluetoothService {
+ After the constructor acquires the necessary streams, the thread waits for data
+ to come through the `InputStream`. When `read(byte[])` returns with data from
+ the stream, the data is sent to the main activity using a member
+-[`Handler`](/reference/android/os/Handler) from the parent class. The thread
++[`Handler`](https://developer.android.com/reference/android/os/Handler) from the parent class. The thread
+ then waits for more bytes to be read from the `InputStream`.
+ 
+ To send outgoing data, you call the thread's `write()` method from the main
+ activity and pass in the bytes to be sent. This method calls `write(byte[])` to
+ send the data to the remote device. If an
+-[`IOException`](/reference/java/io/IOException) is thrown when calling
++[`IOException`](https://developer.android.com/reference/java/io/IOException) is thrown when calling
+ `write(byte[])`, the thread sends a toast to the main activity, explaining to
+ the user that the device couldn't send the given bytes to the other
+ (connected) device.

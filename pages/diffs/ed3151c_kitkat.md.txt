@@ -1,0 +1,12 @@
+diff --git a/docs/about/versions/kitkat.md b/docs/about/versions/kitkat.md
+index e026039..dc04f0c 100644
+--- a/docs/about/versions/kitkat.md
++++ b/docs/about/versions/kitkat.md
+@@ -12,6 +12,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ ![Android 4.4 on phone and tablet](/static/images/kk-devices.png)
+ 
+ Welcome to Android 4.4 KitKat!

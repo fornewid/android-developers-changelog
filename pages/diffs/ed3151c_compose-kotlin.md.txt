@@ -1,0 +1,12 @@
+diff --git a/docs/jetpack/androidx/releases/compose-kotlin.md b/docs/jetpack/androidx/releases/compose-kotlin.md
+index 0ea48ee..f8cc360 100644
+--- a/docs/jetpack/androidx/releases/compose-kotlin.md
++++ b/docs/jetpack/androidx/releases/compose-kotlin.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ **Note:** If you're using Kotlin 2.0 or higher, configure Compose using the [Compose
+ Compiler Gradle plugin](/develop/ui/compose/compiler). When you use the Compose
+ Compiler Gradle plugin, you don't have to check Compose to Kotlin compatibility.

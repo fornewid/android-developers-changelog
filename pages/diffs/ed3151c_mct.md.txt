@@ -1,0 +1,12 @@
+diff --git a/docs/media/optimize/mct.md b/docs/media/optimize/mct.md
+index d65979b..ebdf028 100644
+--- a/docs/media/optimize/mct.md
++++ b/docs/media/optimize/mct.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Media apps that interact by voice with the Google Assistant on Android phones,
+ cars, TVs, and headphones are powered by Android media session APIs and use media actions.
+ The media action lifecycle can be hard to follow. Even a simple play from search

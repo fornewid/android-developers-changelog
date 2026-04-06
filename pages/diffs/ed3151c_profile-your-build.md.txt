@@ -1,0 +1,12 @@
+diff --git a/docs/build/profile-your-build.md b/docs/build/profile-your-build.md
+index dc305c7..573cd8b 100644
+--- a/docs/build/profile-your-build.md
++++ b/docs/build/profile-your-build.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Larger projects, or those that implement a lot of custom build logic, may
+ require you to take a deeper look into the build process to find bottlenecks.
+ You can do that by profiling how long Gradle takes to execute each phase of

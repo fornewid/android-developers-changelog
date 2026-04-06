@@ -1,0 +1,12 @@
+diff --git a/docs/topic/libraries/view-binding.md b/docs/topic/libraries/view-binding.md
+index e86863b..0edce28 100644
+--- a/docs/topic/libraries/view-binding.md
++++ b/docs/topic/libraries/view-binding.md
+@@ -14,7 +14,6 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
+-
+ # View binding   Part of [Android Jetpack](/jetpack).
+ 
+ *View binding* is a feature that makes it easier to write code that interacts

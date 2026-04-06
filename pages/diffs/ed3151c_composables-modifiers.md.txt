@@ -1,0 +1,385 @@
+diff --git a/docs/develop/ui/compose/animation/composables-modifiers.md b/docs/develop/ui/compose/animation/composables-modifiers.md
+index 8bcd6f5..e9dd612 100644
+--- a/docs/develop/ui/compose/animation/composables-modifiers.md
++++ b/docs/develop/ui/compose/animation/composables-modifiers.md
+@@ -1,9 +1,19 @@
+ ---
+-title: https://developer.android.com/develop/ui/compose/animation/composables-modifiers
++title: Animation modifiers and composables  |  Jetpack Compose  |  Android Developers
+ url: https://developer.android.com/develop/ui/compose/animation/composables-modifiers
+-source: md.txt
++source: html-scrape
+ ---
+ 
++* [Android Developers](https://developer.android.com/)
++* [Develop](https://developer.android.com/develop)
++* [Core areas](https://developer.android.com/develop/core-areas)
++* [UI](https://developer.android.com/develop/ui)
++* [Docs](https://developer.android.com/develop/ui/compose/documentation)
++
++# Animation modifiers and composables Stay organized with collections Save and categorize content based on your preferences.
++
++
++
+ Compose comes with built-in composables and modifiers for handling common animation use cases.
+ 
+ ## Built-in animated composables
+@@ -13,14 +23,16 @@ disappearance, and layout changes.
+ 
+ ### Animate appearance and disappearance
+ 
+-![Green composable showing and hiding itself](https://developer.android.com/static/develop/ui/compose/images/animations/animated_visibility_column.gif) **Figure 1.** Animating the appearance and disappearance of an item in a column.
++![Green composable showing and hiding itself](/static/develop/ui/compose/images/animations/animated_visibility_column.gif)
++
++
++**Figure 1.** Animating the appearance and disappearance of an item in a column.
+ 
+ The
+-[`AnimatedVisibility`](https://developer.android.com/reference/kotlin/androidx/compose/animation/AnimatedVisibility.composable#AnimatedVisibility(androidx.compose.animation.core.MutableTransitionState,androidx.compose.ui.Modifier,androidx.compose.animation.EnterTransition,androidx.compose.animation.ExitTransition,kotlin.String,kotlin.Function1))
++[`AnimatedVisibility`](/reference/kotlin/androidx/compose/animation/AnimatedVisibility.composable#AnimatedVisibility(androidx.compose.animation.core.MutableTransitionState,androidx.compose.ui.Modifier,androidx.compose.animation.EnterTransition,androidx.compose.animation.ExitTransition,kotlin.String,kotlin.Function1))
+ composable animates the appearance and disappearance of its content.
+ 
+-
+-```kotlin
++```
+ var visible by remember {
+     mutableStateOf(true)
+ }
+@@ -29,16 +41,15 @@ AnimatedVisibility(visible) {
+     // your composable here
+     // ...
+ }
+-```
+ 
+-<br />
++AnimationQuickGuide.kt
++```
+ 
+ By default, the content appears by fading in and expanding, and it disappears by
+ fading out and shrinking. Customize this transition by specifying
+-[`EnterTransition`](https://developer.android.com/reference/kotlin/androidx/compose/animation/EnterTransition) and [`ExitTransition`](https://developer.android.com/reference/kotlin/androidx/compose/animation/ExitTransition) objects.
+-
++[`EnterTransition`](/reference/kotlin/androidx/compose/animation/EnterTransition) and [`ExitTransition`](/reference/kotlin/androidx/compose/animation/ExitTransition) objects.
+ 
+-```kotlin
++```
+ var visible by remember { mutableStateOf(true) }
+ val density = LocalDensity.current
+ AnimatedVisibility(
+@@ -62,9 +73,9 @@ AnimatedVisibility(
+             .height(200.dp)
+     )
+ }
+-```
+ 
+-<br />
++AnimationSnippets.kt
++```
+ 
+ As shown in the preceding example, you can combine multiple `EnterTransition`
+ or `ExitTransition` objects with a `+` operator, and each accepts optional
+@@ -74,23 +85,22 @@ information.
+ #### Enter and exit transition examples
+ 
+ | EnterTransition | ExitTransition |
+-|---|---|
+-| `https://developer.android.com/reference/kotlin/androidx/compose/animation/package-summary#fadeIn(androidx.compose.animation.core.FiniteAnimationSpec,kotlin.Float)` ![A UI element gradually fades into view.](https://developer.android.com/static/develop/ui/compose/images/animation-fadein.gif) | `https://developer.android.com/reference/kotlin/androidx/compose/animation/package-summary#fadeOut(androidx.compose.animation.core.FiniteAnimationSpec,kotlin.Float)` ![A UI element gradually fades out of view.](https://developer.android.com/static/develop/ui/compose/images/animation-fadeout.gif) |
+-| `https://developer.android.com/reference/kotlin/androidx/compose/animation/package-summary#slideIn(androidx.compose.animation.core.FiniteAnimationSpec,kotlin.Function1)` ![A UI element slides into view from off-screen.](https://developer.android.com/static/develop/ui/compose/images/animation-slidein.gif) | `https://developer.android.com/reference/kotlin/androidx/compose/animation/package-summary#slideOut(androidx.compose.animation.core.FiniteAnimationSpec,kotlin.Function1)` ![A UI element slides out of view off the screen.](https://developer.android.com/static/develop/ui/compose/images/animation-slideout.gif) |
+-| `https://developer.android.com/reference/kotlin/androidx/compose/animation/package-summary#slideInHorizontally(androidx.compose.animation.core.FiniteAnimationSpec,kotlin.Function1)` ![A UI element slides horizontally into view.](https://developer.android.com/static/develop/ui/compose/images/animation-slideinhorizontally.gif) | `https://developer.android.com/reference/kotlin/androidx/compose/animation/package-summary#slideOutHorizontally(androidx.compose.animation.core.FiniteAnimationSpec,kotlin.Function1)` ![A UI element slides horizontally out of view.](https://developer.android.com/static/develop/ui/compose/images/animation-slideouthorizontally.gif) |
+-| `https://developer.android.com/reference/kotlin/androidx/compose/animation/package-summary#slideInVertically(androidx.compose.animation.core.FiniteAnimationSpec,kotlin.Function1)` ![A UI element slides vertically into view.](https://developer.android.com/static/develop/ui/compose/images/animation-slideinvertically.gif) | `https://developer.android.com/reference/kotlin/androidx/compose/animation/package-summary#slideOutVertically(androidx.compose.animation.core.FiniteAnimationSpec,kotlin.Function1)` ![A UI element slides vertically out of view.](https://developer.android.com/static/develop/ui/compose/images/animation-slideoutvertically.gif) |
+-| `https://developer.android.com/reference/kotlin/androidx/compose/animation/package-summary#scaleIn(androidx.compose.animation.core.FiniteAnimationSpec,kotlin.Float,androidx.compose.ui.graphics.TransformOrigin)` ![A UI element scales up and into view.](https://developer.android.com/static/develop/ui/compose/images/animation-scalein.gif) | `https://developer.android.com/reference/kotlin/androidx/compose/animation/package-summary#scaleOut(androidx.compose.animation.core.FiniteAnimationSpec,kotlin.Float,androidx.compose.ui.graphics.TransformOrigin)` ![A UI element scales down and out of view.](https://developer.android.com/static/develop/ui/compose/images/animation-scaleout.gif) |
+-| `https://developer.android.com/reference/kotlin/androidx/compose/animation/package-summary#expandIn(androidx.compose.animation.core.FiniteAnimationSpec,androidx.compose.ui.Alignment,kotlin.Boolean,kotlin.Function1)` ![A UI element expands into view from a central point.](https://developer.android.com/static/develop/ui/compose/images/animation-expandin.gif) | `https://developer.android.com/reference/kotlin/androidx/compose/animation/package-summary#shrinkOut(androidx.compose.animation.core.FiniteAnimationSpec,androidx.compose.ui.Alignment,kotlin.Boolean,kotlin.Function1)` ![A UI element shrinks out of view to a central point.](https://developer.android.com/static/develop/ui/compose/images/animation-shrinkout.gif) |
+-| `https://developer.android.com/reference/kotlin/androidx/compose/animation/package-summary#expandHorizontally(androidx.compose.animation.core.FiniteAnimationSpec,androidx.compose.ui.Alignment.Horizontal,kotlin.Boolean,kotlin.Function1)` ![A UI element expands horizontally into view.](https://developer.android.com/static/develop/ui/compose/images/animation-expandhorizontally.gif) | `https://developer.android.com/reference/kotlin/androidx/compose/animation/package-summary#shrinkHorizontally(androidx.compose.animation.core.FiniteAnimationSpec,androidx.compose.ui.Alignment.Horizontal,kotlin.Boolean,kotlin.Function1)` ![A UI element shrinks horizontally out of view.](https://developer.android.com/static/develop/ui/compose/images/animation-shrinkhorizontally.gif) |
+-| `https://developer.android.com/reference/kotlin/androidx/compose/animation/package-summary#expandVertically(androidx.compose.animation.core.FiniteAnimationSpec,androidx.compose.ui.Alignment.Vertical,kotlin.Boolean,kotlin.Function1)` ![A UI element expands vertically into view.](https://developer.android.com/static/develop/ui/compose/images/animation-expandvertically.gif) | `https://developer.android.com/reference/kotlin/androidx/compose/animation/package-summary#shrinkVertically(androidx.compose.animation.core.FiniteAnimationSpec,androidx.compose.ui.Alignment.Vertical,kotlin.Boolean,kotlin.Function1)` ![A UI element shrinks vertically out of view.](https://developer.android.com/static/develop/ui/compose/images/animation-shrinkvertically.gif) |
++| --- | --- |
++| `fadeIn`   A UI element gradually fades into view. | `fadeOut`   A UI element gradually fades out of view. |
++| `slideIn`   A UI element slides into view from off-screen. | `slideOut`   A UI element slides out of view off the screen. |
++| `slideInHorizontally`   A UI element slides horizontally into view. | `slideOutHorizontally`   A UI element slides horizontally out of view. |
++| `slideInVertically`   A UI element slides vertically into view. | `slideOutVertically`   A UI element slides vertically out of view. |
++| `scaleIn`   A UI element scales up and into view. | `scaleOut`   A UI element scales down and out of view. |
++| `expandIn`   A UI element expands into view from a central point. | `shrinkOut`   A UI element shrinks out of view to a central point. |
++| `expandHorizontally`   A UI element expands horizontally into view. | `shrinkHorizontally`   A UI element shrinks horizontally out of view. |
++| `expandVertically`   A UI element expands vertically into view. | `shrinkVertically`   A UI element shrinks vertically out of view. |
+ 
+ `AnimatedVisibility` also offers a variant that takes a
+ `MutableTransitionState` argument. This lets you trigger an animation as soon as
+ the `AnimatedVisibility` composable is added to the composition tree. It is also
+ useful for observing the animation state.
+ 
+-
+-```kotlin
++```
+ // Create a MutableTransitionState<Boolean> for the AnimatedVisibility.
+ val state = remember {
+     MutableTransitionState(false).apply {
+@@ -114,21 +124,20 @@ Column {
+         }
+     )
+ }
+-```
+ 
+-<br />
++AnimationSnippets.kt
++```
+ 
+ #### Animate enter and exit for children
+ 
+ Content within `AnimatedVisibility` (direct or indirect children) can use the
+-[`animateEnterExit`](https://developer.android.com/reference/kotlin/androidx/compose/animation/AnimatedVisibilityScope#(androidx.compose.ui.Modifier).animateEnterExit(androidx.compose.animation.EnterTransition,androidx.compose.animation.ExitTransition,kotlin.String))
++[`animateEnterExit`](/reference/kotlin/androidx/compose/animation/AnimatedVisibilityScope#(androidx.compose.ui.Modifier).animateEnterExit(androidx.compose.animation.EnterTransition,androidx.compose.animation.ExitTransition,kotlin.String))
+ modifier to specify different animation behavior for each of them. The visual
+ effect for each of these children is a combination of the animations specified
+ at the `AnimatedVisibility` composable and the child's own enter and
+ exit animations.
+ 
+-
+-```kotlin
++```
+ var visible by remember { mutableStateOf(true) }
+ 
+ AnimatedVisibility(
+@@ -153,13 +162,13 @@ AnimatedVisibility(
+                 .sizeIn(minWidth = 256.dp, minHeight = 64.dp)
+                 .background(Color.Red)
+         ) {
+-            // Content of the notification...
++            // Content of the notification…
+         }
+     }
+ }
+-```
+ 
+-<br />
++AnimationSnippets.kt
++```
+ 
+ In some cases, you may want to have `AnimatedVisibility` apply no animations at
+ all so that children can each have their own distinct animations by
+@@ -178,8 +187,7 @@ For exit animations created independent of `Transition` (such as using
+ `animate*AsState`), `AnimatedVisibility` wouldn't be able to account for them,
+ and therefore might remove the content composable before they finish.
+ 
+-
+-```kotlin
++```
+ var visible by remember { mutableStateOf(true) }
+ 
+ AnimatedVisibility(
+@@ -198,21 +206,20 @@ AnimatedVisibility(
+             .background(background)
+     )
+ }
+-```
+ 
+-<br />
++AnimationSnippets.kt
++```
+ 
+ To learn more about using `Transition` to manage animations, see [Animate
+-multiple properties simultaneously with a transition](https://developer.android.com/develop/ui/compose/animation/value-based#updateTransition).
++multiple properties simultaneously with a transition](/develop/ui/compose/animation/value-based#updateTransition).
+ 
+ ### Animate based on target state
+ 
+-The [`AnimatedContent`](https://developer.android.com/reference/kotlin/androidx/compose/animation/AnimatedContent.composable#AnimatedContent(kotlin.Any,androidx.compose.ui.Modifier,kotlin.Function1,androidx.compose.ui.Alignment,kotlin.String,kotlin.Function1,kotlin.Function2))
++The [`AnimatedContent`](/reference/kotlin/androidx/compose/animation/AnimatedContent.composable#AnimatedContent(kotlin.Any,androidx.compose.ui.Modifier,kotlin.Function1,androidx.compose.ui.Alignment,kotlin.String,kotlin.Function1,kotlin.Function2))
+ composable animates its content as it changes based on a
+ target state.
+ 
+-
+-```kotlin
++```
+ Row {
+     var count by remember { mutableIntStateOf(0) }
+     Button(onClick = { count++ }) {
+@@ -226,26 +233,26 @@ Row {
+         Text(text = "Count: $targetCount")
+     }
+ }
+-```
+ 
+-<br />
++AnimationSnippets.kt
++```
+ 
+-> [!NOTE]
+-> **Note:** You must always use the lambda parameter and reflect it to the content. The API uses this value as a key to identify the content that's currently being shown.
++**Note:** You must always use the lambda parameter and reflect it to the content.
++The API uses this value as a key to identify the content that's currently being
++shown.
+ 
+ By default, the initial content fades out and then the target content fades in
+ (this behavior is called [fade through](https://material.io/design/motion/the-motion-system.html#fade-through)). You
+-can customize this animation behavior by specifying a [`ContentTransform`](https://developer.android.com/reference/kotlin/androidx/compose/animation/ContentTransform)
++can customize this animation behavior by specifying a [`ContentTransform`](/reference/kotlin/androidx/compose/animation/ContentTransform)
+ object to the `transitionSpec` parameter. You can create an
+ instance of `ContentTransform` by combining an
+-[`EnterTransition`](https://developer.android.com/reference/kotlin/androidx/compose/animation/EnterTransition) object
+-with an [`ExitTransition`](https://developer.android.com/reference/kotlin/androidx/compose/animation/ExitTransition) object
+-using the `with` infix function. You can apply [`SizeTransform`](https://developer.android.com/reference/kotlin/androidx/compose/animation/SizeTransform)
++[`EnterTransition`](/reference/kotlin/androidx/compose/animation/EnterTransition) object
++with an [`ExitTransition`](/reference/kotlin/androidx/compose/animation/ExitTransition) object
++using the `with` infix function. You can apply [`SizeTransform`](/reference/kotlin/androidx/compose/animation/SizeTransform)
+ to the `ContentTransform` object by attaching it with the
+ `using` infix function.
+ 
+-
+-```kotlin
++```
+ AnimatedContent(
+     targetState = count,
+     transitionSpec = {
+@@ -269,30 +276,29 @@ AnimatedContent(
+ ) { targetCount ->
+     Text(text = "$targetCount")
+ }
+-```
+ 
+-<br />
++AnimationSnippets.kt
++```
+ 
+-![](https://developer.android.com/static/develop/ui/compose/images/animation-count.gif)
++![A counter composable animates its number changing with a fade and slide effect.](/static/develop/ui/compose/images/animation-count.gif)
+ 
+ `EnterTransition` defines how the target content should appear, and
+ `ExitTransition` defines how the initial content should disappear. In addition
+ to all of the `EnterTransition` and `ExitTransition` functions available for
+-`AnimatedVisibility`, `AnimatedContent` offers [`slideIntoContainer`](https://developer.android.com/reference/kotlin/androidx/compose/animation/AnimatedContentTransitionScope#slideIntoContainer(androidx.compose.animation.AnimatedContentTransitionScope.SlideDirection,androidx.compose.animation.core.FiniteAnimationSpec,kotlin.Function1))
+-and [`slideOutOfContainer`](https://developer.android.com/reference/kotlin/androidx/compose/animation/AnimatedContentTransitionScope#slideOutOfContainer(androidx.compose.animation.AnimatedContentTransitionScope.SlideDirection,androidx.compose.animation.core.FiniteAnimationSpec,kotlin.Function1)).
++`AnimatedVisibility`, `AnimatedContent` offers [`slideIntoContainer`](/reference/kotlin/androidx/compose/animation/AnimatedContentTransitionScope#slideIntoContainer(androidx.compose.animation.AnimatedContentTransitionScope.SlideDirection,androidx.compose.animation.core.FiniteAnimationSpec,kotlin.Function1))
++and [`slideOutOfContainer`](/reference/kotlin/androidx/compose/animation/AnimatedContentTransitionScope#slideOutOfContainer(androidx.compose.animation.AnimatedContentTransitionScope.SlideDirection,androidx.compose.animation.core.FiniteAnimationSpec,kotlin.Function1)).
+ These are convenient alternatives to `slideInHorizontally/Vertically` and
+ `slideOutHorizontally/Vertically` that calculate the slide distance based on
+ the sizes of the initial content and the target content of the
+ `AnimatedContent` content.
+ 
+-[`SizeTransform`](https://developer.android.com/reference/kotlin/androidx/compose/animation/SizeTransform) defines how the
++[`SizeTransform`](/reference/kotlin/androidx/compose/animation/SizeTransform) defines how the
+ size should animate between the initial and the target contents. You have
+ access to both the initial size and the target size when you are creating the
+ animation. `SizeTransform` also controls whether the content should be clipped
+ to the component size during animations.
+ 
+-
+-```kotlin
++```
+ var expanded by remember { mutableStateOf(false) }
+ Surface(
+     color = MaterialTheme.colorScheme.primary,
+@@ -327,15 +333,15 @@ Surface(
+         }
+     }
+ }
+-```
+ 
+-<br />
++AnimationSnippets.kt
++```
+ 
+-![](https://developer.android.com/static/develop/ui/compose/images/animation-sizetransform.gif)
++![A composable animates its size transforming smoothly.](/static/develop/ui/compose/images/animation-sizetransform.gif)
+ 
+ #### Animate child enter and exit transitions
+ 
+-Just like `AnimatedVisibility`, the [`animateEnterExit`](https://developer.android.com/reference/kotlin/androidx/compose/animation/AnimatedVisibilityScope#(androidx.compose.ui.Modifier).animateEnterExit(androidx.compose.animation.EnterTransition,androidx.compose.animation.ExitTransition,kotlin.String))
++Just like `AnimatedVisibility`, the [`animateEnterExit`](/reference/kotlin/androidx/compose/animation/AnimatedVisibilityScope#(androidx.compose.ui.Modifier).animateEnterExit(androidx.compose.animation.EnterTransition,androidx.compose.animation.ExitTransition,kotlin.String))
+ modifier is available inside the content lambda of `AnimatedContent`. Use this
+ to apply `EnterAnimation` and `ExitAnimation` to each of the direct or indirect
+ children separately.
+@@ -345,7 +351,7 @@ children separately.
+ Just like `AnimatedVisibility`, the `transition` field is available inside the
+ content lambda of `AnimatedContent`. Use this to create a custom animation
+ effect that runs simultaneously with the `AnimatedContent` transition. See
+-[updateTransition](https://developer.android.com/develop/ui/compose/animation/value-based#updateTransition) for the details.
++[updateTransition](/develop/ui/compose/animation/value-based#updateTransition) for the details.
+ 
+ ### Animate between two layouts
+ 
+@@ -353,8 +359,7 @@ effect that runs simultaneously with the `AnimatedContent` transition. See
+ the value passed to the `current` parameter, the content is switched with a
+ crossfade animation.
+ 
+-
+-```kotlin
++```
+ var currentPage by remember { mutableStateOf("A") }
+ Crossfade(targetState = currentPage, label = "cross fade") { screen ->
+     when (screen) {
+@@ -362,9 +367,9 @@ Crossfade(targetState = currentPage, label = "cross fade") { screen ->
+         "B" -> Text("Page B")
+     }
+ }
+-```
+ 
+-<br />
++AnimationSnippets.kt
++```
+ 
+ ## Built-in animation modifiers
+ 
+@@ -373,15 +378,19 @@ composables.
+ 
+ ### Animate composable size changes
+ 
+-![Green composable animating its size change smoothly.](https://developer.android.com/static/develop/ui/compose/images/animations/animated_content_size.gif) **Figure 2.** Composable smoothly animating between a small and a larger size
++![Green composable animating its size change smoothly.](/static/develop/ui/compose/images/animations/animated_content_size.gif)
+ 
+-The `animateContentSize` modifier animates a size change.
+ 
+-> [!NOTE]
+-> **Note:** The ordering of where `animateContentSize` is placed in your modifier chain matters. For smooth animations, place it *before* any size modifiers such as `size` or `defaultMinSize` to confirm that `animateContentSize` reports the animated value change to the layout.
++**Figure 2.** Composable smoothly animating between a small and a larger size
++
++The `animateContentSize` modifier animates a size change.
+ 
++**Note:** The ordering of where `animateContentSize` is placed in your modifier
++chain matters. For smooth animations, place it *before* any size
++modifiers such as `size` or `defaultMinSize` to confirm that
++`animateContentSize` reports the animated value change to the layout.
+ 
+-```kotlin
++```
+ var expanded by remember { mutableStateOf(false) }
+ Box(
+     modifier = Modifier
+@@ -398,18 +407,30 @@ Box(
+ 
+ ) {
+ }
+-```
+ 
+-<br />
++AnimationQuickGuide.kt
++```
+ 
+ ## List item animations
+ 
+ If you are looking to animate item reorderings inside a Lazy list or grid, take
+-a look at the [Lazy layout item animation documentation](https://developer.android.com/develop/ui/compose/lists#item-animations).
++a look at the [Lazy layout item animation documentation](/develop/ui/compose/lists#item-animations).
+ 
+ ## Recommended for you
+ 
+-- Note: link text is displayed when JavaScript is off
+-- [Value-based animations](https://developer.android.com/develop/ui/compose/animation/value-based)
+-- [Animations in Compose](https://developer.android.com/develop/ui/compose/animation/introduction)
+-- [Animation tooling support {:#tooling}](https://developer.android.com/develop/ui/compose/animation/tooling)
+\ No newline at end of file
++* Note: link text is displayed when JavaScript is off
++* [Value-based animations](/develop/ui/compose/animation/value-based)
++* [Animations in Compose](/develop/ui/compose/animation/introduction)
++* [Animation tooling support {:#tooling}](/develop/ui/compose/animation/tooling)
++
++[Previous
++
++arrow\_back
++
++Quick guide](/develop/ui/compose/animation/quick-guide)
++
++[Next
++
++Value-based animations
++
++arrow\_forward](/develop/ui/compose/animation/value-based)
+\ No newline at end of file

@@ -1,0 +1,12 @@
+diff --git a/docs/guide/navigation/navigation-3/recipes/scenes-listdetail.md b/docs/guide/navigation/navigation-3/recipes/scenes-listdetail.md
+index 9db97f6..f2e9828 100644
+--- a/docs/guide/navigation/navigation-3/recipes/scenes-listdetail.md
++++ b/docs/guide/navigation/navigation-3/recipes/scenes-listdetail.md
+@@ -13,7 +13,6 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
+-
+ # List-Detail Scene Recipe
+ 
+ This example shows how to create a list-detail layout using the Scenes API.

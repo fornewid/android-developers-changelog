@@ -1,0 +1,12 @@
+diff --git a/docs/training/monitoring-device-state/doze-standby.md b/docs/training/monitoring-device-state/doze-standby.md
+index 8ddd685..00a3e05 100644
+--- a/docs/training/monitoring-device-state/doze-standby.md
++++ b/docs/training/monitoring-device-state/doze-standby.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Android has two power-saving features that extend battery life for users by
+ managing how apps behave when a device isn't connected to a power source: Doze
+ and App Standby. *Doze* reduces battery consumption by deferring

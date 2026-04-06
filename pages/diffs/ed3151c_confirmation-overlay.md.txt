@@ -1,0 +1,65 @@
+diff --git a/docs/design/ui/wear/guides/m2-5/components/confirmation-overlay.md b/docs/design/ui/wear/guides/m2-5/components/confirmation-overlay.md
+index 58d09e4..90af5d7 100644
+--- a/docs/design/ui/wear/guides/m2-5/components/confirmation-overlay.md
++++ b/docs/design/ui/wear/guides/m2-5/components/confirmation-overlay.md
+@@ -1,34 +1,26 @@
+ ---
+-title: Confirmation overlay  |  Wear  |  Android Developers
++title: https://developer.android.com/design/ui/wear/guides/m2-5/components/confirmation-overlay
+ url: https://developer.android.com/design/ui/wear/guides/m2-5/components/confirmation-overlay
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-* [Design & Plan](https://developer.android.com/design)
+-* [UI Design](https://developer.android.com/design/ui)
+-* [Wear](https://developer.android.com/design/ui/wear)
+-* [Guides](https://developer.android.com/design/ui/wear/guides/get-started)
++# Confirmation overlay
+ 
+-# Confirmation overlay Stay organized with collections Save and categorize content based on your preferences.
++![](https://developer.android.com/static/wear/images/confirmation-overlay/dialogs-hero.png)
+ 
+-
+-
+-![](/static/wear/images/confirmation-overlay/dialogs-hero.png)
+-
+-[Confirmation overlays](/reference/androidx/wear/widget/ConfirmationOverlay) display a temporary message expressing a state change at the top of the current view.
++[Confirmation overlays](https://developer.android.com/reference/androidx/wear/widget/ConfirmationOverlay)display a temporary message expressing a state change at the top of the current view.
+ 
+ ## Usage
+ 
+-In most cases, an explicit confirmation is not needed. A visible change in the UI is enough to show that an action succeeded. If the user’s action is not visible in the UI, use the confirmation overlay to give the necessary feedback to the user. It's better to show a change in the UI itself rather than showing a confirmation overlay.
++In most cases, an explicit confirmation is not needed. A visible change in the UI is enough to show that an action succeeded. If the user's action is not visible in the UI, use the confirmation overlay to give the necessary feedback to the user. It's better to show a change in the UI itself rather than showing a confirmation overlay.
+ 
+ Add a message to your message history instead of showing a confirmation overlay:
+ 
+-![](/static/wear/images/confirmation-overlay/Confirmation-overlay-notifications-example.png)
++![](https://developer.android.com/static/wear/images/confirmation-overlay/Confirmation-overlay-notifications-example.png)
+ 
+ Show a confirmation overlay if a change in action doesn't cause a change in the UI:
+ 
+-![](/static/wear/images/confirmation-overlay/confirmation-overlay-message-message-sent.png)
++![](https://developer.android.com/static/wear/images/confirmation-overlay/confirmation-overlay-message-message-sent.png)
+ 
+ ## Adaptive layouts
+ 
+@@ -38,12 +30,12 @@ Larger display accommodations have been made to dialogs to ensure that user expe
+ 
+ Margin percentages are universally applied.
+ 
+-![](/static/wear/images/confirmation-overlay/confirmation-overlay-margins-adaptive-layouts.png)
++![](https://developer.android.com/static/wear/images/confirmation-overlay/confirmation-overlay-margins-adaptive-layouts.png)
+ 
+-![](/static/wear/images/confirmation-overlay/confirmation-overlay-margins-adaptive-layouts-2.png)
++![](https://developer.android.com/static/wear/images/confirmation-overlay/confirmation-overlay-margins-adaptive-layouts-2.png)
+ 
+ ### **Rigid line length guidelines**
+ 
+ Line guidelines are universally applied. The max line length is of 3 lines with max character limit of 36 (30 with not Latin).
+ 
+-![](/static/wear/images/confirmation-overlay/confirmation-overlay-margins-rigid-line-lenght-guidelines-adaptive-layouts.png)
+\ No newline at end of file
++![](https://developer.android.com/static/wear/images/confirmation-overlay/confirmation-overlay-margins-rigid-line-lenght-guidelines-adaptive-layouts.png)
+\ No newline at end of file

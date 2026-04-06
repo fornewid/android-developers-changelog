@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/views/components/settings/use-saved-values.md b/docs/develop/ui/views/components/settings/use-saved-values.md
+index bfd5616..e699d9d 100644
+--- a/docs/develop/ui/views/components/settings/use-saved-values.md
++++ b/docs/develop/ui/views/components/settings/use-saved-values.md
+@@ -16,7 +16,6 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
+-
+ # Use saved Preference values   Part of [Android Jetpack](/jetpack).
+ 
+ This document describes how to store and use

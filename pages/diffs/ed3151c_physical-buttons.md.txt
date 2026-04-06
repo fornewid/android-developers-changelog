@@ -1,0 +1,12 @@
+diff --git a/docs/training/wearables/user-input/physical-buttons.md b/docs/training/wearables/user-input/physical-buttons.md
+index 8cdf6eb..a1ecd18 100644
+--- a/docs/training/wearables/user-input/physical-buttons.md
++++ b/docs/training/wearables/user-input/physical-buttons.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ A wearable device typically contains multiple physical buttons, also known as
+ *stems*. Wear OS devices always have, at minimum, one button: the power button.
+ Beyond that, zero or more multifunction buttons might be present.

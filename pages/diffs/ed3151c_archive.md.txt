@@ -1,0 +1,30 @@
+diff --git a/docs/podcasts/apps-games-insights/archive.md b/docs/podcasts/apps-games-insights/archive.md
+index b09fbf6..fccb263 100644
+--- a/docs/podcasts/apps-games-insights/archive.md
++++ b/docs/podcasts/apps-games-insights/archive.md
+@@ -1,18 +1,11 @@
+ ---
+-title: Apps, Games, & Insights Archive  |  Apps, Games, & Insights Podcast  |  Android Developers
++title: https://developer.android.com/podcasts/apps-games-insights/archive
+ url: https://developer.android.com/podcasts/apps-games-insights/archive
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Home](https://developer.android.com/)
+-* [Apps, Games, & Insights Podcast](https://developer.android.com/podcasts/apps-games-insights)
++# Apps, Games, & Insights Archive
+ 
+-Stay organized with collections
++### Apps, Games, \& Insights Archive
+ 
+-Save and categorize content based on your preferences.
+-
+-
+-
+-### Apps, Games, & Insights Archive
+-
+-[< Learn more about the podcast](https://developer.android.com/podcasts/apps-games-insights)
+\ No newline at end of file
++[\< Learn more about the podcast](http://developer.android.com/podcasts/apps-games-insights)
+\ No newline at end of file

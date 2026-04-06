@@ -1,0 +1,12 @@
+diff --git a/docs/develop/xr/unity/performance/openxr-feature-settings.md b/docs/develop/xr/unity/performance/openxr-feature-settings.md
+index b3001c4..9db025c 100644
+--- a/docs/develop/xr/unity/performance/openxr-feature-settings.md
++++ b/docs/develop/xr/unity/performance/openxr-feature-settings.md
+@@ -11,7 +11,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Applicable XR devices
+ 
+ This guidance helps you build experiences for these types of XR devices.

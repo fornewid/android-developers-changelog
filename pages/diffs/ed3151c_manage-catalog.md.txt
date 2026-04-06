@@ -1,0 +1,20 @@
+diff --git a/docs/google/play/billing/manage-catalog.md b/docs/google/play/billing/manage-catalog.md
+index fad60aa..7bcc08b 100644
+--- a/docs/google/play/billing/manage-catalog.md
++++ b/docs/google/play/billing/manage-catalog.md
+@@ -14,6 +14,7 @@ Send feedback
+ 
+ 
+ 
++
+ This guide explains how to use the Google Play Developer API to create and
+ manage a product catalog for your Play app.
+ 
+@@ -456,4 +457,6 @@ strategy.
+ 
+ 
+ 
++
++
+ Send feedback
+\ No newline at end of file

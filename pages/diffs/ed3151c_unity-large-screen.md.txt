@@ -1,0 +1,20 @@
+diff --git a/docs/games/engines/unity/unity-large-screen.md b/docs/games/engines/unity/unity-large-screen.md
+index 94ba11c..0e3aa56 100644
+--- a/docs/games/engines/unity/unity-large-screen.md
++++ b/docs/games/engines/unity/unity-large-screen.md
+@@ -15,6 +15,7 @@ Send feedback
+ 
+ 
+ 
++
+ In today's competitive gaming market, it's more important than ever to reach as
+ wide an audience as possible. By developing games for different form factors,
+ such as phones, tablets, foldables, and desktop, you can tap into a larger pool
+@@ -187,4 +188,6 @@ device is in tabletop posture and adjusting the camera.
+ 
+ 
+ 
++
++
+ Send feedback
+\ No newline at end of file

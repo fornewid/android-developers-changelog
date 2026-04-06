@@ -1,0 +1,12 @@
+diff --git a/docs/studio/run/emulator-extended-controls.md b/docs/studio/run/emulator-extended-controls.md
+index 8bec588..183e424 100644
+--- a/docs/studio/run/emulator-extended-controls.md
++++ b/docs/studio/run/emulator-extended-controls.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Use the extended controls on the Android Emulator to send data, change device
+ properties, control apps, and more. To open the **Extended controls** window,
+ click **More** ![Emulator extended controls icon](/static/studio/images/buttons/emulator-extended-controls.png) in the emulator panel. Note that

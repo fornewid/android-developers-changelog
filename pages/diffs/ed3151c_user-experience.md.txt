@@ -1,0 +1,12 @@
+diff --git a/docs/quality/user-experience.md b/docs/quality/user-experience.md
+index 8573d6b..08f5bec 100644
+--- a/docs/quality/user-experience.md
++++ b/docs/quality/user-experience.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ ![](/static/images/quality/hero-images/ux_highlighted.svg)
+ 
+ High-quality apps and games are intuitive and delightful to use, evoking

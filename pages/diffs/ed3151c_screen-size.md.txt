@@ -1,0 +1,12 @@
+diff --git a/docs/training/wearables/tiles/screen-size.md b/docs/training/wearables/tiles/screen-size.md
+index fca4206..b039215 100644
+--- a/docs/training/wearables/tiles/screen-size.md
++++ b/docs/training/wearables/tiles/screen-size.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Your app's tiles should work well on Wear OS devices of all sizes, taking
+ advantage of additional space where available, and still look great on smaller
+ screens too. This guide provides recommendations for achieving this user

@@ -1,0 +1,12 @@
+diff --git a/docs/topic/performance/app-optimization/add-keep-rules.md b/docs/topic/performance/app-optimization/add-keep-rules.md
+index 1e51cae..056b662 100644
+--- a/docs/topic/performance/app-optimization/add-keep-rules.md
++++ b/docs/topic/performance/app-optimization/add-keep-rules.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ At a high level, a keep rule specifies a class (or subclass or implementation),
+ and then members—methods, constructors, or fields—within that class to preserve.
+ 

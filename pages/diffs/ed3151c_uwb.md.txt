@@ -1,0 +1,12 @@
+diff --git a/docs/develop/connectivity/uwb.md b/docs/develop/connectivity/uwb.md
+index dc29c63..a66dd06 100644
+--- a/docs/develop/connectivity/uwb.md
++++ b/docs/develop/connectivity/uwb.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ **Note:** UWB is currently only available using
+ [Jetpack](/jetpack/androidx/releases/core-uwb).
+ 

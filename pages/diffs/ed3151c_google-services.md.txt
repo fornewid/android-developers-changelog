@@ -1,0 +1,12 @@
+diff --git a/docs/training/cars/platforms/automotive-os/google-play/google-services.md b/docs/training/cars/platforms/automotive-os/google-play/google-services.md
+index 842471e..a30d776 100644
+--- a/docs/training/cars/platforms/automotive-os/google-play/google-services.md
++++ b/docs/training/cars/platforms/automotive-os/google-play/google-services.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ When you are developing apps for Android Automotive OS cars with
+ [Google built-in](https://built-in.google/cars/), some Google Play services may
+ not be available or may be restricted to provide a safe and consistent

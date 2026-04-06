@@ -1,0 +1,135 @@
+diff --git a/docs/develop/ui/compose/graphics/images/custompainter.md b/docs/develop/ui/compose/graphics/images/custompainter.md
+index 6a05347..3ee1238 100644
+--- a/docs/develop/ui/compose/graphics/images/custompainter.md
++++ b/docs/develop/ui/compose/graphics/images/custompainter.md
+@@ -1,17 +1,28 @@
+ ---
+-title: https://developer.android.com/develop/ui/compose/graphics/images/custompainter
++title: Custom painter  |  Jetpack Compose  |  Android Developers
+ url: https://developer.android.com/develop/ui/compose/graphics/images/custompainter
+-source: md.txt
++source: html-scrape
+ ---
+ 
+-In Compose, a [`Painter`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/painter/Painter) object is used to represent something that can be
++* [Android Developers](https://developer.android.com/)
++* [Develop](https://developer.android.com/develop)
++* [Core areas](https://developer.android.com/develop/core-areas)
++* [UI](https://developer.android.com/develop/ui)
++* [Docs](https://developer.android.com/develop/ui/compose/documentation)
++
++# Custom painter Stay organized with collections Save and categorize content based on your preferences.
++
++
++
++
++In Compose, a [`Painter`](/reference/kotlin/androidx/compose/ui/graphics/painter/Painter) object is used to represent something that can be
+ drawn (a replacement to the `Drawable` APIs defined in Android) and influence
+ measurement and layout of the corresponding composable that is using it . A
+ `BitmapPainter` takes an `ImageBitmap` that can draw a `Bitmap` on screen.
+ 
+ For most use cases, using the `painterResource()` above returns the correct
+ painter for the asset (i.e. `BitmapPainter` or `VectorPainter`). For more
+-information on the differences between the two - read the [ImageBitmap vs ImageVector](https://developer.android.com/develop/ui/compose/graphics/images/compare) section.
++information on the differences between the two - read the [ImageBitmap vs ImageVector](/develop/ui/compose/graphics/images/compare) section.
+ 
+ A `Painter` is different from a `DrawModifier`, which strictly draws within the
+ bounds that are given to it and has no influence on the measurement or layout of
+@@ -22,8 +33,7 @@ To create a custom painter, extend the `Painter` class, and implement the
+ graphics. You can also override the `intrinsicSize`, which will be used to
+ influence the Composable that it is contained in:
+ 
+-
+-```kotlin
++```
+ class OverlayImagePainter constructor(
+     private val image: ImageBitmap,
+     private val imageOverlay: ImageBitmap,
+@@ -74,15 +84,14 @@ class OverlayImagePainter constructor(
+         return srcSize
+     }
+ }
+-```
+ 
+-<br />
++CustomPainterSnippets.kt
++```
+ 
+ Now that we have our custom `Painter`, we can overlay any image on top of our
+ source image as follows:
+ 
+-
+-```kotlin
++```
+ val rainbowImage = ImageBitmap.imageResource(id = R.drawable.rainbow)
+ val dogImage = ImageBitmap.imageResource(id = R.drawable.dog)
+ val customPainter = remember {
+@@ -94,18 +103,21 @@ Image(
+     contentScale = ContentScale.Crop,
+     modifier = Modifier.wrapContentSize()
+ )
+-```
+ 
+-<br />
++CustomPainterSnippets.kt
++```
+ 
+ The output of combining the two images with a custom painter can be seen below:
+-![Custom Painter that overlays two images on top of each other](https://developer.android.com/static/develop/ui/compose/images/graphics-rainbowoverlay.jpg) **Figure 1**: Custom Painter that overlays two images on top of each other
+ 
+-A custom painter can also be used with the [`Modifier.paint(customPainter)`](https://developer.android.com/reference/kotlin/androidx/compose/ui/draw/paint.modifier#(androidx.compose.ui.Modifier).paint(androidx.compose.ui.graphics.painter.Painter,kotlin.Boolean,androidx.compose.ui.Alignment,androidx.compose.ui.layout.ContentScale,kotlin.Float,androidx.compose.ui.graphics.ColorFilter))
+-to draw the content to a composable as follows:
++![Custom Painter that overlays two images on top of each other](/static/develop/ui/compose/images/graphics-rainbowoverlay.jpg)
++
++
++**Figure 1**: Custom Painter that overlays two images on top of each other
+ 
++A custom painter can also be used with the [`Modifier.paint(customPainter)`](/reference/kotlin/androidx/compose/ui/draw/paint.modifier#(androidx.compose.ui.Modifier).paint(androidx.compose.ui.graphics.painter.Painter,kotlin.Boolean,androidx.compose.ui.Alignment,androidx.compose.ui.layout.ContentScale,kotlin.Float,androidx.compose.ui.graphics.ColorFilter))
++to draw the content to a composable as follows:
+ 
+-```kotlin
++```
+ val rainbowImage = ImageBitmap.imageResource(id = R.drawable.rainbow)
+ val dogImage = ImageBitmap.imageResource(id = R.drawable.dog)
+ val customPainter = remember {
+@@ -118,16 +130,31 @@ Box(
+         .background(color = Color.Yellow)
+         .paint(customPainter)
+ ) { /** intentionally empty **/ }
++
++CustomPainterSnippets.kt
+ ```
+ 
+-<br />
++**Note:** The above custom Painter can also be implemented using a `DrawModifier`.
++If you need to influence measurement or layout, then you should use a `Painter`.
++If you are only expecting to render in the bounds you are given, then you should
++use a `DrawModifier` instead.
+ 
+-> [!NOTE]
+-> **Note:** The above custom Painter can also be implemented using a `DrawModifier`. If you need to influence measurement or layout, then you should use a `Painter`. If you are only expecting to render in the bounds you are given, then you should use a `DrawModifier` instead.
+ 
+ ## Recommended for you
+ 
+-- Note: link text is displayed when JavaScript is off
+-- [ImageBitmap vs ImageVector {:#bitmap-vs-vector}](https://developer.android.com/develop/ui/compose/graphics/images/compare)
+-- [Graphics in Compose](https://developer.android.com/develop/ui/compose/graphics/draw/overview)
+-- [Loading images {:#loading-images}](https://developer.android.com/develop/ui/compose/graphics/images/loading)
+\ No newline at end of file
++* Note: link text is displayed when JavaScript is off
++* [ImageBitmap vs ImageVector {:#bitmap-vs-vector}](/develop/ui/compose/graphics/images/compare)
++* [Graphics in Compose](/develop/ui/compose/graphics/draw/overview)
++* [Loading images {:#loading-images}](/develop/ui/compose/graphics/images/loading)
++
++[Previous
++
++arrow\_back
++
++Customize an image](/develop/ui/compose/graphics/images/customize)
++
++[Next
++
++Optimizing performance
++
++arrow\_forward](/develop/ui/compose/graphics/images/optimization)
+\ No newline at end of file

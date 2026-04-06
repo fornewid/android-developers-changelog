@@ -1,0 +1,12 @@
+diff --git a/docs/topic/performance/benchmarking/microbenchmark-without-gradle.md b/docs/topic/performance/benchmarking/microbenchmark-without-gradle.md
+index 6ca8e2c..c71a673 100644
+--- a/docs/topic/performance/benchmarking/microbenchmark-without-gradle.md
++++ b/docs/topic/performance/benchmarking/microbenchmark-without-gradle.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ This page describes configuring a non-Gradle build system when using the
+ Microbenchmark library.
+ 

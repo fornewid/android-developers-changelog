@@ -1,0 +1,12 @@
+diff --git a/docs/privacy-and-security/about.md b/docs/privacy-and-security/about.md
+index a301d4c..15c8efe 100644
+--- a/docs/privacy-and-security/about.md
++++ b/docs/privacy-and-security/about.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Android is focused on helping users take advantage of the latest innovations
+ while making their security and privacy top priorities. Use the checklists on
+ this page as a source for common privacy guidelines and best practices.

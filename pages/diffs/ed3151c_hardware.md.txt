@@ -1,0 +1,12 @@
+diff --git a/docs/training/tv/get-started/hardware.md b/docs/training/tv/get-started/hardware.md
+index bbe206b..cea70ec 100644
+--- a/docs/training/tv/get-started/hardware.md
++++ b/docs/training/tv/get-started/hardware.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ TV hardware is substantially different from other Android devices. TVs do not
+ include some of the hardware features found on other Android devices, such as touchscreens,
+ cameras, and GPS receivers. TVs are also completely dependent on secondary hardware devices:

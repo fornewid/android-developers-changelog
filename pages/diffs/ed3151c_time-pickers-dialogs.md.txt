@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/compose/components/time-pickers-dialogs.md b/docs/develop/ui/compose/components/time-pickers-dialogs.md
+index 2c50965..3ad22e7 100644
+--- a/docs/develop/ui/compose/components/time-pickers-dialogs.md
++++ b/docs/develop/ui/compose/components/time-pickers-dialogs.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ [Time pickers](/develop/ui/compose/components/time-pickers) often appear in dialogs. You can use a relatively generic and
+ minimal implementation of a dialog, or you can implement a custom dialog with
+ more flexibility.

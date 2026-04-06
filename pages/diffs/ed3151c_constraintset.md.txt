@@ -1,0 +1,50 @@
+diff --git a/docs/training/constraint-layout/motionlayout/ref/constraintset.md b/docs/training/constraint-layout/motionlayout/ref/constraintset.md
+index 23eb359..2d26986 100644
+--- a/docs/training/constraint-layout/motionlayout/ref/constraintset.md
++++ b/docs/training/constraint-layout/motionlayout/ref/constraintset.md
+@@ -1,20 +1,25 @@
+ ---
+-title: https://developer.android.com/training/constraint-layout/motionlayout/ref/constraintset
++title: <ConstraintSet>  |  Android Developers
+ url: https://developer.android.com/training/constraint-layout/motionlayout/ref/constraintset
+-source: md.txt
++source: html-scrape
+ ---
+ 
+-[Video](https://www.youtube.com/watch?v=-POu45WaSsc)
++* [Android Developers](https://developer.android.com/)
++
++# <ConstraintSet> Stay organized with collections Save and categorize content based on your preferences.
++
++
++
+ 
+ Specifies the positions and attributes of all views at one point in a motion
+ sequence. Typically, a
+-[`<Transition>`](https://developer.android.com/training/constraint-layout/motionlayout/ref/transition)
++[`<Transition>`](/training/constraint-layout/motionlayout/ref/transition)
+ element points to two `<ConstraintSet>` elements, one defining the beginning of
+ the motion sequence and one defining the end.
+ 
+ ## Syntax
+ 
+-```xml
++```
+ <ConstraintSet
+   id="@id/name">
+   [ deriveConstraintsFrom="id" ]
+@@ -35,8 +40,10 @@ the motion sequence and one defining the end.
+ 
+ ## Must contain
+ 
+-- One or more [`<Constraint>`](https://developer.android.com/training/constraint-layout/motionlayout/ref/constraint) elements.
++* One or more
++  [`<Constraint>`](/training/constraint-layout/motionlayout/ref/constraint)
++  elements.
+ 
+ ## Contained in
+ 
+-- [`<MotionScene>`](https://developer.android.com/training/constraint-layout/motionlayout/ref/motionscene)
+\ No newline at end of file
++* [`<MotionScene>`](/training/constraint-layout/motionlayout/ref/motionscene)
+\ No newline at end of file

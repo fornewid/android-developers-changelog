@@ -1,0 +1,12 @@
+diff --git a/docs/topic/performance/vitals/slow-session.md b/docs/topic/performance/vitals/slow-session.md
+index 9575d23..66f2663 100644
+--- a/docs/topic/performance/vitals/slow-session.md
++++ b/docs/topic/performance/vitals/slow-session.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Slow Sessions is a new Android vitals metric in Google Play console. A slow
+ session is a session in which more than 25% of the frames are slow. A frame
+ is slow if it is not presented less than 50ms after the previous frame

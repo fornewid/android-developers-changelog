@@ -1,0 +1,20 @@
+diff --git a/docs/google/play/billing/externalcontentlinks.md b/docs/google/play/billing/externalcontentlinks.md
+index d7e8449..2842c97 100644
+--- a/docs/google/play/billing/externalcontentlinks.md
++++ b/docs/google/play/billing/externalcontentlinks.md
+@@ -14,7 +14,6 @@ Send feedback
+ 
+ 
+ 
+-
+ The external content links program lets you link users in the US to external
+ content outside of your Google Play distributed app. The external links enable
+ app users to purchase in-app digital items or download apps that are not managed
+@@ -74,6 +73,4 @@ To begin integrating the external offers APIs, follow the in-depth
+ 
+ 
+ 
+-
+-
+ Send feedback
+\ No newline at end of file

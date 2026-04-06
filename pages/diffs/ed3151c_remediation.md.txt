@@ -1,0 +1,12 @@
+diff --git a/docs/google/play/integrity/remediation.md b/docs/google/play/integrity/remediation.md
+index f551b24..996fd40 100644
+--- a/docs/google/play/integrity/remediation.md
++++ b/docs/google/play/integrity/remediation.md
+@@ -12,6 +12,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ This page describes how to handle issues with integrity verdicts.
+ 
+ After an integrity token is requested, you have the option to display a Google

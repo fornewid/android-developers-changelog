@@ -1,0 +1,12 @@
+diff --git a/docs/build/include-native-symbols.md b/docs/build/include-native-symbols.md
+index edc146d..7ded6bc 100644
+--- a/docs/build/include-native-symbols.md
++++ b/docs/build/include-native-symbols.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ By default, native code libraries are stripped in release builds of your app.
+ This stripping consists of removing the symbol table and debugging information
+ contained in any native libraries used by your app. Stripping native code

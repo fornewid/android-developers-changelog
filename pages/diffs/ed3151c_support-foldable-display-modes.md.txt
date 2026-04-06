@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/compose/layouts/adaptive/foldables/support-foldable-display-modes.md b/docs/develop/ui/compose/layouts/adaptive/foldables/support-foldable-display-modes.md
+index a5ac279..36363ab 100644
+--- a/docs/develop/ui/compose/layouts/adaptive/foldables/support-foldable-display-modes.md
++++ b/docs/develop/ui/compose/layouts/adaptive/foldables/support-foldable-display-modes.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Foldable devices offer unique viewing experiences. Rear display mode and
+ dual‑screen mode enable you to build special display features for foldable
+ devices such as rear‑camera selfie preview and simultaneous but different

@@ -1,0 +1,12 @@
+diff --git a/docs/develop/connectivity/wifi/wifi-easy.md b/docs/develop/connectivity/wifi/wifi-easy.md
+index 0707c5b..255a3cc 100644
+--- a/docs/develop/connectivity/wifi/wifi-easy.md
++++ b/docs/develop/connectivity/wifi/wifi-easy.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ On Android 10 (API level 29) and higher devices, you can use Easy Connect to provision
+ Wi-Fi credentials to a peer device, as a replacement of WPS which was
+ deprecated in Android 9. Apps can integrate

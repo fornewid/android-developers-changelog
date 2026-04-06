@@ -1,0 +1,12 @@
+diff --git a/docs/topic/architecture/ui-layer/events.md b/docs/topic/architecture/ui-layer/events.md
+index ea6ee64..7bff354 100644
+--- a/docs/topic/architecture/ui-layer/events.md
++++ b/docs/topic/architecture/ui-layer/events.md
+@@ -12,7 +12,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ *UI events* are actions that should be handled in the UI layer, either by the UI
+ or by the ViewModel. The most common type of events are *user events*. The user
+ produces user events by interacting with the app—for example, by tapping the

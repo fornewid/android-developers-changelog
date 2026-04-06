@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/compose/system/setup-e2e.md b/docs/develop/ui/compose/system/setup-e2e.md
+index 0799ebc..3e169d0 100644
+--- a/docs/develop/ui/compose/system/setup-e2e.md
++++ b/docs/develop/ui/compose/system/setup-e2e.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Edge-to-edge display allows your app to draw its UI behind the system bars—the
+ status bar, caption bar, and navigation bar—to achieve a more immersive user
+ experience. If you target devices running Android 15 (API level 35) or higher,

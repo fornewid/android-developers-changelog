@@ -1,0 +1,12 @@
+diff --git a/docs/media/platform/mediaplayer.md b/docs/media/platform/mediaplayer.md
+index b98a0af..30a0b3d 100644
+--- a/docs/media/platform/mediaplayer.md
++++ b/docs/media/platform/mediaplayer.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ This document discusses the MediaPlayer APIs in the Android multimedia
+ framework. However, the recommended approach for media is [Jetpack Media3](/media/media3),
+ which includes [ExoPlayer](/guide/topics/media/exoplayer). To create a new app, use Jetpack Media3 instead

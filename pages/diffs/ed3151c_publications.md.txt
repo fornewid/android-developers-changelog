@@ -1,0 +1,12 @@
+diff --git a/docs/develop/sensors-and-location/sensors/publications.md b/docs/develop/sensors-and-location/sensors/publications.md
+index 39a5faf..dda3b39 100644
+--- a/docs/develop/sensors-and-location/sensors/publications.md
++++ b/docs/develop/sensors-and-location/sensors/publications.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ This list contains peer-reviewed publications related to Android raw
+ measurements.
+ 

@@ -1,0 +1,46 @@
+diff --git a/docs/design/ui/cars/guides/templates/media-playback-template.md b/docs/design/ui/cars/guides/templates/media-playback-template.md
+index 8cdeef5..7a21473 100644
+--- a/docs/design/ui/cars/guides/templates/media-playback-template.md
++++ b/docs/design/ui/cars/guides/templates/media-playback-template.md
+@@ -1,31 +1,18 @@
+ ---
+-title: Media Playback template  |  Cars  |  Android Developers
++title: https://developer.android.com/design/ui/cars/guides/templates/media-playback-template
+ url: https://developer.android.com/design/ui/cars/guides/templates/media-playback-template
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-* [Design & Plan](https://developer.android.com/design)
+-* [UI Design](https://developer.android.com/design/ui)
+-* [Cars](https://developer.android.com/design/ui/cars)
+-* [Guides](https://developer.android.com/design/ui/cars/guides/foundations/design-principles)
++# Media Playback template
+ 
+-# Media Playback template Stay organized with collections Save and categorize content based on your preferences.
++Display details about the media being played at a glance with the Media Playback template.
+ 
+-
+-
+-Display details about the media being played at a glance with the
+-Media Playback template.
+-
+-With this template, you can choose which actions to allow users to perform from
+-the playback screen.
++With this template, you can choose which actions to allow users to perform from the playback screen.
+ 
+ You'll need to decide the following:
+ 
+-* Which buttons to show in the header section.
+-* Which playback buttons and images to show (provided through Media Session).
+-
+-![Image representing a now playing screen](/static/images/design/ui/cars/templates/now-playing.png)
+-
++- Which buttons to show in the header section.
++- Which playback buttons and images to show (provided through Media Session).
+ 
+-Media playback template.
+\ No newline at end of file
++![Image representing a now playing screen](https://developer.android.com/static/images/design/ui/cars/templates/now-playing.png)Media playback template.
+\ No newline at end of file

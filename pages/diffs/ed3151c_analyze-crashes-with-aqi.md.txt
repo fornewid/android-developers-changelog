@@ -1,0 +1,12 @@
+diff --git a/docs/studio/gemini/analyze-crashes-with-aqi.md b/docs/studio/gemini/analyze-crashes-with-aqi.md
+index b2435c6..974dcb2 100644
+--- a/docs/studio/gemini/analyze-crashes-with-aqi.md
++++ b/docs/studio/gemini/analyze-crashes-with-aqi.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Use Gemini in Android Studio to analyze your [App Quality Insights](/studio/debug/app-quality-insights) crash
+ reports, generate insights, provide a crash summary, and (when possible)
+ recommend next steps, including sample code and links to relevant documentation.

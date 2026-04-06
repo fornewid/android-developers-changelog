@@ -1,0 +1,12 @@
+diff --git a/docs/training/cars/platforms/automotive-os/coarse-location.md b/docs/training/cars/platforms/automotive-os/coarse-location.md
+index ed07eab..ba94c8b 100644
+--- a/docs/training/cars/platforms/automotive-os/coarse-location.md
++++ b/docs/training/cars/platforms/automotive-os/coarse-location.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ To respect user privacy, app developers are encouraged to only request coarse
+ location permissions. Apps that need an approximate coarse position typically
+ use the fused network location (FLP) because it's fast and consumes less power.

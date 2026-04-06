@@ -1,0 +1,12 @@
+diff --git a/docs/privacy-and-security/risks/android-exported.md b/docs/privacy-and-security/risks/android-exported.md
+index 746ef82..eed667a 100644
+--- a/docs/privacy-and-security/risks/android-exported.md
++++ b/docs/privacy-and-security/risks/android-exported.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ **OWASP category:** [MASVS-PLATFORM: Platform Interaction](https://mas.owasp.org/MASVS/09-MASVS-PLATFORM)
+ 
+ ## Overview

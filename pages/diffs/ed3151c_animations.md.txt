@@ -1,0 +1,228 @@
+diff --git a/docs/training/wearables/tiles/animations.md b/docs/training/wearables/tiles/animations.md
+index 6c1ab61..12f2cb5 100644
+--- a/docs/training/wearables/tiles/animations.md
++++ b/docs/training/wearables/tiles/animations.md
+@@ -1,24 +1,14 @@
+ ---
+-title: Tile animations  |  Wear OS  |  Android Developers
++title: https://developer.android.com/training/wearables/tiles/animations
+ url: https://developer.android.com/training/wearables/tiles/animations
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-* [Develop](https://developer.android.com/develop)
+-* [Devices](https://developer.android.com/develop/devices)
+-* [Wear OS](https://developer.android.com/training/wearables)
+-
+-# Tile animations Stay organized with collections Save and categorize content based on your preferences.
+-
+-
+-
+-
+ Tiles support a few different animation approaches, including the following:
+ 
+-* [Sweep transitions](#sweep-transition) using tween animations.
+-* [Smooth fade and slide](#smooth-fade-slide) animations into and out of a tile.
+-* [Lottie animations](#lottie).
++- [Sweep transitions](https://developer.android.com/training/wearables/tiles/animations#sweep-transition) using tween animations.
++- [Smooth fade and slide](https://developer.android.com/training/wearables/tiles/animations#smooth-fade-slide) animations into and out of a tile.
++- [Lottie animations](https://developer.android.com/training/wearables/tiles/animations#lottie).
+ 
+ ## Show a sweep transition
+ 
+@@ -26,7 +16,7 @@ To show a smooth sweep from one value to another, you can enable [tween
+ animations](https://wikipedia.org/wiki/Inbetweening) for an element, as shown in the following code
+ snippet:
+ 
+-```
++```kotlin
+ private var startValue = 15f
+ private var endValue = 105f
+ private val animationDurationInMillis = 2000L // 2 seconds
+@@ -63,8 +53,6 @@ override fun onTileRequest(requestParams: RequestBuilders.TileRequest): Listenab
+             .build()
+     )
+ }
+-
+-Animations.kt
+ ```
+ 
+ ### Set arc direction
+@@ -73,7 +61,7 @@ If your tile contains an arc, you might not want the arc line or text to always
+ grow in the default text direction for the user's chosen language. To specify an
+ arc growth direction, use the `ArcDirection` APIs:
+ 
+-```
++```kotlin
+ public override fun onTileRequest(
+     requestParams: RequestBuilders.TileRequest
+ ): ListenableFuture<Tile> {
+@@ -105,8 +93,6 @@ public override fun onTileRequest(
+             .build()
+     )
+ }
+-
+-Animations.kt
+ ```
+ 
+ ## Show a smooth fade or slide
+@@ -122,12 +108,12 @@ animation.
+ ### Fade transitions
+ 
+ The following code snippet demonstrates how to perform fade-in and fade-out
+-transitions using the helper methods from [`DefaultContentTransitions`](/reference/androidx/wear/protolayout/ModifiersBuilders.DefaultContentTransitions). To
++transitions using the helper methods from [`DefaultContentTransitions`](https://developer.android.com/reference/androidx/wear/protolayout/ModifiersBuilders.DefaultContentTransitions). To
+ define custom `FadeInTransition` and `FadeOutTransition` objects, call
+-[`setFadeIn()`](/reference/androidx/wear/protolayout/ModifiersBuilders.EnterTransition.Builder#setFadeIn(androidx.wear.protolayout.ModifiersBuilders.FadeInTransition)) and [`setFadeOut()`](/reference/androidx/wear/protolayout/ModifiersBuilders.ExitTransition.Builder#setFadeOut(androidx.wear.protolayout.ModifiersBuilders.FadeOutTransition)), respectively, in the transition
++[`setFadeIn()`](https://developer.android.com/reference/androidx/wear/protolayout/ModifiersBuilders.EnterTransition.Builder#setFadeIn(androidx.wear.protolayout.ModifiersBuilders.FadeInTransition)) and [`setFadeOut()`](https://developer.android.com/reference/androidx/wear/protolayout/ModifiersBuilders.ExitTransition.Builder#setFadeOut(androidx.wear.protolayout.ModifiersBuilders.FadeOutTransition)), respectively, in the transition
+ setter methods.
+ 
+-```
++```kotlin
+ public override fun onTileRequest(
+     requestParams: RequestBuilders.TileRequest
+ ): ListenableFuture<Tile> {
+@@ -156,19 +142,17 @@ public override fun onTileRequest(
+             .build()
+     )
+ }
+-
+-Animations.kt
+ ```
+ 
+ ### Slide transitions
+ 
+ This other code snippet demonstrates how to perform slide-in and slide-out
+-transitions using the helper methods from [`DefaultContentTransitions`](/reference/androidx/wear/protolayout/ModifiersBuilders.DefaultContentTransitions). You
++transitions using the helper methods from [`DefaultContentTransitions`](https://developer.android.com/reference/androidx/wear/protolayout/ModifiersBuilders.DefaultContentTransitions). You
+ can also define custom `SlideInTransition` and `SlideOutTransition` objects by
+-calling [`setSlideIn()`](/reference/androidx/wear/protolayout/ModifiersBuilders.EnterTransition.Builder#setSlideIn(androidx.wear.protolayout.ModifiersBuilders.SlideInTransition)) and [`setSlideOut()`](/reference/androidx/wear/protolayout/ModifiersBuilders.ExitTransition.Builder#setSlideOut(androidx.wear.protolayout.ModifiersBuilders.SlideOutTransition)), respectively, in the
++calling [`setSlideIn()`](https://developer.android.com/reference/androidx/wear/protolayout/ModifiersBuilders.EnterTransition.Builder#setSlideIn(androidx.wear.protolayout.ModifiersBuilders.SlideInTransition)) and [`setSlideOut()`](https://developer.android.com/reference/androidx/wear/protolayout/ModifiersBuilders.ExitTransition.Builder#setSlideOut(androidx.wear.protolayout.ModifiersBuilders.SlideOutTransition)), respectively, in the
+ transition setter methods.
+ 
+-```
++```kotlin
+ public override fun onTileRequest(
+     requestParams: RequestBuilders.TileRequest
+ ): ListenableFuture<Tile> {
+@@ -205,8 +189,6 @@ public override fun onTileRequest(
+             .build()
+     )
+ }
+-
+-Animations.kt
+ ```
+ 
+ ## Show a transformation
+@@ -215,14 +197,14 @@ To call attention to a specific element or area in a tile, you can apply several
+ types of transformations to it, including: rotation, scaling, and translation.
+ 
+ Many floating-point values associated with transformations accept [dynamic
+-expressions](/training/wearables/tiles/dynamic#associate-with-data-sources), which let you animate these transformations.
++expressions](https://developer.android.com/training/wearables/tiles/dynamic#associate-with-data-sources), which let you animate these transformations.
+ 
+ ### Rotation
+ 
+ To perform a clockwise rotation about a customizable pivot point, use code
+ similar to the following:
+ 
+-```
++```kotlin
+ return Futures.immediateFuture(
+     Tile.Builder()
+         .setResourcesVersion(RESOURCES_VERSION)
+@@ -248,8 +230,6 @@ return Futures.immediateFuture(
+         )
+         .build()
+ )
+-
+-Animations.kt
+ ```
+ 
+ ### Scaling
+@@ -257,7 +237,7 @@ Animations.kt
+ To grow or shrink an element by horizontal and vertical scaling factors, use
+ code similar to the following:
+ 
+-```
++```kotlin
+ return Futures.immediateFuture(
+     Tile.Builder()
+         .setResourcesVersion(RESOURCES_VERSION)
+@@ -285,8 +265,6 @@ return Futures.immediateFuture(
+         )
+         .build()
+ )
+-
+-Animations.kt
+ ```
+ 
+ ### Geometric translation
+@@ -294,7 +272,7 @@ Animations.kt
+ To move an element by a specific number of density pixels (dp) across the screen
+ horizontally or vertically, use code similar to the following:
+ 
+-```
++```kotlin
+ return Futures.immediateFuture(
+     Tile.Builder()
+         .setResourcesVersion(RESOURCES_VERSION)
+@@ -318,8 +296,6 @@ return Futures.immediateFuture(
+         )
+         .build()
+ )
+-
+-Animations.kt
+ ```
+ 
+ ## Lottie animations
+@@ -327,7 +303,7 @@ Animations.kt
+ Tiles supports the playback of [Lottie animations](https://lottie.github.io/), using a syntax similar
+ to that of images:
+ 
+-```
++```kotlin
+ class LottieAnimation : TileService() {
+ 
+     val lottieResourceId = "lottie_animation"
+@@ -370,32 +346,21 @@ class LottieAnimation : TileService() {
+         )
+     }
+ }
+-
+-Animations.kt
+ ```
+ 
+ A few points to note:
+ 
+-* Only a subset of Lottie files are supported. Check compatibility using one
+-  of the following validators:
+-  + An online validator: <https://skottie.skia.org/>. In the
+-    "Compatibility Report" section, the file needs to pass the
+-    "Specification Errors", "Specification Warnings" (with Common Properties
+-    ignored) and "Low Power Profile Errors" tests.
+-  + A Rust validation library: <https://github.com/google/lottie-tools>.
+-* Lottie playback is supported by tile renderers with a major version of at
+-  least `1` and a minor version of at least `500`. If a given animation isn't
+-  supported, the animation doesn't appear, but the rest of the tile renders as
+-  expected. If needed, you can [provide a fallback option](/training/wearables/tiles/versioning#fallbacks), such as a
+-  static image.
++- Only a subset of Lottie files are supported. Check compatibility using one of the following validators:
++  - An online validator: <https://skottie.skia.org/>. In the "Compatibility Report" section, the file needs to pass the "Specification Errors", "Specification Warnings" (with Common Properties ignored) and "Low Power Profile Errors" tests.
++  - A Rust validation library: <https://github.com/google/lottie-tools>.
++- Lottie playback is supported by tile renderers with a major version of at least `1` and a minor version of at least `500`. If a given animation isn't supported, the animation doesn't appear, but the rest of the tile renders as expected. If needed, you can [provide a fallback option](https://developer.android.com/training/wearables/tiles/versioning#fallbacks), such as a static image.
+ 
+ ## Don't show important information in the middle of an animation
+ 
+ There are several situations in which animations are disabled:
+ 
+-* The system's tile render might disable animations for all tiles.
+-* A tile can animate only 4 elements at a time. If you try to animate more
+-  than 4 elements at the same time, not all of them show an animation.
++- The system's tile render might disable animations for all tiles.
++- A tile can animate only 4 elements at a time. If you try to animate more than 4 elements at the same time, not all of them show an animation.
+ 
+ In the case where an animation is disabled, the elements are static and show the
+ animation's end value. For this reason, don't rely on the animation's behavior,

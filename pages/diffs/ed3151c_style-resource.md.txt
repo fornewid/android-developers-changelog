@@ -1,0 +1,141 @@
+diff --git a/docs/guide/topics/resources/style-resource.md b/docs/guide/topics/resources/style-resource.md
+index 9eae771..c5f9a06 100644
+--- a/docs/guide/topics/resources/style-resource.md
++++ b/docs/guide/topics/resources/style-resource.md
+@@ -1,28 +1,38 @@
+ ---
+-title: https://developer.android.com/guide/topics/resources/style-resource
++title: Style resource  |  App architecture  |  Android Developers
+ url: https://developer.android.com/guide/topics/resources/style-resource
+-source: md.txt
++source: html-scrape
+ ---
+ 
+-# Style resource
++* [Android Developers](https://developer.android.com/)
++* [Design & Plan](https://developer.android.com/design)
++* [App architecture](https://developer.android.com/topic/architecture/intro)
+ 
+-A style resource defines the format and look for a UI. A style can be applied to an individual[View](https://developer.android.com/reference/android/view/View)(from within a layout file) or to an entire[Activity](https://developer.android.com/reference/android/app/Activity)or application (from within the manifest file).
++# Style resource Stay organized with collections Save and categorize content based on your preferences.
+ 
+-For more information about creating and applying styles, please read[Styles and Themes](https://developer.android.com/guide/topics/ui/themes).
+ 
+-**Note:** A style is a simple resource that is referenced using the value provided in the`name`attribute (not the name of the XML file). As such, you can combine style resources with other simple resources in the one XML file, under one`<resources>`element.
++
++A style resource defines the format and look for a UI.
++A style can be applied to an individual `View` (from within a layout file) or to
++an entire `Activity` or application (from within the manifest file).
++
++For more information about creating and applying styles, please read
++[Styles and Themes](/guide/topics/ui/themes).
++
++**Note:** A style is a simple resource that is referenced
++using the value provided in the `name` attribute (not the name of the XML file). As
++such, you can combine style resources with other simple resources in the one XML file,
++under one `<resources>` element.
+ 
+ file location:
+-:   `res/values/`*filename*`.xml`  
+-    The filename is arbitrary. The element's`name`will be used as the resource ID.
++:   `res/values/filename.xml`  
++    The filename is arbitrary. The element's `name` will be used as the resource ID.
+ 
+ resource reference:
+-:   In XML:`@[package:]style/`*style_name*
++:   In XML: `@[package:]style/style_name`
+ 
+ syntax:
+-:
+-
+-    ```xml
++:   ```
+     <?xml version="1.0" encoding="utf-8"?>
+     <resources>
+         <style
+@@ -36,41 +46,37 @@ syntax:
+     ```
+ 
+ elements:
+-:
+-
+-    `<resources>`
++:   `<resources>`
+     :   **Required.** This must be the root node.
+ 
+         No attributes.
+ 
+     `<style>`
+-    :   Defines a single style. Contains`<item>`elements.
++    :   Defines a single style. Contains `<item>` elements.
+ 
+         attributes:
+ 
+         `name`
+-        :   *String* .**Required**. A name for the style, which is used as the resource ID to apply the style to a View, Activity, or application.
++        :   *String*. **Required**. A name for the style, which is used as the
++            resource ID to apply the style to a View, Activity, or application.
+ 
+         `parent`
+-        :   *Style resource*. Reference to a style from which this style should inherit style properties.
++        :   *Style resource*. Reference to a style from which this
++            style should inherit style properties.
+ 
+     `<item>`
+-    :   Defines a single property for the style. Must be a child of a`<style>`element.
+-
+-        <br />
++    :   Defines a single property for the style. Must be a child of a
++        `<style>` element.
+ 
+         attributes:
+ 
+         `name`
+-        :   *Attribute resource* .**Required** . The name of the style property to be defined, with a package prefix if necessary (for example`android:textColor`).
++        :   *Attribute resource*. **Required**. The name of the style property
++            to be defined, with a package prefix if necessary (for example `android:textColor`).
+ 
+ example:
+-:
+-
+-    XML file for the style (saved in`res/values/`):
+-    :
+-
+-        ```xml
++:   XML file for the style (saved in `res/values/`):
++    :   ```
+         <?xml version="1.0" encoding="utf-8"?>
+         <resources>
+             <style name="CustomText" parent="@style/Text">
+@@ -80,14 +86,24 @@ example:
+         </resources>
+         ```
+ 
+-    XML file that applies the style to a[TextView](https://developer.android.com/reference/android/widget/TextView)(saved in`res/layout/`):
+-    :
+-
+-        ```xml
++    XML file that applies the style to a `TextView` (saved in `res/layout/`):
++    :   ```
+         <?xml version="1.0" encoding="utf-8"?>
+         <EditText
+             style="@style/CustomText"
+             android:layout_width="fill_parent"
+             android:layout_height="wrap_content"
+             android:text="Hello, World!" />
+-        ```
+\ No newline at end of file
++        ```
++
++[Previous
++
++arrow\_back
++
++String](/guide/topics/resources/string-resource)
++
++[Next
++
++Font
++
++arrow\_forward](/guide/topics/resources/font-resource)
+\ No newline at end of file

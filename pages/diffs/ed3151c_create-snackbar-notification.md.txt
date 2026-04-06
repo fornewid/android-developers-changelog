@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/compose/quick-guides/content/create-snackbar-notification.md b/docs/develop/ui/compose/quick-guides/content/create-snackbar-notification.md
+index ea604ee..67475fb 100644
+--- a/docs/develop/ui/compose/quick-guides/content/create-snackbar-notification.md
++++ b/docs/develop/ui/compose/quick-guides/content/create-snackbar-notification.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ The [snackbar component](https://material.io/components/snackbars) serves as a brief notification that appears at the
+ bottom of the screen. It provides feedback about an operation or action without
+ interrupting the user experience. Snackbars disappear after a few seconds. The

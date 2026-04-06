@@ -1,0 +1,12 @@
+diff --git a/docs/training/wearables/versions/5-1.md b/docs/training/wearables/versions/5-1.md
+index a3ba8e9..161fb94 100644
+--- a/docs/training/wearables/versions/5-1.md
++++ b/docs/training/wearables/versions/5-1.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Explore the latest version of Wear OS, available on select devices and in the
+ official emulator in Android Studio. Check that your app runs as expected after
+ you [update your target SDK version](#update-target-sdk-version).

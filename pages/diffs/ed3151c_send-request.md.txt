@@ -1,0 +1,12 @@
+diff --git a/docs/training/run-background-service/send-request.md b/docs/training/run-background-service/send-request.md
+index d1d212e..8282323 100644
+--- a/docs/training/run-background-service/send-request.md
++++ b/docs/training/run-background-service/send-request.md
+@@ -10,6 +10,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ **Note:** This page is left here as reference for legacy apps only.
+ See the [guide to background processing on Android](/guide/background)  for recommended
+ solutions.

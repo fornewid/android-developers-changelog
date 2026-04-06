@@ -1,0 +1,12 @@
+diff --git a/docs/training/tv/get-started/create.md b/docs/training/tv/get-started/create.md
+index 8eeea69..98e6867 100644
+--- a/docs/training/tv/get-started/create.md
++++ b/docs/training/tv/get-started/create.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ TV apps use the same structure as apps for phones and tablets. This similarity means you can
+ modify your existing apps to also run on TV devices or create new apps based on what you already
+ know about building apps for Android.

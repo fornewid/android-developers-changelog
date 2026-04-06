@@ -1,0 +1,12 @@
+diff --git a/docs/studio/prompt-gallery/prompts/query-product-details.md b/docs/studio/prompt-gallery/prompts/query-product-details.md
+index 5d0b014..1da8e2c 100644
+--- a/docs/studio/prompt-gallery/prompts/query-product-details.md
++++ b/docs/studio/prompt-gallery/prompts/query-product-details.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Create the code to query for [`ProductDetails`](/reference/com/android/billingclient/api/ProductDetails), complete
+ with instructional placeholders for product IDs.
+ 

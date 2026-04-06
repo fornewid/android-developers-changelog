@@ -1,0 +1,12 @@
+diff --git a/docs/training/sharing.md b/docs/training/sharing.md
+index c9aed7f..b04b20c 100644
+--- a/docs/training/sharing.md
++++ b/docs/training/sharing.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ One of the great things about Android apps is their ability to communicate and
+ integrate with each other. Why reinvent functionality that isn't core to your application when it
+ already exists in another application?

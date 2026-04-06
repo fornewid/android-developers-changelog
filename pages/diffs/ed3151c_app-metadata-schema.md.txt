@@ -1,0 +1,12 @@
+diff --git a/docs/about/versions/14/features/app-metadata-schema.md b/docs/about/versions/14/features/app-metadata-schema.md
+index 7973348..ee5eae0 100644
+--- a/docs/about/versions/14/features/app-metadata-schema.md
++++ b/docs/about/versions/14/features/app-metadata-schema.md
+@@ -12,6 +12,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Starting in Android 14, the Android package installer can ingest metadata about
+ an app, such as data safety practices, for use in Android platform features such
+ as the updated Location permission prompt.

@@ -1,0 +1,12 @@
+diff --git a/docs/health-and-fitness/health-services/health-platform.md b/docs/health-and-fitness/health-services/health-platform.md
+index 5a1c60e..1b8c605 100644
+--- a/docs/health-and-fitness/health-services/health-platform.md
++++ b/docs/health-and-fitness/health-services/health-platform.md
+@@ -13,7 +13,6 @@ Starting in 2026, we'll be transitioning away from Google Fit APIs. For more inf
+ 
+ 
+ 
+-
+ **Note:** The Health Platform API Version 1 is deprecated as of May 11, 2022. It
+ has been replaced with Health Connect. Health Connect is an API and platform
+ that unifies data from multiple devices and apps, including Samsung Health,

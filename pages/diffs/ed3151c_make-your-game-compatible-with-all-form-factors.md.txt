@@ -1,0 +1,20 @@
+diff --git a/docs/games/develop/multiplatform/make-your-game-compatible-with-all-form-factors.md b/docs/games/develop/multiplatform/make-your-game-compatible-with-all-form-factors.md
+index d9701ca..2ee21c0 100644
+--- a/docs/games/develop/multiplatform/make-your-game-compatible-with-all-form-factors.md
++++ b/docs/games/develop/multiplatform/make-your-game-compatible-with-all-form-factors.md
+@@ -15,7 +15,6 @@ Send feedback
+ 
+ 
+ 
+-
+ Tablets, foldables, Android Auto, Android Automotive OS cars, ChromeOS devices,
+ and PCs have the following baseline quality requirements:
+ 
+@@ -112,6 +111,4 @@ resizability](/develop/ui/compose/layouts/adaptive/app-orientation-aspect-ratio-
+ 
+ 
+ 
+-
+-
+ Send feedback
+\ No newline at end of file

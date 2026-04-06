@@ -1,0 +1,12 @@
+diff --git a/docs/docs/quality-guidelines/archive/adaptive/id-map-ls-adaptive.md b/docs/docs/quality-guidelines/archive/adaptive/id-map-ls-adaptive.md
+index ee911d7..eec2b03 100644
+--- a/docs/docs/quality-guidelines/archive/adaptive/id-map-ls-adaptive.md
++++ b/docs/docs/quality-guidelines/archive/adaptive/id-map-ls-adaptive.md
+@@ -11,6 +11,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ *Created 2026-02-26*
+ 
+ The following table provides a one-to-one mapping between the original guideline

@@ -1,0 +1,12 @@
+diff --git a/docs/jetpack/androidx/releases/mediarouter.md b/docs/jetpack/androidx/releases/mediarouter.md
+index 6089472..415435d 100644
+--- a/docs/jetpack/androidx/releases/mediarouter.md
++++ b/docs/jetpack/androidx/releases/mediarouter.md
+@@ -15,7 +15,6 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
+-
+ # Mediarouter
+ 
+ [User Guide](/guide/topics/media/mediarouter)  [Code Sample](https://github.com/android/media-samples)

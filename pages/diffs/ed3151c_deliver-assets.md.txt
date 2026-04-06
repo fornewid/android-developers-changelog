@@ -1,0 +1,20 @@
+diff --git a/docs/games/develop/custom/deliver-assets.md b/docs/games/develop/custom/deliver-assets.md
+index f1b2385..400bb70 100644
+--- a/docs/games/develop/custom/deliver-assets.md
++++ b/docs/games/develop/custom/deliver-assets.md
+@@ -15,6 +15,7 @@ Send feedback
+ 
+ 
+ 
++
+ Use the following best practices to help you deliver assets for your Android
+ game.
+ 
+@@ -38,4 +39,6 @@ For more information, see the
+ 
+ 
+ 
++
++
+ Send feedback
+\ No newline at end of file

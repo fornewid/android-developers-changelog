@@ -1,0 +1,20 @@
+diff --git a/docs/agents/skills/play/play-billing-library-version-upgrade/references/version-checklist.md b/docs/agents/skills/play/play-billing-library-version-upgrade/references/version-checklist.md
+index 06bb2a5..a601231 100644
+--- a/docs/agents/skills/play/play-billing-library-version-upgrade/references/version-checklist.md
++++ b/docs/agents/skills/play/play-billing-library-version-upgrade/references/version-checklist.md
+@@ -18,6 +18,7 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
++
+ ## Play Billing Library: Smart Version-Specific Checklist
+ 
+ Use this checklist to verify that every technical requirement between your
+@@ -87,4 +88,6 @@ Use this checklist to verify that every technical requirement between your
+ 
+ 
+ 
++
++
+ Send feedback
+\ No newline at end of file

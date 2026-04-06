@@ -1,0 +1,12 @@
+diff --git a/docs/training/wearables/get-started/connect-phone.md b/docs/training/wearables/get-started/connect-phone.md
+index 10727d6..4d5f457 100644
+--- a/docs/training/wearables/get-started/connect-phone.md
++++ b/docs/training/wearables/get-started/connect-phone.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Wear OS apps should work independently of a phone. However, if your Wear OS app
+ depends on a mobile app, see the following information about connecting either
+ an emulated watch or a physical watch to a phone.

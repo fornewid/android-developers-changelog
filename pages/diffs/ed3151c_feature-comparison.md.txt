@@ -1,0 +1,12 @@
+diff --git a/docs/studio/gemini/feature-comparison.md b/docs/studio/gemini/feature-comparison.md
+index 89080f0..2fe0d74 100644
+--- a/docs/studio/gemini/feature-comparison.md
++++ b/docs/studio/gemini/feature-comparison.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ The following table summarizes the features included in the different editions
+ of Gemini in Android Studio, to help you [choose the product tier](/studio/gemini/overview#choose-tier) that's
+ right for you:

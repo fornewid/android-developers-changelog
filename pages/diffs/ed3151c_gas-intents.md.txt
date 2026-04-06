@@ -1,0 +1,12 @@
+diff --git a/docs/training/cars/testing/gas-intents.md b/docs/training/cars/testing/gas-intents.md
+index db24249..363ebd4 100644
+--- a/docs/training/cars/testing/gas-intents.md
++++ b/docs/training/cars/testing/gas-intents.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ This guide describes how to set up and run an Android Automotive instance with
+ Google built-in. This guide also describes how to test the third-party
+ Google APIs for use with navigation and voice solutions.

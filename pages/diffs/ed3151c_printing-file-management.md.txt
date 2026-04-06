@@ -1,0 +1,12 @@
+diff --git a/docs/guide/topics/large-screens/printing-file-management.md b/docs/guide/topics/large-screens/printing-file-management.md
+index 5fd1ed5..eeb3043 100644
+--- a/docs/guide/topics/large-screens/printing-file-management.md
++++ b/docs/guide/topics/large-screens/printing-file-management.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ ![Tier 1 adaptive differentiated icon](/static/images/docs/quality-guidelines/tier-1/tier_1_icon.png)
+ 
+ TIER 1 — Adaptive differentiated

@@ -1,0 +1,143 @@
+diff --git a/docs/games/pgs/console/cloud-platform.md b/docs/games/pgs/console/cloud-platform.md
+index 0112370..f4e0ec2 100644
+--- a/docs/games/pgs/console/cloud-platform.md
++++ b/docs/games/pgs/console/cloud-platform.md
+@@ -1,26 +1,39 @@
+ ---
+-title: https://developer.android.com/games/pgs/console/cloud-platform
++title: Manage Play Games Services project settings in Google Cloud Platform  |  Android game development  |  Android Developers
+ url: https://developer.android.com/games/pgs/console/cloud-platform
+-source: md.txt
++source: html-scrape
+ ---
+ 
++* [Android Developers](https://developer.android.com/)
++* [Google Play](https://developer.android.com/distribute)
++* [Games dev center](https://developer.android.com/games)
++* [Guides](https://developer.android.com/games/guides)
++
++Send feedback
++
++# Manage Play Games Services project settings in Google Cloud Platform Stay organized with collections Save and categorize content based on your preferences.
++
++
++
+ There may be instances where you will want to view and edit your
+ Play Games Services project directly in Google Cloud Platform.
+ 
+ Typical scenarios include:
+ 
+-- Enabling additional APIs for your project (such as Google Drive).
+-- Editing the branding information for your game in the OAuth 2.0 dialog.
+-- Viewing your API quota and requesting more (if necessary).
+-- Editing authorized URIs or JavaScript origins in Client IDs that you've created in the past.
++* Enabling additional APIs for your project (such as Google Drive).
++* Editing the branding information for your game in the OAuth 2.0 dialog.
++* Viewing your API quota and requesting more (if necessary).
++* Editing authorized URIs or JavaScript origins in Client IDs that you've
++  created in the past.
+ 
+ ### View your project
+ 
+ To view your project in Google Cloud Platform:
+ 
+-1. Select a credential for your game on the **Configuration** page (**Grow users \> Play Games
+-   Services \> Setup and
+-   management \> Configuration**).
++1. Select a credential for your game on the **Configuration** page
++   (**Grow users > Play Games
++   Services > Setup and
++   management > Configuration**).
+ 2. Scroll to the bottom of the **Authentication** section and click **View in
+    Google Cloud Platform**.
+ 
+@@ -34,10 +47,13 @@ quota.
+ To view or change usage limits for your project, or to request an increase to
+ your quota, do the following:
+ 
+-1. If you don't already have a [billing account](https://cloud.google.com/billing/docs/how-to/manage-billing-account) for your project, then create one.
++1. If you don't already have a [billing account](//cloud.google.com/billing/docs/how-to/manage-billing-account)
++   for your project, then create one.
+ 2. [Visit the Enabled APIs page of the
+-   API library](https://console.cloud.google.com/apis/enabled) in the API Console, and select an API from the list.
+-3. To view and change quota-related settings, select **Quotas** . To view usage statistics, select **Usage**.
++   API library](https://console.cloud.google.com/apis/enabled) in the API Console, and select an API from the
++   list.
++3. To view and change quota-related settings, select **Quotas**. To view
++   usage statistics, select **Usage**.
+ 
+ Be aware that "users" are determined based on the IP address of the
+ client making the quota request. For instance, if all of your requests came from
+@@ -66,14 +82,10 @@ To enable an API for your project, do the following:
+    in Google API Console. If prompted, select a project or create a new one.
+    API Library lists all available APIs, grouped by product family and
+    popularity.
+-
+ 2. If the API you want to enable isn't visible in the list, use search to
+    find it.
+-
+ 3. Select the API you want to enable, then click the **Enable** button.
+-
+ 4. If prompted, enable billing.
+-
+ 5. If prompted, accept the API's terms of service.
+ 
+ ### Modify branding information
+@@ -84,33 +96,45 @@ Google Cloud.
+ 
+ To set up your project's consent screen, do the following:
+ 
+-1. Open the [Consent Screen page](https://console.developers.google.com/apis/credentials/consent) in Play Console. If prompted, select a project or create a new one.
++1. Open the [Consent Screen page](https://console.developers.google.com/apis/credentials/consent)
++   in Play Console. If prompted, select a project or create a
++   new one.
+ 2. Fill out the form and click **Save**.
+ 
+ ### Modify the OAuth user type
+ 
+ If you are testing in the [Production](https://play.google.com/console/u/0/developers/app/tracks/production)
+-**(Test and release \> Production)** testing track using a [personal testing
++**(Test and release > Production)** testing track using a [personal testing
+ account](https://support.google.com/googleplay/android-developer/answer/14151465),
+ you must have also configured your OAuth audience setting in Google Cloud as
+-**External** . For more information, see
++**External**. For more information, see
+ [Manage App audience](https://support.google.com/cloud/answer/15549945).
+ 
+ ### Modify client ID related attributes
+ 
+-> [!IMPORTANT]
+-> **Important:** If you change the launch URL of your web app, you must follow the instructions below to make the corresponding change in Play Console to avoid getting `origin_mismatch` errors. If you change the package name of your Android app, you must create a new linked app entry and remove the existing linked app entry that has the old package name.
++**Important:** If you change the launch URL of
++your web app, you must follow the instructions below to make the corresponding
++change in Play Console to avoid getting `origin_mismatch` errors. If you
++change the package name of your Android app, you must create a new linked app
++entry and remove the existing linked app entry that has the old package name.
+ 
+ To modify attributes related to your OAuth 2.0 client ID (web
+ origins and redirect urls for a web app, etc.):
+ 
+ 1. Open Play Console and navigate to your game.
+-2. Select a credential for your game on the **Configuration** page (**Grow users \> Play Games
+-   Services \> Setup and
+-   management \> Configuration**).
++2. Select a credential for your game on the **Configuration** page
++   (**Grow users > Play Games
++   Services > Setup and
++   management > Configuration**).
+ 3. Scroll to the bottom of the **Authentication** section and click **View in
+    Google Cloud Platform**.
+ 4. In Google Cloud, select your project.
+-5. In the sidebar on the left, select **APIs \& auth** . Make sure that the Google Play Games Services API status is **ON** in the displayed list of APIs.
++5. In the sidebar on the left, select **APIs & auth**. Make sure that the
++   Google Play Games Services API status is **ON** in the displayed list of APIs.
+ 6. In the sidebar on the left, select **Registered apps**.
+-7. Expand the OAuth 2.0 Client ID section and find the attribute to edit.
+\ No newline at end of file
++7. Expand the OAuth 2.0 Client ID section and find the attribute to edit.
++
++
++
++
++Send feedback
+\ No newline at end of file

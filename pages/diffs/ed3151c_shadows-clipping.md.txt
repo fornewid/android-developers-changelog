@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/views/theming/shadows-clipping.md b/docs/develop/ui/views/theming/shadows-clipping.md
+index 7b5f45d..bde530b 100644
+--- a/docs/develop/ui/views/theming/shadows-clipping.md
++++ b/docs/develop/ui/views/theming/shadows-clipping.md
+@@ -14,6 +14,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Try the Compose way
+ 
+ Jetpack Compose is the recommended UI toolkit for Android. Learn how to work with theming in Compose.

@@ -1,0 +1,12 @@
+diff --git a/docs/tv/adt-2.md b/docs/tv/adt-2.md
+index a8c49e9..5c08852 100644
+--- a/docs/tv/adt-2.md
++++ b/docs/tv/adt-2.md
+@@ -10,6 +10,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ The ADT-2 Developer Kit is a streaming media player device for running and
+ testing apps that are built for Android TV.
+ 

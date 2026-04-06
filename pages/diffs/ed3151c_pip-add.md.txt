@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/compose/system/pip-add.md b/docs/develop/ui/compose/system/pip-add.md
+index 4841253..1113403 100644
+--- a/docs/develop/ui/compose/system/pip-add.md
++++ b/docs/develop/ui/compose/system/pip-add.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ To enter PiP mode through a button click, call
+ [`enterPictureInPictureMode()`](/reference/android/app/Activity#enterPictureInPictureMode(android.app.PictureInPictureParams)) on `findActivity()`.
+ 

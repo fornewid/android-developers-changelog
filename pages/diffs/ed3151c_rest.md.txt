@@ -1,0 +1,12 @@
+diff --git a/docs/guide/playcore/engage/tv/continue-watching/rest.md b/docs/guide/playcore/engage/tv/continue-watching/rest.md
+index 8c4c91e..8e7cf2f 100644
+--- a/docs/guide/playcore/engage/tv/continue-watching/rest.md
++++ b/docs/guide/playcore/engage/tv/continue-watching/rest.md
+@@ -12,6 +12,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Engage SDK offers a REST API to provide a consistent continue watching
+ experience across non-Android platforms such as iOS and Roku TV. The API allows
+ developers to update the "Continue-Watching" status for opted-in users from

@@ -1,0 +1,153 @@
+diff --git a/docs/develop/ui/views/graphics/opengl/touch.md b/docs/develop/ui/views/graphics/opengl/touch.md
+index 348dabb..53992e8 100644
+--- a/docs/develop/ui/views/graphics/opengl/touch.md
++++ b/docs/develop/ui/views/graphics/opengl/touch.md
+@@ -1,38 +1,22 @@
+ ---
+-title: Respond to touch events  |  Views  |  Android Developers
++title: https://developer.android.com/develop/ui/views/graphics/opengl/touch
+ url: https://developer.android.com/develop/ui/views/graphics/opengl/touch
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-* [Develop](https://developer.android.com/develop)
+-* [Core areas](https://developer.android.com/develop/core-areas)
+-* [UI](https://developer.android.com/develop/ui)
+-* [Views](https://developer.android.com/develop/ui/views/layout/declaring-layout)
++# Respond to touch events
+ 
+-# Respond to touch events Stay organized with collections Save and categorize content based on your preferences.
+-
+-
+-
+-Making objects move according to a preset program like the rotating triangle is useful for
+-getting some attention, but what if you want to have users interact with your OpenGL ES graphics?
+-The key to making your OpenGL ES application touch interactive is expanding your implementation of
+-`GLSurfaceView` to override the
+-`onTouchEvent()` to listen for touch events.
++Making objects move according to a preset program like the rotating triangle is useful for getting some attention, but what if you want to have users interact with your OpenGL ES graphics? The key to making your OpenGL ES application touch interactive is expanding your implementation of[GLSurfaceView](https://developer.android.com/reference/android/opengl/GLSurfaceView)to override the[onTouchEvent()](https://developer.android.com/reference/android/view/View#onTouchEvent(android.view.MotionEvent))to listen for touch events.
+ 
+ This lesson shows you how to listen for touch events to let users rotate an OpenGL ES object.
+ 
+ ## Setup a touch listener
+ 
+-In order to make your OpenGL ES application respond to touch events, you must implement the
+-`onTouchEvent()` method in your
+-`GLSurfaceView` class. The example implementation below shows how to listen for
+-`MotionEvent.ACTION_MOVE` events and translate them to
+-an angle of rotation for a shape.
++In order to make your OpenGL ES application respond to touch events, you must implement the[onTouchEvent()](https://developer.android.com/reference/android/view/View#onTouchEvent(android.view.MotionEvent))method in your[GLSurfaceView](https://developer.android.com/reference/android/opengl/GLSurfaceView)class. The example implementation below shows how to listen for[MotionEvent.ACTION_MOVE](https://developer.android.com/reference/android/view/MotionEvent#ACTION_MOVE)events and translate them to an angle of rotation for a shape.  
+ 
+ ### Kotlin
+ 
+-```
++```kotlin
+ private const val TOUCH_SCALE_FACTOR: Float = 180.0f / 320f
+ ...
+ private var previousX: Float = 0f
+@@ -75,7 +59,7 @@ override fun onTouchEvent(e: MotionEvent): Boolean {
+ 
+ ### Java
+ 
+-```
++```java
+ private final float TOUCH_SCALE_FACTOR = 180.0f / 320;
+ private float previousX;
+ private float previousY;
+@@ -117,17 +101,11 @@ public boolean onTouchEvent(MotionEvent e) {
+ }
+ ```
+ 
+-Notice that after calculating the rotation angle, this method calls
+-`requestRender()` to tell the
+-renderer that it is time to render the frame. This approach is the most efficient in this example
+-because the frame does not need to be redrawn unless there is a change in the rotation. However, it
+-does not have any impact on efficiency unless you also request that the renderer only redraw when
+-the data changes using the `setRenderMode()`
+-method, so make sure this line is uncommented in the renderer:
++Notice that after calculating the rotation angle, this method calls[requestRender()](https://developer.android.com/reference/android/opengl/GLSurfaceView#requestRender())to tell the renderer that it is time to render the frame. This approach is the most efficient in this example because the frame does not need to be redrawn unless there is a change in the rotation. However, it does not have any impact on efficiency unless you also request that the renderer only redraw when the data changes using the[setRenderMode()](https://developer.android.com/reference/android/opengl/GLSurfaceView#setRenderMode(int))method, so make sure this line is uncommented in the renderer:  
+ 
+ ### Kotlin
+ 
+-```
++```kotlin
+ class MyGlSurfaceView(context: Context) : GLSurfaceView(context) {
+ 
+     init {
+@@ -139,7 +117,7 @@ class MyGlSurfaceView(context: Context) : GLSurfaceView(context) {
+ 
+ ### Java
+ 
+-```
++```java
+ public MyGLSurfaceView(Context context) {
+     ...
+     // Render the view only when there is a change in the drawing data
+@@ -149,14 +127,11 @@ public MyGLSurfaceView(Context context) {
+ 
+ ## Expose the rotation angle
+ 
+-The example code above requires that you expose the rotation angle through your renderer by
+-adding a public member. Since the renderer code is running on a separate thread from the main user
+-interface thread of your application, you must declare this public variable as `volatile`.
+-Here is the code to declare the variable and expose the getter and setter pair:
++The example code above requires that you expose the rotation angle through your renderer by adding a public member. Since the renderer code is running on a separate thread from the main user interface thread of your application, you must declare this public variable as`volatile`. Here is the code to declare the variable and expose the getter and setter pair:  
+ 
+ ### Kotlin
+ 
+-```
++```kotlin
+ class MyGLRenderer4 : GLSurfaceView.Renderer {
+ 
+     @Volatile
+@@ -166,7 +141,7 @@ class MyGLRenderer4 : GLSurfaceView.Renderer {
+ 
+ ### Java
+ 
+-```
++```java
+ public class MyGLRenderer implements GLSurfaceView.Renderer {
+     ...
+ 
+@@ -184,12 +159,11 @@ public class MyGLRenderer implements GLSurfaceView.Renderer {
+ 
+ ## Apply rotation
+ 
+-To apply the rotation generated by touch input, comment out the code that generates an angle and
+-add a variable that contains the touch input generated angle:
++To apply the rotation generated by touch input, comment out the code that generates an angle and add a variable that contains the touch input generated angle:  
+ 
+ ### Kotlin
+ 
+-```
++```kotlin
+ override fun onDrawFrame(gl: GL10) {
+     ...
+     val scratch = FloatArray(16)
+@@ -211,7 +185,7 @@ override fun onDrawFrame(gl: GL10) {
+ 
+ ### Java
+ 
+-```
++```java
+ public void onDrawFrame(GL10 gl) {
+     ...
+     float[] scratch = new float[16];
+@@ -231,10 +205,7 @@ public void onDrawFrame(GL10 gl) {
+ }
+ ```
+ 
+-When you have completed the steps described above, run the program and drag your finger over the
+-screen to rotate the triangle:
+-
+-![](/static/images/opengl/ogl-triangle-touch.png)
++When you have completed the steps described above, run the program and drag your finger over the screen to rotate the triangle:
++![](https://developer.android.com/static/images/opengl/ogl-triangle-touch.png)
+ 
+-**Figure 1.** Triangle being rotated with touch input (circle shows touch
+-location).
+\ No newline at end of file
++**Figure 1.**Triangle being rotated with touch input (circle shows touch location).
+\ No newline at end of file

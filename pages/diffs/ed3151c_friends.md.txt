@@ -1,0 +1,20 @@
+diff --git a/docs/games/pgs/unity/friends.md b/docs/games/pgs/unity/friends.md
+index 11f15bd..8eb860b 100644
+--- a/docs/games/pgs/unity/friends.md
++++ b/docs/games/pgs/unity/friends.md
+@@ -15,6 +15,7 @@ Send feedback
+ 
+ 
+ 
++
+ Play Games Friends allows players to create and maintain a cross-games friends
+ list. You can request access to this friends list to help your players play your
+ game with their friends. See the
+@@ -155,4 +156,6 @@ PlayGamesPlatform.Instance.ShowCompareProfileWithAlternativeNameHintsUI(
+ 
+ 
+ 
++
++
+ Send feedback
+\ No newline at end of file

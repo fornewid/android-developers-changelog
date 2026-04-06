@@ -1,0 +1,20 @@
+diff --git a/docs/games/optimize/vulkan-prerotation.md b/docs/games/optimize/vulkan-prerotation.md
+index f684dd4..5cb1dd8 100644
+--- a/docs/games/optimize/vulkan-prerotation.md
++++ b/docs/games/optimize/vulkan-prerotation.md
+@@ -15,7 +15,6 @@ Send feedback
+ 
+ 
+ 
+-
+ This article describes how to efficiently handle device rotation
+ in your Vulkan application by implementing pre-rotation.
+ 
+@@ -477,6 +476,4 @@ article are:
+ 
+ 
+ 
+-
+-
+ Send feedback
+\ No newline at end of file

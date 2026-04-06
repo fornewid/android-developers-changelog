@@ -1,0 +1,12 @@
+diff --git a/docs/training/wearables/wff/expressions.md b/docs/training/wearables/wff/expressions.md
+index 124dab9..fe877f3 100644
+--- a/docs/training/wearables/wff/expressions.md
++++ b/docs/training/wearables/wff/expressions.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ WFF uses an expression language to enable:
+ 
+ * Transforming the appearance using `Transform` or `Gyro`

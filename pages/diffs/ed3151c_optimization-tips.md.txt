@@ -1,0 +1,20 @@
+diff --git a/docs/games/optimize/optimization-tips.md b/docs/games/optimize/optimization-tips.md
+index a41e0bf..fcf1784 100644
+--- a/docs/games/optimize/optimization-tips.md
++++ b/docs/games/optimize/optimization-tips.md
+@@ -15,7 +15,6 @@ Send feedback
+ 
+ 
+ 
+-
+ This document shows you how to optimize game performance by using tools to
+ identify and resolve CPU and GPU bottlenecks.
+ 
+@@ -359,6 +358,4 @@ Example to eliminate superfluous draw calls and render passes (click to enlarge)
+ 
+ 
+ 
+-
+-
+ Send feedback
+\ No newline at end of file

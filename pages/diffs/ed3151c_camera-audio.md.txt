@@ -1,0 +1,12 @@
+diff --git a/docs/docs/quality-guidelines/adaptive-app-quality/experiences/camera-audio.md b/docs/docs/quality-guidelines/adaptive-app-quality/experiences/camera-audio.md
+index d7b2767..43ffda9 100644
+--- a/docs/docs/quality-guidelines/adaptive-app-quality/experiences/camera-audio.md
++++ b/docs/docs/quality-guidelines/adaptive-app-quality/experiences/camera-audio.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Premium devices often serve as hubs for content creation and communication.
+ Enable users to seamlessly switch between built-in and external camera and audio
+ hardware for a versatile and professional user experience.

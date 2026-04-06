@@ -1,0 +1,20 @@
+diff --git a/docs/games/engines/unity/start-in-unity.md b/docs/games/engines/unity/start-in-unity.md
+index baab533..5d09456 100644
+--- a/docs/games/engines/unity/start-in-unity.md
++++ b/docs/games/engines/unity/start-in-unity.md
+@@ -15,7 +15,6 @@ Send feedback
+ 
+ 
+ 
+-
+ This guide outlines a typical game development cycle. After reading this
+ guide, you might find it helpful to use also as a reference.
+ 
+@@ -559,6 +558,4 @@ all markets.
+ 
+ 
+ 
+-
+-
+ Send feedback
+\ No newline at end of file

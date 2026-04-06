@@ -1,0 +1,12 @@
+diff --git a/docs/agents/skills/jetpack-compose/migration/migrate-xml-views-to-jetpack-compose/references/xml-layout-migration.md b/docs/agents/skills/jetpack-compose/migration/migrate-xml-views-to-jetpack-compose/references/xml-layout-migration.md
+index d1246ef..e63d7f0 100644
+--- a/docs/agents/skills/jetpack-compose/migration/migrate-xml-views-to-jetpack-compose/references/xml-layout-migration.md
++++ b/docs/agents/skills/jetpack-compose/migration/migrate-xml-views-to-jetpack-compose/references/xml-layout-migration.md
+@@ -8,7 +8,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ ## 1. Structural analysis & mapping
+ 
+ **Identify the precise mapping** between XML elements and Compose equivalents. You must determine:

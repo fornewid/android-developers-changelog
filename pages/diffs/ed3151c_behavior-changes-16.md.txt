@@ -1,0 +1,12 @@
+diff --git a/docs/about/versions/16/behavior-changes-16.md b/docs/about/versions/16/behavior-changes-16.md
+index 0c890e8..76945c4 100644
+--- a/docs/about/versions/16/behavior-changes-16.md
++++ b/docs/about/versions/16/behavior-changes-16.md
+@@ -12,6 +12,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Like previous releases, Android 16 includes behavior changes that might affect
+ your app. The following behavior changes apply exclusively to apps that are
+ targeting Android 16 or higher. If your app is targeting Android 16 or higher,

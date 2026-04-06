@@ -1,0 +1,12 @@
+diff --git a/docs/about/versions/12/12L.md b/docs/about/versions/12/12L.md
+index ad23d46..a833774 100644
+--- a/docs/about/versions/12/12L.md
++++ b/docs/about/versions/12/12L.md
+@@ -16,7 +16,6 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
+-
+ ### 12L feature drop
+ 
+ 12L is a special feature drop that makes Android 12 even better on tablets and foldable devices. With 12L, we've optimized and polished the system UI for large screens, made multitasking more powerful and intuitive, and improved compatibility support so apps look better right out of the box. Test your apps on 12L today and optimize for large screen devices!

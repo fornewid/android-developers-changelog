@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/compose/quick-guides/content/display-top-app-bar.md b/docs/develop/ui/compose/quick-guides/content/display-top-app-bar.md
+index 87e52c9..ca50183 100644
+--- a/docs/develop/ui/compose/quick-guides/content/display-top-app-bar.md
++++ b/docs/develop/ui/compose/quick-guides/content/display-top-app-bar.md
+@@ -14,6 +14,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Create a top app bar to help users navigate and access functions in your app,
+ using the [`TopAppBar`](/reference/kotlin/androidx/compose/material3/TopAppBar.composable) composable.
+ 

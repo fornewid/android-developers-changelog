@@ -1,0 +1,12 @@
+diff --git a/docs/studio/write/vector-asset-studio.md b/docs/studio/write/vector-asset-studio.md
+index b65f844..4a5a17a 100644
+--- a/docs/studio/write/vector-asset-studio.md
++++ b/docs/studio/write/vector-asset-studio.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Android Studio includes a tool called Vector Asset Studio that helps you add
+ material icons and import Scalable Vector Graphic (SVG) and Adobe Photoshop Document (PSD) files
+ into your project as vector drawable resources. Using vector drawables instead of bitmaps reduces

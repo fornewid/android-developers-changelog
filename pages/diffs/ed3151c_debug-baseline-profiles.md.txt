@@ -1,0 +1,361 @@
+diff --git a/docs/topic/performance/baselineprofiles/debug-baseline-profiles.md b/docs/topic/performance/baselineprofiles/debug-baseline-profiles.md
+index c47e7bc..1d4c0ed 100644
+--- a/docs/topic/performance/baselineprofiles/debug-baseline-profiles.md
++++ b/docs/topic/performance/baselineprofiles/debug-baseline-profiles.md
+@@ -1,19 +1,9 @@
+ ---
+-title: Debug Baseline Profiles  |  App quality  |  Android Developers
++title: https://developer.android.com/topic/performance/baselineprofiles/debug-baseline-profiles
+ url: https://developer.android.com/topic/performance/baselineprofiles/debug-baseline-profiles
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-* [Design & Plan](https://developer.android.com/design)
+-* [App quality](https://developer.android.com/quality)
+-* [Technical quality](https://developer.android.com/quality/technical)
+-
+-# Debug Baseline Profiles Stay organized with collections Save and categorize content based on your preferences.
+-
+-
+-
+-
+ This document provides best practices and troubleshooting steps to help diagnose
+ problems and make sure your Baseline Profiles work correctly to provide the most
+ benefit.
+@@ -24,20 +14,18 @@ If you have copied the Baseline Profiles example in the [Now in Android](https:/
+ sample app, you might encounter test failures during the Baseline Profile task
+ stating that the tests cannot be run on an emulator:
+ 
+-```
+-./gradlew assembleDemoRelease
+-Starting a Gradle Daemon (subsequent builds will be faster)
+-Calculating task graph as no configuration cache is available for tasks: assembleDemoRelease
+-Type-safe project accessors is an incubating feature.
+-
+-> Task :benchmarks:pixel6Api33DemoNonMinifiedReleaseAndroidTest
+-Starting 14 tests on pixel6Api33
+-
+-com.google.samples.apps.nowinandroid.foryou.ScrollForYouFeedBenchmark > scrollFeedCompilationNone[pixel6Api33] FAILED
+-        java.lang.AssertionError: ERRORS (not suppressed): EMULATOR
+-        WARNINGS (suppressed):
+-        ...
+-```
++    ./gradlew assembleDemoRelease
++    Starting a Gradle Daemon (subsequent builds will be faster)
++    Calculating task graph as no configuration cache is available for tasks: assembleDemoRelease
++    Type-safe project accessors is an incubating feature.
++
++    > Task :benchmarks:pixel6Api33DemoNonMinifiedReleaseAndroidTest
++    Starting 14 tests on pixel6Api33
++
++    com.google.samples.apps.nowinandroid.foryou.ScrollForYouFeedBenchmark > scrollFeedCompilationNone[pixel6Api33] FAILED
++            java.lang.AssertionError: ERRORS (not suppressed): EMULATOR
++            WARNINGS (suppressed):
++            ...
+ 
+ The failures occur because Now in Android uses a Gradle-managed device for
+ Baseline Profile generation. The failures are expected, because you generally
+@@ -47,69 +35,54 @@ Baseline Profile collection on emulators for convenience. To use Baseline
+ Profiles with an emulator, perform the build and installation from the
+ command-line, and set an argument to enable Baseline Profiles rules:
+ 
+-```
+-installDemoRelease -Pandroid.testInstrumentationRunnerArguments.androidx.benchmark.enabledRules=BaselineProfile
+-```
++    installDemoRelease -Pandroid.testInstrumentationRunnerArguments.androidx.benchmark.enabledRules=BaselineProfile
+ 
+ Alternatively, you can create a custom run configuration in Android Studio to
+ enable Baseline Profiles on emulators by selecting
+-**Run > Edit Configurations**:
+-
+-![Add a custom run configuration to create Baseline Profiles in Now in Android](/static/topic/performance/images/studio/run-config-nowinandroid-baselineprofiles.png)
++**Run \> Edit Configurations**:
++![Add a custom run configuration to create Baseline Profiles in Now in Android](https://developer.android.com/static/topic/performance/images/studio/run-config-nowinandroid-baselineprofiles.png) **Figure 1.** Add a custom run configuration to create Baseline Profiles in Now in Android.
+ 
+-
+-**Figure 1.** Add a custom run configuration to create Baseline
+-Profiles in Now in Android.
+-
+-**Note:** Creating a custom run configuration isn't necessary when you add Baseline
+-Profiles using the Baseline Profile module wizard in Android Studio, which is
+-recommended. The wizard creates a run configuration for you.
++> [!NOTE]
++> **Note:** Creating a custom run configuration isn't necessary when you add Baseline Profiles using the Baseline Profile module wizard in Android Studio, which is recommended. The wizard creates a run configuration for you.
+ 
+ ## Verify profile installation and application
+ 
+ To check that the APK or Android App Bundle (AAB) you're inspecting is from a
+ build variant that includes Baseline Profiles, do the following:
+ 
+-1. In Android Studio, select **Build > Analyze APK**.
++1. In Android Studio, select **Build \> Analyze APK**.
+ 2. Open your AAB or APK.
+ 3. Confirm that the `baseline.prof` file exists:
+ 
+-   * If you're inspecting an AAB, the profile is at
+-     `/BUNDLE-METADATA/com.android.tools.build.profiles/baseline.prof`.
+-   * If you're inspecting an APK, the profile is at
++   - If you're inspecting an AAB, the profile is at `/BUNDLE-METADATA/com.android.tools.build.profiles/baseline.prof`.
++   - If you're inspecting an APK, the profile is at
+      `/assets/dexopt/baseline.prof`.
+ 
+      The presence of this file is the first sign of a correct build
+      configuration. If it's missing, it means the Android Runtime won't receive
+      any pre-compilation instructions at install time.
+-
+-     ![Check for a Baseline Profile using APK Analyzer in Android Studio](/static/topic/performance/images/studio/baseline-profile-in-apk.png) 
+-
+-     **Figure 2.** Check for a Baseline Profile
+-     using APK Analyzer in Android Studio.
++     ![Check for a Baseline Profile using APK Analyzer in Android Studio](https://developer.android.com/static/topic/performance/images/studio/baseline-profile-in-apk.png) **Figure 2.** Check for a Baseline Profile using APK Analyzer in Android Studio.
+ 
+ Baseline Profiles need to be compiled on the device running the app. When you
+ install non-debuggable builds using Android Studio or the Gradle wrapper
+ command-line tool, on-device compilation happens automatically. If you install
+ the app from the Google Play Store, Baseline Profiles are compiled during
+ background device updates rather than at install time. When the app is installed
+-using other tools, the Jetpack [`ProfileInstaller`](/jetpack/androidx/releases/profileinstaller) library is responsible
++using other tools, the Jetpack [`ProfileInstaller`](https://developer.android.com/jetpack/androidx/releases/profileinstaller) library is responsible
+ for enqueueing the profiles for compilation during the next background DEX
+ optimization process.
+ 
+ In those cases, if you want to make sure your Baseline Profiles are being used,
+-you might need to [force compilation of Baseline Profiles](#force-compilation).
+-[`ProfileVerifier`](/reference/androidx/profileinstaller/ProfileVerifier) lets you query the status of the profile installation and
++you might need to [force compilation of Baseline Profiles](https://developer.android.com/topic/performance/baselineprofiles/debug-baseline-profiles#force-compilation).
++[`ProfileVerifier`](https://developer.android.com/reference/androidx/profileinstaller/ProfileVerifier) lets you query the status of the profile installation and
+ compilation, as shown in the following example:
+ 
+-**Note:** If you're using an AGP version lower than 8.4 and installing the app using
+-Android Studio or the Gradle Wrapper command line tool (or tools other than the
+-Play Store), the Baseline Profile compilation doesn't happen automatically. For
+-more information, see [Minimum recommended stable versions](/topic/performance/baselineprofiles/overview#recommended-versions).
++> [!NOTE]
++> **Note:** If you're using an AGP version lower than 8.4 and installing the app using Android Studio or the Gradle Wrapper command line tool (or tools other than the Play Store), the Baseline Profile compilation doesn't happen automatically. For more information, see [Minimum recommended stable versions](https://developer.android.com/topic/performance/baselineprofiles/overview#recommended-versions).
+ 
+ ### Kotlin
+ 
+-```
++```kotlin
+ private const val TAG = "MainActivity"
+ 
+ class MainActivity : ComponentActivity() {
+@@ -150,7 +123,7 @@ class MainActivity : ComponentActivity() {
+ 
+ ### Java
+ 
+-```
++```java
+ public class MainActivity extends ComponentActivity {
+ 
+     private static final String TAG = "MainActivity";
+@@ -217,7 +190,7 @@ The following result codes provide hints for the cause of some issues:
+ `RESULT_CODE_NO_PROFILE`
+ :   No profile was installed for this app when installing the app through app
+     store or package manager. The main reason for this to error code is that profile
+-    installer did not run due to [`ProfileInstallerInitializer`](/reference/androidx/profileinstaller/ProfileInstallerInitializer) being disabled.
++    installer did not run due to [`ProfileInstallerInitializer`](https://developer.android.com/reference/androidx/profileinstaller/ProfileInstallerInitializer) being disabled.
+     Note that when this error is reported an embedded profile was still found in the
+     application APK. When an embedded profile is not found, the error code returned
+     is `RESULT_CODE_ERROR_NO_PROFILE_EMBEDDED`.
+@@ -228,7 +201,7 @@ The following result codes provide hints for the cause of some issues:
+     next time background DEX optimization is run by the system. The profile isn't
+     active until compilation completes. Don't attempt to benchmark your Baseline
+     Profiles until compilation is complete. You might need to [force compilation of
+-    Baseline Profiles](#force-compilation). This error won't occur when app is installed from Play
++    Baseline Profiles](https://developer.android.com/topic/performance/baselineprofiles/debug-baseline-profiles#force-compilation). This error won't occur when app is installed from Play
+     Store or package manager on devices running Android 9 (API 28) and higher,
+     because compilation is performed during installation.
+ 
+@@ -251,8 +224,8 @@ The following result codes provide hints for the cause of some issues:
+     ProfileVerifier` supports only Android 9 (API level 28) and higher.
+ 
+ `RESULT_CODE_ERROR_PACKAGE_NAME_DOES_NOT_EXIST`
+-:   A [`PackageManager.NameNotFoundException`](/reference/android/content/pm/PackageManager.NameNotFoundException) is thrown when querying the
+-    [`PackageManager`](/reference/android/content/pm/PackageManager) for the app package. This should rarely happen. Try
++:   A [`PackageManager.NameNotFoundException`](https://developer.android.com/reference/android/content/pm/PackageManager.NameNotFoundException) is thrown when querying the
++    [`PackageManager`](https://developer.android.com/reference/android/content/pm/PackageManager) for the app package. This should rarely happen. Try
+     uninstalling the app and reinstalling everything.
+ 
+ `RESULT_CODE_ERROR_CACHE_FILE_EXISTS_BUT_CANNOT_BE_READ`
+@@ -271,35 +244,29 @@ Baseline Profiles.
+ 
+ If the compilation status of your Baseline Profiles is
+ `RESULT_CODE_PROFILE_ENQUEUED_FOR_COMPILATION`, you can force immediate
+-compilation using [`adb`](/tools/adb):
++compilation using [`adb`](https://developer.android.com/tools/adb):
+ 
+-```
+-adb shell cmd package compile -r bg-dexopt PACKAGE_NAME
+-```
++    adb shell cmd package compile -r bg-dexopt PACKAGE_NAME
+ 
+ ### Check Baseline Profile compilation state without `ProfileVerifier`
+ 
+ If you aren't using `ProfileVerifier`, you can check the compilation state using
+ `adb`, although it doesn't give as deep insights as `ProfileVerifier`:
+ 
+-```
+-adb shell dumpsys package dexopt | grep -A 2 PACKAGE_NAME
+-```
++    adb shell dumpsys package dexopt | grep -A 2 PACKAGE_NAME
+ 
+ Using `adb` produces something similar to the following:
+ 
+-```
+-  [com.google.samples.apps.nowinandroid.demo]
+-    path: /data/app/~~dzJiGMKvp22vi2SsvfjkrQ==/com.google.samples.apps.nowinandroid.demo-7FR1sdJ8ZTy7eCLwAnn0Vg==/base.apk
+-      arm64: [status=speed-profile] [reason=bg-dexopt] [primary-abi]
+-        [location is /data/app/~~dzJiGMKvp22vi2SsvfjkrQ==/com.google.samples.apps.nowinandroid.demo-7FR1sdJ8ZTy7eCLwAnn0Vg==/oat/arm64/base.odex]
+-```
++      [com.google.samples.apps.nowinandroid.demo]
++        path: /data/app/~~dzJiGMKvp22vi2SsvfjkrQ==/com.google.samples.apps.nowinandroid.demo-7FR1sdJ8ZTy7eCLwAnn0Vg==/base.apk
++    arm64: \[status=speed-profile\] \[reason=bg-dexopt\] \[primary-abi\]
++            [location is /data/app/~~dzJiGMKvp22vi2SsvfjkrQ==/com.google.samples.apps.nowinandroid.demo-7FR1sdJ8ZTy7eCLwAnn0Vg==/oat/arm64/base.odex]
+ 
+ The status value indicates the profile compilation status and is one of the
+ following values:
+ 
+ | Compilation status | Meaning |
+-| --- | --- |
++|---|---|
+ | `speed‑profile` | A compiled profile exists and is being used. |
+ | `verify` | No compiled profile exists. |
+ 
+@@ -311,7 +278,7 @@ The reason value indicates what triggers the compilation of the profile and is
+ one of the following values:
+ 
+ | Reason | Meaning |
+-| --- | --- |
++|---|---|
+ | `install‑dm` | A Baseline Profile was compiled manually or by Google Play when the app is installed. |
+ | `bg‑dexopt` | A profile was compiled while your device was idle. This might be a Baseline Profile, or it might be a profile collected during app usage. |
+ | `cmdline` | The compilation was triggered using adb. This might be a Baseline Profile, or it might be a profile collected during app usage. |
+@@ -333,21 +300,18 @@ whether the Startup Profile was applied by inspecting the generated `r8.json`
+ file. This file is packaged within your AAB.
+ 
+ 1. Open your AAB archive and locate the `r8.json` file.
+-2. Search the file for the `dexFiles` array, which lists the generated DEX
+-   files.
++2. Search the file for the `dexFiles` array, which lists the generated DEX files.
+ 3. Look for a `dexFiles` object that contains the key-value pair `"startup":
+    true`. This explicitly indicates that the Startup Profile rules were applied
+    to optimize the layout of that specific DEX file.
+ 
+-   ```
+-   "dexFiles": [
+-    {
+-      "checksum": "...",
+-      "startup": true // This flag confirms profile application to this DEX file
+-    },
+-    // ... other DEX files
+-   ]
+-   ```
++       "dexFiles": [
++        {
++          "checksum": "...",
++          "startup": true // This flag confirms profile application to this DEX file
++        },
++        // ... other DEX files
++       ]
+ 
+ ### Inspect DEX arrangement for all AGP versions
+ 
+@@ -357,13 +321,9 @@ can also use this method if you are using AGP 8.8 or higher and want to manually
+ check the DEX layout. For example, if you aren't seeing the expected performance
+ improvements. To inspect the DEX arrangement, do the following:
+ 
+-1. Open your AAB or APK using **Build > Analyze APK** in Android Studio.
++1. Open your AAB or APK using **Build \> Analyze APK** in Android Studio.
+ 2. Navigate to the first DEX file. For example, `classes.dex`.
+-3. Inspect the contents of this DEX file. You should be able to verify that the
+-   critical classes and methods defined in your Startup Profile file
+-   (`startup-prof.txt`) are present in this primary DEX file. A
+-   successful application means that these startup-critical components are
+-   prioritized for faster loading.
++3. Inspect the contents of this DEX file. You should be able to verify that the critical classes and methods defined in your Startup Profile file (`startup-prof.txt`) are present in this primary DEX file. A successful application means that these startup-critical components are prioritized for faster loading.
+ 
+ ## Performance issues
+ 
+@@ -373,8 +333,8 @@ your Baseline Profiles to get the most benefits from them.
+ ### Correctly benchmark startup metrics
+ 
+ Your Baseline Profiles will be more effective if your startup metrics are
+-well-defined. The two key metrics are [time to initial display (TTID)](/topic/performance/vitals/launch-time#time-initial) and
+-[time to full display (TTFD)](/topic/performance/vitals/launch-time#time-full).
++well-defined. The two key metrics are [time to initial display (TTID)](https://developer.android.com/topic/performance/vitals/launch-time#time-initial) and
++[time to full display (TTFD)](https://developer.android.com/topic/performance/vitals/launch-time#time-full).
+ 
+ TTID is when the app draws its first frame. It's important to keep this as short
+ as possible because displaying something shows the user that the app is running.
+@@ -392,11 +352,11 @@ Keep both TTID and TTFD as low as possible to make your app feel responsive.
+ The system is able to detect TTID, display it in Logcat, and report it as part
+ of startup benchmarks. However, the system is unable to determine TTFD, and it's
+ the app's responsibility to report when it reaches a fully drawn interactive
+-state. You can do this by calling [`reportFullyDrawn()`](/reference/androidx/activity/ComponentActivity#reportFullyDrawn()), or
+-[`ReportDrawn`](/reference/kotlin/androidx/activity/compose/ReportDrawn.composable#ReportDrawn()) if you're using Jetpack Compose. If you have multiple
++state. You can do this by calling [`reportFullyDrawn()`](https://developer.android.com/reference/androidx/activity/ComponentActivity#reportFullyDrawn()), or
++[`ReportDrawn`](https://developer.android.com/reference/kotlin/androidx/activity/compose/ReportDrawn.composable#ReportDrawn()) if you're using Jetpack Compose. If you have multiple
+ background tasks that all need to complete before the app is considered fully
+-drawn, then you can use [`FullyDrawnReporter`](/reference/androidx/activity/FullyDrawnReporter), as described in [Improve
+-startup timing accuracy](/topic/performance/benchmarking/macrobenchmark-metrics#startup-accuracy).
++drawn, then you can use [`FullyDrawnReporter`](https://developer.android.com/reference/androidx/activity/FullyDrawnReporter), as described in [Improve
++startup timing accuracy](https://developer.android.com/topic/performance/benchmarking/macrobenchmark-metrics#startup-accuracy).
+ 
+ #### Library profiles and custom profiles
+ 
+@@ -423,7 +383,7 @@ typically your app module:
+ 
+ ### Kotlin
+ 
+-```
++```kotlin
+ android {
+   ...
+   buildTypes {
+@@ -454,7 +414,7 @@ baselineProfile {
+ 
+ ### Groovy
+ 
+-```
++```groovy
+ android {
+   ...
+   buildTypes {
+@@ -496,7 +456,7 @@ example the producer module is named `:baselineprofile`.
+ 
+ ### Kotlin
+ 
+-```
++```kotlin
+ android {
+   ...
+     buildTypes {
+@@ -511,7 +471,7 @@ android {
+ 
+ ### Groovy
+ 
+-```
++```groovy
+ android {
+   ...
+     buildTypes {
+@@ -561,10 +521,11 @@ A/B testing different APKs using Google Play Store is generally not supported
+ for production releases. To assess the impact in a production-like environment,
+ consider the following approaches:
+ 
+-* **Off-cycle release**: Upload an off-cycle release to a small percentage of
++- **Off-cycle release**: Upload an off-cycle release to a small percentage of
+   your user base that only includes the profile change. This lets you gather
+   real-world metrics on the performance difference.
+-* **Local benchmarking**: Locally benchmark your app with and without the
++
++- **Local benchmarking** : Locally benchmark your app with and without the
+   profile applied. However, be aware that local benchmarking shows you the
+   best-case scenario for profiles, as it doesn't include the effects of [Cloud
+-  Profiles](/topic/performance/baselineprofiles/overview#cloud-profiles) from ART that are present in production devices.
+\ No newline at end of file
++  Profiles](https://developer.android.com/topic/performance/baselineprofiles/overview#cloud-profiles) from ART that are present in production devices.
+\ No newline at end of file

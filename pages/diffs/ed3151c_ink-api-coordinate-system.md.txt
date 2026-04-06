@@ -1,0 +1,85 @@
+diff --git a/docs/develop/ui/compose/touch-input/stylus-input/ink-api-coordinate-system.md b/docs/develop/ui/compose/touch-input/stylus-input/ink-api-coordinate-system.md
+index 0b5bbcc..60e998c 100644
+--- a/docs/develop/ui/compose/touch-input/stylus-input/ink-api-coordinate-system.md
++++ b/docs/develop/ui/compose/touch-input/stylus-input/ink-api-coordinate-system.md
+@@ -1,13 +1,23 @@
+ ---
+-title: https://developer.android.com/develop/ui/compose/touch-input/stylus-input/ink-api-coordinate-system
++title: Epsilon and coordinate system  |  Jetpack Compose  |  Android Developers
+ url: https://developer.android.com/develop/ui/compose/touch-input/stylus-input/ink-api-coordinate-system
+-source: md.txt
++source: html-scrape
+ ---
+ 
+-Your choice of a coordinate system---in other words, your choice of what 1
+-*world unit* means---goes hand in hand with your choice of brush epsilon value.
++* [Android Developers](https://developer.android.com/)
++* [Develop](https://developer.android.com/develop)
++* [Core areas](https://developer.android.com/develop/core-areas)
++* [UI](https://developer.android.com/develop/ui)
++* [Docs](https://developer.android.com/develop/ui/compose/documentation)
++
++# Epsilon and coordinate system Stay organized with collections Save and categorize content based on your preferences.
++
++
++
++Your choice of a coordinate system—in other words, your choice of what 1
++*world unit* means—goes hand in hand with your choice of brush epsilon value.
+ The coordinate system is reflected in the inputToWorld transform matrix value
+-you pass to [`InProgressStrokesView.startStroke()`](https://developer.android.com/reference/kotlin/androidx/ink/authoring/InProgressStrokesView#startStroke(androidx.ink.strokes.StrokeInput,androidx.ink.brush.Brush,android.graphics.Matrix)) and the similar transform
++you pass to [`InProgressStrokesView.startStroke()`](/reference/kotlin/androidx/ink/authoring/InProgressStrokesView#startStroke(androidx.ink.strokes.StrokeInput,androidx.ink.brush.Brush,android.graphics.Matrix)) and the similar transform
+ you apply to the `Canvas` when drawing dry strokes.
+ 
+ A typical app can consider only world units and leave the
+@@ -37,18 +47,18 @@ round internal calculations.
+ 
+ ## What are reasonable world unit sizes and epsilon values?
+ 
+-For portability across different screen sizes and [device densities](https://developer.android.com/training/multiscreen/screendensities), the world
++For portability across different screen sizes and [device densities](/training/multiscreen/screendensities), the world
+ unit size should be density independent. The classic unit for such scenarios is
+-density-independent pixels (dp). Typically choose 1 dp as your
++density-independent pixels (dp). Typically choose 1 dp as your
+ world unit size.
+ 
+ When choosing a fixed epsilon value, avoid the internal implementation rounding
+ numbers to any distance that would be larger than a pixel. With a world unit
+-size of 1 dp, epsilon should be at most 1/4 (0.25 world units) to be the
+-size of a pixel on high display density devices where 1 dp can be
+-4 px. However, if you want
++size of 1 dp, epsilon should be at most 1/4 (0.25 world units) to be the
++size of a pixel on high display density devices where 1 dp can be
++4 px. However, if you want
+ to support the user zooming in on their content by up to 10x and still keep
+-epsilon-related rounding to 1 px or less, then epsilon should be 0.25
++epsilon-related rounding to 1 px or less, then epsilon should be 0.25
+ divided by 10, which equals 0.025 world units.
+ 
+ This doesn't mean that you can't zoom in further than 10x, but you might start
+@@ -57,9 +67,9 @@ seeing some imprecision and artifacts in the stroke rendering at that point.
+ Choosing an epsilon value is a balance between precise detail when zooming in
+ and computational resources such as:
+ 
+-- CPU cycles to calculate more precise geometry
+-- Memory to store more details in that geometry
+-- GPU time to render that geometry
++* CPU cycles to calculate more precise geometry
++* Memory to store more details in that geometry
++* GPU time to render that geometry
+ 
+ These guidelines are reasonable defaults, but you can use them to choose
+ coordinate system and epsilon values that are more suited to your needs.
+@@ -67,4 +77,10 @@ coordinate system and epsilon values that are more suited to your needs.
+ Deviating too far from these recommended values can adversely affect your
+ application. For example, increased resource consumption can make your
+ application run slowly. In some cases, floating-point precision issues can also
+-manifest as strange visual artifacts.
+\ No newline at end of file
++manifest as strange visual artifacts.
++
++[Previous
++
++arrow\_back
++
++Manage state and storage](/develop/ui/compose/touch-input/stylus-input/ink-api-state-preservation)
+\ No newline at end of file

@@ -1,0 +1,12 @@
+diff --git a/docs/build/releases/about-agp.md b/docs/build/releases/about-agp.md
+index 26ea636..5b4f4ce 100644
+--- a/docs/build/releases/about-agp.md
++++ b/docs/build/releases/about-agp.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ **Important:** For a detailed log of Android Gradle plugin API deprecations and
+ removals, see the
+ [Android Gradle plugin API updates](/studio/releases/gradle-plugin-api-updates).

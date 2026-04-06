@@ -1,0 +1,12 @@
+diff --git a/docs/build/migrate-to-built-in-kotlin.md b/docs/build/migrate-to-built-in-kotlin.md
+index 77cd5dd..c1666bd 100644
+--- a/docs/build/migrate-to-built-in-kotlin.md
++++ b/docs/build/migrate-to-built-in-kotlin.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Android Gradle plugin 9.0 introduces built-in Kotlin support and enables it
+ by default. That means you no longer have to apply the
+ `org.jetbrains.kotlin.android` (or `kotlin-android`) plugin in your build files

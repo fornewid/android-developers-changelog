@@ -1,0 +1,12 @@
+diff --git a/docs/jetpack/androidx/releases/car-app.md b/docs/jetpack/androidx/releases/car-app.md
+index 92723c3..eca2e91 100644
+--- a/docs/jetpack/androidx/releases/car-app.md
++++ b/docs/jetpack/androidx/releases/car-app.md
+@@ -15,6 +15,7 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
++
+ # Car App
+ 
+ [User Guide](/training/cars)  [Code Sample](https://github.com/android/car-samples)  [Codelab](/codelabs/car-app-library-fundamentals)

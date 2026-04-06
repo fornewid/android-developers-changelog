@@ -1,0 +1,12 @@
+diff --git a/docs/work/managed-profiles.md b/docs/work/managed-profiles.md
+index 8149403..0417170 100644
+--- a/docs/work/managed-profiles.md
++++ b/docs/work/managed-profiles.md
+@@ -12,6 +12,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ The Android platform allows devices to have
+ [work
+ profiles](/about/versions/lollipop/android-5.0#Enterprise) (sometimes referred to as managed profiles). A work profile is controlled

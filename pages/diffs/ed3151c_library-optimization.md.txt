@@ -1,0 +1,12 @@
+diff --git a/docs/topic/performance/app-optimization/library-optimization.md b/docs/topic/performance/app-optimization/library-optimization.md
+index e0ef3ec..9217321 100644
+--- a/docs/topic/performance/app-optimization/library-optimization.md
++++ b/docs/topic/performance/app-optimization/library-optimization.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ As a library author, you must ensure that app developers can easily incorporate
+ your library into their app while maintaining a high-quality end-user
+ experience. This means your library must be compatible with Android optimization

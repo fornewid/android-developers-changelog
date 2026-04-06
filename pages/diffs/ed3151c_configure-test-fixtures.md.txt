@@ -1,0 +1,12 @@
+diff --git a/docs/build/publish-library/configure-test-fixtures.md b/docs/build/publish-library/configure-test-fixtures.md
+index 1adccaa..5b5a99d 100644
+--- a/docs/build/publish-library/configure-test-fixtures.md
++++ b/docs/build/publish-library/configure-test-fixtures.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ While publishing test fixtures doesn't require any particular configuration
+ of the publication, the
+ [capability mechanism](https://docs.gradle.org/current/userguide/component_capabilities.html)

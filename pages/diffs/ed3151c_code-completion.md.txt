@@ -1,0 +1,12 @@
+diff --git a/docs/studio/gemini/code-completion.md b/docs/studio/gemini/code-completion.md
+index 55e83c3..5ff8adb 100644
+--- a/docs/studio/gemini/code-completion.md
++++ b/docs/studio/gemini/code-completion.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Gemini offers AI-enabled autocompletion of code in Android Studio that appears
+ as gray italicized text as you type. This feature saves you time and lets you
+ complete coding projects faster by suggesting full functions. When AI code

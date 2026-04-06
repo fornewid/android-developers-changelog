@@ -1,0 +1,12 @@
+diff --git a/docs/topic/libraries/architecture/paging/v3-migration.md b/docs/topic/libraries/architecture/paging/v3-migration.md
+index 4163a83..2a075e2 100644
+--- a/docs/topic/libraries/architecture/paging/v3-migration.md
++++ b/docs/topic/libraries/architecture/paging/v3-migration.md
+@@ -12,7 +12,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Paging 3 is significantly different from earlier versions of the Paging library.
+ This version provides enhanced functionality and addresses common
+ difficulties with using Paging 2. If your app already uses an earlier

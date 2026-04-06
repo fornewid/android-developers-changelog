@@ -1,0 +1,357 @@
+diff --git a/docs/design/ui/xr/guides/spatial-ui.md b/docs/design/ui/xr/guides/spatial-ui.md
+index aedca1d..534deb4 100644
+--- a/docs/design/ui/xr/guides/spatial-ui.md
++++ b/docs/design/ui/xr/guides/spatial-ui.md
+@@ -1,28 +1,17 @@
+ ---
+-title: Spatial UI  |  XR Headsets & wired XR Glasses  |  Android Developers
++title: https://developer.android.com/design/ui/xr/guides/spatial-ui
+ url: https://developer.android.com/design/ui/xr/guides/spatial-ui
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-The Android XR SDK is now available in Developer Preview. We want your feedback! Visit our [support page](/develop/xr/support) to reach out.
+-
+-* [Android Developers](https://developer.android.com/)
+-* [Design & Plan](https://developer.android.com/design)
+-* [UI Design](https://developer.android.com/design/ui)
+-* [XR Headsets & wired XR Glasses](https://developer.android.com/design/ui/xr)
+-* [Guides](https://developer.android.com/design/ui/xr/guides/get-started)
+-
+-# Spatial UI Stay organized with collections Save and categorize content based on your preferences.
+-
+-
+-
+-**Preview:** Currently, spatial UI is only available in [Full Space](/design/ui/xr/guides/foundations#modes).
++> [!WARNING]
++> **Preview:** Currently, spatial UI is only available in [Full Space](https://developer.android.com/design/ui/xr/guides/foundations#modes).
+ 
+ When building an Android XR differentiated app, you may want to use spatial UI
+ to place content in a user's physical or virtual environment. You can break out
+-your app into [spatial panels](#spatial-panels), [orbiters](#orbiters), and add [spatial elevation](#spatial-elevation)
++your app into [spatial panels](https://developer.android.com/design/ui/xr/guides/spatial-ui#spatial-panels), [orbiters](https://developer.android.com/design/ui/xr/guides/spatial-ui#orbiters), and add [spatial elevation](https://developer.android.com/design/ui/xr/guides/spatial-ui#spatial-elevation)
+ (described in more detail on this page). You can also incorporate [spatial
+-video](/develop/xr/jetpack-xr-sdk/add-spatial-video) in your design.
++video](https://developer.android.com/develop/xr/jetpack-xr-sdk/add-spatial-video) in your design.
+ 
+ ## Spatial panels
+ 
+@@ -34,7 +23,7 @@ UI elements, interactive components, and immersive content.
+ ![An Android XR app with the Northern Lights and a snowy mountain. Three user
+ control menus are in orbiters. They are elevated above the main panel, one to
+ its left, right, and bottom
+-sides.](/static/images/design/ui/xr/guides/spatial-ui-panels.jpg)
++sides.](https://developer.android.com/static/images/design/ui/xr/guides/spatial-ui-panels.jpg)
+ 
+ ## Understand how UI scales and moves
+ 
+@@ -47,16 +36,10 @@ per meter, and elements will appear smaller.
+ To avoid conflicts with the system UI, keep within the **default panel movement
+ limits**:
+ 
+-* Minimum depth: 0.75 meters from user
+-* Maximum depth: 5 meters from user
+-
+-[
+-
+-Alas, your browser doesn't support HTML5 video. That's OK! You can still
+-[download the video](/static/videos/design/ui/xr/spatial-ui-scale.mp4) and watch it with a video player.
+-](/static/videos/design/ui/xr/spatial-ui-scale.mp4)
+-
++- Minimum depth: 0.75 meters from user
++- Maximum depth: 5 meters from user
+ 
++Alas, your browser doesn't support HTML5 video. That's OK! You can still [download the video](https://developer.android.com/static/videos/design/ui/xr/spatial-ui-scale.mp4) and watch it with a video player.
+ Users can scale a spatial panel up or down so it's large enough to see clearly,
+ no matter the distance from the user. When a user moves a spatial panel, Android
+ XR automatically scales its size.
+@@ -69,74 +52,45 @@ When viewed on a headset, your app will appear farther away from a user than
+ when they view an app on a phone or tablet, so it must be larger for ease of
+ use.
+ 
+-**Key Term:** Dmm, or distance-independent millimeters, are angular units that
+-remain constant regardless of the distance between a user and a virtual object.
+-[Dp](/training/multiscreen/screendensities), or density-independent pixels, are units that scale to have uniform
+-dimensions on any screen. They provide a flexible way to accommodate a design
+-across platforms.
++> [!IMPORTANT]
++> **Key Term:** Dmm, or distance-independent millimeters, are angular units that remain constant regardless of the distance between a user and a virtual object. [Dp](https://developer.android.com/training/multiscreen/screendensities), or density-independent pixels, are units that scale to have uniform dimensions on any screen. They provide a flexible way to accommodate a design across platforms.
+ 
+ In Full Space, there's no minimum size for a spatial panel, and the maximum is
+ 2560dp x 1800dp due to physical limitations.
+ 
+ ![A visualization of a user who is 1.75 meters from an XR
+-app.](/static/images/design/ui/xr/guides/spatial-ui-distance.jpg)
++app.](https://developer.android.com/static/images/design/ui/xr/guides/spatial-ui-distance.jpg)
+ 
+ ## Where to place spatial panels
+ 
+ In Full Space, you can determine panel placement in both passthrough and virtual
+ environments. When users switch from Home Space to Full Space, elements stay in
+ the same predictable position, unless you assign a custom position.
+-
+-![A user looking at an XR app, with a natural eye level that's 5 degrees below the panel center.](/static/images/design/ui/xr/guides/spatial-ui-eye-level.jpg)
+-
+-
++![A user looking at an XR app, with a natural eye level that's 5 degrees below the panel center.](https://developer.android.com/static/images/design/ui/xr/guides/spatial-ui-eye-level.jpg)
+ **Spawn the panel center 1.75 meters from a user's line of sight**.
+ Place the panel's vertical center 5° below a user's eye level to maximize
+ comfort, as users tend to look downward.
+-
+-![A user looking at a panel in the center 41 degrees of their field of view.](/static/images/design/ui/xr/guides/spatial-ui-field-of-view-update.jpg)
+-
+-
++![A user looking at a panel in the center 41 degrees of their field of view.](https://developer.android.com/static/images/design/ui/xr/guides/spatial-ui-field-of-view-update.jpg)
+ **For optimal comfort, place content in the center 41° of a user's
+ field of view**.
+ This will ensure clear visibility and minimize the need for excessive head
+ or body movement.
+-
+-[
+-
+-Alas, your browser doesn't support HTML5 video. That's OK! You can still
+-[download the video](/static/videos/design/ui/xr/spatial-ui-stationary.mp4) and watch it with a video player.
+-](/static/videos/design/ui/xr/spatial-ui-stationary.mp4)
+-
+-
++Alas, your browser doesn't support HTML5 video. That's OK! You can still [download the video](https://developer.android.com/static/videos/design/ui/xr/spatial-ui-stationary.mp4) and watch it with a video player.
+ A user can move around in their space, and spatial panels will stay in place.
+-
+-[
+-
+-Alas, your browser doesn't support HTML5 video. That's OK! You can still
+-[download the video](/static/videos/design/ui/xr/spatial-ui-interaction-patterns.mp4) and watch it with a video player.
+-](/static/videos/design/ui/xr/spatial-ui-interaction-patterns.mp4)
+-
+-
++Alas, your browser doesn't support HTML5 video. That's OK! You can still [download the video](https://developer.android.com/static/videos/design/ui/xr/spatial-ui-interaction-patterns.mp4) and watch it with a video player.
+ Android XR includes ready-to-go interaction patterns to make it easy for
+ users to manipulate elements and to simplify your development process. A
+ user can move elements to adapt to their personal space. You can configure
+ move and resize behaviors.
+ 
++
+ To help users position UI elements relative to real-world objects in their
+ space, you can allow them to
+ [anchor
+-a spatial panel](/xr/jetpack-xr-sdk/work-with-entities#use_movablecomponent_to_make_an_entity_user-movable) to a specific location in the real world, such as the
++a spatial panel](https://developer.android.com/xr/jetpack-xr-sdk/work-with-entities#use_movablecomponent_to_make_an_entity_user-movable) to a specific location in the real world, such as the
+ floor, chair, wall, ceiling, or table. Anchoring is available in
+ passthrough only.
+-
+-[
+-
+-Alas, your browser doesn't support HTML5 video. That's OK! You can still
+-[download the video](/static/videos/design/ui/xr/spatial-ui-anchor.mp4) and watch it with a video player.
+-](/static/videos/design/ui/xr/spatial-ui-anchor.mp4)
+-
+-
++Alas, your browser doesn't support HTML5 video. That's OK! You can still [download the video](https://developer.android.com/static/videos/design/ui/xr/spatial-ui-anchor.mp4) and watch it with a video player.
+ To help users feel stable and well-oriented, you can allow users to anchor
+ a spatial panel to a specific location in the real world, such as the
+ floor, chair, wall, ceiling, or table. Anchoring is available in
+@@ -148,31 +102,32 @@ You can decompose your app into multiple spatial panels, in any layout you
+ choose. The spatial UI APIs don't limit the number panels. They include the
+ ability to create layouts with rows and columns, and flat and curved rows.
+ Spatial panel positions can be specific or arbitrary. [Learn how to develop
+-spatial UI layouts](/develop/xr/jetpack-xr-sdk/ui-compose).
++spatial UI layouts](https://developer.android.com/develop/xr/jetpack-xr-sdk/ui-compose).
++
++> [!NOTE]
++> **Note:** Avoid overlapping panels that would block a user from seeing critical information.
+ 
+-**Note:** Avoid overlapping panels that would block a user from seeing critical
+-information.
+ 
+ ![Person looking at three panels arranged side-by-side in a flat
+-row](/static/images/design/ui/xr/guides/spatial-ui-flat.jpg)
++row](https://developer.android.com/static/images/design/ui/xr/guides/spatial-ui-flat.jpg)
+ 
+ Flat row layout
+-
+ ![Person looking at three flat panels arranged side-by-side in a curved row,
+ with the outer right and left panels closer to
+-them](/static/images/design/ui/xr/guides/spatial-ui-curved.jpg)
++them](https://developer.android.com/static/images/design/ui/xr/guides/spatial-ui-curved.jpg)
+ 
+ Curved row layout
+-
+ ![Person looking at three flat panels of different sizes at arbitrary positions,
+ with the outer right and left panels further away from
+-themt](/static/images/design/ui/xr/guides/spatial-ui-arbitrary.jpg)
++themt](https://developer.android.com/static/images/design/ui/xr/guides/spatial-ui-arbitrary.jpg)
+ 
+ Arbitrary positions layout
+ 
++<br />
++
+ ## Spatial videos
+ 
+-[Spatial videos](/develop/xr/jetpack-xr-sdk/add-spatial-video) can add a dimensional, immersive feel to your content. You
++[Spatial videos](https://developer.android.com/develop/xr/jetpack-xr-sdk/add-spatial-video) can add a dimensional, immersive feel to your content. You
+ can incorporate them into your designs as monoscopic or stereoscopic videos
+ displayed on flat, 180° hemispherical, or 360° spherical surfaces.
+ 
+@@ -190,42 +145,44 @@ fatigue and overwhelm users with excessive competing actions. It's recommended
+ to adapt a few key navigational components, such as the navigation rail or
+ navigation bar.
+ 
++
+ ![Non-spatialized navigation rail from Material Design in Home
+-Space](/static/images/design/ui/xr/guides/spatial-ui-nav-rail-1.jpg)
++Space](https://developer.android.com/static/images/design/ui/xr/guides/spatial-ui-nav-rail-1.jpg)
+ 
+ Non-spatialized [navigation rail](https://m3.material.io/components/navigation-rail/overview) from Material Design in Home Space
+-
+ ![A spatial navigation rail from Material Design in Full
+-Space](/static/images/design/ui/xr/guides/spatial-ui-nav-rail-2.jpg)
++Space](https://developer.android.com/static/images/design/ui/xr/guides/spatial-ui-nav-rail-2.jpg)
+ 
+ A spatial navigation rail from Material Design in Full Space
+ 
++<br />
++
++
+ ![Non-spatialized navigation bar from Material Design in Home
+-Space](/static/images/design/ui/xr/guides/spatial-ui-nav-bar-1.jpg)
++Space](https://developer.android.com/static/images/design/ui/xr/guides/spatial-ui-nav-bar-1.jpg)
+ 
+ Non-spatialized [navigation bar](https://m3.material.io/components/navigation-bar/overview) from Material Design in Home Space
+-
+ ![A spatial navigation bar from Material Design in Full
+-Space](/static/images/design/ui/xr/guides/spatial-ui-nav-bar-2.jpg)
++Space](https://developer.android.com/static/images/design/ui/xr/guides/spatial-ui-nav-bar-2.jpg)
+ 
+ A spatial navigation bar from Material Design in Full Space
+ 
++<br />
++
+ ### Guidelines
+ 
+-* Adjust the padding to the panel to determine its flex or percentage
+-  position.
+-* Determine the offset of orbiters. 20dp is the recommended visual distance.
+-* Adjust the orbiter elevation level if needed using the spatial elevation
+-  levels. By default, they are elevated 15dp in Z-depth.
+-* Size can be fixed or flexible when the panel is resized.
+-* Determine if you want an orbiter to dynamically expand to fit the content.
++- Adjust the padding to the panel to determine its flex or percentage position.
++- Determine the offset of orbiters. 20dp is the recommended visual distance.
++- Adjust the orbiter elevation level if needed using the spatial elevation levels. By default, they are elevated 15dp in Z-depth.
++- Size can be fixed or flexible when the panel is resized.
++- Determine if you want an orbiter to dynamically expand to fit the content.
+ 
+ ### Design patterns to avoid
+ 
+-* Avoid overlapping an orbiter by more than 50% of its size.
+-* Avoid placing orbiters too far from the spatial panel.
+-* Don't use absolute X or Y coordinates.
+-* Avoid using too many orbiters.
++- Avoid overlapping an orbiter by more than 50% of its size.
++- Avoid placing orbiters too far from the spatial panel.
++- Don't use absolute X or Y coordinates.
++- Avoid using too many orbiters.
+ 
+ ## Spatial elevation
+ 
+@@ -233,11 +190,11 @@ When you add spatial elevation to a component, it displays above the spatial
+ panel on the Z-axis. This helps get a user's attention, creates better
+ hierarchy, and improves legibility.
+ 
+-**Note:** Android XR is in developer preview. Spatial elevation levels may change
+-with future releases.
++> [!NOTE]
++> **Note:** Android XR is in developer preview. Spatial elevation levels may change with future releases.
+ 
+ | Spatial Elevation Level | Component | DP |
+-| --- | --- | --- |
++|---|---|---|
+ | 0 | Not Assigned | .1dp |
+ | 1 | Orbiter | 16dp |
+ | 2 | Not assigned | 24dp |
+@@ -245,35 +202,32 @@ with future releases.
+ | 4 | Not assigned | 40dp |
+ | 5 | SpatialDialog | 56dp |
+ 
+-![Material Design dialog on a large-screen app](/static/images/design/ui/xr/guides/spatial-ui-elevation-1.jpg)
+ 
+-[Material Design dialog](https://m3.material.io/components/dialogs/guidelines#6e105e80-5cac-472b-809a-5ab51f251ea5) on a large-screen app
++![Material Design dialog on a large-screen app](https://developer.android.com/static/images/design/ui/xr/guides/spatial-ui-elevation-1.jpg)
+ 
+-[
+ 
+-Alas, your browser doesn't support HTML5 video. That's OK! You can still
+-[download the video](/static/videos/design/ui/xr/spatial-ui-elevation-2.mp4) and watch it with a video player.
+-](/static/videos/design/ui/xr/spatial-ui-elevation-2.mp4)
++[Material Design dialog](https://m3.material.io/components/dialogs/guidelines#6e105e80-5cac-472b-809a-5ab51f251ea5) on a large-screen app
++Alas, your browser doesn't support HTML5 video. That's OK! You can still [download the video](https://developer.android.com/static/videos/design/ui/xr/spatial-ui-elevation-2.mp4) and watch it with a video player.
+ 
+ A dialog using spatial elevation in Android XR
+ 
+-![Material Design dropdown menu on a large-screen app](/static/images/design/ui/xr/guides/spatial-ui-elevation-3.jpg)
++<br />
+ 
+-[Material Design drop-down menu](https://m3.material.io/components/menus/overview) on a large-screen app
+ 
+-[
++![Material Design dropdown menu on a large-screen app](https://developer.android.com/static/images/design/ui/xr/guides/spatial-ui-elevation-3.jpg)
+ 
+-Alas, your browser doesn't support HTML5 video. That's OK! You can still
+-[download the video](/static/videos/design/ui/xr/spatial-ui-elevation-4.mp4) and watch it with a video player.
+-](/static/videos/design/ui/xr/spatial-ui-elevation-4.mp4)
++
++[Material Design drop-down menu](https://m3.material.io/components/menus/overview) on a large-screen app
++Alas, your browser doesn't support HTML5 video. That's OK! You can still [download the video](https://developer.android.com/static/videos/design/ui/xr/spatial-ui-elevation-4.mp4) and watch it with a video player.
+ 
+ A drop-down menu using elevation in Android XR
+ 
++<br />
++
+ ##### Design patterns to avoid
+ 
+-* Avoid spatializing or elevating big areas and planes such as bottom sheets
+-  and side sheets.
+-* Avoid elevating UI elements with scrollable content.
++- Avoid spatializing or elevating big areas and planes such as bottom sheets and side sheets.
++- Avoid elevating UI elements with scrollable content.
+ 
+ ## Design large target sizes
+ 
+@@ -281,7 +235,7 @@ In an XR app, a target is the pointable area that users interact with. Android
+ XR adheres to [Material Design's target guidelines](https://m3.material.io/foundations/designing/structure#dab862b1-e042-4c40-b680-b484b9f077f6), and recommends larger
+ targets to increase precision, comfort, and usability.
+ 
+-Learn about XR [targets](/design/ui/xr/guides/visual-design#targets-android) and [hover states](/design/ui/xr/guides/visual-design#hover-states).
++Learn about XR [targets](https://developer.android.com/design/ui/xr/guides/visual-design#targets-android) and [hover states](https://developer.android.com/design/ui/xr/guides/visual-design#hover-states).
+ 
+ ## Make typography accessible
+ 
+@@ -293,7 +247,7 @@ If your existing app follows Material Design guidelines, it's already optimized
+ for Android XR. You can define a new app's typography based on [Material
+ Design](https://m3.material.io/styles/typography/overview).
+ 
+-[Learn about XR typography](/design/ui/xr/guides/visual-design#xr-typography).
++[Learn about XR typography](https://developer.android.com/design/ui/xr/guides/visual-design#xr-typography).
+ 
+ ## Use Material Design components and layouts
+ 
+@@ -302,13 +256,13 @@ adaptive layouts when designing your Android XR app. These interactive building
+ blocks help speed up development so you can focus on core functionality and
+ innovation.
+ 
+-[Material Design for XR](/develop/xr/jetpack-xr-sdk/material-design) enhances Material 3 components and adaptive layouts
++[Material Design for XR](https://developer.android.com/develop/xr/jetpack-xr-sdk/material-design) enhances Material 3 components and adaptive layouts
+ with spatial UI behaviors. These can make your app feel more native to the
+ platform and optimize for space.
+ 
+-You may also spatialize existing UI components by placing them in [orbiters](#orbiters)
+-and applying [spatial elevation](#spatial-elevation), as described on this page.
++You may also spatialize existing UI components by placing them in [orbiters](https://developer.android.com/design/ui/xr/guides/spatial-ui#orbiters)
++and applying [spatial elevation](https://developer.android.com/design/ui/xr/guides/spatial-ui#spatial-elevation), as described on this page.
+ 
+ ![Collage of elements from the Material 3 Design
+-Kit](/static/images/design/ui/xr/guides/material-3-kit.jpg) [Download the Material 3
++Kit](https://developer.android.com/static/images/design/ui/xr/guides/material-3-kit.jpg) [Download the Material 3
+ Design Kit to get started](https://www.figma.com/community/file/1035203688168086460).
+\ No newline at end of file

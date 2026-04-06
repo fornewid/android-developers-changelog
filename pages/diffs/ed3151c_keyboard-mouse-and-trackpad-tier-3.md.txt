@@ -1,0 +1,12 @@
+diff --git a/docs/guide/topics/large-screens/keyboard-mouse-and-trackpad-tier-3.md b/docs/guide/topics/large-screens/keyboard-mouse-and-trackpad-tier-3.md
+index a6a2b67..f0f70a0 100644
+--- a/docs/guide/topics/large-screens/keyboard-mouse-and-trackpad-tier-3.md
++++ b/docs/guide/topics/large-screens/keyboard-mouse-and-trackpad-tier-3.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ ![Tier 3 adaptive ready icon](/static/images/docs/quality-guidelines/tier-3/tier_3_icon.png)
+ 
+ TIER 3 — Adaptive ready

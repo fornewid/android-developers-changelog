@@ -1,0 +1,20 @@
+diff --git a/docs/google/play/billing/alternative/interim-ux/billing-choice.md b/docs/google/play/billing/alternative/interim-ux/billing-choice.md
+index 63bf4eb..f3ea990 100644
+--- a/docs/google/play/billing/alternative/interim-ux/billing-choice.md
++++ b/docs/google/play/billing/alternative/interim-ux/billing-choice.md
+@@ -14,7 +14,6 @@ Send feedback
+ 
+ 
+ 
+-
+ **Note:** From August 2, 2023, developers offering alternative billing to users in
+ South Korea must use alternative billing APIs. To get started, see the following
+ details and visit our [alternative billing API integration guide](/google/play/billing/alternative/alternative-billing-with-user-choice-in-app).
+@@ -341,6 +340,4 @@ view, but otherwise follows the same design specifications and functionality.
+ 
+ 
+ 
+-
+-
+ Send feedback
+\ No newline at end of file

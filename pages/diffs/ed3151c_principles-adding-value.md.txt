@@ -1,0 +1,12 @@
+diff --git a/docs/design/ui/wear/guides/foundations/adaptive-design/principles-adding-value.md b/docs/design/ui/wear/guides/foundations/adaptive-design/principles-adding-value.md
+index 797a779..4035a02 100644
+--- a/docs/design/ui/wear/guides/foundations/adaptive-design/principles-adding-value.md
++++ b/docs/design/ui/wear/guides/foundations/adaptive-design/principles-adding-value.md
+@@ -14,6 +14,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ When designing for adaptive layouts on the round screen, scrolling and non-scrolling views each have unique requirements for scaling UI elements and maintaining a balanced layout and composition.
+ The images below are broad suggestions; examples are for illustrative purposes only. View each component or surface page for detailed, contextual and responsive guidance.
+ 

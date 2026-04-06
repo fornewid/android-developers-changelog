@@ -1,0 +1,98 @@
+diff --git a/docs/about/versions/12/non-sdk-12.md b/docs/about/versions/12/non-sdk-12.md
+index 5ee8431..59ff035 100644
+--- a/docs/about/versions/12/non-sdk-12.md
++++ b/docs/about/versions/12/non-sdk-12.md
+@@ -1,44 +1,34 @@
+ ---
+-title: Updates to non-SDK interface restrictions in Android 12  |  Android Developers
++title: https://developer.android.com/about/versions/12/non-sdk-12
+ url: https://developer.android.com/about/versions/12/non-sdk-12
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-* [Essentials](https://developer.android.com/get-started)
+-* [Releases](https://developer.android.com/about/versions)
+-
+-# Updates to non-SDK interface restrictions in Android 12 Stay organized with collections Save and categorize content based on your preferences.
+-
+-
+-
+-
+-Android 12 includes updated lists of restricted non-SDK
++Android 12 includes updated lists of restricted non-SDK
+ interfaces based on collaboration with Android developers and the latest
+ internal testing. Whenever possible, we make sure that public alternatives are
+ available before we restrict non-SDK interfaces.
+ 
+-If your app does not target Android 12, some of these changes
++If your app does not target Android 12, some of these changes
+ might not immediately affect you. However, while you can currently use some
+-non-SDK interfaces ([depending on your app's target API level](/guide/app-compatibility/restrictions-non-sdk-interfaces#list-names)),
++non-SDK interfaces ([depending on your app's target API level](https://developer.android.com/guide/app-compatibility/restrictions-non-sdk-interfaces#list-names)),
+ using any non-SDK method or field always carries a high risk of breaking your
+ app.
+ 
+ If you are unsure if your app uses non-SDK interfaces, you can [test your
+-app](/guide/app-compatibility/restrictions-non-sdk-interfaces#test-for-non-sdk)
++app](https://developer.android.com/guide/app-compatibility/restrictions-non-sdk-interfaces#test-for-non-sdk)
+ to find out. If your app relies on non-SDK interfaces, you should begin planning
+ a migration to SDK alternatives. Nevertheless, we understand that some apps have
+ valid use cases for using non-SDK interfaces. If you cannot find an alternative
+ to using a non-SDK interface for a feature in your app, you should [request a
+-new public API](/guide/app-compatibility/restrictions-non-sdk-interfaces#feature-request).
++new public API](https://developer.android.com/guide/app-compatibility/restrictions-non-sdk-interfaces#feature-request).
+ 
+ ## List changes for Android 12
+ 
+ The list changes in Android 12 fall into the following categories:
+ 
+-* Non-SDK interfaces that were unsupported (greylisted) in Android 11 (API
+-  level 30) that are [blocked in Android 12](#new-blocked).
+-* Non-SDK interfaces that were [added to the Android SDK in Android 12](#new-sdk).
++- Non-SDK interfaces that were unsupported (greylisted) in Android 11 (API level 30) that are [blocked in Android 12](https://developer.android.com/about/versions/12/non-sdk-12#new-blocked).
++- Non-SDK interfaces that were [added to the Android SDK in Android 12](https://developer.android.com/about/versions/12/non-sdk-12#new-sdk).
+ 
+ For a complete list of all non-SDK interfaces for Android 12, download the
+ following file:
+@@ -59,7 +49,7 @@ Our goal is to make sure that public alternatives are available before we
+ restrict non-SDK interfaces, and we understand that your app might have a valid
+ use case for using these interfaces. If an interface that your app uses in a
+ prior version is now blocked in Android 12, you should [request a new public
+-API](/guide/app-compatibility/restrictions-non-sdk-interfaces#feature-request)
++API](https://developer.android.com/guide/app-compatibility/restrictions-non-sdk-interfaces#feature-request)
+ for that interface.
+ 
+ ```
+@@ -75,7 +65,7 @@ Landroid/app/StatusBarManager;->collapsePanels()V
+ Landroid/app/TaskStackListener;->onActivityDismissingDockedTask()V
+ Landroid/app/usage/IUsageStatsManager;->queryUsageStats(IJJLjava/lang/String;I)Landroid/content/pm/ParceledListSlice;
+ Landroid/appwidget/AppWidgetHost;-><init>(Landroid/content/Context;ILandroid/widget/RemoteViews$InteractionHandler;Landroid/os/Looper;)V
+-Landroid/content/pm/PackageManager;->getResourcesForApplicationAsUser(Ljava/lang/String;I)Landroid/content/res/Resources;   # Use Context#createContextAsUser(UserHandle, int) to create the relevant user context, android.content.Context#getPackageManager() and android.content.pm.PackageManager#getResourcesForApplication(java.lang.String) instead.
++Landroid/content/pm/PackageManager;->getResourcesForApplicationAsUser(Ljava/lang/String;I)Landroid/content/res/Resources;   # Use Context#createContextAsUser(UserHandle, int) to create the relevant user context, https://developer.android.com/reference/android/content/Context#getPackageManager() and https://developer.android.com/reference/android/content/pm/PackageManager#getResourcesForApplication(java.lang.String)
+ Landroid/graphics/Bitmap;->createAshmemBitmap()Landroid/graphics/Bitmap;   # Use #asShared() instead.
+ Landroid/location/LocationRequest;->mInterval:J   # Use LocationRequest instead.
+ Landroid/location/LocationRequest;->mProvider:Ljava/lang/String;   # Use LocationManager methods to provide the provider explicitly.
+@@ -91,9 +81,9 @@ Landroid/view/Choreographer;->mFrameIntervalNanos:J   # Use android.view.Display
+ Landroid/view/InputDevice;-><init>(IIILjava/lang/String;IILjava/lang/String;ZIILandroid/view/KeyCharacterMap;ZZZZ)V
+ Landroid/view/IRemoteAnimationRunner;->onAnimationStart(I[Landroid/view/RemoteAnimationTarget;[Landroid/view/RemoteAnimationTarget;[Landroid/view/RemoteAnimationTarget;Landroid/view/IRemoteAnimationFinishedCallback;)V
+ Landroid/view/textservice/TextServicesManager;->getCurrentSpellChecker()Landroid/view/textservice/SpellCheckerInfo; # Use getCurrentSpellCheckerInfo() instead.
+-Landroid/view/ViewRootImpl;->detachFunctor(J)V   # Use android.webkit.WebView instead.
+-Landroid/view/ViewRootImpl;->invokeFunctor(JZ)V   # Use android.webkit.WebView instead.
+-Lcom/android/internal/os/IDropBoxManagerService;->getNextEntry(Ljava/lang/String;JLjava/lang/String;)Landroid/os/DropBoxManager$Entry;   # Use android.os.DropBoxManager#getNextEntry instead.
++Landroid/view/ViewRootImpl;->detachFunctor(J)V   # Use https://developer.android.com/reference/android/webkit/WebView instead.
++Landroid/view/ViewRootImpl;->invokeFunctor(JZ)V   # Use https://developer.android.com/reference/android/webkit/WebView instead.
++Lcom/android/internal/os/IDropBoxManagerService;->getNextEntry(Ljava/lang/String;JLjava/lang/String;)Landroid/os/DropBoxManager$Entry;   # Use https://developer.android.com/reference/android/os/DropBoxManager#getNextEntry(java.lang.String,%20long) instead.
+ Lcom/android/internal/telephony/BaseCommands;->mAllowedNetworkTypesBitmask:I
+ Lcom/android/internal/telephony/PhoneFactory;->calculatePreferredNetworkType(I)I
+ Lcom/android/internal/telephony/ServiceStateTracker;->mAllowedNetworkTypes:I
+@@ -101,7 +91,7 @@ Lcom/android/internal/telephony/ServiceStateTracker;->mAllowedNetworkTypes:I
+ # Based on internal testing data, the following non-SDK interfaces, which were
+ added to the unsupported list in Android 9 (API level 28), have little or no usage and so are now
+ restricted. If you discover during testing that your app does use one of these resources,
+-request a new public API for that interface.
++https://developer.android.com/guide/app-compatibility/restrictions-non-sdk-interfaces#feature-request for that interface.
+ 
+ Landroid/accessibilityservice/AccessibilityServiceInfo;->setCapabilities(I)V
+ Landroid/accounts/Account;->accessId:Ljava/lang/String;

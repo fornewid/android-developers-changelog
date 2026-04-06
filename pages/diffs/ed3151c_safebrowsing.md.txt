@@ -1,0 +1,12 @@
+diff --git a/docs/privacy-and-security/safetynet/safebrowsing.md b/docs/privacy-and-security/safetynet/safebrowsing.md
+index 04b2cea..d4ac384 100644
+--- a/docs/privacy-and-security/safetynet/safebrowsing.md
++++ b/docs/privacy-and-security/safetynet/safebrowsing.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ The SafetyNet Safe Browsing API, a library powered by
+ [Google Play services](https://developers.google.com/android),
+ provides services for determining whether a URL has been marked as

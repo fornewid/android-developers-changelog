@@ -1,0 +1,12 @@
+diff --git a/docs/topic/libraries/architecture/paging/data.md b/docs/topic/libraries/architecture/paging/data.md
+index 4ff0dd7..ba2260e 100644
+--- a/docs/topic/libraries/architecture/paging/data.md
++++ b/docs/topic/libraries/architecture/paging/data.md
+@@ -12,7 +12,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ This guide builds upon the [Paging Library
+ overview](/topic/libraries/architecture/paging), discussing how you can
+ customize your app's data-loading solution to meet your app's architecture

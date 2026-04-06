@@ -1,0 +1,189 @@
+diff --git a/docs/about/versions/10/highlights.md b/docs/about/versions/10/highlights.md
+index f8d6291..75c9354 100644
+--- a/docs/about/versions/10/highlights.md
++++ b/docs/about/versions/10/highlights.md
+@@ -1,18 +1,9 @@
+ ---
+-title: Android 10 for Developers  |  Android Developers
++title: https://developer.android.com/about/versions/10/highlights
+ url: https://developer.android.com/about/versions/10/highlights
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-* [Essentials](https://developer.android.com/get-started)
+-* [Releases](https://developer.android.com/about/versions)
+-
+-# Android 10 for Developers Stay organized with collections Save and categorize content based on your preferences.
+-
+-
+-
+-
+ ![](https://developer.android.com/images/about/versions/10/android10-card.png)
+ 
+ Android 10 is built around three important themes. First, Android 10 is
+@@ -23,15 +14,14 @@ features that give users greater protection, transparency, and control.
+ Finally, Android 10 expands users' digital wellbeing controls so individuals
+ and families can find a better balance with technology.
+ 
+-Here’s a look at what’s in Android 10 for developers and how you can use it
++Here's a look at what's in Android 10 for developers and how you can use it
+ today.
+ 
+ ## Innovation and new experiences
+ 
+ With Android 10 you can take advantage of the latest hardware and software
+ innovations to build amazing app experiences for users.
+-
+-![](/static/images/about/versions/10/overview/image2.png)
++![](https://developer.android.com/static/images/about/versions/10/overview/image2.png)
+ 
+ *With Android 10 you can optimize your
+ apps for foldables and other large-screen devices.*
+@@ -73,34 +63,32 @@ on a per-notification basis using
+ [setAllowGeneratedReplies()](https://developer.android.com/reference/android/app/Notification.Action.Builder#setAllowGeneratedReplies(boolean))
+ and
+ [setAllowSystemGeneratedContextualActions()](https://developer.android.com/reference/android/app/Notification.Builder#setAllowSystemGeneatedContextualActions(boolean)).
+-
+-![](/static/images/about/versions/10/overview/image10.png)
++![](https://developer.android.com/static/images/about/versions/10/overview/image10.png)
+ 
+ *Smart Reply can suggest
+-actions based on notification content.*
++actions based on notification content.*
+ 
+ ### Dark Theme
+ 
+-Android 10 adds a system-wide dark theme that’s ideal for low light and helps
++Android 10 adds a system-wide dark theme that's ideal for low light and helps
+ save battery. Users can activate a new system-wide dark theme by going to
+ Settings or turning on Battery Saver. This changes the system UI to dark, and
+ enables the dark theme of apps that support it. You can build a custom dark
+ theme for your app or opt-in to a new Force Dark feature that lets the system
+ dynamically create a dark version from your existing theme. You may also want to
+-take advantage of [AppCompat’s DayNight
++take advantage of [AppCompat's DayNight
+ feature](https://developer.android.com/preview/features/darktheme) to offer a
+ dark theme for users on earlier versions of Android. See the [developer
+ guide](https://developer.android.com/guide/topics/ui/look-and-feel/darktheme)
+ for more information.
+-
+-![](/static/images/about/versions/10/overview/image12.png)
++![](https://developer.android.com/static/images/about/versions/10/overview/image12.png)
+ 
+ *Android 10 can create a dark theme
+ for your app dynamically with Force Dark.*
+ 
+ ### Gesture navigation
+ 
+-![](/static/images/about/versions/10/overview/gesture.gif)
++![](https://developer.android.com/static/images/about/versions/10/overview/gesture.gif)
+ 
+ *Gesture navigation gives apps
+ the full screen for content.*
+@@ -143,8 +131,7 @@ and uses the same [ShortcutInfo
+ API](https://developer.android.com/reference/android/content/pm/ShortcutInfo).
+ The API is also supported in the ShareTarget AndroidX library. See the [sample
+ app](https://github.com/android/storage-samples/tree/main/SharingShortcuts) for details.
+-
+-![](/static/images/about/versions/10/overview/image11.png)
++![](https://developer.android.com/static/images/about/versions/10/overview/image11.png)
+ 
+ *Sharing shortcuts let users jump
+ directly to a specific activity in your apps with content
+@@ -158,8 +145,7 @@ releases, Android 10 includes extensive changes to protect privacy and give
+ users more control, with improved system UI, stricter permissions, and
+ restrictions on what data apps can use. See the [privacy changes](https://developer.android.com/about/versions/10/privacy/changes) for details on
+ how to support these in your apps.
+-
+-![](/static/images/about/versions/10/overview/location.png)
++![](https://developer.android.com/static/images/about/versions/10/overview/location.png)
+ 
+ *Users can now choose to grant access
+ to location when the app is in the foreground.*
+@@ -168,7 +154,7 @@ to location when the app is in the foreground.*
+ their location data through a new permission option -- they can now allow an app
+ to access location only while the app is actually in use (running in the
+ foreground). For most apps, this provides a sufficient level of access, while for
+-users it’s a big improvement in transparency and control. To learn more about
++users it's a big improvement in transparency and control. To learn more about
+ location changes, see the [developer
+ guide](https://developer.android.com/training/location/receive-location-updates)
+ or our [blog post](https://android-developers.googleblog.com/2019/03/giving-users-more-control-over-their.html).
+@@ -241,14 +227,7 @@ options in your app. Dynamic Depth is an [open
+ format](https://developer.android.com/training/camerax/Dynamic-depth-v1.0.pdf)
+ for the ecosystem and we're working with our partners to bring it to devices
+ running Android 10 and later.
+-
+-![](/static/images/about/versions/10/overview/depthtrue.jpg)
+-
+-![](/static/images/about/versions/10/overview/depthblur.jpg)
+-
+-![](/static/images/about/versions/10/overview/depthmap.jpg)
+-
+-*With Dynamic Depth image you
++![](https://developer.android.com/static/images/about/versions/10/overview/depthtrue.jpg) ![](https://developer.android.com/static/images/about/versions/10/overview/depthblur.jpg) ![](https://developer.android.com/static/images/about/versions/10/overview/depthmap.jpg) *With Dynamic Depth image you
+ can offer specialized blurs and bokeh options in your app.*
+ 
+ ### Audio playback capture
+@@ -257,7 +236,7 @@ Now any app that plays audio can let other apps capture its audio stream using
+ [a new audio playback capture
+ API](https://developer.android.com/guide/topics/media/playback-capture). In
+ addition to enabling captioning and subtitles, the API lets you support popular
+-use-cases like live-streaming games. We’ve built this new capability with
++use-cases like live-streaming games. We've built this new capability with
+ privacy and copyright protection in mind, so the ability for an app to capture
+ another app's audio is constrained, giving apps full control over whether their
+ audio streams can be captured. Read more in this
+@@ -318,7 +297,7 @@ expect to see adoption improve further in the coming year.
+ 
+ ### Improved peer-to-peer and internet connectivity
+ 
+-We’ve refactored the Wi-Fi stack to improve privacy and performance, and also to
++We've refactored the Wi-Fi stack to improve privacy and performance, and also to
+ improve common use-cases like managing IoT devices and suggesting internet
+ connections -- without requiring the location permission. The [network
+ connection
+@@ -355,19 +334,18 @@ your app even before it's run. At runtime, Android 10 adds Generational Garbage
+ Collection to ART's Concurrent Copying (CC) Garbage Collector to make garbage
+ collection more efficient in terms of time and CPU, reduces jank, and helps apps
+ run better on lower-end devices.
+-
+-![](/static/images/about/versions/10/overview/art-profiles.png)
++![](https://developer.android.com/static/images/about/versions/10/overview/art-profiles.png)
+ 
+ *This chart shows the percentage
+ improvement in startup time for specific apps when tested
+-using Play profiles.*
++using Play profiles.*
+ 
+ ### Neural Networks API 1.2
+ 
+-We’ve added 60 new ops including ARGMAX, ARGMIN, quantized LSTM, alongside
++We've added 60 new ops including ARGMAX, ARGMIN, quantized LSTM, alongside
+ a range of performance optimizations. This lays the foundation for
+ accelerating a much greater range of models -- such as those for object
+-detection and image segmentation. We’re working with hardware vendors and
++detection and image segmentation. We're working with hardware vendors and
+ popular machine learning frameworks such as
+ [TensorFlow](https://www.tensorflow.org/) to optimize and roll out
+ support for NNAPI 1.2.
+@@ -376,7 +354,7 @@ support for NNAPI 1.2.
+ 
+ When devices get too warm, they may throttle the CPU and/or GPU, and this
+ can affect apps and games in unexpected ways. Now in Android 10, apps and
+-games can use a [thermal API](https://developer.android.com/reference/android/os/PowerManager#addThermalStatusListener(android.os.PowerManager.OnThermalStatusChangedListener)) 
++games can use a[thermal API](https://developer.android.com/reference/android/os/PowerManager#addThermalStatusListener(android.os.PowerManager.OnThermalStatusChangedListener))
+ to monitor changes on the device and take action to help restore normal
+ temperature. For example, streaming apps can reduce resolution/bit rate or
+ network traffic, a camera app could disable flash or intensive image
+@@ -408,7 +386,7 @@ Mainline](https://android-developers.googleblog.com/2019/05/fresher-os-with-proj
+ (officially called *Google Play system
+ updates*), our new technology for securing Android users and keeping their
+ devices fresh with important code changes - direct from Google Play. With Google
+-Play system updates, we’re able to update specific internal components across
++Play system updates, we're able to update specific internal components across
+ all devices running Android 10 and higher, without requiring a full system
+ update from the device manufacturer.
+ 

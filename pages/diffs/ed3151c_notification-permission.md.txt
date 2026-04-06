@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/views/notifications/notification-permission.md b/docs/develop/ui/views/notifications/notification-permission.md
+index 2cc9708..ca83e5e 100644
+--- a/docs/develop/ui/views/notifications/notification-permission.md
++++ b/docs/develop/ui/views/notifications/notification-permission.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Android 13 (API level 33) and higher supports a
+ [runtime permission](/guide/topics/permissions/overview#runtime) for sending
+ [non-exempt](#exemptions) (including Foreground Services (FGS)) notifications

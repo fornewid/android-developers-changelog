@@ -1,0 +1,12 @@
+diff --git a/docs/training/wearables/tiles/versioning.md b/docs/training/wearables/tiles/versioning.md
+index ea8b605..8fcca2d 100644
+--- a/docs/training/wearables/tiles/versioning.md
++++ b/docs/training/wearables/tiles/versioning.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ On Wear OS devices, tiles are rendered by two key components with independent
+ versioning. To help your app's tiles function correctly across all devices,
+ it's important to understand this underlying architecture.

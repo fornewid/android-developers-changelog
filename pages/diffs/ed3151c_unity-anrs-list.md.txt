@@ -1,0 +1,20 @@
+diff --git a/docs/games/engines/unity/unity-anrs-list.md b/docs/games/engines/unity/unity-anrs-list.md
+index ef3e69b..c2728b9 100644
+--- a/docs/games/engines/unity/unity-anrs-list.md
++++ b/docs/games/engines/unity/unity-anrs-list.md
+@@ -15,6 +15,7 @@ Send feedback
+ 
+ 
+ 
++
+ Unity ANRs happen for a variety of reasons. Most common ANRs are caused by
+ misuse of Android and Unity components and their miscommunication.
+ 
+@@ -241,4 +242,6 @@ To learn more about ANRs, consult the following resources:
+ 
+ 
+ 
++
++
+ Send feedback
+\ No newline at end of file

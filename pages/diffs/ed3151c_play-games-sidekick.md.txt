@@ -1,0 +1,20 @@
+diff --git a/docs/games/pgs/play-games-sidekick.md b/docs/games/pgs/play-games-sidekick.md
+index 5f00c5b..6efdcf4 100644
+--- a/docs/games/pgs/play-games-sidekick.md
++++ b/docs/games/pgs/play-games-sidekick.md
+@@ -15,7 +15,6 @@ Send feedback
+ 
+ 
+ 
+-
+ Play Games Sidekick is an overlay that helps you stay in your game by delivering
+ relevant content and offers directly to you.
+ 
+@@ -190,6 +189,4 @@ If achievements aren't appearing as expected, check the following:
+ 
+ 
+ 
+-
+-
+ Send feedback
+\ No newline at end of file

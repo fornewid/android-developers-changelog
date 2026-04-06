@@ -1,0 +1,12 @@
+diff --git a/docs/privacy-and-security/risks/sensitive-data-external-storage.md b/docs/privacy-and-security/risks/sensitive-data-external-storage.md
+index 81a9e44..a00ed64 100644
+--- a/docs/privacy-and-security/risks/sensitive-data-external-storage.md
++++ b/docs/privacy-and-security/risks/sensitive-data-external-storage.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ **OWASP category:** [MASVS-STORAGE: Storage](https://mas.owasp.org/MASVS/05-MASVS-STORAGE)
+ 
+ ## Overview

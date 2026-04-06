@@ -1,0 +1,12 @@
+diff --git a/docs/build/migrate-to-catalogs.md b/docs/build/migrate-to-catalogs.md
+index 53b1101..bfa8847 100644
+--- a/docs/build/migrate-to-catalogs.md
++++ b/docs/build/migrate-to-catalogs.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ [Gradle version catalogs](https://docs.gradle.org/current/userguide/platforms.html)
+ enable you to add and maintain dependencies and plugins in a scalable way.
+ Using Gradle version catalogs makes managing dependencies and plugins easier

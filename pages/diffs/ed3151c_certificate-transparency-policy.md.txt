@@ -1,0 +1,12 @@
+diff --git a/docs/privacy-and-security/certificate-transparency-policy.md b/docs/privacy-and-security/certificate-transparency-policy.md
+index ec1f65d..9ccfd74 100644
+--- a/docs/privacy-and-security/certificate-transparency-policy.md
++++ b/docs/privacy-and-security/certificate-transparency-policy.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ *Please direct any questions about this Policy to the CT Policy forum:
+ [ct-policy@chromium.org](https://groups.google.com/a/chromium.org/forum/#!forum/ct-policy)*
+ 

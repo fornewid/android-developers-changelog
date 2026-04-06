@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/compose/designsystems/migrate-xml-theme-to-compose.md b/docs/develop/ui/compose/designsystems/migrate-xml-theme-to-compose.md
+index b8a3b99..1ee0138 100644
+--- a/docs/develop/ui/compose/designsystems/migrate-xml-theme-to-compose.md
++++ b/docs/develop/ui/compose/designsystems/migrate-xml-theme-to-compose.md
+@@ -14,6 +14,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ When you introduce Compose in an existing app, you need to migrate your Material
+ XML themes to use `MaterialTheme` for Compose components. This means your app's
+ theming will have two sources of truth: the View-based theme and the Compose

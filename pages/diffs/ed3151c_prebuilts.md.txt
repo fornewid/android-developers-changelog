@@ -1,0 +1,12 @@
+diff --git a/docs/ndk/guides/prebuilts.md b/docs/ndk/guides/prebuilts.md
+index 72f6136..fb3955e 100644
+--- a/docs/ndk/guides/prebuilts.md
++++ b/docs/ndk/guides/prebuilts.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ The NDK supports the use of prebuilt libraries, both static and shared. There
+ are two principal use cases for this functionality:
+ 

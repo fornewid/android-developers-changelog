@@ -1,0 +1,12 @@
+diff --git a/docs/studio/releases/past-releases/as-2-3-0-release-notes.md b/docs/studio/releases/past-releases/as-2-3-0-release-notes.md
+index b086c53..48451c3 100644
+--- a/docs/studio/releases/past-releases/as-2-3-0-release-notes.md
++++ b/docs/studio/releases/past-releases/as-2-3-0-release-notes.md
+@@ -15,7 +15,6 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
+-
+ # Android Studio 2.3 (March 2017)
+ 
+ Android Studio 2.3.0 is primarily a bug fix and stability release, but it

@@ -1,0 +1,67 @@
+diff --git a/docs/develop/ui/compose/system/predictive-back.md b/docs/develop/ui/compose/system/predictive-back.md
+index 2ca641f..361836a 100644
+--- a/docs/develop/ui/compose/system/predictive-back.md
++++ b/docs/develop/ui/compose/system/predictive-back.md
+@@ -1,50 +1,22 @@
+ ---
+-title: About Predictive back  |  Jetpack Compose  |  Android Developers
++title: https://developer.android.com/develop/ui/compose/system/predictive-back
+ url: https://developer.android.com/develop/ui/compose/system/predictive-back
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-* [Develop](https://developer.android.com/develop)
+-* [Core areas](https://developer.android.com/develop/core-areas)
+-* [UI](https://developer.android.com/develop/ui)
+-* [Docs](https://developer.android.com/develop/ui/compose/documentation)
+-
+-# About Predictive back Stay organized with collections Save and categorize content based on your preferences.
+-
+-
+-
+ Predictive back, a gesture navigation feature, lets users preview where the
+ back swipe takes them. Predictive back seamlessly integrates with Compose to
+ enhance your app's navigation experience. Users enjoy smoother and more
+ intuitive transitions when navigating back within your app. Figure 1 shows how
+ this works in the [SociaLite](https://github.com/android/socialite) sample app.
+-
+-[
+-
+-](/static/develop/ui/compose/images/system/ith-back-to-home-animation.mp4)
+-
+-**Figure 1.** The back-to-home animation in the SociaLite
+-sample app.
++**Figure 1.** The back-to-home animation in the SociaLite sample app.
+ 
+ See our guides to do the following with predictive back:
+ 
+-* [Set up predictive back](/develop/ui/compose/system/predictive-back-setup).
+-* Enable default system animations.
+-* Enable predictive back with Navigation Compose.
+-* Integrate with shared element transitions.
+-* Support predictive back with Material Compose components.
+-* Access progress manually with [`PredictiveBackHandler`](/reference/kotlin/androidx/activity/compose/PredictiveBackHandler.composable#PredictiveBackHandler(kotlin.Boolean,kotlin.coroutines.SuspendFunction1)).
+-* Test the predictive back gesture animation.
+-
+-[Previous
+-
+-arrow\_back
+-
+-Add remote actions to PiP](/develop/ui/compose/system/pip-remote-actions)
+-
+-[Next
+-
+-Set up predictive back
+-
+-arrow\_forward](/develop/ui/compose/system/predictive-back-setup)
+\ No newline at end of file
++- [Set up predictive back](https://developer.android.com/develop/ui/compose/system/predictive-back-setup).
++- Enable default system animations.
++- Enable predictive back with Navigation Compose.
++- Integrate with shared element transitions.
++- Support predictive back with Material Compose components.
++- Access progress manually with [`PredictiveBackHandler`](https://developer.android.com/reference/kotlin/androidx/activity/compose/PredictiveBackHandler.composable#PredictiveBackHandler(kotlin.Boolean,kotlin.coroutines.SuspendFunction1)).
++- Test the predictive back gesture animation.
+\ No newline at end of file

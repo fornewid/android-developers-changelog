@@ -1,0 +1,990 @@
+diff --git a/docs/kotlin/multiplatform/plugin.md b/docs/kotlin/multiplatform/plugin.md
+index 8cef7db..2212a03 100644
+--- a/docs/kotlin/multiplatform/plugin.md
++++ b/docs/kotlin/multiplatform/plugin.md
+@@ -1,59 +1,52 @@
+ ---
+-title: Set up the Android Gradle Library Plugin for KMP  |  Kotlin  |  Android Developers
++title: https://developer.android.com/kotlin/multiplatform/plugin
+ url: https://developer.android.com/kotlin/multiplatform/plugin
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-* [Get started](https://developer.android.com/get-started/overview)
+-* [Kotlin](https://developer.android.com/kotlin)
+-* [Guides](https://developer.android.com/kotlin/first)
+-
+-# Set up the Android Gradle Library Plugin for KMP Stay organized with collections Save and categorize content based on your preferences.
+-
+-
+-
+ The `com.android.kotlin.multiplatform.library` Gradle plugin is the officially
+ supported tool for adding an Android target to a Kotlin Multiplatform (KMP)
+-[library module](/studio/projects/android-library). It simplifies project configuration, improves
++[library module](https://developer.android.com/studio/projects/android-library). It simplifies project configuration, improves
+ build performance, and offers better integration with Android Studio.
+ 
+ Using the `com.android.library` plugin for KMP development depends on Android
+-Gradle Plugin APIs that are deprecated and [require opt-in](/r/tools/new-dsl) in Android
++Gradle Plugin APIs that are deprecated and [require opt-in](https://developer.android.com/r/tools/new-dsl) in Android
+ Gradle plugin 9.0 and higher (Q4 2025). These APIs
+-[are expected to be removed](/build/releases/gradle-plugin-roadmap) in Android Gradle plugin 10.0
++[are expected to be removed](https://developer.android.com/build/releases/gradle-plugin-roadmap) in Android Gradle plugin 10.0
+ (second half of 2026).
+ 
+-**Note:** There isn't a direct replacement for configuring a Kotlin Multiplatform
+-module using `com.android.application` plugin. To migrate, extract your
+-Android **application** to a separate Gradle module.
++> [!NOTE]
++> **Note:** There isn't a direct replacement for configuring a Kotlin Multiplatform module using `com.android.application` plugin. To migrate, extract your Android **application** to a separate Gradle module.
+ 
+-To apply this plugin, refer to the [Apply the Android-KMP plugin](#apply)
++To apply this plugin, refer to the [Apply the Android-KMP plugin](https://developer.android.com/kotlin/multiplatform/plugin#apply)
+ section. If you need to migrate from the legacy APIs, check the [Migration
+-Guide](#migrate).
++Guide](https://developer.android.com/kotlin/multiplatform/plugin#migrate).
+ 
+-**Caution:** Before you migrate to the new plugin, be aware of the
+-[known issues](#known-issues) and
+-[unsupported features](#unsupported-features-and-workarounds).
++> [!CAUTION]
++> **Caution:** Before you migrate to the new plugin, be aware of the [known issues](https://developer.android.com/kotlin/multiplatform/plugin#known-issues) and [unsupported features](https://developer.android.com/kotlin/multiplatform/plugin#unsupported-features-and-workarounds).
+ 
+ ## Key features and differences
+ 
+ The Android-KMP plugin is tailored specifically for KMP projects and differs
+ from the standard `com.android.library` plugin in several key aspects:
+ 
+-* **Single variant architecture:** The plugin uses a single variant, removing
++- **Single variant architecture:** The plugin uses a single variant, removing
+   support for product flavors and build types, which simplifies configuration
+   and enhances build performance.
+-* **Optimized for KMP:** The plugin is designed for KMP libraries, focusing on
++
++- **Optimized for KMP:** The plugin is designed for KMP libraries, focusing on
+   shared Kotlin code and interoperability, omitting support for
+   Android-specific native builds, AIDL, and RenderScript.
+-* **Tests disabled by default:** Both unit and device (instrumentation) tests
++
++- **Tests disabled by default:** Both unit and device (instrumentation) tests
+   are disabled by default to enhance build speed. You can enable them if
+   required.
+-* **No top-Level Android extension:** Configuration is handled with an
++
++- **No top-Level Android extension:** Configuration is handled with an
+   `android` block within the Gradle KMP DSL, maintaining a consistent
+   KMP project structure. There's no top-level `android` extension block.
+-* **Opt-in Java compilation:** Java compilation is disabled by default. Use
++
++- **Opt-in Java compilation:** Java compilation is disabled by default. Use
+   `withJava()` in the `android` block to enable it. This improves build
+   times when Java compilation is not needed.
+ 
+@@ -61,13 +54,15 @@ from the standard `com.android.library` plugin in several key aspects:
+ 
+ The Android-KMP plugin provides the following benefits for KMP projects:
+ 
+-* **Improved build performance and stability:** It's engineered for optimized
++- **Improved build performance and stability:** It's engineered for optimized
+   build speeds and enhanced stability within KMP projects. It's focus on KMP
+   workflows contribute to a more efficient and reliable build process.
+-* **Enhanced IDE integration:** It provides better code completion,
++
++- **Enhanced IDE integration:** It provides better code completion,
+   navigation, debugging, and overall developer experience when working with
+   KMP Android libraries.
+-* **Simplified project configuration:** The plugin simplifies configuration
++
++- **Simplified project configuration:** The plugin simplifies configuration
+   for KMP projects by removing Android-specific complexities like build
+   variants. This leads to cleaner and more maintainable build files.
+   Previously, using the `com.android.library` plugin in KMP project could
+@@ -82,7 +77,7 @@ features are missing from the
+ `com.android.kotlin.multiplatform.library` plugin. Here are the workarounds
+ for the unsupported features:
+ 
+-* **Build variants**
++- **Build variants**
+ 
+   Build types and product flavors are not supported. This is because the new
+   plugin uses a single variant architecture, which simplifies configuration and
+@@ -93,9 +88,9 @@ for the unsupported features:
+   the `com.android.library` plugin, configure build types and product flavors
+   within that module, and then consume it as a standard project dependency
+   from your Kotlin Multiplatform library's `androidMain` source set.
+-  For more details, see [Create an Android library](/studio/projects/android-library) and
+-  [Configure build variants](/build/build-variants).
+-* **Data binding and View binding**
++  For more details, see [Create an Android library](https://developer.android.com/studio/projects/android-library) and
++  [Configure build variants](https://developer.android.com/build/build-variants).
++- **Data binding and View binding**
+ 
+   These are Android-specific UI framework features tightly coupled to the
+   Android View system and XML layouts. In the new Android-KMP library plugin we
+@@ -103,7 +98,7 @@ for the unsupported features:
+   [Compose Multiplatform](https://www.jetbrains.com/compose-multiplatform/). Data binding and View binding
+   are considered implementation details of a final Android app, not a shareable
+   library.
+-* **Native build support**
++- **Native build support**
+ 
+   The new plugin focuses on producing a standard AAR for the Android target.
+   Native code integration in Kotlin Multiplatform is handled directly by KMP's
+@@ -117,9 +112,9 @@ for the unsupported features:
+   recommendation is to create a separate standalone `com.android.library` module
+   where you can integrate native code, and consume that standalone library from
+   your Kotlin Multiplatform library project's `androidMain` source set.
+-  For more details, see [Create an Android library](/studio/projects/android-library) and
+-  [Add C and C++ code to your project](/studio/projects/add-native-code).
+-* **`BuildConfig` class**
++  For more details, see [Create an Android library](https://developer.android.com/studio/projects/android-library) and
++  [Add C and C++ code to your project](https://developer.android.com/studio/projects/add-native-code).
++- **`BuildConfig` class**
+ 
+   The `BuildConfig` feature is most useful in multi-variant environments.
+   Since the new Kotlin Multiplatform library plugin is variant-agnostic and
+@@ -132,8 +127,8 @@ for the unsupported features:
+ To use the `com.android.kotlin.multiplatform.library` plugin, your project must
+ be configured with the following minimum versions or higher:
+ 
+-* **Android Gradle Plugin (AGP)**: 8.10.0
+-* **Kotlin Gradle Plugin (KGP)**: 2.0.0
++- **Android Gradle Plugin (AGP)**: 8.10.0
++- **Kotlin Gradle Plugin (KGP)**: 2.0.0
+ 
+ ## Apply the Android-KMP plugin to an existing module
+ 
+@@ -144,18 +139,17 @@ steps:
+    (usually `gradle/libs.versions.toml`) and add the plugin definitions
+    section:
+ 
+-   ```
+-   # To check the version number of the latest Kotlin release, go to
+-   # https://kotlinlang.org/docs/releases.html
++       # To check the version number of the latest Kotlin release, go to
++       # https://kotlinlang.org/docs/releases.html
+ 
+-   [versions]
+-   androidGradlePlugin = "9.1.0"
+-   kotlin = "KOTLIN_VERSION"
++       [versions]
++       androidGradlePlugin = "9.1.0"
++       kotlin = "KOTLIN_VERSION"
++
++       [plugins]
++       kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
++       android-kotlin-multiplatform-library = { id = "com.android.kotlin.multiplatform.library", version.ref = "androidGradlePlugin" }
+ 
+-   [plugins]
+-   kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
+-   android-kotlin-multiplatform-library = { id = "com.android.kotlin.multiplatform.library", version.ref = "androidGradlePlugin" }
+-   ```
+ 2. **Apply the plugin declaration in root build file.** Open the
+    `build.gradle.kts` file located in the root directory of your project. Add
+    the plugin aliases to the `plugins` block using `apply false`. This makes
+@@ -164,7 +158,7 @@ steps:
+ 
+    ### Kotlin
+ 
+-   ```
++   ```kotlin
+    // Root build.gradle.kts file
+ 
+    plugins {
+@@ -177,7 +171,7 @@ steps:
+ 
+    ### Groovy
+ 
+-   ```
++   ```groovy
+    // Root build.gradle file
+ 
+    plugins {
+@@ -193,7 +187,7 @@ steps:
+ 
+    ### Kotlin
+ 
+-   ```
++   ```kotlin
+    // Module-specific build.gradle.kts file
+ 
+    plugins {
+@@ -206,7 +200,7 @@ steps:
+ 
+    ### Groovy
+ 
+-   ```
++   ```groovy
+    // Module-specific build.gradle file
+ 
+    plugins {
+@@ -222,7 +216,7 @@ steps:
+ 
+    ### Kotlin
+ 
+-   ```
++   ```kotlin
+    kotlin {
+       android {
+           namespace = "com.example.kmpfirstlib"
+@@ -264,7 +258,7 @@ steps:
+ 
+    ### Groovy
+ 
+-   ```
++   ```groovy
+    kotlin {
+       android {
+           namespace = "com.example.kmpfirstlib"
+@@ -307,12 +301,8 @@ steps:
+ This guide helps you migrate from the legacy `com.android.library` plugin to the
+ `com.android.kotlin.multiplatform.library` plugin.
+ 
+-**Note:** For Android Gradle Plugin versions below 8.12.0, the configuration
+-block for the Android target is `androidLibrary{}`. Starting with AGP 8.12.0,
+-a new `android{}` block was introduced to replace `androidLibrary{}`.
+-`androidLibrary{}` is deprecated since AGP 9.1.0-alpha09 and will be removed in
+-a future release. If you are using AGP 8.12.0 or higher, use `android{}`,
+-otherwise use `androidLibrary{}`.
++> [!NOTE]
++> **Note:** For Android Gradle Plugin versions below 8.12.0, the configuration block for the Android target is `androidLibrary{}`. Starting with AGP 8.12.0, a new `android{}` block was introduced to replace `androidLibrary{}`. `androidLibrary{}` is deprecated since AGP 9.1.0-alpha09 and will be removed in a future release. If you are using AGP 8.12.0 or higher, use `android{}`, otherwise use `androidLibrary{}`.
+ 
+ ### 1. Moving Sources
+ 
+@@ -337,45 +327,41 @@ The new plugin promotes a cleaner structure by grouping Android dependencies
+ within the `androidMain` source set. In addition to the main source set,
+ there are two test source sets, which are created on demand:
+ `androidDeviceTest` and `androidHostTest` (check the [configuring host and
+-device tests](#configure-tests) for more information).
++device tests](https://developer.android.com/kotlin/multiplatform/plugin#configure-tests) for more information).
+ 
+-```
+-// build.gradle.kts
++    // build.gradle.kts
+ 
+-kotlin {
+-    android {}
+-    //... other targets
++    kotlin {
++        android {}
++        //... other targets
+ 
+-    sourceSets {
+-        commonMain.dependencies {
+-            implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.8.0")
+-        }
++        sourceSets {
++            commonMain.dependencies {
++                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.8.0")
++            }
+ 
+-        // Dependencies are now scoped to the specific Android source set
+-        androidMain.dependencies {
+-            implementation("androidx.appcompat:appcompat:1.7.0")
+-            implementation("com.google.android.material:material:1.11.0")
++            // Dependencies are now scoped to the specific Android source set
++            androidMain.dependencies {
++                implementation("androidx.appcompat:appcompat:1.7.0")
++                implementation("com.google.android.material:material:1.11.0")
++            }
+         }
+     }
+-}
+-```
+ 
+ The source sets have corresponding Kotlin
+ [compilations](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-configure-compilations.html) named `main`, `deviceTest`,
+ and `hostTest`. The source sets and compilations can be configured in the
+ build script like so:
+ 
+-```
+-// build.gradle.kts
++    // build.gradle.kts
+ 
+-kotlin {
+-    android {
+-        compilations.getByName("deviceTest") {
+-            kotlinOptions.languageVersion = "2.0"
++    kotlin {
++        android {
++            compilations.getByName("deviceTest") {
++                kotlinOptions.languageVersion = "2.0"
++            }
+         }
+     }
+-}
+-```
+ 
+ ### Legacy Plugin
+ 
+@@ -383,24 +369,22 @@ With the old plugin, you could declare Android-specific dependencies in the
+ top-level dependencies block, which could sometimes be confusing in a
+ multiplatform module.
+ 
+-```
+-// build.gradle.kts
++    // build.gradle.kts
+ 
+-kotlin {
+-  androidTarget()
+-  //... other targets
+-}
++    kotlin {
++      androidTarget()
++      //... other targets
++    }
+ 
+-// Dependencies for all source sets were often mixed in one block
+-dependencies {
+-  // Common dependencies
+-  commonMainImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.8.0")
++    // Dependencies for all source sets were often mixed in one block
++    dependencies {
++      // Common dependencies
++      commonMainImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.8.0")
+ 
+-  // Android-specific dependencies
+-  implementation("androidx.appcompat:appcompat:1.7.0")
+-  implementation("com.google.android.material:material:1.11.0")
+-}
+-```
++      // Android-specific dependencies
++      implementation("androidx.appcompat:appcompat:1.7.0")
++      implementation("com.google.android.material:material:1.11.0")
++    }
+ 
+ ### 3. Enabling Android Resources
+ 
+@@ -414,52 +398,48 @@ not burdened by the associated build overhead.
+ You must explicitly enable Android resource processing. The resources should
+ be placed in `src/androidMain/res`.
+ 
+-```
+-// build.gradle.kts
++    // build.gradle.kts
+ 
+-kotlin {
+-  android {
+-    // ...
+-    // Enable Android resource processing
+-    androidResources {
+-      enable = true
++    kotlin {
++      android {
++        // ...
++        // Enable Android resource processing
++        androidResources {
++          enable = true
++        }
++      }
+     }
+-  }
+-}
+-
+-// Project Structure
+-// └── src
+-//     └── androidMain
+-//         └── res
+-//             ├── values
+-//             │   └── strings.xml
+-//             └── drawable
+-//                 └── icon.xml
+-```
++
++    // Project Structure
++    // └── src
++    //     └── androidMain
++    //         └── res
++    //             ├── values
++    //             │   └── strings.xml
++    //             └── drawable
++    //                 └── icon.xml
+ 
+ ### Legacy Plugin
+ 
+ Resource processing was enabled by default. You could immediately add a
+ `res` directory in `src/main` and start adding XML drawables, values, etc.
+ 
+-```
+-// build.gradle.kts
+-
+-android {
+-    namespace = "com.example.library"
+-    compileSdk = 34
+-    // No extra configuration was needed to enable resources.
+-}
+-
+-// Project Structure
+-// └── src
+-//     └── main
+-//         └── res
+-//             ├── values
+-//             │   └── strings.xml
+-//             └── drawable
+-//                 └── icon.xml
+-```
++    // build.gradle.kts
++
++    android {
++        namespace = "com.example.library"
++        compileSdk = 34
++        // No extra configuration was needed to enable resources.
++    }
++
++    // Project Structure
++    // └── src
++    //     └── main
++    //         └── res
++    //             ├── values
++    //             │   └── strings.xml
++    //             └── drawable
++    //                 └── icon.xml
+ 
+ ### 4. Configuring Host and Device Tests
+ 
+@@ -481,31 +461,29 @@ creating unused test components. The `androidUnitTest` source set becomes
+ `androidDeviceTest` (the test directory changes from
+ `src/androidInstrumentedTest` to `src/androidDeviceTest`).
+ 
+-```
+-// build.gradle.kts
++    // build.gradle.kts
+ 
+-kotlin {
+-  android {
+-    // ...
++    kotlin {
++      android {
++        // ...
+ 
+-    // Opt-in to enable and configure host-side (unit) tests
+-    withHostTest {
+-      isIncludeAndroidResources = true
+-    }
++        // Opt-in to enable and configure host-side (unit) tests
++        withHostTest {
++          isIncludeAndroidResources = true
++        }
+ 
+-    // Opt-in to enable and configure device-side (instrumented) tests
+-    withDeviceTest {
+-      instrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+-      execution = "HOST"
++        // Opt-in to enable and configure device-side (instrumented) tests
++        withDeviceTest {
++          instrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
++          execution = "HOST"
++        }
++      }
+     }
+-  }
+-}
+ 
+-// Project Structure (After Opt-in)
+-// └── src
+-//     ├── androidHostTest
+-//     └── androidDeviceTest
+-```
++    // Project Structure (After Opt-in)
++    // └── src
++    //     ├── androidHostTest
++    //     └── androidDeviceTest
+ 
+ ### Legacy Plugin
+ 
+@@ -514,29 +492,27 @@ With the `com.android.library` plugin, the `androidUnitTest` and
+ configure their behavior inside the `android` block, typically using the
+ `testOptions` DSL.
+ 
+-```
+-// build.gradle.kts
++    // build.gradle.kts
+ 
+-android {
+-  defaultConfig {
+-    // Runner was configured in defaultConfig
+-    testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+-  }
++    android {
++      defaultConfig {
++        // Runner was configured in defaultConfig
++        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
++      }
+ 
+-  testOptions {
+-    // Configure unit tests (for the 'test' source set)
+-    unitTests.isIncludeAndroidResources = true
++      testOptions {
++        // Configure unit tests (for the 'test' source set)
++        unitTests.isIncludeAndroidResources = true
+ 
+-    // Configure device tests (for the 'androidTest' source set)
+-    execution = "HOST"
+-  }
+-}
++        // Configure device tests (for the 'androidTest' source set)
++        execution = "HOST"
++      }
++    }
+ 
+-// Project Structure (Defaults)
+-// └── src
+-//     ├── test
+-//     └── androidTest
+-```
++    // Project Structure (Defaults)
++    // └── src
++    //     ├── test
++    //     └── androidTest
+ 
+ ### 5. Enable Java source compilation
+ 
+@@ -553,54 +529,50 @@ is now configured directly inside the `kotlin { android {} }` block
+ for a more unified setup. Setting `jvmTarget` here applies to both Kotlin
+ and Java compilation for the Android target.
+ 
+-```
+-// build.gradle.kts
++    // build.gradle.kts
+ 
+-kotlin {
+-  android {
+-    //  Opt-in to enable Java source compilation
+-    withJava()
+-    // Configure the JVM target for both Kotlin and Java sources
+-    compilerOptions {
+-      jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_1_8)
++    kotlin {
++      android {
++        //  Opt-in to enable Java source compilation
++        withJava()
++        // Configure the JVM target for both Kotlin and Java sources
++        compilerOptions {
++          jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_1_8)
++        }
++      }
++      // ...
+     }
+-  }
+-  // ...
+-}
+-
+-// Project Structure:
+-// └── src
+-//     └── androidMain
+-//         ├── kotlin
+-//         │   └── com/example/MyKotlinClass.kt
+-//         └── java
+-//             └── com.example/MyJavaClass.java
+-```
++
++    // Project Structure:
++    // └── src
++    //     └── androidMain
++    //         ├── kotlin
++    //         │   └── com/example/MyKotlinClass.kt
++    //         └── java
++    //             └── com.example/MyJavaClass.java
+ 
+ ### Legacy Plugin
+ 
+ Java compilation was enabled by default. The JVM target for both Java and
+ Kotlin sources was set in the android block using compileOptions.
+ 
+-```
+-// build.gradle.kts
+-
+-android {
+-  // ...
+-  compileOptions {
+-    sourceCompatibility = JavaVersion.VERSION_1_8
+-    targetCompatibility = JavaVersion.VERSION_1_8
+-  }
+-}
+-
+-kotlin {
+-  androidTarget {
+-    compilations.all {
+-      kotlinOptions.jvmTarget = "1.8"
++    // build.gradle.kts
++
++    android {
++      // ...
++      compileOptions {
++        sourceCompatibility = JavaVersion.VERSION_1_8
++        targetCompatibility = JavaVersion.VERSION_1_8
++      }
++    }
++
++    kotlin {
++      androidTarget {
++        compilations.all {
++          kotlinOptions.jvmTarget = "1.8"
++        }
++      }
+     }
+-  }
+-}
+-```
+ 
+ ### 6. Interact with build variants using `androidComponents`
+ 
+@@ -618,30 +590,26 @@ The `onVariants` block now iterates over a single variant. You can still
+ access common properties like `name` and `artifacts`, but not
+ build-type-specific ones.
+ 
+-```
+-// build.gradle.kts
++    // build.gradle.kts
+ 
+-androidComponents {
+-  onVariants { variant ->
+-      val artifacts = variant.artifacts
+-  }
+-}
+-```
++    androidComponents {
++      onVariants { variant ->
++          val artifacts = variant.artifacts
++      }
++    }
+ 
+ ### Legacy Plugin
+ 
+ With multiple variants, you could access build-type-specific properties to
+ configure tasks.
+ 
+-```
+-// build.gradle.kts
++    // build.gradle.kts
+ 
+-androidComponents {
+-  onVariants(selector().withBuildType("release")) { variant ->
+-    // ...
+-  }
+-}
+-```
++    androidComponents {
++      onVariants(selector().withBuildType("release")) { variant ->
++        // ...
++      }
++    }
+ 
+ ### 7. Select variants of Android library dependencies
+ 
+@@ -657,23 +625,21 @@ The new plugin centralizes and clarifies this logic within the
+ clearer which variants of external dependencies will be selected for your
+ single-variant KMP library.
+ 
+-```
+-// build.gradle.kts
+-kotlin {
+-  android {
+-    localDependencySelection {
+-      // For dependencies with multiple build types, select 'debug' first, and 'release' in case 'debug' is missing
+-      selectBuildTypeFrom.set(listOf("debug", "release"))
+-
+-      // For dependencies with a 'type' flavor dimension...
+-      productFlavorDimension("type") {
+-        // ...select the 'typeone' flavor.
+-        selectFrom.set(listOf("typeone"))
++    // build.gradle.kts
++    kotlin {
++      android {
++        localDependencySelection {
++          // For dependencies with multiple build types, select 'debug' first, and 'release' in case 'debug' is missing
++          selectBuildTypeFrom.set(listOf("debug", "release"))
++
++          // For dependencies with a 'type' flavor dimension...
++          productFlavorDimension("type") {
++            // ...select the 'typeone' flavor.
++            selectFrom.set(listOf("typeone"))
++          }
++        }
+       }
+     }
+-  }
+-}
+-```
+ 
+ ### Legacy Plugin
+ 
+@@ -682,7 +648,7 @@ productFlavors` blocks. This often involved using `missingDimensionStrategy`
+ to provide a default flavor for a dimension that your library didn't have,
+ or `matchingFallbacks` within a specific flavor to define a search order.
+ 
+-Refer to [Resolve Matching Errors](/build/build-variants#resolve_matching_errors) for more
++Refer to [Resolve Matching Errors](https://developer.android.com/build/build-variants#resolve_matching_errors) for more
+ detailed information on the API usage.
+ 
+ ### 8. Compose preview dependencies
+@@ -699,18 +665,16 @@ To add a dependency only for local development and testing, add the
+ dependency directly to the runtime classpath configuration (in the top-level
+ `dependencies` block) of the main Android compilation. This helps ensure the
+ dependency is available at runtime (for example for tools like
+-[Compose Preview](/develop/ui/compose/tooling/previews)) but is not part of the compile
++[Compose Preview](https://developer.android.com/develop/ui/compose/tooling/previews)) but is not part of the compile
+ classpath or the published API of your library.
+ 
+-**Preview:** This workaround is only available in Android Gradle plugin version
+-9.0.0-beta01 and higher.
++> [!WARNING]
++> **Preview:** This workaround is only available in Android Gradle plugin version 9.0.0-beta01 and higher.
+ 
+-```
+-// build.gradle.kts
+-dependencies {
+-  "androidRuntimeClasspath"(libs.androidx.compose.ui.tooling)
+-}
+-```
++    // build.gradle.kts
++    dependencies {
++      "androidRuntimeClasspath"(libs.androidx.compose.ui.tooling)
++    }
+ 
+ ### Legacy Plugin
+ 
+@@ -719,12 +683,10 @@ for the Android target should use the `debugImplementation` configuration,
+ which scopes the dependency to the debug build type and prevents it
+ from being included in the library's release variant used by the consumers.
+ 
+-```
+-// build.gradle.kts
+-dependencies {
+-  debugImplementation(libs.androidx.compose.ui.tooling)
+-}
+-```
++    // build.gradle.kts
++    dependencies {
++      debugImplementation(libs.androidx.compose.ui.tooling)
++    }
+ 
+ ### 9. Configure the JVM target for the KMP Android target
+ 
+@@ -754,12 +716,10 @@ in the `kotlin` block of your `build.gradle.kts` file. This approach sets
+ the target for both Kotlin and Java compilation tasks across all JVM-based
+ targets in your project, including Android.
+ 
+-```
+-// build.gradle.kts
+-kotlin {
+-    jvmToolchain(21)
+-}
+-```
++    // build.gradle.kts
++    kotlin {
++        jvmToolchain(21)
++    }
+ 
+ This configuration makes both `kotlinc` and `javac` target JVM 21. It's
+ a great way to establish a consistent baseline for your entire project.
+@@ -770,16 +730,14 @@ You can specify the JVM target specifically for the Android KMP target
+ within the `android` block. This setting overrides the project-wide
+ `jvmToolchain` configuration and applies to all Android compilations.
+ 
+-```
+-// build.gradle.kts
+-kotlin {
+-    android {
+-        compilerOptions {
+-            jvmTarget.set(JvmTarget.JVM_11)
++    // build.gradle.kts
++    kotlin {
++        android {
++            compilerOptions {
++                jvmTarget.set(JvmTarget.JVM_11)
++            }
+         }
+     }
+-}
+-```
+ 
+ In this case, even if a `jvmToolchain` is set to a different version, the
+ Android target's Kotlin and Java code will be compiled to target JVM 11.
+@@ -792,18 +750,16 @@ only). This is useful if a specific compilation needs to target a different
+ JVM version. This setting overrides both the Kotlin toolchain and the
+ Android target-level options.
+ 
+-```
+-// build.gradle.kts
+-kotlin {
+-    android {
+-        compilations.all {
+-            compileTaskProvider.configure {
+-                compilerOptions.jvmTarget.set(JvmTarget.JVM_11)
++    // build.gradle.kts
++    kotlin {
++        android {
++            compilations.all {
++                compileTaskProvider.configure {
++                    compilerOptions.jvmTarget.set(JvmTarget.JVM_11)
++                }
+             }
+         }
+     }
+-}
+-```
+ 
+ This configuration helps ensure that all compilations within the Android
+ target use JVM 11, providing fine-grained control.
+@@ -820,31 +776,27 @@ The `kotlin.jvmToolchain()` method works identically, setting the
+ `sourceCompatibility` and `targetCompatibility` for Java and the
+ `jvmTarget` for Kotlin. We recommend using this approach.
+ 
+-```
+-// build.gradle.kts
+-kotlin {
+-    jvmToolchain(21)
+-}
+-```
++    // build.gradle.kts
++    kotlin {
++        jvmToolchain(21)
++    }
+ 
+ **compileOptions and kotlinOptions**
+ 
+ If you don't use Kotlin toolchain, you have to configure the JVM
+ targets using separate blocks for Java and Kotlin.
+ 
+-```
+-// build.gradle.kts
+-android {
+-    compileOptions {
+-        sourceCompatibility = JavaVersion.VERSION_11
+-        targetCompatibility = JavaVersion.VERSION_11
+-    }
++    // build.gradle.kts
++    android {
++        compileOptions {
++            sourceCompatibility = JavaVersion.VERSION_11
++            targetCompatibility = JavaVersion.VERSION_11
++        }
+ 
+-    kotlinOptions {
+-        jvmTarget = "11"
++        kotlinOptions {
++            jvmTarget = "11"
++        }
+     }
+-}
+-```
+ 
+ ### 10. Publish consumer keep rules
+ 
+@@ -858,19 +810,17 @@ With the new plugin, you must set
+ `optimization.consumerKeepRules.publish = true` and specify rule files
+ within the `consumerKeepRules` block to publish consumer keep rules.
+ 
+-```
+-// build.gradle.kts
+-kotlin {
+-  android {
+-    optimization {
+-      consumerKeepRules.apply {
+-        publish = true
+-        file("consumer-proguard-rules.pro")
++    // build.gradle.kts
++    kotlin {
++      android {
++        optimization {
++          consumerKeepRules.apply {
++            publish = true
++            file("consumer-proguard-rules.pro")
++          }
++        }
+       }
+     }
+-  }
+-}
+-```
+ 
+ ### Legacy Plugin
+ 
+@@ -878,14 +828,12 @@ With `com.android.library`, any rules files specified with
+ `consumerProguardFiles` in `android.defaultConfig` are published in
+ the library's artifacts by default.
+ 
+-```
+-// build.gradle.kts
+-android {
+-  defaultConfig {
+-    consumerProguardFiles("consumer-proguard-rules.pro")
+-  }
+-}
+-```
++    // build.gradle.kts
++    android {
++      defaultConfig {
++        consumerProguardFiles("consumer-proguard-rules.pro")
++      }
++    }
+ 
+ ### 11. Publish your library to Maven
+ 
+@@ -910,44 +858,41 @@ you need to follow the standard Android library publishing guide to
+ prepare and publish the Android-specific artifact (`.aar`).
+ 
+ For detailed instructions, see
+-[Prepare your library for release](/build/publish-library/prep-lib-release).
++[Prepare your library for release](https://developer.android.com/build/publish-library/prep-lib-release).
+ 
+ ## Plugin API reference
+ 
+ The new plugin has a different API surface than `com.android.library`. For
+ detailed information on the new DSL and interfaces, see the API references:
+ 
+-* [`KotlinMultiplatformAndroidLibraryExtension`](/reference/tools/gradle-api/8.11/com/android/build/api/dsl/KotlinMultiplatformAndroidLibraryExtension)
+-* [`KotlinMultiplatformAndroidLibraryTarget`](/reference/tools/gradle-api/8.11/com/android/build/api/dsl/KotlinMultiplatformAndroidLibraryTarget)
+-* [`KotlinMultiplatformAndroidDeviceTest`](/reference/tools/gradle-api/8.11/com/android/build/api/dsl/KotlinMultiplatformAndroidDeviceTest)
+-* [`KotlinMultiplatformAndroidHostTest`](/reference/tools/gradle-api/8.11/com/android/build/api/dsl/KotlinMultiplatformAndroidHostTest)
+-* [`KotlinMultiplatformAndroidVariant`](/reference/tools/gradle-api/8.11/com/android/build/api/variant/KotlinMultiplatformAndroidVariant)
++- [`KotlinMultiplatformAndroidLibraryExtension`](https://developer.android.com/reference/tools/gradle-api/8.11/com/android/build/api/dsl/KotlinMultiplatformAndroidLibraryExtension)
++- [`KotlinMultiplatformAndroidLibraryTarget`](https://developer.android.com/reference/tools/gradle-api/8.11/com/android/build/api/dsl/KotlinMultiplatformAndroidLibraryTarget)
++- [`KotlinMultiplatformAndroidDeviceTest`](https://developer.android.com/reference/tools/gradle-api/8.11/com/android/build/api/dsl/KotlinMultiplatformAndroidDeviceTest)
++- [`KotlinMultiplatformAndroidHostTest`](https://developer.android.com/reference/tools/gradle-api/8.11/com/android/build/api/dsl/KotlinMultiplatformAndroidHostTest)
++- [`KotlinMultiplatformAndroidVariant`](https://developer.android.com/reference/tools/gradle-api/8.11/com/android/build/api/variant/KotlinMultiplatformAndroidVariant)
+ 
+ ## Known issues in Android-KMP library plugin
+ 
+ These are the known issues that might occur when you apply the new
+ `com.android.kotlin.multiplatform.library` plugin:
+ 
+-* [Compose preview fails when using new android-KMP plugin](https://issuetracker.google.com/issues/422373442)
++- [Compose preview fails when using new android-KMP plugin](https://issuetracker.google.com/issues/422373442)
+ 
+-  + Fixed in `Android Studio Otter 2 Feature Drop | 2025.2.2 Canary 3`
+-    and `Android Gradle Plugin 9.0.0-alpha13`
+-* [NullPointerException in Compose Multiplatform previews with
++  - Fixed in `Android Studio Otter 2 Feature Drop | 2025.2.2 Canary 3` and `Android Gradle Plugin 9.0.0-alpha13`
++- [NullPointerException in Compose Multiplatform previews with
+   `com.android.kotlin.multiplatform.library` plugin](https://issuetracker.google.com/issues/449677824)
+ 
+-  + Fixed in `Android Studio Otter 2 Feature Drop | 2025.2.2 Canary 3`
+-    and `Android Gradle Plugin 9.0.0-alpha13`
+-* [KMP stores common compilation dependency resolution in Configuration cache
++  - Fixed in `Android Studio Otter 2 Feature Drop | 2025.2.2 Canary 3` and `Android Gradle Plugin 9.0.0-alpha13`
++- [KMP stores common compilation dependency resolution in Configuration cache
+   leading to error when deserializing (Android only)](https://youtrack.jetbrains.com/issue/KT-81060)
+ 
+-  + Fixed in `Kotlin Gradle Plugin 2.3.0-Beta2`
+-* [Support instrumented sourceSetTree for androidLibrary target](https://youtrack.jetbrains.com/issue/KT-72628)
++  - Fixed in `Kotlin Gradle Plugin 2.3.0-Beta2`
++- [Support instrumented sourceSetTree for androidLibrary target](https://youtrack.jetbrains.com/issue/KT-72628)
+ 
+-  + Fixed in `Android Studio Otter 2 Feature Drop | 2025.2.2 Canary 3`
+-    and `Android Gradle Plugin 9.0.0-alpha13`
++  - Fixed in `Android Studio Otter 2 Feature Drop | 2025.2.2 Canary 3` and `Android Gradle Plugin 9.0.0-alpha13`
+ 
+ ## Recommended for you
+ 
+-* Note: link text is displayed when JavaScript is off
+-* [Set up your environment](/kotlin/multiplatform/setup)
+-* [Add KMP module to a project](/kotlin/multiplatform/migrate)
+\ No newline at end of file
++- Note: link text is displayed when JavaScript is off
++- [Set up your environment](https://developer.android.com/kotlin/multiplatform/setup)
++- [Add KMP module to a project](https://developer.android.com/kotlin/multiplatform/migrate)
+\ No newline at end of file

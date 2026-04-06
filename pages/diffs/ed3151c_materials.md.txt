@@ -1,0 +1,160 @@
+diff --git a/docs/games/optimize/materials.md b/docs/games/optimize/materials.md
+index a07cd79..a3abd83 100644
+--- a/docs/games/optimize/materials.md
++++ b/docs/games/optimize/materials.md
+@@ -1,18 +1,9 @@
+ ---
+-title: Materials and Shaders  |  Android Developers
++title: https://developer.android.com/games/optimize/materials
+ url: https://developer.android.com/games/optimize/materials
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-* [Google Play](https://developer.android.com/distribute)
+-* [Guides](https://developer.android.com/games/guides)
+-
+-# Materials and Shaders Stay organized with collections Save and categorize content based on your preferences.
+-
+-
+-
+-
+ Follow these best practices to optimize the use of materials and shaders in your
+ Android game.
+ 
+@@ -37,7 +28,7 @@ For a definition of shaders and materials, see
+ If you are using a game engine such as Unity or Unreal Engine 4, use built-in
+ shaders designed for mobile hardware. These shaders contain simplified feature
+ implementations for greater performance on mobile devices. If possible, turn off
+-features you aren’t using when you configure your materials. These features
++features you aren't using when you configure your materials. These features
+ might be things like color tinting or detail maps. Disabling unused features
+ allows the engine to omit them from the final shader program resulting in better
+ performance.
+@@ -61,11 +52,7 @@ to simulate the rendering output of the mobile shaders. Despite some
+ differences, Unreal uses the same process for materials on all platforms, so
+ mobile shaders will generally have similar visuals and behaviors as the default
+ shaders.
+-
+-![Setting mobile preview rendering in the Unreal editor](/static/images/games/artbp/material/material_figure01.jpg)
+-
+-
+-**Figure 1.** Setting mobile preview rendering in the Unreal editor.
++![Setting mobile preview rendering in the Unreal editor](https://developer.android.com/static/images/games/artbp/material/material_figure01.jpg) **Figure 1.**Setting mobile preview rendering in the Unreal editor.
+ 
+ ## Minimize texture samplers
+ 
+@@ -77,12 +64,9 @@ a maximum of five material textures when running on mobile devices. Even five
+ texture samplers may be prohibitively expensive for widespread use on many
+ devices. Strategies to minimize texture sampler count include:
+ 
+-* Use texture packing to combine single-channel textures. For more information
+-  on this technique, see the [Textures](/games/optimize/textures) guide.
+-* Replace data for parameters such as roughness or metallic with a numeric
+-  constant instead of being read from a texture.
+-* Use unlit shaders or a simple lighting model, to be able to omit textures
+-  needed to support lighting calculations in more complicated lighting models.
++- Use texture packing to combine single-channel textures. For more information on this technique, see the [Textures](https://developer.android.com/games/optimize/textures) guide.
++- Replace data for parameters such as roughness or metallic with a numeric constant instead of being read from a texture.
++- Use unlit shaders or a simple lighting model, to be able to omit textures needed to support lighting calculations in more complicated lighting models.
+ 
+ ## Disable lighting when possible
+ 
+@@ -94,11 +78,7 @@ less powerful hardware, minimizing use of real time lighting is important to
+ achieving optimal performance. You should consider designing your art direction
+ around designs that work well without real time lighting, such as stylized or
+ cartoony art.
+-
+-![A comparison of a model rendered with and without lighting](/static/images/games/artbp/material/material_figure02.png)
+-
+-
+-**Figure 2.** An example of a model being rendered with real time lighting (left) and without real time lighting (right).
++![A comparison of a model rendered with and without lighting](https://developer.android.com/static/images/games/artbp/material/material_figure02.png) **Figure 2.**An example of a model being rendered with real time lighting (left) and without real time lighting (right).
+ 
+ ## Minimize use of transparency
+ 
+@@ -114,17 +94,7 @@ Multiple layers of transparency overdraw should be avoided. Many games have
+ diagnostic tools to visualize overdraw to help detect and eliminate it. Use
+ these tools to improve the performance of your game and identify problem areas
+ that bring down your frame rate.
+-
+-![An example of the overdraw visualization tool in the Unity editor](/static/images/games/artbp/material/material_figure03.jpg)
+-
+-
+-**Figure 3.** An example of the overdraw visualization tool in the Unity editor.
+-
+-
+-![An example of the overdraw visualization tool in the Unreal editor](/static/images/games/artbp/material/material_figure04.jpg)
+-
+-
+-**Figure 4.** An example of the overdraw visualization tool in the Unreal editor.
++![An example of the overdraw visualization tool in the Unity editor](https://developer.android.com/static/images/games/artbp/material/material_figure03.jpg) **Figure 3.**An example of the overdraw visualization tool in the Unity editor. ![An example of the overdraw visualization tool in the Unreal editor](https://developer.android.com/static/images/games/artbp/material/material_figure04.jpg) **Figure 4.**An example of the overdraw visualization tool in the Unreal editor.
+ 
+ ## Use the appropriate alpha method
+ 
+@@ -133,18 +103,14 @@ alpha testing.
+ 
+ Alpha testing will make the object material look either 100% opaque or 100%
+ transparent. You can configure the alpha value threshold for this cutoff. In
+-Unity this type of transparency is called **Cutout**. In Unreal Engine 4 it is
++Unity this type of transparency is called **Cutout** . In Unreal Engine 4 it is
+ called the **Masked** blend mode.
+ 
+ Alpha blending allows the object material to have a range of transparency, and
+ can make an object look partially transparent. Unity calls this type of
+-transparency **Transparent**. In Unreal Engine 4 it is called the
++transparency **Transparent** . In Unreal Engine 4 it is called the
+ **Translucent** blend mode.
+-
+-![A comparison between alpha blending and alpha testing](/static/images/games/artbp/material/material_figure05.jpg)
+-
+-
+-**Figure 5.** An example image (left) rendered using alpha blending (center) and alpha testing (right).
++![A comparison between alpha blending and alpha testing](https://developer.android.com/static/images/games/artbp/material/material_figure05.jpg) **Figure 5.**An example image (left) rendered using alpha blending (center) and alpha testing (right).
+ 
+ Alpha blending generally results in a superior visual appearance than alpha
+ testing. However, for certain types of meshes, such as foliage, alpha blending
+@@ -166,19 +132,11 @@ complexity.
+ 
+ Unreal Engine 4 includes a **Shader Complexity** viewmode that provides cost
+ estimates for the objects in your scene.
++![The Shader Complexity viewmode in the Unreal editor](https://developer.android.com/static/images/games/artbp/material/material_figure06.jpg) **Figure 6.** The **Shader Complexity** viewmode in the Unreal editor.
+ 
+-![The Shader Complexity viewmode in the Unreal editor](/static/images/games/artbp/material/material_figure06.jpg)
+-
+-
+-**Figure 6.** The **Shader Complexity** viewmode in the Unreal editor.
+-
+-You can also use Unreal’s **Material Stats** feature to profile the cost of
++You can also use Unreal's **Material Stats** feature to profile the cost of
+ materials as you author them.
+-
+-![The Material Stats display in the Unreal editor](/static/images/games/artbp/material/material_figure07.jpg)
+-
+-
+-**Figure 7.** The **Material Stats** display in the Unreal editor.
++![The Material Stats display in the Unreal editor](https://developer.android.com/static/images/games/artbp/material/material_figure07.jpg) **Figure 7.** The **Material Stats** display in the Unreal editor.
+ 
+ ## Calculate in the vertex shader
+ 
+@@ -205,14 +163,14 @@ cost. A shader filled with expensive operations will perform more slowly,
+ especially on older devices. Examples of relatively inexpensive operations
+ include:
+ 
+-* Addition
+-* Subtraction
+-* Multiplication
++- Addition
++- Subtraction
++- Multiplication
+ 
+ More expensive operations include:
+ 
+-* Division
+-* Transcendentals (sin, cos, power, log, tan)
++- Division
++- Transcendentals (sin, cos, power, log, tan)
+ 
+ ## Profile performance often
+ 

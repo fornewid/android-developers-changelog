@@ -1,0 +1,12 @@
+diff --git a/docs/guide/topics/connectivity/grpc.md b/docs/guide/topics/connectivity/grpc.md
+index 86e425a..6ab6f9c 100644
+--- a/docs/guide/topics/connectivity/grpc.md
++++ b/docs/guide/topics/connectivity/grpc.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ gRPC is a modern, open-source, high-performance RPC framework that can run in any
+ environment. It can efficiently connect services in and across data centers with
+ pluggable support for load balancing, tracing, health-checking, and

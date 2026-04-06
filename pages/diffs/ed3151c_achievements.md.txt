@@ -1,0 +1,12 @@
+diff --git a/docs/games/services/cpp/v2/api/group/achievements.md b/docs/games/services/cpp/v2/api/group/achievements.md
+index 6120acd..677533e 100644
+--- a/docs/games/services/cpp/v2/api/group/achievements.md
++++ b/docs/games/services/cpp/v2/api/group/achievements.md
+@@ -14,7 +14,6 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
+-
+ # Play Games Services Achievements
+ 
+ Native API for Play Games Services Achievements.

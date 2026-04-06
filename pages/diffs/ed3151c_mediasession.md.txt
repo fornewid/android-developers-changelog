@@ -1,0 +1,12 @@
+diff --git a/docs/media/legacy/video/mediasession.md b/docs/media/legacy/video/mediasession.md
+index 4e03482..49d7fa8 100644
+--- a/docs/media/legacy/video/mediasession.md
++++ b/docs/media/legacy/video/mediasession.md
+@@ -15,6 +15,7 @@ These guides discuss the MediaCompat APIs, which are no longer updated. We stron
+ 
+ 
+ 
++
+ Since a video app runs its media session and media controller in the same activity, the media session callbacks
+ are different from the implementation shown for the
+ [audio app](/guide/topics/media-apps/audio-app/building-an-audio-app)

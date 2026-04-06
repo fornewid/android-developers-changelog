@@ -1,0 +1,12 @@
+diff --git a/docs/studio/debug/stacktraces.md b/docs/studio/debug/stacktraces.md
+index 3bb4999..3bc309f 100644
+--- a/docs/studio/debug/stacktraces.md
++++ b/docs/studio/debug/stacktraces.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Debugging an app often requires working with stack traces. A stack trace generates when
+ your app crashes because of an error or an exception. You can also print a stack trace at any
+ point in your app code using methods such as

@@ -1,0 +1,20 @@
+diff --git a/docs/google/play/billing/lifecycle/one-time.md b/docs/google/play/billing/lifecycle/one-time.md
+index aa46ead..482e7b2 100644
+--- a/docs/google/play/billing/lifecycle/one-time.md
++++ b/docs/google/play/billing/lifecycle/one-time.md
+@@ -14,7 +14,6 @@ Send feedback
+ 
+ 
+ 
+-
+ One-time purchase products have a simpler lifecycle than subscription products,
+ but there are still several states and transition events that your backend needs
+ to be able to handle properly.
+@@ -135,6 +134,4 @@ secure implementation.
+ 
+ 
+ 
+-
+-
+ Send feedback
+\ No newline at end of file

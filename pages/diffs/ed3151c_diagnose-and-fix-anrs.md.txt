@@ -1,0 +1,12 @@
+diff --git a/docs/topic/performance/anrs/diagnose-and-fix-anrs.md b/docs/topic/performance/anrs/diagnose-and-fix-anrs.md
+index 6892a9a..9a0e858 100644
+--- a/docs/topic/performance/anrs/diagnose-and-fix-anrs.md
++++ b/docs/topic/performance/anrs/diagnose-and-fix-anrs.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ When the UI thread of an Android app is blocked for too long, the system sends
+ an "Application Not Responding" (ANR) error. This page describes the different
+ types of ANRs, how to diagnose them, and suggestions for fixing them. All the

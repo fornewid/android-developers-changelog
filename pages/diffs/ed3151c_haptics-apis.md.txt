@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/views/haptics/haptics-apis.md b/docs/develop/ui/views/haptics/haptics-apis.md
+index 98d0948..ccfd16a 100644
+--- a/docs/develop/ui/views/haptics/haptics-apis.md
++++ b/docs/develop/ui/views/haptics/haptics-apis.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ This section gives an introduction to the various haptics APIs
+ available in Android. It also covers when and how to check for any device
+ support necessary to ensure your haptic effects play as you intend.

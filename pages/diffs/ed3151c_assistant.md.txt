@@ -1,0 +1,12 @@
+diff --git a/docs/training/articles/assistant.md b/docs/training/articles/assistant.md
+index b3142d6..0f0bef6 100644
+--- a/docs/training/articles/assistant.md
++++ b/docs/training/articles/assistant.md
+@@ -10,6 +10,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Android 6.0 Marshmallow introduces a new way for users to engage with apps through assistant
+ apps, such as the
+ [Google

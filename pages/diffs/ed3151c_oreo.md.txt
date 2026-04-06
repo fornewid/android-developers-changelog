@@ -1,0 +1,12 @@
+diff --git a/docs/about/versions/oreo.md b/docs/about/versions/oreo.md
+index af6c7b4..c868f15 100644
+--- a/docs/about/versions/oreo.md
++++ b/docs/about/versions/oreo.md
+@@ -15,7 +15,6 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
+-
+ ### Android Oreo
+ 
+ #### Introducing Android 8.0 Oreo

@@ -1,0 +1,12 @@
+diff --git a/docs/develop/connectivity/avoid-unoptimized-downloads.md b/docs/develop/connectivity/avoid-unoptimized-downloads.md
+index 1138d66..3ce8902 100644
+--- a/docs/develop/connectivity/avoid-unoptimized-downloads.md
++++ b/docs/develop/connectivity/avoid-unoptimized-downloads.md
+@@ -14,6 +14,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Some of your app's users have intermittent access to the internet or have limits
+ on the amount of information they can download onto their devices. You can
+ encourage users to interact with your app more often by reducing the amount of

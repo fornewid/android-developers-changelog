@@ -1,0 +1,20 @@
+diff --git a/docs/google/play/billing/alternative.md b/docs/google/play/billing/alternative.md
+index df24df8..de7dcc0 100644
+--- a/docs/google/play/billing/alternative.md
++++ b/docs/google/play/billing/alternative.md
+@@ -14,7 +14,6 @@ Send feedback
+ 
+ 
+ 
+-
+ **Note:** Manual reporting of alternative billing only and user choice billing is
+ being sunset. Please find more details about migration deadlines [here](https://support.google.com/googleplay/android-developer/answer/13821247). To
+ learn about what transactions need to be migrated and how to migrate see
+@@ -240,6 +239,4 @@ for both [in-app integration](/google/play/billing/alternative/alternative-billi
+ 
+ 
+ 
+-
+-
+ Send feedback
+\ No newline at end of file

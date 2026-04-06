@@ -1,0 +1,20 @@
+diff --git a/docs/games/agdk/libraries-overview.md b/docs/games/agdk/libraries-overview.md
+index 086a3f2..be9c77f 100644
+--- a/docs/games/agdk/libraries-overview.md
++++ b/docs/games/agdk/libraries-overview.md
+@@ -13,7 +13,6 @@ Send feedback
+ 
+ 
+ 
+-
+ C/C++ game libraries that make it easier to build, debug, optimize, and maintain
+ your games.
+ 
+@@ -76,6 +75,4 @@ and device models.
+ 
+ 
+ 
+-
+-
+ Send feedback
+\ No newline at end of file

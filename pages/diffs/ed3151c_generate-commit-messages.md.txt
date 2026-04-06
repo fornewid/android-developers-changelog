@@ -1,0 +1,12 @@
+diff --git a/docs/studio/gemini/generate-commit-messages.md b/docs/studio/gemini/generate-commit-messages.md
+index 2638408..bd222df 100644
+--- a/docs/studio/gemini/generate-commit-messages.md
++++ b/docs/studio/gemini/generate-commit-messages.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ When committing changes to your version control system from the IDE, Gemini can
+ use the context from the code changes in the current commit and recent past
+ commits to suggest a detailed commit message. To generate a commit message,

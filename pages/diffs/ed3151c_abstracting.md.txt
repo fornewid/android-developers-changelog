@@ -1,0 +1,115 @@
+diff --git a/docs/training/backward-compatible-ui/abstracting.md b/docs/training/backward-compatible-ui/abstracting.md
+index 9cd67d6..623d7a6 100644
+--- a/docs/training/backward-compatible-ui/abstracting.md
++++ b/docs/training/backward-compatible-ui/abstracting.md
+@@ -1,18 +1,27 @@
+ ---
+-title: https://developer.android.com/training/backward-compatible-ui/abstracting
++title: Abstract the new APIs  |  Views  |  Android Developers
+ url: https://developer.android.com/training/backward-compatible-ui/abstracting
+-source: md.txt
++source: html-scrape
+ ---
+ 
+-# Abstract the new APIs
++* [Android Developers](https://developer.android.com/)
++* [Develop](https://developer.android.com/develop)
++* [Core areas](https://developer.android.com/develop/core-areas)
++* [UI](https://developer.android.com/develop/ui)
++* [Views](https://developer.android.com/develop/ui/views/layout/declaring-layout)
+ 
+-Suppose you want to use[action bar tabs](https://developer.android.com/guide/topics/ui/actionbar#Tabs)as the primary form of top-level navigation in your application. Unfortunately, the[ActionBar](https://developer.android.com/reference/android/app/ActionBar)APIs are only available in Android 3.0 or later (API level 11+). Thus, if you want to distribute your application to devices running earlier versions of the platform, you need to provide an implementation that supports the newer API while providing a fallback mechanism that uses older APIs.
++# Abstract the new APIs Stay organized with collections Save and categorize content based on your preferences.
++
++
++
++
++Suppose you want to use [action bar tabs](/guide/topics/ui/actionbar#Tabs) as the primary form of top-level navigation in your application. Unfortunately, the `ActionBar` APIs are only available in Android 3.0 or later (API level 11+). Thus, if you want to distribute your application to devices running earlier versions of the platform, you need to provide an implementation that supports the newer API while providing a fallback mechanism that uses older APIs.
+ 
+ In this class, you build a tabbed user interface (UI) component that uses abstract classes with version-specific implementations to provide backward-compatibility. This lesson describes how to create an abstraction layer for the new tab APIs as the first step toward building the tab component.
+ 
+ ## Prepare for abstraction
+ 
+-[Abstraction](https://en.wikipedia.org/wiki/Abstraction_(computer_science))in the Java programming language involves the creation of one or more interfaces or abstract classes to hide implementation details. In the case of newer Android APIs, you can use abstraction to build version-aware components that use the current APIs on newer devices, and fallback to older, more compatible APIs on older devices.
++[Abstraction](https://en.wikipedia.org/wiki/Abstraction_(computer_science)) in the Java programming language involves the creation of one or more interfaces or abstract classes to hide implementation details. In the case of newer Android APIs, you can use abstraction to build version-aware components that use the current APIs on newer devices, and fallback to older, more compatible APIs on older devices.
+ 
+ When using this approach, you first determine what newer classes you want to be able to use in a backward compatible way, then create abstract classes, based on the public interfaces of the newer classes. In defining the abstraction interfaces, you should mirror the newer API as much as possible. This maximizes forward-compatibility and makes it easier to drop the abstraction layer in the future when it is no longer necessary.
+ 
+@@ -28,18 +37,19 @@ In order to create a backward-compatible version of tabs, you should first deter
+ 
+ Preparing these requirements in advance allows you to control the scope of your abstraction layer. This means that you can spend less time creating multiple implementations of your abstraction layer and begin using your new backward-compatible implementation sooner.
+ 
+-The key APIs for tabs are in[ActionBar](https://developer.android.com/reference/android/app/ActionBar)and[ActionBar.Tab](https://developer.android.com/reference/android/app/ActionBar.Tab). These are the APIs to abstract in order to make your tabs version-aware. The requirements for this example project call for compatibility back to Eclair (API level 5) while taking advantage of the new tab features in Honeycomb (API Level 11). A diagram of the class structure to support these two implementations and their abstract base classes (or interfaces) is shown below.
+-![Class diagram of abstract base classes and version-specific implementations.](https://developer.android.com/static/images/training/backward-compatible-ui-classes.png)
++The key APIs for tabs are in `ActionBar` and `ActionBar.Tab`. These are the APIs to abstract in order to make your tabs version-aware. The requirements for this example project call for compatibility back to Eclair (API level 5) while taking advantage of the new tab features in Honeycomb (API Level 11). A diagram of the class structure to support these two implementations and their abstract base classes (or interfaces) is shown below.
++
++![Class diagram of abstract base classes and version-specific implementations.](/static/images/training/backward-compatible-ui-classes.png)
+ 
+-**Figure 1.**Class diagram of abstract base classes and version-specific implementations.
++**Figure 1.** Class diagram of abstract base classes and version-specific implementations.
+ 
+ ## Abstract ActionBar.Tab
+ 
+-Get started on building your tab abstraction layer by creating an abstract class representing a tab, that mirrors the[ActionBar.Tab](https://developer.android.com/reference/android/app/ActionBar.Tab)interface:  
++Get started on building your tab abstraction layer by creating an abstract class representing a tab, that mirrors the `ActionBar.Tab` interface:
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ sealed class CompatTab(val tag: String) {
+     ...
+     abstract fun getText(): CharSequence
+@@ -57,7 +67,7 @@ sealed class CompatTab(val tag: String) {
+ 
+ ### Java
+ 
+-```java
++```
+ public abstract class CompatTab {
+     ...
+     public abstract CompatTab setText(int resId);
+@@ -78,11 +88,11 @@ You can use an abstract class instead of an interface here to simplify the imple
+ 
+ ## Abstract ActionBar tab methods
+ 
+-Next, define an abstract class that allows you to create and add tabs to an activity, like[ActionBar.newTab()](https://developer.android.com/reference/android/app/ActionBar#newTab())and[ActionBar.addTab()](https://developer.android.com/reference/android/app/ActionBar#addTab(android.app.ActionBar.Tab)):  
++Next, define an abstract class that allows you to create and add tabs to an activity, like `ActionBar.newTab()` and `ActionBar.addTab()`:
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ sealed class TabHelper(protected val activity: FragmentActivity) {
+     ...
+ 
+@@ -100,7 +110,7 @@ sealed class TabHelper(protected val activity: FragmentActivity) {
+ 
+ ### Java
+ 
+-```java
++```
+ public abstract class TabHelper {
+     ...
+ 
+@@ -114,9 +124,15 @@ public abstract class TabHelper {
+ }
+ ```
+ 
+-In the next lessons, you create implementations for`TabHelper`and`CompatTab`that work across both older and newer platform versions.
++In the next lessons, you create implementations for `TabHelper` and `CompatTab` that work across both older and newer platform versions.
+ 
+ ### You should also read
+ 
+-- [Action Bar](https://developer.android.com/guide/topics/ui/actionbar)
+-- [Action Bar Tabs](https://developer.android.com/guide/topics/ui/actionbar#Tabs)
+\ No newline at end of file
++* [Action Bar](/guide/topics/ui/actionbar)
++* [Action Bar Tabs](/guide/topics/ui/actionbar#Tabs)
++
++[Next
++
++Proxy to newer APIs
++
++arrow\_forward](/training/backward-compatible-ui/new-implementation)
+\ No newline at end of file

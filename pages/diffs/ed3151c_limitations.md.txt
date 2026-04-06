@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/compose/styles/limitations.md b/docs/develop/ui/compose/styles/limitations.md
+index 40ef4c7..630f3bd 100644
+--- a/docs/develop/ui/compose/styles/limitations.md
++++ b/docs/develop/ui/compose/styles/limitations.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ This page describes some functional limitations of the Styles API.
+ 
+ ## Functional limitations

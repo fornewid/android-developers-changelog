@@ -1,0 +1,12 @@
+diff --git a/docs/training/tv/accessibility/talkback.md b/docs/training/tv/accessibility/talkback.md
+index 0781d32..a71cf2c 100644
+--- a/docs/training/tv/accessibility/talkback.md
++++ b/docs/training/tv/accessibility/talkback.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ This guide lists steps to evaluate your TV app to improve a screen reader user’s
+ experience. Perform these steps to understand how users experience your
+ app when TalkBack, the Android screen reader, is enabled.

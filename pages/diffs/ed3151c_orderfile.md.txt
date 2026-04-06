@@ -1,0 +1,12 @@
+diff --git a/docs/ndk/guides/orderfile.md b/docs/ndk/guides/orderfile.md
+index 9e08bfd..f3017e7 100644
+--- a/docs/ndk/guides/orderfile.md
++++ b/docs/ndk/guides/orderfile.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Order file is a recent linker optimization technique.
+ These order files are text files containing symbols representing functions.
+ Linkers like lld use order files to layout functions in a specific order.

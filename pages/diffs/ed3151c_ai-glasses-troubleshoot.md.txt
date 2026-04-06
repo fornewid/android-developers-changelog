@@ -1,0 +1,12 @@
+diff --git a/docs/develop/xr/jetpack-xr-sdk/run/emulator/ai-glasses-troubleshoot.md b/docs/develop/xr/jetpack-xr-sdk/run/emulator/ai-glasses-troubleshoot.md
+index ee5ef49..a66d1ab 100644
+--- a/docs/develop/xr/jetpack-xr-sdk/run/emulator/ai-glasses-troubleshoot.md
++++ b/docs/develop/xr/jetpack-xr-sdk/run/emulator/ai-glasses-troubleshoot.md
+@@ -17,6 +17,7 @@ The Android XR SDK has  [reached Developer Preview 3](https://android-developers
+ 
+ 
+ 
++
+ Applicable XR devices
+ 
+ This guidance helps you build experiences for these types of XR devices.

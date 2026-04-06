@@ -1,0 +1,12 @@
+diff --git a/docs/studio/gemini/journeys.md b/docs/studio/gemini/journeys.md
+index 9883a31..e502d0f 100644
+--- a/docs/studio/gemini/journeys.md
++++ b/docs/studio/gemini/journeys.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ **Preview:** Journeys for Android Studio are available as a Studio Labs feature
+ starting from Android Studio Otter 3 Feature Drop | 2025.2.3. To enable it,
+ go to **Studio Labs** in the settings menu.

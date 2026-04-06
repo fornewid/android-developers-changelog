@@ -1,0 +1,12 @@
+diff --git a/docs/studio/releases/past-releases/as-2-2-0-release-notes.md b/docs/studio/releases/past-releases/as-2-2-0-release-notes.md
+index a640520..205913e 100644
+--- a/docs/studio/releases/past-releases/as-2-2-0-release-notes.md
++++ b/docs/studio/releases/past-releases/as-2-2-0-release-notes.md
+@@ -15,7 +15,6 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
+-
+ ```
+ <h1 id="2-2-0" class="showalways">Android Studio 2.2 (September 2016)</h1>
+ ```

@@ -1,0 +1,390 @@
+diff --git a/docs/build/multidex.md b/docs/build/multidex.md
+index 7bc84a2..dd2e955 100644
+--- a/docs/build/multidex.md
++++ b/docs/build/multidex.md
+@@ -1,10 +1,19 @@
+ ---
+-title: https://developer.android.com/build/multidex
++title: Enable multidex for apps with over 64K methods  |  Android Studio  |  Android Developers
+ url: https://developer.android.com/build/multidex
+-source: md.txt
++source: html-scrape
+ ---
+ 
+-If your app has a [`minSdk` of API 20 or lower](https://developer.android.com/build/multidex#mdex-pre-l) and your app and the
++* [Android Developers](https://developer.android.com/)
++* [Develop](https://developer.android.com/develop)
++* [Android Studio](https://developer.android.com/studio)
++* [Gradle build guides](https://developer.android.com/build/gradle-build-overview)
++
++# Enable multidex for apps with over 64K methods Stay organized with collections Save and categorize content based on your preferences.
++
++
++
++If your app has a  [`minSdk` of API 20 or lower](#mdex-pre-l) and your app and the
+ libraries it references exceed 65,536 methods, you encounter the following build error that
+ indicates your app has reached the limit of the Android build architecture:
+ 
+@@ -31,17 +40,19 @@ to build and read multiple DEX files.
+ 
+ ## About the 64K reference limit
+ 
+-
+ Android app (APK) files contain executable bytecode files in the form
+ of [Dalvik
+ Executable (DEX)](https://source.android.com/devices/tech/dalvik/dex-format) files, which contain the compiled code used to run your app.
+ The Dalvik Executable specification limits the total number of methods that
+-can be referenced within a single DEX file to 65,536---including Android
++can be referenced within a single DEX file to 65,536—including Android
+ framework methods, library methods, and methods in your own code.
+-In the context of computer science, the term [*kilo, or K*](https://en.wikipedia.org/wiki/Kilo-), denotes 1024 (or 2\^10). Because 65,536 is equal to 64x1024, this limit is referred to as the _64K reference limit_.
+ 
+-### Multidex support prior to Android 5.0
++In the
++context of computer science, the term [*kilo, or K*](https://en.wikipedia.org/wiki/Kilo-), denotes 1024 (or
++2^10). Because 65,536 is equal to 64x1024, this limit is referred to as the
++\_64K reference limit\_.
+ 
++### Multidex support prior to Android 5.0
+ 
+ Versions of the platform prior to Android 5.0 (API level 21) use the Dalvik
+ runtime for executing app code. By default, Dalvik limits apps to a single
+@@ -52,7 +63,7 @@ file:
+ 
+ ### Groovy
+ 
+-```groovy
++```
+ dependencies {
+     def multidex_version = "2.0.1"
+     implementation "androidx.multidex:multidex:$multidex_version"
+@@ -61,7 +72,7 @@ dependencies {
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ dependencies {
+     val multidex_version = "2.0.1"
+     implementation("androidx.multidex:multidex:$multidex_version")
+@@ -71,11 +82,12 @@ dependencies {
+ This library becomes part of the primary DEX file of your app and then
+ manages access to the additional DEX files and the code they contain.
+ To view the current versions for this library, see
+-[multidex versions](https://developer.android.com/jetpack/androidx/releases/multidex#2.0.1).
+-For more details, see the section about how to [configure your app for multidex](https://developer.android.com/build/multidex#mdex-gradle).
++ [multidex versions](/jetpack/androidx/releases/multidex#2.0.1).
+ 
+-### Multidex support for Android 5.0 and higher
++For more details, see the section about how to
++[configure your app for multidex](#mdex-gradle).
+ 
++### Multidex support for Android 5.0 and higher
+ 
+ Android 5.0 (API level 21) and higher uses a runtime called ART that
+ natively supports loading multiple DEX files from APK files. ART
+@@ -88,17 +100,15 @@ is 21 or higher, multidex is enabled by default and you don't need the multidex
+ For more information on the Android 5.0
+ runtime, read [Android Runtime (ART) and Dalvik](https://source.android.com/devices/tech/dalvik/).
+ 
+-
+ **Note:** When running your app using Android Studio,
+ the build is optimized for the target devices you deploy to.
+ This includes enabling multidex when the target devices are running
+ Android 5.0 and higher. Since this optimization is applied only when deploying your app using
+-Android Studio, you might still need to [configure your release build](https://developer.android.com/build/multidex#mdex-gradle)
++Android Studio, you might still need to [configure your release build](#mdex-gradle)
+ for multidex to avoid the 64K limit.
+ 
+ ## Avoid the 64K limit
+ 
+-
+ Before configuring your app to enable use of 64K or more method references, take steps
+ to reduce the total number of references called by your app code, including methods defined by
+ your app code or included libraries.
+@@ -112,31 +122,30 @@ Review your app's direct and transitive dependencies
+     you avoid the DEX reference limit.
+ 
+ Remove unused code with R8
+-:   [Enable code shrinking](https://developer.android.com/studio/build/shrink-code) to run R8
++:   [Enable code shrinking](/studio/build/shrink-code) to run R8
+     for your release builds. Enable shrinking to help ensure that you
+     aren't shipping unused code with your APKs. If code shrinking is configured correctly, it
+     can also remove unused code and resources from your dependencies.
+ 
+-
+ Using these techniques can help you decrease the overall size of your APK and
+ avoid the need for multidex in your app.
+ 
+ ## Configure your app for multidex
+ 
+-Note: If your `minSdkVersion` is set to 21 or higher, multidex is enabled by default and you don't need the multidex library.
++Note: If your `minSdkVersion` is set to 21 or higher, multidex is enabled by default
++and you don't need the multidex library.
+ 
+ If your `minSdkVersion` is set to 20 or lower, then you
+ must use the
+-[multidex library](https://developer.android.com/jetpack/androidx/releases/multidex) and make
++[multidex library](/jetpack/androidx/releases/multidex) and make
+ the following modifications to your app project:
+ 
+-1.
+-   Modify the module-level `build.gradle` file to
++1. Modify the module-level `build.gradle` file to
+    enable multidex and add the multidex library as a dependency, as shown here:
+ 
+    ### Groovy
+ 
+-   ```groovy
++   ```
+    android {
+        defaultConfig {
+            ...
+@@ -154,7 +163,7 @@ the following modifications to your app project:
+ 
+    ### Kotlin
+ 
+-   ```kotlin
++   ```
+    android {
+        defaultConfig {
+            ...
+@@ -169,12 +178,13 @@ the following modifications to your app project:
+        implementation("androidx.multidex:multidex:2.0.1")
+    }
+    ```
+-2. Depending on whether you override the [`Application`](https://developer.android.com/reference/android/app/Application) class, perform one of the following:
+-   - If you don't override the `Application`
++2. Depending on whether you override the [`Application`](/reference/android/app/Application)
++   class, perform one of the following:
++   * If you don't override the `Application`
+      class, edit your manifest file to set `android:name` in the
+      `<application>` tag as follows:
+ 
+-     ```xml
++     ```
+      <?xml version="1.0" encoding="utf-8"?>
+      <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.example.myapp">
+@@ -184,28 +194,28 @@ the following modifications to your app project:
+          </application>
+      </manifest>
+      ```
+-   - If you do override the `Application`
++   * If you do override the `Application`
+      class, change it to extend `MultiDexApplication`, as follows:
+ 
+      ### Kotlin
+ 
+-     ```kotlin
++     ```
+      class MyApplication : MultiDexApplication() {...}
+      ```
+ 
+      ### Java
+ 
+-     ```java
++     ```
+      public class MyApplication extends MultiDexApplication { ... }
+      ```
+-   - If you override the `Application`
++   * If you override the `Application`
+      class but it's not possible to change the base class, then
+-     instead override the [`attachBaseContext()`](https://developer.android.com/reference/android/content/ContextWrapper#attachBaseContext(android.content.Context)) method and call `MultiDex.install(this)` to enable
++     instead override the [`attachBaseContext()`](/reference/android/content/ContextWrapper#attachBaseContext(android.content.Context)) method and call `MultiDex.install(this)` to enable
+      multidex:
+ 
+      ### Kotlin
+ 
+-     ```kotlin
++     ```
+      class MyApplication : SomeOtherApplication() {
+ 
+          override fun attachBaseContext(base: Context) {
+@@ -217,7 +227,7 @@ the following modifications to your app project:
+ 
+      ### Java
+ 
+-     ```java
++     ```
+      public class MyApplication extends SomeOtherApplication {
+        @Override
+        protected void attachBaseContext(Context base) {
+@@ -244,21 +254,23 @@ available DEX files for your methods.
+ 
+ ### Limitations of the multidex library
+ 
+-
+ The multidex library has some known limitations.
+ When you incorporate the library into your app build configuration, consider the following:
+ 
+-- The installation of DEX files during startup onto a device's data partition is complex and can result in Application Not Responding (ANR) errors if the secondary DEX files are large. To avoid this issue, [enable code shrinking](https://developer.android.com/studio/build/shrink-code) to minimize the size of DEX files and remove unused portions of code.
+-- When running on versions prior to Android 5.0 (API level 21), using multidex is not enough to work around the linearalloc limit ([issue 37008143](https://issuetracker.google.com/issues/37008143)). This limit was increased in Android 4.0 (API level 14), but that didn't solve the issue completely.
+-
+-  <br />
++* The installation of DEX files during startup onto a device's data partition is complex and
++  can result in Application Not Responding (ANR) errors if the secondary DEX files are large. To
++  avoid this issue, [enable code shrinking](/studio/build/shrink-code) to minimize
++  the size of DEX files and remove unused portions of code.
++* When running on versions prior to Android 5.0 (API level 21), using
++  multidex is not enough to work around the linearalloc limit ([issue 37008143](https://issuetracker.google.com/issues/37008143)). This limit was increased in
++  Android 4.0 (API level 14), but that didn't solve the issue completely.
+ 
+   On versions lower than Android 4.0, you might reach the linearalloc limit before
+   reaching the DEX index limit. So if you are targeting API levels lower than
+   14, test thoroughly on those versions of the platform, because your app might
+   have issues at startup or when particular groups of classes are loaded.
+ 
+-  [Code shrinking](https://developer.android.com/studio/build/shrink-code) can reduce or
++  [Code shrinking](/studio/build/shrink-code) can reduce or
+   possibly eliminate these issues.
+ 
+ ## Declare classes required in the primary DEX file
+@@ -278,17 +290,15 @@ required in the primary DEX file.
+ 
+ If you receive `java.lang.NoClassDefFoundError`, you
+ must manually specify the additional classes required in the primary DEX
+-file by declaring them with the [`multiDexKeepProguard`](https://developer.android.com/reference/tools/gradle-api/9.1/com/android/build/api/dsl/VariantDimension#multiDexKeepProguard()) property in your build type. If a class is matched in
++file by declaring them with the [`multiDexKeepProguard`](/reference/tools/gradle-api/9.1/com/android/build/api/dsl/VariantDimension#multiDexKeepProguard()) property in your build type. If a class is matched in
+ the `multiDexKeepProguard` file, then that class
+ is added to the primary DEX file.
+ 
+ ### multiDexKeepProguard property
+ 
+-
+ The `multiDexKeepProguard` file uses the same format as ProGuard and supports the
+ entire ProGuard grammar. For more information about how to customize what is kept in your app, see
+-[Customize which code to keep](https://developer.android.com/studio/build/shrink-code#keep-code).
+-
++[Customize which code to keep](/studio/build/shrink-code#keep-code).
+ 
+ The file you specify in `multiDexKeepProguard` should contain `-keep`
+ options in any valid ProGuard syntax. For example,
+@@ -300,19 +310,17 @@ options in any valid ProGuard syntax. For example,
+ -keep class com.example.MyClassToo
+ ```
+ 
+-
+ If you want to specify all classes in a package, the file looks like this:
+ 
+ ```
+ -keep class com.example.** { *; } // All classes in the com.example package
+ ```
+ 
+-
+ Then you can declare that file for a build type, as follows:
+ 
+ ### Groovy
+ 
+-```groovy
++```
+ android {
+     buildTypes {
+         release {
+@@ -325,7 +333,7 @@ android {
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ android {
+     buildTypes {
+         getByName("release") {
+@@ -344,7 +352,6 @@ must be included in the primary DEX file and which classes can be included in
+ secondary DEX files. This means that incremental builds using multidex typically
+ take longer and can potentially slow your development process.
+ 
+-
+ To mitigate longer incremental build times, use
+ *pre-dexing* to reuse multidex output between builds.
+ Pre-dexing relies on an ART format available only on Android 5.0
+@@ -352,13 +359,17 @@ Pre-dexing relies on an ART format available only on Android 5.0
+ when deploying your app to a device running Android 5.0 (API level 21) or higher.
+ However, if you're running Gradle builds from the command line, you need to set the
+ `minSdkVersion` to 21 or higher to enable pre-dexing.
+-To preserve settings for your production build, you can create two versions of your app [using product flavors](https://developer.android.com/studio/build/build-variants#product-flavors)---one version with a development flavor and one version with a release flavor---with different values for `minSdkVersion`, as shown:
+ 
+-<br />
++To preserve settings for your
++production build, you can create two versions of your app
++[using product flavors](/studio/build/build-variants#product-flavors)—one version
++with a development flavor and one version with a release flavor—with
++different values for `minSdkVersion`,
++as shown:
+ 
+ ### Groovy
+ 
+-```groovy
++```
+ android {
+     defaultConfig {
+         ...
+@@ -397,7 +408,7 @@ dependencies {
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ android {
+     defaultConfig {
+         ...
+@@ -435,12 +446,10 @@ dependencies {
+ }
+ ```
+ 
+-
+ To learn more strategies to help improve build speeds from either Android Studio or the command
+-line, read [Optimize your build speed](https://developer.android.com/studio/build/optimize-your-build).
++line, read [Optimize your build speed](/studio/build/optimize-your-build).
+ For more information about using build variants, see
+-[Configure build variants](https://developer.android.com/studio/build/build-variants).
+-
++[Configure build variants](/studio/build/build-variants).
+ 
+ **Tip:** If you have different build variants for different
+ multidex needs, you can provide a different manifest file for each
+@@ -452,18 +461,17 @@ calls `MultiDex.install(this)`.
+ 
+ ## Test multidex apps
+ 
+-
+ When you write instrumentation tests for multidex apps, no additional configuration is required
+ if you use a
+-[`MonitoringInstrumentation`](https://developer.android.com/reference/androidx/test/runner/MonitoringInstrumentation) or an
+-[`AndroidJUnitRunner`](https://developer.android.com/reference/androidx/test/runner/AndroidJUnitRunner)
++[`MonitoringInstrumentation`](/reference/androidx/test/runner/MonitoringInstrumentation) or an
++[`AndroidJUnitRunner`](/reference/androidx/test/runner/AndroidJUnitRunner)
+ instrumentation. If you use another
+-[`Instrumentation`](https://developer.android.com/reference/android/app/Instrumentation),
++[`Instrumentation`](/reference/android/app/Instrumentation),
+ then you must override its `onCreate()` method with the following code:
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ fun onCreate(arguments: Bundle) {
+   MultiDex.install(targetContext)
+   super.onCreate(arguments)
+@@ -473,7 +481,7 @@ fun onCreate(arguments: Bundle) {
+ 
+ ### Java
+ 
+-```java
++```
+ public void onCreate(Bundle arguments) {
+   MultiDex.install(getTargetContext());
+   super.onCreate(arguments);
+@@ -481,5 +489,8 @@ public void onCreate(Bundle arguments) {
+ }
+ ```
+ 
+-> [!NOTE]
+-> **Notes:** Don't use `MultiDexTestRunner`, which is deprecated; use [`AndroidJUnitRunner`](https://developer.android.com/reference/androidx/test/runner/AndroidJUnitRunner) instead.
+\ No newline at end of file
++**Notes:**
++Don't use `MultiDexTestRunner`,
++which is deprecated; use
++[`AndroidJUnitRunner`](/reference/androidx/test/runner/AndroidJUnitRunner)
++instead.
+\ No newline at end of file

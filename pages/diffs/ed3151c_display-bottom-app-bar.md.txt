@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/compose/quick-guides/content/display-bottom-app-bar.md b/docs/develop/ui/compose/quick-guides/content/display-bottom-app-bar.md
+index e84694d..7b8b9eb 100644
+--- a/docs/develop/ui/compose/quick-guides/content/display-bottom-app-bar.md
++++ b/docs/develop/ui/compose/quick-guides/content/display-bottom-app-bar.md
+@@ -14,6 +14,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Create a bottom app bar to help users navigate and access functions in your app.
+ Follow this guidance to add a bottom app bar to your app by using the
+ [`BottomAppBar`](/reference/com/google/android/material/bottomappbar/BottomAppBar) composable.

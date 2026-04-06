@@ -1,0 +1,12 @@
+diff --git a/docs/guide/navigation/custom-back.md b/docs/guide/navigation/custom-back.md
+index 6664c34..f7230b8 100644
+--- a/docs/guide/navigation/custom-back.md
++++ b/docs/guide/navigation/custom-back.md
+@@ -12,7 +12,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Users navigate backward through screens using *back navigation*. Most Android
+ devices have a back button—physical, software, or gesture-based. Usually, you
+ shouldn't add a back button to your app. However, Android Automotive OS (AAOS)

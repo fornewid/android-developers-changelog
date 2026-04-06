@@ -1,0 +1,12 @@
+diff --git a/docs/studio/gemini/use-a-remote-model.md b/docs/studio/gemini/use-a-remote-model.md
+index 2c94d76..da92a8d 100644
+--- a/docs/studio/gemini/use-a-remote-model.md
++++ b/docs/studio/gemini/use-a-remote-model.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Many developers use a variety of large language models like ChatGPT, Claude, and
+ GitHub Copilot. By integrating remote models in Android Studio, you can use the
+ model

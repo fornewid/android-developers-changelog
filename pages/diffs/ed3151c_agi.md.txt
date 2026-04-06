@@ -1,0 +1,12 @@
+diff --git a/docs/agi.md b/docs/agi.md
+index 0297c21..06f4f78 100644
+--- a/docs/agi.md
++++ b/docs/agi.md
+@@ -19,6 +19,7 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
++
+ [![](https://developer.android.com/static/images/agi/agi-logo.svg)](https://developer.android.com/agi/start)
+ 
+ ### [Android GPU Inspector (AGI)](https://developer.android.com/agi/start)

@@ -1,0 +1,12 @@
+diff --git a/docs/work/versions/android-16.md b/docs/work/versions/android-16.md
+index fcad0be..7f76cb3 100644
+--- a/docs/work/versions/android-16.md
++++ b/docs/work/versions/android-16.md
+@@ -12,7 +12,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ This page provides an overview of the enterprise APIs, features, and behavior
+ changes introduced in Android 16 (API level 36). Some of the new enterprise
+ features and updates in Android 16 are described in the following sections:

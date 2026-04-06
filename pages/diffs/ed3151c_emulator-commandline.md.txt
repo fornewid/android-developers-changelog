@@ -1,0 +1,12 @@
+diff --git a/docs/studio/run/emulator-commandline.md b/docs/studio/run/emulator-commandline.md
+index 95e9ea9..1d402cb 100644
+--- a/docs/studio/run/emulator-commandline.md
++++ b/docs/studio/run/emulator-commandline.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ The Android SDK includes an Android device emulator—a virtual device
+ that runs on your computer. The Android Emulator lets you develop and test
+ Android apps without using a physical device.

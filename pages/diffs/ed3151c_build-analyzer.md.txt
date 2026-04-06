@@ -1,0 +1,12 @@
+diff --git a/docs/build/build-analyzer.md b/docs/build/build-analyzer.md
+index 387e356..bc4fb31 100644
+--- a/docs/build/build-analyzer.md
++++ b/docs/build/build-analyzer.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Use the Build Analyzer to inspect the build performance of your project. For
+ each build you perform, the Build Analyzer tries to present the most important
+ information so that you can quickly identify and resolve regressions in your

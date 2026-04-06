@@ -1,0 +1,12 @@
+diff --git a/docs/develop/connectivity/bluetooth/bt-permissions.md b/docs/develop/connectivity/bluetooth/bt-permissions.md
+index be1ba4a..7e3f112 100644
+--- a/docs/develop/connectivity/bluetooth/bt-permissions.md
++++ b/docs/develop/connectivity/bluetooth/bt-permissions.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ To use Bluetooth features in your app, you must [declare several
+ permissions](#declare). You should also [specify whether your app requires
+ support](#features) for Bluetooth classic or Bluetooth Low Energy (BLE). If your

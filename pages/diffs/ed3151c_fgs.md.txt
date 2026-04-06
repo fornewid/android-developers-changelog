@@ -1,0 +1,12 @@
+diff --git a/docs/develop/background-work/services/fgs.md b/docs/develop/background-work/services/fgs.md
+index ea99f8a..c22899d 100644
+--- a/docs/develop/background-work/services/fgs.md
++++ b/docs/develop/background-work/services/fgs.md
+@@ -14,6 +14,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Foreground services let you asynchronously perform operations that are
+ noticeable to the user. Foreground services show a [status bar
+ notification](/develop/ui/views/notifications), to make users aware that your

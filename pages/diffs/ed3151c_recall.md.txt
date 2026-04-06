@@ -1,0 +1,12 @@
+diff --git a/docs/games/services/cpp/v2/api/group/recall.md b/docs/games/services/cpp/v2/api/group/recall.md
+index f0fdaae..99b690f 100644
+--- a/docs/games/services/cpp/v2/api/group/recall.md
++++ b/docs/games/services/cpp/v2/api/group/recall.md
+@@ -14,7 +14,6 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
+-
+ # Play Games Services Recall
+ 
+ Native API for Play Games Services Recall.

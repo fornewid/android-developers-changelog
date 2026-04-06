@@ -1,0 +1,12 @@
+diff --git a/docs/media/platform/volumeshaper.md b/docs/media/platform/volumeshaper.md
+index 4b3c92d..5f433bd 100644
+--- a/docs/media/platform/volumeshaper.md
++++ b/docs/media/platform/volumeshaper.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ You can use a `VolumeShaper` in an audio app to perform
+ fade-ins, fade-outs, cross fades, ducking, and other short automated volume
+ transitions. The `VolumeShaper` class is available in Android 8.0 (API level 26)

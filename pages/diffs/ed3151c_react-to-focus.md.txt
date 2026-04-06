@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/compose/touch-input/focus/react-to-focus.md b/docs/develop/ui/compose/touch-input/focus/react-to-focus.md
+index d3d7a14..c637521 100644
+--- a/docs/develop/ui/compose/touch-input/focus/react-to-focus.md
++++ b/docs/develop/ui/compose/touch-input/focus/react-to-focus.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ ## Provide visual cues for easier focus visualization
+ 
+ While all the focusable elements from Material Theme already have a focus style

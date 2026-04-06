@@ -1,0 +1,12 @@
+diff --git a/docs/jetpack/androidx/releases/sharetarget.md b/docs/jetpack/androidx/releases/sharetarget.md
+index 0b63051..0788fa6 100644
+--- a/docs/jetpack/androidx/releases/sharetarget.md
++++ b/docs/jetpack/androidx/releases/sharetarget.md
+@@ -15,7 +15,6 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
+-
+ # ShareTarget
+ 
+ Provide backwards compatibility for using shortcuts as direct share targets.

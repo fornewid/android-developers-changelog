@@ -1,0 +1,12 @@
+diff --git a/docs/guide/navigation/type-safe-destinations.md b/docs/guide/navigation/type-safe-destinations.md
+index 3f90757..05309f2 100644
+--- a/docs/guide/navigation/type-safe-destinations.md
++++ b/docs/guide/navigation/type-safe-destinations.md
+@@ -11,7 +11,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ This guide outlines the process of replacing string-based routes with
+ serializable Kotlin types to achieve compile-time safety and eliminate runtime
+ crashes caused by typos or incorrect argument types.

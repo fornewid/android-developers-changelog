@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/views/layout/webapps/managing-webview.md b/docs/develop/ui/views/layout/webapps/managing-webview.md
+index 8615440..8abbb0c 100644
+--- a/docs/develop/ui/views/layout/webapps/managing-webview.md
++++ b/docs/develop/ui/views/layout/webapps/managing-webview.md
+@@ -14,6 +14,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Android provides several APIs to help you manage the
+ `WebView`
+ objects that display web content in your app.

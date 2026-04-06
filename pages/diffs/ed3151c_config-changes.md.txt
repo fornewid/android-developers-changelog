@@ -1,0 +1,12 @@
+diff --git a/docs/guide/navigation/responsive/config-changes.md b/docs/guide/navigation/responsive/config-changes.md
+index 8554482..778deca 100644
+--- a/docs/guide/navigation/responsive/config-changes.md
++++ b/docs/guide/navigation/responsive/config-changes.md
+@@ -12,6 +12,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ ## Responsive UI and navigation
+ 
+ To provide the best possible navigation experience to your users, you should

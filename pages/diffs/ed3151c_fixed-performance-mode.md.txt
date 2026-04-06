@@ -1,0 +1,56 @@
+diff --git a/docs/games/optimize/adpf/fixed-performance-mode.md b/docs/games/optimize/adpf/fixed-performance-mode.md
+index 5745e86..70306b3 100644
+--- a/docs/games/optimize/adpf/fixed-performance-mode.md
++++ b/docs/games/optimize/adpf/fixed-performance-mode.md
+@@ -1,9 +1,21 @@
+ ---
+-title: https://developer.android.com/games/optimize/adpf/fixed-performance-mode
++title: Fixed Performance Mode  |  Android game development  |  Android Developers
+ url: https://developer.android.com/games/optimize/adpf/fixed-performance-mode
+-source: md.txt
++source: html-scrape
+ ---
+ 
++* [Android Developers](https://developer.android.com/)
++* [Google Play](https://developer.android.com/distribute)
++* [Games dev center](https://developer.android.com/games)
++* [Guides](https://developer.android.com/games/guides)
++
++Send feedback
++
++# Fixed Performance Mode Stay organized with collections Save and categorize content based on your preferences.
++
++
++
++
+ **Released**: Android 11 (API level 30)
+ 
+ Android devices can change clocking dynamically based on the system load. This
+@@ -20,11 +32,22 @@ selection.
+ 
+ You can enable fixed-performance mode with the following adb command:
+ 
+-    adb shell cmd power set-fixed-performance-mode-enabled [true|false]
++```
++adb shell cmd power set-fixed-performance-mode-enabled [true|false]
++```
+ 
+ A device that is running in fixed-performance mode can still overheat because
+ the mode doesn't put the device into a thermally-sustainable state. Because of
+ this, we recommend the following for benchmark runs:
+ 
+-- Wait for the device to return to a thermally-sustainable state before starting the run.
+-- Monitor the thermal state of the device during testing to differentiate the impact between the benchmark code and thermal events.
+\ No newline at end of file
++* Wait for the device to return to a thermally-sustainable state before starting
++  the run.
++* Monitor the thermal state of the device during testing to differentiate the
++  impact between the benchmark code and thermal events.
++
++
++
++
++
++
++Send feedback
+\ No newline at end of file

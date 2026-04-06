@@ -1,0 +1,12 @@
+diff --git a/docs/training/cars/platforms/automotive-os.md b/docs/training/cars/platforms/automotive-os.md
+index 4ad2bce..5fedf2b 100644
+--- a/docs/training/cars/platforms/automotive-os.md
++++ b/docs/training/cars/platforms/automotive-os.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ ![Android Automotive OS user interface](/static/images/training/cars/android-automotive-os.png)
+ 
+ 

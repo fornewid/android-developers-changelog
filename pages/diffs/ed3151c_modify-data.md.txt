@@ -1,0 +1,12 @@
+diff --git a/docs/identity/providers/contacts-provider/modify-data.md b/docs/identity/providers/contacts-provider/modify-data.md
+index 006d8d7..18fe4d7 100644
+--- a/docs/identity/providers/contacts-provider/modify-data.md
++++ b/docs/identity/providers/contacts-provider/modify-data.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ This lesson shows you how to use an `Intent` to insert a new contact or
+ modify a contact's data. Instead of accessing the Contacts Provider directly, an
+ `Intent` starts the contacts app, which runs the appropriate

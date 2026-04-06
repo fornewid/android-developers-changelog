@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/compose/quick-guides/content/style-parts-text.md b/docs/develop/ui/compose/quick-guides/content/style-parts-text.md
+index cca919d..a25e7c5 100644
+--- a/docs/develop/ui/compose/quick-guides/content/style-parts-text.md
++++ b/docs/develop/ui/compose/quick-guides/content/style-parts-text.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ You can style parts of text to improve readability, increase positive user
+ experience, and encourage greater creativity through use of colors and fonts.
+ 

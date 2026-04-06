@@ -1,0 +1,12 @@
+diff --git a/docs/agents/skills/r8-analyzer/skill.md b/docs/agents/skills/r8-analyzer/skill.md
+index 2e9e4dd..9e77caa 100644
+--- a/docs/agents/skills/r8-analyzer/skill.md
++++ b/docs/agents/skills/r8-analyzer/skill.md
+@@ -10,7 +10,6 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
+-
+ book\_path: /build/\_book.yaml
+ project\_path: /build/\_project.yaml
+ keywords: category:Build

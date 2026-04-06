@@ -1,0 +1,116 @@
+diff --git a/docs/guide/navigation/navigation-3/recipes/deeplinks-basic.md b/docs/guide/navigation/navigation-3/recipes/deeplinks-basic.md
+index 10100a1..853d146 100644
+--- a/docs/guide/navigation/navigation-3/recipes/deeplinks-basic.md
++++ b/docs/guide/navigation/navigation-3/recipes/deeplinks-basic.md
+@@ -1,9 +1,18 @@
+ ---
+-title: https://developer.android.com/guide/navigation/navigation-3/recipes/deeplinks-basic
++title: App architecture  |  Android Developers
+ url: https://developer.android.com/guide/navigation/navigation-3/recipes/deeplinks-basic
+-source: md.txt
++source: html-scrape
+ ---
+ 
++* [Android Developers](https://developer.android.com/)
++* [App architecture](https://developer.android.com/topic/architecture/intro)
++
++Stay organized with collections
++
++Save and categorize content based on your preferences.
++
++
++
+ # Deep Link Basic Recipe
+ 
+ This recipe demonstrates how to parse a deep link URL from an Android Intent into a Navigation key.
+@@ -30,7 +39,13 @@ This recipe consists of three main packages:
+ 2. `basic.deeplink.ui` - Contains the activity UI code, i.e. global string variables, deeplink URLs etc
+ 3. `basic.deeplink.util` - Contains the classes and helper methods to parse and match the deeplinks
+ 
+-[![](https://developer.android.com/static/images/picto-icons/code.svg) Explore View the full recipe on GitHub.](https://github.com/android/nav3-recipes/tree/main/app/src/main/java/com/example/nav3recipes/deeplink/basic)
++[![](/static/images/picto-icons/code.svg)
++
++Explore
++
++View the full recipe on GitHub.
++
++arrow\_forward](https://github.com/android/nav3-recipes/tree/main/app/src/main/java/com/example/nav3recipes/deeplink/basic)
+ 
+ ```
+ package com.example.nav3recipes.deeplink.basic
+@@ -72,6 +87,8 @@ internal data class SearchKey(
+ ): NavRecipeKey {
+     override val name: String = STRING_LITERAL_SEARCH
+ }
++
++NavRecipeKey.kt
+ ```
+ 
+ ```
+@@ -200,6 +217,8 @@ class MainActivity : ComponentActivity() {
+         }
+     }
+ }
++
++MainActivity.kt
+ ```
+ 
+ ```
+@@ -395,6 +414,7 @@ private val MENU_OPTIONS_SEARCH = mapOf(
+ 
+ private val MENU_LABELS_SEARCH = listOf(SearchKey::ageMin.name, SearchKey::ageMax.name)
+ 
++CreateDeepLinkActivity.kt
+ ```
+ 
+ ```
+@@ -468,6 +488,8 @@ internal class KeyDecoder(
+     // we want to know if it is not null, so its !isNull
+     override fun decodeNotNullMark(): Boolean = arguments[elementName] != null
+ }
++
++KeyDecoder.kt
+ ```
+ 
+ ```
+@@ -499,9 +521,11 @@ internal class DeepLinkRequest(
+ 
+     // TODO add parsing for other Uri components, i.e. fragments, mimeType, action
+ }
++
++DeepLinkRequest.kt
+ ```
+ 
+-````
++```
+ package com.example.nav3recipes.deeplink.basic.util
+ 
+ import android.net.Uri
+@@ -629,7 +653,9 @@ private fun getTypeParser(kind: SerialKind): TypeParser {
+         )
+     }
+ }
+-````
++
++DeepLinkPattern.kt
++```
+ 
+ ```
+ package com.example.nav3recipes.deeplink.basic.util
+@@ -717,6 +743,8 @@ internal data class DeepLinkMatchResult<T : NavKey>(
+ )
+ 
+ const val TAG_LOG_ERROR = "Nav3RecipesDeepLink"
++
++DeepLinkMatcher.kt
+ ```
+ 
+ ```
+@@ -743,4 +771,6 @@ internal val URL_SEARCH = "$PATH_BASE/$PATH_SEARCH" +
+         "&${SearchKey::ageMax.name}={${SearchKey::ageMax.name}}" +
+         "&${SearchKey::firstName.name}={${SearchKey::firstName.name}}" +
+         "&${SearchKey::location.name}={${SearchKey::location.name}}"
++
++UrlResources.kt
+ ```
+\ No newline at end of file

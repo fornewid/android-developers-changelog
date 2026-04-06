@@ -1,0 +1,12 @@
+diff --git a/docs/training/constraint-layout/motionlayout/ref/constraint.md b/docs/training/constraint-layout/motionlayout/ref/constraint.md
+index 0f49894..168b010 100644
+--- a/docs/training/constraint-layout/motionlayout/ref/constraint.md
++++ b/docs/training/constraint-layout/motionlayout/ref/constraint.md
+@@ -10,7 +10,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Specifies the location and attributes of one element of a motion sequence.
+ 
+ ## Syntax

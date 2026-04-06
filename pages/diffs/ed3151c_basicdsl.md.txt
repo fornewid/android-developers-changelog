@@ -1,0 +1,12 @@
+diff --git a/docs/guide/navigation/navigation-3/recipes/basicdsl.md b/docs/guide/navigation/navigation-3/recipes/basicdsl.md
+index 0328c3e..0188ecf 100644
+--- a/docs/guide/navigation/navigation-3/recipes/basicdsl.md
++++ b/docs/guide/navigation/navigation-3/recipes/basicdsl.md
+@@ -13,6 +13,7 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
++
+ # Basic DSL Recipe
+ 
+ This recipe shows a basic example of how to use the Navigation 3 API with two screens, using the `entryProvider` DSL and a persistent back stack.

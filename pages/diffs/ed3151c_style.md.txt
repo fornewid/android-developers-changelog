@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/views/touch-and-input/keyboard-input/style.md b/docs/develop/ui/views/touch-and-input/keyboard-input/style.md
+index 9d061b4..c93bbcb 100644
+--- a/docs/develop/ui/views/touch-and-input/keyboard-input/style.md
++++ b/docs/develop/ui/views/touch-and-input/keyboard-input/style.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Try the Compose way
+ 
+ Jetpack Compose is the recommended UI toolkit for Android. Learn how to use touch and input in Compose.

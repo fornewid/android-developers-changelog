@@ -1,0 +1,2159 @@
+diff --git a/docs/guide/components/intents-common.md b/docs/guide/components/intents-common.md
+index b788514..ed4e1e5 100644
+--- a/docs/guide/components/intents-common.md
++++ b/docs/guide/components/intents-common.md
+@@ -1,51 +1,54 @@
+ ---
+-title: https://developer.android.com/guide/components/intents-common
++title: Common intents  |  App architecture  |  Android Developers
+ url: https://developer.android.com/guide/components/intents-common
+-source: md.txt
++source: html-scrape
+ ---
+ 
++* [Android Developers](https://developer.android.com/)
++* [Design & Plan](https://developer.android.com/design)
++* [App architecture](https://developer.android.com/topic/architecture/intro)
++
++# Common intents Stay organized with collections Save and categorize content based on your preferences.
++
++
++
++
+ An intent lets you start an activity in another app by describing an
+ action you'd like to perform, such as "view a map" or "take a
+-picture," in an `https://developer.android.com/reference/android/content/Intent` object. This type of intent
++picture," in an `Intent` object. This type of intent
+ is called an *implicit* intent because it doesn't specify the app
+ component to start, but instead specifies an *action* and provides
+ some *data* with which to perform the action.
+ 
+-
+-When you call `https://developer.android.com/reference/android/content/Context#startActivity(android.content.Intent)`
+-or `https://developer.android.com/reference/android/app/Activity#startActivityForResult(android.content.Intent, int)` and pass it an implicit intent, the system
++When you call `startActivity()`
++or `startActivityForResult()` and pass it an implicit intent, the system
+ [resolves
+-the intent](https://developer.android.com/guide/components/intents-filters#Resolution) to an app that can handle the intent and starts its
+-corresponding `https://developer.android.com/reference/android/app/Activity`. If there's more than one app
++the intent](/guide/components/intents-filters#Resolution) to an app that can handle the intent and starts its
++corresponding `Activity`. If there's more than one app
+ that can handle the intent, the system presents the user with a dialog to
+ pick which app to use.
+ 
+-
+ This page describes several implicit intents that you can use to perform
+ common actions, organized by the type of app that handles the intent. Each
+ section also shows how you can create an [intent
+-filter](https://developer.android.com/guide/components/intents-filters#Receiving) to advertise your app's ability to perform the action.
+-
++filter](/guide/components/intents-filters#Receiving) to advertise your app's ability to perform the action.
+ 
+ **Caution:** If there are no apps on the device that can
+-receive an implicit intent, an app crashes when it calls `https://developer.android.com/reference/android/content/Context#startActivity(android.content.Intent)`. To first verify that
+-an app exists to receive the intent, call `https://developer.android.com/reference/android/content/Intent#resolveActivity(android.content.pm.PackageManager)` on your `https://developer.android.com/reference/android/content/Intent` object. If the result is non-null, there is at least
++receive an implicit intent, an app crashes when it calls `startActivity()`. To first verify that
++an app exists to receive the intent, call `resolveActivity()` on your `Intent` object. If the result is non-null, there is at least
+ one app that can handle the intent, and it's safe to call `startActivity()`. If the result is
+ null, don't use the intent and, if possible, disable the
+ feature that invokes the intent.
+ 
+-
+ If you're not familiar with how to create intents or intent filters, first read [Intents and Intent
+-Filters](https://developer.android.com/guide/components/intents-filters).
+-
++Filters](/guide/components/intents-filters).
+ 
+ To learn how to fire the intents listed on this page from your development
+ host, see the [Verify intents with the Android Debug
+-Bridge](https://developer.android.com/guide/components/intents-common#AdbIntents) section.
++Bridge](#AdbIntents) section.
+ 
+ #### Google Voice Actions
+ 
+-
+ [Google Voice
+ Actions](https://developers.google.com/voice-actions/) fires some of the intents listed on this page in response to
+ voice commands. For more information, see [Get Started with System Voice Actions](https://developers.google.com/voice-actions/system/#system_actions_reference).
+@@ -57,14 +60,13 @@ to create an intent filter to advertise your app's ability to perform each actio
+ 
+ ### Create an alarm
+ 
+-[![](https://developer.android.com/static/guide/components/images/voice-icon.png)](https://developers.google.com/voice-actions/system/#system_actions_reference)
+-
++[![](/static/guide/components/images/voice-icon.png)](https://developers.google.com/voice-actions/system/#system_actions_reference)
+ 
+ Google Voice Actions
+ 
+-- "set an alarm for 7 am"
++* "set an alarm for 7 am"
+ 
+-To create a new alarm, use the `https://developer.android.com/reference/android/provider/AlarmClock#ACTION_SET_ALARM`
++To create a new alarm, use the `ACTION_SET_ALARM`
+ action and specify alarm details such as the time and message using the following extras.
+ 
+ **Note:** Only the hour, minutes, and message extras are available
+@@ -72,7 +74,7 @@ in Android 2.3 (API level 9) and lower. The other extras are available in higher
+ platform.
+ 
+ **Action**
+-:   `https://developer.android.com/reference/android/provider/AlarmClock#ACTION_SET_ALARM`
++:   `ACTION_SET_ALARM`
+ 
+ **Data URI**
+ :   None
+@@ -81,33 +83,31 @@ platform.
+ :   None
+ 
+ **Extras**
+-:
+-
+-    `https://developer.android.com/reference/android/provider/AlarmClock#EXTRA_HOUR`
++:   `EXTRA_HOUR`
+     :   The hour for the alarm.
+ 
+-    `https://developer.android.com/reference/android/provider/AlarmClock#EXTRA_MINUTES`
++    `EXTRA_MINUTES`
+     :   The minutes for the alarm.
+ 
+-    `https://developer.android.com/reference/android/provider/AlarmClock#EXTRA_MESSAGE`
++    `EXTRA_MESSAGE`
+     :   A custom message to identify the alarm.
+ 
+-    `https://developer.android.com/reference/android/provider/AlarmClock#EXTRA_DAYS`
+-    :   An `https://developer.android.com/reference/java/util/ArrayList` including each week day on which this alarm
+-        repeats. Each day must be declared with an integer from the `https://developer.android.com/reference/java/util/Calendar`
+-        class, such as `https://developer.android.com/reference/java/util/Calendar#MONDAY`.
++    `EXTRA_DAYS`
++    :   An `ArrayList` including each week day on which this alarm
++        repeats. Each day must be declared with an integer from the `Calendar`
++        class, such as `MONDAY`.
+ 
+         For a one-time alarm, don't specify this extra.
+ 
+-    `https://developer.android.com/reference/android/provider/AlarmClock#EXTRA_RINGTONE`
+-    :   A `content:` URI specifying a ringtone to use with the alarm, or `https://developer.android.com/reference/android/provider/AlarmClock#VALUE_RINGTONE_SILENT` for no ringtone.
++    `EXTRA_RINGTONE`
++    :   A `content:` URI specifying a ringtone to use with the alarm, or `VALUE_RINGTONE_SILENT` for no ringtone.
+ 
+         To use the default ringtone, don't specify this extra.
+ 
+-    `https://developer.android.com/reference/android/provider/AlarmClock#EXTRA_VIBRATE`
++    `EXTRA_VIBRATE`
+     :   A boolean specifying whether to vibrate for this alarm.
+ 
+-    `https://developer.android.com/reference/android/provider/AlarmClock#EXTRA_SKIP_UI`
++    `EXTRA_SKIP_UI`
+     :   A boolean specifying whether the responding app must skip its UI when setting the alarm.
+         If true, the app must bypass any confirmation UI and set the specified alarm.
+ 
+@@ -115,7 +115,7 @@ platform.
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ fun createAlarm(message: String, hour: Int, minutes: Int) {
+     val intent = Intent(AlarmClock.ACTION_SET_ALARM).apply {
+         putExtra(AlarmClock.EXTRA_MESSAGE, message)
+@@ -130,7 +130,7 @@ fun createAlarm(message: String, hour: Int, minutes: Int) {
+ 
+ ### Java
+ 
+-```java
++```
+ public void createAlarm(String message, int hour, int minutes) {
+     Intent intent = new Intent(AlarmClock.ACTION_SET_ALARM)
+             .putExtra(AlarmClock.EXTRA_MESSAGE, message)
+@@ -141,18 +141,19 @@ public void createAlarm(String message, int hour, int minutes) {
+     }
+ }
+ ```
++
+ **Note:**
+ 
+-To invoke the `https://developer.android.com/reference/android/provider/AlarmClock#ACTION_SET_ALARM` intent, your app must have the
+-`https://developer.android.com/reference/android/Manifest.permission#SET_ALARM` permission:
++To invoke the `ACTION_SET_ALARM` intent, your app must have the
++`SET_ALARM` permission:
+ 
+-```xml
++```
+ <uses-permission android:name="com.android.alarm.permission.SET_ALARM" />
+ ```
+ 
+ **Example intent filter:**
+ 
+-```xml
++```
+ <activity ...>
+     <intent-filter>
+         <action android:name="android.intent.action.SET_ALARM" />
+@@ -163,22 +164,20 @@ To invoke the `https://developer.android.com/reference/android/provider/AlarmClo
+ 
+ ### Create a timer
+ 
+-[![](https://developer.android.com/static/guide/components/images/voice-icon.png)](https://developers.google.com/voice-actions/system/#system_actions_reference)
+-
++[![](/static/guide/components/images/voice-icon.png)](https://developers.google.com/voice-actions/system/#system_actions_reference)
+ 
+ Google Voice Actions
+ 
+-- "set timer for 5 minutes"
+-
++* "set timer for 5 minutes"
+ 
+-To create a countdown timer, use the `https://developer.android.com/reference/android/provider/AlarmClock#ACTION_SET_TIMER` action and specify timer
++To create a countdown timer, use the `ACTION_SET_TIMER` action and specify timer
+ details such as the duration using the following extras.
+ 
+ **Note:** This intent is available
+ in Android 4.4 (API level 19) and higher.
+ 
+ **Action**
+-:   `https://developer.android.com/reference/android/provider/AlarmClock#ACTION_SET_TIMER`
++:   `ACTION_SET_TIMER`
+ 
+ **Data URI**
+ :   None
+@@ -187,15 +186,13 @@ in Android 4.4 (API level 19) and higher.
+ :   None
+ 
+ **Extras**
+-:
+-
+-    `https://developer.android.com/reference/android/provider/AlarmClock#EXTRA_LENGTH`
++:   `EXTRA_LENGTH`
+     :   The length of the timer in seconds.
+ 
+-    `https://developer.android.com/reference/android/provider/AlarmClock#EXTRA_MESSAGE`
++    `EXTRA_MESSAGE`
+     :   A custom message to identify the timer.
+ 
+-    `https://developer.android.com/reference/android/provider/AlarmClock#EXTRA_SKIP_UI`
++    `EXTRA_SKIP_UI`
+     :   A boolean specifying whether the responding app must skip its UI when setting the timer.
+         If true, the app must bypass any confirmation UI and start the specified timer.
+ 
+@@ -203,7 +200,7 @@ in Android 4.4 (API level 19) and higher.
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ fun startTimer(message: String, seconds: Int) {
+     val intent = Intent(AlarmClock.ACTION_SET_TIMER).apply {
+         putExtra(AlarmClock.EXTRA_MESSAGE, message)
+@@ -218,7 +215,7 @@ fun startTimer(message: String, seconds: Int) {
+ 
+ ### Java
+ 
+-```java
++```
+ public void startTimer(String message, int seconds) {
+     Intent intent = new Intent(AlarmClock.ACTION_SET_TIMER)
+             .putExtra(AlarmClock.EXTRA_MESSAGE, message)
+@@ -229,18 +226,19 @@ public void startTimer(String message, int seconds) {
+     }
+ }
+ ```
++
+ **Note:**
+ 
+-To invoke the `https://developer.android.com/reference/android/provider/AlarmClock#ACTION_SET_TIMER` intent, your app must have the
+-`https://developer.android.com/reference/android/Manifest.permission#SET_ALARM` permission:
++To invoke the `ACTION_SET_TIMER` intent, your app must have the
++`SET_ALARM` permission:
+ 
+-```xml
++```
+ <uses-permission android:name="com.android.alarm.permission.SET_ALARM" />
+ ```
+ 
+ **Example intent filter:**
+ 
+-```xml
++```
+ <activity ...>
+     <intent-filter>
+         <action android:name="android.intent.action.SET_TIMER" />
+@@ -251,7 +249,7 @@ To invoke the `https://developer.android.com/reference/android/provider/AlarmClo
+ 
+ ### Show all alarms
+ 
+-To show the list of alarms, use the `https://developer.android.com/reference/android/provider/AlarmClock#ACTION_SHOW_ALARMS`
++To show the list of alarms, use the `ACTION_SHOW_ALARMS`
+ action.
+ 
+ Although not many apps invoke this intent, as it's primarily used by system apps,
+@@ -262,7 +260,7 @@ this intent filter and respond by showing the list of current alarms.
+ in Android 4.4 (API level 19) and higher.
+ 
+ **Action**
+-:   `https://developer.android.com/reference/android/provider/AlarmClock#ACTION_SHOW_ALARMS`
++:   `ACTION_SHOW_ALARMS`
+ 
+ **Data URI**
+ :   None
+@@ -272,7 +270,7 @@ in Android 4.4 (API level 19) and higher.
+ 
+ **Example intent filter:**
+ 
+-```xml
++```
+ <activity ...>
+     <intent-filter>
+         <action android:name="android.intent.action.SHOW_ALARMS" />
+@@ -290,52 +288,50 @@ information in the following section.
+ ### Add a calendar event
+ 
+ To add a new event to the user's calendar, use the
+-`https://developer.android.com/reference/android/content/Intent#ACTION_INSERT`
++`ACTION_INSERT`
+ action and specify the data URI using
+-`https://developer.android.com/reference/android/provider/CalendarContract.Events#CONTENT_URI`.
++`Events.CONTENT_URI`.
+ You can then specify various event details using the following extras.
+ 
+ **Action**
+-:   `https://developer.android.com/reference/android/content/Intent#ACTION_INSERT`
++:   `ACTION_INSERT`
+ 
+ **Data URI**
+-:   `https://developer.android.com/reference/android/provider/CalendarContract.Events#CONTENT_URI`
++:   `Events.CONTENT_URI`
+ 
+ **MIME Type**
+ :   `"vnd.android.cursor.dir/event"`
+ 
+ **Extras**
+-:
+-
+-    `https://developer.android.com/reference/android/provider/CalendarContract#EXTRA_EVENT_ALL_DAY`
++:   `EXTRA_EVENT_ALL_DAY`
+     :   A boolean specifying whether this is an all-day event.
+ 
+-    `https://developer.android.com/reference/android/provider/CalendarContract#EXTRA_EVENT_BEGIN_TIME`
++    `EXTRA_EVENT_BEGIN_TIME`
+     :   The start time of the event (milliseconds since epoch).
+ 
+-    `https://developer.android.com/reference/android/provider/CalendarContract#EXTRA_EVENT_END_TIME`
++    `EXTRA_EVENT_END_TIME`
+     :   The end time of the event (milliseconds since epoch).
+ 
+-    `https://developer.android.com/reference/android/provider/CalendarContract.EventsColumns#TITLE`
++    `TITLE`
+     :   The event title.
+ 
+-    `https://developer.android.com/reference/android/provider/CalendarContract.EventsColumns#DESCRIPTION`
++    `DESCRIPTION`
+     :   The event description.
+ 
+-    `https://developer.android.com/reference/android/provider/CalendarContract.EventsColumns#EVENT_LOCATION`
++    `EVENT_LOCATION`
+     :   The event location.
+ 
+-    `https://developer.android.com/reference/android/content/Intent#EXTRA_EMAIL`
++    `EXTRA_EMAIL`
+     :   A comma-separated list of email addresses that specify the invitees.
+ 
+     Many more event details can be specified using the constants defined in the
+-    `https://developer.android.com/reference/android/provider/CalendarContract.EventsColumns` class.
++    `CalendarContract.EventsColumns` class.
+ 
+ **Example intent:**
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ fun addEvent(title: String, location: String, begin: Long, end: Long) {
+     val intent = Intent(Intent.ACTION_INSERT).apply {
+         data = Events.CONTENT_URI
+@@ -352,7 +348,7 @@ fun addEvent(title: String, location: String, begin: Long, end: Long) {
+ 
+ ### Java
+ 
+-```java
++```
+ public void addEvent(String title, String location, long begin, long end) {
+     Intent intent = new Intent(Intent.ACTION_INSERT)
+             .setData(Events.CONTENT_URI)
+@@ -368,7 +364,7 @@ public void addEvent(String title, String location, long begin, long end) {
+ 
+ **Example intent filter:**
+ 
+-```xml
++```
+ <activity ...>
+     <intent-filter>
+         <action android:name="android.intent.action.INSERT" />
+@@ -385,14 +381,13 @@ to create an intent filter to advertise your app's ability to perform each actio
+ 
+ ### Capture a picture or video and return it
+ 
+-To open a camera app and receive the resulting photo or video, use the `https://developer.android.com/reference/android/provider/MediaStore#ACTION_IMAGE_CAPTURE` or `https://developer.android.com/reference/android/provider/MediaStore#ACTION_VIDEO_CAPTURE` action. Also specify the URI location where you'd
+-like the camera to save the photo or video, in the `https://developer.android.com/reference/android/provider/MediaStore#EXTRA_OUTPUT`
++To open a camera app and receive the resulting photo or video, use the `ACTION_IMAGE_CAPTURE` or `ACTION_VIDEO_CAPTURE` action. Also specify the URI location where you'd
++like the camera to save the photo or video, in the `EXTRA_OUTPUT`
+ extra.
+ 
+ **Action**
+-:   `https://developer.android.com/reference/android/provider/MediaStore#ACTION_IMAGE_CAPTURE` or  
+-
+-    `https://developer.android.com/reference/android/provider/MediaStore#ACTION_VIDEO_CAPTURE`
++:   `ACTION_IMAGE_CAPTURE` or  
++    `ACTION_VIDEO_CAPTURE`
+ 
+ **Data URI Scheme**
+ :   None
+@@ -401,27 +396,25 @@ extra.
+ :   None
+ 
+ **Extras**
+-:
+-
+-    `https://developer.android.com/reference/android/provider/MediaStore#EXTRA_OUTPUT`
++:   `EXTRA_OUTPUT`
+     :   The URI location where the camera app saves the photo or
+-        video file (as a `https://developer.android.com/reference/android/net/Uri` object).
++        video file (as a `Uri` object).
+ 
+ When the camera app successfully returns
+-focus to your activity---in other words, your app receives the `https://developer.android.com/reference/android/app/Activity#onActivityResult(int, int, android.content.Intent)` callback---you
++focus to your activity—in other words, your app receives the `onActivityResult()` callback—you
+ can access the photo or video at the URI you specified
+-with the `https://developer.android.com/reference/android/provider/MediaStore#EXTRA_OUTPUT` value.
++with the `EXTRA_OUTPUT` value.
+ 
+-**Note:** When you use `https://developer.android.com/reference/android/provider/MediaStore#ACTION_IMAGE_CAPTURE`
++**Note:** When you use `ACTION_IMAGE_CAPTURE`
+ to capture a photo, the camera might also return a
+-downscaled copy, or thumbnail, of the photo in the result `https://developer.android.com/reference/android/content/Intent`, saved as a `https://developer.android.com/reference/android/graphics/Bitmap` in an extra field named
++downscaled copy, or thumbnail, of the photo in the result `Intent`, saved as a `Bitmap` in an extra field named
+ `"data"`.
+ 
+ **Example intent:**
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ const val REQUEST_IMAGE_CAPTURE = 1
+ val locationForPhotos: Uri = ...
+ 
+@@ -445,7 +438,7 @@ override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent) {
+ 
+ ### Java
+ 
+-```java
++```
+ static final int REQUEST_IMAGE_CAPTURE = 1;
+ static final Uri locationForPhotos;
+ 
+@@ -474,7 +467,7 @@ To do this when working on Android 12 (API level 31) or higher, refer to the fol
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ val REQUEST_IMAGE_CAPTURE = 1
+ 
+ private fun dispatchTakePictureIntent() {
+@@ -489,7 +482,7 @@ private fun dispatchTakePictureIntent() {
+ 
+ ### Java
+ 
+-```java
++```
+ static final int REQUEST_IMAGE_CAPTURE = 1;
+ 
+ private void dispatchTakePictureIntent() {
+@@ -504,13 +497,13 @@ private void dispatchTakePictureIntent() {
+ ```
+ 
+ For more information about how to use this intent to capture a photo, including
+-how to create an appropriate `https://developer.android.com/reference/android/net/Uri` for the output location, read
+-[Take photos](https://developer.android.com/training/camera-deprecated/photobasics) or
+-[Take videos](https://developer.android.com/training/camera-deprecated/videobasics).
++how to create an appropriate `Uri` for the output location, read
++[Take photos](/training/camera-deprecated/photobasics) or
++[Take videos](/training/camera-deprecated/videobasics).
+ 
+ **Example intent filter:**
+ 
+-```xml
++```
+ <activity ...>
+     <intent-filter>
+         <action android:name="android.media.action.IMAGE_CAPTURE" />
+@@ -519,24 +512,22 @@ how to create an appropriate `https://developer.android.com/reference/android/ne
+ </activity>
+ ```
+ 
+-
+-When handling this intent, have your activity check for the `https://developer.android.com/reference/android/provider/MediaStore#EXTRA_OUTPUT` extra in the incoming `https://developer.android.com/reference/android/content/Intent`, then save the captured image or video at the
+-location specified by that extra and call `https://developer.android.com/reference/android/app/Activity#setResult(int, android.content.Intent)` with an `Intent` that includes a compressed thumbnail in an extra
++When handling this intent, have your activity check for the `EXTRA_OUTPUT` extra in the incoming `Intent`, then save the captured image or video at the
++location specified by that extra and call `setResult()` with an `Intent` that includes a compressed thumbnail in an extra
+ named `"data"`.
+ 
+ ### Start a camera app in still image mode
+ 
+-[![](https://developer.android.com/static/guide/components/images/voice-icon.png)](https://developers.google.com/voice-actions/system/#system_actions_reference)
+-
++[![](/static/guide/components/images/voice-icon.png)](https://developers.google.com/voice-actions/system/#system_actions_reference)
+ 
+ Google Voice Actions
+ 
+-- "take a picture"
++* "take a picture"
+ 
+-To open a camera app in still image mode, use the `https://developer.android.com/reference/android/provider/MediaStore#INTENT_ACTION_STILL_IMAGE_CAMERA` action.
++To open a camera app in still image mode, use the `INTENT_ACTION_STILL_IMAGE_CAMERA` action.
+ 
+ **Action**
+-:   `https://developer.android.com/reference/android/provider/MediaStore#INTENT_ACTION_STILL_IMAGE_CAMERA`
++:   `INTENT_ACTION_STILL_IMAGE_CAMERA`
+ 
+ **Data URI Scheme**
+ :   None
+@@ -551,7 +542,7 @@ To open a camera app in still image mode, use the `https://developer.android.com
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ private fun dispatchTakePictureIntent() {
+     val takePictureIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+     try {
+@@ -564,7 +555,7 @@ private fun dispatchTakePictureIntent() {
+ 
+ ### Java
+ 
+-```java
++```
+ public void capturePhoto(String targetFilename) {
+     Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+     intent.putExtra(MediaStore.EXTRA_OUTPUT,
+@@ -577,7 +568,7 @@ public void capturePhoto(String targetFilename) {
+ 
+ **Example intent filter:**
+ 
+-```xml
++```
+ <activity ...>
+     <intent-filter>
+         <action android:name="android.media.action.STILL_IMAGE_CAMERA" />
+@@ -588,17 +579,16 @@ public void capturePhoto(String targetFilename) {
+ 
+ ### Start a camera app in video mode
+ 
+-[![](https://developer.android.com/static/guide/components/images/voice-icon.png)](https://developers.google.com/voice-actions/system/#system_actions_reference)
+-
++[![](/static/guide/components/images/voice-icon.png)](https://developers.google.com/voice-actions/system/#system_actions_reference)
+ 
+ Google Voice Actions
+ 
+-- "record a video"
++* "record a video"
+ 
+-To open a camera app in video mode, use the `https://developer.android.com/reference/android/provider/MediaStore#INTENT_ACTION_VIDEO_CAMERA` action.
++To open a camera app in video mode, use the `INTENT_ACTION_VIDEO_CAMERA` action.
+ 
+ **Action**
+-:   `https://developer.android.com/reference/android/provider/MediaStore#INTENT_ACTION_VIDEO_CAMERA`
++:   `INTENT_ACTION_VIDEO_CAMERA`
+ 
+ **Data URI Scheme**
+ :   None
+@@ -613,7 +603,7 @@ To open a camera app in video mode, use the `https://developer.android.com/refer
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ fun capturePhoto() {
+     val intent = Intent(MediaStore.INTENT_ACTION_VIDEO_CAMERA)
+     if (intent.resolveActivity(packageManager) != null) {
+@@ -624,7 +614,7 @@ fun capturePhoto() {
+ 
+ ### Java
+ 
+-```java
++```
+ public void capturePhoto() {
+     Intent intent = new Intent(MediaStore.INTENT_ACTION_VIDEO_CAMERA);
+     if (intent.resolveActivity(getPackageManager()) != null) {
+@@ -635,7 +625,7 @@ public void capturePhoto() {
+ 
+ **Example intent filter:**
+ 
+-```xml
++```
+ <activity ...>
+     <intent-filter>
+         <action android:name="android.media.action.VIDEO_CAMERA" />
+@@ -652,32 +642,32 @@ to create an intent filter to advertise your app's ability to perform each actio
+ ### Select a contact
+ 
+ To have the user select a contact and provide your app access to all the contact information,
+-use the `https://developer.android.com/reference/android/content/Intent#ACTION_PICK` action and specify the MIME type to
+-`https://developer.android.com/reference/android/provider/ContactsContract.Contacts#CONTENT_TYPE`.
++use the `ACTION_PICK` action and specify the MIME type to
++`Contacts.CONTENT_TYPE`.
+ 
+-The result `https://developer.android.com/reference/android/content/Intent` delivered to your `https://developer.android.com/reference/android/app/Activity#onActivityResult(int, int, android.content.Intent)` callback contains the
++The result `Intent` delivered to your `onActivityResult()` callback contains the
+ `content:` URI pointing to the selected contact. The response grants
+-your app temporary permissions to read that contact using the [Contacts Provider](https://developer.android.com/guide/topics/providers/contacts-provider) API, even if
+-your app doesn't include the `https://developer.android.com/reference/android/Manifest.permission#READ_CONTACTS` permission.
++your app temporary permissions to read that contact using the [Contacts Provider](/guide/topics/providers/contacts-provider) API, even if
++your app doesn't include the `READ_CONTACTS` permission.
+ 
+ **Tip:** If you need access to only a specific piece of contact
+ information, such as a phone number or email address, instead see the next section about how to
+-[select specific contact data](https://developer.android.com/guide/components/intents-common#PickContactData).
++[select specific contact data](#PickContactData).
+ 
+ **Action**
+-:   `https://developer.android.com/reference/android/content/Intent#ACTION_PICK`
++:   `ACTION_PICK`
+ 
+ **Data URI Scheme**
+ :   None
+ 
+ **MIME Type**
+-:   `https://developer.android.com/reference/android/provider/ContactsContract.Contacts#CONTENT_TYPE`
++:   `Contacts.CONTENT_TYPE`
+ 
+ **Example intent:**
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ const val REQUEST_SELECT_CONTACT = 1
+ 
+ fun selectContact() {
+@@ -700,7 +690,7 @@ override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent) {
+ 
+ ### Java
+ 
+-```java
++```
+ static final int REQUEST_SELECT_CONTACT = 1;
+ 
+ public void selectContact() {
+@@ -723,65 +713,63 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+ 
+ For information about how to retrieve contact details once you have the contact URI,
+ read [Retrieve details
+-for a contact](https://developer.android.com/training/contacts-provider/retrieve-details).
++for a contact](/training/contacts-provider/retrieve-details).
+ 
+ When you retrieve the contact URI using this intent, you generally don't
+ need the
+-`https://developer.android.com/reference/android/Manifest.permission#READ_CONTACTS`
++`READ_CONTACTS`
+ permission to read basic details for that contact, such as display name and
+ whether the contact is starred. However, if you're trying to
+-[read more specific data](https://developer.android.com/guide/components/intents-common#PickContactData) about a given contact---such
+-as their phone number or email address---you need the `READ_CONTACTS`
++[read more specific data](#PickContactData) about a given contact—such
++as their phone number or email address—you need the `READ_CONTACTS`
+ permission.
+ 
+ ### Select specific contact data
+ 
+ To have the user select a specific piece of information from a contact, such as
+ a phone number, email address, or other data type, use the
+-`https://developer.android.com/reference/android/content/Intent#ACTION_PICK` action and specify the MIME type to one
++`ACTION_PICK` action and specify the MIME type to one
+ of the following content types, such as
+-`https://developer.android.com/reference/android/provider/ContactsContract.CommonDataKinds.Phone#CONTENT_TYPE` to get the contact's phone number.
++`CommonDataKinds.Phone.CONTENT_TYPE` to get the contact's phone number.
+ 
+ **Note:** In many cases, your app needs to have the
+-`https://developer.android.com/reference/android/Manifest.permission#READ_CONTACTS`
++`READ_CONTACTS`
+ permission to view specific information about a particular contact.
+ 
+ If you need to retrieve only one type of data from a contact, this technique with a
+ `CONTENT_TYPE` from the
+-`https://developer.android.com/reference/android/provider/ContactsContract.CommonDataKinds` classes is more efficient than
+-using the `https://developer.android.com/reference/android/provider/ContactsContract.Contacts#CONTENT_TYPE`, as shown in the preceding section. The result provides you direct
+-access to the desired data without requiring you to perform a more complex query to [Contacts Provider](https://developer.android.com/guide/topics/providers/contacts-provider).
++`ContactsContract.CommonDataKinds` classes is more efficient than
++using the `Contacts.CONTENT_TYPE`, as shown in the preceding section. The result provides you direct
++access to the desired data without requiring you to perform a more complex query to [Contacts Provider](/guide/topics/providers/contacts-provider).
+ 
+-The result `https://developer.android.com/reference/android/content/Intent` delivered to your `https://developer.android.com/reference/android/app/Activity#onActivityResult(int, int, android.content.Intent)` callback contains the
++The result `Intent` delivered to your `onActivityResult()` callback contains the
+ `content:` URI pointing to the selected contact data. The response grants
+-your app temporary permissions to read that contact data even if your app doesn't include the `https://developer.android.com/reference/android/Manifest.permission#READ_CONTACTS` permission.
++your app temporary permissions to read that contact data even if your app doesn't include the `READ_CONTACTS` permission.
+ 
+ **Action**
+-:   `https://developer.android.com/reference/android/content/Intent#ACTION_PICK`
++:   `ACTION_PICK`
+ 
+ **Data URI Scheme**
+ :   None
+ 
+ **MIME Type**
+-:
+-
+-    `https://developer.android.com/reference/android/provider/ContactsContract.CommonDataKinds.Phone#CONTENT_TYPE`
++:   `CommonDataKinds.Phone.CONTENT_TYPE`
+     :   Pick from contacts with a phone number.
+ 
+-    `https://developer.android.com/reference/android/provider/ContactsContract.CommonDataKinds.Email#CONTENT_TYPE`
++    `CommonDataKinds.Email.CONTENT_TYPE`
+     :   Pick from contacts with an email address.
+ 
+-    `https://developer.android.com/reference/android/provider/ContactsContract.CommonDataKinds.StructuredPostal#CONTENT_TYPE`
++    `CommonDataKinds.StructuredPostal.CONTENT_TYPE`
+     :   Pick from contacts with a postal address.
+ 
+     Or one of many other `CONTENT_TYPE` values
+-    under `https://developer.android.com/reference/android/provider/ContactsContract`.
++    under `ContactsContract`.
+ 
+ **Example intent:**
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ const val REQUEST_SELECT_PHONE_NUMBER = 1
+ 
+ fun selectContact() {
+@@ -814,7 +802,7 @@ override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent) {
+ 
+ ### Java
+ 
+-```java
++```
+ static final int REQUEST_SELECT_PHONE_NUMBER = 1;
+ 
+ public void selectContact() {
+@@ -847,17 +835,19 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+ 
+ ### View a contact
+ 
+-To display the details for a known contact, use the `https://developer.android.com/reference/android/content/Intent#ACTION_VIEW`
++To display the details for a known contact, use the `ACTION_VIEW`
+ action and specify the contact with a `content:` URI as the intent data.
+ 
+ There are two primary ways to initially retrieve the contact's URI:
+ 
+-- Use the contact URI returned by the `https://developer.android.com/reference/android/content/Intent#ACTION_PICK` action shown in the preceding section. This approach doesn't require any app permissions.
+-- Access the list of all contacts directly, as described in [Retrieve a list of
+-  contacts](https://developer.android.com/training/contacts-provider/retrieve-names). This approach requires the `https://developer.android.com/reference/android/Manifest.permission#READ_CONTACTS` permission.
++* Use the contact URI returned by the `ACTION_PICK` action
++  shown in the preceding section. This approach doesn't require any app permissions.
++* Access the list of all contacts directly, as described in [Retrieve a list of
++  contacts](/training/contacts-provider/retrieve-names). This approach requires the `READ_CONTACTS`
++  permission.
+ 
+ **Action**
+-:   `https://developer.android.com/reference/android/content/Intent#ACTION_VIEW`
++:   `ACTION_VIEW`
+ 
+ **Data URI Scheme**
+ :   `content:<URI>`
+@@ -869,7 +859,7 @@ There are two primary ways to initially retrieve the contact's URI:
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ fun viewContact(contactUri: Uri) {
+     val intent = Intent(Intent.ACTION_VIEW, contactUri)
+     if (intent.resolveActivity(packageManager) != null) {
+@@ -880,7 +870,7 @@ fun viewContact(contactUri: Uri) {
+ 
+ ### Java
+ 
+-```java
++```
+ public void viewContact(Uri contactUri) {
+     Intent intent = new Intent(Intent.ACTION_VIEW, contactUri);
+     if (intent.resolveActivity(getPackageManager()) != null) {
+@@ -891,19 +881,21 @@ public void viewContact(Uri contactUri) {
+ 
+ ### Edit an existing contact
+ 
+-To edit a known contact, use the `https://developer.android.com/reference/android/content/Intent#ACTION_EDIT`
++To edit a known contact, use the `ACTION_EDIT`
+ action, specify the contact with a `content:` URI
+ as the intent data, and include any known contact information in extras specified by
+-constants in `https://developer.android.com/reference/android/provider/ContactsContract.Intents.Insert`.
++constants in `ContactsContract.Intents.Insert`.
+ 
+ There are two primary ways to initially retrieve the contact URI:
+ 
+-- Use the contact URI returned by the `https://developer.android.com/reference/android/content/Intent#ACTION_PICK` action shown in the preceding section. This approach doesn't require any app permissions.
+-- Access the list of all contacts directly, as described in [Retrieve a list of
+-  contacts](https://developer.android.com/training/contacts-provider/retrieve-names). This approach requires the `https://developer.android.com/reference/android/Manifest.permission#READ_CONTACTS` permission.
++* Use the contact URI returned by the `ACTION_PICK` action
++  shown in the preceding section. This approach doesn't require any app permissions.
++* Access the list of all contacts directly, as described in [Retrieve a list of
++  contacts](/training/contacts-provider/retrieve-names). This approach requires the `READ_CONTACTS`
++  permission.
+ 
+ **Action**
+-:   `https://developer.android.com/reference/android/content/Intent#ACTION_EDIT`
++:   `ACTION_EDIT`
+ 
+ **Data URI Scheme**
+ :   `content:<URI>`
+@@ -912,14 +904,14 @@ There are two primary ways to initially retrieve the contact URI:
+ :   The type is inferred from the contact URI.
+ 
+ **Extras**
+-:   One or more of the extras defined in `https://developer.android.com/reference/android/provider/ContactsContract.Intents.Insert`
++:   One or more of the extras defined in `ContactsContract.Intents.Insert`
+     so you can populate fields of the contact details.
+ 
+ **Example intent:**
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ fun editContact(contactUri: Uri, email: String) {
+     val intent = Intent(Intent.ACTION_EDIT).apply {
+         data = contactUri
+@@ -933,7 +925,7 @@ fun editContact(contactUri: Uri, email: String) {
+ 
+ ### Java
+ 
+-```java
++```
+ public void editContact(Uri contactUri, String email) {
+     Intent intent = new Intent(Intent.ACTION_EDIT);
+     intent.setData(contactUri);
+@@ -945,32 +937,32 @@ public void editContact(Uri contactUri, String email) {
+ ```
+ 
+ For more information about how to edit a contact, read [Modify
+-contacts using intents](https://developer.android.com/training/contacts-provider/modify-data).
++contacts using intents](/training/contacts-provider/modify-data).
+ 
+ ### Insert a contact
+ 
+-To insert a new contact, use the `https://developer.android.com/reference/android/content/Intent#ACTION_INSERT` action,
+-specify `https://developer.android.com/reference/android/provider/ContactsContract.Contacts#CONTENT_TYPE` as
++To insert a new contact, use the `ACTION_INSERT` action,
++specify `Contacts.CONTENT_TYPE` as
+ the MIME type, and include any known contact information in extras specified by
+-constants in `https://developer.android.com/reference/android/provider/ContactsContract.Intents.Insert`.
++constants in `ContactsContract.Intents.Insert`.
+ 
+ **Action**
+-:   `https://developer.android.com/reference/android/content/Intent#ACTION_INSERT`
++:   `ACTION_INSERT`
+ 
+ **Data URI Scheme**
+ :   None
+ 
+ **MIME Type**
+-:   `https://developer.android.com/reference/android/provider/ContactsContract.Contacts#CONTENT_TYPE`
++:   `Contacts.CONTENT_TYPE`
+ 
+ **Extras**
+-:   One or more of the extras defined in `https://developer.android.com/reference/android/provider/ContactsContract.Intents.Insert`.
++:   One or more of the extras defined in `ContactsContract.Intents.Insert`.
+ 
+ **Example intent:**
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ fun insertContact(name: String, email: String) {
+     val intent = Intent(Intent.ACTION_INSERT).apply {
+         type = ContactsContract.Contacts.CONTENT_TYPE
+@@ -985,7 +977,7 @@ fun insertContact(name: String, email: String) {
+ 
+ ### Java
+ 
+-```java
++```
+ public void insertContact(String name, String email) {
+     Intent intent = new Intent(Intent.ACTION_INSERT);
+     intent.setType(Contacts.CONTENT_TYPE);
+@@ -998,7 +990,7 @@ public void insertContact(String name, String email) {
+ ```
+ 
+ For more information about how to insert a contact, read [Modify
+-contacts using intents](https://developer.android.com/training/contacts-provider/modify-data).
++contacts using intents](/training/contacts-provider/modify-data).
+ 
+ ## Email
+ 
+@@ -1012,52 +1004,45 @@ To compose an email, use one of the following actions based on whether you'll in
+ and include email details such as the recipient and subject using the extra keys listed.
+ 
+ **Action**
+-:   `https://developer.android.com/reference/android/content/Intent#ACTION_SENDTO` (for no attachment) or  
+-
+-    `https://developer.android.com/reference/android/content/Intent#ACTION_SEND` (for one attachment) or  
+-
+-    `https://developer.android.com/reference/android/content/Intent#ACTION_SEND_MULTIPLE` (for multiple attachments)
++:   `ACTION_SENDTO` (for no attachment) or  
++    `ACTION_SEND` (for one attachment) or  
++    `ACTION_SEND_MULTIPLE` (for multiple attachments)
+ 
+ **Data URI Scheme**
+ :   None
+ 
+ **MIME Type**
+-:
+-
+-    `"text/plain"`
+-    `"*/*"`
++:   `"text/plain"` `"*/*"`
+ 
+ **Extras**
+-:
+-
+-    `https://developer.android.com/reference/android/content/Intent#EXTRA_EMAIL`
++:   `Intent.EXTRA_EMAIL`
+     :   A string array of all "To" recipient email addresses.
+ 
+-    `https://developer.android.com/reference/android/content/Intent#EXTRA_CC`
++    `Intent.EXTRA_CC`
+     :   A string array of all "CC" recipient email addresses.
+ 
+-    `https://developer.android.com/reference/android/content/Intent#EXTRA_BCC`
++    `Intent.EXTRA_BCC`
+     :   A string array of all "BCC" recipient email addresses.
+ 
+-    `https://developer.android.com/reference/android/content/Intent#EXTRA_SUBJECT`
++    `Intent.EXTRA_SUBJECT`
+     :   A string with the email subject.
+ 
+-    `https://developer.android.com/reference/android/content/Intent#EXTRA_TEXT`
++    `Intent.EXTRA_TEXT`
+     :   A string with the body of the email.
+ 
+-    `https://developer.android.com/reference/android/content/Intent#EXTRA_STREAM`
+-    :   A `https://developer.android.com/reference/android/net/Uri` pointing to the attachment.
++    `Intent.EXTRA_STREAM`
++    :   A `Uri` pointing to the attachment.
+         If using the
+-        `https://developer.android.com/reference/android/content/Intent#ACTION_SEND_MULTIPLE`
++        `ACTION_SEND_MULTIPLE`
+         action, this instead is an
+-        `https://developer.android.com/reference/java/util/ArrayList` containing
++        `ArrayList` containing
+         multiple `Uri` objects.
+ 
+ **Example intent:**
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ fun composeEmail(addresses: Array<String>, subject: String, attachment: Uri) {
+     val intent = Intent(Intent.ACTION_SEND).apply {
+         type = "*/*"
+@@ -1073,7 +1058,7 @@ fun composeEmail(addresses: Array<String>, subject: String, attachment: Uri) {
+ 
+ ### Java
+ 
+-```java
++```
+ public void composeEmail(String[] addresses, String subject, Uri attachment) {
+     Intent intent = new Intent(Intent.ACTION_SEND);
+     intent.setType("*/*");
+@@ -1087,12 +1072,12 @@ public void composeEmail(String[] addresses, String subject, Uri attachment) {
+ ```
+ 
+ If you want to make sure that your intent is handled only by an email app, and not a
+-text messaging or social app, then use the `https://developer.android.com/reference/android/content/Intent#ACTION_SENDTO` action
++text messaging or social app, then use the `ACTION_SENDTO` action
+ and include the `"mailto:"` data scheme as shown in the following example:
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ fun composeEmail(addresses: Array<String>, subject: String) {
+     val intent = Intent(Intent.ACTION_SENDTO).apply {
+         data = Uri.parse("mailto:") // Only email apps handle this.
+@@ -1107,7 +1092,7 @@ fun composeEmail(addresses: Array<String>, subject: String) {
+ 
+ ### Java
+ 
+-```java
++```
+ public void composeEmail(String[] addresses, String subject) {
+     Intent intent = new Intent(Intent.ACTION_SENDTO);
+     intent.setData(Uri.parse("mailto:")); // Only email apps handle this.
+@@ -1121,7 +1106,7 @@ public void composeEmail(String[] addresses, String subject) {
+ 
+ **Example intent filter:**
+ 
+-```xml
++```
+ <activity ...>
+     <intent-filter>
+         <action android:name="android.intent.action.SEND" />
+@@ -1144,29 +1129,29 @@ to create an intent filter to advertise your app's ability to perform each actio
+ ### Retrieve a specific type of file
+ 
+ To request that the user select a file such as a document or photo and return a reference to
+-your app, use the `https://developer.android.com/reference/android/content/Intent#ACTION_GET_CONTENT` action and specify your desired
++your app, use the `ACTION_GET_CONTENT` action and specify your desired
+ MIME type. The file reference returned to your app is transient to your activity's current
+ lifecycle, so if you want to access it later you must import a copy that you can read later.
+ 
+ This intent also lets the user create a new file in the process. For
+ example, instead of selecting an existing photo, the user can capture a new photo with the camera.
+ 
+-The result intent delivered to your `https://developer.android.com/reference/android/app/Activity#onActivityResult(int, int, android.content.Intent)` method includes data with a URI pointing to the file.
++The result intent delivered to your `onActivityResult()` method includes data with a URI pointing to the file.
+ The URI can be anything, such as an `http:` URI, `file:` URI, or `content:`
+ URI. However, if you'd like to restrict selectable files to only those that are accessible
+ from a content provider (a `content:` URI) and that are available as a file stream with
+-`https://developer.android.com/reference/android/content/ContentResolver#openFileDescriptor(android.net.Uri, java.lang.String)`,
++`openFileDescriptor()`,
+ add
+-the `https://developer.android.com/reference/android/content/Intent#CATEGORY_OPENABLE` category to your intent.
++the `CATEGORY_OPENABLE` category to your intent.
+ 
+ On Android 4.3 (API level 18) and higher,
+ you can also let the user select multiple files by adding
+-`https://developer.android.com/reference/android/content/Intent#EXTRA_ALLOW_MULTIPLE` to the intent, set to `true`.
+-You can then access each of the selected files in a `https://developer.android.com/reference/android/content/ClipData`
+-object returned by `https://developer.android.com/reference/android/content/Intent#getClipData()`.
++`EXTRA_ALLOW_MULTIPLE` to the intent, set to `true`.
++You can then access each of the selected files in a `ClipData`
++object returned by `getClipData()`.
+ 
+ **Action**
+-:   `https://developer.android.com/reference/android/content/Intent#ACTION_GET_CONTENT`
++:   `ACTION_GET_CONTENT`
+ 
+ **Data URI Scheme**
+ :   None
+@@ -1175,27 +1160,18 @@ object returned by `https://developer.android.com/reference/android/content/Inte
+ :   The MIME type corresponding to the file type the user needs to select.
+ 
+ **Extras**
+-:
+-
+-    `https://developer.android.com/reference/android/content/Intent#EXTRA_ALLOW_MULTIPLE`
+-    :   A boolean that declares whether the user can select more than one file at a time.
+-
+-    `https://developer.android.com/reference/android/content/Intent#EXTRA_LOCAL_ONLY`
+-    :   A boolean that declares whether the returned file must be available directly from
+-        the device, rather than requiring a download from a remote service.
++:   `EXTRA_ALLOW_MULTIPLE`: A boolean that declares whether the user can select more than one file at a time. `EXTRA_LOCAL_ONLY`: A boolean that declares whether the returned file must be available directly from the device, rather than requiring a download from a remote service.
+ 
+ **Category** (optional)
+-:
+-
+-    `https://developer.android.com/reference/android/content/Intent#CATEGORY_OPENABLE`
++:   `CATEGORY_OPENABLE`
+     :   To return only "openable" files that can be represented as a file stream
+-        with `https://developer.android.com/reference/android/content/ContentResolver#openFileDescriptor(android.net.Uri, java.lang.String)`.
++        with `openFileDescriptor()`.
+ 
+ **Example intent to get a photo:**
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ const val REQUEST_IMAGE_GET = 1
+ 
+ fun selectImage() {
+@@ -1219,7 +1195,7 @@ override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent) {
+ 
+ ### Java
+ 
+-```java
++```
+ static final int REQUEST_IMAGE_GET = 1;
+ 
+ public void selectImage() {
+@@ -1243,24 +1219,26 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+ 
+ **Example intent filter to return a photo:**
+ 
+-    <activity ...>
+-        <intent-filter>
+-            <action android:name="android.intent.action.GET_CONTENT" />
+-            <data android:type="image/*" />
+-            <category android:name="android.intent.category.DEFAULT" />
+-            <!-- The OPENABLE category declares that the returned file is accessible
+-                 from a content provider that supports https://developer.android.com/reference/android/provider/OpenableColumns
+-                 and https://developer.android.com/reference/android/content/ContentResolver#openFileDescriptor(android.net.Uri, java.lang.String). -->
+-            <category android:name="android.intent.category.OPENABLE" />
+-        </intent-filter>
+-    </activity>
++```
++<activity ...>
++    <intent-filter>
++        <action android:name="android.intent.action.GET_CONTENT" />
++        <data android:type="image/*" />
++        <category android:name="android.intent.category.DEFAULT" />
++        <!-- The OPENABLE category declares that the returned file is accessible
++             from a content provider that supports OpenableColumns
++             and ContentResolver.openFileDescriptor(). -->
++        <category android:name="android.intent.category.OPENABLE" />
++    </intent-filter>
++</activity>
++```
+ 
+ ### Open a specific type of file
+ 
+-Instead of retrieving a copy of a file that you must import to your app, by using the `https://developer.android.com/reference/android/content/Intent#ACTION_GET_CONTENT` action, when running on Android
++Instead of retrieving a copy of a file that you must import to your app, by using the `ACTION_GET_CONTENT` action, when running on Android
+ 4.4 or higher you can instead request to *open* a file that's managed by another app by
+-using the `https://developer.android.com/reference/android/content/Intent#ACTION_OPEN_DOCUMENT` action and specifying a MIME type.
+-To also let the user create a new document that your app can write to, use the `https://developer.android.com/reference/android/content/Intent#ACTION_CREATE_DOCUMENT` action instead.
++using the `ACTION_OPEN_DOCUMENT` action and specifying a MIME type.
++To also let the user create a new document that your app can write to, use the `ACTION_CREATE_DOCUMENT` action instead.
+ 
+ For example, instead of
+ selecting from existing PDF documents, the `ACTION_CREATE_DOCUMENT`
+@@ -1268,12 +1246,12 @@ intent lets users select where they'd like to create a new document, such as wit
+ that manages the document's storage. Your app then receives the URI location of where it
+ can write the new document.
+ 
+-Whereas the intent delivered to your `https://developer.android.com/reference/android/app/Activity#onActivityResult(int, int, android.content.Intent)`
++Whereas the intent delivered to your `onActivityResult()`
+ method from the `ACTION_GET_CONTENT` action might
+ return a URI of any type, the result intent from `ACTION_OPEN_DOCUMENT`
+-and `ACTION_CREATE_DOCUMENT` always specify the chosen file as a `content:` URI that's backed by a `https://developer.android.com/reference/android/provider/DocumentsProvider`. You can open the
+-file with `https://developer.android.com/reference/android/content/ContentResolver#openFileDescriptor(android.net.Uri, java.lang.String)` and
+-query its details using columns from `https://developer.android.com/reference/android/provider/DocumentsContract.Document`.
++and `ACTION_CREATE_DOCUMENT` always specify the chosen file as a `content:` URI that's backed by a `DocumentsProvider`. You can open the
++file with `openFileDescriptor()` and
++query its details using columns from `DocumentsContract.Document`.
+ 
+ The returned URI grants your app long-term read access to the file, also possibly
+ with write access. The `ACTION_OPEN_DOCUMENT` action is
+@@ -1281,22 +1259,21 @@ particularly useful when you want to read an existing file without making a copy
+ or when you want to open and edit a file in place.
+ 
+ You can also let the user select multiple files by adding
+-`https://developer.android.com/reference/android/content/Intent#EXTRA_ALLOW_MULTIPLE` to the intent, set to `true`.
+-If the user selects just one item, then you can retrieve the item from `https://developer.android.com/reference/android/content/Intent#getData()`.
++`EXTRA_ALLOW_MULTIPLE` to the intent, set to `true`.
++If the user selects just one item, then you can retrieve the item from `getData()`.
+ If the user selects more than one item, then `getData()` returns null and you must instead
+-retrieve each item from a `https://developer.android.com/reference/android/content/ClipData`
+-object that is returned by `https://developer.android.com/reference/android/content/Intent#getClipData()`.
++retrieve each item from a `ClipData`
++object that is returned by `getClipData()`.
+ 
+ **Note:** Your intent **must** specify a MIME type and
+-**must** declare the `https://developer.android.com/reference/android/content/Intent#CATEGORY_OPENABLE` category. If
++**must** declare the `CATEGORY_OPENABLE` category. If
+ appropriate, you can specify more than one MIME type by adding an array of MIME types with the
+-`https://developer.android.com/reference/android/content/Intent#EXTRA_MIME_TYPES` extra---if you do so, you must set the
+-primary MIME type in `https://developer.android.com/reference/android/content/Intent#setType(java.lang.String)` to `"*/*"`.
++`EXTRA_MIME_TYPES` extra—if you do so, you must set the
++primary MIME type in `setType()` to `"*/*"`.
+ 
+ **Action**
+-:   `https://developer.android.com/reference/android/content/Intent#ACTION_OPEN_DOCUMENT` or  
+-
+-    `https://developer.android.com/reference/android/content/Intent#ACTION_CREATE_DOCUMENT`
++:   `ACTION_OPEN_DOCUMENT` or  
++    `ACTION_CREATE_DOCUMENT`
+ 
+ **Data URI Scheme**
+ :   None
+@@ -1305,36 +1282,18 @@ primary MIME type in `https://developer.android.com/reference/android/content/In
+ :   The MIME type corresponding to the file type the user needs to select.
+ 
+ **Extras**
+-:
+-
+-    `https://developer.android.com/reference/android/content/Intent#EXTRA_MIME_TYPES`
+-    :   An array of MIME types corresponding to the types of files your app is
+-        requesting. When you use this extra, you must set the primary MIME type in
+-        `https://developer.android.com/reference/android/content/Intent#setType(java.lang.String)` to `"*/*"`.
+-
+-    `https://developer.android.com/reference/android/content/Intent#EXTRA_ALLOW_MULTIPLE`
+-    :   A boolean that declares whether the user can select more than one file at a time.
+-
+-    `https://developer.android.com/reference/android/content/Intent#EXTRA_TITLE`
+-    :   For use with `https://developer.android.com/reference/android/content/Intent#ACTION_CREATE_DOCUMENT` to specify
+-        an initial filename.
+-
+-    `https://developer.android.com/reference/android/content/Intent#EXTRA_LOCAL_ONLY`
+-    :   A boolean that declares whether the returned file must be available directly from
+-        the device, rather than requiring a download from a remote service.
++:   `EXTRA_MIME_TYPES`: An array of MIME types corresponding to the types of files your app is requesting. When you use this extra, you must set the primary MIME type in `setType()` to `"*/*"`. `EXTRA_ALLOW_MULTIPLE`: A boolean that declares whether the user can select more than one file at a time. `EXTRA_TITLE`: For use with `ACTION_CREATE_DOCUMENT` to specify an initial filename. `EXTRA_LOCAL_ONLY`: A boolean that declares whether the returned file must be available directly from the device, rather than requiring a download from a remote service.
+ 
+ **Category**
+-:
+-
+-    `https://developer.android.com/reference/android/content/Intent#CATEGORY_OPENABLE`
++:   `CATEGORY_OPENABLE`
+     :   To return only "openable" files that can be represented as a file stream
+-        with `https://developer.android.com/reference/android/content/ContentResolver#openFileDescriptor(android.net.Uri, java.lang.String)`.
++        with `openFileDescriptor()`.
+ 
+ **Example intent to get a photo:**
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ const val REQUEST_IMAGE_OPEN = 1
+ 
+ fun selectImage2() {
+@@ -1357,7 +1316,7 @@ override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent) {
+ 
+ ### Java
+ 
+-```java
++```
+ static final int REQUEST_IMAGE_OPEN = 1;
+ 
+ public void selectImage() {
+@@ -1379,15 +1338,15 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+ ```
+ 
+ Third-party apps can't respond to an intent with the
+-`https://developer.android.com/reference/android/content/Intent#ACTION_OPEN_DOCUMENT` action. Instead, the system receives this
++`ACTION_OPEN_DOCUMENT` action. Instead, the system receives this
+ intent and displays all the files available from various apps in a unified user interface.
+ 
+ To provide your app's files in this UI and let other apps open them, you must implement
+-a `https://developer.android.com/reference/android/provider/DocumentsProvider` and include an intent filter for
+-`https://developer.android.com/reference/android/provider/DocumentsContract#PROVIDER_INTERFACE`
++a `DocumentsProvider` and include an intent filter for
++`PROVIDER_INTERFACE`
+ (`"android.content.action.DOCUMENTS_PROVIDER"`), as shown in the following example:
+ 
+-```xml
++```
+ <provider ...
+     android:grantUriPermissions="true"
+     android:exported="true"
+@@ -1399,7 +1358,7 @@ a `https://developer.android.com/reference/android/provider/DocumentsProvider` a
+ ```
+ 
+ For more information about how to make the files managed by your app openable from other apps,
+-read [Open files using storage access framework](https://developer.android.com/guide/topics/providers/document-provider).
++read [Open files using storage access framework](/guide/topics/providers/document-provider).
+ 
+ ## Local actions
+ 
+@@ -1408,14 +1367,12 @@ ability to perform this action using the information in the following section.
+ 
+ ### Call a car
+ 
+-[![](https://developer.android.com/static/guide/components/images/voice-icon.png)](https://developers.google.com/voice-actions/system/#system_actions_reference)
+-
++[![](/static/guide/components/images/voice-icon.png)](https://developers.google.com/voice-actions/system/#system_actions_reference)
+ 
+ Google Voice Actions
+ 
+-- "get me a taxi"
+-- "call me a car"
+-
++* "get me a taxi"
++* "call me a car"
+ 
+ (Wear OS only)
+ 
+@@ -1427,7 +1384,7 @@ action.
+ before completing this action.
+ 
+ **Action**
+-:   [`ACTION_RESERVE_TAXI_RESERVATION`](https://developer.android.com/android/reference/com/google/android/gms/actions/ReserveIntents#ACTION_RESERVE_TAXI_RESERVATION)
++:   [`ACTION_RESERVE_TAXI_RESERVATION`](/android/reference/com/google/android/gms/actions/ReserveIntents#ACTION_RESERVE_TAXI_RESERVATION)
+ 
+ **Data URI**
+ :   None
+@@ -1442,7 +1399,7 @@ before completing this action.
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ fun callCar() {
+     val intent = Intent(ReserveIntents.ACTION_RESERVE_TAXI_RESERVATION)
+     if (intent.resolveActivity(packageManager) != null) {
+@@ -1453,7 +1410,7 @@ fun callCar() {
+ 
+ ### Java
+ 
+-```java
++```
+ public void callCar() {
+     Intent intent = new Intent(ReserveIntents.ACTION_RESERVE_TAXI_RESERVATION);
+     if (intent.resolveActivity(getPackageManager()) != null) {
+@@ -1464,7 +1421,7 @@ public void callCar() {
+ 
+ **Example intent filter:**
+ 
+-```xml
++```
+ <activity ...>
+     <intent-filter>
+         <action android:name="com.google.android.gms.actions.RESERVE_TAXI_RESERVATION" />
+@@ -1481,33 +1438,34 @@ information in the following section.
+ 
+ ### Show a location on a map
+ 
+-To open a map, use the `https://developer.android.com/reference/android/content/Intent#ACTION_VIEW` action and specify
++To open a map, use the `ACTION_VIEW` action and specify
+ the location information in the intent data with one of the following schemes.
+ 
+ **Action**
+-:   `https://developer.android.com/reference/android/content/Intent#ACTION_VIEW`
++:   `ACTION_VIEW`
+ 
+ **Data URI Scheme**
+-:
+-
+-    `geo:latitude,longitude`
++:   `geo:latitude,longitude`
++    :   Show the map at the given longitude and latitude.
+ 
+-    :   Show the map at the given longitude and latitude. Example: `"geo:47.6,-122.3"`
++        Example: `"geo:47.6,-122.3"`
+ 
+     `geo:latitude,longitude?z=zoom`
+     :   Show the map at the given longitude and latitude at a certain zoom level. A zoom level of
+-        1 shows the whole Earth, centered at the given *lat* ,*lng* . The highest
++        1 shows the whole Earth, centered at the given *lat*,*lng*. The highest
+         (closest) zoom level is 23.
+ 
+         Example: `"geo:47.6,-122.3?z=11"`
+ 
+     `geo:0,0?q=lat,lng(label)`
++    :   Show the map at the given longitude and latitude with a string label.
+ 
+-    :   Show the map at the given longitude and latitude with a string label. Example: `"geo:0,0?q=34.99,-106.61(Treasure)"`
++        Example: `"geo:0,0?q=34.99,-106.61(Treasure)"`
+ 
+     `geo:0,0?q=my+street+address`
++    :   Show the location for "my street address", which can be a specific address or location query.
+ 
+-    :   Show the location for "my street address", which can be a specific address or location query. Example: `"geo:0,0?q=1600+Amphitheatre+Parkway%2C+CA"`
++        Example: `"geo:0,0?q=1600+Amphitheatre+Parkway%2C+CA"`
+ 
+         **Note:** All strings passed in the `geo` URI must
+         be encoded. For example, the string `1st & Pike, Seattle` becomes
+@@ -1521,7 +1479,7 @@ the location information in the intent data with one of the following schemes.
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ fun showMap(geoLocation: Uri) {
+     val intent = Intent(Intent.ACTION_VIEW).apply {
+         data = geoLocation
+@@ -1534,7 +1492,7 @@ fun showMap(geoLocation: Uri) {
+ 
+ ### Java
+ 
+-```java
++```
+ public void showMap(Uri geoLocation) {
+     Intent intent = new Intent(Intent.ACTION_VIEW);
+     intent.setData(geoLocation);
+@@ -1546,7 +1504,7 @@ public void showMap(Uri geoLocation) {
+ 
+ **Example intent filter:**
+ 
+-```xml
++```
+ <activity ...>
+     <intent-filter>
+         <action android:name="android.intent.action.VIEW" />
+@@ -1563,33 +1521,23 @@ to create an intent filter to advertise your app's ability to perform each actio
+ 
+ ### Play a media file
+ 
+-To play a music file, use the `https://developer.android.com/reference/android/content/Intent#ACTION_VIEW` action and
++To play a music file, use the `ACTION_VIEW` action and
+ specify the URI location of the file in the intent data.
+ 
+ **Action**
+-:   `https://developer.android.com/reference/android/content/Intent#ACTION_VIEW`
++:   `ACTION_VIEW`
+ 
+ **Data URI Scheme**
+-:
+-
+-    `file:\<URI\>`
+-    `content:\<URI\>`
+-    `http:\<URL\>`
++:   `file:<URI>` `content:<URI>` `http:<URL>`
+ 
+ **MIME Type**
+-:
+-
+-    `"audio/*"`
+-    `"application/ogg"`
+-    `"application/x-ogg"`
+-    `"application/itunes"`
+-    Or any other that your app requires.
++:   `"audio/*"` `"application/ogg"` `"application/x-ogg"` `"application/itunes"` Or any other that your app requires.
+ 
+ **Example intent:**
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ fun playMedia(file: Uri) {
+     val intent = Intent(Intent.ACTION_VIEW).apply {
+         data = file
+@@ -1602,7 +1550,7 @@ fun playMedia(file: Uri) {
+ 
+ ### Java
+ 
+-```java
++```
+ public void playMedia(Uri file) {
+     Intent intent = new Intent(Intent.ACTION_VIEW);
+     intent.setData(file);
+@@ -1614,7 +1562,7 @@ public void playMedia(Uri file) {
+ 
+ **Example intent filter:**
+ 
+-```xml
++```
+ <activity ...>
+     <intent-filter>
+         <action android:name="android.intent.action.VIEW" />
+@@ -1627,25 +1575,24 @@ public void playMedia(Uri file) {
+ 
+ ### Play music based on a search query
+ 
+-[![](https://developer.android.com/static/guide/components/images/voice-icon.png)](https://developers.google.com/voice-actions/system/#system_actions_reference)
+-
++[![](/static/guide/components/images/voice-icon.png)](https://developers.google.com/voice-actions/system/#system_actions_reference)
+ 
+ Google Voice Actions
+ 
+-- "play michael jackson billie jean"
++* "play michael jackson billie jean"
+ 
+ To play music based on a search query, use the
+-`https://developer.android.com/reference/android/provider/MediaStore#INTENT_ACTION_MEDIA_PLAY_FROM_SEARCH` intent. An app might fire
++`INTENT_ACTION_MEDIA_PLAY_FROM_SEARCH` intent. An app might fire
+ this intent in response to the user's voice command to play music. The receiving app for this
+ intent performs a search within its inventory to match existing content to the given query and
+ starts playing that content.
+ 
+-In this intent, include the `https://developer.android.com/reference/android/provider/MediaStore#EXTRA_MEDIA_FOCUS` string
++In this intent, include the `EXTRA_MEDIA_FOCUS` string
+ extra, which specifies the intended search mode. For example, the search mode can specify whether
+ the search is for an artist name or song name.
+ 
+ **Action**
+-:   `https://developer.android.com/reference/android/provider/MediaStore#INTENT_ACTION_MEDIA_PLAY_FROM_SEARCH`
++:   `INTENT_ACTION_MEDIA_PLAY_FROM_SEARCH`
+ 
+ **Data URI Scheme**
+ :   None
+@@ -1654,99 +1601,101 @@ the search is for an artist name or song name.
+ :   None
+ 
+ **Extras**
+-:
+-
+-    `https://developer.android.com/reference/android/provider/MediaStore#EXTRA_MEDIA_FOCUS` (required)
+-
++:   `MediaStore.EXTRA_MEDIA_FOCUS` (required)
+     :   Indicates the search mode: whether the user is looking for a particular artist, album, song,
+         or playlist. Most search modes take additional extras. For example, if the user
+         is interested in listening to a particular song, the intent might have three additional extras:
+         the song title, the artist, and the album. This intent supports the following search modes for
+-        each value of `https://developer.android.com/reference/android/provider/MediaStore#EXTRA_MEDIA_FOCUS`:
++        each value of `EXTRA_MEDIA_FOCUS`:
+ 
+         *Any* - `"vnd.android.cursor.item/*"`
+-
+         :   Play any music. The receiving app plays some music based on a smart choice, such
+             as the last playlist the user listened to.
+ 
+             Additional extras:
+ 
+-            - `https://developer.android.com/reference/android/app/SearchManager#QUERY` (required): an empty string. This extra is always provided for backward compatibility. Existing apps that don't know about search modes can process this intent as an unstructured search.
++            * `QUERY` (required): an empty string. This extra is always
++              provided for backward compatibility. Existing apps that don't know about search modes can
++              process this intent as an unstructured search.
+ 
+         *Unstructured* - `"vnd.android.cursor.item/*"`
+-
+         :   Play a particular song, album, or genre from an unstructured search query. Apps can generate
+             an intent with this search mode when they can't identify the type of content the user wants to
+             listen to. Use more specific search modes when possible.
+ 
+             Additional extras:
+ 
+-            - `https://developer.android.com/reference/android/app/SearchManager#QUERY` (required): a string that contains any combination of the artist, the album, the song name, or the genre.
+-
+-        *Genre* -
+-        `https://developer.android.com/reference/android/provider/MediaStore.Audio.Genres#ENTRY_CONTENT_TYPE`
++            * `QUERY` (required): a string that contains any combination
++              of the artist, the album, the song name, or the genre.
+ 
++        *Genre* - `Audio.Genres.ENTRY_CONTENT_TYPE`
+         :   Play music of a particular genre.
+ 
+             Additional extras:
+ 
+-            - `"android.intent.extra.genre"` (required) - The genre.
+-            - `https://developer.android.com/reference/android/app/SearchManager#QUERY` (required): the genre. This extra is always provided for backward compatibility. Existing apps that don't know about search modes can process this intent as an unstructured search.
+-
+-        *Artist* -
+-        `https://developer.android.com/reference/android/provider/MediaStore.Audio.Artists#ENTRY_CONTENT_TYPE`
++            * `"android.intent.extra.genre"` (required) - The genre.
++            * `QUERY` (required): the genre. This extra is always provided
++              for backward compatibility. Existing apps that don't know about search modes can process
++              this intent as an unstructured search.
+ 
++        *Artist* - `Audio.Artists.ENTRY_CONTENT_TYPE`
+         :   Play music from a particular artist.
+ 
+             Additional extras:
+ 
+-            - `https://developer.android.com/reference/android/provider/MediaStore#EXTRA_MEDIA_ARTIST` (required): the artist.
+-            - `"android.intent.extra.genre"`: the genre.
+-            - `https://developer.android.com/reference/android/app/SearchManager#QUERY` (required): a string that contains any combination of the artist or the genre. This extra is always provided for backward compatibility. Existing apps that don't know about search modes can process this intent as an unstructured search.
+-
+-        *Album* -
+-        `https://developer.android.com/reference/android/provider/MediaStore.Audio.Albums#ENTRY_CONTENT_TYPE`
++            * `EXTRA_MEDIA_ARTIST` (required): the artist.
++            * `"android.intent.extra.genre"`: the genre.
++            * `QUERY` (required): a string that contains any combination of
++              the artist or the genre. This extra is always provided for backward compatibility.
++              Existing apps that don't know about search modes can process this intent as an unstructured
++              search.
+ 
++        *Album* - `Audio.Albums.ENTRY_CONTENT_TYPE`
+         :   Play music from a particular album.
+ 
+             Additional extras:
+ 
+-            - `https://developer.android.com/reference/android/provider/MediaStore#EXTRA_MEDIA_ALBUM` (required): the album.
+-            - `https://developer.android.com/reference/android/provider/MediaStore#EXTRA_MEDIA_ARTIST`: the artist.
+-            - `"android.intent.extra.genre"`: the genre.
+-            - `https://developer.android.com/reference/android/app/SearchManager#QUERY` (required): a string that contains any combination of the album or the artist. This extra is always provided for backward compatibility. Existing apps that don't know about search modes can process this intent as an unstructured search.
++            * `EXTRA_MEDIA_ALBUM` (required): the album.
++            * `EXTRA_MEDIA_ARTIST`: the artist.
++            * `"android.intent.extra.genre"`: the genre.
++            * `QUERY` (required): a string that contains any combination of
++              the album or the artist. This extra is always provided for backward
++              compatibility. Existing apps that don't know about search modes can process this intent as an
++              unstructured search.
+ 
+         *Song* - `"vnd.android.cursor.item/audio"`
+-
+         :   Play a particular song.
+ 
+             Additional extras:
+ 
+-            - `https://developer.android.com/reference/android/provider/MediaStore#EXTRA_MEDIA_ALBUM`: the album.
+-            - `https://developer.android.com/reference/android/provider/MediaStore#EXTRA_MEDIA_ARTIST`: the artist.
+-            - `"android.intent.extra.genre"`: the genre.
+-            - `https://developer.android.com/reference/android/provider/MediaStore#EXTRA_MEDIA_TITLE` (required): the song name.
+-            - `https://developer.android.com/reference/android/app/SearchManager#QUERY` (required): a string that contains any combination of the album, the artist, the genre, or the title. This extra is always provided for backward compatibility. Existing apps that don't know about search modes can process this intent as an unstructured search.
+-
+-        *Playlist* - `https://developer.android.com/reference/android/provider/MediaStore.Audio.Playlists#ENTRY_CONTENT_TYPE`
+-        :
+-
+-            > [!NOTE]
+-            > Android playlists are deprecated. The API is no longer maintained, but the current functionality remains for compatibility.
++            * `EXTRA_MEDIA_ALBUM`: the album.
++            * `EXTRA_MEDIA_ARTIST`: the artist.
++            * `"android.intent.extra.genre"`: the genre.
++            * `EXTRA_MEDIA_TITLE` (required): the song name.
++            * `QUERY` (required): a string that contains any combination of
++              the album, the artist, the genre, or the title. This extra is always provided for
++              backward compatibility. Existing apps that don't know about search modes can process this
++              intent as an unstructured search.
+ 
++        *Playlist* - `Audio.Playlists.ENTRY_CONTENT_TYPE`
++        :   Android playlists are deprecated. The API is no longer
++            maintained, but the current functionality remains for compatibility.
+ 
+             Play a particular playlist or a playlist that matches some criteria specified
+             by additional extras.
+ 
+             Additional extras:
+ 
+-            - `https://developer.android.com/reference/android/provider/MediaStore#EXTRA_MEDIA_ALBUM`: the album.
+-            - `https://developer.android.com/reference/android/provider/MediaStore#EXTRA_MEDIA_ARTIST`: the artist.
+-            - `"android.intent.extra.genre"`: the genre.
+-            - `"android.intent.extra.playlist"`: the playlist.
+-            - `https://developer.android.com/reference/android/provider/MediaStore#EXTRA_MEDIA_TITLE`: the song name that the playlist is based on.
+-            - `https://developer.android.com/reference/android/app/SearchManager#QUERY` (required): a string that contains any combination of the album, the artist, the genre, the playlist, or the title. This extra is always provided for backward compatibility. Existing apps that don't know about search modes can process this intent as an unstructured search.
+-
++            * `EXTRA_MEDIA_ALBUM`: the album.
++            * `EXTRA_MEDIA_ARTIST`: the artist.
++            * `"android.intent.extra.genre"`: the genre.
++            * `"android.intent.extra.playlist"`: the playlist.
++            * `EXTRA_MEDIA_TITLE`: the song name that the playlist is
++              based on.
++            * `QUERY` (required): a string that contains any combination
++              of the album, the artist, the genre, the playlist, or the title. This extra is always
++              provided for backward compatibility. Existing apps that don't know about search modes can
++              process this intent as an unstructured search.
+ 
+ **Example intent:**
+ 
+@@ -1755,7 +1704,7 @@ following intent:
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ fun playSearchArtist(artist: String) {
+     val intent = Intent(MediaStore.INTENT_ACTION_MEDIA_PLAY_FROM_SEARCH).apply {
+         putExtra(MediaStore.EXTRA_MEDIA_FOCUS, MediaStore.Audio.Artists.ENTRY_CONTENT_TYPE)
+@@ -1770,7 +1719,7 @@ fun playSearchArtist(artist: String) {
+ 
+ ### Java
+ 
+-```java
++```
+ public void playSearchArtist(String artist) {
+     Intent intent = new Intent(MediaStore.INTENT_ACTION_MEDIA_PLAY_FROM_SEARCH);
+     intent.putExtra(MediaStore.EXTRA_MEDIA_FOCUS,
+@@ -1785,7 +1734,7 @@ public void playSearchArtist(String artist) {
+ 
+ **Example intent filter:**
+ 
+-```xml
++```
+ <activity ...>
+     <intent-filter>
+         <action android:name="android.media.action.MEDIA_PLAY_FROM_SEARCH" />
+@@ -1795,15 +1744,15 @@ public void playSearchArtist(String artist) {
+ ```
+ 
+ When handling this intent in your activity, check the value of the
+-`https://developer.android.com/reference/android/provider/MediaStore#EXTRA_MEDIA_FOCUS` extra in the incoming
+-`https://developer.android.com/reference/android/content/Intent` to determine the search mode. Once your activity has identified
++`EXTRA_MEDIA_FOCUS` extra in the incoming
++`Intent` to determine the search mode. Once your activity has identified
+ the search mode, read the values of the additional extras for that particular search mode.
+ With this information, your app can then perform the search within its inventory to play the
+ content that matches the search query. This is shown in the following example.
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ override fun onCreate(savedInstanceState: Bundle?) {
+     ...
+     if (intent.action.compareTo(MediaStore.INTENT_ACTION_MEDIA_PLAY_FROM_SEARCH) == 0) {
+@@ -1860,7 +1809,7 @@ override fun onCreate(savedInstanceState: Bundle?) {
+ 
+ ### Java
+ 
+-```java
++```
+ protected void onCreate(Bundle savedInstanceState) {
+     //...
+     Intent intent = this.getIntent();
+@@ -1939,10 +1888,482 @@ before completing this action.
+ :   "\*/\*"
+ 
+ **Extras**
+-:
++:   [`EXTRA_NAME`](https://developers.google.com/android/reference/com/google/android/gms/actions/NoteIntents#EXTRA_NAME): A string indicating the title or subject of the note. [`EXTRA_TEXT`](https://developers.google.com/android/reference/com/google/android/gms/actions/NoteIntents#EXTRA_TEXT): A string indicating the text of the note.
++
++**Example intent:**
++
++### Kotlin
++
++```
++fun createNote(subject: String, text: String) {
++    val intent = Intent(NoteIntents.ACTION_CREATE_NOTE).apply {
++        putExtra(NoteIntents.EXTRA_NAME, subject)
++        putExtra(NoteIntents.EXTRA_TEXT, text)
++    }
++    if (intent.resolveActivity(packageManager) != null) {
++        startActivity(intent)
++    }
++}
++```
++
++### Java
++
++```
++public void createNote(String subject, String text) {
++    Intent intent = new Intent(NoteIntents.ACTION_CREATE_NOTE)
++            .putExtra(NoteIntents.EXTRA_NAME, subject)
++            .putExtra(NoteIntents.EXTRA_TEXT, text);
++    if (intent.resolveActivity(getPackageManager()) != null) {
++        startActivity(intent);
++    }
++}
++```
++
++**Example intent filter:**
++
++```
++<activity ...>
++    <intent-filter>
++        <action android:name="com.google.android.gms.actions.CREATE_NOTE" />
++        <category android:name="android.intent.category.DEFAULT" />
++        <data android:mimeType="*/*" />
++    </intent-filter>
++</activity>
++```
++
++## Phone
++
++Initiating a call is a common action for phone apps.
++Create an intent filter to advertise your app's ability to perform this action using the
++information in the following section.
++
++### Initiate a phone call
++
++To open the phone app and dial a phone number, use the `ACTION_DIAL` action and specify a phone number using
++the following URI scheme. When the phone app opens, it displays the phone number,
++and the user must tap the *Call* button to begin the phone call.
++
++[![](/static/guide/components/images/voice-icon.png)](https://developers.google.com/voice-actions/system/#system_actions_reference)
++
++Google Voice Actions
++
++* "call 555-5555"
++* "call bob"
++* "call voicemail"
++
++To place a phone call directly, use the `ACTION_CALL` action
++and specify a phone number using the following URI scheme. When the phone app opens, it
++begins the phone call. The user doesn't need to tap the *Call* button.
++
++The `ACTION_CALL` action requires that you add the
++`CALL_PHONE` permission to your manifest file:
++
++```
++<uses-permission android:name="android.permission.CALL_PHONE" />
++```
++
++**Action**
++:   * `ACTION_DIAL` - Opens the dialer or phone app.
++    * `ACTION_CALL` - Places a phone call (requires the
++      `CALL_PHONE` permission)
++
++**Data URI Scheme**
++:   * `tel:<phone-number>`
++    * `voicemail:<phone-number>`
++
++**MIME Type**
++:   None
++
++Valid telephone numbers are those defined
++in [the IETF RFC 3966](http://tools.ietf.org/html/rfc3966).
++Valid examples include the following:
++
++* `tel:2125551212`
++* `tel:(212) 555 1212`
++
++The Phone app's dialer is good at normalizing schemes, such as
++telephone numbers. So the scheme described isn't strictly required in the
++`Uri.parse()` method.
++However, if you haven't tried a scheme or are unsure whether it
++can be handled, use the `Uri.fromParts()`
++method instead.
++
++**Example intent:**
++
++### Kotlin
++
++```
++fun dialPhoneNumber(phoneNumber: String) {
++    val intent = Intent(Intent.ACTION_DIAL).apply {
++        data = Uri.parse("tel:$phoneNumber")
++    }
++    if (intent.resolveActivity(packageManager) != null) {
++        startActivity(intent)
++    }
++}
++```
++
++### Java
++
++```
++public void dialPhoneNumber(String phoneNumber) {
++    Intent intent = new Intent(Intent.ACTION_DIAL);
++    intent.setData(Uri.parse("tel:" + phoneNumber));
++    if (intent.resolveActivity(getPackageManager()) != null) {
++        startActivity(intent);
++    }
++}
++```
++
++## Search
++
++The following are common actions for search apps, including the information you need
++to create an intent filter to advertise your app's ability to perform each action.
++
++### Search using a specific app
++
++[![](/static/guide/components/images/voice-icon.png)](https://developers.google.com/voice-actions/system/#system_actions_reference)
++
++Google Voice Actions
++
++* "search for cat videos on myvideoapp"
++
++To support search within the context of your app, declare an intent filter in your app with
++the `SEARCH_ACTION` action, as shown in the following intent filter example.
++
++**Note:** We don't recommend using `SEARCH_ACTION` for app search.
++Instead, implement the
++`GET_THING`
++action to leverage Google Assistant's built-in support for in-app search. For more information, see
++the Google Assistant
++[App Actions](https://developers.google.com/assistant/app/overview) documentation.
++
++**Action**
++:   `"com.google.android.gms.actions.SEARCH_ACTION"`
++    :   Support search queries from Google Voice Actions.
++
++**Extras**
++:   `QUERY`
++    :   A string that contains the search query.
++
++**Example intent filter:**
++
++```
++<activity android:name=".SearchActivity">
++    <intent-filter>
++        <action android:name="com.google.android.gms.actions.SEARCH_ACTION"/>
++        <category android:name="android.intent.category.DEFAULT"/>
++    </intent-filter>
++</activity>
++```
++
++### Perform a web search
++
++To initiate a web search, use the `ACTION_WEB_SEARCH` action
++and specify the search string in the
++`SearchManager.QUERY` extra.
++
++**Action**
++:   `ACTION_WEB_SEARCH`
++
++**Data URI Scheme**
++:   None
++
++**MIME Type**
++:   None
++
++**Extras**
++:   `SearchManager.QUERY`
++    :   The search string.
++
++**Example intent:**
++
++### Kotlin
++
++```
++fun searchWeb(query: String) {
++    val intent = Intent(Intent.ACTION_WEB_SEARCH).apply {
++        putExtra(SearchManager.QUERY, query)
++    }
++    if (intent.resolveActivity(packageManager) != null) {
++        startActivity(intent)
++    }
++}
++```
++
++### Java
++
++```
++public void searchWeb(String query) {
++    Intent intent = new Intent(Intent.ACTION_WEB_SEARCH);
++    intent.putExtra(SearchManager.QUERY, query);
++    if (intent.resolveActivity(getPackageManager()) != null) {
++        startActivity(intent);
++    }
++}
++```
++
++## Settings
++
++To open a screen in the system Settings app when your app requires the user to change something,
++use one of the following intent actions:
++
++**Action**
++:   `ACTION_SETTINGS`  
++    `ACTION_WIRELESS_SETTINGS`  
++    `ACTION_AIRPLANE_MODE_SETTINGS`
++
++**Data URI Scheme**
++:   None
++
++**MIME Type**
++:   None
++
++**Example intent:**
++
++### Kotlin
++
++```
++fun openWifiSettings() {
++    val intent = Intent(Settings.ACTION_WIFI_SETTINGS)
++    if (intent.resolveActivity(packageManager) != null) {
++        startActivity(intent)
++    }
++}
++```
++
++### Java
++
++```
++public void openWifiSettings() {
++    Intent intent = new Intent(Settings.ACTION_WIFI_SETTINGS);
++    if (intent.resolveActivity(getPackageManager()) != null) {
++        startActivity(intent);
++    }
++}
++```
++
++## Text messaging
++
++Composing an SMS/MMS message with an attachment is a common action for text messaging apps.
++Create an intent filter to advertise your app's ability to perform this action using the
++information in the following section.
++
++### Compose an SMS/MMS message with attachment
++
++To initiate an SMS or MMS text message, use one of the following intent actions and specify message
++details such as the phone number, subject, and message body using the following extra keys.
++
++**Action**
++:   `ACTION_SENDTO` or  
++    `ACTION_SEND` or  
++    `ACTION_SEND_MULTIPLE`
++
++**Data URI Scheme**
++:   `sms:<phone_number>` `smsto:<phone_number>` `mms:<phone_number>` `mmsto:<phone_number>`
++
++    These schemes are all handled the same way.
++
++**MIME Type**
++:   `"text/plain"` `"image/*"` `"video/*"`
++
++**Extras**
++:   `"subject"`
++    :   A string for the message subject (usually for MMS only).
++
++    `"sms_body"`
++    :   A string for the text message.
++
++    `EXTRA_STREAM`
++    :   A `Uri` pointing to the
++        image or video to attach. If using the `ACTION_SEND_MULTIPLE` action,
++        this extra is an `ArrayList` of
++        `Uri` objects pointing to the images or videos to attach.
++
++**Example intent:**
++
++### Kotlin
++
++```
++fun composeMmsMessage(message: String, attachment: Uri) {
++    val intent = Intent(Intent.ACTION_SENDTO).apply {
++        type = HTTP.PLAIN_TEXT_TYPE
++        putExtra("sms_body", message)
++        putExtra(Intent.EXTRA_STREAM, attachment)
++    }
++    if (intent.resolveActivity(packageManager) != null) {
++        startActivity(intent)
++    }
++}
++```
++
++### Java
++
++```
++public void composeMmsMessage(String message, Uri attachment) {
++    Intent intent = new Intent(Intent.ACTION_SENDTO);
++    intent.setType(HTTP.PLAIN_TEXT_TYPE);
++    intent.putExtra("sms_body", message);
++    intent.putExtra(Intent.EXTRA_STREAM, attachment);
++    if (intent.resolveActivity(getPackageManager()) != null) {
++        startActivity(intent);
++    }
++}
++```
++
++If you want to make sure that your intent is handled only by a text messaging app, and not other
++email or social apps, then use the `ACTION_SENDTO` action
++and include the `"smsto:"` data scheme as shown in the following example:
++
++### Kotlin
++
++```
++fun composeMmsMessage(message: String, attachment: Uri) {
++    val intent = Intent(Intent.ACTION_SEND).apply {
++        data = Uri.parse("smsto:")  // Only SMS apps respond to this.
++        putExtra("sms_body", message)
++        putExtra(Intent.EXTRA_STREAM, attachment)
++    }
++    if (intent.resolveActivity(packageManager) != null) {
++        startActivity(intent)
++    }
++}
++```
++
++### Java
++
++```
++public void composeMmsMessage(String message, Uri attachment) {
++    Intent intent = new Intent(Intent.ACTION_SEND);
++    intent.setData(Uri.parse("smsto:"));  // Only SMS apps respond to this.
++    intent.putExtra("sms_body", message);
++    intent.putExtra(Intent.EXTRA_STREAM, attachment);
++    if (intent.resolveActivity(getPackageManager()) != null) {
++        startActivity(intent);
++    }
++}
++```
++
++**Example intent filter:**
++
++```
++<activity ...>
++    <intent-filter>
++        <action android:name="android.intent.action.SEND" />
++        <data android:type="text/plain" />
++        <data android:type="image/*" />
++        <category android:name="android.intent.category.DEFAULT" />
++    </intent-filter>
++</activity>
++```
++
++**Note:** If you're developing an SMS/MMS messaging app, you must
++implement intent filters for several additional actions in order to be available as the
++*default SMS app* on Android 4.4 and higher. For more information, see the documentation
++at `Telephony`.
++
++## Web browser
++
++Loading a web URL is a common action for web browser apps.
++Create an intent filter to advertise your app's ability to perform this action using the
++information in the following section.
++
++### Load a web URL
++
++[![](/static/guide/components/images/voice-icon.png)](https://developers.google.com/voice-actions/system/#system_actions_reference)
++
++Google Voice Actions
++
++* "open example.com"
++
++To open a web page, use the `ACTION_VIEW` action
++and specify the web URL in the intent data.
++
++**Action**
++:   `ACTION_VIEW`:   **Data URI Scheme**
++        :   `http:<URL>`  
++            `https:<URL>`
++
++        **MIME Type**
++        :   `"text/plain"` `"text/html"` `"application/xhtml+xml"` `"application/vnd.wap.xhtml+xml"`
++
++**Example intent:**
++
++### Kotlin
++
++```
++fun openWebPage(url: String) {
++    val webpage: Uri = Uri.parse(url)
++    val intent = Intent(Intent.ACTION_VIEW, webpage)
++    if (intent.resolveActivity(packageManager) != null) {
++        startActivity(intent)
++    }
++}
++```
++
++### Java
++
++```
++public void openWebPage(String url) {
++    Uri webpage = Uri.parse(url);
++    Intent intent = new Intent(Intent.ACTION_VIEW, webpage);
++    if (intent.resolveActivity(getPackageManager()) != null) {
++        startActivity(intent);
++    }
++}
++```
++
++**Example intent filter:**
++
++```
++<activity ...>
++    <intent-filter>
++        <action android:name="android.intent.action.VIEW" />
++        <!-- Include the host attribute if you want your app to respond
++             only to URLs with your app's domain. -->
++        <data android:scheme="http" android:host="www.example.com" />
++        <category android:name="android.intent.category.DEFAULT" />
++        <!-- The BROWSABLE category is required to get links from web pages. -->
++        <category android:name="android.intent.category.BROWSABLE" />
++    </intent-filter>
++</activity>
++```
++
++**Tip:** If your Android app provides functionality similar to
++your web site, include an intent filter for URLs that point to your web site. Then,
++if users have your app installed, links from emails or other web pages pointing to your web site
++open your Android app instead of your web page. Learn more in
++[Handling Android App Links](/training/app-links).
++
++Starting in Android 12 (API level 31), a generic web intent resolves to an
++activity in your app only if your app is approved for the specific domain
++contained in that web intent. If your app isn't approved for the domain, the web
++intent resolves to the user's default browser app instead.
++
++## Verify intents with the Android Debug Bridge
++
++To verify that your app responds to the intents that you want to support, you can use the
++[`adb`](/tools/help/adb) tool to fire specific intents by doing
++the following:
++
++1. Set up an Android device for [development](/tools/device#setting-up)
++   or use a [virtual device](/tools/devices/emulator#avds).
++2. Install a version of your app that handles the intents you want to support.
++3. Fire an intent using `adb`:
++
++   ```
++   adb shell am start -a <ACTION> -t <MIME_TYPE> -d <DATA> \
++     -e <EXTRA_NAME> <EXTRA_VALUE> -n <ACTIVITY>
++   ```
++
++   For example:
++
++   ```
++   adb shell am start -a android.intent.action.DIAL \
++     -d tel:555-5555 -n org.example.MyApp/.MyActivity
++   ```
+ 
+-    [`EXTRA_NAME`](https://developers.google.com/android/reference/com/google/android/gms/actions/NoteIntents#EXTRA_NAME)
+-    :   A string indicating the title or subject of the note.
++   - If you define the required intent filters, handle the intent.
+ 
+-    [`EXTRA_TEXT`](https://developers.google.com/android/reference/com/google/android/gms/actions/NoteIntents#EXTRA_TEXT)
+-    :   A string indicating the text of the note.
+\ No newline at end of file
++For more information, see
++[Issue shell commands](/tools/help/shell#am).
+\ No newline at end of file

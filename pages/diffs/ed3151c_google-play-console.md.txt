@@ -1,0 +1,12 @@
+diff --git a/docs/developer-verification/guides/google-play-console.md b/docs/developer-verification/guides/google-play-console.md
+index 337c223..cc5c259 100644
+--- a/docs/developer-verification/guides/google-play-console.md
++++ b/docs/developer-verification/guides/google-play-console.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ If you distribute your apps on Google Play, you must use the Play Console to
+ manage your Play package names. You'll also be able to register any apps your
+ distribute outside of Play within this same console.

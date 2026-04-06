@@ -1,0 +1,473 @@
+diff --git a/docs/topic/performance/jankstats.md b/docs/topic/performance/jankstats.md
+index 2b4e6a0..4e1f48d 100644
+--- a/docs/topic/performance/jankstats.md
++++ b/docs/topic/performance/jankstats.md
+@@ -1,9 +1,19 @@
+ ---
+-title: https://developer.android.com/topic/performance/jankstats
++title: JankStats Library  |  App quality  |  Android Developers
+ url: https://developer.android.com/topic/performance/jankstats
+-source: md.txt
++source: html-scrape
+ ---
+ 
++* [Android Developers](https://developer.android.com/)
++* [Design & Plan](https://developer.android.com/design)
++* [App quality](https://developer.android.com/quality)
++* [Technical quality](https://developer.android.com/quality/technical)
++
++# JankStats Library Stay organized with collections Save and categorize content based on your preferences.
++
++
++
++
+ The JankStats library helps you track and analyze performance problems in your
+ applications. Jank refers to application frames that take too long to render,
+ and the JankStats library provides reports on the jank statistics of your app.
+@@ -11,8 +21,8 @@ and the JankStats library provides reports on the jank statistics of your app.
+ ## Capabilities
+ 
+ JankStats builds on top of the existing Android platform capabilities, including
+-the [FrameMetrics API](https://developer.android.com/reference/android/view/FrameMetrics)
+-on Android 7 (API level 24) and higher or [OnPreDrawListener](https://developer.android.com/reference/android/view/ViewTreeObserver.OnPreDrawListener) on earlier
++the [FrameMetrics API](/reference/android/view/FrameMetrics)
++on Android 7 (API level 24) and higher or [OnPreDrawListener](/reference/android/view/ViewTreeObserver.OnPreDrawListener) on earlier
+ versions. These mechanisms can help applications track how long frames take to
+ complete. The JanksStats library offers two additional capabilities that make it
+ more dynamic and easier to use: jank heuristics and UI state.
+@@ -28,7 +38,7 @@ reports more immediately useful.
+ 
+ It's often necessary to know the context of performance problems in your app.
+ For example, if you develop a complex, multi-screen app that uses FrameMetrics
+-and you discover that your app often has extremely janky frames, you'll want
++and you discover that your app often has extremely janky frames, you’ll want
+ to contextualize that information by knowing where the problem occurred, what
+ the user was doing, and how to replicate it.
+ 
+@@ -40,22 +50,23 @@ the application in jank reports.
+ ## Usage
+ 
+ To begin using JankStats, instantiate and enable the library for each
+-[`Window`](https://developer.android.com/reference/android/view/Window). Each JankStats object tracks data
++[`Window`](/reference/android/view/Window). Each JankStats object tracks data
+ only within a `Window`. Instantiating the library requires a `Window` instance
+-along with an [`OnFrameListener`](https://developer.android.com/reference/androidx/metrics/performance/JankStats.OnFrameListener)
++along with an [`OnFrameListener`](/reference/androidx/metrics/performance/JankStats.OnFrameListener)
+ listener, both of which are used to send metrics to the client. The listener is called with
+-[`FrameData`](https://developer.android.com/reference/androidx/metrics/performance/FrameData) on every frame
++[`FrameData`](/reference/androidx/metrics/performance/FrameData) on every frame
+ and details the:
+ 
+-- Frame start time
+-- Duration values
+-- Whether or not the frame should be considered jank
+-- A set of String pairs containing information about the application state during the frame
++* Frame start time
++* Duration values
++* Whether or not the frame should be considered jank
++* A set of String pairs containing information about the application state
++  during the frame
+ 
+ To make JankStats more useful, applications should populate the library with
+ relevant UI state information for reporting in the FrameData. You can do this
+ through the
+-[`PerformanceMetricsState`](https://developer.android.com/reference/androidx/metrics/performance/PerformanceMetricsState)
++[`PerformanceMetricsState`](/reference/androidx/metrics/performance/PerformanceMetricsState)
+ API (not JankStats directly), where all of the state management logic and APIs
+ live.
+ 
+@@ -64,30 +75,36 @@ live.
+ To begin using the JankStats library, first add the JankStats dependency to your
+ Gradle file:
+ 
+-    implementation "androidx.metrics:metrics-performance:1.0.0"
++```
++implementation "androidx.metrics:metrics-performance:1.0.0"
++```
+ 
+ Next, initialize and enable JankStats for each `Window`. You should also pause
+ JankStats tracking when an Activity goes into the background. Create and enable
+ the JankStats object in your Activity overrides:
+ 
+-    class JankLoggingActivity : AppCompatActivity() {
++```
++class JankLoggingActivity : AppCompatActivity() {
++
++    private lateinit var jankStats: JankStats
+ 
+-        private lateinit var jankStats: JankStats
+ 
++    override fun onCreate(savedInstanceState: Bundle?) {
++        super.onCreate(savedInstanceState)
++        // ...
++        // metrics state holder can be retrieved regardless of JankStats initialization
++        val metricsStateHolder = PerformanceMetricsState.getHolderForHierarchy(binding.root)
+ 
+-        override fun onCreate(savedInstanceState: Bundle?) {
+-            super.onCreate(savedInstanceState)
+-            // ...
+-            // metrics state holder can be retrieved regardless of JankStats initialization
+-            val metricsStateHolder = PerformanceMetricsState.getHolderForHierarchy(binding.root)
++        // initialize JankStats for current window
++        jankStats = JankStats.createAndTrack(window, jankFrameListener)
+ 
+-            // initialize JankStats for current window
+-            jankStats = JankStats.createAndTrack(window, jankFrameListener)
++        // add activity name as state
++        metricsStateHolder.state?.putState("Activity", javaClass.simpleName)
++        // ...
++    }
+ 
+-            // add activity name as state
+-            metricsStateHolder.state?.putState("Activity", javaClass.simpleName)
+-            // ...
+-        }https://github.com/android/performance-samples/blob/cae5530b13ce3adf7bd54ea5bd92fe9b4fb8c585/JankStatsSample/app/src/main/java/com/example/jankstats/JankLoggingActivity.kt#L38-L73
++JankLoggingActivity.kt
++```
+ 
+ The example above injects state information about the current
+ Activity after it constructs the JankStats object. All future FrameData reports
+@@ -98,57 +115,74 @@ object, which is a proxy for the View hierarchy inside that `Window` as well as
+ for the `Window` itself. `jankFrameListener` is called on the same thread used
+ to deliver that information from the platform to JankStats internally.
+ 
+-> [!NOTE]
+-> **Note:** The window must be active with a non-null DecorView, otherwise it returns an `IllegalStateException`.
++**Note:** The window must be active with a non-null DecorView, otherwise it returns
++an `IllegalStateException`.
+ 
+ To enable tracking and reporting on any JankStats object,
+ call `isTrackingEnabled = true`. Although it's enabled by default,
+ pausing an activity disables tracking. In this case, make sure to re-enable
+ tracking before proceeding. To stop tracking, call `isTrackingEnabled = false`.
+ 
+-    override fun onResume() {
+-        super.onResume()
+-        jankStats.isTrackingEnabled = true
+-    }
++```
++override fun onResume() {
++    super.onResume()
++    jankStats.isTrackingEnabled = true
++}
++
++override fun onPause() {
++    super.onPause()
++    jankStats.isTrackingEnabled = false
++}
+ 
+-    override fun onPause() {
+-        super.onPause()
+-        jankStats.isTrackingEnabled = false
+-    }https://github.com/android/performance-samples/blob/cae5530b13ce3adf7bd54ea5bd92fe9b4fb8c585/JankStatsSample/app/src/main/java/com/example/jankstats/JankLoggingActivity.kt#L77-L85
++JankLoggingActivity.kt
++```
+ 
+ ### Reporting
+ 
+ The JankStats library reports all of your data tracking, for every frame, to the
+-[`OnFrameListener`](https://developer.android.com/reference/androidx/metrics/performance/JankStats.OnFrameListener)
++[`OnFrameListener`](/reference/androidx/metrics/performance/JankStats.OnFrameListener)
+ for enabled JankStats objects. Apps can store and aggregate this
+ data for uploading at a later time. For more information, take
+-a look at the examples provided in the [Aggregation](https://developer.android.com/topic/performance/jankstats#aggregating) section.
++a look at the examples provided in the [Aggregation](#aggregating) section.
+ 
+ You'll need to create and supply the `OnFrameListener` for your app to receive
+ the per-frame reports. This listener is called on every frame to supply ongoing
+ jank data to apps.
+ 
+-    private val jankFrameListener = JankStats.OnFrameListener { frameData ->
+-        // A real app could do something more interesting, like writing the info to local storage and later on report it.
+-        Log.v("JankStatsSample", frameData.toString())
+-    }https://github.com/android/performance-samples/blob/cae5530b13ce3adf7bd54ea5bd92fe9b4fb8c585/JankStatsSample/app/src/main/java/com/example/jankstats/JankLoggingActivity.kt#L48-L51
++```
++private val jankFrameListener = JankStats.OnFrameListener { frameData ->
++    // A real app could do something more interesting, like writing the info to local storage and later on report it.
++    Log.v("JankStatsSample", frameData.toString())
++}
++
++JankLoggingActivity.kt
++```
+ 
+ The listener provides per-frame information about jank with the
+-[`FrameData`](https://developer.android.com/reference/androidx/metrics/performance/FrameData) object. This
++[`FrameData`](/reference/androidx/metrics/performance/FrameData) object. This
+ contains the following information about the requested frame:
+ 
+-- **[`isjank`](https://developer.android.com/reference/androidx/metrics/performance/FrameData#isJank())**: A boolean flag that indicates whether jank occurred in the frame.
+-- **[`frameDurationUiNanos`](https://developer.android.com/reference/androidx/metrics/performance/FrameData#frameDurationUiNanos())**: Duration of the frame (in nanoseconds).
+-- **[`frameStartNanos`](https://developer.android.com/reference/androidx/metrics/performance/FrameData#frameStartNanos())**: Time at which the frame began (in nanoseconds).
+-- **[`states`](https://developer.android.com/reference/androidx/metrics/performance/FrameData#states())**: State of your app during the frame.
++* **[`isjank`](/reference/androidx/metrics/performance/FrameData#isJank())**:
++  A boolean flag that indicates whether jank occurred in the frame.
++* **[`frameDurationUiNanos`](/reference/androidx/metrics/performance/FrameData#frameDurationUiNanos())**:
++  Duration of the frame (in nanoseconds).
++* **[`frameStartNanos`](/reference/androidx/metrics/performance/FrameData#frameStartNanos())**:
++  Time at which the frame began (in nanoseconds).
++* **[`states`](/reference/androidx/metrics/performance/FrameData#states())**:
++  State of your app during the frame.
+ 
+ If you are on Android 12 (API level 31) or higher, you can
+ use the following to expose more data about frame durations:
+ 
+-- [`FrameDataApi24`](https://developer.android.com/reference/androidx/metrics/performance/FrameDataApi24) provides [`frameDurationCpuNanos`](https://developer.android.com/reference/androidx/metrics/performance/FrameDataApi24#frameDurationCpuNanos()) to display the time spent in the non-GPU portions of the frame.
+-- [`FrameDataApi31`](https://developer.android.com/reference/androidx/metrics/performance/FrameDataApi31) provides [`frameOverrunNanos`](https://developer.android.com/reference/androidx/metrics/performance/FrameDataApi31#frameOverrunNanos()) to display the amount of time past the frame deadline that the frame took to complete.
++* [`FrameDataApi24`](/reference/androidx/metrics/performance/FrameDataApi24)
++  provides [`frameDurationCpuNanos`](/reference/androidx/metrics/performance/FrameDataApi24#frameDurationCpuNanos())
++  to display the time spent in the non-GPU portions of the frame.
++* [`FrameDataApi31`](/reference/androidx/metrics/performance/FrameDataApi31)
++  provides [`frameOverrunNanos`](/reference/androidx/metrics/performance/FrameDataApi31#frameOverrunNanos())
++  to display the amount of time past the frame deadline that the frame took to
++  complete.
+ 
+-Use [`StateInfo`](https://developer.android.com/reference/androidx/metrics/performance/StateInfo) in the
++Use [`StateInfo`](/reference/androidx/metrics/performance/StateInfo) in the
+ listener to store information about the application state.
+ 
+ Note that `OnFrameListener` is called on the same thread used internally to
+@@ -183,40 +217,48 @@ Instead of creating a JankStats object directly, `JankAggregatorActivity`
+ creates a [JankStatsAggregator](https://github.com/android/performance-samples/blob/main/JankStatsSample/app/src/main/java/com/example/jankstats/JankStatsAggregator.kt)
+ object, which creates its own JankStats object internally:
+ 
+-    class JankAggregatorActivity : AppCompatActivity() {
++```
++class JankAggregatorActivity : AppCompatActivity() {
++
++    private lateinit var jankStatsAggregator: JankStatsAggregator
+ 
+-        private lateinit var jankStatsAggregator: JankStatsAggregator
+ 
++    override fun onCreate(savedInstanceState: Bundle?) {
++        super.onCreate(savedInstanceState)
++        // ...
++        // Metrics state holder can be retrieved regardless of JankStats initialization.
++        val metricsStateHolder = PerformanceMetricsState.getHolderForHierarchy(binding.root)
+ 
+-        override fun onCreate(savedInstanceState: Bundle?) {
+-            super.onCreate(savedInstanceState)
+-            // ...
+-            // Metrics state holder can be retrieved regardless of JankStats initialization.
+-            val metricsStateHolder = PerformanceMetricsState.getHolderForHierarchy(binding.root)
++        // Initialize JankStats with an aggregator for the current window.
++        jankStatsAggregator = JankStatsAggregator(window, jankReportListener)
+ 
+-            // Initialize JankStats with an aggregator for the current window.
+-            jankStatsAggregator = JankStatsAggregator(window, jankReportListener)
++        // Add the Activity name as state.
++        metricsStateHolder.state?.putState("Activity", javaClass.simpleName)
++    }
+ 
+-            // Add the Activity name as state.
+-            metricsStateHolder.state?.putState("Activity", javaClass.simpleName)
+-        }https://github.com/android/performance-samples/blob/cae5530b13ce3adf7bd54ea5bd92fe9b4fb8c585/JankStatsSample/app/src/main/java/com/example/jankstats/JankAggregatorActivity.kt#L38-L81
++JankAggregatorActivity.kt
++```
+ 
+ A similar mechanism is used in `JankAggregatorActivity` to pause and
+ resume tracking, with the addition of the `pause()` event as a signal to issue
+ a report with a call to `issueJankReport()`, as lifecycle changes seem like an
+ appropriate time to capture the state of jank in the application:
+ 
+-    override fun onResume() {
+-        super.onResume()
+-        jankStatsAggregator.jankStats.isTrackingEnabled = true
+-    }
++```
++override fun onResume() {
++    super.onResume()
++    jankStatsAggregator.jankStats.isTrackingEnabled = true
++}
++
++override fun onPause() {
++    super.onPause()
++    // Before disabling tracking, issue the report with (optionally) specified reason.
++    jankStatsAggregator.issueJankReport("Activity paused")
++    jankStatsAggregator.jankStats.isTrackingEnabled = false
++}
+ 
+-    override fun onPause() {
+-        super.onPause()
+-        // Before disabling tracking, issue the report with (optionally) specified reason.
+-        jankStatsAggregator.issueJankReport("Activity paused")
+-        jankStatsAggregator.jankStats.isTrackingEnabled = false
+-    }https://github.com/android/performance-samples/blob/cae5530b13ce3adf7bd54ea5bd92fe9b4fb8c585/JankStatsSample/app/src/main/java/com/example/jankstats/JankAggregatorActivity.kt#L85-L95
++JankAggregatorActivity.kt
++```
+ 
+ The example code above is all that an app needs to enable JankStats and receive
+ frame data.
+@@ -228,10 +270,12 @@ instance, injecting app state information makes frame data more helpful by
+ providing context for those frames in which jank occurs.
+ 
+ This static method retrieves the current
+-[`MetricsStateHolder`](https://developer.android.com/reference/androidx/metrics/performance/PerformanceMetricsState.Holder)
++[`MetricsStateHolder`](/reference/androidx/metrics/performance/PerformanceMetricsState.Holder)
+ object for a given View hierarchy.
+ 
+-    PerformanceMetricsState.getHolderForHierarchy(view: View): MetricsStateHolder
++```
++PerformanceMetricsState.getHolderForHierarchy(view: View): MetricsStateHolder
++```
+ 
+ Any view in an active hierarchy may be used. Internally, this checks to see
+ whether there's an existing `Holder` object associated with that
+@@ -256,11 +300,13 @@ retrieve a holder that JankStats can then populate. External code
+ can ask for the holder at any time. Callers can cache the lightweight `Holder`
+ object and use it at any time to set state, depending on the value of its
+ internal `state` property, as in the example code below, where state is only set
+-when the holder's internal state property is non-null:
++when the holder’s internal state property is non-null:
+ 
+-    val metricsStateHolder = PerformanceMetricsState.getHolderForHierarchy(binding.root)
+-    // ...
+-    metricsStateHolder.state?.putState("Activity", javaClass.simpleName)
++```
++val metricsStateHolder = PerformanceMetricsState.getHolderForHierarchy(binding.root)
++// ...
++metricsStateHolder.state?.putState("Activity", javaClass.simpleName)
++```
+ 
+ To control the UI/app state, an app can inject (or remove) a state
+ with the `putState` and `removeState` methods. JankStats logs the timestamp for
+@@ -269,8 +315,8 @@ JankStats reports that state information along with the timing data for the
+ frame.
+ 
+ For any state, add two pieces of information: `key`
+-(a category of state, such as "RecyclerView") and `value` (information about
+-what was happening at the time, such as "scrolling").
++(a category of state, such as “RecyclerView”) and `value` (information about
++what was happening at the time, such as “scrolling”).
+ 
+ Remove states using the `removeState()` method when that state is no
+ longer valid, to ensure that wrong or misleading information is not reported
+@@ -285,24 +331,28 @@ removes it after that, ensuring you don't accidentally have obsolete state in
+ your code. Note that there is no singleFrame equivalent of
+ `removeState()`, since JankStats removes single-frame states automatically.
+ 
+-    private val scrollListener = object : RecyclerView.OnScrollListener() {
+-        override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
+-            // check if JankStats is initialized and skip adding state if not
+-            val metricsState = metricsStateHolder?.state ?: return
+-
+-            when (newState) {
+-                RecyclerView.SCROLL_STATE_DRAGGING -> {
+-                    metricsState.putState("RecyclerView", "Dragging")
+-                }
+-                RecyclerView.SCROLL_STATE_SETTLING -> {
+-                    metricsState.putState("RecyclerView", "Settling")
+-                }
+-                else -> {
+-                    metricsState.removeState("RecyclerView")
+-                }
++```
++private val scrollListener = object : RecyclerView.OnScrollListener() {
++    override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
++        // check if JankStats is initialized and skip adding state if not
++        val metricsState = metricsStateHolder?.state ?: return
++
++        when (newState) {
++            RecyclerView.SCROLL_STATE_DRAGGING -> {
++                metricsState.putState("RecyclerView", "Dragging")
++            }
++            RecyclerView.SCROLL_STATE_SETTLING -> {
++                metricsState.putState("RecyclerView", "Settling")
++            }
++            else -> {
++                metricsState.removeState("RecyclerView")
+             }
+         }
+-    }https://github.com/android/performance-samples/blob/cae5530b13ce3adf7bd54ea5bd92fe9b4fb8c585/JankStatsSample/app/src/main/java/com/example/jankstats/MessageListFragment.kt#L42-L59
++    }
++}
++
++MessageListFragment.kt
++```
+ 
+ Note that the key used for states should be meanigful enough to allow for
+ later analysis. In particular, since a state with the same `key` as one that
+@@ -321,7 +371,7 @@ the `jankHeuristicMultiplier` property.
+ By default, the system defines jank as a frame taking twice as long to render as
+ the current refresh rate. It doesn't treat jank as anything over the
+ refresh rate because the information around app rendering time isn't entirely
+-clear. Therefore, it's considered better to add a buffer and only report
++clear. Therefore, it’s considered better to add a buffer and only report
+ problems when they cause noticeable performance issues.
+ 
+ Both of these values can be changed through these methods to suit the situation
+@@ -334,29 +384,37 @@ Currently there is very little setup required to use JankStats in Compose.
+ To hold on to the `PerformanceMetricsState` across configuration changes,
+ remember it like so:
+ 
+-    /**
+-     * Retrieve MetricsStateHolder from compose and remember until the current view changes.
+-     */
+-    @Composable
+-    fun rememberMetricsStateHolder(): PerformanceMetricsState.Holder {
+-        val view = LocalView.current
+-        return remember(view) { PerformanceMetricsState.getHolderForHierarchy(view) }
+-    }https://github.com/android/performance-samples/blob/cae5530b13ce3adf7bd54ea5bd92fe9b4fb8c585/JankStatsSample/app/src/main/java/com/example/jankstats/compose/rememberMetricsStateHolder.kt#L9-L16
++```
++/**
++ * Retrieve MetricsStateHolder from compose and remember until the current view changes.
++ */
++@Composable
++fun rememberMetricsStateHolder(): PerformanceMetricsState.Holder {
++    val view = LocalView.current
++    return remember(view) { PerformanceMetricsState.getHolderForHierarchy(view) }
++}
++
++rememberMetricsStateHolder.kt
++```
+ 
+ And to use JankStats, add the current state to the `stateHolder` as shown here:
+ 
+-    val metricsStateHolder = rememberMetricsStateHolder()
++```
++val metricsStateHolder = rememberMetricsStateHolder()
+ 
+-    // Reporting scrolling state from compose should be done from side effect to prevent recomposition.
+-    LaunchedEffect(metricsStateHolder, listState) {
+-        snapshotFlow { listState.isScrollInProgress }.collect { isScrolling ->
+-            if (isScrolling) {
+-                metricsStateHolder.state?.putState("LazyList", "Scrolling")
+-            } else {
+-                metricsStateHolder.state?.removeState("LazyList")
+-            }
++// Reporting scrolling state from compose should be done from side effect to prevent recomposition.
++LaunchedEffect(metricsStateHolder, listState) {
++    snapshotFlow { listState.isScrollInProgress }.collect { isScrolling ->
++        if (isScrolling) {
++            metricsStateHolder.state?.putState("LazyList", "Scrolling")
++        } else {
++            metricsStateHolder.state?.removeState("LazyList")
+         }
+-    }https://github.com/android/performance-samples/blob/cae5530b13ce3adf7bd54ea5bd92fe9b4fb8c585/JankStatsSample/app/src/main/java/com/example/jankstats/compose/ComposeListFragment.kt#L74-L85
++    }
++}
++
++ComposeListFragment.kt
++```
+ 
+ For full details on using JankStats in your Jetpack Compose application, check
+ out our [performance sample app](https://github.com/android/performance-samples/tree/main/JankStatsSample/app/src/main/java/com/example/jankstats/compose).
+@@ -365,12 +423,12 @@ out our [performance sample app](https://github.com/android/performance-samples/
+ 
+ Share your feedback and ideas with us through these resources:
+ 
+-[Issue tracker](https://issuetracker.google.com/issues/new?component=1109743&template=1621342) :bug:
++[Issue tracker](https://issuetracker.google.com/issues/new?component=1109743&template=1621342) ![](/static/topic/libraries/architecture/images/bug.png)
+ :   Report issues so we can fix bugs.
+ 
+ ## Recommended for you
+ 
+-- Note: link text is displayed when JavaScript is off
+-- [Create Baseline Profiles {:#creating-profile-rules}](https://developer.android.com/topic/performance/baselineprofiles/create-baselineprofile)
+-- [Microbenchmark Instrumentation Arguments](https://developer.android.com/topic/performance/benchmarking/microbenchmark-instrumentation-args)
+-- [Macrobenchmark Instrumentation Arguments](https://developer.android.com/topic/performance/benchmarking/macrobenchmark-instrumentation-args)
+\ No newline at end of file
++* Note: link text is displayed when JavaScript is off
++* [Create Baseline Profiles {:#creating-profile-rules}](/topic/performance/baselineprofiles/create-baselineprofile)
++* [Microbenchmark Instrumentation Arguments](/topic/performance/benchmarking/microbenchmark-instrumentation-args)
++* [Macrobenchmark Instrumentation Arguments](/topic/performance/benchmarking/macrobenchmark-instrumentation-args)
+\ No newline at end of file

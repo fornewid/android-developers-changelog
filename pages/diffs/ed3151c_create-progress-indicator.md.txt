@@ -1,0 +1,188 @@
+diff --git a/docs/develop/ui/compose/quick-guides/content/create-progress-indicator.md b/docs/develop/ui/compose/quick-guides/content/create-progress-indicator.md
+index 4e0a26a..6d0b0a7 100644
+--- a/docs/develop/ui/compose/quick-guides/content/create-progress-indicator.md
++++ b/docs/develop/ui/compose/quick-guides/content/create-progress-indicator.md
+@@ -1,10 +1,18 @@
+ ---
+-title: https://developer.android.com/develop/ui/compose/quick-guides/content/create-progress-indicator
++title: Create a progress indicator  |  Jetpack Compose  |  Android Developers
+ url: https://developer.android.com/develop/ui/compose/quick-guides/content/create-progress-indicator
+-source: md.txt
++source: html-scrape
+ ---
+ 
+-<br />
++* [Android Developers](https://developer.android.com/)
++* [Develop](https://developer.android.com/develop)
++* [Core areas](https://developer.android.com/develop/core-areas)
++* [UI](https://developer.android.com/develop/ui)
++* [Quick Guides](https://developer.android.com/develop/ui/compose/quick-guides)
++
++# Create a progress indicator Stay organized with collections Save and categorize content based on your preferences.
++
++
+ 
+ Progress indicators visually surface the status of an operation. They use motion
+ to bring to the user's attention how near completion the process is, such as
+@@ -13,19 +21,22 @@ place, without reference to how close to completion it might be.
+ 
+ Consider these three use cases where you might use a progress indicator:
+ 
+-- **Loading content**: While fetching content from a network, such as loading an image or data for a user profile.
+-- **File upload**: Give the user feedback on how long the upload might take.
+-- **Long processing**: While an app is processing a large amount of data, convey to the user how much of the total is complete.
++* **Loading content**: While fetching content from a network, such as loading
++  an image or data for a user profile.
++* **File upload**: Give the user feedback on how long the upload might take.
++* **Long processing**: While an app is processing a large amount of data,
++  convey to the user how much of the total is complete.
+ 
+ In Material Design, there are two types of progress indicator:
+ 
+-- [Determinate](https://developer.android.com/develop/ui/compose/quick-guides/content/create-progress-indicator#determinate): Displays exactly how much progress has been made.
+-- [Indeterminate](https://developer.android.com/develop/ui/compose/quick-guides/content/create-progress-indicator#indeterminate): Animates continually without regard to progress.
++* [Determinate](#determinate): Displays exactly how much progress has been made.
++* [Indeterminate](#indeterminate): Animates continually without regard to progress.
+ 
+ Likewise, a progress indicator can take one of the two following forms:
+ 
+-- **Linear**: A horizontal bar that fills from left to right.
+-- **Circular**: A circle whose stroke grows in length until it encompasses the full circumference of the circle.
++* **Linear**: A horizontal bar that fills from left to right.
++* **Circular**: A circle whose stroke grows in length until it encompasses the
++  full circumference of the circle.
+ 
+ ## Version compatibility
+ 
+@@ -34,12 +45,10 @@ higher.
+ 
+ ### Dependencies
+ 
+-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-progress-indicator_504265100ae01120c9f8aa6e5287923881f65f7e4bc6b06f0aa1c8888205eb6f.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+-
+ ## Create determinate indicators
+ 
+ A determinate indicator reflects exactly how complete an action is. Use either
+-the [`LinearProgressIndicator`](https://developer.android.com/reference/kotlin/androidx/compose/material3/LinearProgressIndicator.composable#LinearProgressIndicator(androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.StrokeCap,androidx.compose.ui.unit.Dp)) or [`CircularProgressIndicator`](https://developer.android.com/reference/kotlin/androidx/compose/material3/CircularProgressIndicator.composable#CircularProgressIndicator(androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Color,androidx.compose.ui.unit.Dp,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.StrokeCap,androidx.compose.ui.unit.Dp))
++the [`LinearProgressIndicator`](/reference/kotlin/androidx/compose/material3/LinearProgressIndicator.composable#LinearProgressIndicator(androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.StrokeCap,androidx.compose.ui.unit.Dp)) or [`CircularProgressIndicator`](/reference/kotlin/androidx/compose/material3/CircularProgressIndicator.composable#CircularProgressIndicator(androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Color,androidx.compose.ui.unit.Dp,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.StrokeCap,androidx.compose.ui.unit.Dp))
+ composables and pass a value for the `progress` parameter.
+ 
+ The following snippet provides a relatively detailed example. When the user
+@@ -47,18 +56,25 @@ presses the button, the app both displays the progress indicator, and launches a
+ coroutine that gradually increases the value of `progress`. This causes the
+ progress indicator to iterate up in turn.
+ 
+-> [!NOTE]
+-> **Note:** The following example uses a coroutine to do the work of iterating the `progress` value because it would otherwise block the UI thread.
++**Note:** The following example uses a coroutine to do the work of iterating the
++`progress` value because it would otherwise block the UI thread.
+ 
+-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-progress-indicator_bb9a610826c018028be94fe4322713e69532a413a0ac5514bc7bc2a6c5c158b3.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+ 
+ ### Results
+ 
+ When loading is partially complete, the linear indicator in the preceding
+ example appears as follows:
+ 
++[
++
++](/static/develop/ui/compose/images/components/linear-indicator-determinate.mp4)
++
+ Likewise, the circular indicator appears as follows:
+ 
++[
++
++](/static/develop/ui/compose/images/components/circular-indicator-determinate.mp4)
++
+ ## Create indeterminate indicators
+ 
+ An indeterminate indicator does not reflect how close to completion an operation
+@@ -70,45 +86,74 @@ or `CircularProgressIndicator` composable, but don't pass in a value for
+ `progress`. The following example demonstrates how you can toggle an
+ indeterminate indicator with a button press.
+ 
+-> [!NOTE]
+-> **Note:** This example also demonstrates how you can pass values for the `color` and `trackColor` parameters to customize the appearance of the indicator.
++**Note:** This example also demonstrates how you can pass values for the `color` and
++`trackColor` parameters to customize the appearance of the indicator.
+ 
+-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-progress-indicator_c002f3ddbbf8c6f04b70d8a326fa47a52d28ac10f028c7ba42deb199b4020a00.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+ 
+ ### Results
+ 
+ The following is an example of this implementation when the indicator is active:
+ 
++[
++
++](/static/develop/ui/compose/images/components/circular-indicator.mp4)
++
+ The following is an example of the same implementation but with
+ `LinearProgressIndicator` instead of `CircularProgressIndicator`.
+ 
++[
++
++](/static/develop/ui/compose/images/components/linear-indicator.mp4)
++
+ ## Key points
+ 
+ Although there are several composables you can use to create progress indicators
+ consistent with Material Design, their parameters don't differ greatly.
+ Among the key parameters you should keep in mind are the following:
+ 
+-- `progress`: The current progress that the indicator displays. Pass a `Float` between `0.0` and `1.0`.
+-- `color`: The color of the indicator, that is, the part of the component that reflects progress and which fully encompasses the component when progress is complete.
+-- `trackColor`: The color of the track over which the indicator is drawn.
++* `progress`: The current progress that the indicator displays. Pass a `Float`
++  between `0.0` and `1.0`.
++* `color`: The color of the indicator, that is, the part of the
++  component that reflects progress and which fully encompasses the component
++  when progress is complete.
++* `trackColor`: The color of the track over which the indicator is drawn.
+ 
+-> [!NOTE]
+-> **Note:** The APIs for `LinearProgressIndicator` and `CircularProgressIndicator` are essentially the same and the way you use either one is identical.
++**Note:** The APIs for `LinearProgressIndicator` and `CircularProgressIndicator` are
++essentially the same and the way you use either one is identical.
+ 
+ ## Collections that contain this guide
+ 
+ This guide is part of these curated Quick Guide collections that cover
+ broader Android development goals:
+-![](https://developer.android.com/static/images/quick-guides/collection-illustration.png) ![](https://developer.android.com/static/images/picto-icons/collection.svg)
++
++![](/static/images/quick-guides/collection-illustration.png)
++
++![](/static/images/picto-icons/collection.svg)
+ 
+ ### Display interactive components
+ 
+-Learn how composable functions can enable you to easily create beautiful UI components based on the Material Design design system. [Quick guide collection](https://developer.android.com/develop/ui/compose/quick-guides/collections/display-interactive-components) ![](https://developer.android.com/static/images/quick-guides/collection-illustration.png) ![](https://developer.android.com/static/images/picto-icons/collection.svg)
++Learn how composable functions can enable you to easily
++create beautiful UI components based on the Material Design design
++system.
++
++[Quick guide collection](/develop/ui/compose/quick-guides/collections/display-interactive-components)
++
++![](/static/images/quick-guides/collection-illustration.png)
++
++![](/static/images/picto-icons/collection.svg)
+ 
+ ### Display a list or grid
+ 
+-Lists and grids allow your app to display collections in a visually pleasing form that's easy for users to consume. [Quick guide collection](https://developer.android.com/develop/ui/compose/quick-guides/collections/display-a-list-or-grid) ![](https://developer.android.com/static/images/picto-icons/help.svg)
++Lists and grids allow your app to display collections in a
++visually pleasing form that's easy for users to consume.
++
++[Quick guide collection](/develop/ui/compose/quick-guides/collections/display-a-list-or-grid)
++
++![](/static/images/picto-icons/help.svg)
+ 
+ ## Have questions or feedback
+ 
+-Go to our frequently asked questions page and learn about quick guides or reach out and let us know your thoughts. [Go to FAQ](https://developer.android.com/quick-guides/faq) [Leave feedback](https://issuetracker.google.com/issues/new?component=1573691&template=1993320)
+\ No newline at end of file
++Go to our frequently asked questions page and learn about quick guides or reach out and let us know your thoughts.
++
++[Go to FAQ](/quick-guides/faq)
++[Leave feedback](https://issuetracker.google.com/issues/new?component=1573691&template=1993320)
+\ No newline at end of file

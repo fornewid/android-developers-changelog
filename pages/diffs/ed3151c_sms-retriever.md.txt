@@ -1,0 +1,12 @@
+diff --git a/docs/identity/sms-retriever.md b/docs/identity/sms-retriever.md
+index 350f772..1a9c8bc 100644
+--- a/docs/identity/sms-retriever.md
++++ b/docs/identity/sms-retriever.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ To automatically verify phone numbers, you must implement both the client and
+ server portions of the verification flow. This document describes how to
+ implement the client portion in an Android app.

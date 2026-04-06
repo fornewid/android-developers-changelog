@@ -1,0 +1,12 @@
+diff --git a/docs/studio/profile/build-run-manually.md b/docs/studio/profile/build-run-manually.md
+index 8906a28..f5b252b 100644
+--- a/docs/studio/profile/build-run-manually.md
++++ b/docs/studio/profile/build-run-manually.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ To build a [profileable](/studio/profile#requirements) application manually, you
+ need to first build a release application and then update its manifest file,
+ which turns the release application into a profileable application. After you

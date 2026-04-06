@@ -1,0 +1,12 @@
+diff --git a/docs/studio/gemini/use-a-local-model.md b/docs/studio/gemini/use-a-local-model.md
+index 0a8db8e..6b84572 100644
+--- a/docs/studio/gemini/use-a-local-model.md
++++ b/docs/studio/gemini/use-a-local-model.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Large language models (LLMs) differ in their capabilities. To give you control
+ and flexibility in AI-assisted software development, Android Studio lets you
+ choose a local model, running on your personal machine, to power the IDE's AI

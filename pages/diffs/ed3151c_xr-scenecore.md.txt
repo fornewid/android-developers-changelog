@@ -1,0 +1,12 @@
+diff --git a/docs/jetpack/androidx/releases/xr-scenecore.md b/docs/jetpack/androidx/releases/xr-scenecore.md
+index 2ee086c..3247037 100644
+--- a/docs/jetpack/androidx/releases/xr-scenecore.md
++++ b/docs/jetpack/androidx/releases/xr-scenecore.md
+@@ -15,7 +15,6 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
+-
+ # Jetpack SceneCore
+ 
+ [User Guide](/develop/devices/xr/jetpack-xr-sdk)  [Code Sample](https://github.com/android/xr-samples)

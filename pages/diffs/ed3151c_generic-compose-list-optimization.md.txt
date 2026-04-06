@@ -1,0 +1,55 @@
+diff --git a/docs/studio/prompt-gallery/prompts/generic-compose-list-optimization.md b/docs/studio/prompt-gallery/prompts/generic-compose-list-optimization.md
+index ead45ee..8d99199 100644
+--- a/docs/studio/prompt-gallery/prompts/generic-compose-list-optimization.md
++++ b/docs/studio/prompt-gallery/prompts/generic-compose-list-optimization.md
+@@ -1,23 +1,37 @@
+ ---
+-title: https://developer.android.com/studio/prompt-gallery/prompts/generic-compose-list-optimization
++title: Generic Compose list optimization  |  Android Studio  |  Android Developers
+ url: https://developer.android.com/studio/prompt-gallery/prompts/generic-compose-list-optimization
+-source: md.txt
++source: html-scrape
+ ---
+ 
++* [Android Developers](https://developer.android.com/)
++* [Develop](https://developer.android.com/develop)
++* [Android Studio](https://developer.android.com/studio)
++* [Gemini in Android Studio](https://developer.android.com/gemini-in-android)
++
++# Generic Compose list optimization Stay organized with collections Save and categorize content based on your preferences.
++
++
++
++
+ Optimize and measure the performance of a large list.
+ 
+-*** ** * ** ***
++---
++
++```
++In this Compose file below, I have a LazyColumn or LazyRow displaying a list of items. Optimize its performance for large lists.
++
++Suggest specific optimizations, like item recycling, using remember, derivedStateOf, or optimizing image loading, and provide code examples to implement these changes.
+ 
+-    In this Compose file below, I have a LazyColumn or LazyRow displaying a list of items. Optimize its performance for large lists.
++Add logging or other performance metrics to measure the improvement.
+ 
+-    Suggest specific optimizations, like item recycling, using remember, derivedStateOf, or optimizing image loading, and provide code examples to implement these changes.
++$CURRENT_FILE
++```
+ 
+-    Add logging or other performance metrics to measure the improvement.
+ 
+-    $CURRENT_FILE
++To run this prompt in Android Studio, click **Gemini** in the sidebar and paste it in the chat field.
++  
++To save and retrieve prompts in the Studio IDE, go to **Settings > Gemini > Prompt Library**.
+ 
+-> [!NOTE]
+-> To run this prompt in Android Studio, click **Gemini** in the sidebar and paste it in the chat field.   
+-> To save and retrieve prompts in the Studio IDE, go to **Settings \> Gemini \> Prompt Library**.
+ 
+-*** ** * ** ***
+\ No newline at end of file
++---
+\ No newline at end of file

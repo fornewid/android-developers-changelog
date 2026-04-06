@@ -1,0 +1,620 @@
+diff --git a/docs/develop/xr/jetpack-xr-sdk/build-immersive.md b/docs/develop/xr/jetpack-xr-sdk/build-immersive.md
+index 733b347..a13b471 100644
+--- a/docs/develop/xr/jetpack-xr-sdk/build-immersive.md
++++ b/docs/develop/xr/jetpack-xr-sdk/build-immersive.md
+@@ -1,21 +1,45 @@
+ ---
+-title: https://developer.android.com/develop/xr/jetpack-xr-sdk/build-immersive
++title: Get started building immersive experiences  |  Android XR for Jetpack XR SDK  |  Android Developers
+ url: https://developer.android.com/develop/xr/jetpack-xr-sdk/build-immersive
+-source: md.txt
++source: html-scrape
+ ---
+ 
+-<br />
++The Android XR SDK has  [reached Developer Preview 3](https://android-developers.googleblog.com/2025/12/build-for-ai-glasses-with-android-xr.html), and we want your feedback! Try things out, and visit our [support page](/develop/xr/support) to reach out.
+ 
++* [Android Developers](https://developer.android.com/)
++* [Develop](https://developer.android.com/develop)
++* [Devices](https://developer.android.com/develop/devices)
++* [Android XR](https://developer.android.com/develop/xr)
++* [Jetpack XR SDK](https://developer.android.com/develop/xr/jetpack-xr-sdk)
++* [Guides](https://developer.android.com/develop/xr/get-started)
+ 
+-Applicable XR devices This guidance helps you build experiences for these types of XR devices. [Learn about XR device types →](https://developer.android.com/develop/xr/devices) ![](https://developer.android.com/static/images/develop/xr/xr-headsets-icon.svg) XR Headsets [](https://developer.android.com/develop/xr/devices#xr-headsets) ![](https://developer.android.com/static/images/develop/xr/xr-glasses-icon.svg) Wired XR Glasses [](https://developer.android.com/develop/xr/devices#xr-glasses) [Learn about XR device types →](https://developer.android.com/develop/xr/devices)
++# Get started building immersive experiences Stay organized with collections Save and categorize content based on your preferences.
+ 
+-<br />
+ 
+-After you've [installed and configured Android Studio](https://developer.android.com/develop/xr/jetpack-xr-sdk/get-studio), [created a
+-project](https://developer.android.com/develop/xr/jetpack-xr-sdk/create-project), and [set up the Jetpack XR SDK](https://developer.android.com/develop/xr/jetpack-xr-sdk/set-up-sdk), you're ready to start building
++
++Applicable XR devices
++
++This guidance helps you build experiences for these types of XR devices.
++
++[Learn about XR device types →](/develop/xr/devices)
++
++![](/static/images/develop/xr/xr-headsets-icon.svg)
++
++
++XR Headsets
++
++![](/static/images/develop/xr/xr-glasses-icon.svg)
++
++
++Wired XR Glasses
++
++[Learn about XR device types →](/develop/xr/devices)
++
++After you've [installed and configured Android Studio](/develop/xr/jetpack-xr-sdk/get-studio), [created a
++project](/develop/xr/jetpack-xr-sdk/create-project), and [set up the Jetpack XR SDK](/develop/xr/jetpack-xr-sdk/set-up-sdk), you're ready to start building
+ immersive experiences.
+ 
+-Before you [start exploring all the ways you can build](https://developer.android.com/develop/xr/jetpack-xr-sdk/add-xr-to-existing), review the
++Before you [start exploring all the ways you can build](/develop/xr/jetpack-xr-sdk/add-xr-to-existing), review the
+ information and complete any tasks in the following sections to make sure your
+ app is configured for immersive XR development.
+ 
+@@ -25,12 +49,12 @@ As with other Android app projects, your Android XR app must have an
+ `AndroidManifest.xml` file with specific manifest settings. The manifest file
+ describes essential information about your app to the Android build tools, the
+ Android operating system, and Google Play. See the [app manifest overview
+-guide](https://developer.android.com/guide/topics/manifest/manifest-intro) for more information.
++guide](/guide/topics/manifest/manifest-intro) for more information.
+ 
+-For [XR differentiated apps](https://developer.android.com/docs/quality-guidelines/android-xr#android-xr-differentiated), your manifest file
++For [XR differentiated apps](/docs/quality-guidelines/android-xr#android-xr-differentiated), your manifest file
+ must contain the following elements and attributes:
+ 
+-### PROPERTY_XR_ACTIVITY_START_MODE property
++### PROPERTY\_XR\_ACTIVITY\_START\_MODE property
+ 
+ The `android:name="android.window.PROPERTY_XR_ACTIVITY_START_MODE"` property
+ lets the system know that an activity should be launched in a specific mode when
+@@ -38,108 +62,117 @@ the activity is started.
+ 
+ This property has the following values:
+ 
+-- `XR_ACTIVITY_START_MODE_HOME_SPACE` (Jetpack XR SDK only)
+-- `XR_ACTIVITY_START_MODE_FULL_SPACE_MANAGED` (Jetpack XR SDK only)
++* `XR_ACTIVITY_START_MODE_HOME_SPACE` (Jetpack XR SDK only)
++* `XR_ACTIVITY_START_MODE_FULL_SPACE_MANAGED` (Jetpack XR SDK only)
+ 
+-#### XR_ACTIVITY_START_MODE_HOME_SPACE
++#### XR\_ACTIVITY\_START\_MODE\_HOME\_SPACE
+ 
+ Use this start mode to launch your app in Home Space. In Home Space, multiple
+ apps can run side-by-side, so users can multitask. Any mobile or large screen
+ Android app can operate in Home Space, as well as XR apps built using the
+ Jetpack XR SDK.
+ 
+-    <manifest ... >
++```
++<manifest ... >
+ 
+-       <application ... >
+-           <property
+-               android:name="android.window.PROPERTY_XR_ACTIVITY_START_MODE"
+-               android:value="XR_ACTIVITY_START_MODE_HOME_SPACE" />
+-           <activity
+-               android:name="com.example.myapp.MainActivity" ... >
++   <application ... >
++       <property
++           android:name="android.window.PROPERTY_XR_ACTIVITY_START_MODE"
++           android:value="XR_ACTIVITY_START_MODE_HOME_SPACE" />
++       <activity
++           android:name="com.example.myapp.MainActivity" ... >
+ 
+-               <intent-filter>
+-                   <action android:name="android.intent.action.MAIN" />
++           <intent-filter>
++               <action android:name="android.intent.action.MAIN" />
+ 
+-                   <category android:name="android.intent.category.LAUNCHER" />
+-               </intent-filter>
+-           </activity>
+-       </application>
+-    </manifest>
++               <category android:name="android.intent.category.LAUNCHER" />
++           </intent-filter>
++       </activity>
++   </application>
++</manifest>
++```
+ 
+-#### XR_ACTIVITY_START_MODE_FULL_SPACE_MANAGED
++#### XR\_ACTIVITY\_START\_MODE\_FULL\_SPACE\_MANAGED
+ 
+ Use this start mode to launch your app in Full Space. In Full Space, only one
+ app runs at a time, with no space boundaries, and all other apps are hidden.
+ 
++```
++<manifest ... >
+ 
+-    <manifest ... >
+-
+-       <application ... >
+-           <property
+-               android:name="android.window.PROPERTY_XR_ACTIVITY_START_MODE"
+-               android:value="XR_ACTIVITY_START_MODE_FULL_SPACE_MANAGED" />
+-           <activity
+-               android:name="com.example.myapp.MainActivity" ... >
++   <application ... >
++       <property
++           android:name="android.window.PROPERTY_XR_ACTIVITY_START_MODE"
++           android:value="XR_ACTIVITY_START_MODE_FULL_SPACE_MANAGED" />
++       <activity
++           android:name="com.example.myapp.MainActivity" ... >
+ 
+-               <intent-filter>
+-                   <action android:name="android.intent.action.MAIN" />
++           <intent-filter>
++               <action android:name="android.intent.action.MAIN" />
+ 
+-                   <category android:name="android.intent.category.LAUNCHER" />
+-               </intent-filter>
+-           </activity>
+-       </application>
+-    </manifest>
++               <category android:name="android.intent.category.LAUNCHER" />
++           </intent-filter>
++       </activity>
++   </application>
++</manifest>
++```
+ 
+-### PROPERTY_XR_BOUNDARY_TYPE_RECOMMENDED property
++### PROPERTY\_XR\_BOUNDARY\_TYPE\_RECOMMENDED property
+ 
+ The `android:name="android.window.PROPERTY_XR_BOUNDARY_TYPE_RECOMMENDED"`
+ property indicates that the application should be launched with a specific type
+ of boundary. Your app needs to specify
+-[`XR_BOUNDARY_TYPE_LARGE`](https://developer.android.com/reference/kotlin/androidx/xr/runtime/manifest/package-summary#XR_BOUNDARY_TYPE_LARGE()) if it's designed to let
++[`XR_BOUNDARY_TYPE_LARGE`](/reference/kotlin/androidx/xr/runtime/manifest/package-summary#XR_BOUNDARY_TYPE_LARGE()) if it's designed to let
+ users move around their physical space. Specifying
+-[`XR_BOUNDARY_TYPE_NO_RECOMMENDATION`](https://developer.android.com/reference/kotlin/androidx/xr/runtime/manifest/package-summary#XR_BOUNDARY_TYPE_NO_RECOMMENDATION()) provides no
++[`XR_BOUNDARY_TYPE_NO_RECOMMENDATION`](/reference/kotlin/androidx/xr/runtime/manifest/package-summary#XR_BOUNDARY_TYPE_NO_RECOMMENDATION()) provides no
+ recommendations for the type of safety boundary, so the system uses the type
+ that is already in use.
+ 
+-    <manifest ... >
++```
++<manifest ... >
+ 
+-       <application ... >
+-           <property
+-               android:name="android.window.PROPERTY_XR_BOUNDARY_TYPE_RECOMMENDED"
+-               android:value="XR_BOUNDARY_TYPE_LARGE" />
+-       </application>
+-    </manifest>
++   <application ... >
++       <property
++           android:name="android.window.PROPERTY_XR_BOUNDARY_TYPE_RECOMMENDED"
++           android:value="XR_BOUNDARY_TYPE_LARGE" />
++   </application>
++</manifest>
++```
+ 
+ ### PackageManager features for XR apps
+ 
+ When you
+-[distribute apps through the Google Play Store](https://developer.android.com/develop/xr/package-and-distribute),
++[distribute apps through the Google Play Store](/develop/xr/package-and-distribute),
+ you can specify required hardware or software features in the app manifest. The
+-[`uses-feature`](https://developer.android.com/guide/topics/manifest/uses-feature-element) element allows the Play Store to
++[`uses-feature`](/guide/topics/manifest/uses-feature-element) element allows the Play Store to
+ appropriately filter apps shown to users.
+ 
+ The following features are specific to XR-differentiated apps.
+ 
+ #### android.software.xr.api.spatial
+ 
+-Apps that are built using the [Jetpack XR SDK](https://developer.android.com/develop/xr/jetpack-xr-sdk) must
++Apps that are built using the [Jetpack XR SDK](/develop/xr/jetpack-xr-sdk) must
+ include this feature in the app manifest. The value you set for the
+ `android:required` attribute depends on your app's
+-[release track](https://developer.android.com/develop/xr/package-and-distribute#choose-release).
++[release track](/develop/xr/package-and-distribute#choose-release).
+ 
+ If your app bundles XR-differentiated features or content into an existing
+ mobile APK and is published on the mobile release track, then set the
+ `android:required` attribute to `false`:
+ 
+-    <!-- If you are publishing an existing mobile APK using the mobile release track, set android:required to false.-->
+-    <uses-feature android:name="android.software.xr.api.spatial" android:required="false" />
++```
++<!-- If you are publishing an existing mobile APK using the mobile release track, set android:required to false.-->
++<uses-feature android:name="android.software.xr.api.spatial" android:required="false" />
++```
+ 
+ If your app is built specifically for XR-enabled devices and is published to the
+ Android XR dedicated release track, then set the `android:required` attribute to
+ `true`:
+ 
+-    <!-- If you are publishing a separate APK for XR using the dedicated Android XR release track, set android:required to true.-->
+-    <uses-feature android:name="android.software.xr.api.spatial" android:required="true" />
++```
++<!-- If you are publishing a separate APK for XR using the dedicated Android XR release track, set android:required to true.-->
++<uses-feature android:name="android.software.xr.api.spatial" android:required="true" />
++```
+ 
+ #### android.hardware.xr.input.controller
+ 
+@@ -149,13 +182,17 @@ supports controllers and can't function without them, set the value to `true`.
+ If your app supports controllers but can operate without them, set it to
+ `false`.
+ 
+-> [!NOTE]
+-> **Note:** 6DoF motion controllers are a pair of hardware controllers, one for each hand. Each controller is tracked independently in space through six degrees of freedom - both linear and rotational movements. These controllers typically have several hardware buttons, including a trigger as well as haptic feedback.
++**Note:** 6DoF motion controllers are a pair of hardware controllers, one for each
++hand. Each controller is tracked independently in space through six degrees of
++freedom - both linear and rotational movements. These controllers typically have
++several hardware buttons, including a trigger as well as haptic feedback.
+ 
+-    <!-- Sets android:required to true, indicating that your app can't function on devices without controllers. -->
+-    <uses-feature android:name="android.hardware.xr.input.controller" android:required="true" />
++```
++<!-- Sets android:required to true, indicating that your app can't function on devices without controllers. -->
++<uses-feature android:name="android.hardware.xr.input.controller" android:required="true" />
++```
+ 
+-#### android.hardware.xr.input.hand_tracking
++#### android.hardware.xr.input.hand\_tracking
+ 
+ This flag indicates that the app requires high fidelity hand tracking to
+ function correctly, including position, orientation, and velocity of joints in
+@@ -163,33 +200,40 @@ the user's hand. If your app supports hand tracking and can't function without
+ it, set the value to `true`. If your app supports hand tracking, but can operate
+ without it, set it to `false`.
+ 
+-> [!NOTE]
+-> **Note:** This flag is not required for detecting basic gestures such as pinching, poking, aiming, and gripping.
++**Note:** This flag is not required for detecting basic gestures such as pinching,
++poking, aiming, and gripping.
+ 
+-    <!-- Sets android:required to true, indicating that your app can't function on devices without hand tracking. -->
+-    <uses-feature android:name="android.hardware.xr.input.hand_tracking" android:required="true" />
++```
++<!-- Sets android:required to true, indicating that your app can't function on devices without hand tracking. -->
++<uses-feature android:name="android.hardware.xr.input.hand_tracking" android:required="true" />
++```
+ 
+-#### android.hardware.xr.input.eye_tracking
++#### android.hardware.xr.input.eye\_tracking
+ 
+ This flag indicates that the app requires high-fidelity eye tracking for input
+ to function correctly. If your app supports eye tracking for input and can't
+ function without it, set the value to `true`. If your app supports eye tracking
+ for input, but can operate without it, set it to `false`.
+ 
+-    <!-- Sets android:required to true, indicating that your app can't function on devices without eye tracking. -->
+-    <uses-feature android:name="android.hardware.xr.input.eye_tracking" android:required="true" />
++```
++<!-- Sets android:required to true, indicating that your app can't function on devices without eye tracking. -->
++<uses-feature android:name="android.hardware.xr.input.eye_tracking" android:required="true" />
++```
+ 
+-> [!NOTE]
+-> **Note:** Hand tracking and eye tracking are privacy-sensitive input methods and require the apps to request special permissions. See [Understand permissions for
+-> XR](https://developer.android.com/develop/xr/permissions) on this page for more information on declaring permissions.
++**Note:** Hand tracking and eye tracking are privacy-sensitive input methods and
++require the apps to request special permissions. See [Understand permissions for
++XR](/develop/xr/permissions) on this page for more information on declaring
++permissions.
+ 
+ ## App manifest compatibility considerations for mobile and large screen apps
+ 
+-> [!IMPORTANT]
+-> **Important:** This section applies only to mobile or large screen apps that haven't been optimized for XR. By default, these kinds of Android apps will run on Android XR. However, if your app requires one or more of the features in this section, the app won't be shown in the Play Store on Android XR.
++**Important:** This section applies only to mobile or large screen apps that haven't
++been optimized for XR. By default, these kinds of Android apps will run on
++Android XR. However, if your app requires one or more of the features in this
++section, the app won't be shown in the Play Store on Android XR.
+ 
+-As described in the [PackageManager features for XR apps](https://developer.android.com/develop/xr/jetpack-xr-sdk/build-immersive#packagemanager-features) section, apps
+-declare that they use a feature by declaring it in a [`<uses-feature>`](https://developer.android.com/guide/topics/manifest/uses-feature-element)
++As described in the [PackageManager features for XR apps](/develop/xr/jetpack-xr-sdk/build-immersive#packagemanager-features) section, apps
++declare that they use a feature by declaring it in a [`<uses-feature>`](/guide/topics/manifest/uses-feature-element)
+ element in the app manifest. Some features, such as telephony or GPS, might not
+ be compatible with all devices.
+ 
+@@ -198,205 +242,208 @@ shell pm list features`.
+ 
+ ### Unsupported features
+ 
+-The [Google Play store filters applications](https://developer.android.com/guide/topics/manifest/uses-feature-element#market-feature-filtering) available
++The [Google Play store filters applications](/guide/topics/manifest/uses-feature-element#market-feature-filtering) available
+ for installation on a device by using the following Android feature
+ declarations.
+ 
+-> [!CAUTION]
+-> **Caution:** If your app requires a feature that is not supported on the device, then that app won't be available for installation from the Play Store for XR devices. If your app uses the feature, but is designed to run without it, you should set `android:required="false`". For example, `<uses-feature android:name="android.hardware.location.gps"
+-> android:required="false" />`.
++**Caution:** If your app requires a feature that is not supported on the device,
++then that app won't be available for installation from the Play Store
++for XR devices. If your app uses the feature, but is designed to run
++without it, you should set `android:required="false`". For example,
++`<uses-feature android:name="android.hardware.location.gps"
++android:required="false" />`.
+ 
+ #### Camera Hardware
+ 
+-[`android.hardware.camera.ar`](https://developer.android.com/reference/android/content/pm/PackageManager#FEATURE_CAMERA_AR)
++[`android.hardware.camera.ar`](/reference/android/content/pm/PackageManager#FEATURE_CAMERA_AR)
+ 
+-[`android.hardware.camera.autofocus`](https://developer.android.com/reference/android/content/pm/PackageManager#FEATURE_CAMERA_AUTOFOCUS)
++[`android.hardware.camera.autofocus`](/reference/android/content/pm/PackageManager#FEATURE_CAMERA_AUTOFOCUS)
+ 
+-[`android.hardware.camera.capability.manual_post_processing`](https://developer.android.com/reference/android/content/pm/PackageManager#FEATURE_CAMERA_CAPABILITY_MANUAL_POST_PROCESSING)
++[`android.hardware.camera.capability.manual_post_processing`](/reference/android/content/pm/PackageManager#FEATURE_CAMERA_CAPABILITY_MANUAL_POST_PROCESSING)
+ 
+-[`android.hardware.camera.capability.manual_sensor`](https://developer.android.com/reference/android/content/pm/PackageManager#FEATURE_CAMERA_CAPABILITY_MANUAL_SENSOR)
++[`android.hardware.camera.capability.manual_sensor`](/reference/android/content/pm/PackageManager#FEATURE_CAMERA_CAPABILITY_MANUAL_SENSOR)
+ 
+-[`android.hardware.camera.capability.raw`](https://developer.android.com/reference/android/content/pm/PackageManager#FEATURE_CAMERA_CAPABILITY_RAW)
++[`android.hardware.camera.capability.raw`](/reference/android/content/pm/PackageManager#FEATURE_CAMERA_CAPABILITY_RAW)
+ 
+-[`android.hardware.camera.concurrent`](https://developer.android.com/reference/android/content/pm/PackageManager#FEATURE_CAMERA_CONCURRENT)
++[`android.hardware.camera.concurrent`](/reference/android/content/pm/PackageManager#FEATURE_CAMERA_CONCURRENT)
+ 
+-[`android.hardware.camera.external`](https://developer.android.com/reference/android/content/pm/PackageManager#FEATURE_CAMERA_EXTERNAL)
++[`android.hardware.camera.external`](/reference/android/content/pm/PackageManager#FEATURE_CAMERA_EXTERNAL)
+ 
+-[`android.hardware.camera.flash`](https://developer.android.com/reference/android/content/pm/PackageManager#FEATURE_CAMERA_FLASH)
++[`android.hardware.camera.flash`](/reference/android/content/pm/PackageManager#FEATURE_CAMERA_FLASH)
+ 
+-[`android.hardware.camera.level.full`](https://developer.android.com/reference/android/content/pm/PackageManager#FEATURE_CAMERA_LEVEL_FULL)
++[`android.hardware.camera.level.full`](/reference/android/content/pm/PackageManager#FEATURE_CAMERA_LEVEL_FULL)
+ 
+ #### Connectivity
+ 
+-[`android.hardware.ethernet`](https://developer.android.com/reference/android/content/pm/PackageManager#FEATURE_ETHERNET)
++[`android.hardware.ethernet`](/reference/android/content/pm/PackageManager#FEATURE_ETHERNET)
+ 
+-[`android.hardware.uwb`](https://developer.android.com/reference/android/content/pm/PackageManager#FEATURE_UWB)
++[`android.hardware.uwb`](/reference/android/content/pm/PackageManager#FEATURE_UWB)
+ 
+-[`android.hardware.ipsec_tunnel_migration`](https://developer.android.com/reference/android/content/pm/PackageManager#FEATURE_IPSEC_TUNNEL_MIGRATION)
++[`android.hardware.ipsec_tunnel_migration`](/reference/android/content/pm/PackageManager#FEATURE_IPSEC_TUNNEL_MIGRATION)
+ 
+ #### Device Configuration
+ 
+-[`android.hardware.ram.low`](https://developer.android.com/reference/android/content/pm/PackageManager#FEATURE_RAM_LOW)
++[`android.hardware.ram.low`](/reference/android/content/pm/PackageManager#FEATURE_RAM_LOW)
+ 
+ #### Form Factor Configuration
+ 
+-[`android.hardware.type.automotive`](https://developer.android.com/reference/android/content/pm/PackageManager#FEATURE_AUTOMOTIVE)
++[`android.hardware.type.automotive`](/reference/android/content/pm/PackageManager#FEATURE_AUTOMOTIVE)
+ 
+-[`android.hardware.type.embedded`](https://developer.android.com/reference/android/content/pm/PackageManager#FEATURE_EMBEDDED)
++[`android.hardware.type.embedded`](/reference/android/content/pm/PackageManager#FEATURE_EMBEDDED)
+ 
+-[`android.hardware.type.pc`](https://developer.android.com/reference/android/content/pm/PackageManager#FEATURE_PC)
++[`android.hardware.type.pc`](/reference/android/content/pm/PackageManager#FEATURE_PC)
+ 
+-[`android.hardware.type.television`](https://developer.android.com/reference/android/content/pm/PackageManager#FEATURE_TELEVISION)
++[`android.hardware.type.television`](/reference/android/content/pm/PackageManager#FEATURE_TELEVISION)
+ 
+-[`android.hardware.type.watch`](https://developer.android.com/reference/android/content/pm/PackageManager#FEATURE_WATCH)
++[`android.hardware.type.watch`](/reference/android/content/pm/PackageManager#FEATURE_WATCH)
+ 
+-[`android.software.leanback`](https://developer.android.com/reference/android/content/pm/PackageManager#FEATURE_LEANBACK)
++[`android.software.leanback`](/reference/android/content/pm/PackageManager#FEATURE_LEANBACK)
+ 
+-[`android.software.leanback_only`](https://developer.android.com/reference/android/content/pm/PackageManager#FEATURE_LEANBACK_ONLY)
++[`android.software.leanback_only`](/reference/android/content/pm/PackageManager#FEATURE_LEANBACK_ONLY)
+ 
+-[`android.software.live_tv`](https://developer.android.com/reference/android/content/pm/PackageManager#FEATURE_LIVE_TV)
++[`android.software.live_tv`](/reference/android/content/pm/PackageManager#FEATURE_LIVE_TV)
+ 
+ #### Input
+ 
+-[`android.hardware.consumerir`](https://developer.android.com/reference/android/content/pm/PackageManager#FEATURE_CONSUMER_IR)
++[`android.hardware.consumerir`](/reference/android/content/pm/PackageManager#FEATURE_CONSUMER_IR)
+ 
+-[`android.software.input_methods`](https://developer.android.com/reference/android/content/pm/PackageManager#FEATURE_INPUT_METHODS)
++[`android.software.input_methods`](/reference/android/content/pm/PackageManager#FEATURE_INPUT_METHODS)
+ 
+ #### Location
+ 
+-[`android.hardware.location.gps`](https://developer.android.com/reference/android/content/pm/PackageManager#FEATURE_LOCATION_GPS)
++[`android.hardware.location.gps`](/reference/android/content/pm/PackageManager#FEATURE_LOCATION_GPS)
+ 
+ #### Near Field Communication
+ 
+-[`android.hardware.nfc`](https://developer.android.com/reference/android/content/pm/PackageManager#FEATURE_NFC)
++[`android.hardware.nfc`](/reference/android/content/pm/PackageManager#FEATURE_NFC)
+ 
+-[`android.hardware.nfc.ese`](https://developer.android.com/reference/android/content/pm/PackageManager#FEATURE_NFC_OFF_HOST_CARD_EMULATION_ESE)
++[`android.hardware.nfc.ese`](/reference/android/content/pm/PackageManager#FEATURE_NFC_OFF_HOST_CARD_EMULATION_ESE)
+ 
+-[`android.hardware.nfc.hce`](https://developer.android.com/reference/android/content/pm/PackageManager#FEATURE_NFC_HOST_CARD_EMULATION)
++[`android.hardware.nfc.hce`](/reference/android/content/pm/PackageManager#FEATURE_NFC_HOST_CARD_EMULATION)
+ 
+-[`android.hardware.nfc.hcef`](https://developer.android.com/reference/android/content/pm/PackageManager#FEATURE_NFC_HOST_CARD_EMULATION_NFCF)
++[`android.hardware.nfc.hcef`](/reference/android/content/pm/PackageManager#FEATURE_NFC_HOST_CARD_EMULATION_NFCF)
+ 
+-[`android.hardware.nfc.uicc`](https://developer.android.com/reference/android/content/pm/PackageManager#FEATURE_NFC_OFF_HOST_CARD_EMULATION_UICC)
++[`android.hardware.nfc.uicc`](/reference/android/content/pm/PackageManager#FEATURE_NFC_OFF_HOST_CARD_EMULATION_UICC)
+ 
+-[`android.hardware.nfc.beam`](https://developer.android.com/reference/android/content/pm/PackageManager#FEATURE_NFC_BEAM)
++[`android.hardware.nfc.beam`](/reference/android/content/pm/PackageManager#FEATURE_NFC_BEAM)
+ 
+ #### Security Configuration and Hardware
+ 
+-[`android.hardware.se.omapi.ese`](https://developer.android.com/reference/android/content/pm/PackageManager#FEATURE_SE_OMAPI_ESE)
++[`android.hardware.se.omapi.ese`](/reference/android/content/pm/PackageManager#FEATURE_SE_OMAPI_ESE)
+ 
+-[`android.hardware.se.omapi.sd`](https://developer.android.com/reference/android/content/pm/PackageManager#FEATURE_SE_OMAPI_SD)
++[`android.hardware.se.omapi.sd`](/reference/android/content/pm/PackageManager#FEATURE_SE_OMAPI_SD)
+ 
+-[`android.hardware.se.omapi.uicc`](https://developer.android.com/reference/android/content/pm/PackageManager#FEATURE_SE_OMAPI_UICC)
++[`android.hardware.se.omapi.uicc`](/reference/android/content/pm/PackageManager#FEATURE_SE_OMAPI_UICC)
+ 
+-[`android.hardware.biometrics.face`](https://developer.android.com/reference/android/content/pm/PackageManager#FEATURE_FACE)
++[`android.hardware.biometrics.face`](/reference/android/content/pm/PackageManager#FEATURE_FACE)
+ 
+-[`android.hardware.fingerprint`](https://developer.android.com/reference/android/content/pm/PackageManager#FEATURE_FINGERPRINT)
++[`android.hardware.fingerprint`](/reference/android/content/pm/PackageManager#FEATURE_FINGERPRINT)
+ 
+-[`android.hardware.identity_credential`](https://developer.android.com/reference/android/content/pm/PackageManager#FEATURE_IDENTITY_CREDENTIAL_HARDWARE)
++[`android.hardware.identity_credential`](/reference/android/content/pm/PackageManager#FEATURE_IDENTITY_CREDENTIAL_HARDWARE)
+ 
+-[`android.hardware.identity_credential_direct_access`](https://developer.android.com/reference/android/content/pm/PackageManager#FEATURE_IDENTITY_CREDENTIAL_HARDWARE_DIRECT_ACCESS)
++[`android.hardware.identity_credential_direct_access`](/reference/android/content/pm/PackageManager#FEATURE_IDENTITY_CREDENTIAL_HARDWARE_DIRECT_ACCESS)
+ 
+-[`android.hardware.keystore.limited_use_key`](https://developer.android.com/reference/android/content/pm/PackageManager#FEATURE_KEYSTORE_LIMITED_USE_KEY)
++[`android.hardware.keystore.limited_use_key`](/reference/android/content/pm/PackageManager#FEATURE_KEYSTORE_LIMITED_USE_KEY)
+ 
+-[`android.hardware.keystore.single_use_key`](https://developer.android.com/reference/android/content/pm/PackageManager#FEATURE_KEYSTORE_SINGLE_USE_KEY)
++[`android.hardware.keystore.single_use_key`](/reference/android/content/pm/PackageManager#FEATURE_KEYSTORE_SINGLE_USE_KEY)
+ 
+-[`android.hardware.strongbox_keystore`](https://developer.android.com/reference/android/content/pm/PackageManager#FEATURE_STRONGBOX_KEYSTORE)
++[`android.hardware.strongbox_keystore`](/reference/android/content/pm/PackageManager#FEATURE_STRONGBOX_KEYSTORE)
+ 
+ #### Sensors
+ 
+-[`android.hardware.sensor.accelerometer_limited_axes`](https://developer.android.com/reference/android/content/pm/PackageManager#FEATURE_SENSOR_ACCELEROMETER_LIMITED_AXES)
++[`android.hardware.sensor.accelerometer_limited_axes`](/reference/android/content/pm/PackageManager#FEATURE_SENSOR_ACCELEROMETER_LIMITED_AXES)
+ 
+-[`android.hardware.sensor.accelerometer_limited_axes_uncalibrated`](https://developer.android.com/reference/android/content/pm/PackageManager#FEATURE_SENSOR_ACCELEROMETER_LIMITED_AXES_UNCALIBRATED)
++[`android.hardware.sensor.accelerometer_limited_axes_uncalibrated`](/reference/android/content/pm/PackageManager#FEATURE_SENSOR_ACCELEROMETER_LIMITED_AXES_UNCALIBRATED)
+ 
+-[`android.hardware.sensor.ambient_temperature`](https://developer.android.com/reference/android/content/pm/PackageManager#FEATURE_SENSOR_AMBIENT_TEMPERATURE)
++[`android.hardware.sensor.ambient_temperature`](/reference/android/content/pm/PackageManager#FEATURE_SENSOR_AMBIENT_TEMPERATURE)
+ 
+-[`android.hardware.sensor.barometer`](https://developer.android.com/reference/android/content/pm/PackageManager#FEATURE_SENSOR_BAROMETER)
++[`android.hardware.sensor.barometer`](/reference/android/content/pm/PackageManager#FEATURE_SENSOR_BAROMETER)
+ 
+-[`android.hardware.sensor.gyroscope_limited_axes`](https://developer.android.com/reference/android/content/pm/PackageManager#FEATURE_SENSOR_GYROSCOPE_LIMITED_AXES)
++[`android.hardware.sensor.gyroscope_limited_axes`](/reference/android/content/pm/PackageManager#FEATURE_SENSOR_GYROSCOPE_LIMITED_AXES)
+ 
+-[`android.hardware.sensor.gyroscope_limited_axes_uncalibrated`](https://developer.android.com/reference/android/content/pm/PackageManager#FEATURE_SENSOR_GYROSCOPE_LIMITED_AXES_UNCALIBRATED)
++[`android.hardware.sensor.gyroscope_limited_axes_uncalibrated`](/reference/android/content/pm/PackageManager#FEATURE_SENSOR_GYROSCOPE_LIMITED_AXES_UNCALIBRATED)
+ 
+-[`android.hardware.sensor.heading`](https://developer.android.com/reference/android/content/pm/PackageManager#FEATURE_SENSOR_HEADING)
++[`android.hardware.sensor.heading`](/reference/android/content/pm/PackageManager#FEATURE_SENSOR_HEADING)
+ 
+-[`android.hardware.sensor.heartrate`](https://developer.android.com/reference/android/content/pm/PackageManager#FEATURE_SENSOR_HEART_RATE)
++[`android.hardware.sensor.heartrate`](/reference/android/content/pm/PackageManager#FEATURE_SENSOR_HEART_RATE)
+ 
+-[`android.hardware.sensor.heartrate.ecg`](https://developer.android.com/reference/android/content/pm/PackageManager#FEATURE_SENSOR_HEART_RATE_ECG)
++[`android.hardware.sensor.heartrate.ecg`](/reference/android/content/pm/PackageManager#FEATURE_SENSOR_HEART_RATE_ECG)
+ 
+-[`android.hardware.sensor.hinge_angle`](https://developer.android.com/reference/android/content/pm/PackageManager#FEATURE_SENSOR_HINGE_ANGLE)
++[`android.hardware.sensor.hinge_angle`](/reference/android/content/pm/PackageManager#FEATURE_SENSOR_HINGE_ANGLE)
+ 
+-[`android.hardware.sensor.light`](https://developer.android.com/reference/android/content/pm/PackageManager#FEATURE_SENSOR_LIGHT)
++[`android.hardware.sensor.light`](/reference/android/content/pm/PackageManager#FEATURE_SENSOR_LIGHT)
+ 
+-[`android.hardware.sensor.relative_humidity`](https://developer.android.com/reference/android/content/pm/PackageManager#FEATURE_SENSOR_RELATIVE_HUMIDITY)
++[`android.hardware.sensor.relative_humidity`](/reference/android/content/pm/PackageManager#FEATURE_SENSOR_RELATIVE_HUMIDITY)
+ 
+-[`android.hardware.sensor.stepcounter`](https://developer.android.com/reference/android/content/pm/PackageManager#FEATURE_SENSOR_STEP_COUNTER)
++[`android.hardware.sensor.stepcounter`](/reference/android/content/pm/PackageManager#FEATURE_SENSOR_STEP_COUNTER)
+ 
+-[`android.hardware.sensor.stepdetector`](https://developer.android.com/reference/android/content/pm/PackageManager#FEATURE_SENSOR_STEP_DETECTOR)
++[`android.hardware.sensor.stepdetector`](/reference/android/content/pm/PackageManager#FEATURE_SENSOR_STEP_DETECTOR)
+ 
+ #### Software Configuration
+ 
+-[`android.software.backup`](https://developer.android.com/reference/android/content/pm/PackageManager#FEATURE_BACKUP)
++[`android.software.backup`](/reference/android/content/pm/PackageManager#FEATURE_BACKUP)
+ 
+-[`android.software.connectionservice`](https://developer.android.com/reference/android/content/pm/PackageManager#FEATURE_CONNECTION_SERVICE)
++[`android.software.connectionservice`](/reference/android/content/pm/PackageManager#FEATURE_CONNECTION_SERVICE)
+ 
+-[`android.software.expanded_picture_in_picture`](https://developer.android.com/reference/android/content/pm/PackageManager#FEATURE_EXPANDED_PICTURE_IN_PICTURE)
++[`android.software.expanded_picture_in_picture`](/reference/android/content/pm/PackageManager#FEATURE_EXPANDED_PICTURE_IN_PICTURE)
+ 
+-[`android.software.live_wallpaper`](https://developer.android.com/reference/android/content/pm/PackageManager#FEATURE_LIVE_WALLPAPER)
++[`android.software.live_wallpaper`](/reference/android/content/pm/PackageManager#FEATURE_LIVE_WALLPAPER)
+ 
+-[`android.software.picture_in_picture`](https://developer.android.com/reference/android/content/pm/PackageManager#FEATURE_PICTURE_IN_PICTURE)
++[`android.software.picture_in_picture`](/reference/android/content/pm/PackageManager#FEATURE_PICTURE_IN_PICTURE)
+ 
+-[`android.software.telecom`](https://developer.android.com/reference/android/content/pm/PackageManager#FEATURE_TELECOM)
++[`android.software.telecom`](/reference/android/content/pm/PackageManager#FEATURE_TELECOM)
+ 
+-[`android.software.wallet_location_based_suggestions`](https://developer.android.com/reference/android/content/pm/PackageManager#FEATURE_WALLET_LOCATION_BASED_SUGGESTIONS)
++[`android.software.wallet_location_based_suggestions`](/reference/android/content/pm/PackageManager#FEATURE_WALLET_LOCATION_BASED_SUGGESTIONS)
+ 
+ #### Telephony
+ 
+-[`android.hardware.telephony`](https://developer.android.com/reference/android/content/pm/PackageManager#FEATURE_TELEPHONY)
++[`android.hardware.telephony`](/reference/android/content/pm/PackageManager#FEATURE_TELEPHONY)
+ 
+-[`android.hardware.telephony.calling`](https://developer.android.com/reference/android/content/pm/PackageManager#FEATURE_TELEPHONY_CALLING)
++[`android.hardware.telephony.calling`](/reference/android/content/pm/PackageManager#FEATURE_TELEPHONY_CALLING)
+ 
+-[`android.hardware.telephony.cdma`](https://developer.android.com/reference/android/content/pm/PackageManager#FEATURE_TELEPHONY_CDMA)
++[`android.hardware.telephony.cdma`](/reference/android/content/pm/PackageManager#FEATURE_TELEPHONY_CDMA)
+ 
+-[`android.hardware.telephony.data`](https://developer.android.com/reference/android/content/pm/PackageManager#FEATURE_TELEPHONY_DATA)
++[`android.hardware.telephony.data`](/reference/android/content/pm/PackageManager#FEATURE_TELEPHONY_DATA)
+ 
+-[`android.hardware.telephony.euicc`](https://developer.android.com/reference/android/content/pm/PackageManager#FEATURE_TELEPHONY_EUICC)
++[`android.hardware.telephony.euicc`](/reference/android/content/pm/PackageManager#FEATURE_TELEPHONY_EUICC)
+ 
+-[`android.hardware.telephony.euicc.mep`](https://developer.android.com/reference/android/content/pm/PackageManager#FEATURE_TELEPHONY_EUICC_MEP)
++[`android.hardware.telephony.euicc.mep`](/reference/android/content/pm/PackageManager#FEATURE_TELEPHONY_EUICC_MEP)
+ 
+-[`android.hardware.telephony.gsm`](https://developer.android.com/reference/android/content/pm/PackageManager#FEATURE_TELEPHONY_GSM)
++[`android.hardware.telephony.gsm`](/reference/android/content/pm/PackageManager#FEATURE_TELEPHONY_GSM)
+ 
+-[`android.hardware.telephony.ims`](https://developer.android.com/reference/android/content/pm/PackageManager#FEATURE_TELEPHONY_IMS)
++[`android.hardware.telephony.ims`](/reference/android/content/pm/PackageManager#FEATURE_TELEPHONY_IMS)
+ 
+-[`android.hardware.telephony.mbms`](https://developer.android.com/reference/android/content/pm/PackageManager#FEATURE_TELEPHONY_MBMS)
++[`android.hardware.telephony.mbms`](/reference/android/content/pm/PackageManager#FEATURE_TELEPHONY_MBMS)
+ 
+-[`android.hardware.telephony.messaging`](https://developer.android.com/reference/android/content/pm/PackageManager#FEATURE_TELEPHONY_MESSAGING)
++[`android.hardware.telephony.messaging`](/reference/android/content/pm/PackageManager#FEATURE_TELEPHONY_MESSAGING)
+ 
+-[`android.hardware.telephony.radio.access`](https://developer.android.com/reference/android/content/pm/PackageManager#FEATURE_TELEPHONY_RADIO_ACCESS)
++[`android.hardware.telephony.radio.access`](/reference/android/content/pm/PackageManager#FEATURE_TELEPHONY_RADIO_ACCESS)
+ 
+-[`android.hardware.telephony.subscription`](https://developer.android.com/reference/android/content/pm/PackageManager#FEATURE_TELEPHONY_SUBSCRIPTION)
++[`android.hardware.telephony.subscription`](/reference/android/content/pm/PackageManager#FEATURE_TELEPHONY_SUBSCRIPTION)
+ 
+-[`android.software.sip`](https://developer.android.com/reference/android/content/pm/PackageManager#FEATURE_SIP)
++[`android.software.sip`](/reference/android/content/pm/PackageManager#FEATURE_SIP)
+ 
+-[`android.software.sip.voip`](https://developer.android.com/reference/android/content/pm/PackageManager#FEATURE_SIP_VOIP)
++[`android.software.sip.voip`](/reference/android/content/pm/PackageManager#FEATURE_SIP_VOIP)
+ 
+ #### Virtual Reality (Legacy)
+ 
+-[`android.hardware.vr.headtracking`](https://developer.android.com/reference/android/content/pm/PackageManager#FEATURE_VR_HEADTRACKING)
++[`android.hardware.vr.headtracking`](/reference/android/content/pm/PackageManager#FEATURE_VR_HEADTRACKING)
+ 
+-[`android.hardware.vr.high_performance`](https://developer.android.com/reference/android/content/pm/PackageManager#FEATURE_VR_MODE_HIGH_PERFORMANCE)
++[`android.hardware.vr.high_performance`](/reference/android/content/pm/PackageManager#FEATURE_VR_MODE_HIGH_PERFORMANCE)
+ 
+-[`android.software.vr.mode`](https://developer.android.com/reference/android/content/pm/PackageManager#FEATURE_VR_MODE)
++[`android.software.vr.mode`](/reference/android/content/pm/PackageManager#FEATURE_VR_MODE)
+ 
+ #### Widgets
+ 
+-[`android.software.app_widgets`](https://developer.android.com/reference/android/content/pm/PackageManager#FEATURE_APP_WIDGETS)
++[`android.software.app_widgets`](/reference/android/content/pm/PackageManager#FEATURE_APP_WIDGETS)
+ 
+ ## Next steps
+ 
+ Now that you've finished configuring your app's manifest and reviewing important
+ information, explore ways that you can build immersive experiences:
+ 
+-- [Bring your Android app into 3D with XR](https://developer.android.com/develop/xr/jetpack-xr-sdk/add-xr-to-existing)
+-- [Develop spatial UI with Jetpack Compose for XR](https://developer.android.com/develop/xr/jetpack-xr-sdk/ui-compose)
+-- [Implement Material Design for your spatial UI](https://developer.android.com/develop/xr/jetpack-xr-sdk/material-design)
+-- [Add spatial environments to your app](https://developer.android.com/develop/xr/jetpack-xr-sdk/add-environments)
+-- [Create, control, and manage entities](https://developer.android.com/develop/xr/jetpack-xr-sdk/work-with-entities)
+\ No newline at end of file
++* [Bring your Android app into 3D with XR](/develop/xr/jetpack-xr-sdk/add-xr-to-existing)
++* [Develop spatial UI with Jetpack Compose for XR](/develop/xr/jetpack-xr-sdk/ui-compose)
++* [Implement Material Design for your spatial UI](/develop/xr/jetpack-xr-sdk/material-design)
++* [Add spatial environments to your app](/develop/xr/jetpack-xr-sdk/add-environments)
++* [Create, control, and manage entities](/develop/xr/jetpack-xr-sdk/work-with-entities)
+\ No newline at end of file

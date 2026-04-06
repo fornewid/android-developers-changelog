@@ -1,0 +1,12 @@
+diff --git a/docs/training/wearables/wff/groups.md b/docs/training/wearables/wff/groups.md
+index f9632d9..a390737 100644
+--- a/docs/training/wearables/wff/groups.md
++++ b/docs/training/wearables/wff/groups.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Groups allow you to separate your watch face design into a logical structure.
+ 
+ This can be useful to help you organize components. You can give each

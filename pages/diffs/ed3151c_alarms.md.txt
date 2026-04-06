@@ -1,0 +1,12 @@
+diff --git a/docs/develop/background-work/services/alarms.md b/docs/develop/background-work/services/alarms.md
+index 902eec9..00c55e9 100644
+--- a/docs/develop/background-work/services/alarms.md
++++ b/docs/develop/background-work/services/alarms.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Alarms (based on the [`AlarmManager`](/reference/android/app/AlarmManager)
+ class) give you a way to perform
+ time-based operations outside the lifetime of your application.

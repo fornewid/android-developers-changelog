@@ -1,0 +1,12 @@
+diff --git a/docs/develop/connectivity/wifi/nsd-wifi-direct.md b/docs/develop/connectivity/wifi/nsd-wifi-direct.md
+index ede4ecb..92e2f5a 100644
+--- a/docs/develop/connectivity/wifi/nsd-wifi-direct.md
++++ b/docs/develop/connectivity/wifi/nsd-wifi-direct.md
+@@ -14,6 +14,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ The first lesson in this class, [Using Network Service
+ Discovery](/develop/connectivity/wifi/use-nsd), showed you
+ how to discover services that are connected to a local network. However, using

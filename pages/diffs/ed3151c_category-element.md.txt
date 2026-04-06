@@ -1,0 +1,12 @@
+diff --git a/docs/guide/topics/manifest/category-element.md b/docs/guide/topics/manifest/category-element.md
+index 02353aa..e6e966c 100644
+--- a/docs/guide/topics/manifest/category-element.md
++++ b/docs/guide/topics/manifest/category-element.md
+@@ -12,6 +12,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ syntax:
+ :   ```
+     <category android:name="string" />

@@ -1,0 +1,12 @@
+diff --git a/docs/guide/topics/resources/localization.md b/docs/guide/topics/resources/localization.md
+index d0752d7..8fab3f2 100644
+--- a/docs/guide/topics/resources/localization.md
++++ b/docs/guide/topics/resources/localization.md
+@@ -12,6 +12,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Android runs on many devices in many regions. To reach the most users, make sure that your
+ app handles text, audio files, numbers, currency, and graphics in
+ ways appropriate to the locales where your app is used.

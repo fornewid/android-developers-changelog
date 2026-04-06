@@ -1,0 +1,12 @@
+diff --git a/docs/guide/playcore/in-app-updates/unreal-engine.md b/docs/guide/playcore/in-app-updates/unreal-engine.md
+index 39660ea..bef05d4 100644
+--- a/docs/guide/playcore/in-app-updates/unreal-engine.md
++++ b/docs/guide/playcore/in-app-updates/unreal-engine.md
+@@ -12,7 +12,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ This guide describes how to support [in-app updates](/guide/playcore/in-app-updates) in your app using Unreal
+ Engine. There are separate guides for cases where your implementation uses [the
+ Kotlin programming language or the Java programming language](/guide/playcore/in-app-updates/kotlin-java), and cases

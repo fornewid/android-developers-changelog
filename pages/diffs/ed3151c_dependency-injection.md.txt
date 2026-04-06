@@ -1,0 +1,12 @@
+diff --git a/docs/training/dependency-injection.md b/docs/training/dependency-injection.md
+index be52679..6f3c4d4 100644
+--- a/docs/training/dependency-injection.md
++++ b/docs/training/dependency-injection.md
+@@ -12,6 +12,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Dependency injection (DI) is a technique widely used in programming and well
+ suited to Android development. By following the principles of DI, you lay the
+ groundwork for good app architecture.

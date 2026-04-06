@@ -1,0 +1,12 @@
+diff --git a/docs/jetpack/androidx/releases/benchmark.md b/docs/jetpack/androidx/releases/benchmark.md
+index be0766a..47c267c 100644
+--- a/docs/jetpack/androidx/releases/benchmark.md
++++ b/docs/jetpack/androidx/releases/benchmark.md
+@@ -15,7 +15,6 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
+-
+ # Benchmark
+ 
+ [User Guide](/topic/performance/benchmarking/benchmarking-overview)  [Code Sample](https://github.com/android/performance-samples)  [Codelab](/codelabs/android-macrobenchmark-inspect)
