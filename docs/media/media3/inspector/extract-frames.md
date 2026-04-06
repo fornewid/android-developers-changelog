@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 The [`FrameExtractor`](/reference/androidx/media3/inspector/frame/FrameExtractor) class provides an efficient way to extract decoded frames
 from a [`MediaItem`](/reference/androidx/media3/common/MediaItem).
 

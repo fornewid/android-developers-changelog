@@ -15,6 +15,7 @@ Starting in 2026, we'll be transitioning away from Google Fit APIs. For more inf
 
 
 
+
 Health Connect provides a *steps* data type for recording step counts using
 the [`StepsRecord`](/reference/kotlin/androidx/health/connect/client/records/StepsRecord). Steps are a fundamental measurement in health
 and fitness tracking.

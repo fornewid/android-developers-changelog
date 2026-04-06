@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 When the UI thread of an Android app is blocked for too long, the system sends
 an "Application Not Responding" (ANR) error. This page describes the different
 types of ANRs, how to diagnose them, and suggestions for fixing them. All the

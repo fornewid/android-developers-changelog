@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 The *Gemini Developer API* gives you access to Google's Gemini models, letting
 you build cutting-edge generative AI features into your Android apps—including
 conversational chat, image generation (with Nano Banana), and text generation

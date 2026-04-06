@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Slow Sessions is a new Android vitals metric in Google Play console. A slow
 session is a session in which more than 25% of the frames are slow. A frame
 is slow if it is not presented less than 50ms after the previous frame

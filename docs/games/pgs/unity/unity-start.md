@@ -15,6 +15,7 @@ Send feedback
 
 
 
+
 This document guides you through setting up your Unity project to use the
 Google Play Games plugin for Unity. You learn how to install the plugin and
 configure your Unity project. The document also covers how to verify the
@@ -374,6 +375,8 @@ To get the server side access code:
   + [Events](/games/pgs/unity/events)
 * [Recall API for Unity](/games/pgs/recall/recall-setup#unity-sdk)
   (supported only for Unity plugin version v11 and above)
+
+
 
 
 

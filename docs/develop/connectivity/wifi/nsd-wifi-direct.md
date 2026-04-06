@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 The first lesson in this class, [Using Network Service
 Discovery](/develop/connectivity/wifi/use-nsd), showed you
 how to discover services that are connected to a local network. However, using

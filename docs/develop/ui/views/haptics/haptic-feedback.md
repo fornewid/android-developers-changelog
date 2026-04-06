@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 One of the most basic use cases for haptics is to provide feedback to user
 interactions. Time pickers, the key press on a virtual keyboard, and text
 selection are common examples of good use cases for haptic feedback. For more

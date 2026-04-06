@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 This lesson shows you how to use an `Intent` to insert a new contact or
 modify a contact's data. Instead of accessing the Contacts Provider directly, an
 `Intent` starts the contacts app, which runs the appropriate

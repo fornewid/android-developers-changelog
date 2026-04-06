@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Callstacks are useful for identifying *CPU hot spots*, or sections of code that
 take a long time to execute. Callstacks help you understand which part of the
 code has been executed, and why it was invoked.

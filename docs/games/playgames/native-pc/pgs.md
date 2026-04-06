@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 Seamlessly sign users into your game while continuing to use your own account
 system. With Play Games Services Recall APIs you can link in-game accounts with
 a Google Play Games Services account, then when a user plays your game across

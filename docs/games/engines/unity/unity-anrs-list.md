@@ -15,6 +15,7 @@ Send feedback
 
 
 
+
 Unity ANRs happen for a variety of reasons. Most common ANRs are caused by
 misuse of Android and Unity components and their miscommunication.
 
@@ -237,6 +238,8 @@ To learn more about ANRs, consult the following resources:
 
 * [Debug ANRs](/games/engines/unity/unity-anrs) — Android game development
 * [ANRs](/topic/performance/vitals/anr) — App quality
+
+
 
 
 

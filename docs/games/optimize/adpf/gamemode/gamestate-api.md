@@ -15,7 +15,6 @@ Send feedback
 
 
 
-
 **Released**:
 
 Android 13 (API Level 33) - [Java](/reference/android/app/GameState)
@@ -42,8 +41,6 @@ Check out the modes you can notify the system in the documentation
 [Summary](/reference/android/app/GameState#summary).
 It is possible that the list will grow when different resource consumption
 patterns is discovered in the future.
-
-
 
 
 

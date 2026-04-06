@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 On devices that run Android 4.4 (API level 19) and higher, your app can interact
 with a [documents provider](/guide/topics/providers/create-document-provider),
 including external storage volumes and cloud-based storage, using the Storage

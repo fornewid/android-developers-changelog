@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 The standard [Android Auto Backup](/identity/data/backup) lets apps back up a maximum of 25 MB of
 user data to cloud storage. However, for apps requiring more extensive backup
 capabilities—such as user-generated media and large-scale datasets—the Android

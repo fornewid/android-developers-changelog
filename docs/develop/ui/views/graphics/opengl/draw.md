@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 After you define shapes to be drawn with OpenGL, you probably want to draw them. Drawing shapes
 with the OpenGL ES 2.0 takes a bit more code than you might imagine, because the API provides a
 great deal of control over the graphics rendering pipeline.

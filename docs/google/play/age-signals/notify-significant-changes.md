@@ -14,7 +14,6 @@ On March 17, 2026, the Play Age Signals API starts rolling out responses for use
 
 
 
-
 **Note:** Functionality for significant changes is not yet live in Google Play
 Console.
 

@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 [Baseline Profiles](/baseline-profiles) improve code execution speed by about 30% from the first
 launch by avoiding interpretation and just-in-time (JIT) compilation steps for
 included code paths. By shipping a Baseline Profile in an app or library, you

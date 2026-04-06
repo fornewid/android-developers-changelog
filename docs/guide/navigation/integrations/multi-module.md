@@ -12,6 +12,7 @@ source: html-scrape
 
 
 
+
 A navigation graph can consist of any combination of the following:
 
 * A singular destination, such as a `<fragment>` destination.

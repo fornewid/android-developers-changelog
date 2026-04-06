@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 This documentation provides technical reference for using the
 Play Install Referrer API. The Play Install Referrer API is an
 [AIDL Service Interface](https://developer.android.com/guide/components/aidl.html)

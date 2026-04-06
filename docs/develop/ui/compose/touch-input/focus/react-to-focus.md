@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 ## Provide visual cues for easier focus visualization
 
 While all the focusable elements from Material Theme already have a focus style

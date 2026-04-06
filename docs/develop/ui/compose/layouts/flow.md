@@ -11,7 +11,6 @@ source: html-scrape
 
 
 
-
 [`FlowRow`](/reference/kotlin/androidx/compose/foundation/layout/FlowRow.composable) and [`FlowColumn`](/reference/kotlin/androidx/compose/foundation/layout/FlowColumn.composable)
 are composables that are similar to `Row` and `Column`, but differ in that items
 flow into the next line when the container runs out of space. This creates

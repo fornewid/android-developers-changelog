@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Debugging an app often requires working with stack traces. A stack trace generates when
 your app crashes because of an error or an exception. You can also print a stack trace at any
 point in your app code using methods such as

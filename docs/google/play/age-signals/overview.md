@@ -14,6 +14,7 @@ On March 17, 2026, the Play Age Signals API starts rolling out responses for use
 
 
 
+
 This guide explains how to use the Play Age Signals API (beta) to retrieve
 age-related signals for users, how to notify Google Play of significant changes
 to your app that require parental approval, and how to be notified about revoked

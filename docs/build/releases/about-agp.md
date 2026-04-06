@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 **Important:** For a detailed log of Android Gradle plugin API deprecations and
 removals, see the
 [Android Gradle plugin API updates](/studio/releases/gradle-plugin-api-updates).

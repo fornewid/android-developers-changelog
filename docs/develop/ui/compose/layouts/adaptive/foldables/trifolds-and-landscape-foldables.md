@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 ![A landscape foldable in closed and fully open postures next to a trifold in closed and fully open postures.](/static/develop/ui/compose/images/layouts/adaptive/foldables/dev_trifold_overview.png)
 
 Developers often encounter unique difficulties when creating applications for
@@ -28,9 +27,9 @@ mistakes include:
 
 Specific device-related issues include:
 
-* A mismatch in device natural orientation between the cover and inner displays
-  (assumptions based on rotation\_0 = portrait), causing apps to fail on fold
-  and unfold journeys
+* A mismatch in device natural orientation between the cover and inner
+  displays (assumptions based on rotation\_0 = portrait), causing apps to fail
+  on fold and unfold journeys
 * Different screen densities and incorrect *density* config change handling
 * Camera preview issues caused by camera sensor dependency on natural
   orientation
@@ -42,21 +41,21 @@ following critical areas:
   occupies, not the device's physical orientation
 * Update camera previews to manage device orientation and aspect ratios
   correctly, avoid sideways previews, and prevent stretched or cropped images
-* Maintain app continuity during device folding or unfolding by either retaining
-  the state with [`ViewModel`](/topic/libraries/architecture/viewmodel) or similar approaches, or manually handling
-  screen density changes and orientation changes, which avoids app restarts or
-  loss of state
-* For apps utilizing motion sensors, adjust the coordinate system to align with
-  the screen's current orientation and avoid assumptions based on rotation\_0 =
-  portrait, guaranteeing precise user interactions
+* Maintain app continuity during device folding or unfolding by either
+  retaining the state with [`ViewModel`](/topic/libraries/architecture/viewmodel) or similar approaches, or manually
+  handling screen density changes and orientation changes, which avoids app
+  restarts or loss of state
+* For apps utilizing motion sensors, adjust the coordinate system to align
+  with the screen's current orientation and avoid assumptions based on
+  rotation\_0 = portrait, guaranteeing precise user interactions
 
 ## Build adaptive
 
 If your app is already [adaptive](/adaptive-apps) and adheres to the optimized level (Tier 2)
-outlined in the [Large screen app quality](/docs/quality-guidelines/large-screen-app-quality) guidelines, the app should
-function well on foldable devices. Otherwise, before double-checking the
-specific details of trifold and landscape foldables, review the following
-foundational Android adaptive development concepts.
+outlined in the [Adaptive app quality guidelines](/docs/quality-guidelines/adaptive-app-quality), the app should function
+well on foldable devices. Otherwise, before double-checking the specific details
+of trifold and landscape foldables, review the following foundational Android
+adaptive development concepts.
 
 ### Adaptive layouts
 
@@ -105,14 +104,13 @@ when {
 
 For more information, see [Use window size classes](/develop/ui/compose/layouts/adaptive/use-window-size-classes).
 
-### Large screen app quality
+### Adaptive app quality
 
-Adhering to **Tier 2 (Large screen optimized)** or **Tier 1 (Large screen
-differentiated)** of the [Large screen app quality](/docs/quality-guidelines/large-screen-app-quality) guidelines ensures your
-app provides a compelling user experience on trifold devices, landscape
-foldables, and other large-screen devices. The guidelines cover critical checks
-across multiple tier levels to go from adaptive ready to a differentiated
-experience.
+Adhering to **Tier 2 (Adaptive app optimized)** or **Tier 1 (Adaptive
+differentiated)** of the [Adaptive app quality guidelines](/docs/quality-guidelines/adaptive-app-quality) ensures your app
+provides a compelling user experience on trifold devices, landscape foldables,
+and other large-screen devices. The guidelines cover critical checks across
+multiple tier levels to go from adaptive ready to a differentiated experience.
 
 ### Android 16 and higher
 
@@ -138,17 +136,15 @@ the camera preview appears stretched, sideways, cropped, or rotated.
 
 This issue often happens on large screen and foldable devices because apps can
 assume fixed relationships between camera features—like aspect ratio and sensor
-orientation—and device features—like device orientation and natural
-orientation.
+orientation—and device features—like device orientation and natural orientation.
 
 New form factors challenge this assumption. A foldable device can change its
 display size and aspect ratio without device rotation changing. For example,
-unfolding a device changes the aspect ratio, but if the user doesn't rotate
-the device, its rotation stays the same. If an app assumes that aspect ratio
+unfolding a device changes the aspect ratio, but if the user doesn't rotate the
+device, its rotation stays the same. If an app assumes that aspect ratio
 correlates to device rotation, it may incorrectly rotate or scale the camera
-preview. The same can happen if an app assumes camera sensor orientation
-matches a portrait device orientation, which isn't always true for landscape
-foldables.
+preview. The same can happen if an app assumes camera sensor orientation matches
+a portrait device orientation, which isn't always true for landscape foldables.
 
 #### Solution 1: Jetpack CameraX (Best)
 
@@ -158,8 +154,8 @@ automatically:
 
 * `PreviewView` correctly adjusts for sensor orientation, device rotation, and
   scaling.
-* It maintains the aspect ratio of the camera image, typically by centering and
-  cropping (FILL\_CENTER).
+* It maintains the aspect ratio of the camera image, typically by centering
+  and cropping (FILL\_CENTER).
 * You can set the scale type to `FIT_CENTER` to letterbox the preview if
   needed.
 
@@ -169,9 +165,9 @@ For more information, see [Implement a preview](/training/camerax/preview) in th
 
 If you are using an existing Camera2 codebase, the `CameraViewfinder` library
 (backward compatible to API level 21) is another modern solution. It simplifies
-displaying the camera feed by using a `TextureView` or `SurfaceView`
-and applying all the necessary transformations (aspect ratio, scale, and
-rotation) for you.
+displaying the camera feed by using a `TextureView` or `SurfaceView` and
+applying all the necessary transformations (aspect ratio, scale, and rotation)
+for you.
 
 For more information, see the [Introducing Camera Viewfinder](https://android-developers.googleblog.com/2022/11/introducing-camera-viewfinder.html) blog post and
 [Camera preview](/media/camera/camera2/camera-preview#cameraviewfinder) developer guide.
@@ -182,8 +178,8 @@ If you can't use CameraX or `CameraViewfinder`, you must manually calculate the
 orientation and aspect ratio and ensure the calculations are updated on each
 configuration change:
 
-* Get the camera sensor orientation (for example, 0, 90, 180, 270 degrees) from
-  `CameraCharacteristics`.
+* Get the camera sensor orientation (for example, 0, 90, 180, 270 degrees)
+  from `CameraCharacteristics`.
 * Get the device's current display rotation (for example, 0, 90, 180, 270
   degrees).
 * Use these two values to determine the necessary transformations for your
@@ -192,28 +188,28 @@ configuration change:
   the camera preview to prevent distortion.
 * The camera app might be running in a portion of the screen, either in
   multi-window or desktop windowing mode or on a connected display. For this
-  reason, screen size should not be used to determine the dimensions of the
+  reason, screen size shouldn't be used to determine the dimensions of the
   camera viewfinder, use [window metrics](/media/camera/camera2/camera-preview#window_metrics) instead.
 
-For more information, see the [Camera preview](/media/camera/camera2/camera-preview) developer guide and
-[Your Camera app on different form factors](https://www.youtube.com/watch?v=XcJIrTedfus) video.
+For more information, see the [Camera preview](/media/camera/camera2/camera-preview) developer guide and [Your
+Camera app on different form factors](https://www.youtube.com/watch?v=XcJIrTedfus) video.
 
 #### Solution 4: Perform basic camera actions using an intent
 
-If you don't need many camera features, a simple and straightforward solution is
-to perform basic camera actions like capturing a photo or video using the
-device's default camera application. You don't need to integrate with a camera
-library; instead, use an [Intent](/reference/android/content/Intent).
+If you don't need many camera features, a straightforward solution is to perform
+basic camera actions like capturing a photo or video using the device's default
+camera application. You don't need to integrate with a camera library; instead,
+use an [Intent](/reference/android/content/Intent).
 
 For more information, see [Camera intents](/media/camera/camera-intents).
 
 ### Configuration and continuity
 
 Foldable devices enhance UI versatility but can initiate more configuration
-changes than nonfoldable. Your app must manage these configuration
-changes and their combinations, such as device rotation, folding/unfolding, and
-window resizing in multi-window or desktop modes, while retaining or restoring
-app state. For example, apps must maintain the following continuity:
+changes than nonfoldables. Your app must manage these configuration changes and
+their combinations, such as device rotation, folding/unfolding, and window
+resizing in multi-window or desktop modes, while retaining or restoring app
+state. For example, apps must maintain the following continuity:
 
 * App state without crashing or causing disruptive changes to users (for
   example, when switching screens or sending the app to the background)
@@ -233,10 +229,10 @@ additional information about managing app state, see [Save UI states](/topic/lib
 
 The outer and inner screens of trifolds and landscape foldable devices might
 feature different pixel densities. Therefore, managing the configuration change
-for `density` requires extra attention. Android typically restarts the
-activity when display density changes, which can cause data loss. To prevent
-the system from restarting the activity, declare density handling in your manifest
-and manage the configuration change programmatically in your app.
+for `density` requires extra attention. Android typically restarts the activity
+when display density changes, which can cause data loss. To prevent the system
+from restarting the activity, declare density handling in your manifest and
+manage the configuration change programmatically in your app.
 
 #### AndroidManifest.xml configuration
 
@@ -245,8 +241,8 @@ and manage the configuration change programmatically in your app.
   config changes, for example, `screenSize`, `orientation`, `keyboardHidden`,
   `fontScale`, and so forth
 
-Declaring density (and other config changes) prevents the system from
-restarting the activity and instead calls onConfigurationChanged().
+Declaring density (and other config changes) prevents the system from restarting
+the activity and instead calls onConfigurationChanged().
 
 #### onConfigurationChanged() implementation
 
@@ -260,10 +256,11 @@ bitmaps or recalculating layout sizes) in the callback:
 
 * **Image resource**: Replace bitmaps and drawables with density-specific
   resources, or adjust the scale directly
-* **Layout unit (dp to px conversion)**: Recalculate view size, margin, padding
+* **Layout unit (dp to px conversion)**: Recalculate view size, margin,
+  padding
 * **Font and text size**: Reapply sp unit text size
-* **Custom `View`/`Canvas` drawing**: Update the pixel-based values used to draw
-  `Canvas`
+* **Custom `View`/`Canvas` drawing**: Update the pixel-based values used to
+  draw `Canvas`
 
 ### Determining app orientation
 
@@ -284,14 +281,14 @@ You can get the app's current display bounds and check its width and height to
 determine orientation.
 
 If you need to limit app orientation on phones (or the outer screens of
-foldables) but not on large screen devices, see
-[Restrict app orientation on phones](/develop/ui/compose/quick-guides/content/restrict-app-orientation-on-phones).
+foldables) but not on large screen devices, see [Restrict app orientation on
+phones](/develop/ui/compose/quick-guides/content/restrict-app-orientation-on-phones).
 
 ### Postures and display modes
 
 Foldable postures and states such as tabletop and [`HALF_OPENED`](/reference/kotlin/androidx/window/layout/FoldingFeature.State#HALF_OPENED()) are
 supported by both portrait foldables and landscape foldables. Trifolds, however,
-do not support tabletop posture and cannot be used `HALF_OPENED`. Trifolds
+don't support tabletop posture and cannot be used `HALF_OPENED`. Trifolds
 instead offer a larger screen for a unique user experience when fully unfolded.
 
 To differentiate your app on foldables that support `HALF_OPENED`, use Jetpack
@@ -303,20 +300,20 @@ the following developer guides:
 * [Learn about foldables](/develop/ui/compose/layouts/adaptive/foldables/learn-about-foldables)
 * [Make your app fold aware](/develop/ui/compose/layouts/adaptive/foldables/make-your-app-fold-aware)
 
-Foldables offer unique viewing experiences. Rear display mode and
-dual‑screen mode enable you to build special display features for foldable
-devices such as rear‑camera selfie preview and simultaneous but different
-displays on inner and outer screens. For more information see:
+Foldables offer unique viewing experiences. Rear display mode and dual‑screen
+mode enable you to build special display features for foldable devices such as
+rear‑camera selfie preview and simultaneous but different displays on inner and
+outer screens. For more information see:
 
 * [Support foldable display modes](/develop/ui/compose/layouts/adaptive/foldables/support-foldable-display-modes)
 
 ### Locking orientation to natural sensor orientation
 
 For very specific use cases—in particular, apps that need to take over the whole
-screen unrelated to the folded state of the device—the `nosensor` flag allows
-you to lock the app to the natural orientation of the device. For example, on a
-Pixel Fold, the natural orientation of the device when folded is portrait, while
-the natural orientation when unfolded is landscape. Adding the `nosensor` flag
+screen unrelated to the folded state of the device—the `nosensor` flag let you
+lock the app to the natural orientation of the device. For example, on a Pixel
+Fold, the natural orientation of the device when folded is portrait, while the
+natural orientation when unfolded is landscape. Adding the `nosensor` flag
 forces the app to be locked in portrait when running on the outer display and
 locked to landscape when running on the inner display.
 
@@ -326,18 +323,19 @@ locked to landscape when running on the inner display.
   android:screenOrientation="nosensor">
 ```
 
-**Important:** The `nosensor` flag doesn't cause any app compatibility issues; however,
-using the flag is not advised because doing so is contrary to the adaptive app guidelines.
+**Important:** The `nosensor` flag doesn't cause any app compatibility issues;
+however, using the flag is not advised because doing so is contrary to the
+adaptive app guidelines.
 
 ### Games and XR sensor remapping
 
 For games and XR apps, raw sensor data (like gyroscope or accelerometer) is
 provided in the device-fixed coordinate system. If the user rotates the device
-to play a game in landscape, the sensor axes do not rotate with the screen,
+to play a game in landscape, the sensor axes don't rotate with the screen,
 leading to incorrect game controls.
 
-To fix this issue, check the current [Display.getRotation()](/reference/android/view/Display#getRotation()) and remap the axes
-accordingly:
+To fix this issue, check the current [Display.getRotation()](/reference/android/view/Display#getRotation()) and remap the
+axes accordingly:
 
 * **Rotation 0**: x=x, y=y
 * **Rotation 90**: x=-y, y=x
@@ -350,17 +348,18 @@ top of the screen to the new axes based on the current rotation.
 
 ### App compatibility
 
-Applications must follow the app quality guidelines to guarantee compatibility
+Applications must follow the app quality guidelines to ensure compatibility
 across all form factors and connected displays. If an application cannot comply
 with the guidelines, device manufacturers can implement compatibility
 treatments, although this may degrade the user experience.
 
 For additional information, review the comprehensive list of [compatibility
 workarounds](/guide/practices/device-compatibility-mode#common_compatibility_issues) provided in the platform, specifically those related to [camera
-preview](/guide/practices/device-compatibility-mode#camera_preview), [overrides](/guide/practices/device-compatibility-mode#per-app_overrides), and [Android 16 API changes](/guide/practices/device-compatibility-mode#android_16) that could change
-your app behavior.
+preview](/guide/practices/device-compatibility-mode#camera_preview), [overrides](/guide/practices/device-compatibility-mode#per-app_overrides), and [Android 16 API changes](/guide/practices/device-compatibility-mode#android_16) that could
+change your app behavior.
 
-To learn more about building adaptive apps, see [Large screen app quality](/docs/quality-guidelines/large-screen-app-quality).
+To learn more about building adaptive apps, see the [Adaptive app quality
+guidelines](/docs/quality-guidelines/adaptive-app-quality).
 
 [Previous
 

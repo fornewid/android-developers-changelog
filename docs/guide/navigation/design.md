@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 The [Navigation component](/guide/navigation) uses a *navigation graph* to manage your app's
 navigation. The navigation graph is a data structure that contains each
 destination within your app and the connections between them.

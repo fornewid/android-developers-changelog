@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 To develop with Android 16 APIs and test your app with the Android 16 behavior
 changes, you need to set up the Android 16 SDK. Follow the instructions on this
 page to set up the Android 16 SDK in Android Studio and build and run your app

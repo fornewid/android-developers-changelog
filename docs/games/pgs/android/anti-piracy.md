@@ -1,19 +1,8 @@
 ---
-title: Anti-piracy for Android games  |  Android game development  |  Android Developers
+title: https://developer.android.com/games/pgs/android/anti-piracy
 url: https://developer.android.com/games/pgs/android/anti-piracy
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [Google Play](https://developer.android.com/distribute)
-* [Games dev center](https://developer.android.com/games)
-* [Guides](https://developer.android.com/games/guides)
-
-Send feedback
-
-# Anti-piracy for Android games Stay organized with collections Save and categorize content based on your preferences.
-
-
 
 This guide describes how to use the anti-piracy feature to secure your
 Android games.
@@ -36,20 +25,20 @@ it.
 To turn on the anti-piracy feature for your Android game:
 
 1. Follow the steps described in
-   [Set Up Your Game](/games/pgs/console/enable-features) to add your Android game
+   [Set Up Your Game](https://developer.android.com/games/pgs/console/enable-features) to add your Android game
    to the Google Play Console, if you have not done so already.
+
 2. In the [Google Play Console](https://play.google.com/console/), open the **Settings** tab, click
    **Game projects** and select your Game Project from the list.
    Select your game to manage Play Games Services settings.
+
 3. In the **Play Games Services configuration** page, go to the
    **Credentials** section. Then, select an existing Android credential or add
    a new one.
+
 4. Turn on the **Enable anti-piracy** option.
+
 5. Click **Save changes**.
+
 6. Publish your game in order for license checking to be
    activated.
-
-
-
-
-Send feedback

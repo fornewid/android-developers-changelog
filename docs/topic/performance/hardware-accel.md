@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 Beginning in Android 3.0 (API level 11), the Android 2D rendering pipeline supports hardware
 acceleration, meaning that all drawing operations that are performed on a
 `View`'s canvas use the GPU. Because of the increased resources required to enable

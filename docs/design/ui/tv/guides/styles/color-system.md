@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 Android TV adheres to Google's Material [color guidelines](https://m3.material.io/styles/color/the-color-system/color-roles#f5ef005c-0aba-4e23-9d46-ffbd386ade94), ensuring a
 cohesive and visually appealing interface. It creates a highly
 immersive and engaging visual style tailored to the TV screen.

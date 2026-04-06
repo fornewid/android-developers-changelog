@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 When you [enable app optimization](/topic/performance/app-optimization/enable-app-optimization), the `isShrinkResources = true` setting
 instructs the optimizer to remove resources that are unused, which helps reduce
 the size of your app. Resource shrinking works only in conjunction with code

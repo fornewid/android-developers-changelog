@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 To reuse fragments, build them as completely self-contained components
 that define their own layout and behavior. Once you define these
 reusable fragments, you can associate them with an activity and connect

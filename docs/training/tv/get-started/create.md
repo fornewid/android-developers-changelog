@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 TV apps use the same structure as apps for phones and tablets. This similarity means you can
 modify your existing apps to also run on TV devices or create new apps based on what you already
 know about building apps for Android.

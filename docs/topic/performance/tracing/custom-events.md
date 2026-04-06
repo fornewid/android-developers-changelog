@@ -1,8 +1,17 @@
 ---
-title: https://developer.android.com/topic/performance/tracing/custom-events
+title: Define custom events  |  App quality  |  Android Developers
 url: https://developer.android.com/topic/performance/tracing/custom-events
-source: md.txt
+source: html-scrape
 ---
+
+* [Android Developers](https://developer.android.com/)
+* [Design & Plan](https://developer.android.com/design)
+* [App quality](https://developer.android.com/quality)
+* [Technical quality](https://developer.android.com/quality/technical)
+
+# Define custom events Stay organized with collections Save and categorize content based on your preferences.
+
+
 
 System tracing shows you information about processes only at the system level,
 so it's sometimes difficult to know which of your app or game's methods are
@@ -10,7 +19,7 @@ executing at a given time relative to system events.
 
 Jetpack provides a tracing API that you can use to label a particular section of
 code. This information is then reported in traces captured on the device.
-[Macrobenchmark](https://developer.android.com/topic/performance/benchmarking/macrobenchmark-overview)
+[Macrobenchmark](/topic/performance/benchmarking/macrobenchmark-overview)
 captures traces with custom trace points automatically.
 
 When using the systrace command line tool to capture traces, the `-a` option is
@@ -19,7 +28,7 @@ trace report.
 
 ### Kotlin
 
-```kotlin
+```
 class MyAdapter : RecyclerView.Adapter<MyViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup,
             viewType: Int): MyViewHolder {
@@ -42,7 +51,7 @@ class MyAdapter : RecyclerView.Adapter<MyViewHolder>() {
 
 ### Java
 
-```java
+```
 public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
     @NonNull
     @Override
@@ -77,10 +86,10 @@ of forgetting to end the tracing.
 
 You can also use an NDK API for custom trace events. To learn about using this
 API for your native code, see [Custom trace events in native
-code](https://developer.android.com/topic/performance/tracing/custom-events-native).
+code](/topic/performance/tracing/custom-events-native).
 
 ## Recommended for you
 
-- Note: link text is displayed when JavaScript is off
-- [App startup time](https://developer.android.com/topic/performance/vitals/launch-time)
-- [Slow rendering](https://developer.android.com/topic/performance/vitals/render)
+* Note: link text is displayed when JavaScript is off
+* [App startup time](/topic/performance/vitals/launch-time)
+* [Slow rendering](/topic/performance/vitals/render)

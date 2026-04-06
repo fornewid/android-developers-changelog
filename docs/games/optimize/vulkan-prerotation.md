@@ -15,7 +15,6 @@ Send feedback
 
 
 
-
 This article describes how to efficiently handle device rotation
 in your Vulkan application by implementing pre-rotation.
 
@@ -473,8 +472,6 @@ article are:
 * Update viewport and scissor rectangles as needed by your application.
 
 [**Sample App:** Minimal Android pre-rotation](https://github.com/google/vulkan-pre-rotation-demo)
-
-
 
 
 

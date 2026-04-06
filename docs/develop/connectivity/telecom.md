@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 The Android Telecom framework (also known simply as "Telecom") manages audio and
 video calls on an Android-powered device. This includes SIM-based calls, such as
 calls

@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Users frequently have specific content in mind when using a media app on TV. If your app contains
 a large catalog of content, browsing for a specific title might not be the most efficient way for
 users to find what they are looking for. A search interface can help your users get to the

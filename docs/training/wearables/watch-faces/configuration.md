@@ -17,7 +17,6 @@ Learn more about the user-facing changes in this [Help Center article](https://
 
 
 
-
 Some watch faces support configuration parameters to let users customize how the watch face
 looks and behaves. For example, some watch faces let users pick a custom background color. Other
 watch faces that tell time for two different time zones let users select which time zones

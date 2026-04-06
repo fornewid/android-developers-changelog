@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 Using a wake lock can impair device performance. If you need to use a wake
 lock, it's important to do it properly. This document covers some best practices
 that can help you avoid common wake lock pitfalls.

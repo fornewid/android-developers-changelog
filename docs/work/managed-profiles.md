@@ -12,6 +12,7 @@ source: html-scrape
 
 
 
+
 The Android platform allows devices to have
 [work
 profiles](/about/versions/lollipop/android-5.0#Enterprise) (sometimes referred to as managed profiles). A work profile is controlled

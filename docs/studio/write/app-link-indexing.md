@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 **Note:** Apps Links Assistant Web Checks is only available in the latest
 stable channel version of Android Studio and major versions (including their
 patches) released in the previous 10 months. If you are using an older version

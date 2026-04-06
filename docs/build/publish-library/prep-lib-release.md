@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 This page describes the properties and options needed to prepare your
 [Android library](/studio/projects/android-library) project for publication
 using the [Android Gradle plugin (AGP)](/studio/releases/gradle-plugin).

@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 It is often desirable to play media while an app is not in the foreground. For
 example, a music player generally keeps playing music when the user has locked
 their device or is using another app. The Media3 library provides a series of

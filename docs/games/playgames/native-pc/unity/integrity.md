@@ -12,6 +12,7 @@ source: html-scrape
 
 
 
+
 The Play Integrity API protects your game from risky and fraudulent interactions
 with an integrity verdict token that you verify on your backend server.
 

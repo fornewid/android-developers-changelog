@@ -14,7 +14,6 @@ Send feedback
 
 
 
-
 **Note:** From August 2, 2023, developers offering alternative billing to users in
 South Korea must use alternative billing APIs. To get started, see the following
 details and visit our [alternative billing API integration guide](/google/play/billing/alternative/alternative-billing-with-user-choice-in-app).
@@ -337,8 +336,6 @@ view, but otherwise follows the same design specifications and functionality.
 | Title | Same as portrait view |
 | Message | Same as portrait view |
 | Buttons | Same as portrait view |
-
-
 
 
 

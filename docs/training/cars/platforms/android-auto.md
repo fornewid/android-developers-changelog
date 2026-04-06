@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 ![Android Auto user interface](/static/images/training/cars/android-auto.png)
 
 

@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 Passpoint is a Wi-Fi Alliance (WFA) protocol that enables mobile devices to
 discover and authenticate to Wi-Fi hotspots that provide internet access.
 

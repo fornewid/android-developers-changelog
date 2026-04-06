@@ -12,6 +12,7 @@ source: html-scrape
 
 
 
+
 This page presents several [Architecture](/topic/architecture) best practices and recommendations.
 Adopt them to improve your app's quality, robustness, and scalability. They also
 make it easier to maintain and test your app.

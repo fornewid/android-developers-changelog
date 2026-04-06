@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 Jetpack Compose is a modern declarative UI Toolkit for Android. Compose
 simplifies writing and maintaining your app UI by providing a
 *declarative API* that lets you render your app UI without imperatively

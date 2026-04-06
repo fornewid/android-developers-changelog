@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 The Android 17 platform includes behavior changes that might affect your app.
 The following behavior changes apply to *all apps* when they run on Android 17,
 regardless of [`targetSdkVersion`](/guide/topics/manifest/uses-sdk-element#target). You should test your app and then modify

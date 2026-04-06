@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 Audio Focus is managed by the system in Android. Audio focus is equivalent to
 Input on glasses. Apps can request focus to play audio, and duck or pause when
 another app gains focus. Only one app can hold audio focus at a time.

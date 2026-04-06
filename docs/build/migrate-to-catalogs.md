@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 [Gradle version catalogs](https://docs.gradle.org/current/userguide/platforms.html)
 enable you to add and maintain dependencies and plugins in a scalable way.
 Using Gradle version catalogs makes managing dependencies and plugins easier

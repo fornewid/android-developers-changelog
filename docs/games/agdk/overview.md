@@ -15,6 +15,7 @@ Send feedback
 
 
 
+
 ![](/static/images/logos/agdk.svg)
 
 The Android Game Development Kit (AGDK) is a set of tools and libraries that
@@ -134,6 +135,8 @@ Update the game mode of your app, enabling Android OS to adjust to meet your
 performance needs.
 
 [**Reference**](/reference/android/app/GameManager)
+
+
 
 
 

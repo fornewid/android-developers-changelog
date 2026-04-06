@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Built-in intents (BIIs) allow your app to express its fulfillment capabilities
 to Google. By declaring capabilities in your  [shortcuts.xml](https://developer.android.com/guide/app-actions/action-schema) file and
 mapping intent parameters to the fulfillment, you make it possible for

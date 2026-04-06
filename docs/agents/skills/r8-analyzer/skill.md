@@ -10,7 +10,6 @@ Save and categorize content based on your preferences.
 
 
 
-
 book\_path: /build/\_book.yaml
 project\_path: /build/\_project.yaml
 keywords: category:Build

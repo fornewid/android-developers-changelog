@@ -13,6 +13,7 @@ Save and categorize content based on your preferences.
 
 
 
+
 # Animations Recipe
 
 This recipe shows how to override the default animations at the `NavDisplay` level, and at the individual destination level.

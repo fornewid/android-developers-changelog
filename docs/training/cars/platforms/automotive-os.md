@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 ![Android Automotive OS user interface](/static/images/training/cars/android-automotive-os.png)
 
 

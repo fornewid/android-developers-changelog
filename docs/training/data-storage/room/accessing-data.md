@@ -1,8 +1,17 @@
 ---
-title: https://developer.android.com/training/data-storage/room/accessing-data
+title: Accessing data using Room DAOs  |  App data and files  |  Android Developers
 url: https://developer.android.com/training/data-storage/room/accessing-data
-source: md.txt
+source: html-scrape
 ---
+
+* [Android Developers](https://developer.android.com/)
+* [Develop](https://developer.android.com/develop)
+* [Core areas](https://developer.android.com/develop/core-areas)
+* [App data and files](https://developer.android.com/training/data-storage)
+
+# Accessing data using Room DAOs Stay organized with collections Save and categorize content based on your preferences.
+
+
 
 When you use the Room persistence library to store your app's data, you interact
 with the stored data by defining *data access objects*, or DAOs. Each DAO
@@ -11,15 +20,15 @@ time, Room automatically generates implementations of the DAOs that you define.
 
 By using DAOs to access your app's database instead of query builders or direct
 queries, you can preserve [separation of
-concerns](https://developer.android.com/jetpack/guide#separation-of-concerns), a critical architectural
+concerns](/jetpack/guide#separation-of-concerns), a critical architectural
 principle. DAOs also make it easier for you to mock database access when you
-[test your app](https://developer.android.com/training/data-storage/room/testing-db).
+[test your app](/training/data-storage/room/testing-db).
 
 ## Anatomy of a DAO
 
 You can define each DAO as either an interface or an abstract class. For basic
 use cases, you usually use an interface. In either case, you must always
-annotate your DAOs with [`@Dao`](https://developer.android.com/reference/kotlin/androidx/room/Dao). DAOs
+annotate your DAOs with [`@Dao`](/reference/kotlin/androidx/room/Dao). DAOs
 don't have properties, but they do define one or more methods for interacting
 with the data in your app's database.
 
@@ -28,7 +37,7 @@ inserting, deleting, and selecting `User` objects in a Room database:
 
 ### Kotlin
 
-```kotlin
+```
 @Dao
 interface UserDao {
     @Insert
@@ -44,7 +53,7 @@ interface UserDao {
 
 ### Java
 
-```java
+```
 @Dao
 public interface UserDao {
     @Insert
@@ -60,8 +69,10 @@ public interface UserDao {
 
 There are two types of DAO methods that define database interactions:
 
-- Convenience methods that let you insert, update, and delete rows in your database without writing any SQL code.
-- Query methods that let you write your own SQL query to interact with the database.
+* Convenience methods that let you insert, update, and delete rows in your
+  database without writing any SQL code.
+* Query methods that let you write your own SQL query to interact with the
+  database.
 
 The following sections demonstrate how to use both types of DAO methods to
 define the database interactions that your app needs.
@@ -72,18 +83,18 @@ Room provides convenience annotations for defining methods that perform simple
 insertions, updates, and deletions without requiring you to write a SQL statement.
 
 If you need to define more complex insertions, updates, or deletions, or if you need
-to query the data in the database, use a [query method](https://developer.android.com/training/data-storage/room/accessing-data#query) instead.
+to query the data in the database, use a [query method](#query) instead.
 
 ### Insert
 
-The [`@Insert`](https://developer.android.com/reference/kotlin/androidx/room/Insert) annotation lets you
+The [`@Insert`](/reference/kotlin/androidx/room/Insert) annotation lets you
 define methods that insert their parameters into the appropriate table in the
 database. The following code shows examples of valid `@Insert` methods that
 insert one or more `User` objects into the database:
 
 ### Kotlin
 
-```kotlin
+```
 @Dao
 interface UserDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
@@ -99,7 +110,7 @@ interface UserDao {
 
 ### Java
 
-```java
+```
 @Dao
 public interface UserDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
@@ -114,7 +125,7 @@ public interface UserDao {
 ```
 
 Each parameter for an `@Insert` method must be either an instance of a [Room
-data entity class](https://developer.android.com/training/data-storage/room/defining-data) annotated with
+data entity class](/training/data-storage/room/defining-data) annotated with
 `@Entity` or a collection of data entity class instances, each of which
 points to a database. When an `@Insert` method is called, Room inserts each
 passed entity instance into the corresponding database table.
@@ -124,13 +135,13 @@ value, which is the new `rowId` for the inserted item. If the parameter is an
 array or a collection, then return an array or a collection
 of `long` values instead, with each value as the `rowId` for one of the inserted
 items. To learn more about returning `rowId` values, see the reference
-documentation for the [`@Insert`](https://developer.android.com/reference/kotlin/androidx/room/Insert)
+documentation for the [`@Insert`](/reference/kotlin/androidx/room/Insert)
 annotation and the [SQLite documentation for rowid
 tables](https://www.sqlite.org/rowidtable.html).
 
 ### Update
 
-The [`@Update`](https://developer.android.com/reference/kotlin/androidx/room/Update) annotation lets you
+The [`@Update`](/reference/kotlin/androidx/room/Update) annotation lets you
 define methods that update specific rows in a database table. Like
 `@Insert` methods, `@Update` methods accept data entity instances as parameters.
 The following code shows an example of an `@Update` method that attempts to
@@ -138,7 +149,7 @@ update one or more `User` objects in the database:
 
 ### Kotlin
 
-```kotlin
+```
 @Dao
 interface UserDao {
     @Update
@@ -148,7 +159,7 @@ interface UserDao {
 
 ### Java
 
-```java
+```
 @Dao
 public interface UserDao {
     @Update
@@ -157,7 +168,7 @@ public interface UserDao {
 ```
 
 Room uses the [primary
-key](https://developer.android.com/training/data-storage/room/defining-data#primary-key) to match passed
+key](/training/data-storage/room/defining-data#primary-key) to match passed
 entity instances to rows in the database. If there is no row with the same
 primary key, Room makes no changes.
 
@@ -166,7 +177,7 @@ of rows that were updated successfully.
 
 ### Delete
 
-The [`@Delete`](https://developer.android.com/reference/kotlin/androidx/room/Delete) annotation lets you
+The [`@Delete`](/reference/kotlin/androidx/room/Delete) annotation lets you
 define methods that delete specific rows from a database table. Like
 `@Insert` methods, `@Delete` methods accept data entity instances as parameters.
 The following code shows an example of a `@Delete` method that attempts to
@@ -174,7 +185,7 @@ delete one or more `User` objects from the database:
 
 ### Kotlin
 
-```kotlin
+```
 @Dao
 interface UserDao {
     @Delete
@@ -184,7 +195,7 @@ interface UserDao {
 
 ### Java
 
-```java
+```
 @Dao
 public interface UserDao {
     @Delete
@@ -193,7 +204,7 @@ public interface UserDao {
 ```
 
 Room uses the [primary
-key](https://developer.android.com/training/data-storage/room/defining-data#primary-key) to match passed
+key](/training/data-storage/room/defining-data#primary-key) to match passed
 entity instances to rows in the database. If there is no row with the same
 primary key, Room makes no changes.
 
@@ -202,7 +213,7 @@ rows that were deleted successfully.
 
 ## Query methods
 
-The [`@Query`](https://developer.android.com/reference/kotlin/androidx/room/Query) annotation lets you
+The [`@Query`](/reference/kotlin/androidx/room/Query) annotation lets you
 write SQL statements and expose them as DAO methods. Use these query methods to
 query data from your app's database or when you need to perform more complex
 insertions, updates, and deletions.
@@ -217,14 +228,14 @@ all the `User` objects in the database:
 
 ### Kotlin
 
-```kotlin
+```
 @Query("SELECT * FROM user")
 fun loadAllUsers(): Array<User>
 ```
 
 ### Java
 
-```java
+```
 @Query("SELECT * FROM user")
 public User[] loadAllUsers();
 ```
@@ -246,7 +257,7 @@ can define the following object to hold a user's first and last name:
 
 ### Kotlin
 
-```kotlin
+```
 data class NameTuple(
     @ColumnInfo(name = "first_name") val firstName: String?,
     @ColumnInfo(name = "last_name") val lastName: String?
@@ -255,7 +266,7 @@ data class NameTuple(
 
 ### Java
 
-```java
+```
 public class NameTuple {
     @ColumnInfo(name = "first_name")
     public String firstName;
@@ -270,14 +281,14 @@ Then, you can return that simple object from your query method:
 
 ### Kotlin
 
-```kotlin
+```
 @Query("SELECT first_name, last_name FROM user")
 fun loadFullName(): List<NameTuple>
 ```
 
 ### Java
 
-```java
+```
 @Query("SELECT first_name, last_name FROM user")
 public List<NameTuple> loadFullName();
 ```
@@ -298,14 +309,14 @@ above a certain age:
 
 ### Kotlin
 
-```kotlin
+```
 @Query("SELECT * FROM user WHERE age > :minAge")
 fun loadAllUsersOlderThan(minAge: Int): Array<User>
 ```
 
 ### Java
 
-```java
+```
 @Query("SELECT * FROM user WHERE age > :minAge")
 public User[] loadAllUsersOlderThan(int minAge);
 ```
@@ -315,7 +326,7 @@ times in a query, as demonstrated in the following code:
 
 ### Kotlin
 
-```kotlin
+```
 @Query("SELECT * FROM user WHERE age BETWEEN :minAge AND :maxAge")
 fun loadAllUsersBetweenAges(minAge: Int, maxAge: Int): Array<User>
 
@@ -326,7 +337,7 @@ fun findUserWithName(search: String): List<User>
 
 ### Java
 
-```java
+```
 @Query("SELECT * FROM user WHERE age BETWEEN :minAge AND :maxAge")
 public User[] loadAllUsersBetweenAges(int minAge, int maxAge);
 
@@ -347,14 +358,14 @@ all the users from a subset of regions:
 
 ### Kotlin
 
-```kotlin
+```
 @Query("SELECT * FROM user WHERE region IN (:regions)")
 fun loadUsersFromRegions(regions: List<String>): List<User>
 ```
 
 ### Java
 
-```java
+```
 @Query("SELECT * FROM user WHERE region IN (:regions)")
 public List<User> loadUsersFromRegions(List<String> regions);
 ```
@@ -370,7 +381,7 @@ the books that are currently on loan to a specific user:
 
 ### Kotlin
 
-```kotlin
+```
 @Query(
     "SELECT * FROM book " +
     "INNER JOIN loan ON loan.book_id = book.id " +
@@ -382,7 +393,7 @@ fun findBooksBorrowedByNameSync(userName: String): List<Book>
 
 ### Java
 
-```java
+```
 @Query("SELECT * FROM book " +
        "INNER JOIN loan ON loan.book_id = book.id " +
        "INNER JOIN user ON user.id = loan.user_id " +
@@ -392,12 +403,12 @@ public List<Book> findBooksBorrowedByNameSync(String userName);
 
 You can also define simple objects to return a subset of columns from multiple
 joined tables, as discussed in the [Return a subset of a table's
-columns](https://developer.android.com/training/data-storage/room/accessing-data#return-subset) section. The following code defines a DAO with a method that
+columns](#return-subset) section. The following code defines a DAO with a method that
 returns the names of users and the names of the books that they have borrowed:
 
 ### Kotlin
 
-```kotlin
+```
 interface UserBookDao {
     @Query(
         "SELECT user.name AS userName, book.name AS bookName " +
@@ -413,7 +424,7 @@ interface UserBookDao {
 
 ### Java
 
-```java
+```
 @Dao
 public interface UserBookDao {
    @Query("SELECT user.name AS userName, book.name AS bookName " +
@@ -436,14 +447,14 @@ In Room 2.4 and higher, you can also query columns from multiple tables without
 defining an additional data class by writing query methods that return a
 [multimap](https://en.wikipedia.org/wiki/Multimap).
 
-Consider the example from the [Query multiple tables](https://developer.android.com/training/data-storage/room/accessing-data#multiple-tables) section.
+Consider the example from the [Query multiple tables](#multiple-tables) section.
 Instead of returning a list of instances of a custom data class that holds
 pairings of `User` and `Book` instances, you can return a mapping of `User` and
 `Book` directly from your query method:
 
 ### Kotlin
 
-```kotlin
+```
 @Query(
     "SELECT * FROM user" +
     "JOIN book ON user.id = book.user_id"
@@ -453,7 +464,7 @@ fun loadUserAndBookNames(): Map<User, List<Book>>
 
 ### Java
 
-```java
+```
 @Query(
     "SELECT * FROM user" +
     "JOIN book ON user.id = book.user_id"
@@ -469,7 +480,7 @@ checked out:
 
 ### Kotlin
 
-```kotlin
+```
 @Query(
     "SELECT * FROM user" +
     "JOIN book ON user.id = book.user_id" +
@@ -480,7 +491,7 @@ fun loadUserAndBookNames(): Map<User, List<Book>>
 
 ### Java
 
-```java
+```
 @Query(
     "SELECT * FROM user" +
     "JOIN book ON user.id = book.user_id" +
@@ -491,14 +502,14 @@ public Map<User, List<Book>> loadUserAndBookNames();
 
 If you don't need to map entire objects, you can also return mappings between
 specific columns in your query by setting the
-[`keyColumn`](https://developer.android.com/reference/kotlin/androidx/room/MapInfo#keyColumn()) and
-[`valueColumn`](https://developer.android.com/reference/kotlin/androidx/room/MapInfo#valueColumn()) attributes
-in a [`@MapInfo`](https://developer.android.com/reference/kotlin/androidx/room/MapInfo) annotation on your
+[`keyColumn`](/reference/kotlin/androidx/room/MapInfo#keyColumn()) and
+[`valueColumn`](/reference/kotlin/androidx/room/MapInfo#valueColumn()) attributes
+in a [`@MapInfo`](/reference/kotlin/androidx/room/MapInfo) annotation on your
 query method:
 
 ### Kotlin
 
-```kotlin
+```
 @MapInfo(keyColumn = "userName", valueColumn = "bookName")
 @Query(
     "SELECT user.name AS username, book.name AS bookname FROM user" +
@@ -509,7 +520,7 @@ fun loadUserAndBookNames(): Map<String, List<String>>
 
 ### Java
 
-```java
+```
 @MapInfo(keyColumn = "userName", valueColumn = "bookName")
 @Query(
     "SELECT user.name AS username, book.name AS bookname FROM user" +
@@ -526,14 +537,14 @@ libraries.
 ### Paginated queries with the Paging library
 
 Room supports paginated queries through integration with the [Paging
-library](https://developer.android.com/topic/libraries/architecture/paging). In Room 2.3.0-alpha01 and
+library](/topic/libraries/architecture/paging). In Room 2.3.0-alpha01 and
 higher, DAOs can return
-[`PagingSource`](https://developer.android.com/reference/kotlin/androidx/paging/PagingSource) objects for use
-with [Paging 3](https://developer.android.com/topic/libraries/architecture/paging/v3-overview).
+[`PagingSource`](/reference/kotlin/androidx/paging/PagingSource) objects for use
+with [Paging 3](/topic/libraries/architecture/paging/v3-overview).
 
 ### Kotlin
 
-```kotlin
+```
 @Dao
 interface UserDao {
   @Query("SELECT * FROM users WHERE label LIKE :query")
@@ -543,7 +554,7 @@ interface UserDao {
 
 ### Java
 
-```java
+```
 @Dao
 interface UserDao {
   @Query("SELECT * FROM users WHERE label LIKE :query")
@@ -553,17 +564,17 @@ interface UserDao {
 
 For more information about choosing type parameters for a `PagingSource`, see
 [Select key and value
-types](https://developer.android.com/topic/libraries/architecture/paging/v3-paged-data#key-value).
+types](/topic/libraries/architecture/paging/v3-paged-data#key-value).
 
 ### Direct cursor access
 
 If your app's logic requires direct access to the return rows, you can write
-your DAO methods to return a [`Cursor`](https://developer.android.com/reference/kotlin/android/database/Cursor)
+your DAO methods to return a [`Cursor`](/reference/kotlin/android/database/Cursor)
 object, as shown in the following example:
 
 ### Kotlin
 
-```kotlin
+```
 @Dao
 interface UserDao {
     @Query("SELECT * FROM user WHERE age > :minAge LIMIT 5")
@@ -573,7 +584,7 @@ interface UserDao {
 
 ### Java
 
-```java
+```
 @Dao
 public interface UserDao {
     @Query("SELECT * FROM user WHERE age > :minAge LIMIT 5")
@@ -581,8 +592,10 @@ public interface UserDao {
 }
 ```
 
-> [!CAUTION]
-> **Caution:** We don't recommend using the Cursor API, because it doesn't guarantee that the rows exist or what values the rows contain. Only use this functionality if you already have code that expects a cursor and that you can't refactor easily.
+**Caution:** We don't recommend using the Cursor API, because it doesn't
+guarantee that the rows exist or what values the rows contain. Only use this
+functionality if you already have code that expects a cursor and that you can't
+refactor easily.
 
 ## Additional resources
 
@@ -591,8 +604,20 @@ resources:
 
 ### Samples
 
-- [Android Sunflower](https://github.com/android/sunflower)
+* [Android Sunflower](https://github.com/android/sunflower)
 
 ### Codelabs
 
-- Android Room with a View [(Java)](https://developer.android.com/codelabs/android-room-with-a-view) [(Kotlin)](https://developer.android.com/codelabs/android-room-with-a-view-kotlin)
+* Android Room with a View [(Java)](/codelabs/android-room-with-a-view) [(Kotlin)](/codelabs/android-room-with-a-view-kotlin)
+
+[Previous
+
+arrow\_back
+
+Define data using entities](/training/data-storage/room/defining-data)
+
+[Next
+
+Write asynchronous DAO queries
+
+arrow\_forward](/training/data-storage/room/async-queries)

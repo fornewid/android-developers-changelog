@@ -13,7 +13,6 @@ Save and categorize content based on your preferences.
 
 
 
-
 # Material List-Detail Recipe
 
 This recipe demonstrates how to create an adaptive list-detail layout using the `ListDetailSceneStrategy` from the Material 3 Adaptive library. This layout automatically adjusts to show one, two, or three panes depending on the available screen width.

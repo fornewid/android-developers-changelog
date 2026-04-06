@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 A default phone application lets the Android Telecom framework inform your application of the calling state by using the role manager and in-call service to create a replacement for the default phone app on an Android device, implement the InCallService API. Your implementation must meet the following requirements:
 
 It must not have any calling capability, and must consist solely of the user interface for calling.

@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 **Preview:** Journeys for Android Studio are available as a Studio Labs feature
 starting from Android Studio Otter 3 Feature Drop | 2025.2.3. To enable it,
 go to **Studio Labs** in the settings menu.

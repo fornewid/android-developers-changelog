@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 When you introduce Compose in an existing app, you need to migrate your Material
 XML themes to use `MaterialTheme` for Compose components. This means your app's
 theming will have two sources of truth: the View-based theme and the Compose

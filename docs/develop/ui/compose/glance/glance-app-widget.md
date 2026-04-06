@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 The following sections describe how to update `GlanceAppWidget` and manage its
 state.
 

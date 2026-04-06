@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Moving to any new language can be a daunting task. The recipe for success is to
 start slow, move in chunks, and test frequently to align your team for success.
 Kotlin makes migrating easy, as it compiles down to JVM bytecode and

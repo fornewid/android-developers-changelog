@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 The Translations Editor provides a consolidated and editable view of all of your default and
 translated [string resources](/guide/topics/resources/string-resource).
 

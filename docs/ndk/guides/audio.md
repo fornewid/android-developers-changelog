@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 High performance audio apps typically require more functionality than the simple
 ability to play or record sound. They demand responsive realtime system
 behavior. Some typical use cases include:

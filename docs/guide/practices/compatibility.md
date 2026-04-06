@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Android is designed to run on many different devices, such as phones,
 tablets, and televisions. The range of devices provides a huge potential
 audience for your app. For your app to be successful on all devices, it must

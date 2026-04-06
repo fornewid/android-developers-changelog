@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 To create the Android for Cars version of your app, first identify
 vehicle-appropriate tasks – and keep in mind the need to limit driver
 distraction.

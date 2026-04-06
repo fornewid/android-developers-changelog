@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 To generate a method trace of your app's execution, you can instrument your app
 using the `Debug`
 class. Instrumenting your app this way gives you more control over exactly when

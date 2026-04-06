@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 In Compose, UI elements are represented by the composable functions that emit a
 piece of UI when invoked, that is then added to a UI tree that gets rendered on
 the screen. Each UI element has one parent and potentially many children. Each

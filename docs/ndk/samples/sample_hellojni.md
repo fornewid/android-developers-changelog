@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 This sample guides you through hello-jni, a minimal
 C/C++ application built with the NDK. This sample is in the [hello-jni](https://github.com/android/ndk-samples/tree/android-mk/hello-jni) directory
 of ndk-samples repo, inside [android-mk branch](https://github.com/android/ndk-samples/tree/android-mk).

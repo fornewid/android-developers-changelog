@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 ![](/static/images/quality/hero-images/ux_highlighted.svg)
 
 High-quality apps and games are intuitive and delightful to use, evoking

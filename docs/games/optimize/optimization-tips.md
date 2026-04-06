@@ -15,7 +15,6 @@ Send feedback
 
 
 
-
 This document shows you how to optimize game performance by using tools to
 identify and resolve CPU and GPU bottlenecks.
 
@@ -355,8 +354,6 @@ identify the following optimization opportunities:
 
 
 Example to eliminate superfluous draw calls and render passes (click to enlarge).
-
-
 
 
 

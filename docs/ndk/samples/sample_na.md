@@ -1,94 +1,127 @@
 ---
-title: https://developer.android.com/ndk/samples/sample_na
+title: Sample: native-activity  |  Android NDK  |  Android Developers
 url: https://developer.android.com/ndk/samples/sample_na
-source: md.txt
+source: html-scrape
 ---
 
-# Sample: native-activity
+* [Home](https://developer.android.com/)
+* [NDK](https://developer.android.com/ndk)
+* [Develop](https://developer.android.com/develop)
+* [Samples](https://developer.android.com/ndk/samples)
 
-The native-activity sample resides under the[NDK samples root](https://github.com/android/ndk-samples/), in folder`native-activity`. It is a very simple example of a purely native application, with no Java source code. In the absence of any Java source, the Java compiler still creates an executable stub for the virtual machine to run. The stub serves as a wrapper for the actual, native program, which is located in the`.so`file.
+# Sample: native-activity Stay organized with collections Save and categorize content based on your preferences.
 
-The app itself simply renders a color onto the entire screen, and then changes the color partly in response to movement that it detects.
+
+
+
+The native-activity sample resides under the
+[NDK samples root](https://github.com/android/ndk-samples/), in folder
+`native-activity`. It is a very simple example of a purely native
+application, with no Java source code. In the absence of any Java source, the
+Java compiler still creates an executable stub for the virtual machine to run.
+The stub serves as a wrapper for the actual, native program, which is located in the `.so`
+file.
+
+The app itself simply renders a color onto the entire screen, and
+then changes the color partly in response to movement that it detects.
 
 ## AndroidManifest.xml
 
-An app with only native code must not specify an Android API level lower than 9, which introduced the[`NativeActivity`](https://developer.android.com/ndk/guides/concepts#naa)framework class.  
+An app with only native code must not specify an Android API level lower than 9, which introduced
+the [`NativeActivity`](/ndk/guides/concepts#naa) framework class.
 
-```xml
+```
 <uses-sdk android:minSdkVersion="9" />
 ```
 
-The following line declares`android:hasCode`as`false`, as this app has only native code--no Java.  
+The following line declares `android:hasCode` as `false`, as this app has only
+native code–no Java.
 
-```xml
+```
 <application android:label="@string/app_name"
 android:hasCode="false">
 ```
 
-The next line declares the`NativeActivity`class.  
+The next line declares the `NativeActivity` class.
 
-```xml
+```
 <activity android:name="android.app.NativeActivity"
 ```
 
-Finally, the manifest specifies`android:value`as the name of the shared library to be built, minus the initial`lib`and the`.so`extension. This value must be the same as the name of`LOCAL_MODULE`in`Android.mk`.  
+Finally, the manifest specifies `android:value` as the name of the shared library to be
+built, minus the initial `lib` and the `.so` extension. This value must be the same as
+the name of `LOCAL_MODULE` in `Android.mk`.
 
-```xml
+```
 <meta-data android:name="android.app.lib_name"
         android:value="native-activity" />
 ```
 
 ## Android.mk
 
-This file begins by providing the name of the shared library to generate.  
+This file begins by providing the name of the shared library to generate.
 
 ```
 LOCAL_MODULE    := native-activity
 ```
 
-Next, it declares the name of the native source-code file.  
+Next, it declares the name of the native source-code file.
 
 ```
 LOCAL_SRC_FILES := main.c
 ```
 
-Next, it lists the external libraries for the build system to use in building the binary. The`-l`(link-against) option precedes each library name.
+Next, it lists the external libraries for the build system to use in building the binary. The
+`-l` (link-against) option precedes each library name.
 
-- `log`is a logging library.
-- `android`encompasses the standard Android support APIs for NDK. For more information about the APIs that Android and the NDK support, see[Android NDK Native APIs](https://developer.android.com/ndk/guides/stable_apis).
-- `EGL`corresponds to the platform-specific portion of the graphics API.
-- `GLESv1_CM`corresponds to OpenGL ES, the version of OpenGL for Android. This library depends on EGL.
+* `log` is a logging library.
+* `android` encompasses the standard Android support APIs for NDK. For more information about
+  the APIs that Android and the NDK support, see [Android NDK Native
+  APIs](/ndk/guides/stable_apis).
+* `EGL` corresponds to the platform-specific portion of the graphics API.
+* `GLESv1_CM` corresponds to OpenGL ES, the version of OpenGL for Android. This library
+  depends on EGL.
 
 For each library:
 
-- The actual file name starts with`lib`, and ends with the`.so`extension. For example, the actual file name for the`log`library is`liblog.so`.
-- The library resides in the following directory, NDK root:`<ndk>/platforms/android-<sdk_version>/arch-<abi>/usr/lib/`.
+* The actual file name starts with `lib`, and ends with the
+  `.so` extension. For example, the actual file name for the
+  `log` library is `liblog.so`.
+* The library resides in the following directory, NDK root:
+  `<ndk>/platforms/android-<sdk_version>/arch-<abi>/usr/lib/`.
 
 ```
 LOCAL_LDLIBS    := -llog -landroid -lEGL -lGLESv1_CM
 ```
 
-The next line provides the name of the static library,`android_native_app_glue`, which the application uses to manage`NativeActivity`lifecycle events and touch input.  
+The next line provides the name of the static library, `android_native_app_glue`, which the
+application uses to manage `NativeActivity` lifecycle events and touch input.
 
 ```
 LOCAL_STATIC_LIBRARIES := android_native_app_glue
 ```
 
-The final line tells the build system to build this static library. The`ndk-build`script places the built library (`libandroid_native_app_glue.a`) into the`obj`directory generated during the build process. For more information about the`android_native_app_glue`library, see its`android_native_app_glue.h`header and corresponding`.c`source file.  
+The final line tells the build system to build this static library.
+The `ndk-build` script places the built library
+(`libandroid_native_app_glue.a`) into the `obj` directory
+generated during the build process. For more information about the `android_native_app_glue`
+library, see its `android_native_app_glue.h` header and corresponding `.c`source file.
 
 ```
 $(call import-module,android/native_app_glue)
 ```
 
-For more information about the`Android.mk`file, see[Android.mk](https://developer.android.com/ndk/guides/android_mk).
+For more information about the `Android.mk` file, see
+[Android.mk](/ndk/guides/android_mk).
 
 ## main.c
 
 This file essentially contains the entire progam.
 
-The following includes correspond to the libraries, both shared and static, enumerated in`Android.mk`.  
+The following includes correspond to the libraries, both shared and static,
+enumerated in `Android.mk`.
 
-```c++
+```
 #include <EGL/egl.h>
 #include <GLES/gl.h>
 
@@ -98,15 +131,18 @@ The following includes correspond to the libraries, both shared and static, enum
 #include <android_native_app_glue>
 ```
 
-The`android_native_app_glue`library calls the following function, passing it a predefined state structure. It also serves as a wrapper that simplifies handling of`NativeActivity`callbacks.  
+The `android_native_app_glue` library calls the following function,
+passing it a predefined state structure. It also serves as a wrapper that
+simplifies handling of `NativeActivity` callbacks.
 
-```c++
+```
 void android_main(struct android_app* state) {
 ```
 
-Next, the program handles events queued by the glue library. The event handler follows the state structure.  
+Next, the program handles events queued by the glue library. The event
+handler follows the state structure.
 
-```c++
+```
 struct engine engine;
 
 
@@ -123,9 +159,10 @@ state->onInputEvent = engine_handle_input;
 engine.app = state;
 ```
 
-The application prepares to start monitoring the sensors, using the APIs in`sensor.h`.  
+The application prepares to start monitoring the sensors, using the
+APIs in `sensor.h`.
 
-```c++
+```
     engine.sensorManager = ASensorManager_getInstance();
     engine.accelerometerSensor =
                     ASensorManager_getDefaultSensor(engine.sensorManager,
@@ -135,9 +172,13 @@ The application prepares to start monitoring the sensors, using the APIs in`sens
                         state->looper, LOOPER_ID_USER, NULL, NULL);
 ```
 
-Next, a loop begins, in which the application polls the system for messages (sensor events). It sends messages to`android_native_app_glue`, which checks to see whether they match any`onAppCmd`events defined in`android_main`. When a match occurs, the message is sent to the handler for execution.  
+Next, a loop begins, in which the application polls the system for
+messages (sensor events). It sends messages to
+`android_native_app_glue`, which checks to see whether they match
+any `onAppCmd` events defined in `android_main`. When a
+match occurs, the message is sent to the handler for execution.
 
-```c++
+```
 while (1) {
         // Read all pending events.
         int ident;
@@ -181,9 +222,10 @@ while (1) {
     }
 ```
 
-Once the queue is empty, and the program exits the polling loop, the program calls OpenGL to draw the screen.  
+Once the queue is empty, and the program exits the polling loop, the
+program calls OpenGL to draw the screen.
 
-```c++
+```
     if (engine.animating) {
         // Done with events; draw next animation frame.
         engine.state.angle += .01f;

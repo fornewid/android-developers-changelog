@@ -14,7 +14,6 @@ Send feedback
 
 
 
-
 **Note:** Manual reporting of alternative billing only and user choice billing is
 being sunset. Please find more details about migration deadlines [here](https://support.google.com/googleplay/android-developer/answer/13821247). To
 learn about what transactions need to be migrated and how to migrate see
@@ -236,8 +235,6 @@ Example for illustrative purposes only.
 
 To begin integrating the alternative billing APIs, follow the in-depth guides
 for both [in-app integration](/google/play/billing/alternative/alternative-billing-without-user-choice-in-app) and [backend integration](/google/play/billing/alternative/backend).
-
-
 
 
 

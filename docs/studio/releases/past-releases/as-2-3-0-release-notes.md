@@ -15,7 +15,6 @@ Save and categorize content based on your preferences.
 
 
 
-
 # Android Studio 2.3 (March 2017)
 
 Android Studio 2.3.0 is primarily a bug fix and stability release, but it

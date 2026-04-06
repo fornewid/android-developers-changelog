@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 [Android's recommended app architecture](/jetpack/docs/guide#recommended-app-arch) encourages dividing
 your code into classes to benefit from separation of concerns, a principle
 where each class of the hierarchy has a single defined responsibility.

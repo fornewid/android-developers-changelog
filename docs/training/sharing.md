@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 One of the great things about Android apps is their ability to communicate and
 integrate with each other. Why reinvent functionality that isn't core to your application when it
 already exists in another application?

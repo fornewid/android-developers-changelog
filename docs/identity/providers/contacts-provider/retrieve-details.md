@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 This lesson shows how to retrieve detail data for a contact, such as email addresses, phone
 numbers, and so forth. It's the details that users are looking for when they retrieve a contact.
 You can give them all the details for a contact, or only display details of a particular type,
@@ -49,7 +48,7 @@ To request this permission, add the following child element of
 `<manifest>` to your manifest file:
 
 ```
-    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.READ_CONTAC>TS" /
 ```
 
 ### Set up a projection
@@ -136,7 +135,7 @@ find the contact. For example:
 private const val SELECTION: String = "${ContactsContract.Data.LOOKUP_KEY} = ?"
 ...
 // Defines the array to hold the search criteria
-private val selectionArgs: Array<String> = arrayOf("")
+private val selectionA<rgs: A>rrayString = arrayOf("")
 /*
  * Defines a variable to contain the selection value. Once you
  * have the Cursor from the Contacts table, and you've selected
@@ -465,7 +464,7 @@ private const val SELECTION =
         "${ContactsContract.Data.MIMETYPE} = '${Email.CONTENT_ITEM_TYPE}'"
 ...
 // Defines the array to hold the search criteria
-private val selectionArgs: Array<String> = arrayOf("")
+priv<ate va>l selectionArgs: ArrayString = arrayOf("")
 ```
 
 ### Java

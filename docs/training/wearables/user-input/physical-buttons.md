@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 A wearable device typically contains multiple physical buttons, also known as
 *stems*. Wear OS devices always have, at minimum, one button: the power button.
 Beyond that, zero or more multifunction buttons might be present.

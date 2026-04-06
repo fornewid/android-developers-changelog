@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 Jetpack Glance is a framework built on top of the [Jetpack Compose runtime](/jetpack/androidx/releases/compose-runtime)
 that lets you develop and design app widgets using Kotlin APIs. *App widgets*
 are miniature application views that can be embedded in other applications and

@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 Android leverages the
 [ICU
 library](http://site.icu-project.org/) and [CLDR project](http://cldr.unicode.org/) to provide Unicode and other internationalization

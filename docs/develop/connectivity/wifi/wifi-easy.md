@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 On Android 10 (API level 29) and higher devices, you can use Easy Connect to provision
 Wi-Fi credentials to a peer device, as a replacement of WPS which was
 deprecated in Android 9. Apps can integrate

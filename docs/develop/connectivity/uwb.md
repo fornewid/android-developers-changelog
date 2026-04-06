@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 **Note:** UWB is currently only available using
 [Jetpack](/jetpack/androidx/releases/core-uwb).
 

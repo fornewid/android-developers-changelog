@@ -1,80 +1,37 @@
 ---
-title: Drag and scale  |  Views  |  Android Developers
+title: https://developer.android.com/develop/ui/views/touch-and-input/gestures/scale
 url: https://developer.android.com/develop/ui/views/touch-and-input/gestures/scale
-source: html-scrape
+source: md.txt
 ---
 
-* [Android Developers](https://developer.android.com/)
-* [Develop](https://developer.android.com/develop)
-* [Core areas](https://developer.android.com/develop/core-areas)
-* [UI](https://developer.android.com/develop/ui)
-* [Views](https://developer.android.com/develop/ui/views/layout/declaring-layout)
+# Drag and scale
 
-# Drag and scale Stay organized with collections Save and categorize content based on your preferences.
+Try the Compose way  
+Jetpack Compose is the recommended UI toolkit for Android. Learn how to use touch and input in Compose.  
+[Drag, swipe, and fling →](https://developer.android.com/develop/ui/compose/touch-input/pointer-input/drag-swipe-fling)  
+![](https://developer.android.com/static/images/android-compose-ui-logo.png)  
 
-
-
-
-Try the Compose way
-
-Jetpack Compose is the recommended UI toolkit for Android. Learn how to use touch and input in Compose.
-
-[Drag, swipe, and fling →](https://developer.android.com/develop/ui/compose/touch-input/pointer-input/drag-swipe-fling)
-
-![](/static/images/android-compose-ui-logo.png)
-
-This document describes how to use touch gestures to drag and scale on-screen
-objects, using
-`onTouchEvent()`
-to intercept touch events.
+This document describes how to use touch gestures to drag and scale on-screen objects, using[onTouchEvent()](https://developer.android.com/reference/android/view/View#onTouchEvent(android.view.MotionEvent))to intercept touch events.
 
 ## Drag an object
 
-**Important:** We recomment using
-[Receive rich content](/develop/ui/views/receive-rich-content)
-to implement drag and drop.
+| **Important:** We recomment using[Receive rich content](https://developer.android.com/develop/ui/views/receive-rich-content)to implement drag and drop.
 
-A common operation for a touch gesture is to use it to drag an object across
-the screen.
+A common operation for a touch gesture is to use it to drag an object across the screen.
 
-In a drag or scroll operation, the app has to keep track of the original
-pointer, even if additional fingers touch the screen. For example, imagine that
-while dragging the image, the user places a second finger on the touch screen
-and lifts the first finger. If your app is only tracking individual pointers, it
-regards the second pointer as the default and moves the image to that
-location.
+In a drag or scroll operation, the app has to keep track of the original pointer, even if additional fingers touch the screen. For example, imagine that while dragging the image, the user places a second finger on the touch screen and lifts the first finger. If your app is only tracking individual pointers, it regards the second pointer as the default and moves the image to that location.
 
-To prevent this from happening, your app needs to distinguish between the
-original pointer and any subsequent pointers. To do this, it tracks the
-`ACTION_POINTER_DOWN`
-and
-`ACTION_POINTER_UP`
-events as described in [Handle multi-touch gestures](/develop/ui/views/touch-and-input/gestures/multi).
-`ACTION_POINTER_DOWN` and `ACTION_POINTER_UP` are passed
-to the `onTouchEvent()` callback whenever a secondary pointer goes
-down or up.
+To prevent this from happening, your app needs to distinguish between the original pointer and any subsequent pointers. To do this, it tracks the[ACTION_POINTER_DOWN](https://developer.android.com/reference/android/view/MotionEvent#ACTION_POINTER_DOWN)and[ACTION_POINTER_UP](https://developer.android.com/reference/android/view/MotionEvent#ACTION_POINTER_UP)events as described in[Handle multi-touch gestures](https://developer.android.com/develop/ui/views/touch-and-input/gestures/multi).`ACTION_POINTER_DOWN`and`ACTION_POINTER_UP`are passed to the`onTouchEvent()`callback whenever a secondary pointer goes down or up.
 
-In the `ACTION_POINTER_UP` case, you can extract this index and
-ensure that the active pointer ID isn't referring to a pointer that is no longer
-touching the screen. If it is, you can select a different pointer to be active
-and save its current X and Y position. Use this saved position in the
-`ACTION_MOVE`
-case to calculate the distance to move the on-screen object. This way, the app
-always calculates the distance to move using data from the correct pointer.
+In the`ACTION_POINTER_UP`case, you can extract this index and ensure that the active pointer ID isn't referring to a pointer that is no longer touching the screen. If it is, you can select a different pointer to be active and save its current X and Y position. Use this saved position in the[ACTION_MOVE](https://developer.android.com/reference/android/view/MotionEvent#ACTION_MOVE)case to calculate the distance to move the on-screen object. This way, the app always calculates the distance to move using data from the correct pointer.
 
-The following code snippet lets a user drag an object on the screen. It
-records the initial position of the active pointer, calculates the distance the
-pointer travels, and moves the object to the new position. It also correctly
-manages the possibility of additional pointers.
+The following code snippet lets a user drag an object on the screen. It records the initial position of the active pointer, calculates the distance the pointer travels, and moves the object to the new position. It also correctly manages the possibility of additional pointers.
 
-The snippet uses the
-`getActionMasked()`
-method. Always use this method to retrieve the action of a
-`MotionEvent`.
+The snippet uses the[getActionMasked()](https://developer.android.com/reference/android/view/MotionEvent#getActionMasked())method. Always use this method to retrieve the action of a[MotionEvent](https://developer.android.com/reference/android/view/MotionEvent).  
 
 ### Kotlin
 
-```
+```kotlin
 // The "active pointer" is the one moving the object.
 private var mActivePointerId = INVALID_POINTER_ID
 
@@ -139,7 +96,7 @@ override fun onTouchEvent(ev: MotionEvent): Boolean {
 
 ### Java
 
-```
+```java
 // The "active pointer" is the one moving the object.
 private int mActivePointerId = INVALID_POINTER_ID;
 
@@ -220,28 +177,15 @@ public boolean onTouchEvent(MotionEvent ev) {
 
 ## Drag to pan
 
-The previous section shows an example of dragging an object on the screen.
-Another common scenario is panning, which is when a user's dragging motion
-causes scrolling in both the X- and Y-axes. The preceding snippet directly
-intercepts the `MotionEvent` actions to implement dragging. The
-snippet in this section takes advantage of the platform's built-in support for
-common gestures by overriding
-`onScroll()`
-in
-`GestureDetector.SimpleOnGestureListener`.
+The previous section shows an example of dragging an object on the screen. Another common scenario is panning, which is when a user's dragging motion causes scrolling in both the X- and Y-axes. The preceding snippet directly intercepts the`MotionEvent`actions to implement dragging. The snippet in this section takes advantage of the platform's built-in support for common gestures by overriding[onScroll()](https://developer.android.com/reference/android/view/GestureDetector.OnGestureListener#onScroll(android.view.MotionEvent, android.view.MotionEvent, float, float))in[GestureDetector.SimpleOnGestureListener](https://developer.android.com/reference/android/view/GestureDetector.SimpleOnGestureListener).
 
-To provide more context, `onScroll()` is called when a user drags
-a finger to pan the content. `onScroll()` is only called when a
-finger is down. As soon as the finger is lifted from the screen, either the
-gesture either ends or a fling gesture starts, if the finger is moving with some
-speed just before it is lifted. For more information about scrolling versus
-flinging, see [Animate a scroll gesture](/develop/ui/views/touch-and-input/gestures/scroll).
+To provide more context,`onScroll()`is called when a user drags a finger to pan the content.`onScroll()`is only called when a finger is down. As soon as the finger is lifted from the screen, either the gesture either ends or a fling gesture starts, if the finger is moving with some speed just before it is lifted. For more information about scrolling versus flinging, see[Animate a scroll gesture](https://developer.android.com/develop/ui/views/touch-and-input/gestures/scroll).
 
-The following is the code snippet for `onScroll()`:
+The following is the code snippet for`onScroll()`:  
 
 ### Kotlin
 
-```
+```kotlin
 // The current viewport. This rectangle represents the visible
 // chart domain and range.
 private val mCurrentViewport = RectF(AXIS_X_MIN, AXIS_Y_MIN, AXIS_X_MAX, AXIS_Y_MAX)
@@ -282,7 +226,7 @@ private val mGestureListener = object : GestureDetector.SimpleOnGestureListener(
 
 ### Java
 
-```
+```java
 // The current viewport. This rectangle represents the visible
 // chart domain and range.
 private RectF mCurrentViewport =
@@ -318,12 +262,11 @@ public boolean onScroll(MotionEvent e1, MotionEvent e2,
 }
 ```
 
-The implementation of `onScroll()` scrolls the viewport in
-response to the touch gesture:
+The implementation of`onScroll()`scrolls the viewport in response to the touch gesture:  
 
 ### Kotlin
 
-```
+```kotlin
 /**
  * Sets the current viewport, defined by mCurrentViewport, to the given
  * X and Y positions. The Y value represents the topmost pixel position,
@@ -351,7 +294,7 @@ private fun setViewportBottomLeft(x: Float, y: Float) {
 
 ### Java
 
-```
+```java
 /**
  * Sets the current viewport (defined by mCurrentViewport) to the given
  * X and Y positions. Note that the Y value represents the topmost pixel
@@ -379,30 +322,17 @@ private void setViewportBottomLeft(float x, float y) {
 
 ## Use touch to perform scaling
 
-As discussed in [Detect common gestures](/develop/ui/views/touch-and-input/gestures/detector),
-use
-`GestureDetector`
-to detect common gestures used by Android, such as scrolling, flinging, and
-touch and hold. For scaling, Android provides
-`ScaleGestureDetector`.
-You can use `GestureDetector` and `ScaleGestureDetector`
-together when you want a view to recognize additional gestures.
+As discussed in[Detect common gestures](https://developer.android.com/develop/ui/views/touch-and-input/gestures/detector), use[GestureDetector](https://developer.android.com/reference/android/view/GestureDetector)to detect common gestures used by Android, such as scrolling, flinging, and touch and hold. For scaling, Android provides[ScaleGestureDetector](https://developer.android.com/reference/android/view/ScaleGestureDetector). You can use`GestureDetector`and`ScaleGestureDetector`together when you want a view to recognize additional gestures.
 
-To report detected gesture events, gesture detectors use listener objects
-passed to their constructors. `ScaleGestureDetector` uses
-`ScaleGestureDetector.OnScaleGestureListener`.
-Android provides
-`ScaleGestureDetector.SimpleOnScaleGestureListener`
-as a helper class that you can extend if you don't need all of the reported
-events.
+To report detected gesture events, gesture detectors use listener objects passed to their constructors.`ScaleGestureDetector`uses[ScaleGestureDetector.OnScaleGestureListener](https://developer.android.com/reference/android/view/ScaleGestureDetector.OnScaleGestureListener). Android provides[ScaleGestureDetector.SimpleOnScaleGestureListener](https://developer.android.com/reference/android/view/ScaleGestureDetector.SimpleOnScaleGestureListener)as a helper class that you can extend if you don't need all of the reported events.
 
 ### Basic scaling example
 
-The following snippet illustrates the basic elements involved in scaling.
+The following snippet illustrates the basic elements involved in scaling.  
 
 ### Kotlin
 
-```
+```kotlin
 private var mScaleFactor = 1f
 
 private val scaleListener = object : ScaleGestureDetector.SimpleOnScaleGestureListener() {
@@ -440,7 +370,7 @@ override fun onDraw(canvas: Canvas?) {
 
 ### Java
 
-```
+```java
 private ScaleGestureDetector mScaleDetector;
 private float mScaleFactor = 1.f;
 
@@ -487,23 +417,11 @@ private class ScaleListener
 
 ### More complex scaling example
 
-The following is a more complex example from the
-`InteractiveChart` sample shown in
-[Animate a scroll gesture](/develop/ui/views/touch-and-input/gestures/scroll).
-The
-`InteractiveChart` sample supports scrolling, panning, and scaling
-with multiple fingers, using the `ScaleGestureDetector` span
-(`getCurrentSpanX`
-and
-`getCurrentSpanY`)
-and "focus"
-(`getFocusX`
-and `getFocusY`)
-features.
+The following is a more complex example from the`InteractiveChart`sample shown in[Animate a scroll gesture](https://developer.android.com/develop/ui/views/touch-and-input/gestures/scroll). The`InteractiveChart`sample supports scrolling, panning, and scaling with multiple fingers, using the`ScaleGestureDetector`span ([getCurrentSpanX](https://developer.android.com/reference/android/view/ScaleGestureDetector#getCurrentSpanX())and[getCurrentSpanY](https://developer.android.com/reference/android/view/ScaleGestureDetector#getCurrentSpanY())) and "focus" ([getFocusX](https://developer.android.com/reference/android/view/ScaleGestureDetector#getFocusX())and[getFocusY](https://developer.android.com/reference/android/view/ScaleGestureDetector#getFocusY())) features.  
 
 ### Kotlin
 
-```
+```kotlin
 private val mCurrentViewport = RectF(AXIS_X_MIN, AXIS_Y_MIN, AXIS_X_MAX, AXIS_Y_MAX)
 private val mContentRect: Rect? = null
 ...
@@ -568,7 +486,7 @@ private val mScaleGestureListener = object : ScaleGestureDetector.SimpleOnScaleG
 
 ### Java
 
-```
+```java
 private RectF mCurrentViewport =
         new RectF(AXIS_X_MIN, AXIS_Y_MIN, AXIS_X_MAX, AXIS_Y_MAX);
 private Rect mContentRect;
@@ -647,9 +565,8 @@ private final ScaleGestureDetector.OnScaleGestureListener mScaleGestureListener
 
 ## Additional resources
 
-See the following references for more information about input events,
-sensors, and making custom views interactive.
+See the following references for more information about input events, sensors, and making custom views interactive.
 
-* [Input events overview](/guide/topics/ui/ui-events)
-* [Sensors overview](/guide/topics/sensors/sensors_overview)
-* [Make a custom view interactive](/training/custom-views/making-interactive)
+- [Input events overview](https://developer.android.com/guide/topics/ui/ui-events)
+- [Sensors overview](https://developer.android.com/guide/topics/sensors/sensors_overview)
+- [Make a custom view interactive](https://developer.android.com/training/custom-views/making-interactive)

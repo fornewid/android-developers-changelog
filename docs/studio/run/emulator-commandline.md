@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 The Android SDK includes an Android device emulator—a virtual device
 that runs on your computer. The Android Emulator lets you develop and test
 Android apps without using a physical device.

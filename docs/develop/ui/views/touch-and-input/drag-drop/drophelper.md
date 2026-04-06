@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 The [`DropHelper`](/reference/androidx/draganddrop/DropHelper) class simplifies
 implementation of drag-and-drop capabilities. A member of the Jetpack
 [`DragAndDrop`](/jetpack/androidx/releases/draganddrop) library, `DropHelper`

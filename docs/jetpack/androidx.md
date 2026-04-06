@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 The `androidx` namespace comprises the [Android Jetpack](/jetpack) libraries. Like the Support Library, libraries in the `androidx` namespace ship separately from the Android platform and provide backward compatibility across Android releases.
 
 AndroidX is a major improvement to the original Android

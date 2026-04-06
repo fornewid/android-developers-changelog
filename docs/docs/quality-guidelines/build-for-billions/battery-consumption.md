@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Access to reliable power supplies varies, and outages can disrupt planned
 charges. Defend your users' batteries against unnecessary drain by benchmarking
 your battery use, avoiding wakelocks, scheduling tasks, and monitoring sensor

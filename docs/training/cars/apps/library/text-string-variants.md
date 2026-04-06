@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 Different car screen sizes may show different amounts of text. With Car App API
 level 2 and later, you can specify multiple variants of a text string to best
 fit the screen. To see where text variants are accepted, look for templates and

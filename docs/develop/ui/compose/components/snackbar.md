@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 The [snackbar component](https://m3.material.io/components/snackbar/overview) serves as a brief notification that appears at the
 bottom of the screen. It provides feedback about an operation or action without
 interrupting the user experience. Snackbars disappear after a few seconds. The

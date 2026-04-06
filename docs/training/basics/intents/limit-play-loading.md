@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 *On-device Android containers* are apps that simulate the Android OS on an
 Android-powered device. This includes both apps that simulate the Android OS in
 its entirety and apps that only simulate portions of the Android OS.

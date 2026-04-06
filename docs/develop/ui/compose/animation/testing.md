@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 Compose offers `ComposeTestRule` that allows you to write tests for animations
 in a deterministic manner with full control over the test clock. This allows you
 to verify intermediate animation values. In addition, a test can run quicker

@@ -1,18 +1,8 @@
 ---
-title: App architecture  |  Android Developers
+title: https://developer.android.com/guide/navigation/navigation-3/recipes/basicsaveable
 url: https://developer.android.com/guide/navigation/navigation-3/recipes/basicsaveable
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [App architecture](https://developer.android.com/topic/architecture/intro)
-
-Stay organized with collections
-
-Save and categorize content based on your preferences.
-
-
-
 
 # Basic Saveable Recipe
 
@@ -25,14 +15,7 @@ To make the back stack persistent, we use the `rememberNavBackStack` function. T
 A requirement for using `rememberNavBackStack` is that the navigation keys (routes) must be serializable. In this example, `RouteA` and `RouteB` are annotated with `@Serializable` and implement the `NavKey` interface.
 
 This example uses a `when` statement within the `entryProvider` to map routes to their corresponding composables, but it could also be used with the `entryProvider` DSL.
-
-[![](/static/images/picto-icons/code.svg)
-
-Explore
-
-View the full recipe on GitHub.
-
-arrow\_forward](https://github.com/android/nav3-recipes/tree/main/app/src/main/java/com/example/nav3recipes/basicsaveable)
+[![](https://developer.android.com/static/images/picto-icons/code.svg) Explore View the full recipe on GitHub.](https://github.com/android/nav3-recipes/tree/main/app/src/main/java/com/example/nav3recipes/basicsaveable)
 
 ```
 /*
@@ -110,6 +93,4 @@ class BasicSaveableActivity : ComponentActivity() {
         }
     }
 }
-
-BasicSaveableActivity.kt
 ```

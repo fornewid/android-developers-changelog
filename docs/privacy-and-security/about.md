@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 Android is focused on helping users take advantage of the latest innovations
 while making their security and privacy top priorities. Use the checklists on
 this page as a source for common privacy guidelines and best practices.

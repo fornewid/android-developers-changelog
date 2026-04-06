@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 To use Bluetooth features in your app, you must [declare several
 permissions](#declare). You should also [specify whether your app requires
 support](#features) for Bluetooth classic or Bluetooth Low Energy (BLE). If your

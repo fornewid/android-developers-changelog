@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 This page discusses the various methods and best practices for establishing a
 native bridge, also known as JavaScript bridge, to facilitate communication
 between web content in a [`WebView`](/reference/android/webkit/WebView) and a host Android application.

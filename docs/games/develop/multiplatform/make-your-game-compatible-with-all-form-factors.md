@@ -15,7 +15,6 @@ Send feedback
 
 
 
-
 Tablets, foldables, Android Auto, Android Automotive OS cars, ChromeOS devices,
 and PCs have the following baseline quality requirements:
 
@@ -108,8 +107,6 @@ orientation, aspect ratio, and app resizablility restrictions to improve the
 layout of apps on form factors with smallest width >= 600dp. See [App
 orientation, aspect ratio, and
 resizability](/develop/ui/compose/layouts/adaptive/app-orientation-aspect-ratio-resizability).
-
-
 
 
 

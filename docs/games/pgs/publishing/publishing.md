@@ -15,6 +15,7 @@ Send feedback
 
 
 
+
 With the Publishing API, you can automate frequent tasks having to do
 with games production and distribution. This API provides functions similar to
 those available through the
@@ -34,6 +35,8 @@ You can access the REST APIs directly via HTTP. For more information, see
 [Publishing API reference](https://developers.google.com/games/services/publishing/api)
 and the
 [sample app](//github.com/playgameservices/management-tools).
+
+
 
 
 

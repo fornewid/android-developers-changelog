@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 Digital credentials are cryptographically verifiable documents that can be used
 to authenticate, authorize, or otherwise provide information about a user. These
 are typically things such as mobile driver's licenses, digital passports,

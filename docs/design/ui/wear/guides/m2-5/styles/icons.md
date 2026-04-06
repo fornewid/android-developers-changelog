@@ -1,15 +1,26 @@
 ---
-title: https://developer.android.com/design/ui/wear/guides/m2-5/styles/icons
+title: Icons  |  Wear  |  Android Developers
 url: https://developer.android.com/design/ui/wear/guides/m2-5/styles/icons
-source: md.txt
+source: html-scrape
 ---
 
-# Icons
+* [Android Developers](https://developer.android.com/)
+* [Design & Plan](https://developer.android.com/design)
+* [UI Design](https://developer.android.com/design/ui)
+* [Wear](https://developer.android.com/design/ui/wear)
+* [Guides](https://developer.android.com/design/ui/wear/guides/get-started)
 
-Wear OS follows Material Design's principles for iconography.
+# Icons Stay organized with collections Save and categorize content based on your preferences.
 
-![](https://developer.android.com/static/wear/images/design/icon_1.png)
 
-**Figure 1.**Example icons.
 
-See the[Design principles](https://material.io/design/iconography/system-icons.html#design-principles)for more information about designing, using, and producing icons.
+
+Wear OS follows Material Design’s principles for iconography.
+
+![](/static/wear/images/design/icon_1.png)
+
+**Figure 1.** Example icons.
+
+See the [Design
+principles](https://material.io/design/iconography/system-icons.html#design-principles)
+for more information about designing, using, and producing icons.

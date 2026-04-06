@@ -1,15 +1,23 @@
 ---
-title: https://developer.android.com/topic/libraries/view-binding/migration
+title: Migrate from Kotlin synthetics to Jetpack view binding  |  App architecture  |  Android Developers
 url: https://developer.android.com/topic/libraries/view-binding/migration
-source: md.txt
+source: html-scrape
 ---
+
+* [Android Developers](https://developer.android.com/)
+* [Design & Plan](https://developer.android.com/design)
+* [App architecture](https://developer.android.com/topic/architecture/intro)
+
+# Migrate from Kotlin synthetics to Jetpack view binding Stay organized with collections Save and categorize content based on your preferences.
+
+
 
 Kotlin Android Extensions is deprecated, which means that using Kotlin
 synthetics for view binding is no longer supported. If your app uses Kotlin
 synthetics for view binding, use this guide to migrate to Jetpack view binding.
 
 If your app doesn't already use Kotlin synthetics for view binding, see [View
-binding](https://developer.android.com/topic/libraries/view-binding) for basic usage information.
+binding](/topic/libraries/view-binding) for basic usage information.
 
 ## Update the Gradle file
 
@@ -19,7 +27,7 @@ option to `true` in the module-level `build.gradle` file:
 
 ### Groovy
 
-```groovy
+```
 android {
     ...
     buildFeatures {
@@ -30,7 +38,7 @@ android {
 
 ### Kotlin
 
-```kotlin
+```
 android {
     ...
     buildFeatures {
@@ -39,12 +47,12 @@ android {
 }
 ```
 
-If your app doesn't use [`Parcelable`](https://developer.android.com/reference/android/os/Parcelable)
+If your app doesn't use [`Parcelable`](/reference/android/os/Parcelable)
 features, remove the line that enables Kotlin Android Extensions:
 
 ### Groovy
 
-```groovy
+```
 plugins {
   id 'kotlin-android-extensions'
 }
@@ -52,17 +60,18 @@ plugins {
 
 ### Kotlin
 
-```kotlin
+```
 plugins {
     kotlin("android.extensions")
 }
 ```
 
-> [!NOTE]
-> **Note:** If your app uses `Parcelable` features, switch to using the standalone `kotlin-parcelize` Gradle plugin described in [Parcelable implementation generator](https://developer.android.com/kotlin/parcelize).
+**Note:** If your app uses `Parcelable` features, switch to using the
+standalone `kotlin-parcelize` Gradle plugin described in
+[Parcelable implementation generator](/kotlin/parcelize).
 
 To learn more about enabling view binding in a module, see [Setup
-instructions](https://developer.android.com/topic/libraries/view-binding#setup).
+instructions](/topic/libraries/view-binding#setup).
 
 ## Update activity and fragment classes
 
@@ -77,29 +86,35 @@ reference views, change your activity and fragment classes by doing the
 following:
 
 1. Remove all imports from `kotlinx.android.synthetic`.
-
 2. Inflate an instance of the generated binding class for the activity or
    fragment to use.
 
-   - For activities, follow the instructions in [Use view binding in
-     activities](https://developer.android.com/topic/libraries/view-binding#activities) to inflate an instance in your activity's [`onCreate()`](https://developer.android.com/reference/kotlin/android/app/Activity#oncreate) method.
-   - For fragments, follow the instructions in [Use view binding in
-     fragments](https://developer.android.com/topic/libraries/view-binding#fragments) to inflate an instance in your fragment's [`onCreateView()`](https://developer.android.com/reference/kotlin/androidx/fragment/app/Fragment#oncreateview) method.
+   * For activities, follow the instructions in [Use view binding in
+     activities](/topic/libraries/view-binding#activities) to inflate an
+     instance in your activity's
+     [`onCreate()`](/reference/kotlin/android/app/Activity#oncreate) method.
+   * For fragments, follow the instructions in [Use view binding in
+     fragments](/topic/libraries/view-binding#fragments) to inflate an instance
+     in your fragment's
+     [`onCreateView()`](/reference/kotlin/androidx/fragment/app/Fragment#oncreateview)
+     method.
 3. Change all view references to use the binding class instance instead of
    synthetic properties:
 
-    // Reference to "name" TextView using synthetic properties.
-    name.text = viewModel.nameString
+```
+// Reference to "name" TextView using synthetic properties.
+name.text = viewModel.nameString
 
-    // Reference to "name" TextView using the binding class instance.
-    binding.name.text = viewModel.nameString
+// Reference to "name" TextView using the binding class instance.
+binding.name.text = viewModel.nameString
+```
 
-To learn more, see the [Usage](https://developer.android.com/topic/libraries/view-binding#usage) section in
+To learn more, see the [Usage](/topic/libraries/view-binding#usage) section in
 the view binding guide.
 
 ## Recommended for you
 
-- Note: link text is displayed when JavaScript is off
-- [View binding](https://developer.android.com/topic/libraries/view-binding)
-- [Paging library overview](https://developer.android.com/topic/libraries/architecture/paging/v3-overview)
-- [Test your Paging implementation](https://developer.android.com/topic/libraries/architecture/paging/test)
+* Note: link text is displayed when JavaScript is off
+* [View binding](/topic/libraries/view-binding)
+* [Paging library overview](/topic/libraries/architecture/paging/v3-overview)
+* [Test your Paging implementation](/topic/libraries/architecture/paging/test)

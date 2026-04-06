@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 Ambient Mode is a screensaver built into Google TV and Android TV. Its purpose
 is to avoid displaying static images for extended periods. This is important
 for display technologies, such as OLED, which may be susceptible to screen burn.

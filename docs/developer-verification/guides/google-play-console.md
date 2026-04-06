@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 If you distribute your apps on Google Play, you must use the Play Console to
 manage your Play package names. You'll also be able to register any apps your
 distribute outside of Play within this same console.

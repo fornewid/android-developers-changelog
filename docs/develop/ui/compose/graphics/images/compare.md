@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 The two most common kinds of image formats are raster and vector images.
 
 A raster graphic format contains pixels: tiny individual squares that contain a

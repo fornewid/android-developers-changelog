@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 Wear OS apps should work independently of a phone. However, if your Wear OS app
 depends on a mobile app, see the following information about connecting either
 an emulated watch or a physical watch to a phone.

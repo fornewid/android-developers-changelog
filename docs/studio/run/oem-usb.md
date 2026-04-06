@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 If you are developing on Windows and want to connect a device for testing,
 then you need to install the appropriate USB driver. This page
 provides links to the web sites for several original equipment manufacturers (OEMs),

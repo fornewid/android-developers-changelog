@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 The `apksigner` tool, available in revision 24.0.3 and higher of
 the Android SDK Build Tools, lets you sign APKs and confirm that an
 APK's signature will be verified successfully on all versions of the Android

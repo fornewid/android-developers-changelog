@@ -15,6 +15,7 @@ Send feedback
 
 
 
+
 The Google Play Games plugin for Unity is an open-source project that allows you
 to integrate the [Google Play Games Services APIs](/games/pgs/overview) into an Android game
 developed in [Unity](https://unity.com).
@@ -51,6 +52,8 @@ For information on setting up and using the plugin, see the get started guide:
 
 * Unity Tutorial
   + [Google Play Games Login](https://www.youtube.com/watch?v=hsJsGuDtAD8)
+
+
 
 
 

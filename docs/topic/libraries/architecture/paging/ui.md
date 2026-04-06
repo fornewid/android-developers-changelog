@@ -1,37 +1,28 @@
 ---
-title: Display paged lists  |  App architecture  |  Android Developers
+title: https://developer.android.com/topic/libraries/architecture/paging/ui
 url: https://developer.android.com/topic/libraries/architecture/paging/ui
-source: html-scrape
+source: md.txt
 ---
 
-* [Android Developers](https://developer.android.com/)
-* [Design & Plan](https://developer.android.com/design)
-* [App architecture](https://developer.android.com/topic/architecture/intro)
-
-# Display paged lists Stay organized with collections Save and categorize content based on your preferences.
-
-
-
-
 This guide builds upon the [Paging Library
-overview](/topic/libraries/architecture/paging), describing how you can
+overview](https://developer.android.com/topic/libraries/architecture/paging), describing how you can
 present lists of information to users in your app's UI, particularly when this
 information changes.
 
-**Caution:** This guide covers an older, deprecated version of the Paging library.
-For more information about the latest stable version of Paging, see the [Paging
-3 guides](/topic/libraries/architecture/paging/v3-overview).
+> [!CAUTION]
+> **Caution:** This guide covers an older, deprecated version of the Paging library. For more information about the latest stable version of Paging, see the [Paging
+> 3 guides](https://developer.android.com/topic/libraries/architecture/paging/v3-overview).
 
 ## Connect your UI to your view model
 
 You can connect an instance of
-[`LiveData<PagedList>`](/reference/androidx/lifecycle/LiveData) to a
-[`PagedListAdapter`](/reference/androidx/paging/PagedListAdapter), as shown
+[`LiveData<PagedList>`](https://developer.android.com/reference/androidx/lifecycle/LiveData) to a
+[`PagedListAdapter`](https://developer.android.com/reference/androidx/paging/PagedListAdapter), as shown
 in the following code snippet:
 
 ### Kotlin
 
-```
+```kotlin
 class ConcertActivity : AppCompatActivity() {
     private val adapter = ConcertAdapter()
 
@@ -48,7 +39,7 @@ class ConcertActivity : AppCompatActivity() {
 
 ### Java
 
-```
+```java
 public class ConcertActivity extends AppCompatActivity {
     private ConcertAdapter adapter = new ConcertAdapter();
     private ConcertViewModel viewModel;
@@ -63,17 +54,17 @@ public class ConcertActivity extends AppCompatActivity {
 ```
 
 As data sources provide new instances of
-[`PagedList`](/reference/androidx/paging/PagedList), the activity sends
+[`PagedList`](https://developer.android.com/reference/androidx/paging/PagedList), the activity sends
 these objects to the adapter. The
-[`PagedListAdapter`](/reference/androidx/paging/PagedListAdapter)
+[`PagedListAdapter`](https://developer.android.com/reference/androidx/paging/PagedListAdapter)
 implementation defines how updates are computed, and it automatically handles
 paging and list diffing. Therefore, your
-[`ViewHolder`](/reference/androidx/recyclerview/widget/RecyclerView.ViewHolder)
+[`ViewHolder`](https://developer.android.com/reference/androidx/recyclerview/widget/RecyclerView.ViewHolder)
 only needs to bind to a particular provided item:
 
 ### Kotlin
 
-```
+```kotlin
 class ConcertAdapter() :
         PagedListAdapter<Concert, ConcertViewHolder>(DIFF_CALLBACK) {
     override fun onBindViewHolder(holder: ConcertViewHolder, position: Int) {
@@ -84,14 +75,14 @@ class ConcertAdapter() :
     }
 
     companion object {
-        private val DIFF_CALLBACK = ... // See Implement the diffing callback section.
+        private val DIFF_CALLBACK = ... // See https://developer.android.com/topic/libraries/architecture/paging/ui#implement-diffing-callback section.
     }
 }
 ```
 
 ### Java
 
-```
+```java
 public class ConcertAdapter
         extends PagedListAdapter<Concert, ConcertViewHolder> {
     protected ConcertAdapter() {
@@ -108,36 +99,32 @@ public class ConcertAdapter
     }
 
     private static DiffUtil.ItemCallback<Concert> DIFF_CALLBACK
-            = ... // See Implement the diffing callback section.
+            = ... // See https://developer.android.com/topic/libraries/architecture/paging/ui#implement-diffing-callback section.
 }
 ```
 
-The [`PagedListAdapter`](/reference/androidx/paging/PagedListAdapter)
+The [`PagedListAdapter`](https://developer.android.com/reference/androidx/paging/PagedListAdapter)
 handles page load events using a
-[`PagedList.Callback`](/reference/androidx/paging/PagedList.Callback)
+[`PagedList.Callback`](https://developer.android.com/reference/androidx/paging/PagedList.Callback)
 object. As the user scrolls, the `PagedListAdapter` calls
-[`PagedList.loadAround()`](/reference/androidx/paging/PagedList#loadaround)
+[`PagedList.loadAround()`](https://developer.android.com/reference/androidx/paging/PagedList#loadaround)
 to provide hints to the underlying
-[`PagedList`](/reference/androidx/paging/PagedList) as to
+[`PagedList`](https://developer.android.com/reference/androidx/paging/PagedList) as to
 which items it should fetch from the
-[`DataSource`](/reference/androidx/paging/DataSource).
+[`DataSource`](https://developer.android.com/reference/androidx/paging/DataSource).
 
-**Note:** [`PagedList`](/reference/androidx/paging/PagedList) is
-content-immutable. This means that, although new content can be loaded into an
-instance of `PagedList`, the loaded items themselves cannot change once loaded.
-As such, if content in a `PagedList` updates, the
-[`PagedListAdapter`](/reference/androidx/paging/PagedListAdapter) object
-receives a completely new `PagedList` that contains the updated information.
+> [!NOTE]
+> **Note:** [`PagedList`](https://developer.android.com/reference/androidx/paging/PagedList) is content-immutable. This means that, although new content can be loaded into an instance of `PagedList`, the loaded items themselves cannot change once loaded. As such, if content in a `PagedList` updates, the [`PagedListAdapter`](https://developer.android.com/reference/androidx/paging/PagedListAdapter) object receives a completely new `PagedList` that contains the updated information.
 
 ## Implement the diffing callback
 
 The following sample shows a manual implementation of
-[`areContentsTheSame()`](/reference/androidx/recyclerview/widget/DiffUtil.ItemCallback#arecontentsthesame),
+[`areContentsTheSame()`](https://developer.android.com/reference/androidx/recyclerview/widget/DiffUtil.ItemCallback#arecontentsthesame),
 which compares relevant object fields:
 
 ### Kotlin
 
-```
+```kotlin
 private val DIFF_CALLBACK = object : DiffUtil.ItemCallback<Concert>() {
     // The ID property identifies when items are the same.
     override fun areItemsTheSame(oldItem: Concert, newItem: Concert) =
@@ -152,7 +139,7 @@ private val DIFF_CALLBACK = object : DiffUtil.ItemCallback<Concert>() {
 
 ### Java
 
-```
+```java
 private static DiffUtil.ItemCallback<Concert> DIFF_CALLBACK =
         new DiffUtil.ItemCallback<Concert>() {
 
@@ -179,58 +166,41 @@ loaded. As a result, the adapter triggers efficient item animations within your
 ## Diffing using a different adapter type
 
 If you choose not to inherit from
-[`PagedListAdapter`](/reference/androidx/paging/PagedListAdapter)—such as
-when you're using a library that provides its own adapter—you can still use the
+[`PagedListAdapter`](https://developer.android.com/reference/androidx/paging/PagedListAdapter)---such as
+when you're using a library that provides its own adapter---you can still use the
 Paging Library adapter's diffing functionality by working directly with an
-[`AsyncPagedListDiffer`](/reference/androidx/paging/AsyncPagedListDiffer)
+[`AsyncPagedListDiffer`](https://developer.android.com/reference/androidx/paging/AsyncPagedListDiffer)
 object.
 
 ## Provide placeholders in your UI
 
 In cases where you want your UI to display a list before your app has finished
 fetching data, you can show placeholder list items to your users. The
-[`PagedList`](/reference/androidx/paging/PagedList) handles this case by
+[`PagedList`](https://developer.android.com/reference/androidx/paging/PagedList) handles this case by
 presenting the list item data as `null` until the data is loaded.
 
-**Note:** By default, the Paging Library enables this placeholder behavior.
+> [!NOTE]
+> **Note:** By default, the Paging Library enables this placeholder behavior.
 
 Placeholders have the following benefits:
 
-* **Support for scrollbars:** The
-  [`PagedList`](/reference/androidx/paging/PagedList) provides the number of
-  list items to the
-  [`PagedListAdapter`](/reference/androidx/paging/PagedListAdapter). This
-  information allows the adapter to draw a scrollbar that conveys the full size of
-  the list. As new pages load, the scrollbar doesn't jump because your list
-  doesn't change size.
-* **No loading spinner necessary:** Because the list size is already known,
-  there's no need to alert users that more items are loading. The placeholders
-  themselves convey that information.
+- **Support for scrollbars:** The [`PagedList`](https://developer.android.com/reference/androidx/paging/PagedList) provides the number of list items to the [`PagedListAdapter`](https://developer.android.com/reference/androidx/paging/PagedListAdapter). This information allows the adapter to draw a scrollbar that conveys the full size of the list. As new pages load, the scrollbar doesn't jump because your list doesn't change size.
+- **No loading spinner necessary:** Because the list size is already known, there's no need to alert users that more items are loading. The placeholders themselves convey that information.
 
 Before adding support for placeholders, though, keep the following
 preconditions in mind:
 
-* **Requires a countable data set:** Instances of
-  [`DataSource`](/reference/androidx/paging/DataSource) from the [Room
-  persistence library](/topic/libraries/architecture/room) can efficiently count
-  their items. If you're using a custom local storage solution or a [network-only
-  data architecture](/topic/libraries/architecture/paging#network-only-data-arch),
-  however, it might be expensive or even impossible to determine how many items
-  comprise your data set.
-* **Requires adapter to account for unloaded items:** The adapter or
-  presentation mechanism that you use to prepare the list for inflation needs to
-  handle null list items. For example, when binding data to a
-  [`ViewHolder`](/reference/androidx/recyclerview/widget/RecyclerView.ViewHolder),
-  you need to provide default values to represent unloaded data.
-* **Requires same-sized item views:** If list item sizes can change based on
-  their content, such as social networking updates, crossfading between items
-  doesn't look good. We strongly suggest disabling placeholders in this case.
+- **Requires a countable data set:** Instances of [`DataSource`](https://developer.android.com/reference/androidx/paging/DataSource) from the [Room
+  persistence library](https://developer.android.com/topic/libraries/architecture/room) can efficiently count their items. If you're using a custom local storage solution or a [network-only
+  data architecture](https://developer.android.com/topic/libraries/architecture/paging#network-only-data-arch), however, it might be expensive or even impossible to determine how many items comprise your data set.
+- **Requires adapter to account for unloaded items:** The adapter or presentation mechanism that you use to prepare the list for inflation needs to handle null list items. For example, when binding data to a [`ViewHolder`](https://developer.android.com/reference/androidx/recyclerview/widget/RecyclerView.ViewHolder), you need to provide default values to represent unloaded data.
+- **Requires same-sized item views:** If list item sizes can change based on their content, such as social networking updates, crossfading between items doesn't look good. We strongly suggest disabling placeholders in this case.
 
 ## Provide feedback
 
 Share your feedback and ideas with us through these resources:
 
-[Issue tracker](https://issuetracker.google.com/issues/new?component=413106&template=1096385) ![](/static/topic/libraries/architecture/images/bug.png)
+[Issue tracker](https://issuetracker.google.com/issues/new?component=413106&template=1096385) :bug:
 :   Report issues so we can fix bugs.
 
 ## Additional resources
@@ -240,23 +210,23 @@ following resources.
 
 ### Samples
 
-* [Android Architecture Components Paging
+- [Android Architecture Components Paging
   sample](https://github.com/android/architecture-components-samples/tree/paging2/PagingSample)
-* [Paging With Network Sample](https://github.com/android/architecture-components-samples/tree/paging2/PagingWithNetworkSample)
+- [Paging With Network Sample](https://github.com/android/architecture-components-samples/tree/paging2/PagingWithNetworkSample)
 
 ### Codelabs
 
-* [Android Paging codelab](https://codelabs.developers.google.com/codelabs/android-paging/index.html?index=..%2F..%2Findex#0)
+- [Android Paging codelab](https://codelabs.developers.google.com/codelabs/android-paging/index.html?index=../../index#0)
 
 ### Videos
 
-* [Android Jetpack: manage infinite lists with RecyclerView and Paging
+- [Android Jetpack: manage infinite lists with RecyclerView and Paging
   (Google I/O '18)](https://www.youtube.com/watch?v=BE5bsyGGLf4)
-* [Android Jetpack: Paging](https://www.youtube.com/watch?v=QVMqCRs0BNA)
+- [Android Jetpack: Paging](https://www.youtube.com/watch?v=QVMqCRs0BNA)
 
 ## Recommended for you
 
-* Note: link text is displayed when JavaScript is off
-* [Paging 2 library overview](/topic/libraries/architecture/paging)
-* [Migrate to Paging 3](/topic/libraries/architecture/paging/v3-migration)
-* [Gather paged data](/topic/libraries/architecture/paging/data)
+- Note: link text is displayed when JavaScript is off
+- [Paging 2 library overview](https://developer.android.com/topic/libraries/architecture/paging)
+- [Migrate to Paging 3](https://developer.android.com/topic/libraries/architecture/paging/v3-migration)
+- [Gather paged data](https://developer.android.com/topic/libraries/architecture/paging/data)

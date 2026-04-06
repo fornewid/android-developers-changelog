@@ -1,36 +1,45 @@
 ---
-title: https://developer.android.com/games/optimize/adpf/gamemode/gamemode-interventions
+title: Game Mode interventions  |  Android game development  |  Android Developers
 url: https://developer.android.com/games/optimize/adpf/gamemode/gamemode-interventions
-source: md.txt
+source: html-scrape
 ---
 
-[Video](https://www.youtube.com/watch?v=9j25t_6TD48)
+* [Android Developers](https://developer.android.com/)
+* [Google Play](https://developer.android.com/distribute)
+* [Games dev center](https://developer.android.com/games)
+* [Guides](https://developer.android.com/games/guides)
+
+Send feedback
+
+# Game Mode interventions Stay organized with collections Save and categorize content based on your preferences.
+
+
 
 *Game Mode interventions* are
 game-specific optimizations set by original equipment manufacturers (OEMs)
 to improve the performance of games that are no longer being updated by
 developers. For example:
 
-- Using WindowManager backbuffer resize.
-- Using ANGLE instead of native GLES drivers.
+* Using WindowManager backbuffer resize.
+* Using ANGLE instead of native GLES drivers.
 
 You can have your game support and manage the
-[Game Mode API](https://developer.android.com/games/optimize/adpf/gamemode/gamemode-api), to have it override
+[Game Mode API](/games/optimize/adpf/gamemode/gamemode-api), to have it override
 Game Mode interventions provided by the OEM.
 
 The Game Mode API and interventions are available on:
 
-- Select [Android 12](https://developer.android.com/about/versions/12/get) devices
-- Devices running [Android 13](https://developer.android.com/about/versions/13/get) or higher
+* Select [Android 12](/about/versions/12/get) devices
+* Devices running [Android 13](/about/versions/13/get) or higher
 
 Each game can:
 
-- Implement the Game Mode API behavior,
-- Propose Game Mode interventions settings to OEMs, or
-- Explicitly opt out of Game Mode interventions.
+* Implement the Game Mode API behavior,
+* Propose Game Mode interventions settings to OEMs, or
+* Explicitly opt out of Game Mode interventions.
 
-> [!WARNING]
-> **Warning:** OEMs might choose to implement Game Mode interventions without developer feedback.
+**Warning:** OEMs might choose to implement Game Mode interventions without developer
+feedback.
 
 ## Background
 
@@ -39,7 +48,7 @@ your game for each mode.
 
 ### WindowManager backbuffer resizing
 
-The [WindowManager](https://developer.android.com/reference/android/view/WindowManager) backbuffer resize
+The [WindowManager](/reference/android/view/WindowManager) backbuffer resize
 intervention can reduce a device's GPU load. It can also reduce
 battery consumption when a game is paced at a target frame rate.
 
@@ -52,40 +61,44 @@ An unpaced game that is GPU bound is likely to experience higher frame rates
 during reduced GPU loads.
 
 We strongly recommend that all games are
-[well paced](https://developer.android.com/games/sdk/frame-pacing), because uneven frame rates significantly
+[well paced](/games/sdk/frame-pacing), because uneven frame rates significantly
 impact how users perceive performance.
 
 ### FPS throttling
 
 Android FPS throttling is a Game Mode intervention that helps games run at a
 more stable frame rate to reduce battery consumption. The intervention is
-available in [Android 13](https://developer.android.com/about/versions/13/get) or later. For more
-information, see the [FPS throttling overview](https://developer.android.com/games/optimize/adpf/gamemode/fps-throttling).
+available in [Android 13](/about/versions/13/get) or later. For more
+information, see the [FPS throttling overview](/games/optimize/adpf/gamemode/fps-throttling).
 
 ## Evaluate Game Mode interventions
 
-This sections uses the [adb](https://developer.android.com/studio/command-line/adb) command.
+This sections uses the [adb](/studio/command-line/adb) command.
 
 ## Set up the modes
 
 You must opt out of Game Modes in the app's
-[Game Mode config file](https://developer.android.com/games/optimize/adpf/gamemode/gamemode-api#opt-in_game_modes)
+[Game Mode config file](/games/optimize/adpf/gamemode/gamemode-api#opt-in_game_modes)
 before testing the Game Mode interventions. Otherwise the platform will bypass
 them and respect only in-game optimizations.
 
-    <?xml version="1.0" encoding="UTF-8"?>
-    <game-mode-config
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:supportsBatteryGameMode="false"
-        android:supportsPerformanceGameMode="false"
-    />
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<game-mode-config
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:supportsBatteryGameMode="false"
+    android:supportsPerformanceGameMode="false"
+/>
+```
 
 ### (Optional) Back up existing device config
 
 For Pixel or other devices, there might be a pre-existing game intervention
 config in your device config. You can query the config using the command:
 
-    adb shell device_config get game_overlay <PACKAGE_NAME>
+```
+adb shell device_config get game_overlay <PACKAGE_NAME>
+```
 
 If the query returns `null`, ignore the pre-existing config. Otherwise, save it
 and reset to it after the evaluation.
@@ -96,11 +109,13 @@ To evaluate the WindowManager backbuffer resize intervention on its own, use the
 following command to set different WindowManager buffer resize values across
 game modes.
 
-    adb shell device_config put game_overlay <PACKAGE_NAME>
-    mode=2,downscaleFactor=0.9:mode=3,downscaleFactor=0.5
+```
+adb shell device_config put game_overlay <PACKAGE_NAME>
+mode=2,downscaleFactor=0.9:mode=3,downscaleFactor=0.5
+```
 
-In the example above, `mode=2` is "Performance" and `mode=3`
-is "Battery Saver". The `downscaleFactor` value is specified as a percent that
+In the example above, `mode=2` is “Performance” and `mode=3`
+is “Battery Saver”. The `downscaleFactor` value is specified as a percent that
 applies to the resize setting (for example, 0.7 is 70% and 0.8 is 80%). A 90%
 (0.9) resize is almost negligible, whereas 50% (0.5) is significant.
 
@@ -111,7 +126,9 @@ recommend that you limit the resize setting to at least 70%.
 After the new resize valies are set up, switch between game modes to see how
 your game is affected by the WindowManager backbuffer resize intervention:
 
-    adb shell cmd game mode [standard|performance|battery] <PACKAGE_NAME>
+```
+adb shell cmd game mode [standard|performance|battery] <PACKAGE_NAME>
+```
 
 Make sure you restart the game after each game mode selection. The
 downscaling intervention requires app restart.
@@ -121,14 +138,17 @@ downscaling intervention requires app restart.
 You can control whether an intervention is applied to your game
 by opting out. Each intervention has its own opt-out setting.
 
-1. The same config XML file that's used to control opt-in and opt-out of Game Modes is also used for intervention settings:
+1. The same config XML file that’s used to control opt-in and opt-out of Game
+   Modes is also used for intervention settings:
 
-    <?xml version="1.0" encoding="UTF-8"?>
-    <game-mode-config
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:allowGameDownscaling="false"
-        android:allowGameFpsOverride="false"
-    />
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<game-mode-config
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:allowGameDownscaling="false"
+    android:allowGameFpsOverride="false"
+/>
+```
 
 1. Rebuild and resubmit your game to opt-out.
 
@@ -139,16 +159,17 @@ By default, interventions set by the original equipment manufacturers
 
 For more information about measuring and optimizing game performance:
 
-- [System Profilers](https://developer.android.com/games/tools) - analyze CPU usage and graphics calls.
-
-- [Android GPU Inspector](https://developer.android.com/agi) - profile graphics on
+* [System Profilers](/games/tools) - analyze CPU usage and graphics calls.
+* [Android GPU Inspector](/agi) - profile graphics on
   Android.
-
-- [Android Frame Pacing Library](https://developer.android.com/games/sdk/frame-pacing) - help OpenGL and
+* [Android Frame Pacing Library](/games/sdk/frame-pacing) - help OpenGL and
   Vulkan games achieve smooth rendering and correct frame pacing.
-
-- [Android Performance Tuner](https://developer.android.com/games/sdk/performance-tuner) - measure and
+* [Android Performance Tuner](/games/sdk/performance-tuner) - measure and
   optimize frame rate and graphics across Android devices at scale.
-
-- [Power Profiler](https://developer.android.com/studio/profile/power-profiler) - find where your app uses
+* [Power Profiler](/studio/profile/power-profiler) - find where your app uses
   more energy than necessary.
+
+
+
+
+Send feedback

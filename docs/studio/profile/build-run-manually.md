@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 To build a [profileable](/studio/profile#requirements) application manually, you
 need to first build a release application and then update its manifest file,
 which turns the release application into a profileable application. After you

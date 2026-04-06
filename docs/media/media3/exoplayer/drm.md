@@ -1,26 +1,16 @@
 ---
-title: Digital rights management  |  Android media  |  Android Developers
+title: https://developer.android.com/media/media3/exoplayer/drm
 url: https://developer.android.com/media/media3/exoplayer/drm
-source: html-scrape
+source: md.txt
 ---
 
-* [Android Developers](https://developer.android.com/)
-* [Essentials](https://developer.android.com/get-started)
-* [Camera & media dev center](https://developer.android.com/media)
-* [Guides](https://developer.android.com/media/guides)
-
-# Digital rights management Stay organized with collections Save and categorize content based on your preferences.
-
-
-
-
-ExoPlayer uses Android's [`MediaDrm`](/reference/android/media/MediaDrm) API to support DRM-protected playback.
+ExoPlayer uses Android's [`MediaDrm`](https://developer.android.com/reference/android/media/MediaDrm) API to support DRM-protected playback.
 The minimum Android versions required for different supported DRM schemes, along
 with the streaming formats for which they're supported, are described in the
 following table:
 
 | DRM scheme | Android version number | Android API level | Supported formats |
-| --- | --- | --- | --- |
+|---|---|---|---|
 | Widevine "cenc" | 4.4 | 19 | DASH, HLS (FMP4 only) |
 | Widevine "cbcs" | 7.1 | 25 | DASH, HLS (FMP4 only) |
 | ClearKey "cenc" | 5.0 | 21 | DASH |
@@ -28,7 +18,7 @@ following table:
 
 In order to play DRM-protected content with ExoPlayer, the UUID of the DRM
 system must be specified
-[when building a media item](/media/media3/exoplayer/media-items#protected-content), and other
+[when building a media item](https://developer.android.com/media/media3/exoplayer/media-items#protected-content), and other
 properties can also be provided. The player will then use these properties to
 build a default implementation of `DrmSessionManager`, called
 `DefaultDrmSessionManager`, that's suitable for most use cases. For some use
@@ -79,7 +69,8 @@ An offline key set can be loaded by passing the key set ID to
 This allows playback using the keys stored in the offline key set with the
 specified ID.
 
-**[Known issue #3872:](https://github.com/google/ExoPlayer/issues/3872)** Only one offline key set can be specified per playback. As a result, offline playback of multi-key content is currently supported only when the license server is configured as described in Case 1 above.
+> [!CAUTION]
+> **[Known issue #3872:](https://github.com/google/ExoPlayer/issues/3872)** Only one offline key set can be specified per playback. As a result, offline playback of multi-key content is currently supported only when the license server is configured as described in Case 1 above.
 
 ### DRM sessions for clear content
 
@@ -96,36 +87,35 @@ building the media item.
 
 If an app wants to customise the `DrmSessionManager` used for playback, they can
 implement a `DrmSessionManagerProvider` and pass this to the
-`MediaSource.Factory` which is [used when building the player](/guide/topics/media/exoplayer/media-sources#customizing-media-source-creation). The provider can
+`MediaSource.Factory` which is [used when building the player](https://developer.android.com/guide/topics/media/exoplayer/media-sources#customizing-media-source-creation). The provider can
 choose whether to instantiate a new manager instance each time or not. To always
 use the same instance:
 
+
 ### Kotlin
 
-```
+```kotlin
 val customDrmSessionManager: DrmSessionManager = CustomDrmSessionManager()
 // Pass a drm session manager provider to the media source factory.
 val mediaSourceFactory =
   DefaultMediaSourceFactory(context).setDrmSessionManagerProvider { customDrmSessionManager }
-
-Drm.kt
 ```
 
 ### Java
 
-```
+```java
 DrmSessionManager customDrmSessionManager = new CustomDrmSessionManager(/* ... */ );
 // Pass a drm session manager provider to the media source factory.
 MediaSource.Factory mediaSourceFactory =
     new DefaultMediaSourceFactory(context)
         .setDrmSessionManagerProvider(mediaItem -> customDrmSessionManager);
-
-Drm.java
 ```
+
+<br />
 
 ### Improving playback performance
 
 If you're experiencing video stuttering when playing DRM-protected content on a
 device running any version of Android from Android 6.0 (API level 23) up to and
 including Android 11 (API level 30), you can try [enabling asynchronous buffer
-queueing](/guide/topics/media/exoplayer/customization#enabling-asynchronous-buffer-queueing).
+queueing](https://developer.android.com/guide/topics/media/exoplayer/customization#enabling-asynchronous-buffer-queueing).

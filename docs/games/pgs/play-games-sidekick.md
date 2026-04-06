@@ -15,7 +15,6 @@ Send feedback
 
 
 
-
 Play Games Sidekick is an overlay that helps you stay in your game by delivering
 relevant content and offers directly to you.
 
@@ -186,8 +185,6 @@ If achievements aren't appearing as expected, check the following:
   players to have made calls to the achievements API within the last 30 days.
 * **Unlocked:** If the game hasn't earned a badge, players see achievements
   they have already unlocked.
-
-
 
 
 

@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 To improve your app's widget picker experience, provide a generated widget
 preview on Android 15 and later devices, a scaled widget preview
 (by specifying a `previewLayout`) for Android 12 to

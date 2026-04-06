@@ -12,6 +12,7 @@ source: html-scrape
 
 
 
+
 Like previous releases, Android 16 includes behavior changes that might affect
 your app. The following behavior changes apply exclusively to apps that are
 targeting Android 16 or higher. If your app is targeting Android 16 or higher,

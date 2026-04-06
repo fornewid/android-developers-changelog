@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 In Android 10 and higher, an app can support a
 [Dark theme](/develop/ui/views/theming/darktheme) and automatically change
 between light and dark app themes according to the system theme. To match the

@@ -14,7 +14,6 @@ Save and categorize content based on your preferences.
 
 
 
-
 # Play Games Services Recall
 
 Native API for Play Games Services Recall.

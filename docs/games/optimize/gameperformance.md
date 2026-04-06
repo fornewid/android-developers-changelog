@@ -1,8 +1,19 @@
 ---
-title: https://developer.android.com/games/optimize/gameperformance
+title: Analyze and optimize game performance  |  Android game development  |  Android Developers
 url: https://developer.android.com/games/optimize/gameperformance
-source: md.txt
+source: html-scrape
 ---
+
+* [Android Developers](https://developer.android.com/)
+* [Google Play](https://developer.android.com/distribute)
+* [Games dev center](https://developer.android.com/games)
+* [Guides](https://developer.android.com/games/guides)
+
+Send feedback
+
+# Analyze and optimize game performance Stay organized with collections Save and categorize content based on your preferences.
+
+
 
 This guide describes the process for analyzing and optimizing game performance
 on Android devices for a smooth user experience. It covers identifying
@@ -19,7 +30,6 @@ The process for performance optimization involves the following steps:
 
 1. **Measuring overall game performance.** Quantify performance degradation on a
    per-scene basis to pinpoint anomalies.
-
 2. **CPU and GPU bound check.** Ascertain the underlying cause, whether
    CPU-bound or GPU-bound.
 
@@ -41,17 +51,16 @@ The process for performance optimization involves the following steps:
 
 ## Prerequisites
 
-- Have a game build ready for testing on an Android-powered device.
+* Have a game build ready for testing on an Android-powered device.
+* Install the following tools:
 
-- Install the following tools:
-
-  - [Unreal Insight](https://dev.epicgames.com/documentation/en-us/unreal-engine/unreal-insights-in-unreal-engine)
-  - [Unity Profiler](https://docs.unity3d.com/Manual/Profiler.html)
-  - [Perfetto](https://perfetto.dev/)
-  - [RenderDoc](https://renderdoc.org/)
-  - [Arm Mobile Studio](https://developer.arm.com/Tools%20and%20Software/Arm%20Performance%20Studio)
-  - [Qualcomm Snapdragon Profiler](https://www.qualcomm.com/developer/software/snapdragon-profiler)
-  - [Android GPU Inspector](https://developer.android.com/agi) (AGI)
+  + [Unreal Insight](https://dev.epicgames.com/documentation/en-us/unreal-engine/unreal-insights-in-unreal-engine)
+  + [Unity Profiler](https://docs.unity3d.com/Manual/Profiler.html)
+  + [Perfetto](https://perfetto.dev/)
+  + [RenderDoc](https://renderdoc.org/)
+  + [Arm Mobile Studio](https://developer.arm.com/Tools%20and%20Software/Arm%20Performance%20Studio)
+  + [Qualcomm Snapdragon Profiler](https://www.qualcomm.com/developer/software/snapdragon-profiler)
+  + [Android GPU Inspector](/agi) (AGI)
 
 ## Analyze comprehensive game performance
 
@@ -61,9 +70,14 @@ current performance. Because games include many UIs and scenes, analyze scenes
 with high CPU or GPU usage, or layouts that perform unexpectedly, to monitor
 performance degradation and CPU or GPU utilization per scene.
 
-1. **Quantify performance degradation:** Use performance measurement tools to measure the game's overall performance. Measure performance on a per-scene basis to identify specific areas with degradation or abnormalities.
-2. **Identify problematic scenes:** Analyze the data to find scenes with high CPU or GPU usage, or where screen layouts fail to yield expected performance.
-3. **Gather trace data:** Use trace tools to collect detailed performance data for the identified problematic scenes.
+1. **Quantify performance degradation:** Use performance measurement tools to
+   measure the game's overall performance. Measure performance on a per-scene
+   basis to identify specific areas with degradation or abnormalities.
+2. **Identify problematic scenes:** Analyze the data to find scenes with high
+   CPU or GPU usage, or where screen layouts fail to yield expected
+   performance.
+3. **Gather trace data:** Use trace tools to collect detailed performance data
+   for the identified problematic scenes.
 
 ## Identify CPU or GPU bottlenecks
 
@@ -75,66 +89,117 @@ GPU-bound.
 
 1. **Analyze trace data:** Use your preferred tool to analyze trace data:
 
-   - **Unreal Insight (Unreal Engine):** Analyze the trace to see timing for `GameThread`, `RenderThread`, and `RHIThread`.
-     - If `GameThread` or `RenderThread` exceed the frame time limit (for example, 33.3ms for 30 FPS), the game is **CPU-bound**.
-     - If `RHIThread` exhibits prolonged execution or accounts for the majority of the frame time, the game is **GPU-bound**.
+   * **Unreal Insight (Unreal Engine):** Analyze the trace to see timing for
+     `GameThread`, `RenderThread`, and `RHIThread`.
+     + If `GameThread` or `RenderThread` exceed the frame time limit (for
+       example, 33.3ms for 30 FPS), the game is **CPU-bound**.
+     + If `RHIThread` exhibits prolonged execution or accounts for the
+       majority of the frame time, the game is **GPU-bound**.
+   [![Unreal Insight trace timeline showing GameThread, RenderThread, and RHIThread execution times](/static/images/games/performance-tuner/opt1.png)](/static/images/games/performance-tuner/opt1.png)
 
-   [![Unreal Insight trace timeline showing GameThread, RenderThread, and RHIThread execution times](https://developer.android.com/static/images/games/performance-tuner/opt1.png)](https://developer.android.com/static/images/games/performance-tuner/opt1.png) **Figure 2.** Unreal insight trace with GameThread, RenderThread, and RHIThread (click to enlarge).
-   - **Unity Profiler (Unity):** If the main thread consumes substantial time on markers like `Gfx.WaitForPresentOnGfxThread` while the render thread shows `Gfx.PresentFrame` or `<GraphicsAPIName>.WaitForLastPresent`, the game is **GPU-bound**.
 
-   [![Unity Profiler timeline showing Main Thread waiting on Gfx.WaitForPresentOnGfxThread](https://developer.android.com/static/images/games/performance-tuner/opt2.png)](https://developer.android.com/static/images/games/performance-tuner/opt2.png) **Figure 3.** GPU bound example for Unity Profiler (click to enlarge).
-   - **Perfetto:** Analyze CPU core assignments and thread execution details. This analysis facilitates the identification of performance bottlenecks through the detailed review of thread execution information.
-   - **CPU overhead:** The trace indicates that the workload on the
+   **Figure 2.** Unreal insight trace with GameThread,
+   RenderThread, and RHIThread (click to enlarge).
+
+   * **Unity Profiler (Unity):** If the main thread consumes substantial time
+     on markers like `Gfx.WaitForPresentOnGfxThread` while the render thread
+     shows `Gfx.PresentFrame` or `<GraphicsAPIName>.WaitForLastPresent`, the
+     game is **GPU-bound**.
+   [![Unity Profiler timeline showing Main Thread waiting on Gfx.WaitForPresentOnGfxThread](/static/images/games/performance-tuner/opt2.png)](/static/images/games/performance-tuner/opt2.png)
+
+
+   **Figure 3.** GPU bound example for Unity Profiler
+   (click to enlarge).
+
+   * **Perfetto:** Analyze CPU core assignments and thread execution details.
+     This analysis facilitates the identification of performance bottlenecks
+     through the detailed review of thread execution information.
+   * **CPU overhead:** The trace indicates that the workload on the
      `GameThread` and `RenderThread`, in conjunction with VSync, is
      responsible for delays in the RHI Thread's `QueuePresent`, thereby
      signifying a CPU-bound scenario.
 
-     [![Perfetto trace showing execution times for GameThread, RenderThread, and RHIThread](https://developer.android.com/static/images/games/performance-tuner/opt3.png)](https://developer.android.com/static/images/games/performance-tuner/opt3.png) **Figure 4.** Perfetto traces with CPU execution details (click to enlarge).
-   - **GPU overhead:** If GPU completion time exceeds the frame time limit,
+     [![Perfetto trace showing execution times for GameThread, RenderThread, and RHIThread](/static/images/games/performance-tuner/opt3.png)](/static/images/games/performance-tuner/opt3.png)
+
+
+     **Figure 4.** Perfetto traces with CPU execution
+     details (click to enlarge).
+   * **GPU overhead:** If GPU completion time exceeds the frame time limit,
      for example, 25ms, the game is **GPU-bound**. The trace indicates that
      GPU completion exceeds 25ms, which signifies a GPU-bound scenario.
 
-     [![Perfetto trace showing GPU completion block waiting for GPU completion](https://developer.android.com/static/images/games/performance-tuner/opt6.png)](https://developer.android.com/static/images/games/performance-tuner/opt6.png) **Figure 5.** Perfetto traces with GPU overhead details (click to enlarge).
+     [![Perfetto trace showing GPU completion block waiting for GPU completion](/static/images/games/performance-tuner/opt6.png)](/static/images/games/performance-tuner/opt6.png)
+
+
+     **Figure 5.** Perfetto traces with GPU overhead
+     details (click to enlarge).
 2. **Use Unreal Engine stat commands:**
 
-   - **`stat unit`:** Compare time allocated to Game, Draw, and RHI threads. If Game and Draw times are low but RHI time consistently exceeds the frame time limit, the game is **GPU-bound**. For example, if the required FPS is 30 (equivalent to 33.33ms per frame), and both Game and Draw threads consistently remain within a 10-15 ms range, yet the RHI consistently exceeds 30ms, it strongly suggests a GPU-bound scenario.
+   * **`stat unit`:** Compare time allocated to Game, Draw, and RHI threads.
+     If Game and Draw times are low but RHI time consistently exceeds the
+     frame time limit, the game is **GPU-bound**. For example, if the
+     required FPS is 30 (equivalent to 33.33ms per frame), and both Game and
+     Draw threads consistently remain within a 10-15 ms range, yet the RHI
+     consistently exceeds 30ms, it strongly suggests a GPU-bound scenario.
+   [![Stat unit overlay displaying Frame, Game, Draw, GPU, and RHIT execution times](/static/images/games/performance-tuner/opt4.png)](/static/images/games/performance-tuner/opt4.png)
 
-   [![Stat unit overlay displaying Frame, Game, Draw, GPU, and RHIT execution times](https://developer.android.com/static/images/games/performance-tuner/opt4.png)](https://developer.android.com/static/images/games/performance-tuner/opt4.png) **Figure 6.** Stat unit facilitates the estimation of GPU-bound conditions.
-   - **`stat VulkanRHI`:** Check Queue Submit and Queue Present durations.
 
-   [![Stat VulkanRHI overlay displaying cycle counters for Queue Submit and Queue Present](https://developer.android.com/static/images/games/performance-tuner/opt5.png)](https://developer.android.com/static/images/games/performance-tuner/opt5.png) **Figure 7.** Stat VulkanRHI facilitates the estimation of GPU-bound conditions (click to enlarge).
-   - **`stat slow`:** Scrutinize time allocated to Game, Render, and RHI threads to pinpoint impediments.
+   **Figure 6.** Stat unit facilitates the estimation of GPU-bound conditions.
+
+   * **`stat VulkanRHI`:** Check Queue Submit and Queue Present durations.
+   [![Stat VulkanRHI overlay displaying cycle counters for Queue Submit and Queue Present](/static/images/games/performance-tuner/opt5.png)](/static/images/games/performance-tuner/opt5.png)
+
+
+   **Figure 7.** Stat VulkanRHI facilitates the estimation
+   of GPU-bound conditions (click to enlarge).
+
+   * **`stat slow`:** Scrutinize time allocated to Game, Render, and RHI
+     threads to pinpoint impediments.
 3. **Check performance metrics:** Use the results from your [comprehensive game
-   performance analysis](https://developer.android.com/games/optimize/gameperformance#analyze-game-performance). On Android:
+   performance analysis](#analyze-game-performance). On Android:
 
-   - **CPU-bound:** CPU (normalized) usage greater than 15%, with low GPU usage and low FPS.
-   - **GPU-bound:** GPU usage greater 90%.
+   * **CPU-bound:** CPU (normalized) usage greater than 15%, with low GPU
+     usage and low FPS.
+   * **GPU-bound:** GPU usage greater 90%.
 
    Typically, if the FPS and GPU usage are low while the CPU usage exceeds 15%,
    the situation can be considered CPU-bound.
-   ![Performance metrics tables highlighting CPU-bound and GPU-bound scenarios](https://developer.android.com/static/images/games/performance-tuner/opt7.png) **Figure 8.** Performance metrics with CPU and GPU usage.
+
+   ![Performance metrics tables highlighting CPU-bound and GPU-bound scenarios](/static/images/games/performance-tuner/opt7.png)
+
+
+   **Figure 8.** Performance metrics with CPU and GPU usage.
 
 ## Optimize CPU performance
 
 If the analysis indicates the game is CPU-bound, investigate further to pinpoint
 specific threads or APIs causing the bottleneck.
 
-For detailed guidance, see [CPU, GPU Optimization Tips for Android](https://developer.android.com/games/optimize/optimization-tips).
+For detailed guidance, see [CPU, GPU Optimization Tips for Android](/games/optimize/optimization-tips).
 
 ## Optimize GPU performance
 
 If the analysis indicates the game is GPU-bound, investigate further using frame
 debuggers to analyze the render pipeline and draw calls.
 
-For detailed guidance, see [CPU, GPU Optimization Tips for Android](https://developer.android.com/games/optimize/optimization-tips).
+For detailed guidance, see [CPU, GPU Optimization Tips for Android](/games/optimize/optimization-tips).
 
 ## Verify optimization effectiveness
 
 1. **Conduct A/B testing:** Create a build with the implemented optimizations.
-2. **Measure performance:** Use the same tools and methods from the initial analysis to measure the performance of the optimized build.
-3. **Compare results:** Compare the new performance data with the initial data to confirm that the identified bottlenecks have been resolved and that FPS and thermal targets are met.
-4. **Iterate:** Repeat the analysis and optimization steps until the performance is achieved.
+2. **Measure performance:** Use the same tools and methods from the initial
+   analysis to measure the performance of the optimized build.
+3. **Compare results:** Compare the new performance data with the initial data
+   to confirm that the identified bottlenecks have been resolved and that FPS
+   and thermal targets are met.
+4. **Iterate:** Repeat the analysis and optimization steps until the
+   performance is achieved.
 
 ## See also
 
-- [CPU, GPU Optimization Tips for Android](https://developer.android.com/games/optimize/optimization-tips)
+* [CPU, GPU Optimization Tips for Android](/games/optimize/optimization-tips)
+
+
+
+
+Send feedback

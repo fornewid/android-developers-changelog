@@ -14,7 +14,6 @@ Send feedback
 
 
 
-
 One-time purchase products have a simpler lifecycle than subscription products,
 but there are still several states and transition events that your backend needs
 to be able to handle properly.
@@ -131,8 +130,6 @@ There are also purchase acknowledgement and consume methods available in the
 Play Billing Library that allow you to process purchases from you app, but we
 recommend that you handle processing in your backend if you have one for a more
 secure implementation.
-
-
 
 
 

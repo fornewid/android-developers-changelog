@@ -15,7 +15,6 @@ Send feedback
 
 
 
-
 Follow these best practices to optimize the appearance and performance of
 textures in your Android game.
 
@@ -445,8 +444,6 @@ Continuous UV on hard edges will cause visible seams, split UV on hard edges to
 minimize this effect. When setting smoothing groups, as a rule of thumb keep the
 angle less than 90 degrees. UV seams need to have a different smoothing group on
 the triangles.
-
-
 
 
 

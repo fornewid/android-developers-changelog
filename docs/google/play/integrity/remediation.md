@@ -12,6 +12,7 @@ source: html-scrape
 
 
 
+
 This page describes how to handle issues with integrity verdicts.
 
 After an integrity token is requested, you have the option to display a Google

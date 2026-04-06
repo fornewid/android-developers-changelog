@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 When Compose updates a frame, it goes through three phases:
 
 * **Composition:** Compose determines *what* to show. It runs composable

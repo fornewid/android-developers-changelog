@@ -15,6 +15,7 @@ Send feedback
 
 
 
+
 This document describes how to use Google Play Games Services achievements in C++ games. This
 document assumes you have set up your project as described in [Set Up
 Google Play Games Services](/games/pgs/console/setup). You can find the achievements API in the
@@ -159,6 +160,8 @@ The following image shows an example of the default achievements UI:
 
 
 Example of the default achievements UI.
+
+
 
 
 

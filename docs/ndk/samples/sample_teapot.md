@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 The Teapot sample is located under in the `samples/Teapot/` directory, under the NDK
 installation's root directory. This sample uses the OpenGL library to render the iconic
 [Utah

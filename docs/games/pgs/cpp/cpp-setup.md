@@ -15,7 +15,6 @@ Send feedback
 
 
 
-
 This document helps you set up your C++ project for
 v2 Native C or C++ and verify the authentication service.
 
@@ -102,69 +101,6 @@ In your `CMakeLists.txt` file, add the following code:
 3. Build and test your game. If successful, when you launch your game, the game
    displays a sign-in prompt or a successful sign-in banner.
 
-## Get the player ID
-
-Your game can access player information for an authenticated player by
-retrieving their player ID. You can retrieve a player ID by calling the
-`GetPlayerId` function, as demonstrated in the following example.
-
-**Note:** For more information about how Player IDs work, see
-[Next-generation player IDs](/games/pgs/next-gen-player-ids).
-
-```
-#include <assert.h>
-#include "gni/gni.h"
-#include "gni/gni_task.h"
-#include "pgs/pgs_play_games.h"
-#include "pgs/pgs_players_client.h"
-
-// A callback for a GniTask returned from PgsPlayersClient_getCurrentPlayerId.
-void OnGetCurrentPlayerIdCompleteCallback(GniTask *task, void *user_data) {
-
-   if (!GniTask_isSuccessful(task)) {
-      const char *error_message = nullptr;
-      GniTask_getErrorMessage(task, &error_message);
-
-      // Log error message here.
-
-      GniString_destroy(error_message);
-      GniTask_destroy(task);
-      return;
-   }
-
-   const char *result = nullptr;
-   PgsPlayersClient_getCurrentPlayerId_getResult(task, &result);
-
-   // Log player ID here.
-
-   GniString_destroy(result);
-   GniTask_destroy(task);
-}
-
-// Gets the player ID.
-void GetPlayerId(jobject main_activity) {
-   static const PgsPlayersClient *players_client =
-           PgsPlayGames_getPlayersClient(main_activity);
-
-   GniTask *get_current_player_id_task =
-           PgsPlayersClient_getCurrentPlayerId(players_client);
-   assert(get_current_player_id_task != nullptr);
-   GniTask_addOnCompleteCallback(get_current_player_id_task,
-                                 OnGetCurrentPlayerIdCompleteCallback,
-                                 nullptr);
-}
-
-// Entry point for our test app
-void TestPGSNative(JNIEnv *env, jobject main_activity) {
-   JavaVM *java_vm;
-   env->GetJavaVM(&java_vm);
-
-   GniCore_init(java_vm, main_activity);
-
-   GetPlayerId(main_activity);
-}
-```
-
 ## Re-launch the sign-in prompt
 
 If a player declines the initial Play Games Services sign-in prompt that is
@@ -183,8 +119,6 @@ retrieve the server authorization code by calling the
 
 For more information, see the
 [server access guide](/games/pgs/android/server-access).
-
-
 
 
 

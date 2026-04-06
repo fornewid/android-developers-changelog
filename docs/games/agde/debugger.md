@@ -15,7 +15,6 @@ Send feedback
 
 
 
-
 Debug your project with the Visual Studio Debugger (LLDB) when using the
 Android Game Development Extension.
 
@@ -264,8 +263,6 @@ file from the Android Game Development Extension toolbar.
 * The `Usage` attribute, albeit required by the schema, is not supported for
   `<SmartPointer>`. However, LLDB does not restrict the access to operators
   defined in C++, so that any required operator can be defined in C++ instead.
-
-
 
 
 

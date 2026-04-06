@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 Compromised Gradle dependencies pose a security risk. A malicious actor could
 potentially inject a modified dependency into the build process, for example,
 through a man-in-the-middle attack during dependency resolution.

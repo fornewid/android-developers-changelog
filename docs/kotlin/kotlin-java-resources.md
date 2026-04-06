@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Here's a list of additional learning resources that can help you learn to
 do even more with Kotlin.
 

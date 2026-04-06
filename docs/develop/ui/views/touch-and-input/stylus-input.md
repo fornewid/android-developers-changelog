@@ -16,7 +16,6 @@ Save and categorize content based on your preferences.
 
 
 
-
 ### Stylus
 
 ![](https://developer.android.com/static/images/jetpack/compose/touchinput/stylus/hero.png)

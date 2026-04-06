@@ -1,105 +1,115 @@
 ---
-title: https://developer.android.com/courses/quizzes/android-basics-compose-unit-3-pathway-3/android-basics-compose-unit-3-pathway-3
+title: Build beautiful apps  |  Android Developers
 url: https://developer.android.com/courses/quizzes/android-basics-compose-unit-3-pathway-3/android-basics-compose-unit-3-pathway-3
-source: md.txt
+source: html-scrape
 ---
 
-# Build beautiful apps
+Stay organized with collections
+
+Save and categorize content based on your preferences.
+
+
 
 # Build beautiful apps
 
-<br />
+Return to pathway
 
-Return to pathway  
-1.
 
-   ## Animations in your Android app can:
 
-   Add visual cues about what's going on in your app.  
-   Add a polished look to your app.  
-   Help the user see what changed.  
-   All of the above.  
-2.
+1. ## Animations in your Android app can:
 
-   ## Spring animation is based on:
+   Add visual cues about what's going on in your app.
 
-   Start and end values over the specified duration.  
-   Damping ratio and stiffness.  
-   Snapshot values specified at different timestamps.  
-   Interpolation between two keyframe values.  
-3.
+   Add a polished look to your app.
 
-   ## Spring animation is a physics-based animation driven by spring force.
+   Help the user see what changed.
 
-   True  
-   False  
-4.
+   All of the above.
+2. ## Spring animation is based on:
 
-   ## In the Material theming, the ___ color is the color displayed most frequently across your app's screens and components.
+   Start and end values over the specified duration.
 
-   primary  
-   secondary  
-   surface  
-   background  
-5.
+   Damping ratio and stiffness.
 
-   ## The following file is used to define shapes of components in Compose.
+   Snapshot values specified at different timestamps.
 
-   `Theme.kt`  
-   `Color.kt`  
-   `Shape.kt`  
-   `Colors.kt`  
-6.
+   Interpolation between two keyframe values.
+3. ## Spring animation is a physics-based animation driven by spring force.
 
-   ## You can only have one`@Preview`composable
+   True
 
-   True  
-   False  
-7.
+   False
+4. ## In the Material theming, the \_\_\_ color is the color displayed most frequently across your app's screens and components.
 
-   ## A hex color code starts with a pound (#) character, and is followed by six letters and/or numbers that represent the red, green, and blue (RGB) components of that color.
+   primary
 
-   True  
-   False  
-8.
+   secondary
 
-   ## The ___ file is the file that holds all the information about the theme of the app which is defined through color, shape, and typography.
+   surface
 
-   Theme.kt  
-   Color.kt  
-   Shape.kt  
-   Colors.kt  
-9.
+   background
+5. ## The following file is used to define shapes of components in Compose.
 
-   ## ___ creates contrast between the Card and the background by adding a shadow to make the app look more realistic and visually interesting?
+   `Theme.kt`
 
-   Elevation  
-   Shape  
-   Color  
-   Theme  
-10.
+   `Color.kt`
 
-    ## What are reasons that someone may use Dark Theme on their device?
+   `Shape.kt`
 
-    It can reduce power usage by a significant amount (depending on the device's screen technology).  
-    It improves visibility for users with low vision and those who are sensitive to bright light.  
-    It makes it easier for anyone to use a device in a low-light environment.  
-    All of the above.  
-11.
+   `Colors.kt`
+6. ## You can only have one `@Preview` composable
 
-    ## TalkBack allows a user to navigate an app using switches instead of the touchscreen.
+   True
 
-    True  
-    False  
-12.
+   False
+7. ## A hex color code starts with a pound (#) character, and is followed by six letters and/or numbers that represent the red, green, and blue (RGB) components of that color.
 
-    ## Which attribute allows TalkBack to speak a meaningful representation of an image or icon?
+   True
 
-    `elevation`  
-    `shape`  
-    `contentDescription`  
-    `style`  
+   False
+8. ## The \_\_\_ file is the file that holds all the information about the theme of the app which is defined through color, shape, and typography.
+
+   Theme.kt
+
+   Color.kt
+
+   Shape.kt
+
+   Colors.kt
+9. ## \_\_\_ creates contrast between the Card and the background by adding a shadow to make the app look more realistic and visually interesting?
+
+   Elevation
+
+   Shape
+
+   Color
+
+   Theme
+10. ## What are reasons that someone may use Dark Theme on their device?
+
+    It can reduce power usage by a significant amount (depending on the device’s screen technology).
+
+    It improves visibility for users with low vision and those who are sensitive to bright light.
+
+    It makes it easier for anyone to use a device in a low-light environment.
+
+    All of the above.
+11. ## TalkBack allows a user to navigate an app using switches instead of the touchscreen.
+
+    True
+
+    False
+12. ## Which attribute allows TalkBack to speak a meaningful representation of an image or icon?
+
+    `elevation`
+
+    `shape`
+
+    `contentDescription`
+
+    `style`
 
 Submit answers
 
-*error_outline*An error occurred when grading the quiz. Please try again.
+*error\_outline*
+An error occurred when grading the quiz. Please try again.

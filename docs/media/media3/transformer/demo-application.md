@@ -15,7 +15,6 @@ Media3 Transformer is actively under development and we are looking to hear from
 
 
 
-
 The Transformer demo app lets you try out the API's capabilities and transform
 your own media, including converting media between formats, trimming, and
 applying video effects.

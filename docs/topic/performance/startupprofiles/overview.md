@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Startup Profiles are similar to Baseline Profiles, but they are used at compile
 time to optimize DEX layout for faster startup times, rather than for on-device
 optimization. To learn more about how startup profiles differ from Baseline

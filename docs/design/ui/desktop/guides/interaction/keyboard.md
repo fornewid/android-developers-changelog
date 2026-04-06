@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 In desktop experiences, physical keyboards enable more than just typing—they are
 key to app efficiency and accessibility.
 

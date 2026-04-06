@@ -1,26 +1,39 @@
 ---
-title: https://developer.android.com/training/dependency-injection/dagger-android
+title: Using Dagger in Android apps  |  App architecture  |  Android Developers
 url: https://developer.android.com/training/dependency-injection/dagger-android
-source: md.txt
+source: html-scrape
 ---
 
-The [Dagger basics](https://developer.android.com/training/dependency-injection/dagger-basics) page explained how Dagger can help you automate dependency
+* [Android Developers](https://developer.android.com/)
+* [Design & Plan](https://developer.android.com/design)
+* [App architecture](https://developer.android.com/topic/architecture/intro)
+
+# Using Dagger in Android apps Stay organized with collections Save and categorize content based on your preferences.
+
+
+
+The [Dagger basics](/training/dependency-injection/dagger-basics) page explained how Dagger can help you automate dependency
 injection in your app. With Dagger, you don't have to write tedious and
 error-prone boilerplate code.
 
-> [!NOTE]
-> **Note:** Use [Hilt](https://developer.android.com/training/dependency-injection/hilt-android) for dependency injection on Android. Hilt is built on top of Dagger and it provides a standard way to incorporate Dagger dependency injection into an Android application.
+**Note:** Use [Hilt](/training/dependency-injection/hilt-android) for dependency
+injection on Android. Hilt is built on top of Dagger and it provides a standard
+way to incorporate Dagger dependency injection into an Android application.
 
 ## Best practices summary
 
-> [!NOTE]
-> **Note:** If you're already familiar with Dagger, check out these best practices. If not, read the content on this page and come back to this later.
+**Note:** If you're already familiar with Dagger, check out these best practices.
+If not, read the content on this page and come back to this later.
 
-- Use constructor injection with `@Inject` to add types to the Dagger graph whenever it's possible. When it's not:
-  - Use `@Binds` to tell Dagger which implementation an interface should have.
-  - Use `@Provides` to tell Dagger how to provide classes that your project doesn't own.
-- You should only declare modules once in a component.
-- Name the scope annotations depending on the lifetime where the annotation is used. Examples include `@ApplicationScope`, `@LoggedUserScope`, and `@ActivityScope`.
+* Use constructor injection with `@Inject` to add types to the Dagger
+  graph whenever it's possible. When it's not:
+  + Use `@Binds` to tell Dagger which implementation an interface should have.
+  + Use `@Provides` to tell Dagger how to provide classes that your project
+    doesn't own.
+* You should only declare modules once in a component.
+* Name the scope annotations depending on the lifetime where the
+  annotation is used. Examples include `@ApplicationScope`, `@LoggedUserScope`,
+  and `@ActivityScope`.
 
 ## Adding dependencies
 
@@ -30,7 +43,7 @@ your `build.gradle` file. You can find the latest version of Dagger
 
 ### Kotlin
 
-```kotlin
+```
 plugins {
   id 'kotlin-kapt'
 }
@@ -43,7 +56,7 @@ dependencies {
 
 ### Java
 
-```java
+```
 dependencies {
     implementation 'com.google.dagger:dagger:2.x'
     annotationProcessor 'com.google.dagger:dagger-compiler:2.x'
@@ -53,9 +66,10 @@ dependencies {
 ## Dagger in Android
 
 Consider an example Android app with the dependency graph from Figure 1.
+
 ![LoginActivity depends on LoginViewModel, which depends on UserRepository,
-which depends on UserLocalDataSource and UserRemoteDataSource, which in turn
-depends on Retrofit.](https://developer.android.com/static/images/training/dependency-injection/4-application-graph.png)
+  which depends on UserLocalDataSource and UserRemoteDataSource, which in turn
+  depends on Retrofit.](/static/images/training/dependency-injection/4-application-graph.png)
 
 **Figure 1.** Dependency graph of the example
 code
@@ -65,7 +79,7 @@ class because you want an instance of the graph to be in memory as long as the
 app is running. In this way, the graph is attached to the app lifecycle. In some
 cases, you might also want to have the application context available in the
 graph. For that, you would also need the graph to be in the
-[`Application`](https://developer.android.com/reference/android/app/Application) class. One advantage of this
+[`Application`](/reference/android/app/Application) class. One advantage of this
 approach is that the graph is available to other Android framework classes.
 Additionally, it simplifies testing by allowing you to use a custom
 `Application` class in tests.
@@ -78,7 +92,7 @@ snippet:
 
 ### Kotlin
 
-```kotlin
+```
 // Definition of the Application graph
 @Component
 interface ApplicationComponent { ... }
@@ -92,7 +106,7 @@ class MyApplication: Application() {
 
 ### Java
 
-```java
+```
 // Definition of the Application graph
 @Component
 public interface ApplicationComponent {
@@ -113,8 +127,9 @@ That means you cannot use the `@Inject` annotation in the constructor of the
 class (constructor injection) as you did in the previous examples. Instead,
 you have to use field injection.
 
-> [!NOTE]
-> **Note:** The [Dagger basics](https://developer.android.com/training/dependency-injection/dagger-basics) page covers how to use the Dagger `@Inject` annotation in constructors. This annotation tells Dagger how to create instances of a class.
+**Note:** The [Dagger basics](/training/dependency-injection/dagger-basics) page covers how to use the
+Dagger `@Inject` annotation in constructors. This annotation tells Dagger how
+to create instances of a class.
 
 Instead of creating the dependencies an activity requires in the `onCreate()`
 method, you want Dagger to populate those dependencies for you. For field
@@ -123,7 +138,7 @@ want to get from the Dagger graph.
 
 ### Kotlin
 
-```kotlin
+```
 class LoginActivity: Activity() {
     // You want Dagger to provide an instance of LoginViewModel from the graph
     @Inject lateinit var loginViewModel: LoginViewModel
@@ -132,7 +147,7 @@ class LoginActivity: Activity() {
 
 ### Java
 
-```java
+```
 public class LoginActivity extends Activity {
 
     // You want Dagger to provide an instance of LoginViewModel from the graph
@@ -150,13 +165,13 @@ the [*dev-dagger*](https://github.com/android/architecture-samples/tree/dev-dagg
 One of the considerations with Dagger is that injected fields cannot be private.
 They need to have at least package-private visibility like in the preceding code.
 
-> [!NOTE]
-> **Note:** Field injection should only be used in Android framework classes where constructor injection cannot be used.
+**Note:** Field injection should only be used in Android framework classes where
+constructor injection cannot be used.
 
 ### Injecting activities
 
 Dagger needs to know that `LoginActivity` has to access the graph in order to
-provide the `ViewModel` it requires. In the [Dagger basics](https://developer.android.com/training/dependency-injection/dagger-basics) page, you used
+provide the `ViewModel` it requires. In the [Dagger basics](/training/dependency-injection/dagger-basics) page, you used
 the `@Component` interface to get objects from the graph
 by exposing functions with the return type of what you want to get from the
 graph. In this case, you need to tell Dagger about an object (`LoginActivity`
@@ -165,7 +180,7 @@ a function that takes as a parameter the object that requests injection.
 
 ### Kotlin
 
-```kotlin
+```
 @Component
 interface ApplicationComponent {
     // This tells Dagger that LoginActivity requests injection so the graph needs to
@@ -176,7 +191,7 @@ interface ApplicationComponent {
 
 ### Java
 
-```java
+```
 @Component
 public interface ApplicationComponent {
     // This tells Dagger that LoginActivity requests injection so the graph needs to
@@ -210,7 +225,7 @@ method. In this case, it can be done before or after calling `super.onAttach()`.
 
 ### Kotlin
 
-```kotlin
+```
 class LoginActivity: Activity() {
     // You want Dagger to provide an instance of LoginViewModel from the graph
     @Inject lateinit var loginViewModel: LoginViewModel
@@ -232,7 +247,7 @@ class LoginViewModel @Inject constructor(
 
 ### Java
 
-```java
+```
 public class LoginActivity extends Activity {
 
     // You want Dagger to provide an instance of LoginViewModel from the graph
@@ -266,7 +281,7 @@ the graph:
 
 ### Kotlin
 
-```kotlin
+```
 class UserRepository @Inject constructor(
     private val localDataSource: UserLocalDataSource,
     private val remoteDataSource: UserRemoteDataSource
@@ -280,7 +295,7 @@ class UserRemoteDataSource @Inject constructor(
 
 ### Java
 
-```java
+```
 public class UserRepository {
 
     private final UserLocalDataSource userLocalDataSource;
@@ -326,7 +341,7 @@ dependencies with the `@Provides` annotation.
 
 ### Kotlin
 
-```kotlin
+```
 // @Module informs Dagger that this class is a Dagger Module
 @Module
 class NetworkModule {
@@ -348,7 +363,7 @@ class NetworkModule {
 
 ### Java
 
-```java
+```
 // @Module informs Dagger that this class is a Dagger Module
 @Module
 public class NetworkModule {
@@ -368,12 +383,14 @@ public class NetworkModule {
 }
 ```
 
-> [!NOTE]
-> **Note:** You can use the `@Provides` annotation in Dagger modules to tell Dagger how to provide classes that your project doesn't own (e.g. an instance of `Retrofit`).  
->
-> For implementation of interfaces, the best practice is using [`@Binds`](https://dagger.dev/faq.html#binds), as you can see in the [Using Dagger
-> in an Android app
-> codelab](https://codelabs.developers.google.com/codelabs/android-dagger/).
+**Note:** You can use the `@Provides` annotation in Dagger modules to tell Dagger
+how to provide classes that your project doesn't own (e.g. an instance of
+`Retrofit`).  
+  
+For implementation of interfaces, the best practice is
+using [`@Binds`](https://dagger.dev/faq.html#binds), as you can see in the [Using Dagger
+in an Android app
+codelab](https://codelabs.developers.google.com/codelabs/android-dagger/).
 
 Modules are a way to semantically encapsulate information on how to provide
 objects. As you can see, you called the class `NetworkModule` to group the logic
@@ -389,7 +406,7 @@ graph to satisfy the dependencies of `LoginRetrofitService`. For example:
 
 ### Kotlin
 
-```kotlin
+```
 @Module
 class NetworkModule {
     // Hypothetical dependency on LoginRetrofitService
@@ -402,7 +419,7 @@ class NetworkModule {
 
 ### Java
 
-```java
+```
 @Module
 public class NetworkModule {
 
@@ -418,7 +435,7 @@ the `@Component` interface as follows:
 
 ### Kotlin
 
-```kotlin
+```
 // The "modules" attribute in the @Component annotation tells Dagger what Modules
 // to include when building the graph
 @Component(modules = [NetworkModule::class])
@@ -429,7 +446,7 @@ interface ApplicationComponent {
 
 ### Java
 
-```java
+```
 // The "modules" attribute in the @Component annotation tells Dagger what Modules
 // to include when building the graph
 @Component(modules = NetworkModule.class)
@@ -446,7 +463,8 @@ create an instance of an object. Whenever it has to provide an instance of that
 type, Dagger runs the code inside the `@Provides` method.
 
 This is how the Dagger graph in the example looks right now:
-![Diagram of LoginActivity dependency graph](https://developer.android.com/static/images/training/dependency-injection/4-graph-login.png)
+
+![Diagram of LoginActivity dependency graph](/static/images/training/dependency-injection/4-graph-login.png)
 
 **Figure 2.** Representation of the graph with
 `LoginActivity` being injected by Dagger
@@ -463,7 +481,7 @@ example, Dagger delegates to the `NetworkModule` included in
 
 ### Dagger scopes
 
-Scopes were mentioned on the [Dagger basics](https://developer.android.com/training/dependency-injection/dagger-basics) page as a way to have a
+Scopes were mentioned on the [Dagger basics](/training/dependency-injection/dagger-basics) page as a way to have a
 unique instance of a type in a component. This is what is meant by
 *scoping a type to the component's lifecycle*.
 
@@ -479,12 +497,15 @@ component's lifecycle is not necessary.
 the `javax.inject` package. You can use it to annotate `ApplicationComponent`
 and the objects you want to reuse across the whole application.
 
-> [!NOTE]
-> **Note:** You can use **any** scope annotation to have a unique instance of a type in a component as long as the component and the type are annotated with it. `@Singleton` comes with the Dagger library and is usually used to annotate the application component, but you can create a custom one with a different name (e.g. `@ApplicationScope`).
+**Note:** You can use **any** scope annotation to have a unique instance of a type
+in a component as long as the component and the type are annotated with it.
+`@Singleton` comes with the Dagger library and is usually used to annotate the
+application component, but you can create a custom one with a different
+name (e.g. `@ApplicationScope`).
 
 ### Kotlin
 
-```kotlin
+```
 @Singleton
 @Component(modules = [NetworkModule::class])
 interface ApplicationComponent {
@@ -508,7 +529,7 @@ class NetworkModule {
 
 ### Java
 
-```java
+```
 @Singleton
 @Component(modules = NetworkModule.class)
 public interface ApplicationComponent {
@@ -537,8 +558,8 @@ public class NetworkModule {
 }
 ```
 
-> [!CAUTION]
-> **Caution:** Modules that use a scope annotation can only be used in components that are annotated with the same scope.
+**Caution:** Modules that use a scope annotation can only be used in components that
+are annotated with the same scope.
 
 Take care not to introduce memory leaks when applying scopes to objects. As
 long as the scoped component is in memory, the created object is in memory
@@ -547,8 +568,8 @@ too. Because `ApplicationComponent` is created when the app is launched (in the
 unique instance of `UserRepository` always remains in memory until the
 application is destroyed.
 
-> [!NOTE]
-> **Note:** Add scope annotations in classes when using constructor injection (with `@Inject`) and add them in `@Provides` methods when using Dagger modules.
+**Note:** Add scope annotations in classes when using constructor injection
+(with `@Inject`) and add them in `@Provides` methods when using Dagger modules.
 
 ### Dagger subcomponents
 
@@ -559,7 +580,6 @@ for the following reasons:
 
 1. The instance of `LoginViewModel` would persist in memory after the flow has
    finished.
-
 2. You want a different instance of `LoginViewModel` for each login flow.
    For example, if the user logs out, you want a different instance of
    `LoginViewModel`, rather than the same instance as when the user logged in for
@@ -572,14 +592,14 @@ Let's create a graph specific to the login flow.
 
 ### Kotlin
 
-```kotlin
+```
 @Component
 interface LoginComponent {}
 ```
 
 ### Java
 
-```java
+```
 @Component
 public interface LoginComponent {
 }
@@ -591,7 +611,7 @@ has a login-specific configuration. This removes the responsibility to inject
 
 ### Kotlin
 
-```kotlin
+```
 @Component
 interface LoginComponent {
     fun inject(activity: LoginActivity)
@@ -600,7 +620,7 @@ interface LoginComponent {
 
 ### Java
 
-```java
+```
 @Component
 public interface LoginComponent {
     void inject(LoginActivity loginActivity);
@@ -628,7 +648,7 @@ In the example, you must define `LoginComponent` as a subcomponent of
 
 ### Kotlin
 
-```kotlin
+```
 // @Subcomponent annotation informs Dagger this interface is a Dagger Subcomponent
 @Subcomponent
 interface LoginComponent {
@@ -642,7 +662,7 @@ interface LoginComponent {
 
 ### Java
 
-```java
+```
 // @Subcomponent annotation informs Dagger this interface is a Dagger Subcomponent
 @Subcomponent
 public interface LoginComponent {
@@ -659,7 +679,7 @@ You also must define a subcomponent factory inside `LoginComponent` so that
 
 ### Kotlin
 
-```kotlin
+```
 @Subcomponent
 interface LoginComponent {
 
@@ -675,7 +695,7 @@ interface LoginComponent {
 
 ### Java
 
-```java
+```
 @Subcomponent
 public interface LoginComponent {
 
@@ -697,7 +717,7 @@ To tell Dagger that `LoginComponent` is a subcomponent of
 
    ### Kotlin
 
-   ```kotlin
+   ```
    // The "subcomponents" attribute in the @Module annotation tells Dagger what
    // Subcomponents are children of the Component this module is included in.
    @Module(subcomponents = LoginComponent::class)
@@ -706,7 +726,7 @@ To tell Dagger that `LoginComponent` is a subcomponent of
 
    ### Java
 
-   ```java
+   ```
    // The "subcomponents" attribute in the @Module annotation tells Dagger what
    // Subcomponents are children of the Component this module is included in.
    @Module(subcomponents = LoginComponent.class)
@@ -717,7 +737,7 @@ To tell Dagger that `LoginComponent` is a subcomponent of
 
    ### Kotlin
 
-   ```kotlin
+   ```
    // Including SubcomponentsModule, tell ApplicationComponent that
    // LoginComponent is its subcomponent.
    @Singleton
@@ -728,7 +748,7 @@ To tell Dagger that `LoginComponent` is a subcomponent of
 
    ### Java
 
-   ```java
+   ```
    // Including SubcomponentsModule, tell ApplicationComponent that
    // LoginComponent is its subcomponent.
    @Singleton
@@ -750,7 +770,7 @@ To tell Dagger that `LoginComponent` is a subcomponent of
 
    ### Kotlin
 
-   ```kotlin
+   ```
    @Singleton
    @Component(modules = [NetworkModule::class, SubcomponentsModule::class])
    interface ApplicationComponent {
@@ -762,7 +782,7 @@ To tell Dagger that `LoginComponent` is a subcomponent of
 
    ### Java
 
-   ```java
+   ```
    @Singleton
    @Component(modules = { NetworkModule.class, SubcomponentsModule.class} )
    public interface ApplicationComponent {
@@ -794,7 +814,7 @@ fragments can access it.
 
 ### Kotlin
 
-```kotlin
+```
 class LoginActivity: Activity() {
     // Reference to the Login graph
     lateinit var loginComponent: LoginComponent
@@ -804,7 +824,7 @@ class LoginActivity: Activity() {
 
 ### Java
 
-```java
+```
 public class LoginActivity extends Activity {
 
     // Reference to the Login graph
@@ -822,7 +842,7 @@ and then inject `LoginActivity` as follows:
 
 ### Kotlin
 
-```kotlin
+```
 class LoginActivity: Activity() {
     // Reference to the Login graph
     lateinit var loginComponent: LoginComponent
@@ -847,7 +867,7 @@ class LoginActivity: Activity() {
 
 ### Java
 
-```java
+```
 public class LoginActivity extends Activity {
 
     // Reference to the Login graph
@@ -884,13 +904,19 @@ by the parent component and that'd make the object an application singleton
 (unique instance for the whole app). You need to create a different annotation
 scope.
 
-> [!NOTE]
-> **Note:** The rules for scoping are as follows:
->
-> - When a type is marked with a scope annotation, it can only be used by components that are annotated with the same scope.
-> - When a component is marked with a scope annotation, it can only provide types with that annotation or types that have no annotation.
-> - A subcomponent cannot use a scope annotation used by one of its parent components.
-> Components also involve subcomponents in this context.
+**Note:** The rules for scoping are as follows:
+
+* When a type is marked with a
+  scope annotation, it can only be used by components that are
+  annotated with the same scope.
+* When a component is marked with a scope
+  annotation, it can only provide types with that annotation or types that
+  have no annotation.
+* A subcomponent cannot use a scope annotation used
+  by one of its parent components.
+
+Components also involve
+subcomponents in this context.
 
 In this case, you could have called this scope `@LoginScope` but it's not a good
 practice. The scope annotation's name should not be explicit to the purpose it
@@ -901,7 +927,7 @@ of `@LoginScope`.
 
 ### Kotlin
 
-```kotlin
+```
 // Definition of a custom scope called ActivityScope
 @Scope
 @Retention(value = AnnotationRetention.RUNTIME)
@@ -923,7 +949,7 @@ class LoginViewModel @Inject constructor(
 
 ### Java
 
-```java
+```
 // Definition of a custom scope called ActivityScope
 @Scope
 @Retention(RetentionPolicy.RUNTIME)
@@ -956,7 +982,7 @@ by the `LoginComponent`:
 
 ### Kotlin
 
-```kotlin
+```
 @ActivityScope
 @Subcomponent
 interface LoginComponent {
@@ -977,7 +1003,7 @@ interface LoginComponent {
 
 ### Java
 
-```java
+```
 @ActivityScope
 @Subcomponent
 public interface LoginComponent {
@@ -1002,7 +1028,7 @@ following code snippet:
 
 ### Kotlin
 
-```kotlin
+```
 class LoginUsernameFragment: Fragment() {
 
     // Fields that need to be injected by the login graph
@@ -1023,7 +1049,7 @@ class LoginUsernameFragment: Fragment() {
 
 ### Java
 
-```java
+```
 public class LoginUsernameFragment extends Fragment {
 
     // Fields that need to be injected by the login graph
@@ -1048,7 +1074,7 @@ And the same for `LoginPasswordFragment`:
 
 ### Kotlin
 
-```kotlin
+```
 class LoginPasswordFragment: Fragment() {
 
     // Fields that need to be injected by the login graph
@@ -1067,7 +1093,7 @@ class LoginPasswordFragment: Fragment() {
 
 ### Java
 
-```java
+```
 public class LoginPasswordFragment extends Fragment {
 
     // Fields that need to be injected by the login graph
@@ -1089,7 +1115,8 @@ public class LoginPasswordFragment extends Fragment {
 Figure 3 shows how the Dagger graph looks with the new subcomponent. The classes
 with a white dot (`UserRepository`, `LoginRetrofitService`, and `LoginViewModel`)
 are the ones that have a unique instance scoped to their respective components.
-![Application graph after adding the last subcomponent](https://developer.android.com/static/images/training/dependency-injection/4-graph-subcomponent.png)
+
+![Application graph after adding the last subcomponent](/static/images/training/dependency-injection/4-graph-subcomponent.png)
 
 **Figure 3.** Representation of the graph you built
 for the Android app example
@@ -1098,7 +1125,6 @@ Let's break down the parts of the graph:
 
 1. The `NetworkModule` (and therefore `LoginRetrofitService`) is included
    in `ApplicationComponent` because you specified it in the component.
-
 2. `UserRepository` remains in `ApplicationComponent` because it's scoped to the
    `ApplicationComponent`. If the project grows, you want to share the same
    instance across different features (e.g. Registration).
@@ -1124,19 +1150,20 @@ Structuring your app to create different Dagger subgraphs depending on the flow
 of your app helps towards a **more performant and scalable application** in
 terms of memory and startup time.
 
-> [!NOTE]
-> **Note:** If you need the container to survive configuration changes such as device rotation, follow the [Saving UI States guide](https://developer.android.com/topic/libraries/architecture/saving-states). You might want to handle configuration changes the same way you handle process termination; otherwise your app might lose state on low end devices.
+**Note:** If you need the container to survive configuration changes such as device
+rotation, follow the [Saving UI States guide](https://developer.android.com/topic/libraries/architecture/saving-states). You might want
+to handle configuration changes the same way you handle process termination;
+otherwise your app might lose state on low end devices.
 
 ## Best practices when building a Dagger graph
 
 When building the Dagger graph for your application:
 
-- When you create a component, you should consider what element is responsible
+* When you create a component, you should consider what element is responsible
   for the lifetime of that component. In this case, the `Application` class is in
   charge of `ApplicationComponent` and `LoginActivity` is in charge of
   `LoginComponent`.
-
-- Use scoping only when it makes sense. Overusing scoping can have a negative
+* Use scoping only when it makes sense. Overusing scoping can have a negative
   effect on your app's runtime performance: the object is in memory as long
   as the component is in memory and getting a scoped object is more expensive.
   When Dagger provides the object, it uses `DoubleCheck` locking instead of a
@@ -1158,7 +1185,7 @@ For example, when testing `LoginViewModel`:
 
 ### Kotlin
 
-```kotlin
+```
 @ActivityScope
 class LoginViewModel @Inject constructor(
     private val userRepository: UserRepository
@@ -1178,7 +1205,7 @@ class LoginViewModelTest {
 
 ### Java
 
-```java
+```
 @ActivityScope
 public class LoginViewModel {
 
@@ -1204,7 +1231,7 @@ public class LoginViewModelTest {
 
 ### End-to-end tests
 
-For *integration tests* , a good practice is to create a
+For *integration tests*, a good practice is to create a
 `TestApplicationComponent` meant for testing.
 *Production and testing use a different component configuration*.
 
@@ -1214,7 +1241,7 @@ installs a different set of modules.
 
 ### Kotlin
 
-```kotlin
+```
 // TestApplicationComponent extends from ApplicationComponent to have them both
 // with the same interface methods. You need to include the modules of the
 // component here as well, and you can replace the ones you want to override.
@@ -1227,7 +1254,7 @@ interface TestApplicationComponent : ApplicationComponent {
 
 ### Java
 
-```java
+```
 // TestApplicationComponent extends from ApplicationComponent to have them both
 // with the same interface methods. You need to include the modules of the
 // Component here as well, and you can replace the ones you want to override.
@@ -1243,7 +1270,7 @@ There you can provide fake instances or mocks of whatever you want to replace.
 
 ### Kotlin
 
-```kotlin
+```
 // In the FakeNetworkModule, pass a fake implementation of LoginRetrofitService
 // that you can use in your tests.
 @Module
@@ -1257,7 +1284,7 @@ class FakeNetworkModule {
 
 ### Java
 
-```java
+```
 // In the FakeNetworkModule, pass a fake implementation of LoginRetrofitService
 // that you can use in your tests.
 @Module
@@ -1275,7 +1302,7 @@ creates the `TestApplicationComponent` instead of an `ApplicationComponent`.
 
 ### Kotlin
 
-```kotlin
+```
 // Your test application needs an instance of the test graph
 class MyTestApplication: MyApplication() {
     override val appComponent = DaggerTestApplicationComponent.create()
@@ -1284,7 +1311,7 @@ class MyTestApplication: MyApplication() {
 
 ### Java
 
-```java
+```
 // Your test application needs an instance of the test graph
 public class MyTestApplication extends MyApplication {
     ApplicationComponent appComponent = DaggerTestApplicationComponent.create();
@@ -1315,7 +1342,7 @@ includes `Module1` and `Module2` and `Module1` includes `ModuleX`.
 
 ### Kotlin
 
-```kotlin
+```
 @Component(modules = [Module1::class, Module2::class])
 interface ApplicationComponent { ... }
 
@@ -1328,7 +1355,7 @@ class Module2 { ... }
 
 ### Java
 
-```java
+```
 @Component(modules = {Module1.class, Module2.class})
 public interface ApplicationComponent { ... }
 
@@ -1345,7 +1372,7 @@ the graph as seen in the following code snippet:
 
 ### Kotlin
 
-```kotlin
+```
 // Bad practice: ModuleX is declared multiple times in this Dagger graph
 @Component(modules = [Module1::class, Module2::class])
 interface ApplicationComponent { ... }
@@ -1359,7 +1386,7 @@ class Module2 { ... }
 
 ### Java
 
-```java
+```
 // Bad practice: ModuleX is declared multiple times in this Dagger graph.
 @Component(modules = {Module1.class, Module2.class})
 public interface ApplicationComponent { ... }
@@ -1373,10 +1400,10 @@ public class Module2 { ... }
 
 Instead, you should do one of the following:
 
-1. Refactor the modules and extract the common module out to the component.
-2. Create a new module with the objects that both modules share and extract it out to the component.
-
-<br />
+1. Refactor the modules and extract the common module out to the
+   component.
+2. Create a new module with the objects that both modules share and extract
+   it out to the component.
 
 Not refactoring in this way results in a lot of modules including each other
 without a clear sense of organization and making it more difficult to see where
@@ -1386,7 +1413,7 @@ each dependency is coming from.
 
 ### Kotlin
 
-```kotlin
+```
 @Component(modules = [Module1::class, Module2::class, ModuleX::class])
 interface ApplicationComponent { ... }
 
@@ -1399,7 +1426,7 @@ class Module2 { ... }
 
 ### Java
 
-```java
+```
 @Component(modules = {Module1.class, Module2.class, ModuleX.class})
 public interface ApplicationComponent { ... }
 
@@ -1410,7 +1437,7 @@ public class Module1 { ... }
 public class Module2 { ... }
 ```
 
-**Good practice (Option 2)** : Common dependencies from `Module1` and `Module2`
+**Good practice (Option 2)**: Common dependencies from `Module1` and `Module2`
 in `ModuleX` are extracted out to a new module named `ModuleXCommon` that is
 included in the component. Then two other modules named
 `ModuleXWithModule1Dependencies` and `ModuleXWithModule2Dependencies` are
@@ -1419,7 +1446,7 @@ are declared once in the Dagger graph.
 
 ### Kotlin
 
-```kotlin
+```
 @Component(modules = [Module1::class, Module2::class, ModuleXCommon::class])
 interface ApplicationComponent { ... }
 
@@ -1441,7 +1468,7 @@ class Module2 { ... }
 
 ### Java
 
-```java
+```
 @Component(modules = {Module1.class, Module2.class, ModuleXCommon.class})
 public interface ApplicationComponent { ... }
 
@@ -1474,6 +1501,6 @@ see the [Dagger documentation](https://dagger.dev/dev-guide/assisted-injection).
 
 ## Conclusion
 
-If you haven't already, review the [best practices section](https://developer.android.com/training/dependency-injection/dagger-android#best-practices). To
+If you haven't already, review the [best practices section](#best-practices). To
 see how to use Dagger in an Android app, see the [Using Dagger in an Android app
 codelab](https://codelabs.developers.google.com/codelabs/android-dagger/).

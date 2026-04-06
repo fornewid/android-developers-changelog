@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Android helps you develop an app that runs well on a wide range of device screen sizes and form factors. This broad compatibility helps you design a single app that you can distribute widely to all of your targeted devices.
 
 However, to give your users the best possible experience on each screen configuration, you need to optimize your layouts and other UI components for different sizes. On ChromeOS, optimizing your UI lets you take full advantage of the additional screen space to offer new features, present new content, or enhance the experience to deepen user engagement.

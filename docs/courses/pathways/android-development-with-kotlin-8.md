@@ -1,52 +1,33 @@
 ---
-title: Lesson 8: App architecture (UI layer)  |  Android Developers
+title: https://developer.android.com/courses/pathways/android-development-with-kotlin-8
 url: https://developer.android.com/courses/pathways/android-development-with-kotlin-8
-source: html-scrape
+source: md.txt
 ---
 
-* [Android Developers](https://developer.android.com/)
-
-Stay organized with collections
-
-Save and categorize content based on your preferences.
-
-
+# Lesson 8: App architecture (UI layer)
 
 # Lesson 8: App architecture (UI layer)
 
 Learn how to use Android Jetpack Architecture components, a collection of libraries that help you design robust, testable, and maintainable apps.  
-Go back
-
-*check\_circle*
+Go back  
+*check_circle*  
 
 ## Store data in ViewModel
 
-*keyboard\_arrow\_down*
-*keyboard\_arrow\_up*
-
-*emoji\_objects*
-Codelab
-
-Improve your app by implementing a ViewModel to retain app data during configuration changes.
-
-[Take codelab](/codelabs/basic-android-kotlin-training-viewmodel)
-
-*check\_circle*
+*keyboard_arrow_down* *keyboard_arrow_up*  
+*emoji_objects*Codelab  
+Improve your app by implementing a ViewModel to retain app data during configuration changes.  
+[Take codelab](https://developer.android.com/codelabs/basic-android-kotlin-training-viewmodel)  
+*check_circle*  
 
 ## Use LiveData with ViewModel
 
-*keyboard\_arrow\_down*
-*keyboard\_arrow\_up*
-
-*emoji\_objects*
-Codelab
-
-Convert the app data in the ViewModel to LiveData and observe the changes to update the UI automatically.
-
-[Take codelab](/codelabs/basic-android-kotlin-training-livedata)
+*keyboard_arrow_down* *keyboard_arrow_up*  
+*emoji_objects*Codelab  
+Convert the app data in the ViewModel to LiveData and observe the changes to update the UI automatically.  
+[Take codelab](https://developer.android.com/codelabs/basic-android-kotlin-training-livedata)  
 
 ## Quiz
 
-Earn your badge for completing Lesson 8: App architecture (UI layer).
-
-[Take the quiz](/courses/quizzes/android-development-with-kotlin-8/android-development-with-kotlin-8)
+Earn your badge for completing Lesson 8: App architecture (UI layer).  
+[Take the quiz](https://developer.android.com/courses/quizzes/android-development-with-kotlin-8/android-development-with-kotlin-8)

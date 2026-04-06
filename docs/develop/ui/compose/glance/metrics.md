@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 Android 16 includes additional metrics APIs that are more granular. These
 metrics track tap actions such as a button click, scroll, impressions, and the
 widget's size and position.

@@ -10,7 +10,6 @@ source: html-scrape
 
 
 
-
 The current Architecture Components are available in the [AndroidX release
 notes](/jetpack/androidx/releases). The older original release notes
 can be found in the release note

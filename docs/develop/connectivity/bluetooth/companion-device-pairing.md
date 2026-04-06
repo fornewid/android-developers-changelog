@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 On devices running Android 8.0 (API level 26) and higher, companion device
 pairing performs a Bluetooth or Wi-Fi scan of nearby devices on behalf of your
 app without requiring the

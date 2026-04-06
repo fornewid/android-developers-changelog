@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 The Bluetooth API includes support for working with Bluetooth profiles. A
 Bluetooth profile is a wireless interface specification for Bluetooth-based
 communication between devices, such as the Hands-Free profile. For a mobile

@@ -14,6 +14,7 @@ Join us for ⁠the [Google for Games Developer Summit](https://gamedevsummit.wit
 
 
 
+
 To check the render state after a specific submitted command, click the command
 in the [**Commands** pane](/agi/refdocs/commands-pane). The **State** pane lets
 you examine the render state using the following items.

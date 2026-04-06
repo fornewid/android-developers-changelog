@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 You can execute all the build tasks available to your Android project using
 the [Gradle wrapper](https://docs.gradle.org/current/userguide/gradle_wrapper.html) command line tool. It's
 available as a batch file for Windows (`gradlew.bat`) and a shell

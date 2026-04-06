@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 Users enjoy the TV app experience when it is consistent, logical, and predictable.
 They should be able to navigate within your app and throughout Android TV without getting lost or
 having to "reset" the UI and start over. Users appreciate clear, colorful, and functional interfaces

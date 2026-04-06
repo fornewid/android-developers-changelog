@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 Android's public Beta program that gives you everything you need to get your
 apps ready for the next version of Android.
 

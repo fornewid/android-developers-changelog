@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 WFF uses an expression language to enable:
 
 * Transforming the appearance using `Transform` or `Gyro`

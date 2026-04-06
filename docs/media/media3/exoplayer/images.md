@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 ExoPlayer supports the following image formats. See
 [Image Loading Libraries](/media/media3/exoplayer/images#image-loading-libraries)
 for how to integrate with external libraries that may provide support for a

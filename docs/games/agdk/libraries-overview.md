@@ -13,7 +13,6 @@ Send feedback
 
 
 
-
 C/C++ game libraries that make it easier to build, debug, optimize, and maintain
 your games.
 
@@ -72,8 +71,6 @@ and device models.
 
 [**Reference**](/games/sdk/reference/performance-tuner/unity) 
 [**User Guide**](/games/sdk/performance-tuner/unity)
-
-
 
 
 

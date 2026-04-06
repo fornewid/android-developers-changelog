@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 ExoPlayer is commonly used for streaming media over the internet. It supports
 multiple network stacks for making its underlying network requests. Your choice
 of network stack can have a significant impact on streaming performance.

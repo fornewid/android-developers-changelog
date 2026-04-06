@@ -1,24 +1,12 @@
 ---
-title: Leaderboards in Android games  |  Android game development  |  Android Developers
+title: https://developer.android.com/games/pgs/android/leaderboards
 url: https://developer.android.com/games/pgs/android/leaderboards
-source: html-scrape
+source: md.txt
 ---
 
-* [Android Developers](https://developer.android.com/)
-* [Google Play](https://developer.android.com/distribute)
-* [Games dev center](https://developer.android.com/games)
-* [Guides](https://developer.android.com/games/guides)
-
-Send feedback
-
-# Leaderboards in Android games Stay organized with collections Save and categorize content based on your preferences.
-
-
-
-
-**Note:** This guide is for the Play Games Services v2 SDK. For information on the
-previous version of this SDK, see the [Play Games Services v1
-documentation](/games/pgs/v1/android/leaderboards).
+> [!NOTE]
+> **Note:** This guide is for the Play Games Services v2 SDK. For information on the previous version of this SDK, see the [Play Games Services v1
+> documentation](https://developer.android.com/games/pgs/v1/android/leaderboards).
 
 This guide shows you how to use leaderboards APIs in an Android app
 to create visual leaderboards, record a player's score, and compare the score
@@ -29,20 +17,23 @@ and [`com.google.android.gms.games.leaderboards`](https://developers.google.com/
 ## Before you begin
 
 If you haven't already done so, you might find it helpful to review the
-[leaderboards game concepts](/games/pgs/leaderboards).
+[leaderboards game concepts](https://developer.android.com/games/pgs/leaderboards).
 
 Before you start to code using the leaderboards APIs:
 
-* Follow the instructions for installing and setting up your app to use
+- Follow the instructions for installing and setting up your app to use
   Google Play Games Services in the
   [Set Up Google Play Services SDK](https://developers.google.com/android/guides/setup) guide.
-* Define the leaderboards that you want your game to display or update, by
+
+- Define the leaderboards that you want your game to display or update, by
   following the instructions in the
-  [Google Play Console guide](/games/pgs/leaderboards#creating_a_leaderboard).
-* Download and review the leaderboards code samples in the
+  [Google Play Console guide](https://developer.android.com/games/pgs/leaderboards#creating_a_leaderboard).
+
+- Download and review the leaderboards code samples in the
   [Android samples page](https://github.com/playgameservices/android-basic-samples) on GiHub.
-* Familiarize yourself with the recommendations described in
-  [Quality Checklist](/games/pgs/quality).
+
+- Familiarize yourself with the recommendations described in
+  [Quality Checklist](https://developer.android.com/games/pgs/quality).
 
 ## Get the leaderboards client
 
@@ -51,11 +42,8 @@ To start using the leaderboards API, your game must first obtain a
 You can do this by calling the [`PlayGames.getLeadeboardsClient()`](https://developers.google.com/android/reference/com/google/android/gms/games/PlayGames#public-static-leaderboardsclient-getleaderboardsclient-activity-activity)
 method and passing in the activity.
 
-**Note:** The [`LeaderboardsClient`](https://developers.google.com/android/reference/com/google/android/gms/games/LeaderboardsClient)
-class makes use of the Google Play services Task class to return
-results asynchronously. To learn more about using tasks to manage threaded work,
-see the
-[Tasks API developer guide](https://developers.google.com/android/guides/tasks).
+> [!NOTE]
+> **Note:** The [`LeaderboardsClient`](https://developers.google.com/android/reference/com/google/android/gms/games/LeaderboardsClient) class makes use of the Google Play services Task class to return results asynchronously. To learn more about using tasks to manage threaded work, see the [Tasks API developer guide](https://developers.google.com/android/guides/tasks).
 
 ## Update the player's score
 
@@ -74,18 +62,18 @@ PlayGames.getLeaderboardsClient(this)
 A good practice is to define the leaderboard ID in your `strings.xml` file, so
 your game can reference the leaderboards by resource ID. When making calls to
 update and load player scores, make sure to also follow these
-[best practices](/games/pgs/quality) to avoid exceeding your API quota.
+[best practices](https://developer.android.com/games/pgs/quality) to avoid exceeding your API quota.
 
 ## Display a leaderboard
 
 To display leaderboard, call
 [`LeaderboardsClient.getLeaderboardIntent()`](https://developers.google.com/android/reference/com/google/android/gms/games/LeaderboardsClient#getLeaderboardIntent(java.lang.String)) to get an
-[`Intent`](/reference/android/content/Intent) to
+[`Intent`](https://developer.android.com/reference/android/content/Intent) to
 create the default leaderboard user interface. Your game can then bring up the
 UI by calling
-[`startActivityForResult`](/reference/android/app/Activity#startActivityForResult).
+[`startActivityForResult`](https://developer.android.com/reference/android/app/Activity#startActivityForResult).
 
-The following code snippet shows how your app can update the player’s score. In the
+The following code snippet shows how your app can update the player's score. In the
 code snippet, `RC_LEADERBOARD_UI` is an arbitrary integer for the request code.
 
 ```
@@ -104,15 +92,7 @@ private void showLeaderboard() {
 ```
 
 Even though no result is returned, you have to use
-[`startActivityForResult`](/reference/android/app/Activity#startActivityForResult)
+[`startActivityForResult`](https://developer.android.com/reference/android/app/Activity#startActivityForResult)
 so that the API can obtain the identity of the calling package. An example of
 the default leaderboard UI is shown below.
-
-![](/static/images/games/pgs/leaderboard_android.png)
-
-
-
-
-
-
-Send feedback
+![](https://developer.android.com/static/images/games/pgs/leaderboard_android.png)

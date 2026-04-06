@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 **OWASP category:** [MASVS-PLATFORM: Platform Interaction](https://mas.owasp.org/MASVS/09-MASVS-PLATFORM)
 
 ## Overview

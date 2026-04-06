@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 ![Android brand logo](/static/images/shared/android-logo-verticallockup_primary.png)
 
 You can get Android 15 QPR2 in any of the following ways:

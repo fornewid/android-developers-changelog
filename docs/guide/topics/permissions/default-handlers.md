@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 **Note:** This guide primarily applies to Android app developers who are publishing
 apps on the [Google Play Store](https://play.google.com/store/apps). However, to
 protect your users' privacy, it's best to complete the tasks described on this

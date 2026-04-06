@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 Your app works great on phones in portrait orientation, so you've restricted the
 app to portrait only. But you see an opportunity to do more on large screens in
 landscape orientation or unfolded foldables.

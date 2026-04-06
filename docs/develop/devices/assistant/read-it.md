@@ -1,8 +1,18 @@
 ---
-title: https://developer.android.com/develop/devices/assistant/read-it
+title: Read It  |  Assistant  |  Android Developers
 url: https://developer.android.com/develop/devices/assistant/read-it
-source: md.txt
+source: html-scrape
 ---
+
+* [Android Developers](https://developer.android.com/)
+* [Develop](https://developer.android.com/develop)
+* [Devices](https://developer.android.com/develop/devices)
+* [Assistant](https://developer.android.com/develop/devices/assistant/overview)
+
+# Read It Stay organized with collections Save and categorize content based on your preferences.
+
+
+
 
 Read It is a Google Assistant feature available on Android devices that offers
 another way for users to read long-form web content like news articles and
@@ -10,18 +20,22 @@ blog posts. Users can say something like *"Hey Google, read it"* to have an app
 read web-based content out loud, highlight the words being read, and auto-scroll
 the page. To learn more about this feature, you can also read the
 [Read It product update post](https://www.blog.google/products/assistant/easier-access-web-pages-let-assistant-read-it-aloud/).
+
 ![When prompted, an app reads web content on the screen out loud with
-the help of the Google Assistant.](https://developer.android.com/static/guide/app-actions/images/read-it-blog-post.gif) **Figure 1.** Listening to an app read web content out loud.
+            the help of the Google Assistant.](/static/guide/app-actions/images/read-it-blog-post.gif)
+
+
+**Figure 1.** Listening to an app read web content out loud.
 
 Android apps with web-based content can support Read It by providing information
-to Assistant using the [`onProvideAssistContent()`](https://developer.android.com/reference/android/app/Activity#onProvideAssistContent(android.app.assist.AssistContent)) method.
+to Assistant using the [`onProvideAssistContent()`](/reference/android/app/Activity#onProvideAssistContent(android.app.assist.AssistContent)) method.
 
 This process helps maintain the structure of data as it's shared with
 Assistant. Users who receive shared app content can then be deep linked or
 receive content directly, instead of as text or a screenshot.
 
 Implement `onProvideAssistContent()` for any web-based content
-and any sharable [`entity`](https://developer.android.com/guide/app-actions/legacy/action-schema#entity) in your app.
+and any sharable [`entity`](/guide/app-actions/legacy/action-schema#entity) in your app.
 
 ## Provide content to Assistant
 
@@ -30,7 +44,7 @@ information about the content, like its web URI and some basic context.
 Assistant can then retrieve your content to be read out loud to the user.
 
 For
-Android apps that already implement [web-based content](https://developer.android.com/guide/webapps) using WebViews or
+Android apps that already implement [web-based content](/guide/webapps) using WebViews or
 Chrome Custom Tabs, use the same web URIs for Read It as a
 starting point.
 
@@ -43,19 +57,19 @@ news articles, implement `onProvideAssistContent()` in the final screen
 showing the article; you don't need to implement it for any in-progress or
 preview screens.
 
-Provide a web URI for your content in the `uri` field of [`AssistContent`](https://developer.android.com/reference/android/app/assist/AssistContent).
-Provide contextual information as a [JSON-LD](https://json-ld.org/) object
+Provide a web URI for your content in the `uri` field of [`AssistContent`](/reference/android/app/assist/AssistContent).
+Provide contextual information as a [JSON-LD](//json-ld.org/) object
 [using schema.org vocabulary](https://schema.org/docs/documents.html) in the
 `structuredData` field.
 
-> [!NOTE]
-> **Note:** Read It functionality is not available for content that requires authentication, such as articles locked for users without a subscription.
+**Note:** Read It functionality is not available for content that requires
+authentication, such as articles locked for users without a subscription.
 
 The following code snippet shows an example of providing content to Assistant:
 
 ### Kotlin
 
-```kotlin
+```
 override fun onProvideAssistContent(outContent: AssistContent) {
     super.onProvideAssistContent(outContent)
 
@@ -76,7 +90,7 @@ override fun onProvideAssistContent(outContent: AssistContent) {
 
 ### Java
 
-```java
+```
 @Override
 public void onProvideAssistContent(AssistContent outContent) {
 
@@ -106,10 +120,10 @@ When implementing `onProvideAssistContent()`, provide as much
 data as possible about each `entity`. The following
 fields are required:
 
-- `@type`
-- `.name`
-- `.url` (only required if the content is URL-addressable)
+* `@type`
+* `.name`
+* `.url` (only required if the content is URL-addressable)
 
-To learn more about using [`onProvideAssistContent()`](https://developer.android.com/reference/android/app/Activity#onProvideAssistContent(android.app.assist.AssistContent)), see the
-[Optimizing Contextual Content for the Assistant](https://developer.android.com/training/articles/assistant) guide in
+To learn more about using [`onProvideAssistContent()`](/reference/android/app/Activity#onProvideAssistContent(android.app.assist.AssistContent)), see the
+[Optimizing Contextual Content for the Assistant](/training/articles/assistant) guide in
 the Android developer documentation.

@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 To automatically verify phone numbers, you must implement both the client and
 server portions of the verification flow. This document describes how to
 implement the client portion in an Android app.

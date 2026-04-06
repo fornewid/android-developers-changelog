@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 Bluetooth audio profiles based on Bluetooth Low Energy (BLE) Audio
 allow bidirectional streaming of high quality audio (for example, stereo audio
 with a 32 kHz sampling rate). This is possible thanks to the creation of the LE

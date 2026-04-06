@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 **OWASP category:** [MASVS-CODE: Code Quality](https://mas.owasp.org/MASVS/10-MASVS-CODE)
 
 ## Overview

@@ -1,18 +1,8 @@
 ---
-title: App compatibility in Android  |  Platform  |  Android Developers
+title: https://developer.android.com/guide/app-compatibility
 url: https://developer.android.com/guide/app-compatibility
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [Essentials](https://developer.android.com/get-started)
-* [Platform](https://developer.android.com/about)
-* [Releases](https://developer.android.com/about/versions)
-
-# App compatibility in Android Stay organized with collections Save and categorize content based on your preferences.
-
-
-
 
 For Android, the term *app compatibility* means that your app runs properly on a
 specific version of the platform, typically the latest version. With each
@@ -53,12 +43,12 @@ the latest Android version on these devices.
 These changes only affect apps that are targeting that version of Android.
 
 For these changes, you should perform compatibility testing as you prepare to
-[target the latest stable API version](/distribute/best-practices/develop/target-sdk), which is
-Android 16 (API level 36). Even if you aren't planning to target a new
+[target the latest stable API version](https://developer.android.com/distribute/best-practices/develop/target-sdk), which is
+Android 16 (API level 36). Even if you aren't planning to target a new
 Android version immediately, addressing these changes can require a significant
 amount of development. You should learn about these changes as early as
-possible—ideally during the developer preview and beta releases of each new
-Android version—so you can do preliminary testing and provide feedback.
+possible---ideally during the developer preview and beta releases of each new
+Android version---so you can do preliminary testing and provide feedback.
 
 ## Compatibility framework tools
 
@@ -69,22 +59,22 @@ disable the changes individually from developer options or ADB. When using the
 compatibility framework, you don't need to change your app's `targetSdkVersion`
 or recompile your app for basic testing.
 
-To learn more, see [Test and debug platform behavior changes in your app](/guide/app-compatibility/test-debug).
+To learn more, see [Test and debug platform behavior changes in your app](https://developer.android.com/guide/app-compatibility/test-debug).
 
 ## Restrictions on non-SDK interfaces
 
 As part of our ongoing effort to gradually move developers away from non-SDK
-APIs, we update the [lists of restricted non-SDK interfaces](/guide/app-compatibility/restrictions-non-sdk-interfaces) in each Android
-release. As always, your feedback and [requests for public API equivalents](/guide/app-compatibility/restrictions-non-sdk-interfaces#feature-request)
+APIs, we update the [lists of restricted non-SDK interfaces](https://developer.android.com/guide/app-compatibility/restrictions-non-sdk-interfaces) in each Android
+release. As always, your feedback and [requests for public API equivalents](https://developer.android.com/guide/app-compatibility/restrictions-non-sdk-interfaces#feature-request)
 are welcome.
 
 ## Platform releases
 
 Learn more about the latest Android releases:
 
-* [Android 16 (API level 36)](/about/versions/16)
-* [Android 15 (API level 35)](/about/versions/15)
-* [Android 14 (API level 34)](/about/versions/14)
-* [Android 13 (API level 33)](/about/versions/13)
-* [Android 12 (API levels 31, 32)](/about/versions/12)
-* [Android 11 (API level 30)](/about/versions/11)
+- [Android 16 (API level 36)](https://developer.android.com/about/versions/16)
+- [Android 15 (API level 35)](https://developer.android.com/about/versions/15)
+- [Android 14 (API level 34)](https://developer.android.com/about/versions/14)
+- [Android 13 (API level 33)](https://developer.android.com/about/versions/13)
+- [Android 12 (API levels 31, 32)](https://developer.android.com/about/versions/12)
+- [Android 11 (API level 30)](https://developer.android.com/about/versions/11)

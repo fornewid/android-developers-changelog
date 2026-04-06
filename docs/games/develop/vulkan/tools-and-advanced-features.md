@@ -1,10 +1,19 @@
 ---
-title: https://developer.android.com/games/develop/vulkan/tools-and-advanced-features
+title: Tools and advanced features  |  Android game development  |  Android Developers
 url: https://developer.android.com/games/develop/vulkan/tools-and-advanced-features
-source: md.txt
+source: html-scrape
 ---
 
-# Tools and advanced features
+* [Android Developers](https://developer.android.com/)
+* [Google Play](https://developer.android.com/distribute)
+* [Games dev center](https://developer.android.com/games)
+* [Guides](https://developer.android.com/games/guides)
+
+Send feedback
+
+# Tools and advanced features Stay organized with collections Save and categorize content based on your preferences.
+
+
 
 ## Debuggers
 
@@ -49,7 +58,7 @@ replay graphics API calls executed by an application. The recorded trace can
 later be replayed to reconstruct the graphics-specific behavior of the captured
 application. One of the main advantages of GFXReconstruct is that it lets you
 use it on your released application (when you have turned off
-[android:debuggable](https://developer.android.com/guide/topics/manifest/application-element#debug)).
+[android:debuggable](/guide/topics/manifest/application-element#debug)).
 
 For more information, visit the project
 [repository](https://github.com/LunarG/gfxreconstruct).
@@ -65,8 +74,8 @@ chipsets, or even driver version).
 ### Android GPU Inspector (AGI)
 
 Android GPU Inspector (AGI) is a graphics profiler built for Android that
-includes a [System Profile](https://developer.android.com/agi/sys-trace/system-profiler) and a
-[Frame Profiler](https://developer.android.com/agi/frame-trace/frame-profiler). It provides high-level
+includes a [System Profile](/agi/sys-trace/system-profiler) and a
+[Frame Profiler](/agi/frame-trace/frame-profiler). It provides high-level
 profiling information that allows you to understand your game's performance
 profile and identify bottlenecks.
 
@@ -81,7 +90,7 @@ of CPU Profiler, Memory Profiler, Network Profiler, Energy Profiler, Power
 Profiler and Event Monitor.
 
 For more information on how to set up and use Android Studio Profiler, check out
-[Profile your app performance](https://developer.android.com/studio/profile) section.
+[Profile your app performance](/studio/profile) section.
 
 ## OEM Profilers
 
@@ -102,11 +111,11 @@ website.
 ### ARM PerfDoc for Mali GPUs
 
 [PerfDoc](https://github.com/ARM-software/perfdoc) is a Vulkan layer developed
-to validate applications against ARM's Mali GPU best practices. It has since
-been merged into VK_LAYER_KHRONOS_validation and is essentially part of the
+to validate applications against ARM’s Mali GPU best practices. It has since
+been merged into VK\_LAYER\_KHRONOS\_validation and is essentially part of the
 standard Vulkan validation layers.
 
-For information on how to use it, check out [Debugging with validation layer](https://developer.android.com/games/develop/vulkan/tools-and-advanced-features#debugging-with-validation-layer)
+For information on how to use it, check out [Debugging with validation layer](#debugging-with-validation-layer)
 section.
 
 ### Qualcomm Snapdragon Profiler
@@ -158,7 +167,7 @@ build process for your game and include the SPIR-V modules as part of your
 runtime assets.
 
 For more information on the shader compilation process for your Vulkan
-application, check out [Vulkan shader compilers on Android](https://developer.android.com/ndk/guides/graphics/shader-compilers)
+application, check out [Vulkan shader compilers on Android](/ndk/guides/graphics/shader-compilers)
 in the Android NDK section.
 
 ## Advanced Features
@@ -173,10 +182,10 @@ Correct pacing eliminates visual artifacts known as tearing, optimize power
 consumption through synchronization between display refreshes and frame
 presentation, and also eliminate janks by stabilizing frame rate. To learn more
 about the importance of frame pacing, check out the
-[Frame Pacing Library](https://developer.android.com/games/sdk/frame-pacing) section of the AGDK.
+[Frame Pacing Library](/games/sdk/frame-pacing) section of the AGDK.
 
 For more information on how to integrate frame pacing into your game, check out
-[Integrate Android Frame Pacing into your Vulkan renderer](https://developer.android.com/games/sdk/frame-pacing/vulkan).
+[Integrate Android Frame Pacing into your Vulkan renderer](/games/sdk/frame-pacing/vulkan).
 
 ### Handle device orientation with Vulkan pre-rotation
 
@@ -192,7 +201,7 @@ This capability lets you implement pre-rotation to get the most out of Vulkan on
 Android.
 
 For more information on how to efficiently handle device rotation on your
-Vulkan application, check out [Handle device orientation with Vulkan pre-rotation](https://developer.android.com/games/optimize/vulkan-prerotation)
+Vulkan application, check out [Handle device orientation with Vulkan pre-rotation](/games/optimize/vulkan-prerotation)
 and the accompanying
 [demo application](https://github.com/google/vulkan-pre-rotation-demo).
 
@@ -207,6 +216,11 @@ precision. Although 64-bit floating point type is defined in Vulkan, it is not
 commonly supported and its use is not recommended.
 
 Check out
-[Optimize with reduced precision](https://developer.android.com/games/optimize/vulkan-reduced-precision)
+[Optimize with reduced precision](/games/optimize/vulkan-reduced-precision)
 for information on how to optimize your Vulkan application for best performance
 on your arithmetics.
+
+
+
+
+Send feedback

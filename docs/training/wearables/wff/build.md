@@ -1,17 +1,8 @@
 ---
-title: Build and deploy a watch face  |  Wear OS  |  Android Developers
+title: https://developer.android.com/training/wearables/wff/build
 url: https://developer.android.com/training/wearables/wff/build
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [Develop](https://developer.android.com/develop)
-* [Devices](https://developer.android.com/develop/devices)
-* [Wear OS](https://developer.android.com/training/wearables)
-
-# Build and deploy a watch face Stay organized with collections Save and categorize content based on your preferences.
-
-
 
 This page describes the structure of watch faces that use the Watch Face Format,
 as well as how to build and deploy them.
@@ -23,13 +14,9 @@ like any other app. While they therefore share many of the common attributes of
 other apps, such as a need for an `AndroidManifest.xml` file, they have a specific
 structure.
 
-1. All the content of the watch face is in the resources folder, namely
-   `res/`
-2. All the watch face definitions are in `res/raw/`, including
-   `res/raw/watchface.xml` for the simple case and any other XML definitions
-   that represent support for different device sizes.
-3. All resources needed by the watch face are in the appropriate resources
-   folder, just as for regular applications, for example:
+1. All the content of the watch face is in the resources folder, namely `res/`
+2. All the watch face definitions are in `res/raw/`, including `res/raw/watchface.xml` for the simple case and any other XML definitions that represent support for different device sizes.
+3. All resources needed by the watch face are in the appropriate resources folder, just as for regular applications, for example:
    1. `/res/font` for fonts
    2. `/res/drawable` for image and animation assets
    3. `/res/values/strings.xml` for any string resources
@@ -38,20 +25,14 @@ structure.
 
 Android Studio provides editor support for Watch Face Format to help you write
 and debug your XML definitions.
-
-![](/static/studio/preview/features/images/declarative-watch-faces-support.gif)
-
-
-Android Studio support for the Watch Face Format.
+![](https://developer.android.com/static/studio/preview/features/images/declarative-watch-faces-support.gif) Android Studio support for the Watch Face Format.
 
 Specific capabilities include the following:
 
-* Code completion for tags and attributes based on the official Watch Face
-  Format schemas.
-* Live validation to identify missing attributes and similar syntax errors.
-* Resource linking, which enables quick navigate to drawable resources, data
-  sources, and other elements that are referenced in the XML file.
-* A run configuration that lets you see your watch face on a device.
+- Code completion for tags and attributes based on the official Watch Face Format schemas.
+- Live validation to identify missing attributes and similar syntax errors.
+- Resource linking, which enables quick navigate to drawable resources, data sources, and other elements that are referenced in the XML file.
+- A run configuration that lets you see your watch face on a device.
 
 ## Build the watch face using Gradle
 
@@ -59,7 +40,7 @@ The easiest way to see the process of how to use Gradle to build the watch face
 is to take a look at the [samples on GitHub](https://github.com/android/wear-os-samples/tree/main/WatchFaceFormat).
 
 As well as building the watch face, the Gradle scripts in these projects check
-the watch face XML for validity using the [validator tools](/training/wearables/wff/setup#check_your_watch_face_correctness_and_performance).
+the watch face XML for validity using the [validator tools](https://developer.android.com/training/wearables/wff/setup#check_your_watch_face_correctness_and_performance).
 
 ## Check the watch face prior to submission to Google Play
 

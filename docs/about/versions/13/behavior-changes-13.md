@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 Like earlier releases, Android 13 includes behavior changes that may affect your
 app. The following behavior changes apply exclusively to apps that are targeting
 Android 13 or higher. If your app is targeting Android 13 or higher, you should

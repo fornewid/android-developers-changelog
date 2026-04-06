@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 Android apps run on devices of all kinds: phones, tablets, foldables, ChromeOS
 devices, cars, TVs, and even XR. To adapt to this varied environment, your app
 should support all device form factors and display sizes.

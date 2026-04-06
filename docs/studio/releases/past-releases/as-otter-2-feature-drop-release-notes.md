@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 The following are new features in Android Studio Otter 2 Feature Drop.
 
 ## Access fresh documentation with the Android Knowledge Base

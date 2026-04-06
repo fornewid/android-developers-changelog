@@ -15,7 +15,6 @@ Save and categorize content based on your preferences.
 
 
 
-
 ```
 <h1 id="2-2-0" class="showalways">Android Studio 2.2 (September 2016)</h1>
 ```

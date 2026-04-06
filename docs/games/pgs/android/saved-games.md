@@ -1,24 +1,12 @@
 ---
-title: Saved games for Android games  |  Android game development  |  Android Developers
+title: https://developer.android.com/games/pgs/android/saved-games
 url: https://developer.android.com/games/pgs/android/saved-games
-source: html-scrape
+source: md.txt
 ---
 
-* [Android Developers](https://developer.android.com/)
-* [Google Play](https://developer.android.com/distribute)
-* [Games dev center](https://developer.android.com/games)
-* [Guides](https://developer.android.com/games/guides)
-
-Send feedback
-
-# Saved games for Android games Stay organized with collections Save and categorize content based on your preferences.
-
-
-
-
-**Note:** This guide is for the Play Games Services v2 SDK. For information on the
-previous version of this SDK, see the [Play Games Services v1
-documentation](/games/pgs/v1/android/saved-games).
+> [!NOTE]
+> **Note:** This guide is for the Play Games Services v2 SDK. For information on the previous version of this SDK, see the [Play Games Services v1
+> documentation](https://developer.android.com/games/pgs/v1/android/saved-games).
 
 This guide shows you how to implement saved games using the snapshots API
 provided by Google Play Games Services. The APIs can be found in the
@@ -30,14 +18,13 @@ packages.
 ## Before you begin
 
 For information about the feature, see the [Saved Games
-overview](/games/pgs/savedgames).
+overview](https://developer.android.com/games/pgs/savedgames).
 
-* [Enable saved games support](/games/pgs/console/enable-features#enabling_saved_games)
-  for your game in Google Play Console.
-* Download and review the saved games code sample in the [Android samples
+- [Enable saved games support](https://developer.android.com/games/pgs/console/enable-features#enabling_saved_games) for your game in Google Play Console.
+- Download and review the saved games code sample in the [Android samples
   page](https://github.com/playgameservices/android-basic-samples)
-* Familiarize yourself with the recommendations described in [Quality
-  Checklist](/games/pgs/quality).
+- Familiarize yourself with the recommendations described in [Quality
+  Checklist](https://developer.android.com/games/pgs/quality).
 
 ## Get the snapshots client
 
@@ -47,13 +34,9 @@ object. You can do this by calling the
 [`Games.getSnapshotsContents()`](https://developers.google.com/android/reference/com/google/android/gms/games/snapshot/Snapshot#public-abstract-snapshotcontents-getsnapshotcontents)
 method and passing in the activity.
 
-**Note:** The
-[`SnapshotsClient`](https://developers.google.com/android/reference/com/google/android/gms/games/SnapshotsClient)
-class uses the Google Play services
-[`Task`](https://developers.google.com/android/reference/com/google/android/gms/tasks/Task)
-class to return results asynchronously. To learn more about using tasks to
-manage threaded work, see the [Tasks API developer
-guide](https://developers.google.com/android/guides/tasks).
+> [!NOTE]
+> **Note:** The [`SnapshotsClient`](https://developers.google.com/android/reference/com/google/android/gms/games/SnapshotsClient) class uses the Google Play services [`Task`](https://developers.google.com/android/reference/com/google/android/gms/tasks/Task) class to return results asynchronously. To learn more about using tasks to manage threaded work, see the [Tasks API developer
+> guide](https://developers.google.com/android/guides/tasks).
 
 ## Display saved games
 
@@ -73,17 +56,8 @@ existing saved games, and load previous saved games.
 
 To launch the default Saved Games UI:
 
-1. Call
-   [`SnapshotsClient.getSelectSnapshotIntent()`](https://developers.google.com/android/reference/com/google/android/gms/games/SnapshotsClient#getSelectSnapshotIntent(java.lang.String,%20boolean,%20boolean,%20int))
-   to get an
-   [`Intent`](/reference/android/content/Intent)
-   for launching the default saved games selection UI.
-2. Call
-   [`startActivityForResult()`](/reference/android/app/Activity#startActivityForResult(android.content.Intent,%20int))
-   and pass in that
-   [`Intent`](/reference/android/content/Intent).
-   If the call is successful, the game displays the saved game selection UI,
-   along with the options you specified.
+1. Call [`SnapshotsClient.getSelectSnapshotIntent()`](https://developers.google.com/android/reference/com/google/android/gms/games/SnapshotsClient#getSelectSnapshotIntent(java.lang.String,%20boolean,%20boolean,%20int)) to get an [`Intent`](https://developer.android.com/reference/android/content/Intent) for launching the default saved games selection UI.
+2. Call [`startActivityForResult()`](https://developer.android.com/reference/android/app/Activity#startActivityForResult(android.content.Intent,%20int)) and pass in that [`Intent`](https://developer.android.com/reference/android/content/Intent). If the call is successful, the game displays the saved game selection UI, along with the options you specified.
 
 Here's an example of how to launch the default saved games selection UI:
 
@@ -111,11 +85,11 @@ If the player selects to create a new saved game or load an existing saved game,
 the UI sends a request to Play Games Services. If the request is successful,
 Play Games Services returns information to create or restore the saved game
 through the
-[`onActivityResult()`](/reference/android/app/Activity#onActivityResult(int,%0Aint,%20android.content.Intent)) callback. Your game can override this callback to
+[`onActivityResult()`](https://developer.android.com/reference/android/app/Activity#onActivityResult(int,%0Aint,%20android.content.Intent)) callback. Your game can override this callback to
 check if any errors occurred during request.
 
 The following code snippet shows a sample implementation of
-[`onActivityResult()`](/reference/android/app/Activity#onActivityResult(int,%20int,%20android.content.Intent)):
+[`onActivityResult()`](https://developer.android.com/reference/android/app/Activity#onActivityResult(int,%20int,%20android.content.Intent)):
 
 ```
 private String mCurrentSaveName = "snapshotTemp";
@@ -154,16 +128,20 @@ To store content to a saved game:
 
 1. Asynchronously open a snapshot using
    [`SnapshotsClient.open()`](https://developers.google.com/android/reference/com/google/android/gms/games/SnapshotsClient#open(com.google.android.gms.games.snapshot.SnapshotMetadata)).
+
 2. Retrieve the
    [`Snapshot`](https://developers.google.com/android/reference/com/google/android/gms/games/snapshot/Snapshot)
    object from the task's result by calling
    [`SnapshotsClient.DataOrConflict.getData()`](https://developers.google.com/android/reference/com/google/android/gms/games/SnapshotsClient.DataOrConflict#getData()).
+
 3. Retrieve a [`SnapshotContents`](https://developers.google.com/android/reference/com/google/android/gms/games/snapshot/SnapshotContents)
    instance with
    [`SnapshotsClient.SnapshotConflict`](https://developers.google.com/android/reference/com/google/android/gms/games/snapshot/Snapshot#getSnapshotContents()).
+
 4. Call
    [`SnapshotContents.writeBytes()`](https://developers.google.com/android/reference/com/google/android/gms/games/snapshot/SnapshotContents#writeBytes(byte%5B%5D))
    to store the player's data in byte format.
+
 5. Once all your changes are written, call
    [`SnapshotsClient.commitAndClose()`](https://developers.google.com/android/reference/com/google/android/gms/games/SnapshotsClient#public-methods) to send your
    changes to Google's servers. In the method call, your game can optionally
@@ -208,15 +186,18 @@ To retrieve saved games for the authenticated player:
 
 1. Asynchronously open a snapshot with
    [`SnapshotsClient.open()`](https://developers.google.com/android/reference/com/google/android/gms/games/SnapshotsClient#open(com.google.android.gms.games.snapshot.SnapshotMetadata,%20int)).
+
 2. Retrieve the [`Snapshot`](https://developers.google.com/android/reference/com/google/android/gms/games/snapshot/Snapshot)
    object from the task's result by calling
    [`SnapshotsClient.DataOrConflict.getData()`](https://developers.google.com/android/reference/com/google/android/gms/games/SnapshotsClient.DataOrConflict#getData()).
    Alternatively, your game can also retrieve a specific snapshot through the
    saved games selection UI, as described in [Display saved
-   games](#display-saved-games).
+   games](https://developer.android.com/games/pgs/android/saved-games#display-saved-games).
+
 3. Retrieve the [`SnapshotContents`](https://developers.google.com/android/reference/com/google/android/gms/games/snapshot/SnapshotContents)
    instance with
    [`SnapshotsClient.SnapshotConflict`](https://developers.google.com/android/reference/com/google/android/gms/games/snapshot/Snapshot#getSnapshotContents()).
+
 4. Call
    [`SnapshotContents.readFully()`](https://developers.google.com/android/reference/com/google/android/gms/games/snapshot/SnapshotContents#readFully())
    to read the contents of the snapshot.
@@ -285,9 +266,10 @@ method returns a value of `true` In this event, the
 [`SnapshotsClient.SnapshotConflict`](https://developers.google.com/android/reference/com/google/android/gms/games/SnapshotsClient.SnapshotConflict)
 class provides two versions of the saved game:
 
-* **Server version**: The most-up-to-date version known by Play Games Services
+- **Server version**: The most-up-to-date version known by Play Games Services
   to be accurate for the player's device.
-* **Local version**: A modified version detected on one of the player's
+
+- **Local version**: A modified version detected on one of the player's
   devices that contains conflicting content or metadata. This may not be the
   same as the version that you tried to save.
 
@@ -299,23 +281,29 @@ To detect and resolve saved game conflicts:
 1. Call
    [`SnapshotsClient.open()`](https://developers.google.com/android/reference/com/google/android/gms/games/SnapshotsClient#open(com.google.android.gms.games.snapshot.SnapshotMetadata,%20int)).
    The task result contains a `SnapshotsClient.DataOrConflict` class.
+
 2. Call the
    [`SnapshotsClient.DataOrConflict.isConflict()`](https://developers.google.com/android/reference/com/google/android/gms/games/SnapshotsClient.DataOrConflict#isConflict())
    method. If the result is true, you have a conflict to resolve.
+
 3. Call
    [`SnapshotsClient.DataOrConflict.getConflict()`](https://developers.google.com/android/reference/com/google/android/gms/games/SnapshotsClient.DataOrConflict#getConflict())
    to retrieve a
    [`SnapshotsClient.snapshotConflict`](https://developers.google.com/android/reference/com/google/android/gms/games/SnapshotsClient.SnapshotConflict) instance.
+
 4. Call
    [`SnapshotsClient.SnapshotConflict.getConflictId()`](https://developers.google.com/android/reference/com/google/android/gms/games/SnapshotsClient.SnapshotConflict#getConflictId())
    to retrieve the conflict ID that uniquely identifies the detected conflict.
    Your game needs this value to send a conflict resolution request later.
+
 5. Call
    [`SnapshotsClient.SnapshotConflict.getConflictingSnapshot()`](https://developers.google.com/android/reference/com/google/android/gms/games/SnapshotsClient.SnapshotConflict#getConflictingSnapshot())
    to get the local version.
+
 6. Call
    [`SnapshotsClient.SnapshotConflict.getSnapshot()`](https://developers.google.com/android/reference/com/google/android/gms/games/SnapshotsClient.SnapshotConflict#getSnapshot())
    to get the server version.
+
 7. To resolve the saved game conflict, select a version that you want to save
    to the server as the final version, and pass it to the
    [`SnapshotsClient.resolveConflict()`](https://developers.google.com/android/reference/com/google/android/gms/games/SnapshotsClient#resolveConflict(java.lang.String,%20java.lang.String,%20com.google.android.gms.games.snapshot.SnapshotMetadataChange,%20com.google.android.gms.games.snapshot.SnapshotContents))
@@ -385,18 +373,22 @@ steps:
 
 1. Call
    [`SnapshotsClient.open()`](https://developers.google.com/android/reference/com/google/android/gms/games/SnapshotsClient#open(com.google.android.gms.games.snapshot.SnapshotMetadata,%20int)).
+
 2. Call
    [`SnapshotsClient.SnapshotConflict.getResolutionSnapshotsContent()`](https://developers.google.com/android/reference/com/google/android/gms/games/SnapshotsClient.SnapshotConflict#getResolutionSnapshotContents())
    to get a new
    [`SnapshotContents`](https://developers.google.com/android/reference/com/google/android/gms/games/snapshot/SnapshotContents) object.
+
 3. Merge the data from
    [`SnapshotsClient.SnapshotConflict.getConflictingSnapshot()`](https://developers.google.com/android/reference/com/google/android/gms/games/SnapshotsClient.SnapshotConflict#getConflictingSnapshot())
    and
    [`SnapshotsClient.SnapshotConflict.getSnapshot()`](https://developers.google.com/android/reference/com/google/android/gms/games/SnapshotsClient.SnapshotConflict#getSnapshot())
    into the
    [`SnapshotContents`](https://developers.google.com/android/reference/com/google/android/gms/games/snapshot/SnapshotContents) object from the previous step.
+
 4. Optionally, create a [`SnapshotMetadataChange`](https://developers.google.com/android/reference/com/google/android/gms/games/snapshot/SnapshotMetadataChange) instance if there
    are any changes to the metadata fields.
+
 5. Call
    [`SnapshotsClient.resolveConflict()`](https://developers.google.com/android/reference/com/google/android/gms/games/SnapshotsClient#resolveConflict(java.lang.String,%20java.lang.String,%20com.google.android.gms.games.snapshot.SnapshotMetadataChange,%20com.google.android.gms.games.snapshot.SnapshotContents)).
    In your method call, pass
@@ -407,23 +399,11 @@ steps:
    [`SnapshotContents`](https://developers.google.com/android/reference/com/google/android/gms/games/snapshot/SnapshotContents)
    objects that you modified earlier as the second and third arguments
    respectively.
+
 6. If the
    [`SnapshotsClient.resolveConflict()`](https://developers.google.com/android/reference/com/google/android/gms/games/SnapshotsClient#resolveConflict(java.lang.String,%20java.lang.String,%20com.google.android.gms.games.snapshot.SnapshotMetadataChange,%20com.google.android.gms.games.snapshot.SnapshotContents))
    call is successful, the API stores the `Snapshot` object to the server and
    attempts to open the Snapshot object on your local device.
 
-   * If there is a conflict,
-     [`SnapshotsClient.DataOrConflict.isConflict()`](https://developers.google.com/android/reference/com/google/android/gms/games/SnapshotsClient.DataOrConflict#isConflict())
-     returns `true`. In this case, your game should return to step 2 and
-     repeat the steps to modify the snapshot until conflicts are resolved.
-   * If there's no conflict,
-     [`SnapshotsClient.DataOrConflict.isConflict()`](https://developers.google.com/android/reference/com/google/android/gms/games/SnapshotsClient.DataOrConflict#isConflict())
-     returns `false` and the `Snapshot` object is open for your game to
-     modify.
-
-
-
-
-
-
-Send feedback
+   - If there is a conflict, [`SnapshotsClient.DataOrConflict.isConflict()`](https://developers.google.com/android/reference/com/google/android/gms/games/SnapshotsClient.DataOrConflict#isConflict()) returns `true`. In this case, your game should return to step 2 and repeat the steps to modify the snapshot until conflicts are resolved.
+   - If there's no conflict, [`SnapshotsClient.DataOrConflict.isConflict()`](https://developers.google.com/android/reference/com/google/android/gms/games/SnapshotsClient.DataOrConflict#isConflict()) returns `false` and the `Snapshot` object is open for your game to modify.

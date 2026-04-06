@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Gemini offers AI-enabled autocompletion of code in Android Studio that appears
 as gray italicized text as you type. This feature saves you time and lets you
 complete coding projects faster by suggesting full functions. When AI code

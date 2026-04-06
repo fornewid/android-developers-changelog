@@ -1,27 +1,10 @@
 ---
-title: Create a view class  |  Views  |  Android Developers
+title: https://developer.android.com/develop/ui/views/layout/custom-views/create-view
 url: https://developer.android.com/develop/ui/views/layout/custom-views/create-view
-source: html-scrape
+source: md.txt
 ---
 
-* [Android Developers](https://developer.android.com/)
-* [Develop](https://developer.android.com/develop)
-* [Core areas](https://developer.android.com/develop/core-areas)
-* [UI](https://developer.android.com/develop/ui)
-* [Views](https://developer.android.com/develop/ui/views/layout/declaring-layout)
-
-# Create a view class Stay organized with collections Save and categorize content based on your preferences.
-
-
-
-
-Try the Compose way
-
-Jetpack Compose is the recommended UI toolkit for Android. Learn how to work with layouts in Compose.
-
-[Custom Layouts in Compose →](https://developer.android.com/jetpack/compose/layouts/custom)
-
-![](/static/images/android-compose-ui-logo.png)
+Try the Compose way Jetpack Compose is the recommended UI toolkit for Android. Learn how to work with layouts in Compose. [Custom Layouts in Compose →](https://developer.android.com/jetpack/compose/layouts/custom) ![](https://developer.android.com/static/images/android-compose-ui-logo.png)
 
 A well-designed custom view is like any other well-designed class. It encapsulates a
 specific set of
@@ -29,10 +12,10 @@ functionality with a simple interface, uses CPU and memory efficiently, and so o
 addition to being a
 well-designed class, a custom view must do the following:
 
-* Conform to Android standards.
-* Provide custom styleable attributes that work with Android XML layouts.
-* Send accessibility events.
-* Be compatible with multiple Android platforms.
+- Conform to Android standards.
+- Provide custom styleable attributes that work with Android XML layouts.
+- Send accessibility events.
+- Be compatible with multiple Android platforms.
 
 The Android framework provides a set of base classes and XML tags to help you create a view that
 meets all of these
@@ -40,32 +23,33 @@ requirements. This lesson discusses how to use the Android framework to create t
 functionality of a view
 class.
 
+
 You can find additional
-information in [Custom view components](/guide/topics/ui/custom-components).
+information in [Custom view components](https://developer.android.com/guide/topics/ui/custom-components).
 
 ## Subclass a view
 
 All the view classes defined in the Android framework extend
-`View`. Your
+`https://developer.android.com/reference/android/view/View`. Your
 custom view can also
 extend `View` directly, or you can
 save time by extending one of the
 existing view
-subclasses, such as `Button`.
+subclasses, such as `https://developer.android.com/reference/android/widget/Button`.
 
 To allow Android Studio to interact with your view, at a minimum you must provide a constructor that takes a
-`Context` and an `AttributeSet` object as parameters.
+`https://developer.android.com/reference/android/content/Context` and an `https://developer.android.com/reference/android/util/AttributeSet` object as parameters.
 This constructor allows the layout editor to create and edit an instance of your view.
 
 ### Kotlin
 
-```
+```kotlin
 class PieChart(context: Context, attrs: AttributeSet) : View(context, attrs)
 ```
 
 ### Java
 
-```
+```java
 class PieChart extends View {
     public PieChart(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -81,20 +65,22 @@ appearance and behavior with element attributes. You can also add and style cust
 views using XML. To
 enable this behavior in your custom view, do the following:
 
-* Define custom attributes for your view in a `<declare-styleable>` resource element.
-* Specify values for the attributes in your XML layout.
-* Retrieve attribute values at runtime.
-* Apply the retrieved attribute values to your view.
+- Define custom attributes for your view in a `<declare-styleable>
+  ` resource element.
+- Specify values for the attributes in your XML layout.
+- Retrieve attribute values at runtime.
+- Apply the retrieved attribute values to your view.
 
 This section discusses how to define custom attributes and specify their values.
 The next section covers
 retrieving and applying the values at runtime.
 
-To define custom attributes, add `<declare-styleable>` resources to your project. It's customary to put these resources into a
+To define custom attributes, add `<declare-styleable>
+` resources to your project. It's customary to put these resources into a
 `res/values/attrs.xml` file. Here's
 an example of a `attrs.xml` file:
 
-```
+```xml
 <resources>
    <declare-styleable name="PieChart">
        <attr name="showText" format="boolean" />
@@ -122,7 +108,8 @@ to the `http://schemas.android.com/apk/res/android` namespace, they belong to `h
 attributes defined for
 `PieChart`:
 
-```
+
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
    xmlns:custom="http://schemas.android.com/apk/res-auto">
@@ -151,18 +138,18 @@ use the tag `com.example.customviews.charting.PieChart$PieView`.
 When a view is created from an XML layout, all the attributes in the XML tag are read
 from the resource
 bundle and passed into the view's constructor as an
-`AttributeSet`.
+`https://developer.android.com/reference/android/util/AttributeSet`.
 Although it's
 possible to read values from the `AttributeSet` directly, doing so
 has some disadvantages:
 
-* Resource references within attribute values are not resolved.
-* Styles are not applied.
+- Resource references within attribute values are not resolved.
+- Styles are not applied.
 
 Instead, pass the `AttributeSet` to
-`obtainStyledAttributes()`.
+`https://developer.android.com/reference/android/content/res/Resources.Theme#obtainStyledAttributes(android.util.AttributeSet, int[], int, int)`.
 This method passes back a
-`TypedArray`
+`https://developer.android.com/reference/android/content/res/TypedArray`
 array of
 values that are
 already dereferenced and styled.
@@ -180,7 +167,7 @@ reads its attributes:
 
 ### Kotlin
 
-```
+```kotlin
 init {
     context.theme.obtainStyledAttributes(
             attrs,
@@ -199,7 +186,7 @@ init {
 
 ### Java
 
-```
+```java
 public PieChart(Context context, AttributeSet attrs) {
    super(context, attrs);
    TypedArray a = context.getTheme().obtainStyledAttributes(
@@ -231,7 +218,7 @@ called `showText`:
 
 ### Kotlin
 
-```
+```kotlin
 fun isShowText(): Boolean {
     return mShowText
 }
@@ -245,7 +232,7 @@ fun setShowText(showText: Boolean) {
 
 ### Java
 
-```
+```java
 public boolean isShowText() {
    return mShowText;
 }
@@ -257,8 +244,8 @@ public void setShowText(boolean showText) {
 }
 ```
 
-Notice that `setShowText` calls `invalidate()`
-and `requestLayout()`. These calls are crucial
+Notice that `setShowText` calls `https://developer.android.com/reference/android/view/View#invalidate()`
+and `https://developer.android.com/reference/android/view/View#requestLayout()`. These calls are crucial
 to ensure that the view behaves reliably. You need
 to invalidate the view after any change to its properties that might change its
 appearance, so that the
@@ -289,11 +276,9 @@ disabilities that
 prevent them from seeing or using a touchscreen. To support users with disabilities,
 do the following:
 
-* Label your input fields using the `android:contentDescription`
-  attribute.
-* Send accessibility events by calling `sendAccessibilityEvent()`
-  when appropriate.
-* Support alternate controllers, such as a D-pad or trackball.
+- Label your input fields using the `android:contentDescription` attribute.
+- Send accessibility events by calling `https://developer.android.com/reference/android/view/accessibility/AccessibilityEventSource#sendAccessibilityEvent(int)` when appropriate.
+- Support alternate controllers, such as a D-pad or trackball.
 
 For more information about creating accessible views, see
-[Make apps more accessible](/guide/topics/ui/accessibility/apps#custom-views).
+[Make apps more accessible](https://developer.android.com/guide/topics/ui/accessibility/apps#custom-views).

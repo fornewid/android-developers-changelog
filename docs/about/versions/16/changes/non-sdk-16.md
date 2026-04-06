@@ -1,27 +1,35 @@
 ---
-title: https://developer.android.com/about/versions/16/changes/non-sdk-16
+title: Updates to non-SDK interface restrictions in Android 16  |  Android Developers
 url: https://developer.android.com/about/versions/16/changes/non-sdk-16
-source: md.txt
+source: html-scrape
 ---
 
-Android 16 includes updated lists of restricted non-SDK interfaces based
+* [Android Developers](https://developer.android.com/)
+* [Essentials](https://developer.android.com/get-started)
+* [Releases](https://developer.android.com/about/versions)
+
+# Updates to non-SDK interface restrictions in Android 16 Stay organized with collections Save and categorize content based on your preferences.
+
+
+
+Android 16 includes updated lists of restricted non-SDK interfaces based
 on collaboration with Android developers and the latest internal testing.
 Whenever possible, we make sure that public alternatives are available before we
 restrict non-SDK interfaces.
 
-If your app does not target Android 16 (API level 36), some of these
+If your app does not target Android 16 (API level 36), some of these
 changes might not immediately affect you. However, while it's possible for your
 app to access some non-SDK interfaces [depending on your app's target API
-level](https://developer.android.com/guide/app-compatibility/restrictions-non-sdk-interfaces#list-names)), using any non-SDK method or field always carries a high
+level](/guide/app-compatibility/restrictions-non-sdk-interfaces#list-names)), using any non-SDK method or field always carries a high
 risk of breaking your app.
 
 If you are unsure if your app uses non-SDK interfaces, you can
-[test your app](https://developer.android.com/guide/app-compatibility/restrictions-non-sdk-interfaces#test-for-non-sdk) to find out. If your app relies on non-SDK
+[test your app](/guide/app-compatibility/restrictions-non-sdk-interfaces#test-for-non-sdk) to find out. If your app relies on non-SDK
 interfaces, you should begin planning a migration to SDK alternatives.
 Nevertheless, we understand that some apps have valid use cases for using
 non-SDK interfaces. If you can't find an alternative to using a non-SDK
 interface for a feature in your app, you should
-[request a new public API](https://developer.android.com/guide/app-compatibility/restrictions-non-sdk-interfaces#feature-request).
+[request a new public API](/guide/app-compatibility/restrictions-non-sdk-interfaces#feature-request).
 
 For a complete list of all non-SDK interfaces for Android 16, download the
 following file:

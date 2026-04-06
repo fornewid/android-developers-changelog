@@ -15,7 +15,6 @@ Starting in 2026, we'll be transitioning away from Google Fit APIs. For more inf
 
 
 
-
 The Wear Health Services API (WHS) is a mandatory component for all devices
 running Wear OS 3 and higher, as it provides a consistent integration surface
 for health and fitness developers. Build your app to adjust gracefully to

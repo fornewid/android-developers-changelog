@@ -139,28 +139,28 @@ between two boxes implemented with `OnBackPressedCallback`:
 ```
 
 ```
-<?xml version="1.0" encodin>g="u<tf-8"?
+<?xml version="1.0" encoding="utf-8"?>
 ...
-    androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/card"
         android:layout_width="match_parent"
-        android:>layout_hei<ght="wrap_content"
-        ...
+        android:layout_height="wrap_content"
+        ...>
 
-        TextView
+        <TextView
             android:id="@+id/short_text"
-            android:layout_width="match_parent&qu>ot;
-      <      android:layout_height="match_parent"
-            ... /
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            ... />
 
-        TextView
+        <TextView
             android:id="@+id/long_text"
             android:layout_width="match_parent"
-   >      <   android:layout_height="match_parent>"
+            android:layout_height="match_parent"
             android:visibility="gone"
-            .../
+            .../>
 
-    /androidx.constraintlayout.widget.ConstraintLayout
+    </androidx.constraintlayout.widget.ConstraintLayout>
 ```
 
 When working with Predictive Back transitions, keep the following in mind:

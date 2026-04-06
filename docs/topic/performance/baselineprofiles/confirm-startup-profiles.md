@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 You can check that your Startup Profiles are working using either Android Studio
 or looking at the R8 build metadata.
 

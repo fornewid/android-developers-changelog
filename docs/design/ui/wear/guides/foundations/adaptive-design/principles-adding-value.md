@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 When designing for adaptive layouts on the round screen, scrolling and non-scrolling views each have unique requirements for scaling UI elements and maintaining a balanced layout and composition.
 The images below are broad suggestions; examples are for illustrative purposes only. View each component or surface page for detailed, contextual and responsive guidance.
 

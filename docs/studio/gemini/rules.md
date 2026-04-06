@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Rules in Gemini let you define preferred coding languages, styles,
 or output formats that apply to all prompts. When you set these
 preferences once, they are automatically applied to all subsequent

@@ -14,6 +14,7 @@ Send feedback
 
 
 
+
 You should be testing your integration throughout development. To test during
 the development phase, we recommend leveraging *license testers* and [*Play
 Billing Lab*](https://play.google.com/store/apps/details?id=com.google.android.apps.play.billingtestcompanion) to run through the scenarios described in this section.
@@ -640,6 +641,8 @@ Use the following steps to test real payment methods:
 2. Log into the Play Billing Lab app with the same user.
 3. Enable real payment methods in the Play Billing Lab app.
 4. Restart and launch the purchase flow in the app under testing.
+
+
 
 
 

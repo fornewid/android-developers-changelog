@@ -14,6 +14,7 @@ Send feedback
 
 
 
+
 As your app grows in popularity, it can also attract the unwanted
 attention of malicious users that might want to abuse your app. This topic
 describes recommendations that you should use to help prevent these attacks on
@@ -181,6 +182,8 @@ If you see your content being redistributed on Google Play, be sure to act
 quickly and decisively. For more details, see the
 [Frequently Asked Copyright Questions](https://support.google.com/legal/answer/4558836)
 page in the Copyright Help Center.
+
+
 
 
 

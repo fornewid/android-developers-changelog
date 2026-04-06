@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 Create a top app bar to help users navigate and access functions in your app,
 using the [`TopAppBar`](/reference/kotlin/androidx/compose/material3/TopAppBar.composable) composable.
 

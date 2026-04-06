@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 The Android NDK supports using [CMake](https://cmake.org/) to
 compile C and C++ code for your application. This page discusses how to use
 CMake with the NDK via the Android Gradle Plugin's `ExternalNativeBuild` or when

@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 Besides enabling communication with the cloud, Android's wireless APIs also
 enable communication with other devices on the same local network, and even
 devices which are not on a network, but are physically nearby. The addition of

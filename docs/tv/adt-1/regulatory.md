@@ -10,7 +10,6 @@ source: html-scrape
 
 
 
-
 Disclosures for the [ADT-1](/tv/adt-1) device.
 
 Model: W2  

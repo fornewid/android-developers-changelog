@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Since R8's optimizations update your app's code, it's important to strongly
 [test](/topic/performance/app-optimization/test-the-optimization) your app's behavior to make sure that your app is functioning as
 expected. In case of unexpected behavior, use this page as a guide to

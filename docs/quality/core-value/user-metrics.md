@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 Google Play cares about app quality and uses various signals to evaluate users'
 experience of your app. Apps are only eligible for certain features if they meet
 a minimum quality bar.

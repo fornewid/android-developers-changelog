@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Android users frequently view content solely on their devices, but there are times when
 showing someone a screen is not an adequate way to share information. Being able to print
 information from your Android application gives users a way to see a larger version of the

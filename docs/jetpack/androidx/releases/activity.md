@@ -15,7 +15,6 @@ Save and categorize content based on your preferences.
 
 
 
-
 # Activity
 
 [User Guide](/guide/components/activities/intro-activities)

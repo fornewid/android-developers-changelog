@@ -14,7 +14,6 @@ Send feedback
 
 
 
-
 **Note:** Google is sunsetting manual implementation of the interim UX guidelines.
 Learn more about migration deadlines [here](https://support.google.com/googleplay/android-developer/answer/13821247#alt_billing_API_migration_deadline).
 If you are offering user choice billing through alternative billing APIs, you can
@@ -456,8 +455,6 @@ otherwise follows the same design specifications and functionality.
 For additional details on the user choice billing pilot and frequently asked
 questions, please visit our [Help
 Center](https://support.google.com/googleplay/android-developer/answer/12570971).
-
-
 
 
 

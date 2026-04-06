@@ -1,12 +1,20 @@
 ---
-title: https://developer.android.com/training/testing/espresso/intents
+title: Espresso-Intents  |  Test your app on Android  |  Android Developers
 url: https://developer.android.com/training/testing/espresso/intents
-source: md.txt
+source: html-scrape
 ---
 
+* [Android Developers](https://developer.android.com/)
+* [Develop](https://developer.android.com/develop)
+* [Test your app on Android](https://developer.android.com/training/testing)
+
+# Espresso-Intents Stay organized with collections Save and categorize content based on your preferences.
+
+
+
 Espresso-Intents is an extension to Espresso, which enables validation and
-stubbing of [intents](https://developer.android.com/reference/android/content/Intent) sent out by the
-application under test. It's like [Mockito](http://site.mockito.org), but for Android Intents.
+stubbing of [intents](/reference/android/content/Intent) sent out by the
+application under test. It’s like [Mockito](http://site.mockito.org), but for Android Intents.
 
 If your app delegates functionality to other apps or the platform, you can use
 Espresso-Intents to focus on your own app's logic while assuming that other apps
@@ -21,13 +29,13 @@ In your app's `app/build.gradle` file, add the following line inside
 
 ### Groovy
 
-```groovy
+```
 androidTestImplementation 'androidx.test.espresso:espresso-intents:3.6.1'
 ```
 
 ### Kotlin
 
-```kotlin
+```
 androidTestImplementation('androidx.test.espresso:espresso-intents:3.6.1')
 ```
 
@@ -36,7 +44,7 @@ Android testing libraries, so make sure you update those lines as well:
 
 ### Groovy
 
-```groovy
+```
 androidTestImplementation 'androidx.test:runner:1.6.1'
 androidTestImplementation 'androidx.test:rules:1.6.1'
 androidTestImplementation 'androidx.test.espresso:espresso-core:3.6.1'
@@ -44,7 +52,7 @@ androidTestImplementation 'androidx.test.espresso:espresso-core:3.6.1'
 
 ### Kotlin
 
-```kotlin
+```
 androidTestImplementation('androidx.test:runner:1.6.1')
 androidTestImplementation('androidx.test:rules:1.6.1')
 androidTestImplementation('androidx.test.espresso:espresso-core:3.6.1')
@@ -62,14 +70,14 @@ The following code snippet is an example of an `IntentsTestRule`:
 
 ### Kotlin
 
-```kotlin
+```
 @get:Rule
 val intentsTestRule = IntentsTestRule(MyActivity::class.java)
 ```
 
 ### Java
 
-```java
+```
 @Rule
 public IntentsTestRule<MyActivity> intentsTestRule =
     new IntentsTestRule<>(MyActivity.class);
@@ -81,11 +89,14 @@ Espresso-Intents provides the ability to intercept outgoing intents based on
 certain matching criteria, which are defined using Hamcrest Matchers. Hamcrest
 allows you to:
 
-- **Use an existing intent matcher:** Easiest option, which should almost always be preferred.
-- **Implement your own intent matcher:** Most flexible option. More details are available in the section entitled "Writing custom matchers" within the [Hamcrest tutorial](https://code.google.com/archive/p/hamcrest/wikis/Tutorial.wiki).
+* **Use an existing intent matcher:** Easiest option, which should almost always
+  be preferred.
+* **Implement your own intent matcher:** Most flexible option. More details are
+  available in the section entitled "Writing custom matchers" within the
+  [Hamcrest tutorial](https://code.google.com/archive/p/hamcrest/wikis/Tutorial.wiki).
 
-Espresso-Intents offers the [`intended()`](https://developer.android.com/reference/androidx/test/espresso/intent/Intents#intended(org.hamcrest.Matcher%3Candroid.content.Intent%3E,%20androidx.test.espresso.intent.VerificationMode))
-and [`intending()`](https://developer.android.com/reference/androidx/test/espresso/intent/Intents#intending(org.hamcrest.Matcher%3Candroid.content.Intent%3E)) methods for intent validation and
+Espresso-Intents offers the [`intended()`](/reference/androidx/test/espresso/intent/Intents#intended(org.hamcrest.Matcher%3Candroid.content.Intent%3E,%20androidx.test.espresso.intent.VerificationMode))
+and [`intending()`](/reference/androidx/test/espresso/intent/Intents#intending(org.hamcrest.Matcher%3Candroid.content.Intent%3E)) methods for intent validation and
 stubbing, respectively. Both take a Hamcrest `Matcher<Intent>` object as an
 argument.
 
@@ -94,7 +105,7 @@ matchers that matches an outgoing intent that starts a browser:
 
 ### Kotlin
 
-```kotlin
+```
 assertThat(intent).hasAction(Intent.ACTION_VIEW)
 assertThat(intent).categories().containsExactly(Intent.CATEGORY_BROWSABLE)
 assertThat(intent).hasData(Uri.parse("www.google.com"))
@@ -106,7 +117,7 @@ assertThat(intent).extras().string("key2").isEqualTo("value2")
 
 ### Java
 
-```java
+```
 assertThat(intent).hasAction(Intent.ACTION_VIEW);
 assertThat(intent).categories().containsExactly(Intent.CATEGORY_BROWSABLE);
 assertThat(intent).hasData(Uri.parse("www.google.com"));
@@ -121,7 +132,7 @@ assertThat(intent).extras().string("key2").isEqualTo("value2");
 Espresso-Intents records all intents that attempt to launch activities from the
 application under test. Using the `intended()` method, which is similar to
 `Mockito.verify()`, you can assert that a given intent has been seen. However,
-Espresso-Intents doesn't stub out responses to intents unless you [explicitly configure](https://developer.android.com/training/testing/espresso/intents#stubbing)
+Espresso-Intents doesn't stub out responses to intents unless you [explicitly configure](#stubbing)
 it to do so.
 
 The following code snippet is an example test that validates, but doesn't stub
@@ -129,7 +140,7 @@ out responses to, an outgoing intent that launches an external "phone" activity:
 
 ### Kotlin
 
-```kotlin
+```
 @Test fun validateIntentSentToPackage() {
     // User action that results in an external "phone" activity being launched.
     user.clickOnView(system.getView(R.id.callButton))
@@ -142,7 +153,7 @@ out responses to, an outgoing intent that launches an external "phone" activity:
 
 ### Java
 
-```java
+```
 @Test
 public void validateIntentSentToPackage() {
     // User action that results in an external "phone" activity being launched.
@@ -174,7 +185,7 @@ number is displayed:
 
    ### Kotlin
 
-   ```kotlin
+   ```
    val resultData = Intent()
    val phoneNumber = "123-345-6789"
    resultData.putExtra("phone", phoneNumber)
@@ -183,7 +194,7 @@ number is displayed:
 
    ### Java
 
-   ```java
+   ```
    Intent resultData = new Intent();
    String phoneNumber = "123-345-6789";
    resultData.putExtra("phone", phoneNumber);
@@ -195,13 +206,13 @@ number is displayed:
 
    ### Kotlin
 
-   ```kotlin
+   ```
    intending(toPackage("com.android.contacts")).respondWith(result)
    ```
 
    ### Java
 
-   ```java
+   ```
    intending(toPackage("com.android.contacts")).respondWith(result);
    ```
 3. Verify that the action used to launch the activity produces the expected
@@ -211,14 +222,14 @@ number is displayed:
 
    ### Kotlin
 
-   ```kotlin
+   ```
    onView(withId(R.id.pickButton)).perform(click())
    onView(withId(R.id.phoneNumber)).check(matches(withText(phoneNumber)))
    ```
 
    ### Java
 
-   ```java
+   ```
    onView(withId(R.id.pickButton)).perform(click());
    onView(withId(R.id.phoneNumber)).check(matches(withText(phoneNumber)));
    ```
@@ -227,7 +238,7 @@ Here is the complete `activityResult_DisplaysContactsPhoneNumber()` test:
 
 ### Kotlin
 
-```kotlin
+```
 @Test fun activityResult_DisplaysContactsPhoneNumber() {
     // Build the result to return when the activity is launched.
     val resultData = Intent()
@@ -249,7 +260,7 @@ Here is the complete `activityResult_DisplaysContactsPhoneNumber()` test:
 
 ### Java
 
-```java
+```
 @Test
 public void activityResult_DisplaysContactsPhoneNumber() {
     // Build the result to return when the activity is launched.
@@ -278,5 +289,7 @@ the following resources.
 
 ### Samples
 
-- [IntentsBasicSample](https://github.com/android/testing-samples/tree/main/ui/espresso/IntentsBasicSample): Basic usage of `intended()` and `intending()`.
-- [IntentsAdvancedSample](https://github.com/android/testing-samples/tree/main/ui/espresso/IntentsAdvancedSample): Simulates a user fetching a bitmap using the camera.
+* [IntentsBasicSample](https://github.com/android/testing-samples/tree/main/ui/espresso/IntentsBasicSample):
+  Basic usage of `intended()` and `intending()`.
+* [IntentsAdvancedSample](https://github.com/android/testing-samples/tree/main/ui/espresso/IntentsAdvancedSample):
+  Simulates a user fetching a bitmap using the camera.

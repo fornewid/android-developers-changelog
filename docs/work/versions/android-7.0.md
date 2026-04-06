@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 This page provides an overview of the new APIs, features, and behavior changes
 introduced in Android 7.0 (API level 25) that affect Android in the enterprise.
 

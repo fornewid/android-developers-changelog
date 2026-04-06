@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 Note-taking is a core capability of Android that enhances user productivity on
 large screen devices. Note‑taking apps enable users to write and sketch in
 a floating window or on the full screen, capture and annotate screen content,

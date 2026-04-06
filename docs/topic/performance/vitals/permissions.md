@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 Most apps require that users grant them certain
 [app permissions](/guide/topics/permissions/overview) in order to function
 properly. However, in some cases, users might not grant the permissions

@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 To use Google Low Light Boost, you'll need a [*low light boost client*](https://developers.google.com/android/reference/com/google/android/gms/cameralowlight/LowLightBoostClient).
 You can use
 the client to check if the low light boost module is installed, and to check

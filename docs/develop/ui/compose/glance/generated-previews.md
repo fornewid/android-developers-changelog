@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 Generated widget previews allow you to create dynamic, personalized previews for
 your widgets that accurately reflect how they will appear on a user's home
 screen. They are provided through a push API, meaning your app

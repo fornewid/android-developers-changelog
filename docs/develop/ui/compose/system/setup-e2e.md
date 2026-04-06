@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 Edge-to-edge display allows your app to draw its UI behind the system bars—the
 status bar, caption bar, and navigation bar—to achieve a more immersive user
 experience. If you target devices running Android 15 (API level 35) or higher,

@@ -16,6 +16,7 @@ Save and categorize content based on your preferences.
 
 
 
+
 ## Quick Guides Collection Create a home screen scaffold
 
 Use these Quick Guides to create a home screen scaffold. Scaffolds provide a standardized container to hold together different parts of the UI, such as app bars and floating action buttons. A home screen scaffold can help give your app's home screen a coherent look and feel.

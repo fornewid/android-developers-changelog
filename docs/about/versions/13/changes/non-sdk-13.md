@@ -12,6 +12,7 @@ source: html-scrape
 
 
 
+
 Android 13 includes updated lists of restricted non-SDK
 interfaces based on collaboration with Android developers and the latest
 internal testing. Whenever possible, we make sure that public alternatives are

@@ -14,6 +14,7 @@ Send feedback
 
 
 
+
 This guide explains how to use the Google Play Developer API to create and
 manage a product catalog for your Play app.
 
@@ -452,6 +453,8 @@ such as:
 
 We recommend incorporating product deprecation into your catalog management
 strategy.
+
+
 
 
 

@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 With Android 8.0 (API level 26) and higher, you can let users pin your
 widgets to their home screen within your app. Promoting widgets directly within
 your app is a great way to increase user engagement, especially after a

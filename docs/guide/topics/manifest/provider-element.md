@@ -12,6 +12,7 @@ source: html-scrape
 
 
 
+
 syntax:
 :   ```
     <provider android:authorities="list"

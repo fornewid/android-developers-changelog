@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 When using the following templates, you can add support for users to interact
 with the maps you draw, such as letting them see different parts of a map by
 zooming and panning.

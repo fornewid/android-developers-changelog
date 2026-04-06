@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Users expect to be able to control the volume of an audio app. Standard behavior
 includes the ability to use the volume controls (either buttons or knobs on the
 device or sliders in the UI), and to avoid suddenly playing out loud if a

@@ -14,6 +14,7 @@ Send feedback
 
 
 
+
 [Google Play's billing system](/google/play/billing) is a service that
 allows you to sell digital products and content in your Android app.
 With the May 2022 release, we've changed how subscription products are
@@ -296,6 +297,8 @@ endpoint to calculate regional prices as you would through the
 Play Console. This method accepts a single price in any Play-supported
 currency and returns converted prices (including the default rate of
 tax where applicable) for all regions where Google Play supports purchases.
+
+
 
 
 

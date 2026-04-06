@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 This page discusses the following:
 
 * How to request background location access.

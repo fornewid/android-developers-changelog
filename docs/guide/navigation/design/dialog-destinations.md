@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 In Android navigation, the term *dialog destination* refers to destinations
 within the app's navigation graph which take the form of dialog windows,
 overlaying app UI elements and content.

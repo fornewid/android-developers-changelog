@@ -1,25 +1,15 @@
 ---
-title: Manage TV user interaction  |  Android TV  |  Android Developers
+title: https://developer.android.com/training/tv/tif/ui
 url: https://developer.android.com/training/tv/tif/ui
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [Develop](https://developer.android.com/develop)
-* [Devices](https://developer.android.com/develop/devices)
-* [Android TV](https://developer.android.com/training/tv)
-
-# Manage TV user interaction Stay organized with collections Save and categorize content based on your preferences.
-
-
-
 
 In the live TV experience, the user changes channels and is presented with
 channel and program information briefly before the information disappears. Other types of information,
 such as messages ("DO NOT ATTEMPT AT HOME"), subtitles, or ads may need to persist. As with any TV
 app, such information should not interfere with the program content playing on the screen.
+![](https://developer.android.com/static/images/tv/do-not-attempt.png)
 
-![](/static/images/tv/do-not-attempt.png)
 
 **Figure 1.** An overlay message in a live TV app.
 
@@ -32,14 +22,14 @@ Try the [TV Input Service](https://github.com/googlesamples/androidtv-sample-inp
 
 ## Integrate player with surface
 
-Your TV input must render video onto a `Surface` object, which is passed by
-the `TvInputService.Session.onSetSurface()`
-method. Here's an example of how to use a `MediaPlayer` instance for playing
-content in the `Surface` object:
+Your TV input must render video onto a `https://developer.android.com/reference/android/view/Surface` object, which is passed by
+the `https://developer.android.com/reference/android/media/tv/TvInputService.Session#onSetSurface(android.view.Surface)`
+method. Here's an example of how to use a `https://developer.android.com/reference/android/media/MediaPlayer` instance for playing
+content in the `https://developer.android.com/reference/android/view/Surface` object:
 
 ### Kotlin
 
-```
+```kotlin
 override fun onSetSurface(surface: Surface?): Boolean {
     player?.setSurface(surface)
     mSurface = surface
@@ -54,7 +44,7 @@ override fun onSetStreamVolume(volume: Float) {
 
 ### Java
 
-```
+```java
 @Override
 public boolean onSetSurface(Surface surface) {
     if (player != null) {
@@ -73,11 +63,11 @@ public void onSetStreamVolume(float volume) {
 }
 ```
 
-Similarly, here's how to do it using [ExoPlayer](/guide/topics/media/exoplayer):
+Similarly, here's how to do it using [ExoPlayer](https://developer.android.com/guide/topics/media/exoplayer):
 
 ### Kotlin
 
-```
+```kotlin
 override fun onSetSurface(surface: Surface?): Boolean {
     player?.createMessage(videoRenderer)?.apply {
         type = MSG_SET_SURFACE
@@ -100,7 +90,7 @@ override fun onSetStreamVolume(volume: Float) {
 
 ### Java
 
-```
+```java
 @Override
 public boolean onSetSurface(@Nullable Surface surface) {
     if (player != null) {
@@ -129,12 +119,12 @@ public void onSetStreamVolume(float volume) {
 
 Use an overlay to display subtitles, messages, ads or MHEG-5 data broadcasts. By default, the
 overlay is disabled. You can enable it when you create the session by calling
-`TvInputService.Session.setOverlayViewEnabled(true)`,
+`https://developer.android.com/reference/android/media/tv/TvInputService.Session#setOverlayViewEnabled(boolean)`,
 as in the following example:
 
 ### Kotlin
 
-```
+```kotlin
 override fun onCreateSession(inputId: String): Session =
         onCreateSessionInternal(inputId).apply {
             setOverlayViewEnabled(true)
@@ -144,7 +134,7 @@ override fun onCreateSession(inputId: String): Session =
 
 ### Java
 
-```
+```java
 @Override
 public final Session onCreateSession(String inputId) {
     BaseTvInputSessionImpl session = onCreateSessionInternal(inputId);
@@ -154,11 +144,11 @@ public final Session onCreateSession(String inputId) {
 }
 ```
 
-Use a `View` object for the overlay, returned from `TvInputService.Session.onCreateOverlayView()`, as shown here:
+Use a `https://developer.android.com/reference/android/view/View` object for the overlay, returned from `https://developer.android.com/reference/android/media/tv/TvInputService.Session#onCreateOverlayView()`, as shown here:
 
 ### Kotlin
 
-```
+```kotlin
 override fun onCreateOverlayView(): View =
         (context.getSystemService(LAYOUT_INFLATER_SERVICE) as LayoutInflater).run {
             inflate(R.layout.overlayview, null).apply {
@@ -175,7 +165,7 @@ override fun onCreateOverlayView(): View =
 
 ### Java
 
-```
+```java
 @Override
 public View onCreateOverlayView() {
     LayoutInflater inflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
@@ -194,7 +184,7 @@ public View onCreateOverlayView() {
 
 The layout definition for the overlay might look something like this:
 
-```
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
@@ -217,23 +207,23 @@ The layout definition for the overlay might look something like this:
 
 ## Control content
 
-When the user selects a channel, your TV input handles the `onTune()` callback in the `TvInputService.Session` object. The system TV
+When the user selects a channel, your TV input handles the `https://developer.android.com/reference/android/media/tv/TvInputService.Session#onTune(android.net.Uri)` callback in the `https://developer.android.com/reference/android/media/tv/TvInputService.Session` object. The system TV
 app's parental controls determine what content displays, given the content rating.
 The following sections describe how to manage channel and program selection using the
-`TvInputService.Session` `notify` methods that
+`https://developer.android.com/reference/android/media/tv/TvInputService.Session` `notify` methods that
 communicate with the system TV app.
 
 ### Make video unavailable
 
 When the user changes the channel, you want to make sure the screen doesn't display any stray
-video artifacts before your TV input renders the content. When you call `TvInputService.Session.onTune()`,
-you can prevent the video from being presented by calling `TvInputService.Session.notifyVideoUnavailable()`
-and passing the `VIDEO_UNAVAILABLE_REASON_TUNING` constant, as
+video artifacts before your TV input renders the content. When you call `https://developer.android.com/reference/android/media/tv/TvInputService.Session#onTune(android.net.Uri)`,
+you can prevent the video from being presented by calling `https://developer.android.com/reference/android/media/tv/TvInputService.Session#notifyVideoUnavailable(int)`
+and passing the `https://developer.android.com/reference/android/media/tv/TvInputManager#VIDEO_UNAVAILABLE_REASON_TUNING` constant, as
 shown in the following example.
 
 ### Kotlin
 
-```
+```kotlin
 override fun onTune(channelUri: Uri): Boolean {
     subtitleView?.visibility = View.INVISIBLE
     notifyVideoUnavailable(TvInputManager.VIDEO_UNAVAILABLE_REASON_TUNING)
@@ -250,7 +240,7 @@ override fun onTune(channelUri: Uri): Boolean {
 
 ### Java
 
-```
+```java
 @Override
 public boolean onTune(Uri channelUri) {
     if (subtitleView != null) {
@@ -266,13 +256,13 @@ public boolean onTune(Uri channelUri) {
 }
 ```
 
-Then, when the content is rendered to the `Surface`, you call
-`TvInputService.Session.notifyVideoAvailable()`
+Then, when the content is rendered to the `https://developer.android.com/reference/android/view/Surface`, you call
+`https://developer.android.com/reference/android/media/tv/TvInputService.Session#notifyVideoAvailable()`
 to allow the video to display, like so:
 
 ### Kotlin
 
-```
+```kotlin
 fun onRenderedFirstFrame(surface:Surface) {
     firstFrameDrawn = true
     notifyVideoAvailable()
@@ -281,7 +271,7 @@ fun onRenderedFirstFrame(surface:Surface) {
 
 ### Java
 
-```
+```java
 @Override
 public void onRenderedFirstFrame(Surface surface) {
     firstFrameDrawn = true;
@@ -292,20 +282,20 @@ public void onRenderedFirstFrame(Surface surface) {
 This transition lasts only for fractions of a second, but presenting a blank screen is
 visually better than allowing the picture to flash odd blips and jitters.
 
-See also, [Integrate player with surface](#surface) for more information about working
-with `Surface` to render video.
+See also, [Integrate player with surface](https://developer.android.com/training/tv/tif/ui#surface) for more information about working
+with `https://developer.android.com/reference/android/view/Surface` to render video.
 
 ### Provide parental control
 
 To determine if a given content is blocked by parental controls and content rating, you check the
-`TvInputManager` class methods, `isParentalControlsEnabled()`
-and `isRatingBlocked(android.media.tv.TvContentRating)`. You
-might also want to make sure the content's `TvContentRating` is included in a
+`https://developer.android.com/reference/android/media/tv/TvInputManager` class methods, `https://developer.android.com/reference/android/media/tv/TvInputManager#isParentalControlsEnabled()`
+and `https://developer.android.com/reference/android/media/tv/TvInputManager#isRatingBlocked(android.media.tv.TvContentRating)`. You
+might also want to make sure the content's `https://developer.android.com/reference/android/media/tv/TvContentRating` is included in a
 set of currently allowed content ratings. These considerations are shown in the following sample.
 
 ### Kotlin
 
-```
+```kotlin
 private fun checkContentBlockNeeded() {
     currentContentRating?.also { rating ->
         if (!tvInputManager.isParentalControlsEnabled
@@ -330,7 +320,7 @@ private fun checkContentBlockNeeded() {
 
 ### Java
 
-```
+```java
 private void checkContentBlockNeeded() {
     if (currentContentRating == null || !tvInputManager.isParentalControlsEnabled()
             || !tvInputManager.isRatingBlocked(currentContentRating)
@@ -354,19 +344,19 @@ private void checkContentBlockNeeded() {
 
 Once you have determined if the content should or should not be blocked, notify the system TV
 app by calling the
-`TvInputService.Session` method `notifyContentAllowed()`
+`https://developer.android.com/reference/android/media/tv/TvInputService.Session` method `https://developer.android.com/reference/android/media/tv/TvInputService.Session#notifyContentAllowed()`
 or
-`notifyContentBlocked()`
+`https://developer.android.com/reference/android/media/tv/TvInputService.Session#notifyContentBlocked(android.media.tv.TvContentRating)`
 , as shown in the previous example.
 
-Use the `TvContentRating` class to generate the system-defined string for
-the `COLUMN_CONTENT_RATING` with the
-`TvContentRating.createRating()`
+Use the `https://developer.android.com/reference/android/media/tv/TvContentRating` class to generate the system-defined string for
+the `https://developer.android.com/reference/android/media/tv/TvContract.Programs#COLUMN_CONTENT_RATING` with the
+`https://developer.android.com/reference/android/media/tv/TvContentRating#createRating(java.lang.String, java.lang.String, java.lang.String, java.lang.String...)`
 method, as shown here:
 
 ### Kotlin
 
-```
+```kotlin
 val rating = TvContentRating.createRating(
         "com.android.tv",
         "US_TV",
@@ -377,7 +367,7 @@ val rating = TvContentRating.createRating(
 
 ### Java
 
-```
+```java
 TvContentRating rating = TvContentRating.createRating(
     "com.android.tv",
     "US_TV",
@@ -387,27 +377,27 @@ TvContentRating rating = TvContentRating.createRating(
 
 ## Handle track selection
 
-The `TvTrackInfo` class holds information about media tracks such
+The `https://developer.android.com/reference/android/media/tv/TvTrackInfo` class holds information about media tracks such
 as the track type (video, audio, or subtitle) and so forth.
 
 The first time your TV input session is able to get track information, it should call
-`TvInputService.Session.notifyTracksChanged()` with a list of all tracks to update the system TV app. When there
+`https://developer.android.com/reference/android/media/tv/TvInputService.Session#notifyTracksChanged(java.util.List<android.media.tv.TvTrackInfo>)` with a list of all tracks to update the system TV app. When there
 is a change in track information, call
-`notifyTracksChanged()`
+`https://developer.android.com/reference/android/media/tv/TvInputService.Session#notifyTracksChanged(java.util.List<android.media.tv.TvTrackInfo>)`
 again to update the system.
 
 The system TV app provides an interface for the user to select a specific track if more than one
 track is available for a given track type; for example, subtitles in different languages. Your TV
 input responds to the
-`onSelectTrack()`
+`https://developer.android.com/reference/android/media/tv/TvInputService.Session#onSelectTrack(int, java.lang.String)`
 call from the system TV app by calling
-`notifyTrackSelected()`
+`https://developer.android.com/reference/android/media/tv/TvInputService.Session#notifyTrackSelected(int, java.lang.String)`
 , as shown in the following example. Note that when `null`
 is passed as the track ID, this *deselects* the track.
 
 ### Kotlin
 
-```
+```kotlin
 override fun onSelectTrack(type: Int, trackId: String?): Boolean =
         mPlayer?.let { player ->
             if (type == TvTrackInfo.TYPE_SUBTITLE) {
@@ -427,7 +417,7 @@ override fun onSelectTrack(type: Int, trackId: String?): Boolean =
 
 ### Java
 
-```
+```java
 @Override
 public boolean onSelectTrack(int type, String trackId) {
     if (player != null) {
@@ -458,15 +448,3 @@ public boolean onSelectTrack(int type, String trackId) {
     return false;
 }
 ```
-
-[Previous
-
-arrow\_back
-
-Work with channel data](/training/tv/tif/channel)
-
-[Next
-
-Support time-shifting
-
-arrow\_forward](/training/tv/tif/time-shifting)

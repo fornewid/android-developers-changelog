@@ -16,7 +16,6 @@ The Android XR SDK is now available in Developer Preview. We want your feedback!
 
 
 
-
 In Android XR, 3D models are digital objects rendered with depth and volume to
 add a sense of realism and spatial understanding to your app. Users can
 naturally interact with 3D models, creating a transformative and engaging

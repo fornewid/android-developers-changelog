@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 You can use your car's [`CarAppService`](/reference/androidx/car/app/CarAppService) and [`CarAudioRecord`](/reference/androidx/car/app/media/CarAudioRecord) API
 to grant your app access to the user's car microphone. Users must grant
 permission to your app to access the car microphone. Your app can record and

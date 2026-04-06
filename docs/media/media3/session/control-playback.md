@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 Media sessions provide a universal way of interacting with an audio or video
 player. In Media3, the default player is the `ExoPlayer` class, which implements
 the `Player` interface. Connecting the media session to the player allows an app

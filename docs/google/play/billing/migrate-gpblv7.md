@@ -14,7 +14,6 @@ Send feedback
 
 
 
-
 This document describes how to migrate from Google Play Billing Library 5 or 6
 to Google Play Billing Library 7 and how to integrate with the new optional
 subscription capabilities.
@@ -177,8 +176,6 @@ See the [Handle Subscriptions and Pending Transactions](/google/play/billing/sub
 
 See the [Installment Subscriptions Integration](/google/play/billing/subscriptions#installments) guide for
 information on how to integrate these changes into your app.
-
-
 
 
 

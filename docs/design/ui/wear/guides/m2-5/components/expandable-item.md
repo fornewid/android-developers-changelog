@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 ![](/static/wear/images/expandable-item/expandable-item-hero-hero.png)
 
 An expandable item is a custom chip that displays additional content inline.

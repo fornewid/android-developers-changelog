@@ -15,7 +15,6 @@ Send feedback
 
 
 
-
 This guide outlines a typical game development cycle. After reading this
 guide, you might find it helpful to use also as a reference.
 
@@ -555,8 +554,6 @@ The lifecycle of your game does not stop after you go live.
 Monitoring, maintaining, and responding to performance and feedback are critical
 to happy users, positive reviews, and ultimate adoption of your game across
 all markets.
-
-
 
 
 

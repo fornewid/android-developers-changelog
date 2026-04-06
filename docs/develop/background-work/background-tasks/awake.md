@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 When the user leaves their Android-powered device idle, it quickly goes into the
 suspend state to avoid draining the battery. However, there are times when an
 app needs to prevent the CPU from going to the suspend state. In some cases, the

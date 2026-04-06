@@ -12,6 +12,7 @@ source: html-scrape
 
 
 
+
 To enhance user privacy, Android 14 increases the number of places where the
 system shows the information you have declared in the Play Console form.
 Currently, users can view this information in the **Data safety** section on

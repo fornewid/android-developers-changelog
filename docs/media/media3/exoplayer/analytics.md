@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 ExoPlayer supports a wide range of playback analytics needs. Ultimately,
 analytics is about collecting, interpreting, aggregating, and summarizing data
 from playbacks. This data can be used either on the device—for example for

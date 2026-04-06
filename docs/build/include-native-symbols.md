@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 By default, native code libraries are stripped in release builds of your app.
 This stripping consists of removing the symbol table and debugging information
 contained in any native libraries used by your app. Stripping native code

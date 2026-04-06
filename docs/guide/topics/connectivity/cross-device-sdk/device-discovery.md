@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 Almost every multidevice experience begins with finding available devices. To
 simplify this common task, we offer the Device Discovery API.
 

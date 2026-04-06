@@ -12,6 +12,7 @@ source: html-scrape
 
 
 
+
 **Important:** Device recall is a new feature in Play Integrity API that is
 available in beta and subject to change. [Express interest](https://forms.gle/2d24B4gNyoVrqztG6)
 in joining the beta program.

@@ -15,6 +15,7 @@ Send feedback
 
 
 
+
 The Sidekick SDK is available to developers who:
 
 * Publish releases as an APK, rather than an Android App Bundle (AAB).
@@ -69,6 +70,8 @@ are needed.
   [...] <!-- Up to 5 processes ($Process1, $Process2, ..., $Process5) -->
 </application>
 ```
+
+
 
 
 

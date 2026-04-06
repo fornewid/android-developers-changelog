@@ -15,7 +15,6 @@ Save and categorize content based on your preferences.
 
 
 
-
 # Room
 
 [User Guide](/training/data-storage/room)  [Codelab](https://codelabs.developers.google.com/codelabs/android-room-with-a-view-kotlin/#0)

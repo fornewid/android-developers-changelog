@@ -10,7 +10,6 @@ source: html-scrape
 
 
 
-
 This document provides details on how to use the template builders in
 [Android Jetpack](/jetpack) to construct [Slices](/guide/slices).
 

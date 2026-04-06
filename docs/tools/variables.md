@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 You can configure the behavior of Android Studio and the command-line tools by setting
 environment variables. One of the most useful environment variables to set is
 [`ANDROID_HOME`](#android_home), which many tools read to

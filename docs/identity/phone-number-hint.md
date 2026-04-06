@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 The Phone Number Hint API, a library powered by [Google Play services](https://developers.google.com/android),
 provides a frictionless way to show a user's (SIM-based) phone numbers as a
 hint.

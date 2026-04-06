@@ -1,8 +1,16 @@
 ---
-title: https://developer.android.com/topic/google-play-instant/getting-started/game-unity-plugin
+title: Use Google Play Instant with Unity  |  Other Play guides  |  Android Developers
 url: https://developer.android.com/topic/google-play-instant/getting-started/game-unity-plugin
-source: md.txt
+source: html-scrape
 ---
+
+* [Android Developers](https://developer.android.com/)
+* [Google Play](https://developer.android.com/distribute)
+* [Other Play guides](https://developer.android.com/guide/app-bundle)
+
+# Use Google Play Instant with Unity Stay organized with collections Save and categorize content based on your preferences.
+
+
 
 **Warning:** Google Play Instant will no longer be available. Starting December 2025,
 Instant Apps cannot be published through Google Play, and all
@@ -27,11 +35,12 @@ The plugin is part of the Google Play Plugins for Unity. To import
 the plugin, follow these steps:
 
 1. Download the latest release from [Google Play Plugins for Unity releases](https://github.com/google/play-unity-plugins/releases).
-2. Import the `.unitypackage` file by selecting the Unity IDE menu option **Assets \> Import package \> Custom Package** and importing all items.
+2. Import the `.unitypackage` file by selecting the Unity IDE menu option
+   **Assets > Import package > Custom Package** and importing all items.
 
 ## Unity Editor features
 
-Import the plugin to add a **Google \> Play Instant** submenu in Unity. This
+Import the plugin to add a **Google > Play Instant** submenu in Unity. This
 submenu provides the following options.
 
 ### Build Settings
@@ -39,16 +48,23 @@ submenu provides the following options.
 Opens a window that enables switching between **Installed** and **Instant**
 development modes. Switching to **Instant** performs the following changes:
 
-- Creates a Scripting Define Symbol called `PLAY_INSTANT` that can be used for scripting with `#if PLAY_INSTANT` and `#endif`.
-- Manages updates to the AndroidManifest.xml for certain required changes such as [**android:targetSandboxVersion**](https://developer.android.com/guide/topics/manifest/manifest-element#targetSandboxVersion).
+* Creates a Scripting Define Symbol called `PLAY_INSTANT` that can be used for
+  scripting with `#if PLAY_INSTANT` and `#endif`.
+* Manages updates to the AndroidManifest.xml for certain required changes such
+  as
+  [**android:targetSandboxVersion**](/guide/topics/manifest/manifest-element#targetSandboxVersion).
 
 ### Player Settings
 
 The **Player Settings** dialog, shown in Figure 1, displays suggestions to help
 you optimize support for Google Play Instant, develop against more compatible
 graphics APIs, and reduce your APK's size.
+
 ![Specific suggestions include using OpenGL ES 2.0 only and
-disabling Multithreaded Rendering.](https://developer.android.com/static/topic/google-play-instant/images/unity-plugin-player-settings.png) **Figure 1.** The **Player Settings** dialog
+  disabling Multithreaded Rendering.](/static/topic/google-play-instant/images/unity-plugin-player-settings.png)
+
+
+**Figure 1.** The **Player Settings** dialog
 
 These Player Settings are divided into **Required** and **Recommended**
 settings. If a setting has a corresponding **Update** button, click it to
@@ -78,38 +94,54 @@ instant to installed app.
 An instant app with an **Install** button can display a Play Store install
 dialog by calling the following from an install button click handler:
 
-    Google.Play.Instant.InstallLauncher.ShowInstallPrompt();
+```
+Google.Play.Instant.InstallLauncher.ShowInstallPrompt();
+```
 
 The `ShowInstallPrompt()` method has an overload that allows for one or more of
 the following:
 
-- Determining if the user cancels out of the installation process. Override `onActivityResult()` in the instant app's main activity and check for `RESULT_CANCELED` on the specified `requestCode`.
-- Passing an install referrer string via the `referrer` parameter.
-- Passing state about the current game session via `PutPostInstallIntentStringExtra()`.
+* Determining if the user cancels out of the installation process. Override
+  `onActivityResult()` in the instant app's main activity and check for
+  `RESULT_CANCELED` on the specified `requestCode`.
+* Passing an install referrer string via the `referrer` parameter.
+* Passing state about the current game session via
+  `PutPostInstallIntentStringExtra()`.
 
 These are demonstrated in the following example:
 
-    using Google.Play.Instant;
-    ...
-    const int requestCode = 123;
-    var sessionInfo = /* Object serialized as a string representing player's current location, etc. */;
-    using (var activity = UnityPlayerHelper.GetCurrentActivity())
-    using (var postInstallIntent = InstallLauncher.CreatePostInstallIntent(activity))
-    {
-        InstallLauncher.PutPostInstallIntentStringExtra(postInstallIntent, "sessionInfo", sessionInfo);
-        InstallLauncher.ShowInstallPrompt(activity, requestCode, postInstallIntent, "test-referrer");
-    }
+```
+using Google.Play.Instant;
+...
+const int requestCode = 123;
+var sessionInfo = /* Object serialized as a string representing player's current location, etc. */;
+using (var activity = UnityPlayerHelper.GetCurrentActivity())
+using (var postInstallIntent = InstallLauncher.CreatePostInstallIntent(activity))
+{
+    InstallLauncher.PutPostInstallIntentStringExtra(postInstallIntent, "sessionInfo", sessionInfo);
+    InstallLauncher.ShowInstallPrompt(activity, requestCode, postInstallIntent, "test-referrer");
+}
+```
 
 If the user completes app installation, the Play Store will re-launch the app
 using the provided `postInstallIntent`. The installed app can retrieve a value
 set in the `postInstallIntent` using the following:
 
-    var sessionInfo = InstallLauncher.GetPostInstallIntentStringExtra("sessionInfo");
+```
+var sessionInfo = InstallLauncher.GetPostInstallIntentStringExtra("sessionInfo");
+```
 
 **Notes:**
 
-- The extras included in the `postInstallIntent` may not reach the installed app if the user installs the app but cancels the post-install launch. Passing intent extras is better suited for retaining active session state than it is for retaining persistent state; for the latter refer to the Cookie API.
-- Anyone can construct an intent with extra fields to launch the installed app, so if the payload grants something of value, design the payload so that it can only be used once, cryptographically sign it, and verify the signature on a server.
+* The extras included in the `postInstallIntent` may not reach the installed
+  app if the user installs the app but cancels the post-install launch.
+  Passing intent extras is better suited for retaining active session state
+  than it is for retaining persistent state; for the latter refer to the
+  Cookie API.
+* Anyone can construct an intent with extra fields to launch the installed
+  app, so if the payload grants something of value, design the payload so that
+  it can only be used once, cryptographically sign it, and verify the
+  signature on a server.
 
 ### Use the Cookie API
 
@@ -119,38 +151,42 @@ completion data) from an instant app to its corresponding installed app. Unlike
 doesn't immediately launch the installed app. For example, an instant app could
 call the following code from an install button click handler:
 
-    using Google.Play.Instant;
-    ...
-    var playerInfo = /* Object serialized as a string representing game levels completed, etc. */;
-    var cookieBytes = System.Text.Encoding.UTF8.GetBytes(playerInfo);
-    try
+```
+using Google.Play.Instant;
+...
+var playerInfo = /* Object serialized as a string representing game levels completed, etc. */;
+var cookieBytes = System.Text.Encoding.UTF8.GetBytes(playerInfo);
+try
+{
+    var maxCookieSize = CookieApi.GetInstantAppCookieMaxSize();
+    if (cookieBytes.Length > maxCookieSize)
     {
-        var maxCookieSize = CookieApi.GetInstantAppCookieMaxSize();
-        if (cookieBytes.Length > maxCookieSize)
-        {
-            UnityEngine.Debug.LogErrorFormat("Cookie length {0} exceeds limit {1}.", cookieBytes.Length, maxCookieSize);
-        }
-        else if (CookieApi.SetInstantAppCookie(cookieBytes))
-        {
-            UnityEngine.Debug.Log("Successfully set cookie. Now display the app install dialog...");
-            InstallLauncher.ShowInstallPrompt();
-        }
-        else
-        {
-            UnityEngine.Debug.LogError("Failed to set cookie.");
-        }
+        UnityEngine.Debug.LogErrorFormat("Cookie length {0} exceeds limit {1}.", cookieBytes.Length, maxCookieSize);
     }
-    catch (CookieApi.InstantAppCookieException ex)
+    else if (CookieApi.SetInstantAppCookie(cookieBytes))
     {
-        UnityEngine.Debug.LogErrorFormat("Failed to set cookie: {0}", ex);
+        UnityEngine.Debug.Log("Successfully set cookie. Now display the app install dialog...");
+        InstallLauncher.ShowInstallPrompt();
     }
+    else
+    {
+        UnityEngine.Debug.LogError("Failed to set cookie.");
+    }
+}
+catch (CookieApi.InstantAppCookieException ex)
+{
+    UnityEngine.Debug.LogErrorFormat("Failed to set cookie: {0}", ex);
+}
+```
 
 If the user completes app installation, the installed app can retrieve the
 cookie data using the following code:
 
-    var cookieBytes = CookieApi.GetInstantAppCookie();
-    var playerInfoString = System.Text.Encoding.UTF8.GetString(cookieBytes);
-    if (!string.IsNullOrEmpty(playerInfoString))
-    {
-        // Initialize game state based on the cookie, e.g. skip tutorial level completed in instant app.
-    }
+```
+var cookieBytes = CookieApi.GetInstantAppCookie();
+var playerInfoString = System.Text.Encoding.UTF8.GetString(cookieBytes);
+if (!string.IsNullOrEmpty(playerInfoString))
+{
+    // Initialize game state based on the cookie, e.g. skip tutorial level completed in instant app.
+}
+```

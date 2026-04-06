@@ -12,6 +12,7 @@ source: html-scrape
 
 
 
+
 To further protect user privacy, Android 11 adds one-time
 location access and changes how users grant background location access. These
 updates affect all apps that run on Android 11 and higher.

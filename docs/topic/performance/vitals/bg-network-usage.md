@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 When an app connects to the mobile network in the background,
 the app wakes up the CPU and turns on the radio. Doing so
 repeatedly can run down a device's battery. An app is considered to be running

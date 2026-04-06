@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 This section gives an introduction to the various haptics APIs
 available in Android. It also covers when and how to check for any device
 support necessary to ensure your haptic effects play as you intend.

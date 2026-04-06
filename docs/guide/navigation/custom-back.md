@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 Users navigate backward through screens using *back navigation*. Most Android
 devices have a back button—physical, software, or gesture-based. Usually, you
 shouldn't add a back button to your app. However, Android Automotive OS (AAOS)

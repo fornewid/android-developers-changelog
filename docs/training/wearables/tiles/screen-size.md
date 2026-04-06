@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Your app's tiles should work well on Wear OS devices of all sizes, taking
 advantage of additional space where available, and still look great on smaller
 screens too. This guide provides recommendations for achieving this user

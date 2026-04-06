@@ -1,32 +1,28 @@
 ---
-title: https://developer.android.com/studio/releases/past-releases/as-koala-release-notes
+title: Android Studio Koala | 2024.1.1 (June 2024)  |  Android Developers
 url: https://developer.android.com/studio/releases/past-releases/as-koala-release-notes
-source: md.txt
+source: html-scrape
 ---
+
+* [Android Developers](https://developer.android.com/)
+* [Develop](https://developer.android.com/develop)
+* [IDE guides](https://developer.android.com/studio/releases/past-releases)
+
+# Android Studio Koala | 2024.1.1 (June 2024) Stay organized with collections Save and categorize content based on your preferences.
+
+
 
 The following are new features in Android Studio Koala.
 
 ## Patch releases
 
-<br />
-
 The following is a list of the patch releases in Android Studio Koala
 and Android Gradle plugin 8.5.
 
-<br />
-
-<br />
-
-### Android Studio Koala \| 2024.1.1 Patch 1 and AGP 8.5.1 (July 2024)
-
-<br />
-
-<br />
+### Android Studio Koala | 2024.1.1 Patch 1 and AGP 8.5.1 (July 2024)
 
 This minor update includes
-[these bug fixes](https://developer.android.com/studio/releases/fixed-bugs/studio/2024.1.1#android-studio-koala-|-2024.1.1-patch-1).
-
-<br />
+[these bug fixes](/studio/releases/fixed-bugs/studio/2024.1.1#android-studio-koala-|-2024.1.1-patch-1).
 
 ## Build a Generative AI app using the Gemini API template
 
@@ -38,7 +34,7 @@ features, such as those that rely on text generation and image recognition, in
 your app to delight your users.
 
 To learn how to get started, see
-[Use the Gemini API template](https://developer.android.com/studio/projects/templates#GeminiApiTemplate).
+[Use the Gemini API template](/studio/projects/templates#GeminiApiTemplate).
 
 ## Side by side layout in Running Devices window
 

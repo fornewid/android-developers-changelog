@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 Android 13 (API level 33) and higher supports a
 [runtime permission](/guide/topics/permissions/overview#runtime) for sending
 [non-exempt](#exemptions) (including Foreground Services (FGS)) notifications

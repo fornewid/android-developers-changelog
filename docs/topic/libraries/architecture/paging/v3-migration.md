@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 Paging 3 is significantly different from earlier versions of the Paging library.
 This version provides enhanced functionality and addresses common
 difficulties with using Paging 2. If your app already uses an earlier

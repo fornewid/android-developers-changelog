@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Create the code to query for [`ProductDetails`](/reference/com/android/billingclient/api/ProductDetails), complete
 with instructional placeholders for product IDs.
 

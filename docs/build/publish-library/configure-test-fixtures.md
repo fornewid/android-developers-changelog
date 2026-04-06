@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 While publishing test fixtures doesn't require any particular configuration
 of the publication, the
 [capability mechanism](https://docs.gradle.org/current/userguide/component_capabilities.html)

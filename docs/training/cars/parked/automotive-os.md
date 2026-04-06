@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 When distributing your app to Android Automotive OS devices, there are some
 considerations unique to the form factor that you should be aware of. This
 guide explains those considerations.

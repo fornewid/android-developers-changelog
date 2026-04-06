@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 This guide builds upon the [Paging Library
 overview](/topic/libraries/architecture/paging), discussing how you can
 customize your app's data-loading solution to meet your app's architecture

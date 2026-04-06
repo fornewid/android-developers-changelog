@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Google Assistant uses three different formats of intents that your
 navigation app can support.
 You can achieve interoperability and integrate your app and Google Assistant by

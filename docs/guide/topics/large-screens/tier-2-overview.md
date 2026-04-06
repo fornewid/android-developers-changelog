@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 ![Tier 2 adaptive optimized icon](/static/images/docs/quality-guidelines/tier-2/tier_2_icon.png)
 
 TIER 2 — [Adaptive app quality guidelines](/docs/quality-guidelines/adaptive-app-quality/tier-2) that prepare your app for

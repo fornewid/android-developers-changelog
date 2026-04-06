@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 A string resource provides text strings for your application
 with optional text styling and formatting. There are three types of resources that can provide
 your application with strings:

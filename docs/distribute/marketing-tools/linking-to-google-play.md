@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 Google Play provides several link formats that let you bring users to your
 products in the way you want, from Android apps, web pages, ads, reviews,
 articles, social media posts, and more.

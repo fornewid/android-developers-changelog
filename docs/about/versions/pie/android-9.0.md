@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 Android 9 (API level 28) introduces great new features and capabilities for
 users and developers. This document highlights what's new for developers.
 

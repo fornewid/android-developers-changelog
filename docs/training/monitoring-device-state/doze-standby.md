@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Android has two power-saving features that extend battery life for users by
 managing how apps behave when a device isn't connected to a power source: Doze
 and App Standby. *Doze* reduces battery consumption by deferring

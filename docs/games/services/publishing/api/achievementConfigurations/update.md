@@ -1,12 +1,18 @@
 ---
-title: https://developer.android.com/games/services/publishing/api/achievementConfigurations/update
+title: AchievementConfigurations: update  |  API reference  |  Android Developers
 url: https://developer.android.com/games/services/publishing/api/achievementConfigurations/update
-source: md.txt
+source: html-scrape
 ---
 
-# AchievementConfigurations: update
+* [Android Developers](https://developer.android.com/)
+* [Develop](https://developer.android.com/develop)
+* [API reference](https://developer.android.com/reference)
 
-**Requires[authorization](https://developer.android.com/games/services/publishing/api/achievementConfigurations/update#auth)**
+# AchievementConfigurations: update Stay organized with collections Save and categorize content based on your preferences.
+
+
+
+**Requires [authorization](#auth)**
 
 Update the metadata of the achievement configuration with the given ID.
 
@@ -20,23 +26,23 @@ PUT https://www.googleapis.com/games/v1configuration/achievements/achievementId
 
 ### Parameters
 
-| Parameter name  |  Value   |                  Description                   |
-|-----------------|----------|------------------------------------------------|
-| **Path parameters**                                                       |||
+| Parameter name | Value | Description |
+| --- | --- | --- |
+| **Path parameters** | | |
 | `achievementId` | `string` | The ID of the achievement used by this method. |
 
 ### Authorization
 
-This request requires authorization with the following scope ([read more about authentication and authorization](https://developer.android.com/accounts/docs/OAuth2)).
+This request requires authorization with the following scope ([read more about authentication and authorization](/accounts/docs/OAuth2)).
 
-|                       Scope                        |
-|----------------------------------------------------|
+| Scope |
+| --- |
 | `https://www.googleapis.com/auth/androidpublisher` |
 
 ### Request body
 
-In the request body, supply an[AchievementConfigurations resource](https://developer.android.com/games/services/publishing/api/achievementConfigurations#resource).
+In the request body, supply an [AchievementConfigurations resource](/games/services/publishing/api/achievementConfigurations#resource).
 
 ## Response
 
-If successful, this method returns an[AchievementConfigurations resource](https://developer.android.com/games/services/publishing/api/achievementConfigurations#resource)in the response body.
+If successful, this method returns an [AchievementConfigurations resource](/games/services/publishing/api/achievementConfigurations#resource) in the response body.

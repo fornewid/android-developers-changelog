@@ -15,6 +15,7 @@ Send feedback
 
 
 
+
 In today's competitive gaming market, it's more important than ever to reach as
 wide an audience as possible. By developing games for different form factors,
 such as phones, tablets, foldables, and desktop, you can tap into a larger pool
@@ -183,6 +184,8 @@ device is in tabletop posture and adjusting the camera.
 
 
 **Figure 9.** "HingeAware" scene supports tabletop posture.
+
+
 
 
 

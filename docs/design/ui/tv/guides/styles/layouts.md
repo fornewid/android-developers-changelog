@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 Layouts are structural templates that provide a framework for maintaining
 visual consistency across your application. By defining visual grids, spacing,
 and sections, layouts establish a cohesive and organized structure for the

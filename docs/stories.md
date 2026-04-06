@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 Developers are finding success with features and
 best practices for Android, Google Play, and the Jetpack libraries.
 

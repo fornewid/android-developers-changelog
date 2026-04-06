@@ -1,21 +1,34 @@
 ---
-title: https://developer.android.com/studio/prompt-gallery/prompts/add-parameter-to-compose-file
+title: Add parameter to Compose file  |  Android Studio  |  Android Developers
 url: https://developer.android.com/studio/prompt-gallery/prompts/add-parameter-to-compose-file
-source: md.txt
+source: html-scrape
 ---
+
+* [Android Developers](https://developer.android.com/)
+* [Develop](https://developer.android.com/develop)
+* [Android Studio](https://developer.android.com/studio)
+* [Gemini in Android Studio](https://developer.android.com/gemini-in-android)
+
+# Add parameter to Compose file Stay organized with collections Save and categorize content based on your preferences.
+
+
 
 Customize a visual aspect of a composable.
 
-*** ** * ** ***
+---
 
-    This Compose file below defines a custom composable.
-    Add a new parameter to allow customizing a visual aspect of this composable (e.g., color, size, shape).
-    Update any preview functions in this file to demonstrate the new parameter. Ensure any changes follow Material Design guidelines if applicable.
+```
+This Compose file below defines a custom composable.
+Add a new parameter to allow customizing a visual aspect of this composable (e.g., color, size, shape).
+Update any preview functions in this file to demonstrate the new parameter. Ensure any changes follow Material Design guidelines if applicable.
 
-    $CURRENT_FILE
+$CURRENT_FILE
+```
 
-> [!NOTE]
-> To run this prompt in Android Studio, click **Gemini** in the sidebar and paste it in the chat field.   
-> To save and retrieve prompts in the Studio IDE, go to **Settings \> Gemini \> Prompt Library**.
 
-*** ** * ** ***
+To run this prompt in Android Studio, click **Gemini** in the sidebar and paste it in the chat field.
+  
+To save and retrieve prompts in the Studio IDE, go to **Settings > Gemini > Prompt Library**.
+
+
+---

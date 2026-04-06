@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 The [Ultra HDR image format](/guide/topics/media/platform/hdr-image-format) encodes luminosity information
 that lets devices display brighter
 images with more intense colors. When your app edits an Ultra HDR image, you

@@ -15,7 +15,6 @@ Starting in 2026, we'll be transitioning away from Google Fit APIs. For more inf
 
 
 
-
 Data types in Health Connect are stored in objects that are subclasses of
 [`Record`](/reference/kotlin/androidx/health/connect/client/records/Record).
 

@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 Canonical layouts are proven, versatile layouts that provide an optimal user
 experience on a variety of form factors.
 

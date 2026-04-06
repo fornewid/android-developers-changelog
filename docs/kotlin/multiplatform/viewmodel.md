@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 The AndroidX ViewModel serves as a bridge, establishing a clear contract between
 your shared business logic and your UI components. This pattern helps ensure
 data consistency across platforms, while enabling UIs to be customized for each

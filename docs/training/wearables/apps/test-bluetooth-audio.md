@@ -1,19 +1,10 @@
 ---
-title: Test Bluetooth audio on emulators  |  Wear OS  |  Android Developers
+title: https://developer.android.com/training/wearables/apps/test-bluetooth-audio
 url: https://developer.android.com/training/wearables/apps/test-bluetooth-audio
-source: html-scrape
+source: md.txt
 ---
 
-* [Android Developers](https://developer.android.com/)
-* [Develop](https://developer.android.com/develop)
-* [Devices](https://developer.android.com/develop/devices)
-* [Wear OS](https://developer.android.com/training/wearables)
-
-# Test Bluetooth audio on emulators Stay organized with collections Save and categorize content based on your preferences.
-
-
-
-On the Wear OS emulator, system images that run Wear OS 4 or higher include
+On the Wear OS emulator, system images that run Wear OS 4 or higher include
 support for emulated Bluetooth. This support lets you test several use cases
 related to Bluetooth audio.
 
@@ -22,9 +13,7 @@ related to Bluetooth audio.
 Using the emulator's Bluetooth support, you can pair with an emulated phone. To
 do so, enable the setup wizard from the command line:
 
-```
--append-userspace-opt androidboot.setupwizard_mode=REQUIRED
-```
+    -append-userspace-opt androidboot.setupwizard_mode=REQUIRED
 
 ## Play audio through an emulated output device
 
@@ -54,7 +43,7 @@ steps:
 
 To launch the emulated speaker, complete the following steps:
 
-1. Launch a version of the emulator that supports Wear OS 4 or higher.
+1. Launch a version of the emulator that supports Wear OS 4 or higher.
 
    **Note:** If you're using an emulator version
    lower than 33.1.10, launch the emulator from the command line using the

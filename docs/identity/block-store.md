@@ -1,21 +1,11 @@
 ---
-title: Block Store  |  Identity  |  Android Developers
+title: https://developer.android.com/identity/block-store
 url: https://developer.android.com/identity/block-store
-source: html-scrape
+source: md.txt
 ---
 
-* [Android Developers](https://developer.android.com/)
-* [Design & Plan](https://developer.android.com/design)
-* [Security](https://developer.android.com/security)
-* [Identity](https://developer.android.com/identity)
-* [Guides](https://developer.android.com/identity/credential-manager)
-
-# Block Store Stay organized with collections Save and categorize content based on your preferences.
-
-
-
-**Important:** For an updated user experience and other improvements, consider using
-[Passkeys with Credential Manager](/identity/sign-in/credential-manager) instead.
+> [!IMPORTANT]
+> **Important:** For an updated user experience and other improvements, consider using [Passkeys with Credential Manager](https://developer.android.com/identity/sign-in/credential-manager) instead.
 
 Many users still manage their own credentials when setting up a new
 Android-powered device. This manual process can become challenging and often
@@ -31,16 +21,14 @@ when launching your app for the first time on the new device.
 
 The benefits to using Block Store include the following:
 
-* Encrypted credential storage solution for developers. Credentials are
-  end-to-end encrypted when possible.
-* Save tokens instead of usernames and passwords.
-* Eliminate friction from sign-in flows.
-* Save users from the burden of managing complex passwords.
-* Google verifies the user's identity.
+- Encrypted credential storage solution for developers. Credentials are end-to-end encrypted when possible.
+- Save tokens instead of usernames and passwords.
+- Eliminate friction from sign-in flows.
+- Save users from the burden of managing complex passwords.
+- Google verifies the user's identity.
 
-**Note:** Using Block Store does not limit the user to what type of credentials can
-be used. Users can sign in with their username and password, their Google
-Account, or any other federated identity provider, and Block Store still works.
+> [!NOTE]
+> **Note:** Using Block Store does not limit the user to what type of credentials can be used. Users can sign in with their username and password, their Google Account, or any other federated identity provider, and Block Store still works.
 
 ## Before you begin
 
@@ -52,30 +40,26 @@ In your project-level `build.gradle` file, include [Google's Maven
 repository](https://maven.google.com/web/index.html) in both your `buildscript`
 and `allprojects` sections:
 
-```
-buildscript {
-  repositories {
-    google()
-    mavenCentral()
-  }
-}
+    buildscript {
+      repositories {
+        google()
+        mavenCentral()
+      }
+    }
 
-allprojects {
-  repositories {
-    google()
-    mavenCentral()
-  }
-}
-```
+    allprojects {
+      repositories {
+        google()
+        mavenCentral()
+      }
+    }
 
 Add the [Google Play services](https://developers.google.com/android) dependency for the Block Store API
-to your [module's Gradle build file](/studio/build#module-level), which is commonly `app/build.gradle`:
+to your [module's Gradle build file](https://developer.android.com/studio/build#module-level), which is commonly `app/build.gradle`:
 
-```
-dependencies {
-  implementation 'com.google.android.gms:play-services-auth-blockstore:16.4.0'
-}
-```
+    dependencies {
+      implementation 'com.google.android.gms:play-services-auth-blockstore:16.4.0'
+    }
 
 ## How it works
 
@@ -88,13 +72,10 @@ built on top of the Backup and Restore infrastructure.
 This guide will cover the use case of saving a user's token to Block Store.
 The following steps outline how an app utilizing Block Store would work:
 
-1. During your app’s authentication flow, or anytime thereafter, you can store
-   the user’s authentication token to Block Store for later retrieval.
-2. The token will be stored locally and can also be backed up to the cloud,
-   end-to-end encrypted when possible.
+1. During your app's authentication flow, or anytime thereafter, you can store the user's authentication token to Block Store for later retrieval.
+2. The token will be stored locally and can also be backed up to the cloud, end-to-end encrypted when possible.
 3. Data is transferred when the user initiates a restore flow on a new device.
-4. If the user restores your app during the restore flow, your app can then
-   retrieve the saved token from Block Store on the new device.
+4. If the user restores your app during the restore flow, your app can then retrieve the saved token from Block Store on the new device.
 
 ### Saving the token
 
@@ -111,7 +92,7 @@ the local device:
 
 ### Java
 
-```
+```java
   BlockstoreClient client = Blockstore.getClient(this);
   byte[] bytes1 = new byte[] { 1, 2, 3, 4 };  // Store one data block.
   String key1 = "com.example.app.key1";
@@ -127,7 +108,7 @@ the local device:
 
 ### Kotlin
 
-```
+```kotlin
   val client = Blockstore.getClient(this)
 
   val bytes1 = byteArrayOf(1, 2, 3, 4) // Store one data block.
@@ -146,10 +127,8 @@ the local device:
     }
 ```
 
-**Note:** **Previously stored bytes without a key?** If you have previously used the
-`StoreBytes()` API to save your data, it is recommended that you start saving
-your tokens with a key. Data previously saved using StoreBytes is now saved
-with the key `BlockstoreClient.DEFAULT_BYTES_DATA_KEY`.
+> [!NOTE]
+> **Note:** **Previously stored bytes without a key?** If you have previously used the `StoreBytes()` API to save your data, it is recommended that you start saving your tokens with a key. Data previously saved using StoreBytes is now saved with the key `BlockstoreClient.DEFAULT_BYTES_DATA_KEY`.
 
 #### Use default token
 
@@ -158,7 +137,7 @@ Data saved using StoreBytes without a key uses the default key
 
 ### Java
 
-```
+```java
   BlockstoreClient client = Blockstore.getClient(this);
   // The default key BlockstoreClient.DEFAULT_BYTES_DATA_KEY.
   byte[] bytes = new byte[] { 9, 10 };
@@ -172,7 +151,7 @@ Data saved using StoreBytes without a key uses the default key
 
 ### Kotlin
 
-```
+```kotlin
   val client = Blockstore.getClient(this);
   // the default key BlockstoreClient.DEFAULT_BYTES_DATA_KEY.
   val bytes = byteArrayOf(1, 2, 3, 4)
@@ -189,11 +168,8 @@ Data saved using StoreBytes without a key uses the default key
     }
 ```
 
-**Note:** On device, Block Store data is stored in Google Play services' local
-private data directory. No other apps can directly access the data file. They
-can only access Block Store data using `retrieveBytes()` API, and an app can
-only retrieve data stored by itself. Google Play services checks both the
-package name and signature.
+> [!NOTE]
+> **Note:** On device, Block Store data is stored in Google Play services' local private data directory. No other apps can directly access the data file. They can only access Block Store data using `retrieveBytes()` API, and an app can only retrieve data stored by itself. Google Play services checks both the package name and signature.
 
 ### Retrieving the token
 
@@ -209,7 +185,7 @@ keys.
 
 ### Java
 
-```
+```java
 BlockstoreClient client = Blockstore.getClient(this);
 
 // Retrieve data associated with certain keys.
@@ -237,7 +213,7 @@ client.retrieveBytes(retrieveRequest)
 
 ### Kotlin
 
-```
+```kotlin
 val client = Blockstore.getClient(this)
 
 // Retrieve data associated with certain keys.
@@ -274,7 +250,7 @@ Below is an example of how to retrieve all the tokens saved to BlockStore.
 
 ### Java
 
-```
+```java
 BlockstoreClient client = Blockstore.getClient(this)
 
 // Retrieve all data.
@@ -297,7 +273,7 @@ client.retrieveBytes(retrieveRequest)
 
 ### Kotlin
 
-```
+```kotlin
 val client = Blockstore.getClient(this)
 
 val retrieveRequest = RetrieveBytesRequest.Builder()
@@ -321,15 +297,14 @@ client.retrieveBytes(retrieveRequest)
   }
 ```
 
-**Note:** **retrieveBytes() deprecation.** `retrieveBytes()` is now deprecated. To
-retrieve bytes, the key `BlockstoreClient.DEFAULT_BYTES_DATA_KEY` can be used
-in the `RetrieveBytesRequest` instance in order to get your saved data
+> [!NOTE]
+> **Note:** **retrieveBytes() deprecation.** `retrieveBytes()` is now deprecated. To retrieve bytes, the key `BlockstoreClient.DEFAULT_BYTES_DATA_KEY` can be used in the `RetrieveBytesRequest` instance in order to get your saved data
 
 Below is an example of how to retrieve the default key.
 
 ### Java
 
-```
+```java
 BlockStoreClient client = Blockstore.getClient(this);
 RetrieveBytesRequest retrieveRequest = new RetrieveBytesRequest.Builder()
     .setKeys(Arrays.asList(BlockstoreClient.DEFAULT_BYTES_DATA_KEY))
@@ -339,7 +314,7 @@ client.retrieveBytes(retrieveRequest);
 
 ### Kotlin
 
-```
+```kotlin
 val client = Blockstore.getClient(this)
 
 val retrieveRequest = RetrieveBytesRequest.Builder()
@@ -352,8 +327,8 @@ client.retrieveBytes(retrieveRequest)
 
 Deleting tokens from BlockStore may be required for the following reasons:
 
-* User goes through sign out user flow.
-* Token has been revoked or is invalid.
+- User goes through sign out user flow.
+- Token has been revoked or is invalid.
 
 Similar to retrieving tokens, you can specify which tokens need deleting by
 setting an array of keys which require deletion.
@@ -362,7 +337,7 @@ The following example demonstrates how to delete certain keys:
 
 ### Java
 
-```
+```java
 BlockstoreClient client = Blockstore.getClient(this);
 
 // Delete data associated with certain keys.
@@ -379,7 +354,7 @@ client.deleteBytes(deleteRequest)
 
 ### Kotlin
 
-```
+```kotlin
 val client = Blockstore.getClient(this)
 
 // Retrieve data associated with certain keys.
@@ -403,7 +378,7 @@ BlockStore:
 
 ### Java
 
-```
+```java
 // Delete all data.
 DeleteBytesRequest deleteAllRequest = new DeleteBytesRequest.Builder()
       .setDeleteAll(true)
@@ -414,13 +389,13 @@ client.deleteBytes(deleteAllRequest)
 
 ### Kotlin
 
-```
-  val deleteAllRequest = DeleteBytesRequest.Builder()
-  .setDeleteAll(true)
-  .build()
-retrieve bytes, the key BlockstoreClient.DEFAULT_BYTES_DATA_KEY can be used
-in the RetrieveBytesRequest instance in order to get your saved data
-```
+<br />
+
+      val deleteAllRequest = DeleteBytesRequest.Builder()
+      .setDeleteAll(true)
+      .build()
+    retrieve bytes, the key BlockstoreClient.DEFAULT_BYTES_DATA_KEY can be used
+    in the RetrieveBytesRequest instance in order to get your saved data
 
 The following example shows how to retrieve the default key.
 
@@ -436,15 +411,13 @@ be available on the device by calling [`isEndToEndEncryptionAvailable()`](https:
 The following sample shows how to verify if encryption will be available during
 cloud backup:
 
-```
-client.isEndToEndEncryptionAvailable()
-        .addOnSuccessListener { result ->
-          Log.d(TAG, "Will Block Store cloud backup be end-to-end encrypted? $result")
-        }
-```
+    client.isEndToEndEncryptionAvailable()
+            .addOnSuccessListener { result ->
+              Log.d(TAG, "Will Block Store cloud backup be end-to-end encrypted? $result")
+            }
 
-**Note:** It is recommended to verify that end-to-end encryption is available prior
-to enabling cloud backup.
+> [!NOTE]
+> **Note:** It is recommended to verify that end-to-end encryption is available prior to enabling cloud backup.
 
 ### Enable cloud backup
 
@@ -455,32 +428,29 @@ bytes stored when `setShouldBackupToCloud()` is set as true.
 The following sample shows how to enable cloud backup **only when cloud backup
 is end-to-end encrypted**:
 
-```
-val client = Blockstore.getClient(this)
-val storeBytesDataBuilder = StoreBytesData.Builder()
-        .setBytes(/* BYTE_ARRAY */)
+    val client = Blockstore.getClient(this)
+    val storeBytesDataBuilder = StoreBytesData.Builder()
+            .setBytes(/* BYTE_ARRAY */)
 
-client.isEndToEndEncryptionAvailable()
-        .addOnSuccessListener { isE2EEAvailable ->
-          if (isE2EEAvailable) {
-            storeBytesDataBuilder.setShouldBackupToCloud(true)
-            Log.d(TAG, "E2EE is available, enable backing up bytes to the cloud.")
+    client.isEndToEndEncryptionAvailable()
+            .addOnSuccessListener { isE2EEAvailable ->
+              if (isE2EEAvailable) {
+                storeBytesDataBuilder.setShouldBackupToCloud(true)
+                Log.d(TAG, "E2EE is available, enable backing up bytes to the cloud.")
 
-            client.storeBytes(storeBytesDataBuilder.build())
-                .addOnSuccessListener { result ->
-                  Log.d(TAG, "stored: ${result.getBytesStored()}")
-                }.addOnFailureListener { e ->
-                  Log.e(TAG, “Failed to store bytes”, e)
-                }
-          } else {
-            Log.d(TAG, "E2EE is not available, only store bytes for D2D restore.")
-          }
-        }
-```
+                client.storeBytes(storeBytesDataBuilder.build())
+                    .addOnSuccessListener { result ->
+                      Log.d(TAG, "stored: ${result.getBytesStored()}")
+                    }.addOnFailureListener { e ->
+                      Log.e(TAG, "Failed to store bytes", e)
+                    }
+              } else {
+                Log.d(TAG, "E2EE is not available, only store bytes for D2D restore.")
+              }
+            }
 
-**Note:** If [`storeBytes`](https://developers.google.com/android/reference/com/google/android/gms/auth/blockstore/BlockstoreClient#public-abstract-taskinteger-storebytes-storebytesdata-storebytesdata) is called with `shouldBackupToCloud` **unset**
-or set as **false**, then this device’s bytes previously backed up to cloud will
-be deleted from the cloud upon next periodic sync.
+> [!NOTE]
+> **Note:** If [`storeBytes`](https://developers.google.com/android/reference/com/google/android/gms/auth/blockstore/BlockstoreClient#public-abstract-taskinteger-storebytes-storebytesdata-storebytesdata) is called with `shouldBackupToCloud` **unset** or set as **false**, then this device's bytes previously backed up to cloud will be deleted from the cloud upon next periodic sync.
 
 ## How to test
 
@@ -490,7 +460,7 @@ flows.
 ### Same device uninstall/reinstall
 
 If the user enables Backup services
-(it can be checked at **Settings > Google > Backup**), Block Store data is
+(it can be checked at **Settings \> Google \> Backup**), Block Store data is
 persisted across the app uninstall/reinstall.
 
 You can follow these steps to test:
@@ -499,57 +469,42 @@ You can follow these steps to test:
 2. Use the test app to invoke the Block Store API to store your data.
 3. Uninstall your test app and then reinstall your app on the same device.
 4. Use the test app to invoke the Block Store API to retrieve your data.
-5. Verify that the bytes retrieved are the same as what were stored before
-   uninstallation.
+5. Verify that the bytes retrieved are the same as what were stored before uninstallation.
 
-**Note:** Since it takes more steps to test cross-device restore, it’s recommended
-to first verify the integration of your app with the Block Store API using the
-uninstall/reinstall case.
+> [!NOTE]
+> **Note:** Since it takes more steps to test cross-device restore, it's recommended to first verify the integration of your app with the Block Store API using the uninstall/reinstall case.
 
 ### Device-to-device
 
 In most cases, this will require a factory reset of the target device. You can
-then enter the [Android wireless restore flow](/identity/block-store/testing-restore-flows#android_wireless_restore) or [Google cable restore](/identity/block-store/testing-restore-flows#google_cable_restore)
+then enter the [Android wireless restore flow](https://developer.android.com/identity/block-store/testing-restore-flows#android_wireless_restore) or [Google cable restore](https://developer.android.com/identity/block-store/testing-restore-flows#google_cable_restore)
 (for supported devices).
 
-**Note:** If the target device is a Samsung Galaxy, you can enter the restore flow
-by launching [Smart Switch](https://www.samsung.com/us/support/owners/app/smart-switch) outside of setup.
+> [!NOTE]
+> **Note:** If the target device is a Samsung Galaxy, you can enter the restore flow by launching [Smart Switch](https://www.samsung.com/us/support/owners/app/smart-switch) outside of setup.
 
 ### Cloud restore
 
-1. Integrate the Block Store API to your test app. The test app needs to be
-   submitted to the Play Store.
-2. On the source device, use the test app to invoke the Block Store API to store
-   your data, with `shouldBackUpToCloud` set to `true`.
-3. For O and above devices, you can manually trigger a Block Store cloud backup:
-   go to **Settings > Google > Backup**, click the “Backup Now” button.
+1. Integrate the Block Store API to your test app. The test app needs to be submitted to the Play Store.
+2. On the source device, use the test app to invoke the Block Store API to store your data, with `shouldBackUpToCloud` set to `true`.
+3. For O and above devices, you can manually trigger a Block Store cloud backup: go to **Settings \> Google \> Backup** , click the "Backup Now" button.
    1. To verify that Block Store cloud backup succeeded, you can:
-      1. After the backup finishes, search for log lines with tag
-         “CloudSyncBpTkSvc”.
-      2. You should see lines like this: “......, CloudSyncBpTkSvc: sync
-         result: SUCCESS, ..., uploaded size: XXX bytes ...”
-   2. After a Block Store cloud backup, there’s a 5-minute “cool down” period.
-      Within that 5 minutes, clicking the “Backup Now” button won’t trigger
-      another Block Store cloud backup.
-4. Factory reset the target device and go through a cloud restore flow. Select
-   to restore your test app during the restore flow. For more information about
-   cloud restore flows, see [Supported cloud restore flows](/identity/block-store/testing-restore-flows#supported_cloud_restore_flow).
-5. On the target device, use the test app to invoke the Block store API to
-   retrieve your data.
-6. Verify that the bytes retrieved are the same as what were stored in the
-   source device.
+      1. After the backup finishes, search for log lines with tag "CloudSyncBpTkSvc".
+      2. You should see lines like this: "......, CloudSyncBpTkSvc: sync result: SUCCESS, ..., uploaded size: XXX bytes ..."
+   2. After a Block Store cloud backup, there's a 5-minute "cool down" period. Within that 5 minutes, clicking the "Backup Now" button won't trigger another Block Store cloud backup.
+4. Factory reset the target device and go through a cloud restore flow. Select to restore your test app during the restore flow. For more information about cloud restore flows, see [Supported cloud restore flows](https://developer.android.com/identity/block-store/testing-restore-flows#supported_cloud_restore_flow).
+5. On the target device, use the test app to invoke the Block store API to retrieve your data.
+6. Verify that the bytes retrieved are the same as what were stored in the source device.
 
 ## Device Requirements
 
 ### End to End Encryption
 
-* End to End encryption is supported on devices running Android 9 (API 29) and
-  above.
-* The device must have a screen lock set with a PIN, pattern, or password for
-  end to end encryption to be enabled and correctly encrypt the user’s data.
+- End to End encryption is supported on devices running Android 9 (API 29) and above.
+- The device must have a screen lock set with a PIN, pattern, or password for end to end encryption to be enabled and correctly encrypt the user's data.
 
-**Note:** [isEndtoEndEncryptionAvailable()](https://developers.google.com/android/reference/com/google/android/gms/auth/blockstore/StoreBytesData#public-abstract-taskboolean-isendtoendencryptionavailable) will return false if any of these
-conditions is not met.
+> [!NOTE]
+> **Note:** [isEndtoEndEncryptionAvailable()](https://developers.google.com/android/reference/com/google/android/gms/auth/blockstore/StoreBytesData#public-abstract-taskboolean-isendtoendencryptionavailable) will return false if any of these conditions is not met.
 
 ### Device to Device Restore Flow
 
@@ -561,7 +516,7 @@ device. These will be the two devices which are transferring data.
 **Target** devices running Android 9 (API 29) and above to have the ability
 to restore.
 
-More information on the device to device restore flow can be found [here](/identity/block-store/testing-restore-flows#supported_cloud_restore_flow).
+More information on the device to device restore flow can be found [here](https://developer.android.com/identity/block-store/testing-restore-flows#supported_cloud_restore_flow).
 
 ### Cloud Backup and Restore Flow
 

@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 This topic showcases how to set up CameraX use cases inside your app to get
 images with the correct rotation information, whether it’s from the
 `ImageAnalysis` or the `ImageCapture` use case. So:

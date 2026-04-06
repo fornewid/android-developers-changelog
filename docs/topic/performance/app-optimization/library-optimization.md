@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 As a library author, you must ensure that app developers can easily incorporate
 your library into their app while maintaining a high-quality end-user
 experience. This means your library must be compatible with Android optimization

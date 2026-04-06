@@ -1,13 +1,19 @@
 ---
-title: https://developer.android.com/develop/connectivity/cronet/reference
+title: Package Index  |  Connectivity  |  Android Developers
 url: https://developer.android.com/develop/connectivity/cronet/reference
-source: md.txt
+source: html-scrape
 ---
 
-# Package Index
+* [Android Developers](https://developer.android.com/)
+* [Develop](https://developer.android.com/develop)
+* [Core areas](https://developer.android.com/develop/core-areas)
+* [Connectivity](https://developer.android.com/develop/connectivity)
 
-<br />
+# Package Index Stay organized with collections Save and categorize content based on your preferences.
 
-|----------------------------------------------------------------------------------------------------------------------------------------------|---|
-| [org.chromium.net](https://developer.android.com/develop/connectivity/reference/org/chromium/net/package-summary.html)                       |   |
-| [org.chromium.net.apihelpers](https://developer.android.com/develop/connectivity/reference/org/chromium/net/apihelpers/package-summary.html) |   |
+
+
+|  |  |
+| --- | --- |
+| [org.chromium.net](https://developer.android.com/develop/connectivity/cronet/reference/org/chromium/net/package-summary.html) |  |
+| [org.chromium.net.apihelpers](https://developer.android.com/develop/connectivity/cronet/reference/org/chromium/net/apihelpers/package-summary.html) |  |

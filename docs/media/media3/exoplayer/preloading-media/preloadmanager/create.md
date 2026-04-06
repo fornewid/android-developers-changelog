@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 This page describes how to create a [`DefaultPreloadManager`](/reference/androidx/media3/exoplayer/source/preload/DefaultPreloadManager), which preloads
 media content for your app based on the strategy you choose.
 

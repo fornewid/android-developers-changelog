@@ -1,92 +1,103 @@
 ---
-title: https://developer.android.com/courses/quizzes/android-basics-compose-unit-1-pathway-1/android-basics-compose-unit-1-pathway-1
+title: Intro to Programming  |  Android Developers
 url: https://developer.android.com/courses/quizzes/android-basics-compose-unit-1-pathway-1/android-basics-compose-unit-1-pathway-1
-source: md.txt
+source: html-scrape
 ---
 
-# Intro to Programming
+Stay organized with collections
+
+Save and categorize content based on your preferences.
+
+
 
 # Intro to Programming
 
-<br />
+Return to pathway
 
-Return to pathway  
-1.
 
-   ## Which of the following variable declarations is valid?
 
-   `var hello: Int? = ""`  
-   `String "hello" = hello`  
-   `val hello = "hello"`  
-   `hello: String = "hello"`  
-2.
+1. ## Which of the following variable declarations is valid?
 
-   ## It is considered best practice to declare a variable that will not change using`var`instead of`val`.
+   `var hello: Int? = ""`
 
-   True  
-   False  
-3.
+   `String "hello" = hello`
 
-   ## Which of the following are valid ways to update a variable?
+   `val hello = "hello"`
 
-   Choose as many answers as you see fit.  
-   `total++`  
-   `total - 1`  
-   `total--`  
-   `total = total + 1`  
-4.
+   `hello: String = "hello"`
+2. ## It is considered best practice to declare a variable that will not change using `var` instead of `val`.
 
-   ## In Kotlin, comments can be single or multi-line and are ignored by the compiler.
+   True
 
-   True  
-   False  
-5.
+   False
+3. ## Which of the following are valid ways to update a variable?
 
-   ## Which of the following is not a data type in Kotlin?
+   Choose as many answers as you see fit.
 
-   `String`  
-   `Decimal`  
-   `Int`  
-   `Boolean`  
-6.
+   `total++`
 
-   ## `Float`also represents a decimal, but is less precise than`Double`.
+   `total - 1`
 
-   True  
-   False  
-7.
+   `total--`
 
-   ## In Kotlin, the entrypoint of a program is the ___.
+   `total = total + 1`
+4. ## In Kotlin, comments can be single or multi-line and are ignored by the compiler.
 
-   `println()`statement  
-   `val`variable  
-   `main()`function  
-   `return`statement  
-8.
+   True
 
-   ## Which of the following are true about function return values?
+   False
+5. ## Which of the following is not a data type in Kotlin?
 
-   Choose as many answers as you see fit.  
-   If a function does not specify a return type, the return type is`Unit`.  
-   A return value can be stored in a variable.  
-   Functions with a return type of`Unit`must include a`return`statement.  
-   A return value's type must match the return type of a function.  
-9.
+   `String`
 
-   ## Which of the following are true about functions?
+   `Decimal`
 
-   Choose as many answers as you see fit.  
-   Functions can take parameters, or variables as inputs.  
-   Function parameters are required to have default arguments.  
-   When calling a function with parameters, the values passed in are called arguments.  
-   Breaking up your code into separate functions makes your code easier to maintain.  
-10.
+   `Int`
 
-    ## With named arguments, you can change the order in which you pass arguments into a function.
+   `Boolean`
+6. ## `Float` also represents a decimal, but is less precise than `Double`.
 
-    True  
-    False  
+   True
+
+   False
+7. ## In Kotlin, the entrypoint of a program is the \_\_\_.
+
+   `println()` statement
+
+   `val` variable
+
+   `main()` function
+
+   `return` statement
+8. ## Which of the following are true about function return values?
+
+   Choose as many answers as you see fit.
+
+   If a function does not specify a return type, the return type is `Unit`.
+
+   A return value can be stored in a variable.
+
+   Functions with a return type of `Unit` must include a `return` statement.
+
+   A return value's type must match the return type of a function.
+9. ## Which of the following are true about functions?
+
+   Choose as many answers as you see fit.
+
+   Functions can take parameters, or variables as inputs.
+
+   Function parameters are required to have default arguments.
+
+   When calling a function with parameters, the values passed in are called arguments.
+
+   Breaking up your code into separate functions makes your code easier to maintain.
+10. ## With named arguments, you can change the order in which you pass arguments into a function.
+
+    True
+
+    False
 
 Submit answers
 
-*error_outline*An error occurred when grading the quiz. Please try again.
+*error\_outline*
+An error occurred when grading the quiz. Please try again.

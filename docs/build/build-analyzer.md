@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Use the Build Analyzer to inspect the build performance of your project. For
 each build you perform, the Build Analyzer tries to present the most important
 information so that you can quickly identify and resolve regressions in your

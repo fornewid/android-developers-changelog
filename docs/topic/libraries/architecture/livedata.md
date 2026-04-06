@@ -14,6 +14,7 @@ Save and categorize content based on your preferences.
 
 
 
+
 # LiveData overview   Part of [Android Jetpack](/jetpack).
 
 [`LiveData`](/reference/androidx/lifecycle/LiveData) is an observable

@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 This document describes how to run tests directly from the command line. This
 document assumes that you already know how to create an Android app and
 write tests for your app. For more information on how to build tests for your
@@ -262,3 +263,19 @@ adb shell am instrument -w \
 You can find more use cases in the
 [`AndroidJUnitRunner`](https://developer.android.com/reference/androidx/test/runner/AndroidJUnitRunner#execution-options:)
 API reference.
+
+## View unified test reports
+
+The Android Gradle Plugin provides unified test report tasks, which generate
+HTML dashboards that merge results from unit and instrumented tests.
+
+### Prerequisites
+
+* Android Gradle Plugin 9.2.0-alpha07 or higher.
+
+To generate unified test reports, run one of the following tasks:
+
+| Report scope | Command | Description | Report location |
+| --- | --- | --- | --- |
+| Current module | `./gradlew :module_name:createTestReport` | Generates a unified test report for the current module, merging unit and instrumented test results. | `path_to_your_project/module_name/build/reports/tests/test-report/` |
+| Current module and dependencies | `./gradlew :module_name:createAggregatedTestReport` | Generates a unified test report for the current app module and its library dependencies. | `path_to_your_project/module_name/build/reports/tests/aggregated-test-report/` |

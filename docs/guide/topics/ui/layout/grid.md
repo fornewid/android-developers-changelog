@@ -1,25 +1,45 @@
 ---
-title: https://developer.android.com/guide/topics/ui/layout/grid
+title: Table  |  Android Developers
 url: https://developer.android.com/guide/topics/ui/layout/grid
-source: md.txt
+source: html-scrape
 ---
 
-# Table
+* [Android Developers](https://developer.android.com/)
 
-[TableLayout](https://developer.android.com/reference/android/widget/TableLayout)is a[ViewGroup](https://developer.android.com/reference/android/view/ViewGroup)that displays child[View](https://developer.android.com/reference/android/view/View)elements in rows and columns.
+# Table Stay organized with collections Save and categorize content based on your preferences.
 
-**Note:** For better performance and tooling support, you should instead[build your layout with ConstraintLayout](https://developer.android.com/training/constraint-layout).
-![](https://developer.android.com/static/images/ui/gridlayout.png)
 
-[TableLayout](https://developer.android.com/reference/android/widget/TableLayout)positions its children into rows and columns. TableLayout containers do not display border lines for their rows, columns, or cells. The table will have as many columns as the row with the most cells. A table can leave cells empty. Cells can span multiple columns, as they can in HTML. You can span columns by using the`span`field in the[TableRow.LayoutParams](https://developer.android.com/reference/android/widget/TableRow.LayoutParams)class.
 
-**Note:**Cells cannot span multiple rows.
 
-[TableRow](https://developer.android.com/reference/android/widget/TableRow)objects are the child views of a TableLayout (each TableRow defines a single row in the table). Each row has zero or more cells, each of which is defined by any kind of other View. So, the cells of a row may be composed of a variety of View objects, like ImageView or TextView objects. A cell may also be a ViewGroup object (for example, you can nest another TableLayout as a cell).
+`TableLayout` is a `ViewGroup` that
+displays child `View` elements in rows and columns.
 
-The following sample layout has two rows and two cells in each. The accompanying screenshot shows the result, with cell borders displayed as dotted lines (added for visual effect).  
+**Note:**
+For better performance and tooling support, you should instead [build your layout with ConstraintLayout](/training/constraint-layout).
 
-```xml
+![](/static/images/ui/gridlayout.png)
+
+`TableLayout` positions its children into rows and
+columns. TableLayout containers do not display border lines for their rows,
+columns, or cells. The table will have as many columns as the row with the
+most cells. A table can leave cells empty. Cells can span multiple columns,
+as they can in HTML. You can span columns by using the `span`
+field in the `TableRow.LayoutParams` class.
+
+**Note:** Cells cannot span multiple rows.
+
+`TableRow` objects are the child views of a TableLayout
+(each TableRow defines a single row in the table). Each row has zero or more
+cells, each of which is defined by any kind of other View. So, the cells of
+a row may be composed of a variety of View objects, like ImageView or
+TextView objects. A cell may also be a ViewGroup object (for example, you
+can nest another TableLayout as a cell).
+
+The following sample layout has two rows and two cells in each. The
+accompanying screenshot shows the result, with cell borders displayed as
+dotted lines (added for visual effect).
+
+```
 <?xml version="1.0" encoding="utf-8"?>
 <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
@@ -46,16 +66,20 @@ The following sample layout has two rows and two cells in each. The accompanying
     </TableRow>
 </TableLayout>
 ```
-![](https://developer.android.com/static/images/table_layout.png)
 
-Columns can be hidden, marked to stretch and fill the available screen space, or can be marked as shrinkable to force the column to shrink until the table fits the screen. See the[TableLayout reference](https://developer.android.com/reference/android/widget/TableLayout)documentation for more details.
+![](/static/images/table_layout.png)
+
+Columns can be hidden, marked to stretch and fill the available screen space,
+or can be marked as shrinkable to force the column to shrink until the table
+fits the screen. See the `TableLayout reference`
+documentation for more details.
 
 ## Example
 
-1. Start a new project named*HelloTableLayout*.
-2. Open the`res/layout/main.xml`file and insert the following:  
+1. Start a new project named *HelloTableLayout*.
+2. Open the `res/layout/main.xml` file and insert the following:
 
-   ```xml
+   ```
    <?xml version="1.0" encoding="utf-8"?>
    <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
        android:layout_width="match_parent"
@@ -134,12 +158,18 @@ Columns can be hidden, marked to stretch and fill the available screen space, or
    </TableLayout>
    ```
 
-   Notice how this resembles the structure of an HTML table. The[TableLayout](https://developer.android.com/reference/android/widget/TableLayout)element is like the HTML`<table>`element;[TableRow](https://developer.android.com/reference/android/widget/TableRow)is like a`><tr>>`element; but for the cells, you can use any kind of[View](https://developer.android.com/reference/android/view/View)element. In this example, a[TextView](https://developer.android.com/reference/android/widget/TextView)is used for each cell. In between some of the rows, there is also a basic[View](https://developer.android.com/reference/android/view/View), which is used to draw a horizontal line.
-3. Make sure your*HelloTableLayout* Activity loads this layout in the[onCreate()](https://developer.android.com/reference/android/app/Activity#onCreate(android.os.Bundle))method:  
+   Notice how this resembles the structure of an HTML table. The `TableLayout`
+   element is like the HTML `<table>` element; `TableRow` is like
+   a `><tr>>` element;
+   but for the cells, you can use any kind of `View` element. In this example, a
+   `TextView` is used for each cell. In between some of the rows, there is also a
+   basic `View`, which is used to draw a horizontal line.
+3. Make sure your *HelloTableLayout* Activity loads this layout in the
+   `onCreate()` method:
 
    ### Kotlin
 
-   ```kotlin
+   ```
    override fun onCreate(savedInstanceState: Bundle?) {
        super.onCreate(savedInstanceState)
        setContentView(R.layout.main)
@@ -148,15 +178,19 @@ Columns can be hidden, marked to stretch and fill the available screen space, or
 
    ### Java
 
-   ```java
+   ```
    public void onCreate(Bundle savedInstanceState) {
        super.onCreate(savedInstanceState);
        setContentView(R.layout.main);
    }
    ```
 
-   The[setContentView(int)](https://developer.android.com/reference/android/app/Activity#setContentView(int))method loads the layout file for the[Activity](https://developer.android.com/reference/android/app/Activity), specified by the resource ID ---`R.layout.main`refers to the`res/layout/main.xml`layout file.
+   The `setContentView(int)` method loads the
+   layout file for the `Activity`, specified by the resource
+   ID — `R.layout.main` refers to the `res/layout/main.xml` layout
+   file.
 4. Run the application.
 
 You should see the following:
-![](https://developer.android.com/static/guide/topics/ui/images/hello-tablelayout.png)
+
+![](/static/guide/topics/ui/images/hello-tablelayout.png)

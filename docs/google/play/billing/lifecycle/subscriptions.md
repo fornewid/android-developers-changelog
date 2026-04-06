@@ -14,7 +14,6 @@ Send feedback
 
 
 
-
 Subscription purchases can go through several different states throughout their
 lifecycle, depending on many factors including auto-renewal behavior, payment
 decline situations, and developer management actions.
@@ -1044,8 +1043,6 @@ with the following exceptions:
   applies only to users who actively cancel a subscription.
 * **lineItems[0].productId**: This field replaces `subscriptionId` from
   previous versions.
-
-
 
 
 

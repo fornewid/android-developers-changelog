@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 **Warning:** When your app performs the license verification process on
 the client side, it's easier for potential attackers to modify or remove
 the logic associated with this verification process.

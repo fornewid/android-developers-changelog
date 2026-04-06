@@ -11,7 +11,6 @@ source: html-scrape
 
 
 
-
 Devices that run Android 10 (API level 29) or higher allow your app to identify
 calls from numbers that aren't in the user's address book as potential spam
 calls. Users can choose to have spam calls silently rejected. To provide greater

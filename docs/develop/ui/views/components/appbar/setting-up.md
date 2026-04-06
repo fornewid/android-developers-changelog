@@ -1,44 +1,24 @@
 ---
-title: Set up the app bar  |  Views  |  Android Developers
+title: https://developer.android.com/develop/ui/views/components/appbar/setting-up
 url: https://developer.android.com/develop/ui/views/components/appbar/setting-up
-source: html-scrape
+source: md.txt
 ---
 
-* [Android Developers](https://developer.android.com/)
-* [Develop](https://developer.android.com/develop)
-* [Core areas](https://developer.android.com/develop/core-areas)
-* [UI](https://developer.android.com/develop/ui)
-* [Views](https://developer.android.com/develop/ui/views/layout/declaring-layout)
-
-# Set up the app bar Stay organized with collections Save and categorize content based on your preferences.
-
-
-
-Try the Compose way
-
-Jetpack Compose is the recommended UI toolkit for Android. Learn how to add components in Compose.
-
-[App Bar →](https://developer.android.com/develop/ui/compose/components/app-bars)
-
-![](/static/images/android-compose-ui-logo.png)
+Try the Compose way Jetpack Compose is the recommended UI toolkit for Android. Learn how to add components in Compose. [App Bar →](https://developer.android.com/develop/ui/compose/components/app-bars) ![](https://developer.android.com/static/images/android-compose-ui-logo.png)
 
 In its most basic form, the action bar displays the title for the activity on one
 side and an overflow menu on the other. Even in this basic form, the app bar provides
 useful information to users and gives Android apps a consistent look and feel.
-
-![An image showing the app bar in the Now in Android app](/static/images/ui/notifications/actions_actionbar.png)
-
-
-**Figure 1.** An app bar with an action icon in the "Now in Android" app.
+![An image showing the app bar in the Now in Android app](https://developer.android.com/static/images/ui/notifications/actions_actionbar.png) **Figure 1.** An app bar with an action icon in the "Now in Android" app.
 
 All activities that use the default theme have an
-`ActionBar` as an app
+`https://developer.android.com/reference/android/app/ActionBar` as an app
 bar. App bar features are added to the native `ActionBar` over various
 Android releases. As a result, the native `ActionBar` behaves differently
 depending on what version of Android a device is using.
 
 On the other hand, features are added to the AndroidX AppCompat library's version of
-`Toolbar`,
+`https://developer.android.com/reference/androidx/appcompat/widget/Toolbar`,
 which means those features are available on devices that use the AndroidX libraries.
 
 Use the AndroidX library's `Toolbar` class to implement your activities'
@@ -49,14 +29,12 @@ behavior consistent across the widest range of devices.
 
 These steps describe how to set up a `Toolbar` as your activity's app bar:
 
-1. Add the AndroidX library to your project, as described in
-   [AndroidX overview](/jetpack/androidx).
-2. Make sure the activity extends
-   `AppCompatActivity`:
+1. Add the AndroidX library to your project, as described in [AndroidX overview](https://developer.android.com/jetpack/androidx).
+2. Make sure the activity extends `https://developer.android.com/reference/androidx/appcompat/app/AppCompatActivity`:
 
    ### Kotlin
 
-   ```
+   ```kotlin
    class MyActivity : AppCompatActivity() {
      // ...
    }
@@ -64,31 +42,22 @@ These steps describe how to set up a `Toolbar` as your activity's app bar:
 
    ### Java
 
-   ```
+   ```java
    public class MyActivity extends AppCompatActivity {
      // ...
    }
    ```
+   | **Note:** Make this change for every activity in your app that uses a `Toolbar` as an app bar.
+3. In the app manifest, set the [`<application>`](https://developer.android.com/guide/topics/manifest/application-element) element to use one of AppCompat's `https://developer.android.com/reference/android/R.style#Theme_DeviceDefault_Light_NoActionBar` themes, as shown in the following example. Using one of these themes prevents the app from using the native `ActionBar` class to provide the app bar.
 
-   **Note:** Make this change for every activity in your app that uses a
-   `Toolbar` as an app bar.
-3. In the app manifest, set the
-   [`<application>`](/guide/topics/manifest/application-element)
-   element to use one of AppCompat's
-   `NoActionBar`
-   themes, as shown in the following example. Using one of these themes prevents the
-   app from using the native `ActionBar` class to provide the app bar.
-
-   ```
+   ```xml
    <application
        android:theme="@style/Theme.AppCompat.Light.NoActionBar"
        />
    ```
-4. Add a `Toolbar` to the activity's layout. For example, the following
-   layout code adds a `Toolbar` and gives it the appearance of floating
-   above the activity:
+4. Add a `Toolbar` to the activity's layout. For example, the following layout code adds a `Toolbar` and gives it the appearance of floating above the activity:
 
-   ```
+   ```xml
    <androidx.appcompat.widget.Toolbar
       android:id="@+id/my_toolbar"
       android:layout_width="match_parent"
@@ -104,18 +73,13 @@ These steps describe how to set up a `Toolbar` as your activity's app bar:
    for recommendations regarding app bar elevation.
 
    Position the toolbar at the top of the activity's
-   [layout](/guide/topics/ui/declaring-layout), since you are using
+   [layout](https://developer.android.com/guide/topics/ui/declaring-layout), since you are using
    it as an app bar.
-5. In the activity's
-   `onCreate()`
-   method, call the activity's
-   `setSupportActionBar()`
-   method and pass the activity's toolbar, as shown in the following example. This
-   method sets the toolbar as the app bar for the activity.
+5. In the activity's `https://developer.android.com/reference/android/app/Activity#onCreate(android.os.Bundle)` method, call the activity's `https://developer.android.com/reference/androidx/appcompat/app/AppCompatActivity#setSupportActionBar(androidx.appcompat.widget.Toolbar)` method and pass the activity's toolbar, as shown in the following example. This method sets the toolbar as the app bar for the activity.
 
    ### Kotlin
 
-   ```
+   ```kotlin
    override fun onCreate(savedInstanceState: Bundle?) {
        super.onCreate(savedInstanceState)
        setContentView(R.layout.activity_my)
@@ -126,7 +90,7 @@ These steps describe how to set up a `Toolbar` as your activity's app bar:
 
    ### Java
 
-   ```
+   ```java
    @Override
    protected void onCreate(Bundle savedInstanceState) {
        super.onCreate(savedInstanceState);
@@ -139,18 +103,18 @@ These steps describe how to set up a `Toolbar` as your activity's app bar:
 Your app now has a basic action bar. By default, the action bar contains the name
 of the app and an overflow menu, which initially contains the **Settings** item.
 You can add more actions to the action bar and the overflow menu, as described in
-[Add and handle actions](/develop/ui/views/components/appbar/actions).
+[Add and handle actions](https://developer.android.com/develop/ui/views/components/appbar/actions).
 
 ## Use app bar utility methods
 
 Once you set the toolbar as an activity's app bar, you have access to the utility
 methods provided by the AndroidX library's
-`ActionBar`
+`https://developer.android.com/reference/androidx/appcompat/app/ActionBar`
 class. This approach lets you do useful things, like hide and show the app bar.
 
 To use the `ActionBar` utility methods, call the activity's
-`getSupportActionBar()`
+`https://developer.android.com/reference/androidx/appcompat/app/AppCompatActivity#getSupportActionBar()`
 method. This method returns a reference to an AppCompat `ActionBar` object.
 Once you have that reference, you can call any of the `ActionBar` methods
 to adjust the app bar. For example, to hide the app bar, call
-`ActionBar.hide()`.
+`https://developer.android.com/reference/androidx/appcompat/app/ActionBar#hide()`.

@@ -18,6 +18,7 @@ Save and categorize content based on your preferences.
 
 
 
+
 ## Play Billing Library: Smart Version-Specific Checklist
 
 Use this checklist to verify that every technical requirement between your
@@ -83,6 +84,8 @@ Use this checklist to verify that every technical requirement between your
   [Release Notes](https://developer.android.com/google/play/billing/release-notes).
 * [ ] **Identify Version Delta**: Review "Breaking Changes" and "Removed APIs"
   for the new version and create a list of terms to `grep`.
+
+
 
 
 

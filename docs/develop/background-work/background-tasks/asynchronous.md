@@ -1,8 +1,18 @@
 ---
-title: https://developer.android.com/develop/background-work/background-tasks/asynchronous
+title: Asynchronous background processing  |  Background work  |  Android Developers
 url: https://developer.android.com/develop/background-work/background-tasks/asynchronous
-source: md.txt
+source: html-scrape
 ---
+
+* [Android Developers](https://developer.android.com/)
+* [Develop](https://developer.android.com/develop)
+* [Core areas](https://developer.android.com/develop/core-areas)
+* [Background work](https://developer.android.com/develop/background-work)
+* [Guides](https://developer.android.com/develop/background-work/background-tasks)
+
+# Asynchronous background processing Stay organized with collections Save and categorize content based on your preferences.
+
+
 
 Asynchronous work is the second component of background work, alongside
 persistent work. While both persistent and asynchronous work take place in the
@@ -10,9 +20,9 @@ background, they are ultimately quite different.
 
 Asynchronous work is that which:
 
-- Takes place in the moment.
-- Does not need to persist across app restarts or device reboots.
-- Occurs off the main thread, or blocks the main thread.
+* Takes place in the moment.
+* Does not need to persist across app restarts or device reboots.
+* Occurs off the main thread, or blocks the main thread.
 
 This is in contrast to persistent work, which you may schedule for future
 execution and which remains scheduled through app restarts and device reboots.
@@ -25,11 +35,11 @@ The way you handle asynchronous work depends on the overall app architecture
 you follow. If you are working with a Java Programming Language app, your needs
 are different than if you are working with Kotlin.
 
-|   | Kotlin | Java |
+|  | Kotlin | Java |
+| --- | --- | --- |
 | Solution | Coroutines. | Java threads. |
-| Further reading | For a full overview of Coroutines, see the [Coroutines guide](https://developer.android.com/kotlin/coroutines). | See the [Java Threads](https://developer.android.com/guide/background/asynchronous/java-threads) page for more information. |
-|---|---|---|
+| Further reading | For a full overview of Coroutines, see the [Coroutines guide](/kotlin/coroutines). | See the [Java Threads](/guide/background/asynchronous/java-threads) page for more information. |
 
 ## Further reading
 
-For more information on persistent work, see the [persistent work overview](https://developer.android.com/guide/background/persistent).
+For more information on persistent work, see the [persistent work overview](/guide/background/persistent).

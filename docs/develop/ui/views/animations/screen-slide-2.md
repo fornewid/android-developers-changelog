@@ -1,51 +1,27 @@
 ---
-title: Slide between fragments using ViewPager2  |  Views  |  Android Developers
+title: https://developer.android.com/develop/ui/views/animations/screen-slide-2
 url: https://developer.android.com/develop/ui/views/animations/screen-slide-2
-source: html-scrape
+source: md.txt
 ---
 
-* [Android Developers](https://developer.android.com/)
-* [Develop](https://developer.android.com/develop)
-* [Core areas](https://developer.android.com/develop/core-areas)
-* [UI](https://developer.android.com/develop/ui)
-* [Views](https://developer.android.com/develop/ui/views/layout/declaring-layout)
-
-# Slide between fragments using ViewPager2 Stay organized with collections Save and categorize content based on your preferences.
-
-
-
-Try the Compose way
-
-Jetpack Compose is the recommended UI toolkit for Android. Learn how to use Pager in Compose.
-
-[Pager →](https://developer.android.com/develop/ui/compose/layouts/pager)
-
-![](/static/images/android-compose-ui-logo.png)
+Try the Compose way Jetpack Compose is the recommended UI toolkit for Android. Learn how to use Pager in Compose. [Pager →](https://developer.android.com/develop/ui/compose/layouts/pager) ![](https://developer.android.com/static/images/android-compose-ui-logo.png)
 
 Screen slides are transitions from one entire screen to another and are common with UIs like
 setup wizards and slideshows. This topic shows you how to do screen slides with a
-`ViewPager2`
+`https://developer.android.com/reference/kotlin/androidx/viewpager2/widget/ViewPager2`
 object. `ViewPager2` objects can animate screen slides automatically. Here's an example
 of a screen slide that transitions from one screen of content to the next:
-
-[
-
-
-
-](/static/develop/ui/views/animations/anim_screenslide.mp4)
-
 **Figure 1.** Screen slide animation.
 
 If you want to jump ahead and see a full working example,
 [view
 this sample app](https://github.com/android/views-widgets-samples/tree/main/ViewPager2) on GitHub.
 
-**Note:** If your app already uses
-`ViewPager`,
-see [Migrate from ViewPager to ViewPager2](/training/animation/vp2-migration).
+> [!NOTE]
+> **Note:** If your app already uses `https://developer.android.com/reference/kotlin/androidx/viewpager/widget/ViewPager`, see [Migrate from ViewPager to ViewPager2](https://developer.android.com/training/animation/vp2-migration).
 
 To use `ViewPager2`, you need to add some
-[AndroidX dependencies](/jetpack/androidx/releases/viewpager2#androidx-deps) to your
+[AndroidX dependencies](https://developer.android.com/jetpack/androidx/releases/viewpager2#androidx-deps) to your
 project. Then follow the steps outlined in the following sections.
 
 ## Create the views
@@ -54,7 +30,7 @@ Create a layout file to use later for the content of a fragment. You also need t
 for the contents of the fragment. The following example contains a text view that displays some
 text:
 
-```
+```xml
 <!-- fragment_screen_slide_page.xml -->
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/content"
@@ -73,15 +49,15 @@ text:
 ## Create the fragment
 
 Create a
-`Fragment` class that
+`https://developer.android.com/reference/kotlin/androidx/fragment/app/Fragment` class that
 returns the layout that you created in the
-`onCreateView()`
+`https://developer.android.com/reference/kotlin/androidx/fragment/app/Fragment#onCreateView(android.view.LayoutInflater, android.view.ViewGroup, android.os.Bundle)`
 method. You can then create instances of this fragment in the parent activity whenever you need a
 new page to display to the user:
 
 ### Kotlin
 
-```
+```kotlin
 import androidx.fragment.app.Fragment
 
 class ScreenSlidePageFragment : Fragment() {
@@ -96,7 +72,7 @@ class ScreenSlidePageFragment : Fragment() {
 
 ### Java
 
-```
+```java
 import androidx.fragment.app.Fragment;
 ...
 public class ScreenSlidePageFragment extends Fragment {
@@ -115,13 +91,13 @@ public class ScreenSlidePageFragment extends Fragment {
 `ViewPager2` objects have built-in swipe gestures to transition through pages, and
 they display screen slide animations by default, so you don't need to create your own animation.
 `ViewPager2` uses
-`FragmentStateAdapter`
+`https://developer.android.com/reference/kotlin/androidx/viewpager2/adapter/FragmentStateAdapter`
 objects as a supply for new pages to display, so the `FragmentStateAdapter` uses the
 fragment class that you created.
 
 To begin, create a layout that contains a `ViewPager2` object:
 
-```
+```xml
 <!-- activity_screen_slide.xml -->
 <androidx.viewpager2.widget.ViewPager2
     xmlns:android="http://schemas.android.com/apk/res/android"
@@ -132,20 +108,13 @@ To begin, create a layout that contains a `ViewPager2` object:
 
 Create an activity that does the following:
 
-* Sets the content view to be the layout with the `ViewPager2`.
-* Creates a class that extends the `FragmentStateAdapter` abstract class and
-  implements the
-  `createFragment()`
-  method to supply instances of `ScreenSlidePageFragment` as new pages. You must
-  implement the
-  `getItemCount()`
-  method for the pager adapter, which returns the number of pages the adapter creates. There are
-  five in the example.
-* Hooks up the `FragmentStateAdapter` to the `ViewPager2` objects.
+- Sets the content view to be the layout with the `ViewPager2`.
+- Creates a class that extends the `FragmentStateAdapter` abstract class and implements the `https://developer.android.com/reference/kotlin/androidx/viewpager2/adapter/FragmentStateAdapter#createFragment(int)` method to supply instances of `ScreenSlidePageFragment` as new pages. You must implement the `https://developer.android.com/reference/kotlin/androidx/recyclerview/widget/RecyclerView.Adapter#getItemCount()` method for the pager adapter, which returns the number of pages the adapter creates. There are five in the example.
+- Hooks up the `FragmentStateAdapter` to the `ViewPager2` objects.
 
 ### Kotlin
 
-```
+```kotlin
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 ...
@@ -199,7 +168,7 @@ class ScreenSlidePagerActivity : FragmentActivity() {
 
 ### Java
 
-```
+```java
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 ...
@@ -268,12 +237,12 @@ public class ScreenSlidePagerActivity extends FragmentActivity {
 ## Customize the animation using PageTransformer
 
 To display a different animation from the default screen slide animation, implement the
-`ViewPager2.PageTransformer`
+`https://developer.android.com/reference/kotlin/androidx/viewpager2/widget/ViewPager2.PageTransformer`
 interface and supply it to the `ViewPager2` object. The interface exposes a single
 method,
-`transformPage()`.
-At each point in the screen's transition, this method is called once for each visible page—there's
-usually only one visible page—and for adjacent pages off the screen. For example, if page three is
+`https://developer.android.com/reference/kotlin/androidx/viewpager2/widget/ViewPager2.PageTransformer#transformPage(android.view.View, float)`.
+At each point in the screen's transition, this method is called once for each visible page---there's
+usually only one visible page---and for adjacent pages off the screen. For example, if page three is
 visible and the user drags towards page four, `transformPage()` is called for pages two,
 three, and four at each step of the gesture.
 
@@ -289,22 +258,22 @@ is drawn off the right side of the screen, its position value is `1`. If the use
 halfway between pages one and two, page one has a position of `-0.5`, and page two has a
 position of `0.5`. Based on the position of the pages on the screen, you can create
 custom slide animations by setting page properties with methods such as
-`setAlpha()`,
-`setTranslationX()`,
+`https://developer.android.com/reference/kotlin/android/view/View#setalpha`,
+`https://developer.android.com/reference/kotlin/android/view/View#settranslationx`,
 or
-`setScaleY()`.
+`https://developer.android.com/reference/kotlin/android/view/View#setscaley`.
 
 When you have an implementation of a
-`PageTransformer`,
+`https://developer.android.com/reference/kotlin/androidx/viewpager2/widget/ViewPager2.PageTransformer`,
 call
-`setPageTransformer()`
+`https://developer.android.com/reference/kotlin/androidx/viewpager2/widget/ViewPager2#setPageTransformer(androidx.viewpager2.widget.ViewPager2.PageTransformer)`
 with your implementation to apply your custom animations. For example, if you have a
 `PageTransformer` named `ZoomOutPageTransformer`, you can set your custom
 animations like this:
 
 ### Kotlin
 
-```
+```kotlin
 val viewPager: ViewPager2 = findViewById(R.id.pager)
 ...
 viewPager.setPageTransformer(ZoomOutPageTransformer())
@@ -312,32 +281,25 @@ viewPager.setPageTransformer(ZoomOutPageTransformer())
 
 ### Java
 
-```
+```java
 ViewPager2 viewPager = findViewById(R.id.pager);
 ...
 viewPager.setPageTransformer(new ZoomOutPageTransformer());
 ```
 
-See the [Zoom-out page transformer](#zoom-out) and
-[Depth page transformer](#depth-page) sections for examples of a
+See the [Zoom-out page transformer](https://developer.android.com/develop/ui/views/animations/screen-slide-2#zoom-out) and
+[Depth page transformer](https://developer.android.com/develop/ui/views/animations/screen-slide-2#depth-page) sections for examples of a
 `PageTransformer`.
 
 ### Zoom-out page transformer
 
 This page transformer shrinks and fades pages when scrolling between adjacent pages. As a page
 gets closer to the center, it grows back to its normal size and fades in.
-
-[
-
-
-
-](/static/develop/ui/views/animations/anim_page_transformer_zoomout.mp4)
-
 **Figure 2.** `ZoomOutPageTransformer` example.
 
 ### Kotlin
 
-```
+```kotlin
 private const val MIN_SCALE = 0.85f
 private const val MIN_ALPHA = 0.5f
 
@@ -383,7 +345,7 @@ class ZoomOutPageTransformer : ViewPager2.PageTransformer {
 
 ### Java
 
-```
+```java
 public class ZoomOutPageTransformer implements ViewPager2.PageTransformer {
     private static final float MIN_SCALE = 0.85f;
     private static final float MIN_ALPHA = 0.5f;
@@ -429,13 +391,6 @@ public class ZoomOutPageTransformer implements ViewPager2.PageTransformer {
 This page transformer uses the default slide animation for sliding pages to the left, while using
 a "depth" animation for sliding pages to the right. This depth animation fades the page out and
 scales it down linearly.
-
-[
-
-
-
-](/static/develop/ui/views/animations/anim_page_transformer_depth.mp4)
-
 **Figure 3.** `DepthPageTransformer` example.
 
 During the depth animation, the default animation (a screen slide) still takes place, so you must
@@ -443,13 +398,13 @@ counteract the screen slide with a negative X translation. For example:
 
 ### Kotlin
 
-```
+```kotlin
 view.translationX = -1 * view.width * position
 ```
 
 ### Java
 
-```
+```java
 view.setTranslationX(-1 * view.getWidth() * position);
 ```
 
@@ -458,7 +413,7 @@ page transformer:
 
 ### Kotlin
 
-```
+```kotlin
 private const val MIN_SCALE = 0.75f
 
 @RequiresApi(21)
@@ -506,7 +461,7 @@ class DepthPageTransformer : ViewPager2.PageTransformer {
 
 ### Java
 
-```
+```java
 @RequiresApi(21)
 public class DepthPageTransformer implements ViewPager2.PageTransformer {
     private static final float MIN_SCALE = 0.75f;
@@ -555,10 +510,9 @@ To learn more about `ViewPager2`, see the following additional resources.
 
 ### Samples
 
-* [ViewPager2 samples](https://goo.gle/viewpager2-sample) on
-  GitHub.
+- [ViewPager2 samples](https://goo.gle/viewpager2-sample) on GitHub.
 
 ### Videos
 
-* [Turning the Page:
+- [Turning the Page:
   Migrating to ViewPager2](https://www.youtube.com/watch?v=lAP6cz1HSzA) (Android Dev Summit '19)

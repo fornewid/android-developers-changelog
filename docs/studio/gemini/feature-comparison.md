@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 The following table summarizes the features included in the different editions
 of Gemini in Android Studio, to help you [choose the product tier](/studio/gemini/overview#choose-tier) that's
 right for you:

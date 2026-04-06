@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 When committing changes to your version control system from the IDE, Gemini can
 use the context from the code changes in the current commit and recent past
 commits to suggest a detailed commit message. To generate a commit message,

@@ -8,7 +8,6 @@ source: html-scrape
 
 
 
-
 ## 1. Structural analysis & mapping
 
 **Identify the precise mapping** between XML elements and Compose equivalents. You must determine:

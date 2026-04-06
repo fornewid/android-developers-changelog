@@ -1,16 +1,8 @@
 ---
-title: Gemini Privacy Notice  |  Android Studio  |  Android Developers
+title: https://developer.android.com/studio/gemini/privacy-notice
 url: https://developer.android.com/studio/gemini/privacy-notice
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [Android Studio](https://developer.android.com/studio)
-
-# Gemini Privacy Notice Stay organized with collections Save and categorize content based on your preferences.
-
-
-
 
 This notice and our [Privacy Policy](https://policies.google.com/privacy)
 describe how Gemini in Android Studio handles your data. Please read them
@@ -21,7 +13,7 @@ except where you submit it to Gemini (e.g., prompts).** When you use Gemini,
 Google collects your prompts, generated output, related feature usage
 information, and your feedback. Google uses this data to provide, improve, and
 develop Google products and services and machine learning technologies,
-including Google’s enterprise products such as Google Cloud.
+including Google's enterprise products such as Google Cloud.
 
 To help with quality and improve our products, human reviewers may read,
 annotate, and process your prompts, generated output, related feature usage

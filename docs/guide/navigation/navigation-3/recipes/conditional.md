@@ -13,6 +13,7 @@ Save and categorize content based on your preferences.
 
 
 
+
 # Conditional Navigation Recipe
 
 This recipe demonstrates how to implement conditional navigation, where certain destinations are only accessible if a condition is met (in this case, if the user is logged in).

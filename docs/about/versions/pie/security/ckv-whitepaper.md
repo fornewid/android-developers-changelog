@@ -10,7 +10,6 @@ source: html-scrape
 
 
 
-
 We describe a cloud service that uses secure hardware to store cryptographic keys such
 that access to them is protected by a low entropy knowledge factor (e.g., a lockscreen PIN).
 The secure hardware is designed to prevent brute force attacks, by making the stored

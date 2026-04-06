@@ -15,7 +15,6 @@ Send feedback
 
 
 
-
 This document explains how to integrate achievements into your game using the
 Google Play Console or API calls. It covers
 the essential elements and states of achievements, and describes how to create,
@@ -406,8 +405,6 @@ in a game. They emphasize the importance of:
   + Players cannot skip the trigger step where the unlock API is called.
     For example, completing the tutorial is an achievement, but players can
     skip the tutorial itself.
-
-
 
 
 

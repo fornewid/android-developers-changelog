@@ -15,7 +15,6 @@ Save and categorize content based on your preferences.
 
 
 
-
 # Benchmark
 
 [User Guide](/topic/performance/benchmarking/benchmarking-overview)  [Code Sample](https://github.com/android/performance-samples)  [Codelab](/codelabs/android-macrobenchmark-inspect)

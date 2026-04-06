@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 The following table compares the tasks you can perform using the [emulator UI](/studio/run/emulator),
 AVD Manager, commonly used [command-line
 startup options](/studio/run/emulator-commandline#startup-options), and the [Emulator

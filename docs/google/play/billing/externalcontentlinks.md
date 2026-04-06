@@ -14,7 +14,6 @@ Send feedback
 
 
 
-
 The external content links program lets you link users in the US to external
 content outside of your Google Play distributed app. The external links enable
 app users to purchase in-app digital items or download apps that are not managed
@@ -70,8 +69,6 @@ Information screen that links to an app download
 
 To begin integrating the external offers APIs, follow the in-depth
 [in-app integration guide](/google/play/billing/externalcontentlinks/integration).
-
-
 
 
 

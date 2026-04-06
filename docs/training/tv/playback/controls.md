@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Video playback is one of the most important features on TV. It's important
 that video players in apps across Android TV behave the same. Here are the
 recommendations on how video player controls should work on Android TV.

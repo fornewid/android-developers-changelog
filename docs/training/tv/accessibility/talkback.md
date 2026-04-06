@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 This guide lists steps to evaluate your TV app to improve a screen reader user’s
 experience. Perform these steps to understand how users experience your
 app when TalkBack, the Android screen reader, is enabled.

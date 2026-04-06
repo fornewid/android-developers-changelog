@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Starting in Tiles 1.2, you can stream platform data updates using [dynamic
 expressions](/training/wearables/data/dynamic). You can then associate these updates with animations in your
 tiles. Your app gets updates to this value every second.

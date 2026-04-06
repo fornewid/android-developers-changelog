@@ -15,7 +15,6 @@ Starting in 2026, we'll be transitioning away from Google Fit APIs. For more inf
 
 
 
-
 Health Connect requires a mobile device running **Android 9 (API 28)** or higher
 with **Google Play services** installed.
 

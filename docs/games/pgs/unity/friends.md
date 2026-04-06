@@ -15,6 +15,7 @@ Send feedback
 
 
 
+
 Play Games Friends allows players to create and maintain a cross-games friends
 list. You can request access to this friends list to help your players play your
 game with their friends. See the
@@ -151,6 +152,8 @@ PlayGamesPlatform.Instance.ShowCompareProfileWithAlternativeNameHintsUI(
         // Profile comparison view has closed.
 });
 ```
+
+
 
 
 

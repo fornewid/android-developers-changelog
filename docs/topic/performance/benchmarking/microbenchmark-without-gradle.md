@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 This page describes configuring a non-Gradle build system when using the
 Microbenchmark library.
 

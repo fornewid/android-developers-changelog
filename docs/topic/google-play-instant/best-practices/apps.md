@@ -1,16 +1,8 @@
 ---
-title: UX best practices for apps on Google Play Instant  |  Other Play guides  |  Android Developers
+title: https://developer.android.com/topic/google-play-instant/best-practices/apps
 url: https://developer.android.com/topic/google-play-instant/best-practices/apps
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [Google Play](https://developer.android.com/distribute)
-* [Other Play guides](https://developer.android.com/guide/app-bundle)
-
-# UX best practices for apps on Google Play Instant Stay organized with collections Save and categorize content based on your preferences.
-
-
 
 **Warning:** Google Play Instant will no longer be available. Starting December 2025,
 Instant Apps cannot be published through Google Play, and all
@@ -37,18 +29,15 @@ for how to create a positive user experience in an instant app.
 We strongly recommend that you use material design principles when
 you design your instant app. For more information about how to
 apply material design to an app, see
-[Material Design for Android](/design/material).
+[Material Design for Android](https://developer.android.com/design/material).
 
 We've also provided additional guidelines specific to gaming apps. For more
 information, see the [UX best practices for games on
-Google Play Instant](/topic/google-play-instant/best-practices/games).
+Google Play Instant](https://developer.android.com/topic/google-play-instant/best-practices/games).
 
 ## Provide a meaningful landing screen for your app
 
-![](/static/topic/google-play-instant/getting-started/images/gpi-try-now.png)
-
-
-**Figure 1.** The "Try Now" button that's shown for an instant app
+![](https://developer.android.com/static/topic/google-play-instant/getting-started/images/gpi-try-now.png) **Figure 1.** The "Try Now" button that's shown for an instant app
 
 In order for your app or game to have a **Try Now** button on the Play Store, or
 to appear in the Android launcher, it needs a default main activity.
@@ -64,15 +53,12 @@ context, they might not know what your app's name is.
 
 ## Identify fallback destinations for your links
 
-![](/static/topic/google-play-instant/best-practices/images/gpi-ad-banner.png)
-
-
-**Figure 2.** A website banner directing users to an instant app
+![](https://developer.android.com/static/topic/google-play-instant/best-practices/images/gpi-ad-banner.png) **Figure 2.** A website banner directing users to an instant app
 
 Links to apps and games on Google Play Instant open immediately when possible.
 Otherwise, these links fall back to opening in a browser.
 
-By [Linking to Google Play](/distribute/marketing-tools/linking-to-google-play),
+By [Linking to Google Play](https://developer.android.com/distribute/marketing-tools/linking-to-google-play),
 you can change the fallback scenario to go to the Play Store instead. This
 strategy can be useful if you want to direct users to download your app if they
 cannot open the app right away and you don't want them to use your app on the
@@ -91,11 +77,11 @@ Avoid asking users to install the app so that they can accomplish what they
 want to do. The main click-through action of a page in the app should
 never trigger an installation prompt.
 
-![](/static/topic/google-play-instant/images/gpi-ux-9.png)
 
+![](https://developer.android.com/static/topic/google-play-instant/images/gpi-ux-9.png)
+**Figure 3.** Allow users to complete a specific task without prompting them to install the app.
 
-**Figure 3.** Allow users to complete a specific task
-without prompting them to install the app.
+<br />
 
 ## Ask users to sign in at the appropriate time
 
@@ -113,21 +99,18 @@ browsing the most popular publicly-shared photos and editing the
 photos on their devices. When the user wants to share their photos
 with friends, the app prompts them to sign in.
 
-![](/static/topic/google-play-instant/images/gpi-ux-8.png)
 
-
+![](https://developer.android.com/static/topic/google-play-instant/images/gpi-ux-8.png)
 **Figure 4.** Avoid unnecessary sign-in prompts.
+
+<br />
 
 ## Preserve user state after app installation
 
 When users install the app, make sure that you transfer their stored app state
 to the app using cookies or local storage. Users should be able to pick
 up where they left off in your app, as depicted in Figure 5.
-
-![](/static/topic/google-play-instant/best-practices/images/gpi-user-state-restored.png)
-
-
-**Figure 5.** Restore user state after installation
+![](https://developer.android.com/static/topic/google-play-instant/best-practices/images/gpi-user-state-restored.png) **Figure 5.** Restore user state after installation
 
 ## Don't create any additional splash screens
 
@@ -135,11 +118,11 @@ The instant app launch experience incorporates app branding, app title, and
 app launcher icon. Don't create additional splash screens of your own, as those
 seem redundant to users.
 
-![](/static/topic/google-play-instant/images/gpi-ux-5.png)
 
+![](https://developer.android.com/static/topic/google-play-instant/images/gpi-ux-5.png)
+**Figure 6.** Google Play Instant framework provides a launch experience for your app.
 
-**Figure 6.** Google Play Instant framework provides a
-launch experience for your app.
+<br />
 
 ## Up arrows vs. system back
 
@@ -153,23 +136,19 @@ other words, Pressing the **Up** button shouldn't ever exit the app.
 
 For more information about how to design navigation with the **Back** and
 **Up** buttons, see
-[Designing Back and Up navigation](/design/patterns/navigation).
-
-![](/static/topic/google-play-instant/images/gpi-ux-4.png)
+[Designing Back and Up navigation](https://developer.android.com/design/patterns/navigation).
 
 
+![](https://developer.android.com/static/topic/google-play-instant/images/gpi-ux-4.png)
 **Figure 7.** Navigation is key.
+
+<br />
 
 ## Don't branch your UI
 
 The UI of your instant app should be identical to the UI of an installed
 version. Don't change your design and UI in the instant app.
-
-![](/static/topic/google-play-instant/best-practices/images/gpi-consistent-ui.png)
-
-
-**Figure 8.** Keep a consistent UI between the installed and instant
-versions of your app
+![](https://developer.android.com/static/topic/google-play-instant/best-practices/images/gpi-consistent-ui.png) **Figure 8.** Keep a consistent UI between the installed and instant versions of your app
 
 ## Use Smart Lock for Passwords on Android for identity
 
@@ -179,10 +158,11 @@ is a password manager across Chrome and Android. Smart Lock also automatically
 signs users in on subsequent visits. To makes authentication easier for users,
 provide support for Google Smart Lock in your instant app.
 
-![](/static/topic/google-play-instant/images/gpi-ux-7.png)
 
-
+![](https://developer.android.com/static/topic/google-play-instant/images/gpi-ux-7.png)
 **Figure 9.** Use Smart Lock for authentication.
+
+<br />
 
 ## Provide explicit installation prompts
 
@@ -195,10 +175,11 @@ Don't use any other labels like "Get the app," "Install the full app," or
 "Upgrade." Never use a banner or other ad-like technique for presenting
 an installation prompt to users.
 
-![](/static/topic/google-play-instant/images/gpi-ux-10.png)
 
-
+![](https://developer.android.com/static/topic/google-play-instant/images/gpi-ux-10.png)
 **Figure 10.** Use installation buttons strategically
+
+<br />
 
 ## Provide at most 2-3 implicit installation prompts
 
@@ -213,14 +194,14 @@ When using an implicit installation prompt, make sure to provide context and
 information about the feature that triggered it. Give users a reason why
 they might want to install the app.
 
-**Note:** The main clickthrough action or button on a screen must not raise
-an implicit installation prompt.
-
-![](/static/topic/google-play-instant/images/gpi-ux-11.png)
+> [!NOTE]
+> **Note:** The main clickthrough action or button on a screen must not raise an implicit installation prompt.
 
 
-**Figure 11.** Limit the number of implicit installation
-prompts.
+![](https://developer.android.com/static/topic/google-play-instant/images/gpi-ux-11.png)
+**Figure 11.** Limit the number of implicit installation prompts.
+
+<br />
 
 ## Remove non-functional sections of your app
 
@@ -228,46 +209,47 @@ When converting your app to an instant app, you may have portions of
 your instant app's UI that link to other feature modules of your app. Remove any
 such sections from the instant app.
 
-![](/static/topic/google-play-instant/images/gpi-ux-12.png)
 
+![](https://developer.android.com/static/topic/google-play-instant/images/gpi-ux-12.png)
+**Figure 12.** Remove non-functional parts of your app.
 
-**Figure 12.** Remove non-functional parts
-of your app.
+<br />
 
 ## Take the friction out of payments
 
 If purchases in your instant app aren't supported by [Google Play
-Billing](/google/play/billing/billing_overview) and you don't have the
+Billing](https://developer.android.com/google/play/billing/billing_overview) and you don't have the
 user's payment information on file, you can use another payment API, such as the
 [Google Pay API](https://developers.google.com/pay/api/). The Google Pay API allows
 you to offer purely offline payments, like cash on delivery, and to store gift
 cards in your instant app.
 
-![](/static/topic/google-play-instant/images/gpi-ux-14.png)
 
-
+![](https://developer.android.com/static/topic/google-play-instant/images/gpi-ux-14.png)
 **Figure 13.** Payments workflow using the Google Pay API
+
+<br />
 
 ## Link out to third-party offerings
 
 Links to third-party offerings and content can open in a Chrome custom tab
 or browser. They can be rendered using a
-[`WebView`](/reference/android/webkit/WebView) when the requested resources
+[`WebView`](https://developer.android.com/reference/android/webkit/WebView) when the requested resources
 are provided through HTTPS protocol.
 
 Your own offerings should not link out to the browser but rather stay within the
-instant app, using a [`WebView`](/reference/android/webkit/WebView) if
+instant app, using a [`WebView`](https://developer.android.com/reference/android/webkit/WebView) if
 necessary. All network traffic from inside the instant app must use HTTPS
 protocol.
 
 Within the instant app, you should clearly define what functionality your app
 provides and what functionality is provided from an external source.
 
-![](/static/topic/google-play-instant/images/gpi-ux-15.png)
 
+![](https://developer.android.com/static/topic/google-play-instant/images/gpi-ux-15.png)
+**Figure 14.** Open external links that you don't control in the browser.
 
-**Figure 14.** Open external links that you don't
-control in the browser.
+<br />
 
 ## Provide a way to share instant app URLs
 
@@ -275,10 +257,11 @@ Since instant apps don't provide an address bar for users to copy the URL,
 provide a "share" action within your app that allows users to share your
 instant app's URL.
 
-![](/static/topic/google-play-instant/images/gpi-ux-16.png)
 
-
+![](https://developer.android.com/static/topic/google-play-instant/images/gpi-ux-16.png)
 **Figure 15.** Help users share your instant app.
+
+<br />
 
 ## Additional resources
 
@@ -287,5 +270,5 @@ the following resources.
 
 ### Codelabs
 
-* [Seamless Sign In with Smart
+- [Seamless Sign In with Smart
   Lock](https://codelabs.developers.google.com/codelabs/android-smart-lock/)

@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Navigation Event is a library that provides a Kotlin Multiplatform (KMP)
 solution for integrating system-level navigation events into your application.
 It is designed to be the foundational layer for handling navigation directions

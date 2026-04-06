@@ -1,21 +1,25 @@
 ---
-title: https://developer.android.com/training/constraint-layout/motionlayout/ref/keyframeset
+title: <KeyFrameSet>  |  Android Developers
 url: https://developer.android.com/training/constraint-layout/motionlayout/ref/keyframeset
-source: md.txt
+source: html-scrape
 ---
 
-[Video](https://www.youtube.com/watch?v=n_om_WcfSOM)
+* [Android Developers](https://developer.android.com/)
+
+# <KeyFrameSet> Stay organized with collections Save and categorize content based on your preferences.
+
+
 
 Specifies location and attributes for views over the course of the motion
 sequence. By default, motion proceeds from the initial state to the end state.
 By using `<KeyFrameSet>`, you can build more complex motions.
 
 The `<KeyFrameSet>` contains
-[`<KeyPosition>`](https://developer.android.com/training/constraint-layout/motionlayout/ref/keyposition) or
-[`<KeyAttribute>`](https://developer.android.com/training/constraint-layout/motionlayout/ref/keyattribute)
+[`<KeyPosition>`](/training/constraint-layout/motionlayout/ref/keyposition) or
+[`<KeyAttribute>`](/training/constraint-layout/motionlayout/ref/keyattribute)
 nodes. These nodes specify the position or attributes of a target view at a
 specific point in the motion.
-[`MotionLayout`](https://developer.android.com/reference/androidx/constraintlayout/motion/widget/MotionLayout)
+[`MotionLayout`](/reference/androidx/constraintlayout/motion/widget/MotionLayout)
 smoothly animates the view from the starting point to each intermediate point
 and then to the final destination.
 
@@ -33,7 +37,7 @@ specifies that the ball remains opaque at the midpoint of the motion.
 
 ## Syntax
 
-```xml
+```
 <KeyFrameSet>
     [ <KeyPosition/>... ]
     [ <KeyAttribute/>...]
@@ -42,12 +46,12 @@ specifies that the ball remains opaque at the midpoint of the motion.
 
 ## Contained in
 
-[`<Transition>`](https://developer.android.com/training/constraint-layout/motionlayout/ref/transition)
+[`<Transition>`](/training/constraint-layout/motionlayout/ref/transition)
 
 ## Contains
 
-[`<KeyPosition>`](https://developer.android.com/training/constraint-layout/motionlayout/ref/keyposition)
+[`<KeyPosition>`](/training/constraint-layout/motionlayout/ref/keyposition)
 :   Specifies a view's position at a specific moment during the motion sequence.
 
-[`<KeyAttribute>`](https://developer.android.com/training/constraint-layout/motionlayout/ref/keyattribute)
+[`<KeyAttribute>`](/training/constraint-layout/motionlayout/ref/keyattribute)
 :   Specifies view attributes at a specific moment during the motion sequence.

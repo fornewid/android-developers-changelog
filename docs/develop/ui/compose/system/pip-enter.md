@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 Your app should not enter PiP mode in the following situations:
 
 * If the video is stopped or paused.

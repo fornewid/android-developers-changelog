@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 This page provides an overview of the enterprise APIs, features, and behavior
 changes introduced in Android 16 (API level 36). Some of the new enterprise
 features and updates in Android 16 are described in the following sections:

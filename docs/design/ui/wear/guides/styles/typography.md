@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 Typography helps make text on the screen or text on the UI legible and
 beautiful. Type styles include: display, title, label, body, arc, and numerals.
 Use tokens to define font, line height, size, tracking, width and weight.

@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Communication is a critical part of social and messaging apps, and Android
 continues to evolve APIs and services to make the user experience more
 integrated and consistent. This page connects you to resources to both help you

@@ -1,14 +1,24 @@
 ---
-title: https://developer.android.com/design/ui/ai-glasses/guides/components/cards
+title: Cards  |  AI Glasses  |  Android Developers
 url: https://developer.android.com/design/ui/ai-glasses/guides/components/cards
-source: md.txt
+source: html-scrape
 ---
+
+* [Android Developers](https://developer.android.com/)
+* [Design & Plan](https://developer.android.com/design)
+* [UI Design](https://developer.android.com/design/ui)
+* [AI Glasses](https://developer.android.com/design/ui/ai-glasses)
+* [Guides](https://developer.android.com/design/ui/ai-glasses/guides/foundations/design-principles)
+
+# Cards Stay organized with collections Save and categorize content based on your preferences.
+
+
 
 Cards can contain a wide-variety of information like text, icons, images, Gemini
 responses, or actions.
 
 ![Design elements should be anchored to the bottom of the
-frame.](https://developer.android.com/static/images/design/ui/glasses/guides/glasses_components_cards.png)
+frame.](/static/images/design/ui/glasses/guides/glasses_components_cards.png)
 
 ### Principles
 
@@ -24,25 +34,30 @@ text blurbs to more complex summaries with multiple elements.
 **Modular**: Designed to be modular and reusable across different parts of the
 Jetpack Compose Glimmer for Glasses interface.
 
-## Usage \& Placement
+## Usage & Placement
 
 Cards can contain a wide-variety of information like text, icons, images,
 actions or Gemini responses.
 
 ![Design elements should be anchored to the bottom of the
-frame.](https://developer.android.com/static/images/design/ui/glasses/guides/glasses_components_card_overview.png)
+frame.](/static/images/design/ui/glasses/guides/glasses_components_card_overview.png)
 
 Use Jetpack Compose Glimmer card templates for content as they are come in many
 variations and optimized to follow glasses design principles out of the box.
 
-> [!WARNING]
-> **Warning:** Avoid building custom card components if possible.
+**Warning:** Avoid building custom card components if possible.
 
-![](https://developer.android.com/static/images/design/ui/glasses/guides/glasses_components_cards_content_do.png)
+![](/static/images/design/ui/glasses/guides/glasses_components_cards_content_do.png)
+
+check\_circle
 
 ### Do
 
-Keep content succinct and mindful of style best practices, like color usage. ![](https://developer.android.com/static/images/design/ui/glasses/guides/glasses_components_cards_content_dont.png)
+Keep content succinct and mindful of style best practices, like color usage.
+
+![](/static/images/design/ui/glasses/guides/glasses_components_cards_content_dont.png)
+
+cancel
 
 ### Don't
 
@@ -53,7 +68,7 @@ Overwhelm users with too much content within cards or abandon style guidelines.
 Cards are built with pre-set slot templates.
 
 ![Design elements should be anchored to the bottom of the
-frame.](https://developer.android.com/static/images/design/ui/glasses/guides/glasses_components_card_variants.png)
+frame.](/static/images/design/ui/glasses/guides/glasses_components_card_variants.png)
 **1.** Header: The top section of the card, designed to hold an image.
 
 **2.** Title and Subtitle: These text fields provide the main and secondary
@@ -81,19 +96,17 @@ item, such as an entry in a list. This provides a more direct and accessible
 user experience.
 
 ![Design elements should be anchored to the bottom of the
-frame.](https://developer.android.com/static/images/design/ui/glasses/guides/glasses_components_card_focus.png) A
+frame.](/static/images/design/ui/glasses/guides/glasses_components_card_focus.png) A
 card that has focus as a list item.
 
 ![Design elements should be anchored to the bottom of the
-frame.](https://developer.android.com/static/images/design/ui/glasses/guides/glasses_components_card_buttons.png) A
+frame.](/static/images/design/ui/glasses/guides/glasses_components_card_buttons.png) A
 button within a card is given focus as the actionable element.
 
 ## Customization
 
-<br />
-
 | Properties | Customization | Defaults |
-|---|---|---|
+| --- | --- | --- |
 | Shape | Yes | Medium |
 | Padding | Yes | 24 dp, 24 dp |
 | Border | Yes | 2 dp, #606460 |
@@ -101,4 +114,14 @@ button within a card is given focus as the actionable element.
 | Leading icon | Yes | 56 dp |
 | Trailing icon | Yes | 56 dp |
 
-<br />
+[Previous
+
+arrow\_back
+
+Title chip](/design/ui/ai-glasses/guides/components/title-chip)
+
+[Next
+
+Lists
+
+arrow\_forward](/design/ui/ai-glasses/guides/components/lists)

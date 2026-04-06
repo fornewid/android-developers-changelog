@@ -1,19 +1,8 @@
 ---
-title: Plan to avoid rate limiting  |  Android health & fitness  |  Android Developers
+title: https://developer.android.com/health-and-fitness/health-connect/rate-limiting
 url: https://developer.android.com/health-and-fitness/health-connect/rate-limiting
-source: html-scrape
+source: md.txt
 ---
-
-Starting in 2026, we'll be transitioning away from Google Fit APIs. For more information on the Google Fit migration, see the [Migration Guide](/health-and-fitness/guides/health-connect/migrate/migration-guide).
-
-* [Android Developers](https://developer.android.com/)
-* [Essentials](https://developer.android.com/get-started)
-* [Health & fitness dev center](https://developer.android.com/health-and-fitness)
-* [Health Connect Guides](https://developer.android.com/health-and-fitness/health-connect)
-
-# Plan to avoid rate limiting Stay organized with collections Save and categorize content based on your preferences.
-
-
 
 To maintain optimal system stability and performance, Health Connect imposes
 rate limits on client connections to the Health Connect API.
@@ -34,18 +23,18 @@ performing, and whether that operation occurs in the foreground or background.
 For read and changelog limits, Health Connect imposes two limits on the number
 of API calls available to your app:
 
-* A periodic limit on the number of API calls your app can make to the API.
-* A daily limit on the number of API calls your app can make.
+- A periodic limit on the number of API calls your app can make to the API.
+- A daily limit on the number of API calls your app can make.
 
 ### Insert, update and delete limits
 
 Health Connect places four distinct limits on insertion, update and deletion
 operations:
 
-* A periodic limit on the number of calls your app can make to the API.
-* A daily limit on the number of calls your app can make to the API.
-* A memory limit for bulk insertions.
-* A memory limit for single record insertions.
+- A periodic limit on the number of calls your app can make to the API.
+- A daily limit on the number of calls your app can make to the API.
+- A memory limit for bulk insertions.
+- A memory limit for single record insertions.
 
 ## Best practices
 
@@ -58,7 +47,7 @@ Here are some best practice guidelines to adhere to.
 ### Background API calls
 
 Battery usage for background operations reduces the user experience and raises
-questions regarding [data privacy](/guide/health-and-fitness/health-connect/develop/read-data#foreground-restriction).
+questions regarding [data privacy](https://developer.android.com/guide/health-and-fitness/health-connect/develop/read-data#foreground-restriction).
 
 As such, background rate limiting is stricter than foreground rate limiting.
 It's therefore important to limit the amount of API calls your app carries out
@@ -76,11 +65,5 @@ negative impact on battery life.
 ### Changelog handling
 
 To minimize the risk of your app being rate limited, you should utilize
-[changelog handling](/guide/health-and-fitness/health-connect/develop/sync-data#pull-data) to synchronize your database with data from Health
+[changelog handling](https://developer.android.com/guide/health-and-fitness/health-connect/develop/sync-data#pull-data) to synchronize your database with data from Health
 Connect, rather than over-relying on raw read requests.
-
-[Previous
-
-arrow\_back
-
-Metadata requirements](/health-and-fitness/health-connect/metadata)

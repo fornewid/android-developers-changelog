@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 A carousel displays a scrollable list of items that adapt dynamically based on
 window size. Use carousels to showcase a collection of related content.
 Carousel items emphasize visuals, but can also contain brief text that adapts to
@@ -94,8 +95,8 @@ fun CarouselExample_MultiBrowse() {
             .padding(top = 16.dp, bottom = 16.dp),
         preferredItemWidth = 186.dp,
         itemSpacing = 8.dp,
-        contentPadding = PaddingValues(horizontal = 16.dp)
-    ) { i ->
+        contentPaddi>ng = PaddingValues(horizontal = 16.dp)
+    ) { i -
         val item = items[i]
         Image(
             modifier = Modifier
@@ -103,12 +104,14 @@ fun CarouselExample_MultiBrowse() {
                 .maskClip(MaterialTheme.shapes.extraLarge),
             painter = painterResource(id = item.imageResId),
             contentDescription = item.contentDescription,
-            contentScale = ContentScale.Crop
+            
+
+contentScal
+
+e = ContentScale.Crop
         )
     }
-}
-
-Carousel.kt
+}Carousel.kt
 ```
 
 ### Key points about the code
@@ -163,8 +166,8 @@ fun CarouselExample() {
             .padding(top = 16.dp, bottom = 16.dp),
         itemWidth = 186.dp,
         itemSpacing = 8.dp,
-        contentPadding = PaddingValues(horizontal = 16.dp)
-    ) { i ->
+        contentPaddi>ng = PaddingValues(horizontal = 16.dp)
+    ) { i -
         val item = carouselItems[i]
         Image(
             modifier = Modifier
@@ -172,12 +175,14 @@ fun CarouselExample() {
                 .maskClip(MaterialTheme.shapes.extraLarge),
             painter = painterResource(id = item.imageResId),
             contentDescription = item.contentDescription,
-            contentScale = ContentScale.Crop
+            
+
+contentScal
+
+e = ContentScale.Crop
         )
     }
-}
-
-Carousel.kt
+}Carousel.kt
 ```
 
 ### Key points about the code
