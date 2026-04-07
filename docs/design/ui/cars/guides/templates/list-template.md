@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 The List template presents a vertically scrolling collection of [Rows](/design/ui/cars/guides/components/row) or
 Conversation items. Lists are useful when users need to quickly browse items in
 a text format, such as recently-navigated places or songs in a queue.

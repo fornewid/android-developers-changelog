@@ -1,36 +1,19 @@
 ---
-title: Request background location  |  Sensors and location  |  Android Developers
+title: https://developer.android.com/develop/sensors-and-location/location/permissions/background
 url: https://developer.android.com/develop/sensors-and-location/location/permissions/background
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [Develop](https://developer.android.com/develop)
-* [Core areas](https://developer.android.com/develop/core-areas)
-* [Sensors and location](https://developer.android.com/develop/sensors-and-location)
-
-# Request background location Stay organized with collections Save and categorize content based on your preferences.
-
-
 
 This page discusses the following:
 
-* How to request background location access.
-* How to handle the request based on your app's target SDK version.
-* How user preferences for approximate location affect how your app gets
-  background location.
+- How to request background location access.
+- How to handle the request based on your app's target SDK version.
+- How user preferences for approximate location affect how your app gets background location.
 
-**Note:** If a feature in your app accesses location from the background, verify
-that access is necessary. Consider getting the information that the feature
-needs in other ways. To learn more about background location access, see the
-[Access location in the background](/training/location/background) page.
+> [!NOTE]
+> **Note:** If a feature in your app accesses location from the background, verify that access is necessary. Consider getting the information that the feature needs in other ways. To learn more about background location access, see the [Access location in the background](https://developer.android.com/training/location/background) page.
 
-![](/static/images/training/location/request-device-location-background-11.svg)
-
-
-**Figure 7.** Settings page includes an option called
-**Allow all the time**, which grants background location
-access.
+![](https://developer.android.com/static/images/training/location/request-device-location-background-11.svg) **Figure 7.** Settings page includes an option called **Allow all the time**, which grants background location access.
 
 ## Permission dialog contents depend on target SDK version
 
@@ -50,24 +33,15 @@ permission depends on your app's target SDK version.
 ### App targets Android 11 or higher
 
 If your app hasn't been granted the `ACCESS_BACKGROUND_LOCATION` permission, and
-[`shouldShowRequestPermissionRationale()`](/reference/androidx/core/app/ActivityCompat#shouldShowRequestPermissionRationale(android.app.Activity,%20java.lang.String)) returns `true`, show an
+[`shouldShowRequestPermissionRationale()`](https://developer.android.com/reference/androidx/core/app/ActivityCompat#shouldShowRequestPermissionRationale(android.app.Activity,%20java.lang.String)) returns `true`, show an
 educational UI to users that includes the following:
 
-* A clear explanation of why your app's feature needs access to background
-  location.
-* The user-visible label of the settings option that grants background
-  location (for example, **Allow all the time** in figure 7). You can call
-  [`getBackgroundPermissionOptionLabel()`](/reference/android/content/pm/PackageManager#getBackgroundPermissionOptionLabel()) to get this label. The return
-  value of this method is localized to the user's device language preference.
-* An option for users to decline the permission. If users decline background
-  location access, they should be able to continue using your app.
+- A clear explanation of why your app's feature needs access to background location.
+- The user-visible label of the settings option that grants background location (for example, **Allow all the time** in figure 7). You can call [`getBackgroundPermissionOptionLabel()`](https://developer.android.com/reference/android/content/pm/PackageManager#getBackgroundPermissionOptionLabel()) to get this label. The return value of this method is localized to the user's device language preference.
+- An option for users to decline the permission. If users decline background location access, they should be able to continue using your app.
 
 ![Users can tap the system notification to change location
-  settings for an app](/static/images/training/location/location-access-reminder.svg)
-
-
-**Figure 8.** Notification reminding the user that they've granted
-background location access to an app.
+settings for an app](https://developer.android.com/static/images/training/location/location-access-reminder.svg) **Figure 8.**Notification reminding the user that they've granted background location access to an app.
 
 ### App targets Android 10 or lower
 
@@ -80,7 +54,7 @@ permissions, you don't need to make any changes to support this behavior.
 
 ## User can affect background location accuracy
 
-If the [user requests approximate location](/develop/sensors-and-location/location/permissions/runtime#approximate-request), the user's choices in the
+If the [user requests approximate location](https://developer.android.com/develop/sensors-and-location/location/permissions/runtime#approximate-request), the user's choices in the
 location permissions dialog also apply to background location. In other words,
 if the user grants your app the `ACCESS_BACKGROUND_LOCATION` permission but
 grants only approximate location access in the foreground, your app has only
@@ -93,13 +67,12 @@ materials:
 
 ### Codelabs
 
-* [Privacy best practices](/codelabs/android-privacy-codelab)
+- [Privacy best practices](https://developer.android.com/codelabs/android-privacy-codelab)
 
 ### Videos
 
-* [How to find possible background location usage](https://www.youtube.com/watch?v=xTVeFJZQ28c)
+- [How to find possible background location usage](https://www.youtube.com/watch?v=xTVeFJZQ28c)
 
 ### Samples
 
-* [Sample app](https://github.com/android/platform-samples/tree/main/samples/location/src/main/java/com/example/platform/location/permission)
-  to demonstrate the use of location permissions.
+- [Sample app](https://github.com/android/platform-samples/tree/main/samples/location/src/main/java/com/example/platform/location/permission) to demonstrate the use of location permissions.

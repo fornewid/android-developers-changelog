@@ -10,7 +10,6 @@ source: html-scrape
 
 
 
-
 Android 8.0 (API level 26) introduced color management support for additional
 [color spaces](https://en.wikipedia.org/wiki/Color_space) besides
 standard RGB (sRGB) for rendering graphics on devices with compatible displays. With this support,

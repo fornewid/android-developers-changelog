@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Large language models (LLMs) differ in their capabilities. To give you control
 and flexibility in AI-assisted software development, Android Studio lets you
 choose a local model, running on your personal machine, to power the IDE's AI

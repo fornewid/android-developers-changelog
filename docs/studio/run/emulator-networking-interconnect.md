@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 To test applications that involve multi-device interactions, you can connect
 multiple Android Emulator instances so they can communicate with each other.
 The method for establishing a connection depends on the version of the emulator

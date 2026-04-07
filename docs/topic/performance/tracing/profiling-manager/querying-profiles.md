@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Querying `ProfilingManager` profiles is similar to querying regular Perfetto
 profiles. Therefore, review [Getting Started with PerfettoSQL](https://perfetto.dev/docs/analysis/perfetto-sql-getting-started) for a guide on
 how to query profiles.

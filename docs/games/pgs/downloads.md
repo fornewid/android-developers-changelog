@@ -15,7 +15,6 @@ Send feedback
 
 
 
-
 This page contains downloads for Google Play Games Services including some third-party
 downloads that support specific game engines.
 
@@ -56,8 +55,6 @@ development project.
 Graphic Type | Description | Resource || Google Play games services branding | Download graphics and see the branding guidelines for Google Play games services. | * [Download icon files](/static/games/pgs/download-files/games-branding-icons.zip) * [Google Play games services branding guidelines](/games/pgs/branding) |
 | Sign-in button | Download graphics and see the guidelines for building your own sign-in button. | * [Google Sign-in branding guidelines](https://developers.google.com/identity/branding-guidelines) |
 | Games project images for Developer Console | Download placeholder graphics to use in your project during game development and testing. | * [Placeholder screenshot 1 (320x480)](/static/games/pgs/download-files/placeholder-screenshot1-320x480.jpg) * [Placeholder screenshot 2 (320x480)](/static/games/pgs/download-files/placeholder-screenshot2-320x480.jpg) * [Hi-res icon (512x512)](/static/games/pgs/download-files/placeholder-icon512x512.png) |
-
-
 
 
 

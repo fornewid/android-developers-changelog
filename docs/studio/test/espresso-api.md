@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Use the Espresso Device API to test your app when the device undergoes common
 configuration changes, such as rotation and screen unfolding. The Espresso
 Device API lets you simulate these configuration changes on a virtual device and

@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 The Android Gradle Plugin (AGP) is the supported build system for Android
 applications and includes support for compiling many different types of sources
 and linking them together into an application that you can run on a physical

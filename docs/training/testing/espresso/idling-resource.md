@@ -12,6 +12,7 @@ source: html-scrape
 
 
 
+
 An *idling resource* represents an asynchronous operation whose results affect
 subsequent operations in a UI test. By registering idling resources with
 Espresso, you can validate these asynchronous operations more reliably when

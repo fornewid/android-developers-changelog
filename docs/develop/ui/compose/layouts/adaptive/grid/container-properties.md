@@ -10,7 +10,7 @@ This page describes how to do the following:
 
 - [Define a grid](https://developer.android.com/develop/ui/compose/layouts/adaptive/grid/container-properties#grid-definition): Set up the basic structure of rows and columns.
 - [Place items in a grid](https://developer.android.com/develop/ui/compose/layouts/adaptive/grid/container-properties#item-placement): Understand how items are placed into grid cells and how to change flow direction.
-- [Manage track sizing](https://developer.android.com/develop/ui/compose/layouts/adaptive/grid/container-properties#grid-track-size): Use fixed, fractional, flexible, and intrinsic sizing to set track sizes.
+- [Manage track sizing](https://developer.android.com/develop/ui/compose/layouts/adaptive/grid/container-properties#grid-track-size): Use fixed, percentage, flexible, and intrinsic sizing to set track sizes.
 - [Set gaps](https://developer.android.com/develop/ui/compose/layouts/adaptive/grid/container-properties#grid-gap): Manage the "gutters" between rows and columns.
 
 ## Define a grid
@@ -116,8 +116,8 @@ Rows and columns are collectively referred to as a [grid track](https://develope
 You can specify the size of a grid track using one of the following methods:
 
 - **Fixed** (`Dp`): Allocates a specific size (e.g., `column(180.dp)`).
-- **Fractional** (`Float`): Allocates a percentage of the total available space from `0.0f` to `1.0f` (e.g., `row(0.5f)` for 50%).
-- **Flexible** ([`Fr`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/Fr)): Distributes remaining space proportionally after fixed and fractional tracks are calculated. For example, if two rows are set to `1.fr` and `3.fr`, the latter receives 75% of the remaining height.
+- **Percentage** (`Float`): Allocates a percentage of the total available space from `0.0f` to `1.0f` (e.g., `row(0.5f)` for 50%).
+- **Flexible** ([`Fr`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/Fr)): Distributes remaining space proportionally after fixed and percentage tracks are calculated. For example, if two rows are set to `1.fr` and `3.fr`, the latter receives 75% of the remaining height.
 - **Intrinsic** : Sizes the track based on the content inside it. For more information, see [Determine grid track size intrinsically](https://developer.android.com/develop/ui/compose/layouts/adaptive/grid/container-properties#intrisic-grid-track-size).
 
 The following example uses the different track sizing options

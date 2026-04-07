@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 Use a [search bar](https://m3.material.io/components/search/guidelines#3b162db3-8d55-425a-920b-95b1041ff999) to implement search functionality. A search
 bar is a persistent search field that lets users enter a keyword or phrase to
 display relevant results within your app, and is recommended when search is the

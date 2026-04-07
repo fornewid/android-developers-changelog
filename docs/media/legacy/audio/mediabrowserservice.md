@@ -15,7 +15,6 @@ These guides discuss the MediaCompat APIs, which are no longer updated. We stron
 
 
 
-
 Your app must declare the `MediaBrowserService` with an intent-filter in its manifest. You can choose your own service name; in the following example, it is "MediaPlaybackService."
 
 ```

@@ -1,17 +1,8 @@
 ---
-title: Simpleperf  |  Android NDK  |  Android Developers
+title: https://developer.android.com/ndk/guides/simpleperf
 url: https://developer.android.com/ndk/guides/simpleperf
-source: html-scrape
+source: md.txt
 ---
-
-* [Home](https://developer.android.com/)
-* [NDK](https://developer.android.com/ndk)
-* [Develop](https://developer.android.com/develop)
-* [Guides](https://developer.android.com/ndk/guides)
-
-# Simpleperf Stay organized with collections Save and categorize content based on your preferences.
-
-
 
 Android Studio includes a graphical front end to Simpleperf, documented in
 [Inspect CPU activity with CPU Profiler](https://developer.android.com/studio/profile/cpu-profiler).
@@ -26,7 +17,7 @@ For full documentation, start with the Simpleperf [README](https://android.googl
 
 If you are just starting out with Simpleperf, here are some commands that you may find
 particularly useful. For more commands and options, see
-[Simpleperf command and options reference](/ndk/guides/simpleperf-commands).
+[Simpleperf command and options reference](https://developer.android.com/ndk/guides/simpleperf-commands).
 
 ### Find which shared libraries take the longest to execute
 
@@ -87,7 +78,5 @@ If you are profiling an app built with Unity, make sure to build the app with
 debug symbols by following these steps:
 
 1. Open your Android project in the Unity Editor.
-2. In the **Build Settings** window for the Android platform, make sure the
-   **Development Build** option is checked.
-3. Click on **Player Settings** and set the **Stripping Level** property to
-   **Disabled**.
+2. In the **Build Settings** window for the Android platform, make sure the **Development Build** option is checked.
+3. Click on **Player Settings** and set the **Stripping Level** property to **Disabled**.

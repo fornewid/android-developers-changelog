@@ -15,7 +15,6 @@ Save and categorize content based on your preferences.
 
 
 
-
 # Android Studio v1.0 (December 2014)
 
 Initial release of Android Studio.

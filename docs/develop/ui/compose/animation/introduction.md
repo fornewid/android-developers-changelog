@@ -16,7 +16,6 @@ Save and categorize content based on your preferences.
 
 
 
-
 ### [Animations in Compose](https://developer.android.com/develop/ui/compose/animation/quick-guide)
 
 Animations are essential in a modern mobile app in order to realize a smooth and understandable user experience.

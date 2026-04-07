@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 As a wearable platform, Wear OS helps people live more present, healthy, and
 productive lives. Wear OS helps users stay connected online and complete tasks
 quickly, while leaving their phones in their pockets.

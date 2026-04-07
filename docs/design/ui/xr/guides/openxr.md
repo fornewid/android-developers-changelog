@@ -16,7 +16,6 @@ The Android XR SDK is now available in Developer Preview. We want your feedback!
 
 
 
-
 Android XR works seamlessly with Unity, OpenXR, and WebXR so you can build an
 app that's compatible across platforms. These XR development tools include
 features tailored to the unique challenges of creating immersive experiences.

@@ -1,66 +1,56 @@
 ---
-title: Machine learning quiz  |  Android Developers
+title: https://developer.android.com/courses/quizzes/android-week2-machine-learning/android-11-week-2
 url: https://developer.android.com/courses/quizzes/android-week2-machine-learning/android-11-week-2
-source: html-scrape
+source: md.txt
 ---
-
-Stay organized with collections
-
-Save and categorize content based on your preferences.
-
-
 
 # Machine learning quiz
 
-Return to pathway
+# Machine learning quiz
 
+<br />
 
+Return to pathway  
+1.
 
-1. ## Which of the following ML technologies are included in the Google ML Kit SDK?
+   ## Which of the following ML technologies are included in the Google ML Kit SDK?
 
-   Choose as many answers as you see fit.
+   Choose as many answers as you see fit.  
+   Google Cloud Vision API  
+   Mobile Vision  
+   Ignore Outliers  
+   TensorFlow Lite  
+   On-device inference  
+2.
 
-   Google Cloud Vision API
+   ## What are some of the on-device machine learning functionalities that are available in Google ML Kit?
 
-   Mobile Vision
+   Choose as many answers as you see fit.  
+   Text recognition / OCR  
+   Facial recognition  
+   Translation  
+   Barcode scanning  
+   Face detection  
+   Speech recognition  
+3.
 
-   Ignore Outliers
+   ## Fill-in-the-blanks
 
-   TensorFlow Lite
+   Enter one or more words to complete the sentence.  
+   Current Android Studio ML Binding API requires image input to be in ___ format before a TensorImage object can be created and used by the model processing.  
+4.
 
-   On-device inference
-2. ## What are some of the on-device machine learning functionalities that are available in Google ML Kit?
+   ## When setting the mode for .setDetectorMode, you have two options. ___ runs with low latency and is suitable for tracking objects across the screen but with potentially unspecified bounding box or incomplete labelling, while ___ only returns when both bounding box and classifications are available.
 
-   Choose as many answers as you see fit.
+   SINGLE_IMAGE_MODE; STREAM_MODE  
+   STREAM_MODE; SINGLE_IMAGE_MODE  
+5.
 
-   Text recognition / OCR
+   ## To encourage children to read, the Read Along design team optimized for high ___, meaning they allowed an increased number of ___ .
 
-   Facial recognition
-
-   Translation
-
-   Barcode scanning
-
-   Face detection
-
-   Speech recognition
-3. ## Fill-in-the-blanks
-
-   Enter one or more words to complete the sentence.
-
-   Current Android Studio ML Binding API requires image input to be in \_\_\_ format before a TensorImage object can be created and used by the model processing.
-4. ## When setting the mode for .setDetectorMode, you have two options. \_\_\_ runs with low latency and is suitable for tracking objects across the screen but with potentially unspecified bounding box or incomplete labelling, while \_\_\_ only returns when both bounding box and classifications are available.
-
-   SINGLE\_IMAGE\_MODE; STREAM\_MODE
-
-   STREAM\_MODE; SINGLE\_IMAGE\_MODE
-5. ## To encourage children to read, the Read Along design team optimized for high \_\_\_, meaning they allowed an increased number of \_\_\_ .
-
-   recall ; false positives
-
-   precision ; false negatives
+   recall ; false positives  
+   precision ; false negatives  
 
 Submit answers
 
-*error\_outline*
-An error occurred when grading the quiz. Please try again.
+*error_outline*An error occurred when grading the quiz. Please try again.

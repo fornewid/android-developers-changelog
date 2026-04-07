@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 If you do not use CMake or ndk-build but want full integration of the Android Gradle plugin (AGP) C/C++ build and Android Studio, you can create a custom C/C++ build system by making a shell script that writes build information in the [Ninja](https://ninja-build.org/) build file format.
 
 **Caution:** Experimental APIs can change in the future or may be removed entirely.

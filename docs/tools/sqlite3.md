@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 From a remote shell to your device or from your host machine, use the [`sqlite3`](https://www.sqlite.org/) command-line program to manage
 SQLite databases created by Android applications. The `sqlite3` tool includes many
 useful commands, such as `.dump` to print out the contents of a table and

@@ -1,8 +1,17 @@
 ---
-title: https://developer.android.com/guide/navigation/navigation-3/recipes/results-event
+title: App architecture  |  Android Developers
 url: https://developer.android.com/guide/navigation/navigation-3/recipes/results-event
-source: md.txt
+source: html-scrape
 ---
+
+* [Android Developers](https://developer.android.com/)
+* [App architecture](https://developer.android.com/topic/architecture/intro)
+
+Stay organized with collections
+
+Save and categorize content based on your preferences.
+
+
 
 # Returning a Result (Event-Based)
 
@@ -13,11 +22,18 @@ This recipe demonstrates how to return a result from one screen to a previous sc
 This example uses a `ResultEventBus` to facilitate communication between the screens.
 
 1. **`ResultEventBus`**: A simple event bus is created and made available to the composables.
-2. **Sending the result** : The screen that produces the result calls `resultBus.sendResult(person)` to send the data back as a one-time event.
-3. **Receiving the result** : The screen that needs the result uses a `ResultEffect` composable to listen for results of a specific type. When a result is received, the effect's lambda is triggered.
+2. **Sending the result**: The screen that produces the result calls `resultBus.sendResult(person)` to send the data back as a one-time event.
+3. **Receiving the result**: The screen that needs the result uses a `ResultEffect` composable to listen for results of a specific type. When a result is received, the effect's lambda is triggered.
 
 This approach is useful for results that are transient and should be handled as one-time events.
-[![](https://developer.android.com/static/images/picto-icons/code.svg) Explore View the full recipe on GitHub.](https://github.com/android/nav3-recipes/tree/main/app/src/main/java/com/example/nav3recipes/results/event)
+
+[![](/static/images/picto-icons/code.svg)
+
+Explore
+
+View the full recipe on GitHub.
+
+arrow\_forward](https://github.com/android/nav3-recipes/tree/main/app/src/main/java/com/example/nav3recipes/results/event)
 
 ```
 /*
@@ -44,9 +60,15 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 
 class HomeViewModel : ViewModel() {
-    var person by mutableStateOf<Person?>(null)
-}
+    var pers<on by m>utableSt
+
+ateOfPerson
+
+?(nul
 ```
+
+l)
+}HomeViewModel.kt
 
 ```
 /*
@@ -74,7 +96,11 @@ import kotlinx.serialization.Serializable
 data object Home : NavKey
 
 @Serializable
-class PersonDetailsForm : NavKeyhttps://github.com/android/nav3-recipes/blob/d2a2288a393dfa373e02b04c48c483cd9add9dbf/app/src/main/java/com/example/nav3recipes/results/common/NavKeys.kt
+class Person
+
+DetailsFor
+
+m : NavKeyNavKeys.kt
 ```
 
 ```
@@ -100,7 +126,11 @@ import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-data class Person(val name: String, val favoriteColor: String) : Parcelablehttps://github.com/android/nav3-recipes/blob/d2a2288a393dfa373e02b04c48c483cd9add9dbf/app/src/main/java/com/example/nav3recipes/results/common/Person.kt
+data class Person(val name: String, val favoriteColor:
+
+String) :
+
+ParcelablePerson.kt
 ```
 
 ```
@@ -137,8 +167,8 @@ import com.example.nav3recipes.content.ContentGreen
 
 @Composable
 fun HomeScreen(
-    person: Person?,
-    onNext: () -> Unit
+    person: Perso>n?,
+    onNext: () - Unit
 ) {
     ContentBlue("Hello ${person?.name ?: "unknown person"}") {
 
@@ -153,9 +183,9 @@ fun HomeScreen(
     }
 }
 
-@Composable
+@>Composable
 fun PersonDetailsScreen(
-    onSubmit: (Person) -> Unit
+    onSubmit: (Person) - Unit
 ) {
     ContentGreen("About you") {
 
@@ -177,15 +207,19 @@ fun PersonDetailsScreen(
                     name = nameTextState.text.toString(),
                     favoriteColor = favoriteColorTextState.text.toString()
                 )
-                onSubmit(person)
+            &&    onSubmit(person)
             },
-            enabled = nameTextState.text.isNotBlank() &&
-                    favoriteColorTextState.text.isNotBlank()
+            enabled = nameTextState.text.isNotBlank() 
+                    favorit
+
+eColorTextState
+
+.text.isNotBlank()
         ) {
             Text("Submit")
         }
     }
-}
+}ScreenContent.kt
 ```
 
 ```
@@ -220,18 +254,21 @@ import androidx.compose.runtime.LaunchedEffect
  * @param resultKey the key that should be associated with this effect
  * @param onResult the callback to invoke when a result is received
  */
-@Composable
-inline fun <reified T> ResultEffect(
+@Co<mposable<>/span>
+inline fun reified T ResultEffect(
     resultEventBus: ResultEventBus = LocalResultEventBus.current,
     resultKey: String = T::class.toString(),
-    crossinline onResult: suspend (T) -> Unit
+    crossinline onR>esult: suspend (T) - Unit
 ) {
     LaunchedEffect(resultKey, resultEventBus.channelMap[resultKey]) {
-        resultEventBus.getResultFlow<T>(resultKey)?.collect { result ->
-            onResult.invoke(result as T)
+        resultEv<e>ntBus.getResultFlowT(resultKey)>?.collect { result -
+            onResult.invoke(result as
+
+T)
         }
-    }
+
 }
+}ResultEffect.kt
 ```
 
 ```
@@ -280,7 +317,7 @@ class ResultEventActivity : ComponentActivity() {
         setContent {
             val resultBus = remember { ResultEventBus() }
 
-            Scaffold { paddingValues ->
+            Scaffo>ld { paddingValues -
 
                 val backStack = rememberNavBackStack(Home)
 
@@ -289,9 +326,9 @@ class ResultEventActivity : ComponentActivity() {
                     modifier = Modifier.padding(paddingValues),
                     onBack = { backStack.removeLastOrNull() },
                     entryProvider = entryProvider {
-                        entry<Home> {
-                            val viewModel = viewModel<HomeViewModel>(key = Home.toString())
-                            ResultEffect<Person>(resultBus) { person ->
+         <    >           entryHome {
+                            val v<iewModel = vi>ewModelHomeViewModel(key = Home.toString())
+                    <      >  ResultEffectPerson(r>esultBus) { person -
                                 viewModel.person = person
                             }
 
@@ -301,20 +338,24 @@ class ResultEventActivity : ComponentActivity() {
                                 onNext = { backStack.add(PersonDetailsForm()) }
                             )
                         }
-                        entry<PersonDetailsForm> {
+         <               en>tryPersonDetailsForm {
                             PersonDetailsScreen(
-                                onSubmit = { person ->
-                                    resultBus.sendResult<Person>(result = person)
+                                o>nSubmit = { person -
+                                    <result>Bus.sendResultPerson(result = person)
                                     backStack.removeLastOrNull()
                                 }
                             )
                         }
                     }
                 )
-            }
+
+}
         }
     }
 }
+Re
+
+sultEventActivity.kt
 ```
 
 ```
@@ -350,7 +391,7 @@ import kotlinx.coroutines.flow.receiveAsFlow
  * Local for receiving results in a [ResultEventBus]
  */
 object LocalResultEventBus {
-    private val LocalResultEventBus: ProvidableCompositionLocal<ResultEventBus?> =
+    private val LocalResultEventBus: Provid<ableComposition>LocalResultEventBus? =
         compositionLocalOf { null }
 
     /**
@@ -364,8 +405,8 @@ object LocalResultEventBus {
      * Provides a [ResultEventBus] to the composition
      */
     infix fun provides(
-        bus: ResultEventBus
-    ): ProvidedValue<ResultEventBus?> {
+        bus: Resul<tEventBus
+    )>: ProvidedValueResultEventBus? {
         return LocalResultEventBus.provides(bus)
     }
 }
@@ -378,18 +419,18 @@ class ResultEventBus {
     /**
      * Map from the result key to a channel of results.
      */
-    val channelMap = mutableStateMapOf<String, Channel<Any?>>()
+    val <channelMap = mu<tabl>>eStateMapOfString, ChannelAny?()
 
     /**
-     * Provides a flow for the given resultKey.
-     */
-    inline fun <reified T> getResultFlow(resultKey: String = T::class.toString()) =
+     * Provides a flow for the given resu<ltKey.
+  >   */
+    inline fun reified T getResultFlow(resultKey: String = T::class.toString()) =
         channelMap[resultKey]?.receiveAsFlow()
 
     /**
-     * Sends a result into the channel associated with the given resultKey.
-     */
-    inline fun <reified T> sendResult(resultKey: String = T::class.toString(), result: T) {
+     * Sends a result into the channel associated with the given resu<ltKey.
+  >   */
+    inline fun reified T sendResult(resultKey: String = T::class.toString(), result: T) {
         if (!channelMap.contains(resultKey)) {
             channelMap[resultKey] = Channel(capacity = BUFFERED, onBufferOverflow = BufferOverflow.SUSPEND)
         }
@@ -397,10 +438,14 @@ class ResultEventBus {
     }
 
     /**
-     * Removes all results associated with the given key from the store.
-     */
-    inline fun <reified T> removeResult(resultKey: String = T::class.toString()) {
-        channelMap.remove(resultKey)
+     * Removes all results associated with the given key from the <store.
+  >   */
+    inline fun reified T removeResult(resultKey: String = T::class.toString()) {
+        channe
+
+lMap
+
+.remove(resultKey)
     }
-}
+}ResultEventBus.kt
 ```

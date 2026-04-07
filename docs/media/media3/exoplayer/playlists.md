@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 The playlist API is defined by the `Player` interface, which is implemented by
 all `ExoPlayer` implementations. Playlists enable sequential playback of
 multiple media items. The following example shows how to start playback of a

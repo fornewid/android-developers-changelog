@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 Use a [`Dialog`](/reference/kotlin/androidx/wear/compose/material/dialog/package-summary) to focus users' attention on a timely action or piece of
 information.
 

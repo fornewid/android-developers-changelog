@@ -1,97 +1,89 @@
 ---
-title: Android Views and Compose in Views  |  Android Developers
+title: https://developer.android.com/courses/quizzes/android-basics-compose-unit-8-pathway-1/android-basics-compose-unit-8-pathway-1
 url: https://developer.android.com/courses/quizzes/android-basics-compose-unit-8-pathway-1/android-basics-compose-unit-8-pathway-1
-source: html-scrape
+source: md.txt
 ---
-
-Stay organized with collections
-
-Save and categorize content based on your preferences.
-
-
 
 # Android Views and Compose in Views
 
-Return to pathway
+# Android Views and Compose in Views
 
+<br />
 
+Return to pathway  
+1.
 
-1. ## Which language is used to build View layouts?
+   ## Which language is used to build View layouts?
 
-   HTML
+   HTML  
+   Kotlin  
+   XML  
+   Java  
+2.
 
-   Kotlin
+   ## When building an app with Views, the concept of a Composable 'screen' should be replaced by which of the following?
 
-   XML
+   Fragment  
+   ViewModel  
+   Composable  
+   Activity  
+3.
 
-   Java
-2. ## When building an app with Views, the concept of a Composable 'screen' should be replaced by which of the following?
+   ## View Bindings are used to access and interact with XML declared`View`s.
 
-   Fragment
+   True  
+   False  
+4.
 
-   ViewModel
+   ## In which`Fragment`lifecycle method is the View Binding inflated?
 
-   Composable
+   `onViewCreated()`  
+   `onCreateView()`  
+   `onStart()`  
+   `onResume()`  
+5.
 
-   Activity
-3. ## View Bindings are used to access and interact with XML declared `View`s.
+   ## View components can be accessed before the View Binding has been inflated.
 
-   True
+   True  
+   False  
+6.
 
-   False
-4. ## In which `Fragment` lifecycle method is the View Binding inflated?
+   ## A`ComposeView`is a(n):
 
-   `onViewCreated()`
+   View that can host an Android View inside a Compose UI.  
+   Android view that can host Jetpack Compose UI content inside a View layout  
+   Android view that can host an Android View inside a View layout.  
+   View that can host Compose UI inside a Compose UI.  
+7.
 
-   `onCreateView()`
+   ## Jetpack Compose and the View system can co-exist in your codebase.
 
-   `onStart()`
+   True  
+   False  
+8.
 
-   `onResume()`
-5. ## View components can be accessed before the View Binding has been inflated.
+   ## The`ComposeView`uses its ___ method to display Compose elements on the screen.
 
-   True
+   `Composable()`  
+   `setContent()`  
+   `setComposeContent()`  
+   `displayComposable()`  
+9.
 
-   False
-6. ## A `ComposeView` is a(n):
+   ## Jetpack Compose was designed with View interoperability right from the start.
 
-   View that can host an Android View inside a Compose UI.
+   True  
+   False  
+10.
 
-   Android view that can host Jetpack Compose UI content inside a View layout
+    ## The flag that enables Android Studio to work with Compose is the:
 
-   Android view that can host an Android View inside a View layout.
-
-   View that can host Compose UI inside a Compose UI.
-7. ## Jetpack Compose and the View system can co-exist in your codebase.
-
-   True
-
-   False
-8. ## The `ComposeView` uses its \_\_\_ method to display Compose elements on the screen.
-
-   `Composable()`
-
-   `setContent()`
-
-   `setComposeContent()`
-
-   `displayComposable()`
-9. ## Jetpack Compose was designed with View interoperability right from the start.
-
-   True
-
-   False
-10. ## The flag that enables Android Studio to work with Compose is the:
-
-    In project-level use `buildFeatures { compose true }`
-
-    In app-level use `buildFeatures { compose true }`
-
-    In project-level use `buildFeatures { enableCompose true }`
-
-    In app-level use `buildFeatures { enableCompose true }`
+    In project-level use`buildFeatures { compose true }`  
+    In app-level use`buildFeatures { compose true }`  
+    In project-level use`buildFeatures { enableCompose true }`  
+    In app-level use`buildFeatures { enableCompose true }`  
 
 Submit answers
 
-*error\_outline*
-An error occurred when grading the quiz. Please try again.
+*error_outline*An error occurred when grading the quiz. Please try again.

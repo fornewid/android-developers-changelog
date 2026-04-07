@@ -1,12 +1,23 @@
 ---
-title: https://developer.android.com/games/pgs/android/server-access
+title: Server-side access to Google Play Games Services  |  Android game development  |  Android Developers
 url: https://developer.android.com/games/pgs/android/server-access
-source: md.txt
+source: html-scrape
 ---
 
-> [!NOTE]
-> **Note:** This guide is for the Play Games Services v2 SDK. For information on the previous version of this SDK, see the [Play Games Services v1
-> documentation](https://developer.android.com/games/pgs/v1/android/server-access).
+* [Android Developers](https://developer.android.com/)
+* [Google Play](https://developer.android.com/distribute)
+* [Games dev center](https://developer.android.com/games)
+* [Guides](https://developer.android.com/games/guides)
+
+Send feedback
+
+# Server-side access to Google Play Games Services Stay organized with collections Save and categorize content based on your preferences.
+
+
+
+**Note:** This guide is for the Play Games Services v2 SDK. For information on the
+previous version of this SDK, see the [Play Games Services v1
+documentation](/games/pgs/v1/android/server-access).
 
 We recommend that you use [GamesSignInClient](https://developers.google.com/android/reference/com/google/android/gms/games/GamesSignInClient)
 to authenticate players and securely pass the player's identity to the backend
@@ -21,20 +32,29 @@ code for an OAuth 2.0 token that the server can use to make calls to the
 Google Play Games Services API.
 
 For additional guidance on adding authentication in your games, see
-[Platform authentication for Android Games](https://developer.android.com/games/pgs/android/android-signin).
+[Platform authentication for Android Games](/games/pgs/android/android-signin).
 
 The following steps are required for offline access:
 
-1. In the Google Play Console: Create a credential for your game server. The OAuth client type of the credential will be "web".
-2. In the Android app: As part of platform authentication, request a server auth code for your server's credential, and pass that to your server. The `GamesSigninClient` can request three OAuth 2.0 scopes when requesting server-side access to Play Games Services web APIs. The optional scopes are `EMAIL`, `PROFILE`, and `OPEN_ID`. The two default scopes are `DRIVE_APPFOLDER` and `GAMES_LITE`.
-3. On your game server: Exchange the server auth code for an OAuth access token using Google auth services, and then use this to call the Play Games Services [REST APIs](https://developer.android.com/games/services/web/api/rest).
+1. In the Google Play Console: Create a credential for your game server.
+   The OAuth client type of the credential will be "web".
+2. In the Android app: As part of platform authentication, request a server
+   auth code for your server's credential, and pass that to your server. The
+   `GamesSigninClient` can request three OAuth 2.0 scopes when requesting
+   server-side access to Play Games Services web APIs. The optional scopes are
+   `EMAIL`, `PROFILE`, and `OPEN_ID`. The two default scopes are
+   `DRIVE_APPFOLDER` and `GAMES_LITE`.
+3. On your game server: Exchange the server auth code for an OAuth access
+   token using Google auth services, and then use this to call the
+   Play Games Services
+   [REST APIs](/games/services/web/api/rest).
 
 ## Before you begin
 
 You'll first need to add your game in the
 [Google Play Console](https://play.google.com/apps/publish/), as described in
-[Set Up Google Play Games Services](https://developer.android.com/games/pgs/console/enable-features), and
-integrate [Play Games Services platform authentication](https://developer.android.com/games/pgs/signin) with your game.
+[Set Up Google Play Games Services](/games/pgs/console/enable-features), and
+integrate [Play Games Services platform authentication](/games/pgs/signin) with your game.
 
 ## Create a server-side web app
 
@@ -43,18 +63,29 @@ support for Web games. However, it does provide backend server support
 for your Android game's server.
 
 If you want to use the
-[REST APIs for Google Play Games services](https://developer.android.com/games/services/web/api/rest)
+[REST APIs for Google Play Games services](/games/services/web/api/rest)
 in your server-side app, follow these steps:
 
-1. In the [Google Play Console](https://play.google.com/console/about/), select a game.
-2. Go to **Play Games Services \> Setup and management \> Configuration**.
-3. Select *Add credential* to be brought to the *Add credential page* . Select *Game server* as the credential type and continue onto the *Authorization* section.
-   1. If your game server already has an OAuth client ID select it from the drop down menu. After saving your changes, move onto [the next section](https://developer.android.com/games/pgs/android/server-access#get_the_server_auth_code).
-   2. If you don't have an existing OAuth client ID for your game server, you can create one.
-      1. Click *Create OAuth client* and follow the *Create OAuth Client ID* link.
-      2. This will bring you to the Google Cloud Platform's *Create OAuth Client ID* page for your project associated with your game.
-      3. Fill out the page's form and click create. Be sure to set the Application type to Web application.
-      4. Return to the *Add credential page's Authorization* section, select the newly created OAuth client and save your changes.
+1. In the [Google Play Console](https://play.google.com/console/about/),
+   select a game.
+2. Go to **Play Games Services > Setup and management > Configuration**.
+3. Select *Add credential* to be brought to the *Add credential page*.
+   Select *Game server* as the credential type and continue onto the
+   *Authorization* section.
+   1. If your game server already has an OAuth client ID select it from the drop
+      down menu. After saving your changes, move onto
+      [the next section](/games/pgs/android/server-access#get_the_server_auth_code).
+   2. If you don't have an existing OAuth client ID for your game server, you can
+      create one.
+      1. Click *Create OAuth client* and follow the *Create OAuth Client ID*
+         link.
+      2. This will bring you to the Google Cloud Platform's
+         *Create OAuth Client ID* page for your
+         project associated with your game.
+      3. Fill out the page's form and click create. Be sure to set the
+         Application type to Web application.
+      4. Return to the *Add credential page's Authorization* section, select
+         the newly created OAuth client and save your changes.
 
 ## Get the server auth code
 
@@ -64,7 +95,9 @@ backend server:
 1. Call `requestServerSideAccess` from the client.
    1. Be sure that you use the **OAuth Client ID registered for your game
       server** and not the OAuth Client ID of your Android application.
-   2. (Optional) If your game server requires offline access (long lived access using a refresh token) to Play Games Services, you can set the `forceRefreshToken` parameter to true.
+   2. (Optional) If your game server requires offline access (long lived access
+      using a refresh token) to Play Games Services, you can set the
+      `forceRefreshToken` parameter to true.
 2. (Optional) As part of the authentication, new users should encounter a
    single consent screen for additional scopes.
    Upon accepting the consent, you set the `scopes` parameter with
@@ -72,14 +105,12 @@ backend server:
    consent, only the two default scopes `DRIVE_APPFOLDER` and `GAMES_LITE` are
    sent to the backend.
 
-   <br />
-
-   [![Consent screen for additional OAuth scopes.](https://developer.android.com/static/images/games/pgs/scopeid.png)](https://developer.android.com/static/images/games/pgs/scopeid.png) Consent screen for additional OAuth scopes. (click to enlarge).
-
-   <br />
+   [![Consent screen for additional OAuth scopes.](/static/images/games/pgs/scopeid.png)](/static/images/games/pgs/scopeid.png)
 
 
-   ```java
+   Consent screen for additional OAuth scopes. (click to enlarge).
+
+   ```
     GamesSignInClient gamesSignInClient = PlayGames.getGamesSignInClient(this);
     gamesSignInClient.requestServerSideAccess(OAUTH_2_WEB_CLIENT_ID, /* forceRefreshToken= / false,
         / Additional AuthScope */ scopes)
@@ -94,11 +125,7 @@ backend server:
           // Failed to retrieve authentication code.
         }
     });
-    
    ```
-
-   <br />
-
 3. Send the OAuth auth code token to your backend server so it may be exchanged,
    the Player ID verified against the Play Games Services REST APIs, and then
    authenticated with your game.
@@ -110,7 +137,7 @@ refresh tokens. Use the access token to call the Play Games Services API on
 behalf of the player and, optionally, store the refresh token to acquire a new
 access token when the access token expires.
 
-For more information about how Player IDs work, see [Next-generation Player IDs](https://developer.android.com/games/pgs/next-gen-player-ids).
+For more information about how Player IDs work, see [Next-generation Player IDs](/games/pgs/next-gen-player-ids).
 
 The following code snippet shows how you might implement the server-side code in
 the Java programming language to exchange the server auth code for access
@@ -118,7 +145,7 @@ tokens.
 
 ### Java
 
-```java
+```
 /**
  * Exchanges the authcode for an access token credential. The credential
  * is associated with the given player.
@@ -219,7 +246,7 @@ snippet shows the implementation in Java programming language.
 
 ### Java
 
-```java
+```
 import com.google.api.client.googleapis.auth.oauth2.GoogleIdToken;
 import com.google.api.client.googleapis.auth.oauth2.GoogleIdToken.Payload;
 import com.google.api.client.googleapis.auth.oauth2.GoogleIdTokenVerifier;
@@ -279,7 +306,7 @@ void TokenVerifier(GoogleTokenResponse tokenResponse) {
 
 ## Call REST APIs from the server
 
-See [REST APIs for Google Play Games services](https://developer.android.com/games/services/web/api/rest)
+See [REST APIs for Google Play Games services](/games/services/web/api/rest)
 for a full description of API calls available.
 
 Examples of REST API calls that you may find useful include the following:
@@ -287,72 +314,67 @@ Examples of REST API calls that you may find useful include the following:
 ### Player
 
 Want to get the authenticated with player's ID and profile data? Call
-[Players.get](https://developer.android.com/games/services/web/api/rest/v1/players/get)
+[Players.get](/games/services/web/api/rest/v1/players/get)
 with `'me'` as the ID.
 
 ### Friends
 
-See the [Friends](https://developer.android.com/games/pgs/friends) guide for details.
+See the [Friends](/games/pgs/friends) guide for details.
 
-- To retrieve the player's list of friends, call
-  [Players.list](https://developer.android.com/games/services/web/api/rest/v1/players/list)
+* To retrieve the player's list of friends, call
+  [Players.list](/games/services/web/api/rest/v1/players/list)
   with `friends_all` as the `collection`.
-
-- To verify whether you have access to a friends list, call
-  [Players.get](https://developer.android.com/games/services/web/api/rest/v1/players/get)
+* To verify whether you have access to a friends list, call
+  [Players.get](/games/services/web/api/rest/v1/players/get)
   with `me` as the `playerID`, and
   view the
-  [`profileSettings.friendsListVisibility`](https://developer.android.com/games/services/web/api/rest/v1/players#profileSettings.friendsListVisibility)
+  [`profileSettings.friendsListVisibility`](/games/services/web/api/rest/v1/players#profileSettings.friendsListVisibility)
   field in the response.
 
 ### Achievements
 
-See the [Achievements](https://developer.android.com/games/pgs/achievements) guide for details.
+See the [Achievements](/games/pgs/achievements) guide for details.
 
-- To get a list of current achievements, call
-  [AchievementDefinitions.list](https://developer.android.com/games/services/web/api/rest/v1/achievementDefinitions/list).
-
-- Combine that with a call to
-  [Achievements.list](https://developer.android.com/games/services/web/api/rest/v1/achievements/list)
+* To get a list of current achievements, call
+  [AchievementDefinitions.list](/games/services/web/api/rest/v1/achievementDefinitions/list).
+* Combine that with a call to
+  [Achievements.list](/games/services/web/api/rest/v1/achievements/list)
   to find out which ones the player unlocked.
-
-- Call
-  [Achievements.unlock](https://developer.android.com/games/services/web/api/rest/v1/achievements/unlock)
+* Call
+  [Achievements.unlock](/games/services/web/api/rest/v1/achievements/unlock)
   to unlock a player achievement.
-
-- Call
-  [Achievements.increment](https://developer.android.com/games/services/web/api/rest/v1/achievements/increment)
+* Call
+  [Achievements.increment](/games/services/web/api/rest/v1/achievements/increment)
   to report progress on an achievement, and find out if the player unlocked it.
-
-- If you are debugging a game that hasn't reached production, you can call
-  [Achievements.reset](https://developer.android.com/games/services/management/api/achievements/reset)
+* If you are debugging a game that hasn't reached production, you can call
+  [Achievements.reset](/games/services/management/api/achievements/reset)
   or
-  [Achievements.resetAll](https://developer.android.com/games/services/management/api/achievements/resetAll)
+  [Achievements.resetAll](/games/services/management/api/achievements/resetAll)
   from the Management APIs to reset achievements to their original state.
 
 ### Leaderboards
 
-See the [Leaderboards](https://developer.android.com/games/pgs/leaderboards) guide for details.
+See the [Leaderboards](/games/pgs/leaderboards) guide for details.
 
-- To get a list of all scoreboards in the game, call
-  [Leaderboards.list](https://developer.android.com/games/services/web/api/rest/v1/leaderboards/list).
-
-- If a player is done with a game, you can submit their score to
-  [Scores.submit](https://developer.android.com/games/services/web/api/rest/v1/scores/submit)
+* To get a list of all scoreboards in the game, call
+  [Leaderboards.list](/games/services/web/api/rest/v1/leaderboards/list).
+* If a player is done with a game, you can submit their score to
+  [Scores.submit](/games/services/web/api/rest/v1/scores/submit)
   and find out if it is a new high score.
-
-- To display a leaderboard, get the data from
-  [Scores.list](https://developer.android.com/games/services/web/api/rest/v1/scores/list)
+* To display a leaderboard, get the data from
+  [Scores.list](/games/services/web/api/rest/v1/scores/list)
   and show it to the user.
-
-- Use [Scores.listWindow](https://developer.android.com/games/services/web/api/rest/v1/scores/listWindow)
+* Use [Scores.listWindow](/games/services/web/api/rest/v1/scores/listWindow)
   to find an assortment of scores close to the user's high score.
-
-- To get more information about the player's score in a particular leaderboard
+* To get more information about the player's score in a particular leaderboard
   (for example, if the player is in the top 12% of all players), call
-  [Scores.get](https://developer.android.com/games/services/web/api/rest/v1/scores/get).
-
-- If you are debugging a game, you can call
-  [Scores.reset](https://developer.android.com/games/services/management/api/scores/reset)
+  [Scores.get](/games/services/web/api/rest/v1/scores/get).
+* If you are debugging a game, you can call
+  [Scores.reset](/games/services/management/api/scores/reset)
   from the Management APIs to reset all scores for that player from a particular
   leaderboard.
+
+
+
+
+Send feedback

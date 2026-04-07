@@ -1,121 +1,95 @@
 ---
-title: Getting started designing for Wear OS  |  Android Developers
+title: https://developer.android.com/design/ui/wear/guides/m2-5/foundations/getting-started
 url: https://developer.android.com/design/ui/wear/guides/m2-5/foundations/getting-started
-source: html-scrape
+source: md.txt
 ---
 
-* [Android Developers](https://developer.android.com/)
-* [Design & Plan](https://developer.android.com/design)
-* [UI Design](https://developer.android.com/design/ui)
-* [Wear](https://developer.android.com/design/ui/wear)
-* [Guides](https://developer.android.com/design/ui/wear/guides/get-started)
+# Getting started designing for Wear OS
 
-# Getting started designing for Wear OS Stay organized with collections Save and categorize content based on your preferences.
-
-
-
-![](/static/wear/images/design/getting-started-header.png)
+![](https://developer.android.com/static/wear/images/design/getting-started-header.png)
 
 Material Design for Wear OS helps you design engaging app experiences.
 
 ## Understand use cases
 
-Watches allow users to get information at a glance, such as seeing
-progress towards health and fitness goals, and to act quickly, like responding
-to an instant message. Focus on use cases like these when designing apps for
-smartwatches.
+Watches allow users to get information at a glance, such as seeing progress towards health and fitness goals, and to act quickly, like responding to an instant message. Focus on use cases like these when designing apps for smartwatches.
 
-The watch interface presents unique opportunities that are not available
-on mobile devices, including:
+The watch interface presents unique opportunities that are not available on mobile devices, including:
 
-* Input enabled by a physical body connection (through sensors and motion
-  detection).
-* Quick access to glanceable information and actions, such as complications,
-  notifications, and Tiles.
+- Input enabled by a physical body connection (through sensors and motion detection).
+- Quick access to glanceable information and actions, such as complications, notifications, and Tiles.
 
 The watch also comes with limitations:
 
-* Smaller screen space
-* Lower information density
-* Limited battery life
+- Smaller screen space
+- Lower information density
+- Limited battery life
 
-Consider both the capabilities and limitations of the platform when designing
-apps for watches.
-
-![](/static/wear/images/design/get_started_1.png)
-
-check\_circle
+Consider both the capabilities and limitations of the platform when designing apps for watches.  
+![](https://developer.android.com/static/wear/images/design/get_started_1.png)  
+check_circle
 
 ### Do
 
-Design experiences where tasks can be accomplished easily
-using the watch interface.
-
-![](/static/wear/images/design/get_started_4.png)
-
+Design experiences where tasks can be accomplished easily using the watch interface.  
+![](https://developer.android.com/static/wear/images/design/get_started_4.png)  
 cancel
 
 ### Don't
 
-Don't create complex, detailed apps that include items like
-spreadsheets, as this is difficult to edit and view on a watch.
+Don't create complex, detailed apps that include items like spreadsheets, as this is difficult to edit and view on a watch.
 
 ## Test designs
 
-The majority of Wear OS devices have round screens, which have 22% less UI
-space than square displays. Round screens also need larger margins for text to
-be more readable.
+The majority of Wear OS devices have round screens, which have 22% less UI space than square displays. Round screens also need larger margins for text to be more readable.
 
-Material Design for Wear OS helps you design engaging app experiences. The
-following screenshots show a few illustrated examples of Wear OS apps that
-follow the principles described in this guide.
-
-![](/static/wear/images/design/get_started_3.png)
-
-check\_circle
+Material Design for Wear OS helps you design engaging app experiences. The following screenshots show a few illustrated examples of Wear OS apps that follow the principles described in this guide.  
+![](https://developer.android.com/static/wear/images/design/get_started_3.png)  
+check_circle
 
 ### Do
 
-Design for round devices first to make sure your layout works
-within the smaller size constraints.
-
-![](/static/wear/images/design/get_started_2.png)
-
+Design for round devices first to make sure your layout works within the smaller size constraints.  
+![](https://developer.android.com/static/wear/images/design/get_started_2.png)  
 cancel
 
 ### Don't
 
-People wearing watches are regularly in motion, whether they
-are standing, gesturing, or running to catch a bus. Test your designs in
-situations that involve user movement to make sure the design is usable at
-a glance.
+People wearing watches are regularly in motion, whether they are standing, gesturing, or running to catch a bus. Test your designs in situations that involve user movement to make sure the design is usable at a glance.
 
 ## App examples
 
-Material Design for Wear OS helps you design engaging app experiences. The
-following screenshots show a few illustrated examples of Wear OS apps that
-follow the principles described in this guide.
+Material Design for Wear OS helps you design engaging app experiences. The following screenshots show a few illustrated examples of Wear OS apps that follow the principles described in this guide.
 
-![Example media app](/static/wear/images/design/example_app_5.png)
+<br />
 
-**Figure 1.** An example of a media app.
+![Example media app](https://developer.android.com/static/wear/images/design/example_app_5.png)
 
-![Example task management app](/static/wear/images/design/example_app_4.png)
+**Figure 1.**An example of a media app.  
+![Example task management app](https://developer.android.com/static/wear/images/design/example_app_4.png)
 
-**Figure 2.** An example of a task management app.
+**Figure 2.**An example of a task management app.
 
-![Example instant messaging app](/static/wear/images/design/example_app_9.png)
+<br />
 
-**Figure 3.** An example of an instant messaging app.
+<br />
 
-![Example stopwatch app](/static/wear/images/design/example_app_1.png)
+![Example instant messaging app](https://developer.android.com/static/wear/images/design/example_app_9.png)
 
-**Figure 4.** An example of a stopwatch app.
+**Figure 3.**An example of an instant messaging app.  
+![Example stopwatch app](https://developer.android.com/static/wear/images/design/example_app_1.png)
 
-![Example dialer app](/static/wear/images/design/example_app_7.png)
+**Figure 4.**An example of a stopwatch app.
 
-**Figure 5.** An example of a dialer app.
+<br />
 
-![Example calculator app](/static/wear/images/design/example_app_6.png)
+<br />
 
-**Figure 6.** An example of a calculator app.
+![Example dialer app](https://developer.android.com/static/wear/images/design/example_app_7.png)
+
+**Figure 5.**An example of a dialer app.  
+![Example calculator app](https://developer.android.com/static/wear/images/design/example_app_6.png)
+
+**Figure 6.**An example of a calculator app.
+
+<br />

@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 Engage SDK offers a REST API to provide a consistent continue watching
 experience across non-Android platforms such as iOS and Roku TV. The API allows
 developers to update the "Continue-Watching" status for opted-in users from

@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 The Cross device SDK Developer Preview is distributed through an [open-source
 project](https://github.com/google/cross-device-sdk). This preview is available for the developer community to prototype and
 validate multidevice experiences but is not intended for use in production

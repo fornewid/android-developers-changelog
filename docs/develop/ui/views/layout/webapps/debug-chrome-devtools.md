@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 You can use the DevTools built into the Chrome browser running on your
 development machine to remotely inspect and debug the WebViews running in your
 app. For a detailed guide about remote debugging for WebViews, see [Remote

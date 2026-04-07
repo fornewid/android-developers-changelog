@@ -16,6 +16,7 @@ Save and categorize content based on your preferences.
 
 
 
+
 ## Quick Guides Collection Optimize for large screens
 
 Enable your app to support an optimized user experience on tablets, foldables, and ChromeOS devices.

@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 ![](/static/wear/images/surfaces/app-layouts-hero.png)
 
 When designing apps for Wear OS, be intentional about the layouts you choose for

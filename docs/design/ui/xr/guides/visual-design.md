@@ -16,7 +16,6 @@ The Android XR SDK is now available in Developer Preview. We want your feedback!
 
 
 
-
 You can build immersive Android XR applications using OpenXR, native Android
 APIs, or WebXR. The visual design recommendations outlined on this page apply
 regardless of which platform you choose.

@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 Capabilities in `shortcuts.xml` let you declare the types of actions users can
 take to launch your app and directly perform a specific task.
 

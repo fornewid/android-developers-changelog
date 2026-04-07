@@ -14,7 +14,6 @@ Join us for ⁠the [Google for Games Developer Summit](https://gamedevsummit.wit
 
 
 
-
 The **Textures** pane displays all the [texture](/agi/frame-trace-gui/texture-pane) resources created up to and including the selected command.
 
 ![alt text](https://gapid.dev/images/textures-pane/textures-pane.png "Textures View")

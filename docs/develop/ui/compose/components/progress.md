@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 Progress indicators visually surface the status of an operation. They use motion
 to bring to the user's attention how near completion the process is, such as
 loading or processing data. They can also signify that processing is taking

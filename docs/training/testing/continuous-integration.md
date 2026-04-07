@@ -12,6 +12,7 @@ source: html-scrape
 
 
 
+
 Continuous Integration (CI) is a software development practice where developers
 frequently merge their code changes into a central repository, after which
 automated builds and tests run.

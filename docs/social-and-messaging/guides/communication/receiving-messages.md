@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Receiving messages reliably is the most critical feature of any Android
 messaging experience. It's also important to implement messaging with an eye on
 system health and battery life. This document guides you through the key

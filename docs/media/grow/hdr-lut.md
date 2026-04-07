@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Varying HDR capabilities across Android devices can lead to fragmented HDR
 display outputs. A look-up table (LUT) is a new color correction solution
 designed to resolve this inconsistency. This inconsistency is resolved by

@@ -16,6 +16,7 @@ Save and categorize content based on your preferences.
 
 
 
+
 # Create dynamic lists with RecyclerView   Part of [Android Jetpack](/jetpack).
 
 Try the Compose way

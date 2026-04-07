@@ -1,26 +1,17 @@
 ---
-title: Get Android 12  |  Android Developers
+title: https://developer.android.com/about/versions/12/get
 url: https://developer.android.com/about/versions/12/get
-source: html-scrape
+source: md.txt
 ---
 
-* [Android Developers](https://developer.android.com/)
-* [Essentials](https://developer.android.com/get-started)
-* [Releases](https://developer.android.com/about/versions)
-
-# Get Android 12 Stay organized with collections Save and categorize content based on your preferences.
-
-
-
-
-![](/static/images/lockups/android-stacked.svg)
+![](https://developer.android.com/static/images/lockups/android-stacked.svg)
 
 You can get Android 12 in any of these ways:
 
-* [Get Android 12 on a Google Pixel device](#on_pixel)
-* [Set up an Android emulator](#on_emulator)
-* [Get a generic system image (GSI)](#on_gsi)
-* [Get Android 12 for Android TV](#on_androidtv)
+- [Get Android 12 on a Google Pixel device](https://developer.android.com/about/versions/12/get#on_pixel)
+- [Set up an Android emulator](https://developer.android.com/about/versions/12/get#on_emulator)
+- [Get a generic system image (GSI)](https://developer.android.com/about/versions/12/get#on_gsi)
+- [Get Android 12 for Android TV](https://developer.android.com/about/versions/12/get#on_androidtv)
 
 ## Get Android 12 on a Google Pixel device
 
@@ -35,12 +26,12 @@ your device.
 Android 12 OTAs and downloads are available for the following Google Pixel
 devices:
 
-* Pixel 3 and 3 XL
-* Pixel 3a and 3a XL
-* Pixel 4 and 4 XL
-* Pixel 4a and 4a (5G)
-* Pixel 5 and Pixel 5a
-* Pixel 6 and 6 Pro
+- Pixel 3 and 3 XL
+- Pixel 3a and 3a XL
+- Pixel 4 and 4 XL
+- Pixel 4a and 4a (5G)
+- Pixel 5 and Pixel 5a
+- Pixel 6 and 6 Pro
 
 ### Flash or manually install a system image
 
@@ -64,16 +55,19 @@ and device characteristics.
 
 You can set up an emulator from inside Android Studio by doing the following:
 
-1. Install [Android Studio Arctic Fox | 2020.3.1 or higher](/studio).
-2. In Android Studio, click **Tools > SDK Manager**.
-3. In the **SDK Tools** tab, select the latest version of **Android Emulator**,
+1. Install [Android Studio Arctic Fox \| 2020.3.1 or higher](https://developer.android.com/studio).
+
+2. In Android Studio, click **Tools \> SDK Manager**.
+
+3. In the **SDK Tools** tab, select the latest version of **Android Emulator** ,
    and click **OK**. This action installs the latest version if it isn't
    already installed.
-4. In Android Studio, click **Tools > AVD Manager**, and follow the
+
+4. In Android Studio, click **Tools \> AVD Manager**, and follow the
    instructions to create a new Android Virtual Device (AVD).
 
    Be sure to select a device definition for a [supported Pixel
-   device](#on_pixel) and a 64-bit Android 13 emulator system image. Note that
+   device](https://developer.android.com/about/versions/12/get#on_pixel) and a 64-bit Android 13 emulator system image. Note that
    32-bit Android emulator system images are not supported in Android 12. If
    you don't already have an Android 12 system image installed that matches
    your device definition, click **Download** next to the **Release Name** to
@@ -83,15 +77,15 @@ You can set up an emulator from inside Android Studio by doing the following:
 
 ## Get a generic system image (GSI)
 
-Android [Generic System Image (GSI)](/topic/generic-system-image) binaries
+Android [Generic System Image (GSI)](https://developer.android.com/topic/generic-system-image) binaries
 are available to developers for app testing and validation purposes on supported
 Treble-compliant devices. You can use these images to address any compatibility
 issues with Android 12 as well as discover and report OS and framework issues.
 
-See the [GSI documentation](/topic/generic-system-image) for device
+See the [GSI documentation](https://developer.android.com/topic/generic-system-image) for device
 requirements, flashing instructions, and information on choosing the right image
 type for your device. Once you're ready to download a GSI binary, see the
-[Android 12 GSI section](/topic/generic-system-image/releases#android-gsi-12) on
+[Android 12 GSI section](https://developer.android.com/topic/generic-system-image/releases#android-gsi-12) on
 the GSI releases page.
 
 ## Get Android 12 for Android TV
@@ -99,15 +93,15 @@ the GSI releases page.
 Android 12 for Android TV is provided through system images for the
 [ADT-3 Developer Kit](https://store.askey.com/adt-3.html).
 
-See [Android 12 for TV](/tv/release/12) to get started.
+See [Android 12 for TV](https://developer.android.com/tv/release/12) to get started.
 
 ## More information
 
 To learn about which changes might affect you, and to learn how to test
 these changes in your app, read the following topics:
 
-* [Behavior changes that affect all apps](/about/versions/12/behavior-changes-all)
-* [Behavior changes that only affect apps that target Android 12](/about/versions/12/behavior-changes-12)
+- [Behavior changes that affect all apps](https://developer.android.com/about/versions/12/behavior-changes-all)
+- [Behavior changes that only affect apps that target Android 12](https://developer.android.com/about/versions/12/behavior-changes-12)
 
 To learn more about new APIs and features available in Android 12, read
-[Android 12 features](/about/versions/12/features).
+[Android 12 features](https://developer.android.com/about/versions/12/features).

@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 To migrate your app from [Navigation 2](/guide/navigation) to Navigation 3, follow these steps:
 
 1. Add the Navigation 3 dependencies.

@@ -10,7 +10,6 @@ source: html-scrape
 
 
 
-
 This page provides details about older Support Library package releases. For
 the most recent Support Library releases, see [Recent
 Support Library Revisions](/topic/libraries/support-library/revisions).

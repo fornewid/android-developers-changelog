@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 This page tracks Android Gradle plugin (AGP) API deprecation and removals, and
 provides info on how to update your code accordingly.
 

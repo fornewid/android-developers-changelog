@@ -1,18 +1,8 @@
 ---
-title: CPU features  |  Android NDK  |  Android Developers
+title: https://developer.android.com/ndk/guides/cpu-features
 url: https://developer.android.com/ndk/guides/cpu-features
-source: html-scrape
+source: md.txt
 ---
-
-* [Home](https://developer.android.com/)
-* [NDK](https://developer.android.com/ndk)
-* [Develop](https://developer.android.com/develop)
-* [Guides](https://developer.android.com/ndk/guides)
-
-# CPU features Stay organized with collections Save and categorize content based on your preferences.
-
-
-
 
 There are several ways to check for CPU features in your code, each with a
 different set of trade-offs.
@@ -22,10 +12,10 @@ different set of trade-offs.
 It's usually most convenient to determine the ABI at build time using `#ifdef`
 in conjunction with:
 
-* `__arm__` for 32-bit ARM
-* `__aarch64__` for 64-bit ARM
-* `__i386__` for 32-bit X86
-* `__x86_64__` for 64-bit X86
+- `__arm__` for 32-bit ARM
+- `__aarch64__` for 64-bit ARM
+- `__i386__` for 32-bit X86
+- `__x86_64__` for 64-bit X86
 
 Note that 32-bit X86 is called `__i386__`, not `__x86__` as you might expect!
 
@@ -45,12 +35,12 @@ headers in the NDK for the constants to compare against, such as `HWCAP_SHA512`
 for arm64's SHA512 instructions, or `HWCAP_IDIVT` for arm's Thumb integer
 division instructions.
 
-## The Google cpu\_features library
+## The Google cpu_features library
 
 One problem with `AT_HWCAP` is that sometimes devices are mistaken. Some old
 devices, for example, claim to have integer division instructions but do not.
 
-[Google's cpu\_features](https://github.com/google/cpu_features) library works
+[Google's cpu_features](https://github.com/google/cpu_features) library works
 around such issues by applying its own knowledge of specific SoCs (by parsing
 `/proc/cpuinfo` to work out the specific SoC in question).
 
@@ -61,5 +51,5 @@ has workarounds for every problematic device they've encountered in the wild.
 
 The NDK still provides a deprecated library named `cpufeatures` for source
 compatibility with apps that already use it. Unlike the newer and more complete
-[cpu\_features](https://github.com/google/cpu_features) library, this historical
+[cpu_features](https://github.com/google/cpu_features) library, this historical
 library does not have workarounds for as many specific SoCs.

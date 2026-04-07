@@ -1,20 +1,8 @@
 ---
-title: Set up Google Play Games Services  |  Android game development  |  Android Developers
+title: https://developer.android.com/games/pgs/console/setup
 url: https://developer.android.com/games/pgs/console/setup
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [Google Play](https://developer.android.com/distribute)
-* [Games dev center](https://developer.android.com/games)
-* [Guides](https://developer.android.com/games/guides)
-
-Send feedback
-
-# Set up Google Play Games Services Stay organized with collections Save and categorize content based on your preferences.
-
-
-
 
 This page describes how to set up Google Play Games Services for your Android game using
 Google Play Console. The Play Console provides a centralized
@@ -23,9 +11,10 @@ authorize and authenticate your game.
 
 To add your game to Play Console, follow these general steps:
 
-* Create a game project for your game and specify details such as the name and
+- Create a game project for your game and specify details such as the name and
   description of the game.
-* Create and link the necessary credentials to authorize and authenticate
+
+- Create and link the necessary credentials to authorize and authenticate
   your game to Google Play Games Services.
 
 ## Before you start
@@ -34,10 +23,11 @@ Complete the following steps before you configure Google Play Games Services.
 
 ### Create a Google Play Developer account
 
-* You must have a Google Play Developer account set up in
+- You must have a Google Play Developer account set up in
   Play Console. For more information, see
   the [Register for a Google Play Developer account](https://support.google.com/googleplay/android-developer/answer/6112435).
-* Grant edit permission: To edit Play Games Services settings in
+
+- Grant edit permission: To edit Play Games Services settings in
   Play Console, your team must have permissions to manage
   Play Games Services. For more information, see
   [Add developer account users and manage permissions](https://support.google.com/googleplay/android-developer/answer/9844686).
@@ -46,8 +36,8 @@ Complete the following steps before you configure Google Play Games Services.
 
 You must have set up a Google Cloud project. For more information, see
 
-* [Get started with Google Cloud](https://cloud.google.com/docs/get-started)
-* [Creating a project](https://cloud.google.com/resource-manager/docs/creating-managing-projects#creating_a_project)
+- [Get started with Google Cloud](https://cloud.google.com/docs/get-started)
+- [Creating a project](https://cloud.google.com/resource-manager/docs/creating-managing-projects#creating_a_project)
 
 To use Play Console, you must enable the APIs you plan to use
 with your project.
@@ -58,11 +48,9 @@ with your project.
 
 ### gcloud
 
-```
-gcloud services enable \
-   --project "PROJECT" \
-   "games.googleapis.com"
-```
+    gcloud services enable \
+       --project "PROJECT" \
+       "games.googleapis.com"
 
 ## Sign in to the Play Console
 
@@ -78,19 +66,23 @@ To add your game, follow these steps:
 1. In Play Console, create an app and specify that it's a game.
    For more information, see
    [Create and set up your app](https://support.google.com/googleplay/android-developer/answer/9859152).
-2. Go to **Grow users > Play Games Services > Setup and management > Configuration**.
+
+2. Go to **Grow users \> Play Games Services \> Setup and management \> Configuration**.
+
 3. Specify whether your game already uses Google APIs (such as Firebase). It is
    important that you choose the correct option; otherwise, your game may
    experience issues when using Google APIs. Here's the options:
 
-   * **No, my game doesn't use Google APIs**: If you are creating a new game,
+   - **No, my game doesn't use Google APIs** : If you are creating a new game,
      or you have never set up a Google API for it, choose this option. Enter
      your game's name and then click **Create**.
-   * **Yes, my game already uses Google APIs**: Choose this option if you have
+
+   - **Yes, my game already uses Google APIs** : Choose this option if you have
      already set up a Google API for the Game. If this is the case, you will
      see a list of your projects from Google Cloud Console. Select your project
      from the list and then click **Use**.
-   * **Use an existing Play Games Services project**: If you want to use an
+
+   - **Use an existing Play Games Services project** : If you want to use an
      existing Play Games Services project, choose this option. You will see a
      list of existing Play Games Services projects for your account. Select
      your game project from the list and then click **Use**. This is not a
@@ -104,11 +96,13 @@ To add your game, follow these steps:
    such as the description, category, and graphic assets for your game. Here's
    some guidelines for configuring the properties:
 
-   * Only the display name is required for testing. The other fields must be
+   - Only the display name is required for testing. The other fields must be
      filled out before you can publish your game.
-   * The display name and description for your game should match what you set
+
+   - The display name and description for your game should match what you set
      up in your game's Play Store listing.
-   * For guidelines on creating the graphic assets, see
+
+   - For guidelines on creating the graphic assets, see
      [Add preview assets to showcase your app](https://support.google.com/googleplay/android-developer/answer/9866151)
      and the [Google Play Featured-Image
      Guidelines](https://android-developers.blogspot.com/2011/10/android-market-featured-image.html).
@@ -127,19 +121,11 @@ For more detailed instructions, see the following steps:
 
 If you haven't yet configured the OAuth consent screen, the **Credentials**
 section will display a message prompting you to configure.
-
-![Prompt to configure OAuth consent screen](/static/images/games/pgs/pgs-configure-oauth-prompt.png)
-
-
-**Figure 1.**: Prompt to configure OAuth consent screen.
+![Prompt to configure OAuth consent screen](https://developer.android.com/static/images/games/pgs/pgs-configure-oauth-prompt.png) **Figure 1.**: Prompt to configure OAuth consent screen.
 
 Click **Configure**. This opens a dialog with further instructions and a deep
 link to the Google Cloud.
-
-![Prompt to configure your OAuth consent screen.](/static/images/games/pgs/pgs-configure-oauth-instructions.png)
-
-
-**Figure 2.**: Instructions to configure your OAuth consent screen.
+![Prompt to configure your OAuth consent screen.](https://developer.android.com/static/images/games/pgs/pgs-configure-oauth-instructions.png) **Figure 2.**: Instructions to configure your OAuth consent screen.
 
 Make sure that the consent screen is available to everyone that the game is
 available to. The final list of scopes needs to include `games`, `games_lite`,
@@ -151,11 +137,7 @@ authenticate to the game.
 If you have completed the setup of the OAuth consent screen, click **Done**.
 Google Play Console refreshes automatically, and if configuration was successful
 you will be able to create a credential:
-
-![Creating a credential  after successful configuration](/static/images/games/pgs/pgs-credentials.png)
-
-
-**Figure 3.**: Create a credential
+![Creating a credential after successful configuration](https://developer.android.com/static/images/games/pgs/pgs-credentials.png) **Figure 3.**: Create a credential
 
 ### Create a credential
 
@@ -174,7 +156,7 @@ Follow the instructions specific to your credential type.
 *Set up credential details*
 
 Ensure that the name in the *Name* field matches the name of your game.
-Choose whether to enable [Anti-Piracy](/games/services/android/antipiracy).
+Choose whether to enable [Anti-Piracy](https://developer.android.com/games/services/android/antipiracy).
 
 *Set up authorization*
 
@@ -188,13 +170,10 @@ In **Google Cloud**, follow these steps:
 1. Select **Android** as the application type.
 2. Enter your game's name in the **Name** field.
 3. Enter your Android application's [package
-   name](/guide/topics/manifest/manifest-element#package)
-   in the **Package name** field.
-4. If your game is distributed from the Play Store, use the
-   [app signing by Google Play](https://support.google.com/googleplay/android-developer/answer/9842756). Copy the SHA-1
-   fingerprint from the app signing page of the Play Console.
+   name](https://developer.android.com/guide/topics/manifest/manifest-element#package) in the **Package name** field.
+4. If your game is distributed from the Play Store, use the [app signing by Google Play](https://support.google.com/googleplay/android-developer/answer/9842756). Copy the SHA-1 fingerprint from the app signing page of the Play Console.
 5. If you manage your own keystore and signing keys, use the [Keytool
-   utility](/studio/publish/app-signing) to get the SHA-1 fingerprints of the release and debug
+   utility](https://developer.android.com/studio/publish/app-signing) to get the SHA-1 fingerprints of the release and debug
    certificates.
 
    To get the release certificate fingerprint, run the following command:
@@ -207,29 +186,26 @@ In **Google Cloud**, follow these steps:
    Note: On Windows, the debug keystore is located at
    `C:\Users\<USERNAME>\.android\debug.keystore`. On Mac or Linux, the debug
    keystore is typically located at `~/.android/debug.keystore`.
-6. Optional: If you have [created a new keystore](/games/pgs/unity/unity-start#create-newkey)
+6. Optional: If you have [created a new keystore](https://developer.android.com/games/pgs/unity/unity-start#create-newkey)
    using Unity Hub, don't create a new certificate using the instructions in
    the previous step. Use the SHA-1 fingerprint that you created in
    Unity.
 
-   * Use the following command to print the SHA-1 fingerprint
-     to the terminal:
+   - Use the following command to print the SHA-1 fingerprint to the terminal:
 
 `keytool -list -keystore <var>path</var>/<var>name_of_keystore</var>.keystore
 -v`
 
-1. The keytool utility prompts you to enter a password for the keystore. The
-   keytool then prints the fingerprint to the terminal.
+1. The keytool utility prompts you to enter a password for the keystore. The keytool then prints the fingerprint to the terminal.
 2. Paste the SHA-1 fingerprint into the **Signing certificate fingerprint
    (SHA-1)** field.
 3. Click **Create**.
 
 For more information about OAuth 2.0 on Android, see [Authenticating to
-OAuth2 Services](/training/id-auth/authenticate).
+OAuth2 Services](https://developer.android.com/training/id-auth/authenticate).
 
-**Warning:** Make sure to record the package name and signing certificate that
-you configured in this step. Using a different certificate or package name
-in your application will cause authentication failures.
+> [!WARNING]
+> **Warning:** Make sure to record the package name and signing certificate that you configured in this step. Using a different certificate or package name in your application will cause authentication failures.
 
 After you click **Done** in the dialog, the available Client IDs will
 refresh. Choose the credential you created from the drop-down menu and then
@@ -241,7 +217,7 @@ fingerprint, and one with the debug certificate fingerprint. Make sure to
 use the same package name for both. This allows Google Play Games Services
 to recognize calls from your linked APKs that are signed with either
 certificate. For more information about certificate signing for Android, see
-[Sign your app](/studio/publish/app-signing).
+[Sign your app](https://developer.android.com/studio/publish/app-signing).
 
 ### Game server
 
@@ -264,11 +240,11 @@ In the **Google Cloud**, follow these steps:
 
 For more information about OAuth 2.0 on Android, see [Authenticating to
 OAuth2
-Services](/training/id-auth/authenticate).
+Services](https://developer.android.com/training/id-auth/authenticate).
 
 After you click **Done** in the dialog, the available Client IDs will
 refresh. Choose the credential you created from the drop-down menu and then
-click **Save Changes**. This creates the credential as a draft, enabling you
+click **Save Changes** . This creates the credential as a draft, enabling you
 to authenticate to Play Games Services from your game server. For more
 information about using Play Games Services with your game server, see
 [Enabling Server-Side Access to Google Play Games
@@ -282,39 +258,33 @@ test your game services before publishing your game changes on Google Play.
 If your game is in an unpublished state, grant access to your testers by adding
 their user accounts to the allowlist. Otherwise, your testers will encounter
 OAuth and 404 errors when attempting to access Play Games Services endpoints,
-such as the [platform authentication](/games/pgs/signin) endpoint.
+such as the [platform authentication](https://developer.android.com/games/pgs/signin) endpoint.
 
 Users with authorized test accounts will have access to your unpublished Play
 Games Services game project and can test that your configured Play Games Services
 are working correctly.
 
-**Important:** Remember to add **yourself** as a tester, or the Play Games SDK won't
-work for your user account.
+> [!IMPORTANT]
+> **Important:** Remember to add **yourself** as a tester, or the Play Games SDK won't work for your user account.
 
 There are two ways to enable testers to use Play Games Services APIs for your
 game:
 
-* At an individual level, by adding individual email addresses.
-* At a group level, by enabling Play Games Services for a
+- At an individual level, by adding individual email addresses.
+
+- At a group level, by enabling Play Games Services for a
   Play Console release track.
 
 To add individual testers to your game project:
 
-1. Open the **Testers** tab for your game in the Google Play Console
-   (**Grow users >
-   Play Games Services > Setup and
-   management > Testers**).
+1. Open the **Testers** tab for your game in the Google Play Console (**Grow users \>
+   Play Games Services \> Setup and
+   management \> Testers**).
 2. Click the **Add testers** button.
-3. In the dialog that appears, enter the email addresses of the Google Accounts
-   that you want to add as testers (separated with commas or one email address
-   per line).
-4. Click **Add** to save the users as testers. The tester accounts you added
-   should be able to access Play Games Services within a couple of hours.
+3. In the dialog that appears, enter the email addresses of the Google Accounts that you want to add as testers (separated with commas or one email address per line).
+4. Click **Add** to save the users as testers. The tester accounts you added should be able to access Play Games Services within a couple of hours.
 
-![](/static/images/games/pgs/consoleAddTesters.png)
-
-
-**Figure 4.**: .
+![](https://developer.android.com/static/images/games/pgs/consoleAddTesters.png) **Figure 4.**: .
 
 To give testing access to a group, enable a release track to access
 Play Games Services:
@@ -328,10 +298,8 @@ You can grant access to test your game to all users who have access to test APKs
 on a given release track. This works the same as if you had added them to the
 tester list individually. To do this, follow these steps:
 
-1. Open the **PGS Testers** section (**Grow users > Play Games Services >
-   Setup and management > Testers**) and
-   select the **Release tracks** tab. On this page, you can also see the list of
-   tracks that are already enabled for Play Games Services testing.
+1. Open the **PGS Testers** section (**Grow users \> Play Games Services \>
+   Setup and management \> Testers** ) and select the **Release tracks** tab. On this page, you can also see the list of tracks that are already enabled for Play Games Services testing.
 2. Click **Add tracks**.
 3. Select one or more tracks to enable for Play Games Services testing.
 4. Click **Add Tracks**.
@@ -352,7 +320,7 @@ when setting up your game to use Google Play Games Services.
     Console, Google Play Games Services won't know about the association between
     the game's achievement and leaderboards and the client ID. To create this
     association, you must create a credential using the Oauth 2.0 client ID as
-    described in [Create a credential](#create-credential).
+    described in [Create a credential](https://developer.android.com/games/pgs/console/setup#create-credential).
 
 2. Use the correct application ID in Android
 :   The application ID is a required string resource that you must reference
@@ -370,14 +338,15 @@ when setting up your game to use Google Play Games Services.
     the release certificate fingerprint and another with the debug certificate
     fingerprint, and use the same package name for both. To learn more about how
     to specify the signing certificate in the Play Console, see
-    [Signing Your Applications](/tools/publishing/app-signing).
+    [Signing Your Applications](https://developer.android.com/tools/publishing/app-signing).
 
-4. When developing for Android, include the Play Games SDK as a library project, not as a standalone JAR.
+4. When developing for Android, include the Play Games SDK as a
+library project, not as a standalone JAR.
 :   Make sure that the Google Play services SDK is referenced as a library project in
     your Android project, otherwise this could lead to errors when your app is
     unable to find Google Play services resources. To learn how to set up your Android
     project to use Google Play services, see
-    [Setting Up Google Play services](/google/play-services/setup).
+    [Setting Up Google Play services](https://developer.android.com/google/play-services/setup).
 
 5. Sign in with a tester account during development
 :   If you have not published your game setting changes in the Play Console,
@@ -391,7 +360,8 @@ when setting up your game to use Google Play Games Services.
     Google Cloud. Without this step, the public audience won't be able
     to use any of the Play Games Services features.
 
-7. At release, publish the Play Games Services settings first before you publish your game
+7. At release, publish the Play Games Services settings
+first before you publish your game
 :   Developers might accidentally publish their app without publishing the
     corresponding Play Games Services settings for their app. This might
     cause players who are authenticating in with non-tester accounts to encounter
@@ -402,17 +372,10 @@ when setting up your game to use Google Play Games Services.
     [Publishing your game changes](https://developers.google.com/games/services/console/testpub#publishing_your_game_changes).
 
 For additional tips, see the
-[Android troubleshooting guide](/games/pgs/android/troubleshooting).
+[Android troubleshooting guide](https://developer.android.com/games/pgs/android/troubleshooting).
 
 ## Next steps
 
 Once you complete the initial setup tasks, you can
-[enable Play Games Services features](/games/pgs/console/enable-features) for
+[enable Play Games Services features](https://developer.android.com/games/pgs/console/enable-features) for
 your game, such as saved games, leaderboards, and achievements.
-
-
-
-
-
-
-Send feedback

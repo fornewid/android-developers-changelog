@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 As described on the [request location
 permissions](/training/location/permissions) and [privacy best
 practices](/privacy/best-practices) pages, apps should only ask for the type of

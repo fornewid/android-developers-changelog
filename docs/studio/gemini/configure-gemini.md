@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 To access Gemini in Android Studio's settings, click on the Gemini icon at
 the bottom of the Studio IDE ![](/static/studio/gemini/images/gemini-active.png)
 and select **Configure Gemini**. You can also quickly toggle the

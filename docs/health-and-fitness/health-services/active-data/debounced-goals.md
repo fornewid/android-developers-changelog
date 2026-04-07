@@ -15,6 +15,7 @@ Starting in 2026, we'll be transitioning away from Google Fit APIs. For more inf
 
 
 
+
 Health Services now supports *debounced goals* for instantaneous metrics, such
 as heart rate, distance, and speed. Debounced goals improve the user experience
 for people who want to maintain a specific threshold or range—such as heart

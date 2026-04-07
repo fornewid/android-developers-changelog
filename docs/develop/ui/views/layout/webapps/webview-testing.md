@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 The WebView Beta program gives you early access to new releases of Android
 WebView. We encourage all developers using WebView in their apps to join the
 Beta program so you can try out new WebView versions 4 weeks before they're

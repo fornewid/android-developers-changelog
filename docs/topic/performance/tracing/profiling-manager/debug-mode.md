@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 While the most useful way to use `ProfilingManager` is to collect profiles from
 your public users, you might first need to debug your setup or record local
 profiles for investigations. You might have noticed that profiles are sometimes

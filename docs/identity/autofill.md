@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 The autofill framework is available in Android 8.0 (API level 26) and higher.
 
 Some apps, such as password managers, can fill out the views in other apps with

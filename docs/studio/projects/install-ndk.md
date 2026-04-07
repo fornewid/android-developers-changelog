@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 To compile and debug native code for your app, you need the following components:
 
 * The Android Native Development Kit (NDK): a set of tools that allows you to

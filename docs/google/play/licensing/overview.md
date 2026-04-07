@@ -12,6 +12,7 @@ source: html-scrape
 
 
 
+
 Google Play Licensing is a network-based service that lets an application query a trusted
 Google Play licensing server to determine whether the application is licensed to the current
 device user. The licensing service is based on the capability of the Google Play licensing server

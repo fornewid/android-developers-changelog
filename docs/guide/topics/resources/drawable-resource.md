@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 A drawable resource is a general concept for a graphic that can be drawn to the screen and that
 you can retrieve with APIs such as `getDrawable(int)` or apply
 to another XML resource with attributes such as `android:drawable` and `android:icon`.

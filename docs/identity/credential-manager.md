@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 [Credential Manager](/reference/kotlin/androidx/credentials/package-summary) is the recommended Jetpack API for credential exchange
 in Android apps. The Credential Manager API streamlines credential exchange
 across form factors for use cases spanning authentication and authorization. You

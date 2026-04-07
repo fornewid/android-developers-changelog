@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 Once you have set up your app to share files using content URIs, you can respond to other apps'
 requests for those files. One way to respond to these requests is to provide a file selection
 interface from the server app that other applications can invoke. This approach allows a client

@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 In Compose, a [`Painter`](/reference/kotlin/androidx/compose/ui/graphics/painter/Painter) object is used to represent something that can be
 drawn (a replacement to the `Drawable` APIs defined in Android) and influence
 measurement and layout of the corresponding composable that is using it . A

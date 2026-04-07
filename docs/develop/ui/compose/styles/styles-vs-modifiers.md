@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 Styles differ from modifiers by design. Styles don't replace modifiers; instead,
 the two systems coexist with different goals. Internally, a Style is a modifier.
 You can do everything Styles can do with modifiers, but not all functionality in

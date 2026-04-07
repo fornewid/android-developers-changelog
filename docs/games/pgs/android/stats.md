@@ -1,18 +1,33 @@
 ---
-title: https://developer.android.com/games/pgs/android/stats
+title: Player stats for Android games  |  Android game development  |  Android Developers
 url: https://developer.android.com/games/pgs/android/stats
-source: md.txt
+source: html-scrape
 ---
 
-> [!NOTE]
-> **Note:** This guide is for the Play Games Services v2 SDK. For information on the previous version of this SDK, see the [Play Games Services v1
-> documentation](https://developer.android.com/games/pgs/v1/android/stats).
+* [Android Developers](https://developer.android.com/)
+* [Google Play](https://developer.android.com/distribute)
+* [Games dev center](https://developer.android.com/games)
+* [Guides](https://developer.android.com/games/guides)
+
+Send feedback
+
+# Player stats for Android games Stay organized with collections Save and categorize content based on your preferences.
+
+
+
+**Note:** This guide is for the Play Games Services v2 SDK. For information on the
+previous version of this SDK, see the [Play Games Services v1
+documentation](/games/pgs/v1/android/stats).
 
 This guide shows you how to use the player stats API for Google Play Games Services. You can
 use the player stats API to retrieve data about a player's in-game activity.
 
-> [!CAUTION]
-> **Important:** Based on results from experiments with this API, we've stopped populating the following endpoints: Churn probability, Spend probability, Total spend next 28 days, and High spender probability. Each of these endpoints now always returns an unset value constant. This value is the same as the one that the Player Stats system uses to indicate when it doesn't have sufficient data to compute a given endpoint.
+**Important:** Based on results from experiments with this API,
+we've stopped populating the following endpoints: Churn probability, Spend
+probability, Total spend next 28 days, and High spender probability. Each of
+these endpoints now always returns an unset value constant. This value is the
+same as the one that the Player Stats system uses to indicate when it doesn't
+have sufficient data to compute a given endpoint.
 
 The player stats API let you tailor game experiences to specific segments of
 players and different stages of the player lifecycle. You can build tailored
@@ -29,8 +44,10 @@ and [`com.google.android.gms.games`](https://developers.google.com/android/refer
 
 Before you start to use the player stats API:
 
-- Download and review the [code sample](https://github.com/playgameservices/android-basic-samples).
-- Familiarize yourself with the recommendations described in the [Quality Checklist](https://developer.android.com/games/pgs/quality).
+* Download and review the
+  [code sample](https://github.com/playgameservices/android-basic-samples).
+* Familiarize yourself with the recommendations described in the
+  [Quality Checklist](/games/pgs/quality).
 
 ## Get the player stats client
 
@@ -52,36 +69,42 @@ using tasks to manage threaded work, see the
 You can use the player stats API to retrieve data about a player's in-game
 activity. The types of player data you can retrieve include:
 
-- **Average session length**: The average session length of the player in
+* **Average session length**: The average session length of the player in
   minutes. Session length is determined by the time that a player is authenticated
   by Google Play Games services.
-
-- **Days since last played**: The approximate number of days since the player
+* **Days since last played**: The approximate number of days since the player
   last played.
-
-- **Number of purchases**: The approximate number of in-app purchases for the
+* **Number of purchases**: The approximate number of in-app purchases for the
   player.
-
-- **Number of sessions**: The approximate number of sessions of the player.
+* **Number of sessions**: The approximate number of sessions of the player.
   Sessions are determined by the number of times that a player authenticated by
   Google Play Games services.
-
-- **Session percentile**: The approximation of sessions percentile for the
+* **Session percentile**: The approximation of sessions percentile for the
   player, given as a decimal value between 0 to 1 inclusive. This value indicates how many
   sessions the current player has played in comparison to the rest of this game's player
   base. Higher numbers indicate that this player has played more sessions.
-
-- **Spend percentile**: The approximate spend percentile of the player, given
+* **Spend percentile**: The approximate spend percentile of the player, given
   as a decimal value between 0 to 1 inclusive. This value indicates how much
   the current player has spent in comparison to the rest of this game's player
   base. Higher numbers indicate that this player has spent more.
 
 The following types of player data are deprecated and always return an unset
 value constant:
-- **Churn probability**: The prediction of whether a player will churn in the next day, given as a decimal value between 0 (low probability of churn) to 1 (high probability of churn) inclusive. Churn is defined as 7 days of inactivity.
-- **Spend probability**: The approximate probability of the player choosing to spend in this game, given as a decimal value between 0 (low probability of spend) to 1 (high probability of spend) inclusive.
-- **Total spend next 28 days**: The approximate total expected player spend over the next 28 days in this game.
-- **High spender probability**: The approximate probability that over the next 28 days a player will spend an amount that is in the 95th percentile or higher of this game's player base. This is given as a decimal value between 0 (low probability of becoming a high spender) to 1 (high probability of become a high spender).
+
+* **Churn probability**: The prediction of whether a player will churn
+  in the next day, given as a decimal value between 0 (low probability of
+  churn) to 1 (high probability of churn) inclusive. Churn is defined as 7
+  days of inactivity.
+* **Spend probability**: The approximate probability of the player
+  choosing to spend in this game, given as a decimal value between 0 (low
+  probability of spend) to 1 (high probability of spend) inclusive.
+* **Total spend next 28 days**: The approximate total expected player
+  spend over the next 28 days in this game.
+* **High spender probability**: The approximate probability that over
+  the next 28 days a player will spend an amount that is in the 95th
+  percentile or higher of this game's player base. This is given as a decimal
+  value between 0 (low probability of becoming a high spender) to 1 (high
+  probability of become a high spender).
 
 ## Retrieve player stats data
 
@@ -91,7 +114,6 @@ steps:
 1. Call the
    [`PlayerStatsClient.loadPlayerStats()`](https://developers.google.com/android/reference/com/google/android/gms/games/PlayerStatsClient#loadPlayerStats)
    method.
-
 2. If the call is successful, Google Play games services returns a
    [`Task`](https://developers.google.com/android/reference/com/google/android/gms/tasks/Task)
    object which asynchronously loads a
@@ -149,8 +171,13 @@ The following table lists some example player segments and recommended
 engagement strategies:
 
 | Player Segment | Engagement Strategy |
-|---|---|
-| Frequent players with a high number of sessions and good spend percentile, but have not played for the last week or more. | - Send a notification about a discount or special bonus available upon their return to play. - Show a welcome back message that acknowledges impressive accomplishments, and award a badge designed to encourage return play. |
-| Highly engaged players in a low spend percentile. | - Tailor bonuses to incentivize them to invite their friends to install and join your game. This approach builds on the player's demonstrated enjoyment of the game to recruit new players. |
-| High spending players showing signs of having peaked and starting to play less frequently. | - Tailor bonuses to freshen their interest, such as by offering high-value, short-duration tools, weapons, or discounts. - The next time the player authenticates, show a video that directs them to community features, like clan attacks, that drive more frequent and longer engagement. |
-| Players with very high or very low spend probability. | - Unlikely to spend: Give the option to watch an advertisement video. Show lower-priced items for purchase. - Likely to spend: Direct them to the in-game store early, and provide special promotions to incentivize them to buy. |
+| --- | --- |
+| Frequent players with a high number of sessions and good spend percentile, but have not played for the last week or more. | * Send a notification about a discount or special bonus   available upon their return to play. * Show a welcome back message that acknowledges impressive   accomplishments, and award a badge designed to encourage   return play. |
+| Highly engaged players in a low spend percentile. | * Tailor bonuses to incentivize them to invite their friends   to install and join your game. This approach builds on the player's   demonstrated enjoyment of the game to recruit new players. |
+| High spending players showing signs of having peaked and starting to play less frequently. | * Tailor bonuses to freshen their interest, such as by   offering high-value, short-duration tools, weapons, or   discounts. * The next time the player authenticates, show a video that   directs them to community features, like clan attacks, that   drive more frequent and longer engagement. |
+| Players with very high or very low spend probability. | * Unlikely to spend: Give the option to watch an advertisement   video. Show lower-priced items for purchase. * Likely to spend: Direct them to the in-game store early,   and provide special promotions to incentivize them to buy. |
+
+
+
+
+Send feedback

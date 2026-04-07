@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 In addition to [building tests](/studio/test/test-in-android-studio)
 to make sure your app meets its functional requirements, it's
 important that you also run the code through the lint tool to help ensure your code has no structural

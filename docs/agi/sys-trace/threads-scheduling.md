@@ -24,9 +24,6 @@ higher frame rates.
 
 ## CPU core affinity
 
-> [!IMPORTANT]
-> **Important:** CPU core affinity has been superseded by the [Performance Hint API](https://developer.android.com/games/optimize/adpf/performance-hint-api). Use this API when your app is on a device running Android 12 and later.
-
 One factor that significantly affects the performance of your CPU workloads is how they are scheduled on the cores. This may be split into two components:
 
 - Whether your game threads are running on the most suitable core for their workload.

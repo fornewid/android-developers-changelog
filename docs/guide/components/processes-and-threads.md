@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 When an application component starts and the application doesn't have any other components
 running, the Android system starts a new Linux process for the application with a single thread of
 execution. By default, all components of the same application run in the same process and thread,

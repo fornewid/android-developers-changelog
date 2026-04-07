@@ -15,7 +15,6 @@ Starting in 2026, we'll be transitioning away from Google Fit APIs. For more inf
 
 
 
-
 **Note:** This guide uses `SensorManager` for retrieving steps data. We recommend
 using the [Recording API on mobile](/health-and-fitness/guides/recording-api)
 for recording steps in a power-efficient way.

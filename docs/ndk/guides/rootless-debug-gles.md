@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 On devices running Android 10 (API level 29) and higher, OpenGL ES (GLES) layering is
 available. A debuggable app can load GLES layers from its APK, from its base
 directory, or from a selected layer APK.

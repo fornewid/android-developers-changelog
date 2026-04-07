@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 The Android Studio main window consists of several logical areas, shown in
 Figure 1.
 

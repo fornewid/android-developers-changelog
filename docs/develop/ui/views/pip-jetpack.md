@@ -1,10 +1,21 @@
 ---
-title: https://developer.android.com/develop/ui/views/pip-jetpack
+title: Use the Jetpack Picture-in-Picture Library  |  Views  |  Android Developers
 url: https://developer.android.com/develop/ui/views/pip-jetpack
-source: md.txt
+source: html-scrape
 ---
 
-The [Picture-in-Picture (PiP) Jetpack Library](https://developer.android.com/jetpack/androidx/releases/core#core-pip-1.0.0-alpha) offers a streamlined and robust
+* [Android Developers](https://developer.android.com/)
+* [Develop](https://developer.android.com/develop)
+* [Core areas](https://developer.android.com/develop/core-areas)
+* [UI](https://developer.android.com/develop/ui)
+* [Views](https://developer.android.com/develop/ui/views/layout/declaring-layout)
+
+# Use the Jetpack Picture-in-Picture Library Stay organized with collections Save and categorize content based on your preferences.
+
+
+
+
+The [Picture-in-Picture (PiP) Jetpack Library](/jetpack/androidx/releases/core#core-pip-1.0.0-alpha) offers a streamlined and robust
 solution for Android app developers to implement PiP functionality, particularly
 for media playback, video communication, and navigation apps. By providing a
 unified API, the library helps eliminate boilerplate code, common in-app bugs,
@@ -13,11 +24,25 @@ and improve the overall quality of the PiP user experience.
 The PiP Jetpack library facilitates the existing PiP APIs by addressing several
 key challenges and inconsistencies across the Android ecosystem:
 
-- **OS fragmentation** : The library automatically handles differences in PiP API calls across various Android versions, such as using [`enterPictureInPictureMode`](https://developer.android.com/reference/android/app/Activity#enterPictureInPictureMode(android.app.PictureInPictureParams)) before Android 12 and [`isAutoEnterEnabled`](https://developer.android.com/reference/android/app/PictureInPictureParams#isAutoEnterEnabled()) after, so developers don't need to manage version differences.
-- **Incorrect PiP parameters** : It provides a unified solution for correctly setting PiP parameters, for example [`setSourceRectHint`](https://developer.android.com/reference/android/app/PictureInPictureParams.Builder#setSourceRectHint(android.graphics.Rect)), to create smooth and high-quality animations during media playback.
-- **Unified PiP state callbacks** : It consolidates `onPictureInPictureModeChanged` and `onPictureInPictureUiStateChanged` into a single, unified callback interface (`PictureInPictureDelegate.OnPictureInPictureEventListener`) for simplified state and UI management.
-- **Boilerplate code reduction** : The library reduces the amount of repetitive, boilerplate code by offering predefined sets of `RemoteActions` for common use cases, such as playback controls and video call actions.
-- **Future-proofing**: Further PiP features are delivered through the Jetpack library, allowing adopters to access additional functionality with minimal to no effort.
+* **OS fragmentation**: The library automatically handles differences in PiP API
+  calls across various Android versions, such as using
+  [`enterPictureInPictureMode`](/reference/android/app/Activity#enterPictureInPictureMode(android.app.PictureInPictureParams)) before Android 12 and
+  [`isAutoEnterEnabled`](/reference/android/app/PictureInPictureParams#isAutoEnterEnabled()) after, so developers don't need to manage version
+  differences.
+* **Incorrect PiP parameters**: It provides a unified solution for correctly
+  setting PiP parameters, for example [`setSourceRectHint`](/reference/android/app/PictureInPictureParams.Builder#setSourceRectHint(android.graphics.Rect)), to create smooth
+  and high-quality animations during media playback.
+* **Unified PiP state callbacks**: It consolidates
+  `onPictureInPictureModeChanged` and `onPictureInPictureUiStateChanged` into a
+  single, unified callback interface
+  (`PictureInPictureDelegate.OnPictureInPictureEventListener`) for simplified
+  state and UI management.
+* **Boilerplate code reduction**: The library reduces the amount of repetitive,
+  boilerplate code by offering predefined sets of `RemoteActions` for common use
+  cases, such as playback controls and video call actions.
+* **Future-proofing**: Further PiP features are delivered through the Jetpack
+  library, allowing adopters to access additional functionality with minimal to
+  no effort.
 
 ## Adopt Jetpack
 

@@ -15,7 +15,6 @@ Send feedback
 
 
 
-
 Good vertex data layout and compression is integral to the performance of any graphical application, whether an app consists of 2D user interfaces or is a large 3D open world game. Internal testing with [Android GPU Inspector’s](/agi) Frame Profiler on dozens of top Android Games indicates that much could be done to improve vertex data management. We have observed that it's common for vertex data to use full precision, 32-bit float values for all vertex attributes, and a vertex buffer layout that uses an array of structures formatted with fully interleaved attributes.
 
 This article discusses how to optimize the graphics performance of your Android application by using the following techniques:
@@ -426,8 +425,6 @@ Now, if we combine the vertex stream splitting with vertex compression, we will 
 ### Unsupported Vertex Buffer Attribute Formats
 
 * SSCALED vertex formats are not widely supported on mobile, and when used can have costly performance trade-offs in drivers that try to emulate them if they don’t have hardware support. Always go for SNORM and pay the negligible ALU cost to decompress.
-
-
 
 
 

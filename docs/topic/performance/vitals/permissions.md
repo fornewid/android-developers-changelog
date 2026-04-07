@@ -1,28 +1,17 @@
 ---
-title: Permission Denials  |  App quality  |  Android Developers
+title: https://developer.android.com/topic/performance/vitals/permissions
 url: https://developer.android.com/topic/performance/vitals/permissions
-source: html-scrape
+source: md.txt
 ---
 
-* [Android Developers](https://developer.android.com/)
-* [Design & Plan](https://developer.android.com/design)
-* [App quality](https://developer.android.com/quality)
-* [Technical quality](https://developer.android.com/quality/technical)
-
-# Permission Denials Stay organized with collections Save and categorize content based on your preferences.
-
-
-
-
 Most apps require that users grant them certain
-[app permissions](/guide/topics/permissions/overview) in order to function
+[app permissions](https://developer.android.com/guide/topics/permissions/overview) in order to function
 properly. However, in some cases, users might not grant the permissions
 
-* They think the permission isn’t needed for the app’s core functionality.
-* They don’t use the functionality associated with the permission.
-* They are concerned about the permission's impacting device performance.
-* They're simply uncomfortable, for example due to sensitivities
-  regarding privacy.
+- They think the permission isn't needed for the app's core functionality.
+- They don't use the functionality associated with the permission.
+- They are concerned about the permission's impacting device performance.
+- They're simply uncomfortable, for example due to sensitivities regarding privacy.
 
 ## Use Android vitals to gauge user perceptions {#:android-vitals}
 
@@ -36,7 +25,7 @@ at least one permission from a user. When a given user has to make multiple
 decisions for the same permission, only the final decision at the end of a
 session is recorded.
 
-Android vitals shows you users’ decisions at the permission-group
+Android vitals shows you users' decisions at the permission-group
 level. Android vitals also provides benchmarks to help compare where your app
 stands with respect to other top apps in the same Play store category.
 For information on how Google Play collects Android vitals data, see the
@@ -58,24 +47,27 @@ permissions under any circumstances.
 Research shows that users prefer apps that request fewer permissions.
 Keeping permission requests to the minimum set necessary can help improve user
 trust in an app, and drive more installs. Conversely, adding unnecessary
-permission requests might negatively impact your app’s visibility on the Play
+permission requests might negatively impact your app's visibility on the Play
 Store. If
-specific permissions aren’t necessary, you might be able to reduce your app's
+specific permissions aren't necessary, you might be able to reduce your app's
 number of permission requests through alternative methods. Some common
 approaches are outlined in
-[App Permissions Best Practices](/training/permissions/usage-notes).
+[App Permissions Best Practices](https://developer.android.com/training/permissions/usage-notes).
 
 ### Surface the permission request in context
 
 Non-critical permissions that are less intuitive might benefit from being
-explained in context. Doing so improves users’ comprehension of the value
+explained in context. Doing so improves users' comprehension of the value
 derived from the permission. Figure 1 shows an example of educating a user
 in context.
 
-![](/static/topic/performance/vitals/images/educate-in-context.png)
+![](https://developer.android.com/static/topic/performance/vitals/images/educate-in-context.png)
+
 
 **Figure 1.**
 Explaining a permission request in context
+
+<br />
 
 Users understand the value proposition better when the app requests the
 permission in the context of the related functionality.
@@ -91,22 +83,10 @@ request permissions, see the
 Consider starting by requesting your permission in-context: Providing an
 explanation for less intuitive permissions helps to improve user comprehension
 of the permission. The
-[`shouldShowRequestPermissionRationale()`](/reference/androidx/core/app/ActivityCompat#shouldShowRequestPermissionRationale(android.app.Activity,%20java.lang.String))
+[`shouldShowRequestPermissionRationale()`](https://developer.android.com/reference/androidx/core/app/ActivityCompat#shouldShowRequestPermissionRationale(android.app.Activity,%20java.lang.String))
 utility method returns true
 if the user has previously denied the request. Your app can use this method to
 determine when to show the explanation.
 
 You can find more details about how to surface explanation strings in
-[Request App Permissions](/training/permissions/requesting).
-
-[Previous
-
-arrow\_back
-
-Excessive Battery Usage](/topic/performance/vitals/excessive-battery-usage)
-
-[Next
-
-App Startup
-
-arrow\_forward](/topic/performance/vitals/launch-time)
+[Request App Permissions](https://developer.android.com/training/permissions/requesting).

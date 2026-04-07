@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 To provide a solid foundation for a quality app, follow the core app quality
 guidelines.
 

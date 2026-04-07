@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 Beginning with Android 14 (API level 34), you must declare an appropriate
 service type for each foreground service. That means you must declare the
 service type in your app manifest, and also request the appropriate foreground

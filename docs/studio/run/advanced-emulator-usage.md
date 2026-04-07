@@ -11,7 +11,6 @@ source: html-scrape
 
 
 
-
 You might need to test your app on a virtual device using more than
 just basic touch screen gestures and phone movements. For example, you might want to
 simulate different locations or network conditions. This page covers advanced
