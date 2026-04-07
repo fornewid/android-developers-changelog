@@ -1,0 +1,314 @@
+diff --git a/docs/develop/ui/views/components/settings/customize-your-settings.md b/docs/develop/ui/views/components/settings/customize-your-settings.md
+index bf1ee3e..8ad26cb 100644
+--- a/docs/develop/ui/views/components/settings/customize-your-settings.md
++++ b/docs/develop/ui/views/components/settings/customize-your-settings.md
+@@ -1,27 +1,39 @@
+ ---
+-title: https://developer.android.com/develop/ui/views/components/settings/customize-your-settings
++title: Customize your settings  |  Views  |  Android Developers
+ url: https://developer.android.com/develop/ui/views/components/settings/customize-your-settings
+-source: md.txt
++source: html-scrape
+ ---
+ 
+-# Customize your settings
+-Part of [Android Jetpack](https://developer.android.com/jetpack).
++* [Android Developers](https://developer.android.com/)
++* [Develop](https://developer.android.com/develop)
++* [Core areas](https://developer.android.com/develop/core-areas)
++* [UI](https://developer.android.com/develop/ui)
++* [Views](https://developer.android.com/develop/ui/views/layout/declaring-layout)
++
++Stay organized with collections
++
++Save and categorize content based on your preferences.
++
++
++
++
++# Customize your settings   Part of [Android Jetpack](/jetpack).
+ 
+ This document describes how to customize
+-[`Preference`](https://developer.android.com/jetpack/androidx/releases/preference) objects in your hierarchy.
++[`Preference`](/jetpack/androidx/releases/preference) objects in your hierarchy.
+ 
+ ## Find preferences
+ 
+ To access an individual `Preference`, such as when getting or setting a
+ `Preference` value, use
+-[`PreferenceFragmentCompat.findPreference()`](https://developer.android.com/reference/androidx/preference/PreferenceFragmentCompat#findPreference(java.lang.CharSequence)).
++[`PreferenceFragmentCompat.findPreference()`](/reference/androidx/preference/PreferenceFragmentCompat#findPreference(java.lang.CharSequence)).
+ This method searches the entire hierarchy for a `Preference` with the given key.
+ 
+ For example, to access an
+-[`EditTextPreference`](https://developer.android.com/reference/androidx/preference/EditTextPreference) with a
++[`EditTextPreference`](/reference/androidx/preference/EditTextPreference) with a
+ key of `"signature"`, do the following:
+ 
+-```xml
++```
+ <EditTextPreference
+         app:key="signature"
+         app:title="Your signature"/>
+@@ -31,7 +43,7 @@ Retrieve this `Preference` by using the following code:
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
+     setPreferencesFromResource(R.xml.preferences, rootKey)
+     val signaturePreference: EditTextPreference? = findPreference("signature")
+@@ -41,7 +53,7 @@ override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?)
+ 
+ ### Java
+ 
+-```java
++```
+ @Override
+ public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
+     setPreferencesFromResource(R.xml.preferences, rootKey);
+@@ -60,7 +72,7 @@ that `Preference` when the feature is disabled.
+ To show a `Preference` only when a condition is met, first set the `Preference`
+ visibility to false in the XML, as shown in the following example:
+ 
+-```xml
++```
+ <EditTextPreference
+         app:key="signature"
+         app:title="Your signature"
+@@ -72,7 +84,7 @@ condition is met:
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
+     setPreferencesFromResource(R.xml.preferences, rootKey)
+     if(/*some feature*/) {
+@@ -84,7 +96,7 @@ override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?)
+ 
+ ### Java
+ 
+-```java
++```
+ @Override
+ public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
+     setPreferencesFromResource(R.xml.preferences, rootKey);
+@@ -104,15 +116,15 @@ A `Preference` that persists data must display the current value in its
+ `Preference`. For example, an `EditTextPreference` must show the saved text
+ value, and a `ListPreference` must show the selected list entry. You might also
+ have `Preference` objects that need to update their summary based on internal or
+-external app state---for example, a `Preference` that displays a version
++external app state—for example, a `Preference` that displays a version
+ number. You can do this by using a
+-[`SummaryProvider`](https://developer.android.com/reference/androidx/preference/Preference.SummaryProvider).
++[`SummaryProvider`](/reference/androidx/preference/Preference.SummaryProvider).
+ 
+ ### Use a SimpleSummaryProvider
+ 
+-[`ListPreference`](https://developer.android.com/reference/androidx/preference/ListPreference.SimpleSummaryProvider)
++[`ListPreference`](/reference/androidx/preference/ListPreference.SimpleSummaryProvider)
+ and
+-[`EditTextPreference`](https://developer.android.com/reference/androidx/preference/EditTextPreference.SimpleSummaryProvider)
++[`EditTextPreference`](/reference/androidx/preference/EditTextPreference.SimpleSummaryProvider)
+ include simple `SummaryProvider` implementations that automatically display the
+ saved `Preference` value as the summary. If no value is saved, they display "Not
+ set."
+@@ -121,22 +133,22 @@ To enable these implementations from XML, set
+ `app:useSimpleSummaryProvider="true"`.
+ 
+ Alternatively, in code you can use
+-[`ListPreference.SimpleSummaryProvider.getInstance()`](https://developer.android.com/reference/androidx/preference/ListPreference.SimpleSummaryProvider#getInstance())
++[`ListPreference.SimpleSummaryProvider.getInstance()`](/reference/androidx/preference/ListPreference.SimpleSummaryProvider#getInstance())
+ and
+-[`EditTextPreference.SimpleSummaryProvider.getInstance()`](https://developer.android.com/reference/androidx/preference/EditTextPreference.SimpleSummaryProvider#getInstance())
++[`EditTextPreference.SimpleSummaryProvider.getInstance()`](/reference/androidx/preference/EditTextPreference.SimpleSummaryProvider#getInstance())
+ to get the simple `SummaryProvider` instance and then set it on the
+ `Preference`, as shown in the following example:
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ listPreference.summaryProvider = ListPreference.SimpleSummaryProvider.getInstance()
+ editTextPreference.summaryProvider = EditTextPreference.SimpleSummaryProvider.getInstance()
+ ```
+ 
+ ### Java
+ 
+-```java
++```
+ listPreference.setSummaryProvider(ListPreference.SimpleSummaryProvider.getInstance());
+ editTextPreference.setSummaryProvider(EditTextPreference.SimpleSummaryProvider.getInstance());
+ ```
+@@ -144,15 +156,19 @@ editTextPreference.setSummaryProvider(EditTextPreference.SimpleSummaryProvider.g
+ ### Use a custom SummaryProvider
+ 
+ You can create your own `SummaryProvider` and override
+-[`provideSummary()`](https://developer.android.com/reference/androidx/preference/Preference.SummaryProvider#provideSummary(T))
++[`provideSummary()`](/reference/androidx/preference/Preference.SummaryProvider#provideSummary(T))
+ to customize the summary whenever it is requested by the `Preference`. For
+ example, the following `EditTextPreference` displays the length of its saved
+ value as the summary:
+-![An image showing an example EditTextPreference](https://developer.android.com/static/develop/ui/views/components/settings/images/settings-customsummaryprovider.png) **Figure 1.** An example `EditTextPreference`.
++
++![An image showing an example EditTextPreference](/static/develop/ui/views/components/settings/images/settings-customsummaryprovider.png)
++
++
++**Figure 1.** An example `EditTextPreference`.
+ 
+ As an example, assume the following `EditTextPreference`:
+ 
+-```xml
++```
+ <EditTextPreference
+         app:key="counting"
+         app:title="Counting preference"/>
+@@ -163,7 +179,7 @@ In `onCreatePreferences()`, you can create a new `SummaryProvider` and override
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ val countingPreference: EditTextPreference? = findPreference("counting")
+ 
+ countingPreference?.summaryProvider = SummaryProvider<EditTextPreference> { preference ->
+@@ -178,7 +194,7 @@ countingPreference?.summaryProvider = SummaryProvider<EditTextPreference> { pref
+ 
+ ### Java
+ 
+-```java
++```
+ EditTextPreference countingPreference = findPreference("counting");
+ 
+ if (countingPreference != null) {
+@@ -202,13 +218,13 @@ when no saved value exists.
+ 
+ Within an `EditTextPreference` dialog, you can customize text field behavior by
+ attaching an
+-[`OnBindEditTextListener`](https://developer.android.com/reference/androidx/preference/EditTextPreference.OnBindEditTextListener).
++[`OnBindEditTextListener`](/reference/androidx/preference/EditTextPreference.OnBindEditTextListener).
+ This listener is invoked when the dialog is shown to the user.
+ 
+ As an example, you can customize a dialog to accept only numbers. First, create
+ the `EditTextPreference`:
+ 
+-```xml
++```
+ <EditTextPreference
+         app:key="number"
+         app:title="Numbers only preference"/>
+@@ -220,7 +236,7 @@ user.
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ val numberPreference: EditTextPreference? = findPreference("number")
+ 
+ numberPreference?.setOnBindEditTextListener { editText ->
+@@ -230,7 +246,7 @@ numberPreference?.setOnBindEditTextListener { editText ->
+ 
+ ### Java
+ 
+-```java
++```
+ EditTextPreference numberPreference = findPreference("number");
+ 
+ if (numberPreference != null) {
+@@ -253,7 +269,7 @@ A `Preference` can have a specific action when tapped. For example, a
+ `Preference` can act as a link to a separate part of your app. To add an action
+ to a `Preference`, you can set an `Intent` on the `Preference` directly or you
+ can set an
+-[`OnPreferenceClickListener`](https://developer.android.com/reference/androidx/preference/Preference.OnPreferenceClickListener)
++[`OnPreferenceClickListener`](/reference/androidx/preference/Preference.OnPreferenceClickListener)
+ for more specific logic.
+ 
+ ### Set an Intent
+@@ -261,13 +277,13 @@ for more specific logic.
+ You can set an `Intent` on a `Preference` to launch a new `Fragment`,
+ `Activity`, or separate app whenever the `Preference` is tapped. This is the
+ same as using
+-[`Context.startActivity()`](https://developer.android.com/reference/android/content/Context#startActivity(android.content.Intent))
++[`Context.startActivity()`](/reference/android/content/Context#startActivity(android.content.Intent))
+ with a given `Intent`.
+ 
+ You can set an `Intent` in XML using a nested `<intent>` tag. The following
+ example defines an `Intent` that launches an `Activity`:
+ 
+-```xml
++```
+ <Preference
+         app:key="activity"
+         app:title="Launch activity">
+@@ -281,21 +297,21 @@ Alternatively, you can use `setIntent()` directly on a `Preference`, as follows:
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ val intent = Intent(context, ExampleActivity::class.java)
+ activityPreference.setIntent(intent)
+ ```
+ 
+ ### Java
+ 
+-```java
++```
+ Intent intent = new Intent(getContext(), ExampleActivity.class);
+ activityPreference.setIntent(intent);
+ ```
+ 
+ You can also include extras with an `Intent` using XML:
+ 
+-```xml
++```
+ <Preference
+         app:key="activity"
+         app:title="Launch activity">
+@@ -311,7 +327,7 @@ You can also include extras with an `Intent` using XML:
+ 
+ Here is an example of a `Preference` with an `Intent` that launches a web page:
+ 
+-```xml
++```
+ <Preference
+         app:key="webpage"
+         app:title="View webpage">
+@@ -323,7 +339,7 @@ Here is an example of a `Preference` with an `Intent` that launches a web page:
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ val intent = Intent(Intent.ACTION_VIEW)
+ intent.data = Uri.parse("http://www.google.com")
+ 
+@@ -333,7 +349,7 @@ webpagePreference?.intent = intent
+ 
+ ### Java
+ 
+-```java
++```
+ Intent intent = new Intent(Intent.ACTION_VIEW);
+ intent.setData(Uri.parse("http://www.google.com"));
+ webpagePreference.setIntent(intent);
+@@ -350,7 +366,7 @@ To set an `OnPreferenceClickListener`, use code similar to the following:
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ onClickPreference.setOnPreferenceClickListener({
+     // Do something.
+     true
+@@ -359,7 +375,7 @@ onClickPreference.setOnPreferenceClickListener({
+ 
+ ### Java
+ 
+-```java
++```
+ onClickPreference.setOnPreferenceClickListener(preference -> {
+     // Do something.
+     return true;

@@ -1,0 +1,12 @@
+diff --git a/docs/design/ui/cars/guides/app-types/weather-apps.md b/docs/design/ui/cars/guides/app-types/weather-apps.md
+index 9cd80d6..8d05df5 100644
+--- a/docs/design/ui/cars/guides/app-types/weather-apps.md
++++ b/docs/design/ui/cars/guides/app-types/weather-apps.md
+@@ -14,6 +14,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Android for Cars lets you create app experiences that display weather maps and
+ relevant weather information to drivers.
+ 

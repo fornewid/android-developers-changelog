@@ -1,0 +1,12 @@
+diff --git a/docs/guide/playcore/engage/preview.md b/docs/guide/playcore/engage/preview.md
+index f0b102c..815141b 100644
+--- a/docs/guide/playcore/engage/preview.md
++++ b/docs/guide/playcore/engage/preview.md
+@@ -12,7 +12,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ **Important:** [Express interest in joining the developer preview by applying here](https://support.google.com/googleplay/contact/Engage_SDK_Developer_Preview).
+ 
+ ### What to expect

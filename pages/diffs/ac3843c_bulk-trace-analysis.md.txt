@@ -1,0 +1,12 @@
+diff --git a/docs/topic/performance/tracing/profiling-manager/bulk-trace-analysis.md b/docs/topic/performance/tracing/profiling-manager/bulk-trace-analysis.md
+index 42c13f4..5c6612e 100644
+--- a/docs/topic/performance/tracing/profiling-manager/bulk-trace-analysis.md
++++ b/docs/topic/performance/tracing/profiling-manager/bulk-trace-analysis.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Once you have collected multiple traces using `ProfilingManager`, exploring them
+ individually to find performance problems becomes impractical. Bulk trace
+ analysis lets you query a dataset of traces simultaneously to:

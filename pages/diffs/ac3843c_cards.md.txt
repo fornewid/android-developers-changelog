@@ -1,0 +1,335 @@
+diff --git a/docs/design/ui/tv/guides/components/cards.md b/docs/design/ui/tv/guides/components/cards.md
+index 7c1cb8b..a181689 100644
+--- a/docs/design/ui/tv/guides/components/cards.md
++++ b/docs/design/ui/tv/guides/components/cards.md
+@@ -1,25 +1,38 @@
+ ---
+-title: https://developer.android.com/design/ui/tv/guides/components/cards
++title: Cards  |  TV  |  Android Developers
+ url: https://developer.android.com/design/ui/tv/guides/components/cards
+-source: md.txt
++source: html-scrape
+ ---
+ 
++* [Android Developers](https://developer.android.com/)
++* [Design & Plan](https://developer.android.com/design)
++* [UI Design](https://developer.android.com/design/ui)
++* [TV](https://developer.android.com/design/ui/tv)
++* [Guides](https://developer.android.com/design/ui/tv/guides/foundations/design-for-tv)
++
++# Cards Stay organized with collections Save and categorize content based on your preferences.
++
++
++
+ Cards are the basic building blocks of your TV app.
+-![Cover image for cards](https://developer.android.com/static/design/ui/tv/guides/components/images/covers/cover-cards.webp)
++
++![Cover image for cards](/static/design/ui/tv/guides/components/images/covers/cover-cards.webp)
+ 
+ ## Resources
+ 
+ | Type | Link | Status |
+-|---|---|---|
++| --- | --- | --- |
+ | Design | [Design source (Figma)](https://goo.gle/tv-desing-kit) | Available |
+-| Implementation | [Jetpack Compose](https://developer.android.com/reference/kotlin/androidx/tv/material3/Card.composable#Card(kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Function0,androidx.tv.material3.CardShape,androidx.tv.material3.CardColors,androidx.tv.material3.CardScale,androidx.tv.material3.CardBorder,androidx.tv.material3.CardGlow,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Function1)) | Available |
++| Implementation | [Jetpack Compose](/reference/kotlin/androidx/tv/material3/Card.composable#Card(kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Function0,androidx.tv.material3.CardShape,androidx.tv.material3.CardColors,androidx.tv.material3.CardScale,androidx.tv.material3.CardBorder,androidx.tv.material3.CardGlow,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Function1)) | Available |
+ 
+ ## Highlights
+ 
+-- Use a card to display content on a single topic.
+-- A card can hold anything from images to headlines, supporting text, buttons, lists, and other UI elements.
+-- A card cannot merge with another card or divide into multiple cards.
+-- There are six variations of cards: standard, classic, compact, inset, wide standard, and wide classic.
++* Use a card to display content on a single topic.
++* A card can hold anything from images to headlines,
++  supporting text, buttons, lists, and other UI elements.
++* A card cannot merge with another card or divide into multiple cards.
++* There are six variations of cards: standard, classic, compact,
++  inset, wide standard, and wide classic.
+ 
+ ## Variants
+ 
+@@ -31,7 +44,12 @@ There are five types of cards, each with a different use case:
+ 4. Wide standard
+ 5. Wide classic
+ 
+-![Standard Card](https://developer.android.com/static/design/ui/tv/guides/components/images/cards/standard-card.webp) ![Classic Card](https://developer.android.com/static/design/ui/tv/guides/components/images/cards/classic-card.webp) ![Compact Card](https://developer.android.com/static/design/ui/tv/guides/components/images/cards/compact-card.webp) ![Wide Standard Card](https://developer.android.com/static/design/ui/tv/guides/components/images/cards/wide-card.webp) ![Wide Classic Card](https://developer.android.com/static/design/ui/tv/guides/components/images/cards/wide-classic.webp)
++![Standard Card](/static/design/ui/tv/guides/components/images/cards/standard-card.webp)
++![Classic Card](/static/design/ui/tv/guides/components/images/cards/classic-card.webp)
++![Compact Card](/static/design/ui/tv/guides/components/images/cards/compact-card.webp)
++
++![Wide Standard Card](/static/design/ui/tv/guides/components/images/cards/wide-card.webp)
++![Wide Classic Card](/static/design/ui/tv/guides/components/images/cards/wide-classic.webp)
+ 
+ ## Content blocks
+ 
+@@ -41,7 +59,7 @@ accommodates the types of content the cards contain.
+ 
+ ### Anatomy
+ 
+-![Content](https://developer.android.com/static/design/ui/tv/guides/components/images/cards/content.webp)
++![Content](/static/design/ui/tv/guides/components/images/cards/content.webp)
+ 
+ 1. Title
+ 2. Subtitle
+@@ -50,92 +68,92 @@ accommodates the types of content the cards contain.
+ 
+ ### Specs
+ 
+-![Content blocks spec](https://developer.android.com/static/design/ui/tv/guides/components/images/cards/content-block-spec.webp)
++![Content blocks spec](/static/design/ui/tv/guides/components/images/cards/content-block-spec.webp)
+ 
+ ## Standard card
+ 
+ ### Anatomy
+ 
+-![Standard card spec](https://developer.android.com/static/design/ui/tv/guides/components/images/cards/standard-card-anatomy.webp)
++![Standard card spec](/static/design/ui/tv/guides/components/images/cards/standard-card-anatomy.webp)
+ 
+ 1. Image
+ 2. Content block
+ 
+ ### States
+ 
+-![Standard card states](https://developer.android.com/static/design/ui/tv/guides/components/images/cards/standard-card-states.webp)
++![Standard card states](/static/design/ui/tv/guides/components/images/cards/standard-card-states.webp)
+ 
+ ### Specs
+ 
+-![Standard card specs](https://developer.android.com/static/design/ui/tv/guides/components/images/cards/standard-card-spec.webp)
++![Standard card specs](/static/design/ui/tv/guides/components/images/cards/standard-card-spec.webp)
+ 
+ ## Classic card
+ 
+ ### Anatomy
+ 
+-![Classic card spec](https://developer.android.com/static/design/ui/tv/guides/components/images/cards/classic-card-anatomy.webp)
++![Classic card spec](/static/design/ui/tv/guides/components/images/cards/classic-card-anatomy.webp)
+ 
+ 1. Image
+ 2. Content block
+ 
+ ### States
+ 
+-![Classic card states](https://developer.android.com/static/design/ui/tv/guides/components/images/cards/classic-card-states.webp)
++![Classic card states](/static/design/ui/tv/guides/components/images/cards/classic-card-states.webp)
+ 
+ ### Specs
+ 
+-![Classic card specs](https://developer.android.com/static/design/ui/tv/guides/components/images/cards/classic-card-spec.webp)
++![Classic card specs](/static/design/ui/tv/guides/components/images/cards/classic-card-spec.webp)
+ 
+ ## Compact card
+ 
+ ### Anatomy
+ 
+-![Compact card spec](https://developer.android.com/static/design/ui/tv/guides/components/images/cards/compact-card-anatomy.webp)
++![Compact card spec](/static/design/ui/tv/guides/components/images/cards/compact-card-anatomy.webp)
+ 
+ 1. Image
+ 2. Content block
+ 
+ ### States
+ 
+-![Compact card states](https://developer.android.com/static/design/ui/tv/guides/components/images/cards/compact-card-states.webp)
++![Compact card states](/static/design/ui/tv/guides/components/images/cards/compact-card-states.webp)
+ 
+ ### Specs
+ 
+-![Compact card specs](https://developer.android.com/static/design/ui/tv/guides/components/images/cards/compact-card-spec.webp)
++![Compact card specs](/static/design/ui/tv/guides/components/images/cards/compact-card-spec.webp)
+ 
+ ## Wide standard card
+ 
+ ### Anatomy
+ 
+-![Wide standard card spec](https://developer.android.com/static/design/ui/tv/guides/components/images/cards/wide-standard-card-anatomy.webp)
++![Wide standard card spec](/static/design/ui/tv/guides/components/images/cards/wide-standard-card-anatomy.webp)
+ 
+ 1. Image
+ 2. Content block
+ 
+ ### States
+ 
+-![Wide standard card states](https://developer.android.com/static/design/ui/tv/guides/components/images/cards/wide-standard-card-states.webp)
++![Wide standard card states](/static/design/ui/tv/guides/components/images/cards/wide-standard-card-states.webp)
+ 
+ ### Specs
+ 
+-![Wide standard card specs](https://developer.android.com/static/design/ui/tv/guides/components/images/cards/wide-standard-card-spec.webp)
++![Wide standard card specs](/static/design/ui/tv/guides/components/images/cards/wide-standard-card-spec.webp)
+ 
+ ## Wide classic card
+ 
+ ### Anatomy
+ 
+-![Wide classic card spec](https://developer.android.com/static/design/ui/tv/guides/components/images/cards/wide-classic-card-anatomy.webp)
++![Wide classic card spec](/static/design/ui/tv/guides/components/images/cards/wide-classic-card-anatomy.webp)
+ 
+ 1. Image
+ 2. Content block
+ 
+ ### States
+ 
+-![Wide classic card states](https://developer.android.com/static/design/ui/tv/guides/components/images/cards/wide-classic-card-states.webp)
++![Wide classic card states](/static/design/ui/tv/guides/components/images/cards/wide-classic-card-states.webp)
+ 
+ ### Specs
+ 
+-![Wide classic card specs](https://developer.android.com/static/design/ui/tv/guides/components/images/cards/wide-classic-card-spec.webp)
++![Wide classic card specs](/static/design/ui/tv/guides/components/images/cards/wide-classic-card-spec.webp)
+ 
+ ## Usage
+ 
+@@ -149,34 +167,41 @@ There are three common aspect ratios for cards: 16:9, 1:1, and 2:3.
+ Each aspect ratio has its strengths, so the best choice for
+ you depends on your specific needs.
+ 
+-- 16:9 is the most common aspect ratio for cards. It is a wide aspect ratio that is well-suited for displaying images and videos.
+-- 1:1 is a square aspect ratio. It is a good choice for cards that need to be visually balanced, such as cast and crew, channel logos, or team logos.
+-- 2:3 is a taller aspect ratio. It is a good choice if you want to break up the grid and bring more emphasis.
++* 16:9 is the most common aspect ratio for cards. It is a wide aspect
++  ratio that is well-suited for displaying images and videos.
++* 1:1 is a square aspect ratio. It is a good choice for cards that need
++  to be visually balanced, such as cast and crew, channel logos, or team logos.
++* 2:3 is a taller aspect ratio. It is a good choice if you want to break up
++  the grid and bring more emphasis.
+ 
+ Ultimately, the best way to choose an aspect ratio for your cards is to
+ experiment with different options and see what looks best.
+ 
+-![Aspect ratios](https://developer.android.com/static/design/ui/tv/guides/components/images/cards/aspect-ratio.webp)
++![Aspect ratios](/static/design/ui/tv/guides/components/images/cards/aspect-ratio.webp)
+ 
+ Here are some examples usages of different aspect ratios
+ 
+ ### 1:1
+ 
+ Cast and crew
+-![Aspect ratio 1:1, cast and crew](https://developer.android.com/static/design/ui/tv/guides/components/images/cards/aspect-ratio-1-1.webp)
++
++![Aspect ratio 1:1, cast and crew](/static/design/ui/tv/guides/components/images/cards/aspect-ratio-1-1.webp)
+ 
+ Sports teams logos
+-![Aspect ratio 1:1, sports logos](https://developer.android.com/static/design/ui/tv/guides/components/images/cards/aspect-ratio-1-1-team.webp)
++
++![Aspect ratio 1:1, sports logos](/static/design/ui/tv/guides/components/images/cards/aspect-ratio-1-1-team.webp)
+ 
+ ### 2:3
+ 
+ Trending books
+-![Aspect ratio 2:3, trending books](https://developer.android.com/static/design/ui/tv/guides/components/images/cards/aspect-ratio-2-3.webp)
++
++![Aspect ratio 2:3, trending books](/static/design/ui/tv/guides/components/images/cards/aspect-ratio-2-3.webp)
+ 
+ ### 16:9
+ 
+ Movie cards
+-![Aspect ratio 16:9, moive cards](https://developer.android.com/static/design/ui/tv/guides/components/images/cards/aspect-ratio-16-9.webp)
++
++![Aspect ratio 16:9, moive cards](/static/design/ui/tv/guides/components/images/cards/aspect-ratio-16-9.webp)
+ 
+ ### Layout and spacing
+ 
+@@ -185,39 +210,51 @@ can be achieved by implementing proper peaking with a spacing of 20dp.
+ 
+ ### 1-card layout
+ 
+-Width of the card --- 844dp
+-![1 card layout](https://developer.android.com/static/design/ui/tv/guides/components/images/cards/1-card.webp)
++Width of the card — 844dp
++
++![1 card layout](/static/design/ui/tv/guides/components/images/cards/1-card.webp)
+ 
+ ### 2-card layout
+ 
+-Width of the card --- 412dp
+-![2 card layout](https://developer.android.com/static/design/ui/tv/guides/components/images/cards/2-card.webp)
++Width of the card — 412dp
++
++![2 card layout](/static/design/ui/tv/guides/components/images/cards/2-card.webp)
+ 
+ ### 3-card layout
+ 
+-Width of the card --- 268dp
+-![3 card layout](https://developer.android.com/static/design/ui/tv/guides/components/images/cards/3-card.webp)
++Width of the card — 268dp
++
++![3 card layout](/static/design/ui/tv/guides/components/images/cards/3-card.webp)
+ 
+ ### 4-card layout
+ 
+-Width of the card --- 196dp
+-![4 card layout](https://developer.android.com/static/design/ui/tv/guides/components/images/cards/4-card.webp)
++Width of the card — 196dp
++
++![4 card layout](/static/design/ui/tv/guides/components/images/cards/4-card.webp)
+ 
+ ### 5-card layout
+ 
+-Width of the card --- 124dp
+-![5 card layout](https://developer.android.com/static/design/ui/tv/guides/components/images/cards/5-card.webp)
++Width of the card — 124dp
++
++![5 card layout](/static/design/ui/tv/guides/components/images/cards/5-card.webp)
+ 
+ ### Content block
+ 
+ The width of the content block in a card should be the same width as the image
+ thumbnail. If you need to display more text in the content block,
+ use a wide card variation.
+-![](https://developer.android.com/static/design/ui/tv/guides/components/images/cards/card-content-do.webp)
++
++![](/static/design/ui/tv/guides/components/images/cards/card-content-do.webp)
++
++check\_circle
+ 
+ ### Do
+ 
+-Use wide cards to show short descriptions, but only if absolutely necessary. The length of the description should be only a few words. ![](https://developer.android.com/static/design/ui/tv/guides/components/images/cards/card-content-dont.webp)
++Use wide cards to show short descriptions, but only if absolutely necessary. The length of the description should be only a few words.
++
++![](/static/design/ui/tv/guides/components/images/cards/card-content-dont.webp)
++
++cancel
+ 
+ ### Don't
+ 
+@@ -233,12 +270,31 @@ visually appealing and easier to scan.
+ To make text more readable on an image, add a semi-transparent black
+ gradient overlay. This darkens the background without obscuring
+ the image too much, making the text easier to see.
+-![](https://developer.android.com/static/design/ui/tv/guides/components/images/cards/compact-card-do.webp)
++
++![](/static/design/ui/tv/guides/components/images/cards/compact-card-do.webp)
++
++check\_circle
+ 
+ ### Do
+ 
+-Compact card using scrim on top of image background. ![](https://developer.android.com/static/design/ui/tv/guides/components/images/cards/compact-card-dont.webp)
++Compact card using scrim on top of image background.
++
++![](/static/design/ui/tv/guides/components/images/cards/compact-card-dont.webp)
++
++cancel
+ 
+ ### Don't
+ 
+-Don't use compact cards without scrim on top of the background image.
+\ No newline at end of file
++Don't use compact cards without scrim on top of the background image.
++
++[Previous
++
++arrow\_back
++
++Buttons](/design/ui/tv/guides/components/buttons)
++
++[Next
++
++Immersive list
++
++arrow\_forward](/design/ui/tv/guides/components/immersive-list)
+\ No newline at end of file

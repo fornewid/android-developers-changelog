@@ -1,0 +1,12 @@
+diff --git a/docs/build/releases/gradle-plugin-api-updates.md b/docs/build/releases/gradle-plugin-api-updates.md
+index 20c8ef2..da3f9f4 100644
+--- a/docs/build/releases/gradle-plugin-api-updates.md
++++ b/docs/build/releases/gradle-plugin-api-updates.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ This page tracks Android Gradle plugin (AGP) API deprecation and removals, and
+ provides info on how to update your code accordingly.
+ 

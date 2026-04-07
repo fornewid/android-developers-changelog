@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/compose/components/progress.md b/docs/develop/ui/compose/components/progress.md
+index f9d7acd..3170b2a 100644
+--- a/docs/develop/ui/compose/components/progress.md
++++ b/docs/develop/ui/compose/components/progress.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Progress indicators visually surface the status of an operation. They use motion
+ to bring to the user's attention how near completion the process is, such as
+ loading or processing data. They can also signify that processing is taking

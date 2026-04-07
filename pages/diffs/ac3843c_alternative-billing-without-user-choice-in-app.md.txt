@@ -1,0 +1,20 @@
+diff --git a/docs/google/play/billing/alternative/alternative-billing-without-user-choice-in-app.md b/docs/google/play/billing/alternative/alternative-billing-without-user-choice-in-app.md
+index 095e746..07ee524 100644
+--- a/docs/google/play/billing/alternative/alternative-billing-without-user-choice-in-app.md
++++ b/docs/google/play/billing/alternative/alternative-billing-without-user-choice-in-app.md
+@@ -14,7 +14,6 @@ Send feedback
+ 
+ 
+ 
+-
+ **Note:** Manual reporting of alternative billing only is being sunset. Please find
+ more details about migration deadlines
+ [here](https://support.google.com/googleplay/android-developer/answer/13821247)
+@@ -290,6 +289,4 @@ backend](/google/play/billing/outside-gpb-backend).
+ 
+ 
+ 
+-
+-
+ Send feedback
+\ No newline at end of file

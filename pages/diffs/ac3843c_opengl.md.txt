@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/views/graphics/opengl.md b/docs/develop/ui/views/graphics/opengl.md
+index a23d62c..823b08f 100644
+--- a/docs/develop/ui/views/graphics/opengl.md
++++ b/docs/develop/ui/views/graphics/opengl.md
+@@ -14,6 +14,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ The Android framework provides plenty of standard tools for creating attractive, functional
+ graphical user interfaces. However, if you want more control of what your application draws on
+ screen, or are venturing into three dimensional graphics, you need to use a different tool. The

@@ -1,0 +1,12 @@
+diff --git a/docs/training/cars/apps/library/draw-maps.md b/docs/training/cars/apps/library/draw-maps.md
+index 5085aae..1babd34 100644
+--- a/docs/training/cars/apps/library/draw-maps.md
++++ b/docs/training/cars/apps/library/draw-maps.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Navigation, point of interest (POI), and weather apps using the following
+ templates can draw maps by accessing a [`Surface`](/reference/android/view/Surface).
+ 

@@ -1,0 +1,20 @@
+diff --git a/docs/games/pgs/downloads.md b/docs/games/pgs/downloads.md
+index 65f819c..f3b1fed 100644
+--- a/docs/games/pgs/downloads.md
++++ b/docs/games/pgs/downloads.md
+@@ -15,7 +15,6 @@ Send feedback
+ 
+ 
+ 
+-
+ This page contains downloads for Google Play Games Services including some third-party
+ downloads that support specific game engines.
+ 
+@@ -60,6 +59,4 @@ Graphic Type | Description | Resource || Google Play games services branding | D
+ 
+ 
+ 
+-
+-
+ Send feedback
+\ No newline at end of file

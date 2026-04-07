@@ -1,0 +1,209 @@
+diff --git a/docs/guide/topics/connectivity/cross-device-sdk/device-discovery.md b/docs/guide/topics/connectivity/cross-device-sdk/device-discovery.md
+index fc2938a..9961455 100644
+--- a/docs/guide/topics/connectivity/cross-device-sdk/device-discovery.md
++++ b/docs/guide/topics/connectivity/cross-device-sdk/device-discovery.md
+@@ -1,42 +1,24 @@
+ ---
+-title: Device discovery API  |  Cross device SDK  |  Android Developers
++title: https://developer.android.com/guide/topics/connectivity/cross-device-sdk/device-discovery
+ url: https://developer.android.com/guide/topics/connectivity/cross-device-sdk/device-discovery
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-* [Develop](https://developer.android.com/develop)
+-* [Devices](https://developer.android.com/develop/devices)
+-* [Cross device SDK](https://developer.android.com/guide/topics/connectivity/cross-device-sdk/overview)
++# Device discovery API
+ 
+-# Device discovery API Stay organized with collections Save and categorize content based on your preferences.
++Almost every multidevice experience begins with finding available devices. To simplify this common task, we offer the Device Discovery API.  
++![Dialog box with sharing options to nearby users](https://developer.android.com/static/images/develop/connectivity/cross-device-sdk/device-discovery.png)**Figure 1**: Share with nearby users.
+ 
+-
+-
+-
+-Almost every multidevice experience begins with finding available devices. To
+-simplify this common task, we offer the Device Discovery API.
+-
+-![Dialog box with sharing options to nearby users](/static/images/develop/connectivity/cross-device-sdk/device-discovery.png)
+-
+-
+-**Figure 1**: Share with nearby users.
++<br />
+ 
+ ## Launch the device selection dialog
+ 
+-Device discovery uses a system dialog to let the user select a target device. To
+-initiate the device selection dialog, you first need to get a device discovery
+-client and register a result receiver. Note that similar to
+-`registerForActivityResult`, this receiver must be registered unconditionally as
+-part of the activity or fragment initialization path.
+-
+-**Note:** If a user receives a request from an uninstalled app, they’ll need to
+-install it and try the request again. In the future, we hope to take advantage
+-of Play Store APIs to continue the existing intent.
++Device discovery uses a system dialog to let the user select a target device. To initiate the device selection dialog, you first need to get a device discovery client and register a result receiver. Note that similar to`registerForActivityResult`, this receiver must be registered unconditionally as part of the activity or fragment initialization path.
++**Note:** If a user receives a request from an uninstalled app, they'll need to install it and try the request again. In the future, we hope to take advantage of Play Store APIs to continue the existing intent.  
+ 
+ ### Kotlin
+ 
+-```
++```kotlin
+ override fun onCreate(savedInstanceState: Bundle?) {
+   super.onCreate(savedInstanceState)
+   devicePickerLauncher = Discovery.create(this).registerForResult(this, handleDevices)
+@@ -45,7 +27,7 @@ override fun onCreate(savedInstanceState: Bundle?) {
+ 
+ ### Java
+ 
+-```
++```java
+ @Override
+ public void onCreate(@Nullable Bundle savedInstanceState) {
+   super.onCreate(savedInstanceState);
+@@ -53,14 +35,11 @@ public void onCreate(@Nullable Bundle savedInstanceState) {
+ }
+ ```
+ 
+-In the code snippet above, we have an undefined `handleDevices` object. After
+-the user chooses the devices to connect to, and once the SDK successfully
+-connects to the other devices, this callback receives the list of `Participants`
+-selected.
++In the code snippet above, we have an undefined`handleDevices`object. After the user chooses the devices to connect to, and once the SDK successfully connects to the other devices, this callback receives the list of`Participants`selected.  
+ 
+ ### Kotlin
+ 
+-```
++```kotlin
+ handleDevices = OnDevicePickerResultListener { participants -> participants.forEach {
+     // Use participant info
+   }
+@@ -69,7 +48,7 @@ handleDevices = OnDevicePickerResultListener { participants -> participants.forE
+ 
+ ### Java
+ 
+-```
++```java
+ handleDevices = participants -> {
+    for (Participant participant : participants) {
+       // Use participant info
+@@ -77,15 +56,11 @@ handleDevices = participants -> {
+ }
+ ```
+ 
+-After the device picker is registered, launch it using the `devicePickerLauncher`
+-instance. `DevicePickerLauncher.launchDevicePicker` takes two parameters – a
+-list of device filters (see section below) and a `startComponentRequest`. The
+-`startComponentRequest` is used to indicate which activity should be started on
+-the receiving device, and the reason for the request that is shown to the user.
++After the device picker is registered, launch it using the`devicePickerLauncher`instance.`DevicePickerLauncher.launchDevicePicker`takes two parameters -- a list of device filters (see section below) and a`startComponentRequest`. The`startComponentRequest`is used to indicate which activity should be started on the receiving device, and the reason for the request that is shown to the user.  
+ 
+ ### Kotlin
+ 
+-```
++```kotlin
+ devicePickerLauncher.launchDevicePicker(
+   listOf(),
+   startComponentRequest {
+@@ -97,7 +72,7 @@ devicePickerLauncher.launchDevicePicker(
+ 
+ ### Java
+ 
+-```
++```java
+ devicePickerLauncher.launchDevicePickerFuture(
+     Collections.emptyList(),
+     new StartComponentRequest.Builder()
+@@ -108,14 +83,11 @@ devicePickerLauncher.launchDevicePickerFuture(
+ 
+ ## Accept connection requests
+ 
+-When the user selects a device in the device picker, a dialog appears on the
+-receiving device to ask the user to accept the connection. Once accepted, the
+-target activity is launched, which can be handled in `onCreate` and
+-`onNewIntent`.
++When the user selects a device in the device picker, a dialog appears on the receiving device to ask the user to accept the connection. Once accepted, the target activity is launched, which can be handled in`onCreate`and`onNewIntent`.  
+ 
+ ### Kotlin
+ 
+-```
++```kotlin
+ override fun onCreate(savedInstanceState: Bundle?) {
+   super.onCreate(savedInstanceState)
+   handleIntent(getIntent())
+@@ -134,7 +106,7 @@ private fun handleIntent(intent: Intent) {
+ 
+ ### Java
+ 
+-```
++```java
+ @Override
+ public void onCreate(@Nullable Bundle savedInstanceState) {
+   super.onCreate(savedInstanceState);
+@@ -155,44 +127,41 @@ private void handleIntent(Intent intent) {
+ 
+ ## Device filters
+ 
+-**Note:** This feature will be available in a later version of the developer
+-preview.
++| **Note:** This feature will be available in a later version of the developer preview.
+ 
+-When discovering devices, it’s common to want to filter these devices to only
+-show the ones relevant to the use case at hand. For example:
++When discovering devices, it's common to want to filter these devices to only show the ones relevant to the use case at hand. For example:
+ 
+-* Filtering to only devices with camera to help scan a QR code
+-* Filtering to only TVs for a big screen viewing experience
++- Filtering to only devices with camera to help scan a QR code
++- Filtering to only TVs for a big screen viewing experience
+ 
+-For this developer preview, we are starting with the ability to filter to
+-devices owned by the same user.
++For this developer preview, we are starting with the ability to filter to devices owned by the same user.
+ 
+-You can specify the device filter using class `DeviceFilter`:
++You can specify the device filter using class`DeviceFilter`:  
+ 
+ ### Kotlin
+ 
+-```
++```kotlin
+ val deviceFilters = listOf(DeviceFilter.trustRelationshipFilter(MY_DEVICES_ONLY))
+ ```
+ 
+ ### Java
+ 
+-```
++```java
+ List<DeviceFilter> deviceFilters =
+     Arrays.asList(DeviceFilter.trustRelationshipFilter(MY_DEVICES_ONLY));
+ ```
+ 
+-Once you define the device filters, you can initiate device discovery.
++Once you define the device filters, you can initiate device discovery.  
+ 
+ ### Kotlin
+ 
+-```
++```kotlin
+ devicePickerLauncher.launchDevicePicker(deviceFilters, startComponentRequest)
+ ```
+ 
+ ### Java
+ 
+-```
++```java
+ Futures.addCallback(
+     devicePickerLauncher.launchDevicePickerFuture(deviceFilters, startComponentRequest),
+     new FutureCallback<Void>() {
+@@ -209,5 +178,4 @@ Futures.addCallback(
+     mainExecutor);
+ ```
+ 
+-Notice that the `launchDevicePicker` is an asynchronous function that uses the
+-`suspend` keyword.
+\ No newline at end of file
++Notice that the`launchDevicePicker`is an asynchronous function that uses the`suspend`keyword.
+\ No newline at end of file

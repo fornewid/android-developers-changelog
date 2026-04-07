@@ -1,0 +1,12 @@
+diff --git a/docs/courses/extras/utilities.md b/docs/courses/extras/utilities.md
+index dfa3780..6c15925 100644
+--- a/docs/courses/extras/utilities.md
++++ b/docs/courses/extras/utilities.md
+@@ -11,6 +11,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ The page below describes tasks you might need to do as you develop the apps in the
+ [Android Developer Fundamentals codelabs](https://developer.android.com/courses/fundamentals-training/toc-v2)
+ or the

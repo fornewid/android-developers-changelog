@@ -1,0 +1,12 @@
+diff --git a/docs/health-and-fitness/health-services/active-data/debounced-goals.md b/docs/health-and-fitness/health-services/active-data/debounced-goals.md
+index 7fc3ce9..13730df 100644
+--- a/docs/health-and-fitness/health-services/active-data/debounced-goals.md
++++ b/docs/health-and-fitness/health-services/active-data/debounced-goals.md
+@@ -15,6 +15,7 @@ Starting in 2026, we'll be transitioning away from Google Fit APIs. For more inf
+ 
+ 
+ 
++
+ Health Services now supports *debounced goals* for instantaneous metrics, such
+ as heart rate, distance, and speed. Debounced goals improve the user experience
+ for people who want to maintain a specific threshold or range—such as heart

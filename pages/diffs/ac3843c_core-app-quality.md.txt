@@ -1,0 +1,12 @@
+diff --git a/docs/docs/quality-guidelines/core-app-quality.md b/docs/docs/quality-guidelines/core-app-quality.md
+index f227e6e..f3f554b 100644
+--- a/docs/docs/quality-guidelines/core-app-quality.md
++++ b/docs/docs/quality-guidelines/core-app-quality.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ To provide a solid foundation for a quality app, follow the core app quality
+ guidelines.
+ 

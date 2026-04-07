@@ -1,0 +1,12 @@
+diff --git a/docs/tv/release/12.md b/docs/tv/release/12.md
+index 0a0b355..8b2078a 100644
+--- a/docs/tv/release/12.md
++++ b/docs/tv/release/12.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ We've added more customizations to Android 12 to improve the experience and
+ compatibility on TV devices. Some of the highlights for
+ TV are media playback improvements, more refined user interface capabilities,

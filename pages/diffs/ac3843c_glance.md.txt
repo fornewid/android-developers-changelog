@@ -1,0 +1,12 @@
+diff --git a/docs/jetpack/androidx/releases/glance.md b/docs/jetpack/androidx/releases/glance.md
+index 157a0d7..e6bd017 100644
+--- a/docs/jetpack/androidx/releases/glance.md
++++ b/docs/jetpack/androidx/releases/glance.md
+@@ -15,7 +15,6 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
+-
+ # Glance
+ 
+ [Code Sample](https://github.com/android/user-interface-samples/tree/main/AppWidget)

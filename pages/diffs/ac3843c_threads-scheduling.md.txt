@@ -1,0 +1,14 @@
+diff --git a/docs/agi/sys-trace/threads-scheduling.md b/docs/agi/sys-trace/threads-scheduling.md
+index a47f018..dbf7d65 100644
+--- a/docs/agi/sys-trace/threads-scheduling.md
++++ b/docs/agi/sys-trace/threads-scheduling.md
+@@ -24,9 +24,6 @@ higher frame rates.
+ 
+ ## CPU core affinity
+ 
+-> [!IMPORTANT]
+-> **Important:** CPU core affinity has been superseded by the [Performance Hint API](https://developer.android.com/games/optimize/adpf/performance-hint-api). Use this API when your app is on a device running Android 12 and later.
+-
+ One factor that significantly affects the performance of your CPU workloads is how they are scheduled on the cores. This may be split into two components:
+ 
+ - Whether your game threads are running on the most suitable core for their workload.

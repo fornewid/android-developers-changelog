@@ -1,0 +1,12 @@
+diff --git a/docs/guide/navigation/backstack/dialog.md b/docs/guide/navigation/backstack/dialog.md
+index 30b14d9..6593442 100644
+--- a/docs/guide/navigation/backstack/dialog.md
++++ b/docs/guide/navigation/backstack/dialog.md
+@@ -12,6 +12,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ This document outlines how the use of [dialog destinations](/guide/navigation/design) can introduce
+ unique considerations for how you need to manage your back stack.
+ 

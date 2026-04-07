@@ -1,0 +1,12 @@
+diff --git a/docs/develop/background-work/services/fgs/service-types.md b/docs/develop/background-work/services/fgs/service-types.md
+index 1f77306..7b085cb 100644
+--- a/docs/develop/background-work/services/fgs/service-types.md
++++ b/docs/develop/background-work/services/fgs/service-types.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Beginning with Android 14 (API level 34), you must declare an appropriate
+ service type for each foreground service. That means you must declare the
+ service type in your app manifest, and also request the appropriate foreground

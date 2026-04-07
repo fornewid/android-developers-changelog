@@ -1,0 +1,12 @@
+diff --git a/docs/studio/publish/app-signing.md b/docs/studio/publish/app-signing.md
+index 3d46b16..ba26f38 100644
+--- a/docs/studio/publish/app-signing.md
++++ b/docs/studio/publish/app-signing.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Android requires that all APKs be digitally signed with a certificate before
+ they are installed on a device or updated. When releasing using [Android App
+ Bundles](/guide/app-bundle), you need to sign your app bundle with an upload

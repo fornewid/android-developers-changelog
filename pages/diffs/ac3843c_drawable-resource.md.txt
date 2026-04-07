@@ -1,0 +1,12 @@
+diff --git a/docs/guide/topics/resources/drawable-resource.md b/docs/guide/topics/resources/drawable-resource.md
+index b6c546c..7aae60d 100644
+--- a/docs/guide/topics/resources/drawable-resource.md
++++ b/docs/guide/topics/resources/drawable-resource.md
+@@ -12,7 +12,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ A drawable resource is a general concept for a graphic that can be drawn to the screen and that
+ you can retrieve with APIs such as `getDrawable(int)` or apply
+ to another XML resource with attributes such as `android:drawable` and `android:icon`.

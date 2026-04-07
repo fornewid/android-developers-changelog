@@ -1,0 +1,49 @@
+diff --git a/docs/guide/navigation/navigation-3/recipes/basicsaveable.md b/docs/guide/navigation/navigation-3/recipes/basicsaveable.md
+index ecbac5b..6b3b361 100644
+--- a/docs/guide/navigation/navigation-3/recipes/basicsaveable.md
++++ b/docs/guide/navigation/navigation-3/recipes/basicsaveable.md
+@@ -1,9 +1,18 @@
+ ---
+-title: https://developer.android.com/guide/navigation/navigation-3/recipes/basicsaveable
++title: App architecture  |  Android Developers
+ url: https://developer.android.com/guide/navigation/navigation-3/recipes/basicsaveable
+-source: md.txt
++source: html-scrape
+ ---
+ 
++* [Android Developers](https://developer.android.com/)
++* [App architecture](https://developer.android.com/topic/architecture/intro)
++
++Stay organized with collections
++
++Save and categorize content based on your preferences.
++
++
++
+ # Basic Saveable Recipe
+ 
+ This recipe shows a basic example of how to create a persistent back stack that survives configuration changes.
+@@ -15,7 +24,14 @@ To make the back stack persistent, we use the `rememberNavBackStack` function. T
+ A requirement for using `rememberNavBackStack` is that the navigation keys (routes) must be serializable. In this example, `RouteA` and `RouteB` are annotated with `@Serializable` and implement the `NavKey` interface.
+ 
+ This example uses a `when` statement within the `entryProvider` to map routes to their corresponding composables, but it could also be used with the `entryProvider` DSL.
+-[![](https://developer.android.com/static/images/picto-icons/code.svg) Explore View the full recipe on GitHub.](https://github.com/android/nav3-recipes/tree/main/app/src/main/java/com/example/nav3recipes/basicsaveable)
++
++[![](/static/images/picto-icons/code.svg)
++
++Explore
++
++View the full recipe on GitHub.
++
++arrow\_forward](https://github.com/android/nav3-recipes/tree/main/app/src/main/java/com/example/nav3recipes/basicsaveable)
+ 
+ ```
+ /*
+@@ -93,4 +109,6 @@ class BasicSaveableActivity : ComponentActivity() {
+         }
+     }
+ }
++
++BasicSaveableActivity.kt
+ ```
+\ No newline at end of file

@@ -1,0 +1,12 @@
+diff --git a/docs/training/wide-color-gamut.md b/docs/training/wide-color-gamut.md
+index c18a6a7..6cd3c9b 100644
+--- a/docs/training/wide-color-gamut.md
++++ b/docs/training/wide-color-gamut.md
+@@ -10,7 +10,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Android 8.0 (API level 26) introduced color management support for additional
+ [color spaces](https://en.wikipedia.org/wiki/Color_space) besides
+ standard RGB (sRGB) for rendering graphics on devices with compatible displays. With this support,

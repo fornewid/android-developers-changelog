@@ -1,0 +1,12 @@
+diff --git a/docs/guide/navigation/custom-back/support-animations-views.md b/docs/guide/navigation/custom-back/support-animations-views.md
+index c769d59..0d2d087 100644
+--- a/docs/guide/navigation/custom-back/support-animations-views.md
++++ b/docs/guide/navigation/custom-back/support-animations-views.md
+@@ -12,6 +12,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ You can create custom in-app property animations and transitions, custom
+ cross-activity animations, and custom cross-fragment animations with predictive
+ back gestures using Views or Compose. To try the Compose way, see

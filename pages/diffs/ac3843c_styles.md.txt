@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/compose/styles.md b/docs/develop/ui/compose/styles.md
+index b3f7aa4..b94ec22 100644
+--- a/docs/develop/ui/compose/styles.md
++++ b/docs/develop/ui/compose/styles.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ **Note:** Styles are `@Experimental` and likely to change in upcoming releases, with
+ Material support for Styles added in future releases. If you have any feedback,
+ [file Styles issues here](https://issuetracker.google.com/issues/new?component=612128).

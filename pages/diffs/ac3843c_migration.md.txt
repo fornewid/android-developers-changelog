@@ -1,0 +1,12 @@
+diff --git a/docs/develop/sensors-and-location/location/migration.md b/docs/develop/sensors-and-location/location/migration.md
+index 5f34490..ddaa848 100644
+--- a/docs/develop/sensors-and-location/location/migration.md
++++ b/docs/develop/sensors-and-location/location/migration.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Google recommends using the [location and context
+ APIs](https://developers.google.com/location-context/) in Google Play services
+ in apps that require location services. If your app uses the [framework location

@@ -1,0 +1,12 @@
+diff --git a/docs/topic/performance/tracing/profiling-manager/debug-mode.md b/docs/topic/performance/tracing/profiling-manager/debug-mode.md
+index fb3f1e8..ac3d379 100644
+--- a/docs/topic/performance/tracing/profiling-manager/debug-mode.md
++++ b/docs/topic/performance/tracing/profiling-manager/debug-mode.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ While the most useful way to use `ProfilingManager` is to collect profiles from
+ your public users, you might first need to debug your setup or record local
+ profiles for investigations. You might have noticed that profiles are sometimes

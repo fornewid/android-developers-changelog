@@ -1,0 +1,12 @@
+diff --git a/docs/health-and-fitness/support.md b/docs/health-and-fitness/support.md
+index 2cbd7e7..6278f3c 100644
+--- a/docs/health-and-fitness/support.md
++++ b/docs/health-and-fitness/support.md
+@@ -17,7 +17,6 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
+-
+ ### Android Health & Fitness Support
+ 
+ If you have questions or run into difficulties with Health Connect, use the following resources to find answers and solve problems.

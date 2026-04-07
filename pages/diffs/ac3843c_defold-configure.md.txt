@@ -1,0 +1,20 @@
+diff --git a/docs/games/engines/defold/defold-configure.md b/docs/games/engines/defold/defold-configure.md
+index 280c93b..1ba01dc 100644
+--- a/docs/games/engines/defold/defold-configure.md
++++ b/docs/games/engines/defold/defold-configure.md
+@@ -15,6 +15,7 @@ Send feedback
+ 
+ 
+ 
++
+ This guide covers the following steps:
+ 
+ * Selecting a version of Defold
+@@ -115,4 +116,6 @@ Android manifest during export.
+ 
+ 
+ 
++
++
+ Send feedback
+\ No newline at end of file

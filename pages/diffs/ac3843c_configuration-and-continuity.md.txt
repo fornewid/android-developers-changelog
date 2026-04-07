@@ -1,0 +1,12 @@
+diff --git a/docs/guide/topics/large-screens/configuration-and-continuity.md b/docs/guide/topics/large-screens/configuration-and-continuity.md
+index 2edf6ad..f6c9961 100644
+--- a/docs/guide/topics/large-screens/configuration-and-continuity.md
++++ b/docs/guide/topics/large-screens/configuration-and-continuity.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ ![Tier 3 adaptive ready icon](/static/images/docs/quality-guidelines/tier-3/tier_3_icon.png)
+ 
+ TIER 3 — Adaptive ready

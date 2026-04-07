@@ -1,0 +1,12 @@
+diff --git a/docs/guide/components/processes-and-threads.md b/docs/guide/components/processes-and-threads.md
+index e8e0e06..de3a9d6 100644
+--- a/docs/guide/components/processes-and-threads.md
++++ b/docs/guide/components/processes-and-threads.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ When an application component starts and the application doesn't have any other components
+ running, the Android system starts a new Linux process for the application with a single thread of
+ execution. By default, all components of the same application run in the same process and thread,

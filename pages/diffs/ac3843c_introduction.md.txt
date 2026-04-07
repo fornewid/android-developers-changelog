@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/compose/animation/introduction.md b/docs/develop/ui/compose/animation/introduction.md
+index 1aed3f9..b69812f 100644
+--- a/docs/develop/ui/compose/animation/introduction.md
++++ b/docs/develop/ui/compose/animation/introduction.md
+@@ -16,7 +16,6 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
+-
+ ### [Animations in Compose](https://developer.android.com/develop/ui/compose/animation/quick-guide)
+ 
+ Animations are essential in a modern mobile app in order to realize a smooth and understandable user experience.

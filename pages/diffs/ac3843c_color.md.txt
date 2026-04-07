@@ -1,0 +1,137 @@
+diff --git a/docs/design/ui/wear/guides/styles/color.md b/docs/design/ui/wear/guides/styles/color.md
+index c70bb24..5ac3744 100644
+--- a/docs/design/ui/wear/guides/styles/color.md
++++ b/docs/design/ui/wear/guides/styles/color.md
+@@ -1,64 +1,85 @@
+ ---
+-title: https://developer.android.com/design/ui/wear/guides/styles/color
++title: Color  |  Wear  |  Android Developers
+ url: https://developer.android.com/design/ui/wear/guides/styles/color
+-source: md.txt
++source: html-scrape
+ ---
+ 
+-# Color
++* [Android Developers](https://developer.android.com/)
++* [Design & Plan](https://developer.android.com/design)
++* [UI Design](https://developer.android.com/design/ui)
++* [Wear](https://developer.android.com/design/ui/wear)
++* [Guides](https://developer.android.com/design/ui/wear/guides/get-started)
+ 
+-Create more accessible, personal color schemes communicating your product's hierarchy, state, and brand. When designing for wearables, color plays a crucial role in enhancing legibility, usability, visual appeal, and expression, especially on smaller screens.
++# Color Stay organized with collections Save and categorize content based on your preferences.
++
++
++
++
++Create more accessible, personal color schemes communicating your product's
++hierarchy, state, and brand. When designing for wearables, color plays a crucial
++role in enhancing legibility, usability, visual appeal, and expression,
++especially on smaller screens.
+ 
+ The following principles explain how to use color across themes.
+ 
+-## Build from black
++[
++](/static/wear/images/design/color-hero.mp4)
+ 
+-<br />
++## Build from black
+ 
+-Watches are designed with a black background, instead of the tinted background that phone devices use. While dark themes are meant for low-light environments and light themes for daylight, watch UIs need to function seamlessly both day and night. Therefore, color tokens for watches must be specifically tailored.  
+-![](https://developer.android.com/static/wear/images/design/message-and-alarm.png)
++Watches are designed with a black background, instead of the tinted background
++that phone devices use. While dark themes are meant for low-light environments
++and light themes for daylight, watch UIs need to function seamlessly both day
++and night. Therefore, color tokens for watches must be specifically tailored.
+ 
+-<br />
++![](/static/wear/images/design/message-and-alarm.png)
+ 
+ ## New color roles
+ 
+-<br />
+-
+-The Material 3 color system retains the structure of three accent colors and two neutral surface colors, but introduces container colors within the accent roles. These new roles enable greater expressive potential without disrupting visual hierarchy, essentially providing surface color variations with increased chroma. Container roles are particularly useful for highlighting states, such as toggle buttons, or for providing complementary styling when the primary accent is already utilized.  
+-![](https://developer.android.com/static/wear/images/design/color-roles.png)
++The Material 3 color system retains the structure of three accent colors and two
++neutral surface colors, but introduces container colors within the accent roles.
++These new roles enable greater expressive potential without disrupting visual
++hierarchy, essentially providing surface color variations with increased chroma.
++Container roles are particularly useful for highlighting states, such as toggle
++buttons, or for providing complementary styling when the primary accent is
++already utilized.
+ 
+-<br />
++![](/static/wear/images/design/color-roles.png)
+ 
+ ## Semantic meaning
+ 
+-<br />
+-
+-In watch UIs, colors need to communicate meaning clearly and intuitively. For example, red indicates errors and green signals success, helping users quickly understand actions or states without needing extra explanation. This semantic use of color helps users navigate your UI and take action with confidence.  
+-![](https://developer.android.com/static/wear/images/design/semantic-meaning.png)
++In watch UIs, colors need to communicate meaning clearly and intuitively. For
++example, red indicates errors and green signals success, helping users quickly
++understand actions or states without needing extra explanation. This semantic
++use of color helps users navigate your UI and take action with confidence.
+ 
+-<br />
++![](/static/wear/images/design/semantic-meaning.png)
+ 
+ ## Color accessibility (contrast compliance)
+ 
+-<br />
++In watch UIs, colors need to communicate meaning clearly and intuitively. For
++example, red indicates errors and green signals success, helping users quickly
++understand actions or states without needing extra explanation. This semantic
++use of color helps users navigate your UI and take action with confidence.
+ 
+-In watch UIs, colors need to communicate meaning clearly and intuitively. For example, red indicates errors and green signals success, helping users quickly understand actions or states without needing extra explanation. This semantic use of color helps users navigate your UI and take action with confidence.  
+-![](https://developer.android.com/static/wear/images/design/color-accessibility.png)
+-
+-<br />
++![](/static/wear/images/design/color-accessibility.png)
+ 
+ ## What's new
+ 
+-There are substantial updates to the visual design system and how we elevate expression throughout updates to our style foundations, components, and tiles design libraries.
++There are substantial updates to the visual design system and how we elevate
++expression throughout updates to our style foundations, components, and tiles
++design libraries.
+ 
+ The Material 3 Expressive color system includes the following features:
+ 
+-- Built-in set of accessible color relationships
+-- 28+ color roles mapped to Material components
+-- Built-in dark theme colors for building from black
+-- Improved disabled color values
+-- Additional error colors
+-- Static baseline color with default colors assigned to each color role
+-- Dynamic color features, including System/Watch face, and image-based color themes
++* Built-in set of accessible color relationships
++* 28+ color roles mapped to Material components
++* Built-in dark theme colors for building from black
++* Improved disabled color values
++* Additional error colors
++* Static baseline color with default colors assigned to each color role
++* Dynamic color features, including System/Watch face, and image-based color
++  themes
+ 
+ ## Resources
+ 
+@@ -66,9 +87,7 @@ To learn more, view the following resources.
+ 
+ ### Material Design color guidelines
+ 
+-<br />
+-
+-[Learn about the latest best practices](https://material.io/color)for color schemes using Material 3 Expressive.  
+-![](https://developer.android.com/static/wear/images/design/material-io-color-system.png)
++[Learn about the latest best practices](https://material.io/color) for color schemes using Material 3
++Expressive.
+ 
+-<br />
+\ No newline at end of file
++![](/static/wear/images/design/material-io-color-system.png)
+\ No newline at end of file

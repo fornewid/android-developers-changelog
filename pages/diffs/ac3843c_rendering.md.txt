@@ -1,0 +1,12 @@
+diff --git a/docs/topic/performance/rendering.md b/docs/topic/performance/rendering.md
+index 266810c..895ad7e 100644
+--- a/docs/topic/performance/rendering.md
++++ b/docs/topic/performance/rendering.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ A key aspect of your app that influences your users' perception of quality is the smoothness with
+ which it renders images and text to the screen. It's important to avoid jank and sluggish
+ responsiveness when your app is drawing to the screen.

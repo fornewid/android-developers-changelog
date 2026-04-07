@@ -1,0 +1,12 @@
+diff --git a/docs/develop/devices/chromeos/learn/device-support.md b/docs/develop/devices/chromeos/learn/device-support.md
+index 0ba084f..86dc01c 100644
+--- a/docs/develop/devices/chromeos/learn/device-support.md
++++ b/docs/develop/devices/chromeos/learn/device-support.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ You can use the Google Play Store to install Android apps on several Google
+ Chromebooks. This document describes the Chromebooks, Chromeboxes, and
+ Chromebases on which you can install Android apps.

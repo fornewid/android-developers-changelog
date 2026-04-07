@@ -1,0 +1,12 @@
+diff --git a/docs/training/data-storage/room/migrating-db-versions.md b/docs/training/data-storage/room/migrating-db-versions.md
+index a08cc98..5cf6786 100644
+--- a/docs/training/data-storage/room/migrating-db-versions.md
++++ b/docs/training/data-storage/room/migrating-db-versions.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ As you add and change features in your app, you need to modify your Room entity
+ classes and underlying database tables to reflect these changes. It's important
+ to preserve user data that is already in the on-device database when an app

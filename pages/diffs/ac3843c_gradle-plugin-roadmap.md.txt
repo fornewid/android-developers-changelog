@@ -1,0 +1,12 @@
+diff --git a/docs/build/releases/gradle-plugin-roadmap.md b/docs/build/releases/gradle-plugin-roadmap.md
+index 1916749..53bc3ea 100644
+--- a/docs/build/releases/gradle-plugin-roadmap.md
++++ b/docs/build/releases/gradle-plugin-roadmap.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ The Android Gradle Plugin (AGP) is the supported build system for Android
+ applications and includes support for compiling many different types of sources
+ and linking them together into an application that you can run on a physical

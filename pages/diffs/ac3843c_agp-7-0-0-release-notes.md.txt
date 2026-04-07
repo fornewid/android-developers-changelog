@@ -1,0 +1,12 @@
+diff --git a/docs/build/releases/agp-7-0-0-release-notes.md b/docs/build/releases/agp-7-0-0-release-notes.md
+index ecd0c96..300ace4 100644
+--- a/docs/build/releases/agp-7-0-0-release-notes.md
++++ b/docs/build/releases/agp-7-0-0-release-notes.md
+@@ -15,6 +15,7 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
++
+ # Android Gradle Plugin 7.0.0 (July 2021)
+ 
+ Android Gradle plugin 7.0.0 is a major release that includes a variety of new

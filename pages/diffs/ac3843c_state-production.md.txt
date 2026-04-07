@@ -1,0 +1,12 @@
+diff --git a/docs/topic/architecture/ui-layer/state-production.md b/docs/topic/architecture/ui-layer/state-production.md
+index d6b8924..7844f00 100644
+--- a/docs/topic/architecture/ui-layer/state-production.md
++++ b/docs/topic/architecture/ui-layer/state-production.md
+@@ -12,7 +12,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Modern UIs are rarely static. The state of the UI changes when the user
+ interacts with the UI or when the app needs to display new data.
+ 

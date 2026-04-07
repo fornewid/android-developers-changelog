@@ -1,0 +1,12 @@
+diff --git a/docs/training/tv/accessibility.md b/docs/training/tv/accessibility.md
+index 7eff780..66704a8 100644
+--- a/docs/training/tv/accessibility.md
++++ b/docs/training/tv/accessibility.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ This guide provides best practices for accessibility on Android TV and provides
+ recommendations for both native and non-native apps.
+ 

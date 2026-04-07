@@ -1,0 +1,247 @@
+diff --git a/docs/jetpack/androidx/releases/privacysandbox-tools.md b/docs/jetpack/androidx/releases/privacysandbox-tools.md
+index f4949fc..c2b2d18 100644
+--- a/docs/jetpack/androidx/releases/privacysandbox-tools.md
++++ b/docs/jetpack/androidx/releases/privacysandbox-tools.md
+@@ -1,35 +1,21 @@
+ ---
+-title: privacysandbox  |  Jetpack  |  Android Developers
++title: https://developer.android.com/jetpack/androidx/releases/privacysandbox-tools
+ url: https://developer.android.com/jetpack/androidx/releases/privacysandbox-tools
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-* [Get started](https://developer.android.com/get-started/overview)
+-* [Jetpack](https://developer.android.com/jetpack)
+-* [Libraries](https://developer.android.com/jetpack/androidx/explorer)
+-
+-Stay organized with collections
+-
+-Save and categorize content based on your preferences.
+-
+-
+-
+ # privacysandbox-tools
+ 
+-API Reference  
+-[androidx.privacysandbox.tools](/reference/kotlin/androidx/privacysandbox/tools/package-summary)
+-
+ A library to utilize the Privacy Sandbox functionality in Android
+ 
+ | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
+-| --- | --- | --- | --- | --- |
+-| December 17, 2025 | - | - | - | [1.0.0-alpha14](/jetpack/androidx/releases/privacysandbox-tools#1.0.0-alpha14) |
++|---|---|---|---|---|
++| December 17, 2025 | - | - | - | [1.0.0-alpha14](https://developer.android.com/jetpack/androidx/releases/privacysandbox-tools#1.0.0-alpha14) |
+ 
+ ## Declaring dependencies
+ 
+ To add a dependency on privacysandbox-tools, you must add the Google Maven repository to your
+-project. Read [Google's Maven repository](/studio/build/dependencies#google-maven)
++project. Read [Google's Maven repository](https://developer.android.com/studio/build/dependencies#google-maven)
+ for more information.
+ 
+ Add the dependencies for the artifacts you need in the `build.gradle` file for
+@@ -37,7 +23,7 @@ your app or module:
+ 
+ ### Groovy
+ 
+-```
++```groovy
+ dependencies {
+     // Use to implement privacysandbox libraries
+ 
+@@ -54,7 +40,7 @@ dependencies {
+ 
+ ### Kotlin
+ 
+-```
++```kotlin
+ dependencies {
+     // Use to implement privacysandbox libraries
+     
+@@ -68,13 +54,13 @@ dependencies {
+ }
+ ```
+ 
+-For more information about dependencies, see [Add build dependencies](/studio/build/dependencies).
++For more information about dependencies, see [Add build dependencies](https://developer.android.com/studio/build/dependencies).
+ 
+ ## Feedback
+ 
+ Your feedback helps make Jetpack better. Let us know if you discover new issues or have
+ ideas for improving this library. Please take a look at the
+-[existing issues](https://issuetracker.google.com/issues?q=componentid:1276143%20status:open)
++[existing issues](https://issuetracker.google.com/issues?q=componentid:1276143+status:open)
+ in this library before you create a new one. You can add your vote to an existing issue by
+ clicking the star button.
+ 
+@@ -91,7 +77,7 @@ December 17, 2025
+ 
+ `androidx.privacysandbox.tools:tools-*:1.0.0-alpha14` is released. Version 1.0.0-alpha14 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/78132378b67c86698d1ade3dc368c9f15d738a71..ec985eed3cba8444e5aaa52a748333397a1298f3/privacysandbox/tools).
+ 
+-* This library has been deprecated and will not receive any future updates.
++- This library has been deprecated and will not receive any future updates.
+ 
+ **API Changes**
+ - Deprecated `privacysandbox.tools` APIs. ([Ieb66c](https://android-review.googlesource.com/#/q/Ieb66cc32ff2104413af206a13b4b988aedd06932), [b/452878636](https://issuetracker.google.com/issues/452878636))
+@@ -107,8 +93,8 @@ March 26, 2025
+ 
+ **New Features**
+ 
+-* Added support for the `SessionData` parameter in `openSession`, which replaces `SessionConstants`.
+-* Removed the generation of `SandboxedSdkProviderCompat.getView()`, which is now deprecated.
++- Added support for the `SessionData` parameter in `openSession`, which replaces `SessionConstants`.
++- Removed the generation of `SandboxedSdkProviderCompat.getView()`, which is now deprecated.
+ 
+ ### Version 1.0.0-alpha12
+ 
+@@ -118,7 +104,7 @@ February 26, 2025
+ 
+ **New Features**
+ 
+-* `@PrivacySandboxInterface-annotated` interfaces can now extend the `SharedUiAdapter` interface introduced in `androidx.privacysandbox.ui:ui-core:1.0.0-alpha14`, similarly to `SandboxedUiAdapter`. An interface may only extend one UI adapter type.
++- `@PrivacySandboxInterface-annotated` interfaces can now extend the `SharedUiAdapter` interface introduced in `androidx.privacysandbox.ui:ui-core:1.0.0-alpha14`, similarly to `SandboxedUiAdapter`. An interface may only extend one UI adapter type.
+ 
+ ### Version 1.0.0-alpha11
+ 
+@@ -128,7 +114,7 @@ January 29, 2025
+ 
+ **New Features**
+ 
+-* Added support for the updated `SessionConstants` parameter in `SandboxedUiAdapter.openSession`. ([I65886](https://android-review.googlesource.com/#/q/I65886a9b8669870929cabedd5e77659e0b53ddba))
++- Added support for the updated `SessionConstants` parameter in `SandboxedUiAdapter.openSession`. ([I65886](https://android-review.googlesource.com/#/q/I65886a9b8669870929cabedd5e77659e0b53ddba))
+ 
+ ### Version 1.0.0-alpha10
+ 
+@@ -138,15 +124,15 @@ October 2, 2024
+ 
+ **New Features**
+ 
+-* Add support for SDK-defined constants using `const val` in annotated interfaces and annotated values.
++- Add support for SDK-defined constants using `const val` in annotated interfaces and annotated values.
+ 
+ **API Changes**
+ 
+-* Disallow objects in the apicompiler (these were previously silently ignored)
++- Disallow objects in the apicompiler (these were previously silently ignored)
+ 
+ **Bug Fixes**
+ 
+-* Fix crash when there are source directories ending in .class
++- Fix crash when there are source directories ending in .class
+ 
+ ### Version 1.0.0-alpha09
+ 
+@@ -156,8 +142,8 @@ June 26, 2024
+ 
+ **New Features**
+ 
+-* Add support for enum classes annotated with `@PrivacySandboxValue`.
+-* Support for Privacy Sandbox UI alpha 09.
++- Add support for enum classes annotated with `@PrivacySandboxValue`.
++- Support for Privacy Sandbox UI alpha 09.
+ 
+ ### Version 1.0.0-alpha08
+ 
+@@ -167,8 +153,8 @@ March 20, 2024
+ 
+ **New Features**
+ 
+-* Interfaces annotated with `@PrivacySandboxCallback` can now have methods that return values as long as the method suspends.([I16063](https://android-review.googlesource.com/#/q/I16063ea9054c5ed77768c0e631c80f45cfdcbd04))
+-* Bundles are now accepted as valid parameters and return types in annotated interfaces and values. ([I52995](https://android-review.googlesource.com/#/q/I52995e422051e15849b0e0888e5e7ac89ea475ae))
++- Interfaces annotated with `@PrivacySandboxCallback` can now have methods that return values as long as the method suspends.([I16063](https://android-review.googlesource.com/#/q/I16063ea9054c5ed77768c0e631c80f45cfdcbd04))
++- Bundles are now accepted as valid parameters and return types in annotated interfaces and values. ([I52995](https://android-review.googlesource.com/#/q/I52995e422051e15849b0e0888e5e7ac89ea475ae))
+ 
+ ### Version 1.0.0-alpha07
+ 
+@@ -178,7 +164,7 @@ February 7, 2024
+ 
+ **API Changes**
+ 
+-* Support the new SDK Activity launcher interfaces. The new interfaces live in `androidx.privacysandbox.activity.core`. The old ones in `androidx.privacysandbox.ui.core` are no longer supported. ([Ia9079](https://android-review.googlesource.com/#/q/Ia90797eb47a98f520a0fcd666a43408ebe2f2c8a))
++- Support the new SDK Activity launcher interfaces. The new interfaces live in `androidx.privacysandbox.activity.core`. The old ones in `androidx.privacysandbox.ui.core` are no longer supported. ([Ia9079](https://android-review.googlesource.com/#/q/Ia90797eb47a98f520a0fcd666a43408ebe2f2c8a))
+ 
+ ### Version 1.0.0-alpha06
+ 
+@@ -188,8 +174,8 @@ September 6, 2023
+ 
+ **Bug Fixes**
+ 
+-* Use non-android Guava dependencies to avoid classpath clashes in Bazel.
+-* Fix crash when API compiler is called from Bazel. ([I24c9d](https://android-review.googlesource.com/#/q/I24c9df4d3732046213e68ee1f6f1cbe649aacc96))
++- Use non-android Guava dependencies to avoid classpath clashes in Bazel.
++- Fix crash when API compiler is called from Bazel. ([I24c9d](https://android-review.googlesource.com/#/q/I24c9df4d3732046213e68ee1f6f1cbe649aacc96))
+ 
+ ### Version 1.0.0-alpha05
+ 
+@@ -199,7 +185,7 @@ August 9, 2023
+ 
+ **New Features**
+ 
+-* Generated `SandboxedUiAdapters` now have the new `windowInputToken` set. This makes this release compatible with `androidx.privacysandbox.ui:ui-core:1.0.0-alpha05`.
++- Generated `SandboxedUiAdapters` now have the new `windowInputToken` set. This makes this release compatible with `androidx.privacysandbox.ui:ui-core:1.0.0-alpha05`.
+ 
+ ### Version 1.0.0-alpha04
+ 
+@@ -209,14 +195,14 @@ May 24, 2023
+ 
+ **New Features**
+ 
+-* `CancellationExceptions` are now propagated to apps, so SDKs can now cancel their coroutines as expected.
+-* `SdkActivityLaunchers` can now be used in SDK APIs, so apps can send launchers to SDKs in the Privacy Sandbox. Note that this functionality is only available in developer previews at the moment.
++- `CancellationExceptions` are now propagated to apps, so SDKs can now cancel their coroutines as expected.
++- `SdkActivityLaunchers` can now be used in SDK APIs, so apps can send launchers to SDKs in the Privacy Sandbox. Note that this functionality is only available in developer previews at the moment.
+ 
+ **Bug Fixes**
+ 
+-* Non-suspend functions declared by SDKs will now run in the main thread by default. They used to run in Binder threads.
+-* Services can no longer inherit from UI interface adapters.
+-* Fixed an issue where defining a UI adapter property in a data class would cause a compilation error.
++- Non-suspend functions declared by SDKs will now run in the main thread by default. They used to run in Binder threads.
++- Services can no longer inherit from UI interface adapters.
++- Fixed an issue where defining a UI adapter property in a data class would cause a compilation error.
+ 
+ ### Version 1.0.0-alpha03
+ 
+@@ -226,11 +212,11 @@ March 8, 2023
+ 
+ **New Features**
+ 
+-* Added support for Privacy Sandbox UI API integration
++- Added support for Privacy Sandbox UI API integration
+ 
+ **API Changes**
+ 
+-* Changed target kotlin version to 1.8.0
++- Changed target kotlin version to 1.8.0
+ 
+ ### Version 1.0.0-alpha02
+ 
+@@ -238,7 +224,7 @@ December 7, 2022
+ 
+ `androidx.privacysandbox.tools:tools-*:1.0.0-alpha02` is released. [Version 1.0.0-alpha02 contains these commits.](https://android.googlesource.com/platform/frameworks/support/+log/8e4324d8f0eadf8e1a1d8327c5d7c8217420966e..03191478ed5c4864f09db2696577a3b7c9937051/privacysandbox/tools)
+ 
+-* These tools are aimed to enhance the integration with the [Privacy Sandbox SDK Runtime APIs](https://developer.android.com/design-for-safety/privacy-sandbox/guides/sdk-runtime). These tools will help with auto-generating boilerplate code to define and interact with the client-facing interfaces of the runtime-enabled SDK.
++- These tools are aimed to enhance the integration with the [Privacy Sandbox SDK Runtime APIs](https://developer.android.com/design-for-safety/privacy-sandbox/guides/sdk-runtime). These tools will help with auto-generating boilerplate code to define and interact with the client-facing interfaces of the runtime-enabled SDK.
+ 
+ **New Features**
+ - Adds support for defining client-facing SDK interfaces that accept callbacks and data value objects as parameters and return types
+@@ -247,7 +233,7 @@ December 7, 2022
+ 
+ **API Changes**
+ 
+-* Adding `@JvmDefaultWithCompatibility` annotation ([I8f206](https://android-review.googlesource.com/#/q/I8f2067bb0754a5e9dc70c934403366ca8d319c36))
++- Adding `@JvmDefaultWithCompatibility` annotation ([I8f206](https://android-review.googlesource.com/#/q/I8f2067bb0754a5e9dc70c934403366ca8d319c36))
+ 
+ ### Version 1.0.0-alpha01
+ 
+@@ -257,4 +243,4 @@ November 9, 2022
+ 
+ **New Features**
+ 
+-* This is a new Jetpack library that contains apis for utilizing the [Privacy Sandbox](https://developer.android.com/design-for-safety/privacy-sandbox) functionality. Please file bugs at our [issue tracker component](https://issuetracker.google.com/issues/new?component=1276143&template=1756612).
+\ No newline at end of file
++- This is a new Jetpack library that contains apis for utilizing the [Privacy Sandbox](https://developer.android.com/design-for-safety/privacy-sandbox) functionality. Please file bugs at our [issue tracker component](https://issuetracker.google.com/issues/new?component=1276143&template=1756612).
+\ No newline at end of file

@@ -1,0 +1,12 @@
+diff --git a/docs/studio/preview/android-studio-cloud.md b/docs/studio/preview/android-studio-cloud.md
+index fa6a03f..c93d3f2 100644
+--- a/docs/studio/preview/android-studio-cloud.md
++++ b/docs/studio/preview/android-studio-cloud.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ ![](/static/studio/images/preview/android-studio-cloud/try-asc-card.png)
+ [Try Android Studio Cloud](https://studio.firebase.google.com/new/android-studio)
+ 

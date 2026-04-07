@@ -1,0 +1,265 @@
+diff --git a/docs/develop/ui/views/theming/darktheme.md b/docs/develop/ui/views/theming/darktheme.md
+index 4248307..adec790 100644
+--- a/docs/develop/ui/views/theming/darktheme.md
++++ b/docs/develop/ui/views/theming/darktheme.md
+@@ -1,44 +1,70 @@
+ ---
+-title: https://developer.android.com/develop/ui/views/theming/darktheme
++title: Implement dark theme  |  Views  |  Android Developers
+ url: https://developer.android.com/develop/ui/views/theming/darktheme
+-source: md.txt
++source: html-scrape
+ ---
+ 
+-Try the Compose way Jetpack Compose is the recommended UI toolkit for Android. Learn how to work with theming in Compose. [Color Scheme - Material Design 3 →](https://developer.android.com/jetpack/compose/designsystems/material3#color-scheme) ![](https://developer.android.com/static/images/android-compose-ui-logo.png)
++* [Android Developers](https://developer.android.com/)
++* [Develop](https://developer.android.com/develop)
++* [Core areas](https://developer.android.com/develop/core-areas)
++* [UI](https://developer.android.com/develop/ui)
++* [Views](https://developer.android.com/develop/ui/views/layout/declaring-layout)
+ 
+-<br />
++# Implement dark theme Stay organized with collections Save and categorize content based on your preferences.
+ 
+-![](https://developer.android.com/static/images/guide/topics/ui/look-and-feel/darktheme.png) **Figure 1.** Dark theme.
+ 
+-Dark theme is available in Android 10 (API level 29) and higher. It has the
++
++Try the Compose way
++
++Jetpack Compose is the recommended UI toolkit for Android. Learn how to work with theming in Compose.
++
++[Color Scheme - Material Design 3 →](https://developer.android.com/jetpack/compose/designsystems/material3#color-scheme)
++
++![](/static/images/android-compose-ui-logo.png)
++
++![](/static/images/guide/topics/ui/look-and-feel/darktheme.png)
++
++
++**Figure 1.** Dark theme.
++
++Dark theme is available in Android 10 (API level 29) and higher. It has the
+ following benefits:
+ 
+-- Reduces power usage by a significant amount, depending on the device's screen technology.
+-- Improves visibility for users with low vision and those who are sensitive to bright light.
+-- Makes it easier to use a device in a low-light environment.
++* Reduces power usage by a significant amount, depending on the device’s
++  screen technology.
++* Improves visibility for users with low vision and those who are sensitive to
++  bright light.
++* Makes it easier to use a device in a low-light environment.
+ 
+ Dark theme applies to the Android system UI and apps running on the device.
+ 
+-There are three ways to enable dark theme in Android 10 and higher:
++There are three ways to enable dark theme in Android 10 and higher:
+ 
+-- Use the system setting by navigating to **Settings \> Display \> Theme** to enable dark theme.
+-- Use the Quick Settings tile to switch themes from the notification tray, when enabled.
+-- On Pixel devices, enable Battery Saver mode to enable dark theme at the same time. Other devices might not support this behavior.
++* Use the system setting by navigating to **Settings > Display > Theme** to
++  enable dark theme.
++* Use the Quick Settings tile to switch themes from the notification tray,
++  when enabled.
++* On Pixel devices, enable Battery Saver mode to enable dark theme at the same
++  time. Other devices might not support this behavior.
+ 
+ For instructions on applying a dark theme to web-based content using a WebView
+-component, see [Darken web content in WebView](https://developer.android.com/guide/webapps/dark-theme).
++component, see [Darken web content in WebView](/guide/webapps/dark-theme).
+ 
+ ## Support dark theme in your app
+ 
+-To support dark theme, set your app's theme---usually found in
+-`res/values/styles.xml`---to inherit from a `DayNight` theme:
++To support dark theme, set your app's theme—usually found in
++`res/values/styles.xml`—to inherit from a `DayNight` theme:
+ 
+-    <style name="AppTheme" parent="Theme.AppCompat.DayNight">
++```
++<style name="AppTheme" parent="Theme.AppCompat.DayNight">
++```
+ 
+ You can also use the [Material Components dark
+ theme](https://material.io/develop/android/theming/dark):
+ 
+-    <style name="AppTheme" parent="Theme.MaterialComponents.DayNight">
++```
++<style name="AppTheme" parent="Theme.MaterialComponents.DayNight">
++```
+ 
+ This ties the app's main theme to the system-controlled night mode flags and
+ gives the app a default dark theme when it is enabled.
+@@ -50,8 +76,11 @@ theme attributes or night-qualified resources instead.
+ 
+ Two theme attributes are most important for dark theme:
+ 
+-- `?android:attr/textColorPrimary`: a general-purpose text color. It is near-black in light theme and near-white in dark themes. It contains a disabled state.
+-- `?attr/colorControlNormal`: a general-purpose icon color. It contains a disabled state.
++* `?android:attr/textColorPrimary`: a general-purpose text color. It is
++  near-black in light theme and near-white in dark themes. It contains a
++  disabled state.
++* `?attr/colorControlNormal`: a general-purpose icon color. It contains a
++  disabled state.
+ 
+ We recommend using [Material Design
+ Components](https://material.io/develop/android/), since its [color theming
+@@ -64,38 +93,35 @@ to suitable colors. You can customize these attributes in your theme.
+ You can let users change the app's theme while the app is running. The following
+ are recommended options:
+ 
+-- Light
+-- Dark
+-- System default (the recommended default option)
++* Light
++* Dark
++* System default (the recommended default option)
+ 
+ These options map directly to `AppCompat.DayNight` modes:
+ 
+-- Light:
+-  [`MODE_NIGHT_NO`](https://developer.android.com/reference/androidx/appcompat/app/AppCompatDelegate#MODE_NIGHT_NO()).
+-
+-- Dark:
+-  [`MODE_NIGHT_YES`](https://developer.android.com/reference/androidx/appcompat/app/AppCompatDelegate#MODE_NIGHT_YES()).
+-
+-- System default:
+-  [`MODE_NIGHT_FOLLOW_SYSTEM`](https://developer.android.com/reference/androidx/appcompat/app/AppCompatDelegate#MODE_NIGHT_FOLLOW_SYSTEM()).
++* Light:
++  [`MODE_NIGHT_NO`](/reference/androidx/appcompat/app/AppCompatDelegate#MODE_NIGHT_NO()).
++* Dark:
++  [`MODE_NIGHT_YES`](/reference/androidx/appcompat/app/AppCompatDelegate#MODE_NIGHT_YES()).
++* System default:
++  [`MODE_NIGHT_FOLLOW_SYSTEM`](/reference/androidx/appcompat/app/AppCompatDelegate#MODE_NIGHT_FOLLOW_SYSTEM()).
+ 
+ To switch the theme, do the following:
+ 
+-- On API level 31 and above, use
++* On API level 31 and above, use
+   [`UiModeManager#setApplicationNightMode`](https://developer.android.com/reference/android/app/UiModeManager#setApplicationNightMode(int))
+   to let the system know what theme your app runs. This lets the system match
+   the theme during the splash screen.
+-
+-- On API level 30 and below, use
+-  [`AppCompatDelegate.setDefaultNightMode()`](https://developer.android.com/reference/androidx/appcompat/app/AppCompatDelegate#setDefaultNightMode(int))
++* On API level 30 and below, use
++  [`AppCompatDelegate.setDefaultNightMode()`](/reference/androidx/appcompat/app/AppCompatDelegate#setDefaultNightMode(int))
+   to switch the theme.
+ 
+-> [!NOTE]
+-> **Note:** Starting with `AppCompat` v1.1.0, `setDefaultNightMode()` automatically recreates any started activities.
++**Note:** Starting with `AppCompat` v1.1.0, `setDefaultNightMode()` automatically
++recreates any started activities.
+ 
+ ## Force Dark
+ 
+-Android 10 provides *Force Dark* , a feature for developers to
++Android 10 provides *Force Dark*, a feature for developers to
+ quickly implement a dark theme without explicitly setting a `DayNight` theme.
+ 
+ Force Dark analyzes each view of your light-themed app and applies a dark theme
+@@ -116,12 +142,12 @@ Dark isn't applied due to the automatic theme switching.
+ 
+ Force Dark can be controlled on specific views with the
+ `android:forceDarkAllowed` layout attribute or with
+-[`setForceDarkAllowed()`](https://developer.android.com/reference/android/view/View#setForceDarkAllowed(boolean)).
++[`setForceDarkAllowed()`](/reference/android/view/View#setForceDarkAllowed(boolean)).
+ 
+ ## Web content
+ 
+ For information on using dark themes in web-based content, see [Darken web
+-content in WebView](https://developer.android.com/guide/webapps/dark-theme). For an example of dark theme
++content in WebView](/guide/webapps/dark-theme). For an example of dark theme
+ applied to a WebView, see the [WebView demo on
+ GitHub](https://github.com/android/views-widgets-samples/tree/main/WebView)
+ .
+@@ -133,7 +159,7 @@ The following sections provide best practices for implementing dark themes.
+ ### Notifications and widgets
+ 
+ For UI surfaces that you display on the device but don't directly control, make
+-sure that any views you use reflect the host app's theme. Two examples are
++sure that any views you use reflect the host app’s theme. Two examples are
+ notifications and launcher widgets.
+ 
+ #### Notifications
+@@ -148,10 +174,10 @@ test the content on both the light and dark themes.
+ 
+ Common pitfalls to look out for include the following:
+ 
+-- Assuming the background color is always light.
+-- Hardcoding text colors.
+-- Setting a hardcoded background color while using the default text color.
+-- Using a drawable icon that is a static color.
++* Assuming the background color is always light.
++* Hardcoding text colors.
++* Setting a hardcoded background color while using the default text color.
++* Using a drawable icon that is a static color.
+ 
+ In all these cases, use appropriate theme attributes instead of hardcoded
+ colors.
+@@ -164,13 +190,12 @@ reflects the selected theme.
+ Remove any hardcoded colors such as background colors set programmatically to
+ white. Use the `?android:attr/colorBackground` theme attribute instead.
+ 
+-> [!NOTE]
+-> **Note:** Dark-themed `android:windowBackground` drawables only work on Android 10.
++**Note:** Dark-themed `android:windowBackground` drawables only work on Android 10.
+ 
+ ### Configuration changes
+ 
+-When the app's theme changes, either through the system setting or AppCompat, it
+-triggers a [`uiMode`](https://developer.android.com/reference/android/content/res/Configuration#uiMode)
++When the app’s theme changes, either through the system setting or AppCompat, it
++triggers a [`uiMode`](/reference/android/content/res/Configuration#uiMode)
+ configuration change. This means activities are automatically recreated.
+ 
+ In some cases, you might want an app to handle the configuration change. For
+@@ -180,19 +205,21 @@ playing.
+ An app can handle the implementation of dark theme by declaring that each
+ `Activity` can handle the `uiMode` configuration change:
+ 
+-    <activity
+-        android:name=".MyActivity"
+-        android:configChanges="uiMode" />
++```
++<activity
++    android:name=".MyActivity"
++    android:configChanges="uiMode" />
++```
+ 
+ When an `Activity` declares that it handles configuration changes, its
+-[`onConfigurationChanged()`](https://developer.android.com/reference/android/app/Activity#onConfigurationChanged(android.content.res.Configuration))
++[`onConfigurationChanged()`](/reference/android/app/Activity#onConfigurationChanged(android.content.res.Configuration))
+ method is called when there is a theme change.
+ 
+ To check what the current theme is, apps can run code like this:
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ val currentNightMode = configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK
+ when (currentNightMode) {
+     Configuration.UI_MODE_NIGHT_NO -> {} // Night mode is not active, we're using the light theme.
+@@ -202,7 +229,7 @@ when (currentNightMode) {
+ 
+ ### Java
+ 
+-```java
++```
+ int currentNightMode = configuration.uiMode & Configuration.UI_MODE_NIGHT_MASK;
+ switch (currentNightMode) {
+     case Configuration.UI_MODE_NIGHT_NO:
+@@ -214,5 +241,7 @@ switch (currentNightMode) {
+ }
+ ```
+ 
+-> [!NOTE]
+-> **Note:** To learn more about configuration changes, how to restrict Activity recreation if needed, and how to react to those configuration changes from the View system and Jetpack Compose, check out the [Handle configuration changes](https://developer.android.com/guide/topics/resources/runtime-changes) page.
+\ No newline at end of file
++**Note:** To learn more about configuration changes, how to restrict Activity
++recreation if needed, and how to react to those configuration changes from the
++View system and Jetpack Compose, check out the
++[Handle configuration changes](/guide/topics/resources/runtime-changes) page.
+\ No newline at end of file

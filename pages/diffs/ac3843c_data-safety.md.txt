@@ -1,0 +1,12 @@
+diff --git a/docs/about/versions/14/changes/data-safety.md b/docs/about/versions/14/changes/data-safety.md
+index 18ece51..d3fa1cf 100644
+--- a/docs/about/versions/14/changes/data-safety.md
++++ b/docs/about/versions/14/changes/data-safety.md
+@@ -12,7 +12,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ To enhance user privacy, Android 14 increases the number of places where the
+ system shows the information you have declared in the Play Console form.
+ Currently, users can view this information in the **Data safety** section on

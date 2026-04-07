@@ -1,0 +1,12 @@
+diff --git a/docs/design/ui/wear/guides/m2-5/components/dialogs.md b/docs/design/ui/wear/guides/m2-5/components/dialogs.md
+index 2461c68..ed939b7 100644
+--- a/docs/design/ui/wear/guides/m2-5/components/dialogs.md
++++ b/docs/design/ui/wear/guides/m2-5/components/dialogs.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Use a [`Dialog`](/reference/kotlin/androidx/wear/compose/material/dialog/package-summary) to focus users' attention on a timely action or piece of
+ information.
+ 

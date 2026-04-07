@@ -1,0 +1,12 @@
+diff --git a/docs/training/testing/espresso/idling-resource.md b/docs/training/testing/espresso/idling-resource.md
+index d9144b6..afb26eb 100644
+--- a/docs/training/testing/espresso/idling-resource.md
++++ b/docs/training/testing/espresso/idling-resource.md
+@@ -12,6 +12,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ An *idling resource* represents an asynchronous operation whose results affect
+ subsequent operations in a UI test. By registering idling resources with
+ Espresso, you can validate these asynchronous operations more reliably when

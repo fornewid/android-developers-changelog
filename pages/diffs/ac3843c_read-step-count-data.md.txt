@@ -1,0 +1,12 @@
+diff --git a/docs/health-and-fitness/fitness/basic-app/read-step-count-data.md b/docs/health-and-fitness/fitness/basic-app/read-step-count-data.md
+index 13dd3a6..2c28f04 100644
+--- a/docs/health-and-fitness/fitness/basic-app/read-step-count-data.md
++++ b/docs/health-and-fitness/fitness/basic-app/read-step-count-data.md
+@@ -15,7 +15,6 @@ Starting in 2026, we'll be transitioning away from Google Fit APIs. For more inf
+ 
+ 
+ 
+-
+ **Note:** This guide uses `SensorManager` for retrieving steps data. We recommend
+ using the [Recording API on mobile](/health-and-fitness/guides/recording-api)
+ for recording steps in a power-efficient way.

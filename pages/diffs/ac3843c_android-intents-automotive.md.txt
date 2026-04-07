@@ -1,0 +1,12 @@
+diff --git a/docs/training/cars/platforms/automotive-os/android-intents-automotive.md b/docs/training/cars/platforms/automotive-os/android-intents-automotive.md
+index 87a3bab..c8c5417 100644
+--- a/docs/training/cars/platforms/automotive-os/android-intents-automotive.md
++++ b/docs/training/cars/platforms/automotive-os/android-intents-automotive.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Through Android intents, you can launch navigation in Google Maps for
+ Android Automotive.
+ 

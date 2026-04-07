@@ -1,0 +1,12 @@
+diff --git a/docs/design/ui/gallery/reading/full-screen.md b/docs/design/ui/gallery/reading/full-screen.md
+index 4282ff2..402fd29 100644
+--- a/docs/design/ui/gallery/reading/full-screen.md
++++ b/docs/design/ui/gallery/reading/full-screen.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Remove on-screen distractions and annoyances so readers can focus their
+ attention and immerse themselves in their reading. Adapt line lengths and
+ whitespace to fit seamlessly with the device's screen size.

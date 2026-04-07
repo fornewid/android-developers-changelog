@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/compose/styles/styles-vs-modifiers.md b/docs/develop/ui/compose/styles/styles-vs-modifiers.md
+index 71c3afc..07365dc 100644
+--- a/docs/develop/ui/compose/styles/styles-vs-modifiers.md
++++ b/docs/develop/ui/compose/styles/styles-vs-modifiers.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Styles differ from modifiers by design. Styles don't replace modifiers; instead,
+ the two systems coexist with different goals. Internally, a Style is a modifier.
+ You can do everything Styles can do with modifiers, but not all functionality in

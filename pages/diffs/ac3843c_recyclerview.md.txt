@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/views/layout/recyclerview.md b/docs/develop/ui/views/layout/recyclerview.md
+index 397cbc1..8a84a0f 100644
+--- a/docs/develop/ui/views/layout/recyclerview.md
++++ b/docs/develop/ui/views/layout/recyclerview.md
+@@ -16,6 +16,7 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
++
+ # Create dynamic lists with RecyclerView   Part of [Android Jetpack](/jetpack).
+ 
+ Try the Compose way

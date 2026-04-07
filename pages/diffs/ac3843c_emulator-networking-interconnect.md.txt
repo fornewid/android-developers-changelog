@@ -1,0 +1,12 @@
+diff --git a/docs/studio/run/emulator-networking-interconnect.md b/docs/studio/run/emulator-networking-interconnect.md
+index 5f1c877..effe01c 100644
+--- a/docs/studio/run/emulator-networking-interconnect.md
++++ b/docs/studio/run/emulator-networking-interconnect.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ To test applications that involve multi-device interactions, you can connect
+ multiple Android Emulator instances so they can communicate with each other.
+ The method for establishing a connection depends on the version of the emulator

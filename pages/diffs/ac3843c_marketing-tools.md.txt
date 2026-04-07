@@ -1,0 +1,12 @@
+diff --git a/docs/distribute/marketing-tools.md b/docs/distribute/marketing-tools.md
+index 979dce2..ad60e61 100644
+--- a/docs/distribute/marketing-tools.md
++++ b/docs/distribute/marketing-tools.md
+@@ -14,6 +14,7 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
++
+ ### Brand & marketing resources
+ 
+ Tools and resources to help you prepare promotional assets for use in your marketing efforts.

@@ -1,0 +1,20 @@
+diff --git a/docs/games/engines/unity/unity-lmks.md b/docs/games/engines/unity/unity-lmks.md
+index 3feceb2..56a60c5 100644
+--- a/docs/games/engines/unity/unity-lmks.md
++++ b/docs/games/engines/unity/unity-lmks.md
+@@ -15,6 +15,7 @@ Send feedback
+ 
+ 
+ 
++
+ Solving [LMKs](/games/optimize/vitals/lmk) in your Unity game is a systematic process:
+ 
+ ![](/static/images/games/engines/unity/unity-lmk-flowchart.jpg)
+@@ -486,4 +487,6 @@ for (int i = 1; i < megabytes * 1024 * 1024; ++i) {
+ 
+ 
+ 
++
++
+ Send feedback
+\ No newline at end of file

@@ -1,0 +1,12 @@
+diff --git a/docs/develop/connectivity/telecom/voip-app/telecom.md b/docs/develop/connectivity/telecom/voip-app/telecom.md
+index 25f16f8..a9f0c3e 100644
+--- a/docs/develop/connectivity/telecom/voip-app/telecom.md
++++ b/docs/develop/connectivity/telecom/voip-app/telecom.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ The `Core-Telecom` library streamlines the process of integrating your calling
+ application with the Android platform by providing a robust and consistent set
+ of APIs

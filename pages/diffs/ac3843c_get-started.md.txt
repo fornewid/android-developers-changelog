@@ -1,0 +1,12 @@
+diff --git a/docs/guide/topics/connectivity/cross-device-sdk/get-started.md b/docs/guide/topics/connectivity/cross-device-sdk/get-started.md
+index 1d2a1cb..7e453e0 100644
+--- a/docs/guide/topics/connectivity/cross-device-sdk/get-started.md
++++ b/docs/guide/topics/connectivity/cross-device-sdk/get-started.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ The Cross device SDK Developer Preview is distributed through an [open-source
+ project](https://github.com/google/cross-device-sdk). This preview is available for the developer community to prototype and
+ validate multidevice experiences but is not intended for use in production
