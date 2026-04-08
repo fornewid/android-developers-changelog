@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 There are three ways you can adopt Styles throughout your app:
 
 1. Use directly on existing components that expose a [`Style`](/reference/kotlin/androidx/compose/foundation/style/Style)

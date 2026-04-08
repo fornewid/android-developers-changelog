@@ -12,6 +12,7 @@ source: html-scrape
 
 
 
+
 Screenshot testing is a very effective way to verify your app's UI. Screenshot
 tests can exist in Component, Feature and Application tests.
 

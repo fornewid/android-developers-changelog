@@ -1,25 +1,14 @@
 ---
-title: Camera preview and media projection  |  Large screens  |  Android Developers
+title: https://developer.android.com/guide/topics/large-screens/camera-preview-and-media-projection
 url: https://developer.android.com/guide/topics/large-screens/camera-preview-and-media-projection
-source: html-scrape
+source: md.txt
 ---
 
-* [Android Developers](https://developer.android.com/)
-* [Develop](https://developer.android.com/develop)
-* [Devices](https://developer.android.com/develop/devices)
-* [Large screens](https://developer.android.com/guide/topics/large-screens)
-* [Guides](https://developer.android.com/guide/topics/large-screens/tier-3-overview)
+![Tier 3 adaptive ready icon](https://developer.android.com/static/images/guide/topics/large-screens/quality-guidelines/tier-3/tier_3_icon.png)
 
-# Camera preview and media projection Stay organized with collections Save and categorize content based on your preferences.
-
-
-
-![Tier 3 adaptive ready icon](/static/images/docs/quality-guidelines/tier-3/tier_3_icon.png)
-
-TIER 3 — Adaptive ready
-
-**Objective:** Make your app [adaptive ready](/docs/quality-guidelines/adaptive-app-quality/tier-3) by meeting the
-[Camera\_Preview](/docs/quality-guidelines/adaptive-app-quality/tier-3#Camera_Preview) and [Media\_Projection](/docs/quality-guidelines/adaptive-app-quality/tier-3#Media_Projection) requirements of the [Adaptive app quality guidelines](/docs/quality-guidelines/adaptive-app-quality).
+TIER 3 --- Adaptive ready
+| **Objective:** Make your app [adaptive ready](https://developer.android.com/docs/quality-guidelines/adaptive-app-quality#adaptive_ready) by meeting the [Media:Camera_Preview](https://developer.android.com/docs/quality-guidelines/adaptive-app-quality#Media:Camera_Preview) and [Media:Projection](https://developer.android.com/docs/quality-guidelines/adaptive-app-quality#Media:Projection) requirements of the [Adaptive
+| app quality](https://developer.android.com/docs/quality-guidelines/adaptive-app-quality) guidelines.
 
 ## Camera preview
 
@@ -44,8 +33,8 @@ orientation and size.
 
 To learn how to manage camera preview, see the following developer guides:
 
-* [Camera preview](/training/camera2/camera-preview)
-* [CameraX overview](/training/camerax)
+- [Camera preview](https://developer.android.com/training/camera2/camera-preview)
+- [CameraX overview](https://developer.android.com/training/camerax)
 
 ## Media projection
 
@@ -56,4 +45,4 @@ Media projection apps must register a service permission, manage user consent,
 orient and scale the captured content to match the orientation and aspect ratio
 of the target device, and enable customization of the projection.
 
-For implementation details, see [Media projection](/media/grow/media-projection).
+For implementation details, see [Media projection](https://developer.android.com/media/grow/media-projection).

@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Android Auto and Android Automotive OS (AAOS) call your app's media browser
 service to discover which content is available. To support this, you implement
 these two methods in your media browser service.

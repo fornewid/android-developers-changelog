@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 CameraX is supported on most Android devices running Android 5.0 (API
 level 21) and higher. The following table lists the devices with CameraX
 support that have been tested in our lab.

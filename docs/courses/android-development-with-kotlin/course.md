@@ -1,71 +1,59 @@
 ---
-title: https://developer.android.com/courses/android-development-with-kotlin/course
+title: Android Development with Kotlin Classroom Course  |  Android Developers
 url: https://developer.android.com/courses/android-development-with-kotlin/course
-source: md.txt
+source: html-scrape
 ---
 
-# Android Development with Kotlin Classroom Course
+* [Android Developers](https://developer.android.com/)
 
-![](http://developer.android.com/static/courses/images/android-icon.png)  
-[](http://developer.android.com/courses/android-developement-with-kotlin/course)
+Stay organized with collections
+
+Save and categorize content based on your preferences.
+
+
+
+![](https://developer.android.com/static/courses/images/android-icon.png)
 
 ### Android Development with Kotlin: Classroom course
 
 This course is designed for students taking instructor-led Android curriculum in a classroom setting as part of the Android Development with Kotlin program.
 
-### [Unit 1: Get started with Kotlin](https://developer.android.com/courses/android-development-with-kotlin/unit-1)
+### [Unit 1: Get started with Kotlin](/courses/android-development-with-kotlin/unit-1)
 
-Take your first steps programming in Kotlin.  
-
-#### Lessons
-
-- 
-- 
-- 
-
-*** ** * ** ***
-
-[Explore](https://developer.android.com/courses/android-development-with-kotlin/unit-1)  
-
-### [Unit 2: Introduction to Android](https://developer.android.com/courses/android-development-with-kotlin/unit-2)
-
-Get an introduction to Android development and UI basics.  
+Take your first steps programming in Kotlin.
 
 #### Lessons
 
-- 
-- 
-- 
+---
 
-*** ** * ** ***
+[Explore](/courses/android-development-with-kotlin/unit-1)
 
-[Explore](https://developer.android.com/courses/android-development-with-kotlin/unit-2)
+### [Unit 2: Introduction to Android](/courses/android-development-with-kotlin/unit-2)
 
-### [Unit 3: Android app architecture](https://developer.android.com/courses/android-development-with-kotlin/unit-3)
-
-Learn Android app architecture using Kotlin.  
+Get an introduction to Android development and UI basics.
 
 #### Lessons
 
-- 
-- 
-- 
-- 
-- 
-- 
+---
 
-*** ** * ** ***
+[Explore](/courses/android-development-with-kotlin/unit-2)
 
-[Explore](https://developer.android.com/courses/android-development-with-kotlin/unit-3)  
+### [Unit 3: Android app architecture](/courses/android-development-with-kotlin/unit-3)
 
-### [Unit 4: Android app design](https://developer.android.com/courses/android-development-with-kotlin/unit-4)
-
-Learn best practices, guidelines, and tools for effective Android app design.  
+Learn Android app architecture using Kotlin.
 
 #### Lessons
 
-- 
+---
 
-*** ** * ** ***
+[Explore](/courses/android-development-with-kotlin/unit-3)
 
-[Explore](https://developer.android.com/courses/android-development-with-kotlin/unit-4)
+### [Unit 4: Android app design](/courses/android-development-with-kotlin/unit-4)
+
+Learn best practices, guidelines, and tools for effective Android app design.
+
+#### Lessons
+
+---
+
+[Explore](/courses/android-development-with-kotlin/unit-4)

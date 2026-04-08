@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 Sometimes, you might need to query a set of three or more tables that are all
 related to each other. In that case, you define *nested relationships* between
 the tables.

@@ -1,12 +1,21 @@
 ---
-title: https://developer.android.com/training/wearables/wff/ambient
+title: Save power using ambient mode requirements  |  Wear OS  |  Android Developers
 url: https://developer.android.com/training/wearables/wff/ambient
-source: md.txt
+source: html-scrape
 ---
+
+* [Android Developers](https://developer.android.com/)
+* [Develop](https://developer.android.com/develop)
+* [Devices](https://developer.android.com/develop/devices)
+* [Wear OS](https://developer.android.com/training/wearables)
+
+# Save power using ambient mode requirements Stay organized with collections Save and categorize content based on your preferences.
+
+
 
 All watch faces should have not only an interactive mode, but also ambient mode.
 The Wear OS App Quality guidelines specify that only [15% of pixels are
-illuminated in ambient mode](https://developer.android.com/docs/quality-guidelines/wear-app-quality#wff).
+illuminated in ambient mode](/docs/quality-guidelines/wear-app-quality#wff).
 
 Typically, the watch spends much more time in ambient mode, and during this
 time, conserving power is a priority.
@@ -19,9 +28,7 @@ between ambient and interactive modes is to add two elements, each with a
 `Variant`. Adding this at the `Part*` or `Group` level makes it possible keep
 the number of `Variant` elements to a minimum.
 
-<br />
-
-```xml
+```
 <Group name="logo_interactive" x="100" y="100" width="200" height="200">
     <!-- Hide these elements in ambient mode -->
     <Variant mode="AMBIENT" target="alpha" value="0" />
@@ -31,6 +38,6 @@ the number of `Variant` elements to a minimum.
     <Variant mode="AMBIENT" target="alpha" value="255" />
     <!-- Components to show in ambient mode -->
 </Group>
-```
 
-<br />
+watchface_ambient.xml
+```

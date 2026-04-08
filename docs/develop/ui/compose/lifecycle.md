@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 In this page, you'll learn about the lifecycle of a composable and
 how Compose decides whether a composable needs recomposition.
 

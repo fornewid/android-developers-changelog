@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Startup latency is an important metric to retain daily active users and ensure
 a seamless user experience from the first interaction. This is especially true
 in low-RAM environments where performance tradeoffs might be considered.

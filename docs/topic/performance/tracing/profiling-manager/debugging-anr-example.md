@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 This section shows how to debug an [Application Not Responding (ANR)](/topic/performance/anrs/keep-your-app-responsive) using
 `ProfilingManager` with an example trace.
 

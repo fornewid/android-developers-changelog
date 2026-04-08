@@ -1,8 +1,18 @@
 ---
-title: https://developer.android.com/guide/navigation/navigation-3/recipes/scenes-twopane
+title: App architecture  |  Android Developers
 url: https://developer.android.com/guide/navigation/navigation-3/recipes/scenes-twopane
-source: md.txt
+source: html-scrape
 ---
+
+* [Android Developers](https://developer.android.com/)
+* [App architecture](https://developer.android.com/topic/architecture/intro)
+
+Stay organized with collections
+
+Save and categorize content based on your preferences.
+
+
+
 
 # Two-Pane Scene Recipe
 
@@ -10,11 +20,18 @@ This example shows how to create a two pane layout using the Scenes API.
 
 A `TwoPaneSceneStrategy` will return a `TwoPaneScene` if:
 
-- the window width is over 600dp
-- the last two nav entries on the back stack have indicated that they support being displayed in a `TwoPaneScene` in their metadata.
+* the window width is over 600dp
+* the last two nav entries on the back stack have indicated that they support being displayed in a `TwoPaneScene` in their metadata.
 
 See `TwoPaneScene.kt` for more implementation details.
-[![](https://developer.android.com/static/images/picto-icons/code.svg) Explore View the full recipe on GitHub.](https://github.com/android/nav3-recipes/tree/main/app/src/main/java/com/example/nav3recipes/scenes/twopane)
+
+[![](/static/images/picto-icons/code.svg)
+
+Explore
+
+View the full recipe on GitHub.
+
+arrow\_forward](https://github.com/android/nav3-recipes/tree/main/app/src/main/java/com/example/nav3recipes/scenes/twopane)
 
 ```
 package com.example.nav3recipes.scenes.twopane
@@ -129,6 +146,8 @@ class TwoPaneSceneStrategy<T : Any>(val windowSizeClass: WindowSizeClass) : Scen
 
 
 }
+
+TwoPaneScene.kt
 ```
 
 ```
@@ -248,4 +267,6 @@ private fun NavBackStack<NavKey>.addProductRoute(productId: Int) {
         add(productRoute)
     }
 }
+
+TwoPaneActivity.kt
 ```

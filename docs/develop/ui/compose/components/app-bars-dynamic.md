@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 This guide explains how to create a dynamic top app bar in Compose that changes
 its options when items are selected from the list. You can modify the top app
 bar's title and actions based on the selection state.

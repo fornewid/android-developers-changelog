@@ -1,107 +1,94 @@
 ---
-title: Build a basic layout  |  Android Developers
+title: https://developer.android.com/courses/quizzes/android-basics-compose-unit-1-pathway-3/android-basics-compose-unit-1-pathway-3
 url: https://developer.android.com/courses/quizzes/android-basics-compose-unit-1-pathway-3/android-basics-compose-unit-1-pathway-3
-source: html-scrape
+source: md.txt
 ---
-
-Stay organized with collections
-
-Save and categorize content based on your preferences.
-
-
 
 # Build a basic layout
 
-Return to pathway
+# Build a basic layout
 
+<br />
 
+Return to pathway  
+1.
 
-1. ## What is Jetpack Compose?
+   ## What is Jetpack Compose?
 
-   A Modern toolkit to develop Android UI
+   A Modern toolkit to develop Android UI  
+   Toolkit to design libraries  
+   Database Interface  
+   Plugin to build APK  
+2.
 
-   Toolkit to design libraries
+   ## Composable functions are the basic building block of Compose.
 
-   Database Interface
+   True  
+   False  
+3.
 
-   Plugin to build APK
-2. ## Composable functions are the basic building block of Compose.
+   ## What annotation is used to annotate a Composable function?
 
-   True
+   `@Annotation`  
+   `@ComposableFunction`  
+   `@Composable`  
+   `@Preview`  
+4.
 
-   False
-3. ## What annotation is used to annotate a Composable function?
+   ## The basic standard layout elements in Compose are:
 
-   `@Annotation`
+   Choose as many answers as you see fit.  
+   Column  
+   Row  
+   Text  
+   Box  
+5.
 
-   `@ComposableFunction`
+   ## What is the tool window for importing, creating, managing, and using resources in your app?
 
-   `@Composable`
+   Application Manager  
+   Resource Manager  
+   Resource Tool  
+   Layout Manager  
+6.
 
-   `@Preview`
-4. ## The basic standard layout elements in Compose are:
+   ## Which class is an automatically generated class by Android that contains the IDs of all resources in the project.
 
-   Choose as many answers as you see fit.
+   The`Android`class  
+   The`Resource`class  
+   The`R`Class  
+   The`ResourceID`class  
+7.
 
-   Column
+   ## Which function is used is to load a drawable image resource.
 
-   Row
+   The`stringResource()`function  
+   The`painterResource()`function  
+   The`ImageResource()`function  
+   The`loadResource()`function  
+8.
 
-   Text
+   ## What is the function parameter used to add accessibility text, used by talkback?
 
-   Box
-5. ## What is the tool window for importing, creating, managing, and using resources in your app?
+   `accessibilityText`  
+   `contentText`  
+   `accessibilityDescription`  
+   `contentDescription`  
+9.
 
-   Application Manager
+   ## The Box layout stacks the UI elements on top of one another.
 
-   Resource Manager
+   True  
+   False  
+10.
 
-   Resource Tool
+    ## What parameter is used to align the child element to the beginning of the parent?
 
-   Layout Manager
-6. ## Which class is an automatically generated class by Android that contains the IDs of all resources in the project.
-
-   The `Android` class
-
-   The `Resource` class
-
-   The `R` Class
-
-   The `ResourceID` class
-7. ## Which function is used is to load a drawable image resource.
-
-   The `stringResource()` function
-
-   The `painterResource()` function
-
-   The `ImageResource()` function
-
-   The `loadResource()` function
-8. ## What is the function parameter used to add accessibility text, used by talkback?
-
-   `accessibilityText`
-
-   `contentText`
-
-   `accessibilityDescription`
-
-   `contentDescription`
-9. ## The Box layout stacks the UI elements on top of one another.
-
-   True
-
-   False
-10. ## What parameter is used to align the child element to the beginning of the parent?
-
-    `Alignment.End`
-
-    `Alignment.Begin`
-
-    `Alignment.Start`
-
-    `Alignment.Top`
+    `Alignment.End`  
+    `Alignment.Begin`  
+    `Alignment.Start`  
+    `Alignment.Top`  
 
 Submit answers
 
-*error\_outline*
-An error occurred when grading the quiz. Please try again.
+*error_outline*An error occurred when grading the quiz. Please try again.

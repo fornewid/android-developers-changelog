@@ -15,6 +15,7 @@ Send feedback
 
 
 
+
 [Download Stable Edition](https://dl.google.com/tag/s/appguid=%7BC601E9A4-03B0-4188-843E-80058BF16EF9%7D&appname=GPG_Developer_Emulator_Stable&needsadmin=true&ap=prod/play/games/Install-GooglePlayGames-DeveloperEmulator-Stable.exe)
 [Other Downloads](#other-downloads)
 
@@ -159,6 +160,8 @@ the track be switched after installation.
 * [Stable](https://dl.google.com/tag/s/appguid=%7BC601E9A4-03B0-4188-843E-80058BF16EF9%7D&appname=GPG_Developer_Emulator_Stable&needsadmin=true&ap=prod/play/games/Install-GooglePlayGames-DeveloperEmulator-Stable.exe) - the current stable release with 100% rollout.
 * [Beta](https://dl.google.com/tag/s/appguid=%7BC601E9A4-03B0-4188-843E-80058BF16EF9%7D&appname=GPG_Developer_Emulator_Beta&needsadmin=true&ap=dogfood/play/games/Install-GooglePlayGames-DeveloperEmulator-Beta.exe) - the upcoming release. Ensure your game works on the next
   release.
+
+
 
 
 

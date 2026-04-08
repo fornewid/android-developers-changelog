@@ -16,7 +16,6 @@ Save and categorize content based on your preferences.
 
 
 
-
 ## Quick Guides Collection Display images
 
 Work with images onscreen using a vector, bitmap, or directly drawing with a canvas on screen.

@@ -1,22 +1,14 @@
 ---
-title: Analyze network traffic data with the Network Traffic tool  |  App quality  |  Android Developers
+title: https://developer.android.com/topic/performance/power/network/analyze-data
 url: https://developer.android.com/topic/performance/power/network/analyze-data
-source: html-scrape
+source: md.txt
 ---
 
-* [Android Developers](https://developer.android.com/)
-* [App quality](https://developer.android.com/quality)
-
-# Analyze network traffic data with the Network Traffic tool Stay organized with collections Save and categorize content based on your preferences.
-
-
-
-
 The Network Traffic tool is deprecated. If you're using Android Studio 3.0 or
-higher, you should use the [Network Profiler](/studio/profile/network-profiler)
+higher, you should use the [Network Profiler](https://developer.android.com/studio/profile/network-profiler)
 to examine how and when your app transfers data over a network.
 
-In the [previous section](/topic/performance/power/network/gather-data), you
+In the [previous section](https://developer.android.com/topic/performance/power/network/gather-data), you
 tagged your app code with traffic identifiers, ran tests, and collected data.
 This lesson teaches you how to look at the network traffic data you have
 collected and directs you to actions for improving your app's networking
@@ -38,7 +30,7 @@ has few periods of rest where the radio could switch to a standby, low-power
 mode. The network access behavior of this app is likely to keep the radio on for
 extended periods of time, which is battery-inefficient.
 
-![](/static/images/topic/performance/power/network/suboptimal_network_traffic_pattern.png)
+![](https://developer.android.com/static/images/topic/performance/power/network/suboptimal_network_traffic_pattern.png)
 **Figure 1.** Battery-inefficient network activity measured from an app.
 
 Figure 2 shows an optimal network traffic pattern. The app sends network
@@ -47,13 +39,13 @@ switch to standby. This chart shows the same amount of work being done as
 figure 1, but the requests have been shifted and grouped to allow the radio to
 be in standby most of the time.
 
-![](/static/images/topic/performance/power/network/optimal_network_traffic_pattern.png)
+![](https://developer.android.com/static/images/topic/performance/power/network/optimal_network_traffic_pattern.png)
 **Figure 2.** Battery-efficient network activity measured from an app.
 
 If the network traffic for your app looks similar to the graph in figure 2, you
 are in good shape! Congratulations! You may want to pursue further networking
 efficiency by checking out the techniques described in [Optimizing General
-Network Use](/training/performance/battery/network/action-any-traffic).
+Network Use](https://developer.android.com/training/performance/battery/network/action-any-traffic).
 
 If the network traffic for your app looks more like the graph in figure 1, it's
 time to take a harder look at how your app accesses the network. You should
@@ -73,7 +65,7 @@ In the previous lesson, you tagged your app code for different traffic types and
 used the Network Traffic tool to collect data on your app and produce a graph of
 activity, as shown in figure 3.
 
-![](/static/images/topic/performance/power/network/network_traffic_colors.png)
+![](https://developer.android.com/static/images/topic/performance/power/network/network_traffic_colors.png)
 **Figure 3.** Network traffic tagged for the three categories: user, app, and server.
 
 The Network Traffic tool colors traffic based on the tags you created in the
@@ -102,25 +94,15 @@ app.
 
 Here are some approaches for optimizing user-initiated network traffic:
 
-* [Pre-fetch Network
-  Data](/training/performance/battery/network/action-user-traffic#pre-fetch-data) -
-  When the user performs an action in your app, the app anticipates which data
-  may be needed for the next user actions, fetches it in bulk in a single
-  connection, and holds it until the user requests it.
-* [Check for Connectivity or Listen for
-  Changes](/training/performance/battery/network/action-user-traffic#check-or-listen) -
-  Check for network connectivity or listen for connectivity changes before
-  performing an update.
-* [Reduce the Number of
-  Connections](/training/performance/battery/network/action-user-traffic#reduce-connections) -
-  Use server APIs that allow data to be downloaded in sets.
+- [Pre-fetch Network
+  Data](https://developer.android.com/training/performance/battery/network/action-user-traffic#pre-fetch-data) - When the user performs an action in your app, the app anticipates which data may be needed for the next user actions, fetches it in bulk in a single connection, and holds it until the user requests it.
+- [Check for Connectivity or Listen for
+  Changes](https://developer.android.com/training/performance/battery/network/action-user-traffic#check-or-listen) - Check for network connectivity or listen for connectivity changes before performing an update.
+- [Reduce the Number of
+  Connections](https://developer.android.com/training/performance/battery/network/action-user-traffic#reduce-connections) - Use server APIs that allow data to be downloaded in sets.
 
-**Caution:** Beware of network activity grouping bias in your user activity test
-data! If you ran a set of user scenarios with your network testing plan, the
-graph of user-initiated network access may be unrealistically grouped together,
-potentially causing you to optimize for user behavior that does not actually
-occur. Make sure your user network test scenarios reflect realistic use of your
-app.
+> [!CAUTION]
+> **Caution:** Beware of network activity grouping bias in your user activity test data! If you ran a set of user scenarios with your network testing plan, the graph of user-initiated network access may be unrealistically grouped together, potentially causing you to optimize for user behavior that does not actually occur. Make sure your user network test scenarios reflect realistic use of your app.
 
 ## Analyze app-initiated network traffic
 
@@ -133,12 +115,13 @@ device radio to switch into low power mode.
 
 Here are some approaches for optimizing app-initiated network traffic:
 
-* [Batch and Schedule Network
-  Requests](/training/performance/battery/network/action-app-traffic#batch-schedule) -
+- [Batch and Schedule Network
+  Requests](https://developer.android.com/training/performance/battery/network/action-app-traffic#batch-schedule) -
   Defer your app's network requests so they can be processed together and at a
   time which is advantageous for battery life.
-* [Allow System to Check for
-  Connectivity](/training/performance/battery/network/action-app-traffic#check-connect) -
+
+- [Allow System to Check for
+  Connectivity](https://developer.android.com/training/performance/battery/network/action-app-traffic#check-connect) -
   Avoid the battery cost of running your app just to check for a network
   connection when you can let the system run the check while your app sleeps.
 
@@ -153,7 +136,5 @@ out this activity to allow the device radio to switch into low-power mode.
 
 Here is an approach for optimizing server-initiated network traffic:
 
-* [Use FCM for Server
-  Updates](/topic/performance/power/network/action-server-traffic#fcm) -
-  Consider using the Firebase Cloud Messaging service for server side updates
-  instead of polling.
+- [Use FCM for Server
+  Updates](https://developer.android.com/topic/performance/power/network/action-server-traffic#fcm) - Consider using the Firebase Cloud Messaging service for server side updates instead of polling.

@@ -14,6 +14,7 @@ Save and categorize content based on your preferences.
 
 
 
+
 ![](https://developer.android.com/static/images/google/play/integrity/play-integrity-icon.svg)
 
 ### Play integrity and signing services

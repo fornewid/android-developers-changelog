@@ -11,7 +11,6 @@ source: html-scrape
 
 
 
-
 **Caution:** Since August 2021, all new
 apps must be published as App Bundles. If you publish your app to Google Play,
 build and upload an [Android App Bundle](/guide/app-bundle). When

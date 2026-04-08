@@ -15,6 +15,7 @@ Send feedback
 
 
 
+
 Unity is a cross-platform game engine used by many games on the Google Play
 Store. Unity's modular tools help you produce and deliver highly engaging 2D or
 3D mobile games.
@@ -91,6 +92,8 @@ higher can run with 4 KB or 16 KB page sizes. Devices configured with
 performance improvements.
 
 Unity has 16 KB page support for [Unity 2021, 2022](https://discussions.unity.com/t/info-unity-engine-support-for-16-kb-memory-page-sizes-android-15/1589588) and [Unity 6](https://docs.unity3d.com/6000.0/Documentation/Manual/android-requirements-and-compatibility.html).
+
+
 
 
 

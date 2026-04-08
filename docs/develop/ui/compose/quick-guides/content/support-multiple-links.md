@@ -1,17 +1,29 @@
 ---
-title: https://developer.android.com/develop/ui/compose/quick-guides/content/support-multiple-links
+title: Support multiple links in a single string of text  |  Jetpack Compose  |  Android Developers
 url: https://developer.android.com/develop/ui/compose/quick-guides/content/support-multiple-links
-source: md.txt
+source: html-scrape
 ---
 
-<br />
+* [Android Developers](https://developer.android.com/)
+* [Develop](https://developer.android.com/develop)
+* [Core areas](https://developer.android.com/develop/core-areas)
+* [UI](https://developer.android.com/develop/ui)
+* [Quick Guides](https://developer.android.com/develop/ui/compose/quick-guides)
+
+# Support multiple links in a single string of text Stay organized with collections Save and categorize content based on your preferences.
+
+
+
 
 You can support multiple links in a single string of text to perform different
 actions when clicking a subsection of text.
 
 ## Results
 
-![One text string containing two different links](https://developer.android.com/static/develop/ui/compose/quick-guides/content/multiple-links.png) **Figure 1.** A screenshot of one text string containing two different links.
+![One text string containing two different links](/static/develop/ui/compose/quick-guides/content/multiple-links.png)
+
+
+**Figure 1.** A screenshot of one text string containing two different links.
 
 ## Version compatibility
 
@@ -20,14 +32,11 @@ higher.
 
 ### Dependencies
 
-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/support-multiple-links_7f7d48807914e7d1095832a1da5eb605f72c073ad650a896fe8e3904ff003070.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
-
 ## Display multiple links in a single string
 
 This snippet embeds multiple clickable links into a single string of text:
 
-
-```kotlin
+```
 @Composable
 fun AnnotatedStringWithLinkSample() {
     // Display multiple links in the text
@@ -55,27 +64,42 @@ fun AnnotatedStringWithLinkSample() {
         }
     )
 }
-```
 
-<br />
+TextSnippets.kt
+```
 
 ### Key points about the code
 
-- Uses the [`buildAnnotatedString`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/package-summary#buildAnnotatedString(kotlin.Function1)) function to create an annotated string of text.
-- Specifies the the link and text styling by passing them as arguments of the [`LinkAnnotation.Url()`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/LinkAnnotation.Url) function (itself passed as an argument of the [`withLink()`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/AnnotatedString.Builder#(androidx.compose.ui.text.AnnotatedString.Builder).withLink(androidx.compose.ui.text.LinkAnnotation,kotlin.Function1)) function). A click listener is built into `LinkAnnotation.Url()`.
-- Adds text using [`append()`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/AnnotatedString.Builder#append(kotlin.CharSequence,kotlin.Int,kotlin.Int)) in the body of the `withLink` function.
-- Repeats this process to add another linked text segment.
+* Uses the [`buildAnnotatedString`](/reference/kotlin/androidx/compose/ui/text/package-summary#buildAnnotatedString(kotlin.Function1)) function to create an annotated string
+  of text.
+* Specifies the the link and text styling by passing them as arguments of the
+  [`LinkAnnotation.Url()`](/reference/kotlin/androidx/compose/ui/text/LinkAnnotation.Url) function (itself passed as an argument of the
+  [`withLink()`](/reference/kotlin/androidx/compose/ui/text/AnnotatedString.Builder#(androidx.compose.ui.text.AnnotatedString.Builder).withLink(androidx.compose.ui.text.LinkAnnotation,kotlin.Function1)) function). A click listener is built into
+  `LinkAnnotation.Url()`.
+* Adds text using [`append()`](/reference/kotlin/androidx/compose/ui/text/AnnotatedString.Builder#append(kotlin.CharSequence,kotlin.Int,kotlin.Int)) in the body of the `withLink` function.
+* Repeats this process to add another linked text segment.
 
 ## Collections that contain this guide
 
 This guide is part of these curated Quick Guide collections that cover
 broader Android development goals:
-![](https://developer.android.com/static/images/quick-guides/collection-illustration.png) ![](https://developer.android.com/static/images/picto-icons/collection.svg)
+
+![](/static/images/quick-guides/collection-illustration.png)
+
+![](/static/images/picto-icons/collection.svg)
 
 ### Display text
 
-Text is a central piece of any UI. Find out different ways you can present text in your app to provide a delightful user experience. [Quick guide collection](https://developer.android.com/develop/ui/compose/quick-guides/collections/display-text) ![](https://developer.android.com/static/images/picto-icons/help.svg)
+Text is a central piece of any UI. Find out different ways
+you can present text in your app to provide a delightful user experience.
+
+[Quick guide collection](/develop/ui/compose/quick-guides/collections/display-text)
+
+![](/static/images/picto-icons/help.svg)
 
 ## Have questions or feedback
 
-Go to our frequently asked questions page and learn about quick guides or reach out and let us know your thoughts. [Go to FAQ](https://developer.android.com/quick-guides/faq) [Leave feedback](https://issuetracker.google.com/issues/new?component=1573691&template=1993320)
+Go to our frequently asked questions page and learn about quick guides or reach out and let us know your thoughts.
+
+[Go to FAQ](/quick-guides/faq)
+[Leave feedback](https://issuetracker.google.com/issues/new?component=1573691&template=1993320)

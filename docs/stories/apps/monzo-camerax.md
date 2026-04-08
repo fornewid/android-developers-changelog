@@ -12,6 +12,7 @@ source: html-scrape
 
 
 
+
 Monzo is a banking service and app offering digital and mobile-only financial
 services. Their mission is to make money work for everyone. To sign up new
 customers, the Monzo app captures images of an identification document (such as

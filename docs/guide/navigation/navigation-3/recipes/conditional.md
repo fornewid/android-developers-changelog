@@ -13,7 +13,6 @@ Save and categorize content based on your preferences.
 
 
 
-
 # Conditional Navigation Recipe
 
 This recipe demonstrates how to implement conditional navigation, where certain destinations are only accessible if a condition is met (in this case, if the user is logged in).
@@ -154,7 +153,7 @@ class ConditionalActivity : ComponentActivity() {
                             }
                         }
                     }
-                    entry<Profile> {
+     <       >        entryProfile {
                         ContentBlue("Profile screen (only accessible once logged in)") {
                             Button(onClick = dropUnlessResumed {
                                 isLoggedIn = false
@@ -163,12 +162,12 @@ class ConditionalActivity : ComponentActivity() {
                                 Text("Logout")
                             }
                         }
-                    }
-                    entry<Login> { key ->
+       <     >        >}
+                    entryLogin { key -
                         ContentYellow("Login screen. Logged in? $isLoggedIn") {
                             Button(onClick = dropUnlessResumed {
                                 isLoggedIn = true
-                                key.redirectToKey?.let { targetKey ->
+                  >              key.redirectToKey?.let { targetKey -
                                     backStack.remove(key)
                                     navigator.navigate(targetKey)
                                 }
@@ -185,18 +184,21 @@ class ConditionalActivity : ComponentActivity() {
 
 
 // An overload of `rememberNavBackStack` that returns a subtype of `NavKey`.
-// See https://issuetracker.google.com/issues/463382671 for a discussion of this function
+// See https://issuetracker.google.com/issues/<463382671 >for a discussion of this function
 @Composable
-fun <T : NavKey> rememberNavBackStack(vararg elements: T): NavBackStack<T> {
+fun T : N<a>vKey rememberNavBackStack(vararg elements: T): NavBackStackT {
     return rememberSerializable(
-        serializer = NavBackStackSerializer(elementSerializer = NavKeySerializer())
-    ) {
-        NavBackStack(*elements)
-    }
-}
+        serializer = NavBackStackSerializer(elementSerializer = NavKeyS
 
-ConditionalActivity.kt
+erializer
+
+())
+    ) {
 ```
+
+NavBackStack(\*elements)
+}
+}ConditionalActivity.kt
 
 ```
 /*
@@ -232,12 +234,12 @@ import androidx.navigation3.runtime.NavBackStack
  * @property isLoggedIn A lambda that returns whether the user is logged in.
  */
 class Navigator(
-    private val backStack: NavBackStack<ConditionalNavKey>,
-    private val onNavigateToRestrictedKey: (targetKey: ConditionalNavKey?) -> ConditionalNavKey,
-    private val isLoggedIn: () -> Boolean,
+    private val< backStack: NavBa>ckStackConditionalNavKey,
+    private val onNavigateToRestrictedKey: (targetKe>y: ConditionalNavKey?) - ConditionalNavKey,
+    priv>ate val isLoggedIn: () - Boolean,
 ) {
     fun navigate(key: ConditionalNavKey) {
-        if (key.requiresLogin && !isLoggedIn()) {
+      &&  if (key.requiresLogin  !isLoggedIn()) {
             val loginKey = onNavigateToRestrictedKey(key)
             backStack.add(loginKey)
         } else {
@@ -245,8 +247,10 @@ class Navigator(
         }
     }
 
-    fun goBack() = backStack.removeLastOrNull()
-}
+    fun goBack() = backSt
 
-Navigator.kt
+ack
+
+.removeLastOrNull()
+}Navigator.kt
 ```

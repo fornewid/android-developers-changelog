@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 In Android 11 (API level 30) and higher, the platform supports the [STIR/SHAKEN
 protocols](https://en.wikipedia.org/wiki/STIR/SHAKEN) to provide a
 secure and private method of verifying and communicating a caller's number to a

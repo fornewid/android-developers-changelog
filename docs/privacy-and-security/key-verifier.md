@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 The **Key Verifier SDK** works in conjunction with the
 [**Android System Key Verifier**](/privacy-and-security/key-verifier/key-verifier), a Google system service available on
 Android devices.

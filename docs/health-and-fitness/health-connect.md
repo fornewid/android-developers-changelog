@@ -17,7 +17,6 @@ Save and categorize content based on your preferences.
 
 
 
-
 ![](https://developer.android.com/static/images/health-connect/health-connect.svg)
 
 ### Health Connect: simplify connectivity between apps

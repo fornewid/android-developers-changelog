@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Google recommends using the [location and context
 APIs](https://developers.google.com/location-context/) in Google Play services
 in apps that require location services. If your app uses the [framework location

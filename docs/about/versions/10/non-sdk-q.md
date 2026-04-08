@@ -1,11 +1,20 @@
 ---
-title: https://developer.android.com/about/versions/10/non-sdk-q
+title: Updates to non-SDK interface restrictions in Android 10  |  Android Developers
 url: https://developer.android.com/about/versions/10/non-sdk-q
-source: md.txt
+source: html-scrape
 ---
 
+* [Android Developers](https://developer.android.com/)
+* [Essentials](https://developer.android.com/get-started)
+* [Releases](https://developer.android.com/about/versions)
+
+# Updates to non-SDK interface restrictions in Android 10 Stay organized with collections Save and categorize content based on your preferences.
+
+
+
+
 To help ensure app stability and compatibility, the platform started restricting
-which [non-SDK interfaces](https://developer.android.com/guide/app-compatibility/restrictions-non-sdk-interfaces)
+which [non-SDK interfaces](/guide/app-compatibility/restrictions-non-sdk-interfaces)
 your app can use in Android 9 (API level 28). Android 10 includes updated lists
 of restricted non-SDK interfaces based on collaboration with Android developers
 and the latest internal testing. Our goal is to make sure that public
@@ -13,25 +22,27 @@ alternatives are available before we restrict non-SDK interfaces.
 
 If you will not be targeting Android 10 (API level 29), some of these changes
 might not immediately affect you. However, while you can currently use some
-non-SDK interfaces ([depending on your app's target API level](https://developer.android.com/guide/app-compatibility/restrictions-non-sdk-interfaces#list-names)),
+non-SDK interfaces ([depending on your app's target API level](/guide/app-compatibility/restrictions-non-sdk-interfaces#list-names)),
 using any non-SDK method or field always carries a high risk of breaking your
 app.
 
 If you are unsure if your app uses non-SDK interfaces, you can
-[test your app](https://developer.android.com/guide/app-compatibility/restrictions-non-sdk-interfaces#test-for-non-sdk) to
+[test your app](/guide/app-compatibility/restrictions-non-sdk-interfaces#test-for-non-sdk) to
 find out. If your app relies on non-SDK interfaces, you should begin planning a
 migration to SDK alternatives. Nevertheless, we understand that some apps have
 valid use cases for using non-SDK interfaces. If you cannot find an alternative
 to using a non-SDK interface for a feature in your app, you should
-[request a new public API](https://developer.android.com/guide/app-compatibility/restrictions-non-sdk-interfaces#feature-request).
+[request a new public API](/guide/app-compatibility/restrictions-non-sdk-interfaces#feature-request).
 
 ## Naming changes for non-SDK interface lists
 
 In Android 9 (API level 28), the non-SDK interface lists (greylists) were split
 between the following two lists:
 
-- A list of unsupported non-SDK interfaces (light greylist) that could be used regardless of target API level.
-- A list of blocked non-SDK interfaces (dark greylist) that could not be used if your app targeted API level 28 or higher.
+* A list of unsupported non-SDK interfaces (light greylist) that could be used
+  regardless of target API level.
+* A list of blocked non-SDK interfaces (dark greylist) that could not be used if
+  your app targeted API level 28 or higher.
 
 Starting in Android 10, non-SDK interfaces that are restricted by target API
 level (previously the darkgrey list) are now referred to by the maximum target
@@ -41,13 +52,13 @@ SDK version that the interface can be used in.
 
 If a non-SDK interface was blocked when an app targeted Android 9 (API level
 28), that interface is now part of the `max-target-o` (`greylist-max-o`) list,
-where "o" stands for Oreo or Android 8.1 (API level 27). In this case, you would
+where “o” stands for Oreo or Android 8.1 (API level 27). In this case, you would
 only be able to use an interface that belongs to the `max-target-o`
 (`greylist-max-o`) list if your app targets Android 8.1 (API level 27) or lower.
 
 Similarly, if a non-SDK interface was not blocked in Android Pie but is now
 blocked in Android 10, that interface is part of the `max-target-p`
-(`greylist-max-p`) list, where "p" stands for Pie or Android 9 (API level 28).
+(`greylist-max-p`) list, where “p” stands for Pie or Android 9 (API level 28).
 
 These names should provide more insight about the maximum target SDK level a
 non-SDK API can be used in before it is blocked by the platform.
@@ -58,7 +69,7 @@ In addition to the list name changes, many non-SDK interfaces are now annotated
 in the code using the following annotations.
 
 | Annotation | Meaning |
-|---|---|
+| --- | --- |
 | `@UnsupportedAppUsage` | Unsupported non-SDK interfaces |
 | `@UnsupportedAppUsage(maxTargetSdk = 0)` | Blocklist |
 | `@UnsupportedAppUsage(maxTargetSdk = Build.VERSION_CODES.O)` | Conditionally blocked. Only accessible by apps targeting Android 8.1 Oreo (API level 27) or lower. |
@@ -67,7 +78,7 @@ in the code using the following annotations.
 Due to the large number of non-SDK interfaces that are conditionally blocked in
 Android 8.1 Oreo (API level 27), many of the interfaces in that list were not
 annotated. While these new annotations can provide a quick reference point, you
-should [test your app](https://developer.android.com/guide/app-compatibility/restrictions-non-sdk-interfaces#test-for-non-sdk)
+should [test your app](/guide/app-compatibility/restrictions-non-sdk-interfaces#test-for-non-sdk)
 if you are unsure whether your app uses non-SDK interfaces.
 
 ## Enabling access to non-SDK interfaces in Android 10
@@ -93,17 +104,24 @@ These commands do not require a rooted device.
 You can set the integer in the API enforcement policy to one of the following
 values:
 
-- 0: Disable all detection of non-SDK interfaces. Using this setting disables all log messages for non-SDK interface usage and prevents you from testing your app [using the `StrictMode` API](https://developer.android.com/guide/app-compatibility/restrictions-non-sdk-interfaces#test-strictmode-api). This setting is not recommended.
-- 1: Enable access to all non-SDK interfaces, but print log messages with warnings for any non-SDK interface usage. Using this setting also allows you to test your app [using the `StrictMode` API](https://developer.android.com/guide/app-compatibility/restrictions-non-sdk-interfaces#test-strictmode-api).
-- 2: Disallow usage of non-SDK interfaces that belong to either the blocklist or are conditionally blocked for your [target API
-  level](https://developer.android.com/distribute/best-practices/develop/target-sdk).
+* 0: Disable all detection of non-SDK interfaces. Using this setting disables
+  all log messages for non-SDK interface usage and prevents you from testing your
+  app [using the `StrictMode` API](/guide/app-compatibility/restrictions-non-sdk-interfaces#test-strictmode-api).
+  This setting is not recommended.
+* 1: Enable access to all non-SDK interfaces, but print log messages with
+  warnings for any non-SDK interface usage. Using this setting also allows you to
+  test your app [using the `StrictMode` API](/guide/app-compatibility/restrictions-non-sdk-interfaces#test-strictmode-api).
+* 2: Disallow usage of non-SDK interfaces that belong to either the blocklist
+  or are conditionally blocked for your [target API
+  level](/distribute/best-practices/develop/target-sdk).
 
 ## List changes for Android 10
 
 The list changes in Android 10 fall into the following categories:
 
-- Non-SDK interfaces that were unsupported (greylisted) in Android 9 (API level 28) that are now [blocked in Android 10 (API level 29)](https://developer.android.com/about/versions/10/non-sdk-q#new-blocked).
-- Non-SDK interfaces that were [added to the Android SDK in Android 10](https://developer.android.com/about/versions/10/non-sdk-q#new-sdk).
+* Non-SDK interfaces that were unsupported (greylisted) in Android 9 (API level
+  28) that are now [blocked in Android 10 (API level 29)](#new-blocked).
+* Non-SDK interfaces that were [added to the Android SDK in Android 10](#new-sdk).
 
 For a complete list of all non-SDK interfaces for Android 10, download the
 following file: [`hiddenapi-flags.csv`](https://dl.google.com/developers/android/qt/non-sdk/hiddenapi-flags.csv).
@@ -123,7 +141,7 @@ might be in use but turned out not to be. Each interface takes up one line.
 Our goal is to make sure that public alternatives are available before we
 restrict non-SDK interfaces, and we understand that your app might have a valid
 use case for using these interfaces. If an interface that you currently use in
-Android 9 is now blocked, you should [request a new public API](https://developer.android.com/guide/app-compatibility/restrictions-non-sdk-interfaces#feature-request)
+Android 9 is now blocked, you should [request a new public API](/guide/app-compatibility/restrictions-non-sdk-interfaces#feature-request)
 for that interface.
 
 ```
@@ -388,7 +406,7 @@ Landroid/net/ConnectivityManager;->mService:Landroid/net/IConnectivityManager;  
 Landroid/net/ConnectivityManager;->TYPE_MOBILE_CBS:I   # Use NetworkCapabilities#NET_CAPABILITY_CBS instead.
 Landroid/net/ConnectivityManager;->TYPE_MOBILE_EMERGENCY:I   # Use NetworkCapabilities#NET_CAPABILITY_EIMS instead.
 Landroid/net/ConnectivityManager;->TYPE_MOBILE_FOTA:I   # Use NetworkCapabilities#NET_CAPABILITY_FOTA instead.
-Landroid/net/ConnectivityManager;->TYPE_NONE:I   # Use the NetworkCapabilities API instead -- this is not needed any more.
+Landroid/net/ConnectivityManager;->TYPE_NONE:I   # Use the NetworkCapabilities API instead – this is not needed any more.
 Landroid/net/ConnectivityManager;->unregisterNetworkFactory(Landroid/os/Messenger;)V   # False Positive
 Landroid/net/http/SslError;->mErrors:I   # False Positive
 Landroid/net/http/SslError;->mUrl:Ljava/lang/String;   # False Positive

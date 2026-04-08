@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 WorkManager has built-in support for setting and observing intermediate
 progress for workers. If the worker was running while the app was in the
 foreground, this information can also be shown to the user using APIs which

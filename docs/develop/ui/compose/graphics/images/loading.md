@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 ## Load an image from the disk
 
 Use the [`Image`](/reference/kotlin/androidx/compose/foundation/Image.composable) composable to display a graphic on screen. To load an image

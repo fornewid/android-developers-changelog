@@ -1,8 +1,18 @@
 ---
-title: https://developer.android.com/agi/sys-trace/texture-memory-bw
+title: Analyze texture memory bandwidth usage  |  Android Developers
 url: https://developer.android.com/agi/sys-trace/texture-memory-bw
-source: md.txt
+source: html-scrape
 ---
+
+Join us for ⁠the [Google for Games Developer Summit](https://gamedevsummit.withgoogle.com/) on March 15!
+
+* [Android Developers](https://developer.android.com/)
+* [Google Play](https://developer.android.com/distribute)
+* [Guides](https://developer.android.com/games/guides)
+
+# Analyze texture memory bandwidth usage Stay organized with collections Save and categorize content based on your preferences.
+
+
 
 The memory bandwidth of texture data can be a potential bottleneck for your
 app's GPU performance. There are some counters in an **AGI System Profile** that can help diagnose texture memory bandwidth issues.
@@ -12,7 +22,7 @@ app's GPU performance. There are some counters in an **AGI System Profile** that
 On devices with Qualcomm Adreno GPUs, some notable counters include:
 
 | Counter | Description |
-|---|---|
+| --- | --- |
 | Texture Memory Read BW (Bytes/Second) | Bandwidth of texture data read from external memory. |
 | % Texture L1 Miss | L1 cache miss from fetching textures. |
 | % Non-Base Level Textures | Percentage of texture fetches that are mipmaps. |
@@ -23,10 +33,10 @@ On devices with Qualcomm Adreno GPUs, some notable counters include:
 On devices with ARM Mali GPUs, some notable counters include:
 
 | Counter | Description |
-|---|---|
+| --- | --- |
 | Texture read beats from external memory | Data beats read from external memory by the texture unit, averaged over the shader cores. |
 | Texture read beats from L2 cache | Data beats read from the L2 cache by the texture unit, averaged over the shader cores. |
-| \[More\] |   |
+| [More] |  |
 
 To calculate the overall bandwidth from average read beats, the counter value is multiplied by the bus width (typically 16 bytes) and by the total number of shader cores.
 
@@ -34,19 +44,31 @@ To calculate the overall bandwidth from average read beats, the counter value is
 
 To measure the behavior of these counters, measure the average and peak
 bandwidth over the course of a single GPU frame, and then delineate with a contiguous block of GPU Utilization.
-![Texture memory read bandwidth for a single frame, with average value of 565 MBps and peak value of 2.30 GBps](https://developer.android.com/static/images/agi/texture-memory-images/sample_tex_bw.png) **Figure 1.**Texture memory read bandwidth for a single frame, with average value of 565 MBps and peak value of 2.30 GBps
+
+![Texture memory read bandwidth for a single frame, with average value of 565 MBps and peak value of 2.30 GBps](/static/images/agi/texture-memory-images/sample_tex_bw.png)
+
+
+**Figure 1.** Texture memory read bandwidth for a single frame, with average value of 565 MBps and peak value of 2.30 GBps
 
 We recommend an average texture memory read bandwidth of no higher than 1 GBps, and a peak bandwidth no higher than 3 GBps. Texture L1 cache miss should also be no higher than 10%. Higher values for bandwidth or L1 cache may be indicators of deeper texture issues, including:
 
-- *Textures are too large*: Large textures bloat your package size, and are more expensive and may reduce cache efficiency.
-- *Textures are uncompressed*: All Android phones support some types of texture compression, whether it's ETC1 or ASTC. Textures should be compressed to reduce package size and reduce texture bandwidth.
-- *Other*: A variety of other texture concerns should be considered, including power-of-2 textures, mipmapping, anisotropic filtering, and more. Some of these may be observed from the System Profile as discussed below, whereas others may require deeper investigation.
+* *Textures are too large*: Large textures bloat your package size, and are more expensive and may reduce cache efficiency.
+* *Textures are uncompressed*: All Android phones support some types of texture compression, whether it’s ETC1 or ASTC. Textures should be compressed to reduce package size and reduce texture bandwidth.
+* *Other*: A variety of other texture concerns should be considered, including power-of-2 textures, mipmapping, anisotropic filtering, and more. Some of these may be observed from the System Profile as discussed below, whereas others may require deeper investigation.
 
-For three-dimensional games with a free camera, texture assets should use [mipmapping](https://developer.android.com/agi/sys-trace/link), such that objects at a distance from the camera will have reduced memory bandwidth, better texture cache efficiency, and better image quality. For devices using Qualcomm Adreno GPUs, % **Non-Base Level Textures** counters lower than 10% on average may indicate inadequate mipmapping.
-![Non-base level textures for a single frame, with an average value of 9.2%](https://developer.android.com/static/images/agi/texture-memory-images/sample_nonbase.png) **Figure 2.**Non-base level textures for a single frame, with an average value of 9.2%
+For three-dimensional games with a free camera, texture assets should use [mipmapping](/agi/sys-trace/link), such that objects at a distance from the camera will have reduced memory bandwidth, better texture cache efficiency, and better image quality. For devices using Qualcomm Adreno GPUs, % **Non-Base Level Textures** counters lower than 10% on average may indicate inadequate mipmapping.
+
+![Non-base level textures for a single frame, with an average value of 9.2%](/static/images/agi/texture-memory-images/sample_nonbase.png)
+
+
+**Figure 2.** Non-base level textures for a single frame, with an average value of 9.2%
 
 Another consideration is the use of anisotropic filtering, which is described by the **% Anisotropic Filtered** counter for Qualcomm Adreno GPUs for the proportion of texels that are anisotropic filtered. While this may improve visual quality for some games, it can also be very expensive, and its use should be weighed against the GPU performance cost.
-![Perecentage of anisotropic filtered for a single frame, with average value of 10.8%](https://developer.android.com/static/images/agi/texture-memory-images/sample_anisotropic.png) **Figure 3.**Perecentage of anisotropic filtered for a single frame, with average value of 10.8%
+
+![Perecentage of anisotropic filtered for a single frame, with average value of 10.8%](/static/images/agi/texture-memory-images/sample_anisotropic.png)
+
+
+**Figure 3.** Perecentage of anisotropic filtered for a single frame, with average value of 10.8%
 
 The best way to diagnose more specific problems is through taking a frame
 profile trace to analyze texture assets.

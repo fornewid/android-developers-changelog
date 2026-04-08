@@ -1,102 +1,73 @@
 ---
-title: Modules  |  Views  |  Android Developers
+title: https://developer.android.com/develop/ui/views/touch-and-input/stylus-input/ink-api-modules
 url: https://developer.android.com/develop/ui/views/touch-and-input/stylus-input/ink-api-modules
-source: html-scrape
+source: md.txt
 ---
 
-* [Android Developers](https://developer.android.com/)
-* [Develop](https://developer.android.com/develop)
-* [Core areas](https://developer.android.com/develop/core-areas)
-* [UI](https://developer.android.com/develop/ui)
-* [Views](https://developer.android.com/develop/ui/views/layout/declaring-layout)
-
-# Modules Stay organized with collections Save and categorize content based on your preferences.
-
-
-
-[Ink API](/jetpack/androidx/releases/ink#1.0.0-alpha01) is modularized, so you can use only what you need.
+[Ink API](https://developer.android.com/jetpack/androidx/releases/ink#1.0.0-alpha01) is modularized, so you can use only what you need.
 
 ## Strokes
 
-The [strokes](/reference/kotlin/androidx/ink/strokes/package-summary) module serves as the foundation of the Ink API. Key data types
+The [strokes](https://developer.android.com/reference/kotlin/androidx/ink/strokes/package-summary) module serves as the foundation of the Ink API. Key data types
 within this module are:
 
-* [**`StrokeInputBatch`**](/reference/kotlin/androidx/ink/strokes/StrokeInputBatch):
-  Represents a series of pointer inputs, including their position, timestamp,
-  and optionally pressure, tilt, and orientation.
-* [**`InProgressStroke`**](/reference/kotlin/androidx/ink/strokes/InProgressStroke):
-  Represents a stroke that is actively being drawn. `InProgressStroke` is
-  used to render
-  partial strokes with low latency and to build the final `Stroke` once input
-  is complete, after which the object can be reused.
-  ``InProgressStroke` is used by
-  [`InProgressStrokesView`](/reference/kotlin/androidx/ink/authoring/InProgressStrokesView).
-* [**`Stroke`**](/reference/kotlin/androidx/ink/strokes/Stroke): An immutable
-  representation of a finalized stroke with fixed geometry. Each `Stroke` has
-  an [`ImmutableStrokeInputBatch`](/reference/kotlin/androidx/ink/strokes/ImmutableStrokeInputBatch) (input points),
-  a [`Brush`](/reference/kotlin/androidx/ink/brush/Brush) (style), and a
-  [`PartitionedMesh`](/reference/kotlin/androidx/ink/geometry/PartitionedMesh) (geometric shape). You can store,
-  manipulate, and render strokes within your application.
+- [**`StrokeInputBatch`**](https://developer.android.com/reference/kotlin/androidx/ink/strokes/StrokeInputBatch): Represents a series of pointer inputs, including their position, timestamp, and optionally pressure, tilt, and orientation.
+- [**`InProgressStroke`**](https://developer.android.com/reference/kotlin/androidx/ink/strokes/InProgressStroke): Represents a stroke that is actively being drawn. `InProgressStroke` is used to render partial strokes with low latency and to build the final `Stroke` once input is complete, after which the object can be reused. \``InProgressStroke` is used by [`InProgressStrokesView`](https://developer.android.com/reference/kotlin/androidx/ink/authoring/InProgressStrokesView).
+- [**`Stroke`**](https://developer.android.com/reference/kotlin/androidx/ink/strokes/Stroke): An immutable representation of a finalized stroke with fixed geometry. Each `Stroke` has an [`ImmutableStrokeInputBatch`](https://developer.android.com/reference/kotlin/androidx/ink/strokes/ImmutableStrokeInputBatch) (input points), a [`Brush`](https://developer.android.com/reference/kotlin/androidx/ink/brush/Brush) (style), and a [`PartitionedMesh`](https://developer.android.com/reference/kotlin/androidx/ink/geometry/PartitionedMesh) (geometric shape). You can store, manipulate, and render strokes within your application.
 
 ## Geometry
 
-The [Geometry](/reference/kotlin/androidx/ink/geometry/package-summary) module supports geometric operations on primitive shapes (using
-dedicated classes like [Box](/reference/kotlin/androidx/ink/geometry/Box&sa=D&source=docs&ust=1761326799140765&usg=AOvVaw1pQKRdqNKmIbX_E3mu9XBG) and [Vec](/reference/kotlin/androidx/ink/geometry/Vec)), as well as arbitrary shapes (using
-[PartitionedMesh](/reference/kotlin/androidx/ink/geometry/PartitionedMesh)), including intersection detection and transformation.
-[PartitionedMesh](/reference/kotlin/androidx/ink/geometry/PartitionedMesh) can also hold additional data to support rendering.
+The [Geometry](https://developer.android.com/reference/kotlin/androidx/ink/geometry/package-summary) module supports geometric operations on primitive shapes (using
+dedicated classes like [Box](https://developer.android.com/reference/kotlin/androidx/ink/geometry/Box&sa=D&source=docs&ust=1761326799140765&usg=AOvVaw1pQKRdqNKmIbX_E3mu9XBG) and [Vec](https://developer.android.com/reference/kotlin/androidx/ink/geometry/Vec)), as well as arbitrary shapes (using
+[PartitionedMesh](https://developer.android.com/reference/kotlin/androidx/ink/geometry/PartitionedMesh)), including intersection detection and transformation.
+[PartitionedMesh](https://developer.android.com/reference/kotlin/androidx/ink/geometry/PartitionedMesh) can also hold additional data to support rendering.
 
 ## Brush
 
-The [`brush`](/reference/kotlin/androidx/ink/brush/Brush) module defines the style of strokes. It
+The [`brush`](https://developer.android.com/reference/kotlin/androidx/ink/brush/Brush) module defines the style of strokes. It
 consists of two main parts:
 
-* [**`Brush`**](/reference/kotlin/androidx/ink/brush/Brush): Specifies the style of a stroke including
-  base color, base size, and [`BrushFamily`](/reference/kotlin/androidx/ink/brush/BrushFamily). `BrushFamily` is
-  analogous to a font family, it defines a stroke's style.
-  For example, a `BrushFamily` can represent a specific style of marker or
-  highlighter, allowing strokes with different sizes and colors to share that
-  style.
-* [**`StockBrushes`**](/reference/kotlin/androidx/ink/brush/StockBrushes): Provides factory functions for
-  creating ready-to-use `BrushFamily` instances.
+- [**`Brush`**](https://developer.android.com/reference/kotlin/androidx/ink/brush/Brush): Specifies the style of a stroke including base color, base size, and [`BrushFamily`](https://developer.android.com/reference/kotlin/androidx/ink/brush/BrushFamily). `BrushFamily` is analogous to a font family, it defines a stroke's style. For example, a `BrushFamily` can represent a specific style of marker or highlighter, allowing strokes with different sizes and colors to share that style.
+- [**`StockBrushes`**](https://developer.android.com/reference/kotlin/androidx/ink/brush/StockBrushes): Provides factory functions for creating ready-to-use `BrushFamily` instances.
 
 ## Authoring
 
-The [Authoring](/reference/kotlin/androidx/ink/authoring/package-summary) module lets you capture user pointer input
+The [Authoring](https://developer.android.com/reference/kotlin/androidx/ink/authoring/package-summary) module lets you capture user pointer input
 and render it as low-latency strokes on the screen in real time.
-It provides an [InProgressStrokesView](/reference/kotlin/androidx/ink/authoring/InProgressStrokesView), which processes
-[motion events](/reference/android/view/MotionEvent) and displays the strokes as they are drawn.
+It provides an [InProgressStrokesView](https://developer.android.com/reference/kotlin/androidx/ink/authoring/InProgressStrokesView), which processes
+[motion events](https://developer.android.com/reference/android/view/MotionEvent) and displays the strokes as they are drawn.
 
 Once a stroke is completed, the view notifies the client application by means
 of a registered callback
-([`InProgressStrokesFinishedListener`](/reference/kotlin/androidx/ink/authoring/InProgressStrokesFinishedListener)). The callback lets
+([`InProgressStrokesFinishedListener`](https://developer.android.com/reference/kotlin/androidx/ink/authoring/InProgressStrokesFinishedListener)). The callback lets
 the application retrieve the finished stroke for rendering or storage.
 
 ## Rendering
 
 The Rendering module helps you draw ink strokes onto an Android
-[`Canvas`](/reference/kotlin/android/graphics/Canvas).
-It provides [`CanvasStrokeRenderer`](/reference/kotlin/androidx/ink/rendering/android/canvas/CanvasStrokeRenderer) for Compose and
-[`ViewStrokeRenderer`](/reference/kotlin/androidx/ink/rendering/android/view/ViewStrokeRenderer) for view-based layouts. These
+[`Canvas`](https://developer.android.com/reference/kotlin/android/graphics/Canvas).
+It provides [`CanvasStrokeRenderer`](https://developer.android.com/reference/kotlin/androidx/ink/rendering/android/canvas/CanvasStrokeRenderer) for Compose and
+[`ViewStrokeRenderer`](https://developer.android.com/reference/kotlin/androidx/ink/rendering/android/view/ViewStrokeRenderer) for view-based layouts. These
 renderers are designed for high-performance rendering and help deliver
 high-quality visuals, including antialiasing.
 
-To render strokes, call the [`create()`](/reference/androidx/ink/rendering/android/canvas/CanvasStrokeRenderer#create(androidx.ink.brush.TextureBitmapStore)) method to get a
-`CanvasStrokeRenderer` instance. Then, call the [`draw()`](/reference/kotlin/androidx/ink/rendering/android/canvas/CanvasStrokeRenderer#draw(android.graphics.Canvas,androidx.ink.strokes.InProgressStroke,androidx.ink.geometry.AffineTransform)) method to
-render either finished ([`Stroke`](/reference/kotlin/androidx/ink/strokes/Stroke)) or in-progress
-([`InProgressStroke`](/reference/kotlin/androidx/ink/strokes/InProgressStroke)) strokes onto a `Canvas`.
+To render strokes, call the [`create()`](https://developer.android.com/reference/androidx/ink/rendering/android/canvas/CanvasStrokeRenderer#create(androidx.ink.brush.TextureBitmapStore)) method to get a
+`CanvasStrokeRenderer` instance. Then, call the [`draw()`](https://developer.android.com/reference/kotlin/androidx/ink/rendering/android/canvas/CanvasStrokeRenderer#draw(android.graphics.Canvas,androidx.ink.strokes.InProgressStroke,androidx.ink.geometry.AffineTransform)) method to
+render either finished ([`Stroke`](https://developer.android.com/reference/kotlin/androidx/ink/strokes/Stroke)) or in-progress
+([`InProgressStroke`](https://developer.android.com/reference/kotlin/androidx/ink/strokes/InProgressStroke)) strokes onto a `Canvas`.
 
 You can transform the canvas when you draw a stroke. Examples include panning,
 zooming, and rotating. To render the stroke correctly, you must also pass the
-`canvas` transform to [`CanvasStrokeRenderer.draw`](/reference/kotlin/androidx/ink/rendering/android/canvas/CanvasStrokeRenderer#draw(android.graphics.Canvas,androidx.ink.strokes.InProgressStroke,androidx.ink.geometry.AffineTransform)).
+`canvas` transform to [`CanvasStrokeRenderer.draw`](https://developer.android.com/reference/kotlin/androidx/ink/rendering/android/canvas/CanvasStrokeRenderer#draw(android.graphics.Canvas,androidx.ink.strokes.InProgressStroke,androidx.ink.geometry.AffineTransform)).
 
 To avoid tracking the `canvas` transform separately, use
-[`ViewStrokeRenderer`](/reference/kotlin/androidx/ink/rendering/android/view/ViewStrokeRenderer) instead.
+[`ViewStrokeRenderer`](https://developer.android.com/reference/kotlin/androidx/ink/rendering/android/view/ViewStrokeRenderer) instead.
 
 ## Storage
 
-The [storage](/reference/kotlin/androidx/ink/storage/package-summary) module provides utilities for
+The [storage](https://developer.android.com/reference/kotlin/androidx/ink/storage/package-summary) module provides utilities for
 efficiently serializing and deserializing stroke data, primarily focusing
-on [`StrokeInputBatch`](/reference/kotlin/androidx/ink/strokes/StrokeInputBatch).
+on [`StrokeInputBatch`](https://developer.android.com/reference/kotlin/androidx/ink/strokes/StrokeInputBatch).
 
 The module uses [protocol buffers](https://protobuf.dev/) and optimized delta compression techniques,
 resulting in significant storage savings compared to naive methods.

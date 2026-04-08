@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 Android includes some on-device developer options that help you visualize
 where your app might be running into issues rendering its UI, such as performing
 more rendering work than necessary, or executing long thread and GPU operations.

@@ -1,92 +1,103 @@
 ---
-title: https://developer.android.com/courses/quizzes/passkeys
+title: Passkeys for Android  |  Android Developers
 url: https://developer.android.com/courses/quizzes/passkeys
-source: md.txt
+source: html-scrape
 ---
 
-# Passkeys for Android
+Stay organized with collections
+
+Save and categorize content based on your preferences.
+
+
 
 # Passkeys for Android
 
-<br />
+Return to pathway
 
-Return to pathway  
-1.
 
-   ## Credential Manager is a Jetpack library that:
 
-   Provides a unified sign-in experience across all Android devices  
-   Supports passkeys on Android 9 and higher  
-   Has backward compatibility, with general support on Android 4.4 and higher  
-   All of the above  
-2.
+1. ## Credential Manager is a Jetpack library that:
 
-   ## Credential Manager supports the following sign-in methods
+   Provides a unified sign-in experience across all Android devices
 
-   Choose as many answers as you see fit.  
-   Passkeys  
-   Passwords  
-   Sign in with Google  
-   SMS OTP  
-3.
+   Supports passkeys on Android 9 and higher
 
-   ## The ___ library contains the core Credential Manager functionalities including password and passkey support
+   Has backward compatibility, with general support on Android 4.4 and higher
 
-   androidx.credentials:passkey  
-   androidx.credman:credentials  
-   androidx.credentials:credentials  
-   androidx.credentialmanager:credentials  
-4.
+   All of the above
+2. ## Credential Manager supports the following sign-in methods
 
-   ## When using a passkey stored in Google Password Manager, how can users authenticate?
+   Choose as many answers as you see fit.
 
-   Choose as many answers as you see fit.  
-   Fingerprint  
-   Face unlock  
-   Social Security Number  
-   Phone Pin / Pattern  
-5.
+   Passkeys
 
-   ## Passkeys are more secure than 2-factor authentication via SMS.
+   Passwords
 
-   True  
-   False  
-6.
+   Sign in with Google
 
-   ## What happens if a passkey user's device is lost or stolen?
+   SMS OTP
+3. ## The \_\_\_ library contains the core Credential Manager functionalities including password and passkey support
 
-   They will be permanently locked out of their account  
-   They can revoke the passkey for the lost device and create a new passkey by signing into the passkey provider on another device  
-   They will have to reset their Google account password  
-7.
+   androidx.credentials:passkey
 
-   ## What happens to credentials created before passkeys were introduced?
+   androidx.credman:credentials
 
-   They can still be used for authentication  
-   They will be permanently deleted from their account  
-   They must reset all account passwords before creating a passkey  
-   None of the above  
-8.
+   androidx.credentials:credentials
 
-   ## Using a strong password is the best way for users to protect their accounts.
+   androidx.credentialmanager:credentials
+4. ## When using a passkey stored in Google Password Manager, how can users authenticate?
 
-   True  
-   False  
-9.
+   Choose as many answers as you see fit.
 
-   ## User biometric data never leaves the device and is never stored on a central server where it could be stolen in a breach.
+   Fingerprint
 
-   True  
-   False  
-10.
+   Face unlock
 
-    ## Passkeys provide a better user experience than passwords because:
+   Social Security Number
 
-    They are resistant to phishing  
-    They are single step but as strong as 2-factor authentication  
-    They are less prone to app server breaches  
-    All of the above  
+   Phone Pin / Pattern
+5. ## Passkeys are more secure than 2-factor authentication via SMS.
+
+   True
+
+   False
+6. ## What happens if a passkey user’s device is lost or stolen?
+
+   They will be permanently locked out of their account
+
+   They can revoke the passkey for the lost device and create a new passkey by signing into the passkey provider on another device
+
+   They will have to reset their Google account password
+7. ## What happens to credentials created before passkeys were introduced?
+
+   They can still be used for authentication
+
+   They will be permanently deleted from their account
+
+   They must reset all account passwords before creating a passkey
+
+   None of the above
+8. ## Using a strong password is the best way for users to protect their accounts.
+
+   True
+
+   False
+9. ## User biometric data never leaves the device and is never stored on a central server where it could be stolen in a breach.
+
+   True
+
+   False
+10. ## Passkeys provide a better user experience than passwords because:
+
+    They are resistant to phishing
+
+    They are single step but as strong as 2-factor authentication
+
+    They are less prone to app server breaches
+
+    All of the above
 
 Submit answers
 
-*error_outline*An error occurred when grading the quiz. Please try again.
+*error\_outline*
+An error occurred when grading the quiz. Please try again.

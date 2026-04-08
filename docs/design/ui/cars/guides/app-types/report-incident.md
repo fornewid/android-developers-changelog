@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 Make it easy for drivers to report traffic incidents quickly.
 The Grid template included in the Map + Content template
 will help you reduce the number of steps

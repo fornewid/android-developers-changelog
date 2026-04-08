@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 In addition to the guidelines described in [Build parked apps for Android
 Automotive OS](/training/cars/parked/automotive-os), there are some requirements specific to video apps.
 

@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 Instrumented tests run on Android devices, whether physical or emulated. As
 such, they can take advantage of the Android framework APIs. Instrumented tests
 therefore provide more fidelity than local tests, though they run much more

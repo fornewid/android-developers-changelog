@@ -1,16 +1,8 @@
 ---
-title: Hilt testing guide  |  App architecture  |  Android Developers
+title: https://developer.android.com/training/dependency-injection/hilt-testing
 url: https://developer.android.com/training/dependency-injection/hilt-testing
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [Design & Plan](https://developer.android.com/design)
-* [App architecture](https://developer.android.com/topic/architecture/intro)
-
-# Hilt testing guide Stay organized with collections Save and categorize content based on your preferences.
-
-
 
 One of the benefits of using dependency injection frameworks like Hilt is that
 it makes testing your code easier.
@@ -24,7 +16,7 @@ dependencies, just as you would if the constructor weren't annotated:
 
 ### Kotlin
 
-```
+```kotlin
 @ActivityScoped
 class AnalyticsAdapter @Inject constructor(
   private val service: AnalyticsService
@@ -44,7 +36,7 @@ class AnalyticsAdapterTest {
 
 ### Java
 
-```
+```java
 @ActivityScope
 public class AnalyticsAdapter {
 
@@ -81,7 +73,7 @@ project:
 
 ### Groovy
 
-```
+```groovy
 dependencies {
     // For Robolectric tests.
     testImplementation 'com.google.dagger:hilt-android-testing:2.57.1'
@@ -102,7 +94,7 @@ dependencies {
 
 ### Kotlin
 
-```
+```kotlin
 dependencies {
     // For Robolectric tests.
     testImplementation("com.google.dagger:hilt-android-testing:2.57.1")
@@ -121,11 +113,9 @@ dependencies {
 }
 ```
 
-**Note:** If you use [Jetpack
-integrations](/training/dependency-injection/hilt-jetpack), you must also
-include the annotation processors for the integrated libraries with `kaptTest`
-or `kaptAndroidTest` for Kotlin, or with `testAnnotationProcessor` or
-`androidTestAnnotationProcessor` for Java.
+> [!NOTE]
+> **Note:** If you use [Jetpack
+> integrations](https://developer.android.com/training/dependency-injection/hilt-jetpack), you must also include the annotation processors for the integrated libraries with `kaptTest` or `kaptAndroidTest` for Kotlin, or with `testAnnotationProcessor` or `androidTestAnnotationProcessor` for Java.
 
 ### UI test setup
 
@@ -137,7 +127,7 @@ components' state and is used to perform injection on your test:
 
 ### Kotlin
 
-```
+```kotlin
 @HiltAndroidTest
 class SettingsActivityTest {
 
@@ -150,7 +140,7 @@ class SettingsActivityTest {
 
 ### Java
 
-```
+```java
 @HiltAndroidTest
 public final class SettingsActivityTest {
 
@@ -161,8 +151,9 @@ public final class SettingsActivityTest {
 }
 ```
 
-**Note:** If you have other rules in your test, see [Multiple TestRule objects in
-your instrumented test](#multiple-testrules).
+> [!NOTE]
+> **Note:** If you have other rules in your test, see [Multiple TestRule objects in
+> your instrumented test](https://developer.android.com/training/dependency-injection/hilt-testing#multiple-testrules).
 
 Next, your test needs to know about the `Application` class that Hilt
 automatically generates for you.
@@ -172,10 +163,10 @@ automatically generates for you.
 You must execute instrumented tests that use Hilt in an `Application` object
 that supports Hilt. The library provides `HiltTestApplication` for use in tests.
 If your tests need a different base application, see [Custom application for
-tests](#custom-application).
+tests](https://developer.android.com/training/dependency-injection/hilt-testing#custom-application).
 
 You must set your test application to run in your [instrumented
-tests](/training/testing/ui-testing) or [Robolectric
+tests](https://developer.android.com/training/testing/ui-testing) or [Robolectric
 tests](http://robolectric.org/). The following instructions aren't
 specific to Hilt, but are general guidelines on how to specify a custom
 application to run in tests.
@@ -183,19 +174,16 @@ application to run in tests.
 ##### Set the test application in instrumented tests
 
 To use the Hilt test application in [instrumented
-tests](/training/testing/ui-testing), you need to configure a new test runner.
+tests](https://developer.android.com/training/testing/ui-testing), you need to configure a new test runner.
 This makes Hilt work for all of the instrumented tests in your project. Perform
 the following steps:
 
-1. Create a custom class that extends
-   [`AndroidJUnitRunner`](/reference/androidx/test/runner/AndroidJUnitRunner) in
-   the `androidTest` folder.
-2. Override the `newApplication` function and pass in the name of the generated
-   Hilt test application.
+1. Create a custom class that extends [`AndroidJUnitRunner`](https://developer.android.com/reference/androidx/test/runner/AndroidJUnitRunner) in the `androidTest` folder.
+2. Override the `newApplication` function and pass in the name of the generated Hilt test application.
 
 ### Kotlin
 
-```
+```kotlin
 // A custom runner to set up the instrumented application class for tests.
 class CustomTestRunner : AndroidJUnitRunner() {
 
@@ -207,7 +195,7 @@ class CustomTestRunner : AndroidJUnitRunner() {
 
 ### Java
 
-```
+```java
 // A custom runner to set up the instrumented application class for tests.
 public final class CustomTestRunner extends AndroidJUnitRunner {
 
@@ -221,12 +209,12 @@ public final class CustomTestRunner extends AndroidJUnitRunner {
 
 Next, configure this test runner in your Gradle file as described in the
 [instrumented unit test
-guide](/training/testing/unit-testing/instrumented-unit-tests#setup). Make sure
+guide](https://developer.android.com/training/testing/unit-testing/instrumented-unit-tests#setup). Make sure
 you use the full classpath:
 
 ### Groovy
 
-```
+```groovy
 android {
     defaultConfig {
         // Replace com.example.android.dagger with your class path.
@@ -237,7 +225,7 @@ android {
 
 ### Kotlin
 
-```
+```kotlin
 android {
     defaultConfig {
         // Replace com.example.android.dagger with your class path.
@@ -258,7 +246,7 @@ using Robolectric's `@Config` annotation:
 
 ### Kotlin
 
-```
+```kotlin
 @HiltAndroidTest
 @Config(application = HiltTestApplication::class)
 class SettingsActivityTest {
@@ -272,7 +260,7 @@ class SettingsActivityTest {
 
 ### Java
 
-```
+```java
 @HiltAndroidTest
 @Config(application = HiltTestApplication.class)
 class SettingsActivityTest {
@@ -289,7 +277,7 @@ following configuration in your module's `build.gradle` file:
 
 ### Groovy
 
-```
+```groovy
 hilt {
     enableTransformForLocalTests = true
 }
@@ -297,7 +285,7 @@ hilt {
 
 ### Kotlin
 
-```
+```kotlin
 hilt {
     enableTransformForLocalTests = true
 }
@@ -320,7 +308,7 @@ See the following example of an instrumented test:
 
 ### Kotlin
 
-```
+```kotlin
 @HiltAndroidTest
 class SettingsActivityTest {
 
@@ -344,7 +332,7 @@ class SettingsActivityTest {
 
 ### Java
 
-```
+```java
 @HiltAndroidTest
 public final class SettingsActivityTest {
 
@@ -377,7 +365,7 @@ For example, suppose your production code declares a binding for
 
 ### Kotlin
 
-```
+```kotlin
 @Module
 @InstallIn(SingletonComponent::class)
 abstract class AnalyticsModule {
@@ -392,7 +380,7 @@ abstract class AnalyticsModule {
 
 ### Java
 
-```
+```java
 @Module
 @InstallIn(SingletonComponent.class)
 public abstract class AnalyticsModule {
@@ -412,7 +400,7 @@ dependency instead.
 
 ### Kotlin
 
-```
+```kotlin
 @Module
 @TestInstallIn(
     components = [SingletonComponent::class],
@@ -430,7 +418,7 @@ abstract class FakeAnalyticsModule {
 
 ### Java
 
-```
+```java
 @Module
 @TestInstallIn(
     components = SingletonComponent.class,
@@ -458,7 +446,7 @@ in the test class:
 
 ### Kotlin
 
-```
+```kotlin
 @UninstallModules(AnalyticsModule::class)
 @HiltAndroidTest
 class SettingsActivityTest { ... }
@@ -466,7 +454,7 @@ class SettingsActivityTest { ... }
 
 ### Java
 
-```
+```java
 @UninstallModules(AnalyticsModule.class)
 @HiltAndroidTest
 public final class SettingsActivityTest { ... }
@@ -477,7 +465,7 @@ that defines the test binding:
 
 ### Kotlin
 
-```
+```kotlin
 @UninstallModules(AnalyticsModule::class)
 @HiltAndroidTest
 class SettingsActivityTest {
@@ -499,7 +487,7 @@ class SettingsActivityTest {
 
 ### Java
 
-```
+```java
 @UninstallModules(AnalyticsModule.class)
 @HiltAndroidTest
 public final class SettingsActivityTest {
@@ -524,12 +512,14 @@ section above. Alternatively, you can put the test binding in the `test` module
 for Robolectric tests, or in the `androidTest` module for instrumented tests.
 The recommendation is to use `@TestInstallIn` whenever possible.
 
-**Warning:** You cannot uninstall modules that are not annotated with `@InstallIn`.
-Attempting to do so causes a compilation error.**Warning:** `@UninstallModules` can only uninstall `@InstallIn` modules, not
-`@TestInstallIn` modules. Attempting to do so causes a compilation error.**Note:** As Hilt creates new components for tests that use `@UninstallModules`,
-it can significantly impact unit test build times. Use it when necessary and
-prefer using `@TestInstallIn` when the bindings need to be replaced in all
-test classes.
+> [!WARNING]
+> **Warning:** You cannot uninstall modules that are not annotated with `@InstallIn`. Attempting to do so causes a compilation error.
+
+> [!WARNING]
+> **Warning:** `@UninstallModules` can only uninstall `@InstallIn` modules, not `@TestInstallIn` modules. Attempting to do so causes a compilation error.
+
+> [!NOTE]
+> **Note:** As Hilt creates new components for tests that use `@UninstallModules`, it can significantly impact unit test build times. Use it when necessary and prefer using `@TestInstallIn` when the bindings need to be replaced in all test classes.
 
 #### Binding new values
 
@@ -542,7 +532,7 @@ fake by using `@BindValue`:
 
 ### Kotlin
 
-```
+```kotlin
 @UninstallModules(AnalyticsModule::class)
 @HiltAndroidTest
 class SettingsActivityTest {
@@ -556,7 +546,7 @@ class SettingsActivityTest {
 
 ### Java
 
-```
+```java
 @UninstallModules(AnalyticsModule.class)
 @HiltAndroidTest
 class SettingsActivityTest {
@@ -577,7 +567,7 @@ Robolectric test as follows:
 
 ### Kotlin
 
-```
+```kotlin
 ...
 class SettingsActivityTest {
   ...
@@ -591,7 +581,7 @@ class SettingsActivityTest {
 
 ### Java
 
-```
+```java
 ...
 class SettingsActivityTest {
   ...
@@ -622,14 +612,14 @@ with Hilt that extends the application you passed as a parameter.
 
 ### Kotlin
 
-```
+```kotlin
 @CustomTestApplication(BaseApplication::class)
 interface HiltTestApplication
 ```
 
 ### Java
 
-```
+```java
 @CustomTestApplication(BaseApplication.class)
 interface HiltTestApplication { }
 ```
@@ -638,12 +628,12 @@ In the example, Hilt generates an `Application` named
 `HiltTestApplication_Application` that extends the `BaseApplication` class. In
 general, the name of the generated application is the name of the annotated
 class appended with `_Application`. You must set the generated Hilt test
-application to run in your [instrumented tests](/training/testing/ui-testing) or
+application to run in your [instrumented tests](https://developer.android.com/training/testing/ui-testing) or
 [Robolectric tests](http://robolectric.org/) as described in [Test
-application](#test-application).
+application](https://developer.android.com/training/dependency-injection/hilt-testing#test-application).
 
-**Note:** Because `HiltTestApplication_Application` is code that Hilt generates at
-runtime, the IDE might highlight it in red until you run your tests.
+> [!NOTE]
+> **Note:** Because `HiltTestApplication_Application` is code that Hilt generates at runtime, the IDE might highlight it in red until you run your tests.
 
 ### Multiple TestRule objects in your instrumented test
 
@@ -654,7 +644,7 @@ You can wrap the rules together as follows:
 
 ### Kotlin
 
-```
+```kotlin
 @HiltAndroidTest
 class SettingsActivityTest {
 
@@ -668,7 +658,7 @@ class SettingsActivityTest {
 
 ### Java
 
-```
+```java
 @HiltAndroidTest
 public final class SettingsActivityTest {
 
@@ -686,7 +676,7 @@ Alternatively, you can use both rules at the same level as long as the
 
 ### Kotlin
 
-```
+```kotlin
 @HiltAndroidTest
 class SettingsActivityTest {
 
@@ -702,7 +692,7 @@ class SettingsActivityTest {
 
 ### Java
 
-```
+```java
 @HiltAndroidTest
 public final class SettingsActivityTest {
 

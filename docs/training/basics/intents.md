@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 An Android app typically has several [activities](/guide/components/activities). Each activity displays a
 user interface that lets the user perform a specific task, such as viewing a map or taking a photo.
 To take the user from one activity to another, your app must use an `Intent` to define your app's "intent" to do something. When you pass an

@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 A content provider manages access to a central repository of data. A provider
 is part of an Android application, which often provides its own UI for working with
 the data. However, content providers are primarily used by other
@@ -261,7 +262,7 @@ defines some variables for accessing the User Dictionary Provider:
 
 ```
 // A "projection" defines the columns that are returned for each row
-private val mProject<ion: A>rrayString = arrayOf(
+private val mProjection: Array<String> = arrayOf(
         UserDictionary.Words._ID,    // Contract class constant for the _ID column name
         UserDictionary.Words.WORD,   // Contract class constant for the word column name
         UserDictionary.Words.LOCALE  // Contract class constant for the locale column name
@@ -271,7 +272,7 @@ private val mProject<ion: A>rrayString = arrayOf(
 private var selectionClause: String? = null
 
 // Declares an array to contain selection arguments
-private lateinit var selectionA<rgs: A>rrayString
+private lateinit var selectionArgs: Array<String>
 ```
 
 ### Java
@@ -330,7 +331,7 @@ selectionArgs = searchString?.takeIf { it.isNotEmpty() }?.let {
     arrayOf(it)
 } ?: run {
     selectionClause = null
-    <emptyA>rrayString()
+    emptyArray<String>()
 }
 
 // Does a query against the table and returns a Cursor object
@@ -344,20 +345,20 @@ mCursor = contentResolver.query(
 
 // Some providers return null if an error occurs, others throw an exception
 when (mCursor?.count) {
->    null - {
+    null -> {
         /*
          * Insert code here to handle the error. Be sure not to use the cursor!
          * You might want to call android.util.Log.e() to log this error.
          */
-   > }
-    0 - {
+    }
+    0 -> {
         /*
          * Insert code here to notify the user that the search is unsuccessful. This isn't
          * necessarily an error. You might want to offer the user the option to insert a new
          * row, or re-type the search term.
          */
-  >  }
-    else - {
+    }
+    else -> {
         // Insert code here to do something with the results
     }
 }
@@ -406,8 +407,8 @@ if (null == mCursor) {
      * call android.util.Log.e() to log this error.
      *
      */
-// If the Cursor is empty, the provider found no matc<hes
-} else if (mCursor.getCount()  1) {
+// If the Cursor is empty, the provider found no matches
+} else if (mCursor.getCount() < 1) {
 
     /*
      * Insert code here to notify the user that the search is unsuccessful. This isn't necessarily
@@ -721,7 +722,7 @@ The following sample
 element requests read access to the User Dictionary Provider:
 
 ```
-<uses-permission android:name="android.permission.READ_USER_DICTIO>NARY"
+<uses-permission android:name="android.permission.READ_USER_DICTIONARY">
 ```
 
 The impact of permissions on provider access is explained in more detail in
@@ -839,7 +840,7 @@ val updateValues = ContentValues().apply {
 
 // Defines selection criteria for the rows you want to update
 val selectionClause: String = UserDictionary.Words.LOCALE + "LIKE ?"
-val selectionA<rgs: A>rrayString = arrayOf("en_%")
+val selectionArgs: Array<String> = arrayOf("en_%")
 
 // Defines a variable to contain the number of updated rows
 var rowsUpdated: Int = 0
@@ -894,7 +895,7 @@ number of deleted rows.
 ```
 // Defines selection criteria for the rows you want to delete
 val selectionClause = "${UserDictionary.Words.APP_ID} LIKE ?"
-val selectionA<rgs: A>rrayString = arrayOf("user")
+val selectionArgs: Array<String> = arrayOf("user")
 
 // Defines a variable to contain the number of rows deleted
 var rowsDeleted: Int = 0

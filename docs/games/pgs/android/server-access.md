@@ -15,6 +15,7 @@ Send feedback
 
 
 
+
 **Note:** This guide is for the Play Games Services v2 SDK. For information on the
 previous version of this SDK, see the [Play Games Services v1
 documentation](/games/pgs/v1/android/server-access).
@@ -373,6 +374,8 @@ See the [Leaderboards](/games/pgs/leaderboards) guide for details.
   [Scores.reset](/games/services/management/api/scores/reset)
   from the Management APIs to reset all scores for that player from a particular
   leaderboard.
+
+
 
 
 

@@ -48,7 +48,7 @@ To request this permission, add the following child element of
 `<manifest>` to your manifest file:
 
 ```
-    <uses-permission android:name="android.permission.READ_CONTAC>TS" /
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
 ```
 
 ### Set up a projection
@@ -135,7 +135,7 @@ find the contact. For example:
 private const val SELECTION: String = "${ContactsContract.Data.LOOKUP_KEY} = ?"
 ...
 // Defines the array to hold the search criteria
-private val selectionA<rgs: A>rrayString = arrayOf("")
+private val selectionArgs: Array<String> = arrayOf("")
 /*
  * Defines a variable to contain the selection value. Once you
  * have the Cursor from the Contacts table, and you've selected
@@ -464,7 +464,7 @@ private const val SELECTION =
         "${ContactsContract.Data.MIMETYPE} = '${Email.CONTENT_ITEM_TYPE}'"
 ...
 // Defines the array to hold the search criteria
-priv<ate va>l selectionArgs: ArrayString = arrayOf("")
+private val selectionArgs: Array<String> = arrayOf("")
 ```
 
 ### Java

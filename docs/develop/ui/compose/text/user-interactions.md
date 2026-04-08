@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 Jetpack Compose enables fine-grained interactivity in `Text`. Text selection is
 now more flexible and can be done across composable layouts. User interactions
 in text are different from other composable layouts, as you can’t add a modifier

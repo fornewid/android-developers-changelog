@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 The following tables outline how the various class, package,
 module, and Gradle dependency names differ between `exoplayer2`
 and the new `media3` implementation.

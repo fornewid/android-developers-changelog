@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Artwork for media items must be passed as a local URI using either
 [`ContentResolver.SCHEME_CONTENT`](/reference/android/content/ContentResolver#SCHEME_CONTENT) or
 [`ContentResolver.SCHEME_ANDROID_RESOURCE`](/reference/android/content/ContentResolver#SCHEME_ANDROID_RESOURCE). This local URI must resolve to

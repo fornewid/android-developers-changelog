@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 The minimum Android versions required for core ExoPlayer use cases are:
 
 | Use case | Android version | API level |

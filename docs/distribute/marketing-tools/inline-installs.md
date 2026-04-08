@@ -1,8 +1,17 @@
 ---
-title: https://developer.android.com/distribute/marketing-tools/inline-installs
+title: Google Play Inline Installs (Apps)  |  Branding & Marketing  |  Android Developers
 url: https://developer.android.com/distribute/marketing-tools/inline-installs
-source: md.txt
+source: html-scrape
 ---
+
+* [Android Developers](https://developer.android.com/)
+* [Google Play](https://developer.android.com/distribute)
+* [Branding & Marketing](https://developer.android.com/distribute/marketing-tools)
+
+# Google Play Inline Installs (Apps) Stay organized with collections Save and categorize content based on your preferences.
+
+
+
 
 This page describes how app developers can integrate *inline install*, a new
 test feature for Google Play that presents Google Play app product details in a
@@ -15,18 +24,18 @@ apps.
 
 For the half sheet interface to appear in an app:
 
-- The minimum Google Play version must be **40.4**.
-- The Android API level must be **23 or higher**.
+* The minimum Google Play version must be **40.4**.
+* The Android API level must be **23 or higher**.
 
 ## Invoke inline installs from an app
 
 To invoke inline install half sheet from an app, create an instance of the
-[`Intent`](https://developer.android.com/reference/android/content/Intent) class, which opens a deep link
+[`Intent`](/reference/android/content/Intent) class, which opens a deep link
 URL. Use the following sample code (Kotlin or Java) as a guideline.
 
 ### Kotlin
 
-```kotlin
+```
 val intent = Intent(Intent.ACTION_VIEW)
 val referrer = "<Your referrer string>"
 val id = "<Package name of the app that is to be installed>"
@@ -46,7 +55,7 @@ if (intent.resolveActivity(packageManager) != null) {
 
 ### Java
 
-```java
+```
 Intent intent = new Intent(Intent.ACTION_VIEW);
 String referrer = "<Your referrer string>";
 String id = "<Package name of the app that is to be installed>";
@@ -68,13 +77,13 @@ if (intent.resolveActivity(packageManager) != null) {
 ## Inline install API parameters
 
 | Field | Description | Required |
-|---|---|---|
-| `referrer` | An optional [referrer](https://developer.android.com/google/play/installreferrer) tracking string | No |
+| --- | --- | --- |
+| `referrer` | An optional [referrer](/google/play/installreferrer) tracking string | No |
 | `id` | The [package name](https://support.google.com/admob/answer/9972781) of the app to be installed | Yes |
 | `overlay` | Set to `true` if inline half sheet is requested; if `false`, the intent deep links to Google Play | Yes |
 | `callerId` | The [package name](https://support.google.com/admob/answer/9972781) of the caller app | Yes |
 | `listing` | An optional parameter to specify the target for a custom store listing | No |
 
-If the app install flow doesn't display the Google Play inline install half
+If the app install flow doesn’t display the Google Play inline install half
 sheet interface, a direct (deep link) to the Google Play listing is shown
 instead.

@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Create a complete, robust [`BillingClient`](/reference/com/android/billingclient/api/BillingClient) singleton with
 listeners and a connection retry policy.
 

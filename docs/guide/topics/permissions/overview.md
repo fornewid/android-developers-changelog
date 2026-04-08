@@ -1,37 +1,28 @@
 ---
-title: Permissions on Android  |  Privacy  |  Android Developers
+title: https://developer.android.com/guide/topics/permissions/overview
 url: https://developer.android.com/guide/topics/permissions/overview
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [Design & Plan](https://developer.android.com/design)
-* [Security](https://developer.android.com/security)
-* [Privacy](https://developer.android.com/privacy)
-* [Guides](https://developer.android.com/privacy-and-security/about)
-
-# Permissions on Android Stay organized with collections Save and categorize content based on your preferences.
-
-
 
 App permissions help support user privacy by protecting access to the following:
 
-* **Restricted data**, such as system state and users' contact information
-* **Restricted actions**, such as connecting to a paired device and recording
-  audio
+- **Restricted data**, such as system state and users' contact information
+- **Restricted actions**, such as connecting to a paired device and recording audio
+
+[Video](https://www.youtube.com/watch?v=zCAx4WZ98rs)
 
 This page provides an overview to how Android permissions work, including a
 high-level workflow for using permissions, descriptions of different types of
 permissions, and some best practices for using permissions in your app. Other
 pages explain how to [minimize your app's requests for
-permissions](/training/permissions/evaluating), [declare
-permissions](/training/permissions/declaring), [request runtime
-permissions](/training/permissions/requesting), and [restrict how other apps can
-interact](/training/permissions/restrict-interactions) with your app's
+permissions](https://developer.android.com/training/permissions/evaluating), [declare
+permissions](https://developer.android.com/training/permissions/declaring), [request runtime
+permissions](https://developer.android.com/training/permissions/requesting), and [restrict how other apps can
+interact](https://developer.android.com/training/permissions/restrict-interactions) with your app's
 components.
 
 To view a complete list of Android app permissions, visit the [permissions API
-reference page](/reference/android/Manifest.permission).
+reference page](https://developer.android.com/reference/android/Manifest.permission).
 
 To view some sample apps that demonstrate the permissions workflow, visit the
 [Android permissions samples
@@ -43,24 +34,19 @@ on GitHub.
 If your app offers functionality that might require access to restricted data or
 restricted actions, determine whether you can get the information or perform the
 actions [without needing to declare
-permissions](/training/permissions/evaluating). You can fulfill many use cases
+permissions](https://developer.android.com/training/permissions/evaluating). You can fulfill many use cases
 in your app, such as taking photos, pausing media playback, and displaying
 relevant ads, without needing to declare any permissions.
 
 If you decide that your app must access restricted data or perform restricted
 actions to fulfill a use case, declare the appropriate permissions. Some
-permissions, known as [install-time permissions](#install-time), are
+permissions, known as [install-time permissions](https://developer.android.com/guide/topics/permissions/overview#install-time), are
 automatically granted when your app is installed. Other permissions, known as
-[runtime permissions](#runtime), require your app to go a step further and
+[runtime permissions](https://developer.android.com/guide/topics/permissions/overview#runtime), require your app to go a step further and
 request the permission at runtime.
 
 Figure 1 illustrates the workflow for using app permissions:
-
-![](/static/images/training/permissions/workflow-overview.svg)
-
-
-**Figure 1.** High-level workflow for using permissions on
-Android.
+![](https://developer.android.com/static/images/training/permissions/workflow-overview.svg) **Figure 1.** High-level workflow for using permissions on Android.
 
 ## Types of permissions
 
@@ -70,16 +56,12 @@ type indicates the scope of restricted data that your app can access, and the
 scope of restricted actions that your app can perform, when the system grants
 your app that permission. The protection level for each permission is based on
 its type and is shown on the
-[permissions API reference](/reference/android/Manifest.permission) page.
+[permissions API reference](https://developer.android.com/reference/android/Manifest.permission) page.
 
 ### Install-time permissions
 
 ![The left image shows a list of an app's install-time permissions. The
-    right image shows a pop-up dialog that contains 2 options: allow and deny.](/static/images/training/permissions/install-time.svg)
-
-
-**Figure 2.** The list of an app's install-time permissions,
-which appears in an app store.
+right image shows a pop-up dialog that contains 2 options: allow and deny.](https://developer.android.com/static/images/training/permissions/install-time.svg) **Figure 2.** The list of an app's install-time permissions, which appears in an app store.
 
 Install-time permissions give your app limited access to restricted data or
 let your app perform restricted actions that minimally affect the
@@ -110,25 +92,22 @@ services, also make use of signature permissions. These apps require
 service-binding signature permissions so that only the system can bind
 to the services.
 
-**Note:** Some signature permissions aren't for use by third-party apps.
+> [!NOTE]
+> **Note:** Some signature permissions aren't for use by third-party apps.
 
 The system assigns the `signature` protection level to signature permissions.
 
 ### Runtime permissions
 
-![A pop-up dialog that contains 2 options: allow and deny.](/static/images/training/permissions/runtime.svg)
-
-
-**Figure 3.** The system permission prompt that appears when
-your app requests a runtime permission.
+![A pop-up dialog that contains 2 options: allow and deny.](https://developer.android.com/static/images/training/permissions/runtime.svg) **Figure 3.** The system permission prompt that appears when your app requests a runtime permission.
 
 Runtime permissions, also known as dangerous permissions, give your app
 additional access to restricted data or let your app perform
 restricted actions that more substantially affect the system and other apps.
 Therefore, you need to [request runtime
-permissions](/training/permissions/requesting) in your app before you can access
+permissions](https://developer.android.com/training/permissions/requesting) in your app before you can access
 the restricted data or perform restricted actions. Don't assume
-that these permissions have been previously granted—check them and,
+that these permissions have been previously granted---check them and,
 if needed, request them before each access.
 
 When your app requests a
@@ -141,7 +120,7 @@ private user data include location and contact information.
 
 The microphone and camera provide access to particularly sensitive information.
 Therefore, the system helps you [explain why your app accesses this
-information](/training/permissions/explaining-access).
+information](https://developer.android.com/training/permissions/explaining-access).
 
 The system assigns the `dangerous` protection level to runtime permissions.
 
@@ -157,7 +136,7 @@ user-toggleable operations. Many of these operations are implemented as special
 permissions.
 
 Learn more about how to [request special
-permissions](/training/permissions/requesting-special).
+permissions](https://developer.android.com/training/permissions/requesting-special).
 
 The system assigns the `appop` protection level to special permissions.
 
@@ -181,23 +160,21 @@ App permissions build on [system security
 features](https://source.android.com/security/features) and help Android support
 the following goals related to user privacy:
 
-* **Control:** The user has control over the data that they share with apps.
-* **Transparency:** The user understands what data an app uses and why the app
-  accesses this data.
-* **Data minimization:** An app accesses and uses only the data that's required
-  for a specific task or action that the user invokes.
+- **Control:** The user has control over the data that they share with apps.
+- **Transparency:** The user understands what data an app uses and why the app accesses this data.
+- **Data minimization:** An app accesses and uses only the data that's required for a specific task or action that the user invokes.
 
 This section presents a set of core best practices for using permissions
 effectively in your app. For more details on how you can work with permissions
 on Android, visit the [app permissions best
-practices](/training/permissions/usage-notes) page.
+practices](https://developer.android.com/training/permissions/usage-notes) page.
 
 ### Request a minimal number of permissions
 
 When the user requests a particular action in your app, your app should request
 only the permissions that it needs to complete that action. Depending on how you
 are using the permissions, there might be an [alternative way to fulfill your
-app's use case](/training/permissions/evaluating) without relying on access to
+app's use case](https://developer.android.com/training/permissions/evaluating) without relying on access to
 sensitive information.
 
 ### Associate runtime permissions with specific actions
@@ -224,7 +201,7 @@ so users can make informed decisions.
 
 When you access sensitive data or hardware, such as the camera or microphone,
 provide a continuous indication in your app if the system doesn't already
-[provide these indicators](/training/permissions/explaining-access#indicators).
+[provide these indicators](https://developer.android.com/training/permissions/explaining-access#indicators).
 This reminder helps users understand exactly when your app accesses restricted
 data or performs restricted actions.
 
@@ -233,4 +210,4 @@ data or performs restricted actions.
 Permissions aren't only for requesting system functionality. Your app's system
 components can restrict which other apps can interact with your app, as
 described on the page about how to [restrict interactions with other
-apps](/training/permissions/restrict-interactions).
+apps](https://developer.android.com/training/permissions/restrict-interactions).

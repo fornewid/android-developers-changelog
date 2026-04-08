@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 Android provides several APIs to help you manage the
 `WebView`
 objects that display web content in your app.

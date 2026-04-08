@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 The Media3 [`cast`](/reference/androidx/media3/cast/package-summary) module extends your media playback experience to
 Cast devices. It lets your app cast content to [compatible devices](/media/media3/cast/create-castplayer#get-device),
 such as TVs and speakers. The [sender](https://developers.google.com/cast/glossary#sender) app acts as a remote controller for media

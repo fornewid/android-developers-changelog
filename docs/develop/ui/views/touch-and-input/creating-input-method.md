@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 An input method editor (IME) is a user control that lets users enter text. Android provides an
 extensible input-method framework that lets applications provide users alternative input methods,
 such as on-screen keyboards or speech input. After installing the IMEs, the user can select one from

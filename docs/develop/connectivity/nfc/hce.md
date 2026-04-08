@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 Many Android-powered devices that offer NFC functionality already support NFC
 card emulation. In most cases, the card is emulated by a separate chip in the
 device, called a *secure element*. Many SIM cards provided by wireless carriers

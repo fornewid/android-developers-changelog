@@ -22,7 +22,6 @@ Save and categorize content based on your preferences.
 
 
 
-
 ### Preview release
 
 Get early access to the latest features and improvements in Android Studio.

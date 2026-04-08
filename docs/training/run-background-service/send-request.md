@@ -10,7 +10,6 @@ source: html-scrape
 
 
 
-
 **Note:** This page is left here as reference for legacy apps only.
 See the [guide to background processing on Android](/guide/background)  for recommended
 solutions.

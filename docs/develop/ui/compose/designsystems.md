@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 Jetpack Compose makes it easy to implement a design system and give your
 app a consistent look and feel with theming, components, and more.
 

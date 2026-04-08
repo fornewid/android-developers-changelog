@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 The Fragment API provides two ways to use motion effects and transformations
 to visually connect fragments during navigation. One of these is the
 Animation Framework, which uses both

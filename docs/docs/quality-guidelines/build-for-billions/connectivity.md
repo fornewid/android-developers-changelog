@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 Over half of all users worldwide will experience your app over a 2G
 connection. To improve their experience, optimize for low-speed
 connections and offline working by storing data, queuing requests, and handling

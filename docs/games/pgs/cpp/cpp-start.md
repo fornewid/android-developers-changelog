@@ -15,7 +15,6 @@ Send feedback
 
 
 
-
 This guide describes how to set up a v2 Native C or C++ game
 project to use the Play Games Services v2 Native SDK (beta) and integrate the [Platform authentication](/games/pgs/signin). You must complete this integration before you
 can add other Play Games Services [features](/games/pgs/overview#features) to your game or integrate
@@ -40,8 +39,6 @@ available after you sync your project with SDK repository.
   programming language.
 * A game project and development environment that is set up to use the
   [Gradle](https://docs.gradle.org/current/userguide/userguide.html) build system.
-
-
 
 
 

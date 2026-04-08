@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 **Note:** Image attachment is available in Gemini's no-cost tier.
 
 Attach an image to your query for Gemini in Android Studio to better

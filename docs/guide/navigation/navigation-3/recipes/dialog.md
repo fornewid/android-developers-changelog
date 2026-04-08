@@ -1,8 +1,17 @@
 ---
-title: https://developer.android.com/guide/navigation/navigation-3/recipes/dialog
+title: App architecture  |  Android Developers
 url: https://developer.android.com/guide/navigation/navigation-3/recipes/dialog
-source: md.txt
+source: html-scrape
 ---
+
+* [Android Developers](https://developer.android.com/)
+* [App architecture](https://developer.android.com/topic/architecture/intro)
+
+Stay organized with collections
+
+Save and categorize content based on your preferences.
+
+
 
 # Dialog Recipe
 
@@ -12,16 +21,22 @@ This recipe demonstrates how to display a destination as a dialog.
 
 To show a destination as a dialog, you need to do two things:
 
-1. **Use `DialogSceneStrategy`** : Create an instance of `DialogSceneStrategy` and pass it to the `sceneStrategy` parameter of the `NavDisplay` composable.
-
-2. **Add metadata to the destination** : For the destination that you want to display as a dialog, add `DialogSceneStrategy.dialog()` to its metadata. This is done in the `entry` function. You can also pass a `DialogProperties` object to customize the dialog's behavior and appearance.
+1. **Use `DialogSceneStrategy`**: Create an instance of `DialogSceneStrategy` and pass it to the `sceneStrategy` parameter of the `NavDisplay` composable.
+2. **Add metadata to the destination**: For the destination that you want to display as a dialog, add `DialogSceneStrategy.dialog()` to its metadata. This is done in the `entry` function. You can also pass a `DialogProperties` object to customize the dialog's behavior and appearance.
 
 In this example, `RouteB` is configured to be a dialog. When you navigate from `RouteA` to `RouteB`, `RouteB` will be displayed in a dialog window.
 
 The content of the dialog can be styled as needed. In this recipe, the content is clipped to have rounded corners.
 
 For more information, see the official documentation on [custom layouts](https://developer.android.com/guide/navigation/navigation-3/custom-layouts).
-[![](https://developer.android.com/static/images/picto-icons/code.svg) Explore View the full recipe on GitHub.](https://github.com/android/nav3-recipes/tree/main/app/src/main/java/com/example/nav3recipes/dialog)
+
+[![](/static/images/picto-icons/code.svg)
+
+Explore
+
+View the full recipe on GitHub.
+
+arrow\_forward](https://github.com/android/nav3-recipes/tree/main/app/src/main/java/com/example/nav3recipes/dialog)
 
 ```
 /*
@@ -110,4 +125,6 @@ class DialogActivity : ComponentActivity() {
         }
     }
 }
+
+DialogActivity.kt
 ```

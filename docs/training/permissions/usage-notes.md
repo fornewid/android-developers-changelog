@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 Permission requests protect sensitive information available from a device and
 should only be used when access to information is necessary for the
 functioning of your app. This document provides tips on ways you might be

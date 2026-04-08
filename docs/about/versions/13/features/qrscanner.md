@@ -1,8 +1,16 @@
 ---
-title: https://developer.android.com/about/versions/13/features/qrscanner
+title: Android QR scanner with UPI support  |  Android Developers
 url: https://developer.android.com/about/versions/13/features/qrscanner
-source: md.txt
+source: html-scrape
 ---
+
+* [Android Developers](https://developer.android.com/)
+* [Essentials](https://developer.android.com/get-started)
+* [Releases](https://developer.android.com/about/versions)
+
+# Android QR scanner with UPI support Stay organized with collections Save and categorize content based on your preferences.
+
+
 
 Android 13 (with backwards compatibility for Android 12) supports UPI
 payment flows by adding a dedicated QR Code scanner that users can access
@@ -10,10 +18,10 @@ directly from the corresponding Quick Settings tile. Users can launch
 a UPI payment flow by scanning a QR Code either from the live camera or from
 a static image.
 
-![](https://developer.android.com/static/images/about/versions/13/upi-1.png)
-![](https://developer.android.com/static/images/about/versions/13/upi-2.png)
-![](https://developer.android.com/static/images/about/versions/13/upi-3.png)
-![](https://developer.android.com/static/images/about/versions/13/upi-4.png)
+![](/static/images/about/versions/13/upi-1.png)
+![](/static/images/about/versions/13/upi-2.png)
+![](/static/images/about/versions/13/upi-3.png)
+![](/static/images/about/versions/13/upi-4.png)
 
 When multiple UPI apps are installed on a device, the user is presented
 with a disambiguation dialog. The payment flow then continues in the app
@@ -36,13 +44,14 @@ To distinguish between payments initiated from scanning a live QR Code (using
 the camera) and scanning a QR Code image (photo on device), the QR scanner
 passes an intent **extra** which helps identify the source of the QR Code.
 
-Payment apps need to fetch the value of "intent **extra** " with the key
+Payment apps need to fetch the value of "intent **extra**" with the key
 `com.google.android.gms.UPI_QR_SOURCE`, and then compare with the following:
 
-- `STATIC_IMAGE` string indicates that the source is a static image.
-- `LIVE_CAMERA` string indicates that the source is the camera.
+* `STATIC_IMAGE` string indicates that the source is a static image.
+* `LIVE_CAMERA` string indicates that the source is the camera.
 
-|---|---|---|
+|  |  |  |
+| --- | --- | --- |
 | **Key** | **Value** | **Explanation** |
-| com.google.android.gms.UPI_QR_SOURCE | `STATIC_IMAGE` | QR code image stored on the device. |
-|   | `LIVE_CAMERA` | QR code image captured live using the camera |
+| com.google.android.gms.UPI\_QR\_SOURCE | `STATIC_IMAGE` | QR code image stored on the device. |
+|  | `LIVE_CAMERA` | QR code image captured live using the camera |

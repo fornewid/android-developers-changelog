@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 App bars are containers at the top or the bottom of the screen that give your
 users access to key features and navigation items:
 

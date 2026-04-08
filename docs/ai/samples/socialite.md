@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 ![Animated screenshot showing the SociaLite chatbot in
 action](/static/images/ai/socialite-ai-chat.gif)
 

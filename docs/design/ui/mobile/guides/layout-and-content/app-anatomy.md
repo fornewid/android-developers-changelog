@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 Most Android apps consist of regions referred to as the [system bars](/design/ui/mobile/guides/foundations/system-bars),
 the navigation area, and the body.
 

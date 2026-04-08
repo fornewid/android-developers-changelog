@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 This page includes detailed guidance on how to add and configure annotation
 processors as project dependencies. To learn more about annotation processors,
 see the entry in

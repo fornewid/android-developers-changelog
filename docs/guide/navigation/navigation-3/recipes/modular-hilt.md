@@ -13,7 +13,6 @@ Save and categorize content based on your preferences.
 
 
 
-
 # Modular Navigation Recipe (Hilt)
 
 This recipe demonstrates how to structure a multi-module application using Navigation 3 and Dagger/Hilt for dependency injection. The goal is to create a decoupled architecture where navigation is defined and implemented in separate feature modules.

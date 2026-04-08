@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 USB accessory mode allows users to connect
 USB host hardware specifically designed for Android-powered devices. The accessories must adhere
 to the Android accessory protocol outlined in the [Android Accessory Development Kit](http://accessories.android.com/demokit) documentation.

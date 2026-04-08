@@ -1,32 +1,22 @@
 ---
-title: Display time-sensitive notifications  |  Views  |  Android Developers
+title: https://developer.android.com/develop/ui/views/notifications/time-sensitive
 url: https://developer.android.com/develop/ui/views/notifications/time-sensitive
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [Develop](https://developer.android.com/develop)
-* [Core areas](https://developer.android.com/develop/core-areas)
-* [UI](https://developer.android.com/develop/ui)
-* [Views](https://developer.android.com/develop/ui/views/layout/declaring-layout)
-
-# Display time-sensitive notifications Stay organized with collections Save and categorize content based on your preferences.
-
-
 
 Your app might need to get the user's attention urgently in certain situations,
 such as an ongoing alarm or an incoming call. In apps targeting devices that run
 Android 9 (API level 28) or earlier, you might handle this by launching an
 activity while the app is in the background. This document shows how to achieve
-this behavior on devices running Android 10 (API level 29) to
-Android 13 (API level 33).
+this behavior on devices running Android 10 (API level 29) to
+Android 13 (API level 33).
 
-## Add the POST\_NOTIFICATIONS permission
+## Add the POST_NOTIFICATIONS permission
 
-Starting in Android 13, add the following line to your
+Starting in Android 13, add the following line to your
 `AndroidManifest.xml` file:
 
-```
+```xml
 <manifest ...>
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
     <application ...>
@@ -42,14 +32,14 @@ Once you have this, you can create a notification channel.
 Create a notification channel to properly display your notifications and let the
 user manage notifications in the app settings. For more information about
 notification channels, see [Create and manage notification
-channels](/develop/ui/views/notifications/channels).
+channels](https://developer.android.com/develop/ui/views/notifications/channels).
 
 Create your notification channels in your `Application` class's
-[`onCreate`](/reference/android/app/Application#onCreate()) method:
+[`onCreate`](https://developer.android.com/reference/android/app/Application#onCreate()) method:
 
 ### Kotlin
 
-```
+```kotlin
 class DACapp : Application() {
     override fun onCreate() {
         super.onCreate()
@@ -67,23 +57,19 @@ class DACapp : Application() {
 
 When the user runs your app for the first time, they see something like figure 1
 in your app's **App info** system screen:
-
-![An image showing the App Info, Notification screen of your app.](/static/images/ui/notifications/time-sensitive_notification_channel_empty.png)
-
-
-**Figure 1.** Notifications section in the **App
+![An image showing the App Info, Notification screen of your app.](https://developer.android.com/static/images/ui/notifications/time-sensitive_notification_channel_empty.png) **Figure 1.** Notifications section in the **App
 Info** screen of the app's system settings.
 
 ## Manage notifications permissions
 
-Starting in Android 13, request notification permissions before
+Starting in Android 13, request notification permissions before
 you show notifications to users.
 
 The minimum implementation looks like this:
 
 ### Kotlin
 
-```
+```kotlin
 val permissionLauncher = rememberLauncherForActivityResult(
     contract = ActivityResultContracts.RequestPermission(),
     onResult = { hasNotificationPermission = it }
@@ -102,26 +88,17 @@ Button(
 }
 ```
 
-If your device is running Android 13, tapping the `Request
+If your device is running Android 13, tapping the `Request
 permission` button triggers the dialog shown in figure 2:
-
-![An image showing the permission request dialog](/static/images/ui/notifications/time-sensitive_notification_permission_request_dialog.png)
-
-
-**Figure 2.** System dialog for the notification
-permission request.
+![An image showing the permission request dialog](https://developer.android.com/static/images/ui/notifications/time-sensitive_notification_permission_request_dialog.png) **Figure 2.** System dialog for the notification permission request.
 
 If the user accepts the permission request, the app's **App info** section looks
 like figure 3:
+![An image showing the App Info screen after granted notification permission request](https://developer.android.com/static/images/ui/notifications/time-sensitive_notification_permission_granted.png) **Figure 3.** Notification permissions granted.
 
-![An image showing the App Info screen after granted notification permission request](/static/images/ui/notifications/time-sensitive_notification_permission_granted.png)
-
-
-**Figure 3.** Notification permissions granted.
-
-**Experimental:** See the Accompanist [Jetpack Compose
-Permissions](https://google.github.io/accompanist/permissions/)
-library for experimental permission management.
+> [!WARNING]
+> **Experimental:** See the Accompanist [Jetpack Compose
+> Permissions](https://google.github.io/accompanist/permissions/) library for experimental permission management.
 
 ## Create a high-priority notification
 
@@ -131,7 +108,7 @@ The following example contains a notification:
 
 ### Kotlin
 
-```
+```kotlin
 private fun showNotification() {
     val notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
 
@@ -153,18 +130,14 @@ Calling the `showNotification()` function triggers the notification as follows:
 
 ### Kotlin
 
-```
+```kotlin
 Button(onClick = { showNotification() }) {
     Text(text = "Show notification")
 }
 ```
 
 The notification in this example looks like figure 4:
-
-![An image showing a high priority notification](/static/images/ui/notifications/time-sensitive_notification.png)
-
-
-**Figure 4.** A high-priority notification.
+![An image showing a high priority notification](https://developer.android.com/static/images/ui/notifications/time-sensitive_notification.png) **Figure 4.** A high-priority notification.
 
 ## Ongoing notification
 
@@ -172,24 +145,24 @@ When you display your notification to the user, they can acknowledge or dismiss
 your app's alert or reminder. For example, the user can accept or reject an
 incoming phone call.
 
-**Note:** While the user is using the device, the system UI might display a heads-up
-notification instead of launching your full-screen intent.
+> [!NOTE]
+> **Note:** While the user is using the device, the system UI might display a heads-up notification instead of launching your full-screen intent.
 
 If your notification is an ongoing one, such as an incoming phone call,
 associate the notification with a [foreground
-service](/guide/components/services#Foreground). The following code snippet
+service](https://developer.android.com/guide/components/services#Foreground). The following code snippet
 shows how to display a notification associated with a foreground service:
 
 ### Kotlin
 
-```
+```kotlin
 // Provide a unique integer for the "notificationId" of each notification.
 startForeground(notificationId, notification)
 ```
 
 ### Java
 
-```
+```java
 // Provide a unique integer for the "notificationId" of each notification.
 startForeground(notificationId, notification);
 ```
@@ -198,5 +171,5 @@ startForeground(notificationId, notification);
 
 Time-sensitive ongoing notifications can benefit from higher visibility.
 Consider promoting time-sensitive ongoing notifications as
-[Live Updates](/develop/ui/views/notifications/live-updates) to display them in various system UI
+[Live Updates](https://developer.android.com/develop/ui/views/notifications/live-updates) to display them in various system UI
 surfaces.

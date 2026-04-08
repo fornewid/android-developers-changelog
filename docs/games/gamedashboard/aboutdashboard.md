@@ -15,6 +15,7 @@ Send feedback
 
 
 
+
 The Game Dashboard is an overlay displayed on top of a running game to provide
 features to enhance the gaming experience. It provides shortcuts to access
 features which are frequently used while gaming, such as:
@@ -40,6 +41,8 @@ is divided into [Components](/games/gamedashboard/components):
 The Game Dashboard is available on all Pixel devices running Android 12 or higher. On
 other OEM devices, Game Dashboard might be stripped out or replaced with similar
 applications.
+
+
 
 
 

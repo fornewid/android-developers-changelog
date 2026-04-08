@@ -12,6 +12,7 @@ source: html-scrape
 
 
 
+
 ![](/static/topic/performance/vitals/images/android-vitals.png)
 
 Android vitals helps Google improve the quality of Android apps on Google Play.

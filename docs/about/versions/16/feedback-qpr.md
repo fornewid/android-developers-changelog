@@ -14,7 +14,6 @@ Save and categorize content based on your preferences.
 
 
 
-
 ![](https://developer.android.com/static/images/shared/preview-feedback-header.svg)
 
 ### Feedback and issues

@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Because Android apps run in a window under ChromeOS, there are small
 differences in how apps are rendered on Chromebooks. These differences are
 outlined in the following paragraphs.

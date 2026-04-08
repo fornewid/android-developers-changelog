@@ -1,18 +1,8 @@
 ---
-title: AI features in Studio Labs  |  Android Studio  |  Android Developers
+title: https://developer.android.com/studio/gemini/labs
 url: https://developer.android.com/studio/gemini/labs
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [Develop](https://developer.android.com/develop)
-* [Android Studio](https://developer.android.com/studio)
-* [Gemini in Android Studio](https://developer.android.com/gemini-in-android)
-
-# AI features in Studio Labs Stay organized with collections Save and categorize content based on your preferences.
-
-
-
 
 We've heard feedback that developers want to access AI features in stable
 channels as soon as possible. You can now discover and try out the latest AI
@@ -23,28 +13,20 @@ You can get a first look at AI experiments, share your feedback, and help us
 bring them into the IDE you use everyday. Go to the Studio Labs tab in Settings
 and enable the features you would like to start using. These AI features are
 automatically enabled in canary releases and no action is required.
-
-![AI features in Studio Labs](/static/studio/gemini/images/studio-labs.png)
-
-
-AI features in Studio Labs
+![AI features in Studio Labs](https://developer.android.com/static/studio/gemini/images/studio-labs.png) AI features in Studio Labs
 
 ## Studio Labs features
 
 ### Journeys for Android Studio
 
-[Journeys for Android Studio](/studio/gemini/journeys) helps make end-to-end
+[Journeys for Android Studio](https://developer.android.com/studio/gemini/journeys) helps make end-to-end
 tests easier to write and maintain by letting you use natural language
-to describe the steps and assertions for each test—called a journey. By
+to describe the steps and assertions for each test---called a journey. By
 leveraging Gemini's vision and reasoning capabilities, steps written in natural
 language are converted into actions that Gemini performs on your app, making it
 both easy to write and understand your journeys. Additionally, you can write and
 describe more complex assertions, which Gemini evaluates based on what it sees
 on the device in order to determine whether your journeys pass or fail.
-
-[
-
-](/static/studio/gemini/images/journey-animation.mp4)
 
 And because Gemini reasons about which actions to perform to satisfy the goals,
 journeys are more resilient to subtle changes to your app's layout or behavior,
@@ -56,5 +38,5 @@ Android device. The IDE provides a new editor experience for crafting journeys
 as well as rich results that help you better follow Gemini's reasoning and
 execution of your journey.
 
-**Note:** Before you get started, make sure that you're signed into your developer
-account and have enabled Gemini in Android Studio.
+> [!NOTE]
+> **Note:** Before you get started, make sure that you're signed into your developer account and have enabled Gemini in Android Studio.

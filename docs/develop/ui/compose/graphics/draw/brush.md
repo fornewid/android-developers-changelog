@@ -1,33 +1,26 @@
 ---
-title: Brush: gradients and shaders  |  Jetpack Compose  |  Android Developers
+title: https://developer.android.com/develop/ui/compose/graphics/draw/brush
 url: https://developer.android.com/develop/ui/compose/graphics/draw/brush
-source: html-scrape
+source: md.txt
 ---
 
-* [Android Developers](https://developer.android.com/)
-* [Develop](https://developer.android.com/develop)
-* [Core areas](https://developer.android.com/develop/core-areas)
-* [UI](https://developer.android.com/develop/ui)
-* [Docs](https://developer.android.com/develop/ui/compose/documentation)
+[Video](https://www.youtube.com/watch?v=qh72KAX6TSI)
 
-# Brush: gradients and shaders Stay organized with collections Save and categorize content based on your preferences.
-
-
-
-A [`Brush`](/reference/kotlin/androidx/compose/ui/graphics/Brush) in Compose describes how something is drawn on screen: it
+A [`Brush`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/Brush) in Compose describes how something is drawn on screen: it
 determines the color(s) that are drawn in the drawing area (i.e. a circle,
 square, path). There are a few built-in Brushes that are useful for drawing,
-such as [`LinearGradient`](/reference/kotlin/androidx/compose/ui/graphics/LinearGradient), [`RadialGradient`](/reference/kotlin/androidx/compose/ui/graphics/RadialGradient) or a plain
-[`SolidColor`](/reference/kotlin/androidx/compose/ui/graphics/SolidColor) brush.
+such as [`LinearGradient`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/LinearGradient), [`RadialGradient`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/RadialGradient) or a plain
+[`SolidColor`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/SolidColor) brush.
 
-Brushes can be used with [`Modifier.background()`](/reference/kotlin/androidx/compose/ui/Modifier#(androidx.compose.ui.Modifier.background(androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Shape))), [`TextStyle`](/reference/kotlin/androidx/compose/ui/text/TextStyle), or
-[`DrawScope`](/reference/kotlin/androidx/compose/ui/graphics/drawscope/DrawScope) draw calls to apply the painting style to the content
+Brushes can be used with [`Modifier.background()`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier#(androidx.compose.ui.Modifier.background(androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Shape))), [`TextStyle`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/TextStyle), or
+[`DrawScope`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/drawscope/DrawScope) draw calls to apply the painting style to the content
 being drawn.
 
 For example, a horizontal gradient brush can be applied to drawing a circle in
 `DrawScope`:
 
-```
+
+```kotlin
 val brush = Brush.horizontalGradient(listOf(Color.Red, Color.Blue))
 Canvas(
     modifier = Modifier.size(200.dp),
@@ -35,15 +28,10 @@ Canvas(
         drawCircle(brush)
     }
 )
-
-BrushExampleSnippets.kt
 ```
+![Circle drawn with Horizontal Gradient](https://developer.android.com/static/develop/ui/compose/images/graphics/brush/draw_circle_example.png) **Figure 1**: Circle drawn with Horizontal Gradient
 
-
-![Circle drawn with Horizontal Gradient](/static/develop/ui/compose/images/graphics/brush/draw_circle_example.png)
-
-
-**Figure 1**: Circle drawn with Horizontal Gradient
+<br />
 
 ## Gradient brushes
 
@@ -54,12 +42,12 @@ would like to create a gradient from.
 A list of available gradient brushes and their corresponding output:
 
 | Gradient Brush Type | Output |
-| --- | --- |
-| [`Brush.horizontalGradient(colorList)`](/reference/kotlin/androidx/compose/ui/graphics/Brush#horizontalGradient(kotlin.collections.List,kotlin.Float,kotlin.Float,androidx.compose.ui.graphics.TileMode)) | Horizontal Gradient |
-| [`Brush.linearGradient(colorList)`](/reference/kotlin/androidx/compose/ui/graphics/Brush#linearGradient(kotlin.Array,androidx.compose.ui.geometry.Offset,androidx.compose.ui.geometry.Offset,androidx.compose.ui.graphics.TileMode)) | Linear Gradient |
-| [`Brush.verticalGradient(colorList)`](/reference/kotlin/androidx/compose/ui/graphics/Brush#verticalGradient(kotlin.collections.List,kotlin.Float,kotlin.Float,androidx.compose.ui.graphics.TileMode)) | Vertical Gradient |
-| [`Brush.sweepGradient(colorList)`](/reference/kotlin/androidx/compose/ui/graphics/Brush#sweepGradient(kotlin.Array,androidx.compose.ui.geometry.Offset))   Note: To get a smooth transition between colors - set the last color to the start color. | Sweep Gradient |
-| [`Brush.radialGradient(colorList)`](/reference/kotlin/androidx/compose/ui/graphics/Brush#radialGradient(kotlin.Array,androidx.compose.ui.geometry.Offset,kotlin.Float,androidx.compose.ui.graphics.TileMode)) | Radial Gradient |
+|---|---|
+| [`Brush.horizontalGradient(colorList)`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/Brush#horizontalGradient(kotlin.collections.List,kotlin.Float,kotlin.Float,androidx.compose.ui.graphics.TileMode)) | ![Horizontal Gradient](https://developer.android.com/static/develop/ui/compose/images/graphics/brush/horizontal_gradient.png) |
+| [`Brush.linearGradient(colorList)`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/Brush#linearGradient(kotlin.Array,androidx.compose.ui.geometry.Offset,androidx.compose.ui.geometry.Offset,androidx.compose.ui.graphics.TileMode)) | ![Linear Gradient](https://developer.android.com/static/develop/ui/compose/images/graphics/brush/linear_gradient.png) |
+| [`Brush.verticalGradient(colorList)`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/Brush#verticalGradient(kotlin.collections.List,kotlin.Float,kotlin.Float,androidx.compose.ui.graphics.TileMode)) | ![Vertical Gradient](https://developer.android.com/static/develop/ui/compose/images/graphics/brush/vertical_gradient.png) |
+| [`Brush.sweepGradient(colorList)`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/Brush#sweepGradient(kotlin.Array,androidx.compose.ui.geometry.Offset)) Note: To get a smooth transition between colors - set the last color to the start color. | ![Sweep Gradient](https://developer.android.com/static/develop/ui/compose/images/graphics/brush/sweep_gradient.png) |
+| [`Brush.radialGradient(colorList)`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/Brush#radialGradient(kotlin.Array,androidx.compose.ui.geometry.Offset,kotlin.Float,androidx.compose.ui.graphics.TileMode)) | ![Radial Gradient](https://developer.android.com/static/develop/ui/compose/images/graphics/brush/radial_gradient.png) |
 
 ### Change distribution of colors with `colorStops`
 
@@ -71,7 +59,8 @@ as part of the gradient.
 You can configure the color stops to have different amounts, such as less or
 more of one color:
 
-```
+
+```kotlin
 val colorStops = arrayOf(
     0.0f to Color.Yellow,
     0.2f to Color.Red,
@@ -82,29 +71,26 @@ Box(
         .requiredSize(200.dp)
         .background(Brush.horizontalGradient(colorStops = colorStops))
 )
-
-BrushExampleSnippets.kt
 ```
+
+<br />
 
 The colors are dispersed at the provided offset as defined in the `colorStop`
 pair, less yellow than red and blue.
-
-![Brush configured with different color stops](/static/develop/ui/compose/images/graphics/brush/color_stops.png)
-
-
-**Figure 2**: Brush configured with different color stops
+![Brush configured with different color stops](https://developer.android.com/static/develop/ui/compose/images/graphics/brush/color_stops.png) **Figure 2**: Brush configured with different color stops
 
 ### Repeat a pattern with `TileMode`
 
-Each gradient brush has the option to set a [`TileMode`](/reference/kotlin/androidx/compose/ui/graphics/TileMode) on it. You may not
-notice the `TileMode` if you haven’t set a start and end for the gradient, as
-it’ll default to fill the whole area. A `TileMode` will only tile the gradient
+Each gradient brush has the option to set a [`TileMode`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/TileMode) on it. You may not
+notice the `TileMode` if you haven't set a start and end for the gradient, as
+it'll default to fill the whole area. A `TileMode` will only tile the gradient
 if the size of the area is bigger than the Brush size.
 
 The following code will repeat the gradient pattern 4 times, since the `endX` is
 set to `50.dp` and the size is set to `200.dp`:
 
-```
+
+```kotlin
 val listColors = listOf(Color.Yellow, Color.Red, Color.Blue)
 val tileSize = with(LocalDensity.current) {
     50.dp.toPx()
@@ -120,24 +106,22 @@ Box(
             )
         )
 )
-
-BrushExampleSnippets.kt
 ```
+
+<br />
 
 Here is a table detailing what the different Tile Modes do for the
 `HorizontalGradient` example above:
 
 | TileMode | Output |
-| --- | --- |
-| [`TileMode.Repeated`](/reference/kotlin/androidx/compose/ui/graphics/TileMode#Repeated()): Edge is repeated from last color to first. | TileMode Repeated |
-| [`TileMode.Mirror`](/reference/kotlin/androidx/compose/ui/graphics/TileMode#Mirror()): Edge is mirrored from last color to first. | TileMode Mirror |
-| [`TileMode.Clamp`](/reference/kotlin/androidx/compose/ui/graphics/TileMode#Clamp()): Edge is clamped to the final color. It’ll then paint the closest color for the rest of the region. | Tile Mode Clamp |
-| [`TileMode.Decal`](/reference/kotlin/androidx/compose/ui/graphics/TileMode#Decal()): Render only up to the size of the bounds. `TileMode.Decal` leverages transparent black to sample content outside the original bounds whereas `TileMode.Clamp` samples the edge color. | Tile Mode Decal |
+|---|---|
+| [`TileMode.Repeated`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/TileMode#Repeated()): Edge is repeated from last color to first. | ![TileMode Repeated](https://developer.android.com/static/develop/ui/compose/images/graphics/brush/tile_mode_repeated.png) |
+| [`TileMode.Mirror`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/TileMode#Mirror()): Edge is mirrored from last color to first. | ![TileMode Mirror](https://developer.android.com/static/develop/ui/compose/images/graphics/brush/tile_mode_mirror.png) |
+| [`TileMode.Clamp`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/TileMode#Clamp()): Edge is clamped to the final color. It'll then paint the closest color for the rest of the region. | ![Tile Mode Clamp](https://developer.android.com/static/develop/ui/compose/images/graphics/brush/tile_mode_clamp.png) |
+| [`TileMode.Decal`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/TileMode#Decal()): Render only up to the size of the bounds. `TileMode.Decal` leverages transparent black to sample content outside the original bounds whereas `TileMode.Clamp` samples the edge color. | ![Tile Mode Decal](https://developer.android.com/static/develop/ui/compose/images/graphics/brush/tile_mode_decal.png) |
 
-**Note:** `TileMode.Decal` is only available on API 31+. Use
-`TileMode.isSupported()` to determine if a `TileMode` is supported on a device.
-If a `TileMode` that is not supported is used, the default of `TileMode.Clamp`
-is applied.
+> [!NOTE]
+> **Note:** `TileMode.Decal` is only available on API 31+. Use `TileMode.isSupported()` to determine if a `TileMode` is supported on a device. If a `TileMode` that is not supported is used, the default of `TileMode.Clamp` is applied.
 
 `TileMode` works in a similar way for the other directional gradients, the
 difference being the direction that the repetition occurs.
@@ -145,8 +129,8 @@ difference being the direction that the repetition occurs.
 ### Change brush Size
 
 If you know the size of the area in which your brush will be drawn, you can
-set the tile `endX` as we’ve seen above in the `TileMode` section. If you are in
-a `DrawScope`, you can use its [`size`](/reference/kotlin/androidx/compose/ui/graphics/drawscope/DrawScope#size()) property to get the size of the area.
+set the tile `endX` as we've seen above in the `TileMode` section. If you are in
+a `DrawScope`, you can use its [`size`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/drawscope/DrawScope#size()) property to get the size of the area.
 
 If you don't know the size of your drawing area (for example if the
 `Brush` is assigned to Text), you can extend `Shader` and utilize the size of
@@ -154,7 +138,8 @@ the drawing area in the `createShader` function.
 
 In this example, divide the size by 4 to repeat the pattern 4 times:
 
-```
+
+```kotlin
 val listColors = listOf(Color.Yellow, Color.Red, Color.Blue)
 val customBrush = remember {
     object : ShaderBrush() {
@@ -173,14 +158,11 @@ Box(
         .requiredSize(200.dp)
         .background(customBrush)
 )
-
-BrushExampleSnippets.kt
 ```
 
-![Shader size divided by 4](/static/develop/ui/compose/images/graphics/brush/tile_mode_mirror.png)
+<br />
 
-
-**Figure 3**: Shader size divided by 4
+![Shader size divided by 4](https://developer.android.com/static/develop/ui/compose/images/graphics/brush/tile_mode_mirror.png) **Figure 3**: Shader size divided by 4
 
 You can also change the brush size of any other gradient, such as radial
 gradients. If you don't specify a size and center, the gradient will occupy the
@@ -189,7 +171,8 @@ to the center of the `DrawScope` bounds. This results in the radial gradient's
 center appearing as the center of the smaller dimension (either width or
 height):
 
-```
+
+```kotlin
 Box(
     modifier = Modifier
         .fillMaxSize()
@@ -199,19 +182,17 @@ Box(
             )
         )
 )
-
-BrushExampleSnippets.kt
 ```
 
-![Radial Gradient set without size changes](/static/develop/ui/compose/images/graphics/brush/radial_gradient_default.png)
+<br />
 
-
-**Figure 4**: Radial Gradient set without size changes
+![Radial Gradient set without size changes](https://developer.android.com/static/develop/ui/compose/images/graphics/brush/radial_gradient_default.png) **Figure 4**: Radial Gradient set without size changes
 
 When the radial gradient is changed to set the radius size to the max dimension,
 you can see that it produces a better radial gradient effect:
 
-```
+
+```kotlin
 val largeRadialGradient = object : ShaderBrush() {
     override fun createShader(size: Size): Shader {
         val biggerDimension = maxOf(size.height, size.width)
@@ -229,14 +210,11 @@ Box(
         .fillMaxSize()
         .background(largeRadialGradient)
 )
-
-BrushExampleSnippets.kt
 ```
 
-![Bigger radius on radial gradient, based on size of area](/static/develop/ui/compose/images/graphics/brush/radial_size_biggest_dimension.png)
+<br />
 
-
-**Figure 5**: Bigger radius on radial gradient, based on size of area
+![Bigger radius on radial gradient, based on size of area](https://developer.android.com/static/develop/ui/compose/images/graphics/brush/radial_size_biggest_dimension.png) **Figure 5**: Bigger radius on radial gradient, based on size of area
 
 It is worth noting that the actual size that is passed into the creation of the
 shader is determined from where it is invoked. By default, `Brush` will
@@ -247,7 +225,8 @@ changed.
 The following code creates the shader three different times with different
 sizes, as the size of the drawing area changes:
 
-```
+
+```kotlin
 val colorStops = arrayOf(
     0.0f to Color.Yellow,
     0.2f to Color.Red,
@@ -273,16 +252,17 @@ Box(
             }
         }
 )
-
-BrushExampleSnippets.kt
 ```
+
+<br />
 
 ## Use an image as a brush
 
-To use an [ImageBitmap](/develop/ui/compose/graphics/images/compare#image-bitmap) as a `Brush`, load up the image as an `ImageBitmap`,
+To use an [ImageBitmap](https://developer.android.com/develop/ui/compose/graphics/images/compare#image-bitmap) as a `Brush`, load up the image as an `ImageBitmap`,
 and create an `ImageShader` brush:
 
-```
+
+```kotlin
 val imageBrush =
     ShaderBrush(ImageShader(ImageBitmap.imageResource(id = R.drawable.dog)))
 
@@ -307,17 +287,13 @@ Text(
 Canvas(onDraw = {
     drawCircle(imageBrush)
 }, modifier = Modifier.size(200.dp))
-
-BrushExampleSnippets.kt
 ```
+
+<br />
 
 The Brush is applied to a few different types of drawing: a background, the Text
 and Canvas. This outputs the following:
-
-![ImageShader Brush used in different ways](/static/develop/ui/compose/images/graphics/brush/image_brush.png)
-
-
-**Figure 6**: Using ImageShader Brush to draw a background, draw Text and draw a Circle
+![ImageShader Brush used in different ways](https://developer.android.com/static/develop/ui/compose/images/graphics/brush/image_brush.png) **Figure 6**: Using ImageShader Brush to draw a background, draw Text and draw a Circle
 
 Notice that the text is now also rendered using the `ImageBitmap` to paint the
 pixels for the text.
@@ -326,12 +302,15 @@ pixels for the text.
 
 ### AGSL `RuntimeShader` brush
 
-[AGSL](/develop/ui/views/graphics/agsl) offers a subset of [GLSL](/develop/ui/views/graphics/agsl/agsl-vs-glsl) Shader capabilities. Shaders can be
+[Video](https://www.youtube.com/watch?v=wJx7EhGaDow)
+
+[AGSL](https://developer.android.com/develop/ui/views/graphics/agsl) offers a subset of [GLSL](https://developer.android.com/develop/ui/views/graphics/agsl/agsl-vs-glsl) Shader capabilities. Shaders can be
 written in AGSL and used with a Brush in Compose.
 
 To create a Shader brush, first define the Shader as AGSL shader string:
 
-```
+
+```kotlin
 @Language("AGSL")
 val CUSTOM_SHADER = """
     uniform float2 resolution;
@@ -345,9 +324,9 @@ val CUSTOM_SHADER = """
         return mix(color, color2, mixValue);
     }
 """.trimIndent()
-
-BrushExampleSnippets.kt
 ```
+
+<br />
 
 The shader above takes two input colors, calculates the distance from the bottom
 left (`vec2(0, 1)`) of the drawing area and does a `mix` between the two colors
@@ -357,7 +336,8 @@ Then, create the Shader Brush, and set the uniforms for `resolution` - the size
 of the drawing area, and the `color` and `color2` you want to use as input to
 your custom gradient:
 
-```
+
+```kotlin
 val Coral = Color(0xFFF3A397)
 val LightYellow = Color(0xFFF8EE94)
 
@@ -397,47 +377,31 @@ fun ShaderBrushExample() {
             .height(200.dp)
     )
 }
-
-BrushExampleSnippets.kt
 ```
 
+<br />
+
 Running this, you can see the following rendered on screen:
-
-![Custom AGSL Shader running in Compose](/static/develop/ui/compose/images/graphics/brush/shaders.png)
-
-
-**Figure 7**: Custom AGSL Shader running in Compose
+![Custom AGSL Shader running in Compose](https://developer.android.com/static/develop/ui/compose/images/graphics/brush/shaders.png) **Figure 7**: Custom AGSL Shader running in Compose
 
 It's worth noting that you can do a lot more with shaders than just gradients,
 as it's all math-based calculations. For more information on AGSL, check out the
-AGSL [documentation](/develop/ui/views/graphics/agsl).
+AGSL [documentation](https://developer.android.com/develop/ui/views/graphics/agsl).
 
-**Note:** `RuntimeShaders` only works on Android 13+. Wrap your Composable in an API
-if-else check and provide a suitable fallback.
+> [!NOTE]
+> **Note:** `RuntimeShaders` only works on Android 13+. Wrap your Composable in an API if-else check and provide a suitable fallback.
 
 ## Additional resources
 
 For more examples of using Brush in Compose, check out the following resources:
 
-* [Animating brush Text coloring in Compose 🖌️](https://medium.com/androiddevelopers/animating-brush-text-coloring-in-compose-%EF%B8%8F-26ae99d9b402)
-* [Custom Graphics and Layouts in Compose - Android Dev Summit 2022](https://youtu.be/xcfEQO0k_gU)
-* [JetLagged Sample - RuntimeShader Brush](https://github.com/android/compose-samples/blob/main/JetLagged/app/src/main/java/com/example/jetlagged/Background.kt)
+- [Animating brush Text coloring in Compose 🖌️](https://medium.com/androiddevelopers/animating-brush-text-coloring-in-compose-%EF%B8%8F-26ae99d9b402)
+- [Custom Graphics and Layouts in Compose - Android Dev Summit 2022](https://youtu.be/xcfEQO0k_gU)
+- [JetLagged Sample - RuntimeShader Brush](https://github.com/android/compose-samples/blob/main/JetLagged/app/src/main/java/com/example/jetlagged/Background.kt)
 
 ## Recommended for you
 
-* Note: link text is displayed when JavaScript is off
-* [Graphics Modifiers](/develop/ui/compose/graphics/draw/modifiers)
-* [Graphics in Compose](/develop/ui/compose/graphics/draw/overview)
-* [Style text](/develop/ui/compose/text/style-text)
-
-[Previous
-
-arrow\_back
-
-Graphics Modifiers](/develop/ui/compose/graphics/draw/modifiers)
-
-[Next
-
-Shadows
-
-arrow\_forward](/develop/ui/compose/graphics/draw/shadows)
+- Note: link text is displayed when JavaScript is off
+- [Graphics Modifiers](https://developer.android.com/develop/ui/compose/graphics/draw/modifiers)
+- [Graphics in Compose](https://developer.android.com/develop/ui/compose/graphics/draw/overview)
+- [Style text](https://developer.android.com/develop/ui/compose/text/style-text)

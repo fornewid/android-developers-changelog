@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 On Android 11 and higher, Open Mobile API (OMAPI) supports checking for eSE, SD,
 and UICC support hardware on devices with the following flags:
 

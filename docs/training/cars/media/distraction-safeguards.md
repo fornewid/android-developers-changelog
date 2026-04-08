@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Because a user's phone is connected to a car's speakers when using Android
 Auto, you must take additional precautions to prevent driver distraction.
 

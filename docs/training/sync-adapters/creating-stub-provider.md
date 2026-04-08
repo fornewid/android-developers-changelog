@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 The sync adapter framework is designed to work with device data managed by the flexible and
 highly secure content provider framework. For this reason, the sync adapter framework expects
 that an app that uses the framework has already defined a content provider for its local data.

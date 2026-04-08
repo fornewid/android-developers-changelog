@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 For a list of [methods](#methods) for this resource, see the end of this page.
 
 ## Resource representations

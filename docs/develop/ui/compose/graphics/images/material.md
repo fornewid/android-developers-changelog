@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 The `Icon` composable is a convenient way to draw a single color icon on screen
 that follows [Material Design guidelines](https://material.io/design/iconography/system-icons.html#grid-and-keyline-shapes). To use `Icon`, include
 the [Compose Material](/jetpack/androidx/releases/compose-material) library (or the [Compose Material 3](/jetpack/androidx/releases/compose-material3) library).

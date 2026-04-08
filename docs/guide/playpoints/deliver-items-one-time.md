@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 This document describes how to detect and deliver one-time products in your game
 after players purchase them with Play Points in the Google Play app.
 

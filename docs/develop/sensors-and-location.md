@@ -1,8 +1,17 @@
 ---
-title: https://developer.android.com/develop/sensors-and-location
+title: About sensors and location  |  Sensors and location  |  Android Developers
 url: https://developer.android.com/develop/sensors-and-location
-source: md.txt
+source: html-scrape
 ---
+
+* [Android Developers](https://developer.android.com/)
+* [Develop](https://developer.android.com/develop)
+* [Core areas](https://developer.android.com/develop/core-areas)
+* [Sensors and location](https://developer.android.com/develop/sensors-and-location)
+
+# About sensors and location Stay organized with collections Save and categorize content based on your preferences.
+
+
 
 Android-powered devices have sensors that let you provide users with contextual
 information about their surroundings, including location awareness, motion,
@@ -11,18 +20,15 @@ position, and qualities of the physical environment.
 To provide a much richer, more more context-specific experience for users, use
 Android APIs that take advantage of the following types of sensors:
 
-- Use [GPS](https://developer.android.com/develop/sensors-and-location/location) to add location awareness to your app with automated location
+* Use [GPS](/develop/sensors-and-location/location) to add location awareness to your app with automated location
   tracking, wrong-side-of-the-street detection, geofencing, activity
   recognition, and more.
-
-- Use [motion sensors](https://developer.android.com/develop/sensors-and-location/sensors/sensors_motion) to measure acceleration forces and rotational forces
+* Use [motion sensors](/develop/sensors-and-location/sensors/sensors_motion) to measure acceleration forces and rotational forces
   along three axes. This category includes accelerometers, gravity sensors,
   gyroscopes, and rotational vector sensors.
-
-- Use [position sensors](https://developer.android.com/develop/sensors-and-location/sensors/sensors_position) to measure the physical position of a device. This
+* Use [position sensors](/develop/sensors-and-location/sensors/sensors_position) to measure the physical position of a device. This
   category includes orientation sensors and magnetometers.
-
-- Use [environmental sensors](https://developer.android.com/develop/sensors-and-location/sensors/sensors_environment) to measure various environmental parameters,
+* Use [environmental sensors](/develop/sensors-and-location/sensors/sensors_environment) to measure various environmental parameters,
   such as ambient air temperature and pressure, illumination, and humidity.
   This category includes barometers, photometers, and thermometers.
 

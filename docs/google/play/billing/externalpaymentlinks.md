@@ -14,6 +14,7 @@ Send feedback
 
 
 
+
 The external payments program lets you lead users in Japan, including
 through external payment links, to your in-app digital features or services
 that are available for purchase outside your apps. When linking users to
@@ -133,6 +134,8 @@ guidelines for size, spacing, and style.
 
 To begin integrating the external payments APIs, follow the in-depth guides
 for both [in-app integration](/google/play/billing/externalpaymentlinks/integration) and [backend integration](/google/play/billing/outside-gpb-backend).
+
+
 
 
 

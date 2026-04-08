@@ -1,32 +1,18 @@
 ---
-title: Shared elements with Navigation Compose  |  Jetpack Compose  |  Android Developers
+title: https://developer.android.com/develop/ui/compose/animation/shared-elements/navigation
 url: https://developer.android.com/develop/ui/compose/animation/shared-elements/navigation
-source: html-scrape
+source: md.txt
 ---
 
-* [Android Developers](https://developer.android.com/)
-* [Develop](https://developer.android.com/develop)
-* [Core areas](https://developer.android.com/develop/core-areas)
-* [UI](https://developer.android.com/develop/ui)
-* [Docs](https://developer.android.com/develop/ui/compose/documentation)
-
-# Shared elements with Navigation Compose Stay organized with collections Save and categorize content based on your preferences.
-
-
-
-To use shared elements with the [`navigation-compose` dependency](/jetpack/compose/navigation), use the
+To use shared elements with the [`navigation-compose` dependency](https://developer.android.com/jetpack/compose/navigation), use the
 `Modifier.sharedElement()` that takes an `AnimatedVisibilityScope` as a
 parameter. You can use this to decide what should be visible and when.
-
-[
-
-](/static/develop/ui/compose/images/animations/shared-element/nav_snacks_shorter.mp4)
-
 **Figure 1.** Navigation Compose with shared elements.
 
 The following is an example of using `navigation-compose` with shared elements:
 
-```
+
+```kotlin
 @Preview
 @Composable
 fun SharedElement_PredictiveBack() {
@@ -157,59 +143,41 @@ data class Snack(
     val description: String,
     @DrawableRes val image: Int
 )
-
-SharedElementsWithNavigationSnippets.kt
 ```
+
+<br />
 
 ## Predictive back with shared elements
 
-To use [predictive back](/guide/navigation/custom-back/predictive-back-gesture) with shared elements, follow these steps:
+To use [predictive back](https://developer.android.com/guide/navigation/custom-back/predictive-back-gesture) with shared elements, follow these steps:
 
-1. Use the latest [`navigation-compose` dependency](/develop/ui/compose/navigation), using the snippet from
+1. Use the latest [`navigation-compose` dependency](https://developer.android.com/develop/ui/compose/navigation), using the snippet from
    the preceding section.
 
-   ```
-   dependencies {
-       def nav_version = "2.8.0-beta02"
+       dependencies {
+           def nav_version = "2.8.0-beta02"
 
-       implementation "androidx.navigation:navigation-compose:$nav_version"
-   }
-   ```
-2. Enable the [Predictive back setting](/guide/navigation/custom-back/predictive-back-gesture#dev-option) in developer options.
+           implementation "androidx.navigation:navigation-compose:$nav_version"
+       }
+
+2. Enable the [Predictive back setting](https://developer.android.com/guide/navigation/custom-back/predictive-back-gesture#dev-option) in developer options.
+
 3. Add `android:enableOnBackInvokedCallback="true"` to your `AndroidManifest.xml`
    file:
 
-   ```
-   <manifest xmlns:android="http://schemas.android.com/apk/res/android">
-     <uses-permission android:name="android.permission.INTERNET" />
-     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
-         android:maxSdkVersion="28" />
+       <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+         <uses-permission android:name="android.permission.INTERNET" />
+         <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+         <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+             android:maxSdkVersion="28" />
 
-     <application
-         android:allowBackup="true"
-         android:icon="@mipmap/ic_launcher"
-         android:label="@string/app_name"
-         android:roundIcon="@mipmap/ic_launcher_round"
-         android:supportsRtl="true"
-         android:enableOnBackInvokedCallback="true"
-         android:theme="@style/Theme.Snippets">
-   ```
-
-[
-
-](/static/develop/ui/compose/images/animations/shared-element/predictive_back_shared_element_snacks_shorter.mp4)
+         <application
+             android:allowBackup="true"
+             android:icon="@mipmap/ic_launcher"
+             android:label="@string/app_name"
+             android:roundIcon="@mipmap/ic_launcher_round"
+             android:supportsRtl="true"
+             android:enableOnBackInvokedCallback="true"
+             android:theme="@style/Theme.Snippets">
 
 **Figure 2.** Navigation Compose with predictive back.
-
-[Previous
-
-arrow\_back
-
-Common use cases](/develop/ui/compose/animation/shared-elements/common-use-cases)
-
-[Next
-
-Additional samples
-
-arrow\_forward](/develop/ui/compose/animation/shared-elements/additional-samples)

@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 Network service discovery (NSD) gives your app access to services that other
 devices provide on a local network. Devices that support NSD include printers,
 webcams, HTTPS servers, and other mobile devices.

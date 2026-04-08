@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Android Studio offers a set of service integrations to increase your
 productivity as you develop, release, and maintain Android apps. For example,
 you have access to Cloud services such as Firebase Device Streaming, Firebase

@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 Some tasks, like watching videos or engaging with longer task flows, are only
 available while parked. This guidance will show you how to design for both
 scenarios.

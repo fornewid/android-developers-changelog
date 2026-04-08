@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 The [Google Maps app for Android](https://play.google.com/store/apps/details?id=com.google.android.apps.maps) exposes several intents that you can use to
 launch Google Maps in display, search, navigation, or Street View modes. To
 embed a map in your app, refer to the [Maps SDK for Android Quickstart](https://developers.google.com/maps/documentation/android-sdk/start).

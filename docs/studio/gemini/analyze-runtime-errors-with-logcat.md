@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 Gemini in Android Studio helps you understand and resolve errors from the
 [Logcat](/studio/debug/logcat) window, streamlining your debugging process. When
 your app throws an error or exception, you can use the "Ask Gemini" feature to

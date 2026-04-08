@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 To perform basic camera actions like capturing a photo or video using the device's default camera application, you do not need to integrate with a [Camera library](/training/camera/choose-camera-library). Instead, use an [`Intent`](https://developer.android.com/reference/android/content/Intent).
 
 ## Take a photo with a camera app

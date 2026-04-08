@@ -14,6 +14,7 @@ Send feedback
 
 
 
+
 Subscription with add-ons lets you bundle multiple subscription products
 together that can be purchased, billed and managed together. Your existing
 product catalog subscriptions can be seamlessly offered as add-ons without any
@@ -430,6 +431,8 @@ For dashboards in the Play Console:
 * Order management reflects purchase of subscription with add-ons, and show
   itemized lists of what was purchased. From order management, you may
   revoke, cancel or fully refund a user's purchase.
+
+
 
 
 

@@ -22,39 +22,39 @@ keywords\_public: R8, proguard, keep rules, app size, optimization
   one exists already, to store the output
 * [ ] Step 2: Look at the configuration of R8 by looking at build.gradle,
   build.gradle.kts, gradle.properties in the codebase using
-  `/references/CONFIGURATION.md` as the reference. Inform the developer and
+  [references/CONFIGURATION.md](/agents/skills/r8-analyzer/references/CONFIGURATION) as the reference. Inform the developer and
   add the analysis to the report file
 * [ ] Step 3: If the AGP version is less than 9, suggest moving to AGP 9.0
   version as AGP 9.0 includes
   optimizations(https://developer.android.com/topic/performance/app-optimization/enable-app-optimization#agp-r8-behavior-changes).
   + [ ] Step 4: Look at the proguard files in the codebase and evaluate each
     keep rule in the following specific order: a. **Libraries check**: Check
-    rules against `/references/REDUNDANT-RULES.md`. If the app has keep
+    rules against [references/REDUNDANT-RULES.md](/agents/skills/r8-analyzer/references/REDUNDANT-RULES). If the app has keep
     rules targeting libraries - Google, AndroidX, Kotlin, Kotlinx, Room,
     Gson, Retrofit, inform the user that these are not required and suggest
     removal of these rules. b. **Impact analysis**: For the remaining keep
     rules, assess them based on the impact hierarchy defined in
-    `/references/KEEP-RULES-IMPACT-HIERARCHY.md`. (Note: Do NOT assess the
+    [references/KEEP-RULES-IMPACT-HIERARCHY.md](/agents/skills/r8-analyzer/references/KEEP-RULES-IMPACT-HIERARCHY). (Note: Do NOT assess the
     impact of keep rules already covered in the libraries check step).
 * [ ] Step 5: Identify subsuming keep rules in the remaining keep rules
   based on the hierarchy defined in
-  `/references/KEEP-RULES-IMPACT-HIERARCHY.md` and suggest removing the
+  [references/KEEP-RULES-IMPACT-HIERARCHY.md](/agents/skills/r8-analyzer/references/KEEP-RULES-IMPACT-HIERARCHY) and suggest removing the
   broader keep rules.
 * [ ] Step 6: For each remaining keep rule, analyze in detail the code
   affected by the rule by examining the code and adjacent files to
   understand why it was written. Look for reflection usage in those
   packages, and suggest a narrow and specific keep rule for the scenario using
-  `/references/REFLECTION-GUIDE.md`.
+  [references/REFLECTION-GUIDE.md](/agents/skills/r8-analyzer/references/REFLECTION-GUIDE).
 * [ ] Step 7: For every keep rule inform concisely and to the point what
   action needs to be taken - whether the rule needs to be removed/refined.
   + If refining the rule, give instructions on finding a narrower and
-    specific keep rule using the `/references/REFLECTION-GUIDE.md`.
+    specific keep rule using the [/references/REFLECTION-GUIDE.md](/agents/skills/r8-analyzer/references/REFLECTION-GUIDE).
   + If removing, provide reasoning on why it needs to be removed.
 * [ ] Step 8: After keep analysis, order the keep rule analysis based on the
   impact to the codebase hierarchy defined in
-  `/references/KEEP-RULES-IMPACT-HIERARCHY.md
-* [ ] Step 9: Advise the user to run tests using UI
-  automator(https://developer.android.com/training/testing/other-components/ui-automator)
+  [references/KEEP-RULES-IMPACT-HIERARCHY.md](/agents/skills/r8-analyzer/references/KEEP-RULES-IMPACT-HIERARCHY)
+* [ ] Step 9: Advise the user to run tests using [UI
+  automator](/training/testing/other-components/ui-automator)
   to assess that there is no issue with the suggested changes, concentrating
   on the packages where keep rules will be affected.
 

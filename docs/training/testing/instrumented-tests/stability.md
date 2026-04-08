@@ -1,17 +1,8 @@
 ---
-title: Big test stability  |  Test your app on Android  |  Android Developers
+title: https://developer.android.com/training/testing/instrumented-tests/stability
 url: https://developer.android.com/training/testing/instrumented-tests/stability
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [Develop](https://developer.android.com/develop)
-* [Test your app on Android](https://developer.android.com/training/testing)
-
-# Big test stability Stay organized with collections Save and categorize content based on your preferences.
-
-
-
 
 The asynchronous nature of mobile applications and frameworks oftentimes makes
 it challenging to write reliable and repeatable tests. When a user event is
@@ -28,27 +19,18 @@ or assertion. This is *synchronization*.
 Issues can still arise when you run asynchronous or background operations
 unknown to the test, such as loading data from a database or showing infinite
 animations.
-
-![flow diagram showing a loop that checks if the app is idle before making a test pass](/static/training/testing/instrumented-tests/sync.png)
-
-
-**Figure 1**: Test synchronization.
+![flow diagram showing a loop that checks if the app is idle before making a test pass](https://developer.android.com/static/training/testing/instrumented-tests/sync.png) **Figure 1**: Test synchronization.
 
 To increase the reliability of your test suite, you can install a way to track
-background operations, such as [Espresso Idling Resources](/training/testing/espresso/idling-resource). Also, you can
+background operations, such as [Espresso Idling Resources](https://developer.android.com/training/testing/espresso/idling-resource). Also, you can
 replace modules for testing versions that you can query for idleness or that
-improve synchronization, such as [TestDispatcher](/kotlin/coroutines/coroutines-best-practices#test-coroutine-dispatcher) for coroutines or
+improve synchronization, such as [TestDispatcher](https://developer.android.com/kotlin/coroutines/coroutines-best-practices#test-coroutine-dispatcher) for coroutines or
 [RxIdler](https://github.com/square/RxIdler) for RxJava.
 
-**Warning:** You should avoid pausing your tests for an arbitrary period (sleep) to
-let the app run and stabilize. This makes tests unnecessary slow or flaky,
-because running the same test in different environments might need more or less
-time to execute.
+> [!WARNING]
+> **Warning:** You should avoid pausing your tests for an arbitrary period (sleep) to let the app run and stabilize. This makes tests unnecessary slow or flaky, because running the same test in different environments might need more or less time to execute.
 
-![Diagram showing a test failure when the synchronization is based on waiting for a fixed time](/static/training/testing/instrumented-tests/flaky.png)
-
-
-**Figure 2**: Using sleep in tests leads to slow or flaky tests.
+![Diagram showing a test failure when the synchronization is based on waiting for a fixed time](https://developer.android.com/static/training/testing/instrumented-tests/flaky.png) **Figure 2**: Using sleep in tests leads to slow or flaky tests.
 
 ## Ways to improve stability
 
@@ -59,23 +41,23 @@ comprehensive coverage, they are more prone to occasional failures.
 
 The primary measures you can take to reduce flakiness are the following:
 
-* Configure devices correctly
-* Prevent synchronization issues
-* Implement retries
+- Configure devices correctly
+- Prevent synchronization issues
+- Implement retries
 
-To create big tests using [Compose](/develop/ui/compose/testing) or
-[Espresso](/training/testing/espresso), you typically start one of your
+To create big tests using [Compose](https://developer.android.com/develop/ui/compose/testing) or
+[Espresso](https://developer.android.com/training/testing/espresso), you typically start one of your
 activities and navigate as a user would, verifying that the UI behaves correctly
 using assertions or screenshot tests.
 
 Other frameworks, such as [UI
-Automator](/training/testing/other-components/ui-automator), allow for a bigger
+Automator](https://developer.android.com/training/testing/other-components/ui-automator), allow for a bigger
 scope, as you can interact with the system UI and other apps. However, UI
 Automator tests might require more manual synchronization so they tend to be
 less reliable.
 
-**Note:** Many third-party testing frameworks use UI Automator to run tests, so the
-same principles apply. Prefer Espresso and Compose Test APIs to create UI tests.
+> [!NOTE]
+> **Note:** Many third-party testing frameworks use UI Automator to run tests, so the same principles apply. Prefer Espresso and Compose Test APIs to create UI tests.
 
 ## Configure devices
 
@@ -91,34 +73,30 @@ directives for special cases.
 ### Gradle-managed devices
 
 If you manage emulators yourself you can use [Gradle-managed
-devices](/studio/test/gradle-managed-devices) to define what devices to use to
+devices](https://developer.android.com/studio/test/gradle-managed-devices) to define what devices to use to
 run your tests:
 
-```
-android {
-  testOptions {
-    managedDevices {
-      localDevices {
-        create("pixel2api30") {
-          // Use device profiles you typically see in Android Studio.
-          device = "Pixel 2"
-          // Use only API levels 27 and higher.
-          apiLevel = 30
-          // To include Google services, use "google".
-          systemImageSource = "aosp"
+    android {
+      testOptions {
+        managedDevices {
+          localDevices {
+            create("pixel2api30") {
+              // Use device profiles you typically see in Android Studio.
+              device = "Pixel 2"
+              // Use only API levels 27 and higher.
+              apiLevel = 30
+              // To include Google services, use "google".
+              systemImageSource = "aosp"
+            }
+          }
         }
       }
     }
-  }
-}
-```
 
 With this configuration, the following command will create an emulator image,
 start an instance, run the tests and shut it down.
 
-```
-./gradlew pixel2api30DebugAndroidTest
-```
+    ./gradlew pixel2api30DebugAndroidTest
 
 Gradle-managed devices contain mechanisms to retry in the event of device
 disconnections and other improvements.
@@ -132,13 +110,13 @@ synchronization issues are a primary source of flakiness because the test
 frameworks need to deduce if an activity is *done* loading or if it should wait
 longer.
 
-**Warning:** Adding arbitrary sleep commands should be avoided because they slow
-down the execution of the tests and don't eliminate flakiness.
+> [!WARNING]
+> **Warning:** Adding arbitrary sleep commands should be avoided because they slow down the execution of the tests and don't eliminate flakiness.
 
 ### Solutions
 
 You can use [Espresso's idling
-resources](/training/testing/espresso/idling-resource) to indicate when an app
+resources](https://developer.android.com/training/testing/espresso/idling-resource) to indicate when an app
 is busy, but it's hard to track every asynchronous operation, especially in very
 big end-to-end tests. Also, idling resources can be hard to install without
 polluting the code under test.
@@ -146,42 +124,31 @@ polluting the code under test.
 Instead of estimating whether an activity is busy or not, you can make your
 tests wait until specific conditions have been met. For example, you can wait
 until a specific text or component is shown in the UI.
-
 ![A wait-until mechanism works by asking whether a condition is
-  met before continuing.](/static/training/testing/instrumented-tests/waitfor.png)
-
-
-**Figure 3.** Waiting
-for conditions to be met reduces flakiness.
+met before continuing.](https://developer.android.com/static/training/testing/instrumented-tests/waitfor.png) **Figure 3.** Waiting for conditions to be met reduces flakiness.
 
 Compose has a collection of testing APIs as part of the
-[`ComposeTestRule`](/reference/kotlin/androidx/compose/ui/test/junit4/ComposeTestRule#waitUntil(kotlin.Long,kotlin.Function0))
+[`ComposeTestRule`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/junit4/ComposeTestRule#waitUntil(kotlin.Long,kotlin.Function0))
 to wait for different matchers:
 
-```
-fun waitUntilAtLeastOneExists(matcher: SemanticsMatcher, timeout: Long = 1000L)
+    fun waitUntilAtLeastOneExists(matcher: SemanticsMatcher, timeout: Long = 1000L)
 
-fun waitUntilDoesNotExist(matcher: SemanticsMatcher, timeout: Long = 1000L)
+    fun waitUntilDoesNotExist(matcher: SemanticsMatcher, timeout: Long = 1000L)
 
-fun waitUntilExactlyOneExists(matcher: SemanticsMatcher,  timeout: Long = 1000L)
+    fun waitUntilExactlyOneExists(matcher: SemanticsMatcher,  timeout: Long = 1000L)
 
-fun waitUntilNodeCount(matcher: SemanticsMatcher, count: Int, timeout: Long = 1000L)
-```
+    fun waitUntilNodeCount(matcher: SemanticsMatcher, count: Int, timeout: Long = 1000L)
 
 And a generic API that takes any function that returns a boolean:
 
-```
-fun waitUntil(timeoutMillis: Long, condition: () -> Boolean): Unit
-```
+    fun waitUntil(timeoutMillis: Long, condition: () -> Boolean): Unit
 
 Example usage:
 
-```
-composeTestRule.waitUntilExactlyOneExists(hasText("Continue")</code>)</p></td>
-```
+    composeTestRule.waitUntilExactlyOneExists(hasText("Continue")</code>)</p></td>
 
-**Key Point:** Use Idling Resources if needed in small UI tests, and wait-until APIs
-in bigger UI tests.
+> [!IMPORTANT]
+> **Key Point:** Use Idling Resources if needed in small UI tests, and wait-until APIs in bigger UI tests.
 
 ## Retry mechanisms
 
@@ -192,15 +159,15 @@ productivity by running the test a number of times until it passes.
 
 Retries need to happen at multiple levels to prevent issues, such as:
 
-* Connection to the device timed out or lost connection
-* Single test failure
+- Connection to the device timed out or lost connection
+- Single test failure
 
 Installing or configuring retries depends on your testing frameworks and
 infrastructure, but typical mechanisms include:
 
-* A JUnit rule that retries any test a number of times
-* A retry *action* or *step* in your CI workflow
-* A system to restart an emulator when it's unresponsive, such as
-  Gradle-managed devices.
+- A JUnit rule that retries any test a number of times
+- A retry *action* or *step* in your CI workflow
+- A system to restart an emulator when it's unresponsive, such as Gradle-managed devices.
 
-**Key Point:** Add retrying mechanisms to big tests, but always fix flaky tests.
+> [!IMPORTANT]
+> **Key Point:** Add retrying mechanisms to big tests, but always fix flaky tests.

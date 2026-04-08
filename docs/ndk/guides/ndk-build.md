@@ -1,13 +1,22 @@
 ---
-title: https://developer.android.com/ndk/guides/ndk-build
+title: The ndk-build script  |  Android NDK  |  Android Developers
 url: https://developer.android.com/ndk/guides/ndk-build
-source: md.txt
+source: html-scrape
 ---
+
+* [Home](https://developer.android.com/)
+* [NDK](https://developer.android.com/ndk)
+* [Develop](https://developer.android.com/develop)
+* [Guides](https://developer.android.com/ndk/guides)
+
+# The ndk-build script Stay organized with collections Save and categorize content based on your preferences.
+
+
 
 The `ndk-build` script builds projects that use the NDK's Make-based build
 system. There is more specific documentation for the
-[Android.mk](https://developer.android.com/ndk/guides/android_mk) and
-[Application.mk](https://developer.android.com/ndk/guides/application_mk) configuration used
+[Android.mk](/ndk/guides/android_mk) and
+[Application.mk](/ndk/guides/application_mk) configuration used
 by `ndk-build`.
 
 ## Internals
@@ -36,7 +45,7 @@ $ <ndk>/ndk-build
 ```
 
 In this example, `<project>` points to your
-project's root directory, and `<ndk>` is the directory where
+project’s root directory, and `<ndk>` is the directory where
 you installed the NDK.
 
 ### Options
@@ -49,13 +58,11 @@ options in the form `ndk-build <option>`. For example:
 $ ndk-build clean
 ```
 
-
 The following options are available:
 
-
 `clean`
-
 :   Remove any previously generated binaries.
+
     **Note:** On Mac OS X, running `ndk-build clean` with a
     high number of [parallel executions](https://www.gnu.org/software/make/manual/html_node/Parallel.html) may result in a build error that
     includes the following message:
@@ -64,55 +71,36 @@ The following options are available:
     rm: fts_read: No such file or directory
     ```
 
-
     To avoid this issue, consider not using the `-jN`
     modifier or selecting a smaller value for `N`, such as 2.
 
-
 `V=1`
-:
-    Launch build, and display build commands.
-
+:   Launch build, and display build commands.
 
 `-B`
-:
-    Force a complete rebuild.
-
+:   Force a complete rebuild.
 
 `-B V=1`
-:
-    Force a complete rebuild, and display build commands.
-
+:   Force a complete rebuild, and display build commands.
 
 `NDK_LOG=1`
-:
-    Display internal NDK log messages (used for debugging the NDK itself).
-
+:   Display internal NDK log messages (used for debugging the NDK itself).
 
 `NDK_DEBUG=1`
-:
-    Force a debuggable build (see [table 1](https://developer.android.com/ndk/guides/ndk-build#dvr)).
-
+:   Force a debuggable build (see [table 1](#dvr)).
 
 `NDK_DEBUG=0`
-:
-    Force a release build (see [table 1](https://developer.android.com/ndk/guides/ndk-build#dvr)).
-
+:   Force a release build (see [table 1](#dvr)).
 
 `NDK_HOST_32BIT=1`
-:
-    Always use the toolchain in 32-bit mode.
-
+:   Always use the toolchain in 32-bit mode.
 
 `NDK_APPLICATION_MK=<file>`
-:
-    Build, using a specific `Application.mk` file pointed to by the
+:   Build, using a specific `Application.mk` file pointed to by the
     `NDK_APPLICATION_MK` variable.
 
-
 `-C <project>`
-:
-    Build the native code for the project path located at
+:   Build the native code for the project path located at
     `<project>`. Useful if you don't want to `cd`
     to it in your terminal.
 
@@ -126,20 +114,21 @@ results of each possible combination of settings.
 **Table 1.** Results of `NDK_DEBUG` (command line) and
 `android:debuggable` (manifest) combinations.
 
-| Manifest Setting | NDK_DEBUG=0 | NDK_DEBUG=1 | NDK_DEBUG not specified |
-|---|---|---|---|
-| android:debuggable="true" | Debug; Symbols; Optimized\*1 | Debug; Symbols; Not optimized\*2 | (same as NDK_DEBUG=1) |
+| Manifest Setting | NDK\_DEBUG=0 | NDK\_DEBUG=1 | NDK\_DEBUG not specified |
+| --- | --- | --- | --- |
+| android:debuggable="true" | Debug; Symbols; Optimized\*1 | Debug; Symbols; Not optimized\*2 | (same as NDK\_DEBUG=1) |
 | android:debuggable="false" | Release; Symbols; Optimized | Release; Symbols; Not optimized | Release; No symbols; Optimized\*3 |
 
 \*1: Useful for profiling.  
-\*2: Default for running [`ndk-gdb`](https://developer.android.com/ndk/guides/ndk-gdb).  
+\*2: Default for running [`ndk-gdb`](/ndk/guides/ndk-gdb).  
 \*3: Default mode.  
+  
 
-**Note:** \`NDK_DEBUG=0\` is the equivalent of
-\`APP_OPTIM=release\`, and compiles with \`-O2\`. \`NDK_DEBUG=1\` is the equivalent of
-\`APP_OPTIM=debug\` in \`Application.mk\`, and compiles with \`-O0\`.
-For more information about \`APP_OPTIM\`, see
-[Application.mk](https://developer.android.com/ndk/guides/application_mk).
+**Note:** `NDK\_DEBUG=0` is the equivalent of
+`APP\_OPTIM=release`, and compiles with `-O2`. `NDK\_DEBUG=1` is the equivalent of
+`APP\_OPTIM=debug` in `Application.mk`, and compiles with `-O0`.
+For more information about `APP\_OPTIM`, see
+[Application.mk](/ndk/guides/application_mk).
 
 The syntax on the command line is, for example:
 

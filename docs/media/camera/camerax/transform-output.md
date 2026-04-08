@@ -1,8 +1,18 @@
 ---
-title: https://developer.android.com/media/camera/camerax/transform-output
+title: Transform output  |  Android media  |  Android Developers
 url: https://developer.android.com/media/camera/camerax/transform-output
-source: md.txt
+source: html-scrape
 ---
+
+* [Android Developers](https://developer.android.com/)
+* [Essentials](https://developer.android.com/get-started)
+* [Camera & media dev center](https://developer.android.com/media)
+* [Guides](https://developer.android.com/media/guides)
+
+# Transform output Stay organized with collections Save and categorize content based on your preferences.
+
+
+
 
 The output of a CameraX use case is twofold: the buffer and the transformation
 info. The buffer is a byte array and the transformation info is how the buffer
@@ -19,9 +29,9 @@ action needed from the app.
 
 For the `Preview` use case, you can get the transformation information by
 calling
-[`SurfaceRequest.setTransformationInfoListener()`](https://developer.android.com/reference/androidx/camera/core/SurfaceRequest#setTransformationInfoListener(java.util.concurrent.Executor,%20androidx.camera.core.SurfaceRequest.TransformationInfoListener)).
+[`SurfaceRequest.setTransformationInfoListener()`](/reference/androidx/camera/core/SurfaceRequest#setTransformationInfoListener(java.util.concurrent.Executor,%20androidx.camera.core.SurfaceRequest.TransformationInfoListener)).
 Every time the transformation is updated, the caller receives a new
-[`SurfaceRequest.TransformationInfo`](https://developer.android.com/reference/androidx/camera/core/SurfaceRequest.TransformationInfo)
+[`SurfaceRequest.TransformationInfo`](/reference/androidx/camera/core/SurfaceRequest.TransformationInfo)
 object.
 
 How to apply the transformation information depends on the source of the
@@ -40,12 +50,12 @@ preview.
 
 The following code snippet creates a matrix that maps from image analysis
 coordinates to `PreviewView` coordinates. To transform the (x, y) coordinates
-with a [`Matrix`](https://developer.android.com/reference/android/graphics/Matrix), see
-[`Matrix.mapPoints()`](https://developer.android.com/reference/android/graphics/Matrix#mapPoints(float%5B%5D)).
+with a [`Matrix`](/reference/android/graphics/Matrix), see
+[`Matrix.mapPoints()`](/reference/android/graphics/Matrix#mapPoints(float%5B%5D)).
 
 ### Kotlin
 
-```kotlin
+```
 fun getCorrectionMatrix(imageProxy: ImageProxy, previewView: PreviewView) : Matrix {
    val cropRect = imageProxy.cropRect
    val rotationDegrees = imageProxy.imageInfo.rotationDegrees
@@ -94,7 +104,7 @@ fun getCorrectionMatrix(imageProxy: ImageProxy, previewView: PreviewView) : Matr
 
 ### Java
 
-```java
+```
 Matrix getMappingMatrix(ImageProxy imageProxy, PreviewView previewView) {
    Rect cropRect = imageProxy.getCropRect();
    int rotationDegrees = imageProxy.getImageInfo().getRotationDegrees();

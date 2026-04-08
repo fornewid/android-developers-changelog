@@ -15,7 +15,6 @@ Save and categorize content based on your preferences.
 
 
 
-
 # Documentfile
 
 [User Guide](/guide/topics/providers/document-provider)  [Code Sample](https://github.com/android/storage-samples/tree/main/ActionOpenDocumentTree)

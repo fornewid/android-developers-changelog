@@ -12,6 +12,7 @@ source: html-scrape
 
 
 
+
 If you're only planning to make [standard API
 requests](/google/play/integrity/standard), which are suitable for the majority
 of developers, you can skip ahead to [integrity

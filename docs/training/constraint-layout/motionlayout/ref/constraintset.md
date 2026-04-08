@@ -10,7 +10,6 @@ source: html-scrape
 
 
 
-
 Specifies the positions and attributes of all views at one point in a motion
 sequence. Typically, a
 [`<Transition>`](/training/constraint-layout/motionlayout/ref/transition)

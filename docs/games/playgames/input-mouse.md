@@ -15,7 +15,6 @@ Send feedback
 
 
 
-
 This topic covers how to implement mouse input for Google Play Games on PC for
 games where input translation mode doesn't provide an ideal player experience.
 
@@ -363,8 +362,6 @@ gameView.setOnCapturedPointerListener((view, motionEvent) -> {
 
 In order to release exclusive mouse capture, such as to allow players to
 interact with a pause menu, invoke [`View.releasePointerCapture()`](/reference/android/view/View#releasePointerCapture()).
-
-
 
 
 

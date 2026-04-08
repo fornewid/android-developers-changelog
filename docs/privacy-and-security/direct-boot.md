@@ -1,36 +1,24 @@
 ---
-title: Support Direct Boot mode  |  Security  |  Android Developers
+title: https://developer.android.com/privacy-and-security/direct-boot
 url: https://developer.android.com/privacy-and-security/direct-boot
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [Design & Plan](https://developer.android.com/design)
-* [Security](https://developer.android.com/security)
-* [Guides](https://developer.android.com/privacy-and-security/security-tips)
-
-# Support Direct Boot mode Stay organized with collections Save and categorize content based on your preferences.
-
-
 
 Android 7.0 runs in a secure, *Direct Boot* mode
 when the device has been powered on but the user hasn't unlocked the
 device. To support this, the system provides two storage locations for data:
 
-* **Credential encrypted storage**, which is the default storage location
-  and only available after the user has unlocked the device.
-* **Device encrypted storage**, which is a storage location available both
-  during Direct Boot mode and after the user has unlocked the device.
+- **Credential encrypted storage**, which is the default storage location and only available after the user has unlocked the device.
+- **Device encrypted storage**, which is a storage location available both during Direct Boot mode and after the user has unlocked the device.
 
 By default, apps don't run during Direct Boot mode.
 If your app needs to take action during Direct Boot mode, you can register
 app components to be run during this mode. Some common use cases
 for apps needing to run during Direct Boot mode include:
 
-* Apps that have scheduled notifications, such as alarm clock
-  apps.
-* Apps that provide important user notifications, like SMS apps.
-* Apps that provide accessibility services, like Talkback.
+- Apps that have scheduled notifications, such as alarm clock apps.
+- Apps that provide important user notifications, like SMS apps.
+- Apps that provide accessibility services, like Talkback.
 
 If your app needs to access data while running in Direct Boot mode, use
 device encrypted storage. Device encrypted storage contains data
@@ -53,16 +41,16 @@ storage. Apps register with the system by marking components as
 `android:directBootAware` attribute to true in your manifest.
 
 Encryption aware components can register to receive an
-`ACTION_LOCKED_BOOT_COMPLETED` broadcast message from the
+`https://developer.android.com/reference/android/content/Intent#ACTION_LOCKED_BOOT_COMPLETED` broadcast message from the
 system when the device has been restarted. At this point device encrypted
 storage is available, and your component can execute tasks that need to be
 run during Direct Boot mode, such as triggering a scheduled alarm.
 
 The following code snippet is an example of how to register a
-`BroadcastReceiver` as encryption aware, and add an
+`https://developer.android.com/reference/android/content/BroadcastReceiver` as encryption aware, and add an
 intent filter for `ACTION_LOCKED_BOOT_COMPLETED`, in the app manifest:
 
-```
+```xml
 <receiver
   android:directBootAware="true" >
   ...
@@ -78,15 +66,15 @@ device encrypted storage as well as credential encrypted storage.
 ## Access device encrypted storage
 
 To access device encrypted storage, create a second
-`Context` instance by calling
-`Context.createDeviceProtectedStorageContext()`. All storage API
+`https://developer.android.com/reference/android/content/Context` instance by calling
+`https://developer.android.com/reference/android/content/Context#createDeviceProtectedStorageContext()`. All storage API
 calls made using this context access the device encrypted storage. The
 following example accesses the device encrypted storage and opens an existing
 app data file:
 
 ### Kotlin
 
-```
+```kotlin
 val directBootContext: Context = appContext.createDeviceProtectedStorageContext()
 // Access appDataFilename that lives in device encrypted storage
 val inStream: InputStream = directBootContext.openFileInput(appDataFilename)
@@ -95,7 +83,7 @@ val inStream: InputStream = directBootContext.openFileInput(appDataFilename)
 
 ### Java
 
-```
+```java
 Context directBootContext = appContext.createDeviceProtectedStorageContext();
 // Access appDataFilename that lives in device encrypted storage
 FileInputStream inStream = directBootContext.openFileInput(appDataFilename);
@@ -119,22 +107,18 @@ register a `BroadcastReceiver` from a running component
 to listen for unlock notification messages. When the user unlocks the device
 after boot:
 
-* If your app has foreground processes that need immediate notification,
-  listen for the `ACTION_USER_UNLOCKED` message.
-* If your app only uses background processes that can act on a delayed
-  notification, listen for the
-  `ACTION_BOOT_COMPLETED`
-  message.
+- If your app has foreground processes that need immediate notification, listen for the `https://developer.android.com/reference/android/content/Intent#ACTION_USER_UNLOCKED` message.
+- If your app only uses background processes that can act on a delayed notification, listen for the `https://developer.android.com/reference/android/content/Intent#ACTION_BOOT_COMPLETED` message.
 
 If the user has unlocked the device, you can find out by calling
-`UserManager.isUserUnlocked()`.
+`https://developer.android.com/reference/android/os/UserManager#isUserUnlocked()`.
 
 ## Migrate existing data
 
 If a user updates their device to use Direct Boot mode, you might have
 existing data that needs to get migrated to device encrypted storage. Use
-`Context.moveSharedPreferencesFrom()` and
-`Context.moveDatabaseFrom()`, with the destination context as the method caller and the source context as the argument, to migrate preference and database
+`https://developer.android.com/reference/android/content/Context#moveSharedPreferencesFrom(android.content.Context, java.lang.String)` and
+`https://developer.android.com/reference/android/content/Context#moveDatabaseFrom(android.content.Context, java.lang.String)`, with the destination context as the method caller and the source context as the argument, to migrate preference and database
 data between credential encrypted storage and device encrypted storage.
 
 Don't migrate private user information, such as passwords or authorization tokens, from
@@ -162,25 +146,21 @@ enabled.
 On devices that don't use file-based encryption by default, there might be
 other options for testing Direct Boot mode:
 
-* Some devices that use full-disk encryption
+- Some devices that use full-disk encryption
   (`ro.crypto.type=block`) and are running Android 7.0 through
   Android 12 can be converted to file-based
   encryption. There are two ways to do this:
 
-  **Warning:** Either method of converting to
-  file-based encryption wipes all user data on the device.
-
-  + On the device, enable **Developer options** if you haven't already
-    by going to **Settings > About phone** and tapping **Build
-    number** seven times. Then go to **Settings > Developer
+  - **Warning:**Either method of converting to file-based encryption wipes all user data on the device.
+  - On the device, enable **Developer options** if you haven't already by going to **Settings \> About phone** and tapping **Build
+    number** seven times. Then go to **Settings \> Developer
     options** and select **Convert to file encryption**.
-  + Alternatively, run the following shell commands:
+  - Alternatively, run the following shell commands:
 
-    ```
-    adb reboot-bootloader
-    fastboot --wipe-and-use-fbe
-    ```
-* Devices running Android 13 or lower support an
+        adb reboot-bootloader
+        fastboot --wipe-and-use-fbe
+
+- Devices running Android 13 or lower support an
   "emulated" Direct Boot mode that uses file permissions to simulate the
   effects of encrypted files being locked and unlocked. Only use emulated mode
   during development; it can cause data loss. To enable emulated
@@ -204,12 +184,12 @@ other options for testing Direct Boot mode:
 ## Check device policy encryption status
 
 Device administration apps can use
-`DevicePolicyManager.getStorageEncryptionStatus()`
+`https://developer.android.com/reference/android/app/admin/DevicePolicyManager#getStorageEncryptionStatus()`
 to check the current encryption status of the device.
 
 If your app targets an API level lower than Android 7.0 (API 24),
 `getStorageEncryptionStatus()` returns
-`ENCRYPTION_STATUS_ACTIVE`
+`https://developer.android.com/reference/android/app/admin/DevicePolicyManager#ENCRYPTION_STATUS_ACTIVE`
 if the device is using either full-disk encryption
 or file-based encryption with Direct Boot. In both of these cases, data is
 always stored encrypted at rest.
@@ -217,7 +197,7 @@ always stored encrypted at rest.
 If your app is targets Android 7.0 (API 24) or higher,
 `getStorageEncryptionStatus()` returns
 `ENCRYPTION_STATUS_ACTIVE` if the device is using full-disk encryption. It returns
-`ENCRYPTION_STATUS_ACTIVE_PER_USER` if the device is using file-based encryption
+`https://developer.android.com/reference/android/app/admin/DevicePolicyManager#ENCRYPTION_STATUS_ACTIVE_PER_USER` if the device is using file-based encryption
 with Direct Boot.
 
 If you build a device administration app

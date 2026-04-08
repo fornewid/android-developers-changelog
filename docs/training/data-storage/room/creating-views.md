@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Version 2.1.0 and higher of the [Room persistence
 library](/training/data-storage/room) provides support for [SQLite database
 views](https://www.sqlite.org/lang_createview.html), allowing you

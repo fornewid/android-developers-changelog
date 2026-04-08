@@ -16,7 +16,6 @@ Save and categorize content based on your preferences.
 
 
 
-
 # Customize your settings   Part of [Android Jetpack](/jetpack).
 
 This document describes how to customize

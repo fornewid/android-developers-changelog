@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 Wear OS provides several ways to capture the Wear OS UI:
 
 * **Android Studio**: use Logcat to take screenshots.

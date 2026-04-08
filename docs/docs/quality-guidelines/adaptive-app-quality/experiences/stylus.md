@@ -24,7 +24,7 @@ Build creative freedom into your app with stylus support.
 
 ### Stylus
 
-| Guideline ID | Test IDs | Description |
+| ID | Tests | Description |
 | --- | --- | --- |
 | Stylus\_Draw\_Write | [T-Stylus\_Draw\_Write](#T-Stylus_Draw_Write) | App supports drawing and writing with a stylus. Drawings and writing can be erased with the stylus. |
 | Stylus\_Drag\_Drop | [T-Stylus\_Drag\_Drop](#T-Stylus_Drag_Drop) | App provides stylus support for dragging and dropping content between elements within the app and, in multi-window mode, to and from other apps. See [Enable drag and drop](/develop/ui/views/touch-and-input/drag-drop). |
@@ -37,8 +37,8 @@ complete the following tests.
 
 ### Stylus
 
-| Test ID | Guideline IDs | Description |
+| ID | Feature | Description |
 | --- | --- | --- |
 | T-Stylus\_Draw\_Write | [Stylus\_Draw\_Write](#Stylus_Draw_Write) | Draw and write within the app using a stylus. Erase drawings and writing using the stylus. |
 | T-Stylus\_Drag\_Drop | [Stylus\_Drag\_Drop](#Stylus_Drag_Drop) | Using a stylus, drag and drop content on drop targets within the app. In multi-window mode, drag and drop content between the app and another app (to and from both apps). |
-| T-Stylus\_Enhanced | [Stylus\_Enhanced](#Stylus_Enhanced) | Interact with the app using a stylus as follows:   * As you draw, observe the latency between the current stylus position and the last rendered stroke. * Draw with varying amounts of stylus pressure. Check whether the width of the strokes changes as the pressure changes. More pressure should produce thicker strokes. * Tilt the stylus as you draw; shading strokes should be produced. The more the stylus is tilted, the wider and lighter the shading strokes should be. * Let your fingers and palm touch the screen as you draw. The finger and palm touches shouldn't produce marks. |
+| T-Stylus\_Enhanced | [T-Stylus\_Enhanced](#T-Stylus_Enhanced) | Interact with the app using a stylus as follows:   * As you draw, observe the latency between the current stylus position and the last rendered stroke. * Draw with varying amounts of stylus pressure. Check whether the width of the strokes changes as the pressure changes. More pressure should produce thicker strokes. * Tilt the stylus as you draw; shading strokes should be produced. The more the stylus is tilted, the wider and lighter the shading strokes should be. * Let your fingers and palm touch the screen as you draw. The finger and palm touches shouldn't produce marks. |

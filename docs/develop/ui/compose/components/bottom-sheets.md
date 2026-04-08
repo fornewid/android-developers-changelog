@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 ![An example of a Material Design 3 modal bottom sheet.](/static/develop/ui/compose/images/layouts/material/m3-bottom-sheet.png)
 
 If you want to implement a [bottom sheet](https://m3.material.io/components/bottom-sheets/overview), you can use the

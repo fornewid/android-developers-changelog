@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 Drawing objects on screen is a pretty basic feature of OpenGL, but you can do this with other
 Android graphics framework classes, including `Canvas` and
 `Drawable` objects. OpenGL ES provides additional capabilities for

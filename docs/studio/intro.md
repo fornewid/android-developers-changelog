@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Android Studio is the official Integrated Development Environment (IDE) for
 Android app development. Based on the powerful code editor and developer tools from
 [IntelliJ IDEA](https://www.jetbrains.com/idea/), Android

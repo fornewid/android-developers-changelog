@@ -8,6 +8,7 @@ source: html-scrape
 
 
 
+
 This document contains instructions about creating the release notes for Android Studio.
 
 ## Objective

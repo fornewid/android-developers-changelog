@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 On Wear OS devices, tiles are rendered by two key components with independent
 versioning. To help your app's tiles function correctly across all devices,
 it's important to understand this underlying architecture.

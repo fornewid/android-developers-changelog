@@ -1,8 +1,18 @@
 ---
-title: https://developer.android.com/develop/devices/chromeos/learn/animation
+title: Debug animation glitches  |  ChromeOS  |  Android Developers
 url: https://developer.android.com/develop/devices/chromeos/learn/animation
-source: md.txt
+source: html-scrape
 ---
+
+* [Android Developers](https://developer.android.com/)
+* [Develop](https://developer.android.com/develop)
+* [Devices](https://developer.android.com/develop/devices)
+* [ChromeOS](https://developer.android.com/chrome-os/intro)
+
+# Debug animation glitches Stay organized with collections Save and categorize content based on your preferences.
+
+
+
 
 One of the most difficult problems for app developers is creating smooth,
 glitch-free animation. This can be especially hard to debug when the system is
@@ -41,7 +51,12 @@ buffering, the graphic pipeline can still glitch.
 ChromeOS has a profiling tool that shows how the buffers are percolating
 through the system, when memory swaps occur, how busy the CPU/GPU is, and what
 your application is doing at a given time, shown in the following image:
-![The ARC graphics tracer UI, showing timelines for system processes.](https://developer.android.com/static/chrome-os/images/jank-profiler.svg) **Figure 1.** The ARC graphics tracer UI, showing timelines for system processes.
+
+![The ARC graphics tracer UI, showing timelines for system processes.](/static/chrome-os/images/jank-profiler.svg)
+
+
+**Figure 1.** The ARC graphics tracer UI, showing timelines for system
+processes.
 
 ### Set up the profiler
 
@@ -67,4 +82,4 @@ To set up the profiler, follow these steps:
 3. When the Android app is active and has focus, press `Control`+`Shift`+`G`.
 
 When a glitch happens, a browser window pops up.
-Use the <kbd>W</kbd> and <kbd>S</kbd> keys to zoom and shrink the timeline.
+Use the `W` and `S` keys to zoom and shrink the timeline.

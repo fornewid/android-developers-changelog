@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 **Note:** This document covers running Android applications built with the NDK
 under [Address Sanitizer](https://github.com/google/sanitizers/wiki/AddressSanitizer). For information about using [Address Sanitizer](https://github.com/google/sanitizers/wiki/AddressSanitizer) on
 Android platform components, see the [AOSP documentation](https://source.android.com/devices/tech/debug/asan.html).**Deprecated:** As of 2023, ASan is unsupported. It is recommended to use [HWASan](/ndk/guides/hwasan)

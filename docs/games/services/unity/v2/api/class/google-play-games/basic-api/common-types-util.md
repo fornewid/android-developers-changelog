@@ -14,7 +14,6 @@ Save and categorize content based on your preferences.
 
 
 
-
 # GooglePlayGames.BasicApi.CommonTypesUtil
 
 Utility class for common types.

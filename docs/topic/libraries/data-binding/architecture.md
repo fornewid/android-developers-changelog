@@ -1,19 +1,11 @@
 ---
-title: Bind layout views to Architecture Components  |  App architecture  |  Android Developers
+title: https://developer.android.com/topic/libraries/data-binding/architecture
 url: https://developer.android.com/topic/libraries/data-binding/architecture
-source: html-scrape
+source: md.txt
 ---
 
-* [Android Developers](https://developer.android.com/)
-* [Design & Plan](https://developer.android.com/design)
-* [App architecture](https://developer.android.com/topic/architecture/intro)
-
-# Bind layout views to Architecture Components Stay organized with collections Save and categorize content based on your preferences.
-
-
-
 The AndroidX library includes the [Architecture
-Components](/topic/libraries/architecture), which you can
+Components](https://developer.android.com/topic/libraries/architecture), which you can
 use to design robust, testable, and maintainable apps.
 The Data Binding Library works seamlessly with the Architecture
 Components to further simplify the
@@ -26,19 +18,19 @@ get the most from using the Data Binding Library.
 
 ## Use LiveData to notify the UI about data changes
 
-You can use [`LiveData`](/reference/androidx/lifecycle/LiveData) objects as
+You can use [`LiveData`](https://developer.android.com/reference/androidx/lifecycle/LiveData) objects as
 the data binding source to automatically notify the UI about changes in the
 data. For more information about this Architecture Component, see the [LiveData
-overview](/topic/libraries/architecture/livedata).
+overview](https://developer.android.com/topic/libraries/architecture/livedata).
 
 Unlike objects that implement
-[`Observable`](/reference/androidx/databinding/Observable)—such as
+[`Observable`](https://developer.android.com/reference/androidx/databinding/Observable)---such as
 [observable
-fields](/topic/libraries/data-binding/observability#observable_fields)—`LiveData`
+fields](https://developer.android.com/topic/libraries/data-binding/observability#observable_fields)---`LiveData`
 objects know about the lifecycle of the observers subscribed to the data
 changes. This knowledge enables many benefits, which are explained in [The
 advantages of using
-LiveData](/topic/libraries/architecture/livedata#the_advantages_of_using_livedata).
+LiveData](https://developer.android.com/topic/libraries/architecture/livedata#the_advantages_of_using_livedata).
 In Android Studio version 3.1 and higher, you can replace observable fields
 with `LiveData` objects in your data binding code.
 
@@ -49,7 +41,7 @@ has been instantiated:
 
 ### Kotlin
 
-```
+```kotlin
 class ViewModelActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         // Inflate view and obtain an instance of the binding class.
@@ -63,7 +55,7 @@ class ViewModelActivity : AppCompatActivity() {
 
 ### Java
 
-```
+```java
 class ViewModelActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,14 +68,14 @@ class ViewModelActivity extends AppCompatActivity {
 }
 ```
 
-You can use a [`ViewModel`](/reference/androidx/lifecycle/ViewModel)
+You can use a [`ViewModel`](https://developer.android.com/reference/androidx/lifecycle/ViewModel)
 component, as explained in the following section, to bind the data to the layout. In the `ViewModel` component,
 you can use the `LiveData` object to transform the data or merge multiple data
 sources. The following example shows how to transform the data in the `ViewModel`:
 
 ### Kotlin
 
-```
+```kotlin
 class ScheduleViewModel : ViewModel() {
     val userName: LiveData
 
@@ -96,7 +88,7 @@ class ScheduleViewModel : ViewModel() {
 
 ### Java
 
-```
+```java
 class ScheduleViewModel extends ViewModel {
     LiveData username;
 
@@ -110,7 +102,7 @@ class ScheduleViewModel extends ViewModel {
 ## Use ViewModel to manage UI-related data
 
 The Data Binding Library works seamlessly with
-[`ViewModel`](/reference/androidx/lifecycle/ViewModel) components. The `ViewModel`
+[`ViewModel`](https://developer.android.com/reference/androidx/lifecycle/ViewModel) components. The `ViewModel`
 exposes the data that the layout observes and reacts to its changes. Using
 `ViewModel` components with the Data Binding Library lets you move UI logic
 out of the layouts and into the components, which are easier to test. The Data
@@ -118,10 +110,10 @@ Binding Library ensures the views are bound and unbound from the data
 source when needed. Most of the remaining work consists of making sure that
 you're exposing the correct data. For more information about this Architecture
 Component, see the [ViewModel
-overview](/topic/libraries/architecture/viewmodel).
+overview](https://developer.android.com/topic/libraries/architecture/viewmodel).
 
 To use the `ViewModel` component with the Data Binding Library, you must
-instantiate your component—which inherits from the
+instantiate your component---which inherits from the
 `ViewModel` class, obtain an
 instance of your binding class, and assign your `ViewModel` component to a
 property in the binding class. The following example shows how to use the
@@ -129,7 +121,7 @@ component with the library:
 
 ### Kotlin
 
-```
+```kotlin
 class ViewModelActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         // Obtain the ViewModel component.
@@ -146,7 +138,7 @@ class ViewModelActivity : AppCompatActivity() {
 
 ### Java
 
-```
+```java
 class ViewModelActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -166,21 +158,19 @@ In your layout, assign the properties and methods of your `ViewModel` component
 to the corresponding views using binding expressions, as shown in the following
 example:
 
-```
-<CheckBox
-    android:id="@+id/rememberMeCheckBox"
-    android:checked="@{viewmodel.rememberMe}"
-    android:onCheckedChanged="@{() -> viewmodel.rememberMeChanged()}" />
-```
+    <CheckBox
+        android:id="@+id/rememberMeCheckBox"
+        android:checked="@{viewmodel.rememberMe}"
+        android:onCheckedChanged="@{() -> viewmodel.rememberMeChanged()}" />
 
 ## Use an Observable ViewModel for more control over binding adapters
 
-You can use a [`ViewModel`](/reference/androidx/lifecycle/ViewModel)
+You can use a [`ViewModel`](https://developer.android.com/reference/androidx/lifecycle/ViewModel)
 component that implements the
-[`Observable`](/reference/androidx/databinding/Observable) interface
+[`Observable`](https://developer.android.com/reference/androidx/databinding/Observable) interface
 to notify other
 app components about changes in the data, similar to how you would use a
-[`LiveData`](/reference/androidx/lifecycle/LiveData) object.
+[`LiveData`](https://developer.android.com/reference/androidx/lifecycle/LiveData) object.
 
 There are situations where you might prefer to use a
 `ViewModel` component that implements the `Observable`
@@ -195,18 +185,18 @@ To implement an observable `ViewModel` component, you must create a class that
 inherits from the `ViewModel` class and implements the `Observable`
 interface. You can provide custom logic when an observer subscribes or
 unsubscribes to notifications using the
-[`addOnPropertyChangedCallback()`](/reference/androidx/databinding/Observable#addOnPropertyChangedCallback(android.databinding.Observable.OnPropertyChangedCallback))
+[`addOnPropertyChangedCallback()`](https://developer.android.com/reference/androidx/databinding/Observable#addOnPropertyChangedCallback(android.databinding.Observable.OnPropertyChangedCallback))
 and
-[`removeOnPropertyChangedCallback()`](/reference/androidx/databinding/Observable#removeOnPropertyChangedCallback(android.databinding.Observable.OnPropertyChangedCallback))
+[`removeOnPropertyChangedCallback()`](https://developer.android.com/reference/androidx/databinding/Observable#removeOnPropertyChangedCallback(android.databinding.Observable.OnPropertyChangedCallback))
 methods. You can also provide custom logic that runs when properties change in
 the
-[`notifyPropertyChanged()`](/reference/androidx/databinding/BaseObservable#notifyPropertyChanged(int))
+[`notifyPropertyChanged()`](https://developer.android.com/reference/androidx/databinding/BaseObservable#notifyPropertyChanged(int))
 method. The following code example shows how to implement an observable
 `ViewModel`:
 
 ### Kotlin
 
-```
+```kotlin
 /**
  * A ViewModel that is also an Observable,
  * to be used with the Data Binding Library.
@@ -246,7 +236,7 @@ open class ObservableViewModel : ViewModel(), Observable {
 
 ### Java
 
-```
+```java
 /**
  * A ViewModel that is also an Observable,
  * to be used with the Data Binding Library.
@@ -291,15 +281,19 @@ class ObservableViewModel extends ViewModel implements Observable {
 To learn more about data binding, consult the following
 additional resources.
 
-* [Android Data Binding Library samples](https://github.com/android/databinding-samples)
+- [Android Data Binding Library samples](https://github.com/android/databinding-samples)
 
-* [Data Binding in Android codelab](https://codelabs.developers.google.com/codelabs/android-databinding)
+<!-- -->
 
-* [Data Binding — lessons learnt](https://medium.com/androiddevelopers/data-binding-lessons-learnt-4fd16576b719)
+- [Data Binding in Android codelab](https://codelabs.developers.google.com/codelabs/android-databinding)
+
+<!-- -->
+
+- [Data Binding --- lessons learnt](https://medium.com/androiddevelopers/data-binding-lessons-learnt-4fd16576b719)
 
 ## Recommended for you
 
-* Note: link text is displayed when JavaScript is off
-* [Work with observable data objects](/topic/libraries/data-binding/observability)
-* [Load and display paged data](/topic/libraries/architecture/paging/v3-paged-data)
-* [Use Kotlin coroutines with lifecycle-aware components](/topic/libraries/architecture/coroutines)
+- Note: link text is displayed when JavaScript is off
+- [Work with observable data objects](https://developer.android.com/topic/libraries/data-binding/observability)
+- [Load and display paged data](https://developer.android.com/topic/libraries/architecture/paging/v3-paged-data)
+- [Use Kotlin coroutines with lifecycle-aware components](https://developer.android.com/topic/libraries/architecture/coroutines)

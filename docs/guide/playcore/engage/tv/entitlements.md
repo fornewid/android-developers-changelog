@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 This guide contains instructions for developers to share app subscription and
 entitlement data with Google TV using [Engage SDK](/guide/playcore/engage). Users can find
 content they are entitled to and enable Google TV to deliver highly relevant

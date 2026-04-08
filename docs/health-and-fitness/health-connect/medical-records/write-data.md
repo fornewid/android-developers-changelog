@@ -15,6 +15,7 @@ Starting in 2026, we'll be transitioning away from Google Fit APIs. For more inf
 
 
 
+
 > This guide is compatible with Health Connect version [1.1.0-beta02](/jetpack/androidx/releases/health-connect#1.1.0-beta02).
 
 To write medical data using Medical Records in Health Connect,

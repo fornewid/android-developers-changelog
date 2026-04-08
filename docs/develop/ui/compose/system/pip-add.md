@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 To enter PiP mode through a button click, call
 [`enterPictureInPictureMode()`](/reference/android/app/Activity#enterPictureInPictureMode(android.app.PictureInPictureParams)) on `findActivity()`.
 

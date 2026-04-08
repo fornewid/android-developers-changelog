@@ -14,6 +14,7 @@ Join us for ⁠the [Google for Games Developer Summit](https://gamedevsummit.wit
 
 
 
+
 The **Pipeline** pane shows the contents of the currently bound pipeline. Select
 a valid draw or dispatch call in the **Command** pane. If you select a group of commands that includes a draw or dispatch call, it displays the last bound pipeline.
 

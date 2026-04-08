@@ -11,6 +11,7 @@ source: html-scrape
 
 
 
+
 A monkeyrunner class that represents a device or emulator accessible by the workstation running
 `monkeyrunner`.
 

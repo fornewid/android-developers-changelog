@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 After enabling app optimization, validate that your app is working as intended.
 
 To test the optimization locally:

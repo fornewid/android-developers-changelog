@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 Using the wireless radio to transfer data is potentially one of your app's most
 significant sources of battery drain. To minimize the battery drain associated
 with network activity, it's critical that you understand how your connectivity

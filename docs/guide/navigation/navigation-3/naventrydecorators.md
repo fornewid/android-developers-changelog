@@ -12,6 +12,7 @@ source: html-scrape
 
 
 
+
 You can provide extra information or apply the same logic to
 destinations using the [`NavEntryDecorator`](/reference/kotlin/androidx/navigation3/runtime/NavEntryDecorator) class. This class wraps each
 [`NavEntry`](/reference/kotlin/androidx/navigation3/runtime/NavEntry) in a back stack with a composable function. Put another way,

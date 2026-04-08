@@ -15,7 +15,6 @@ Send feedback
 
 
 
-
 The samples and plug-ins for Google Play Games on PC demonstrate the SDK integrations
 for certification and configuration of games in the PC environment.
 
@@ -83,8 +82,6 @@ demonstrates mouse input capture features:
 * Mouse button state events
 * Mouse scroll events
 * Screen geometry detection
-
-
 
 
 

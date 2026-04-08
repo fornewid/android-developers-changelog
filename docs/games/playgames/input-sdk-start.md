@@ -15,7 +15,6 @@ Send feedback
 
 
 
-
 **Note:** If you're looking to upgrade from an earlier version, see the
 [migration guides](/games/playgames/input-sdk-migration-guides).
 
@@ -1667,8 +1666,6 @@ final package:
 After you integrate the Input SDK into your game, you can continue
 with any remaining Google Play Games on PC requirements. For more information,
 see [Get started with Google Play Games on PC](/games/playgames/start).
-
-
 
 
 

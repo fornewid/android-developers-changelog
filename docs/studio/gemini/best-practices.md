@@ -1,8 +1,18 @@
 ---
-title: https://developer.android.com/studio/gemini/best-practices
+title: Best practices  |  Android Studio  |  Android Developers
 url: https://developer.android.com/studio/gemini/best-practices
-source: md.txt
+source: html-scrape
 ---
+
+* [Android Developers](https://developer.android.com/)
+* [Develop](https://developer.android.com/develop)
+* [Android Studio](https://developer.android.com/studio)
+* [Gemini in Android Studio](https://developer.android.com/gemini-in-android)
+
+# Best practices Stay organized with collections Save and categorize content based on your preferences.
+
+
+
 
 Gemini in Android Studio acts as your coding collaborator, accelerating your
 development workflow by generating code, summarizing complex topics, finding
@@ -12,14 +22,14 @@ Gemini's full potential.
 This guide outlines strategies for setting up your development environment
 and writing prompts that yield useful and reliable responses. For multiple
 strategies, we've provided example prompts for different use cases. For more
-example prompts, see the [Prompt gallery](https://developer.android.com/studio/prompt-gallery).
+example prompts, see the [Prompt gallery](/studio/prompt-gallery).
 
 ## Use Agent Mode
 
-Gemini in Android Studio's [Agent Mode](https://developer.android.com/studio/gemini/agent-mode) goes beyond what you can experience
+Gemini in Android Studio's [Agent Mode](/studio/gemini/agent-mode) goes beyond what you can experience
 by just chatting with Gemini. You can give the agent a high-level goal, and the
 agent breaks down the problem and creates a plan to solve it. The agent calls on
-[tools](https://developer.android.com/studio/gemini/agent-mode#how-it-works), edits multiple files, and fixes errors as it goes. Agent Mode helps
+[tools](/studio/gemini/agent-mode#how-it-works), edits multiple files, and fixes errors as it goes. Agent Mode helps
 you handle complex tasks more efficiently, speeding up your entire development
 process.
 
@@ -27,22 +37,30 @@ process.
 
 Gemini in Android Studio performs best with clear, specific instructions. If
 there are certain libraries, APIs, or approaches that you'd like to use, include
-them in your question---or include them in your project's root [AGENTS.md file](https://developer.android.com/studio/gemini/agent-files)
+them in your question—or include them in your project's root [AGENTS.md file](/studio/gemini/agent-files)
 to persist them across interactions. Think of it as filing a bug report: the
 more information you provide, the faster and more effectively the problem can be
 solved.
 
 **Implementing new functionality:**
 
+check\_circle
+
 ### Do
 
-How do I add camera support to my app using CameraX? Make sure to include any dependencies and permissions I need to use the library.
+How do I add camera support to my app using CameraX? Make
+sure to include any dependencies and permissions I need to use the
+library.
+
+cancel
 
 ### Don't
 
 How do I add camera support to my app?
 
 **Generating code:**
+
+check\_circle
 
 ### Do
 
@@ -56,11 +74,15 @@ a nullable `Bitmap`. If there's any network or decoding error,
 it should catch the exception, log it, and return
 `null`.
 
+cancel
+
 ### Don't
 
 Write a function to download an image.
 
 **Explaining a concept:**
+
+check\_circle
 
 ### Do
 
@@ -71,6 +93,8 @@ What are my options for
 keeping my app running while the user is doing other things on the device?
 What are the API level requirements and battery life implications for each
 approach?
+
+cancel
 
 ### Don't
 
@@ -90,6 +114,8 @@ about generating and formatting the code.
 
 **Structuring the response:**
 
+check\_circle
+
 ### Do
 
 Make a Room entity for a user profile. It should contain
@@ -97,6 +123,8 @@ the fields `id`, `userName`, `email`, and
 `memberSince`. The `id` field should be
 auto-generated. The `memberSince` field should represent a
 timestamp.
+
+cancel
 
 ### Don't
 
@@ -106,9 +134,14 @@ If you're asking a more open-ended question, ask it for *x* number of options.
 
 **Limiting the response:**
 
+check\_circle
+
 ### Do
 
-What tools are available for app performance optimization? Give me a list of the top three.
+What tools are available for app performance optimization?
+Give me a list of the top three.
+
+cancel
 
 ### Don't
 
@@ -117,7 +150,7 @@ What tools are available for app performance optimization?
 ## Break down complex requests into smaller tasks
 
 For complex, multi-step requests, make sure to try [Agent
-Mode](https://developer.android.com/studio/gemini/agent-mode). However, if
+Mode](/studio/gemini/agent-mode). However, if
 the agent's approach isn't what you expect, it might help to guide Gemini
 through a series of smaller, sequential prompts rather than asking for
 everything at once. This approach gives you more control and lets you verify
@@ -125,23 +158,25 @@ each step before proceeding to the next.
 
 **Applying sequential prompts:**
 
+check\_circle
+
 ### Do
 
-**Prompt 1: The data model**   
+**Prompt 1: The data model**  
 First, create
 a Kotlin data class named `User`. It should have three
 properties: `id` (an Int), `name` (a String), and
-`email` (a String).  
+`email` (a String).
 
 **Prompt 2: The network
-layer**   
+layer**  
 Now, create a Retrofit API interface called
 `ApiService`. It needs a single `suspend fun` called
 `getUsers()` that returns a
 `List<User>`.
 
 **Prompt 3: The state
-management**   
+management**  
 Next, write a `UsersViewModel` that
 takes the `ApiService` as a dependency. The `UsersViewModel`
 should expose a
@@ -152,7 +187,7 @@ represent `Loading, Success(users: List)`, and
 the new functionality.
 
 **Prompt 4: The UI
-layer**   
+layer**  
 Finally, write a Jetpack Compose function named
 `UserListScreen` that accepts the `UiState` as a
 parameter. Use a `when` statement to display a
@@ -161,9 +196,14 @@ parameter. Use a `when` statement to display a
 `Text` element with the error message for the error state. Add
 tests that verify the new functionality.
 
+cancel
+
 ### Don't
 
-Create a Jetpack Compose screen that fetches a list of users from a JSON API and displays them in a list. It should have a `ViewModel` that uses Retrofit and coroutines, a repository to handle the data logic, a `User` data class, and it needs to show loading and error states.
+Create a Jetpack Compose screen that fetches a list of users
+from a JSON API and displays them in a list. It should have a `ViewModel`
+that uses Retrofit and coroutines, a repository to handle the data logic,
+a `User` data class, and it needs to show loading and error states.
 
 ## Manage context
 
@@ -174,11 +214,17 @@ strike the right balance: too much information might lead Gemini astray, whereas
 too little won't provide enough context for it to help. Use the available
 features to give Gemini access to the necessary context:
 
-- [Attach images](https://developer.android.com/studio/gemini/attach-image) to provide a visual of the UI you're envisioning or the app architecture you're trying to understand.
-- [Attach files](https://developer.android.com/studio/gemini/attach-file) to highlight relevant parts of the codebase.
-- Use [`.aiexclude` files](https://developer.android.com/studio/gemini/aiexclude) to make Gemini ignore certain parts of the codebase.
-- Use [AGENTS.md files](https://developer.android.com/studio/gemini/agent-files) to give project-specific instructions and share them across your team. When using AGENTS.md files, use Markdown headers and formatting to make your instructions clear.
-- When using Agent Mode, configure [MCP servers](https://developer.android.com/studio/gemini/add-mcp-server) to extend Gemini's knowledge and capabilities with the external environment.
+* [Attach images](/studio/gemini/attach-image) to provide a visual of the UI
+  you're envisioning or the app architecture you're trying to understand.
+* [Attach files](/studio/gemini/attach-file) to highlight relevant parts of the
+  codebase.
+* Use [`.aiexclude` files](/studio/gemini/aiexclude)
+  to make Gemini ignore certain parts of the codebase.
+* Use [AGENTS.md files](/studio/gemini/agent-files) to give project-specific
+  instructions and share them across your team. When using AGENTS.md files, use
+  Markdown headers and formatting to make your instructions clear.
+* When using Agent Mode, configure [MCP servers](/studio/gemini/add-mcp-server)
+  to extend Gemini's knowledge and capabilities with the external environment.
 
 ## Ask for explanations
 
@@ -195,5 +241,5 @@ Studio sometimes takes some back and forth communication to get clarity on the
 task and expected outcome. If Gemini's initial response is insufficient, respond
 to it with feedback and suggestions for how to improve. If its response improves
 based on your suggestions, incorporate that suggestion in the original prompt by
-updating the entry in the [Prompt Library](https://developer.android.com/studio/gemini/prompt-library) or updating your [AGENTS.md
-files](https://developer.android.com/studio/gemini/agent-files).
+updating the entry in the [Prompt Library](/studio/gemini/prompt-library) or updating your [AGENTS.md
+files](/studio/gemini/agent-files).

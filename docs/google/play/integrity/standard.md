@@ -12,6 +12,7 @@ source: html-scrape
 
 
 
+
 This page describes making standard API requests for integrity verdicts, which
 are supported on Android 5.0 (API level 21) or higher. You can make a standard
 API request for an integrity verdict whenever your app is making a server call

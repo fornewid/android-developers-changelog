@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 The Navigation component provides a Kotlin-based domain-specific language, or
 DSL, that relies on Kotlin's [type-safe
 builders](https://kotlinlang.org/docs/reference/type-safe-builders.html)

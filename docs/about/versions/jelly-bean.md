@@ -10,7 +10,6 @@ source: html-scrape
 
 
 
-
 ### Android 4.3
 
 [![Android 4.3 on phone and tablet](/static/images/jb-android-43.jpg)](/static/images/jb-android-43_2x.png)

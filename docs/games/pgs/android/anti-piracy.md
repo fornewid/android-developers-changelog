@@ -15,6 +15,7 @@ Send feedback
 
 
 
+
 This guide describes how to use the anti-piracy feature to secure your
 Android games.
 
@@ -48,6 +49,8 @@ To turn on the anti-piracy feature for your Android game:
 5. Click **Save changes**.
 6. Publish your game in order for license checking to be
    activated.
+
+
 
 
 

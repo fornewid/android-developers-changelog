@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 The following are new features in Android Studio Ladybug Feature Drop.
 
 ## Wear Tiles Animation Preview

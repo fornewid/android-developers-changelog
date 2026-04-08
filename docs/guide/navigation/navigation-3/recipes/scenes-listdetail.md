@@ -13,6 +13,7 @@ Save and categorize content based on your preferences.
 
 
 
+
 # List-Detail Scene Recipe
 
 This example shows how to create a list-detail layout using the Scenes API.

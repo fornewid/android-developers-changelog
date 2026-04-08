@@ -1,72 +1,43 @@
 ---
-title: About the migration from legacy Google Sign-In  |  Identity  |  Android Developers
+title: https://developer.android.com/identity/sign-in/legacy-gsi-migration
 url: https://developer.android.com/identity/sign-in/legacy-gsi-migration
-source: html-scrape
+source: md.txt
 ---
 
-* [Android Developers](https://developer.android.com/)
-* [Design & Plan](https://developer.android.com/design)
-* [Security](https://developer.android.com/security)
-* [Identity](https://developer.android.com/identity)
-* [Guides](https://developer.android.com/identity/credential-manager)
-
-# About the migration from legacy Google Sign-In Stay organized with collections Save and categorize content based on your preferences.
-
-
-
 To streamline your app's authentication experience and future-proof your
-development practices, migrate from the legacy [Google Sign-In for Android](/identity/legacy/gsi)
+development practices, migrate from the legacy [Google Sign-In for Android](https://developer.android.com/identity/legacy/gsi)
 to Android Credential Manager. Google Sign-In for Android (as part of
 [`com.google.android.gms:play-services-auth`](https://maven.google.com/web/index.html?q=play-services-auth#com.google.android.gms:play-services-auth)) is deprecated and will be
 removed from the Google Play services Auth SDK in a future release.
 
 This guide explains the following areas:
 
-* Benefits of migrating to the Credential Manager API
-* Differences in implementation between the legacy SDK and Credential Manager
+- Benefits of migrating to the Credential Manager API
+- Differences in implementation between the legacy SDK and Credential Manager
 
 ## Benefits of the Credential Manager API
 
 Credential Manager offers several key advantages over legacy Google Sign-In for
 Android. It provides a streamlined, unified API that supports modern features
 and practices while improving the authentication experience for your users. To
-learn more about Credential Manager, see [Credential Manager features](/identity/credential-manager#features) and
+learn more about Credential Manager, see [Credential Manager features](https://developer.android.com/identity/credential-manager#features) and
 the [blog post](https://android-developers.googleblog.com/2024/09/streamlining-android-authentication-credential-manager-replaces-legacy-apis.html).
 
 Key advantages for Sign in with Google implementations include the following:
 
-* **Unified API:** Provides a single integration point for all sign-in
-  methods, including passkeys, passwords, and federated sign-in mechanisms.
-* **Support for Sign in with Google button:** Fully supports the standard
-  button, allowing you to drop it directly into existing UI flows.
-* **Seamless sign-in capabilities:** Directly prompts users to sign in with
-  their Google Account using a single tap, reducing friction during
-  onboarding.
-* **Future-proofed security:** Includes built-in support for passkeys, the new
-  standard for passwordless authentication.
+- **Unified API:** Provides a single integration point for all sign-in methods, including passkeys, passwords, and federated sign-in mechanisms.
+- **Support for Sign in with Google button:** Fully supports the standard button, allowing you to drop it directly into existing UI flows.
+- **Seamless sign-in capabilities:** Directly prompts users to sign in with their Google Account using a single tap, reducing friction during onboarding.
+- **Future-proofed security:** Includes built-in support for passkeys, the new standard for passwordless authentication.
 
 ## Differences between the approaches
 
 The differences between the legacy and updated Credential Manager experience for
 Sign in with Google are as follows:
 
-* If you previously used `silentSignIn` with legacy Google Sign-in, the
-  Credential Manager behavior for automatic sign-in has a slight difference in
-  user experience.
-  + With Credential Manager, you request [authentication](/identity/sign-in/credential-manager-siwg) with
-    `filterByAuthorizedAccounts` set to `true` and `setAutoSelectEnabled`
-    set to `true`. This displays a bottom sheet for a short duration that
-    requires no interaction from the user.
-  + The result is similar to `silentSignIn`.
-* Unlike the legacy Google Sign-In SDK, which could handle both authentication
-  and authorization in one API call, the updated Credential Manager
-  implementation treats these as distinct actions:
-  + **Authentication:** Use Credential Manager to sign the user into your
-    app.
-  + **Authorization:** Use the [AuthorizationClient API](https://developers.google.com/android/reference/com/google/android/gms/auth/api/identity/AuthorizationClient) for
-    specific actions, such as accessing Google Drive. To learn more about
-    authorization, see [Authorize Access to User Data](https://developers.google.com/identity/sign-in/android/authorize-access). This
-    separation helps you map user flows to user intent. Your users can sign
-    up or sign in with their Google Accounts. You can request authorization
-    permissions separately when the app needs them, rather than only at
-    sign-in.
+- If you previously used `silentSignIn` with legacy Google Sign-in, the Credential Manager behavior for automatic sign-in has a slight difference in user experience.
+  - With Credential Manager, you request [authentication](https://developer.android.com/identity/sign-in/credential-manager-siwg) with `filterByAuthorizedAccounts` set to `true` and `setAutoSelectEnabled` set to `true`. This displays a bottom sheet for a short duration that requires no interaction from the user.
+  - The result is similar to `silentSignIn`.
+- Unlike the legacy Google Sign-In SDK, which could handle both authentication and authorization in one API call, the updated Credential Manager implementation treats these as distinct actions:
+  - **Authentication:** Use Credential Manager to sign the user into your app.
+  - **Authorization:** Use the [AuthorizationClient API](https://developers.google.com/android/reference/com/google/android/gms/auth/api/identity/AuthorizationClient) for specific actions, such as accessing Google Drive. To learn more about authorization, see [Authorize Access to User Data](https://developers.google.com/identity/sign-in/android/authorize-access). This separation helps you map user flows to user intent. Your users can sign up or sign in with their Google Accounts. You can request authorization permissions separately when the app needs them, rather than only at sign-in.

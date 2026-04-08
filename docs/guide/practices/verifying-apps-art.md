@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 The Android runtime (ART) is the default runtime for devices running Android
 5.0 (API level 21) and higher. This runtime offers a number of features
 that improve performance and smoothness of the Android platform and apps.

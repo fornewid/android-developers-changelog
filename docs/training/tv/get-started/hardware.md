@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 TV hardware is substantially different from other Android devices. TVs do not
 include some of the hardware features found on other Android devices, such as touchscreens,
 cameras, and GPS receivers. TVs are also completely dependent on secondary hardware devices:

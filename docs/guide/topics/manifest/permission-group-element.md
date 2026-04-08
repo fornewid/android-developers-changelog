@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 syntax:
 :   ```
     <permission-group android:description="string resource"

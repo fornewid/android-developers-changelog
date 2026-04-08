@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 User interface components give feedback to the device user by the way they
 respond to user interactions. Every component has its own way of responding to
 interactions, which helps the user know what their interactions are doing. For

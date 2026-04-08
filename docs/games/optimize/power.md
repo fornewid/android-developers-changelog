@@ -15,7 +15,6 @@ Send feedback
 
 
 
-
 Android games are played primarily on battery-powered devices such as phones or
 tablets. Optimize your game's power efficiency to help users play your game
 longer and give them confidence to start a game session even when their device
@@ -84,8 +83,6 @@ modify your game settings accordingly.
 [Android Studio power profiler](/studio/profile/power-profiler)
 
 [Unity power efficiency demo sample (GitHub)](https://github.com/android/games-samples/tree/main/unity/power_efficiency_demo)
-
-
 
 
 

@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 [OWASP Risk Description](https://genai.owasp.org/llmrisk/llm01-prompt-injection/)
 
 Prompt injection is an attack that occurs when a user manipulates a large

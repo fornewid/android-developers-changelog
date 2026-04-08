@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 In many cases, your app creates files that other apps don't need to access, or
 shouldn't access. The system provides the following locations for storing such
 *app-specific* files:

@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 Hierarchy is communicated through differences in font weight, size, line height,
 and letter spacing. The updated type scale organizes styles into six roles that
 are named to describe their purposes: display, title, label, body, numeral and

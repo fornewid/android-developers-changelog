@@ -14,11 +14,11 @@ source: html-scrape
 
 
 
+[compact]: /develop/ui/compose/layouts/adaptive/window-size-classes[medium]: /develop/ui/compose/layouts/adaptive/window-size-classes[expanded]: /develop/ui/compose/layouts/adaptive/window-size-classes
 Multi-window mode enables multiple apps to share the same screen simultaneously.
 Apps can be side by side or one above the other (split-screen mode), one app in
 a small window overlaying other apps (picture-in-picture mode), or individual
 apps in separate movable, resizable windows (desktop windowing mode).
-
 [![
 
 Your browser doesn't support the video tag.
@@ -32,7 +32,8 @@ to [See two apps at the same time on Pixel phone](https://support.google.com/pix
 
 ## Version-specific multi-window features
 
-The multi-window user experience depends on the version of Android and type of device:
+The multi-window user experience depends on the version of Android and type of
+device:
 
 * **Android 7.0** (API level 24) introduced split-screen mode on small screen
   devices and picture-in-picture mode on select devices.
@@ -54,11 +55,11 @@ The multi-window user experience depends on the version of Android and type of d
   screen devices.
 * **Android 12** (API level 31) makes multi-window mode standard behavior.
 
-  + **On large screens** ([medium](/develop/ui/compose/layouts/adaptive/window-size-classes) or [expanded](/develop/ui/compose/layouts/adaptive/window-size-classes) window size class), the
+  + **On large screens** ([medium][] or [expanded][] window size class), the
     platform supports all apps in multi-window mode regardless of app
     configuration. If `resizeableActivity="false"`, the app is put into
     compatibility mode when necessary to accommodate display dimensions.
-  + **On small screens** ([compact](/develop/ui/compose/layouts/adaptive/window-size-classes) window size class), the system checks
+  + **On small screens** ([compact][] window size class), the system checks
     an activity's [`minWidth`](/reference/kotlin/android/content/pm/ActivityInfo.WindowLayout#android:minwidth) and [`minHeight`](/reference/kotlin/android/content/pm/ActivityInfo.WindowLayout#android:minheight) to determine whether
     the activity can run in multi-window mode. If
     `resizeableActivity="false"`, the app is prevented from running in
@@ -97,7 +98,10 @@ displayed below the active app when two or more apps are in Recents.
 
 ### Programmatic split-screen (launch adjacent)
 
-If your app needs to launch another activity into an adjacent window, use the [`FLAG_ACTIVITY_LAUNCH_ADJACENT`](/reference/kotlin/android/content/Intent#flag_activity_launch_adjacent) intent flag. On Android 12L (API level 32) and higher, the flag allows an app running full screen to enter split-screen mode and launch a target activity into the adjacent window.
+If your app needs to launch another activity into an adjacent window, use the
+[`FLAG_ACTIVITY_LAUNCH_ADJACENT`](/reference/kotlin/android/content/Intent#flag_activity_launch_adjacent) intent flag. On Android 12L (API level 32)
+and higher, the flag allows an app running full screen to enter split-screen
+mode and launch a target activity into the adjacent window.
 `FLAG_ACTIVITY_LAUNCH_ADJACENT` was introduced in Android 7.0 (API level 24).
 
 To launch an adjacent activity, use `FLAG_ACTIVITY_LAUNCH_ADJACENT` in
@@ -116,7 +120,12 @@ fun openUrlInAdjacentWindow(url: String) {
 
 ### Activity embedding (split activities in the same task)
 
-Activity embedding enables apps composed of multiple activities to split activities *within the same app task*, such as for a [list‑detail](/develop/ui/compose/layouts/adaptive/canonical-layouts#list-detail) layout on large screens. Activity embedding, part of [Jetpack WindowManager](/reference/androidx/window/embedding/package-summary), lets you define configuration rules (such as split-pair rules) using XML or API calls that determine whether activities are displayed side by side or stacked. For full details, see [Activity embedding](/develop/ui/views/layout/activity-embedding).
+Activity embedding enables apps composed of multiple activities to split
+activities *within the same app task*, such as for a [list‑detail](/develop/ui/compose/layouts/adaptive/canonical-layouts#list-detail)
+layout on large screens. Activity embedding, part of [Jetpack WindowManager](/reference/androidx/window/embedding/package-summary),
+lets you define configuration rules (such as split-pair rules) using XML or API
+calls that determine whether activities are displayed side by side or stacked.
+For full details, see [Activity embedding](/develop/ui/views/layout/activity-embedding).
 
 ## Activity lifecycle in multi-window mode
 
@@ -304,7 +313,7 @@ attempts to open a fixed-orientation app under multi-window mode, the app takes
 over the whole screen.
 
 Android 12 (API level 31) defaults to multi-window mode. On large screens
-([medium](/develop/ui/compose/layouts/adaptive/window-size-classes) or [expanded](/develop/ui/compose/layouts/adaptive/window-size-classes) window size class), all apps run in multi-window
+([medium][] or [expanded][] window size class), all apps run in multi-window
 mode regardless of app configuration. On small screens, the system checks an
 activity's [`minWidth`](/reference/kotlin/android/content/pm/ActivityInfo.WindowLayout#android:minwidth), [`minHeight`](/reference/kotlin/android/content/pm/ActivityInfo.WindowLayout#android:minheight), and [`resizeableActivity`](/guide/topics/manifest/application-element#resizeableActivity)
 settings to determine whether the activity can run in multi-window mode.
@@ -332,11 +341,11 @@ this attribute, the attribute's value defaults to true.
 If your app targets API level 31 or higher, this attribute works differently on
 small and large screens:
 
-* **Large screens** ([medium](/develop/ui/compose/layouts/adaptive/window-size-classes) or [expanded](/develop/ui/compose/layouts/adaptive/window-size-classes) window size class): All apps
+* **Large screens** ([medium][] or [expanded][] window size class): All apps
   support multi-window mode. The attribute indicates whether an activity can
   be resized. If `resizeableActivity="false"`, the app is put into
   compatibility mode when necessary to conform to display dimensions.
-* **Small screens** ([compact](/develop/ui/compose/layouts/adaptive/window-size-classes) window size class): If
+* **Small screens** ([compact][] window size class): If
   `resizeableActivity="true"` and activity minimum width and minimum height
   are within the multi-window requirements, the activity supports multi-window
   mode. If `resizeableActivity="false"`, the activity does not support
@@ -375,6 +384,7 @@ manifest [`<activity>`](/guide/topics/manifest/activity-element) node with at le
 <activity
   android:name=".MyActivity"
   android:configChanges="screenSize | smallestScreenSize
+
       | screenLayout | orientation" />
 ```
 

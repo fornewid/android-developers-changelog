@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Android provides a number of ways to take photos and videos in low-light
 conditions.
 

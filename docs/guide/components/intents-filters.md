@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 An `Intent` is a messaging object you can use to request an action
 from another [app component](/guide/components/fundamentals#Components).
 Although intents facilitate communication between components in several ways, there are three

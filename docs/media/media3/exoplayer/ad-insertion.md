@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 ExoPlayer can be used for both client-side and server-side ad insertion.
 
 ## Client-side ad insertion

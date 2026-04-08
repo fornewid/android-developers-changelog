@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 The Network Inspector displays real-time network activity on a timeline, showing
 data sent and received. The Network Inspector lets you examine how and when your
 app transfers data and optimize the underlying code appropriately.

@@ -15,6 +15,7 @@ Send feedback
 
 
 
+
 This guide describes the process for analyzing and optimizing game performance
 on Android devices for a smooth user experience. It covers identifying
 performance bottlenecks, distinguishing between CPU and GPU issues, and
@@ -198,6 +199,8 @@ For detailed guidance, see [CPU, GPU Optimization Tips for Android](/games/optim
 ## See also
 
 * [CPU, GPU Optimization Tips for Android](/games/optimize/optimization-tips)
+
+
 
 
 

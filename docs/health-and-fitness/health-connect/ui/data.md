@@ -15,6 +15,7 @@ Starting in 2026, we'll be transitioning away from Google Fit APIs. For more inf
 
 
 
+
 To assure users that their data is being read correctly, clearly show how your
 app obtains data, which comes from the
 [`packageName` property of the `DataOrigin` class](/reference/kotlin/androidx/health/connect/client/records/metadata/DataOrigin#packageName()).

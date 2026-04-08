@@ -13,7 +13,6 @@ Save and categorize content based on your preferences.
 
 
 
-
 # Bottom Sheet Recipe
 
 This recipe demonstrates how to display a destination as a modal bottom sheet.

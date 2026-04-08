@@ -12,6 +12,7 @@ source: html-scrape
 
 
 
+
 This guide describes how to support [in-app updates](/guide/playcore/in-app-updates) in your app using either
 Kotlin or Java. There are separate guides for cases where your implementation
 uses [native code (C/C++)](/guide/playcore/in-app-updates/native) and cases where your implementation uses

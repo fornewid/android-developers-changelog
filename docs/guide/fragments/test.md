@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 This topic describes how to include framework-provided APIs in tests
 that evaluate each fragment's behavior.
 

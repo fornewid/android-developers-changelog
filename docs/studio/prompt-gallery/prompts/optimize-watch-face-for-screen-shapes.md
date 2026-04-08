@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Optimize an XML layout for a Wear OS smartwatch.
 
 ---

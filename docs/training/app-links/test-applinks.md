@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 When implementing the app linking feature, you should test the linking
 functionality to make sure the system can associate your app with your websites,
 and handle URL requests, as you expect.

@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 ![](/static/wear/images/design/media-use-cases-hero.png)
 
 When designing media apps, prioritize the following use cases. Allow users to do

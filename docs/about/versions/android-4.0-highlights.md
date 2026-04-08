@@ -10,7 +10,6 @@ source: html-scrape
 
 
 
-
 Welcome to Android 4.0!
 
 Android 4.0 delivers a refined, unified UI for phones and tablets and

@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 The UI Automator testing framework provides a set of APIs to build UI tests that
 interact with user apps and system apps.
 

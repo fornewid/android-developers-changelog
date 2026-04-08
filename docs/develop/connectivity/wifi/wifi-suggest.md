@@ -1,66 +1,39 @@
 ---
-title: Wi-Fi suggestion API for internet connectivity  |  Connectivity  |  Android Developers
+title: https://developer.android.com/develop/connectivity/wifi/wifi-suggest
 url: https://developer.android.com/develop/connectivity/wifi/wifi-suggest
-source: html-scrape
+source: md.txt
 ---
 
-* [Android Developers](https://developer.android.com/)
-* [Develop](https://developer.android.com/develop)
-* [Core areas](https://developer.android.com/develop/core-areas)
-* [Connectivity](https://developer.android.com/develop/connectivity)
-* [Guides](https://developer.android.com/develop/connectivity/overview)
-
-# Wi-Fi suggestion API for internet connectivity Stay organized with collections Save and categorize content based on your preferences.
-
-
-
-
-Devices running Android 10 (API level 29) and higher allow your app to add network
+Devices running Android 10 (API level 29) and higher allow your app to add network
 credentials for a device to auto-connect to a Wi-Fi access point. You can supply
 suggestions for which network to connect to using
-[`WifiNetworkSuggestion`](/reference/android/net/wifi/WifiNetworkSuggestion).
+[`WifiNetworkSuggestion`](https://developer.android.com/reference/android/net/wifi/WifiNetworkSuggestion).
 The platform ultimately chooses which access point to accept based on the
 input from your app and others.
 
-**Note:** Wi-Fi suggestions are not saved networks and will not appear in the
-saved network page. To add a new Wi-Fi network with user completion, see the
-[`ACTION_WIFI_ADD_NETWORKS`](/reference/android/provider/Settings#ACTION_WIFI_ADD_NETWORKS)
-activity action API. This API will prompt the user to approve the network
-addition.
+> [!NOTE]
+> **Note:** Wi-Fi suggestions are not saved networks and will not appear in the saved network page. To add a new Wi-Fi network with user completion, see the [`ACTION_WIFI_ADD_NETWORKS`](https://developer.android.com/reference/android/provider/Settings#ACTION_WIFI_ADD_NETWORKS) activity action API. This API will prompt the user to approve the network addition.
 
-On Android 11 (API level 30) and higher:
+On Android 11 (API level 30) and higher:
 
-* Provisioning a [`PasspointConfiguration`](/reference/android/net/wifi/hotspot2/PasspointConfiguration)
-  is supported by the suggestion API. Before Android 11,
-  provisioning a `PasspointConfiguration`
-  requires the use of the [`addOrUpdatePasspointConfiguration()`](/reference/android/net/wifi/WifiManager#addOrUpdatePasspointConfiguration(android.net.wifi.hotspot2.PasspointConfiguration))
-  API.
-* The framework enforces security requirements on TLS-based Enterprise
-  suggestions (EAP-TLS, EAP-TTLS, and EAP-PEAP); suggestions to such networks
-  must set a [`Root CA certificate`](/reference/android/net/wifi/WifiEnterpriseConfig#setCaCertificates(java.security.cert.X509Certificate%5B%5D))
-  and a [`server domain name`](/reference/android/net/wifi/WifiEnterpriseConfig#setAltSubjectMatch(java.lang.String)).
+- Provisioning a [`PasspointConfiguration`](https://developer.android.com/reference/android/net/wifi/hotspot2/PasspointConfiguration) is supported by the suggestion API. Before Android 11, provisioning a `PasspointConfiguration` requires the use of the [`addOrUpdatePasspointConfiguration()`](https://developer.android.com/reference/android/net/wifi/WifiManager#addOrUpdatePasspointConfiguration(android.net.wifi.hotspot2.PasspointConfiguration)) API.
+- The framework enforces security requirements on TLS-based Enterprise suggestions (EAP-TLS, EAP-TTLS, and EAP-PEAP); suggestions to such networks must set a [`Root CA certificate`](https://developer.android.com/reference/android/net/wifi/WifiEnterpriseConfig#setCaCertificates(java.security.cert.X509Certificate%5B%5D)) and a [`server domain name`](https://developer.android.com/reference/android/net/wifi/WifiEnterpriseConfig#setAltSubjectMatch(java.lang.String)).
 
-**Note:** Insecure suggestions retained from an earlier version of Android are
-ignored in Android 11 and higher. The suggesting app must replace
-its old suggestions with new and secure suggestions.
+> [!NOTE]
+> **Note:** Insecure suggestions retained from an earlier version of Android are ignored in Android 11 and higher. The suggesting app must replace its old suggestions with new and secure suggestions.
 
-* The framework enforces ownership requirements for EAP-SIM based Enterprise
-  suggestions (EAP-SIM, EAP-AKA, EAP-AKA-PRIME); such suggestions are
-  allowed only by apps that are carrier-signed.
-* For suggestions provided by a carrier-signed app, the framework automatically
-  assigns them a carrier ID corresponding to the app's
-  [carrier signing](https://source.android.com/devices/tech/config/uicc). Such
-  suggestions are automatically disabled if the corresponding SIM is removed
-  from the device.
+- The framework enforces ownership requirements for EAP-SIM based Enterprise suggestions (EAP-SIM, EAP-AKA, EAP-AKA-PRIME); such suggestions are allowed only by apps that are carrier-signed.
+- For suggestions provided by a carrier-signed app, the framework automatically assigns them a carrier ID corresponding to the app's [carrier signing](https://source.android.com/devices/tech/config/uicc). Such suggestions are automatically disabled if the corresponding SIM is removed from the device.
 
-On Android 12 (API level 31) and higher:
+On Android 12 (API level 31) and higher:
 
-* Additional privacy can be enabled via non-persistent MAC randomization,
+- Additional privacy can be enabled via non-persistent MAC randomization,
   which periodically re-randomizes the randomized MAC address.
-  Use [`setMacRandomizationSetting`](/reference/android/net/wifi/WifiNetworkSuggestion.Builder#setMacRandomizationSetting(int))
+  Use [`setMacRandomizationSetting`](https://developer.android.com/reference/android/net/wifi/WifiNetworkSuggestion.Builder#setMacRandomizationSetting(int))
   to specify the level of randomization for your network.
-* [`isPasspointTermsAndConditionsSupported()`](/reference/android/net/wifi/WifiManager#isPasspointTermsAndConditionsSupported()):
-  *Terms and conditions* is a [Passpoint](/develop/connectivity/passpoint)
+
+- [`isPasspointTermsAndConditionsSupported()`](https://developer.android.com/reference/android/net/wifi/WifiManager#isPasspointTermsAndConditionsSupported()):
+  *Terms and conditions* is a [Passpoint](https://developer.android.com/develop/connectivity/passpoint)
   feature that allows network deployments to replace insecure captive portals,
   which use open networks, with a secure Passpoint network. A notification is
   displayed to the user when terms and conditions are required to be accepted.
@@ -68,7 +41,8 @@ On Android 12 (API level 31) and higher:
   must call this API first to make sure that the device supports the capability.
   If the device does not support the capability, it won't be able to connect to
   this network, and an alternative or legacy network must be suggested.
-* [`isDecoratedIdentitySupported()`](/reference/android/net/wifi/WifiManager#isDecoratedIdentitySupported()):
+
+- [`isDecoratedIdentitySupported()`](https://developer.android.com/reference/android/net/wifi/WifiManager#isDecoratedIdentitySupported()):
   When authenticating to networks with a prefix decoration, the decorated
   identity prefix allows network operators to update the Network Access
   Identifier (NAI) to perform explicit routing through multiple proxies inside
@@ -85,9 +59,9 @@ On Android 12 (API level 31) and higher:
   and the authentication to the network might fail.
 
 To create a Passpoint suggestion, apps must use the
-[`PasspointConfiguration`](/reference/android/net/wifi/hotspot2/PasspointConfiguration),
-[`Credential`](/reference/android/net/wifi/hotspot2/pps/Credential), and
-[`HomeSp`](/reference/android/net/wifi/hotspot2/pps/HomeSp) classes. These
+[`PasspointConfiguration`](https://developer.android.com/reference/android/net/wifi/hotspot2/PasspointConfiguration),
+[`Credential`](https://developer.android.com/reference/android/net/wifi/hotspot2/pps/Credential), and
+[`HomeSp`](https://developer.android.com/reference/android/net/wifi/hotspot2/pps/HomeSp) classes. These
 classes describe the Passpoint profile, which is defined in the [Wi-Fi Alliance
 Passpoint
 specification](https://www.wi-fi.org/downloads-registered-guest/Passpoint_Specification_Package_v3.2.zip/35974).
@@ -97,7 +71,7 @@ WPA2, one WPA3 network and one Passpoint network:
 
 ### Kotlin
 
-```
+```kotlin
 val suggestion1 = WifiNetworkSuggestion.Builder()
         .setSsid("test111111")
         .setIsAppInteractionRequired(true) // Optional (Needs location permission)
@@ -146,7 +120,7 @@ context.registerReceiver(broadcastReceiver, intentFilter);
 
 ### Java
 
-```
+```java
 final WifiNetworkSuggestion suggestion1 =
   new WifiNetworkSuggestion.Builder()
   .setSsid("test111111")
@@ -189,7 +163,7 @@ final WifiManager wifiManager =
 
 final int status = wifiManager.addNetworkSuggestions(suggestionsList);
 if (status != WifiManager.STATUS_NETWORK_SUGGESTIONS_SUCCESS) {
-// do error handling here…
+// do error handling here...
 }
 
 // Optional (Wait for post connection broadcast to one of your suggestions)
@@ -213,11 +187,8 @@ Immediately after the app places a suggestion for the first time, the user is
 notified. The notification type depends on the version of Android that's running
 on the device:
 
-* On Android 11 (API level 30) and higher, the user sees a dialog if the app is
-  running in the foreground, and a notification if the app is running in the
-  background.
-* On Android 10 (API level 29), the user sees a notification, regardless of
-  whether the app is running in the foreground or the background.
+- On Android 11 (API level 30) and higher, the user sees a dialog if the app is running in the foreground, and a notification if the app is running in the background.
+- On Android 10 (API level 29), the user sees a notification, regardless of whether the app is running in the foreground or the background.
 
 When the platform connects to one of the network suggestions, the settings show
 text that attributes the network connection to the corresponding suggester app.
@@ -236,6 +207,6 @@ considered for auto-connection immediately.
 
 A user declining the network suggestion notification removes the
 `CHANGE_WIFI_STATE` permission from the app. The user can grant this approval
-later by going into the Wi-Fi control menu (**Settings** >
-**Apps & notifications** > **Special App
-access** > **Wi-Fi Control** > App name).
+later by going into the Wi-Fi control menu (**Settings** \>
+**Apps \& notifications** \> **Special App
+access** \> **Wi-Fi Control** \> <var translate="no">App name</var>).

@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 ![watch-sample](/static/wear/images/design/design-principles-header.png)
 
 Wear OS is a wearable platform, helping people live more present, healthy, and

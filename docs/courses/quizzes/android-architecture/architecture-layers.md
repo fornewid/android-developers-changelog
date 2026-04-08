@@ -1,53 +1,60 @@
 ---
-title: https://developer.android.com/courses/quizzes/android-architecture/architecture-layers
+title: Modern Android App Architecture quiz  |  Android Developers
 url: https://developer.android.com/courses/quizzes/android-architecture/architecture-layers
-source: md.txt
+source: html-scrape
 ---
 
-# Modern Android App Architecture quiz
+Stay organized with collections
+
+Save and categorize content based on your preferences.
+
+
 
 # Modern Android App Architecture quiz
 
-<br />
+Return to pathway
 
-Return to pathway  
-1.
 
-   ## The ___ is the combination of UI elements and UI state.
 
-   ViewModel  
-   Architecture of an app  
-   UI  
-   Unidirectional Data Flow pattern  
-2.
+1. ## The \_\_\_ is the combination of UI elements and UI state.
 
-   ## Which of the following are Jetpack libraries that could be used in the data layer? Select all that apply.
+   ViewModel
 
-   Choose as many answers as you see fit.  
-   Room  
-   ViewModel  
-   DataStore  
-   Navigation  
-3.
+   Architecture of an app
 
-   ## True or false? All UI events coming from the ViewModel should be modeled as state.
+   UI
 
-   True  
-   False  
-4.
+   Unidirectional Data Flow pattern
+2. ## Which of the following are Jetpack libraries that could be used in the data layer? Select all that apply.
 
-   ## True or false? The UI behavior logic or UI logic should be present in a ViewModel.
+   Choose as many answers as you see fit.
 
-   True  
-   False  
-5.
+   Room
 
-   ## The ___ layer avoids code duplication and encourages splitting responsibility to avoid large classes.
+   ViewModel
 
-   UI  
-   Domain  
-   Data  
+   DataStore
+
+   Navigation
+3. ## True or false? All UI events coming from the ViewModel should be modeled as state.
+
+   True
+
+   False
+4. ## True or false? The UI behavior logic or UI logic should be present in a ViewModel.
+
+   True
+
+   False
+5. ## The \_\_\_ layer avoids code duplication and encourages splitting responsibility to avoid large classes.
+
+   UI
+
+   Domain
+
+   Data
 
 Submit answers
 
-*error_outline*An error occurred when grading the quiz. Please try again.
+*error\_outline*
+An error occurred when grading the quiz. Please try again.

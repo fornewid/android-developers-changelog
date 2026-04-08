@@ -186,7 +186,7 @@ Use cases for supporting pane include:
 
 - **Productivity apps:** A [document or spreadsheet accompanied by reviewer
   comments](https://developer.android.com/large-screens/gallery/productivity#reviews-and-comments) in a supporting pane
-- **Media apps:** A [streaming video complemented by a list of related videos](https://developer.android.com/large-screens/gallery/media#media-exploration) in a supporting pane, or the depiction of an album of music supplemented with a playlist
+- **Media apps:** A [streaming video and a list of related videos](https://developer.android.com/large-screens/gallery/media#media-exploration) in a supporting pane, or the depiction of an album of music supplemented with a playlist
 - **Tools and settings:** A [media editing tool](https://developer.android.com/large-screens/gallery/social#tools) with palettes, effects, and other settings in a support pane
 
 Your browser doesn't support the video tag. **Figure 3.** Shopping app with product descriptions in a supporting pane.

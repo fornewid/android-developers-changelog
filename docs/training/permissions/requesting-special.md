@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 A *special permission* guards access to system resources that are particularly
 sensitive or not directly related to user privacy. These permissions are
 different than [install-time permissions](/guide/topics/permissions/overview#install-time) and [runtime permissions](/guide/topics/permissions/overview#runtime).

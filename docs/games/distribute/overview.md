@@ -15,7 +15,6 @@ Send feedback
 
 
 
-
 Google Play supports Android by providing cross-platform
 game services and distribution through the
 [Google Play Store](https://play.google.com/console/about/).
@@ -54,8 +53,6 @@ Additional Google Play features that support game development include:
 
 For more information about app development with Google Play, see the Google Play
 [developer guides](/distribute).
-
-
 
 
 

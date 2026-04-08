@@ -1,17 +1,8 @@
 ---
-title: Launch the emulator in a separate window  |  Android Studio  |  Android Developers
+title: https://developer.android.com/studio/run/emulator-launch-separate-window
 url: https://developer.android.com/studio/run/emulator-launch-separate-window
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [Develop](https://developer.android.com/develop)
-* [Android Studio](https://developer.android.com/studio)
-* [IDE guides](https://developer.android.com/studio/intro)
-
-# Launch the emulator in a separate window Stay organized with collections Save and categorize content based on your preferences.
-
-
 
 The Android Emulator runs inside Android Studio by default. This
 lets you use screen space efficiently, navigate quickly between the
@@ -20,6 +11,6 @@ emulator workflow in a single application window.
 
 However, some emulator features are only available when you run it in a
 separate window. To launch the emulator in a separate window, go to
-**File > Settings... > Tools > Emulator**
-(**Android Studio > Settings... > Tools > Emulator** on macOS) and deselect
+**File \> Settings... \> Tools \> Emulator**
+(**Android Studio \> Settings... \> Tools \> Emulator** on macOS) and deselect
 **Launch in the Running Devices tool window**.

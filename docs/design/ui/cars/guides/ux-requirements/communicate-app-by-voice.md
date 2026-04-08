@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 To support building features such as an in-app digital assistant, the Android
 for Cars App Library now lets you use the car's microphone to record
 [voice input](/design/ui/cars/guides/components/plan-communications) from the driver.

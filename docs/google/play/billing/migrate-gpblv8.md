@@ -14,6 +14,7 @@ Send feedback
 
 
 
+
 This document describes how to migrate from Google Play Billing Library (PBL) 6
 or 7 to PBL 8 and how to integrate with the new optional subscription
 capabilities.
@@ -111,6 +112,8 @@ To upgrade from PBL 6 or 7 to PBL 8, do the following steps:
      [Handle Subscriptions and Pending Transactions](/google/play/billing/subscriptions#pending).
    * Virtual installment subscriptions. For more information, see
      [Installment Subscriptions Integration](/google/play/billing/subscriptions#installments).
+
+
 
 
 

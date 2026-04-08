@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 Build-managed devices improve consistency, performance, and reliability for
 your automated instrumented tests. This feature, available for API levels 27 and
 higher, lets you configure virtual or remote physical test devices in your

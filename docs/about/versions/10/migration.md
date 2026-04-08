@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 Welcome! Android 10 has many new APIs for building new experiences, as well as
 updated system behaviors that can affect your app when it's running on Android
 10 devices.

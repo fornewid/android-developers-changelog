@@ -1,23 +1,15 @@
 ---
-title: Get Android 16 QPR beta builds  |  Android Developers
+title: https://developer.android.com/about/versions/16/get-qpr
 url: https://developer.android.com/about/versions/16/get-qpr
-source: html-scrape
+source: md.txt
 ---
 
-* [Android Developers](https://developer.android.com/)
-* [Essentials](https://developer.android.com/get-started)
-* [Releases](https://developer.android.com/about/versions)
-
-# Get Android 16 QPR beta builds Stay organized with collections Save and categorize content based on your preferences.
-
-
-
-![Android brand logo](/static/images/shared/android-logo-verticallockup_primary.png)
+![Android brand logo](https://developer.android.com/static/images/shared/android-logo-verticallockup_primary.png)
 
 You can get Android 16 QPR1 in any of the following ways:
 
-* [Get QPR1 on a Google Pixel device](#on_pixel)
-* [Get a generic system image (GSI)](#on_gsi)
+- [Get QPR1 on a Google Pixel device](https://developer.android.com/about/versions/16/get-qpr#on_pixel)
+- [Get a generic system image (GSI)](https://developer.android.com/about/versions/16/get-qpr#on_gsi)
 
 ## Get QPR1 on a Google Pixel device
 
@@ -35,16 +27,17 @@ that device from the program.
 
 Android 16 QPR1 is available for the following Pixel devices:
 
-* Pixel 6 and 6 Pro
-* Pixel 6a
-* Pixel 7 and 7 Pro
-* Pixel 7a
-* Pixel Fold
-* Pixel Tablet
-* Pixel 8 and 8 Pro
-* Pixel 8a
-* Pixel 9, 9 Pro, 9 Pro XL, and 9 Pro Fold
-* Pixel 9a
+- Pixel 6 and 6 Pro
+- Pixel 6a
+- Pixel 7 and 7 Pro
+- Pixel 7a
+- Pixel Fold
+- Pixel Tablet
+- Pixel 8 and 8 Pro
+- Pixel 8a
+- Pixel 9, 9 Pro, 9 Pro XL, and 9 Pro Fold
+- Pixel 9a
+
 
 [Enroll in Android 16 Beta for Pixel](https://www.google.com/android/beta)
 
@@ -56,24 +49,22 @@ Pixel device is to use [Android Flash
 Tool](https://flash.android.com/preview/baklava-qpr1-beta3.1).
 
 If you'd rather flash your device manually, you can get a system image for your
-device on the [Factory images for Google Pixel](/about/versions/16/download) page. See the general
+device on the [Factory images for Google Pixel](https://developer.android.com/about/versions/16/download) page. See the general
 instructions there for how to flash a system image to your device. This approach
 can be useful when you need more control over testing, such as for automated
 testing or regression testing.
 
-**Note:** After you've flashed a beta build to a supported Pixel device, your device
-is automatically enrolled in the [Android Beta for Pixel program](https://g.co/androidbeta) and offered
-continuous over-the-air (OTA) updates to the latest beta builds (including QPRs)
-until you choose to unenroll that device from the program.
+> [!NOTE]
+> **Note:** After you've flashed a beta build to a supported Pixel device, your device is automatically enrolled in the [Android Beta for Pixel program](https://g.co/androidbeta) and offered continuous over-the-air (OTA) updates to the latest beta builds (including QPRs) until you choose to unenroll that device from the program.
 
 ## Get a generic system image (GSI)
 
-Android [Generic System Image (GSI)](/topic/generic-system-image) binaries are available to developers for
-app testing and validation purposes on supported [Treble-compliant devices](/topic/generic-system-image#device-compliance).
+Android [Generic System Image (GSI)](https://developer.android.com/topic/generic-system-image) binaries are available to developers for
+app testing and validation purposes on supported [Treble-compliant devices](https://developer.android.com/topic/generic-system-image#device-compliance).
 You can use these images to address any compatibility issues as well as discover
 and report OS and framework issues.
 
-See the [GSI documentation](/topic/generic-system-image) for device requirements, flashing instructions,
+See the [GSI documentation](https://developer.android.com/topic/generic-system-image) for device requirements, flashing instructions,
 and information on choosing the right image type for your device. Once you're
-ready to download a GSI binary, see the [Downloads section](/about/versions/16/gsi-release-notes#downloads) on the GSI
+ready to download a GSI binary, see the [Downloads section](https://developer.android.com/about/versions/16/gsi-release-notes#downloads) on the GSI
 binaries page.

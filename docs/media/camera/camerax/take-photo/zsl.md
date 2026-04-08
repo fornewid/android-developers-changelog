@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 **Note:** Zero-Shutter Lag is an experimental feature. To leave feedback on
 Zero-Shutter Lag, join the [Android CameraX Discussion Group](https://groups.google.com/a/android.com/g/camerax-developers).
 

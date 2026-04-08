@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 Most download traffic consists of images. As a result, the smaller you can make
 your downloadable images, the better a network experience your app can provide
 for users. This page provides guidance on making image files smaller and more

@@ -1,43 +1,29 @@
 ---
-title: Select your development tools and technologies  |  Android XR  |  Android Developers
+title: https://developer.android.com/develop/xr/tools-technologies
 url: https://developer.android.com/develop/xr/tools-technologies
-source: html-scrape
+source: md.txt
 ---
-
-The Android XR SDK has  [reached Developer Preview 3](https://android-developers.googleblog.com/2025/12/build-for-ai-glasses-with-android-xr.html), and we want your feedback! Try things out, and visit our [support page](/develop/xr/support) to reach out.
-
-* [Android Developers](https://developer.android.com/)
-* [Develop](https://developer.android.com/develop)
-* [Devices](https://developer.android.com/develop/devices)
-* [Android XR](https://developer.android.com/develop/xr)
-* [Guides](https://developer.android.com/develop/xr/get-started)
-
-# Select your development tools and technologies Stay organized with collections Save and categorize content based on your preferences.
-
-
 
 When building an app for Android XR, you can choose from the following
 development platforms and technologies:
 
 ### Jetpack XR SDK
 
-The Jetpack XR SDK contains Android XR [Jetpack](/jetpack) libraries built
+The Jetpack XR SDK contains Android XR [Jetpack](https://developer.android.com/jetpack) libraries built
 to take advantage of the unique capabilities of XR devices within the familiar
 development environment of Android Studio. Start with this SDK if you want to do
 any of the following:
 
-* Optimize or enhance an existing Android mobile or tablet app for XR headsets
-  and wired XR glasses
-* Build a new Android XR app with immersive, spatialized elements for XR
-  headsets and wired XR glasses
-* Build new augmented experiences that extend your phone app to AI glasses
+- Optimize or enhance an existing Android mobile or tablet app for XR headsets and wired XR glasses
+- Build a new Android XR app with immersive, spatialized elements for XR headsets and wired XR glasses
+- Build new augmented experiences that extend your phone app to AI glasses
 
 If you're already comfortable developing with Android Jetpack, the Jetpack XR
 SDK is a natural fit for you. It's designed to seamlessly integrate with those
 frameworks and libraries, and lets you use existing knowledge for building
 both immersive and augmented experiences.
 
-[Learn more about developing with the Jetpack XR SDK](/develop/xr/jetpack-xr-sdk).
+[Learn more about developing with the Jetpack XR SDK](https://developer.android.com/develop/xr/jetpack-xr-sdk).
 
 ### Unity
 
@@ -50,25 +36,25 @@ established OpenXR support and developer ecosystem.
 If you already have an XR experience built with Unity or if you are familiar
 with Unity development, then start with this option.
 
-[Learn more about developing with Unity for Android XR](/develop/xr/unity).
+[Learn more about developing with Unity for Android XR](https://developer.android.com/develop/xr/unity).
 
 ### OpenXR
 
 [OpenXR](https://www.khronos.org/openxr/) is a royalty-free, open standard that can be used for
 building high-performance, multi-platform XR experiences. Android XR supports
 OpenXR 1.0 and 1.1, and we are expanding the specification with [new
-extensions](/develop/xr/openxr/extensions) for Android XR. Because Android XR is built on open standards,
+extensions](https://developer.android.com/develop/xr/openxr/extensions) for Android XR. Because Android XR is built on open standards,
 development tools that support OpenXR and Android should be compatible with
 Android XR.
 
-[Learn more about OpenXR support for Android XR](/develop/xr/openxr).
+[Learn more about OpenXR support for Android XR](https://developer.android.com/develop/xr/openxr).
 
 ### Godot
 
 Godot supports Android XR through its OpenXR integration. You can build and
 export XR applications for Android using the standard Godot workflow.
 
-[Learn more about developing with Godot for Android XR](/develop/xr/godot).
+[Learn more about developing with Godot for Android XR](https://developer.android.com/develop/xr/godot).
 
 ### Unreal Engine
 
@@ -77,7 +63,7 @@ supports apps built with OpenXR through its support for the OpenXR 1.1
 specification and select vendor extensions, so you can use the standard tools
 and workflows you are already familiar with in Unreal Engine 5.
 
-[Learn more about developing with Unreal for Android XR](/develop/xr/unreal).
+[Learn more about developing with Unreal for Android XR](https://developer.android.com/develop/xr/unreal).
 
 ### WebXR
 
@@ -88,4 +74,4 @@ Start with this option if you want to build an XR experience for the web or if
 you want to add XR capabilities to a web app. Existing WebXR experiences will
 also work on Android XR.
 
-[Learn more about building web apps with WebXR](/develop/xr/develop-with-webxr).
+[Learn more about building web apps with WebXR](https://developer.android.com/develop/xr/develop-with-webxr).

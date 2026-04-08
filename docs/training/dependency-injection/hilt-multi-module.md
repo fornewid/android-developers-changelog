@@ -12,6 +12,7 @@ source: html-scrape
 
 
 
+
 Hilt code generation needs access to all the Gradle modules that use Hilt. The
 Gradle module that compiles your
 [`Application`](/reference/android/app/Application) class needs to have all Hilt

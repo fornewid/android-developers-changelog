@@ -1,23 +1,13 @@
 ---
-title: Migrate your build to version catalogs  |  Android Studio  |  Android Developers
+title: https://developer.android.com/build/migrate-to-catalogs
 url: https://developer.android.com/build/migrate-to-catalogs
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [Develop](https://developer.android.com/develop)
-* [Android Studio](https://developer.android.com/studio)
-* [Gradle build guides](https://developer.android.com/build/gradle-build-overview)
-
-# Migrate your build to version catalogs Stay organized with collections Save and categorize content based on your preferences.
-
-
-
 
 [Gradle version catalogs](https://docs.gradle.org/current/userguide/platforms.html)
 enable you to add and maintain dependencies and plugins in a scalable way.
 Using Gradle version catalogs makes managing dependencies and plugins easier
-when you have [multiple modules](/topic/modularization). Instead of hardcoding
+when you have [multiple modules](https://developer.android.com/topic/modularization). Instead of hardcoding
 dependency names and versions in individual build files and updating each
 entry whenever you need to upgrade a dependency, you can create a central
 *version catalog* of dependencies that various modules can reference in
@@ -25,7 +15,7 @@ a type-safe way with Android Studio assistance.
 
 This page provides basic information about migrating your Android app to
 version catalogs. To learn more, see
-[Add build dependencies](/build/dependencies) and the Gradle documentation.
+[Add build dependencies](https://developer.android.com/build/dependencies) and the Gradle documentation.
 
 ## Create a version catalog file
 
@@ -34,26 +24,22 @@ folder, create a file called `libs.versions.toml`. Gradle looks for the catalog
 in the `libs.versions.toml` file by [default](https://docs.gradle.org/current/userguide/platforms.html#sub:conventional-dependencies-toml),
 so we recommend using this default name.
 
-**Note:** It's possible to change the catalog file name; however, this requires
-changing your build files, so we don't recommend doing it.
+> [!NOTE]
+> **Note:** It's possible to change the catalog file name; however, this requires changing your build files, so we don't recommend doing it.
 
 In your `libs.versions.toml` file, add these sections:
 
-```
-[versions]
+    [versions]
 
-[libraries]
+    [libraries]
 
-[plugins]
-```
+    [plugins]
 
 The sections are used as follows:
 
-* In the `versions` block, define variables that hold the versions of your
-  dependencies and plugins. You use these variables in the subsequent blocks
-  (the `libraries` and `plugins` blocks).
-* In the `libraries` block, define your dependencies.
-* In the `plugins` block, define your plugins.
+- In the `versions` block, define variables that hold the versions of your dependencies and plugins. You use these variables in the subsequent blocks (the `libraries` and `plugins` blocks).
+- In the `libraries` block, define your dependencies.
+- In the `plugins` block, define your plugins.
 
 ## Migration steps
 
@@ -78,7 +64,7 @@ dependency:
 
 ### Kotlin
 
-```
+```kotlin
 dependencies {
     implementation("androidx.core:core-ktx:1.9.0")
 
@@ -87,7 +73,7 @@ dependencies {
 
 ### Groovy
 
-```
+```groovy
 dependencies {
     implementation 'androidx.core:core-ktx:1.9.0'
 
@@ -97,13 +83,11 @@ dependencies {
 This code snippet shows how to define the dependency in the version
 catalog file:
 
-```
-[versions]
-ktx = "1.9.0"
+    [versions]
+    ktx = "1.9.0"
 
-[libraries]
-androidx-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "ktx" }
-```
+    [libraries]
+    androidx-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "ktx" }
 
 The recommended naming for dependencies block in catalogs is kebab case (such as
 `androidx-ktx`) for better
@@ -115,7 +99,7 @@ define the dependencies by the names you defined in the TOML file.
 
 ### Kotlin
 
-```
+```kotlin
 dependencies {
    implementation(libs.androidx.ktx)
 
@@ -124,7 +108,7 @@ dependencies {
 
 ### Groovy
 
-```
+```groovy
 dependencies {
    implementation libs.androidx.ktx
 
@@ -143,7 +127,7 @@ plugin:
 
 ### Kotlin
 
-```
+```kotlin
 // Top-level `build.gradle.kts` file
 plugins {
    id("com.android.application") version "7.4.1" apply false
@@ -159,7 +143,7 @@ plugins {
 
 ### Groovy
 
-```
+```groovy
 // Top-level `build.gradle` file
 plugins {
    id 'com.android.application' version '7.4.1' apply false
@@ -175,13 +159,11 @@ plugins {
 
 This code snippet shows how to define the plugin in the version catalog file:
 
-```
-[versions]
-androidGradlePlugin = "7.4.1"
+    [versions]
+    androidGradlePlugin = "7.4.1"
 
-[plugins]
-android-application = { id = "com.android.application", version.ref = "androidGradlePlugin" }
-```
+    [plugins]
+    android-application = { id = "com.android.application", version.ref = "androidGradlePlugin" }
 
 As with dependencies, the recommended formatting for `plugins` block catalog
 entries is kebab case (such as `android-application`) for better
@@ -196,7 +178,7 @@ from the version catalog file, such as
 
 ### Kotlin
 
-```
+```kotlin
 // Top-level build.gradle.kts
 plugins {
    alias(libs.plugins.android.application) apply false
@@ -212,7 +194,7 @@ plugins {
 
 ### Groovy
 
-```
+```groovy
 // Top-level build.gradle
 plugins {
    alias libs.plugins.android.application apply false
@@ -226,18 +208,13 @@ plugins {
 }
 ```
 
-**Note:** If you are using a version of Gradle below 8.1, you need to annotate
-the `plugins{}` block with `@Suppress("DSL_SCOPE_VIOLATION")`
-when using version catalogs. Refer to
-[issue #22797](https://github.com/gradle/gradle/issues/22797)
-for more info.
+> [!NOTE]
+> **Note:** If you are using a version of Gradle below 8.1, you need to annotate the `plugins{}` block with `@Suppress("DSL_SCOPE_VIOLATION")` when using version catalogs. Refer to [issue #22797](https://github.com/gradle/gradle/issues/22797) for more info.
 
 ## Learn more
 
 To learn about additional options for configuring your version catalog, see
 these resources:
 
-* [The version catalog TOML file format](https://docs.gradle.org/current/userguide/platforms.html#sub::toml-dependencies-format)
-  documents additional options for configuring your catalog file.
-* [Now in Android](https://github.com/android/nowinandroid) is our
-  sample app that uses version catalogs.
+- [The version catalog TOML file format](https://docs.gradle.org/current/userguide/platforms.html#sub::toml-dependencies-format) documents additional options for configuring your catalog file.
+- [Now in Android](https://github.com/android/nowinandroid) is our sample app that uses version catalogs.

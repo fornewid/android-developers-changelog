@@ -1,8 +1,17 @@
 ---
-title: https://developer.android.com/studio/releases/past-releases/as-flamingo-release-notes
+title: Android Studio Flamingo | 2022.2.1 (April 2023)  |  Android Developers
 url: https://developer.android.com/studio/releases/past-releases/as-flamingo-release-notes
-source: md.txt
+source: html-scrape
 ---
+
+* [Android Developers](https://developer.android.com/)
+* [Develop](https://developer.android.com/develop)
+* [IDE guides](https://developer.android.com/studio/releases/past-releases)
+
+# Android Studio Flamingo | 2022.2.1 (April 2023) Stay organized with collections Save and categorize content based on your preferences.
+
+
+
 
 The following are new features in Android Studio Flamingo.
 
@@ -10,21 +19,21 @@ The following are new features in Android Studio Flamingo.
 
 The following is a list of the patch releases in Android Studio Flamingo.
 
-### Android Studio Flamingo \| 2022.2.1 Patch 2 (May 2023)
+### Android Studio Flamingo | 2022.2.1 Patch 2 (May 2023)
 
 This minor update includes
-[these bug fixes](https://developer.android.com/studio/releases/fixed-bugs/studio/2022.2.1#android-studio-flamingo-patch-2-2022.2.1.20).
+[these bug fixes](/studio/releases/fixed-bugs/studio/2022.2.1#android-studio-flamingo-patch-2-2022.2.1.20).
 
-### Android Studio Flamingo \| 2022.2.1 Patch 1 (May 2023)
+### Android Studio Flamingo | 2022.2.1 Patch 1 (May 2023)
 
-This minor update includes [these Android Gradle plugin bug fixes](https://developer.android.com/build/releases/gradle-plugin#agp-8-0-1).
+This minor update includes [these Android Gradle plugin bug fixes](/build/releases/gradle-plugin#agp-8-0-1).
 
 ## Themed app icons and dynamic color
 
 With the introductions of
 [dynamic color](https://m3.material.io/styles/color/dynamic-color/overview)
 in Material 3 and
-[themed app icons](https://developer.android.com/about/versions/13/features#themed-app-icons)
+[themed app icons](/about/versions/13/features#themed-app-icons)
 in Android 13, you can now create layouts or launcher icons that are tinted to
 inherit the coloring of the user's chosen wallpaper. You can use this feature
 starting with Android Studio Flamingo Beta 1.
@@ -33,26 +42,32 @@ starting with Android Studio Flamingo Beta 1.
 
 For `launcher.xml` files, you can now use the new **System UI Mode** selector on
 the toolbar to switch wallpapers and see how your
-[themed app icons](https://developer.android.com/develop/ui/views/launch/icon_design_adaptive#add_your_adaptive_icon_to_your_app) react to different users' chosen wallpaper.
-![](https://developer.android.com/static/studio/images/system-ui-mode-selector.png) **System UI Mode** selector.
+[themed app icons](/develop/ui/views/launch/icon_design_adaptive#add_your_adaptive_icon_to_your_app) react to different users' chosen wallpaper.
 
-<br />
+![](/static/studio/images/system-ui-mode-selector.png)
 
 
-![](https://developer.android.com/static/studio/images/preview-themed-app-icons.gif) Preview themed app icons across different wallpapers.
+**System UI Mode** selector.
 
-<br />
+![](/static/studio/images/preview-themed-app-icons.gif)
+
+
+Preview themed app icons across different wallpapers.
 
 ### Dynamic color preview
 
 For Compose Preview: We've added a new attribute, `wallpaper`, to the
-[Composable Preview](https://developer.android.com/develop/ui/compose/tooling/previews) annotation. If
+[Composable Preview](/develop/ui/compose/tooling/previews) annotation. If
 you've enabled
 [dynamic color](https://m3.material.io/styles/color/dynamic-color/overview)
 in your app, you can use this new attribute to switch wallpapers and see how
 your UI reacts to different users' chosen wallpaper. To use this feature, you
 must use Compose 1.4.0-alpha03 or higher.
-![](https://developer.android.com/static/studio/images/dynamic-color-wallpaper-compose-preview.gif) Dynamic color wallpaper in Compose Preview.
+
+![](/static/studio/images/dynamic-color-wallpaper-compose-preview.gif)
+
+
+Dynamic color wallpaper in Compose Preview.
 
 For Android XML: If you've enabled
 [dynamic color](https://m3.material.io/styles/color/dynamic-color/overview)
@@ -60,7 +75,11 @@ in your app, you can now use the new **System UI Mode** selector on the toolbar
 to switch wallpapers and see how your layouts react to different user's chosen
 wallpaper. Note that you must first select to change the theme to a Material
 dynamic color theme, then change the wallpaper.
-![](https://developer.android.com/static/studio/images/dynamic-color-wallpaper-layout-editor.gif) Dynamic color wallpaper in the Layout Editor.
+
+![](/static/studio/images/dynamic-color-wallpaper-layout-editor.gif)
+
+
+Dynamic color wallpaper in the Layout Editor.
 
 ## Updates to Live Edit
 
@@ -68,31 +87,31 @@ Live Edit now has two modes: manual and automatic. In manual mode, your code
 changes are applied every time you manually save using `Ctrl` + `S` (`Command`+
 `S` for macOS). In automatic mode, when you update a composable function, your
 changes are applied in your device or emulator as you make that change. To
-choose the mode you want to run Live Edit in, go to **File** \> **Settings** from
-the menu bar (or **Android Studio** \> **Preferences** on macOS), click on
-**Editor** \> **Live Edit** , and check the **Push Edits Manually** or
+choose the mode you want to run Live Edit in, go to **File** > **Settings** from
+the menu bar (or **Android Studio** > **Preferences** on macOS), click on
+**Editor** > **Live Edit**, and check the **Push Edits Manually** or
 **Push Edits Automatically** box.
 
 ## Compose Tracing
 
-The [System tracing](https://developer.android.com/topic/performance/tracing) utility is an Android tool that
+The [System tracing](/topic/performance/tracing) utility is an Android tool that
 saves device activity to a trace file, which provides an overall picture of your
 app's system processes for a given period of time. Starting with Android Studio
 Flamingo, you can view your Compose functions in the
-[System Trace profiler](https://developer.android.com/studio/profile/record-traces) using Compose Tracing.
+[System Trace profiler](/studio/profile/record-traces) using Compose Tracing.
 Compose Tracing gives you the low intrusiveness from System tracing with method
 tracing levels of detail in composition, helping you understand which Compose
 functions are actually being recomposed.
 
-![UI preview of Compose Tracing](https://developer.android.com/static/studio/images/composition-tracing-preview.png)
+![UI preview of Compose Tracing](/static/studio/images/composition-tracing-preview.png)
 
 To get started with recomposition tracing, you need to update to at least the
 following versions:
 
-- Android Studio Flamingo Canary 5
-- Compose UI: 1.3.0-beta01
-- Compose Compiler: 1.3.0
-- The device or emulator you run your trace on must be at least API level 30.
+* Android Studio Flamingo Canary 5
+* Compose UI: 1.3.0-beta01
+* Compose Compiler: 1.3.0
+* The device or emulator you run your trace on must be at least API level 30.
 
 Additionally, you need to add the following dependency on Compose Runtime
 Tracing:
@@ -100,33 +119,33 @@ Tracing:
 `implementation("androidx.compose.runtime:runtime-tracing:1.0.0-alpha01")`
 
 To view recomposition tracing,
-[open the Android Studio Profiler](https://developer.android.com/studio/profile#profile-profileable-app)
+[open the Android Studio Profiler](/studio/profile#profile-profileable-app)
 and select the CPU profiler. Navigate your app to the UI that you want to trace
-and then select **System Trace** and **Record** . While recording, use your app
+and then select **System Trace** and **Record**. While recording, use your app
 in order to cause recomposition. Once you stop recording and the trace
 processes, you can see the Compose functions in the recomposition trace directly
 in the **Threads** timeline. You can also see the Compose functions in the
-**Flame Chart** , **Top Down** , **Bottom Up** , and **Events** tabs from the
+**Flame Chart**, **Top Down**, **Bottom Up**, and **Events** tabs from the
 **Analysis** pane.
 
 This is an experimental feature in active development, and we welcome you to
 [provide feedback](https://issuetracker.google.com/issues/new?component=898851&template=1458540).
-For more details, see [Compose tracing](https://developer.android.com/jetpack/compose/performance/tracing).
+For more details, see [Compose tracing](/jetpack/compose/performance/tracing).
 
 ## Updates to project templates
 
 Android Studio Flamingo Canary 6 includes new templates for creating a project
 or module. By default, templates use Compose Material 3 unless they are
 specified as a Views template. We recommend using the Compose Material 3
-templates (for example, **Empty Activity** ) as the best practice for creating an
+templates (for example, **Empty Activity**) as the best practice for creating an
 Android app. To learn more, see the
-[Compose Material 3 reference](https://developer.android.com/jetpack/androidx/releases/compose-material3).
+[Compose Material 3 reference](/jetpack/androidx/releases/compose-material3).
 
 To view the templates, go to open the **New Project** or **Create New Module**
-wizard by selecting **File** \> **New** \> **New Project** or **New Module** from
+wizard by selecting **File** > **New** > **New Project** or **New Module** from
 the main menu.
 
-![New Project wizard](https://developer.android.com/static/studio/preview/features/images/new-project.png)
+![New Project wizard](/static/studio/preview/features/images/new-project.png)
 
 ## Device mirroring
 
@@ -134,22 +153,24 @@ Minimize the number of interruptions when developing by streaming your device
 display directly to Android Studio. Device mirroring gives you the ability to
 interact with a physical device using the **Running Devices** window in
 Studio. To enable this feature, go to
-**File \> Settings \> Tools \> Device Mirroring** and check the box
-next to **Enable mirroring of physical Android devices** . Once enabled,
+**File > Settings > Tools > Device Mirroring** and check the box
+next to **Enable mirroring of physical Android devices**. Once enabled,
 connect your device and either deploy your app or open the
 **Running Devices** window to begin streaming the device's display and
 interacting with it from the IDE.
 
-> [!NOTE]
-> **Note:** If you're using certain devices, for example the Xiaomi Redmi K40, Poco F3, or Mi 11X, with Android 12, you must enable both the **USB debugging** and **USB debugging (Security settings)** settings and then restart the device to enable device mirroring.
+**Note:** If you're using certain devices, for example the Xiaomi Redmi K40, Poco
+F3, or Mi 11X, with Android 12, you must enable both the **USB debugging** and
+**USB debugging (Security settings)** settings and then restart the device to
+enable device mirroring.
 
 To get started, ensure you are connected to a device. All devices that you are
 connected to are mirrored in tabs in the **Running Devices** window, which you
-can open by navigating to **View** \> **Tool Windows** \> **Running Devices** .
+can open by navigating to **View** > **Tool Windows** > **Running Devices**.
 When you deploy an app or test to a connected device, the **Running Devices**
 window appears automatically and shows the mirrored device.
 
-![Running Devices UI](https://developer.android.com/static/studio/images/device-mirroring.png)
+![Running Devices UI](/static/studio/images/device-mirroring.png)
 
 ### Privacy notice
 
@@ -174,7 +195,7 @@ responses before they reach the app. You can choose which rule to enable or
 disable by checking the **Active** box next to each rule. Rules are
 automatically saved every time you modify them.
 
-![Network Inspector Rules and Rule Details panes](https://developer.android.com/static/studio/images/debug/network-inspector-rules.png)
+![Network Inspector Rules and Rule Details panes](/static/studio/images/debug/network-inspector-rules.png)
 
 To get started, navigate to the **Rules** tab in the **Network Inspector** and
 click **+** to create a new rule. In the **Rule Details** panel, name your new
@@ -183,19 +204,19 @@ intercept under the **Origin** subsection. The URL in the **Rules** table should
 update based on the changes you made to the origin of the response. All fields
 in this subsection are optional.
 
-![Origin subsection in the Rules section](https://developer.android.com/static/studio/images/debug/network-inspector-origin.png)
+![Origin subsection in the Rules section](/static/studio/images/debug/network-inspector-origin.png)
 
 From the **Response** subsection, you can modify the response before it's sent
 to your app. For example, you can set the rule to execute on responses with a
 specific status code as well as modify that status code.
 
-![Response subsection in the Rules section](https://developer.android.com/static/studio/images/debug/network-inspector-response.png)
+![Response subsection in the Rules section](/static/studio/images/debug/network-inspector-response.png)
 
 ### Modify headers
 
 In the **Header rules** subsection, you can create multiple sub-rules that add
 or modify headers in a response. When you create multiple header rules, use the
-up and down arrows ![](https://developer.android.com/static/studio/images/buttons/network-inspector-up-down-arrows.png)
+up and down arrows ![](/static/studio/images/buttons/network-inspector-up-down-arrows.png)
 at the top of the **Rules** table to change the order of the header rules. The
 order affects the header of the modified response because the header rules are
 applied in the order that they are listed.
@@ -205,13 +226,13 @@ To get started, click **+** in the **Header rules** section.
 To add a header, enter a name and value for the header in the **Add new header**
 section.
 
-![Add a new header tab](https://developer.android.com/static/studio/images/debug/network-inspector-add-header.png)
+![Add a new header tab](/static/studio/images/debug/network-inspector-add-header.png)
 
 To modify a header, navigate to the **Edit existing header** tab and specify the
 header name or value that you want to find. Enter a header name or value that
 you want to replace it with.
 
-![Edit existing header tab](https://developer.android.com/static/studio/images/debug/network-inspector-modify-header.png)
+![Edit existing header tab](/static/studio/images/debug/network-inspector-modify-header.png)
 
 ### Modify response body
 
@@ -228,7 +249,7 @@ in the order that they are listed in the table.
 The Layout Inspector now automatically connects to apps on virtual or physical
 devices. Specifically, the Layout Inspector automatically connects to debuggable
 processes running in the foreground of a connected device. If you have feedback
-on this feature, please [file a bug](https://developer.android.com/studio/report-bugs).
+on this feature, please [file a bug](/studio/report-bugs).
 
 ## Updates to App Quality Insights
 
@@ -236,7 +257,7 @@ Android Studio Flamingo Canary 5 and higher introduce multiple new App Quality
 Insights features that help you focus on high priority issues and collaborate
 with your development team.
 
-![App Quality Insights with device filter open.](https://developer.android.com/static/studio/preview/features/images/aqi-v2.png)
+![App Quality Insights with device filter open.](/static/studio/preview/features/images/aqi-v2.png)
 
 ### New filters and filter search
 
@@ -244,16 +265,16 @@ To help you identify the most important issues, you can now filter by the
 following attributes. Each filter is sorted by the number of events, so you can
 see where most events occur.
 
-- Android platform version
-- Device make and model
-- [Crashlytics Signal](https://firebase.google.com/support/releases#october_8_2021):
+* Android platform version
+* Device make and model
+* [Crashlytics Signal](https://firebase.google.com/support/releases#october_8_2021):
   Signal icons also appear next to associated issues in the **Issues** panel so
   you can see counts and signals side by side. An issue is considered
   *regressed* when it's been closed in the past and has reoccurred in a new
   version of the app.
 
-  ![Crashlytics Signal filter.](https://developer.android.com/static/studio/preview/features/images/aqi-signal-filter.png)
-- App version: This filter now includes a higher-level
+  ![Crashlytics Signal filter.](/static/studio/preview/features/images/aqi-signal-filter.png)
+* App version: This filter now includes a higher-level
   [Play track](https://support.google.com/googleplay/android-developer/answer/9845334)
   filter that you can use to automatically select versions in the production, open, closed
   and/or internal testing tracks.
@@ -266,71 +287,70 @@ customize your view faster, without scrolling through all the menu options.
 To make it easier for you to collaborate with teammates, you can now do the
 following directly in the **App Quality Insights** tool window:
 
-- Close issues. To close an issue, click the **Close** button in the main stack
+* Close issues. To close an issue, click the **Close** button in the main stack
   trace panel. Recently closed issues appear in the **Issues** panel with
   strikethrough. You can reopen issues that have been recently closed by
   clicking on the button again. However, once you refresh the
   **App Quality Insights** tool window, closed issues are no longer visible.
-
-- Read and attach notes to issues so that they are visible in the Firebase Console and
+* Read and attach notes to issues so that they are visible in the Firebase Console and
   your teammates. To write a note about an issue, select the issue and open the
   **Notes** panel. You must have write permission to the Crashlytics project in
   order to write notes. Issues with notes appear with a "notes" icon
-  ![](https://developer.android.com/static/studio/preview/features/images/aqi-notes-icon.png)
+  ![](/static/studio/preview/features/images/aqi-notes-icon.png)
   in the **Issues** panel.
 
 If you're new to App Quality Insights and would like to learn more, see the
-[earlier release note](https://developer.android.com/studio/releases/past-releases/as-flamingo-release-notes#aqi).
+[earlier release note](#aqi).
 
 ### Investigate with limited functionality when offline
 
 Starting with Android Studio Flamingo Canary 8, you can do some actions in the
 App Quality Insights tool window while offline. If you make a new request, such
-as by clicking **Refresh** , and Android Studio is unable to communicate with
+as by clicking **Refresh**, and Android Studio is unable to communicate with
 Crashlytics, the App Quality Insights window allows you to enter **Offline
 Mode**.
 
-![App Quality Insights offers offline mode.](https://developer.android.com/static/studio/images/aqi-offline-mode.png)
+![App Quality Insights offers offline mode.](/static/studio/images/aqi-offline-mode.png)
 
 While in this mode, you can continue to investigate issues and the latest events
 from cached data. Certain functionality, such as changing some filter options or
 closing issues, is not available. To retry your connection to Crashlytics
 and return to an online state, click **Reconnect**.
 
-![App Quality Insights reconnect option in offline mode.](https://developer.android.com/static/studio/images/aqi-reconnect.png)
+![App Quality Insights reconnect option in offline mode.](/static/studio/images/aqi-reconnect.png)
 
 ## One-click automated profileable build and run
 
 Android Studio Flamingo and AGP 7.3 introduces one-click automated profileable
 builds, which makes it easier to configure a
-[profileable app](https://developer.android.com/studio/profile#profileable-apps) and profile it. This
+[profileable app](/studio/profile#profileable-apps) and profile it. This
 feature requires a virtual or physical test device running API level 29 or
 higher. To use the feature, click the arrow next to the **Profile app** icon
-![](https://developer.android.com/static/studio/images/profile-app-icon.png)
+![](/static/studio/images/profile-app-icon.png)
 and choose between two options:
 
-![One-click profileable build menu.](https://developer.android.com/static/studio/images/one-click-profileable-build-menu.png)
+![One-click profileable build menu.](/static/studio/images/one-click-profileable-build-menu.png)
 
-- **Profile 'app' with low overhead** starts the CPU and Memory
+* **Profile 'app' with low overhead** starts the CPU and Memory
   profilers. In the Memory profiler, only
-  [**Record Native Allocations**](https://developer.android.com/studio/profile/memory-profiler#native-memory-profiler)
+  [**Record Native Allocations**](/studio/profile/memory-profiler#native-memory-profiler)
   is enabled.
 
-  ![Profiling with low overhead.](https://developer.android.com/static/studio/images/profiling-with-low-overhead.png)
-- **Profile 'app' with complete data** starts the CPU, Memory, and
+  ![Profiling with low overhead.](/static/studio/images/profiling-with-low-overhead.png)
+* **Profile 'app' with complete data** starts the CPU, Memory, and
   Energy profilers.
 
-  ![Profiling with complete data.](https://developer.android.com/static/studio/images/profiling-with-complete-data.png)
+  ![Profiling with complete data.](/static/studio/images/profiling-with-complete-data.png)
 
 To learn more about testing your app with minimal performance costs, see
-[Profileable applications](https://developer.android.com/studio/profile#profileable-apps).
+[Profileable applications](/studio/profile#profileable-apps).
 
 ## Lint support for SDK extensions
 
-Android Studio Flamingo provides [lint](https://developer.android.com/studio/write/lint) support for SDK
+Android Studio Flamingo provides [lint](/studio/write/lint) support for SDK
 extensions. This feature allows you to update the lint tool's API check to
 correctly enforce API access in the presence of API backports and for new API
-surfaces like the [Android Privacy Sandbox](https://developer.android.com/design-for-safety/privacy-sandbox).
+surfaces like the [Android Privacy Sandbox](/design-for-safety/privacy-sandbox).
 
 The lint tool's API check makes sure that your code only uses APIs available to
 you as gated by `minSdkVersion` or by an `SDK_INT` check. With SDK extensions,
@@ -359,4 +379,4 @@ will use the latest stable version of the Android Gradle plugin and JDK 17.
 However, existing projects might break, and you might have to manually set the
 JDK to a compatible version.
 
-To learn more, see [Set the JDK version](https://developer.android.com/studio/intro/studio-config#jdk).
+To learn more, see [Set the JDK version](/studio/intro/studio-config#jdk).

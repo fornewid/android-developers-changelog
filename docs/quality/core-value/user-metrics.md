@@ -1,18 +1,8 @@
 ---
-title: User metrics on Google Play  |  App quality  |  Android Developers
+title: https://developer.android.com/quality/core-value/user-metrics
 url: https://developer.android.com/quality/core-value/user-metrics
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [Design & Plan](https://developer.android.com/design)
-* [App quality](https://developer.android.com/quality)
-* [Core value](https://developer.android.com/quality/core-value)
-
-# User metrics on Google Play Stay organized with collections Save and categorize content based on your preferences.
-
-
-
 
 Google Play cares about app quality and uses various signals to evaluate users'
 experience of your app. Apps are only eligible for certain features if they meet
@@ -33,14 +23,12 @@ the Play Store.
 
 The user metric quality requirements are as follows:
 
-* User loss rate < 5%.
-* DAU divided by MAU > 8%.
-* You also need to have a sufficient number of users installing and engaging
-  with your app to accurately assess these metrics over a minimum of 24 days in
-  a 30 day period.
+- User loss rate \< 5%.
+- DAU divided by MAU \> 8%.
+- You also need to have a sufficient number of users installing and engaging with your app to accurately assess these metrics over a minimum of 24 days in a 30 day period.
 
 In addition, apps must continue to meet our [technical quality core vitals and
-bad behavior thresholds](/quality/technical#stability_and_google_play).
+bad behavior thresholds](https://developer.android.com/quality/technical#stability_and_google_play).
 Individual treatments and tools may also have additional requirements for
 eligibility.
 

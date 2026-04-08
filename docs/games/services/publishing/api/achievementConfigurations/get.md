@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 **Requires [authorization](#auth)**
 
 Retrieves the metadata of the achievement configuration with the given ID.

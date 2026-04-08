@@ -313,7 +313,7 @@ class ViewModel() {
 ```
 <TextView
     android:id="@+id/name"
-    android:text="@{viewmod>el.username}" /
+    android:text="@{viewmodel.username}" />
 ```
 
 If you're in a Kotlin app that uses AndroidX, `StateFlow` support is

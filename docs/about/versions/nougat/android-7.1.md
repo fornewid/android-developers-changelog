@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 The Android 7.1 update introduces a variety of
 new features and capabilities for users and developers.
 This document highlights what's new for developers.

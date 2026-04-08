@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 Sign-in flows designed for the car screen are not as critical on Android Auto
 because the app is projected from a phone that already has its own sign-in
 experience. To minimize distraction for drivers, signing in is only available

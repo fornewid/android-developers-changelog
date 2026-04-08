@@ -1,18 +1,8 @@
 ---
-title: Glance interoperability  |  Jetpack Compose  |  Android Developers
+title: https://developer.android.com/develop/ui/compose/glance/interoperability
 url: https://developer.android.com/develop/ui/compose/glance/interoperability
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [Develop](https://developer.android.com/develop)
-* [Core areas](https://developer.android.com/develop/core-areas)
-* [UI](https://developer.android.com/develop/ui)
-* [Docs](https://developer.android.com/develop/ui/compose/documentation)
-
-# Glance interoperability Stay organized with collections Save and categorize content based on your preferences.
-
-
 
 In some cases, you may want to use XML and `RemoteViews` to provide a view.
 Perhaps you have already implemented a feature without Glance, or the feature is
@@ -22,22 +12,24 @@ Glance provides `AndroidRemoteViews`, an interoperability API.
 The `AndroidRemoteViews` composable allows `RemoteViews` to be placed together
 with your other composables:
 
-```
+
+```kotlin
 val packageName = LocalContext.current.packageName
 Column(modifier = GlanceModifier.fillMaxSize()) {
     Text("Isn't that cool?")
     AndroidRemoteViews(RemoteViews(packageName, R.layout.example_layout))
 }
-
-GlanceSnippets.kt
 ```
+
+<br />
 
 Create and define the `RemoteViews` as you would without Glance, and simply pass
 it as a parameter.
 
 In addition, you can create `RemoteViews` containers for your composables:
 
-```
+
+```kotlin
 AndroidRemoteViews(
     remoteViews = RemoteViews(packageName, R.layout.my_container_view),
     containerViewId = R.id.example_view
@@ -47,27 +39,13 @@ AndroidRemoteViews(
         Text("Maybe a long content...")
     }
 }
-
-GlanceSnippets.kt
 ```
 
+<br />
+
 In this case, a layout that contains the "container" is passed with the defined
-ID. This container must be a [`ViewGroup`](/reference/android/view/ViewGroup), since it is used to place the
+ID. This container must be a [`ViewGroup`](https://developer.android.com/reference/android/view/ViewGroup), since it is used to place the
 defined content.
 
-**Note:** Any children of the defined container are removed and replaced with the
-content. Also, the provided `ViewGroup` must be supported by `RemoteViews.` See
-[`RemoteViewsWidget.kt`](https://cs.android.com/androidx/platform/frameworks/support/+/androidx-main:glance/glance-appwidget/integration-tests/demos/src/main/java/androidx/glance/appwidget/demos/RemoteViewsWidget.kt) for an example of using
-`AndroidRemoteViews`.
-
-[Previous
-
-arrow\_back
-
-Implement a Glance theme](/develop/ui/compose/glance/theme)
-
-[Next
-
-Additional resources
-
-arrow\_forward](/develop/ui/compose/glance/additional-resources)
+> [!NOTE]
+> **Note:** Any children of the defined container are removed and replaced with the content. Also, the provided `ViewGroup` must be supported by `RemoteViews.` See [`RemoteViewsWidget.kt`](https://cs.android.com/androidx/platform/frameworks/support/+/androidx-main:glance/glance-appwidget/integration-tests/demos/src/main/java/androidx/glance/appwidget/demos/RemoteViewsWidget.kt) for an example of using `AndroidRemoteViews`.

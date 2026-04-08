@@ -1,8 +1,17 @@
 ---
-title: https://developer.android.com/studio/run/emulator-networking-dns
+title: Configure emulator DNS settings  |  Android Studio  |  Android Developers
 url: https://developer.android.com/studio/run/emulator-networking-dns
-source: md.txt
+source: html-scrape
 ---
+
+* [Android Developers](https://developer.android.com/)
+* [Develop](https://developer.android.com/develop)
+* [Android Studio](https://developer.android.com/studio)
+* [IDE guides](https://developer.android.com/studio/intro)
+
+# Configure emulator DNS settings Stay organized with collections Save and categorize content based on your preferences.
+
+
 
 At startup, the emulator reads the list of DNS servers that your system is
 using. It then stores the IP addresses of up to four servers on this list and
@@ -20,7 +29,11 @@ macOS, `%WINDOWS%/system32/HOSTS` on Windows).
 When starting the emulator from the command line, you can use the `-dns-server
 <serverList>` option to manually specify the addresses of DNS servers to use.
 
-- `<serverList>` is a comma-separated list of server names or IP addresses.
-- This option is useful if you encounter DNS resolution problems in the emulated network, such as an "Unknown Host error" message when using the web browser.
+* `<serverList>` is a comma-separated list of server names or IP addresses.
+* This option is useful if you encounter DNS resolution problems in the
+  emulated network, such as an "Unknown Host error" message when using the
+  web browser.
 
-    emulator @MyAvd -dns-server 8.8.8.8,8.8.4.4,2001:4860:4860::8888,2001:4860:4860::8844
+```
+emulator @MyAvd -dns-server 8.8.8.8,8.8.4.4,2001:4860:4860::8888,2001:4860:4860::8844
+```

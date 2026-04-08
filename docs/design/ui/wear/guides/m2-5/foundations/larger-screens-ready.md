@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 ![](/static/wear/images/design/larger-screens-ready-header.png)
 
 ## A minimum quality bar for experiences across all screen sizes on Wear OS

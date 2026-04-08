@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 Smartwatches have smaller screen sizes than handheld devices, so it's critical
 to arrange and display elements in a manner that users can access and that
 efficiently uses the available screen space. To help your items fit the screen,

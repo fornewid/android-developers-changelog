@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 Beginning with Android 10 (API level 29) and higher, there are methods in
 [`MediaCodecInfo`](/reference/android/media/MediaCodecInfo) that
 reveal more information about a codec:

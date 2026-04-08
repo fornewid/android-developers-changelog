@@ -1,15 +1,8 @@
 ---
-title: Simpleperf command and options reference  |  Android NDK  |  Android Developers
+title: https://developer.android.com/ndk/guides/simpleperf-commands
 url: https://developer.android.com/ndk/guides/simpleperf-commands
-source: html-scrape
+source: md.txt
 ---
-
-* [Home](https://developer.android.com/)
-* [NDK](https://developer.android.com/ndk)
-
-# Simpleperf command and options reference Stay organized with collections Save and categorize content based on your preferences.
-
-
 
 Full
 [Simpleperf reference documentation](https://android.googlesource.com/platform/system/extras/+/master/simpleperf/doc/README.md)

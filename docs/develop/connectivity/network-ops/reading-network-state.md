@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 Android enables apps to learn about dynamic changes in connectivity. Use the
 following classes to track and respond to connectivity changes:
 

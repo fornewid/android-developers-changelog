@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 This page provides release notes for each version of the Play Install Referrer
 API Library.
 

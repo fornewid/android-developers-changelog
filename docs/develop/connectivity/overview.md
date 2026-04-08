@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 Your app can connect with the outside world using a variety of different
 communication technologies, including Wi-Fi, Bluetooth, and USB. The guides
 listed below cover adding support for these technologies and for optimizing

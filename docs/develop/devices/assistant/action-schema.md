@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 Once you identify your in-app functionality and corresponding built-in intent
 (BII) to implement, declare the BIIs your functionality supports by defining
 a `capability` element in a `shortcuts.xml` resource file. Declaring a BII

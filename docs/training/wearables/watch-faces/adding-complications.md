@@ -17,7 +17,6 @@ Learn more about the user-facing changes in this [Help Center article](https://
 
 
 
-
 description: This document explains how to add and configure watch face complications on Wear OS using the Watch Face Format, detailing available complication types and their fields.
 keywords\_public: Android,Wear OS,watch faces,complications,Watch Face Format,ComplicationData,data sources
 

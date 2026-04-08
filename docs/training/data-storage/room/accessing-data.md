@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 When you use the Room persistence library to store your app's data, you interact
 with the stored data by defining *data access objects*, or DAOs. Each DAO
 includes methods that offer abstract access to your app's database. At compile

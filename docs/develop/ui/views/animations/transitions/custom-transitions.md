@@ -1,13 +1,27 @@
 ---
-title: https://developer.android.com/develop/ui/views/animations/transitions/custom-transitions
+title: Create a custom transition animation  |  Views  |  Android Developers
 url: https://developer.android.com/develop/ui/views/animations/transitions/custom-transitions
-source: md.txt
+source: html-scrape
 ---
 
-Try the Compose way  
-Jetpack Compose is the recommended UI toolkit for Android. Learn how to add animations in Compose.  
-[Add multiple properties with a transition in Compose →](https://developer.android.com/develop/ui/compose/animation/value-based#updateTransition)  
-![](https://developer.android.com/static/images/android-compose-ui-logo.png)
+* [Android Developers](https://developer.android.com/)
+* [Develop](https://developer.android.com/develop)
+* [Core areas](https://developer.android.com/develop/core-areas)
+* [UI](https://developer.android.com/develop/ui)
+* [Views](https://developer.android.com/develop/ui/views/layout/declaring-layout)
+
+# Create a custom transition animation Stay organized with collections Save and categorize content based on your preferences.
+
+
+
+
+Try the Compose way
+
+Jetpack Compose is the recommended UI toolkit for Android. Learn how to add animations in Compose.
+
+[Add multiple properties with a transition in Compose →](https://developer.android.com/develop/ui/compose/animation/value-based#updateTransition)
+
+![](/static/images/android-compose-ui-logo.png)
 
 A custom transition lets you create an animation that is not available from any of
 the built-in transition classes. For example, you can define a custom transition that turns
@@ -24,11 +38,11 @@ custom transitions.
 
 ## Extend the Transition class
 
-To create a custom transition, add a class to your project that extends the [Transition](https://developer.android.com/reference/android/transition/Transition) class and override the functions shown in the following snippet:  
+To create a custom transition, add a class to your project that extends the `Transition` class and override the functions shown in the following snippet:
 
 ### Kotlin
 
-```kotlin
+```
 class CustomTransition : Transition() {
 
     override fun captureStartValues(transitionValues: TransitionValues) {}
@@ -46,7 +60,7 @@ class CustomTransition : Transition() {
 
 ### Java
 
-```java
+```
 public class CustomTransition extends Transition {
 
     @Override
@@ -67,7 +81,7 @@ The following sections explain how to override these functions.
 ## Capture view property values
 
 Transition animations use the property animation system described in
-[Property animation overview](https://developer.android.com/guide/topics/graphics/prop-animation). Property
+[Property animation overview](/guide/topics/graphics/prop-animation). Property
 animations change a view property from a starting value to an ending value over a specified
 period of time, so the framework needs to have both the starting and ending values of
 the property to construct the animation.
@@ -82,25 +96,25 @@ capture only the property values it needs and store them in the framework.
 ### Capture starting values
 
 To pass the starting view values to the framework, implement the
-[captureStartValues(transitionValues)](https://developer.android.com/reference/android/transition/Transition#captureStartValues(android.transition.TransitionValues))
+`captureStartValues(transitionValues)`
 function. The framework calls this function for every view in the starting scene. The function
-argument is a [TransitionValues](https://developer.android.com/reference/android/transition/TransitionValues) object that contains a reference
-to the view and a [Map](https://developer.android.com/reference/java/util/Map) instance in which you can store the view values you
+argument is a `TransitionValues` object that contains a reference
+to the view and a `Map` instance in which you can store the view values you
 want. In your implementation, retrieve these property values and pass them back to the
 framework by storing them in the map.
 
 To ensure that the key for a property value does not conflict with other
-`TransitionValues` keys, use the following naming scheme:  
+`TransitionValues` keys, use the following naming scheme:
 
-```xml
+```
 package_name:transition_name:property_name
 ```
 
-The following snippet shows an implementation of the `captureStartValues()` function:  
+The following snippet shows an implementation of the `captureStartValues()` function:
 
 ### Kotlin
 
-```kotlin
+```
 class CustomTransition : Transition() {
 
     // Define a key for storing a property value in
@@ -129,7 +143,7 @@ class CustomTransition : Transition() {
 
 ### Java
 
-```java
+```
 public class CustomTransition extends Transition {
 
     // Define a key for storing a property value in
@@ -159,14 +173,14 @@ public class CustomTransition extends Transition {
 
 ### Capture ending values
 
-The framework calls the [captureEndValues(TransitionValues)](https://developer.android.com/reference/android/transition/Transition#captureEndValues(android.transition.TransitionValues)) function
+The framework calls the `captureEndValues(TransitionValues)` function
 once for every target view in the ending scene. In all other respects, `captureEndValues()` works the same as `captureStartValues()`.
 
-The following code snippet shows an implementation of the `captureEndValues()` function:  
+The following code snippet shows an implementation of the `captureEndValues()` function:
 
 ### Kotlin
 
-```kotlin
+```
 override fun captureEndValues(transitionValues: TransitionValues) {
     captureValues(transitionValues)
 }
@@ -174,7 +188,7 @@ override fun captureEndValues(transitionValues: TransitionValues) {
 
 ### Java
 
-```java
+```
 @Override
 public void captureEndValues(TransitionValues transitionValues) {
     captureValues(transitionValues);
@@ -191,7 +205,7 @@ states of a view.
 
 To animate the changes to a view between its state in the starting scene and its state in
 the ending scene, provide an animator by overriding the
-[createAnimator()](https://developer.android.com/reference/android/transition/Transition#createAnimator(android.view.ViewGroup, android.transition.TransitionValues, android.transition.TransitionValues))
+`createAnimator()`
 function. When the framework calls this function, it passes in the scene root view and the
 `TransitionValues` objects that contain the starting and ending values
 you captured.
@@ -213,12 +227,12 @@ a `TransitionValues` object for both the `startValues` and
 ending scene, the framework provides a `TransitionValues` object
 for the corresponding argument and `null` for the other.
 
-To implement the [createAnimator(ViewGroup, TransitionValues, TransitionValues)](https://developer.android.com/reference/android/transition/Transition#createAnimator(android.view.ViewGroup, android.transition.TransitionValues, android.transition.TransitionValues)) function when you create
-a custom transition, use the view property values you captured to create an [Animator](https://developer.android.com/reference/android/animation/Animator) object and return it to the framework. For an example implementation,
-see the [ChangeColor](https://github.com/android/animation-samples/blob/master/CustomTransition/Application/src/main/java/com/example/android/customtransition/ChangeColor.java) class in the [CustomTransition](https://github.com/android/animation-samples/tree/main/CustomTransition) sample. For more information about property animators, see
-[Property animation](https://developer.android.com/guide/topics/graphics/prop-animation).
+To implement the `createAnimator(ViewGroup, TransitionValues, TransitionValues)` function when you create
+a custom transition, use the view property values you captured to create an `Animator` object and return it to the framework. For an example implementation,
+see the `ChangeColor` class in the [CustomTransition](https://github.com/android/animation-samples/tree/main/CustomTransition) sample. For more information about property animators, see
+[Property animation](/guide/topics/graphics/prop-animation).
 
 ## Apply a custom transition
 
 Custom transitions work the same as built-in transitions. You can apply a custom transition
-using a transition manager, as described in [Apply a transition](https://developer.android.com/training/transitions/transitions#Apply).
+using a transition manager, as described in [Apply a transition](/training/transitions/transitions#Apply).

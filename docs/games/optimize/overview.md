@@ -15,7 +15,6 @@ Send feedback
 
 
 
-
 Android optimization tools and APIs are designed to find performance bottlenecks
 and determine device limitations while maximizing performance at sustainable
 levels for games and graphic-intensive apps.
@@ -46,8 +45,6 @@ levels for games and graphic-intensive apps.
   [`meminfo dumpsys`](/studio/command-line/dumpsys#meminfo) command.
 * [Bug report](/studio/debug/bug-report): View device logs, stack traces, and
   other diagnostic information to help you find and fix bugs in your app.
-
-
 
 
 

@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 ## Before you begin
 
 This guide assumes that you are already familiar with concepts inherent in

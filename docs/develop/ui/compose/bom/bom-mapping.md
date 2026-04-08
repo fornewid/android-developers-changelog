@@ -11,7 +11,6 @@ source: html-scrape
 
 
 
-
 The URL on the Group Release Note column is updated depending on which BOM
 version is selected from the drop-down.
 

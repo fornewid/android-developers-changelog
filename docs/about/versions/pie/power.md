@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 Android 9 (API level 28) introduces new features to improve device power management. These
 changes, along with features that were already present in previous versions, help
 to ensure that system resources are given to the apps that need them the most.

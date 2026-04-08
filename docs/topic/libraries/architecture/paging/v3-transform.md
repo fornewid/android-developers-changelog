@@ -1,33 +1,25 @@
 ---
-title: Transform data streams  |  App architecture  |  Android Developers
+title: https://developer.android.com/topic/libraries/architecture/paging/v3-transform
 url: https://developer.android.com/topic/libraries/architecture/paging/v3-transform
-source: html-scrape
+source: md.txt
 ---
 
-* [Android Developers](https://developer.android.com/)
-* [Design & Plan](https://developer.android.com/design)
-* [App architecture](https://developer.android.com/topic/architecture/intro)
-
-# Transform data streams Stay organized with collections Save and categorize content based on your preferences.
-
-
-
 When you [work with paged
-data](/topic/libraries/architecture/paging/v3-paged-data), you often need to
+data](https://developer.android.com/topic/libraries/architecture/paging/v3-paged-data), you often need to
 transform the data stream as you load it. For example, you might need to filter
 a list of items, or convert items to a different type before you present them in
 the UI. Another common use case for data stream transformation is [adding list
-separators](#separators).
+separators](https://developer.android.com/topic/libraries/architecture/paging/v3-transform#separators).
 
 More generally, applying transformations directly to the data stream allows you
 to keep your repository constructs and UI constructs separate.
 
 This page assumes that you are familiar with [basic use of the Paging
-library](/topic/libraries/architecture/paging/v3-paged-data).
+library](https://developer.android.com/topic/libraries/architecture/paging/v3-paged-data).
 
 ## Apply basic transformations
 
-Because [`PagingData`](/reference/kotlin/androidx/paging/PagingData) is
+Because [`PagingData`](https://developer.android.com/reference/kotlin/androidx/paging/PagingData) is
 encapsulated in a reactive stream, you can apply transform operations on the
 data incrementally between loading the data and presenting it.
 
@@ -38,7 +30,7 @@ operation on the stream:
 
 ### Kotlin
 
-```
+```kotlin
 pager.flow // Type is Flow<PagingData<User>>.
   // Map the outer stream so that the transformations are applied to
   // each new generation of PagingData.
@@ -50,7 +42,7 @@ pager.flow // Type is Flow<PagingData<User>>.
 
 ### Java
 
-```
+```java
 PagingRx.getFlowable(pager) // Type is Flowable<PagingData<User>>.
   // Map the outer stream so that the transformations are applied to
   // each new generation of PagingData.
@@ -62,7 +54,7 @@ PagingRx.getFlowable(pager) // Type is Flowable<PagingData<User>>.
 
 ### Java
 
-```
+```java
 // Map the outer stream so that the transformations are applied to
 // each new generation of PagingData.
 Transformations.map(
@@ -87,7 +79,7 @@ to apply this type of map operation:
 
 ### Kotlin
 
-```
+```kotlin
 pager.flow // Type is Flow<PagingData<User>>.
   .map { pagingData ->
     pagingData.map { user -> UiModel(user) }
@@ -96,7 +88,7 @@ pager.flow // Type is Flow<PagingData<User>>.
 
 ### Java
 
-```
+```java
 // Type is Flowable<PagingData<User>>.
 PagingRx.getFlowable(pager)
   .map(pagingData ->
@@ -106,7 +98,7 @@ PagingRx.getFlowable(pager)
 
 ### Java
 
-```
+```java
 Transformations.map(
   // Type is LiveData<PagingData<User>>.
   PagingLiveData.getLiveData(pager),
@@ -126,7 +118,7 @@ define a function to notify the ViewModel of the user's query.
 
 ### Kotlin
 
-```
+```kotlin
 private val queryFlow = MutableStateFlow("")
 
 fun onQueryChanged(query: String) {
@@ -136,7 +128,7 @@ fun onQueryChanged(query: String) {
 
 ### Java
 
-```
+```java
 private BehaviorSubject<String> querySubject = BehaviorSubject.create("");
 
 public void onQueryChanged(String query) {
@@ -146,7 +138,7 @@ public void onQueryChanged(String query) {
 
 ### Java
 
-```
+```java
 private MutableLiveData<String> queryLiveData = new MutableLiveData("");
 
 public void onQueryChanged(String query) {
@@ -161,7 +153,7 @@ used, but they all provide similar functionality.
 
 ### Kotlin
 
-```
+```kotlin
 val querySearchResults = queryFlow.flatMapLatest { query ->
   // The database query returns a Flow which is output through
   // querySearchResults
@@ -171,14 +163,14 @@ val querySearchResults = queryFlow.flatMapLatest { query ->
 
 ### Java
 
-```
+```java
 Observable<User> querySearchResults =
   querySubject.switchMap(query -> userDatabase.searchBy(query));
 ```
 
 ### Java
 
-```
+```java
 LiveData<User> querySearchResults = Transformations.switchMap(
   queryLiveData,
   query -> userDatabase.searchBy(query)
@@ -203,7 +195,7 @@ display.
 
 ### Kotlin
 
-```
+```kotlin
 pager.flow // Type is Flow<PagingData<User>>.
   .map { pagingData ->
     pagingData.filter { user -> !user.hiddenFromUi }
@@ -212,7 +204,7 @@ pager.flow // Type is Flow<PagingData<User>>.
 
 ### Java
 
-```
+```java
 // Type is Flowable<PagingData<User>>.
 PagingRx.getFlowable(pager)
   .map(pagingData ->
@@ -223,7 +215,7 @@ PagingRx.getFlowable(pager)
 
 ### Java
 
-```
+```java
 Transformations.map(
   // Type is LiveData<PagingData<User>>.
   PagingLiveData.getLiveData(pager),
@@ -243,14 +235,11 @@ the other features provided by a `View`.
 There are three steps involved in inserting separators into your paged list:
 
 1. Convert the UI model to accommodate the separator items.
-2. Transform the data stream to dynamically add the separators between loading
-   the data and presenting the data.
+2. Transform the data stream to dynamically add the separators between loading the data and presenting the data.
 3. Update the UI to handle separator items.
 
-**Note:** If you don't need your list separators to be interactive or implement
-accessibility focus, it is simpler to use
-[`RecyclerView.ItemDecoration`](/reference/kotlin/androidx/recyclerview/widget/RecyclerView.ItemDecoration)
-to create static list separators instead.
+> [!NOTE]
+> **Note:** If you don't need your list separators to be interactive or implement accessibility focus, it is simpler to use [`RecyclerView.ItemDecoration`](https://developer.android.com/reference/kotlin/androidx/recyclerview/widget/RecyclerView.ItemDecoration) to create static list separators instead.
 
 ### Convert the UI model
 
@@ -269,7 +258,7 @@ either a `UserModel` or a `SeparatorModel`:
 
 ### Kotlin
 
-```
+```kotlin
 sealed class UiModel {
   class UserModel(val id: String, val label: String) : UiModel() {
     constructor(user: User) : this(user.id, user.label)
@@ -281,7 +270,7 @@ sealed class UiModel {
 
 ### Java
 
-```
+```java
 class UiModel {
   private UiModel() {}
 
@@ -330,7 +319,7 @@ class UiModel {
 
 ### Java
 
-```
+```java
 class UiModel {
   private UiModel() {}
 
@@ -382,11 +371,11 @@ class UiModel {
 You must apply transformations to the data stream after loading it and before
 you present it. The transformations should do the following:
 
-* Convert the loaded list items to reflect the new base item type.
-* Use the `PagingData.insertSeparators()` method to add the separators.
+- Convert the loaded list items to reflect the new base item type.
+- Use the `PagingData.insertSeparators()` method to add the separators.
 
 To learn more about transformation operations, see [Apply basic
-transformations](#basic-transformations).
+transformations](https://developer.android.com/topic/libraries/architecture/paging/v3-transform#basic-transformations).
 
 The following example shows transformation operations to update the
 `PagingData<User>` stream to a `PagingData<UiModel>` stream with separators
@@ -394,7 +383,7 @@ added:
 
 ### Kotlin
 
-```
+```kotlin
 pager.flow.map { pagingData: PagingData<User> ->
   // Map outer stream, so you can perform transformations on
   // each paging generation.
@@ -419,7 +408,7 @@ pager.flow.map { pagingData: PagingData<User> ->
 
 ### Java
 
-```
+```java
 // Map outer stream, so you can perform transformations on each
 // paging generation.
 PagingRx.getFlowable(pager).map(pagingData -> {
@@ -449,7 +438,7 @@ PagingRx.getFlowable(pager).map(pagingData -> {
 
 ### Java
 
-```
+```java
 // Map outer stream, so you can perform transformations on each
 // paging generation.
 Transformations.map(PagingLiveData.getLiveData(pager),
@@ -488,13 +477,12 @@ base class that both your item and separator view holder classes extend.
 
 You must also make the following changes to your list adapter:
 
-* Add cases to the `onCreateViewHolder()` and `onBindViewHolder()` methods to
-  account for separator list items.
-* Implement a new comparator.
+- Add cases to the `onCreateViewHolder()` and `onBindViewHolder()` methods to account for separator list items.
+- Implement a new comparator.
 
 ### Kotlin
 
-```
+```kotlin
 class UiModelAdapter :
   PagingDataAdapter<UiModel, RecyclerView.ViewHolder>(UiModelComparator) {
 
@@ -554,7 +542,7 @@ object UiModelComparator : DiffUtil.ItemCallback<UiModel>() {
 
 ### Java
 
-```
+```java
 class UiModelAdapter extends PagingDataAdapter<UiModel, RecyclerView.ViewHolder> {
   UiModelAdapter() {
     super(new UiModelComparator(), Dispatchers.getMain(),
@@ -625,7 +613,7 @@ class UiModelComparator extends DiffUtil.ItemCallback<UiModel> {
 
 ### Java
 
-```
+```java
 class UiModelAdapter extends PagingDataAdapter<UiModel, RecyclerView.ViewHolder> {
   UiModelAdapter() {
     super(new UiModelComparator(), Dispatchers.getMain(),
@@ -706,7 +694,7 @@ before it. Therefore, `cachedIn()` should be the last call in your ViewModel.
 
 ### Kotlin
 
-```
+```kotlin
 pager.flow // Type is Flow<PagingData<User>>.
   .map { pagingData ->
     pagingData.filter { user -> !user.hiddenFromUi }
@@ -717,7 +705,7 @@ pager.flow // Type is Flow<PagingData<User>>.
 
 ### Java
 
-```
+```java
 // CoroutineScope helper provided by the lifecycle-viewmodel-ktx artifact.
 CoroutineScope viewModelScope = ViewModelKt.getViewModelScope(viewModel);
 PagingRx.cachedIn(
@@ -732,7 +720,7 @@ PagingRx.cachedIn(
 
 ### Java
 
-```
+```java
 // CoroutineScope helper provided by the lifecycle-viewmodel-ktx artifact.
 CoroutineScope viewModelScope = ViewModelKt.getViewModelScope(viewModel);
 PagingLiveData.cachedIn(
@@ -747,14 +735,10 @@ PagingLiveData.cachedIn(
 
 For more information on using `cachedIn()` with a stream of `PagingData`, see
 [Set up a stream of
-PagingData](/topic/libraries/architecture/paging/v3-paged-data#pagingdata-stream).
+PagingData](https://developer.android.com/topic/libraries/architecture/paging/v3-paged-data#pagingdata-stream).
 
-**Note:** You can use each instance of `PagingData` only once within `submitData()`.
-To get around this limitation, consider using the `cachedIn()` operator, which
-multicasts the stream as part of caching the results. This allows subsequent
-observers to receive new valid instances of `PagingData`. This is especially
-useful when you work with operators that reuse the most recently emitted
-`PagingData`, such as Flow's `.combine()` operator.
+> [!NOTE]
+> **Note:** You can use each instance of `PagingData` only once within `submitData()`. To get around this limitation, consider using the `cachedIn()` operator, which multicasts the stream as part of caching the results. This allows subsequent observers to receive new valid instances of `PagingData`. This is especially useful when you work with operators that reuse the most recently emitted `PagingData`, such as Flow's `.combine()` operator.
 
 ## Additional resources
 
@@ -762,11 +746,11 @@ To learn more about the Paging library, see the following additional resources:
 
 ### Codelabs
 
-* [Android Paging codelab](https://codelabs.developers.google.com/codelabs/android-paging)
+- [Android Paging codelab](https://codelabs.developers.google.com/codelabs/android-paging)
 
 ## Recommended for you
 
-* Note: link text is displayed when JavaScript is off
-* [Load and display paged data](/topic/libraries/architecture/paging/v3-paged-data)
-* [Test your Paging implementation](/topic/libraries/architecture/paging/test)
-* [Manage and present loading states](/topic/libraries/architecture/paging/load-state)
+- Note: link text is displayed when JavaScript is off
+- [Load and display paged data](https://developer.android.com/topic/libraries/architecture/paging/v3-paged-data)
+- [Test your Paging implementation](https://developer.android.com/topic/libraries/architecture/paging/test)
+- [Manage and present loading states](https://developer.android.com/topic/libraries/architecture/paging/load-state)

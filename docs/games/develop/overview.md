@@ -15,6 +15,7 @@ Send feedback
 
 
 
+
 Android tools and libraries support using, creating, or
 extending game engines and using popular IDEs.
 
@@ -67,6 +68,8 @@ such as [Game Mode](/games/optimize/adpf/gamemode/about-API-and-interventions) a
 start using [Android GPU Inspector](/agi) during the initial testing of your
 game. See the Android games [optimization overview](/games/optimize/overview)
 for more information.
+
+
 
 
 

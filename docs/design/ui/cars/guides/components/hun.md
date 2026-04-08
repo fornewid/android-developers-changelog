@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 Notifications provide succinct and timely information about relevant events,
 such as phone calls or messages, along with actions the user can take in
 response.

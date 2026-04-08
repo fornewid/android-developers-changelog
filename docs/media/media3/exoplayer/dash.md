@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 ExoPlayer supports DASH with multiple container formats. Media streams must be
 demuxed, meaning that video, audio, and text must be defined in distinct
 `AdaptationSet` elements in the DASH manifest (CEA-608 is an exception as

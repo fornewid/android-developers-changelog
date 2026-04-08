@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 Behavior UI tests are tests that analyze the UI hierarchy to make assertions
 on the properties of the UI elements.
 

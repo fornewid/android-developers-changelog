@@ -15,7 +15,6 @@ Send feedback
 
 
 
-
 Solving [ANRs](/topic/performance/vitals/anr) in your Unity game is a systematic process:
 
 ![](/static/images/games/engines/unity/unity-anr-flowchart.jpg)
@@ -189,8 +188,6 @@ to enable `ApplicationExitInfo` calls from Unity.
 Crashlytics also uses `ApplicationExitInfo`; however, your own
 implementation gives you finer control and enables you to include
 [more relevant information](/reference/kotlin/android/app/ActivityManager#setprocessstatesummary).
-
-
 
 
 

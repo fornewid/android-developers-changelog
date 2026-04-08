@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 On ChromeOS devices, many users interact with apps using a keyboard, mouse, trackpad, stylus, or gamepad. While these input devices are also used on Android phones, they are not as common and are often overlooked by developers.
 
 Developers who want their app to work well with input on ChromeOS, and other large screen Android capable devices, should look at the following optimizations:

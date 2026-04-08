@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 As you create your app, it's important to consider the other apps on the device
 that your app needs to interact with. If your app targets
 Android 11 (API level 30) or higher, the system makes [some apps visible to your

@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 This document describes the basic NFC tasks you perform in Android. It explains how to send and
 receive NFC data in the form of NDEF messages and describes the Android framework APIs that support
 these features. For more advanced topics, including a discussion of working with non-NDEF data,
@@ -116,7 +115,12 @@ instead.
 | Type Name Format (TNF) | Mapping |
 | --- | --- |
 | `TNF_ABSOLUTE_URI` | URI based on the type field. |
- `TNF_EMPTY` | Falls back to `ACTION_TECH_DISCOVERED`. | `TNF_EXTERNAL_TYPE` | URI based on the URN in the type field. The URN is encoded into the NDEF type field in a shortened form: `<domain_name>:<service_name>`. Android maps this to a URI in the form: `vnd.android.nfc://ext/<domain_name>:<service_name>`. | `TNF_MIME_MEDIA` | MIME type based on the type field. | `TNF_UNCHANGED` | Invalid in the first record, so falls back to `ACTION_TECH_DISCOVERED`. | `TNF_UNKNOWN` | Falls back to `ACTION_TECH_DISCOVERED`. | `TNF_WELL_KNOWN` | MIME type or URI depending on the Record Type Definition (RTD), which you set in the type field. See [Table 2](#well_known) for more information on available RTDs and their mappings. |
+| `TNF_EMPTY` | Falls back to `ACTION_TECH_DISCOVERED`. |
+| `TNF_EXTERNAL_TYPE` | URI based on the URN in the type field. The URN is encoded into the NDEF type field in a shortened form: `<domain_name>:<service_name>`. Android maps this to a URI in the form: `vnd.android.nfc://ext/<domain_name>:<service_name>`. |
+| `TNF_MIME_MEDIA` | MIME type based on the type field. |
+| `TNF_UNCHANGED` | Invalid in the first record, so falls back to `ACTION_TECH_DISCOVERED`. |
+| `TNF_UNKNOWN` | Falls back to `ACTION_TECH_DISCOVERED`. |
+| `TNF_WELL_KNOWN` | MIME type or URI depending on the Record Type Definition (RTD), which you set in the type field. See [Table 2](#well_known) for more information on available RTDs and their mappings. |
 
 **Table 2.** Supported RTDs for TNF\_WELL\_KNOWN and their
 mappings
@@ -124,7 +128,12 @@ mappings
 | Record Type Definition (RTD) | Mapping |
 | --- | --- |
 | `RTD_ALTERNATIVE_CARRIER` | Falls back to `ACTION_TECH_DISCOVERED`. |
- `RTD_HANDOVER_CARRIER` | Falls back to `ACTION_TECH_DISCOVERED`. | `RTD_HANDOVER_REQUEST` | Falls back to `ACTION_TECH_DISCOVERED`. | `RTD_HANDOVER_SELECT` | Falls back to `ACTION_TECH_DISCOVERED`. | `RTD_SMART_POSTER` | URI based on parsing the payload. | `RTD_TEXT` | MIME type of `text/plain`. | `RTD_URI` | URI based on payload. |
+| `RTD_HANDOVER_CARRIER` | Falls back to `ACTION_TECH_DISCOVERED`. |
+| `RTD_HANDOVER_REQUEST` | Falls back to `ACTION_TECH_DISCOVERED`. |
+| `RTD_HANDOVER_SELECT` | Falls back to `ACTION_TECH_DISCOVERED`. |
+| `RTD_SMART_POSTER` | URI based on parsing the payload. |
+| `RTD_TEXT` | MIME type of `text/plain`. |
+| `RTD_URI` | URI based on payload. |
 
 ### How NFC tags are dispatched to applications
 
@@ -181,6 +190,21 @@ items in your `AndroidManifest.xml` file:
   ```
   <uses-permission android:name="android.permission.NFC" />
   ```
+* Starting Android 17 (API level 37), for an activity to be dispatched an NFC intent, if the
+  app targets SDK > `Build.VERSION_CODES.BAKLAVA`, it must be protected by the
+  `android.permission.DISPATCH_NFC_MESSAGE` permission. This ensures that only
+  the NFC system service can dispatch intents to your activity. Additionally, the system will
+  not dispatch NFC intents to applications that are in a stopped state (e.g. if the
+  application has never been launched by the user or has been force-stopped).
+
+  ```
+  <activity
+      android:name=".MyActivity"
+      android:exported="true"
+      android:permission="android.permission.DISPATCH_NFC_MESSAGE">
+      ...
+  </activity>
+  ```
 * The minimum SDK version that your application can support. API level 9 only supports
   limited tag dispatch via `ACTION_TAG_DISCOVERED`, and only gives
   access to NDEF messages via the `EXTRA_NDEF_MESSAGES` extra. No
@@ -229,24 +253,34 @@ following example filters for `ACTION_NDEF_DISCOVERED`
 intents with a MIME type of `text/plain`:
 
 ```
-<intent-filter>
-    <action android:name="android.nfc.action.NDEF_DISCOVERED"/>
-    <category android:name="android.intent.category.DEFAULT"/>
-    <data android:mimeType="text/plain" />
-</intent-filter>
+<activity
+    android:name=".MyActivity"
+    android:exported="true"
+    android:permission="android.permission.DISPATCH_NFC_MESSAGE">
+    <intent-filter>
+        <action android:name="android.nfc.action.NDEF_DISCOVERED"/>
+        <category android:name="android.intent.category.DEFAULT"/>
+        <data android:mimeType="text/plain" />
+    </intent-filter>
+</activity>
 ```
 
 The following example filters for a URI in the form of
 `https://developer.android.com/index.html`.
 
 ```
-<intent-filter>
-    <action android:name="android.nfc.action.NDEF_DISCOVERED"/>
-    <category android:name="android.intent.category.DEFAULT"/>
-   <data android:scheme="https"
-              android:host="developer.android.com"
-              android:pathPrefix="/index.html" />
-</intent-filter>
+<activity
+    android:name=".MyActivity"
+    android:exported="true"
+    android:permission="android.permission.DISPATCH_NFC_MESSAGE">
+    <intent-filter>
+        <action android:name="android.nfc.action.NDEF_DISCOVERED"/>
+        <category android:name="android.intent.category.DEFAULT"/>
+        <data android:scheme="https"
+                  android:host="developer.android.com"
+                  android:pathPrefix="/index.html" />
+    </intent-filter>
+</activity>
 ```
 
 ### ACTION\_TECH\_DISCOVERED
@@ -305,15 +339,16 @@ in the `<meta-data>` element inside the `<activity>`
 element like in the following example:
 
 ```
-<activity>
-...
-<intent-filter>
-    <action android:name="android.nfc.action.TECH_DISCOVERED"/>
-</intent-filter>
+<activity
+    android:name=".MyActivity"
+    android:exported="true"
+    android:permission="android.permission.DISPATCH_NFC_MESSAGE">
+    <intent-filter>
+        <action android:name="android.nfc.action.TECH_DISCOVERED"/>
+    </intent-filter>
 
-<meta-data android:name="android.nfc.action.TECH_DISCOVERED"
-    android:resource="@xml/nfc_tech_filter" />
-...
+    <meta-data android:name="android.nfc.action.TECH_DISCOVERED"
+        android:resource="@xml/nfc_tech_filter" />
 </activity>
 ```
 
@@ -322,13 +357,23 @@ Technologies](/guide/topics/connectivity/nfc/advanced-nfc#tag-tech) in the Advan
 
 ### ACTION\_TAG\_DISCOVERED
 
+**Note:** `ACTION_TAG_DISCOVERED`
+is deprecated starting Android 17 (API level 37). Use
+`ACTION_NDEF_DISCOVERED` or
+`ACTION_TECH_DISCOVERED` instead.
+
 To filter for `ACTION_TAG_DISCOVERED` use the following intent
 filter:
 
 ```
-<intent-filter>
-    <action android:name="android.nfc.action.TAG_DISCOVERED"/>
-</intent-filter>
+<activity
+    android:name=".MyActivity"
+    android:exported="true"
+    android:permission="android.permission.DISPATCH_NFC_MESSAGE">
+    <intent-filter>
+        <action android:name="android.nfc.action.TAG_DISCOVERED"/>
+    </intent-filter>
+</activity>
 ```
 
 ### ACTION\_VIEW
@@ -455,13 +500,18 @@ NdefRecord uriRecord = new NdefRecord(
 The intent filter for the previous NDEF record would look like this:
 
 ```
-<intent-filter>
-    <action android:name="android.nfc.action.NDEF_DISCOVERED" />
-    <category android:name="android.intent.category.DEFAULT" />
-    <data android:scheme="https"
-        android:host="developer.android.com"
-        android:pathPrefix="/index.html" />
-</intent-filter>
+<activity
+    android:name=".MyActivity"
+    android:exported="true"
+    android:permission="android.permission.DISPATCH_NFC_MESSAGE">
+    <intent-filter>
+        <action android:name="android.nfc.action.NDEF_DISCOVERED" />
+        <category android:name="android.intent.category.DEFAULT" />
+        <data android:scheme="https"
+            android:host="developer.android.com"
+            android:pathPrefix="/index.html" />
+    </intent-filter>
+</activity>
 ```
 
 ### TNF\_MIME\_MEDIA
@@ -513,11 +563,16 @@ NdefRecord mimeRecord = new NdefRecord(
 The intent filter for the previous NDEF record would look like this:
 
 ```
-<intent-filter>
-    <action android:name="android.nfc.action.NDEF_DISCOVERED" />
-    <category android:name="android.intent.category.DEFAULT" />
-    <data android:mimeType="application/vnd.com.example.android.beam" />
-</intent-filter>
+<activity
+    android:name=".MyActivity"
+    android:exported="true"
+    android:permission="android.permission.DISPATCH_NFC_MESSAGE">
+    <intent-filter>
+        <action android:name="android.nfc.action.NDEF_DISCOVERED" />
+        <category android:name="android.intent.category.DEFAULT" />
+        <data android:mimeType="application/vnd.com.example.android.beam" />
+    </intent-filter>
+</activity>
 ```
 
 ### TNF\_WELL\_KNOWN with RTD\_TEXT
@@ -563,11 +618,16 @@ public NdefRecord createTextRecord(String payload, Locale locale, boolean encode
 The intent filter for the previous NDEF record would look like this:
 
 ```
-<intent-filter>
-    <action android:name="android.nfc.action.NDEF_DISCOVERED" />
-    <category android:name="android.intent.category.DEFAULT" />
-    <data android:mimeType="text/plain" />
-</intent-filter>
+<activity
+    android:name=".MyActivity"
+    android:exported="true"
+    android:permission="android.permission.DISPATCH_NFC_MESSAGE">
+    <intent-filter>
+        <action android:name="android.nfc.action.NDEF_DISCOVERED" />
+        <category android:name="android.intent.category.DEFAULT" />
+        <data android:mimeType="text/plain" />
+    </intent-filter>
+</activity>
 ```
 
 ### TNF\_WELL\_KNOWN with RTD\_URI
@@ -631,13 +691,18 @@ NdefRecord rtdUriRecord = new NdefRecord(
 The intent filter for the previous NDEF record would look like this:
 
 ```
-<intent-filter>
-    <action android:name="android.nfc.action.NDEF_DISCOVERED" />
-    <category android:name="android.intent.category.DEFAULT" />
-    <data android:scheme="https"
-        android:host="example.com"
-        android:pathPrefix="" />
-</intent-filter>
+<activity
+    android:name=".MyActivity"
+    android:exported="true"
+    android:permission="android.permission.DISPATCH_NFC_MESSAGE">
+    <intent-filter>
+        <action android:name="android.nfc.action.NDEF_DISCOVERED" />
+        <category android:name="android.intent.category.DEFAULT" />
+        <data android:scheme="https"
+            android:host="example.com"
+            android:pathPrefix="" />
+    </intent-filter>
+</activity>
 ```
 
 ### TNF\_EXTERNAL\_TYPE
@@ -693,13 +758,18 @@ NdefRecord extRecord = new NdefRecord(
 The intent filter for the previous NDEF record would look like this:
 
 ```
-<intent-filter>
-    <action android:name="android.nfc.action.NDEF_DISCOVERED" />
-    <category android:name="android.intent.category.DEFAULT" />
-    <data android:scheme="vnd.android.nfc"
-        android:host="ext"
-        android:pathPrefix="/com.example:externalType"/>
-</intent-filter>
+<activity
+    android:name=".MyActivity"
+    android:exported="true"
+    android:permission="android.permission.DISPATCH_NFC_MESSAGE">
+    <intent-filter>
+        <action android:name="android.nfc.action.NDEF_DISCOVERED" />
+        <category android:name="android.intent.category.DEFAULT" />
+        <data android:scheme="vnd.android.nfc"
+            android:host="ext"
+            android:pathPrefix="/com.example:externalType"/>
+    </intent-filter>
+</activity>
 ```
 
 Use `TNF_EXTERNAL_TYPE` for more generic NFC tag deployments to better support both

@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 As an open platform, Android offers choice. You can distribute your Android apps
 to users in any way you want, using any distribution approach or combination of
 approaches that meets your needs. From publishing in an app marketplace to

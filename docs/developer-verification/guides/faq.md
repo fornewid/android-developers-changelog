@@ -16,7 +16,7 @@ verification.
 - **Do enterprise apps need to complete the verification requirements?** Apps distributed through your organization store, on managed devices, won't need to complete the verification requirements since your IT admin has vetted them. However, we recommend to still register and claim these apps since this creates a smooth installation, if the app is downloaded from another source (not the managed store) or to a non-managed device. *Last updated: Sept 3,
   2025*
 - **If I want to modify or hack some apk and install it on my own device, do I
-  have to verify?** Apps installed using ADB won't require verification. This will verify developers can build and test apps that aren't intended or not yet ready to distribute to the wider consumer population. *Last updated:
+  have to verify?** Apps installed using ADB won't require verification. This ensures developers can build and test apps that aren't intended or not yet ready to be distributed to the wider consumer population. *Last updated:
   Sept 11, 2025*
 - **How does this program impact developers in sanctioned countries?** Devices in sanctioned countries will be excluded from ADV checks. This allows any developer to continue distributing apps in these regions without verification, though users there will not benefit from the enhanced security benefits of the program. Last updated: March 25, 2026
 - **What Android versions will the developer verification requirements be

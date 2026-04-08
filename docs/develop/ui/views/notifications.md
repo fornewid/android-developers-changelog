@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 A notification is a message that Android displays outside your app's UI to
 provide the user with reminders, communication from other people, or other
 timely information from your app. Users can tap the notification to open your

@@ -15,6 +15,7 @@ Save and categorize content based on your preferences.
 
 
 
+
 ![](/static/images/bench/methodology/hero.png)
 
 ### Android Bench methodology

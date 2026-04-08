@@ -15,6 +15,7 @@ Send feedback
 
 
 
+
 The Management API allows you to issue REST calls to programmatically control
 the metadata underlying the Google Play Games Services features. This API simplifies
 your testing of Play Games Services features and gives you flexibility when
@@ -33,6 +34,8 @@ With the Management API, you can perform these tasks:
 For more information, see the
 [API reference](https://developers.google.com/games/services/management/api) and the
 [Management tools sample app](//github.com/playgameservices/management-tools).
+
+
 
 
 

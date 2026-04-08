@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 [Android Lint](/studio/write/lint) is a powerful tool for verifying the correctness or
 your code. It is highly recommended that you fix any identified lint errors
 before releasing your app to production.

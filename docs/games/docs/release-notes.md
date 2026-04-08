@@ -15,6 +15,7 @@ Send feedback
 
 
 
+
 This page contains release notes for features and updates to Android games.
 
 To get the latest product updates delivered to you, add the URL of this page to your
@@ -146,6 +147,8 @@ Google Play Games plugin for Unity, version 2.0.0 supports [recall API](https://
 For details, see:
 
 * [Set up Google Play Games for Unity and sign-in](https://developer.android.com/games/pgs/unity/unity-start)
+
+
 
 
 

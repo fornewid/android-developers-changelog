@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 The Android Gradle plugin can create code coverage reports that track the
 percentage of your code that your tests cover. This page describes how to
 enable coverage reporting and generate reports.

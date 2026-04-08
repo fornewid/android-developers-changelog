@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 [Camera2](/training/camera2) and [CameraX](/training/camerax) provide an Extensions
 API that lets your app access the following extensions that vendors have implemented
 on Android devices:

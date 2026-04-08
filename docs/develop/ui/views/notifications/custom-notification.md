@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 To make your notifications look their best across different versions of Android,
 use the [standard notification
 template](/training/notify-user/build-notification) to build your

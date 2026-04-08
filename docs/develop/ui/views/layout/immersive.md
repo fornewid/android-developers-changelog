@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 Some content is best experienced in fullscreen without any indicators on the
 status bar or the navigation bar. Some examples are videos, games, image
 galleries, books, and presentation slides. This is referred to as

@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Tiles provide quick access to the information and actions users need to get
 things done. The tiles carousel is revealed by a swipe on the watch face, and
 additional swipes will switch between tiles. Tiles themselves cannot be

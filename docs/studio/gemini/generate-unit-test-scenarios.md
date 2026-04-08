@@ -1,8 +1,17 @@
 ---
-title: https://developer.android.com/studio/gemini/generate-unit-test-scenarios
+title: Generate unit test scenarios  |  Android Studio  |  Android Developers
 url: https://developer.android.com/studio/gemini/generate-unit-test-scenarios
-source: md.txt
+source: html-scrape
 ---
+
+* [Android Developers](https://developer.android.com/)
+* [Develop](https://developer.android.com/develop)
+* [Android Studio](https://developer.android.com/studio)
+* [Gemini in Android Studio](https://developer.android.com/gemini-in-android)
+
+# Generate unit test scenarios Stay organized with collections Save and categorize content based on your preferences.
+
+
 
 When writing unit tests for your app, Gemini can suggest test scenarios using
 the context of the code you want to test. When generating unit test scenarios,
@@ -13,14 +22,17 @@ the body of each test yourself.
 To generate unit test scenarios, do the following:
 
 1. Navigate to the class you want to generate unit test scenarios for.
-2. Right-click on the class name and select **Gemini \> Generate Unit Test Scenarios** from the context menu.
-3. In the dialog that appears, select the methods of the class that you want to generate scenarios for, and set the destination package for the tests.
+2. Right-click on the class name and select
+   **Gemini > Generate Unit Test Scenarios** from the context menu.
+3. In the dialog that appears, select the methods of the class that you want to
+   generate scenarios for, and set the destination package for the tests.
 4. Click **OK**.
 5. Confirm the destination directory for your tests and click **OK**.
-6. If the test class already exists, confirm whether you want Gemini to suggest updates to the existing file.
+6. If the test class already exists, confirm whether you want Gemini to suggest
+   updates to the existing file.
 
 After Gemini processes the request, you should see either a new file with the
 suggested unit tests or a diff for you to accept recommended changes to an
 existing file.
 
-![Unit test scenario generation demo](https://developer.android.com/static/studio/gemini/images/unit-test-scenario.gif)
+![Unit test scenario generation demo](/static/studio/gemini/images/unit-test-scenario.gif)

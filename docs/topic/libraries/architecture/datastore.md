@@ -768,7 +768,7 @@ method:
     val dataStore: DataStore<Settings> = DataStoreFactory.create(
        serializer = SettingsSerializer(),
        produceFile = {
-           File("${context.cacheDir.path}/myapp.preferences_pb")
+           File("${context.filesDir.path}/myapp.preferences_pb")
        },
        corruptionHandler = ReplaceFileCorruptionHandler { Settings(lastUpdate = 0) }
     )

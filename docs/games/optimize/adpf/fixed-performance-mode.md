@@ -1,20 +1,8 @@
 ---
-title: Fixed Performance Mode  |  Android game development  |  Android Developers
+title: https://developer.android.com/games/optimize/adpf/fixed-performance-mode
 url: https://developer.android.com/games/optimize/adpf/fixed-performance-mode
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [Google Play](https://developer.android.com/distribute)
-* [Games dev center](https://developer.android.com/games)
-* [Guides](https://developer.android.com/games/guides)
-
-Send feedback
-
-# Fixed Performance Mode Stay organized with collections Save and categorize content based on your preferences.
-
-
-
 
 **Released**: Android 11 (API level 30)
 
@@ -32,22 +20,11 @@ selection.
 
 You can enable fixed-performance mode with the following adb command:
 
-```
-adb shell cmd power set-fixed-performance-mode-enabled [true|false]
-```
+    adb shell cmd power set-fixed-performance-mode-enabled [true|false]
 
 A device that is running in fixed-performance mode can still overheat because
 the mode doesn't put the device into a thermally-sustainable state. Because of
 this, we recommend the following for benchmark runs:
 
-* Wait for the device to return to a thermally-sustainable state before starting
-  the run.
-* Monitor the thermal state of the device during testing to differentiate the
-  impact between the benchmark code and thermal events.
-
-
-
-
-
-
-Send feedback
+- Wait for the device to return to a thermally-sustainable state before starting the run.
+- Monitor the thermal state of the device during testing to differentiate the impact between the benchmark code and thermal events.

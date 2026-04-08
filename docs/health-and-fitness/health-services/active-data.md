@@ -15,7 +15,6 @@ Starting in 2026, we'll be transitioning away from Google Fit APIs. For more inf
 
 
 
-
 Health Services provides support for workout apps through the
 [`ExerciseClient`](/reference/kotlin/androidx/health/services/client/ExerciseClient).
 With `ExerciseClient`, your app can control when an

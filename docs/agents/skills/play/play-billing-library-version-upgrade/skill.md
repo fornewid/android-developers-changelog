@@ -18,7 +18,6 @@ Save and categorize content based on your preferences.
 
 
 
-
 any legacy Google Play Billing Library (PBL) version to the latest stable
 version of PBL.
 keywords\_public: android, play billing, play billing library, pbl, upgrade,
@@ -95,7 +94,7 @@ Analyze the intent of the existing code rather than performing purely textual
 string replacement.
 
 * **Action**: You **MUST** follow all deprecation instructions and refactor
-  patterns from **both** the `references/migration-logic.md` section, the
+  patterns from **both** the [references/migration-logic.md](/agents/skills/play/play-billing-library-version-upgrade/references/migration-logic) section, the
   official migration guides, and the general documentation pages identified
   in Phase 2.
 * **Verification**: Verify you are doing **all steps from all documentation**
@@ -112,7 +111,7 @@ string replacement.
 ### Step 4: Final Validation Checklist
 
 1. **Smart Checklist Verification:**
-2. Open `references/version-checklist.md` and locate the
+2. Open [references/version-checklist.md](/agents/skills/play/play-billing-library-version-upgrade/references/version-checklist) and locate the
    **Smart Version-Specific Checklist**.
 3. **Action**: For every version between your [Detected Effective Version] and
    [Detected New Version], verify that every item has been addressed in the
@@ -136,8 +135,6 @@ Explain the "Why" to the developer:
   application's current feature set, I suggest exploring [New Feature]
   (e.g., Prepaid Plans or Installments) from the latest release because it is
   now available but not yet implemented."
-
-
 
 
 

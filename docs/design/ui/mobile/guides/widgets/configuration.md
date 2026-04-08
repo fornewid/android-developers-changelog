@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 ![](/static/images/design/ui/mobile/widgets/widget-configuration-4.png)
 
 Configure your widget to display selected content or data from your app.

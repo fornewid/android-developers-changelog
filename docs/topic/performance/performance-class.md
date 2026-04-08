@@ -1,18 +1,8 @@
 ---
-title: Performance class  |  App quality  |  Android Developers
+title: https://developer.android.com/topic/performance/performance-class
 url: https://developer.android.com/topic/performance/performance-class
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [Design & Plan](https://developer.android.com/design)
-* [App quality](https://developer.android.com/quality)
-* [Technical quality](https://developer.android.com/quality/technical)
-
-# Performance class Stay organized with collections Save and categorize content based on your preferences.
-
-
-
 
 *Performance class* is a standard first introduced in Android 12. A performance
 class defines a set of device capabilities that goes beyond Android's baseline
@@ -29,17 +19,17 @@ Developers can find the device's performance class at runtime and provide
 upgraded experiences that take full advantage of the device's capabilities.
 
 To find a device's performance class level, use the Jetpack [Core
-Performance](/jetpack/androidx/releases/core#core_performance_version_10_2)
+Performance](https://developer.android.com/jetpack/androidx/releases/core#core_performance_version_10_2)
 library. This library reports the device's media performance class (MPC) level
 as declared in the
-[build version information](/reference/android/os/Build.VERSION#MEDIA_PERFORMANCE_CLASS)
+[build version information](https://developer.android.com/reference/android/os/Build.VERSION#MEDIA_PERFORMANCE_CLASS)
 or based on data from Google Play services.
 
 Start by adding a dependency for the relevant modules in your gradle file:
 
 ### Kotlin
 
-```
+```kotlin
 // Implementation of Jetpack Core library.
 implementation("androidx.core:core-ktx:1.12.0")
 // Enable APIs to query for device-reported performance class.
@@ -50,7 +40,7 @@ implementation("androidx.core:core-performance-play-services:1.0.0")
 
 ### Groovy
 
-```
+```groovy
 // Implementation of Jetpack Core library.
 implementation 'androidx.core:core-ktx:1.12.0'
 // Enable APIs to query for device-reported performance class.
@@ -60,15 +50,15 @@ implementation 'androidx.core:core-performance-play-services:1.0.0'
 ```
 
 Then, create an instance of a
-[`DevicePerformance`](/reference/androidx/core/performance/DevicePerformance)
+[`DevicePerformance`](https://developer.android.com/reference/androidx/core/performance/DevicePerformance)
 implementation, such as
-[`PlayServicesDevicePerformance`](/reference/androidx/core/performance/play/services/PlayServicesDevicePerformance),
+[`PlayServicesDevicePerformance`](https://developer.android.com/reference/androidx/core/performance/play/services/PlayServicesDevicePerformance),
 in the `onCreate()` lifecycle event of your `Application`. This should only be
 done once in your app.
 
 ### Kotlin
 
-```
+```kotlin
 import androidx.core.performance.play.services.PlayServicesDevicePerformance
 
 class MyApplication : Application() {
@@ -83,7 +73,7 @@ class MyApplication : Application() {
 
 ### Java
 
-```
+```java
 import androidx.core.performance.play.services.PlayServicesDevicePerformance;
 
 class MyApplication extends Application {
@@ -102,7 +92,7 @@ experience based on the device's capabilities:
 
 ### Kotlin
 
-```
+```kotlin
 class MyActivity : Activity() {
   private lateinit var devicePerformance: DevicePerformance
   override fun onCreate(savedInstanceState: Bundle?) {
@@ -135,7 +125,7 @@ class MyActivity : Activity() {
 
 ### Java
 
-```
+```java
 class MyActivity extends Activity {
   private DevicePerformance devicePerformance;
   @Override
@@ -171,17 +161,15 @@ continue to report it supports performance class 33 if it doesn't meet the
 performance class 34 requirements. This allows grouping devices together without
 relying on a particular Android version.
 
-![](/static/images/topic/performance/perf-class.svg)
+![](https://developer.android.com/static/images/topic/performance/perf-class.svg)
+**Figure 1.** Devices can upgrade Android versions and continue reporting that they support the class they originally support.
 
-
-**Figure 1.** Devices can upgrade Android versions and
-continue reporting that they support the class they originally
-support.
+<br />
 
 ## Media Performance Class 35
 
 MPC 35 was introduced in Android 15 and builds on the requirements
-introduced in [MPC 34](#class-34). The specific MPC 35 requirements are
+introduced in [MPC 34](https://developer.android.com/topic/performance/performance-class#class-34). The specific MPC 35 requirements are
 published in the
 [Android 15 CDD](https://source.android.com/docs/compatibility/15/android-15-cdd#227_handheld_media_performance_class).
 In addition to increased requirements for items from MPC 34, the CDD specifies
@@ -189,25 +177,25 @@ requirements in the following areas:
 
 ### Media
 
-* Decoding frame drops
-* HDR editing
-* Dynamic color aspects
-* Portrait aspect ratio
+- Decoding frame drops
+- HDR editing
+- Dynamic color aspects
+- Portrait aspect ratio
 
 ### Camera
 
-* JPEG\_R
-* Preview stabilization
+- JPEG_R
+- Preview stabilization
 
 ### Graphics
 
-* EGL extensions
-* Vulkan structures
+- EGL extensions
+- Vulkan structures
 
 ## Media Performance Class 34
 
 MPC 34 was introduced in Android 14 and builds on the requirements
-introduced in [MPC 33](#class-33). The specific MPC 34 requirements are
+introduced in [MPC 33](https://developer.android.com/topic/performance/performance-class#class-33). The specific MPC 34 requirements are
 published in the
 [Android 14 CDD](https://source.android.com/docs/compatibility/14/android-14-cdd#227_handheld_media_performance_class).
 In addition to increased requirements for items from MPC 33, the CDD specifies
@@ -215,30 +203,30 @@ requirements in the following areas:
 
 ### Media
 
-* Film grain effect support in AV1 hardware decoders
-* AVIF Baseline Profile
-* AV1 encoder performance
-* HDR video codecs
-* RGBA\_1010102 color format
-* YUV texture sampling
-* Video encoding quality
-* Multichannel audio mixing
+- Film grain effect support in AV1 hardware decoders
+- AVIF Baseline Profile
+- AV1 encoder performance
+- HDR video codecs
+- RGBA_1010102 color format
+- YUV texture sampling
+- Video encoding quality
+- Multichannel audio mixing
 
 ### Camera
 
-* Night mode extension
-* HDR-capable primary camera
-* Face detection scene mode
+- Night mode extension
+- HDR-capable primary camera
+- Face detection scene mode
 
 ### General
 
-* Hardware overlays
-* HDR display
+- Hardware overlays
+- HDR display
 
 ## Media Performance Class 33
 
 MPC 33 was introduced in Android 13 and builds on the requirements
-introduced in [MPC 31](#class-31). The specific MPC 33 requirements are
+introduced in [MPC 31](https://developer.android.com/topic/performance/performance-class#class-31). The specific MPC 33 requirements are
 published in the
 [Android 13 CDD](https://source.android.com/docs/compatibility/13/android-13-cdd#227_handheld_media_performance_class).
 In addition to increased requirements for items from MPC 31, the CDD specifies
@@ -246,24 +234,25 @@ requirements in the following areas:
 
 ### Media
 
-* AV1 hardware decoder
-* Secure hardware decoders
-* Decoder initialization latency
-* Round-trip audio latency
-* Wired headsets and USB audio devices
-* MIDI devices
-* Hardware-backed trusted execution environment
+- AV1 hardware decoder
+- Secure hardware decoders
+- Decoder initialization latency
+- Round-trip audio latency
+- Wired headsets and USB audio devices
+- MIDI devices
+- Hardware-backed trusted execution environment
 
 ### Camera
 
-* Preview stabilization
-* Slow-mo recording
-* Minimum zoom ratio for ultrawide cameras
-* Concurrent camera
-* Logical multi-camera
-* Stream use case
+- Preview stabilization
+- Slow-mo recording
+- Minimum zoom ratio for ultrawide cameras
+- Concurrent camera
+- Logical multi-camera
+- Stream use case
 
-**Note:** There is no MPC level 32 definition.
+> [!NOTE]
+> **Note:** There is no MPC level 32 definition.
 
 ## Media Performance Class 31
 
@@ -274,26 +263,25 @@ The CDD specifies requirements in the following areas:
 
 ### Media
 
-* Concurrent video codec sessions
-* Encoder initialization latency
-* Decoder frame drops
-* Encoding quality
+- Concurrent video codec sessions
+- Encoder initialization latency
+- Decoder frame drops
+- Encoding quality
 
 ### Camera
 
-* Resolution and frame rate
-* Startup and capture latencies
-* [`FULL`](/reference/android/hardware/camera2/CameraMetadata#INFO_SUPPORTED_HARDWARE_LEVEL_FULL)
-  or better hardware level
-* Timestamp source is realtime
-* RAW capability
+- Resolution and frame rate
+- Startup and capture latencies
+- [`FULL`](https://developer.android.com/reference/android/hardware/camera2/CameraMetadata#INFO_SUPPORTED_HARDWARE_LEVEL_FULL) or better hardware level
+- Timestamp source is realtime
+- RAW capability
 
 ### General
 
-* Memory
-* Read and write performance
-* Screen resolution
-* Screen density
+- Memory
+- Read and write performance
+- Screen resolution
+- Screen density
 
 ## Media Performance Class 30
 
@@ -302,11 +290,10 @@ provide a tailored experience on earlier but still highly capable devices. The
 specific performance class requirements are published in the
 [Android 11 CDD](https://source.android.com/docs/compatibility/11/android-11-cdd#227_handheld_media_performance_class).
 
-**Note:** There are no MPC level definitions prior to MPC 30. An MPC level of 0
-indicates that the MPC level is undefined for the current device and build.
-
+> [!NOTE]
+> **Note:** There are no MPC level definitions prior to MPC 30. An MPC level of 0 indicates that the MPC level is undefined for the current device and build.
 
 ## Recommended for you
 
-* Note: link text is displayed when JavaScript is off
-* [App startup time](/topic/performance/vitals/launch-time)
+- Note: link text is displayed when JavaScript is off
+- [App startup time](https://developer.android.com/topic/performance/vitals/launch-time)

@@ -15,6 +15,7 @@ Send feedback
 
 
 
+
 An [Android App Bundle](/guide/app-bundle) is a publishing format that includes
 all your app's compiled code and resources, and defers APK generation and
 signing to Google Play.
@@ -30,6 +31,8 @@ users get smaller, more-optimized downloads.
 In Cocos Creator, just check the **Generate App Bundle (Google Play)** option in
 the Android Build panel. Your game will then be published with the AAB format.
 ![abb.png](/static/images/games/engines/cocos/abb.png)
+
+
 
 
 

@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 Implement **pinch-to-zoom** gestures to support scalable content in your app.
 This is the standard, platform-consistent method for improving accessibility,
 allowing users to intuitively adjust the size of text and UI elements to fit

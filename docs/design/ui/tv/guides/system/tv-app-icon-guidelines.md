@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 This guide describes creating banners and launcher icons for Android TV.
 
 ## Key takeaways

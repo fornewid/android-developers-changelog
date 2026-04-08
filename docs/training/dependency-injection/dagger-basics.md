@@ -1,8 +1,16 @@
 ---
-title: https://developer.android.com/training/dependency-injection/dagger-basics
+title: Dagger basics  |  App architecture  |  Android Developers
 url: https://developer.android.com/training/dependency-injection/dagger-basics
-source: md.txt
+source: html-scrape
 ---
+
+* [Android Developers](https://developer.android.com/)
+* [Design & Plan](https://developer.android.com/design)
+* [App architecture](https://developer.android.com/topic/architecture/intro)
+
+# Dagger basics Stay organized with collections Save and categorize content based on your preferences.
+
+
 
 Manual dependency injection or service
 locators in an Android app can be problematic depending on the size of your
@@ -14,23 +22,21 @@ have hand-written. Because the code is generated at compile time, it's traceable
 and more performant than other reflection-based solutions such as
 [Guice](https://en.wikipedia.org/wiki/Google_Guice).
 
-> [!NOTE]
-> **Note:** Use [Hilt](https://developer.android.com/training/dependency-injection/hilt-android) for dependency injection on Android. Hilt is built on top of Dagger and it provides a standard way to incorporate Dagger dependency injection into an Android application.
+**Note:** Use [Hilt](/training/dependency-injection/hilt-android) for dependency
+injection on Android. Hilt is built on top of Dagger and it provides a standard
+way to incorporate Dagger dependency injection into an Android application.
 
 ## Benefits of using Dagger
 
 Dagger frees you from writing tedious and error-prone boilerplate code by:
 
-- Generating the `AppContainer` code (application graph) that you manually
+* Generating the `AppContainer` code (application graph) that you manually
   implemented in the manual DI section.
-
-- Creating factories for the classes available in the application graph. This
+* Creating factories for the classes available in the application graph. This
   is how dependencies are satisfied internally.
-
-- Deciding whether to reuse a dependency or create a new instance through the
+* Deciding whether to reuse a dependency or create a new instance through the
   use of *scopes*.
-
-- Creating containers for specific flows as you did with the login flow in the
+* Creating containers for specific flows as you did with the login flow in the
   previous section using Dagger *subcomponents*. This improves your app's
   performance by releasing objects in memory when they're no longer needed.
 
@@ -44,11 +50,12 @@ internally to get instances of that type.
 
 At build time, Dagger walks through your code and:
 
-- Builds and validates dependency graphs, ensuring that:
+* Builds and validates dependency graphs, ensuring that:
 
-  - Every object's dependencies can be satisfied, so there are no runtime exceptions.
-  - No dependency cycles exist, so there are no infinite loops.
-- Generates the classes that are used at runtime to create the actual objects and their dependencies.
+  + Every object's dependencies can be satisfied, so there are no runtime
+    exceptions.
+  + No dependency cycles exist, so there are no infinite loops.
+* Generates the classes that are used at runtime to create the actual objects and their dependencies.
 
 ## A simple use case in Dagger: Generating a factory
 
@@ -56,13 +63,13 @@ To demonstrate how you can work with Dagger, let's create a simple
 [factory](https://en.wikipedia.org/wiki/Factory_method_pattern) for the `UserRepository` class shown in the
 following diagram:
 
-![](https://developer.android.com/static/images/training/dependency-injection/3-factory-diagram.png)
+![](/static/images/training/dependency-injection/3-factory-diagram.png)
 
 Define `UserRepository` as follows:
 
 ### Kotlin
 
-```kotlin
+```
 class UserRepository(
     private val localDataSource: UserLocalDataSource,
     private val remoteDataSource: UserRemoteDataSource
@@ -71,7 +78,7 @@ class UserRepository(
 
 ### Java
 
-```java
+```
 public class UserRepository {
 
     private final UserLocalDataSource userLocalDataSource;
@@ -91,7 +98,7 @@ how to create a `UserRepository`:
 
 ### Kotlin
 
-```kotlin
+```
 // @Inject lets Dagger know how to create instances of this object
 class UserRepository @Inject constructor(
     private val localDataSource: UserLocalDataSource,
@@ -101,7 +108,7 @@ class UserRepository @Inject constructor(
 
 ### Java
 
-```java
+```
 public class UserRepository {
 
     private final UserLocalDataSource userLocalDataSource;
@@ -120,7 +127,6 @@ In the above snippet of code, you're telling Dagger:
 
 1. How to create a `UserRepository` instance with the `@Inject` annotated
    constructor.
-
 2. What its dependencies are: `UserLocalDataSource` and `UserRemoteDataSource`.
 
 Now Dagger knows how to create an instance of `UserRepository`, but it doesn't
@@ -129,7 +135,7 @@ Dagger knows how to create them:
 
 ### Kotlin
 
-```kotlin
+```
 // @Inject lets Dagger know how to create instances of these objects
 class UserLocalDataSource @Inject constructor() { ... }
 class UserRemoteDataSource @Inject constructor() { ... }
@@ -137,7 +143,7 @@ class UserRemoteDataSource @Inject constructor() { ... }
 
 ### Java
 
-```java
+```
 public class UserLocalDataSource {
     @Inject
     public UserLocalDataSource() { }
@@ -166,7 +172,7 @@ provide and their respective dependencies.
 
 ### Kotlin
 
-```kotlin
+```
 // @Component makes Dagger create a graph of dependencies
 @Component
 interface ApplicationGraph {
@@ -178,7 +184,7 @@ interface ApplicationGraph {
 
 ### Java
 
-```java
+```
 // @Component makes Dagger create a graph of dependencies
 @Component
 public interface ApplicationGraph {
@@ -197,7 +203,7 @@ getting a `UserRepository` instance. You can use it as follows:
 
 ### Kotlin
 
-```kotlin
+```
 // Create an instance of the application graph
 val applicationGraph: ApplicationGraph = DaggerApplicationGraph.create()
 // Grab an instance of UserRepository from the application graph
@@ -206,7 +212,7 @@ val userRepository: UserRepository = applicationGraph.repository()
 
 ### Java
 
-```java
+```
 // Create an instance of the application graph
 ApplicationGraph applicationGraph = DaggerApplicationGraph.create();
 
@@ -218,7 +224,7 @@ Dagger creates a new instance of `UserRepository` every time it's requested.
 
 ### Kotlin
 
-```kotlin
+```
 val applicationGraph: ApplicationGraph = DaggerApplicationGraph.create()
 
 val userRepository: UserRepository = applicationGraph.repository()
@@ -229,7 +235,7 @@ assert(userRepository != userRepository2)
 
 ### Java
 
-```java
+```
 ApplicationGraph applicationGraph = DaggerApplicationGraph.create();
 
 UserRepository userRepository = applicationGraph.userRepository();
@@ -244,7 +250,6 @@ You might want this for several reasons:
 1. You want other types that have this type as a dependency to share the same
    instance, such as multiple `ViewModel` objects in the login flow using the same
    `LoginUserData`.
-
 2. An object is expensive to create and you don't want to create a new
    instance every time it's declared as a dependency (for example, a JSON parser).
 
@@ -275,7 +280,7 @@ already comes with the `javax.inject` package that Dagger uses:
 
 ### Kotlin
 
-```kotlin
+```
 // Scope annotations on a @Component interface informs Dagger that classes annotated
 // with this annotation (i.e. @Singleton) are bound to the life of the graph and so
 // the same instance of that type is provided every time the type is requested.
@@ -295,7 +300,7 @@ class UserRepository @Inject constructor(
 
 ### Java
 
-```java
+```
 // Scope annotations on a @Component interface informs Dagger that classes annotated
 // with this annotation (i.e. @Singleton) are scoped to the graph and the same
 // instance of that type is provided every time the type is requested.
@@ -325,7 +330,7 @@ You can create a scope annotation as follows:
 
 ### Kotlin
 
-```kotlin
+```
 // Creates MyCustomScope
 @Scope
 @MustBeDocumented
@@ -335,7 +340,7 @@ annotation class MyCustomScope
 
 ### Java
 
-```java
+```
 // Creates MyCustomScope
 @Scope
 @Retention(RetentionPolicy.RUNTIME)
@@ -346,7 +351,7 @@ Then, you can use it as before:
 
 ### Kotlin
 
-```kotlin
+```
 @MyCustomScope
 @Component
 interface ApplicationGraph {
@@ -362,7 +367,7 @@ class UserRepository @Inject constructor(
 
 ### Java
 
-```java
+```
 @MyCustomScope
 @Component
 public interface ApplicationGraph {
@@ -390,7 +395,7 @@ In both cases, the object is provided with the same scope used to annotate the
 
 ### Kotlin
 
-```kotlin
+```
 val applicationGraph: ApplicationGraph = DaggerApplicationGraph.create()
 
 val userRepository: UserRepository = applicationGraph.repository()
@@ -401,7 +406,7 @@ assert(userRepository == userRepository2)
 
 ### Java
 
-```java
+```
 ApplicationGraph applicationGraph = DaggerApplicationGraph.create();
 
 UserRepository userRepository = applicationGraph.userRepository();
@@ -415,4 +420,4 @@ assert(userRepository == userRepository2)
 It is important to be aware of Dagger's benefits and the basics of how it works
 before you can use it in more complicated scenarios.
 
-In the [next page](https://developer.android.com/training/dependency-injection/dagger-android), you'll learn how to add Dagger to an Android application.
+In the [next page](/training/dependency-injection/dagger-android), you'll learn how to add Dagger to an Android application.

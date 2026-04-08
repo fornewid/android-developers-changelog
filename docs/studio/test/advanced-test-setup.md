@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 [Test in Android Studio](/studio/test/test-in-android-studio) and
 [Test from the command line](/studio/test/command-line) explain how to set
 up and run basic test configurations. However, when your app and its

@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 Quickly wrap app screenshots in device artwork with this device art generator.
 The resulting artwork provides better visual context for your app screenshots on your website or in other promotional materials.
 

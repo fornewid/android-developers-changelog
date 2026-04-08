@@ -12,6 +12,7 @@ source: html-scrape
 
 
 
+
 Media projection on Android enables users to share their device display with other users. On Android 14 QPR2, users can share or record an app window rather than the entire device screen.
 
 App screen sharing increases privacy, improves user productivity, and enhances multitasking by enabling users to run multiple apps but restrict content sharing to a single app.

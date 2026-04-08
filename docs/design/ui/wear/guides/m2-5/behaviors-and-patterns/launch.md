@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 Design your app's launching experience with care, because this is the first
 thing users encounter.
 

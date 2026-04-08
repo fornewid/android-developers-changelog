@@ -1,27 +1,35 @@
 ---
-title: https://developer.android.com/design/ui/ai-glasses/guides/components/overview
+title: Components  |  AI Glasses  |  Android Developers
 url: https://developer.android.com/design/ui/ai-glasses/guides/components/overview
-source: md.txt
+source: html-scrape
 ---
+
+* [Android Developers](https://developer.android.com/)
+* [Design & Plan](https://developer.android.com/design)
+* [UI Design](https://developer.android.com/design/ui)
+* [AI Glasses](https://developer.android.com/design/ui/ai-glasses)
+* [Guides](https://developer.android.com/design/ui/ai-glasses/guides/foundations/design-principles)
+
+# Components Stay organized with collections Save and categorize content based on your preferences.
+
+
+
 
 Components are purpose-built building blocks for building your UI. Your app
 should utilize Jetpack Compose Glimmer for components as they are optimized for
 the unique use cases of displays on AI glasses.
 
 ![Design elements should be anchored to the bottom of the
-frame.](https://developer.android.com/static/images/design/ui/glasses/guides/glasses_components_overview.png)
+frame.](/static/images/design/ui/glasses/guides/glasses_components_overview.png)
 
 ## Optimized components
 
-
 Glimmer components are optimized for transparent displays in a variety of ways:
-
-<br />
 
 **A. Surface color**: Surfaces need to have transparency, so the opaque
 surface color here would be changed to black to make it transparent.
 
-**B. Outline \& Highlight**: The Outline color is optimized for contrast. The use
+**B. Outline & Highlight**: The Outline color is optimized for contrast. The use
 of a highlight provides visual expression and might be used to indicate some
 types of input.
 
@@ -31,18 +39,14 @@ color of content is white to maximize contrast against the world.
 
 **D. Typography**: Glimmer's typography scale uses a small set of refined Body
 and Title styles that optimize kerning, size and weight for optimal readability
-\& legibility.
+& legibility.
 
 **E. Iconography**: The use of rounded Material Symbols coheres with the rounded
 typography scale.
 
-![Glimmer components are optimized for transparent display.](https://developer.android.com/static/images/design/ui/glasses/guides/glasses_foundation_getstarted_step2_optimized.png)
-
-<br />
-
-<br />
+![Glimmer components are optimized for transparent display.](/static/images/design/ui/glasses/guides/glasses_foundation_getstarted_step2_optimized.png)
 
 ## Get started
 
 Ready to implement components? Check out the [Jetpack Compose Glimmer
-documentation](https://developer.android.com/develop/xr/jetpack-xr-sdk/jetpack-compose-glimmer).
+documentation](/develop/xr/jetpack-xr-sdk/jetpack-compose-glimmer).

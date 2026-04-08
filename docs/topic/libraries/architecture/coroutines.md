@@ -313,11 +313,11 @@ or `emitSource()` removes the previously-added source.
 ```
 class UserDao: Dao {
     @Query("SELECT * FROM User WHERE id = :id")
-    fun getUser(id: String): LiveData<User>
+    fun getUser(id: String)<: Li>veDataUser
 }
 
 class MyRepository {
-    fun getUser(id: String) = liveData<User> {
+    fun getUser(id: String) <= li>veDataUser {
         val disposable = emitSource(
             userDao.getUser(id).map {
                 Result.loading(it)

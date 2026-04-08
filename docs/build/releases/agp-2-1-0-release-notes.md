@@ -1,15 +1,22 @@
 ---
-title: https://developer.android.com/build/releases/agp-2-1-0-release-notes
+title: Android Studio  |  Android Developers
 url: https://developer.android.com/build/releases/agp-2-1-0-release-notes
-source: md.txt
+source: html-scrape
 ---
 
-<br />
+* [Android Developers](https://developer.android.com/)
+* [Develop](https://developer.android.com/develop)
+* [Android Studio](https://developer.android.com/studio)
+* [Gradle build guides](https://developer.android.com/build/releases/past-releases)
+
+Stay organized with collections
+
+Save and categorize content based on your preferences.
+
+
+
 
 # Android Gradle Plugin 2.1.0 (April 2016)
-
-<br />
-
 
 **2.1.3 (August 2016)**
 
@@ -18,20 +25,29 @@ performance improvements, new features, and an important [security fix](https://
 [Gradle release notes](https://docs.gradle.org/2.14.1/release-notes).
 
 Dependencies:
-New:
-:
-    - Added support for the N Developer Preview, JDK 8, and [Java 8 language features](https://developer.android.com/preview/j8-jack) using the Jack toolchain. To find out more, read the [N Preview guide](https://developer.android.com/about/versions/nougat).
 
+|  | Minimum version | Default version | Notes |
+| --- | --- | --- | --- |
+| Gradle | 2.10 | 2.10 | To learn more, see [updating Gradle](/build/releases/gradle-plugin?buildsystem=ndk-build#updating-gradle). |
+| SDK Build Tools | 23.0.2 | 23.0.2 | [Install](/studio/intro/update#sdk-manager) or [configure](/tools/releases/build-tools) SDK Build Tools. |
+
+New:
+:   * Added support for the N Developer Preview, JDK 8, and [Java 8 language features](/preview/j8-jack) using the Jack
+      toolchain. To find out more, read the [N Preview guide](/about/versions/nougat).
 
       **Note:** [Instant
-      Run](https://developer.android.com/tools/building/building-studio#instant-run) does not currently work with Jack and will be disabled while
+      Run](/tools/building/building-studio#instant-run) does not currently work with Jack and will be disabled while
       using the new toolchain. You only need to use Jack if you are developing
       for the N Preview and want to use the supported Java 8 language features.
-    - Added default support for incremental Java compilation to reduce compilation time during development. It does this by only recompiling portions of the source that have changed or need to be recompiled. To disable this feature, add the following code to your module-level `build.gradle` file:
+    * Added default support for incremental Java compilation to reduce
+      compilation time during development. It does this by only recompiling
+      portions of the source that have changed or need to be recompiled. To disable
+      this feature, add the following code to your module-level
+      `build.gradle` file:
 
       ### Groovy
 
-      ```groovy
+      ```
       android {
         ...
         compileOptions {
@@ -42,7 +58,7 @@ New:
 
       ### Kotlin
 
-      ```kotlin
+      ```
       android {
         ...
         compileOptions {
@@ -50,30 +66,32 @@ New:
         }
       }
       ```
-    -
-      Added support for dexing-in-process which performs dexing within the build
+    * Added support for dexing-in-process which performs dexing within the build
       process rather than in a separate, external VM processes. This not only makes
       incremental builds faster, but also speeds up full builds. The feature is
       enabled by default for projects that have set the Gradle daemon's maximum heap
       size to at least 2048 MB. You can do this by including the following in your
       project's `gradle.properties` file:
 
-      \`\`\`none org.gradle.jvmargs = -Xmx2048m \`\`\`
-
+      ```none
+      org.gradle.jvmargs = -Xmx2048m
+      ```
 
       If you have defined a value for [`javaMaxHeapSize`](https://google.github.io/android-gradle-dsl/current/com.android.build.gradle.internal.dsl.DexOptions.html#com.android.build.gradle.internal.dsl.DexOptions:javaMaxHeapSize) in your module-level `build.gradle`
       file, you need to set `org.gradle.jvmargs` to the value of
       `javaMaxHeapSize` + 1024 MB. For example, if you have set
       `javaMaxHeapSize` to "2048m", you need to add the following to your
       project's `gradle.properties` file:
-      \`\`\`none org.gradle.jvmargs = -Xmx3072m \`\`\`
 
+      ```none
+      org.gradle.jvmargs = -Xmx3072m
+      ```
 
       To disable dexing-in-process, add the following code to your module-level `build.gradle` file:
 
       ### Groovy
 
-      ```groovy
+      ```
       android {
         ...
         dexOptions {
@@ -84,7 +102,7 @@ New:
 
       ### Kotlin
 
-      ```kotlin
+      ```
       android {
         ...
         dexOptions {

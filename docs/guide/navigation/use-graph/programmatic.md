@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 The Navigation component provides ways to programmatically create and interact
 with certain navigation elements.
 

@@ -16,7 +16,6 @@ The Android XR SDK has  [reached Developer Preview 3](https://android-developers
 
 
 
-
 Android XR is a platform that supports a variety of XR devices. Each type of XR
 device has different capabilities that can support immersive and augmented
 experiences.

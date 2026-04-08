@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 After you [update your app](/training/wearables/versions/5/changes) to prepare it for Wear OS 5, you can further
 improve your app's compatibility with this version of Wear OS by targeting
 Android 14 (API level 34).

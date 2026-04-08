@@ -15,6 +15,7 @@ Send feedback
 
 
 
+
 [Android 15](/about/versions/15) sets a default 60Hz refresh rate for games to optimize
 power consumption. To unlock higher frame rates like 120 FPS, you must now
 explicitly request them using the [Frame Rate API](/media/optimize/performance/frame-rate) or the Swappy
@@ -132,6 +133,8 @@ current device, such as 60Hz, 90Hz, or 120Hz, and limit the FPS settings
 accordingly. For example, if the device only supports up to 60Hz, it is
 advisable to disable any options higher than 60FPS in the game settings to
 avoid confusing the player.
+
+
 
 
 

@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 App permissions help support user privacy by protecting access to the following:
 
 * **Restricted data**, such as system state and users' contact information

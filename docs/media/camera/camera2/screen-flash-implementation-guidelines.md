@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 Screen flash, also called front flash or selfie flash, utilizes a phone's screen
 brightness to illuminate the subject when capturing images with the front camera
 in low light conditions. It is available in many native camera apps and social

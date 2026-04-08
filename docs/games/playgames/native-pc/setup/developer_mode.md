@@ -12,6 +12,7 @@ source: html-scrape
 
 
 
+
 In order to successfully initialize the SDK inside of a game several
 requirements must be satisfied. These include:
 
