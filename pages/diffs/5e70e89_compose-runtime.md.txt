@@ -1,0 +1,12 @@
+diff --git a/docs/jetpack/androidx/releases/compose-runtime.md b/docs/jetpack/androidx/releases/compose-runtime.md
+index 84e750d..8b2c1a6 100644
+--- a/docs/jetpack/androidx/releases/compose-runtime.md
++++ b/docs/jetpack/androidx/releases/compose-runtime.md
+@@ -15,6 +15,7 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
++
+ # Compose Runtime
+ 
+ [User Guide](/jetpack/compose/tutorial)  [Code Sample](https://github.com/android/compose-samples)

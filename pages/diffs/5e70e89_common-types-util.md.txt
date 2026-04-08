@@ -1,0 +1,12 @@
+diff --git a/docs/games/services/unity/v2/api/class/google-play-games/basic-api/common-types-util.md b/docs/games/services/unity/v2/api/class/google-play-games/basic-api/common-types-util.md
+index 2b6f91b..e698f65 100644
+--- a/docs/games/services/unity/v2/api/class/google-play-games/basic-api/common-types-util.md
++++ b/docs/games/services/unity/v2/api/class/google-play-games/basic-api/common-types-util.md
+@@ -14,7 +14,6 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
+-
+ # GooglePlayGames.BasicApi.CommonTypesUtil
+ 
+ Utility class for common types.

@@ -1,0 +1,132 @@
+diff --git a/docs/health-and-fitness/health-connect/delete-data.md b/docs/health-and-fitness/health-connect/delete-data.md
+index 07703e8..d642494 100644
+--- a/docs/health-and-fitness/health-connect/delete-data.md
++++ b/docs/health-and-fitness/health-connect/delete-data.md
+@@ -1,88 +1,58 @@
+ ---
+-title: Delete data  |  Android health & fitness  |  Android Developers
++title: https://developer.android.com/health-and-fitness/health-connect/delete-data
+ url: https://developer.android.com/health-and-fitness/health-connect/delete-data
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-Starting in 2026, we'll be transitioning away from Google Fit APIs. For more information on the Google Fit migration, see the [Migration Guide](/health-and-fitness/guides/health-connect/migrate/migration-guide).
+-
+-* [Android Developers](https://developer.android.com/)
+-* [Essentials](https://developer.android.com/get-started)
+-* [Health & fitness dev center](https://developer.android.com/health-and-fitness)
+-* [Health Connect Guides](https://developer.android.com/health-and-fitness/health-connect)
+-
+-# Delete data Stay organized with collections Save and categorize content based on your preferences.
+-
+-
+-
+ Deleting data is a key part of the CRUD operations in Health Connect. This guide
+ shows you how you can delete records in two ways.
+-
+-**Tip:** For further guidance on deleting data, take a look at the
+-[Android Developer video for reading and writing data](https://www.youtube.com/watch?v=NAx7Gv_Hk7E&t=299)
+-in Health Connect.
++| **Tip:** For further guidance on deleting data, take a look at the [Android Developer video for reading and writing data](https://www.youtube.com/watch?v=NAx7Gv_Hk7E&t=299) in Health Connect.
+ 
+ ## Delete using Record IDs
+ 
+ You can delete records using a list of unique identifiers such as the Record ID
+-and your app's Client Record ID. Use [`deleteRecords`](/reference/kotlin/androidx/health/connect/client/HealthConnectClient#deleteRecords(kotlin.reflect.KClass,kotlin.collections.List,kotlin.collections.List)), and
++and your app's Client Record ID. Use [`deleteRecords`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/HealthConnectClient#deleteRecords(kotlin.reflect.KClass,kotlin.collections.List,kotlin.collections.List)), and
+ supply it with two lists of `Strings`, one for the Record IDs and one for the
+ Client IDs. If you only have one of the IDs available, you can set `emptyList()`
+ on the other list.
+ 
+-The following code example shows how to delete Steps data using its IDs:
+-
+-```
+-suspend fun deleteStepsByUniqueIdentifier(
+-    healthConnectClient: HealthConnectClient,
+-    idList: List<String>
+-) {
+-    try {
+-        healthConnectClient.deleteRecords(
+-            StepsRecord::class,
+-            idList = idList,
+-            clientRecordIdsList = emptyList()
+-        )
+-    } catch (e: Exception) {
+-        // Run error handling here
++The following code example shows how to delete Steps data using its IDs:  
++
++    suspend fun deleteStepsByUniqueIdentifier(
++        healthConnectClient: HealthConnectClient,
++        idList: List<String>
++    ) {
++        try {
++            healthConnectClient.deleteRecords(
++                StepsRecord::class,
++                idList = idList,
++                clientRecordIdsList = emptyList()
++            )
++        } catch (e: Exception) {
++            // Run error handling here
++        }
+     }
+-}
+-```
+ 
+ ## Delete using a time range
+ 
+ You can also delete data using a time range as your filter.
+-Use [`deleteRecords`](/reference/kotlin/androidx/health/connect/client/HealthConnectClient#deleteRecords(kotlin.reflect.KClass,androidx.health.connect.client.time.TimeRangeFilter)), and supply it with a
+-[`TimeRangeFilter`](/reference/kotlin/androidx/health/connect/client/time/TimeRangeFilter) object that takes
++Use [`deleteRecords`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/HealthConnectClient#deleteRecords(kotlin.reflect.KClass,androidx.health.connect.client.time.TimeRangeFilter)), and supply it with a
++[`TimeRangeFilter`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/time/TimeRangeFilter) object that takes
+ a start and end timestamp values.
+ 
+-The following code example shows how to delete Steps data of a specific time:
+-
+-```
+-suspend fun deleteStepsByTimeRange(
+-    healthConnectClient: HealthConnectClient,
+-    startTime: Instant,
+-    endTime: Instant
+-) {
+-    try {
+-        healthConnectClient.deleteRecords(
+-            StepsRecord::class,
+-            timeRangeFilter = TimeRangeFilter.between(startTime, endTime)
+-        )
+-    } catch (e: Exception) {
+-        // Run error handling here
+-    }
+-}
+-```
+-
+-[Previous
+-
+-arrow\_back
+-
+-Read aggregated data](/health-and-fitness/health-connect/aggregate-data)
+-
+-[Next
+-
+-Synchronize data
+-
+-arrow\_forward](/health-and-fitness/health-connect/sync-data)
+\ No newline at end of file
++The following code example shows how to delete Steps data of a specific time:  
++
++    suspend fun deleteStepsByTimeRange(
++        healthConnectClient: HealthConnectClient,
++        startTime: Instant,
++        endTime: Instant
++    ) {
++        try {
++            healthConnectClient.deleteRecords(
++                StepsRecord::class,
++                timeRangeFilter = TimeRangeFilter.between(startTime, endTime)
++            )
++        } catch (e: Exception) {
++            // Run error handling here
++        }
++    }
+\ No newline at end of file

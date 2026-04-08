@@ -1,0 +1,25 @@
+diff --git a/docs/develop/ui/compose/layouts/adaptive/app-orientation-aspect-ratio-resizability.md b/docs/develop/ui/compose/layouts/adaptive/app-orientation-aspect-ratio-resizability.md
+index 7c79b53..a6f627b 100644
+--- a/docs/develop/ui/compose/layouts/adaptive/app-orientation-aspect-ratio-resizability.md
++++ b/docs/develop/ui/compose/layouts/adaptive/app-orientation-aspect-ratio-resizability.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Android apps run on devices of all kinds: phones, tablets, foldables, ChromeOS
+ devices, cars, TVs, and even XR. To adapt to this varied environment, your app
+ should support all device form factors and display sizes.
+@@ -152,9 +151,9 @@ changes:
+   ratios without device‑specific customizations. Assume window sizes
+   will change frequently. Use [window size classes](/develop/ui/compose/layouts/adaptive/window-size-classes) to characterize window
+   dimensions, and then apply an appropriate adaptive layout.
+-* **Build responsive layouts:** Within window size classes, [responsive layouts](/develop/ui/compose/layouts/adaptive/support-different-display-sizes)
+-  adjust to changes in display dimensions to always create an optimal app
+-  presentation.
++* **Build responsive layouts:** Within window size classes, [responsive
++  layouts](/develop/ui/compose/layouts/adaptive/support-different-display-sizes) adjust to changes in display dimensions to always create an
++  optimal app presentation.
+ 
+ For a hands-on guide to building adaptive layouts in Compose, see the
+ [Build adaptive apps with Jetpack Compose](https://codelabs.developers.google.com/jetpack-compose-adaptability) codelab. If you are migrating an

@@ -1,0 +1,12 @@
+diff --git a/docs/studio/test/monkeyrunner/MonkeyDevice.md b/docs/studio/test/monkeyrunner/MonkeyDevice.md
+index 8de6dbc..9cbbad9 100644
+--- a/docs/studio/test/monkeyrunner/MonkeyDevice.md
++++ b/docs/studio/test/monkeyrunner/MonkeyDevice.md
+@@ -11,6 +11,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ A monkeyrunner class that represents a device or emulator accessible by the workstation running
+ `monkeyrunner`.
+ 

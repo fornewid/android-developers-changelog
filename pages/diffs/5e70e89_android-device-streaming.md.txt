@@ -1,0 +1,12 @@
+diff --git a/docs/studio/run/android-device-streaming.md b/docs/studio/run/android-device-streaming.md
+index d3cfacb..7bb7568 100644
+--- a/docs/studio/run/android-device-streaming.md
++++ b/docs/studio/run/android-device-streaming.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ **Note:** Android Device Streaming is only available in the latest stable channel
+ version of Android Studio and major versions (including their patches) released
+ in the previous 10 months. If you are using an older version of Android Studio,

@@ -1,0 +1,20 @@
+diff --git a/docs/games/pgs/android/server-access.md b/docs/games/pgs/android/server-access.md
+index 9fa1eb4..0db716d 100644
+--- a/docs/games/pgs/android/server-access.md
++++ b/docs/games/pgs/android/server-access.md
+@@ -15,6 +15,7 @@ Send feedback
+ 
+ 
+ 
++
+ **Note:** This guide is for the Play Games Services v2 SDK. For information on the
+ previous version of this SDK, see the [Play Games Services v1
+ documentation](/games/pgs/v1/android/server-access).
+@@ -377,4 +378,6 @@ See the [Leaderboards](/games/pgs/leaderboards) guide for details.
+ 
+ 
+ 
++
++
+ Send feedback
+\ No newline at end of file

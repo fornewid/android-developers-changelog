@@ -1,0 +1,12 @@
+diff --git a/docs/topic/performance/rendering/inspect-gpu-rendering.md b/docs/topic/performance/rendering/inspect-gpu-rendering.md
+index b88f175..a52cd14 100644
+--- a/docs/topic/performance/rendering/inspect-gpu-rendering.md
++++ b/docs/topic/performance/rendering/inspect-gpu-rendering.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Android includes some on-device developer options that help you visualize
+ where your app might be running into issues rendering its UI, such as performing
+ more rendering work than necessary, or executing long thread and GPU operations.

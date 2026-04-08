@@ -1,0 +1,12 @@
+diff --git a/docs/jetpack/androidx/releases/viewpager.md b/docs/jetpack/androidx/releases/viewpager.md
+index 63908fc..931f6e7 100644
+--- a/docs/jetpack/androidx/releases/viewpager.md
++++ b/docs/jetpack/androidx/releases/viewpager.md
+@@ -15,6 +15,7 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
++
+ # Viewpager
+ 
+ [User Guide](/guide/navigation/navigation-swipe-view)

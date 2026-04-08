@@ -1,0 +1,12 @@
+diff --git a/docs/ndk/guides/concepts.md b/docs/ndk/guides/concepts.md
+index fdb1bec..a582f33 100644
+--- a/docs/ndk/guides/concepts.md
++++ b/docs/ndk/guides/concepts.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ ## Before you begin
+ 
+ This guide assumes that you are already familiar with concepts inherent in

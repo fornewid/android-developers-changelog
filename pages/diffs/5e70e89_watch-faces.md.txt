@@ -1,0 +1,12 @@
+diff --git a/docs/training/wearables/watch-faces.md b/docs/training/wearables/watch-faces.md
+index fae792d..33c2b27 100644
+--- a/docs/training/wearables/watch-faces.md
++++ b/docs/training/wearables/watch-faces.md
+@@ -19,6 +19,7 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
++
+ ![](https://developer.android.com/static/images/hero-assets/watch-faces.svg)
+ 
+ ### Watch faces

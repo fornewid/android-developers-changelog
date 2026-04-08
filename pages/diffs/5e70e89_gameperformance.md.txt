@@ -1,0 +1,20 @@
+diff --git a/docs/games/optimize/gameperformance.md b/docs/games/optimize/gameperformance.md
+index 20fad71..49540f6 100644
+--- a/docs/games/optimize/gameperformance.md
++++ b/docs/games/optimize/gameperformance.md
+@@ -15,6 +15,7 @@ Send feedback
+ 
+ 
+ 
++
+ This guide describes the process for analyzing and optimizing game performance
+ on Android devices for a smooth user experience. It covers identifying
+ performance bottlenecks, distinguishing between CPU and GPU issues, and
+@@ -202,4 +203,6 @@ For detailed guidance, see [CPU, GPU Optimization Tips for Android](/games/optim
+ 
+ 
+ 
++
++
+ Send feedback
+\ No newline at end of file

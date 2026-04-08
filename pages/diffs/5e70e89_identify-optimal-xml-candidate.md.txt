@@ -1,0 +1,46 @@
+diff --git a/docs/agents/skills/jetpack-compose/migration/migrate-xml-views-to-jetpack-compose/references/identify-optimal-xml-candidate.md b/docs/agents/skills/jetpack-compose/migration/migrate-xml-views-to-jetpack-compose/references/identify-optimal-xml-candidate.md
+index b3e2805..33c8a19 100644
+--- a/docs/agents/skills/jetpack-compose/migration/migrate-xml-views-to-jetpack-compose/references/identify-optimal-xml-candidate.md
++++ b/docs/agents/skills/jetpack-compose/migration/migrate-xml-views-to-jetpack-compose/references/identify-optimal-xml-candidate.md
+@@ -1,9 +1,13 @@
+ ---
+-title: https://developer.android.com/agents/skills/jetpack-compose/migration/migrate-xml-views-to-jetpack-compose/references/identify-optimal-xml-candidate
++title: Identify the optimal XML candidate  |  Android Developers
+ url: https://developer.android.com/agents/skills/jetpack-compose/migration/migrate-xml-views-to-jetpack-compose/references/identify-optimal-xml-candidate
+-source: md.txt
++source: html-scrape
+ ---
+ 
++# Identify the optimal XML candidate Stay organized with collections Save and categorize content based on your preferences.
++
++
++
+ ### 1. Analysis scope
+ 
+ **Action:** Use find files and examine all XML layout files within the project (typically located in `res`directories). For each file, parse the view hierarchy and metadata.
+@@ -12,11 +16,11 @@ source: md.txt
+ 
+ Prioritize layouts that meet the following criteria:
+ 
+-- **Hierarchy depth:** Target **leaf nodes** or components at the bottom of the UI tree.
+-- **Complexity:** Select layouts with the **smallest number of nested children** and minimal logic.
+-- **State management:** Prioritize **stateless** components or those with the fewest UI state variables.
+-- **Dependency footprint:** Identify layouts with **zero to minimal external UI dependencies**.
+-- **Isolation:** Focus on **self-contained** components that do not rely heavily on parent context or complex data binding.
++* **Hierarchy depth:** Target **leaf nodes** or components at the bottom of the UI tree.
++* **Complexity:** Select layouts with the **smallest number of nested children** and minimal logic.
++* **State management:** Prioritize **stateless** components or those with the fewest UI state variables.
++* **Dependency footprint:** Identify layouts with **zero to minimal external UI dependencies**.
++* **Isolation:** Focus on **self-contained** components that do not rely heavily on parent context or complex data binding.
+ 
+ ### 3. Risk assessment
+ 
+@@ -24,7 +28,7 @@ Evaluate the migration risk based on:
+ \* **Reusability:** Find layouts with **minimum reuse** across the project to limit regression impact.
+ \* **Accessibility:** Ensure the layout has an **easily accessible entry point** (e.g., used in a simple Activity, Fragment, or as a standalone include).
+ 
+-*** ** * ** ***
++---
+ 
+ ## Output requirements
+ 

@@ -1,0 +1,20 @@
+diff --git a/docs/games/pgs/android/anti-piracy.md b/docs/games/pgs/android/anti-piracy.md
+index a6830fc..599bbcb 100644
+--- a/docs/games/pgs/android/anti-piracy.md
++++ b/docs/games/pgs/android/anti-piracy.md
+@@ -15,6 +15,7 @@ Send feedback
+ 
+ 
+ 
++
+ This guide describes how to use the anti-piracy feature to secure your
+ Android games.
+ 
+@@ -52,4 +53,6 @@ To turn on the anti-piracy feature for your Android game:
+ 
+ 
+ 
++
++
+ Send feedback
+\ No newline at end of file

@@ -1,0 +1,12 @@
+diff --git a/docs/studio/gemini/create-a-new-project-with-ai.md b/docs/studio/gemini/create-a-new-project-with-ai.md
+index 7fa3be8..c8e9d28 100644
+--- a/docs/studio/gemini/create-a-new-project-with-ai.md
++++ b/docs/studio/gemini/create-a-new-project-with-ai.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Use the power of generative AI to accelerate your Android development workflow.
+ The agent can help you go from an idea to an app prototype in minutes.
+ 

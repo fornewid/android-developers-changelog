@@ -1,0 +1,12 @@
+diff --git a/docs/studio/test/monkeyrunner.md b/docs/studio/test/monkeyrunner.md
+index 9ec1699..564e8d6 100644
+--- a/docs/studio/test/monkeyrunner.md
++++ b/docs/studio/test/monkeyrunner.md
+@@ -11,7 +11,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ The legacy `monkeyrunner` tool provides an API for writing programs that control an
+ Android device or emulator from outside of Android code.
+ 

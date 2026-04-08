@@ -1,0 +1,162 @@
+diff --git a/docs/courses/quizzes/android-basics-compose-unit-4-pathway-1/android-basics-compose-unit-4-pathway-1.md b/docs/courses/quizzes/android-basics-compose-unit-4-pathway-1/android-basics-compose-unit-4-pathway-1.md
+index 8dde6e7..81fa577 100644
+--- a/docs/courses/quizzes/android-basics-compose-unit-4-pathway-1/android-basics-compose-unit-4-pathway-1.md
++++ b/docs/courses/quizzes/android-basics-compose-unit-4-pathway-1/android-basics-compose-unit-4-pathway-1.md
+@@ -1,97 +1,89 @@
+ ---
+-title: Architecture Components  |  Android Developers
++title: https://developer.android.com/courses/quizzes/android-basics-compose-unit-4-pathway-1/android-basics-compose-unit-4-pathway-1
+ url: https://developer.android.com/courses/quizzes/android-basics-compose-unit-4-pathway-1/android-basics-compose-unit-4-pathway-1
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-Stay organized with collections
+-
+-Save and categorize content based on your preferences.
+-
+-
+-
+ # Architecture Components
+ 
+-Return to pathway
+-
+-
+-
+-1. ## Which method is first called when the app no longer has focus?
+-
+-   onPause()
+-
+-   onStart()
+-
+-   onCreate()
+-
+-   onStop()
+-2. ## After \_\_\_, the app is no longer visible on screen.
+-
+-   onPause()
+-
+-   onStart()
+-
+-   onCreate()
+-
+-   onStop()
+-3. ## Use \_\_\_ to write a debug message. This method takes two arguments: the log tag and the log message.
+-
+-   `Log.i()`
+-
+-   `Log.d()`
++# Architecture Components
+ 
+-   `Log.e()`
++<br />
+ 
+-   `Log.w()`
+-4. ## To save a value that needs to survive a configuration change, declare its variables with \_\_\_.
++Return to pathway  
++1.
+ 
+-   `MutableState{}`
++   ## Which method is first called when the app no longer has focus?
+ 
+-   `rememberSaveable{}`
++   onPause()  
++   onStart()  
++   onCreate()  
++   onStop()  
++2.
+ 
+-   `remember{}`
++   ## After ___, the app is no longer visible on screen.
+ 
+-   State Hoisting
+-5. ## The separation of concerns design principle states that the app should be divided into classes, each with separate responsibilities.
++   onPause()  
++   onStart()  
++   onCreate()  
++   onStop()  
++3.
+ 
+-   True
++   ## Use ___ to write a debug message. This method takes two arguments: the log tag and the log message.
+ 
+-   False
+-6. ## The UI is what the user sees, while the UI state is what the app says they should see.
++   `Log.i()`  
++   `Log.d()`  
++   `Log.e()`  
++   `Log.w()`  
++4.
+ 
+-   True
++   ## To save a value that needs to survive a configuration change, declare its variables with ___.
+ 
+-   False
+-7. ## According to the recommended app architecture, each application should have at least the following two layers:
++   `MutableState{}`  
++   `rememberSaveable{} `  
++   `remember{}`  
++   State Hoisting  
++5.
+ 
+-   The domain layer and the data layer
++   ## The separation of concerns design principle states that the app should be divided into classes, each with separate responsibilities.
+ 
+-   The UI layer and the data layer
++   True  
++   False  
++6.
+ 
+-   Repository layer and the UI layer
++   ## The UI is what the user sees, while the UI state is what the app says they should see.
+ 
+-   The domain layer and the UI layer
+-8. ## `StateFlow` is a data-holder observable flow that emits the current and new state updates.
++   True  
++   False  
++7.
+ 
+-   True
++   ## According to the recommended app architecture, each application should have at least the following two layers:
+ 
+-   False
+-9. ## Which of the following configurations should be added to the `build.gradle` file to add dependencies for the unit test source code?
++   The domain layer and the data layer  
++   The UI layer and the data layer  
++   Repository layer and the UI layer  
++   The domain layer and the UI layer  
++8.
+ 
+-   `implementation`
++   ## `StateFlow`is a data-holder observable flow that emits the current and new state updates.
+ 
+-   `testImplementation`
++   True  
++   False  
++9.
+ 
+-   `debugImplementation`
++   ## Which of the following configurations should be added to the`build.gradle`file to add dependencies for the unit test source code?
+ 
+-   `androidTestImplementation`
+-10. ## Unit tests are executed on an Android device or emulator.
++   `implementation`  
++   `testImplementation`  
++   `debugImplementation`  
++   `androidTestImplementation`  
++10.
+ 
+-    True
++    ## Unit tests are executed on an Android device or emulator.
+ 
+-    False
++    True  
++    False  
+ 
+ Submit answers
+ 
+-*error\_outline*
+-An error occurred when grading the quiz. Please try again.
+\ No newline at end of file
++*error_outline*An error occurred when grading the quiz. Please try again.
+\ No newline at end of file

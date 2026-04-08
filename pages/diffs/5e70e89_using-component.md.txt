@@ -1,0 +1,12 @@
+diff --git a/docs/training/backward-compatible-ui/using-component.md b/docs/training/backward-compatible-ui/using-component.md
+index c998077..aab81dd 100644
+--- a/docs/training/backward-compatible-ui/using-component.md
++++ b/docs/training/backward-compatible-ui/using-component.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Now that you have two implementations of `TabHelper` and `CompatTab`—one for Android 3.0 and later and one for earlier versions of the platform—it's time to do something with these implementations. This lesson discusses creating the logic for switching between these implementations, creating version-aware layouts, and finally using the backward-compatible UI component.
+ 
+ ## Add the switching logic

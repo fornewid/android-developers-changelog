@@ -1,0 +1,12 @@
+diff --git a/docs/studio/projects/android-library.md b/docs/studio/projects/android-library.md
+index 7cc8986..0b2f1bd 100644
+--- a/docs/studio/projects/android-library.md
++++ b/docs/studio/projects/android-library.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ An Android library is structurally the same as an Android app module.
+ It includes everything needed to build an app, including source code,
+ resource files, and an Android manifest.

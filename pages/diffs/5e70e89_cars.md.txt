@@ -1,0 +1,12 @@
+diff --git a/docs/develop/devices/assistant/cars.md b/docs/develop/devices/assistant/cars.md
+index a2ab3e3..9423253 100644
+--- a/docs/develop/devices/assistant/cars.md
++++ b/docs/develop/devices/assistant/cars.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Voice control enables drivers perform to tasks without taking their hands off
+ the wheel or their eyes off the road. With App Actions for car apps, drivers can
+ use Google Assistant to control Android apps on their infotainment system by

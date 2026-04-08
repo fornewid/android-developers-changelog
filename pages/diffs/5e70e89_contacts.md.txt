@@ -1,0 +1,12 @@
+diff --git a/docs/work/contacts.md b/docs/work/contacts.md
+index 4c7c2a7..b592134 100644
+--- a/docs/work/contacts.md
++++ b/docs/work/contacts.md
+@@ -12,6 +12,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ This developer’s guide explains how you can enhance your app to use contact
+ data from the work profile. If you haven’t used Android's contacts APIs
+ before, read [Contacts Provider](/guide/topics/providers/contacts-provider) to familiarize yourself with

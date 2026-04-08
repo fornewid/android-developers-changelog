@@ -1,0 +1,55 @@
+diff --git a/docs/about/versions/nougat/android-7.0-samples.md b/docs/about/versions/nougat/android-7.0-samples.md
+index d86207e..8665ca1 100644
+--- a/docs/about/versions/nougat/android-7.0-samples.md
++++ b/docs/about/versions/nougat/android-7.0-samples.md
+@@ -1,39 +1,27 @@
+ ---
+-title: Android 7.0 Samples  |  Android Developers
++title: https://developer.android.com/about/versions/nougat/android-7.0-samples
+ url: https://developer.android.com/about/versions/nougat/android-7.0-samples
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-* [Essentials](https://developer.android.com/get-started)
+-* [Releases](https://developer.android.com/about/versions)
++# Android 7.0 Samples
+ 
+-# Android 7.0 Samples Stay organized with collections Save and categorize content based on your preferences.
++Use the code samples below to learn about Android 7.0 capabilities and APIs. To download the samples in Android Studio, select the**File \> New \> Import Samples**menu option.
+ 
+-
+-
+-
+-Use the code samples below to learn about Android 7.0 capabilities and APIs. To
+-download the samples in Android Studio, select the **File > New > Import
+-Samples** menu option.
+-
+-**Note:** These downloadable projects are designed
+-for use with Gradle and Android Studio.
++**Note:**These downloadable projects are designed for use with Gradle and Android Studio.
+ 
+ ### Multi-Window Playground
+ 
+-![Screen showing the Multi-Window Playground sample project](/static/images/android-7.0/sample-multiwindow.png)
++![Screen showing the Multi-Window Playground sample project](https://developer.android.com/static/images/android-7.0/sample-multiwindow.png)
+ 
+-This sample demonstrates how to take advantage of multiple window
+-user interfaces with your app.
++This sample demonstrates how to take advantage of multiple window user interfaces with your app.
+ 
+-[Get it on GitHub](https://github.com/android/views-widgets-samples/tree/main/MultiWindowPlayground)
++[Get it on GitHub](https://github.com/android/views-widgets-samples/tree/main/MultiWindowPlayground)  
+ 
+ ### Direct Boot
+ 
+-![Screen showing the Direct Boot sample project](/static/images/android-7.0/sample-directboot.png)
++![Screen showing the Direct Boot sample project](https://developer.android.com/static/images/android-7.0/sample-directboot.png)
+ 
+-This sample demonstrates how to store and access data in a device encrypted
+-storage which is always available while the device is booted.
++This sample demonstrates how to store and access data in a device encrypted storage which is always available while the device is booted.
+ 
+ [Get it on GitHub](https://github.com/android/security-samples/tree/main/DirectBoot)
+\ No newline at end of file

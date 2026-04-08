@@ -1,0 +1,12 @@
+diff --git a/docs/training/tv/playback/leanback/migrate-to-compose.md b/docs/training/tv/playback/leanback/migrate-to-compose.md
+index a59c936..a56b02c 100644
+--- a/docs/training/tv/playback/leanback/migrate-to-compose.md
++++ b/docs/training/tv/playback/leanback/migrate-to-compose.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ To migrate from the Leanback UI toolkit to Compose for Android TV, follow these steps:
+ 
+ * **Assess your current Leanback implementation** by identifying the components

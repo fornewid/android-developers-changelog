@@ -1,0 +1,25 @@
+diff --git a/docs/distribute/ltv-calculator.md b/docs/distribute/ltv-calculator.md
+index 219e12d..670ee81 100644
+--- a/docs/distribute/ltv-calculator.md
++++ b/docs/distribute/ltv-calculator.md
+@@ -1,17 +1,10 @@
+ ---
+-title: Download the LTV Calculator  |  Google Play  |  Android Developers
++title: https://developer.android.com/distribute/ltv-calculator
+ url: https://developer.android.com/distribute/ltv-calculator
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-* [Google Play](https://developer.android.com/distribute)
+-
+-# Download the LTV Calculator Stay organized with collections Save and categorize content based on your preferences.
+-
+-
+-
+-![](/static/distribute/images/ltv-calculator.png)
++![](https://developer.android.com/static/distribute/images/ltv-calculator.png)
+ 
+ The lifetime value calculator can help you understand and plan
+ whether you should spend money on user acquisition, and if so

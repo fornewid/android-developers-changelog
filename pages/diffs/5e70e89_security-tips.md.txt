@@ -1,0 +1,12 @@
+diff --git a/docs/privacy-and-security/security-tips.md b/docs/privacy-and-security/security-tips.md
+index 43e6062..ae09df7 100644
+--- a/docs/privacy-and-security/security-tips.md
++++ b/docs/privacy-and-security/security-tips.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Android has built-in security features that significantly reduce the frequency
+ and impact of application security issues. The system is designed so that you
+ can typically build your apps with the default system and file permissions and

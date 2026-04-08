@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/compose/performance/stability/diagnose.md b/docs/develop/ui/compose/performance/stability/diagnose.md
+index ec76eee..80db7a0 100644
+--- a/docs/develop/ui/compose/performance/stability/diagnose.md
++++ b/docs/develop/ui/compose/performance/stability/diagnose.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ If you are experiencing performance issues that result from unnecessary or
+ excessive recomposition, you should debug the stability of your app. This guide
+ outlines several methods for doing so.

@@ -1,0 +1,12 @@
+diff --git a/docs/training/basics/intents/limit-play-loading.md b/docs/training/basics/intents/limit-play-loading.md
+index 21bd22f..1b65ec8 100644
+--- a/docs/training/basics/intents/limit-play-loading.md
++++ b/docs/training/basics/intents/limit-play-loading.md
+@@ -12,6 +12,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ *On-device Android containers* are apps that simulate the Android OS on an
+ Android-powered device. This includes both apps that simulate the Android OS in
+ its entirety and apps that only simulate portions of the Android OS.

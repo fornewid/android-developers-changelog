@@ -1,0 +1,12 @@
+diff --git a/docs/training/app-links/verify-applinks.md b/docs/training/app-links/verify-applinks.md
+index 0689791..6e88e3c 100644
+--- a/docs/training/app-links/verify-applinks.md
++++ b/docs/training/app-links/verify-applinks.md
+@@ -12,6 +12,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ When `android:autoVerify="true"` is present in at least one of your app's intent
+ filters, installing your app on a device that runs Android 6.0 (API level 23) or
+ higher causes the system to automatically verify the hosts associated with the

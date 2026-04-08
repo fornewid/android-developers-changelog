@@ -1,0 +1,12 @@
+diff --git a/docs/topic/performance/vitals/render.md b/docs/topic/performance/vitals/render.md
+index afbb3c7..27aa7cf 100644
+--- a/docs/topic/performance/vitals/render.md
++++ b/docs/topic/performance/vitals/render.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ UI rendering is the act of generating a frame from your app and displaying it on
+ the screen. To help ensure that a user's interaction with your app is smooth,
+ your app must render frames in under 16ms to achieve 60 frames per second (fps).

@@ -1,0 +1,12 @@
+diff --git a/docs/build/releases/agp-3-5-0-release-notes.md b/docs/build/releases/agp-3-5-0-release-notes.md
+index acbfaae..17df3d3 100644
+--- a/docs/build/releases/agp-3-5-0-release-notes.md
++++ b/docs/build/releases/agp-3-5-0-release-notes.md
+@@ -15,6 +15,7 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
++
+ # Android Gradle Plugin 3.5.0 (August 2019)
+ 
+ Android Gradle plugin 3.5.0, along with

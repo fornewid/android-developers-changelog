@@ -1,0 +1,12 @@
+diff --git a/docs/games/playgames/native-pc/setup/developer_mode.md b/docs/games/playgames/native-pc/setup/developer_mode.md
+index d6e74c0..e49a391 100644
+--- a/docs/games/playgames/native-pc/setup/developer_mode.md
++++ b/docs/games/playgames/native-pc/setup/developer_mode.md
+@@ -12,6 +12,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ In order to successfully initialize the SDK inside of a game several
+ requirements must be satisfied. These include:
+ 

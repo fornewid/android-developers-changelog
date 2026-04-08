@@ -1,0 +1,12 @@
+diff --git a/docs/media/camera/lowlight/low-light-boost-gp.md b/docs/media/camera/lowlight/low-light-boost-gp.md
+index de3dc62..c18f646 100644
+--- a/docs/media/camera/lowlight/low-light-boost-gp.md
++++ b/docs/media/camera/lowlight/low-light-boost-gp.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Google Low Light Boost from Google Play services lets you dynamically adjust the
+ camera's brightness in real time to adapt to low light conditions even when the
+ device doesn't support Low Light Boost AE Mode. This guide covers the following

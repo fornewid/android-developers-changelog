@@ -1,0 +1,12 @@
+diff --git a/docs/studio/releases/past-releases/as-3-3-0-release-notes.md b/docs/studio/releases/past-releases/as-3-3-0-release-notes.md
+index 8dd1d29..8082f79 100644
+--- a/docs/studio/releases/past-releases/as-3-3-0-release-notes.md
++++ b/docs/studio/releases/past-releases/as-3-3-0-release-notes.md
+@@ -15,6 +15,7 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
++
+ # Android Studio 3.3 (January 2019)
+ 
+ Android Studio 3.3 is a major release that includes a variety of new features

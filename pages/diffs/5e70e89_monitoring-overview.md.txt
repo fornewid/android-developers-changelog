@@ -1,0 +1,12 @@
+diff --git a/docs/topic/performance/monitoring-overview.md b/docs/topic/performance/monitoring-overview.md
+index b6ef980..658d768 100644
+--- a/docs/topic/performance/monitoring-overview.md
++++ b/docs/topic/performance/monitoring-overview.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ You can track and analyze performance of your app for valuable insight about a
+ user's overall experience. You can monitor performance to identify potential
+ issues and optimize for those paths before they impact more users.

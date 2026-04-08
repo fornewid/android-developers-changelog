@@ -1,0 +1,12 @@
+diff --git a/docs/studio/prompt-gallery/prompts/optimize-watch-face-for-screen-shapes.md b/docs/studio/prompt-gallery/prompts/optimize-watch-face-for-screen-shapes.md
+index bb2c2b4..0b060f8 100644
+--- a/docs/studio/prompt-gallery/prompts/optimize-watch-face-for-screen-shapes.md
++++ b/docs/studio/prompt-gallery/prompts/optimize-watch-face-for-screen-shapes.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Optimize an XML layout for a Wear OS smartwatch.
+ 
+ ---

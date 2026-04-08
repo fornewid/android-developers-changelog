@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/views/touch-and-input/game-controllers/controller-features.md b/docs/develop/ui/views/touch-and-input/game-controllers/controller-features.md
+index 02a392a..a8da971 100644
+--- a/docs/develop/ui/views/touch-and-input/game-controllers/controller-features.md
++++ b/docs/develop/ui/views/touch-and-input/game-controllers/controller-features.md
+@@ -14,6 +14,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Game controllers are equipped with additional features that significantly
+ enhance player interaction and immersion. The haptics, motion sensors, and light
+ functionalities of Android game controllers are particularly instrumental in

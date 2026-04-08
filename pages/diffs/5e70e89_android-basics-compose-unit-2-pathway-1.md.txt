@@ -1,0 +1,150 @@
+diff --git a/docs/courses/pathways/android-basics-compose-unit-2-pathway-1.md b/docs/courses/pathways/android-basics-compose-unit-2-pathway-1.md
+index 7debc12..63467c2 100644
+--- a/docs/courses/pathways/android-basics-compose-unit-2-pathway-1.md
++++ b/docs/courses/pathways/android-basics-compose-unit-2-pathway-1.md
+@@ -1,128 +1,74 @@
+ ---
+-title: Kotlin fundamentals  |  Android Basics Compose - Building App UI  |  Android Developers
++title: https://developer.android.com/courses/pathways/android-basics-compose-unit-2-pathway-1
+ url: https://developer.android.com/courses/pathways/android-basics-compose-unit-2-pathway-1
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-* [Training](https://developer.android.com/courses)
+-* [Android Basics with Compose](https://developer.android.com/courses/android-basics-compose/course)
+-* [Building App UI](https://developer.android.com/courses/android-basics-compose/unit-2)
+-* [Kotlin Fundamentals](https://developer.android.com/courses/pathways/android-basics-compose-unit-2-pathway-1)
+-
+-Stay organized with collections
+-
+-Save and categorize content based on your preferences.
++# Kotlin fundamentals
+ 
+ 
++Learn more on fundamentals of Kotlin, object oriented programming and lambdas.  
+ 
+-# Kotlin fundamentals
+ 
+-Learn more on fundamentals of Kotlin, object oriented programming and lambdas.  
+ Go back
+ 
+-*check\_circle*
+-
+ ## Kotlin Fundamentals
+ 
+-*keyboard\_arrow\_down*
+-*keyboard\_arrow\_up*
+-
+-*ondemand\_video*
+-Video
+-*Optional*
++<button class="toggle gc-analytics-event" data-category="devsite-playlist: toggle button"> *keyboard_arrow_down* *keyboard_arrow_up* </button> Video *Optional*
+ 
+ Welcome to Unit 2! We begin this unit by learning more on the fundamentals of the Kotlin programming language.
+ 
+-Skip
+-
+-*check\_circle*
++<button class="playlist-skip gc-analytics-event" data-category="devsite-playlist: skip button"> Skip </button>
+ 
+ ## Write conditionals in Kotlin
+ 
+-*keyboard\_arrow\_down*
+-*keyboard\_arrow\_up*
+-
+-*emoji\_objects*
+-Codelab
++<button class="toggle gc-analytics-event" data-category="devsite-playlist: toggle button"> *keyboard_arrow_down* *keyboard_arrow_up* </button> Codelab
+ 
+ Learn how to write conditionals in Kotlin.
+ 
+ [Take codelab](https://developer.android.com/codelabs/basic-android-kotlin-compose-conditionals)
+ 
+-*check\_circle*
+-
+ ## Use nullability in Kotlin
+ 
+-*keyboard\_arrow\_down*
+-*keyboard\_arrow\_up*
+-
+-*emoji\_objects*
+-Codelab
++<button class="toggle gc-analytics-event" data-category="devsite-playlist: toggle button"> *keyboard_arrow_down* *keyboard_arrow_up* </button> Codelab
+ 
+ Learn how to use nullability in Kotlin.
+ 
+ [Take codelab](https://developer.android.com/codelabs/basic-android-kotlin-compose-nullability)
+ 
+-*check\_circle*
+-
+ ## Use classes and objects in Kotlin
+ 
+-*keyboard\_arrow\_down*
+-*keyboard\_arrow\_up*
+-
+-*emoji\_objects*
+-Codelab
++<button class="toggle gc-analytics-event" data-category="devsite-playlist: toggle button"> *keyboard_arrow_down* *keyboard_arrow_up* </button> Codelab
+ 
+ Learn how to use classes and objects in Kotlin.
+ 
+ [Take codelab](https://developer.android.com/codelabs/basic-android-kotlin-compose-classes-and-objects)
+ 
+-*check\_circle*
+-
+ ## Use function types and lambda expressions in Kotlin
+ 
+-*keyboard\_arrow\_down*
+-*keyboard\_arrow\_up*
+-
+-*emoji\_objects*
+-Codelab
++<button class="toggle gc-analytics-event" data-category="devsite-playlist: toggle button"> *keyboard_arrow_down* *keyboard_arrow_up* </button> Codelab
+ 
+ Learn how to use lambda expressions and higher order functions in Kotlin.
+ 
+ [Take codelab](https://developer.android.com/codelabs/basic-android-kotlin-compose-function-types-and-lambda)
+ 
+-*check\_circle*
+-
+ ## Practice: Kotlin Fundamentals
+ 
+-*keyboard\_arrow\_down*
+-*keyboard\_arrow\_up*
+-
+-*emoji\_objects*
+-Codelab
++<button class="toggle gc-analytics-event" data-category="devsite-playlist: toggle button"> *keyboard_arrow_down* *keyboard_arrow_up* </button> Codelab
+ 
+ Apply the basic concepts of the Kotlin programming language to solve the given problems.
+ 
+ [Take codelab](https://developer.android.com/codelabs/basic-android-kotlin-compose-kotlin-fundamentals-practice-problems)
+ 
+-*check\_circle*
+-
+ ## What's next?
+ 
+-*keyboard\_arrow\_down*
+-*keyboard\_arrow\_up*
+-
+-*ondemand\_video*
+-Video
+-*Optional*
++<button class="toggle gc-analytics-event" data-category="devsite-playlist: toggle button"> *keyboard_arrow_down* *keyboard_arrow_up* </button> Video *Optional*
+ 
+ This pathway introduced four more important programming topics: conditionals, object-oriented programming, nullability, and function types. You learned how to use these concepts in Kotlin. In the upcoming pathways you will use this knowledge to create more functional and interactive apps with buttons, forms and other user controls!
+ 
+-Skip
++<button class="playlist-skip gc-analytics-event" data-category="devsite-playlist: skip button"> Skip </button>
+ 
+ ## Quiz
+ 
+-Test what you’ve learned and earn your Kotlin fundamentals badge.
+-
+-[Take the quiz](/courses/quizzes/android-basics-compose-unit-2-pathway-1/android-basics-compose-unit-2-pathway-1)
+\ No newline at end of file
++Test what you've learned and earn your Kotlin fundamentals badge.
++[Take the quiz](https://developer.android.com/courses/quizzes/android-basics-compose-unit-2-pathway-1/android-basics-compose-unit-2-pathway-1)
+\ No newline at end of file

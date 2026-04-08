@@ -1,0 +1,12 @@
+diff --git a/docs/distribute/marketing-tools/device-art-generator.md b/docs/distribute/marketing-tools/device-art-generator.md
+index d8d59f5..10eb6e4 100644
+--- a/docs/distribute/marketing-tools/device-art-generator.md
++++ b/docs/distribute/marketing-tools/device-art-generator.md
+@@ -12,7 +12,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Quickly wrap app screenshots in device artwork with this device art generator.
+ The resulting artwork provides better visual context for your app screenshots on your website or in other promotional materials.
+ 

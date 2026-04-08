@@ -1,0 +1,12 @@
+diff --git a/docs/guide/appendix/faq/commontasks.md b/docs/guide/appendix/faq/commontasks.md
+index 7563756..62ac84b 100644
+--- a/docs/guide/appendix/faq/commontasks.md
++++ b/docs/guide/appendix/faq/commontasks.md
+@@ -10,5 +10,6 @@ source: html-scrape
+ 
+ 
+ 
++
+ You should have already been redirected by your browser. Please follow
+ [this link](/resources/faq/commontasks).
+\ No newline at end of file

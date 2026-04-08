@@ -1,0 +1,12 @@
+diff --git a/docs/training/constraint-layout/motionlayout/ref/constraintset.md b/docs/training/constraint-layout/motionlayout/ref/constraintset.md
+index 2d26986..f101ba2 100644
+--- a/docs/training/constraint-layout/motionlayout/ref/constraintset.md
++++ b/docs/training/constraint-layout/motionlayout/ref/constraintset.md
+@@ -10,7 +10,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Specifies the positions and attributes of all views at one point in a motion
+ sequence. Typically, a
+ [`<Transition>`](/training/constraint-layout/motionlayout/ref/transition)

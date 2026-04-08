@@ -1,0 +1,12 @@
+diff --git a/docs/jetpack/androidx/releases/compose-material3-adaptive.md b/docs/jetpack/androidx/releases/compose-material3-adaptive.md
+index a6a793e..bb7f69a 100644
+--- a/docs/jetpack/androidx/releases/compose-material3-adaptive.md
++++ b/docs/jetpack/androidx/releases/compose-material3-adaptive.md
+@@ -15,7 +15,6 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
+-
+ # Compose Material 3 Adaptive
+ 
+ API Reference  

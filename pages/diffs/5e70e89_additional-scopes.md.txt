@@ -1,0 +1,113 @@
+diff --git a/docs/identity/legacy/gsi/additional-scopes.md b/docs/identity/legacy/gsi/additional-scopes.md
+index d8c737c..d212667 100644
+--- a/docs/identity/legacy/gsi/additional-scopes.md
++++ b/docs/identity/legacy/gsi/additional-scopes.md
+@@ -1,38 +1,25 @@
+ ---
+-title: Request Additional Scopes  |  Identity  |  Android Developers
++title: https://developer.android.com/identity/legacy/gsi/additional-scopes
+ url: https://developer.android.com/identity/legacy/gsi/additional-scopes
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-* [Design & Plan](https://developer.android.com/design)
+-* [Security](https://developer.android.com/security)
+-* [Identity](https://developer.android.com/identity)
+-* [Guides](https://developer.android.com/identity/credential-manager)
+-
+-# Request Additional Scopes Stay organized with collections Save and categorize content based on your preferences.
+-
+-
+-
+-**Warning:**
+-
+-**The Google Sign-In for Android API is outdated and no longer supported.**
+-To ensure the continued security and usability of your app, [migrate your Sign in with
+-Google implementation to Credential Manager](/identity/sign-in/credential-manager-siwg) today. Credential Manager
+-supports passkey, password, and federated identity authentication (such as
+-Sign-in with Google), stronger security, and a more consistent user
+-experience.
+-
+-**For Wear developers:** Credential Manager is supported in Wear OS
+-5.1 and later on selected watches. Developers actively supporting Wear OS 3, 4
+-and 5.0 devices with Sign in with Google should continue using Google Sign-in
+-for Android for your Wear applications. Sign in with Google support will be
+-available on Credential Manager APIs for these versions of WearOS at a later
+-date.
+-
+-**Warning:** This page is out of date, refer to
+-[Authorize access to Google user data](/identity/authorization)
+-for the latest best practice.
++| **Warning:**
++|
++| **The Google Sign-In for Android API is outdated and no longer supported.**
++| To ensure the continued security and usability of your app, [migrate your Sign in with
++| Google implementation to Credential Manager](https://developer.android.com/identity/sign-in/credential-manager-siwg) today. Credential Manager
++| supports passkey, password, and federated identity authentication (such as
++| Sign-in with Google), stronger security, and a more consistent user
++| experience.
++|
++| **For Wear developers:** Credential Manager is supported in Wear OS
++| 5.1 and later on selected watches. Developers actively supporting Wear OS 3, 4
++| and 5.0 devices with Sign in with Google should continue using Google Sign-in
++| for Android for your Wear applications. Sign in with Google support will be
++| available on Credential Manager APIs for these versions of WearOS at a later
++| date.
++| **Warning:** This page is out of date, refer to [Authorize access to Google user data](https://developer.android.com/identity/authorization) for the latest best practice.
+ 
+ For the best user experience, you should request as few scopes as possible when
+ initially signing in users. If your app's core functionality isn't tied to a
+@@ -64,34 +51,30 @@ user.
+ For example, if a user performs an action that requires access to their Drive
+ app storage, do the following:
+ 
+-```
+-if (!GoogleSignIn.hasPermissions(
+-        GoogleSignIn.getLastSignedInAccount(getActivity()),
+-        Drive.SCOPE_APPFOLDER)) {
+-    GoogleSignIn.requestPermissions(
+-            MyExampleActivity.this,
+-            RC_REQUEST_PERMISSION_SUCCESS_CONTINUE_FILE_CREATION,
++    if (!GoogleSignIn.hasPermissions(
+             GoogleSignIn.getLastSignedInAccount(getActivity()),
+-            Drive.SCOPE_APPFOLDER);
+-} else {
+-    saveToDriveAppFolder();
+-}
+-```
++            Drive.SCOPE_APPFOLDER)) {
++        GoogleSignIn.requestPermissions(
++                MyExampleActivity.this,
++                RC_REQUEST_PERMISSION_SUCCESS_CONTINUE_FILE_CREATION,
++                GoogleSignIn.getLastSignedInAccount(getActivity()),
++                Drive.SCOPE_APPFOLDER);
++    } else {
++        saveToDriveAppFolder();
++    }
+ 
+ In your activity's `onActivityResult` callback, you can check if the required
+ permissions were successfully acquired, and if so, carry out the user action.
+ 
+-```
+-@Override
+-public void onActivityResult(int requestCode, int resultCode, Intent data) {
+-    super.onActivityResult(requestCode, resultCode, data);
+-    if (resultCode == Activity.RESULT_OK) {
+-        if (RC_REQUEST_PERMISSION_SUCCESS_CONTINUE_FILE_CREATION == requestCode) {
+-            saveToDriveAppFolder();
++    @Override
++    public void onActivityResult(int requestCode, int resultCode, Intent data) {
++        super.onActivityResult(requestCode, resultCode, data);
++        if (resultCode == Activity.RESULT_OK) {
++            if (RC_REQUEST_PERMISSION_SUCCESS_CONTINUE_FILE_CREATION == requestCode) {
++                saveToDriveAppFolder();
++            }
+         }
+     }
+-}
+-```
+ 
+ You can also pass a `GoogleSignInOptionsExtension` to `hasPermissions` and
+ `requestPermissions` to check for and acquire a set of permissions more

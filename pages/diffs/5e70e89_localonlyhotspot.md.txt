@@ -1,0 +1,58 @@
+diff --git a/docs/develop/connectivity/wifi/localonlyhotspot.md b/docs/develop/connectivity/wifi/localonlyhotspot.md
+index 3fa895f..cd29568 100644
+--- a/docs/develop/connectivity/wifi/localonlyhotspot.md
++++ b/docs/develop/connectivity/wifi/localonlyhotspot.md
+@@ -1,38 +1,27 @@
+ ---
+-title: Use a local-only Wi-Fi hotspot  |  Connectivity  |  Android Developers
++title: https://developer.android.com/develop/connectivity/wifi/localonlyhotspot
+ url: https://developer.android.com/develop/connectivity/wifi/localonlyhotspot
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-* [Develop](https://developer.android.com/develop)
+-* [Core areas](https://developer.android.com/develop/core-areas)
+-* [Connectivity](https://developer.android.com/develop/connectivity)
+-* [Guides](https://developer.android.com/develop/connectivity/overview)
+-
+-# Use a local-only Wi-Fi hotspot Stay organized with collections Save and categorize content based on your preferences.
+-
+-
+-
+-
+ You can use a local-only hotspot to enable applications on devices connected to
+ the Wi-Fi hotspot to communicate with each other. The network created by this
+ method will not have Internet access. Each application can make a single request
+ for the hotspot, but multiple applications can request the hotspot at the same
+ time. When multiple applications have successfully registered concurrently, they
+ share the underlying hotspot.
+-[`LocalOnlyHotspotCallback.onStarted(LocalOnlyHotspotReservation)`](/reference/android/net/wifi/WifiManager.LocalOnlyHotspotCallback#onStarted(android.net.wifi.WifiManager.LocalOnlyHotspotReservation))
++[`LocalOnlyHotspotCallback.onStarted(LocalOnlyHotspotReservation)`](https://developer.android.com/reference/android/net/wifi/WifiManager.LocalOnlyHotspotCallback#onStarted(android.net.wifi.WifiManager.LocalOnlyHotspotReservation))
+ is called when the hotspot is ready for use.
+ 
+-If your app targets Android 13 (API level 33) or higher, you must request the
+-[`NEARBY_WIFI_DEVICES`](/reference/android/Manifest.permission#NEARBY_WIFI_DEVICES)
++If your app targets Android 13 (API level 33) or higher, you must request the
++[`NEARBY_WIFI_DEVICES`](https://developer.android.com/reference/android/Manifest.permission#NEARBY_WIFI_DEVICES)
+ to use a local-only hotspot, as shown in the following code snippet. Apps that
+ target an earlier version of Android must request `ACCESS_FINE_LOCATION`
+ instead.
+ 
+-```
++```xml
+ <manifest ...>
+-    <<!-- If your app targets Android 13 (API level 33)
++    <<!-- If your app targets Android 13 (API level 33)
+           or higher, you must declare the NEARBY_WIFI_DEVICES permission. -->
+     <uses-permission android:name="android.permission.NEARBY_WIFI_DEVICES"
+                      <!-- If your app derives location information from
+@@ -51,4 +40,4 @@ instead.
+ ```
+ 
+ For more details on using local-only hotspots, see
+-[`startLocalOnlyHotspot()`](/reference/android/net/wifi/WifiManager#startLocalOnlyHotspot(android.net.wifi.WifiManager.LocalOnlyHotspotCallback,%20android.os.Handler)).
+\ No newline at end of file
++[`startLocalOnlyHotspot()`](https://developer.android.com/reference/android/net/wifi/WifiManager#startLocalOnlyHotspot(android.net.wifi.WifiManager.LocalOnlyHotspotCallback,%20android.os.Handler)).
+\ No newline at end of file

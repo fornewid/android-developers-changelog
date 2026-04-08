@@ -1,0 +1,12 @@
+diff --git a/docs/media/camera/camera-extensions.md b/docs/media/camera/camera-extensions.md
+index 26ef9ef..6346a7c 100644
+--- a/docs/media/camera/camera-extensions.md
++++ b/docs/media/camera/camera-extensions.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ [Camera2](/training/camera2) and [CameraX](/training/camerax) provide an Extensions
+ API that lets your app access the following extensions that vendors have implemented
+ on Android devices:

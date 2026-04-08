@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/compose/quick-guides/collections/compose-basics.md b/docs/develop/ui/compose/quick-guides/collections/compose-basics.md
+index 0ee12d2..fb1c588 100644
+--- a/docs/develop/ui/compose/quick-guides/collections/compose-basics.md
++++ b/docs/develop/ui/compose/quick-guides/collections/compose-basics.md
+@@ -16,6 +16,7 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
++
+ ## Quick Guides Collection Compose basics
+ 
+ This series of videos introduces various Compose APIs, quickly showing you what's available and how to use them.

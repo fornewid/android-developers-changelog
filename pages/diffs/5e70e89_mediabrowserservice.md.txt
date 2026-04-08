@@ -1,0 +1,12 @@
+diff --git a/docs/media/legacy/audio/mediabrowserservice.md b/docs/media/legacy/audio/mediabrowserservice.md
+index 92eda9e..0e56cea 100644
+--- a/docs/media/legacy/audio/mediabrowserservice.md
++++ b/docs/media/legacy/audio/mediabrowserservice.md
+@@ -15,6 +15,7 @@ These guides discuss the MediaCompat APIs, which are no longer updated. We stron
+ 
+ 
+ 
++
+ Your app must declare the `MediaBrowserService` with an intent-filter in its manifest. You can choose your own service name; in the following example, it is "MediaPlaybackService."
+ 
+ ```

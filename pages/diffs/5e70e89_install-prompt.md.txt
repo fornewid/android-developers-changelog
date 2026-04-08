@@ -1,0 +1,77 @@
+diff --git a/docs/guide/playcore/install-prompt.md b/docs/guide/playcore/install-prompt.md
+index 30ab442..4db3397 100644
+--- a/docs/guide/playcore/install-prompt.md
++++ b/docs/guide/playcore/install-prompt.md
+@@ -1,11 +1,19 @@
+ ---
+-title: https://developer.android.com/guide/playcore/install-prompt
++title: In-app install prompts  |  Other Play guides  |  Android Developers
+ url: https://developer.android.com/guide/playcore/install-prompt
+-source: md.txt
++source: html-scrape
+ ---
+ 
++* [Android Developers](https://developer.android.com/)
++* [Google Play](https://developer.android.com/distribute)
++* [Other Play guides](https://developer.android.com/guide/app-bundle)
++
++# In-app install prompts Stay organized with collections Save and categorize content based on your preferences.
++
++
++
+ When users install your app on multiple devices they own, they can engage with
+-it more often and in new contexts---on their watch while on the go, on their TV
++it more often and in new contexts—on their watch while on the go, on their TV
+ while relaxing at home, or on their tablet while commuting. This increased
+ engagement across form factors can lead to a more loyal user base and new
+ opportunities for your app to provide value. Although some users install apps
+@@ -19,25 +27,32 @@ engage with the app on other devices the user owns.
+ The in-app install prompt flow includes the following steps:
+ 
+ 1. A prompt appears that Play controls.
+-2. The user taps **See details**, and then Play presents options to select form factors. Play pre-selects relevant devices, displaying screenshots and eligible devices for one-click installation.
+-3. After tapping **Install**, Play informs the user of pending remote installation.
+-4. The user can dismiss the prompt and finish their original task within the app.
+-5. Once the app is successfully installed on the other device, the user gets a confirmation notification on that device.
++2. The user taps **See details**, and then Play presents options to select form
++   factors. Play pre-selects relevant devices, displaying screenshots and
++   eligible devices for one-click installation.
++3. After tapping **Install**, Play informs the user of pending remote
++   installation.
++4. The user can dismiss the prompt and finish their original task within the
++   app.
++5. Once the app is successfully installed on the other device, the user gets a
++   confirmation notification on that device.
+ 
+ ### Eligibility checks
+ 
+ Play performs a set of asynchronous eligibility checks that gate the prompt UX.
+ The prompt won't show if any of these checks fail:
+ 
+-- **Age:** Kids accounts cannot use this feature.
+-- **Compatibility:** Play shows a prompt only if the user has a compatible alternate form factor device for the requested action, for example, installation.
+-- **Frequency:** Play can show a prompt at most 3 times per month.
++* **Age:** Kids accounts cannot use this feature.
++* **Compatibility:** Play shows a prompt only if the user has a
++  compatible alternate form factor device for the requested action, for
++  example, installation.
++* **Frequency:** Play can show a prompt at most 3 times per month.
+ 
+ ## Integrate in-app install prompts in your app
+ 
+ Learn how to integrate in-app install prompts in your app, see:
+ 
+-- [Kotlin or Java](https://developer.android.com/guide/playcore/install-prompt/kotlin-java)
++* [Kotlin or Java](/guide/playcore/install-prompt/kotlin-java)
+ 
+ ### User privacy
+ 
+@@ -50,6 +65,6 @@ eligibility checks.
+ ## Terms of service and data safety
+ 
+ By accessing or using the Play In-App Install Prompts Library, you agree to the
+-[Play Core Software Development Kit Terms of Service](https://developer.android.com/guide/playcore#license) and the
++[Play Core Software Development Kit Terms of Service](/guide/playcore#license) and the
+ [Google Play Terms of Service](https://play.google.com/about/play-terms/index.html). Read and understand all applicable
+ terms and policies before accessing the library
+\ No newline at end of file

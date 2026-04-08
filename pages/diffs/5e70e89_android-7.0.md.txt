@@ -1,0 +1,12 @@
+diff --git a/docs/work/versions/android-7.0.md b/docs/work/versions/android-7.0.md
+index 3ee7d56..bce50ca 100644
+--- a/docs/work/versions/android-7.0.md
++++ b/docs/work/versions/android-7.0.md
+@@ -12,6 +12,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ This page provides an overview of the new APIs, features, and behavior changes
+ introduced in Android 7.0 (API level 25) that affect Android in the enterprise.
+ 

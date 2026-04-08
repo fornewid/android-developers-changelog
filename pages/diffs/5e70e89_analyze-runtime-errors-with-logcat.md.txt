@@ -1,0 +1,12 @@
+diff --git a/docs/studio/gemini/analyze-runtime-errors-with-logcat.md b/docs/studio/gemini/analyze-runtime-errors-with-logcat.md
+index 5b962f5..2eedb50 100644
+--- a/docs/studio/gemini/analyze-runtime-errors-with-logcat.md
++++ b/docs/studio/gemini/analyze-runtime-errors-with-logcat.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Gemini in Android Studio helps you understand and resolve errors from the
+ [Logcat](/studio/debug/logcat) window, streamlining your debugging process. When
+ your app throws an error or exception, you can use the "Ask Gemini" feature to

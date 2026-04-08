@@ -1,0 +1,12 @@
+diff --git a/docs/studio/prompt-gallery/prompts/analyze-compose-layout.md b/docs/studio/prompt-gallery/prompts/analyze-compose-layout.md
+index cfd68b1..15b1dad 100644
+--- a/docs/studio/prompt-gallery/prompts/analyze-compose-layout.md
++++ b/docs/studio/prompt-gallery/prompts/analyze-compose-layout.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Suggest improvements to follow Compose layout best practices.
+ 
+ ---

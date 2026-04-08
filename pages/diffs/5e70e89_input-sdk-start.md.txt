@@ -1,0 +1,20 @@
+diff --git a/docs/games/playgames/input-sdk-start.md b/docs/games/playgames/input-sdk-start.md
+index 84e5e6e..9092ab1 100644
+--- a/docs/games/playgames/input-sdk-start.md
++++ b/docs/games/playgames/input-sdk-start.md
+@@ -15,7 +15,6 @@ Send feedback
+ 
+ 
+ 
+-
+ **Note:** If you're looking to upgrade from an earlier version, see the
+ [migration guides](/games/playgames/input-sdk-migration-guides).
+ 
+@@ -1671,6 +1670,4 @@ see [Get started with Google Play Games on PC](/games/playgames/start).
+ 
+ 
+ 
+-
+-
+ Send feedback
+\ No newline at end of file

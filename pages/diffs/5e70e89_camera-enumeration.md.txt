@@ -1,0 +1,188 @@
+diff --git a/docs/media/camera/camera2/camera-enumeration.md b/docs/media/camera/camera2/camera-enumeration.md
+index 7e0326d..2792167 100644
+--- a/docs/media/camera/camera2/camera-enumeration.md
++++ b/docs/media/camera/camera2/camera-enumeration.md
+@@ -1,24 +1,35 @@
+ ---
+-title: https://developer.android.com/media/camera/camera2/camera-enumeration
++title: Camera lenses and capabilities  |  Android media  |  Android Developers
+ url: https://developer.android.com/media/camera/camera2/camera-enumeration
+-source: md.txt
++source: html-scrape
+ ---
+ 
+-# Camera lenses and capabilities
++* [Android Developers](https://developer.android.com/)
++* [Essentials](https://developer.android.com/get-started)
++* [Camera & media dev center](https://developer.android.com/media)
++* [Guides](https://developer.android.com/media/guides)
+ 
+-<br />
++# Camera lenses and capabilities Stay organized with collections Save and categorize content based on your preferences.
+ 
+-**Note:** This page refers to the[Camera2](https://developer.android.com/reference/android/hardware/camera2/package-summary)package. Unless your app requires specific, low-level features from Camera2, we recommend using[CameraX](https://developer.android.com/camerax). Both CameraX and Camera2 support Android 5.0 (API level 21) and higher.
+ 
+-<br />
+ 
+-Many modern Android devices have two or more cameras on the front, back, or both sides of the device. Each lens can have unique capabilities, such as burst capture, manual control, or motion tracking. An app for depositing checks might only use the first rear-facing camera, whereas a social media app might default to a front-facing camera, but give users the option to switch between all available lenses. It can also remember their choices.
++**Note:** This page refers to the [Camera2](/reference/android/hardware/camera2/package-summary) package. Unless your app requires specific, low-level features from Camera2, we recommend using [CameraX](/camerax). Both CameraX and Camera2 support Android 5.0 (API level 21) and higher.
+ 
+-This page covers how to list camera lenses and their capabilities so that you can make decisions within your app about which lens to use in a given situation. The following code snippet retrieves a list of all cameras and iterates over them:  
++Many modern Android devices have two or more cameras on the front, back, or
++both sides of the device. Each lens can have unique capabilities, such as burst capture,
++manual control, or motion tracking. An app for depositing checks might only use
++the first rear-facing camera, whereas a social media app might default to a
++front-facing camera, but give users the option to switch between all available
++lenses. It can also remember their choices.
++
++This page covers how to list camera lenses and their capabilities so that you
++can make decisions within your app about which lens to use in a given situation.
++The following code snippet retrieves a list of all cameras and iterates over
++them:
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ try {
+     val cameraIdList = cameraManager.cameraIdList // may be empty
+ 
+@@ -42,7 +53,7 @@ try {
+ 
+ ### Java
+ 
+-```java
++```
+ try {
+     String[] cameraIdList = cameraManager.getCameraIdList(); // may be empty
+ 
+@@ -70,23 +81,34 @@ try {
+ }
+ ```
+ 
+-The variable`cameraLensFacing`describes the direction that the camera faces relative to the device screen, and has one of the following values:
++The variable `cameraLensFacing` describes the direction that the camera faces
++relative to the device screen, and has one of the following values:
+ 
+-- [`CameraMetadata.LENS_FACING_FRONT`](https://developer.android.com/reference/android/hardware/camera2/CameraMetadata#LENS_FACING_FRONT)
+-- [`CameraMetadata.LENS_FACING_BACK`](https://developer.android.com/reference/android/hardware/camera2/CameraMetadata#LENS_FACING_BACK)
+-- [`CameraMetadata.LENS_FACING_EXTERNAL`](https://developer.android.com/reference/android/hardware/camera2/CameraMetadata#LENS_FACING_EXTERNAL)
++* [`CameraMetadata.LENS_FACING_FRONT`](/reference/android/hardware/camera2/CameraMetadata#LENS_FACING_FRONT)
++* [`CameraMetadata.LENS_FACING_BACK`](/reference/android/hardware/camera2/CameraMetadata#LENS_FACING_BACK)
++* [`CameraMetadata.LENS_FACING_EXTERNAL`](/reference/android/hardware/camera2/CameraMetadata#LENS_FACING_EXTERNAL)
+ 
+-For more information about the lens-facing configuration, see[`CameraCharacteristics.LENS_FACING`](https://developer.android.com/reference/android/hardware/camera2/CameraCharacteristics#LENS_FACING).
++For more information about the lens-facing configuration, see
++[`CameraCharacteristics.LENS_FACING`](/reference/android/hardware/camera2/CameraCharacteristics#LENS_FACING).
+ 
+-The variable`cameraCapabilities`from the preceding code sample contains information about miscellaneous capabilities, including whether the camera is able to produce standard frames as an output (as opposed to, for example, only depth sensor data). You can look for whether[`CameraMetadata.REQUEST_AVAILABLE_CAPABILITIES_BACKWARD_COMPATIBLE`](https://developer.android.com/reference/android/hardware/camera2/CameraMetadata#REQUEST_AVAILABLE_CAPABILITIES_BACKWARD_COMPATIBLE)is one of the camera's listed capabilities, which is stored as a flag in`isBackwardCompatible`.
++The variable `cameraCapabilities` from the preceding code sample contains
++information about miscellaneous capabilities, including whether the camera is
++able to produce standard frames as an output (as opposed to, for example, only
++depth sensor data). You can look for whether
++[`CameraMetadata.REQUEST_AVAILABLE_CAPABILITIES_BACKWARD_COMPATIBLE`](/reference/android/hardware/camera2/CameraMetadata#REQUEST_AVAILABLE_CAPABILITIES_BACKWARD_COMPATIBLE)
++is one of the camera’s listed capabilities, which is stored as a flag in
++`isBackwardCompatible`.
+ 
+ ## Choose sensible defaults
+ 
+-In your app, you likely want to open a specific camera by default (if it's available). For example, a selfie app likely opens the front-facing camera, while an augmented reality app might start with the back camera. The following function returns the first camera that faces a given direction:  
++In your app, you likely want to open a specific camera by default
++(if it's available). For example, a selfie app likely opens the front-facing
++camera, while an augmented reality app might start with the back camera.
++The following function returns the first camera that faces a given direction:
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ fun getFirstCameraIdFacing(cameraManager: CameraManager,
+                            facing: Int = CameraMetadata.LENS_FACING_BACK): String? {
+     try {
+@@ -117,7 +139,7 @@ fun getFirstCameraIdFacing(cameraManager: CameraManager,
+ 
+ ### Java
+ 
+-```java
++```
+ public String getFirstCameraIdFacing(CameraManager cameraManager, @Nullable Integer facing) {
+     if (facing == null) facing = CameraMetadata.LENS_FACING_BACK;
+     String cameraId = null;
+@@ -153,15 +175,23 @@ public String getFirstCameraIdFacing(CameraManager cameraManager, @Nullable Inte
+ ## Enable switching cameras
+ 
+ Many camera apps give users the option to switch between cameras:
+-![](https://developer.android.com/static/images/training/camera/camera2/camera-enumeration-1.png)**Figure 1.**Switch camera button in the Google Camera app
+ 
+-Many devices have multiple cameras that face the same direction. Some even have external USB cameras. To provide users with a UI that lets them switch between different facing cameras, choose the first available camera for each possible lens-facing configuration.
++![](/static/images/training/camera/camera2/camera-enumeration-1.png)
+ 
+-Although there is no universal logic for selecting the next camera, the following code works for most use cases:  
++
++**Figure 1.** Switch camera button in the Google Camera app
++
++Many devices have multiple cameras that face the same direction. Some even have
++external USB cameras. To provide users with a UI that lets them switch between
++different facing cameras, choose the first available camera for each possible
++lens-facing configuration.
++
++Although there is no universal logic for selecting the next camera, the
++following code works for most use cases:
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ fun filterCompatibleCameras(cameraIds: Array<String>,
+                             cameraManager: CameraManager): List<String> {
+     return cameraIds.filter {
+@@ -210,7 +240,7 @@ fun getNextCameraId(cameraManager: CameraManager, currCameraId: String? = null):
+ 
+ ### Java
+ 
+-```java
++```
+ public List<String> filterCompatibleCameras(CameraManager cameraManager, String[] cameraIds) {
+     final List<String> compatibleCameras = new ArrayList<>();
+ 
+@@ -285,16 +315,33 @@ public String getNextCameraId(CameraManager cameraManager, @Nullable String curr
+ }
+ ```
+ 
+-This code works for a large set of devices with many different configurations. For more information on accounting for edge cases, see[`CameraMetadata.REQUEST_AVAILABLE_CAPABILITIES_LOGICAL_MULTI_CAMERA`](https://developer.android.com/reference/android/hardware/camera2/CameraMetadata#REQUEST_AVAILABLE_CAPABILITIES_LOGICAL_MULTI_CAMERA).
++This code works for a large set of devices with many different
++configurations. For more information on accounting for edge cases, see [`CameraMetadata.REQUEST_AVAILABLE_CAPABILITIES_LOGICAL_MULTI_CAMERA`](/reference/android/hardware/camera2/CameraMetadata#REQUEST_AVAILABLE_CAPABILITIES_LOGICAL_MULTI_CAMERA).
+ 
+ ## Create compatible apps
+ 
+-For apps still using the deprecated Camera API, the number of cameras that[`Camera.getNumberOfCameras()`](https://developer.android.com/reference/android/hardware/Camera#getNumberOfCameras%28%29)returns depends on OEM implementation. If there is a logical multi-camera in the system, to maintain app backward compatibility, this method will only expose one camera for every logical camera and underlying physical cameras group. Use the Camera2 API to see all cameras.
++For apps still using the deprecated Camera API, the number of cameras
++that
++[`Camera.getNumberOfCameras()`](/reference/android/hardware/Camera#getNumberOfCameras%28%29)
++returns depends on OEM implementation. If there is a logical multi-camera in the
++system, to maintain app backward compatibility, this method will only expose one
++camera for every logical camera and underlying physical cameras group.
++Use the Camera2 API to see all cameras.
+ 
+-For more background information on camera orientations, see[`Camera.CameraInfo.orientation`](https://developer.android.com/reference/android/hardware/Camera.CameraInfo#orientation).
++For more background information on camera orientations, see
++[`Camera.CameraInfo.orientation`](/reference/android/hardware/Camera.CameraInfo#orientation).
+ 
+-In general, use the[`Camera.getCameraInfo()`](https://developer.android.com/reference/android/hardware/Camera#getCameraInfo%28int,%20android.hardware.Camera.CameraInfo%29)API to query all camera[`orientation`](https://developer.android.com/reference/android/hardware/Camera.CameraInfo#orientation)s, and expose only one camera for each available orientation to users that are switching between cameras.
++In general, use the
++[`Camera.getCameraInfo()`](/reference/android/hardware/Camera#getCameraInfo%28int,%20android.hardware.Camera.CameraInfo%29)
++API to query all camera
++[`orientation`](/reference/android/hardware/Camera.CameraInfo#orientation)s,
++and expose only one camera for each available orientation to users that are
++switching between cameras.
+ 
+ ## Accommodate all device types
+ 
+-Don't assume that your app always runs on a handheld device with one or two cameras. Instead, choose the most appropriate cameras for the app. If you don't need a specific camera, select the first camera that faces the desired direction. If an external camera is connected, you might assume that the user prefers it as the default.
+\ No newline at end of file
++Don't assume that your app always runs on a handheld device with one or
++two cameras. Instead, choose the most appropriate cameras for the app. If you
++don't need a specific camera, select the first camera that faces the desired
++direction. If an external camera is connected, you might assume that the user
++prefers it as the default.
+\ No newline at end of file

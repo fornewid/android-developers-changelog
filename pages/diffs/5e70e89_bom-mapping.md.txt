@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/compose/bom/bom-mapping.md b/docs/develop/ui/compose/bom/bom-mapping.md
+index 41f3040..db3b63f 100644
+--- a/docs/develop/ui/compose/bom/bom-mapping.md
++++ b/docs/develop/ui/compose/bom/bom-mapping.md
+@@ -11,7 +11,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ The URL on the Group Release Note column is updated depending on which BOM
+ version is selected from the drop-down.
+ 

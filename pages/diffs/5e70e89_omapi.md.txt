@@ -1,0 +1,12 @@
+diff --git a/docs/guide/topics/connectivity/omapi.md b/docs/guide/topics/connectivity/omapi.md
+index b3eaea6..8947ea9 100644
+--- a/docs/guide/topics/connectivity/omapi.md
++++ b/docs/guide/topics/connectivity/omapi.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ On Android 11 and higher, Open Mobile API (OMAPI) supports checking for eSE, SD,
+ and UICC support hardware on devices with the following flags:
+ 

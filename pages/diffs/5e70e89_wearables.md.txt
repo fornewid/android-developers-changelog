@@ -1,0 +1,12 @@
+diff --git a/docs/training/wearables.md b/docs/training/wearables.md
+index 55d899c..ee101a5 100644
+--- a/docs/training/wearables.md
++++ b/docs/training/wearables.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Wear OS helps users stay connected, achieve their health and fitness goals, and
+ express their personal style.
+ 

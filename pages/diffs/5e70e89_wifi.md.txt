@@ -1,0 +1,12 @@
+diff --git a/docs/develop/connectivity/wifi.md b/docs/develop/connectivity/wifi.md
+index 195641b..32e4ec2 100644
+--- a/docs/develop/connectivity/wifi.md
++++ b/docs/develop/connectivity/wifi.md
+@@ -14,6 +14,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Besides enabling communication with the cloud, Android's wireless APIs also
+ enable communication with other devices on the same local network, and even
+ devices which are not on a network, but are physically nearby. The addition of

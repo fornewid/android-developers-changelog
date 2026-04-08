@@ -1,0 +1,12 @@
+diff --git a/docs/jetpack/androidx/releases/photopicker.md b/docs/jetpack/androidx/releases/photopicker.md
+index 04fbf13..952289e 100644
+--- a/docs/jetpack/androidx/releases/photopicker.md
++++ b/docs/jetpack/androidx/releases/photopicker.md
+@@ -15,6 +15,7 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
++
+ # photopicker
+ 
+ API Reference  

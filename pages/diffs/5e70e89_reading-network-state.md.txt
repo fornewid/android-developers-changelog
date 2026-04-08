@@ -1,0 +1,12 @@
+diff --git a/docs/develop/connectivity/network-ops/reading-network-state.md b/docs/develop/connectivity/network-ops/reading-network-state.md
+index 5f2cf79..fb20a0a 100644
+--- a/docs/develop/connectivity/network-ops/reading-network-state.md
++++ b/docs/develop/connectivity/network-ops/reading-network-state.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Android enables apps to learn about dynamic changes in connectivity. Use the
+ following classes to track and respond to connectivity changes:
+ 

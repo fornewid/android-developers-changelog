@@ -1,0 +1,12 @@
+diff --git a/docs/topic/performance/graphics/load-bitmap.md b/docs/topic/performance/graphics/load-bitmap.md
+index c0868ee..6170c74 100644
+--- a/docs/topic/performance/graphics/load-bitmap.md
++++ b/docs/topic/performance/graphics/load-bitmap.md
+@@ -11,7 +11,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ **Note:** There are several libraries that follow
+ best practices for loading images. You can use these libraries in your app to
+ load images in the most optimized manner. We recommend the

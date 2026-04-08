@@ -1,0 +1,310 @@
+diff --git a/docs/training/wearables/complications/exposing-data.md b/docs/training/wearables/complications/exposing-data.md
+index 634316f..1bbd6ec 100644
+--- a/docs/training/wearables/complications/exposing-data.md
++++ b/docs/training/wearables/complications/exposing-data.md
+@@ -1,38 +1,46 @@
+ ---
+-title: https://developer.android.com/training/wearables/complications/exposing-data
++title: Expose data to complications  |  Wear OS  |  Android Developers
+ url: https://developer.android.com/training/wearables/complications/exposing-data
+-source: md.txt
++source: html-scrape
+ ---
+ 
++* [Android Developers](https://developer.android.com/)
++* [Develop](https://developer.android.com/develop)
++* [Devices](https://developer.android.com/develop/devices)
++* [Wear OS](https://developer.android.com/training/wearables)
++
++# Expose data to complications Stay organized with collections Save and categorize content based on your preferences.
++
++
++
++
+ Complication data sources expose information to watch face
+-[complications](https://developer.android.com/training/wearables/watch-faces/complications),
++[complications](/training/wearables/watch-faces/complications),
+ supplying text, images, and numbers that the watch face can render.
+ 
+ A data source service extends
+-[`SuspendingComplicationDataSourceService`](https://developer.android.com/reference/kotlin/androidx/wear/watchface/complications/datasource/SuspendingComplicationDataSourceService) to deliver useful
++[`SuspendingComplicationDataSourceService`](/reference/kotlin/androidx/wear/watchface/complications/datasource/SuspendingComplicationDataSourceService) to deliver useful
+ information directly to a watch face.
+ 
+ ## Getting started
+ 
+ Add the following dependency to your app module:
+ 
+-```kotlin
++```
+ dependencies {
+   implementiation("androidx.wear.watchface:watchface-complications-data-source-ktx:1.2.1")
+ }
+ ```
+ 
+-<br />
+-
+ ## Create the data source service
+ 
+ When complication data is needed, the Wear OS system sends update requests to your data source.
+ To respond to the update requests, your data source must implement the
+-[`onComplicationRequest()`](https://developer.android.com/reference/kotlin/androidx/wear/watchface/complications/datasource/SuspendingComplicationDataSourceService#onComplicationRequest(androidx.wear.watchface.complications.datasource.ComplicationRequest)) method of the `SuspendingComplicationDataSourceService`
++[`onComplicationRequest()`](/reference/kotlin/androidx/wear/watchface/complications/datasource/SuspendingComplicationDataSourceService#onComplicationRequest(androidx.wear.watchface.complications.datasource.ComplicationRequest)) method of the `SuspendingComplicationDataSourceService`
+ class.
+ 
+ The Wear OS system calls `onComplicationRequest()` when it needs data from your
+-source---for example, when a complication using your data source becomes active or when a
++source—for example, when a complication using your data source becomes active or when a
+ fixed amount of time passes.
+ 
+ **Note:** When your data source provides data, the watch face
+@@ -40,7 +48,7 @@ receives the raw values. The watch face is responsible for formatting the data f
+ 
+ The following code snippet shows a sample implementation:
+ 
+-```kotlin
++```
+ class MyComplicationDataSourceService : SuspendingComplicationDataSourceService() {
+     override suspend fun onComplicationRequest(request: ComplicationRequest): ComplicationData? {
+         // Retrieve the latest info for inclusion in the data.
+@@ -62,30 +70,28 @@ class MyComplicationDataSourceService : SuspendingComplicationDataSourceService(
+ 
+     // ...
+ }
++
++MyComplicationDataSourceService.kt
+ ```
+ 
+ ## Manifest declarations and permissions
+ 
+-
+ Data sources must include specific declarations in their app manifest to be treated as
+ a data source by the Android system. This section explains the required settings for
+ data sources.
+ 
+-
+ In your app's manifest, declare the service and add an update request action intent filter.
+ The manifest must also protect the service by adding the `BIND_COMPLICATION_PROVIDER`
+ permission to ensure that only the Wear OS system can bind to provider services.
+ 
+-
+ Also, include an `android:icon` attribute in the
+ `service` element that provides a
+ single-color white icon. We recommend vector drawables for the icons.
+ The icon represents the data source and is shown in the complication picker.
+ 
+-
+ Here's an example:
+ 
+-```xml
++```
+ <service
+     android:name=".snippets.complication.MyComplicationDataSourceService"
+     android:exported="true"
+@@ -110,25 +116,26 @@ Here's an example:
+         android:value="MY_CONFIG_ACTION" />
+ 
+ </service>
++
++AndroidManifest.xml
+ ```
+ 
+ ### Metadata elements
+ 
+-
+ In your manifest file, notice the following metadata elements:
+ 
+-- `android:name="android.support.wearable.complications.SUPPORTED_TYPES"`: Specifies the types of complication data that the data source supports.
+-- `android:name="android.support.wearable.complications.UPDATE_PERIOD_SECONDS"`: Specifies how often the system should check for updates to the data.
+-
++* `android:name="android.support.wearable.complications.SUPPORTED_TYPES"`:
++  Specifies the types of complication data that the data source supports.
++* `android:name="android.support.wearable.complications.UPDATE_PERIOD_SECONDS"`:
++  Specifies how often the system should check for updates to the data.
+ 
+ When your complication data data source is active,
+ `UPDATE_PERIOD_SECONDS` specifies how often you want the
+ system to check for updates to the data. If the information shown in the
+ complication doesn't need to update on a regular schedule, such as when
+-you're [using push updates](https://developer.android.com/training/wearables/complications/exposing-data#push-updates), set this value to
++you're [using push updates](#push-updates), set this value to
+ `0`.
+ 
+-
+ If you don't set `UPDATE_PERIOD_SECONDS` to `0`,
+ you must use a value of at least `300` (5 minutes), which is
+ the minimum update period that the system enforces, to preserve
+@@ -137,38 +144,38 @@ come less often when the device is in ambient mode or isn't being worn.
+ 
+ ### Add a configuration activity
+ 
+-
+ If required, a data source can include a configuration activity that is
+ shown to the user when the user chooses that particularly data source from the
+ complication picker. For example, a world clock data source might have a configuration
+ activity that allows the user to choose the city or time zone to display.
+ 
+-
+ The example manifest includes a `meta-data` element with the
+ `PROVIDER_CONFIG_ACTION` key. The value of this element is the action that is used
+ to launch the configuration activity.
+ 
+-
+ Create the configuration activity, and add an intent filter that matches the action for it in
+ your manifest file.
+ 
+-```xml
++```
+ <intent-filter>
+     <action android:name="MY_CONFIG_ACTION" />
+     <category android:name="android.support.wearable.complications.category.PROVIDER_CONFIG" />
+     <category android:name="android.intent.category.DEFAULT" />
+ </intent-filter>
+-```
+ 
++AndroidManifest.xml
++```
+ 
+ The activity can obtain details of the complication slot it is configuring from the intent
+ within the `onCreate()` method of the activity:
+ 
+-```kotlin
++```
+ // Keys defined on ComplicationDataSourceService
+ val id = intent.getIntExtra(EXTRA_CONFIG_COMPLICATION_ID, -1)
+ val type = intent.getIntExtra(EXTRA_CONFIG_COMPLICATION_TYPE, -1)
+ val source = intent.getStringExtra(EXTRA_CONFIG_DATA_SOURCE_COMPONENT)
++
++ConfigurationActivity.kt
+ ```
+ 
+ The configuration activity must reside in the same package as the
+@@ -176,16 +183,17 @@ provider. The configuration activity must return `RESULT_OK` or
+ `RESULT_CANCELED` to tell the system whether the data source
+ should be set:
+ 
+-```kotlin
++```
+ setResult(RESULT_OK) // Or RESULT_CANCELED to cancel configuration
+ finish()
++
++ConfigurationActivity.kt
+ ```
+ 
+ ## Use push updates
+ 
+-
+ As an alternative to specifying an update interval in your app's manifest, you can use an instance of
+-[`ComplicationDataSourceUpdateRequester`](https://developer.android.com/reference/androidx/wear/watchface/complications/datasource/ComplicationDataSourceUpdateRequester) to initiate updates dynamically.
++[`ComplicationDataSourceUpdateRequester`](/reference/androidx/wear/watchface/complications/datasource/ComplicationDataSourceUpdateRequester) to initiate updates dynamically.
+ To request an update, call `requestUpdate()`.
+ 
+ **Caution:** To preserve device battery life,
+@@ -195,26 +203,22 @@ average.
+ 
+ ## Provide time-dependent values
+ 
+-
+ Some complications need to display a value that relates to the current
+ time. Examples include the current date, the time until the next meeting,
+ or the time in another time zone.
+ 
+-
+ Don't update a complication every
+ second or minute to keep those values up to date. Instead, specify
+ the values as relative to the current date or time using time-dependent text. The following
+ classes allow you to create these time-dependent values:
+ 
+-- [`TimeFormatComplicationText`](https://developer.android.com/reference/androidx/wear/watchface/complications/data/TimeFormatComplicationText) - formats a date or time value.
+-- [`TimeDifferenceComplicationText`](https://developer.android.com/reference/androidx/wear/watchface/complications/data/TimeDifferenceComplicationText) - counts up or down to a specified time.
++* [`TimeFormatComplicationText`](/reference/androidx/wear/watchface/complications/data/TimeFormatComplicationText) - formats a date or time value.
++* [`TimeDifferenceComplicationText`](/reference/androidx/wear/watchface/complications/data/TimeDifferenceComplicationText) - counts up or down to a specified time.
+ 
+ ## Timeline data
+ 
+-
+ For complication data sources that provide a sequence of values at pre-defined times, use
+-[`SuspendingTimelineComplicationDataSourceService`](https://developer.android.com/reference/androidx/wear/watchface/complications/datasource/SuspendingTimelineComplicationDataSourceService).
+-
++[`SuspendingTimelineComplicationDataSourceService`](/reference/androidx/wear/watchface/complications/datasource/SuspendingTimelineComplicationDataSourceService).
+ 
+ An example of this would be a "next event" data source from a calendar app:
+ Instead of the system having to poll the data source regularly for the next
+@@ -223,7 +227,7 @@ data source can initiate updates if the calendar changes. This minimizes the
+ load on the system and lets the complication show the correct event in a
+ timely manner:
+ 
+-```kotlin
++```
+ class MyTimelineComplicationDataSourceService : SuspendingTimelineComplicationDataSourceService() {
+     override suspend fun onComplicationRequest(request: ComplicationRequest): ComplicationDataTimeline? {
+         if (request.complicationType != ComplicationType.SHORT_TEXT) {
+@@ -259,41 +263,47 @@ class MyTimelineComplicationDataSourceService : SuspendingTimelineComplicationDa
+ 
+     // ...
+ }
+-```
+ 
++MyTimelineComplicationDataSourceService.kt
++```
+ 
+ The behavior of the `SuspendingTimelineComplicationDataSourceService` is as follows:
+ 
+-- When the current time falls within the start and end time of an entry in the timeline, the watch face uses that value.
+-- When the current time doesn't fall within any entry in the timeline, the default value is used. For example, in the calendar app, this could be "No event."
+-- If the current time falls within multiple events, the shortest event is used.
+-
+-<br />
++* When the current time falls within the start and end time of an entry in the timeline, the
++  watch face uses that value.
++* When the current time doesn't fall within any entry in the timeline, the default value is
++  used. For example, in the calendar app, this could be "No event."
++* If the current time falls within multiple events, the shortest event is used.
+ 
+ ## Provide dynamic values
+ 
+-
+ Starting in Wear OS 4, some complications can display values that refresh more frequently
+ based on values that are available directly to the platform. To provide this capability in
+ your complications, use
+-[`ComplicationData`](https://developer.android.com/reference/androidx/wear/watchface/complications/data/ComplicationData) fields that accept
+-[dynamic values](https://developer.android.com/training/wearables/data/dynamic). The platform evaluates and
++[`ComplicationData`](/reference/androidx/wear/watchface/complications/data/ComplicationData) fields that accept
++[dynamic values](/training/wearables/data/dynamic). The platform evaluates and
+ updates these values frequently, without requiring the complication provider to be running.
+ 
+-
+ Example fields include
+-[`GoalProgressComplicationData`'s dynamic value field](https://developer.android.com/reference/androidx/wear/watchface/complications/data/GoalProgressComplicationData#getDynamicValue()), and
+-[`DynamicComplicationText`](https://developer.android.com/reference/androidx/wear/watchface/complications/data/DynamicComplicationText), which can be used in any
+-[`ComplicationText`](https://developer.android.com/reference/androidx/wear/watchface/complications/data/ComplicationText) field. These dynamic values are based on the
+-[`androidx.wear.protolayout.expression`](https://developer.android.com/reference/androidx/wear/protolayout/expression/package-summary) library.
+-
++[`GoalProgressComplicationData`'s dynamic value field](/reference/androidx/wear/watchface/complications/data/GoalProgressComplicationData#getDynamicValue()), and
++[`DynamicComplicationText`](/reference/androidx/wear/watchface/complications/data/DynamicComplicationText), which can be used in any
++[`ComplicationText`](/reference/androidx/wear/watchface/complications/data/ComplicationText) field. These dynamic values are based on the
++[`androidx.wear.protolayout.expression`](/reference/androidx/wear/protolayout/expression/package-summary) library.
+ 
+ In certain situations, the platform cannot evaluate dynamic values:
+ 
+-- **Dynamic value is sometimes not available:** This happens, for example, when the device is off-wrist. In these situations, the platform uses the value of the [dynamic value invalidation fallback field](https://developer.android.com/reference/androidx/wear/watchface/complications/data/ComplicationData#getDynamicValueInvalidationFallback()) instead, in a [`NoDataComplicationData`'s placeholder field](https://developer.android.com/reference/androidx/wear/watchface/complications/data/NoDataComplicationData#getPlaceholder()).
+-- **Dynamic value is never available:** This happens on a device that is running on an older release of Wear OS 4. In this situation, the platform uses a companion fallback field, such as `https://developer.android.com/reference/androidx/wear/watchface/complications/data/DynamicComplicationText#getFallbackValue()()`.
++* **Dynamic value is sometimes not available:** This happens, for example, when the
++  device is off-wrist. In these situations, the platform uses the value
++  of the
++  [dynamic value invalidation fallback field](/reference/androidx/wear/watchface/complications/data/ComplicationData#getDynamicValueInvalidationFallback()) instead, in a
++  [`NoDataComplicationData`'s placeholder field](/reference/androidx/wear/watchface/complications/data/NoDataComplicationData#getPlaceholder()).
++* **Dynamic value is never available:** This happens on a device that is running on an
++  older release of Wear OS 4. In this situation, the platform uses a companion fallback field,
++  such as
++  `getFallbackValue()`.
+ 
+ ## Related resources
+ 
+-- [Types and fields](https://developer.android.com/training/wearables/watch-faces/adding-complications#types-fields)
+-- [Wear OS samples repository](https://github.com/android/wear-os-samples)
+\ No newline at end of file
++* [Types and fields](/training/wearables/watch-faces/adding-complications#types-fields)
++
++* [Wear OS samples repository](https://github.com/android/wear-os-samples)
+\ No newline at end of file

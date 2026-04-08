@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/compose/accessibility/merging-clearing.md b/docs/develop/ui/compose/accessibility/merging-clearing.md
+index 6753355..4aee24e 100644
+--- a/docs/develop/ui/compose/accessibility/merging-clearing.md
++++ b/docs/develop/ui/compose/accessibility/merging-clearing.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ As accessibility services navigate through elements on the screen, it is
+ important that these elements are grouped, separated, or even hidden at the
+ right granularity. When every single low-level composable in your screen is

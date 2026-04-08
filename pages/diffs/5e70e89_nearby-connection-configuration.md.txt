@@ -1,0 +1,12 @@
+diff --git a/docs/games/services/unity/v2/api/struct/google-play-games/basic-api/nearby/nearby-connection-configuration.md b/docs/games/services/unity/v2/api/struct/google-play-games/basic-api/nearby/nearby-connection-configuration.md
+index 3f94a8b..fbc5ec0 100644
+--- a/docs/games/services/unity/v2/api/struct/google-play-games/basic-api/nearby/nearby-connection-configuration.md
++++ b/docs/games/services/unity/v2/api/struct/google-play-games/basic-api/nearby/nearby-connection-configuration.md
+@@ -14,7 +14,6 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
+-
+ # GooglePlayGames.BasicApi.Nearby.NearbyConnectionConfiguration
+ 
+ Defines the configuration for establishing a [Nearby](/games/services/unity/v2/api/namespace/google-play-games/basic-api/nearby#namespace_google_play_games_1_1_basic_api_1_1_nearby) connection.

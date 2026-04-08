@@ -1,0 +1,12 @@
+diff --git a/docs/build/annotation-processors.md b/docs/build/annotation-processors.md
+index ff286fa..c421aed 100644
+--- a/docs/build/annotation-processors.md
++++ b/docs/build/annotation-processors.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ This page includes detailed guidance on how to add and configure annotation
+ processors as project dependencies. To learn more about annotation processors,
+ see the entry in

@@ -1,0 +1,137 @@
+diff --git a/docs/develop/ui/views/touch-and-input/gestures/gesturenav.md b/docs/develop/ui/views/touch-and-input/gestures/gesturenav.md
+index a655e8f..32b57a2 100644
+--- a/docs/develop/ui/views/touch-and-input/gestures/gesturenav.md
++++ b/docs/develop/ui/views/touch-and-input/gestures/gesturenav.md
+@@ -1,28 +1,18 @@
+ ---
+-title: Ensure compatibility with gesture navigation  |  Views  |  Android Developers
++title: https://developer.android.com/develop/ui/views/touch-and-input/gestures/gesturenav
+ url: https://developer.android.com/develop/ui/views/touch-and-input/gestures/gesturenav
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-* [Develop](https://developer.android.com/develop)
+-* [Core areas](https://developer.android.com/develop/core-areas)
+-* [UI](https://developer.android.com/develop/ui)
+-* [Views](https://developer.android.com/develop/ui/views/layout/declaring-layout)
+-
+-# Ensure compatibility with gesture navigation Stay organized with collections Save and categorize content based on your preferences.
+-
+-
+-
+-Beginning with Android 10 (API level 29), the Android system supports fully
++Beginning with Android 10 (API level 29), the Android system supports fully
+ gesture-based navigation. There are two things app developers must do to ensure
+ their apps are compatible with this feature:
+ 
+-* Extend app content from edge to edge.
+-* Handle conflicting app gestures.
++- Extend app content from edge to edge.
++- Handle conflicting app gestures.
+ 
+ In addition, Android 13 (API level 33) introduces a
+-[predictive back gesture](/guide/navigation/predictive-back-gesture) for Android
++[predictive back gesture](https://developer.android.com/guide/navigation/predictive-back-gesture) for Android
+ devices such as phones, large screens, and foldables that is part of a multiyear
+ release. App developers can take steps to ensure that their apps support the
+ predictive back gesture.
+@@ -32,7 +22,7 @@ predictive back gesture.
+ To take advantage of the additional screen space made available by the floating
+ navigation bar, you need to configure certain changes in your app.
+ 
+-See [Display content edge-to-edge in your app](/training/gestures/edge-to-edge)
++See [Display content edge-to-edge in your app](https://developer.android.com/training/gestures/edge-to-edge)
+ for details.
+ 
+ ## Handle conflicting app gestures
+@@ -48,15 +38,15 @@ right edge of the screen. This might interfere with app navigation elements in
+ those areas. To maintain functionality of elements on the left and right edges
+ of the screen, opt out of the back gesture selectively by indicating to the
+ system which regions need to receive touch input. You can do this by passing a
+-`List<Rect>` to the [`View.setSystemGestureExclusionRects()`](/reference/android/view/View#setSystemGestureExclusionRects(java.util.List%3Candroid.graphics.Rect%3E))
+-API introduced in Android 10. This method is also available in [`ViewCompat`](/reference/androidx/core/view/ViewCompat) as of
++`List<Rect>` to the [`View.setSystemGestureExclusionRects()`](https://developer.android.com/reference/android/view/View#setSystemGestureExclusionRects(java.util.List%3Candroid.graphics.Rect%3E))
++API introduced in Android 10. This method is also available in [`ViewCompat`](https://developer.android.com/reference/androidx/core/view/ViewCompat) as of
+ `androidx.core:core:1.1.0-dev01`.
+ 
+ For example:
+ 
+ ### Kotlin
+ 
+-```
++```kotlin
+ var exclusionRects = listOf(rect1, rect2, rect3)
+ 
+ fun onLayout(
+@@ -73,7 +63,7 @@ fun onDraw(canvas: Canvas) {
+ 
+ ### Java
+ 
+-```
++```java
+ List<Rect> exclusionRects;
+ 
+ public void onLayout(
+@@ -88,8 +78,8 @@ public void onDraw(Canvas canvas) {
+ }
+ ```
+ 
+-**Note:** The `DrawerLayout` and `SeekBar` components support automatic opt-out behavior
+-out of the box.
++> [!NOTE]
++> **Note:** The `DrawerLayout` and `SeekBar` components support automatic opt-out behavior out of the box.
+ 
+ ### Conflicts with home or quick-switch gestures
+ 
+@@ -97,21 +87,21 @@ The new system gestures for home and quick switch both involve swipes at the
+ bottom of the screen in the space previously occupied by the nav bar. Apps
+ can't opt out of these gestures as they can with the back gesture.
+ 
+-To mitigate this problem, Android 10 introduces the
+-[`WindowInsets.getMandatorySystemGestureInsets()`](/reference/android/view/WindowInsets.Type#mandatorySystemGestures())
++To mitigate this problem, Android 10 introduces the
++[`WindowInsets.getMandatorySystemGestureInsets()`](https://developer.android.com/reference/android/view/WindowInsets.Type#mandatorySystemGestures())
+ API, which informs apps of the touch recognition thresholds.
+ 
+ ### Games and other non-View apps
+ 
+ Games and other apps that don't have a view hierarchy often require the user to
+ swipe near the system gesture areas. In those cases, games can use
+-[`Window.setSystemGestureExclusionRects()`](/reference/android/view/Window#setSystemGestureExclusionRects(java.util.List%3Candroid.graphics.Rect%3E))
++[`Window.setSystemGestureExclusionRects()`](https://developer.android.com/reference/android/view/Window#setSystemGestureExclusionRects(java.util.List%3Candroid.graphics.Rect%3E))
+ to exclude areas that overlap with areas reserved for system gestures. Games
+ must make sure to only exclude these areas when necessary, such as during
+ gameplay.
+ 
+ If a game requires the user to swipe near the home gesture area, the app can
+-request to be laid out in [immersive mode](/training/system-ui/immersive#immersive). This disables the system gestures
++request to be laid out in [immersive mode](https://developer.android.com/training/system-ui/immersive#immersive). This disables the system gestures
+ while the user is interacting with the game, but lets the user re-enable
+ the system gestures by swiping from the bottom of the screen.
+ 
+@@ -125,7 +115,7 @@ they fully complete it, allowing them to decide whether to continue or stay in
+ the current view.
+ 
+ See
+-[Add support for the predictive back gesture](/guide/navigation/predictive-back-gesture)
++[Add support for the predictive back gesture](https://developer.android.com/guide/navigation/predictive-back-gesture)
+ for details.
+ 
+ ## Additional resources
+@@ -134,9 +124,9 @@ To learn more about gesture navigation, see the following:
+ 
+ ### Blog posts
+ 
+-* [Gesture Navigation: handling visual overlaps (II)](https://medium.com/androiddevelopers/gesture-navigation-handling-visual-overlaps-4aed565c134c)
++- [Gesture Navigation: handling visual overlaps (II)](https://medium.com/androiddevelopers/gesture-navigation-handling-visual-overlaps-4aed565c134c)
+ 
+ ### Videos
+ 
+-* [Android 10: Gestural navigation](https://www.youtube.com/watch?v=Ljtz7T8R_Hk)
+-* [Dark theme & gesture navigation (Google I/O ’19)](https://www.youtube.com/watch?v=OCHEjeLC_UY)
+\ No newline at end of file
++- [Android 10: Gestural navigation](https://www.youtube.com/watch?v=Ljtz7T8R_Hk)
++- [Dark theme \& gesture navigation (Google I/O '19)](https://www.youtube.com/watch?v=OCHEjeLC_UY)
+\ No newline at end of file

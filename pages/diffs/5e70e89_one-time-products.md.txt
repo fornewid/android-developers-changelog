@@ -1,0 +1,20 @@
+diff --git a/docs/google/play/billing/one-time-products.md b/docs/google/play/billing/one-time-products.md
+index bab59f7..0a4d5e5 100644
+--- a/docs/google/play/billing/one-time-products.md
++++ b/docs/google/play/billing/one-time-products.md
+@@ -14,6 +14,7 @@ Send feedback
+ 
+ 
+ 
++
+ A one-time product (previously referred as in-app product) refers to a
+ digital item or content that a user can purchase with a single charge to
+ their payment method. Unlike subscriptions, which involve recurring payments,
+@@ -40,4 +41,6 @@ One-time products are categorized into two main types:
+ 
+ 
+ 
++
++
+ Send feedback
+\ No newline at end of file

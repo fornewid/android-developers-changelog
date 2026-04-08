@@ -1,0 +1,12 @@
+diff --git a/docs/studio/projects/add-app-module.md b/docs/studio/projects/add-app-module.md
+index c1bf9b2..d814d9e 100644
+--- a/docs/studio/projects/add-app-module.md
++++ b/docs/studio/projects/add-app-module.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Modules provide a container for your app's
+ source code, resource files, and app level settings, such as the
+ module-level build file and Android manifest file.

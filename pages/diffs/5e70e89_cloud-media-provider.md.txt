@@ -1,0 +1,12 @@
+diff --git a/docs/guide/topics/providers/cloud-media-provider.md b/docs/guide/topics/providers/cloud-media-provider.md
+index ec299ae..3365b40 100644
+--- a/docs/guide/topics/providers/cloud-media-provider.md
++++ b/docs/guide/topics/providers/cloud-media-provider.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ A cloud media provider provides additional cloud media content to the [Android
+ photo picker](/training/data-storage/shared/photopicker). Users are able to select photos or videos supplied by the
+ cloud media provider when an app uses `ACTION_PICK_IMAGES` or

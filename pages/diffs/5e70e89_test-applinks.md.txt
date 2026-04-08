@@ -1,0 +1,12 @@
+diff --git a/docs/training/app-links/test-applinks.md b/docs/training/app-links/test-applinks.md
+index 8e999aa..d7b8ef1 100644
+--- a/docs/training/app-links/test-applinks.md
++++ b/docs/training/app-links/test-applinks.md
+@@ -12,7 +12,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ When implementing the app linking feature, you should test the linking
+ functionality to make sure the system can associate your app with your websites,
+ and handle URL requests, as you expect.

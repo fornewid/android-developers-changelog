@@ -1,0 +1,12 @@
+diff --git a/docs/develop/background-work/background-tasks/persistent/how-to/observe.md b/docs/develop/background-work/background-tasks/persistent/how-to/observe.md
+index 963c6e0..10c4c6d 100644
+--- a/docs/develop/background-work/background-tasks/persistent/how-to/observe.md
++++ b/docs/develop/background-work/background-tasks/persistent/how-to/observe.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ WorkManager has built-in support for setting and observing intermediate
+ progress for workers. If the worker was running while the app was in the
+ foreground, this information can also be shown to the user using APIs which

@@ -1,0 +1,12 @@
+diff --git a/docs/develop/connectivity/telecom/dialer-app/telephony-ids.md b/docs/develop/connectivity/telecom/dialer-app/telephony-ids.md
+index e3630aa..c29cfff 100644
+--- a/docs/develop/connectivity/telecom/dialer-app/telephony-ids.md
++++ b/docs/develop/connectivity/telecom/dialer-app/telephony-ids.md
+@@ -14,6 +14,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Android-powered devices with SIM cards and eSIMs use the following IDs in the telephony
+ APIs, including
+ [`TelephonyManager`](/reference/android/telephony/TelephonyManager) and

@@ -1,0 +1,168 @@
+diff --git a/docs/courses/quizzes/android-basics-compose-unit-6-pathway-1/android-basics-compose-unit-6-pathway-1.md b/docs/courses/quizzes/android-basics-compose-unit-6-pathway-1/android-basics-compose-unit-6-pathway-1.md
+index d98f22b..8349c7c 100644
+--- a/docs/courses/quizzes/android-basics-compose-unit-6-pathway-1/android-basics-compose-unit-6-pathway-1.md
++++ b/docs/courses/quizzes/android-basics-compose-unit-6-pathway-1/android-basics-compose-unit-6-pathway-1.md
+@@ -1,101 +1,91 @@
+ ---
+-title: Introduction to SQL  |  Android Developers
++title: https://developer.android.com/courses/quizzes/android-basics-compose-unit-6-pathway-1/android-basics-compose-unit-6-pathway-1
+ url: https://developer.android.com/courses/quizzes/android-basics-compose-unit-6-pathway-1/android-basics-compose-unit-6-pathway-1
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-Stay organized with collections
+-
+-Save and categorize content based on your preferences.
+-
+-
+-
+ # Introduction to SQL
+ 
+-Return to pathway
+-
+-
+-
+-1. ## Which of the following statements are true about relational databases and SQLite?
+-
+-   Choose as many answers as you see fit.
+-
+-   Referencing one table's primary key in another table lets you model relationships between tables.
+-
+-   A SQLite database consists of columns, which consist of tables and rows.
+-
+-   Every data table must have at least one foreign key.
+-
+-   Rows contain the individual items in the database.
+-2. ## It is optional to end a SQL statement with a semicolon.
+-
+-   True
+-
+-   False
+-3. ## If you want to calculate the sum of all values for a database column, what do you use?
+-
+-   Aggregate function
+-
+-   `WHERE clause`
+-
+-   `DISTINCT` keyword
+-
+-   `LIMIT` clause
+-4. ## Which `SELECT` statement returns the number of unique email addresses for messages in the spam folder?
+-
+-   `SELECT COUNT(DISTINCT folder) FROM email WHERE spam != sender;`
++# Introduction to SQL
+ 
+-   `SELECT DISTINCT COUNT(sender) FROM email WHERE folder = 'spam';`
++<br />
+ 
+-   `SELECT COUNT(DISTINCT sender) FROM email WHERE folder = 'spam';`
++Return to pathway  
++1.
+ 
+-   `SELECT DISTINCT COUNT('spam') FROM email WHERE sender = folder;`
+-5. ## The SQL statement `SELECT * FROM contacts WHERE name LIKE '%Milton'` returns all rows where the value of the name column begins with `Milton`.
++   ## Which of the following statements are true about relational databases and SQLite?
+ 
+-   True
++   Choose as many answers as you see fit.  
++   Referencing one table's primary key in another table lets you model relationships between tables.  
++   A SQLite database consists of columns, which consist of tables and rows.  
++   Every data table must have at least one foreign key.  
++   Rows contain the individual items in the database.  
++2.
+ 
+-   False
+-6. ## Which of the following statements are true about `GROUP BY` and `ORDER BY`?
++   ## It is optional to end a SQL statement with a semicolon.
+ 
+-   Choose as many answers as you see fit.
++   True  
++   False  
++3.
+ 
+-   The `ORDER BY` clause comes before the `GROUP BY` clause.
++   ## If you want to calculate the sum of all values for a database column, what do you use?
+ 
+-   In an `ORDER BY` clause, descending order is the default.
++   Aggregate function  
++   `WHERE clause`  
++   `DISTINCT`keyword  
++   `LIMIT`clause  
++4.
+ 
+-   If a query contains a `GROUP BY` clause, it overrides the `ORDER BY` clause.
++   ## Which`SELECT`statement returns the number of unique email addresses for messages in the spam folder?
+ 
+-   `ORDER BY` and `GROUP BY` clauses can both accept multiple columns.
+-7. ## The `WHERE` condition `NOT read = false` and the `WHERE` condition `read != true` are equivalent.
++   `SELECT COUNT(DISTINCT folder) FROM email WHERE spam != sender;`  
++   `SELECT DISTINCT COUNT(sender) FROM email WHERE folder = 'spam';`  
++   `SELECT COUNT(DISTINCT sender) FROM email WHERE folder = 'spam';`  
++   `SELECT DISTINCT COUNT('spam') FROM email WHERE sender = folder;`  
++5.
+ 
+-   True
++   ## The SQL statement`SELECT * FROM contacts WHERE name LIKE '%Milton'`returns all rows where the value of the name column begins with`Milton`.
+ 
+-   False
+-8. ## The `LIMIT` clause `LIMIT 30 SKIP 60` returns:
++   True  
++   False  
++6.
+ 
+-   60 rows
++   ## Which of the following statements are true about`GROUP BY`and`ORDER BY`?
+ 
+-   Rows 31 through 60
++   Choose as many answers as you see fit.  
++   The`ORDER BY`clause comes before the`GROUP BY`clause.  
++   In an`ORDER BY`clause, descending order is the default.  
++   If a query contains a`GROUP BY`clause, it overrides the`ORDER BY`clause.  
++   `ORDER BY`and`GROUP BY`clauses can both accept multiple columns.  
++7.
+ 
+-   Rows 61 through 90
++   ## The`WHERE`condition`NOT read = false`and the`WHERE`condition`read != true`are equivalent.
+ 
+-   90 rows
+-9. ## An `UPDATE` statement uses a \_\_\_ clause to assign values for columns.
++   True  
++   False  
++8.
+ 
+-   `WHERE`
++   ## The`LIMIT`clause`LIMIT 30 SKIP 60`returns:
+ 
+-   `SET`
++   60 rows  
++   Rows 31 through 60  
++   Rows 61 through 90  
++   90 rows  
++9.
+ 
+-   `ASSIGN`
++   ## An`UPDATE`statement uses a ___ clause to assign values for columns.
+ 
+-   `LIKE`
+-10. ## `UPDATE` and `DELETE` statements can include a `WHERE` clause and can affect multiple rows.
++   `WHERE`  
++   `SET`  
++   `ASSIGN`  
++   `LIKE`  
++10.
+ 
+-    True
++    ## `UPDATE`and`DELETE`statements can include a`WHERE`clause and can affect multiple rows.
+ 
+-    False
++    True  
++    False  
+ 
+ Submit answers
+ 
+-*error\_outline*
+-An error occurred when grading the quiz. Please try again.
+\ No newline at end of file
++*error_outline*An error occurred when grading the quiz. Please try again.
+\ No newline at end of file

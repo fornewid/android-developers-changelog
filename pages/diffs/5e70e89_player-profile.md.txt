@@ -1,0 +1,12 @@
+diff --git a/docs/games/services/unity/v2/api/class/google-play-games/basic-api/player-profile.md b/docs/games/services/unity/v2/api/class/google-play-games/basic-api/player-profile.md
+index 24b3d88..9a3c984 100644
+--- a/docs/games/services/unity/v2/api/class/google-play-games/basic-api/player-profile.md
++++ b/docs/games/services/unity/v2/api/class/google-play-games/basic-api/player-profile.md
+@@ -14,6 +14,7 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
++
+ # GooglePlayGames.BasicApi.PlayerProfile
+ 
+ Represents a player, a real-world person (tied to a Games account).

@@ -1,0 +1,12 @@
+diff --git a/docs/training/data-storage/shared/datasets.md b/docs/training/data-storage/shared/datasets.md
+index 34035f2..a222dd1 100644
+--- a/docs/training/data-storage/shared/datasets.md
++++ b/docs/training/data-storage/shared/datasets.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Starting in Android 11 (API level 30), the system caches large datasets that
+ multiple apps might access for use cases like machine learning and media
+ playback. This functionality helps reduce data redundancy, both over the network

@@ -1,0 +1,12 @@
+diff --git a/docs/training/testing/instrumented-tests.md b/docs/training/testing/instrumented-tests.md
+index c6993b5..150bee0 100644
+--- a/docs/training/testing/instrumented-tests.md
++++ b/docs/training/testing/instrumented-tests.md
+@@ -12,7 +12,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Instrumented tests run on Android devices, whether physical or emulated. As
+ such, they can take advantage of the Android framework APIs. Instrumented tests
+ therefore provide more fidelity than local tests, though they run much more

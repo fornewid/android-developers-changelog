@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/compose/quick-guides.md b/docs/develop/ui/compose/quick-guides.md
+index e60e7c5..01a08e8 100644
+--- a/docs/develop/ui/compose/quick-guides.md
++++ b/docs/develop/ui/compose/quick-guides.md
+@@ -16,7 +16,6 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
+-
+ Collections
+ Individual guides
+ 

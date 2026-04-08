@@ -1,0 +1,306 @@
+diff --git a/docs/ndk/guides/gwp-asan.md b/docs/ndk/guides/gwp-asan.md
+index a7e65bc..5f670c4 100644
+--- a/docs/ndk/guides/gwp-asan.md
++++ b/docs/ndk/guides/gwp-asan.md
+@@ -1,28 +1,38 @@
+ ---
+-title: https://developer.android.com/ndk/guides/gwp-asan
++title: GWP-ASan  |  Android NDK  |  Android Developers
+ url: https://developer.android.com/ndk/guides/gwp-asan
+-source: md.txt
++source: html-scrape
+ ---
+ 
+-> [!IMPORTANT]
+-> **Important:** GWP-Asan is one of many tools available for memory debugging and mitigation. See [Memory error debugging and mitigation](https://developer.android.com/ndk/guides/memory-debug) for an overview of all the tools.
++* [Home](https://developer.android.com/)
++* [NDK](https://developer.android.com/ndk)
++* [Develop](https://developer.android.com/develop)
++* [Guides](https://developer.android.com/ndk/guides)
+ 
+-> [!IMPORTANT]
+-> **Important:** On devices that run Android 14 (API level 34) or higher, all apps use [Recoverable GWP-ASan](https://developer.android.com/ndk/guides/gwp-asan#recoverable) by default.
++# GWP-ASan Stay organized with collections Save and categorize content based on your preferences.
++
++
++
++
++**Important:** GWP-Asan is one of many tools available for memory debugging and
++mitigation. See
++[Memory error debugging and mitigation](/ndk/guides/memory-debug) for an
++overview of all the tools.**Important:** On devices that run Android 14 (API level 34) or higher, all apps
++use [Recoverable GWP-ASan](#recoverable) by default.
+ 
+ GWP-ASan is a native memory allocator feature that helps find
+ [use-after-free](https://cwe.mitre.org/data/definitions/416.html)
+ and
+ [heap-buffer-overflow](https://cwe.mitre.org/data/definitions/122.html)
+-bugs. Its informal name is a recursive acronym,"**G** WP-ASan **W** ill
+-**P** rovide **A** llocation **SAN** ity". Unlike
++bugs. Its informal name is a recursive acronym,"**G**WP-ASan **W**ill
++**P**rovide **A**llocation **SAN**ity". Unlike
+ [HWASan](https://source.android.com/devices/tech/debug/hwasan) or
+ [Malloc Debug](https://android.googlesource.com/platform/bionic/+/master/libc/malloc_debug/README.md),
+ GWP-ASan does not require source or recompilation (that is, works with
+ prebuilts), and works on both 32- and 64-bit processes (although 32-bit crashes
+-have [less debugging information](https://developer.android.com/ndk/guides/gwp-asan#allocation-deallocation-traces-are-missing)).
++have [less debugging information](#allocation-deallocation-traces-are-missing)).
+ This topic outlines the actions you need to take to enable this feature in your
+-app. GWP-ASan is available on apps that target Android 11 (API level 30) or higher.
++app. GWP-ASan is available on apps that target Android 11 (API level 30) or higher.
+ 
+ ## Overview
+ 
+@@ -44,7 +54,7 @@ in the Chrome browser (many of which are still under restricted view).
+ GWP-ASan collects additional information about all of the allocations that it
+ intercepts. This information is available when GWP-ASan detects a memory safety
+ violation and is automatically placed into the native crash report, which can
+-aid significantly in debugging (see [Example](https://developer.android.com/ndk/guides/gwp-asan#example)).
++aid significantly in debugging (see [Example](#example)).
+ 
+ GWP-ASan is designed to not incur any significant CPU overhead. GWP-ASan
+ introduces a small, fixed RAM overhead when enabled. This overhead is decided by
+@@ -57,35 +67,30 @@ GWP-ASan may be enabled by apps on a per-process level by using the
+ `android:gwpAsanMode` tag in the app manifest. The following options are
+ supported:
+ 
+-- Always disabled (`android:gwpAsanMode="never"`): This setting completely
++* Always disabled (`android:gwpAsanMode="never"`): This setting completely
+   disables GWP-ASan in your app and is the default for non-system apps.
+-
+-- Default (`android:gwpAsanMode="default"` or unspecified): Android 13 (API
++* Default (`android:gwpAsanMode="default"` or unspecified): Android 13 (API
+   level 33) and lower - GWP-ASan is disabled. Android 14 (API level 34) and
+-  higher - [Recoverable GWP-ASan](https://developer.android.com/ndk/guides/gwp-asan#recoverable) is enabled.
+-
+-- Always enabled (`android:gwpAsanMode="always"`): This setting enables
++  higher - [Recoverable GWP-ASan](#recoverable) is enabled.
++* Always enabled (`android:gwpAsanMode="always"`): This setting enables
+   GWP-ASan in your app, which includes the following:
+ 
+   1. The operating system reserves a fixed amount of RAM for GWP-ASan
+-     operations, approximately \~70KiB for each affected process. (Enable
++     operations, approximately ~70KiB for each affected process. (Enable
+      GWP-ASan if your app is not critically sensitive to increases in memory
+      usage.)
+-
+   2. GWP-ASan intercepts a randomly-chosen subset of heap allocations and
+      places them into a special region that reliably detects memory safety
+      violations.
+-
+   3. When a memory safety violation occurs in the special region, GWP-ASan
+      terminates the process.
+-
+   4. GWP-ASan provides additional information about the fault in the crash
+      report.
+ 
+ To enable GWP-ASan globally for your app, add the following to your
+ `AndroidManifest.xml` file:
+ 
+-```xml
++```
+ <application android:gwpAsanMode="always">
+   ...
+ </application>
+@@ -96,7 +101,7 @@ subprocesses of your app. You can target activities and services using processes
+ that are explicitly opted-in or opted-out of GWP-ASan. See the following for an
+ example:
+ 
+-```xml
++```
+ <application>
+   <processes>
+     <!-- Create the (empty) application process -->
+@@ -131,11 +136,22 @@ GWP-ASan.
+ 
+ Recoverable GWP-ASan differs from the base GWP-ASan in the following ways:
+ 
+-1. Recoverable GWP-ASan is enabled only on approximately 1% of app launches, rather than every application launch.
+-2. When a heap-use-after-free or heap-buffer-overflow bug is detected, this bug appears in the crash report (tombstone). This crash report is available through the [`ActivityManager#getHistoricalProcessExitReasons`](https://developer.android.com/reference/kotlin/android/app/ActivityManager#gethistoricalprocessexitreasons) API, the same as the original GWP-ASan.
+-3. Instead of exiting after dumping the crash report, Recoverable GWP-ASan allows memory corruption to occur, and the app continues running. While the process may continue as usual, the app's behavior is no longer specified. Due to the memory corruption, the app may crash at some arbitrary point in the future, or it may continue without any user-visible impact.
+-4. Recoverable GWP-ASan is disabled after the crash report is dumped. Therefore, an app can get only a single Recoverable GWP-ASan report per app launch.
+-5. If a custom signal handler is installed in the app, it's never called for a SIGSEGV signal that's indicative of a Recoverable GWP-ASan fault.
++1. Recoverable GWP-ASan is enabled only on approximately 1% of app launches,
++   rather than every application launch.
++2. When a heap-use-after-free or heap-buffer-overflow bug is detected, this bug
++   appears in the crash report (tombstone). This crash report is available
++   through the
++   [`ActivityManager#getHistoricalProcessExitReasons`](/reference/kotlin/android/app/ActivityManager#gethistoricalprocessexitreasons)
++   API, the same as the original GWP-ASan.
++3. Instead of exiting after dumping the crash report, Recoverable GWP-ASan
++   allows memory corruption to occur, and the app continues running.
++   While the process may continue as usual, the app's behavior is no longer
++   specified. Due to the memory corruption, the app may crash at some arbitrary
++   point in the future, or it may continue without any user-visible impact.
++4. Recoverable GWP-ASan is disabled after the crash report is dumped. Therefore,
++   an app can get only a single Recoverable GWP-ASan report per app launch.
++5. If a custom signal handler is installed in the app, it's never called for
++   a SIGSEGV signal that's indicative of a Recoverable GWP-ASan fault.
+ 
+ Because Recoverable GWP-ASan crashes indicate real instances of memory
+ corruption on end-user devices, we highly recommend triaging and fixing bugs
+@@ -172,7 +188,7 @@ detection is probabilistic, GWP-ASan reports are often tricky to reproduce on a
+ local device.
+ 
+ In these instances, if the bug affects 64-bit devices, you should use
+-[HWAddressSanitizer](https://developer.android.com/ndk/guides/hwasan) (HWASan). HWASan detects memory safety
++[HWAddressSanitizer](/ndk/guides/hwasan) (HWASan). HWASan detects memory safety
+ violations reliably on stack, heap, and globals. Running your application with
+ HWASan might reliably reproduce the same result that's being reported by
+ GWP-ASan.
+@@ -188,35 +204,37 @@ problems.
+ 
+ This example native code has a heap use-after-free bug:
+ 
+-    #include <jni.h>
+-    #include <string>
+-    #include <string_view>
+-
+-    jstring native_get_string(JNIEnv* env) {
+-       std::string s = "Hellooooooooooooooo ";
+-       std::string_view sv = s + "World\n";
+-
+-       // BUG: Use-after-free. `sv` holds a dangling reference to the ephemeral
+-       // string created by `s + "World\n"`. Accessing the data here is a
+-       // use-after-free.
+-       return env->NewStringUTF(sv.data());
+-    }
+-
+-    extern "C" JNIEXPORT jstring JNICALL
+-    Java_android11_test_gwpasan_MainActivity_nativeGetString(
+-        JNIEnv* env, jobject /* this */) {
+-      // Repeat the buggy code a few thousand times. GWP-ASan has a small chance
+-      // of detecting the use-after-free every time it happens. A single user who
+-      // triggers the use-after-free thousands of times will catch the bug once.
+-      // Alternatively, if a few thousand users each trigger the bug a single time,
+-      // you'll also get one report (this is the assumed model).
+-      jstring return_string;
+-      for (unsigned i = 0; i < 0x10000; ++i) {
+-        return_string = native_get_string(env);
+-      }
+-
+-      return reinterpret_cast<jstring>(env->NewGlobalRef(return_string));
+-    }
++```
++#include <jni.h>
++#include <string>
++#include <string_view>
++
++jstring native_get_string(JNIEnv* env) {
++   std::string s = "Hellooooooooooooooo ";
++   std::string_view sv = s + "World\n";
++
++   // BUG: Use-after-free. `sv` holds a dangling reference to the ephemeral
++   // string created by `s + "World\n"`. Accessing the data here is a
++   // use-after-free.
++   return env->NewStringUTF(sv.data());
++}
++
++extern "C" JNIEXPORT jstring JNICALL
++Java_android11_test_gwpasan_MainActivity_nativeGetString(
++    JNIEnv* env, jobject /* this */) {
++  // Repeat the buggy code a few thousand times. GWP-ASan has a small chance
++  // of detecting the use-after-free every time it happens. A single user who
++  // triggers the use-after-free thousands of times will catch the bug once.
++  // Alternatively, if a few thousand users each trigger the bug a single time,
++  // you'll also get one report (this is the assumed model).
++  jstring return_string;
++  for (unsigned i = 0; i < 0x10000; ++i) {
++    return_string = native_get_string(env);
++  }
++
++  return reinterpret_cast<jstring>(env->NewGlobalRef(return_string));
++}
++```
+ 
+ For a test run using the example code above, GWP-ASan successfully caught the
+ illegal usage and triggered the crash report below. GWP-ASan has automatically
+@@ -224,46 +242,48 @@ enhanced the report by providing information about the type of crash, the
+ allocation metadata, and the associated allocation and deallocation stack
+ traces.
+ 
+-    *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+-    Build fingerprint: 'google/sargo/sargo:10/RPP3.200320.009/6360804:userdebug/dev-keys'
+-    Revision: 'PVT1.0'
+-    ABI: 'arm64'
+-    Timestamp: 2020-04-06 18:27:08-0700
+-    pid: 16227, tid: 16227, name: 11.test.gwpasan  >>> android11.test.gwpasan <<<
+-    uid: 10238
+-    signal 11 (SIGSEGV), code 2 (SEGV_ACCERR), fault addr 0x736ad4afe0
+-    Cause: [GWP-ASan]: Use After Free on a 32-byte allocation at 0x736ad4afe0
+-
+-    backtrace:
+-          #00 pc 000000000037a090  /apex/com.android.art/lib64/libart.so (art::(anonymous namespace)::ScopedCheck::CheckNonHeapValue(char, art::(anonymous namespace)::JniValueType)+448)
+-          #01 pc 0000000000378440  /apex/com.android.art/lib64/libart.so (art::(anonymous namespace)::ScopedCheck::CheckPossibleHeapValue(art::ScopedObjectAccess&, char, art::(anonymous namespace)::JniValueType)+204)
+-          #02 pc 0000000000377bec  /apex/com.android.art/lib64/libart.so (art::(anonymous namespace)::ScopedCheck::Check(art::ScopedObjectAccess&, bool, char const*, art::(anonymous namespace)::JniValueType*)+612)
+-          #03 pc 000000000036dcf4  /apex/com.android.art/lib64/libart.so (art::(anonymous namespace)::CheckJNI::NewStringUTF(_JNIEnv*, char const*)+708)
+-          #04 pc 000000000000eda4  /data/app/android11.test.gwpasan/lib/arm64/libmy-test.so (_JNIEnv::NewStringUTF(char const*)+40)
+-          #05 pc 000000000000eab8  /data/app/android11.test.gwpasan/lib/arm64/libmy-test.so (native_get_string(_JNIEnv*)+144)
+-          #06 pc 000000000000edf8  /data/app/android11.test.gwpasan/lib/arm64/libmy-test.so (Java_android11_test_gwpasan_MainActivity_nativeGetString+44)
+-          ...
+-
+-    deallocated by thread 16227:
+-          #00 pc 0000000000048970  /apex/com.android.runtime/lib64/bionic/libc.so (gwp_asan::AllocationMetadata::CallSiteInfo::RecordBacktrace(unsigned long (*)(unsigned long*, unsigned long))+80)
+-          #01 pc 0000000000048f30  /apex/com.android.runtime/lib64/bionic/libc.so (gwp_asan::GuardedPoolAllocator::deallocate(void*)+184)
+-          #02 pc 000000000000f130  /data/app/android11.test.gwpasan/lib/arm64/libmy-test.so (std::__ndk1::_DeallocateCaller::__do_call(void*)+20)
+-          ...
+-          #08 pc 000000000000ed6c  /data/app/android11.test.gwpasan/lib/arm64/libmy-test.so (std::__ndk1::basic_string<char, std::__ndk1::char_traits<char>, std::__ndk1::allocator<char> >::~basic_string()+100)
+-          #09 pc 000000000000ea90  /data/app/android11.test.gwpasan/lib/arm64/libmy-test.so (native_get_string(_JNIEnv*)+104)
+-          #10 pc 000000000000edf8  /data/app/android11.test.gwpasan/lib/arm64/libmy-test.so (Java_android11_test_gwpasan_MainActivity_nativeGetString+44)
+-          ...
+-
+-    allocated by thread 16227:
+-          #00 pc 0000000000048970  /apex/com.android.runtime/lib64/bionic/libc.so (gwp_asan::AllocationMetadata::CallSiteInfo::RecordBacktrace(unsigned long (*)(unsigned long*, unsigned long))+80)
+-          #01 pc 0000000000048e4c  /apex/com.android.runtime/lib64/bionic/libc.so (gwp_asan::GuardedPoolAllocator::allocate(unsigned long)+368)
+-          #02 pc 000000000003b258  /apex/com.android.runtime/lib64/bionic/libc.so (gwp_asan_malloc(unsigned long)+132)
+-          #03 pc 000000000003bbec  /apex/com.android.runtime/lib64/bionic/libc.so (malloc+76)
+-          #04 pc 0000000000010414  /data/app/android11.test.gwpasan/lib/arm64/libmy-test.so (operator new(unsigned long)+24)
+-          ...
+-          #10 pc 000000000000ea6c  /data/app/android11.test.gwpasan/lib/arm64/libmy-test.so (native_get_string(_JNIEnv*)+68)
+-          #11 pc 000000000000edf8  /data/app/android11.test.gwpasan/lib/arm64/libmy-test.so (Java_android11_test_gwpasan_MainActivity_nativeGetString+44)
+-          ...
++```
++*** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
++Build fingerprint: 'google/sargo/sargo:10/RPP3.200320.009/6360804:userdebug/dev-keys'
++Revision: 'PVT1.0'
++ABI: 'arm64'
++Timestamp: 2020-04-06 18:27:08-0700
++pid: 16227, tid: 16227, name: 11.test.gwpasan  >>> android11.test.gwpasan <<<
++uid: 10238
++signal 11 (SIGSEGV), code 2 (SEGV_ACCERR), fault addr 0x736ad4afe0
++Cause: [GWP-ASan]: Use After Free on a 32-byte allocation at 0x736ad4afe0
++
++backtrace:
++      #00 pc 000000000037a090  /apex/com.android.art/lib64/libart.so (art::(anonymous namespace)::ScopedCheck::CheckNonHeapValue(char, art::(anonymous namespace)::JniValueType)+448)
++      #01 pc 0000000000378440  /apex/com.android.art/lib64/libart.so (art::(anonymous namespace)::ScopedCheck::CheckPossibleHeapValue(art::ScopedObjectAccess&, char, art::(anonymous namespace)::JniValueType)+204)
++      #02 pc 0000000000377bec  /apex/com.android.art/lib64/libart.so (art::(anonymous namespace)::ScopedCheck::Check(art::ScopedObjectAccess&, bool, char const*, art::(anonymous namespace)::JniValueType*)+612)
++      #03 pc 000000000036dcf4  /apex/com.android.art/lib64/libart.so (art::(anonymous namespace)::CheckJNI::NewStringUTF(_JNIEnv*, char const*)+708)
++      #04 pc 000000000000eda4  /data/app/android11.test.gwpasan/lib/arm64/libmy-test.so (_JNIEnv::NewStringUTF(char const*)+40)
++      #05 pc 000000000000eab8  /data/app/android11.test.gwpasan/lib/arm64/libmy-test.so (native_get_string(_JNIEnv*)+144)
++      #06 pc 000000000000edf8  /data/app/android11.test.gwpasan/lib/arm64/libmy-test.so (Java_android11_test_gwpasan_MainActivity_nativeGetString+44)
++      ...
++
++deallocated by thread 16227:
++      #00 pc 0000000000048970  /apex/com.android.runtime/lib64/bionic/libc.so (gwp_asan::AllocationMetadata::CallSiteInfo::RecordBacktrace(unsigned long (*)(unsigned long*, unsigned long))+80)
++      #01 pc 0000000000048f30  /apex/com.android.runtime/lib64/bionic/libc.so (gwp_asan::GuardedPoolAllocator::deallocate(void*)+184)
++      #02 pc 000000000000f130  /data/app/android11.test.gwpasan/lib/arm64/libmy-test.so (std::__ndk1::_DeallocateCaller::__do_call(void*)+20)
++      ...
++      #08 pc 000000000000ed6c  /data/app/android11.test.gwpasan/lib/arm64/libmy-test.so (std::__ndk1::basic_string<char, std::__ndk1::char_traits<char>, std::__ndk1::allocator<char> >::~basic_string()+100)
++      #09 pc 000000000000ea90  /data/app/android11.test.gwpasan/lib/arm64/libmy-test.so (native_get_string(_JNIEnv*)+104)
++      #10 pc 000000000000edf8  /data/app/android11.test.gwpasan/lib/arm64/libmy-test.so (Java_android11_test_gwpasan_MainActivity_nativeGetString+44)
++      ...
++
++allocated by thread 16227:
++      #00 pc 0000000000048970  /apex/com.android.runtime/lib64/bionic/libc.so (gwp_asan::AllocationMetadata::CallSiteInfo::RecordBacktrace(unsigned long (*)(unsigned long*, unsigned long))+80)
++      #01 pc 0000000000048e4c  /apex/com.android.runtime/lib64/bionic/libc.so (gwp_asan::GuardedPoolAllocator::allocate(unsigned long)+368)
++      #02 pc 000000000003b258  /apex/com.android.runtime/lib64/bionic/libc.so (gwp_asan_malloc(unsigned long)+132)
++      #03 pc 000000000003bbec  /apex/com.android.runtime/lib64/bionic/libc.so (malloc+76)
++      #04 pc 0000000000010414  /data/app/android11.test.gwpasan/lib/arm64/libmy-test.so (operator new(unsigned long)+24)
++      ...
++      #10 pc 000000000000ea6c  /data/app/android11.test.gwpasan/lib/arm64/libmy-test.so (native_get_string(_JNIEnv*)+68)
++      #11 pc 000000000000edf8  /data/app/android11.test.gwpasan/lib/arm64/libmy-test.so (Java_android11_test_gwpasan_MainActivity_nativeGetString+44)
++      ...
++```
+ 
+ ## More information
+ 

@@ -1,0 +1,12 @@
+diff --git a/docs/docs/quality-guidelines/build-for-billions.md b/docs/docs/quality-guidelines/build-for-billions.md
+index 0282487..1bde6b0 100644
+--- a/docs/docs/quality-guidelines/build-for-billions.md
++++ b/docs/docs/quality-guidelines/build-for-billions.md
+@@ -15,7 +15,6 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
+-
+ # Build for Billions
+ 
+ The markets with the fastest growing internet and smartphone penetration

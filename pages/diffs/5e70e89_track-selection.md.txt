@@ -1,0 +1,12 @@
+diff --git a/docs/media/media3/exoplayer/track-selection.md b/docs/media/media3/exoplayer/track-selection.md
+index 482bd11..3150899 100644
+--- a/docs/media/media3/exoplayer/track-selection.md
++++ b/docs/media/media3/exoplayer/track-selection.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ When a media item contains multiple tracks, track selection is the process that
+ determines which of them are chosen for playback. The track selection process is
+ configured by [`TrackSelectionParameters`](/reference/androidx/media3/common/TrackSelectionParameters), which allows many different

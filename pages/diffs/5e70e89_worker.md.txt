@@ -1,0 +1,12 @@
+diff --git a/docs/develop/background-work/background-tasks/persistent/threading/worker.md b/docs/develop/background-work/background-tasks/persistent/threading/worker.md
+index 2c3b9c3..610c974 100644
+--- a/docs/develop/background-work/background-tasks/persistent/threading/worker.md
++++ b/docs/develop/background-work/background-tasks/persistent/threading/worker.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ When you use a [`Worker`](/reference/androidx/work/Worker), WorkManager
+ automatically calls [`Worker.doWork()`](/reference/androidx/work/Worker#doWork())
+ on a background thread. The background thread comes from the `Executor`

@@ -1,0 +1,12 @@
+diff --git a/docs/design/ui/cars/guides/templates/media-playback-template.md b/docs/design/ui/cars/guides/templates/media-playback-template.md
+index 8cdeef5..f49866c 100644
+--- a/docs/design/ui/cars/guides/templates/media-playback-template.md
++++ b/docs/design/ui/cars/guides/templates/media-playback-template.md
+@@ -14,6 +14,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Display details about the media being played at a glance with the
+ Media Playback template.
+ 

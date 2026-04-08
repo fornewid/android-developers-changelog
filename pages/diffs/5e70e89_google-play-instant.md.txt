@@ -1,0 +1,12 @@
+diff --git a/docs/topic/google-play-instant.md b/docs/topic/google-play-instant.md
+index b39435c..571a6cf 100644
+--- a/docs/topic/google-play-instant.md
++++ b/docs/topic/google-play-instant.md
+@@ -15,6 +15,7 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
++
+ ![](/static/topic/google-play-instant/images/gpi-logo.webp)
+ 
+ **Warning:** Google Play Instant will no longer be available. Starting December

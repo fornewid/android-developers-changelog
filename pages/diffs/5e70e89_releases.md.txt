@@ -1,0 +1,12 @@
+diff --git a/docs/training/cars/platforms/releases.md b/docs/training/cars/platforms/releases.md
+index 06673bb..bb20757 100644
+--- a/docs/training/cars/platforms/releases.md
++++ b/docs/training/cars/platforms/releases.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ With each [Android release](/about/versions), API and behavior changes impact how apps work on
+ Android Auto and Android Automotive OS. This page details many of these impacts
+ and provides information on how to update your app to support new versions of

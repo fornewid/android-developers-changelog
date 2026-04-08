@@ -1,0 +1,12 @@
+diff --git a/docs/training/tv/tif/tvinput.md b/docs/training/tv/tif/tvinput.md
+index a07147c..65811ce 100644
+--- a/docs/training/tv/tif/tvinput.md
++++ b/docs/training/tv/tif/tvinput.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ A TV input service represents a media stream source, and lets you present your media content in a
+ linear, broadcast TV fashion as channels and programs. With a TV input service, you can provide
+ parental controls, program guide information, and content ratings. The TV input service works

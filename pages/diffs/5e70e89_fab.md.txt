@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/compose/components/fab.md b/docs/develop/ui/compose/components/fab.md
+index f6ea670..5b322f1 100644
+--- a/docs/develop/ui/compose/components/fab.md
++++ b/docs/develop/ui/compose/components/fab.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ A Floating Action Button (FAB) is a high-emphasis button that lets the user
+ perform a primary action in an application. It promotes a single, focused action
+ that is the most common pathway a user might take and is typically found

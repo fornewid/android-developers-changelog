@@ -1,0 +1,12 @@
+diff --git a/docs/studio/write/tool-attributes.md b/docs/studio/write/tool-attributes.md
+index bf8fac0..40f7318 100644
+--- a/docs/studio/write/tool-attributes.md
++++ b/docs/studio/write/tool-attributes.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Android Studio supports a variety of XML attributes in the `tools` namespace
+ that enable design-time features, such as which layout to show in a fragment, or
+ compile-time behaviors, such as which shrinking mode to apply to your XML

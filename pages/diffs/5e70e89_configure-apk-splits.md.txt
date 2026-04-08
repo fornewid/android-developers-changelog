@@ -1,0 +1,12 @@
+diff --git a/docs/build/configure-apk-splits.md b/docs/build/configure-apk-splits.md
+index 4cc5074..03e5674 100644
+--- a/docs/build/configure-apk-splits.md
++++ b/docs/build/configure-apk-splits.md
+@@ -11,7 +11,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ **Caution:** Since August 2021, all new
+ apps must be published as App Bundles. If you publish your app to Google Play,
+ build and upload an [Android App Bundle](/guide/app-bundle). When

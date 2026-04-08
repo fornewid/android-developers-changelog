@@ -1,0 +1,12 @@
+diff --git a/docs/studio/test/managed-devices.md b/docs/studio/test/managed-devices.md
+index c1c21e5..a56a80a 100644
+--- a/docs/studio/test/managed-devices.md
++++ b/docs/studio/test/managed-devices.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Build-managed devices improve consistency, performance, and reliability for
+ your automated instrumented tests. This feature, available for API levels 27 and
+ higher, lets you configure virtual or remote physical test devices in your

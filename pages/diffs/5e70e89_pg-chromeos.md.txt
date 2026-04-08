@@ -1,0 +1,20 @@
+diff --git a/docs/games/playgames/pg-chromeos.md b/docs/games/playgames/pg-chromeos.md
+index 356cc41..a9047c6 100644
+--- a/docs/games/playgames/pg-chromeos.md
++++ b/docs/games/playgames/pg-chromeos.md
+@@ -15,6 +15,7 @@ Send feedback
+ 
+ 
+ 
++
+ This page describes how to run your game on a
+ [ChromeOS device that supports Android](https://www.chromium.org/chromium-os/chrome-os-systems-supporting-android-apps/)
+ for testing purposes. You can use ChromeOS as an alternate testing plarform for
+@@ -76,4 +77,6 @@ var isPC = packageManager.Call<bool>("hasSystemFeature", "org.chromium.arc");
+ 
+ 
+ 
++
++
+ Send feedback
+\ No newline at end of file

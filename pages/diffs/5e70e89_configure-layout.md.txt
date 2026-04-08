@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/compose/text/configure-layout.md b/docs/develop/ui/compose/text/configure-layout.md
+index 7d05e0b..3d6159b 100644
+--- a/docs/develop/ui/compose/text/configure-layout.md
++++ b/docs/develop/ui/compose/text/configure-layout.md
+@@ -14,6 +14,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ This page describes how to configure your text layout with parameters like
+ `maxLines` and `overflow`.
+ 

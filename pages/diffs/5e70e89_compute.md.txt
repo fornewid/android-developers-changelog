@@ -1,0 +1,12 @@
+diff --git a/docs/guide/topics/renderscript/compute.md b/docs/guide/topics/renderscript/compute.md
+index 5e1310b..3acb1a5 100644
+--- a/docs/guide/topics/renderscript/compute.md
++++ b/docs/guide/topics/renderscript/compute.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ **Caution:** Starting with Android 12, the RenderScript APIs are deprecated. They will continue
+ to function, but we expect that device and component manufacturers will stop providing
+ hardware acceleration support over time. To take full advantage of GPU acceleration, we

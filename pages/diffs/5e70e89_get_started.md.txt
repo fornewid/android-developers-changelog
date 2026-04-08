@@ -1,0 +1,12 @@
+diff --git a/docs/training/wearables/tiles/get_started.md b/docs/training/wearables/tiles/get_started.md
+index ca13412..ec826bb 100644
+--- a/docs/training/wearables/tiles/get_started.md
++++ b/docs/training/wearables/tiles/get_started.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Tiles for Wear OS version
+ 
+ 2.5

@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/compose/touch-input/user-interactions/handling-interactions.md b/docs/develop/ui/compose/touch-input/user-interactions/handling-interactions.md
+index 8569339..18a0198 100644
+--- a/docs/develop/ui/compose/touch-input/user-interactions/handling-interactions.md
++++ b/docs/develop/ui/compose/touch-input/user-interactions/handling-interactions.md
+@@ -14,6 +14,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ User interface components give feedback to the device user by the way they
+ respond to user interactions. Every component has its own way of responding to
+ interactions, which helps the user know what their interactions are doing. For

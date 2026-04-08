@@ -1,0 +1,12 @@
+diff --git a/docs/google/play/app-updates.md b/docs/google/play/app-updates.md
+index ceb402b..40b8933 100644
+--- a/docs/google/play/app-updates.md
++++ b/docs/google/play/app-updates.md
+@@ -12,6 +12,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ This guide explains how the Android platform and Google Play handle app updates
+ and discusses various options for developers who publish their apps on multiple
+ app stores.

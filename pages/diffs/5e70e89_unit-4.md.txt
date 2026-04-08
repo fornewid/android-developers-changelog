@@ -1,0 +1,45 @@
+diff --git a/docs/courses/android-development-with-kotlin/unit-4.md b/docs/courses/android-development-with-kotlin/unit-4.md
+index f93f36a..6811315 100644
+--- a/docs/courses/android-development-with-kotlin/unit-4.md
++++ b/docs/courses/android-development-with-kotlin/unit-4.md
+@@ -1,20 +1,31 @@
+ ---
+-title: https://developer.android.com/courses/android-development-with-kotlin/unit-4
++title: Android Development with Kotlin  |  Android Developers
+ url: https://developer.android.com/courses/android-development-with-kotlin/unit-4
+-source: md.txt
++source: html-scrape
+ ---
+ 
+-# Android Development with Kotlin
++* [Android Developers](https://developer.android.com/)
+ 
+-![](http://developer.android.com/static/courses/images/android-icon.png)  
+-[Android Development with Kotlin](http://developer.android.com/courses/android-development-with-kotlin/course)
++Stay organized with collections
++
++Save and categorize content based on your preferences.
++
++
++
++![](https://developer.android.com/static/courses/images/android-icon.png)
++
++[Android Development with Kotlin](https://developer.android.com/courses/android-development-with-kotlin/course)
+ 
+ ### Unit 4: Android app design
+ 
+-Learn best practices, guidelines, and tools for effective Android app design.Pathway 1  
+-![](https://developers.google.com/profile/badges/playlists/android/android-development-with-kotlin-13/android-development-with-kotlin-13.svg)  
++Learn best practices, guidelines, and tools for effective Android app design.
++
++Pathway 1
++
++![](https://developers.google.com/profile/badges/playlists/android/android-development-with-kotlin-13/android-development-with-kotlin-13.svg)
+ 
+ ### [Lesson 13: App UI design](https://developer.android.com/courses/pathways/android-development-with-kotlin-13)
+ 
+-Learn UI best practices and how to make your app follow the Material Design guidelines.  
++Learn UI best practices and how to make your app follow the Material Design guidelines.
++
+ [Explore](https://developer.android.com/courses/pathways/android-development-with-kotlin-13)
+\ No newline at end of file

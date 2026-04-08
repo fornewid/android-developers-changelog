@@ -1,0 +1,12 @@
+diff --git a/docs/health-and-fitness/health-connect.md b/docs/health-and-fitness/health-connect.md
+index c033e0f..3172f77 100644
+--- a/docs/health-and-fitness/health-connect.md
++++ b/docs/health-and-fitness/health-connect.md
+@@ -17,7 +17,6 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
+-
+ ![](https://developer.android.com/static/images/health-connect/health-connect.svg)
+ 
+ ### Health Connect: simplify connectivity between apps

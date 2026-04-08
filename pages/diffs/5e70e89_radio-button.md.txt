@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/compose/components/radio-button.md b/docs/develop/ui/compose/components/radio-button.md
+index c2c62ef..ab43d5c 100644
+--- a/docs/develop/ui/compose/components/radio-button.md
++++ b/docs/develop/ui/compose/components/radio-button.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ A [radio button](https://m3.material.io/components/radio-button/overview) lets a user select an option from a set of
+ options. You use a radio button when only one item can be selected from a
+ list. If users need to select more than one item, use a [switch](https://m3.material.io/components/switch/overview)

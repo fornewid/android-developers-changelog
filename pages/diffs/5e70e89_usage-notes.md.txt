@@ -1,0 +1,12 @@
+diff --git a/docs/training/permissions/usage-notes.md b/docs/training/permissions/usage-notes.md
+index 56e69fc..bc75141 100644
+--- a/docs/training/permissions/usage-notes.md
++++ b/docs/training/permissions/usage-notes.md
+@@ -14,6 +14,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Permission requests protect sensitive information available from a device and
+ should only be used when access to information is necessary for the
+ functioning of your app. This document provides tips on ways you might be

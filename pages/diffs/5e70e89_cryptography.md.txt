@@ -1,0 +1,318 @@
+diff --git a/docs/privacy-and-security/cryptography.md b/docs/privacy-and-security/cryptography.md
+index 2c950bc..f24ef13 100644
+--- a/docs/privacy-and-security/cryptography.md
++++ b/docs/privacy-and-security/cryptography.md
+@@ -1,15 +1,24 @@
+ ---
+-title: https://developer.android.com/privacy-and-security/cryptography
++title: Cryptography  |  Security  |  Android Developers
+ url: https://developer.android.com/privacy-and-security/cryptography
+-source: md.txt
++source: html-scrape
+ ---
+ 
++* [Android Developers](https://developer.android.com/)
++* [Design & Plan](https://developer.android.com/design)
++* [Security](https://developer.android.com/security)
++* [Guides](https://developer.android.com/privacy-and-security/security-tips)
++
++# Cryptography Stay organized with collections Save and categorize content based on your preferences.
++
++
++
++
+ This document describes the proper way to use Android's cryptographic facilities
+ and includes some examples of their use. If your app requires greater key
+-security, use the [Android Keystore system](https://developer.android.com/training/articles/keystore).
++security, use the [Android Keystore system](/training/articles/keystore).
+ 
+-> [!NOTE]
+-> **Note:** Except where specified, this advice applies to all Android versions.
++**Note:** Except where specified, this advice applies to all Android versions.
+ 
+ ## Specify a provider only with the Android Keystore system
+ 
+@@ -27,15 +36,15 @@ don't require compatibility with a third-party system), we recommend using the
+ following algorithms:
+ 
+ | Class | Recommendation |
+-|---|---|
++| --- | --- |
+ | Cipher | AES in either CBC or GCM mode with 256-bit keys (such as `AES/GCM/NoPadding`) |
+ | MessageDigest | SHA-2 family (such as `SHA-256`) |
+ | Mac | SHA-2 family HMAC (such as `HMACSHA256`) |
+ | Signature | SHA-2 family with ECDSA (such as `SHA256withECDSA`) |
+ 
+-> [!NOTE]
+-> **Note:** When reading and writing local files, your app can use the [Security
+-> library](https://developer.android.com/topic/security/data) to perform these actions in a more secure manner. The library specifies a recommended encryption algorithm.
++**Note:** When reading and writing local files, your app can use the [Security
++library](/topic/security/data) to perform these actions in a more secure manner.
++The library specifies a recommended encryption algorithm.
+ 
+ ## Perform common cryptographic operations
+ 
+@@ -46,7 +55,7 @@ common cryptographic operations in your app.
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ val plaintext: ByteArray = ...
+ val keygen = KeyGenerator.getInstance("AES")
+ keygen.init(256)
+@@ -59,7 +68,7 @@ val iv: ByteArray = cipher.iv
+ 
+ ### Java
+ 
+-```java
++```
+ byte[] plaintext = ...;
+ KeyGenerator keygen = KeyGenerator.getInstance("AES");
+ keygen.init(256);
+@@ -74,7 +83,7 @@ byte[] iv = cipher.getIV();
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ val message: ByteArray = ...
+ val md = MessageDigest.getInstance("SHA-256")
+ val digest: ByteArray = md.digest(message)
+@@ -82,7 +91,7 @@ val digest: ByteArray = md.digest(message)
+ 
+ ### Java
+ 
+-```java
++```
+ byte[] message = ...;
+ MessageDigest md = MessageDigest.getInstance("SHA-256");
+ byte[] digest = md.digest(message);
+@@ -90,14 +99,14 @@ byte[] digest = md.digest(message);
+ 
+ ### Generate a digital signature
+ 
+-You need to have a [`PrivateKey`](https://developer.android.com/reference/java/security/PrivateKey) object
++You need to have a [`PrivateKey`](/reference/java/security/PrivateKey) object
+ containing the signing key, which you
+ can generate at runtime, read from a file bundled with your app, or obtain from
+ some other source depending on your needs.
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ val message: ByteArray = ...
+ val key: PrivateKey = ...
+ val s = Signature.getInstance("SHA256withECDSA")
+@@ -110,7 +119,7 @@ val signature: ByteArray = s.sign()
+ 
+ ### Java
+ 
+-```java
++```
+ byte[] message = ...;
+ PrivateKey key = ...;
+ Signature s = Signature.getInstance("SHA256withECDSA");
+@@ -121,15 +130,15 @@ byte[] signature = s.sign();
+ 
+ ### Verify a digital signature
+ 
+-You need to have a [`PublicKey`](https://developer.android.com/reference/kotlin/java/security/PublicKey)
++You need to have a [`PublicKey`](/reference/kotlin/java/security/PublicKey)
+ object containing the signer's public key,
+ which you can read from a file bundled with your app, [extract from a
+-certificate](https://developer.android.com/reference/javax/security/cert/Certificate#getPublicKey()), or
++certificate](/reference/javax/security/cert/Certificate#getPublicKey()), or
+ obtain from some other source depending on your needs.
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ val message: ByteArray = ...
+ val signature: ByteArray = ...
+ val key: PublicKey = ...
+@@ -143,7 +152,7 @@ val valid: Boolean = s.verify(signature)
+ 
+ ### Java
+ 
+-```java
++```
+ byte[] message = ...;
+ byte[] signature = ...;
+ PublicKey key = ...;
+@@ -161,8 +170,8 @@ the ones that you'll most likely encounter.
+ 
+ ### OAEP MGF1 message digest
+ 
+-RSA OAEP ciphers are parameterized by two different message digests: the "main"
+-digest and the MGF1 digest. There are [`Cipher`](https://developer.android.com/reference/javax/crypto/Cipher)
++RSA OAEP ciphers are parameterized by two different message digests: the “main”
++digest and the MGF1 digest. There are [`Cipher`](/reference/javax/crypto/Cipher)
+ identifiers that include digest
+ names, such as `Cipher.getInstance("RSA/ECB/OAEPwithSHA-256andMGF1Padding")`,
+ which specifies the main digest and leaves the MGF1 digest unspecified. For Android
+@@ -176,7 +185,7 @@ This is shown in the code that follows:
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ val key: Key = ...
+ val cipher = Cipher.getInstance("RSA/ECB/OAEPPadding")
+         .apply {
+@@ -189,7 +198,7 @@ val cipher = Cipher.getInstance("RSA/ECB/OAEPPadding")
+ 
+ ### Java
+ 
+-```java
++```
+ Key key = ...;
+ Cipher cipher = Cipher.getInstance("RSA/ECB/OAEPPadding");
+ // To use SHA-256 the main digest and SHA-1 as the MGF1 digest
+@@ -213,7 +222,7 @@ as shown in the following example:
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ Cipher.getInstance("AES/CBC/PKCS7PADDING", "BC")
+ // OR
+ Cipher.getInstance("AES/CBC/PKCS7PADDING", Security.getProvider("BC"))
+@@ -221,14 +230,14 @@ Cipher.getInstance("AES/CBC/PKCS7PADDING", Security.getProvider("BC"))
+ 
+ ### Java
+ 
+-```java
++```
+ Cipher.getInstance("AES/CBC/PKCS7PADDING", "BC");
+ // OR
+ Cipher.getInstance("AES/CBC/PKCS7PADDING", Security.getProvider("BC"));
+ ```
+ 
+ As noted in the section about
+-[specifying a provider only with the Android Keystore system](https://developer.android.com/privacy-and-security/cryptography#provider-android-keystore),
++[specifying a provider only with the Android Keystore system](#provider-android-keystore),
+ requesting a specific provider is discouraged. If you follow
+ that guideline, this deprecation doesn't affect you.
+ 
+@@ -244,7 +253,7 @@ code snippet:
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ val key: SecretKey = ...
+ val cipher = Cipher.getInstance("PBEWITHSHA256AND256BITAES-CBC-BC")
+ val iv = ByteArray(16)
+@@ -254,7 +263,7 @@ cipher.init(Cipher.ENCRYPT_MODE, key, IvParameterSpec(iv))
+ 
+ ### Java
+ 
+-```java
++```
+ SecretKey key = ...;
+ Cipher cipher = Cipher.getInstance("PBEWITHSHA256AND256BITAES-CBC-BC");
+ byte[] iv = new byte[16];
+@@ -267,27 +276,27 @@ cipher.init(Cipher.ENCRYPT_MODE, key, new IvParameterSpec(iv));
+ As of Android 9 (API level 28), the Crypto Java Cryptography Architecture
+ (JCA) provider has been removed. If your app requests an instance of the
+ Crypto provider, such as by calling the following method, a
+-[`NoSuchProviderException`](https://developer.android.com/reference/java/security/NoSuchProviderException)
++[`NoSuchProviderException`](/reference/java/security/NoSuchProviderException)
+ occurs.
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ SecureRandom.getInstance("SHA1PRNG", "Crypto")
+ ```
+ 
+ ### Java
+ 
+-```java
++```
+ SecureRandom.getInstance("SHA1PRNG", "Crypto");
+ ```
+ 
+ ### Jetpack security-crypto library
+ 
+ All APIs in the
+-[`security-crypto`](https://developer.android.com/reference/androidx/security/crypto/package-summary)
++[`security-crypto`](/reference/androidx/security/crypto/package-summary)
+ Jetpack library were deprecated in the stable release of
+-[version `1.1.0`](https://developer.android.com/jetpack/androidx/releases/security#security-crypto_version_110_2).
++[version `1.1.0`](/jetpack/androidx/releases/security#security-crypto_version_110_2).
+ There won't be any subsequent releases of this library.
+ 
+ The deprecation annotations are visible if you have any of the following
+@@ -295,7 +304,7 @@ dependencies in your app module's `build.gradle` file:
+ 
+ ### Groovy
+ 
+-```groovy
++```
+ dependencies {
+     implementation "androidx.security:security-crypto:1.1.0"
+     // or
+@@ -305,7 +314,7 @@ dependencies {
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ dependencies {
+     implementation("androidx.security:security-crypto:1.1.0")
+     // or
+@@ -317,25 +326,25 @@ dependencies {
+ 
+ These are the JCA algorithm identifiers that are supported on Android:
+ 
+-- [`AlgorithmParameterGenerator`](https://developer.android.com/reference/java/security/AlgorithmParameterGenerator)
+-- [`AlgorithmParameters`](https://developer.android.com/reference/java/security/AlgorithmParameters)
+-- [`CertPathBuilder`](https://developer.android.com/reference/java/security/cert/CertPathBuilder)
+-- [`CertPathValidator`](https://developer.android.com/reference/java/security/cert/CertPathValidator)
+-- [`CertStore`](https://developer.android.com/reference/java/security/cert/CertStore)
+-- [`CertificateFactory`](https://developer.android.com/reference/java/security/cert/CertificateFactory)
+-- [`Cipher`](https://developer.android.com/reference/kotlin/javax/crypto/Cipher)
+-- [`KeyAgreement`](https://developer.android.com/reference/kotlin/javax/crypto/KeyAgreement)
+-- [`KeyFactory`](https://developer.android.com/reference/java/security/KeyFactory)
+-- [`KeyGenerator`](https://developer.android.com/reference/kotlin/javax/crypto/KeyGenerator)
+-- [`KeyManagerFactory`](https://developer.android.com/reference/javax/net/ssl/KeyManagerFactory)
+-- [`KeyPairGenerator`](https://developer.android.com/reference/java/security/KeyPairGenerator)
+-- [`KeyStore`](https://developer.android.com/reference/java/security/KeyStore)
+-- [`Mac`](https://developer.android.com/reference/kotlin/javax/crypto/Mac)
+-- [`MessageDigest`](https://developer.android.com/reference/java/security/MessageDigest)
+-- [`SSLContext`](https://developer.android.com/reference/javax/net/ssl/SSLContext)
+-- [`SSLEngine.Supported`](https://developer.android.com/reference/javax/net/ssl/SSLEngine)
+-- [`SSLSocket.Supported`](https://developer.android.com/reference/javax/net/ssl/SSLSocket)
+-- [`SecretKeyFactory`](https://developer.android.com/reference/kotlin/javax/crypto/SecretKeyFactory)
+-- [`SecureRandom`](https://developer.android.com/reference/java/security/SecureRandom)
+-- [`Signature`](https://developer.android.com/reference/java/security/Signature)
+-- [`TrustManagerFactory`](https://developer.android.com/reference/javax/net/ssl/TrustManagerFactory)
+\ No newline at end of file
++* [`AlgorithmParameterGenerator`](/reference/java/security/AlgorithmParameterGenerator)
++* [`AlgorithmParameters`](/reference/java/security/AlgorithmParameters)
++* [`CertPathBuilder`](/reference/java/security/cert/CertPathBuilder)
++* [`CertPathValidator`](/reference/java/security/cert/CertPathValidator)
++* [`CertStore`](/reference/java/security/cert/CertStore)
++* [`CertificateFactory`](/reference/java/security/cert/CertificateFactory)
++* [`Cipher`](/reference/kotlin/javax/crypto/Cipher)
++* [`KeyAgreement`](/reference/kotlin/javax/crypto/KeyAgreement)
++* [`KeyFactory`](/reference/java/security/KeyFactory)
++* [`KeyGenerator`](/reference/kotlin/javax/crypto/KeyGenerator)
++* [`KeyManagerFactory`](/reference/javax/net/ssl/KeyManagerFactory)
++* [`KeyPairGenerator`](/reference/java/security/KeyPairGenerator)
++* [`KeyStore`](/reference/java/security/KeyStore)
++* [`Mac`](/reference/kotlin/javax/crypto/Mac)
++* [`MessageDigest`](/reference/java/security/MessageDigest)
++* [`SSLContext`](/reference/javax/net/ssl/SSLContext)
++* [`SSLEngine.Supported`](/reference/javax/net/ssl/SSLEngine)
++* [`SSLSocket.Supported`](/reference/javax/net/ssl/SSLSocket)
++* [`SecretKeyFactory`](/reference/kotlin/javax/crypto/SecretKeyFactory)
++* [`SecureRandom`](/reference/java/security/SecureRandom)
++* [`Signature`](/reference/java/security/Signature)
++* [`TrustManagerFactory`](/reference/javax/net/ssl/TrustManagerFactory)
+\ No newline at end of file

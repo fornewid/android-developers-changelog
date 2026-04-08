@@ -1,0 +1,12 @@
+diff --git a/docs/studio/services.md b/docs/studio/services.md
+index 9b06979..7804e67 100644
+--- a/docs/studio/services.md
++++ b/docs/studio/services.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Android Studio offers a set of service integrations to increase your
+ productivity as you develop, release, and maintain Android apps. For example,
+ you have access to Cloud services such as Firebase Device Streaming, Firebase

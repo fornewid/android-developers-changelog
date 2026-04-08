@@ -1,0 +1,12 @@
+diff --git a/docs/design/ui/cars/guides/components/voice-input.md b/docs/design/ui/cars/guides/components/voice-input.md
+index ea68e0c..0c0bbe1 100644
+--- a/docs/design/ui/cars/guides/components/voice-input.md
++++ b/docs/design/ui/cars/guides/components/voice-input.md
+@@ -14,6 +14,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ The voice input feature lets apps access the car's microphone to gather audio
+ input for purposes such as creating an in-app assistant.
+ 

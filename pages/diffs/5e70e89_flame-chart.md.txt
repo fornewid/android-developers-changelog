@@ -1,0 +1,12 @@
+diff --git a/docs/studio/profile/chart-glossary/flame-chart.md b/docs/studio/profile/chart-glossary/flame-chart.md
+index 58bc79e..ff14bb7 100644
+--- a/docs/studio/profile/chart-glossary/flame-chart.md
++++ b/docs/studio/profile/chart-glossary/flame-chart.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ The **Flame Chart** tab provides an inverted call chart that aggregates
+ identical call stacks. That is, identical methods or functions that share the
+ same sequence of callers are collected and represented as one longer bar in a

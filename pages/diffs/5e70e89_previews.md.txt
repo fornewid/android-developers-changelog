@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/views/appwidgets/previews.md b/docs/develop/ui/views/appwidgets/previews.md
+index a77ee2b..8694a2e 100644
+--- a/docs/develop/ui/views/appwidgets/previews.md
++++ b/docs/develop/ui/views/appwidgets/previews.md
+@@ -14,6 +14,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ To improve your app's widget picker experience, provide a generated widget
+ preview on Android 15 and later devices, a scaled widget preview
+ (by specifying a `previewLayout`) for Android 12 to

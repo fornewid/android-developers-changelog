@@ -1,0 +1,67 @@
+diff --git a/docs/stories/games/epic-agde.md b/docs/stories/games/epic-agde.md
+index 38afde0..067304a 100644
+--- a/docs/stories/games/epic-agde.md
++++ b/docs/stories/games/epic-agde.md
+@@ -1,16 +1,10 @@
+ ---
+-title: "AGDE is freaking awesome!" for Android development with Unreal Engine  |  Developer stories  |  Android Developers
++title: https://developer.android.com/stories/games/epic-agde
+ url: https://developer.android.com/stories/games/epic-agde
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-* [Essentials](https://developer.android.com/get-started)
+-* [Developer stories](https://developer.android.com/stories)
+-
+-# "AGDE is freaking awesome!" for Android development with Unreal Engine Stay organized with collections Save and categorize content based on your preferences.
+-
+-
++# &quot;AGDE is freaking awesome!&quot; for Android development with Unreal Engine
+ 
+ [Unreal Engine](https://www.unrealengine.com/en-US/) is a game engine
+ developed by Epic Games that gives creators across industries freedom
+@@ -18,12 +12,11 @@ and control to deliver cutting-edge entertainment, compelling
+ visualizations, and immersive virtual worlds. Some major Android games are
+ built using Unreal Engine.
+ 
+-![Screenshot of Unreal Engine Suntemple sample running on Pixel 4](/static/images/cards/distribute/stories/unreal-suntemple-screenshot.jpg "Figure 
+-   1: Screenshot of Unreal Engine Suntemple sample running on Pixel 4")
++![Screenshot of Unreal Engine Suntemple sample running on Pixel 4](https://developer.android.com/static/images/cards/distribute/stories/unreal-suntemple-screenshot.jpg "Figure 1: Screenshot of Unreal Engine Suntemple sample running on Pixel 4")
+ **Figure 1**. Screenshot of Unreal Engine Suntemple sample running on Pixel 4
+ 
+ Epic and other game developers use [Android
+-Studio](/studio) for debugging C++, Kotlin or
++Studio](https://developer.android.com/studio) for debugging C++, Kotlin or
+ Java programming languages, but many game developers have development
+ workflows for other platforms centered around Visual Studio.
+ The Unreal Engine Mobile Team focuses on feature development and
+@@ -33,7 +26,7 @@ development and for Fortnite Android debugging and optimization.
+ 
+ ## How they use it
+ 
+-Before adopting [Android Game Development Extension (AGDE)](/games/agde), debugging and
++Before adopting [Android Game Development Extension (AGDE)](https://developer.android.com/games/agde), debugging and
+ building for Android required opening the generated Gradle project in
+ Android Studio and then switching between the two development environments
+ for compiling or debugging, each with their own sets of key bindings. This
+@@ -56,8 +49,7 @@ looking at disassembly and registers. AGDE-enabled Android builds also take
+ advantage of Unreal Build Tool's Incredibuild integration to provide
+ distributed builds across computers for Android C++ code.
+ 
+-![Screenshot of AGDE with Unreal Engine](/static/images/cards/distribute/stories/epic-agde-case-study-screenshot.png "Figure 
+-   2: Screenshot of AGDE with Unreal Engine")
++![Screenshot of AGDE with Unreal Engine](https://developer.android.com/static/images/cards/distribute/stories/epic-agde-case-study-screenshot.png "Figure 2: Screenshot of AGDE with Unreal Engine")
+ **Figure 2**. Screenshot of AGDE with Unreal Engine
+ 
+ ## Results
+@@ -85,6 +77,6 @@ development flow."
+ ## Get started
+ 
+ Learn how the
+-[Android Game Development Extension](/games/agde)
++[Android Game Development Extension](https://developer.android.com/games/agde)
+ enables you to target Android when building cross-platform games with C/C++
+ in Visual Studio.
+\ No newline at end of file

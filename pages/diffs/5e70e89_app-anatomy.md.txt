@@ -1,0 +1,12 @@
+diff --git a/docs/design/ui/mobile/guides/layout-and-content/app-anatomy.md b/docs/design/ui/mobile/guides/layout-and-content/app-anatomy.md
+index f07c353..5a1dd14 100644
+--- a/docs/design/ui/mobile/guides/layout-and-content/app-anatomy.md
++++ b/docs/design/ui/mobile/guides/layout-and-content/app-anatomy.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Most Android apps consist of regions referred to as the [system bars](/design/ui/mobile/guides/foundations/system-bars),
+ the navigation area, and the body.
+ 

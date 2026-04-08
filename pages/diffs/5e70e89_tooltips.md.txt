@@ -1,0 +1,92 @@
+diff --git a/docs/develop/ui/views/components/tooltips.md b/docs/develop/ui/views/components/tooltips.md
+index 67bfc6a..a6dd9c7 100644
+--- a/docs/develop/ui/views/components/tooltips.md
++++ b/docs/develop/ui/views/components/tooltips.md
+@@ -1,27 +1,12 @@
+ ---
+-title: Tooltips  |  Views  |  Android Developers
++title: https://developer.android.com/develop/ui/views/components/tooltips
+ url: https://developer.android.com/develop/ui/views/components/tooltips
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-* [Develop](https://developer.android.com/develop)
+-* [Core areas](https://developer.android.com/develop/core-areas)
+-* [UI](https://developer.android.com/develop/ui)
+-* [Views](https://developer.android.com/develop/ui/views/layout/declaring-layout)
++Try the Compose way Jetpack Compose is the recommended UI toolkit for Android. Learn how to add components in Compose. [Tooltip →](https://developer.android.com/develop/ui/compose/components/tooltip) ![](https://developer.android.com/static/images/android-compose-ui-logo.png)
+ 
+-# Tooltips Stay organized with collections Save and categorize content based on your preferences.
+-
+-
+-
+-
+-Try the Compose way
+-
+-Jetpack Compose is the recommended UI toolkit for Android. Learn how to add components in Compose.
+-
+-[Tooltip →](https://developer.android.com/develop/ui/compose/components/tooltip)
+-
+-![](/static/images/android-compose-ui-logo.png)
++<br />
+ 
+ A tooltip is a small descriptive message that appears near a view when users
+ long press the view or hover their mouse over it. This is useful when your app
+@@ -33,7 +18,7 @@ Some scenarios, such as those in productivity apps, require a descriptive method
+ of communicating ideas and actions. You can use tooltips to display a
+ descriptive message, as shown in figure 1.
+ 
+-![tooltip screenshot](/static/guide/topics/ui/images/tooltip_framed.png)
++![tooltip screenshot](https://developer.android.com/static/guide/topics/ui/images/tooltip_framed.png)
+ 
+ **Figure 1.** Tooltip displayed in an Android app.
+ 
+@@ -43,36 +28,34 @@ text displayed in the tooltip regardless of the value of other properties.
+ 
+ ## Setting the tooltip text
+ 
+-You can specify the tooltip text in a `View` by calling the
+-`setTooltipText()` method. You can set
++You can specify the tooltip text in a `https://developer.android.com/reference/android/view/View` by calling the
++`https://developer.android.com/reference/android/view/View#setTooltipText(java.lang.CharSequence)` method. You can set
+ the `tooltipText` property using the corresponding XML attribute or API.
+ 
+-To specify the tooltip text in your XML files, set the `android:tooltipText` attribute, as shown
++To specify the tooltip text in your XML files, set the `https://developer.android.com/reference/android/R.styleable#View_tooltipText` attribute, as shown
+ in the following example:
+ 
+-```
+-<android.support.design.widget.FloatingActionButton
+-        android:id="@+id/fab"
+-        android:tooltipText="Send an email" />
+-```
++    <android.support.design.widget.FloatingActionButton
++            android:id="@+id/fab"
++            android:tooltipText="Send an email" />
+ 
+-To specify the tooltip text in your code, use the `setTooltipText(CharSequence)` method, as shown in the following example:
++To specify the tooltip text in your code, use the `https://developer.android.com/reference/android/view/View#setTooltipText(java.lang.CharSequence)` method, as shown in the following example:
+ 
+ ### Kotlin
+ 
+-```
++```kotlin
+ val fab: FloatingActionButton = findViewById(R.id.fab)
+ fab.tooltipText = "Send an email"
+ ```
+ 
+ ### Java
+ 
+-```
++```java
+ FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+ fab.setTooltipText("Send an email");
+ ```
+ 
+-The API also includes a `getTooltipText()` method that
++The API also includes a `https://developer.android.com/reference/android/view/View#getTooltipText()` method that
+ you can use to retrieve the value of the `tooltipText` property.
+ 
+ Android displays the value of the `tooltipText` property when users hover their

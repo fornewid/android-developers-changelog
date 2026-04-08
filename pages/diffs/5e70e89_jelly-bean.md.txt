@@ -1,0 +1,12 @@
+diff --git a/docs/about/versions/jelly-bean.md b/docs/about/versions/jelly-bean.md
+index 3485174..9fd5271 100644
+--- a/docs/about/versions/jelly-bean.md
++++ b/docs/about/versions/jelly-bean.md
+@@ -10,7 +10,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ ### Android 4.3
+ 
+ [![Android 4.3 on phone and tablet](/static/images/jb-android-43.jpg)](/static/images/jb-android-43_2x.png)

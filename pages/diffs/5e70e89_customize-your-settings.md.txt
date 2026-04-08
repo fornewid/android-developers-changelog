@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/views/components/settings/customize-your-settings.md b/docs/develop/ui/views/components/settings/customize-your-settings.md
+index 8ad26cb..bd2a1c6 100644
+--- a/docs/develop/ui/views/components/settings/customize-your-settings.md
++++ b/docs/develop/ui/views/components/settings/customize-your-settings.md
+@@ -16,7 +16,6 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
+-
+ # Customize your settings   Part of [Android Jetpack](/jetpack).
+ 
+ This document describes how to customize

@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/compose/documentation.md b/docs/develop/ui/compose/documentation.md
+index 1077719..72c415b 100644
+--- a/docs/develop/ui/compose/documentation.md
++++ b/docs/develop/ui/compose/documentation.md
+@@ -14,6 +14,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Jetpack Compose is the modern toolkit for building Android UI, simplifying the
+ development of apps that adapt to any display size.
+ 

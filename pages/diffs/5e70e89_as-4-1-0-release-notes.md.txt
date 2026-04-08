@@ -1,0 +1,12 @@
+diff --git a/docs/studio/releases/past-releases/as-4-1-0-release-notes.md b/docs/studio/releases/past-releases/as-4-1-0-release-notes.md
+index df0e57b..6cb6bcf 100644
+--- a/docs/studio/releases/past-releases/as-4-1-0-release-notes.md
++++ b/docs/studio/releases/past-releases/as-4-1-0-release-notes.md
+@@ -15,6 +15,7 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
++
+ # Android Studio 4.1 (August 2020)
+ 
+ Android Studio 4.1 is a major release that includes a variety of new features

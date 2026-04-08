@@ -1,0 +1,56 @@
+diff --git a/docs/build/releases/agp-1-0-1-release-notes.md b/docs/build/releases/agp-1-0-1-release-notes.md
+index 9384cdc..234a2d7 100644
+--- a/docs/build/releases/agp-1-0-1-release-notes.md
++++ b/docs/build/releases/agp-1-0-1-release-notes.md
+@@ -1,42 +1,16 @@
+ ---
+-title: Android Studio  |  Android Developers
++title: https://developer.android.com/build/releases/agp-1-0-1-release-notes
+ url: https://developer.android.com/build/releases/agp-1-0-1-release-notes
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-* [Develop](https://developer.android.com/develop)
+-* [Android Studio](https://developer.android.com/studio)
+-* [Gradle build guides](https://developer.android.com/build/releases/past-releases)
+-
+-Stay organized with collections
+-
+-Save and categorize content based on your preferences.
+-
+-
+-
+ # Android plugin for Gradle, revision 1.0.1 (January 2015)
+ 
+ Dependencies:
+-
+-|  | Minimum version | Default version | Notes |
+-| --- | --- | --- | --- |
+-| Gradle | 2.2.1 | 2.2.1 | To learn more, see [updating Gradle](/build/releases/gradle-plugin?buildsystem=ndk-build#updating-gradle). Supports up to Gradle 2.3.X |
+-| SDK Build Tools | 21.1.1 | 21.1.1 | [Install](/studio/intro/update#sdk-manager) or [configure](/tools/releases/build-tools) SDK Build Tools. |
+-
+-**Note:** This version of the Android
+-plugin for Gradle is not compatible with Gradle 2.4 and
+-higher.
+-
+ General Notes:
+-:   * Fixed issue with Gradle build failure when accessing the
+-      `extractReleaseAnnotations` module.
+-      ([Issue 81638](http://b.android.com/81638)).
+-    * Fixed issue with `Disable` passing the
+-      `--no-optimize` setting to the Dalvik Executable (dex)
+-      bytecode. ([Issue
++:
++    - Fixed issue with Gradle build failure when accessing the `extractReleaseAnnotations` module. ([Issue 81638](http://b.android.com/81638)).
++    - Fixed issue with `Disable` passing the `--no-optimize` setting to the Dalvik Executable (dex) bytecode. ([Issue
+       82662](http://b.android.com/82662)).
+-    * Fixed manifest merger issues when importing libraries with a
+-      `targetSdkVersion` less than 16.
+-    * Fixed density ordering issue when using Android Studio with
+-      JDK 8.
+\ No newline at end of file
++    - Fixed manifest merger issues when importing libraries with a `targetSdkVersion` less than 16.
++    - Fixed density ordering issue when using Android Studio with JDK 8.
+\ No newline at end of file

@@ -1,0 +1,163 @@
+diff --git a/docs/develop/ui/compose/glance/theme.md b/docs/develop/ui/compose/glance/theme.md
+index 7d6b31d..fd257dc 100644
+--- a/docs/develop/ui/compose/glance/theme.md
++++ b/docs/develop/ui/compose/glance/theme.md
+@@ -1,21 +1,11 @@
+ ---
+-title: Implement a Glance theme  |  Jetpack Compose  |  Android Developers
++title: https://developer.android.com/develop/ui/compose/glance/theme
+ url: https://developer.android.com/develop/ui/compose/glance/theme
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-* [Develop](https://developer.android.com/develop)
+-* [Core areas](https://developer.android.com/develop/core-areas)
+-* [UI](https://developer.android.com/develop/ui)
+-* [Docs](https://developer.android.com/develop/ui/compose/documentation)
+-
+-# Implement a Glance theme Stay organized with collections Save and categorize content based on your preferences.
+-
+-
+-
+ Glance provides an API to manage the color theme. For other style attributes,
+-such as [`TextStyle`](/reference/kotlin/androidx/compose/ui/text/TextStyle), declare top-level variables.
++such as [`TextStyle`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/TextStyle), declare top-level variables.
+ 
+ ## Add colors
+ 
+@@ -28,7 +18,8 @@ user-specific platform colors. On other devices, this falls back to the Material
+ baseline theme. Use `GlanceTheme.colors` to style with colors from the wrapped
+ theme. You can use these values from the theme anywhere a color is needed.
+ 
+-```
++
++```kotlin
+ override suspend fun provideGlance(context: Context, id: GlanceId) {
+ 
+     provideContent {
+@@ -47,10 +38,10 @@ private fun MyContent() {
+ 
+     )
+ }
+-
+-GlanceSnippets.kt
+ ```
+ 
++<br />
++
+ To customize the theme, you can pass the `colors` to the `GlanceTheme`. Glance
+ provides the `androidx.glance:glance-material` interoperability library for
+ Material 2, and `androidx.glance:glance-material3` for Material 3 colors
+@@ -59,7 +50,8 @@ support.
+ For example, provide your app's existing material colors to the `ColorProviders`
+ API to create a Glance color scheme, as shown in the following snippet:
+ 
+-```
++
++```kotlin
+ // Remember, use the Glance imports
+ // import androidx.glance.material3.ColorProviders
+ 
+@@ -74,14 +66,15 @@ object MyAppWidgetGlanceColorScheme {
+         dark = DarkColors
+     )
+ }
+-
+-GlanceSnippets.kt
+ ```
+ 
++<br />
++
+ Provide the colors from the scheme to the `GlanceTheme` that wraps all your
+ composables, as shown in the following example:
+ 
+-```
++
++```kotlin
+ override suspend fun provideGlance(context: Context, id: GlanceId) {
+     // ...
+ 
+@@ -100,15 +93,16 @@ private fun MyContent() {
+         // ...
+     )
+ }
+-
+-GlanceSnippets.kt
+ ```
+ 
++<br />
++
+ If you prefer to use dynamic colors from the wallpaper when supported, and your
+ app's color scheme otherwise, you can conditionally pass your app's color scheme
+ in the `GlanceTheme`. This is shown in the following snippet:
+ 
+-```
++
++```kotlin
+ override suspend fun provideGlance(context: Context, id: GlanceId) {
+ 
+     provideContent {
+@@ -131,10 +125,10 @@ private fun MyContent() {
+         // ...
+     )
+ }
+-
+-GlanceSnippets.kt
+ ```
+ 
++<br />
++
+ ## Add shapes
+ 
+ To provide special shapes or shadows to your app widget, use the Android
+@@ -142,37 +136,21 @@ Drawables API.
+ 
+ For example, the following snippet shows how to create a drawable (a shape):
+ 
+-```
+-<shape xmlns:android="http://schemas.android.com/apk/res/android">
+-    <corners android:radius="16dp"/>
+-    <stroke android:color="@color/outline_color" android:width="1dp"/>
+-</shape>
+-
+-button_outline.xml
+-```
++    <shape xmlns:android="http://schemas.android.com/apk/res/android">
++        <corners android:radius="16dp"/>
++        <stroke android:color="@color/outline_color" android:width="1dp"/>
++    </shape>https://github.com/android/snippets/blob/6c9df97fc8c21902e96753b0b05a134386bac6fd/compose/snippets/src/main/res/drawable/button_outline.xml#L18-L21
+ 
+ Provide it to the target composable:
+ 
+-```
++
++```kotlin
+ GlanceModifier.background(
+     imageProvider = ImageProvider(R.drawable.button_outline)
+ )
+-
+-GlanceSnippets.kt
+ ```
+ 
+-**Note:** You can use the Android resource folder structure to define different
+-shapes or other resources for any type of configuration (e.g.,
+-`values-night`).
+-
+-[Previous
+-
+-arrow\_back
+-
+-Build UI with Glance](/develop/ui/compose/glance/build-ui)
+-
+-[Next
+-
+-Glance interoperability
++<br />
+ 
+-arrow\_forward](/develop/ui/compose/glance/interoperability)
+\ No newline at end of file
++> [!NOTE]
++> **Note:** You can use the Android resource folder structure to define different shapes or other resources for any type of configuration (e.g., `values-night`).
+\ No newline at end of file

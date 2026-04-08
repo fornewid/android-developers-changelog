@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/compose/designsystems/material3.md b/docs/develop/ui/compose/designsystems/material3.md
+index a1ca56d..5ce0776 100644
+--- a/docs/develop/ui/compose/designsystems/material3.md
++++ b/docs/develop/ui/compose/designsystems/material3.md
+@@ -14,6 +14,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Jetpack Compose offers an implementation of Material You and
+ [Material 3 Expressive](https://m3.material.io/), the next evolution of Material Design. M3 Expressive
+ is an expansion of Material Design 3, including research-backed updates to

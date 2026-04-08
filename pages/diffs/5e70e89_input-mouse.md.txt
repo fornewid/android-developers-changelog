@@ -1,0 +1,20 @@
+diff --git a/docs/games/playgames/input-mouse.md b/docs/games/playgames/input-mouse.md
+index 118db02..469bb1f 100644
+--- a/docs/games/playgames/input-mouse.md
++++ b/docs/games/playgames/input-mouse.md
+@@ -15,7 +15,6 @@ Send feedback
+ 
+ 
+ 
+-
+ This topic covers how to implement mouse input for Google Play Games on PC for
+ games where input translation mode doesn't provide an ideal player experience.
+ 
+@@ -367,6 +366,4 @@ interact with a pause menu, invoke [`View.releasePointerCapture()`](/reference/a
+ 
+ 
+ 
+-
+-
+ Send feedback
+\ No newline at end of file

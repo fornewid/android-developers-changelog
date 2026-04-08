@@ -1,0 +1,12 @@
+diff --git a/docs/guide/navigation/navigation-3/recipes/deeplinks-advanced.md b/docs/guide/navigation/navigation-3/recipes/deeplinks-advanced.md
+index d4bb22e..72a339b 100644
+--- a/docs/guide/navigation/navigation-3/recipes/deeplinks-advanced.md
++++ b/docs/guide/navigation/navigation-3/recipes/deeplinks-advanced.md
+@@ -13,6 +13,7 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
++
+ # Deep Link Advanced Recipe
+ 
+ This recipe demonstrates how to apply the principles of navigation in the context of deep links by

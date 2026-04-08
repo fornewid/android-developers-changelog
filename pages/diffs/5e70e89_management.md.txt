@@ -1,0 +1,20 @@
+diff --git a/docs/games/pgs/management/management.md b/docs/games/pgs/management/management.md
+index a925e9d..6263ab3 100644
+--- a/docs/games/pgs/management/management.md
++++ b/docs/games/pgs/management/management.md
+@@ -15,6 +15,7 @@ Send feedback
+ 
+ 
+ 
++
+ The Management API allows you to issue REST calls to programmatically control
+ the metadata underlying the Google Play Games Services features. This API simplifies
+ your testing of Play Games Services features and gives you flexibility when
+@@ -37,4 +38,6 @@ For more information, see the
+ 
+ 
+ 
++
++
+ Send feedback
+\ No newline at end of file

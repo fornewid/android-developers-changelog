@@ -1,0 +1,107 @@
+diff --git a/docs/agi/frame-trace/vertex-formats.md b/docs/agi/frame-trace/vertex-formats.md
+index 5371031..87dbf4a 100644
+--- a/docs/agi/frame-trace/vertex-formats.md
++++ b/docs/agi/frame-trace/vertex-formats.md
+@@ -1,16 +1,31 @@
+ ---
+-title: https://developer.android.com/agi/frame-trace/vertex-formats
++title: Analyze vertex formats  |  Android Developers
+ url: https://developer.android.com/agi/frame-trace/vertex-formats
+-source: md.txt
++source: html-scrape
+ ---
+ 
++Join us for ⁠the [Google for Games Developer Summit](https://gamedevsummit.withgoogle.com/) on March 15!
++
++* [Android Developers](https://developer.android.com/)
++* [Google Play](https://developer.android.com/distribute)
++* [Guides](https://developer.android.com/games/guides)
++
++# Analyze vertex formats Stay organized with collections Save and categorize content based on your preferences.
++
++
++
+ You may diagnose a few possible vertex-related performance problems through the
+ use of frame profiling. Use the **Commands** pane to view all of the draw calls
+ your game performs in a given frame and counts of primitives drawn per draw
+ call. This can give an approximation of the overall number of vertices submitted
+ in a single frame.
++
+ ![Frame profiling view for a glDrawElements call, hovered for detail
+-on the draw call parameters](https://developer.android.com/static/images/agi/vertex-formats-images/sample_drawcall.png) **Figure 1.** Frame profiling view for a single `glDrawElements` call, showing 2,718 triangle primitives drawn
++            on the draw call parameters](/static/images/agi/vertex-formats-images/sample_drawcall.png)
++
++
++**Figure 1.** Frame profiling view for a single
++`glDrawElements` call, showing 2,718 triangle primitives drawn
+ 
+ ## Vertex attribute compression
+ 
+@@ -27,19 +42,23 @@ To observe the vertex format for a given draw call, complete the following steps
+    type of draw call.
+ 2. Navigate to the **Pipeline** pane, and click **IA** for input assembly.
+    This defines the vertex format for vertices coming into the GPU.
+-
+ 3. Observe a series of attributes and their formats; for example,
+    `R32G32B32_SFLOAT` is a 3-component 32-bit signed float.
+ 
+ ![Frame profiling view for a draw call's input assembly, with
+-uncompressed vertex attributes](https://developer.android.com/static/images/agi/vertex-formats-images/sample_bigvertex.png) **Figure 2.**Input assembly for a draw call, with uncompressed attributes resulting in a vertex size of 56 bytes
++            uncompressed vertex attributes](/static/images/agi/vertex-formats-images/sample_bigvertex.png)
++
++
++**Figure 2.** Input assembly for a draw call, with uncompressed
++attributes resulting in a vertex size of 56 bytes
+ 
+ Frequently, vertex attributes can be compressed with minimal reduction in the
+ quality of the models drawn. In particular, we recommend:
+ 
+-- Compressing vertex position to half-precision 16-bit floats
+-- Compressing UV texture coordinates to 16-bit unsigned integer ushorts
+-- Compressing the tangent space by encoding normal, tangent, and binormal vectors using quaternions
++* Compressing vertex position to half-precision 16-bit floats
++* Compressing UV texture coordinates to 16-bit unsigned integer ushorts
++* Compressing the tangent space by encoding normal, tangent, and binormal
++  vectors using quaternions
+ 
+ Other miscellaneous attributes may also be considered for lower-precision types
+ on a case-by-case basis.
+@@ -66,20 +85,15 @@ To investigate whether vertex attributes are appropriately split:
+    type of draw call.
+ 2. Navigate to the **Pipeline** pane, and click **IA** for input assembly. This
+    defines the vertex format for vertices coming into the GPU.
+-
+ 3. Observe the bindings of your vertex attributes; typically these might
+    increase linearly (0, 1, 2, 3, etc.), but this is not always the case.
+    Vertex position is typically the first vertex attribute listed.
+-
+ 4. In the **State** pane, find the `LastDrawInfos` and expand the matching draw
+    call number. Then, expand the `BoundVertexBuffers` for this draw call.
+-
+ 5. Observe the vertex buffers bound during the given draw call, with indices
+    matching the vertex attribute bindings from earlier.
+-
+-6. Expand the bindings for your draw call's vertex attributes, and expand the
++6. Expand the bindings for your draw call’s vertex attributes, and expand the
+    buffers.
+-
+ 7. Observe the `VulkanHandle` for the buffers, which represent the underlying
+    memory that the vertex data sources from. If the `VulkanHandle`s are
+    different, this means the attributes originate from different underlying
+@@ -87,7 +101,12 @@ To investigate whether vertex attributes are appropriately split:
+    (for example, greater than 100), the attributes may still originate from
+    different sub-buffers, but this requires further investigation.
+ 
+-![Frame profiling view for a draw call's input assembly and state showing the bound vertex buffer](https://developer.android.com/static/images/agi/vertex-formats-images/sample_attributestreams.png) **Figure 3.**Input assembly for a draw call, with the state panel to the right showing that the attributes at binding 0 and 1, vertex position and normal, share a single underlying buffer
++![Frame profiling view for a draw call's input assembly and state showing the bound vertex buffer](/static/images/agi/vertex-formats-images/sample_attributestreams.png)
++
++
++**Figure 3.** Input assembly for a draw call, with the state
++panel to the right showing that the attributes at binding 0 and 1, vertex
++position and normal, share a single underlying buffer
+ 
+ For more detail about vertex stream splitting and how to resolve it on various
+-game engines, see our [blog post](https://developer.android.com/agi/frame-trace/link-to-Omars-blog-post) on the subject.
+\ No newline at end of file
++game engines, see our [blog post](/agi/frame-trace/link-to-Omars-blog-post) on the subject.
+\ No newline at end of file

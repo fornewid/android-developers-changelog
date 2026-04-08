@@ -1,0 +1,12 @@
+diff --git a/docs/training/testing/ui-tests/screenshot.md b/docs/training/testing/ui-tests/screenshot.md
+index 418ba6d..7e57c88 100644
+--- a/docs/training/testing/ui-tests/screenshot.md
++++ b/docs/training/testing/ui-tests/screenshot.md
+@@ -12,6 +12,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Screenshot testing is a very effective way to verify your app's UI. Screenshot
+ tests can exist in Component, Feature and Application tests.
+ 

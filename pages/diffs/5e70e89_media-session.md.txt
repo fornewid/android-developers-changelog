@@ -1,0 +1,144 @@
+diff --git a/docs/training/tv/playback/media-session.md b/docs/training/tv/playback/media-session.md
+index e1a5fc6..eb1ec55 100644
+--- a/docs/training/tv/playback/media-session.md
++++ b/docs/training/tv/playback/media-session.md
+@@ -1,26 +1,17 @@
+ ---
+-title: Implement a media session  |  Android TV  |  Android Developers
++title: https://developer.android.com/training/tv/playback/media-session
+ url: https://developer.android.com/training/tv/playback/media-session
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-* [Develop](https://developer.android.com/develop)
+-* [Devices](https://developer.android.com/develop/devices)
+-* [Android TV](https://developer.android.com/training/tv)
+-
+-# Implement a media session Stay organized with collections Save and categorize content based on your preferences.
+-
+-
+-
+ Create a
+-[`MediaSession`](/reference/android/media/session/MediaSession#MediaSession(android.content.Context,%20java.lang.String))
++[`MediaSession`](https://developer.android.com/reference/android/media/session/MediaSession#MediaSession(android.content.Context,%20java.lang.String))
+ when your app is preparing to play media. The following code snippet
+ is an example of how to set the appropriate callback and flags:
+ 
+ ### Kotlin
+ 
+-```
++```kotlin
+ session = MediaSession(this, "MusicService").apply {
+     setCallback(MediaSessionCallback())
+     setFlags(
+@@ -31,7 +22,7 @@ session = MediaSession(this, "MusicService").apply {
+ 
+ ### Java
+ 
+-```
++```java
+ session = new MediaSession(this, "MusicService");
+ session.setCallback(new MediaSessionCallback());
+ session.setFlags(MediaSession.FLAG_HANDLES_MEDIA_BUTTONS |
+@@ -41,14 +32,14 @@ session.setFlags(MediaSession.FLAG_HANDLES_MEDIA_BUTTONS |
+ ## Start a media session
+ 
+ Be sure to also call
+-[`setActive(true)`](/reference/android/media/session/MediaSession#setActive(boolean))
++[`setActive(true)`](https://developer.android.com/reference/android/media/session/MediaSession#setActive(boolean))
+ when playback begins. Your app must also request audio focus, as described in
+-[Manage audio focus](/media/optimize/audio-focus). These steps are
++[Manage audio focus](https://developer.android.com/media/optimize/audio-focus). These steps are
+ shown in the following example:
+ 
+ ### Kotlin
+ 
+-```
++```kotlin
+ private fun handlePlayRequest() {
+ 
+     tryToGetAudioFocus()
+@@ -62,7 +53,7 @@ private fun handlePlayRequest() {
+ 
+ ### Java
+ 
+-```
++```java
+ private void handlePlayRequest() {
+ 
+     tryToGetAudioFocus();
+@@ -77,12 +68,12 @@ private void handlePlayRequest() {
+ ## Update the playback state
+ 
+ Update the playback state in the
+-[`MediaSession`](/reference/android/media/session/MediaSession) to reflect
++[`MediaSession`](https://developer.android.com/reference/android/media/session/MediaSession) to reflect
+ the state of the current media:
+ 
+ ### Kotlin
+ 
+-```
++```kotlin
+ private fun updatePlaybackState() {
+     val position: Long =
+             mediaPlayer
+@@ -121,7 +112,7 @@ private fun getAvailableActions(): Long {
+ 
+ ### Java
+ 
+-```
++```java
+ private void updatePlaybackState() {
+     long position = PlaybackState.PLAYBACK_POSITION_UNKNOWN;
+     if (mediaPlayer != null && mediaPlayer.isPlaying()) {
+@@ -157,8 +148,8 @@ private long getAvailableActions() {
+ 
+ ## Update the media metadata
+ 
+-Set the [`MediaMetadata`](/reference/android/media/MediaMetadata) with the
+-[`setMetadata()`](/reference/android/media/session/MediaSession#setMetadata(android.media.MediaMetadata))
++Set the [`MediaMetadata`](https://developer.android.com/reference/android/media/MediaMetadata) with the
++[`setMetadata()`](https://developer.android.com/reference/android/media/session/MediaSession#setMetadata(android.media.MediaMetadata))
+ method. This method is only called once per object that is played. It lets you provide information to
+ the media session about the media, including its title, subtitle,
+ artist, artwork, etc. The following example is tailored toward music and
+@@ -166,7 +157,7 @@ assumes the track's data is stored in a custom data class, `MediaData`:
+ 
+ ### Kotlin
+ 
+-```
++```kotlin
+ private fun updateMetadata(myData: MediaData) {
+     val metadataBuilder = MediaMetadata.Builder().apply {
+         // To provide most control over how an item is displayed set the
+@@ -187,7 +178,7 @@ private fun updateMetadata(myData: MediaData) {
+ 
+ ### Java
+ 
+-```
++```java
+ private void updateMetadata(MediaData myData) {
+     MediaMetadata.Builder metadataBuilder = new MediaMetadata.Builder();
+     // To provide most control over how an item is displayed set the
+@@ -209,16 +200,4 @@ private void updateMetadata(MediaData myData) {
+     // Add any other fields you have for your data as well
+     session.setMetadata(metadataBuilder.build());
+ }
+-```
+-
+-[Previous
+-
+-arrow\_back
+-
+-Playback controls on TV](/training/tv/playback/controls)
+-
+-[Next
+-
+-Background playback in a Now Playing card
+-
+-arrow\_forward](/training/tv/playback/now-playing)
+\ No newline at end of file
++```
+\ No newline at end of file

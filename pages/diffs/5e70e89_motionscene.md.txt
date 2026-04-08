@@ -1,0 +1,51 @@
+diff --git a/docs/training/constraint-layout/motionlayout/ref/motionscene.md b/docs/training/constraint-layout/motionlayout/ref/motionscene.md
+index 1275c0e..9d9aaad 100644
+--- a/docs/training/constraint-layout/motionlayout/ref/motionscene.md
++++ b/docs/training/constraint-layout/motionlayout/ref/motionscene.md
+@@ -1,19 +1,24 @@
+ ---
+-title: https://developer.android.com/training/constraint-layout/motionlayout/ref/motionscene
++title: <MotionScene>  |  Android Developers
+ url: https://developer.android.com/training/constraint-layout/motionlayout/ref/motionscene
+-source: md.txt
++source: html-scrape
+ ---
+ 
+-[Video](https://www.youtube.com/watch?v=o8c1RO3WgBA)
++* [Android Developers](https://developer.android.com/)
++
++# <MotionScene> Stay organized with collections Save and categorize content based on your preferences.
++
++
++
+ 
+ Root element of a motion scene file. The `<MotionScene>` contains one or more
+-[`<Transition>`](https://developer.android.com/training/constraint-layout/motionlayout/ref/transition)
++[`<Transition>`](/training/constraint-layout/motionlayout/ref/transition)
+ elements, each of which defines the start and end state of a motion sequence and
+ the transition between the two.
+ 
+ ## Syntax
+ 
+-```xml
++```
+ <MotionScene xmlns:app="http://schemas.android.com/apk/res-auto"
+     xmlns:android="http://schemas.android.com/apk/res/android">
+     ...
+@@ -27,14 +32,14 @@ the transition between the two.
+     multiple `<Transition>` elements, the `MotionLayout` chooses the most
+     appropriate `<Transition>` based on the user's interaction. For example, a
+     `<MotionScene>` might have four `<Transition>` children, each with an
+-    [`<OnSwipe>`](https://developer.android.com/training/constraint-layout/motionlayout/ref/onswipe) for a user
++    [`<OnSwipe>`](/training/constraint-layout/motionlayout/ref/onswipe) for a user
+     swipe in a different direction. When the user swipes on the screen, the
+     `MotionLayout` uses the appropriate `<Transition>` for a swipe in that
+     direction.
+ 
+ ## Can contain
+ 
+-[`<ConstraintSet>`](https://developer.android.com/training/constraint-layout/motionlayout/ref/constraintset)
++[`<ConstraintSet>`](/training/constraint-layout/motionlayout/ref/constraintset)
+ :   Specifies a beginning or ending state for one or more of the `<Transition>`
+     nodes. The `<MotionLayout>` is not permitted to have `<ConstraintSet>`
+     children, since the `<Transition>` can point to XML layouts instead of

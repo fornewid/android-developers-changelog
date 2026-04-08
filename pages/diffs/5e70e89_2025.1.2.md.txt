@@ -1,0 +1,12 @@
+diff --git a/docs/studio/releases/fixed-bugs/studio/2025.1.2.md b/docs/studio/releases/fixed-bugs/studio/2025.1.2.md
+index 3846118..178c981 100644
+--- a/docs/studio/releases/fixed-bugs/studio/2025.1.2.md
++++ b/docs/studio/releases/fixed-bugs/studio/2025.1.2.md
+@@ -11,7 +11,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ ### Android Studio Narwhal Feature Drop | 2025.1.2 Patch 2
+ 
+ **Released together with:**

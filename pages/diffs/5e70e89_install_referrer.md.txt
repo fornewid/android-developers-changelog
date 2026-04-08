@@ -1,0 +1,12 @@
+diff --git a/docs/games/playgames/native-pc/unity/install_referrer.md b/docs/games/playgames/native-pc/unity/install_referrer.md
+index 2f6ec7d..996d8c4 100644
+--- a/docs/games/playgames/native-pc/unity/install_referrer.md
++++ b/docs/games/playgames/native-pc/unity/install_referrer.md
+@@ -12,6 +12,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Make informed marketing decisions by identifying your most valuable user
+ acquisition channels for your game. Use the Google Play Install Referrer API for
+ a reliable way to track your apps' referral information.

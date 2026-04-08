@@ -1,0 +1,12 @@
+diff --git a/docs/jetpack/androidx/releases/documentfile.md b/docs/jetpack/androidx/releases/documentfile.md
+index 4b12756..4e675b7 100644
+--- a/docs/jetpack/androidx/releases/documentfile.md
++++ b/docs/jetpack/androidx/releases/documentfile.md
+@@ -15,7 +15,6 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
+-
+ # Documentfile
+ 
+ [User Guide](/guide/topics/providers/document-provider)  [Code Sample](https://github.com/android/storage-samples/tree/main/ActionOpenDocumentTree)

@@ -1,0 +1,12 @@
+diff --git a/docs/guide/topics/manifest/permission-group-element.md b/docs/guide/topics/manifest/permission-group-element.md
+index 23a4c44..03bce61 100644
+--- a/docs/guide/topics/manifest/permission-group-element.md
++++ b/docs/guide/topics/manifest/permission-group-element.md
+@@ -12,7 +12,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ syntax:
+ :   ```
+     <permission-group android:description="string resource"

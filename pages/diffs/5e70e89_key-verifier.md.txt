@@ -1,0 +1,12 @@
+diff --git a/docs/privacy-and-security/key-verifier.md b/docs/privacy-and-security/key-verifier.md
+index d63728f..24e7151 100644
+--- a/docs/privacy-and-security/key-verifier.md
++++ b/docs/privacy-and-security/key-verifier.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ The **Key Verifier SDK** works in conjunction with the
+ [**Android System Key Verifier**](/privacy-and-security/key-verifier/key-verifier), a Google system service available on
+ Android devices.

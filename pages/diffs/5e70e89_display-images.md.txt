@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/compose/quick-guides/collections/display-images.md b/docs/develop/ui/compose/quick-guides/collections/display-images.md
+index 64b0c46..b4bb8fe 100644
+--- a/docs/develop/ui/compose/quick-guides/collections/display-images.md
++++ b/docs/develop/ui/compose/quick-guides/collections/display-images.md
+@@ -16,7 +16,6 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
+-
+ ## Quick Guides Collection Display images
+ 
+ Work with images onscreen using a vector, bitmap, or directly drawing with a canvas on screen.

@@ -1,0 +1,12 @@
+diff --git a/docs/guide/topics/large-screens/tier-1-overview.md b/docs/guide/topics/large-screens/tier-1-overview.md
+index d475c7f..18f50dc 100644
+--- a/docs/guide/topics/large-screens/tier-1-overview.md
++++ b/docs/guide/topics/large-screens/tier-1-overview.md
+@@ -14,6 +14,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ ![Tier 1 adaptive differentiated icon](/static/images/docs/quality-guidelines/tier-1/tier_1_icon.png)
+ 
+ TIER 1 — The top-quality tier of the [Adaptive app quality guidelines](/docs/quality-guidelines/adaptive-app-quality/tier-1).

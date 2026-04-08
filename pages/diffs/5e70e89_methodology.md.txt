@@ -1,0 +1,12 @@
+diff --git a/docs/bench/methodology.md b/docs/bench/methodology.md
+index 525a5a7..0cf2d81 100644
+--- a/docs/bench/methodology.md
++++ b/docs/bench/methodology.md
+@@ -15,6 +15,7 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
++
+ ![](/static/images/bench/methodology/hero.png)
+ 
+ ### Android Bench methodology

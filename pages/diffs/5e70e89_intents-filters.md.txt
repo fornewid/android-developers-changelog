@@ -1,0 +1,12 @@
+diff --git a/docs/guide/components/intents-filters.md b/docs/guide/components/intents-filters.md
+index 3f7f4ac..6f875f6 100644
+--- a/docs/guide/components/intents-filters.md
++++ b/docs/guide/components/intents-filters.md
+@@ -12,7 +12,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ An `Intent` is a messaging object you can use to request an action
+ from another [app component](/guide/components/fundamentals#Components).
+ Although intents facilitate communication between components in several ways, there are three

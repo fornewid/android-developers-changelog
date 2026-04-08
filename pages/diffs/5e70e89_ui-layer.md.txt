@@ -1,0 +1,12 @@
+diff --git a/docs/topic/architecture/ui-layer.md b/docs/topic/architecture/ui-layer.md
+index 40d2174..fe6db0d 100644
+--- a/docs/topic/architecture/ui-layer.md
++++ b/docs/topic/architecture/ui-layer.md
+@@ -12,6 +12,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ The role of the UI is to display the application data on the screen and also to
+ serve as the primary point of user interaction. Whenever the data changes,
+ either due to user interaction (like pressing a button) or external input (like

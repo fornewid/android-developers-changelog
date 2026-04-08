@@ -1,0 +1,20 @@
+diff --git a/docs/games/pgs/cpp/cpp-start.md b/docs/games/pgs/cpp/cpp-start.md
+index 012b17e..cde7ca9 100644
+--- a/docs/games/pgs/cpp/cpp-start.md
++++ b/docs/games/pgs/cpp/cpp-start.md
+@@ -15,7 +15,6 @@ Send feedback
+ 
+ 
+ 
+-
+ This guide describes how to set up a v2 Native C or C++ game
+ project to use the Play Games Services v2 Native SDK (beta) and integrate the [Platform authentication](/games/pgs/signin). You must complete this integration before you
+ can add other Play Games Services [features](/games/pgs/overview#features) to your game or integrate
+@@ -44,6 +43,4 @@ available after you sync your project with SDK repository.
+ 
+ 
+ 
+-
+-
+ Send feedback
+\ No newline at end of file

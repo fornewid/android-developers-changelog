@@ -1,0 +1,12 @@
+diff --git a/docs/training/package-visibility/declaring.md b/docs/training/package-visibility/declaring.md
+index c51b569..5c352c3 100644
+--- a/docs/training/package-visibility/declaring.md
++++ b/docs/training/package-visibility/declaring.md
+@@ -12,7 +12,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ As you create your app, it's important to consider the other apps on the device
+ that your app needs to interact with. If your app targets
+ Android 11 (API level 30) or higher, the system makes [some apps visible to your

@@ -1,0 +1,12 @@
+diff --git a/docs/studio/prompt-gallery/prompts/generate-billing-client.md b/docs/studio/prompt-gallery/prompts/generate-billing-client.md
+index 352e3d2..35c2474 100644
+--- a/docs/studio/prompt-gallery/prompts/generate-billing-client.md
++++ b/docs/studio/prompt-gallery/prompts/generate-billing-client.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Create a complete, robust [`BillingClient`](/reference/com/android/billingclient/api/BillingClient) singleton with
+ listeners and a connection retry policy.
+ 

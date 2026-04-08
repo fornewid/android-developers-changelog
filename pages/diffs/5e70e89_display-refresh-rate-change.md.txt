@@ -1,0 +1,20 @@
+diff --git a/docs/games/optimize/display-refresh-rate-change.md b/docs/games/optimize/display-refresh-rate-change.md
+index 1cf2c51..83fdb81 100644
+--- a/docs/games/optimize/display-refresh-rate-change.md
++++ b/docs/games/optimize/display-refresh-rate-change.md
+@@ -15,6 +15,7 @@ Send feedback
+ 
+ 
+ 
++
+ [Android 15](/about/versions/15) sets a default 60Hz refresh rate for games to optimize
+ power consumption. To unlock higher frame rates like 120 FPS, you must now
+ explicitly request them using the [Frame Rate API](/media/optimize/performance/frame-rate) or the Swappy
+@@ -136,4 +137,6 @@ avoid confusing the player.
+ 
+ 
+ 
++
++
+ Send feedback
+\ No newline at end of file

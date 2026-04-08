@@ -1,0 +1,12 @@
+diff --git a/docs/guide/topics/ui/notifiers/toasts.md b/docs/guide/topics/ui/notifiers/toasts.md
+index b289ecd..4776607 100644
+--- a/docs/guide/topics/ui/notifiers/toasts.md
++++ b/docs/guide/topics/ui/notifiers/toasts.md
+@@ -10,6 +10,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ A toast provides simple feedback about an operation in a small popup. It only
+ fills the amount of space required for the message and the current activity
+ remains visible and interactive. Toasts automatically disappear after a timeout.

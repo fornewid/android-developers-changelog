@@ -1,0 +1,12 @@
+diff --git a/docs/about/versions/10.md b/docs/about/versions/10.md
+index f402b12..8e31090 100644
+--- a/docs/about/versions/10.md
++++ b/docs/about/versions/10.md
+@@ -15,7 +15,6 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
+-
+ ![](/static/images/about/versions/10/android10-card.png)
+ ![android 10](/static/images/about/versions/10/android10_black.png)
+ 

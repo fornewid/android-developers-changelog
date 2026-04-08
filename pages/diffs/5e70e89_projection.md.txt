@@ -1,0 +1,157 @@
+diff --git a/docs/develop/ui/views/graphics/opengl/projection.md b/docs/develop/ui/views/graphics/opengl/projection.md
+index 44c1260..00c9b5e 100644
+--- a/docs/develop/ui/views/graphics/opengl/projection.md
++++ b/docs/develop/ui/views/graphics/opengl/projection.md
+@@ -1,30 +1,52 @@
+ ---
+-title: https://developer.android.com/develop/ui/views/graphics/opengl/projection
++title: Apply projection and camera views  |  Views  |  Android Developers
+ url: https://developer.android.com/develop/ui/views/graphics/opengl/projection
+-source: md.txt
++source: html-scrape
+ ---
+ 
++* [Android Developers](https://developer.android.com/)
++* [Develop](https://developer.android.com/develop)
++* [Core areas](https://developer.android.com/develop/core-areas)
++* [UI](https://developer.android.com/develop/ui)
++* [Views](https://developer.android.com/develop/ui/views/layout/declaring-layout)
++
++# Apply projection and camera views Stay organized with collections Save and categorize content based on your preferences.
++
++
++
++
+ In the OpenGL ES environment, projection and camera views allow you to display drawn objects in a
+ way that more closely resembles how you see physical objects with your eyes. This simulation of
+ physical viewing is done with mathematical transformations of drawn object coordinates:
+ 
+-- *Projection* - This transformation adjusts the coordinates of drawn objects based on the width and height of the `https://developer.android.com/reference/android/opengl/GLSurfaceView` where they are displayed. Without this calculation, objects drawn by OpenGL ES are skewed by the unequal proportions of the view window. A projection transformation typically only has to be calculated when the proportions of the OpenGL view are established or changed in the `https://developer.android.com/reference/android/opengl/GLSurfaceView.Renderer#onSurfaceChanged(javax.microedition.khronos.opengles.GL10, int, int)` method of your renderer. For more information about OpenGL ES projections and coordinate mapping, see [Mapping coordinates for drawn
+-  objects](https://developer.android.com/develop/ui/views/graphics/opengl/about-opengl#coordinate-mapping).
+-- *Camera View* - This transformation adjusts the coordinates of drawn objects based on a virtual camera position. It's important to note that OpenGL ES does not define an actual camera object, but instead provides utility methods that simulate a camera by transforming the display of drawn objects. A camera view transformation might be calculated only once when you establish your `https://developer.android.com/reference/android/opengl/GLSurfaceView`, or might change dynamically based on user actions or your application's function.
++* *Projection* - This transformation adjusts the coordinates of drawn objects based on
++  the width and height of the `GLSurfaceView` where they are displayed. Without
++  this calculation, objects drawn by OpenGL ES are skewed by the unequal proportions of the view
++  window. A projection transformation typically only has to be calculated when the proportions of the
++  OpenGL view are established or changed in the `onSurfaceChanged()` method of your renderer. For more information about OpenGL ES projections and
++  coordinate mapping, see
++  [Mapping coordinates for drawn
++  objects](/develop/ui/views/graphics/opengl/about-opengl#coordinate-mapping).
++* *Camera View* - This transformation adjusts the coordinates of drawn objects based on a
++  virtual camera position. It’s important to note that OpenGL ES does not define an actual camera
++  object, but instead provides utility methods that simulate a camera by transforming the display of
++  drawn objects. A camera view transformation might be calculated only once when you establish your
++  `GLSurfaceView`, or might change dynamically based on user actions or your
++  application’s function.
+ 
+ This lesson describes how to create a projection and camera view and apply it to shapes drawn in
+-your `https://developer.android.com/reference/android/opengl/GLSurfaceView`.
++your `GLSurfaceView`.
+ 
+ ## Define a projection
+ 
+-The data for a projection transformation is calculated in the `https://developer.android.com/reference/android/opengl/GLSurfaceView.Renderer#onSurfaceChanged(javax.microedition.khronos.opengles.GL10, int, int)`
+-method of your `https://developer.android.com/reference/android/opengl/GLSurfaceView.Renderer` class. The following example code
+-takes the height and width of the `https://developer.android.com/reference/android/opengl/GLSurfaceView` and uses it to populate a
+-projection transformation `https://developer.android.com/reference/android/opengl/Matrix` using the `https://developer.android.com/reference/android/opengl/Matrix#frustumM(float[], int, float, float, float, float, float, float)` method:
++The data for a projection transformation is calculated in the `onSurfaceChanged()`
++method of your `GLSurfaceView.Renderer` class. The following example code
++takes the height and width of the `GLSurfaceView` and uses it to populate a
++projection transformation `Matrix` using the `Matrix.frustumM()` method:
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ // vPMatrix is an abbreviation for "Model View Projection Matrix"
+ private val vPMatrix = FloatArray(16)
+ private val projectionMatrix = FloatArray(16)
+@@ -43,7 +65,7 @@ override fun onSurfaceChanged(unused: GL10, width: Int, height: Int) {
+ 
+ ### Java
+ 
+-```java
++```
+ // vPMatrix is an abbreviation for "Model View Projection Matrix"
+ private final float[] vPMatrix = new float[16];
+ private final float[] projectionMatrix = new float[16];
+@@ -62,7 +84,7 @@ public void onSurfaceChanged(GL10 unused, int width, int height) {
+ ```
+ 
+ This code populates a projection matrix, `mProjectionMatrix` which you can then combine
+-with a camera view transformation in the `https://developer.android.com/reference/android/opengl/GLSurfaceView.Renderer#onDrawFrame(javax.microedition.khronos.opengles.GL10)` method, which is shown in the next section.
++with a camera view transformation in the `onDrawFrame()` method, which is shown in the next section.
+ 
+ **Note:** Just applying a projection transformation to your
+ drawing objects typically results in a very empty display. In general, you must also apply a camera
+@@ -72,13 +94,13 @@ view transformation in order for anything to show up on screen.
+ 
+ Complete the process of transforming your drawn objects by adding a camera view transformation as
+ part of the drawing process in your renderer. In the following example code, the camera view
+-transformation is calculated using the `https://developer.android.com/reference/android/opengl/Matrix#setLookAtM(float[], int, float, float, float, float, float, float, float, float, float)`
++transformation is calculated using the `Matrix.setLookAtM()`
+ method and then combined with the previously calculated projection matrix. The combined
+ transformation matrices are then passed to the drawn shape.
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ override fun onDrawFrame(unused: GL10) {
+     ...
+     // Set the camera position (View matrix)
+@@ -93,7 +115,7 @@ override fun onDrawFrame(unused: GL10) {
+ 
+ ### Java
+ 
+-```java
++```
+ @Override
+ public void onDrawFrame(GL10 unused) {
+     ...
+@@ -116,7 +138,7 @@ in the `Triangle` class:
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ class Triangle {
+ 
+     private val vertexShaderCode =
+@@ -140,7 +162,7 @@ class Triangle {
+ 
+ ### Java
+ 
+-```java
++```
+ public class Triangle {
+ 
+     private final String vertexShaderCode =
+@@ -167,7 +189,7 @@ transformation matrix and apply it to the shape:
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ fun draw(mvpMatrix: FloatArray) { // pass in the calculated transformation matrix
+     ...
+ 
+@@ -187,7 +209,7 @@ fun draw(mvpMatrix: FloatArray) { // pass in the calculated transformation matri
+ 
+ ### Java
+ 
+-```java
++```
+ public void draw(float[] mvpMatrix) { // pass in the calculated transformation matrix
+     ...
+ 
+@@ -207,8 +229,8 @@ public void draw(float[] mvpMatrix) { // pass in the calculated transformation m
+ 
+ Once you have correctly calculated and applied the projection and camera view transformations,
+ your graphic objects are drawn in correct proportions and should look like this:
+-![](https://developer.android.com/static/images/opengl/ogl-triangle-projected.png)
+ 
++![](/static/images/opengl/ogl-triangle-projected.png)
+ 
+ **Figure 1.** Triangle drawn with a projection and camera view applied.
+ 

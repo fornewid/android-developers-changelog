@@ -1,0 +1,20 @@
+diff --git a/docs/games/playgames/gpg-samples.md b/docs/games/playgames/gpg-samples.md
+index 9df65fe..6d12d95 100644
+--- a/docs/games/playgames/gpg-samples.md
++++ b/docs/games/playgames/gpg-samples.md
+@@ -15,7 +15,6 @@ Send feedback
+ 
+ 
+ 
+-
+ The samples and plug-ins for Google Play Games on PC demonstrate the SDK integrations
+ for certification and configuration of games in the PC environment.
+ 
+@@ -87,6 +86,4 @@ demonstrates mouse input capture features:
+ 
+ 
+ 
+-
+-
+ Send feedback
+\ No newline at end of file

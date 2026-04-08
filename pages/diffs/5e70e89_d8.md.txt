@@ -1,0 +1,12 @@
+diff --git a/docs/tools/d8.md b/docs/tools/d8.md
+index edeb004..8fef188 100644
+--- a/docs/tools/d8.md
++++ b/docs/tools/d8.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ `d8` is a command-line tool that Android Studio and the Android Gradle plugin
+ use to compile your project's Java bytecode into DEX bytecode that runs
+ on Android devices. `d8` lets you use Java 8 language features in your

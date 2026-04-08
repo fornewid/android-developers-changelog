@@ -1,0 +1,13 @@
+diff --git a/docs/topic/libraries/architecture/datastore.md b/docs/topic/libraries/architecture/datastore.md
+index 99099ff..218518e 100644
+--- a/docs/topic/libraries/architecture/datastore.md
++++ b/docs/topic/libraries/architecture/datastore.md
+@@ -768,7 +768,7 @@ method:
+     val dataStore: DataStore<Settings> = DataStoreFactory.create(
+        serializer = SettingsSerializer(),
+        produceFile = {
+-           File("${context.cacheDir.path}/myapp.preferences_pb")
++           File("${context.filesDir.path}/myapp.preferences_pb")
+        },
+        corruptionHandler = ReplaceFileCorruptionHandler { Settings(lastUpdate = 0) }
+     )

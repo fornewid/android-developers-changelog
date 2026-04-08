@@ -1,0 +1,12 @@
+diff --git a/docs/guide/navigation/use-graph/programmatic.md b/docs/guide/navigation/use-graph/programmatic.md
+index 4d0dc33..f67ae05 100644
+--- a/docs/guide/navigation/use-graph/programmatic.md
++++ b/docs/guide/navigation/use-graph/programmatic.md
+@@ -12,7 +12,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ The Navigation component provides ways to programmatically create and interact
+ with certain navigation elements.
+ 

@@ -1,0 +1,12 @@
+diff --git a/docs/guide/topics/manifest/action-element.md b/docs/guide/topics/manifest/action-element.md
+index 7f4a6ce..00a8a9b 100644
+--- a/docs/guide/topics/manifest/action-element.md
++++ b/docs/guide/topics/manifest/action-element.md
+@@ -12,6 +12,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ syntax:
+ :   ```
+     <action android:name="string" />

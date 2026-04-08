@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/compose/quick-guides/collections/optimize-for-large-screens.md b/docs/develop/ui/compose/quick-guides/collections/optimize-for-large-screens.md
+index 361732f..8bcba45 100644
+--- a/docs/develop/ui/compose/quick-guides/collections/optimize-for-large-screens.md
++++ b/docs/develop/ui/compose/quick-guides/collections/optimize-for-large-screens.md
+@@ -16,7 +16,6 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
+-
+ ## Quick Guides Collection Optimize for large screens
+ 
+ Enable your app to support an optimized user experience on tablets, foldables, and ChromeOS devices.

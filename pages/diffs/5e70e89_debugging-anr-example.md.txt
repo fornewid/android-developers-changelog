@@ -1,0 +1,12 @@
+diff --git a/docs/topic/performance/tracing/profiling-manager/debugging-anr-example.md b/docs/topic/performance/tracing/profiling-manager/debugging-anr-example.md
+index 48c74e3..ccb38b6 100644
+--- a/docs/topic/performance/tracing/profiling-manager/debugging-anr-example.md
++++ b/docs/topic/performance/tracing/profiling-manager/debugging-anr-example.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ This section shows how to debug an [Application Not Responding (ANR)](/topic/performance/anrs/keep-your-app-responsive) using
+ `ProfilingManager` with an example trace.
+ 

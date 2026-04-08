@@ -1,0 +1,12 @@
+diff --git a/docs/studio/gemini/data-and-privacy.md b/docs/studio/gemini/data-and-privacy.md
+index 2c697f7..cf8248d 100644
+--- a/docs/studio/gemini/data-and-privacy.md
++++ b/docs/studio/gemini/data-and-privacy.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ **Gemini in Android Studio is built with your privacy in mind.**
+ 
+ We know that verifying the privacy of your code is critical to earning and

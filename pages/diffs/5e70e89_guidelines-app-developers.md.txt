@@ -1,0 +1,153 @@
+diff --git a/docs/training/tv/discovery/guidelines-app-developers.md b/docs/training/tv/discovery/guidelines-app-developers.md
+index 29dd237..9d39582 100644
+--- a/docs/training/tv/discovery/guidelines-app-developers.md
++++ b/docs/training/tv/discovery/guidelines-app-developers.md
+@@ -1,9 +1,19 @@
+ ---
+-title: https://developer.android.com/training/tv/discovery/guidelines-app-developers
++title: Watch Next guidelines for app developers  |  Android TV  |  Android Developers
+ url: https://developer.android.com/training/tv/discovery/guidelines-app-developers
+-source: md.txt
++source: html-scrape
+ ---
+ 
++* [Android Developers](https://developer.android.com/)
++* [Develop](https://developer.android.com/develop)
++* [Devices](https://developer.android.com/develop/devices)
++* [Android TV](https://developer.android.com/training/tv)
++
++# Watch Next guidelines for app developers Stay organized with collections Save and categorize content based on your preferences.
++
++
++
++
+ Follow these guidelines when you insert content into the
+ Watch Next channel.
+ 
+@@ -15,30 +25,47 @@ shows. Don't add clips and other short-form content.
+ ### Include unfinished movies
+ 
+ Add unfinished movies to the Watch Next channel using
+-[`TYPE_MOVIE`](https://developer.android.com/training/tv/discovery/video-programs). A movie is unfinished
++[`TYPE_MOVIE`](/training/tv/discovery/video-programs). A movie is unfinished
+ if it is started but not finished based on the following guidelines:
+ 
+-- A movie is started if the user watches more than 3% or 2 minutes, whichever timestamp is earlier.
+-- A movie is finished if the end credits start. In this case, do *not* add it to the Watch Next channel. You can determine this state using a technology that auto-detects the end credits or use an approximation based on the content length.
++* A movie is started if the user watches more than 3% or 2 minutes,
++  whichever timestamp is earlier.
++* A movie is finished if the end credits start. In this case, do
++  *not* add it to the Watch Next channel. You can determine this state using a
++  technology that auto-detects the end credits or use an approximation based
++  on the content length.
+ 
+ ### Include unfinished TV episodes
+ 
+ Add unfinished TV episodes to the Watch Next channel using
+-[`TYPE_TV_EPISODE`](https://developer.android.com/training/tv/discovery/video-programs). An episode is
++[`TYPE_TV_EPISODE`](/training/tv/discovery/video-programs). An episode is
+ unfinished if it is started but not finished based on the following guidelines:
+ 
+-- An episode is started if the user watches more than 2 minutes.
+-- An episode is finished if the end credits start. In this case, do *not* add it to the Watch Next channel. You can determine this state using a technology that auto-detects the end credits or use an approximation based on the content length, such as less than 3 minutes remaining in an episode.
++* An episode is started if the user watches more than 2 minutes.
++* An episode is finished if the end credits start. In this case,
++  do *not* add it to the Watch Next channel. You can determine this state
++  using a technology that auto-detects the end credits or use an approximation based
++  on the content length, such as less than 3 minutes remaining in an
++  episode.
+ 
+ ## Handle new TV episodes and next TV episodes
+ 
+ Add new episodes and next episodes of series that the user has started,
+ based on the following guidelines, to the Watch Next channel using
+-[`TYPE_TV_EPISODE`](https://developer.android.com/training/tv/discovery/video-programs):
+-
+-- The user starts a series if they watch more than 2 minutes, or 1 minute after the introduction completes, of any episode in the series.
+-- If the user starts a series and finishes an episode, and the next episode in the series is available in your service, add this next episode to the Watch Next channel using [`WATCH_NEXT_TYPE_NEXT`](https://developer.android.com/training/tv/discovery/watch-next-programs).
+-- If the user is fully caught up on all current episodes in a series and a new season or episode becomes available, add this new episode to the Watch Next channel using [`WATCH_NEXT_TYPE_NEW`](https://developer.android.com/training/tv/discovery/watch-next-programs). Add the new episode no matter how long it has been since the user last watched the series, such as after a year or more.
++[`TYPE_TV_EPISODE`](/training/tv/discovery/video-programs):
++
++* The user starts a series if they watch more than 2 minutes, or 1
++  minute after the introduction completes, of any episode in the series.
++* If the user starts a series and finishes an episode, and the
++  next episode in the series is available in your service, add this next
++  episode to the Watch Next channel using
++  [`WATCH_NEXT_TYPE_NEXT`](/training/tv/discovery/watch-next-programs).
++* If the user is fully caught up on all current episodes in a series
++  and a new season or episode becomes available, add this new episode
++  to the Watch Next channel using
++  [`WATCH_NEXT_TYPE_NEW`](/training/tv/discovery/watch-next-programs). Add the
++  new episode no matter how long it has been since the user last watched
++  the series, such as after a year or more.
+ 
+ ## When to add an item to the Watch Next channel
+ 
+@@ -50,8 +77,9 @@ to the Watch Next channel according to the following guidelines.
+ When a user has an unfinished piece of content, add that content to the Watch
+ Next channel immediately when either of the following occur:
+ 
+-- The user exits the app on Android TV.
+-- The user pauses or stops playback for a piece of content for more than 5 minutes.
++* The user exits the app on Android TV.
++* The user pauses or stops playback for a piece of content for more than 5
++  minutes.
+ 
+ In these scenarios, publish any unfinished content immediately, with a
+ maximum latency of 5 seconds. For example, when the user exits the
+@@ -69,9 +97,9 @@ maximum latency of 5 seconds.
+ Add new episodes of a previously watched series
+ immediately when all of the following are true:
+ 
+-- The new episode is available on your service.
+-- The user completes the previous episode.
+-- The user is entitled to watch the new episode.
++* The new episode is available on your service.
++* The user completes the previous episode.
++* The user is entitled to watch the new episode.
+ 
+ Add the new episode no matter how long it has been since the user last watched
+ the series, such as after a year or more.
+@@ -91,13 +119,34 @@ Don't update all items in the **Play Next** row when one item changes.
+ 
+ Include the following for each Watch Next item:
+ 
+-- Watch Next type
+-- Last playback position
+-- Duration
+-- Last engagement time
+-- Video program attributes: in addition to the required attributes marked in the [video program attributes table](https://developer.android.com/training/tv/discovery/video-programs#attribute-table), the [Content ID attribute](https://developer.android.com/reference/androidx/tvprovider/media/tv/PreviewProgram.Builder#setContentId(java.lang.String)) must be set for every video program. The Content ID attribute must match the internal ID you provide in the [Media Actions](https://developers.google.com/actions/media) feed. This lets Android TV reconcile the asset more effectively and provides a high-confidence feature to users.
++* Watch Next type
++* Last playback position
++* Duration
++* Last engagement time
++* Video program attributes: in addition to the required attributes marked in
++  the
++  [video program attributes table](/training/tv/discovery/video-programs#attribute-table),
++  the
++  [Content ID attribute](/reference/androidx/tvprovider/media/tv/PreviewProgram.Builder#setContentId(java.lang.String))
++  must be set for every video program. The Content ID attribute must match the
++  internal ID you provide in the
++  [Media Actions](https://developers.google.com/actions/media) feed. This
++  lets Android TV reconcile the asset more effectively and provides a
++  high-confidence feature to users.
+ 
+ ## Remove content from the Watch Next channel
+ 
+ Remove content once the user finishes watching a movie or there
+-is no unwatched available episode for a TV series.
+\ No newline at end of file
++is no unwatched available episode for a TV series.
++
++[Previous
++
++arrow\_back
++
++Attributes](/training/tv/discovery/watch-next-programs)
++
++[Next
++
++Guidelines for TV providers
++
++arrow\_forward](/training/tv/discovery/guidelines-tv-providers)
+\ No newline at end of file

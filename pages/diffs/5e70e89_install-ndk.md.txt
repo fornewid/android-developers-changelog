@@ -1,0 +1,12 @@
+diff --git a/docs/studio/projects/install-ndk.md b/docs/studio/projects/install-ndk.md
+index d7be4fd..a5a810c 100644
+--- a/docs/studio/projects/install-ndk.md
++++ b/docs/studio/projects/install-ndk.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ To compile and debug native code for your app, you need the following components:
+ 
+ * The Android Native Development Kit (NDK): a set of tools that allows you to

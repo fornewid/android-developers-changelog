@@ -1,0 +1,12 @@
+diff --git a/docs/develop/background-work/background-tasks/persistent/threading/listenableworker.md b/docs/develop/background-work/background-tasks/persistent/threading/listenableworker.md
+index 42234e5..0569c13 100644
+--- a/docs/develop/background-work/background-tasks/persistent/threading/listenableworker.md
++++ b/docs/develop/background-work/background-tasks/persistent/threading/listenableworker.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ In certain situations, you may need to provide a custom threading strategy. For
+ example, you may need to handle a callback-based asynchronous operation.
+ WorkManager supports this use case with

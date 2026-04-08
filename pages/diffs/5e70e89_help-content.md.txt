@@ -1,0 +1,12 @@
+diff --git a/docs/design/ui/mobile/guides/patterns/help-content.md b/docs/design/ui/mobile/guides/patterns/help-content.md
+index 24101a8..14d5aaf 100644
+--- a/docs/design/ui/mobile/guides/patterns/help-content.md
++++ b/docs/design/ui/mobile/guides/patterns/help-content.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Help content addresses common user questions. Beyond this, users often submit
+ comments, report bugs, and ask questions not covered in the existing
+ documentation. Therefore, providing a channel for user feedback is crucial.

@@ -1,0 +1,12 @@
+diff --git a/docs/media/camera/camerax/take-photo/options.md b/docs/media/camera/camerax/take-photo/options.md
+index bad4521..b5d6dd1 100644
+--- a/docs/media/camera/camerax/take-photo/options.md
++++ b/docs/media/camera/camerax/take-photo/options.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ There are a few additional ways you can configure a device's camera with
+ `ImageCapture`. You do so with `ImageCapture.Builder` methods.
+ 

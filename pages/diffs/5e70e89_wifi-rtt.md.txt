@@ -1,0 +1,12 @@
+diff --git a/docs/develop/connectivity/wifi/wifi-rtt.md b/docs/develop/connectivity/wifi/wifi-rtt.md
+index 51e6366..1ccc767 100644
+--- a/docs/develop/connectivity/wifi/wifi-rtt.md
++++ b/docs/develop/connectivity/wifi/wifi-rtt.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ You can use the Wi-Fi location functionality provided by the
+ [Wi-Fi RTT (Round-Trip-Time) API](/reference/android/net/wifi/rtt/package-summary)
+ to measure the distance to nearby RTT-capable Wi-Fi access points and peer

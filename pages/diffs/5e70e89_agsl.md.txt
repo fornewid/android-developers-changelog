@@ -1,0 +1,65 @@
+diff --git a/docs/develop/ui/views/graphics/agsl.md b/docs/develop/ui/views/graphics/agsl.md
+index 88eec8c..c290284 100644
+--- a/docs/develop/ui/views/graphics/agsl.md
++++ b/docs/develop/ui/views/graphics/agsl.md
+@@ -1,12 +1,22 @@
+ ---
+-title: https://developer.android.com/develop/ui/views/graphics/agsl
++title: Android Graphics Shading Language (AGSL)  |  Views  |  Android Developers
+ url: https://developer.android.com/develop/ui/views/graphics/agsl
+-source: md.txt
++source: html-scrape
+ ---
+ 
++* [Android Developers](https://developer.android.com/)
++* [Develop](https://developer.android.com/develop)
++* [Core areas](https://developer.android.com/develop/core-areas)
++* [UI](https://developer.android.com/develop/ui)
++* [Views](https://developer.android.com/develop/ui/views/layout/declaring-layout)
++
++# Android Graphics Shading Language (AGSL) Stay organized with collections Save and categorize content based on your preferences.
++
++
++
+ Android Graphics Shading Language (AGSL) is used by Android 13 and above to
+ define the behavior of programmable
+-[`RuntimeShader`](https://developer.android.com/reference/android/graphics/RuntimeShader) objects. AGSL
++[`RuntimeShader`](/reference/android/graphics/RuntimeShader) objects. AGSL
+ shares much of its syntax with GLSL fragment shaders, but works within the
+ Android graphics rendering system to both customize painting within `Canvas`
+ and filter `View` content.
+@@ -18,15 +28,26 @@ issues a GPU accelerated drawing operation, it assembles a single GPU fragment
+ shader to do the required work. This shader typically includes several pieces.
+ For example, it might include:
+ 
+-- Evaluating whether a pixel falls inside or outside of the shape being drawn (or on the border, where it might apply anti-aliasing).
+-- Evaluating whether a pixel falls inside or outside of the clipping region (again, with possible anti-aliasing logic for border pixels).
+-- Logic for the [`Shader`](https://developer.android.com/reference/android/graphics/Shader) on the [`Paint`](https://developer.android.com/reference/android/graphics/Paint). The Shader can actually be a tree of objects (due to [`ComposeShader`](https://developer.android.com/reference/android/graphics/ComposeShader) and other features described below).
+-- Similar logic for the [`ColorFilter`](https://developer.android.com/reference/android/graphics/ColorFilter).
+-- Blending code (for certain types of [`BlendMode`](https://developer.android.com/reference/android/graphics/BlendMode)).
+-- Color space conversion code, as part of Android's color management.
+-- When the `Paint` has a complex tree of objects in the `Shader`, `ColorFilter`, or `BlendMode` fields, there is still only a single GPU fragment shader. Each node in that tree creates a single function. The clipping code and geometry code each create a function. The blending code might create a function. The overall fragment shader then calls all of these functions (which may call other functions, e.g. in the case of a shader tree).
++* Evaluating whether a pixel falls inside or outside of the shape being drawn
++  (or on the border, where it might apply anti-aliasing).
++* Evaluating whether a pixel falls inside or outside of the clipping region
++  (again, with possible anti-aliasing logic for border pixels).
++* Logic for the [`Shader`](/reference/android/graphics/Shader)
++  on the [`Paint`](/reference/android/graphics/Paint). The
++  Shader can actually be a tree of objects (due to
++  [`ComposeShader`](/reference/android/graphics/ComposeShader)
++  and other features described below).
++* Similar logic for the [`ColorFilter`](/reference/android/graphics/ColorFilter).
++* Blending code (for certain types of [`BlendMode`](/reference/android/graphics/BlendMode)).
++* Color space conversion code, as part of Android's color management.
++* When the `Paint` has a complex tree of objects in the `Shader`,
++  `ColorFilter`, or `BlendMode` fields, there is still only a single GPU fragment
++  shader. Each node in that tree creates a single function. The clipping code and
++  geometry code each create a function. The blending code might create a function.
++  The overall fragment shader then calls all of these functions (which may call
++  other functions, e.g. in the case of a shader tree).
+ 
+-Your AGSL effect contributes a function (or functions) to the GPU's fragment shader.
++Your AGSL effect contributes a function (or functions) to the GPU’s fragment shader.
+ 
+ ## Basic syntax
+ 

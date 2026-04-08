@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/compose/touch-input/scroll/two-dimensional-scrolling.md b/docs/develop/ui/compose/touch-input/scroll/two-dimensional-scrolling.md
+index 928131c..b07a628 100644
+--- a/docs/develop/ui/compose/touch-input/scroll/two-dimensional-scrolling.md
++++ b/docs/develop/ui/compose/touch-input/scroll/two-dimensional-scrolling.md
+@@ -14,6 +14,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ In Jetpack Compose, **[`scrollable2D`](/reference/kotlin/androidx/compose/foundation/gestures/scrollable2D.modifier#(androidx.compose.ui.Modifier).scrollable2D(androidx.compose.foundation.gestures.Scrollable2DState,kotlin.Boolean,androidx.compose.foundation.OverscrollEffect,androidx.compose.foundation.gestures.FlingBehavior,androidx.compose.foundation.interaction.MutableInteractionSource))** and **[`draggable2D`](/reference/kotlin/androidx/compose/ui/Modifier#(androidx.compose.ui.Modifier).draggable2D(androidx.compose.foundation.gestures.Draggable2DState,kotlin.Boolean,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Boolean,kotlin.Function1,kotlin.Function1,kotlin.Boolean))** are
+ low-level modifiers designed to handle pointer input in two dimensions. While
+ the standard 1D modifiers **[`scrollable`](/reference/kotlin/androidx/compose/foundation/gestures/scrollable.modifier#(androidx.compose.ui.Modifier).scrollable(androidx.compose.foundation.gestures.ScrollableState,androidx.compose.foundation.gestures.Orientation,kotlin.Boolean,kotlin.Boolean,androidx.compose.foundation.gestures.FlingBehavior,androidx.compose.foundation.interaction.MutableInteractionSource))** and **[`draggable`](/reference/kotlin/androidx/compose/foundation/gestures/draggable.modifier#(androidx.compose.ui.Modifier).draggable(androidx.compose.foundation.gestures.DraggableState,androidx.compose.foundation.gestures.Orientation,kotlin.Boolean,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Boolean,kotlin.coroutines.SuspendFunction2,kotlin.coroutines.SuspendFunction2,kotlin.Boolean)))** are

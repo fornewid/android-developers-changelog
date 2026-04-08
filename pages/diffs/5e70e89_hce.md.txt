@@ -1,0 +1,12 @@
+diff --git a/docs/develop/connectivity/nfc/hce.md b/docs/develop/connectivity/nfc/hce.md
+index ae6259f..419d3aa 100644
+--- a/docs/develop/connectivity/nfc/hce.md
++++ b/docs/develop/connectivity/nfc/hce.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Many Android-powered devices that offer NFC functionality already support NFC
+ card emulation. In most cases, the card is emulated by a separate chip in the
+ device, called a *secure element*. Many SIM cards provided by wireless carriers

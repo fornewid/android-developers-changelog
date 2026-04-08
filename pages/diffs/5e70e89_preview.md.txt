@@ -1,0 +1,12 @@
+diff --git a/docs/studio/preview.md b/docs/studio/preview.md
+index a5d9eb0..2dbf78b 100644
+--- a/docs/studio/preview.md
++++ b/docs/studio/preview.md
+@@ -22,7 +22,6 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
+-
+ ### Preview release
+ 
+ Get early access to the latest features and improvements in Android Studio.

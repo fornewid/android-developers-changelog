@@ -1,0 +1,12 @@
+diff --git a/docs/studio/prompt-gallery/prompts/optimize-for-controller-input.md b/docs/studio/prompt-gallery/prompts/optimize-for-controller-input.md
+index bb23606..72190b7 100644
+--- a/docs/studio/prompt-gallery/prompts/optimize-for-controller-input.md
++++ b/docs/studio/prompt-gallery/prompts/optimize-for-controller-input.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Support navigation using a remote.
+ 
+ ---

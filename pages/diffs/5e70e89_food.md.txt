@@ -1,0 +1,12 @@
+diff --git a/docs/guide/playcore/engage/food.md b/docs/guide/playcore/engage/food.md
+index 23f843c..9d01055 100644
+--- a/docs/guide/playcore/engage/food.md
++++ b/docs/guide/playcore/engage/food.md
+@@ -12,7 +12,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Boost app engagement by reaching your users where they are. Integrate Engage SDK
+ to deliver personalized recommendations and continuation content directly to
+ users across multiple on-device surfaces, like

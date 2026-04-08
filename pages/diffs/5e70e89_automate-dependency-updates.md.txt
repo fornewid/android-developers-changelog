@@ -1,0 +1,12 @@
+diff --git a/docs/studio/gemini/automate-dependency-updates.md b/docs/studio/gemini/automate-dependency-updates.md
+index aecb71d..37e9d7c 100644
+--- a/docs/studio/gemini/automate-dependency-updates.md
++++ b/docs/studio/gemini/automate-dependency-updates.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Upgrading dependencies can be a complex and time-consuming task.
+ 
+ Android apps rely on various external library dependencies for things like

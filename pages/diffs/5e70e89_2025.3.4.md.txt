@@ -1,0 +1,77 @@
+diff --git a/docs/studio/releases/fixed-bugs/studio/2025.3.4.md b/docs/studio/releases/fixed-bugs/studio/2025.3.4.md
+index 81e668a..05a4818 100644
+--- a/docs/studio/releases/fixed-bugs/studio/2025.3.4.md
++++ b/docs/studio/releases/fixed-bugs/studio/2025.3.4.md
+@@ -1,30 +1,53 @@
+ ---
+-title: https://developer.android.com/studio/releases/fixed-bugs/studio/2025.3.4
++title: Android Studio Panda 4 Closed Issues  |  Android Developers
+ url: https://developer.android.com/studio/releases/fixed-bugs/studio/2025.3.4
+-source: md.txt
++source: html-scrape
+ ---
+ 
+-### Android Studio Panda 4 \| 2025.3.4 Canary 2
++* [Android Developers](https://developer.android.com/)
++* [Android Studio](https://developer.android.com/studio)
++
++# Android Studio Panda 4 Closed Issues Stay organized with collections Save and categorize content based on your preferences.
++
++
++
++
++### Android Studio Panda 4 | 2025.3.4 Canary 3
++
++**Released together with:**
++
++* Android Gradle Plugin 9.2.0-alpha07
++
++| Fixed Issues | |
++| --- | --- |
++| **C++ Build** | |  | | --- | | [Issue #496629068](https://issuetracker.google.com/issues/496629068)  AGP 9.x configureCMakeDebug fails with Gson reflection error on Gradle 9.x + JDK 21 | |
++| **Lint** | |  | | --- | | [Issue #492589793](https://issuetracker.google.com/issues/492589793)  Lint error when resource shrinking is disabled | |
++| **New Code/Templates** | |  | | --- | | [Issue #236781728](https://issuetracker.google.com/issues/236781728)  Sort dependencies in alphabetical order in gradle file | |
++| **Preview** | |  | | --- | | [Issue #432405487](https://issuetracker.google.com/issues/432405487)  You broke pinch-to-zoom in compose preview (design/split) | |
++| **Resource Manager** | |  | | --- | | [Issue #464010035](https://issuetracker.google.com/issues/464010035)  Vector asset studio doesn't embed license in generated XML files | |
++| **Resources** | |  | | --- | | [Issue #496616822](https://issuetracker.google.com/issues/496616822)  processDebugUnitTestManifest fails with "Referenced navigation file not found" when  is used in manifest (regression from AGP 9.0.1 → 9.1.0) | |
++
++### Android Studio Panda 4 | 2025.3.4 Canary 2
+ 
+ **Released together with:**
+ 
+-- Android Gradle Plugin 9.2.0-alpha06
++* Android Gradle Plugin 9.2.0-alpha06
+ 
+-| Fixed Issues ||
+-|---|---|
+-| **Android Gradle Plugin** | |---| | [Issue #492140753](https://issuetracker.google.com/issues/492140753) Embed CC compatibility declaration in AGP | | [Issue #483083119](https://issuetracker.google.com/issues/483083119) Update Kotlin Gradle plugin dependency to 2.3.10 | |
+-| **Import/Sync** | |---| | [Issue #471649995](https://issuetracker.google.com/issues/471649995) Parameter specified as non-null is null: method com.android.studio.ml.gradle.buildsystem.GradleTaskExecutorImpl$syncEventsFlow$1$2.syncFailed, parameter errorMessage | |
++| Fixed Issues | |
++| --- | --- |
++| **Android Gradle Plugin** | |  | | --- | | [Issue #492140753](https://issuetracker.google.com/issues/492140753)  Embed CC compatibility declaration in AGP | | [Issue #483083119](https://issuetracker.google.com/issues/483083119)  Update Kotlin Gradle plugin dependency to 2.3.10 | |
++| **Import/Sync** | |  | | --- | | [Issue #471649995](https://issuetracker.google.com/issues/471649995)  Parameter specified as non-null is null: method com.android.studio.ml.gradle.buildsystem.GradleTaskExecutorImpl$syncEventsFlow$1$2.syncFailed, parameter errorMessage | |
+ 
+-### Android Studio Panda 4 \| 2025.3.4 Canary 1
++### Android Studio Panda 4 | 2025.3.4 Canary 1
+ 
+ **Released together with:**
+ 
+-- Android Gradle Plugin 9.2.0-alpha05
++* Android Gradle Plugin 9.2.0-alpha05
+ 
+-| Fixed Issues ||
+-|---|---|
+-| **Android Gradle Plugin** | |---| | [Issue #492282040](https://issuetracker.google.com/issues/492282040) keepRules sourceset not working for libraries | |
+-| **Gemini** | |---| | [Issue #490118031](https://issuetracker.google.com/issues/490118031) Failed to refresh models | |
+-| **Live Edit** | |---| | [Issue #493235960](https://issuetracker.google.com/issues/493235960) Remove LINK_VIA_SIGNATURES | |
+-| **Project View** | |---| | [Issue #458264656](https://issuetracker.google.com/issues/458264656) Bug Report: "Android" Project View Crashes with NullPointerException in BackupGroupNode | | [Issue #463591197](https://issuetracker.google.com/issues/463591197) Bug in Android Studio, | | [Issue #492486572](https://issuetracker.google.com/issues/492486572) "Android" project file view indefinitely "loading...." | |
+-| **Shrinker (R8)** | |---| | [Issue #490426424](https://issuetracker.google.com/issues/490426424) Targeting Java 11 seems to break d8 | |
+\ No newline at end of file
++| Fixed Issues | |
++| --- | --- |
++| **Android Gradle Plugin** | |  | | --- | | [Issue #492282040](https://issuetracker.google.com/issues/492282040)  keepRules sourceset not working for libraries | |
++| **Gemini** | |  | | --- | | [Issue #490118031](https://issuetracker.google.com/issues/490118031)  Failed to refresh models | |
++| **Live Edit** | |  | | --- | | [Issue #493235960](https://issuetracker.google.com/issues/493235960)  Remove LINK\_VIA\_SIGNATURES | |
++| **Project View** | |  | | --- | | [Issue #458264656](https://issuetracker.google.com/issues/458264656)  Bug Report: "Android" Project View Crashes with NullPointerException in BackupGroupNode | | [Issue #463591197](https://issuetracker.google.com/issues/463591197)  Bug in Android Studio, | | [Issue #492486572](https://issuetracker.google.com/issues/492486572)  "Android" project file view indefinitely "loading...." | |
++| **Shrinker (R8)** | |  | | --- | | [Issue #490426424](https://issuetracker.google.com/issues/490426424)  Targeting Java 11 seems to break d8 | |
+\ No newline at end of file

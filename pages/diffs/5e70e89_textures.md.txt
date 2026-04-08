@@ -1,0 +1,20 @@
+diff --git a/docs/games/optimize/textures.md b/docs/games/optimize/textures.md
+index 06b348b..23cf543 100644
+--- a/docs/games/optimize/textures.md
++++ b/docs/games/optimize/textures.md
+@@ -15,6 +15,7 @@ Send feedback
+ 
+ 
+ 
++
+ Follow these best practices to optimize the appearance and performance of
+ textures in your Android game.
+ 
+@@ -448,4 +449,6 @@ the triangles.
+ 
+ 
+ 
++
++
+ Send feedback
+\ No newline at end of file

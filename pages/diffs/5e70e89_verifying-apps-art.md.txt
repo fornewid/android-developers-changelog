@@ -1,0 +1,12 @@
+diff --git a/docs/guide/practices/verifying-apps-art.md b/docs/guide/practices/verifying-apps-art.md
+index 3464c95..2497ed3 100644
+--- a/docs/guide/practices/verifying-apps-art.md
++++ b/docs/guide/practices/verifying-apps-art.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ The Android runtime (ART) is the default runtime for devices running Android
+ 5.0 (API level 21) and higher. This runtime offers a number of features
+ that improve performance and smoothness of the Android platform and apps.

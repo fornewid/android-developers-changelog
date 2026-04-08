@@ -1,0 +1,104 @@
+diff --git a/docs/training/wearables/watch-faces/hardware-acceleration.md b/docs/training/wearables/watch-faces/hardware-acceleration.md
+index 22b6c35..d8a1430 100644
+--- a/docs/training/wearables/watch-faces/hardware-acceleration.md
++++ b/docs/training/wearables/watch-faces/hardware-acceleration.md
+@@ -1,22 +1,9 @@
+ ---
+-title: Improve your watch face performance with hardware acceleration  |  Wear OS  |  Android Developers
++title: https://developer.android.com/training/wearables/watch-faces/hardware-acceleration
+ url: https://developer.android.com/training/wearables/watch-faces/hardware-acceleration
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-As of January 2026, the Watch Face Format is required for installing watch faces on all Wear OS devices.
+-
+-Learn more about the user-facing changes in this [Help Center article](https://support.google.com/wearos/thread/284572445).
+-
+-* [Android Developers](https://developer.android.com/)
+-* [Develop](https://developer.android.com/develop)
+-* [Devices](https://developer.android.com/develop/devices)
+-* [Wear OS](https://developer.android.com/training/wearables/watch-faces/designing)
+-
+-# Improve your watch face performance with hardware acceleration Stay organized with collections Save and categorize content based on your preferences.
+-
+-
+-
+ Wear OS apps that use standard views benefit from automatic hardware-accelerated
+ graphics rendering. But watch faces are usually implemented using
+ canvases, so they don't automatically get hardware acceleration.
+@@ -30,7 +17,7 @@ appear smoother to the eye, providing a better user experience.
+ When you use a hardware-accelerated canvas, you can also access more UI
+ performance data about your watch face. For example, you can only access the
+ detailed frame information described in [Measure UI
+-performance](/topic/performance/overview)
++performance](https://developer.android.com/topic/performance/overview)
+ when you are using a hardware-accelerated canvas.
+ 
+ ## Is my watch face using hardware acceleration?
+@@ -43,13 +30,14 @@ using either the developer options or `adb`.
+ To use developer options to check whether your watch face is using hardware acceleration,
+ follow these steps:
+ 
+-1. On a Wear OS device, navigate to **Settings** > **Developer options**.
++1. On a Wear OS device, navigate to **Settings** \> **Developer options**.
+ 2. Enable **Debug GPU profiling**.
+ 
+    This option draws an overlay on top of visible surfaces, one on each surface,
+    to show the amount of time spent in each stage of GPU rendering for that
+    surface.
+ 3. On the device, navigate back to your watch face.
++
+ 4. If your watch face uses a hardware-accelerated canvas, you see a new bar
+    that moves from right to left for each rendered frame of your watch face.
+ 
+@@ -58,8 +46,7 @@ follow these steps:
+ To use `adb` to check whether your watch face is using hardware acceleration,
+ follow these steps:
+ 
+-1. On a Wear OS device, change the watch face to your watch face that you want
+-   to test.
++1. On a Wear OS device, change the watch face to your watch face that you want to test.
+ 2. Let the watch face run for a few seconds in interactive mode.
+ 3. Run the following `adb` command to check whether your watch face is using
+    hardware acceleration:
+@@ -118,29 +105,29 @@ users, don't use long-running animations in your watch face. This
+ guideline is not specific to using hardware acceleration, but because using
+ hardware acceleration increases the number of frames you're able to draw, it is
+ even more important to follow. For more information, see [Best practices for
+-animations](/training/wearables/watch-faces/performance#Animations).
++animations](https://developer.android.com/training/wearables/watch-faces/performance#Animations).
+ 
+ ### Use supported drawing operations
+ 
+ Some drawing operations are are not supported when using hardware acceleration.
+ For information on what is supported, see [Hardware
+-acceleration](/topic/performance/hardware-accel#drawing-support).
++acceleration](https://developer.android.com/topic/performance/hardware-accel#drawing-support).
+ If you have a small code path that uses an unsupported operation, you can create
+ a bitmap-backed canvas and then draw that bitmap into the watch face's canvas
+ using
+-[`canvas.drawBitmap()`](/reference/android/graphics/Canvas#drawBitmap(android.graphics.Bitmap,%20android.graphics.Rect,%20android.graphics.RectF,%20android.graphics.Paint)).
++[`canvas.drawBitmap()`](https://developer.android.com/reference/android/graphics/Canvas#drawBitmap(android.graphics.Bitmap,%20android.graphics.Rect,%20android.graphics.RectF,%20android.graphics.Paint)).
+ 
+ ### Maintain compatibility when using hardware acceleration
+ 
+ Hardware acceleration is available on Wear OS devices that run Android 9 (API
+ level 28) or higher. If you want to avoid a specific draw operation on older
+ devices, where hardware acceleration is not available, or an unsupported draw
+-operation on a hardware accelerated canvas, you can check [`Canvas.isHardwareAccelerated()`](/reference/android/graphics/Canvas#isHardwareAccelerated()),
++operation on a hardware accelerated canvas, you can check [`Canvas.isHardwareAccelerated()`](https://developer.android.com/reference/android/graphics/Canvas#isHardwareAccelerated()),
+ then provide the alternative functionality.
+ 
+ ## Recommended for you
+ 
+-* Note: link text is displayed when JavaScript is off
+-* [dumpsys](/tools/dumpsys)
+-* [Slow rendering](/topic/performance/vitals/render)
+-* [Device compatibility mode](/guide/practices/device-compatibility-mode)
+\ No newline at end of file
++- Note: link text is displayed when JavaScript is off
++- [dumpsys](https://developer.android.com/tools/dumpsys)
++- [Slow rendering](https://developer.android.com/topic/performance/vitals/render)
++- [Device compatibility mode](https://developer.android.com/guide/practices/device-compatibility-mode)
+\ No newline at end of file

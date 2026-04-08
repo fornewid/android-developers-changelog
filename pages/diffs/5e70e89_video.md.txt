@@ -1,0 +1,12 @@
+diff --git a/docs/training/cars/parked/video.md b/docs/training/cars/parked/video.md
+index e7f6fcf..f04cfb7 100644
+--- a/docs/training/cars/parked/video.md
++++ b/docs/training/cars/parked/video.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ In addition to the guidelines described in [Build parked apps for Android
+ Automotive OS](/training/cars/parked/automotive-os), there are some requirements specific to video apps.
+ 

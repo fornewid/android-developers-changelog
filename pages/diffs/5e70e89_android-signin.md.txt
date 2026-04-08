@@ -1,0 +1,20 @@
+diff --git a/docs/games/pgs/android/android-signin.md b/docs/games/pgs/android/android-signin.md
+index 0d40a2f..7b8d6b4 100644
+--- a/docs/games/pgs/android/android-signin.md
++++ b/docs/games/pgs/android/android-signin.md
+@@ -15,6 +15,7 @@ Send feedback
+ 
+ 
+ 
++
+ **Note:** This guide is for the Play Games Services v2 SDK. For information on the
+ previous version of this SDK, see the [Play Games Services v1
+ documentation](/games/pgs/v1/android/signin).
+@@ -152,4 +153,6 @@ the game's backend.
+ 
+ 
+ 
++
++
+ Send feedback
+\ No newline at end of file

@@ -1,0 +1,243 @@
+diff --git a/docs/develop/xr/jetpack-xr-sdk/access-hardware-projected-context.md b/docs/develop/xr/jetpack-xr-sdk/access-hardware-projected-context.md
+index 3d0bd74..f8fa937 100644
+--- a/docs/develop/xr/jetpack-xr-sdk/access-hardware-projected-context.md
++++ b/docs/develop/xr/jetpack-xr-sdk/access-hardware-projected-context.md
+@@ -1,16 +1,38 @@
+ ---
+-title: https://developer.android.com/develop/xr/jetpack-xr-sdk/access-hardware-projected-context
++title: Use a projected context to access AI glasses hardware  |  Android XR for Jetpack XR SDK  |  Android Developers
+ url: https://developer.android.com/develop/xr/jetpack-xr-sdk/access-hardware-projected-context
+-source: md.txt
++source: html-scrape
+ ---
+ 
+-Applicable XR devices This guidance helps you build experiences for these types of XR devices. [Learn about XR device types →](https://developer.android.com/develop/xr/devices) ![](https://developer.android.com/static/images/develop/xr/ai-glasses-icon.svg) AI Glasses [](https://developer.android.com/develop/xr/devices#ai-glasses) [Learn about XR device types →](https://developer.android.com/develop/xr/devices)
++The Android XR SDK has  [reached Developer Preview 3](https://android-developers.googleblog.com/2025/12/build-for-ai-glasses-with-android-xr.html), and we want your feedback! Try things out, and visit our [support page](/develop/xr/support) to reach out.
+ 
+-<br />
++* [Android Developers](https://developer.android.com/)
++* [Develop](https://developer.android.com/develop)
++* [Devices](https://developer.android.com/develop/devices)
++* [Android XR](https://developer.android.com/develop/xr)
++* [Jetpack XR SDK](https://developer.android.com/develop/xr/jetpack-xr-sdk)
++* [Guides](https://developer.android.com/develop/xr/get-started)
+ 
+-After you've [requested and been granted the necessary permissions](https://developer.android.com/develop/xr/jetpack-xr-sdk/request-hardware-permissions), your app
++# Use a projected context to access AI glasses hardware Stay organized with collections Save and categorize content based on your preferences.
++
++
++
++Applicable XR devices
++
++This guidance helps you build experiences for these types of XR devices.
++
++[Learn about XR device types →](/develop/xr/devices)
++
++![](/static/images/develop/xr/ai-glasses-icon.svg)
++
++
++AI Glasses
++
++[Learn about XR device types →](/develop/xr/devices)
++
++After you've [requested and been granted the necessary permissions](/develop/xr/jetpack-xr-sdk/request-hardware-permissions), your app
+ can access the AI glasses hardware. The key to accessing the glasses' hardware
+-(instead of the phone's hardware), is to use a [projected context](https://developer.android.com/develop/xr/jetpack-xr-sdk/ai-glasses/support-different-types#projected-context).
++(instead of the phone's hardware), is to use a [projected context](/develop/xr/jetpack-xr-sdk/ai-glasses/support-different-types#projected-context).
+ 
+ There are two primary ways to get a projected context, depending on where your
+ code is executing:
+@@ -26,10 +48,9 @@ within that activity can already access the glasses' hardware.
+ If a part of your app outside of your AI glasses activity (such as a phone
+ activity or a service) needs to access the glasses' hardware, it must explicitly
+ obtain a projected context. To do this, use the
+-[`createProjectedDeviceContext()`](https://developer.android.com/reference/kotlin/androidx/xr/projected/ProjectedContext#createProjectedDeviceContext(android.content.Context)) method:
++[`createProjectedDeviceContext()`](/reference/kotlin/androidx/xr/projected/ProjectedContext#createProjectedDeviceContext(android.content.Context)) method:
+ 
+-
+-```kotlin
++```
+ @OptIn(ExperimentalProjectedApi::class)
+ private fun getGlassesContext(context: Context): Context? {
+     return try {
+@@ -40,14 +61,14 @@ private fun getGlassesContext(context: Context): Context? {
+         null
+     }
+ }
+-```
+ 
+-<br />
++ProjectedHardware.kt
++```
+ 
+ ### Check for validity
+ 
+ After creating the projected context, monitor
+-[`ProjectedContext.isProjectedDeviceConnected`](https://developer.android.com/reference/kotlin/androidx/xr/projected/ProjectedContext#isProjectedDeviceConnected(android.content.Context,kotlin.coroutines.CoroutineContext)). While this method returns
++[`ProjectedContext.isProjectedDeviceConnected`](/reference/kotlin/androidx/xr/projected/ProjectedContext#isProjectedDeviceConnected(android.content.Context,kotlin.coroutines.CoroutineContext)). While this method returns
+ `true`, the projected context remains valid to the connected device, and your
+ phone app activity or service (such as a `CameraManager`) can access the
+ AI glasses hardware.
+@@ -56,7 +77,7 @@ AI glasses hardware.
+ 
+ The projected context is tied to the lifecycle of the connected device, so it is
+ destroyed when the device disconnects. When the device disconnects,
+-[`ProjectedContext.isProjectedDeviceConnected`](https://developer.android.com/reference/kotlin/androidx/xr/projected/ProjectedContext#isProjectedDeviceConnected(android.content.Context,kotlin.coroutines.CoroutineContext)) returns `false`. Your app
++[`ProjectedContext.isProjectedDeviceConnected`](/reference/kotlin/androidx/xr/projected/ProjectedContext#isProjectedDeviceConnected(android.content.Context,kotlin.coroutines.CoroutineContext)) returns `false`. Your app
+ should listen for this change and clean up any system services (such as a
+ `CameraManager`) or resources that your app created using that projected
+ context.
+@@ -64,30 +85,29 @@ context.
+ ### Re-initialize on reconnect
+ 
+ When the AI glasses device reconnects, your app can obtain another projected
+-context instance using [`createProjectedDeviceContext()`](https://developer.android.com/reference/kotlin/androidx/xr/projected/ProjectedContext#createProjectedDeviceContext(android.content.Context)), and then
++context instance using [`createProjectedDeviceContext()`](/reference/kotlin/androidx/xr/projected/ProjectedContext#createProjectedDeviceContext(android.content.Context)), and then
+ re-initialize any system services or resources using the new projected context.
+ 
+ ## Access audio using bluetooth
+ 
+ Currently, AI glasses connect to your phone as a standard Bluetooth audio
+ device. Both the headset and the A2DP (Advanced Audio Distribution Profile)
+-[profiles](https://developer.android.com/develop/connectivity/bluetooth/profiles) are supported. Using this approach lets any Android app that
++[profiles](/develop/connectivity/bluetooth/profiles) are supported. Using this approach lets any Android app that
+ supports audio input or output work on glasses, even if they were not
+ purposefully built to support glasses. In some cases, using Bluetooth might work
+ better for your app's use case as an alternative to accessing the glasses'
+ hardware using a projected context.
+ 
+ As with any standard Bluetooth audio device, the permission to grant the
+-[`RECORD_AUDIO`](https://developer.android.com/reference/kotlin/android/Manifest.permission#record_audio) permission is controlled by the phone and not the glasses.
++[`RECORD_AUDIO`](/reference/kotlin/android/Manifest.permission#record_audio) permission is controlled by the phone and not the glasses.
+ 
+ ## Capture an image with the AI glasses' camera
+ 
+ To capture an image with the AI glasses' camera, set up and bind the CameraX's
+-[`ImageCapture`](https://developer.android.com/reference/kotlin/androidx/camera/core/ImageCapture) [use case](https://developer.android.com/media/camera/camerax#ease-of-use) to the glasses' camera using the correct
++[`ImageCapture`](/reference/kotlin/androidx/camera/core/ImageCapture) [use case](/media/camera/camerax#ease-of-use) to the glasses' camera using the correct
+ context for your app:
+ 
+-
+-```kotlin
++```
+ private fun startCameraOnGlasses(activity: ComponentActivity) {
+     // 1. Get the CameraProvider using the projected context.
+     // When using the projected context, DEFAULT_BACK_CAMERA maps to the AI glasses' camera.
+@@ -155,43 +175,57 @@ private fun startCameraOnGlasses(activity: ComponentActivity) {
+         }
+     }, ContextCompat.getMainExecutor(activity))
+ }
+-```
+ 
+-<br />
++ProjectedHardware.kt
++```
+ 
+ ### Key points about the code
+ 
+-- Obtains an instance of the [`ProcessCameraProvider`](https://developer.android.com/reference/kotlin/androidx/camera/lifecycle/ProcessCameraProvider) using the [**projected device context**](https://developer.android.com/develop/xr/jetpack-xr-sdk/access-hardware-projected-context#phone-activity-service).
+-- Within the projected context's scope, the AI glasses' primary, outward-pointing camera maps to the `DEFAULT_BACK_CAMERA` when selecting a camera.
+-- A pre-binding check uses [`cameraProvider.hasCamera(cameraSelector)`](https://developer.android.com/reference/kotlin/androidx/camera/lifecycle/ProcessCameraProvider#hasCamera(androidx.camera.core.CameraSelector)) to verify that the selected camera is available on the device before proceeding.
+-- Uses **Camera2 Interop** with [`Camera2CameraInfo`](https://developer.android.com/reference/kotlin/androidx/camera/camera2/interop/Camera2CameraInfo) to read the underlying [`CameraCharacteristics#SCALER_STREAM_CONFIGURATION_MAP`](https://developer.android.com/reference/kotlin/android/hardware/camera2/CameraCharacteristics#scaler_stream_configuration_map), which can be useful for advanced checks on supported resolutions.
+-- A custom [`ResolutionSelector`](https://developer.android.com/reference/kotlin/androidx/camera/core/resolutionselector/ResolutionSelector) is built to precisely control the output image resolution for [`ImageCapture`](https://developer.android.com/reference/kotlin/androidx/camera/core/ImageCapture).
+-- Creates an `ImageCapture` use case that is configured with a custom `ResolutionSelector`.
+-- Binds the `ImageCapture` use case to the activity's lifecycle. This automatically manages the opening and closing of the camera based on the activity's state (for example, stopping the camera when the activity is paused).
++* Obtains an instance of the [`ProcessCameraProvider`](/reference/kotlin/androidx/camera/lifecycle/ProcessCameraProvider) using the
++  [**projected device context**](#phone-activity-service).
++* Within the projected context's scope, the AI glasses' primary,
++  outward-pointing camera maps to the `DEFAULT_BACK_CAMERA` when selecting a
++  camera.
++* A pre-binding check uses [`cameraProvider.hasCamera(cameraSelector)`](/reference/kotlin/androidx/camera/lifecycle/ProcessCameraProvider#hasCamera(androidx.camera.core.CameraSelector)) to
++  verify that the selected camera is available on the device before
++  proceeding.
++* Uses **Camera2 Interop** with [`Camera2CameraInfo`](/reference/kotlin/androidx/camera/camera2/interop/Camera2CameraInfo) to read the
++  underlying [`CameraCharacteristics#SCALER_STREAM_CONFIGURATION_MAP`](/reference/kotlin/android/hardware/camera2/CameraCharacteristics#scaler_stream_configuration_map),
++  which can be useful for advanced checks on supported resolutions.
++* A custom [`ResolutionSelector`](/reference/kotlin/androidx/camera/core/resolutionselector/ResolutionSelector) is built to precisely control the output
++  image resolution for [`ImageCapture`](/reference/kotlin/androidx/camera/core/ImageCapture).
++* Creates an `ImageCapture` use case that is configured with a custom
++  `ResolutionSelector`.
++* Binds the `ImageCapture` use case to the activity's lifecycle. This
++  automatically manages the opening and closing of the camera based on the
++  activity's state (for example, stopping the camera when the activity is
++  paused).
+ 
+ After the AI glasses' camera is set up, you can capture an image with the
+ CameraX's `ImageCapture` class. Refer to the CameraX's documentation to learn
+-about using [`takePicture()`](https://developer.android.com/media/camera/camerax/take-photo#take_a_picture) to [capture an image](https://developer.android.com/media/camera/camerax/take-photo#take_a_picture).
++about using [`takePicture()`](/media/camera/camerax/take-photo#take_a_picture) to [capture an image](/media/camera/camerax/take-photo#take_a_picture).
+ 
+ ### Capture a video with the AI glasses' camera
+ 
+ To capture a video instead of an image with the AI glasses' camera, replace the
+-`ImageCapture` components with the corresponding [`VideoCapture`](https://developer.android.com/reference/kotlin/androidx/camera/video/VideoCapture) components
++`ImageCapture` components with the corresponding [`VideoCapture`](/reference/kotlin/androidx/camera/video/VideoCapture) components
+ and modify the capture execution logic.
+ 
+ The main changes involve using a different use case, creating a different output
+ file, and initiating the capture using the appropriate video recording method.
+ For more information about the `VideoCapture` API and how to use it, see the
+-[CameraX's video capture documentation](https://developer.android.com/media/camera/camerax/video-capture#using-videocapture-api).
++[CameraX's video capture documentation](/media/camera/camerax/video-capture#using-videocapture-api).
+ 
+-> [!IMPORTANT]
+-> **Important:** Battery power and thermal dissipation on AI glasses devices is often limited. When developing for glasses, pay close attention to the requested **output format** and **resolution**, as these can severely impact system power and temperature.
++**Important:** Battery power and thermal dissipation on AI glasses devices is often
++limited. When developing for glasses, pay close attention to the requested
++**output format** and **resolution**, as these can severely impact system power
++and temperature.
+ 
+ The following table shows the recommended resolution and frame rate depending on
+ your app's use case:
+ 
+ | Use case | Resolution | Frame rate |
+-|---|---|---|
++| --- | --- | --- |
+ | Video Communication | 1280 x 720 | 15 FPS |
+ | Computer Vision | 640 x 480 | 10 FPS |
+ | AI Video Streaming | 640 x 480 | 1 FPS |
+@@ -199,11 +233,10 @@ your app's use case:
+ ## Access a phone's hardware from an AI glasses activity
+ 
+ An AI glasses activity can also access the phone's hardware (such as the camera
+-or microphone) by using [`createHostDeviceContext(context)`](https://developer.android.com/reference/kotlin/androidx/xr/projected/ProjectedContext#createHostDeviceContext(android.content.Context)) to get the host
++or microphone) by using [`createHostDeviceContext(context)`](/reference/kotlin/androidx/xr/projected/ProjectedContext#createHostDeviceContext(android.content.Context)) to get the host
+ device's (phone) context:
+ 
+-
+-```kotlin
++```
+ @OptIn(ExperimentalProjectedApi::class)
+ private fun getPhoneContext(activity: ComponentActivity): Context? {
+     return try {
+@@ -214,14 +247,24 @@ private fun getPhoneContext(activity: ComponentActivity): Context? {
+         null
+     }
+ }
+-```
+ 
+-<br />
++ProjectedHardware.kt
++```
+ 
+ When accessing hardware or resources that are specific to the host device
+ (phone) in a hybrid app (an app containing both mobile and AI glasses
+ experiences), you must explicitly select the correct context to make sure your
+ app can access the correct hardware:
+ 
+-- Use the [`Activity`](https://developer.android.com/reference/kotlin/android/app/Activity) context from the phone `Activity` or the [`ProjectedContext.createHostDeviceContext()`](https://developer.android.com/reference/kotlin/androidx/xr/projected/ProjectedContext#createHostDeviceContext(android.content.Context)) to get the phone's context.
+-- Don't use [`getApplicationContext()`](https://developer.android.com/reference/kotlin/android/content/Context#getapplicationcontext) because the application context can incorrectly return the AI glasses' context if a glasses activity was the most-recently-launched component.
+\ No newline at end of file
++* Use the [`Activity`](/reference/kotlin/android/app/Activity) context from the phone `Activity` or the
++  [`ProjectedContext.createHostDeviceContext()`](/reference/kotlin/androidx/xr/projected/ProjectedContext#createHostDeviceContext(android.content.Context)) to get the phone's
++  context.
++* Don't use [`getApplicationContext()`](/reference/kotlin/android/content/Context#getapplicationcontext) because the application context
++  can incorrectly return the AI glasses' context if a glasses activity was the
++  most-recently-launched component.
++
++[Previous
++
++arrow\_back
++
++Request hardware permissions](/develop/xr/jetpack-xr-sdk/request-hardware-permissions)
+\ No newline at end of file

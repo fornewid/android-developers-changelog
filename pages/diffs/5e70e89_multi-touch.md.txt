@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/compose/touch-input/pointer-input/multi-touch.md b/docs/develop/ui/compose/touch-input/pointer-input/multi-touch.md
+index 4303c8a..7f735ff 100644
+--- a/docs/develop/ui/compose/touch-input/pointer-input/multi-touch.md
++++ b/docs/develop/ui/compose/touch-input/pointer-input/multi-touch.md
+@@ -14,6 +14,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ To detect multitouch gestures used for panning, zooming and rotating, you can
+ use the `transformable` modifier. This modifier does not transform elements by
+ itself, it only detects the gestures.
