@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 For TV apps, the browsing experience relies on efficient focus-based navigation.
 Using standard Compose Foundation lazy layouts, you can create performant
 vertical and horizontal lists that automatically handle focus-driven scrolling

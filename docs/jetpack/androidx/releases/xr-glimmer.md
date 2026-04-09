@@ -15,6 +15,7 @@ Save and categorize content based on your preferences.
 
 
 
+
 # Jetpack Compose Glimmer
 
 API Reference  
@@ -24,7 +25,7 @@ Design language and UI toolkit for building augmented Android XR experiences
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 | --- | --- | --- | --- | --- |
-| March 25, 2026 | - | - | - | [1.0.0-alpha09](/jetpack/androidx/releases/xr-glimmer#1.0.0-alpha09) |
+| April 08, 2026 | - | - | - | [1.0.0-alpha10](/jetpack/androidx/releases/xr-glimmer#1.0.0-alpha10) |
 
 ## Declaring dependencies
 
@@ -40,7 +41,7 @@ your app or module:
 
 ```
 dependencies {
-    implementation "androidx.xr.glimmer:glimmer:1.0.0-alpha09"
+    implementation "androidx.xr.glimmer:glimmer:1.0.0-alpha10"
 }
 ```
 
@@ -48,7 +49,7 @@ dependencies {
 
 ```
 dependencies {
-    implementation("androidx.xr.glimmer:glimmer:1.0.0-alpha09")
+    implementation("androidx.xr.glimmer:glimmer:1.0.0-alpha10")
 }
 ```
 
@@ -68,6 +69,21 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.0
+
+### Version 1.0.0-alpha10
+
+April 08, 2026
+
+`androidx.xr.glimmer:glimmer:1.0.0-alpha10` is released. Version 1.0.0-alpha10 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/4f1927c2c3b66d0c3a6b9118974d818d2dc5a06a..951845221205b7a428a9d779107760fc929863ee/xr/glimmer/glimmer).
+
+**API Changes**
+
+* Added `IconButton` API. ([I0f3dd](https://android-review.googlesource.com/#/q/I0f3dd7df505aa1067631ee7e28f13bbe7c09b04b), [b/481298420](https://issuetracker.google.com/issues/481298420))
+* Genericized the type of the `StackState` saver as `Saver<StackState, *>`. ([Ic164f](https://android-review.googlesource.com/#/q/Ic164fa5853a1fd02aef746cb1e7f1599c4fea33e), [b/491893461](https://issuetracker.google.com/issues/491893461))
+
+**Bug Fixes**
+
+* Updated Compose `compileSdk` to API 37. This means that a minimum AGP version of 9.2.0 is required when using Compose. ([Id45cd](https://android-review.googlesource.com/#/q/Id45cdca34ef948e06259b2dd9adc901b7c930492), [b/413674743](https://issuetracker.google.com/issues/413674743))
 
 ### Version 1.0.0-alpha09
 

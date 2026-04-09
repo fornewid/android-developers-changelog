@@ -1,37 +1,27 @@
 ---
-title: Custom text editors  |  Views  |  Android Developers
+title: https://developer.android.com/develop/ui/views/touch-and-input/stylus-input/custom-text-editors
 url: https://developer.android.com/develop/ui/views/touch-and-input/stylus-input/custom-text-editors
-source: html-scrape
+source: md.txt
 ---
 
-* [Android Developers](https://developer.android.com/)
-* [Develop](https://developer.android.com/develop)
-* [Core areas](https://developer.android.com/develop/core-areas)
-* [UI](https://developer.android.com/develop/ui)
-* [Views](https://developer.android.com/develop/ui/views/layout/declaring-layout)
-
-# Custom text editors Stay organized with collections Save and categorize content based on your preferences.
-
-
-
 Custom text editors are views that are not
-[`EditText`](/reference/kotlin/android/widget/EditText) components or
-[`WebView`](/reference/kotlin/android/webkit/WebView) text widgets but
+[`EditText`](https://developer.android.com/reference/kotlin/android/widget/EditText) components or
+[`WebView`](https://developer.android.com/reference/kotlin/android/webkit/WebView) text widgets but
 nevertheless support text input by implementing the
-[`onCreateInputConnection()`](/reference/kotlin/android/view/View#oncreateinputconnection)
+[`onCreateInputConnection()`](https://developer.android.com/reference/kotlin/android/view/View#oncreateinputconnection)
 callback, which is called when a view is focused and the system requests an
-[`InputConnection`](/reference/kotlin/android/view/inputmethod/InputConnection)
+[`InputConnection`](https://developer.android.com/reference/kotlin/android/view/inputmethod/InputConnection)
 for the view.
 
 A call to
-[`onCheckIsTextEditor()`](/reference/kotlin/android/view/View#oncheckistexteditor)
+[`onCheckIsTextEditor()`](https://developer.android.com/reference/kotlin/android/view/View#oncheckistexteditor)
 from a custom text editor should return `true`.
 
 ## Support stylus handwriting in custom text editors
 
 Android 14 (API level 34) and higher support stylus input in standard Android
 text entry components by default (see [Stylus input in text
-fields](/develop/ui/views/touch-and-input/stylus-input/stylus-input-in-text-fields)).
+fields](https://developer.android.com/develop/ui/views/touch-and-input/stylus-input/stylus-input-in-text-fields)).
 However, custom text entry fields (or editors) require additional development.
 
 To create a custom text editor, do the following:
@@ -52,17 +42,13 @@ implement its own handwriting initiation logic.
 
 If a view displays a single text editor and no other content, the view can opt
 into the view system's automatic handwriting initiation by calling
-[`setAutoHandwritingEnabled(true)`](/reference/kotlin/android/view/View#setautohandwritingenabled).
+[`setAutoHandwritingEnabled(true)`](https://developer.android.com/reference/kotlin/android/view/View#setautohandwritingenabled).
 
 With auto handwriting enabled, stylus motion starting anywhere within the view's
 handwriting bounds automatically initiates handwriting mode. The input method
-editor ([IME](/develop/ui/views/touch-and-input/creating-input-method)) receives
+editor ([IME](https://developer.android.com/develop/ui/views/touch-and-input/creating-input-method)) receives
 the stylus motion events and commits the recognized text.
-
-![Input field with surrounding rectangle indicating the bounds for detection of stylus motion events.](/static/images/develop/ui/compose/touch-input/stylus-input/shared/edittext_handwriting_bounds.png)
-
-
-**Figure 1.** Handwriting within the bounds of a `EditText` field.
+![Input field with surrounding rectangle indicating the bounds for detection of stylus motion events.](https://developer.android.com/static/images/develop/ui/compose/touch-input/stylus-input/shared/edittext_handwriting_bounds.png) **Figure 1.** Handwriting within the bounds of a `EditText` field.
 
 ### Custom handwriting initiation
 
@@ -70,49 +56,52 @@ If a view contains multiple text editors or content in addition to a single text
 editor, the view must implement its own handwriting initiation logic as follows:
 
 1. Opt out of the view system's automatic handwriting initiation by calling
-   [`setAutoHandwritingEnabled(false)`](/reference/kotlin/android/view/View#setautohandwritingenabled).
+   [`setAutoHandwritingEnabled(false)`](https://developer.android.com/reference/kotlin/android/view/View#setautohandwritingenabled).
+
 2. Keep track of all text editors that are visible within the view.
+
 3. Monitor motion events received by the view in
-   [`dispatchTouchEvent()`](/reference/kotlin/android/view/View#dispatchtouchevent).
+   [`dispatchTouchEvent()`](https://developer.android.com/reference/kotlin/android/view/View#dispatchtouchevent).
 
-   * When stylus motion occurs within a text editor's handwriting bounds,
+   - When stylus motion occurs within a text editor's handwriting bounds,
      focus the text editor (if not already focused).
-   * If the editor was not already focused, restart the editor's IME with new
-     contents by calling
-     [`InputMethodManager#restartInput()`](/reference/kotlin/android/view/inputmethod/InputMethodManager#restartinput).
-   * Start the stylus handwriting session by calling
-     [`InputMethodManager#startStylusHandwriting()`](/reference/kotlin/android/view/inputmethod/InputMethodManager#startstylushandwriting).
 
-**Note:** By default, the handwriting bounds of an `EditText` include 40 dp of
-vertical padding and 10 dp of horizontal padding (see figure 1). Match these
-bounds in custom editor views.
+   - If the editor was not already focused, restart the editor's IME with new
+     contents by calling
+     [`InputMethodManager#restartInput()`](https://developer.android.com/reference/kotlin/android/view/inputmethod/InputMethodManager#restartinput).
+
+   - Start the stylus handwriting session by calling
+     [`InputMethodManager#startStylusHandwriting()`](https://developer.android.com/reference/kotlin/android/view/inputmethod/InputMethodManager#startstylushandwriting).
+
+> [!NOTE]
+> **Note:** By default, the handwriting bounds of an `EditText` include 40 dp of vertical padding and 10 dp of horizontal padding (see figure 1). Match these bounds in custom editor views.
 
 If a text editor is inside a scrollable view, stylus movement within the
 editor's handwriting bounds should be considered handwriting, not scrolling. Use
-[`ViewParent#requestDisallowInterceptTouchEvent()`](/reference/kotlin/android/view/ViewParent#requestdisallowintercepttouchevent)
+[`ViewParent#requestDisallowInterceptTouchEvent()`](https://developer.android.com/reference/kotlin/android/view/ViewParent#requestdisallowintercepttouchevent)
 to prevent a scrollable ancestor view from intercepting touch events from a text
 editor.
 
 ### API details
 
-* [**`MotionEvent#getToolType()`**](/reference/kotlin/android/view/MotionEvent#gettooltype)
-  — Indicates whether the `MotionEvent` is from a stylus, in which case
+- [**`MotionEvent#getToolType()`**](https://developer.android.com/reference/kotlin/android/view/MotionEvent#gettooltype)
+  --- Indicates whether the `MotionEvent` is from a stylus, in which case
   the return value is
-  [`TOOL_TYPE_STYLUS`](/reference/kotlin/android/view/MotionEvent#tool_type_stylus)
+  [`TOOL_TYPE_STYLUS`](https://developer.android.com/reference/kotlin/android/view/MotionEvent#tool_type_stylus)
   or
-  [`TOOL_TYPE_ERASER`](/reference/kotlin/android/view/MotionEvent#tool_type_eraser).
+  [`TOOL_TYPE_ERASER`](https://developer.android.com/reference/kotlin/android/view/MotionEvent#tool_type_eraser).
 
-  **Note:** When the user presses the eraser button on a stylus and then motions
-  with the stylus, the motion event return type is `TOOL_TYPE_ERASER`. Start
-  handwriting mode and let the IME determine how to recognize the stylus
-  movement.
-* [**`InputMethodManager#isStylusHandwritingAvailable()`**](/reference/kotlin/android/view/inputmethod/InputMethodManager#isstylushandwritingavailable)
-  — Indicates whether the IME supports stylus handwriting. Call this
+  > [!NOTE]
+  > **Note:** When the user presses the eraser button on a stylus and then motions with the stylus, the motion event return type is `TOOL_TYPE_ERASER`. Start handwriting mode and let the IME determine how to recognize the stylus movement.
+
+- [**`InputMethodManager#isStylusHandwritingAvailable()`**](https://developer.android.com/reference/kotlin/android/view/inputmethod/InputMethodManager#isstylushandwritingavailable)
+  --- Indicates whether the IME supports stylus handwriting. Call this
   method before every call to `InputMethodManager#startStylusHandwriting()`
   since the handwriting availability may have changed.
-* [**`InputMethodManager#startStylusHandwriting()`**](/reference/kotlin/android/view/inputmethod/InputMethodManager#startstylushandwriting)
-  — Causes the IME to enter handwriting mode. An
-  [`ACTION_CANCEL`](/reference/kotlin/android/view/MotionEvent#action_cancel)
+
+- [**`InputMethodManager#startStylusHandwriting()`**](https://developer.android.com/reference/kotlin/android/view/inputmethod/InputMethodManager#startstylushandwriting)
+  --- Causes the IME to enter handwriting mode. An
+  [`ACTION_CANCEL`](https://developer.android.com/reference/kotlin/android/view/MotionEvent#action_cancel)
   motion event is dispatched to the app to cancel the current gesture. Stylus
   motion events are no longer dispatched to the app.
 
@@ -120,88 +109,71 @@ editor.
   the app are forwarded to the IME. The IME is required to show a stylus ink
   window through which the IME receives all following `MotionEvent` objects.
   The IME commits recognized handwriting text using the
-  [`InputConnection`](/reference/kotlin/android/view/inputmethod/InputConnection)
+  [`InputConnection`](https://developer.android.com/reference/kotlin/android/view/inputmethod/InputConnection)
   APIs.
 
   If the IME can't enter handwriting mode, this method call is a no-op.
 
-  **Note:** You can successfully call `startStylusHandwriting()` only when the
-  view argument has focus and an active input connection. The window
-  containing the view must also have focus.
+  > [!NOTE]
+  > **Note:** You can successfully call `startStylusHandwriting()` only when the view argument has focus and an active input connection. The window containing the view must also have focus.
 
 ## Declare handwriting support
 
 When filling in the
-[`EditorInfo`](/reference/kotlin/android/view/inputmethod/EditorInfo) argument
+[`EditorInfo`](https://developer.android.com/reference/kotlin/android/view/inputmethod/EditorInfo) argument
 of
-[`View#onCreateInputConnection(EditorInfo)`](/reference/kotlin/android/view/View#oncreateinputconnection) call
-[`setStylusHandwritingEnabled()`](/reference/kotlin/android/view/inputmethod/EditorInfo#setstylushandwritingenabled) to inform the IME that the text editor supports handwriting.
+[`View#onCreateInputConnection(EditorInfo)`](https://developer.android.com/reference/kotlin/android/view/View#oncreateinputconnection) call
+[`setStylusHandwritingEnabled()`](https://developer.android.com/reference/kotlin/android/view/inputmethod/EditorInfo#setstylushandwritingenabled) to inform the IME that the text editor supports handwriting.
 Declare supported gestures with
-[`setSupportedHandwritingGestures()`](/reference/kotlin/android/view/inputmethod/EditorInfo#setsupportedhandwritinggestures)
+[`setSupportedHandwritingGestures()`](https://developer.android.com/reference/kotlin/android/view/inputmethod/EditorInfo#setsupportedhandwritinggestures)
 and
-[`setSupportedHandwritingGesturePreviews()`](/reference/kotlin/android/view/inputmethod/EditorInfo#setsupportedhandwritinggesturepreviews).
+[`setSupportedHandwritingGesturePreviews()`](https://developer.android.com/reference/kotlin/android/view/inputmethod/EditorInfo#setsupportedhandwritinggesturepreviews).
 
 ## Support handwriting gestures
 
 IMEs can support various handwriting gestures, such as circling text to select
 it or scribbling over text to delete it.
-
-[
-
-Your browser doesn't support the video tag.
-](/static/images/develop/ui/compose/touch-input/stylus-input/shared/circle_to_select_animation.webm)
-
-
-**Figure 2.** Circle to select text.
-
-
-[
-
-Your browser doesn't support the video tag.
-](/static/images/develop/ui/compose/touch-input/stylus-input/shared/scribble_to_delete_animation.webm)
-
-
-**Figure 3.** Scribble to delete text.
+Your browser doesn't support the video tag. **Figure 2.** Circle to select text. Your browser doesn't support the video tag. **Figure 3.** Scribble to delete text.
 
 Custom editors implement
-[`InputConnection#performHandwritingGesture()`](/reference/kotlin/android/view/inputmethod/InputConnection#performhandwritinggesture)
+[`InputConnection#performHandwritingGesture()`](https://developer.android.com/reference/kotlin/android/view/inputmethod/InputConnection#performhandwritinggesture)
 and
-[`InputConnection#previewHandwritingGesture()`](/reference/kotlin/android/view/inputmethod/InputConnection#previewhandwritinggesture)
+[`InputConnection#previewHandwritingGesture()`](https://developer.android.com/reference/kotlin/android/view/inputmethod/InputConnection#previewhandwritinggesture)
 to support different
-[`HandwritingGesture`](/reference/kotlin/android/view/inputmethod/HandwritingGesture)
+[`HandwritingGesture`](https://developer.android.com/reference/kotlin/android/view/inputmethod/HandwritingGesture)
 types, such as
-[`SelectGesture`](/reference/kotlin/android/view/inputmethod/SelectGesture),
-[`DeleteGesture`](/reference/kotlin/android/view/inputmethod/DeleteGesture), and
-[`InsertGesture`](/reference/kotlin/android/view/inputmethod/InsertGesture).
+[`SelectGesture`](https://developer.android.com/reference/kotlin/android/view/inputmethod/SelectGesture),
+[`DeleteGesture`](https://developer.android.com/reference/kotlin/android/view/inputmethod/DeleteGesture), and
+[`InsertGesture`](https://developer.android.com/reference/kotlin/android/view/inputmethod/InsertGesture).
 
 Declare supported handwriting gestures when filling in the `EditorInfo` argument
 of `View#onCreateInputConnection(EditorInfo)` (see the [Declare handwriting
-support](#declare_handwriting_support) section).
+support](https://developer.android.com/develop/ui/views/touch-and-input/stylus-input/custom-text-editors#declare_handwriting_support) section).
 
 ### API details
 
-* [**`InputConnection#performHandwritingGesture(HandwritingGesture, Executor,
-  IntConsumer)`**](/reference/kotlin/android/view/inputmethod/InputConnection#performhandwritinggesture)
-  — Implements gestures. The `HandwritingGesture` argument contains
+- [**`InputConnection#performHandwritingGesture(HandwritingGesture, Executor,
+  IntConsumer)`**](https://developer.android.com/reference/kotlin/android/view/inputmethod/InputConnection#performhandwritinggesture)
+  --- Implements gestures. The `HandwritingGesture` argument contains
   location information which you can use to determine where in the text to
   perform the gesture. For example, `SelectGesture` provides a
-  [`RectF`](/reference/kotlin/android/graphics/RectF) object that
+  [`RectF`](https://developer.android.com/reference/kotlin/android/graphics/RectF) object that
   specifies the selected text range, and `InsertGesture` provides a
-  [`PointF`](/reference/kotlin/android/graphics/PointF) object that
+  [`PointF`](https://developer.android.com/reference/kotlin/android/graphics/PointF) object that
   specifies the text offset at which to insert text.
 
-  Use the [`Executor`](/reference/kotlin/java/util/concurrent/Executor) and
-  [`IntConsumer`](/reference/kotlin/java/util/function/IntConsumer) parameters
+  Use the [`Executor`](https://developer.android.com/reference/kotlin/java/util/concurrent/Executor) and
+  [`IntConsumer`](https://developer.android.com/reference/kotlin/java/util/function/IntConsumer) parameters
   to send back the result of the operation. When both the executor and
   consumer arguments are provided, use the executor to call
-  [`IntConsumer#accept()`](/reference/kotlin/java/util/function/IntConsumer#accept),
+  [`IntConsumer#accept()`](https://developer.android.com/reference/kotlin/java/util/function/IntConsumer#accept),
   for example:
 
-  ```
-  executor.execute { consumer.accept(HANDWRITING_GESTURE_RESULT_SUCCESS) }
-  ```
-* [**`HandwritingGesture#getFallbackText()`**](/reference/kotlin/android/view/inputmethod/HandwritingGesture#getfallbacktext)
-  — Provides fallback text the IME commits at the cursor position if no
+
+      executor.execute { consumer.accept(HANDWRITING_GESTURE_RESULT_SUCCESS) }
+
+- [**`HandwritingGesture#getFallbackText()`**](https://developer.android.com/reference/kotlin/android/view/inputmethod/HandwritingGesture#getfallbacktext)
+  --- Provides fallback text the IME commits at the cursor position if no
   applicable text is beneath the area of a handwriting gesture.
 
   Sometimes the IME is not able to determine whether a stylus gesture is
@@ -217,13 +189,13 @@ support](#declare_handwriting_support) section).
   gesture cannot be performed (for example, there is no text at the location
   specified), the editor should fall back to inserting "v" at the cursor
   position.
-* [**`InputConnection#previewHandwritingGesture(PreviewableHandwritingGesture,
-  CancellationSignal)`**](/reference/kotlin/android/view/inputmethod/InputConnection#previewhandwritinggesture)
-  — Previews an ongoing gesture. For example, as the user begins to draw
+- [**`InputConnection#previewHandwritingGesture(PreviewableHandwritingGesture,
+  CancellationSignal)`**](https://developer.android.com/reference/kotlin/android/view/inputmethod/InputConnection#previewhandwritinggesture)
+  --- Previews an ongoing gesture. For example, as the user begins to draw
   a circle around some text, a live preview of the resulting selection can be
   shown and continuously updated as the user continues drawing. Only certain
   gesture types are previewable (see
-  [`PreviewableHandwritingGesture`](/reference/kotlin/android/view/inputmethod/PreviewableHandwritingGesture)).
+  [`PreviewableHandwritingGesture`](https://developer.android.com/reference/kotlin/android/view/inputmethod/PreviewableHandwritingGesture)).
 
   The `CancellationSignal` parameter can be used by the IME to cancel the
   preview. If other events disrupt the preview (for example, text is changed
@@ -239,43 +211,34 @@ support](#declare_handwriting_support) section).
 
 In handwriting mode, the IME can request cursor location and other position data
 using
-[`InputConnection#requestCursorUpdates()`](/reference/kotlin/android/view/inputmethod/InputConnection#requestcursorupdates).
+[`InputConnection#requestCursorUpdates()`](https://developer.android.com/reference/kotlin/android/view/inputmethod/InputConnection#requestcursorupdates).
 The custom editor responds with a call to
 [`InputMethodManager#updateCursorAnchorInfo(View,
-CursorAnchorInfo)`](/reference/kotlin/android/view/inputmethod/InputMethodManager#updatecursoranchorinfo).
+CursorAnchorInfo)`](https://developer.android.com/reference/kotlin/android/view/inputmethod/InputMethodManager#updatecursoranchorinfo).
 The data in
-[`CursorAnchorInfo`](/reference/kotlin/android/view/inputmethod/CursorAnchorInfo)
+[`CursorAnchorInfo`](https://developer.android.com/reference/kotlin/android/view/inputmethod/CursorAnchorInfo)
 relevant to stylus handwriting is provided through the following
-[`CursorAnchorInfo.Builder`](/reference/kotlin/android/view/inputmethod/CursorAnchorInfo.Builder)
+[`CursorAnchorInfo.Builder`](https://developer.android.com/reference/kotlin/android/view/inputmethod/CursorAnchorInfo.Builder)
 methods:
 
-* [**`setInsertionMarkerLocation()`**](/reference/kotlin/android/view/inputmethod/CursorAnchorInfo.Builder#setinsertionmarkerlocation)
-  — Sets the location of the cursor. The IME uses the value to animate
-  handwriting ink to the cursor location.
-* [**`setEditorBoundsInfo()`**](/reference/kotlin/android/view/inputmethod/CursorAnchorInfo.Builder#seteditorboundsinfo)
-  — Sets the editor's bounds and the handwriting bounds. The IME uses
-  this data to position the IME's handwriting toolbar on screen.
-* [**`addVisibleLineBounds()`**](/reference/kotlin/android/view/inputmethod/CursorAnchorInfo.Builder#addvisiblelinebounds)
-  — Sets the bounds of all visible (or partially visible) text lines of
-  the editor. The IME uses the line bounds to improve accuracy in recognizing
-  handwriting gestures.
-* [**`setTextAppearanceInfo()`**](/reference/kotlin/android/view/inputmethod/CursorAnchorInfo.Builder#settextappearanceinfo)
-  — Sets the text appearance with information derived from the text
-  input field. The IME uses the information to style the handwriting ink.
+- [**`setInsertionMarkerLocation()`**](https://developer.android.com/reference/kotlin/android/view/inputmethod/CursorAnchorInfo.Builder#setinsertionmarkerlocation) --- Sets the location of the cursor. The IME uses the value to animate handwriting ink to the cursor location.
+- [**`setEditorBoundsInfo()`**](https://developer.android.com/reference/kotlin/android/view/inputmethod/CursorAnchorInfo.Builder#seteditorboundsinfo) --- Sets the editor's bounds and the handwriting bounds. The IME uses this data to position the IME's handwriting toolbar on screen.
+- [**`addVisibleLineBounds()`**](https://developer.android.com/reference/kotlin/android/view/inputmethod/CursorAnchorInfo.Builder#addvisiblelinebounds) --- Sets the bounds of all visible (or partially visible) text lines of the editor. The IME uses the line bounds to improve accuracy in recognizing handwriting gestures.
+- [**`setTextAppearanceInfo()`**](https://developer.android.com/reference/kotlin/android/view/inputmethod/CursorAnchorInfo.Builder#settextappearanceinfo) --- Sets the text appearance with information derived from the text input field. The IME uses the information to style the handwriting ink.
 
 ## Show the stylus handwriting hover icon
 
 Display the stylus handwriting hover icon when the stylus hovers over the
 handwriting bounds of your custom text editor and the selected IME supports
 stylus handwriting
-([`InputMethodManager#isStylusHandwritingAvailable()`](/reference/kotlin/android/view/inputmethod/InputMethodManager#isstylushandwritingavailable)).
+([`InputMethodManager#isStylusHandwritingAvailable()`](https://developer.android.com/reference/kotlin/android/view/inputmethod/InputMethodManager#isstylushandwritingavailable)).
 
 Override
-[`View#onResolvePointerIcon()`](/reference/kotlin/android/view/View#onresolvepointericon)
+[`View#onResolvePointerIcon()`](https://developer.android.com/reference/kotlin/android/view/View#onresolvepointericon)
 to get a hover icon for stylus handwriting. In the override, call
-[`PointerIcon.getSystemIcon(context, PointerIcon.TYPE_HANDWRITING)`](/reference/kotlin/android/view/PointerIcon#getsystemicon)
+[`PointerIcon.getSystemIcon(context, PointerIcon.TYPE_HANDWRITING)`](https://developer.android.com/reference/kotlin/android/view/PointerIcon#getsystemicon)
 to access the system's stylus handwriting hover icon.
 
 ## Additional resources
 
-* [Stylus input in text fields](/develop/ui/views/touch-and-input/stylus-input/stylus-input-in-text-fields)
+- [Stylus input in text fields](https://developer.android.com/develop/ui/views/touch-and-input/stylus-input/stylus-input-in-text-fields)

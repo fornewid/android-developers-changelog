@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 ![](/static/images/design/ui/mobile/themes-hero.png)
 
 A theme is a set of styles or attributes such as color, type, and shape, which

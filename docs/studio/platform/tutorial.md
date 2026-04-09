@@ -1,8 +1,18 @@
 ---
-title: https://developer.android.com/studio/platform/tutorial
+title: ASfP video tutorial  |  Android Studio for Platform  |  Android Developers
 url: https://developer.android.com/studio/platform/tutorial
-source: md.txt
+source: html-scrape
 ---
+
+* [Android Developers](https://developer.android.com/)
+* [Develop](https://developer.android.com/develop)
+* [Android Studio for Platform](https://developer.android.com/studio/platform)
+* [Getting started](https://developer.android.com/studio/platform/intro)
+
+# ASfP video tutorial Stay organized with collections Save and categorize content based on your preferences.
+
+
+
 
 Get up to speed with Android Studio for Platform (ASfP) by watching our video
 tutorial. This video walks you through the essential steps to get started,
@@ -10,7 +20,11 @@ including setting up your first project, navigating the interface, and using
 some of the core features designed for AOSP development.
 
 Click play to watch the tutorial:
+
+[![
+
 Your browser does not support the video tag.
+](https://developer.android.com/studio/platform/images/thumbnail-asfp-december-2023-compressed.jpg)](/static/studio/platform/videos/asfp-december-2023-compressed.mp4)
 
 This tutorial is a great way to quickly understand the workflow and benefits of
 using ASfP for your platform development needs.

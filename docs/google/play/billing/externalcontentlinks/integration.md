@@ -14,6 +14,7 @@ Send feedback
 
 
 
+
 This document describes how to integrate the Play Billing Library APIs to offer
 external content links in eligible apps. This includes the ability to link users
 in the US outside your Play app to provide users with offers to in-app digital
@@ -315,6 +316,8 @@ information on configuring license testers.
 
 After you've finished in-app integration, you're ready to
 [integrate your backend](/google/play/billing/outside-gpb-backend).
+
+
 
 
 

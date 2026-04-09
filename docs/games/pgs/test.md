@@ -15,7 +15,6 @@ Send feedback
 
 
 
-
 To check that Google Play Games Services (PGS) are functioning correctly in your application,
 test your Google Play Games Services before publishing your game changes on Google Play.
 
@@ -81,8 +80,6 @@ account](https://support.google.com/googleplay/android-developer/answer/14151465
 you must have also configured your OAuth audience setting in Google Cloud as
 **External**. For more information, see
 [Manage App audience](https://support.google.com/cloud/answer/15549945).
-
-
 
 
 

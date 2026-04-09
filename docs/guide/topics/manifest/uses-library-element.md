@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 **Note:** Google Play uses the `<uses-library>` elements declared
 in your app manifest to filter your app from devices that don't meet its
 library requirements. For more information about filtering, see

@@ -1,18 +1,30 @@
 ---
-title: https://developer.android.com/guide/navigation/integrations/feature-modules
+title: Navigate with feature modules  |  App architecture  |  Android Developers
 url: https://developer.android.com/guide/navigation/integrations/feature-modules
-source: md.txt
+source: html-scrape
 ---
 
+* [Android Developers](https://developer.android.com/)
+* [Design & Plan](https://developer.android.com/design)
+* [App architecture](https://developer.android.com/topic/architecture/intro)
+
+# Navigate with feature modules Stay organized with collections Save and categorize content based on your preferences.
+
+
+
+
 The Dynamic Navigator library extends the functionality of the
-[Jetpack Navigation component](https://developer.android.com/guide/navigation) to work with destinations
+[Jetpack Navigation component](/guide/navigation) to work with destinations
 that are defined in
-[feature modules](https://developer.android.com/guide/app-bundle/dynamic-delivery#customize_delivery).
+[feature modules](/guide/app-bundle/dynamic-delivery#customize_delivery).
 This library also provides seamless installation of on-demand feature
 modules when navigating to these destinations.
 
-> [!NOTE]
-> **Note:** If you are not familiar with Play Feature Delivery, review the [feature module guide](https://developer.android.com/guide/app-bundle/dynamic-delivery#customize_delivery) and [additional resources](https://developer.android.com/guide/app-bundle/dynamic-delivery#additional_resources) before continuing.
+**Note:** If you are not familiar with Play Feature Delivery, review the
+[feature module guide](/guide/app-bundle/dynamic-delivery#customize_delivery)
+and
+[additional resources](/guide/app-bundle/dynamic-delivery#additional_resources)
+before continuing.
 
 ## Setup
 
@@ -20,7 +32,7 @@ To support feature modules, use the following dependencies in your app module's 
 
 ### Groovy
 
-```groovy
+```
 dependencies {
     def nav_version = "2.9.7"
 
@@ -32,7 +44,7 @@ dependencies {
 
 ### Kotlin
 
-```kotlin
+```
 dependencies {
     val nav_version = "2.9.7"
 
@@ -51,11 +63,13 @@ To support feature modules, first change all instances of
 `NavHostFragment` in your app to
 `androidx.navigation.dynamicfeatures.fragment.DynamicNavHostFragment`:
 
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/nav_host_fragment"
-        android:name="androidx.navigation.dynamicfeatures.fragment.DynamicNavHostFragment"
-        app:navGraph="@navigation/nav_graph"
-        ... />
+```
+<androidx.fragment.app.FragmentContainerView
+    android:id="@+id/nav_host_fragment"
+    android:name="androidx.navigation.dynamicfeatures.fragment.DynamicNavHostFragment"
+    app:navGraph="@navigation/nav_graph"
+    ... />
+```
 
 Next, add an `app:moduleName` attribute to any `<activity>`, `<fragment>`, or
 `<navigation>` destinations in your `com.android.dynamic-feature` module's
@@ -63,14 +77,16 @@ navigation graphs that are associated with a `DynamicNavHostFragment`.
 This attribute tells the Dynamic Navigator library that the destination
 belongs to a feature module with the name that you specify.
 
-> [!NOTE]
-> **Note:** The `moduleName` needs to match your app's `dynamicFeatures` property as declared in the `build.gradle` file.
+**Note:** The `moduleName` needs to match your app's `dynamicFeatures` property
+as declared in the `build.gradle` file.
 
-    <fragment
-        app:moduleName="myDynamicFeature"
-        android:id="@+id/featureFragment"
-        android:name="com.google.android.samples.feature.FeatureFragment"
-        ... />
+```
+<fragment
+    app:moduleName="myDynamicFeature"
+    android:id="@+id/featureFragment"
+    android:name="com.google.android.samples.feature.FeatureFragment"
+    ... />
+```
 
 When you navigate to one of these destinations, the Dynamic Navigator library
 first checks if the feature module is installed. If the feature
@@ -79,13 +95,19 @@ If the module isn't present, your app shows an intermediate progress fragment
 destination as it installs the module. The default implementation of the
 progress fragment shows a basic UI with a progress bar and handles any
 installation errors.
+
 ![two loading screens that show UI with a progress bar when navigating
-to a feature module for the first time](https://developer.android.com/static/images/guide/navigation/dfm-nav-loading.png) **Figure 1.** UI showing a progress bar when a user navigates to an on-demand feature for the first time. The app displays this screen as the corresponding module downloads.
+         to a feature module for the first time](/static/images/guide/navigation/dfm-nav-loading.png)
+
+
+**Figure 1.** UI showing a progress bar when a user navigates
+to an on-demand feature for the first time. The app displays this screen as
+the corresponding module downloads.
 
 To customize this UI, or to manually handle installation
 progress from within your own app screen, see the
-[Customize the progress fragment](https://developer.android.com/guide/navigation/integrations/feature-modules#customize) and
-[Monitor the request state](https://developer.android.com/guide/navigation/integrations/feature-modules#monitor) sections in this topic.
+[Customize the progress fragment](#customize) and
+[Monitor the request state](#monitor) sections in this topic.
 
 Destinations that don't specify `app:moduleName` continue to work without
 changes and behave as though your app uses a regular `NavHostFragment`.
@@ -96,8 +118,8 @@ You can override the progress fragment implementation for each navigation graph
 by setting the `app:progressDestination` attribute to the ID of the destination
 you want to use for handling installation progress. Your custom progress
 destination should be a
-[`Fragment`](https://developer.android.com/reference/kotlin/androidx/fragment/app/Fragment) that derives from
-[`AbstractProgressFragment`](https://developer.android.com/reference/kotlin/androidx/navigation/dynamicfeatures/fragment/ui/AbstractProgressFragment).
+[`Fragment`](/reference/kotlin/androidx/fragment/app/Fragment) that derives from
+[`AbstractProgressFragment`](/reference/kotlin/androidx/navigation/dynamicfeatures/fragment/ui/AbstractProgressFragment).
 You must override the abstract methods for notifications about installation
 progress, errors, and other events. You can then show installation progress in a
 UI of your choice.
@@ -110,28 +132,33 @@ class uses this API to show installation progress.
 
 The Dynamic Navigator library enables you to implement a UX flow similar to the
 one in
-[UX best practices for on-demand delivery](https://developer.android.com/studio/projects/dynamic-delivery/ux-guidelines),
+[UX best practices for on-demand delivery](/studio/projects/dynamic-delivery/ux-guidelines),
 in which a user stays in the context of a previous screen while waiting for
 installation to finish. This means that you don't need to show an intermediate
 UI or progress fragment at all.
+
 ![screen that shows a bottom nav bar with an icon that indicates
-that a feature module is downloading](https://developer.android.com/static/images/guide/navigation/nav-dfm-ui.png) **Figure 2.** Screen that shows download progress from a bottom navigation bar.
+         that a feature module is downloading](/static/images/guide/navigation/nav-dfm-ui.png)
+
+
+**Figure 2.** Screen that shows download progress from a
+bottom navigation bar.
 
 In this scenario, you are responsible for
 monitoring and handling all installation states, progress changes, errors, and
 so on.
 
 To initiate this non-blocking navigation flow, pass a
-[`DynamicExtras`](https://developer.android.com/reference/kotlin/androidx/navigation/dynamicfeatures/DynamicExtras)
+[`DynamicExtras`](/reference/kotlin/androidx/navigation/dynamicfeatures/DynamicExtras)
 object that contains a
-[`DynamicInstallMonitor`](https://developer.android.com/reference/kotlin/androidx/navigation/dynamicfeatures/DynamicInstallMonitor)
+[`DynamicInstallMonitor`](/reference/kotlin/androidx/navigation/dynamicfeatures/DynamicInstallMonitor)
 to
-[`NavController.navigate()`](https://developer.android.com/reference/androidx/navigation/NavController#navigate(int,%20android.os.Bundle,%20androidx.navigation.NavOptions,%20androidx.navigation.Navigator.Extras)),
+[`NavController.navigate()`](/reference/androidx/navigation/NavController#navigate(int,%20android.os.Bundle,%20androidx.navigation.NavOptions,%20androidx.navigation.Navigator.Extras)),
 as shown in the following example:
 
 ### Kotlin
 
-```kotlin
+```
 val navController = ...
 val installMonitor = DynamicInstallMonitor()
 
@@ -145,7 +172,7 @@ navController.navigate(
 
 ### Java
 
-```java
+```
 NavController navController = ...
 DynamicInstallMonitor installMonitor = new DynamicInstallMonitor();
 
@@ -161,21 +188,22 @@ Immediately after calling `navigate()`, you should check the value of
 `installMonitor.isInstallRequired` to see if the attempted navigation resulted
 in a feature module installation.
 
-- If the value is `false`, you're navigating to a normal destination and don't need to do anything else.
-- If the value is `true`, you should start observing the `LiveData` object that
+* If the value is `false`, you're navigating to a normal destination and don't
+  need to do anything else.
+* If the value is `true`, you should start observing the `LiveData` object that
   is now in `installMonitor.status`. This `LiveData` object emits
-  [`SplitInstallSessionState`](https://developer.android.com/reference/com/google/android/play/core/splitinstall/SplitInstallSessionState)
+  [`SplitInstallSessionState`](/reference/com/google/android/play/core/splitinstall/SplitInstallSessionState)
   updates from the Play Core library. These updates contain installation
   progress events that you can use to update the UI. Remember to handle all
   relevant statuses as outlined in the
-  [Play Core guide](https://developer.android.com/guide/app-bundle/playcore),
+  [Play Core guide](/guide/app-bundle/playcore),
   including
-  [asking for user confirmation](https://developer.android.com/guide/playcore/dynamic-delivery#obtain_confirmation)
+  [asking for user confirmation](/guide/playcore/dynamic-delivery#obtain_confirmation)
   if necessary.
 
   ### Kotlin
 
-  ```kotlin
+  ```
   val navController = ...
   val installMonitor = DynamicInstallMonitor()
 
@@ -213,7 +241,7 @@ in a feature module installation.
 
   ### Java
 
-  ```java
+  ```
   NavController navController = ...
   DynamicInstallMonitor installMonitor = new DynamicInstallMonitor();
 
@@ -262,7 +290,7 @@ installation fails, you should remove your `LiveData` observer to avoid memory
 leaks. You can check if the status represents a terminal state by using
 `SplitInstallSessionStatus.hasTerminalStatus()`.
 
-See [`AbstractProgressFragment`](https://developer.android.com/reference/kotlin/androidx/navigation/dynamicfeatures/fragment/ui/AbstractProgressFragment)
+See [`AbstractProgressFragment`](/reference/kotlin/androidx/navigation/dynamicfeatures/fragment/ui/AbstractProgressFragment)
 for an example implementation of this observer.
 
 ## Included graphs
@@ -274,17 +302,22 @@ module, do the following:
 1. Use `<include-dynamic/>` instead of `<include/>`, as shown in the following
    example:
 
-       <include-dynamic
-           android:id="@+id/includedGraph"
-           app:moduleName="includedgraphfeature"
-           app:graphResName="included_feature_nav"
-           app:graphPackage="com.google.android.samples.dynamic_navigator.included_graph_feature" />
-
+   ```
+   <include-dynamic
+       android:id="@+id/includedGraph"
+       app:moduleName="includedgraphfeature"
+       app:graphResName="included_feature_nav"
+       app:graphPackage="com.google.android.samples.dynamic_navigator.included_graph_feature" />
+   ```
 2. Inside `<include-dynamic ... />`, you must specify the following attributes:
 
-   - `app:graphResName`: the name of the navigation graph resource file. The name is derived from the graph's file name. For example, if the graph is in `res/navigation/nav_graph.xml`, the resource name is `nav_graph`.
-   - `android:id` - the graph destination ID. The Dynamic Navigator library ignores any `android:id` values that are found in the root element of the included graph.
-   - `app:moduleName`: the package name of the module.
+   * `app:graphResName`: the name of the navigation graph resource file. The
+     name is derived from the graph's file name. For example, if the graph is in
+     `res/navigation/nav_graph.xml`, the resource name is `nav_graph`.
+   * `android:id` - the graph destination ID. The Dynamic Navigator library
+     ignores any `android:id` values that are found in the root element of the
+     included graph.
+   * `app:moduleName`: the package name of the module.
 
 ### Use the correct graphPackage
 
@@ -292,8 +325,9 @@ It is important to get the `app:graphPackage` correct as the Navigation
 component will not be able to include the specified `navGraph` from the feature
 module, otherwise.
 
-> [!CAUTION]
-> **Caution:** The package name of the dynamic feature module is generated automatically by the build toolchain, and any values in the `AndroidManifest.xml` or `build.gradle` in your dynamic module will be ignored.
+**Caution:** The package name of the dynamic feature module is generated
+automatically by the build toolchain, and any values in the
+`AndroidManifest.xml` or `build.gradle` in your dynamic module will be ignored.
 
 The package name of a dynamic feature module is constructed by appending the
 name of the module to the `applicationId` of the base app module. So if the
@@ -303,12 +337,12 @@ name of the dynamic module will be
 `com.example.dynamicfeatureapp.DynamicFeatureModule`. This package name is
 case-sensitive.
 
-If you're in any doubt, you can confirm the package name of the feature module
+If you’re in any doubt, you can confirm the package name of the feature module
 by checking the generated `AndroidManifest.xml`. After building the project go
 to `<DynamicFeatureModule>/build/intermediates/merged_manifest/debug/AndroidManifest.xml`,
 which should look something like this:
 
-```xml
+```
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:dist="http://schemas.android.com/apk/distribution"
     featureSplit="DynamicFeatureModule"
@@ -344,7 +378,7 @@ It is only possible to navigate to the `startDestination` of an
 own navigation graph and the base app has no knowledge of that.
 
 The include-dynamic mechanism enables the base app module to include a
-[nested navigation graph](https://developer.android.com/guide/navigation/navigation-nested-graphs)
+[nested navigation graph](/guide/navigation/navigation-nested-graphs)
 that is defined within the dynamic module. This nested navigation graph behaves
 like any nested navigation graph. The root navigation graph (that is, the parent
 of the nested graph) can only define the nested navigation graph itself as a
@@ -353,5 +387,6 @@ the include-dynamicnavigation graph is the destination.
 
 ## Limitations
 
-- Dynamically-included graphs don't currently support deep links.
-- Dynamically-loaded nested graphs (that is, a `<navigation>` element with an `app:moduleName`) don't currently support deep links.
+* Dynamically-included graphs don't currently support deep links.
+* Dynamically-loaded nested graphs (that is, a `<navigation>` element with an
+  `app:moduleName`) don't currently support deep links.

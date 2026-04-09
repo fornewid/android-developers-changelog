@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 The following examples are based on common scenarios where you use R8 for
 optimization, but need advanced guidance to draft keep rules.
 

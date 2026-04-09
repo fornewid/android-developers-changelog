@@ -15,6 +15,7 @@ Send feedback
 
 
 
+
 ![Desktop computer with keyboard and mouse. Game is on screen, showing touchscreen inputs for direction control and mouse.](/static/images/games/multiplatform/game_with_touchscreen_input.png)
 
 
@@ -191,6 +192,8 @@ Although not required, it can be best to annotate with manifest feature flags wh
 3. ChromeOS devices generally have mouse and keyboard support, but touchscreens are optional. Many touchscreen-enabled devices also support stylus input. [↩](#fnref3)
 4. Android Automotive OS refers to cars with Android built in, which can function without an Android phone. Automotive OS is what this chart refers to. Android Auto projects an app from a phone onto the car, and devices that support Android Auto (projection) might not have a touchscreen. [↩](#fnref4)
 5. Wear OS devices have limited connectivity. You can scan for bluetooth peripherals, but the OS often fails to connect. [↩](#fnref5)
+
+
 
 
 

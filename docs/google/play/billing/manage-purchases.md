@@ -14,7 +14,6 @@ Send feedback
 
 
 
-
 You may need to take management actions on subscriptions or one-time purchases
 as part of day-to-day business. For example, your customer service may need to
 issue total or partial refunds for users, or you might need to revoke
@@ -274,8 +273,6 @@ API is a replacement and improvement of the legacy
 The main difference is that the new method allows partial refunds while the
 legacy is capable of only full refunds.
 Be aware that a user refund is based on the value of the latest order.
-
-
 
 
 

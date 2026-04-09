@@ -14,7 +14,6 @@ Join us for ⁠the [Google for Games Developer Summit](https://gamedevsummit.wit
 
 
 
-
 The Commands pane displays the calls made by the application, grouped by frame and draw call or by user markers.
 
 ![Initial View of either an OpenGL or Vulkan trace](/static/images/agi/command-pane-images/command-pane-1.png)

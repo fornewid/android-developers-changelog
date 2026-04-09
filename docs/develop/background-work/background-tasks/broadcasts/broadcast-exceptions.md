@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 As part of the Android 8.0 (API level 26) [background execution
 limits](/about/versions/oreo/background#broadcasts), apps that target the
 API level 26 or higher can't register broadcast receivers for implicit

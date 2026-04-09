@@ -1,22 +1,13 @@
 ---
-title: Add annotation processors  |  Android Studio  |  Android Developers
+title: https://developer.android.com/build/annotation-processors
 url: https://developer.android.com/build/annotation-processors
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [Develop](https://developer.android.com/develop)
-* [Android Studio](https://developer.android.com/studio)
-* [Gradle build guides](https://developer.android.com/build/gradle-build-overview)
-
-# Add annotation processors Stay organized with collections Save and categorize content based on your preferences.
-
-
 
 This page includes detailed guidance on how to add and configure annotation
 processors as project dependencies. To learn more about annotation processors,
 see the entry in
-[Configure dependencies](/build/dependencies#dependency_configurations).
+[Configure dependencies](https://developer.android.com/build/dependencies#dependency_configurations).
 
 If you add annotation processors to your compile classpath, you'll see
 an error message similar to the following:
@@ -30,7 +21,7 @@ your dependency using `annotationProcessor` as shown below:
 
 ### Kotlin
 
-```
+```kotlin
 dependencies {
     // Adds libraries defining annotations to only the compile classpath.
     compileOnly("com.google.dagger:dagger:version-number")
@@ -41,7 +32,7 @@ dependencies {
 
 ### Groovy
 
-```
+```groovy
 dependencies {
     // Adds libraries defining annotations to only the compile classpath.
     compileOnly 'com.google.dagger:dagger:version-number'
@@ -56,14 +47,14 @@ supports [`android-apt` plugin.](https://github.com/littlerobots/android-apt)
 ## Pass arguments to annotation processors
 
 If you need to pass arguments to an annotation processor, you can do so using
-the [`AnnotationProcessorOptions`](/reference/tools/gradle-api/current/com/android/build/api/dsl/AnnotationProcessorOptions)
+the [`AnnotationProcessorOptions`](https://developer.android.com/reference/tools/gradle-api/current/com/android/build/api/dsl/AnnotationProcessorOptions)
 block in your module's build configuration. For example, if you want to pass
 primitive data types as key-value pairs, you can use the `argument` property,
 as shown below:
 
 ### Kotlin
 
-```
+```kotlin
 android {
     ...
     defaultConfig {
@@ -80,7 +71,7 @@ android {
 
 ### Groovy
 
-```
+```groovy
 android {
     ...
     defaultConfig {
@@ -108,13 +99,12 @@ to each argument.
 For example, the class below implements `CommandLineArgumentProvider` and
 annotates each argument for the processor.
 
-**Note:** Typically, annotation processor authors provide either this class or
-instructions on how to write such a class. That's because each argument needs to
-specify the correct build property type annotation in order to work as intended.
+> [!NOTE]
+> **Note:** Typically, annotation processor authors provide either this class or instructions on how to write such a class. That's because each argument needs to specify the correct build property type annotation in order to work as intended.
 
 ### Kotlin
 
-```
+```kotlin
 class MyArgsProvider(
     // Annotates each directory as either an input or output for the
     // annotation processor.
@@ -143,7 +133,7 @@ android {...}
 
 ### Groovy
 
-```
+```groovy
 class MyArgsProvider implements CommandLineArgumentProvider {
 
     // Annotates each directory as either an input or output for the
@@ -179,12 +169,12 @@ android {...}
 
 After you define a class that implements `CommandLineArgumentProvider`, you need
 to create an instance and pass it to the Android plugin using the
-[`annotationProcessorOptions.compilerArgumentProvider`](/reference/tools/gradle-api/current/com/android/build/api/dsl/AnnotationProcessorOptions#compilerArgumentProvider(org.gradle.process.CommandLineArgumentProvider))
+[`annotationProcessorOptions.compilerArgumentProvider`](https://developer.android.com/reference/tools/gradle-api/current/com/android/build/api/dsl/AnnotationProcessorOptions#compilerArgumentProvider(org.gradle.process.CommandLineArgumentProvider))
 method, as shown below.
 
 ### Kotlin
 
-```
+```kotlin
 // This is in your module's build.gradle file.
 android {
     defaultConfig {
@@ -203,7 +193,7 @@ android {
 
 ### Groovy
 
-```
+```groovy
 // This is in your module's build.gradle file.
 android {
     defaultConfig {
@@ -234,7 +224,7 @@ processor classpath.
 
 ### Kotlin
 
-```
+```kotlin
 android {
     ...
     defaultConfig {
@@ -250,7 +240,7 @@ android {
 
 ### Groovy
 
-```
+```groovy
 android {
     ...
     defaultConfig {
@@ -268,7 +258,7 @@ If you use Kotlin and [kapt](https://kotlinlang.org/docs/kapt.html):
 
 ### Kotlin
 
-```
+```kotlin
 android {
     ...
     defaultConfig {
@@ -282,7 +272,7 @@ android {
 
 ### Groovy
 
-```
+```groovy
 android {
     ...
     defaultConfig {

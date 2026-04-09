@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 If you want early access to the next version of Android Studio, you don't have to replace your
 existing stable version. You can install the Android Studio preview side by side with the stable
 version and work on the same app projects in both.

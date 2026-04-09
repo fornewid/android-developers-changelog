@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 As mentioned in the [workflow for using
 permissions](/training/basics/permissions#workflow), if your app requests app
 permissions, you must declare these permissions in your app's manifest file.

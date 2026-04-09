@@ -15,7 +15,6 @@ Send feedback
 
 
 
-
 To start making calls to the Publishing API, you must link to an API
 project directly from the
 [Google Play Console](//play.google.com/apps/publish/)
@@ -121,8 +120,6 @@ You can access the Publishing API directly via HTTP. For more information, see
 [Publishing API reference](https://developers.google.com/games/services/publishing/api)
 and the
 [sample app](//github.com/playgameservices/management-tools).
-
-
 
 
 

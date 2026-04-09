@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 The Contacts Provider is a powerful and flexible Android component that manages the
 device's central repository of data about people. The Contacts Provider is the source of data
 you see in the device's contacts application, and you can also access its data in your own

@@ -1,0 +1,54 @@
+---
+title: #Performance  |  Android Developers' Blog
+url: https://developer.android.com/blog/topics/performance
+source: html-scrape
+---
+
+* [Android Developers](https://developer.android.com/)
+* [Android Developers' Blog](https://developer.android.com/)
+* [Blog](https://developer.android.com/blog)
+
+Stay organized with collections
+
+Save and categorize content based on your preferences.
+
+
+
+# #Performance
+
+* [![](/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2dcD9g.webp)](/blog/authors/ben-weiss)
+
+  17
+
+  Nov
+  2025
+
+  17
+
+  Nov
+  2025
+
+  ![](/static/blog/assets/performance_Week9_2c643934fa_p8Pb2.webp)
+
+  #### [How-tos](/blog/categories/how-tos)
+
+  ## [Get your app on the fast track with Android Performance Spotlight Week!](/blog/posts/get-your-app-on-the-fast-track-with-android-performance-spotlight-week)
+
+  [arrow\_forward](/blog/posts/get-your-app-on-the-fast-track-with-android-performance-spotlight-week)
+
+  When working on new features, app performance often takes a back seat. However, while it's not always top of mind for developers, users can see exactly where your app's performance lags behind.
+
+  ###### [Ben Weiss](/blog/authors/ben-weiss) • 3 min read
+
+  + [#Performance](/blog/topics/performance)
+  + [#R8](/blog/topics/r8)
+
+# Stay in the loop
+
+Get the latest Android development insights delivered to your inbox
+weekly.
+
+[mail
+Subscribe](/subscribe)
+
+![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)

@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 Most apps have a few top-level destinations that are accessible through the
 app's primary navigation UI. In compact windows, such as a standard phone
 display, the destinations are typically displayed in a navigation bar at the

@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 This page describes how to interpret and work with the returned integrity
 verdict. Whether you make a standard or classic API request, the integrity
 verdict is returned in the same format with similar content. The integrity

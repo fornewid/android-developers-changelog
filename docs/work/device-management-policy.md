@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 **Device admin deprecation**. Some admin policies have been marked as deprecated when invoked
 by a device admin. To learn more and see the migration options, see
 [Device admin deprecation](https://developers.google.com/android/work/device-admin-deprecation).

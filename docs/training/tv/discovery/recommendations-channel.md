@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 The Android TV home screen, or simply the *home screen*, provides a UI that
 displays recommended content as a table of *channels* and *programs*. Each row is a channel. A channel contains cards for every program available on that channel:
 

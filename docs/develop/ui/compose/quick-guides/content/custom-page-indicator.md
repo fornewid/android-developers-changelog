@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 Using page indicators, you can help your users understand their current position
 within your app's content, providing a visual indication of progress. These
 navigational cues are useful when you present content sequentially, such as

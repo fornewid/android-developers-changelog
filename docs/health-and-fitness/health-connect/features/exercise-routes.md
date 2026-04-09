@@ -15,7 +15,6 @@ Starting in 2026, we'll be transitioning away from Google Fit APIs. For more inf
 
 
 
-
 > This guide is compatible with Health Connect version [1.1.0-alpha12](/jetpack/androidx/releases/health-connect#1.1.0-alpha12).
 
 Exercise routes allow users to track a GPS route for associated exercise

@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 This guide explains how the Android platform and Google Play handle app updates
 and discusses various options for developers who publish their apps on multiple
 app stores.

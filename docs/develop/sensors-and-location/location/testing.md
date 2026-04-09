@@ -1,18 +1,8 @@
 ---
-title: Test your app's location workflows  |  Sensors and location  |  Android Developers
+title: https://developer.android.com/develop/sensors-and-location/location/testing
 url: https://developer.android.com/develop/sensors-and-location/location/testing
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [Develop](https://developer.android.com/develop)
-* [Core areas](https://developer.android.com/develop/core-areas)
-* [Sensors and location](https://developer.android.com/develop/sensors-and-location)
-
-# Test your app's location workflows Stay organized with collections Save and categorize content based on your preferences.
-
-
-
 
 The guidelines on this page help you evaluate your app as you make updates to
 support the latest location features and behavior.
@@ -29,32 +19,23 @@ location access from the dialog, do the following:
 
 1. Request both `ACCESS_FINE_LOCATION` and `ACCESS_COARSE_LOCATION`.
 2. In the dialog that appears, where the user can [request approximate
-   location](/training/location/permissions#approximate-request), select
-   **Approximate** near the top, and either **While using the app** or **Only this
+   location](https://developer.android.com/training/location/permissions#approximate-request), select **Approximate** near the top, and either **While using the app** or **Only this
    time** near the bottom.
-3. Check whether your app's use cases still work as expected, even when your app
-   only has approximate location access.
+3. Check whether your app's use cases still work as expected, even when your app only has approximate location access.
 
 ### Handle approximate location downgrade from system settings
 
-![](/static/images/training/location/approximate-settings.svg)
-
-
-**Figure 1.** An app's location permissions screen in system
-settings includes **Use precise location**. This option is independent
-from the location access settings that appear closer to the top of the
-screen.
+![](https://developer.android.com/static/images/training/location/approximate-settings.svg) **Figure 1.** An app's location permissions screen in system settings includes **Use precise location**. This option is independent from the location access settings that appear closer to the top of the screen.
 
 To check how your app handles a user's request to change your app's location
 access from precise to approximate in system settings, do the following:
 
 1. Request both `ACCESS_FINE_LOCATION` and `ACCESS_COARSE_LOCATION`.
 2. In the dialog that appears, where the user can [request approximate
-   location](/training/location/permissions#approximate-request), select
-   **Precise** near the top, and either **While using the app** or **Only this
+   location](https://developer.android.com/training/location/permissions#approximate-request), select **Precise** near the top, and either **While using the app** or **Only this
    time** near the bottom.
 3. Navigate to your app's permissions screen in system settings.
-4. On the location permission screen, turn off **Use precise location**. This
+4. On the location permission screen, turn off **Use precise location** . This
    option appears in figure 1.
 
    As with any permission downgrade, the system restarts your app's process.
@@ -68,26 +49,13 @@ access from approximate to precise in system settings, do the following:
 
 1. Request both `ACCESS_FINE_LOCATION` and `ACCESS_COARSE_LOCATION`.
 2. In the dialog that appears, where the user can [request approximate
-   location](/training/location/permissions#approximate-request), select
-   **Approximate** near the top, and either **While using the app** or **Only this
+   location](https://developer.android.com/training/location/permissions#approximate-request), select **Approximate** near the top, and either **While using the app** or **Only this
    time** near the bottom.
 3. Navigate to your app's permissions screen in system settings.
-4. On the location permission screen, turn on **Use precise location**, as shown
+4. On the location permission screen, turn on **Use precise location** , as shown
    in figure 1.
 
    Because this permission change is an *upgrade*, the system doesn't restart
    your app.
 5. Check whether your app receives more accurate location data in its
    location-based use cases.
-
-[Previous
-
-arrow\_back
-
-Detect when users start an activity](/develop/sensors-and-location/location/transitions)
-
-[Next
-
-Migrate to Google Play services location and context APIs
-
-arrow\_forward](/develop/sensors-and-location/location/migration)

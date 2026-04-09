@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 Desktop windowing allows users to multitask seamlessly in a free-form
 environment.
 

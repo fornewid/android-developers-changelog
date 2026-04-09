@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 When a media item contains multiple tracks, track selection is the process that
 determines which of them are chosen for playback. The track selection process is
 configured by [`TrackSelectionParameters`](/reference/androidx/media3/common/TrackSelectionParameters), which allows many different

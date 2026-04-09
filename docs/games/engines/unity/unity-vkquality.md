@@ -15,7 +15,6 @@ Send feedback
 
 
 
-
 The VkQuality plugin for the Unity engine provides launch-time recommendations
 of the graphics API—Vulkan or OpenGL ES—to use for your game on specific
 devices.
@@ -410,8 +409,6 @@ directory. Unity does not include the `.vkq` file if you put it directly in the
 `Assets/Android/Plugins` directory, it *must* be bundled in an `.aar` library
 container. The `.vkq` filetype extension is still used when specifying the
 filename for `StartVkQuality()`.
-
-
 
 
 

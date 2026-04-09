@@ -15,6 +15,7 @@ Starting in 2026, we'll be transitioning away from Google Fit APIs. For more inf
 
 
 
+
 To get your health app published on Google Play, you must complete a few
 required steps in the Play Console. These steps verify your app is compliant
 with Google's policies and provides a safe and transparent experience for users.

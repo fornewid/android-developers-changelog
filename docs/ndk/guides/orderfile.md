@@ -1,18 +1,8 @@
 ---
-title: Order Files  |  Android NDK  |  Android Developers
+title: https://developer.android.com/ndk/guides/orderfile
 url: https://developer.android.com/ndk/guides/orderfile
-source: html-scrape
+source: md.txt
 ---
-
-* [Home](https://developer.android.com/)
-* [NDK](https://developer.android.com/ndk)
-* [Develop](https://developer.android.com/develop)
-* [Guides](https://developer.android.com/ndk/guides)
-
-# Order Files Stay organized with collections Save and categorize content based on your preferences.
-
-
-
 
 Order file is a recent linker optimization technique.
 These order files are text files containing symbols representing functions.
@@ -59,13 +49,11 @@ Be sure to build with `APP_OPTIM=release` so ndk-build uses an optimization
 mode other than `-O0`. When building with AGP this is automatic for release
 builds.
 
-```
-LOCAL_CFLAGS += \
-    -forder-file-instrumentation \
-    -mllvm -orderfile-write-mapping=mapping.txt \
+    LOCAL_CFLAGS += \
+        -forder-file-instrumentation \
+        -mllvm -orderfile-write-mapping=mapping.txt \
 
-LOCAL_LDFLAGS += -forder-file-instrumentation
-```
+    LOCAL_LDFLAGS += -forder-file-instrumentation
 
 ### CMake
 
@@ -73,13 +61,11 @@ Be sure to use a `CMAKE_BUILD_TYPE` other than `Debug` so CMake uses an
 optimization mode other than `-O0`. When building with AGP this is automatic
 for release builds.
 
-```
-target_compile_options(orderfiledemo PRIVATE
-    -forder-file-instrumentation
-    -mllvm -orderfile-write-mapping=mapping.txt
-)
-target_link_options(orderfiledemo PRIVATE -forder-file-instrumentation)
-```
+    target_compile_options(orderfiledemo PRIVATE
+        -forder-file-instrumentation
+        -mllvm -orderfile-write-mapping=mapping.txt
+    )
+    target_link_options(orderfiledemo PRIVATE -forder-file-instrumentation)
 
 ### Other build systems
 
@@ -101,42 +87,33 @@ In addition to the flags, the profile file needs to be set up and the
 instrumented binary needs to explicitly trigger a profile write during its
 execution.
 
-* Call `__llvm_profile_set_filename(PROFILE_DIR "/<filename>-%m.profraw")` for
-  setting up the profile path. Although the argument passed is
-  `<filename>-%m.profraw`, the profile file is saved as
-  `<filename>-%m.profraw.order`. Make sure `PROFILE_DIR` is writable by the app
-  and you have access to the directory.
-  + Due to many shared libraries being profiled, `%m` is useful because it
-    expands to a unique module signature for the library, resulting in a
-    separate profile per library. For more pattern specifiers, you can check out
-    this [link](https://clang.llvm.org/docs/SourceBasedCodeCoverage.html#running-the-instrumented-program).
-* Call `__llvm_profile_initialize_file()` to set up the profile file
-* Call `__llvm_orderfile_dump()` to explicitly write to the profile file
+- Call `__llvm_profile_set_filename(PROFILE_DIR "/<filename>-%m.profraw")` for setting up the profile path. Although the argument passed is `<filename>-%m.profraw`, the profile file is saved as `<filename>-%m.profraw.order`. Make sure `PROFILE_DIR` is writable by the app and you have access to the directory.
+  - Due to many shared libraries being profiled, `%m` is useful because it expands to a unique module signature for the library, resulting in a separate profile per library. For more pattern specifiers, you can check out this [link](https://clang.llvm.org/docs/SourceBasedCodeCoverage.html#running-the-instrumented-program).
+- Call `__llvm_profile_initialize_file()` to set up the profile file
+- Call `__llvm_orderfile_dump()` to explicitly write to the profile file
 
 The profiles are collected in memory and the dump function writes them to the
 file. You need to make sure the dump function is called at the end of startup
 so your profile file has all the symbols until the end of startup.
 
-```
-extern "C" {
-extern int __llvm_profile_set_filename(const char*);
-extern int __llvm_profile_initialize_file(void);
-extern int __llvm_orderfile_dump(void);
-}
+    extern "C" {
+    extern int __llvm_profile_set_filename(const char*);
+    extern int __llvm_profile_initialize_file(void);
+    extern int __llvm_orderfile_dump(void);
+    }
 
-#define PROFILE_DIR "<location-writable-from-app>"
-void workload() {
-  // ...
-  // run workload
-  // ...
+    #define PROFILE_DIR "<location-writable-from-app>"
+    void workload() {
+      // ...
+      // run workload
+      // ...
 
-  // set path and write profiles after workload execution
-  __llvm_profile_set_filename(PROFILE_DIR "/default-%m.profraw");
-  __llvm_profile_initialize_file();
-  __llvm_orderfile_dump();
-  return;
-}
-```
+      // set path and write profiles after workload execution
+      __llvm_profile_set_filename(PROFILE_DIR "/default-%m.profraw");
+      __llvm_profile_initialize_file();
+      __llvm_orderfile_dump();
+      return;
+    }
 
 ### Run the Build for Profiles
 
@@ -144,10 +121,8 @@ Run the instrumented app on either a physical or virtual device to generate the
 profiles.
 You can extract the profile files using `adb pull`.
 
-```
-adb shell "run-as <package-name> sh -c 'cat /data/user/0/<package-name>/cache/default-%m.profraw.order' | cat > /data/local/tmp/default-%m.profraw.order"
-adb pull /data/local/tmp/default-%m.profraw.order .
-```
+    adb shell "run-as <package-name> sh -c 'cat /data/user/0/<package-name>/cache/default-%m.profraw.order' | cat > /data/local/tmp/default-%m.profraw.order"
+    adb pull /data/local/tmp/default-%m.profraw.order .
 
 As mentioned before, make sure the folder containing the written profile file
 can be accessed by you.
@@ -164,17 +139,13 @@ to take a profile file and the correct mapping file to generate an order file.
 
 ### Linux/Mac/ChromeOS
 
-```
-hexdump -C default-%m.profraw.order > default-%m.prof
-python3 create_orderfile.py --profile-file default-%m.prof --mapping-file <filename>-mapping.txt
-```
+    hexdump -C default-%m.profraw.order > default-%m.prof
+    python3 create_orderfile.py --profile-file default-%m.prof --mapping-file <filename>-mapping.txt
 
 ### Windows
 
-```
-certutil -f -encodeHex default-%m.profraw.order default-%m.prof
-python3 create_orderfile.py --profile-file default-%m.prof --mapping-file <filename>-mapping.txt
-```
+    certutil -f -encodeHex default-%m.profraw.order default-%m.prof
+    python3 create_orderfile.py --profile-file default-%m.prof --mapping-file <filename>-mapping.txt
 
 If you want to read more about the script, you can check out this
 [README](https://android.googlesource.com/toolchain/llvm_android/+/main/orderfiles/scripts/README.md).
@@ -190,28 +161,24 @@ can pass `-Wl,--no-warn-symbol-ordering` to suppress these warnings.
 
 ### ndk-build
 
-```
-LOCAL_CFLAGS += \
-    -Wl,--symbol-ordering-file=<filename>.orderfile \
-    -Wl,--no-warn-symbol-ordering \
+    LOCAL_CFLAGS += \
+        -Wl,--symbol-ordering-file=<filename>.orderfile \
+        -Wl,--no-warn-symbol-ordering \
 
-LOCAL_LDFLAGS += \
-    -Wl,--symbol-ordering-file=<filename>.orderfile \
-    -Wl,--no-warn-symbol-ordering \
-```
+    LOCAL_LDFLAGS += \
+        -Wl,--symbol-ordering-file=<filename>.orderfile \
+        -Wl,--no-warn-symbol-ordering \
 
 ### CMake
 
-```
-target_compile_options(orderfiledemo PRIVATE
-    -Wl,--symbol-ordering-file=<filename>.orderfile
-    -Wl,--no-warn-symbol-ordering
-)
-target_link_options(orderfiledemo PRIVATE
-    -Wl,--symbol-ordering-file=<filename>.orderfile
-    -Wl,--no-warn-symbol-ordering
-)
-```
+    target_compile_options(orderfiledemo PRIVATE
+        -Wl,--symbol-ordering-file=<filename>.orderfile
+        -Wl,--no-warn-symbol-ordering
+    )
+    target_link_options(orderfiledemo PRIVATE
+        -Wl,--symbol-ordering-file=<filename>.orderfile
+        -Wl,--no-warn-symbol-ordering
+    )
 
 ### Other build systems
 

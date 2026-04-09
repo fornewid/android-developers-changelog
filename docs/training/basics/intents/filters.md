@@ -12,6 +12,7 @@ source: html-scrape
 
 
 
+
 If your app can perform an action that might be useful to another app,
 prepare it to respond to action requests by specifying
 the appropriate intent filter in your activity.

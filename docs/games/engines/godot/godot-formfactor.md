@@ -15,7 +15,6 @@ Send feedback
 
 
 
-
 This topic describes how to support multiple form factors and screen sizes when
 using Godot for Android game development.
 
@@ -311,8 +310,6 @@ Settings** under the **Input Devices -> Pointing** section.
 * [Godot Sample - 3D viewport scaling](https://github.com/godotengine/godot-demo-projects/tree/master/viewport/3d_scaling)
 * [Godot Tutorial - Containers](https://docs.godotengine.org/en/stable/tutorials/gui/gui_containers.html)
 * [Godot Tutorial - Multiple resolutions](https://docs.godotengine.org/en/stable/tutorials/viewports/multiple_resolutions.html)
-
-
 
 
 

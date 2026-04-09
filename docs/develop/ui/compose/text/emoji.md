@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 The standard set of emoji is [refreshed annually by
 Unicode](https://emojipedia.org/new/), as emoji usage is increasing
 rapidly for all types of apps.

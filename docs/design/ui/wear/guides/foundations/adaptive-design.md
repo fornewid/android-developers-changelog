@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 The Wear OS ecosystem consists of devices with a wide variety of screen sizes.
 Using adaptive UI principles is critical to delivering the highest quality
 experience for everyone.

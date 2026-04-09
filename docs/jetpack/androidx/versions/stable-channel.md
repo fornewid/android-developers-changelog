@@ -35,6 +35,16 @@ see the [versions page](/jetpack/androidx/versions).
 The first stable release of AndroidX 1.0.0 suitable for use in
 production was released on September 21, 2018.
 
+### April 8, 2026
+
+* [Annotation Version 1.10.0](/jetpack/androidx/releases/annotation#1.10.0)
+* [Annotation-experimental Version 1.6.0](/jetpack/androidx/releases/annotation#annotation-experimental-1.6.0)
+* [Credentials Credentials-play-services-auth Version 1.6.0](/jetpack/androidx/releases/credentials#1.6.0)
+* [Games-activity Version 4.4.1](/jetpack/androidx/releases/games#games-activity-4.4.1)
+* [Navigation3 Version 1.1.0](/jetpack/androidx/releases/navigation3#1.1.0)
+* [Wear Compose Version 1.6.1](/jetpack/androidx/releases/wear-compose#1.6.1)
+* [Watchfacepush Version 1.0.0](/jetpack/androidx/releases/wear-watchfacepush#watchfacepush-1.0.0)
+
 ### March 26, 2026
 
 * [Media3 Version 1.10.0](/jetpack/androidx/releases/media3#1.10.0)

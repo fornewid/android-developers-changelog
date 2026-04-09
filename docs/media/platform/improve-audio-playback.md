@@ -1,32 +1,54 @@
 ---
-title: https://developer.android.com/media/platform/improve-audio-playback
+title: Improve audio playback  |  Android media  |  Android Developers
 url: https://developer.android.com/media/platform/improve-audio-playback
-source: md.txt
+source: html-scrape
 ---
 
-# Improve audio playback
+* [Android Developers](https://developer.android.com/)
+* [Essentials](https://developer.android.com/get-started)
+* [Camera & media dev center](https://developer.android.com/media)
+* [Guides](https://developer.android.com/media/guides)
 
-When you try to directly access the USB audio peripheral using the USB APIs, problems arise. These problems can include: security issues, limiting media playback from other apps, and loss of alarms, notifications, and ringtones over USB devices.
+# Improve audio playback Stay organized with collections Save and categorize content based on your preferences.
+
+
+
+When you try to directly access the USB audio peripheral using the USB APIs,
+problems arise. These problems can include: security issues, limiting media
+playback from other apps, and loss of alarms, notifications, and ringtones over
+USB devices.
 
 To improve audio playback, instead configure the mixer attributes.
 
 ### Configure mixer attributes
 
-By using the[`AudioMixerAttributes`](https://developer.android.com/reference/android/media/AudioMixerAttributes)APIs, you can configure your app with preferred mixer attributes over USB.
+By using the
+[`AudioMixerAttributes`](/reference/android/media/AudioMixerAttributes) APIs,
+you can configure your app with preferred mixer attributes over USB.
 
-When your app playback matches the encoding format, channel mask, and sample rate of the preferred mixer attributes, the playback is attached to the audio output stream whose mixer is configured with the preferred mixer attributes.
+When your app playback matches the encoding format, channel mask, and sample
+rate of the preferred mixer attributes, the playback is attached to the audio
+output stream whose mixer is configured with the preferred mixer attributes.
 
-Your app can stream at any configuration to the hardware abstraction layer (HAL), and to the device, as long as the USB device supports the configuration.
+Your app can stream at any configuration to the hardware abstraction
+layer (HAL), and to the device, as long as the USB device supports the
+configuration.
 
-The two allowed mixer behaviors in`AudioMixerAttributes`are`DEFAULT`and`BIT_PERFECT`. When the mixer behavior is`DEFAULT`, it indicates that audio data from different sources is mixed.
+The two allowed mixer behaviors in `AudioMixerAttributes` are `DEFAULT` and
+`BIT_PERFECT`. When the mixer behavior is `DEFAULT`, it indicates that audio
+data from different sources is mixed.
 
-When the mixer behavior is`BIT_PERFECT`, no audio mixing, volume adjustment, or audio processed effect is applied to the playback. The data is sent as is to the HAL and finally down to the USB device.
+When the mixer behavior is `BIT_PERFECT`, no audio mixing, volume adjustment,
+or audio processed effect is applied to the playback. The data is sent as
+is to the HAL and finally down to the USB device.
 
-Using`BIT_PERFECT`lets you direct stream digital (DSD) over pulse code modulation (PCM) on Android-powered devices. The following code sample shows how this can be accomplished:  
+Using `BIT_PERFECT` lets you direct stream
+digital (DSD) over pulse code modulation (PCM) on Android-powered devices.
+The following code sample shows how this can be accomplished:
 
 ### Kotlin
 
-```kotlin
+```
 val EXPECTED_FORMAT: AudioFormat = AudioFormat.Builder()
   .setEncoding(AudioFormat.ENCODING_PCM_24BIT_PACKED)
   .setChannelMask(AudioFormat.CHANNEL_OUT_STEREO)
@@ -90,7 +112,7 @@ private class MyPreferredMixerAttributesChangedListener :
 
 ### Java
 
-```java
+```
 final AudioFormat EXPECTED_FORMAT = new AudioFormat.Builder()
         .setEncoding(AudioFormat.ENCODING_PCM_24BIT_PACKED)
         .setChannelMask(AudioFormat.CHANNEL_OUT_STEREO)

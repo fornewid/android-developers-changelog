@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 AAPT2 (Android Asset Packaging Tool) is a build tool that Android Studio and
 Android Gradle Plugin use to compile and package your app's
 [resources](/guide/topics/resources/providing-resources). AAPT2 parses, indexes,

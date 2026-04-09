@@ -69,16 +69,17 @@ Design.**
 
 This library provides the final `UI` part of the pipeline. It depends on
 `media3-ui-compose` and includes prebuilt Composable functions that are styled
-with [Material3 components](https://m3.material.io/components). It eliminates the need for you to build your own
-buttons and other UI elements from scratch. You can still customize the theme,
-colors, and icons of these components, but the core implementation is provided
-for you.
+with [Material3 components](https://m3.material.io/components), including the [`Player`](/reference/kotlin/androidx/media3/ui/compose/material3/Player.composable) Composable, which
+offers a comprehensive media playback experience with video, controls and
+progress bar. It eliminates the need for you to build your own buttons and other
+UI elements from scratch. You can still customize the theme, colors, and icons
+of these components, but the core implementation is provided for you.
 
 ## At a glance
 
 | Feature | `media3-ui-compose` | `media3-ui-compose-material3` |
 | --- | --- | --- |
-| **UI Components** | Foundational elements like `PlayerSurface` and `ContentFrame`, but **no** pre-styled buttons or controls. | Provides a full set of prebuilt, Material3-styled `Composables` like `PlayPauseButton`, `SeekBackButton`, `PositionAndDurationText`, etc. |
+| **UI Components** | Foundational elements like `PlayerSurface` and `ContentFrame`, but **no** pre-styled buttons or controls. | Provides the [`Player`](/reference/kotlin/androidx/media3/ui/compose/material3/Player.composable) Composable and a full set of prebuilt, Material3-styled Composables like `PlayPauseButton`, `SeekBackButton`, `PositionAndDurationText`, etc. |
 | **State Management** | Provides `remember...State` holders to manage the logic. | Manages state internally, but you can still access the state holders if you need to. |
 | **Dependencies** | `androidx.compose.foundation` | `media3-ui-compose`, `androidx.compose.material3`, `com.google.android.material` |
 | **Primary Use Case** | Building a player UI with a custom design system. Full control over the look and feel. | Quickly building a player UI that follows Material Design 3 guidelines. |

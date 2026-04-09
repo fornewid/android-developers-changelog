@@ -1,0 +1,246 @@
+---
+title: Home  |  Android Developers' Blog
+url: https://developer.android.com/blog
+source: html-scrape
+---
+
+* [Android Developers](https://developer.android.com/)
+* [Android Developers' Blog](https://developer.android.com/)
+* [Blog](https://developer.android.com/blog)
+
+Stay organized with collections
+
+Save and categorize content based on your preferences.
+
+
+
+# The Android Developers' Blog
+
+Tools and resources to help you build faster and easier.
+
+![](/static/blog/assets/Gemma_Android_2x1_2x_a6d27254c4_Z10SxJJ.webp)
+
+02
+
+Apr
+2026
+
+02
+
+Apr
+2026
+
+[![](/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](/blog/authors/matthew-mccullough)
+
+#### [Product News](/blog/categories/product-news)
+
+## [Gemma 4: The new standard for local agentic intelligence on Android](/blog/posts/gemma-4-the-new-standard-for-local-agentic-intelligence-on-android)
+
+[arrow\_forward](/blog/posts/gemma-4-the-new-standard-for-local-agentic-intelligence-on-android)
+
+Today, we are enhancing Android development with Gemma 4, our latest state-of-the-art open model designed with complex reasoning and autonomous tool-calling capabilities.
+
+###### [Matthew McCullough](/blog/authors/matthew-mccullough) • 2 min read
+
+* [#Android Studio](/blog/topics/android-studio)
+
+## The Latest
+
+* [![](/static/blog/assets/matthew_warner_67a99317e4_Z2c1VNu.webp)](/blog/authors/matthew-warner)
+
+  02
+
+  Apr
+  2026
+
+  02
+
+  Apr
+  2026
+
+  ![](/static/blog/assets/android_studio_gemma4_73370772af_2lUopR.webp)
+
+  #### [Product News](/blog/categories/product-news)
+
+  ## [Android Studio supports Gemma 4: our most capable local model for agentic coding](/blog/posts/android-studio-supports-gemma-4-our-most-capable-local-model-for-agentic-coding)
+
+  Every developer's AI workflow and needs are unique, and it's important to be able to choose how AI helps your development. In January, we introduced the ability to choose any local or remote AI model to power AI functionality in Android Studio
+
+  ###### [Matthew Warner](/blog/authors/matthew-warner) • 2 min read
+
+  + [#Android Studio](/blog/topics/android-studio)
+* [![](/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](/blog/authors/matt-dyor)
+
+  02
+
+  Apr
+  2026
+
+  02
+
+  Apr
+  2026
+
+  ![](/static/blog/assets/as_Panda3_385cde5eac_Z1E8IhJ.webp)
+
+  #### [Product News](/blog/categories/product-news)
+
+  ## [Increase Guidance and Control over Agent Mode with Android Studio Panda 3](/blog/posts/increase-guidance-and-control-over-agent-mode-with-android-studio-panda-3)
+
+  Android Studio Panda 3 is now stable and ready for you to use in production. This release gives you even more control and customization over your AI-powered workflows, making it easier than ever to build high-quality Android apps.
+
+  ###### [Matt Dyor](/blog/authors/matt-dyor) • 3 min read
+
+  + [#Android Studio](/blog/topics/android-studio)
+* [![](/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](/blog/authors/caren-chang)[![](/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](/blog/authors/david-chou)
+
+  02
+
+  Apr
+  2026
+
+  02
+
+  Apr
+  2026
+
+  ![](/static/blog/assets/announcing_gemma4_aicore_ce479292b9_Z15e7FP.webp)
+
+  #### [Product News](/blog/categories/product-news)
+
+  ## [Announcing Gemma 4 in the AICore Developer Preview](/blog/posts/announcing-gemma-4-in-the-ai-core-developer-preview)
+
+  At Google, we’re committed to bringing the most capable AI models directly to the Android devices in your pocket. Today, we’re thrilled to announce the release of our latest state-of-the-art open model: Gemma 4.
+
+  ###### [Caren Chang](/blog/authors/caren-chang), [David Chou](/blog/authors/david-chou) • 3 min read
+* [![](/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](/blog/authors/michael-stillwell)[![](/static/blog/assets/dimitris_kosmidis_08bb21b8a2_Lifx.webp)](/blog/authors/dimitris-kosmidis)
+
+  01
+
+  Apr
+  2026
+
+  01
+
+  Apr
+  2026
+
+  ![](/static/blog/assets/wear_os_64_1de6378905_ZOTQoW.webp)
+
+  #### [Product News](/blog/categories/product-news)
+
+  ## [Get your Wear OS apps ready for the 64-bit requirement](/blog/posts/get-your-wear-os-apps-ready-for-the-64-bit-requirement)
+
+  64-bit architectures provide performance improvements and a foundation for future innovation, delivering faster and richer experiences for your users. We’ve supported 64-bit CPUs since Android 5.
+
+  ###### [Michael Stillwell](/blog/authors/michael-stillwell), [Dimitris Kosmidis](/blog/authors/dimitris-kosmidis) • 2 min read
+* [![](/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2dcD9g.webp)](/blog/authors/ben-weiss)
+
+  30
+
+  Mar
+  2026
+
+  30
+
+  Mar
+  2026
+
+  ![](/static/blog/assets/monzo_boosts_performance_aff3a37917_6VY99.webp)
+
+  #### [Case Studies](/blog/categories/case-studies)
+
+  ## [Monzo boosts performance metrics by up to 35% with a simple R8 update](/blog/posts/monzo-boosts-performance-metrics-by-up-to-35-with-a-simple-r8-update)
+
+  Monzo is a UK digital bank with 15 million customers and growing. As the app scaled, the engineering team identified app startup time as a critical area for improvement but worried it would require significant changes to their codebase.
+
+  ###### [Ben Weiss](/blog/authors/ben-weiss) • 2 min read
+* [![](/static/blog/assets/andrew_lewis_1f4294eade_ZLA0xp.webp)](/blog/authors/andrew-lewis)
+
+  30
+
+  Mar
+  2026
+
+  30
+
+  Mar
+  2026
+
+  ![](/static/blog/assets/Androidmedia3_1_10_6c365d70f6_Oaj9H.webp)
+
+  #### [Product News](/blog/categories/product-news)
+
+  ## [Media3 1.10 is out](/blog/posts/media3-1-10-is-out)
+
+  Media3 1.10 includes new features, bug fixes and feature improvements, including Material3-based playback widgets, expanded format support in ExoPlayer and improved speed adjustment when exporting media with Transformer.
+
+  ###### [Andrew Lewis](/blog/authors/andrew-lewis) • 2 min read
+
+[arrow\_forward
+See all latest posts](/blog/latest)
+
+![](/static/blog/assets/product_news_droid_599a11ad69_d4ee764ece_1mQM4e.webp)
+
+# Product News
+
+* 15
+
+  Dec
+  2025
+
+  ## [18% Faster Compiles, 0% Compromises](/blog/posts/faster-compiles)
+
+  The Android Runtime (ART) team has reduced compile time by 18% without compromising the compiled code or any peak memory regressions. This improvement was part of our 2025 initiative to improve compile time without sacrificing memory usage or the quality of the compiled code.
+
+  ###### [Santiago Aboy Solanes](/blog/authors/santiago-solanes), [Vladimír Marko](/blog/authors/vladimir-marko) • 8 min read
+* 29
+
+  Jan
+  2026
+
+  ## [Accelerating your insights with faster, smarter monetization data and recommendations](/blog/posts/accelerating-your-insights-with-faster-smarter-monetization-data-and-recommendations)
+
+  Today, we’re announcing a suite of upgrades to the Google Play Console and beyond, giving you greater visibility into your financial performance and specific, data-backed steps to improve it.
+
+  ###### [Phalene Gowling](/blog/authors/phalene-gowling) • 2 min read
+* 02
+
+  Dec
+  2025
+
+  ## [Android 16 QPR2 is Released](/blog/posts/android-16-qpr-2-is-released)
+
+  Android 16 QPR2 is now released and available in AOSP
+
+  ###### [Matthew McCullough](/blog/authors/matthew-mccullough) • 4 min read
+
+[arrow\_forward
+More](/blog/categories/product-news)
+
+[arrow\_forward
+More](/blog/categories/product-news)
+
+[Highlighted Author
+
+# Ben Weiss
+
+## 7
+
+Posts
+
+![](/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2dcD9g.webp)
+
+arrow\_forward
+
+###### Developer Relations Engineer](/blog/authors/ben-weiss)
+
+# Stay in the loop
+
+Get the latest Android development insights delivered to your inbox
+weekly.
+
+[mail
+Subscribe](/subscribe)
+
+![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)

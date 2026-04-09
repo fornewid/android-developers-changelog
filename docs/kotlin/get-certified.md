@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 The Associate Android Developer Exam tests for skills that an entry-level
 Android developer should have as they begin their career. By passing this
 performance-based exam and earning the Associate Android Developer

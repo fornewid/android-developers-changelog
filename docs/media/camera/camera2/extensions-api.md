@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 **Note:** This page refers to the [Camera2](/reference/android/hardware/camera2/package-summary) package. Unless your app requires specific, low-level features from Camera2, we recommend using [CameraX](/camerax). Both CameraX and Camera2 support Android 5.0 (API level 21) and higher.
 
 Camera2 provides an Extensions API for accessing [extensions](/training/camera/camera-extensions) that device manufacturers have implemented on various Android devices. For a list of supported extension modes, see [Camera extensions](/training/camera/camera-extensions).

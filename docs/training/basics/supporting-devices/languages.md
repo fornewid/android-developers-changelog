@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 Apps include resources that can be specific to a particular culture.
 For example, an app can include culture-specific strings that are translated to
 the language of the current locale.

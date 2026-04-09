@@ -10,7 +10,6 @@ source: html-scrape
 
 
 
-
 Specifies the action to perform when the user taps on a view. There can be
 multiple `<OnClick>` nodes for a single
 [`<Transition>`](/training/constraint-layout/motionlayout/ref/transition), with

@@ -14,7 +14,6 @@ Save and categorize content based on your preferences.
 
 
 
-
 # ViewModel APIs cheat sheet   Part of [Android Jetpack](/jetpack).
 
 This cheat sheet lets you quickly see the different ViewModel APIs available

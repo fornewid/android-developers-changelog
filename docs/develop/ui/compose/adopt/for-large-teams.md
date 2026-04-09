@@ -16,7 +16,6 @@ Save and categorize content based on your preferences.
 
 
 
-
 ![](https://developer.android.com/static/images/spot-icons/jetpack-compose.svg)
 
 ### Technical decision makers: Adopt Compose for your teams

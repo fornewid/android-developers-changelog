@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 ![](/static/images/design/ui/mobile/predictive-back-hero.png)
 
 Predictive back is the result of a gesture navigation operation in which a user

@@ -1,8 +1,17 @@
 ---
-title: https://developer.android.com/guide/navigation/navigation-3/recipes/material-listdetail
+title: App architecture  |  Android Developers
 url: https://developer.android.com/guide/navigation/navigation-3/recipes/material-listdetail
-source: md.txt
+source: html-scrape
 ---
+
+* [Android Developers](https://developer.android.com/)
+* [App architecture](https://developer.android.com/topic/architecture/intro)
+
+Stay organized with collections
+
+Save and categorize content based on your preferences.
+
+
 
 # Material List-Detail Recipe
 
@@ -16,16 +25,21 @@ This example has three destinations: `ConversationList`, `ConversationDetail`, a
 
 The key to this recipe is the `rememberListDetailSceneStrategy`, which provides the logic for the adaptive layout.
 
-- **Pane Roles**: Each destination is assigned a role using metadata:
+* **Pane Roles**: Each destination is assigned a role using metadata:
 
-  - `ListDetailSceneStrategy.listPane()`: For the primary (list) content. This pane is always visible. A placeholder can be provided to be shown in the detail pane area when no detail content is selected.
-  - `ListDetailSceneStrategy.detailPane()`: For the secondary (detail) content.
-  - `ListDetailSceneStrategy.extraPane()`: For tertiary content.
-- **Adaptive Layout** : The `ListDetailSceneStrategy` automatically handles the layout. On smaller screens, only one pane is shown at a time. On wider screens, it will show the list and detail panes side-by-side. On very wide screens, it can show all three panes: list, detail, and extra.
+  + `ListDetailSceneStrategy.listPane()`: For the primary (list) content. This pane is always visible. A placeholder can be provided to be shown in the detail pane area when no detail content is selected.
+  + `ListDetailSceneStrategy.detailPane()`: For the secondary (detail) content.
+  + `ListDetailSceneStrategy.extraPane()`: For tertiary content.
+* **Adaptive Layout**: The `ListDetailSceneStrategy` automatically handles the layout. On smaller screens, only one pane is shown at a time. On wider screens, it will show the list and detail panes side-by-side. On very wide screens, it can show all three panes: list, detail, and extra.
+* **Navigation**: Navigation between the panes is handled by adding and removing destinations from the back stack as usual. The `ListDetailSceneStrategy` observes the back stack and adjusts the layout accordingly.
 
-- **Navigation** : Navigation between the panes is handled by adding and removing destinations from the back stack as usual. The `ListDetailSceneStrategy` observes the back stack and adjusts the layout accordingly.
+[![](/static/images/picto-icons/code.svg)
 
-[![](https://developer.android.com/static/images/picto-icons/code.svg) Explore View the full recipe on GitHub.](https://github.com/android/nav3-recipes/tree/main/app/src/main/java/com/example/nav3recipes/material/listdetail)
+Explore
+
+View the full recipe on GitHub.
+
+arrow\_forward](https://github.com/android/nav3-recipes/tree/main/app/src/main/java/com/example/nav3recipes/material/listdetail)
 
 ```
 package com.example.nav3recipes.material.listdetail
@@ -144,4 +158,6 @@ class MaterialListDetailActivity : ComponentActivity() {
         }
     }
 }
+
+MaterialListDetailActivity.kt
 ```

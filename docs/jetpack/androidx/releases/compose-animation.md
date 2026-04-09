@@ -15,6 +15,7 @@ Save and categorize content based on your preferences.
 
 
 
+
 # Compose Animation
 
 [User Guide](/jetpack/compose/tutorial)  [Code Sample](https://github.com/android/compose-samples)
@@ -29,7 +30,7 @@ Build animations in their Jetpack Compose applications to enrich the user experi
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 | --- | --- | --- | --- | --- |
-| March 25, 2026 | [1.10.6](/jetpack/androidx/releases/compose-animation#1.10.6) | - | [1.11.0-beta02](/jetpack/androidx/releases/compose-animation#1.11.0-beta02) | - |
+| April 08, 2026 | [1.10.6](/jetpack/androidx/releases/compose-animation#1.10.6) | [1.11.0-rc01](/jetpack/androidx/releases/compose-animation#1.11.0-rc01) | - | - |
 
 ## Structure
 
@@ -118,6 +119,12 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.11
+
+### Version 1.11.0-rc01
+
+April 08, 2026
+
+`androidx.compose.animation:animation-*:1.11.0-rc01` is released. Version 1.11.0-rc01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/56409d2ed9fc0e8746250e5d8862c080d0c80087..ecc44700355708734de3756bf5e677323ae14ed1/compose/animation).
 
 ### Version 1.11.0-beta02
 

@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Android requires that all APKs be digitally signed with a certificate before
 they are installed on a device or updated. When releasing using [Android App
 Bundles](/guide/app-bundle), you need to sign your app bundle with an upload

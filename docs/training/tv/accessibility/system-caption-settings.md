@@ -1,14 +1,24 @@
 ---
-title: https://developer.android.com/training/tv/accessibility/system-caption-settings
+title: Adopt system caption settings  |  Android TV  |  Android Developers
 url: https://developer.android.com/training/tv/accessibility/system-caption-settings
-source: md.txt
+source: html-scrape
 ---
+
+* [Android Developers](https://developer.android.com/)
+* [Develop](https://developer.android.com/develop)
+* [Devices](https://developer.android.com/develop/devices)
+* [Android TV](https://developer.android.com/training/tv)
+
+# Adopt system caption settings Stay organized with collections Save and categorize content based on your preferences.
+
+
+
 
 On Android TV, settings are provided for users to define their own caption style.
 This guide demonstrates how an app can obtain and apply the system-provided
 caption style.
 
-The caption options can be found under **Settings \> System \> Accessibility \> Caption**:
+The caption options can be found under **Settings > System > Accessibility > Caption**:
 
 ![ATV_Caption_Settings](https://developer.android.com/training/tv/images/tv-caption-settings.png)
 
@@ -17,62 +27,80 @@ The caption options can be found under **Settings \> System \> Accessibility \> 
 From an activity, you can get the caption service from its `Context` using
 [`CaptioningManager`](https://developer.android.com/reference/android/view/accessibility/CaptioningManager):
 
-    CaptioningManager captioningManager = (CaptioningManager)context.getSystemService(Context.CAPTIONING_SERVICE);
+```
+CaptioningManager captioningManager = (CaptioningManager)context.getSystemService(Context.CAPTIONING_SERVICE);
+```
 
 ## Handle caption style changes
 
-You can then handle caption style changes by implementing [`CaptioningChangeListener`](https://developer.android.com/reference/android/view/accessibility/CaptioningManager.CaptioningChangeListener):
+You can then handle caption style changes by implementing [`CaptioningChangeListener`](/reference/android/view/accessibility/CaptioningManager.CaptioningChangeListener):
 
-    if (captioningManager != null) {
-      // Define a class to store the CaptionStyle details.
-      CurrentCaptionStyle currentCaptionStyle = new CurrentCaptionStyle;
-      // Define the listeners.
-      captioningManager.addCaptioningChangeListener(new CaptioningChangeListener() {
+```
+if (captioningManager != null) {
+  // Define a class to store the CaptionStyle details.
+  CurrentCaptionStyle currentCaptionStyle = new CurrentCaptionStyle;
+  // Define the listeners.
+  captioningManager.addCaptioningChangeListener(new CaptioningChangeListener() {
 
-        @Override
-        public void onEnabledChanged(boolean enabled) {
-          super.onEnabledChanged(enabled);
-          Log.d(TAG, "onEnabledChanged");
-          currentCaptionStyle.isEnabled = enabled;
-        }
+    @Override
+    public void onEnabledChanged(boolean enabled) {
+      super.onEnabledChanged(enabled);
+      Log.d(TAG, "onEnabledChanged");
+      currentCaptionStyle.isEnabled = enabled;
+    }
 
-        @Override
-        public void onLocaleChanged(@Nullable Locale locale) {
-          super.onLocaleChanged(locale);
-          Log.d(TAG, "onLocaleChanged");
-          currentCaptionStyle.locale = locale;
-        }
+    @Override
+    public void onLocaleChanged(@Nullable Locale locale) {
+      super.onLocaleChanged(locale);
+      Log.d(TAG, "onLocaleChanged");
+      currentCaptionStyle.locale = locale;
+    }
 
-        @Override
-        public void onFontScaleChanged(float fontScale) {
-          super.onFontScaleChanged(fontScale);
-          Log.d(TAG, "onFontScaleChanged");
-          currentCaptionStyle.fontScale = fontScale;
-        }
+    @Override
+    public void onFontScaleChanged(float fontScale) {
+      super.onFontScaleChanged(fontScale);
+      Log.d(TAG, "onFontScaleChanged");
+      currentCaptionStyle.fontScale = fontScale;
+    }
 
-        @Override
-        public void onUserStyleChanged(@NonNull CaptionStyle userStyle) {
-          super.onUserStyleChanged(userStyle);
-          Log.d(TAG, "onUserStyleChanged");
-          currentCaptionStyle.hasBackgroundColor = userStyle.hasBackgroundColor();
-          currentCaptionStyle.backgroundColor = userStyle.backgroundColor;
-          currentCaptionStyle.backgroundOpcity = userStyle.backgroundColor >>> 24;
-          currentCaptionStyle.hasForegroundColor = userStyle.hasForegroundColor();
-          currentCaptionStyle.foregroundColor = userStyle.foregroundColor;
-          currentCaptionStyle.foregroundOpacity = userStyle.foregroundColor >>> 24;
-          currentCaptionStyle.hasWindowColor = userStyle.hasWindowColor();
-          currentCaptionStyle.windowColor = userStyle.windowColor;
-          currentCaptionStyle.windowOpcity = userStyle.windowColor >>> 24;
-          currentCaptionStyle.hasEdgeColor = userStyle.hasEdgeColor();
-          currentCaptionStyle.edgeColor = userStyle.edgeColor;
-          currentCaptionStyle.hasEdgeType = userStyle.hasEdgeType();
-          currentCaptionStyle.edgeType = userStyle.edgeType;
-          currentCaptionStyle.typeFace = userStyle.getTypeface();
-        }
+    @Override
+    public void onUserStyleChanged(@NonNull CaptionStyle userStyle) {
+      super.onUserStyleChanged(userStyle);
+      Log.d(TAG, "onUserStyleChanged");
+      currentCaptionStyle.hasBackgroundColor = userStyle.hasBackgroundColor();
+      currentCaptionStyle.backgroundColor = userStyle.backgroundColor;
+      currentCaptionStyle.backgroundOpcity = userStyle.backgroundColor >>> 24;
+      currentCaptionStyle.hasForegroundColor = userStyle.hasForegroundColor();
+      currentCaptionStyle.foregroundColor = userStyle.foregroundColor;
+      currentCaptionStyle.foregroundOpacity = userStyle.foregroundColor >>> 24;
+      currentCaptionStyle.hasWindowColor = userStyle.hasWindowColor();
+      currentCaptionStyle.windowColor = userStyle.windowColor;
+      currentCaptionStyle.windowOpcity = userStyle.windowColor >>> 24;
+      currentCaptionStyle.hasEdgeColor = userStyle.hasEdgeColor();
+      currentCaptionStyle.edgeColor = userStyle.edgeColor;
+      currentCaptionStyle.hasEdgeType = userStyle.hasEdgeType();
+      currentCaptionStyle.edgeType = userStyle.edgeType;
+      currentCaptionStyle.typeFace = userStyle.getTypeface();
+    }
 
-      });
+  });
+```
 
 To obtain the system `CaptionStyle`, you can call `getUserStyle()`
 directly:
 
-    CaptionStyle systemCaptionStyle = captioningManager.getUserStyle();
+```
+CaptionStyle systemCaptionStyle = captioningManager.getUserStyle();
+```
+
+[Previous
+
+arrow\_back
+
+Support TalkBack in TV apps](/training/tv/accessibility/talkback-support)
+
+[Next
+
+Custom view accessibility support
+
+arrow\_forward](/training/tv/accessibility/custom-views)

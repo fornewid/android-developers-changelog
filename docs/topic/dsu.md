@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Dynamic System Updates (DSU) is a system feature introduced in Android 10 that
 does the following:
 

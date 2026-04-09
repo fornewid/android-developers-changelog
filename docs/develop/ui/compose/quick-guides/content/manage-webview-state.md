@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 [`WebView`](/reference/kotlin/android/webkit/WebView) is a commonly used component that offers an advanced system for
 state management. A `WebView` must maintain its state and scroll position across
 configuration changes. A `WebView` can lose scroll position when the user

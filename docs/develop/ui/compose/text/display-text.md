@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 The most basic way to display text is to use the `Text` composable with a
 `String` as an argument:
 

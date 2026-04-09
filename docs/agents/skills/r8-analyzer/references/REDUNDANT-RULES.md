@@ -8,6 +8,7 @@ source: html-scrape
 
 
 
+
 This document outlines common "bad" or redundant keep rules for standard Android
 development and popular libraries. Modern toolchains and libraries include their
 own consumer keep rules embedded in their AAR/JAR files, making many manual

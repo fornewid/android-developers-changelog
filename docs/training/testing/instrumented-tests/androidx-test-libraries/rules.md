@@ -1,19 +1,11 @@
 ---
-title: JUnit4 rules with AndroidX Test  |  Test your app on Android  |  Android Developers
+title: https://developer.android.com/training/testing/instrumented-tests/androidx-test-libraries/rules
 url: https://developer.android.com/training/testing/instrumented-tests/androidx-test-libraries/rules
-source: html-scrape
+source: md.txt
 ---
 
-* [Android Developers](https://developer.android.com/)
-* [Develop](https://developer.android.com/develop)
-* [Test your app on Android](https://developer.android.com/training/testing)
-
-# JUnit4 rules with AndroidX Test Stay organized with collections Save and categorize content based on your preferences.
-
-
-
 AndroidX Test includes a set of [JUnit rules](https://github.com/junit-team/junit4/wiki/Rules) to be used with the
-[AndroidJUnitRunner](/training/testing/junit-runner). JUnit rules provide more flexibility and reduce the
+[AndroidJUnitRunner](https://developer.android.com/training/testing/junit-runner). JUnit rules provide more flexibility and reduce the
 boilerplate code required in tests. For example, they can be used to start a
 specific activity.
 
@@ -31,7 +23,7 @@ The following code snippet demonstrates how to incorporate
 
 ### Kotlin
 
-```
+```kotlin
 @RunWith(AndroidJUnit4::class.java)
 @LargeTest
 class MyClassTest {
@@ -39,14 +31,14 @@ class MyClassTest {
   val activityRule = ActivityScenarioRule(MyClass::class.java)
 
   @Test fun myClassMethod_ReturnsTrue() {
-    activityRule.scenario.onActivity { … } // Optionally, access the activity.
+    activityRule.scenario.onActivity { ... } // Optionally, access the activity.
    }
 }
 ```
 
 ### Java
 
-```
+```java
 public class MyClassTest {
     @Rule
     public ActivityScenarioRule&lt;MyClass&gt; activityRule =
@@ -57,8 +49,8 @@ public class MyClassTest {
 }
 ```
 
-**Note:** in order to test fragments in isolation, you can use the `FragmentScenario`
-class from the [AndroidX fragment-testing library](/guide/fragments/test).
+> [!NOTE]
+> **Note:** in order to test fragments in isolation, you can use the `FragmentScenario` class from the [AndroidX fragment-testing library](https://developer.android.com/guide/fragments/test).
 
 ## ServiceTestRule
 
@@ -67,14 +59,12 @@ tests and shut it down before and after. You can start or bind the service with
 one of the helper methods. It automatically stops or unbinds after the test
 completes and any methods annotated with `@After` have finished.
 
-**Note:** This rule doesn’t support `IntentService`. This is because the service
-is destroyed when `IntentService.onHandleIntent(Intent)` finishes all
-outstanding commands, so there is no guarantee to establish a successful
-connection in a timely manner.
+> [!NOTE]
+> **Note:** This rule doesn't support `IntentService`. This is because the service is destroyed when `IntentService.onHandleIntent(Intent)` finishes all outstanding commands, so there is no guarantee to establish a successful connection in a timely manner.
 
 ### Kotlin
 
-```
+```kotlin
 @RunWith(AndroidJUnit4::class.java)
 @MediumTest
 class MyServiceTest {
@@ -100,7 +90,7 @@ class MyServiceTest {
 
 ### Java
 
-```
+```java
 @RunWith(AndroidJUnit4.class)
 @MediumTest
 public class MyServiceTest {
@@ -133,9 +123,9 @@ following resources.
 
 ### Documentation
 
-* [Test your fragments](/guide/fragments/test) guide, to test fragments in isolation.
-* [Testing your Compose layout](/jetpack/compose/testing), to test UIs made with Compose.
+- [Test your fragments](https://developer.android.com/guide/fragments/test) guide, to test fragments in isolation.
+- [Testing your Compose layout](https://developer.android.com/jetpack/compose/testing), to test UIs made with Compose.
 
 ### Samples
 
-* [BasicSample](https://github.com/android/testing-samples/tree/main/ui/espresso/BasicSample): Simple usage of `ActivityScenarioRule`.
+- [BasicSample](https://github.com/android/testing-samples/tree/main/ui/espresso/BasicSample): Simple usage of `ActivityScenarioRule`.

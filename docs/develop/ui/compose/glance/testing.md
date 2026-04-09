@@ -1,18 +1,8 @@
 ---
-title: Unit testing with Glance  |  Jetpack Compose  |  Android Developers
+title: https://developer.android.com/develop/ui/compose/glance/testing
 url: https://developer.android.com/develop/ui/compose/glance/testing
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [Develop](https://developer.android.com/develop)
-* [Core areas](https://developer.android.com/develop/core-areas)
-* [UI](https://developer.android.com/develop/ui)
-* [Docs](https://developer.android.com/develop/ui/compose/documentation)
-
-# Unit testing with Glance Stay organized with collections Save and categorize content based on your preferences.
-
-
 
 The Glance unit test API let you test your Glance code without inflating views
 or needing a UI automator. For example, the unit test API lets you verify
@@ -23,24 +13,21 @@ This API is lightweight and requires less setup, so you can perform test driven
 development as you develop individual pieces of your widget and organize them to
 improve code reuse.
 
-**Note:** The test doesn't render the composables under test, so it doesn't
-let you perform clicks. Instead, it uses matchers, which let you perform
-assertions on actions in clickables such as starting a service or activity.
+> [!NOTE]
+> **Note:** The test doesn't render the composables under test, so it doesn't let you perform clicks. Instead, it uses matchers, which let you perform assertions on actions in clickables such as starting a service or activity.
 
 ## Setup
 
 The dependencies required to use the unit test library are shown in the
 following examples:
 
-```
-// Other Glance and Compose runtime dependencies.
-...
-testImplementation 'androidx.glance:glance-testing:1.1.1'
-testImplementation 'androidx.glance:glance-appwidget-testing:1.1.1'
-...
-// You may include additional dependencies, such as Robolectric, if your test
-// needs to set a LocalContext.
-```
+    // Other Glance and Compose runtime dependencies.
+    ...
+    testImplementation 'androidx.glance:glance-testing:1.1.1'
+    testImplementation 'androidx.glance:glance-appwidget-testing:1.1.1'
+    ...
+    // You may include additional dependencies, such as Robolectric, if your test
+    // needs to set a LocalContext.
 
 ## Test structure
 
@@ -52,7 +39,8 @@ You can target a test Composable with `provideComposable` and run your unit
 tests on one or multiple Glance nodes with `onNode` or `onAllNodes`
 respectively.
 
-```
+
+```kotlin
 private const val FAKE_HEADLINE = "EXTRA! EXTRA! READ ALL ABOUT IT!"
 
 class MyGlanceComposableTest {
@@ -79,9 +67,9 @@ class MyGlanceComposableTest {
         }
     }
 }
-
-GlanceUnitTest.kt
 ```
+
+<br />
 
 ## Set context and size for the test
 
@@ -97,30 +85,13 @@ for the test before providing a composable in the test. The default size is
 349.dp x 455.dp, which is equivalent to a 5x4 widget shown on a Pixel 4 device
 in portrait mode.
 
-* If your AppWidget uses `sizeMode == Single`, you can set this to the
-  `minWidth` and `minHeight` in your widget's `info.xml` file.
-* If your AppWidget uses `sizeMode == Exact`, you can identify the sizes to
-  test in a similar way to how you [determine a size for your widget](/develop/ui/views/appwidgets/layouts#anatomy_determining_size) and
-  identify landscape and portrait sizes that your widget may appear on and test
-  for them.
-* If your AppWidget uses `sizeMode == Responsive`, you can set this to one of
-  the sizes from the list that you provide when specifying the `sizeMode`.
+- If your AppWidget uses `sizeMode == Single`, you can set this to the `minWidth` and `minHeight` in your widget's `info.xml` file.
+- If your AppWidget uses `sizeMode == Exact`, you can identify the sizes to test in a similar way to how you [determine a size for your widget](https://developer.android.com/develop/ui/views/appwidgets/layouts#anatomy_determining_size) and identify landscape and portrait sizes that your widget may appear on and test for them.
+- If your AppWidget uses `sizeMode == Responsive`, you can set this to one of the sizes from the list that you provide when specifying the `sizeMode`.
 
 The default duration for a test timeout is 1 second, but you can pass a custom
 duration as an argument to the `runGlanceAppWidgetUnitTest` method if your test
 infrastructure enforces a different timeout.
 
 For more information and code samples, see the reference documentation for
-[`runGlanceAppWidgetUnitTest`](/reference/kotlin/androidx/glance/appwidget/testing/unit/package-summary#runGlanceAppWidgetUnitTest(kotlin.time.Duration,kotlin.Function1)).
-
-[Previous
-
-arrow\_back
-
-Handle errors with Glance](/develop/ui/compose/glance/error-handling)
-
-[Next
-
-Handle user interaction with Glance
-
-arrow\_forward](/develop/ui/compose/glance/user-interaction)
+[`runGlanceAppWidgetUnitTest`](https://developer.android.com/reference/kotlin/androidx/glance/appwidget/testing/unit/package-summary#runGlanceAppWidgetUnitTest(kotlin.time.Duration,kotlin.Function1)).

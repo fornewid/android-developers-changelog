@@ -15,7 +15,6 @@ Send feedback
 
 
 
-
 You can use Android Studio with C/C++ to bring your game to life on Android.
 
 [Android Studio](/studio) is the official Integrated Development Environment
@@ -78,8 +77,6 @@ ensure your users don’t download more data than is necessary.
 
 For more information on Android Studio, including system requirements, download
 links, and the user guide, visit the [Android Studio](/studio) page.
-
-
 
 
 

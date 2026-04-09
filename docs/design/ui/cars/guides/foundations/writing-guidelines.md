@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 Text on the car screen must be glanceable, consistent, clear, and oriented
 towards the driver's situation.
 

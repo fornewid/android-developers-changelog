@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 Starting in Android 11 (API level 30), the system caches large datasets that
 multiple apps might access for use cases like machine learning and media
 playback. This functionality helps reduce data redundancy, both over the network

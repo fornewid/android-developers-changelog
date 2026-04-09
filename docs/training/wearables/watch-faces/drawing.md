@@ -17,7 +17,6 @@ Learn more about the user-facing changes in this [Help Center article](https://
 
 
 
-
 After you configure your project and add a class that implements the
 watch face service, you can start writing code to initialize and draw your
 custom watch face.

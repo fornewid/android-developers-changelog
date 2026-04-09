@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 `StateFlow` and `SharedFlow` are [Flow APIs](/kotlin/flow)
 that enable flows to optimally emit state updates and emit values to multiple
 consumers.

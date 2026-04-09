@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Your app can request the content of a `Screen` to be invalidated by calling the
 [`Screen.invalidate`](/reference/androidx/car/app/Screen#invalidate()) method. The host subsequently calls back into your
 app's [`Screen.onGetTemplate`](/reference/androidx/car/app/Screen#onGetTemplate()) method to retrieve the template with the new

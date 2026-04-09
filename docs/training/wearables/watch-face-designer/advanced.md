@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 This page explains more advanced use cases for Watch Face Designer, including
 how to add support for subdials, [complications](/training/wearables/complications), and color themes. To learn
 more about getting started, view the [basics](/training/wearables/watch-face-designer/basics) guide.

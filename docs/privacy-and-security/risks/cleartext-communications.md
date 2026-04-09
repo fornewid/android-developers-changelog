@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 **OWASP category:** [MASVS-NETWORK: Network Communication](https://mas.owasp.org/MASVS/08-MASVS-NETWORK)
 
 ## Overview

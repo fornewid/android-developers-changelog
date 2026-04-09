@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 Capturing videos, editing photos, and processing media content are fundamental
 features of social and messaging apps, and Android has created APIs that support
 the latest device hardware features, along with libraries that simplify

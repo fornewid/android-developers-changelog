@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Users have different expectations when watching TV than when they are using a
 phone or tablet. A typical TV user sits about 10 feet away from the screen,
 so small details are less noticeable and small text is hard to read. Since

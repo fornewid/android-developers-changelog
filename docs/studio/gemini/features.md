@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Gemini in Android Studio includes features for every step of the development
 process. Gemini is a rapidly developing space, so also check Android Studio's
 [stable release notes](/studio/releases) and
@@ -42,7 +41,7 @@ process. Gemini is a rapidly developing space, so also check Android Studio's
 | Code | Code completion | Gemini offers AI-enabled autocompletion of code in Android Studio that appears as gray italicized text as you type. Code completion saves you time and lets you complete coding projects faster by suggesting full functions. | [Accelerate coding with AI code completion](/studio/gemini/code-completion) |
 | Code transformation | Prompt Gemini from the code editor for code suggestions to modify, optimize, or add code to your project. | [Transform code](/studio/gemini/code-transformation) |
 | Rethink variable names | Get suggestions from Gemini for how to rename one or all variables in a file. | [Rethink variable names](/studio/gemini/rethink-variable-names) |
-| Generate unit test scenarios | Gemini can suggest test scenarios using the context of the code you want to test. When generating unit test scenarios, Gemini includes detailed names and descriptions for your tests, so that you better understand the intention for each suggested test. | [Generate unit test scenarios](/studio/gemini/generate-unit-test-scenarios) |
+| Generate unit tests | Gemini can generate comprehensive, compilable unit tests for your Kotlin and Java code, including `setUp` methods, mock initialization, and individual test cases. | [Generate unit tests](/studio/gemini/generate-unit-tests) |
 | Journeys with Gemini | Write end-to-end functional tests, called journeys, by describing the steps and assertions using natural language. Gemini converts your steps into actions that Gemini performs on your app.   Enable through [Studio Labs](/studio/gemini/labs). | [Journeys for Android Studio](/studio/gemini/journeys) |
 | Document code | Generate clear and concise documentation for your code with instant drafts that you can refine and perfect. | [Generate documentation for your code](/studio/gemini/document-code) |
 | Generate commit messages | Gemini can use the context from your code changes and recent past commits to generate a commit message. | [Generate commit messages](/studio/gemini/generate-commit-messages) |
@@ -56,7 +55,7 @@ process. Gemini is a rapidly developing space, so also check Android Studio's
 | Analyze runtime errors with Logcat | Gemini in Android Studio helps you understand and resolve errors from the Logcat window, streamlining your debugging process. When your app throws an error or exception, click "Ask Gemini" to get immediate explanations and actionable suggestions without leaving the IDE. | [Analyze runtime errors with Logcat and Gemini](/studio/gemini/analyze-runtime-errors-with-logcat) |
 | Get help with build and sync errors | Gemini understands Gradle build and sync errors. When errors occur, click the "Ask Gemini" link in the build output to help you diagnose and fix the problems. |  |
 | Privacy and security | Configure context sharing | Configure which files specifically are shared with Gemini using `.aiexclude` files. | [Configure context sharing](/studio/gemini/aiexclude) |
-| Logging | Collect Gemini activity in Cloud Logging, including prompts and reponses and metadata such as lines of code accepted by the user.   Business tier subscribers only. | [Configure Gemini Code Assist Standard and Enterprise logging](https://developers.google.com/gemini-code-assist/docs/configure-logging) |
+| Logging | Collect Gemini activity in Cloud Logging, including prompts and responses and metadata such as lines of code accepted by the user.   Business tier subscribers only. | [Configure Gemini Code Assist Standard and Enterprise logging](https://developers.google.com/gemini-code-assist/docs/configure-logging) |
 | VPC service controls | Establish a secure and controlled environment for coding to protect sensitive data and intellectual property.   Business tier subscribers only. | [Configure VPC Service Controls for Gemini](https://developers.google.com/gemini-code-assist/docs/configure-vpc-service-controls) |
 | Control network access with user domain restrictions | Restrict access to Gemini based on user domains.   Business tier subscribers only. | [Control network access with user domain restrictions](https://developers.google.com/gemini-code-assist/docs/network-access) |
 | Other | Productivity metrics | Track your team's usage of Gemini in Android Studio and the impact it's had on your work, including metrics such as the rate of acceptance of code recommendations.   Business tier subscribers only. | [Generate Gemini Code Assist metrics](https://cloud.google.com/gemini/docs/codeassist/generate-metrics) |

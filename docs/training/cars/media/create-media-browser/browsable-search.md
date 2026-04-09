@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 All apps must support voice searches. This page describes how to further enhance
 the search experience by supporting the initiation of searches without voice and
 by showing a list of search results so that users can pick another result. For

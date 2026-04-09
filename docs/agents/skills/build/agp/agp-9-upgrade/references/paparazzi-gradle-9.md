@@ -1,8 +1,12 @@
 ---
-title: https://developer.android.com/agents/skills/build/agp/agp-9-upgrade/references/paparazzi-gradle-9
+title: Known issue: Paparazzi and Gradle 9  |  Android Developers
 url: https://developer.android.com/agents/skills/build/agp/agp-9-upgrade/references/paparazzi-gradle-9
-source: md.txt
+source: html-scrape
 ---
+
+# Known issue: Paparazzi and Gradle 9 Stay organized with collections Save and categorize content based on your preferences.
+
+
 
 If Paparazzi is used in the project, update it to version 2.0.0-alpha04 or
 higher.
@@ -23,14 +27,18 @@ must apply one of these two workarounds.
 
 Kotlin DSL:
 
-    tasks.withType<Test>().configureEach {
-      // https://github.com/cashapp/paparazzi/issues/2111
-      reports.html.required = false
-    }
+```
+tasks.withType<Test>().configureEach {
+  // https://github.com/cashapp/paparazzi/issues/2111
+  reports.html.required = false
+}
+```
 
 Groovy DSL:
 
-    tasks.withType(Test).configureEach {
-      // https://github.com/cashapp/paparazzi/issues/2111
-      reports.html.required = false
-    }
+```
+tasks.withType(Test).configureEach {
+  // https://github.com/cashapp/paparazzi/issues/2111
+  reports.html.required = false
+}
+```

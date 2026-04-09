@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 A TV input service represents a media stream source, and lets you present your media content in a
 linear, broadcast TV fashion as channels and programs. With a TV input service, you can provide
 parental controls, program guide information, and content ratings. The TV input service works

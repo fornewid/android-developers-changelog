@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 On the Wear OS emulator, system images that run Wear OS 4 or higher include
 support for emulated Bluetooth. This support lets you test several use cases
 related to Bluetooth audio.

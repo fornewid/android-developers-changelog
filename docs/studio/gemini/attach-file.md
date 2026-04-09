@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 You can attach your project files as context in chat interactions with Gemini in
 Android Studio. This lets you quickly reference files in your prompts for
 Gemini, which helps Gemini identify the files that your query is about.

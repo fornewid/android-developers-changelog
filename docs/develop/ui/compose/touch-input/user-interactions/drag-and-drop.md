@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 Jetpack Compose supports drag and drop with two modifiers:
 
 * [`dragAndDropSource`](/reference/kotlin/androidx/compose/foundation/draganddrop/dragAndDropSource.modifier#(androidx.compose.ui.Modifier).dragAndDropSource(kotlin.Function1)): Specifies a composable as the starting point of

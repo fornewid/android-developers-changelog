@@ -23,7 +23,7 @@ This page describes how to implement basic [`Grid`](/reference/kotlin/androidx/c
 
    ```
    [versions]
-   compose = "1.11.0-beta02"
+   compose = "1.11.0-rc01"
 
    [libraries]
    androidx-compose-foundation-layout = { group = "androidx.compose.foundation", name = "foundation-layout", version.ref = "compose" }

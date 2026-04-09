@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 To detect multitouch gestures used for panning, zooming and rotating, you can
 use the `transformable` modifier. This modifier does not transform elements by
 itself, it only detects the gestures.

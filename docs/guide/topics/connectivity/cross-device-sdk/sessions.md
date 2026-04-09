@@ -1,56 +1,32 @@
 ---
-title: Sessions API  |  Cross device SDK  |  Android Developers
+title: https://developer.android.com/guide/topics/connectivity/cross-device-sdk/sessions
 url: https://developer.android.com/guide/topics/connectivity/cross-device-sdk/sessions
-source: html-scrape
+source: md.txt
 ---
 
-* [Android Developers](https://developer.android.com/)
-* [Develop](https://developer.android.com/develop)
-* [Devices](https://developer.android.com/develop/devices)
-* [Cross device SDK](https://developer.android.com/guide/topics/connectivity/cross-device-sdk/overview)
+Building on the[Device Discovery](https://developer.android.com/guide/topics/connectivity/cross-device-sdk/device-discovery)and[Secure Connection](https://developer.android.com/guide/topics/connectivity/cross-device-sdk/secure-connection)APIs, the Sessions API provides a powerful abstraction to build seamless cross-device experiences. A session represents an application user experience that can be transferred and shared across devices.
 
-# Sessions API Stay organized with collections Save and categorize content based on your preferences.
-
-
-
-Building on the [Device Discovery](/guide/topics/connectivity/cross-device-sdk/device-discovery) and [Secure Connection](/guide/topics/connectivity/cross-device-sdk/secure-connection) APIs, the
-Sessions API provides a powerful abstraction to build seamless cross-device
-experiences. A session represents an application user experience that can be
-transferred and shared across devices.
-
-The Sessions API is also built around the notion of personal and communal
-experiences represented by session transfer and session share use cases
-respectively. The following diagram illustrates sessions at a high level:
-
-![](/static/images/develop/connectivity/cross-device-sdk/flow-diagram.png)
-
-
-**Figure 1.** Sessions diagram.
+The Sessions API is also built around the notion of personal and communal experiences represented by session transfer and session share use cases respectively. The following diagram illustrates sessions at a high level:  
+![](https://developer.android.com/static/images/develop/connectivity/cross-device-sdk/flow-diagram.png)**Figure 1.**Sessions diagram.
 
 ## Create and transfer a session
 
-The Sessions API differentiates between the originating device and the receiving device. The originating device creates the session and searches for a
-device capable of handling the session. The user of the originating device
-selects a device from the list provided by the system dialog. Once the user
-selects the receiving device, the originating session is transferred and removed
-from the originating device.
+The Sessions API differentiates between the originating device and the receiving device. The originating device creates the session and searches for a device capable of handling the session. The user of the originating device selects a device from the list provided by the system dialog. Once the user selects the receiving device, the originating session is transferred and removed from the originating device.
 
-To transfer the session, you must first create it using the following
-parameters:
+To transfer the session, you must first create it using the following parameters:
 
-* An application session tag — an identifier that allows you to differentiate
-  between multiple sessions in your app.
+- An application session tag --- an identifier that allows you to differentiate between multiple sessions in your app.
 
 Then initiate the transfer using the following parameters:
 
-* A `DeviceFilter` to filter devices capable of handling the session
-* A callback object implementing `OriginatingSessionStateCallback`
+- A[`DeviceFilter`]()to filter devices capable of handling the session
+- A callback object implementing`OriginatingSessionStateCallback`
 
-On the originating device, create a session using the example below:
+On the originating device, create a session using the example below:  
 
 ### Kotlin
 
-```
+```kotlin
 private val HELLO_WORLD_TRANSFER_ACTION = "hello_world_transfer"
 private lateinit var originatingSession: OriginatingSession
 private lateinit var sessions: Sessions
@@ -80,7 +56,7 @@ suspend fun transferSession() {
 
 ### Java
 
-```
+```java
 private static final String HELLO_WORLD_TRANSFER_ACTION = "hello_world_transfer";
 private OriginatingSession originatingSession;
 private Sessions sessions;
@@ -120,11 +96,11 @@ public void transferSession() {
 }
 ```
 
-Next, define the session callback on the originating device:
+Next, define the session callback on the originating device:  
 
 ### Kotlin
 
-```
+```kotlin
 private inner class HelloWorldTransferSessionStateCallback : OriginatingSessionStateCallback {
   override fun onConnected(sessionId: SessionId) {
     val startupRemoteConnection = originatingSession.getStartupRemoteConnection()
@@ -153,7 +129,7 @@ private inner class HelloWorldTransferSessionStateCallback : OriginatingSessionS
 
 ### Java
 
-```
+```java
 private class HelloWorldTransferSessionStateCallback implements OriginatingSessionStateCallback {
   @Override
   public void onConnected(SessionId sessionId) {
@@ -187,15 +163,13 @@ private class HelloWorldTransferSessionStateCallback implements OriginatingSessi
 }
 ```
 
-Once the session transfer is initiated, the receiving device receives a callback
-in the `onNewIntent(intent: Intent)` method. The intent data contains everything
-necessary to transfer the session.
+Once the session transfer is initiated, the receiving device receives a callback in the`onNewIntent(intent: Intent)`method. The intent data contains everything necessary to transfer the session.
 
-To complete the transfer on the receiving device:
+To complete the transfer on the receiving device:  
 
 ### Kotlin
 
-```
+```kotlin
 private lateinit var sessions: Sessions
 
 override fun onCreate(savedInstanceState: Bundle?) {
@@ -237,7 +211,7 @@ private inner class HelloWorldReceivingSessionStateCallback : ReceivingSessionSt
 
 ### Java
 
-```
+```java
 private Sessions sessions;
 
 @Override
@@ -270,7 +244,7 @@ public void onNewIntent(Intent intent) {
           mainExecutor);
   Futures.addCallback(
       registerReceiverFuture,
-      new FutureCallback<Void>() {
+      new Futu<reCa>llbackVoid() {
         @Override
         public void onSuccess(Void unused) {
           Log.d(TAG, "Connection receiver registerd successfully");
@@ -284,18 +258,18 @@ public void onNewIntent(Intent intent) {
       mainExecutor);
 }
 
-private void applicationInitialization(ReceivingSession receivingSession, byte[] initMessage) {
-  ListenableFuture<SessionId> disconnectFuture =
+private void applicationInitialization(ReceivingSession receivingSession, byte[] ini<tMessage)> {
+  ListenableFutureSessionId disconnectFuture =
       Futures.transform(
-          receivingSession.onCompleteFuture(),
-          sessionId -> {
+          receivingSession.onCompleteF>uture(),
+          sessionId - {
             Log.d(TAG, "Succeeded to complete receive transfer for: " + sessionId);
             return sessionId;
           },
           mainExecutor);
   Futures.addCallback(
-      disconnectFuture,
-      new FutureCallback<SessionId>() {
+      di<sconnectF>uture,
+      new FutureCallbackSessionId() {
         @Override
         public void onSuccess(SessionId result) {
           Log.d(TAG, "Succeeded to remove the old session: " + result);
@@ -322,31 +296,22 @@ Now the receiving device can proceed with the user experience.
 
 ## Share a session
 
-**Note:** Sessions sharing is currently only available between two devices.
+| **Note:** Sessions sharing is currently only available between two devices.
 
-By sharing a session, you can invite others around you to participate in a group
-experience, for example:
+By sharing a session, you can invite others around you to participate in a group experience, for example:
 
-* Share a map location as a passenger directly with your friend’s car.
-* Share your Sunday bike route with others that you’re biking with.
-* Collect items for a group food order without passing your phone around.
-* Take a group vote for the next TV show to watch together.
+- Share a map location as a passenger directly with your friend's car.
+- Share your Sunday bike route with others that you're biking with.
+- Collect items for a group food order without passing your phone around.
+- Take a group vote for the next TV show to watch together.
 
-When a user chooses to share a session with another device, the originating
-device searches for and presents devices capable of joining the session and the
-user selects the receiving device(s). The application prompts the user on a
-receiving device to join the session from the originating device. A receiving
-device is then given a secondary session to interact with the session on the
-originating device. Applications can also add additional participants to their
-ongoing shared session.
+When a user chooses to share a session with another device, the originating device searches for and presents devices capable of joining the session and the user selects the receiving device(s). The application prompts the user on a receiving device to join the session from the originating device. A receiving device is then given a secondary session to interact with the session on the originating device. Applications can also add additional participants to their ongoing shared session.
 
-The process for sharing a session is similar to transferring a session,
-but instead of calling `transferSession`, call `shareSession`. The other
-differences are in the session state callback methods.
+The process for sharing a session is similar to transferring a session, but instead of calling`transferSession`, call`shareSession`. The other differences are in the session state callback methods.  
 
 ### Kotlin
 
-```
+```kotlin
 // Originating side.
 private val HELLO_WORLD_SHARE_ACTION = "hello_world_share"
 private var activePrimarySession: PrimarySession? = null
@@ -425,7 +390,7 @@ private inner class HelloWorldShareSessionStateCallback : PrimarySessionStateCal
 
 ### Java
 
-```
+```java
 // Originating side
 private static final String HELLO_WORLD_SHARE_ACTION = "hello_world_share";
 @Nullable private PrimarySession activePrimarySession = null;
@@ -438,8 +403,8 @@ public void onCreate(@Nullable Bundle savedInstanceState) {
 }
 
 private void shareSession() {
-  SessionId sessionId = sessions.createSession(new ApplicationSessionTag("hello_world_share"));
-  ListenableFuture<PrimarySession> shareSessionFuture =
+  SessionId sessionId = sessions.createSession(new ApplicationSessionTag("hello_world_share"))<;
+  Listenable>FuturePrimarySession shareSessionFuture =
       sessions.shareSessionFuture(
           sessionId,
           new StartComponentRequest.Builder()
@@ -449,8 +414,8 @@ private void shareSession() {
           Collections.emptyList(),
           new HelloWorldShareSessionStateCallback());
   Futures.addCallback(
-      shareSessionFuture,
-      new FutureCallback<PrimarySession>() {
+      shareSessionFu<ture,
+      ne>w FutureCallbackPrimarySession() {
         @Override
         public void onSuccess(PrimarySession primarySession) {
           activePrimarySession = primarySession;
@@ -481,8 +446,8 @@ private class HelloWorldShareSessionStateCallback implements PrimarySessionState
     SessionRemoteConnection connection =
         joinedSession.getSecondaryRemoteConnectionForParticipant(participant);
     Futures.addCallback(
-        connection.sendFuture("Initiating hello, world.".getBytes()),
-        new FutureCallback<Void>() {
+        connection.sendFuture("Initiating hello, wo<rld.>".getBytes()),
+        new FutureCallbackVoid() {
           @Override
           public void onSuccess(Void result) {
             // Send successful.
@@ -504,8 +469,8 @@ private class HelloWorldShareSessionStateCallback implements PrimarySessionState
             // Example logic: broadcast to all participants, including the one
             // that just joined.
             Futures.addCallback(
-                joinedSession.broadcastToSecondariesFuture("hello, all.".getBytes()),
-                new FutureCallback<Void>() {
+                joinedSession.broadcastToSecondari<esFu>ture("hello, all.".getBytes()),
+                new FutureCallbackVoid() {
                   @Override
                   public void onSuccess(Void result) {
                     // Broadcast successful.
@@ -540,11 +505,11 @@ private class HelloWorldShareSessionStateCallback implements PrimarySessionState
 }
 ```
 
-On the receiving side:
+On the receiving side:  
 
 ### Kotlin
 
-```
+```kotlin
 // Receiving side.
 
 override fun onNewIntent(intent: Intent) {
@@ -573,7 +538,7 @@ private inner class HelloWorldSecondaryShareSessionStateCallback : SecondarySess
 
 ### Java
 
-```
+```java
 // Receiving side.
 @Override
 public void onNewIntent(Intent intent) {

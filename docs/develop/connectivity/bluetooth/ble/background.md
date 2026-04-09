@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 This guide provides an overview of how to support key use cases for
 communicating with peripheral devices when your app is running in the
 background:

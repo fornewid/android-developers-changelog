@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 We provide interoperability between WorkManager and RxJava. To get started,
 include [`work-rxjava3` dependency in addition to `work-runtime`](/jetpack/androidx/releases/work#declaring_dependencies) in your gradle file.
 There is also a `work-rxjava2` dependency that supports rxjava2 instead.

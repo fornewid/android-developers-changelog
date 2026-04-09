@@ -1,18 +1,10 @@
 ---
-title: Add an MCP server  |  Android Studio  |  Android Developers
+title: https://developer.android.com/studio/gemini/add-mcp-server
 url: https://developer.android.com/studio/gemini/add-mcp-server
-source: html-scrape
+source: md.txt
 ---
 
-* [Android Developers](https://developer.android.com/)
-* [Develop](https://developer.android.com/develop)
-* [Android Studio](https://developer.android.com/studio)
-* [Gemini in Android Studio](https://developer.android.com/gemini-in-android)
-
-# Add an MCP server Stay organized with collections Save and categorize content based on your preferences.
-
-
-
+[Video](https://www.youtube.com/watch?v=B-wzYo7pXaA)
 
 Gemini in Android Studio's agent can interact with external tools using the
 [Model Context Protocol (MCP)](https://modelcontextprotocol.io/introduction). This feature provides a
@@ -27,43 +19,39 @@ desktop app. For more ideas, see the [MCP example servers](https://modelcontextp
 
 To add an MCP server, follow these steps:
 
-1. Go to the MCP server settings by clicking **File** (**Android Studio** on
-   macOS) **> Settings > Tools > AI > MCP Servers**.
+1. Go to the MCP server settings by clicking **File** (**Android Studio** on macOS) **\> Settings \> Tools \> AI \> MCP Servers**.
 2. Select **Enable MCP Servers**.
-3. Add the MCP configuration in the field provided. The configuration is saved
-   in an `mcp.json` file in the [configuration directory](/studio/troubleshoot#directories) of Android Studio.
+3. Add the MCP configuration in the field provided. The configuration is saved in an `mcp.json` file in the [configuration directory](https://developer.android.com/studio/troubleshoot#directories) of Android Studio.
 4. Click **OK**.
 
 The following example shows an `mcp.json` file with several server
 configurations:
 
-```
-{
-  "mcpServers": {
-    "figma": {
-      "httpUrl": "https://mcp.figma.com/mcp"
-    },
-    "github": {
-      "httpUrl": "https://api.githubcopilot.com/mcp/",
-      "headers": {
-        "Authorization": "Bearer <YOUR_PERSONAL_ACCESS_TOKEN>"
+    {
+      "mcpServers": {
+        "figma": {
+          "httpUrl": "https://mcp.figma.com/mcp"
+        },
+        "github": {
+          "httpUrl": "https://api.githubcopilot.com/mcp/",
+          "headers": {
+            "Authorization": "Bearer <YOUR_PERSONAL_ACCESS_TOKEN>"
+          }
+        },
+        "gitlab": {
+          "httpUrl": "https://gitlab.com/api/v4/mcp"
+        },
+        "canva": {
+          "httpUrl": "https://mcp.canva.com/mcp"
+        },
+        "notion": {
+          "httpUrl": "https://mcp.notion.com/mcp"
+        },
+        "linear": {
+          "httpUrl": "https://mcp.linear.app/mcp"
+        }
       }
-    },
-    "gitlab": {
-      "httpUrl": "https://gitlab.com/api/v4/mcp"
-    },
-    "canva": {
-      "httpUrl": "https://mcp.canva.com/mcp"
-    },
-    "notion": {
-      "httpUrl": "https://mcp.notion.com/mcp"
-    },
-    "linear": {
-      "httpUrl": "https://mcp.linear.app/mcp"
     }
-  }
-}
-```
 
 For the precise configuration values to list in this file, see the documentation
 for the MCP server that you're integrating with.
@@ -98,15 +86,13 @@ This section describes all the MCP server configuration options.
 The following table lists the configuration options for connecting to an MCP
 server through a streamable HTTP transport.
 
-**Note:** Some MCP servers provide an HTTP Server-Sent Events (SSE) endpoint, which
-is usually indicated by `/sse` in the URL. If you're connecting to an SSE
-endpoint instead of a streamable HTTP endpoint, use `url` instead of `httpUrl`
-to specify the URL.
+> [!NOTE]
+> **Note:** Some MCP servers provide an HTTP Server-Sent Events (SSE) endpoint, which is usually indicated by `/sse` in the URL. If you're connecting to an SSE endpoint instead of a streamable HTTP endpoint, use `url` instead of `httpUrl` to specify the URL.
 
 | Name | Type | Description |
-| --- | --- | --- |
+|---|---|---|
 | `httpUrl` | String | Required. The full URL of the streamable HTTP endpoint (for example, `https://example.com/mcp` or `http://localhost:1234/mcp`). |
-| `headers` | Map<String, String> | A map of custom HTTP headers to include in the connection request. Defaults to `{}` (an empty map). |
+| `headers` | Map\<String, String\> | A map of custom HTTP headers to include in the connection request. Defaults to `{}` (an empty map). |
 | `timeout` | Long | Connection timeout in milliseconds. -1 indicates no timeout. Defaults to -1. |
 | `enabled` | Boolean | Whether this server configuration is active. Defaults to `true`. |
 
@@ -114,7 +100,7 @@ to specify the URL.
 
 Android Studio's MCP integration doesn't support the following features:
 
-* Connection to MCP servers through `stdio` transport
-* MCP resources
-* Prompt templates
-* OAuth login with some MCP servers, such as GitHub
+- Connection to MCP servers through `stdio` transport
+- MCP resources
+- Prompt templates
+- OAuth login with some MCP servers, such as GitHub

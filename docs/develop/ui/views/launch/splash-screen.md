@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 **Important:** If you implemented a custom splash screen in Android 11 or lower,
 migrate your app to the [`SplashScreen`](/reference/android/window/SplashScreen)
 API to ensure it displays correctly in Android 12 and higher. For instructions,

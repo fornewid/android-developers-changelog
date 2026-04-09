@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 If you are a developer with a supported Google Pixel device, you can manually
 update that device to the latest build for testing and development. Flashing a
 factory image requires a full device reset, so make sure to [back up your

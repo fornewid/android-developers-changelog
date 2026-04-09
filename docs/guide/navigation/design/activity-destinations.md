@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 In your navigation graph, a destination can be an activity. While it is best
 practice to have a single activity in your app, apps often use separate
 activities for distinct components or screen within an app. Activity

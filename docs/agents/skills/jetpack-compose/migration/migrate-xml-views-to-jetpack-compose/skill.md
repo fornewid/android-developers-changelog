@@ -4,13 +4,7 @@ url: https://developer.android.com/agents/skills/jetpack-compose/migration/migra
 source: html-scrape
 ---
 
-* [Android Developers](https://developer.android.com/)
-* [Develop](https://developer.android.com/develop)
-* [Core areas](https://developer.android.com/develop/core-areas)
-* [UI](https://developer.android.com/develop/ui)
-
 # Migrate XML View to Jetpack Compose Stay organized with collections Save and categorize content based on your preferences.
-
 
 
 

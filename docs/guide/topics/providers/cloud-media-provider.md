@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 A cloud media provider provides additional cloud media content to the [Android
 photo picker](/training/data-storage/shared/photopicker). Users are able to select photos or videos supplied by the
 cloud media provider when an app uses `ACTION_PICK_IMAGES` or

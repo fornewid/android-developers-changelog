@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 **Gemini in Android Studio is built with your privacy in mind.**
 
 We know that verifying the privacy of your code is critical to earning and

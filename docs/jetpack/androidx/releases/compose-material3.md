@@ -15,7 +15,6 @@ Save and categorize content based on your preferences.
 
 
 
-
 # Compose Material 3
 
 [User Guide](/jetpack/compose/tutorial)  [Code Sample](https://github.com/android/compose-samples)
@@ -28,7 +27,7 @@ Build Jetpack Compose UIs with Material Design 3 Components, the next evolution 
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 | --- | --- | --- | --- | --- |
-| March 25, 2026 | [1.4.0](/jetpack/androidx/releases/compose-material3#1.4.0) | - | - | [1.5.0-alpha16](/jetpack/androidx/releases/compose-material3#1.5.0-alpha16) |
+| April 08, 2026 | [1.4.0](/jetpack/androidx/releases/compose-material3#1.4.0) | - | - | [1.5.0-alpha17](/jetpack/androidx/releases/compose-material3#1.5.0-alpha17) |
 
 **Note:** To develop UIs for Wear OS apps using Material 3 Expressive, use the
 [Wear Compose Material 3](/jetpack/androidx/releases/wear-compose-m3) library instead of this one.
@@ -66,7 +65,7 @@ your app or module:
 dependencies {
     implementation "androidx.compose.material3:material3:1.4.0"
     implementation "androidx.compose.material3:material3-window-size-class:1.4.0"
-    implementation "androidx.compose.material3:material3-adaptive-navigation-suite:1.5.0-alpha16"
+    implementation "androidx.compose.material3:material3-adaptive-navigation-suite:1.5.0-alpha17"
 }
 
 android {
@@ -90,7 +89,7 @@ android {
 dependencies {
     implementation("androidx.compose.material3:material3:1.4.0")
     implementation("androidx.compose.material3:material3-window-size-class:1.4.0")
-    implementation("androidx.compose.material3:material3-adaptive-navigation-suite:1.5.0-alpha16")
+    implementation("androidx.compose.material3:material3-adaptive-navigation-suite:1.5.0-alpha17")
 }
 
 android {
@@ -333,6 +332,16 @@ Material3 adaptive pane scaffold APIs:
   + [AnimatedPane](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/package-summary#(androidx.compose.material3.adaptive.ThreePaneScaffoldScope).AnimatedPane(androidx.compose.ui.Modifier,kotlin.Function2))
 
 ## Compose Material3 Version 1.5
+
+### Version 1.5.0-alpha17
+
+April 08, 2026
+
+`androidx.compose.material3:material3-*:1.5.0-alpha17` is released. Version 1.5.0-alpha17 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/4f1927c2c3b66d0c3a6b9118974d818d2dc5a06a..c656c03d44d333d412d260e5c5bc95a482820745/compose/material3).
+
+**API Changes**
+
+* Promoted `TopAppBarScrollBehavior` and its associated methods to stable. These APIs no longer require the `@ExperimentalMaterial3Api` opt-in. ([Ieb2d1](https://android-review.googlesource.com/#/q/Ieb2d11f5cfaf333eb89966f7af5672fe79ebb7d3), [b/496918628](https://issuetracker.google.com/issues/496918628))
 
 ### Version 1.5.0-alpha16
 

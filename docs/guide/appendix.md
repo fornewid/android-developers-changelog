@@ -10,6 +10,7 @@ source: html-scrape
 
 
 
+
 [Supported Android Media Formats](/guide/appendix/media-formats)
 :   A list of media codecs included in the Android platform.
 

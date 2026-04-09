@@ -1,270 +1,303 @@
 ---
-title: https://developer.android.com/latest-updates
+title: Android latest updates  |  Latest updates  |  Android Developers
 url: https://developer.android.com/latest-updates
-source: md.txt
+source: html-scrape
 ---
 
-![](http://developer.android.com/static/images/cluster-illustrations/android-basics-kotlin.svg)
+* [Android Developers](https://developer.android.com/)
+* [Latest updates](https://developer.android.com/latest-updates)
+
+Stay organized with collections
+
+Save and categorize content based on your preferences.
+
+
+
+![](https://developer.android.com/static/images/cluster-illustrations/android-basics-kotlin.svg)
 
 ### Latest updates
 
 Discover what's new across the Android ecosystem.
 
-## ![](https://developer.android.com/static/images/picto-icons/core-library.svg)
-Jetpack Libraries
+## Jetpack Libraries
 
-The latest updated popular libraries. [See all Jetpack library updates](https://developer.android.com/jetpack/androidx/versions) Everything Stable-only updates All updates
+The latest updated popular libraries.
 
-- stable
+[See all Jetpack library updates](/jetpack/androidx/versions)
+
+
+Everything
+Stable-only updates
+All updates
+
+* stable
 
   ### camera
 
-  February 25, 2026 <button class="devsite-dialog-button button button-white" data-modal-dialog-id="camera-updates-dialog"> Maven group versions → </button>
-- stable
+  February 25, 2026
+
+  Maven group versions →
+* stable
 
   ### compose
 
-  February 25, 2026 <button class="devsite-dialog-button button button-white" data-modal-dialog-id="compose-updates-dialog"> Maven group versions → </button>
-- rc
+  February 25, 2026
 
-  ### [activity](https://developer.android.com/jetpack/androidx/releases/activity#1.13.0-rc01)
+  Maven group versions →
+* rc
+
+  ### [activity](/jetpack/androidx/releases/activity#1.13.0-rc01)
 
   February 25, 2026  
   1.13.0
-- alpha
+* alpha
 
-  ### [lifecycle](https://developer.android.com/jetpack/androidx/releases/lifecycle#2.11.0-alpha01)
+  ### [lifecycle](/jetpack/androidx/releases/lifecycle#2.11.0-alpha01)
 
   February 25, 2026  
   2.11.0
-- alpha
+* alpha
 
-  ### [navigation3](https://developer.android.com/jetpack/androidx/releases/navigation3#1.1.0-alpha05)
-
-  February 25, 2026  
-  1.1.0
-- alpha
-
-  ### [navigationevent](https://developer.android.com/jetpack/androidx/releases/navigationevent#1.1.0-alpha01)
+  ### [navigation3](/jetpack/androidx/releases/navigation3#1.1.0-alpha05)
 
   February 25, 2026  
   1.1.0
-- alpha
+* alpha
 
-  ### [xr arcore](https://developer.android.com/jetpack/androidx/releases/xr-arcore#1.0.0-alpha11)
+  ### [navigationevent](/jetpack/androidx/releases/navigationevent#1.1.0-alpha01)
+
+  February 25, 2026  
+  1.1.0
+* alpha
+
+  ### [xr arcore](/jetpack/androidx/releases/xr-arcore#1.0.0-alpha11)
 
   February 25, 2026  
   1.0.0
-- alpha
+* alpha
 
-  ### [xr compose](https://developer.android.com/jetpack/androidx/releases/xr-compose#1.0.0-alpha11)
-
-  February 25, 2026  
-  1.0.0
-- alpha
-
-  ### [xr compose material3](https://developer.android.com/jetpack/androidx/releases/xr-compose-material3#1.0.0-alpha15)
+  ### [xr compose](/jetpack/androidx/releases/xr-compose#1.0.0-alpha11)
 
   February 25, 2026  
   1.0.0
-- alpha
+* alpha
 
-  ### [xr glimmer](https://developer.android.com/jetpack/androidx/releases/xr-glimmer#1.0.0-alpha07)
-
-  February 25, 2026  
-  1.0.0
-- alpha
-
-  ### [xr projected](https://developer.android.com/jetpack/androidx/releases/xr-projected#1.0.0-alpha05)
+  ### [xr compose material3](/jetpack/androidx/releases/xr-compose-material3#1.0.0-alpha15)
 
   February 25, 2026  
   1.0.0
-- alpha
+* alpha
 
-  ### [xr runtime](https://developer.android.com/jetpack/androidx/releases/xr-runtime#1.0.0-alpha11)
-
-  February 25, 2026  
-  1.0.0
-- alpha
-
-  ### [xr scenecore](https://developer.android.com/jetpack/androidx/releases/xr-scenecore#1.0.0-alpha12)
+  ### [xr glimmer](/jetpack/androidx/releases/xr-glimmer#1.0.0-alpha07)
 
   February 25, 2026  
   1.0.0
-- beta
+* alpha
 
-  ### [media3](https://developer.android.com/jetpack/androidx/releases/media3#1.10.0-beta01)
+  ### [xr projected](/jetpack/androidx/releases/xr-projected#1.0.0-alpha05)
+
+  February 25, 2026  
+  1.0.0
+* alpha
+
+  ### [xr runtime](/jetpack/androidx/releases/xr-runtime#1.0.0-alpha11)
+
+  February 25, 2026  
+  1.0.0
+* alpha
+
+  ### [xr scenecore](/jetpack/androidx/releases/xr-scenecore#1.0.0-alpha12)
+
+  February 25, 2026  
+  1.0.0
+* beta
+
+  ### [media3](/jetpack/androidx/releases/media3#1.10.0-beta01)
 
   February 25, 2026  
   1.10.0
-- stable
+* stable
 
-  ### [activity](https://developer.android.com/jetpack/androidx/releases/activity#1.12.4)
+  ### [activity](/jetpack/androidx/releases/activity#1.12.4)
 
   February 11, 2026  
   1.12.4
-- stable
+* stable
 
-  ### [navigation3](https://developer.android.com/jetpack/androidx/releases/navigation3#1.0.1)
+  ### [navigation3](/jetpack/androidx/releases/navigation3#1.0.1)
 
   February 11, 2026  
   1.0.1
-- stable
+* stable
 
-  ### [paging](https://developer.android.com/jetpack/androidx/releases/paging#3.4.1)
+  ### [paging](/jetpack/androidx/releases/paging#3.4.1)
 
   February 11, 2026  
   3.4.1
-- stable
+* stable
 
-  ### [media3](https://developer.android.com/jetpack/androidx/releases/media3#1.9.2)
+  ### [media3](/jetpack/androidx/releases/media3#1.9.2)
 
   February 6, 2026  
   1.9.2
-- stable
+* stable
 
-  ### [navigation](https://developer.android.com/jetpack/androidx/releases/navigation#2.9.7)
+  ### [navigation](/jetpack/androidx/releases/navigation#2.9.7)
 
   January 28, 2026  
   2.9.7
-- stable
+* stable
 
-  ### [navigationevent](https://developer.android.com/jetpack/androidx/releases/navigationevent#1.0.2)
+  ### [navigationevent](/jetpack/androidx/releases/navigationevent#1.0.2)
 
   January 28, 2026  
   1.0.2
-- stable
+* stable
 
-  ### [work](https://developer.android.com/jetpack/androidx/releases/work#2.11.1)
+  ### [work](/jetpack/androidx/releases/work#2.11.1)
 
   January 28, 2026  
   2.11.1
-- stable
+* stable
 
-  ### [lifecycle](https://developer.android.com/jetpack/androidx/releases/lifecycle#2.10.0)
+  ### [lifecycle](/jetpack/androidx/releases/lifecycle#2.10.0)
 
   November 19, 2025  
   2.10.0
-- stable
+* stable
 
-  ### [room](https://developer.android.com/jetpack/androidx/releases/room#2.8.4)
+  ### [room](/jetpack/androidx/releases/room#2.8.4)
 
   November 19, 2025  
   2.8.4
-- stable
+* stable
 
-  ### [benchmark](https://developer.android.com/jetpack/androidx/releases/benchmark#1.4.1)
+  ### [benchmark](/jetpack/androidx/releases/benchmark#1.4.1)
 
   September 10, 2025  
   1.4.1
 
-## ![](https://developer.android.com/static/images/logos/android-studio.svg) Android Studio
+## Android Studio
 
-Recent updates to Android Studio and tools [See more about Android Studio](https://developer.android.com/studio) Canary
+Recent updates to Android Studio and tools
 
-### [Panda 4 \| 2025.3.4 Canary 2](https://developer.android.com/studio/preview)
+[See more about Android Studio](/studio)
 
-March 26, 2026 Stable
+Canary
 
-### [Panda 3 \| 2025.3.3](https://developer.android.com/studio/releases)
+### [Panda 4 | 2025.3.4 Canary 4](/studio/preview)
 
-April 2, 2026 Stable
+April 9, 2026
 
-### [Android Gradle Plugin 9.1.0](https://developer.android.com/build/releases/gradle-plugin)
+Stable
+
+### [Panda 3 | 2025.3.3](/studio/releases)
 
 April 2, 2026
 
-## ![](https://developer.android.com/static/images/picto-icons/platform.svg) Platform
+Stable
 
-Get your apps ready for Android releases [See all platform updates](http://developer.android.com/about/versions) Stable
+### [Android Gradle Plugin 9.1.0](/build/releases/gradle-plugin)
 
-### [Android 16](http://developer.android.com/about/versions)
+April 2, 2026
 
-June 10, 2025 The latest version of Android is available for testing, development, and feedback. Get your apps ready! Stable
+## Platform
 
-### [Android 15](http://developer.android.com/about/versions/15)
+Get your apps ready for Android releases
 
-SEPTEMBER 3, 2024 Android 15 continues our mission of building a private and secure platform that helps improve your productivity while giving you new capabilities to produce beautiful apps, superior media and camera experiences, and an... Stable
+[See all platform updates](https://developer.android.com/about/versions)
 
-### [Wear OS 6.1](http://developer.android.com/training/wearables/versions/latest)
+Stable
+
+### [Android 16](https://developer.android.com/about/versions)
+
+June 10, 2025 The latest version of Android is available for testing, development, and feedback. Get your apps ready!
+
+Stable
+
+### [Android 15](https://developer.android.com/about/versions/15)
+
+SEPTEMBER 3, 2024 Android 15 continues our mission of building a private and secure platform that helps improve your productivity while giving you new capabilities to produce beautiful apps, superior media and camera experiences, and an...
+
+Stable
+
+### [Wear OS 6.1](https://developer.android.com/training/wearables/versions/latest)
 
 The latest version of Wear OS includes location-based time zone detection and refined experiences for kids. Test your app using the official emulator in Android Studio.
 
-## ![](https://developer.android.com/static/images/picto-icons/flask.svg) Experimental
+## Experimental
 
-New features and APIs to try and give us feedback [See all Experimental features](http://developer.android.com/latest-updates/experimental) Preview
+New features and APIs to try and give us feedback
 
-### [Android XR Developer Preview](http://developer.android.com/xr)
+[See all Experimental features](https://developer.android.com/latest-updates/experimental)
 
-December 12, 2024 Build experiences that push boundaries and transform how people create, explore, and enjoy entertainment, powered by Android XR. Libraries
+Preview
+
+### [Android XR Developer Preview](https://developer.android.com/xr)
+
+December 12, 2024 Build experiences that push boundaries and transform how people create, explore, and enjoy entertainment, powered by Android XR.
+
+Libraries
 
 ### [Gemini Nano experimental access!](https://android-developers.googleblog.com/2024/10/gemini-nano-experimental-access-available-on-android.html)
 
 October 1, 2024 Available in Google AI Edge SDK  
-Gemini Nano is Google's most efficient AI model built for on-device tasks on Android. Try Gemini Nano today to experiment with text-to-text prompts on Pixel 9 devices... Platform
+Gemini Nano is Google’s most efficient AI model built for on-device tasks on Android. Try Gemini Nano today to experiment with text-to-text prompts on Pixel 9 devices...
+
+Platform
 
 ### [Desktop windowing on Android tablets](https://android-developers.googleblog.com/2024/09/developer-preview-desktop-windowing-on-android-tablets.html)
 
 SEPTEMBER 12, 2024 Available in Android 15 QPR1  
-Get your apps ready for desktop windowing! With this feature, users can run multiple apps simultaneously in individually resizable windows. Now in Developer Preview to test your apps on Android 15 QPR1 Beta 2... Android Studio
+Get your apps ready for desktop windowing! With this feature, users can run multiple apps simultaneously in individually resizable windows. Now in Developer Preview to test your apps on Android 15 QPR1 Beta 2...
 
-### [Compose Preview Screenshot Testing tool](http://developer.android.com/studio/preview/compose-screenshot-testing)
+Android Studio
+
+### [Compose Preview Screenshot Testing tool](https://developer.android.com/studio/preview/compose-screenshot-testing)
 
 September 6, 2024 Available in Android Studio Ladybug  
 The Compose Preview Screenshot Testing tool lets you test your Compose UI and prevent regressions by generating HTML reports that help you visually detect app...
 
 ### Compose Maven Group versions
 
-
 Compose consists of 7 Maven Group Ids within androidx. Each Group contains a targeted
 subset of functionality, each with its own set of release notes.
 
 | Maven Group ID | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
-|---|---|---|---|---|---|
-| [compose.animation](https://developer.android.com/jetpack/androidx/releases/compose-animation) | March 25, 2026 | [1.10.6](https://developer.android.com/jetpack/androidx/releases/compose-animation#1.10.6) | - | [1.11.0-beta02](https://developer.android.com/jetpack/androidx/releases/compose-animation#1.11.0-beta02) | - |
-| [compose.compiler](https://developer.android.com/jetpack/androidx/releases/compose-compiler) | August 7, 2024 | [1.5.15](https://developer.android.com/jetpack/androidx/releases/compose-compiler#1.5.15) | - | - | - |
-| [compose.foundation](https://developer.android.com/jetpack/androidx/releases/compose-foundation) | March 25, 2026 | [1.10.6](https://developer.android.com/jetpack/androidx/releases/compose-foundation#1.10.6) | - | [1.11.0-beta02](https://developer.android.com/jetpack/androidx/releases/compose-foundation#1.11.0-beta02) | - |
-| [compose.material](https://developer.android.com/jetpack/androidx/releases/compose-material) | March 25, 2026 | [1.10.6](https://developer.android.com/jetpack/androidx/releases/compose-material#1.10.6) | - | [1.11.0-beta02](https://developer.android.com/jetpack/androidx/releases/compose-material#1.11.0-beta02) | - |
-| [compose.material3](https://developer.android.com/jetpack/androidx/releases/compose-material3) | March 25, 2026 | [1.4.0](https://developer.android.com/jetpack/androidx/releases/compose-material3#1.4.0) | - | - | [1.5.0-alpha16](https://developer.android.com/jetpack/androidx/releases/compose-material3#1.5.0-alpha16) |
-| [compose.runtime](https://developer.android.com/jetpack/androidx/releases/compose-runtime) | March 25, 2026 | [1.10.6](https://developer.android.com/jetpack/androidx/releases/compose-runtime#1.10.6) | - | [1.11.0-beta02](https://developer.android.com/jetpack/androidx/releases/compose-runtime#1.11.0-beta02) | - |
-| [compose.ui](https://developer.android.com/jetpack/androidx/releases/compose-ui) | March 25, 2026 | [1.10.6](https://developer.android.com/jetpack/androidx/releases/compose-ui#1.10.6) | - | [1.11.0-beta02](https://developer.android.com/jetpack/androidx/releases/compose-ui#1.11.0-beta02) | - |
+| --- | --- | --- | --- | --- | --- |
+| [compose.animation](/jetpack/androidx/releases/compose-animation) | April 08, 2026 | [1.10.6](/jetpack/androidx/releases/compose-animation#1.10.6) | [1.11.0-rc01](/jetpack/androidx/releases/compose-animation#1.11.0-rc01) | - | - |
+| [compose.compiler](/jetpack/androidx/releases/compose-compiler) | August 7, 2024 | [1.5.15](/jetpack/androidx/releases/compose-compiler#1.5.15) | - | - | - |
+| [compose.foundation](/jetpack/androidx/releases/compose-foundation) | April 08, 2026 | [1.10.6](/jetpack/androidx/releases/compose-foundation#1.10.6) | [1.11.0-rc01](/jetpack/androidx/releases/compose-foundation#1.11.0-rc01) | - | - |
+| [compose.material](/jetpack/androidx/releases/compose-material) | April 08, 2026 | [1.10.6](/jetpack/androidx/releases/compose-material#1.10.6) | [1.11.0-rc01](/jetpack/androidx/releases/compose-material#1.11.0-rc01) | - | - |
+| [compose.material3](/jetpack/androidx/releases/compose-material3) | April 08, 2026 | [1.4.0](/jetpack/androidx/releases/compose-material3#1.4.0) | - | - | [1.5.0-alpha17](/jetpack/androidx/releases/compose-material3#1.5.0-alpha17) |
+| [compose.runtime](/jetpack/androidx/releases/compose-runtime) | April 08, 2026 | [1.10.6](/jetpack/androidx/releases/compose-runtime#1.10.6) | [1.11.0-rc01](/jetpack/androidx/releases/compose-runtime#1.11.0-rc01) | - | - |
+| [compose.ui](/jetpack/androidx/releases/compose-ui) | April 08, 2026 | [1.10.6](/jetpack/androidx/releases/compose-ui#1.10.6) | [1.11.0-rc01](/jetpack/androidx/releases/compose-ui#1.11.0-rc01) | - | - |
 
-[View the Compose Library](https://developer.android.com/jetpack/androidx/releases/compose) <button class="devsite-dialog-close">Close</button>
+[View the Compose Library](/jetpack/androidx/releases/compose)
+Close
 
 ### Camera Maven Group versions
-
 
 This table lists all the artifacts in the `androidx.camera` group.
 
 | Artifact | Stable Release | Release Candidate | Beta Release | Alpha Release |
-|---|---|---|---|---|
-| camera-camera2 | [1.6.0](https://developer.android.com/jetpack/androidx/releases/camera#1.6.0) | - | - | [1.7.0-alpha01](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-alpha01) |
-| camera-core | [1.6.0](https://developer.android.com/jetpack/androidx/releases/camera#1.6.0) | - | - | [1.7.0-alpha01](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-alpha01) |
-| camera-compose | [1.6.0](https://developer.android.com/jetpack/androidx/releases/camera#1.6.0) | - | - | [1.7.0-alpha01](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-alpha01) |
-| camera-effects | [1.6.0](https://developer.android.com/jetpack/androidx/releases/camera#1.6.0) | - | - | [1.7.0-alpha01](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-alpha01) |
-| camera-extensions | [1.6.0](https://developer.android.com/jetpack/androidx/releases/camera#1.6.0) | - | - | [1.7.0-alpha01](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-alpha01) |
-| camera-feature-combination-query | - | - | - | [1.5.0-alpha06](https://developer.android.com/jetpack/androidx/releases/camera#1.5.0-alpha06) |
-| camera-feature-combination-query-play-services | - | - | - | [1.5.0-alpha06](https://developer.android.com/jetpack/androidx/releases/camera#1.5.0-alpha06) |
-| camera-lifecycle | [1.6.0](https://developer.android.com/jetpack/androidx/releases/camera#1.6.0) | - | - | [1.7.0-alpha01](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-alpha01) |
-| camera-mlkit-vision | [1.6.0](https://developer.android.com/jetpack/androidx/releases/camera#1.6.0) | - | - | [1.7.0-alpha01](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-alpha01) |
-| camera-view | [1.6.0](https://developer.android.com/jetpack/androidx/releases/camera#1.6.0) | - | - | [1.7.0-alpha01](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-alpha01) |
-| camera-viewfinder | - | - | [1.3.0-beta02](https://developer.android.com/jetpack/androidx/releases/camera#1.3.0-beta02) | [1.4.0-alpha07](https://developer.android.com/jetpack/androidx/releases/camera#1.4.0-alpha07) |
-| camera-video | [1.6.0](https://developer.android.com/jetpack/androidx/releases/camera#1.6.0) | - | - | [1.7.0-alpha01](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-alpha01) |
+| --- | --- | --- | --- | --- |
+| camera-camera2 | [1.6.0](/jetpack/androidx/releases/camera#1.6.0) | - | - | [1.7.0-alpha01](/jetpack/androidx/releases/camera#1.7.0-alpha01) || camera-core | [1.6.0](/jetpack/androidx/releases/camera#1.6.0) | - | - | [1.7.0-alpha01](/jetpack/androidx/releases/camera#1.7.0-alpha01) || camera-compose | [1.6.0](/jetpack/androidx/releases/camera#1.6.0) | - | - | [1.7.0-alpha01](/jetpack/androidx/releases/camera#1.7.0-alpha01) || camera-effects | [1.6.0](/jetpack/androidx/releases/camera#1.6.0) | - | - | [1.7.0-alpha01](/jetpack/androidx/releases/camera#1.7.0-alpha01) || camera-extensions | [1.6.0](/jetpack/androidx/releases/camera#1.6.0) | - | - | [1.7.0-alpha01](/jetpack/androidx/releases/camera#1.7.0-alpha01) || camera-feature-combination-query | - | - | - | [1.5.0-alpha06](/jetpack/androidx/releases/camera#1.5.0-alpha06) || camera-feature-combination-query-play-services | - | - | - | [1.5.0-alpha06](/jetpack/androidx/releases/camera#1.5.0-alpha06) || camera-lifecycle | [1.6.0](/jetpack/androidx/releases/camera#1.6.0) | - | - | [1.7.0-alpha01](/jetpack/androidx/releases/camera#1.7.0-alpha01) || camera-mlkit-vision | [1.6.0](/jetpack/androidx/releases/camera#1.6.0) | - | - | [1.7.0-alpha01](/jetpack/androidx/releases/camera#1.7.0-alpha01) || camera-view | [1.6.0](/jetpack/androidx/releases/camera#1.6.0) | - | - | [1.7.0-alpha01](/jetpack/androidx/releases/camera#1.7.0-alpha01) || camera-viewfinder | - | - | [1.3.0-beta02](/jetpack/androidx/releases/camera#1.3.0-beta02) | [1.4.0-alpha07](/jetpack/androidx/releases/camera#1.4.0-alpha07) || camera-video | [1.6.0](/jetpack/androidx/releases/camera#1.6.0) | - | - | [1.7.0-alpha01](/jetpack/androidx/releases/camera#1.7.0-alpha01) |
 
-This library was last updated on: March 25, 2026 [View the Camera Library](https://developer.android.com/jetpack/androidx/releases/camera) <button class="devsite-dialog-close">Close</button>
+This library was last updated on: March 25, 2026
+
+[View the Camera Library](/jetpack/androidx/releases/camera)
+Close
 
 ### Wear Maven Group versions
-
 
 This table lists all the artifacts in the `androidx.wear` group.
 
 | Artifact | Stable Release | Release Candidate | Beta Release | Alpha Release |
-|---|---|---|---|---|
-| wear | [1.4.0](https://developer.android.com/jetpack/androidx/releases/wear#1.4.0) | - | - | - |
-| wear-input | [1.2.0](https://developer.android.com/jetpack/androidx/releases/wear#1.2.0) | - | - | - |
-| wear-input-testing | [1.2.0](https://developer.android.com/jetpack/androidx/releases/wear#1.2.0) | - | - | - |
-| wear-ongoing | [1.1.0](https://developer.android.com/jetpack/androidx/releases/wear#1.1.0) | - | - | - |
-| wear-phone-interactions | [1.1.0](https://developer.android.com/jetpack/androidx/releases/wear#1.1.0) | - | - | - |
-| wear-remote-interactions | [1.2.0](https://developer.android.com/jetpack/androidx/releases/wear#1.2.0) | - | - | - |
+| --- | --- | --- | --- | --- |
+| wear | [1.4.0](/jetpack/androidx/releases/wear#1.4.0) | - | - | - || wear-input | [1.2.0](/jetpack/androidx/releases/wear#1.2.0) | - | - | - || wear-input-testing | [1.2.0](/jetpack/androidx/releases/wear#1.2.0) | - | - | - || wear-ongoing | [1.1.0](/jetpack/androidx/releases/wear#1.1.0) | - | - | - || wear-phone-interactions | [1.1.0](/jetpack/androidx/releases/wear#1.1.0) | - | - | - || wear-remote-interactions | [1.2.0](/jetpack/androidx/releases/wear#1.2.0) | - | - | - |
 
-This library was last updated on: March 25, 2026 [View the Wear Library](https://developer.android.com/jetpack/androidx/releases/wear) <button class="devsite-dialog-close">Close</button>
+This library was last updated on: April 08, 2026
+
+[View the Wear Library](/jetpack/androidx/releases/wear)
+Close

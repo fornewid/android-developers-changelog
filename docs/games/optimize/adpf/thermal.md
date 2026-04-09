@@ -15,6 +15,7 @@ Send feedback
 
 
 
+
 **Released**:
 
 Android 11 (API Level 30) - [Thermal API](/reference/android/os/PowerManager#getThermalHeadroom(int))
@@ -345,6 +346,8 @@ Example](/static/games/optimize/adpf/images/adpf_heuristic.svg)
 
 
 **Figure 3.**Example of Heuristic to determine Thermal API support on older devices
+
+
 
 
 

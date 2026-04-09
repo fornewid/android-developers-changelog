@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 To prevent queries from blocking the UI, Room does not allow database access on
 the main thread. This restriction means that you must make your [DAO
 queries](/training/data-storage/room/accessing-data) asynchronous. The Room

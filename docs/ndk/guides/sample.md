@@ -11,6 +11,7 @@ source: html-scrape
 
 
 
+
 This section explains several of the sample apps provided with the NDK. It assumes that you already have a working knowledge of programming in Java and native code, and focuses on issues particular to working with the NDK.
 
 It discusses the following samples:

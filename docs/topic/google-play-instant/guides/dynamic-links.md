@@ -1,8 +1,16 @@
 ---
-title: https://developer.android.com/topic/google-play-instant/guides/dynamic-links
+title: Use Firebase Dynamic Links with instant apps  |  Other Play guides  |  Android Developers
 url: https://developer.android.com/topic/google-play-instant/guides/dynamic-links
-source: md.txt
+source: html-scrape
 ---
+
+* [Android Developers](https://developer.android.com/)
+* [Google Play](https://developer.android.com/distribute)
+* [Other Play guides](https://developer.android.com/guide/app-bundle)
+
+# Use Firebase Dynamic Links with instant apps Stay organized with collections Save and categorize content based on your preferences.
+
+
 
 **Warning:** Google Play Instant will no longer be available. Starting December 2025,
 Instant Apps cannot be published through Google Play, and all
@@ -27,10 +35,13 @@ app project.
 
 ### Key benefits
 
-- **Wrapping your links with Firebase Dynamic Links guarantees that clicks on
-  links always take users to your instant app.** Otherwise, apps can force links to be opened inside an in-app browser instead of an instant app. Firebase Dynamic Links allows you to control the behavior of clicks on links.
-- **Firebase Dynamic Links allows you to track analytics on events like clicks,
-  first-opens, re-opens, and installs.** Dynamic Links events also are recorded in Google Analytics for Firebase.
+* **Wrapping your links with Firebase Dynamic Links guarantees that clicks on
+  links always take users to your instant app.** Otherwise, apps can force
+  links to be opened inside an in-app browser instead of an instant app.
+  Firebase Dynamic Links allows you to control the behavior of clicks on links.
+* **Firebase Dynamic Links allows you to track analytics on events like clicks,
+  first-opens, re-opens, and installs.** Dynamic Links events also are
+  recorded in Google Analytics for Firebase.
 
 ### Integrating Firebase Dynamic Links with an instant app project
 

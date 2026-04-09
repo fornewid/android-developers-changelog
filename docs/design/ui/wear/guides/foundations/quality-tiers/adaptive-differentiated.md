@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 Apps that create a user experience specifically tailored to the size of the
 screen, leveraging new layouts, implemented at a key screen size breakpoint,\* to
 derive additional value for users of devices with larger screens, enabling a

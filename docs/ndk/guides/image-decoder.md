@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 The NDK [`ImageDecoder`](/ndk/reference/group/image-decoder) API provides a
 standard API for Android C/C++ apps to decode images directly. App developers no
 longer need to use the Java APIs (via JNI) or third-party image decoding

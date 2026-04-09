@@ -1,15 +1,8 @@
 ---
-title: Android Developer Console Terms of Service  |  Android developer verification  |  Android Developers
+title: https://developer.android.com/developer-verification/console/terms
 url: https://developer.android.com/developer-verification/console/terms
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [Android developer verification](https://developer.android.com/developer-verification)
-
-# Android Developer Console Terms of Service Stay organized with collections Save and categorize content based on your preferences.
-
-
 
 **Effective as of November 11, 2025**
 
@@ -26,7 +19,7 @@ House, Barrow Street, Dublin 4, Ireland; or Google Asia Pacific Pte. Limited, a
 company incorporated in Singapore with principal place of business at 70 Pasir
 Panjang Road, #03-71, Mapletree Business City, Singapore 117371. Google may
 update the Google entities and their addresses from time to time (collectively,
-herein, referred to as "**Google", "we**" or "**us**"). Your use, as an
+herein, referred to as "**Google", "we** " or "**us** "). Your use, as an
 individual, of the ADC is subject to these Android Developer Console Terms of
 Service (the "**Terms**").
 
@@ -77,13 +70,10 @@ connection with the ADC.
 
 You may not use the ADC:
 
-* beyond the intended ADC functionality outlined in the Terms and other ADC
-  documentation;
-  + to engage in, promote or encourage illegal activity or abusive behavior;
-  + to disable, interfere with, reverse engineer, or circumvent any aspect of
-    the ADC; or
-  + to access any other Google product or service in a manner that violates the
-    terms of service of such other Google product or service.
+- beyond the intended ADC functionality outlined in the Terms and other ADC documentation;
+  - to engage in, promote or encourage illegal activity or abusive behavior;
+  - to disable, interfere with, reverse engineer, or circumvent any aspect of the ADC; or
+  - to access any other Google product or service in a manner that violates the terms of service of such other Google product or service.
 
 **6. Modification and Termination of Services**
 

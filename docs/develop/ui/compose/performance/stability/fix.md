@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 When faced with an [unstable class](/develop/ui/compose/performance/stability/diagnose) that causes performance
 issues, you should make it stable. This document outlines several techniques you
 can use to do so.

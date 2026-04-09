@@ -1,18 +1,8 @@
 ---
-title: View code coverage reports  |  Android Studio  |  Android Developers
+title: https://developer.android.com/studio/test/coverage-report
 url: https://developer.android.com/studio/test/coverage-report
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [Develop](https://developer.android.com/develop)
-* [Android Studio](https://developer.android.com/studio)
-* [IDE guides](https://developer.android.com/studio/intro)
-
-# View code coverage reports Stay organized with collections Save and categorize content based on your preferences.
-
-
-
 
 The Android Gradle plugin can create code coverage reports that track the
 percentage of your code that your tests cover. This page describes how to
@@ -30,7 +20,7 @@ variant you want to get coverage reports for:
 
 ### Kotlin
 
-```
+```kotlin
 android {
     // ...
     buildTypes {
@@ -46,7 +36,7 @@ android {
 
 ### Groovy
 
-```
+```groovy
 android {
     // ...
     buildTypes {
@@ -68,7 +58,7 @@ your module-level build file:
 
 ### Kotlin
 
-```
+```kotlin
 android {
     jacoco {
         version = "JACOCO_VERSION"
@@ -78,7 +68,7 @@ android {
 
 ### Groovy
 
-```
+```groovy
 android {
     jacoco {
         version = 'JACOCO_VERSION'
@@ -92,7 +82,7 @@ To generate coverage reports for only unit tests or only instrumented tests for
 a specific variant, run the corresponding tasks.
 
 | Test type | Command | Report location |
-| --- | --- | --- |
+|---|---|---|
 | Unit tests | `./gradlew :module-name:createVariantNameUnitTestCoverageReport` | `path-to-your-project/module-name/build/reports/coverage/test/variant/index.html` |
 | Instrumented tests | `./gradlew :module-name:createVariantNameAndroidTestCoverageReport` | `path-to-your-project/module-name/build/reports/coverage/androidTest/variant/connected/index.html` |
 
@@ -107,23 +97,21 @@ single dashboard.
 
 ### Prerequisites
 
-* Android Gradle Plugin 9.2.0-alpha07 or higher
+- Android Gradle Plugin 9.2.0-alpha07 or higher
 
 To generate a unified report, run one of the following tasks from the command
 line:
 
 | Coverage scope | Command | Description | Report location |
-| --- | --- | --- | --- |
+|---|---|---|---|
 | Current module | `./gradlew :module-name:createCoverageReport` | Generates a unified coverage report for the current module, merging data from all test types. | `path-to-your-project/module-name/build/reports/code_coverage_html_report/` |
-| Current module and dependencies | `./gradlew :module-name:createAggregatedCoverageReport` | Generates a unified coverage report for the current module and all its dependencies. This task is available for app modules and [library modules with publication enabled](/build/publish-library). | `path-to-your-project/module-name/build/reports/aggregated_code_coverage_html_report/` |
+| Current module and dependencies | `./gradlew :module-name:createAggregatedCoverageReport` | Generates a unified coverage report for the current module and all its dependencies. This task is available for app modules and [library modules with publication enabled](https://developer.android.com/build/publish-library). | `path-to-your-project/module-name/build/reports/aggregated_code_coverage_html_report/` |
 
 The generated HTML report landing page shows a high-level summary of all
 modules. You can drill down from module to package, from package to class, and
 from class to source file.
 Click any file to see code with highlighting for line and branch coverage:
 
-* Green: Covered lines.
-* Red: Uncovered lines.
-* Yellow: Partial coverage (some instructions or branches missed).
-
-[](/static/studio/videos/unified-coverage-report.mp4)
+- Green: Covered lines.
+- Red: Uncovered lines.
+- Yellow: Partial coverage (some instructions or branches missed).

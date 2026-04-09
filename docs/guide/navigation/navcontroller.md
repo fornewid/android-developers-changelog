@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 The navigation controller is one of the [key concepts](/guide/navigation#types) in navigation. It
 holds the navigation graph and exposes methods that allow your app to move
 between the destinations in the graph.

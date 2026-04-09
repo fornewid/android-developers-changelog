@@ -1,8 +1,18 @@
 ---
-title: https://developer.android.com/about/versions/12/12L/setup-sdk
+title: Set up the 12L SDK  |  Android Developers
 url: https://developer.android.com/about/versions/12/12L/setup-sdk
-source: md.txt
+source: html-scrape
 ---
+
+The Android 16 Beta is now available. [Try it out today](/about/versions/16) and let us know what you think!
+
+* [Android Developers](https://developer.android.com/)
+* [Essentials](https://developer.android.com/get-started)
+* [Releases](https://developer.android.com/about/versions)
+
+# Set up the 12L SDK Stay organized with collections Save and categorize content based on your preferences.
+
+
 
 To develop with the 12L APIs and test your app, you need to set up the 12L SDK.
 Follow the instructions on this page to set up the Android 12 SDK in Android
@@ -12,18 +22,20 @@ Studio and build and run your app on 12L.
 
 The 12L SDK includes changes that are not compatible with some lower versions of
 Android Studio. For the best development experience with the 12L SDK, use
-Android Studio Chipmunk \| 2021.2.1 or higher.
+Android Studio Chipmunk | 2021.2.1 or higher.
 
-[Get Android Studio](https://developer.android.com/studio)
+[Get Android Studio](/studio)
 
 ## Install the SDK
 
 Within Android Studio, you can install the 12L SDK as follows:
 
-1. Click **Tools \> SDK Manager** , then click **Show Package Details**.
-2. In the **SDK Platforms** tab, expand the **Android 12L ("Sv2")** section and select the **Android SDK Platform 32** package.
-3. In the **SDK Tools** tab, expand the **Android SDK Build-Tools 34** section and select the latest `32.x.x` version.
-4. Click **Apply \> OK** to download and install the selected packages.
+1. Click **Tools > SDK Manager**, then click **Show Package Details**.
+2. In the **SDK Platforms** tab, expand the **Android 12L ("Sv2")** section and
+   select the **Android SDK Platform 32** package.
+3. In the **SDK Tools** tab, expand the **Android SDK Build-Tools 34** section
+   and select the latest `32.x.x` version.
+4. Click **Apply > OK** to download and install the selected packages.
 
 ## Update your app's build configuration
 
@@ -33,7 +45,7 @@ module-level `build.gradle` or `build.gradle.kts` file, and update the
 
 ### Groovy
 
-```groovy
+```
 android {
     compileSdkVersion "32"
 
@@ -45,7 +57,7 @@ android {
 
 ### Kotlin
 
-```kotlin
+```
 android {
     compileSdkVersion("32")
 
@@ -56,4 +68,4 @@ android {
 ```
 
 To learn more about the features and changes in 12L, see [12L features and
-changes](https://developer.android.com/about/versions/12/12L/summary).
+changes](/about/versions/12/12L/summary).

@@ -1,32 +1,24 @@
 ---
-title: String resources  |  App architecture  |  Android Developers
+title: https://developer.android.com/guide/topics/resources/string-resource
 url: https://developer.android.com/guide/topics/resources/string-resource
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [Design & Plan](https://developer.android.com/design)
-* [App architecture](https://developer.android.com/topic/architecture/intro)
-
-# String resources Stay organized with collections Save and categorize content based on your preferences.
-
-
 
 A string resource provides text strings for your application
 with optional text styling and formatting. There are three types of resources that can provide
 your application with strings:
 
-[String](#String)
+[String](https://developer.android.com/guide/topics/resources/string-resource#String)
 :   XML resource that provides a single string.
 
-[String Array](#StringArray)
+[String Array](https://developer.android.com/guide/topics/resources/string-resource#StringArray)
 :   XML resource that provides an array of strings.
 
-[Quantity Strings (Plurals)](#Plurals)
+[Quantity Strings (Plurals)](https://developer.android.com/guide/topics/resources/string-resource#Plurals)
 :   XML resource that carries different strings for pluralization.
 
 All strings are capable of applying some styling markup and formatting arguments. For
-information about styling and formatting strings, see the section about [Formatting and Styling](#FormattingAndStyling).
+information about styling and formatting strings, see the section about [Formatting and Styling](https://developer.android.com/guide/topics/resources/string-resource#FormattingAndStyling).
 
 ## String
 
@@ -40,18 +32,23 @@ under one `<resources>` element.
 
 file location:
 :   `res/values/filename.xml`  
+
     The filename is arbitrary. The `<string>` element's `name` is used as the
     resource ID.
 
 compiled resource datatype:
-:   Resource pointer to a `String`.
+:   Resource pointer to a `https://developer.android.com/reference/java/lang/String`.
 
 resource reference:
-:   In Java: `R.string.string_name`  
+:
+    In Java: `R.string.string_name`  
+
     In XML:`@string/string_name`
 
 syntax:
-:   ```
+:
+
+    ```xml
     <?xml version="1.0" encoding="utf-8"?>
     <resources>
         <string
@@ -61,14 +58,16 @@ syntax:
     ```
 
 elements:
-:   `<resources>`
+:
+
+    `<resources>`
     :   **Required.** This must be the root node.
 
         No attributes.
 
     `<string>`
     :   A string, which can include styling tags. Beware that you must escape apostrophes and
-        quotation marks. For more information about how to properly style and format your strings see [Formatting and Styling](#FormattingAndStyling), below.
+        quotation marks. For more information about how to properly style and format your strings see [Formatting and Styling](https://developer.android.com/guide/topics/resources/string-resource#FormattingAndStyling), below.
 
         attributes:
 
@@ -76,41 +75,42 @@ elements:
         :   *String*. A name for the string. This name is used as the resource
             ID.
 
+
 example:
 :   XML file saved at `res/values/strings.xml`:
 
-    ```
+    ```xml
     <?xml version="1.0" encoding="utf-8"?>
     <resources>
         <string name="hello">Hello!</string>
     </resources>
     ```
 
+
     This layout XML applies a string to a View:
 
-    ```
+    ```xml
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="@string/hello" />
     ```
 
+
     This application code retrieves a string:
 
     ### Kotlin
 
-    ```
-    val string: String = getString(R.string.hello)
-    ```
+        val string: String = https://developer.android.com/reference/android/content/Context#getString(int)(R.string.hello)
 
     ### Java
 
-    ```
-    String string = getString(R.string.hello);
-    ```
+        String string = https://developer.android.com/reference/android/content/Context#getString(int)(R.string.hello);
 
-    You can use either `getString(int)` or
-    `getText(int)` to retrieve a string. `getText(int)` retains any rich text styling applied to the string.
+
+    You can use either `https://developer.android.com/reference/android/content/Context#getString(int)` or
+    `https://developer.android.com/reference/android/content/Context#getText(int)` to retrieve a string. `https://developer.android.com/reference/android/content/Context#getText(int)` retains any rich text styling applied to the string.
+
 
 ## String array
 
@@ -123,18 +123,23 @@ under one `<resources>` element.
 
 file location:
 :   `res/values/filename.xml`  
+
     The filename is arbitrary. The `<string-array>` element's `name` is used as the
     resource ID.
 
 compiled resource datatype:
-:   Resource pointer to an array of `String`s.
+:   Resource pointer to an array of `https://developer.android.com/reference/java/lang/String`s.
 
 resource reference:
-:   In Java: `R.array.string_array_name`  
+:
+    In Java: `R.array.string_array_name`  
+
     In XML: `@[package:]array/string_array_name`
 
 syntax:
-:   ```
+:
+
+    ```xml
     <?xml version="1.0" encoding="utf-8"?>
     <resources>
         <string-array
@@ -146,7 +151,9 @@ syntax:
     ```
 
 elements:
-:   `<resources>`
+:
+
+    `<resources>`
     :   **Required.** This must be the root node.
 
         No attributes.
@@ -160,19 +167,21 @@ elements:
         :   *String*. A name for the array. This name is used as the resource
             ID to reference the array.
 
+
     `<item>`
     :   A string, which can include styling tags. The value can be a reference to another
         string resource. Must be a child of a `<string-array>` element. Beware that you
         must escape apostrophes and
-        quotation marks. See [Formatting and Styling](#FormattingAndStyling), below, for
+        quotation marks. See [Formatting and Styling](https://developer.android.com/guide/topics/resources/string-resource#FormattingAndStyling), below, for
         information about to properly style and format your strings.
 
         No attributes.
 
+
 example:
 :   XML file saved at `res/values/strings.xml`:
 
-    ```
+    ```xml
     <?xml version="1.0" encoding="utf-8"?>
     <resources>
         <string-array name="planets_array">
@@ -184,20 +193,18 @@ example:
     </resources>
     ```
 
+
     This application code retrieves a string array:
 
     ### Kotlin
 
-    ```
-    val array: Array<String> = resources.getStringArray(R.array.planets_array)
-    ```
+        val array: Array<String> = https://developer.android.com/reference/android/content/Context#getResources().https://developer.android.com/reference/android/content/res/Resources#getStringArray(int)(R.array.planets_array)
 
     ### Java
 
-    ```
-    Resources res = getResources();
-    String[] planets = res.getStringArray(R.array.planets_array);
-    ```
+        Resources res = https://developer.android.com/reference/android/content/Context#getResources();
+        String[] planets = res.https://developer.android.com/reference/android/content/res/Resources#getStringArray(int)(R.array.planets_array);
+
 
 ## Quantity strings (plurals)
 
@@ -209,7 +216,7 @@ languages make finer distinctions. The full set supported by Android is `zero`,
 
 The rules for deciding which case to use for a given language and quantity can be very complex,
 so Android provides you with methods such as
-`getQuantityString()` to select
+`https://developer.android.com/reference/android/content/res/Resources#getQuantityString(int, int)` to select
 the appropriate resource for you.
 
 Although historically called "quantity strings" (and still called that in API), quantity
@@ -241,7 +248,7 @@ Lithuanian rules, it will show "knyga" (a single book), when the number happens 
 It's often possible to avoid quantity strings by using quantity-neutral formulations such as
 "Books: 1". This makes your life and your translators' lives easier, if it's an acceptable style for your application.
 
-On API 24+ you can use the much more powerful ICU `MessageFormat`
+On API 24+ you can use the much more powerful ICU `https://developer.android.com/reference/android/icu/text/MessageFormat`
 class instead.
 
 **Note:** A plurals collection is a simple resource that is
@@ -251,14 +258,18 @@ XML file, under one `<resources>` element.
 
 file location:
 :   `res/values/filename.xml`  
+
     The filename is arbitrary. The `<plurals>` element's `name` is used as the
     resource ID.
 
 resource reference:
-:   In Java: `R.plurals.plural_name`
+:
+    In Java: `R.plurals.plural_name`
 
 syntax:
-:   ```
+:
+
+    ```xml
     <?xml version="1.0" encoding="utf-8"?>
     <resources>
         <plurals
@@ -271,7 +282,9 @@ syntax:
     ```
 
 elements:
-:   `<resources>`
+:
+
+    `<resources>`
     :   **Required.** This must be the root node.
 
         No attributes.
@@ -286,20 +299,21 @@ elements:
         :   *String*. A name for the pair of strings. This name is used as the
             resource ID.
 
+
     `<item>`
     :   A plural or singular string. The value can be a reference to another
         string resource. Must be a child of a `<plurals>` element. Beware that you must
         escape apostrophes and quotation marks. See [Formatting and
-        Styling](#FormattingAndStyling), below, for information about to properly style and format your strings.
+        Styling](https://developer.android.com/guide/topics/resources/string-resource#FormattingAndStyling), below, for information about to properly style and format your strings.
 
         attributes:
 
         `quantity`
-        :   *Keyword*. A value indicating when this string should be used. Valid
+        :   *Keyword* . A value indicating when this string should be used. Valid
             values, with non-exhaustive examples in parentheses:
 
             | Value | Description |
-            | --- | --- |
+            |---|---|
             | `zero` | When the language requires special treatment of the number 0 (as in Arabic). |
             | `one` | When the language requires special treatment of numbers like one (as with the number 1 in English and most other languages; in Russian, any number ending in 1 but not ending in 11 is in this class). |
             | `two` | When the language requires special treatment of numbers like two (as with 2 in Welsh, or 102 in Slovenian). |
@@ -307,61 +321,63 @@ elements:
             | `many` | When the language requires special treatment of "large" numbers (as with numbers ending 11-99 in Maltese). |
             | `other` | When the language does not require special treatment of the given quantity (as with all numbers in Chinese, or 42 in English). |
 
+
 example:
 :   XML file saved at `res/values/strings.xml`:
 
-```
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <plurals name="numberOfSongsAvailable">
-        <!--
-             As a developer, you should always supply "one" and "other"
-             strings. Your translators will know which strings are actually
-             needed for their language. Always include %d in "one" because
-             translators will need to use %d for languages where "one"
-             doesn't mean 1 (as explained above).
-          -->
-        <item quantity="one">%d song found.</item>
-        <item quantity="other">%d songs found.</item>
-    </plurals>
-</resources>
-```
+    <br />
 
-XML file saved at `res/values-pl/strings.xml`:
 
-```
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <plurals name="numberOfSongsAvailable">
-        <item quantity="one">Znaleziono %d piosenkę.</item>
-        <item quantity="few">Znaleziono %d piosenki.</item>
-        <item quantity="other">Znaleziono %d piosenek.</item>
-    </plurals>
-</resources>
-```
+    ```xml
+    <?xml version="1.0" encoding="utf-8"?>
+    <resources>
+        <plurals name="numberOfSongsAvailable">
+            <!--
+                 As a developer, you should always supply "one" and "other"
+                 strings. Your translators will know which strings are actually
+                 needed for their language. Always include %d in "one" because
+                 translators will need to use %d for languages where "one"
+                 doesn't mean 1 (as explained above).
+              -->
+            <item quantity="one">%d song found.</item>
+            <item quantity="other">%d songs found.</item>
+        </plurals>
+    </resources>
+    ```
 
-Usage:
+    XML file saved at `res/values-pl/strings.xml`:
 
-### Kotlin
+    ```xml
+    <?xml version="1.0" encoding="utf-8"?>
+    <resources>
+        <plurals name="numberOfSongsAvailable">
+            <item quantity="one">Znaleziono %d piosenkę.</item>
+            <item quantity="few">Znaleziono %d piosenki.</item>
+            <item quantity="other">Znaleziono %d piosenek.</item>
+        </plurals>
+    </resources>
+    ```
 
-```
-val count = getNumberOfSongsAvailable()
-val songsFound = resources.getQuantityString(R.plurals.numberOfSongsAvailable, count, count)
-```
+    Usage:
 
-### Java
 
-```
-int count = getNumberOfSongsAvailable();
-Resources res = getResources();
-String songsFound = res.getQuantityString(R.plurals.numberOfSongsAvailable, count, count);
-```
+    ### Kotlin
 
-When using the `getQuantityString()` method, you need to pass the `count` twice if your string includes
-[string formatting](#FormattingAndStyling) with a number. For example, for the string
-`%d songs found`, the first `count` parameter selects the appropriate plural string and
-the second `count` parameter is inserted into the `%d` placeholder. If your plural
-strings do not include string formatting, you don't need to pass the third parameter to `getQuantityString`.
+        val count = getNumberOfSongsAvailable()
+        val songsFound = resources.https://developer.android.com/reference/android/content/res/Resources#getQuantityString(int, int, java.lang.Object...)(R.plurals.numberOfSongsAvailable, count, count)
+
+    ### Java
+
+        int count = getNumberOfSongsAvailable();
+        Resources res = https://developer.android.com/reference/android/content/Context#getResources();
+        String songsFound = res.https://developer.android.com/reference/android/content/res/Resources#getQuantityString(int, int, java.lang.Object...)(R.plurals.numberOfSongsAvailable, count, count);
+
+
+    When using the `https://developer.android.com/reference/android/content/res/Resources#getQuantityString(int, int, java.lang.Object...)` method, you need to pass the `count` twice if your string includes
+    [string formatting](https://developer.android.com/guide/topics/resources/string-resource#FormattingAndStyling) with a number. For example, for the string
+    `%d songs found`, the first `count` parameter selects the appropriate plural string and
+    the second `count` parameter is inserted into the `%d` placeholder. If your plural
+    strings do not include string formatting, you don't need to pass the third parameter to `https://developer.android.com/reference/android/content/res/Resources#getQuantityString(int, int)`.
 
 ## Format and style
 
@@ -374,26 +390,27 @@ When a string contains characters that have special usage in XML, you must escap
 characters according to the standard XML/HTML escaping rules. If you need to escape a character
 that has special meaning in Android you should use a preceding backslash.
 
+
 By default Android will collapse sequences of whitespace characters into a single space.
 You can avoid this by enclosing the relevant part of your string in double quotes. In this case
 all whitespace characters (including new lines) will get preserved within the quoted region.
 Double quotes will allow you to use regular single unescaped quotes as well.
 
 | Character | Escaped form(s) |
-| --- | --- |
+|---|---|
 | @ | `\@` |
 | ? | `\?` |
 | New line | `\n` |
 | Tab | `\t` |
 | U+XXXX Unicode character | `\uXXXX` |
-| Single quote (`'`) | Any of the following:   * `\'` * Enclose the entire string in double quotes   (`"This'll work"`, for example) |
+| Single quote (`'`) | Any of the following: - `\'` - Enclose the entire string in double quotes (`"This'll work"`, for example) |
 | Double quote (`"`) | `\"` Note that surrounding the string with single quotes does not work. |
 
 Whitespace collapsing and Android escaping happens after your
 resource file gets parsed as XML. This means that
 `<string> &#32; &#8200; &#8195;</string>`
 (space, punctuation space, Unicode Em space) all collapse to a single space
-(`" "`), because they are all Unicode spaces after the file is parsed as an XML.
+(`" "`), because they are all Unicode spaces after the file is parsed as an XML.
 To preserve those spaces as they are, you can either quote them
 (`<string>" &#32; &#8200; &#8195;"</string>`)
 or use Android escaping
@@ -411,22 +428,22 @@ If you need to format your strings,
 then you can do so by putting your format arguments in the string resource,
 as demonstrated by the following example resource.
 
-```
+```xml
 <string name="welcome_messages">Hello, %1$s! You have %2$d new messages.</string>
 ```
 
 In this example, the format string has two arguments: `%1$s` is a string and `%2$d`
-is a decimal number. Then, format the string by calling `getString(int, Object...)`. For example:
+is a decimal number. Then, format the string by calling `https://developer.android.com/reference/android/content/Context#getString(int, java.lang.Object...)`. For example:
 
 ### Kotlin
 
-```
+```kotlin
 var text = getString(R.string.welcome_messages, username, mailCount)
 ```
 
 ### Java
 
-```
+```java
 String text = getString(R.string.welcome_messages, username, mailCount);
 ```
 
@@ -434,7 +451,7 @@ String text = getString(R.string.welcome_messages, username, mailCount);
 
 You can add styling to your strings with HTML markup. For example:
 
-```
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="welcome">Welcome to <b>Android</b>!</string>
@@ -443,36 +460,34 @@ You can add styling to your strings with HTML markup. For example:
 
 The following HTML elements are supported:
 
-* Bold: <b>
-* Italic: <i>, <cite>, <dfn>, <em>
-* 25% larger text: <big>
-* 20% smaller text: <small>
-* Setting font properties: <font face=”font\_family“ color=”hex\_color”>. Examples of
-  possible font families include `monospace`, `serif`, and
-  `sans_serif`.
-* Setting a monospace font family: <tt>
-* Strikethrough: <s>, <strike>, <del>
-* Underline: <u>
-* Superscript: <sup>
-* Subscript: <sub>
-* Bullet points: <ul>, <li>
-* Line breaks: <br>
-* Division: <div>
-* CSS style: <span style=”color|background\_color|text-decoration”>
-* Paragraphs: <p dir=”rtl | ltr” style=”…”>
+- Bold: \<b\>
+- Italic: \<i\>, \<cite\>, \<dfn\>, \<em\>
+- 25% larger text: \<big\>
+- 20% smaller text: \<small\>
+- Setting font properties: \<font face="font_family" color="hex_color"\>. Examples of possible font families include `monospace`, `serif`, and `sans_serif`.
+- Setting a monospace font family: \<tt\>
+- Strikethrough: \<s\>, \<strike\>, \<del\>
+- Underline: \<u\>
+- Superscript: \<sup\>
+- Subscript: \<sub\>
+- Bullet points: \<ul\>, \<li\>
+- Line breaks: \<br\>
+- Division: \<div\>
+- CSS style: \<span style="color\|background_color\|text-decoration"\>
+- Paragraphs: \<p dir="rtl \| ltr" style="..."\>
 
 If you aren't applying formatting, you can set TextView text directly by calling
-`setText(java.lang.CharSequence)`. In some cases, however, you may
+`https://developer.android.com/reference/android/widget/TextView#setText(java.lang.CharSequence)`. In some cases, however, you may
 want to create a styled text resource that is also used as a format string. Normally, this
-doesn't work because the `format(String, Object...)` and
-`getString(int, Object...)` methods strip all the style
+doesn't work because the `https://developer.android.com/reference/java/lang/String#format(java.lang.String, java.lang.Object...)` and
+`https://developer.android.com/reference/android/content/Context#getString(int, java.lang.Object...)` methods strip all the style
 information from the string. The work-around to this is to write the HTML tags with escaped
-entities, which are then recovered with `fromHtml(String)`,
+entities, which are then recovered with `https://developer.android.com/reference/android/text/Html#fromHtml(java.lang.String)`,
 after the formatting takes place. For example:
 
 1. Store your styled text resource as an HTML-escaped string:
 
-   ```
+   ```xml
    <resources>
      <string name="welcome_messages">Hello, %1$s! You have &lt;b>%2$d new messages&lt;/b>.</string>
    </resources>
@@ -480,54 +495,50 @@ after the formatting takes place. For example:
 
    In this formatted string, a `<b>` element is added. Notice that the opening bracket is
    HTML-escaped, using the `&lt;` notation.
-2. Then format the string as usual, but also call `fromHtml(String)` to
-   convert the HTML text into styled text:
+2. Then format the string as usual, but also call `https://developer.android.com/reference/android/text/Html#fromHtml(java.lang.String)` to convert the HTML text into styled text:
 
    ### Kotlin
 
-   ```
+   ```kotlin
    val text: String = getString(R.string.welcome_messages, username, mailCount)
    val styledText: Spanned = Html.fromHtml(text, FROM_HTML_MODE_LEGACY)
    ```
 
    ### Java
 
-   ```
+   ```java
    String text = getString(R.string.welcome_messages, username, mailCount);
    Spanned styledText = Html.fromHtml(text, FROM_HTML_MODE_LEGACY);
    ```
 
-Because the `fromHtml(String)` method formats all HTML entities, be sure to
+Because the `https://developer.android.com/reference/android/text/Html#fromHtml(java.lang.String)` method formats all HTML entities, be sure to
 escape any possible HTML characters in the strings you use with the formatted text, using
-`htmlEncode(String)`. For instance, if you are formatting a string that contains characters such as
-"<" or "&", then they must be escaped before formatting, so that when the formatted string
-is passed through `fromHtml(String)`, the characters come out the way they were
+`https://developer.android.com/reference/android/text/TextUtils#htmlEncode(java.lang.String)`. For instance, if you are formatting a string that contains characters such as
+"\<" or "\&", then they must be escaped before formatting, so that when the formatted string
+is passed through `https://developer.android.com/reference/android/text/Html#fromHtml(java.lang.String)`, the characters come out the way they were
 originally written. For example:
 
 ### Kotlin
 
-```
-val escapedUsername: String = TextUtils.htmlEncode(username)
+    val escapedUsername: String = TextUtils.https://developer.android.com/reference/android/text/TextUtils#htmlEncode(java.lang.String)(username)
 
-val text: String = getString(R.string.welcome_messages, escapedUsername, mailCount)
-val styledText: Spanned = Html.fromHtml(text, FROM_HTML_MODE_LEGACY)
-```
+    val text: String = getString(R.string.welcome_messages, escapedUsername, mailCount)
+    val styledText: Spanned = Html.fromHtml(text, FROM_HTML_MODE_LEGACY)
 
 ### Java
 
-```
-String escapedUsername = TextUtils.htmlEncode(username);
+    String escapedUsername = TextUtils.https://developer.android.com/reference/android/text/TextUtils#htmlEncode(java.lang.String)(username);
 
-String text = getString(R.string.welcome_messages, escapedUsername, mailCount);
-Spanned styledText = Html.fromHtml(text);
-```
+    String text = getString(R.string.welcome_messages, escapedUsername, mailCount);
+    Spanned styledText = Html.fromHtml(text);
 
 ## Styling with spannables
 
-A `Spannable` is a text object that you can style with
+
+A `https://developer.android.com/reference/android/text/Spannable` is a text object that you can style with
 typeface properties such as color and font weight. You use
-`SpannableStringBuilder` to build
-your text and then apply styles defined in the `android.text.style`
+`https://developer.android.com/reference/android/text/SpannableStringBuilder` to build
+your text and then apply styles defined in the `https://developer.android.com/reference/android/text/style/package-summary`
 package to the text.
 
 You can use the following helper methods to set up much of the work
@@ -535,7 +546,7 @@ of creating spannable text:
 
 ### Kotlin
 
-```
+```kotlin
 /**
  * Returns a CharSequence that concatenates the specified array of CharSequence
  * objects and then applies a list of zero or more tags to the entire range.
@@ -583,7 +594,7 @@ private fun Spannable.closeTags(tags: Array<out Any>) {
 
 ### Java
 
-```
+```java
 /**
  * Returns a CharSequence that concatenates the specified array of CharSequence
  * objects and then applies a list of zero or more tags to the entire range.
@@ -631,14 +642,15 @@ private static void closeTags(Spannable text, Object[] tags) {
 }
 ```
 
+
 The following `bold`, `italic`, and `color`
 methods wrap the helper methods above and demonstrate specific examples of applying
-styles defined in the `android.text.style` package. You
+styles defined in the `https://developer.android.com/reference/android/text/style/package-summary` package. You
 can create similar methods to do other types of text styling.
 
 ### Kotlin
 
-```
+```kotlin
 /**
  * Returns a CharSequence that applies boldface to the concatenation
  * of the specified CharSequence objects.
@@ -661,7 +673,7 @@ fun color(color: Int, vararg content: CharSequence): CharSequence =
 
 ### Java
 
-```
+```java
 /**
  * Returns a CharSequence that applies boldface to the concatenation
  * of the specified CharSequence objects.
@@ -687,12 +699,13 @@ public static CharSequence color(int color, CharSequence... content) {
 }
 ```
 
+
 Here's an example of how to chain these methods together to apply various styles to individual
 words within a phrase:
 
 ### Kotlin
 
-```
+```kotlin
 // Create an italic "hello, " a red "world",
 // and bold the entire sequence.
 val text: CharSequence = bold(italic(getString(R.string.hello)),
@@ -701,7 +714,7 @@ val text: CharSequence = bold(italic(getString(R.string.hello)),
 
 ### Java
 
-```
+```java
 // Create an italic "hello, " a red "world",
 // and bold the entire sequence.
 CharSequence text = bold(italic(getString(R.string.hello)),
@@ -710,16 +723,17 @@ CharSequence text = bold(italic(getString(R.string.hello)),
 
 The core-ktx Kotlin module also contains extension functions that make working with spans even
 easier. You can check out the
-[android.text](http://www.google.com/url?sa=D&q=https%3A%2F%2Fandroid.github.io%2Fandroid-ktx%2Fcore-ktx%2Fandroidx.text%2Findex.html) package documentation on GitHub to learn more.
+[android.text](http://www.google.com/url?sa=D&q=https://android.github.io/android-ktx/core-ktx/androidx.text/index.html) package documentation on GitHub to learn more.
 
 For more information on working with spans, see the following links:
 
-* [Spantastic text styling with Spans](https://medium.com/google-developers/spantastic-text-styling-with-spans-17b0c16b4568)
-* [Understanding spans](https://medium.com/google-developers/underspanding-spans-1b91008b97e4)
+- [Spantastic text styling with Spans](https://medium.com/google-developers/spantastic-text-styling-with-spans-17b0c16b4568)
+- [Understanding spans](https://medium.com/google-developers/underspanding-spans-1b91008b97e4)
 
 ## Styling with annotations
 
-You can apply complex or custom styling by using the `Annotation` class along with the
+
+You can apply complex or custom styling by using the `https://developer.android.com/reference/android/text/Annotation` class along with the
 `<annotation>` tag in your strings.xml resource files. The annotation tag allows
 you to mark parts of the string for custom styling by defining custom key-value pairs in the XML
 that the framework then converts into `Annotation` spans. You can then retrieve these
@@ -728,15 +742,17 @@ annotations and use the key and value to apply the styling.
 When creating annotations, make sure you add the `<annotation>`
 tag to all translations of the string in every strings.xml file.
 
-![](/static/guide/topics/resources/images/annotation-example-1.png)  
-*Applying a custom typeface to the word “text” in all languages*
+
+![](https://developer.android.com/static/guide/topics/resources/images/annotation-example-1.png)  
+
+*Applying a custom typeface to the word "text" in all languages*
 
 ### Example - adding a custom typeface
 
 1. Add the `<annotation>` tag, and define the key-value pair. In this case, the
-   key is *font*, and the value is the type of font we want to use: *title\_emphasis*
+   key is *font*, and the value is the type of font we want to use: *title_emphasis*
 
-   ```
+   ```xml
    // values/strings.xml
    <string name="title">Best practices for <annotation font="title_emphasis">text</annotation> on Android</string>
 
@@ -748,7 +764,7 @@ tag to all translations of the string in every strings.xml file.
 
    ### Kotlin
 
-   ```
+   ```kotlin
    // get the text as SpannedString so we can get the spans attached to the text
    val titleText = getText(R.string.title) as SpannedString
 
@@ -783,7 +799,7 @@ tag to all translations of the string in every strings.xml file.
 
    ### Java
 
-   ```
+   ```java
    // get the text as SpannedString so we can get the spans attached to the text
    SpannedString titleText = (SpannedString) getText(R.string.title);
 
@@ -816,12 +832,12 @@ tag to all translations of the string in every strings.xml file.
    styledText.text = spannableString;
    ```
 
-If you’re using the same text multiple times, you should construct the
+If you're using the same text multiple times, you should construct the
 SpannableString object once and reuse it as needed to avoid potential performance and memory
 issues.
 
 For more examples of annotation usage, see
-[Styling internationalized text in Android](http://www.google.com/url?sa=D&q=https%3A%2F%2Fmedium.com%2Fgoogle-developers%2Fstyling-internationalized-text-in-android-f99759fb7b8f)
+[Styling internationalized text in Android](http://www.google.com/url?sa=D&q=https://medium.com/google-developers/styling-internationalized-text-in-android-f99759fb7b8f)
 
 ### Annotation spans and text parceling
 
@@ -832,12 +848,12 @@ parceled text.
 
 To keep your custom styling when you pass the text to an Intent Bundle, you first need to add
 `Annotation` spans to your text. You can do this in the XML resources via the
-<annotation> tag, as shown in the example above, or in code by creating a new
+\<annotation\> tag, as shown in the example above, or in code by creating a new
 `Annotation` and setting it as a span, as shown below:
 
 ### Kotlin
 
-```
+```kotlin
 val spannableString = SpannableString("My spantastic text")
 val annotation = Annotation("font", "title_emphasis")
 spannableString.setSpan(annotation, 3, 7, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
@@ -850,7 +866,7 @@ startActivity(intent)
 
 ### Java
 
-```
+```java
 SpannableString spannableString = new SpannableString("My spantastic text");
 Annotation annotation = new Annotation("font", "title_emphasis");
 spannableString.setSpan(annotation, 3, 7, 33);
@@ -866,33 +882,21 @@ the annotations attached, as shown in the example above.
 
 ### Kotlin
 
-```
+```kotlin
 // read text with Spans
 val intentCharSequence = intent.getCharSequenceExtra(TEXT_EXTRA) as SpannableString
 ```
 
 ### Java
 
-```
+```java
 // read text with Spans
 SpannableString intentCharSequence = (SpannableString)intent.getCharSequenceExtra(TEXT_EXTRA);
 ```
 
 For more information on text styling, see the following links:
 
-* [Google I/O 2018 talk - Best
+- [Google I/O 2018 talk - Best
   practices for text on Android](https://www.youtube.com/watch?v=x-FcOX6ErdI&t=847s)
-* [Understanding
+- [Understanding
   spans](https://medium.com/google-developers/underspanding-spans-1b91008b97e4)
-
-[Previous
-
-arrow\_back
-
-Menu](/guide/topics/resources/menu-resource)
-
-[Next
-
-Style
-
-arrow\_forward](/guide/topics/resources/style-resource)

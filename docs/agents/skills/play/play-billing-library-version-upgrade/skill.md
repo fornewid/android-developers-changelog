@@ -1,20 +1,13 @@
 ---
-title: Play Billing  |  Android Developers
+title: Android Developers
 url: https://developer.android.com/agents/skills/play/play-billing-library-version-upgrade/skill
 source: html-scrape
 ---
 
-* [Android Developers](https://developer.android.com/)
-* [Google Play](https://developer.android.com/distribute)
-* [Play Monetization](https://developer.android.com/google/play/billing)
-
-Send feedback
-
-
-
 Stay organized with collections
 
 Save and categorize content based on your preferences.
+
 
 
 
@@ -62,12 +55,9 @@ upgrade Play Billing Library to the latest version."
 For every major version jump identified in your path, you **MUST** synthesize
 instructions from:
 
-* **Migration Guide**:
-  `https://developer.android.com/google/play/billing/migrate-gpblv[X]`
-  (where X is the target major version).
+* **[Migration Guide](/google/play/billing/migrate-gpblv%5BX%5D)** (where `[X]` is the target major version).
 * **Release Highlights**: The "Deprecations" and "Breaking Changes" sections
-  of the relevant release notes at
-  `https://developer.android.com/google/play/billing/release-notes`.
+  of the relevant [Release Notes](/google/play/billing/release-notes).
 * **Developer Documentation**: Consult your knowledge of the Google Play
   Billing documentation regarding the relevant features used in this app
   (e.g., Subscriptions, One-Time Products).
@@ -135,8 +125,3 @@ Explain the "Why" to the developer:
   application's current feature set, I suggest exploring [New Feature]
   (e.g., Prepaid Plans or Installments) from the latest release because it is
   now available but not yet implemented."
-
-
-
-
-Send feedback

@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 Data backup on Wear OS 4 is similar to [data backup](/guide/topics/data/backup) for mobile apps, and it
 follows [similar rules for automatically backing up user data](#automatic-backup). This document
 explains how you can add support for backup and restore in your Wear OS app.

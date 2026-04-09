@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 When you start an activity from a notification, you must preserve the user's
 expected navigation experience. Tapping the Back button must take the user back
 through the app's normal work flow to the Home screen, and opening the Recents

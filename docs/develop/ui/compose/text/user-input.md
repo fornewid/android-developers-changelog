@@ -251,7 +251,7 @@ your state variable:
   // textFieldState.selection: TextRange(18, 18)
   textFieldState.edit { selectAll() }
   // textFieldState.text : I love Compose!!!!
-  // textFieldState.selection: TextRange(0, 18)https://github.com/android/snippets/blob/6c9df97fc8c21902e96753b0b05a134386bac6fd/compose/snippets/src/main/java/com/example/compose/snippets/text/StateBasedText.kt#L181-L195
+  // textFieldState.selection: TextRange(0, 18)https://github.com/android/snippets/blob/b8fe98d6f6b3dfe87812e34ff8eabb22847f6e1f/compose/snippets/src/main/java/com/example/compose/snippets/text/StateBasedText.kt#L181-L195
   ```
 
   <br />
@@ -263,7 +263,7 @@ your state variable:
   ```kotlin
   textFieldState.setTextAndPlaceCursorAtEnd("I really love Android")
   // textFieldState.text : I really love Android
-  // textFieldState.selection : TextRange(21, 21)https://github.com/android/snippets/blob/6c9df97fc8c21902e96753b0b05a134386bac6fd/compose/snippets/src/main/java/com/example/compose/snippets/text/StateBasedText.kt#L199-L201
+  // textFieldState.selection : TextRange(21, 21)https://github.com/android/snippets/blob/b8fe98d6f6b3dfe87812e34ff8eabb22847f6e1f/compose/snippets/src/main/java/com/example/compose/snippets/text/StateBasedText.kt#L199-L201
   ```
 
   <br />
@@ -274,7 +274,7 @@ your state variable:
   ```kotlin
   textFieldState.clearText()
   // textFieldState.text :
-  // textFieldState.selection : TextRange(0, 0)https://github.com/android/snippets/blob/6c9df97fc8c21902e96753b0b05a134386bac6fd/compose/snippets/src/main/java/com/example/compose/snippets/text/StateBasedText.kt#L205-L207
+  // textFieldState.selection : TextRange(0, 0)https://github.com/android/snippets/blob/b8fe98d6f6b3dfe87812e34ff8eabb22847f6e1f/compose/snippets/src/main/java/com/example/compose/snippets/text/StateBasedText.kt#L205-L207
   ```
 
   <br />

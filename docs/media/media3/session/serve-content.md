@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 Media apps often contain collections of media items, organized in a hierarchy.
 For example, songs in an album or TV episodes in a playlist. This hierarchy of
 media items is known as a media library.

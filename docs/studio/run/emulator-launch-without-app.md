@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Sometimes you might want to launch the emulator without running an app, such
 as if you want to see how two emulator devices interact with each
 other when paired over Bluetooth. To launch the emulator without launching an

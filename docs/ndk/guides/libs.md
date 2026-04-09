@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 This section discusses the use of the libraries that the NDK provides.
 
 **Note:** The guide on importing prebuilt libraries (those not included in the NDK)

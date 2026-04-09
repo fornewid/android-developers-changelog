@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 **Note:** You can get Gemini in Android Studio for businesses by subscribing to
 [Gemini Code Assist](https://codeassist.google/#compare-gemini-code-assist-offerings),
 described on this page, or by getting membership in the

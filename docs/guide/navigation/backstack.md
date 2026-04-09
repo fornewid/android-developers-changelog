@@ -12,6 +12,7 @@ source: html-scrape
 
 
 
+
 The `NavController` holds a "back stack" that contains the destinations the user
 has visited. As the user navigates to screens throughout your app, the
 `NavController` adds and removes destinations to and from the back stack.

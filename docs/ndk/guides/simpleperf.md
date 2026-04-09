@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 Android Studio includes a graphical front end to Simpleperf, documented in
 [Inspect CPU activity with CPU Profiler](https://developer.android.com/studio/profile/cpu-profiler).
 Most users will prefer to use that instead of using Simpleperf directly.

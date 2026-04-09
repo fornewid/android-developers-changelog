@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 Android Gradle Plugin 7.3.0 is a major release that includes a variety of new
 features and improvements.
 

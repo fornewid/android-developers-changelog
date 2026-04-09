@@ -1,18 +1,8 @@
 ---
-title: Device compatibility overview  |  Compatibility  |  Android Developers
+title: https://developer.android.com/guide/practices/compatibility
 url: https://developer.android.com/guide/practices/compatibility
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [Develop](https://developer.android.com/develop)
-* [Devices](https://developer.android.com/develop/devices)
-* [Compatibility](https://developer.android.com/guide/practices/compatibility)
-
-# Device compatibility overview Stay organized with collections Save and categorize content based on your preferences.
-
-
-
 
 Android is designed to run on many different devices, such as phones,
 tablets, and televisions. The range of devices provides a huge potential
@@ -22,7 +12,7 @@ to different screen configurations.
 
 To help with device compatibility, Android provides a dynamic app framework
 in which you can provide configuration-specific
-[app resources](/guide/topics/resources/overview) in static
+[app resources](https://developer.android.com/guide/topics/resources/overview) in static
 files, such as different XML layouts for different screen sizes. Android then
 loads the appropriate resources based on the current device configuration. With
 forethought to your app design and additional app resources, you can publish a
@@ -42,7 +32,7 @@ With regard to Android development, there are two types of compatibility:
 Because Android is an open-source project, any hardware manufacturer can
 build a device that runs the Android operating system. But a device is
 "Android compatible" only if it can correctly run apps written for the
-*Android execution environment*. The exact details of the Android
+*Android execution environment* . The exact details of the Android
 execution environment are defined by the
 [Android
 compatibility program](https://source.android.com/compatibility/overview.html). Each device must pass the Compatibility Test Suite
@@ -72,33 +62,35 @@ To achieve the largest user base possible for your app, support as many
 device configurations as possible using a single APK or AAB. In most situations,
 you can do so by disabling optional features at runtime and
 [providing app
-resources](/guide/topics/resources/providing-resources) with alternatives for different configurations, such as different
+resources](https://developer.android.com/guide/topics/resources/providing-resources) with alternatives for different configurations, such as different
 layouts for different screen sizes. If necessary, you can restrict your app's
 availability to certain devices through Google Play Store based on the following
 device characteristics:
 
-* [Device features](#Features)* [Platform version](#Versions)* [Screen configuration](#Screens)
+- [Device features](https://developer.android.com/guide/practices/compatibility#Features)
+- [Platform version](https://developer.android.com/guide/practices/compatibility#Versions)
+- [Screen configuration](https://developer.android.com/guide/practices/compatibility#Screens)
 
 ### Device features
 
 To manage your app's availability based on device features, Android defines
 *feature IDs* for any hardware or software feature that might not be
 available on all devices. For example, the feature ID for the compass sensor is
-`FEATURE_SENSOR_COMPASS`,
+`https://developer.android.com/reference/android/content/pm/PackageManager#FEATURE_SENSOR_COMPASS`,
 and the feature ID for app widgets is
-`FEATURE_APP_WIDGETS`.
+`https://developer.android.com/reference/android/content/pm/PackageManager#FEATURE_APP_WIDGETS`.
 
 If necessary, you can prevent users from installing your app when their
 devices don't provide a necessary feature by declaring the feature using a
-[`<uses-feature>`](/guide/topics/manifest/uses-feature-element)
+[`<uses-feature>`](https://developer.android.com/guide/topics/manifest/uses-feature-element)
 element in your app's
-[manifest file](/guide/topics/manifest/manifest-intro).
+[manifest file](https://developer.android.com/guide/topics/manifest/manifest-intro).
 
 For example, if your app doesn't make sense on a device that lacks a compass
 sensor, you can declare the compass sensor as a requirement with the following
 manifest tag:
 
-```
+```xml
 <manifest ... >
     <uses-feature android:name="android.hardware.sensor.compass"
                   android:required="true" />
@@ -113,17 +105,17 @@ app requires, the user can't install your app.
 
 However, if your app's primary functionality doesn't *require* a
 device feature, set the
-[`required`](/guide/topics/manifest/uses-feature-element#required)
+[`required`](https://developer.android.com/guide/topics/manifest/uses-feature-element#required)
 attribute to `"false"` and check for the device feature at runtime.
 If the app feature isn't available on the current device, gracefully degrade the
 corresponding app feature. For example, you can query whether a feature is
 available by calling
-`hasSystemFeature()`
+`https://developer.android.com/reference/android/content/pm/PackageManager#hasSystemFeature(java.lang.String)`
 like this:
 
 ### Kotlin
 
-```
+```kotlin
 if (!packageManager.hasSystemFeature(PackageManager.FEATURE_SENSOR_COMPASS)) {
     // This device doesn't have a compass. Turn off the compass feature.
     disableCompassFeature()
@@ -132,7 +124,7 @@ if (!packageManager.hasSystemFeature(PackageManager.FEATURE_SENSOR_COMPASS)) {
 
 ### Java
 
-```
+```java
 PackageManager pm = getPackageManager();
 if (!pm.hasSystemFeature(PackageManager.FEATURE_SENSOR_COMPASS)) {
     // This device doesn't have a compass. Turn off the compass feature.
@@ -142,23 +134,12 @@ if (!pm.hasSystemFeature(PackageManager.FEATURE_SENSOR_COMPASS)) {
 
 For information about all the filters you can use to control the availability
 of your app through Google Play Store, see the
-[Filters on Google Play](/google/play/filters)
+[Filters on Google Play](https://developer.android.com/google/play/filters)
 documentation.
 
-**Note:** Some
-[system permissions](/guide/topics/permissions) implicitly
-require the availability of a device feature. For example, if your app
-requests permission to access
-`BLUETOOTH`,
-this implicitly requires the
-`FEATURE_BLUETOOTH`
-device feature. You can disable filtering based on this feature and make
-your app available to devices without Bluetooth by setting the
-`required` attribute to `"false"` in the
-`<uses-feature>` tag. For more information about implicitly
-required device features, read
-[Permissions
-that imply feature requirements](/guide/topics/manifest/uses-feature-element#permissions).
+> [!NOTE]
+> **Note:** Some [system permissions](https://developer.android.com/guide/topics/permissions) implicitly require the availability of a device feature. For example, if your app requests permission to access `https://developer.android.com/reference/android/Manifest.permission#BLUETOOTH`, this implicitly requires the `https://developer.android.com/reference/android/content/pm/PackageManager#FEATURE_BLUETOOTH` device feature. You can disable filtering based on this feature and make your app available to devices without Bluetooth by setting the `required` attribute to `"false"` in the `<uses-feature>` tag. For more information about implicitly required device features, read [Permissions
+> that imply feature requirements](https://developer.android.com/guide/topics/manifest/uses-feature-element#permissions).
 
 ### Platform version
 
@@ -166,18 +147,18 @@ Different devices might run different versions of the Android platform, such
 as Android 12 or Android 13. Each successive platform version often adds APIs
 not available in the previous version. To indicate which set of APIs are
 available, each platform version specifies an
-[API level](/guide/topics/manifest/uses-sdk-element#ApiLevels).
+[API level](https://developer.android.com/guide/topics/manifest/uses-sdk-element#ApiLevels).
 For example, Android 12 is API level 31, and Android 13 is API level 33.
 
 You must specify the
-[`minSdkVersion`](/guide/topics/manifest/uses-sdk-element#min)
+[`minSdkVersion`](https://developer.android.com/guide/topics/manifest/uses-sdk-element#min)
 and
-[`targetSdkVersion`](/guide/topics/manifest/uses-sdk-element#target)
+[`targetSdkVersion`](https://developer.android.com/guide/topics/manifest/uses-sdk-element#target)
 values in your `build.gradle` file:
 
 ### Kotlin
 
-```
+```kotlin
 android {
     defaultConfig {
         applicationId = "com.example.myapp"
@@ -194,7 +175,7 @@ android {
 
 ### Groovy
 
-```
+```groovy
 android {
     defaultConfig {
         applicationId 'com.example.myapp'
@@ -210,19 +191,14 @@ android {
 ```
 
 For more information about the `build.gradle` file, read
-[Configure your build](/studio/build).
+[Configure your build](https://developer.android.com/studio/build).
 
 Each successive version of Android provides compatibility for apps built
 using the APIs from previous platform versions, so your app is compatible with
 future versions of Android while using the documented Android APIs.
 
-**Note:** The `targetSdkVersion` attribute doesn't prevent
-your app from being installed on platform versions that are higher than the
-specified value, but it's important because it indicates to the system
-whether your app inherits behavior changes in newer versions. If you don't
-update the `targetSdkVersion` to the latest version, the system
-assumes that your app requires backward compatibility when running on the
-latest version.
+> [!NOTE]
+> **Note:** The `targetSdkVersion` attribute doesn't prevent your app from being installed on platform versions that are higher than the specified value, but it's important because it indicates to the system whether your app inherits behavior changes in newer versions. If you don't update the `targetSdkVersion` to the latest version, the system assumes that your app requires backward compatibility when running on the latest version.
 
 However, if your app uses APIs added in a more recent platform version, but
 doesn't require them for its primary functionality, check the API level at
@@ -230,15 +206,15 @@ runtime and gracefully degrade the corresponding features when the API level is
 too low. In this case, set the `minSdkVersion` to the lowest value
 possible for your app's primary functionality, then compare the current system's
 version,
-`SDK_INT`,
+`https://developer.android.com/reference/android/os/Build.VERSION#SDK_INT`,
 to the codename constant in
-`Build.VERSION_CODES`
+`https://developer.android.com/reference/android/os/Build.VERSION_CODES`
 that corresponds to the API level you want to check, as shown in the following
 example:
 
 ### Kotlin
 
-```
+```kotlin
 if (Build.VERSION.SDK_INT < Build.VERSION_CODES.HONEYCOMB) {
     // Running on something older than API level 11, so disable
     // the drag and drop features that use ClipboardManager APIs.
@@ -248,7 +224,7 @@ if (Build.VERSION.SDK_INT < Build.VERSION_CODES.HONEYCOMB) {
 
 ### Java
 
-```
+```java
 if (Build.VERSION.SDK_INT < Build.VERSION_CODES.HONEYCOMB) {
     // Running on something older than API level 11, so disable
     // the drag and drop features that use ClipboardManager APIs.
@@ -266,9 +242,8 @@ DPI). To simplify the different
 configurations, Android generalizes these variants into groups that make them
 easier to target:
 
-* Four generalized sizes: small, normal, large, and xlarge
-* Several generalized densities: mdpi (medium), hdpi (high), xhdpi (extra
-  high), xxhdpi (extra-extra high), and others
+- Four generalized sizes: small, normal, large, and xlarge
+- Several generalized densities: mdpi (medium), hdpi (high), xhdpi (extra high), xxhdpi (extra-extra high), and others
 
 By default, your app is compatible with all screen sizes and densities,
 because the system makes adjustments to your UI layout and image resources as
@@ -286,9 +261,9 @@ For information about how to create alternative resources for different
 screens and how to restrict your app to certain screen sizes when necessary,
 read the
 [screen compatibility
-overview](/training/basics/supporting-devices/screens) and see the
+overview](https://developer.android.com/training/basics/supporting-devices/screens) and see the
 [large screen app
-quality guidelines](/docs/quality-guidelines/large-screen-app-quality).
+quality guidelines](https://developer.android.com/docs/quality-guidelines/large-screen-app-quality).
 
 ## Control your app's availability for business reasons
 
@@ -299,23 +274,23 @@ filtering options in the Play Console that let you control your app's
 availability for nontechnical reasons such as user locale or wireless
 carrier.
 
-Filtering for technical compatibility—such as required hardware
-components—is always based on information contained within your APK or AAB
-file. But filtering for nontechnical reasons—such as geographic
-locale—is always handled in the
-[Google Play Console](/distribute/console).
+Filtering for technical compatibility---such as required hardware
+components---is always based on information contained within your APK or AAB
+file. But filtering for nontechnical reasons---such as geographic
+locale---is always handled in the
+[Google Play Console](https://developer.android.com/distribute/console).
 
 ## Additional resources:
 
-[App resources overview](/guide/topics/resources/providing-resources)
+[App resources overview](https://developer.android.com/guide/topics/resources/providing-resources)
 :   Information about how Android apps are structured to separate app
     resources from the app code, including how you can provide alternative
     resources for specific device configurations.
 
-[Filters on Google Play](/google/play/filters)
+[Filters on Google Play](https://developer.android.com/google/play/filters)
 :   Information about the different ways Google Play Store can prevent your
     app from being installed on different devices.
 
-[Permissions on Android](/guide/topics/permissions)
+[Permissions on Android](https://developer.android.com/guide/topics/permissions)
 :   How Android restricts app access to certain APIs with a permission system
     that requires the user's consent for your app to use those APIs.

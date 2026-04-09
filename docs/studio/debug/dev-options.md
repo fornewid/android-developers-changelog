@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 The Settings app on Android includes a screen called **Developer options** where you can
 configure system behaviors that help you profile and debug your app performance. For example, you
 can enable debugging over USB, capture a bug report, enable visual feedback for taps,

@@ -1,35 +1,23 @@
 ---
-title: Remote Compose  |  Jetpack  |  Android Developers
+title: https://developer.android.com/jetpack/androidx/releases/compose-remote
 url: https://developer.android.com/jetpack/androidx/releases/compose-remote
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [Get started](https://developer.android.com/get-started/overview)
-* [Jetpack](https://developer.android.com/jetpack)
-* [Libraries](https://developer.android.com/jetpack/androidx/explorer)
-
-Stay organized with collections
-
-Save and categorize content based on your preferences.
-
-
 
 # remote compose
 
 API Reference  
-[androidx.compose.remote](/reference/kotlin/androidx/compose/remote/package-summary)
-
+[androidx.compose.remote](https://developer.android.com/reference/kotlin/androidx/compose/remote/package-summary)  
 Remote Compose is a framework to create UI for remote surfaces
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
-| --- | --- | --- | --- | --- |
-| March 25, 2026 | - | - | - | [1.0.0-alpha07](/jetpack/androidx/releases/compose-remote#1.0.0-alpha07) |
+|---|---|---|---|---|
+| March 11, 2026 | - | - | - | [1.0.0-alpha06](https://developer.android.com/jetpack/androidx/releases/compose-remote#1.0.0-alpha06) |
 
 ## Declaring dependencies
 
 To add a dependency on compose-remote, you must add the Google Maven repository to your
-project. Read [Google's Maven repository](/studio/build/dependencies#google-maven)
+project. Read [Google's Maven repository](https://developer.android.com/studio/build/dependencies#google-maven)
 for more information.
 
 Add the dependencies for the artifacts you need in the `build.gradle` file for
@@ -37,53 +25,53 @@ your app or module:
 
 ### Groovy
 
-```
+```groovy
 dependencies {
-    implementation "androidx.compose.remote:remote-core:1.0.0-alpha07"
+    implementation "androidx.compose.remote:remote-core:1.0.0-alpha06"
 
     // Use to create Remote Compose documents
-    implementation "androidx.compose.remote:remote-creation:1.0.0-alpha07"
-    implementation "androidx.compose.remote:remote-creation-core:1.0.0-alpha07"
-    implementation "androidx.compose.remote:remote-creation-android:1.0.0-alpha07"
-    implementation "androidx.compose.remote:remote-creation-jvm:1.0.0-alpha07"
-    implementation "androidx.compose.remote:remote-creation-compose:1.0.0-alpha07"
+    implementation "androidx.compose.remote:remote-creation:1.0.0-alpha06"
+    implementation "androidx.compose.remote:remote-creation-core:1.0.0-alpha06"
+    implementation "androidx.compose.remote:remote-creation-android:1.0.0-alpha06"
+    implementation "androidx.compose.remote:remote-creation-jvm:1.0.0-alpha06"
+    implementation "androidx.compose.remote:remote-creation-compose:1.0.0-alpha06"
 
     // Use to render a Remote Compose document
-    implementation "androidx.compose.remote:remote-player-core:1.0.0-alpha07"
-    implementation "androidx.compose.remote:remote-player-view:1.0.0-alpha07"
+    implementation "androidx.compose.remote:remote-player-core:1.0.0-alpha06"
+    implementation "androidx.compose.remote:remote-player-view:1.0.0-alpha06"
 
-    implementation "androidx.compose.remote:remote-tooling-preview:1.0.0-alpha07"
+    implementation "androidx.compose.remote:remote-tooling-preview:1.0.0-alpha06"
 }
 ```
 
 ### Kotlin
 
-```
+```kotlin
 dependencies {
-    implementation("androidx.compose.remote:remote-core:1.0.0-alpha07")
+    implementation("androidx.compose.remote:remote-core:1.0.0-alpha06")
 
     // Use to create Remote Compose documents
-    implementation("androidx.compose.remote:remote-creation:1.0.0-alpha07")
-    implementation("androidx.compose.remote:remote-creation-core:1.0.0-alpha07")
-    implementation("androidx.compose.remote:remote-creation-android:1.0.0-alpha07")
-    implementation("androidx.compose.remote:remote-creation-jvm:1.0.0-alpha07")
-    implementation("androidx.compose.remote:remote-creation-compose:1.0.0-alpha07")
+    implementation("androidx.compose.remote:remote-creation:1.0.0-alpha06")
+    implementation("androidx.compose.remote:remote-creation-core:1.0.0-alpha06")
+    implementation("androidx.compose.remote:remote-creation-android:1.0.0-alpha06")
+    implementation("androidx.compose.remote:remote-creation-jvm:1.0.0-alpha06")
+    implementation("androidx.compose.remote:remote-creation-compose:1.0.0-alpha06")
 
     // Use to render a Remote Compose document
-    implementation("androidx.compose.remote:remote-player-core:1.0.0-alpha07")
-    implementation("androidx.compose.remote:remote-player-view:1.0.0-alpha07")
+    implementation("androidx.compose.remote:remote-player-core:1.0.0-alpha06")
+    implementation("androidx.compose.remote:remote-player-view:1.0.0-alpha06")
 
-    implementation("androidx.compose.remote:remote-tooling-preview:1.0.0-alpha07")
+    implementation("androidx.compose.remote:remote-tooling-preview:1.0.0-alpha06")
 }
 ```
 
-For more information about dependencies, see [Add build dependencies](/studio/build/dependencies).
+For more information about dependencies, see [Add build dependencies](https://developer.android.com/studio/build/dependencies).
 
 ## Feedback
 
 Your feedback helps make Jetpack better. Let us know if you discover new issues or have
 ideas for improving this library. Please take a look at the
-[existing issues](https://issuetracker.google.com/issues?q=componentid:1984647%20status:open)
+[existing issues](https://issuetracker.google.com/issues?q=componentid:1984647+status:open)
 in this library before you create a new one. You can add your vote to an existing issue by
 clicking the star button.
 
@@ -94,36 +82,6 @@ for more information.
 
 ## Version 1.0
 
-### Version 1.0.0-alpha07
-
-March 25, 2026
-
-`androidx.compose.remote:remote-*:1.0.0-alpha07` is released. Version 1.0.0-alpha07 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/1a508f033de883ba2853b9f9ae1853eec7010638..cef2ecc0ae575dbc48d99750710fd5b7aec1f8ba/compose/remote).
-
-**New Features**
-
-* Implement non-linear font scaling ([73b23c0](https://android-review.googlesource.com/#/q/73b23c0f3122c2a51ef13763c2bf13dd34f3df54))
-* Make layouts aware of `LayoutDirection` ([81f984b](https://android-review.googlesource.com/#/q/81f984bd9616fe40b17ab64c26be238477ff7489))
-
-**API Changes**
-
-* Expose `RemoteSpacer` as public API ([I1a540](https://android-review.googlesource.com/#/q/I1a5408204bd804b725c2a0135f0afc19fbaf6649))
-* Make `RemoteBrush` `applyTo` and typeface API public ([I87ce9](https://android-review.googlesource.com/#/q/I87ce999db9c9f25067dbebe5496a0a624481141f), [b/493249631](https://issuetracker.google.com/issues/493249631))
-* Omit alignment and placement parameters from `drawTextOnCircle` ([I7fd16](https://android-review.googlesource.com/#/q/I7fd16219208da609750747ed62d4d6997722cf18), [b/446824085](https://issuetracker.google.com/issues/446824085))
-* Expose semantics modifier functions ([Ice73b](https://android-review.googlesource.com/#/q/Ice73b23ac5a078903c163531891631ac3e6b8034))
-* Expose `RemoteImageVector` and `painterRemoteVector` ([If8f38](https://android-review.googlesource.com/#/q/If8f3812874e92db7ee2186545ed8d6e4a33a24c1), [b/446824085](https://issuetracker.google.com/issues/446824085))
-* Expose `RemoteTimeDefaults` as a public API in `remote-creation-compose` ([Iddc74](https://android-review.googlesource.com/#/q/Iddc7465ef1508099c629141b9290482a665f60ef), [b/446824085](https://issuetracker.google.com/issues/446824085))
-* Make `RemoteArrangement.spacedBy` methods public ([I36e86](https://android-review.googlesource.com/#/q/I36e86045bc31807cfe57dbb7f1b72cbf07033a8e))
-* Expose more `RemoteDrawScope` API ([I1dde7](https://android-review.googlesource.com/#/q/I1dde7631d93a84b899cf03d217673449dbe70ea4))
-* Expose `RemotePainter` types in API ([I1ec8e](https://android-review.googlesource.com/#/q/I1ec8e43cf0262efce24549257f56cbda3daa2fbd))
-* Expose `RemoteBrush` API ([I4b074](https://android-review.googlesource.com/#/q/I4b0741cf3abcea0861f4123783f42acb1daf1ffa))
-* Minimal public API for `RemoteCanvas` ([I00853](https://android-review.googlesource.com/#/q/I008533c52d0d2bc4306c27a9d5bc1ea07be71b4c), [b/446824085](https://issuetracker.google.com/issues/446824085))
-* Expose RC semantics Modifiers ([I8b175](https://android-review.googlesource.com/#/q/I8b175b970612fdc639bcf1e39f31e056bf702315), [b/446824085](https://issuetracker.google.com/issues/446824085))
-* Expose `RemoteFloat.asRemoteDp()` ([I28b36](https://android-review.googlesource.com/#/q/I28b361187b51f6b0b15a5223cd7af98f50270da0), [b/446824085](https://issuetracker.google.com/issues/446824085))
-* Expose `RemoteFloat` operations ([I85fb5](https://android-review.googlesource.com/#/q/I85fb5db1d481753f137b13f601493711a0994ed6), [b/446824085](https://issuetracker.google.com/issues/446824085))
-* `RemoteArrangement.CenterHorizontally` was removed and is replaced by `RemoteArrangement.Center`. ([I2f907](https://android-review.googlesource.com/#/q/I2f9077cb5bf0947e80b28ba6a04744d239199d0f), [b/471212869](https://issuetracker.google.com/issues/471212869), [b/471153933](https://issuetracker.google.com/issues/471153933))
-* Change `RemoteBox` alignment to accept a single `RemoteAlignment`. ([I0bfbf](https://android-review.googlesource.com/#/q/I0bfbf28c95045d517cdd1bd99377895fbca0a376), [b/471212869](https://issuetracker.google.com/issues/471212869))
-
 ### Version 1.0.0-alpha06
 
 March 11, 2026
@@ -132,24 +90,24 @@ March 11, 2026
 
 **New Features**
 
-* Add a new experimental operation for `TextStyle`. `TextStyle` enables commonly used typography styling to be written to the document once, and reused by several text runs ([bfc6487](https://android-review.googlesource.com/#/q/Iee502480ea5a68e0021e777028f77230ee473d0c))
+- Add a new experimental operation for `TextStyle`. `TextStyle` enables commonly used typography styling to be written to the document once, and reused by several text runs ([bfc6487](https://android-review.googlesource.com/#/q/Iee502480ea5a68e0021e777028f77230ee473d0c))
 
 **API Changes**
 
-* Expose `RemoteTextStyle` merge ([I971ce](https://android-review.googlesource.com/#/q/I971cef03b78c66e2cb9577b04081c0e878bd5315), [b/446824085](https://issuetracker.google.com/issues/446824085))
-* Expose `RemotePainter` as public API ([I252c1](https://android-review.googlesource.com/#/q/I252c112a5379185b30116f523726941eacc23123), [b/446824085](https://issuetracker.google.com/issues/446824085))
-* Expose `Border/Clip` Modifiers and `RemoteShape`. ([Id26dd](https://android-review.googlesource.com/#/q/Id26dd4c3ac5617ce391b71a8eb6a70c7712c30d7), [b/446824085](https://issuetracker.google.com/issues/446824085))
-* Expose `RemoteColor` APIs in `remote-creation-compose` ([I4ab00](https://android-review.googlesource.com/#/q/I4ab002dc1de755cb3284ef0fe1f2c047d605bb9d), [b/446824085](https://issuetracker.google.com/issues/446824085))
-* Expose `RemoteText` API ([I6b019](https://android-review.googlesource.com/#/q/I6b019c35f925af55d13ea32f7cc6e34ee19388e0))
-* Expose `RemoteImage` API ([Ided31](https://android-review.googlesource.com/#/q/Ided3150fdcf6fada8f0f9e019421a733421be30f))
-* Expose `RemoteBoolean`, `RemoteString`, and `RemoteFloat` APIs ([Id9ee6](https://android-review.googlesource.com/#/q/Id9ee6a32db042b4dfde15e26bde8fd333488e2e6))
-* Remote Composable from `WidthIn` annotation ([I80784](https://android-review.googlesource.com/#/q/I8078494aa5de54d000d97f9b40e076c72454ac56))
+- Expose `RemoteTextStyle` merge ([I971ce](https://android-review.googlesource.com/#/q/I971cef03b78c66e2cb9577b04081c0e878bd5315), [b/446824085](https://issuetracker.google.com/issues/446824085))
+- Expose `RemotePainter` as public API ([I252c1](https://android-review.googlesource.com/#/q/I252c112a5379185b30116f523726941eacc23123), [b/446824085](https://issuetracker.google.com/issues/446824085))
+- Expose `Border/Clip` Modifiers and `RemoteShape`. ([Id26dd](https://android-review.googlesource.com/#/q/Id26dd4c3ac5617ce391b71a8eb6a70c7712c30d7), [b/446824085](https://issuetracker.google.com/issues/446824085))
+- Expose `RemoteColor` APIs in `remote-creation-compose` ([I4ab00](https://android-review.googlesource.com/#/q/I4ab002dc1de755cb3284ef0fe1f2c047d605bb9d), [b/446824085](https://issuetracker.google.com/issues/446824085))
+- Expose `RemoteText` API ([I6b019](https://android-review.googlesource.com/#/q/I6b019c35f925af55d13ea32f7cc6e34ee19388e0))
+- Expose `RemoteImage` API ([Ided31](https://android-review.googlesource.com/#/q/Ided3150fdcf6fada8f0f9e019421a733421be30f))
+- Expose `RemoteBoolean`, `RemoteString`, and `RemoteFloat` APIs ([Id9ee6](https://android-review.googlesource.com/#/q/Id9ee6a32db042b4dfde15e26bde8fd333488e2e6))
+- Remote Composable from `WidthIn` annotation ([I80784](https://android-review.googlesource.com/#/q/I8078494aa5de54d000d97f9b40e076c72454ac56))
 
 **Bug Fixes**
 
-* Moves libraries to use Java 11 target. This means produced bytecode will be Java 11 (class file version 55) and might require desugaring to use the library ([If4c2a](https://android-review.googlesource.com/#/q/If4c2a6fdda1278f42ea080fa365e8b437b2c2ae6), [b/457821470](https://issuetracker.google.com/issues/457821470))
-  + Ensure length and textlookup update correctly. Previously the length of `RemoteStrings` would be calculated on the first frame, and not updated afterwards ([e49cb53](https://android-review.googlesource.com/#/q/I04122ee502170ae46aee4b83cbe4aa5669fe14a1))
-  + Support `TextFromFloat` for numbers with large fractional components. Previously large "digitsAfter" values could result in the float evaluating to 0 ([5080bc54](https://android-review.googlesource.com/#/q/Ib4f9819a138824a4dc88b524f32bbc1d152da78b))
+- Moves libraries to use Java 11 target. This means produced bytecode will be Java 11 (class file version 55) and might require desugaring to use the library ([If4c2a](https://android-review.googlesource.com/#/q/If4c2a6fdda1278f42ea080fa365e8b437b2c2ae6), [b/457821470](https://issuetracker.google.com/issues/457821470))
+  - Ensure length and textlookup update correctly. Previously the length of `RemoteStrings` would be calculated on the first frame, and not updated afterwards ([e49cb53](https://android-review.googlesource.com/#/q/I04122ee502170ae46aee4b83cbe4aa5669fe14a1))
+  - Support `TextFromFloat` for numbers with large fractional components. Previously large "digitsAfter" values could result in the float evaluating to 0 ([5080bc54](https://android-review.googlesource.com/#/q/Ib4f9819a138824a4dc88b524f32bbc1d152da78b))
 
 ### Version 1.0.0-alpha05
 
@@ -159,18 +117,18 @@ February 25, 2026
 
 **New Features**
 
-* Introduced `fillParentMaxWidth` and `fillParentMaxHeight`. ([4c6d77c](https://android-review.googlesource.com/#/q/I13a63fdcd07bb44e3b78072bc98889e133656a2d))
+- Introduced `fillParentMaxWidth` and `fillParentMaxHeight`. ([4c6d77c](https://android-review.googlesource.com/#/q/I13a63fdcd07bb44e3b78072bc98889e133656a2d))
 
 **API Changes**
 
-* Expose common Remote Composable and Modifier types ([Id1d40](https://android-review.googlesource.com/#/q/Id1d40acae7af63f9acb99438adaa992035fd3c01))
-* Expose types for `RemoteState` ([I22429](https://android-review.googlesource.com/#/q/I22429108472ff50e5694c80f1e4c42c4009cea61), [b/465453482](https://issuetracker.google.com/issues/465453482))
+- Expose common Remote Composable and Modifier types ([Id1d40](https://android-review.googlesource.com/#/q/Id1d40acae7af63f9acb99438adaa992035fd3c01))
+- Expose types for `RemoteState` ([I22429](https://android-review.googlesource.com/#/q/I22429108472ff50e5694c80f1e4c42c4009cea61), [b/465453482](https://issuetracker.google.com/issues/465453482))
 
 **Bug Fixes**
 
-* Fixes for scrolling ([0a25299](https://android-review.googlesource.com/#/q/Iaee130c182a8c66604bdc006329add5f705cb77f))
-* Fixes for touch slop ([0192b69](https://android-review.googlesource.com/#/q/I43622c0b1565fdbe113a3b826ac780e7dd2ac732))
-* Set density earlier in the rendering process, so it is applied correctly on the first frame (often captured in screenshot tests) ([f775399](https://android-review.googlesource.com/#/q/Id590ac87459094cbd90c49fd2c7f96459e92a93c))
+- Fixes for scrolling ([0a25299](https://android-review.googlesource.com/#/q/Iaee130c182a8c66604bdc006329add5f705cb77f))
+- Fixes for touch slop ([0192b69](https://android-review.googlesource.com/#/q/I43622c0b1565fdbe113a3b826ac780e7dd2ac732))
+- Set density earlier in the rendering process, so it is applied correctly on the first frame (often captured in screenshot tests) ([f775399](https://android-review.googlesource.com/#/q/Id590ac87459094cbd90c49fd2c7f96459e92a93c))
 
 ### Version 1.0.0-alpha04
 
@@ -180,21 +138,21 @@ February 11, 2026
 
 **New Features**
 
-* Enable using the `RemoteApplier` by default, which prevents using non-Remote Composable functions when creating a Remote UI. This can be disabled by changing `isRemoteApplierEnabled` in `RemoteComposeCreationComposeFlags`. ([67a405f](https://android-review.googlesource.com/#/q/I10b57b6fee4d9f3cba75be4cab6976123a8c347e))
-* Add Glyph spacing for bitmap fonts ([0852657](https://android-review.googlesource.com/#/q/I96311972f59b562c44845860e67c39c8346a826d))
-* Rotate with pivot in `RemoteCanvas` ([9a292b3](https://android-review.googlesource.com/#/q/I96311972f59b562c44845860e67c39c8346a826d))
-* Add `RemoteSpacer` ([12beb72](https://android-review.googlesource.com/#/q/I603e0995d933a68220fd72b595a42c98329db31a))
-* Avoid `java.time` dependency, allowing the `minSdk` of the creation libraries to be lowered to 23 ([59e30d0](https://android-review.googlesource.com/#/q/I7edfc82475f2472673844d9eb5ca0a5214518e2f))
-* `FlowLayout` ([7efef02](https://android-review.googlesource.com/#/q/I176532d6d4bddfcf360787f83dcef4b3f0833ef8))
+- Enable using the `RemoteApplier` by default, which prevents using non-Remote Composable functions when creating a Remote UI. This can be disabled by changing `isRemoteApplierEnabled` in `RemoteComposeCreationComposeFlags`. ([67a405f](https://android-review.googlesource.com/#/q/I10b57b6fee4d9f3cba75be4cab6976123a8c347e))
+- Add Glyph spacing for bitmap fonts ([0852657](https://android-review.googlesource.com/#/q/I96311972f59b562c44845860e67c39c8346a826d))
+- Rotate with pivot in `RemoteCanvas` ([9a292b3](https://android-review.googlesource.com/#/q/I96311972f59b562c44845860e67c39c8346a826d))
+- Add `RemoteSpacer` ([12beb72](https://android-review.googlesource.com/#/q/I603e0995d933a68220fd72b595a42c98329db31a))
+- Avoid `java.time` dependency, allowing the `minSdk` of the creation libraries to be lowered to 23 ([59e30d0](https://android-review.googlesource.com/#/q/I7edfc82475f2472673844d9eb5ca0a5214518e2f))
+- `FlowLayout` ([7efef02](https://android-review.googlesource.com/#/q/I176532d6d4bddfcf360787f83dcef4b3f0833ef8))
 
 **Bug Fixes**
 
-* Fix evaluation for non global `ColorExpression` and computed String. ([c08d0bd](https://android-review.googlesource.com/#/q/I2085fcf66281fe05f2c37140786c614902ca03d5))
+- Fix evaluation for non global `ColorExpression` and computed String. ([c08d0bd](https://android-review.googlesource.com/#/q/I2085fcf66281fe05f2c37140786c614902ca03d5))
 
 **External Contribution**
 
-* `androidx.compose.ui.graphics.NativePaint` typealias is deprecated, use `android.graphics.Paint` directly instead ([I6303c](https://android-review.googlesource.com/#/q/I6303c742f80887649d1a77e837ab0ff93ddff212), [b/477394763](https://issuetracker.google.com/issues/477394763))
-* Replace `Paint.asFrameworkPaint()` to `Paint.nativePaint` extension to avoid exposing platform type into `commonMain` sourceset via `typealias` ([I6303c](https://android-review.googlesource.com/#/q/I6303c742f80887649d1a77e837ab0ff93ddff212), [b/477394763](https://issuetracker.google.com/issues/477394763))
+- `androidx.compose.ui.graphics.NativePaint` typealias is deprecated, use `android.graphics.Paint` directly instead ([I6303c](https://android-review.googlesource.com/#/q/I6303c742f80887649d1a77e837ab0ff93ddff212), [b/477394763](https://issuetracker.google.com/issues/477394763))
+- Replace `Paint.asFrameworkPaint()` to `Paint.nativePaint` extension to avoid exposing platform type into `commonMain` sourceset via `typealias` ([I6303c](https://android-review.googlesource.com/#/q/I6303c742f80887649d1a77e837ab0ff93ddff212), [b/477394763](https://issuetracker.google.com/issues/477394763))
 
 ### Version 1.0.0-alpha03
 
@@ -204,14 +162,14 @@ January 28, 2026
 
 **New Features**
 
-* Support for different shapes & `RemoteColors` in `BorderModifier` [0afd343](https://android-review.git.corp.google.com/c/platform/frameworks/support/+/3914200)
-* Add `CombinedAction` to support multiple actions on click events [10e16a2](https://android-review.git.corp.google.com/c/platform/frameworks/support/+/3908363)
+- Support for different shapes \& `RemoteColors` in `BorderModifier` [0afd343](https://android-review.git.corp.google.com/c/platform/frameworks/support/+/3914200)
+- Add `CombinedAction` to support multiple actions on click events [10e16a2](https://android-review.git.corp.google.com/c/platform/frameworks/support/+/3908363)
 
 **API Changes**
 
-* Migrated the APIs of `RemoteColor` and `RemoteBitmap` to use Compose types, rather than exposing Android types directly [a9bfbb8](https://android-review.git.corp.google.com/c/platform/frameworks/support/+/3917393)
-* Introduce a `RemoteDensity` type, to allow determining whether to evaluate Density on the Player (when producing a document for a remote device), or to inline the expressions (to optimize document size when on the same device) [54352bb](https://android-review.git.corp.google.com/c/platform/frameworks/support/+/3914002)
-* `RemoteState constantValueOrNull` rename ([I6ad5c](https://android-review.googlesource.com/#/q/I6ad5caf6e8af50642e3a7696ae7ceeefce89f11f), [b/467050397](https://issuetracker.google.com/issues/467050397))
+- Migrated the APIs of `RemoteColor` and `RemoteBitmap` to use Compose types, rather than exposing Android types directly [a9bfbb8](https://android-review.git.corp.google.com/c/platform/frameworks/support/+/3917393)
+- Introduce a `RemoteDensity` type, to allow determining whether to evaluate Density on the Player (when producing a document for a remote device), or to inline the expressions (to optimize document size when on the same device) [54352bb](https://android-review.git.corp.google.com/c/platform/frameworks/support/+/3914002)
+- `RemoteState constantValueOrNull` rename ([I6ad5c](https://android-review.googlesource.com/#/q/I6ad5caf6e8af50642e3a7696ae7ceeefce89f11f), [b/467050397](https://issuetracker.google.com/issues/467050397))
 
 ### Version 1.0.0-alpha02
 
@@ -221,16 +179,16 @@ January 14, 2026
 
 **New Features**
 
-* Add min/max font size for CoreText. [I7bd3c](https://android-review.git.corp.google.com/#/q/I7bd3cbacdfcb70b62feada52cc74ff4853360775)
+- Add min/max font size for CoreText. [I7bd3c](https://android-review.git.corp.google.com/#/q/I7bd3cbacdfcb70b62feada52cc74ff4853360775)
 
 **API Changes**
 
-* Expose minimal public API for Glance Wear infra. ([I7b4b9](https://android-review.googlesource.com/#/q/I7b4b99bb71b0b874acfbb77cbec7e7ec2eb85403), [b/467532762](https://issuetracker.google.com/issues/467532762))
-* Return `CapturedDocument` from `captureSingleRemoteDocument` ([I5a283](https://android-review.googlesource.com/#/q/I5a2832bcd1eb4b54e82a413452d1146565925b81), [b/467532762](https://issuetracker.google.com/issues/467532762))
+- Expose minimal public API for Glance Wear infra. ([I7b4b9](https://android-review.googlesource.com/#/q/I7b4b99bb71b0b874acfbb77cbec7e7ec2eb85403), [b/467532762](https://issuetracker.google.com/issues/467532762))
+- Return `CapturedDocument` from `captureSingleRemoteDocument` ([I5a283](https://android-review.googlesource.com/#/q/I5a2832bcd1eb4b54e82a413452d1146565925b81), [b/467532762](https://issuetracker.google.com/issues/467532762))
 
 **Bug Fixes**
 
-* Fix scrolling position after relayout + add support for edge effects ([6d4551](https://android-review.git.corp.google.com/#/q/I5c2d35e07c193d7b147753387eb1d47cc0765be9))
+- Fix scrolling position after relayout + add support for edge effects ([6d4551](https://android-review.git.corp.google.com/#/q/I5c2d35e07c193d7b147753387eb1d47cc0765be9))
 
 ### Version 1.0.0-alpha01
 
@@ -238,4 +196,4 @@ December 17, 2025
 
 `androidx.compose.remote:remote-*:1.0.0-alpha01` is released. Version 1.0.0-alpha01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/ec985eed3cba8444e5aaa52a748333397a1298f3/compose/remote).
 
-* Remote Compose is a framework to create UI for remote surfaces.
+- Remote Compose is a framework to create UI for remote surfaces.

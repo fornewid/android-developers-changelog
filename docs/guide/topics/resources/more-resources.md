@@ -12,6 +12,7 @@ source: html-scrape
 
 
 
+
 This page defines the following types of resources that you can externalize:
 
 [Bool](#Bool)

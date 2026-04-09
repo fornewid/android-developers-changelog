@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 [Kotlin](https://kotlinlang.org/) is a programming language
 widely used by Android developers everywhere. This topic serves as a Kotlin
 crash-course to get you up and running quickly.

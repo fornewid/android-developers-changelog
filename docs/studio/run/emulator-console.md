@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Each running virtual device provides a console that lets you query and control the emulated
 device environment. For example, you can use the console to manage port redirection, network
 characteristics, and telephony events while your app is running on the emulator.

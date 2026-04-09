@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 To simplify the process of bringing mobile apps to Android Automotive OS devices,
 certain cars come with a compatibility mode that addresses common issues
 faced when bringing existing mobile apps into cars.

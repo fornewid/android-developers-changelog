@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 This page provides a high-level overview of the architectural layers that make
 up Jetpack Compose, and the core principles that inform this design.
 

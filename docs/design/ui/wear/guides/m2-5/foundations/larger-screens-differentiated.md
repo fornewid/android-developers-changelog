@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 ![](/static/wear/images/design/larger-screens-differentiated-header.png)
 
 Apps that are **adaptive and differentiated** create a user experience that

@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 Work goes through a series of [`State`](/reference/androidx/work/WorkInfo.State)
 changes over its lifetime.
 

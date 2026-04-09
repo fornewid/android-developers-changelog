@@ -32,7 +32,7 @@ Fundamental building blocks of Compose's programming model and state management,
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 | --- | --- | --- | --- | --- |
-| March 25, 2026 | [1.10.6](/jetpack/androidx/releases/compose-runtime#1.10.6) | - | [1.11.0-beta02](/jetpack/androidx/releases/compose-runtime#1.11.0-beta02) | - |
+| April 08, 2026 | [1.10.6](/jetpack/androidx/releases/compose-runtime#1.10.6) | [1.11.0-rc01](/jetpack/androidx/releases/compose-runtime#1.11.0-rc01) | - | - |
 
 ## Structure
 
@@ -188,6 +188,12 @@ September 7, 2022
 * `androidx.compose.runtime:runtime-tracing` is a library which - in the presence of tooling supporting it (coming soon) - allows for extended tracing in a Compose app. This initial release is 1.0.0-alpha01.
 
 ## Version 1.11
+
+### Version 1.11.0-rc01
+
+April 08, 2026
+
+`androidx.compose.runtime:runtime-*:1.11.0-rc01` is released. Version 1.11.0-rc01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/56409d2ed9fc0e8746250e5d8862c080d0c80087..ecc44700355708734de3756bf5e677323ae14ed1/compose/runtime).
 
 ### Version 1.11.0-beta02
 

@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 Automatically generate profiles for every app release using the [Jetpack
 Macrobenchmark library](/macrobenchmark) and
 [`BaselineProfileRule`](/reference/kotlin/androidx/benchmark/macro/junit4/BaselineProfileRule). We recommend that you

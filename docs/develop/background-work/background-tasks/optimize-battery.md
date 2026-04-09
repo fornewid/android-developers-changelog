@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 This page suggests a few best practices for setting up well-behaved background
 tasks. These best practices are specifically aimed at reducing battery
 consumption, but they can also improve device performance in other ways, like

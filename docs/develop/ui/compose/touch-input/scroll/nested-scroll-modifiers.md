@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 Nested scrolling is a system where multiple scrolling components contained
 within each other work together by reacting to a single scroll gesture and
 communicating their scrolling deltas (changes).

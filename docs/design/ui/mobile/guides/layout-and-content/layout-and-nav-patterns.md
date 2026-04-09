@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 If your app contains multiple destinations for users to traverse, we recommend
 employing layout and navigation pairings that are commonly used by other apps.
 Because many users already possess the mental models for these pairings, your

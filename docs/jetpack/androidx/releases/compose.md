@@ -47,13 +47,13 @@ This table lists the current versions of each group.
 
 | Maven Group ID | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 | --- | --- | --- | --- | --- | --- |
-| [compose.animation](/jetpack/androidx/releases/compose-animation) | March 25, 2026 | [1.10.6](/jetpack/androidx/releases/compose-animation#1.10.6) | - | [1.11.0-beta02](/jetpack/androidx/releases/compose-animation#1.11.0-beta02) | - |
+| [compose.animation](/jetpack/androidx/releases/compose-animation) | April 08, 2026 | [1.10.6](/jetpack/androidx/releases/compose-animation#1.10.6) | [1.11.0-rc01](/jetpack/androidx/releases/compose-animation#1.11.0-rc01) | - | - |
 | [compose.compiler](/jetpack/androidx/releases/compose-compiler) | August 7, 2024 | [1.5.15](/jetpack/androidx/releases/compose-compiler#1.5.15) | - | - | - |
-| [compose.foundation](/jetpack/androidx/releases/compose-foundation) | March 25, 2026 | [1.10.6](/jetpack/androidx/releases/compose-foundation#1.10.6) | - | [1.11.0-beta02](/jetpack/androidx/releases/compose-foundation#1.11.0-beta02) | - |
-| [compose.material](/jetpack/androidx/releases/compose-material) | March 25, 2026 | [1.10.6](/jetpack/androidx/releases/compose-material#1.10.6) | - | [1.11.0-beta02](/jetpack/androidx/releases/compose-material#1.11.0-beta02) | - |
-| [compose.material3](/jetpack/androidx/releases/compose-material3) | March 25, 2026 | [1.4.0](/jetpack/androidx/releases/compose-material3#1.4.0) | - | - | [1.5.0-alpha16](/jetpack/androidx/releases/compose-material3#1.5.0-alpha16) |
-| [compose.runtime](/jetpack/androidx/releases/compose-runtime) | March 25, 2026 | [1.10.6](/jetpack/androidx/releases/compose-runtime#1.10.6) | - | [1.11.0-beta02](/jetpack/androidx/releases/compose-runtime#1.11.0-beta02) | - |
-| [compose.ui](/jetpack/androidx/releases/compose-ui) | March 25, 2026 | [1.10.6](/jetpack/androidx/releases/compose-ui#1.10.6) | - | [1.11.0-beta02](/jetpack/androidx/releases/compose-ui#1.11.0-beta02) | - |
+| [compose.foundation](/jetpack/androidx/releases/compose-foundation) | April 08, 2026 | [1.10.6](/jetpack/androidx/releases/compose-foundation#1.10.6) | [1.11.0-rc01](/jetpack/androidx/releases/compose-foundation#1.11.0-rc01) | - | - |
+| [compose.material](/jetpack/androidx/releases/compose-material) | April 08, 2026 | [1.10.6](/jetpack/androidx/releases/compose-material#1.10.6) | [1.11.0-rc01](/jetpack/androidx/releases/compose-material#1.11.0-rc01) | - | - |
+| [compose.material3](/jetpack/androidx/releases/compose-material3) | April 08, 2026 | [1.4.0](/jetpack/androidx/releases/compose-material3#1.4.0) | - | - | [1.5.0-alpha17](/jetpack/androidx/releases/compose-material3#1.5.0-alpha17) |
+| [compose.runtime](/jetpack/androidx/releases/compose-runtime) | April 08, 2026 | [1.10.6](/jetpack/androidx/releases/compose-runtime#1.10.6) | [1.11.0-rc01](/jetpack/androidx/releases/compose-runtime#1.11.0-rc01) | - | - |
+| [compose.ui](/jetpack/androidx/releases/compose-ui) | April 08, 2026 | [1.10.6](/jetpack/androidx/releases/compose-ui#1.10.6) | [1.11.0-rc01](/jetpack/androidx/releases/compose-ui#1.11.0-rc01) | - | - |
 
 ## Declaring dependencies
 

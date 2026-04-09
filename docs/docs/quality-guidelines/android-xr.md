@@ -17,7 +17,6 @@ The Android XR SDK has  [reached Developer Preview 3](https://android-developers
 
 
 
-
 ## Compatibility tier definitions
 
 To verify that your app provides a great user experience on XR headsets and

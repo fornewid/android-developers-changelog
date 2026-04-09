@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 Android renders UI by generating a frame from your app and displaying it on
 the screen. If your app suffers from slow UI rendering, then the system is
 forced to skip frames. When this happens, the user perceives a recurring flicker

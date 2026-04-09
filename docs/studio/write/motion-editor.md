@@ -11,6 +11,7 @@ source: html-scrape
 
 
 
+
 **Deprecated:** As of Android Studio Meerkat Feature Drop, the Motion Editor is
 [deprecated](/studio/releases/past-releases/as-meerkat-feature-drop-release-notes#motion-editor-deprecation).
 

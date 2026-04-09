@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 R8 provides two modes, compatibility mode and full mode. Full mode gives you
 powerful optimizations that improve your app performance.
 

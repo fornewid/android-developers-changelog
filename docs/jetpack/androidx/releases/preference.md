@@ -15,7 +15,6 @@ Save and categorize content based on your preferences.
 
 
 
-
 # Preference
 
 [User Guide](/guide/topics/ui/settings)  [Code Sample](https://github.com/android/user-interface-samples/tree/main/Preferences)

@@ -15,6 +15,7 @@ Send feedback
 
 
 
+
 This topic describes how to export a Godot project as an Android app. Godot can
 generate both APK files for local device testing and Android App Bundles for
 submission to the Google Play Store.
@@ -187,6 +188,8 @@ To export a build, follow these steps:
 The export progress window will look different if the **Use Custom Build**
 option is checked in the export preset. Custom builds display the output of the
 Gradle build process.
+
+
 
 
 

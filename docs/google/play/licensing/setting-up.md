@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 Before you start adding license verification to your application, you need to set up your Google
 Play publishing account, your development environment, and any test accounts required to verify
 your implementation.

@@ -15,6 +15,7 @@ These guides discuss the MediaCompat APIs, which are no longer updated. We stron
 
 
 
+
 A typical video player always displays its controls and video content while it's
 running; it can't operate in the background or without a UI. Therefore, it's
 appropriate to build your app as a single activity containing the UI, a player,

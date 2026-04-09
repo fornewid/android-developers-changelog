@@ -1,18 +1,8 @@
 ---
-title: Screen flash  |  Android media  |  Android Developers
+title: https://developer.android.com/media/camera/camera2/screen-flash-implementation-guidelines
 url: https://developer.android.com/media/camera/camera2/screen-flash-implementation-guidelines
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [Essentials](https://developer.android.com/get-started)
-* [Camera & media dev center](https://developer.android.com/media)
-* [Guides](https://developer.android.com/media/guides)
-
-# Screen flash Stay organized with collections Save and categorize content based on your preferences.
-
-
-
 
 Screen flash, also called front flash or selfie flash, utilizes a phone's screen
 brightness to illuminate the subject when capturing images with the front camera
@@ -22,7 +12,7 @@ portrait, this approach is effective.
 
 However, it's difficult for developers to implement the feature properly and
 maintain a good capture quality consistently across devices. This guide shows
-how to properly implement this feature, using [Camera2](/training/camera2), the
+how to properly implement this feature, using [Camera2](https://developer.android.com/training/camera2), the
 low-level Android camera framework API.
 
 ## General workflow
@@ -30,33 +20,29 @@ low-level Android camera framework API.
 To implement the feature properly, the two key factors are the usage of
 precapture metering sequence (automatic exposure precapture), and the
 timing of the operations. The general workflow is seen in Figure 1.
-
-![Flow chart showing how a screen flash UI is used within Camera2.](/static/images/training/camera/camera2/screen-flash-workflow.png)
-
-
-**Figure 1.** General workflow for implementing screen
-flash.
+![Flow chart showing how a screen flash UI is used within Camera2.](https://developer.android.com/static/images/training/camera/camera2/screen-flash-workflow.png) **Figure 1.** General workflow for implementing screen flash.
 
 The following steps are used when an image needs to be captured with the screen
 flash feature.
 
-1. Apply UI changes required for screen flash, which can provide sufficient
-   light for taking photo using the device screen. For general use cases, Google
-   suggests the following UI changes, as used in our tests:
-   * App screen is covered with a white color overlay.
-   * Screen brightness is maximized.
-2. Set automatic exposure (AE) mode to [`CONTROL_AE_MODE_ON_EXTERNAL_FLASH`](/reference/android/hardware/camera2/CameraMetadata#CONTROL_AE_MODE_ON_EXTERNAL_FLASH), if
-   supported.
-3. Trigger a precapture metering sequence using [`CONTROL_AE_PRECAPTURE_TRIGGER`](/reference/android/hardware/camera2/CaptureRequest#CONTROL_AE_PRECAPTURE_TRIGGER).
+1. Apply UI changes required for screen flash, which can provide sufficient light for taking photo using the device screen. For general use cases, Google suggests the following UI changes, as used in our tests:
+   - App screen is covered with a white color overlay.
+   - Screen brightness is maximized.
+2. Set automatic exposure (AE) mode to [`CONTROL_AE_MODE_ON_EXTERNAL_FLASH`](https://developer.android.com/reference/android/hardware/camera2/CameraMetadata#CONTROL_AE_MODE_ON_EXTERNAL_FLASH), if supported.
+3. Trigger a precapture metering sequence using [`CONTROL_AE_PRECAPTURE_TRIGGER`](https://developer.android.com/reference/android/hardware/camera2/CaptureRequest#CONTROL_AE_PRECAPTURE_TRIGGER).
 4. Wait for auto-exposure (AE) and auto-white balance (AWB) to be converged.
 
-   **Note:** Make sure a new AE precapture starts before checking AE and AWB are
-   converged, because AE and AWB can be converged with some other set of states
-   from before the precapture trigger.
+   > [!NOTE]
+   > **Note:** Make sure a new AE precapture starts before checking AE and AWB are converged, because AE and AWB can be converged with some other set of states from before the precapture trigger.
+
 5. Once converged, the usual photo capture flow of the app is used.
+
 6. Send capture request to framework.
+
 7. Wait for receiving capture result.
+
 8. Reset AE mode if `CONTROL_AE_MODE_ON_EXTERNAL_FLASH` was set.
+
 9. Clear the UI changes for screen flash.
 
 ## Camera2 sample codes
@@ -72,7 +58,7 @@ In the following code sample, white color (`#FFFFFF`) is used as an example for
 the view. Applications can choose the color, or offer multiple colors to users,
 based on their requirements.
 
-```
+```xml
 <View
     android:id="@+id/white_color_overlay"
     android:layout_width="match_parent"
@@ -86,12 +72,12 @@ based on their requirements.
 
 There are multiple ways to change screen brightness in an Android app. One
 direct way is to change the
-[screenBrightness](/media/camera/camera2/(/reference/android/view/WindowManager.LayoutParams#screenBrightness)) WindowManager parameter in the
-[Activity Window](/reference/android/app/Activity#getWindow()) reference.
+[screenBrightness](https://developer.android.com/media/camera/camera2/(/reference/android/view/WindowManager.LayoutParams#screenBrightness)) WindowManager parameter in the
+[Activity Window](https://developer.android.com/reference/android/app/Activity#getWindow()) reference.
 
 ### Kotlin
 
-```
+```kotlin
 private var previousBrightness: Float = -1.0f
 
 private fun maximizeScreenBrightness() {
@@ -116,7 +102,7 @@ private fun restoreScreenBrightness() {
 
 ### Java
 
-```
+```java
 private float mPreviousBrightness = -1.0f;
 
 private void maximizeScreenBrightness() {
@@ -153,7 +139,7 @@ available and set the value accordingly. To check the availability, use `CameraC
 
 ### Kotlin
 
-```
+```kotlin
 private val characteristics: CameraCharacteristics by lazy {
     cameraManager.getCameraCharacteristics(cameraId)
 }
@@ -166,7 +152,7 @@ private fun isExternalFlashAeModeAvailable() =
 
 ### Java
 
-```
+```java
 try {
     mCharacteristics = mCameraManager.getCameraCharacteristics(mCameraId);
 } catch (CameraAccessException e) {
@@ -202,7 +188,7 @@ The following code snippet shows how this can be accomplished.
 
 ### Kotlin
 
-```
+```kotlin
 private val repeatingCaptureCallback = object : CameraCaptureSession.CaptureCallback() {
     private var targetAeMode: Int? = null
     private var aeModeUpdateDeferred: CompletableDeferred? = null
@@ -238,7 +224,7 @@ private val repeatingCaptureCallback = object : CameraCaptureSession.CaptureCall
 
 ### Java
 
-```
+```java
 static class AwaitingCaptureCallback extends CameraCaptureSession.CaptureCallback {
     private int mTargetAeMode;
     private CountDownLatch mAeModeUpdateLatch = null;
@@ -284,7 +270,7 @@ a repeating request.
 
 ### Kotlin
 
-```
+```kotlin
 /** [HandlerThread] where all camera operations run */
 private val cameraThread = HandlerThread("CameraThread").apply { start() }
 
@@ -321,7 +307,7 @@ private fun disableExternalFlashAeMode() {
 
 ### Java
 
-```
+```java
 private void setupCameraThread() {
     // HandlerThread where all camera operations run
     HandlerThread cameraThread = new HandlerThread("CameraThread");
@@ -363,13 +349,13 @@ private void disableExternalFlashAeMode() {
 ### Trigger a precapture sequence
 
 To trigger a precapture metering sequence, you can submit a
-[`CaptureRequest`](/reference/android/hardware/camera2/CaptureRequest) with `CONTROL_AE_PRECAPTURE_TRIGGER_START` value set to the request. You need to
-wait for the request to be processed and then wait for the AE & AWB to converge.
+[`CaptureRequest`](https://developer.android.com/reference/android/hardware/camera2/CaptureRequest) with `CONTROL_AE_PRECAPTURE_TRIGGER_START` value set to the request. You need to
+wait for the request to be processed and then wait for the AE \& AWB to converge.
 
 Although precapture triggers with a single capture request, waiting for the AE
 and AWB convergence does require more complexity. You can keep track of the
-[AE state](/reference/android/hardware/camera2/CaptureResult#CONTROL_AE_STATE)
-and the [AWB state](/reference/android/hardware/camera2/CaptureResult#CONTROL_AWB_STATE)
+[AE state](https://developer.android.com/reference/android/hardware/camera2/CaptureResult#CONTROL_AE_STATE)
+and the [AWB state](https://developer.android.com/reference/android/hardware/camera2/CaptureResult#CONTROL_AWB_STATE)
 using a capture callback set to a repeating request.
 
 Updating the same repeating callback lets you have code simplicity.
@@ -384,7 +370,7 @@ To update the repeating capture callback, use the following code snippet.
 
 ### Kotlin
 
-```
+```kotlin
 private val repeatingCaptureCallback = object : CameraCaptureSession.CaptureCallback() {
     private var targetAeMode: Int? = null
     private var aeModeUpdateDeferred: CompletableDeferred? = null
@@ -451,7 +437,7 @@ private val repeatingCaptureCallback = object : CameraCaptureSession.CaptureCall
 
 ### Java
 
-```
+```java
 static class AwaitingCaptureCallback extends CameraCaptureSession.CaptureCallback {
     private int mTargetAeMode;
     private CountDownLatch mAeModeUpdateLatch = null;
@@ -530,7 +516,7 @@ during initialization.
 
 ### Kotlin
 
-```
+```kotlin
 // Open the selected camera
 camera = openCamera(cameraManager, cameraId, cameraHandler)
 
@@ -550,7 +536,7 @@ session.setRepeatingRequest(captureRequest.build(), repeatingCaptureCallback, ca
 
 ### Java
 
-```
+```java
 // Open the selected camera
 mCamera = openCamera(mCameraManager, mCameraId, mCameraHandler);
 
@@ -578,7 +564,7 @@ With the callback set, you can use the following code sample for a precapture se
 
 ### Kotlin
 
-```
+```kotlin
 private suspend fun runPrecaptureSequence() {
     // Creates a new capture request with CONTROL_AE_PRECAPTURE_TRIGGER_START
     val captureRequest = session.device.createCaptureRequest(
@@ -612,7 +598,7 @@ private suspend fun runPrecaptureSequence() {
 
 ### Java
 
-```
+```java
 private void runPrecaptureSequence() {
     // Creates a new capture request with CONTROL_AE_PRECAPTURE_TRIGGER_START
     try {
@@ -652,7 +638,7 @@ execute in the order noted in the preceding discussion and code samples.
 
 ### Kotlin
 
-```
+```kotlin
 // User clicks captureButton to take picture
 captureButton.setOnClickListener { v ->
     // Apply the screen flash related UI changes
@@ -682,7 +668,7 @@ captureButton.setOnClickListener { v ->
 
 ### Java
 
-```
+```java
 // User clicks captureButton to take picture
 mCaptureButton.setOnClickListener(new View.OnClickListener() {
     @Override
@@ -733,9 +719,9 @@ color. This warm-white light source lets you see how the blue color tint is an
 actual problem, not a side-effect of a light source.
 
 | Environment | Under-exposure | Over-exposure | Color tint |
-| --- | --- | --- | --- |
-| Dark environment (No light source but the phone) | Nearly fully dark photo | Overly lightened photo | Photo with purplish tint |
-| Low light (Additional ~3 lux light source) | Somewhat dark photo | Overly lightened photo | Photo with bluish tint |
+|---|---|---|---|
+| Dark environment (No light source but the phone) | ![Nearly fully dark photo](https://developer.android.com/static/images/training/camera/camera2/under-exposure-full-dark-env-no-ae-precapture.jpg) | ![Overly lightened photo](https://developer.android.com/static/images/training/camera/camera2/over-exposure-dark-env-no-ae-precapture.jpg) | ![Photo with purplish tint](https://developer.android.com/static/images/training/camera/camera2/color-tint-dark-env-no-ae-precapture.jpg) |
+| Low light (Additional \~3 lux light source) | ![Somewhat dark photo](https://developer.android.com/static/images/training/camera/camera2/under-exposure-full-low-light-no-ae-precapture.jpg) | ![Overly lightened photo](https://developer.android.com/static/images/training/camera/camera2/over-exposure-low-light-no-ae-precapture.jpg) | ![Photo with bluish tint](https://developer.android.com/static/images/training/camera/camera2/color-tint-low-light-no-ae-precapture.jpg) |
 
 ### When done right
 
@@ -743,9 +729,9 @@ When the standard implementation is used for the same devices and conditions,
 you can see the results in the following table.
 
 | Environment | Under-exposure (fixed) | Over-exposure (fixed) | Color tint (fixed) |
-| --- | --- | --- | --- |
-| Dark environment (No light source but the phone) | Clear photo | Clear photo | Clear photo without any tint |
-| Low light (Additional ~3 lux light source) | Clear photo | Clear photo | A clear photo without tint |
+|---|---|---|---|
+| Dark environment (No light source but the phone) | ![Clear photo](https://developer.android.com/static/images/training/camera/camera2/under-exposure-full-dark-env-ae-precapture.jpg) | ![Clear photo](https://developer.android.com/static/images/training/camera/camera2/over-exposure-dark-env-ae-precapture.jpg) | ![Clear photo without any tint](https://developer.android.com/static/images/training/camera/camera2/color-tint-dark-env-ae-precapture.jpg) |
+| Low light (Additional \~3 lux light source) | ![Clear photo](https://developer.android.com/static/images/training/camera/camera2/under-exposure-full-low-light-ae-precapture.jpg) | ![Clear photo](https://developer.android.com/static/images/training/camera/camera2/over-exposure-low-light-ae-precapture.jpg) | ![A clear photo without tint](https://developer.android.com/static/images/training/camera/camera2/color-tint-low-light-ae-precapture.jpg) |
 
 As observed, the image quality significantly improves with the standard
 implementation.

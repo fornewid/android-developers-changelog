@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 Play Integrity for PC helps you check that game events and server requests are
 coming from a genuine instance of Google Play Games for PC on a genuine PC
 device. By detecting potentially risky devices and unknown emulators, your

@@ -1,68 +1,57 @@
 ---
-title: Form factors  |  Android Developers
+title: https://developer.android.com/courses/quizzes/jetpack-compose-for-android-developers-5/jetpack-compose-for-android-developers-5
 url: https://developer.android.com/courses/quizzes/jetpack-compose-for-android-developers-5/jetpack-compose-for-android-developers-5
-source: html-scrape
+source: md.txt
 ---
-
-Stay organized with collections
-
-Save and categorize content based on your preferences.
-
-
 
 # Form factors
 
-Return to pathway
+# Form factors
 
+<br />
 
+Return to pathway  
+1.
 
-1. ## Window size class is determined by the entire physical screen for multitasking or other segmentations.
+   ## Window size class is determined by the entire physical screen for multitasking or other segmentations.
 
-   True
+   True  
+   False  
+2.
 
-   False
-2. ## The foldable state where a device is fully opened or fully folded is called:
+   ## The foldable state where a device is fully opened or fully folded is called:
 
-   Book posture
+   Book posture  
+   Normal posture  
+   Folded posture  
+   Unfolded posture  
+3.
 
-   Normal posture
+   ## ___ is great for easy navigation and reachability when you're using medium size devices.
 
-   Folded posture
+   Bottom navigation  
+   Top navigation  
+   Navigation rail  
+   Navigation drawer  
+4.
 
-   Unfolded posture
-3. ## \_\_\_ is great for easy navigation and reachability when you’re using medium size devices.
+   ## Most of the wear-related dependency changes will be in which of the following Compose libraries:
 
-   Bottom navigation
+   Choose as many answers as you see fit.  
+   UI  
+   Foundation  
+   Runtime  
+   Material  
+5.
 
-   Top navigation
+   ## Wear OS is comprised of multiple surfaces that include which of the following:
 
-   Navigation rail
-
-   Navigation drawer
-4. ## Most of the wear-related dependency changes will be in which of the following Compose libraries:
-
-   Choose as many answers as you see fit.
-
-   UI
-
-   Foundation
-
-   Runtime
-
-   Material
-5. ## Wear OS is comprised of multiple surfaces that include which of the following:
-
-   Choose as many answers as you see fit.
-
-   Complication
-
-   Tile
-
-   Fragment
-
-   Notification
+   Choose as many answers as you see fit.  
+   Complication  
+   Tile  
+   Fragment  
+   Notification  
 
 Submit answers
 
-*error\_outline*
-An error occurred when grading the quiz. Please try again.
+*error_outline*An error occurred when grading the quiz. Please try again.

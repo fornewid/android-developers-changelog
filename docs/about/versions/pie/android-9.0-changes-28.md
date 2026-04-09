@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 Android 9 (API level 28) introduces a number of changes to the Android system.
 The following behavior changes apply exclusively to apps that are targeting
 API level 28 or higher. Apps that set `targetSdkVersion` to API level 28 or

@@ -1,0 +1,300 @@
+---
+title: The Second Beta of Android 17  |  Android Developers' Blog
+url: https://developer.android.com/blog/posts/the-second-beta-of-android-17
+source: html-scrape
+---
+
+* [Android Developers](https://developer.android.com/)
+* [Android Developers' Blog](https://developer.android.com/)
+* [Blog](https://developer.android.com/blog)
+
+Stay organized with collections
+
+Save and categorize content based on your preferences.
+
+
+
+#### [Product News](/blog/categories/product-news)
+
+# The Second Beta of Android 17
+
+###### 6-min read
+
+![](/static/blog/assets/android17banner_359909419a_Z1HMAIH.webp)
+
+26
+
+Feb
+2026
+
+[![](/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](/blog/authors/matthew-mccullough)
+
+[##### Matthew McCullough](/blog/authors/matthew-mccullough)
+
+###### Vice President, Product Management, Android Developer
+
+Today we're releasing the second beta of [Android 17](/about/versions/17), continuing our work to build a platform that prioritizes privacy, security, and refined performance. This update delivers a range of new capabilities, including the EyeDropper API and a privacy-preserving Contacts Picker. We're also adding advanced ranging, cross-device handoff APIs, and more.  
+  
+This release continues the shift in our release cadence, following this annual major SDK release in Q2 with a minor SDK update.
+
+### **User Experience & System UI**
+
+#### Bubbles
+
+Bubbles is a windowing mode feature that offers a new floating UI experience separate from the [messaging bubbles API](/develop/ui/views/notifications/bubbles). Users can create an app bubble on their phone, foldable, or tablet by long-pressing an app icon on the launcher. On large screens, there is a bubble bar as part of the taskbar where users can organize, move between, and move bubbles to and from anchored points on the screen.
+
+![Bubbles.gif](/static/blog/assets/Bubbles_3804b5dbdd_Z2qebhJ.webp)
+
+You should follow the [guidelines for supporting multi-window mode](/develop/ui/compose/layouts/adaptive/support-multi-window-mode) to ensure your apps work correctly as bubbles.
+
+Bubbles aren't yet fully enabled in Beta 2. Look for them in a future build of Android 17.
+
+#### **EyeDropper API**
+
+A new system-level EyeDropper API allows your app to request a color from any pixel on the display without requiring sensitive screen capture permissions.
+
+![Eyedropper_Tester.webp](/static/blog/assets/Eyedropper_Tester_0bb86c767e_WUEHE.webp)
+
+```
+  val eyeDropperLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+  result -> if (result.resultCode == Activity.RESULT_OK) {
+    val color = result.data?.getIntExtra(Intent.EXTRA_COLOR, Color.BLACK)
+    // Use the picked color in your app
+  }
+}
+
+fun launchColorPicker() {
+  val intent = Intent(Intent.ACTION_OPEN_EYE_DROPPER)
+  eyeDropperLauncher.launch(intent)
+}
+```
+
+#### Contacts Picker
+
+A new system-level contacts picker via [ACTION\_PICK\_CONTACTS](/reference/kotlin/android/provider/ContactsPickerSessionContract#ACTION_PICK_CONTACTS:kotlin.String) grants temporary, session-based read access to only the specific data fields requested by the user, reducing the need for the broad [READ\_CONTACTS](/reference/android/Manifest.permission#READ_CONTACTS) permissions. It also allows for selections from the device’s personal or work profiles.
+
+![android-17-contact-picker.gif](/static/blog/assets/android_17_contact_picker_abefb8ca84_2uQ92i.webp)
+
+```
+  val contactPicker = rememberLauncherForActivityResult(StartActivityForResult()) {
+    if (it.resultCode == RESULT_OK) {
+        val uri = it.data?.data ?: return@rememberLauncherForActivityResult
+        // Handle result logic
+        processContactPickerResults(uri)
+    }
+}
+
+val dataFields = arrayListOf(Email.CONTENT_ITEM_TYPE, Phone.CONTENT_ITEM_TYPE)
+val intent = Intent(ACTION_PICK_CONTACTS).apply {
+    putStringArrayListExtra(EXTRA_PICK_CONTACTS_REQUESTED_DATA_FIELDS, dataFields)
+    putExtra(EXTRA_ALLOW_MULTIPLE, true)
+    putExtra(EXTRA_PICK_CONTACTS_SELECTION_LIMIT, 5)
+}
+
+contactPicker.launch(intent)
+```
+
+#### Easier pointer capture compatibility with touchpads
+
+Previously, touchpads reported events in a very different way from mice when an app had captured the pointer, reporting the locations of fingers on the pad rather than the relative movements that would be reported by a mouse. This made it quite difficult to support touchpads properly in first-person games. Now, by default the system will recognize pointer movement and scrolling gestures when the touchpad is captured, and report them just like mouse events. You can still request the old, detailed finger location data by explicitly requesting capture in the new “absolute” mode.
+
+```
+  // To request the new default relative mode (mouse-like events)
+// This is the same as requesting with View.POINTER_CAPTURE_MODE_RELATIVE
+view.requestPointerCapture()
+
+// To request the legacy absolute mode (raw touch coordinates)
+view.requestPointerCapture(View.POINTER_CAPTURE_MODE_ABSOLUTE)
+```
+
+#### **Interactive Chooser resting bounds**
+
+By calling [getInitialRestingBounds](/reference/kotlin/android/service/chooser/ChooserSession#getinitialrestingbounds) on Android's [ChooserSession](/reference/android/service/chooser/ChooserSession), your app can identify the target position the Chooser occupies after animations and data loading are complete, enabling better UI adjustments.
+
+### Connectivity & Cross-Device
+
+#### Cross-device app handoff
+
+A new [Handoff API](/reference/kotlin/android/app/Activity#sethandoffenabled) allows you to specify application state to be resumed on another device, such as an Android tablet. When opted in, the system synchronizes state via [CompanionDeviceManager](/reference/android/companion/CompanionDeviceManager) and displays a handoff suggestion in the launcher of the user's nearby devices. This feature is designed to offer seamless task continuity, enabling users to pick up exactly where they left off in their workflow across their Android ecosystem. Critically, Handoff supports both native app-to-app transitions and app-to-web fallback, providing maximum flexibility and ensuring a complete experience even if the native app is not installed on the receiving device.
+
+#### Advanced ranging APIs
+
+We are adding support for 2 new ranging technologies -
+
+1. **UWB DL-TDOA** which enables apps to use UWB for indoor navigation. This API surface is FIRA (Fine Ranging Consortium) 4.0 DL-TDOA spec compliant and enables privacy preserving indoor navigation  (avoiding tracking of the device by the anchor).
+2. **Proximity Detection** which enables apps to use the new ranging specification being adopted by WFA (WiFi Alliance). This technology provides improved reliability and accuracy compared to existing Wifi Aware based ranging specification.
+
+#### Data plan enhancements
+
+To optimize media quality, your app can now retrieve carrier-allocated maximum data rates for streaming applications using [getStreamingAppMaxDownlinkKbps](/reference/kotlin/android/telephony/SubscriptionInfo#getstreamingappmaxdownlinkkbps) and [getStreamingAppMaxUplinkKbps](/reference/kotlin/android/telephony/SubscriptionInfo#getstreamingappmaxuplinkkbps).
+
+### Core Functionality, Privacy & Performance
+
+#### Local Network Access
+
+Android 17 introduces the [ACCESS\_LOCAL\_NETWORK](/reference/kotlin/android/Manifest.permission#access_local_network) runtime permission to protect users from unauthorized local network access. Because this falls under the existing [NEARBY\_DEVICES](/reference/android/Manifest.permission_group#NEARBY_DEVICES) permission group, users who have already granted other [NEARBY\_DEVICES](/reference/android/Manifest.permission_group#NEARBY_DEVICES) permissions will not be prompted again. By declaring and requesting this permission, your app can discover and connect to devices on the local area network (LAN), such as smart home devices or casting receivers. This prevents malicious apps from exploiting unrestricted local network access for covert user tracking and fingerprinting. Apps targeting Android 17 or higher will now have two paths to maintain communication with LAN devices: adopt system-mediated, privacy-preserving device pickers to skip the permission prompt, or explicitly request this new permission at runtime to maintain local network communication.
+
+#### Time zone offset change broadcast
+
+Android now provides a reliable broadcast intent, [ACTION\_TIMEZONE\_OFFSET\_CHANGED](/reference/kotlin/android/content/Intent#action_timezone_offset_changed), triggered when the system's time zone offset changes, such as during Daylight Saving Time transitions. This complements the existing broadcast intents [ACTION\_TIME\_CHANGED](/reference/android/content/Intent#ACTION_TIME_CHANGED) and [ACTION\_TIMEZONE\_CHANGED](/reference/android/content/Intent#ACTION_TIMEZONE_CHANGED), which are triggered when the Unix timestamp changes and when the time zone ID changes, respectively.
+
+#### NPU Management and Prioritization
+
+Apps targeting Android 17 that need to directly access the NPU must declare [FEATURE\_NEURAL\_PROCESSING\_UNIT](/reference/kotlin/android/content/pm/PackageManager#feature_neural_processing_unit) in their manifest to avoid being blocked from accessing the NPU. This includes apps that use the [LiteRT NPU delegate](https://ai.google.dev/edge/litert/next/npu), vendor-specific SDKs, as well as the deprecated [NNAPI](/ndk/guides/neuralnetworks).
+
+#### **ICU 78 and Unicode 17 support**
+
+Core internationalization libraries have been updated to [ICU 78](https://blog.unicode.org/2025/10/icu-78-released.html), expanding support for new scripts, characters, and emoji blocks, and enabling direct formatting of [time](/reference/java/time/package-summary) objects.
+
+#### SMS OTP protection
+
+Android is expanding its SMS OTP protection by automatically delaying access to SMS messages with OTP. Previously, the protection was primarily focused on the SMS Retriever format wherein the delivery of messages containing an SMS retriever hash is delayed for most apps for three hours. However, for certain apps like the default SMS app, etc and the app that corresponds to the hash are exempt from this delay. This update extends the protection to all SMS messages with OTP. For most apps, SMS messages containing an OTP will only be accessible after a delay of three hours to help prevent OTP hijacking. The [SMS\_RECEIVED\_ACTION](/reference/android/provider/Telephony.Sms.Intents#SMS_RECEIVED_ACTION) broadcast will be withheld and [sms provider](/reference/android/provider/Telephony.Sms) database queries will be filtered. The SMS message will be available to these apps after the delay.
+
+#### **Delayed access to WebOTP format SMS messages**
+
+If the app has the permission to read SMS messages but is not the intended recipient of the OTP (as determined by domain verification), the WebOTP format SMS message will only be accessible after three hours have elapsed. This change is designed to improve user security by ensuring that only apps associated with the domain mentioned in the message can programmatically read the verification code. This change applies to all apps regardless of their target API level.
+
+#### **Delayed access to standard SMS messages with OTP**
+
+For SMS messages containing an OTP that do not use the WebOTP or SMS Retriever formats, the OTP SMS will only be accessible after three hours for most apps. This change only applies to apps that target Android 17 (API level 37) or higher.  
+  
+Certain apps such as the default SMS, assistant app, along with connected device companion apps, etc will be exempt from this delay.  
+  
+All apps that rely on reading SMS messages for OTP extraction should transition to using [SMS Retriever](/identity/sms-retriever) or [SMS User Consent](https://developers.google.com/identity/sms-retriever/user-consent/overview) APIs to ensure continued functionality.
+
+### The Android 17 schedule
+
+We're going to be moving quickly from this Beta to our Platform Stability milestone, targeted for March. At this milestone, we'll deliver final SDK/NDK APIs. From that time forward, your app can target SDK 37 and publish to Google Play to help you complete your testing and collect user feedback in the several months before the general availability of Android 17.
+
+![Android Release Timeline.png](/static/blog/assets/Android_Release_Timeline_26e2e9e8a6_qXS2l.webp)
+
+#### A year of releases
+
+We plan for Android 17 to continue to get updates in a series of quarterly releases. The upcoming release in Q2 is the only one where we introduce planned app breaking behavior changes. We plan to have a minor SDK release in Q4 with additional APIs and features.
+
+![Android Release Timeline_2.png](/static/blog/assets/Android_Release_Timeline_2_c6fb9f8c17_ZCyUws.webp)
+
+### Get started with Android 17
+
+You can [enroll any supported Pixel device](https://www.google.com/android/beta) to get this and future Android Beta updates over-the-air. If you don’t have a Pixel device, you can [use the 64-bit system images with the Android Emulator](/about/versions/17/get#on_emulator) in Android Studio.
+
+If you are currently in the Android Beta program, you will be offered an over-the-air update to Beta 2.
+
+If you have Android 26Q1 Beta and would like to take the final stable release of 26Q1 and exit Beta, you need to ignore the over-the-air update to 26Q2 Beta 2 and wait for the release of 26Q1.
+
+We're looking for your feedback so please [report issues and submit feature requests](/about/versions/17/feedback) on the [feedback page](/about/versions/16/feedback). The earlier we get your feedback, the more we can include in our work on the final release.
+
+For the best development experience with Android 17, we recommend that you use the latest preview of [Android Studio (Panda)](/studio/preview). Once you’re set up, here are some of the things you should do:
+
+* Compile against the new SDK, test in CI environments, and report any issues in our tracker on the [feedback page](/about/versions/17/feedback).
+* Test your current app for compatibility, learn whether your app is affected by changes in Android 17, and install your app onto a device or emulator running Android 17 and extensively test it.
+
+We’ll update the [preview/beta system images](/about/versions/17/download) and SDK regularly throughout the Android 17 release cycle. Once you’ve installed a beta build, you’ll automatically get future updates
+
+over-the-air for all later previews and Betas.
+
+For complete information, visit the [Android 17 developer site](/about/versions/17).
+
+### Join the conversation
+
+As we move toward **Platform Stability** and the general availability of Android 17 later this year, your feedback remains our most valuable asset. Whether you’re an [early adopter on   the Canary channel](https://www.reddit.com/r/android_canary/) or an [app developer testing on Beta 2](https://www.reddit.com/r/android_beta/), consider joining our communities and filing feedback. We’re listening.
+
+###### Written by:
+
+* ## [Matthew McCullough](/blog/authors/matthew-mccullough)
+
+  ###### Vice President, Product Management, Android Developer
+
+  [read\_more
+  View profile](/blog/authors/matthew-mccullough)
+
+  ![](/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)
+
+  ![](/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)
+
+## Continue reading
+
+* [![](/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](/blog/authors/matthew-mccullough)
+
+  02
+
+  Apr
+  2026
+
+  02
+
+  Apr
+  2026
+
+  ![](/static/blog/assets/Gemma_Android_2x1_2x_a6d27254c4_Z10SxJJ.webp)
+
+  #### [Product News](/blog/categories/product-news)
+
+  ## [Gemma 4: The new standard for local agentic intelligence on Android](/blog/posts/gemma-4-the-new-standard-for-local-agentic-intelligence-on-android)
+
+  [arrow\_forward](/blog/posts/gemma-4-the-new-standard-for-local-agentic-intelligence-on-android)
+
+  Today, we are enhancing Android development with Gemma 4, our latest state-of-the-art open model designed with complex reasoning and autonomous tool-calling capabilities.
+
+  ###### [Matthew McCullough](/blog/authors/matthew-mccullough) • 2 min read
+
+  + [#Android Studio](/blog/topics/android-studio)
+* [![](/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](/blog/authors/matthew-mccullough)
+
+  26
+
+  Mar
+  2026
+
+  26
+
+  Mar
+  2026
+
+  ![](/static/blog/assets/android17banner_359909419a_Z1HMAIH.webp)
+
+  #### [Product News](/blog/categories/product-news)
+
+  ## [The Third Beta of Android 17](/blog/posts/the-third-beta-of-android-17)
+
+  [arrow\_forward](/blog/posts/the-third-beta-of-android-17)
+
+  Android 17 has officially reached platform stability today with Beta 3. That means that the API surface is locked; you can perform final compatibility testing and push your Android 17-targeted apps to the Play Store.
+
+  ###### [Matthew McCullough](/blog/authors/matthew-mccullough) • 5 min read
+
+  + [#Android 17](/blog/topics/android-17)
+  + [#beta](/blog/topics/beta)
+* [![](/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](/blog/authors/matthew-mccullough)
+
+  05
+
+  Mar
+  2026
+
+  05
+
+  Mar
+  2026
+
+  ![](/static/blog/assets/android_Bench_f2e4dd4fda_2816Hg.webp)
+
+  #### [Product News](/blog/categories/product-news)
+
+  ## [Elevating AI-assisted Android development and improving LLMs with Android Bench](/blog/posts/elevating-ai-assisted-android-development-and-improving-ll-ms-with-android-bench)
+
+  [arrow\_forward](/blog/posts/elevating-ai-assisted-android-development-and-improving-ll-ms-with-android-bench)
+
+  We want to make it faster and easier for you to build high-quality Android apps, and one way we’re helping you be more productive is by putting AI at your fingertips.
+
+  ###### [Matthew McCullough](/blog/authors/matthew-mccullough) • 2 min read
+
+# Stay in the loop
+
+Get the latest Android development insights delivered to your inbox
+weekly.
+
+[mail
+Subscribe](/subscribe)
+
+![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)

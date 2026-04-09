@@ -1,43 +1,20 @@
 ---
-title: Build parked apps for cars  |  Android for Cars  |  Android Developers
+title: https://developer.android.com/training/cars/parked
 url: https://developer.android.com/training/cars/parked
-source: html-scrape
+source: md.txt
 ---
 
-* [Android Developers](https://developer.android.com/)
-* [Develop](https://developer.android.com/develop)
-* [Devices](https://developer.android.com/develop/devices)
-* [Android for Cars](https://developer.android.com/training/cars)
-
-# Build parked apps for cars Stay organized with collections Save and categorize content based on your preferences.
-
-
-
 In addition to supporting apps built for use while driving,
-[Android Auto](/training/cars/platforms/android-auto) and [Android Automotive OS](/training/cars/platforms/automotive-os) support
+[Android Auto](https://developer.android.com/training/cars/platforms/android-auto) and [Android Automotive OS](https://developer.android.com/training/cars/platforms/automotive-os) support
 the following categories of apps for use while parked:
 
 | Category | Platform |
-| --- | --- |
-| [Video](/training/cars/parked/video) | Android Automotive OS |
-| [Games](/training/cars/parked/games) | Android Auto and Android Automotive OS |
-| [Browsers](/training/cars/parked/browser) | Android Automotive OS |
+|---|---|
+| [Video](https://developer.android.com/training/cars/parked/video) | Android Automotive OS |
+| [Games](https://developer.android.com/training/cars/parked/games) | Android Auto and Android Automotive OS |
+| [Browsers](https://developer.android.com/training/cars/parked/browser) | Android Automotive OS |
 
-[![](/static/images/picto-icons/code.svg)
-
-Codelab
-
-Build and test a parked app for Android Automotive OS
-
-arrow\_forward](https://developer.android.com/codelabs/build-a-parked-app)
-
-[![](/static/images/picto-icons/distribution.svg)
-
-Car ready mobile apps
-
-Learn how your existing mobile app may be eligible for distribution directly to cars
-
-arrow\_forward](https://developer.android.com/training/cars/car-ready-mobile-apps)
+[![](https://developer.android.com/static/images/picto-icons/code.svg) Codelab Build and test a parked app for Android Automotive OS](https://developer.android.com/codelabs/build-a-parked-app) [![](https://developer.android.com/static/images/picto-icons/distribution.svg) Car ready mobile apps Learn how your existing mobile app may be eligible for distribution directly to cars](https://developer.android.com/training/cars/car-ready-mobile-apps)
 
 ## Optimize your app for cars
 
@@ -51,38 +28,31 @@ ratio to tablets and foldables than to phones. As such, optimizing your app for
 large screens benefits your users in cars as well.
 
 In particular, see [Support different display
-sizes](/develop/ui/compose/layouts/adaptive/support-different-display-sizes)
+sizes](https://developer.android.com/develop/ui/compose/layouts/adaptive/support-different-display-sizes)
 for details on making the most of large display sizes, as well as the
-[media](/large-screens/gallery/media) and [games](/large-screens/gallery/games)
+[media](https://developer.android.com/large-screens/gallery/media) and [games](https://developer.android.com/large-screens/gallery/games)
 galleries for design inspiration and guidance.
 
-**Note:** While the large screens media gallery contains mocks for both video and
-audio apps, only video apps can be built for Android Automotive OS as described
-in this guide. To build audio apps for Android Automotive OS, see
-[Build media apps for cars](/training/cars/media).
+> [!NOTE]
+> **Note:** While the large screens media gallery contains mocks for both video and audio apps, only video apps can be built for Android Automotive OS as described in this guide. To build audio apps for Android Automotive OS, see [Build media apps for cars](https://developer.android.com/training/cars/media).
 
 Other large screen optimizations such as [input
-compatibility](/guide/topics/large-screens/input-compatibility-large-screens)
+compatibility](https://developer.android.com/guide/topics/large-screens/input-compatibility-large-screens)
 aren't as directly beneficial for cars, but they can still improve the user
 experience. For example, keyboard navigation makes use of the same APIs as
-[rotary navigation](/training/cars/testing/emulator#test-rotary), so any
+[rotary navigation](https://developer.android.com/training/cars/testing/emulator#test-rotary), so any
 optimizations made there can benefit both form factors.
 
 ## Distribute your app
 
 After you've tested your app against the [car app quality guidelines for its
-category](/docs/quality-guidelines/car-app-quality#car-app-guidelines) you can
+category](https://developer.android.com/docs/quality-guidelines/car-app-quality#car-app-guidelines) you can
 use Google Play to distribute it to Android Auto and/or cars with Google
-built-in. See [Distribute to cars](/training/cars/distribute) for more details
+built-in. See [Distribute to cars](https://developer.android.com/training/cars/distribute) for more details
 on the publishing process.
 
-**Important:** To ensure a good experience when using parked apps, Google works with
-OEMs to fix system issues that negatively affect parked app experiences on cars
-with Google built-in. As part of this collaboration, there is additional
-filtering built into the Play Store to prevent parked apps from being
-distributed to devices without the necessary fixes. If your app is otherwise
-compatible with a device, this might be the reason why it is not installable on
-that device.
+> [!IMPORTANT]
+> **Important:** To ensure a good experience when using parked apps, Google works with OEMs to fix system issues that negatively affect parked app experiences on cars with Google built-in. As part of this collaboration, there is additional filtering built into the Play Store to prevent parked apps from being distributed to devices without the necessary fixes. If your app is otherwise compatible with a device, this might be the reason why it is not installable on that device.
 
 ## Give feedback on parked apps
 

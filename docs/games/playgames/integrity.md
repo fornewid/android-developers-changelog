@@ -15,6 +15,7 @@ Send feedback
 
 
 
+
 Google Play Games on PC supports integrity protection through the Play
 Integrity API and several other Google Play features to help ensure that
 your game hasn't been tampered with or installed from an untrustworthy source.
@@ -92,6 +93,8 @@ features to your game:
 Automatic protection requires no code changes or developer work before
 testing. Learn more about
 [automatic protection in the Play Console help center](https://support.google.com/googleplay/android-developer/answer/10183279).
+
+
 
 
 

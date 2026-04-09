@@ -17,6 +17,7 @@ The Android XR SDK has  [reached Developer Preview 3](https://android-developers
 
 
 
+
 Applicable XR devices
 
 This guidance helps you build experiences for these types of XR devices.
@@ -67,7 +68,7 @@ ProjectedHardware.kt
 
 ### Check for validity
 
-After creating the projected context, monitor
+Wrap the [`createProjectedDeviceContext`](/reference/kotlin/androidx/xr/projected/ProjectedContext#createProjectedDeviceContext(android.content.Context)) call within the
 [`ProjectedContext.isProjectedDeviceConnected`](/reference/kotlin/androidx/xr/projected/ProjectedContext#isProjectedDeviceConnected(android.content.Context,kotlin.coroutines.CoroutineContext)). While this method returns
 `true`, the projected context remains valid to the connected device, and your
 phone app activity or service (such as a `CameraManager`) can access the

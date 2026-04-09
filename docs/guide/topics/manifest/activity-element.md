@@ -12,6 +12,7 @@ source: html-scrape
 
 
 
+
 syntax:
 :   ```
     <activity android:allowEmbedded=["true" | "false"]

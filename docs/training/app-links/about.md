@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 Android App Links is a special deep linking capability in Android 6 and later
 that allows your verified website URLs to immediately open corresponding content
 in your Android app, without requiring the user to select your app from a

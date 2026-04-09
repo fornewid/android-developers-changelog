@@ -1,0 +1,212 @@
+---
+title: Updates to the Android XR SDK: Introducing Developer Preview 2  |  Android Developers' Blog
+url: https://developer.android.com/blog/posts/updates-to-the-android-xr-sdk-introducing-developer-preview-2
+source: html-scrape
+---
+
+* [Android Developers](https://developer.android.com/)
+* [Android Developers' Blog](https://developer.android.com/)
+* [Blog](https://developer.android.com/blog)
+
+Stay organized with collections
+
+Save and categorize content based on your preferences.
+
+
+
+#### [Product News](/blog/categories/product-news)
+
+# Updates to the Android XR SDK: Introducing Developer Preview 2
+
+###### 4-min read
+
+![](/static/blog/assets/IO_25_Blog_Hero_Template_Art_Long_01_126026f6a9_Z2cQC8F.webp)
+
+20
+
+May
+2025
+
+[![](/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](/blog/authors/matthew-mccullough)
+
+[##### Matthew McCullough](/blog/authors/matthew-mccullough)
+
+###### Vice President, Product Management, Android Developer
+
+Since launching the [Android XR SDK Developer Preview](https://android-developers.googleblog.com/2024/12/introducing-android-xr-sdk-developer-preview.html) alongside Samsung, Qualcomm, and Unity last year, we’ve been blown away by all of the excitement we’ve been hearing from the broader Android community. Whether it's through [coding live-streams](https://www.youtube.com/watch?v=AkKjMtBYwDA&t=116s) or local [Google Developer Group talks](https://www.youtube.com/watch?v=RsFL8wvZFK8), it's been an outstanding experience participating in the community to build the future of XR together, and we're just getting started.
+
+Today we’re excited to share an update to the [Android XR SDK](http://developer.android.com/xr): Developer Preview 2, packed with new features and improvements to help you develop helpful and delightful immersive experiences with familiar Android APIs, tools and open standards created for XR.
+
+At Google I/O, we have two technical sessions related to Android XR. The first is [Building differentiated apps for Android XR with 3D content](https://io.google/2025/explore/technical-session-22), which covers many features present in Jetpack SceneCore and ARCore for Jetpack XR. [The future is now, with Compose and AI on Android XR](https://io.google/2025/explore/technical-session-2) covers creating XR-differentiated UI and our vision on the intersection of XR with cutting-edge AI capabilities.
+
+![android-xr-google-io-sessions.png](/static/blog/assets/android_xr_google_io_sessions_7e3c281c38_Z3uVVI.webp)
+
+[*Building differentiated apps for Android XR with 3D content*](https://io.google/2025/explore/technical-session-22) *and* [*The future is now, with Compose and AI on Android XR*](https://io.google/2025/explore/technical-session-2)
+
+## What’s new in Developer Preview 2
+
+Since the release of [Developer Preview 1](https://developers.googleblog.com/en/introducing-android-xr-sdk-developer-preview/), we’ve been focused on making the APIs easier to use and adding new immersive Android XR features. Your feedback has helped us shape the development of the tools, SDKs, and the platform itself.
+
+With the **Jetpack XR SDK**, you can now play back 180° and 360° videos, which can be stereoscopic by encoding with the MV-HEVC specification or by encoding view-frames adjacently. The MV-HEVC standard is optimized and designed for stereoscopic video, allowing your app to efficiently play back immersive videos at great quality. Apps built with Jetpack Compose for XR can use the [SpatialExternalSurface](/develop/xr/jetpack-xr-sdk/develop-ui#add-surface) composable to render media, including stereoscopic videos.
+
+Using **Jetpack Compose for XR**, you can now also define layouts that adapt to different XR display configurations. For example, use a [SubspaceModifier](/reference/kotlin/androidx/xr/compose/subspace/layout/SubspaceModifier#%28androidx.xr.compose.subspace.layout.SubspaceModifier%29.fillMaxSize%28kotlin.Float%29) to specify the size of a [Subspace](/develop/xr/jetpack-xr-sdk/add-subspace) as a percentage of the device’s recommended viewing size, so a panel effortlessly fills the space it's positioned in.
+
+**Material Design for XR** now supports more component overrides for [TopAppBar](/develop/ui/compose/components/app-bars), [AlertDialog](/develop/ui/compose/components/dialog#alert), and [ListDetailPaneScaffold](/develop/ui/compose/layouts/adaptive/list-detail), helping your large-screen enabled apps that use Material Design effortlessly adapt to the new world of XR.
+
+![app-adapts-android-xr-material-design-google-io.png](/static/blog/assets/app_adapts_android_xr_material_design_google_io_2e56168f39_Z2iOCUJ.webp)
+
+*An app adapts to XR using Material Design for XR with the new component overrides*
+
+In **ARCore for Jetpack XR**, you can now track hands after requesting the appropriate permissions. Hands are a collection of 26 posed hand joints that can be used to detect hand gestures and bring a whole new level of interaction to your Android XR apps:
+
+![arcore-jetpack-android-xr-google-io.webp](/static/blog/assets/arcore_jetpack_android_xr_google_io_c3c367c28b_2pTuNV.webp)
+
+*Hands bring a natural input method to your Android XR experience.*
+
+For more guidance on developing apps for Android XR, check out our [Android XR Fundamentals codelab](/codelabs/xr-fundamentals-part-1), the updates to our [Hello Android XR sample project](http://goo.gle/haxr), and [a new version of JetStream](http://goo.gle/adaptive-jetstream) with Android XR support.
+
+The **Android XR Emulator** has also received updates to stability, support for AMD GPUs, and is now fully integrated within the Android Studio UI.
+
+![android-xr-emulator-in-android-studio-google-io.png](/static/blog/assets/android_xr_emulator_in_android_studio_google_io_bd814b209a_rfjC.webp)
+
+*The Android XR Emulator is now integrated in Android Studio*
+
+Developers using Unity have [already successfully created and ported existing games and apps to Android XR](https://unity.com/blog/porting-apps-games-over-android-xr-unity-6). Today, you can upgrade to the [Pre-Release version 2](https://discussions.unity.com/t/android-xr-pre-release-now-available/1634938) of the Unity OpenXR: Android XR package! This update adds many performance improvements such as support for [Dynamic Refresh Rate](https://docs.unity3d.com/Packages/com.unity.xr.androidxr-openxr@1.0/manual/features/display-utilities.html), which optimizes your app’s performance and power consumption. Shaders made with [Shader Graph](https://unity.com/features/shader-graph) now support [SpaceWarp](https://docs.unity3d.com/6000.1/Documentation/Manual/xr-graphics-spacewarp.html), making it easier to use SpaceWarp to reduce compute load on the device. Hand meshes are now exposed with occlusion, which enables realistic hand visualization.
+
+Check out Unity’s [improved Mixed Reality template](https://docs.unity3d.com/Packages/com.unity.template.mixed-reality@2.1/manual/index.html) for Android XR, which now includes support for occlusion and persistent anchors.
+
+We recently launched [Android XR Samples for Unity](https://github.com/android/xr-unity-samples), which demonstrate capabilities on the Android XR platform such as hand tracking, plane tracking, face tracking, and passthrough.
+
+![unity-demo-android-xr-google-io.gif](/static/blog/assets/unity_demo_android_xr_google_io_2acbd24627_j3q8q.webp)
+
+*Google’s open-source Unity samples demonstrate platform features and show how they’re implemented*
+
+The Firebase AI Logic for Unity is now in public preview! This makes it easy for you to integrate gen AI into your apps, enabling the creation of AI-powered experiences with Gemini and Android XR. The Firebase AI Logic fully supports Gemini's capabilities, including multimodal input and output, and bi-directional streaming for immersive conversational interfaces. Built with production readiness in mind, Firebase AI Logic is integrated with core Firebase services like App Check, Remote Config, and Cloud Storage for enhanced security, configurability, and data management. Learn more about this on [the Firebase blog](https://firebase.blog/posts/2025/05/ai-logic-unity-androidxr) or go straight to the [Gemini API using Vertex AI in Firebase SDK documentation](https://firebase.google.com/docs/vertex-ai/get-started) to get started.
+
+## Continuing to build the future together
+
+Our commitment to open standards continues with the [glTF Interactivity specification](https://www.khronos.org/blog/gltf-interactivity-specification-released-for-public-comment), in collaboration with the Khronos Group. which will be supported in glTF models rendered by Jetpack XR later this year. Models using the glTF Interactivity specification are self-contained interactive assets that can have many pre-programmed behaviors, like rotating objects on a button press or changing the color of a material over time.
+
+Android XR will be available first on Samsung’s Project Moohan, launching later this year. Soon after, our partners at XREAL will release the next Android XR device. Codenamed Project Aura, it’s a portable and tethered device that gives users access to their favorite Android apps, including those that have been built for XR. It will launch as a developer edition, specifically for you to begin creating and experimenting. The best news? With the familiar tools you use to build Android apps today, you can build for these devices too.
+
+![android-xr-google-io-meta.png](/static/blog/assets/android_xr_google_io_meta_abace339cf_eNVTv.webp)
+
+*XREAL’s Project Aura*
+
+The Google Play Store is also getting ready for Android XR. It will list [supported 2D Android apps](/develop/xr/get-started#app_manifest_compatibility_considerations_for_mobile_and_large_screen_apps) on the Android XR Play Store when it launches later this year. If you are working on an [Android XR differentiated app](/docs/quality-guidelines/android-xr#android-xr-differentiated), you can get it ready for the big launch and be one of the first differentiated apps on the Android XR Play Store:
+
+* Install and test your existing app in the [Android XR Emulator](/develop/xr/jetpack-xr-sdk/studio-tools)
+* Learn how to [package and distribute apps for Android XR](/develop/xr/package-and-distribute)
+* New! [Make your XR app stand out](https://support.google.com/googleplay/android-developer/answer/9866151?ref_topic=3450987&sjid=1442238423744171917-NA) from others on Play Store with preview assets such as stereoscopic 180° or 360° videos, as well as screenshots, app description, and non-spatial video.
+
+And we know many of you are excited for the future of Android XR on [glasses](https://blog.google/products/android/android-xr-gemini-glasses-headsets/). We are shaping the developer experience now and will share more details on how you can participate later this year.
+
+To get started creating and developing for Android XR, check out [developer.android.com/develop/xr](/develop/xr) where you will find all of the tools, libraries, and resources you need to work with the Android XR SDK. In particular, try out our [samples](/develop/xr/samples) and [codelabs](/codelabs/xr-fundamentals-part-1#0).
+
+We welcome your [feedback, suggestions, and ideas](/develop/xr/support) as you’re helping shape Android XR. Your passion, expertise, and bold ideas are vital as we continue to develop Android XR together. We look forward to seeing your XR-differentiated apps when Android XR devices launch later this year!
+
+Explore this announcement and all Google I/O 2025 updates on [io.google](https://io.google/2025/?utm_source=blogpost&utm_medium=pr&utm_campaign=event&utm_content=) starting May 22.
+
+* [#Android](/blog/topics/android)
+
+###### Written by:
+
+* ## [Matthew McCullough](/blog/authors/matthew-mccullough)
+
+  ###### Vice President, Product Management, Android Developer
+
+  [read\_more
+  View profile](/blog/authors/matthew-mccullough)
+
+  ![](/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)
+
+  ![](/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)
+
+## Continue reading
+
+* [![](/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](/blog/authors/matthew-mccullough)
+
+  02
+
+  Apr
+  2026
+
+  02
+
+  Apr
+  2026
+
+  ![](/static/blog/assets/Gemma_Android_2x1_2x_a6d27254c4_Z10SxJJ.webp)
+
+  #### [Product News](/blog/categories/product-news)
+
+  ## [Gemma 4: The new standard for local agentic intelligence on Android](/blog/posts/gemma-4-the-new-standard-for-local-agentic-intelligence-on-android)
+
+  [arrow\_forward](/blog/posts/gemma-4-the-new-standard-for-local-agentic-intelligence-on-android)
+
+  Today, we are enhancing Android development with Gemma 4, our latest state-of-the-art open model designed with complex reasoning and autonomous tool-calling capabilities.
+
+  ###### [Matthew McCullough](/blog/authors/matthew-mccullough) • 2 min read
+
+  + [#Android Studio](/blog/topics/android-studio)
+* [![](/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](/blog/authors/matthew-mccullough)
+
+  26
+
+  Mar
+  2026
+
+  26
+
+  Mar
+  2026
+
+  ![](/static/blog/assets/android17banner_359909419a_Z1HMAIH.webp)
+
+  #### [Product News](/blog/categories/product-news)
+
+  ## [The Third Beta of Android 17](/blog/posts/the-third-beta-of-android-17)
+
+  [arrow\_forward](/blog/posts/the-third-beta-of-android-17)
+
+  Android 17 has officially reached platform stability today with Beta 3. That means that the API surface is locked; you can perform final compatibility testing and push your Android 17-targeted apps to the Play Store.
+
+  ###### [Matthew McCullough](/blog/authors/matthew-mccullough) • 5 min read
+
+  + [#Android 17](/blog/topics/android-17)
+  + [#beta](/blog/topics/beta)
+* [![](/static/blog/assets/matthew_9c798f0c1d_Z1m5WWD.webp)](/blog/authors/matthew-forsythe)
+
+  19
+
+  Mar
+  2026
+
+  19
+
+  Mar
+  2026
+
+  ![](/static/blog/assets/android_verification_f74003b455_ZxGBcb.webp)
+
+  #### [Product News](/blog/categories/product-news)
+
+  ## [Android developer verification: Balancing openness and choice with safety](/blog/posts/android-developer-verification-balancing-openness-and-choice-with-safety)
+
+  [arrow\_forward](/blog/posts/android-developer-verification-balancing-openness-and-choice-with-safety)
+
+  Android proves you don't have to choose between an open ecosystem and a secure one. Since announcing updated verification requirements, we've worked with the community to ensure these protections are robust yet respectful of platform freedom.
+
+  ###### [Matthew Forsythe](/blog/authors/matthew-forsythe) • 2 min read
+
+  + [#Android](/blog/topics/android)
+
+# Stay in the loop
+
+Get the latest Android development insights delivered to your inbox
+weekly.
+
+[mail
+Subscribe](/subscribe)
+
+![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)

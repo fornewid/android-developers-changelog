@@ -13,7 +13,6 @@ Send feedback
 
 
 
-
 To prepare your environment for debugging and optimizing Android games, get
 access to the following tools that help you analyze CPU usage and graphics
 calls.
@@ -74,8 +73,6 @@ Use the following tools to evaluate and improve your game's display pipeline:
 
 * [Improve your game's performance](/games/optimize)
 * [GAPID](https://gapid.dev)
-
-
 
 
 

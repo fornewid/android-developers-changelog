@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 This guide describes how to integrate in-app install prompts in your app using
 either Kotlin or Java.
 

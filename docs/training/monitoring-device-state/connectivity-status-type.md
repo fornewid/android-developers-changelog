@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 The [`ConnectivityManager`](/reference/android/net/ConnectivityManager) provides
 an API that enables you to request that the device connect to a network based on
 various conditions that include device capabilities and data transport options.

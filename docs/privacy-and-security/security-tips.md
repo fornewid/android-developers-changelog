@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 Android has built-in security features that significantly reduce the frequency
 and impact of application security issues. The system is designed so that you
 can typically build your apps with the default system and file permissions and

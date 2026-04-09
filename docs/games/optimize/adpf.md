@@ -15,6 +15,7 @@ Send feedback
 
 
 
+
 This guide describes how to use the Android Dynamic Performance Framework (ADPF)
 to optimize games based on the dynamic thermal and CPU management features on
 Android. The focus is on games, but you can also use the features for other
@@ -45,6 +46,8 @@ Here are the main ADPF features:
 * **Power Efficiency Mode**: Tells the session that the threads in Performance
   Hint Session can be safely scheduled to prefer power efficiency over
   performance. ([Available in Android 15](/reference/android/os/PerformanceHintManager.Session#setPreferPowerEfficiency(boolean)))
+
+
 
 
 

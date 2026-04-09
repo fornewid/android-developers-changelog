@@ -19,7 +19,6 @@ Save and categorize content based on your preferences.
 
 
 
-
 ![](https://developer.android.com/static/images/hero-assets/watch-faces.svg)
 
 ### Watch faces

@@ -1,41 +1,20 @@
 ---
-title: Wear OS  |  Multidevice  |  Android Developers
+title: https://developer.android.com/wear
 url: https://developer.android.com/wear
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [Multidevice](https://developer.android.com/multidevice)
-* [Wear OS](https://developer.android.com/wear)
-
-Stay organized with collections
-
-Save and categorize content based on your preferences.
-
-
 
 ## Build apps for the wrist with Wear OS
 
-Write apps that help users live more present, healthy, and productive lives with Wear OS. With major improvements to the core experience and big changes to the platform, there’s a lot to be excited about.
-
-[![](https://developer.android.com/static/wear/images/hero/code.svg)](https://developer.android.com/wear/gallery)
-
-[Explore the Wear OS gallery](https://developer.android.com/wear/gallery)
-[Develop your app](https://developer.android.com/training/wearables/get-started/creating)
-
-![](https://developer.android.com/static/images/picto-icons/personal.svg)
+Write apps that help users live more present, healthy, and productive lives with Wear OS. With major improvements to the core experience and big changes to the platform, there's a lot to be excited about. [![](http://developer.android.com/static/wear/images/hero/code.svg)](http://developer.android.com/wear/gallery) [Explore the Wear OS gallery](http://developer.android.com/wear/gallery) [Develop your app](http://developer.android.com/training/wearables/get-started/creating) ![](http://developer.android.com/static/images/picto-icons/personal.svg)
 
 ### Reach more users
 
-Engage your audience on the fastest growing smartwatch platform. Active Wear OS devices have grown 5x since the launch of Wear OS 3.
-
-![](https://developer.android.com/static/images/picto-icons/wearable-app-images.svg)
+Engage your audience on the fastest growing smartwatch platform. Active Wear OS devices have grown 5x since the launch of Wear OS 3. ![](http://developer.android.com/static/images/picto-icons/wearable-app-images.svg)
 
 ### Drive engagement
 
-Boost in-app engagement and the business value of your app by bringing your app to your user's wrist.
-
-![](https://developer.android.com/static/images/picto-icons/spanner.svg)
+Boost in-app engagement and the business value of your app by bringing your app to your user's wrist. ![](http://developer.android.com/static/images/picto-icons/spanner.svg)
 
 ### Streamline development
 
@@ -43,73 +22,55 @@ Leverage the latest Modern Android APIs and tools, making it easier than ever to
 
 ## Get started with Wear OS
 
-[![](https://developer.android.com/static/images/picto-icons/guidelines.svg)](https://developer.android.com/design/ui/wear)
+[![](http://developer.android.com/static/images/picto-icons/guidelines.svg)](http://developer.android.com/design/ui/wear)
 
-### [Design for Wear OS](https://developer.android.com/design/ui/wear)
+### [Design for Wear OS](http://developer.android.com/design/ui/wear)
 
-The updated design guidelines for Wear OS cover the Wear OS design systems, UI components, UX patterns, and styles.
+The updated design guidelines for Wear OS cover the Wear OS design systems, UI components, UX patterns, and styles. [![](http://developer.android.com/static/images/spot-icons/watch.svg)](http://developer.android.com/training/wearables/watch-faces)
 
-[![](https://developer.android.com/static/images/spot-icons/watch.svg)](https://developer.android.com/training/wearables/watch-faces)
+### [Create watch faces](http://developer.android.com/training/wearables/watch-faces)
 
-### [Create watch faces](https://developer.android.com/training/wearables/watch-faces)
+Design a watch face using Watch Face Studio, or use the Watch Face Format to develop tools for watch faces. [![](http://developer.android.com/static/images/spot-icons/interface.svg)](http://developer.android.com/training/wearables/user-interfaces)
 
-Design a watch face using Watch Face Studio, or use the Watch Face Format to develop tools for watch faces.
+### [Explore Wear OS surfaces](http://developer.android.com/training/wearables/user-interfaces)
 
-[![](https://developer.android.com/static/images/spot-icons/interface.svg)](https://developer.android.com/training/wearables/user-interfaces)
+Learn to build for multiple surfaces for your wear OS app. [![](http://developer.android.com/static/images/picto-icons/quality.svg)](http://developer.android.com/docs/quality-guidelines/wear-app-quality)
 
-### [Explore Wear OS surfaces](https://developer.android.com/training/wearables/user-interfaces)
-
-Learn to build for multiple surfaces for your wear OS app.
-
-[![](https://developer.android.com/static/images/picto-icons/quality.svg)](https://developer.android.com/docs/quality-guidelines/wear-app-quality)
-
-### [Improve your app quality](https://developer.android.com/docs/quality-guidelines/wear-app-quality)
+### [Improve your app quality](http://developer.android.com/docs/quality-guidelines/wear-app-quality)
 
 Find out how to assess the quality of your app and fulfill the upcoming requirements on Google Play Store.
 
 ## New features
 
-[![](https://developer.android.com/static/wear/images/callouts/wear-new-features.svg)](https://developer.android.com/training/wearables/versions/latest)
+[![](http://developer.android.com/static/wear/images/callouts/wear-new-features.svg)](http://developer.android.com/training/wearables/versions/latest)
 
-### [Wear OS 6.1](https://developer.android.com/training/wearables/versions/latest)
+### [Wear OS 6.1](http://developer.android.com/training/wearables/versions/latest)
 
-The latest version of Wear OS—complete with location-based time zone detection and enhanced experiences for kids—is here! Test your app using the official emulator in Android Studio.
+The latest version of Wear OS---complete with location-based time zone detection and enhanced experiences for kids---is here! Test your app using the official emulator in Android Studio. [Get your apps ready](http://developer.android.com/training/wearables/versions/latest)
 
-[Get your apps ready](https://developer.android.com/training/wearables/versions/latest)
+## Highlighted samples \& codelabs
 
-## Highlighted samples & codelabs
+[![](http://developer.android.com/static/wear/images/callouts/compose-gif.gif)](http://developer.android.com/codelabs/compose-for-wear-os#0)
 
-[![](https://developer.android.com/static/wear/images/callouts/compose-gif.gif)](https://developer.android.com/codelabs/compose-for-wear-os#0)
+### [Compose for Wear OS](http://developer.android.com/codelabs/compose-for-wear-os#0)
 
-### [Compose for Wear OS](https://developer.android.com/codelabs/compose-for-wear-os#0)
-
-Compose for Wear OS is a modern declarative UI toolkit and is the recommended approach for building apps on Wear OS. Design your app with familiar UI components adapted for the watch.
-
-[Try the codelab](https://developer.android.com/codelabs/compose-for-wear-os#0)
-
-[![](https://developer.android.com/static/wear/images/callouts/horologist-wear.png)](https://github.com/google/horologist)
+Compose for Wear OS is a modern declarative UI toolkit and is the recommended approach for building apps on Wear OS. Design your app with familiar UI components adapted for the watch. [Try the codelab](http://developer.android.com/codelabs/compose-for-wear-os#0) [![](http://developer.android.com/static/wear/images/callouts/horologist-wear.png)](https://github.com/google/horologist)
 
 ### [Horologist for Wear OS](https://github.com/google/horologist)
 
-This project provides libraries that aim to supplement Wear OS developers with features that are commonly required by developers but not yet available elsewhere. Including the media toolkit, prebuilt composables, and layouts.
-
-[Go to GitHub](https://github.com/google/horologist)
+This project provides libraries that aim to supplement Wear OS developers with features that are commonly required by developers but not yet available elsewhere. Including the media toolkit, prebuilt composables, and layouts. [Go to GitHub](https://github.com/google/horologist)
 
 ## What developers are saying
 
-[![](https://developer.android.com/static/wear/images/logos/peloton.png)](https://android-developers.googleblog.com/2023/06/peloton-increased-its-multi-device-support-and-saw-an-uptick-in-user-engagement.html)
+[![](http://developer.android.com/static/wear/images/logos/peloton.png)](https://android-developers.googleblog.com/2023/06/peloton-increased-its-multi-device-support-and-saw-an-uptick-in-user-engagement.html)
 
 ### [Peloton increases heart rate monitor usage by 6x](https://android-developers.googleblog.com/2023/06/peloton-increased-its-multi-device-support-and-saw-an-uptick-in-user-engagement.html)
 
-[Read more](https://android-developers.googleblog.com/2023/06/peloton-increased-its-multi-device-support-and-saw-an-uptick-in-user-engagement.html)
-
-[![](https://developer.android.com/static/wear/images/logos/strava-black.png)](https://www.youtube.com/watch?v=ENeSNZ3s0Jw)
+[Read more](https://android-developers.googleblog.com/2023/06/peloton-increased-its-multi-device-support-and-saw-an-uptick-in-user-engagement.html) [![](http://developer.android.com/static/wear/images/logos/strava-black.png)](https://www.youtube.com/watch?v=ENeSNZ3s0Jw)
 
 ### [Strava sees 30% more daily activity with Wear OS](https://www.youtube.com/watch?v=ENeSNZ3s0Jw)
 
-[Watch video](https://www.youtube.com/watch?v=ENeSNZ3s0Jw)
-
-[![](https://developer.android.com/static/wear/images/logos/todoist-black.png)](https://android-developers.googleblog.com/2022/10/todoist-adopted-compose-for-wear-os-and.html)
+[Watch video](https://www.youtube.com/watch?v=ENeSNZ3s0Jw) [![](http://developer.android.com/static/wear/images/logos/todoist-black.png)](https://android-developers.googleblog.com/2022/10/todoist-adopted-compose-for-wear-os-and.html)
 
 ### [Todoist boosts installs by 50%](https://android-developers.googleblog.com/2022/10/todoist-adopted-compose-for-wear-os-and.html)
 
@@ -119,19 +80,15 @@ This project provides libraries that aim to supplement Wear OS developers with f
 
 ## Join the Wear OS community
 
-[![](https://developer.android.com/static/images/logos/stack-overflow.svg)](https://stackoverflow.com/questions/tagged/wear-os)
+[![](http://developer.android.com/static/images/logos/stack-overflow.svg)](https://stackoverflow.com/questions/tagged/wear-os)
 
 ### [Stack Overflow](https://stackoverflow.com/questions/tagged/wear-os)
 
-Ask a question on Stack Overflow
-
-[![](https://developer.android.com/static/images/picto-icons/bug.svg)](https://issuetracker.google.com/issues/new?component=192711&template=840908)
+Ask a question on Stack Overflow [![](http://developer.android.com/static/images/picto-icons/bug.svg)](https://issuetracker.google.com/issues/new?component=192711&template=840908)
 
 ### [Bug tracker](https://issuetracker.google.com/issues/new?component=192711&template=840908)
 
-Report an issue and track bugs
-
-[![](https://developer.android.com/static/images/logos/slack.svg)](https://kotlinlang.slack.com/archives/C02GBABJUAF)
+Report an issue and track bugs [![](http://developer.android.com/static/images/logos/slack.svg)](https://kotlinlang.slack.com/archives/C02GBABJUAF)
 
 ### [Slack group](https://kotlinlang.slack.com/archives/C02GBABJUAF)
 

@@ -12,6 +12,7 @@ source: html-scrape
 
 
 
+
 Android 10 (API level 29) and higher place restrictions on when apps can start
 [activities](/guide/components/activities/intro-activities) when the app runs in
 the background. These restrictions help minimize interruptions for the user and

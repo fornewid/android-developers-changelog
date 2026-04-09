@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 When interacting with TVs, users generally prefer to give minimal input before watching
 content. An ideal scenario for many TV users is: sit down, turn on, and watch. The fewest steps
 to get users to content they enjoy is generally the path they prefer.

@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 In the OpenGL ES environment, projection and camera views allow you to display drawn objects in a
 way that more closely resembles how you see physical objects with your eyes. This simulation of
 physical viewing is done with mathematical transformations of drawn object coordinates:

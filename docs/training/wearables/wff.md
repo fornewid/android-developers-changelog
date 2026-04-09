@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 **Note:** As of January 2026, the Watch Face Format is required for
 installing watch faces on all Wear OS devices.
 

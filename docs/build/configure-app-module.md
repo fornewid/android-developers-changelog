@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 This page describes useful app settings in the module-level `build.gradle.kts`
 file. In addition to giving an overview of important properties set in the
 `build.gradle.kts` file, learn how to:

@@ -1,37 +1,21 @@
 ---
-title: Overview of Data Layer API  |  Wear OS  |  Android Developers
+title: https://developer.android.com/training/wearables/data/overview
 url: https://developer.android.com/training/wearables/data/overview
-source: html-scrape
+source: md.txt
 ---
 
-* [Android Developers](https://developer.android.com/)
-* [Develop](https://developer.android.com/develop)
-* [Devices](https://developer.android.com/develop/devices)
-* [Wear OS](https://developer.android.com/training/wearables)
-
-# Overview of Data Layer API Stay organized with collections Save and categorize content based on your preferences.
-
-
-
-
-![The cloud-based node is controlled by a Google-owned server](/static/images/training/wear/data-layer-node-network.svg)
-
-
-**Figure 1.** A sample of network of nodes with handheld and
-Wear OS devices.
+![The cloud-based node is controlled by a Google-owned server](https://developer.android.com/static/images/training/wear/data-layer-node-network.svg) **Figure 1.** A sample of network of nodes with handheld and Wear OS devices.
 
 The Wearable Data Layer API, which is part of Google Play services, provides a
 communication channel between wearable devices (like smart watches) and
 connected handheld devices (usually smartphones). It is a way to synchronize and
 transfer data between the devices.
-
 **Note:** This API is only available on Wear OS watches and
 paired Android devices. For Wear OS watches paired with iOS phones, apps can
 query other cloud-based APIs if internet connectivity is available. For more
 information on these other APIs, visit
 [Network access and sync on
-Wear OS](/training/wearables/data/network-access).
-
+Wear OS](https://developer.android.com/training/wearables/data/network-access).
 **Caution:** Because the data layer APIs are designed for
 communication between handhelds and wearables, these are the only APIs you can
 use to set up communication between these devices. For example, don't try to
@@ -42,21 +26,16 @@ open low-level sockets to create a communication channel.
 Use the Data Layer API when the interaction is strictly between the
 watch and phone. For example:
 
-* **Remote Control**: The watch acts as a remote for the phone (e.g.,
-  controlling a music player running on the phone, sliding a presentation,
-  acting as a camera shutter).
-* **Handheld App Launching**: The "Open on Phone" button feature.
-* **Authentication Bridging**: Sending a session token from the phone to the
-  watch during initial setup.
+- **Remote Control**: The watch acts as a remote for the phone (e.g., controlling a music player running on the phone, sliding a presentation, acting as a camera shutter).
+- **Handheld App Launching**: The "Open on Phone" button feature.
+- **Authentication Bridging**: Sending a session token from the phone to the watch during initial setup.
 
 Many common scenarios should instead use your existing cloud infrastructure, for
 example:
 
-* **Saving Data**: Workouts, notes.
-* **Fetching Content**: Loading a list of past workouts, downloading music,
-  fetching weather.
-* **Syncing State**: If the user changes their profile photo on the web, the
-  watch updates using the cloud, not by querying the phone.
+- **Saving Data**: Workouts, notes.
+- **Fetching Content**: Loading a list of past workouts, downloading music, fetching weather.
+- **Syncing State**: If the user changes their profile photo on the web, the watch updates using the cloud, not by querying the phone.
 
 For these scenarios, use your own existing endpoints and infrastructure, instead
 of the Data Layer API.
@@ -65,10 +44,8 @@ of the Data Layer API.
 
 Data is transferred in one of the following ways:
 
-1. **Directly**, when there is an established Bluetooth connection between the
-   Wear OS device and another device.
-2. **Over an available network**, such as LTE or Wi-Fi, using a
-   network node on Google's servers as an intermediary.
+1. **Directly**, when there is an established Bluetooth connection between the Wear OS device and another device.
+2. **Over an available network**, such as LTE or Wi-Fi, using a network node on Google's servers as an intermediary.
 
 All Data Layer clients may exchange data either using Bluetooth or using the
 cloud, depending on connections available to the devices. Assume that data
@@ -91,8 +68,8 @@ Google Play services enforces the following restrictions to provide more secure
 communication between the app installed on a Wear OS device and the same app
 installed on a nearby handheld device:
 
-* The package name must match across devices.
-* The signature of the package must match across devices.
+- The package name must match across devices.
+- The signature of the package must match across devices.
 
 No other apps have access to the data regardless of connection type.
 
@@ -100,17 +77,15 @@ No other apps have access to the data regardless of connection type.
 
 The Wearable Data Layer API has the following dependencies:
 
-* The latest version of [Google Play services](https://developers.google.com/android).
-* A Wear OS device or Wear OS emulator.
+- The latest version of [Google Play services](https://developers.google.com/android).
+- A Wear OS device or Wear OS emulator.
 
 Include the following dependency in the build.gradle file of your Wear module:
 
-```
-dependencies {
-    ...
-    implementation("com.google.android.gms:play-services-wearable:19.0.0")
-}
-```
+    dependencies {
+        ...
+        implementation("com.google.android.gms:play-services-wearable:19.0.0")
+    }
 
 ### Facilitate the initial pairing process
 
@@ -119,10 +94,10 @@ It includes a [data layer library](https://google.github.io/horologist/datalayer
 a mobile device and a Wear OS device. Additionally, it provides convenient APIs
 to do the following:
 
-* Install the app on the other device.
-* Launch the app on the other device.
-* Launch a specific activity on the other device.
-* Launch the companion app.
+- Install the app on the other device.
+- Launch the app on the other device.
+- Launch a specific activity on the other device.
+- Launch the companion app.
 
 ## Access the data layer
 
@@ -135,17 +110,20 @@ For more information, refer to the [DataLayer sample](https://github.com/android
 
 To create a client, see the following example code:
 
-```
+<br />
+
+```kotlin
 val dataClient = Wearable.getDataClient(this)
-
-DataLayerActivity.kt
 ```
 
-**Caution:** Before using the Wearable Data Layer API, check that it's available on
-a device; otherwise, an exception occurs. Use the [`GoogleApiAvailability`](https://developers.google.com/android/reference/com/google/android/gms/common/GoogleApiAvailability)
-API:
+<br />
 
-```
+> [!CAUTION]
+> **Caution:** Before using the Wearable Data Layer API, check that it's available on a device; otherwise, an exception occurs. Use the [`GoogleApiAvailability`](https://developers.google.com/android/reference/com/google/android/gms/common/GoogleApiAvailability) API:
+
+<br />
+
+```kotlin
 val available = try {
     GoogleApiAvailability.getInstance()
         .checkApiAvailability(client)
@@ -155,9 +133,9 @@ val available = try {
     // API is not available in this device.
     false
 }
-
-DataLayerActivity.kt
 ```
+
+<br />
 
 The context can be any valid Android context. If you are using the API within
 the scope of an `Activity`, use the `getDataClient()` method of the `Wearable`

@@ -15,7 +15,6 @@ Starting in 2026, we'll be transitioning away from Google Fit APIs. For more inf
 
 
 
-
 **Note:** The Health Connect Testing library is in alpha, so future versions might
 include breaking changes.
 

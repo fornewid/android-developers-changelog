@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 Users often avoid downloading apps that seem too large, particularly in emerging markets where
 devices connect to spotty 2G and 3G networks or work on plans with data limits. This page describes
 how to reduce your app's download size, which lets more users download your app.

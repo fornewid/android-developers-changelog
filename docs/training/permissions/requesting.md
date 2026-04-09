@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 Every Android app runs in a limited-access sandbox. If your app needs to use
 resources or information outside of its own sandbox, you can [declare a
 runtime permission](/training/permissions/declaring) and set up a permission request that provides this

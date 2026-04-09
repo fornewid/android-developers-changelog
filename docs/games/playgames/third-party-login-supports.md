@@ -15,7 +15,6 @@ Send feedback
 
 
 
-
 This guide describes how to use
 [`CustomTabsIntent`](/reference/androidx/browser/customtabs/CustomTabsIntent)
 to support third-party logins.
@@ -37,8 +36,6 @@ objects such that no changes are expected on developers' end for user login.
 
 If you want to register a new login site, you should reach out to your Google
 contact.
-
-
 
 
 

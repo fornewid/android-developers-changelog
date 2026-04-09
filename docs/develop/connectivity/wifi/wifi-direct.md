@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 [Wi-Fi Direct](https://www.wi-fi.org/discover-wi-fi/wi-fi-direct) (also known as peer-to-peer or P2P) allows your application to quickly find and interact with nearby
 devices, at a range beyond the capabilities of Bluetooth.
 

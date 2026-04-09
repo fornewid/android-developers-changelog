@@ -14,6 +14,7 @@ The Android 16 Beta is now available. [Try it out today](/about/versions/16) and
 
 
 
+
 ![](/static/images/about/versions/12/12L-foldable-emulator.png)
 
 You can get the 12L feature drop in any of the following ways:

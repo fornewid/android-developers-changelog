@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 This page describes the eligibility criteria for apps to use the Inline Install
 API. In addition to meeting the criteria, developers must [integrate the
 API](/distribute/marketing-tools/inline-installs) and accept the [Terms of

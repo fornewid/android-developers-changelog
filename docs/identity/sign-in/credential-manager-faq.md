@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 The question-and-answer pairs on this page are meant to help you gain more
 understanding of [Credential Manager](/training/sign-in/passkeys)'s implementation details.
 

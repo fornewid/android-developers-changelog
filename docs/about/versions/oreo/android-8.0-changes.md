@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 Along with new features and capabilities, Android 8.0 (API level 26)
 includes a variety of system and API behavior changes. This document
 highlights some of the key changes that you should understand and account for

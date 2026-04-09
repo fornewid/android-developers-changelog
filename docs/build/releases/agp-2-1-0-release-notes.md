@@ -15,7 +15,6 @@ Save and categorize content based on your preferences.
 
 
 
-
 # Android Gradle Plugin 2.1.0 (April 2016)
 
 **2.1.3 (August 2016)**

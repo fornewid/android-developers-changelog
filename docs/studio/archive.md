@@ -1,20 +1,14 @@
 ---
-title: Android Studio download archives  |  Android Developers
+title: https://developer.android.com/studio/archive
 url: https://developer.android.com/studio/archive
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [Android Studio](https://developer.android.com/studio)
-
-# Android Studio download archives Stay organized with collections Save and categorize content based on your preferences.
-
-
 
 This page provides an archive of Android Studio releases.
 However, we recommend that you download the
-[latest stable version](/studio) or the
-[latest preview version](/studio/preview).
+[latest stable version](https://developer.android.com/studio) or the
+[latest preview version](https://developer.android.com/studio/preview).
 
 For Android Emulator downloads, see the
-[Emulator download archives](/studio/emulator_archive).
+[Emulator download archives](https://developer.android.com/studio/emulator_archive).
+<iframe src="https://android.devsite.google/frame/studio/archive_7419cf05a4e4202421ec748d033951f58ab7fb9cc1004fcb4424958f8e1bfd1c.frame" class="framebox inherit-locale scroll" allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>

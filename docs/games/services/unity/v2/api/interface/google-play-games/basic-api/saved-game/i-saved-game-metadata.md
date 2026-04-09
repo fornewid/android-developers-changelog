@@ -14,6 +14,7 @@ Save and categorize content based on your preferences.
 
 
 
+
 # GooglePlayGames.BasicApi.SavedGame.ISavedGameMetadata
 
 Interface representing the metadata for a saved game.

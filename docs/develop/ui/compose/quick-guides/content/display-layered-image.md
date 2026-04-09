@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 You can blend or overlay source images to display layered images on a canvas.
 For example, you can replicate how the Android Framework generates app icons by
 combining separate background and foreground drawables. To display layered

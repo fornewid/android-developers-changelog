@@ -14,6 +14,7 @@ Join us for ⁠the [Google for Games Developer Summit](https://gamedevsummit.wit
 
 
 
+
 You may diagnose a few possible vertex-related performance problems through the
 use of frame profiling. Use the **Commands** pane to view all of the draw calls
 your game performs in a given frame and counts of primitives drawn per draw

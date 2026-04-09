@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 When verifying that the user has purchased or downloaded a legitimate copy of
 your app from the Google Play Store, it's best to perform the license
 verification check on a server that you control.

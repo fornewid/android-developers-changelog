@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 By default, ExoPlayer only logs errors. To log player events, the `EventLogger`
 class can be used. The additional logging it provides can be helpful for
 understanding what the player is doing, as well as for debugging playback

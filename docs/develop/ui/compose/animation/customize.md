@@ -1,19 +1,8 @@
 ---
-title: Customize animations  |  Jetpack Compose  |  Android Developers
+title: https://developer.android.com/develop/ui/compose/animation/customize
 url: https://developer.android.com/develop/ui/compose/animation/customize
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [Develop](https://developer.android.com/develop)
-* [Core areas](https://developer.android.com/develop/core-areas)
-* [UI](https://developer.android.com/develop/ui)
-* [Docs](https://developer.android.com/develop/ui/compose/documentation)
-
-# Customize animations Stay organized with collections Save and categorize content based on your preferences.
-
-
-
 
 Many of the Animation APIs commonly accept parameters for customizing their
 behavior.
@@ -23,16 +12,17 @@ behavior.
 Most animation APIs allow developers to customize animation specifications by an
 optional `AnimationSpec` parameter.
 
-```
+
+```kotlin
 val alpha: Float by animateFloatAsState(
     targetValue = if (enabled) 1f else 0.5f,
     // Configure the animation duration and easing.
     animationSpec = tween(durationMillis = 300, easing = FastOutSlowInEasing),
     label = "alpha"
 )
-
-AnimationSnippets.kt
 ```
+
+<br />
 
 There are different kinds of `AnimationSpec` for creating different types of
 animation.
@@ -44,25 +34,14 @@ takes 2 parameters: `dampingRatio` and `stiffness`.
 
 `dampingRatio` defines how bouncy the spring should be. The default value is
 `Spring.DampingRatioNoBouncy`.
-
-[
-
-](/static/develop/ui/compose/images/animations/damping_ratio.mp4)
-
-
 **Figure 1**. Setting different spring damping ratios.
 
 `stiffness` defines how fast the spring should move toward the end value. The
 default value is `Spring.StiffnessMedium`.
-
-[
-
-](/static/develop/ui/compose/images/animations/stiffness_annotated.mp4)
-
-
 **Figure 2**. Setting different spring stiffness.
 
-```
+
+```kotlin
 val value by animateFloatAsState(
     targetValue = 1f,
     animationSpec = spring(
@@ -71,9 +50,9 @@ val value by animateFloatAsState(
     ),
     label = "spring spec"
 )
-
-AnimationSnippets.kt
 ```
+
+<br />
 
 `spring` can handle interruptions more smoothly than duration-based
 `AnimationSpec` types because it guarantees the continuity of velocity when
@@ -84,13 +63,7 @@ AnimationSpec by many animation APIs, such as `animate*AsState` and
 For example, if we apply a `spring` config to the following animation that is
 driven by user touch, when interrupting the animation as its progressing, you
 can see that using `tween` doesn't respond as smoothly as using `spring`.
-
-[
-
-](/static/develop/ui/compose/images/animations/tween_vs_spring.mp4)
-
-
-**Figure 3**. Setting `tween` versus `spring` specs for animation, and interrupting it.
+**Figure 3** . Setting `tween` versus `spring` specs for animation, and interrupting it.
 
 ### Animate between start and end values with easing curve with `tween`
 
@@ -100,7 +73,8 @@ as it goes *between* two values.
 
 You can also specify `delayMillis` to postpone the start of the animation.
 
-```
+
+```kotlin
 val value by animateFloatAsState(
     targetValue = 1f,
     animationSpec = tween(
@@ -110,11 +84,11 @@ val value by animateFloatAsState(
     ),
     label = "tween delay"
 )
-
-AnimationSnippets.kt
 ```
 
-See [Easing](#easing) for more information.
+<br />
+
+See [Easing](https://developer.android.com/develop/ui/compose/animation/customize#easing) for more information.
 
 ### Animate to specific values at certain timings with `keyframes`
 
@@ -127,7 +101,8 @@ It is optional to specify the values at 0 ms and at the duration time. If you do
 not specify these values, they default to the start and end values of the
 animation, respectively.
 
-```
+
+```kotlin
 val value by animateFloatAsState(
     targetValue = 1f,
     animationSpec = keyframes {
@@ -139,9 +114,9 @@ val value by animateFloatAsState(
     },
     label = "keyframe"
 )
-
-AnimationSnippets.kt
 ```
+
+<br />
 
 ### Animate between keyframes smoothly with `keyframesWithSplines`
 
@@ -149,7 +124,8 @@ To create an animation that follows a smooth curve as it transitions between
 values, you can use `keyframesWithSplines` instead of `keyframes` animation
 specs.
 
-```
+
+```kotlin
 val offset by animateOffsetAsState(
     targetValue = Offset(300f, 300f),
     animationSpec = keyframesWithSpline {
@@ -159,9 +135,9 @@ val offset by animateOffsetAsState(
         Offset(0f, 100f) atFraction 0.7f
     }
 )
-
-AnimationSnippets.kt
 ```
+
+<br />
 
 Spline-based keyframes are particularly useful for 2D movement of items on
 screen.
@@ -171,8 +147,8 @@ The following videos showcase the differences between `keyframes` and
 should follow.
 
 | `keyframes` | `keyframesWithSplines` |
-| --- | --- |
-|  |  |
+|---|---|
+|   |   |
 
 As you can see, the spline-based keyframes offer smoother transitions between
 points, as they use bezier curves to smoothly animate between items. This spec
@@ -188,7 +164,8 @@ repeatedly until it reaches the specified iteration count. You can pass the
 starting from the beginning (`RepeatMode.Restart`) or from the end
 (`RepeatMode.Reverse`).
 
-```
+
+```kotlin
 val value by animateFloatAsState(
     targetValue = 1f,
     animationSpec = repeatable(
@@ -198,16 +175,17 @@ val value by animateFloatAsState(
     ),
     label = "repeatable spec"
 )
-
-AnimationSnippets.kt
 ```
+
+<br />
 
 ### Repeat an animation infinitely with `infiniteRepeatable`
 
 `infiniteRepeatable` is like `repeatable`, but it repeats for an infinite amount
 of iterations.
 
-```
+
+```kotlin
 val value by animateFloatAsState(
     targetValue = 1f,
     animationSpec = infiniteRepeatable(
@@ -216,12 +194,12 @@ val value by animateFloatAsState(
     ),
     label = "infinite repeatable"
 )
-
-AnimationSnippets.kt
 ```
 
+<br />
+
 In tests using
-[`ComposeTestRule`](/reference/kotlin/androidx/compose/ui/test/junit4/ComposeTestRule),
+[`ComposeTestRule`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/junit4/ComposeTestRule),
 animations using `infiniteRepeatable` are not run. The component will be
 rendered using the initial value of each animated value.
 
@@ -231,20 +209,19 @@ rendered using the initial value of each animated value.
 end value. You can specify `delayMillis` in order to delay the start of the
 animation.
 
-```
+
+```kotlin
 val value by animateFloatAsState(
     targetValue = 1f,
     animationSpec = snap(delayMillis = 50),
     label = "snap spec"
 )
-
-AnimationSnippets.kt
 ```
 
-**Note:** In the View system, you needed to use `ObjectAnimator` for
-duration-based animations, and `SpringAnimation` for physics-based animation. It
-was not straightforward to use these two different animation APIs simultaneously.
-`AnimationSpec` in Compose allows for to handling these in a unified manner.
+<br />
+
+> [!NOTE]
+> **Note:** In the View system, you needed to use `ObjectAnimator` for duration-based animations, and `SpringAnimation` for physics-based animation. It was not straightforward to use these two different animation APIs simultaneously. `AnimationSpec` in Compose allows for to handling these in a unified manner.
 
 ## Set a custom easing function
 
@@ -258,7 +235,8 @@ Easing is in fact a function that takes a fraction value between 0 and 1.0 and
 returns a float. The returned value can be outside the boundary to represent
 overshoot or undershoot. A custom Easing can be created like the code below.
 
-```
+
+```kotlin
 val CustomEasing = Easing { fraction -> fraction * fraction }
 
 @Composable
@@ -271,26 +249,25 @@ fun EasingUsage() {
         ),
         label = "custom easing"
     )
-    // ……
+    // ......
 }
-
-AnimationSnippets.kt
 ```
+
+<br />
 
 Compose provides several built-in `Easing` functions that cover most use cases.
 See [Speed - Material Design](https://m3.material.io/styles/motion/easing-and-duration/applying-easing-and-duration) for more
 information about what Easing to use depending on your scenario.
 
-* `FastOutSlowInEasing`
-* `LinearOutSlowInEasing`
-* `FastOutLinearEasing`
-* `LinearEasing`
-* `CubicBezierEasing`
-* [See more](/reference/kotlin/androidx/compose/animation/core/package-summary#Ease())
+- `FastOutSlowInEasing`
+- `LinearOutSlowInEasing`
+- `FastOutLinearEasing`
+- `LinearEasing`
+- `CubicBezierEasing`
+- [See more](https://developer.android.com/reference/kotlin/androidx/compose/animation/core/package-summary#Ease())
 
-**Note:** Easing objects work the same way as instances of `Interpolator` classes in
-the platform. Instead of the `getInterpolation()` method, it has the
-`transform()` method.
+> [!NOTE]
+> **Note:** Easing objects work the same way as instances of `Interpolator` classes in the platform. Instead of the `getInterpolation()` method, it has the `transform()` method.
 
 ## Animate custom data types by converting to and from `AnimationVector`
 
@@ -303,12 +280,13 @@ the core animation system can handle them uniformly. For example, an `Int` is
 represented as an `AnimationVector1D` that holds a single float value.
 `TwoWayConverter` for `Int` looks like this:
 
-```
+
+```kotlin
 val IntToVector: TwoWayConverter<Int, AnimationVector1D> =
     TwoWayConverter({ AnimationVector1D(it.toFloat()) }, { it.value.toInt() })
-
-AnimationSnippets.kt
 ```
+
+<br />
 
 `Color` is essentially a set of 4 values, red, green, blue, and alpha, so
 `Color` is converted into an `AnimationVector4D` that holds 4 float values. In
@@ -323,7 +301,8 @@ When you want to add support for a new data type as an animating value, you can
 create your own `TwoWayConverter` and provide it to the API. For example, you
 can use `animateValueAsState` to animate your custom data type like this:
 
-```
+
+```kotlin
 data class MySize(val width: Dp, val height: Dp)
 
 @Composable
@@ -342,34 +321,22 @@ fun MyAnimation(targetSize: MySize) {
         label = "size"
     )
 }
-
-AnimationSnippets.kt
 ```
+
+<br />
 
 The following list includes some built-in `VectorConverter`s:
 
-* [`Color.VectorConverter`](/reference/kotlin/androidx/compose/ui/graphics/Color.Companion#(androidx.compose.ui.graphics.Color.Companion).VectorConverter())
-* [`Dp.VectorConverter`](/reference/kotlin/androidx/compose/animation/core/package-summary#(androidx.compose.ui.unit.Dp.Companion).VectorConverter())
-* [`Offset.VectorConverter`](/reference/kotlin/androidx/compose/animation/core/package-summary#(androidx.compose.ui.geometry.Offset.Companion).VectorConverter())
-* [`Int.VectorConverter`](/reference/kotlin/androidx/compose/animation/core/package-summary#(kotlin.Int.Companion).VectorConverter())
-* [`Float.VectorConverter`](/reference/kotlin/androidx/compose/animation/core/package-summary#(kotlin.Float.Companion).VectorConverter())
-* [`IntSize.VectorConverter`](/reference/kotlin/androidx/compose/animation/core/package-summary#(androidx.compose.ui.unit.IntSize.Companion).VectorConverter())
+- [`Color.VectorConverter`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/Color.Companion#(androidx.compose.ui.graphics.Color.Companion).VectorConverter())
+- [`Dp.VectorConverter`](https://developer.android.com/reference/kotlin/androidx/compose/animation/core/package-summary#(androidx.compose.ui.unit.Dp.Companion).VectorConverter())
+- [`Offset.VectorConverter`](https://developer.android.com/reference/kotlin/androidx/compose/animation/core/package-summary#(androidx.compose.ui.geometry.Offset.Companion).VectorConverter())
+- [`Int.VectorConverter`](https://developer.android.com/reference/kotlin/androidx/compose/animation/core/package-summary#(kotlin.Int.Companion).VectorConverter())
+- [`Float.VectorConverter`](https://developer.android.com/reference/kotlin/androidx/compose/animation/core/package-summary#(kotlin.Float.Companion).VectorConverter())
+- [`IntSize.VectorConverter`](https://developer.android.com/reference/kotlin/androidx/compose/animation/core/package-summary#(androidx.compose.ui.unit.IntSize.Companion).VectorConverter())
 
 ## Recommended for you
 
-* Note: link text is displayed when JavaScript is off
-* [Value-based animations](/develop/ui/compose/animation/value-based)
-* [Iterative code development {:#iterative-code-dev }](/develop/ui/compose/tooling/iterative-development)
-* [Animations in Compose](/develop/ui/compose/animation/introduction)
-
-[Previous
-
-arrow\_back
-
-Animated vector images](/develop/ui/compose/animation/vectors)
-
-[Next
-
-Test animations
-
-arrow\_forward](/develop/ui/compose/animation/testing)
+- Note: link text is displayed when JavaScript is off
+- [Value-based animations](https://developer.android.com/develop/ui/compose/animation/value-based)
+- [Iterative code development {:#iterative-code-dev }](https://developer.android.com/develop/ui/compose/tooling/iterative-development)
+- [Animations in Compose](https://developer.android.com/develop/ui/compose/animation/introduction)

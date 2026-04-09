@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 Applying an OTA image can help you recover a device that received an OTA update
 for an Android 17 Beta build but wouldn't start up
 after the update was installed. If you are trying to get Android 17 on your

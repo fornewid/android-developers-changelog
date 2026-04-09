@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 ![](/static/images/quality/hero-images/technical_quality_highlighted.svg)
 
 Technical quality includes the stability, performance, and resource utilization

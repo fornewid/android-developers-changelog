@@ -153,7 +153,7 @@ class ConditionalActivity : ComponentActivity() {
                             }
                         }
                     }
-     <       >        entryProfile {
+                    entry<Profile> {
                         ContentBlue("Profile screen (only accessible once logged in)") {
                             Button(onClick = dropUnlessResumed {
                                 isLoggedIn = false
@@ -162,12 +162,12 @@ class ConditionalActivity : ComponentActivity() {
                                 Text("Logout")
                             }
                         }
-       <     >        >}
-                    entryLogin { key -
+                    }
+                    entry<Login> { key ->
                         ContentYellow("Login screen. Logged in? $isLoggedIn") {
                             Button(onClick = dropUnlessResumed {
                                 isLoggedIn = true
-                  >              key.redirectToKey?.let { targetKey -
+                                key.redirectToKey?.let { targetKey ->
                                     backStack.remove(key)
                                     navigator.navigate(targetKey)
                                 }
@@ -184,21 +184,18 @@ class ConditionalActivity : ComponentActivity() {
 
 
 // An overload of `rememberNavBackStack` that returns a subtype of `NavKey`.
-// See https://issuetracker.google.com/issues/<463382671 >for a discussion of this function
+// See https://issuetracker.google.com/issues/463382671 for a discussion of this function
 @Composable
-fun T : N<a>vKey rememberNavBackStack(vararg elements: T): NavBackStackT {
+fun <T : NavKey> rememberNavBackStack(vararg elements: T): NavBackStack<T> {
     return rememberSerializable(
-        serializer = NavBackStackSerializer(elementSerializer = NavKeyS
-
-erializer
-
-())
+        serializer = NavBackStackSerializer(elementSerializer = NavKeySerializer())
     ) {
-```
-
-NavBackStack(\*elements)
+        NavBackStack(*elements)
+    }
 }
-}ConditionalActivity.kt
+
+ConditionalActivity.kt
+```
 
 ```
 /*
@@ -234,12 +231,12 @@ import androidx.navigation3.runtime.NavBackStack
  * @property isLoggedIn A lambda that returns whether the user is logged in.
  */
 class Navigator(
-    private val< backStack: NavBa>ckStackConditionalNavKey,
-    private val onNavigateToRestrictedKey: (targetKe>y: ConditionalNavKey?) - ConditionalNavKey,
-    priv>ate val isLoggedIn: () - Boolean,
+    private val backStack: NavBackStack<ConditionalNavKey>,
+    private val onNavigateToRestrictedKey: (targetKey: ConditionalNavKey?) -> ConditionalNavKey,
+    private val isLoggedIn: () -> Boolean,
 ) {
     fun navigate(key: ConditionalNavKey) {
-      &&  if (key.requiresLogin  !isLoggedIn()) {
+        if (key.requiresLogin && !isLoggedIn()) {
             val loginKey = onNavigateToRestrictedKey(key)
             backStack.add(loginKey)
         } else {
@@ -247,10 +244,8 @@ class Navigator(
         }
     }
 
-    fun goBack() = backSt
+    fun goBack() = backStack.removeLastOrNull()
+}
 
-ack
-
-.removeLastOrNull()
-}Navigator.kt
+Navigator.kt
 ```

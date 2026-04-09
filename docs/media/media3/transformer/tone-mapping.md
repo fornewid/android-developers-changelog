@@ -15,7 +15,6 @@ Media3 Transformer is actively under development and we are looking to hear from
 
 
 
-
 When working with Transformer, it is important to consider the compatibility
 between HDR and SDR content. HDR displays content with greater color detail,
 color and contrast, giving users a better visual experience. However, due to the

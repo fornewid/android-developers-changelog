@@ -1,17 +1,30 @@
 ---
-title: https://developer.android.com/build/releases/agp-1-1-3-release-notes
+title: Android Studio  |  Android Developers
 url: https://developer.android.com/build/releases/agp-1-1-3-release-notes
-source: md.txt
+source: html-scrape
 ---
 
-<br />
+* [Android Developers](https://developer.android.com/)
+* [Develop](https://developer.android.com/develop)
+* [Android Studio](https://developer.android.com/studio)
+* [Gradle build guides](https://developer.android.com/build/releases/past-releases)
+
+Stay organized with collections
+
+Save and categorize content based on your preferences.
+
+
 
 # Android plugin for Gradle, revision 1.1.3 (March 2015)
 
 Dependencies:
-General Notes:
-:
-    - Fixed issue with duplicated dependencies on a test app that triggered a ProGuard failure.
-    - Fixed Comparator implementation which did not comply with the JDK Comparator contract and generated a JDK 7 error.
 
-<br />
+|  | Minimum version | Default version | Notes |
+| --- | --- | --- | --- |
+| Gradle | 2.2.1 | 2.2.1 | To learn more, see [updating Gradle](/build/releases/gradle-plugin?buildsystem=ndk-build#updating-gradle). |
+| SDK Build Tools | 21.1.1 | 21.1.1 | [Install](/studio/intro/update#sdk-manager) or [configure](/tools/releases/build-tools) SDK Build Tools. |
+
+General Notes:
+:   * Fixed issue with duplicated dependencies on a test app that triggered a ProGuard failure.
+    * Fixed Comparator implementation which did not comply with the JDK Comparator contract and
+      generated a JDK 7 error.

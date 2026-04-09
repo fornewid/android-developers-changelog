@@ -15,6 +15,7 @@ Send feedback
 
 
 
+
 This guide covers the following steps:
 
 * Selecting a version of Defold
@@ -111,6 +112,8 @@ Android manifest during export.
 
 * [Defold manual - Android development](https://defold.com/manuals/android/)
 * [Defold manual - Project settings](https://defold.com/manuals/project-settings)
+
+
 
 
 

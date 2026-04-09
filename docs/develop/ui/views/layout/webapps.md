@@ -14,7 +14,6 @@ source: html-scrape
 
 
 
-
 Android lets you build on the power of the web within your apps. So, you can
 benefit from the flexibility and efficiency of being able to display certain
 types of content.

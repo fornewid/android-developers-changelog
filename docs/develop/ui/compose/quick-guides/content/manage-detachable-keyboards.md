@@ -1,18 +1,10 @@
 ---
-title: Manage detachable keyboard configuration changes  |  Jetpack Compose  |  Android Developers
+title: https://developer.android.com/develop/ui/compose/quick-guides/content/manage-detachable-keyboards
 url: https://developer.android.com/develop/ui/compose/quick-guides/content/manage-detachable-keyboards
-source: html-scrape
+source: md.txt
 ---
 
-* [Android Developers](https://developer.android.com/)
-* [Develop](https://developer.android.com/develop)
-* [Core areas](https://developer.android.com/develop/core-areas)
-* [UI](https://developer.android.com/develop/ui)
-* [Quick Guides](https://developer.android.com/develop/ui/compose/quick-guides)
-
-# Manage detachable keyboard configuration changes Stay organized with collections Save and categorize content based on your preferences.
-
-
+<br />
 
 The Android system triggers a configuration change every time a keyboard is
 attached to or detached from a device. To provide a seamless user experience and
@@ -27,7 +19,7 @@ recreating the running activity.
 ## Version compatibility
 
 Set your project's `minSDK` to API level 8 for this implementation (see
-[`View#onConfigurationChanged()`](/reference/kotlin/android/view/View#onconfigurationchanged)).
+[`View#onConfigurationChanged()`](https://developer.android.com/reference/kotlin/android/view/View#onconfigurationchanged)).
 
 ### Dependencies
 
@@ -37,7 +29,7 @@ None.
 
 To prevent your activity from being recreated when a detachable keyboard is
 attached or detached, add keyboard-related values to the
-[`configChanges`](/guide/topics/manifest/activity-element#config) attribute of your app manifest and
+[`configChanges`](https://developer.android.com/guide/topics/manifest/activity-element#config) attribute of your app manifest and
 add a view to the activity's view hierarchy so your app can listen for
 configuration changes.
 
@@ -45,73 +37,57 @@ configuration changes.
 
 Update the `<activity>` element in the app manifest by adding the
 `keyboard|keyboardHidden` values to the list of already managed configuration
-changes:
+changes:  
 
-```
-<activity
-    ...
-    android:configChanges="...|keyboard|keyboardHidden">
-```
+    <activity
+        ...
+        android:configChanges="...|keyboard|keyboardHidden">
 
 ### 2. Add an empty view to the view hierarchy
 
 Declare a new view and add your handler code inside the view's
-`onConfigurationChanged()` method:
+`onConfigurationChanged()` method:  
 
 ### Kotlin
 
-```
-val v = object : View(this) {
-    override fun onConfigurationChanged(newConfig: Configuration?) {
-        super.onConfigurationChanged(newConfig)
-        // Handler code here.
+    val v = object : View(this) {
+        override fun onConfigurationChanged(newConfig: Configuration?) {
+            super.onConfigurationChanged(newConfig)
+            // Handler code here.
+        }
     }
-}
-```
 
 ### Java
 
-```
-View v = new View(this) {
-    @Override
-    protected void onConfigurationChanged(Configuration newConfig) {
-        super.onConfigurationChanged(newConfig);
-        // Handler code here.
-    }
-};
-```
+    View v = new View(this) {
+        @Override
+        protected void onConfigurationChanged(Configuration newConfig) {
+            super.onConfigurationChanged(newConfig);
+            // Handler code here.
+        }
+    };
 
-**Note:** Compose-based hierarchies require the addition of a view because the
-view's configuration handler is the only method that is always called for
-configuration changes.
+| **Note:** Compose-based hierarchies require the addition of a view because the view's configuration handler is the only method that is always called for configuration changes.
 
 ## Key points
 
-* [`android:configChanges`](/guide/topics/manifest/activity-element#config): Attribute of the app manifest's `<activity>`
-  element. Informs the system about configuration changes the app manages.
-* [`View#onConfigurationChanged()`](/reference/kotlin/android/view/View#onconfigurationchanged) : Method that reacts to propagation of a
-  new app configuration.
+- [`android:configChanges`](https://developer.android.com/guide/topics/manifest/activity-element#config): Attribute of the app manifest's `<activity>` element. Informs the system about configuration changes the app manages.
+- [`View#onConfigurationChanged()`](https://developer.android.com/reference/kotlin/android/view/View#onconfigurationchanged) : Method that reacts to propagation of a new app configuration.
 
 ## Collections that contain this guide
 
 This guide is part of these curated Quick Guide collections that cover broader
-Android development goals:
-
-![](/static/images/quick-guides/collection-illustration.png)
-
-![](/static/images/picto-icons/collection.svg)
+Android development goals:  
+![](https://developer.android.com/static/images/quick-guides/collection-illustration.png)  
+![](https://developer.android.com/static/images/picto-icons/collection.svg)  
 
 ### Optimize for large screens
 
-Enable your app to support an optimized user experience on tablets, foldables, and ChromeOS devices.
-
-[Quick guide collection](/quick-guides/collections/optimize-for-large-screens)
-
-![](/static/images/picto-icons/help.svg)
+Enable your app to support an optimized user experience on tablets, foldables, and ChromeOS devices.  
+[Quick guide collection](https://developer.android.com/quick-guides/collections/optimize-for-large-screens)
+![](https://developer.android.com/static/images/picto-icons/help.svg)  
 
 ## Have questions or feedback
 
-Go to our frequently asked questions page and learn about quick guides or reach out and let us know your thoughts.
-
-[Go to FAQ](/quick-guides/faq)
-[Leave feedback](https://issuetracker.google.com/issues/new?component=1573691&template=1993320)
+Go to our frequently asked questions page and learn about quick guides or reach out and let us know your thoughts.  
+[Go to FAQ](https://developer.android.com/quick-guides/faq) [Leave feedback](https://issuetracker.google.com/issues/new?component=1573691&template=1993320)

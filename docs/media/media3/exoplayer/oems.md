@@ -1,18 +1,8 @@
 ---
-title: OEM testing  |  Android media  |  Android Developers
+title: https://developer.android.com/media/media3/exoplayer/oems
 url: https://developer.android.com/media/media3/exoplayer/oems
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [Essentials](https://developer.android.com/get-started)
-* [Camera & media dev center](https://developer.android.com/media)
-* [Guides](https://developer.android.com/media/guides)
-
-# OEM testing Stay organized with collections Save and categorize content based on your preferences.
-
-
-
 
 ExoPlayer is used by a large number of Android apps. As an OEM, it's
 important to ensure that ExoPlayer works correctly both on new devices, and on
@@ -60,11 +50,9 @@ will add to this list as further failure modes are discovered.
 
 Logcat will contain an error similar to:
 
-```
-Caused by: java.lang.IllegalStateException: Expected to dequeue video buffer
-with presentation timestamp: 134766000. Instead got: 134733000 (Processed
-buffers since last flush: 2242).
-```
+    Caused by: java.lang.IllegalStateException: Expected to dequeue video buffer
+    with presentation timestamp: 134766000. Instead got: 134733000 (Processed
+    buffers since last flush: 2242).
 
 This failure is most often caused by the video decoder under test incorrectly
 discarding, inserting or re-ordering buffers. In the example above, the test
@@ -78,10 +66,8 @@ correctly handles adaptive resolution switches without discarding any buffers.
 
 Logcat will contain an error similar to:
 
-```
-junit.framework.AssertionFailedError: Codec(DashTest:Video) was late decoding:
-200 buffers. Limit: 25.
-```
+    junit.framework.AssertionFailedError: Codec(DashTest:Video) was late decoding:
+    200 buffers. Limit: 25.
 
 This failure is a performance problem, where the video decoder under test was
 late decoding a large number of buffers. In the example above, ExoPlayer dropped
@@ -97,11 +83,9 @@ them up.
 
 Logcat will contain an error similar to:
 
-```
-SurfaceUtils: native window could not be authenticated
-ExoPlayerImplInternal: Internal runtime error.
-ExoPlayerImplInternal: android.media.MediaCodec$CodecException: Error 0xffffffff
-```
+    SurfaceUtils: native window could not be authenticated
+    ExoPlayerImplInternal: Internal runtime error.
+    ExoPlayerImplInternal: android.media.MediaCodec$CodecException: Error 0xffffffff
 
 This failure is indicative of the platform failing to correctly set the secure
 bit flag.
@@ -110,9 +94,7 @@ bit flag.
 
 Logcat will contain an error similar to:
 
-```
-AssertionFailedError: Test timed out after 300000 ms.
-```
+    AssertionFailedError: Test timed out after 300000 ms.
 
 This failure is most often caused by poor network connectivity during the test
 run. If the device appears to have good network connectivity then it's possible

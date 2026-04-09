@@ -15,6 +15,7 @@ Send feedback
 
 
 
+
 The [Google Play Games on PC Developer Emulator](/games/playgames/emulator) is a developer-focused emulator for
 Google Play Games on PC. Unlike the player experience, you can install and
 debug your own packages. You also can simulate various player configurations
@@ -430,6 +431,8 @@ before release.
 The player client doesn't support the developer focused features of the
 Google Play Games on PC Developer Emulator. This is best used to QA the game before release
 to test the end to end player experience after the initial release.
+
+
 
 
 

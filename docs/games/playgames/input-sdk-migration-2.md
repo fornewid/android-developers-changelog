@@ -15,7 +15,6 @@ Send feedback
 
 
 
-
 This guide explains how to upgrade your game from the 1.0.0-beta
 Input SDK for Java and Kotlin to 1.1.1-beta. See the
 [Unity upgrade guide](/games/playgames/input-sdk-migration-unity-2) for Unity

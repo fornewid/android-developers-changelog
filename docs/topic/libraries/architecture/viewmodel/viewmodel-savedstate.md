@@ -159,7 +159,7 @@ filter a list of data. This updated value can then be used to
 ```kotlin
 class SavedStateViewModel(private val savedStateHandle: SavedStateHandle) : ViewModel() {
     val filteredData: LiveData<List<String>> =
-        savedStateHandle.getLi<veDataString>("query").switchMap { query ->
+        savedStateHandle.getLiveData<String>("query").switchMap { query ->
         repository.getFilteredData(query)
     }
 
@@ -177,7 +177,7 @@ public class SavedStateViewModel extends ViewModel {
     public LiveData<List<String>> filteredData;
     public SavedStateViewModel(SavedStateHandle savedStateHandle) {
         this.savedStateHandle = savedStateHandle;
-        Li<veDataString> queryLiveData = savedStateHandle.getLiveData("query");
+        LiveData<String> queryLiveData = savedStateHandle.getLiveData("query");
         filteredData = Transformations.switchMap(queryLiveData, query -> {
             return repository.getFilteredData(query);
         });
@@ -207,7 +207,7 @@ using other [Flow operators](https://developer.android.com/kotlin/flow#modify).
 ```kotlin
 class SavedStateViewModel(private val savedStateHandle: SavedStateHandle) : ViewModel() {
     val filteredData: StateFlow<List<String>> =
-        savedStateHandle.getSta<teFlowString>("query")
+        savedStateHandle.getStateFlow<String>("query")
             .flatMapLatest { query ->
                 repository.getFilteredData(query)
             }
@@ -426,7 +426,7 @@ private fun Bundle.restoreTempFile() = if (containsKey("path")) {
 class TempFileViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
     private var tempFile: File? = null
     init {
-        val tempFil<eBundle = savedStateHandle.getBundle>("temp_file")
+        val tempFileBundle = savedStateHandle.get<Bundle>("temp_file")
         if (tempFileBundle != null) {
             tempFile = tempFileBundle.restoreTempFile()
         }

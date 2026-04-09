@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 The [`MetadataRetriever`](/reference/androidx/media3/inspector/MetadataRetriever) retrieves information (such as duration, video
 resolution, codecs, available tracks, and sampling rates) from a [`MediaItem`](/reference/androidx/media3/common/MediaItem)
 without playback.

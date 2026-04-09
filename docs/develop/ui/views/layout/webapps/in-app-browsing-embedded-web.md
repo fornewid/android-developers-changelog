@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 In-app browsers give your users a full web experience without making them leave
 your app. Android offers two primary APIs for implementing in-app browsers:
 [Custom Tabs](/develop/ui/views/layout/webapps/overview-of-android-custom-tabs) and [WebViews](/reference/android/webkit/WebView). Use an in-app browser when you

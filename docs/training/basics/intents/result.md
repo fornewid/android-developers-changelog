@@ -12,6 +12,7 @@ source: html-scrape
 
 
 
+
 Starting another activity, whether it is one within your app or from another
 app,
 doesn't need to be a one-way operation. You can also start an activity

@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 When an app performs Wi-Fi scans in the background, it wakes up the CPU,
 causing rate of battery drain. When too many scans occur, the device’s
 battery life may be noticeably shortened. An app is considered to be running in

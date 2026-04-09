@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 The Android SDK Upgrade Assistant is a tool in Android Studio that helps you
 upgrade the
 [`targetSdkVersion`](/guide/topics/manifest/uses-sdk-element#target), or

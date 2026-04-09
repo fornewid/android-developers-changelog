@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 The first step in interacting with a BLE device is connecting to it. More
 specifically, connecting to the GATT server on the device. To connect to a GATT
 server on a BLE device, use the

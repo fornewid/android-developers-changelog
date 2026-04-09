@@ -1,14 +1,25 @@
 ---
-title: https://developer.android.com/develop/ui/compose/setup
+title: Quick start  |  Jetpack Compose  |  Android Developers
 url: https://developer.android.com/develop/ui/compose/setup
-source: md.txt
+source: html-scrape
 ---
 
+* [Android Developers](https://developer.android.com/)
+* [Develop](https://developer.android.com/develop)
+* [Core areas](https://developer.android.com/develop/core-areas)
+* [UI](https://developer.android.com/develop/ui)
+* [Docs](https://developer.android.com/develop/ui/compose/documentation)
+
+# Quick start Stay organized with collections Save and categorize content based on your preferences.
+
+
+
+
 For the best experience developing with Compose, download and install [Android
-Studio](https://developer.android.com/studio). It includes many [smart editor features](https://developer.android.com/develop/ui/compose/tooling), such as new project
+Studio](/studio). It includes many [smart editor features](/develop/ui/compose/tooling), such as new project
 templates and the ability to immediately preview your Compose UI and animations.
 
-[Get Android Studio](https://developer.android.com/studio)
+[Get Android Studio](/studio)
 
 Follow these instructions to create a new Compose app project, set up
 Compose for an existing app project, or import a sample app written in Compose.
@@ -20,21 +31,25 @@ Android Studio includes various project templates to help you get started. To
 create a new project that has Compose setup correctly, proceed as follows:
 
 1. If you're in the **Welcome to Android Studio** window, click **Start a new
-   Android Studio project** . If you already have an Android Studio project open , select **File \> New \> New Project** from the menu bar.
+   Android Studio project**. If you already have an Android Studio project open ,
+   select **File > New > New Project** from the menu bar.
 2. In the **Select a Project Template** window, select **Empty
    Activity** and click **Next**.
 3. In the **Configure your project** window, do the following:
-   1. Set the **Name, Package name** , and **Save location** as you normally would. Note that, in the **Language** dropdown menu, **Kotlin** is the only available option because Jetpack Compose works only with classes written in Kotlin.
+   1. Set the **Name, Package name**, and **Save location** as you normally
+      would. Note that, in the **Language** dropdown menu, **Kotlin** is the only
+      available option because Jetpack Compose works only with classes written in
+      Kotlin.
    2. In the **Minimum API level dropdown** menu, select API level 21 or higher.
 4. Click **Finish**.
 
 Now you're ready to start developing an app using Jetpack Compose. To help you
 get started and learn about what you can do with the toolkit, try the [Jetpack
-Compose tutorial](https://developer.android.com/develop/ui/compose/tutorial).
+Compose tutorial](/develop/ui/compose/tutorial).
 
 ## Setup Compose dependencies and Compiler
 
-See [Setup Compose dependencies and Compiler](https://developer.android.com/develop/ui/compose/setup-compose-dependencies-and-compiler).
+See [Setup Compose dependencies and Compiler](/develop/ui/compose/setup-compose-dependencies-and-compiler).
 
 ## Try Jetpack Compose sample apps
 
@@ -43,10 +58,14 @@ trying [Jetpack Compose sample apps](https://github.com/android/compose-samples)
 a sample app project from Android Studio, proceed as follows:
 
 1. If you're in the **Welcome to Android Studio** window, select **Import an
-   Android code sample** . If you already have an Android Studio project open, select **File \> New \> Import Sample** from the menu bar.
-2. In the search bar near the top of the **Browse Samples** wizard, type "compose".
-3. Select one of the Jetpack Compose sample apps from the search results and click **Next**.
-4. Either change the **Application name** and **Project location** or keep the default values.
+   Android code sample**. If you already have an Android Studio project open,
+   select **File > New > Import Sample** from the menu bar.
+2. In the search bar near the top of the **Browse Samples** wizard, type
+   "compose".
+3. Select one of the Jetpack Compose sample apps from the search results and
+   click **Next**.
+4. Either change the **Application name** and **Project location** or keep the
+   default values.
 5. Click **Finish**.
 
 Android Studio downloads the sample app to the path you specified and opens the
@@ -54,11 +73,11 @@ project. You can then inspect `MainActivity.kt` in each of the examples to see
 Jetpack Compose APIs such as crossfade animation, custom components, using
 typography, and displaying light and dark colors in the in-IDE preview.
 
-To use Jetpack Compose for Wear OS, see [Set up Jetpack Compose on Wear OS](https://developer.android.com/training/wearables/compose-setup).
+To use Jetpack Compose for Wear OS, see [Set up Jetpack Compose on Wear OS](/training/wearables/compose-setup).
 
 ## Recommended for you
 
-- Note: link text is displayed when JavaScript is off
-- [Navigating with Compose](https://developer.android.com/develop/ui/compose/navigation)
-- [Testing your Compose layout](https://developer.android.com/develop/ui/compose/testing)
-- [React to focus](https://developer.android.com/develop/ui/compose/touch-input/focus/react-to-focus)
+* Note: link text is displayed when JavaScript is off
+* [Navigating with Compose](/develop/ui/compose/navigation)
+* [Testing your Compose layout](/develop/ui/compose/testing)
+* [React to focus](/develop/ui/compose/touch-input/focus/react-to-focus)

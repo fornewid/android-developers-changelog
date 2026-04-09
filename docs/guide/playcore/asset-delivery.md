@@ -14,7 +14,6 @@ Save and categorize content based on your preferences.
 
 
 
-
 ### Play Asset Delivery
 
 *Play Asset Delivery (PAD)* brings the benefits of app bundles to games. It allows games larger than 200MB to replace legacy expansion files (OBBs) by publishing a single artifact to Play containing all the resources the game needs. PAD offers flexible delivery modes, auto-updates, compression, and delta patching, and is free to use. Using PAD, all asset packs are hosted and served on Google Play removing the need to use a content delivery network (CDN) to get your game resources to players.

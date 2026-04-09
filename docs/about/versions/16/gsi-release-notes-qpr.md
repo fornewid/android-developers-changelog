@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 Android [Generic System Image (GSI)](/topic/generic-system-image) binaries are available to developers for
 app testing and validation purposes on [supported Treble-compliant devices](/topic/generic-system-image#device-compliance).
 Developers

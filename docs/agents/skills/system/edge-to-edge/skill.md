@@ -1,16 +1,10 @@
 ---
-title: Migrate  |  Jetpack Compose  |  Android Developers
+title: Migrate  |  Android Developers
 url: https://developer.android.com/agents/skills/system/edge-to-edge/skill
 source: html-scrape
 ---
 
-* [Android Developers](https://developer.android.com/)
-* [Develop](https://developer.android.com/develop)
-* [Core areas](https://developer.android.com/develop/core-areas)
-* [UI](https://developer.android.com/develop/ui)
-
 # Migrate Stay organized with collections Save and categorize content based on your preferences.
-
 
 
 

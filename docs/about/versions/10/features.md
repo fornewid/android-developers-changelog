@@ -12,6 +12,7 @@ source: html-scrape
 
 
 
+
 Android 10 introduces great features and capabilities for users and
 developers. This document highlights what's available for developers.
 

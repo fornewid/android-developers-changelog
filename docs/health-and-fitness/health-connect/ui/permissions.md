@@ -15,7 +15,6 @@ Starting in 2026, we'll be transitioning away from Google Fit APIs. For more inf
 
 
 
-
 Your app's Settings screen should provide users with options to manage their
 connection to Health Connect. This gives users control over data
 synchronization and access to their data.

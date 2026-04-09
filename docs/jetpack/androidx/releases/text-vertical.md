@@ -24,7 +24,7 @@ TODO
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 | --- | --- | --- | --- | --- |
-| March 25, 2026 | - | - | - | [1.0.0-alpha03](/jetpack/androidx/releases/text-vertical#1.0.0-alpha03) |
+| April 08, 2026 | - | - | - | [1.0.0-alpha04](/jetpack/androidx/releases/text-vertical#1.0.0-alpha04) |
 
 ## Declaring dependencies
 
@@ -39,7 +39,7 @@ your app or module:
 
 ```
 dependencies {
-    implementation "androidx.text:text-vertical:1.0.0-alpha03"
+    implementation "androidx.text:text-vertical:1.0.0-alpha04"
 }
 ```
 
@@ -47,7 +47,7 @@ dependencies {
 
 ```
 dependencies {
-    implementation("androidx.text:text-vertical:1.0.0-alpha03")
+    implementation("androidx.text:text-vertical:1.0.0-alpha04")
 }
 ```
 
@@ -69,6 +69,26 @@ for more information.
 There are no release notes for this artifact.
 
 ## Text Vertical Version 1.0
+
+### Version 1.0.0-alpha04
+
+April 08, 2026
+
+`androidx.text:text-vertical:1.0.0-alpha04` is released. Version 1.0.0-alpha04 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/4f1927c2c3b66d0c3a6b9118974d818d2dc5a06a..966cd4961ea7030c43c4afe234f0c8a4472f8160/text/text-vertical).
+
+**New Features**
+
+* Refactored all public classes to provide more convenient, idiomatic Kotlin APIs for general usage, while maintaining strong Java interoperability.
+
+**API Changes**
+
+* Added a default zero-argument constructor to `FontShearSpan` for Java compatibility ([I73065](https://android-review.googlesource.com/#/q/I730658f1c6d29b291b6a9493e3ccc40f0ada4764), [b/493692287](https://issuetracker.google.com/issues/493692287)).
+* Removed the `Parcelable` implementation in `RubySpan` and `EmphasisSpan` ([I49884](https://android-review.googlesource.com/#/q/I49884b2585ece811bb85a86d7b100c68d10f116d), [b/493693386](https://issuetracker.google.com/issues/493693386)).
+* Refactored `EmphasisSpan` for better compatibility ([I34c40](https://android-review.googlesource.com/#/q/I34c40e89606a520b3a6a8d3d3f5c4cc531da6fc5), [b/493693310](https://issuetracker.google.com/issues/493693310)).
+* Refactored `AnnotationPosition` to improve API surface ([I10dce](https://android-review.googlesource.com/#/q/I10dce948b769873d68c64077b4d96997cc2fa37e), [b/493693386](https://issuetracker.google.com/issues/493693386)).
+* Converted `TextOrientation` to an enum class, refactored `AnnotationPosition` to a sealed class, and removed `RubySpan.Builder` ([Ib4a77](https://android-review.googlesource.com/#/q/Ib4a77651cdd2f3c7aa320ba6ef6d51c7965b7283), [b/493693386](https://issuetracker.google.com/issues/493693386)).
+* Added the `AnnotationPosition` enum and refactored the `RubySpan` class ([Ibfcff](https://android-review.googlesource.com/#/q/Ibfcff6f417bbb5bdf79998fa7876e5cec79bb93a), [b/493692426](https://issuetracker.google.com/issues/493692426)).
+* Refactored `TextOrientation` for general usage and improved internal text scaling extensions ([I82152](https://android-review.googlesource.com/#/q/I821529f1e8457a5541a66e55907ea04aa88104c9), [b/493692428](https://issuetracker.google.com/issues/493692428)).
 
 ### Version 1.0.0-alpha03
 

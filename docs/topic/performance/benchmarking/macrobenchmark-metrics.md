@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 Metrics are the main type of information extracted from your benchmarks. They
 are passed to the [`measureRepeated`](/reference/kotlin/androidx/benchmark/macro/junit4/MacrobenchmarkRule#measureRepeated(kotlin.String,kotlin.collections.List,androidx.benchmark.macro.CompilationMode,androidx.benchmark.macro.StartupMode,kotlin.Int,kotlin.Function1,kotlin.Function1))
 function as a `List`, which lets you specify

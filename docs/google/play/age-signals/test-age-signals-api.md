@@ -14,7 +14,6 @@ On March 17, 2026, the Play Age Signals API starts rolling out responses for use
 
 
 
-
 To test your Play Age Signals API (beta) integration with your app, use the
 [FakeAgeSignalsManager](/google/play/age-signals/reference/com/google/android/play/agesignals/testing/FakeAgeSignalsManager) implementation available in the age signals artifact.
 The `FakeAgeSignalsManager` implementation lets you simulate the API's behavior.

@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 The role of the UI is to display the application data on the screen and also to
 serve as the primary point of user interaction. Whenever the data changes,
 either due to user interaction (like pressing a button) or external input (like

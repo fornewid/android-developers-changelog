@@ -12,7 +12,6 @@ source: html-scrape
 
 
 
-
 This document offers a high-level view of typical development and testing phases
 that can help you make a plan for readiness that's well-aligned with the
 platform release timeline and ensures a great experience for your users on

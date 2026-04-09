@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 The Database Inspector lets you inspect,
 query, and modify your app's databases while your app is running. This is
 especially useful for database debugging. The Database Inspector works with

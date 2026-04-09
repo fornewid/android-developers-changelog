@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 The standalone Jetifier tool migrates support-library-dependent libraries to
 instead rely on the equivalent AndroidX packages. The tool lets you migrate an
 individual library directly instead of using the Android Gradle plugin bundled

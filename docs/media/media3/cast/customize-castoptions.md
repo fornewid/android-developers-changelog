@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 To configure your app's Cast session, provide an [`OptionsProvider`](https://developers.google.com/android/reference/com/google/android/gms/cast/framework/OptionsProvider). Use the
 [`CastOptions`](https://developers.google.com/android/reference/com/google/android/gms/cast/framework/CastOptions) object built by the provider to set the receiver application ID,
 manage session lifecycles, and customize media playback behavior.

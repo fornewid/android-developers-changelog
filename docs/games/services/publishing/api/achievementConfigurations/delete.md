@@ -1,12 +1,19 @@
 ---
-title: https://developer.android.com/games/services/publishing/api/achievementConfigurations/delete
+title: AchievementConfigurations: delete  |  API reference  |  Android Developers
 url: https://developer.android.com/games/services/publishing/api/achievementConfigurations/delete
-source: md.txt
+source: html-scrape
 ---
 
-# AchievementConfigurations: delete
+* [Android Developers](https://developer.android.com/)
+* [Develop](https://developer.android.com/develop)
+* [API reference](https://developer.android.com/reference)
 
-**Requires[authorization](https://developer.android.com/games/services/publishing/api/achievementConfigurations/delete#auth)**
+# AchievementConfigurations: delete Stay organized with collections Save and categorize content based on your preferences.
+
+
+
+
+**Requires [authorization](#auth)**
 
 Delete the achievement configuration with the given ID.
 
@@ -20,17 +27,17 @@ DELETE https://www.googleapis.com/games/v1configuration/achievements/achievement
 
 ### Parameters
 
-| Parameter name  |  Value   |                  Description                   |
-|-----------------|----------|------------------------------------------------|
-| **Path parameters**                                                       |||
+| Parameter name | Value | Description |
+| --- | --- | --- |
+| **Path parameters** | | |
 | `achievementId` | `string` | The ID of the achievement used by this method. |
 
 ### Authorization
 
-This request requires authorization with the following scope ([read more about authentication and authorization](https://developer.android.com/accounts/docs/OAuth2)).
+This request requires authorization with the following scope ([read more about authentication and authorization](/accounts/docs/OAuth2)).
 
-|                       Scope                        |
-|----------------------------------------------------|
+| Scope |
+| --- |
 | `https://www.googleapis.com/auth/androidpublisher` |
 
 ### Request body

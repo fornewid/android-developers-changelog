@@ -11,6 +11,7 @@ source: html-scrape
 
 
 
+
 **Note:** The Android `layoutopt` tool has been replaced
 by the `lint` tool beginning in SDK Tools revision 16. The `lint` tool reports UI
 layout performance issues in a similar way as `layoutopt` and detects additional problems.

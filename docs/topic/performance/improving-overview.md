@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 Users expect apps to be responsive and fast, from app startup and throughout the
 entire app experience. After you [inspect](/topic/performance/inspecting-overview) your app for performance problems,
 you can fix any issues and improve your app's performance.

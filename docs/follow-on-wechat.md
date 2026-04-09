@@ -1,11 +1,17 @@
 ---
-title: https://developer.android.com/follow-on-wechat
+title: Follow Google Developers on WeChat  |  Android Developers
 url: https://developer.android.com/follow-on-wechat
-source: md.txt
+source: html-scrape
 ---
 
-# Follow Google Developers on WeChat
+* [Android Developers](https://developer.android.com/)
 
-![](http://developer.android.com/static/images/follow-on-wechat/android-developers-wechat-qr-code.png)  
+Stay organized with collections
+
+Save and categorize content based on your preferences.
+
+
+
+![](https://developer.android.com/static/images/follow-on-wechat/android-developers-wechat-qr-code.png)
 
 ### Scan the QR code to follow Google Developers on WeChat!

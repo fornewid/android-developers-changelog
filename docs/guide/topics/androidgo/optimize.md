@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 Android (Go edition) has a rapidly growing user base, and with that comes the
 need to optimize existing applications to perform well on these low-RAM devices.
 Some of the most common challenges around this type of development requires

@@ -15,7 +15,6 @@ Save and categorize content based on your preferences.
 
 
 
-
 # Android Studio 4.2 (April 2021)
 
 Android Studio 4.2 is a major release that includes a variety of new features

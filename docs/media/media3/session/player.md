@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 A player is the component of your app that facilitates playback of media items.
 The Media3 [`Player`](/reference/kotlin/androidx/media3/common/Player) interface
 sets up an outline for functionality generally handled by a player. This
@@ -41,7 +42,7 @@ Several components in Media3 implement the Player interface, for example:
 | Component | Description & behavior notes |
 | --- | --- |
 | [`ExoPlayer`](/reference/kotlin/androidx/media3/exoplayer/ExoPlayer) | A media player API, and the default implementation of the `Player` interface. |
-| [`MediaController`](/reference/kotlin/androidx/media3/session/MediaController) | Interacts with a `MediaSession` to send playback commands. If your `Player` and `MediaSession` are in a `Service` separate from the `Activity` or `Fragment` where your player's UI lives, you can assign your `MediaController` as the player for your `PlayerView` UI. Playback and playlist method calls are sent to your `Player` through your `MediaSession`. |
+| [`MediaController`](/reference/kotlin/androidx/media3/session/MediaController) | Interacts with a `MediaSession` to send playback commands. If your `Player` and `MediaSession` are in a `Service` separate from the `Activity` or `Fragment` where your player's UI lives, you can assign your `MediaController` as the player for your UI component like `PlayerView` or `Player` Composable. Playback and playlist method calls are sent to your `Player` through your `MediaSession`. |
 | [`MediaBrowser`](/reference/kotlin/androidx/media3/session/MediaBrowser) | In addition to the functionality offered by a `MediaController`, interacts with a `MediaLibrarySession` to browse available media content. |
 | [`SimpleBasePlayer`](/reference/androidx/media3/common/SimpleBasePlayer) | A `Player` implementation that reduces the number of methods to implement to a minimum. Helpful when using a custom player that you want to connect to a `MediaSession`. |
 | [`ForwardingSimpleBasePlayer`](/reference/androidx/media3/common/ForwardingSimpleBasePlayer) | A `SimpleBasePlayer` subclass designed to forward playback operations to another `Player` while allowing the same consistent behavior customizations as `SimpleBasePlayer`. Use this class to suppress or modify specific playback operations. |

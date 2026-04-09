@@ -15,7 +15,6 @@ Starting in 2026, we'll be transitioning away from Google Fit APIs. For more inf
 
 
 
-
 Showcasing Health Connect in your app depends on the UX patterns and
 conventions established in your UI.
 

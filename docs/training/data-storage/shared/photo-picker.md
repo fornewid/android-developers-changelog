@@ -13,6 +13,7 @@ source: html-scrape
 
 
 
+
 ![Photo picker dialog appears with media files on your device. Select a photo to share with the app.](/static/images/training/data-storage/kotlin-picker.gif)
 
 

@@ -170,7 +170,7 @@ is the same as done for an Android game that has integrated with Play Billing.
 ### Process without a backend server
 
 > [!NOTE]
-> **Note:** Processing purchases without a backend server requires your game to be allow-listed. Please contact your Google Partner if your game requires access.
+> **Note:** Processing purchases from your client app requires your game to be allow-listed. Please contact your Google Partner if your game requires access.
 
 1. Ensure the user's payment is not pending by checking
    [`ProductPurchaseDetails::purchase_state`](https://developer.android.com/games/playgames/native-pc/reference/struct/google/play/billing/product-purchase-details#purchase_state) is

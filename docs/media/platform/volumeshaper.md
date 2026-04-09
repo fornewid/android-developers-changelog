@@ -13,7 +13,6 @@ source: html-scrape
 
 
 
-
 You can use a `VolumeShaper` in an audio app to perform
 fade-ins, fade-outs, cross fades, ducking, and other short automated volume
 transitions. The `VolumeShaper` class is available in Android 8.0 (API level 26)

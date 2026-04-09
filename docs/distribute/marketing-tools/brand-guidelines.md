@@ -1,8 +1,17 @@
 ---
-title: https://developer.android.com/distribute/marketing-tools/brand-guidelines
+title: Brand guidelines  |  Branding & Marketing  |  Android Developers
 url: https://developer.android.com/distribute/marketing-tools/brand-guidelines
-source: md.txt
+source: html-scrape
 ---
+
+* [Android Developers](https://developer.android.com/)
+* [Google Play](https://developer.android.com/distribute)
+* [Branding & Marketing](https://developer.android.com/distribute/marketing-tools)
+
+# Brand guidelines Stay organized with collections Save and categorize content based on your preferences.
+
+
+
 
 The "Android" name, the Android logo, the "Google Play" brand, and other Google
 trademarks, are property of Google LLC and not part of the assets available
@@ -18,7 +27,7 @@ relevant legal guidelines on how to display our trademarks. Use the
 [brand request form](https://support.google.com/contact/partner_brand_approval)
 to submit your marketing for review.
 
-*** ** * ** ***
+---
 
 ## Google Play
 
@@ -34,7 +43,14 @@ For a list of devices licensed to use Google Play, refer to
 
 App developers distributing an Android app can find the Google Play badge in the
 Partner Marketing Hub. These visuals can be used in marketing materials.
-[![](https://developer.android.com/static/images/brand/play_prism.svg) Google play badges Badges can be used in marketing campaigns to promote content on Google Play.](https://play.google.com/intl/en_us/badges/)
+
+[![](/static/images/brand/play_prism.svg)
+
+Google play badges
+
+Badges can be used in marketing campaigns to promote content on Google Play.
+
+arrow\_forward](https://play.google.com/intl/en_us/badges/)
 
 ### Other
 
@@ -57,18 +73,19 @@ The following are guidelines for the Android brand and related assets.
 
 The green Android robot can be reproduced and/or modified as long as the
 following Creative Commons attribution line is included in the creative:
+
 > *"The Android robot is reproduced or modified from work created and shared by
 > Google and used according to terms described in the [Creative Commons](https://creativecommons.org/licenses/by/3.0/) 3.0 Attribution License."*
-![](https://developer.android.com/static/images/brand/android-head_3D.png)
 
+![](/static/images/brand/android-head_3D.png)
 
-[PNG](https://developer.android.com/static/images/brand/android-head_3D.png)
-[SVG](https://developer.android.com/static/images/brand/android-head_3D.svg)
-![](https://developer.android.com/static/images/brand/android-head_flat.png)
+[PNG](/static/images/brand/android-head_3D.png)
+[SVG](/static/images/brand/android-head_3D.svg)
 
+![](/static/images/brand/android-head_flat.png)
 
-[PNG](https://developer.android.com/static/images/brand/android-head_flat.png)
-[SVG](https://developer.android.com/static/images/brand/android-head_flat.svg)
+[PNG](/static/images/brand/android-head_flat.png)
+[SVG](/static/images/brand/android-head_flat.svg)
 
 The color value for print is `PMS 2412C` and the online hex color is
 `#3ddc84`.
@@ -80,14 +97,19 @@ available for all to use.
 
 ### Android in text
 
-#### Trademark \& Attribution
+#### Trademark & Attribution
 
-![](https://developer.android.com/static/images/brand/androidtrade-caution.png)
+![](/static/images/brand/androidtrade-caution.png)
+
+warning
 
 ### Caution
 
 Android™ should have a trademark symbol the first time it appears in a creative.
-> \> Android is a trademark of Google LLC.
+
+> > Android is a trademark of Google LLC.
+
+warning
 
 ### Caution
 
@@ -95,75 +117,89 @@ Any use of the Android name needs to include this attribution in your communicat
 
 #### 'Android' wordmark alongside logos
 
-
 If used with your logo, "for Android" or "with Android" should be no larger
 than 90% of your logo's size. The first instance of this use should be
 followed by a TM symbol: "for Android™".
 
 #### Case / Grammar of 'Android'
 
-
 Android should always be capitalized and is never plural or possessive.
 
 #### Using 'Android' in application naming
 
-
 "Android", or anything confusingly similar to "Android", cannot be used in
 names of applications or accessory products, including phones, tablets, TVs,
 speakers, headphones, watches, and other devices. Instead, use "for Android".
-> "MediaPlayer for Android"   
->
+
+> "MediaPlayer for Android"
+
+check\_circle
+
 ### Do
 
 > "Android MediaPlayer"   
-> "Ndroid MediaPlayer"
+>  "Ndroid MediaPlayer"
+
+cancel
 
 ### Don't
-
 
 "Android TV", "Android Wear", "Android Auto", "Android Automotive OS",
 "Google Pay", and "Android Things" may only be used to identify or market
 products or services with prior approval. Use "for Android" or "with Android"
 for all other Android-based products.
-> "Streaming Stick with Android"   
->
+
+> "Streaming Stick with Android"
+
+check\_circle
+
 ### Do
 
 > "Android TV Streaming Stick"   
-> "Streaming Stick with Android TV"
+>  "Streaming Stick with Android TV"
+
+cancel
 
 ### Don't
 
 #### 'Android' as a text descriptor
 
-
 Android may be used as a descriptor in text, as long as it is followed by a
 proper generic term and is not the name of your product, app, or service.
 Think of "Android" as a term used in place of "the Android platform."
+
 > "Android features"   
 > "Android applications"
+
+check\_circle
 
 ### Do
 
 > "Android MediaPlayer"   
 > "Android XYZ app"
 
+cancel
+
 ### Don't
 
 ### Android wordmark
 
-![](https://developer.android.com/static/images/brand/android-wordmark-dont.png)
+![](/static/images/brand/android-wordmark-dont.png)
+
+cancel
 
 ### Don't
 
-Unless expressly authorized by Google through written agreement, the Android wordmark and custom typeface may not be used.
+Unless expressly authorized by Google through written agreement, the Android
+wordmark and custom typeface may not be used.
 
 ## Marketing reviews and brand inquiries
 
 Submit a brand request to make any marketing reviews or brand inquires. Typical
 response time is at least one week.
 
+[emailBrand request form
 
-[emailBrand request form For questions about Partner Marketing Hub, our brands, or marketing permissions.](https://support.google.com/contact/partner_brand_approval)
+For questions about Partner Marketing Hub, our brands, or marketing permissions.
 
-<br />
+arrow\_forward](https://support.google.com/contact/partner_brand_approval)

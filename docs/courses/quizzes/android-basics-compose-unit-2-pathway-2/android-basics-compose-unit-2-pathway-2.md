@@ -1,78 +1,69 @@
 ---
-title: Add a button to an app  |  Android Developers
+title: https://developer.android.com/courses/quizzes/android-basics-compose-unit-2-pathway-2/android-basics-compose-unit-2-pathway-2
 url: https://developer.android.com/courses/quizzes/android-basics-compose-unit-2-pathway-2/android-basics-compose-unit-2-pathway-2
-source: html-scrape
+source: md.txt
 ---
-
-Stay organized with collections
-
-Save and categorize content based on your preferences.
-
-
 
 # Add a button to an app
 
-Return to pathway
+# Add a button to an app
 
+<br />
 
+Return to pathway  
+1.
 
-1. ## Use a \_\_\_ Composable to display an image
+   ## Use a ___ Composable to display an image
 
-   Button
+   Button  
+   Text  
+   Image  
+   Icon  
+2.
 
-   Text
+   ## `Alignment.Center`centers UI components both horizontally and vertically.
 
-   Image
+   True  
+   False  
+3.
 
-   Icon
-2. ## `Alignment.Center` centers UI components both horizontally and vertically.
+   ## Composable functions can store an object in memory using the ___ composable
 
-   True
+   remember  
+   Column  
+   Modifier  
+   @Composable  
+4.
 
-   False
-3. ## Composable functions can store an object in memory using the \_\_\_ composable
+   ## The debugger allows you to inspect variables when code execution has been suspended.
 
-   remember
+   True  
+   False  
+5.
 
-   Column
+   ## By using ___ values in a composable function, variables can be made into observables that schedule a recomposition when their value is changed.
 
-   Modifier
+   remember  
+   Modifier  
+   @Composable  
+   mutableStateOf  
+6.
 
-   @Composable
-4. ## The debugger allows you to inspect variables when code execution has been suspended.
+   ## The ___ composable places its children in a vertical sequence.
 
-   True
+   Row  
+   Box  
+   Column  
+   Modifier  
+7.
 
-   False
-5. ## By using \_\_\_ values in a composable function, variables can be made into observables that schedule a recomposition when their value is changed.
+   ## The ___ debugger feature allows you to navigate back up the call stack.
 
-   remember
-
-   Modifier
-
-   @Composable
-
-   mutableStateOf
-6. ## The \_\_\_ composable places its children in a vertical sequence.
-
-   Row
-
-   Box
-
-   Column
-
-   Modifier
-7. ## The \_\_\_ debugger feature allows you to navigate back up the call stack.
-
-   Step over
-
-   Step out
-
-   Step into
-
-   Resume program
+   Step over  
+   Step out  
+   Step into  
+   Resume program  
 
 Submit answers
 
-*error\_outline*
-An error occurred when grading the quiz. Please try again.
+*error_outline*An error occurred when grading the quiz. Please try again.
