@@ -1,0 +1,90 @@
+diff --git a/docs/jetpack/androidx/releases/navigation3.md b/docs/jetpack/androidx/releases/navigation3.md
+index eec0252..73b3919 100644
+--- a/docs/jetpack/androidx/releases/navigation3.md
++++ b/docs/jetpack/androidx/releases/navigation3.md
+@@ -15,7 +15,6 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
+-
+ # navigation3
+ 
+ API Reference  
+@@ -26,7 +25,7 @@ Navigation 3 is a new navigation library designed to work with Compose.
+ 
+ | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
+ | --- | --- | --- | --- | --- |
+-| March 25, 2026 | [1.0.1](/jetpack/androidx/releases/navigation3#1.0.1) | [1.1.0-rc01](/jetpack/androidx/releases/navigation3#1.1.0-rc01) | - | - |
++| April 08, 2026 | [1.1.0](/jetpack/androidx/releases/navigation3#1.1.0) | - | - | [1.2.0-alpha01](/jetpack/androidx/releases/navigation3#1.2.0-alpha01) |
+ 
+ ## Declaring dependencies
+ 
+@@ -41,8 +40,8 @@ your app or module:
+ 
+ ```
+ dependencies {
+-    implementation "androidx.navigation3:navigation3-runtime:1.1.0-rc01"
+-    implementation "androidx.navigation3:navigation3-ui:1.1.0-rc01"
++    implementation "androidx.navigation3:navigation3-runtime:1.2.0-alpha01"
++    implementation "androidx.navigation3:navigation3-ui:1.2.0-alpha01"
+ }
+ ```
+ 
+@@ -50,8 +49,8 @@ dependencies {
+ 
+ ```
+ dependencies {
+-    implementation("androidx.navigation3:navigation3-runtime:1.1.0-rc01")
+-    implementation("androidx.navigation3:navigation3-ui:1.1.0-rc01")
++    implementation("androidx.navigation3:navigation3-runtime:1.2.0-alpha01")
++    implementation("androidx.navigation3:navigation3-ui:1.2.0-alpha01")
+ }
+ ```
+ 
+@@ -72,8 +71,46 @@ for more information.
+ 
+ There are no release notes for this artifact.
+ 
++## Version 1.2
++
++### Version 1.2.0-alpha01
++
++April 08, 2026
++
++`androidx.navigation3:navigation3-*:1.2.0-alpha01` is released. Version 1.2.0-alpha01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/65530abc6f586edfe303825bb9b94c9fb64c4a0f..08c0997a220e855b5c82a220cf3cc68ce0ff144b/navigation3).
++
++**Bug Fixes**
++
++* Accessing `LocalNavAnimatedContentScope` from an `OverlayScene` will no longer cause an `IllegalStateException` as `OverlayScenes` are now provided with a no-op `LocalAnimatedContentScope`. ([I2f00c](https://android-review.googlesource.com/#/q/I2f00c9c916cb77cfb85bb736ed8efc9ccedbd512), [b/486067688](https://issuetracker.google.com/issues/486067688))
++
+ ## Version 1.1
+ 
++### Version 1.1.0
++
++April 08, 2026
++
++`androidx.navigation3:navigation3-*:1.1.0` is released. Version 1.1.0 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/add6a0ae146bc8a21394e7a83e0fea2e8dc31b5a..65530abc6f586edfe303825bb9b94c9fb64c4a0f/navigation3).
++
++**1.1.0 is now stable!**
++
++**Important changes since 1.0.0**
++
++**Shared Elements between Scenes**
++- Navigation3 now supports treating scenes as shared element object. This means that when the scenes change, it is possible to ensure they have a smooth transition. You can enable this by passing a `SharedTransitionScope` to either the `NavDisplay` or to `rememberSceneState`.
++
++**SceneDecoratorStrategy**
++- Introduction of `SceneDecoratorStrategy` to support uses cases such as decorating scenes with common UI components or sharing state across scenes.
++
++**NavMetadata DSL**
++- Navigation3 now provides a new type-safe metadata DSL. The DSL uses a new `MetadataKey` interface that allows for defining the key and value types that they wish to provide to the metadata map. This also added new `NavMetadataKeys` for `NavDisplay` transitions so that they can be used with the new metadata DSL to add transitions to `NavDisplay`.
++
++**OverlayScene Animations**
++- The `OverlayScene` interface has a new `onRemoved` suspending callback. This callback is invoked after a key associated with the scene is removed from the backstack, but before it leaves composition. This allows exit animations called within `onRemoved`to complete before the overlay scene is removed from composition.
++
++**Other Changes**
++- `NavDisplay` and `rememberSceneState` now take a `List<SceneStrategy>` instead of the previous single `SceneStrategy` parameter that was chained by the `then` infix.
++- You can now dynamically add metadata with consideration for the entry key via the `EntryProvider` DSL.
++
+ ### Version 1.1.0-rc01
+ 
+ March 25, 2026

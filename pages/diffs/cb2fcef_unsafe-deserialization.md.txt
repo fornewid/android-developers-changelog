@@ -1,0 +1,12 @@
+diff --git a/docs/privacy-and-security/risks/unsafe-deserialization.md b/docs/privacy-and-security/risks/unsafe-deserialization.md
+index af5721d..531fbc9 100644
+--- a/docs/privacy-and-security/risks/unsafe-deserialization.md
++++ b/docs/privacy-and-security/risks/unsafe-deserialization.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ **OWASP category:** [MASVS-CODE: Code Quality](https://mas.owasp.org/MASVS/10-MASVS-CODE)
+ 
+ ## Overview

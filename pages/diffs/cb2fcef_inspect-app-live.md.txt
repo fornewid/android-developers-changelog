@@ -1,0 +1,12 @@
+diff --git a/docs/studio/profile/inspect-app-live.md b/docs/studio/profile/inspect-app-live.md
+index 222f16a..9222ab7 100644
+--- a/docs/studio/profile/inspect-app-live.md
++++ b/docs/studio/profile/inspect-app-live.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Inspecting your app live gives you a high-level overview of the device's CPU
+ usage, thread activity, and memory usage. If you don't know where to start with
+ profiling your app, use live view to conduct an exploratory analysis, and then

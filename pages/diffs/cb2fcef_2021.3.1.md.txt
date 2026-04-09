@@ -1,0 +1,12 @@
+diff --git a/docs/studio/releases/fixed-bugs/studio/2021.3.1.md b/docs/studio/releases/fixed-bugs/studio/2021.3.1.md
+index 708e306..4eb51d2 100644
+--- a/docs/studio/releases/fixed-bugs/studio/2021.3.1.md
++++ b/docs/studio/releases/fixed-bugs/studio/2021.3.1.md
+@@ -11,7 +11,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ ### Android Studio Dolphin Patch 1 (2021.3.1.17)
+ 
+ **Released together with:**

@@ -1,0 +1,12 @@
+diff --git a/docs/build/sdk-upgrade-assistant.md b/docs/build/sdk-upgrade-assistant.md
+index 9dbb8ae..48fb3cb 100644
+--- a/docs/build/sdk-upgrade-assistant.md
++++ b/docs/build/sdk-upgrade-assistant.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ The Android SDK Upgrade Assistant is a tool in Android Studio that helps you
+ upgrade the
+ [`targetSdkVersion`](/guide/topics/manifest/uses-sdk-element#target), or

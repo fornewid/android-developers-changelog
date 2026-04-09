@@ -1,0 +1,12 @@
+diff --git a/docs/tools/jetifier.md b/docs/tools/jetifier.md
+index c66a22f..a1ea3db 100644
+--- a/docs/tools/jetifier.md
++++ b/docs/tools/jetifier.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ The standalone Jetifier tool migrates support-library-dependent libraries to
+ instead rely on the equivalent AndroidX packages. The tool lets you migrate an
+ individual library directly instead of using the Android Gradle plugin bundled

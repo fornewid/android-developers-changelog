@@ -1,0 +1,12 @@
+diff --git a/docs/training/secure-file-sharing/request-file.md b/docs/training/secure-file-sharing/request-file.md
+index ff3bb8d..312ac02 100644
+--- a/docs/training/secure-file-sharing/request-file.md
++++ b/docs/training/secure-file-sharing/request-file.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ When an app wants to access a file shared by another app, the requesting app (the client)
+ usually sends a request to the app sharing the files (the server). In most cases, the request
+ starts an `Activity` in the server app that displays the files it can share.

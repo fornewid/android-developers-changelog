@@ -1,0 +1,103 @@
+diff --git a/docs/studio/nightly.md b/docs/studio/nightly.md
+index 6a35702..0e64ccc 100644
+--- a/docs/studio/nightly.md
++++ b/docs/studio/nightly.md
+@@ -29,11 +29,11 @@ Nightly builds can be unstable.
+ 
+ Download Panda 4
+ 
+-Panda 4 | 2025.3.4 Nightly 2026-04-07
++Panda 4 | 2025.3.4 Nightly 2026-04-09
+ for
+ ()
+ 
+-## Download Android Studio Panda 4 | 2025.3.4 Nightly 2026-04-07
++## Download Android Studio Panda 4 | 2025.3.4 Nightly 2026-04-09
+ 
+ Before downloading, you must agree to the following terms and conditions.
+ 
+@@ -139,15 +139,15 @@ This is the Android Software Development Kit License Agreement
+ 
+ I have read and agree with the above terms and conditions
+ 
+-Download Android Studio Panda 4 | 2025.3.4 Nightly 2026-04-07
++Download Android Studio Panda 4 | 2025.3.4 Nightly 2026-04-09
+ for Windows
+-[Download Android Studio Panda 4 | 2025.3.4 Nightly 2026-04-07
++[Download Android Studio Panda 4 | 2025.3.4 Nightly 2026-04-09
+ for
+-Windows](https://edgedl.me.gvt1.com/android/studio/ide-zips/2025.3.4.4/android-studio-nightly-2026-04-07-windows.zip)
++Windows](https://edgedl.me.gvt1.com/android/studio/ide-zips/2025.3.4.4/android-studio-nightly-2026-04-09-windows.zip)
+ 
+-*android-studio-nightly-2026-04-07-windows.zip*
++*android-studio-nightly-2026-04-09-windows.zip*
+ 
+-## Download Android Studio Panda 4 | 2025.3.4 Nightly 2026-04-07
++## Download Android Studio Panda 4 | 2025.3.4 Nightly 2026-04-09
+ 
+ Before downloading, you must agree to the following terms and conditions.
+ 
+@@ -255,19 +255,19 @@ I have read and agree with the above terms and conditions
+ 
+ ### Select the version of Android Studio that's right for your Mac:
+ 
+-#### Android Studio Panda 4 | 2025.3.4 Nightly 2026-04-07
++#### Android Studio Panda 4 | 2025.3.4 Nightly 2026-04-09
+ 
+ Mac with Apple chip
+-[Mac with Apple chip](https://edgedl.me.gvt1.com/android/studio/install/2025.3.4.4/android-studio-nightly-2026-04-07-mac_arm.dmg)
++[Mac with Apple chip](https://edgedl.me.gvt1.com/android/studio/install/2025.3.4.4/android-studio-nightly-2026-04-09-mac_arm.dmg)
+ 
+-*android-studio-nightly-2026-04-07-mac\_arm.dmg*
++*android-studio-nightly-2026-04-09-mac\_arm.dmg*
+ 
+ Mac with Intel chip
+-[Mac with Intel chip](https://edgedl.me.gvt1.com/android/studio/install/2025.3.4.4/android-studio-nightly-2026-04-07-mac.dmg)
++[Mac with Intel chip](https://edgedl.me.gvt1.com/android/studio/install/2025.3.4.4/android-studio-nightly-2026-04-09-mac.dmg)
+ 
+-*android-studio-nightly-2026-04-07-mac.dmg*
++*android-studio-nightly-2026-04-09-mac.dmg*
+ 
+-## Download Android Studio Panda 4 | 2025.3.4 Nightly 2026-04-07
++## Download Android Studio Panda 4 | 2025.3.4 Nightly 2026-04-09
+ 
+ Before downloading, you must agree to the following terms and conditions.
+ 
+@@ -373,15 +373,15 @@ This is the Android Software Development Kit License Agreement
+ 
+ I have read and agree with the above terms and conditions
+ 
+-Download Android Studio Panda 4 | 2025.3.4 Nightly 2026-04-07
++Download Android Studio Panda 4 | 2025.3.4 Nightly 2026-04-09
+ for Linux
+-[Download Android Studio Panda 4 | 2025.3.4 Nightly 2026-04-07
++[Download Android Studio Panda 4 | 2025.3.4 Nightly 2026-04-09
+ for
+-Linux](https://edgedl.me.gvt1.com/android/studio/ide-zips/2025.3.4.4/android-studio-nightly-2026-04-07-linux.tar.gz)
++Linux](https://edgedl.me.gvt1.com/android/studio/ide-zips/2025.3.4.4/android-studio-nightly-2026-04-09-linux.tar.gz)
+ 
+-*android-studio-nightly-2026-04-07-linux.tar.gz*
++*android-studio-nightly-2026-04-09-linux.tar.gz*
+ 
+-## Download Android Studio Panda 4 | 2025.3.4 Nightly 2026-04-07
++## Download Android Studio Panda 4 | 2025.3.4 Nightly 2026-04-09
+ 
+ Before downloading, you must agree to the following terms and conditions.
+ 
+@@ -487,10 +487,10 @@ This is the Android Software Development Kit License Agreement
+ 
+ I have read and agree with the above terms and conditions
+ 
+-Download Android Studio Panda 4 | 2025.3.4 Nightly 2026-04-07
++Download Android Studio Panda 4 | 2025.3.4 Nightly 2026-04-09
+ for ChromeOS
+-[Download Android Studio Panda 4 | 2025.3.4 Nightly 2026-04-07
++[Download Android Studio Panda 4 | 2025.3.4 Nightly 2026-04-09
+ for
+-ChromeOS](https://edgedl.me.gvt1.com/android/studio/install/2025.3.4.4/android-studio-nightly-2026-04-07-cros.deb)
++ChromeOS](https://edgedl.me.gvt1.com/android/studio/install/2025.3.4.4/android-studio-nightly-2026-04-09-cros.deb)
+ 
+-*android-studio-nightly-2026-04-07-cros.deb*
+\ No newline at end of file
++*android-studio-nightly-2026-04-09-cros.deb*
+\ No newline at end of file

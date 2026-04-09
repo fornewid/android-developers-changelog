@@ -1,0 +1,12 @@
+diff --git a/docs/guide/navigation/backstack.md b/docs/guide/navigation/backstack.md
+index 6c6b709..83c5349 100644
+--- a/docs/guide/navigation/backstack.md
++++ b/docs/guide/navigation/backstack.md
+@@ -12,6 +12,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ The `NavController` holds a "back stack" that contains the destinations the user
+ has visited. As the user navigates to screens throughout your app, the
+ `NavController` adds and removes destinations to and from the back stack.

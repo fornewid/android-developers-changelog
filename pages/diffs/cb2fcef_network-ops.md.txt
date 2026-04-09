@@ -1,0 +1,12 @@
+diff --git a/docs/develop/connectivity/network-ops.md b/docs/develop/connectivity/network-ops.md
+index a4c8b40..e9e3b04 100644
+--- a/docs/develop/connectivity/network-ops.md
++++ b/docs/develop/connectivity/network-ops.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ The guides in this section explain the basic tasks involved in connecting to the
+ network, monitoring the network connection (including connection changes), and
+ giving users control over an app\'s network usage. They also describe how to

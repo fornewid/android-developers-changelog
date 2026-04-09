@@ -1,0 +1,12 @@
+diff --git a/docs/games/services/unity/v2/api/class/google-play-games/basic-api/auth-scope-extensions.md b/docs/games/services/unity/v2/api/class/google-play-games/basic-api/auth-scope-extensions.md
+index 8162cc3..34238a3 100644
+--- a/docs/games/services/unity/v2/api/class/google-play-games/basic-api/auth-scope-extensions.md
++++ b/docs/games/services/unity/v2/api/class/google-play-games/basic-api/auth-scope-extensions.md
+@@ -14,7 +14,6 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
+-
+ # GooglePlayGames.BasicApi.AuthScopeExtensions
+ 
+ Extensions for the AuthScope enum.

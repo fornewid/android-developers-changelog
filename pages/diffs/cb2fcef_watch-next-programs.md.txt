@@ -1,0 +1,12 @@
+diff --git a/docs/training/tv/discovery/watch-next-programs.md b/docs/training/tv/discovery/watch-next-programs.md
+index 629383a..9ad2198 100644
+--- a/docs/training/tv/discovery/watch-next-programs.md
++++ b/docs/training/tv/discovery/watch-next-programs.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ When you add an audio or video program to the **Play Next** row, you must include
+ the attributes in the following table in addition to the attributes for audio and
+ video programs. Each attribute is linked to the corresponding setter in

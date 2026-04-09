@@ -1,0 +1,20 @@
+diff --git a/docs/games/optimize/adpf/gamemode/gamestate-api.md b/docs/games/optimize/adpf/gamemode/gamestate-api.md
+index ece34a8..eb00cfa 100644
+--- a/docs/games/optimize/adpf/gamemode/gamestate-api.md
++++ b/docs/games/optimize/adpf/gamemode/gamestate-api.md
+@@ -15,6 +15,7 @@ Send feedback
+ 
+ 
+ 
++
+ **Released**:
+ 
+ Android 13 (API Level 33) - [Java](/reference/android/app/GameState)
+@@ -45,4 +46,6 @@ patterns is discovered in the future.
+ 
+ 
+ 
++
++
+ Send feedback
+\ No newline at end of file

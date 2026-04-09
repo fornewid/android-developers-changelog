@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/compose/quick-guides/content/display-layered-image.md b/docs/develop/ui/compose/quick-guides/content/display-layered-image.md
+index 18cbd8a..3d3ed6b 100644
+--- a/docs/develop/ui/compose/quick-guides/content/display-layered-image.md
++++ b/docs/develop/ui/compose/quick-guides/content/display-layered-image.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ You can blend or overlay source images to display layered images on a canvas.
+ For example, you can replicate how the Android Framework generates app icons by
+ combining separate background and foreground drawables. To display layered

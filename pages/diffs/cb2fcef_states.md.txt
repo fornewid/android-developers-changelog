@@ -1,0 +1,12 @@
+diff --git a/docs/develop/background-work/background-tasks/persistent/how-to/states.md b/docs/develop/background-work/background-tasks/persistent/how-to/states.md
+index a9dcb2e..8078bc2 100644
+--- a/docs/develop/background-work/background-tasks/persistent/how-to/states.md
++++ b/docs/develop/background-work/background-tasks/persistent/how-to/states.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Work goes through a series of [`State`](/reference/androidx/work/WorkInfo.State)
+ changes over its lifetime.
+ 

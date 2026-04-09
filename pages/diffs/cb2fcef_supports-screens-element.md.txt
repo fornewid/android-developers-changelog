@@ -1,0 +1,12 @@
+diff --git a/docs/guide/topics/manifest/supports-screens-element.md b/docs/guide/topics/manifest/supports-screens-element.md
+index 3c9d3c2..ec67d4a 100644
+--- a/docs/guide/topics/manifest/supports-screens-element.md
++++ b/docs/guide/topics/manifest/supports-screens-element.md
+@@ -12,6 +12,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ syntax:
+ :   ```
+     <supports-screens android:resizeable=["true"| "false"]

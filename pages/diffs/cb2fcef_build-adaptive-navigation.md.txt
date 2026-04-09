@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/compose/layouts/adaptive/build-adaptive-navigation.md b/docs/develop/ui/compose/layouts/adaptive/build-adaptive-navigation.md
+index 67b3be8..44b37a7 100644
+--- a/docs/develop/ui/compose/layouts/adaptive/build-adaptive-navigation.md
++++ b/docs/develop/ui/compose/layouts/adaptive/build-adaptive-navigation.md
+@@ -14,6 +14,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Most apps have a few top-level destinations that are accessible through the
+ app's primary navigation UI. In compact windows, such as a standard phone
+ display, the destinations are typically displayed in a navigation bar at the

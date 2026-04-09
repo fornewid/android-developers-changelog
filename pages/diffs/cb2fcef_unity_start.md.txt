@@ -1,0 +1,107 @@
+diff --git a/docs/games/playgames/native-pc/unity/unity_start.md b/docs/games/playgames/native-pc/unity/unity_start.md
+index 54cace3..e183eb2 100644
+--- a/docs/games/playgames/native-pc/unity/unity_start.md
++++ b/docs/games/playgames/native-pc/unity/unity_start.md
+@@ -1,9 +1,17 @@
+ ---
+-title: https://developer.android.com/games/playgames/native-pc/unity/unity_start
++title: Integrate Google Play Games PC SDK with Unity  |  Play for Native PC  |  Android Developers
+ url: https://developer.android.com/games/playgames/native-pc/unity/unity_start
+-source: md.txt
++source: html-scrape
+ ---
+ 
++* [Home](https://developer.android.com/)
++* [Play for Native PC](https://developer.android.com/games/playgames/native-pc)
++* [Guides](https://developer.android.com/games/playgames/native-pc/setup)
++
++# Integrate Google Play Games PC SDK with Unity Stay organized with collections Save and categorize content based on your preferences.
++
++
++
+ This guide provides step-by-step instructions for integrating the
+ Google Play Games PC SDK into your Unity project.
+ 
+@@ -11,7 +19,7 @@ Google Play Games PC SDK into your Unity project.
+ 
+ Download the latest version of the Unity Package using the download link.
+ 
+-Download: [Play Games PC Unity SDK](https://dl.google.com/play/games/native/sdk/unity/play_pc_sdk_unity_26.2.121.0.tgz)
++Download: [Play Games PC Unity SDK](/games/playgames/native-pc/downloads/unity)
+ 
+ ## Step 2: Import the package
+ 
+@@ -26,35 +34,33 @@ to use the `IL2CPP` scripting backend and target the correct architecture.
+ 
+ 1. [Create a build profile](https://docs.unity3d.com/6000.3/Documentation/Manual/create-build-profile.html)
+    with **Windows** as the platform.
+-
+ 2. Select the [platform settings](https://docs.unity3d.com/6000.3/Documentation/Manual/build-profiles-reference.html#platform-settings)
+    as Windows. For the [architecture](https://docs.unity3d.com/6000.3/Documentation/Manual/WindowsStandaloneBinaries.html), use the options:
+ 
+-   - **Intel 64-bit** (Recommended)
+-   - **Intel 32-bit**
++   * **Intel 64-bit** (Recommended)
++   * **Intel 32-bit**
+ 
+    **Note:** The Google Play Games on PC platform runs on a 64-bit environment.
+    You can build your game as 32-bit (x86) or 64-bit (x64).
+-3. Set **Scripting Backend** to **IL2CPP** .
++3. Set **Scripting Backend** to **IL2CPP**.
+    For more information, see [Building a project with IL2CPP](https://docs.unity3d.com/6000.3/Documentation/Manual/il2cpp-introduction.html).
+ 
+-   - Set **Api Compatibility Level** to **.NET Standard 2.0** (or .NET Framework).
++   * Set **Api Compatibility Level** to **.NET Standard 2.0** (or .NET Framework).
+ 
+ ## Step 4: Create the application manifest
+ 
+ Before you can use the SDK in your game, you must associate your game executable
+-with the Play package name that you claimed in the **Play Console** . You do this
++with the Play package name that you claimed in the **Play Console**. You do this
+ by adding a `manifest.xml` file in the same directory as your game's executable.
+ 
+ **Note:** This is a manual step that must be performed.
+ 
+-1. To build your game executable file, select **File \> Build and
++1. To build your game executable file, select **File > Build and
+    Run** or click `Ctrl+B`.
+ 2. Open a text editor and create a new file named `manifest.xml`.
+ 3. Copy and paste the following XML code into the file:
+ 
+-
+-   ```xml
++   ```
+    <?xml version="1.0" encoding="utf-8"?>
+    <?Manifest version="1">
+       <?Application>
+@@ -62,16 +68,17 @@ by adding a `manifest.xml` file in the same directory as your game's executable.
+       <?/Application>
+    <?/Manifest>
+    ```
+-
+-   <br />
+-
+ 4. Save the file as `manifest.xml`.
+-
+ 5. Move this file into the same folder as your built game executable file.
+ 
+    Example: If your game is at `Builds/MyGame.exe`, the manifest must be at
+    `Builds/manifest.xml`.
+ 
++**Note:** If you want to use the PC SDK while developing in the Unity Editor
++without needing to digitally sign your game executable or launch it from Google
++Play Games. For additional manifest configuration steps, see
++[developer mode setup guide](/games/playgames/native-pc/setup/developer_mode).
++
+ ## Step 5: Initialize the SDK
+ 
+ You must initialize the SDK before accessing any features, such as Billing or
+@@ -81,7 +88,7 @@ start the connection.
+ Create a new C# script, for example, `SdkInitialization.cs`, and add the
+ following code:
+ 
+-```c#
++```
+ using UnityEngine;
+ using System;
+ using System.Threading.Tasks;

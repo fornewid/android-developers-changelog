@@ -1,0 +1,99 @@
+diff --git a/docs/identity/legacy/one-tap/legacy-get-started.md b/docs/identity/legacy/one-tap/legacy-get-started.md
+index 9741203..4667634 100644
+--- a/docs/identity/legacy/one-tap/legacy-get-started.md
++++ b/docs/identity/legacy/one-tap/legacy-get-started.md
+@@ -1,41 +1,70 @@
+ ---
+-title: https://developer.android.com/identity/legacy/one-tap/legacy-get-started
++title: Get started with One Tap sign-in and sign-up  |  Identity  |  Android Developers
+ url: https://developer.android.com/identity/legacy/one-tap/legacy-get-started
+-source: md.txt
++source: html-scrape
+ ---
+ 
+-| **Caution:** One Tap for Android is deprecated. To ensure the continued security and usability of your app, [migrate to
+-| Credential Manager](https://developer.android.com/identity/sign-in/credential-manager). Credential Manager supports passkey, password, and federated identity authentication (such as Sign-in with Google), stronger security, and a more consistent user experience.
++* [Android Developers](https://developer.android.com/)
++* [Design & Plan](https://developer.android.com/design)
++* [Security](https://developer.android.com/security)
++* [Identity](https://developer.android.com/identity)
++* [Guides](https://developer.android.com/identity/credential-manager)
++
++# Get started with One Tap sign-in and sign-up Stay organized with collections Save and categorize content based on your preferences.
++
++
++
++
++**Caution:**
++One Tap for Android is deprecated.
++To ensure the continued security and usability of your app,
++[migrate to
++Credential Manager](/identity/sign-in/credential-manager). Credential Manager supports passkey, password, and
++federated identity authentication (such as Sign-in with Google), stronger
++security, and a more consistent user experience.
+ 
+ Before you add One Tap sign-in to your app, set up your Google APIs and Android
+ projects.
+ 
+ ## Set up your Google APIs console project
+ 
+-1. Open your project in the [API Console](https://console.cloud.google.com/), or create a project if you don't already have one.
+-2. On the OAuth consent screen page, make sure all of the information is complete and accurate. In particular, make sure you have specified the URLs of your app's privacy policy and terms of service.
+-3. On the Credentials page, create an Android client ID for your app if you don't already have one. You will need to specify your app's package name and SHA-1 signature.
++1. Open your project in the [API Console](https://console.cloud.google.com/),
++   or create a project if you don't already have one.
++2. On the OAuth consent screen page, make sure all of the information is
++   complete and accurate. In particular, make sure you have specified the URLs
++   of your app's privacy policy and terms of service.
++3. On the Credentials page, create an Android client ID for your app if you
++   don't already have one. You will need to specify your app's package name and
++   SHA-1 signature.
+    1. Go to the [Credentials page](https://console.cloud.google.com/apis/credentials).
+-   2. Click **Create credentials \> OAuth client ID**.
++   2. Click **Create credentials > OAuth client ID**.
+    3. Select the **Android** application type.
+-4. On the Credentials page, create a web application client ID if you don't already have one. You can leave the Authorized JavaScript Origins and Authorized redirect URIs fields blank. This client ID represents your authentication backend server. (You would use this client ID when calling Google APIs from your server, but you need it even if you don't.)
++4. On the Credentials page, create a web application client ID if you don't
++   already have one. You can leave the Authorized JavaScript Origins and
++   Authorized redirect URIs fields blank. This client ID represents your
++   authentication backend server. (You would use this client ID when calling
++   Google APIs from your server, but you need it even if you don't.)
+    1. Go to the [Credentials page](https://console.cloud.google.com/apis/credentials).
+-   2. Click **Create credentials \> OAuth client ID**.
++   2. Click **Create credentials > OAuth client ID**.
+    3. Select the **Web application** application type.
+ 
+ ## Include dependencies in your Android project
+ 
+-1. In your project-level `build.gradle` file, make sure to include Google's Maven repository (`google()`) in both your `buildscript` and `allprojects` sections.
++1. In your project-level `build.gradle` file, make sure to include Google's
++   Maven repository (`google()`) in both your `buildscript` and `allprojects`
++   sections.
+ 2. Add the dependencies for [Google Play services](https://developers.google.com/android)' authentication libraries
+    to your module (app-level) build file (usually `app/build.gradle`):
+ 
+-       apply plugin: 'com.android.application'
++   ```
++   apply plugin: 'com.android.application'
+ 
+-       dependencies {
+-         // ...
++   dependencies {
++     // ...
+ 
+-         implementation 'com.google.android.gms:play-services-auth:21.3.0'
+-       }
++     implementation 'com.google.android.gms:play-services-auth:21.3.0'
++   }
++   ```
+ 
+ ## Optional: Associate your app with your site
+ 
+@@ -45,4 +74,4 @@ so that users who sign in on one platform can easily sign in on the other.
+ 
+ ## Next steps
+ 
+-[Add One Tap sign-in flows to your app](https://developer.android.com/identity/legacy/one-tap/legacy-get-saved-credentials).
+\ No newline at end of file
++[Add One Tap sign-in flows to your app](/identity/legacy/one-tap/legacy-get-saved-credentials).
+\ No newline at end of file

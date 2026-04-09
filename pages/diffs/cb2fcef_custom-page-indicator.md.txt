@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/compose/quick-guides/content/custom-page-indicator.md b/docs/develop/ui/compose/quick-guides/content/custom-page-indicator.md
+index 5acac1c..d0a0f3d 100644
+--- a/docs/develop/ui/compose/quick-guides/content/custom-page-indicator.md
++++ b/docs/develop/ui/compose/quick-guides/content/custom-page-indicator.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Using page indicators, you can help your users understand their current position
+ within your app's content, providing a visual indication of progress. These
+ navigational cues are useful when you present content sequentially, such as

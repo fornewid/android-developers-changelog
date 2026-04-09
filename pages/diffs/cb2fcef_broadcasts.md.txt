@@ -1,0 +1,12 @@
+diff --git a/docs/develop/background-work/background-tasks/broadcasts.md b/docs/develop/background-work/background-tasks/broadcasts.md
+index 5ed79db..ad9796f 100644
+--- a/docs/develop/background-work/background-tasks/broadcasts.md
++++ b/docs/develop/background-work/background-tasks/broadcasts.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Android apps send and receive broadcast messages from the Android system and
+ other Android apps, similar to the [publish-subscribe](https://en.wikipedia.org/wiki/Publish%E2%80%93subscribe_pattern) design pattern. The
+ system and apps typically send broadcasts when certain events occur. For

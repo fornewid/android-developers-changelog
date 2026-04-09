@@ -1,0 +1,83 @@
+diff --git a/docs/develop/ui/compose/components/bottom-sheets.md b/docs/develop/ui/compose/components/bottom-sheets.md
+index 2cf897c..970eeef 100644
+--- a/docs/develop/ui/compose/components/bottom-sheets.md
++++ b/docs/develop/ui/compose/components/bottom-sheets.md
+@@ -1,48 +1,40 @@
+ ---
+-title: Bottom sheets  |  Jetpack Compose  |  Android Developers
++title: https://developer.android.com/develop/ui/compose/components/bottom-sheets
+ url: https://developer.android.com/develop/ui/compose/components/bottom-sheets
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-* [Develop](https://developer.android.com/develop)
+-* [Core areas](https://developer.android.com/develop/core-areas)
+-* [UI](https://developer.android.com/develop/ui)
+-* [Docs](https://developer.android.com/develop/ui/compose/documentation)
+-
+-# Bottom sheets Stay organized with collections Save and categorize content based on your preferences.
+-
+-
+-
+-![An example of a Material Design 3 modal bottom sheet.](/static/develop/ui/compose/images/layouts/material/m3-bottom-sheet.png)
++![An example of a Material Design 3 modal bottom sheet.](https://developer.android.com/static/develop/ui/compose/images/layouts/material/m3-bottom-sheet.png)
+ 
+ If you want to implement a [bottom sheet](https://m3.material.io/components/bottom-sheets/overview), you can use the
+-[`ModalBottomSheet`](/reference/kotlin/androidx/compose/material3/ModalBottomSheet.composable) composable.
++[`ModalBottomSheet`](https://developer.android.com/reference/kotlin/androidx/compose/material3/ModalBottomSheet.composable) composable.
+ 
+-You can use the `content` slot, which uses a [`ColumnScope`](/reference/kotlin/androidx/compose/foundation/layout/ColumnScope) to layout sheet
++You can use the `content` slot, which uses a [`ColumnScope`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/ColumnScope) to layout sheet
+ content composables in a column:
+ 
+-```
++
++```kotlin
+ ModalBottomSheet(onDismissRequest = { /* Executed when the sheet is dismissed */ }) {
+     // Sheet content
+ }
+-
+-MaterialLayoutSnippets.kt
+ ```
+ 
++<br />
++
+ ## Control sheet state programmatically
+ 
+ To programmatically expand and collapse the sheet, use
+-[`SheetState`](/reference/kotlin/androidx/compose/material3/SheetState). You can use [`rememberModalBottomSheetState`](/reference/kotlin/androidx/compose/material3/rememberModalBottomSheetState.composable#rememberModalBottomSheetState(kotlin.Boolean,kotlin.Function1)) to create
++[`SheetState`](https://developer.android.com/reference/kotlin/androidx/compose/material3/SheetState). You can use [`rememberModalBottomSheetState`](https://developer.android.com/reference/kotlin/androidx/compose/material3/rememberModalBottomSheetState.composable#rememberModalBottomSheetState(kotlin.Boolean,kotlin.Function1)) to create
+ an instance of `SheetState` that must be passed to `ModalBottomSheet` with
+-the `sheetState` parameter. `SheetState` provides access to the [`show`](/reference/kotlin/androidx/compose/material3/SheetState#show())
+-and [`hide`](/reference/kotlin/androidx/compose/material3/SheetState#hide()) functions, as well as properties related to the current sheet
+-state. These suspending functions require a `CoroutineScope` — for example,
+-using [`rememberCoroutineScope`](/reference/kotlin/androidx/compose/runtime/rememberCoroutineScope.composable) — and you can call them in response to UI
++the `sheetState` parameter. `SheetState` provides access to the [`show`](https://developer.android.com/reference/kotlin/androidx/compose/material3/SheetState#show())
++and [`hide`](https://developer.android.com/reference/kotlin/androidx/compose/material3/SheetState#hide()) functions, as well as properties related to the current sheet
++state. These suspending functions require a `CoroutineScope` --- for example,
++using [`rememberCoroutineScope`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/rememberCoroutineScope.composable) --- and you can call them in response to UI
+ events. Make sure to remove the `ModalBottomSheet` from composition upon hiding
+ the bottom sheet.
+ 
+-```
++
++```kotlin
+ val sheetState = rememberModalBottomSheetState()
+ val scope = rememberCoroutineScope()
+ var showBottomSheet by remember { mutableStateOf(false) }
+@@ -79,8 +71,8 @@ Scaffold(
+         }
+     }
+ }
+-
+-MaterialLayoutSnippets.kt
+ ```
+ 
+-![A modal bottom sheet in Jetpack Compose showing content.](/static/develop/ui/compose/images/layouts/material/modal_bottom_sheet.png)
+\ No newline at end of file
++<br />
++
++![A modal bottom sheet in Jetpack Compose showing content.](https://developer.android.com/static/develop/ui/compose/images/layouts/material/modal_bottom_sheet.png)
+\ No newline at end of file

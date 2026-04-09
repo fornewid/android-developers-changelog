@@ -1,0 +1,12 @@
+diff --git a/docs/jetpack/androidx/releases/wear-watchface.md b/docs/jetpack/androidx/releases/wear-watchface.md
+index 7cdc63d..551d7ff 100644
+--- a/docs/jetpack/androidx/releases/wear-watchface.md
++++ b/docs/jetpack/androidx/releases/wear-watchface.md
+@@ -15,6 +15,7 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
++
+ # Wear Watchface
+ 
+ [User Guide](/training/wearables)  [Code Sample](https://github.com/android/wear-os-samples)

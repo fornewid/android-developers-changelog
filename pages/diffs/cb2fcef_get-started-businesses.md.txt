@@ -1,0 +1,12 @@
+diff --git a/docs/studio/gemini/get-started-businesses.md b/docs/studio/gemini/get-started-businesses.md
+index 88f27fb..45d4836 100644
+--- a/docs/studio/gemini/get-started-businesses.md
++++ b/docs/studio/gemini/get-started-businesses.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ **Note:** You can get Gemini in Android Studio for businesses by subscribing to
+ [Gemini Code Assist](https://codeassist.google/#compare-gemini-code-assist-offerings),
+ described on this page, or by getting membership in the

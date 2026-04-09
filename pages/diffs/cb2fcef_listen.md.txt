@@ -1,0 +1,12 @@
+diff --git a/docs/guide/playcore/engage/listen.md b/docs/guide/playcore/engage/listen.md
+index 5208ad0..dd975be 100644
+--- a/docs/guide/playcore/engage/listen.md
++++ b/docs/guide/playcore/engage/listen.md
+@@ -12,6 +12,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Boost app engagement by reaching your users where they are. Integrate Engage SDK
+ to deliver personalized recommendations and continuation content directly to
+ users across multiple on-device surfaces, like

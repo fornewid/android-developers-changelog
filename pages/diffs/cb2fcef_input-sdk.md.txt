@@ -1,0 +1,120 @@
+diff --git a/docs/games/playgames/input-sdk.md b/docs/games/playgames/input-sdk.md
+index 23103f8..b1e4c8b 100644
+--- a/docs/games/playgames/input-sdk.md
++++ b/docs/games/playgames/input-sdk.md
+@@ -1,26 +1,40 @@
+ ---
+-title: https://developer.android.com/games/playgames/input-sdk
++title: Input SDK  |  Android game development  |  Android Developers
+ url: https://developer.android.com/games/playgames/input-sdk
+-source: md.txt
++source: html-scrape
+ ---
+ 
+-> [!NOTE]
+-> **Note:** Games that are played with only the left-mouse button are not required to integrate the Input SDK. These games are supported using with the [compatibility mode](https://developer.android.com/games/playgames/input#compatibility-mode). This document applies to all other games that need more than the left-mouse button.
++* [Android Developers](https://developer.android.com/)
++* [Google Play](https://developer.android.com/distribute)
++* [Games dev center](https://developer.android.com/games)
++* [Guides](https://developer.android.com/games/guides)
++
++Send feedback
++
++# Input SDK Stay organized with collections Save and categorize content based on your preferences.
++
++
++
++
++**Note:** Games that are played with only the left-mouse button are not required to
++integrate the Input SDK. These games are supported using with the
++[compatibility mode](/games/playgames/input#compatibility-mode). This document
++applies to all other games that need more than the left-mouse button.
+ 
+ The Input SDK provides a unified interface that allows players to
+ view and change the mouse and keyboard bindings for any game they wish to play
+ on Google Play Games on PC. At any point during gameplay, a player can summon
+ the Google Play Games on PC overlay as seen in this screenshot:
+ 
+-![A screenshot showing the Input SDK rendered over a sample game](https://developer.android.com/static/images/games/playgames/input-sdk-overlay.png)
++![A screenshot showing the Input SDK rendered over a sample game](/static/images/games/playgames/input-sdk-overlay.png)
+ 
+ This SDK is **required** for games that use keyboard on Google Play Games on PC
+ because Android mobile games are designed around a touchscreen for player input.
+ When developing for PCs, games need to support a mouse and keyboard instead. You
+ should only enable this SDK on Google Play Games on PC.
+ 
+-> [!NOTE]
+-> **Note:** For information about the other Google Play Games on PC requirements, see [Get started with Google Play Games on PC](https://developer.android.com/games/playgames/start).
++**Note:** For information about the other Google Play Games on PC requirements, see
++[Get started with Google Play Games on PC](/games/playgames/start).
+ 
+ The Input SDK is an important element for keeping players happy and
+ engaged with your game on different platforms. The experience afforded by
+@@ -39,13 +53,13 @@ When using the remapping feature, Android will detect when the user is typing te
+ into a text field and disable remapping, so your game doesn't have to
+ manually disable remapping for these scenarios.
+ 
+-For more information, see [best practices](https://developer.android.com/games/playgames/input-sdk-start#input-sdk-best-practices)
+-and [restrictions](https://developer.android.com/games/playgames/input-sdk-start#remapping-restrictions) of the Input SDK to help build the best PC experience possible for your game.
++For more information, see [best practices](/games/playgames/input-sdk-start#input-sdk-best-practices)
++and [restrictions](/games/playgames/input-sdk-start#remapping-restrictions) of the Input SDK to help build the best PC experience possible for your game.
+ 
+ ## Integration guide
+ 
+ For information about integrating the Input SDK, see
+-[Get started with the Input SDK](https://developer.android.com/games/playgames/input-sdk-start).
++[Get started with the Input SDK](/games/playgames/input-sdk-start).
+ 
+ ## Sample games
+ 
+@@ -69,25 +83,32 @@ your use of the Google Input SDK.
+ The Google Input SDK may collect performance and stability data to
+ improve our product, including the following data:
+ 
+-- Number of calls to the Input SDK methods.
+-- Number of non-successful calls to Input SDK methods.
+-- InputMap aggregated information like:
+-  - Number of defined actions and groups.
+-  - Number of defined single-key, multi-key and mouse actions.
+-  - Number of defined mouse actions.
+-  - Number of remappable actions and groups.
+-  - Number of remapping-reserved keys.
+-  - InputMap remapping option (enabled/disabled).
+-- Game's package name.
+-- Game's version number.
+-- Game's version name.
+-- Input SDK version.
+-- Client variants such as Google Play Games on PC or other clients.
++* Number of calls to the Input SDK methods.
++* Number of non-successful calls to Input SDK methods.
++* InputMap aggregated information like:
++  + Number of defined actions and groups.
++  + Number of defined single-key, multi-key and mouse actions.
++  + Number of defined mouse actions.
++  + Number of remappable actions and groups.
++  + Number of remapping-reserved keys.
++  + InputMap remapping option (enabled/disabled).
++* Game's package name.
++* Game's version number.
++* Game's version name.
++* Input SDK version.
++* Client variants such as Google Play Games on PC or other clients.
+ 
+ The Input SDK is
+ [available on the Google Maven Repository](https://maven.google.com/web/index.html#com.google.android.libraries.play.games:inputmapping).
+-See the [Getting Started Guide](https://developer.android.com/games/playgames/input-sdk-start#adding-the-sdk) for instructions
++See the [Getting Started Guide](/games/playgames/input-sdk-start#adding-the-sdk) for instructions
+ on how to your Java or Kotlin project.
+ 
+ Download the Input SDK for Unity from the
+-[Play Unity Plugins repository](https://developers.google.com/unity/packages#input_sdk).
+\ No newline at end of file
++[Play Unity Plugins repository](https://developers.google.com/unity/packages#input_sdk).
++
++
++
++
++
++
++Send feedback
+\ No newline at end of file

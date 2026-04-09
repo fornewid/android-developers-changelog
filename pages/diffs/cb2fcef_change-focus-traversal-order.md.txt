@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/compose/touch-input/focus/change-focus-traversal-order.md b/docs/develop/ui/compose/touch-input/focus/change-focus-traversal-order.md
+index d9a7667..9df5a7b 100644
+--- a/docs/develop/ui/compose/touch-input/focus/change-focus-traversal-order.md
++++ b/docs/develop/ui/compose/touch-input/focus/change-focus-traversal-order.md
+@@ -14,6 +14,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ The [Default focus traversal order](/develop/ui/compose/touch-input/focus) section described how Compose
+ automatically adds focus traversal behavior to your elements, for both
+ one-dimensional (`tab` key) and two-dimensional (arrow keys) navigation. In some

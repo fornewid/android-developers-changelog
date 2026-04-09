@@ -1,0 +1,12 @@
+diff --git a/docs/studio/tools/help/layoutopt.md b/docs/studio/tools/help/layoutopt.md
+index 99eb196..81e59f1 100644
+--- a/docs/studio/tools/help/layoutopt.md
++++ b/docs/studio/tools/help/layoutopt.md
+@@ -11,6 +11,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ **Note:** The Android `layoutopt` tool has been replaced
+ by the `lint` tool beginning in SDK Tools revision 16. The `lint` tool reports UI
+ layout performance issues in a similar way as `layoutopt` and detects additional problems.

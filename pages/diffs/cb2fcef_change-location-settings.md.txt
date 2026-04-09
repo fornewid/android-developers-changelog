@@ -1,0 +1,197 @@
+diff --git a/docs/develop/sensors-and-location/location/change-location-settings.md b/docs/develop/sensors-and-location/location/change-location-settings.md
+index f475613..35b95c7 100644
+--- a/docs/develop/sensors-and-location/location/change-location-settings.md
++++ b/docs/develop/sensors-and-location/location/change-location-settings.md
+@@ -1,9 +1,19 @@
+ ---
+-title: https://developer.android.com/develop/sensors-and-location/location/change-location-settings
++title: Change location settings  |  Sensors and location  |  Android Developers
+ url: https://developer.android.com/develop/sensors-and-location/location/change-location-settings
+-source: md.txt
++source: html-scrape
+ ---
+ 
++* [Android Developers](https://developer.android.com/)
++* [Develop](https://developer.android.com/develop)
++* [Core areas](https://developer.android.com/develop/core-areas)
++* [Sensors and location](https://developer.android.com/develop/sensors-and-location)
++
++# Change location settings Stay organized with collections Save and categorize content based on your preferences.
++
++
++
++
+ If your app needs to request location or receive permission updates, the
+ device needs to enable the appropriate system settings, such as GPS or Wi-Fi
+ scanning. Rather than directly enabling services such as the device's GPS,
+@@ -27,7 +37,7 @@ then check the current location settings and prompt the user to enable the
+ required settings if needed.
+ 
+ Apps whose features use location services must
+-[request location permissions](https://developer.android.com/training/location/permissions),
++[request location permissions](/training/location/permissions),
+ depending on the use cases of those features.
+ 
+ ## Set up a location request
+@@ -40,43 +50,54 @@ details of all available location request options, see the
+ class reference. This lesson sets the update interval, fastest update
+ interval, and priority, as described below:
+ 
+-
+ Update interval
+-:
+-    [`setIntervalMillis()`](https://developers.google.com/android/reference/com/google/android/gms/location/LocationRequest.Builder#setIntervalMillis(long))
++:   [`setIntervalMillis()`](https://developers.google.com/android/reference/com/google/android/gms/location/LocationRequest.Builder#setIntervalMillis(long))
+     - This method sets the rate in milliseconds at which your app prefers to
+     receive location updates. Note that the location updates may be somewhat
+     faster or slower than this rate to optimize for battery usage, or there may
+     be no updates at all (if the device has no connectivity, for example).
+ 
+-
+ Fastest update interval
+-:
+-    [`setMinUpdateIntervalMillis()`](https://developers.google.com/android/reference/com/google/android/gms/location/LocationRequest.Builder#setMinUpdateIntervalMillis(long))
++:   [`setMinUpdateIntervalMillis()`](https://developers.google.com/android/reference/com/google/android/gms/location/LocationRequest.Builder#setMinUpdateIntervalMillis(long))
+     - This method sets the **fastest** rate in milliseconds at
+     which your app can handle location updates. Unless your app benefits from
+     receiving updates more quickly than the rate specified in
+     `setInterval()`, you don't need to call this method.
+ 
+ Priority
+-
+-:
+-    [`setPriority()`](https://developers.google.com/android/reference/com/google/android/gms/location/LocationRequest.Builder#setPriority(int))
++:   [`setPriority()`](https://developers.google.com/android/reference/com/google/android/gms/location/LocationRequest.Builder#setPriority(int))
+     - This method sets the priority of the request, which gives the Google Play
+     services location services a strong hint about which location sources to use.
+     The following values are supported:
+ 
+-    - [`PRIORITY_BALANCED_POWER_ACCURACY`](https://developers.google.com/android/reference/com/google/android/gms/location/Priority#PRIORITY_BALANCED_POWER_ACCURACY) - Use this setting to request location precision to within a city block, which is an accuracy of approximately 100 meters. This is considered a coarse level of accuracy, and is likely to consume less power. With this setting, the location services are likely to use WiFi and cell tower positioning. Note, however, that the choice of location provider depends on many other factors, such as which sources are available.
+-    - [`PRIORITY_HIGH_ACCURACY`](https://developers.google.com/android/reference/com/google/android/gms/location/Priority#PRIORITY_HIGH_ACCURACY) - Use this setting to request the most precise location possible. With this setting, the location services are more likely to use GPS to determine the location.
+-    - [`PRIORITY_LOW_POWER`](https://developers.google.com/android/reference/com/google/android/gms/location/Priority#PRIORITY_LOW_POWER) - Use this setting to request city-level precision, which is an accuracy of approximately 10 kilometers. This is considered a coarse level of accuracy, and is likely to consume less power.
+-    - [`PRIORITY_PASSIVE`](https://developers.google.com/android/reference/com/google/android/gms/location/Priority#PRIORITY_PASSIVE) - Use this setting if you need negligible impact on power consumption, but want to receive location updates when available. With this setting, your app does not trigger any location updates, but receives locations triggered by other apps.
++    * [`PRIORITY_BALANCED_POWER_ACCURACY`](https://developers.google.com/android/reference/com/google/android/gms/location/Priority#PRIORITY_BALANCED_POWER_ACCURACY)
++      - Use this setting to request location precision to within a city
++      block, which is an accuracy of approximately 100 meters. This is
++      considered a coarse level of accuracy, and is likely to consume less
++      power. With this setting, the location services are likely to use WiFi
++      and cell tower positioning. Note, however, that the choice of location
++      provider depends on many other factors, such as which sources are
++      available.
++    * [`PRIORITY_HIGH_ACCURACY`](https://developers.google.com/android/reference/com/google/android/gms/location/Priority#PRIORITY_HIGH_ACCURACY)
++      - Use this setting to request the most precise location possible. With
++      this setting, the location services are more likely to use GPS
++      to determine the location.
++    * [`PRIORITY_LOW_POWER`](https://developers.google.com/android/reference/com/google/android/gms/location/Priority#PRIORITY_LOW_POWER)
++      - Use this setting to request city-level precision, which is
++      an accuracy of approximately 10 kilometers. This is considered a
++      coarse level of accuracy, and is likely to consume less power.
++    * [`PRIORITY_PASSIVE`](https://developers.google.com/android/reference/com/google/android/gms/location/Priority#PRIORITY_PASSIVE)
++      - Use this setting if you need negligible impact on power consumption,
++      but want to receive location updates when available. With this
++      setting, your app does not trigger any location updates, but
++      receives locations triggered by other apps.
+ 
+ Create the location request and set the parameters as shown in this
+ code sample:
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+   fun createLocationRequest() {
+     val locationRequest = LocationRequest.Builder(Priority.PRIORITY_HIGH_ACCURACY, 10000)
+         .setMinUpdateIntervalMillis(5000)
+@@ -86,7 +107,7 @@ code sample:
+ 
+ ### Java
+ 
+-```java
++```
+   protected void createLocationRequest() {
+     LocationRequest locationRequest = new LocationRequest.Builder(Priority.PRIORITY_HIGH_ACCURACY, 10000)
+             .setMinUpdateIntervalMillis(5000)
+@@ -97,7 +118,7 @@ code sample:
+ The priority of
+ [`PRIORITY_HIGH_ACCURACY`](https://developers.google.com/android/reference/com/google/android/gms/location/LocationRequest.html#PRIORITY_HIGH_ACCURACY),
+ combined with the
+-`https://developer.android.com/reference/android/Manifest.permission#ACCESS_FINE_LOCATION`
++`ACCESS_FINE_LOCATION`
+ permission setting that you've defined in the app manifest, and a fast update
+ interval of 5000 milliseconds (5 seconds), causes the fused location
+ provider to return location updates that are accurate to within a few feet.
+@@ -121,14 +142,14 @@ to add the location request that was created in the previous step:
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ val builder = LocationSettingsRequest.Builder()
+         .addLocationRequest(locationRequest)
+ ```
+ 
+ ### Java
+ 
+-```java
++```
+ LocationSettingsRequest.Builder builder = new LocationSettingsRequest.Builder()
+      .addLocationRequest(locationRequest);
+ ```
+@@ -137,7 +158,7 @@ Next check whether the current location settings are satisfied:
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ val builder = LocationSettingsRequest.Builder()
+ 
+ // ...
+@@ -148,7 +169,7 @@ val task: Task<LocationSettingsResponse> = client.checkLocationSettings(builder.
+ 
+ ### Java
+ 
+-```java
++```
+ LocationSettingsRequest.Builder builder = new LocationSettingsRequest.Builder();
+ 
+ // ...
+@@ -181,7 +202,7 @@ permission to change the location settings if necessary:
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ task.addOnSuccessListener { locationSettingsResponse ->
+     // All location settings are satisfied. The client can initialize
+     // location requests here.
+@@ -206,7 +227,7 @@ task.addOnFailureListener { exception ->
+ 
+ ### Java
+ 
+-```java
++```
+ task.addOnSuccessListener(this, new OnSuccessListener<LocationSettingsResponse>() {
+     @Override
+     public void onSuccess(LocationSettingsResponse locationSettingsResponse) {
+@@ -237,5 +258,17 @@ task.addOnFailureListener(this, new OnFailureListener() {
+ ```
+ 
+ The next lesson,
+-[Request Location Updates](https://developer.android.com/develop/sensors-and-location/location/request-updates), shows
+-you how to receive periodic location updates.
+\ No newline at end of file
++[Request Location Updates](/develop/sensors-and-location/location/request-updates), shows
++you how to receive periodic location updates.
++
++[Previous
++
++arrow\_back
++
++Get the last known location](/develop/sensors-and-location/location/retrieve-current)
++
++[Next
++
++Request location updates
++
++arrow\_forward](/develop/sensors-and-location/location/request-updates)
+\ No newline at end of file

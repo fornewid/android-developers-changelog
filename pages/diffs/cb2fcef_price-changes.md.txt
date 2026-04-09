@@ -1,0 +1,365 @@
+diff --git a/docs/google/play/billing/price-changes.md b/docs/google/play/billing/price-changes.md
+index be4980b..e0e4a55 100644
+--- a/docs/google/play/billing/price-changes.md
++++ b/docs/google/play/billing/price-changes.md
+@@ -1,20 +1,9 @@
+ ---
+-title: Change subscription prices  |  Play Billing  |  Android Developers
++title: https://developer.android.com/google/play/billing/price-changes
+ url: https://developer.android.com/google/play/billing/price-changes
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-* [Google Play](https://developer.android.com/distribute)
+-* [Play Monetization](https://developer.android.com/google/play/billing)
+-
+-Send feedback
+-
+-# Change subscription prices Stay organized with collections Save and categorize content based on your preferences.
+-
+-
+-
+-
+ You can change the prices of your subscription base plans and offers. For
+ example, you might have digital products that need annual price adjustments, or
+ you might change the set of benefits for a product and want to reflect these
+@@ -37,14 +26,12 @@ updates to all of your products in a short period of time, or if you have a
+ product catalog management system that automatically makes changes to your
+ Google Play subscription products when changes occur.
+ 
+-**Note:** Some regions are considered child territories of a parent region for
+-billing purposes. While purchase-status APIs may return the specific
+-`regionCode` of a child territory (e.g., **PR** for Puerto Rico), you must use
+-the **parent region's code** (e.g., **US** for United States) when
+-programmatically updating prices using the Google Play Developer API. Using a
+-child territory code directly will result in an error indicating the region is
+-not billable.**Warning:** You should not change the price of a [Subscribe with
+-Google](https://developers.google.com/news/subscribe) subscription.
++> [!NOTE]
++> **Note:** Some regions are considered child territories of a parent region for billing purposes. While purchase-status APIs may return the specific `regionCode` of a child territory (e.g., **PR** for Puerto Rico), you must use the **parent region's code** (e.g., **US** for United States) when programmatically updating prices using the Google Play Developer API. Using a child territory code directly will result in an error indicating the region is not billable.
++
++> [!WARNING]
++> **Warning:** You should not change the price of a [Subscribe with
++> Google](https://developers.google.com/news/subscribe) subscription.
+ 
+ It could be useful to visit your Play Console [change
+ log](https://support.google.com/googleplay/android-developer/answer/6053184) to
+@@ -67,7 +54,7 @@ default; they are placed into a legacy price cohort where they continue to pay
+ their original base plan price when they renew.
+ 
+ If desired, you can move existing subscribers to the current base plan price.
+-This is action is called [ending a legacy price cohort](#end-legacy). Changes to
++This is action is called [ending a legacy price cohort](https://developer.android.com/google/play/billing/price-changes#end-legacy). Changes to
+ an offer's pricing phases cannot be applied to existing subscribers. For
+ installment subscriptions, price changes for a legacy cohort happen at the
+ end of the active commitment period. You cannot change the price currently
+@@ -109,7 +96,7 @@ period. Users who have already been authorized at the higher price won't be
+ immediately charged the lower price; they will renew at the lower price on their
+ subsequent renewal.
+ 
+-[License testers](/google/play/billing/test) also receive email notifications
++[License testers](https://developer.android.com/google/play/billing/test) also receive email notifications
+ for price decreases.
+ 
+ ## Price increases
+@@ -150,21 +137,14 @@ requirements.
+ 
+ You can mark a legacy price cohort migration as an opt-out increase if it meets
+ those criteria, as shown in figure 1.
++![Google Play Console legacy price cohort migration with opt-out increase](https://developer.android.com/static/images/google/play/billing/opt-out-increase.png) **Figure 1.** Using Play Console to specify a legacy price cohort migration as an opt-out increase.
+ 
+-![Google Play Console legacy price cohort migration with opt-out increase](/static/images/google/play/billing/opt-out-increase.png)
+-
+-
+-**Figure 1.** Using Play Console to specify a legacy price
+-cohort migration as an opt-out increase.
+-
+-![](/static/images/google/play/billing/opt-out-increase.png)
++![](https://developer.android.com/static/images/google/play/billing/opt-out-increase.png)
+ 
+ ## Communicate your price change to the user
+ 
+-**Important:** This notice must be displayed on all device types where the app is
+-available, including mobile, TV platforms, and streaming devices. The sole
+-exception is watch devices, for which the notice is recommended but not
+-required.
++> [!IMPORTANT]
++> **Important:** This notice must be displayed on all device types where the app is available, including mobile, TV platforms, and streaming devices. The sole exception is watch devices, for which the notice is recommended but not required.
+ 
+ You should notify existing subscribers whenever you end their legacy
+ price cohort.
+@@ -181,12 +161,7 @@ in your app and provide a deep link to the Play Store subscription screen to
+ help them easily review the new price. When users review an opt-in price
+ increase on the Play Store subscription screen, a dialog similar to figure 2 is
+ shown.
+-
+-![Generic dialog notifying the user of a subscription price change](/static/images/google/play/billing/price-change-1.png)
+-
+-
+-**Figure 2.** Example dialog notifying the user of
+-a subscription price change.
++![Generic dialog notifying the user of a subscription price change](https://developer.android.com/static/images/google/play/billing/price-change-1.png) **Figure 2.** Example dialog notifying the user of a subscription price change.
+ 
+ ## Handle user response to an opt-in price change
+ 
+@@ -194,7 +169,7 @@ After you have notified existing subscribers of a price change and it's an
+ opt-in increase, they may take action before the new price applies to accept or
+ not accept the price increase. If they do, you will receive an RTDN informing
+ you of the outcome. See the [purchase lifecycle
+-guidance](/google/play/billing/lifecycle/subscriptions#price-changes) to learn
++guidance](https://developer.android.com/google/play/billing/lifecycle/subscriptions#price-changes) to learn
+ how to handle these notifications.
+ 
+ If the user doesn't act and they reach the first renewal that the opt-in price
+@@ -206,7 +181,7 @@ renewal date.
+ This section describes the various scenarios for handling an accidental
+ price change.
+ 
+-* **Opt-in increase** - If you've accidentally initiated an opt-in price
++- **Opt-in increase** - If you've accidentally initiated an opt-in price
+   increase, reverse the change immediately by making another price
+   change back to the original price.
+ 
+@@ -219,7 +194,7 @@ price change.
+   after the [payment authorization](https://support.google.com/googleplay/answer/2476088 "Payment authorization") period of up to five
+   days. Based on renewal dates, some users may have already received the opt-in
+   email notice.
+-* **Opt-out increase** - You can cancel an accidental opt-out increase by
++- **Opt-out increase** - You can cancel an accidental opt-out increase by
+   reverting the price back to the original price. Change the base plan price
+   back to the original price and navigate to the legacy price points page to
+   initiate a price decrease to the original price. Depending on when the
+@@ -228,7 +203,8 @@ price change.
+   [payment authorization](https://support.google.com/googleplay/answer/2476088 "Payment authorization") period of up to five days.
+   Based on renewal dates, some users may have already received the price
+   increase notice emails.
+-* **Price decreases** - You can cancel a price decrease by reverting
++
++- **Price decreases** - You can cancel a price decrease by reverting
+   the subscription's price back to its original value by using the Google Play
+   Console. Change the base plan price back to the original price and navigate
+   to the legacy price points page to initiate a price increase to the
+@@ -238,12 +214,13 @@ price change.
+   cancellation is effective for a given user's next renewal based on
+   the timing of this reversion relative to their individual renewal date.
+ 
+-  + A price decrease cancellation is valid if the period between
++  - A price decrease cancellation is valid if the period between
+     reverting the price to its original value and a user's expected
+     renewal time at the new price exceeds the relevant country-specific
+     notification window (30 or 60 days). The user's next subscription
+     renewal occurs at the original, higher price.
+-  + A price decrease cancellation is invalid if the period between reverting
++
++  - A price decrease cancellation is invalid if the period between reverting
+     the price to its original value and a user's expected renewal time at the
+     new price is shorter or equal to the relevant country-specific notification
+     window (30 or 60 days). The user will instead go through the price
+@@ -268,19 +245,19 @@ increases and price decreases.
+ When you start a new price migration for an item that has an older price
+ migration in progress, Google Play handles it as follows:
+ 
+-* Old price migration is canceled.
++- Old price migration is canceled.
+ 
+   Google Play stops the old price migration. In the `SubscriptionPurchaseV2`
+   API, you'll see the old price change details marked as `CANCELED`. You'll also
+   receive a `SUBSCRIPTION_PRICE_CHANGE_UPDATED` RTDN.
+-* New Price Migration takes over.
++- New Price Migration takes over.
+ 
+   Immediately after, Google Play starts the new price migration. This will
+   appear in `SubscriptionPurchaseV2` as either `OUTSTANDING`
+   (for opt-in increases) or `CONFIRMED`
+   (for opt-out increases or price decreases). You'll receive
+   another `SUBSCRIPTION_PRICE_CHANGE_UPDATED` RTDN for the item.
+-* The user gets the new price.
++- The user gets the new price.
+ 
+   The user will now be moved to the new price migration, and they won't
+   complete the previous price change. And the user receives the
+@@ -294,7 +271,7 @@ testing purposes.
+ You can use the [Play Billing Lab app](https://play.google.com/store/apps/details?id=com.google.android.apps.play.billingtestcompanion) and license testers to test subscription
+ price changes without affecting other active subscribers.
+ 
+-See the [testing guide](/google/play/billing/test#price-changes) to learn more
++See the [testing guide](https://developer.android.com/google/play/billing/test#price-changes) to learn more
+ about testing price changes.
+ 
+ ## Examples
+@@ -316,24 +293,14 @@ renewal after the effective date is on May 5, so she renews on March 5 and on
+ April 5 at the old price ($1). When she renews again on May 5, she is charged
+ the new price ($2). Google Play starts notifying Alice of the price change on
+ April 5, which is 30 days before the first renewal date with the new price.
+-
+-![](/static/images/google/play/billing/price-change-schedule-monthly-example-1.svg)
+-
+-
+-**Figure 3.** Example price change timeline diagram of a
+-monthly subscription with a March 5 renewal date.
++![](https://developer.android.com/static/images/google/play/billing/price-change-schedule-monthly-example-1.svg) **Figure 3.** Example price change timeline diagram of a monthly subscription with a March 5 renewal date.
+ 
+ Bob is an existing subscriber whose next renewal is on March 29. He renews on
+ March 29 at the old price ($1) because the price change has not yet taken
+ effect. When he renews again on April 29, he is charged the new price ($2). He
+ starts receiving price change notifications on March 30, which is 30 days before
+ the first renewal date with the new price.
+-
+-![](/static/images/google/play/billing/price-change-schedule-monthly-example-2.svg)
+-
+-
+-**Figure 4.** Example price change timeline diagram of a
+-monthly subscription with a March 29 renewal date.
++![](https://developer.android.com/static/images/google/play/billing/price-change-schedule-monthly-example-2.svg) **Figure 4.** Example price change timeline diagram of a monthly subscription with a March 29 renewal date.
+ 
+ #### Example 2: 3 month subscription opt-in price increase
+ 
+@@ -346,23 +313,13 @@ at the old price ($1) because the price change has not yet taken effect. When
+ she renews again on June 5, she is charged the new price ($2). She starts
+ receiving notification of the price change on May 6, which is 30 days before the
+ first renewal date with the new price.
+-
+-![](/static/images/google/play/billing/price-change-schedule-monthly-example-3.svg)
+-
+-
+-**Figure 5.** Example price change timeline diagram of a
+-3 month subscription with a March 5 renewal date.
++![](https://developer.android.com/static/images/google/play/billing/price-change-schedule-monthly-example-3.svg) **Figure 5.** Example price change timeline diagram of a 3 month subscription with a March 5 renewal date.
+ 
+ Bob is an existing subscriber whose next renewal is on April 11. Bob renews at
+ the new price ($2) because it's after the effective date for the price change.
+ He starts receiving notifications of the price change on March 12, which is 30
+ days before the first renewal date with the new price.
+-
+-![](/static/images/google/play/billing/price-change-schedule-monthly-example-4.svg)
+-
+-
+-**Figure 6.** Example price change timeline diagram of a
+-3 month subscription with an April 11 renewal date.
++![](https://developer.android.com/static/images/google/play/billing/price-change-schedule-monthly-example-4.svg) **Figure 6.** Example price change timeline diagram of a 3 month subscription with an April 11 renewal date.
+ 
+ #### Example 3: Weekly subscription opt-in price increase
+ 
+@@ -376,12 +333,7 @@ renews on March 6, March 13, March 20, March 27, and April 3 at the old price
+ April 10, she is charged the new price ($2). She starts receiving notification
+ of the price change on March 11, which is 30 days before the first renewal date
+ with the new price.
+-
+-![](/static/images/google/play/billing/price-change-schedule-monthly-example-5.svg)
+-
+-
+-**Figure 7.** Example price change timeline diagram of a weekly
+-subscription with an April 6 renewal date.
++![](https://developer.android.com/static/images/google/play/billing/price-change-schedule-monthly-example-5.svg) **Figure 7.** Example price change timeline diagram of a weekly subscription with an April 6 renewal date.
+ 
+ #### Example 4: Monthly subscription with multiple opt-in price changes
+ 
+@@ -404,13 +356,7 @@ notifications about the second price change because the price changes happened
+ within the 7-day freeze period. She starts receiving notification of the price
+ change on April 5, which is 30 days before the first renewal date with the new
+ price.
+-
+-![](/static/images/google/play/billing/price-change-schedule-monthly-example-6.svg)
+-
+-
+-**Figure 8.** Example price change timeline diagram of a
+-monthly subscription with multiple price changes and a March 5 renewal
+-date.
++![](https://developer.android.com/static/images/google/play/billing/price-change-schedule-monthly-example-6.svg) **Figure 8.** Example price change timeline diagram of a monthly subscription with multiple price changes and a March 5 renewal date.
+ 
+ #### Example 5: 12-month installment subscription opt-in price increase
+ 
+@@ -451,7 +397,7 @@ starts paying the new price ($1.30) on February 14.
+ 
+ ### Price step-up consent examples
+ 
+-The [price step-up consent](/google/play/billing/lifecycle/subscriptions#price-stepup-consent)
++The [price step-up consent](https://developer.android.com/google/play/billing/lifecycle/subscriptions#price-stepup-consent)
+ examples in this section are applicable only to the South Korea (KR) region.
+ 
+ #### Example 1: User consents to the price step-up during signup
+@@ -466,17 +412,10 @@ On March 3, a user signs up for a subscription in South Korea with a
+ free trial period of 10 days. The user didn't consent to the price
+ step-up during the signup or the free trial. The following is the sequence
+ of events in this scenario:
++![](https://developer.android.com/static/images/google/play/billing/price-stepup-example-2.png) **Figure 9.** Example timeline diagram when a user doesn't consent to the price step-up during a free trial.
+ 
+-![](/static/images/google/play/billing/price-stepup-example-2.png)
+-
+-
+-**Figure 9.** Example timeline diagram
+-when a user doesn't consent to the price step-up during a free trial.
+-
+- A consent period can be for a maximum of 30 days before
+-the step-up price takes effect. Therefore, in this scenario, if the free trial
+-period is for 40 days, then the consent period would start on March 13
+-and end on April 12.
++> [!NOTE]
++> A consent period can be for a maximum of 30 days before the step-up price takes effect. Therefore, in this scenario, if the free trial period is for 40 days, then the consent period would start on March 13 and end on April 12.
+ 
+ #### Example 3: User consents to the price step-up during the free trial
+ 
+@@ -484,12 +423,7 @@ On March 3, a user signs up for a subscription in South Korea with a
+ free trial period of 10 days. The user consents to the price
+ step-up during the free trial. The following is the sequence of events in
+ this scenario:
+-
+-![](/static/images/google/play/billing/price-stepup-example-3.png)
+-
+-
+-**Figure 10.** Example timeline diagram
+-when a user doesn't consents to the price step-up during a free trial.
++![](https://developer.android.com/static/images/google/play/billing/price-stepup-example-3.png) **Figure 10.** Example timeline diagram when a user doesn't consents to the price step-up during a free trial.
+ 
+ #### Example 4: User doesn't consent to the price step-up for an introductory offer
+ 
+@@ -497,39 +431,20 @@ On March 3, a user signs up for a subscription in South Korea with an
+ introductory price period of 60 days. The user doesn't consent to
+ the price step-up during the signup. The following is the sequence of
+ events in this scenario:
++![](https://developer.android.com/static/images/google/play/billing/price-stepup-example-4.png) **Figure 11.** Example timeline diagram when a user doesn't consent to the price step-up during an introductory offer.
+ 
+-![](/static/images/google/play/billing/price-stepup-example-4.png)
+-
+-
+-**Figure 11.** Example timeline diagram
+-when a user doesn't consent to the price step-up during an introductory offer.
+-
+-#### Example 5: User consents to the price step-up during both free trial and introductory offer
++#### Example 5: User consents to the price step-up during both
++free trial and introductory offer
+ 
+ If you are offering a subscription for both free trial and an
+ introductory offer, Play asks for user consent at the following events:
+ 
+-1. During the free trial period, Play asks for the user's consent to
+-   move from free trial to introductory price.
+-2. If the user consents during the free trial, then during the
+-   introductory price period, Play asks for the user's consent to
+-   move from the introductory price to the regular price.
++1. During the free trial period, Play asks for the user's consent to move from free trial to introductory price.
++2. If the user consents during the free trial, then during the introductory price period, Play asks for the user's consent to move from the introductory price to the regular price.
+ 
+ For example, on March 3, a user signs up for a subscription in South Korea with a
+ free trial period of 10 days and an introductory price period of 30 days.
+ The user consents to the price step-up during both the free trial
+ and the introductory offer. The following is the sequence of events in
+ this scenario:
+-
+-![](/static/images/google/play/billing/price-stepup-example-5.png)
+-
+-
+-**Figure 12.** Example timeline diagram
+-when a user consents to the price step-up during both free trial and an introductory offer.
+-
+-
+-
+-
+-
+-
+-Send feedback
+\ No newline at end of file
++![](https://developer.android.com/static/images/google/play/billing/price-stepup-example-5.png) **Figure 12.** Example timeline diagram when a user consents to the price step-up during both free trial and an introductory offer.
+\ No newline at end of file

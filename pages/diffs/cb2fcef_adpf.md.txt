@@ -1,0 +1,20 @@
+diff --git a/docs/games/optimize/adpf.md b/docs/games/optimize/adpf.md
+index e540676..212cd00 100644
+--- a/docs/games/optimize/adpf.md
++++ b/docs/games/optimize/adpf.md
+@@ -15,6 +15,7 @@ Send feedback
+ 
+ 
+ 
++
+ This guide describes how to use the Android Dynamic Performance Framework (ADPF)
+ to optimize games based on the dynamic thermal and CPU management features on
+ Android. The focus is on games, but you can also use the features for other
+@@ -49,4 +50,6 @@ Here are the main ADPF features:
+ 
+ 
+ 
++
++
+ Send feedback
+\ No newline at end of file

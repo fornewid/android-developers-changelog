@@ -1,0 +1,12 @@
+diff --git a/docs/media/implement/surfaces/cars.md b/docs/media/implement/surfaces/cars.md
+index 452ce8c..9a58696 100644
+--- a/docs/media/implement/surfaces/cars.md
++++ b/docs/media/implement/surfaces/cars.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Bring your app to vehicles running either Android Auto or Android Automotive OS.
+ Use one app architecture that works for both cases so every user can enjoy your
+ app.

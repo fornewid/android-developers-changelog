@@ -1,0 +1,256 @@
+diff --git a/docs/jetpack/androidx/releases/autofill.md b/docs/jetpack/androidx/releases/autofill.md
+index f7ca6b3..a9c88da 100644
+--- a/docs/jetpack/androidx/releases/autofill.md
++++ b/docs/jetpack/androidx/releases/autofill.md
+@@ -1,46 +1,32 @@
+ ---
+-title: Autofill  |  Jetpack  |  Android Developers
++title: https://developer.android.com/jetpack/androidx/releases/autofill
+ url: https://developer.android.com/jetpack/androidx/releases/autofill
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-* [Get started](https://developer.android.com/get-started/overview)
+-* [Jetpack](https://developer.android.com/jetpack)
+-* [Libraries](https://developer.android.com/jetpack/androidx/explorer)
+-
+-Stay organized with collections
+-
+-Save and categorize content based on your preferences.
+-
+-
+-
+-
+ # Autofill
+ 
+-[User Guide](/guide/topics/text/autofill)  [Code Sample](https://github.com/android/input-samples)
+-
++[User Guide](https://developer.android.com/guide/topics/text/autofill) [Code Sample](https://github.com/android/input-samples)  
+ API Reference  
+-[androidx.autofill](/reference/kotlin/androidx/autofill/package-summary)
+-
+-Improve autofill accuracy via extending hints.
++[androidx.autofill](https://developer.android.com/reference/kotlin/androidx/autofill/package-summary)  
++Improve autofill accuracy via extending hints.  
+ 
+ | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
+-| --- | --- | --- | --- | --- |
+-| June 4, 2025 | [1.3.0](/jetpack/androidx/releases/autofill#1.3.0) | - | - | - |
++|---|---|---|---|---|
++| June 4, 2025 | [1.3.0](https://developer.android.com/jetpack/androidx/releases/autofill#1.3.0) | - | - | - |
+ 
+ ## Declaring dependencies
+ 
+ To add a dependency on Autofill, you must add the Google Maven repository to your
+-project. Read [Google's Maven repository](/studio/build/dependencies#google-maven)
++project. Read [Google's Maven repository](https://developer.android.com/studio/build/dependencies#google-maven)
+ for more information.
+ 
+ Add the dependencies for the artifacts you need in the `build.gradle` file for
+-your app or module:
++your app or module:  
+ 
+ ### Groovy
+ 
+-```
++```groovy
+ dependencies {
+     implementation "androidx.autofill:autofill:1.3.0"
+ }
+@@ -48,19 +34,19 @@ dependencies {
+ 
+ ### Kotlin
+ 
+-```
++```kotlin
+ dependencies {
+     implementation("androidx.autofill:autofill:1.3.0")
+ }
+ ```
+ 
+-For more information about dependencies, see [Add build dependencies](/studio/build/dependencies).
++For more information about dependencies, see [Add build dependencies](https://developer.android.com/studio/build/dependencies).
+ 
+ ## Feedback
+ 
+ Your feedback helps make Jetpack better. Let us know if you discover new issues or have
+ ideas for improving this library. Please take a look at the
+-[existing issues](https://issuetracker.google.com/issues?q=componentid:670328%20status:open)
++[existing issues](https://issuetracker.google.com/issues?q=componentid:670328+status:open)
+ in this library before you create a new one. You can add your vote to an existing issue by
+ clicking the star button.
+ 
+@@ -79,7 +65,7 @@ June 4, 2025
+ 
+ **Important changes since AutoFill 1.2.0**
+ 
+-* Adds autofill hint constants for wallet valuables types.
++- Adds autofill hint constants for wallet valuables types.
+ 
+ ### Version 1.3.0-rc01
+ 
+@@ -87,7 +73,7 @@ February 12, 2025
+ 
+ `androidx.autofill:autofill:1.3.0-rc01` is released. Version 1.3.0-rc01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/0431b84980e97d6bafdfda7c9038bc4d9529564f..de7ff0d66c069bf65e3faae7d59e3ca579031e03/autofill/autofill).
+ 
+-* This release moves Autofill 1.3.0 into stabilization.
++- This release moves Autofill 1.3.0 into stabilization.
+ 
+ ### Version 1.3.0-beta01
+ 
+@@ -103,7 +89,7 @@ May 24, 2023
+ 
+ **API Changes**
+ 
+-* Adds autofill hint constants for wallet valuables types. ([Ie5d9d](https://android-review.googlesource.com/#/q/Ie5d9d377dd44590e2104731949734ff11f15a41c))
++- Adds autofill hint constants for wallet valuables types. ([Ie5d9d](https://android-review.googlesource.com/#/q/Ie5d9d377dd44590e2104731949734ff11f15a41c))
+ 
+ ## Version 1.2.0
+ 
+@@ -115,14 +101,14 @@ July 21, 2021
+ 
+ **New Features**
+ 
+-* Added new extended hint constants for more requested field types:
+-  + WiFi Password
+-  + Email OTP
+-  + Authenticator app OTP
+-  + UPI address
+-  + Address unit
+-  + Address dependent locality
+-  + Promo codes
++- Added new extended hint constants for more requested field types:
++  - WiFi Password
++  - Email OTP
++  - Authenticator app OTP
++  - UPI address
++  - Address unit
++  - Address dependent locality
++  - Promo codes
+ 
+ ### Version 1.2.0-alpha02
+ 
+@@ -132,7 +118,7 @@ June 2, 2021
+ 
+ **API Changes**
+ 
+-* `AUTOFILL_HINT_TFA_APP_OTP` renamed to `AUTOFILL_HINT_2FA_APP_OTP` to match the canonical representation of two-factor authentication.
++- `AUTOFILL_HINT_TFA_APP_OTP` renamed to `AUTOFILL_HINT_2FA_APP_OTP` to match the canonical representation of two-factor authentication.
+ 
+ ### Version 1.2.0-alpha01
+ 
+@@ -142,19 +128,18 @@ March 24, 2021
+ 
+ **New Features**
+ 
+-* Added new extended hint constants for more requested field types:
+-  + WiFi Password
+-  + Email OTP
+-  + Authenticator app OTP
+-  + UPI address
+-  + Address unit
+-  + Address dependent locality
+-  + Promo codes
++- Added new extended hint constants for more requested field types:
++  - WiFi Password
++  - Email OTP
++  - Authenticator app OTP
++  - UPI address
++  - Address unit
++  - Address dependent locality
++  - Promo codes
+ 
+ **API Changes**
+ 
+-* Added new autofill hints for some requested types (Email OTP, Granular
+-  address fields, Promo codes, UPI ID). ([I89e2f](https://android-review.googlesource.com/#/q/I89e2f2b9631c8369c07248b32c239bde37f5aab8))
++- Added new autofill hints for some requested types (Email OTP, Granular address fields, Promo codes, UPI ID). ([I89e2f](https://android-review.googlesource.com/#/q/I89e2f2b9631c8369c07248b32c239bde37f5aab8))
+ 
+ ## Version 1.1.0
+ 
+@@ -166,8 +151,8 @@ January 27, 2021
+ 
+ **Major changes since 1.0.0**
+ 
+-* Adds a set of APIs to support constructing Autofill inline suggestions, a new feature that was introduced in Android 11. See [the IME Autofill Guide](/guide/topics/text/ime-autofill) for more information.
+-* Specifically, v1 UI template [InlineSuggestionUi](/reference/androidx/autofill/inline/v1/InlineSuggestionUi) is introduced, with example code in the javadoc, to help IME developers to specify inline suggestion styles, and Autofill provider developers to construct inline suggestion contents.
++- Adds a set of APIs to support constructing Autofill inline suggestions, a new feature that was introduced in Android 11. See [the IME Autofill Guide](https://developer.android.com/guide/topics/text/ime-autofill) for more information.
++- Specifically, v1 UI template [InlineSuggestionUi](https://developer.android.com/reference/androidx/autofill/inline/v1/InlineSuggestionUi) is introduced, with example code in the javadoc, to help IME developers to specify inline suggestion styles, and Autofill provider developers to construct inline suggestion contents.
+ 
+ ### Version 1.1.0-rc01
+ 
+@@ -189,10 +174,10 @@ August 19, 2020
+ 
+ **API Changes**
+ 
+-* Updated the required API version of the autofill inline suggestion library from Q to R ([I983a5](https://android-review.googlesource.com/#/q/I983a5904df5b2900f8b776e5d00a8132cc601f30))
+-* `InlineSuggestionUi` helper added to allow autofill services to generate inline presentations
+-* Renderer added to help IME providers to inflate inline presentations sent by autofill services
+-* Styling and theming support for IME providers added as part of v1 versioned style API
++- Updated the required API version of the autofill inline suggestion library from Q to R ([I983a5](https://android-review.googlesource.com/#/q/I983a5904df5b2900f8b776e5d00a8132cc601f30))
++- `InlineSuggestionUi` helper added to allow autofill services to generate inline presentations
++- Renderer added to help IME providers to inflate inline presentations sent by autofill services
++- Styling and theming support for IME providers added as part of v1 versioned style API
+ 
+ ### Version 1.1.0-alpha01
+ 
+@@ -202,9 +187,9 @@ March 18, 2020
+ 
+ **New Features**
+ 
+-* `InlinePresentationBuilder` added to help autofill providers to interface with the new keyboard based `InlineSuggestionRequest`
+-* `InlinePresentationRenderer` added to help keyboard providers to render Slices given by autofill providers
+-* `InlineSuggestionsHostView` added to allow keyboard providers to constrain where the slices are rendered
++- `InlinePresentationBuilder` added to help autofill providers to interface with the new keyboard based `InlineSuggestionRequest`
++- `InlinePresentationRenderer` added to help keyboard providers to render Slices given by autofill providers
++- `InlineSuggestionsHostView` added to allow keyboard providers to constrain where the slices are rendered
+ 
+ ## Version 1.0.0
+ 
+@@ -216,8 +201,8 @@ December 4, 2019
+ 
+ **Major features of 1.0.0**
+ 
+-* First stable version of the autofill module.
+-* Adds a standard set of supported autofill hint constants which should be supported by all autofill services.
++- First stable version of the autofill module.
++- Adds a standard set of supported autofill hint constants which should be supported by all autofill services.
+ 
+ ### Version 1.0.0-rc01
+ 
+@@ -233,28 +218,26 @@ September 18, 2019
+ 
+ **New features**
+ 
+-* Added support for annotating One Time Password (OTP) fields which can be filled by reading the code from an SMS.
+-* Generator function added to get hint constants for single character OTP fields.
++- Added support for annotating One Time Password (OTP) fields which can be filled by reading the code from an SMS.
++- Generator function added to get hint constants for single character OTP fields.
+ 
+ ### Version 1.0.0-alpha02
+ 
+ August 7, 2019
+ 
+ `androidx.autofill:autofill:1.0.0-alpha02` is released. The commits included in this version can be found [here](https://android.googlesource.com/platform/frameworks/support/+log/a6ddab53486a549190d183f626993551dfaeacf5..a290bf422772729760cd49aa80450826768d5a45/autofill).
+-
+-**Note:** This version is dependent on the Java 8 programming language. Please read [Use Java 8 language features](/studio/write/java8-support) to learn how to use it in your project.
++| **Note:** This version is dependent on the Java 8 programming language. Please read [Use Java 8 language features](https://developer.android.com/studio/write/java8-support) to learn how to use it in your project.
+ 
+ **New features**
+ 
+-* New hint constants added to support annotation of SMS One Time Password (OTP) codes.
++- New hint constants added to support annotation of SMS One Time Password (OTP) codes.
+ 
+ ### Version 1.0.0-alpha01
+ 
+ July 2, 2019
+ 
+ This is the first release of `androidx.autofill:autofill:1.0.0-alpha01`. The commits included in this initial version can be found [here](https://android.googlesource.com/platform/frameworks/support/+log/a6ddab53486a549190d183f626993551dfaeacf5/autofill).
+-
+-**Note:** This version is dependent on the Java 8 programming language. Please read [Use Java 8 language features](/studio/write/java8-support) to learn how to use it in your project.
++| **Note:** This version is dependent on the Java 8 programming language. Please read [Use Java 8 language features](https://developer.android.com/studio/write/java8-support) to learn how to use it in your project.
+ 
+ **New features**
+ 

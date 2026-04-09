@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/views/notifications/call-style.md b/docs/develop/ui/views/notifications/call-style.md
+index 0360c44..51828f0 100644
+--- a/docs/develop/ui/views/notifications/call-style.md
++++ b/docs/develop/ui/views/notifications/call-style.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ On Android 12.0 (API level 31) and later, the system provides the
+ [`CallStyle`](/reference/android/app/Notification.CallStyle) notification template to distinguish call notifications from
+ other types of notifications. Use this template to create incoming or

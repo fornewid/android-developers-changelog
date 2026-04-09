@@ -1,0 +1,12 @@
+diff --git a/docs/studio/preview/install-preview.md b/docs/studio/preview/install-preview.md
+index 5117e24..19c10cc 100644
+--- a/docs/studio/preview/install-preview.md
++++ b/docs/studio/preview/install-preview.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ If you want early access to the next version of Android Studio, you don't have to replace your
+ existing stable version. You can install the Android Studio preview side by side with the stable
+ version and work on the same app projects in both.

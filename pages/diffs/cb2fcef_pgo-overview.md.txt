@@ -1,0 +1,12 @@
+diff --git a/docs/games/agde/pgo-overview.md b/docs/games/agde/pgo-overview.md
+index 3b8a4f6..4a77d7e 100644
+--- a/docs/games/agde/pgo-overview.md
++++ b/docs/games/agde/pgo-overview.md
+@@ -12,6 +12,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Profile-guided optimization (also known as PGO, or *"pogo"*) is a way of further
+ optimizing optimized builds of your game using information about the way that
+ your game behaves when it is played in the real-world. In this way, infrequently

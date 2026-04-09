@@ -1,0 +1,12 @@
+diff --git a/docs/security/fraud-prevention/activities.md b/docs/security/fraud-prevention/activities.md
+index 94bd6b1..7dd0193 100644
+--- a/docs/security/fraud-prevention/activities.md
++++ b/docs/security/fraud-prevention/activities.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ This document details ways to monitor sensitive activities, such as user logins
+ and online purchases.
+ 

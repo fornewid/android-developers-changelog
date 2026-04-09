@@ -1,0 +1,20 @@
+diff --git a/docs/games/optimize/adpf/thermal.md b/docs/games/optimize/adpf/thermal.md
+index b879e1a..53848ae 100644
+--- a/docs/games/optimize/adpf/thermal.md
++++ b/docs/games/optimize/adpf/thermal.md
+@@ -15,6 +15,7 @@ Send feedback
+ 
+ 
+ 
++
+ **Released**:
+ 
+ Android 11 (API Level 30) - [Thermal API](/reference/android/os/PowerManager#getThermalHeadroom(int))
+@@ -349,4 +350,6 @@ Example](/static/games/optimize/adpf/images/adpf_heuristic.svg)
+ 
+ 
+ 
++
++
+ Send feedback
+\ No newline at end of file

@@ -1,0 +1,12 @@
+diff --git a/docs/training/permissions/requesting.md b/docs/training/permissions/requesting.md
+index 18db0fc..f237070 100644
+--- a/docs/training/permissions/requesting.md
++++ b/docs/training/permissions/requesting.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Every Android app runs in a limited-access sandbox. If your app needs to use
+ resources or information outside of its own sandbox, you can [declare a
+ runtime permission](/training/permissions/declaring) and set up a permission request that provides this

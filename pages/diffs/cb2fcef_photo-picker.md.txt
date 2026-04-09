@@ -1,0 +1,12 @@
+diff --git a/docs/training/data-storage/shared/photo-picker.md b/docs/training/data-storage/shared/photo-picker.md
+index e947aed..62aabd9 100644
+--- a/docs/training/data-storage/shared/photo-picker.md
++++ b/docs/training/data-storage/shared/photo-picker.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ ![Photo picker dialog appears with media files on your device. Select a photo to share with the app.](/static/images/training/data-storage/kotlin-picker.gif)
+ 
+ 

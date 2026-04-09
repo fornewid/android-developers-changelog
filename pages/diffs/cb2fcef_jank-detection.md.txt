@@ -1,0 +1,12 @@
+diff --git a/docs/studio/profile/jank-detection.md b/docs/studio/profile/jank-detection.md
+index 41de4e0..32345ef 100644
+--- a/docs/studio/profile/jank-detection.md
++++ b/docs/studio/profile/jank-detection.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Android renders UI by generating a frame from your app and displaying it on
+ the screen. If your app suffers from slow UI rendering, then the system is
+ forced to skip frames. When this happens, the user perceives a recurring flicker

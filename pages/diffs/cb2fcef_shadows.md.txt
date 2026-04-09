@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/compose/graphics/draw/shadows.md b/docs/develop/ui/compose/graphics/draw/shadows.md
+index 9bc38ac..df31222 100644
+--- a/docs/develop/ui/compose/graphics/draw/shadows.md
++++ b/docs/develop/ui/compose/graphics/draw/shadows.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Shadows visually elevate your UI, indicate interactivity to users, and provide
+ immediate feedback on user actions. Compose provides several ways to incorporate
+ shadows into your app:

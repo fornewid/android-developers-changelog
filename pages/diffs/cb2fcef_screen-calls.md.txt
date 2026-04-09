@@ -1,0 +1,12 @@
+diff --git a/docs/develop/connectivity/telecom/dialer-app/screen-calls.md b/docs/develop/connectivity/telecom/dialer-app/screen-calls.md
+index 7b6aa8f..aee7f50 100644
+--- a/docs/develop/connectivity/telecom/dialer-app/screen-calls.md
++++ b/docs/develop/connectivity/telecom/dialer-app/screen-calls.md
+@@ -11,6 +11,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Devices that run Android 10 (API level 29) or higher allow your app to identify
+ calls from numbers that aren't in the user's address book as potential spam
+ calls. Users can choose to have spam calls silently rejected. To provide greater

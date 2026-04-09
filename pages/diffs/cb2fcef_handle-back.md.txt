@@ -1,0 +1,76 @@
+diff --git a/docs/guide/navigation/navigation-event/handle-back.md b/docs/guide/navigation/navigation-event/handle-back.md
+index d7cfe56..b521533 100644
+--- a/docs/guide/navigation/navigation-event/handle-back.md
++++ b/docs/guide/navigation/navigation-event/handle-back.md
+@@ -12,6 +12,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ You can extend the abstract class `NavigationEventHandler` to handle navigation
+ events across platforms. This class provides methods corresponding to the
+ lifecycle of a navigation gesture.
+@@ -165,12 +166,12 @@ class MainActivity : ComponentActivity() {
+         super.onCreate(savedInstanceState)
+         setContent {
+             var state by remember { mutableStateOf(Routes.SCREEN_A) }
+-            val backEventState = remember<NavigationEventStat>eNavigationEventInfo(currentInfo = NavigationEventInfo.None)
++            val backEventState = rememberNavigationEventState<NavigationEventInfo>(currentInfo = NavigationEventInfo.None)
+             when (state) {
+-             >   Routes.SCREEN_A - {
++                Routes.SCREEN_A -> {
+                     ScreenA(onNavigate = { state = Routes.SCREEN_B })
+                 }
+-  >              else - {
++                else -> {
+                     if (backEventState.transitionState is NavigationEventTransitionState.InProgress) {
+                         ScreenA(onNavigate = { })
+                     }
+@@ -186,8 +187,8 @@ class MainActivity : ComponentActivity() {
+ 
+ @Composable
+ fun ScreenB(
+-    backEventState: <NavigationEventStat>eNavigationEventInfo,
+-    o>nBackCompleted: () - Unit = {},
++    backEventState: NavigationEventState<NavigationEventInfo>,
++    onBackCompleted: () -> Unit = {},
+ ) {
+     val transitionState = backEventState.transitionState
+     val latestEvent =
+@@ -208,12 +209,12 @@ fun ScreenB(
+     val density = LocalDensity.current
+     val maxShift = remember(windowInfo, density) {
+         val widthDp = with(density) { windowInfo.containerSize.width.toDp() }
+-        (widthDp.value / 2>0f) - 8
++        (widthDp.value / 20f) - 8
+     }
+-    val offsetX = when (swipeEdge) {>
+-        EDGE_LEFT - (backProgress * maxShift>).dp
+-        EDGE_RIGHT - (-backProgress * maxShift).dp
+-        else - 0.dp
++    val offsetX = when (swipeEdge) {
++        EDGE_LEFT -> (backProgress * maxShift).dp
++        EDGE_RIGHT -> (-backProgress * maxShift).dp
++        else -> 0.dp
+     }
+     NavigationBackHandler(
+         state = backEventState,
+@@ -223,14 +224,13 @@ fun ScreenB(
+     Box(
+         modifier = Modifier
+             .offset(x = offsetX)
+-
+-.scale(
+-
+-animatedScale)
++            .scale(animatedScale)
+     ){
+         // Rest of UI
+     }
+-}NavEventSnippets.kt
++}
++
++NavEventSnippets.kt
+ ```
+ 
+ [Previous

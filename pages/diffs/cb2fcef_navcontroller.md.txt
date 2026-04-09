@@ -1,0 +1,12 @@
+diff --git a/docs/guide/navigation/navcontroller.md b/docs/guide/navigation/navcontroller.md
+index ea11ed6..3b7d7f7 100644
+--- a/docs/guide/navigation/navcontroller.md
++++ b/docs/guide/navigation/navcontroller.md
+@@ -12,7 +12,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ The navigation controller is one of the [key concepts](/guide/navigation#types) in navigation. It
+ holds the navigation graph and exposes methods that allow your app to move
+ between the destinations in the graph.

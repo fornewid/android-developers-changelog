@@ -1,0 +1,12 @@
+diff --git a/docs/training/cars/media/create-media-browser/browsable-search.md b/docs/training/cars/media/create-media-browser/browsable-search.md
+index 1baab38..3a76efd 100644
+--- a/docs/training/cars/media/create-media-browser/browsable-search.md
++++ b/docs/training/cars/media/create-media-browser/browsable-search.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ All apps must support voice searches. This page describes how to further enhance
+ the search experience by supporting the initiation of searches without voice and
+ by showing a list of search results so that users can pick another result. For

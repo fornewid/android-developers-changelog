@@ -1,0 +1,896 @@
+diff --git a/docs/develop/ui/views/components/menus.md b/docs/develop/ui/views/components/menus.md
+index 11f8470..4c3555d 100644
+--- a/docs/develop/ui/views/components/menus.md
++++ b/docs/develop/ui/views/components/menus.md
+@@ -1,57 +1,94 @@
+ ---
+-title: https://developer.android.com/develop/ui/views/components/menus
++title: Add menus  |  Views  |  Android Developers
+ url: https://developer.android.com/develop/ui/views/components/menus
+-source: md.txt
++source: html-scrape
+ ---
+ 
+-Try the Compose way Jetpack Compose is the recommended UI toolkit for Android. Learn how to add components in Compose. [Menus →](https://developer.android.com/develop/ui/compose/components/menu) ![](https://developer.android.com/static/images/android-compose-ui-logo.png)
++* [Android Developers](https://developer.android.com/)
++* [Develop](https://developer.android.com/develop)
++* [Core areas](https://developer.android.com/develop/core-areas)
++* [UI](https://developer.android.com/develop/ui)
++* [Views](https://developer.android.com/develop/ui/views/layout/declaring-layout)
++
++# Add menus Stay organized with collections Save and categorize content based on your preferences.
++
++
++
++Try the Compose way
++
++Jetpack Compose is the recommended UI toolkit for Android. Learn how to add components in Compose.
++
++[Menus →](https://developer.android.com/develop/ui/compose/components/menu)
++
++![](/static/images/android-compose-ui-logo.png)
+ 
+ Menus are a common user interface component in many types of apps. To
+ provide a familiar and consistent user experience, use the
+-`https://developer.android.com/reference/android/view/Menu` APIs to
++`Menu` APIs to
+ present user actions and other options in your activities.
+-| **Note:** For a better user experience, see [Material Design
+-| Menus](https://m3.material.io/components/menus/overview).
+-![An image showing an example of overflow menu](https://lh3.googleusercontent.com/kyUjfdA4kbCLZTJCQY0gqPCCVdTr74WMzCScfyuZkFGx8GQXU6uVvcSExckK28csQqWAdLXvLiQpD1a_DpJlX2c15GD4bLYrNu4c_W7-AOE6og=s0) **Figure 1.** A menu triggered by an icon tap, appearing below the overflow menu icon.
++
++**Note:** For a better user experience, see
++[Material Design
++Menus](https://m3.material.io/components/menus/overview).
++
++![An image showing an example of overflow menu](https://lh3.googleusercontent.com/kyUjfdA4kbCLZTJCQY0gqPCCVdTr74WMzCScfyuZkFGx8GQXU6uVvcSExckK28csQqWAdLXvLiQpD1a_DpJlX2c15GD4bLYrNu4c_W7-AOE6og=s0)
++
++
++**Figure 1.** A menu triggered by an icon tap,
++appearing below the overflow menu icon.
+ 
+ This document shows how to create the three fundamental types of menus or
+ action presentations on all versions of Android:
+ 
+ **Options menu and app bar**
++:   The options menu is the primary collection of menu items for an
++    activity. It's where you place actions that have a global impact on the
++    app, such as "Search," "Compose email," and "Settings."
+ 
+-:   The options menu is the primary collection of menu items for an activity. It's where you place actions that have a global impact on the app, such as "Search," "Compose email," and "Settings." See the [Create an options menu](https://developer.android.com/develop/ui/views/components/menus#options-menu)
++    See the [Create an options menu](#options-menu)
+     section.
+ 
+ **Context menu and contextual action mode**
+-:   A context menu is a [floating menu](https://developer.android.com/develop/ui/views/components/menus#FloatingContextMenu)
+-    that appears when the user performs a touch \& hold on an element. It
++:   A context menu is a [floating menu](#FloatingContextMenu)
++    that appears when the user performs a touch & hold on an element. It
+     provides actions that affect the selected content or context frame.
+ 
+-    The [contextual action mode](https://developer.android.com/develop/ui/views/components/menus#CAB) displays action items that
++    The [contextual action mode](#CAB) displays action items that
+     affect the selected content in a bar at the top of the screen and lets the
+     user select multiple items.
+ 
+-    See the [Create a contextual menu](https://developer.android.com/develop/ui/views/components/menus#context-menu)
++    See the [Create a contextual menu](#context-menu)
+     section.
+ 
+ **Popup menu**
++:   A popup menu displays a vertical list of items that's anchored to the
++    view that invokes the menu. It's good for providing an overflow of actions
++    that relate to specific content or to provide options for the second part
++    of a command. Actions in a popup menu don't directly affect the
++    corresponding content—that's what contextual actions are for. Rather,
++    the popup menu is for extended actions that relate to regions of content in
++    your activity.
+ 
+-:   A popup menu displays a vertical list of items that's anchored to the view that invokes the menu. It's good for providing an overflow of actions that relate to specific content or to provide options for the second part of a command. Actions in a popup menu don't directly affect the corresponding content---that's what contextual actions are for. Rather, the popup menu is for extended actions that relate to regions of content in your activity. See the [Create a popup menu](https://developer.android.com/develop/ui/views/components/menus#PopupMenu) section.
++    See the [Create a popup menu](#PopupMenu) section.
+ 
+ ## Define a menu in XML
+ 
+ For all menu types, Android provides a standard XML format to define menu
+ items. Instead of building a menu in your activity's code, define a menu and
+ all its items in an XML
+-[menu resource](https://developer.android.com/guide/topics/resources/menu-resource). You can
+-then inflate the menu resource---loading it as a `Menu`
+-object---in your activity or fragment.
++[menu resource](/guide/topics/resources/menu-resource). You can
++then inflate the menu resource—loading it as a `Menu`
++object—in your activity or fragment.
+ 
+ Using a menu resource is good practice for the following reasons:
+ 
+-- It's easier to visualize the menu structure in XML.
+-- It separates the content for the menu from your app's behavioral code.
+-- It lets you create alternative menu configurations for different platform versions, screen sizes, and other configurations by leveraging the [app resources](https://developer.android.com/guide/topics/resources) framework.
++* It's easier to visualize the menu structure in XML.
++* It separates the content for the menu from your app's behavioral
++  code.
++* It lets you create alternative menu configurations for different platform
++  versions, screen sizes, and other configurations by leveraging the
++  [app resources](/guide/topics/resources)
++  framework.
+ 
+ To define a menu, create an XML file inside your project's
+ `res/menu/` directory and build the menu with the following
+@@ -65,7 +102,7 @@ elements:
+ 
+ `<item>`
+ :   Creates a
+-    `https://developer.android.com/reference/android/view/MenuItem`,
++    `MenuItem`,
+     which represents a single item in a menu. This element can contain a nested
+     `<menu>` element to create a submenu.
+ 
+@@ -73,11 +110,11 @@ elements:
+ :   An optional, invisible container for `<item>`
+     elements. It lets you categorize menu items so they share properties, such
+     as active state and visibility. For more information, see the
+-    [Create a menu group](https://developer.android.com/develop/ui/views/components/menus#groups) section.
++    [Create a menu group](#groups) section.
+ 
+ Here's an example menu named `game_menu.xml`:
+ 
+-```xml
++```
+ <?xml version="1.0" encoding="utf-8"?>
+ <menu xmlns:android="http://schemas.android.com/apk/res/android">
+     <item android:id="@+id/new_game"
+@@ -111,16 +148,16 @@ include the following attributes:
+ 
+ These are the most important attributes you use, but there are many more
+ available. For information about all the supported attributes, see the
+-[Menu resource](https://developer.android.com/guide/topics/resources/menu-resource)
++[Menu resource](/guide/topics/resources/menu-resource)
+ documentation.
+ 
+ You can add a submenu to an item in any menu by adding a
+ `<menu>` element as the child of an `<item>`.
+ Submenus are useful when your app has a lot of functions that can be organized
+-into topics, like items in a PC app's menu bar---such as **File** ,
+-**Edit** , and **View**. See the following example:
++into topics, like items in a PC app's menu bar—such as **File**,
++**Edit**, and **View**. See the following example:
+ 
+-```xml
++```
+ <?xml version="1.0" encoding="utf-8"?>
+ <menu xmlns:android="http://schemas.android.com/apk/res/android">
+     <item android:id="@+id/file"
+@@ -136,9 +173,9 @@ into topics, like items in a PC app's menu bar---such as **File** ,
+ </menu>
+ ```
+ 
+-To use the menu in your activity, _inflate_ the menu resource, converting
++To use the menu in your activity, \_inflate\_ the menu resource, converting
+ the XML resource into a programmable object using
+-`https://developer.android.com/reference/android/view/MenuInflater#inflate(int, android.view.Menu)`.
++`MenuInflater.inflate()`.
+ The following sections show how to inflate a menu for each menu type.
+ 
+ ## Create an options menu
+@@ -146,12 +183,17 @@ The following sections show how to inflate a menu for each menu type.
+ The options menu, like the one shown in figure 1, is where you include
+ actions and other options that are relevant to the current activity context,
+ such as "Search," "Compose email," and "Settings."
+-![An image showing the app bar for the Google Sheets app](https://developer.android.com/static/images/training/appbar/appbar_sheets_2x.png) **Figure 2.** The Google Sheets app, showing several buttons, including the action overflow button.
++
++![An image showing the app bar for the Google Sheets app](/static/images/training/appbar/appbar_sheets_2x.png)
++
++
++**Figure 2.** The Google Sheets app, showing
++several buttons, including the action overflow button.
+ 
+ You can declare items for the options menu from your
+-`https://developer.android.com/reference/android/app/Activity`
++`Activity`
+ subclass or a
+-`https://developer.android.com/reference/android/app/Fragment`
++`Fragment`
+ subclass. If both your activity and your fragments declare items for the
+ options menu, the items are combined in the UI. The activity's items appear
+ first, followed by those of each fragment, in the order in which the fragments
+@@ -160,16 +202,16 @@ the `android:orderInCategory` attribute in each
+ `<item>` you need to move.
+ 
+ To specify the options menu for an activity, override
+-`https://developer.android.com/reference/android/app/Activity#onCreateOptionsMenu(android.view.Menu)`.
++`onCreateOptionsMenu()`.
+ Fragments provide their own
+-`https://developer.android.com/reference/android/app/Fragment#onCreateOptionsMenu(android.view.Menu, android.view.MenuInflater)`
++`onCreateOptionsMenu()`
+ callback. In this method, you can inflate your menu resource,
+-[defined in XML](https://developer.android.com/develop/ui/views/components/menus#xml), into the `Menu` provided in the
++[defined in XML](#xml), into the `Menu` provided in the
+ callback. This is shown in the following example:
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ override fun onCreateOptionsMenu(menu: Menu): Boolean {
+     val inflater: MenuInflater = menuInflater
+     inflater.inflate(R.menu.game_menu, menu)
+@@ -179,7 +221,7 @@ override fun onCreateOptionsMenu(menu: Menu): Boolean {
+ 
+ ### Java
+ 
+-```java
++```
+ @Override
+ public boolean onCreateOptionsMenu(Menu menu) {
+     MenuInflater inflater = getMenuInflater();
+@@ -189,19 +231,19 @@ public boolean onCreateOptionsMenu(Menu menu) {
+ ```
+ 
+ You can also add menu items using
+-`https://developer.android.com/reference/android/view/Menu#add(int, int, int, int)`
++`add()`
+ and retrieve items with
+-`https://developer.android.com/reference/android/view/Menu#findItem(int)`
++`findItem()`
+ to revise their properties with `MenuItem` APIs.
+ 
+ ### Handle click events
+ 
+ When the user selects an item from the options menu, including action items
+ in the app bar, the system calls your activity's
+-`https://developer.android.com/reference/android/app/Activity#onOptionsItemSelected(android.view.MenuItem)`
++`onOptionsItemSelected()`
+ method. This method passes the `MenuItem` selected. You can identify
+ the item by calling
+-`https://developer.android.com/reference/android/view/MenuItem#getItemId()`,
++`getItemId()`,
+ which returns the unique ID for the menu item, defined by the
+ `android:id` attribute in the menu resource or with an integer given
+ to the `add()` method. You can match this ID against known menu
+@@ -209,7 +251,7 @@ items to perform the appropriate action.
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ override fun onOptionsItemSelected(item: MenuItem): Boolean {
+     // Handle item selection.
+     return when (item.itemId) {
+@@ -228,7 +270,7 @@ override fun onOptionsItemSelected(item: MenuItem): Boolean {
+ 
+ ### Java
+ 
+-```java
++```
+ @Override
+ public boolean onOptionsItemSelected(MenuItem item) {
+     // Handle item selection.
+@@ -254,7 +296,19 @@ If your activity includes fragments, the system first calls
+ `onOptionsItemSelected()` for the activity, then for each fragment
+ in the order the fragments are added, until one returns `true` or
+ all fragments are called.
+-| **Tip:** If your app contains multiple activities and some of them provide the same options menu, consider creating an activity that implements only the `onCreateOptionsMenu()` and `onOptionsItemSelected()` methods. Then extend this class for each activity that shares the same options menu. This way, you can manage one set of code for handling menu actions, and each descendant class inherits the menu behaviors. If you want to add menu items to one of the descendant activities, override `>onCreateOptionsMenu()` in that activity. Call `super.onCreateOptionsMenu(menu)` so the original menu items are created, then add new menu items with `menu.add()`. You can also override the superclass's behavior for individual menu items.
++
++**Tip:** If your app contains multiple activities and some of them
++provide the same options menu, consider creating an activity that
++implements only the `onCreateOptionsMenu()` and
++`onOptionsItemSelected()` methods. Then extend this class for
++each activity that shares the same options menu. This way, you can manage
++one set of code for handling menu actions, and each descendant class
++inherits the menu behaviors. If you want to add menu items to one of the
++descendant activities, override `>onCreateOptionsMenu()` in that
++activity. Call `super.onCreateOptionsMenu(menu)` so the original
++menu items are created, then add new menu items with
++`menu.add()`. You can also override the superclass's behavior
++for individual menu items.
+ 
+ ### Change menu items at runtime
+ 
+@@ -266,69 +320,92 @@ state and not to make changes during the activity lifecycle.
+ 
+ If you want to modify the options menu based on events that occur during the
+ activity lifecycle, you can do so in the
+-`https://developer.android.com/reference/android/app/Activity#onPrepareOptionsMenu(android.view.Menu)`
++`onPrepareOptionsMenu()`
+ method. This method passes you the `Menu` object as it currently
+ exists so you can modify it, such as by adding, removing, or disabling items.
+ Fragments also provide an
+-`https://developer.android.com/reference/android/app/Fragment#onPrepareOptionsMenu(android.view.Menu)`
++`onPrepareOptionsMenu()`
+ callback.
+ 
+ The options menu is considered always open when menu items are presented in
+ the app bar. When an event occurs and you want to perform a menu update, call
+-`https://developer.android.com/reference/android/app/Activity#invalidateOptionsMenu()`
++`invalidateOptionsMenu()`
+ to request that the system call `onPrepareOptionsMenu()`.
+-| **Note:** Never change items in the options menu based on the `https://developer.android.com/reference/android/view/View` in focus. When in touch mode---when the user isn't using a trackball or D-pad---views can't take focus, so never use focus as the basis for modifying items in the options menu. If you want to provide menu items that are context-sensitive to a `View`, use a contextual menu as described in the following section.
++
++**Note:** Never change items in the options menu based on the
++`View` in focus.
++When in touch mode—when the user isn't using a trackball or
++D-pad—views can't take focus, so never use focus as the basis for
++modifying items in the options menu. If you want to provide menu items that
++are context-sensitive to a `View`, use a contextual menu as
++described in the following section.
+ 
+ ## Create a contextual menu
+ 
+-![An image showing a floating context menu](https://developer.android.com/static/develop/ui/views/images/context_menu_no_icons.png) **Figure 3.** A floating context menu.
++![An image showing a floating context menu](/static/develop/ui/views/images/context_menu_no_icons.png)
++
++
++**Figure 3.** A floating context menu.
+ 
+ A contextual menu offers actions that affect a specific item or context
+ frame in the UI. You can provide a context menu for any view, but they are most
+ often used for items in a
+-`https://developer.android.com/develop/ui/views/layout/recyclerview` or
++`RecylerView` or
+ other view collections in which the user can perform direct actions on each
+ item.
+ 
+ There are two ways to provide contextual actions:
+ 
+-- In a [floating context menu](https://developer.android.com/develop/ui/views/components/menus#FloatingContextMenu). A menu appears as a floating list of menu items, similar to a dialog, when the user performs a touch \& hold on a view that declares support for a context menu. Users can perform a contextual action on one item at a time.
+-- In the [contextual action mode](https://developer.android.com/develop/ui/views/components/menus#CAB). This mode is a system implementation of `https://developer.android.com/reference/android/view/ActionMode` that displays a *contextual action bar*, or CAB, at the top of the screen with action items that affect the selected item(s). When this mode is active, users can perform an action on multiple items at once, if your app supports that.
++* In a [floating context menu](#FloatingContextMenu). A menu
++  appears as a floating list of menu items, similar to a dialog, when the
++  user performs a touch & hold on a view that declares support for a context
++  menu. Users can perform a contextual action on one item at a time.
++* In the [contextual action mode](#CAB). This mode is a system
++  implementation of
++  `ActionMode`
++  that displays a *contextual action bar*, or CAB, at the top of the
++  screen with action items that affect the selected item(s). When this mode
++  is active, users can perform an action on multiple items at once, if your
++  app supports that.
+ 
+-**Note:** [Context menu](https://developer.android.com/reference/android/view/Menu) do not support item shortcuts and item icons.
++**Note:** [Context menu](/reference/android/view/Menu) do not support item shortcuts and item icons.
+ 
+ ### Create a floating context menu
+ 
+ To provide a floating context menu, do the following:
+ 
+-1. Register the `View` the context menu is associated with by calling `https://developer.android.com/reference/android/app/Activity#registerForContextMenu(android.view.View)` and passing it the `View`.
++1. Register the `View` the context menu is associated with by
++   calling
++   `registerForContextMenu()`
++   and passing it the `View`.
+ 
+    If your activity uses a `RecyclerView` and you want each
+    item to provide the same context menu, register all items for a context
+    menu by passing the `RecyclerView` to
+    `registerForContextMenu()`.
+-2. Implement the `https://developer.android.com/reference/android/view/View.OnCreateContextMenuListener#onCreateContextMenu(android.view.ContextMenu, android.view.View, android.view.ContextMenu.ContextMenuInfo)` method in your `Activity` or `Fragment`.
++2. Implement the
++   `onCreateContextMenu()`
++   method in your `Activity` or `Fragment`.
+ 
+-   When the registered view receives a touch \& hold event, the system calls
++   When the registered view receives a touch & hold event, the system calls
+    your `onCreateContextMenu()` method. This is where you define
+    the menu items, usually by inflating a menu resource, as in the following
+    example:
+ 
+    ### Kotlin
+ 
+-   ```kotlin
++   ```
+        override fun onCreateContextMenu(menu: ContextMenu, v: View,
+                                menuInfo: ContextMenu.ContextMenuInfo) {
+            super.onCreateContextMenu(menu, v, menuInfo)
+            val inflater: MenuInflater = menuInflater
+            inflater.inflate(R.menu.context_menu, menu)
+        }
+-       
+    ```
+ 
+    ### Java
+ 
+-   ```java
++   ```
+        @Override
+        public void onCreateContextMenu(ContextMenu menu, View v,
+                                        ContextMenuInfo menuInfo) {
+@@ -336,25 +413,24 @@ To provide a floating context menu, do the following:
+            MenuInflater inflater = getMenuInflater();
+            inflater.inflate(R.menu.context_menu, menu);
+        }
+-       
+    ```
+ 
+-   `https://developer.android.com/reference/android/view/MenuInflater`
++   `MenuInflater`
+    lets you inflate the context menu from a menu resource. The callback method
+    parameters include the `View` that the user selects and a
+-   `https://developer.android.com/reference/android/view/ContextMenu.ContextMenuInfo`
++   `ContextMenu.ContextMenuInfo`
+    object that provides additional information about the item selected. If
+    your activity has several views that each provide a different context menu,
+    you might use these parameters to determine which context menu to
+    inflate.
+ 3. Implement
+-   `https://developer.android.com/reference/android/app/Activity#onContextItemSelected(android.view.MenuItem)`,
++   `onContextItemSelected()`,
+    as shown in the following example. When the user selects a menu item, the
+    system calls this method so you can perform the appropriate action.
+ 
+    ### Kotlin
+ 
+-   ```kotlin
++   ```
+        override fun onContextItemSelected(item: MenuItem): Boolean {
+            val info = item.menuInfo as AdapterView.AdapterContextMenuInfo
+            return when (item.itemId) {
+@@ -369,12 +445,11 @@ To provide a floating context menu, do the following:
+                else -> super.onContextItemSelected(item)
+            }
+        }
+-       
+    ```
+ 
+    ### Java
+ 
+-   ```java
++   ```
+        @Override
+        public boolean onContextItemSelected(MenuItem item) {
+            AdapterContextMenuInfo info = (AdapterContextMenuInfo) item.getMenuInfo();
+@@ -389,13 +464,12 @@ To provide a floating context menu, do the following:
+                    return super.onContextItemSelected(item);
+            }
+        }
+-       
+    ```
+ 
+-   The `https://developer.android.com/reference/android/view/MenuItem#getItemId()`
++   The `getItemId()`
+    method queries the ID for the selected menu item, which you assign to each
+    menu item in XML using the `android:id` attribute, as shown in
+-   [Define a menu in XML](https://developer.android.com/develop/ui/views/components/menus#xml).
++   [Define a menu in XML](#xml).
+ 
+    When you successfully handle a menu item, return `true`. If
+    you don't handle the menu item, pass the menu item to the superclass
+@@ -419,19 +493,24 @@ items and continue to navigate within the activity. The action mode is disabled
+ and the contextual action bar disappears when the user deselects all items,
+ taps the Back button, or taps the **Done** action on the left side of the
+ bar.
+-| **Note:** The contextual action bar isn't necessarily associated with the app bar. They operate independently, although the contextual action bar visually overtakes the app bar position.
++
++**Note:** The contextual action bar isn't necessarily associated with
++the app bar. They operate independently, although the contextual action bar
++visually overtakes the app bar position.
+ 
+ For views that provide contextual actions, you usually invoke the contextual
+ action mode when one or both of these two events occurs:
+ 
+-- The user performs a touch \& hold on the view.
+-- The user selects a checkbox or similar UI component within the view.
++* The user performs a touch & hold on the view.
++* The user selects a checkbox or similar UI component within the view.
+ 
+ How your app invokes the contextual action mode and defines the
+ behavior for each action depends on your design. There are two designs:
+ 
+-- For contextual actions on individual, arbitrary views.
+-- For batch contextual actions on groups of items in a `RecyclerView`, letting the user select multiple items and perform an action on them all.
++* For contextual actions on individual, arbitrary views.
++* For batch contextual actions on groups of items in a
++  `RecyclerView`, letting the user select multiple items and
++  perform an action on them all.
+ 
+ The following sections describe the setup required for the first scenario.
+ 
+@@ -440,11 +519,14 @@ The following sections describe the setup required for the first scenario.
+ If you want to invoke the contextual action mode only when the user selects
+ specific views, do the following:
+ 
+-1. Implement the `ActionMode.Callback` interface as shown in the following example. In its callback methods, you can specify the actions for the contextual action bar, respond to click events on action items, and handle other lifecycle events for the action mode.
++1. Implement the `ActionMode.Callback` interface as shown in the
++   following example. In its callback methods, you can specify the actions for
++   the contextual action bar, respond to click events on action items, and
++   handle other lifecycle events for the action mode.
+ 
+    ### Kotlin
+ 
+-   ```kotlin
++   ```
+        private val actionModeCallback = object : ActionMode.Callback {
+            // Called when the action mode is created. startActionMode() is called.
+            override fun onCreateActionMode(mode: ActionMode, menu: Menu): Boolean {
+@@ -478,12 +560,11 @@ specific views, do the following:
+                actionMode = null
+            }
+        }
+-       
+    ```
+ 
+    ### Java
+ 
+-   ```java
++   ```
+        private ActionMode.Callback actionModeCallback = new ActionMode.Callback() {
+ 
+            // Called when the action mode is created. startActionMode() is called.
+@@ -522,28 +603,30 @@ specific views, do the following:
+                actionMode = null;
+            }
+        };
+-       
+    ```
+ 
+    These event callbacks are almost exactly the same as the callbacks for
+-   the [options menu](https://developer.android.com/develop/ui/views/components/menus#options-menu), except that each of these
++   the [options menu](#options-menu), except that each of these
+    also passes the `ActionMode` object associated with the event.
+    You can use `ActionMode` APIs to make various changes to the
+    CAB, such as revising the title and subtitle with
+-   `https://developer.android.com/reference/android/view/ActionMode#setTitle(int)`
++   `setTitle()`
+    and
+-   `https://developer.android.com/reference/android/view/ActionMode#setSubtitle(int)`,
++   `setSubtitle()`,
+    which is useful to indicate how many items are selected.
+ 
+    The preceding sample sets the `actionMode` variable to
+    `null` when the action mode is destroyed. In the next step, see
+    how it's initialized and how saving the member variable in your activity or
+    fragment can be useful.
+-2. Call `https://developer.android.com/reference/android/app/Activity#startActionMode(android.view.ActionMode.Callback)` when you want to show the bar, such as when the user performs a touch \& hold on the view.
++2. Call
++   `startActionMode()`
++   when you want to show the bar, such as when the user performs a touch &
++   hold on the view.
+ 
+    ### Kotlin
+ 
+-   ```kotlin
++   ```
+        someView.setOnLongClickListener { view ->
+            // Called when the user performs a touch & hold on someView.
+            when (actionMode) {
+@@ -556,12 +639,11 @@ specific views, do the following:
+                else -> false
+            }
+        }
+-       
+    ```
+ 
+    ### Java
+ 
+-   ```java
++   ```
+        someView.setOnLongClickListener(new View.OnLongClickListener() {
+            // Called when the user performs a touch & hold on someView.
+            public boolean onLongClick(View view) {
+@@ -575,7 +657,6 @@ specific views, do the following:
+                return true;
+            }
+        });
+-       
+    ```
+ 
+    When you call `startActionMode()`, the system returns the
+@@ -588,27 +669,46 @@ specific views, do the following:
+ 
+ ## Create a popup menu
+ 
+-![An image showing a popup menu in the Gmail app, anchored to the overflow button at the top-right.](https://developer.android.com/static/images/ui/popupmenu.png) **Figure 4.** A popup menu in the Gmail app, anchored to the overflow button in the top-right corner.
++![An image showing a popup menu in the Gmail app, anchored to the overflow button at the top-right.](/static/images/ui/popupmenu.png)
++
+ 
+-A `https://developer.android.com/reference/android/widget/PopupMenu`
++**Figure 4.** A popup menu in the Gmail app,
++anchored to the overflow button in the top-right corner.
++
++A `PopupMenu`
+ is a modal menu anchored to a `View`. It appears below the anchor
+ view if there is room, or above the view otherwise. It's useful for the
+ following:
+ 
+-- Providing an overflow-style menu for actions that *relate to* specific content, such as Gmail's email headers, shown in figure 4. **Note:** This isn't the same as a context menu, which is generally for actions that *affect* selected content. For actions that affect selected content, use the [contextual action mode](https://developer.android.com/develop/ui/views/components/menus#CAB) or [floating context menu](https://developer.android.com/develop/ui/views/components/menus#FloatingContextMenu).
+-- Providing a second part of a command sentence, such as a button marked **Add** that produces a popup menu with different **Add** options.
+-- Providing a menu similar to a `https://developer.android.com/reference/android/widget/Spinner` that doesn't retain a persistent selection.
+-
+-If you [define your menu in XML](https://developer.android.com/develop/ui/views/components/menus#xml), here's how you can show
++* Providing an overflow-style menu for actions that *relate to*
++  specific content, such as Gmail's email headers, shown in figure 4.
++  **Note:** This isn't the same as a context menu,
++  which is generally for actions that *affect* selected content.
++  For actions that affect selected content, use the
++  [contextual action mode](#CAB) or
++  [floating context menu](#FloatingContextMenu).
++* Providing a second part of a command sentence, such as a button marked
++  **Add** that produces a popup menu with different **Add**
++  options.
++* Providing a menu similar to a
++  `Spinner`
++  that doesn't retain a persistent selection.
++
++If you [define your menu in XML](#xml), here's how you can show
+ the popup menu:
+ 
+-1. Instantiate a `PopupMenu` with its constructor, which takes the current app `https://developer.android.com/reference/android/content/Context` and the `View` to which the menu is anchored.
+-2. Use `MenuInflater` to inflate your menu resource into the `Menu` object returned by `https://developer.android.com/reference/android/widget/PopupMenu#getMenu()`.
+-3. Call `https://developer.android.com/reference/android/widget/PopupMenu#show()`.
++1. Instantiate a `PopupMenu` with its constructor, which takes
++   the current app
++   `Context` and the
++   `View` to which the menu is anchored.
++2. Use `MenuInflater` to inflate your menu resource into the
++   `Menu` object returned by
++   `PopupMenu.getMenu()`.
++3. Call `PopupMenu.show()`.
+ 
+ For example, here's a button that shows a popup menu:
+ 
+-```xml
++```
+ <ImageButton
+     android:id="@+id/dropdown_menu"
+     android:layout_width="wrap_content"
+@@ -621,7 +721,7 @@ The activity can then show the popup menu like this:
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ findViewById<ImageButton>(R.id.dropdown_menu).setOnClickListener {
+     val popup = PopupMenu(this, it)
+     val inflater: MenuInflater = popup.menuInflater
+@@ -632,7 +732,7 @@ findViewById<ImageButton>(R.id.dropdown_menu).setOnClickListener {
+ 
+ ### Java
+ 
+-```java
++```
+ findViewById(R.id.dropdown_menu).setOnClickListener(v -> {
+     PopupMenu popup = new PopupMenu(this, v);
+     popup.getMenuInflater().inflate(R.menu.actions, popup.getMenu());
+@@ -642,23 +742,23 @@ findViewById(R.id.dropdown_menu).setOnClickListener(v -> {
+ 
+ The menu is dismissed when the user selects an item or taps outside the menu
+ area. You can listen for the dismiss event using
+-`https://developer.android.com/reference/android/widget/PopupMenu.OnDismissListener`.
++`PopupMenu.OnDismissListener`.
+ 
+ ### Handle click events
+ 
+ To perform an action when the user selects a menu item, implement the
+-`https://developer.android.com/reference/android/widget/PopupMenu.OnMenuItemClickListener`
++`PopupMenu.OnMenuItemClickListener`
+ interface and register it with your `PopupMenu` by calling
+-`https://developer.android.com/reference/android/widget/PopupMenu#setOnMenuItemClickListener(android.widget.PopupMenu.OnMenuItemClickListener)`.
++`setOnMenuItemclickListener()`.
+ When the user selects an item, the system calls the
+-`https://developer.android.com/reference/android/widget/PopupMenu.OnMenuItemClickListener#onMenuItemClick(android.view.MenuItem)`
++`onMenuItemClick()`
+ callback in your interface.
+ 
+ This is shown in the following example:
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ fun showMenu(v: View) {
+     PopupMenu(this, v).apply {
+         // MainActivity implements OnMenuItemClickListener.
+@@ -685,7 +785,7 @@ override fun onMenuItemClick(item: MenuItem): Boolean {
+ 
+ ### Java
+ 
+-```java
++```
+ public void showMenu(View v) {
+     PopupMenu popup = new PopupMenu(this, v);
+ 
+@@ -715,19 +815,22 @@ public boolean onMenuItemClick(MenuItem item) {
+ A menu group is a collection of menu items that share certain traits. With a
+ group, you can do the following:
+ 
+-- Show or hide all items using `https://developer.android.com/reference/android/view/Menu#setGroupVisible(int, boolean)`.
+-- Enable or disable all items using `https://developer.android.com/reference/android/view/Menu#setGroupEnabled(int, boolean)`.
+-- Specify whether all items are checkable using `https://developer.android.com/reference/android/view/Menu#setGroupCheckable(int, boolean, boolean)`.
++* Show or hide all items using
++  `setGroupVisible()`.
++* Enable or disable all items using
++  `setGroupEnabled()`.
++* Specify whether all items are checkable using
++  `setGroupCheckable()`.
+ 
+ You can create a group by nesting `<item>` elements inside
+ a `<group>` element in your menu resource or by specifying a
+ group ID with the
+-`https://developer.android.com/reference/android/view/Menu#add(int, int, int, int)`
++`add()`
+ method.
+ 
+ Here's an example of a menu resource that includes a group:
+ 
+-```xml
++```
+ <?xml version="1.0" encoding="utf-8"?>
+ <menu xmlns:android="http://schemas.android.com/apk/res/android">
+     <item android:id="@+id/menu_save"
+@@ -744,7 +847,7 @@ Here's an example of a menu resource that includes a group:
+ ```
+ 
+ The items that are in the group appear at the same level as the first
+-item---all three items in the menu are siblings. However, you can modify
++item—all three items in the menu are siblings. However, you can modify
+ the traits of the two items in the group by referencing the group ID and using
+ the preceding methods. The system also never separates grouped items. For
+ example, if you declare `android:showAsAction="ifRoom"` for each
+@@ -753,13 +856,22 @@ overflow.
+ 
+ ### Use checkable menu items
+ 
+-**Figure 5.** A submenu with checkable items.
++[
++
++](https://firebasestorage.googleapis.com/v0/b/design-spec/o/projects%2Fm3%2Fimages%2Fl7hta3go-%5B3P%5D%20Do.mp4?alt=media&token=9364b2e8-bdae-47ec-b324-32cfb49ff8fe)
++
++**Figure 5.** A submenu with
++checkable items.
+ 
+ A menu can be useful as an interface for turning options on and off, using a
+ checkbox for standalone options, or radio buttons for groups of mutually
+ exclusive options. Figure 5 shows a submenu with items that are checkable with
+ radio buttons.
+-| **Note:** Menu items in an options menu can't display a checkbox or radio button. If you make items in an options menu checkable, manually indicate the checked state by swapping the icon or text, or both, each time the state changes.
++
++**Note:** Menu items in an options menu can't display a checkbox or
++radio button. If you make items in an options menu checkable, manually
++indicate the checked state by swapping the icon or text, or both, each time
++the state changes.
+ 
+ You can define the checkable behavior for individual menu items using the
+ `android:checkable` attribute in the `<item>`
+@@ -767,7 +879,7 @@ element, or for an entire group with the `android:checkableBehavior`
+ attribute in the `<group>` element. For example, all items in
+ this menu group are checkable with a radio button:
+ 
+-```xml
++```
+ <?xml version="1.0" encoding="utf-8"?>
+ <menu xmlns:android="http://schemas.android.com/apk/res/android">
+     <group android:checkableBehavior="single">
+@@ -795,21 +907,21 @@ following:
+ You can apply a default checked state to an item using the
+ `android:checked` attribute in the `<item>` element
+ and change it in code with the
+-`https://developer.android.com/reference/android/view/MenuItem#setChecked(boolean)`
++`setChecked()`
+ method.
+ 
+ When a checkable item is selected, the system calls your respective
+ item-selected callback method, such as `onOptionsItemSelected()`.
+ This is where you set the state of the checkbox, because a checkbox or radio
+ button doesn't change its state automatically. You can query the current state
+-of the item---as it was before the user selected it---with
+-`https://developer.android.com/reference/android/view/MenuItem#isChecked()`
++of the item—as it was before the user selected it—with
++`isChecked()`
+ and then set the checked state with `setChecked()`. This is shown in
+ the following example:
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ override fun onOptionsItemSelected(item: MenuItem): Boolean {
+     return when (item.itemId) {
+         R.id.vibrate, R.id.dont_vibrate -> {
+@@ -823,7 +935,7 @@ override fun onOptionsItemSelected(item: MenuItem): Boolean {
+ 
+ ### Java
+ 
+-```java
++```
+ @Override
+ public boolean onOptionsItemSelected(MenuItem item) {
+     switch (item.getItemId()) {
+@@ -843,16 +955,21 @@ checkbox or radio button doesn't change when the user selects it. When you do
+ set the state, the activity preserves the checked state of the item so that
+ when the user opens the menu later, the checked state that you set is
+ visible.
+-| **Note:** Checkable menu items are intended to be used only on a per-session basis and not saved after the app is destroyed. If you have app settings that you want to save for the user, store the data using [shared storage](https://developer.android.com/guide/topics/data/data-storage).
++
++**Note:** Checkable menu items are intended to be used only on a
++per-session basis and not saved after the app is destroyed. If you
++have app settings that you want to save for the user, store the
++data using
++[shared storage](/guide/topics/data/data-storage).
+ 
+ ## Add menu items based on an intent
+ 
+ Sometimes you want a menu item to launch an activity using an
+-`https://developer.android.com/reference/android/content/Intent`,
++`Intent`,
+ whether it's an activity in your app or another app. When you
+ know the intent you want to use and have a specific menu item that initiates
+ the intent, you can execute the intent with
+-`https://developer.android.com/reference/android/app/Activity#startActivity(android.content.Intent)`
++`startActivity()`
+ during the appropriate on-item-selected callback method, such as the
+ `onOptionsItemSelected()` callback.
+ 
+@@ -865,18 +982,28 @@ Android finds activities on the device that handle your intent.
+ To add menu items based on available activities that accept an intent, do
+ the following:
+ 
+-1. Define an intent with the category `https://developer.android.com/reference/android/content/Intent#CATEGORY_ALTERNATIVE` or `https://developer.android.com/reference/android/content/Intent#CATEGORY_SELECTED_ALTERNATIVE`, or both, plus any other requirements.
+-2. Call `https://developer.android.com/reference/android/view/Menu#addIntentOptions(int, int, int, android.content.ComponentName, android.content.Intent[], android.content.Intent, int, android.view.MenuItem[])`. Android then searches for any apps that can perform the intent and adds them to your menu.
++1. Define an intent with the category
++   `CATEGORY_ALTERNATIVE`
++   or
++   `CATEGORY_SELECTED_ALTERNATIVE`,
++   or both, plus any other requirements.
++2. Call
++   `Menu.addIntentOptions()`.
++   Android then searches for any apps that can perform the intent and
++   adds them to your menu.
+ 
+ If there are no apps installed that satisfy the intent, then no menu
+ items are added.
+-| **Note:** `CATEGORY_SELECTED_ALTERNATIVE` is used to handle the selected element on the screen. Only use it when creating a menu in `https://developer.android.com/reference/android/app/Activity#onCreateContextMenu(android.view.ContextMenu, android.view.View, android.view.ContextMenu.ContextMenuInfo)`.
++
++**Note:** `CATEGORY_SELECTED_ALTERNATIVE` is used to handle
++the selected element on the screen. Only use it when creating a menu in
++`onCreateContextMenu()`.
+ 
+ This is shown in the following example:
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ override fun onCreateOptionsMenu(menu: Menu): Boolean {
+     super.onCreateOptionsMenu(menu)
+ 
+@@ -904,7 +1031,7 @@ override fun onCreateOptionsMenu(menu: Menu): Boolean {
+ 
+ ### Java
+ 
+-```java
++```
+ @Override
+ public boolean onCreateOptionsMenu(Menu menu){
+     super.onCreateOptionsMenu(menu);
+@@ -935,19 +1062,21 @@ defined, a menu item is added, using the value in the intent filter's
+ `android:label` as the menu item title and the app icon as the menu
+ item icon. The `addIntentOptions()` method returns the number of
+ menu items added.
+-| **Note:** When you call `addIntentOptions()`, it overrides all menu items by the menu group specified in the first argument.
++
++**Note:** When you call `addIntentOptions()`, it overrides
++all menu items by the menu group specified in the first argument.
+ 
+ ### Let your activity be added to other menus
+ 
+ You can offer the services of your activity to other apps so your app can be
+-included in the menu of others---reversing the roles described earlier.
++included in the menu of others—reversing the roles described earlier.
+ 
+ To be included in other app menus, define an intent filter as usual,
+ but include the `CATEGORY_ALTERNATIVE` or
+ `CATEGORY_SELECTED_ALTERNATIVE` values, or both, for the intent
+ filter category. This is shown in the following example:
+ 
+-```xml
++```
+ <intent-filter label="@string/resize_image">
+     ...
+     <category android:name="android.intent.category.ALTERNATIVE" />
+@@ -958,4 +1087,4 @@ filter category. This is shown in the following example:
+ 
+ Read more about writing intent filters in
+ [Intents and intent
+-filters](https://developer.android.com/guide/components/intents-filters).
+\ No newline at end of file
++filters](/guide/components/intents-filters).
+\ No newline at end of file

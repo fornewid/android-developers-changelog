@@ -1,0 +1,12 @@
+diff --git a/docs/training/wearables/watch-faces/drawing.md b/docs/training/wearables/watch-faces/drawing.md
+index 3aa9298..bf18389 100644
+--- a/docs/training/wearables/watch-faces/drawing.md
++++ b/docs/training/wearables/watch-faces/drawing.md
+@@ -17,7 +17,6 @@ Learn more about the user-facing changes in this [Help Center article](https://
+ 
+ 
+ 
+-
+ After you configure your project and add a class that implements the
+ watch face service, you can start writing code to initialize and draw your
+ custom watch face.

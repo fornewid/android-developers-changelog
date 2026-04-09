@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/compose/system/insets-views-compose.md b/docs/develop/ui/compose/system/insets-views-compose.md
+index 30a8b18..30097db 100644
+--- a/docs/develop/ui/compose/system/insets-views-compose.md
++++ b/docs/develop/ui/compose/system/insets-views-compose.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ If your app contains both Compose and View code, you may need to be explicit
+ about which system insets each one should consume and ensure that insets are
+ dispatched to sibling views.

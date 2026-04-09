@@ -1,0 +1,12 @@
+diff --git a/docs/develop/background-work/background-tasks/persistent/threading/rxworker.md b/docs/develop/background-work/background-tasks/persistent/threading/rxworker.md
+index c2f4c43..0f508cc 100644
+--- a/docs/develop/background-work/background-tasks/persistent/threading/rxworker.md
++++ b/docs/develop/background-work/background-tasks/persistent/threading/rxworker.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ We provide interoperability between WorkManager and RxJava. To get started,
+ include [`work-rxjava3` dependency in addition to `work-runtime`](/jetpack/androidx/releases/work#declaring_dependencies) in your gradle file.
+ There is also a `work-rxjava2` dependency that supports rxjava2 instead.

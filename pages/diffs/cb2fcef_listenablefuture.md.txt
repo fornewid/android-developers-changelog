@@ -1,0 +1,12 @@
+diff --git a/docs/develop/background-work/background-tasks/asynchronous/listenablefuture.md b/docs/develop/background-work/background-tasks/asynchronous/listenablefuture.md
+index a40b2d8..043088b 100644
+--- a/docs/develop/background-work/background-tasks/asynchronous/listenablefuture.md
++++ b/docs/develop/background-work/background-tasks/asynchronous/listenablefuture.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ A `ListenableFuture` represents the result of an asynchronous computation: a
+ computation that may or may not have finished producing a result yet. It's a
+ type of `Future`

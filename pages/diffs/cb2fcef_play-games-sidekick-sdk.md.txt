@@ -1,0 +1,20 @@
+diff --git a/docs/games/pgs/play-games-sidekick-sdk.md b/docs/games/pgs/play-games-sidekick-sdk.md
+index 8e94906..f077967 100644
+--- a/docs/games/pgs/play-games-sidekick-sdk.md
++++ b/docs/games/pgs/play-games-sidekick-sdk.md
+@@ -15,6 +15,7 @@ Send feedback
+ 
+ 
+ 
++
+ The Sidekick SDK is available to developers who:
+ 
+ * Publish releases as an APK, rather than an Android App Bundle (AAB).
+@@ -73,4 +74,6 @@ are needed.
+ 
+ 
+ 
++
++
+ Send feedback
+\ No newline at end of file

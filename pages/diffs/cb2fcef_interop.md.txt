@@ -1,0 +1,12 @@
+diff --git a/docs/guide/navigation/navigation-3/recipes/interop.md b/docs/guide/navigation/navigation-3/recipes/interop.md
+index 6da07a1..bb191e6 100644
+--- a/docs/guide/navigation/navigation-3/recipes/interop.md
++++ b/docs/guide/navigation/navigation-3/recipes/interop.md
+@@ -13,6 +13,7 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
++
+ # Interop Recipe
+ 
+ This recipe demonstrates how to use `AndroidFragment` and `AndroidView` within a Navigation3 application.

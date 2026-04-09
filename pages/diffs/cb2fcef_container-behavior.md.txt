@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/compose/layouts/adaptive/flexbox/container-behavior.md b/docs/develop/ui/compose/layouts/adaptive/flexbox/container-behavior.md
+index 2f2395a..6876c2a 100644
+--- a/docs/develop/ui/compose/layouts/adaptive/flexbox/container-behavior.md
++++ b/docs/develop/ui/compose/layouts/adaptive/flexbox/container-behavior.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ To configure the behavior of the `FlexBox` container, create a `FlexBoxConfig`
+ block and supply it using the `config` parameter.
+ 

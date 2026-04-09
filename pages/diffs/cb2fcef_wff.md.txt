@@ -1,0 +1,12 @@
+diff --git a/docs/training/wearables/wff.md b/docs/training/wearables/wff.md
+index 8c68bdf..22f9f66 100644
+--- a/docs/training/wearables/wff.md
++++ b/docs/training/wearables/wff.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ **Note:** As of January 2026, the Watch Face Format is required for
+ installing watch faces on all Wear OS devices.
+ 

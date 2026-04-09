@@ -1,0 +1,12 @@
+diff --git a/docs/training/monitoring-device-state/connectivity-status-type.md b/docs/training/monitoring-device-state/connectivity-status-type.md
+index 320bf34..346bb26 100644
+--- a/docs/training/monitoring-device-state/connectivity-status-type.md
++++ b/docs/training/monitoring-device-state/connectivity-status-type.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ The [`ConnectivityManager`](/reference/android/net/ConnectivityManager) provides
+ an API that enables you to request that the device connect to a network based on
+ various conditions that include device capabilities and data transport options.

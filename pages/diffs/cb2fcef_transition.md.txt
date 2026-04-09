@@ -1,0 +1,12 @@
+diff --git a/docs/training/constraint-layout/motionlayout/ref/transition.md b/docs/training/constraint-layout/motionlayout/ref/transition.md
+index feeafcd..61e6c14 100644
+--- a/docs/training/constraint-layout/motionlayout/ref/transition.md
++++ b/docs/training/constraint-layout/motionlayout/ref/transition.md
+@@ -10,6 +10,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Specifies the beginning and end state of a motion sequence, the target
+ intermediate states, and the user interactions that trigger the motion.
+ 

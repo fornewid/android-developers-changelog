@@ -1,0 +1,12 @@
+diff --git a/docs/jetpack/androidx/releases/interpolator.md b/docs/jetpack/androidx/releases/interpolator.md
+index 32f899c..a7dd442 100644
+--- a/docs/jetpack/androidx/releases/interpolator.md
++++ b/docs/jetpack/androidx/releases/interpolator.md
+@@ -15,6 +15,7 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
++
+ # Interpolator
+ 
+ [User Guide](/guide/topics/graphics/prop-animation#interpolators)

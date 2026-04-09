@@ -1,0 +1,12 @@
+diff --git a/docs/jetpack/androidx/releases/camera-featurecombinationquery.md b/docs/jetpack/androidx/releases/camera-featurecombinationquery.md
+index d56f25e..7cd1bf9 100644
+--- a/docs/jetpack/androidx/releases/camera-featurecombinationquery.md
++++ b/docs/jetpack/androidx/releases/camera-featurecombinationquery.md
+@@ -15,7 +15,6 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
+-
+ # Camera Feature Combination Query
+ 
+ API Reference  

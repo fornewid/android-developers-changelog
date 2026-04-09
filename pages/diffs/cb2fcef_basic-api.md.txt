@@ -1,0 +1,12 @@
+diff --git a/docs/games/services/unity/v2/api/namespace/google-play-games/basic-api.md b/docs/games/services/unity/v2/api/namespace/google-play-games/basic-api.md
+index 91ecc35..0cb5c4d 100644
+--- a/docs/games/services/unity/v2/api/namespace/google-play-games/basic-api.md
++++ b/docs/games/services/unity/v2/api/namespace/google-play-games/basic-api.md
+@@ -14,6 +14,7 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
++
+ # GooglePlayGames.BasicApi
+ 
+ ## Summary

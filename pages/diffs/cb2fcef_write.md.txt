@@ -1,0 +1,103 @@
+diff --git a/docs/studio/write.md b/docs/studio/write.md
+index dfe4bc8..6efc40d 100644
+--- a/docs/studio/write.md
++++ b/docs/studio/write.md
+@@ -1,9 +1,19 @@
+ ---
+-title: https://developer.android.com/studio/write
++title: Write your app  |  Android Studio  |  Android Developers
+ url: https://developer.android.com/studio/write
+-source: md.txt
++source: html-scrape
+ ---
+ 
++* [Android Developers](https://developer.android.com/)
++* [Develop](https://developer.android.com/develop)
++* [Android Studio](https://developer.android.com/studio)
++* [IDE guides](https://developer.android.com/studio/intro)
++
++# Write your app Stay organized with collections Save and categorize content based on your preferences.
++
++
++
++
+ Android Studio includes tools for every stage of development, but
+ what's most important is simply writing your app: writing the code, building
+ layouts, creating images, and being productive along the way.
+@@ -23,7 +33,7 @@ need to look up class, method, and variable names. The code editor provides
+ basic completion, smart completion, and statement completion.
+ 
+ Learn more about
+-[Code completion](https://developer.android.com/studio/intro#code_completion).
++[Code completion](/studio/intro#code_completion).
+ 
+ ### Create custom code-completion templates
+ 
+@@ -35,11 +45,11 @@ code snippet associated with the template into your code.
+ For example, the `comp` abbreviation followed by **Tab**
+ inserts the code for a new composable function.
+ Or type `loge` to find the `Log.e()` method and
+-[log from your code](https://developer.android.com/studio/command-line/logcat#logClass).
++[log from your code](/studio/command-line/logcat#logClass).
+ 
+ To see the list of supported live templates and customize them,
+-click **File \> Settings \> Editor \> Live Templates**
+-(**Android Studio \> Settings \> Editor \> Live Templates** on macOS).
++click **File > Settings > Editor > Live Templates**
++(**Android Studio > Settings > Editor > Live Templates** on macOS).
+ 
+ Learn more about
+ [Live templates](https://medium.com/google-developers/writing-more-code-by-writing-less-code-with-android-studio-live-templates-244f648d17c7#.h1jn0hq31).
+@@ -54,7 +64,7 @@ Every time you build your app, Android Studio runs Lint to check your source
+ files for potential bugs and looks for optimization improvements in correctness,
+ security, performance, usability, accessibility, and internationalization.
+ 
+-Learn more about [Lint](https://developer.android.com/studio/write/lint).
++Learn more about [Lint](/studio/write/lint).
+ 
+ ### See documentation and resource details
+ 
+@@ -79,17 +89,17 @@ Android Studio includes the following features and tools to help you
+ create and manage resource files.
+ 
+ Learn more about
+-[adding resources](https://developer.android.com/studio/write/add-resources).
++[adding resources](/studio/write/add-resources).
+ 
+ ### Create images for all screen densities
+ 
+ Android Studio includes a tool called Vector Asset Studio that helps you
+ create images that support each screen density. You can upload your own
+ SVG file for editing or select from one of the many Google-provided material
+-design icons. To get started, click **File \> New \> Vector Asset**.
++design icons. To get started, click **File > New > Vector Asset**.
+ 
+ Learn more about
+-[Vector Asset Studio](https://developer.android.com/studio/write/vector-asset-studio).
++[Vector Asset Studio](/studio/write/vector-asset-studio).
+ 
+ ### Preview images and colors
+ 
+@@ -103,12 +113,12 @@ image details, including all the alternative sizes.
+ ### Create new layouts
+ 
+ Android Studio lets you preview your composable layouts when you use the
+-[composable preview](https://developer.android.com/develop/ui/compose/tooling/previews) function. Previews
++[composable preview](/develop/ui/compose/tooling/previews) function. Previews
+ of your composables appear in the **Design** view of the file and update in
+ real time as you edit the composables.
+ 
+ If you're using XML layouts, Android Studio offers the
+-[Layout Editor](https://developer.android.com/studio/write/layout-editor) to preview your layout while
++[Layout Editor](/studio/write/layout-editor) to preview your layout while
+ editing the XML.
+ 
+ ### Translate UI strings
+@@ -122,4 +132,4 @@ To get started, right-click on any copy of your `strings.xml` file then click
+ **Open Translations Editor**.
+ 
+ Learn more about the
+-[Translations Editor](https://developer.android.com/studio/write/translations-editor).
+\ No newline at end of file
++[Translations Editor](/studio/write/translations-editor).
+\ No newline at end of file

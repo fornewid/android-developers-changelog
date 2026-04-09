@@ -1,0 +1,12 @@
+diff --git a/docs/agents/skills/r8-analyzer/references/REDUNDANT-RULES.md b/docs/agents/skills/r8-analyzer/references/REDUNDANT-RULES.md
+index 8291046..eec4489 100644
+--- a/docs/agents/skills/r8-analyzer/references/REDUNDANT-RULES.md
++++ b/docs/agents/skills/r8-analyzer/references/REDUNDANT-RULES.md
+@@ -8,6 +8,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ This document outlines common "bad" or redundant keep rules for standard Android
+ development and popular libraries. Modern toolchains and libraries include their
+ own consumer keep rules embedded in their AAR/JAR files, making many manual

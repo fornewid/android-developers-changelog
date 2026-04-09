@@ -1,0 +1,12 @@
+diff --git a/docs/guide/topics/connectivity/cross-device-sdk/testing-debugging.md b/docs/guide/topics/connectivity/cross-device-sdk/testing-debugging.md
+index d316943..5b53d3d 100644
+--- a/docs/guide/topics/connectivity/cross-device-sdk/testing-debugging.md
++++ b/docs/guide/topics/connectivity/cross-device-sdk/testing-debugging.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ ## Preconditions
+ 
+ The Developer Preview isn’t intended for use in production applications. Hence, it requires using a beta version of Google Play Services. See [this guide on how to enroll in the Beta Program](https://developers.google.com/android/guides/beta-program).

@@ -1,0 +1,12 @@
+diff --git a/docs/google/play/integrity/verdicts.md b/docs/google/play/integrity/verdicts.md
+index bda9fef..8b8da5e 100644
+--- a/docs/google/play/integrity/verdicts.md
++++ b/docs/google/play/integrity/verdicts.md
+@@ -12,7 +12,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ This page describes how to interpret and work with the returned integrity
+ verdict. Whether you make a standard or classic API request, the integrity
+ verdict is returned in the same format with similar content. The integrity

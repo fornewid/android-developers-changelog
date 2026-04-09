@@ -1,0 +1,22 @@
+diff --git a/docs/studio/write/annotations.md b/docs/studio/write/annotations.md
+index e1de969..19dfb81 100644
+--- a/docs/studio/write/annotations.md
++++ b/docs/studio/write/annotations.md
+@@ -55,7 +55,7 @@ line in the `dependencies` block of your `build.gradle` or
+ 
+ ```
+ dependencies {
+-    implementation("androidx.annotation:annotation:1.9.1")
++    implementation("androidx.annotation:annotation:1.10.0")
+ }
+ ```
+ 
+@@ -63,7 +63,7 @@ dependencies {
+ 
+ ```
+ dependencies {
+-    implementation 'androidx.annotation:annotation:1.9.1'
++    implementation 'androidx.annotation:annotation:1.10.0'
+ }
+ ```
+ 

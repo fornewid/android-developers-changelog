@@ -1,0 +1,12 @@
+diff --git a/docs/privacy-and-security/security-key-attestation.md b/docs/privacy-and-security/security-key-attestation.md
+index bf1e98e..545fa9d 100644
+--- a/docs/privacy-and-security/security-key-attestation.md
++++ b/docs/privacy-and-security/security-key-attestation.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Key attestation gives you more confidence that the keys you use in your app
+ are stored in a device's hardware-backed keystore. The following sections
+ describe how to verify the properties of hardware-backed keys and how to

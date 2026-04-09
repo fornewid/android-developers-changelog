@@ -1,0 +1,12 @@
+diff --git a/docs/topic/performance/threads.md b/docs/topic/performance/threads.md
+index 1f9dad9..bef641b 100644
+--- a/docs/topic/performance/threads.md
++++ b/docs/topic/performance/threads.md
+@@ -11,7 +11,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Making adept use of threads on Android can help you boost your app’s
+ performance. This page discusses several aspects of working with threads:
+ working with the UI, or main, thread; the relationship between app lifecycle and

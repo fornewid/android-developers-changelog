@@ -1,0 +1,12 @@
+diff --git a/docs/topic/libraries/data-binding/observability.md b/docs/topic/libraries/data-binding/observability.md
+index 1a01af1..caa6d27 100644
+--- a/docs/topic/libraries/data-binding/observability.md
++++ b/docs/topic/libraries/data-binding/observability.md
+@@ -12,6 +12,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ *Observability* refers to the capability of an object to notify others about
+ changes in its data. The Data Binding Library lets you make objects, fields, or
+ collections observable.

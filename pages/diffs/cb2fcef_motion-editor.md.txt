@@ -1,0 +1,12 @@
+diff --git a/docs/studio/write/motion-editor.md b/docs/studio/write/motion-editor.md
+index 54d1081..c3f67ec 100644
+--- a/docs/studio/write/motion-editor.md
++++ b/docs/studio/write/motion-editor.md
+@@ -11,6 +11,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ **Deprecated:** As of Android Studio Meerkat Feature Drop, the Motion Editor is
+ [deprecated](/studio/releases/past-releases/as-meerkat-feature-drop-release-notes#motion-editor-deprecation).
+ 

@@ -1,0 +1,12 @@
+diff --git a/docs/guide/components/activities/state-changes.md b/docs/guide/components/activities/state-changes.md
+index bd2bf6d..eb81ff8 100644
+--- a/docs/guide/components/activities/state-changes.md
++++ b/docs/guide/components/activities/state-changes.md
+@@ -12,6 +12,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Different events, some user-triggered and some system-triggered, can cause an
+ [`Activity`](/reference/android/app/Activity) to transition from one state to
+ another. This document describes some common cases in which such transitions

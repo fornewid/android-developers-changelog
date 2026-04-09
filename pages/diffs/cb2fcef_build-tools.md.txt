@@ -1,0 +1,12 @@
+diff --git a/docs/tools/releases/build-tools.md b/docs/tools/releases/build-tools.md
+index b391d62..c13c13d 100644
+--- a/docs/tools/releases/build-tools.md
++++ b/docs/tools/releases/build-tools.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Android SDK Build-Tools is a component of the Android SDK required for
+ building Android apps. It's installed in the
+ `<sdk>/build-tools/` directory.

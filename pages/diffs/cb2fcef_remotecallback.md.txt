@@ -1,0 +1,12 @@
+diff --git a/docs/jetpack/androidx/releases/remotecallback.md b/docs/jetpack/androidx/releases/remotecallback.md
+index 701b744..c0eca53 100644
+--- a/docs/jetpack/androidx/releases/remotecallback.md
++++ b/docs/jetpack/androidx/releases/remotecallback.md
+@@ -15,7 +15,6 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
+-
+ # Remotecallback
+ 
+ API Reference  

@@ -1,0 +1,468 @@
+diff --git a/docs/identity/sign-in/biometric-auth.md b/docs/identity/sign-in/biometric-auth.md
+index 444bdb8..5f59b0c 100644
+--- a/docs/identity/sign-in/biometric-auth.md
++++ b/docs/identity/sign-in/biometric-auth.md
+@@ -1,44 +1,55 @@
+ ---
+-title: https://developer.android.com/identity/sign-in/biometric-auth
++title: Show a biometric authentication dialog  |  Identity  |  Android Developers
+ url: https://developer.android.com/identity/sign-in/biometric-auth
+-source: md.txt
++source: html-scrape
+ ---
+ 
++* [Android Developers](https://developer.android.com/)
++* [Design & Plan](https://developer.android.com/design)
++* [Security](https://developer.android.com/security)
++* [Identity](https://developer.android.com/identity)
++* [Guides](https://developer.android.com/identity/credential-manager)
++
++# Show a biometric authentication dialog Stay organized with collections Save and categorize content based on your preferences.
++
++
++
++
+ One method of protecting sensitive information or premium content within your
+ app is to request biometric authentication, such as using face recognition or
+ fingerprint recognition. This guide explains how to support biometric login
+ flows in your app.
+ 
+-As a general rule, you should use [Credential Manager](https://developer.android.com/identity/sign-in/credential-manager) for initial sign-in on
++As a general rule, you should use [Credential Manager](/identity/sign-in/credential-manager) for initial sign-in on
+ a device. Subsequent re-authorizations can be done with either Biometric Prompt,
+ or Credential Manager. The advantage of using Biometric Prompt is that it offers
+ more customization options, whereas Credential Manager offers a single
+ implementation across both flows.
+ 
+-> [!NOTE]
+-> **Note:** The [Biometric library](https://developer.android.com/reference/androidx/biometric/package-summary) expands upon the functionality of the deprecated `FingerprintManager` API.
++**Note:** The [Biometric library](/reference/androidx/biometric/package-summary)
++expands upon the functionality of the deprecated `FingerprintManager` API.
+ 
+ ## Declare the types of authentication that your app supports
+ 
+ To define the types of authentication that your app supports, use the
+-[`BiometricManager.Authenticators`](https://developer.android.com/reference/androidx/biometric/BiometricManager.Authenticators)
++[`BiometricManager.Authenticators`](/reference/androidx/biometric/BiometricManager.Authenticators)
+ interface. The system lets you declare the following types of
+ authentication:
+ 
+-[`BIOMETRIC_STRONG`](https://developer.android.com/reference/androidx/biometric/BiometricManager.Authenticators#BIOMETRIC_STRONG)
++[`BIOMETRIC_STRONG`](/reference/androidx/biometric/BiometricManager.Authenticators#BIOMETRIC_STRONG)
+ :   Authentication using a **Class 3** biometric, as defined on the
+     [Android compatibility
+     definition](https://source.android.com/compatibility/android-cdd#7_3_10_biometric_sensors)
+     page.
+ 
+-[`BIOMETRIC_WEAK`](https://developer.android.com/reference/androidx/biometric/BiometricManager.Authenticators#BIOMETRIC_WEAK)
++[`BIOMETRIC_WEAK`](/reference/androidx/biometric/BiometricManager.Authenticators#BIOMETRIC_WEAK)
+ :   Authentication using a **Class 2** biometric, as defined on the
+     [Android compatibility
+     definition](https://source.android.com/compatibility/android-cdd#7_3_10_biometric_sensors)
+     page.
+ 
+-[`DEVICE_CREDENTIAL`](https://developer.android.com/reference/androidx/biometric/BiometricManager.Authenticators#DEVICE_CREDENTIAL)
+-:   Authentication using a screen lock credential -- the user's PIN, pattern, or
++[`DEVICE_CREDENTIAL`](/reference/androidx/biometric/BiometricManager.Authenticators#DEVICE_CREDENTIAL)
++:   Authentication using a screen lock credential – the user's PIN, pattern, or
+     password.
+ 
+ To begin using an authenticator, the user needs to create a PIN,
+@@ -47,13 +58,13 @@ enrollment flow prompts them to create one.
+ 
+ To define the types of biometric authentication that your app accepts, pass an
+ authentication type or a bitwise combination of types into the
+-[`setAllowedAuthenticators()`](https://developer.android.com/reference/androidx/biometric/BiometricPrompt.PromptInfo.Builder#setAllowedAuthenticators(int))
++[`setAllowedAuthenticators()`](/reference/androidx/biometric/BiometricPrompt.PromptInfo.Builder#setAllowedAuthenticators(int))
+ method. The following code snippet shows how to support authentication using
+ either a Class 3 biometric or a screen lock credential.
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ // Lets the user authenticate using either a Class 3 biometric or
+ // their lock screen credential (PIN, pattern, or password).
+ promptInfo = BiometricPrompt.PromptInfo.Builder()
+@@ -65,7 +76,7 @@ promptInfo = BiometricPrompt.PromptInfo.Builder()
+ 
+ ### Java
+ 
+-```java
++```
+ // Lets user authenticate using either a Class 3 biometric or
+ // their lock screen credential (PIN, pattern, or password).
+ promptInfo = new BiometricPrompt.PromptInfo.Builder()
+@@ -75,14 +86,16 @@ promptInfo = new BiometricPrompt.PromptInfo.Builder()
+         .build();
+ ```
+ 
+-> [!NOTE]
+-> **Note:** You can't call `setNegativeButtonText()` and `setAllowedAuthenticators(... or DEVICE_CREDENTIAL)` at the same time on a `BiometricPrompt.PromptInfo.Builder` instance.
++**Note:** You can't call `setNegativeButtonText()` and
++`setAllowedAuthenticators(... or DEVICE_CREDENTIAL)`
++at the same time on a `BiometricPrompt.PromptInfo.Builder`
++instance.
+ 
+ The following combinations of authenticator types aren't supported on
+ Android 10 (API level 29) and lower: `DEVICE_CREDENTIAL` and
+ `BIOMETRIC_STRONG | DEVICE_CREDENTIAL`. To check for the presence of a PIN,
+ pattern, or password on Android 10 and lower, use the
+-[`KeyguardManager.isDeviceSecure()`](https://developer.android.com/reference/android/app/KeyguardManager#isDeviceSecure())
++[`KeyguardManager.isDeviceSecure()`](/reference/android/app/KeyguardManager#isDeviceSecure())
+ method.
+ 
+ ## Check that biometric authentication is available
+@@ -91,16 +104,16 @@ After you decide which authentication elements your app supports, check whether
+ these elements are available. To do so, pass the
+ same bitwise combination of types that you declared using the
+ `setAllowedAuthenticators()` method into the
+-[`canAuthenticate()`](https://developer.android.com/reference/androidx/biometric/BiometricManager#canAuthenticate(int)) method.
++[`canAuthenticate()`](/reference/androidx/biometric/BiometricManager#canAuthenticate(int)) method.
+ If necessary, invoke the
+-[`ACTION_BIOMETRIC_ENROLL`](https://developer.android.com/reference/android/provider/Settings#ACTION_BIOMETRIC_ENROLL) intent
++[`ACTION_BIOMETRIC_ENROLL`](/reference/android/provider/Settings#ACTION_BIOMETRIC_ENROLL) intent
+ action. In the intent extra, provide the set of authenticators that your app
+ accepts. This intent prompts the user to register credentials for an
+ authenticator that your app accepts.
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ val biometricManager = BiometricManager.from(this)
+ when (biometricManager.canAuthenticate(BIOMETRIC_STRONG or DEVICE_CREDENTIAL)) {
+     BiometricManager.BIOMETRIC_SUCCESS ->
+@@ -122,7 +135,7 @@ when (biometricManager.canAuthenticate(BIOMETRIC_STRONG or DEVICE_CREDENTIAL)) {
+ 
+ ### Java
+ 
+-```java
++```
+ BiometricManager biometricManager = BiometricManager.from(this);
+ switch (biometricManager.canAuthenticate(BIOMETRIC_STRONG | DEVICE_CREDENTIAL)) {
+     case BiometricManager.BIOMETRIC_SUCCESS:
+@@ -148,30 +161,34 @@ switch (biometricManager.canAuthenticate(BIOMETRIC_STRONG | DEVICE_CREDENTIAL))
+ 
+ After the user authenticates, you can check whether the user authenticated using
+ a device credential or a biometric credential by calling
+-[`getAuthenticationType()`](https://developer.android.com/reference/androidx/biometric/BiometricPrompt.AuthenticationResult#getAuthenticationType()).
++[`getAuthenticationType()`](/reference/androidx/biometric/BiometricPrompt.AuthenticationResult#getAuthenticationType()).
+ 
+ ## Display the login prompt
+ 
+ To display a system prompt that requests the user to authenticate using
+ biometric credentials, use the
+-[Biometric library](https://developer.android.com/reference/androidx/biometric/package-summary). This
++[Biometric library](/reference/androidx/biometric/package-summary). This
+ system-provided dialog is consistent across the apps that use it, creating a
+ more trustworthy user experience. An example dialog appears in figure 1.
+-![Screenshot showing dialog](https://developer.android.com/static/images/training/sign-in/biometric-dialog-auth.svg) **Figure 1.** System dialog requesting biometric authentication.
++
++![Screenshot showing dialog](/static/images/training/sign-in/biometric-dialog-auth.svg)
++
++
++**Figure 1.** System dialog requesting biometric
++authentication.
+ 
+ To add biometric authentication to your app using the Biometric library,
+ complete the following steps:
+ 
+ 1. In your app module's `build.gradle` file, [add a dependency on the
+    `androidx.biometric`
+-   library](https://developer.android.com/jetpack/androidx/releases/biometric#declaring_dependencies).
+-
++   library](/jetpack/androidx/releases/biometric#declaring_dependencies).
+ 2. In the activity or fragment that hosts the biometric login dialog, display
+    the dialog using the logic shown in the following code snippet:
+ 
+    ### Kotlin
+ 
+-   ```kotlin
++   ```
+    private lateinit var executor: Executor
+    private lateinit var biometricPrompt: BiometricPrompt
+    private lateinit var promptInfo: BiometricPrompt.PromptInfo
+@@ -213,7 +230,7 @@ complete the following steps:
+                .build()
+ 
+        // Prompt appears when user clicks "Log in".
+-       // Consider integrating with the keystore to unlock https://developer.android.com/identity/sign-in/biometric-auth#crypto,
++       // Consider integrating with the keystore to unlock cryptographic operations,
+        // if needed by your app.
+        val biometricLoginButton =
+                findViewById<Button>(R.id.biometric_login)
+@@ -225,7 +242,7 @@ complete the following steps:
+ 
+    ### Java
+ 
+-   ```java
++   ```
+    private Executor executor;
+    private BiometricPrompt biometricPrompt;
+    private BiometricPrompt.PromptInfo promptInfo;
+@@ -270,7 +287,7 @@ complete the following steps:
+                .build();
+ 
+        // Prompt appears when user clicks "Log in".
+-       // Consider integrating with the keystore to unlock https://developer.android.com/identity/sign-in/biometric-auth#crypto,
++       // Consider integrating with the keystore to unlock cryptographic operations,
+        // if needed by your app.
+        Button biometricLoginButton = findViewById(R.id.biometric_login);
+        biometricLoginButton.setOnClickListener(view -> {
+@@ -283,16 +300,16 @@ complete the following steps:
+ 
+ To further protect sensitive information within your app, you can incorporate
+ cryptography into your biometric authentication workflow using an instance of
+-[`CryptoObject`](https://developer.android.com/reference/androidx/biometric/BiometricPrompt.CryptoObject).
++[`CryptoObject`](/reference/androidx/biometric/BiometricPrompt.CryptoObject).
+ The framework supports the following cryptographic objects:
+-[`Signature`](https://developer.android.com/reference/java/security/Signature),
+-[`Cipher`](https://developer.android.com/reference/javax/crypto/Cipher), and
+-[`Mac`](https://developer.android.com/reference/javax/crypto/Mac).
++[`Signature`](/reference/java/security/Signature),
++[`Cipher`](/reference/javax/crypto/Cipher), and
++[`Mac`](/reference/javax/crypto/Mac).
+ 
+ After the user authenticates successfully using a biometric prompt, your app can
+ perform a cryptographic operation. For example, if you authenticate using a
+ `Cipher` object, your app can then perform encryption and decryption using a
+-[`SecretKey`](https://developer.android.com/reference/javax/crypto/SecretKey) object.
++[`SecretKey`](/reference/javax/crypto/SecretKey) object.
+ 
+ The following sections go through examples of using a `Cipher` object and a
+ `SecretKey` object to encrypt data. Each example makes use of the following
+@@ -300,7 +317,7 @@ methods:
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ private fun generateSecretKey(keyGenParameterSpec: KeyGenParameterSpec) {
+     val keyGenerator = KeyGenerator.getInstance(
+             KeyProperties.KEY_ALGORITHM_AES, "AndroidKeyStore")
+@@ -325,7 +342,7 @@ private fun getCipher(): Cipher {
+ 
+ ### Java
+ 
+-```java
++```
+ private void generateSecretKey(KeyGenParameterSpec keyGenParameterSpec) {
+     KeyGenerator keyGenerator = KeyGenerator.getInstance(
+             KeyProperties.KEY_ALGORITHM_AES, "AndroidKeyStore");
+@@ -358,12 +375,12 @@ To encrypt sensitive information only after the user authenticates using
+ biometric credentials, complete the following steps:
+ 
+ 1. Generate a key that uses the following
+-   [`KeyGenParameterSpec`](https://developer.android.com/reference/android/security/keystore/KeyGenParameterSpec)
++   [`KeyGenParameterSpec`](/reference/android/security/keystore/KeyGenParameterSpec)
+    configuration:
+ 
+    ### Kotlin
+ 
+-   ```kotlin
++   ```
+    generateSecretKey(KeyGenParameterSpec.Builder(
+            KEY_NAME,
+            KeyProperties.PURPOSE_ENCRYPT or KeyProperties.PURPOSE_DECRYPT)
+@@ -380,7 +397,7 @@ biometric credentials, complete the following steps:
+ 
+    ### Java
+ 
+-   ```java
++   ```
+    generateSecretKey(new KeyGenParameterSpec.Builder(
+            KEY_NAME,
+            KeyProperties.PURPOSE_ENCRYPT | KeyProperties.PURPOSE_DECRYPT)
+@@ -398,7 +415,7 @@ biometric credentials, complete the following steps:
+ 
+    ### Kotlin
+ 
+-   ```kotlin
++   ```
+    biometricLoginButton.setOnClickListener {
+        // Exceptions are unhandled within this snippet.
+        val cipher = getCipher()
+@@ -411,7 +428,7 @@ biometric credentials, complete the following steps:
+ 
+    ### Java
+ 
+-   ```java
++   ```
+    biometricLoginButton.setOnClickListener(view -> {
+        // Exceptions are unhandled within this snippet.
+        Cipher cipher = getCipher();
+@@ -426,7 +443,7 @@ biometric credentials, complete the following steps:
+ 
+    ### Kotlin
+ 
+-   ```kotlin
++   ```
+    override fun onAuthenticationSucceeded(
+            result: BiometricPrompt.AuthenticationResult) {
+        val encryptedInfo: ByteArray = result.cryptoObject.cipher?.doFinal(
+@@ -442,7 +459,7 @@ biometric credentials, complete the following steps:
+ 
+    ### Java
+ 
+-   ```java
++   ```
+    @Override
+    public void onAuthenticationSucceeded(
+            @NonNull BiometricPrompt.AuthenticationResult result) {
+@@ -465,20 +482,21 @@ configuring this key, specify a validity time period. During this time period,
+ your app can perform multiple cryptographic operations without the user needing
+ to re-authenticate.
+ 
+-> [!NOTE]
+-> **Note:** To use this type of key, you must [allow for fallback to non-biometric
+-> credentials](https://developer.android.com/identity/sign-in/biometric-auth#allow-fallback), which means that you can't pass an instance of `CryptoObject` into the `authenticate()` method of your `BiometricPrompt` object.
++**Note:** To use this type of key, you must [allow for fallback to non-biometric
++credentials](#allow-fallback), which means that
++you can't pass an instance of `CryptoObject` into the `authenticate()` method
++of your `BiometricPrompt` object.
+ 
+ To encrypt sensitive information after the user authenticates using biometric or
+ lock screen credentials, complete the following steps:
+ 
+ 1. Generate a key that uses the following
+-   [`KeyGenParameterSpec`](https://developer.android.com/reference/android/security/keystore/KeyGenParameterSpec)
++   [`KeyGenParameterSpec`](/reference/android/security/keystore/KeyGenParameterSpec)
+    configuration:
+ 
+    ### Kotlin
+ 
+-   ```kotlin
++   ```
+    generateSecretKey(KeyGenParameterSpec.Builder(
+        KEY_NAME,
+        KeyProperties.PURPOSE_ENCRYPT or KeyProperties.PURPOSE_DECRYPT)
+@@ -492,7 +510,7 @@ lock screen credentials, complete the following steps:
+ 
+    ### Java
+ 
+-   ```java
++   ```
+    generateSecretKey(new KeyGenParameterSpec.Builder(
+        KEY_NAME,
+        KeyProperties.PURPOSE_ENCRYPT | KeyProperties.PURPOSE_DECRYPT)
+@@ -508,7 +526,7 @@ lock screen credentials, complete the following steps:
+ 
+    ### Kotlin
+ 
+-   ```kotlin
++   ```
+    private fun encryptSecretInformation() {
+        // Exceptions are unhandled for getCipher() and getSecretKey().
+        val cipher = getCipher()
+@@ -532,7 +550,7 @@ lock screen credentials, complete the following steps:
+ 
+    ### Java
+ 
+-   ```java
++   ```
+    private void encryptSecretInformation() {
+        // Exceptions are unhandled for getCipher() and getSecretKey().
+        Cipher cipher = getCipher();
+@@ -557,7 +575,7 @@ lock screen credentials, complete the following steps:
+ ### Authenticate using auth-per-use keys
+ 
+ You can provide support for auth-per-use keys within your instance of
+-[`BiometricPrompt`](https://developer.android.com/reference/androidx/biometric/BiometricPrompt). Such a key
++[`BiometricPrompt`](/reference/androidx/biometric/BiometricPrompt). Such a key
+ requires the user to present either a biometric credential or a device
+ credential each time your app needs to access data that's guarded by
+ that key. Auth-per-use keys can be useful for high-value transactions, such as
+@@ -568,7 +586,7 @@ similar to the following:
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ val authPerOpKeyGenParameterSpec =
+         KeyGenParameterSpec.Builder("myKeystoreAlias", key-purpose)
+     // Accept either a biometric credential or a device credential.
+@@ -582,7 +600,7 @@ val authPerOpKeyGenParameterSpec =
+ 
+ ### Java
+ 
+-```java
++```
+ KeyGenParameterSpec authPerOpKeyGenParameterSpec =
+         new KeyGenParameterSpec.Builder("myKeystoreAlias", key-purpose)
+     // Accept either a biometric credential or a device credential.
+@@ -606,22 +624,28 @@ however, you can provide a hint to the system that the user doesn't need to
+ confirm authentication. This hint can allow the user to view content in your app
+ more quickly after re-authenticating using a passive modality, such as face- or
+ iris-based recognition. To provide this hint, pass `false` into the
+-[`setConfirmationRequired()`](https://developer.android.com/reference/androidx/biometric/BiometricPrompt.PromptInfo.Builder#setConfirmationRequired(boolean)) method.
++[`setConfirmationRequired()`](/reference/androidx/biometric/BiometricPrompt.PromptInfo.Builder#setConfirmationRequired(boolean)) method.
+ 
+ Figure 2 shows two versions of the same dialog. One version requires an explicit
+ user action, and the other version doesn't.
+ 
+-> [!CAUTION]
+-> **Caution:** Because this flag is passed as a hint to the system, the system might ignore the value if the user has changed their system settings for biometric authentication.
++**Caution:** Because this flag is passed as a hint to the system, the system might
++ignore the value if the user has changed their system settings for biometric
++authentication.
+ 
+-![Screen capture of dialog](https://developer.android.com/static/images/training/sign-in/biometric-without-explicit-confirmation.svg) ![Screen capture of dialog](https://developer.android.com/static/images/training/sign-in/biometric-with-explicit-confirmation.svg) **Figure 2.** Face authentication without user confirmation (top) and with user confirmation (bottom).
++![Screen capture of dialog](/static/images/training/sign-in/biometric-without-explicit-confirmation.svg)
++![Screen capture of dialog](/static/images/training/sign-in/biometric-with-explicit-confirmation.svg)
++
++
++**Figure 2.** Face authentication without user confirmation (top) and with
++user confirmation (bottom).
+ 
+ The following code snippet shows how to present a dialog that **doesn't**
+ require an explicit user action to complete the authentication process:
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ // Lets the user authenticate without performing an action, such as pressing a
+ // button, after their biometric credential is accepted.
+ promptInfo = BiometricPrompt.PromptInfo.Builder()
+@@ -634,7 +658,7 @@ promptInfo = BiometricPrompt.PromptInfo.Builder()
+ 
+ ### Java
+ 
+-```java
++```
+ // Lets the user authenticate without performing an action, such as pressing a
+ // button, after their biometric credential is accepted.
+ promptInfo = new BiometricPrompt.PromptInfo.Builder()
+@@ -649,17 +673,17 @@ promptInfo = new BiometricPrompt.PromptInfo.Builder()
+ 
+ If you want your app to allow authentication using either biometric or device
+ credentials, you can declare that your [app supports device
+-credentials](https://developer.android.com/identity/sign-in/biometric-auth#declare-supported-authentication-types) by including
++credentials](#declare-supported-authentication-types) by including
+ `DEVICE_CREDENTIAL` in the set of values that you pass into
+-[`setAllowedAuthenticators()`](https://developer.android.com/reference/androidx/biometric/BiometricPrompt.PromptInfo.Builder#setAllowedAuthenticators(int)).
++[`setAllowedAuthenticators()`](/reference/androidx/biometric/BiometricPrompt.PromptInfo.Builder#setAllowedAuthenticators(int)).
+ 
+ If your app currently uses
+-[`createConfirmDeviceCredentialIntent()`](https://developer.android.com/reference/android/app/KeyguardManager#createConfirmDeviceCredentialIntent(java.lang.CharSequence,%20java.lang.CharSequence))
+-or [`setDeviceCredentialAllowed()`](https://developer.android.com/reference/androidx/biometric/BiometricPrompt.PromptInfo.Builder#setDeviceCredentialAllowed(boolean))
++[`createConfirmDeviceCredentialIntent()`](/reference/android/app/KeyguardManager#createConfirmDeviceCredentialIntent(java.lang.CharSequence,%20java.lang.CharSequence))
++or [`setDeviceCredentialAllowed()`](/reference/androidx/biometric/BiometricPrompt.PromptInfo.Builder#setDeviceCredentialAllowed(boolean))
+ to provide this capability, switch to using `setAllowedAuthenticators()`.
+ 
+-> [!CAUTION]
+-> **Caution:** You can't pass `DEVICE_CREDENTIAL` into `setAllowedAuthenticators()` and call `setNegativeButtonText()` for the same instance of `BiometricPrompt`.
++**Caution:** You can't pass `DEVICE_CREDENTIAL` into `setAllowedAuthenticators()`
++and call `setNegativeButtonText()` for the same instance of `BiometricPrompt`.
+ 
+ ## Additional resources
+ 
+@@ -668,5 +692,5 @@ resources.
+ 
+ ### Blog posts
+ 
+-- [Migrating from FingerprintManager to
++* [Migrating from FingerprintManager to
+   BiometricPrompt](https://medium.com/@isaidamier/migrating-from-fingerprintmanager-to-biometricprompt-4bc5f570dccd)
+\ No newline at end of file

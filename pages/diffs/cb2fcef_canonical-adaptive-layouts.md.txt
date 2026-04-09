@@ -1,0 +1,131 @@
+diff --git a/docs/design/ui/wear/guides/m2-5/foundations/canonical-adaptive-layouts.md b/docs/design/ui/wear/guides/m2-5/foundations/canonical-adaptive-layouts.md
+index 761c041..ad3b823 100644
+--- a/docs/design/ui/wear/guides/m2-5/foundations/canonical-adaptive-layouts.md
++++ b/docs/design/ui/wear/guides/m2-5/foundations/canonical-adaptive-layouts.md
+@@ -1,28 +1,16 @@
+ ---
+-title: Canonical adaptive design layouts  |  Wear  |  Android Developers
++title: https://developer.android.com/design/ui/wear/guides/m2-5/foundations/canonical-adaptive-layouts
+ url: https://developer.android.com/design/ui/wear/guides/m2-5/foundations/canonical-adaptive-layouts
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-* [Design & Plan](https://developer.android.com/design)
+-* [UI Design](https://developer.android.com/design/ui)
+-* [Wear](https://developer.android.com/design/ui/wear)
+-* [Guides](https://developer.android.com/design/ui/wear/guides/get-started)
+-
+-# Canonical adaptive design layouts Stay organized with collections Save and categorize content based on your preferences.
+-
+-
+-
+-
+-![](/static/wear/images/design/canonical-header.png)
++# Canonical adaptive design layouts
+ 
+ These canonical layouts are proven, versatile app layouts that provide an
+ optimal user experience on devices with larger screen sizes.
+ 
+-## Tiles
+-
+-![](/static/wear/images/design/canonical-tiles-header.png)
++Tiles
++-----
+ 
+ Tiles provide quick access to information and actions users need to get things
+ done. With a swipe from the watch face, a user can see how they are progressing
+@@ -35,8 +23,6 @@ You can apply your brand's styling to certain components. This includes the
+ primary color, app icon, font, icons, and any visual asset that applies to your
+ tile's experience.
+ 
+-![](/static/wear/images/design/canonical-tiles-examples.png)
+-
+ ### Build for responsive layouts (fixed height screens and percentage margins)
+ 
+ To adapt our code and design layouts to larger screen sizes, we have updated
+@@ -53,8 +39,8 @@ clipped by the curved screen at the top and bottom. Tiles have a fixed screen
+ height, so we've adjusted the padding to maximize the limited screen real estate
+ without creating unwanted clipping.
+ 
+-The two main templates—the Primary Layout and Edge Content Layout (with a
+-progress ring)—have different margins, but all design layouts are built to map
++The two main templates---the Primary Layout and Edge Content Layout (with a
++progress ring)---have different margins, but all design layouts are built to map
+ to one of these. There are three main sections for each tile, and slots that
+ allocate to each of these. There may in some cases be additional built-in
+ margins and padding to help content fill the available space while maintaining
+@@ -85,21 +71,16 @@ breakpoint at 225dp. This breakpoint makes it possible to reveal additional
+ content, include more buttons or data, or change the layout to better suit the
+ larger screen.
+ 
+-## Scrolling and non-scrolling app layouts
++Scrolling and non-scrolling app layouts
++---------------------------------------
+ 
+ When designing for adaptive layouts on a round screen, scrolling and
+ non-scrolling views each have unique requirements for scaling UI elements and
+ maintaining a balanced layout and composition.
+-
+-**Note:** While scrolling views need to be constrained mostly in the vertical
+-direction, non-scrolling views need to be constrained both vertically and
+-horizontally. This generally makes non-scrolling views more challenging to
+-build, and more at-risk of broken layouts on devices with larger screen sizes.
++| **Note:** While scrolling views need to be constrained mostly in the vertical direction, non-scrolling views need to be constrained both vertically and horizontally. This generally makes non-scrolling views more challenging to build, and more at-risk of broken layouts on devices with larger screen sizes.
+ 
+ ### Non-scrolling app layouts
+ 
+-![](/static/wear/images/design/canonical-non-scrolling-header.png)
+-
+ #### Canonical layouts and full-screen components (including media and fitness)
+ 
+ Non-scrolling app view layouts include media players, pickers, switchers, and
+@@ -109,8 +90,6 @@ of controls, rather than needing to browse through a list of options. To
+ accommodate devices with smaller screen sizes, design with the limited size in
+ mind, ensuring glanceability and embracing the circular screen where relevant.
+ 
+-![](/static/wear/images/design/canonical-non-scrolling-examples.png)
+-
+ #### Guidelines for responsiveness (percentage margins)
+ 
+ Define all margins in percentages, and define vertical constraints such that the
+@@ -145,25 +124,22 @@ content can appear after a screen size breakpoint.
+ 
+ Several examples of this behavior appear in the following list:
+ 
+-* Media players can gain additional buttons or larger controls.
+-* Confirmation dialogs can gain an illustration or more information.
+-* Fitness screens can gain additional metrics, and elements could grow in
+-  size.
++- Media players can gain additional buttons or larger controls.
++- Confirmation dialogs can gain an illustration or more information.
++- Fitness screens can gain additional metrics, and elements could grow in size.
+ 
+ See [Provide differentiated experiences in Wear Compose through
+ breakpoints](/training/wearables/compose/screen-size#breakpoints) for implementation guidance.
+ 
+ ### Scrolling app layouts
+ 
+-![](/static/wear/images/design/canonical-scrolling-header.png)
+-
+ #### Canonical layouts
+ 
+ Scrolling app view layouts include lists (ScalingLazyColumn) and dialogs. These
+ layouts make up the majority of app screens, and they represent a collection of
+ components which need to adapt to larger screen sizes.
+ 
+-Check that the components are responsive—that is, that they fill the available
++Check that the components are responsive---that is, that they fill the available
+ width and adopt the ScalingLazyColumn adjustments when more of the screen's
+ height is available. These layouts are built responsively already, and we have
+ some additional recommendations to take further advantage of the expanded real
+@@ -172,8 +148,6 @@ estate.
+ See [Build responsive layouts using Horologist](/training/wearables/compose/screen-size#responsive-layouts) for implementation
+ guidance.
+ 
+-![](/static/wear/images/design/canonical-scrolling-examples.png)
+-
+ #### Guidelines for responsiveness (percentage margins)
+ 
+ All top, bottom, and side margins should be defined in percentages to avoid

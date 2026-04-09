@@ -1,0 +1,12 @@
+diff --git a/docs/guide/topics/manifest/activity-element.md b/docs/guide/topics/manifest/activity-element.md
+index 8d1d16a..294c0f9 100644
+--- a/docs/guide/topics/manifest/activity-element.md
++++ b/docs/guide/topics/manifest/activity-element.md
+@@ -12,6 +12,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ syntax:
+ :   ```
+     <activity android:allowEmbedded=["true" | "false"]

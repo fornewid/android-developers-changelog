@@ -1,0 +1,1811 @@
+diff --git a/docs/jetpack/androidx/releases/wear-compose-remote.md b/docs/jetpack/androidx/releases/wear-compose-remote.md
+index 4393a26..f3be207 100644
+--- a/docs/jetpack/androidx/releases/wear-compose-remote.md
++++ b/docs/jetpack/androidx/releases/wear-compose-remote.md
+@@ -2816,31 +2816,294 @@ source: md.txt
+         
+       
+         
+-          <tab  >
+-            
+-    <a href="https://developer.android.com/community"
+-    class="devsite-tabs-content gc-analytics-event "
+-      track-metadata-eventdetail="https://developer.android.com/community"
++          <tab class="devsite-dropdown
++    devsite-dropdown-full
++    
++    
++    ">
++  
++    <a href="https://developer.android.com/blog"
++    class="devsite-tabs-content gc-analytics-event android-dropdown-tab android-dropdown-tab-blog android-nav-icon-new-blog"
++      track-metadata-eventdetail="https://developer.android.com/blog"
+     
+        track-type="nav"
+-       track-metadata-position="nav - community"
++       track-metadata-position="nav - blog"
+        track-metadata-module="primary nav"
+        
+        
+          
+            data-category="Site-Wide Custom Events"
+          
+-           data-label="Tab: Community"
++           data-label="Tab: Blog"
+          
+-           track-name="community"
++           track-name="blog"
+          
+        >
+-    Community
++    Blog
+   
+     </a>
+     
++      <button
++         aria-haspopup="menu"
++         aria-expanded="false"
++         aria-label="Dropdown menu for Blog"
++         track-type="nav"
++         track-metadata-eventdetail="https://developer.android.com/blog"
++         track-metadata-position="nav - blog"
++         track-metadata-module="primary nav"
++         
++          
++            data-category="Site-Wide Custom Events"
++          
++            data-label="Tab: Blog"
++          
++            track-name="blog"
++          
++        
++         class="devsite-tabs-dropdown-toggle devsite-icon devsite-icon-arrow-drop-down"></button>
++    
+   
+-          </tab>
++  <div class="devsite-tabs-dropdown" role="menu" aria-label="submenu" hidden>
++    <div class="devsite-tabs-dropdown-content">
++      
++      
++        <div class="devsite-tabs-dropdown-column
++                    android-dropdown android-dropdown-primary android-dropdown-blog">
++          
++            <ul class="devsite-tabs-dropdown-section
++                       ">
++              
++                <li class="devsite-nav-title" role="heading" tooltip>the Android Developer&#39;s Blog</li>
++              
++              
++              
++                <li class="devsite-nav-item">
++                  <a href="https://developer.android.com/blog/latest"
++                    
++                     track-type="nav"
++                     track-metadata-eventdetail="https://developer.android.com/blog/latest"
++                     track-metadata-position="nav - blog"
++                     track-metadata-module="tertiary nav"
++                     
++                       track-metadata-module_headline="the android developer&#39;s blog"
++                     
++                     tooltip
++                  
++                    
++                     class="button button-primary"
++                    
++                  >
++                    
++                    <div class="devsite-nav-item-title">
++                      Read the latest
++                    </div>
++                    
++                  </a>
++                </li>
++              
++                <li class="devsite-nav-item">
++                  <a href="https://developer.android.com/blog/authors"
++                    
++                     track-type="nav"
++                     track-metadata-eventdetail="https://developer.android.com/blog/authors"
++                     track-metadata-position="nav - blog"
++                     track-metadata-module="tertiary nav"
++                     
++                       track-metadata-module_headline="the android developer&#39;s blog"
++                     
++                     tooltip
++                  
++                    
++                     class="button button-white"
++                    
++                  >
++                    
++                    <div class="devsite-nav-item-title">
++                      Explore the authors →
++                    </div>
++                    
++                  </a>
++                </li>
++              
++            </ul>
++          
++        </div>
++      
++        <div class="devsite-tabs-dropdown-column
++                    android-dropdown android-blog-categories-dropdown">
++          
++            <ul class="devsite-tabs-dropdown-section
++                       ">
++              
++                <li class="devsite-nav-title" role="heading" tooltip>Explore categories</li>
++              
++              
++              
++                <li class="devsite-nav-item">
++                  <a href="https://developer.android.com/blog/categories/case-studies"
++                    
++                     track-type="nav"
++                     track-metadata-eventdetail="https://developer.android.com/blog/categories/case-studies"
++                     track-metadata-position="nav - blog"
++                     track-metadata-module="tertiary nav"
++                     
++                       track-metadata-module_headline="explore categories"
++                     
++                     tooltip
++                  
++                    
++                     class="android-nav-icon-case-studies"
++                    
++                  >
++                    
++                    <div class="devsite-nav-item-title">
++                      Case Studies
++                    </div>
++                    
++                    <div class="devsite-nav-item-description">
++                      Real-world results from real-world users. Explore how different teams use our tools to achieve their goals.
++                    </div>
++                    
++                  </a>
++                </li>
++              
++                <li class="devsite-nav-item">
++                  <a href="https://developer.android.com/blog/categories/events-and-programs"
++                    
++                     track-type="nav"
++                     track-metadata-eventdetail="https://developer.android.com/blog/categories/events-and-programs"
++                     track-metadata-position="nav - blog"
++                     track-metadata-module="tertiary nav"
++                     
++                       track-metadata-module_headline="explore categories"
++                     
++                     tooltip
++                  
++                    
++                     class="android-nav-icon-events-and-programs"
++                    
++                  >
++                    
++                    <div class="devsite-nav-item-title">
++                      Events & Programs
++                    </div>
++                    
++                    <div class="devsite-nav-item-description">
++                      Get the details on upcoming webinars, workshops, meetups, and special initiatives designed to help you grow.
++                    </div>
++                    
++                  </a>
++                </li>
++              
++            </ul>
++          
++        </div>
++      
++        <div class="devsite-tabs-dropdown-column
++                    android-dropdown android-blog-categories-dropdown">
++          
++            <ul class="devsite-tabs-dropdown-section
++                       ">
++              
++              
++              
++                <li class="devsite-nav-item">
++                  <a href="https://developer.android.com/blog/categories/product-news"
++                    
++                     track-type="nav"
++                     track-metadata-eventdetail="https://developer.android.com/blog/categories/product-news"
++                     track-metadata-position="nav - blog"
++                     track-metadata-module="tertiary nav"
++                     
++                     tooltip
++                  
++                    
++                     class="android-nav-icon-product-news"
++                    
++                  >
++                    
++                    <div class="devsite-nav-item-title">
++                      Product News
++                    </div>
++                    
++                    <div class="devsite-nav-item-description">
++                      Stay in the loop with the latest updates, feature releases, and behind-the-scenes looks at how we’re evolving.
++                    </div>
++                    
++                  </a>
++                </li>
++              
++                <li class="devsite-nav-item">
++                  <a href="https://developer.android.com/blog/categories/community"
++                    
++                     track-type="nav"
++                     track-metadata-eventdetail="https://developer.android.com/blog/categories/community"
++                     track-metadata-position="nav - blog"
++                     track-metadata-module="tertiary nav"
++                     
++                     tooltip
++                  
++                    
++                     class="android-nav-icon-community"
++                    
++                  >
++                    
++                    <div class="devsite-nav-item-title">
++                      Community
++                    </div>
++                    
++                    <div class="devsite-nav-item-description">
++                      Discover stories from our users, spotlight features, and the collaborative projects that bring us all together.
++                    </div>
++                    
++                  </a>
++                </li>
++              
++            </ul>
++          
++        </div>
++      
++        <div class="devsite-tabs-dropdown-column
++                    android-dropdown android-blog-categories-dropdown">
++          
++            <ul class="devsite-tabs-dropdown-section
++                       ">
++              
++              
++              
++                <li class="devsite-nav-item">
++                  <a href="https://developer.android.com/blog/categories/how-tos"
++                    
++                     track-type="nav"
++                     track-metadata-eventdetail="https://developer.android.com/blog/categories/how-tos"
++                     track-metadata-position="nav - blog"
++                     track-metadata-module="tertiary nav"
++                     
++                     tooltip
++                  
++                    
++                     class="android-nav-icon-how-tos"
++                    
++                  >
++                    
++                    <div class="devsite-nav-item-title">
++                      How-tos
++                    </div>
++                    
++                    <div class="devsite-nav-item-description">
++                      From quick tips to deep-dive tutorials, these step-by-step guides are designed to help you work smarter and faster.
++                    </div>
++                    
++                  </a>
++                </li>
++              
++            </ul>
++          
++        </div>
++      
++    </div>
++  </div>
++</tab>
+         
+       
+     </nav>
+@@ -3844,7 +4107,7 @@ source: md.txt
+             <li class="devsite-nav-item">
+               
+   
+-  <a href="/community"
++  <a href="/blog"
+     
+        class="devsite-nav-title gc-analytics-event
+               
+@@ -3855,19 +4118,19 @@ source: md.txt
+       
+         data-category="Site-Wide Custom Events"
+       
+-        data-label="Tab: Community"
++        data-label="Tab: Blog"
+       
+-        track-name="community"
++        track-name="blog"
+       
+     
+      data-category="Site-Wide Custom Events"
+-     data-label="Responsive Tab: Community"
++     data-label="Responsive Tab: Blog"
+      track-type="globalNav"
+      track-metadata-eventDetail="globalMenu"
+      track-metadata-position="nav">
+   
+     <span class="devsite-nav-text" tooltip >
+-      Community
++      Blog
+    </span>
+     
+   
+@@ -3875,6 +4138,43 @@ source: md.txt
+   
+ 
+   
++    <ul class="devsite-nav-responsive-tabs devsite-nav-has-menu
++               ">
++      
++<li class="devsite-nav-item">
++
++  
++  <span
++    
++       class="devsite-nav-title"
++       tooltip
++    
++    
++      
++        data-category="Site-Wide Custom Events"
++      
++        data-label="Tab: Blog"
++      
++        track-name="blog"
++      
++    >
++  
++    <span class="devsite-nav-text" tooltip menu="Blog">
++      More
++   </span>
++    
++    <span class="devsite-nav-icon material-icons" data-icon="forward"
++          menu="Blog">
++    </span>
++    
++  
++  </span>
++  
++
++</li>
++
++    </ul>
++  
+               
+             </li>
+           
+@@ -7503,13 +7803,307 @@ source: md.txt
+ 
+     
+      data-category="Site-Wide Custom Events"
+-     data-label="Responsive Tab: Play In-app Reviews"
++     data-label="Responsive Tab: Play In-app Reviews"
++     track-type="navMenu"
++     track-metadata-eventDetail="globalMenu"
++     track-metadata-position="nav">
++  
++    <span class="devsite-nav-text" tooltip >
++      Play In-app Reviews
++   </span>
++    
++  
++  </a>
++  
++
++</li>
++
++            
++              
++<li class="devsite-nav-item">
++
++  
++  <a href="/google/play/installreferrer"
++    
++       class="devsite-nav-title gc-analytics-event
++              
++              "
++    
++
++    
++     data-category="Site-Wide Custom Events"
++     data-label="Responsive Tab: Play Install Referrer"
++     track-type="navMenu"
++     track-metadata-eventDetail="globalMenu"
++     track-metadata-position="nav">
++  
++    <span class="devsite-nav-text" tooltip >
++      Play Install Referrer
++   </span>
++    
++  
++  </a>
++  
++
++</li>
++
++            
++              
++<li class="devsite-nav-item">
++
++  
++  <a href="https://developers.google.com/android/reference/packages"
++    
++       class="devsite-nav-title gc-analytics-event
++              
++              "
++    
++
++    
++     data-category="Site-Wide Custom Events"
++     data-label="Responsive Tab: Google Play services ↗️"
++     track-type="navMenu"
++     track-metadata-eventDetail="globalMenu"
++     track-metadata-position="nav">
++  
++    <span class="devsite-nav-text" tooltip >
++      Google Play services ↗️
++   </span>
++    
++  
++  </a>
++  
++
++</li>
++
++            
++              
++<li class="devsite-nav-item">
++
++  
++  <a href="https://play.google.com/sdks"
++    
++       class="devsite-nav-title gc-analytics-event
++              
++              "
++    
++
++    
++     data-category="Site-Wide Custom Events"
++     data-label="Responsive Tab: Google Play SDK index ↗️"
++     track-type="navMenu"
++     track-metadata-eventDetail="globalMenu"
++     track-metadata-position="nav">
++  
++    <span class="devsite-nav-text" tooltip >
++      Google Play SDK index ↗️
++   </span>
++    
++  
++  </a>
++  
++
++</li>
++
++            
++              
++<li class="devsite-nav-item">
++
++  
++  <a href="/distribute"
++    
++       class="devsite-nav-title gc-analytics-event
++              
++              "
++    
++
++    
++     data-category="Site-Wide Custom Events"
++     data-label="Responsive Tab: All Play libraries ⤵️"
++     track-type="navMenu"
++     track-metadata-eventDetail="globalMenu"
++     track-metadata-position="nav">
++  
++    <span class="devsite-nav-text" tooltip >
++      All Play libraries ⤵️
++   </span>
++    
++  
++  </a>
++  
++
++</li>
++
++            
++          
++        
++          
++            
++              
++<li class="devsite-nav-item devsite-nav-heading">
++
++  
++  <span
++    
++       class="devsite-nav-title"
++       tooltip
++    
++    >
++  
++    <span class="devsite-nav-text" tooltip >
++      Tools &amp; resources
++   </span>
++    
++  
++  </span>
++  
++
++</li>
++
++            
++            
++              
++<li class="devsite-nav-item">
++
++  
++  <a href="/guide/app-bundle"
++    
++       class="devsite-nav-title gc-analytics-event
++              
++              "
++    
++
++    
++     data-category="Site-Wide Custom Events"
++     data-label="Responsive Tab: Android App Bundles"
++     track-type="navMenu"
++     track-metadata-eventDetail="globalMenu"
++     track-metadata-position="nav">
++  
++    <span class="devsite-nav-text" tooltip >
++      Android App Bundles
++   </span>
++    
++  
++  </a>
++  
++
++</li>
++
++            
++              
++<li class="devsite-nav-item">
++
++  
++  <a href="/distribute/marketing-tools"
++    
++       class="devsite-nav-title gc-analytics-event
++              
++              "
++    
++
++    
++     data-category="Site-Wide Custom Events"
++     data-label="Responsive Tab: Brand &amp; marketing"
++     track-type="navMenu"
++     track-metadata-eventDetail="globalMenu"
++     track-metadata-position="nav">
++  
++    <span class="devsite-nav-text" tooltip >
++      Brand &amp; marketing
++   </span>
++    
++  
++  </a>
++  
++
++</li>
++
++            
++              
++<li class="devsite-nav-item">
++
++  
++  <a href="https://developers.google.com/android-publisher/api-ref/rest"
++    
++       class="devsite-nav-title gc-analytics-event
++              
++              "
++    
++
++    
++     data-category="Site-Wide Custom Events"
++     data-label="Responsive Tab: Play Console APIs ↗️"
++     track-type="navMenu"
++     track-metadata-eventDetail="globalMenu"
++     track-metadata-position="nav">
++  
++    <span class="devsite-nav-text" tooltip >
++      Play Console APIs ↗️
++   </span>
++    
++  
++  </a>
++  
++
++</li>
++
++            
++          
++        
++      </ul>
++    
++  
++    
++      
++      <ul class="devsite-nav-list" menu="Blog"
++          aria-label="Side menu" hidden>
++        
++          
++            
++              
++<li class="devsite-nav-item devsite-nav-heading">
++
++  
++  <span
++    
++       class="devsite-nav-title"
++       tooltip
++    
++    >
++  
++    <span class="devsite-nav-text" tooltip >
++      the Android Developer&#39;s Blog
++   </span>
++    
++  
++  </span>
++  
++
++</li>
++
++            
++            
++              
++<li class="devsite-nav-item">
++
++  
++  <a href="/blog/latest"
++    
++       class="devsite-nav-title gc-analytics-event
++              
++              "
++    
++
++    
++     data-category="Site-Wide Custom Events"
++     data-label="Responsive Tab: Read the latest"
+      track-type="navMenu"
+      track-metadata-eventDetail="globalMenu"
+      track-metadata-position="nav">
+   
+     <span class="devsite-nav-text" tooltip >
+-      Play In-app Reviews
++      Read the latest
+    </span>
+     
+   
+@@ -7523,7 +8117,7 @@ source: md.txt
+ <li class="devsite-nav-item">
+ 
+   
+-  <a href="/google/play/installreferrer"
++  <a href="/blog/authors"
+     
+        class="devsite-nav-title gc-analytics-event
+               
+@@ -7532,13 +8126,13 @@ source: md.txt
+ 
+     
+      data-category="Site-Wide Custom Events"
+-     data-label="Responsive Tab: Play Install Referrer"
++     data-label="Responsive Tab: Explore the authors →"
+      track-type="navMenu"
+      track-metadata-eventDetail="globalMenu"
+      track-metadata-position="nav">
+   
+     <span class="devsite-nav-text" tooltip >
+-      Play Install Referrer
++      Explore the authors →
+    </span>
+     
+   
+@@ -7548,40 +8142,38 @@ source: md.txt
+ </li>
+ 
+             
++          
++        
++          
++            
+               
+-<li class="devsite-nav-item">
++<li class="devsite-nav-item devsite-nav-heading">
+ 
+   
+-  <a href="https://developers.google.com/android/reference/packages"
+-    
+-       class="devsite-nav-title gc-analytics-event
+-              
+-              "
++  <span
+     
+-
++       class="devsite-nav-title"
++       tooltip
+     
+-     data-category="Site-Wide Custom Events"
+-     data-label="Responsive Tab: Google Play services ↗️"
+-     track-type="navMenu"
+-     track-metadata-eventDetail="globalMenu"
+-     track-metadata-position="nav">
++    >
+   
+     <span class="devsite-nav-text" tooltip >
+-      Google Play services ↗️
++      Explore categories
+    </span>
+     
+   
+-  </a>
++  </span>
+   
+ 
+ </li>
+ 
+             
++            
+               
+ <li class="devsite-nav-item">
+ 
+   
+-  <a href="https://play.google.com/sdks"
++  <a href="/blog/categories/case-studies"
+     
+        class="devsite-nav-title gc-analytics-event
+               
+@@ -7590,13 +8182,13 @@ source: md.txt
+ 
+     
+      data-category="Site-Wide Custom Events"
+-     data-label="Responsive Tab: Google Play SDK index ↗️"
++     data-label="Responsive Tab: Case Studies"
+      track-type="navMenu"
+      track-metadata-eventDetail="globalMenu"
+      track-metadata-position="nav">
+   
+     <span class="devsite-nav-text" tooltip >
+-      Google Play SDK index ↗️
++      Case Studies
+    </span>
+     
+   
+@@ -7610,7 +8202,7 @@ source: md.txt
+ <li class="devsite-nav-item">
+ 
+   
+-  <a href="/distribute"
++  <a href="/blog/categories/events-and-programs"
+     
+        class="devsite-nav-title gc-analytics-event
+               
+@@ -7619,13 +8211,13 @@ source: md.txt
+ 
+     
+      data-category="Site-Wide Custom Events"
+-     data-label="Responsive Tab: All Play libraries ⤵️"
++     data-label="Responsive Tab: Events &amp; Programs"
+      track-type="navMenu"
+      track-metadata-eventDetail="globalMenu"
+      track-metadata-position="nav">
+   
+     <span class="devsite-nav-text" tooltip >
+-      All Play libraries ⤵️
++      Events &amp; Programs
+    </span>
+     
+   
+@@ -7639,34 +8231,12 @@ source: md.txt
+         
+           
+             
+-              
+-<li class="devsite-nav-item devsite-nav-heading">
+-
+-  
+-  <span
+-    
+-       class="devsite-nav-title"
+-       tooltip
+-    
+-    >
+-  
+-    <span class="devsite-nav-text" tooltip >
+-      Tools &amp; resources
+-   </span>
+-    
+-  
+-  </span>
+-  
+-
+-</li>
+-
+-            
+             
+               
+ <li class="devsite-nav-item">
+ 
+   
+-  <a href="/guide/app-bundle"
++  <a href="/blog/categories/product-news"
+     
+        class="devsite-nav-title gc-analytics-event
+               
+@@ -7675,13 +8245,13 @@ source: md.txt
+ 
+     
+      data-category="Site-Wide Custom Events"
+-     data-label="Responsive Tab: Android App Bundles"
++     data-label="Responsive Tab: Product News"
+      track-type="navMenu"
+      track-metadata-eventDetail="globalMenu"
+      track-metadata-position="nav">
+   
+     <span class="devsite-nav-text" tooltip >
+-      Android App Bundles
++      Product News
+    </span>
+     
+   
+@@ -7695,7 +8265,7 @@ source: md.txt
+ <li class="devsite-nav-item">
+ 
+   
+-  <a href="/distribute/marketing-tools"
++  <a href="/blog/categories/community"
+     
+        class="devsite-nav-title gc-analytics-event
+               
+@@ -7704,13 +8274,13 @@ source: md.txt
+ 
+     
+      data-category="Site-Wide Custom Events"
+-     data-label="Responsive Tab: Brand &amp; marketing"
++     data-label="Responsive Tab: Community"
+      track-type="navMenu"
+      track-metadata-eventDetail="globalMenu"
+      track-metadata-position="nav">
+   
+     <span class="devsite-nav-text" tooltip >
+-      Brand &amp; marketing
++      Community
+    </span>
+     
+   
+@@ -7720,11 +8290,16 @@ source: md.txt
+ </li>
+ 
+             
++          
++        
++          
++            
++            
+               
+ <li class="devsite-nav-item">
+ 
+   
+-  <a href="https://developers.google.com/android-publisher/api-ref/rest"
++  <a href="/blog/categories/how-tos"
+     
+        class="devsite-nav-title gc-analytics-event
+               
+@@ -7733,13 +8308,13 @@ source: md.txt
+ 
+     
+      data-category="Site-Wide Custom Events"
+-     data-label="Responsive Tab: Play Console APIs ↗️"
++     data-label="Responsive Tab: How-tos"
+      track-type="navMenu"
+      track-metadata-eventDetail="globalMenu"
+      track-metadata-position="nav">
+   
+     <span class="devsite-nav-text" tooltip >
+-      Play Console APIs ↗️
++      How-tos
+    </span>
+     
+   
+@@ -7754,8 +8329,6 @@ source: md.txt
+       </ul>
+     
+   
+-    
+-  
+         
+         
+           
+@@ -8007,8 +8580,7 @@ source: md.txt
+       
+       Save and categorize content based on your preferences.
+     </span>
+-  </devsite-feature-tooltip>
+-    <devsite-llm-tools></devsite-llm-tools></devsite-actions>
++  </devsite-feature-tooltip></devsite-actions>
+   
+       
+     </h1>
+@@ -8022,8 +8594,6 @@ source: md.txt
+   </devsite-toc>
+   
+     
+-    <devsite-recommendations-dropdown class="nocontent"></devsite-recommendations-dropdown>
+-    
+   <div class="devsite-article-body clearfix
+   ">
+ 
+@@ -8597,21 +9167,19 @@ release notes to view the version updates for all of the artifacts.</p>
+ 
+ 
+ 
+-<td>March 25, 2026</td>
+-
+-
++<td>April 08, 2026</td>
+ 
+ 
+ 
+ 
+-<td><a href="/jetpack/androidx/releases/annotation#1.9.1">1.9.1</a></td>
+ 
+ 
++<td><a href="/jetpack/androidx/releases/annotation#1.10.0">1.10.0</a></td>
+ 
+ 
+ 
+-<td><a href="/jetpack/androidx/releases/annotation#1.10.0-rc01">1.10.0-rc01</a></td>
+ 
++<td>-</td>
+ 
+ 
+ 
+@@ -8687,7 +9255,7 @@ release notes to view the version updates for all of the artifacts.</p>
+ <td><a href="/jetpack/androidx/releases/appcompat" data-title="Allows access to new APIs on older API versions of the platform (many using Material Design).">appcompat</a></td>
+ 
+ 
+-<td>June 4, 2025</td>
++<td>April 08, 2026</td>
+ 
+ 
+ 
+@@ -8706,7 +9274,7 @@ release notes to view the version updates for all of the artifacts.</p>
+ 
+ 
+ 
+-<td>-</td>
++<td><a href="/jetpack/androidx/releases/appcompat#1.8.0-alpha01">1.8.0-alpha01</a></td>
+ 
+ 
+ 
+@@ -10740,7 +11308,7 @@ release notes to view the version updates for all of the artifacts.</p>
+ <td><a href="/jetpack/androidx/releases/compose-animation" data-title="Build animations in their Jetpack Compose applications to enrich the user experience.">compose.animation</a></td>
+ 
+ 
+-<td>March 25, 2026</td>
++<td>April 08, 2026</td>
+ 
+ 
+ 
+@@ -10749,12 +11317,12 @@ release notes to view the version updates for all of the artifacts.</p>
+ 
+ 
+ 
+-<td>-</td>
++<td><a href="/jetpack/androidx/releases/compose-animation#1.11.0-rc01">1.11.0-rc01</a></td>
+ 
+ 
+ 
+ 
+-<td><a href="/jetpack/androidx/releases/compose-animation#1.11.0-beta02">1.11.0-beta02</a></td>
++<td>-</td>
+ 
+ 
+ 
+@@ -11023,7 +11591,7 @@ release notes to view the version updates for all of the artifacts.</p>
+ <td><a href="/jetpack/androidx/releases/compose-foundation" data-title="Write Jetpack Compose applications with ready to use building blocks and extend foundation to build your own design system pieces.">compose.foundation</a></td>
+ 
+ 
+-<td>March 25, 2026</td>
++<td>April 08, 2026</td>
+ 
+ 
+ 
+@@ -11032,12 +11600,12 @@ release notes to view the version updates for all of the artifacts.</p>
+ 
+ 
+ 
+-<td>-</td>
++<td><a href="/jetpack/androidx/releases/compose-foundation#1.11.0-rc01">1.11.0-rc01</a></td>
+ 
+ 
+ 
+ 
+-<td><a href="/jetpack/androidx/releases/compose-foundation#1.11.0-beta02">1.11.0-beta02</a></td>
++<td>-</td>
+ 
+ 
+ 
+@@ -11275,7 +11843,7 @@ release notes to view the version updates for all of the artifacts.</p>
+ <td><a href="/jetpack/androidx/releases/compose-material" data-title="Build Jetpack Compose UIs with ready to use Material Design Components. This is the higher level entry point of Compose, designed to provide components that match those described at www.material.io.">compose.material</a></td>
+ 
+ 
+-<td>March 25, 2026</td>
++<td>April 08, 2026</td>
+ 
+ 
+ 
+@@ -11284,12 +11852,12 @@ release notes to view the version updates for all of the artifacts.</p>
+ 
+ 
+ 
+-<td>-</td>
++<td><a href="/jetpack/androidx/releases/compose-material#1.11.0-rc01">1.11.0-rc01</a></td>
+ 
+ 
+ 
+ 
+-<td><a href="/jetpack/androidx/releases/compose-material#1.11.0-beta02">1.11.0-beta02</a></td>
++<td>-</td>
+ 
+ 
+ 
+@@ -11537,7 +12105,7 @@ release notes to view the version updates for all of the artifacts.</p>
+ <td><a href="/jetpack/androidx/releases/compose-material3" data-title="Build Jetpack Compose UIs with Material Design 3 Components, the next evolution of Material Design. Material 3 includes updated theming and components and Material You personalization features like dynamic color, and is designed to be cohesive with the new Android 12 visual style and system UI.">compose.material3</a></td>
+ 
+ 
+-<td>March 25, 2026</td>
++<td>April 08, 2026</td>
+ 
+ 
+ 
+@@ -11556,7 +12124,7 @@ release notes to view the version updates for all of the artifacts.</p>
+ 
+ 
+ 
+-<td><a href="/jetpack/androidx/releases/compose-material3#1.5.0-alpha16">1.5.0-alpha16</a></td>
++<td><a href="/jetpack/androidx/releases/compose-material3#1.5.0-alpha17">1.5.0-alpha17</a></td>
+ 
+ 
+ 
+@@ -11765,7 +12333,7 @@ both default scaffold implementations and necessary building block composables
+ to create your own custom experiences.">compose.material3.adaptive</a></td>
+ 
+ 
+-<td>February 25, 2026</td>
++<td>April 08, 2026</td>
+ 
+ 
+ 
+@@ -11784,7 +12352,7 @@ to create your own custom experiences.">compose.material3.adaptive</a></td>
+ 
+ 
+ 
+-<td><a href="/jetpack/androidx/releases/compose-material3-adaptive#1.3.0-alpha09">1.3.0-alpha09</a></td>
++<td><a href="/jetpack/androidx/releases/compose-material3-adaptive#1.3.0-alpha10">1.3.0-alpha10</a></td>
+ 
+ 
+ 
+@@ -11903,7 +12471,7 @@ to create your own custom experiences.">compose.material3.adaptive</a></td>
+ <td><a href="/jetpack/androidx/releases/compose-remote" data-title="Remote Compose is a framework to create UI for remote surfaces">compose.remote</a></td>
+ 
+ 
+-<td>March 25, 2026</td>
++<td>April 08, 2026</td>
+ 
+ 
+ 
+@@ -11922,7 +12490,7 @@ to create your own custom experiences.">compose.material3.adaptive</a></td>
+ 
+ 
+ 
+-<td><a href="/jetpack/androidx/releases/compose-remote#1.0.0-alpha07">1.0.0-alpha07</a></td>
++<td><a href="/jetpack/androidx/releases/compose-remote#1.0.0-alpha08">1.0.0-alpha08</a></td>
+ 
+ 
+ 
+@@ -12706,7 +13274,7 @@ to create your own custom experiences.">compose.material3.adaptive</a></td>
+ <td><a href="/jetpack/androidx/releases/compose-runtime" data-title="Fundamental building blocks of Compose's programming model and state management, and core runtime for the Compose Compiler Plugin to target.">compose.runtime</a></td>
+ 
+ 
+-<td>March 25, 2026</td>
++<td>April 08, 2026</td>
+ 
+ 
+ 
+@@ -12715,12 +13283,12 @@ to create your own custom experiences.">compose.material3.adaptive</a></td>
+ 
+ 
+ 
+-<td>-</td>
++<td><a href="/jetpack/androidx/releases/compose-runtime#1.11.0-rc01">1.11.0-rc01</a></td>
+ 
+ 
+ 
+ 
+-<td><a href="/jetpack/androidx/releases/compose-runtime#1.11.0-beta02">1.11.0-beta02</a></td>
++<td>-</td>
+ 
+ 
+ 
+@@ -13258,7 +13826,7 @@ to create your own custom experiences.">compose.material3.adaptive</a></td>
+ <td><a href="/jetpack/androidx/releases/compose-ui" data-title="Fundamental components of compose UI needed to interact with the device, including layout, drawing, and input.">compose.ui</a></td>
+ 
+ 
+-<td>March 25, 2026</td>
++<td>April 08, 2026</td>
+ 
+ 
+ 
+@@ -13267,12 +13835,12 @@ to create your own custom experiences.">compose.material3.adaptive</a></td>
+ 
+ 
+ 
+-<td>-</td>
++<td><a href="/jetpack/androidx/releases/compose-ui#1.11.0-rc01">1.11.0-rc01</a></td>
+ 
+ 
+ 
+ 
+-<td><a href="/jetpack/androidx/releases/compose-ui#1.11.0-beta02">1.11.0-beta02</a></td>
++<td>-</td>
+ 
+ 
+ 
+@@ -13855,7 +14423,7 @@ to create your own custom experiences.">compose.material3.adaptive</a></td>
+ 
+ 
+ 
+-<td>March 25, 2026</td>
++<td>April 08, 2026</td>
+ 
+ 
+ 
+@@ -13877,7 +14445,9 @@ to create your own custom experiences.">compose.material3.adaptive</a></td>
+ 
+ 
+ 
+-<td>-</td>
++
++<td><a href="/jetpack/androidx/releases/core#1.19.0-alpha01">1.19.0-alpha01</a></td>
++
+ 
+ 
+   
+@@ -13941,7 +14511,7 @@ to create your own custom experiences.">compose.material3.adaptive</a></td>
+ <td><a href="/jetpack/androidx/releases/core-uwb" data-title="Implement UWB (ultra-wideband) on supported devices.">core.uwb</a></td>
+ 
+ 
+-<td>March 11, 2026</td>
++<td>April 08, 2026</td>
+ 
+ 
+ 
+@@ -13950,12 +14520,12 @@ to create your own custom experiences.">compose.material3.adaptive</a></td>
+ 
+ 
+ 
+-<td>-</td>
++<td><a href="/jetpack/androidx/releases/core-uwb#1.0.0-rc01">1.0.0-rc01</a></td>
+ 
+ 
+ 
+ 
+-<td><a href="/jetpack/androidx/releases/core-uwb#1.0.0-beta01">1.0.0-beta01</a></td>
++<td>-</td>
+ 
+ 
+ 
+@@ -14030,16 +14600,16 @@ to create your own custom experiences.">compose.material3.adaptive</a></td>
+ <td><a href="/jetpack/androidx/releases/credentials" data-title=" This library provides unified access to a user's credentials. This can include passwords, passkeys and federated credentials. This library should be used to provide seamless and secure sign-in experiences. ">credentials</a></td>
+ 
+ 
+-<td>March 11, 2026</td>
++<td>April 08, 2026</td>
+ 
+ 
+ 
+ 
+-<td><a href="/jetpack/androidx/releases/credentials#1.5.0">1.5.0</a></td>
++<td><a href="/jetpack/androidx/releases/credentials#1.6.0">1.6.0</a></td>
+ 
+ 
+ 
+-<td><a href="/jetpack/androidx/releases/credentials#1.6.0-rc02">1.6.0-rc02</a></td>
++<td>-</td>
+ 
+ 
+ 
+@@ -14049,7 +14619,7 @@ to create your own custom experiences.">compose.material3.adaptive</a></td>
+ 
+ 
+ 
+-<td><a href="/jetpack/androidx/releases/credentials#1.6.0-rc02">1.6.0-rc02</a></td>
++<td><a href="/jetpack/androidx/releases/credentials#1.6.0">1.6.0</a></td>
+ 
+ 
+ 
+@@ -16166,14 +16736,14 @@ to create your own custom experiences.">compose.material3.adaptive</a></td>
+ 
+ 
+ 
+-<td>March 11, 2026</td>
++<td>April 08, 2026</td>
+ 
+ 
+ 
+ 
+ 
+ 
+-<td><a href="/jetpack/androidx/releases/games#games-activity-4.4.0">4.4.0</a></td>
++<td><a href="/jetpack/androidx/releases/games#games-activity-4.4.1">4.4.1</a></td>
+ 
+ 
+ 
+@@ -16405,7 +16975,7 @@ to create your own custom experiences.">compose.material3.adaptive</a></td>
+ <td><a href="/jetpack/androidx/releases/glance-wear" data-title="Glance Wear is a library for building Widgets for Wear OS">glance.wear</a></td>
+ 
+ 
+-<td>March 25, 2026</td>
++<td>April 08, 2026</td>
+ 
+ 
+ 
+@@ -16424,7 +16994,7 @@ to create your own custom experiences.">compose.material3.adaptive</a></td>
+ 
+ 
+ 
+-<td><a href="/jetpack/androidx/releases/glance-wear#1.0.0-alpha06">1.0.0-alpha06</a></td>
++<td><a href="/jetpack/androidx/releases/glance-wear#1.0.0-alpha07">1.0.0-alpha07</a></td>
+ 
+ 
+ 
+@@ -17589,7 +18159,7 @@ to create your own custom experiences.">compose.material3.adaptive</a></td>
+ <td><a href="/jetpack/androidx/releases/javascriptengine" data-title="Enable your Android app to evaluate JavaScript.">javascriptengine</a></td>
+ 
+ 
+-<td>March 25, 2026</td>
++<td>April 08, 2026</td>
+ 
+ 
+ 
+@@ -17603,12 +18173,12 @@ to create your own custom experiences.">compose.material3.adaptive</a></td>
+ 
+ 
+ 
+-<td>-</td>
++<td><a href="/jetpack/androidx/releases/javascriptengine#1.1.0-beta01">1.1.0-beta01</a></td>
+ 
+ 
+ 
+ 
+-<td><a href="/jetpack/androidx/releases/javascriptengine#1.1.0-alpha02">1.1.0-alpha02</a></td>
++<td>-</td>
+ 
+ 
+ 
+@@ -19418,7 +19988,7 @@ to create your own custom experiences.">compose.material3.adaptive</a></td>
+ <td><a href="/jetpack/androidx/releases/lint" data-title="Lint checks to verify usage of Gradle APIs">lint</a></td>
+ 
+ 
+-<td>May 20, 2025</td>
++<td>April 08, 2026</td>
+ 
+ 
+ 
+@@ -19437,7 +20007,7 @@ to create your own custom experiences.">compose.material3.adaptive</a></td>
+ 
+ 
+ 
+-<td><a href="/jetpack/androidx/releases/lint#1.0.0-alpha05">1.0.0-alpha05</a></td>
++<td><a href="/jetpack/androidx/releases/lint#1.0.0-alpha06">1.0.0-alpha06</a></td>
+ 
+ 
+ 
+@@ -19637,7 +20207,7 @@ to create your own custom experiences.">compose.material3.adaptive</a></td>
+ <td><a href="/jetpack/androidx/releases/media" data-title="Share media contents and controls with other apps. Superseded by media3.">media</a></td>
+ 
+ 
+-<td>August 13, 2025</td>
++<td>April 08, 2026</td>
+ 
+ 
+ 
+@@ -19656,7 +20226,7 @@ to create your own custom experiences.">compose.material3.adaptive</a></td>
+ 
+ 
+ 
+-<td>-</td>
++<td><a href="/jetpack/androidx/releases/media#1.8.0-alpha01">1.8.0-alpha01</a></td>
+ 
+ 
+ 
+@@ -20648,16 +21218,16 @@ Navigation 3 is a new navigation library designed to work with Compose.
+ ">navigation3</a></td>
+ 
+ 
+-<td>March 25, 2026</td>
++<td>April 08, 2026</td>
+ 
+ 
+ 
+ 
+-<td><a href="/jetpack/androidx/releases/navigation3#1.0.1">1.0.1</a></td>
++<td><a href="/jetpack/androidx/releases/navigation3#1.1.0">1.1.0</a></td>
+ 
+ 
+ 
+-<td><a href="/jetpack/androidx/releases/navigation3#1.1.0-rc01">1.1.0-rc01</a></td>
++<td>-</td>
+ 
+ 
+ 
+@@ -20667,7 +21237,7 @@ Navigation 3 is a new navigation library designed to work with Compose.
+ 
+ 
+ 
+-<td>-</td>
++<td><a href="/jetpack/androidx/releases/navigation3#1.2.0-alpha01">1.2.0-alpha01</a></td>
+ 
+ 
+ 
+@@ -21173,7 +21743,7 @@ The Navigation Event library provides a KMP-first API for handling system back a
+ ">navigationevent</a></td>
+ 
+ 
+-<td>March 27, 2026</td>
++<td>April 08, 2026</td>
+ 
+ 
+ 
+@@ -21182,12 +21752,12 @@ The Navigation Event library provides a KMP-first API for handling system back a
+ 
+ 
+ 
+-<td>-</td>
++<td><a href="/jetpack/androidx/releases/navigationevent#1.1.0-rc01">1.1.0-rc01</a></td>
+ 
+ 
+ 
+ 
+-<td><a href="/jetpack/androidx/releases/navigationevent#1.1.0-beta01">1.1.0-beta01</a></td>
++<td>-</td>
+ 
+ 
+ 
+@@ -21773,7 +22343,7 @@ The Navigation Event library provides a KMP-first API for handling system back a
+ 
+ 
+ 
+-<td>March 11, 2026</td>
++<td>April 08, 2026</td>
+ 
+ 
+ 
+@@ -21790,14 +22360,14 @@ The Navigation Event library provides a KMP-first API for handling system back a
+ 
+ 
+ 
+-<td>-</td>
+ 
++<td><a href="/jetpack/androidx/releases/paging#3.5.0-beta01">3.5.0-beta01</a></td>
+ 
+ 
+ 
+ 
+-<td><a href="/jetpack/androidx/releases/paging#3.5.0-alpha01">3.5.0-alpha01</a></td>
+ 
++<td>-</td>
+ 
+ 
+   
+@@ -21959,7 +22529,7 @@ The Navigation Event library provides a KMP-first API for handling system back a
+ <td><a href="/jetpack/androidx/releases/pdf" data-title="A library to add pdf viewing capabilities inside apps.">pdf</a></td>
+ 
+ 
+-<td>March 25, 2026</td>
++<td>April 08, 2026</td>
+ 
+ 
+ 
+@@ -21978,7 +22548,7 @@ The Navigation Event library provides a KMP-first API for handling system back a
+ 
+ 
+ 
+-<td><a href="/jetpack/androidx/releases/pdf#1.0.0-alpha16">1.0.0-alpha16</a></td>
++<td><a href="/jetpack/androidx/releases/pdf#1.0.0-alpha17">1.0.0-alpha17</a></td>
+ 
+ 
+ 
+@@ -24888,7 +25458,7 @@ Views for the embedded photo picker.">photopicker</a></td>
+ <td><a href="/jetpack/androidx/releases/room3" data-title="Create, store, and manage persistent data backed by a SQLite database.">room3</a></td>
+ 
+ 
+-<td>March 25, 2026</td>
++<td>April 08, 2026</td>
+ 
+ 
+ 
+@@ -24907,7 +25477,7 @@ Views for the embedded photo picker.">photopicker</a></td>
+ 
+ 
+ 
+-<td><a href="/jetpack/androidx/releases/room3#3.0.0-alpha02">3.0.0-alpha02</a></td>
++<td><a href="/jetpack/androidx/releases/room3#3.0.0-alpha03">3.0.0-alpha03</a></td>
+ 
+ 
+ 
+@@ -26341,6 +26911,118 @@ Views for the embedded photo picker.">photopicker</a></td>
+ 
+ 
+ 
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
+ 
+ 
+ 
+@@ -26366,7 +27048,7 @@ Views for the embedded photo picker.">photopicker</a></td>
+ <td><a href="/jetpack/androidx/releases/sqlite" data-title="Work with local SQLite databases. If possible, use Room instead.">sqlite</a></td>
+ 
+ 
+-<td>March 25, 2026</td>
++<td>April 08, 2026</td>
+ 
+ 
+ 
+@@ -26385,7 +27067,7 @@ Views for the embedded photo picker.">photopicker</a></td>
+ 
+ 
+ 
+-<td><a href="/jetpack/androidx/releases/sqlite#2.7.0-alpha02">2.7.0-alpha02</a></td>
++<td><a href="/jetpack/androidx/releases/sqlite#2.7.0-alpha03">2.7.0-alpha03</a></td>
+ 
+ 
+ 
+@@ -26913,7 +27595,7 @@ Views for the embedded photo picker.">photopicker</a></td>
+ <td><a href="/jetpack/androidx/releases/tracing" data-title="Write trace events to the system trace buffer.">tracing</a></td>
+ 
+ 
+-<td>March 25, 2026</td>
++<td>April 08, 2026</td>
+ 
+ 
+ 
+@@ -26932,7 +27614,7 @@ Views for the embedded photo picker.">photopicker</a></td>
+ 
+ 
+ 
+-<td><a href="/jetpack/androidx/releases/tracing#2.0.0-alpha04">2.0.0-alpha04</a></td>
++<td><a href="/jetpack/androidx/releases/tracing#2.0.0-alpha05">2.0.0-alpha05</a></td>
+ 
+ 
+ 
+@@ -27082,7 +27764,7 @@ Views for the embedded photo picker.">photopicker</a></td>
+ <td><a href="/jetpack/androidx/releases/tv" data-title="Provides developers with Compose and Material design functionalities in order to write applications for TV">tv</a></td>
+ 
+ 
+-<td>March 11, 2026</td>
++<td>April 08, 2026</td>
+ 
+ 
+ 
+@@ -27233,7 +27915,7 @@ Views for the embedded photo picker.">photopicker</a></td>
+ <td><a href="/jetpack/androidx/releases/text-vertical" data-title="TODO">text-vertical</a></td>
+ 
+ 
+-<td>March 25, 2026</td>
++<td>April 08, 2026</td>
+ 
+ 
+ 
+@@ -27252,7 +27934,7 @@ Views for the embedded photo picker.">photopicker</a></td>
+ 
+ 
+ 
+-<td><a href="/jetpack/androidx/releases/text-vertical#1.0.0-alpha03">1.0.0-alpha03</a></td>
++<td><a href="/jetpack/androidx/releases/text-vertical#1.0.0-alpha04">1.0.0-alpha04</a></td>
+ 
+ 
+ 
+@@ -27590,7 +28272,7 @@ Views for the embedded photo picker.">photopicker</a></td>
+ <td><a href="/jetpack/androidx/releases/xr-glimmer" data-title="Design language and UI toolkit for building augmented Android XR experiences">xr.glimmer</a></td>
+ 
+ 
+-<td>March 25, 2026</td>
++<td>April 08, 2026</td>
+ 
+ 
+ 
+@@ -27609,7 +28291,7 @@ Views for the embedded photo picker.">photopicker</a></td>
+ 
+ 
+ 
+-<td><a href="/jetpack/androidx/releases/xr-glimmer#1.0.0-alpha09">1.0.0-alpha09</a></td>
++<td><a href="/jetpack/androidx/releases/xr-glimmer#1.0.0-alpha10">1.0.0-alpha10</a></td>
+ 
+ 
+ 
+@@ -28483,7 +29165,7 @@ Views for the embedded photo picker.">photopicker</a></td>
+ 
+ 
+ 
+-<td>March 25, 2026</td>
++<td>April 08, 2026</td>
+ 
+ 
+ 
+@@ -28607,12 +29289,12 @@ providing functionality to support different device sizes and
+ navigation gestures.">wear.compose</a></td>
+ 
+ 
+-<td>March 25, 2026</td>
++<td>April 08, 2026</td>
+ 
+ 
+ 
+ 
+-<td><a href="/jetpack/androidx/releases/wear-compose#1.6.0">1.6.0</a></td>
++<td><a href="/jetpack/androidx/releases/wear-compose#1.6.1">1.6.1</a></td>
+ 
+ 
+ 
+@@ -28626,7 +29308,7 @@ navigation gestures.">wear.compose</a></td>
+ 
+ 
+ 
+-<td>-</td>
++<td><a href="/jetpack/androidx/releases/wear-compose#1.7.0-alpha01">1.7.0-alpha01</a></td>
+ 
+ 
+ 
+@@ -28682,7 +29364,7 @@ navigation gestures.">wear.compose</a></td>
+ <td><a href="/jetpack/androidx/releases/wear-compose-remote" data-title="TODO">wear.compose.remote</a></td>
+ 
+ 
+-<td>March 25, 2026</td>
++<td>April 08, 2026</td>
+ 
+ 
+ 
+@@ -28701,7 +29383,7 @@ navigation gestures.">wear.compose</a></td>
+ 
+ 
+ 
+-<td><a href="/jetpack/androidx/releases/wear-compose-remote#1.0.0-alpha01">1.0.0-alpha01</a></td>
++<td><a href="/jetpack/androidx/releases/wear-compose-remote#1.0.0-alpha02">1.0.0-alpha02</a></td>
+ 
+ 
+ 
+@@ -29180,16 +29862,16 @@ navigation gestures.">wear.compose</a></td>
+ ">wear.watchfacepush</a></td>
+ 
+ 
+-<td>March 25, 2026</td>
++<td>April 08, 2026</td>
+ 
+ 
+ 
+ 
+-<td>-</td>
++<td><a href="/jetpack/androidx/releases/wear-watchfacepush#1.0.0">1.0.0</a></td>
+ 
+ 
+ 
+-<td><a href="/jetpack/androidx/releases/wear-watchfacepush#1.0.0-rc02">1.0.0-rc02</a></td>
++<td>-</td>
+ 
+ 
+ 
+@@ -29330,7 +30012,7 @@ navigation gestures.">wear.compose</a></td>
+ <td><a href="/jetpack/androidx/releases/webkit" data-title="Work with modern WebView APIs on Android 5 and above.">webkit</a></td>
+ 
+ 
+-<td>March 25, 2026</td>
++<td>April 08, 2026</td>
+ 
+ 
+ 
+@@ -29344,12 +30026,12 @@ navigation gestures.">wear.compose</a></td>
+ 
+ 
+ 
+-<td>-</td>
++<td><a href="/jetpack/androidx/releases/webkit#1.16.0-beta01">1.16.0-beta01</a></td>
+ 
+ 
+ 
+ 
+-<td><a href="/jetpack/androidx/releases/webkit#1.16.0-alpha04">1.16.0-alpha04</a></td>
++<td>-</td>
+ 
+ 
+ 
+@@ -29823,7 +30505,7 @@ navigation gestures.">wear.compose</a></td>
+ 
+ <p class="img-caption">
+ (*) This library has multiple artifacts. See its release notes for more information.<br>
+-Last updated: March 27, 2026
++Last updated: April 08, 2026
+ </p>
+ 
+   
+@@ -29837,9 +30519,6 @@ Last updated: March 27, 2026
+ 
+   
+     
+-      <devsite-recommendations display="in-page" hidden yield>
+-      </devsite-recommendations>
+-    
+     
+       
+     <devsite-thumb-rating position="footer">
+@@ -29848,8 +30527,6 @@ Last updated: March 27, 2026
+        
+     
+     
+-      <devsite-recommendations id="recommendations-link" yield></devsite-recommendations>
+-    
+   
+ 
+   <div class="devsite-floating-action-buttons"></div></article>
+@@ -29857,7 +30534,7 @@ Last updated: March 27, 2026
+ 
+ <devsite-content-footer class="nocontent">
+   <p>Content and code samples on this page are subject to the licenses described in the <a href="/license">Content License</a>. Java and OpenJDK are trademarks or registered trademarks of Oracle and/or its affiliates.</p>
+-  <p>Last updated 2026-03-31 UTC.</p>
++  <p>Last updated 2026-04-08 UTC.</p>
+ </devsite-content-footer>
+ 
+ 
+@@ -29871,7 +30548,7 @@ Last updated: March 27, 2026
+   
+   
+     <template class="devsite-content-data-template">
+-      [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Missing the information I need","missingTheInformationINeed","thumb-down"],["Too complicated / too many steps","tooComplicatedTooManySteps","thumb-down"],["Out of date","outOfDate","thumb-down"],["Samples / code issue","samplesCodeIssue","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-03-31 UTC."],[],[]]
++      [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Missing the information I need","missingTheInformationINeed","thumb-down"],["Too complicated / too many steps","tooComplicatedTooManySteps","thumb-down"],["Out of date","outOfDate","thumb-down"],["Samples / code issue","samplesCodeIssue","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-04-08 UTC."],[],[]]
+     </template>
+   
+ </div>
+@@ -30965,12 +31642,12 @@ Last updated: March 27, 2026
+         .fully-clickable"
+     watch=".android-editorial-and-updates-cards, .android-samples, devsite-content"></android-fully-clickable>
+     
+-<script nonce="fTIxVV26AtMRLUrzuHYs0ciEzrOCPY">
++<script nonce="1p53XDssvdZF8rExJF4yVtljtdylJh">
+   
+   (function(d,e,v,s,i,t,E){d['GoogleDevelopersObject']=i;
+     t=e.createElement(v);t.async=1;t.src=s;E=e.getElementsByTagName(v)[0];
+     E.parentNode.insertBefore(t,E);})(window, document, 'script',
+-    'https://www.gstatic.com/devrel-devsite/prod/v369eac9380f92e8fedc492e2689927bb3475d758266c381eee326d0b49a77481/android/js/app_loader.js', '[3,"en",null,"/js/devsite_app_module.js","https://www.gstatic.com/devrel-devsite/prod/v369eac9380f92e8fedc492e2689927bb3475d758266c381eee326d0b49a77481","https://www.gstatic.com/devrel-devsite/prod/v369eac9380f92e8fedc492e2689927bb3475d758266c381eee326d0b49a77481/android","https://android-dot-devsite-v2-prod.appspot.com",1,null,["/_pwa/android/manifest.json","https://www.gstatic.com/devrel-devsite/prod/v369eac9380f92e8fedc492e2689927bb3475d758266c381eee326d0b49a77481/images/video-placeholder.svg","https://www.gstatic.com/devrel-devsite/prod/v369eac9380f92e8fedc492e2689927bb3475d758266c381eee326d0b49a77481/android/images/favicon.svg","https://www.gstatic.com/devrel-devsite/prod/v369eac9380f92e8fedc492e2689927bb3475d758266c381eee326d0b49a77481/android/images/lockup.png","https://fonts.googleapis.com/css?family=Google+Sans:400,500,600,700|Google+Sans+Text:400,400italic,500,500italic,600,600italic,700,700italic|Roboto+Mono:400,500,700&display=swap"],1,null,[1,6,8,12,14,17,21,25,50,52,63,70,75,76,80,87,91,92,93,97,98,100,101,102,103,104,105,107,108,109,110,112,113,117,118,120,122,124,125,126,127,129,130,131,132,133,134,135,136,138,140,141,147,148,149,151,152,156,157,158,159,161,163,164,168,169,170,179,180,182,183,186,191,193,196],"AIzaSyAP-jjEJBzmIyKR4F-3XITp8yM9T1gEEI8","AIzaSyB6xiKGDR5O3Ak2okS4rLkauxGUG7XP0hg","developer.android.com","AIzaSyAQk0fBONSGUqCNznf6Krs82Ap1-NV6J4o","AIzaSyCCxcqdrZ_7QMeLCRY20bh_SXdAYqy70KY",null,null,null,["EngEduTelemetry__enable_engedu_telemetry","Cloud__enable_cloud_shell","Concierge__enable_remove_info_panel_tags","Cloud__enable_legacy_calculator_redirect","SignIn__enable_l1_signup_flow","Profiles__enable_page_saving","Profiles__enable_purchase_prompts","MiscFeatureFlags__enable_framebox_badge_methods","DevPro__enable_vertex_credit_card","DevPro__enable_enterprise","Profiles__enable_completequiz_endpoint","Profiles__enable_auto_apply_credits","DevPro__enable_free_benefits","Profiles__enable_callout_notifications","MiscFeatureFlags__enable_llms_txt","MiscFeatureFlags__remove_cross_domain_tracking_params","MiscFeatureFlags__enable_variable_operator_index_yaml","DevPro__remove_eu_tax_intake_form","Cloud__enable_cloud_dlp_service","Analytics__enable_clearcut_logging","Profiles__enable_recognition_badges","Concierge__enable_pushui","Cloud__enable_free_trial_server_call","MiscFeatureFlags__enable_appearance_cookies","Experiments__reqs_query_experiments","MiscFeatureFlags__gdp_dashboard_reskin_enabled","Search__enable_ai_eligibility_checks","Analytics__enable_devpro_interaction_logging","Profiles__enable_completecodelab_endpoint","MiscFeatureFlags__enable_view_transitions","MiscFeatureFlags__enable_variable_operator","Profiles__enable_targeted_hero","DevPro__enable_credits_banner","Search__enable_ai_search_summaries_for_all","Cloud__cache_serialized_dynamic_content","Significatio__enable_by_tenant","Profiles__enable_release_notes_notifications","MiscFeatureFlags__enable_explicit_template_dependencies","DevPro__enable_nvidia_credits_card","Profiles__enable_public_developer_profiles","Cloud__enable_cloud_shell_fte_user_flow","Cloud__enable_llm_concierge_chat","BookNav__enable_tenant_cache_key","Profiles__enable_developer_profile_benefits_ui_redesign","Concierge__enable_actions_menu","Profiles__enable_stripe_subscription_management","DevPro__enable_devpro_offers","CloudShell__cloud_shell_button","MiscFeatureFlags__developers_footer_dark_image","CloudShell__cloud_code_overflow_menu","MiscFeatureFlags__enable_project_variables","TpcFeatures__proxy_prod_host","DevPro__enable_cloud_innovators_plus","Profiles__enable_profile_collections","Profiles__enable_awarding_url","Profiles__enable_join_program_group_endpoint","MiscFeatureFlags__fix_lower_breadcrumbs","DevPro__enable_embed_profile_creation","Profiles__require_profile_eligibility_for_signin","DevPro__enable_devsite_captcha","Profiles__enable_playlist_community_acl","Search__enable_dynamic_content_confidential_banner","TpcFeatures__enable_unmirrored_page_left_nav","Search__enable_suggestions_from_borg","Profiles__enable_user_type","Profiles__enable_developer_profile_pages_as_content","Profiles__enable_complete_playlist_endpoint","MiscFeatureFlags__enable_firebase_utm","DevPro__enable_firebase_workspaces_card","DevPro__enable_google_payments_buyflow","Search__enable_page_map","MiscFeatureFlags__enable_dark_theme","DevPro__enable_code_assist","Cloud__enable_cloudx_experiment_ids","DevPro__enable_g1_integration","Profiles__enable_developer_profiles_callout","DevPro__enable_google_one_card","Cloud__fast_free_trial","MiscFeatureFlags__developers_footer_image","Profiles__enable_dashboard_curated_recommendations","DevPro__enable_developer_subscriptions","Concierge__enable_devsite_llm_tools"],null,null,"AIzaSyBLEMok-5suZ67qRPzx0qUtbnLmyT_kCVE","https://developerscontentserving-pa.googleapis.com","AIzaSyCM4QpTRSqP5qI4Dvjt4OAScIN8sOUlO-k","https://developerscontentsearch-pa.googleapis.com",2,4,null,"https://developerprofiles-pa.googleapis.com",[3,"android","Android Developers","developer.android.com",null,"android-dot-devsite-v2-prod.appspot.com",null,null,[null,1,null,null,null,null,null,null,null,null,null,[1],null,null,null,null,null,null,[1],[1,null,null,[1,20],"/recommendations"],null,null,null,[1,null,1],[1,1,null,1,1],null,null,null,null,[1],[1]],null,[18,null,null,null,null,null,"/images/lockup.png","/images/touchicon-180.png",null,null,null,null,null,null,null,null,null,null,null,null,null,2,null,null,null,"/images/lockup-dark-theme.png",[]],[],null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,[6,1,14,15,20,22,23,28,29,37,43],null,[[null,null,1],[1,1]],[[null,null,null,null,null,null,null,[["G-QFRN08RN6E"],null,null,[["G-QFRN08RN6E",1]]],null,null,null,null,1],null,[[1,1],[2,2]]],null,4,null,null,null,null,null,null,null,null,null,null,null,null,null,"android.devsite.google"],null,"pk_live_5170syrHvgGVmSx9sBrnWtA5luvk9BwnVcvIi7HizpwauFG96WedXsuXh790rtij9AmGllqPtMLfhe2RSwD6Pn38V00uBCydV4m",1,null,"https://developerscontentinsights-pa.googleapis.com","AIzaSyCg-ZUslalsEbXMfIo9ZP8qufZgo3LSBDU","AIzaSyDxT0vkxnY_KeINtA4LSePJO-4MAZPMRsE","https://developers.googleapis.com",null,null,"AIzaSyBQom12tzI-rybN7Sf-KfeL4nwm-Rf7PmI\n",null,null,"https://developers.googleapis.com"]')
++    'https://www.gstatic.com/devrel-devsite/prod/v369eac9380f92e8fedc492e2689927bb3475d758266c381eee326d0b49a77481/android/js/app_loader.js', '[3,"en",null,"/js/devsite_app_module.js","https://www.gstatic.com/devrel-devsite/prod/v369eac9380f92e8fedc492e2689927bb3475d758266c381eee326d0b49a77481","https://www.gstatic.com/devrel-devsite/prod/v369eac9380f92e8fedc492e2689927bb3475d758266c381eee326d0b49a77481/android","https://android-dot-devsite-v2-prod.appspot.com",1,null,["/_pwa/android/manifest.json","https://www.gstatic.com/devrel-devsite/prod/v369eac9380f92e8fedc492e2689927bb3475d758266c381eee326d0b49a77481/images/video-placeholder.svg","https://www.gstatic.com/devrel-devsite/prod/v369eac9380f92e8fedc492e2689927bb3475d758266c381eee326d0b49a77481/android/images/favicon.svg","https://www.gstatic.com/devrel-devsite/prod/v369eac9380f92e8fedc492e2689927bb3475d758266c381eee326d0b49a77481/android/images/lockup.png","https://fonts.googleapis.com/css?family=Google+Sans:400,500,600,700|Google+Sans+Text:400,400italic,500,500italic,600,600italic,700,700italic|Roboto+Mono:400,500,700&display=swap"],1,null,[1,6,8,12,14,17,21,25,50,52,63,70,75,76,80,87,91,92,93,97,98,100,101,102,103,104,105,107,108,109,110,112,113,117,118,120,122,124,125,126,127,129,130,131,132,133,134,135,136,138,140,141,147,148,149,151,152,156,157,158,159,161,163,164,168,169,170,179,180,182,183,186,191,193,196],"AIzaSyAP-jjEJBzmIyKR4F-3XITp8yM9T1gEEI8","AIzaSyB6xiKGDR5O3Ak2okS4rLkauxGUG7XP0hg","developer.android.com","AIzaSyAQk0fBONSGUqCNznf6Krs82Ap1-NV6J4o","AIzaSyCCxcqdrZ_7QMeLCRY20bh_SXdAYqy70KY",null,null,null,["Experiments__reqs_query_experiments","Analytics__enable_clearcut_logging","CloudShell__cloud_shell_button","MiscFeatureFlags__enable_view_transitions","Profiles__enable_awarding_url","Cloud__enable_free_trial_server_call","Profiles__enable_recognition_badges","Search__enable_ai_search_summaries_for_all","Profiles__enable_callout_notifications","MiscFeatureFlags__enable_firebase_utm","Search__enable_dynamic_content_confidential_banner","DevPro__enable_devpro_offers","Profiles__enable_page_saving","MiscFeatureFlags__developers_footer_image","DevPro__enable_firebase_workspaces_card","Profiles__enable_profile_collections","DevPro__remove_eu_tax_intake_form","CloudShell__cloud_code_overflow_menu","Concierge__enable_remove_info_panel_tags","MiscFeatureFlags__developers_footer_dark_image","Profiles__enable_stripe_subscription_management","Analytics__enable_devpro_interaction_logging","Profiles__enable_completecodelab_endpoint","Cloud__enable_cloud_dlp_service","DevPro__enable_cloud_innovators_plus","Profiles__enable_user_type","Profiles__enable_completequiz_endpoint","DevPro__enable_enterprise","Cloud__enable_cloud_shell","DevPro__enable_google_one_card","DevPro__enable_credits_banner","Profiles__enable_developer_profile_benefits_ui_redesign","MiscFeatureFlags__enable_dark_theme","Cloud__enable_cloud_shell_fte_user_flow","Profiles__enable_release_notes_notifications","MiscFeatureFlags__remove_cross_domain_tracking_params","Concierge__enable_pushui","Profiles__enable_public_developer_profiles","Profiles__enable_dashboard_curated_recommendations","DevPro__enable_free_benefits","DevPro__enable_google_payments_buyflow","MiscFeatureFlags__gdp_dashboard_reskin_enabled","MiscFeatureFlags__enable_project_variables","DevPro__enable_vertex_credit_card","Concierge__enable_actions_menu","DevPro__enable_nvidia_credits_card","Cloud__enable_legacy_calculator_redirect","Cloud__enable_cloudx_experiment_ids","Profiles__enable_join_program_group_endpoint","Profiles__enable_purchase_prompts","MiscFeatureFlags__enable_variable_operator","DevPro__enable_g1_integration","Search__enable_ai_eligibility_checks","SignIn__enable_l1_signup_flow","DevPro__enable_code_assist","Profiles__enable_auto_apply_credits","Cloud__cache_serialized_dynamic_content","MiscFeatureFlags__fix_lower_breadcrumbs","DevPro__enable_developer_subscriptions","MiscFeatureFlags__enable_explicit_template_dependencies","OnSwitch__enable","MiscFeatureFlags__enable_variable_operator_index_yaml","Profiles__enable_developer_profiles_callout","DevPro__enable_devsite_captcha","MiscFeatureFlags__enable_explain_this_code","Search__enable_suggestions_from_borg","TpcFeatures__proxy_prod_host","EngEduTelemetry__enable_engedu_telemetry","Cloud__enable_llm_concierge_chat","TpcFeatures__enable_unmirrored_page_left_nav","Profiles__enable_playlist_community_acl","Cloud__fast_free_trial","Profiles__enable_developer_profile_pages_as_content","Search__enable_page_map","DevPro__enable_google_payments","MiscFeatureFlags__enable_appearance_cookies","MiscFeatureFlags__enable_framebox_badge_methods","BookNav__enable_tenant_cache_key","Profiles__require_profile_eligibility_for_signin","Profiles__enable_complete_playlist_endpoint","DevPro__enable_embed_profile_creation","Profiles__enable_targeted_hero"],null,null,"AIzaSyBLEMok-5suZ67qRPzx0qUtbnLmyT_kCVE","https://developerscontentserving-pa.googleapis.com","AIzaSyCM4QpTRSqP5qI4Dvjt4OAScIN8sOUlO-k","https://developerscontentsearch-pa.googleapis.com",2,4,null,"https://developerprofiles-pa.googleapis.com",[3,"android","Android Developers","developer.android.com",null,"android-dot-devsite-v2-prod.appspot.com",null,null,[null,1,null,null,null,null,null,null,null,null,null,[1],null,null,null,null,null,null,[1],[1,null,null,[1,20],"/recommendations"],null,null,null,[1,null,1],[1,1,null,1,1],null,null,null,null,[1],[1]],null,[18,null,null,null,null,null,"/images/lockup.png","/images/touchicon-180.png",null,null,null,null,null,null,null,null,null,null,null,null,null,2,null,null,null,"/images/lockup-dark-theme.png",[]],[],null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,[6,1,14,15,20,22,23,28,29,37,43],null,[[null,null,1],[1,1]],[[null,null,null,null,null,null,null,[["G-QFRN08RN6E"],null,null,[["G-QFRN08RN6E",1]]],null,null,null,null,1],null,[[1,1],[2,2]]],null,4,null,null,null,null,null,null,null,null,null,null,null,null,null,"android.devsite.google"],null,"pk_live_5170syrHvgGVmSx9sBrnWtA5luvk9BwnVcvIi7HizpwauFG96WedXsuXh790rtij9AmGllqPtMLfhe2RSwD6Pn38V00uBCydV4m",1,1,"https://developerscontentinsights-pa.googleapis.com","AIzaSyCg-ZUslalsEbXMfIo9ZP8qufZgo3LSBDU","AIzaSyDxT0vkxnY_KeINtA4LSePJO-4MAZPMRsE","https://developers.googleapis.com",null,null,"AIzaSyBQom12tzI-rybN7Sf-KfeL4nwm-Rf7PmI\n",null,null,"https://developers.googleapis.com"]')
+   
+ </script>
+ 

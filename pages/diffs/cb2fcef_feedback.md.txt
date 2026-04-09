@@ -1,0 +1,12 @@
+diff --git a/docs/about/versions/16/qpr3/feedback.md b/docs/about/versions/16/qpr3/feedback.md
+index dced0f4..4364e72 100644
+--- a/docs/about/versions/16/qpr3/feedback.md
++++ b/docs/about/versions/16/qpr3/feedback.md
+@@ -14,7 +14,6 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
+-
+ ![](https://developer.android.com/static/images/shared/preview-feedback-header.svg)
+ 
+ ### Feedback and issues

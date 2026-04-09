@@ -1,0 +1,12 @@
+diff --git a/docs/tv/adt-1/regulatory.md b/docs/tv/adt-1/regulatory.md
+index e6ed6fc..ffc16a4 100644
+--- a/docs/tv/adt-1/regulatory.md
++++ b/docs/tv/adt-1/regulatory.md
+@@ -10,6 +10,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Disclosures for the [ADT-1](/tv/adt-1) device.
+ 
+ Model: W2  

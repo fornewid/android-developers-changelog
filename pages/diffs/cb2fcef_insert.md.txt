@@ -1,0 +1,12 @@
+diff --git a/docs/games/services/publishing/api/leaderboardConfigurations/insert.md b/docs/games/services/publishing/api/leaderboardConfigurations/insert.md
+index 6ee7364..e67694a 100644
+--- a/docs/games/services/publishing/api/leaderboardConfigurations/insert.md
++++ b/docs/games/services/publishing/api/leaderboardConfigurations/insert.md
+@@ -12,6 +12,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ **Requires [authorization](#auth)**
+ 
+ Insert a new leaderboard configuration in this application.

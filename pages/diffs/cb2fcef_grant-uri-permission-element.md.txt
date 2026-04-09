@@ -1,0 +1,12 @@
+diff --git a/docs/guide/topics/manifest/grant-uri-permission-element.md b/docs/guide/topics/manifest/grant-uri-permission-element.md
+index 4bc880a..ddc060f 100644
+--- a/docs/guide/topics/manifest/grant-uri-permission-element.md
++++ b/docs/guide/topics/manifest/grant-uri-permission-element.md
+@@ -12,6 +12,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ syntax:
+ :   ```
+     <grant-uri-permission android:path="string"

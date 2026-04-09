@@ -1,0 +1,12 @@
+diff --git a/docs/health-and-fitness/health-connect/get-started.md b/docs/health-and-fitness/health-connect/get-started.md
+index ce3c4f6..2a2aaef 100644
+--- a/docs/health-and-fitness/health-connect/get-started.md
++++ b/docs/health-and-fitness/health-connect/get-started.md
+@@ -15,6 +15,7 @@ Starting in 2026, we'll be transitioning away from Google Fit APIs. For more inf
+ 
+ 
+ 
++
+ > This guide is compatible with Health Connect version [1.1.0-alpha12](/jetpack/androidx/releases/health-connect#1.1.0-alpha12).
+ 
+ This guide shows you how you can begin using Health Connect on your app.

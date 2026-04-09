@@ -1,0 +1,12 @@
+diff --git a/docs/training/wearables/watch-face-designer/advanced.md b/docs/training/wearables/watch-face-designer/advanced.md
+index f58696b..c71ad10 100644
+--- a/docs/training/wearables/watch-face-designer/advanced.md
++++ b/docs/training/wearables/watch-face-designer/advanced.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ This page explains more advanced use cases for Watch Face Designer, including
+ how to add support for subdials, [complications](/training/wearables/complications), and color themes. To learn
+ more about getting started, view the [basics](/training/wearables/watch-face-designer/basics) guide.

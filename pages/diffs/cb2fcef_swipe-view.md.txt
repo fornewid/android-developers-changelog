@@ -1,0 +1,12 @@
+diff --git a/docs/guide/navigation/advanced/swipe-view.md b/docs/guide/navigation/advanced/swipe-view.md
+index 72328d3..bf20f1c 100644
+--- a/docs/guide/navigation/advanced/swipe-view.md
++++ b/docs/guide/navigation/advanced/swipe-view.md
+@@ -12,7 +12,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ *Swipe views* let you navigate between sibling screens, such as tabs, with a
+ horizontal finger gesture (*swipe*). This navigation pattern is also referred to
+ as *horizontal paging*. This document shows how to create a tab layout with

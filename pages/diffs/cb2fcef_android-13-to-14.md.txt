@@ -1,0 +1,12 @@
+diff --git a/docs/health-and-fitness/health-connect/migration/android-13-to-14.md b/docs/health-and-fitness/health-connect/migration/android-13-to-14.md
+index 9bdabc7..2c394a3 100644
+--- a/docs/health-and-fitness/health-connect/migration/android-13-to-14.md
++++ b/docs/health-and-fitness/health-connect/migration/android-13-to-14.md
+@@ -15,7 +15,6 @@ Starting in 2026, we'll be transitioning away from Google Fit APIs. For more inf
+ 
+ 
+ 
+-
+ Health Connect will be packaged with Android 14 as a common data storage layer
+ for consumer health and fitness data, protected by granular permissions and
+ accessible as an Android system app (referred to throughout this document as the

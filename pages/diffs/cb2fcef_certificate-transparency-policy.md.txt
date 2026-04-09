@@ -1,0 +1,100 @@
+diff --git a/docs/privacy-and-security/certificate-transparency-policy.md b/docs/privacy-and-security/certificate-transparency-policy.md
+index 4197e49..9ccfd74 100644
+--- a/docs/privacy-and-security/certificate-transparency-policy.md
++++ b/docs/privacy-and-security/certificate-transparency-policy.md
+@@ -1,14 +1,24 @@
+ ---
+-title: https://developer.android.com/privacy-and-security/certificate-transparency-policy
++title: Android Certificate Transparency Policy  |  Security  |  Android Developers
+ url: https://developer.android.com/privacy-and-security/certificate-transparency-policy
+-source: md.txt
++source: html-scrape
+ ---
+ 
++* [Android Developers](https://developer.android.com/)
++* [Design & Plan](https://developer.android.com/design)
++* [Security](https://developer.android.com/security)
++* [Guides](https://developer.android.com/privacy-and-security/security-tips)
++
++# Android Certificate Transparency Policy Stay organized with collections Save and categorize content based on your preferences.
++
++
++
++
+ *Please direct any questions about this Policy to the CT Policy forum:
+ [ct-policy@chromium.org](https://groups.google.com/a/chromium.org/forum/#!forum/ct-policy)*
+ 
+ When a connection's Transport Layer Security (TLS) certificate is validated in
+-an app that [opts-in to Certificate Transparency](https://developer.android.com/privacy-and-security/security-config#CertificateTransparencySummary), it is evaluated for
++an app that [opts-in to Certificate Transparency](/privacy-and-security/security-config#CertificateTransparencySummary), it is evaluated for
+ compliance against the Android Certificate Transparency (CT) Policy.
+ Certificates that are accompanied by Signed Certificate Timestamp (SCTs) that
+ satisfy this Policy are said to be CT Compliant.
+@@ -24,12 +34,12 @@ CT Compliance in Android is determined by evaluating SCTs from CT logs and
+ ensuring that these logs are in the correct state(s) at time of check.
+ The set of possible states a CT log can be in is:
+ 
+-- `Pending`
+-- `Qualified`
+-- `Usable`
+-- `ReadOnly`
+-- `Retired`
+-- `Rejected`
++* `Pending`
++* `Qualified`
++* `Usable`
++* `ReadOnly`
++* `Retired`
++* `Rejected`
+ 
+ In order to assist with understanding the requirements for CT compliance in
+ Android, the definition of these states, the requirements of Logs in each state,
+@@ -62,9 +72,9 @@ achieved by meeting one of the following criteria:
+ 4. Among the SCTs satisfying requirement 2, at least one SCT must be issued from a log recognized by Android as being [RFC 6962-compliant](https://datatracker.ietf.org/doc/html/rfc6962).
+ 
+ | Certificate Lifetime | Number of SCTs from distinct CT Logs |
+-|---|---|
+-| \<= 180 days | 2 |
+-| \> 180 days | 3 |
++| --- | --- |
++| <= 180 days | 2 |
++| > 180 days | 3 |
+ 
+ **SCTs delivered via OCSP or TLS:**
+ 
+@@ -74,7 +84,7 @@ achieved by meeting one of the following criteria:
+ 
+ For both embedded SCTs and those delivered using OCSP or TLS, Log Operator
+ uniqueness is defined as having separate entries within the operators section
+-of the [log list](https://developer.android.com/privacy-and-security/certificate-transparency-policy#log-list).
++of the [log list](#log-list).
+ 
+ In the rare situation that a CT Log changes operators during its lifetime,
+ CT logs optionally contain an list of `previous_operators`, accompanied by the
+@@ -122,7 +132,7 @@ becoming `Qualified`.
+ 
+ ## Android log list
+ 
+-The Android log list is published in [log_list.json](https://www.gstatic.com/android/certificate_transparency/v2/log_list.json), which is updated daily.
++The Android log list is published in [log\_list.json](https://www.gstatic.com/android/certificate_transparency/v2/log_list.json), which is updated daily.
+ This log list is offered without a stable API, SLA or availability
+ guarantees.
+ 
+@@ -131,13 +141,14 @@ submitters (such as certification authorities) and CT monitors and auditors
+ wishing to remain compatible with, or investigate the contents of, the CT and
+ WebPKI ecosystems.
+ 
+-> [!CAUTION]
+-> **Caution:** The Android CT log list may not be used to facilitate CT enforcement in TLS clients other than the Android platform itself without explicit written permission from the Android CT team.
++**Caution:** The Android CT log list may not be used to facilitate CT enforcement in TLS
++clients other than the Android platform itself without explicit written
++permission from the Android CT team.
+ 
+ Unauthorized reliance on the Android CT log list endangers not just your users,
+ but Android users and the CT ecosystem as a whole. If you are exploring adding
+ CT enforcement into your app, use a [mechanism supported by the Android
+-platform](https://developer.android.com/privacy-and-security/security-config#CertificateTransparencySummary).
++platform](/privacy-and-security/security-config#CertificateTransparencySummary).
+ 
+ Using the Android CT log list out of line with this policy is done at your own
+ risk, and may result in breakage of your application or library. Android must be

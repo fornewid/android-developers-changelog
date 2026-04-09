@@ -1,0 +1,23 @@
+diff --git a/docs/studio/releases/fixed-bugs/studio/2025.3.4.md b/docs/studio/releases/fixed-bugs/studio/2025.3.4.md
+index 05a4818..6087260 100644
+--- a/docs/studio/releases/fixed-bugs/studio/2025.3.4.md
++++ b/docs/studio/releases/fixed-bugs/studio/2025.3.4.md
+@@ -12,6 +12,18 @@ source: html-scrape
+ 
+ 
+ 
++### Android Studio Panda 4 | 2025.3.4 Canary 4
++
++**Released together with:**
++
++* Android Gradle Plugin 9.2.0-alpha08
++
++| Fixed Issues | |
++| --- | --- |
++| **Android Gradle Plugin** | |  | | --- | | [Issue #359963589](https://issuetracker.google.com/issues/359963589)  Allow higher compileSdk for tests than main | |
++| **Compose Preview Screenshot Testing** | |  | | --- | | [Issue #497675618](https://issuetracker.google.com/issues/497675618)  Screenshot Plugin: Layoutlib's isolated classloader prevents JVM coverage agents from instrumenting composable classes | | [Issue #482664893](https://issuetracker.google.com/issues/482664893)  Screenshot testing: validate incorrectly succeeds with stale screenshot when test throws exception | |
++| **Lint** | |  | | --- | | [Issue #478779827](https://issuetracker.google.com/issues/478779827)  AGP 9 Lint reports WrongConstant when using nested IntDef constants | |
++
+ ### Android Studio Panda 4 | 2025.3.4 Canary 3
+ 
+ **Released together with:**

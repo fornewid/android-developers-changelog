@@ -1,0 +1,12 @@
+diff --git a/docs/work/device-management-policy.md b/docs/work/device-management-policy.md
+index 1e12029..64b4990 100644
+--- a/docs/work/device-management-policy.md
++++ b/docs/work/device-management-policy.md
+@@ -12,7 +12,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ **Device admin deprecation**. Some admin policies have been marked as deprecated when invoked
+ by a device admin. To learn more and see the migration options, see
+ [Device admin deprecation](https://developers.google.com/android/work/device-admin-deprecation).

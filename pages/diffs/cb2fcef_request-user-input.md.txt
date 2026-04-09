@@ -1,0 +1,141 @@
+diff --git a/docs/develop/ui/compose/quick-guides/collections/request-user-input.md b/docs/develop/ui/compose/quick-guides/collections/request-user-input.md
+index b537647..c1fbc77 100644
+--- a/docs/develop/ui/compose/quick-guides/collections/request-user-input.md
++++ b/docs/develop/ui/compose/quick-guides/collections/request-user-input.md
+@@ -1,95 +1,64 @@
+ ---
+-title: Request user input  |  Jetpack Compose  |  Android Developers
++title: https://developer.android.com/develop/ui/compose/quick-guides/collections/request-user-input
+ url: https://developer.android.com/develop/ui/compose/quick-guides/collections/request-user-input
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-* [Develop](https://developer.android.com/develop)
+-* [Core areas](https://developer.android.com/develop/core-areas)
+-* [UI](https://developer.android.com/develop/ui)
+-* [Quick Guides](https://developer.android.com/develop/ui/compose/quick-guides)
++# Request user input
+ 
+-Stay organized with collections
++## Quick Guides Collection
++Request user input
+ 
+-Save and categorize content based on your preferences.
++Make your app interactive by enabling users to enter text and other inputs.[![](http://developer.android.com/static/images/quick-guides/guide-sample-preview.png)](http://developer.android.com/develop/ui/compose/quick-guides/content/validate-input)  
+ 
++### [Validate input as a user types](http://developer.android.com/develop/ui/compose/quick-guides/content/validate-input)
+ 
++Validate input as the user types to reduce information errors and improve user engagement.  
++[Guide](http://developer.android.com/develop/ui/compose/quick-guides/content/validate-input)  
++[![](http://developer.android.com/static/images/quick-guides/guide-sample-preview.png)](http://developer.android.com/develop/ui/compose/quick-guides/content/show-hide-password)  
+ 
++### [Show or hide password based on a user toggle](http://developer.android.com/develop/ui/compose/quick-guides/content/show-hide-password)
+ 
+-## Quick Guides Collection Request user input
++Show or hide a password based on a user toggle to improve security and increase user trust.  
++[Guide](http://developer.android.com/develop/ui/compose/quick-guides/content/show-hide-password)  
++[![](http://developer.android.com/static/images/quick-guides/guide-sample-preview.png)](http://developer.android.com/develop/ui/compose/quick-guides/content/auto-format-phone-number)  
+ 
+-Make your app interactive by enabling users to enter text and other inputs.
++### [Auto-format a phone number in a text field](http://developer.android.com/develop/ui/compose/quick-guides/content/auto-format-phone-number)
+ 
+-[![](https://developer.android.com/static/images/quick-guides/guide-sample-preview.png)](https://developer.android.com/develop/ui/compose/quick-guides/content/validate-input)
++Auto-format a phone number in a text field to save users time.  
++[Guide](http://developer.android.com/develop/ui/compose/quick-guides/content/auto-format-phone-number)  
++[![](http://developer.android.com/static/images/quick-guides/guide-sample-preview.png)](http://developer.android.com/develop/ui/compose/quick-guides/content/display-user-input)  
+ 
+-### [Validate input as a user types](https://developer.android.com/develop/ui/compose/quick-guides/content/validate-input)
++### [Display pop-up messages or requests for user input](http://developer.android.com/develop/ui/compose/quick-guides/content/display-user-input)
+ 
+-Validate input as the user types to reduce information errors and improve user engagement.
++Displays pop up messages or requests user input on a layer above the main app content. This component creates an interruptive UI experience to capture user attention.  
++[Guide](http://developer.android.com/develop/ui/compose/quick-guides/content/display-user-input)  
++[![](http://developer.android.com/static/images/quick-guides/guide-sample-preview.png)](http://developer.android.com/develop/ui/compose/quick-guides/content/add-toggle-switch)  
+ 
+-[Guide](https://developer.android.com/develop/ui/compose/quick-guides/content/validate-input)
++### [Add a switch that users can toggle](http://developer.android.com/develop/ui/compose/quick-guides/content/add-toggle-switch)
+ 
+-[![](https://developer.android.com/static/images/quick-guides/guide-sample-preview.png)](https://developer.android.com/develop/ui/compose/quick-guides/content/show-hide-password)
++Enables users to toggle between two states. Users can drag or click a switch's thumb to change the current state.  
++[Guide](http://developer.android.com/develop/ui/compose/quick-guides/content/add-toggle-switch)  
++[![](http://developer.android.com/static/images/quick-guides/guide-sample-preview.png)](http://developer.android.com/develop/ui/compose/quick-guides/content/create-range-slider)  
+ 
+-### [Show or hide password based on a user toggle](https://developer.android.com/develop/ui/compose/quick-guides/content/show-hide-password)
++### [Create a slider for a range of values](http://developer.android.com/develop/ui/compose/quick-guides/content/create-range-slider)
+ 
+-Show or hide a password based on a user toggle to improve security and increase user trust.
++Enables users to make selections from a range of values along a continuum, such as setting audio volume or filtering graph data across a range of prices.  
++[Guide](http://developer.android.com/develop/ui/compose/quick-guides/content/create-range-slider)  
++[![](http://developer.android.com/static/images/quick-guides/guide-sample-preview.png)](http://developer.android.com/develop/ui/compose/quick-guides/content/create-chip)  
+ 
+-[Guide](https://developer.android.com/develop/ui/compose/quick-guides/content/show-hide-password)
++### [Create a chip to represent complex entities](http://developer.android.com/develop/ui/compose/quick-guides/content/create-chip)
+ 
+-[![](https://developer.android.com/static/images/quick-guides/guide-sample-preview.png)](https://developer.android.com/develop/ui/compose/quick-guides/content/auto-format-phone-number)
++A compact, interactive UI element that represents complex entities such as a contact or tag, often with an icon and label. Chips can be checkable, dismissible, or clickable.  
++[Guide](http://developer.android.com/develop/ui/compose/quick-guides/content/create-chip)  
++[![](http://developer.android.com/static/images/quick-guides/guide-sample-preview.png)](http://developer.android.com/develop/ui/compose/quick-guides/content/filter-list-while-typing)  
+ 
+-### [Auto-format a phone number in a text field](https://developer.android.com/develop/ui/compose/quick-guides/content/auto-format-phone-number)
++### [Filter a list while typing](http://developer.android.com/develop/ui/compose/quick-guides/content/filter-list-while-typing)
+ 
+-Auto-format a phone number in a text field to save users time.
+-
+-[Guide](https://developer.android.com/develop/ui/compose/quick-guides/content/auto-format-phone-number)
+-
+-[![](https://developer.android.com/static/images/quick-guides/guide-sample-preview.png)](https://developer.android.com/develop/ui/compose/quick-guides/content/display-user-input)
+-
+-### [Display pop-up messages or requests for user input](https://developer.android.com/develop/ui/compose/quick-guides/content/display-user-input)
+-
+-Displays pop up messages or requests user input on a layer above the main app content. This component creates an interruptive UI experience to capture user attention.
+-
+-[Guide](https://developer.android.com/develop/ui/compose/quick-guides/content/display-user-input)
+-
+-[![](https://developer.android.com/static/images/quick-guides/guide-sample-preview.png)](https://developer.android.com/develop/ui/compose/quick-guides/content/add-toggle-switch)
+-
+-### [Add a switch that users can toggle](https://developer.android.com/develop/ui/compose/quick-guides/content/add-toggle-switch)
+-
+-Enables users to toggle between two states. Users can drag or click a switch's thumb to change the current state.
+-
+-[Guide](https://developer.android.com/develop/ui/compose/quick-guides/content/add-toggle-switch)
+-
+-[![](https://developer.android.com/static/images/quick-guides/guide-sample-preview.png)](https://developer.android.com/develop/ui/compose/quick-guides/content/create-range-slider)
+-
+-### [Create a slider for a range of values](https://developer.android.com/develop/ui/compose/quick-guides/content/create-range-slider)
+-
+-Enables users to make selections from a range of values along a continuum, such as setting audio volume or filtering graph data across a range of prices.
+-
+-[Guide](https://developer.android.com/develop/ui/compose/quick-guides/content/create-range-slider)
+-
+-[![](https://developer.android.com/static/images/quick-guides/guide-sample-preview.png)](https://developer.android.com/develop/ui/compose/quick-guides/content/create-chip)
+-
+-### [Create a chip to represent complex entities](https://developer.android.com/develop/ui/compose/quick-guides/content/create-chip)
+-
+-A compact, interactive UI element that represents complex entities such as a contact or tag, often with an icon and label. Chips can be checkable, dismissible, or clickable.
+-
+-[Guide](https://developer.android.com/develop/ui/compose/quick-guides/content/create-chip)
+-
+-[![](https://developer.android.com/static/images/quick-guides/guide-sample-preview.png)](https://developer.android.com/develop/ui/compose/quick-guides/content/filter-list-while-typing)
+-
+-### [Filter a list while typing](https://developer.android.com/develop/ui/compose/quick-guides/content/filter-list-while-typing)
+-
+-Filter through a list based on a user's text input.
+-
+-[Guide](https://developer.android.com/develop/ui/compose/quick-guides/content/filter-list-while-typing)
+-
+-![](https://developer.android.com/static/images/picto-icons/help.svg)
++Filter through a list based on a user's text input.  
++[Guide](http://developer.android.com/develop/ui/compose/quick-guides/content/filter-list-while-typing)![](http://developer.android.com/static/images/picto-icons/help.svg)  
+ 
+ ## Have questions or feedback
+ 
+-Go to our frequently asked questions page and learn about quick guides or reach out and let us know your thoughts.
+-
+-[Go to FAQ](https://developer.android.com/quick-guides/faq)
+-[Leave feedback](https://issuetracker.google.com/issues/new?component=1573691&template=1993320)
+\ No newline at end of file
++Go to our frequently asked questions page and learn about quick guides or reach out and let us know your thoughts.  
++[Go to FAQ](http://developer.android.com/quick-guides/faq)[Leave feedback](https://issuetracker.google.com/issues/new?component=1573691&template=1993320)
+\ No newline at end of file

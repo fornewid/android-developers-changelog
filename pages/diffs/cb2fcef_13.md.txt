@@ -1,0 +1,12 @@
+diff --git a/docs/about/versions/13.md b/docs/about/versions/13.md
+index 22a655a..dd822a0 100644
+--- a/docs/about/versions/13.md
++++ b/docs/about/versions/13.md
+@@ -14,7 +14,6 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
+-
+ ### [Android 13](https://developer.android.com/about/versions/13/get)
+ 
+ Build for user privacy with photo picker and notification permission. Improve productivity with themed app icons, per-app languages, and clipboard preview. Build for modern standards like Bluetooth LE Audio and MIDI 2.0 over USB. Deliver a better experience on tablets and large screens.

@@ -1,0 +1,12 @@
+diff --git a/docs/distribute/marketing-tools/alternative-distribution.md b/docs/distribute/marketing-tools/alternative-distribution.md
+index 70ede58..6f8edcf 100644
+--- a/docs/distribute/marketing-tools/alternative-distribution.md
++++ b/docs/distribute/marketing-tools/alternative-distribution.md
+@@ -12,6 +12,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ As an open platform, Android offers choice. You can distribute your Android apps
+ to users in any way you want, using any distribution approach or combination of
+ approaches that meets your needs. From publishing in an app marketplace to

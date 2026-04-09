@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/compose/system/pip-enter.md b/docs/develop/ui/compose/system/pip-enter.md
+index 4d4bd19..69e3b05 100644
+--- a/docs/develop/ui/compose/system/pip-enter.md
++++ b/docs/develop/ui/compose/system/pip-enter.md
+@@ -14,6 +14,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Your app should not enter PiP mode in the following situations:
+ 
+ * If the video is stopped or paused.

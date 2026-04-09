@@ -1,0 +1,12 @@
+diff --git a/docs/topic/performance/improving-overview.md b/docs/topic/performance/improving-overview.md
+index 5551a5b..3063d49 100644
+--- a/docs/topic/performance/improving-overview.md
++++ b/docs/topic/performance/improving-overview.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Users expect apps to be responsive and fast, from app startup and throughout the
+ entire app experience. After you [inspect](/topic/performance/inspecting-overview) your app for performance problems,
+ you can fix any issues and improve your app's performance.

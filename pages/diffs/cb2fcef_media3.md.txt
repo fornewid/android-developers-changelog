@@ -1,0 +1,12 @@
+diff --git a/docs/jetpack/androidx/releases/media3.md b/docs/jetpack/androidx/releases/media3.md
+index 4a0b7b7..9ffe1d3 100644
+--- a/docs/jetpack/androidx/releases/media3.md
++++ b/docs/jetpack/androidx/releases/media3.md
+@@ -15,6 +15,7 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
++
+ # Media3
+ 
+ [Code Sample](https://github.com/androidx/media/tree/main/demos)

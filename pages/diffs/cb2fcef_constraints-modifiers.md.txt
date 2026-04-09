@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/compose/layouts/constraints-modifiers.md b/docs/develop/ui/compose/layouts/constraints-modifiers.md
+index 24cc4aa..c64705b 100644
+--- a/docs/develop/ui/compose/layouts/constraints-modifiers.md
++++ b/docs/develop/ui/compose/layouts/constraints-modifiers.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ In Compose, you can chain multiple modifiers together to change the look and
+ feel of a composable. These modifier chains can affect the *constraints* passed
+ to composables, which define width and height bounds.

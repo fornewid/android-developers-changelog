@@ -1,0 +1,20 @@
+diff --git a/docs/games/playgames/development-test.md b/docs/games/playgames/development-test.md
+index 9597c3a..25dc3cf 100644
+--- a/docs/games/playgames/development-test.md
++++ b/docs/games/playgames/development-test.md
+@@ -15,6 +15,7 @@ Send feedback
+ 
+ 
+ 
++
+ This guide describes how to test your game for distribution on
+ Google Play Games on PC. This lets you to test your games before users
+ are able to play on desktop.
+@@ -142,4 +143,6 @@ crash and ANR rates on Google Play Games on PC.
+ 
+ 
+ 
++
++
+ Send feedback
+\ No newline at end of file

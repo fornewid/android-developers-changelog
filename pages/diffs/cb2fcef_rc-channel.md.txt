@@ -1,0 +1,31 @@
+diff --git a/docs/jetpack/androidx/versions/rc-channel.md b/docs/jetpack/androidx/versions/rc-channel.md
+index 7f3ddc3..5e8eee4 100644
+--- a/docs/jetpack/androidx/versions/rc-channel.md
++++ b/docs/jetpack/androidx/versions/rc-channel.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ ---
+ 
+ [Overview](/jetpack/androidx/versions)
+@@ -32,6 +33,18 @@ prior to 2018.
+ To view the current versions for every component,
+ see the [versions page](/jetpack/androidx/versions).
+ 
++### April 8, 2026
++
++* [Compose Animation Version 1.11.0-rc01](/jetpack/androidx/releases/compose-animation#1.11.0-rc01)
++* [Compose Foundation Version 1.11.0-rc01](/jetpack/androidx/releases/compose-foundation#1.11.0-rc01)
++* [Compose Material Version 1.11.0-rc01](/jetpack/androidx/releases/compose-material#1.11.0-rc01)
++* [Compose Runtime Version 1.11.0-rc01](/jetpack/androidx/releases/compose-runtime#1.11.0-rc01)
++* [Compose UI Version 1.11.0-rc01](/jetpack/androidx/releases/compose-ui#1.11.0-rc01)
++* [Core Uwb Uwb-rxjava3 Version 1.0.0-rc01](/jetpack/androidx/releases/core-uwb#1.0.0-rc01)
++* [Navigationevent Version 1.1.0-rc01](/jetpack/androidx/releases/navigationevent#1.1.0-rc01)
++* [Tv-foundation Version 1.0.0-rc01](/jetpack/androidx/releases/tv#tv-foundation-1.0.0-rc01)
++* [Tv-material Version 1.1.0-rc01](/jetpack/androidx/releases/tv#tv-material-1.1.0-rc01)
++
+ ### March 26, 2026
+ 
+ * [Media3 Version 1.10.0-rc03](/jetpack/androidx/releases/media3#1.10.0-rc03)

@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/compose/components/app-bars-dynamic.md b/docs/develop/ui/compose/components/app-bars-dynamic.md
+index bb79f32..c3d0968 100644
+--- a/docs/develop/ui/compose/components/app-bars-dynamic.md
++++ b/docs/develop/ui/compose/components/app-bars-dynamic.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ This guide explains how to create a dynamic top app bar in Compose that changes
+ its options when items are selected from the list. You can modify the top app
+ bar's title and actions based on the selection state.

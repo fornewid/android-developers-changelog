@@ -1,0 +1,12 @@
+diff --git a/docs/design/ui/mobile/guides/layout-and-content/layout-and-nav-patterns.md b/docs/design/ui/mobile/guides/layout-and-content/layout-and-nav-patterns.md
+index b52fe0a..e09f233 100644
+--- a/docs/design/ui/mobile/guides/layout-and-content/layout-and-nav-patterns.md
++++ b/docs/design/ui/mobile/guides/layout-and-content/layout-and-nav-patterns.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ If your app contains multiple destinations for users to traverse, we recommend
+ employing layout and navigation pairings that are commonly used by other apps.
+ Because many users already possess the mental models for these pairings, your

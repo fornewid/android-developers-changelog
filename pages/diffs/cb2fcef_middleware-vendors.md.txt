@@ -1,0 +1,12 @@
+diff --git a/docs/ndk/guides/middleware-vendors.md b/docs/ndk/guides/middleware-vendors.md
+index c36a683..43a1c0a 100644
+--- a/docs/ndk/guides/middleware-vendors.md
++++ b/docs/ndk/guides/middleware-vendors.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Distributing middleware built with the NDK raises some additional issues that
+ app developers do not need to worry about. Prebuilt libraries impose some of
+ their implementation choices on their users.

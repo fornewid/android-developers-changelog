@@ -1,0 +1,12 @@
+diff --git a/docs/training/tv/playback/leanback/guided-step.md b/docs/training/tv/playback/leanback/guided-step.md
+index 959bade..b53be92 100644
+--- a/docs/training/tv/playback/leanback/guided-step.md
++++ b/docs/training/tv/playback/leanback/guided-step.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Build better with Compose
+ 
+ Create beautiful UIs with minimal code using Jetpack Compose for Android TV OS.

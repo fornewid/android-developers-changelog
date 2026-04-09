@@ -1,0 +1,20 @@
+diff --git a/docs/games/engines/unity/unity-vkquality.md b/docs/games/engines/unity/unity-vkquality.md
+index c16b418..f7f8596 100644
+--- a/docs/games/engines/unity/unity-vkquality.md
++++ b/docs/games/engines/unity/unity-vkquality.md
+@@ -15,7 +15,6 @@ Send feedback
+ 
+ 
+ 
+-
+ The VkQuality plugin for the Unity engine provides launch-time recommendations
+ of the graphics API—Vulkan or OpenGL ES—to use for your game on specific
+ devices.
+@@ -414,6 +413,4 @@ filename for `StartVkQuality()`.
+ 
+ 
+ 
+-
+-
+ Send feedback
+\ No newline at end of file

@@ -1,0 +1,12 @@
+diff --git a/docs/studio/run/emulator-networking-address.md b/docs/studio/run/emulator-networking-address.md
+index 3600f93..04ab222 100644
+--- a/docs/studio/run/emulator-networking-address.md
++++ b/docs/studio/run/emulator-networking-address.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ The emulator provides versatile networking capabilities that you can use to set
+ up complex modeling and testing environments for your app. This page introduces
+ the emulator network architecture and capabilities.

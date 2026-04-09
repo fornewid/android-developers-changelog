@@ -1,0 +1,12 @@
+diff --git a/docs/studio/run/emulator-troubleshooting.md b/docs/studio/run/emulator-troubleshooting.md
+index 0647b38..db4d407 100644
+--- a/docs/studio/run/emulator-troubleshooting.md
++++ b/docs/studio/run/emulator-troubleshooting.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ This page lists known issues, workarounds, and troubleshooting tips for the
+ Android Emulator. If you encounter an issue not listed here or are unable to
+ successfully use a workaround listed here,

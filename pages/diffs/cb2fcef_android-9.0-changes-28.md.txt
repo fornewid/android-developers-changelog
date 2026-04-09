@@ -1,0 +1,12 @@
+diff --git a/docs/about/versions/pie/android-9.0-changes-28.md b/docs/about/versions/pie/android-9.0-changes-28.md
+index 5b5b0f0..8338a41 100644
+--- a/docs/about/versions/pie/android-9.0-changes-28.md
++++ b/docs/about/versions/pie/android-9.0-changes-28.md
+@@ -12,7 +12,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Android 9 (API level 28) introduces a number of changes to the Android system.
+ The following behavior changes apply exclusively to apps that are targeting
+ API level 28 or higher. Apps that set `targetSdkVersion` to API level 28 or

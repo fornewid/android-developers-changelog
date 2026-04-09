@@ -1,0 +1,13 @@
+diff --git a/docs/studio/releases/past-releases/as-0-1-release-notes.md b/docs/studio/releases/past-releases/as-0-1-release-notes.md
+index 7157657..d279e8d 100644
+--- a/docs/studio/releases/past-releases/as-0-1-release-notes.md
++++ b/docs/studio/releases/past-releases/as-0-1-release-notes.md
+@@ -15,7 +15,6 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
+-
+ # Android Studio v0.1.x (May 2013)
+ 
+ * Various bug fixes, including a fix for a common Windows installation issue.
+\ No newline at end of file

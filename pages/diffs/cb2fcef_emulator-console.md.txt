@@ -1,0 +1,12 @@
+diff --git a/docs/studio/run/emulator-console.md b/docs/studio/run/emulator-console.md
+index 9e469e1..c9880d4 100644
+--- a/docs/studio/run/emulator-console.md
++++ b/docs/studio/run/emulator-console.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Each running virtual device provides a console that lets you query and control the emulated
+ device environment. For example, you can use the console to manage port redirection, network
+ characteristics, and telephony events while your app is running on the emulator.

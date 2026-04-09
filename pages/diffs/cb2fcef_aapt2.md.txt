@@ -1,0 +1,12 @@
+diff --git a/docs/tools/aapt2.md b/docs/tools/aapt2.md
+index 78e7282..6f75b8a 100644
+--- a/docs/tools/aapt2.md
++++ b/docs/tools/aapt2.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ AAPT2 (Android Asset Packaging Tool) is a build tool that Android Studio and
+ Android Gradle Plugin use to compile and package your app's
+ [resources](/guide/topics/resources/providing-resources). AAPT2 parses, indexes,

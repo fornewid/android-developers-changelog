@@ -1,0 +1,202 @@
+diff --git a/docs/develop/ui/views/touch-and-input/gestures/multi.md b/docs/develop/ui/views/touch-and-input/gestures/multi.md
+index f576859..8ed106a 100644
+--- a/docs/develop/ui/views/touch-and-input/gestures/multi.md
++++ b/docs/develop/ui/views/touch-and-input/gestures/multi.md
+@@ -1,13 +1,27 @@
+ ---
+-title: https://developer.android.com/develop/ui/views/touch-and-input/gestures/multi
++title: Handle multi-touch gestures  |  Views  |  Android Developers
+ url: https://developer.android.com/develop/ui/views/touch-and-input/gestures/multi
+-source: md.txt
++source: html-scrape
+ ---
+ 
+-Try the Compose way  
+-Jetpack Compose is the recommended UI toolkit for Android. Learn how to use touch and input in Compose.  
+-[Multi-touch gestures →](https://developer.android.com/develop/ui/compose/touch-input/pointer-input/multi-touch)  
+-![](https://developer.android.com/static/images/android-compose-ui-logo.png)
++* [Android Developers](https://developer.android.com/)
++* [Develop](https://developer.android.com/develop)
++* [Core areas](https://developer.android.com/develop/core-areas)
++* [UI](https://developer.android.com/develop/ui)
++* [Views](https://developer.android.com/develop/ui/views/layout/declaring-layout)
++
++# Handle multi-touch gestures Stay organized with collections Save and categorize content based on your preferences.
++
++
++
++
++Try the Compose way
++
++Jetpack Compose is the recommended UI toolkit for Android. Learn how to use touch and input in Compose.
++
++[Multi-touch gestures →](https://developer.android.com/develop/ui/compose/touch-input/pointer-input/multi-touch)
++
++![](/static/images/android-compose-ui-logo.png)
+ 
+ A multi-touch gesture is when multiple pointers (fingers) tap the screen at
+ the same time. This document describes how to detect gestures that involve
+@@ -18,12 +32,24 @@ multiple pointers.
+ When multiple pointers tap the screen at the same time, the system generates
+ the following touch events:
+ 
+-- [ACTION_DOWN](https://developer.android.com/reference/android/view/MotionEvent#ACTION_DOWN): sent when the first pointer taps the screen. This starts the gesture. The pointer data for this pointer is always at index `0` in the [MotionEvent](https://developer.android.com/reference/android/view/MotionEvent).
+-- [ACTION_POINTER_DOWN](https://developer.android.com/reference/android/view/MotionEvent#ACTION_POINTER_DOWN): sent when extra pointers enter the screen after the first. You can obtain the index of the pointer that just went down using [getActionIndex()](https://developer.android.com/reference/android/view/MotionEvent#getActionIndex()).
+-- [ACTION_MOVE](https://developer.android.com/reference/android/view/MotionEvent#ACTION_MOVE): sent when a change occurs in a gesture, involving any number of pointers.
+-- [ACTION_POINTER_UP](https://developer.android.com/reference/android/view/MotionEvent#ACTION_POINTER_UP): sent when a non-primary pointer goes up. You can obtain the index of the pointer that just went up using `getActionIndex()`.
+-- [ACTION_UP](https://developer.android.com/reference/android/view/MotionEvent#ACTION_UP): sent when the last pointer leaves the screen.
+-- [ACTION_CANCEL](https://developer.android.com/reference/android/view/MotionEvent#ACTION_CANCEL): indicates that the entire gesture, including all pointers, is canceled.
++* `ACTION_DOWN`:
++  sent when the first pointer taps the screen. This starts the gesture. The
++  pointer data for this pointer is always at index `0` in the
++  `MotionEvent`.
++* `ACTION_POINTER_DOWN`:
++  sent when extra pointers enter the screen after the first. You can obtain
++  the index of the pointer that just went down using
++  `getActionIndex()`.
++* `ACTION_MOVE`:
++  sent when a change occurs in a gesture, involving any number of
++  pointers.
++* `ACTION_POINTER_UP`:
++  sent when a non-primary pointer goes up. You can obtain the index of the
++  pointer that just went up using `getActionIndex()`.
++* `ACTION_UP`:
++  sent when the last pointer leaves the screen.
++* `ACTION_CANCEL`:
++  indicates that the entire gesture, including all pointers, is canceled.
+ 
+ ### Start and end gestures
+ 
+@@ -39,23 +65,28 @@ down at that moment.
+ Use the pointer's index and ID to keep track of the individual pointers
+ positions within a `MotionEvent`.
+ 
+-- **Index** : a `MotionEvent` stores pointer information in an array. The index of a pointer is its position within this array. Most of the `MotionEvent` methods take the pointer index as a parameter, rather than the pointer ID.
+-- **ID**: each pointer also has an ID mapping that stays persistent across touch events to allow for tracking of an individual pointer across the entire gesture.
++* **Index**: a `MotionEvent` stores pointer
++  information in an array. The index of a pointer is its position within this
++  array. Most of the `MotionEvent` methods take the pointer index as
++  a parameter, rather than the pointer ID.
++* **ID**: each pointer also has an ID mapping that stays
++  persistent across touch events to allow for tracking of an individual pointer
++  across the entire gesture.
+ 
+ Individual pointers appear within a motion event in an undefined order. Thus,
+ the index of a pointer can change from one event to the next, but the pointer ID
+ of a pointer is guaranteed to remain constant as long as the pointer remains
+ active. Use the
+-[getPointerId()](https://developer.android.com/reference/android/view/MotionEvent#getPointerId(int))
++`getPointerId()`
+ method to obtain a pointer's ID to track the pointer across all subsequent
+ motion events in a gesture. Then, for successive motion events, use the
+-[findPointerIndex()](https://developer.android.com/reference/android/view/MotionEvent#findPointerIndex(int))
++`findPointerIndex()`
+ method to obtain the pointer index for a given pointer ID in that motion event.
+-For example:  
++For example:
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ private var mActivePointerId: Int = 0
+ 
+ override fun onTouchEvent(event: MotionEvent): Boolean {
+@@ -77,7 +108,7 @@ override fun onTouchEvent(event: MotionEvent): Boolean {
+ 
+ ### Java
+ 
+-```java
++```
+ private int mActivePointerId;
+ 
+ public boolean onTouchEvent(MotionEvent event) {
+@@ -104,9 +135,9 @@ their `ACTION_POINTER_UP` and `ACTION_UP`events. You might
+ find these cached IDs helpful to handle other action events correctly. For
+ example, when processing an `ACTION_MOVE` event, find the index for
+ each cached active pointer ID, retrieve the pointer's coordinates using the
+-[getX()](https://developer.android.com/reference/android/view/MotionEvent#getX(int))
++`getX()`
+ and
+-[getY()](https://developer.android.com/reference/android/view/MotionEvent#getY(int))
++`getY()`
+ functions, then compare these coordinates with your cached coordinates to
+ discover which pointers moved.
+ 
+@@ -118,21 +149,29 @@ always returns `0`.
+ ## Retrieve `MotionEvent` actions
+ 
+ Use the
+-[getActionMasked()](https://developer.android.com/reference/android/view/MotionEvent#getActionMasked())
++`getActionMasked()`
+ method or the compatibility version
+-[MotionEventCompat.getActionMasked()](https://developer.android.com/reference/androidx/core/view/MotionEventCompat#getActionMasked(android.view.MotionEvent))
++`MotionEventCompat.getActionMasked()`
+ to retrieve the action of a `MotionEvent`. Unlike the earlier
+-[getAction()](https://developer.android.com/reference/android/view/MotionEvent#getAction())
++`getAction()`
+ method, `getActionMasked()` is designed to work with multiple
+ pointers. It returns the action without the pointer indices. For actions with a
+ valid pointer index, use `getActionIndex()` to return the index of
+ the pointers associated with the action as shown in the following snippet:
+-| **Note:** This example uses the [MotionEventCompat](https://developer.android.com/reference/androidx/core/view/MotionEventCompat) class, a class in the [Support
+-Library](https://developer.android.com/tools/support-library). Use `MotionEventCompat` to provide the best support for a wide range of platforms. `MotionEventCompat` is *not* a replacement for the `MotionEvent` class. Rather, it provides static utility methods to which you pass your `MotionEvent` object to receive the desired action associated with that event.  
++
++**Note:** This example uses the
++`MotionEventCompat`
++class, a class in the [Support
++Library](/tools/support-library). Use `MotionEventCompat` to provide the best support
++for a wide range of platforms. `MotionEventCompat` is
++*not* a replacement for the `MotionEvent` class. Rather,
++it provides static utility methods to which you pass your
++`MotionEvent` object to receive the desired action associated
++with that event.
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ val (xPos: Int, yPos: Int) = MotionEventCompat.getActionMasked(event).let { action ->
+     Log.d(DEBUG_TAG, "The action is ${actionToString(action)}")
+     // Get the index of the pointer associated with the action.
+@@ -170,7 +209,7 @@ fun actionToString(action: Int): String {
+ 
+ ### Java
+ 
+-```java
++```
+ int action = MotionEventCompat.getActionMasked(event);
+ // Get the index of the pointer associated with the action.
+ int index = MotionEventCompat.getActionIndex(event);
+@@ -209,16 +248,22 @@ public static String actionToString(int action) {
+     return "";
+ }
+ ```
+-**Figure 1.** Multi-touch drawing patterns.
++
++[
++
++](/static/images/ui/multi_touch.mp4)
++
++**Figure 1.** Multi-touch drawing
++patterns.
+ 
+ ## Additional resources
+ 
+ For more information related to input events, see the following
+ references:
+ 
+-- [Input events overview](https://developer.android.com/guide/topics/ui/ui-events)
+-- [Sensors
+-  overview](https://developer.android.com/guide/topics/sensors/sensors_overview)
+-- [Make a custom
+-  view interactive](https://developer.android.com/training/custom-views/making-interactive)
+-- [Drag and scale](https://developer.android.com/develop/ui/views/touch-and-input/gestures/scale)
+\ No newline at end of file
++* [Input events overview](/guide/topics/ui/ui-events)
++* [Sensors
++  overview](/guide/topics/sensors/sensors_overview)
++* [Make a custom
++  view interactive](/training/custom-views/making-interactive)
++* [Drag and scale](/develop/ui/views/touch-and-input/gestures/scale)
+\ No newline at end of file

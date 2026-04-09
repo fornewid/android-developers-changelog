@@ -1,0 +1,12 @@
+diff --git a/docs/build/releases/agp-2-3-0-release-notes.md b/docs/build/releases/agp-2-3-0-release-notes.md
+index c46f8dd..2ca57a1 100644
+--- a/docs/build/releases/agp-2-3-0-release-notes.md
++++ b/docs/build/releases/agp-2-3-0-release-notes.md
+@@ -15,7 +15,6 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
+-
+ # Android Gradle Plugin 2.3.0 (February 2017)
+ 
+ **2.3.3 (June 2017)**

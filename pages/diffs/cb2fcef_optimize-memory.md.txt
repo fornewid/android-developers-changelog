@@ -1,0 +1,12 @@
+diff --git a/docs/guide/topics/androidgo/optimize-memory.md b/docs/guide/topics/androidgo/optimize-memory.md
+index 919159f..753701d 100644
+--- a/docs/guide/topics/androidgo/optimize-memory.md
++++ b/docs/guide/topics/androidgo/optimize-memory.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Memory is a valuable resource in any software development environment, but it's
+ even more valuable on a mobile operating system where physical memory is often
+ constrained. This is especially true for natively low-memory devices found

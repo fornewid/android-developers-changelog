@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/compose/touch-input/keyboard-input/keyboard-shortcuts-helper.md b/docs/develop/ui/compose/touch-input/keyboard-input/keyboard-shortcuts-helper.md
+index 7e6abcd..dd41a83 100644
+--- a/docs/develop/ui/compose/touch-input/keyboard-input/keyboard-shortcuts-helper.md
++++ b/docs/develop/ui/compose/touch-input/keyboard-input/keyboard-shortcuts-helper.md
+@@ -14,6 +14,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Keyboard Shortcuts Helper enables users to discover keyboard shortcuts for the
+ platform and open apps. Publish your app's shortcuts in Keyboard Shortcuts Helper
+ to improve user productivity and ease of use.

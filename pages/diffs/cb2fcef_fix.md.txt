@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/compose/performance/stability/fix.md b/docs/develop/ui/compose/performance/stability/fix.md
+index b01f9c1..f63a50b 100644
+--- a/docs/develop/ui/compose/performance/stability/fix.md
++++ b/docs/develop/ui/compose/performance/stability/fix.md
+@@ -14,6 +14,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ When faced with an [unstable class](/develop/ui/compose/performance/stability/diagnose) that causes performance
+ issues, you should make it stable. This document outlines several techniques you
+ can use to do so.

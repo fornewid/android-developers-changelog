@@ -1,0 +1,12 @@
+diff --git a/docs/work/dpc/dedicated-devices/multiple-users.md b/docs/work/dpc/dedicated-devices/multiple-users.md
+index 307546a..afba63e 100644
+--- a/docs/work/dpc/dedicated-devices/multiple-users.md
++++ b/docs/work/dpc/dedicated-devices/multiple-users.md
+@@ -12,7 +12,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ This developer’s guide explains how your device policy controller (DPC) can
+ manage multiple Android users on [dedicated devices](/work/dpc/dedicated-devices).
+ 

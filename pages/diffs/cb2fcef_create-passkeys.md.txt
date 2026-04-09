@@ -1,0 +1,26 @@
+diff --git a/docs/identity/passkeys/create-passkeys.md b/docs/identity/passkeys/create-passkeys.md
+index 3af2e50..367f436 100644
+--- a/docs/identity/passkeys/create-passkeys.md
++++ b/docs/identity/passkeys/create-passkeys.md
+@@ -76,8 +76,8 @@ Add the following dependencies to your app module's `build.gradle` file:
+ 
+ ```
+ dependencies {
+-    implementation("androidx.credentials:credentials:1.6.0-rc02")
+-    implementation("androidx.credentials:credentials-play-services-auth:1.6.0-rc02")
++    implementation("androidx.credentials:credentials:1.6.0")
++    implementation("androidx.credentials:credentials-play-services-auth:1.6.0")
+ }
+ ```
+ 
+@@ -85,8 +85,8 @@ dependencies {
+ 
+ ```
+ dependencies {
+-    implementation "androidx.credentials:credentials:1.6.0-rc02"
+-    implementation "androidx.credentials:credentials-play-services-auth:1.6.0-rc02"
++    implementation "androidx.credentials:credentials:1.6.0"
++    implementation "androidx.credentials:credentials-play-services-auth:1.6.0"
+ }
+ ```
+ 

@@ -1,0 +1,12 @@
+diff --git a/docs/docs/quality-guidelines/adaptive-app-quality/tier-1.md b/docs/docs/quality-guidelines/adaptive-app-quality/tier-1.md
+index 458ff93..ffa205f 100644
+--- a/docs/docs/quality-guidelines/adaptive-app-quality/tier-1.md
++++ b/docs/docs/quality-guidelines/adaptive-app-quality/tier-1.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Adaptive differentiated apps use the large screen and foldable form factors to
+ their full potential. Differentiated apps offer a premium user experience that's
+ productive and delightful.

@@ -1,0 +1,12 @@
+diff --git a/docs/develop/background-work/background-tasks/broadcasts/broadcast-exceptions.md b/docs/develop/background-work/background-tasks/broadcasts/broadcast-exceptions.md
+index 10d398a..c6c60ca 100644
+--- a/docs/develop/background-work/background-tasks/broadcasts/broadcast-exceptions.md
++++ b/docs/develop/background-work/background-tasks/broadcasts/broadcast-exceptions.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ As part of the Android 8.0 (API level 26) [background execution
+ limits](/about/versions/oreo/background#broadcasts), apps that target the
+ API level 26 or higher can't register broadcast receivers for implicit

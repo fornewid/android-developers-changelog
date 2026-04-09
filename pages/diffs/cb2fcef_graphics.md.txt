@@ -1,0 +1,12 @@
+diff --git a/docs/jetpack/androidx/releases/graphics.md b/docs/jetpack/androidx/releases/graphics.md
+index a93f060..78d451b 100644
+--- a/docs/jetpack/androidx/releases/graphics.md
++++ b/docs/jetpack/androidx/releases/graphics.md
+@@ -15,6 +15,7 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
++
+ # graphics
+ 
+ API Reference  

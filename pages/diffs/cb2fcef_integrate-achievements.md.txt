@@ -1,0 +1,20 @@
+diff --git a/docs/games/pgs/integrate-achievements.md b/docs/games/pgs/integrate-achievements.md
+index 4c67490..d8afbee 100644
+--- a/docs/games/pgs/integrate-achievements.md
++++ b/docs/games/pgs/integrate-achievements.md
+@@ -15,6 +15,7 @@ Send feedback
+ 
+ 
+ 
++
+ This document explains how to integrate achievements into your game using the
+ Google Play Console or API calls. It covers
+ the essential elements and states of achievements, and describes how to create,
+@@ -409,4 +410,6 @@ in a game. They emphasize the importance of:
+ 
+ 
+ 
++
++
+ Send feedback
+\ No newline at end of file

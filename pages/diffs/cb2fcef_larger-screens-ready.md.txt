@@ -1,0 +1,12 @@
+diff --git a/docs/design/ui/wear/guides/m2-5/foundations/larger-screens-ready.md b/docs/design/ui/wear/guides/m2-5/foundations/larger-screens-ready.md
+index b55f08c..44b49ca 100644
+--- a/docs/design/ui/wear/guides/m2-5/foundations/larger-screens-ready.md
++++ b/docs/design/ui/wear/guides/m2-5/foundations/larger-screens-ready.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ ![](/static/wear/images/design/larger-screens-ready-header.png)
+ 
+ ## A minimum quality bar for experiences across all screen sizes on Wear OS

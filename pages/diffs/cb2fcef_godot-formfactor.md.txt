@@ -1,0 +1,20 @@
+diff --git a/docs/games/engines/godot/godot-formfactor.md b/docs/games/engines/godot/godot-formfactor.md
+index 3cc6349..3f4797a 100644
+--- a/docs/games/engines/godot/godot-formfactor.md
++++ b/docs/games/engines/godot/godot-formfactor.md
+@@ -15,7 +15,6 @@ Send feedback
+ 
+ 
+ 
+-
+ This topic describes how to support multiple form factors and screen sizes when
+ using Godot for Android game development.
+ 
+@@ -315,6 +314,4 @@ Settings** under the **Input Devices -> Pointing** section.
+ 
+ 
+ 
+-
+-
+ Send feedback
+\ No newline at end of file

@@ -1,0 +1,12 @@
+diff --git a/docs/google/play/installreferrer/library.md b/docs/google/play/installreferrer/library.md
+index aa68041..5dd09d5 100644
+--- a/docs/google/play/installreferrer/library.md
++++ b/docs/google/play/installreferrer/library.md
+@@ -12,6 +12,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ You can use the Google Play Store's Install Referrer API to securely retrieve
+ referral content from Google Play. The Play Install Referrer API Client Library
+ is written in the Java programming language and is a wrapper for the Android

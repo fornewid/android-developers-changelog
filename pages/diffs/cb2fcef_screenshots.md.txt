@@ -1,0 +1,12 @@
+diff --git a/docs/training/wearables/get-started/screenshots.md b/docs/training/wearables/get-started/screenshots.md
+index e872feb..52809a4 100644
+--- a/docs/training/wearables/get-started/screenshots.md
++++ b/docs/training/wearables/get-started/screenshots.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Wear OS provides several ways to capture the Wear OS UI:
+ 
+ * **Android Studio**: use Logcat to take screenshots.

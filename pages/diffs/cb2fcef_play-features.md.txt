@@ -1,0 +1,18 @@
+diff --git a/docs/games/playgames/play-features.md b/docs/games/playgames/play-features.md
+index be4522d..5c8312e 100644
+--- a/docs/games/playgames/play-features.md
++++ b/docs/games/playgames/play-features.md
+@@ -13,9 +13,12 @@ Send feedback
+ 
+ 
+ 
++
+ TBD
+ 
+ 
+ 
+ 
++
++
+ Send feedback
+\ No newline at end of file

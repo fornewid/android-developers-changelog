@@ -1,0 +1,12 @@
+diff --git a/docs/training/basics/supporting-devices/languages.md b/docs/training/basics/supporting-devices/languages.md
+index c4dff6e..6cfc9c2 100644
+--- a/docs/training/basics/supporting-devices/languages.md
++++ b/docs/training/basics/supporting-devices/languages.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Apps include resources that can be specific to a particular culture.
+ For example, an app can include culture-specific strings that are translated to
+ the language of the current locale.

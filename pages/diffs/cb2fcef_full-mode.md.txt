@@ -1,0 +1,12 @@
+diff --git a/docs/topic/performance/app-optimization/full-mode.md b/docs/topic/performance/app-optimization/full-mode.md
+index b6cedf4..3d88c3d 100644
+--- a/docs/topic/performance/app-optimization/full-mode.md
++++ b/docs/topic/performance/app-optimization/full-mode.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ R8 provides two modes, compatibility mode and full mode. Full mode gives you
+ powerful optimizations that improve your app performance.
+ 

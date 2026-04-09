@@ -1,0 +1,12 @@
+diff --git a/docs/training/sync-adapters/creating-sync-adapter.md b/docs/training/sync-adapters/creating-sync-adapter.md
+index f22ff20..b5a3230 100644
+--- a/docs/training/sync-adapters/creating-sync-adapter.md
++++ b/docs/training/sync-adapters/creating-sync-adapter.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ **Note:** We recommended [WorkManager](/topic/libraries/architecture/workmanager)
+ as the recommended solution for most background processing use cases. Please reference the
+ [background processing guide](/guide/background) to learn which solution works best for you.

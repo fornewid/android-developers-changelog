@@ -1,0 +1,217 @@
+diff --git a/docs/bench/methodology.md b/docs/bench/methodology.md
+index 0cf2d81..4ea7ab5 100644
+--- a/docs/bench/methodology.md
++++ b/docs/bench/methodology.md
+@@ -1,28 +1,18 @@
+ ---
+-title: Android Bench  |  Android Developers
++title: https://developer.android.com/bench/methodology
+ url: https://developer.android.com/bench/methodology
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-* [Develop](https://developer.android.com/develop)
+-* [Android Bench](https://developer.android.com/bench)
+-* [Our methodology](https://developer.android.com/bench/methodology)
++<br />
+ 
+-Stay organized with collections
+-
+-Save and categorize content based on your preferences.
+-
+-
+-
+-
+-![](/static/images/bench/methodology/hero.png)
++![](https://developer.android.com/static/images/bench/methodology/hero.png)
+ 
+ ### Android Bench methodology
+ 
+ This benchmark evaluates the capabilities of a variety of commonly-used Large Language Models (LLMs) in solving real-world Android development problems. Explore our goals and methodology here.
+ 
+----
++*** ** * ** ***
+ 
+ ## Goal
+ 
+@@ -32,14 +22,13 @@ that aren't covered by existing benchmarks, so we created one that focuses on
+ Android development. Our goals in publishing this benchmark are:
+ 
+ 1. Encourage LLM improvements for Android development.
+-2. Empower Android developers to be more productive with a range of helpful
+-   models to use for AI assistance.
++2. Empower Android developers to be more productive with a range of helpful models to use for AI assistance.
+ 3. Lead to higher quality apps across the Android ecosystem.
+ 
+ We created a model-agnostic benchmark to accurately evaluate LLM performance on
+ a variety of Android development tasks.
+ 
+----
++*** ** * ** ***
+ 
+ ## Our methodology
+ 
+@@ -58,11 +47,8 @@ While sourcing real-world repositories is essential for benchmarks' usefulness,
+ we acknowledge that this exposure might lead to data contamination. In the
+ current version of the benchmark, we have implemented the following safeguards:
+ 
+-* **Canary strings:** We include the standard BIG-BENCH canary string to
+-  discourage the inclusion of these tasks in the future training.
+-* **Trajectory verification:** Our team performed a thorough review of the
+-  agent workflow to ensure that successes were not the result of reward
+-  hacking or underspecified tests.
++- **Canary strings:** We include the standard BIG-BENCH canary string to discourage the inclusion of these tasks in the future training.
++- **Trajectory verification:** Our team performed a thorough review of the agent workflow to ensure that successes were not the result of reward hacking or underspecified tests.
+ 
+ For future versions, we're working hard to further lower this risk.
+ 
+@@ -71,22 +57,15 @@ For future versions, we're working hard to further lower this risk.
+ We selected the repositories and individual pull requests by applying the
+ following criteria:
+ 
+-* The repository needed to contain Android app or library code and be popular
+-  among the Android development ecosystem, having greater than or equal to 500
+-  favorites.
+-* Each pull request needed to be merged, fix a reported issue, and have
+-  validation such as unit or instrumentation tests.
++- The repository needed to contain Android app or library code and be popular among the Android development ecosystem, having greater than or equal to 500 favorites.
++- Each pull request needed to be merged, fix a reported issue, and have validation such as unit or instrumentation tests.
+ 
+ Some areas were underrepresented through tasks sourced on GitHub, so we took
+ some steps to enrich the dataset and increase coverage of these areas:
+ 
+-* If there was a valid pull request without matching tests, we created tests.
+-* If there was a valid pull request with matching tests but no associated
+-  issue, we created an issue.
+-* In some cases, a pull request had an issue that underspecified what was
+-  being done in the change. Because the description is sent to the LLM as a
+-  prompt, we rewrote the description of the issue to be more representative of
+-  the desired result of the change.
++- If there was a valid pull request without matching tests, we created tests.
++- If there was a valid pull request with matching tests but no associated issue, we created an issue.
++- In some cases, a pull request had an issue that underspecified what was being done in the change. Because the description is sent to the LLM as a prompt, we rewrote the description of the issue to be more representative of the desired result of the change.
+ 
+ ### Defining Android-specific challenges
+ 
+@@ -98,10 +77,10 @@ standards.
+ We prioritized the areas which represent our opinionated standard for building
+ scalable Android applications, such as:
+ 
+-* Jetpack Compose for UI
+-* Coroutines and Flows for asynchronous programming
+-* Room for persistence
+-* Hilt for dependency injection
++- Jetpack Compose for UI
++- Coroutines and Flows for asynchronous programming
++- Room for persistence
++- Hilt for dependency injection
+ 
+ We also looked at areas where developers frequently seek help, such as
+ navigation migrations, Gradle/build configurations, or the handling of breaking
+@@ -114,7 +93,7 @@ changes, foldable adaptations, and granular runtime permissions.
+ By targeting these categories, we aim for better agentic fluency across the
+ whole landscape of the Android platform.
+ 
+----
++*** ** * ** ***
+ 
+ ## The Android Bench composition
+ 
+@@ -127,7 +106,7 @@ during development. The benchmark consists of 100 tasks selected from a pool of
+ 
+ We analyzed GitHub repositories and pull requests and found that 71% were
+ written in Kotlin and 25% in Java, confirming a shift toward the new programming
+-language standard. This shift was also represented in the UI area—with 41% of
++language standard. This shift was also represented in the UI area---with 41% of
+ Jetpack Compose representation, while maintaining 59% View-based tasks to
+ reflect the reality of many existing codebases.
+ 
+@@ -144,7 +123,7 @@ the remaining 21% that exceed 136 lines.
+ Across the benchmark, the median task size is 32 changed lines, with the largest
+ single change reaching 435 lines.
+ 
+----
++*** ** * ** ***
+ 
+ ## The Android Bench test harness
+ 
+@@ -156,6 +135,7 @@ and a Patch Verifier.
+    image that can build and run Android projects and a base prompt for Android
+    development. Running the agent produces patch files that are then passed to the
+    Patch Verifier.
++
+ 2. The Patch Verifier takes those patches, adds them to the codebase, and
+    executes the test suite. It then outputs the data required to assign a score
+    to the execution.
+@@ -169,7 +149,7 @@ environment configurations](https://github.com/android-bench/android-bench) used
+ researchers and developers to independently recreate and verify our findings, or
+ to use the test harness for executing their own tasks.
+ 
+----
++*** ** * ** ***
+ 
+ ## Task sourcing and filtering
+ 
+@@ -177,28 +157,18 @@ Tasks came from two pipelines. The first pipeline automated finding pull
+ requests that could become tasks. We filtered all the pull requests to ensure
+ they met the following criteria:
+ 
+-* Originated from a popular Android repository—that is, have at least 500
+-  stars on GitHub
+-* Contained tests
+-* Were marked as fixing an issue in the repository
+-* Only included changes from the last 3 years
++- Originated from a popular Android repository---that is, have at least 500 stars on GitHub
++- Contained tests
++- Were marked as fixing an issue in the repository
++- Only included changes from the last 3 years
+ 
+ These filters reduced the set of pull requests to task candidates. Task
+ candidates passed through two different human reviews.
+ 
+-* The first review was for quality assurance. Reviewers checked pull requests
+-  to ensure code compiled with and without the patch generated by the LLMs, had
+-  enough context in the description, and didn't include changes that were not
+-  mentioned in the description. They also assigned a "difficulty" rating to the
+-  task, estimating how long it would take to write the code for the task
+-  without LLM assistance.
+-* A subject matter expert reviewed those tasks that passed quality assurance
+-  to ensure each one was sufficiently complex and related to Android
+-  development.
+-
+-![](/static/images/bench/methodology/chart.png)
++- The first review was for quality assurance. Reviewers checked pull requests to ensure code compiled with and without the patch generated by the LLMs, had enough context in the description, and didn't include changes that were not mentioned in the description. They also assigned a "difficulty" rating to the task, estimating how long it would take to write the code for the task without LLM assistance.
++- A subject matter expert reviewed those tasks that passed quality assurance to ensure each one was sufficiently complex and related to Android development.
+ 
+-Figure: pull request selection funnel
++:chart: Figure: pull request selection funnel
+ 
+ Due to the filtering of pull requests, some good potential candidates were
+ excluded before making it to the human review. This was because they were
+@@ -211,16 +181,15 @@ To make sure the dataset was representative of the original collection of all
+ pull requests as we applied these filters, we tracked additional dimensions such
+ as:
+ 
+-* The programming language the project was written in
+-* The number of modules in the project
+-* Whether the project was an app or a library
+-* If the project contained UI elements, and whether it was written using
+-  Compose or Views
+-* The number of files and lines of code changed
++- The programming language the project was written in
++- The number of modules in the project
++- Whether the project was an app or a library
++- If the project contained UI elements, and whether it was written using Compose or Views
++- The number of files and lines of code changed
+ 
+ Analysis of those dimensions confirmed that our dataset maintains good coverage
+-across the ecosystem. We tended to select more complex repositories—especially
+-libraries and projects using Jetpack Compose—to ensure we are testing against
++across the ecosystem. We tended to select more complex repositories---especially
++libraries and projects using Jetpack Compose---to ensure we are testing against
+ up-to-date architectural standards. Conversely, the specific tasks we selected
+ tend to be simpler and more focused (involved fewer line changes), mirroring the
+ small, atomic pull requests with targeted fixes.
+\ No newline at end of file

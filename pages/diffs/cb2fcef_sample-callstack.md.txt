@@ -1,0 +1,12 @@
+diff --git a/docs/studio/profile/sample-callstack.md b/docs/studio/profile/sample-callstack.md
+index bf38ec5..b2b9a6c 100644
+--- a/docs/studio/profile/sample-callstack.md
++++ b/docs/studio/profile/sample-callstack.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Callstacks are useful for identifying *CPU hot spots*, or sections of code that
+ take a long time to execute. Callstacks help you understand which part of the
+ code has been executed, and why it was invoked.

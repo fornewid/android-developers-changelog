@@ -1,0 +1,12 @@
+diff --git a/docs/docs/quality-guidelines/android-xr.md b/docs/docs/quality-guidelines/android-xr.md
+index ead4d16..fb34738 100644
+--- a/docs/docs/quality-guidelines/android-xr.md
++++ b/docs/docs/quality-guidelines/android-xr.md
+@@ -17,7 +17,6 @@ The Android XR SDK has  [reached Developer Preview 3](https://android-developers
+ 
+ 
+ 
+-
+ ## Compatibility tier definitions
+ 
+ To verify that your app provides a great user experience on XR headsets and

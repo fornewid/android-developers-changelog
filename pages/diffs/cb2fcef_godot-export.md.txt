@@ -1,0 +1,20 @@
+diff --git a/docs/games/engines/godot/godot-export.md b/docs/games/engines/godot/godot-export.md
+index 1e69718..8ea59b9 100644
+--- a/docs/games/engines/godot/godot-export.md
++++ b/docs/games/engines/godot/godot-export.md
+@@ -15,6 +15,7 @@ Send feedback
+ 
+ 
+ 
++
+ This topic describes how to export a Godot project as an Android app. Godot can
+ generate both APK files for local device testing and Android App Bundles for
+ submission to the Google Play Store.
+@@ -191,4 +192,6 @@ Gradle build process.
+ 
+ 
+ 
++
++
+ Send feedback
+\ No newline at end of file

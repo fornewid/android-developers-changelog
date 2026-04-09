@@ -1,0 +1,26 @@
+diff --git a/docs/jetpack/androidx/releases/compose-ui.md b/docs/jetpack/androidx/releases/compose-ui.md
+index af4b7f5..11bd49a 100644
+--- a/docs/jetpack/androidx/releases/compose-ui.md
++++ b/docs/jetpack/androidx/releases/compose-ui.md
+@@ -31,7 +31,7 @@ Fundamental components of compose UI needed to interact with the device, includi
+ 
+ | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
+ | --- | --- | --- | --- | --- |
+-| March 25, 2026 | [1.10.6](/jetpack/androidx/releases/compose-ui#1.10.6) | - | [1.11.0-beta02](/jetpack/androidx/releases/compose-ui#1.11.0-beta02) | - |
++| April 08, 2026 | [1.10.6](/jetpack/androidx/releases/compose-ui#1.10.6) | [1.11.0-rc01](/jetpack/androidx/releases/compose-ui#1.11.0-rc01) | - | - |
+ 
+ ## Structure
+ 
+@@ -121,6 +121,12 @@ for more information.
+ 
+ ## Version 1.11
+ 
++### Version 1.11.0-rc01
++
++April 08, 2026
++
++`androidx.compose.ui:ui-*:1.11.0-rc01` is released. Version 1.11.0-rc01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/56409d2ed9fc0e8746250e5d8862c080d0c80087..ecc44700355708734de3756bf5e677323ae14ed1/compose/ui).
++
+ ### Version 1.11.0-beta02
+ 
+ March 25, 2026

@@ -1,0 +1,12 @@
+diff --git a/docs/studio/releases/past-releases/as-2-1-0-release-notes.md b/docs/studio/releases/past-releases/as-2-1-0-release-notes.md
+index 56c3049..8ba1dc8 100644
+--- a/docs/studio/releases/past-releases/as-2-1-0-release-notes.md
++++ b/docs/studio/releases/past-releases/as-2-1-0-release-notes.md
+@@ -15,6 +15,7 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
++
+ # Android Studio 2.1 (April 2016)
+ 
+ The primary changes in this update provide support for development with the

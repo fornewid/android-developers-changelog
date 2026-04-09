@@ -1,0 +1,12 @@
+diff --git a/docs/media/camera/camera2/camera-enumeration.md b/docs/media/camera/camera2/camera-enumeration.md
+index 2792167..98f23ad 100644
+--- a/docs/media/camera/camera2/camera-enumeration.md
++++ b/docs/media/camera/camera2/camera-enumeration.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ **Note:** This page refers to the [Camera2](/reference/android/hardware/camera2/package-summary) package. Unless your app requires specific, low-level features from Camera2, we recommend using [CameraX](/camerax). Both CameraX and Camera2 support Android 5.0 (API level 21) and higher.
+ 
+ Many modern Android devices have two or more cameras on the front, back, or

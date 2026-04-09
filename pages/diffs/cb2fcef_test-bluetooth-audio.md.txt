@@ -1,0 +1,12 @@
+diff --git a/docs/training/wearables/apps/test-bluetooth-audio.md b/docs/training/wearables/apps/test-bluetooth-audio.md
+index c5255c0..356142d 100644
+--- a/docs/training/wearables/apps/test-bluetooth-audio.md
++++ b/docs/training/wearables/apps/test-bluetooth-audio.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ On the Wear OS emulator, system images that run Wear OS 4 or higher include
+ support for emulated Bluetooth. This support lets you test several use cases
+ related to Bluetooth audio.

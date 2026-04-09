@@ -1,0 +1,359 @@
+diff --git a/docs/develop/ui/compose/state-lifespans.md b/docs/develop/ui/compose/state-lifespans.md
+index 7201f2a..1b72f87 100644
+--- a/docs/develop/ui/compose/state-lifespans.md
++++ b/docs/develop/ui/compose/state-lifespans.md
+@@ -1,28 +1,17 @@
+ ---
+-title: State lifespans in Compose  |  Jetpack Compose  |  Android Developers
++title: https://developer.android.com/develop/ui/compose/state-lifespans
+ url: https://developer.android.com/develop/ui/compose/state-lifespans
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-* [Develop](https://developer.android.com/develop)
+-* [Core areas](https://developer.android.com/develop/core-areas)
+-* [UI](https://developer.android.com/develop/ui)
+-* [Docs](https://developer.android.com/develop/ui/compose/documentation)
+-
+-# State lifespans in Compose Stay organized with collections Save and categorize content based on your preferences.
+-
+-
+-
+-
+ In Jetpack Compose, composable functions often hold state using the `remember`
+ function. Values that are remembered can be reused across recompositions, as
+-explained in [State and Jetpack Compose](/develop/ui/compose/state).
++explained in [State and Jetpack Compose](https://developer.android.com/develop/ui/compose/state).
+ 
+ While `remember` serves as a tool to persist values across recompositions, state
+ often needs to live beyond the lifetime of a composition. This page explains the
+-difference between the [`remember`](/reference/kotlin/androidx/compose/runtime/remember.composable#remember(kotlin.Function0)), [`retain`](/reference/kotlin/androidx/compose/runtime/retain/retain.composable#retain(kotlin.Function0)), [`rememberSaveable`](/reference/kotlin/androidx/compose/runtime/saveable/rememberSaveable.composable#rememberSaveable(kotlin.Array,kotlin.Function0)),
+-and [`rememberSerializable`](/reference/kotlin/androidx/compose/runtime/saveable/rememberSerializable.composable#rememberSerializable(kotlin.Array,androidx.savedstate.serialization.SavedStateConfiguration,kotlin.Function0)) APIs, when to choose which API, and what the
++difference between the [`remember`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/remember.composable#remember(kotlin.Function0)), [`retain`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/retain/retain.composable#retain(kotlin.Function0)), [`rememberSaveable`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/saveable/rememberSaveable.composable#rememberSaveable(kotlin.Array,kotlin.Function0)),
++and [`rememberSerializable`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/saveable/rememberSerializable.composable#rememberSerializable(kotlin.Array,androidx.savedstate.serialization.SavedStateConfiguration,kotlin.Function0)) APIs, when to choose which API, and what the
+ best practices are for managing remembered and retained values in Compose.
+ 
+ ## Choose the correct lifespan
+@@ -33,19 +22,19 @@ compositions and beyond: `remember`, `retain`, `rememberSaveable`, and
+ and are each suited for storing specific kinds of state. The differences are
+ outlined in the following table:
+ 
+-|  | `remember` | `retain` | `rememberSaveable`, `rememberSerializable` |
+-| --- | --- | --- | --- |
++|   | `remember` | `retain` | `rememberSaveable`, `rememberSerializable` |
++|---|---|---|---|
+ | Values survive recompositions? | ✅ | ✅ | ✅ |
+-| Values survive activity recreations? | ❌ | ✅  The same (`===`) instance will always be returned | ✅  An equivalent (`==`) object will be returned, possibly a deserialized copy |
++| Values survive activity recreations? | ❌ | ✅ The same (`===`) instance will always be returned | ✅ An equivalent (`==`) object will be returned, possibly a deserialized copy |
+ | Values survive process death? | ❌ | ❌ | ✅ |
+ | Supported data types | All | Must not reference any objects that would be leaked if the activity is destroyed | Must be serializable (either with a custom `Saver` or with `kotlinx.serialization`) |
+-| Use cases | * Objects that are scoped to the composition * Configuration objects for composables * State that could be recreated without losing UI fidelity | * Caches * Long-lived or "manager" objects | * User input * State that can't be recreated by the app, including text field input, scroll state, toggles, etc. |
++| Use cases | - Objects that are scoped to the composition - Configuration objects for composables - State that could be recreated without losing UI fidelity | - Caches - Long-lived or "manager" objects | - User input - State that can't be recreated by the app, including text field input, scroll state, toggles, etc. |
+ 
+ ### `remember`
+ 
+ `remember` is the most common way to store state in Compose. When `remember` is
+ called for the first time, the given calculation is executed and is
+-*remembered*, meaning that it is stored by Compose for future reuse by the
++*remembered* , meaning that it is stored by Compose for future reuse by the
+ composable. When a composable recomposes, it executes its code again, but any
+ calls to `remember` return their values from the previous composition instead of
+ executing the calculation again.
+@@ -66,14 +55,12 @@ Of the choices available, `remember` has the shortest lifespan and forgets
+ values the earliest of the four memoization functions described in this page.
+ This makes it best-suited for:
+ 
+-* Creating internal state objects, such as scroll position or animation state
+-* Avoiding expensive object recreation on each recomposition
++- Creating internal state objects, such as scroll position or animation state
++- Avoiding expensive object recreation on each recomposition
+ 
+ However, you should avoid:
+ 
+-* Storing any user input with `remember`, because remembered objects are
+-  forgotten across Activity configuration changes and system-initiated process
+-  death.
++- Storing any user input with `remember`, because remembered objects are forgotten across Activity configuration changes and system-initiated process death.
+ 
+ ### `rememberSaveable` and `rememberSerializable`
+ 
+@@ -102,11 +89,8 @@ from another persistent data source, such as a database.
+ Note that `rememberSaveable` and `rememberSerializable` save their memoized
+ values by serializing them into a `Bundle`. This has two consequences:
+ 
+-* Values you memoize must be representable by one or more of the following data
+-  types: Primitives (including `Int`, `Long`, `Float`, `Double`), `String`, or
+-  arrays of any of these types.
+-* When a saved value is restored, it will be a new instance that is equal to
+-  (`==`), but not the same reference (`===`) that the composition used before.
++- Values you memoize must be representable by one or more of the following data types: Primitives (including `Int`, `Long`, `Float`, `Double`), `String`, or arrays of any of these types.
++- When a saved value is restored, it will be a new instance that is equal to (`==`), but not the same reference (`===`) that the composition used before.
+ 
+ To store more complicated data types without using `kotlinx.serialization`, you
+ can implement a custom `Saver` to serialize and deserialize your object into
+@@ -116,7 +100,8 @@ these into supported types on your behalf. The following is an example of a
+ `Saver` for a `Size` class. It's implemented by packing all of `Size`'s
+ properties into a list using `listSaver`.
+ 
+-```
++
++```kotlin
+ data class Size(val x: Int, val y: Int) {
+     object Saver : androidx.compose.runtime.saveable.Saver<Size, Any> by listSaver(
+         save = { listOf(it.x, it.y) },
+@@ -130,10 +115,10 @@ fun rememberSize(x: Int, y: Int) {
+         Size(x, y)
+     }
+ }
+-
+-StateLifespansSnippets.kt
+ ```
+ 
++<br />
++
+ ### `retain`
+ 
+ The `retain` API exists between `remember` and
+@@ -141,7 +126,7 @@ The `retain` API exists between `remember` and
+ values. It is named differently because retained values also experience a
+ different lifecycle than their remembered counterparts.
+ 
+-When a value is *retained*, it is both positionally memoized and saved in a
++When a value is *retained* , it is both positionally memoized and saved in a
+ secondary data structure that has a separate lifespan that is tied to the app's
+ lifespan. A retained value is able to survive configuration changes without
+ being serialized, but cannot survive process death. If a value is not used after
+@@ -154,7 +139,8 @@ large objects like bitmaps. For example, you can use `retain` to manage a media
+ player (such as ExoPlayer) to prevent interruptions to media playback during
+ a configuration change.
+ 
+-```
++
++```kotlin
+ @Composable
+ fun MediaPlayer() {
+     // Use the application context to avoid a memory leak
+@@ -162,36 +148,33 @@ fun MediaPlayer() {
+     val exoPlayer = retain { ExoPlayer.Builder(applicationContext).apply { /* ... */ }.build() }
+     // ...
+ }
+-
+-StateLifespansSnippets.kt
+ ```
+ 
+-**Caution:** `retain` shouldn't be used with objects that have
+-a lifespan that is shorter than the lifespan given by retain, because this
+-can cause memory leaks. This also applies to the key inputs of
+-`retain`, which are referenced for as long as the value is
+-retained.
+-
+-Avoid retaining objects that are created and managed outside of your control,
+-including `Activity`, `View`, `Fragment`,
+-`ViewModel`, `Context`, `Lifecycle`,
+-and any object that references one of these types. Generally speaking, if you
+-wouldn't store an object in a `ViewModel`, you shouldn't retain it
+-either.
+-
+-To mark a class in your code as a type that shouldn't be retained, you can
+-annotate it with `@DoNotRetain`.
+-
+-
+-**Note:** The `retain` API is available in the
+-`androidx.compose.runtime:runtime-retain` artifact starting in
+-Compose 1.10. Support for retaining values across configuration changes is
+-provided in `androidx.compose.ui:ui:1.10.0`.
+-
+-We are also working on adding retain support to
+-`androidx.navigation` and
+-`androidx.navigation3`, which will be available in future releases
+-of the libraries.
++<br />
++
++> [!CAUTION]
++> **Caution:** `retain` shouldn't be used with objects that have a lifespan that is shorter than the lifespan given by retain, because this can cause memory leaks. This also applies to the key inputs of `retain`, which are referenced for as long as the value is retained.
++>
++>
++> Avoid retaining objects that are created and managed outside of your control,
++> including `Activity`, `View`, `Fragment`,
++> `ViewModel`, `Context`, `Lifecycle`,
++> and any object that references one of these types. Generally speaking, if you
++> wouldn't store an object in a `ViewModel`, you shouldn't retain it
++> either.
++>
++>
++> To mark a class in your code as a type that shouldn't be retained, you can
++> annotate it with `@DoNotRetain`.
++
++> [!NOTE]
++> **Note:** The `retain` API is available in the `androidx.compose.runtime:runtime-retain` artifact starting in Compose 1.10. Support for retaining values across configuration changes is provided in `androidx.compose.ui:ui:1.10.0`.
++>
++>
++> We are also working on adding retain support to
++> `androidx.navigation` and
++> `androidx.navigation3`, which will be available in future releases
++> of the libraries.
+ 
+ #### `retain` versus `ViewModel`
+ 
+@@ -235,38 +218,36 @@ block for the lifecycle of such `ViewModel`-look-alikes with these features
+ built on top. The specifics of how to design such a component are outside the
+ scope of this guide.
+ 
+-|  | `retain` | `ViewModel` |
+-| --- | --- | --- |
++|   | `retain` | `ViewModel` |
++|---|---|---|
+ | **Scoping** | No shared values; each value is retained at and associated with a specific point in the composition hierarchy. Retaining the same type in a different location always acts on a new instance. | `ViewModel`s are singletons within a `ViewModelStore` |
+ | **Destruction** | When permanently leaving the composition hierarchy | When the `ViewModelStore` is cleared or destroyed |
+ | **Additional functionality** | Can receive callbacks when the object is in the composition hierarchy or not | Built-in `coroutineScope`, support for `SavedStateHandle`, can be injected using Hilt |
+ | **Owned by** | `RetainedValuesStore` | `ViewModelStore` |
+-| **Use cases** | * Persisting UI-specific values local to individual composable   instances * Impression tracking, possibly through `RetainedEffect` * Building block for defining a custom "ViewModel-like" architecture   component | * Extracting interactions between UI and data layers into a separate   class, both for code organization and testing * Transforming `Flow`s into `State` objects and   calling suspend functions that shouldn't be interrupted by configuration   changes * Sharing states over large UI areas, like entire screens * Interoperability with `View` |
++| **Use cases** | - Persisting UI-specific values local to individual composable instances - Impression tracking, possibly through `RetainedEffect` - Building block for defining a custom "ViewModel-like" architecture component | - Extracting interactions between UI and data layers into a separate class, both for code organization and testing - Transforming `Flow`s into `State` objects and calling suspend functions that shouldn't be interrupted by configuration changes - Sharing states over large UI areas, like entire screens - Interoperability with `View` |
+ 
+ ### Combine `retain` and `rememberSaveable` or `rememberSerializable`
+ 
+ Sometimes, an object needs to have a hybrid lifespan of both `retained` and
+ `rememberSaveable` or `rememberSerializable`. This may be an indicator that your
+ object should be a `ViewModel`, which can support saved state as described in
+-the [Saved State module for ViewModel guide](/topic/libraries/architecture/viewmodel/viewmodel-savedstate).
++the [Saved State module for ViewModel guide](https://developer.android.com/topic/libraries/architecture/viewmodel/viewmodel-savedstate).
+ 
+ it is possible to use `retain` and `rememberSaveable` or `rememberSerializable`
+ simultaneously. Correctly combining both lifecycles adds significant complexity.
+ We recommend employing this pattern as part of more advanced and custom
+ architecture patterns, and only when all of the following are true:
+ 
+-* You are defining an object comprised of a mix of values that must be retained
+-  or saved (e.g. an object that tracks a user input and an in-memory cache that
+-  can't be written to disk)
+-* Your state is scoped to a composable and isn't suitable for the singleton
+-  scoping or lifespan of `ViewModel`
++- You are defining an object comprised of a mix of values that must be retained or saved (e.g. an object that tracks a user input and an in-memory cache that can't be written to disk)
++- Your state is scoped to a composable and isn't suitable for the singleton scoping or lifespan of `ViewModel`
+ 
+ When all of these are the case, we recommend splitting your class into three
+ parts: The saved data, the retained data, and a "mediator" object that has no
+ state of its own and delegates onto the retained and saved objects to update
+ state accordingly. This pattern takes the following shape:
+ 
+-```
++
++```kotlin
+ @Composable
+ fun rememberAndRetain(): CombinedRememberRetained {
+     val saveData = rememberSerializable(serializer = serializer<ExtractedSaveData>()) {
+@@ -299,10 +280,10 @@ class CombinedRememberRetained(
+         // Manipulate the retained and saved state as needed.
+     }
+ }
+-
+-StateLifespansSnippets.kt
+ ```
+ 
++<br />
++
+ By separating the state by lifespan, the separation of responsibilities and
+ storage becomes very explicit. It is intentional that save data cannot be
+ manipulated by retain data, as this prevents a scenario where a save data update
+@@ -314,18 +295,16 @@ recreation.
+ See the full sample ([`RetainAndSaveSample.kt`](https://cs.android.com/androidx/platform/frameworks/support/+/androidx-main:compose/runtime/runtime-retain/samples/src/main/kotlin/androidx/compose/runtime/retain/samples/RetainAndSaveSample.kt)) for a complete example of
+ how this pattern may be implemented.
+ 
+-**Note:** Don't `retain` an object that was created by
+-`remember`,
+-`rememberSaveable`, or `rememberSerializable`. Retaining
+-and remembering the
+-same object is an antipattern and violates two broader recommendations:
+-
+-* Don't retain an object that has a shorter lifespan from retain
+-* Don't remember an object twice
+-
+-Retaining an object that has already been remembered does not properly retain
+-and save the object, can cause the object to receive duplicate callbacks, and
+-leads to unexpected bugs.
++> [!NOTE]
++> **Note:** Don't `retain` an object that was created by `remember`, `rememberSaveable`, or `rememberSerializable`. Retaining and remembering the same object is an antipattern and violates two broader recommendations:
++>
++> - Don't retain an object that has a shorter lifespan from retain
++> - Don't remember an object twice
++>
++>
++> Retaining an object that has already been remembered does not properly retain
++> and save the object, can cause the object to receive duplicate callbacks, and
++> leads to unexpected bugs.
+ 
+ ## Positional memoization and adaptive layouts
+ 
+@@ -345,12 +324,8 @@ For out-of-the-box components like `ListDetailPaneScaffold` and `NavDisplay`
+ throughout layout changes. For custom components that adapt to form factors,
+ ensure that state is unaffected by layout changes by doing one of the following:
+ 
+-* Ensure that stateful composables are always called in the same place in the
+-  composition hierarchy. Implement adaptive layouts by altering the layout logic
+-  instead of relocating objects in the composition hierarchy.
+-* Use `MovableContent` to relocate stateful composables gracefully. Instances
+-  of `MovableContent` are able to move remembered and retained values from their
+-  old to new locations.
++- Ensure that stateful composables are always called in the same place in the composition hierarchy. Implement adaptive layouts by altering the layout logic instead of relocating objects in the composition hierarchy.
++- Use `MovableContent` to relocate stateful composables gracefully. Instances of `MovableContent` are able to move remembered and retained values from their old to new locations.
+ 
+ ## Remember factory functions
+ 
+@@ -365,17 +340,12 @@ and key inputs. This allows consumers of your state to confidently create
+ instances in the composition hierarchy that will survive and be invalidated as
+ expected. When defining a composable factory function, follow these guidelines:
+ 
+-* Prefix the function name with `remember`. Optionally, if the function
+-  implementation depends on the object being `retained` and the API will never
+-  evolve to rely on a different variation of `remember`, use the `retain` prefix
+-  instead.
+-* Use `rememberSaveable` or `rememberSerializable` if state persistence is
+-  chosen and it's possible to write a correct `Saver` implementation.
+-* Avoid side effects or initializing values based on `CompositionLocal`s that
+-  might not be relevant to the usage. Remember, the place your state is created
+-  might not be where it is consumed.
++- Prefix the function name with `remember`. Optionally, if the function implementation depends on the object being `retained` and the API will never evolve to rely on a different variation of `remember`, use the `retain` prefix instead.
++- Use `rememberSaveable` or `rememberSerializable` if state persistence is chosen and it's possible to write a correct `Saver` implementation.
++- Avoid side effects or initializing values based on `CompositionLocal`s that might not be relevant to the usage. Remember, the place your state is created might not be where it is consumed.
+ 
+-```
++
++```kotlin
+ @Composable
+ fun rememberImageState(
+     imageUri: String,
+@@ -401,17 +371,18 @@ data class ImageState(
+         restore = { ImageState(it[0] as String, it[1] as Float, it[2] as Int, it[3] as Int) }
+     )
+ }
+-
+-StateLifespansSnippets.kt
+ ```
+ 
+-**Note:** We recommend defining `remember` factory functions
+-**in addition** to standard constructors and non-composable factory
+-functions for a given type.
+-
+-Allowing instances to be created outside of composition has numerous benefits
+-for consumers of your class, including testing, more flexibility in app
+-architecture, and customization of the default behavior.
+-
+-Verify that consumers of your state work correctly regardless of where the
+-object originates.
+\ No newline at end of file
++<br />
++
++> [!NOTE]
++> **Note:** We recommend defining `remember` factory functions **in addition** to standard constructors and non-composable factory functions for a given type.
++>
++>
++> Allowing instances to be created outside of composition has numerous benefits
++> for consumers of your class, including testing, more flexibility in app
++> architecture, and customization of the default behavior.
++>
++>
++> Verify that consumers of your state work correctly regardless of where the
++> object originates.
+\ No newline at end of file

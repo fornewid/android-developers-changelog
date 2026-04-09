@@ -1,0 +1,156 @@
+diff --git a/docs/training/wearables/accessibility.md b/docs/training/wearables/accessibility.md
+index 8a37fa3..1a647f8 100644
+--- a/docs/training/wearables/accessibility.md
++++ b/docs/training/wearables/accessibility.md
+@@ -1,38 +1,49 @@
+ ---
+-title: https://developer.android.com/training/wearables/accessibility
++title: Accessibility on Wear OS  |  Android Developers
+ url: https://developer.android.com/training/wearables/accessibility
+-source: md.txt
++source: html-scrape
+ ---
+ 
++* [Android Developers](https://developer.android.com/)
++* [Develop](https://developer.android.com/develop)
++* [Devices](https://developer.android.com/develop/devices)
++* [Wear OS](https://developer.android.com/training/wearables)
++
++# Accessibility on Wear OS Stay organized with collections Save and categorize content based on your preferences.
++
++
++
+ As you create an app on Wear OS, start by following accessibility principles and
+-guidance from our [Accessibility guide for Android apps](https://developer.android.com/guide/topics/ui/accessibility). Then ensure you app
++guidance from our [Accessibility guide for Android apps](/guide/topics/ui/accessibility). Then ensure you app
+ is accessible on Wear OS as well.
+ 
+ Wear OS apps have some additional considerations when it comes to accessibility
+ due to the following factors:
+ 
+-- Different input types on Wear OS, such as rotary input.
+-- Additional UI surfaces such as tiles and complications.
+-- Small screen sizes, which require different [TalkBack](https://support.google.com/accessibility/android/answer/6283677) implementations.
++* Different input types on Wear OS, such as rotary input.
++* Additional UI surfaces such as tiles and complications.
++* Small screen sizes, which require different [TalkBack](https://support.google.com/accessibility/android/answer/6283677) implementations.
+ 
+ As with other accessibility work, make sure to thoroughly test each experience
+ with assistive technologies such as a screen reader. This lets you experience
+ your app from the perspective of your users and discover usability issues that
+ you otherwise might miss. For more information, see [Test your app's
+-accessibility](https://developer.android.com/guide/topics/ui/accessibility/testing).
++accessibility](/guide/topics/ui/accessibility/testing).
+ 
+ ## Support the user's preferred font size
+ 
+ In system settings, users can adjust the font size for text elements that appear
+ in Wear OS apps. For example, on Google Pixel Watch devices, these settings are
+-[located in the **Settings \> Accessibility** menu](https://support.google.com/googlepixelwatch/answer/12658379).
++[located in the **Settings > Accessibility** menu](https://support.google.com/googlepixelwatch/answer/12658379).
+ 
+ When testing your app, set the font size to different values, and make sure that
+ your app's text content behaves as you expect. You can use techniques such as
+ the following to make your app's text more accessible:
+ 
+-- If you use [autosizing text](https://developer.android.com/reference/kotlin/androidx/compose/foundation/text/TextAutoSize), set explicit values for [`minFontSize`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/text/TextAutoSize#StepBased(androidx.compose.ui.unit.TextUnit,androidx.compose.ui.unit.TextUnit,androidx.compose.ui.unit.TextUnit)) and [`maxFontSize`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/text/TextAutoSize#StepBased(androidx.compose.ui.unit.TextUnit,androidx.compose.ui.unit.TextUnit,androidx.compose.ui.unit.TextUnit)).
+-- Use an ellipsis to show that text overflows its container. The Material text element [uses an overflow ellipsis by default](https://developer.android.com/reference/androidx/wear/protolayout/material/Text.Builder#setOverflow(int)).
++* If you use [autosizing text](/reference/kotlin/androidx/compose/foundation/text/TextAutoSize), set explicit values for [`minFontSize`](/reference/kotlin/androidx/compose/foundation/text/TextAutoSize#StepBased(androidx.compose.ui.unit.TextUnit,androidx.compose.ui.unit.TextUnit,androidx.compose.ui.unit.TextUnit))
++  and [`maxFontSize`](/reference/kotlin/androidx/compose/foundation/text/TextAutoSize#StepBased(androidx.compose.ui.unit.TextUnit,androidx.compose.ui.unit.TextUnit,androidx.compose.ui.unit.TextUnit)).
++* Use an ellipsis to show that text overflows its container. The Material text
++  element [uses an overflow ellipsis by default](/reference/androidx/wear/protolayout/material/Text.Builder#setOverflow(int)).
+ 
+ ## Enable rotary input
+ 
+@@ -47,14 +58,14 @@ interactions for scrolling. Using rotary input assists users with these
+ challenges by providing a more convenient way to scroll rather than using the
+ two-finger interaction.
+ 
+-For more information, see [Rotary input](https://developer.android.com/training/wearables/user-input/rotary-input).
++For more information, see [Rotary input](/training/wearables/user-input/rotary-input).
+ 
+ ## Optimize your app for Talkback
+ 
+ TalkBack is Android's built-in screen reader. When TalkBack is on, users can
+ interact with their Android-powered device without seeing the screen. Test your
+ app to ensure that all user journeys can be navigated using screen readers such
+-as TalkBack. For more information, see [TalkBack](https://developer.android.com/guide/topics/ui/accessibility/testing#talkback).
++as TalkBack. For more information, see [TalkBack](/guide/topics/ui/accessibility/testing#talkback).
+ 
+ TalkBack on Wear OS is similar to TalkBack on mobile with a few additional
+ considerations, detailed in the following sections.
+@@ -62,7 +73,7 @@ considerations, detailed in the following sections.
+ ### Use built-in components
+ 
+ Wear OS provides many built-in UI components that already follow accessibility
+-best practices. For example, the [`PickerGroup`](https://developer.android.com/reference/kotlin/androidx/wear/compose/material/PickerGroup.composable#PickerGroup(kotlin.Array,androidx.compose.ui.Modifier,androidx.wear.compose.material.PickerGroupState,kotlin.Function1,kotlin.Boolean,kotlin.Boolean,androidx.wear.compose.material.TouchExplorationStateProvider,kotlin.Function1)) element uses a focus
++best practices. For example, the [`PickerGroup`](/reference/kotlin/androidx/wear/compose/material/PickerGroup.composable#PickerGroup(kotlin.Array,androidx.compose.ui.Modifier,androidx.wear.compose.material.PickerGroupState,kotlin.Function1,kotlin.Boolean,kotlin.Boolean,androidx.wear.compose.material.TouchExplorationStateProvider,kotlin.Function1)) element uses a focus
+ coordinator object to assign focus to the correct `Picker` element.
+ 
+ Use these built-in components in your app to improve its
+@@ -72,34 +83,37 @@ usability for everyone.
+ 
+ Wear OS provides different UI surfaces, such as tiles and complications.
+ 
+-[Watch face complications](https://developer.android.com/training/wearables/watch-faces/complications) display highly glanceable information from apps
+-directly on the watch face, such as the date or weather forecasts. [Tiles](https://developer.android.com/training/articles/wear-tiles)
++[Watch face complications](/training/wearables/watch-faces/complications) display highly glanceable information from apps
++directly on the watch face, such as the date or weather forecasts. [Tiles](/training/articles/wear-tiles)
+ provide quick access to the information and actions needed to get things done.
+ With a swipe from the watch face, a user can check the weather, set a
+ timer, and more.
+ 
+-Similarly to [Compose](https://developer.android.com/jetpack/compose/accessibility#describe-visual) visual elements, you can set a `contentDescription`
++Similarly to [Compose](/jetpack/compose/accessibility#describe-visual) visual elements, you can set a `contentDescription`
+ for tiles and complications. `contentDescriptions` define the text that Talkback
+ uses to describe any content that does not have a textual representation.
+ When using content descriptions for tiles and complications, keep in mind the
+ following:
+ 
+-- Avoid adding extra words to the description that don't provide user value, such as complication and tile.
+-- Avoid adding words beyond the information that is displayed. For example the description of a complication is displaying the date **December 13th** should be **December 13th** without words like **Day** and **Date**.
++* Avoid adding extra words to the description that don't provide user value,
++  such as complication and tile.
++* Avoid adding words beyond the information that is displayed. For example the
++  description of a complication is displaying the date **December 13th** should
++  be **December 13th** without words like **Day** and **Date**.
+ 
+ #### Set the content descriptions for Tiles
+ 
+-Use the [`contentDescription`](https://developer.android.com/reference/kotlin/androidx/wear/protolayout/modifiers/LayoutModifier#(androidx.wear.protolayout.modifiers.LayoutModifier).contentDescription(kotlin.String,androidx.wear.protolayout.expression.DynamicBuilders.DynamicString)) modifier to set the current content
++Use the [`contentDescription`](/reference/kotlin/androidx/wear/protolayout/modifiers/LayoutModifier#(androidx.wear.protolayout.modifiers.LayoutModifier).contentDescription(kotlin.String,androidx.wear.protolayout.expression.DynamicBuilders.DynamicString)) modifier to set the current content
+ description for the Tile that Talkback verbalizes.
+ 
+ Also make sure to set the content description for any elements within the tiles,
+-like [Buttons](https://developer.android.com/reference/kotlin/androidx/wear/protolayout/material3/package-summary#(androidx.wear.protolayout.material3.MaterialScope).button(androidx.wear.protolayout.ModifiersBuilders.Clickable,kotlin.Function1,androidx.wear.protolayout.modifiers.LayoutModifier,kotlin.Function1,kotlin.Function1,androidx.wear.protolayout.DimensionBuilders.ContainerDimension,androidx.wear.protolayout.DimensionBuilders.ContainerDimension,androidx.wear.protolayout.ModifiersBuilders.Corner,androidx.wear.protolayout.material3.ButtonColors,kotlin.Function1,androidx.wear.protolayout.material3.ButtonStyle,kotlin.Int,androidx.wear.protolayout.ModifiersBuilders.Padding)).
++like [Buttons](/reference/kotlin/androidx/wear/protolayout/material3/package-summary#(androidx.wear.protolayout.material3.MaterialScope).button(androidx.wear.protolayout.ModifiersBuilders.Clickable,kotlin.Function1,androidx.wear.protolayout.modifiers.LayoutModifier,kotlin.Function1,kotlin.Function1,androidx.wear.protolayout.DimensionBuilders.ContainerDimension,androidx.wear.protolayout.DimensionBuilders.ContainerDimension,androidx.wear.protolayout.ModifiersBuilders.Corner,androidx.wear.protolayout.material3.ButtonColors,kotlin.Function1,androidx.wear.protolayout.material3.ButtonStyle,kotlin.Int,androidx.wear.protolayout.ModifiersBuilders.Padding)).
+ 
+ #### Set the content descriptions for complications
+ 
+-There are different [types](https://developer.android.com/training/wearables/watch-faces/adding-complications#types-fields) of complications such as
++There are different [types](/training/wearables/watch-faces/adding-complications#types-fields) of complications such as
+ `SmallImageComplication` and `ShortTextComplication. contentDescription` is set
+-on the Builder, for example see the [`SmallImageComplicationData.Builder`](https://developer.android.com/reference/androidx/wear/watchface/complications/data/SmallImageComplicationData.Builder#Builder(androidx.wear.watchface.complications.data.SmallImage,androidx.wear.watchface.complications.data.ComplicationText)).
++on the Builder, for example see the [`SmallImageComplicationData.Builder`](/reference/androidx/wear/watchface/complications/data/SmallImageComplicationData.Builder#Builder(androidx.wear.watchface.complications.data.SmallImage,androidx.wear.watchface.complications.data.ComplicationText)).
+ 
+ ### Understand list behaviors
+ 
+@@ -143,11 +157,11 @@ devices is 48dp x 48dp. Due to the small screen size on Wear OS, there
+ are some situations where 40dp x 40dp is allowed.
+ 
+ For more information about how to implement touch targets, see [Accessibility in
+-Compose](https://developer.android.com/jetpack/compose/accessibility#minimum-target-sizes).
++Compose](/jetpack/compose/accessibility#minimum-target-sizes).
+ 
+ ## Recommended for you
+ 
+-- Note: link text is displayed when JavaScript is off
+-- [Picker](https://developer.android.com/design/ui/wear/guides/components/pickers)
+-- [Loading images {:#loading-images}](https://developer.android.com/develop/ui/compose/graphics/images/loading)
+-- [Key steps to improve Compose accessibility](https://developer.android.com/develop/ui/compose/accessibility/key-steps)
+\ No newline at end of file
++* Note: link text is displayed when JavaScript is off
++* [Picker](/design/ui/wear/guides/components/pickers)
++* [Loading images {:#loading-images}](/develop/ui/compose/graphics/images/loading)
++* [Key steps to improve Compose accessibility](/develop/ui/compose/accessibility/key-steps)
+\ No newline at end of file

@@ -1,0 +1,12 @@
+diff --git a/docs/studio/releases/fixed-bugs/studio/2024.1.1.md b/docs/studio/releases/fixed-bugs/studio/2024.1.1.md
+index e589208..09fb8e1 100644
+--- a/docs/studio/releases/fixed-bugs/studio/2024.1.1.md
++++ b/docs/studio/releases/fixed-bugs/studio/2024.1.1.md
+@@ -11,7 +11,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ ### Android Studio Koala | 2024.1.1 Patch 2
+ 
+ **Released together with:**

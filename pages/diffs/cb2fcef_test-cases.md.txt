@@ -1,0 +1,12 @@
+diff --git a/docs/health-and-fitness/health-connect/test/test-cases.md b/docs/health-and-fitness/health-connect/test/test-cases.md
+index 2d41424..73393ca 100644
+--- a/docs/health-and-fitness/health-connect/test/test-cases.md
++++ b/docs/health-and-fitness/health-connect/test/test-cases.md
+@@ -15,6 +15,7 @@ Starting in 2026, we'll be transitioning away from Google Fit APIs. For more inf
+ 
+ 
+ 
++
+ **Caution:** Test cases are continuously evolving. Make sure you're checking
+ them for any updates before running your test cycles.
+ 

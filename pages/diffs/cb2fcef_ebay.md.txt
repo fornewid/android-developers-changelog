@@ -1,0 +1,12 @@
+diff --git a/docs/design/ui/gallery/shopping/ebay.md b/docs/design/ui/gallery/shopping/ebay.md
+index 39684cb..10b74bc 100644
+--- a/docs/design/ui/gallery/shopping/ebay.md
++++ b/docs/design/ui/gallery/shopping/ebay.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ eBay gets a 4.7 Google Play rating with tablet optimizations
+ 
+ eBay is a massive online marketplace used by millions of buyers and sellers

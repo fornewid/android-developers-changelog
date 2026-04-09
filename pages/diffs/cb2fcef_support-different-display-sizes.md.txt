@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/compose/layouts/adaptive/support-different-display-sizes.md b/docs/develop/ui/compose/layouts/adaptive/support-different-display-sizes.md
+index ef1c3e2..96d5a87 100644
+--- a/docs/develop/ui/compose/layouts/adaptive/support-different-display-sizes.md
++++ b/docs/develop/ui/compose/layouts/adaptive/support-different-display-sizes.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ **Note:** For apps that target Android 16 (API level 36), the system ignores screen
+ orientation, aspect ratio, and app resizablility restrictions to improve the
+ layout of apps on form factors with smallest width >= 600dp. See [App

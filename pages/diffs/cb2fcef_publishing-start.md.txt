@@ -1,0 +1,20 @@
+diff --git a/docs/games/pgs/publishing/publishing-start.md b/docs/games/pgs/publishing/publishing-start.md
+index 4cf4075..e2f3ea8 100644
+--- a/docs/games/pgs/publishing/publishing-start.md
++++ b/docs/games/pgs/publishing/publishing-start.md
+@@ -15,7 +15,6 @@ Send feedback
+ 
+ 
+ 
+-
+ To start making calls to the Publishing API, you must link to an API
+ project directly from the
+ [Google Play Console](//play.google.com/apps/publish/)
+@@ -125,6 +124,4 @@ and the
+ 
+ 
+ 
+-
+-
+ Send feedback
+\ No newline at end of file

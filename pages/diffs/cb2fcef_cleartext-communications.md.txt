@@ -1,0 +1,12 @@
+diff --git a/docs/privacy-and-security/risks/cleartext-communications.md b/docs/privacy-and-security/risks/cleartext-communications.md
+index b27e4d2..c56e115 100644
+--- a/docs/privacy-and-security/risks/cleartext-communications.md
++++ b/docs/privacy-and-security/risks/cleartext-communications.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ **OWASP category:** [MASVS-NETWORK: Network Communication](https://mas.owasp.org/MASVS/08-MASVS-NETWORK)
+ 
+ ## Overview

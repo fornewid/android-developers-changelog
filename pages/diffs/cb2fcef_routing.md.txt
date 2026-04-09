@@ -1,0 +1,12 @@
+diff --git a/docs/media/routing.md b/docs/media/routing.md
+index 6589f82..d492d0e 100644
+--- a/docs/media/routing.md
++++ b/docs/media/routing.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ As users connect their televisions, home theater systems, and music players with wireless
+ technologies, they want to be able to play content from Android apps on these larger,
+ louder devices. Enabling this kind of playback can turn your one-device, one-user app

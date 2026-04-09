@@ -1,0 +1,12 @@
+diff --git a/docs/topic/dsu.md b/docs/topic/dsu.md
+index 7234ec6..bd1210f 100644
+--- a/docs/topic/dsu.md
++++ b/docs/topic/dsu.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ Dynamic System Updates (DSU) is a system feature introduced in Android 10 that
+ does the following:
+ 

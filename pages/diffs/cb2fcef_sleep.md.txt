@@ -1,0 +1,12 @@
+diff --git a/docs/health-and-fitness/health-connect/experiences/sleep.md b/docs/health-and-fitness/health-connect/experiences/sleep.md
+index 24e7c58..d272827 100644
+--- a/docs/health-and-fitness/health-connect/experiences/sleep.md
++++ b/docs/health-and-fitness/health-connect/experiences/sleep.md
+@@ -15,6 +15,7 @@ Starting in 2026, we'll be transitioning away from Google Fit APIs. For more inf
+ 
+ 
+ 
++
+ **Note:** This guide is compatible with Health Connect version [1.1.0](/jetpack/androidx/releases/health-connect#1.1.0).
+ 
+ If you're looking to build a sleep tracking experience in your app, you can use

@@ -1,0 +1,12 @@
+diff --git a/docs/guide/playcore/install-prompt/kotlin-java.md b/docs/guide/playcore/install-prompt/kotlin-java.md
+index 7a1750e..15181c7 100644
+--- a/docs/guide/playcore/install-prompt/kotlin-java.md
++++ b/docs/guide/playcore/install-prompt/kotlin-java.md
+@@ -12,7 +12,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ This guide describes how to integrate in-app install prompts in your app using
+ either Kotlin or Java.
+ 

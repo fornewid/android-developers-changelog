@@ -1,0 +1,12 @@
+diff --git a/docs/training/permissions/declaring.md b/docs/training/permissions/declaring.md
+index 176ff9c..6532f43 100644
+--- a/docs/training/permissions/declaring.md
++++ b/docs/training/permissions/declaring.md
+@@ -14,6 +14,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ As mentioned in the [workflow for using
+ permissions](/training/basics/permissions#workflow), if your app requests app
+ permissions, you must declare these permissions in your app's manifest file.

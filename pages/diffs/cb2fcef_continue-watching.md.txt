@@ -1,0 +1,12 @@
+diff --git a/docs/guide/playcore/engage/tv/continue-watching.md b/docs/guide/playcore/engage/tv/continue-watching.md
+index ae7b29a..f79bf39 100644
+--- a/docs/guide/playcore/engage/tv/continue-watching.md
++++ b/docs/guide/playcore/engage/tv/continue-watching.md
+@@ -12,6 +12,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Continue Watching leverages the **Continuation cluster** to show unfinished
+ videos, and next episodes to be watched from the same TV show, from multiple
+ apps in one UI grouping. You can feature your entities in this continuation

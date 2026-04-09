@@ -1,0 +1,12 @@
+diff --git a/docs/jetpack/androidx/releases/vectordrawable.md b/docs/jetpack/androidx/releases/vectordrawable.md
+index 4217725..903ce69 100644
+--- a/docs/jetpack/androidx/releases/vectordrawable.md
++++ b/docs/jetpack/androidx/releases/vectordrawable.md
+@@ -15,6 +15,7 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
++
+ # Vectordrawable
+ 
+ [User Guide](/guide/topics/graphics/vector-drawable-resources)

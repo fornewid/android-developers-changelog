@@ -1,0 +1,12 @@
+diff --git a/docs/training/data-storage/use-cases.md b/docs/training/data-storage/use-cases.md
+index 7627060..711ac5c 100644
+--- a/docs/training/data-storage/use-cases.md
++++ b/docs/training/data-storage/use-cases.md
+@@ -13,7 +13,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ To give users more control over their files and limit file clutter,
+ Android 10 introduced a new storage paradigm for apps called
+ [scoped storage](/training/data-storage#scoped-storage). Scoped storage changes

@@ -1,0 +1,12 @@
+diff --git a/docs/develop/connectivity/wifi/wifi-direct.md b/docs/develop/connectivity/wifi/wifi-direct.md
+index 3e955bf..7048832 100644
+--- a/docs/develop/connectivity/wifi/wifi-direct.md
++++ b/docs/develop/connectivity/wifi/wifi-direct.md
+@@ -14,6 +14,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ [Wi-Fi Direct](https://www.wi-fi.org/discover-wi-fi/wi-fi-direct) (also known as peer-to-peer or P2P) allows your application to quickly find and interact with nearby
+ devices, at a range beyond the capabilities of Bluetooth.
+ 

@@ -1,0 +1,12 @@
+diff --git a/docs/build/releases/prompts/release_note_instructions.md b/docs/build/releases/prompts/release_note_instructions.md
+index d0146c8..90e78ff 100644
+--- a/docs/build/releases/prompts/release_note_instructions.md
++++ b/docs/build/releases/prompts/release_note_instructions.md
+@@ -8,7 +8,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ This document contains instructions about creating the release notes for Android Studio.
+ 
+ ## Objective

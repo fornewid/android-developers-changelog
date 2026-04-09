@@ -1,0 +1,12 @@
+diff --git a/docs/topic/performance/appstartup/setup-env.md b/docs/topic/performance/appstartup/setup-env.md
+index 356c8c3..44db544 100644
+--- a/docs/topic/performance/appstartup/setup-env.md
++++ b/docs/topic/performance/appstartup/setup-env.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ You can identify potential bottlenecks and improve overall app performance by
+ recording device activity over a short period of time and [collecting traces of
+ your app's startup period](/topic/performance/tracing). This page shows how to

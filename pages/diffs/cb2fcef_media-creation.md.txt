@@ -1,0 +1,12 @@
+diff --git a/docs/social-and-messaging/guides/media-creation.md b/docs/social-and-messaging/guides/media-creation.md
+index cc46a8e..c26d0cf 100644
+--- a/docs/social-and-messaging/guides/media-creation.md
++++ b/docs/social-and-messaging/guides/media-creation.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Capturing videos, editing photos, and processing media content are fundamental
+ features of social and messaging apps, and Android has created APIs that support
+ the latest device hardware features, along with libraries that simplify

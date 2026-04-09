@@ -1,0 +1,20 @@
+diff --git a/docs/games/develop/multiplatform/enable-natural-input-on-all-form-factors.md b/docs/games/develop/multiplatform/enable-natural-input-on-all-form-factors.md
+index 56ec75f..e716714 100644
+--- a/docs/games/develop/multiplatform/enable-natural-input-on-all-form-factors.md
++++ b/docs/games/develop/multiplatform/enable-natural-input-on-all-form-factors.md
+@@ -15,6 +15,7 @@ Send feedback
+ 
+ 
+ 
++
+ ![Desktop computer with keyboard and mouse. Game is on screen, showing touchscreen inputs for direction control and mouse.](/static/images/games/multiplatform/game_with_touchscreen_input.png)
+ 
+ 
+@@ -195,4 +196,6 @@ Although not required, it can be best to annotate with manifest feature flags wh
+ 
+ 
+ 
++
++
+ Send feedback
+\ No newline at end of file

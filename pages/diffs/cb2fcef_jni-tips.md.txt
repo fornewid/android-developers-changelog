@@ -1,0 +1,12 @@
+diff --git a/docs/ndk/guides/jni-tips.md b/docs/ndk/guides/jni-tips.md
+index 2b1d0b3..1c4c63f 100644
+--- a/docs/ndk/guides/jni-tips.md
++++ b/docs/ndk/guides/jni-tips.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ JNI is the Java Native Interface. It defines a way for the bytecode that Android compiles from
+ managed code (written in the Java or Kotlin programming languages) to interact with native code
+ (written in C/C++). JNI is vendor-neutral, has support for loading code from dynamic shared

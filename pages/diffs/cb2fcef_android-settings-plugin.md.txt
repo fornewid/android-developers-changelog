@@ -1,0 +1,12 @@
+diff --git a/docs/build/android-settings-plugin.md b/docs/build/android-settings-plugin.md
+index abaef1d..657a693 100644
+--- a/docs/build/android-settings-plugin.md
++++ b/docs/build/android-settings-plugin.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ The settings plugin lets you centralize common build properties that apply to
+ all modules in one place so you don't need to copy and paste the configurations
+ across multiple modules.

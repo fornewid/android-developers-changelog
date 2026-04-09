@@ -1,0 +1,117 @@
+diff --git a/docs/develop/ui/views/layout/improving-layouts/loading-ondemand.md b/docs/develop/ui/views/layout/improving-layouts/loading-ondemand.md
+index bb5a614..bfbe3a4 100644
+--- a/docs/develop/ui/views/layout/improving-layouts/loading-ondemand.md
++++ b/docs/develop/ui/views/layout/improving-layouts/loading-ondemand.md
+@@ -1,20 +1,9 @@
+ ---
+-title: Load views on demand  |  Views  |  Android Developers
++title: https://developer.android.com/develop/ui/views/layout/improving-layouts/loading-ondemand
+ url: https://developer.android.com/develop/ui/views/layout/improving-layouts/loading-ondemand
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-* [Develop](https://developer.android.com/develop)
+-* [Core areas](https://developer.android.com/develop/core-areas)
+-* [UI](https://developer.android.com/develop/ui)
+-* [Views](https://developer.android.com/develop/ui/views/layout/declaring-layout)
+-
+-# Load views on demand Stay organized with collections Save and categorize content based on your preferences.
+-
+-
+-
+-
+ Sometimes your layout requires complex views that are rarely used. Whether
+ they are item details, progress indicators, or undo messages, you can reduce
+ memory usage and speed up rendering by loading the views only when they're
+@@ -22,7 +11,7 @@ needed.
+ 
+ You can defer loading resources when you have complex views that your app
+ needs in the future by defining a
+-`ViewStub` for
++`https://developer.android.com/reference/android/view/ViewStub` for
+ complex and rarely used views.
+ 
+ ## Define a ViewStub
+@@ -51,7 +40,7 @@ app:
+ You can postpone loading using the following `ViewStub`. To make
+ it show or load anything, you must make it show the referred layout:
+ 
+-```
++```xml
+ <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+ android:id="@+id/root"
+ android:layout_width="match_parent"
+@@ -71,18 +60,13 @@ android:layout_height="match_parent">
+ 
+ The code snippets in the previous section produce something like figure
+ 1:
+-
+-![An image of a empty screen](/static/images/ui/viewstub_1.png)
+-
+-
+-**Figure 1.** Initial state of the screen: the `ViewStub` is
+-hiding the heavy layout.
++![An image of a empty screen](https://developer.android.com/static/images/ui/viewstub_1.png) **Figure 1.** Initial state of the screen: the `ViewStub` is hiding the heavy layout.
+ 
+ When you want to load the layout specified by the `ViewStub`,
+ either set it to visible by calling
+-`setVisibility(View.VISIBLE)`
++`https://developer.android.com/reference/android/view/View#setVisibility(int)`
+ or call
+-`inflate()`.
++`https://developer.android.com/reference/android/view/ViewStub#inflate()`.
+ 
+ The following code snippet simulates a postponed load. The screen loads as
+ usual in the `Activity` and `onCreate()`, then it shows
+@@ -90,7 +74,7 @@ the `heavy_layout_we_want_to_postpone` layout:
+ 
+ ### Kotlin
+ 
+-```
++```kotlin
+ override fun onCreate(savedInstanceState: Bundle?) {
+   super.onCreate(savedInstanceState)
+   setContentView(R.layout.activity_old_xml)
+@@ -106,7 +90,7 @@ override fun onCreate(savedInstanceState: Bundle?) {
+ 
+ ### Java
+ 
+-```
++```java
+ @Override
+ void onCreate(savedInstanceState: Bundle?) {
+   super.onCreate(savedInstanceState);
+@@ -120,17 +104,10 @@ void onCreate(savedInstanceState: Bundle?) {
+       }, 2000);
+ }
+ ```
++![](https://developer.android.com/static/images/ui/viewstub_2.png) **Figure 2.** The heavy layout is visible.
+ 
+-![](/static/images/ui/viewstub_2.png)
+-
+-
+-**Figure 2.** The heavy layout is visible.
+-
+-
+-**Note:** The `inflate()` method returns the inflated
+-`View` after it's complete, so you don't need to call
+-`findViewById()`
+-if you need to interact with the layout.
++> [!NOTE]
++> **Note:** The `inflate()` method returns the inflated `View` after it's complete, so you don't need to call `https://developer.android.com/reference/android/app/Activity#findViewById(int)` if you need to interact with the layout.
+ 
+ Once visible or inflated, the `ViewStub` element is no longer part
+ of the view hierarchy. It is replaced by the inflated layout, and the ID for the
+@@ -139,8 +116,8 @@ attribute of the `ViewStub`. The ID `android:id` specified
+ for the `ViewStub` is valid only until the `ViewStub`
+ layout is visible or inflated.
+ 
+-**Note:** A drawback of `ViewStub` is that it doesn't support the
+-`<merge>` tag in the layouts to be inflated.
++> [!NOTE]
++> **Note:** A drawback of `ViewStub` is that it doesn't support the `<merge>` tag in the layouts to be inflated.
+ 
+ For more information about this topic, see the blog post
+ [Optimize

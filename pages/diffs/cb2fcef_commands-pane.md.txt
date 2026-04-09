@@ -1,0 +1,12 @@
+diff --git a/docs/agi/frame-trace-gui/commands-pane.md b/docs/agi/frame-trace-gui/commands-pane.md
+index 654e4c1..cce2859 100644
+--- a/docs/agi/frame-trace-gui/commands-pane.md
++++ b/docs/agi/frame-trace-gui/commands-pane.md
+@@ -14,7 +14,6 @@ Join us for ⁠the [Google for Games Developer Summit](https://gamedevsummit.wit
+ 
+ 
+ 
+-
+ The Commands pane displays the calls made by the application, grouped by frame and draw call or by user markers.
+ 
+ ![Initial View of either an OpenGL or Vulkan trace](/static/images/agi/command-pane-images/command-pane-1.png)

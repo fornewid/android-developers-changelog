@@ -1,0 +1,12 @@
+diff --git a/docs/develop/background-work/background-tasks/persistent.md b/docs/develop/background-work/background-tasks/persistent.md
+index 5b6081d..6999b05 100644
+--- a/docs/develop/background-work/background-tasks/persistent.md
++++ b/docs/develop/background-work/background-tasks/persistent.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ When you want to execute tasks that will continue to run even if the app leaves
+ the visible state, we recommend using the Jetpack library [WorkManager](/reference/androidx/work/WorkManager).
+ WorkManager features a robust scheduling mechanism that lets tasks persist

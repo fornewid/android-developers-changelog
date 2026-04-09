@@ -1,0 +1,321 @@
+diff --git a/docs/ndk/guides/stable_apis.md b/docs/ndk/guides/stable_apis.md
+index d85a3c6..d57c6bb 100644
+--- a/docs/ndk/guides/stable_apis.md
++++ b/docs/ndk/guides/stable_apis.md
+@@ -1,9 +1,18 @@
+ ---
+-title: https://developer.android.com/ndk/guides/stable_apis
++title: Native APIs  |  Android NDK  |  Android Developers
+ url: https://developer.android.com/ndk/guides/stable_apis
+-source: md.txt
++source: html-scrape
+ ---
+ 
++* [Home](https://developer.android.com/)
++* [NDK](https://developer.android.com/ndk)
++* [Develop](https://developer.android.com/develop)
++* [Guides](https://developer.android.com/ndk/guides)
++
++# Native APIs Stay organized with collections Save and categorize content based on your preferences.
++
++
++
+ This page gives an overview of the libraries included in the NDK, with links to
+ the relevant parts of the NDK API reference, and to guides where they exist.
+ 
+@@ -13,26 +22,25 @@ There are two steps to using a library that the NDK provides:
+ 
+ 1. Tell the build system to link against the library.
+ 
+-   - If you are using [ndk-build](https://developer.android.com/ndk/guides/ndk-build): Add the library
+-     to `LOCAL_LDLIBS` in your [Android.mk](https://developer.android.com/ndk/guides/android_mk).
++   * If you are using [ndk-build](/ndk/guides/ndk-build): Add the library
++     to `LOCAL_LDLIBS` in your [Android.mk](/ndk/guides/android_mk).
+      Note that you strip the leading `lib` and say `-l` instead.
+      For example, to link against `libfoo` and `libbar`, you'd write:
+      `makefile
+      LOCAL_LDLIBS := -lfoo -lbar`
+ 
+      For more about `LOCAL_LDLIBS`, see the
+-     [Android.mk docs](https://developer.android.com/ndk/guides/android_mk) documentation.
+-   - If you are using [CMake](https://developer.android.com/ndk/guides/cmake): Follow the
++     [Android.mk docs](/ndk/guides/android_mk) documentation.
++   * If you are using [CMake](/ndk/guides/cmake): Follow the
+      instructions in Studio's
+-     [Add NDK APIs](https://developer.android.com/studio/projects/configure-cmake#add-ndk-api)
++     [Add NDK APIs](/studio/projects/configure-cmake#add-ndk-api)
+      documentation.
+-
+ 2. `#include` the appropriate headers from your code.
+ 
+ Note that APIs which are newer than your application's `minSdkVersion` won't be
+ callable by default, and you must instead use them via
+ [`dlopen()`](https://man7.org/linux/man-pages/man3/dlopen.3.html) and `dlsym()`.
+-For an easier approach, see [Using newer APIs](https://developer.android.com/ndk/guides/using-newer-apis).
++For an easier approach, see [Using newer APIs](/ndk/guides/using-newer-apis).
+ 
+ ## Core C/C++
+ 
+@@ -56,20 +64,20 @@ Library: `libc` / `libm` / `libdl`
+ ### C++ library
+ 
+ C++17 support is available. For more information on C++ library support, see
+-[C++ library support](https://developer.android.com/ndk/guides/cpp-support).
++[C++ library support](/ndk/guides/cpp-support).
+ 
+ ### Logging
+ 
+ `<android/log.h>` contains APIs for logging to logcat.
+ 
+-> [!NOTE]
+-> **Note:** `<android/log.h>` only provides logging primitives. For examples of more usable APIs, see Android's [`log/log.h`](https://android.googlesource.com/platform/system/logging/+/refs/heads/master/liblog/include/log/log.h) and [`android-base/logging.h`](https://cs.android.com/android/platform/superproject/+/master:system/libbase/include/android-base/logging.h).
++**Note:** `<android/log.h>` only provides logging primitives. For examples of more
++usable APIs, see Android's [`log/log.h`](https://android.googlesource.com/platform/system/logging/+/refs/heads/master/liblog/include/log/log.h) and [`android-base/logging.h`](https://cs.android.com/android/platform/superproject/+/master:system/libbase/include/android-base/logging.h).
+ 
+ Available since API level 3.
+ 
+ Library: `liblog`
+ 
+-Reference: [Logging](https://developer.android.com/ndk/reference/group/logging)
++Reference: [Logging](/ndk/reference/group/logging)
+ 
+ ### Trace
+ 
+@@ -77,13 +85,13 @@ The native tracing API `<android/trace.h>` provides the native equivalent of
+ the `android.os.Trace` class in the Java programming language. This API lets
+ you trace named units of work in your code by writing trace events to the
+ system trace buffer. You can then collect and analyze the trace events using
+-the [Systrace tool](https://developer.android.com/topic/performance/tracing/command-line).
++the [Systrace tool](/topic/performance/tracing/command-line).
+ 
+ Available since API level 23.
+ 
+ Library: `libandroid`
+ 
+-Guide: [Native Tracing](https://developer.android.com/ndk/guides/tracing)
++Guide: [Native Tracing](/ndk/guides/tracing)
+ 
+ ### zlib compression
+ 
+@@ -135,9 +143,9 @@ information on how to perform this query, see the description of
+ in the OpenGL specification.
+ 
+ Additionally, you must put a
+-[`<uses-feature>`](https://developer.android.com/guide/topics/manifest/uses-feature-element) tag in your
++[`<uses-feature>`](/guide/topics/manifest/uses-feature-element) tag in your
+ manifest file to indicate the version of
+-[OpenGL ES](https://developer.android.com/develop/ui/views/graphics/opengl/about-opengl#manifest) that you require.
++[OpenGL ES](/develop/ui/views/graphics/opengl/about-opengl#manifest) that you require.
+ 
+ OpenGL ES 1.0 is available since API level 4.
+ 
+@@ -157,10 +165,10 @@ surfaces.
+ 
+ EGL allows you to perform the following operations from native code:
+ 
+-- List supported EGL configurations.
+-- Allocate and release OpenGL ES surfaces.
+-- Create and destroy OpenGL ES contexts.
+-- Swap or flip surfaces.
++* List supported EGL configurations.
++* Allocate and release OpenGL ES surfaces.
++* Create and destroy OpenGL ES contexts.
++* Swap or flip surfaces.
+ 
+ API level 24 added support for the
+ [`EGL_KHR_mutable_render_buffer`](https://www.khronos.org/registry/EGL/extensions/KHR/EGL_KHR_mutable_render_buffer.txt),
+@@ -198,7 +206,7 @@ Available since API level 24.
+ 
+ Library: `libvulkan`
+ 
+-Guide: [Vulkan graphics API guide](https://developer.android.com/ndk/guides/graphics)
++Guide: [Vulkan graphics API guide](/ndk/guides/graphics)
+ 
+ ### Bitmaps
+ 
+@@ -207,21 +215,18 @@ of Java `Bitmap` objects. The workflow is as follows:
+ 
+ 1. Call `AndroidBitmap_getInfo()` to retrieve information, such as
+    width and height, about a given bitmap handle.
+-
+ 2. Call `AndroidBitmap_lockPixels()` to lock the pixel buffer and retrieve a
+    pointer to it. Doing so ensures that the pixels do not move until the app
+    calls `AndroidBitmap_unlockPixels()`.
+-
+ 3. Modify the pixel buffer as appropriate for its pixel format, width, and
+    other characteristics.
+-
+ 4. Call `AndroidBitmap_unlockPixels()` to unlock the buffer.
+ 
+ Available since API level 8.
+ 
+ Library: `libjnigraphics`
+ 
+-Reference: [Bitmap API reference](https://developer.android.com/ndk/reference/group/bitmap)
++Reference: [Bitmap API reference](/ndk/reference/group/bitmap)
+ 
+ ### Sync API
+ 
+@@ -229,22 +234,22 @@ Available since API level 26.
+ 
+ Library: `libsync`
+ 
+-Reference: [Sync API reference](https://developer.android.com/ndk/reference/group/sync)
++Reference: [Sync API reference](/ndk/reference/group/sync)
+ 
+ ## Camera
+ 
+ The native camera APIs perform fine-grained photo capture and processing.
+ Unlike the Java camera2 API, the native camera API does not support deprecated
+ camera HAL 1.0 implementations (that is, the available camera list in the native
+-camera API won't list camera devices that have the
+-[LEGACY](https://developer.android.com/reference/android/hardware/camera2/CameraMetadata#INFO_SUPPORTED_HARDWARE_LEVEL_LEGACY)
++camera API won’t list camera devices that have the
++[LEGACY](/reference/android/hardware/camera2/CameraMetadata#INFO_SUPPORTED_HARDWARE_LEVEL_LEGACY)
+ hardware level).
+ 
+ Available since API level 24.
+ 
+ Library: `libcamera2ndk`
+ 
+-Reference: [Camera API reference](https://developer.android.com/ndk/reference/group/camera)
++Reference: [Camera API reference](/ndk/reference/group/camera)
+ 
+ ## Media
+ 
+@@ -255,12 +260,12 @@ The Media APIs provide low-level native interfaces similar to `MediaExtractor`,
+ 
+ Library: `libmediandk`
+ 
+-Reference: [Media API reference](https://developer.android.com/ndk/reference/group/media)
++Reference: [Media API reference](/ndk/reference/group/media)
+ 
+ ### OpenMAX AL
+ 
+-> [!NOTE]
+-> **Note:** Use of OpenMAX AL is no longer recommended. New code should instead use the Android Media APIs.
++**Note:** Use of OpenMAX AL is no longer recommended. New code should instead use
++the Android Media APIs.
+ 
+ Android native multimedia handling is based on Khronos Group OpenMAX AL 1.0.1
+ API.
+@@ -279,30 +284,30 @@ Library: `libOpenMAXAL`
+ 
+ ## Android native application APIs
+ 
+-For more information, see the [Android NDK API reference](https://developer.android.com/ndk/reference)
++For more information, see the [Android NDK API reference](/ndk/reference)
+ documentation.
+ 
+ APIs include:
+ 
+-- [Asset](https://developer.android.com/ndk/reference/group/asset)
+-- [Choreographer](https://developer.android.com/ndk/reference/group/choreographer)
+-- [Configuration](https://developer.android.com/ndk/reference/group/configuration)
+-- [Input](https://developer.android.com/ndk/reference/group/input)
+-- [Looper](https://developer.android.com/ndk/reference/group/looper)
+-- [Native Activity](https://developer.android.com/ndk/reference/group/native-activity)
+-- [Native Hardware Buffers](https://developer.android.com/ndk/reference/group/a-hardware-buffer)
+-- [Native Window](https://developer.android.com/ndk/reference/group/a-native-window)
+-- [Memory](https://developer.android.com/ndk/reference/group/memory)
+-- [Networking](https://developer.android.com/ndk/reference/group/networking)
+-- [Sensor](https://developer.android.com/ndk/reference/group/sensor)
+-- [Storage](https://developer.android.com/ndk/reference/group/storage)
+-- [SurfaceTexture](https://developer.android.com/ndk/reference/group/surface-texture)
++* [Asset](/ndk/reference/group/asset)
++* [Choreographer](/ndk/reference/group/choreographer)
++* [Configuration](/ndk/reference/group/configuration)
++* [Input](/ndk/reference/group/input)
++* [Looper](/ndk/reference/group/looper)
++* [Native Activity](/ndk/reference/group/native-activity)
++* [Native Hardware Buffers](/ndk/reference/group/a-hardware-buffer)
++* [Native Window](/ndk/reference/group/a-native-window)
++* [Memory](/ndk/reference/group/memory)
++* [Networking](/ndk/reference/group/networking)
++* [Sensor](/ndk/reference/group/sensor)
++* [Storage](/ndk/reference/group/storage)
++* [SurfaceTexture](/ndk/reference/group/surface-texture)
+ 
+ Library: `libandroid`
+ 
+ Library: `libnativewindow` for more recent Native Window functionality
+ 
+-Full reference: [Android NDK API reference](https://developer.android.com/ndk/reference)
++Full reference: [Android NDK API reference](/ndk/reference)
+ 
+ ### Binder APIs
+ 
+@@ -313,7 +318,7 @@ for advanced use cases.
+ 
+ Library: `libbinder_ndk`
+ 
+-Reference: [Binder](https://developer.android.com/ndk/reference/group/ndk-binder)
++Reference: [Binder](/ndk/reference/group/ndk-binder)
+ 
+ ### Hardware Buffer APIs
+ 
+@@ -321,7 +326,7 @@ There are two native APIs that let you create your own pipelines for
+ cross-process buffer management.
+ 
+ The native hardware buffer API
+-[`<android/hardware_buffer.h>`](https://developer.android.com/ndk/reference/hardware__buffer_8h)
++[`<android/hardware_buffer.h>`](/ndk/reference/hardware__buffer_8h)
+ lets you directly allocate buffers to create your own pipelines for cross-process buffer management.
+ You can allocate an `AHardwareBuffer` and use it to obtain an
+ [`EGLClientBuffer`](https://www.khronos.org/registry/EGL/extensions/KHR/EGL_KHR_image_base.txt)
+@@ -336,8 +341,8 @@ on supported devices. This can be useful for creating textures that may be
+ shared cross-process.
+ 
+ The native hardware buffer JNI API (`<android/hardware_buffer_jni.h>`) lets you
+-obtain a [`HardwareBuffer`](https://developer.android.com/reference/android/hardware/HardwareBuffer)
+-object, which is a [Parcelable](https://developer.android.com/reference/android/os/Parcelable) and thus
++obtain a [`HardwareBuffer`](/reference/android/hardware/HardwareBuffer)
++object, which is a [Parcelable](/reference/android/os/Parcelable) and thus
+ may be transported between two different processes. This gives your app similar
+ capabilities to
+ [SurfaceFlinger](https://source.android.com/devices/graphics/arch-sf-hwc.html#surfaceflinger)
+@@ -346,8 +351,10 @@ internal Android APIs.
+ 
+ ## Audio
+ 
+-> [!NOTE]
+-> **Note:** Developers should consider using the open source Oboe library which is available on [GitHub](https://github.com/google/oboe). Oboe is a C++ wrapper that provides an API that closely resembles AAudio. It calls AAudio when it is available, and falls back to OpenSL ES if AAudio is not available.
++**Note:** Developers should consider using the open source Oboe library which is
++available on [GitHub](https://github.com/google/oboe). Oboe is a C++ wrapper
++that provides an API that closely resembles AAudio. It calls AAudio when it is
++available, and falls back to OpenSL ES if AAudio is not available.
+ 
+ ### AAudio
+ 
+@@ -359,9 +366,9 @@ Available since API level 26.
+ 
+ Library: `libaaudio`
+ 
+-Guide: [AAudio API guide](https://developer.android.com/ndk/guides/audio/aaudio/aaudio)
++Guide: [AAudio API guide](/ndk/guides/audio/aaudio/aaudio)
+ 
+-Reference: [AAudio API reference](https://developer.android.com/ndk/reference/group/audio)
++Reference: [AAudio API reference](/ndk/reference/group/audio)
+ 
+ ### OpenSL ES
+ 
+@@ -372,7 +379,7 @@ Available since API level 9. API level 14 added PCM support.
+ 
+ Library: `libOpenSLES`
+ 
+-Guide: [OpenSL ES for Android guide](https://developer.android.com/ndk/guides/audio/opensl/opensl-for-android)
++Guide: [OpenSL ES for Android guide](/ndk/guides/audio/opensl/opensl-for-android)
+ 
+ ## Neural Networks API
+ 
+@@ -387,6 +394,6 @@ Available since API level 27.
+ 
+ Library: `libneuralnetworks`
+ 
+-Guide: [Neural Networks guide](https://developer.android.com/ndk/guides/neuralnetworks)
++Guide: [Neural Networks guide](/ndk/guides/neuralnetworks)
+ 
+-Reference: [Neural Networks API reference](https://developer.android.com/ndk/reference/group/neural-networks)
+\ No newline at end of file
++Reference: [Neural Networks API reference](/ndk/reference/group/neural-networks)
+\ No newline at end of file

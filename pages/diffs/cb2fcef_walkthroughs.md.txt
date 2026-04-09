@@ -1,0 +1,12 @@
+diff --git a/docs/ndk/samples/walkthroughs.md b/docs/ndk/samples/walkthroughs.md
+index 3e79479..3a08ccb 100644
+--- a/docs/ndk/samples/walkthroughs.md
++++ b/docs/ndk/samples/walkthroughs.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ This section provides detailed walkthroughs of several key samples. The samples are as
+ follows:
+ 

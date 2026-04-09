@@ -1,0 +1,32 @@
+diff --git a/docs/develop/xr/jetpack-xr-sdk/add-spatial-video.md b/docs/develop/xr/jetpack-xr-sdk/add-spatial-video.md
+index 5549285..26ec9d2 100644
+--- a/docs/develop/xr/jetpack-xr-sdk/add-spatial-video.md
++++ b/docs/develop/xr/jetpack-xr-sdk/add-spatial-video.md
+@@ -19,6 +19,9 @@ depth---also known as *stereopsis*.
+ You can render non-stereoscopic 2D video on Android XR apps with the [standard
+ media APIs](https://developer.android.com/media/audio-and-video) used for Android development on other form factors.
+ 
++> [!CAUTION]
++> **Caution:** An issue with `SurfaceEntity` in SceneCore version 1.0.0-alpha12 can cause apps to crash when creating instances of `SurfaceEntity`. This also affects apps creating instances of `SpatialExternalSurface` with Compose for XR version 1.0.0-alpha11. This issue is resolved in `androidx.xr.scenecore:scenecore-*:1.0.0-alpha13`, `androidx.xr.compose:compose:1.0.0-alpha12`, and their subsequent releases. Affected apps should update to the latest versions.
++
+ ## Play side-by-side video using Jetpack SceneCore
+ 
+ With side-by-side video, each stereoscopic frame is presented as two images
+@@ -184,7 +187,7 @@ val hemisphereStereoSurfaceEntity =
+         pose = activitySpacePose,
+         shape = SurfaceEntity.Shape.Hemisphere(1.0f),
+     )
+-// ... and use the surface for playing the media.https://github.com/android/snippets/blob/6c9df97fc8c21902e96753b0b05a134386bac6fd/xr/src/main/java/com/example/xr/scenecore/SpatialVideo.kt#L61-L72
++// ... and use the surface for playing the media.https://github.com/android/snippets/blob/b8fe98d6f6b3dfe87812e34ff8eabb22847f6e1f/xr/src/main/java/com/example/xr/scenecore/SpatialVideo.kt#L61-L72
+ ```
+ 
+ <br />
+@@ -201,7 +204,7 @@ val sphereStereoSurfaceEntity =
+         pose = activitySpacePose,
+         shape = SurfaceEntity.Shape.Sphere(1.0f),
+     )
+-// ... and use the surface for playing the media.https://github.com/android/snippets/blob/6c9df97fc8c21902e96753b0b05a134386bac6fd/xr/src/main/java/com/example/xr/scenecore/SpatialVideo.kt#L78-L88
++// ... and use the surface for playing the media.https://github.com/android/snippets/blob/b8fe98d6f6b3dfe87812e34ff8eabb22847f6e1f/xr/src/main/java/com/example/xr/scenecore/SpatialVideo.kt#L78-L88
+ ```
+ 
+ <br />

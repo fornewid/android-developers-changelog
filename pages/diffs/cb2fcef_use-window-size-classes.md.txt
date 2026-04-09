@@ -1,0 +1,18 @@
+diff --git a/docs/develop/ui/views/layout/use-window-size-classes.md b/docs/develop/ui/views/layout/use-window-size-classes.md
+index 651d2ac..84ea61f 100644
+--- a/docs/develop/ui/views/layout/use-window-size-classes.md
++++ b/docs/develop/ui/views/layout/use-window-size-classes.md
+@@ -15,10 +15,9 @@ layout simplicity with the flexibility of optimizing your app for unique cases.
+ Window size classes categorize the display area available to your app as
+ *compact* , *medium* , *expanded* , *large* , or *extra large*. Available width and
+ height are classified separately, so at any point in time, your app has two
+-window size classes---one for width, one for height. Available width is
+-usually more important than available height due to the ubiquity of vertical
+-scrolling, so the width window size class is likely more relevant to your app's
+-UI.
++window size classes---one for width, one for height. Available width is usually
++more important than available height due to the ubiquity of vertical scrolling,
++so the width window size class is likely more relevant to your app's UI.
+ ![](https://developer.android.com/static/develop/ui/compose/images/layouts/adaptive/window-size-classes/window_size_classes_width.png) **Figure 1.** Representations of width-based window size classes. ![](https://developer.android.com/static/develop/ui/compose/images/layouts/adaptive/window-size-classes/window_size_classes_height.png) **Figure 2.** Representations of height-based window size classes.
+ 
+ As visualized in the figures, the breakpoints allow you to continue thinking

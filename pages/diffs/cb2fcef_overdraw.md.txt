@@ -1,0 +1,12 @@
+diff --git a/docs/topic/performance/rendering/overdraw.md b/docs/topic/performance/rendering/overdraw.md
+index 0878c71..0c0e3a1 100644
+--- a/docs/topic/performance/rendering/overdraw.md
++++ b/docs/topic/performance/rendering/overdraw.md
+@@ -13,6 +13,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ This page explains what overdraw is, how to diagnose it, and ways to eliminate
+ or mitigate it.
+ 

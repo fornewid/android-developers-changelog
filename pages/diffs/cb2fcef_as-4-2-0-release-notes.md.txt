@@ -1,0 +1,12 @@
+diff --git a/docs/studio/releases/past-releases/as-4-2-0-release-notes.md b/docs/studio/releases/past-releases/as-4-2-0-release-notes.md
+index 1c7a0f2..8bc95f7 100644
+--- a/docs/studio/releases/past-releases/as-4-2-0-release-notes.md
++++ b/docs/studio/releases/past-releases/as-4-2-0-release-notes.md
+@@ -15,7 +15,6 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
+-
+ # Android Studio 4.2 (April 2021)
+ 
+ Android Studio 4.2 is a major release that includes a variety of new features

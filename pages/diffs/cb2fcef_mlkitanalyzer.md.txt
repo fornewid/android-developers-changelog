@@ -1,0 +1,114 @@
+diff --git a/docs/media/camera/camerax/mlkitanalyzer.md b/docs/media/camera/camerax/mlkitanalyzer.md
+index 259739b..98c9608 100644
+--- a/docs/media/camera/camerax/mlkitanalyzer.md
++++ b/docs/media/camera/camerax/mlkitanalyzer.md
+@@ -1,35 +1,52 @@
+ ---
+-title: https://developer.android.com/media/camera/camerax/mlkitanalyzer
++title: ML Kit Analyzer  |  Android media  |  Android Developers
+ url: https://developer.android.com/media/camera/camerax/mlkitanalyzer
+-source: md.txt
++source: html-scrape
+ ---
+ 
+-# ML Kit Analyzer
++* [Android Developers](https://developer.android.com/)
++* [Essentials](https://developer.android.com/get-started)
++* [Camera & media dev center](https://developer.android.com/media)
++* [Guides](https://developer.android.com/media/guides)
+ 
+-Google's[ML Kit](https://developers.google.com/ml-kit/guides)provides on-device machine learning Vision APIs for detecting faces, scanning barcodes, labeling images, and more. ML Kit Analyzer makes it easier to integrate ML Kit with your CameraX app.
++# ML Kit Analyzer Stay organized with collections Save and categorize content based on your preferences.
+ 
+-ML Kit Analyzer is an implementation of the[`ImageAnalysis.Analyzer`](https://developer.android.com/reference/androidx/camera/core/ImageAnalysis.Analyzer)interface. It overrides the[default target resolution](https://developer.android.com/reference/androidx/camera/core/ImageAnalysis.Analyzer#getDefaultTargetResolution())(if needed) to optimize for ML Kit usage, handles the coordinate transformations, and passes the frames to ML Kit, which returns the aggregated analysis results.
+ 
+-## Implement ML Kit Analyzer
+ 
+-To implement ML Kit Analyzer, we recommend using the[`CameraController`](https://developer.android.com/reference/androidx/camera/view/CameraController)class, which works with[`PreviewView`](https://developer.android.com/reference/androidx/camera/view/PreviewView)to display UI elements. When implemented using`CameraController`, ML Kit Analyzer handles the coordinate transformations between the original`ImageAnalysis`stream and`PreviewView`for you. It receives the target coordinate system from CameraX, calculates the coordinate transformation, and forwards it to ML Kit's[`Detector`](https://developers.google.com/android/reference/com/google/mlkit/vision/interfaces/Detector)class for analysis.
++Google’s [ML Kit](https://developers.google.com/ml-kit/guides) provides on-device machine learning Vision APIs for detecting
++faces, scanning barcodes, labeling images, and more. ML Kit Analyzer makes it
++easier to integrate ML Kit with your CameraX app.
++
++ML Kit Analyzer is an implementation of the [`ImageAnalysis.Analyzer`](/reference/androidx/camera/core/ImageAnalysis.Analyzer) interface. It overrides the [default target resolution](/reference/androidx/camera/core/ImageAnalysis.Analyzer#getDefaultTargetResolution())
++(if needed) to optimize for ML Kit usage, handles the coordinate transformations,
++and passes the frames to ML Kit, which returns the aggregated analysis results.
++
++## Implement ML Kit Analyzer
+ 
+-To use ML Kit Analyzer with`CameraController`, call[`setImageAnalysisAnalyzer()`](https://developer.android.com/reference/androidx/camera/view/CameraController#setImageAnalysisAnalyzer(java.util.concurrent.Executor,androidx.camera.core.ImageAnalysis.Analyzer))and pass it a new ML Kit Analyzer object with the following in its constructor:
++To implement ML Kit Analyzer, we recommend using the [`CameraController`](/reference/androidx/camera/view/CameraController) class, which works with [`PreviewView`](/reference/androidx/camera/view/PreviewView) to display UI elements. When implemented using `CameraController`, ML Kit Analyzer
++handles the coordinate transformations between the original `ImageAnalysis`
++stream and `PreviewView` for you. It receives the target coordinate system from
++CameraX, calculates the coordinate transformation,
++and forwards it to ML Kit’s [`Detector`](https://developers.google.com/android/reference/com/google/mlkit/vision/interfaces/Detector) class for analysis.
+ 
+-- A list of ML Kit`Detector`s, which CameraX invokes sequentially in order.
+-- The target coordinate system that determines the coordinates of the ML Kit output:
++To use ML Kit Analyzer with `CameraController`, call [`setImageAnalysisAnalyzer()`](/reference/androidx/camera/view/CameraController#setImageAnalysisAnalyzer(java.util.concurrent.Executor,androidx.camera.core.ImageAnalysis.Analyzer)) and pass it
++a new ML Kit Analyzer object with the following in its constructor:
+ 
+-  - [`COORDINATE_SYSTEM_VIEW_REFERENCED`](https://developer.android.com/reference/androidx/camera/view/CameraController#COORDINATE_SYSTEM_VIEW_REFERENCED()): the transformed`PreviewView`coordinates.
+-  - [`COORDINATE_SYSTEM_ORIGINAL`](https://developer.android.com/reference/androidx/camera/core/ImageAnalysis#COORDINATE_SYSTEM_ORIGINAL()): the original`ImageAnalysis`stream coordinates.
+-- An[`Executor`](https://developer.android.com/reference/java/util/concurrent/Executor)that invokes the Consumer callback and delivers the[`MlKitAnalyzer.Result`](https://developer.android.com/reference/androidx/camera/mlkit/vision/MlKitAnalyzer.Result), or the aggregated ML Kit result of a camera frame, to the app.
++* A list of ML Kit `Detector`s, which CameraX invokes sequentially in order.
++* The target coordinate system that determines the coordinates of the ML Kit output:
+ 
+-- A[`Consumer`](https://developer.android.com/reference/androidx/core/util/Consumer), which CameraX invokes when there is new ML Kit output.
++  + [`COORDINATE_SYSTEM_VIEW_REFERENCED`](/reference/androidx/camera/view/CameraController#COORDINATE_SYSTEM_VIEW_REFERENCED()): the transformed `PreviewView` coordinates.
++  + [`COORDINATE_SYSTEM_ORIGINAL`](/reference/androidx/camera/core/ImageAnalysis#COORDINATE_SYSTEM_ORIGINAL()): the original `ImageAnalysis` stream coordinates.
++* An [`Executor`](/reference/java/util/concurrent/Executor) that invokes the Consumer callback and delivers
++  the [`MlKitAnalyzer.Result`](/reference/androidx/camera/mlkit/vision/MlKitAnalyzer.Result), or the aggregated ML Kit result of a camera frame, to the app.
++* A [`Consumer`](/reference/androidx/core/util/Consumer), which CameraX invokes when there is new ML Kit output.
+ 
+-The following code implements ML Kit Analyzer using`CameraController`to set up a[`BarcodeScanner`](https://developers.google.com/android/reference/com/google/mlkit/vision/barcode/BarcodeScanner)to detect QR codes:  
++The following code implements ML Kit Analyzer using `CameraController` to set up
++a [`BarcodeScanner`](https://developers.google.com/android/reference/com/google/mlkit/vision/barcode/BarcodeScanner) to detect QR codes:
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ // create BarcodeScanner object
+ val options = BarcodeScannerOptions.Builder()
+   .setBarcodeFormats(Barcode.FORMAT_QR_CODE)
+@@ -50,7 +67,7 @@ cameraController.setImageAnalysisAnalyzer(
+ 
+ ### Java
+ 
+-```java
++```
+ // create BarcodeScanner object
+ BarcodeScannerOptions options = new BarcodeScannerOptions.Builder()
+    .setBarcodeFormats(Barcode.FORMAT_QR_CODE)
+@@ -64,15 +81,23 @@ cameraController.setImageAnalysisAnalyzer(executor,
+  });
+ ```
+ 
+-In the code sample above, ML Kit Analyzer passes the following to`BarcodeScanner`'s`Detector`class:
++In the code sample above, ML Kit Analyzer passes the following to
++`BarcodeScanner`’s `Detector` class:
+ 
+-- The transformation[Matrix](https://developer.android.com/reference/android/graphics/Matrix)based on`COORDINATE_SYSTEM_VIEW_REFERENCED`that represents the target coordinate system.
+-- The camera frames.
++* The transformation [Matrix](/reference/android/graphics/Matrix)
++  based on `COORDINATE_SYSTEM_VIEW_REFERENCED` that represents the target coordinate system.
++* The camera frames.
+ 
+-If`BarcodeScanner`runs into any issues, then its`Detector`[throws an error](https://developer.android.com/reference/androidx/camera/mlkit/vision/MlKitAnalyzer.Result#getThrowable(com.google.mlkit.vision.interfaces.Detector%3C?%3E)), and ML Kit Analyzer propagates it to your app. If successful, then ML Kit Analyzer returns[`MLKitAnalyzer.Result#getValue()`](https://developer.android.com/reference/androidx/camera/mlkit/vision/MlKitAnalyzer.Result#getValue(com.google.mlkit.vision.interfaces.Detector%3CT%3E)), which in this case is the[`Barcode`](https://developers.google.com/android/reference/com/google/mlkit/vision/barcode/common/Barcode)object.
++If `BarcodeScanner` runs into any issues, then its `Detector` [throws an error](/reference/androidx/camera/mlkit/vision/MlKitAnalyzer.Result#getThrowable(com.google.mlkit.vision.interfaces.Detector%3C?%3E)),
++and ML Kit Analyzer propagates it to your app. If successful, then ML Kit Analyzer returns [`MLKitAnalyzer.Result#getValue()`](/reference/androidx/camera/mlkit/vision/MlKitAnalyzer.Result#getValue(com.google.mlkit.vision.interfaces.Detector%3CT%3E)), which
++in this case is the [`Barcode`](https://developers.google.com/android/reference/com/google/mlkit/vision/barcode/common/Barcode) object.
+ 
+-You can also implement ML Kit Analyzer using the[`ImageAnalysis`](https://developer.android.com/reference/androidx/camera/core/ImageAnalysis)class that is part of`camera-core`. However, because`ImageAnalysis`is not integrated with`PreviewView`, you must manually handle the coordinate transformations. For more information, see the[ML Kit Analyzer](https://developer.android.com/reference/androidx/camera/mlkit/vision/MlKitAnalyzer)reference documentation.
++You can also implement ML Kit Analyzer using the [`ImageAnalysis`](/reference/androidx/camera/core/ImageAnalysis) class that is part of `camera-core`. However, because `ImageAnalysis`
++is not integrated with `PreviewView`,
++you must manually handle the coordinate transformations. For more information,
++see the [ML Kit Analyzer](/reference/androidx/camera/mlkit/vision/MlKitAnalyzer) reference documentation.
+ 
+ ## Additional resources
+ 
+-For a working camera app with ML Kit Analyzer functionality, see the[CameraX-MLKit](https://github.com/android/camera-samples/tree/main/CameraX-MLKit)sample.
+\ No newline at end of file
++For a working camera app with ML Kit Analyzer functionality,
++see the [CameraX-MLKit](https://github.com/android/camera-samples/tree/main/CameraX-MLKit) sample.
+\ No newline at end of file

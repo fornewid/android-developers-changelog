@@ -1,0 +1,81 @@
+diff --git a/docs/guide/navigation/navigation-3/recipes/basicparcelable.md b/docs/guide/navigation/navigation-3/recipes/basicparcelable.md
+index 54dbebf..68dd62d 100644
+--- a/docs/guide/navigation/navigation-3/recipes/basicparcelable.md
++++ b/docs/guide/navigation/navigation-3/recipes/basicparcelable.md
+@@ -1,18 +1,9 @@
+ ---
+-title: App architecture  |  Android Developers
++title: https://developer.android.com/guide/navigation/navigation-3/recipes/basicparcelable
+ url: https://developer.android.com/guide/navigation/navigation-3/recipes/basicparcelable
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-* [App architecture](https://developer.android.com/topic/architecture/intro)
+-
+-Stay organized with collections
+-
+-Save and categorize content based on your preferences.
+-
+-
+-
+ # Basic Parcelable Recipe
+ 
+ This recipe shows a basic example of how to create a persistent back stack that survives configuration changes, without using `kotlinx.serialization`. Instead, it uses Android's `Parcelable` and the [`kotlin-parcelize`](https://developer.android.com/kotlin/parcelize) plugin to save and restore the navigation state.
+@@ -21,36 +12,25 @@ This recipe shows a basic example of how to create a persistent back stack that
+ 
+ In this example, `RouteA` and `RouteB` implement a marker interface, `Route`, which itself extends `Parcelable`. They are also annotated with `@Parcelize` from the `kotlin-parcelize` plugin, which automatically generates a `Parcelable` implementation:
+ 
+-```
+-sealed interface Route : Parcelable
++    sealed interface Route : Parcelable
+ 
+-@Parcelize
+-data object RouteA : Route
++    @Parcelize
++    data object RouteA : Route
+ 
+-@Parcelize
+-data class RouteB(val id: String) : Route
+-```
++    @Parcelize
++    data class RouteB(val id: String) : Route
+ 
+ To make the back stack persistent, this recipe defines the `rememberParcelableBackStack` function. To ensure that `NavDisplay` and other composables are aware of changes to the back stack, the back stack is stored in a `SnapshotStateList`.
+ 
+-```
+-@Composable
+-fun <T : Parcelable> rememberParcelableBackStack(vararg elements: T): SnapshotStateList<T> {
+-    return rememberSaveable {
+-        mutableStateListOf(*elements)
++    @Composable
++    fun <T : Parcelable> rememberParcelableBackStack(vararg elements: T): SnapshotStateList<T> {
++        return rememberSaveable {
++            mutableStateListOf(*elements)
++        }
+     }
+-}
+-```
+ 
+ This acts as an alternative to the built-in `rememberNavBackStack` from `androidx.navigation3.runtime` which relies on `kotlinx.serialization`. Use this approach if your application strictly prefers `Parcelable` and avoids depending on `kotlinx.serialization`.
+-
+-[![](/static/images/picto-icons/code.svg)
+-
+-Explore
+-
+-View the full recipe on GitHub.
+-
+-arrow\_forward](https://github.com/android/nav3-recipes/tree/main/app/src/main/java/com/example/nav3recipes/basicparcelable)
++[![](https://developer.android.com/static/images/picto-icons/code.svg) Explore View the full recipe on GitHub.](https://github.com/android/nav3-recipes/tree/main/app/src/main/java/com/example/nav3recipes/basicparcelable)
+ 
+ ```
+ /*
+@@ -144,6 +124,4 @@ class BasicParcelableActivity : ComponentActivity() {
+         }
+     }
+ }
+-
+-BasicParcelableActivity.kt
+ ```
+\ No newline at end of file

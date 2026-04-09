@@ -1,0 +1,12 @@
+diff --git a/docs/jetpack/androidx/releases/preference.md b/docs/jetpack/androidx/releases/preference.md
+index 7f85f38..f446ec5 100644
+--- a/docs/jetpack/androidx/releases/preference.md
++++ b/docs/jetpack/androidx/releases/preference.md
+@@ -15,7 +15,6 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
+-
+ # Preference
+ 
+ [User Guide](/guide/topics/ui/settings)  [Code Sample](https://github.com/android/user-interface-samples/tree/main/Preferences)

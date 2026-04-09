@@ -1,0 +1,20 @@
+diff --git a/docs/games/develop/vulkan/sample-codelab-story.md b/docs/games/develop/vulkan/sample-codelab-story.md
+index eb7bcae..1d1b92a 100644
+--- a/docs/games/develop/vulkan/sample-codelab-story.md
++++ b/docs/games/develop/vulkan/sample-codelab-story.md
+@@ -15,6 +15,7 @@ Send feedback
+ 
+ 
+ 
++
+ ## Samples
+ 
+ ### Hello Vulkan
+@@ -120,4 +121,6 @@ and the recorded sessions are on this [YouTube Playlist](https://www.youtube.com
+ 
+ 
+ 
++
++
+ Send feedback
+\ No newline at end of file

@@ -1,0 +1,12 @@
+diff --git a/docs/about/versions/12/features/widgets.md b/docs/about/versions/12/features/widgets.md
+index 9549143..3edbbcb 100644
+--- a/docs/about/versions/12/features/widgets.md
++++ b/docs/about/versions/12/features/widgets.md
+@@ -12,6 +12,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Android 12 (API level 31) revamps the existing [Widgets
+ API](/guide/topics/appwidgets/overview) to improve the user and developer
+ experience in the platform and launchers. Use this guide to learn how to ensure

@@ -1,0 +1,12 @@
+diff --git a/docs/identity/providers/contacts-provider.md b/docs/identity/providers/contacts-provider.md
+index 9975855..5f5de10 100644
+--- a/docs/identity/providers/contacts-provider.md
++++ b/docs/identity/providers/contacts-provider.md
+@@ -14,7 +14,6 @@ source: html-scrape
+ 
+ 
+ 
+-
+ The Contacts Provider is a powerful and flexible Android component that manages the
+ device's central repository of data about people. The Contacts Provider is the source of data
+ you see in the device's contacts application, and you can also access its data in your own
