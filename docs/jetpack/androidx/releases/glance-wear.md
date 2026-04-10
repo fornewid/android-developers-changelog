@@ -1,36 +1,23 @@
 ---
-title: Glance Wear  |  Jetpack  |  Android Developers
+title: https://developer.android.com/jetpack/androidx/releases/glance-wear
 url: https://developer.android.com/jetpack/androidx/releases/glance-wear
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [Get started](https://developer.android.com/get-started/overview)
-* [Jetpack](https://developer.android.com/jetpack)
-* [Libraries](https://developer.android.com/jetpack/androidx/explorer)
-
-Stay organized with collections
-
-Save and categorize content based on your preferences.
-
-
-
 
 # Glance Wear
 
 API Reference  
-[androidx.glance.wear](/reference/kotlin/androidx/glance/wear/package-summary)
-
+[androidx.glance.wear](https://developer.android.com/reference/kotlin/androidx/glance/wear/package-summary)  
 Glance Wear is a library for building Widgets for Wear OS
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
-| --- | --- | --- | --- | --- |
-| April 08, 2026 | - | - | - | [1.0.0-alpha07](/jetpack/androidx/releases/glance-wear#1.0.0-alpha07) |
+|---|---|---|---|---|
+| March 11, 2026 | - | - | - | [1.0.0-alpha05](https://developer.android.com/jetpack/androidx/releases/glance-wear#1.0.0-alpha05) |
 
 ## Declaring dependencies
 
 To add a dependency on glance-wear, you must add the Google Maven repository to your
-project. Read [Google's Maven repository](/studio/build/dependencies#google-maven)
+project. Read [Google's Maven repository](https://developer.android.com/studio/build/dependencies#google-maven)
 for more information.
 
 Add the dependencies for the artifacts you need in the `build.gradle` file for
@@ -38,31 +25,31 @@ your app or module:
 
 ### Groovy
 
-```
+```groovy
 dependencies {
-    implementation "androidx.glance.wear:wear:1.0.0-alpha07"
+    implementation "androidx.glance.wear:wear:1.0.0-alpha05"
 
-    implementation "androidx.glance.wear:wear-core:1.0.0-alpha07"
+    implementation "androidx.glance.wear:wear-core:1.0.0-alpha05"
 }
 ```
 
 ### Kotlin
 
-```
+```kotlin
 dependencies {
-    implementation("androidx.glance.wear:wear:1.0.0-alpha07")
+    implementation("androidx.glance.wear:wear:1.0.0-alpha05")
 
-    implementation("androidx.glance.wear:wear-core:1.0.0-alpha07")
+    implementation("androidx.glance.wear:wear-core:1.0.0-alpha05")
 }
 ```
 
-For more information about dependencies, see [Add build dependencies](/studio/build/dependencies).
+For more information about dependencies, see [Add build dependencies](https://developer.android.com/studio/build/dependencies).
 
 ## Feedback
 
 Your feedback helps make Jetpack better. Let us know if you discover new issues or have
 ideas for improving this library. Please take a look at the
-[existing issues](https://issuetracker.google.com/issues?q=componentid:1112273%20status:open)
+[existing issues](https://issuetracker.google.com/issues?q=componentid:1112273+status:open)
 in this library before you create a new one. You can add your vote to an existing issue by
 clicking the star button.
 
@@ -73,36 +60,6 @@ for more information.
 
 ## Version 1.0
 
-### Version 1.0.0-alpha07
-
-April 08, 2026
-
-`androidx.glance.wear:wear:1.0.0-alpha07` and `androidx.glance.wear:wear-core:1.0.0-alpha07` are released. Version 1.0.0-alpha07 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/4f1927c2c3b66d0c3a6b9118974d818d2dc5a06a..4c9e6b44e0f35c9a0595abec3ba2fd139900c25d/glance/wear).
-
-**New Features**
-
-* Add default Wear Widget background when `WearWidgetBrush` is empty or not specified. ([I8300b](https://android-review.googlesource.com/#/q/I8300b8047772ed0bcafbc0d37cd0da8e0307ad88))
-* Update `getActiveWidgets` API to return the Container Type of the Widget. ([2772eb1](https://android-review.googlesource.com/#/q/I9383b031feccedbc967e25bd54acc055d968555e))
-
-**API Changes**
-
-* Change Widget update API to take `WidgetInstanceId` and add helper for fetching IDs for a given widget. The new api throws `IllegalArgumentException` if the provided id is invalid or not owned by the caller. ([I6f3c5](https://android-review.googlesource.com/#/q/I6f3c5d0fe4d2e7fa94fecfa3333eb6fa7b424779), [b/446828899](https://issuetracker.google.com/issues/446828899))
-* Add vertical and horizontal gradient in `WearWidgetBrush`. ([If70ae](https://android-review.googlesource.com/#/q/If70ae449194e0c30c43053cdbcd7ed8fed3d6fdb), [b/470080675](https://issuetracker.google.com/issues/470080675))
-
-### Version 1.0.0-alpha06
-
-March 25, 2026
-
-`androidx.glance.wear:wear:1.0.0-alpha06` and `androidx.glance.wear:wear-core:1.0.0-alpha06` are released. Version 1.0.0-alpha06 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/1a508f033de883ba2853b9f9ae1853eec7010638..fe367de0a74244126fbc65fbf03d56061fb84f79/glance/wear).
-
-**New Features**
-
-* Define the operations for Wear Widgets profile inline.
-
-**API Changes**
-
-* We have renamed `CONTAINER_TYPE_FULLSCREEN` to `CONTAINER_TYPE_TILE_COMPAT` to better differentiate fullscreen compatibility widget. This includes reverting of mapping previously `FULLSCREEN` type to `LARGE` in Widget params.
-
 ### Version 1.0.0-alpha05
 
 March 11, 2026
@@ -111,8 +68,8 @@ March 11, 2026
 
 **API Changes**
 
-* We have added `WearWidgetBrush`API with the `color` method to be used for the Wear Widget background. ([I66f54](https://android-review.googlesource.com/#/q/I66f54dde07793ac7a00c48d374ec04824b9b3858), [b/464273091](https://issuetracker.google.com/issues/464273091))
-* `fetchActiveWidgetsForProvider` method has been removed as there is already `fetchActiveWidgets`. ([I85e4e](https://android-review.googlesource.com/#/q/I85e4e22abd2144a97e4b2765f285c204bbe0c2ab), [b/486197890](https://issuetracker.google.com/issues/486197890))
+- We have added `WearWidgetBrush`API with the `color` method to be used for the Wear Widget background. ([I66f54](https://android-review.googlesource.com/#/q/I66f54dde07793ac7a00c48d374ec04824b9b3858), [b/464273091](https://issuetracker.google.com/issues/464273091))
+- `fetchActiveWidgetsForProvider` method has been removed as there is already `fetchActiveWidgets`. ([I85e4e](https://android-review.googlesource.com/#/q/I85e4e22abd2144a97e4b2765f285c204bbe0c2ab), [b/486197890](https://issuetracker.google.com/issues/486197890))
 
 ### Version 1.0.0-alpha04
 
@@ -122,12 +79,12 @@ February 25, 2026
 
 **API Changes**
 
-* Added `GlanceWearWidgetManager` API for allowing Apps to query their active widgets and tiles. ([I5be95](https://android-review.googlesource.com/#/q/I5be95954c759493c4bf978b812e5a5e53daf6394))
-* We have moved APIs from the `glance:wear:wear-core` library into the `androidx.glance.wear.core` package. ([I429cf](https://android-review.googlesource.com/#/q/I429cf4c36d27bc8fc01115194b20806f10950dde))
+- Added `GlanceWearWidgetManager` API for allowing Apps to query their active widgets and tiles. ([I5be95](https://android-review.googlesource.com/#/q/I5be95954c759493c4bf978b812e5a5e53daf6394))
+- We have moved APIs from the `glance:wear:wear-core` library into the `androidx.glance.wear.core` package. ([I429cf](https://android-review.googlesource.com/#/q/I429cf4c36d27bc8fc01115194b20806f10950dde))
 
 **Bug Fixes**
 
-* Expose common Remote Composable and Modifier types ([Id1d40](https://android-review.googlesource.com/#/q/Id1d40acae7af63f9acb99438adaa992035fd3c01))
+- Expose common Remote Composable and Modifier types ([Id1d40](https://android-review.googlesource.com/#/q/Id1d40acae7af63f9acb99438adaa992035fd3c01))
 
 ### Version 1.0.0-alpha03
 
@@ -137,7 +94,7 @@ February 11, 2026
 
 **API Changes**
 
-* Add support for Interaction Events to `GlanceWearWidget`. ([Ia4e28](https://android-review.googlesource.com/#/q/Ia4e285fc6cab170b37cb647a2a2749c82d2d347e), [b/469808447](https://issuetracker.google.com/issues/469808447))
+- Add support for Interaction Events to `GlanceWearWidget`. ([Ia4e28](https://android-review.googlesource.com/#/q/Ia4e285fc6cab170b37cb647a2a2749c82d2d347e), [b/469808447](https://issuetracker.google.com/issues/469808447))
 
 ### Version 1.0.0-alpha02
 
@@ -147,11 +104,11 @@ January 28, 2026
 
 **New Features**
 
-* Re-map FULLSCREEN to LARGE in Widget params ([ad78d95](https://android.googlesource.com/platform/frameworks/support/+/ad78d95768ffb0c857248b01e2b485cbf1da2282))
+- Re-map FULLSCREEN to LARGE in Widget params ([ad78d95](https://android.googlesource.com/platform/frameworks/support/+/ad78d95768ffb0c857248b01e2b485cbf1da2282))
 
 **Bug Fixes**
 
-* Fixed usage of DataStore that would prevent multiple widget instances of being shown ([474f3e4](https://android.googlesource.com/platform/frameworks/support/+/474f3e45918122164889e5a04802b7dd000c530e))
+- Fixed usage of DataStore that would prevent multiple widget instances of being shown ([474f3e4](https://android.googlesource.com/platform/frameworks/support/+/474f3e45918122164889e5a04802b7dd000c530e))
 
 ### Version 1.0.0-alpha01
 
@@ -159,4 +116,4 @@ January 14, 2026
 
 `androidx.glance.wear:wear:1.0.0-alpha01` and `androidx.glance.wear:wear-core:1.0.0-alpha01` are released. Version 1.0.0-alpha01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/adeb519268e4eeff7d0a5a9d024dbe26d88bb6ad/glance/wear).
 
-* Glance Wear is a library for building Widgets for Wear OS using `RemoteCompose`.
+- Glance Wear is a library for building Widgets for Wear OS using `RemoteCompose`.

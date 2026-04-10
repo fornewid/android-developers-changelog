@@ -1,36 +1,21 @@
 ---
-title: Add spinners to your app  |  Views  |  Android Developers
+title: https://developer.android.com/develop/ui/views/components/spinner
 url: https://developer.android.com/develop/ui/views/components/spinner
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [Develop](https://developer.android.com/develop)
-* [Core areas](https://developer.android.com/develop/core-areas)
-* [UI](https://developer.android.com/develop/ui)
-* [Views](https://developer.android.com/develop/ui/views/layout/declaring-layout)
-
-# Add spinners to your app Stay organized with collections Save and categorize content based on your preferences.
-
-
 
 Spinners provide a quick way to select one value from a set. In the default
 state, a spinner shows its currently selected value. Tapping the spinner
 displays a menu showing all other values the user can select.
-
-![](/static/images/ui/spinner.png)
-
-
-**Figure 1.** A menu from a spinner, showing the available
-values.
+![](https://developer.android.com/static/images/ui/spinner.png) **Figure 1.** A menu from a spinner, showing the available values.
 
 You can add a spinner to your layout with the
-`Spinner`
+`https://developer.android.com/reference/android/widget/Spinner`
 object, which you usually do in your XML layout with a
 `<Spinner>` element. This is shown in the following
 example:
 
-```
+```xml
 <Spinner
     android:id="@+id/planets_spinner"
     android:layout_width="match_parent"
@@ -38,10 +23,10 @@ example:
 ```
 
 To populate the spinner with a list of choices, specify a
-`SpinnerAdapter`
+`https://developer.android.com/reference/android/widget/SpinnerAdapter`
 in your
-`Activity` or
-`Fragment`
+`https://developer.android.com/reference/android/app/Activity` or
+`https://developer.android.com/reference/androidx/fragment/app/Fragment`
 source code.
 
 If you are using Material Design Components,
@@ -52,17 +37,17 @@ dropdown menus](https://www.material.io/components/menus/android#exposed-dropdow
 
 The choices you provide for the spinner can come from any source, but you
 must provide them through a `SpinnerAdapter`, such as an
-`ArrayAdapter`
+`https://developer.android.com/reference/android/widget/ArrayAdapter`
 if the choices are available in an array or a
-`CursorAdapter`
+`https://developer.android.com/reference/android/widget/CursorAdapter`
 if the choices are available from a database query.
 
 For example, if the available choices for your spinner are pre-determined,
 you can provide them with a string array defined in a
 [string resource
-file](/guide/topics/resources/string-resource):
+file](https://developer.android.com/guide/topics/resources/string-resource):
 
-```
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="planets_array">
@@ -84,7 +69,7 @@ array using an instance of `ArrayAdapter`:
 
 ### Kotlin
 
-```
+```kotlin
 val spinner: Spinner = findViewById(R.id.planets_spinner)
 // Create an ArrayAdapter using the string array and a default spinner layout.
 ArrayAdapter.createFromResource(
@@ -101,7 +86,7 @@ ArrayAdapter.createFromResource(
 
 ### Java
 
-```
+```java
 Spinner spinner = (Spinner) findViewById(R.id.planets_spinner);
 // Create an ArrayAdapter using the string array and a default spinner layout.
 ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
@@ -116,40 +101,40 @@ spinner.setAdapter(adapter);
 ```
 
 The
-`createFromResource()`
+`https://developer.android.com/reference/android/widget/ArrayAdapter#createFromResource(android.content.Context, int, int)`
 method lets you create an `ArrayAdapter` from the string array. The
 third argument for this method is a layout resource that defines how the
 selected choice appears in the spinner control. The platform provides the
-`simple_spinner_item`
+`https://developer.android.com/reference/android/R.layout#simple_spinner_item`
 layout. This is the default layout unless you want to define your own layout for
 the spinner's appearance.
 
 Call
-`setDropDownViewResource(int)`
+`https://developer.android.com/reference/android/widget/ArrayAdapter#setDropDownViewResource(int)`
 to specify the layout the adapter uses to display the list of spinner choices.
-`simple_spinner_dropdown_item`
+`https://developer.android.com/reference/android/R.layout#simple_spinner_dropdown_item`
 is another standard layout defined by the platform.
 
 Call
-`setAdapter()`
+`https://developer.android.com/reference/android/widget/AdapterView#setAdapter(T)`
 to apply the adapter to your `Spinner`.
 
 ## Respond to user selections
 
 When the user selects an item from the spinner's menu, the
-`Spinner` object
+`https://developer.android.com/reference/android/widget/Spinner` object
 receives an on-item-selected event.
 
 To define the selection event handler for a spinner, implement the
-[`AdapterView.OnItemSelectedListener`](/reference/android/widget/AdapterView.OnItemSelectedListener)
+[`AdapterView.OnItemSelectedListener`](https://developer.android.com/reference/android/widget/AdapterView.OnItemSelectedListener)
 interface and the corresponding
-`onItemSelected()`
+`https://developer.android.com/reference/android/widget/AdapterView.OnItemSelectedListener#onItemSelected(android.widget.AdapterView<?>, android.view.View, int, long)`
 callback method. For example, here's an implementation of the interface in an
 `Activity`:
 
 ### Kotlin
 
-```
+```kotlin
 class SpinnerActivity : Activity(), AdapterView.OnItemSelectedListener {
     ...
     override fun onItemSelected(parent: AdapterView<*>, view: View?, pos: Int, id: Long) {
@@ -165,7 +150,7 @@ class SpinnerActivity : Activity(), AdapterView.OnItemSelectedListener {
 
 ### Java
 
-```
+```java
 public class SpinnerActivity extends Activity implements OnItemSelectedListener {
     ...
     public void onItemSelected(AdapterView<?> parent, View view,
@@ -183,22 +168,22 @@ public class SpinnerActivity extends Activity implements OnItemSelectedListener 
 The
 `AdapterView.OnItemSelectedListener` interface requires the
 `onItemSelected()` and
-`onNothingSelected()`
+`https://developer.android.com/reference/android/widget/AdapterView.OnItemSelectedListener#onNothingSelected(android.widget.AdapterView<?>)`
 callback methods.
 
 Specify the interface implementation by calling
-`setOnItemSelectedListener()`:
+`https://developer.android.com/reference/android/widget/AdapterView#setOnItemSelectedListener(android.widget.AdapterView.OnItemSelectedListener)`:
 
 ### Kotlin
 
-```
+```kotlin
 val spinner: Spinner = findViewById(R.id.planets_spinner)
 spinner.onItemSelectedListener = this
 ```
 
 ### Java
 
-```
+```java
 Spinner spinner = (Spinner) findViewById(R.id.planets_spinner);
 spinner.setOnItemSelectedListener(this);
 ```

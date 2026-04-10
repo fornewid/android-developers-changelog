@@ -1,19 +1,10 @@
 ---
-title: Best practices for SQLite performance  |  App quality  |  Android Developers
+title: https://developer.android.com/topic/performance/sqlite-performance-best-practices
 url: https://developer.android.com/topic/performance/sqlite-performance-best-practices
-source: html-scrape
+source: md.txt
 ---
 
-* [Android Developers](https://developer.android.com/)
-* [Design & Plan](https://developer.android.com/design)
-* [App quality](https://developer.android.com/quality)
-* [Technical quality](https://developer.android.com/quality/technical)
-
-# Best practices for SQLite performance Stay organized with collections Save and categorize content based on your preferences.
-
-
-
-Android offers [built-in support for SQLite](/training/data-storage/sqlite), an
+Android offers [built-in support for SQLite](https://developer.android.com/training/data-storage/sqlite), an
 efficient SQL database. Follow these best practices to optimize your app's
 performance, ensuring it remains fast and predictably fast as your data grows.
 By using these best practices, you also reduce the possibility of
@@ -22,13 +13,15 @@ troubleshoot.
 
 To achieve faster performance, follow these performance principles:
 
-* **Read fewer rows and columns**: Optimize your queries to retrieve only the
+- **Read fewer rows and columns**: Optimize your queries to retrieve only the
   necessary data. Minimize the amount of data read from the database, because
   excess data retrieval can impact performance.
-* **Push work to SQLite engine**: Perform computations, filtering, and sorting
+
+- **Push work to SQLite engine**: Perform computations, filtering, and sorting
   operations within the SQL queries. Using SQLite's query engine can significantly
   improve performance.
-* **Modify the database schema**: Design your database schema to help SQLite
+
+- **Modify the database schema**: Design your database schema to help SQLite
   construct efficient query plans and data representations. Properly index tables
   and optimize table structures to enhance performance.
 
@@ -36,7 +29,7 @@ Additionally, you can use the available troubleshooting tools to measure the
 performance of your SQLite database to help identify areas that require
 optimization.
 
-We recommend using the [Jetpack Room library](/training/data-storage/room).
+We recommend using the [Jetpack Room library](https://developer.android.com/training/data-storage/room).
 
 ## Configure the database for performance
 
@@ -50,7 +43,7 @@ compacts into the database. This is called [Write-Ahead Logging
 (WAL)](https://www.sqlite.org/wal.html).
 
 [Enable
-WAL](/reference/android/database/sqlite/SQLiteDatabase#enableWriteAheadLogging())
+WAL](https://developer.android.com/reference/android/database/sqlite/SQLiteDatabase#enableWriteAheadLogging())
 unless you are using [`ATTACH
 DATABASE`](https://www.sqlite.org/lang_attach.html).
 
@@ -66,7 +59,7 @@ enable WAL, set synchronous mode to `NORMAL`:
 
 ### Kotlin
 
-```
+```kotlin
 // When opening the database
 val paramsBuilder: SQLiteDatabase.OpenParams.Builder = SQLiteDatabase.OpenParams.Builder()
 paramsBuilder.journalMode = SQLiteDatabase.SYNC_MODE_NORMAL
@@ -77,7 +70,7 @@ db.execSQL("PRAGMA synchronous = NORMAL");
 
 ### Java
 
-```
+```java
 // When opening the database
 SQLiteDatabase.OpenParams.Builder paramsBuilder = new SQLiteDatabase.OpenParams.Builder();
 paramsBuilder.setJournalMode(SQLiteDatabase.SYNC_MODE_NORMAL);
@@ -94,8 +87,8 @@ corrupted.
 If only your app crashes, your data still reaches the disk. For most apps, this
 setting yields performance improvements at no material cost.
 
-**Note:** If your app has multiple databases, use the same synchronous setting
-everywhere in case there are data dependencies between different databases.
+> [!NOTE]
+> **Note:** If your app has multiple databases, use the same synchronous setting everywhere in case there are data dependencies between different databases.
 
 ## Define efficient table schemas
 
@@ -108,21 +101,19 @@ schemas.
 
 For this example, define and populate a table as follows:
 
-```
-CREATE TABLE Customers(
-  id INTEGER,
-  name TEXT,
-  city TEXT
-);
-INSERT INTO Customers Values(456, 'John Lennon', 'Liverpool, England');
-INSERT INTO Customers Values(123, 'Michael Jackson', 'Gary, IN');
-INSERT INTO Customers Values(789, 'Dolly Parton', 'Sevier County, TN');
-```
+    CREATE TABLE Customers(
+      id INTEGER,
+      name TEXT,
+      city TEXT
+    );
+    INSERT INTO Customers Values(456, 'John Lennon', 'Liverpool, England');
+    INSERT INTO Customers Values(123, 'Michael Jackson', 'Gary, IN');
+    INSERT INTO Customers Values(789, 'Dolly Parton', 'Sevier County, TN');
 
 The table output is as follows:
 
 | rowid | id | name | city |
-| --- | --- | --- | --- |
+|---|---|---|---|
 | 1 | 456 | John Lennon | Liverpool, England |
 | 2 | 123 | Michael Jackson | Gary, IN |
 | 3 | 789 | Dolly Parton | Sevier County, TN |
@@ -136,18 +127,16 @@ If you plan on doing lookups by `id`, you can avoid storing the
 `rowid` column for less data in storage and an overall
 faster database:
 
-```
-CREATE TABLE Customers(
-  id INTEGER PRIMARY KEY,
-  name TEXT,
-  city TEXT
-);
-```
+    CREATE TABLE Customers(
+      id INTEGER PRIMARY KEY,
+      name TEXT,
+      city TEXT
+    );
 
 Your table now looks as follows:
 
 | id | name | city |
-| --- | --- | --- |
+|---|---|---|
 | 123 | Michael Jackson | Gary, IN |
 | 456 | John Lennon | Liverpool, England |
 | 789 | Dolly Parton | Sevier County, TN |
@@ -165,23 +154,19 @@ query is accelerated.
 
 In the previous example, filtering by `city` requires scanning the entire table:
 
-```
-SELECT id, name
-WHERE city = 'London, England';
-```
+    SELECT id, name
+    WHERE city = 'London, England';
 
 For an app with a lot of city queries, you can accelerate those queries with an
 index:
 
-```
-CREATE INDEX city_index ON Customers(city);
-```
+    CREATE INDEX city_index ON Customers(city);
 
 An index is implemented as an additional table, sorted by the index column and
 mapped to `rowid`:
 
 | city | rowid |
-| --- | --- |
+|---|---|
 | Gary, IN | 2 |
 | Liverpool, England | 1 |
 | Sevier County, TN | 3 |
@@ -201,18 +186,14 @@ and let the inside search be done as a linear scan.
 
 For instance, given the following query:
 
-```
-SELECT id, name
-WHERE city = 'London, England'
-ORDER BY city, name
-```
+    SELECT id, name
+    WHERE city = 'London, England'
+    ORDER BY city, name
 
 You can accelerate the query with a multi-column index in the same order as
 specified in the query:
 
-```
-CREATE INDEX city_name_index ON Customers(city, name);
-```
+    CREATE INDEX city_name_index ON Customers(city, name);
 
 However, if you only have an index on `city`, the outside ordering is still
 accelerated, while the inside ordering requires a linear scan.
@@ -232,9 +213,9 @@ For tables that have a primary key other than `INTEGER` or a composite of
 columns, consider [`WITHOUT
 ROWID`](https://www.sqlite.org/withoutrowid.html).
 
-**Warning:** Tables using `WITHOUT ROWID` can incur performance penalties if their
-primary keys are large. For more information, see the [use
-cases](https://www.sqlite.org/withoutrowid.html#when_to_use_without_rowid).
+> [!WARNING]
+> **Warning:** Tables using `WITHOUT ROWID` can incur performance penalties if their primary keys are large. For more information, see the [use
+> cases](https://www.sqlite.org/withoutrowid.html#when_to_use_without_rowid).
 
 ### Store small data as a `BLOB` and large data as a file
 
@@ -248,19 +229,16 @@ database as a `BLOB`. SQLite minimizes filesystem calls and is [faster than the
 underlying filesystem](https://www.sqlite.org/fasterthanfs.html)
 in some cases.
 
-**Note:** On Android, consider using a file for any data that is several multiples
-of 4 KB.
+> [!NOTE]
+> **Note:** On Android, consider using a file for any data that is several multiples of 4 KB.
 
 ## Improve query performance
 
 Follow these best practices to improve query performance in SQLite by minimizing
 response times and maximizing processing efficiency.
 
-**Note:** Many of the examples on this page include a `LIMIT` clause. This is good
-practice because queries that could return many rows have performance
-implications when returning large data sets. The exception to this is for
-queries that implicitly return a size constrained dataset. For example,
-searching on a field defined as `UNIQUE` can only return zero or one row.
+> [!NOTE]
+> **Note:** Many of the examples on this page include a `LIMIT` clause. This is good practice because queries that could return many rows have performance implications when returning large data sets. The exception to this is for queries that implicitly return a size constrained dataset. For example, searching on a field defined as `UNIQUE` can only return zero or one row.
 
 ### Read only the rows you need
 
@@ -270,7 +248,7 @@ of results you see:
 
 ### Kotlin
 
-```
+```kotlin
 db.rawQuery("""
     SELECT name
     FROM Customers
@@ -286,7 +264,7 @@ db.rawQuery("""
 
 ### Java
 
-```
+```java
 try (Cursor cursor = db.rawQuery("""
     SELECT name
     FROM Customers
@@ -308,7 +286,7 @@ In the following example, you select `id`, `name`, and `phone`:
 
 ### Kotlin
 
-```
+```kotlin
 // This is not the most efficient way of doing this.
 // See the following example for a better approach.
 
@@ -328,7 +306,7 @@ db.rawQuery(
 
 ### Java
 
-```
+```java
 // This is not the most efficient way of doing this.
 // See the following example for a better approach.
 
@@ -347,7 +325,7 @@ However, you only need the `name` column:
 
 ### Kotlin
 
-```
+```kotlin
 db.rawQuery("""
     SELECT name
     FROM Customers;
@@ -363,7 +341,7 @@ db.rawQuery("""
 
 ### Java
 
-```
+```java
 try (Cursor cursor = db.rawQuery("""
     SELECT name
     FROM Customers;
@@ -382,7 +360,7 @@ as the following:
 
 ### Kotlin
 
-```
+```kotlin
 fun getNameById(id: Long): String? 
     db.rawQuery(
         "SELECT name FROM customers WHERE id=$id", null
@@ -398,7 +376,7 @@ fun getNameById(id: Long): String?
 
 ### Java
 
-```
+```java
 @Nullable
 public String getNameById(long id) {
   try (Cursor cursor = db.rawQuery(
@@ -420,7 +398,7 @@ bind the value with `selectionArgs`:
 
 ### Kotlin
 
-```
+```kotlin
 fun getNameById(id: Long): String? {
     db.rawQuery(
         """
@@ -440,7 +418,7 @@ fun getNameById(id: Long): String? {
 
 ### Java
 
-```
+```java
 @Nullable
 public String getNameById(long id) {
   try (Cursor cursor = db.rawQuery("""
@@ -460,9 +438,8 @@ public String getNameById(long id) {
 Now the query can be compiled once and cached. The compiled query is reused
 between different invocations of `getNameById(long)`.
 
-**Caution:** If the input argument is some other object less constrained than just a
-number, string concatenation might lead to a SQL injection security
-vulnerability. Always use parameters for variables or untrusted data.
+> [!CAUTION]
+> **Caution:** If the input argument is some other object less constrained than just a number, string concatenation might lead to a SQL injection security vulnerability. Always use parameters for variables or untrusted data.
 
 ### Iterate in SQL, not in code
 
@@ -478,7 +455,7 @@ to return only the unique values from a column, use `DISTINCT`:
 
 ### Kotlin
 
-```
+```kotlin
 db.rawQuery("""
     SELECT DISTINCT name
     FROM Customers;
@@ -494,7 +471,7 @@ db.rawQuery("""
 
 ### Java
 
-```
+```java
 try (Cursor cursor = db.rawQuery("""
     SELECT DISTINCT name
     FROM Customers;
@@ -513,7 +490,7 @@ following code checks whether there is at least one matching row:
 
 ### Kotlin
 
-```
+```kotlin
 // This is not the most efficient way of doing this.
 // See the following example for a better approach.
 
@@ -535,7 +512,7 @@ db.rawQuery("""
 
 ### Java
 
-```
+```java
 // This is not the most efficient way of doing this.
 // See the following example for a better approach.
 
@@ -559,7 +536,7 @@ row does not exist and `1` if one or more rows match:
 
 ### Kotlin
 
-```
+```kotlin
 db.rawQuery("""
     SELECT EXISTS (
         SELECT null
@@ -581,7 +558,7 @@ db.rawQuery("""
 
 ### Java
 
-```
+```java
 try (Cursor cursor = db.rawQuery("""
     SELECT EXISTS (
       SELECT null
@@ -603,24 +580,22 @@ Use [SQLite aggregate
 functions](https://www.sqlite.org/lang_aggfunc.html) in your app
 code:
 
-* `COUNT`: counts how many rows are in a column.
-* `SUM`: adds all numerical values in a column.
-* `MIN` or `MAX`: determines the lowest or highest value. Works for numeric
-  columns,
-  `DATE` types, and text types.
-* `AVG`: finds the average numerical value.
-* `GROUP_CONCAT`: concatenates strings with an optional separator.
+- `COUNT`: counts how many rows are in a column.
+- `SUM`: adds all numerical values in a column.
+- `MIN` or `MAX`: determines the lowest or highest value. Works for numeric columns, `DATE` types, and text types.
+- `AVG`: finds the average numerical value.
+- `GROUP_CONCAT`: concatenates strings with an optional separator.
 
 ### Use `COUNT()` instead of `Cursor.getCount()`
 
 In the
 following example, the
-[`Cursor.getCount()`](/reference/android/database/Cursor#getCount()) function
+[`Cursor.getCount()`](https://developer.android.com/reference/android/database/Cursor#getCount()) function
 reads all the rows from the database and returns all the row values:
 
 ### Kotlin
 
-```
+```kotlin
 // This is not the most efficient way of doing this.
 // See the following example for a better approach.
 
@@ -637,7 +612,7 @@ db.rawQuery("""
 
 ### Java
 
-```
+```java
 // This is not the most efficient way of doing this.
 // See the following example for a better approach.
 
@@ -655,7 +630,7 @@ count:
 
 ### Kotlin
 
-```
+```kotlin
 db.rawQuery("""
     SELECT COUNT(*)
     FROM Customers;
@@ -670,7 +645,7 @@ db.rawQuery("""
 
 ### Java
 
-```
+```java
 try (Cursor cursor = db.rawQuery("""
     SELECT COUNT(*)
     FROM Customers;
@@ -694,7 +669,7 @@ that city:
 
 ### Kotlin
 
-```
+```kotlin
 // This is not the most efficient way of doing this.
 // See the following example for a better approach.
 
@@ -725,7 +700,7 @@ db.rawQuery("""
 
 ### Java
 
-```
+```java
 // This is not the most efficient way of doing this.
 // See the following example for a better approach.
 
@@ -756,7 +731,7 @@ query with nested statements:
 
 ### Kotlin
 
-```
+```kotlin
 db.rawQuery("""
     SELECT name, city
     FROM Customers
@@ -778,7 +753,7 @@ db.rawQuery("""
 
 ### Java
 
-```
+```java
 try (Cursor cursor = db.rawQuery("""
     SELECT name, city
     FROM Customers
@@ -807,7 +782,7 @@ inserted and another to actually insert:
 
 ### Kotlin
 
-```
+```kotlin
 // This is not the most efficient way of doing this.
 // See the following example for a better approach.
 
@@ -837,7 +812,7 @@ db.execSQL(
 
 ### Java
 
-```
+```java
 // This is not the most efficient way of doing this.
 // See the following example for a better approach.
 
@@ -864,30 +839,25 @@ db.execSQL(
 Instead of checking the unique constraint in Kotlin or Java, you can check it in
 SQL when you define the table:
 
-```
-CREATE TABLE Customers(
-  id INTEGER PRIMARY KEY,
-  name TEXT,
-  username TEXT UNIQUE
-);
-```
+    CREATE TABLE Customers(
+      id INTEGER PRIMARY KEY,
+      name TEXT,
+      username TEXT UNIQUE
+    );
 
 SQLite does the same as the following:
 
-```
-CREATE TABLE Customers(...);
-CREATE UNIQUE INDEX CustomersUsername ON Customers(username);
-```
+    CREATE TABLE Customers(...);
+    CREATE UNIQUE INDEX CustomersUsername ON Customers(username);
 
-**Note:** An index table is created for `username`, which uses extra storage. For
-more information about querying an index table, see
-[Accelerate queries with indexes](#accelerate-queries).
+> [!NOTE]
+> **Note:** An index table is created for `username`, which uses extra storage. For more information about querying an index table, see [Accelerate queries with indexes](https://developer.android.com/topic/performance/sqlite-performance-best-practices#accelerate-queries).
 
 Now you can insert a row and let SQLite check the constraint:
 
 ### Kotlin
 
-```
+```kotlin
 try {
     db.execSql(
         "INSERT INTO Customers VALUES (?, ?, ?)",
@@ -900,7 +870,7 @@ try {
 
 ### Java
 
-```
+```java
 try {
   db.execSQL(
       "INSERT INTO Customers VALUES (?, ?, ?)",
@@ -914,15 +884,13 @@ try {
 }
 ```
 
-**Note:** If you define [`INTEGER PRIMARY KEY`](#consider-integer), then a unique
-constraint applies to that column and doesn't use an extra index table.
+> [!NOTE]
+> **Note:** If you define [`INTEGER PRIMARY KEY`](https://developer.android.com/topic/performance/sqlite-performance-best-practices#consider-integer), then a unique constraint applies to that column and doesn't use an extra index table.
 
 SQLite supports unique indexes with multiple columns:
 
-```
-CREATE TABLE table(...);
-CREATE UNIQUE INDEX unique_table ON table(column1, column2, ...);
-```
+    CREATE TABLE table(...);
+    CREATE UNIQUE INDEX unique_table ON table(column1, column2, ...);
 
 SQLite validates constraints faster and with less overhead than Kotlin or Java
 code. It is a best practice to use SQLite rather than app code.
@@ -935,7 +903,7 @@ accelerate performance, you can batch insertions:
 
 ### Kotlin
 
-```
+```kotlin
 db.beginTransaction()
 try {
     customers.forEach { customer ->
@@ -951,7 +919,7 @@ try {
 
 ### Java
 
-```
+```java
 db.beginTransaction();
 try {
   for (customer : Customers) {
@@ -968,8 +936,8 @@ try {
 }
 ```
 
-**Note:** Only one write transaction can occur at a time. Use
-`MoreExecutors.newSequentialExecutor(Executor)` to serialize writes.
+> [!NOTE]
+> **Note:** Only one write transaction can occur at a time. Use `MoreExecutors.newSequentialExecutor(Executor)` to serialize writes.
 
 ## Use troubleshooting tools
 
@@ -984,47 +952,39 @@ run `sqlite3` on your target device.
 
 You can ask SQLite to time queries:
 
-```
-sqlite> .timer on
-sqlite> SELECT ...
-Run Time: real ... user ... sys ...
-```
+    sqlite> .timer on
+    sqlite> SELECT ...
+    Run Time: real ... user ... sys ...
 
 ### `EXPLAIN QUERY PLAN`
 
 You can ask SQLite to explain how it intends to answer a query by using
 [`EXPLAIN QUERY PLAN`](https://www.sqlite.org/eqp.html):
 
-```
-sqlite> EXPLAIN QUERY PLAN
-SELECT id, name
-FROM Customers
-WHERE city = 'Paris';
-QUERY PLAN
-`--SCAN Customers
-```
+    sqlite> EXPLAIN QUERY PLAN
+    SELECT id, name
+    FROM Customers
+    WHERE city = 'Paris';
+    QUERY PLAN
+    `--SCAN Customers
 
 The previous example requires a full table scan without an index to find all
 customers from Paris. This is called *linear complexity*. SQLite needs to read
 all the rows and only keep the rows that match customers from Paris. To fix
 this, you can add an index:
 
-```
-sqlite> CREATE INDEX Idx1 ON Customers(city);
-sqlite> EXPLAIN QUERY PLAN
-SELECT id, name
-FROM Customers
-WHERE city = 'Paris';
-QUERY PLAN
-`--SEARCH test USING INDEX Idx1 (city=?
-```
+    sqlite> CREATE INDEX Idx1 ON Customers(city);
+    sqlite> EXPLAIN QUERY PLAN
+    SELECT id, name
+    FROM Customers
+    WHERE city = 'Paris';
+    QUERY PLAN
+    `--SEARCH test USING INDEX Idx1 (city=?
 
 If you're using the interactive shell, you can ask SQLite to always explain
 query plans:
 
-```
-sqlite> .eqp on
-```
+    sqlite> .eqp on
 
 For more information, see
 [Query Planning](https://www.sqlite.org/queryplanner.html).
@@ -1040,9 +1000,7 @@ troubleshoot performance. To install, visit the
 You can use `adb pull` to download a database file from a target device to your
 workstation for analysis:
 
-```
-adb pull /data/data/<app_package_name>/databases/<db_name>.db
-```
+    adb pull /data/data/<app_package_name>/databases/<db_name>.db
 
 ### SQLite Browser
 
@@ -1054,28 +1012,24 @@ You can also install the GUI tool
 
 Android times SQLite queries and logs them for you:
 
-```
-# Enable query time logging
-$ adb shell setprop log.tag.SQLiteTime VERBOSE
-# Disable query time logging
-$ adb shell setprop log.tag.SQLiteTime ERROR
-```
+    # Enable query time logging
+    $ adb shell setprop log.tag.SQLiteTime VERBOSE
+    # Disable query time logging
+    $ adb shell setprop log.tag.SQLiteTime ERROR
 
 ### Perfetto tracing
 
 When [configuring Perfetto](https://perfetto.dev/docs/concepts/config), you may
 add the following to include tracks for individual queries:
 
-```
-data_sources {
-  config {
-    name: "linux.ftrace"
-    ftrace_config {
-      atrace_categories: "database"
+    data_sources {
+      config {
+        name: "linux.ftrace"
+        ftrace_config {
+          atrace_categories: "database"
+        }
+      }
     }
-  }
-}
-```
 
 ### `dumpsys meminfo`
 
@@ -1085,78 +1039,64 @@ taken from the output of
 `adb shell dumpsys meminfo com.google.android.gms.persistent` on a developer's
 device:
 
-```
-DATABASES
-      pgsz     dbsz   Lookaside(b) cache hits cache misses cache size  Dbname
-PER CONNECTION STATS
-         4       52             45     8    41     6  /data/user/10/com.google.android.gms/databases/gaia-discovery
-         4        8                    0     0     0    (attached) temp
-         4       52             56     5    23     6  /data/user/10/com.google.android.gms/databases/gaia-discovery (1)
-         4      252             95   233   124    12  /data/user_de/10/com.google.android.gms/databases/phenotype.db
-         4        8                    0     0     0    (attached) temp
-         4      252             17     0    17     1  /data/user_de/10/com.google.android.gms/databases/phenotype.db (1)
-         4     9280            105 103169 69805    25  /data/user/10/com.google.android.gms/databases/phenotype.db
-         4       20                    0     0     0    (attached) temp
-         4     9280            108 13877  6394    25  /data/user/10/com.google.android.gms/databases/phenotype.db (2)
-         4        8                    0     0     0    (attached) temp
-         4     9280            105 12548  5519    25  /data/user/10/com.google.android.gms/databases/phenotype.db (3)
-         4        8                    0     0     0    (attached) temp
-         4     9280            107 18328  7886    25  /data/user/10/com.google.android.gms/databases/phenotype.db (1)
-         4        8                    0     0     0    (attached) temp
-         4       36             51   156    29     5  /data/user/10/com.google.android.gms/databases/mobstore_gc_db_v0
-         4       36             97    47    27    10  /data/user/10/com.google.android.gms/databases/context_feature_default.db
-         4       36             56     3    16     4  /data/user/10/com.google.android.gms/databases/context_feature_default.db (2)
-         4      300             40  2111    24     5  /data/user/10/com.google.android.gms/databases/gservices.db
-         4      300             39     3    17     4  /data/user/10/com.google.android.gms/databases/gservices.db (1)
-         4       20             17     0    14     1  /data/user/10/com.google.android.gms/databases/gms.notifications.db
-         4       20             33     1    15     2  /data/user/10/com.google.android.gms/databases/gms.notifications.db (1)
-         4      120             40   143   163     4  /data/user/10/com.google.android.gms/databases/android_pay
-         4      120            123    86    32    19  /data/user/10/com.google.android.gms/databases/android_pay (1)
-         4       28             33     4    17     3  /data/user/10/com.google.android.gms/databases/googlesettings.db
-POOL STATS
-     cache hits  cache misses    cache size  Dbname
-             13            68            81  /data/user/10/com.google.android.gms/databases/gaia-discovery
-            233           145           378  /data/user_de/10/com.google.android.gms/databases/phenotype.db
-         147921         89616        237537  /data/user/10/com.google.android.gms/databases/phenotype.db
-            156            30           186  /data/user/10/com.google.android.gms/databases/mobstore_gc_db_v0
-             50            57           107  /data/user/10/com.google.android.gms/databases/context_feature_default.db
-           2114            43          2157  /data/user/10/com.google.android.gms/databases/gservices.db
-              1            31            32  /data/user/10/com.google.android.gms/databases/gms.notifications.db
-            229           197           426  /data/user/10/com.google.android.gms/databases/android_pay
-              4            18            22  /data/user/10/com.google.android.gms/databases/googlesettings.db
-```
+    DATABASES
+          pgsz     dbsz   Lookaside(b) cache hits cache misses cache size  Dbname
+    PER CONNECTION STATS
+             4       52             45     8    41     6  /data/user/10/com.google.android.gms/databases/gaia-discovery
+             4        8                    0     0     0    (attached) temp
+             4       52             56     5    23     6  /data/user/10/com.google.android.gms/databases/gaia-discovery (1)
+             4      252             95   233   124    12  /data/user_de/10/com.google.android.gms/databases/phenotype.db
+             4        8                    0     0     0    (attached) temp
+             4      252             17     0    17     1  /data/user_de/10/com.google.android.gms/databases/phenotype.db (1)
+             4     9280            105 103169 69805    25  /data/user/10/com.google.android.gms/databases/phenotype.db
+             4       20                    0     0     0    (attached) temp
+             4     9280            108 13877  6394    25  /data/user/10/com.google.android.gms/databases/phenotype.db (2)
+             4        8                    0     0     0    (attached) temp
+             4     9280            105 12548  5519    25  /data/user/10/com.google.android.gms/databases/phenotype.db (3)
+             4        8                    0     0     0    (attached) temp
+             4     9280            107 18328  7886    25  /data/user/10/com.google.android.gms/databases/phenotype.db (1)
+             4        8                    0     0     0    (attached) temp
+             4       36             51   156    29     5  /data/user/10/com.google.android.gms/databases/mobstore_gc_db_v0
+             4       36             97    47    27    10  /data/user/10/com.google.android.gms/databases/context_feature_default.db
+             4       36             56     3    16     4  /data/user/10/com.google.android.gms/databases/context_feature_default.db (2)
+             4      300             40  2111    24     5  /data/user/10/com.google.android.gms/databases/gservices.db
+             4      300             39     3    17     4  /data/user/10/com.google.android.gms/databases/gservices.db (1)
+             4       20             17     0    14     1  /data/user/10/com.google.android.gms/databases/gms.notifications.db
+             4       20             33     1    15     2  /data/user/10/com.google.android.gms/databases/gms.notifications.db (1)
+             4      120             40   143   163     4  /data/user/10/com.google.android.gms/databases/android_pay
+             4      120            123    86    32    19  /data/user/10/com.google.android.gms/databases/android_pay (1)
+             4       28             33     4    17     3  /data/user/10/com.google.android.gms/databases/googlesettings.db
+    POOL STATS
+         cache hits  cache misses    cache size  Dbname
+                 13            68            81  /data/user/10/com.google.android.gms/databases/gaia-discovery
+                233           145           378  /data/user_de/10/com.google.android.gms/databases/phenotype.db
+             147921         89616        237537  /data/user/10/com.google.android.gms/databases/phenotype.db
+                156            30           186  /data/user/10/com.google.android.gms/databases/mobstore_gc_db_v0
+                 50            57           107  /data/user/10/com.google.android.gms/databases/context_feature_default.db
+               2114            43          2157  /data/user/10/com.google.android.gms/databases/gservices.db
+                  1            31            32  /data/user/10/com.google.android.gms/databases/gms.notifications.db
+                229           197           426  /data/user/10/com.google.android.gms/databases/android_pay
+                  4            18            22  /data/user/10/com.google.android.gms/databases/googlesettings.db
 
 Under `DATABASES` you'll find:
 
-* `pgsz`: the size of one database page, in KB.
-* `dbsz`: the size of the entire database, in pages. To get the size in KB,
-  multiply `pgsz` by `dbsz`.
-* `Lookaside(b)`: memory allocated to the SQLite lookaside buffer per
-  connection, in bytes. These are typically very small.
-* `cache hits`: SQLite maintains a cache of database pages. This is the number
-  of page cache hits (count).
-* `cache misses`: number of page cache misses (count).
-* `cache size`: number of pages in the cache (count). To get the size in KB,
-  multiply this number by `pgsz`.
-* `Dbname`: path to DB file. In our example some DBs have `(1)` or another
-  number appended to their name, to indicate that there is more than one
-  connection to the same underlying database. Stats are tracked per
-  connection.
+- `pgsz`: the size of one database page, in KB.
+- `dbsz`: the size of the entire database, in pages. To get the size in KB, multiply `pgsz` by `dbsz`.
+- `Lookaside(b)`: memory allocated to the SQLite lookaside buffer per connection, in bytes. These are typically very small.
+- `cache hits`: SQLite maintains a cache of database pages. This is the number of page cache hits (count).
+- `cache misses`: number of page cache misses (count).
+- `cache size`: number of pages in the cache (count). To get the size in KB, multiply this number by `pgsz`.
+- `Dbname`: path to DB file. In our example some DBs have `(1)` or another number appended to their name, to indicate that there is more than one connection to the same underlying database. Stats are tracked per connection.
 
 Under `POOL STATS` you'll find:
 
-* `cache hits`: SQLite caches prepared statements and attempts to reuse them
-  when running queries, to save some effort and memory in compiling SQL
-  statements. This is the number of statement cache hits (count).
-* `cache misses`: number of statement cache misses (count).
-* `cache size`: starting with Android 17, this lists the total number of
-  prepared statements in the cache. In earlier versions, this value is
-  equivalent to the sum of hits and misses listed in the other two columns,
-  and does not represent the cache size.
+- `cache hits`: SQLite caches prepared statements and attempts to reuse them when running queries, to save some effort and memory in compiling SQL statements. This is the number of statement cache hits (count).
+- `cache misses`: number of statement cache misses (count).
+- `cache size`: starting with Android 17, this lists the total number of prepared statements in the cache. In earlier versions, this value is equivalent to the sum of hits and misses listed in the other two columns, and does not represent the cache size.
 
 ## Recommended for you
 
-* Note: link text is displayed when JavaScript is off
-* [Run benchmarks in Continuous Integration](/topic/performance/benchmarking/benchmarking-in-ci)
-* [Frozen frames](/topic/performance/vitals/frozen)
-* [Create and measure Baseline Profiles without Macrobenchmark](/topic/performance/baselineprofiles/manually-create-measure)
+- Note: link text is displayed when JavaScript is off
+- [Run benchmarks in Continuous Integration](https://developer.android.com/topic/performance/benchmarking/benchmarking-in-ci)
+- [Frozen frames](https://developer.android.com/topic/performance/vitals/frozen)
+- [Create and measure Baseline Profiles without Macrobenchmark](https://developer.android.com/topic/performance/baselineprofiles/manually-create-measure)

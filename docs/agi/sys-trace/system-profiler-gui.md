@@ -1,43 +1,39 @@
 ---
-title: View a system profile  |  Android Developers
+title: https://developer.android.com/agi/sys-trace/system-profiler-gui
 url: https://developer.android.com/agi/sys-trace/system-profiler-gui
-source: html-scrape
+source: md.txt
 ---
 
-Join us for ⁠the [Google for Games Developer Summit](https://gamedevsummit.withgoogle.com/) on March 15!
-
-* [Android Developers](https://developer.android.com/)
-* [Google Play](https://developer.android.com/distribute)
-* [Guides](https://developer.android.com/games/guides)
-
-# View a system profile Stay organized with collections Save and categorize content based on your preferences.
-
-
-
 In Android GPU Inspector (AGI), you can view and analyze a
-[system profile](/agi/sys-trace/system-profiler) in the System Profiler UI.
-After you profile a system and [open the trace file](/agi/start#system-profile) in
+[system profile](https://developer.android.com/agi/sys-trace/system-profiler) in the System Profiler UI.
+After you profile a system and [open the trace file](https://developer.android.com/agi/start#system-profile) in
 AGI, System Profiler displays the
-[profiling data](#profiling_data) in a timeline with expandable items that
+[profiling data](https://developer.android.com/agi/sys-trace/system-profiler-gui#profiling_data) in a timeline with expandable items that
 display additional details.
 
-**Note:** For information about performing frame profiling, see the
-[Frame profiling](/agi/frame-trace/frame-profiler) overview.
+> [!NOTE]
+> **Note:** For information about performing frame profiling, see the [Frame profiling](https://developer.android.com/agi/frame-trace/frame-profiler) overview.
 
 The main elements of the System Profiler UI includes the
 following:
 
-* Toolbar
+- Toolbar
 
-  + [Navigation mode buttons](#navigation_mode)
-  + Track filter textbox: filters the tracks that are displayed in the
-    [track](#profiling_data) pane.
-  + Info button (**i**): displays trace and device metadata.
-  + Help button (**?**): displays
-    [keyboard and mouse shortcuts](#navigation_shortcuts).
-* [Timeline](#select_a_time_range): indicates the timespan of trace events.
-* [Track](#profiling_data) pane: displays profiling data in relation to the timeline.
-* [Details](#view_details) pane: an expandable pane that displays
+  - [Navigation mode buttons](https://developer.android.com/agi/sys-trace/system-profiler-gui#navigation_mode)
+
+  - Track filter textbox: filters the tracks that are displayed in the
+    [track](https://developer.android.com/agi/sys-trace/system-profiler-gui#profiling_data) pane.
+
+  - Info button (**i**): displays trace and device metadata.
+
+  - Help button (**?** ): displays
+    [keyboard and mouse shortcuts](https://developer.android.com/agi/sys-trace/system-profiler-gui#navigation_shortcuts).
+
+- [Timeline](https://developer.android.com/agi/sys-trace/system-profiler-gui#select_a_time_range): indicates the timespan of trace events.
+
+- [Track](https://developer.android.com/agi/sys-trace/system-profiler-gui#profiling_data) pane: displays profiling data in relation to the timeline.
+
+- [Details](https://developer.android.com/agi/sys-trace/system-profiler-gui#view_details) pane: an expandable pane that displays
   details about a selected item.
 
 ## Profiling data
@@ -57,9 +53,12 @@ The GPU tracks display GPU profiling information. These are the main GPU track
 types:
 
 1. **GPU Queue Tracks**: GPU activity of the application.
+
 2. **GPU Counter Tracks**: GPU's hardware counters sampled at periodic
    intervals.
+
 3. **Vulkan Events Track**: Vulkan API related events.
+
 4. **SurfaceFlinger Tracks**: SurfaceFlinger events, which indicate how graphics
    buffers move through the system.
 
@@ -71,12 +70,12 @@ that represent the period and type of GPU work that was used by your app.
 
 An activity slice contains metadata that you can view, such as the Vulkan
 command buffer, render pass, and frame buffer that initiated the work. The
-Vulkan handles to these objects are displayed in the [details](#view_details)
+Vulkan handles to these objects are displayed in the [details](https://developer.android.com/agi/sys-trace/system-profiler-gui#view_details)
 pane as follows:
 
-* `VkCommandBuffer`
-* `VkRenderPass`
-* `VkFrameBuffer`
+- `VkCommandBuffer`
+- `VkRenderPass`
+- `VkFrameBuffer`
 
 You can give user-friendly names to these objects, so you can easily identify
 them in a trace alongside their handles, by using the
@@ -95,7 +94,7 @@ identify bottlenecks in your GPU usage.
 
 The available counters are hardware specific. You can view brief descriptions of
 each counter by hovering over the track name. For details, see
-[GPU performance counters](/agi/sys-trace/counters-arm).
+[GPU performance counters](https://developer.android.com/agi/sys-trace/counters-arm).
 
 #### Vulkan event track
 
@@ -115,7 +114,7 @@ acquiring and posting buffers.
 
 ## Interact with profiling data
 
-This section describes how to interact with [profiling data](#profiling_data) in
+This section describes how to interact with [profiling data](https://developer.android.com/agi/sys-trace/system-profiler-gui#profiling_data) in
 the System Profiler UI.
 
 ### Pin
@@ -131,7 +130,7 @@ the overall CPU usage in a graph.
 ### Zoom
 
 AGI aggregates profiling data based on zoom level. When you first
-[open a trace file](/agi/start#system-profile), the System Profiler
+[open a trace file](https://developer.android.com/agi/start#system-profile), the System Profiler
 UI displays the entire profile at the maximum zoomed-out level. You can inspect
 the profile by finding areas of interest and then viewing the details.
 
@@ -164,16 +163,16 @@ and panning. System Profiler uses the same keyboard and mouse
 shortcuts as [Systrace](https://source.android.com/devices/tech/debug/systrace).
 The available shortcuts include the following:
 
-* `W` and `S`, or `Ctrl++` and `Ctrl+-` to zoom.
-* `A` and `D`, or `left` and `right` arrows pan the view left and right.
-* `Q` and `E`, or `up` and `down` arrows scroll the tracks.
-* Hold `shift` increases the movement speed of navigation.
-* `Ctrl`+scroll zooms on the selected item.
-* `F` zooms on a selected item.
-* `Z`+`0` resets and completely zooms out.
-* `V` toggles highlighting VSync if it is available in the trace.
-* `M` marks the current selection by selecting its time range.
-* `H` or `?` shows the keyboard and mouse shortcut cheatsheet.
+- `W` and `S`, or `Ctrl++` and `Ctrl+-` to zoom.
+- `A` and `D`, or `left` and `right` arrows pan the view left and right.
+- `Q` and `E`, or `up` and `down` arrows scroll the tracks.
+- Hold `shift` increases the movement speed of navigation.
+- `Ctrl`+scroll zooms on the selected item.
+- `F` zooms on a selected item.
+- `Z`+`0` resets and completely zooms out.
+- `V` toggles highlighting VSync if it is available in the trace.
+- `M` marks the current selection by selecting its time range.
+- `H` or `?` shows the keyboard and mouse shortcut cheatsheet.
 
 #### Navigation mode
 
@@ -189,7 +188,7 @@ and `4` keys:
 
 You can also use navigation modes with these modifier keys:
 
-* `Shift+`drag to box select items.
-* `Space+`drag to pan and scroll.
-* `Ctrl+`scroll to zoom.
-* `Ctrl+`drag to select a time range.
+- `Shift+`drag to box select items.
+- `Space+`drag to pan and scroll.
+- `Ctrl+`scroll to zoom.
+- `Ctrl+`drag to select a time range.

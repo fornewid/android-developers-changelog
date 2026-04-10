@@ -1,28 +1,20 @@
 ---
-title: Crashes  |  Android Developers
+title: https://developer.android.com/games/optimize/vitals/crash
 url: https://developer.android.com/games/optimize/vitals/crash
-source: html-scrape
+source: md.txt
 ---
 
-* [Android Developers](https://developer.android.com/)
-* [Google Play](https://developer.android.com/distribute)
-* [Guides](https://developer.android.com/games/guides)
-
-# Crashes Stay organized with collections Save and categorize content based on your preferences.
-
-
-
-An Android app crashes whenever there’s an unexpected exit caused by an
+An Android app crashes whenever there's an unexpected exit caused by an
 unhandled exception or signal. An app that is written using Java or Kotlin
 crashes if it throws an unhandled exception, represented by the
-[`Throwable`](/reference/java/lang/Throwable) class. An
+[`Throwable`](https://developer.android.com/reference/java/lang/Throwable) class. An
 app that is written using machine code or C++ crashes if there's an unhandled
 signal, such as `SIGSEGV`, during its execution.
 
 When an app crashes, Android terminates the app's process and displays a dialog
 to let the user know that the app has stopped, as shown in figure 1.
 
-![An app crash on an Android device](/static/topic/performance/images/crash-example-framed.png)
+![An app crash on an Android device](https://developer.android.com/static/topic/performance/images/crash-example-framed.png)
 
 **Figure 1.** An app crash on an Android device
 
@@ -45,19 +37,17 @@ Android vitals to see crash rates for your app.
 Android vitals can help you monitor and improve your app's crash rate.
 Android vitals measures several crash rates:
 
-* **Crash rate:** The percentage of your daily active users who
-  experienced any type of crash.
-* **User-perceived crash rate:** The percentage of your daily active users
+- **Crash rate:** The percentage of your daily active users who experienced any type of crash.
+- **User-perceived crash rate:** The percentage of your daily active users
   who experienced at least one crash while they were actively using your app
   (a user-perceived crash). An app is considered to be in active use
   if it is displaying any activity or executing any
-  [foreground service](/develop/background-work/services/fgs).
+  [foreground service](https://developer.android.com/develop/background-work/services/fgs).
 
-  **Note:** For Wear OS apps, user-perceived crash rates include both foreground
-  and background crashes. Wear OS devices always have watch faces running in
-  the background, and users frequently move Wear OS apps to the background,
-  even during active usage, because of the small screen size.
-* **Multiple crash rate:** The percentage of your daily active users who
+  > [!NOTE]
+  > **Note:** For Wear OS apps, user-perceived crash rates include both foreground and background crashes. Wear OS devices always have watch faces running in the background, and users frequently move Wear OS apps to the background, even during active usage, because of the small screen size.
+
+- **Multiple crash rate:** The percentage of your daily active users who
   experienced at least two crashes.
 
 A *daily active user* is a unique user who uses your app
@@ -74,10 +64,8 @@ disruption.
 
 Play has defined two **bad behavior thresholds** on this metric:
 
-* **Overall bad behavior threshold:** At least 1.09% of daily active users
-  experience a user-perceived crash, across all device models.
-* **Per-device bad behavior threshold:** At least 8% of daily active users
-  experience a user-perceived crash, **for a single device model**.
+- **Overall bad behavior threshold:** At least 1.09% of daily active users experience a user-perceived crash, across all device models.
+- **Per-device bad behavior threshold:** At least 8% of daily active users experience a user-perceived crash, **for a single device model**.
 
 If your app exceeds the overall bad behavior threshold, it is likely to be
 less discoverable on all devices. If your app exceeds the per-device bad behavior
@@ -113,7 +101,7 @@ view crash stack traces in
 
 The first step to fix a crash is to identify the place where it happens. You can
 use the stack trace available in the report details if you are using Play
-Console or the output of the [logcat](/studio/command-line/logcat) tool. If you
+Console or the output of the [logcat](https://developer.android.com/studio/command-line/logcat) tool. If you
 don't have a stack trace available, you should locally reproduce the crash,
 either by manually testing the app or by reaching out to affected users, and
 reproduce it while using logcat.
@@ -121,41 +109,39 @@ reproduce it while using logcat.
 The following trace shows an example of a crash on an app written using the Java
 programming language:
 
-```
---------- beginning of crash
-AndroidRuntime: FATAL EXCEPTION: main
-Process: com.android.developer.crashsample, PID: 3686
-java.lang.NullPointerException: crash sample
-at com.android.developer.crashsample.MainActivity$1.onClick(MainActivity.java:27)
-at android.view.View.performClick(View.java:6134)
-at android.view.View$PerformClick.run(View.java:23965)
-at android.os.Handler.handleCallback(Handler.java:751)
-at android.os.Handler.dispatchMessage(Handler.java:95)
-at android.os.Looper.loop(Looper.java:156)
-at android.app.ActivityThread.main(ActivityThread.java:6440)
-at java.lang.reflect.Method.invoke(Native Method)
-at com.android.internal.os.Zygote$MethodAndArgsCaller.run(Zygote.java:240)
-at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:746)
---------- beginning of system
-```
+    --- beginning of crash
+    AndroidRuntime: FATAL EXCEPTION: main
+    Process: com.android.developer.crashsample, PID: 3686
+    java.lang.NullPointerException: crash sample
+    at com.android.developer.crashsample.MainActivity$1.onClick(MainActivity.java:27)
+    at android.view.View.performClick(View.java:6134)
+    at android.view.View$PerformClick.run(View.java:23965)
+    at android.os.Handler.handleCallback(Handler.java:751)
+    at android.os.Handler.dispatchMessage(Handler.java:95)
+    at android.os.Looper.loop(Looper.java:156)
+    at android.app.ActivityThread.main(ActivityThread.java:6440)
+    at java.lang.reflect.Method.invoke(Native Method)
+    at com.android.internal.os.Zygote$MethodAndArgsCaller.run(Zygote.java:240)
+    at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:746)
+    --- beginning of system
 
 A stack trace shows two pieces of information that are critical to debugging a
 crash:
 
-* The type of exception thrown.
-* The section of code where the exception is thrown.
+- The type of exception thrown.
+- The section of code where the exception is thrown.
 
 The type of exception thrown is usually a very strong hint as to what went
 wrong. Look at whether it is an
-[`IOException`](/reference/java/io/IOException), an
-[`OutOfMemoryError`](/reference/java/lang/OutOfMemoryError),
+[`IOException`](https://developer.android.com/reference/java/io/IOException), an
+[`OutOfMemoryError`](https://developer.android.com/reference/java/lang/OutOfMemoryError),
 or something else, and find the documentation about the exception class.
 
 The class, method, file, and line number of the source file where the exception
 is thrown is shown on the second line of a stack trace. For each function that
 was called, another line shows the preceding call site (called a stack frame).
 By walking up the stack and examining the code, you may find a place that is
-passing an incorrect value. If your code doesn’t appear in the stack trace, it
+passing an incorrect value. If your code doesn't appear in the stack trace, it
 is likely that somewhere, you passed an invalid parameter into an asynchronous
 operation. You can often figure out what happened by examining each line of the
 stack trace, finding any API classes that you used, and confirming that the
@@ -164,35 +150,33 @@ allowed.
 
 Stack traces for apps with C and C++ code work much the same way.
 
-```
-*** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
-Build fingerprint: 'google/foo/bar:10/123.456/78910:user/release-keys'
-ABI: 'arm64'
-Timestamp: 2020-02-16 11:16:31+0100
-pid: 8288, tid: 8288, name: com.example.testapp  >>> com.example.testapp <<<
-uid: 1010332
-signal 11 (SIGSEGV), code 1 (SEGV_MAPERR), fault addr 0x0
-Cause: null pointer dereference
-    x0  0000007da81396c0  x1  0000007fc91522d4  x2  0000000000000001  x3  000000000000206e
-    x4  0000007da8087000  x5  0000007fc9152310  x6  0000007d209c6c68  x7  0000007da8087000
-    x8  0000000000000000  x9  0000007cba01b660  x10 0000000000430000  x11 0000007d80000000
-    x12 0000000000000060  x13 0000000023fafc10  x14 0000000000000006  x15 ffffffffffffffff
-    x16 0000007cba01b618  x17 0000007da44c88c0  x18 0000007da943c000  x19 0000007da8087000
-    x20 0000000000000000  x21 0000007da8087000  x22 0000007fc9152540  x23 0000007d17982d6b
-    x24 0000000000000004  x25 0000007da823c020  x26 0000007da80870b0  x27 0000000000000001
-    x28 0000007fc91522d0  x29 0000007fc91522a0
-    sp  0000007fc9152290  lr  0000007d22d4e354  pc  0000007cba01b640
+    *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+    Build fingerprint: 'google/foo/bar:10/123.456/78910:user/release-keys'
+    ABI: 'arm64'
+    Timestamp: 2020-02-16 11:16:31+0100
+    pid: 8288, tid: 8288, name: com.example.testapp  >>> com.example.testapp <<<
+    uid: 1010332
+    signal 11 (SIGSEGV), code 1 (SEGV_MAPERR), fault addr 0x0
+    Cause: null pointer dereference
+        x0  0000007da81396c0  x1  0000007fc91522d4  x2  0000000000000001  x3  000000000000206e
+        x4  0000007da8087000  x5  0000007fc9152310  x6  0000007d209c6c68  x7  0000007da8087000
+        x8  0000000000000000  x9  0000007cba01b660  x10 0000000000430000  x11 0000007d80000000
+        x12 0000000000000060  x13 0000000023fafc10  x14 0000000000000006  x15 ffffffffffffffff
+        x16 0000007cba01b618  x17 0000007da44c88c0  x18 0000007da943c000  x19 0000007da8087000
+        x20 0000000000000000  x21 0000007da8087000  x22 0000007fc9152540  x23 0000007d17982d6b
+        x24 0000000000000004  x25 0000007da823c020  x26 0000007da80870b0  x27 0000000000000001
+        x28 0000007fc91522d0  x29 0000007fc91522a0
+        sp  0000007fc9152290  lr  0000007d22d4e354  pc  0000007cba01b640
 
-backtrace:
-  #00  pc 0000000000042f89  /data/app/com.example.testapp/lib/arm64/libexample.so (com::example::Crasher::crash() const)
-  #01  pc 0000000000000640  /data/app/com.example.testapp/lib/arm64/libexample.so (com::example::runCrashThread())
-  #02  pc 0000000000065a3b  /system/lib/libc.so (__pthread_start(void*))
-  #03  pc 000000000001e4fd  /system/lib/libc.so (__start_thread)
-```
+    backtrace:
+      #00  pc 0000000000042f89  /data/app/com.example.testapp/lib/arm64/libexample.so (com::example::Crasher::crash() const)
+      #01  pc 0000000000000640  /data/app/com.example.testapp/lib/arm64/libexample.so (com::example::runCrashThread())
+      #02  pc 0000000000065a3b  /system/lib/libc.so (__pthread_start(void*))
+      #03  pc 000000000001e4fd  /system/lib/libc.so (__start_thread)
 
 If you don't see class and function-level information in native stack traces,
 you may need to
-[generate a native debug symbols file](/studio/build/shrink-code#strip-native-libraries)
+[generate a native debug symbols file](https://developer.android.com/studio/build/shrink-code#strip-native-libraries)
 and upload it to the Google Play Console. For more information, see
 [Deobfuscate crash stack traces](https://support.google.com/googleplay/android-developer/answer/9848633#generate_file).
 For general information on native crashes, see
@@ -200,22 +184,22 @@ For general information on native crashes, see
 
 ### Tips for reproducing a crash
 
-It’s possible that you can’t quite reproduce the problem just by starting an
+It's possible that you can't quite reproduce the problem just by starting an
 emulator or connecting your device to your computer. Development environments
 tend to have more resources, such as bandwidth, memory, and storage. Use the
 type of exception to determine what could be the resource that is scarce, or
-find a correlation between the version of Android, device type or your app’s
+find a correlation between the version of Android, device type or your app's
 version.
 
 #### Memory errors
 
 If you have an
-[`OutOfMemoryError`](/reference/java/lang/OutOfMemoryError),
+[`OutOfMemoryError`](https://developer.android.com/reference/java/lang/OutOfMemoryError),
 then you could create an emulator with low memory capacity to test with. Figure
 2 shows the AVD manager settings where you can control the amount of memory on
 the device.
 
-![Memory setting on AVD manager](/static/topic/performance/images/crash-emulator-memory.png)
+![Memory setting on AVD manager](https://developer.android.com/static/topic/performance/images/crash-emulator-memory.png)
 
 **Figure 2.** Memory setting on AVD manager
 
@@ -226,7 +210,7 @@ application network exceptions usually shouldn't be treated as *errors*, but
 rather as normal operating conditions that happen unexpectedly.
 
 If you need to reproduce a network exception, such as an
-[`UnknownHostException`](/reference/java/net/UnknownHostException),
+[`UnknownHostException`](https://developer.android.com/reference/java/net/UnknownHostException),
 then try turning on airplane mode while your application attempts to use the
 network.
 
@@ -236,23 +220,21 @@ choosing a network speed emulation and/or a network delay. You can use the
 with the `-netdelay` and `-netspeed` flags, as shown in the following
 command-line example:
 
-```
-emulator -avd [your-avd-image] -netdelay 20000 -netspeed gsm
-```
+    emulator -avd [your-avd-image] -netdelay 20000 -netspeed gsm
 
 This example sets a delay of 20 seconds on all network requests and an upload
 and download speed of 14.4 Kbps. For more information on command-line options
 for the emulator, see
-[Start the emulator from the command line](/studio/run/emulator-commandline).
+[Start the emulator from the command line](https://developer.android.com/studio/run/emulator-commandline).
 
 ### Reading with logcat
 
 Once you are able have the steps to reproduce the crash, you can use a tool like
-[`logcat`](/studio/command-line/logcat) to get more information.
+[`logcat`](https://developer.android.com/studio/command-line/logcat) to get more information.
 
 The logcat output will show you what other log messages you have printed, along
-with others from the system. Don’t forget to turn off any extra
-[`Log`](/reference/android/util/Log) statements that you
+with others from the system. Don't forget to turn off any extra
+[`Log`](https://developer.android.com/reference/android/util/Log) statements that you
 have added because printing them wastes CPU and battery while your app is
 running.
 
@@ -280,11 +262,11 @@ The following sections apply to the Java programming language.
 #### Compile time warnings
 
 Annotate your methods' parameters and return values with
-[`@Nullable`](/reference/androidx/annotation/Nullable) and
-[`@NonNull`](/reference/androidx/annotation/NonNull) to receive compile time
+[`@Nullable`](https://developer.android.com/reference/androidx/annotation/Nullable) and
+[`@NonNull`](https://developer.android.com/reference/androidx/annotation/NonNull) to receive compile time
 warnings from the IDE. These warnings prompt you to expect a nullable object:
 
-![Null pointer exception warning](/static/topic/images/reliability/null-pointer-exception-warning.png)
+![Null pointer exception warning](https://developer.android.com/static/topic/images/reliability/null-pointer-exception-warning.png)
 
 These null checks are for objects that you know could be null. An exception on a
 `@NonNull` object is an indication of an error in your code that needs to be
@@ -305,13 +287,11 @@ In Kotlin,
 is part of the type system. For example, a variable needs to be declared from
 the beginning as nullable or non-nullable. Nullable types are marked with a `?`:
 
-```
-// non-null
-var s: String = "Hello"
+    // non-null
+    var s: String = "Hello"
 
-// null
-var s: String? = "Hello"
-```
+    // null
+    var s: String? = "Hello"
 
 Non-nullable variables cannot be assigned a null value and nullable variables
 need to be checked for nullability before being used as non-null.
@@ -319,10 +299,8 @@ need to be checked for nullability before being used as non-null.
 If you don't want to check for null explicitly, you can use the `?.` safe call
 operator:
 
-```
-val length: Int? = string?.length  // length is a nullable int
-                                   // if string is null, then length is null
-```
+    val length: Int? = string?.length  // length is a nullable int
+                                       // if string is null, then length is null
 
 As a best practice, make sure you address the null case for a nullable object,
 or your app could get into unexpected states. If your application won't crash
@@ -330,33 +308,26 @@ anymore with `NullPointerException`, you won't know that these errors exist.
 
 The following are some ways to check for null:
 
-* `if` checks
+- `if` checks
 
-  ```
-  val length = if(string != null) string.length else 0
-  ```
+      val length = if(string != null) string.length else 0
 
   Due to smart-cast and the null check, the Kotlin compiler knows that the
   string value is non-null so it allows you to use the reference directly,
   without the need for the safe call operator.
-* `?:` [Elvis operator](https://kotlinlang.org/docs/reference/null-safety.html#elvis-operator)
+- `?:` [Elvis operator](https://kotlinlang.org/docs/reference/null-safety.html#elvis-operator)
 
   This operator allows you to state "if the object is non-null, return the
   object; otherwise, return something else".
 
-  ```
-  val length = string?.length ?: 0
-  ```
+      val length = string?.length ?: 0
 
 You can still get a `NullPointerException` in Kotlin. The following are the most
 common situations:
 
-* When you're explicitly throwing a `NullPointerException`.
-* When you're using the
-  [null assertion `!!` operator](https://kotlinlang.org/docs/reference/null-safety.html#the--operator).
-  This operator converts any value to a non-null type, throwing
-  `NullPointerException` if the value is null.
-* When accessing a null reference of a platform type.
+- When you're explicitly throwing a `NullPointerException`.
+- When you're using the [null assertion `!!` operator](https://kotlinlang.org/docs/reference/null-safety.html#the--operator). This operator converts any value to a non-null type, throwing `NullPointerException` if the value is null.
+- When accessing a null reference of a platform type.
 
 ### Platform types
 
@@ -367,12 +338,10 @@ Java. When you access a platform type reference, Kotlin does not create compile
 time errors but these references can lead to runtime errors. See the following
 example from the Kotlin documentation:
 
-```
-val list = ArrayList<String>() // non-null (constructor result) list.add("Item")
-val size = list.size // non-null (primitive int) val item = list[0] // platform
-type inferred (ordinary Java object) item.substring(1) // allowed, may throw an
-                                                       // exception if item == null
-```
+    val list = ArrayList<String>() // non-null (constructor result) list.add("Item")
+    val size = list.size // non-null (primitive int) val item = list[0] // platform
+    type inferred (ordinary Java object) item.substring(1) // allowed, may throw an
+                                                           // exception if item == null
 
 Kotlin relies on type inference when a platform value is assigned to a Kotlin
 variable, or you can define what type to expect. The best way to ensure the

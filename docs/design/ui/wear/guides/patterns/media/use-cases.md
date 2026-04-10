@@ -1,26 +1,18 @@
 ---
-title: Explore common use cases  |  Wear  |  Android Developers
+title: https://developer.android.com/design/ui/wear/guides/patterns/media/use-cases
 url: https://developer.android.com/design/ui/wear/guides/patterns/media/use-cases
-source: html-scrape
+source: md.txt
 ---
 
-* [Android Developers](https://developer.android.com/)
-* [Design & Plan](https://developer.android.com/design)
-* [UI Design](https://developer.android.com/design/ui)
-* [Wear](https://developer.android.com/design/ui/wear)
-* [Guides](https://developer.android.com/design/ui/wear/guides/get-started)
+# Explore common use cases
 
-# Explore common use cases Stay organized with collections Save and categorize content based on your preferences.
-
-
-
-![](/static/wear/images/design/media-use-cases-hero.png)
+![](https://developer.android.com/static/wear/images/design/media-use-cases-hero.png)
 
 When designing media apps, prioritize the following use cases. Allow users to do
 the following:
 
-* Listen to downloaded media
-* Stream media from the watch
+- Listen to downloaded media
+- Stream media from the watch
 
 ## Listen to downloaded media
 
@@ -29,89 +21,124 @@ The following examples show how to help users listen to downloaded media.
 ### Download media
 
 Users can manually download media items from an entity page. Show the user the
-download location, progress, and size.
+download location, progress, and size.  
+![](https://developer.android.com/static/wear/images/design/media-use-cases-entity.png)
 
-![](/static/wear/images/design/media-use-cases-entity.png)
+<br />
 
 Entity page
 
-![](/static/wear/images/design/media-download-prompt.png)
+![](https://developer.android.com/static/wear/images/design/media-download-prompt.png)
+
+<br />
 
 Size of download (Dialog)
 
-![](/static/wear/images/design/media-download-progress.png)
+![](https://developer.android.com/static/wear/images/design/media-download-progress.png)
+
+<br />
 
 Download progress
 
+<br />
+
 ### Browse downloaded media
 
-When the user browses media, display recently downloaded media.
+When the user browses media, display recently downloaded media.  
+![](https://developer.android.com/static/wear/images/design/media-recent-downloads.png)
 
-![](/static/wear/images/design/media-recent-downloads.png)
+<br />
 
 Downloads
 
-![](/static/wear/images/design/media-downloads-browse.png)
+![](https://developer.android.com/static/wear/images/design/media-downloads-browse.png)
+
+<br />
 
 Browse
 
-![](/static/wear/images/design/media-downloaded-entity.png)
+![](https://developer.android.com/static/wear/images/design/media-downloaded-entity.png)
+
+<br />
 
 Entity page
+
+<br />
 
 ### Remove downloaded media
 
 If content is already downloaded, show an action to remove the downloaded media
-from the device.
+from the device.  
+![](https://developer.android.com/static/wear/images/design/media-downloaded-entity.png)
 
-![](/static/wear/images/design/media-downloaded-entity.png)
+<br />
 
 Downloaded
 
-![](/static/wear/images/design/media-remove-download-prompt.png)
+![](https://developer.android.com/static/wear/images/design/media-remove-download-prompt.png)
+
+<br />
 
 Remove download (Dialog)
 
-![](/static/wear/images/design/media-option-to-download-again.png)
+![](https://developer.android.com/static/wear/images/design/media-option-to-download-again.png)
+
+<br />
 
 Entity page
 
+<br />
+
 ### Select output device
 
-If the source device is the watch, prompt users to [select audio output](/training/wearables/apps/audio#prompt-the-user-to-connect-a-headset)
+If the source device is the watch, prompt users to [select audio output](https://developer.android.com/training/wearables/apps/audio#prompt-the-user-to-connect-a-headset)
 before they start listening to music. After the user selects an output device,
-play the media and display the output device icon—such as a headset or buds—on
-the media controls.
+play the media and display the output device icon---such as a headset or buds---on
+the media controls.  
+![](https://developer.android.com/static/wear/images/design/media-player-without-output.png)
 
-![](/static/wear/images/design/media-player-without-output.png)
+<br />
 
 Media Player **without** output
 
-![](/static/wear/images/design/media-output-switcher.png)
+![](https://developer.android.com/static/wear/images/design/media-output-switcher.png)
+
+<br />
 
 System output switcher (Dialog)
 
-![](/static/wear/images/design/media-player-with-output.png)
+![](https://developer.android.com/static/wear/images/design/media-player-with-output.png)
+
+<br />
 
 Media Player **with** output
+
+<br />
 
 ## Stream media
 
 Streaming from the watch drains the battery. Prioritize downloaded content
 when users choose to listen on the watch by displaying recently used downloads
 on the browse list. Add a button that takes users to a full list of downloads,
-as shown in the following images.
+as shown in the following images.  
+![](https://developer.android.com/static/wear/images/design/media-recent-downloads.png)
 
-![](/static/wear/images/design/media-recent-downloads.png)
+<br />
 
 Prioritize downloaded content
 
-![](/static/wear/images/design/media-downloads-button.png)
+![](https://developer.android.com/static/wear/images/design/media-downloads-button.png)
+
+<br />
 
 Downloads button
 
-![](/static/wear/images/design/media-downloads-list.png)
+![](https://developer.android.com/static/wear/images/design/media-downloads-list.png)
+
+<br />
 
 Downloads list
+
+<br />
 
 For more information, see the [Media Toolkit](https://github.com/google/horologist/tree/main/media) on GitHub.

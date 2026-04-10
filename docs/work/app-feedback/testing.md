@@ -1,22 +1,11 @@
 ---
-title: Test app feedback  |  Android Enterprise  |  Android Developers
+title: https://developer.android.com/work/app-feedback/testing
 url: https://developer.android.com/work/app-feedback/testing
-source: html-scrape
+source: md.txt
 ---
 
-* [Android Developers](https://developer.android.com/)
-* [Develop](https://developer.android.com/develop)
-* [Android Enterprise](https://developer.android.com/work)
-
-# Test app feedback Stay organized with collections Save and categorize content based on your preferences.
-
-
-
-**Note:** To learn more about how to send feedback from your app,
-see [Send feedback to EMMs](/work/app-feedback/overview).
-After updating your app to support sending feedback in the form of keyed app states, you can use
-the guidance on this page to set up unit tests and send test feedback to a test device policy
-controller (DPC).
+| **Note:** To learn more about how to send feedback from your app, see [Send feedback to EMMs](https://developer.android.com/work/app-feedback/overview).
+After updating your app to support sending feedback in the form of keyed app states, you can use the guidance on this page to set up unit tests and send test feedback to a test device policy controller (DPC).
 
 ## Set up unit tests
 
@@ -25,13 +14,11 @@ keyed app states as expected.
 
 ### Step 1: Set up your classes to accept `KeyedAppStatesReporter` as a parameter
 
-Instead of calling `create()` directly, modify your classes to accept
-`KeyedAppStatesReporter` as a parameter like in the example `BatteryManager`
-class below:
+Instead of calling `create()` directly, modify your classes to accept `KeyedAppStatesReporter` as a parameter like in the example `BatteryManager` class below:  
 
 ### Kotlin
 
-```
+```kotlin
 class BatteryManager(val reporter:KeyedAppStatesReporter) {
   fun lowBattery(battery:Int) {
     reporter.setStatesImmediate(
@@ -47,7 +34,7 @@ class BatteryManager(val reporter:KeyedAppStatesReporter) {
 
 ### Java
 
-```
+```java
 public class BatteryManager {
     private final KeyedAppStatesReporter reporter;
     public BatteryManager(KeyedAppStatesReporter reporter) {
@@ -73,7 +60,7 @@ wherever `BatteryManager` is created.
 ### Step 2: Add the enterprise feedback testing library to your `build.gradle` file
 
 Add the following dependency to your app's
-[`build.gradle`](/studio/build#module-level) file:
+[`build.gradle`](https://developer.android.com/studio/build#module-level) file:  
 
 ```
 dependencies {
@@ -85,48 +72,47 @@ dependencies {
 
 ### Kotlin
 
-```
+```kotlin
 val reporter = FakeKeyedAppStatesReporter();
 val batteryManager = BatteryManager(reporter);
 ```
 
 ### Java
 
-```
+```java
 FakeKeyedAppStatesReporter reporter = new FakeKeyedAppStatesReporter();
 BatteryManager batteryManager = new BatteryManager(reporter);
 ```
 
 ### Step 4: Assert interactions with `FakeKeyedAppStatesReporter`
 
-**Note:** To view all the options for verifying expected interactions, see
-[`FakeKeyedAppStatesReporter`](https://developer.android.google.cn/reference/androidx/enterprise/feedback/FakeKeyedAppStatesReporter).
+| **Note:** To view all the options for verifying expected interactions, see [`FakeKeyedAppStatesReporter`](https://developer.android.google.cn/reference/androidx/enterprise/feedback/FakeKeyedAppStatesReporter).
 
-For example, to check that no states have been set:
+For example, to check that no states have been set:  
 
 ### Kotlin
 
-```
+```kotlin
 assertThat(reporter.keyedAppStates).isEmpty();
 ```
 
 ### Java
 
-```
+```java
 assertThat(reporter.getKeyedAppStates()).isEmpty();
 ```
 
-Or that a particular state has been requested to be uploaded:
+Or that a particular state has been requested to be uploaded:  
 
 ### Kotlin
 
-```
+```kotlin
 assertThat(reporter.uploadedKeyedAppStatesByKey["battery"]).isNotNull()
 ```
 
 ### Java
 
-```
+```java
 assertThat(reporter.getUploadedKeyedAppStatesByKey().get("battery")).isNotNull();
 ```
 
@@ -139,7 +125,7 @@ download.
 ### Step 1: Install Test DPC
 
 Install the latest version of [Test DPC](https://play.google.com/store/apps/details?id=com.afwsamples.testdpc)
-from the Play Store. Next, set Test DPC as the admin of the device:
+from the Play Store. Next, set Test DPC as the admin of the device:  
 
 ```
 adb shell dpm set-device-owner com.afwsamples.testdpc/.DeviceAdminReceiver
@@ -148,10 +134,8 @@ adb shell dpm set-device-owner com.afwsamples.testdpc/.DeviceAdminReceiver
 ### Step 2: Enable App feedback notifications
 
 In Test DPC's menu, enable **App feedback notifications**.
-
-![enable notifications](/static/images/work/test-dpc-screenshot.png)
+![enable notifications](https://developer.android.com/static/images/work/test-dpc-screenshot.png)
 
 Trigger an event that set a keyed app state. If successful, Test DPC will show
 the feedback in notifications:
-
-![feedback displayed](/static/images/work/feedback-notification.png)
+![feedback displayed](https://developer.android.com/static/images/work/feedback-notification.png)

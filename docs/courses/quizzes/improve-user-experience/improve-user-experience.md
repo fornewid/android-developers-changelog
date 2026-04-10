@@ -1,116 +1,95 @@
 ---
-title: Improve the user experience of your Android app  |  Android Developers
+title: https://developer.android.com/courses/quizzes/improve-user-experience/improve-user-experience
 url: https://developer.android.com/courses/quizzes/improve-user-experience/improve-user-experience
-source: html-scrape
+source: md.txt
 ---
-
-Stay organized with collections
-
-Save and categorize content based on your preferences.
-
-
 
 # Improve the user experience of your Android app
 
-Return to pathway
+# Improve the user experience of your Android app
 
+<br />
 
+Return to pathway  
+1.
 
-1. ## What are the edge-to-edge enforcements in Android 15?
+   ## What are the edge-to-edge enforcements in Android 15?
 
-   Choose as many answers as you see fit.
+   Choose as many answers as you see fit.  
+   Three button navigation bar is semi-transparent (translucent)  
+   Gesture navigation bar is transparent  
+   Status bar is transparent  
+   Content will draw behind system bars by default  
+   Task bar on large screen devices is transparent  
+   System bars are opaque and green by default  
+2.
 
-   Three button navigation bar is semi-transparent (translucent)
+   ## Which of the following are allowed values for non-floating windows?
 
-   Gesture navigation bar is transparent
+   LAYOUT_IN_DISPLAY_CUTOUT_MODE_ALWAYS  
+   LAYOUT_IN_DISPLAY_CUTOUT_MODE_DEFAULT  
+   LAYOUT_IN_DISPLAY_CUTOUT_MODE_NEVER  
+   LAYOUT_IN_DISPLAY_CUTOUT_MODE_SHORT_EDGES  
+3.
 
-   Status bar is transparent
+   ## Which Window APIs are deprecated in Android 15?
 
-   Content will draw behind system bars by default
+   Choose as many answers as you see fit.  
+   `setStatusBarContrastEnforced`  
+   `setNavigationBarContrastEnforced`  
+   `setStatusBarColor`  
+   `setNavigationBarColor`  
+   `setSystemBarColors`  
+4.
 
-   Task bar on large screen devices is transparent
+   ## What is the primary benefit of implementing predictive back in an Android app?
 
-   System bars are opaque and green by default
-2. ## Which of the following are allowed values for non-floating windows?
+   It gives users a faster way to navigate back to their home screen.  
+   It eliminates the need to use the back button entirely.  
+   It enhances user experience by providing visual feedback before navigation changes occur.  
+   It helps identify compatibility issues with older Android versions.  
+5.
 
-   LAYOUT\_IN\_DISPLAY\_CUTOUT\_MODE\_ALWAYS
+   ## To add predictive back support for Material View Components, which of the following has to be true?
 
-   LAYOUT\_IN\_DISPLAY\_CUTOUT\_MODE\_DEFAULT
+   Choose as many answers as you see fit.  
+   Set the`android:enableOnBackInvokedCallback`flag to true in AndroidManifest.xml.  
+   Create a custom animation class and apply it to your Activity.  
+   Upgrade to Navigation Component version 2.7 or higher.  
+   API level is 33+.  
+   Implement a custom`onBackPressedDispatcher()`method in your Activity.  
+6.
 
-   LAYOUT\_IN\_DISPLAY\_CUTOUT\_MODE\_NEVER
+   ## Using Animator and AndroidX transitions helps achieve predictive back support for fragments.
 
-   LAYOUT\_IN\_DISPLAY\_CUTOUT\_MODE\_SHORT\_EDGES
-3. ## Which Window APIs are deprecated in Android 15?
+   True  
+   False  
+7.
 
-   Choose as many answers as you see fit.
+   ## Which class is responsible for rendering widgets into remote views?
 
-   `setStatusBarContrastEnforced`
+   GlanceAppWidget  
+   GlanceAppReceiver  
+   AppWidgetProvider  
+   GlanceAppWidgetProvider  
+8.
 
-   `setNavigationBarContrastEnforced`
+   ## Which of these actions can you take to update the content of an existing widget on the home screen?
 
-   `setStatusBarColor`
+   Choose as many answers as you see fit.  
+   Modify the view hierarchy directly from the activity, similar to Jetpack Compose.  
+   Call the`updateAll()`method on your AppWidget class.  
+   Send a broadcast with the APPWIDGET_UPDATE action to trigger a refresh.  
+   Update the data in your preferences datastore.  
+   Wait for the`updatePeriodMillis`to pass, and the widget host will request an update  
+   The widget is automatically updated when your app starts.  
+9.
 
-   `setNavigationBarColor`
+   ## Glance widgets must always define a 'zero state' to prompt the user for initial configuration.
 
-   `setSystemBarColors`
-4. ## What is the primary benefit of implementing predictive back in an Android app?
-
-   It gives users a faster way to navigate back to their home screen.
-
-   It eliminates the need to use the back button entirely.
-
-   It enhances user experience by providing visual feedback before navigation changes occur.
-
-   It helps identify compatibility issues with older Android versions.
-5. ## To add predictive back support for Material View Components, which of the following has to be true?
-
-   Choose as many answers as you see fit.
-
-   Set the `android:enableOnBackInvokedCallback` flag to true in AndroidManifest.xml.
-
-   Create a custom animation class and apply it to your Activity.
-
-   Upgrade to Navigation Component version 2.7 or higher.
-
-   API level is 33+.
-
-   Implement a custom `onBackPressedDispatcher()` method in your Activity.
-6. ## Using Animator and AndroidX transitions helps achieve predictive back support for fragments.
-
-   True
-
-   False
-7. ## Which class is responsible for rendering widgets into remote views?
-
-   GlanceAppWidget
-
-   GlanceAppReceiver
-
-   AppWidgetProvider
-
-   GlanceAppWidgetProvider
-8. ## Which of these actions can you take to update the content of an existing widget on the home screen?
-
-   Choose as many answers as you see fit.
-
-   Modify the view hierarchy directly from the activity, similar to Jetpack Compose.
-
-   Call the `updateAll()` method on your AppWidget class.
-
-   Send a broadcast with the APPWIDGET\_UPDATE action to trigger a refresh.
-
-   Update the data in your preferences datastore.
-
-   Wait for the `updatePeriodMillis` to pass, and the widget host will request an update
-
-   The widget is automatically updated when your app starts.
-9. ## Glance widgets must always define a 'zero state' to prompt the user for initial configuration.
-
-   True
-
-   False
+   True  
+   False  
 
 Submit answers
 
-*error\_outline*
-An error occurred when grading the quiz. Please try again.
+*error_outline*An error occurred when grading the quiz. Please try again.

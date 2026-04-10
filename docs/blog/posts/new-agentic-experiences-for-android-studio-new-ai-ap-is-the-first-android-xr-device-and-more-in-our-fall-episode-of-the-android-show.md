@@ -1,174 +1,117 @@
 ---
-title: New agentic experiences for Android Studio, new AI APIs, the first Android XR device and more, in our Fall episode of The Android Show  |  Android Developers' Blog
+title: https://developer.android.com/blog/posts/new-agentic-experiences-for-android-studio-new-ai-ap-is-the-first-android-xr-device-and-more-in-our-fall-episode-of-the-android-show
 url: https://developer.android.com/blog/posts/new-agentic-experiences-for-android-studio-new-ai-ap-is-the-first-android-xr-device-and-more-in-our-fall-episode-of-the-android-show
-source: html-scrape
+source: md.txt
 ---
 
-* [Android Developers](https://developer.android.com/)
-* [Android Developers' Blog](https://developer.android.com/)
-* [Blog](https://developer.android.com/blog)
-
-Stay organized with collections
-
-Save and categorize content based on your preferences.
-
-
-
-#### [Product News](/blog/categories/product-news)
+#### [Product News](https://developer.android.com/blog/categories/product-news)
 
 # New agentic experiences for Android Studio, new AI APIs, the first Android XR device and more, in our Fall episode of The Android Show
 
 ###### 5-min read
 
-![](/static/blog/assets/tas_Fall25_36a55155b3_Zalyay.webp)
-
-30
-
-Oct
-2025
-
-[![](/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](/blog/authors/matthew-mccullough)
-
-[##### Matthew McCullough](/blog/authors/matthew-mccullough)
+![](https://developer.android.com/static/blog/assets/tas_Fall25_36a55155b3_Zalyay.webp) 30 Oct 2025 [![](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) [##### Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough)
 
 ###### Vice President, Product Management, Android Developer
 
-We’re in an important moment where AI changes everything, from how we work to the expectations that users have for your apps, and our goal on Android is to transform this AI evolution into opportunities for you and your users. Today in [our Fall episode of The Android Show](https://www.youtube.com/watch?v=0vMDXa2PluY), we unpacked a bunch of new updates towards delivering the highest return on investment in building for the Android platform. From new agentic experiences for Gemini in Android Studio to a brand new on-device AI API to the first Android XR device, there’s so much to cover - let’s dive in!
+We're in an important moment where AI changes everything, from how we work to the expectations that users have for your apps, and our goal on Android is to transform this AI evolution into opportunities for you and your users. Today in [our Fall episode of The Android Show](https://www.youtube.com/watch?v=0vMDXa2PluY), we unpacked a bunch of new updates towards delivering the highest return on investment in building for the Android platform. From new agentic experiences for Gemini in Android Studio to a brand new on-device AI API to the first Android XR device, there's so much to cover - let's dive in!
+[Video](https://www.youtube.com/watch?v=0vMDXa2PluY)
 
 ## Build your own custom Gen AI features with the new Prompt API
 
-On Android, we offer AI models on-device, or in the cloud.  Today, we’re excited to now give you full flexibility to shape the output of the Gemini Nano model by passing in any prompt you can imagine [with the new Prompt API](https://android-developers.googleblog.com/2025/10/ml-kit-genai-prompt-api-alpha-release.html),now in Alpha. For flagship Android devices, Gemini Nano lets you build efficient on-device options where the [users’ data never leaves their device](https://android-developers.googleblog.com/2024/10/gemini-nano-experimental-access-available-on-android.html). At I/O this May, we launched our on-device [GenAI APIs using the Gemini Nano model](/ai/gemini-nano/ml-kit-genai), making common tasks easier with simple APIs for tasks like summarization, proofreading and image description. [Kakao used the Prompt API](https://android-developers.googleblog.com/2025/10/kakao-mobility-uses-gemini-nano-on.html) to transform their parcel delivery service, replacing a slow, manual process where users had to copy and paste details into a form into just a simple message requesting a delivery, and the API automatically extracts all the necessary information. This single feature reduced order completion time by 24% and boosted new user conversion by an incredible 45%.
+On Android, we offer AI models on-device, or in the cloud. Today, we're excited to now give you full flexibility to shape the output of the Gemini Nano model by passing in any prompt you can imagine [with the new Prompt API](https://android-developers.googleblog.com/2025/10/ml-kit-genai-prompt-api-alpha-release.html),now in Alpha. For flagship Android devices, Gemini Nano lets you build efficient on-device options where the [users' data never leaves their device](https://android-developers.googleblog.com/2024/10/gemini-nano-experimental-access-available-on-android.html). At I/O this May, we launched our on-device [GenAI APIs using the Gemini Nano model](https://developer.android.com/ai/gemini-nano/ml-kit-genai), making common tasks easier with simple APIs for tasks like summarization, proofreading and image description. [Kakao used the Prompt API](https://android-developers.googleblog.com/2025/10/kakao-mobility-uses-gemini-nano-on.html) to transform their parcel delivery service, replacing a slow, manual process where users had to copy and paste details into a form into just a simple message requesting a delivery, and the API automatically extracts all the necessary information. This single feature reduced order completion time by 24% and boosted new user conversion by an incredible 45%.
+[Video](https://www.youtube.com/watch?v=PoqJh_60Wrw)
 
 ## Tap into Nano Banana and Imagen using the Firebase SDK
 
-When you want to add cutting-edge capabilities across the entire fleet of Android devices, our  cloud-based AI solutions with [Firebase AI Logic](https://firebase.google.com/docs/ai-logic) are a great fit. The excitement for models like [Gemini 2.5 Flash Image](/ai/gemini/developer-api?_gl=1*6kths5*_up*MQ..*_ga*OTgzNzM4MzMyLjE3NjE3OTEyMDI.*_ga_6HH9YJMN9M*czE3NjE3OTEyMDEkbzEkZzAkdDE3NjE3OTEyMDEkajYwJGwwJGgxOTY5NDYwMjk1#generate-images) (a.k.a. Nano Banana) and [Imagen](/ai/imagen) have been incredible; now your users can now generate and edit images using Nano Banana, and then for finer control, like selecting and transforming specific parts of an image, users can use the new mask-based editing feature that leverages the Imagen model. See our [blog post](https://android-developers.googleblog.com/2025/10/boost-user-engagement-with-ai-image.html) to learn more. And beyond image generation, you can also use Gemini multimodal capabilities to process text, audio and image input. [RedBus, for example, revolutionized their user reviews using Gemini Flash via Firebase AI Logic](https://android-developers.googleblog.com/2025/10/redbus-gains-57-deeper-insights-into.html) to make giving feedback easier, more inclusive, and reliable. The old problem? Short, low-quality text reviews. The new solution? Users can now leave reviews using voice input in their native languages. From the audio Gemini Flash is then generating a structured text response enabling longer, richer and more reliable user reviews. It's a win for everyone: travelers, operators, and developers!
+When you want to add cutting-edge capabilities across the entire fleet of Android devices, our cloud-based AI solutions with [Firebase AI Logic](https://firebase.google.com/docs/ai-logic) are a great fit. The excitement for models like [Gemini 2.5 Flash Image](https://developer.android.com/ai/gemini/developer-api?_gl=1*6kths5*_up*MQ..*_ga*OTgzNzM4MzMyLjE3NjE3OTEyMDI.*_ga_6HH9YJMN9M*czE3NjE3OTEyMDEkbzEkZzAkdDE3NjE3OTEyMDEkajYwJGwwJGgxOTY5NDYwMjk1#generate-images) (a.k.a. Nano Banana) and [Imagen](https://developer.android.com/ai/imagen) have been incredible; now your users can now generate and edit images using Nano Banana, and then for finer control, like selecting and transforming specific parts of an image, users can use the new mask-based editing feature that leverages the Imagen model. See our [blog post](https://android-developers.googleblog.com/2025/10/boost-user-engagement-with-ai-image.html) to learn more. And beyond image generation, you can also use Gemini multimodal capabilities to process text, audio and image input. [RedBus, for example, revolutionized their user reviews using Gemini Flash via Firebase AI Logic](https://android-developers.googleblog.com/2025/10/redbus-gains-57-deeper-insights-into.html) to make giving feedback easier, more inclusive, and reliable. The old problem? Short, low-quality text reviews. The new solution? Users can now leave reviews using voice input in their native languages. From the audio Gemini Flash is then generating a structured text response enabling longer, richer and more reliable user reviews. It's a win for everyone: travelers, operators, and developers!
+[Video](https://www.youtube.com/watch?v=PIsElP6DbFI)
 
 ## Helping you be more productive, with agentic experiences in Android Studio
 
-Helping you be more productive is our goal with [Gemini in Android Studio](/gemini-in-android), and why we’re infusing AI across our tooling. Developers like Pocket FM have seen an impressive development time savings of 50%. With the recent launch of [Agent Mode](/studio/gemini/agent-mode), you can describe a complex goal in natural language and (with your permission), the agent plans and executes changes on multiple files across your project. The agent’s answers are now grounded in the most modern development practices, and can even cross-reference our latest documentation in real time. We demoed new agentic experiences such as updates to Agent Mode, the ability to upgrade APIs on your behalf, the new project assistant, and we announced you’ll be able to bring any LLM of your choice to power the AI functionality inside Android Studio, giving you more flexibility and choice on how you incorporate AI into your workflow. And for the newest stable features such as [Back Up and Sync](/studio/releases#backup-and-sync), make sure to download the latest stable version of [Android Studio](http://d.android.com/studio).
+Helping you be more productive is our goal with [Gemini in Android Studio](https://developer.android.com/gemini-in-android), and why we're infusing AI across our tooling. Developers like Pocket FM have seen an impressive development time savings of 50%. With the recent launch of [Agent Mode](https://developer.android.com/studio/gemini/agent-mode), you can describe a complex goal in natural language and (with your permission), the agent plans and executes changes on multiple files across your project. The agent's answers are now grounded in the most modern development practices, and can even cross-reference our latest documentation in real time. We demoed new agentic experiences such as updates to Agent Mode, the ability to upgrade APIs on your behalf, the new project assistant, and we announced you'll be able to bring any LLM of your choice to power the AI functionality inside Android Studio, giving you more flexibility and choice on how you incorporate AI into your workflow. And for the newest stable features such as [Back Up and Sync](https://developer.android.com/studio/releases#backup-and-sync), make sure to download the latest stable version of [Android Studio](http://d.android.com/studio).
+[Video](https://www.youtube.com/watch?v=WUxdpFas6HM)
 
 ## Elevating AI-assisted Android development, and improving LLMs with an Android benchmark
 
-Our goal is to make it easier for Android developers to build great experiences. With more code being written by AI, developers have been asking for models that know more about Android development. We want to help developers be more productive, and that’s why we’re building a new task set for LLMs against a range of common Android development areas. The goal is to provide LLM makers with a benchmark, a north star of high quality Android development, so Android developers have a range of helpful models to choose for AI assistance.
+Our goal is to make it easier for Android developers to build great experiences. With more code being written by AI, developers have been asking for models that know more about Android development. We want to help developers be more productive, and that's why we're building a new task set for LLMs against a range of common Android development areas. The goal is to provide LLM makers with a benchmark, a north star of high quality Android development, so Android developers have a range of helpful models to choose for AI assistance.
 
-To reflect the challenges of Android development, the benchmark is composed of real-world problems sourced from public GitHub Android repositories. Each evaluation attempts to have an LLM recreate a pull request, which are then verified using human authored tests. This allows us to measure a model’s ability to navigate complex codebases, understand dependencies, and solve the kind of problems you encounter every day.
+To reflect the challenges of Android development, the benchmark is composed of real-world problems sourced from public GitHub Android repositories. Each evaluation attempts to have an LLM recreate a pull request, which are then verified using human authored tests. This allows us to measure a model's ability to navigate complex codebases, understand dependencies, and solve the kind of problems you encounter every day.
 
-We’re finalizing the task set we’ll be testing against LLMs, and will be sharing the results publicly in the coming months. We’re looking forward to seeing how this shapes AI assisted Android development, and the additional flexibility and choice it gives you to build on Android.
-
-![benchmark.gif](/static/blog/assets/benchmark_858a86999b_l9rrW.webp)
+We're finalizing the task set we'll be testing against LLMs, and will be sharing the results publicly in the coming months. We're looking forward to seeing how this shapes AI assisted Android development, and the additional flexibility and choice it gives you to build on Android.
+![benchmark.gif](https://developer.android.com/static/blog/assets/benchmark_858a86999b_l9rrW.webp)
 
 ## The first Android XR device: Samsung Galaxy XR
 
-Last week was the launch of the first in a new wave of Android XR devices: [the Galaxy XR](https://android-developers.googleblog.com/2025/10/giving-your-apps-new-home-on-samsung.html), in partnership with Samsung. [Android XR](https://android-developers.googleblog.com/2024/12/introducing-android-xr-sdk-developer-preview.html) devices are built entirely in the Gemini era, creating a major new platform opportunity for your app. And because Android XR is built on top of familiar Android frameworks, when [building adaptively](/adaptive-apps), you’re already building for XR. To unlock the full potential of Android XR features, you can use the [Jetpack XR SDK](/develop/xr/jetpack-xr-sdk). The [Calm team provides a perfect example](https://youtu.be/yUx8T06arKQ?si=J_ivL7b-NsIxuzG7) of this in action. They successfully transformed their mobile app into an immersive spatial experience, building their first functional XR menus on the first day and a core XR experience in just two weeks by leveraging their existing Android codebase and the Jetpack XR SDK.  You can read more about [Android XR from our Spotlight Week](https://android-developers.googleblog.com/2025/10/welcome-to-android-xr-spotlight-week.html) last week.
+Last week was the launch of the first in a new wave of Android XR devices: [the Galaxy XR](https://android-developers.googleblog.com/2025/10/giving-your-apps-new-home-on-samsung.html), in partnership with Samsung. [Android XR](https://android-developers.googleblog.com/2024/12/introducing-android-xr-sdk-developer-preview.html) devices are built entirely in the Gemini era, creating a major new platform opportunity for your app. And because Android XR is built on top of familiar Android frameworks, when [building adaptively](https://developer.android.com/adaptive-apps), you're already building for XR. To unlock the full potential of Android XR features, you can use the [Jetpack XR SDK](https://developer.android.com/develop/xr/jetpack-xr-sdk). The [Calm team provides a perfect example](https://youtu.be/yUx8T06arKQ?si=J_ivL7b-NsIxuzG7) of this in action. They successfully transformed their mobile app into an immersive spatial experience, building their first functional XR menus on the first day and a core XR experience in just two weeks by leveraging their existing Android codebase and the Jetpack XR SDK. You can read more about [Android XR from our Spotlight Week](https://android-developers.googleblog.com/2025/10/welcome-to-android-xr-spotlight-week.html) last week.
+[Video](https://www.youtube.com/watch?v=yUx8T06arKQ)
 
 ## Jetpack Navigation 3 is in Beta
 
-The new [Jetpack Navigation 3 library](/guide/navigation/navigation-3)is now in beta! Instead of having behavior embedded into the library itself, we’re providing ‘how-to recipes’ with good defaults ([nav3 recipes on github](https://github.com/android/nav3-recipes/tree/main)). Out of the box, it’s fully customizable, has animation support and is adaptive. Nav 3 was built from the ground up with Compose State as a fundamental building block. This means that it fully buys into the declarative programming model - you change the state you own and Nav3 reacts to that new state. On the Compose front, we’ve been working on making it faster and easier for you to build UI, covering the features you told us you needed from Views, while at the same time ensuring that Compose is performant.
+The new [Jetpack Navigation 3 library](https://developer.android.com/guide/navigation/navigation-3)is now in beta! Instead of having behavior embedded into the library itself, we're providing 'how-to recipes' with good defaults ([nav3 recipes on github](https://github.com/android/nav3-recipes/tree/main)). Out of the box, it's fully customizable, has animation support and is adaptive. Nav 3 was built from the ground up with Compose State as a fundamental building block. This means that it fully buys into the declarative programming model - you change the state you own and Nav3 reacts to that new state. On the Compose front, we've been working on making it faster and easier for you to build UI, covering the features you told us you needed from Views, while at the same time ensuring that Compose is performant.
 
 ## Accelerate your business success on Google Play
 
-With AI speeding up app development, Google Play is streamlining your workflow in Play Console so that your business growth can keep up with your code. The reimagined, goal-oriented app dashboard puts actionable metrics front and center. Plus, new capabilities are making your day-to-day operations faster, smarter, and more efficient: from pre-release testing with deep links validation to AI-powered analytics summaries and app strings localization. These updates are just the beginning. Check out the [full list of announcements](https://android-developers.googleblog.com/2025/10/new-tools-and-programs-to-accelerate.html) to get the latest from Play.
+With AI speeding up app development, Google Play is streamlining your workflow in Play Console so that your business growth can keep up with your code. The reimagined, goal-oriented app dashboard puts actionable metrics front and center. Plus, new capabilities are making your day-to-day operations faster, smarter, and more efficient: from pre-release testing with deep links validation to AI-powered analytics summaries and app strings localization. These updates are just the beginning. Check out the [full list of announcements](https://android-developers.googleblog.com/2025/10/new-tools-and-programs-to-accelerate.html) to get the latest from Play.
+[Video](https://www.youtube.com/watch?v=LlQW5j0JcCM)
 
 ## Watch the Fall episode of The Android Show
 
-Thank you for tuning into our Fall episode of The Android Show. We're excited to continue building great things together, and this show is an important part of our conversation with you. We'd love to hear your ideas for our next episode, so please reach out on [X](https://twitter.com/AndroidDev) or [LinkedIn](https://www.linkedin.com/showcase/androiddev/). A special thanks to my co-hosts, [Rebecca Gutteridge](https://www.linkedin.com/in/rebecca-gutteridge) and [Adetunji Dahunsi](https://bsky.app/profile/tunji.dev), for helping us share the latest updates.
+Thank you for tuning into our Fall episode of The Android Show. We're excited to continue building great things together, and this show is an important part of our conversation with you. We'd love to hear your ideas for our next episode, so please reach out on [X](https://twitter.com/AndroidDev) or [LinkedIn](https://www.linkedin.com/showcase/androiddev/). A special thanks to my co-hosts, [Rebecca Gutteridge](https://www.linkedin.com/in/rebecca-gutteridge) and [Adetunji Dahunsi](https://bsky.app/profile/tunji.dev), for helping us share the latest updates.
 
 ###### Written by:
 
-* ## [Matthew McCullough](/blog/authors/matthew-mccullough)
+-
+
+  ## [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough)
 
   ###### Vice President, Product Management, Android Developer
 
-  [read\_more
-  View profile](/blog/authors/matthew-mccullough)
-
-  ![](/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)
-
-  ![](/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)
+  [read_more
+  View profile](https://developer.android.com/blog/authors/matthew-mccullough) ![](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp) ![](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)
 
 ## Continue reading
 
-* [![](/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](/blog/authors/matthew-mccullough)
+- [![](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 02 Apr 2026 02 Apr 2026 ![](https://developer.android.com/static/blog/assets/Gemma_Android_2x1_2x_a6d27254c4_Z10SxJJ.webp)
 
-  02
+  #### [Product News](https://developer.android.com/blog/categories/product-news)
 
-  Apr
-  2026
+  ## [Gemma 4: The new standard for local agentic intelligence on Android](https://developer.android.com/blog/posts/gemma-4-the-new-standard-for-local-agentic-intelligence-on-android)
 
-  02
+  [arrow_forward](https://developer.android.com/blog/posts/gemma-4-the-new-standard-for-local-agentic-intelligence-on-android) Today, we are enhancing Android development with Gemma 4, our latest state-of-the-art open model designed with complex reasoning and autonomous tool-calling capabilities.
 
-  Apr
-  2026
+  ###### [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) •
+  2 min read
 
-  ![](/static/blog/assets/Gemma_Android_2x1_2x_a6d27254c4_Z10SxJJ.webp)
+  - [#Android Studio](https://developer.android.com/blog/topics/android-studio)
+- [![](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 26 Mar 2026 26 Mar 2026 ![](https://developer.android.com/static/blog/assets/android17banner_359909419a_Z1HMAIH.webp)
 
-  #### [Product News](/blog/categories/product-news)
+  #### [Product News](https://developer.android.com/blog/categories/product-news)
 
-  ## [Gemma 4: The new standard for local agentic intelligence on Android](/blog/posts/gemma-4-the-new-standard-for-local-agentic-intelligence-on-android)
+  ## [The Third Beta of Android 17](https://developer.android.com/blog/posts/the-third-beta-of-android-17)
 
-  [arrow\_forward](/blog/posts/gemma-4-the-new-standard-for-local-agentic-intelligence-on-android)
+  [arrow_forward](https://developer.android.com/blog/posts/the-third-beta-of-android-17) Android 17 has officially reached platform stability today with Beta 3. That means that the API surface is locked; you can perform final compatibility testing and push your Android 17-targeted apps to the Play Store.
 
-  Today, we are enhancing Android development with Gemma 4, our latest state-of-the-art open model designed with complex reasoning and autonomous tool-calling capabilities.
+  ###### [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) •
+  5 min read
 
-  ###### [Matthew McCullough](/blog/authors/matthew-mccullough) • 2 min read
+  - [#Android 17](https://developer.android.com/blog/topics/android-17)
+  - [#beta](https://developer.android.com/blog/topics/beta)
+- [![](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 05 Mar 2026 05 Mar 2026 ![](https://developer.android.com/static/blog/assets/android_Bench_f2e4dd4fda_2816Hg.webp)
 
-  + [#Android Studio](/blog/topics/android-studio)
-* [![](/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](/blog/authors/matthew-mccullough)
+  #### [Product News](https://developer.android.com/blog/categories/product-news)
 
-  26
+  ## [Elevating AI-assisted Android development and improving LLMs with Android Bench](https://developer.android.com/blog/posts/elevating-ai-assisted-android-development-and-improving-ll-ms-with-android-bench)
 
-  Mar
-  2026
+  [arrow_forward](https://developer.android.com/blog/posts/elevating-ai-assisted-android-development-and-improving-ll-ms-with-android-bench) We want to make it faster and easier for you to build high-quality Android apps, and one way we're helping you be more productive is by putting AI at your fingertips.
 
-  26
-
-  Mar
-  2026
-
-  ![](/static/blog/assets/android17banner_359909419a_Z1HMAIH.webp)
-
-  #### [Product News](/blog/categories/product-news)
-
-  ## [The Third Beta of Android 17](/blog/posts/the-third-beta-of-android-17)
-
-  [arrow\_forward](/blog/posts/the-third-beta-of-android-17)
-
-  Android 17 has officially reached platform stability today with Beta 3. That means that the API surface is locked; you can perform final compatibility testing and push your Android 17-targeted apps to the Play Store.
-
-  ###### [Matthew McCullough](/blog/authors/matthew-mccullough) • 5 min read
-
-  + [#Android 17](/blog/topics/android-17)
-  + [#beta](/blog/topics/beta)
-* [![](/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](/blog/authors/matthew-mccullough)
-
-  05
-
-  Mar
-  2026
-
-  05
-
-  Mar
-  2026
-
-  ![](/static/blog/assets/android_Bench_f2e4dd4fda_2816Hg.webp)
-
-  #### [Product News](/blog/categories/product-news)
-
-  ## [Elevating AI-assisted Android development and improving LLMs with Android Bench](/blog/posts/elevating-ai-assisted-android-development-and-improving-ll-ms-with-android-bench)
-
-  [arrow\_forward](/blog/posts/elevating-ai-assisted-android-development-and-improving-ll-ms-with-android-bench)
-
-  We want to make it faster and easier for you to build high-quality Android apps, and one way we’re helping you be more productive is by putting AI at your fingertips.
-
-  ###### [Matthew McCullough](/blog/authors/matthew-mccullough) • 2 min read
+  ###### [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) •
+  2 min read
 
 # Stay in the loop
 
+
 Get the latest Android development insights delivered to your inbox
 weekly.
-
 [mail
-Subscribe](/subscribe)
-
-![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)

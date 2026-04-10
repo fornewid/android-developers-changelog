@@ -1,18 +1,8 @@
 ---
-title: Anatomy of a theme in Compose  |  Jetpack Compose  |  Android Developers
+title: https://developer.android.com/develop/ui/compose/designsystems/anatomy
 url: https://developer.android.com/develop/ui/compose/designsystems/anatomy
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [Develop](https://developer.android.com/develop)
-* [Core areas](https://developer.android.com/develop/core-areas)
-* [UI](https://developer.android.com/develop/ui)
-* [Docs](https://developer.android.com/develop/ui/compose/documentation)
-
-# Anatomy of a theme in Compose Stay organized with collections Save and categorize content based on your preferences.
-
-
 
 Themes in Jetpack Compose are made up of a number of lower-level constructs
 and related APIs. These can be seen in the
@@ -33,14 +23,11 @@ For example, `MaterialTheme` includes
 [`Shapes`](https://cs.android.com/androidx/platform/frameworks/support/+/androidx-main:compose/material3/material3/src/commonMain/kotlin/androidx/compose/material3/Shapes.kt)
 (shape system).
 
-**Note:** Classes should be annotated with
-[`Stable`](/reference/kotlin/androidx/compose/runtime/Stable)
-or
-[`@Immutable`](/reference/kotlin/androidx/compose/runtime/Immutable)
-to provide information to the Compose compiler. To learn more, check out the
-[Lifecycle of composables guide](/develop/ui/compose/lifecycle#skipping).
+> [!NOTE]
+> **Note:** Classes should be annotated with [`Stable`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/Stable) or [`@Immutable`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/Immutable) to provide information to the Compose compiler. To learn more, check out the [Lifecycle of composables guide](https://developer.android.com/develop/ui/compose/lifecycle#skipping).
 
-```
+
+```kotlin
 @Immutable
 data class ColorSystem(
     val color: Color,
@@ -63,29 +50,25 @@ data class CustomSystem(
 )
 
 /* ... */
-
-ThemeAnatomySnippets.kt
 ```
+
+<br />
 
 ## Theme system composition locals
 
 Theme system classes are implicitly provided to the composition tree as
-[`CompositionLocal`](/reference/kotlin/androidx/compose/runtime/CompositionLocal)
+[`CompositionLocal`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/CompositionLocal)
 instances. This allows theming values to be statically referenced in composable
 functions.
 
 To learn more about `CompositionLocal`, check out the
-[Locally scoped data with CompositionLocal guide](/develop/ui/compose/compositionlocal).
+[Locally scoped data with CompositionLocal guide](https://developer.android.com/develop/ui/compose/compositionlocal).
 
-**Note:** You can create a class's `CompositionLocal` with
-[`compositionLocalOf`](/reference/kotlin/androidx/compose/runtime/package-summary#compositionlocalof)
-or
-[`staticCompositionLocalOf`](/reference/kotlin/androidx/compose/runtime/package-summary#staticcompositionlocalof).
-These functions have a `defaultFactory` trailing lambda to provide fallback
-values of the same type that they're providing. It's a good idea to use
-reasonable defaults like `Color.Unspecified`, `TextStyle.Default`, etc.
+> [!NOTE]
+> **Note:** You can create a class's `CompositionLocal` with [`compositionLocalOf`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/package-summary#compositionlocalof) or [`staticCompositionLocalOf`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/package-summary#staticcompositionlocalof). These functions have a `defaultFactory` trailing lambda to provide fallback values of the same type that they're providing. It's a good idea to use reasonable defaults like `Color.Unspecified`, `TextStyle.Default`, etc.
 
-```
+
+```kotlin
 val LocalColorSystem = staticCompositionLocalOf {
     ColorSystem(
         color = Color.Unspecified,
@@ -108,20 +91,21 @@ val LocalCustomSystem = staticCompositionLocalOf {
 }
 
 /* ... */
-
-ThemeAnatomySnippets.kt
 ```
+
+<br />
 
 ## Theme function
 
 The theme function is the entry point and primary API. It constructs instances
-of the theme system `CompositionLocal`s — using real values any logic
-required — that are provided to the composition tree with
-[`CompositionLocalProvider`](/reference/kotlin/androidx/compose/runtime/package-summary#compositionlocalprovider).
+of the theme system `CompositionLocal`s --- using real values any logic
+required --- that are provided to the composition tree with
+[`CompositionLocalProvider`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/package-summary#compositionlocalprovider).
 The `content` parameter allows nested composables to access theming values
 relative to the hierarchy.
 
-```
+
+```kotlin
 @Composable
 fun Theme(
     /* ... */
@@ -148,9 +132,9 @@ fun Theme(
         content = content
     )
 }
-
-ThemeAnatomySnippets.kt
 ```
+
+<br />
 
 ## Theme object
 
@@ -158,7 +142,8 @@ Accessing theme systems is done using an object with convenience properties. For
 consistency, the object tends to be named the same as the theme function. The
 properties simply get the current composition local.
 
-```
+
+```kotlin
 // Use with eg. Theme.colorSystem.color
 object Theme {
     val colorSystem: ColorSystem
@@ -172,13 +157,13 @@ object Theme {
         get() = LocalCustomSystem.current
     /* ... */
 }
-
-ThemeAnatomySnippets.kt
 ```
+
+<br />
 
 ## Recommended for you
 
-* Note: link text is displayed when JavaScript is off
-* [Locally scoped data with CompositionLocal](/develop/ui/compose/compositionlocal)
-* [Custom design systems in Compose](/develop/ui/compose/designsystems/custom)
-* [Material Design 3 in Compose](/develop/ui/compose/designsystems/material3)
+- Note: link text is displayed when JavaScript is off
+- [Locally scoped data with CompositionLocal](https://developer.android.com/develop/ui/compose/compositionlocal)
+- [Custom design systems in Compose](https://developer.android.com/develop/ui/compose/designsystems/custom)
+- [Material Design 3 in Compose](https://developer.android.com/develop/ui/compose/designsystems/material3)

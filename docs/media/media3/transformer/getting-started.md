@@ -1,33 +1,16 @@
 ---
-title: Getting started  |  Android media  |  Android Developers
+title: https://developer.android.com/media/media3/transformer/getting-started
 url: https://developer.android.com/media/media3/transformer/getting-started
-source: html-scrape
+source: md.txt
 ---
-
-Media3 Transformer is actively under development and we are looking to hear from you! We welcome your feedback, feature requests and bug reports in the [issue tracker](https://github.com/androidx/media/issues). Follow the [ExoPlayer blog](https://medium.com/google-exoplayer) for the latest updates.
-
-* [Android Developers](https://developer.android.com/)
-* [Essentials](https://developer.android.com/get-started)
-* [Media dev center](https://developer.android.com/media)
-* [Guides](https://developer.android.com/media/guides)
-
-# Getting started Stay organized with collections Save and categorize content based on your preferences.
-
-
-
 
 Getting started with `Transformer` consists of the following steps:
 
 1. Add Media3 Transformer as a dependency in your project.
-2. Build an `EditedMediaItem` representing the media to process and edits to
-   apply to it.
-3. Build a `Transformer`, describing the required output and a listener
-   for completion and error events.
-4. Start the export operation, passing in the `EditedMediaItem` to edit and an
-   output path. During export, you can query the current progress or cancel the
-   operation.
-5. When exporting finishes, handle the output as needed. For example, you can
-   share the output to another app or upload it to a server.
+2. Build an `EditedMediaItem` representing the media to process and edits to apply to it.
+3. Build a `Transformer`, describing the required output and a listener for completion and error events.
+4. Start the export operation, passing in the `EditedMediaItem` to edit and an output path. During export, you can query the current progress or cancel the operation.
+5. When exporting finishes, handle the output as needed. For example, you can share the output to another app or upload it to a server.
 
 Read on for more detail about these steps, and see `TransformerActivity` in the
 [transformer demo
@@ -41,26 +24,22 @@ on the library in the `build.gradle` file of your app module:
 
 ### Kotlin
 
-```
-implementation("androidx.media3:media3-transformer:1.10.0")
-implementation("androidx.media3:media3-effect:1.10.0")
-implementation("androidx.media3:media3-common:1.10.0")
-```
+    implementation("androidx.media3:media3-transformer:1.10.0")
+    implementation("androidx.media3:media3-effect:1.10.0")
+    implementation("androidx.media3:media3-common:1.10.0")
 
 ### Groovy
 
-```
-implementation "androidx.media3:media3-transformer:1.10.0"
-implementation "androidx.media3:media3-effect:1.10.0"
-implementation "androidx.media3:media3-common:1.10.0"
-```
+    implementation "androidx.media3:media3-transformer:1.10.0"
+    implementation "androidx.media3:media3-effect:1.10.0"
+    implementation "androidx.media3:media3-common:1.10.0"
 
 where 1.10.0 is your preferred version. The latest version can be
 found by consulting the [release
 notes](https://github.com/androidx/media/tree/release/RELEASENOTES.md).
 
-**Important:** If you're using any other Media3 modules, including Media3 ExoPlayer, they
-must all be the same version.
+> [!IMPORTANT]
+> **Important:** If you're using any other Media3 modules, including Media3 ExoPlayer, they must all be the same version.
 
 More information on the library modules that are available can be found on the
 [Google Maven AndroidX Media3
@@ -72,11 +51,9 @@ If not enabled already, you need to turn on Java 8 support in all `build.gradle`
 files that depend on Transformer by adding the following to the `android`
 section:
 
-```
-compileOptions {
-  targetCompatibility JavaVersion.VERSION_1_8
-}
-```
+    compileOptions {
+      targetCompatibility JavaVersion.VERSION_1_8
+    }
 
 ## Start a transformation
 
@@ -84,9 +61,10 @@ Here's an example of creating an `EditedMediaItem` to remove audio for an input
 file, then creating and configuring a `Transformer` instance to export
 H.265/HEVC video, outputting the result to `outputPath`.
 
+
 ### Kotlin
 
-```
+```kotlin
 val inputMediaItem = MediaItem.fromUri("path_to_input_file")
 val editedMediaItem = EditedMediaItem.Builder(inputMediaItem).setRemoveAudio(true).build()
 val transformer =
@@ -95,13 +73,11 @@ val transformer =
     .addListener(transformerListener)
     .build()
 transformer.start(editedMediaItem, outputPath)
-
-GettingStarted.kt
 ```
 
 ### Java
 
-```
+```java
 MediaItem inputMediaItem = MediaItem.fromUri("path_to_input_file");
 EditedMediaItem editedMediaItem =
     new EditedMediaItem.Builder(inputMediaItem).setRemoveAudio(true).build();
@@ -111,23 +87,23 @@ Transformer transformer =
         .addListener(transformerListener)
         .build();
 transformer.start(editedMediaItem, outputPath);
-
-GettingStarted.java
 ```
+
+<br />
 
 For more information about media items, see the [ExoPlayer media items
 page](https://developer.android.com/media/media3/exoplayer/media-items). The input can be a progressive or an adaptive
 stream, but the output is always a progressive stream. For adaptive inputs, the
 highest-resolution tracks are always selected for the transformation. The input
-can be of any container format [supported](/media/media3/transformer/supported-formats) by ExoPlayer, but
+can be of any container format [supported](https://developer.android.com/media/media3/transformer/supported-formats) by ExoPlayer, but
 the output is always an MP4 file.
 
 You can execute multiple export operations sequentially on the same
 `Transformer` instance, but concurrent exports with the same instance are not
 supported.
 
-**Note:** Support for generating media by composing together multiple inputs is
-planned for future versions of Transformer.
+> [!NOTE]
+> **Note:** Support for generating media by composing together multiple inputs is planned for future versions of Transformer.
 
 ### A note on threading
 
@@ -142,9 +118,10 @@ methods on the application thread.
 The `start` method is asynchronous. It returns immediately and the app is
 notified of events through the listener passed to the `Transformer` builder.
 
+
 ### Kotlin
 
-```
+```kotlin
 val transformerListener: Transformer.Listener =
   object : Transformer.Listener {
     override fun onCompleted(composition: Composition, result: ExportResult) {
@@ -159,13 +136,11 @@ val transformerListener: Transformer.Listener =
       displayError(exception)
     }
   }
-
-GettingStarted.kt
 ```
 
 ### Java
 
-```
+```java
 Transformer.Listener transformerListener =
     new Transformer.Listener() {
       @Override
@@ -179,9 +154,9 @@ Transformer.Listener transformerListener =
         displayError(exception);
       }
     };
-
-GettingStarted.java
 ```
+
+<br />
 
 `ExportResult` includes information about the output file, including the file
 size and average bitrates for audio and video, as applicable.
@@ -195,9 +170,10 @@ updated with the current progress percentage. The following example shows how to
 periodically query the progress of a transformation, where the
 `updateProgressInUi` method can be implemented to update a progress bar.
 
+
 ### Kotlin
 
-```
+```kotlin
 transformer.start(inputMediaItem, outputPath)
 val progressHolder = ProgressHolder()
 mainHandler.post(
@@ -211,13 +187,11 @@ mainHandler.post(
     }
   }
 )
-
-GettingStarted.kt
 ```
 
 ### Java
 
-```
+```java
 transformer.start(inputMediaItem, outputPath);
 ProgressHolder progressHolder = new ProgressHolder();
 mainHandler.post(
@@ -231,9 +205,9 @@ mainHandler.post(
         }
       }
     });
-
-GettingStarted.java
 ```
+
+<br />
 
 ## Cancel a transformation
 

@@ -1,12 +1,8 @@
 ---
-title: Migrate XML View to Jetpack Compose  |  Android Developers
+title: https://developer.android.com/agents/skills/jetpack-compose/migration/migrate-xml-views-to-jetpack-compose/skill
 url: https://developer.android.com/agents/skills/jetpack-compose/migration/migrate-xml-views-to-jetpack-compose/skill
-source: html-scrape
+source: md.txt
 ---
-
-# Migrate XML View to Jetpack Compose Stay organized with collections Save and categorize content based on your preferences.
-
-
 
 This skill guides through the process of migrating an existing Android XML View
 to Jetpack Compose. It performs a stable, safe and visually consistent
@@ -38,13 +34,13 @@ integrity.
 
 If the user has explicitly specified a target XML layout, proceed to Step 2.
 Otherwise, analyze the codebase to identify the best candidate for migration by
-following the logic in [references/identify-optimal-xml-candidate.md](/agents/skills/jetpack-compose/migration/migrate-xml-views-to-jetpack-compose/references/identify-optimal-xml-candidate).
+following the logic in [references/identify-optimal-xml-candidate.md](https://developer.android.com/agents/skills/jetpack-compose/migration/migrate-xml-views-to-jetpack-compose/references/identify-optimal-xml-candidate).
 
 ### Step 2: Analyze the project and layout
 
 Analyze the identified XML View's structure, hierarchy, and implementation
 details.
-Use [references/analysis-of-the-project-and-layout.md](/agents/skills/jetpack-compose/migration/migrate-xml-views-to-jetpack-compose/references/analysis-of-the-project-and-layout) to
+Use [references/analysis-of-the-project-and-layout.md](https://developer.android.com/agents/skills/jetpack-compose/migration/migrate-xml-views-to-jetpack-compose/references/analysis-of-the-project-and-layout) to
 guide your technical audit of the layout and surrounding project context.
 
 ### Step 3: Create a plan
@@ -70,14 +66,14 @@ required setup. Run the test and take a baseline screenshot of the XML UI.
 
 Check `build.gradle` or `libs.versions.toml` for Compose dependencies and
 compiler setup. If missing, use
-[Setup Compose Dependencies and Compiler](/develop/ui/compose/setup-compose-dependencies-and-compiler).
+[Setup Compose Dependencies and Compiler](https://developer.android.com/develop/ui/compose/setup-compose-dependencies-and-compiler).
 Run a sync to ensure dependencies resolve without errors.
 
 ### Step 6: Set up Compose theming
 
 If the project already has Compose theming set up, proceed to Step 7. If Compose
 theming is missing, initialize it. For Material-based projects, follow
-[Material 3 migration guidelines](/develop/ui/compose/designsystems/migrate-xml-theme-to-compose).
+[Material 3 migration guidelines](https://developer.android.com/develop/ui/compose/designsystems/migrate-xml-theme-to-compose).
 For custom design systems, apply expert judgment to migrate XML theming and
 match existing styles.
 **Constraints:** Do not migrate the entire theme. Implement only the minimum
@@ -88,7 +84,7 @@ names and values.
 ### Step 7: Migrate the XML View to Compose
 
 Convert the XML candidate to Jetpack Compose code, referencing
-[references/xml-layout-migration.md](/agents/skills/jetpack-compose/migration/migrate-xml-views-to-jetpack-compose/references/xml-layout-migration) and the image from Step 4.
+[references/xml-layout-migration.md](https://developer.android.com/agents/skills/jetpack-compose/migration/migrate-xml-views-to-jetpack-compose/references/xml-layout-migration) and the image from Step 4.
 You must include a **Compose Preview** for the newly created composable to
 facilitate visual verification.
 
@@ -96,8 +92,8 @@ facilitate visual verification.
 
 Replace the usages of the migrated XML layout to use the new Compose component.
 
-* To add Compose in Views, use [Compose in Views](/develop/ui/compose/migrate/interoperability-apis/compose-in-views).
-* To add Views in Compose, use [Views in Compose](/develop/ui/compose/migrate/interoperability-apis/views-in-compose).
+- To add Compose in Views, use [Compose in Views](https://developer.android.com/develop/ui/compose/migrate/interoperability-apis/compose-in-views).
+- To add Views in Compose, use [Views in Compose](https://developer.android.com/develop/ui/compose/migrate/interoperability-apis/views-in-compose).
 
 ### Step 9: Validate the migration
 

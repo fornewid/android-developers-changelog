@@ -1,17 +1,8 @@
 ---
-title: Referencing complex data using Room  |  App data and files  |  Android Developers
+title: https://developer.android.com/training/data-storage/room/referencing-data
 url: https://developer.android.com/training/data-storage/room/referencing-data
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [Develop](https://developer.android.com/develop)
-* [Core areas](https://developer.android.com/develop/core-areas)
-* [App data and files](https://developer.android.com/training/data-storage)
-
-# Referencing complex data using Room Stay organized with collections Save and categorize content based on your preferences.
-
-
 
 Room provides functionality for converting between primitive and boxed types
 but doesn't allow for object references between entities. This document
@@ -21,23 +12,21 @@ references.
 ## Use type converters
 
 Sometimes, you need your app to store a custom data type in a single database
-column. You support custom types by providing *type converters*, which are
+column. You support custom types by providing *type converters* , which are
 methods that tell Room how to convert custom types to and from known types that
 Room can persist. You identify type converters by using the
-[`@TypeConverter`](/reference/androidx/room/TypeConverter) annotation.
+[`@TypeConverter`](https://developer.android.com/reference/androidx/room/TypeConverter) annotation.
 
-**Note:** Room 2.3 and higher includes a default type converter for persisting
-enums. Existing type converters take precedence over the default, but if you
-have not already defined a type converter for enums then you don't need to
-define one.
+> [!NOTE]
+> **Note:** Room 2.3 and higher includes a default type converter for persisting enums. Existing type converters take precedence over the default, but if you have not already defined a type converter for enums then you don't need to define one.
 
-Suppose you need to persist instances of [`Date`](/reference/java/util/Date) in
+Suppose you need to persist instances of [`Date`](https://developer.android.com/reference/java/util/Date) in
 your Room database. Room doesn't know how to persist `Date` objects, so you need
 to define type converters:
 
 ### Kotlin
 
-```
+```kotlin
 class Converters {
   @TypeConverter
   fun fromTimestamp(value: Long?): Date? {
@@ -53,7 +42,7 @@ class Converters {
 
 ### Java
 
-```
+```java
 public class Converters {
   @TypeConverter
   public static Date fromTimestamp(Long value) {
@@ -72,13 +61,13 @@ object to a `Long` object, and one that performs the inverse conversion from
 `Long` to `Date`. Because Room knows how to persist `Long` objects, it can use
 these converters to persist `Date` objects.
 
-Next, you add the [`@TypeConverters`](/reference/androidx/room/TypeConverters)
+Next, you add the [`@TypeConverters`](https://developer.android.com/reference/androidx/room/TypeConverters)
 annotation to the `AppDatabase` class so that Room knows about the converter
 class that you have defined:
 
 ### Kotlin
 
-```
+```kotlin
 @Database(entities = [User::class], version = 1)
 @TypeConverters(Converters::class)
 abstract class AppDatabase : RoomDatabase() {
@@ -88,7 +77,7 @@ abstract class AppDatabase : RoomDatabase() {
 
 ### Java
 
-```
+```java
 @Database(entities = {User.class}, version = 1)
 @TypeConverters({Converters.class})
 public abstract class AppDatabase extends RoomDatabase {
@@ -101,7 +90,7 @@ entities and DAOs just as you would use primitive types:
 
 ### Kotlin
 
-```
+```kotlin
 @Entity
 data class User(private val birthday: Date?)
 
@@ -114,7 +103,7 @@ interface UserDao {
 
 ### Java
 
-```
+```java
 @Entity
 public class User {
   private Date birthday;
@@ -138,11 +127,11 @@ Ordinarily, Room handles instantiation of type converters for you. However,
 sometimes you might need to pass additional dependencies to your type converter
 classes, which means that you need your app to directly control initialization
 of your type converters. In that case, annotate your converter class with
-[`@ProvidedTypeConverter`](/reference/androidx/room/ProvidedTypeConverter):
+[`@ProvidedTypeConverter`](https://developer.android.com/reference/androidx/room/ProvidedTypeConverter):
 
 ### Kotlin
 
-```
+```kotlin
 @ProvidedTypeConverter
 class ExampleConverter {
   @TypeConverter
@@ -159,7 +148,7 @@ class ExampleConverter {
 
 ### Java
 
-```
+```java
 @ProvidedTypeConverter
 public class ExampleConverter {
   @TypeConverter
@@ -176,13 +165,13 @@ public class ExampleConverter {
 
 Then, in addition to declaring your converter class in `@TypeConverters`, use
 the
-[`RoomDatabase.Builder.addTypeConverter()`](/reference/androidx/room/RoomDatabase.Builder#addTypeConverter(java.lang.Object))
+[`RoomDatabase.Builder.addTypeConverter()`](https://developer.android.com/reference/androidx/room/RoomDatabase.Builder#addTypeConverter(java.lang.Object))
 method to pass an instance of your converter class to the `RoomDatabase`
 builder:
 
 ### Kotlin
 
-```
+```kotlin
 val db = Room.databaseBuilder(...)
   .addTypeConverter(exampleConverterInstance)
   .build()
@@ -190,7 +179,7 @@ val db = Room.databaseBuilder(...)
 
 ### Java
 
-```
+```java
 AppDatabase db = Room.databaseBuilder(...)
   .addTypeConverter(exampleConverterInstance)
   .build();
@@ -232,13 +221,13 @@ name easily enough, as shown in the following code snippet:
 
 ### Kotlin
 
-```
+```kotlin
 authorNameTextView.text = book.author.name
 ```
 
 ### Java
 
-```
+```java
 authorNameTextView.setText(book.getAuthor().getName());
 ```
 

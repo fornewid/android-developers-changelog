@@ -1,28 +1,14 @@
 ---
-title: Manage passkeys  |  Identity  |  Android Developers
+title: https://developer.android.com/identity/passkeys/manage-passkeys
 url: https://developer.android.com/identity/passkeys/manage-passkeys
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [Design & Plan](https://developer.android.com/design)
-* [Security](https://developer.android.com/security)
-* [Identity](https://developer.android.com/identity)
-* [Guides](https://developer.android.com/identity/credential-manager)
-
-# Manage passkeys Stay organized with collections Save and categorize content based on your preferences.
-
-
-
 
 To provide a robust passkey experience, we recommend that your app implements
 the following:
 
-* **User passkey management**: Include a dedicated passkey management section
-  within your app's settings to allow users to manage their passkeys.
-* **Credential provider integration**: To communicate with credential
-  providers, the app server can implement the passkey endpoints for
-  registration, authentication, and deletion.
+- **User passkey management**: Include a dedicated passkey management section within your app's settings to allow users to manage their passkeys.
+- **Credential provider integration**: To communicate with credential providers, the app server can implement the passkey endpoints for registration, authentication, and deletion.
 
 ## User passkey management
 
@@ -39,51 +25,36 @@ creation date and the last-used date.
 To obtain the credential provider information, use the Authenticator Attestation
 Globally Unique Identifier (AAGUID) associated with the corresponding passkey.
 AAGUID is part of the [`PublicKeyCredential`](https://developer.mozilla.org/en-US/docs/Web/API/Web_Authentication_API/Authenticator_data#attestedcredentialdata) returned when you
-[create the passkey](/identity/passkeys/create-passkeys). AAGUID lets you identify the credential provider that
+[create the passkey](https://developer.android.com/identity/passkeys/create-passkeys). AAGUID lets you identify the credential provider that
 created the passkey. To learn more, see [Determine the passkey provider with
 AAGUID](https://web.dev/articles/webauthn-aaguid).
 
-**Warning:** Use the AAGUID only to help users manage their passkeys, and not for
-other purposes. The AAGUID can be modified or manipulated unless the attestation
-is attached with a valid signature.
+> [!WARNING]
+> **Warning:** Use the AAGUID only to help users manage their passkeys, and not for other purposes. The AAGUID can be modified or manipulated unless the attestation is attached with a valid signature.
 
 Your app can display the following details about a passkey:
 
-* Passkey name: Display the name given when the passkey was registered. The
-  ideal name is based on the credential provider (using the AAGUID); if the
-  provider can't be identified, use the device model information from
-  `android.os.Build`.
-* Provider logo: Show the credential provider's logo. This visual cue helps
-  users quickly identify the correct passkey they want to manage.
-* Timestamps: Provide the creation timestamp and the last-used timestamp. This
-  information helps users manage their credentials and identify old or unused
-  passkeys.
-* Sync status indicator: By default, passkeys are synced with credential
-  providers, but sync capabilities might vary. To prevent user confusion,
-  clearly indicate if a passkey does not support syncing.
-* Last sign-in details (optional): Provide details such as the browser, OS, or
-  IP address or location of the last sign-in. This is a valuable optional
-  feature for users to identify potential suspicious activity.
+- Passkey name: Display the name given when the passkey was registered. The ideal name is based on the credential provider (using the AAGUID); if the provider can't be identified, use the device model information from `android.os.Build`.
+- Provider logo: Show the credential provider's logo. This visual cue helps users quickly identify the correct passkey they want to manage.
+- Timestamps: Provide the creation timestamp and the last-used timestamp. This information helps users manage their credentials and identify old or unused passkeys.
+- Sync status indicator: By default, passkeys are synced with credential providers, but sync capabilities might vary. To prevent user confusion, clearly indicate if a passkey does not support syncing.
+- Last sign-in details (optional): Provide details such as the browser, OS, or IP address or location of the last sign-in. This is a valuable optional feature for users to identify potential suspicious activity.
 
 Apart from these details, the screen should have buttons that let users
-manage–delete or rename– each passkey.
-
-![The app settings page displays all saved passkeys for the app, with the credential provider and creation date.](/static/identity/passkeys/images/manage-passkeys.png)
-
-
-**Figure 1.**The app settings page displays all saved passkeys for the app, with the credential provider and creation date.
+manage--delete or rename-- each passkey.
+![The app settings page displays all saved passkeys for the app, with the credential provider and creation date.](https://developer.android.com/static/identity/passkeys/images/manage-passkeys.png) **Figure 1.**The app settings page displays all saved passkeys for the app, with the credential provider and creation date.
 
 ### Create multiple passkeys
 
 While you should present your users with opportunities to create passkeys
 throughout their user journey, such as right after sign in, your app's passkeys
-settings section should allow users to [create passkeys](/identity/passkeys/create-passkeys), from their choice
+settings section should allow users to [create passkeys](https://developer.android.com/identity/passkeys/create-passkeys), from their choice
 of credential provider.
 
 To lower the risk of account lockouts, allow users to register multiple passkeys
 with different credential providers. If one credential provider becomes
-inaccessible—for instance, if the platform discontinues support or the user
-loses access—they can use another passkey to sign in. Make sure that your
+inaccessible---for instance, if the platform discontinues support or the user
+loses access---they can use another passkey to sign in. Make sure that your
 database supports storing these multiple credentials per user. However, you can
 [prevent users from creating a passkey for the same account with the same
 credential provider](https://web.dev/articles/webauthn-exclude-credentials).
@@ -92,15 +63,10 @@ credential provider](https://web.dev/articles/webauthn-exclude-credentials).
 
 Your app's passkeys settings section should allow users to delete passkeys.
 
-Integrate the [Signal API](/identity/credential-manager/signal-api-rp) to support the passkey deletion functionality.
+Integrate the [Signal API](https://developer.android.com/identity/credential-manager/signal-api-rp) to support the passkey deletion functionality.
 
-**Important:** When a user attempts to delete their last passkey, make sure that
-they understand the risks: they'll have to sign in using a less convenient and
-less secure alternative. Critically, if the passkey is their sole method of
-accessing the site, deleting it will result in an immediate account lockout.
-Present users with their options for future sign-in—either a backup method or
-the chance to register a new passkey—before confirming the deletion. Consider
-this a chance to gather user feedback on their reasons for removal.
+> [!IMPORTANT]
+> **Important:** When a user attempts to delete their last passkey, make sure that they understand the risks: they'll have to sign in using a less convenient and less secure alternative. Critically, if the passkey is their sole method of accessing the site, deleting it will result in an immediate account lockout. Present users with their options for future sign-in---either a backup method or the chance to register a new passkey---before confirming the deletion. Consider this a chance to gather user feedback on their reasons for removal.
 
 ## Credential provider integration
 
@@ -112,9 +78,9 @@ see [Add passkey endpoints](https://developers.google.com/identity/passkeys/deve
 
 ### Additional resources
 
-* [Passkeys UX Guide](/design/ui/mobile/guides/patterns/passkeys)
-* [Video: How to reduce reliance on passwords in Android apps with passkey
+- [Passkeys UX Guide](https://developer.android.com/design/ui/mobile/guides/patterns/passkeys)
+- [Video: How to reduce reliance on passwords in Android apps with passkey
   support](https://www.youtube.com/watch?v=36peNZUlgzU)
-* [Codelab: Learn how to simplify auth journeys using Credential Manager API
+- [Codelab: Learn how to simplify auth journeys using Credential Manager API
   in your Android app](https://codelabs.developers.google.com/credential-manager-api-for-android#0)
-* [Sample app: CredentialManager](https://github.com/android/identity-samples/tree/main/CredentialManager)
+- [Sample app: CredentialManager](https://github.com/android/identity-samples/tree/main/CredentialManager)

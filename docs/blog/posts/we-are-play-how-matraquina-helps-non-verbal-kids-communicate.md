@@ -1,157 +1,96 @@
 ---
-title: #WeArePlay: How Matraquina helps non-verbal kids communicate  |  Android Developers' Blog
+title: https://developer.android.com/blog/posts/we-are-play-how-matraquina-helps-non-verbal-kids-communicate
 url: https://developer.android.com/blog/posts/we-are-play-how-matraquina-helps-non-verbal-kids-communicate
-source: html-scrape
+source: md.txt
 ---
 
-* [Android Developers](https://developer.android.com/)
-* [Android Developers' Blog](https://developer.android.com/)
-* [Blog](https://developer.android.com/blog)
-
-Stay organized with collections
-
-Save and categorize content based on your preferences.
-
-
-
-#### [Community](/blog/categories/community)
+#### [Community](https://developer.android.com/blog/categories/community)
 
 # #WeArePlay: How Matraquina helps non-verbal kids communicate
 
 ###### 2-min read
 
-![](/static/blog/assets/Android_Devs_Google_Devs_Blog_Header_1200x600_79350b0b52_1w8gkH.webp)
-
-11
-
-Dec
-2025
-
-[![](/static/blog/assets/Robbie_280bd4586c_2wmcrw.webp)](/blog/authors/robbie-mclachlan)
-
-[##### Robbie McLachlan](/blog/authors/robbie-mclachlan)
+![](https://developer.android.com/static/blog/assets/Android_Devs_Google_Devs_Blog_Header_1200x600_79350b0b52_1w8gkH.webp) 11 Dec 2025 [![](https://developer.android.com/static/blog/assets/Robbie_280bd4586c_2wmcrw.webp)](https://developer.android.com/blog/authors/robbie-mclachlan) [##### Robbie McLachlan](https://developer.android.com/blog/authors/robbie-mclachlan)
 
 ###### Brand Marketing Manager , Developer Marketing
 
-In our latest [#WeArePlay](https://play.google.com/console/about/weareplay/) film, we meet Adriano, Wagner and Grazyelle. The trio are behind [Matraquinha](https://play.google.com/store/apps/details?id=com.phonegap.matraquinha&gl=US), an app helping thousands of non-verbal children in more than 80 countries communicate. Discover more about their inspiring story and the impact on their own son, Gabriel.
+In our latest [#WeArePlay](https://play.google.com/console/about/weareplay/) film, we meet Adriano, Wagner and Grazyelle. The trio are behind [Matraquinha](https://play.google.com/store/apps/details?id=com.phonegap.matraquinha&gl=US), an app helping thousands of non-verbal children in more than 80 countries communicate. Discover more about their inspiring story and the impact on their own son, Gabriel.
+[Video](https://www.youtube.com/watch?v=NUR5TtKo9W4)
 
 **Wagner, you developed Matraquinha for a deeply personal reason: your son, Gabriel. Can you tell us what inspired you to create this app for him?**
 
-My wife and I adopted our son at 10 months. We later found out he couldn’t speak and received a diagnosis of Autism, so we started researching ways to communicate with him and vice versa. The idea started with drawings of objects and phrases on cards for him to point to things he wanted. We wanted to make this more digital and so, with my brother Adriano’s help, we developed the Matraquinha app.
+My wife and I adopted our son at 10 months. We later found out he couldn't speak and received a diagnosis of Autism, so we started researching ways to communicate with him and vice versa. The idea started with drawings of objects and phrases on cards for him to point to things he wanted. We wanted to make this more digital and so, with my brother Adriano's help, we developed the Matraquinha app.
 
 **How does the app work?**
 
 Wagner**:** The app has almost 250 drawings, like digital flashcards. The child points to a card and the app announces the name of the object, place or feeling. Parents then more clearly understand what their child needs.
 
 Grazyelle**:** As a mom, after Gabriel started using the app, he was able to communicate and that reduced his feeling of crisis a lot. Before, he would be frustrated. Now with the app, my son can tell me what he needs.
-
-![07_BRAZIL_MATRAQUINHA_FOUNDERS_WAGNER_GRAZYELLE_ADRIANOYAMUTO.jpg](/static/blog/assets/07_BRAZIL_MATRAQUINHA_FOUNDERS_WAGNER_GRAZYELLE_ADRIANOYAMUTO_e2d04eb303_Zaa42W.webp)
+![07_BRAZIL_MATRAQUINHA_FOUNDERS_WAGNER_GRAZYELLE_ADRIANOYAMUTO.jpg](https://developer.android.com/static/blog/assets/07_BRAZIL_MATRAQUINHA_FOUNDERS_WAGNER_GRAZYELLE_ADRIANOYAMUTO_e2d04eb303_Zaa42W.webp)
 
 **Matraquinha started as a personal app for your family, but is now helping users in over 77 countries. How did you achieve this scale?**
 
 Adriano: When my brother came to me with the idea, we thought it would be for our family and had no idea it would turn into a global resource for more families. In the first week, we had 1 download. By the next year, we had 100,000 downloads, all organic with no ads. It showed us how important the app was to help families communicate with their non-verbal children.
 
-Adriano: It’s truly incredible for us to be on Google Play because, even without being senior engineers, this tool gave us an opportunity—an entry point—to bring communication to other families. We use other tools like Firebase Analytics which lets us see which cards and categories people are using the most, this helps us when developing new versions.
-
-![09_BRAZIL_MATRAQUINHA_APP.png](/static/blog/assets/09_BRAZIL_MATRAQUINHA_APP_e6a279ac26_2rDuw1.webp)
+Adriano: It's truly incredible for us to be on Google Play because, even without being senior engineers, this tool gave us an opportunity---an entry point---to bring communication to other families. We use other tools like Firebase Analytics which lets us see which cards and categories people are using the most, this helps us when developing new versions.
+![09_BRAZIL_MATRAQUINHA_APP.png](https://developer.android.com/static/blog/assets/09_BRAZIL_MATRAQUINHA_APP_e6a279ac26_2rDuw1.webp)
 
 **What is next for Matraquinha, and what features are you most excited about bringing to the community?**
 
-We are adding an extra 500 real images to the app, because kids are growing and no longer want drawings as they become teenagers. We’re also creating a board that has pronouns, nouns, and verbs. So say, a child wants to let the parents know they like to eat hamburgers, they can tap on the different words and create a sentence. This gives them even more independence. We are also exploring ways to use AI to make the app even more personal and pursuing the same goal: ensuring every child can be heard.
+We are adding an extra 500 real images to the app, because kids are growing and no longer want drawings as they become teenagers. We're also creating a board that has pronouns, nouns, and verbs. So say, a child wants to let the parents know they like to eat hamburgers, they can tap on the different words and create a sentence. This gives them even more independence. We are also exploring ways to use AI to make the app even more personal and pursuing the same goal: ensuring every child can be heard.
 
-Discover other inspiring app and game founders featured in [#WeArePlay](https://play.google.com/console/about/weareplay/).
+Discover other inspiring app and game founders featured in [#WeArePlay](https://play.google.com/console/about/weareplay/).
 
 ###### Written by:
 
-* ## [Robbie McLachlan](/blog/authors/robbie-mclachlan)
+-
+
+  ## [Robbie McLachlan](https://developer.android.com/blog/authors/robbie-mclachlan)
 
   ###### Brand Marketing Manager
 
-  [read\_more
-  View profile](/blog/authors/robbie-mclachlan)
-
-  ![](/static/blog/assets/Robbie_280bd4586c_2wmcrw.webp)
-
-  ![](/static/blog/assets/Robbie_280bd4586c_2wmcrw.webp)
+  [read_more
+  View profile](https://developer.android.com/blog/authors/robbie-mclachlan) ![](https://developer.android.com/static/blog/assets/Robbie_280bd4586c_2wmcrw.webp) ![](https://developer.android.com/static/blog/assets/Robbie_280bd4586c_2wmcrw.webp)
 
 ## Continue reading
 
-* [![](/static/blog/assets/Robbie_280bd4586c_2wmcrw.webp)](/blog/authors/robbie-mclachlan)
+- [![](https://developer.android.com/static/blog/assets/Robbie_280bd4586c_2wmcrw.webp)](https://developer.android.com/blog/authors/robbie-mclachlan) 25 Mar 2026 25 Mar 2026 ![](https://developer.android.com/static/blog/assets/Meet_The_Class_2_bb4f1ec5bd_Z1MklPk.webp)
 
-  25
+  #### [Community](https://developer.android.com/blog/categories/community)
 
-  Mar
-  2026
+  ## [Meet the class of 2026 for the Google Play Apps Accelerator](https://developer.android.com/blog/posts/meet-the-class-of-2026-for-the-google-play-apps-accelerator)
 
-  25
+  [arrow_forward](https://developer.android.com/blog/posts/meet-the-class-of-2026-for-the-google-play-apps-accelerator) The wait is over! We are incredibly excited to share the Google Play Apps Accelerator class of 2026.
 
-  Mar
-  2026
+  ###### [Robbie McLachlan](https://developer.android.com/blog/authors/robbie-mclachlan) •
+  1 min read
 
-  ![](/static/blog/assets/Meet_The_Class_2_bb4f1ec5bd_Z1MklPk.webp)
+- [![](https://developer.android.com/static/blog/assets/Robbie_280bd4586c_2wmcrw.webp)](https://developer.android.com/blog/authors/robbie-mclachlan) 08 Dec 2025 08 Dec 2025 ![](https://developer.android.com/static/blog/assets/Android_Devs_Google_Devs_Blog_Header_1200x600_79350b0b52_1w8gkH.webp)
 
-  #### [Community](/blog/categories/community)
+  #### [Community](https://developer.android.com/blog/categories/community)
 
-  ## [Meet the class of 2026 for the Google Play Apps Accelerator](/blog/posts/meet-the-class-of-2026-for-the-google-play-apps-accelerator)
+  ## [#WeArePlay: How Miksapix Interactive is bringing ancient Sámi Mythology to gamers worldwide](https://developer.android.com/blog/posts/we-are-play-how-miksapix-interactive-is-bringing-ancient-sami-mythology-to-gamers-worldwide)
 
-  [arrow\_forward](/blog/posts/meet-the-class-of-2026-for-the-google-play-apps-accelerator)
+  [arrow_forward](https://developer.android.com/blog/posts/we-are-play-how-miksapix-interactive-is-bringing-ancient-sami-mythology-to-gamers-worldwide) In our latest #WeArePlay film, which celebrates the people behind apps and games on Google Play, we meet Mikkel - the founder and CEO of Miksapix Interactive.
 
-  The wait is over! We are incredibly excited to share the Google Play Apps Accelerator class of 2026.
+  ###### [Robbie McLachlan](https://developer.android.com/blog/authors/robbie-mclachlan) •
+  2 min read
 
-  ###### [Robbie McLachlan](/blog/authors/robbie-mclachlan) • 1 min read
-* [![](/static/blog/assets/Robbie_280bd4586c_2wmcrw.webp)](/blog/authors/robbie-mclachlan)
+- [![](https://developer.android.com/static/blog/assets/Robbie_280bd4586c_2wmcrw.webp)](https://developer.android.com/blog/authors/robbie-mclachlan) 25 Nov 2025 25 Nov 2025 ![](https://developer.android.com/static/blog/assets/Android_Devs_Google_Devs_Blog_Header_1200x600_79350b0b52_1w8gkH.webp)
 
-  08
+  #### [Community](https://developer.android.com/blog/categories/community)
 
-  Dec
-  2025
+  ## [#WeArePlay: Solving the dinner dilemma - how DELISH KITCHEN empowers 13 million home cooks](https://developer.android.com/blog/posts/we-are-play-solving-the-dinner-dilemma-how-delish-kitchen-empowers-13-million-home-cooks)
 
-  08
+  [arrow_forward](https://developer.android.com/blog/posts/we-are-play-solving-the-dinner-dilemma-how-delish-kitchen-empowers-13-million-home-cooks) In our latest #WeArePlay film, which celebrates the people behind apps and games on Google Play, we meet Chiharu - a co-founder of DELISH KITCHEN.
 
-  Dec
-  2025
-
-  ![](/static/blog/assets/Android_Devs_Google_Devs_Blog_Header_1200x600_79350b0b52_1w8gkH.webp)
-
-  #### [Community](/blog/categories/community)
-
-  ## [#WeArePlay: How Miksapix Interactive is bringing ancient Sámi Mythology to gamers worldwide](/blog/posts/we-are-play-how-miksapix-interactive-is-bringing-ancient-sami-mythology-to-gamers-worldwide)
-
-  [arrow\_forward](/blog/posts/we-are-play-how-miksapix-interactive-is-bringing-ancient-sami-mythology-to-gamers-worldwide)
-
-  In our latest #WeArePlay film, which celebrates the people behind apps and games on Google Play, we meet Mikkel - the founder and CEO of Miksapix Interactive.
-
-  ###### [Robbie McLachlan](/blog/authors/robbie-mclachlan) • 2 min read
-* [![](/static/blog/assets/Robbie_280bd4586c_2wmcrw.webp)](/blog/authors/robbie-mclachlan)
-
-  25
-
-  Nov
-  2025
-
-  25
-
-  Nov
-  2025
-
-  ![](/static/blog/assets/Android_Devs_Google_Devs_Blog_Header_1200x600_79350b0b52_1w8gkH.webp)
-
-  #### [Community](/blog/categories/community)
-
-  ## [#WeArePlay: Solving the dinner dilemma - how DELISH KITCHEN empowers 13 million home cooks](/blog/posts/we-are-play-solving-the-dinner-dilemma-how-delish-kitchen-empowers-13-million-home-cooks)
-
-  [arrow\_forward](/blog/posts/we-are-play-solving-the-dinner-dilemma-how-delish-kitchen-empowers-13-million-home-cooks)
-
-  In our latest #WeArePlay film, which celebrates the people behind apps and games on Google Play, we meet Chiharu - a co-founder of DELISH KITCHEN.
-
-  ###### [Robbie McLachlan](/blog/authors/robbie-mclachlan) • 2 min read
+  ###### [Robbie McLachlan](https://developer.android.com/blog/authors/robbie-mclachlan) •
+  2 min read
 
 # Stay in the loop
 
+
 Get the latest Android development insights delivered to your inbox
 weekly.
-
 [mail
-Subscribe](/subscribe)
-
-![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)

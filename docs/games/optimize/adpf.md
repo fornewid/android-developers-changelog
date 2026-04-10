@@ -1,20 +1,8 @@
 ---
-title: Optimize thermal and CPU performance with the Android Dynamic Performance Framework  |  Android game development  |  Android Developers
+title: https://developer.android.com/games/optimize/adpf
 url: https://developer.android.com/games/optimize/adpf
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [Google Play](https://developer.android.com/distribute)
-* [Games dev center](https://developer.android.com/games)
-* [Guides](https://developer.android.com/games/guides)
-
-Send feedback
-
-# Optimize thermal and CPU performance with the Android Dynamic Performance Framework Stay organized with collections Save and categorize content based on your preferences.
-
-
-
 
 This guide describes how to use the Android Dynamic Performance Framework (ADPF)
 to optimize games based on the dynamic thermal and CPU management features on
@@ -36,20 +24,7 @@ more predictable.
 
 Here are the main ADPF features:
 
-* **Thermal API**: Monitor the thermal state of a device so that the application
-  can proactively adjust workload before it becomes unsustainable.
-* **Game Mode API & Game State API**: Enable game play optimization by
-  prioritizing performance or battery life characteristics, based on user's
-  settings and game specific configurations.
-* **Fixed Performance Mode**: Enable fixed-performance mode on a device during
-  benchmarking to get measurements that aren't altered by dynamic CPU clocking.
-* **Power Efficiency Mode**: Tells the session that the threads in Performance
-  Hint Session can be safely scheduled to prefer power efficiency over
-  performance. ([Available in Android 15](/reference/android/os/PerformanceHintManager.Session#setPreferPowerEfficiency(boolean)))
-
-
-
-
-
-
-Send feedback
+- **Thermal API**: Monitor the thermal state of a device so that the application can proactively adjust workload before it becomes unsustainable.
+- **Game Mode API \& Game State API**: Enable game play optimization by prioritizing performance or battery life characteristics, based on user's settings and game specific configurations.
+- **Fixed Performance Mode**: Enable fixed-performance mode on a device during benchmarking to get measurements that aren't altered by dynamic CPU clocking.
+- **Power Efficiency Mode** : Tells the session that the threads in Performance Hint Session can be safely scheduled to prefer power efficiency over performance. ([Available in Android 15](https://developer.android.com/reference/android/os/PerformanceHintManager.Session#setPreferPowerEfficiency(boolean)))

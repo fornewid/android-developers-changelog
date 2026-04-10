@@ -1,17 +1,8 @@
 ---
-title: Compatible media transcoding  |  Android media  |  Android Developers
+title: https://developer.android.com/media/platform/transcoding
 url: https://developer.android.com/media/platform/transcoding
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [Essentials](https://developer.android.com/get-started)
-* [Camera & media dev center](https://developer.android.com/media)
-* [Guides](https://developer.android.com/media/guides)
-
-# Compatible media transcoding Stay organized with collections Save and categorize content based on your preferences.
-
-
 
 On Android 12 (API level 31) and higher, the system can automatically convert
 videos recorded in formats such as HEVC (H.265) to AVC (H.264) when the videos
@@ -23,10 +14,10 @@ The following formats can be automatically transcoded for content that's
 created on-device:
 
 | Media format | XML Attribute | MediaFormat mime type |
-| --- | --- | --- |
-| HEVC (H.265) | HEVC | MediaFormat.MIMETYPE\_VIDEO\_HEVC |
+|---|---|---|
+| HEVC (H.265) | HEVC | MediaFormat.MIMETYPE_VIDEO_HEVC |
 | HDR10 | HDR10 | MediaFeature.HdrType.HDR10 |
-| HDR10+ | HDR10Plus | MediaFeature.HdrType.HDR10\_PLUS |
+| HDR10+ | HDR10Plus | MediaFeature.HdrType.HDR10_PLUS |
 
 Android assumes that apps can support playback of all media formats, so
 compatible media transcoding is off by default.
@@ -56,7 +47,7 @@ You can declare media capabilities in code by constructing an instance of an
 
 ### Kotlin
 
-```
+```kotlin
 val mediaCapabilities = ApplicationMediaCapabilities.Builder()
     .addSupportedVideoMimeType(MediaFormat.MIMETYPE_VIDEO_HEVC)
     .addUnsupportedHdrType(MediaFeature.HdrType.HDR10)
@@ -66,7 +57,7 @@ val mediaCapabilities = ApplicationMediaCapabilities.Builder()
 
 ### Java
 
-```
+```java
 ApplicationMediaCapabilities mediaCapabilities = new ApplicationMediaCapabilities.Builder()
         .addSupportedVideoMimeType(MediaFormat.MIMETYPE_VIDEO_HEVC)
         .addUnsupportedHdrType(MediaFeature.HdrType.HDR10)
@@ -79,7 +70,7 @@ Use this object when accessing media content via methods such as
 
 ### Kotlin
 
-```
+```kotlin
 val providerOptions = Bundle().apply {
     putParcelable(MediaStore.EXTRA_MEDIA_CAPABILITIES, mediaCapabilities)
 }
@@ -92,7 +83,7 @@ contentResolver.openTypedAssetFileDescriptor(mediaUri, mediaMimeType, providerOp
 
 ### Java
 
-```
+```java
 Bundle providerOptions = new Bundle();
 providerOptions.putParcelable(MediaStore.EXTRA_MEDIA_CAPABILITIES, mediaCapabilities);
 try (AssetFileDescriptor fileDescriptor =  contentResolver.openTypedAssetFileDescriptor(mediaUri, mediaMimeType, providerOptions)) {
@@ -116,14 +107,12 @@ Using this method when not absolutely necessary might invoke transcoding in unin
 
 To use this method, create a `media_capabilities.xml` resource file:
 
-```
-<?xml version="1.0" encoding="utf-8"?>
-<media-capabilities xmlns:android="http://schemas.android.com/apk/res/android">
-    <format android:name="HEVC" supported="true"/>
-    <format android:name="HDR10" supported="false"/>
-    <format android:name="HDR10Plus" supported="false"/>
-</media-capabilities>
-```
+    <?xml version="1.0" encoding="utf-8"?>
+    <media-capabilities xmlns:android="http://schemas.android.com/apk/res/android">
+        <format android:name="HEVC" supported="true"/>
+        <format android:name="HDR10" supported="false"/>
+        <format android:name="HDR10Plus" supported="false"/>
+    </media-capabilities>
 
 In this example, HDR videos recorded on the device are seamlessly transcoded to
 AVC SDR (standard dynamic range) video, while HEVC videos are not.
@@ -131,11 +120,9 @@ AVC SDR (standard dynamic range) video, while HEVC videos are not.
 Use a `property` tag within the `application` tag to add a reference to the media
 capabilities file. Add these properties to your `AndroidManifest.xml` file:
 
-```
-<property
-    android:name="android.media.PROPERTY_MEDIA_CAPABILITIES"
-    android:resource="@xml/media_capabilities" />
-```
+    <property
+        android:name="android.media.PROPERTY_MEDIA_CAPABILITIES"
+        android:resource="@xml/media_capabilities" />
 
 ## Using another app's media capabilities to open a video file
 
@@ -149,7 +136,7 @@ whether the video file should be transcoded.
 
 ### Kotlin
 
-```
+```kotlin
 val providerOptions = Bundle().apply {
     putParcelable(MediaStore.EXTRA_MEDIA_CAPABILITIES_UID, Binder.getCallingUid())
 }
@@ -162,7 +149,7 @@ contentResolver.openTypedAssetFileDescriptor(mediaUri, mediaMimeType, providerOp
 
 ### Java
 
-```
+```java
 Bundle providerOptions = new Bundle();
 providerOptions.putParcelable(MediaStore.EXTRA_MEDIA_CAPABILITIES_UID, Binder.getCallingUid());
 try (AssetFileDescriptor fileDescriptor =  contentResolver.openTypedAssetFileDescriptor(mediaUri, mediaMimeType, providerOptions)) {
@@ -177,14 +164,14 @@ The following diagrams demonstrate the two common use cases. In both cases the o
 support HEVC.
 
 **Example 1.** Transcoding is initiated by video capture app.
-![Example 1](/static/images/guide/topics/media-apps/video-app/media-transcode-ex1.svg)
+![Example 1](https://developer.android.com/static/images/guide/topics/media-apps/video-app/media-transcode-ex1.svg)
 The video sharing app declares that it does not support HEVC in its media
 capabilities resource file. It then requests a video from the video capture app. The video capture
 app handles the request and opens the file using [`openTypedAssetFileDescriptor`](https://developer.android.com/reference/android/content/ContentResolver#openTypedAssetFileDescriptor(android.net.Uri,%20java.lang.String,%20android.os.Bundle)), specifying the sharing app's UID. This initiates the transcoding process.
 When the transcoded video is received it is supplied to the sharing app, which uploads it to a server in the cloud.
 
 **Example 2.** Transcoding is initiated by video sharing app.
-![Example 2](/static/images/guide/topics/media-apps/video-app/media-transcode-ex2.svg)
+![Example 2](https://developer.android.com/static/images/guide/topics/media-apps/video-app/media-transcode-ex2.svg)
 The video capture app shares a video with the video sharing app using a
 `MediaStore` URI. The video sharing app opens the video file using [`openTypedAssetFileDescriptor`](https://developer.android.com/reference/android/content/ContentResolver#openTypedAssetFileDescriptor(android.net.Uri,%20java.lang.String,%20android.os.Bundle)), specifying that it does not support HEVC in its media capabilities. This
 initiates the transcoding process, and once complete, the file is uploaded to
@@ -195,7 +182,7 @@ a server in the cloud.
 Compatible media transcoding is enabled for all formats that are declared
 unsupported, and is disabled for all formats that are declared supported. For
 other formats that are not declared, the platform decides whether to transcode
-or not. In Android 12 transcoding is disabled
+or not. In Android 12 transcoding is disabled
 for all undeclared formats. This behavior might change for new formats in the
 future.
 
@@ -204,24 +191,28 @@ future.
 You can use the following developer options to override Android's default
 transcoding behavior:
 
-* **Override transcoding defaults** This setting determines whether or not
+- **Override transcoding defaults** This setting determines whether or not
   the platform controls automatic transcoding. When override
   is enabled, the platform defaults are ignored and the **enable
   transcoding** setting controls automatic transcoding. This option is disabled by
   default.
-* **Enable transcoding** This setting specifies whether or not undeclared
+
+- **Enable transcoding** This setting specifies whether or not undeclared
   formats are automatically transcoded. It is enabled by default, but it only
   has an effect if **override transcoding defaults** is also enabled.
-* **Assume apps support modern formats** This setting controls what happens when
+
+- **Assume apps support modern formats** This setting controls what happens when
   the app tries to play an undeclared format. This happens when the manifest does
   not declare whether or not the app supports a particular format, or Google
   hasn't added the app to the server-side force-transcode list. When the setting
   is enabled, the app does not transcode, when it's disabled, the app does
   transcode. This option is enabled by default.
-* **Show transcoding notifications** When enabled, the app displays a
+
+- **Show transcoding notifications** When enabled, the app displays a
   transcoding progress notification when transcoding is triggered by reading an
   unsupported media file. This option is enabled by default.
-* **Disable transcoding cache** If enabled, apps that require transcoding do not
+
+- **Disable transcoding cache** If enabled, apps that require transcoding do not
   use the transcoding cache. This can be helpful during development to easily
   trigger transcoding on an unsupported media file, but can cause poor device
   performance. This option is disabled by default.

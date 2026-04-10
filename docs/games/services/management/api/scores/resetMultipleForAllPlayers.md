@@ -1,19 +1,10 @@
 ---
-title: Scores: resetMultipleForAllPlayers  |  API reference  |  Android Developers
+title: https://developer.android.com/games/services/management/api/scores/resetMultipleForAllPlayers
 url: https://developer.android.com/games/services/management/api/scores/resetMultipleForAllPlayers
-source: html-scrape
+source: md.txt
 ---
 
-* [Android Developers](https://developer.android.com/)
-* [Develop](https://developer.android.com/develop)
-* [API reference](https://developer.android.com/reference)
-
-# Scores: resetMultipleForAllPlayers Stay organized with collections Save and categorize content based on your preferences.
-
-
-
-
-**Requires [authorization](#auth)**
+**Requires [authorization](https://developer.android.com/games/services/management/api/scores/resetMultipleForAllPlayers#auth)**
 
 Resets scores for the leaderboards with the given IDs for all players. This method is only available to user accounts for your developer console. Only draft leaderboards may be reset.
 
@@ -27,17 +18,17 @@ POST https://www.googleapis.com/games/v1management/scores/resetMultipleForAllPla
 
 ### Authorization
 
-This request requires authorization with the following scope ([read more about authentication and authorization](/accounts/docs/OAuth2)).
+This request requires authorization with the following scope ([read more about authentication and authorization](https://developer.android.com/accounts/docs/OAuth2)).
 
 | Scope |
-| --- |
+|---|
 | `https://www.googleapis.com/auth/games` |
 
 ### Request body
 
 In the request body, supply data with the following structure:
 
-```
+```scdoc
 {
   "kind": "gamesManagement#scoresResetMultipleForAllRequest",
   "leaderboard_ids": [
@@ -47,9 +38,9 @@ In the request body, supply data with the following structure:
 ```
 
 | Property name | Value | Description | Notes |
-| --- | --- | --- | --- |
-| `kind` | `string` | Uniquely identifies the type of this resource. Value is always the fixed string `gamesManagement#scoresResetMultipleForAllRequest`. |  |
-| `leaderboard_ids[]` | `list` | The IDs of leaderboards to reset. |  |
+|---|---|---|---|
+| `kind` | `string` | Uniquely identifies the type of this resource. Value is always the fixed string `gamesManagement#scoresResetMultipleForAllRequest`. |   |
+| `leaderboard_ids[]` | `list` | The IDs of leaderboards to reset. |   |
 
 ## Response
 

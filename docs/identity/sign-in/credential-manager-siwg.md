@@ -82,6 +82,10 @@ The Sign in with Google button presents users with a distinct option to use
 their Google Account to sign up for and sign in to your app.
 ![The Sign in with Google button.](https://developer.android.com/static/identity/sign-in/images/sign_in_with_google_button.svg) The Sign in with Google button.
 
+> [!NOTE]
+> **Note:** For more information about the button branding, see [Implement Sign in
+> with Google](https://developer.android.com/identity/sign-in/credential-manager-siwg-implementation#create-button-ui).
+
 ## Prerequisites to implement Sign in with Google
 
 To implement Sign in with Google, complete the following setup:

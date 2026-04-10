@@ -1,18 +1,8 @@
 ---
-title: Overview of Android Custom Tabs  |  Views  |  Android Developers
+title: https://developer.android.com/develop/ui/views/layout/webapps/overview-of-android-custom-tabs
 url: https://developer.android.com/develop/ui/views/layout/webapps/overview-of-android-custom-tabs
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [Develop](https://developer.android.com/develop)
-* [Core areas](https://developer.android.com/develop/core-areas)
-* [UI](https://developer.android.com/develop/ui)
-* [Views](https://developer.android.com/develop/ui/views/layout/declaring-layout)
-
-# Overview of Android Custom Tabs Stay organized with collections Save and categorize content based on your preferences.
-
-
 
 Custom Tabs are a feature in Android browsers that gives app developers
 a way to add a customized browser experience directly within their app.
@@ -41,16 +31,15 @@ are accustomed to already.
 
 Quite a bit! Custom Tabs give you fine grained control over a lot of the browser
 chrome and user experience. Within your app, you launch a Custom Tab using an
-[Intent](/guide/components/intents-filters). When this Intent is called, you can add a number of attributes to
-the [CustomTabIntent](/reference/androidx/browser/customtabs/CustomTabsIntent) to get the exact experience you want. Some
+[Intent](https://developer.android.com/guide/components/intents-filters). When this Intent is called, you can add a number of attributes to
+the [CustomTabIntent](https://developer.android.com/reference/androidx/browser/customtabs/CustomTabsIntent) to get the exact experience you want. Some
 customizations that you can add are listed here:
 
-* Custom entrance and exit animations to match the rest of your app
-* Modifing the toolbar color to match your app's branding
-* Color consistency that can stay with your app, even if they switch between light and dark themes
-* Custom actions and entries to the browser's toolbar, and menus
-* Control the launch height of the Custom Tab, enabling things like streaming
-  your videos while interacting with your web store
+- Custom entrance and exit animations to match the rest of your app
+- Modifing the toolbar color to match your app's branding
+- Color consistency that can stay with your app, even if they switch between light and dark themes
+- Custom actions and entries to the browser's toolbar, and menus
+- Control the launch height of the Custom Tab, enabling things like streaming your videos while interacting with your web store
 
 In addition, users can minimize a Custom Tab to interact with the underlying
 app, and restore it at any time without losing any progress to resume their
@@ -77,25 +66,18 @@ javascript directly from your app. If your app directs people to URLs outside
 domains, the built-in shared state in Custom Tabs means they are likely a
 better choice. Other strengths of Custom Tabs include:
 
-1. Security: Custom Tabs use Google's Safe Browsing to protect the user and the
-   device from dangerous sites.
+1. Security: Custom Tabs use Google's Safe Browsing to protect the user and the device from dangerous sites.
 2. Performance optimization:
-   1. Pre-warming of the Browser in the background, while avoiding stealing
-      resources from the application.
+   1. Pre-warming of the Browser in the background, while avoiding stealing resources from the application.
    2. Speed up the page load time by speculatively loading URLs in advance.
-3. Lifecycle management: Apps launching a Custom Tab won't be evicted by the
-   system during the Tab's use. The importance of the Custom Tab is raised
-   to the *foreground* level.
-4. Shared cookie jar and permissions model so users don't have to sign in to
-   sites
-   they are already connected to, or re-grant permissions they have already
-   granted.
+3. Lifecycle management: Apps launching a Custom Tab won't be evicted by the system during the Tab's use. The importance of the Custom Tab is raised to the *foreground* level.
+4. Shared cookie jar and permissions model so users don't have to sign in to sites they are already connected to, or re-grant permissions they have already granted.
 5. Browser features like autofill for better form completion are available out-of-the-box.
 6. Users can return to app with an integrated back button.
 
 ## Custom Tabs versus Trusted Web Activity
 
-[Trusted Web Activities](/develop/ui/views/layout/webapps/trusted-web-activities) extend the Custom Tabs protocol and shares most of
+[Trusted Web Activities](https://developer.android.com/develop/ui/views/layout/webapps/trusted-web-activities) extend the Custom Tabs protocol and shares most of
 its benefits. But, instead of providing a customized UI, it allows developers to
 open a browser tab without any UI at all. It is recommended for developers who
 want to open their own [Progressive Web App](https://web.dev/progressive-web-apps/), in full screen, inside their

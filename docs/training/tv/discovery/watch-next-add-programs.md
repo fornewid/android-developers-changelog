@@ -1,17 +1,8 @@
 ---
-title: Add programs to the Watch Next channel  |  Android TV  |  Android Developers
+title: https://developer.android.com/training/tv/discovery/watch-next-add-programs
 url: https://developer.android.com/training/tv/discovery/watch-next-add-programs
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [Develop](https://developer.android.com/develop)
-* [Devices](https://developer.android.com/develop/devices)
-* [Android TV](https://developer.android.com/training/tv)
-
-# Add programs to the Watch Next channel Stay organized with collections Save and categorize content based on your preferences.
-
-
 
 The Watch Next channel is the second row that appears in the home screen, after
 the apps row. The system creates and maintains this channel. Your app can add
@@ -20,12 +11,8 @@ interesting, stopped watching in the middle, or that are related to the content
 the user is watching (like the next episode in a series or next season of a
 show).
 
-**Note:** On the home screen, the Watch Next channel has the label **Play Next**.
-However, the Android classes used to manage the Watch Next channel are
-[`WatchNextProgram`](/reference/androidx/tvprovider/media/tv/WatchNextProgram)
-and
-[`WatchNextPrograms`](/reference/android/media/tv/TvContract.WatchNextPrograms).
-They have methods and constants with the stem "watchnext".
+> [!NOTE]
+> **Note:** On the home screen, the Watch Next channel has the label **Play Next** . However, the Android classes used to manage the Watch Next channel are [`WatchNextProgram`](https://developer.android.com/reference/androidx/tvprovider/media/tv/WatchNextProgram) and [`WatchNextPrograms`](https://developer.android.com/reference/android/media/tv/TvContract.WatchNextPrograms). They have methods and constants with the stem "watchnext".
 
 The Watch Next channel has some constraints: your app cannot move, remove, or
 hide the Watch Next channel's row.
@@ -33,7 +20,7 @@ hide the Watch Next channel's row.
 ## Steps
 
 Inserting programs into the Watch Next channel is similar to
-[inserting programs into your own channel](/training/tv/discovery/recommendations-channel#add-programs).
+[inserting programs into your own channel](https://developer.android.com/training/tv/discovery/recommendations-channel#add-programs).
 See the following sections for details specific to Watch Next.
 
 Publishing to the Watch Next channel on Google TV (displayed as "Continue
@@ -44,30 +31,30 @@ submit this [linked form](https://docs.google.com/forms/d/e/1FAIpQLSeaNhHjDNM8os
 
 When inserting content into the Watch Next channel, you must follow these guidelines:
 
-* [Watch Next guidelines for app developers](/training/tv/discovery/guidelines-app-developers)
-* [Watch Next guidelines for TV providers](/training/tv/discovery/guidelines-tv-providers)
+- [Watch Next guidelines for app developers](https://developer.android.com/training/tv/discovery/guidelines-app-developers)
+- [Watch Next guidelines for TV providers](https://developer.android.com/training/tv/discovery/guidelines-tv-providers)
 
 ### Select a type of program
 
 There are four types of Watch Next programs. Select the appropriate type:
 
 | Type | Notes |
-| --- | --- |
+|---|---|
 | `WATCH_NEXT_TYPE_CONTINUE` | The user stopped while watching content. |
 | `WATCH_NEXT_TYPE_NEXT` | The next available program in a series the user is watching is available. For example, if the user is watching episode 3 of a series, the app can suggest that they watch episode 4 next. |
 | `WATCH_NEXT_TYPE_NEW` | New content that clearly follows what the user is watching is now available. For example, the user is watching episode number 5 from a series and episode 6 becomes available for watching. |
 | `WATCH_NEXT_TYPE_WATCHLIST` | Inserted by the system or the app when the user saves a program. |
 
-For more information, see [Watch Next attributes](/training/tv/discovery/watch-next-programs).
+For more information, see [Watch Next attributes](https://developer.android.com/training/tv/discovery/watch-next-programs).
 
 ### Use the WatchNextProgram builder
 
 Use a `WatchNextProgram.Builder`. For more information, see
-[Watch Next attributes](/training/tv/discovery/watch-next-programs).
+[Watch Next attributes](https://developer.android.com/training/tv/discovery/watch-next-programs).
 
 ### Kotlin
 
-```
+```kotlin
 val builder = WatchNextProgram.Builder()
 builder.setType(TvContractCompat.WatchNextPrograms.TYPE_MOVIE)
         .setWatchNextType(TvContractCompat.WatchNextPrograms.WATCH_NEXT_TYPE_CONTINUE)
@@ -85,7 +72,7 @@ val watchNextProgramUri = context.contentResolver
 
 ### Java
 
-```
+```java
 WatchNextProgram.Builder builder = new WatchNextProgram.Builder();
 builder.setType(TvContractCompat.WatchNextPrograms.TYPE_MOVIE)
         .setWatchNextType(TvContractCompat.WatchNextPrograms.WATCH_NEXT_TYPE_CONTINUE)
@@ -109,15 +96,3 @@ program to the row. It sends the intent
 that the program has been added. The intent includes two extras: the program ID
 that was copied and the program ID created for the program in the Watch Next
 channel.
-
-[Previous
-
-arrow\_back
-
-Game program attributes](/training/tv/discovery/game-programs)
-
-[Next
-
-Attributes
-
-arrow\_forward](/training/tv/discovery/watch-next-programs)

@@ -1,18 +1,8 @@
 ---
-title: Add generated previews to your widget picker  |  Jetpack Compose  |  Android Developers
+title: https://developer.android.com/develop/ui/compose/glance/generated-previews
 url: https://developer.android.com/develop/ui/compose/glance/generated-previews
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [Develop](https://developer.android.com/develop)
-* [Core areas](https://developer.android.com/develop/core-areas)
-* [UI](https://developer.android.com/develop/ui)
-* [Docs](https://developer.android.com/develop/ui/compose/documentation)
-
-# Add generated previews to your widget picker Stay organized with collections Save and categorize content based on your preferences.
-
-
 
 Generated widget previews allow you to create dynamic, personalized previews for
 your widgets that accurately reflect how they will appear on a user's home
@@ -22,12 +12,12 @@ explicit request from the widget host.
 
 This guide covers how to provide previews for Glance-based widgets. If your
 widget is implemented with `RemoteViews`, see [Add previews to your widget
-picker](/develop/ui/views/appwidgets/previews).
+picker](https://developer.android.com/develop/ui/views/appwidgets/previews).
 
 To improve your app's widget picker experience for Glance widgets, provide a
 generated widget preview using `GlanceAppWidget.providePreview` on
-Android 15 and later devices, and specify a [`previewImage`](/reference/android/appwidget/AppWidgetProviderInfo#previewImage)
-for earlier versions, and as a fallback on Android 15+ if
+Android 15 and later devices, and specify a [`previewImage`](https://developer.android.com/reference/android/appwidget/AppWidgetProviderInfo#previewImage)
+for earlier versions, and as a fallback on Android 15+ if
 a generated preview isn't available.
 
 For more information, see [Enrich your app with live updates and widgets](https://www.youtube.com/watch?v=_Akf_u08p7U) on
@@ -37,7 +27,7 @@ YouTube.
 
 To show Generated Widget Previews on Android 15 or later device, first set the
 `compileSdk` value to 35 or later in the module `build.gradle` file to have the
-ability to provide [`RemoteViews`](/reference/android/widget/RemoteViews?) to the widget picker
+ability to provide [`RemoteViews`](https://developer.android.com/reference/android/widget/RemoteViews) to the widget picker
 
 Apps can then use `setWidgetPreview` in `GlanceAppWidgetManager`. To prevent
 abuse and mitigate system health concerns, `setWidgetPreview` is a rate-limited
@@ -52,6 +42,7 @@ For widgets built with Jetpack Glance, do the following:
    app's data and pass it to the widget's content composable, to make the
    preview show accurate data. Unlike `provideGlance`, this is a single
    composition with no recomposition or effects.
+
 2. Call `GlanceAppWidgetManager.setWidgetPreviews` to generate and publish the
    preview.
 
@@ -59,11 +50,9 @@ There isn't a callback from the system to provide previews, so your app must
 decide when to call `setWidgetPreviews`. The update strategy depends on your
 widget's use case:
 
-* If the widget has static information or is a quick action, set the preview
-  when the app is first launched.
-* You can set the preview once your app has data; for example, after a user
-  sign-in or initial setup.
-* You can set up a periodic task to update the previews at a chosen cadence.
+- If the widget has static information or is a quick action, set the preview when the app is first launched.
+- You can set the preview once your app has data; for example, after a user sign-in or initial setup.
+- You can set up a periodic task to update the previews at a chosen cadence.
 
 ### Troubleshoot Generated Previews
 
@@ -71,12 +60,12 @@ A common issue is that after you generate a preview, images, icons, or other
 composables might be missing from the preview image, relative to the widget's
 drop size. This drop size is defined by the `targetCellWidth` and
 `targetCellHeight` if specified, or by the `minWidth` and `minHeight` in the
-[app widget provider info file](/develop/ui/views/appwidgets#widget-sizing-attributes).
+[app widget provider info file](https://developer.android.com/develop/ui/views/appwidgets#widget-sizing-attributes).
 
 This occurs because Android, by default, renders only composables visible at the
 widget's minimum size. In other words, Android sets the `previewSizeMode` to
 `SizeMode.Single` by default. It uses `android:minHeight` and `android:minWidth`
-in the [app widget provider info XML](/develop/ui/views/appwidgets#widget-sizing-attributes) to determine which composables to draw.
+in the [app widget provider info XML](https://developer.android.com/develop/ui/views/appwidgets#widget-sizing-attributes) to determine which composables to draw.
 
 To fix this, override `previewSizeMode` in your `GlanceAppWidget` and set it to
 `SizeMode.Responsive`, providing a set of `DpSize` values. This tells Android
@@ -85,30 +74,18 @@ elements display correctly.
 
 Optimize for specific form factors. Supply one or two sizes starting from the
 minimum and following your widget's breakpoints. Specify at least one
-`previewImage` [for backward compatibility](#bc-previews). You can find the
+`previewImage` [for backward compatibility](https://developer.android.com/develop/ui/compose/glance/generated-previews#bc-previews). You can find the
 appropriate minimum DP values for different grid sizes in the
-[widget design guidance](/design/ui/mobile/guides/widgets/sizing).
+[widget design guidance](https://developer.android.com/design/ui/mobile/guides/widgets/sizing).
 
-**Note:** Prefer `SizeMode.Exact` over `SizeMode.Responsive` when sizing your widget
-(not the preview). See [the documentation](/develop/ui/compose/glance/build-ui#define-sizemode) for an overview of `SizeMode`.
+> [!NOTE]
+> **Note:** Prefer `SizeMode.Exact` over `SizeMode.Responsive` when sizing your widget (not the preview). See [the documentation](https://developer.android.com/develop/ui/compose/glance/build-ui#define-sizemode) for an overview of `SizeMode`.
 
 ## Backward compatibility with widget previews
 
 To let widget pickers on devices running versions lower than
-Android 15 show previews of your widget, or as a fallback for
-Generated previews on Android 15+, specify the
-[`previewImage`](/reference/android/appwidget/AppWidgetProviderInfo#previewImage) attribute.
+Android 15 show previews of your widget, or as a fallback for
+Generated previews on Android 15+, specify the
+[`previewImage`](https://developer.android.com/reference/android/appwidget/AppWidgetProviderInfo#previewImage) attribute.
 
 If you change the widget's appearance, update the preview image.
-
-[Previous
-
-arrow\_back
-
-Create an app widget with Glance](/develop/ui/compose/glance/create-app-widget)
-
-[Next
-
-Pin Glance widgets in-app
-
-arrow\_forward](/develop/ui/compose/glance/pin-in-app)

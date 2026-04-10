@@ -1,36 +1,29 @@
 ---
-title: Sensitive Data Stored in External Storage  |  Security  |  Android Developers
+title: https://developer.android.com/privacy-and-security/risks/sensitive-data-external-storage
 url: https://developer.android.com/privacy-and-security/risks/sensitive-data-external-storage
-source: html-scrape
+source: md.txt
 ---
 
-* [Android Developers](https://developer.android.com/)
-* [Design & Plan](https://developer.android.com/design)
-* [Security](https://developer.android.com/security)
-* [Guides](https://developer.android.com/privacy-and-security/security-tips)
-
-# Sensitive Data Stored in External Storage Stay organized with collections Save and categorize content based on your preferences.
-
-
+<br />
 
 **OWASP category:** [MASVS-STORAGE: Storage](https://mas.owasp.org/MASVS/05-MASVS-STORAGE)
 
 ## Overview
 
 Applications targeting Android 10 (API 29) or lower don't enforce [scoped
-storage](/training/data-storage#scoped-storage). This means that any data stored on the external storage can be
-accessed by any other application with the [`READ_EXTERNAL_STORAGE`](/reference/android/Manifest.permission#READ_EXTERNAL_STORAGE)
+storage](https://developer.android.com/training/data-storage#scoped-storage). This means that any data stored on the external storage can be
+accessed by any other application with the [`READ_EXTERNAL_STORAGE`](https://developer.android.com/reference/android/Manifest.permission#READ_EXTERNAL_STORAGE)
 permission.
 
 ## Impact
 
 In applications targeting Android 10 (API 29) or lower, if sensitive data is
 stored on the external storage, any application on the device with the
-READ\_EXTERNAL\_STORAGE permission can access it. This allows malicious
+READ_EXTERNAL_STORAGE permission can access it. This allows malicious
 applications to silently access sensitive files permanently or temporarily
 stored on the external storage. Additionally, since content on the external
 storage can be accessed by any app on the system, any malicious application that
-also declares the WRITE\_EXTERNAL\_STORAGE permission can tamper with files stored
+also declares the WRITE_EXTERNAL_STORAGE permission can tamper with files stored
 on the external storage, e.g. to include malicious data. This malicious
 data, if loaded into the application, could be designed to deceive users or even
 achieve code execution.
@@ -43,17 +36,17 @@ achieve code execution.
 
 For applications targeting Android 10, developers can explicitly opt-in to
 scoped storage. This can be achieved by setting the
-[`requestLegacyExternalStorage`](/reference/android/R.attr#requestLegacyExternalStorage) flag to **false** in the
+[`requestLegacyExternalStorage`](https://developer.android.com/reference/android/R.attr#requestLegacyExternalStorage) flag to **false** in the
 `AndroidManifest.xml` file. With scoped storage, applications can only access
 files that they have created themselves on the external storage or files types
-that were stored using the [MediaStore API](/reference/android/provider/MediaStore) such as Audio and Video. This
+that were stored using the [MediaStore API](https://developer.android.com/reference/android/provider/MediaStore) such as Audio and Video. This
 helps protect user privacy and security.
 
 ##### Android 11 and later
 
 For applications targeting Android 11 or later versions, the OS [enforces the
-use of scoped storage](/about/versions/11/privacy/storage#scoped-storage), i.e. it ignores the
-[`requestLegacyExternalStorage`](/reference/android/R.attr#requestLegacyExternalStorage) flag and automatically protects
+use of scoped storage](https://developer.android.com/about/versions/11/privacy/storage#scoped-storage), i.e. it ignores the
+[`requestLegacyExternalStorage`](https://developer.android.com/reference/android/R.attr#requestLegacyExternalStorage) flag and automatically protects
 applications' external storage from unwanted access.
 
 ### Use Internal Storage for Sensitive Data
@@ -67,7 +60,7 @@ therefore it can be considered secure, unless the device is rooted.
 
 If the application's use cases require storing sensitive data on the external
 storage, the data should be encrypted. A strong encryption algorithm is
-recommended, using the [Android KeyStore](/privacy-and-security/keystore) to safely store the key.
+recommended, using the [Android KeyStore](https://developer.android.com/privacy-and-security/keystore) to safely store the key.
 
 In general, encrypting all sensitive data is a recommended security practice, no
 matter where it is stored.
@@ -87,119 +80,115 @@ in a secure manner, preferably encrypted and in the internal storage.
 
 ### Kotlin
 
-```
-package com.example.myapplication
+    package com.example.myapplication
 
-import java.io.BufferedInputStream
-import java.io.FileInputStream
-import java.io.IOException
-import java.security.MessageDigest
-import java.security.NoSuchAlgorithmException
+    import java.io.BufferedInputStream
+    import java.io.FileInputStream
+    import java.io.IOException
+    import java.security.MessageDigest
+    import java.security.NoSuchAlgorithmException
 
-object FileIntegrityChecker {
-    @Throws(IOException::class, NoSuchAlgorithmException::class)
-    fun getIntegrityHash(filePath: String?): String {
-        val md = MessageDigest.getInstance("SHA-256") // You can choose other algorithms as needed
-        val buffer = ByteArray(8192)
-        var bytesRead: Int
-        BufferedInputStream(FileInputStream(filePath)).use { fis ->
-            while (fis.read(buffer).also { bytesRead = it } != -1) {
-                md.update(buffer, 0, bytesRead)
+    object FileIntegrityChecker {
+        @Throws(IOException::class, NoSuchAlgorithmException::class)
+        fun getIntegrityHash(filePath: String?): String {
+            val md = MessageDigest.getInstance("SHA-256") // You can choose other algorithms as needed
+            val buffer = ByteArray(8192)
+            var bytesRead: Int
+            BufferedInputStream(FileInputStream(filePath)).use { fis ->
+                while (fis.read(buffer).also { bytesRead = it } != -1) {
+                    md.update(buffer, 0, bytesRead)
+                }
+
+        }
+
+        private fun bytesToHex(bytes: ByteArray): String {
+            val sb = StringBuilder()
+            for (b in bytes) {
+                sb.append(String.format("%02x", b))
             }
-
-    }
-
-    private fun bytesToHex(bytes: ByteArray): String {
-        val sb = StringBuilder()
-        for (b in bytes) {
-            sb.append(String.format("%02x", b))
+            return sb.toString()
         }
-        return sb.toString()
-    }
 
-    @Throws(IOException::class, NoSuchAlgorithmException::class)
-    fun verifyIntegrity(filePath: String?, expectedHash: String): Boolean {
-        val actualHash = getIntegrityHash(filePath)
-        return actualHash == expectedHash
-    }
+        @Throws(IOException::class, NoSuchAlgorithmException::class)
+        fun verifyIntegrity(filePath: String?, expectedHash: String): Boolean {
+            val actualHash = getIntegrityHash(filePath)
+            return actualHash == expectedHash
+        }
 
-    @Throws(Exception::class)
-    @JvmStatic
-    fun main(args: Array<String>) {
-        val filePath = "/path/to/your/file"
-        val expectedHash = "your_expected_hash_value"
-        if (verifyIntegrity(filePath, expectedHash)) {
-            println("File integrity is valid!")
-        } else {
-            println("File integrity is compromised!")
+        @Throws(Exception::class)
+        @JvmStatic
+        fun main(args: Array<String>) {
+            val filePath = "/path/to/your/file"
+            val expectedHash = "your_expected_hash_value"
+            if (verifyIntegrity(filePath, expectedHash)) {
+                println("File integrity is valid!")
+            } else {
+                println("File integrity is compromised!")
+            }
         }
     }
-}
-```
 
 ### Java
 
-```
-package com.example.myapplication;
+    package com.example.myapplication;
 
-import java.io.BufferedInputStream;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
+    import java.io.BufferedInputStream;
+    import java.io.FileInputStream;
+    import java.io.IOException;
+    import java.security.MessageDigest;
+    import java.security.NoSuchAlgorithmException;
 
-public class FileIntegrityChecker {
+    public class FileIntegrityChecker {
 
-    public static String getIntegrityHash(String filePath) throws IOException, NoSuchAlgorithmException {
-        MessageDigest md = MessageDigest.getInstance("SHA-256"); // You can choose other algorithms as needed
-        byte[] buffer = new byte[8192];
-        int bytesRead;
+        public static String getIntegrityHash(String filePath) throws IOException, NoSuchAlgorithmException {
+            MessageDigest md = MessageDigest.getInstance("SHA-256"); // You can choose other algorithms as needed
+            byte[] buffer = new byte[8192];
+            int bytesRead;
 
-        try (BufferedInputStream fis = new BufferedInputStream(new FileInputStream(filePath))) {
-            while ((bytesRead = fis.read(buffer)) != -1) {
-                md.update(buffer, 0, bytesRead);
+            try (BufferedInputStream fis = new BufferedInputStream(new FileInputStream(filePath))) {
+                while ((bytesRead = fis.read(buffer)) != -1) {
+                    md.update(buffer, 0, bytesRead);
+                }
+            }
+
+            byte[] digest = md.digest();
+            return bytesToHex(digest);
+        }
+
+        private static String bytesToHex(byte[] bytes) {
+            StringBuilder sb = new StringBuilder();
+            for (byte b : bytes) {
+                sb.append(String.format("%02x", b));
+            }
+            return sb.toString();
+        }
+
+        public static boolean verifyIntegrity(String filePath, String expectedHash) throws IOException, NoSuchAlgorithmException {
+            String actualHash = getIntegrityHash(filePath);
+            return actualHash.equals(expectedHash);
+        }
+
+        public static void main(String[] args) throws Exception {
+            String filePath = "/path/to/your/file";
+            String expectedHash = "your_expected_hash_value";
+
+            if (verifyIntegrity(filePath, expectedHash)) {
+                System.out.println("File integrity is valid!");
+            } else {
+                System.out.println("File integrity is compromised!");
             }
         }
-
-        byte[] digest = md.digest();
-        return bytesToHex(digest);
     }
-
-    private static String bytesToHex(byte[] bytes) {
-        StringBuilder sb = new StringBuilder();
-        for (byte b : bytes) {
-            sb.append(String.format("%02x", b));
-        }
-        return sb.toString();
-    }
-
-    public static boolean verifyIntegrity(String filePath, String expectedHash) throws IOException, NoSuchAlgorithmException {
-        String actualHash = getIntegrityHash(filePath);
-        return actualHash.equals(expectedHash);
-    }
-
-    public static void main(String[] args) throws Exception {
-        String filePath = "/path/to/your/file";
-        String expectedHash = "your_expected_hash_value";
-
-        if (verifyIntegrity(filePath, expectedHash)) {
-            System.out.println("File integrity is valid!");
-        } else {
-            System.out.println("File integrity is compromised!");
-        }
-    }
-}
-```
 
 ## Resources
 
-* [Scoped storage](/training/data-storage#scoped-storage)
-* [READ\_EXTERNAL\_STORAGE](/reference/android/Manifest.permission#READ_EXTERNAL_STORAGE)
-* [WRITE\_EXTERNAL\_STORAGE](/reference/android/Manifest.permission#WRITE_EXTERNAL_STORAGE)
-* [requestLegacyExternalStorage](/reference/android/R.attr#requestLegacyExternalStorage)
-* [Data and file storage overview](/training/data-storage)
-* [Data Storage (App Specific)](/training/data-storage/app-specific)
-* [Cryptography](/privacy-and-security/cryptography)
-* [Keystore](/privacy-and-security/keystore)
-* [File-Based encryption](https://source.android.com/docs/security/features/encryption/file-based)
-* [Full-Disk encryption](https://source.android.com/docs/security/features/encryption/full-disk)
+- [Scoped storage](https://developer.android.com/training/data-storage#scoped-storage)
+- [READ_EXTERNAL_STORAGE](https://developer.android.com/reference/android/Manifest.permission#READ_EXTERNAL_STORAGE)
+- [WRITE_EXTERNAL_STORAGE](https://developer.android.com/reference/android/Manifest.permission#WRITE_EXTERNAL_STORAGE)
+- [requestLegacyExternalStorage](https://developer.android.com/reference/android/R.attr#requestLegacyExternalStorage)
+- [Data and file storage overview](https://developer.android.com/training/data-storage)
+- [Data Storage (App Specific)](https://developer.android.com/training/data-storage/app-specific)
+- [Cryptography](https://developer.android.com/privacy-and-security/cryptography)
+- [Keystore](https://developer.android.com/privacy-and-security/keystore)
+- [File-Based encryption](https://source.android.com/docs/security/features/encryption/file-based)
+- [Full-Disk encryption](https://source.android.com/docs/security/features/encryption/full-disk)

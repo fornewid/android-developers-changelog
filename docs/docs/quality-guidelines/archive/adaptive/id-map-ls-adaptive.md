@@ -1,15 +1,8 @@
 ---
-title: ID map  |  App quality  |  Android Developers
+title: https://developer.android.com/docs/quality-guidelines/archive/adaptive/id-map-ls-adaptive
 url: https://developer.android.com/docs/quality-guidelines/archive/adaptive/id-map-ls-adaptive
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [App quality](https://developer.android.com/quality)
-
-# ID map Stay organized with collections Save and categorize content based on your preferences.
-
-
 
 *Created 2026-02-26*
 
@@ -21,146 +14,146 @@ the updated adaptive app quality guidelines.
 
 ### Tier 3
 
-| Large screen app quality | | Adaptive app quality | |
-| --- | --- | --- | --- |
+| Large screen app quality || Adaptive app quality ||
 | Category | ID | ID | Category |
-| Configuration and continuity | LS-C1 | Config\_Changes | Configuration and continuity |
-| Configuration and continuity | LS-C2 | Config\_Combinations | Configuration and continuity |
-| Multi-window mode and multi-resume | LS-M1 | Multi-Window\_Functionality | Multi-window mode and multi-resume |
+|---|---|---|---|
+| Configuration and continuity | LS-C1 | Config_Changes | Configuration and continuity |
+| Configuration and continuity | LS-C2 | Config_Combinations | Configuration and continuity |
+| Multi-window mode and multi-resume | LS-M1 | Multi-Window_Functionality | Multi-window mode and multi-resume |
 | Multi-window mode and multi-resume | LS-M2 | Multi-Resume | Multi-window mode and multi-resume |
-| Camera preview and media projection | LS-CM1 | Camera\_Preview | Camera preview and media projection |
-| Camera preview and media projection | LS-CM2 | Media\_Projection | Camera preview and media projection |
-| Keyboard, mouse, and trackpad | LS-I1 | Keyboard\_Input | Keyboard, mouse, and trackpad |
-| Keyboard, mouse, and trackpad | LS-I2 | Mouse\_Trackpad\_Basic | Keyboard, mouse, and trackpad |
-| Stylus | LS-S1 | Stylus\_Basic | Stylus |
-| Stylus | LS-S1.1 | Stylus\_Text\_Input | Stylus |
+| Camera preview and media projection | LS-CM1 | Camera_Preview | Camera preview and media projection |
+| Camera preview and media projection | LS-CM2 | Media_Projection | Camera preview and media projection |
+| Keyboard, mouse, and trackpad | LS-I1 | Keyboard_Input | Keyboard, mouse, and trackpad |
+| Keyboard, mouse, and trackpad | LS-I2 | Mouse_Trackpad_Basic | Keyboard, mouse, and trackpad |
+| Stylus | LS-S1 | Stylus_Basic | Stylus |
+| Stylus | LS-S1.1 | Stylus_Text_Input | Stylus |
 
 ### Tier 2
 
-| Large screen app quality | | Adaptive app quality | |
-| --- | --- | --- | --- |
+| Large screen app quality || Adaptive app quality ||
 | Category | ID | ID | Category |
-| UX | LS-U1 | Responsive\_adaptive\_layouts | User interface |
-| UX | LS-U2 | UI\_Secondary\_Elements | User interface |
-| UX | LS-U3 | Touch\_Targets | User interface |
-| UX | LS-U4 | Drawable\_Focus | User interface |
-| Keyboard, mouse, and trackpad | LS-I3 | Keyboard\_Navigation | Keyboard, mouse, and trackpad |
-| Keyboard, mouse, and trackpad | LS-I4 | Keyboard\_Shortcuts | Keyboard, mouse, and trackpad |
-| Keyboard, mouse, and trackpad | LS-I5 | Keyboard\_Media\_Playback | Keyboard, mouse, and trackpad |
-| Keyboard, mouse, and trackpad | LS-I6 | Keyboard\_Send | Keyboard, mouse, and trackpad |
-| Keyboard, mouse, and trackpad | LS-I7 | Context\_Menus | Keyboard, mouse, and trackpad |
-| Keyboard, mouse, and trackpad | LS-I8 | Content\_Zoom | Keyboard, mouse, and trackpad |
-| Keyboard, mouse, and trackpad | LS-I9 | Hover\_States | Keyboard, mouse, and trackpad |
+|---|---|---|---|
+| UX | LS-U1 | Responsive_adaptive_layouts | User interface |
+| UX | LS-U2 | UI_Secondary_Elements | User interface |
+| UX | LS-U3 | Touch_Targets | User interface |
+| UX | LS-U4 | Drawable_Focus | User interface |
+| Keyboard, mouse, and trackpad | LS-I3 | Keyboard_Navigation | Keyboard, mouse, and trackpad |
+| Keyboard, mouse, and trackpad | LS-I4 | Keyboard_Shortcuts | Keyboard, mouse, and trackpad |
+| Keyboard, mouse, and trackpad | LS-I5 | Keyboard_Media_Playback | Keyboard, mouse, and trackpad |
+| Keyboard, mouse, and trackpad | LS-I6 | Keyboard_Send | Keyboard, mouse, and trackpad |
+| Keyboard, mouse, and trackpad | LS-I7 | Context_Menus | Keyboard, mouse, and trackpad |
+| Keyboard, mouse, and trackpad | LS-I8 | Content_Zoom | Keyboard, mouse, and trackpad |
+| Keyboard, mouse, and trackpad | LS-I9 | Hover_States | Keyboard, mouse, and trackpad |
 
 ### Tier 1
 
-| Large screen app quality | | Adaptive app quality | | |
-| --- | --- | --- | --- | --- |
+| Large screen app quality || Adaptive app quality |||
 | Category | ID | ID | Category | Experience |
-| Multitasking and multi-instance | LS-M3 | Multitasking\_Scenarios | Multitasking and multi-instance | Desktop |
+|---|---|---|---|---|
+| Multitasking and multi-instance | LS-M3 | Multitasking_Scenarios | Multitasking and multi-instance | Desktop |
 | Multitasking and multi-instance | LS-M4 | Multi-Instance | Multitasking and multi-instance | Desktop |
-| Foldable postures and states | LS-F1 | Foldables\_Postures | Foldable postures and states | Foldables |
-| Foldable postures and states | LS-F2 | Foldables\_Camera | Foldable postures and states | Foldables |
-| Drag and drop | LS-D1 | Drag\_Drop\_Support | Drag and drop | Desktop |
-| Keyboard, mouse, and trackpad | LS-I10 | Keyboard\_Parity | Keyboard, mouse, and trackpad | Desktop |
-| Keyboard, mouse, and trackpad | LS-I11 | Input\_Combinations | Keyboard, mouse, and trackpad | Desktop |
-| Keyboard, mouse, and trackpad | LS-I12 | Scrollbar\_Display | User experience | Desktop |
-| Keyboard, mouse, and trackpad | LS-I13 | Hover\_Parity | User experience | Desktop |
-| Keyboard, mouse, and trackpad | LS-I14 | Desktop\_Menus | User experience | Desktop |
-| Keyboard, mouse, and trackpad | LS-I15 | UI\_Config | User experience | Desktop |
-| Keyboard, mouse, and trackpad | LS-I16 | Triple\_Click | Keyboard, mouse, and trackpad | Desktop |
-| Stylus | LS-S2 | Stylus\_Draw\_Write | Stylus | Stylus |
-| Stylus | LS-S3 | Stylus\_Drag\_Drop | Stylus | Stylus |
-| Stylus | LS-S4 | Stylus\_Enhanced | Stylus | Stylus |
-| Custom cursors | LS-P1 | Custom\_Cursors | Cursors | Desktop |
-|  |  | Request\_Fullscreen\_Mode | User experience | Desktop |
-|  |  | Printing\_Support | Printing and file management | Desktop |
-|  |  | File\_Management\_Basics | Printing and file management | Desktop |
-|  |  | File\_Picker | Printing and file management | Desktop |
-|  |  | File\_Handlers | Printing and file management | Desktop |
-|  |  | Cursor\_Target\_Size | Cursors | Desktop |
-|  |  | Cross\_Device\_Handoff | Cross-device | Desktop |
-|  |  | Offline\_Support | Offline support | Desktop |
-|  |  | Web\_Transition | App-to-web | Desktop |
-|  |  | Foldables\_Multitasking\_Scenarios | Multitasking and multi-instance | Foldables |
-|  |  | Foldables\_PiP | Multitasking and multi-instance | Foldables |
-|  |  | Foldables\_Multi-Instance | Multitasking and multi-instance | Foldables |
-|  |  | Camera\_Switcher | Camera | Camera • Audio |
-|  |  | Audio\_Switcher | Audio | Camera • Audio |
-|  |  | Audio\_Background\_Playback | Audio | Camera • Audio |
+| Foldable postures and states | LS-F1 | Foldables_Postures | Foldable postures and states | Foldables |
+| Foldable postures and states | LS-F2 | Foldables_Camera | Foldable postures and states | Foldables |
+| Drag and drop | LS-D1 | Drag_Drop_Support | Drag and drop | Desktop |
+| Keyboard, mouse, and trackpad | LS-I10 | Keyboard_Parity | Keyboard, mouse, and trackpad | Desktop |
+| Keyboard, mouse, and trackpad | LS-I11 | Input_Combinations | Keyboard, mouse, and trackpad | Desktop |
+| Keyboard, mouse, and trackpad | LS-I12 | Scrollbar_Display | User experience | Desktop |
+| Keyboard, mouse, and trackpad | LS-I13 | Hover_Parity | User experience | Desktop |
+| Keyboard, mouse, and trackpad | LS-I14 | Desktop_Menus | User experience | Desktop |
+| Keyboard, mouse, and trackpad | LS-I15 | UI_Config | User experience | Desktop |
+| Keyboard, mouse, and trackpad | LS-I16 | Triple_Click | Keyboard, mouse, and trackpad | Desktop |
+| Stylus | LS-S2 | Stylus_Draw_Write | Stylus | Stylus |
+| Stylus | LS-S3 | Stylus_Drag_Drop | Stylus | Stylus |
+| Stylus | LS-S4 | Stylus_Enhanced | Stylus | Stylus |
+| Custom cursors | LS-P1 | Custom_Cursors | Cursors | Desktop |
+|   |   | Request_Fullscreen_Mode | User experience | Desktop |
+|   |   | Printing_Support | Printing and file management | Desktop |
+|   |   | File_Management_Basics | Printing and file management | Desktop |
+|   |   | File_Picker | Printing and file management | Desktop |
+|   |   | File_Handlers | Printing and file management | Desktop |
+|   |   | Cursor_Target_Size | Cursors | Desktop |
+|   |   | Cross_Device_Handoff | Cross-device | Desktop |
+|   |   | Offline_Support | Offline support | Desktop |
+|   |   | Web_Transition | App-to-web | Desktop |
+|   |   | Foldables_Multitasking_Scenarios | Multitasking and multi-instance | Foldables |
+|   |   | Foldables_PiP | Multitasking and multi-instance | Foldables |
+|   |   | Foldables_Multi-Instance | Multitasking and multi-instance | Foldables |
+|   |   | Camera_Switcher | Camera | Camera • Audio |
+|   |   | Audio_Switcher | Audio | Camera • Audio |
+|   |   | Audio_Background_Playback | Audio | Camera • Audio |
 
 ## Tests
 
 ### Tier 3
 
-| Large screen app quality | | Adaptive app quality | |
-| --- | --- | --- | --- |
+| Large screen app quality || Adaptive app quality ||
 | Category | ID | ID | Category |
-| Configuration and continuity | T3-1 | T-Config\_Orientation | Configuration and continuity |
-| Configuration and continuity | T3-2 | T-Config\_State | Configuration and continuity |
-| Configuration and continuity | T3-3 | T-Config\_Combinations | Configuration and continuity |
-| Multi-window mode and multi-resume | T3-4 | T-Multi-Window\_Functionality | Multi-window mode and multi-resume |
-| Multi-window mode and multi-resume | T3-5 | T-Multi-Window\_Focus | Multi-window mode and multi-resume |
-| Multi-window mode and multi-resume | T3-6 | T-Multi-Window\_Resources | Multi-window mode and multi-resume |
-| Camera preview and media projection | T3-7 | T-Camera\_Preview | Camera preview and media projection |
-| Camera preview and media projection | T3-8 | T-Media\_Projection | Camera preview and media projection |
-| Keyboard, mouse, and trackpad | T3-9 | T-Keyboard\_Input | Keyboard, mouse, and trackpad |
-| Keyboard, mouse, and trackpad | T3-10 | T-Mouse\_Trackpad\_Basic | Keyboard, mouse, and trackpad |
-| Stylus | T3-11 | T-Stylus\_Basic | Stylus |
-| Stylus | T3-12 | T-Stylus\_Text\_Input | Stylus |
+|---|---|---|---|
+| Configuration and continuity | T3-1 | T-Config_Orientation | Configuration and continuity |
+| Configuration and continuity | T3-2 | T-Config_State | Configuration and continuity |
+| Configuration and continuity | T3-3 | T-Config_Combinations | Configuration and continuity |
+| Multi-window mode and multi-resume | T3-4 | T-Multi-Window_Functionality | Multi-window mode and multi-resume |
+| Multi-window mode and multi-resume | T3-5 | T-Multi-Window_Focus | Multi-window mode and multi-resume |
+| Multi-window mode and multi-resume | T3-6 | T-Multi-Window_Resources | Multi-window mode and multi-resume |
+| Camera preview and media projection | T3-7 | T-Camera_Preview | Camera preview and media projection |
+| Camera preview and media projection | T3-8 | T-Media_Projection | Camera preview and media projection |
+| Keyboard, mouse, and trackpad | T3-9 | T-Keyboard_Input | Keyboard, mouse, and trackpad |
+| Keyboard, mouse, and trackpad | T3-10 | T-Mouse_Trackpad_Basic | Keyboard, mouse, and trackpad |
+| Stylus | T3-11 | T-Stylus_Basic | Stylus |
+| Stylus | T3-12 | T-Stylus_Text_Input | Stylus |
 
 ### Tier 2
 
-| Large screen app quality | | Adaptive app quality | |
-| --- | --- | --- | --- |
+| Large screen app quality || Adaptive app quality ||
 | Category | ID | ID | Category |
-| UX | T2-1 | T-Layout\_Flow | User interface |
-| UX | T2-2 | T-Touch\_Targets | User interface |
-| UX | T2-3 | T-Drawable\_Focus | User interface |
-| Keyboard, mouse, and trackpad | T2-4 | T-Keyboard\_Navigation | Keyboard, mouse, and trackpad |
-| Keyboard, mouse, and trackpad | T2-5 | T-Keyboard\_Shortcuts | Keyboard, mouse, and trackpad |
-| Keyboard, mouse, and trackpad | T2-6 | T-Keyboard\_Media\_Playback | Keyboard, mouse, and trackpad |
-| Keyboard, mouse, and trackpad | T2-7 | T-Keyboard\_Send | Keyboard, mouse, and trackpad |
-| Keyboard, mouse, and trackpad | T2-8 | T-Context\_Menus | Keyboard, mouse, and trackpad |
-| Keyboard, mouse, and trackpad | T2-9 | T-Content\_Zoom | Keyboard, mouse, and trackpad |
-| Keyboard, mouse, and trackpad | T2-10 | T-Hover\_States | Keyboard, mouse, and trackpad |
+|---|---|---|---|
+| UX | T2-1 | T-Layout_Flow | User interface |
+| UX | T2-2 | T-Touch_Targets | User interface |
+| UX | T2-3 | T-Drawable_Focus | User interface |
+| Keyboard, mouse, and trackpad | T2-4 | T-Keyboard_Navigation | Keyboard, mouse, and trackpad |
+| Keyboard, mouse, and trackpad | T2-5 | T-Keyboard_Shortcuts | Keyboard, mouse, and trackpad |
+| Keyboard, mouse, and trackpad | T2-6 | T-Keyboard_Media_Playback | Keyboard, mouse, and trackpad |
+| Keyboard, mouse, and trackpad | T2-7 | T-Keyboard_Send | Keyboard, mouse, and trackpad |
+| Keyboard, mouse, and trackpad | T2-8 | T-Context_Menus | Keyboard, mouse, and trackpad |
+| Keyboard, mouse, and trackpad | T2-9 | T-Content_Zoom | Keyboard, mouse, and trackpad |
+| Keyboard, mouse, and trackpad | T2-10 | T-Hover_States | Keyboard, mouse, and trackpad |
 
 ### Tier 1
 
-| Large screen app quality | | Adaptive app quality | | |
-| --- | --- | --- | --- | --- |
+| Large screen app quality || Adaptive app quality |||
 | Category | ID | ID | Category | Experience |
-| Multitasking and multi-instance | T1-1 | T-Multitasking\_PiP | Multitasking and multi-instance | Desktop |
-| Multitasking and multi-instance | T1-2 | T-Multitasking\_Split-Screen | Multitasking and multi-instance | Desktop |
-| Multitasking and multi-instance | T1-3 | T-Multitasking\_Attachments | Multitasking and multi-instance | Desktop |
+|---|---|---|---|---|
+| Multitasking and multi-instance | T1-1 | T-Multitasking_PiP | Multitasking and multi-instance | Desktop |
+| Multitasking and multi-instance | T1-2 | T-Multitasking_Split-Screen | Multitasking and multi-instance | Desktop |
+| Multitasking and multi-instance | T1-3 | T-Multitasking_Attachments | Multitasking and multi-instance | Desktop |
 | Multitasking and multi-instance | T1-4 | T-Multi-Instance | Multitasking and multi-instance | Desktop |
-| Foldable postures and states | T1-5 | T-Foldables\_Postures | Foldable postures and states | Foldables |
-| Foldable postures and states | T1-6 | T-Foldables\_Camera | Foldable postures and states | Foldables |
-| Drag and drop | T1-7 | T-Drag\_Drop\_Support | Drag and drop | Desktop |
-| Keyboard, mouse, and trackpad | T1-8 | T-Keyboard\_Parity | Keyboard, mouse, and trackpad | Desktop |
-| Keyboard, mouse, and trackpad | T1-9 | T-Input\_Combinations | Keyboard, mouse, and trackpad | Desktop |
-| Keyboard, mouse, and trackpad | T1-10 | T-Scrollbar\_Display | User experience | Desktop |
-| Keyboard, mouse, and trackpad | T1-11 | T-Hover\_Parity | User experience | Desktop |
-| Keyboard, mouse, and trackpad | T1-12 | T-Desktop\_Menus | User experience | Desktop |
-| Keyboard, mouse, and trackpad | T1-13 | T-UI\_Config | User experience | Desktop |
-| Keyboard, mouse, and trackpad | T1-14 | T-Triple\_Click | Keyboard, mouse, and trackpad | Desktop |
-| Stylus | T1-15 | T-Stylus\_Draw\_Write | Stylus | Stylus |
-| Stylus | T1-16 | T-Stylus\_Drag\_Drop | Stylus | Stylus |
-| Stylus | T1-17 | T-Stylus\_Enhanced | Stylus | Stylus |
-| Custom cursors | T1-18 | T-Custom\_Cursors | Cursors | Desktop |
-|  |  | T-Request\_Fullscreen\_Mode | User experience | Desktop |
-|  |  | T-Drag\_Drop\_Batch | Drag and drop | Desktop |
-|  |  | T-Printing\_Support | Printing and file management | Desktop |
-|  |  | T-File\_Picker | Printing and file management | Desktop |
-|  |  | T-File\_Management\_Basics | Printing and file management | Desktop |
-|  |  | T-File\_Handlers | Printing and file management | Desktop |
-|  |  | T-Cursor\_Target\_Size | Cursors | Desktop |
-|  |  | T-Cross\_Device\_Handoff | Cross-device | Desktop |
-|  |  | T-Offline\_Support | Offline support | Desktop |
-|  |  | T-Web\_Transition | App-to-web | Desktop |
-|  |  | T-Foldables\_PiP | Multitasking and multi-instance | Foldables |
-|  |  | T-Foldables\_Attachments | Multitasking and multi-instance | Foldables |
-|  |  | T-Foldables\_Multi-Instance | Multitasking and multi-instance | Foldables |
-|  |  | T-Camera\_Switcher | Camera | Camera • Audio |
-|  |  | T-Audio\_Switcher | Audio | Camera • Audio |
-|  |  | T-Audio\_Background\_Playback | Audio | Camera • Audio |
+| Foldable postures and states | T1-5 | T-Foldables_Postures | Foldable postures and states | Foldables |
+| Foldable postures and states | T1-6 | T-Foldables_Camera | Foldable postures and states | Foldables |
+| Drag and drop | T1-7 | T-Drag_Drop_Support | Drag and drop | Desktop |
+| Keyboard, mouse, and trackpad | T1-8 | T-Keyboard_Parity | Keyboard, mouse, and trackpad | Desktop |
+| Keyboard, mouse, and trackpad | T1-9 | T-Input_Combinations | Keyboard, mouse, and trackpad | Desktop |
+| Keyboard, mouse, and trackpad | T1-10 | T-Scrollbar_Display | User experience | Desktop |
+| Keyboard, mouse, and trackpad | T1-11 | T-Hover_Parity | User experience | Desktop |
+| Keyboard, mouse, and trackpad | T1-12 | T-Desktop_Menus | User experience | Desktop |
+| Keyboard, mouse, and trackpad | T1-13 | T-UI_Config | User experience | Desktop |
+| Keyboard, mouse, and trackpad | T1-14 | T-Triple_Click | Keyboard, mouse, and trackpad | Desktop |
+| Stylus | T1-15 | T-Stylus_Draw_Write | Stylus | Stylus |
+| Stylus | T1-16 | T-Stylus_Drag_Drop | Stylus | Stylus |
+| Stylus | T1-17 | T-Stylus_Enhanced | Stylus | Stylus |
+| Custom cursors | T1-18 | T-Custom_Cursors | Cursors | Desktop |
+|   |   | T-Request_Fullscreen_Mode | User experience | Desktop |
+|   |   | T-Drag_Drop_Batch | Drag and drop | Desktop |
+|   |   | T-Printing_Support | Printing and file management | Desktop |
+|   |   | T-File_Picker | Printing and file management | Desktop |
+|   |   | T-File_Management_Basics | Printing and file management | Desktop |
+|   |   | T-File_Handlers | Printing and file management | Desktop |
+|   |   | T-Cursor_Target_Size | Cursors | Desktop |
+|   |   | T-Cross_Device_Handoff | Cross-device | Desktop |
+|   |   | T-Offline_Support | Offline support | Desktop |
+|   |   | T-Web_Transition | App-to-web | Desktop |
+|   |   | T-Foldables_PiP | Multitasking and multi-instance | Foldables |
+|   |   | T-Foldables_Attachments | Multitasking and multi-instance | Foldables |
+|   |   | T-Foldables_Multi-Instance | Multitasking and multi-instance | Foldables |
+|   |   | T-Camera_Switcher | Camera | Camera • Audio |
+|   |   | T-Audio_Switcher | Audio | Camera • Audio |
+|   |   | T-Audio_Background_Playback | Audio | Camera • Audio |

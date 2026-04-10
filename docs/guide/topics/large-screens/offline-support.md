@@ -15,6 +15,7 @@ source: html-scrape
 
 
 
+
 ![Tier 1 adaptive differentiated icon](/static/images/docs/quality-guidelines/tier-1/tier_1_icon.png)
 
 TIER 1 — Adaptive differentiated

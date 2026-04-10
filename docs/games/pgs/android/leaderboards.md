@@ -23,7 +23,7 @@ Before you start to code using the leaderboards APIs:
 
 - Follow the instructions for installing and setting up your app to use
   Google Play Games Services in the
-  [Set Up Google Play Services SDK](https://developers.google.com/android/guides/setup) guide.
+  [Set Up Google Play services SDK](https://developers.google.com/android/guides/setup) guide.
 
 - Define the leaderboards that you want your game to display or update, by
   following the instructions in the
@@ -39,7 +39,7 @@ Before you start to code using the leaderboards APIs:
 
 To start using the leaderboards API, your game must first obtain a
 [`LeaderboardsClient`](https://developers.google.com/android/reference/com/google/android/gms/games/LeaderboardsClient) object.
-You can do this by calling the [`PlayGames.getLeadeboardsClient()`](https://developers.google.com/android/reference/com/google/android/gms/games/PlayGames#public-static-leaderboardsclient-getleaderboardsclient-activity-activity)
+You can do this by calling the [`PlayGames.getLeaderboardsClient()`](https://developers.google.com/android/reference/com/google/android/gms/games/PlayGames#public-static-leaderboardsclient-getleaderboardsclient-activity-activity)
 method and passing in the activity.
 
 > [!NOTE]
@@ -47,7 +47,8 @@ method and passing in the activity.
 
 ## Update the player's score
 
-When the player's score changes (for example, when the player finishes the game), your
+When the player's score changes
+(for example, when the player finishes the game), your
 game can update their score on the leaderboard by calling
 [`LeaderboardsClient.submitScore()`](https://developers.google.com/android/reference/com/google/android/gms/games/LeaderboardsClient#submitScore),
 and passing in the leaderboard ID and the raw score value.
@@ -73,8 +74,9 @@ create the default leaderboard user interface. Your game can then bring up the
 UI by calling
 [`startActivityForResult`](https://developer.android.com/reference/android/app/Activity#startActivityForResult).
 
-The following code snippet shows how your app can update the player's score. In the
-code snippet, `RC_LEADERBOARD_UI` is an arbitrary integer for the request code.
+The following code snippet shows how your app can update the player's score.
+In the code snippet, `RC_LEADERBOARD_UI` is an arbitrary integer for the request
+code.
 
 ```
 private static final int RC_LEADERBOARD_UI = 9004;
@@ -91,8 +93,7 @@ private void showLeaderboard() {
 }
 ```
 
-Even though no result is returned, you have to use
-[`startActivityForResult`](https://developer.android.com/reference/android/app/Activity#startActivityForResult)
-so that the API can obtain the identity of the calling package. An example of
-the default leaderboard UI is shown below.
-![](https://developer.android.com/static/images/games/pgs/leaderboard_android.png)
+You must use [`startActivityForResult`](https://developer.android.com/reference/android/app/Activity#startActivityForResult) even though it returns no result.
+This enables the API to get the calling package's identity. The following figure
+shows an example of the default leaderboard UI.
+![An example of the default leaderboard UI](https://developer.android.com/static/images/games/pgs/leaderboard_android.png) An example of the default leaderboard UI.

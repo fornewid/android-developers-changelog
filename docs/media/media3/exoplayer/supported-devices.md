@@ -1,23 +1,13 @@
 ---
-title: Supported devices  |  Android media  |  Android Developers
+title: https://developer.android.com/media/media3/exoplayer/supported-devices
 url: https://developer.android.com/media/media3/exoplayer/supported-devices
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [Essentials](https://developer.android.com/get-started)
-* [Camera & media dev center](https://developer.android.com/media)
-* [Guides](https://developer.android.com/media/guides)
-
-# Supported devices Stay organized with collections Save and categorize content based on your preferences.
-
-
-
 
 The minimum Android versions required for core ExoPlayer use cases are:
 
 | Use case | Android version | API level |
-| --- | --- | --- |
+|---|---|---|
 | Audio playback | 5.0 | 21 |
 | Audio playback (using offload) | 10 | 29 |
 | Video playback | 5.0 | 21 |

@@ -1,49 +1,38 @@
 ---
-title: Build a navigation app  |  Android for Cars  |  Android Developers
+title: https://developer.android.com/training/cars/apps/navigation
 url: https://developer.android.com/training/cars/apps/navigation
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [Develop](https://developer.android.com/develop)
-* [Devices](https://developer.android.com/develop/devices)
-* [Android for Cars](https://developer.android.com/training/cars)
-
-# Build a navigation app Stay organized with collections Save and categorize content based on your preferences.
-
-
 
 This page details the different features of the Car App Library that you can use
 to implement the functionality of your turn-by-turn navigation app.
 
-**Design guidelines:**
-Refer to [Navigation apps](https://developers.google.com/cars/design/create-apps/app-types/navigation) for UX guidance specific to navigation apps.
+> [!NOTE]
+> **Design guidelines:** Refer to [Navigation apps](https://developers.google.com/cars/design/create-apps/app-types/navigation) for UX guidance specific to navigation apps.
 
 ## Declare navigation support in your manifest
 
 Your navigation app needs to declare the `androidx.car.app.category.NAVIGATION`
-[car app category](/training/cars/apps#supported-app-categories) in the intent
-filter of its [`CarAppService`](/reference/androidx/car/app/CarAppService):
+[car app category](https://developer.android.com/training/cars/apps#supported-app-categories) in the intent
+filter of its [`CarAppService`](https://developer.android.com/reference/androidx/car/app/CarAppService):
 
-```
-<application>
-    ...
-   <service
-       ...
-        android:name=".MyNavigationCarAppService"
-        android:exported="true">
-      <intent-filter>
-        <action android:name="androidx.car.app.CarAppService" />
-        <category android:name="androidx.car.app.category.NAVIGATION"/>
-      </intent-filter>
-    </service>
-    ...
-</application>
-```
+    <application>
+        ...
+       <service
+           ...
+            android:name=".MyNavigationCarAppService"
+            android:exported="true">
+          <intent-filter>
+            <action android:name="androidx.car.app.CarAppService" />
+            <category android:name="androidx.car.app.category.NAVIGATION"/>
+          </intent-filter>
+        </service>
+        ...
+    </application>
 
-**Important:** Navigation apps built for Android Automotive OS require additional
-declarations in the manifest, as described in [Additional requirements for
-navigation apps](/training/cars/apps/automotive-os#navigation-reqs).
+> [!IMPORTANT]
+> **Important:** Navigation apps built for Android Automotive OS require additional declarations in the manifest, as described in [Additional requirements for
+> navigation apps](https://developer.android.com/training/cars/apps/automotive-os#navigation-reqs).
 
 ## Support navigation intents
 
@@ -54,26 +43,24 @@ To support these intent formats, first declare support by adding intent filters
 in your app's manifest. The location of these intent filters depends on the
 platform:
 
-* **Android Auto**: Within the `<activity>` manifest element for the
-  `Activity` used to handle the intent when a user isn't using Android Auto.
-* **Android Automotive OS**: Within the `<activity>` manifest element for the
-  `CarAppActivity`.
+- **Android Auto** : Within the `<activity>` manifest element for the `Activity` used to handle the intent when a user isn't using Android Auto.
+- **Android Automotive OS** : Within the `<activity>` manifest element for the `CarAppActivity`.
 
-Then, read and handle the intents in both the [`onCreateScreen()`](/reference/androidx/car/app/Session#onCreateScreen(android.content.Intent)) and
-[`onNewIntent()`](/reference/androidx/car/app/Session#onNewIntent(android.content.Intent)) callbacks in your app's `Session` implementation.
+Then, read and handle the intents in both the [`onCreateScreen()`](https://developer.android.com/reference/androidx/car/app/Session#onCreateScreen(android.content.Intent)) and
+[`onNewIntent()`](https://developer.android.com/reference/androidx/car/app/Session#onNewIntent(android.content.Intent)) callbacks in your app's `Session` implementation.
 
 ### Required intent formats
 
-To meet the [`NF-6`](/docs/quality-guidelines/car-app-quality?category=navigation#NF-6) quality requirement, your app must handle
-[navigation intents](/develop/devices/assistant/intents-assistant-nav-app#navigation-intent).
+To meet the [`NF-6`](https://developer.android.com/docs/quality-guidelines/car-app-quality?category=navigation#NF-6) quality requirement, your app must handle
+[navigation intents](https://developer.android.com/develop/devices/assistant/intents-assistant-nav-app#navigation-intent).
 
 ### Optional intent formats
 
 You can also support the following intent formats to further increase your app's
 interoperability:
 
-* [Search intent](/develop/devices/assistant/intents-assistant-nav-app#search-intent)
-* [Custom action intent](/develop/devices/assistant/intents-assistant-nav-app#custom-action-intent)
+- [Search intent](https://developer.android.com/develop/devices/assistant/intents-assistant-nav-app#search-intent)
+- [Custom action intent](https://developer.android.com/develop/devices/assistant/intents-assistant-nav-app#custom-action-intent)
 
 ## Access the navigation templates
 
@@ -81,44 +68,33 @@ Navigation apps can access the following templates, which display a surface in
 the background with the map and, during active navigation, turn-by-turn
 directions.
 
-* [`NavigationTemplate`](/reference/androidx/car/app/navigation/model/NavigationTemplate):
-  also displays an optional informational message and travel estimates during active navigation.
-* [`MapWithContentTemplate`](/reference/androidx/car/app/navigation/model/MapWithContentTemplate):
-  A template that allows an app to render map tiles with some sort of content (for
-  example, a list). The content is usually rendered as an overlay on top of the
-  map tiles, with the map visible and stable areas adjusting to the content.
+- [`NavigationTemplate`](https://developer.android.com/reference/androidx/car/app/navigation/model/NavigationTemplate): also displays an optional informational message and travel estimates during active navigation.
+- [`MapWithContentTemplate`](https://developer.android.com/reference/androidx/car/app/navigation/model/MapWithContentTemplate): A template that allows an app to render map tiles with some sort of content (for example, a list). The content is usually rendered as an overlay on top of the map tiles, with the map visible and stable areas adjusting to the content.
 
-For more details about how to design your navigation app’s user interface using
+For more details about how to design your navigation app's user interface using
 these templates, see [Navigation apps](https://developers.google.com/cars/design/create-apps/app-types/navigation).
 
 To get access to the navigation templates, your app needs to declare
 the `androidx.car.app.NAVIGATION_TEMPLATES` permission in its
 `AndroidManifest.xml` file:
 
-```
-<manifest ...>
-  ...
-  <uses-permission android:name="androidx.car.app.NAVIGATION_TEMPLATES"/>
-  ...
-</manifest>
-```
+    <manifest ...>
+      ...
+      <uses-permission android:name="androidx.car.app.NAVIGATION_TEMPLATES"/>
+      ...
+    </manifest>
 
-An additional permission is required to [draw maps](/training/cars/apps#draw-maps).
+An additional permission is required to [draw maps](https://developer.android.com/training/cars/apps#draw-maps).
 
-**Note:** The `NavigationTemplate` (as well as the deprecated `MapTemplate`,
-`PlaceListNavigationTemplate`, and `RoutePreviewNavigationTemplate`) can only be
-used by apps declaring the `androidx.car.app.category.NAVIGATION`
-[car app category](/training/cars/apps#supported-app-categories). Only declare
-the `NAVIGATION_TEMPLATES` permission for navigation apps. For point of interest
-(POI) apps, see "Access the map templates" in
-[Build a point of interest app](/training/cars/apps/poi#access-map-templates).
+> [!NOTE]
+> **Note:** The `NavigationTemplate` (as well as the deprecated `MapTemplate`, `PlaceListNavigationTemplate`, and `RoutePreviewNavigationTemplate`) can only be used by apps declaring the `androidx.car.app.category.NAVIGATION` [car app category](https://developer.android.com/training/cars/apps#supported-app-categories). Only declare the `NAVIGATION_TEMPLATES` permission for navigation apps. For point of interest (POI) apps, see "Access the map templates" in [Build a point of interest app](https://developer.android.com/training/cars/apps/poi#access-map-templates).
 
 ### Migrate to the MapWithContentTemplate
 
 Starting with Car App API Level 7, the
-[`MapTemplate`](/reference/androidx/car/app/navigation/model/MapTemplate),
-[`PlaceListNavigationTemplate`](/reference/androidx/car/app/navigation/model/PlaceListNavigationTemplate),
-and [`RoutePreviewNavigationTemplate`](/reference/androidx/car/app/navigation/model/RoutePreviewNavigationTemplate)
+[`MapTemplate`](https://developer.android.com/reference/androidx/car/app/navigation/model/MapTemplate),
+[`PlaceListNavigationTemplate`](https://developer.android.com/reference/androidx/car/app/navigation/model/PlaceListNavigationTemplate),
+and [`RoutePreviewNavigationTemplate`](https://developer.android.com/reference/androidx/car/app/navigation/model/RoutePreviewNavigationTemplate)
 are deprecated. Deprecated templates will continue to be supported, but
 migrating to the `MapWithContentTemplate` is strongly recommended.
 
@@ -129,7 +105,7 @@ using the `MapWithContentTemplate`. See the following snippets for examples:
 
 ### Kotlin
 
-```
+```kotlin
 // MapTemplate (deprecated)
 val template = MapTemplate.Builder()
     .setPane(paneBuilder.build())
@@ -151,7 +127,7 @@ val template = MapWithContentTemplate.Builder()
 
 ### Java
 
-```
+```java
 // MapTemplate (deprecated)
 MapTemplate template = new MapTemplate.Builder()
     .setPane(paneBuilder.build())
@@ -174,7 +150,7 @@ MapWithContentTemplate template = new MapWithContentTemplate.Builder()
 
 ### Kotlin
 
-```
+```kotlin
 // PlaceListNavigationTemplate (deprecated)
 val template = PlaceListNavigationTemplate.Builder()
     .setItemList(itemListBuilder.build())
@@ -200,7 +176,7 @@ val template = MapWithContentTemplate.Builder()
 
 ### Java
 
-```
+```java
 // PlaceListNavigationTemplate (deprecated)
 PlaceListNavigationTemplate template = new PlaceListNavigationTemplate.Builder()
     .setItemList(itemListBuilder.build())
@@ -226,7 +202,7 @@ MapWithContentTemplate template = new MapWithContentTemplate.Builder()
 
 ### Kotlin
 
-```
+```kotlin
 // RoutePreviewNavigationTemplate (deprecated)
 val template = RoutePreviewNavigationTemplate.Builder()
     .setItemList(
@@ -274,7 +250,7 @@ val template = MapWithContentTemplate.Builder()
 
 ### Java
 
-```
+```java
 // RoutePreviewNavigationTemplate (deprecated)
 RoutePreviewNavigationTemplate template = new RoutePreviewNavigationTemplate.Builder()
     .setItemList(new ItemList.Builder()
@@ -320,19 +296,19 @@ vehicle head unit and to prevent navigation applications from clashing over
 shared resources.
 
 Navigation metadata is provided through the
-[`NavigationManager`](/reference/androidx/car/app/navigation/NavigationManager)
+[`NavigationManager`](https://developer.android.com/reference/androidx/car/app/navigation/NavigationManager)
 car service accessible from the
-[`CarContext`](/reference/androidx/car/app/CarContext):
+[`CarContext`](https://developer.android.com/reference/androidx/car/app/CarContext):
 
 ### Kotlin
 
-```
+```kotlin
 val navigationManager = carContext.getCarService(NavigationManager::class.java)
 ```
 
 ### Java
 
-```
+```java
 NavigationManager navigationManager = carContext.getCarService(NavigationManager.class);
 ```
 
@@ -341,63 +317,57 @@ NavigationManager navigationManager = carContext.getCarService(NavigationManager
 For the host to manage multiple navigation apps, routing notifications,
 and vehicle cluster data, it needs to be aware of the current state of
 navigation. When a user starts navigation, call
-[`NavigationManager.navigationStarted`](/reference/androidx/car/app/navigation/NavigationManager#navigationStarted()).
-Similarly, when navigation ends—for example, when the user arrives at their
-destination or the user cancels navigation—call
-[`NavigationManager.navigationEnded`](/reference/androidx/car/app/navigation/NavigationManager#navigationEnded()).
+[`NavigationManager.navigationStarted`](https://developer.android.com/reference/androidx/car/app/navigation/NavigationManager#navigationStarted()).
+Similarly, when navigation ends---for example, when the user arrives at their
+destination or the user cancels navigation---call
+[`NavigationManager.navigationEnded`](https://developer.android.com/reference/androidx/car/app/navigation/NavigationManager#navigationEnded()).
 
 Only call `NavigationManager.navigationEnded`
 when the user finishes navigating. For example, if you need to recalculate
 the route in the middle of a trip, use
-[`Trip.Builder.setLoading(true)`](/reference/androidx/car/app/navigation/model/Trip.Builder#setLoading(boolean))
+[`Trip.Builder.setLoading(true)`](https://developer.android.com/reference/androidx/car/app/navigation/model/Trip.Builder#setLoading(boolean))
 instead.
 
 Occasionally, the host needs an app to stop navigation and calls
 `onStopNavigation` in a
-[`NavigationManagerCallback`](/reference/androidx/car/app/navigation/NavigationManagerCallback)
+[`NavigationManagerCallback`](https://developer.android.com/reference/androidx/car/app/navigation/NavigationManagerCallback)
 object provided by your app through
-[`NavigationManager.setNavigationManagerCallback`](/reference/androidx/car/app/navigation/NavigationManager#setNavigationManagerCallback(java.util.concurrent.Executor,androidx.car.app.navigation.NavigationManagerCallback)).
+[`NavigationManager.setNavigationManagerCallback`](https://developer.android.com/reference/androidx/car/app/navigation/NavigationManager#setNavigationManagerCallback(java.util.concurrent.Executor,androidx.car.app.navigation.NavigationManagerCallback)).
 The app must then stop issuing next-turn information in the cluster display,
 navigation notifications, and voice guidance.
 
 ### Update trip information
 
 During active navigation, call
-[`NavigationManager.updateTrip`](/reference/androidx/car/app/navigation/NavigationManager#updateTrip(androidx.car.app.navigation.model.Trip)).
-The information provided in this call can be used by the vehicle’s cluster and
+[`NavigationManager.updateTrip`](https://developer.android.com/reference/androidx/car/app/navigation/NavigationManager#updateTrip(androidx.car.app.navigation.model.Trip)).
+The information provided in this call can be used by the vehicle's cluster and
 heads-up displays. Depending on the particular vehicle being driven, not all
 the information is displayed to the user.
 For example, the Desktop Head Unit (DHU) shows
-the [`Step`](/reference/androidx/car/app/navigation/model/Step) added to the
-[`Trip`](/reference/androidx/car/app/navigation/model/Trip), but does not show
-the [`Destination`](/reference/androidx/car/app/navigation/model/Destination)
+the [`Step`](https://developer.android.com/reference/androidx/car/app/navigation/model/Step) added to the
+[`Trip`](https://developer.android.com/reference/androidx/car/app/navigation/model/Trip), but does not show
+the [`Destination`](https://developer.android.com/reference/androidx/car/app/navigation/model/Destination)
 information.
 
-**Tip:** You can verify your implementation by using the DHU's [instrument
-cluster emulation](/training/cars/testing/dhu#instrument_cluster).
+> [!TIP]
+> **Tip:** You can verify your implementation by using the DHU's [instrument
+> cluster emulation](https://developer.android.com/training/cars/testing/dhu#instrument_cluster).
 
 ## Drawing to the Cluster Display
 
 To provide the most immersive user experience, you may want to go beyond
-[showing basic metadata](#trip-information) on the vehicle's cluster display.
+[showing basic metadata](https://developer.android.com/training/cars/apps/navigation#trip-information) on the vehicle's cluster display.
 Starting with Car App API Level 6, navigation apps have the option of rendering
 their own content directly on the cluster display (in supported vehicles), with
 the following limitations:
 
-* The cluster display API does not support input controls
-* Car app quality guideline
-  [`NF-9`](/docs/quality-guidelines/car-app-quality?category=navigation#NF-9):
-  The cluster display should only show map tiles. An active navigation route can
-  optionally be displayed on these tiles.
-* The cluster display API only supports use of the
-  [`NavigationTemplate`](/reference/androidx/car/app/navigation/model/NavigationTemplate)
-  + Unlike main displays, cluster displays may not consistently show all
-    `NavigationTemplate` UI elements, such as turn-by-turn instructions, ETA
-    cards, and actions. Map tiles are the only consistently displayed UI
-    element.
+- The cluster display API does not support input controls
+- Car app quality guideline [`NF-9`](https://developer.android.com/docs/quality-guidelines/car-app-quality?category=navigation#NF-9): The cluster display should only show map tiles. An active navigation route can optionally be displayed on these tiles.
+- The cluster display API only supports use of the [`NavigationTemplate`](https://developer.android.com/reference/androidx/car/app/navigation/model/NavigationTemplate)
+  - Unlike main displays, cluster displays may not consistently show all `NavigationTemplate` UI elements, such as turn-by-turn instructions, ETA cards, and actions. Map tiles are the only consistently displayed UI element.
 
-**Note:** In vehicles that have multiple displays, multiple cluster sessions
-can run simultaneously.
+> [!NOTE]
+> **Note:** In vehicles that have multiple displays, multiple cluster sessions can run simultaneously.
 
 ### Declare Cluster Support
 
@@ -406,7 +376,7 @@ displays, you must add an `androidx.car.app.category.FEATURE_CLUSTER`
 `<category>` element to your `CarAppService`'s `<intent-filter>` as shown in the
 following snippet:
 
-```
+```xml
 <application>
     ...
    <service
@@ -426,9 +396,9 @@ following snippet:
 ### Lifecycle and State Management
 
 Starting with API level 6, the car app
-[lifecycle flow](/training/cars/apps#carappservice-session-screen-lifecycles)
+[lifecycle flow](https://developer.android.com/training/cars/apps#carappservice-session-screen-lifecycles)
 stays the same, but now `CarAppService::onCreateSession` takes a parameter of
-type [`SessionInfo`](/reference/androidx/car/app/SessionInfo) that provides
+type [`SessionInfo`](https://developer.android.com/reference/androidx/car/app/SessionInfo) that provides
 additional information about the `Session` being created (namely, the display
 type and the set of supported templates).
 
@@ -438,7 +408,7 @@ behavior on each display (as shown in the following snippet).
 
 ### Kotlin
 
-```
+```kotlin
 override fun onCreateSession(sessionInfo: SessionInfo): Session {
   return if (sessionInfo.displayType == SessionInfo.DISPLAY_TYPE_CLUSTER) {
     ClusterSession()
@@ -450,7 +420,7 @@ override fun onCreateSession(sessionInfo: SessionInfo): Session {
 
 ### Java
 
-```
+```java
 @Override
 @NonNull
 public Session onCreateSession(@NonNull SessionInfo sessionInfo) {
@@ -477,49 +447,43 @@ means that, when using the methods like `ScreenManager::push` or
 `Screen::invalidate`, only the `Session` from which they are called is
 affected. Apps should create their own communication channels between these
 instances if cross-`Session` communication is needed (for example, by using
-[broadcasts](/guide/components/broadcasts), a shared singleton, or something
+[broadcasts](https://developer.android.com/guide/components/broadcasts), a shared singleton, or something
 else).
 
 ### Testing Cluster Support
 
 You can test your implementation on both Android Auto and Android Automotive OS.
 For Android Auto, this is done by [configuring the Desktop Head Unit to emulate
-a secondary cluster display](/training/cars/testing/dhu#cluster_display). For
+a secondary cluster display](https://developer.android.com/training/cars/testing/dhu#cluster_display). For
 Android Automotive OS, the
-[generic system images](/training/cars/testing/emulator#generic-images) for API
+[generic system images](https://developer.android.com/training/cars/testing/emulator#generic-images) for API
 level 30 and greater emulate a cluster display.
 
-**Note:** There is a known issue with the Android Automotive OS emulator which
-may cause the cluster window to not show up on boot. This can usually be
-remedied by hiding and then showing the "Running Devices" tool window in Android
-Studio.
+> [!NOTE]
+> **Note:** There is a known issue with the Android Automotive OS emulator which may cause the cluster window to not show up on boot. This can usually be remedied by hiding and then showing the "Running Devices" tool window in Android Studio.
 
 ## Customize TravelEstimate with text or an icon
 
 To customize the travel estimate with text, an icon, or both, use the
-[`TravelEstimate.Builder`](/reference/androidx/car/app/navigation/model/TravelEstimate.Builder)
+[`TravelEstimate.Builder`](https://developer.android.com/reference/androidx/car/app/navigation/model/TravelEstimate.Builder)
 class's
-[`setTripIcon`](/reference/androidx/car/app/navigation/model/TravelEstimate.Builder#setTripIcon(androidx.car.app.model.CarIcon))
+[`setTripIcon`](https://developer.android.com/reference/androidx/car/app/navigation/model/TravelEstimate.Builder#setTripIcon(androidx.car.app.model.CarIcon))
 or
-[`setTripText`](/reference/androidx/car/app/navigation/model/TravelEstimate.Builder#setTripText(androidx.car.app.model.CarText))
+[`setTripText`](https://developer.android.com/reference/androidx/car/app/navigation/model/TravelEstimate.Builder#setTripText(androidx.car.app.model.CarText))
 methods. The
-[`NavigationTemplate`](/reference/androidx/car/app/navigation/model/NavigationTemplate)
+[`NavigationTemplate`](https://developer.android.com/reference/androidx/car/app/navigation/model/NavigationTemplate)
 uses
-[`TravelEstimate`](/reference/androidx/car/app/navigation/model/TravelEstimate)
+[`TravelEstimate`](https://developer.android.com/reference/androidx/car/app/navigation/model/TravelEstimate)
 to optionally set text and icons alongside or in place of the estimated time
 of arrival, remaining time, and remaining distance.
-
-![](https://developer.android.com/training/cars/images/eta-custom-IconText.png)
-
-
-**Figure 1.** Travel estimate with custom icon and text.
+![](https://developer.android.com/training/cars/images/eta-custom-IconText.png) **Figure 1.** Travel estimate with custom icon and text.
 
 The following snippet uses `setTripIcon` and `setTripText` to customize the
 travel estimate:
 
 ### Kotlin
 
-```
+```kotlin
 TravelEstimate.Builder(Distance.create(...), DateTimeWithZone.create(...))
       ...
       .setTripIcon(CarIcon.Builder(...).build())
@@ -529,7 +493,7 @@ TravelEstimate.Builder(Distance.create(...), DateTimeWithZone.create(...))
 
 ### Java
 
-```
+```java
 new TravelEstimate.Builder(Distance.create(...), DateTimeWithZone.create(...))
       ...
       .setTripIcon(CarIcon.Builder(...).build())
@@ -544,28 +508,25 @@ updated navigation notification. To be treated as a navigation
 notification in the car screen, your notification's builder must do the
 following:
 
-1. Mark the notification as ongoing with the
-   [`NotificationCompat.Builder.setOngoing`](/reference/androidx/core/app/NotificationCompat.Builder#setOngoing(boolean))
-   method.
-2. Set the notification’s category to `Notification.CATEGORY_NAVIGATION`.
-3. Extend the notification with a
-   [`CarAppExtender`](/reference/androidx/car/app/notification/CarAppExtender).
+1. Mark the notification as ongoing with the [`NotificationCompat.Builder.setOngoing`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder#setOngoing(boolean)) method.
+2. Set the notification's category to `Notification.CATEGORY_NAVIGATION`.
+3. Extend the notification with a [`CarAppExtender`](https://developer.android.com/reference/androidx/car/app/notification/CarAppExtender).
 
 A navigation notification displays in the rail widget at the bottom of
 the car screen. If the notification's importance level is set to
 `IMPORTANCE_HIGH`, it also displays as a heads-up notification (HUN).
 If the importance is not set with the
-[`CarAppExtender.Builder.setImportance`](/reference/androidx/car/app/notification/CarAppExtender.Builder#setImportance(int))
+[`CarAppExtender.Builder.setImportance`](https://developer.android.com/reference/androidx/car/app/notification/CarAppExtender.Builder#setImportance(int))
 method, the
-[notification channel's importance](/reference/android/app/NotificationChannel#getImportance())
+[notification channel's importance](https://developer.android.com/reference/android/app/NotificationChannel#getImportance())
 is used.
 
-The app can set a [`PendingIntent`](/reference/android/app/PendingIntent) in the
+The app can set a [`PendingIntent`](https://developer.android.com/reference/android/app/PendingIntent) in the
 `CarAppExtender` that
 is sent to the app when the user taps on the HUN or the rail widget.
 
 If
-[`NotificationCompat.Builder.setOnlyAlertOnce`](/reference/androidx/core/app/NotificationCompat.Builder#setOnlyAlertOnce(boolean))
+[`NotificationCompat.Builder.setOnlyAlertOnce`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder#setOnlyAlertOnce(boolean))
 is called with a value of `true`, a high-importance notification alerts only
 once in the HUN.
 
@@ -573,7 +534,7 @@ The following snippet shows how to build a navigation notification:
 
 ### Kotlin
 
-```
+```kotlin
 NotificationCompat.Builder(context, NOTIFICATION_CHANNEL_ID)
     ...
     .setOnlyAlertOnce(true)
@@ -597,7 +558,7 @@ NotificationCompat.Builder(context, NOTIFICATION_CHANNEL_ID)
 
 ### Java
 
-```
+```java
 new NotificationCompat.Builder(context, NOTIFICATION_CHANNEL_ID)
     ...
     .setOnlyAlertOnce(true)
@@ -626,28 +587,27 @@ You can control the HUN behavior by setting the notification's importance with
 `IMPORTANCE_HIGH` shows a HUN. Setting
 it to any other value only updates the rail widget.
 
-**Note:** When the app displays the routing information on the car screen, such as
-during active navigation to a destination, the TBT HUNs are
-suppressed.
+> [!NOTE]
+> **Note:** When the app displays the routing information on the car screen, such as during active navigation to a destination, the TBT HUNs are suppressed.
 
 ## Refresh PlaceListNavigationTemplate content
 
 You can let drivers refresh content with the tap of a button while browsing
 lists of places built with
-[`PlaceListNavigationTemplate`](/reference/androidx/car/app/navigation/model/PlaceListNavigationTemplate).
+[`PlaceListNavigationTemplate`](https://developer.android.com/reference/androidx/car/app/navigation/model/PlaceListNavigationTemplate).
 To enable list refresh, implement the
-[`OnContentRefreshListener`](/reference/androidx/car/app/model/OnContentRefreshListener)
+[`OnContentRefreshListener`](https://developer.android.com/reference/androidx/car/app/model/OnContentRefreshListener)
 interface's
-[`onContentRefreshRequested`](/reference/androidx/car/app/model/OnContentRefreshListener#onContentRefreshRequested())
+[`onContentRefreshRequested`](https://developer.android.com/reference/androidx/car/app/model/OnContentRefreshListener#onContentRefreshRequested())
 method and use
-[`PlaceListNavigationTemplate.Builder.setOnContentRefreshListener`](/reference/androidx/car/app/navigation/model/PlaceListNavigationTemplate.Builder#setOnContentRefreshListener(androidx.car.app.model.OnContentRefreshListener))
+[`PlaceListNavigationTemplate.Builder.setOnContentRefreshListener`](https://developer.android.com/reference/androidx/car/app/navigation/model/PlaceListNavigationTemplate.Builder#setOnContentRefreshListener(androidx.car.app.model.OnContentRefreshListener))
 to set the listener on the template.
 
 The following snippet shows how to set the listener on the template:
 
 ### Kotlin
 
-```
+```kotlin
 PlaceListNavigationTemplate.Builder()
     ...
     .setOnContentRefreshListener {
@@ -661,7 +621,7 @@ PlaceListNavigationTemplate.Builder()
 
 ### Java
 
-```
+```java
 new PlaceListNavigationTemplate.Builder()
         ...
         .setOnContentRefreshListener(() -> {
@@ -680,22 +640,22 @@ When the user clicks the refresh button, the
 `onContentRefreshRequested` method of your
 `OnContentRefreshListener` implementation is called. Within
 `onContentRefreshRequested`, call the
-[`Screen.invalidate`](/reference/androidx/car/app/Screen#invalidate()) method.
-The host then calls back into your app’s
-[`Screen.onGetTemplate`](/reference/androidx/car/app/Screen#onGetTemplate())
+[`Screen.invalidate`](https://developer.android.com/reference/androidx/car/app/Screen#invalidate()) method.
+The host then calls back into your app's
+[`Screen.onGetTemplate`](https://developer.android.com/reference/androidx/car/app/Screen#onGetTemplate())
 method to retrieve the template with the refreshed content. See
-[Refresh the contents of a template](/training/cars/apps#refresh-template) for
+[Refresh the contents of a template](https://developer.android.com/training/cars/apps#refresh-template) for
 more information about refreshing templates. As long as the next template
 returned by
-[`onGetTemplate`](/reference/androidx/car/app/Screen#onGetTemplate()) is of
+[`onGetTemplate`](https://developer.android.com/reference/androidx/car/app/Screen#onGetTemplate()) is of
 the same type, it counts as a refresh and does not count toward the
 template quota.
 
 ## Provide audio guidance
 
 To play navigation guidance over the car speakers, your app must request
-[audio focus](/guide/topics/media-apps/audio-focus). As a part of your
-[`AudioFocusRequest`](/reference/android/media/AudioFocusRequest), set
+[audio focus](https://developer.android.com/guide/topics/media-apps/audio-focus). As a part of your
+[`AudioFocusRequest`](https://developer.android.com/reference/android/media/AudioFocusRequest), set
 the usage as `AudioAttributes.USAGE_ASSISTANCE_NAVIGATION_GUIDANCE`. Also,
 set the focus gain as `AudioManager.AUDIOFOCUS_GAIN_TRANSIENT_MAY_DUCK`.
 
@@ -703,67 +663,56 @@ set the focus gain as `AudioManager.AUDIOFOCUS_GAIN_TRANSIENT_MAY_DUCK`.
 
 To verify your app's navigation functionality when you submit it to the
 Google Play Store, your app must implement the
-[`NavigationManagerCallback.onAutoDriveEnabled`](/reference/androidx/car/app/navigation/NavigationManagerCallback#onAutoDriveEnabled())
+[`NavigationManagerCallback.onAutoDriveEnabled`](https://developer.android.com/reference/androidx/car/app/navigation/NavigationManagerCallback#onAutoDriveEnabled())
 callback. When this callback is called, your app must simulate navigation to
 the chosen destination when the user begins navigation. Your app can exit this
-mode whenever the lifecycle of the current [`Session`](/reference/androidx/car/app/Session)
+mode whenever the lifecycle of the current [`Session`](https://developer.android.com/reference/androidx/car/app/Session)
 reaches the
-[`Lifecycle.Event.ON_DESTROY`](/reference/androidx/lifecycle/Lifecycle.Event#ON_DESTROY)
+[`Lifecycle.Event.ON_DESTROY`](https://developer.android.com/reference/androidx/lifecycle/Lifecycle.Event#ON_DESTROY)
 state.
 
 You can test that your implementation of `onAutoDriveEnabled` is called by
 executing the following from a command line:
 
-```
-adb shell dumpsys activity service CAR_APP_SERVICE_NAME AUTO_DRIVE
-```
+    adb shell dumpsys activity service CAR_APP_SERVICE_NAME AUTO_DRIVE
 
 This is shown in the following example:
 
-```
-adb shell dumpsys activity service androidx.car.app.samples.navigation.car.NavigationCarAppService AUTO_DRIVE
-```
+    adb shell dumpsys activity service androidx.car.app.samples.navigation.car.NavigationCarAppService AUTO_DRIVE
 
 ## Default navigation car app
 
 In Android Auto, the default navigation car app corresponds to the last
 navigation app that the user launched. The default app
-[receives navigation intents](/training/cars/apps#start-car-app) when the user
+[receives navigation intents](https://developer.android.com/training/cars/apps#start-car-app) when the user
 invokes navigation commands through the Assistant or when another app sends an
 intent to start navigation.
 
 ## Display in-context navigation alerts
 
-[`Alert`](/reference/androidx/car/app/model/Alert) displays important
+[`Alert`](https://developer.android.com/reference/androidx/car/app/model/Alert) displays important
 information to the driver with optional actions‐without leaving the context of
 the navigation screen. To provide the best experience to the driver,
 `Alert` works within the
-[`NavigationTemplate`](/reference/androidx/car/app/navigation/model/NavigationTemplate)
+[`NavigationTemplate`](https://developer.android.com/reference/androidx/car/app/navigation/model/NavigationTemplate)
 to avoid blocking the navigation route and to minimize driver distraction.
 
 `Alert` is only available within the `NavigationTemplate`.
 To notify the user outside of the `NavigationTemplate`,
 consider using a heads-up notification (HUN), as explained in
-[Display notifications](/training/cars/apps#display-notifications).
+[Display notifications](https://developer.android.com/training/cars/apps#display-notifications).
 
 For example, use `Alert` to:
 
-* Inform the driver of an update relevant to the current navigation, such as a
-  change in traffic conditions.
-* Ask the driver for an update related to the current navigation, such as the
-  existence of a speed trap.
-* Propose an upcoming task and ask whether the driver accepts it,
-  such as whether the driver is willing to pick up someone on their way.
+- Inform the driver of an update relevant to the current navigation, such as a change in traffic conditions.
+- Ask the driver for an update related to the current navigation, such as the existence of a speed trap.
+- Propose an upcoming task and ask whether the driver accepts it, such as whether the driver is willing to pick up someone on their way.
 
 In its basic form, an `Alert` consists of a title and the `Alert`
 duration time. The duration time is represented by a progress bar. Optionally,
 you can add a subtitle, an icon, and up to two
-[`Action`](/reference/androidx/car/app/model/Action) objects.
-
-![](https://developer.android.com/training/cars/images/CarAppLib-Alert.png)
-
-
-**Figure 2.** In-context navigation alert.
+[`Action`](https://developer.android.com/reference/androidx/car/app/model/Action) objects.
+![](https://developer.android.com/training/cars/images/CarAppLib-Alert.png) **Figure 2.** In-context navigation alert.
 
 Once an `Alert` is shown, it does not carry over to another template if the
 driver interaction results in leaving the `NavigationTemplate`.
@@ -772,12 +721,12 @@ takes an action, or the app dismisses the `Alert`.
 
 ### Create an alert
 
-Use [`Alert.Builder`](/reference/androidx/car/app/model/Alert.Builder)
-to create an [`Alert`](/reference/androidx/car/app/model/Alert) instance:
+Use [`Alert.Builder`](https://developer.android.com/reference/androidx/car/app/model/Alert.Builder)
+to create an [`Alert`](https://developer.android.com/reference/androidx/car/app/model/Alert) instance:
 
 ### Kotlin
 
-```
+```kotlin
 Alert.Builder(
         /*alertId*/ 1,
         /*title*/ CarText.create("Hello"),
@@ -794,7 +743,7 @@ Alert.Builder(
 
 ### Java
 
-```
+```java
 new Alert.Builder(
         /*alertId*/ 1,
         /*title*/ CarText.create("Hello"),
@@ -811,68 +760,60 @@ new Alert.Builder(
 
 If you want to listen for `Alert`
 cancellation or dismissal, create an implementation of the
-[`AlertCallback`](/reference/androidx/car/app/model/AlertCallback) interface.
+[`AlertCallback`](https://developer.android.com/reference/androidx/car/app/model/AlertCallback) interface.
 The `AlertCallback` call paths are:
 
-* If the `Alert` times out, the host calls the
-  [`AlertCallback.onCancel`](/reference/androidx/car/app/model/AlertCallback#onCancel(int))
+- If the `Alert` times out, the host calls the
+  [`AlertCallback.onCancel`](https://developer.android.com/reference/androidx/car/app/model/AlertCallback#onCancel(int))
   method with the
-  [`AlertCallback.REASON_TIMEOUT`](/reference/androidx/car/app/model/AlertCallback#REASON_TIMEOUT())
+  [`AlertCallback.REASON_TIMEOUT`](https://developer.android.com/reference/androidx/car/app/model/AlertCallback#REASON_TIMEOUT())
   value. It then calls the
-  [`AlertCallback.onDismiss`](/reference/androidx/car/app/model/AlertCallback#onDismiss())
+  [`AlertCallback.onDismiss`](https://developer.android.com/reference/androidx/car/app/model/AlertCallback#onDismiss())
   method.
-* If the driver clicks one of the action buttons, the host calls
-  [`Action.OnClickListener`](/reference/androidx/car/app/model/OnClickListener)
+
+- If the driver clicks one of the action buttons, the host calls
+  [`Action.OnClickListener`](https://developer.android.com/reference/androidx/car/app/model/OnClickListener)
   and then calls `AlertCallback.onDismiss`.
-* If the `Alert` is not supported, the host calls
+
+- If the `Alert` is not supported, the host calls
   `AlertCallback.onCancel` with the
-  [`AlertCallback.REASON_NOT_SUPPORTED`](/reference/androidx/car/app/model/AlertCallback#REASON_NOT_SUPPORTED())
+  [`AlertCallback.REASON_NOT_SUPPORTED`](https://developer.android.com/reference/androidx/car/app/model/AlertCallback#REASON_NOT_SUPPORTED())
   value. The host does not call
   `AlertCallback.onDismiss`, because the `Alert` was not shown.
 
 ### Configure alert duration
 
-Choose an [`Alert`](/reference/androidx/car/app/model/Alert) duration that
-matches your app’s needs. The recommended duration for a navigation
+Choose an [`Alert`](https://developer.android.com/reference/androidx/car/app/model/Alert) duration that
+matches your app's needs. The recommended duration for a navigation
 `Alert` is 10 seconds. Refer to [Navigation alerts](https://developers.google.com/cars/design/create-apps/apps-for-drivers/templates/navigation-template#alerts)
 for more information.
 
 ### Show an alert
 
-To show an [`Alert`](/reference/androidx/car/app/model/Alert), call the
-[`AppManager.showAlert`](/reference/androidx/car/app/AppManager?showAlert(androidx.car.app.model.Alert)#showAlert(androidx.car.app.model.Alert))
-method available through your app’s
-[`CarContext`](/reference/androidx/car/app/CarContext).
+To show an [`Alert`](https://developer.android.com/reference/androidx/car/app/model/Alert), call the
+[`AppManager.showAlert`](https://developer.android.com/reference/androidx/car/app/AppManager?showAlert(androidx.car.app.model.Alert)#showAlert(androidx.car.app.model.Alert))
+method available through your app's
+[`CarContext`](https://developer.android.com/reference/androidx/car/app/CarContext).
 
-```
-// Show an alert
-carContext.getCarService(AppManager.class).showAlert(alert)
-```
+    // Show an alert
+    carContext.getCarService(AppManager.class).showAlert(alert)
 
-* Calling `showAlert` with an `Alert` that has an
-  [`alertId`](/reference/androidx/car/app/model/Alert.Builder#Builder(int,%20androidx.car.app.model.CarText,%20long))
-  that is the same as the ID of the `Alert` currently on display does nothing.
-  The `Alert` doesn’t update. To update an `Alert`, you must recreate
-  it with a new `alertId`.
-* Calling `showAlert` with an `Alert` that has a different
-  `alertId` than the `Alert` currently on display dismisses the
-  `Alert` currently displayed.
+- Calling `showAlert` with an `Alert` that has an [`alertId`](https://developer.android.com/reference/androidx/car/app/model/Alert.Builder#Builder(int,%20androidx.car.app.model.CarText,%20long)) that is the same as the ID of the `Alert` currently on display does nothing. The `Alert` doesn't update. To update an `Alert`, you must recreate it with a new `alertId`.
+- Calling `showAlert` with an `Alert` that has a different `alertId` than the `Alert` currently on display dismisses the `Alert` currently displayed.
 
 ### Dismiss an alert
 
-While an [`Alert`](/reference/androidx/car/app/model/Alert) automatically dismiss
+While an [`Alert`](https://developer.android.com/reference/androidx/car/app/model/Alert) automatically dismiss
 due to timeout or driver interaction, you can also manually dismiss an
 `Alert`, such as if its information becomes outdated. To dismiss an
 `Alert`, call the
-[`dismissAlert`](/reference/androidx/car/app/AppManager#dismissAlert(int))
+[`dismissAlert`](https://developer.android.com/reference/androidx/car/app/AppManager#dismissAlert(int))
 method with the
-[`alertId`](/reference/androidx/car/app/model/Alert.Builder#Builder(int,%20androidx.car.app.model.CarText,%20long))
+[`alertId`](https://developer.android.com/reference/androidx/car/app/model/Alert.Builder#Builder(int,%20androidx.car.app.model.CarText,%20long))
 of the `Alert`.
 
-```
-// Dismiss the same alert
-carContext.getCarService(AppManager.class).dismissAlert(alert.getId())
-```
+    // Dismiss the same alert
+    carContext.getCarService(AppManager.class).dismissAlert(alert.getId())
 
 Calling `dismissAlert` with an `alertId` that doesn't match the currently
 displayed `Alert` does nothing. It doesn't throw an exception.

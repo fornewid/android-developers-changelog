@@ -1,19 +1,8 @@
 ---
-title: Use network service discovery  |  Connectivity  |  Android Developers
+title: https://developer.android.com/develop/connectivity/wifi/use-nsd
 url: https://developer.android.com/develop/connectivity/wifi/use-nsd
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [Develop](https://developer.android.com/develop)
-* [Core areas](https://developer.android.com/develop/core-areas)
-* [Connectivity](https://developer.android.com/develop/connectivity)
-* [Guides](https://developer.android.com/develop/connectivity/overview)
-
-# Use network service discovery Stay organized with collections Save and categorize content based on your preferences.
-
-
-
 
 Network service discovery (NSD) gives your app access to services that other
 devices provide on a local network. Devices that support NSD include printers,
@@ -40,15 +29,15 @@ to connect to the same application running on another device.
 **Note:** This step is optional. If
 you don't care about broadcasting your app's services over the local network,
 you can skip forward to the
-next section, [Discover Services on the Network](#discover).
+next section, [Discover Services on the Network](https://developer.android.com/develop/connectivity/wifi/use-nsd#discover).
 
-To register your service on the local network, first create a `NsdServiceInfo` object. This object provides the information
+To register your service on the local network, first create a `https://developer.android.com/reference/android/net/nsd/NsdServiceInfo` object. This object provides the information
 that other devices on the network use when they're deciding whether to connect to your
 service.
 
 ### Kotlin
 
-```
+```kotlin
 fun registerService(port: Int) {
     // Create the NsdServiceInfo object, and populate it.
     val serviceInfo = NsdServiceInfo().apply {
@@ -64,7 +53,7 @@ fun registerService(port: Int) {
 
 ### Java
 
-```
+```java
 public void registerService(int port) {
     // Create the NsdServiceInfo object, and populate it.
     NsdServiceInfo serviceInfo = new NsdServiceInfo();
@@ -89,12 +78,12 @@ them changes the service name automatically, to something like "NsdChat
 
 The second parameter sets the service type, specifies which protocol and transport
 layer the application uses. The syntax is
-"\_<protocol>.\_<transportlayer>". In the
+"_\<protocol\>._\<transportlayer\>". In the
 code snippet, the service uses HTTP protocol running over TCP. An application
 offering a printer service (for instance, a network printer) would set the
-service type to "\_ipp.\_tcp".
+service type to "_ipp._tcp".
 
-**Note:**  The International Assigned Numbers
+**Note:** The International Assigned Numbers
 Authority (IANA) manages a centralized,
 authoritative list of service types used by service discovery protocols such as NSD and Bonjour.
 You can download the list from [the
@@ -118,7 +107,7 @@ available port simply by setting it to 0.
 
 ### Kotlin
 
-```
+```kotlin
 fun initializeServerSocket() {
     // Initialize a server socket on the next available port.
     serverSocket = ServerSocket(0).also { socket ->
@@ -131,7 +120,7 @@ fun initializeServerSocket() {
 
 ### Java
 
-```
+```java
 public void initializeServerSocket() {
     // Initialize a server socket on the next available port.
     serverSocket = new ServerSocket(0);
@@ -142,13 +131,13 @@ public void initializeServerSocket() {
 }
 ```
 
-Now that you've defined the `NsdServiceInfo` object, you need to implement the `RegistrationListener` interface. This
+Now that you've defined the `https://developer.android.com/reference/android/net/nsd/NsdServiceInfo` object, you need to implement the `https://developer.android.com/reference/android/net/nsd/NsdManager.RegistrationListener` interface. This
 interface contains callbacks used by Android to alert your application of the
 success or failure of service registration and unregistration.
 
 ### Kotlin
 
-```
+```kotlin
 private val registrationListener = object : NsdManager.RegistrationListener {
 
     override fun onServiceRegistered(NsdServiceInfo: NsdServiceInfo) {
@@ -175,7 +164,7 @@ private val registrationListener = object : NsdManager.RegistrationListener {
 
 ### Java
 
-```
+```java
 public void initializeRegistrationListener() {
     registrationListener = new NsdManager.RegistrationListener() {
 
@@ -207,14 +196,14 @@ public void initializeRegistrationListener() {
 ```
 
 Now you have all the pieces to register your service. Call the method
-`registerService()`.
+`https://developer.android.com/reference/android/net/nsd/NsdManager#registerService(android.net.nsd.NsdServiceInfo, int, android.net.nsd.NsdManager.RegistrationListener)`.
 
 Note that this method is asynchronous, so any code that needs to run
-after the service has been registered must go in the `onServiceRegistered()` method.
+after the service has been registered must go in the `https://developer.android.com/reference/android/net/nsd/NsdManager.RegistrationListener#onServiceRegistered(android.net.nsd.NsdServiceInfo)` method.
 
 ### Kotlin
 
-```
+```kotlin
 fun registerService(port: Int) {
     // Create the NsdServiceInfo object, and populate it.
     val serviceInfo = NsdServiceInfo().apply {
@@ -233,7 +222,7 @@ fun registerService(port: Int) {
 
 ### Java
 
-```
+```java
 public void registerService(int port) {
     NsdServiceInfo serviceInfo = new NsdServiceInfo();
     serviceInfo.setServiceName("NsdChat");
@@ -258,14 +247,14 @@ anything the application can't work with.
 
 Service discovery, like service registration, has two steps:
 setting up a discovery listener with the relevant callbacks, and making a single asynchronous
-API call to `discoverServices()`.
+API call to `https://developer.android.com/reference/android/net/nsd/NsdManager#discoverServices(java.lang.String, int, android.net.nsd.NsdManager.DiscoveryListener)`.
 
-First, instantiate an anonymous class that implements `NsdManager.DiscoveryListener`. The following snippet shows a
+First, instantiate an anonymous class that implements `https://developer.android.com/reference/android/net/nsd/NsdManager.DiscoveryListener`. The following snippet shows a
 simple example:
 
 ### Kotlin
 
-```
+```kotlin
 // Instantiate a new DiscoveryListener
 private val discoveryListener = object : NsdManager.DiscoveryListener {
 
@@ -312,7 +301,7 @@ private val discoveryListener = object : NsdManager.DiscoveryListener {
 
 ### Java
 
-```
+```java
 public void initializeDiscoveryListener() {
 
     // Instantiate a new DiscoveryListener
@@ -373,33 +362,29 @@ is started, when it fails, and when services are found and lost (lost means "is
 no longer available"). Notice that this snippet does several checks
 when a service is found.
 
-1. The service name of the found service is compared to the service
-   name of the local service to determine if the device just picked up its own
-   broadcast (which is valid).
-2. The service type is checked, to verify it's a type of service your
-   application can connect to.
-3. The service name is checked to verify connection to the correct
-   application.
+1. The service name of the found service is compared to the service name of the local service to determine if the device just picked up its own broadcast (which is valid).
+2. The service type is checked, to verify it's a type of service your application can connect to.
+3. The service name is checked to verify connection to the correct application.
 
 Checking the service name isn't always necessary, and is only relevant if you
 want to connect to a specific application. For instance, the application might
 only want to connect to instances of itself running on other devices. However, if the
 application wants to connect to a network printer, it's enough to see that the service type
-is "\_ipp.\_tcp".
+is "_ipp._tcp".
 
-After setting up the listener, call `discoverServices()`, passing in the service type
+After setting up the listener, call `https://developer.android.com/reference/android/net/nsd/NsdManager#discoverServices(java.lang.String, int, android.net.nsd.NsdManager.DiscoveryListener)`, passing in the service type
 your application should look for, the discovery protocol to use, and the
 listener you just created.
 
 ### Kotlin
 
-```
+```kotlin
 nsdManager.discoverServices(SERVICE_TYPE, NsdManager.PROTOCOL_DNS_SD, discoveryListener)
 ```
 
 ### Java
 
-```
+```java
 nsdManager.discoverServices(
         SERVICE_TYPE, NsdManager.PROTOCOL_DNS_SD, discoveryListener);
 ```
@@ -408,14 +393,14 @@ nsdManager.discoverServices(
 
 When your application finds a service on the network to connect to, it
 must first determine the connection information for that service, using the
-`resolveService()` method.
-Implement a `NsdManager.ResolveListener` to pass into this
-method, and use it to get a `NsdServiceInfo` containing
+`https://developer.android.com/reference/android/net/nsd/NsdManager#resolveService(android.net.nsd.NsdServiceInfo, android.net.nsd.NsdManager.ResolveListener)` method.
+Implement a `https://developer.android.com/reference/android/net/nsd/NsdManager.ResolveListener` to pass into this
+method, and use it to get a `https://developer.android.com/reference/android/net/nsd/NsdServiceInfo` containing
 the connection information.
 
 ### Kotlin
 
-```
+```kotlin
 private val resolveListener = object : NsdManager.ResolveListener {
 
     override fun onResolveFailed(serviceInfo: NsdServiceInfo, errorCode: Int) {
@@ -439,7 +424,7 @@ private val resolveListener = object : NsdManager.ResolveListener {
 
 ### Java
 
-```
+```java
 public void initializeResolveListener() {
     resolveListener = new NsdManager.ResolveListener() {
 
@@ -482,7 +467,7 @@ to start and stop service broadcast and discovery as appropriate.
 
 ### Kotlin
 
-```
+```kotlin
     // In your application's Activity
 
     override fun onPause() {
@@ -515,7 +500,7 @@ to start and stop service broadcast and discovery as appropriate.
 
 ### Java
 
-```
+```java
     // In your application's Activity
 
     @Override

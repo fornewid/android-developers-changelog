@@ -1,30 +1,15 @@
 ---
-title: Profiling limitations  |  App quality  |  Android Developers
+title: https://developer.android.com/topic/performance/tracing/profiling-manager/will-my-profile-always-be-collected
 url: https://developer.android.com/topic/performance/tracing/profiling-manager/will-my-profile-always-be-collected
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [Design & Plan](https://developer.android.com/design)
-* [App quality](https://developer.android.com/quality)
-* [Technical quality](https://developer.android.com/quality/technical)
-
-# Profiling limitations Stay organized with collections Save and categorize content based on your preferences.
-
-
 
 There are multiple situations where the profile collection might not go as
 expected:
 
-* The profile collection fails due to an internal error. If this happens, the
-  [`ProfilingResult`](/reference/android/os/ProfilingResult) API tells you about the errors.
-* The profile collection fails due to rate limiting. For more information, see
-  [How rate limiting works](#how-rate-limiting-works)
-* The profile collection succeeds, but the app isn't immediately notified.
-  This can happen if the app crashes during long profile collections. If the
-  app closes, the system automatically stops and saves the profile. The app is
-  informed about the collected profile when it restarts and registers a
-  general listener with `ProfilingManager`.
+- The profile collection fails due to an internal error. If this happens, the [`ProfilingResult`](https://developer.android.com/reference/android/os/ProfilingResult) API tells you about the errors.
+- The profile collection fails due to rate limiting. For more information, see [How rate limiting works](https://developer.android.com/topic/performance/tracing/profiling-manager/will-my-profile-always-be-collected#how-rate-limiting-works)
+- The profile collection succeeds, but the app isn't immediately notified. This can happen if the app crashes during long profile collections. If the app closes, the system automatically stops and saves the profile. The app is informed about the collected profile when it restarts and registers a general listener with `ProfilingManager`.
 
 ## How rate limiting works
 
@@ -33,9 +18,8 @@ entire system. The rate limiter prevents apps from using too many system
 resources by recording too many profiles, because a full profiling session uses
 a lot of resources.
 
-**Key Point:** You can tell if your app has been rate-limited by checking the
-`ProfilingResult`. You will see either the `ERROR_FAILED_RATE_LIMIT_PROCESS` or
-`ERROR_FAILED_RATE_LIMIT_SYSTEM` error.
+> [!IMPORTANT]
+> **Key Point:** You can tell if your app has been rate-limited by checking the `ProfilingResult`. You will see either the `ERROR_FAILED_RATE_LIMIT_PROCESS` or `ERROR_FAILED_RATE_LIMIT_SYSTEM` error.
 
 Both the app and system rate limiters assign a cost to each type of profile
 collected, because some profiles are more resource-intensive than others. The
@@ -49,9 +33,9 @@ type.
 
 The rate limiter uses three time periods:
 
-* **Per Hour:** There's a maximum cost allowed per hour.
-* **Per Day:** There's a maximum cost allowed per day.
-* **Per Week:** There's a maximum cost allowed per week.
+- **Per Hour:** There's a maximum cost allowed per hour.
+- **Per Day:** There's a maximum cost allowed per day.
+- **Per Week:** There's a maximum cost allowed per week.
 
 The rate limiter sets a total cost that can be used within each of these
 periods. For example, an app might be allowed to record X profiles per hour, Y
@@ -65,4 +49,5 @@ separately from the individual app quotas, but every profile contributes to it,
 using the same hourly, daily, and weekly periods. If this global limit is
 reached, you will receive the `ERROR_FAILED_RATE_LIMIT_SYSTEM` error.
 
-**Tip:** For local profiling, you can [disable the rate limiter](/topic/performance/tracing/profiling-manager/debug-mode#disable-rate-limiter).
+> [!TIP]
+> **Tip:** For local profiling, you can [disable the rate limiter](https://developer.android.com/topic/performance/tracing/profiling-manager/debug-mode#disable-rate-limiter).

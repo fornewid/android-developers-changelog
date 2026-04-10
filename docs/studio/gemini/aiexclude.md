@@ -1,18 +1,8 @@
 ---
-title: Configure context sharing with .aiexclude files  |  Android Studio  |  Android Developers
+title: https://developer.android.com/studio/gemini/aiexclude
 url: https://developer.android.com/studio/gemini/aiexclude
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [Develop](https://developer.android.com/develop)
-* [Android Studio](https://developer.android.com/studio)
-* [Gemini in Android Studio](https://developer.android.com/gemini-in-android)
-
-# Configure context sharing with .aiexclude files Stay organized with collections Save and categorize content based on your preferences.
-
-
-
 
 When you opt in to sharing your project context with Gemini in Android Studio,
 you can control which files specifically from the codebase are shared using
@@ -23,13 +13,9 @@ and its VCS roots to control which files AI features are allowed to access.
 
 Much like a `.gitignore` file, an `.aiexclude` file tracks files that shouldn't
 be shared with Gemini in Android Studio. This includes the chat experience as
-well as AI features that operate in the editor, like [code completion](/studio/gemini/code-completion). An
+well as AI features that operate in the editor, like [code completion](https://developer.android.com/studio/gemini/code-completion). An
 `.aiexclude` file operates on files at or below the directory that contains it.
-
-![An example `.aiexclude` file in Android Studio.](/static/studio/images/gemini-aiexclude.png)
-
-
-An example of an `.aiexclude` file in Android Studio.
+![An example `.aiexclude` file in Android Studio.](https://developer.android.com/static/studio/images/gemini-aiexclude.png) An example of an \`.aiexclude\` file in Android Studio.
 
 ## How to write `.aiexclude` files
 
@@ -40,52 +26,30 @@ An `.aiexclude` file follows the same syntax as a
 
 Here are example `.aiexclude` file configurations:
 
-* The pattern `KEYS` blocks all files called "KEYS" with no file extension
-  in the directory containing the `.aiexclude` file, or in its subdirectories.
+- The pattern `KEYS` blocks all files called "KEYS" with no file extension in the directory containing the `.aiexclude` file, or in its subdirectories.
 
-```
-KEYS
-```
+    KEYS
 
-* The pattern `KEYS.*` blocks all files called "KEYS" with any file extension
-  in the directory containing the `.aiexclude` file, or in its subdirectories.
+- The pattern `KEYS.*` blocks all files called "KEYS" with any file extension in the directory containing the `.aiexclude` file, or in its subdirectories.
 
-```
-KEYS.*
-```
+    KEYS.*
 
-* The pattern `*.kt` blocks all Kotlin files
-  in the directory containing the `.aiexclude` file, or in its subdirectories.
+- The pattern `*.kt` blocks all Kotlin files in the directory containing the `.aiexclude` file, or in its subdirectories.
 
-```
-*.kt
-```
+    *.kt
 
-* The pattern `/*.kt` blocks all Kotlin files in the `.aiexclude` directory, but
-  not in its subdirectories.
+- The pattern `/*.kt` blocks all Kotlin files in the `.aiexclude` directory, but not in its subdirectories.
 
-```
-/*.kt
-```
+    /*.kt
 
-* The pattern `my/sensitive/dir/` blocks all files in the `my/sensitive/dir`
-  directory and its subdirectories. The path is relative to the directory that
-  contains the `.aiexclude` file.
+- The pattern `my/sensitive/dir/` blocks all files in the `my/sensitive/dir` directory and its subdirectories. The path is relative to the directory that contains the `.aiexclude` file.
 
-```
-my/sensitive/dir/
-```
+    my/sensitive/dir/
 
-* The pattern `my/sensitive/dir/**/.txt` blocks all TXT files
-  in the `my/sensitive/dir/` directory or its subdirectories.
+- The pattern `my/sensitive/dir/**/.txt` blocks all TXT files in the `my/sensitive/dir/` directory or its subdirectories.
 
-```
-my/sensitive/dir/**/.txt
-```
+    my/sensitive/dir/**/.txt
 
-* The pattern `my/sensitive/dir/*.txt` blocks all TXT files in the directory
-  `my/sensitive/dir`, but not in sub-directories.
+- The pattern `my/sensitive/dir/*.txt` blocks all TXT files in the directory `my/sensitive/dir`, but not in sub-directories.
 
-```
-my/sensitive/dir/*.txt
-```
+    my/sensitive/dir/*.txt

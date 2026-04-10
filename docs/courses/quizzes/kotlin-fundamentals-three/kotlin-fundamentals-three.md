@@ -1,74 +1,67 @@
 ---
-title: Kotlin Fundamentals: Layouts quiz  |  Android Developers
+title: https://developer.android.com/courses/quizzes/kotlin-fundamentals-three/kotlin-fundamentals-three
 url: https://developer.android.com/courses/quizzes/kotlin-fundamentals-three/kotlin-fundamentals-three
-source: html-scrape
+source: md.txt
 ---
-
-Stay organized with collections
-
-Save and categorize content based on your preferences.
-
-
 
 # Kotlin Fundamentals: Layouts quiz
 
-Return to pathway
+# Kotlin Fundamentals: Layouts quiz
 
+<br />
 
+Return to pathway  
+1.
 
-1. ## Which of the following is a ViewGroup?
+   ## Which of the following is a ViewGroup?
 
-   EditText
+   EditText  
+   LinearLayout  
+   TextView  
+   Button  
+2.
 
-   LinearLayout
+   ## A ScrollView is a ViewGroup that can contain any number of Views or ViewGroups as its children. True or false?
 
-   TextView
+   True.  
+   False.  
+3.
 
-   Button
-2. ## A ScrollView is a ViewGroup that can contain any number of Views or ViewGroups as its children. True or false?
+   ## For EditText views, it's not a good practice to provide hints because hints clutter the input field. True or false?
 
-   True.
+   True.  
+   False.  
+4.
 
-   False.
-3. ## For EditText views, it's not a good practice to provide hints because hints clutter the input field. True or false?
+   ## Which one of the following statements is true about Buttons?
 
-   True.
+   A Button is a ViewGroup.  
+   You can only have a max of three Buttons per screen.  
+   Buttons are clickable and, on click, the attached click listener performs an action.  
+   Button is an extension of ImageView.  
+5.
 
-   False.
-4. ## Which one of the following statements is true about Buttons?
+   ## In a ConstraintLayout, which of the following constraints are needed to position a view onscreen?
 
-   A Button is a ViewGroup.
+   Two horizontal constraints.  
+   One vertical constraint.  
+   At least one horizontal and one vertical constraint.  
+   There is no need to constrain the view.  
+6.
 
-   You can only have a max of three Buttons per screen.
+   ## The baseline constraint aligns the text baseline of a view to the text baseline of another view. True or false?
 
-   Buttons are clickable and, on click, the attached click listener performs an action.
+   True.  
+   False.  
+7.
 
-   Button is an extension of ImageView.
-5. ## In a ConstraintLayout, which of the following constraints are needed to position a view onscreen?
+   ## Why would you want to use data binding instead of calls to findViewById()?
 
-   Two horizontal constraints.
-
-   One vertical constraint.
-
-   At least one horizontal and one vertical constraint.
-
-   There is no need to constrain the view.
-6. ## The baseline constraint aligns the text baseline of a view to the text baseline of another view. True or false?
-
-   True.
-
-   False.
-7. ## Why would you want to use data binding instead of calls to findViewById()?
-
-   Code is shorter, easier to read, and maintain.
-
-   findViewById() runs on the main UI thread.
-
-   These calls can slow down the user interface.
-
-   Your app is less likely to crash.
+   Code is shorter, easier to read, and maintain.  
+   findViewById() runs on the main UI thread.  
+   These calls can slow down the user interface.  
+   Your app is less likely to crash.  
 
 Submit answers
 
-*error\_outline*
-An error occurred when grading the quiz. Please try again.
+*error_outline*An error occurred when grading the quiz. Please try again.

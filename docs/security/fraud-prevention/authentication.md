@@ -1,18 +1,8 @@
 ---
-title: Secure user authentication  |  Fraud prevention  |  Android Developers
+title: https://developer.android.com/security/fraud-prevention/authentication
 url: https://developer.android.com/security/fraud-prevention/authentication
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [Design & Plan](https://developer.android.com/design)
-* [Security](https://developer.android.com/security)
-* [Fraud prevention](https://developer.android.com/security/fraud-prevention)
-* [Guides](https://developer.android.com/security/fraud-prevention/environment)
-
-# Secure user authentication Stay organized with collections Save and categorize content based on your preferences.
-
-
 
 To protect your authentication system in Android, consider moving away from a
 password-based model, especially for sensitive accounts like your users' bank
@@ -48,18 +38,17 @@ the attacker knowing or not the LSKF, as they will need to probe that they are
 the owner of the device.
 
 For additional levels of security, we recommend app developers request Class 3
-Biometric Authentication and utilize [`CryptoObject`](/reference/android/hardware/biometrics/BiometricPrompt.CryptoObject) for banking and
+Biometric Authentication and utilize [`CryptoObject`](https://developer.android.com/reference/android/hardware/biometrics/BiometricPrompt.CryptoObject) for banking and
 financial transactions.
 
 ### Implementation
 
 1. Make sure you include the androidx.biometric library.
-2. Include the biometric login dialog in the activity or fragment which holds
-   the logic you want the user to be authenticated.
+2. Include the biometric login dialog in the activity or fragment which holds the logic you want the user to be authenticated.
 
 ### Kotlin
 
-```
+```kotlin
 private var executor: Executor? = null
 private var biometricPrompt: BiometricPrompt? = null
 private var promptInfo: BiometricPrompt.PromptInfo? = null
@@ -121,7 +110,7 @@ fun onCreate(savedInstanceState: Bundle?) {
 
 ### Java
 
-```
+```java
 private Executor executor;
 private BiometricPrompt biometricPrompt;
 private BiometricPrompt.PromptInfo promptInfo;
@@ -177,7 +166,7 @@ protected void onCreate(Bundle savedInstanceState) {
 
 ### Best practices
 
-We recommend you start with the [codelab](/codelabs/biometric-login) to know more about biometrics.
+We recommend you start with the [codelab](https://developer.android.com/codelabs/biometric-login) to know more about biometrics.
 
 Depending on your use cases you can implement the dialog with or without
 explicit user action. In order to avoid fraud we recommend you add the biometric
@@ -187,7 +176,7 @@ the information being handled in a bank transaction and that biometric
 authentication is smoother than other authentication methods, we think it is
 necessary to add this level of navigation.
 
-[Learn more about biometric authentication](/training/sign-in/biometric-auth).
+[Learn more about biometric authentication](https://developer.android.com/training/sign-in/biometric-auth).
 
 ## Passkeys
 
@@ -204,7 +193,7 @@ passwords. Since passkeys are standardized, a single implementation enables a
 passwordless experience across all of the users' devices, browsers, and
 operating systems.
 
-On Android, passkeys are supported using the [Credential Manager](/jetpack/androidx/releases/credentials) Jetpack
+On Android, passkeys are supported using the [Credential Manager](https://developer.android.com/jetpack/androidx/releases/credentials) Jetpack
 library that unifies the major authentication methods, including passkeys,
 passwords, and federated sign in (such as Sign in with Google).
 
@@ -231,7 +220,7 @@ expire at regular intervals (such as, every 15 minutes), and users should be
 required to verify their identity through screen lock reauthentication.
 
 If your phone is stolen, passkeys protect you because thieves can't steal your
-passwords to use on other devices – passkeys are device-specific. If you use
+passwords to use on other devices -- passkeys are device-specific. If you use
 Google Password Manager and your phone gets stolen, you can log into your Google
 Account from another device (like a computer) and remotely log out from the
 stolen phone. This makes the Google Password Manager on the stolen phone
@@ -254,9 +243,9 @@ Passwords and Sign in with Google are supported starting with Android 4.4. To
 get started with passkeys, follow these steps:
 
 1. Follow the [Credential Manager codelab](https://codelabs.developers.google.com/credential-manager-api-for-android#0) to get an initial understanding of how to implement passkeys.
-2. Review the [passkeys user experience design guidelines](/design/ui/mobile/guides/patterns/passkeys). This document shows you what flows are recommended for your use case.
-3. Study the Credential Manager by following the [guide](/training/sign-in/passkeys).
-4. Plan your Credential Manager and passkeys implementation for your app. Plan adding support for [Digital Asset Links](/training/sign-in/passkeys#add-support-dal).
+2. Review the [passkeys user experience design guidelines](https://developer.android.com/design/ui/mobile/guides/patterns/passkeys). This document shows you what flows are recommended for your use case.
+3. Study the Credential Manager by following the [guide](https://developer.android.com/training/sign-in/passkeys).
+4. Plan your Credential Manager and passkeys implementation for your app. Plan adding support for [Digital Asset Links](https://developer.android.com/training/sign-in/passkeys#add-support-dal).
 
 See our developer documentation for more details on how to create, register, and
 authenticate with passkeys.
@@ -273,11 +262,10 @@ reset links.
 Here are common best practices that you can incorporate into your app's reset
 flow:
 
-* Facial recognition, in addition to OTP
-* Security questions
-* Knowledge factor (such as a mother's maiden name, city of birth, or favorite
-  song)
-* ID verification
+- Facial recognition, in addition to OTP
+- Security questions
+- Knowledge factor (such as a mother's maiden name, city of birth, or favorite song)
+- ID verification
 
 ## SMS Retriever API
 
@@ -300,7 +288,7 @@ user interaction, and can provide a level of protection against fraud.
 
 There are two parts to implementing the SMS Retriever API: Android, and Server.
 
-**Android**: ([guide](https://developers.google.com/identity/sms-retriever/request))
+**Android** : ([guide](https://developers.google.com/identity/sms-retriever/request))
 
 1. Obtain the user's phone number.
 2. Start the SMS retriever client.
@@ -308,7 +296,7 @@ There are two parts to implementing the SMS Retriever API: Android, and Server.
 4. Receive verification messages.
 5. Send the OTP to your server.
 
-**Server**: ([guide](https://developers.google.com/identity/sms-retriever/verify))
+**Server** : ([guide](https://developers.google.com/identity/sms-retriever/verify))
 
 1. Construct a verification message.
 2. Send the verification message by SMS.
@@ -328,14 +316,14 @@ cloning attacks. It is recommended using Biometrics whenever possible. On
 devices where Biometric sensors are not available, user authentication should
 rely on at least one factor that is not easily obtained from the current device.
 
-**Note:** This API does not protect against all threat vectors, such as SIM
-cloning.
+> [!NOTE]
+> **Note:** This API does not protect against all threat vectors, such as SIM cloning.
 
 ## Learn more
 
 For further reading on best practices check out the following resources:
 
-* [Our Android documentation on Security](/security)
-* [Play Integrity API documentation](http://g.co/play/integrityapi)
-* [Android 15 Changes](http://goo.gle/android-15-changes)
-* [Best Practices for Scam Call Prevention from Monzo Bank](https://android-developers.googleblog.com/2024/03/battling-impersonation-scams-monzo-innovative-approach.html)
+- [Our Android documentation on Security](https://developer.android.com/security)
+- [Play Integrity API documentation](http://g.co/play/integrityapi)
+- [Android 15 Changes](http://goo.gle/android-15-changes)
+- [Best Practices for Scam Call Prevention from Monzo Bank](https://android-developers.googleblog.com/2024/03/battling-impersonation-scams-monzo-innovative-approach.html)

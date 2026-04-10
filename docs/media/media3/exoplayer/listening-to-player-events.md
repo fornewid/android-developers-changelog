@@ -1,49 +1,39 @@
 ---
-title: Player events  |  Android media  |  Android Developers
+title: https://developer.android.com/media/media3/exoplayer/listening-to-player-events
 url: https://developer.android.com/media/media3/exoplayer/listening-to-player-events
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [Essentials](https://developer.android.com/get-started)
-* [Camera & media dev center](https://developer.android.com/media)
-* [Guides](https://developer.android.com/media/guides)
-
-# Player events Stay organized with collections Save and categorize content based on your preferences.
-
-
 
 ## Listening to playback events
 
 Events, such as changes in state and playback errors, are reported to registered
-[`Player.Listener`](/reference/androidx/media3/common/Player.Listener) instances. To register a listener to receive such events:
+[`Player.Listener`](https://developer.android.com/reference/androidx/media3/common/Player.Listener) instances. To register a listener to receive such events:
+
 
 ### Kotlin
 
-```
+```kotlin
 // Add a listener to receive events from the player.
 player.addListener(listener)
-
-ListeningToPlayerEvents.kt
 ```
 
 ### Java
 
-```
+```java
 // Add a listener to receive events from the player.
 player.addListener(listener);
-
-ListeningToPlayerEvents.java
 ```
 
+<br />
+
 `Player.Listener` has empty default methods, so you only need to implement the
-methods you're interested in. See the [Javadoc](/reference/androidx/media3/common/Player.Listener) for a full description of the
+methods you're interested in. See the [Javadoc](https://developer.android.com/reference/androidx/media3/common/Player.Listener) for a full description of the
 methods and when they're called. Some of the most important methods are
 described in more detail below.
 
 Listeners have the choice between implementing individual event callbacks or a
 generic `onEvents` callback that's called after one or more events occur
-together. See [`Individual callbacks vs onEvents`](#individual-callbacks) for an explanation of which
+together. See [`Individual callbacks vs onEvents`](https://developer.android.com/media/media3/exoplayer/listening-to-player-events#individual-callbacks) for an explanation of which
 should be preferred for different use cases.
 
 ### Playback state changes
@@ -52,15 +42,10 @@ Changes in player state can be received by implementing
 `onPlaybackStateChanged(@State int state)` in a registered `Player.Listener`.
 The player can be in one of four playback states:
 
-* `Player.STATE_IDLE`: This is the initial state, the state when the player is
-  stopped, and when playback failed. The player will hold only limited
-  resources in this state.
-* `Player.STATE_BUFFERING`: The player is not able to immediately play from
-  its current position. This mostly happens because more data needs to be
-  loaded.
-* `Player.STATE_READY`: The player is able to immediately play from its
-  current position.
-* `Player.STATE_ENDED`: The player finished playing all media.
+- `Player.STATE_IDLE`: This is the initial state, the state when the player is stopped, and when playback failed. The player will hold only limited resources in this state.
+- `Player.STATE_BUFFERING`: The player is not able to immediately play from its current position. This mostly happens because more data needs to be loaded.
+- `Player.STATE_READY`: The player is able to immediately play from its current position.
+- `Player.STATE_ENDED`: The player finished playing all media.
 
 In addition to these states, the player has a `playWhenReady` flag to indicate
 the user intention to play. Changes in this flag can be received by implementing
@@ -69,18 +54,18 @@ the user intention to play. Changes in this flag can be received by implementing
 A player is playing (that is, its position is advancing and media is being
 presented to the user) when all three of the following conditions are met:
 
-* The player is in the `Player.STATE_READY` state
-* `playWhenReady` is `true`
-* Playback is not suppressed for a reason returned by
-  `Player.getPlaybackSuppressionReason`
+- The player is in the `Player.STATE_READY` state
+- `playWhenReady` is `true`
+- Playback is not suppressed for a reason returned by `Player.getPlaybackSuppressionReason`
 
 Rather than having to check these properties individually, `Player.isPlaying`
 can be called. Changes to this state can be received by implementing
 `onIsPlayingChanged(boolean isPlaying)`:
 
+
 ### Kotlin
 
-```
+```kotlin
 player.addListener(
   object : Player.Listener {
     override fun onIsPlayingChanged(isPlaying: Boolean) {
@@ -95,13 +80,11 @@ player.addListener(
     }
   }
 )
-
-ListeningToPlayerEvents.kt
 ```
 
 ### Java
 
-```
+```java
 player.addListener(
     new Player.Listener() {
       @Override
@@ -116,9 +99,9 @@ player.addListener(
         }
       }
     });
-
-ListeningToPlayerEvents.java
 ```
+
+<br />
 
 ### Playback errors
 
@@ -128,17 +111,18 @@ a failure occurs, this method will be called immediately before the playback
 state transitions to `Player.STATE_IDLE`. Failed or stopped playbacks can be
 retried by calling `ExoPlayer.prepare`.
 
-Note that some [`Player`](/reference/androidx/media3/common/Player) implementations pass instances of subclasses of
+Note that some [`Player`](https://developer.android.com/reference/androidx/media3/common/Player) implementations pass instances of subclasses of
 `PlaybackException` to provide additional information about the failure. For
-example, [`ExoPlayer`](/reference/androidx/media3/exoplayer/ExoPlayer) passes [`ExoPlaybackException`](/reference/androidx/media3/exoplayer/ExoPlaybackException), which has `type`,
+example, [`ExoPlayer`](https://developer.android.com/reference/androidx/media3/exoplayer/ExoPlayer) passes [`ExoPlaybackException`](https://developer.android.com/reference/androidx/media3/exoplayer/ExoPlaybackException), which has `type`,
 `rendererIndex`, and other ExoPlayer-specific fields.
 
 The following example shows how to detect when a playback has failed due to an
 HTTP networking issue:
 
+
 ### Kotlin
 
-```
+```kotlin
 player.addListener(
   object : Player.Listener {
     override fun onPlayerError(error: PlaybackException) {
@@ -159,13 +143,11 @@ player.addListener(
     }
   }
 )
-
-ListeningToPlayerEvents.kt
 ```
 
 ### Java
 
-```
+```java
 player.addListener(
     new Player.Listener() {
       @Override
@@ -186,9 +168,9 @@ player.addListener(
         }
       }
     });
-
-ListeningToPlayerEvents.java
 ```
+
+<br />
 
 ### Playlist transitions
 
@@ -213,11 +195,8 @@ the current title, you can listen to `onMediaMetadataChanged`.
 Calling `Player.seekTo` methods results in a series of callbacks to registered
 `Player.Listener` instances:
 
-1. `onPositionDiscontinuity` with `reason=DISCONTINUITY_REASON_SEEK`. This is
-   the direct result of calling `Player.seekTo`. The callback has
-   `PositionInfo` fields for the position before and after the seek.
-2. `onPlaybackStateChanged` with any immediate state change related to the
-   seek. Note that there might not be such a change.
+1. `onPositionDiscontinuity` with `reason=DISCONTINUITY_REASON_SEEK`. This is the direct result of calling `Player.seekTo`. The callback has `PositionInfo` fields for the position before and after the seek.
+2. `onPlaybackStateChanged` with any immediate state change related to the seek. Note that there might not be such a change.
 
 ### Individual callbacks versus `onEvents`
 
@@ -228,9 +207,10 @@ player, Events events)` callback. The generic callback provides access to the
 callback is always called after the callbacks that correspond to the individual
 events.
 
+
 ### Kotlin
 
-```
+```kotlin
 override fun onEvents(player: Player, events: Player.Events) {
   if (
     events.contains(Player.EVENT_PLAYBACK_STATE_CHANGED) ||
@@ -239,13 +219,11 @@ override fun onEvents(player: Player, events: Player.Events) {
     uiModule.updateUi(player)
   }
 }
-
-ListeningToPlayerEvents.kt
 ```
 
 ### Java
 
-```
+```java
 @Override
 public void onEvents(Player player, Events events) {
   if (events.contains(Player.EVENT_PLAYBACK_STATE_CHANGED)
@@ -253,38 +231,24 @@ public void onEvents(Player player, Events events) {
     uiModule.updateUi(player);
   }
 }
-
-ListeningToPlayerEvents.java
 ```
+
+<br />
 
 Individual events should be preferred in the following cases:
 
-* The listener is interested in the reasons for changes. For example, the
-  reasons provided for `onPlayWhenReadyChanged` or `onMediaItemTransition`.
-* The listener only acts on the new values provided through callback
-  parameters or triggers something else that doesn't depend on the callback
-  parameters.
-* The listener implementation prefers a clear readable indication of what
-  triggered the event in the method name.
-* The listener reports to an analytics system that needs to know about all
-  individual events and state changes.
+- The listener is interested in the reasons for changes. For example, the reasons provided for `onPlayWhenReadyChanged` or `onMediaItemTransition`.
+- The listener only acts on the new values provided through callback parameters or triggers something else that doesn't depend on the callback parameters.
+- The listener implementation prefers a clear readable indication of what triggered the event in the method name.
+- The listener reports to an analytics system that needs to know about all individual events and state changes.
 
 The generic `onEvents(Player player, Events events)` should be preferred in the
 following cases:
 
-* The listener wants to trigger the same logic for multiple events. For
-  example, updating a UI for both `onPlaybackStateChanged` and
-  `onPlayWhenReadyChanged`.
-* The listener needs access the `Player` object to trigger further events, for
-  example seeking after a media item transition.
-* The listener intends to use multiple state values that are reported through
-  separate callbacks together, or in combination with `Player` getter methods.
-  For example, using `Player.getCurrentWindowIndex()` with the `Timeline`
-  provided in `onTimelineChanged` is only safe from within the `onEvents`
-  callback.
-* The listener is interested in whether events logically occurred together.
-  For example, `onPlaybackStateChanged` to `STATE_BUFFERING` because of a
-  media item transition.
+- The listener wants to trigger the same logic for multiple events. For example, updating a UI for both `onPlaybackStateChanged` and `onPlayWhenReadyChanged`.
+- The listener needs access the `Player` object to trigger further events, for example seeking after a media item transition.
+- The listener intends to use multiple state values that are reported through separate callbacks together, or in combination with `Player` getter methods. For example, using `Player.getCurrentWindowIndex()` with the `Timeline` provided in `onTimelineChanged` is only safe from within the `onEvents` callback.
+- The listener is interested in whether events logically occurred together. For example, `onPlaybackStateChanged` to `STATE_BUFFERING` because of a media item transition.
 
 In some cases, listeners may need to combine the individual callbacks with the
 generic `onEvents` callback, for example to record media item change reasons
@@ -296,7 +260,7 @@ together in `onEvents`.
 When using `ExoPlayer`, an `AnalyticsListener` can be registered with the player
 by calling `addAnalyticsListener`. `AnalyticsListener` implementations are able
 to listen to detailed events that may be useful for analytics and logging
-purposes. Please refer to the [analytics page](/guide/topics/media/exoplayer/analytics) for more details.
+purposes. Please refer to the [analytics page](https://developer.android.com/guide/topics/media/exoplayer/analytics) for more details.
 
 ### Using `EventLogger`
 
@@ -304,23 +268,22 @@ purposes. Please refer to the [analytics page](/guide/topics/media/exoplayer/ana
 logging purposes. Add `EventLogger` to an `ExoPlayer` to enable useful
 additional logging with a single line:
 
+
 ### Kotlin
 
-```
+```kotlin
 player.addAnalyticsListener(EventLogger())
-
-ListeningToPlayerEvents.kt
 ```
 
 ### Java
 
-```
+```java
 player.addAnalyticsListener(new EventLogger());
-
-ListeningToPlayerEvents.java
 ```
 
-See the [debug logging page](/guide/topics/media/exoplayer/debug-logging) for more details.
+<br />
+
+See the [debug logging page](https://developer.android.com/guide/topics/media/exoplayer/debug-logging) for more details.
 
 ## Firing events at specified playback positions
 
@@ -335,9 +298,10 @@ position is encountered (this may happen multiple times due to seeking and
 repeat modes), or just the first time. Once the `PlayerMessage` is configured,
 it can be scheduled using `PlayerMessage.send`.
 
+
 ### Kotlin
 
-```
+```kotlin
 player
   .createMessage { messageType: Int, payload: Any? -> }
   .setLooper(Looper.getMainLooper())
@@ -345,13 +309,11 @@ player
   .setPayload(customPayloadData)
   .setDeleteAfterDelivery(false)
   .send()
-
-ListeningToPlayerEvents.kt
 ```
 
 ### Java
 
-```
+```java
 player
     .createMessage(
         (messageType, payload) -> {
@@ -362,6 +324,6 @@ player
     .setPayload(customPayloadData)
     .setDeleteAfterDelivery(false)
     .send();
-
-ListeningToPlayerEvents.java
 ```
+
+<br />

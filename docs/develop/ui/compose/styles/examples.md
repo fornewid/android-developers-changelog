@@ -1,26 +1,14 @@
 ---
-title: Examples with Styles  |  Jetpack Compose  |  Android Developers
+title: https://developer.android.com/develop/ui/compose/styles/examples
 url: https://developer.android.com/develop/ui/compose/styles/examples
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [Develop](https://developer.android.com/develop)
-* [Core areas](https://developer.android.com/develop/core-areas)
-* [UI](https://developer.android.com/develop/ui)
-* [Docs](https://developer.android.com/develop/ui/compose/documentation)
-
-# Examples with Styles Stay organized with collections Save and categorize content based on your preferences.
-
-
 
 The following documentation contains examples of using Styles to create certain
 kinds of components.
 
-**Note:** These examples don't pull values from themes, as they are merely
-illustrative of what Styles can do. When using them within your projects,
-extract out the common themeable colors, shapes, and typography styles into your
-theme class.
+> [!NOTE]
+> **Note:** These examples don't pull values from themes, as they are merely illustrative of what Styles can do. When using them within your projects, extract out the common themeable colors, shapes, and typography styles into your theme class.
 
 ## Buttons
 
@@ -31,7 +19,8 @@ different from standard Material components.
 
 Consider the following button defined as a base for different types of buttons:
 
-```
+
+```kotlin
 @Composable
 fun BaseButton(
     onClick: () -> Unit,
@@ -62,23 +51,18 @@ fun BaseButton(
         verticalAlignment = Alignment.CenterVertically
     )
 }
-
-Button.kt
 ```
+
+<br />
 
 ### Hover background translation button
 
 To define a button with a background that moves on hover, use the following
 code:
-
-[
-
-](/static/develop/ui/compose/styles/images/hover_button_lg.mp4)
-
-
 **Figure 1.** Button with background that translates on hover.
 
-```
+
+```kotlin
 @Preview
 @Composable
 fun HoverButtonExample() {
@@ -132,23 +116,18 @@ fun HoverButtonExample() {
         }
     }
 }
-
-Examples.kt
 ```
+
+<br />
 
 ### Rounded depth button with shadow animation
 
 To create a button with a depth press effect that translates the shadow up and
 down on `pressed`, the following is how it can be achieved:
-
-[
-
-](/static/develop/ui/compose/styles/images/shadow_animation_button.mp4)
-
-
 **Figure 2.** Button with depth effect, translating the shadow layer on press.
 
-```
+
+```kotlin
 @Preview
 @Composable
 fun ShadowAnimationButton() {
@@ -198,23 +177,18 @@ fun ShadowAnimationButton() {
         }
     }
 }
-
-Examples.kt
 ```
+
+<br />
 
 ### Multiple layered styles with pressed animation
 
 The following code creates a button that has a depth pressed effect with Styles,
 that has multiple layers of styles, that all use the same `StyleState`:
-
-[
-
-](/static/develop/ui/compose/styles/images/button_depth_blue.mp4)
-
-
 **Figure 3.** Button with depth pressed effect and multiple style layers.
 
-```
+
+```kotlin
 @Preview
 @Composable
 fun MultipleStylesButton() {
@@ -270,26 +244,22 @@ fun MultipleStylesButton() {
         }
     }
 }
-
-Examples.kt
 ```
+
+<br />
 
 ### Gradient glow effect button
 
 To achieve a gradient glow effect that infinitely animates, you can use Styles
 in combination with `rememberInfiniteTransition`, as follows:
 
-**Note:** Infinite animations are not supported by the Styles API. This example uses
-a combination of `rememberInfiniteTransition` and Styles.
-
-[
-
-](/static/develop/ui/compose/styles/images/glowing_button.mp4)
-
+> [!NOTE]
+> **Note:** Infinite animations are not supported by the Styles API. This example uses a combination of `rememberInfiniteTransition` and Styles.
 
 **Figure 4.** Gradient glow effect button.
 
-```
+
+```kotlin
 @Preview
 @Composable
 fun GradientGlowButtonExample() {
@@ -363,6 +333,6 @@ fun GradientGlowButtonExample() {
         }
     }
 }
-
-Examples.kt
 ```
+
+<br />

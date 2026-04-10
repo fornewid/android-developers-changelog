@@ -1,14 +1,10 @@
 ---
-title: <OnSwipe>  |  Android Developers
+title: https://developer.android.com/training/constraint-layout/motionlayout/ref/onswipe
 url: https://developer.android.com/training/constraint-layout/motionlayout/ref/onswipe
-source: html-scrape
+source: md.txt
 ---
 
-* [Android Developers](https://developer.android.com/)
-
-# <OnSwipe> Stay organized with collections Save and categorize content based on your preferences.
-
-
+[Video](https://www.youtube.com/watch?v=XtnAZXM26wQ)
 
 Specifies the action to perform when the user swipes on the layout. The speed of
 the motion sequence and the motion of the targeted view are affected by the
@@ -21,7 +17,7 @@ perform when the user performs that swipe.
 
 ## Syntax
 
-```
+```xml
 <OnSwipe
   motion:touchAnchorId="@id/target_view"
   motion:touchAnchorSide="side"
@@ -48,6 +44,7 @@ perform when the user performs that swipe.
     are `"dragLeft"`, `"dragRight"`, `"dragUp"`, and `"dragDown"`.
 
 `motion:dragScale`
+
 :   Controls the distance the view moves relative to the length of the swipe. The
     default value is 1, indicating that the view moves as far as the swipe does.
     If `dragScale` is less than 1, the view moves less than the swipe distance.
@@ -59,11 +56,13 @@ perform when the user performs that swipe.
     cm, the target view moves 6 cm.
 
 `motion:maxVelocity`
+
 :   Maximum velocity of the target view.
 
 `motion:maxAcceleration`
+
 :   Maximum acceleration of the target view.
 
 ## Contained in
 
-* [`<Transition>`](/training/constraint-layout/motionlayout/ref/transition)
+- [`<Transition>`](https://developer.android.com/training/constraint-layout/motionlayout/ref/transition)

@@ -1,32 +1,23 @@
 ---
-title: ExoPlayer to Media3 Mappings  |  Android media  |  Android Developers
+title: https://developer.android.com/media/media3/exoplayer/mappings
 url: https://developer.android.com/media/media3/exoplayer/mappings
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [Essentials](https://developer.android.com/get-started)
-* [Camera & media dev center](https://developer.android.com/media)
-* [Guides](https://developer.android.com/media/guides)
-
-# ExoPlayer to Media3 Mappings Stay organized with collections Save and categorize content based on your preferences.
-
-
 
 The following tables outline how the various class, package,
 module, and Gradle dependency names differ between `exoplayer2`
 and the new `media3` implementation.
 
-**Note:** This page covers ExoPlayer version **`2.19.1`** and Media3
-version **`1.1.1`**.
+> [!NOTE]
+> **Note:** This page covers ExoPlayer version **`2.19.1`** and Media3 version **`1.1.1`**.
 
 When migrating to Media3, consider reading our AndroidX Media3
-[migration guide](/guide/topics/media/media3/getting-started/migration-guide).
+[migration guide](https://developer.android.com/guide/topics/media/media3/getting-started/migration-guide).
 
 ## Package mappings
 
 | **exoplayer2 package name** | **media3 package name** |
-| --- | --- |
+|---|---|
 | com.google.android.exoplayer2 | androidx.media3.exoplayer |
 | com.google.android.exoplayer2.analytics | androidx.media3.exoplayer.analytics |
 | com.google.android.exoplayer2.audio | androidx.media3.exoplayer.audio |
@@ -78,7 +69,7 @@ When migrating to Media3, consider reading our AndroidX Media3
 ## Class renamings
 
 | **exoplayer2 class name** | **media3 package name** | **media3 class names** |
-| --- | --- | --- |
+|---|---|---|
 | com.google.android.exoplayer2.ExoPlayerLibraryInfo | androidx.media3.common | MediaLibraryInfo |
 | com.google.android.exoplayer2.SimpleExoPlayer | androidx.media3.exoplayer | ExoPlayer |
 | com.google.android.exoplayer2.ui.StyledPlayerView | androidx.media3.ui | PlayerView |
@@ -87,7 +78,7 @@ When migrating to Media3, consider reading our AndroidX Media3
 ## Class moved to other packages
 
 | **exoplayer2 package name** | **media3 package name** | **media3 class names** |
-| --- | --- | --- |
+|---|---|---|
 | com.google.android.exoplayer2 | androidx.media3.exoplayer | FormatHolder, PlayerMessage |
 | com.google.android.exoplayer2 | androidx.media3.common | BasePlayer, BundleListRetriever, Bundleable, ControlDispatcher, C, DefaultControlDispatcher, DeviceInfo, ErrorMessageProvider, ExoPlayerLibraryInfo, Format, ForwardingPlayer, HeartRating, IllegalSeekPositionException, MediaItem, MediaMetadata, ParserException, PercentageRating, PlaybackException, PlaybackParameters, Player, PositionInfo, Rating, StarRating, ThumbRating, Timeline, TracksInfo |
 | com.google.android.exoplayer2.audio | androidx.media3.extractor | AacUtil, Ac3Util, Ac4Util, DtsUtil, MpegAudioUtil, OpusUtil, WavUtil |
@@ -118,7 +109,7 @@ When migrating to Media3, consider reading our AndroidX Media3
 ## Dependency mappings
 
 | **exoplayer2 module name** | **media3 module name** |
-| --- | --- |
+|---|---|
 | exoplayer | media3-exoplayer |
 | exoplayer-database | media3-database |
 | exoplayer-datasource | media3-datasource |

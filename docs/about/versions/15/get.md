@@ -1,29 +1,20 @@
 ---
-title: Get Android 15  |  Android Developers
+title: https://developer.android.com/about/versions/15/get
 url: https://developer.android.com/about/versions/15/get
-source: html-scrape
+source: md.txt
 ---
 
-* [Android Developers](https://developer.android.com/)
-* [Essentials](https://developer.android.com/get-started)
-* [Releases](https://developer.android.com/about/versions)
-
-# Get Android 15 Stay organized with collections Save and categorize content based on your preferences.
-
-
-
-
-![](/static/images/lockups/android-stacked.svg)
+![](https://developer.android.com/static/images/lockups/android-stacked.svg)
 
 You can get Android 15 in any of the following ways:
 
-* [Get Android 15 on a Google Pixel device](#on_pixel)
-* [Set up the Android Emulator](#on_emulator)
-* [Get a generic system image (GSI)](#on_gsi)
+- [Get Android 15 on a Google Pixel device](https://developer.android.com/about/versions/15/get#on_pixel)
+- [Set up the Android Emulator](https://developer.android.com/about/versions/15/get#on_emulator)
+- [Get a generic system image (GSI)](https://developer.android.com/about/versions/15/get#on_gsi)
 
 ## Get Android 15 on a Google Pixel device
 
-If you have a [supported Pixel device](#google-pixel-devices), you can [check and update your
+If you have a [supported Pixel device](https://developer.android.com/about/versions/15/get#google-pixel-devices), you can [check and update your
 Android version](https://support.google.com/pixelphone/answer/7680439) to receive Android 15 over the air.
 
 In most cases, you don't need to do a full reset of your data to move to Android
@@ -34,14 +25,14 @@ your device.
 
 Android 15 OTAs and downloads are available for the following Pixel devices:
 
-* Pixel 6 and 6 Pro
-* Pixel 7 and 7 Pro
-* Pixel 7a
-* Pixel Fold
-* Pixel Tablet
-* Pixel 8 and 8 Pro
-* Pixel 8a
-* Pixel 9, 9 Pro, 9 Pro XL, and 9 Pro Fold
+- Pixel 6 and 6 Pro
+- Pixel 7 and 7 Pro
+- Pixel 7a
+- Pixel Fold
+- Pixel Tablet
+- Pixel 8 and 8 Pro
+- Pixel 8a
+- Pixel 9, 9 Pro, 9 Pro XL, and 9 Pro Fold
 
 ### Flash or manually install a system image
 
@@ -64,62 +55,64 @@ and device characteristics.
 Depending on the type of testing you need to do, consider setting up a variety
 of virtual devices from these device categories:
 
-* [Phone](#phone-avd)
-* [Tablet or large-screen device](#large-screen-avd)
+- [Phone](https://developer.android.com/about/versions/15/get#phone-avd)
+- [Tablet or large-screen device](https://developer.android.com/about/versions/15/get#large-screen-avd)
 
 ### Set up a virtual device (phone)
 
 To set up a virtual device to emulate a typical phone, follow these steps:
 
-1. Install [Android Studio Koala Feature Drop | 2024.1.2 or higher](/studio).
-2. In Android Studio, click **Tools > SDK Manager**.
-3. In the **SDK Tools** tab, select the latest version of **Android Emulator**,
-   and click **OK**. This action installs the latest version if it isn't
-   already installed.
-4. In Android Studio, click **Tools > Device Manager**, then click **Add a new
-   device ![](/static/studio/images/buttons/ic_plus_dark.png) > Create
+1. Install [Android Studio Koala Feature Drop \| 2024.1.2 or higher](https://developer.android.com/studio).
+2. In Android Studio, click **Tools \> SDK Manager**.
+3. In the **SDK Tools** tab, select the latest version of **Android Emulator** , and click **OK**. This action installs the latest version if it isn't already installed.
+4. In Android Studio, click **Tools \> Device Manager** , then click **Add a new
+   device ![](https://developer.android.com/static/studio/images/buttons/ic_plus_dark.png) \> Create
    Virtual Device** in the **Device Manager** panel.
 
    ![Create an Android Virtual Device in Android
-   Studio](/static/about/versions/15/images/15-create-avd.png)
-5. Select a device definition for a [supported Pixel device](#on_pixel) in the
+   Studio](https://developer.android.com/static/about/versions/15/images/15-create-avd.png)
+5. Select a device definition for a [supported Pixel device](https://developer.android.com/about/versions/15/get#on_pixel) in the
    **Phone** Category tab, then click **Next**.
-6. Find the Android 15 system image, called **VanillaIceCream**, and click
-   **Download** ![](/static/about/versions/15/images/15-studio-download.png)
+
+6. Find the Android 15 system image, called **VanillaIceCream** , and click
+   **Download** ![](https://developer.android.com/static/about/versions/15/images/15-studio-download.png)
    next to the **Release Name** to get it. After the download completes, select
    this system image and click **Next**.
+
 7. Finalize other settings for your virtual device, then click **Finish**.
+
 8. After returning to the list of virtual devices in the Device Manager, find
    your Android 15 virtual device and click **Start**
-   ![](/static/about/versions/15/images/15-launch-avd-icon.png).
+   ![](https://developer.android.com/static/about/versions/15/images/15-launch-avd-icon.png).
 
 ### Set up a virtual device (tablet or large-screen)
 
 To set up a virtual device to emulate a tablet or other large-screen device,
 follow these steps:
 
-1. Install [Android Studio Koala Feature Drop | 2024.1.2 or higher](/studio).
-2. In Android Studio, click **Tools > SDK Manager**.
-3. In the **SDK Tools** tab, select the latest version of **Android Emulator**,
-   and click **OK**. This action installs the latest version if it isn't
-   already installed.
-4. In Android Studio, click **Tools > Device Manager**, then click **Add a new
-   device ![](/static/studio/images/buttons/ic_plus_dark.png) > Create
+1. Install [Android Studio Koala Feature Drop \| 2024.1.2 or higher](https://developer.android.com/studio).
+2. In Android Studio, click **Tools \> SDK Manager**.
+3. In the **SDK Tools** tab, select the latest version of **Android Emulator** , and click **OK**. This action installs the latest version if it isn't already installed.
+4. In Android Studio, click **Tools \> Device Manager** , then click **Add a new
+   device ![](https://developer.android.com/static/studio/images/buttons/ic_plus_dark.png) \> Create
    Virtual Device** in the **Device Manager** panel.
 
    ![Create an Android Virtual Device in Android
-   Studio](/static/about/versions/15/images/15-create-avd.png)
+   Studio](https://developer.android.com/static/about/versions/15/images/15-create-avd.png)
 5. Select a device definition with a large screen, such as the **Pixel Tablet**
    in the **Tablet** Category tab or the **Pixel Fold** in the **Phone**
    Category tab, then click **Next**.
-6. Find the Android 15 system image, called **VanillaIceCream**, and click
-   **Download** ![](/static/about/versions/15/images/15-studio-download.png)
+
+6. Find the Android 15 system image, called **VanillaIceCream** , and click
+   **Download** ![](https://developer.android.com/static/about/versions/15/images/15-studio-download.png)
    next to the **Release Name** to get it. After the download completes, select
    this system image and click **Next**.
+
 7. Finalize other settings for your virtual device, then click **Finish**.
+
 8. After returning to the list of virtual devices in the Device Manager, find
    your Android 15 virtual device and click **Start**
-   ![](/static/about/versions/15/images/15-launch-avd-icon.png).
+   ![](https://developer.android.com/static/about/versions/15/images/15-launch-avd-icon.png).
 
 Repeat these steps to create large screen device definitions that you can use to
 test your app in a variety of large screen scenarios.
@@ -138,35 +131,28 @@ test the behavior at runtime, using the same reference devices. To create a new
 resizable emulator, use the Device Manager in Android Studio to create a new
 virtual device and select the **Resizable** device definition in the **Phone**
 category.
-
-[![
-
-![](/static/about/versions/15/images/15-resizable-emulator.png)
-](/about/versions/15/images/15-resizable-emulator.png)](/static/about/versions/15/images/15-resizable-emulator.mp4)
-
-
-Use the resizable device definition for the Android Emulator
-to test Android 15 in a variety of large screen scenarios.
+![](https://developer.android.com/static/about/versions/15/images/15-resizable-emulator.png) Use the resizable device definition for the Android Emulator to test Android 15 in a variety of large screen scenarios.
 
 ## Get a generic system image (GSI)
 
-Android [Generic System Image (GSI)](/topic/generic-system-image) binaries are available to developers
+Android [Generic System Image (GSI)](https://developer.android.com/topic/generic-system-image) binaries are available to developers
 for app testing and validation purposes on supported Treble-compliant devices.
 You can use these images to address any compatibility issues as well as discover
 and report OS and framework issues.
 
-See the [GSI documentation](/topic/generic-system-image) for device requirements, flashing instructions,
+See the [GSI documentation](https://developer.android.com/topic/generic-system-image) for device requirements, flashing instructions,
 and information on choosing the right image type for your device. Once you're
-ready to download a GSI binary, see the [Downloads section](/topic/generic-system-image/releases#android-gsi-15) on the GSI
+ready to download a GSI binary, see the [Downloads section](https://developer.android.com/topic/generic-system-image/releases#android-gsi-15) on the GSI
 binaries page.
+
 
 ## More information
 
 To learn about which changes might affect you, and to learn how to test these
 changes in your app, read the following topics:
 
-* [Behavior changes that affect all apps](/about/versions/15/behavior-changes-all)
-* [Behavior changes that affect only apps that target Android 15](/about/versions/15/behavior-changes-15)
+- [Behavior changes that affect all apps](https://developer.android.com/about/versions/15/behavior-changes-all)
+- [Behavior changes that affect only apps that target Android 15](https://developer.android.com/about/versions/15/behavior-changes-15)
 
 To learn more about new APIs and features available in Android 15, read [Android
-15 features](/about/versions/15/features).
+15 features](https://developer.android.com/about/versions/15/features).

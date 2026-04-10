@@ -1,33 +1,16 @@
 ---
-title: Visibility tracking in Compose  |  Jetpack Compose  |  Android Developers
+title: https://developer.android.com/develop/ui/compose/layouts/visibility-modifiers
 url: https://developer.android.com/develop/ui/compose/layouts/visibility-modifiers
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [Develop](https://developer.android.com/develop)
-* [Core areas](https://developer.android.com/develop/core-areas)
-* [UI](https://developer.android.com/develop/ui)
-* [Docs](https://developer.android.com/develop/ui/compose/documentation)
-
-# Visibility tracking in Compose Stay organized with collections Save and categorize content based on your preferences.
-
-
-
 
 Tracking when a UI element is visible on-screen is helpful for a variety of
 use cases, such as logging analytics, managing UI state, and optimizing
 resources by automatically playing or pausing video content. Compose offers
 several modifiers for tracking UI element visibility such as:
 
-* [`onVisibilityChanged`](/reference/kotlin/androidx/compose/ui/layout/onVisibilityChanged.modifier#(androidx.compose.ui.Modifier).onVisibilityChanged(kotlin.Long,kotlin.Float,androidx.compose.ui.layout.LayoutBoundsHolder,kotlin.Function1)) - This modifier notifies you when the
-  visibility of a composable changes. It's ideal for triggering an action or
-  side effect every time the composable becomes visible.
-* [`onLayoutRectChanged`](/reference/kotlin/androidx/compose/ui/Modifier#(androidx.compose.ui.Modifier).onLayoutRectChanged(kotlin.Long,kotlin.Long,kotlin.Function1)) - This modifier provides information
-  about a composable's bounds relative to the root, window, and screen. It
-  offers low-level control and is the foundation API for `onVisibilityChanged`.
-  The modifier is similar to [`onGloballyPositioned`](/reference/kotlin/androidx/compose/ui/layout/OnGloballyPositionedModifier#onGloballyPositioned(androidx.compose.ui.layout.LayoutCoordinates)), but offers better
-  performance and increased flexibility.
+- [`onVisibilityChanged`](https://developer.android.com/reference/kotlin/androidx/compose/ui/layout/onVisibilityChanged.modifier#(androidx.compose.ui.Modifier).onVisibilityChanged(kotlin.Long,kotlin.Float,androidx.compose.ui.layout.LayoutBoundsHolder,kotlin.Function1)) - This modifier notifies you when the visibility of a composable changes. It's ideal for triggering an action or side effect every time the composable becomes visible.
+- [`onLayoutRectChanged`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier#(androidx.compose.ui.Modifier).onLayoutRectChanged(kotlin.Long,kotlin.Long,kotlin.Function1)) - This modifier provides information about a composable's bounds relative to the root, window, and screen. It offers low-level control and is the foundation API for `onVisibilityChanged`. The modifier is similar to [`onGloballyPositioned`](https://developer.android.com/reference/kotlin/androidx/compose/ui/layout/OnGloballyPositionedModifier#onGloballyPositioned(androidx.compose.ui.layout.LayoutCoordinates)), but offers better performance and increased flexibility.
 
 You can use these APIs with any composable as part of the modifier chain.
 
@@ -41,7 +24,8 @@ or even trigger events (playing or pausing videos).
 To be notified when an item's visibility changes, use the
 `onVisibilityChanged` modifier, as shown in the following example:
 
-```
+
+```kotlin
 Text(
     text = "Some text",
     modifier = Modifier
@@ -54,9 +38,9 @@ Text(
         }
         .padding(vertical = 8.dp)
 )
-
-VisibilitySnippets.kt
 ```
+
+<br />
 
 The `onVisibilityChanged` modifier provides a boolean value that reflects the
 current visibility state of the composable. Additionally, it offers
@@ -85,7 +69,8 @@ milliseconds**.
 The following snippet changes the background to purple after the composable
 has been visible to the user for 3 seconds:
 
-```
+
+```kotlin
 var background by remember { mutableStateOf(PalePink) }
 Card(
     modifier = modifier
@@ -106,17 +91,11 @@ Card(
         // ...
     }
 }
-
-VisibilitySnippets.kt
 ```
 
-[
+<br />
 
-](/static/develop/ui/compose/images/visibility/OnVisibilityChangedMinDuration.mp4)
-
-
-**Figure 1.** The background changes from pink to plum after
-the composable has been on screen for 3 seconds continuously.
+**Figure 1.** The background changes from pink to plum after the composable has been on screen for 3 seconds continuously.
 
 ### Set a minimum visible fraction
 
@@ -132,7 +111,8 @@ default.
 `1.0f` means the composable needs to be completely visible on screen for the
 callback to be triggered.
 
-```
+
+```kotlin
 LazyColumn(
     modifier = modifier.fillMaxSize()
 ) {
@@ -158,13 +138,12 @@ LazyColumn(
         }
     }
 }
-
-VisibilitySnippets.kt
 ```
 
-|  |  |
-| --- | --- |
-|  |  |
+<br />
+
+|---|---|
+|   |   |
 | **Figure 2.** Without `minFractionVisible` being set. | **Figure 3.** With `minFractionVisible` set as **0.2f**. |
 
 The example used earlier preloads the Androidify Bots from the network before
@@ -172,16 +151,5 @@ the composable is completely visible. In Figure 2, the third bot doesn't load,
 as the composable isn't completely visible. In Figure 3, `minFractionVisible` is
 set, and the third bot loads before it is completely visible on screen.
 
-**Note:** The preceding videos have been intentionally slowed down for clarity.
-
-[Previous
-
-arrow\_back
-
-Support trifolds and landscape foldables](/develop/ui/compose/layouts/adaptive/foldables/trifolds-and-landscape-foldables)
-
-[Next
-
-Alignment lines
-
-arrow\_forward](/develop/ui/compose/layouts/alignment-lines)
+> [!NOTE]
+> **Note:** The preceding videos have been intentionally slowed down for clarity.

@@ -1,14 +1,9 @@
 ---
-title: Android Developers
+title: https://developer.android.com/guide/appendix/faq
 url: https://developer.android.com/guide/appendix/faq
-source: html-scrape
+source: md.txt
 ---
 
-* [Android Developers](https://developer.android.com/)
+# Android Developers
 
-# Android Developers Stay organized with collections Save and categorize content based on your preferences.
-
-
-
-You should have already been redirected by your browser. Please follow
-[this link](/resources/faq).
+You should have already been redirected by your browser. Please follow[this link](https://developer.android.com/resources/faq).

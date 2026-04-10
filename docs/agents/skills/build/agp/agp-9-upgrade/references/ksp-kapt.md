@@ -1,12 +1,8 @@
 ---
-title: KSP, kapt, and legacy-kapt  |  Android Developers
+title: https://developer.android.com/agents/skills/build/agp/agp-9-upgrade/references/ksp-kapt
 url: https://developer.android.com/agents/skills/build/agp/agp-9-upgrade/references/ksp-kapt
-source: html-scrape
+source: md.txt
 ---
-
-# KSP, kapt, and legacy-kapt Stay organized with collections Save and categorize content based on your preferences.
-
-
 
 When migrating to built-in Kotlin, it is important to consider usage of `kapt`
 and the `org.jetbrains.kotlin.kapt` (also known as the `kotlin("kapt")`) plugin.

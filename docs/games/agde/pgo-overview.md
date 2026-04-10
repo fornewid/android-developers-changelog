@@ -1,17 +1,8 @@
 ---
-title: How Profile-Guided Optimization (PGO) works  |  Android Developers
+title: https://developer.android.com/games/agde/pgo-overview
 url: https://developer.android.com/games/agde/pgo-overview
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [Google Play](https://developer.android.com/distribute)
-* [Guides](https://developer.android.com/games/guides)
-
-# How Profile-Guided Optimization (PGO) works Stay organized with collections Save and categorize content based on your preferences.
-
-
-
 
 Profile-guided optimization (also known as PGO, or *"pogo"*) is a way of further
 optimizing optimized builds of your game using information about the way that
@@ -44,8 +35,8 @@ By default, some compilers assume that the first leg of a branch (that is, the
 also make assumptions from static analysis of the code about how it will
 execute - but this is usually limited in scope.
 
-**Note:** This is not an exhaustive list of static code analysis based optimizations
-that the compiler may apply.
+> [!NOTE]
+> **Note:** This is not an exhaustive list of static code analysis based optimizations that the compiler may apply.
 
 The problem with these heuristics is that they can't correctly help the compiler
 in all situations - even with exhaustive manual markup - so while the code that
@@ -55,17 +46,17 @@ compiler had more information about its behavior at runtime.
 ## Generating a profile
 
 When your executable is built with PGO enabled in *instrumented* mode, your
-executable is augmented with code at the beginning of every code block – for
+executable is augmented with code at the beginning of every code block -- for
 example, the beginning of a function, or the beginning of each arm of a branch.
 This code is used to keep track of a count of every time the block is entered by
 running code, which the compiler can use later to generate optimized code.
 
-Some other tracking is also performed – for example, the size of typical copy
+Some other tracking is also performed -- for example, the size of typical copy
 operations in a block, so that fast, inlined versions of the operation can be
 generated later.
 
 After some kind of representative work has been performed by the game, the
-executable must call a function – `__llvm_profile_write_file()` – to write out
+executable must call a function -- `__llvm_profile_write_file()` -- to write out
 the profile data to a customizable location on the device. This function is
 linked into your game automatically when your build configuration has PGO
 instrumentation enabled.
@@ -77,7 +68,7 @@ so that they can be used together.
 For example, you can modify your game code to call `__llvm_profile_write_file()`
 when the current game scene ends. Then, to take a profile you would build your
 game with instrumentation turned on, and then deploy it to your Android device.
-While it is running, profile data is automatically captured – your QA engineer
+While it is running, profile data is automatically captured -- your QA engineer
 runs through the game, exercising different scenarios (or just goes about their
 normal test pass).
 
@@ -96,13 +87,11 @@ compiler can consume. AGDE does this for you automatically,
 for any profile data files that you add to your project.
 
 PGO is designed to combine the results of multiple instrumented profile runs
-together – AGDE also does this for you automatically if you
+together -- AGDE also does this for you automatically if you
 have multiple files in a single project.
 
-**Note:** Profile data generally does not survive across NDK/SDK/Compiler/Linker
-version changes. The build environment must remain nearly identical across
-builds for this to work. You'll want to take this into account if you archive
-profile data for future builds.
+> [!NOTE]
+> **Note:** Profile data generally does not survive across NDK/SDK/Compiler/Linker version changes. The build environment must remain nearly identical across builds for this to work. You'll want to take this into account if you archive profile data for future builds.
 
 As an example of how merging profile data sets can be useful, let's say that you
 had a lab full of QA engineers all playing different levels of your game. Each
@@ -145,7 +134,7 @@ your profiles are, and how close to optimal your code would have been with a
 traditional optimized build.
 
 In general, a *very* conservative estimate would be that CPU costs will reduce
-by ~5% in key threads. You may see different results.
+by \~5% in key threads. You may see different results.
 
 ## Instrumentation overhead
 
@@ -155,15 +144,12 @@ codebase.
 
 ### Performance cost of Profile-Guided Instrumentation
 
-You might see a drop in frame-rate with instrumented builds. In some cases –
-depending on how close to 100% utilized your CPU is during normal operation –
+You might see a drop in frame-rate with instrumented builds. In some cases --
+depending on how close to 100% utilized your CPU is during normal operation --
 this drop might be so large as to make normal gameplay difficult.
 
-**Note:** The cost of PGO instrumentation should be fixed – no memory is allocated,
-and no files are written to disk as a side effect of profile data gathering. The
-space that the data is recorded to is set-up at compile-time by the compiler.
-Writing the output data is under app control, usually at the end of execution
-before the app exits.
+> [!NOTE]
+> **Note:** The cost of PGO instrumentation should be fixed -- no memory is allocated, and no files are written to disk as a side effect of profile data gathering. The space that the data is recorded to is set-up at compile-time by the compiler. Writing the output data is under app control, usually at the end of execution before the app exits.
 
 We recommend that most developers build out a semi-deterministic replay mode for
 their game. This kind of functionality gives the ability for your QA team to
@@ -171,7 +157,7 @@ start the game at a known, repeatable starting location in your game (such as a
 save game or specific test level), and then record their input. This input
 recorded from the test build can be fed into a PGO-Instrumented build, played
 back, and generate real-world profile data regardless of how long it takes to
-process an individual frame – even if the game were running so slowly that it
+process an individual frame -- even if the game were running so slowly that it
 was unplayable.
 
 This kind of functionality also has other major benefits, such as multiplying
@@ -180,7 +166,7 @@ played back across multiple different types of devices for smoke testing
 purposes.
 
 A replay system like this can have huge benefits on Android where there are a
-large number of device variants in the ecosystem – and the benefits don't end
+large number of device variants in the ecosystem -- and the benefits don't end
 there: It can form a core part of your continuous integration build system too,
 allowing you to perform regular overnight performance regression and smoke
 tests.
@@ -198,14 +184,14 @@ consider disabling vsync.
 
 It's not important that everything (for example, particle systems) in your game
 is perfectly deterministically repeatable, but the same actions should deliver
-the same in-game consequences and results – that is, gameplay should be the
+the same in-game consequences and results -- that is, gameplay should be the
 same.
 
 ### Memory cost of Profile-Guided Instrumentation
 
 The memory overhead of PGO instrumentation varies a lot based on the specific
 library being compiled. In our tests we saw an overall increase in size of the
-test executable by ~2.2x. This size increase included both the extra code
+test executable by \~2.2x. This size increase included both the extra code
 needed to instrument the code blocks, and the space needed to store the
 counters. These tests were not exhaustive, and your experience may differ.
 

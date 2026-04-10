@@ -1,41 +1,27 @@
 ---
-title: Add keep rules  |  App quality  |  Android Developers
+title: https://developer.android.com/topic/performance/app-optimization/add-keep-rules
 url: https://developer.android.com/topic/performance/app-optimization/add-keep-rules
-source: html-scrape
+source: md.txt
 ---
 
-* [Android Developers](https://developer.android.com/)
-* [Design & Plan](https://developer.android.com/design)
-* [App quality](https://developer.android.com/quality)
-* [Technical quality](https://developer.android.com/quality/technical)
-
-# Add keep rules Stay organized with collections Save and categorize content based on your preferences.
-
-
-
 At a high level, a keep rule specifies a class (or subclass or implementation),
-and then members—methods, constructors, or fields—within that class to preserve.
+and then members---methods, constructors, or fields---within that class to preserve.
 
 The general syntax for a keep rule is as follows:
 
-```
--<keep_option>[,<keep_option_modifier_1>,<keep_option_modifier_2>,...] <class_specification>
-```
+
+    -https://developer.android.com/topic/performance/app-optimization/add-keep-rules#keep-option[,https://developer.android.com/topic/performance/app-optimization/add-keep-rules#keep-option-modifier,<keep_option_modifier_2>,...] https://developer.android.com/topic/performance/app-optimization/add-keep-rules#class-spec
 
 The following is an example of a keep rule that uses `keepclassmembers` as the
 keep option, `allowoptimization` as the modifier, and keeps
 `someSpecificMethod()` from `com.example.MyClass`:
 
-```
--keepclassmembers,allowoptimization class com.example.MyClass {
-  void someSpecificMethod();
-}
-```
+    -keepclassmembers,allowoptimization class com.example.MyClass {
+      void someSpecificMethod();
+    }
 
-**Note:** Apart from rules that specify items that must be kept, R8 also lets you
-configure additional rules that impact the optimization. For more information,
-see [Additional rule types](/topic/performance/app-optimization/additional-rule-types), [Troubleshooting rules](/topic/performance/app-optimization/troubleshooting-rules), and
-[Global options](/topic/performance/app-optimization/global-options).
+> [!NOTE]
+> **Note:** Apart from rules that specify items that must be kept, R8 also lets you configure additional rules that impact the optimization. For more information, see [Additional rule types](https://developer.android.com/topic/performance/app-optimization/additional-rule-types), [Troubleshooting rules](https://developer.android.com/topic/performance/app-optimization/troubleshooting-rules), and [Global options](https://developer.android.com/topic/performance/app-optimization/global-options).
 
 ## Keep option
 
@@ -47,13 +33,13 @@ of a class to preserve. There are six different keep options, namely `keep`,
 The following table describes these keep options:
 
 | **Keep option** | **Description** |
-| --- | --- |
+|---|---|
 | `keepclassmembers` | Preserves specified members only if R8 doesn't remove the class that contains them. |
-| `keep` | Preserves specified classes and the specified members (fields and methods), preventing them from being optimized.   **Note**: `keep` should generally only be used with [keep option modifiers](#keep-option-modifier) because `keep` by itself prevents optimizations of any kind from happening on matched classes. |
+| `keep` | Preserves specified classes and the specified members (fields and methods), preventing them from being optimized. **Note** : `keep` should generally only be used with [keep option modifiers](https://developer.android.com/topic/performance/app-optimization/add-keep-rules#keep-option-modifier) because `keep` by itself prevents optimizations of any kind from happening on matched classes. |
 | `keepclasseswithmembers` | Preserves a class and its specified members only if the class has all of the members from the class specification. |
-| `keepclassmembernames` | Prevents the renaming of specified class members, but does not prevent the class or its members from being removed.   **Note:** The meaning of this option is often misunderstood; consider using the equivalent `-keepclassmembers,allowshrinking` instead. |
-| `keepnames` | Prevents the renaming of classes and their members, but it does not prevent them from being removed entirely if they are deemed unused.   **Note:** The meaning of this option is often misunderstood; consider using the equivalent `-keep,allowshrinking` instead. |
-| `keepclasseswithmembernames` | Prevents the renaming of classes and their specified members, but only if the members exist in the final code. It does not prevent the removal of code.  **Note:** The meaning of this option is often misunderstood; consider using the equivalent `-keepclasseswithmembers,allowshrinking` instead. |
+| `keepclassmembernames` | Prevents the renaming of specified class members, but does not prevent the class or its members from being removed. **Note:** The meaning of this option is often misunderstood; consider using the equivalent `-keepclassmembers,allowshrinking` instead. |
+| `keepnames` | Prevents the renaming of classes and their members, but it does not prevent them from being removed entirely if they are deemed unused. **Note:** The meaning of this option is often misunderstood; consider using the equivalent `-keep,allowshrinking` instead. |
+| `keepclasseswithmembernames` | Prevents the renaming of classes and their specified members, but only if the members exist in the final code. It does not prevent the removal of code. **Note:** The meaning of this option is often misunderstood; consider using the equivalent `-keepclasseswithmembers,allowshrinking` instead. |
 
 ### Choose the right keep option
 
@@ -63,18 +49,16 @@ unreferenced code is removed, while others obfuscate, or rename, code. The
 following table indicates the actions of the various keep options:
 
 | **Keep option** | **Shrinks classes** | **Obfuscates classes** | **Shrinks members** | **Obfuscates members** |
-| --- | --- | --- | --- | --- |
-| `keep` | clear | clear | clear | clear |
-| `keepclassmembers` | check | check | clear | clear |
-| `keepclasseswithmembers` | clear | clear | clear | clear |
-| `keepnames` | check | clear | check | clear |
-| `keepclassmembernames` | check | check | check | clear |
-| `keepclasseswithmembernames` | check | clear | check | clear |
+|---|---|---|---|---|
+| `keep` |   |   |   |   |
+| `keepclassmembers` |   |   |   |   |
+| `keepclasseswithmembers` |   |   |   |   |
+| `keepnames` |   |   |   |   |
+| `keepclassmembernames` |   |   |   |   |
+| `keepclasseswithmembernames` |   |   |   |   |
 
-**Tip:** Avoid using `keep` without keep option modifiers because this limits
-optimizations, and the options that end with 'names', such as `keepnames`,
-because their meaning is often misunderstood. We recommend mostly using
-`keepclassmembers`, since it enables the most optimizations.
+> [!TIP]
+> **Tip:** Avoid using `keep` without keep option modifiers because this limits optimizations, and the options that end with 'names', such as `keepnames`, because their meaning is often misunderstood. We recommend mostly using `keepclassmembers`, since it enables the most optimizations.
 
 ## Keep option modifier
 
@@ -85,7 +69,7 @@ The possible values for a keep option modifier are described in the following
 table:
 
 | Value | Description |
-| --- | --- |
+|---|---|
 | `allowoptimization` | Allows optimization of the specified elements. However, the specified elements are not renamed or removed. |
 | `allowobfucastion` | Allows renaming of the specified elements. However, the elements are not be removed or otherwise optimized. |
 | `allowshrinking` | Allows removal of the specified elements if R8 finds no references to them. However, the elements are not renamed or otherwise optimized. |
@@ -102,45 +86,37 @@ modifier for the class. All classes, including
 classes from the `java.lang` namespace like `java.lang.String`, must be
 specified using their fully qualified Java name. To understand the names that
 should be used, inspect the bytecode using the tools described in [Inspect
-generated Java names](/topic/performance/app-optimization/add-keep-rules#inspect-java-names).
+generated Java names](https://developer.android.com/topic/performance/app-optimization/add-keep-rules#inspect-java-names).
 
 The following example shows how you should specify the `MaterialButton` class:
 
-* Correct: `com.google.android.material.button.MaterialButton`
-* Incorrect: `MaterialButton`
+- Correct: `com.google.android.material.button.MaterialButton`
+- Incorrect: `MaterialButton`
 
-Class specifications also [specify the members](/topic/performance/app-optimization/add-keep-rules#member-spec) within a class that should be
+Class specifications also [specify the members](https://developer.android.com/topic/performance/app-optimization/add-keep-rules#member-spec) within a class that should be
 kept. For example, the following rule keeps the `MyClass` class and the
 `someSpecificMethod()` method:
 
-```
--keep class com.example.MyClass {
-  void someSpecificMethod();
-}
-```
+    -keep class com.example.MyClass {
+      void someSpecificMethod();
+    }
 
-**Important:** If you don't specify members, R8 implicitly changes the rule to keep
-the default constructor for the class. For more information, see
-[Omitting the member specification](/topic/performance/app-optimization/add-keep-rules#omit-member-spec). It is recommended to
-[specify members](/topic/performance/app-optimization/add-keep-rules#member-spec) in your keep rules.
+> [!IMPORTANT]
+> **Important:** If you don't specify members, R8 implicitly changes the rule to keep the default constructor for the class. For more information, see [Omitting the member specification](https://developer.android.com/topic/performance/app-optimization/add-keep-rules#omit-member-spec). It is recommended to [specify members](https://developer.android.com/topic/performance/app-optimization/add-keep-rules#member-spec) in your keep rules.
 
 ### Specify classes based on annotations
 
 To specify classes based on their annotations, prefix the annotation's fully
 qualified Java name with an `@` symbol. For example:
 
-```
--keep class @com.example.MyAnnotation com.example.MyClass
-```
+    -keep class @com.example.MyAnnotation com.example.MyClass
 
 If a keep rule has more than one annotation, it keeps classes that have all of
 the listed annotations. You can list multiple annotations, but the rule applies
 only if the class has every listed annotation. For example, the following rule
 keeps all the classes annotated by both `Annotation1` and `Annotation2`.
 
-```
--keep class @com.example.Annotation1 @com.example.Annotation2 *
-```
+    -keep class @com.example.Annotation1 @com.example.Annotation2 *
 
 ### Specify subclasses and implementations
 
@@ -149,34 +125,25 @@ To target a subclass, or class that implements an interface, use `extend` and
 
 For example, if you have class `Bar` with subclass `Foo` as follows:
 
-```
-class Foo : Bar()
-```
+    class Foo : Bar()
 
 The following keep rule preserves all the subclasses of `Bar`. Note that the
 keep rule doesn't include the superclass `Bar` itself.
 
-```
--keep class * extends Bar
-```
+    -keep class * extends Bar
 
 If you have class `Foo` that implements the interface `Bar`:
 
-```
-class Foo : Bar
-```
+    class Foo : Bar
 
 The following keep rule preserves all classes that implement `Bar`. Note that
 the keep rule doesn't include the interface `Bar` itself.
 
-```
--keep class * implements Bar
-```
+    -keep class * implements Bar
 
-**Note:** You can use `extends` or `implements` interchangeably to match classes
-that inherit from a specific type, whether it's a class or an interface. For
-example, R8 treats `-keep class * extends Bar` and `-keep class * implements
-Bar` the same.
+> [!NOTE]
+> **Note:** You can use `extends` or `implements` interchangeably to match classes that inherit from a specific type, whether it's a class or an interface. For example, R8 treats `-keep class * extends Bar` and `-keep class * implements
+> Bar` the same.
 
 ### Specify classes based on access modifiers
 
@@ -187,86 +154,70 @@ For example, the following rule keeps all the `public` classes within the `api`
 package and its sub-packages, and all the public and protected members in these
 classes.
 
-**Note:** [Package-wide keep rules should only be used temporarily](/topic/performance/app-optimization/adopt-optimizations-incrementally#use-package-wide) when enabling
-R8.
+> [!NOTE]
+> **Note:** [Package-wide keep rules should only be used temporarily](https://developer.android.com/topic/performance/app-optimization/adopt-optimizations-incrementally#use-package-wide) when enabling R8.
 
-```
--keep public class com.example.api.** { public protected *; }
-```
+    -keep public class com.example.api.** { public protected *; }
 
 You can also use modifiers for the members within a class. For example, the
 following rule keeps only the `public static` methods of a `Utils` class:
 
-```
--keep class com.example.Utils {
-  public static void *(...);
-}
-```
+    -keep class com.example.Utils {
+      public static void *(...);
+    }
 
-**Note:** You can use `!` to invert the scope of the modifier, however it is not
-recommended because you could unintentionally apply a rule to almost every class
-in your app.
+> [!NOTE]
+> **Note:** You can use `!` to invert the scope of the modifier, however it is not recommended because you could unintentionally apply a rule to almost every class in your app.
 
 #### Kotlin-specific modifiers
 
 R8 doesn't support Kotlin-specific modifiers such as `internal` and `suspend`.
 Use the following guidelines to keep such fields.
 
-* To keep an `internal` class, method or field, treat it as public. For
+- To keep an `internal` class, method or field, treat it as public. For
   example, consider the following Kotlin source:
 
-  ```
-  package com.example
-  internal class ImportantInternalClass {
-    internal val f: Int
-    internal fun m() {}
-  }
-  ```
+      package com.example
+      internal class ImportantInternalClass {
+        internal val f: Int
+        internal fun m() {}
+      }
 
   The `internal` classes, methods and fields are `public` in the `.class`
   files produced by the Kotlin compiler, so you must use the `public` keyword
   as shown in the following example:
 
-  ```
-  -keepclassmembers public class com.example.ImportantInternalClass {
-    public int f;
-    public void m();
-  }
-  ```
-* When a `suspend` member is compiled, match its compiled signature in the
+      -keepclassmembers public class com.example.ImportantInternalClass {
+        public int f;
+        public void m();
+      }
+
+- When a `suspend` member is compiled, match its compiled signature in the
   keep rule.
 
   For example, if you have the function `fetchUser` defined as shown in the
   following snippet:
 
-  ```
-  suspend fun fetchUser(id: String): User
-  ```
+      suspend fun fetchUser(id: String): User
 
   When compiled, its signature in the bytecode looks like the following:
 
-  ```
-  public final Object fetchUser(String id, Continuation<? super User> continuation);
-  ```
+      public final Object fetchUser(String id, Continuation<? super User> continuation);
 
   To write a keep rule for this function, you must match this compiled
   signature, or use `...`.
 
   An example of using the compiled signature is as follows:
 
-  ```
-  -keepclassmembers class com.example.repository.UserRepository {
-    public java.lang.Object fetchUser(java.lang.String,  kotlin.coroutines.Continuation);
-  }
-  ```
+      -keepclassmembers class com.example.repository.UserRepository {
+        public java.lang.Object fetchUser(java.lang.String,  kotlin.coroutines.Continuation);
+      }
 
   An example using `...` is as follows:
 
-  ```
-  -keepclassmembers class com.example.repository.UserRepository {
-    public java.lang.Object fetchUser(...);
-  }
-  ```
+      -keepclassmembers class com.example.repository.UserRepository {
+        public java.lang.Object fetchUser(...);
+      }
 
 ## Member specification
 
@@ -282,22 +233,18 @@ keep only those members within a class that are marked with specific
 annotations. For example, to keep methods and fields annotated with
 `@com.example.MyAnnotation`:
 
-```
--keep class com.example.MyClass {
-  @com.example.MyAnnotation <methods>;
-  @com.example.MyAnnotation <fields>;
-}
-```
+    -keep class com.example.MyClass {
+      @com.example.MyAnnotation <methods>;
+      @com.example.MyAnnotation <fields>;
+    }
 
 You can combine this with class-level annotation matching for powerful, targeted
 rules:
 
-```
--keep class @com.example.ClassAnnotation * {
-  @com.example.MethodAnnotation <methods>;
-  @com.example.FieldAnnotation <fields>;
-}
-```
+    -keep class @com.example.ClassAnnotation * {
+      @com.example.MethodAnnotation <methods>;
+      @com.example.FieldAnnotation <fields>;
+    }
 
 This keeps classes annotated with `@ClassAnnotation`, and on those classes, it
 keeps methods annotated by `@MethodAnnotation` and fields annotated by
@@ -308,98 +255,80 @@ an explicit link between your code and your keep rules and often leads to more
 robust configurations. The `androidx.annotation` annotation library, for
 example, uses this mechanism.
 
-**Note:** You can also use [wildcards](/topic/performance/app-optimization/add-keep-rules#wildcards) and [access specifiers](/topic/performance/app-optimization/add-keep-rules#access-modifier) while
-specifying members in keep rules.
+> [!NOTE]
+> **Note:** You can also use [wildcards](https://developer.android.com/topic/performance/app-optimization/add-keep-rules#wildcards) and [access specifiers](https://developer.android.com/topic/performance/app-optimization/add-keep-rules#access-modifier) while specifying members in keep rules.
 
 ### Methods
 
 The syntax for specifying a method in the member specification for a keep rule
 is as follows:
 
-```
-[<access_modifier>] [<return_type>] <method_name>(<parameter_types>);
-```
+    [<access_modifier>] [<return_type>] <method_name>(<parameter_types>);
 
 For example, the following keep rule keeps a public method called `setLabel()`
 that returns void and takes a `String`.
 
-```
--keep class com.example.MyView {
-    public void setLabel(java.lang.String);
-}
-```
+    -keep class com.example.MyView {
+        public void setLabel(java.lang.String);
+    }
 
 You can use `<methods>` as a shortcut to match all methods in a class as
 follows:
 
-```
--keep class com.example.MyView {
-    <methods>;
-}
-```
+    -keep class com.example.MyView {
+        <methods>;
+    }
 
 To learn more about how to specify types for return types and parameter types,
-see [Types](/topic/performance/app-optimization/add-keep-rules#types).
+see [Types](https://developer.android.com/topic/performance/app-optimization/add-keep-rules#types).
 
 ### Constructors
 
 To specify a constructor, use `<init>`. The syntax for specifying a constructor
 in the member specification for a keep rule is as follows:
 
-```
-[<access_modifier>] <init>(parameter_types);
-```
+    [<access_modifier>] <init>(parameter_types);
 
 For example, the following keep rule keeps a custom `View` constructor that
 takes a `Context` and an `AttributeSet`.
 
-```
--keep class com.example.ui.MyCustomView {
-    public <init>(android.content.Context, android.util.AttributeSet);
-}
-```
+    -keep class com.example.ui.MyCustomView {
+        public <init>(android.content.Context, android.util.AttributeSet);
+    }
 
 To keep all public constructors, use the following example as a reference:
 
-```
--keep class com.example.ui.MyCustomView {
-    public <init>(...);
-}
-```
+    -keep class com.example.ui.MyCustomView {
+        public <init>(...);
+    }
 
 ### Fields
 
 The syntax for specifying a field in the member specification for a keep rule is
 as follows:
 
-```
-[<access_modifier>...] [<type>] <field_name>;
-```
+    [<access_modifier>...] [<type>] <field_name>;
 
 For example, the following keep rule keeps a private string field called
 `userId` and a public static integer field called `STATUS_ACTIVE`:
 
-```
--keep class com.example.models.User {
-    private java.lang.String userId;
-    public static int STATUS_ACTIVE;
-}
-```
+    -keep class com.example.models.User {
+        private java.lang.String userId;
+        public static int STATUS_ACTIVE;
+    }
 
 You can use `<fields>` as a shortcut to match all the fields in a class as
 follows:
 
-```
--keep class com.example.models.User {
-    <fields>;
-}
-```
+    -keep class com.example.models.User {
+        <fields>;
+    }
 
 ### Types
 
 This section describes how to specify return types, parameter types, and field
 types in keep rule member specifications. Remember to use the
-[generated Java names](/topic/performance/app-optimization/add-keep-rules#inspect-java-names) to specify types if they're different from the Kotlin
+[generated Java names](https://developer.android.com/topic/performance/app-optimization/add-keep-rules#inspect-java-names) to specify types if they're different from the Kotlin
 source code.
 
 #### Primitive types
@@ -410,38 +339,31 @@ primitive types: `boolean`, `byte`, `short`, `char`, `int`, `long`, `float`,
 
 An example rule with a primitive type is as follows:
 
-```
-# Keeps a method that takes an int and a float as parameters.
--keepclassmembers class com.example.Calculator {
-    public void setValues(int, float);
-}
-```
+    # Keeps a method that takes an int and a float as parameters.
+    -keepclassmembers class com.example.Calculator {
+        public void setValues(int, float);
+    }
 
-**Note:** Make sure to handle Kotlin primitive types, such as `Int`, distinctly from
-the Kotlin nullable number references, such as `Int?`, because they are compiled
-to different Java types. For example, when compiled `Int` is typically mapped to
-the Java primitive type `int`, and `Int?` is mapped to the Java wrapper class
-`java.lang.Integer`.
+> [!NOTE]
+> **Note:** Make sure to handle Kotlin primitive types, such as `Int`, distinctly from the Kotlin nullable number references, such as `Int?`, because they are compiled to different Java types. For example, when compiled `Int` is typically mapped to the Java primitive type `int`, and `Int?` is mapped to the Java wrapper class `java.lang.Integer`.
 
 #### Generic types
 
 During compilation, the Kotlin/Java compiler erases generic type information, so
 when you write keep rules that involve generic types you must [target the
-compiled representation of your code](/topic/performance/app-optimization/add-keep-rules#inspect-java-names), and not the original source code. To
+compiled representation of your code](https://developer.android.com/topic/performance/app-optimization/add-keep-rules#inspect-java-names), and not the original source code. To
 learn more about how generic types are changed, see [Type erasure](https://kotlinlang.org/docs/generics.html#type-erasure).
 
 For example, if you have the following code with an unbounded generic type
 defined in `Box.kt`:
 
-```
-package com.myapp.data
+    package com.myapp.data
 
-class Box<T>(val item: T) {
-    fun getItem(): T {
-        return item
+    class Box<T>(val item: T) {
+        fun getItem(): T {
+            return item
+        }
     }
-}
-```
 
 After type erasure, the `T` is replaced by `Object`. To keep the class
 constructor and method, your rule must use `java.lang.Object` in place of the
@@ -449,56 +371,46 @@ generic `T`.
 
 An example keep rule would be as follows:
 
-```
-# Keep the constructor and methods of the Box class.
--keep class com.myapp.data.Box {
-    public init(java.lang.Object);
-    public java.lang.Object getItem();
-}
-```
+    # Keep the constructor and methods of the Box class.
+    -keep class com.myapp.data.Box {
+        public init(java.lang.Object);
+        public java.lang.Object getItem();
+    }
 
 If you have the following code with a bounded generic type in `NumberBox.kt`:
 
-```
-package com.myapp.data
+    package com.myapp.data
 
-// T is constrained to be a subtype of Number
-class NumberBox<T : Number>(val number: T)
-```
+    // T is constrained to be a subtype of Number
+    class NumberBox<T : Number>(val number: T)
 
 In this case, type erasure replaces `T` with its bound, `java.lang.Number`.
 
 An example keep rule would be as follows:
 
-```
--keep class com.myapp.data.NumberBox {
-    public init(java.lang.Number);
-}
-```
+    -keep class com.myapp.data.NumberBox {
+        public init(java.lang.Number);
+    }
 
 When using app-specific generic types as a base class, it's necessary to
 include keep rules for the base classes as well.
 
 For example, for the following code:
 
-```
-package com.myapp.data
+    package com.myapp.data
 
-data class UnpackOptions(val useHighPriority: Boolean)
+    data class UnpackOptions(val useHighPriority: Boolean)
 
-// The generic Box class with UnpackOptions as the bounded type
-class Box<T: UnpackOptions>(val item: T) {
-}
-```
+    // The generic Box class with UnpackOptions as the bounded type
+    class Box<T: UnpackOptions>(val item: T) {
+    }
 
 You can use a keep rule with `includedescriptorclasses` to preserve both the
 `UnpackOptions` class and `Box` class method with a single rule as follows:
 
-```
--keep,includedescriptorclasses class com.myapp.data.Box {
-    public <init>(com.myapp.data.UnpackOptions);
-}
-```
+    -keep,includedescriptorclasses class com.myapp.data.Box {
+        public <init>(com.myapp.data.UnpackOptions);
+    }
 
 To keep a specific function that processes a list of objects, you need to write
 a rule that precisely matches the function's signature. Note that because generic
@@ -508,97 +420,81 @@ types are erased, a parameter like `List<Product>` is seen as
 For example, if you have a utility class with a function that processes a list
 of `Product` objects as follows:
 
-```
-package com.myapp.utils
+    package com.myapp.utils
 
-import com.myapp.data.Product
-import android.util.Log
+    import com.myapp.data.Product
+    import android.util.Log
 
-class DataProcessor {
-    // This is the function we want to keep
-    fun processProducts(products: List<Product>) {
-        Log.d("DataProcessor", "Processing ${products.size} products.")
-        // Business logic ...
+    class DataProcessor {
+        // This is the function we want to keep
+        fun processProducts(products: List<Product>) {
+            Log.d("DataProcessor", "Processing ${products.size} products.")
+            // Business logic ...
+        }
     }
-}
 
-// The data class used in the list (from the previous example)
-package com.myapp.data
-data class Product(val id: String, val name: String)
-```
+    // The data class used in the list (from the previous example)
+    package com.myapp.data
+    data class Product(val id: String, val name: String)
 
 You could use the following keep rule to protect only the `processProducts`
 function:
 
-```
--keep class com.myapp.utils.DataProcessor {
-    public void processProducts(java.util.List);
-}
-```
+    -keep class com.myapp.utils.DataProcessor {
+        public void processProducts(java.util.List);
+    }
 
 #### Array types
 
 Specify an array type by appending `[]` to the component type for each dimension
 of the array. This applies to both class types and primitive types.
 
-* One-dimensional class array: `java.lang.String[]`
-* Two-dimensional primitive array: `int[][]`
+- One-dimensional class array: `java.lang.String[]`
+- Two-dimensional primitive array: `int[][]`
 
 For example, if you have the following code:
 
-```
-package com.example.data
+    package com.example.data
 
-class ImageProcessor {
-  fun process(): ByteArray {
-    // process image to return a byte array
-  }
-}
-```
+    class ImageProcessor {
+      fun process(): ByteArray {
+        // process image to return a byte array
+      }
+    }
 
 You could use the following keep rule:
 
-```
-# Keeps a method that returns a byte array.
--keepclassmembers class com.example.data.ImageProcessor {
-    public byte[] process();
-}
-```
+    # Keeps a method that returns a byte array.
+    -keepclassmembers class com.example.data.ImageProcessor {
+        public byte[] process();
+    }
 
 ### Examples
 
 For example, to preserve a specific class and all its members, use the
 following:
 
-```
--keep class com.myapp.MyClass { *; }
-```
+    -keep class com.myapp.MyClass { *; }
 
 To preserve only the class, along with its default constructor, but not other
 members, use the following:
 
-```
--keep class com.myapp.MyClass
-```
+    -keep class com.myapp.MyClass
 
 It is recommended that you always specify some members. For example, the
 following example keeps the public field `text` and the public method
 `updateText()` within the class `MyClass`.
 
-```
--keep class com.myapp.MyClass {
-    public java.lang.String text;
-    public void updateText(java.lang.String);
-}
-```
+    -keep class com.myapp.MyClass {
+        public java.lang.String text;
+        public void updateText(java.lang.String);
+    }
 
 To keep all public fields and public methods, see the following example:
 
-```
--keep public class com.example.api.ApiClient {
-    public *;
-}
-```
+    -keep public class com.example.api.ApiClient {
+        public *;
+    }
 
 ### Omit the member specification
 
@@ -609,11 +505,9 @@ For example, if you write either `-keep class com.example.MyClass` or
 `-keep class com.example.MyClass {}`, R8 treats them as if you wrote the
 following:
 
-```
--keep class com.example.MyClass{
-  void <init>();
-}
-```
+    -keep class com.example.MyClass{
+      void <init>();
+    }
 
 ### Negate member name patterns
 
@@ -631,37 +525,31 @@ for testing.
 To keep all public methods in `com.example.MyClass` except those ending with
 "ForTesting", use the following rule:
 
-```
--keepclassmembers class com.example.MyClass {
-    public *** !*ForTesting(...);
-}
-```
+    -keepclassmembers class com.example.MyClass {
+        public *** !*ForTesting(...);
+    }
 
 ## Package-level functions
 
 To reference a Kotlin function that's defined outside of a class (commonly
-called top level functions), make sure to use the [generated Java name](/topic/performance/app-optimization/add-keep-rules#inspect-java-names) for
+called top level functions), make sure to use the [generated Java name](https://developer.android.com/topic/performance/app-optimization/add-keep-rules#inspect-java-names) for
 the class implicitly added by the Kotlin compiler. The class name is the Kotlin
 filename with `Kt` appended. For example, if you have a Kotlin file called
 `MyClass.kt` defined as follows:
 
-```
-package com.example.myapp.utils
+    package com.example.myapp.utils
 
-// A top-level function not inside a class
-fun isEmailValid(email: String): Boolean {
-    return email.contains("@")
-}
-```
+    // A top-level function not inside a class
+    fun isEmailValid(email: String): Boolean {
+        return email.contains("@")
+    }
 
 To write a keep rule for the `isEmailValid` function, the class specification
 needs to target the generated class `MyClassKt`:
 
-```
--keep class com.example.myapp.utils.MyClassKt {
-    public static boolean isEmailValid(java.lang.String);
-}
-```
+    -keep class com.example.myapp.utils.MyClassKt {
+        public static boolean isEmailValid(java.lang.String);
+    }
 
 ## Wildcards
 
@@ -669,65 +557,56 @@ The following table shows how to use wildcards to apply keep rules to multiple
 classes or members that match a certain pattern.
 
 | **Wildcard** | **Applies to classes or members** | **Description** |
-| --- | --- | --- |
+|---|---|---|
 | \*\* | Both | Most commonly used. Matches any type name, including any number of package separators. This is useful for matching all classes within a package and its sub-packages. |
-| \* | Both | For class specifications, matches any part of a type name that doesn't contain package separators (`.`)   For member specifications, matches any method or field name. When used by itself, it is also an alias for `**`. |
+| \* | Both | For class specifications, matches any part of a type name that doesn't contain package separators (`.`) For member specifications, matches any method or field name. When used by itself, it is also an alias for `**`. |
 | ? | Both | Matches any single character in a class or member name. |
 | \*\*\* | Members | Matches any type, including primitive types (like `int`), class types (like `java.lang.String`), and array types of any dimension (like `byte[][]`). |
 | ... | Members | Matches any list of parameters for a method. |
-| % | Members | Matches any primitive type (such as `int`, `float`, `boolean`, or others). |
+| % | Members | Matches any primitive type (such as \`int\`, \`float\`, \`boolean\`, or others). |
 
 Here are some examples of how to use the special wildcards:
 
-* If you have multiple methods with the same name that take different
+- If you have multiple methods with the same name that take different
   primitive types as inputs, you can use `%` to write a keep rule that keeps
   them all. For example, this `DataStore` class has multiple `setValue`
   methods:
 
-  ```
-  class DataStore {
-      fun setValue(key: String, value: Int) { ... }
-      fun setValue(key: String, value: Boolean) { ... }
-      fun setValue(key: String, value: Float) { ... }
-  }
-  ```
+      class DataStore {
+          fun setValue(key: String, value: Int) { ... }
+          fun setValue(key: String, value: Boolean) { ... }
+          fun setValue(key: String, value: Float) { ... }
+      }
 
   The following keep rule keeps all the methods:
 
-  ```
-  -keep class com.example.DataStore {
-      public void setValue(java.lang.String, %);
-  }
-  ```
-* If you have multiple classes with names that vary by one character, use `?`
+      -keep class com.example.DataStore {
+          public void setValue(java.lang.String, %);
+      }
+
+- If you have multiple classes with names that vary by one character, use `?`
   to write a keep rule that keeps them all. For example, if you have the
   following classes:
 
-  ```
-  com.example.models.UserV1 {...}
-  com.example.models.UserV2 {...}
-  com.example.models.UserV3 {...}
-  ```
+      com.example.models.UserV1 {...}
+      com.example.models.UserV2 {...}
+      com.example.models.UserV3 {...}
 
   The following keep rule keeps all of the classes:
 
-  ```
-  -keep class com.example.models.UserV?
-  ```
-* To match the classes `Example` and `AnotherExample` (if they were root-level
+      -keep class com.example.models.UserV?
+
+- To match the classes `Example` and `AnotherExample` (if they were root-level
   classes), but not `com.foo.Example`, use the following keep rule:
 
-  ```
-  -keep class *Example
-  ```
-* If you use \* by itself, it acts as an alias for \*\*. For example, the
+      -keep class *Example
+
+- If you use \* by itself, it acts as an alias for \*\*. For example, the
   following keep rules are equivalent:
 
-  ```
-  -keepclasseswithmembers class * { public static void main(java.lang.String[];) }
+      -keepclasseswithmembers class * { public static void main(java.lang.String[];) }
 
-  -keepclasseswithmembers class ** { public static void main(java.lang.String[];) }
-  ```
+      -keepclasseswithmembers class ** { public static void main(java.lang.String[];) }
 
 ## Conditional keep rules
 
@@ -743,12 +622,10 @@ minimize your app's size by preventing unnecessary code retention.
 
 The general syntax for a conditional keep rule is as follows:
 
-```
--if <class_specification_if> <keep_rule>
-```
+    -if <class_specification_if> <keep_rule>
 
 If the class specification in an `-if` condition contains wildcards (such as
-`*` or `**`), the sequence of characters matching a wildcard is *captured*.
+`*` or `**`), the sequence of characters matching a wildcard is *captured* .
 You can refer to these captured strings in the subsequent keep rule using
 backreferences: `<1>` refers to the string captured by the first wildcard,
 `<2>` refers to the string captured by the second wildcard, and so on.
@@ -764,14 +641,12 @@ You can use a conditional keep rule to specify that if any class implements
 `androidx.navigation.NavArgs`, then R8 should keep the `fromBundle` method for
 that specific class:
 
-```
-# If a class implements NavArgs...
--if public class ** implements androidx.navigation.NavArgs
-# ...then keep the fromBundle method of that matched class (<1>).
--keepclassmembers public class <1> {
-    public static ** fromBundle(android.os.Bundle);
-}
-```
+    # If a class implements NavArgs...
+    -if public class ** implements androidx.navigation.NavArgs
+    # ...then keep the fromBundle method of that matched class (<1>).
+    -keepclassmembers public class <1> {
+        public static ** fromBundle(android.os.Bundle);
+    }
 
 In this example, `**` is the first and only wildcard in the `-if` condition. It
 matches the class name of any class implementing
@@ -786,16 +661,14 @@ data model classes use Gson's `@SerializedName` annotation on any field, you
 can use a conditional rule to protect any such class and its members that Gson
 needs for reflection:
 
-```
-# If a class has fields annotated with @SerializedName...
--if class ** { @com.google.gson.annotations.SerializedName <fields>; }
-# ...then keep that class (<1>), its @SerializedName fields,
-# and its constructors for Gson.
--keep class <1> {
-    @com.google.gson.annotations.SerializedName <fields>;
-    <init>(...);
-}
-```
+    # If a class has fields annotated with @SerializedName...
+    -if class ** { @com.google.gson.annotations.SerializedName <fields>; }
+    # ...then keep that class (<1>), its @SerializedName fields,
+    # and its constructors for Gson.
+    -keep class <1> {
+        @com.google.gson.annotations.SerializedName <fields>;
+        <init>(...);
+    }
 
 Backreferences capture strings, which can be substrings of class names if a
 wildcard only matches part of the name. For example, if you use
@@ -804,12 +677,10 @@ and the substring after `X` as `<2>`. The following rule uses this to find any
 class name containing `X` and keep a corresponding class where `X` is replaced
 by `Y`:
 
-```
-# If a class like com.example.PrefixXPostfix exists...
--if class com.example.*X*
-# ...keep com.example.PrefixYPostfix.
--keep class com.example.<1>Y<2>
-```
+    # If a class like com.example.PrefixXPostfix exists...
+    -if class com.example.*X*
+    # ...keep com.example.PrefixYPostfix.
+    -keep class com.example.<1>Y<2>
 
 ### Conditional keep rules for reflection
 
@@ -824,14 +695,12 @@ type-safe argument passing. To make sure this method is only kept for `NavArgs`
 implementations, and not for every class, Jetpack Navigation includes the
 following conditional keep rule:
 
-```
-# If a class implements NavArgs...
--if public class ** implements androidx.navigation.NavArgs
-# ...then keep the fromBundle method of that matched class (<1>).
--keepclassmembers public class <1> {
-    public static ** fromBundle(android.os.Bundle);
-}
-```
+    # If a class implements NavArgs...
+    -if public class ** implements androidx.navigation.NavArgs
+    # ...then keep the fromBundle method of that matched class (<1>).
+    -keepclassmembers public class <1> {
+        public static ** fromBundle(android.os.Bundle);
+    }
 
 This rule keeps `fromBundle` only for classes that need it, rather than
 keeping it in all classes or requiring you to manually specify which classes
@@ -841,9 +710,9 @@ need it.
 
 When writing keep rules, you must specify classes and other reference types
 using their names after they're compiled into Java bytecode (see [Class
-specification](/topic/performance/app-optimization/add-keep-rules#class-spec) and [Types](/topic/performance/app-optimization/add-keep-rules#types) for examples). To check what the generated Java
+specification](https://developer.android.com/topic/performance/app-optimization/add-keep-rules#class-spec) and [Types](https://developer.android.com/topic/performance/app-optimization/add-keep-rules#types) for examples). To check what the generated Java
 names for your code are, use either of the following tools in Android Studio:
 
-* [APK Analyzer](/studio/debug/apk-analyzer#show_bytecode_find_usages_and_generate_keep_rule)
-* With the Kotlin source file open, inspect the bytecode by going to **Tools >
-  Kotlin > Show Kotlin Bytecode > Decompile**.
+- [APK Analyzer](https://developer.android.com/studio/debug/apk-analyzer#show_bytecode_find_usages_and_generate_keep_rule)
+- With the Kotlin source file open, inspect the bytecode by going to **Tools \>
+  Kotlin \> Show Kotlin Bytecode \> Decompile**.

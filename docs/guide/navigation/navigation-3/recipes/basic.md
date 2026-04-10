@@ -1,17 +1,8 @@
 ---
-title: App architecture  |  Android Developers
+title: https://developer.android.com/guide/navigation/navigation-3/recipes/basic
 url: https://developer.android.com/guide/navigation/navigation-3/recipes/basic
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [App architecture](https://developer.android.com/topic/architecture/intro)
-
-Stay organized with collections
-
-Save and categorize content based on your preferences.
-
-
 
 # Basic Recipe
 
@@ -26,14 +17,7 @@ A `mutableStateListOf<Any>` is used to manage the navigation back stack.
 The `NavDisplay` composable is used to display the current screen. Its `entryProvider` parameter is a lambda that takes a route from the back stack and returns a `NavEntry`. Inside the `entryProvider`, a `when` statement is used to determine which composable to display based on the route.
 
 To navigate from `RouteA` to `RouteB`, we simply add a `RouteB` instance to the back stack. The `id` is passed as an argument to the `RouteB` data class.
-
-[![](/static/images/picto-icons/code.svg)
-
-Explore
-
-View the full recipe on GitHub.
-
-arrow\_forward](https://github.com/android/nav3-recipes/tree/main/app/src/main/java/com/example/nav3recipes/basic)
+[![](https://developer.android.com/static/images/picto-icons/code.svg) Explore View the full recipe on GitHub.](https://github.com/android/nav3-recipes/tree/main/app/src/main/java/com/example/nav3recipes/basic)
 
 ```
 /*
@@ -108,6 +92,4 @@ class BasicActivity : ComponentActivity() {
         }
     }
 }
-
-BasicActivity.kt
 ```

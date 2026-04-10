@@ -1,35 +1,23 @@
 ---
-title: Create a hierarchy in code  |  Views  |  Android Developers
+title: https://developer.android.com/develop/ui/views/components/settings/programmatic-hierarchy
 url: https://developer.android.com/develop/ui/views/components/settings/programmatic-hierarchy
-source: html-scrape
+source: md.txt
 ---
 
-* [Android Developers](https://developer.android.com/)
-* [Develop](https://developer.android.com/develop)
-* [Core areas](https://developer.android.com/develop/core-areas)
-* [UI](https://developer.android.com/develop/ui)
-* [Views](https://developer.android.com/develop/ui/views/layout/declaring-layout)
-
-Stay organized with collections
-
-Save and categorize content based on your preferences.
-
-
-
-
-# Create a hierarchy in code   Part of [Android Jetpack](/jetpack).
+# Create a hierarchy in code
+Part of [Android Jetpack](https://developer.android.com/jetpack).
 
 You can create a hierarchy programmatically in
-[`onCreatePreferences()`](/reference/androidx/preference/PreferenceFragmentCompat#oncreatepreferences).
+[`onCreatePreferences()`](https://developer.android.com/reference/androidx/preference/PreferenceFragmentCompat#oncreatepreferences).
 The following example demonstrates a programmatic approach to creating the same
 preference screen created through XML on the
-[overview](/develop/ui/views/components/settings#create_a_hierarchy) page. To
+[overview](https://developer.android.com/develop/ui/views/components/settings#create_a_hierarchy) page. To
 create the screen programmatically, create each setting and set its relevant
 properties, then add it to the preference screen:
 
 ### Kotlin
 
-```
+```kotlin
 override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
     val context = preferenceManager.context
     val screen = preferenceManager.createPreferenceScreen(context)
@@ -52,7 +40,7 @@ override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) 
 
 ### Java
 
-```
+```java
 @Override
 public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
     Context context = getPreferenceManager().getContext();
@@ -75,16 +63,16 @@ public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
 ```
 
 Adding a
-[`PreferenceCategory`](/reference/androidx/preference/PreferenceCategory) is
+[`PreferenceCategory`](https://developer.android.com/reference/androidx/preference/PreferenceCategory) is
 similar. The following example demonstrates a programmatic approach to creating
 the preference screen seen in
-[Organize your settings](/develop/ui/views/components/settings/organize-your-settings#preference_categories).
+[Organize your settings](https://developer.android.com/develop/ui/views/components/settings/organize-your-settings#preference_categories).
 The children are added to the `PreferenceCategory` and not to the root
 `PreferenceScreen`.
 
 ### Kotlin
 
-```
+```kotlin
 override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
     val context = preferenceManager.context
     val screen = preferenceManager.createPreferenceScreen(context)
@@ -116,7 +104,7 @@ override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) 
 
 ### Java
 
-```
+```java
 @Override
 public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
     Context context = getPreferenceManager().getContext();
@@ -147,6 +135,5 @@ public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
 }
 ```
 
-**Warning:** Add the `PreferenceCategory` to the `PreferenceScreen` before adding
-children to it. Preferences can't be added to a `PreferenceCategory` that isn't
-attached to the root screen.
+> [!WARNING]
+> **Warning:** Add the `PreferenceCategory` to the `PreferenceScreen` before adding children to it. Preferences can't be added to a `PreferenceCategory` that isn't attached to the root screen.

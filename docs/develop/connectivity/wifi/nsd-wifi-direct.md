@@ -1,22 +1,11 @@
 ---
-title: Use Wi-Fi Direct (P2P) for service discovery  |  Connectivity  |  Android Developers
+title: https://developer.android.com/develop/connectivity/wifi/nsd-wifi-direct
 url: https://developer.android.com/develop/connectivity/wifi/nsd-wifi-direct
-source: html-scrape
+source: md.txt
 ---
 
-* [Android Developers](https://developer.android.com/)
-* [Develop](https://developer.android.com/develop)
-* [Core areas](https://developer.android.com/develop/core-areas)
-* [Connectivity](https://developer.android.com/develop/connectivity)
-* [Guides](https://developer.android.com/develop/connectivity/overview)
-
-# Use Wi-Fi Direct (P2P) for service discovery Stay organized with collections Save and categorize content based on your preferences.
-
-
-
-
 The first lesson in this class, [Using Network Service
-Discovery](/develop/connectivity/wifi/use-nsd), showed you
+Discovery](https://developer.android.com/develop/connectivity/wifi/use-nsd), showed you
 how to discover services that are connected to a local network. However, using
 Wi-Fi Direct (P2P) Service Discovery allows you to discover the services of nearby devices
 directly, without being connected to a network. You can also advertise the services
@@ -27,20 +16,20 @@ While this set of APIs is similar in purpose to the Network Service Discovery
 APIs outlined in a previous lesson, implementing them in code is very different.
 This lesson shows you how to discover services available from other devices,
 using Wi-Fi Direct. The lesson assumes that you're already familiar with the
-[Wi-Fi Direct](/guide/topics/connectivity/wifip2p) API.
+[Wi-Fi Direct](https://developer.android.com/guide/topics/connectivity/wifip2p) API.
 
 ## Set up the manifest
 
-In order to use Wi-Fi P2P, add the `CHANGE_WIFI_STATE`, `ACCESS_WIFI_STATE`,
-`ACCESS_FINE_LOCATION`,
-and `INTERNET`
-permissions to your manifest. If your app targets Android 13 (API level 33) or higher, also add the
-`NEARBY_WIFI_DEVICES`,
+In order to use Wi-Fi P2P, add the `https://developer.android.com/reference/android/Manifest.permission#CHANGE_WIFI_STATE`, `https://developer.android.com/reference/android/Manifest.permission#ACCESS_WIFI_STATE`,
+`https://developer.android.com/reference/android/Manifest.permission#ACCESS_FINE_LOCATION`,
+and `https://developer.android.com/reference/android/Manifest.permission#INTERNET`
+permissions to your manifest. If your app targets Android 13 (API level 33) or higher, also add the
+`https://developer.android.com/reference/android/Manifest.permission#NEARBY_WIFI_DEVICES`,
 permission to your manifest. Even though Wi-Fi Direct doesn't require an
 Internet connection, it uses standard Java sockets, and using these in Android
 requires the requested permissions.
 
-```
+```xml
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.android.nsdchat"
     ...
@@ -70,11 +59,14 @@ requires the requested permissions.
     ...
 ```
 
+
 Besides the preceding permissions, the following APIs also require Location Mode to be enabled:
 
-* `discoverPeers`
-* `discoverServices`
-* `requestPeers`
+- `https://developer.android.com/reference/android/net/wifi/p2p/WifiP2pManager#discoverPeers(android.net.wifi.p2p.WifiP2pManager.Channel,%20android.net.wifi.p2p.WifiP2pManager.ActionListener)`
+- `https://developer.android.com/reference/android/net/wifi/p2p/WifiP2pManager#discoverServices(android.net.wifi.p2p.WifiP2pManager.Channel,%2520android.net.wifi.p2p.WifiP2pManager.ActionListener)`
+- `https://developer.android.com/reference/android/net/wifi/p2p/WifiP2pManager#requestPeers(android.net.wifi.p2p.WifiP2pManager.Channel,%2520android.net.wifi.p2p.WifiP2pManager.PeerListListener)`
+
+<br />
 
 ## Add a local service
 
@@ -84,15 +76,13 @@ automatically responds to service discovery requests from peers.
 
 To create a local service:
 
-1. Create a
-   `WifiP2pServiceInfo` object.
+1. Create a `https://developer.android.com/reference/android/net/wifi/p2p/nsd/WifiP2pServiceInfo` object.
 2. Populate it with information about your service.
-3. Call `addLocalService()` to register the local
-   service for service discovery.
+3. Call `https://developer.android.com/reference/android/net/wifi/p2p/WifiP2pManager#addLocalService(android.net.wifi.p2p.WifiP2pManager.Channel, android.net.wifi.p2p.nsd.WifiP2pServiceInfo, android.net.wifi.p2p.WifiP2pManager.ActionListener)` to register the local service for service discovery.
 
 ### Kotlin
 
-```
+```kotlin
     private fun startRegistration() {
         //  Create a string map containing information about your service.
         val record: Map<String, String> = mapOf(
@@ -125,7 +115,7 @@ To create a local service:
 
 ### Java
 
-```
+```java
     private void startRegistration() {
         //  Create a string map containing information about your service.
         Map record = new HashMap();
@@ -160,7 +150,7 @@ To create a local service:
 ## Discover nearby services
 
 Android uses callback methods to notify your application of available services, so
-the first thing to do is set those up. Create a `WifiP2pManager.DnsSdTxtRecordListener` to listen for
+the first thing to do is set those up. Create a `https://developer.android.com/reference/android/net/wifi/p2p/WifiP2pManager.DnsSdTxtRecordListener` to listen for
 incoming records. This record can optionally be broadcast by other
 devices. When one comes in, copy the device address and any other
 relevant information you want into a data structure external to the current
@@ -169,7 +159,7 @@ record contains a "buddyname" field, populated with the user's identity.
 
 ### Kotlin
 
-```
+```kotlin
 private val buddies = mutableMapOf<String, String>()
 ...
 private fun discoverService() {
@@ -189,7 +179,7 @@ private fun discoverService() {
 
 ### Java
 
-```
+```java
 final HashMap<String, String> buddies = new HashMap<String, String>();
 ...
 private void discoverService() {
@@ -210,16 +200,16 @@ private void discoverService() {
 }
 ```
 
-To get the service information, create a `WifiP2pManager.DnsSdServiceResponseListener`. This
+To get the service information, create a `https://developer.android.com/reference/android/net/wifi/p2p/WifiP2pManager.DnsSdServiceResponseListener`. This
 receives the actual description and connection information. The previous code
-snippet implemented a `Map` object to pair a device address with the buddy
+snippet implemented a `https://developer.android.com/reference/java/util/Map` object to pair a device address with the buddy
 name. The service response listener uses this to link the DNS record with the
 corresponding service information. Once both
-listeners are implemented, add them to the `WifiP2pManager` using the `setDnsSdResponseListeners()` method.
+listeners are implemented, add them to the `https://developer.android.com/reference/android/net/wifi/p2p/WifiP2pManager` using the `https://developer.android.com/reference/android/net/wifi/p2p/WifiP2pManager#setDnsSdResponseListeners(android.net.wifi.p2p.WifiP2pManager.Channel, android.net.wifi.p2p.WifiP2pManager.DnsSdServiceResponseListener, android.net.wifi.p2p.WifiP2pManager.DnsSdTxtRecordListener)` method.
 
 ### Kotlin
 
-```
+```kotlin
 private fun discoverService() {
     ...
 
@@ -247,7 +237,7 @@ private fun discoverService() {
 
 ### Java
 
-```
+```java
 private void discoverService() {
 ...
 
@@ -280,12 +270,12 @@ private void discoverService() {
 }
 ```
 
-Now create a service request and call `addServiceRequest()`.
+Now create a service request and call `https://developer.android.com/reference/android/net/wifi/p2p/WifiP2pManager#addServiceRequest(android.net.wifi.p2p.WifiP2pManager.Channel, android.net.wifi.p2p.nsd.WifiP2pServiceRequest, android.net.wifi.p2p.WifiP2pManager.ActionListener)`.
 This method also takes a listener to report success or failure.
 
 ### Kotlin
 
-```
+```kotlin
         serviceRequest = WifiP2pDnsSdServiceRequest.newInstance()
         manager.addServiceRequest(
                 channel,
@@ -304,7 +294,7 @@ This method also takes a listener to report success or failure.
 
 ### Java
 
-```
+```java
         serviceRequest = WifiP2pDnsSdServiceRequest.newInstance();
         manager.addServiceRequest(channel,
                 serviceRequest,
@@ -321,11 +311,11 @@ This method also takes a listener to report success or failure.
                 });
 ```
 
-Finally, make the call to `discoverServices()`.
+Finally, make the call to `https://developer.android.com/reference/android/net/wifi/p2p/WifiP2pManager#discoverServices(android.net.wifi.p2p.WifiP2pManager.Channel, android.net.wifi.p2p.WifiP2pManager.ActionListener)`.
 
 ### Kotlin
 
-```
+```kotlin
         manager.discoverServices(
                 channel,
                 object : WifiP2pManager.ActionListener {
@@ -347,7 +337,7 @@ Finally, make the call to `discoverServices()`.
 
 ### Java
 
-```
+```java
         manager.discoverServices(channel, new ActionListener() {
 
             @Override
@@ -368,17 +358,17 @@ Finally, make the call to `discoverServices()`.
 
 If all goes well, hooray, you're done! If you encounter problems, remember
 that the asynchronous calls you've made take an
-`WifiP2pManager.ActionListener` as an argument, and
+`https://developer.android.com/reference/android/net/wifi/p2p/WifiP2pManager.ActionListener` as an argument, and
 this provides you with callbacks indicating success or failure. To diagnose
-problems, put debugging code in `onFailure()`. The error code
+problems, put debugging code in `https://developer.android.com/reference/android/net/wifi/p2p/WifiP2pManager.ActionListener#onFailure(int)`. The error code
 provided by the method hints at the problem. Here are the possible error values
 and what they mean
 
-`P2P_UNSUPPORTED`
+`https://developer.android.com/reference/android/net/wifi/p2p/WifiP2pManager#P2P_UNSUPPORTED`
 :   Wi-Fi Direct isn't supported on the device running the app.
 
-`BUSY`
+`https://developer.android.com/reference/android/net/wifi/p2p/WifiP2pManager#BUSY`
 :   The system is too busy to process the request.
 
-`ERROR`
+`https://developer.android.com/reference/android/net/wifi/p2p/WifiP2pManager#ERROR`
 :   The operation failed due to an internal error.

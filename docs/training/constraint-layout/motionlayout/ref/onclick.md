@@ -1,24 +1,20 @@
 ---
-title: <OnClick>  |  Android Developers
+title: https://developer.android.com/training/constraint-layout/motionlayout/ref/onclick
 url: https://developer.android.com/training/constraint-layout/motionlayout/ref/onclick
-source: html-scrape
+source: md.txt
 ---
 
-* [Android Developers](https://developer.android.com/)
-
-# <OnClick> Stay organized with collections Save and categorize content based on your preferences.
-
-
+[Video](https://www.youtube.com/watch?v=CiFuElrEhKc)
 
 Specifies the action to perform when the user taps on a view. There can be
 multiple `<OnClick>` nodes for a single
-[`<Transition>`](/training/constraint-layout/motionlayout/ref/transition), with
+[`<Transition>`](https://developer.android.com/training/constraint-layout/motionlayout/ref/transition), with
 each `<OnClick>` specifying a different target view and a different action to
 perform when the view is tapped.
 
 ## Syntax
 
-```
+```xml
 <OnClick
     motion:targetId="@id/target_view"
     motion:clickAction="action"/>
@@ -33,23 +29,3 @@ perform when the view is tapped.
 `motion:ClickAction`
 :   Action to perform when the view is tapped. Supported values are the
     following:
-
-    * `transitionToStart`
-    :   Animate from the current layout to the layout specified by the
-        `<Transition>` element's
-        `motion::constraintSetStart` attribute.
-    * `transitionToEnd`
-    :   Animate from the current layout to the layout specified by the
-        `<Transition>` element's
-        `motion:constraintSetEnd` attribute.
-    * `jumpToStart`
-    :   Jump from the current layout to the layout specified by the
-        `<Transition>` element's
-        `motion::constraintSetStart` attribute.
-    * `jumpToEnd`
-    :   Jump from the current layout to the layout specified by the
-        `<Transition>` element's
-        `motion:constraintSetEnd` attribute.
-    * `toggle`
-    :   If the layout is in the starting state, animate to the end. Otherwise,
-        animate to the start.

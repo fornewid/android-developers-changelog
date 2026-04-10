@@ -1,30 +1,20 @@
 ---
-title: Troubleshoot known issues with Android Emulator  |  Android Studio  |  Android Developers
+title: https://developer.android.com/studio/run/emulator-troubleshooting
 url: https://developer.android.com/studio/run/emulator-troubleshooting
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [Develop](https://developer.android.com/develop)
-* [Android Studio](https://developer.android.com/studio)
-* [IDE guides](https://developer.android.com/studio/intro)
-
-# Troubleshoot known issues with Android Emulator Stay organized with collections Save and categorize content based on your preferences.
-
-
 
 This page lists known issues, workarounds, and troubleshooting tips for the
 Android Emulator. If you encounter an issue not listed here or are unable to
 successfully use a workaround listed here,
-[report a bug](/studio/report-bugs#emulator-bugs).
+[report a bug](https://developer.android.com/studio/report-bugs#emulator-bugs).
 
-**Note:** If the emulator runs but performs poorly in general, you might need to
-[configure hardware acceleration](/studio/run/emulator-acceleration) for the
-emulator.
+> [!NOTE]
+> **Note:** If the emulator runs but performs poorly in general, you might need to [configure hardware acceleration](https://developer.android.com/studio/run/emulator-acceleration) for the emulator.
 
 ## General issues
 
----
+*** ** * ** ***
 
 ## Google maps not showing in Android Emulator extended controls
 
@@ -97,12 +87,9 @@ press Ctrl+Shift+Esc.
 
 To lower the likelihood of exceeding the commit limit in various ways:
 
-* Free physical RAM before launching the emulator by closing unused applications
-  and files.
-* Disable third-party memory management and memory compression utilities. These
-  utilities can inefficiently cause an excess commit charge and bring your
-  system closer to the commit limit.
-* Use a *system managed size* for the Windows pagefile, which can more flexibly
+- Free physical RAM before launching the emulator by closing unused applications and files.
+- Disable third-party memory management and memory compression utilities. These utilities can inefficiently cause an excess commit charge and bring your system closer to the commit limit.
+- Use a *system managed size* for the Windows pagefile, which can more flexibly
   and dynamically increase the pagefile size, and therefore the commit limit, in
   response to increased demand from the emulator and other applications.
 
@@ -113,7 +100,7 @@ To lower the likelihood of exceeding the commit limit in various ways:
 
 Multi-touch gestures, including two-finger panning, don't work when the emulator
 is running in a tool window. To enable multi-touch,
-[launch the emulator in a separate window](/studio/run/advanced-emulator-usage#standalone-window).
+[launch the emulator in a separate window](https://developer.android.com/studio/run/advanced-emulator-usage#standalone-window).
 
 ## Emulator degrades Bluetooth audio output
 
@@ -134,9 +121,9 @@ On ChromeOS, Android Virtual Devices (AVDs) might fail to launch because the
 `libnss3` dependency is missing. To launch the AVDs successfully, run
 `sudo apt install libnss3` to manually install the `libnss3` library.
 
-## Wrist tilt sensor warnings on Wear OS
+## Wrist tilt sensor warnings on Wear OS
 
-On Wear OS, the emulator might repeatedly log the following message regarding
+On Wear OS, the emulator might repeatedly log the following message regarding
 the wrist tilt sensor:
 `the host has not provided value yet for sensorHandle=16`
 
@@ -148,12 +135,12 @@ On machines with lower resolution, such as 1024x768, it can be difficult to
 read the emulator screen when it runs in a tool window in Android Studio. To
 give the emulator more space, close the **Device Manager** tool window if it's
 open. You can also pull the emulator window out of Android Studio. To do so, in
-the emulator window, click on **Settings > View Mode** and select **Window**
+the emulator window, click on **Settings \> View Mode** and select **Window**
 instead of **Dock Pinned**.
 
 ## Graphics issues
 
----
+*** ** * ** ***
 
 ## Android Emulator runs slowly after an update
 
@@ -161,41 +148,34 @@ A number of external factors can cause the Android Emulator to begin running
 slowly after an update. To begin troubleshooting, we recommend the
 following steps:
 
-* If you have an Intel GPU (and in particular, the Intel HD 4000), ensure you
-  have downloaded and installed the latest Intel graphics driver.
-* If your machine has both an Intel GPU and a discrete GPU,
-  disable the Intel GPU in Device Manager to ensure you are
-  using the discrete GPU.
-* Run the emulator using the `-gpu swiftshader` mode. For more
-  information about configuring graphics
-  acceleration options on the command line, see
-  [Configure hardware acceleration](/studio/run/emulator-acceleration#command-gpu).
-* Ensure that your router is not using IPv6 addresses if you don't have an
-  IPv6 connection.
+- If you have an Intel GPU (and in particular, the Intel HD 4000), ensure you have downloaded and installed the latest Intel graphics driver.
+- If your machine has both an Intel GPU and a discrete GPU, disable the Intel GPU in Device Manager to ensure you are using the discrete GPU.
+- Run the emulator using the `-gpu swiftshader` mode. For more information about configuring graphics acceleration options on the command line, see [Configure hardware acceleration](https://developer.android.com/studio/run/emulator-acceleration#command-gpu).
+- Ensure that your router is not using IPv6 addresses if you don't have an IPv6 connection.
 
 If you are still experiencing problems with the Android Emulator running
-slowly, [report a bug](/studio/report-bugs#emulator-bugs) and include the
+slowly, [report a bug](https://developer.android.com/studio/report-bugs#emulator-bugs) and include the
 necessary Android Emulator details so we can investigate.
 
 ## Error: vulkan-1.dll cannot be found
 
 If the emulator fails to launch due to the error `vulkan-1.dll cannot be found`,
 you probably need to update the emulator. To update the emulator in Android
-Studio, go to **Tools > SDK Manager** and install the latest stable version of
+Studio, go to **Tools \> SDK Manager** and install the latest stable version of
 Android platform.
 
 Alternatively, if you don't need any apps that use the
-[Vulkan](/ndk/guides/graphics/getting-started) graphics library, turn
+[Vulkan](https://developer.android.com/ndk/guides/graphics/getting-started) graphics library, turn
 off Vulkan by
-[launching the emulator from the command line](/studio/run/emulator-commandline)
+[launching the emulator from the command line](https://developer.android.com/studio/run/emulator-commandline)
 with the flag `-feature -Vulkan`.
 
 ## Unable to create a snapshot
 
-Creating a [snapshot](/studio/run/advanced-emulator-usage#snapshots) of the
-emulator that includes the [Vulkan](/ndk/guides/graphics/getting-started)
+Creating a [snapshot](https://developer.android.com/studio/run/advanced-emulator-usage#snapshots) of the
+emulator that includes the [Vulkan](https://developer.android.com/ndk/guides/graphics/getting-started)
 graphics library is not supported. To run the emulator without Vulkan,
-[launch the emulator from the command line](/studio/run/emulator-commandline)
+[launch the emulator from the command line](https://developer.android.com/studio/run/emulator-commandline)
 with the flag `-feature -Vulkan`. Alternatively, you can uninstall and avoid
 using apps with Vulkan, such as Chrome on API 30 or higher, if you want to use
 snapshots as part of your development workflow.
@@ -203,10 +183,10 @@ snapshots as part of your development workflow.
 ## Cannot open webpage correctly
 
 Starting with API level 30, Chrome uses the
-[Vulkan](/ndk/guides/graphics/getting-started) graphics library as
+[Vulkan](https://developer.android.com/ndk/guides/graphics/getting-started) graphics library as
 its rendering backend, and it could have compatibility issues on certain
 machines. If Chrome does not render correctly for you, try to
-[launch the emulator from the command line](/studio/run/emulator-commandline)
+[launch the emulator from the command line](https://developer.android.com/studio/run/emulator-commandline)
 with the flag `-feature -Vulkan`.
 
 ## GPU Driver Warning - Falling Back To Software
@@ -217,12 +197,12 @@ By default it uses auto which might pick software rendering. If you choose
 hardware you should be able to force it to use hardware rendering
 (it might still pop a warning message).
 
-For non-playstore images, you could do it in device manager -> 3 dots -> edit.
+For non-playstore images, you could do it in device manager -\> 3 dots -\> edit.
 For playstore images, you would need to manually edit those 2 config files:
 
-~/.android/your\_avd\_name.avd/config.ini
+\~/.android/your_avd_name.avd/config.ini
 
-~/.android/your\_avd\_name.avd/hardware-qemu.ini
+\~/.android/your_avd_name.avd/hardware-qemu.ini
 
 and change `hw.gpu.mode` to `host`
 
@@ -236,8 +216,8 @@ current recommended workaround is to use-gpu flag like -gpu host or -gpu swiftsh
 
 ## Emulator terminated with exit code -1073741511 (Windows 8.1 or Windows 10 N)
 
-The reason is likely because your system (ex:C:\Windows\System32 (64-bit system))
-is missing msvcp140.dll, msvcp140\_1.dll and msvcp140\_2.dll
+The reason is likely because your system (ex:C:\\Windows\\System32 (64-bit system))
+is missing msvcp140.dll, msvcp140_1.dll and msvcp140_2.dll
 In the past, users who have reported this issue were able to fix it by
 installing (or reinstalling) Windows Media Feature which is optional
 in Windows 10 N versions.
@@ -257,7 +237,7 @@ for the majority of our users.
 
 As a potential workaround (but unsupported), if you're unable to upgrade your
 operating system, you may attempt to find an older version of the Android
-Emulator in our archive (https://developer.android.com/studio/emulator\_archive
+Emulator in our archive (https://developer.android.com/studio/emulator_archive
 last stable being 32.1.11) that might be compatible with Windows 8.1.
 Note that these lower versions are unsupported and may not function
 correctly, and we strongly advise against using them with newer versions of
@@ -283,14 +263,14 @@ to keep using hardware acceleration on GLES apps.
 
 ## Network issues
 
----
+*** ** * ** ***
 
 ## No internet: server DNS address cannot be found
 
 If the emulator cannot connect to the internet, try
-[launching the emulator from the command line](/studio/run/emulator-commandline)
+[launching the emulator from the command line](https://developer.android.com/studio/run/emulator-commandline)
 using the option
-`-dns-server “2001:4860:4860::8844,2001:4860:4860::8888,8.8.8.8,8.8.4.4”`. This
+`-dns-server "2001:4860:4860::8844,2001:4860:4860::8888,8.8.8.8,8.8.4.4"`. This
 command supplies a comma-separated list of Google Public DNS IP addresses. For
 more information about Google Public DNS, see
 [Google Public DNS for your devices](https://developers.google.com/speed/public-dns/docs/using).
@@ -299,7 +279,7 @@ more information about Google Public DNS, see
 
 Sometimes DNS addresses in the `/etc/resolv.conf` file don't work properly.
 You can work around this issue by
-[launching the emulator from the command line](/studio/run/emulator-commandline)
+[launching the emulator from the command line](https://developer.android.com/studio/run/emulator-commandline)
 using the option `-dns-server 8.8.8.8` or `-dns.server 2001:4860:4860::8888` to
 connect over an IPv6-only network.
 
@@ -314,7 +294,7 @@ create a new AVD.
 
 ## Command line network configuration (`-netsim-args`) limitations
 
-You can only apply [command line network settings specified with `-netsim-args`](/studio/run/emulator-commandline#netsim-args)
+You can only apply [command line network settings specified with `-netsim-args`](https://developer.android.com/studio/run/emulator-commandline#netsim-args)
 when you launch the *first* emulator instance. The emulator applies these
 settings to any subsequently launched emulators. You cannot configure different
 network settings using command line arguments for multiple emulators running
@@ -322,7 +302,7 @@ concurrently.
 
 ## Old issues (on deprecated emulators or old systems)
 
----
+*** ** * ** ***
 
 ## Unable to launch AVD
 
@@ -342,14 +322,14 @@ AVD name (`<name>`) has Unicode, the emulator cannot launch the AVD properly
 using this default location.
 
 This issue is fixed in Emulator 31.3.6 and higher.
-To solve this issue, update the emulator by selecting **Tools > SDK
+To solve this issue, update the emulator by selecting **Tools \> SDK
 Manager**.
 
 Alternatively, to work around this issue, set the environment variable
 `ANDROID_SDK_HOME` to a custom directory before creating an AVD. For example,
 create the directory `C:\Android\home`, and then set `ANDROID_SDK_HOME` to this
 newly created directory. To learn more, see [Environment
-variables](/studio/command-line/variables).
+variables](https://developer.android.com/studio/command-line/variables).
 
 ## Hypervisors cannot emulate certain CPU features required by x86 Android systems
 

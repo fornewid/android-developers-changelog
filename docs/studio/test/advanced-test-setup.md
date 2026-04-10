@@ -1,38 +1,27 @@
 ---
-title: Advanced test setup  |  Android Studio  |  Android Developers
+title: https://developer.android.com/studio/test/advanced-test-setup
 url: https://developer.android.com/studio/test/advanced-test-setup
-source: html-scrape
+source: md.txt
 ---
 
-* [Android Developers](https://developer.android.com/)
-* [Develop](https://developer.android.com/develop)
-* [Android Studio](https://developer.android.com/studio)
-* [IDE guides](https://developer.android.com/studio/intro)
-
-# Advanced test setup Stay organized with collections Save and categorize content based on your preferences.
-
-
-
-[Test in Android Studio](/studio/test/test-in-android-studio) and
-[Test from the command line](/studio/test/command-line) explain how to set
+[Test in Android Studio](https://developer.android.com/studio/test/test-in-android-studio) and
+[Test from the command line](https://developer.android.com/studio/test/command-line) explain how to set
 up and run basic test configurations. However, when your app and its
 test requirements get more advanced, you may need to adapt your test
 configurations further. For example, you might need advanced test setup when
 you want to do the following:
 
-* Run instrumented tests only for a specific build variant or override its
-  manifest settings.
-* Change the build type your tests run against or configure its Gradle
-  options.
-* Extract your instrumented tests into their own test module.
-* Perform more advanced testing as part of your Continuous Integration setup.
+- Run instrumented tests only for a specific build variant or override its manifest settings.
+- Change the build type your tests run against or configure its Gradle options.
+- Extract your instrumented tests into their own test module.
+- Perform more advanced testing as part of your Continuous Integration setup.
 
 This page describes various ways to configure your tests when the default
 settings don't fit your needs.
 
 ## Create an instrumented test for a build variant
 
-If your project includes [build variants](/studio/build/build-variants) with
+If your project includes [build variants](https://developer.android.com/studio/build/build-variants) with
 unique source sets, you might want to include instrumented tests that
 correspond to those source sets. This keeps your test code organized and
 lets you run only the tests that apply to a given build variant.
@@ -49,19 +38,15 @@ source sets.
 To add a testing source set for your build variant in Android Studio, follow
 these steps:
 
-1. In the **Project** window, click the menu and select
-   the **Project** view.
-2. Within the appropriate module folder, right-click the **src** folder and
-   click **New > Directory**.
-3. For the directory name, enter "androidTest*VariantName*." For example, if
-   you have a build variant called "MyFlavor," use the directory name
-   `androidTestMyFlavor`.
+1. In the **Project** window, click the menu and select the **Project** view.
+2. Within the appropriate module folder, right-click the **src** folder and click **New \> Directory**.
+3. For the directory name, enter "androidTest*VariantName* ." For example, if you have a build variant called "MyFlavor," use the directory name `androidTestMyFlavor`.
 4. Click **OK**.
-5. Right-click the new directory and select **New > Directory**.
+5. Right-click the new directory and select **New \> Directory**.
 6. Enter "java" as the directory name, then click **OK**.
 
 Now you can add tests to this new source set by following the
-[steps to add a new test](/studio/test/test-in-android-studio#create-new-tests).
+[steps to add a new test](https://developer.android.com/studio/test/test-in-android-studio#create-new-tests).
 When you reach the **Choose Destination Directory** dialog, select the new
 variant test source set.
 
@@ -72,7 +57,7 @@ reside in source sets that correspond to the app's code source sets:
 instrumentation test files
 
 | Path to app class | Path to matching instrumentation test class |
-| --- | --- |
+|---|---|
 | `src/main/java/Example.java` | `src/androidTest/java/AndroidExampleTest.java` |
 | `src/myFlavor/java/Example.java` | `src/androidTestMyFlavor/java/AndroidExampleTest.java` |
 
@@ -85,46 +70,26 @@ the product flavor source set has priority over the main source set.
 When you select different flavors in the build variants selector, the
 appropriate `androidTest` folders are displayed in the **Android** view to
 show the folders that are used:
-
 ![MyFlavor variant selected and androidTestMyFlavor folder is shown
-        in Android view](/static/studio/images/test/test-myflavor-android-test-android-view.png)
-
-
-**Figure 1.** `MyFlavor` variant selected; the
-`androidTestMyFlavor` folder displays in the **Android** view.
+in Android view](https://developer.android.com/static/studio/images/test/test-myflavor-android-test-android-view.png) **Figure 1.** `MyFlavor` variant selected; the `androidTestMyFlavor` folder displays in the **Android** view.
 
 The `androidTestMyFlavor` folder is not shown when a different variant is
 selected:
-
 ![OtherFlavor variant selected and androidTestMyFlavor folder is not
-            shown in Android view](/static/studio/images/test/test-otherflavor-android-test-android-view.png)
-
-
-**Figure 2.** `OtherFlavor` variant selected; the
-`androidTestMyFlavor` folder does not show in the **Android** view.
+shown in Android view](https://developer.android.com/static/studio/images/test/test-otherflavor-android-test-android-view.png) **Figure 2.** `OtherFlavor` variant selected; the `androidTestMyFlavor` folder does not show in the **Android** view.
 
 This looks slightly different if you are using the **Project** view, but the same
 principle applies:
-
 ![MyFlavor variant selected and androidTestMyFlavor folder is active
-        in Project view](/static/studio/images/test/test-myflavor-android-test-project-view.png)
-
-
-**Figure 3.** `MyFlavor` variant selected; the
-`androidTestMyFlavor` folder is active in the **Project** view.
+in Project view](https://developer.android.com/static/studio/images/test/test-myflavor-android-test-project-view.png) **Figure 3.** `MyFlavor` variant selected; the `androidTestMyFlavor` folder is active in the **Project** view.
 
 When a different variant is selected, the `androidTestMyFlavor` folder is still
 visible, but it is not shown as active:
-
 ![OtherFlavor variant selected and androidTestMyFlavor folder is not
-            active in Project view](/static/studio/images/test/test-otherflavor-android-test-project-view.png)
-
-
-**Figure 4.** `OtherFlavor` variant selected; the
-`androidTestMyFlavor` folder is not active in the **Project** view.
+active in Project view](https://developer.android.com/static/studio/images/test/test-otherflavor-android-test-project-view.png) **Figure 4.** `OtherFlavor` variant selected; the `androidTestMyFlavor` folder is not active in the **Project** view.
 
 For more information about how source sets are merged, see
-[Source sets](/studio/build#sourcesets).
+[Source sets](https://developer.android.com/studio/build#sourcesets).
 
 ## Configure instrumentation manifest settings
 
@@ -132,21 +97,21 @@ Instrumented tests are built into a separate APK with its own
 `AndroidManifest.xml` file. When Gradle builds your test APK, it
 automatically generates the `AndroidManifest.xml` file and configures it
 with the
-[`<instrumentation>`](/guide/topics/manifest/instrumentation-element) node.
+[`<instrumentation>`](https://developer.android.com/guide/topics/manifest/instrumentation-element) node.
 One of the reasons Gradle configures this node for you is to make sure that
-the [`targetPackage`](/guide/topics/manifest/instrumentation-element#trgt)
+the [`targetPackage`](https://developer.android.com/guide/topics/manifest/instrumentation-element#trgt)
 property specifies the correct package name of the app under test.
 
 To change other settings for this node, either create another
 manifest file in the test source set or configure your module-level
 `build.gradle` file, as shown in
 the following code sample. The full list of options can be found in the
-[`BaseFlavor`](/reference/tools/gradle-api/7.1/com/android/build/api/dsl/BaseFlavor)
+[`BaseFlavor`](https://developer.android.com/reference/tools/gradle-api/7.1/com/android/build/api/dsl/BaseFlavor)
 API reference.
 
 ### Groovy
 
-```
+```groovy
 android {
     ...
     defaultConfig {
@@ -161,7 +126,7 @@ android {
 
 ### Kotlin
 
-```
+```kotlin
 android {
     ...
     defaultConfig {
@@ -176,15 +141,15 @@ android {
 
 Each product flavor you configure can override properties in the
 `defaultConfig {}` block. To learn more, go to [Configure product
-flavors](/studio/build/build-variants#product-flavors).
+flavors](https://developer.android.com/studio/build/build-variants#product-flavors).
 
 The properties in the snippet are:
 
 | Setting | Description |
-| --- | --- |
-| `testApplicationId` | Specifies the [application ID](/studio/build/configure-app-module#set-application-id) for the test APK. |
+|---|---|
+| `testApplicationId` | Specifies the [application ID](https://developer.android.com/studio/build/configure-app-module#set-application-id) for the test APK. |
 | `testInstrumentationRunner` | Specifies the fully qualified class name of the test instrumentation runner. |
-| `testHandleProfiling` | If set to `true`, enables the instrumentation class to start and stop profiling.  If set to `false`, profiling occurs the entire time the instrumentation class is running. |
+| `testHandleProfiling` | If set to `true`, enables the instrumentation class to start and stop profiling. If set to `false`, profiling occurs the entire time the instrumentation class is running. |
 | `testFunctionalTest` | If set to `true`, indicates that the Android system should run the instrumentation class as a functional test. The default value is `false`. |
 
 ## Change the test build type
@@ -197,7 +162,7 @@ shown in the following snippet:
 
 ### Groovy
 
-```
+```groovy
 android {
     ...
     testBuildType "staging"
@@ -206,7 +171,7 @@ android {
 
 ### Kotlin
 
-```
+```kotlin
 android {
     ...
     testBuildType = "staging"
@@ -215,15 +180,15 @@ android {
 
 ## Configure Gradle test options
 
-The [Android Gradle plugin](/studio/releases/gradle-plugin) lets you
+The [Android Gradle plugin](https://developer.android.com/studio/releases/gradle-plugin) lets you
 specify certain options for all or just some of your tests. In the
 module-level `build.gradle` file, use the
-[`testOptions`](/reference/tools/gradle-api/7.0/com/android/build/api/dsl/TestOptions)
+[`testOptions`](https://developer.android.com/reference/tools/gradle-api/7.0/com/android/build/api/dsl/TestOptions)
 block to specify options that change how Gradle runs all your tests:
 
 ### Groovy
 
-```
+```groovy
 android {
     ...
     // Encapsulates options for running tests.
@@ -236,7 +201,7 @@ android {
 
 ### Kotlin
 
-```
+```kotlin
 android {
     ...
     // Encapsulates options for running tests.
@@ -260,12 +225,12 @@ results. By default, Gradle saves test results in the
 to the root directory of the current project.
 
 To specify options for only local unit tests, configure the
-[`unitTests`](/reference/tools/gradle-api/7.0/com/android/build/api/dsl/UnitTestOptions)
+[`unitTests`](https://developer.android.com/reference/tools/gradle-api/7.0/com/android/build/api/dsl/UnitTestOptions)
 block inside `testOptions`.
 
 ### Groovy
 
-```
+```groovy
 android {
     ...
     testOptions {
@@ -289,7 +254,7 @@ android {
 
 ### Kotlin
 
-```
+```kotlin
 android {
     ...
     testOptions {
@@ -313,7 +278,7 @@ android {
 
 By default, local unit tests throw an exception any time the code
 you are testing tries to access Android platform APIs, unless you
-[mock Android dependencies](/training/testing/unit-testing/local-unit-tests#mocking-dependencies)
+[mock Android dependencies](https://developer.android.com/training/testing/unit-testing/local-unit-tests#mocking-dependencies)
 yourself or with a testing framework like
 Mockito. However, you can enable the `returnDefaultValues` property so that
 the test returns either null or zero when accessing platform APIs, rather
@@ -337,17 +302,16 @@ configure its build similar to that of a library module.
 
 To create a test module, proceed as follows:
 
-1. [Create a library module](/studio/projects/android-library#CreateLibrary).
-2. In the module-level `build.gradle` file, apply the `com.android.test`
-   plugin instead of `com.android.library`.
-3. Click **Sync Project** ![](/static/studio/images/buttons/toolbar-sync-gradle.png).
+1. [Create a library module](https://developer.android.com/studio/projects/android-library#CreateLibrary).
+2. In the module-level `build.gradle` file, apply the `com.android.test` plugin instead of `com.android.library`.
+3. Click **Sync Project** ![](https://developer.android.com/static/studio/images/buttons/toolbar-sync-gradle.png).
 
 After you create your test module, you can include your test code in the
 main or variant source set (for example, `src/main/java` or
 `src/variant/java`). If your app module defines
 multiple product flavors, you can re-create those flavors in your test module.
 Using [variant-aware dependency
-management](/studio/build/build-variants#variant_aware),
+management](https://developer.android.com/studio/build/build-variants#variant_aware),
 the test module attempts to test the matching flavor in the target module.
 
 By default, test modules contain and test only a debug variant. However,
@@ -357,7 +321,7 @@ test module test a different build type and not the debug one, use
 
 ### Groovy
 
-```
+```groovy
 android {
     variantFilter { variant ->
         if (variant.buildType.name.equals('debug')) {
@@ -369,7 +333,7 @@ android {
 
 ### Kotlin
 
-```
+```kotlin
 android {
     variantFilter {
         if (buildType.name == "debug") {

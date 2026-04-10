@@ -1,25 +1,16 @@
 ---
-title: Dynamic System Updates (DSU)  |  Platform  |  Android Developers
+title: https://developer.android.com/topic/dsu
 url: https://developer.android.com/topic/dsu
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [Essentials](https://developer.android.com/get-started)
-* [Platform](https://developer.android.com/about)
-* [Technology](https://developer.android.com/guide/platform)
-
-# Dynamic System Updates (DSU) Stay organized with collections Save and categorize content based on your preferences.
-
-
 
 Dynamic System Updates (DSU) is a system feature introduced in Android 10 that
 does the following:
 
-* Downloads a new GSI (or other Android system image) onto your device.
-* Creates a new dynamic partition.
-* Loads the downloaded GSI onto the new partition.
-* Boots the GSI as a guest OS on the device.
+- Downloads a new GSI (or other Android system image) onto your device.
+- Creates a new dynamic partition.
+- Loads the downloaded GSI onto the new partition.
+- Boots the GSI as a guest OS on the device.
 
 DSU also enables you to easily switch between the current system image and the
 GSI so you can try GSI without risking corruption of the current system image.
@@ -29,8 +20,8 @@ GSI so you can try GSI without risking corruption of the current system image.
 DSU depends on the *Android Dynamic Partition* feature and requires the GSIs to
 be signed by Google or your OEMs as a trusted system image.
 
-DSU is a feature provided by your device’s manufacturer. Refer to your device
-manufacturer’s support page for availability. Google has enabled DSU on Pixel
+DSU is a feature provided by your device's manufacturer. Refer to your device
+manufacturer's support page for availability. Google has enabled DSU on Pixel
 3 and newer devices since the Android 10 Beta 4 release.
 
 ## Install GSIs using DSU and the command line
@@ -41,13 +32,12 @@ This section describes how to install a GSI using DSU and the command line.
 
 Launch DSU using the `adb` tool.
 
-1. Download a GSI from the [GSI release page](/topic/generic-system-image/releases)
+1. Download a GSI from the [GSI release page](https://developer.android.com/topic/generic-system-image/releases)
    or another GSI image server.
 
-   **Note:** If you build your own GSI from source, or if you download a GSI from
-   another image server, your GSI might not be unsparsed. Use the following
-   command inside your build tree to convert the image to an unsparsed
-   image: `simg2img system.img system_raw.img`
+   > [!NOTE]
+   > **Note:** If you build your own GSI from source, or if you download a GSI from another image server, your GSI might not be unsparsed. Use the following command inside your build tree to convert the image to an unsparsed image: `simg2img system.img system_raw.img`
+
 2. gzip the GSI.
 
    ```
@@ -71,22 +61,19 @@ Launch DSU using the `adb` tool.
 
    A notification like this one shows the status of the installation.
 
-   ![Notification showing GSI installation in progress](/static/topic/dsu/images/dsu_installation.png)
+   ![Notification showing GSI installation in progress](https://developer.android.com/static/topic/dsu/images/dsu_installation.png)
 
 ### Boot into the GSI
 
-![](/static/topic/dsu/images/dsu_control.png)
-
-
-**Figure 1**. A persistent notification that you can use to control DSU.
+![](https://developer.android.com/static/topic/dsu/images/dsu_control.png) **Figure 1**. A persistent notification that you can use to control DSU.
 
 After DSU installs the GSI, a DSU menu appears as a persistent notification
 inside the system notification drawer (see figure 1).
 
 At this point, you can do one of the following:
 
-* Boot into the GSI by tapping **Restart**.
-* Clean up the GSI by tapping **Discard**.
+- Boot into the GSI by tapping **Restart**.
+- Clean up the GSI by tapping **Discard**.
 
 ### Switch back to the device's original system image
 
@@ -105,11 +92,9 @@ adb shell gsi_tool enable
 
 The following commands disable sticky mode:
 
-```
-adb shell gsi_tool disable
-adb shell gsi_tool enable -s
-adb shell gsi_tool disable
-```
+    adb shell gsi_tool disable
+    adb shell gsi_tool enable -s
+    adb shell gsi_tool disable
 
 ## Install GSIs using DSU and the DSU Loader
 
@@ -120,11 +105,11 @@ system's UI.
 To install a GSI using the DSU Loader, follow these steps on a device running
 Android 11 or higher:
 
-1. [Enable developer options](/studio/debug/dev-options#enable) on your device.
-2. Open your device's Settings app, then tap **Developer options > DSU Loader**.
+1. [Enable developer options](https://developer.android.com/studio/debug/dev-options#enable) on your device.
+2. Open your device's Settings app, then tap **Developer options \> DSU Loader**.
 3. Choose the GSI that you want to install on your device.
 
-   ![DSU loader interface for selecting a GSI](/static/images/topic/dsu/loader-select-gsi.png)
+   ![DSU loader interface for selecting a GSI](https://developer.android.com/static/images/topic/dsu/loader-select-gsi.png)
 4. Agree to the GSI terms and conditions.
 
    After you agree to the terms and conditions, the GSI that you selected starts
@@ -132,12 +117,12 @@ Android 11 or higher:
    notification.
 5. After the download has finished, tap **Restart** to boot the GSI.
 
-   ![DSU notification with options for managing the GSI](/static/images/topic/dsu/dsu-gsi-options.png)
+   ![DSU notification with options for managing the GSI](https://developer.android.com/static/images/topic/dsu/dsu-gsi-options.png)
 6. When you want to switch back to your device's original system image, tap
    **Restart** from the DSU system notification.
 
    ![DSU notification with an option that lets you reboot the device using the
-   original system image](/static/images/topic/dsu/restart-original-system-image.png)
+   original system image](https://developer.android.com/static/images/topic/dsu/restart-original-system-image.png)
 
 ## Provide feedback
 

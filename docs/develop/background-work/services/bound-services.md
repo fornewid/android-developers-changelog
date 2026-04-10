@@ -1,18 +1,8 @@
 ---
-title: Bound services overview  |  Background work  |  Android Developers
+title: https://developer.android.com/develop/background-work/services/bound-services
 url: https://developer.android.com/develop/background-work/services/bound-services
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [Develop](https://developer.android.com/develop)
-* [Core areas](https://developer.android.com/develop/core-areas)
-* [Background work](https://developer.android.com/develop/background-work)
-* [Guides](https://developer.android.com/develop/background-work/background-tasks)
-
-# Bound services overview Stay organized with collections Save and categorize content based on your preferences.
-
-
 
 A bound service is the server in a client-server interface. It lets components
 such as activities bind to the service, send requests, receive responses, and perform
@@ -22,31 +12,31 @@ application component and does not run in the background indefinitely.
 This document describes how to create a bound service, including how to bind
 to the service from other application components. For additional information about services in
 general, such as how to deliver notifications from a service and set the service to run
-in the foreground, refer to the [Services overview](/guide/components/services).
+in the foreground, refer to the [Services overview](https://developer.android.com/guide/components/services).
 
 ## The basics
 
-A bound service is an implementation of the `Service` class that lets
+A bound service is an implementation of the `https://developer.android.com/reference/android/app/Service` class that lets
 other applications bind to it and interact with it. To provide binding for a
-service, you implement the `onBind()` callback method. This
-method returns an `IBinder` object that defines the programming interface that
+service, you implement the `https://developer.android.com/reference/android/app/Service#onBind(android.content.Intent)` callback method. This
+method returns an `https://developer.android.com/reference/android/os/IBinder` object that defines the programming interface that
 clients can use to interact with the service.
 
 ### Bind to a started service
 
-As discussed in the [Services overview](/guide/components/services),
+As discussed in the [Services overview](https://developer.android.com/guide/components/services),
 you can create a service that is both started and bound. That is, you can start a
-service by calling `startService()`, which lets the
+service by calling `https://developer.android.com/reference/android/content/Context#startService(android.content.Intent)`, which lets the
 service run indefinitely. You can also let a client bind to the service by
-calling `bindService()`.
+calling `https://developer.android.com/reference/android/content/Context#bindService(android.content.Intent, android.content.ServiceConnection, int)`.
 
 If you let your service be started and bound, then when the service starts,
 the system *doesn't* destroy the service when all clients unbind.
 Instead, you must
-explicitly stop the service by calling `stopSelf()` or `stopService()`.
+explicitly stop the service by calling `https://developer.android.com/reference/android/app/Service#stopSelf()` or `https://developer.android.com/reference/android/content/Context#stopService(android.content.Intent)`.
 
-Although you usually implement either `onBind()`
-*or* `onStartCommand()`, it's sometimes
+Although you usually implement either `https://developer.android.com/reference/android/app/Service#onBind(android.content.Intent)`
+*or* `https://developer.android.com/reference/android/app/Service#onStartCommand(android.content.Intent, int, int)`, it's sometimes
 necessary to
 implement both. For example, a music player might find it useful to let its service run
 indefinitely and also provide binding. This way, an activity can start the service to play some
@@ -55,32 +45,32 @@ returns to the application, the activity can bind to the service to regain contr
 playback.
 
 For more information about the service lifecycle when adding binding to a started service,
-see the [Manage the lifecycle of a bound service](#Lifecycle) section.
+see the [Manage the lifecycle of a bound service](https://developer.android.com/develop/background-work/services/bound-services#Lifecycle) section.
 
 A client binds to a service by calling
-`bindService()`. When it does, it must
-provide an implementation of `ServiceConnection`, which
+`https://developer.android.com/reference/android/content/Context#bindService(android.content.Intent, android.content.ServiceConnection, int)`. When it does, it must
+provide an implementation of `https://developer.android.com/reference/android/content/ServiceConnection`, which
 monitors the connection with the service. The return value of
 `bindService()` indicates whether the
 requested service exists and whether the client is permitted access to it.
 
 When
 the Android system creates the connection between the client and service, it
-calls `onServiceConnected()`
+calls `https://developer.android.com/reference/android/content/ServiceConnection#onServiceConnected(android.content.ComponentName, android.os.IBinder)`
 on the `ServiceConnection`. The
-`onServiceConnected()` method includes an `IBinder`
+`onServiceConnected()` method includes an `https://developer.android.com/reference/android/os/IBinder`
 argument, which the client then uses to communicate with the bound service.
 
 You can connect multiple clients to a service simultaneously. However, the
 system caches the `IBinder` service communication channel.
-In other words, the system calls the service's `onBind()`
+In other words, the system calls the service's `https://developer.android.com/reference/android/app/Service#onBind(android.content.Intent)`
 method to generate the `IBinder` only when the first
 client binds. The system then delivers that same `IBinder` to
 all additional clients that bind to that same service, without calling
 `onBind()` again.
 
 When the last client unbinds from the service, the system destroys the service, unless the
-service was started using `startService()`.
+service was started using `https://developer.android.com/reference/android/content/Context#startService(android.content.Intent)`.
 
 The most important part of your bound service implementation is defining the interface
 that your `onBind()` callback method returns. The following
@@ -89,40 +79,40 @@ section discusses several ways that you can define your service's
 
 ## Create a bound service
 
-When creating a service that provides binding, you must provide an `IBinder`
+When creating a service that provides binding, you must provide an `https://developer.android.com/reference/android/os/IBinder`
 that provides the programming interface that clients can use to interact with the service. There
 are three ways you can define the interface:
 
-[Extend the Binder class](#Binder)
+[Extend the Binder class](https://developer.android.com/develop/background-work/services/bound-services#Binder)
 :   If your service is private to your own application and runs in the same process
-    as the client, which is common, create your interface by extending the `Binder`
+    as the client, which is common, create your interface by extending the `https://developer.android.com/reference/android/os/Binder`
     class
     and returning an instance of it from
-    `onBind()`. The client receives the `Binder` and
+    `https://developer.android.com/reference/android/app/Service#onBind(android.content.Intent)`. The client receives the `Binder` and
     can use it to directly access public methods available in either the `Binder`
-    implementation or the `Service`.
+    implementation or the `https://developer.android.com/reference/android/app/Service`.
 
     This is the preferred technique when your service is merely a background worker for your own
     application. The only use case when this is not the preferred way to create your interface is
     if your service is used by other applications or across separate processes.
 
-[Use a Messenger](#Messenger)
+[Use a Messenger](https://developer.android.com/develop/background-work/services/bound-services#Messenger)
 :   If you need your interface to work across different processes, you can create
-    an interface for the service with a `Messenger`. In this manner, the service
-    defines a `Handler` that responds to different types of `Message` objects.
+    an interface for the service with a `https://developer.android.com/reference/android/os/Messenger`. In this manner, the service
+    defines a `https://developer.android.com/reference/android/os/Handler` that responds to different types of `https://developer.android.com/reference/android/os/Message` objects.
 
     This `Handler`
-    is the basis for a `Messenger` that can then share an `IBinder`
+    is the basis for a `Messenger` that can then share an `https://developer.android.com/reference/android/os/IBinder`
     with the client, letting the client send commands to the service using `Message` objects. Additionally, the client can define a `Messenger` of
     its own, so the service can send messages back.
 
     This is the simplest way to perform interprocess communication (IPC), because the `Messenger` queues all requests into a single thread so that you don't have to design
     your service to be thread-safe.
 
-[Use AIDL](/guide/components/aidl)
+[Use AIDL](https://developer.android.com/guide/components/aidl)
 :   Android Interface Definition Language (AIDL) decomposes objects into
     primitives that the operating system can understand and marshalls them across processes to perform
-    IPC. The previous technique, using a `Messenger`, is actually based on AIDL as
+    IPC. The previous technique, using a `https://developer.android.com/reference/android/os/Messenger`, is actually based on AIDL as
     its underlying structure.
 
     As mentioned in the preceding section, the `Messenger` creates a queue of
@@ -139,14 +129,14 @@ are three ways you can define the interface:
 create a bound service, because it might require multithreading capabilities and
 can result in a more complicated implementation. Therefore, this document does not discuss how
 to use it for your service. If you're certain that you need
-to use AIDL directly, see the [AIDL](/guide/components/aidl)
+to use AIDL directly, see the [AIDL](https://developer.android.com/guide/components/aidl)
 document.
 
 ### Extend the Binder class
 
 If only the local application uses your service and it doesn't need to
 work across processes,
-then you can implement your own `Binder` class that provides your client direct
+then you can implement your own `https://developer.android.com/reference/android/os/Binder` class that provides your client direct
 access to public methods in the service.
 
 **Note:** This works only if the client and service are in the same
@@ -156,15 +146,12 @@ background.
 
 Here's how to set it up:
 
-1. In your service, create an instance of `Binder` that does
-   one of the following:
-   * Contains public methods that the client can call.
-   * Returns the current `Service` instance, which has public methods the
-     client can call.
-   * Returns an instance of another class hosted by the service with public methods the
-     client can call.- Return this instance of `Binder` from the `onBind()` callback method.
-   - In the client, receive the `Binder` from the `onServiceConnected()` callback method and
-     make calls to the bound service using the methods provided.
+1. In your service, create an instance of `Binder` that does one of the following:
+   - Contains public methods that the client can call.
+   - Returns the current `https://developer.android.com/reference/android/app/Service` instance, which has public methods the client can call.
+   - Returns an instance of another class hosted by the service with public methods the client can call.
+2. Return this instance of `Binder` from the `https://developer.android.com/reference/android/app/Service#onBind(android.content.Intent)` callback method.
+3. In the client, receive the `Binder` from the `https://developer.android.com/reference/android/content/ServiceConnection#onServiceConnected(android.content.ComponentName, android.os.IBinder)` callback method and make calls to the bound service using the methods provided.
 
 **Note:** The service and client must be in the same
 application so that the client can cast the returned object and properly call its APIs.
@@ -177,7 +164,7 @@ a `Binder` implementation:
 
 ### Kotlin
 
-```
+```kotlin
 class LocalService : Service() {
     // Binder given to clients.
     private val binder = LocalBinder()
@@ -206,7 +193,7 @@ class LocalService : Service() {
 
 ### Java
 
-```
+```java
 public class LocalService extends Service {
     // Binder given to clients.
     private final IBinder binder = new LocalBinder();
@@ -245,7 +232,7 @@ when a button is clicked:
 
 ### Kotlin
 
-```
+```kotlin
 class BindingActivity : Activity() {
     private lateinit var mService: LocalService
     private var mBound: Boolean = false
@@ -300,7 +287,7 @@ class BindingActivity : Activity() {
 
 ### Java
 
-```
+```java
 public class BindingActivity extends Activity {
     LocalService mService;
     boolean mBound = false;
@@ -359,20 +346,20 @@ public class BindingActivity extends Activity {
 ```
 
 The preceding sample shows how the client binds to the service using an implementation of
-`ServiceConnection` and the `onServiceConnected()` callback. The next
+`https://developer.android.com/reference/android/content/ServiceConnection` and the `https://developer.android.com/reference/android/content/ServiceConnection#onServiceConnected(android.content.ComponentName, android.os.IBinder)` callback. The next
 section provides more information about this process of binding to the service.
 
 **Note:** In the preceding example, the
-`onStop()` method unbinds the client from the service.
+`https://developer.android.com/reference/android/app/Activity#onStop()` method unbinds the client from the service.
 Unbind clients from services at appropriate times, as discussed in the
-[Additional notes](#Additional_Notes) section.
+[Additional notes](https://developer.android.com/develop/background-work/services/bound-services#Additional_Notes) section.
 
 For more sample code, see the [`LocalService.java`](https://android.googlesource.com/platform/development/+/master/samples/ApiDemos/src/com/example/android/apis/app/LocalService.java) class and the [`LocalServiceActivities.java`](https://android.googlesource.com/platform/development/+/master/samples/ApiDemos/src/com/example/android/apis/app/LocalServiceActivities.java) class in [ApiDemos](https://android.googlesource.com/platform/development/+/master/samples/ApiDemos).
 
 ### Use a Messenger
 
 If you need your service to communicate with remote processes, then you can use a
-`Messenger` to provide the interface for your service. This technique lets
+`https://developer.android.com/reference/android/os/Messenger` to provide the interface for your service. This technique lets
 you perform interprocess communication (IPC) without the need to use AIDL.
 
 Using a `Messenger` for your interface is
@@ -381,21 +368,15 @@ all calls to the service. A pure AIDL interface sends simultaneous requests to t
 service, which must then handle multithreading.
 
 For most applications, the service doesn't need to perform multithreading, so using a `Messenger` lets the service handle one call at a time. If it's important
-that your service be multithreaded, use [AIDL](/guide/components/aidl) to define your interface.
+that your service be multithreaded, use [AIDL](https://developer.android.com/guide/components/aidl) to define your interface.
 
 Here's a summary of how to use a `Messenger`:
 
-1. The service implements a `Handler` that receives a callback for each
-   call from a client.
-2. The service uses the `Handler` to create a `Messenger`
-   object
-   (which is a reference to the `Handler`).
-3. The `Messenger` creates an `IBinder` that the service
-   returns to clients from `onBind()`.
-4. Clients use the `IBinder` to instantiate the `Messenger`
-   (that references the service's `Handler`), which the client uses to send
-   `Message` objects to the service.
-5. The service receives each `Message` in its `Handler`—specifically, in the `handleMessage()` method.
+1. The service implements a `https://developer.android.com/reference/android/os/Handler` that receives a callback for each call from a client.
+2. The service uses the `Handler` to create a `Messenger` object (which is a reference to the `Handler`).
+3. The `Messenger` creates an `https://developer.android.com/reference/android/os/IBinder` that the service returns to clients from `https://developer.android.com/reference/android/app/Service#onBind(android.content.Intent)`.
+4. Clients use the `IBinder` to instantiate the `Messenger` (that references the service's `Handler`), which the client uses to send `https://developer.android.com/reference/android/os/Message` objects to the service.
+5. The service receives each `Message` in its `Handler`---specifically, in the `https://developer.android.com/reference/android/os/Handler#handleMessage(android.os.Message)` method.
 
 In this way, there are no *methods* for the client to call on the service. Instead, the
 client delivers *messages* (`Message` objects) that the service
@@ -406,7 +387,7 @@ Here's a simple example service that uses a `Messenger` interface:
 
 ### Kotlin
 
-```
+```kotlin
 /** Command to the service to display a message.  */
 private const val MSG_SAY_HELLO = 1
 
@@ -447,7 +428,7 @@ class MessengerService : Service() {
 
 ### Java
 
-```
+```java
 public class MessengerService extends Service {
     /**
      * Command to the service to display a message.
@@ -494,16 +475,16 @@ public class MessengerService extends Service {
 }
 ```
 
-The `handleMessage()` method in the
-`Handler` is where the service receives the incoming `Message`
-and decides what to do, based on the `what` member.
+The `https://developer.android.com/reference/android/os/Handler#handleMessage(android.os.Message)` method in the
+`https://developer.android.com/reference/android/os/Handler` is where the service receives the incoming `https://developer.android.com/reference/android/os/Message`
+and decides what to do, based on the `https://developer.android.com/reference/android/os/Message#what` member.
 
-All that a client needs to do is create a `Messenger` based on the `IBinder` returned by the service and send a message using `send()`. For example, here's an activity that binds to the
+All that a client needs to do is create a `https://developer.android.com/reference/android/os/Messenger` based on the `https://developer.android.com/reference/android/os/IBinder` returned by the service and send a message using `https://developer.android.com/reference/android/os/Messenger#send(android.os.Message)`. For example, here's an activity that binds to the
 service and delivers the `MSG_SAY_HELLO` message to the service:
 
 ### Kotlin
 
-```
+```kotlin
 class ActivityMessenger : Activity() {
     /** Messenger for communicating with the service.  */
     private var mService: Messenger? = null
@@ -572,7 +553,7 @@ class ActivityMessenger : Activity() {
 
 ### Java
 
-```
+```java
 public class ActivityMessenger extends Activity {
     /** Messenger for communicating with the service. */
     Messenger mService = null;
@@ -641,66 +622,65 @@ public class ActivityMessenger extends Activity {
 
 This example doesn't show how the service can respond to the client.
 If you want the
-service to respond, you need to also create a `Messenger` in the client.
-When the client receives the `onServiceConnected()` callback, it sends a `Message` to the service that includes
-the client's `Messenger` in the `replyTo` parameter
-of the `send()` method.
+service to respond, you need to also create a `https://developer.android.com/reference/android/os/Messenger` in the client.
+When the client receives the `https://developer.android.com/reference/android/content/ServiceConnection#onServiceConnected(android.content.ComponentName, android.os.IBinder)` callback, it sends a `https://developer.android.com/reference/android/os/Message` to the service that includes
+the client's `Messenger` in the `https://developer.android.com/reference/android/os/Message#replyTo` parameter
+of the `https://developer.android.com/reference/android/os/Messenger#send(android.os.Message)` method.
 
 You can see an example of how to provide two-way messaging in the [`MessengerService.java`](https://android.googlesource.com/platform/development/+/master/samples/ApiDemos/src/com/example/android/apis/app/MessengerService.java) (service) and [`MessengerServiceActivities.java`](https://android.googlesource.com/platform/development/+/master/samples/ApiDemos/src/com/example/android/apis/app/MessengerServiceActivities.java) (client) samples.
 
 ## Bind to a service
 
 Application components (clients) can bind to a service by calling
-`bindService()`. The Android
-system then calls the service's `onBind()` method, which returns an `IBinder` for interacting with
+`https://developer.android.com/reference/android/content/Context#bindService(android.content.Intent, android.content.ServiceConnection, int)`. The Android
+system then calls the service's `https://developer.android.com/reference/android/app/Service#onBind(android.content.Intent)` method, which returns an `https://developer.android.com/reference/android/os/IBinder` for interacting with
 the service.
 
 The binding is asynchronous, and `bindService()` returns immediately *without* returning the `IBinder` to
 the client. To receive the `IBinder`, the client must create an
-instance of `ServiceConnection` and pass it to `bindService()`. The `ServiceConnection` includes a callback method that the
+instance of `https://developer.android.com/reference/android/content/ServiceConnection` and pass it to `bindService()`. The `ServiceConnection` includes a callback method that the
 system calls to deliver the `IBinder`.
 
 **Note:** Only activities, services, and content providers can bind
-to a service—you **can't** bind to a service from a broadcast receiver.
+to a service---you **can't** bind to a service from a broadcast receiver.
 
 To bind to a service from your client, follow these steps:
 
-1. Implement `ServiceConnection`.
+1. Implement `https://developer.android.com/reference/android/content/ServiceConnection`.
 
    Your implementation must override two callback methods:
 
-   `onServiceConnected()`
+   `https://developer.android.com/reference/android/content/ServiceConnection#onServiceConnected(android.content.ComponentName, android.os.IBinder)`
    :   The system calls this to deliver the `IBinder` returned by
        the service's `onBind()` method.
 
-   `onServiceDisconnected()`
+   `https://developer.android.com/reference/android/content/ServiceConnection#onServiceDisconnected(android.content.ComponentName)`
    :   The Android system calls this when the connection to the service is unexpectedly
        lost, such as when the service crashes or is killed. This is *not*
        called when the
        client unbinds.
-2. Call `bindService()`, passing the `ServiceConnection` implementation.
+2. Call `https://developer.android.com/reference/android/content/Context#bindService(android.content.Intent, android.content.ServiceConnection, int)`, passing the `ServiceConnection` implementation.
 
    **Note:** If the method returns false, your
    client does not have a valid connection to the service. However, do call
-   `unbindService()`
+   `https://developer.android.com/reference/android/content/Context#unbindService(android.content.ServiceConnection)`
    in your client. Otherwise, your client keeps the service from
    shutting down when it is idle.
-3. When the system calls your `onServiceConnected()` callback method, you can begin making calls to the service, using
-   the methods defined by the interface.
-4. To disconnect from the service, call `unbindService()`.
+3. When the system calls your `onServiceConnected()` callback method, you can begin making calls to the service, using the methods defined by the interface.
+4. To disconnect from the service, call `https://developer.android.com/reference/android/content/Context#unbindService(android.content.ServiceConnection)`.
 
    If your client is still bound to a service when your app destroys the client, destruction
    causes the client to unbind. It is a better practice to unbind the client as soon as it is done
    interacting with the service. Doing so lets the idle service shut down. For more information
-   about appropriate times to bind and unbind, see the [Additional notes](#Additional_Notes) section.
+   about appropriate times to bind and unbind, see the [Additional notes](https://developer.android.com/develop/background-work/services/bound-services#Additional_Notes) section.
 
 The following example connects the client to the service created previously by
-[extending the Binder class](#Binder), so all it needs to do is cast the returned
+[extending the Binder class](https://developer.android.com/develop/background-work/services/bound-services#Binder), so all it needs to do is cast the returned
 `IBinder` to the `LocalBinder` class and request the `LocalService` instance:
 
 ### Kotlin
 
-```
+```kotlin
 var mService: LocalService
 
 val mConnection = object : ServiceConnection {
@@ -724,7 +704,7 @@ val mConnection = object : ServiceConnection {
 
 ### Java
 
-```
+```java
 LocalService mService;
 private ServiceConnection mConnection = new ServiceConnection() {
     // Called when the connection with the service is established.
@@ -745,13 +725,13 @@ private ServiceConnection mConnection = new ServiceConnection() {
 };
 ```
 
-With this `ServiceConnection`, the client can bind to a service
+With this `https://developer.android.com/reference/android/content/ServiceConnection`, the client can bind to a service
 by passing
-it to `bindService()`, as shown in the following example:
+it to `https://developer.android.com/reference/android/content/Context#bindService(android.content.Intent, android.content.ServiceConnection, int)`, as shown in the following example:
 
 ### Kotlin
 
-```
+```kotlin
 Intent(this, LocalService::class.java).also { intent ->
     bindService(intent, connection, Context.BIND_AUTO_CREATE)
 }
@@ -759,48 +739,36 @@ Intent(this, LocalService::class.java).also { intent ->
 
 ### Java
 
-```
+```java
 Intent intent = new Intent(this, LocalService.class);
 bindService(intent, connection, Context.BIND_AUTO_CREATE);
 ```
 
-* The first parameter of `bindService()` is an
-  `Intent` that explicitly names the service to bind.
+- The first parameter of `bindService()` is an `https://developer.android.com/reference/android/content/Intent` that explicitly names the service to bind.
 
   **Caution:** If you use an intent to bind to a
-  `Service`, make sure your app is secure by using an [explicit](/guide/components/intents-filters#Types)
+  `https://developer.android.com/reference/android/app/Service`, make sure your app is secure by using an [explicit](https://developer.android.com/guide/components/intents-filters#Types)
   intent. Using an implicit intent to start a service is a
   security hazard because you can't be certain what service responds to the intent,
   and the user can't see which service starts. Beginning with Android 5.0 (API level 21),
   the system
   throws an exception if you call `bindService()`
   with an implicit intent.
-* The second parameter is the `ServiceConnection` object.
-* The third parameter is a flag indicating options for the binding—usually `BIND_AUTO_CREATE`, to create the service if it's not already
-  alive.
-  Other possible values are `BIND_DEBUG_UNBIND`,
-  `BIND_NOT_FOREGROUND`, or `0` for none.
+- The second parameter is the `ServiceConnection` object.
+- The third parameter is a flag indicating options for the binding---usually `https://developer.android.com/reference/android/content/Context#BIND_AUTO_CREATE`, to create the service if it's not already alive. Other possible values are `https://developer.android.com/reference/android/content/Context#BIND_DEBUG_UNBIND`, `https://developer.android.com/reference/android/content/Context#BIND_NOT_FOREGROUND`, or `0` for none.
 
 ### Additional notes
 
 Here are some important notes about binding to a service:
 
-* Always trap `DeadObjectException` exceptions, which are thrown
-  when the connection has broken. This is the only exception thrown by remote methods.
-* Objects are reference counted across processes.
-* You usually pair the binding and unbinding during the
-  matching bring-up and tear-down moments of the client's lifecycle, as described in the
-  following examples:
-  + If you need to interact with the service only while your activity is visible, bind during `onStart()` and unbind during `onStop()`.
-  + If you want your activity to receive responses even while it is stopped in the
-    background, bind during `onCreate()` and unbind
-    during `onDestroy()`. Beware that this implies that your
-    activity needs to use the service the entire time it's running, even in the background, so when
-    the service is in another process, then you increase the weight of the process and it is
-    more likely to be killed by the system.
+- Always trap `https://developer.android.com/reference/android/os/DeadObjectException` exceptions, which are thrown when the connection has broken. This is the only exception thrown by remote methods.
+- Objects are reference counted across processes.
+- You usually pair the binding and unbinding during the matching bring-up and tear-down moments of the client's lifecycle, as described in the following examples:
+  - If you need to interact with the service only while your activity is visible, bind during `https://developer.android.com/reference/android/app/Activity#onStart()` and unbind during `https://developer.android.com/reference/android/app/Activity#onStop()`.
+  - If you want your activity to receive responses even while it is stopped in the background, bind during `https://developer.android.com/reference/android/app/Activity#onCreate(android.os.Bundle)` and unbind during `https://developer.android.com/reference/android/app/Activity#onDestroy()`. Beware that this implies that your activity needs to use the service the entire time it's running, even in the background, so when the service is in another process, then you increase the weight of the process and it is more likely to be killed by the system.
 
   **Note:** You *don't* usually bind and unbind
-  during your activity's `onResume()` and `onPause()` callbacks, because these callbacks occur at every
+  during your activity's `https://developer.android.com/reference/android/app/Activity#onResume()` and `https://developer.android.com/reference/android/app/Activity#onPause()` callbacks, because these callbacks occur at every
   lifecycle transition.
   Keep the processing that occurs at these transitions to a minimum.
 
@@ -810,7 +778,7 @@ Here are some important notes about binding to a service:
   two of those activities, the service might be destroyed and recreated as the current
   activity unbinds
   (during pause) before the next one binds (during resume). This activity transition for how
-  activities coordinate their lifecycles is described in [The activity lifecycle](/guide/components/activities/activity-lifecycle#coordinating-activities).
+  activities coordinate their lifecycles is described in [The activity lifecycle](https://developer.android.com/guide/components/activities/activity-lifecycle#coordinating-activities).
 
 For more sample code showing how to bind to a service, see the [`RemoteService.java`](https://android.googlesource.com/platform/development/+/master/samples/ApiDemos/src/com/example/android/apis/app/RemoteService.java) class in [ApiDemos](https://android.googlesource.com/platform/development/+/master/samples/ApiDemos).
 
@@ -818,25 +786,24 @@ For more sample code showing how to bind to a service, see the [`RemoteService.j
 
 When a service is unbound from all clients, the Android system destroys it
 (unless it was started using
-`startService()`).
+`https://developer.android.com/reference/android/content/Context#startService(android.content.Intent)`).
 So, you don't have to manage the lifecycle of your service if it's
 purely a bound service. The Android system manages it for you based on
 whether it is bound to any clients.
 
-However, if you choose to implement the `onStartCommand()` callback method, then you must explicitly stop the service, because the
-service is now considered *started*. In this case, the service runs until the service
-stops itself with `stopSelf()` or another component calls `stopService()`, regardless of whether it is bound to any
+However, if you choose to implement the `https://developer.android.com/reference/android/app/Service#onStartCommand(android.content.Intent, int, int)` callback method, then you must explicitly stop the service, because the
+service is now considered *started* . In this case, the service runs until the service
+stops itself with `https://developer.android.com/reference/android/app/Service#stopSelf()` or another component calls `https://developer.android.com/reference/android/content/Context#stopService(android.content.Intent)`, regardless of whether it is bound to any
 clients.
 
 Additionally, if your service is started and accepts binding, then when the system calls
-your `onUnbind()` method, you can optionally return
-`true` if you want to receive a call to `onRebind()` the next time a client binds to the service. `onRebind()` returns void, but the client still receives the `IBinder` in its
-`onServiceConnected()` callback.
+your `https://developer.android.com/reference/android/app/Service#onUnbind(android.content.Intent)` method, you can optionally return
+`true` if you want to receive a call to `https://developer.android.com/reference/android/app/Service#onRebind(android.content.Intent)` the next time a client binds to the service. `onRebind()` returns void, but the client still receives the `https://developer.android.com/reference/android/os/IBinder` in its
+`https://developer.android.com/reference/android/content/ServiceConnection#onServiceConnected(android.content.ComponentName, android.os.IBinder)` callback.
 The following figure illustrates the logic for this kind of lifecycle.
-
-![](/static/images/fundamentals/service_binding_tree_lifecycle.png)
+![](https://developer.android.com/static/images/fundamentals/service_binding_tree_lifecycle.png)
 
 **Figure 1.** The lifecycle for a service that is started
 and also allows binding.
 
-For more information about the lifecycle of a started service, see the [Services overview](/guide/components/services#Lifecycle).
+For more information about the lifecycle of a started service, see the [Services overview](https://developer.android.com/guide/components/services#Lifecycle).

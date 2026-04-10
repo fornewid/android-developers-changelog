@@ -1,46 +1,30 @@
 ---
-title: Detect common gestures  |  Views  |  Android Developers
+title: https://developer.android.com/develop/ui/views/touch-and-input/gestures/detector
 url: https://developer.android.com/develop/ui/views/touch-and-input/gestures/detector
-source: html-scrape
+source: md.txt
 ---
 
-* [Android Developers](https://developer.android.com/)
-* [Develop](https://developer.android.com/develop)
-* [Core areas](https://developer.android.com/develop/core-areas)
-* [UI](https://developer.android.com/develop/ui)
-* [Views](https://developer.android.com/develop/ui/views/layout/declaring-layout)
-
-# Detect common gestures Stay organized with collections Save and categorize content based on your preferences.
-
-
-
-Try the Compose way
-
-Jetpack Compose is the recommended UI toolkit for Android. Learn how to use touch and input in Compose.
-
-[Gestures →](https://developer.android.com/jetpack/compose/touch-input/pointer-input)
-
-![](/static/images/android-compose-ui-logo.png)
+Try the Compose way Jetpack Compose is the recommended UI toolkit for Android. Learn how to use touch and input in Compose. [Gestures →](https://developer.android.com/jetpack/compose/touch-input/pointer-input) ![](https://developer.android.com/static/images/android-compose-ui-logo.png)
 
 A *touch gesture* occurs when a user places one or more fingers on the
 touchscreen and your app interprets this pattern of touches as a gesture. There
 are two phases to gesture detection:
 
 1. Gathering touch event data.
-2. Interpreting the data to determine whether it meets the criteria for the
-   gestures your app supports.
+2. Interpreting the data to determine whether it meets the criteria for the gestures your app supports.
 
 #### AndroidX classes
 
 The examples in this document use the
-`GestureDetectorCompat`
+`https://developer.android.com/reference/androidx/core/view/GestureDetectorCompat`
 and
-`MotionEventCompat`
+`https://developer.android.com/reference/androidx/core/view/MotionEventCompat`
 classes. These classes are in the [AndroidX
-Library](/jetpack/androidx). Use AndroidX classes where possible to provide compatibility with
+Library](https://developer.android.com/jetpack/androidx). Use AndroidX classes where possible to provide compatibility with
 earlier devices.
+
 `MotionEventCompat` is *not* a replacement for the
-`MotionEvent`
+`https://developer.android.com/reference/android/view/MotionEvent`
 class. Rather, it provides static utility methods to which you pass your
 `MotionEvent` object to receive the action associated with that
 event.
@@ -49,10 +33,10 @@ event.
 
 When a user places one or more fingers on the screen, this triggers the
 callback
-`onTouchEvent()`
+`https://developer.android.com/reference/android/view/View#onTouchEvent(android.view.MotionEvent)`
 on the view that receives the touch events. For each sequence of touch
-events—such as position, pressure, size, and addition of another
-finger—that is identified as a gesture, `onTouchEvent()` is
+events---such as position, pressure, size, and addition of another
+finger---that is identified as a gesture, `onTouchEvent()` is
 fired several times.
 
 The gesture starts when the user first touches the screen, continues as the
@@ -65,18 +49,20 @@ gesture it cares about happens.
 
 ### Capture touch events for an Activity or View
 
+<br />
+
 To intercept touch events in an `Activity` or
 `View`, override the `onTouchEvent()` callback.
 
 The following code snippet uses
-`getAction()`
+`https://developer.android.com/reference/android/view/MotionEvent#getAction()`
 to extract the action the user performs from the `event` parameter.
 This gives you the raw data you need to determine whether a gesture you care
 about occurs.
 
 ### Kotlin
 
-```
+```kotlin
 class MainActivity : Activity() {
     ...
     // This example shows an Activity. You can use the same approach if you are 
@@ -111,7 +97,7 @@ class MainActivity : Activity() {
 
 ### Java
 
-```
+```java
 public class MainActivity extends Activity {
 ...
 // This example shows an Activity. You can use the same approach if you are
@@ -141,9 +127,9 @@ public boolean onTouchEvent(MotionEvent event){
 ```
 
 This code produces messages like the following in Logcat as the user taps,
-touches & holds, and drags:
+touches \& holds, and drags:
 
-```
+```bash
 GESTURES D   Action was DOWN
 GESTURES D   Action was UP
 GESTURES D   Action was MOVE
@@ -151,26 +137,26 @@ GESTURES D   Action was MOVE
 
 For custom gestures, you can then do your own processing on these events to
 determine whether they represent a gesture you need to handle. However, if your
-app uses common gestures, such as double-tap, touch & hold, fling, and so on,
+app uses common gestures, such as double-tap, touch \& hold, fling, and so on,
 you can take advantage of the
-`GestureDetector`
+`https://developer.android.com/reference/android/view/GestureDetector`
 class. `GestureDetector` makes it easier for you to detect common
 gestures without processing the individual touch events yourself. This is
-discussed further in [Detect gestures](#detect).
+discussed further in [Detect gestures](https://developer.android.com/develop/ui/views/touch-and-input/gestures/detector#detect).
 
 ### Capture touch events for a single view
 
 As an alternative to `onTouchEvent()`, you can attach a
-`View.OnTouchListener`
-object to any `View`
+`https://developer.android.com/reference/android/view/View.OnTouchListener`
+object to any `https://developer.android.com/reference/android/view/View`
 object using the
-`setOnTouchListener()`
+`https://developer.android.com/reference/android/view/View#setOnTouchListener(android.view.View.OnTouchListener)`
 method. This makes it possible to listen for touch events without subclassing an
 existing `View`, as shown in the following example:
 
 ### Kotlin
 
-```
+```kotlin
 findViewById<View>(R.id.my_view).setOnTouchListener { v, event ->
     // Respond to touch events.
     true
@@ -179,7 +165,7 @@ findViewById<View>(R.id.my_view).setOnTouchListener { v, event ->
 
 ### Java
 
-```
+```java
 View myView = findViewById(R.id.my_view);
 myView.setOnTouchListener(new OnTouchListener() {
     public boolean onTouch(View v, MotionEvent event) {
@@ -190,10 +176,10 @@ myView.setOnTouchListener(new OnTouchListener() {
 ```
 
 Beware of creating a listener that returns `false` for the
-`ACTION_DOWN` event.
+`https://developer.android.com/reference/android/view/MotionEvent#ACTION_DOWN` event.
 If you do this, the listener isn't called for the subsequent
-`ACTION_MOVE` and
-`ACTION_UP` sequence of
+`https://developer.android.com/reference/android/view/MotionEvent#ACTION_MOVE` and
+`https://developer.android.com/reference/android/view/MotionEvent#ACTION_UP` sequence of
 events. This is because `ACTION_DOWN` is the starting point for all
 touch events.
 
@@ -204,10 +190,10 @@ If you are creating a custom view, you can override
 
 Android provides the `GestureDetector` class for detecting common
 gestures. Some of the gestures it supports include
-`onDown()`,
-`onLongPress()`,
+`https://developer.android.com/reference/android/view/GestureDetector.OnGestureListener#onDown(android.view.MotionEvent)`,
+`https://developer.android.com/reference/android/view/GestureDetector.OnGestureListener#onLongPress(android.view.MotionEvent)`,
 and
-`onFling()`.
+`https://developer.android.com/reference/android/view/GestureDetector.OnGestureListener#onFling(android.view.MotionEvent, android.view.MotionEvent, float, float)`.
 You can use `GestureDetector` in conjunction with the
 `onTouchEvent()` method described earlier.
 
@@ -215,7 +201,7 @@ You can use `GestureDetector` in conjunction with the
 
 When you instantiate a `GestureDetectorCompat` object, one of the
 parameters it takes is a class that implements the
-`GestureDetector.OnGestureListener`
+`https://developer.android.com/reference/android/view/GestureDetector.OnGestureListener`
 interface. `GestureDetector.OnGestureListener` notifies users when a
 particular touch event occurs. To make it possible for your
 `GestureDetector` object to receive events, override the view or
@@ -223,7 +209,7 @@ activity's `onTouchEvent()` method and pass along all observed events
 to the detector instance.
 
 In the following snippet, a return value of `true` from the
-individual `on<TouchEvent>` methods indicates that the
+individual `on\<TouchEvent\>` methods indicates that the
 touch event is handled. A return value of `false` passes events down
 through the view stack until the touch is successfully handled.
 
@@ -234,7 +220,7 @@ how much data is being generated for simple interactions.
 
 ### Kotlin
 
-```
+```kotlin
 private const val DEBUG_TAG = "Gestures"
 
 class MainActivity :
@@ -323,7 +309,7 @@ class MainActivity :
 
 ### Java
 
-```
+```java
 public class MainActivity extends Activity implements
         GestureDetector.OnGestureListener,
         GestureDetector.OnDoubleTapListener{
@@ -412,13 +398,13 @@ public class MainActivity extends Activity implements
 ### Detect a subset of supported gestures
 
 If you only want to process a few gestures, you can extend
-`GestureDetector.SimpleOnGestureListener`
+`https://developer.android.com/reference/android/view/GestureDetector.SimpleOnGestureListener`
 instead of implementing the `GestureDetector.OnGestureListener`
 interface.
 
 `GestureDetector.SimpleOnGestureListener` provides an
 implementation for all of the
-`on<TouchEvent>` methods by returning
+`on\<TouchEvent\>` methods by returning
 `false` for all of them. This lets you override only the methods you
 care about. For example, the following code snippet creates a class that extends
 `GestureDetector.SimpleOnGestureListener` and overrides
@@ -437,7 +423,7 @@ unexpected problems in your app. Only return `false` from
 
 ### Kotlin
 
-```
+```kotlin
 private const val DEBUG_TAG = "Gestures"
 
 class MainActivity : Activity() {
@@ -477,7 +463,7 @@ class MainActivity : Activity() {
 
 ### Java
 
-```
+```java
 public class MainActivity extends Activity {
 
     private GestureDetectorCompat mDetector;
@@ -518,6 +504,6 @@ public class MainActivity extends Activity {
 
 ## Additional resources
 
-* [Input events overview](/guide/topics/ui/ui-events)
-* [Sensors overview](/guide/topics/sensors/sensors_overview)
-* [Make a custom view interactive](/training/custom-views/making-interactive)
+- [Input events overview](https://developer.android.com/guide/topics/ui/ui-events)
+- [Sensors overview](https://developer.android.com/guide/topics/sensors/sensors_overview)
+- [Make a custom view interactive](https://developer.android.com/training/custom-views/making-interactive)

@@ -1,37 +1,18 @@
 ---
-title: Debug LMKs  |  Android game development  |  Android Developers
+title: https://developer.android.com/games/engines/unity/unity-lmks
 url: https://developer.android.com/games/engines/unity/unity-lmks
-source: html-scrape
+source: md.txt
 ---
 
-* [Android Developers](https://developer.android.com/)
-* [Google Play](https://developer.android.com/distribute)
-* [Games dev center](https://developer.android.com/games)
-* [Guides](https://developer.android.com/games/guides)
-
-Send feedback
-
-# Debug LMKs Stay organized with collections Save and categorize content based on your preferences.
-
-
-
-Solving [LMKs](/games/optimize/vitals/lmk) in your Unity game is a systematic process:
-
-![](/static/images/games/engines/unity/unity-lmk-flowchart.jpg)
-
-
-**Figure 1.** Steps to solve Low Memory Kills (LMKs) in Unity games.
+Solving [LMKs](https://developer.android.com/games/optimize/vitals/lmk) in your Unity game is a systematic process:
+![](https://developer.android.com/static/images/games/engines/unity/unity-lmk-flowchart.jpg) **Figure 1.** Steps to solve Low Memory Kills (LMKs) in Unity games.
 
 ## Obtain a memory snapshot
 
 Use the [Unity Profiler](https://docs.unity3d.com/6000.1/Documentation/Manual/Profiler.html) to get a Unity-managed memory snapshot.
 Figure 2 shows the memory management layers Unity uses to handle memory in
 your game.
-
-![](/static/images/games/engines/unity/unity-lmk-memory-management.jpg)
-
-
-**Figure 2.** Unity's memory management overview.
+![](https://developer.android.com/static/images/games/engines/unity/unity-lmk-memory-management.jpg) **Figure 2.** Unity's memory management overview.
 
 ### Managed memory
 
@@ -77,11 +58,7 @@ transform property can reduce the number of back-and-forth calls between
 managed and native code, but the usefulness of caching depends on how often the
 property is used. Also, note that Unity does not copy parts of native memory
 into managed memory when you access these APIs.
-
-![](/static/images/games/engines/unity/unity-lmk-native-memory.jpg)
-
-
-**Figure 3.** Accessing native memory from the C# managed code.
+![](https://developer.android.com/static/images/games/engines/unity/unity-lmk-native-memory.jpg) **Figure 3.** Accessing native memory from the C# managed code.
 
 To learn more, refer to [Memory in Unity introduction](https://docs.unity3d.com/6000.1/Documentation/Manual/performance-memory-overview.html).
 
@@ -110,97 +87,90 @@ tool, or the [Project Auditor](https://docs.unity3d.com/Packages/com.unity.proje
 
 ### Textures
 
-Analyze your game's device support and decide the correct [texture format](/guide/playcore/asset-delivery/texture-compression).
+Analyze your game's device support and decide the correct [texture format](https://developer.android.com/guide/playcore/asset-delivery/texture-compression).
 You can split the texture bundles for high-end and low-end devices using [Play
-Asset Delivery](/guide/playcore/asset-delivery/integrate-unity), [Addressable](https://docs.unity3d.com/Packages/com.unity.addressables.android@1.0/manual/index.html), or a more manual process
-with an [AssetBundle](/guide/playcore/asset-delivery/integrate-unity).
+Asset Delivery](https://developer.android.com/guide/playcore/asset-delivery/integrate-unity), [Addressable](https://docs.unity3d.com/Packages/com.unity.addressables.android@1.0/manual/index.html), or a more manual process
+with an [AssetBundle](https://developer.android.com/guide/playcore/asset-delivery/integrate-unity).
 
 Follow the most well-known recommendations available in the
 [Optimize Your Mobile Game Performance](https://create.unity.com/optimize-mobile-game-eBook) and in the
 [Optimising Unity Texture Import Settings](https://discussions.unity.com/t/optimising-unity-texture-import-settings/1631377) discussion post. Then
 try these solutions:
 
-* Compress textures with [ASTC formats for a reduced memory
+- Compress textures with [ASTC formats for a reduced memory
   footprint](https://developer.arm.com/documentation/102449/0200/Texture-size--color-space--and-compression) and experiment with a higher block rate, such as
   8x8.
 
   If using ETC2 is required, pack your textures in Atlas. Placing multiple
   textures into a single texture ensures its Power of Two (POT), can reduce
   draw calls, and can speed up rendering.
-* Optimize [RenderTarget](https://docs.unity3d.com/ScriptReference/Graphics.SetRenderTarget.html) texture format and size. Avoid
+- Optimize [RenderTarget](https://docs.unity3d.com/ScriptReference/Graphics.SetRenderTarget.html) texture format and size. Avoid
   unnecessarily high-resolution textures. Using smaller textures on mobile
   devices saves memory.
-* Use [Texture channel packing](https://docs.unity3d.com/Packages/com.unity.render-pipelines.high-definition@17.3/manual/Mask-Map-and-Detail-Map.html) to save texture memory.
+
+- Use [Texture channel packing](https://docs.unity3d.com/Packages/com.unity.render-pipelines.high-definition@17.3/manual/Mask-Map-and-Detail-Map.html) to save texture memory.
 
 ### Meshes and models
 
 Start by checking the [fundamental settings](https://create.unity.com/optimize-mobile-game-eBook) (page 27) and
 verify these mesh importing settings:
 
-* Merge redundant and smaller meshes.
-* Reduce the vertex count for objects in scenes (for example, static or distant
-  objects).
-* Generate Level of Detail (LOD) groups for high-geometry assets.
+- Merge redundant and smaller meshes.
+- Reduce the vertex count for objects in scenes (for example, static or distant objects).
+- Generate Level of Detail (LOD) groups for high-geometry assets.
 
 ### Materials and shaders
 
-* Strip unused shader variants programmatically during the build process.
-* Consolidate frequently used shader variants into uber shaders to avoid shader
-  duplication.
-* Enable dynamic shader loading to address the large memory footprint of
-  preloaded shaders in VRAM/RAM. However, pay attention if shader compilation is
-  causing frame hiccups.
-* Use dynamic shader loading to prevent all the variants from being loaded.
-  For more information, refer to the [Improvements to shader build times and
+- Strip unused shader variants programmatically during the build process.
+- Consolidate frequently used shader variants into uber shaders to avoid shader duplication.
+- Enable dynamic shader loading to address the large memory footprint of preloaded shaders in VRAM/RAM. However, pay attention if shader compilation is causing frame hiccups.
+- Use dynamic shader loading to prevent all the variants from being loaded. For more information, refer to the [Improvements to shader build times and
   memory usage](https://unity.com/blog/engine-platform/2021-lts-improvements-to-shader-build-times-and-memory-usage) blog post.
-* Use material instancing properly by leveraging `MaterialPropertyBlocks`.
+- Use material instancing properly by leveraging `MaterialPropertyBlocks`.
 
 ### Audio
 
 Start by checking the [fundamental settings](https://create.unity.com/optimize-mobile-game-eBook) (page 41), and
 verify these mesh importing settings:
 
-* Remove unused or redundant `AudioClip` references when employing third-party
-  audio engines like FMOD or Wwise.
-* Preload audio data. Disable preload for clips that are not immediately
-  required during runtime or scene startup. This helps reduce memory overhead
-  during scene initialization.
+- Remove unused or redundant `AudioClip` references when employing third-party audio engines like FMOD or Wwise.
+- Preload audio data. Disable preload for clips that are not immediately required during runtime or scene startup. This helps reduce memory overhead during scene initialization.
 
 #### Animations
 
-* Adjust Unity's [animation compression settings](https://docs.unity3d.com/6000.1/Documentation/Manual/class-AnimationClip.html) to minimize
-  the number of keyframes and eliminate redundant data.
-  + Keyframe reduction: Automatically removes unnecessary keyframes
-  + Quaternion compression: Compresses rotation data to reduce memory usage
+- Adjust Unity's [animation compression settings](https://docs.unity3d.com/6000.1/Documentation/Manual/class-AnimationClip.html) to minimize the number of keyframes and eliminate redundant data.
+  - Keyframe reduction: Automatically removes unnecessary keyframes
+  - Quaternion compression: Compresses rotation data to reduce memory usage
 
 You can adjust compression settings in the **Animation Import Settings** under
 the **Rig** or **Animation** tab.
 
-* Reuse animation clips instead of duplicating animation clips for different
+- Reuse animation clips instead of duplicating animation clips for different
   objects.
 
   Use [Animator Override Controllers](https://docs.unity3d.com/Manual/AnimatorOverrideController.html) to reuse an Animator
   Controller and replace specific clips for different characters.
-* Bake physics-based animations: If your animations are physics driven or
+- Bake physics-based animations: If your animations are physics driven or
   procedural, bake them into animation clips to avoid runtime calculations.
-* Optimize skeleton rig: Use fewer bones in your rig to reduce complexity and
+
+- Optimize skeleton rig: Use fewer bones in your rig to reduce complexity and
   memory consumption.
 
-  + Avoid excessive bones for small or static objects.
-  + If certain bones are not animated or needed, remove them from the rig.
-* Reduce animation clip length.
+  - Avoid excessive bones for small or static objects.
+  - If certain bones are not animated or needed, remove them from the rig.
+- Reduce animation clip length.
 
-  + Trim animation clips to include only the necessary frames. Avoid storing
-    unused or excessively long animations.
-  + Use looping animations instead of creating long clips for repeated
-    movements.
-* Ensure only one animation component is attached or activated. For example,
+  - Trim animation clips to include only the necessary frames. Avoid storing unused or excessively long animations.
+  - Use looping animations instead of creating long clips for repeated movements.
+- Ensure only one animation component is attached or activated. For example,
   disable or remove [Legacy animation](https://docs.unity3d.com/Manual/Animations.html) components if you're
   using [Animator](https://docs.unity3d.com/Manual/AnimationOverview.html).
-* Avoid using the Animator if it's unnecessary. For simple VFX, use tweening
+
+- Avoid using the Animator if it's unnecessary. For simple VFX, use tweening
   libraries or implement the visual effect in a script. The animator system can
   be resource intensive, particularly on low-end mobile devices.
-* Use the [Job System](https://docs.unity3d.com/Manual/job-system-overview.html) for animations when handling a large
+
+- Use the [Job System](https://docs.unity3d.com/Manual/job-system-overview.html) for animations when handling a large
   number of animations, as that system has been fully redesigned to be more
   memory efficient.
 
@@ -212,54 +182,43 @@ are not monitored by reference counters. As a result, assets may remain in
 memory even after the unused scenes have been unloaded cause memory
 fragmentation.
 
-* Use [Unity's Object Pooling](https://docs.unity3d.com/6000.1/Documentation/ScriptReference/Pool.ObjectPool_1.html) to reuse GameObject instances for
-  recurring gameplay elements because object pooling uses a stack to hold a
-  collection of object instances for reuse and is not thread safe. Minimizing
-  `Instantiate` and `Destroy` improves both CPU performance and memory stability.
-* Unloading assets:
-  + Unload assets strategically during less critical
-    moments, like splash screens or loading screens.
-  + Frequent use of [`Resources.UnloadUnusedAssets`](https://docs.unity3d.com/6000.1/Documentation/ScriptReference/Resources.UnloadUnusedAssets.html) causes spikes
-    in CPU processing due to large internal dependency monitoring operations.
-  + Check for large CPU spikes in the [GC.MarkDependencies](https://discussions.unity.com/t/how-to-avoid-gc-markdependencies/589376)
-    profile marker.
-    Remove or reduce its execution frequency, and manually unload specific
-    resources instead using [Resources.UnloadAsset](https://docs.unity3d.com/6000.1/Documentation/ScriptReference/Resources.UnloadAsset.html) rather than
-    relying on the all-encompassing
-    [`Resources.UnloadUnusedAssets()`](https://docs.unity3d.com/ScriptReference/Resources.UnloadUnusedAssets.html).
-* Restructure scenes rather than constantly using Resources.UnloadUnusedAssets.
-* Calling [`Resources.UnloadUnusedAssets()`](https://docs.unity3d.com/ScriptReference/Resources.UnloadUnusedAssets.html) for
-  [`Addressables`](https://docs.unity3d.com/Packages/com.unity.addressables@2.6/manual/index.html) can unintentionally unload dynamically loaded
-  bundles. Carefully manage the lifecycle of dynamically loaded assets.
+- Use [Unity's Object Pooling](https://docs.unity3d.com/6000.1/Documentation/ScriptReference/Pool.ObjectPool_1.html) to reuse GameObject instances for recurring gameplay elements because object pooling uses a stack to hold a collection of object instances for reuse and is not thread safe. Minimizing `Instantiate` and `Destroy` improves both CPU performance and memory stability.
+- Unloading assets:
+  - Unload assets strategically during less critical moments, like splash screens or loading screens.
+  - Frequent use of [`Resources.UnloadUnusedAssets`](https://docs.unity3d.com/6000.1/Documentation/ScriptReference/Resources.UnloadUnusedAssets.html) causes spikes in CPU processing due to large internal dependency monitoring operations.
+  - Check for large CPU spikes in the [GC.MarkDependencies](https://discussions.unity.com/t/how-to-avoid-gc-markdependencies/589376) profile marker. Remove or reduce its execution frequency, and manually unload specific resources instead using [Resources.UnloadAsset](https://docs.unity3d.com/6000.1/Documentation/ScriptReference/Resources.UnloadAsset.html) rather than relying on the all-encompassing [`Resources.UnloadUnusedAssets()`](https://docs.unity3d.com/ScriptReference/Resources.UnloadUnusedAssets.html).
+- Restructure scenes rather than constantly using Resources.UnloadUnusedAssets.
+- Calling [`Resources.UnloadUnusedAssets()`](https://docs.unity3d.com/ScriptReference/Resources.UnloadUnusedAssets.html) for [`Addressables`](https://docs.unity3d.com/Packages/com.unity.addressables@2.6/manual/index.html) can unintentionally unload dynamically loaded bundles. Carefully manage the lifecycle of dynamically loaded assets.
 
 ### Miscellaneous
 
-* Fragmentation caused by scene transitions — When the method
+- Fragmentation caused by scene transitions --- When the method
   [`Resources.UnloadUnusedAssets()`](https://docs.unity3d.com/6000.1/Documentation/ScriptReference/Resources.UnloadUnusedAssets.html) is called, Unity does the
   following:
 
-  + Frees memory for assets no longer in use
-  + Runs a garbage collector–like operation to check the managed and native object
-    heap for unused assets and unloads them
-  + Cleans up texture, mesh, and asset memory provided that no active reference
-    exists
-* `AssetBundle` or `Addressable` - making changes in this area is complex and
+  - Frees memory for assets no longer in use
+  - Runs a garbage collector--like operation to check the managed and native object heap for unused assets and unloads them
+  - Cleans up texture, mesh, and asset memory provided that no active reference exists
+- `AssetBundle` or `Addressable` - making changes in this area is complex and
   demands a collective effort from the team to implement the strategies.
   However, once these strategies are mastered, they significantly improve
   memory usage, reduce download size, and lower cloud costs. For more
   information on asset management in Unity with, see [`Addressables`](https://docs.unity3d.com/Packages/com.unity.addressables@2.6/manual/index.html).
-* Centralized shared dependencies &mdash: Group shared dependencies, such as shaders,
+
+- Centralized shared dependencies \&mdash: Group shared dependencies, such as shaders,
   textures, and fonts, systematically into dedicated bundles or `Addressable`
   groups. This reduces duplication and ensures that unnecessary assets are
   unloaded efficiently.
-* Use `Addressables` for dependency tracking - [Addressables](https://docs.unity3d.com/Packages/com.unity.addressables@2.6/manual/index.html)
+
+- Use `Addressables` for dependency tracking - [Addressables](https://docs.unity3d.com/Packages/com.unity.addressables@2.6/manual/index.html)
   simplify loading and unloading can automatically unload dependencies that
   are no longer referenced. Transitioning to `Addressables` for content management
   and dependency resolution may be a viable solution, depending on the game's
   specific case. Analyze dependency chains with the Analyze
   [tool](https://docs.unity3d.com/Packages/com.unity.addressables@2.5/manual/editor/tools/AnalyzeTool.html) to identify unnecessary duplicates or dependencies.
   Alternatively, refer to the Unity Data Tools if you're using AssetBundles.
-* `TypeTrees` - if your game's `Addressables` and `AssetBundles` are built
+
+- `TypeTrees` - if your game's `Addressables` and `AssetBundles` are built
   and deployed using the same version of Unity as the player and do not
   require backward compatibility with other player builds, consider [disabling
   writing `TypeTree`](https://docs.unity3d.com/Packages/com.unity.addressables@2.3/manual/memory-assetbundles.html#typetrees), which should reduce bundle size and
@@ -267,7 +226,7 @@ fragmentation.
   local **Addressables** package setting [ContentBuildFlags](https://docs.unity3d.com/2022.3/Documentation/ScriptReference/Build.Content.ContentBuildFlags.DisableWriteTypeTree.html)
   to **DisableWriteTypeTree**.
 
-## Write garbage collector–friendly code
+## Write garbage collector--friendly code
 
 Unity utilizes [garbage collection (GC)](https://docs.unity3d.com/Manual/performance-garbage-collector.html) to manage memory by
 automatically identifying and freeing up unused memory. While GC is essential,
@@ -279,41 +238,35 @@ Refer to the [Unity manual](https://docs.unity3d.com/Manual/performance-referenc
 the frequency of managed heap allocations and to the
 [UnityPerformanceTuningBible](https://github.com/CyberAgentGameEntertainment/UnityPerformanceTuningBible/releases), page 271, for examples.
 
-* Reduce garbage collector allocations:
+- Reduce garbage collector allocations:
 
-  + Avoid LINQ, lambdas, and closures, which allocate heap memory.
-  + Use `StringBuilder` for mutable strings in place of string concatenation.
-  + Reuse collections by calling `COLLECTIONS.Clear()` rather than
-    re-instantiating them.
+  - Avoid LINQ, lambdas, and closures, which allocate heap memory.
+  - Use `StringBuilder` for mutable strings in place of string concatenation.
+  - Reuse collections by calling `COLLECTIONS.Clear()` rather than re-instantiating them.
 
   More information is available in the [Ultimate Guide to Profiling Unity
   games](https://unity.com/resources/ultimate-guide-to-profiling-unity-games?isGated=true) e-book.
-* Manage UI canvas updates:
+- Manage UI canvas updates:
 
-  + Dynamic changes to UI elements — When UI elements like Text, Image, or
-    `RectTransform` properties are updated (for example, changing text content,
-    resizing elements, or animating positions), the engine may allocate memory
-    for temporary objects.
-  + String allocations — UI elements like Text often require string updates,
-    since strings are immutable in most programming languages.
-  + Dirty canvas — When something on a canvas changes (for example, resizing, enabling and
-    disabling elements, or modifying layout properties), the entire canvas or a
-    portion of it may be marked as *dirty* and be rebuilt. This can trigger the
-    creation of temporary data structures (for example, mesh data, vertex
-    buffers, or layout calculations), which adds to garbage generation.
-  + Comples or frequent updates — If the canvas has a large number of elements or is updated frequently (for
-    example, every frame), these rebuilds can lead to significant memory churn.
-* [Enable incremental GC](https://docs.unity3d.com/Manual/performance-incremental-garbage-collection.html) to reduce large collection spikes by
+  - Dynamic changes to UI elements --- When UI elements like Text, Image, or `RectTransform` properties are updated (for example, changing text content, resizing elements, or animating positions), the engine may allocate memory for temporary objects.
+  - String allocations --- UI elements like Text often require string updates, since strings are immutable in most programming languages.
+  - Dirty canvas --- When something on a canvas changes (for example, resizing, enabling and disabling elements, or modifying layout properties), the entire canvas or a portion of it may be marked as *dirty* and be rebuilt. This can trigger the creation of temporary data structures (for example, mesh data, vertex buffers, or layout calculations), which adds to garbage generation.
+  - Comples or frequent updates --- If the canvas has a large number of elements or is updated frequently (for example, every frame), these rebuilds can lead to significant memory churn.
+- [Enable incremental GC](https://docs.unity3d.com/Manual/performance-incremental-garbage-collection.html) to reduce large collection spikes by
   spreading allocation cleanups over multiple frames. Profile to verify whether this
   option improves your game's performance and memory footprint.
-* If your game requires a controlled approach, set the [garbage collection
+
+- If your game requires a controlled approach, set the [garbage collection
   mode to manual](https://docs.unity3d.com/Manual/performance-disabling-garbage-collection.html#disable-incremental-garbage-collection). Then, on a level change or at another moment
   without active gameplay, call the garbage collection.
-* Invoke manual garbage collection [GC.Collect()](https://discussions.unity.com/t/what-is-gc-collect-and-why-is-it-slowing-down-my-game/820494) calls for game
+
+- Invoke manual garbage collection [GC.Collect()](https://discussions.unity.com/t/what-is-gc-collect-and-why-is-it-slowing-down-my-game/820494) calls for game
   state transitions (for example, level switching).
-* Optimize [arrays](https://docs.unity3d.com/Manual/performance-optimizing-arrays.html) starting from simple code practices and, if
+
+- Optimize [arrays](https://docs.unity3d.com/Manual/performance-optimizing-arrays.html) starting from simple code practices and, if
   necessary, by using native arrays or other native containers for large arrays.
-* Monitor managed objects using tools like the Unity Memory Profiler to track
+
+- Monitor managed objects using tools like the Unity Memory Profiler to track
   unmanaged object references that persist after destruction.
 
   Use a [Profiler Marker](https://docs.unity3d.com/ScriptReference/Unity.Profiling.ProfilerMarker.html) to submit to the [Performance
@@ -336,22 +289,11 @@ the [Managed Shell Objects](https://docs.unity3d.com/Packages/com.unity.memorypr
 Additionally, memory leaks can be caused by event subscriptions, lambdas and
 closures, string concatenations, and improper management of pooled objects:
 
-* To get started, see [Find memory leaks](https://docs.unity3d.com/Packages/com.unity.memoryprofiler@1.1/manual/find-memory-leaks.html) to compare Unity
-  memory snapshots properly.
-* Check for event subscriptions and memory leaks. If objects subscribe to events
-  (for example, by delegates or UnityEvents) but do not properly unsubscribe
-  before being destroyed, the event manager or publisher may retain references
-  to those objects. This prevents those objects from being garbage collected,
-  leading to memory leaks.
-* Monitor global or singleton class events that aren't unregistered on object
-  destruction. For example, unsubscribe or unhook delegates in object
-  destructors.
-* Ensure destruction of pooled objects fully nullifies references to
-  [text mesh components](https://docs.unity3d.com/Packages/com.unity.ugui@3.0/manual/TextMeshPro/index.html)%7B:.external%7D), textures, and parent GameObjects.
-* Keep in mind that when comparing Unity Memory Profiler snapshots and observing
-  a [difference in memory consumption without a clear reason](https://discussions.unity.com/t/unable-to-determine-cause-of-memory-leak-in-unity-when-using-addressables-can-anyone-give-suggestions-on-what-the-cause-might-be/1591429/3),
-  the difference may be caused by the graphics driver or the operating system
-  itself.
+- To get started, see [Find memory leaks](https://docs.unity3d.com/Packages/com.unity.memoryprofiler@1.1/manual/find-memory-leaks.html) to compare Unity memory snapshots properly.
+- Check for event subscriptions and memory leaks. If objects subscribe to events (for example, by delegates or UnityEvents) but do not properly unsubscribe before being destroyed, the event manager or publisher may retain references to those objects. This prevents those objects from being garbage collected, leading to memory leaks.
+- Monitor global or singleton class events that aren't unregistered on object destruction. For example, unsubscribe or unhook delegates in object destructors.
+- Ensure destruction of pooled objects fully nullifies references to [text mesh components](https://docs.unity3d.com/Packages/com.unity.ugui@3.0/manual/TextMeshPro/index.html)%7B:.external%7D), textures, and parent GameObjects.
+- Keep in mind that when comparing Unity Memory Profiler snapshots and observing a [difference in memory consumption without a clear reason](https://discussions.unity.com/t/unable-to-determine-cause-of-memory-leak-in-unity-when-using-addressables-can-anyone-give-suggestions-on-what-the-cause-might-be/1591429/3), the difference may be caused by the graphics driver or the operating system itself.
 
 ### Memory fragmentation
 
@@ -370,39 +312,25 @@ should be made together, early in the application's lifecycle.
 
 #### Observers and event managers
 
-* In addition to the problem mentioned in the (Memory Leaks)[77](/games/engines/unity/%7B:#memory-leaks%7D) section, over
-  time, memory leaks can contribute to fragmentation by leaving unused memory
-  allocated to objects that are no longer in use.
-* Ensure destruction of pooled objects fully nullifies references to
-  [text mesh components](https://docs.unity3d.com/Packages/com.unity.ugui@3.0/manual/TextMeshPro/index.html)%7B:.external%7D), textures, and parent `GameObjects`.
-* Event managers often create and store lists or dictionaries to manage event
-  subscriptions. If these grow and shrink dynamically during runtime, they can
-  contribute to memory fragmentation due to frequent allocations and
-  deallocations.
+- In addition to the problem mentioned in the (Memory Leaks)[77](https://developer.android.com/games/engines/unity/%7B:#memory-leaks%7D) section, over time, memory leaks can contribute to fragmentation by leaving unused memory allocated to objects that are no longer in use.
+- Ensure destruction of pooled objects fully nullifies references to [text mesh components](https://docs.unity3d.com/Packages/com.unity.ugui@3.0/manual/TextMeshPro/index.html)%7B:.external%7D), textures, and parent `GameObjects`.
+- Event managers often create and store lists or dictionaries to manage event subscriptions. If these grow and shrink dynamically during runtime, they can contribute to memory fragmentation due to frequent allocations and deallocations.
 
 #### Code
 
-* [Coroutines](https://docs.unity3d.com/6000.1/Documentation/ScriptReference/Coroutine.html) sometimes allocate memory, which can be easily
-  avoided by caching the return statement of the [IEnumerator](https://discussions.unity.com/t/ienumerator/892998/2)
-  instead of declaring a new one every time.
-* Continuously monitor the lifecycle states of pooled objects to avoid keeping
-  `UnityEngine.Object` ghost references.
+- [Coroutines](https://docs.unity3d.com/6000.1/Documentation/ScriptReference/Coroutine.html) sometimes allocate memory, which can be easily avoided by caching the return statement of the [IEnumerator](https://discussions.unity.com/t/ienumerator/892998/2) instead of declaring a new one every time.
+- Continuously monitor the lifecycle states of pooled objects to avoid keeping `UnityEngine.Object` ghost references.
 
 #### Assets
 
-* Use dynamic fallback systems for text-driven game experiences to avoid
-  preloading all fonts for multilanguage cases.
-* Organize assets (for example, textures and particles) together by type and
-  expected lifecycle.
-* Condense assets with idle lifecycle attributes, like redundant UI images and
-  static meshes.
+- Use dynamic fallback systems for text-driven game experiences to avoid preloading all fonts for multilanguage cases.
+- Organize assets (for example, textures and particles) together by type and expected lifecycle.
+- Condense assets with idle lifecycle attributes, like redundant UI images and static meshes.
 
 #### [Lifetime-based allocations](https://docs.unity3d.com/Packages/com.unity.collections@1.3/manual/allocation.html)
 
-* Allocate long-lived assets at the start of the application lifecycle to ensure
-  compact allocations.
-* Use [NativeCollections](https://docs.unity3d.com/Packages/com.unity.collections@1.0/manual/index.html) or custom allocators for
-  memory-intensive or transient data structures (for example, physics clusters).
+- Allocate long-lived assets at the start of the application lifecycle to ensure compact allocations.
+- Use [NativeCollections](https://docs.unity3d.com/Packages/com.unity.collections@1.0/manual/index.html) or custom allocators for memory-intensive or transient data structures (for example, physics clusters).
 
 ## Code-related and executables memory action
 
@@ -422,12 +350,9 @@ repetitive or redundant type usage in the project.
 
 IL2CPP metadata can be reduced by:
 
-* Avoiding the use of [reflection APIs](https://learn.microsoft.com/en-us/dotnet/csharp/advanced-topics/reflection-and-attributes/), as they can be a
-  significant contributor to IL2CPP metadata allocations
-* Disabling [built-in packages](https://docs.unity3d.com/2023.2/Documentation/Manual/upm-ui-disable.html)
-* Implementing Unity 2022 [full generic sharing](https://blog.unity.com/engine-platform/il2cpp-full-generic-sharing-in-unity-2022-1-beta), which should
-  help reduce the overhead caused by generics. However, to help reduce
-  allocations even further, reduce the use of generics.
+- Avoiding the use of [reflection APIs](https://learn.microsoft.com/en-us/dotnet/csharp/advanced-topics/reflection-and-attributes/), as they can be a significant contributor to IL2CPP metadata allocations
+- Disabling [built-in packages](https://docs.unity3d.com/2023.2/Documentation/Manual/upm-ui-disable.html)
+- Implementing Unity 2022 [full generic sharing](https://blog.unity.com/engine-platform/il2cpp-full-generic-sharing-in-unity-2022-1-beta), which should help reduce the overhead caused by generics. However, to help reduce allocations even further, reduce the use of generics.
 
 ### Code stripping
 
@@ -450,40 +375,33 @@ example](https://docs.unity3d.com/6000.0/Documentation/Manual/performance-dynami
 
 ## Manage native plugins and SDKs
 
-* Find the problematic plugin — Remove each plugin and compare the game memory
+- Find the problematic plugin --- Remove each plugin and compare the game memory
   snapshots. This involves disabling a lot of code functionality with [Scripting
   Define Symbols](https://docs.unity3d.com/6000.1/Documentation/Manual/custom-scripting-symbols.html) and refactoring highly coupled classes with
   interfaces. Check [Level up your code with game programming
   patterns](https://unity.com/resources/level-up-your-code-with-game-programming-patterns) to facilitate the process of disabling external
   dependencies without making your game unplayable.
-* Contact the plugin or SDK author — Most of the plugins are not open source.
-* Reproduce the plugin memory usage — You can write a simple plugin (use this
+
+- Contact the plugin or SDK author --- Most of the plugins are not open source.
+
+- Reproduce the plugin memory usage --- You can write a simple plugin (use this
   [Unity plugin](https://github.com/android/games-samples/tree/main/unity) as reference) that does memory allocations. Inspect the
   memory snapshots using Android Studio (as Unity doesn't track these allocations)
-  or call the [`MemoryInfo`](/reference/android/app/ActivityManager.MemoryInfo) class and [`Runtime.totalMemory()`](/reference/java/lang/Runtime#totalMemory()) method in the same
+  or call the [`MemoryInfo`](https://developer.android.com/reference/android/app/ActivityManager.MemoryInfo) class and [`Runtime.totalMemory()`](https://developer.android.com/reference/java/lang/Runtime#totalMemory()) method in the same
   project.
 
 A Unity plugin allocates Java and native memory; here's how to do it:
 
 **Java**
 
-```
-byte[] largeObject = new byte[1024 * 1024 * megaBytes];
-list.add(largeObject);
-```
+    byte[] largeObject = new byte[1024 * 1024 * megaBytes];
+    list.add(largeObject);
 
 **Native**
 
-```
-char* buffer = new char[megabytes * 1024 * 1024];
+    char* buffer = new char[megabytes * 1024 * 1024];
 
-// Random data to fill the buffer
-for (int i = 1; i < megabytes * 1024 * 1024; ++i) {
-   buffer[i] = 'A' + (i % 26); // Fill with letters A-Z
-}
-```
-
-
-
-
-Send feedback
+    // Random data to fill the buffer
+    for (int i = 1; i < megabytes * 1024 * 1024; ++i) {
+       buffer[i] = 'A' + (i % 26); // Fill with letters A-Z
+    }

@@ -1,20 +1,8 @@
 ---
-title: Manage Play Games Services API usage  |  Android game development  |  Android Developers
+title: https://developer.android.com/games/pgs/quota
 url: https://developer.android.com/games/pgs/quota
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [Google Play](https://developer.android.com/distribute)
-* [Games dev center](https://developer.android.com/games)
-* [Guides](https://developer.android.com/games/guides)
-
-Send feedback
-
-# Manage Play Games Services API usage Stay organized with collections Save and categorize content based on your preferences.
-
-
-
 
 This topic describes how to detect and manage Play Games Services API usage in
 your game.
@@ -35,7 +23,7 @@ will automatically attempt to make the call again later when your game is no
 longer rate limited.
 
 To request additional quota for your games, see the
-[quota increase](#quota-increase) section.
+[quota increase](https://developer.android.com/games/pgs/quota#quota-increase) section.
 
 ## Manage your daily quota
 
@@ -46,13 +34,10 @@ visiting your project in the
 To view or change usage limits for your project, or to request an increase to
 your quota, do the following:
 
-1. If you don't already have a [billing account](//cloud.google.com/billing/docs/how-to/manage-billing-account)
-   for your project, then create one.
+1. If you don't already have a [billing account](https://cloud.google.com/billing/docs/how-to/manage-billing-account) for your project, then create one.
 2. [Visit the Enabled APIs page of the
-   API library](https://console.cloud.google.com/apis/enabled) in the API Console, and select an API from the
-   list.
-3. To view and change quota-related settings, select **Quotas**. To view
-   usage statistics, select **Usage**.
+   API library](https://console.cloud.google.com/apis/enabled) in the API Console, and select an API from the list.
+3. To view and change quota-related settings, select **Quotas** . To view usage statistics, select **Usage**.
 
 You can set the maximum number of calls a user can make per second, to
 help ensure that an abusive player doesn't use up all of your application's
@@ -61,7 +46,7 @@ Google Cloud Platform
 [documentation](https://developers.google.com/console/help/capping-usage).
 
 To request additional quota for your games, see the
-[quota increase](#quota-increase) section.
+[quota increase](https://developer.android.com/games/pgs/quota#quota-increase) section.
 
 ## Request a quota increase
 
@@ -72,10 +57,3 @@ your app's quota entry in the
 Requests to increase the games quota usually aren't accepted unless your game is
 experiencing exceptional usage and is obeying the best practices in the
 [quality checklist](https://developers.google.com/games/services/bestpractices#9_quota_and_rate_limiting).
-
-
-
-
-
-
-Send feedback

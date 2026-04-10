@@ -1,18 +1,8 @@
 ---
-title: Reduce your app size  |  App quality  |  Android Developers
+title: https://developer.android.com/topic/performance/reduce-apk-size
 url: https://developer.android.com/topic/performance/reduce-apk-size
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [Design & Plan](https://developer.android.com/design)
-* [App quality](https://developer.android.com/quality)
-* [Technical quality](https://developer.android.com/quality/technical)
-
-# Reduce your app size Stay organized with collections Save and categorize content based on your preferences.
-
-
-
 
 Users often avoid downloading apps that seem too large, particularly in emerging markets where
 devices connect to spotty 2G and 3G networks or work on plans with data limits. This page describes
@@ -20,7 +10,7 @@ how to reduce your app's download size, which lets more users download your app.
 
 ## Upload your app with Android App Bundles
 
-Upload your app as an [*Android App Bundle*](/guide/app-bundle) to immediately
+Upload your app as an [*Android App Bundle*](https://developer.android.com/guide/app-bundle) to immediately
 save app size when you publish to Google Play. Android App Bundle is an upload format that includes
 all your app's compiled code and resources but defers APK generation and signing to Google Play.
 
@@ -30,13 +20,14 @@ run your app. You don't have to build, sign, and manage multiple APKs to support
 and users get smaller, more optimized downloads.
 
 Google Play enforces a [compressed download
-size restriction](/guide/app-bundle#size_restrictions) of 200 MB for apps published with app bundles. Larger sizes
+size restriction](https://developer.android.com/guide/app-bundle#size_restrictions) of 200 MB for apps published with app bundles. Larger sizes
 are possible using Play Feature Delivery and Play Asset Delivery but increasing your app's size can
 negatively impact install success and increase uninstalls, so we recommend you apply the
 guidelines described in this page to reduce your app's download size as much as possible.
 
-**Note:** For apps you publish to Google Play by uploading signed APKs, **compressed downloads
-are restricted to 100 MB**.
+> [!NOTE]
+> **Note:** For apps you publish to Google Play by uploading signed APKs, **compressed downloads
+> are restricted to 100 MB**.
 
 ## Understand the APK structure
 
@@ -46,31 +37,20 @@ files include Java class files, resource files, and a file containing compiled r
 
 An APK contains the following directories:
 
-* `META-INF/`: contains the `CERT.SF` and `CERT.RSA` signature
-  files, as well as the `MANIFEST.MF` manifest file.
-* `assets/`: contains the app's assets, which the app can retrieve using an
-  `AssetManager`
-  object.
-* `res/`: contains resources that aren't compiled into
-  `resources.arsc`.
-* `lib/`: contains the compiled code that is specific to the software layer of a
-  processor. This directory contains a subdirectory for each platform type, such as
-  `armeabi`, `armeabi-v7a`, `arm64-v8a`, `x86`,
-  `x86_64`, and `mips`.
+- `META-INF/`: contains the `CERT.SF` and `CERT.RSA` signature files, as well as the `MANIFEST.MF` manifest file.
+- `assets/`: contains the app's assets, which the app can retrieve using an `https://developer.android.com/reference/android/content/res/AssetManager` object.
+- `res/`: contains resources that aren't compiled into `resources.arsc`.
+- `lib/`: contains the compiled code that is specific to the software layer of a processor. This directory contains a subdirectory for each platform type, such as `armeabi`, `armeabi-v7a`, `arm64-v8a`, `x86`, `x86_64`, and `mips`.
 
 An APK also contains the following files. Only `AndroidManifest.xml` is mandatory:
 
-* `resources.arsc`: contains compiled resources. This file contains the XML content
-  from all configurations of the `res/values/` folder. The packaging tool extracts this
-  XML content, compiles it to binary form, and archives the content. This content includes language
-  strings and styles, as well as paths to content that isn't included directly in the
-  `resources.arsc` file, such as layout files and images.
-  **Note:** Don't compress this file in your APK.
-* `classes.dex`: contains the classes compiled in the DEX file format understood by
-  the Dalvik or ART virtual machine.
-* `AndroidManifest.xml`: contains the core Android manifest file. This file lists the
-  name, version, access rights, and referenced library files of the app. The file uses Android's
-  binary XML format.
+- `resources.arsc`: contains compiled resources. This file contains the XML content from all configurations of the `res/values/` folder. The packaging tool extracts this XML content, compiles it to binary form, and archives the content. This content includes language strings and styles, as well as paths to content that isn't included directly in the `resources.arsc` file, such as layout files and images.
+
+  > [!NOTE]
+  > **Note:** Don't compress this file in your APK.
+
+- `classes.dex`: contains the classes compiled in the DEX file format understood by the Dalvik or ART virtual machine.
+- `AndroidManifest.xml`: contains the core Android manifest file. This file lists the name, version, access rights, and referenced library files of the app. The file uses Android's binary XML format.
 
 ## Reduce resource count and size
 
@@ -78,14 +58,14 @@ The size of your APK has an impact on how fast your app loads, how much memory i
 much power it consumes. You can make your APK smaller by reducing the number and size of the
 resources it contains. In particular, you can remove resources that your app no longer uses, and you
 can use scalable
-`Drawable` objects in
+`https://developer.android.com/reference/android/graphics/drawable/Drawable` objects in
 place of image files. This section discusses these methods and other ways you can reduce the
 resources in your app to decrease the overall size of your APK.
 
 ### Remove unused resources
 
-The [`lint`](/studio/write/lint) tool—a static code analyzer
-included in Android Studio—detects resources in your `res/` folder that your code
+The [`lint`](https://developer.android.com/studio/write/lint) tool---a static code analyzer
+included in Android Studio---detects resources in your `res/` folder that your code
 doesn't reference. When the `lint` tool discovers a potentially unused resource in your
 project, it prints a message like the following example:
 
@@ -94,19 +74,17 @@ res/layout/preferences.xml: Warning: The resource R.layout.preferences appears
     to be unused [UnusedResources]
 ```
 
-
-**Note:** The `lint` tool doesn't scan the `assets/` folder, assets that
-are referenced via reflection, or library files that you link to your app. Also, it doesn't remove
-resources. It only alerts you to their presence.
+> [!NOTE]
+> **Note:** The `lint` tool doesn't scan the `assets/` folder, assets that are referenced via reflection, or library files that you link to your app. Also, it doesn't remove resources. It only alerts you to their presence.
 
 Libraries that you add to your code might include unused resources. Gradle can automatically
 remove resources on your behalf if you enable
-[`shrinkResources`](/studio/build/shrink-code#shrink-resources) in your
+[`shrinkResources`](https://developer.android.com/studio/build/shrink-code#shrink-resources) in your
 app's `build.gradle.kts` file.
 
 ### Kotlin
 
-```
+```kotlin
 android {
     // Other settings.
 
@@ -122,7 +100,7 @@ android {
 
 ### Groovy
 
-```
+```groovy
 android {
     // Other settings.
 
@@ -140,21 +118,21 @@ To use `shrinkResources`, enable code shrinking. During the build process, R8 fi
 removes unused code. Then, the Android Gradle plugin removes the unused resources.
 
 For more information about code and resource shrinking, and other ways Android Studio reduces
-APK size, see [Shrink, obfuscate, and optimize your app](/studio/build/shrink-code).
+APK size, see [Shrink, obfuscate, and optimize your app](https://developer.android.com/studio/build/shrink-code).
 
 In Android Gradle Plugin 7.0 and later, you can declare the configurations that your app
 supports. Gradle passes this information to the build system using the
-`resourceConfigurations`
+`https://developer.android.com/reference/tools/gradle-api/7.2/com/android/build/api/dsl/BaseFlavor#resourceConfigurations()`
 flavor and the `defaultConfig` option. The build system then prevents resources from
 other unsupported configurations from appearing in the APK, reducing the APK's size. For more
 information about this feature, see
 [Remove unused alternative
-resources](/studio/build/shrink-code#unused-alt-resources).
+resources](https://developer.android.com/studio/build/shrink-code#unused-alt-resources).
 
 ### Minimize resource use from libraries
 
 When you develop an Android app, you usually use external libraries to improve your app's
-usability and versatility. For example, you might reference [AndroidX](/jetpack/androidx)
+usability and versatility. For example, you might reference [AndroidX](https://developer.android.com/jetpack/androidx)
 to improve the user experience on earlier devices, or you can use
 [Google Play Services](https://developers.google.com/android/guides/overview) to retrieve
 automatic translations for text within your app.
@@ -164,21 +142,21 @@ your app doesn't need. To include only the parts of the library that your app ne
 the library's files if the license lets you modify the library. You can also use an alternative,
 mobile-friendly library to add specific functionality to your app.
 
-**Note:** You can use [code shrinking](/studio/build/shrink-code) to clean up
-some of a library's unnecessary code, but it might not remove some large internal dependencies.
+> [!NOTE]
+> **Note:** You can use [code shrinking](https://developer.android.com/studio/build/shrink-code) to clean up some of a library's unnecessary code, but it might not remove some large internal dependencies.
 
 ### Native animated image decoding
 
 In Android 12 (API level 31), the NDK
-`ImageDecoder` API is expanded to decode
+`https://developer.android.com/ndk/reference/group/image-decoder` API is expanded to decode
 all frames and timing data from images that use the animated GIF and animated WebP file formats.
 
 Use `ImageDecoder` instead of third-party libraries to further
-[decrease APK size](/topic/performance/reduce-apk-size#minimize) and benefit from future
+[decrease APK size](https://developer.android.com/topic/performance/reduce-apk-size#minimize) and benefit from future
 updates related to security and performance.
 
 For more details about the `ImageDecoder` API, refer to the
-`API reference` and the
+`https://developer.android.com/ndk/reference/group/image-decoder` and the
 [sample
 on GitHub](https://github.com/android/ndk-samples/tree/develop/webp/image-decoder).
 
@@ -186,13 +164,13 @@ on GitHub](https://github.com/android/ndk-samples/tree/develop/webp/image-decode
 
 Android supports different screen densities, such as the following:
 
-* `ldpi`
-* `mdpi`
-* `tvdpi`
-* `hdpi`
-* `xhdpi`
-* `xxhdpi`
-* `xxxhdpi`
+- `ldpi`
+- `mdpi`
+- `tvdpi`
+- `hdpi`
+- `xhdpi`
+- `xxhdpi`
+- `xxxhdpi`
 
 Although Android supports the preceding densities, you don't need to export your rasterized
 assets to each density.
@@ -207,13 +185,13 @@ an image in `drawable-nodpi/`. We recommend you include at least an `xxhdpi`
 image variant in your app.
 
 For more information about screen densities, see
-[Screen sizes and densities](/about/dashboards#Screens).
+[Screen sizes and densities](https://developer.android.com/about/dashboards#Screens).
 
 ### Use drawable objects
 
 Some images don't require a static image resource. The framework can dynamically draw the image
-at runtime instead. `Drawable` objects—or `<shape>` in
-XML—can take up a tiny amount of space in your APK. In addition, XML `Drawable`
+at runtime instead. `Drawable` objects---or `<shape>` in
+XML---can take up a tiny amount of space in your APK. In addition, XML `Drawable`
 objects produce monochromatic images compliant with Material Design guidelines.
 
 ### Reuse resources
@@ -229,7 +207,7 @@ You can also omit resources that are only a rotated equivalent of another resour
 code snippet provides an example of turning a "thumb up" into a "thumb down" by pivoting at the
 middle of the image and rotating it 180 degrees:
 
-```
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <rotate xmlns:android="http://schemas.android.com/apk/res/android"
     android:drawable="@drawable/ic_thumb_up"
@@ -252,23 +230,22 @@ palette. Doing so results in an image of equal quality but a smaller memory foot
 
 The `aapt` has the following limitations:
 
-* The `aapt` tool doesn't shrink PNG files contained in the `asset/`
-  folder.
-* Image files need to use 256 or fewer colors for the `aapt` tool to optimize
-  them.
-* The `aapt` tool might inflate PNG files that are already compressed. To prevent
-  this, you can use the `isCrunchPngs` flag to disable this process for PNG files:
+- The `aapt` tool doesn't shrink PNG files contained in the `asset/` folder.
+- Image files need to use 256 or fewer colors for the `aapt` tool to optimize them.
+- The `aapt` tool might inflate PNG files that are already compressed. To prevent this, you can use the `isCrunchPngs` flag to disable this process for PNG files:
 
 ### Kotlin
 
-```
+```kotlin
     buildTypes.all { isCrunchPngs = false }
+    
 ```
 
 ### Groovy
 
-```
+```groovy
     buildTypes.all { isCrunchPngs = false }
+    
 ```
 
 ### Compress PNG and JPEG files
@@ -293,14 +270,14 @@ format provides lossy compression and transparency, like JPG and PNG, and it can
 compression than either JPEG or PNG.
 
 You can convert existing BMP, JPG, PNG or static GIF images to WebP format using Android Studio.
-For more information, see [Create WebP images](/studio/write/convert-webp).
+For more information, see [Create WebP images](https://developer.android.com/studio/write/convert-webp).
 
 ### Use vector graphics
 
 You can use vector graphics to create resolution-independent icons and other scalable media.
 You can use these graphics to greatly reduce your APK footprint. Vector images are represented in
 Android as
-`VectorDrawable`
+`https://developer.android.com/reference/android/graphics/drawable/VectorDrawable`
 objects. With a `VectorDrawable` object, a 100-byte file can generate a sharp image the
 size of the screen.
 
@@ -309,19 +286,19 @@ However, it takes significantly more time for the system to render each
 Therefore, consider using these vector graphics only when displaying small images.
 
 For more information about working with `VectorDrawable` objects, see
-[Drawables](/training/material/drawables).
+[Drawables](https://developer.android.com/training/material/drawables).
 
 ### Use vector graphics for animated images
 
 Don't use
-`AnimationDrawable`
+`https://developer.android.com/reference/android/graphics/drawable/AnimationDrawable`
 to create frame-by-frame animations, because doing so requires that you include a separate bitmap
 file for each frame of the animation, which drastically increases the size of your APK.
 
 Instead, use
-[`AnimatedVectorDrawableCompat`](/reference/androidx/vectordrawable/graphics/drawable/AnimatedVectorDrawableCompat) to create
+[`AnimatedVectorDrawableCompat`](https://developer.android.com/reference/androidx/vectordrawable/graphics/drawable/AnimatedVectorDrawableCompat) to create
 [animated vector
-drawables](/develop/ui/views/animations/drawable-animation#AnimVector).
+drawables](https://developer.android.com/develop/ui/views/animations/drawable-animation#AnimVector).
 
 ## Reduce native and Java code
 
@@ -336,9 +313,9 @@ triple the size of your app.
 
 ### Avoid enumerations
 
-A single enum can add about 1.0 to 1.4 KB to your app's `classes.dex` file. These
+A single enum can add about 1.0 to 1.4 KB to your app's `classes.dex` file. These
 additions can quickly accumulate for complex systems or shared libraries. If possible, consider
-using the `@IntDef` annotation and [code shrinking](/studio/build/shrink-code)
+using the `@IntDef` annotation and [code shrinking](https://developer.android.com/studio/build/shrink-code)
 to strip enumerations out and convert them to integers. This type conversion preserves all of the
 type safety benefits of enums.
 
@@ -358,9 +335,9 @@ symbols from native libraries. Afterwards, you can compile your release build.
 
 When building the release version of your app, package uncompressed `.so` files in the
 APK by setting
-[`useLegacyPackaging`](/reference/tools/gradle-api/7.1/com/android/build/api/dsl/JniLibsPackagingOptions#uselegacypackaging)
+[`useLegacyPackaging`](https://developer.android.com/reference/tools/gradle-api/7.1/com/android/build/api/dsl/JniLibsPackagingOptions#uselegacypackaging)
 to `false` in your app's `build.gradle.kts` file. Disabling this flag prevents
-`PackageManager` from
+`https://developer.android.com/reference/android/content/pm/PackageManager` from
 copying `.so` files from the APK to the filesystem during installation. This method makes
 updates of your app smaller.
 
@@ -368,7 +345,7 @@ updates of your app smaller.
 
 Your APK might contain content that users download but never use, like additional language or
 per-screen-density resources. To help ensure a minimal download for your users, upload your app to
-Google Play [using Android App Bundles](#app_bundle). Uploading app bundles lets Google
+Google Play [using Android App Bundles](https://developer.android.com/topic/performance/reduce-apk-size#app_bundle). Uploading app bundles lets Google
 Play generate and serve optimized APKs for each user's device configuration so they download only
 the code and resources they need to run your app. You don't have to build, sign, and manage multiple
 APKs to support different devices, and users get smaller, more optimized downloads.
@@ -382,4 +359,4 @@ have. For example, if a user has a `hdpi` device, they don't need `xxxhdpi`
 resources that you might include for devices with higher density displays.
 
 For more information, see [Build multiple
-APKs](/studio/build/configure-apk-splits) and [Multiple APK support](/training/multiple-apks).
+APKs](https://developer.android.com/studio/build/configure-apk-splits) and [Multiple APK support](https://developer.android.com/training/multiple-apks).

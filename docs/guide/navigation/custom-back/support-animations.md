@@ -1,28 +1,12 @@
 ---
-title: Add support for predictive back animations  |  App architecture  |  Android Developers
+title: https://developer.android.com/guide/navigation/custom-back/support-animations
 url: https://developer.android.com/guide/navigation/custom-back/support-animations
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [Design & Plan](https://developer.android.com/design)
-* [App architecture](https://developer.android.com/topic/architecture/intro)
-
-# Add support for predictive back animations Stay organized with collections Save and categorize content based on your preferences.
-
-
 
 When using the system back APIs, you can opt in to receive in-app animations and
 support custom transitions.
-
-[
-
-Alas, your browser doesn't support HTML5 video. That's OK! You can still
-[download the video](/static/guide/navigation/custom-back/pb-cross-activity-and-back-to-home (1).mp4) and watch it with a video player.
-](/static/guide/navigation/custom-back/pb-cross-activity-and-back-to-home (1).mp4)
-
-
-**Video 1:** Predictive back animations
+Alas, your browser doesn't support HTML5 video. That's OK! You can still [download the video](https://developer.android.com/static/guide/navigation/custom-back/pb-cross-activity-and-back-to-home (1).mp4) and watch it with a video player. **Video 1:**Predictive back animations
 
 After opting in, your app displays animations for back-to-home, cross-activity,
 and cross-task.
@@ -30,16 +14,12 @@ and cross-task.
 The video shows a brief example of predictive back animations for
 cross-activity and back-to-home using the Android Settings app.
 
-1. In the animation, the user swipes back to return to the previous settings
-   screen—an example of a cross-activity animation.
-2. Now on the previous screen, the user begins swiping back a second time,
-   showing a preview of the home screen with its wallpaper—an example of
-   the back-to-home animation.
-3. The user continues to swipe right, showing an animation of the window
-   shrinking down to the icon on the home screen.
+1. In the animation, the user swipes back to return to the previous settings screen---an example of a cross-activity animation.
+2. Now on the previous screen, the user begins swiping back a second time, showing a preview of the home screen with its wallpaper---an example of the back-to-home animation.
+3. The user continues to swipe right, showing an animation of the window shrinking down to the icon on the home screen.
 4. The user has now fully returned to the home screen.
 
-Learn more about how to [Add support for predictive back gestures](/guide/navigation/custom-back/predictive-back-gesture).
+Learn more about how to [Add support for predictive back gestures](https://developer.android.com/guide/navigation/custom-back/predictive-back-gesture).
 
 ## Add custom in-app transitions and animations
 
@@ -62,7 +42,7 @@ part of handling the back gesture.
 The following snippet shows an example of using `PredictiveBackHandler` to
 animate a `Surface` scaling down and moving away with gesture progress:
 
-```
+```kotlin
 @Composable
 fun DetailScreen(onBack: () -> Unit) {
     var scale by remember { mutableFloatStateOf(1f) }
@@ -98,4 +78,5 @@ fun DetailScreen(onBack: () -> Unit) {
         ) {}
     }
 }
+  
 ```

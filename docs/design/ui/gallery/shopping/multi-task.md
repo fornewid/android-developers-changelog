@@ -14,6 +14,7 @@ source: html-scrape
 
 
 
+
 Expedite informed, confident buying decisions by enabling shoppers to view
 products in one window while researching product ratings, reviews, and reports
 in another.

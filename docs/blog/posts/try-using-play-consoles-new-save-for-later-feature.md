@@ -1,0 +1,111 @@
+---
+title: https://developer.android.com/blog/posts/try-using-play-consoles-new-save-for-later-feature
+url: https://developer.android.com/blog/posts/try-using-play-consoles-new-save-for-later-feature
+source: md.txt
+---
+
+#### [Product News](https://developer.android.com/blog/categories/product-news)
+
+# Ready to review some changes but not others? Try using Play Console's new Save for later feature
+
+###### 2-min read
+
+![](https://developer.android.com/static/blog/assets/260120_Header_7fdfbedb2d_105hHT.webp) 21 Jan 2026 [![](https://developer.android.com/static/blog/assets/Georgia_Doyle_a2f5ebfcdb_Z1cCMui.webp)](https://developer.android.com/blog/authors/georgia-doyle)[![](https://developer.android.com/static/blog/assets/Kanu_Tibrewal_20caa0960e_1aI42M.webp)](https://developer.android.com/blog/authors/kanu-tibrewal)
+
+##### [Georgia Doyle](https://developer.android.com/blog/authors/georgia-doyle)
+\&
+[Kanu Tibrewal](https://developer.android.com/blog/authors/kanu-tibrewal)
+
+We've launched a new Save for later feature on Google Play Console's [Publishing overview](https://play.google.com/console/about/publishingoverview/) to give you more control over when you send changes for review.
+
+In the past, changes to your app were bundled together before being sent for review. This presented challenges if you needed to reprioritize changes, or if the changes were no longer relevant. For example, updates to your test tracks grouped with marketing changes that need to be rescheduled. This lack of flexibility meant that if some changes were ready for review but not others, you could end up delaying urgent fixes, or publishing changes that you weren't quite ready to make.  
+
+Now, you have the ability to hold back the changes you're not ready to have reviewed.
+
+### **How it works**
+
+In the 'Changes not yet sent for review' section of the Publishing overview page, select 'Save for later' on the groups of changes that you don't want to include in your next review. You can view and edit the list of saved changes, and return them to the Publishing overview if you change your mind. Once the review has started, your saved changes will be added back to 'Changes not yet sent for review'.
+![console.jpg](https://developer.android.com/static/blog/assets/console_68f776bba3_Z1AY7Uv.webp)
+
+### **Integration with our pre-review checks**
+
+Save for later also works with our [pre-review checks](https://support.google.com/googleplay/android-developer/answer/14807773). Pre-review checks look for issues in your changes that may prevent your app from being published, so that you can fix them before you send changes for review. If checks find issues with your app, there are two ways you can proceed:
+
+- If issues are isolated to an individual track, we'll show you an error beside that change, so you know what to save for later in order to proceed to review with your other changes.
+- If you have issues that affect your whole app, for example, App content issues, Save for later will be unavailable and you will need to fix them before you can send any changes for review.
+
+### **Greater flexibility in your workflows**
+
+Our goal for Save for later is to give you greater flexibility over your release schedule. With this feature you can manage what changes you send for review, and address issues affecting individual tracks without holding up ready-to-release changes, so you can iterate faster and minimize the impact of rejections on your release timeline.
+
+### **So, what's next?**
+
+We're committed to continuously improving your publishing experience. Save for later is a significant step towards providing you with more granular control over this all-important stage in the journey to publishing your app. We'll continue to gather your feedback and look at ways we can provide greater flexibility to the review and publishing process.
+
+<br />
+
+We're excited to see how Save for later helps you to streamline your release process and bring your app innovations to users even faster.
+
+###### Written by:
+
+-
+
+  ## [Georgia Doyle](https://developer.android.com/blog/authors/georgia-doyle)
+
+  ###### Senior UX Writer and Content Designer
+
+  [read_more
+  View profile](https://developer.android.com/blog/authors/georgia-doyle) ![](https://developer.android.com/static/blog/assets/Georgia_Doyle_a2f5ebfcdb_Z1cCMui.webp) ![](https://developer.android.com/static/blog/assets/Georgia_Doyle_a2f5ebfcdb_Z1cCMui.webp)
+-
+
+  ## [Kanu Tibrewal](https://developer.android.com/blog/authors/kanu-tibrewal)
+
+  ###### Software Engineer
+
+  [read_more
+  View profile](https://developer.android.com/blog/authors/kanu-tibrewal) ![](https://developer.android.com/static/blog/assets/Kanu_Tibrewal_20caa0960e_1aI42M.webp) ![](https://developer.android.com/static/blog/assets/Kanu_Tibrewal_20caa0960e_1aI42M.webp)
+
+## Continue reading
+
+- [![](https://developer.android.com/static/blog/assets/matthew_warner_67a99317e4_Z2c1VNu.webp)](https://developer.android.com/blog/authors/matthew-warner) 02 Apr 2026 02 Apr 2026 ![](https://developer.android.com/static/blog/assets/android_studio_gemma4_73370772af_2lUopR.webp)
+
+  #### [Product News](https://developer.android.com/blog/categories/product-news)
+
+  ## [Android Studio supports Gemma 4: our most capable local model for agentic coding](https://developer.android.com/blog/posts/android-studio-supports-gemma-4-our-most-capable-local-model-for-agentic-coding)
+
+  [arrow_forward](https://developer.android.com/blog/posts/android-studio-supports-gemma-4-our-most-capable-local-model-for-agentic-coding) Every developer's AI workflow and needs are unique, and it's important to be able to choose how AI helps your development. In January, we introduced the ability to choose any local or remote AI model to power AI functionality in Android Studio
+
+  ###### [Matthew Warner](https://developer.android.com/blog/authors/matthew-warner) •
+  2 min read
+
+  - [#Android Studio](https://developer.android.com/blog/topics/android-studio)
+- [![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](https://developer.android.com/blog/authors/matt-dyor) 02 Apr 2026 02 Apr 2026 ![](https://developer.android.com/static/blog/assets/as_Panda3_385cde5eac_Z1E8IhJ.webp)
+
+  #### [Product News](https://developer.android.com/blog/categories/product-news)
+
+  ## [Increase Guidance and Control over Agent Mode with Android Studio Panda 3](https://developer.android.com/blog/posts/increase-guidance-and-control-over-agent-mode-with-android-studio-panda-3)
+
+  [arrow_forward](https://developer.android.com/blog/posts/increase-guidance-and-control-over-agent-mode-with-android-studio-panda-3) Android Studio Panda 3 is now stable and ready for you to use in production. This release gives you even more control and customization over your AI-powered workflows, making it easier than ever to build high-quality Android apps.
+
+  ###### [Matt Dyor](https://developer.android.com/blog/authors/matt-dyor) •
+  3 min read
+
+  - [#Android Studio](https://developer.android.com/blog/topics/android-studio)
+- [![](https://developer.android.com/static/blog/assets/Caren_Chang_e58d793559_1i40VV.webp)](https://developer.android.com/blog/authors/caren-chang)[![](https://developer.android.com/static/blog/assets/David_Chou_226df78370_tqGIk.webp)](https://developer.android.com/blog/authors/david-chou) 02 Apr 2026 02 Apr 2026 ![](https://developer.android.com/static/blog/assets/announcing_gemma4_aicore_ce479292b9_Z15e7FP.webp)
+
+  #### [Product News](https://developer.android.com/blog/categories/product-news)
+
+  ## [Announcing Gemma 4 in the AICore Developer Preview](https://developer.android.com/blog/posts/announcing-gemma-4-in-the-ai-core-developer-preview)
+
+  [arrow_forward](https://developer.android.com/blog/posts/announcing-gemma-4-in-the-ai-core-developer-preview) At Google, we're committed to bringing the most capable AI models directly to the Android devices in your pocket. Today, we're thrilled to announce the release of our latest state-of-the-art open model: Gemma 4.
+
+  ###### [Caren Chang](https://developer.android.com/blog/authors/caren-chang), [David Chou](https://developer.android.com/blog/authors/david-chou) •
+  3 min read
+
+# Stay in the loop
+
+
+Get the latest Android development insights delivered to your inbox
+weekly.
+[mail
+Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)

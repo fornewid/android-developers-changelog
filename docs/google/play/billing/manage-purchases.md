@@ -1,18 +1,8 @@
 ---
-title: Manage subscriptions and one-time purchases  |  Play Billing  |  Android Developers
+title: https://developer.android.com/google/play/billing/manage-purchases
 url: https://developer.android.com/google/play/billing/manage-purchases
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [Google Play](https://developer.android.com/distribute)
-* [Play Monetization](https://developer.android.com/google/play/billing)
-
-Send feedback
-
-# Manage subscriptions and one-time purchases Stay organized with collections Save and categorize content based on your preferences.
-
-
 
 You may need to take management actions on subscriptions or one-time purchases
 as part of day-to-day business. For example, your customer service may need to
@@ -33,7 +23,7 @@ subscriptions in your app and on your website.
 
 The easiest way to enable users to cancel voluntarily is by [providing
 deep links in your app to the
-Play Store](/google/play/billing/subscriptions#use-deep), where they can view
+Play Store](https://developer.android.com/google/play/billing/subscriptions#use-deep), where they can view
 and manage their subscriptions.
 
 ### Developer initiated cancellations
@@ -48,21 +38,19 @@ until the end of their current billing period.
 This method lets you specify the following types of cancellations in the
 `cancellationType` request body parameter:
 
-* **USER\_REQUESTED\_STOP\_RENEWALS**: Cancels the subscription as if users
+- **USER_REQUESTED_STOP_RENEWALS**: Cancels the subscription as if users
   have cancelled from the Play Store. Any installment payments
   will continue for the remainder of the current commitment period. From the
   Play Store, users may restore the subscription before it expires,
   or re-subscribe after it expires if enabled for the base plan.
-* **DEVELOPER\_REQUESTED\_STOP\_PAYMENTS**: Cancels the subscription and prevents
+
+- **DEVELOPER_REQUESTED_STOP_PAYMENTS**: Cancels the subscription and prevents
   any further payments. Users can't restore or re-subscribe to the subscription
   from the Play Store, however you can enable them to subscribe again
   within your app.
 
-**Note:** Specifying `cancellationType` is
-optional. If you don't specify the parameter in your
-[`purchases.subscriptions.cancel`](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.subscriptions/cancel)
-API request, by default, the default behavior is
-`DEVELOPER_REQUESTED_STOP_PAYMENTS`.
+> [!NOTE]
+> **Note:** Specifying `cancellationType` is optional. If you don't specify the parameter in your [`purchases.subscriptions.cancel`](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.subscriptions/cancel) API request, by default, the default behavior is `DEVELOPER_REQUESTED_STOP_PAYMENTS`.
 
 #### Enable users to restore unexpired subscriptions
 
@@ -79,23 +67,19 @@ request parameter to the `USER_REQUESTED_STOP_RENEWALS` value.
 
 Example:
 
-* Purchase token of the subscription `1a2b3c4d5e6f7g8h9i0j`
-* Application package name `com.your.app`
-* Subscription ID `your-subscription-product`
+- Purchase token of the subscription `1a2b3c4d5e6f7g8h9i0j`
+- Application package name `com.your.app`
+- Subscription ID `your-subscription-product`
 
 HTTP POST request:
 
-```
-https://androidpublisher.googleapis.com/androidpublisher/v3/applications/com.your.app/purchases/subscriptions/your-subscription-product/tokens/1a2b3c4d5e6f7g8h9i0j:cancel
-```
+    https://androidpublisher.googleapis.com/androidpublisher/v3/applications/com.your.app/purchases/subscriptions/your-subscription-product/tokens/1a2b3c4d5e6f7g8h9i0j:cancel
 
 Request body:
 
-```
-{
-  "cancellationType": "USER_REQUESTED_STOP_RENEWALS"
-}
-```
+    {
+      "cancellationType": "USER_REQUESTED_STOP_RENEWALS"
+    }
 
 #### Enable users to resubscribe expired subscriptions
 
@@ -113,14 +97,10 @@ sign up again for the subscription through your app if required.
 
 Taking this action triggers a `SUBSCRIPTION_CANCELED` Real-time developer
 notification. Handle these cancellations as described in
-[Cancellations](/google/play/billing/lifecycle/subscriptions#cancel).
+[Cancellations](https://developer.android.com/google/play/billing/lifecycle/subscriptions#cancel).
 
-**Note:** If you cancel an installment subscription with
-the [`purchases.subscriptions.cancel`](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.subscriptions/cancel) API,
-setting the `cancellationType` parameter to `USER_REQUESTED_STOP_RENEWALS`,
-cancels only the next renewal of their installment, while the user still
-needs to finish the commitment. However, setting the parameter value
-to `DEVELOPER_REQUESTED_STOP_PAYMENTS`, stops the next payment.
+> [!NOTE]
+> **Note:** If you cancel an installment subscription with the [`purchases.subscriptions.cancel`](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.subscriptions/cancel) API, setting the `cancellationType` parameter to `USER_REQUESTED_STOP_RENEWALS`, cancels only the next renewal of their installment, while the user still needs to finish the commitment. However, setting the parameter value to `DEVELOPER_REQUESTED_STOP_PAYMENTS`, stops the next payment.
 
 ## Defer billing
 
@@ -129,33 +109,33 @@ using the [`subscriptionsv2.defer`](https://developers.google.com/android-publis
 the subscription are deferred by the same duration. During the deferral period, the user remains subscribed to your content though is not charged for the extra time. When you defer billing for a subscription, the status information is updated accordingly and you see it reflected in the `expiryTime` field in the
 purchase status information:
 
-* For active recurring subscriptions, deferred billing extends the next
-  renewal date.
-* For prepaid plans, deferred billing extends the expiration time.
+- For active recurring subscriptions, deferred billing extends the next renewal date.
+- For prepaid plans, deferred billing extends the expiration time.
 
 Some examples on how you could use deferred billing are:
 
-* Give users no-cost access as a special offer, such as giving one week free
-  to existing subscribers for filling out a feedback survey.
-* Give customers no-cost access as a customer-care action, for example after
-  an extended outage that might have affected their ability to use your service.
+- Give users no-cost access as a special offer, such as giving one week free to existing subscribers for filling out a feedback survey.
+- Give customers no-cost access as a customer-care action, for example after an extended outage that might have affected their ability to use your service.
 
 Billing can be deferred by as little as one day and up to a year per API call.
 To defer the end of the entitlement even further, call the API again
 before the new expiration date arrives.
 
 Taking this action triggers a `SUBSCRIPTION_DEFERRED` Real-time developer
-notification. See [Defer billing for a subscriber](/google/play/billing/subscriptions#defer) in [About subscriptions](/google/play/billing/subscriptions) to learn how to handle these events.
+notification. See [Defer billing for a subscriber](https://developer.android.com/google/play/billing/subscriptions#defer) in [About subscriptions](https://developer.android.com/google/play/billing/subscriptions) to learn how to handle these events.
 
 Example:
 
 1. FitnessGoals streaming service wants to run a promotion to
    encourage regular exercise in February.
+
 2. They decide to offer an additional one month of service to any subscriber
    who exercises with FitnessGoals at least 10 times during the month of
    February.
+
 3. They track the challenge's results, and on March 1st, they call the [subscriptionsv2.defer](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.subscriptionsv2/defer) method for every active subscription purchase belonging to
    users that met the challenge in February.
+
 4. These users get the benefit of an extra full month of regular exercise videos at no cost, and the users tell all their friends how FitnessGoals helps them stay healthy!
 
 ## Issue refunds and revocations
@@ -173,7 +153,7 @@ access should be revoked in addition to providing the refund.
 If you issue a revocation with the refund call for subscription purchase, the
 subscription is immediately terminated and it triggers a`SUBSCRIPTION_REVOKED`
 Real Time Developer Notification. Read the subscription lifecycle management
-guide [Revocations section](/google/play/billing/lifecycle/subscriptions#revoke)
+guide [Revocations section](https://developer.android.com/google/play/billing/lifecycle/subscriptions#revoke)
 to learn how to handle these events.
 
 Example:
@@ -181,17 +161,13 @@ Example:
 1. To celebrate the beginning of the new world cup, the e-sports app
    Football-Not-Soccer decides to raffle off free virtual jerseys for all users
    who purchase new team kits in the first 24 hours.
+
 2. Football-Not-Soccer uses the [`orders.refund`](https://developers.google.com/android-publisher/api-ref/rest/v3/orders/refund)
    API without passing a revoke parameter to refund the jersey purchases to the
    winners.
 
-**Note:** Access to a subscription can only be revoked for subscriptions with
-current entitlement. When using the `revoke` parameter while refunding an order,
-make sure the order is the latest associated with the subscription. If it is not
-, the refund will be successful, but the subscription won't be revoked. If your
-use case requires revoking access to an active subscription, Use the
-[`purchases.subscriptionsv2.revoke`](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.subscriptionsv2/revoke)
-API with the purchase ID instead of the refund API with a revoke parameter.
+> [!NOTE]
+> **Note:** Access to a subscription can only be revoked for subscriptions with current entitlement. When using the `revoke` parameter while refunding an order, make sure the order is the latest associated with the subscription. If it is not , the refund will be successful, but the subscription won't be revoked. If your use case requires revoking access to an active subscription, Use the [`purchases.subscriptionsv2.revoke`](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.subscriptionsv2/revoke) API with the purchase ID instead of the refund API with a revoke parameter.
 
 ### Revoke and refund a subscription by purchase token
 
@@ -203,29 +179,25 @@ to determine how the refund is calculated.
 
 Taking this action triggers a `SUBSCRIPTION_REVOKED` Real Time Developer
 Notification. Your app should handle these cancellations as described in
-[Revocations](/google/play/billing/lifecycle/subscriptions#revoke).
+[Revocations](https://developer.android.com/google/play/billing/lifecycle/subscriptions#revoke).
 
 Example:
 
-* Purchase with purchase token `1a2b3c4d5e6f7g8h9i0j`
-* Application with the package name `com.your.app`
-* Intent of issuing a prorated refund
+- Purchase with purchase token `1a2b3c4d5e6f7g8h9i0j`
+- Application with the package name `com.your.app`
+- Intent of issuing a prorated refund
 
 HTTP POST request:
 
-```
-https://androidpublisher.googleapis.com/androidpublisher/v3/applications/com.your.app/purchases/subscriptionsv2/tokens/1a2b3c4d5e6f7g8h9i0j:revoke
-```
+    https://androidpublisher.googleapis.com/androidpublisher/v3/applications/com.your.app/purchases/subscriptionsv2/tokens/1a2b3c4d5e6f7g8h9i0j:revoke
 
 Request body:
 
-```
-{
-  "revocationContext": {
-    "proratedRefund": {}
-  }
-}
-```
+    {
+      "revocationContext": {
+        "proratedRefund": {}
+      }
+    }
 
 #### Full refunds
 
@@ -240,9 +212,11 @@ Example:
    monthly plan. Maria encountered some technical issues that prevent her from
    accessing the content. She contacts customer service on day 3 of her billing
    cycle stating that she never got access to the subscription.
+
 2. Customer service locates Maria's subscription purchase details in
    their system and triggers a call to [`purchases.subscriptionsv2.revoke`](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.subscriptionsv2/revoke)
    requesting a full refund.
+
 3. Customer service tells Maria she should get 100% of her
    subscription price refunded and she is not subscribed to the plan anymore.
 
@@ -260,21 +234,14 @@ Example:
    Maria contacts customer service on day 15 of her billing cycle stating that she
    is moving abroad and won't be able to use the service anymore starting the
    next day.
+
 2. Customer service locates Maria's subscription purchase details in
    their system and triggers a call to [`purchases.subscriptionsv2.revoke`](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.subscriptionsv2/revoke)
    requesting a prorated refund.
+
 3. Customer service tells Maria she should get about 50% of her
    subscription price refunded and that access to the service terminated
    immediately.
 
-**Note:** The [`purchases.subscriptionsv2.revoke`](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.subscriptionsv2/revoke)
-API is a replacement and improvement of the legacy
-[`purchases.subscription.revoke`](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.subscriptions/revoke).
-The main difference is that the new method allows partial refunds while the
-legacy is capable of only full refunds.
-Be aware that a user refund is based on the value of the latest order.
-
-
-
-
-Send feedback
+> [!NOTE]
+> **Note:** The [`purchases.subscriptionsv2.revoke`](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.subscriptionsv2/revoke) API is a replacement and improvement of the legacy [`purchases.subscription.revoke`](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.subscriptions/revoke). The main difference is that the new method allows partial refunds while the legacy is capable of only full refunds. Be aware that a user refund is based on the value of the latest order.

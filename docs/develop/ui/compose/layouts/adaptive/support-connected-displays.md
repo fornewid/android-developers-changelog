@@ -1,20 +1,10 @@
 ---
-title: Support connected displays  |  Jetpack Compose  |  Android Developers
+title: https://developer.android.com/develop/ui/compose/layouts/adaptive/support-connected-displays
 url: https://developer.android.com/develop/ui/compose/layouts/adaptive/support-connected-displays
-source: html-scrape
+source: md.txt
 ---
 
-* [Android Developers](https://developer.android.com/)
-* [Develop](https://developer.android.com/develop)
-* [Core areas](https://developer.android.com/develop/core-areas)
-* [UI](https://developer.android.com/develop/ui)
-* [Docs](https://developer.android.com/develop/ui/compose/documentation)
-
-# Support connected displays Stay organized with collections Save and categorize content based on your preferences.
-
-
-
-Connected displays extend the [desktop windowing](/develop/ui/compose/layouts/adaptive/support-desktop-windowing) experience to standard
+Connected displays extend the [desktop windowing](https://developer.android.com/develop/ui/compose/layouts/adaptive/support-desktop-windowing) experience to standard
 phones, giving users access to large screens from their mobile devices. This
 capability opens up new possibilities for app interaction and user productivity.
 
@@ -22,27 +12,13 @@ All the unique features of desktop windowing apply to connected displays. When
 you connect a phone to a display, the phone's state remains unchanged, and a
 blank desktop session starts on the connected display. The device and the
 display act as two individual systems, with apps specific to each display.
+Your browser doesn't support the video tag. **Figure 1.** Phone connected to an external display, with a desktop session on the display while the phone maintains its own state.
 
-[
-
-Your browser doesn't support the video tag.
-](/static/develop/ui/compose/images/layouts/adaptive/connected-displays/desktop-windowing.mp4)
-
-
-**Figure 1.** Phone connected to an external display, with a desktop session on the display while the phone maintains its own state.
-
-If you connect a desktop windowing–enabled device, such as a tablet, to an
+If you connect a desktop windowing--enabled device, such as a tablet, to an
 external monitor, the desktop session extends across both displays. The two
 displays then function as one continuous system. This setup allows windows,
 content, and the cursor to move freely between the two displays.
-
-[
-
-Your browser doesn't support the video tag.
-](/static/develop/ui/compose/images/layouts/adaptive/connected-displays/continuous-displays.mp4)
-
-
-**Figure 2.** Tablet connected to an external monitor, extending the desktop session across both displays.
+Your browser doesn't support the video tag. **Figure 2.** Tablet connected to an external monitor, extending the desktop session across both displays.
 
 Supporting connected displays effectively requires attention to several aspects
 of your app's design and implementation. The following best practices ensure a
@@ -50,7 +26,7 @@ smooth and productive user experience.
 
 ## Handle dynamic display changes
 
-Many apps are built with the assumption that the [`Display`](/reference/kotlin/android/view/Display) object and its
+Many apps are built with the assumption that the [`Display`](https://developer.android.com/reference/kotlin/android/view/Display) object and its
 characteristics won't change during the app's lifecycle. However, when a user
 connects or disconnects an external monitor, or even moves an app window between
 displays, the underlying `Display` object associated with your app's context or
@@ -60,15 +36,15 @@ based on the phone's screen, for example, your layouts will likely break on an
 external display.
 
 External displays can also have vastly different pixel densities. You need to
-make sure your app responds correctly to [density changes](/guide/topics/manifest/activity-element#config). This involves
+make sure your app responds correctly to [density changes](https://developer.android.com/guide/topics/manifest/activity-element#config). This involves
 using density-independent pixels (dp) for layouts, providing density-specific
 resources, and ensuring your UI scales appropriately.
 
 If an activity is running on an external display when the display is
 disconnected, the system moves the activity to the primary display. The move
-triggers configuration changes—such as screen size and density changes—which can
+triggers configuration changes---such as screen size and density changes---which can
 cause the activity to be recreated. Your app must handle the configuration
-change by [saving and restoring UI state](/guide/topics/large-screens/configuration-and-continuity) to prevent data loss or a confusing
+change by [saving and restoring UI state](https://developer.android.com/guide/topics/large-screens/configuration-and-continuity) to prevent data loss or a confusing
 user experience.
 
 ### Use the right context
@@ -85,27 +61,28 @@ about the current window or display. This also affects some system APIs that use
 information from the context.
 
 In Jetpack Compose, you can access display-specific information using
-[`CompositionLocal`](/reference/kotlin/androidx/compose/runtime/CompositionLocal) objects like [`LocalConfiguration.current`](/reference/kotlin/androidx/compose/ui/platform/package-summary#LocalConfiguration()) and
-[`LocalDensity.current`](/reference/kotlin/androidx/compose/ui/platform/package-summary#LocalDensity()). When an activity or window moves between displays,
+[`CompositionLocal`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/CompositionLocal) objects like [`LocalConfiguration.current`](https://developer.android.com/reference/kotlin/androidx/compose/ui/platform/package-summary#LocalConfiguration()) and
+[`LocalDensity.current`](https://developer.android.com/reference/kotlin/androidx/compose/ui/platform/package-summary#LocalDensity()). When an activity or window moves between displays,
 the device configuration changes, triggering recomposition with new display
 metrics. `CompositionLocal` objects enable your UI to adapt seamlessly.
 
 ### Get display information
 
-You can use the [`Display`](/reference/kotlin/android/view/Display) class to get information such as display size,
-density, or flags. Use the [`DisplayManager`](/reference/kotlin/android/hardware/display/DisplayManager) system service to get the
+You can use the [`Display`](https://developer.android.com/reference/kotlin/android/view/Display) class to get information such as display size,
+density, or flags. Use the [`DisplayManager`](https://developer.android.com/reference/kotlin/android/hardware/display/DisplayManager) system service to get the
 available displays. To identify external displays, filter out the
 `Display.DEFAULT_DISPLAY`, which is typically the built-in phone or tablet
 screen:
 
-```
+
+```kotlin
 val displayManager = getSystemService(Context.DISPLAY_SERVICE) as DisplayManager
 val displays = displayManager.getDisplays()
 // The default display is 0. External displays have other IDs.
 val externalDisplays = displays.filter { it.displayId != Display.DEFAULT_DISPLAY }
-
-SupportConnectedDisplays.kt
 ```
+
+<br />
 
 ## Manage activity launch and configuration
 
@@ -117,17 +94,18 @@ and options set by the entity launching the activity.
 When an activity moves to a secondary display, your app can experience a context
 update, window resizing, and configuration and resource changes. If the activity
 handles the configuration change, it is notified in
-[`onConfigurationChanged()`](/reference/kotlin/android/app/Activity#onconfigurationchanged). Otherwise, the activity is relaunched.
+[`onConfigurationChanged()`](https://developer.android.com/reference/kotlin/android/app/Activity#onconfigurationchanged). Otherwise, the activity is relaunched.
 
 If the selected launch mode for an activity allows multiple instances, launching
 on a secondary screen can create a new instance of the activity. Both activities
 are resumed at the same time, which can be beneficial for certain multitasking
 scenarios.
 
-You can launch an activity on a particular display using [`ActivityOptions`](/reference/kotlin/android/app/ActivityOptions).
+You can launch an activity on a particular display using [`ActivityOptions`](https://developer.android.com/reference/kotlin/android/app/ActivityOptions).
 Note that `launchDisplayId` requires Android 8 (API level 26) or higher.
 
-```
+
+```kotlin
 // Get DisplayManager and find the first external display.
 val displayManager = getSystemService(Context.DISPLAY_SERVICE) as DisplayManager
 val externalDisplayId = displayManager.displays
@@ -145,21 +123,21 @@ if (externalDisplayId != null) {
 } else {
     // Optionally, handle the case where no external display is connected.
 }
-
-SupportConnectedDisplays.kt
 ```
+
+<br />
 
 ## Avoid device allowlists
 
 Apps sometimes restrict large-screen UI and features to select devices through
-an allowlist or by checking [`BUILD.MODEL`](/reference/android/os/Build#MODEL) and the built-in display size.
+an allowlist or by checking [`BUILD.MODEL`](https://developer.android.com/reference/android/os/Build#MODEL) and the built-in display size.
 This approach is not effective for connected displays because virtually any
 device can be connected to a large screen, and the device model doesn't change
 when an external display is connected.
 
-Instead of using allowlists or checking [`BUILD.MODEL`](/reference/android/os/Build#MODEL) and the built-in
+Instead of using allowlists or checking [`BUILD.MODEL`](https://developer.android.com/reference/android/os/Build#MODEL) and the built-in
 display size, check window metrics or device capabilities at runtime to make UI
-decisions. Use [Jetpack WindowManager](/jetpack/androidx/releases/window) APIs or [window size classes](/develop/ui/compose/layouts/adaptive/use-window-size-classes) to
+decisions. Use [Jetpack WindowManager](https://developer.android.com/jetpack/androidx/releases/window) APIs or [window size classes](https://developer.android.com/develop/ui/compose/layouts/adaptive/use-window-size-classes) to
 build responsive and adaptive layouts for various screen sizes and densities.
 
 ## Support external peripherals
@@ -170,35 +148,20 @@ webcams, microphones, and speakers. You need to ensure your app works seamlessly
 with these peripherals. This includes handling keyboard shortcuts, managing
 mouse pointer interactions, correctly supporting external cameras or
 microphones, and respecting audio output routing. For more details, see [Input
-compatibility on large screens](/develop/ui/compose/touch-input/input-compatibility-on-large-screens).
+compatibility on large screens](https://developer.android.com/develop/ui/compose/touch-input/input-compatibility-on-large-screens).
 
 ## Enhance user productivity
 
 Connected displays provide a significant opportunity to improve [user
-productivity](/large-screens/gallery/productivity). You now have the tools to build mobile apps that can offer
+productivity](https://developer.android.com/large-screens/gallery/productivity). You now have the tools to build mobile apps that can offer
 experiences comparable to desktop applications. Consider implementing the
 following features to [boost user productivity](https://www.youtube.com/watch?v=MmeJSLAnB-M):
 
-* Allow users to open multiple instances of the same app. This is invaluable
-  for tasks like comparing documents, managing different conversations, or
-  viewing multiple files simultaneously.
-* Enable users to share rich data in and out of your app with [drag and
-  drop](/guide/topics/large-screens/drag-and-drop).
-* Help users maintain their workflow across configuration changes by
-  implementing a robust [state management system](/guide/topics/large-screens/configuration-and-continuity).
+- Allow users to open multiple instances of the same app. This is invaluable for tasks like comparing documents, managing different conversations, or viewing multiple files simultaneously.
+- Enable users to share rich data in and out of your app with [drag and
+  drop](https://developer.android.com/guide/topics/large-screens/drag-and-drop).
+- Help users maintain their workflow across configuration changes by implementing a robust [state management system](https://developer.android.com/guide/topics/large-screens/configuration-and-continuity).
 
 By following these guidelines and utilizing the provided code examples, you can
 create apps that seamlessly adapt to connected displays, offering users a richer
 and more productive experience.
-
-[Previous
-
-arrow\_back
-
-Support desktop windowing](/develop/ui/compose/layouts/adaptive/support-desktop-windowing)
-
-[Next
-
-Support camera on multiple form factors
-
-arrow\_forward](/develop/ui/compose/layouts/adaptive/camera-form-factors-support)

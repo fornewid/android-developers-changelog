@@ -1,18 +1,8 @@
 ---
-title: Do's and don'ts with Styles  |  Jetpack Compose  |  Android Developers
+title: https://developer.android.com/develop/ui/compose/styles/dos-donts
 url: https://developer.android.com/develop/ui/compose/styles/dos-donts
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [Develop](https://developer.android.com/develop)
-* [Core areas](https://developer.android.com/develop/core-areas)
-* [UI](https://developer.android.com/develop/ui)
-* [Docs](https://developer.android.com/develop/ui/compose/documentation)
-
-# Do's and don'ts with Styles Stay organized with collections Save and categorize content based on your preferences.
-
-
 
 This page describes best practices for working with styles that achieve consistency
 across your codebase, as well as principles we've followed while
@@ -33,7 +23,8 @@ accessibility.
 For your own custom design-system components, you should expose a `Style` object
 after the modifier parameter.
 
-```
+
+```kotlin
 @Composable
 fun GradientButton(
     modifier: Modifier = Modifier,
@@ -42,16 +33,17 @@ fun GradientButton(
 ) {
     // Consume the style
 }
-
-DosDonts.kt
 ```
+
+<br />
 
 ### Do: Replace visual-based parameters with a Style
 
 Consider replacing parameters on your composables with a single `Style` parameter.
 For example:
 
-```
+
+```kotlin
 // Before
 @Composable
 fun OldButton(background: Color, fontColor: Color) {
@@ -62,9 +54,9 @@ fun OldButton(background: Color, fontColor: Color) {
 @Composable
 fun NewButton(style: Style = Style) {
 }
-
-DosDonts.kt
 ```
+
+<br />
 
 ### Do: Prioritize Styles for animations
 
@@ -91,7 +83,8 @@ business logic; instead, they should only have a different visual based on state
 
 Style parameters should always be declared using `style: Style = Style`:
 
-```
+
+```kotlin
 @Composable
 fun BadButton(
     modifier: Modifier = Modifier,
@@ -99,13 +92,14 @@ fun BadButton(
     style: Style = Style { background(Color.Red) }
 ) {
 }
-
-DosDonts.kt
 ```
+
+<br />
 
 To include a "default" parameter, merge the incoming parameter style with the default defined:
 
-```
+
+```kotlin
 @Composable
 fun GoodButton(
     modifier: Modifier = Modifier,
@@ -119,9 +113,9 @@ fun GoodButton(
       // your logic
     }
 }
-
-DosDonts.kt
 ```
+
+<br />
 
 ### Don't: Provide style parameters to layout-based composables
 

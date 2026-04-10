@@ -1,17 +1,8 @@
 ---
-title: App architecture  |  Android Developers
+title: https://developer.android.com/guide/navigation/navigation-3/recipes/conditional
 url: https://developer.android.com/guide/navigation/navigation-3/recipes/conditional
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [App architecture](https://developer.android.com/topic/architecture/intro)
-
-Stay organized with collections
-
-Save and categorize content based on your preferences.
-
-
 
 # Conditional Navigation Recipe
 
@@ -25,20 +16,16 @@ This example has a `Profile` destination that requires the user to be logged in.
 
 The core of this recipe is the custom `AppBackStack` class, which encapsulates the logic for conditional navigation.
 
-* **`RequiresLogin` interface**: A marker interface, `RequiresLogin`, is used to identify destinations that require the user to be logged in. The `Profile` destination implements this interface.
-* **Redirecting to Login**: When the `add` function is called with a destination that implements `RequiresLogin` and the user is not logged in, `AppBackStack` stores the intended destination and adds the `Login` route to the back stack instead.
-* **Handling Login**: When the `login` function is called, it sets the user's status to logged in. If there is a stored destination that the user was trying to access, it adds that destination to the back stack and removes the `Login` screen.
-* **Handling Logout**: When the `logout` function is called, it sets the user's status to logged out and removes any destinations from the back stack that require the user to be logged in.
+- **`RequiresLogin` interface** : A marker interface, `RequiresLogin`, is used to identify destinations that require the user to be logged in. The `Profile` destination implements this interface.
+
+- **Redirecting to Login** : When the `add` function is called with a destination that implements `RequiresLogin` and the user is not logged in, `AppBackStack` stores the intended destination and adds the `Login` route to the back stack instead.
+
+- **Handling Login** : When the `login` function is called, it sets the user's status to logged in. If there is a stored destination that the user was trying to access, it adds that destination to the back stack and removes the `Login` screen.
+
+- **Handling Logout** : When the `logout` function is called, it sets the user's status to logged out and removes any destinations from the back stack that require the user to be logged in.
 
 This approach provides a clean way to handle conditional navigation by centralizing the logic in a custom back stack implementation.
-
-[![](/static/images/picto-icons/code.svg)
-
-Explore
-
-View the full recipe on GitHub.
-
-arrow\_forward](https://github.com/android/nav3-recipes/tree/main/app/src/main/java/com/example/nav3recipes/conditional)
+[![](https://developer.android.com/static/images/picto-icons/code.svg) Explore View the full recipe on GitHub.](https://github.com/android/nav3-recipes/tree/main/app/src/main/java/com/example/nav3recipes/conditional)
 
 ```
 /*
@@ -193,8 +180,6 @@ fun <T : NavKey> rememberNavBackStack(vararg elements: T): NavBackStack<T> {
         NavBackStack(*elements)
     }
 }
-
-ConditionalActivity.kt
 ```
 
 ```
@@ -246,6 +231,4 @@ class Navigator(
 
     fun goBack() = backStack.removeLastOrNull()
 }
-
-Navigator.kt
 ```

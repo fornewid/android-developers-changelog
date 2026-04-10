@@ -1,19 +1,10 @@
 ---
-title: Improve code inspection with annotations  |  Android Studio  |  Android Developers
+title: https://developer.android.com/studio/write/annotations
 url: https://developer.android.com/studio/write/annotations
-source: html-scrape
+source: md.txt
 ---
 
-* [Android Developers](https://developer.android.com/)
-* [Develop](https://developer.android.com/develop)
-* [Android Studio](https://developer.android.com/studio)
-* [IDE guides](https://developer.android.com/studio/intro)
-
-# Improve code inspection with annotations Stay organized with collections Save and categorize content based on your preferences.
-
-
-
-Using code inspections tools, such as [lint](/studio/write/lint), can help you find
+Using code inspections tools, such as [lint](https://developer.android.com/studio/write/lint), can help you find
 problems and improve your code, but inspection tools can only infer so much. Android resource IDs,
 for example, use an `int` to identify strings, graphics, colors, and other resource types,
 so inspection tools can't tell when you have specified a string resource where you should have
@@ -27,9 +18,9 @@ and fields. When used with code inspection tools, annotations can help you detec
 null pointer exceptions and resource type conflicts.
 
 Android supports a variety of annotations through the
-[Jetpack Annotations Library](/jetpack/androidx/releases/annotation).
+[Jetpack Annotations Library](https://developer.android.com/jetpack/androidx/releases/annotation).
 You can access the library through the
-`androidx.annotation`
+`https://developer.android.com/reference/androidx/annotation/package-summary`
 package.
 
 **Note:** If a module has a dependency on an annotation processor,
@@ -46,14 +37,14 @@ inspection or `lint` task.
 ### Add the Jetpack Annotations library dependency
 
 The Jetpack Annotations library is published on
-[Google's Maven Repository](/studio/build/dependencies#google-maven).
+[Google's Maven Repository](https://developer.android.com/studio/build/dependencies#google-maven).
 To add the Jetpack Anotations library to your project, include the following
 line in the `dependencies` block of your `build.gradle` or
 `build.gradle.kts` file:
 
 ### Kotlin
 
-```
+```kotlin
 dependencies {
     implementation("androidx.annotation:annotation:1.10.0")
 }
@@ -61,13 +52,14 @@ dependencies {
 
 ### Groovy
 
-```
+```groovy
 dependencies {
     implementation 'androidx.annotation:annotation:1.10.0'
 }
 ```
+Then, in the toolbar or sync notification that appears, click **Sync Now** .
 
-Then, in the toolbar or sync notification that appears, click **Sync Now**.
+<br />
 
 If you use annotations in your own library module, the annotations are included as part of the
 Android Archive (AAR) artifact in XML format in the `annotations.zip` file. Adding the
@@ -81,35 +73,33 @@ annotations.
 
 For a complete list of annotations included in the Jetpack repository, either see the
 [Jetpack Annotations library
-reference](/reference/androidx/annotation/package-summary) or use the autocomplete feature to display the available options for the
+reference](https://developer.android.com/reference/androidx/annotation/package-summary) or use the autocomplete feature to display the available options for the
 `import androidx.annotation.` statement.
 
 ### Run code inspections
 
 To start a code inspection from Android Studio, which includes validating annotations and
-automatic lint checking, select **Analyze** **> Inspect Code** from the
+automatic lint checking, select **Analyze** **\> Inspect Code** from the
 menu. Android Studio displays conflict messages to flag potential problems where your code
 conflicts with annotations and to suggest possible resolutions.
 
 You can also enforce annotations by [running the
-`lint` task using the command line](/studio/write/lint#commandline). Although this might be useful for flagging problems
+`lint` task using the command line](https://developer.android.com/studio/write/lint#commandline). Although this might be useful for flagging problems
 with a continuous integration server, the `lint` task doesn't enforce nullness
 annotations (described in the following section); only Android Studio does this. For more
 information on enabling and running lint
 inspections, see [Improving your code with lint
-checks](/tools/debugging/improving-w-lint).
+checks](https://developer.android.com/tools/debugging/improving-w-lint).
 
 Although annotation conflicts generate warnings, these warnings don't prevent your app
 from compiling.
 
 ## Nullness annotations
 
-Nullness annotations can be useful in Java code to enforce whether values can be null.
-They are less useful in Kotlin code, as Kotlin has built in nullability rules that are enforced at
-compile time.
+Nullness annotations can be useful in Java code to enforce whether values can be null. They are less useful in Kotlin code, as Kotlin has built in nullability rules that are enforced at compile time.
 
-Add `@Nullable` and
-`@NonNull` annotations
+Add `https://developer.android.com/reference/androidx/annotation/Nullable` and
+`https://developer.android.com/reference/androidx/annotation/NonNull` annotations
 to check the nullness of a given variable, parameter, or return value. The `@Nullable`
 annotation indicates a variable, parameter, or return value that can be null.
 `@NonNull` indicates a variable, parameter, or return value that can't be null.
@@ -129,7 +119,7 @@ aren't null. It also checks that the `onCreateView()` method itself doesn't retu
 
 ### Kotlin
 
-```
+```kotlin
 ...
     /** Annotation not used because of the safe-call operator(?)**/
     override fun onCreateView(
@@ -144,7 +134,7 @@ aren't null. It also checks that the `onCreateView()` method itself doesn't retu
 
 ### Java
 
-```
+```java
 import androidx.annotation.NonNull;
 ...
     /** Add support for inflating the <fragment> tag. **/
@@ -159,24 +149,25 @@ import androidx.annotation.NonNull;
 
 ### Nullability analysis
 
+
 Android Studio supports running a nullability analysis to automatically infer
 and insert nullness annotations in your code. A nullability analysis scans
 the contracts throughout the method hierarchies in your code to detect:
 
-* Calling methods that can return null.
-* Methods that should not return null.
-* Variables, such as fields, local variables, and parameters, that can be
-  null.
-* Variables, such as fields, local variables, and parameters, that can't
-  hold a null value.
+- Calling methods that can return null.
+- Methods that should not return null.
+- Variables, such as fields, local variables, and parameters, that can be null.
+- Variables, such as fields, local variables, and parameters, that can't hold a null value.
+
 
 The analysis then automatically inserts the appropriate null annotations in
 the detected locations.
 
-To run a nullability analysis in Android Studio, select **Analyze** >
-**Infer Nullity**. Android Studio inserts the Android `@Nullable` and `@NonNull` annotations in
+To run a nullability analysis in Android Studio, select **Analyze** \>
+**Infer Nullity** . Android Studio inserts the Android `https://developer.android.com/reference/androidx/annotation/Nullable` and `https://developer.android.com/reference/androidx/annotation/NonNull` annotations in
 detected locations in your code. After running a null analysis, it's a good practice to verify the
 injected annotations.
+
 
 **Note:** When adding nullness annotations, autocomplete may
 suggest the IntelliJ [`@Nullable` and
@@ -188,41 +179,41 @@ lint checker can properly notify you during code inspection.
 
 ## Resource annotations
 
-Validating resource types can be useful because Android references to resources, such as [drawable](/guide/topics/resources/drawable-resource) and [string](/guide/topics/resources/string-resource) resources, are passed as integers.
+Validating resource types can be useful because Android references to resources, such as [drawable](https://developer.android.com/guide/topics/resources/drawable-resource) and [string](https://developer.android.com/guide/topics/resources/string-resource) resources, are passed as integers.
 
 Code that expects a parameter to reference a specific type of resource, such as a `String`,
 can be passed to the expected reference type of `int`, but actually reference a different
 type of resource, such as an `R.string` resource.
 
-For example, add `@StringRes` annotations to
+For example, add `https://developer.android.com/reference/androidx/annotation/StringRes` annotations to
 check whether a resource parameter contains an `R.string` reference, as shown here:
 
 ### Kotlin
 
-```
+```kotlin
 abstract fun setTitle(@StringRes resId: Int)
 ```
 
 ### Java
 
-```
+```java
 public abstract void setTitle(@StringRes int resId)
 ```
 
 During code inspection, the annotation generates a warning if an `R.string` reference
 isn't passed in the parameter.
 
-Annotations for other resource types, such as `@DrawableRes`, `@DimenRes`, `@ColorRes`, and `@InterpolatorRes`, can be
+Annotations for other resource types, such as `https://developer.android.com/reference/androidx/annotation/DrawableRes`, `https://developer.android.com/reference/androidx/annotation/DimenRes`, `https://developer.android.com/reference/androidx/annotation/ColorRes`, and `https://developer.android.com/reference/androidx/annotation/InterpolatorRes`, can be
 added using the same annotation format and run during the code inspection.
 
 If your parameter
 supports multiple resource types, you can put more than one resource type annotation on a given
-parameter. Use `@AnyRes`
+parameter. Use `https://developer.android.com/reference/androidx/annotation/AnyRes`
 to indicate that the annotated parameter can be any type of `R` resource.
 
 Although you can use `@ColorRes` to specify that a
 parameter should be a color resource, a color integer (in the `RRGGBB` or
-`AARRGGBB` format) isn't recognized as a color resource. Instead, use the `@ColorInt` annotation to
+`AARRGGBB` format) isn't recognized as a color resource. Instead, use the `https://developer.android.com/reference/androidx/annotation/ColorInt` annotation to
 indicate that a parameter must be a color integer. The build tools will flag incorrect code that
 passes a color resource ID such as `android.R.color.black`, rather than a color integer,
 to annotated methods.
@@ -230,14 +221,14 @@ to annotated methods.
 ## Thread annotations
 
 Thread annotations check whether a method is called from a specific type of
-[thread](/guide/components/processes-and-threads). The following thread
+[thread](https://developer.android.com/guide/components/processes-and-threads). The following thread
 annotations are supported:
 
-* `@MainThread`
-* `@UiThread`
-* `@WorkerThread`
-* `@BinderThread`
-* `@AnyThread`
+- `https://developer.android.com/reference/androidx/annotation/MainThread`
+- `https://developer.android.com/reference/androidx/annotation/UiThread`
+- `https://developer.android.com/reference/androidx/annotation/WorkerThread`
+- `https://developer.android.com/reference/androidx/annotation/BinderThread`
+- `https://developer.android.com/reference/androidx/annotation/AnyThread`
 
 The build tools treat the `@MainThread` and
 `@UiThread` annotations as interchangeable, so you can call `@UiThread`
@@ -256,9 +247,9 @@ A common use of thread annotations is to validate that methods or classes annota
 
 ## Value constraint annotations
 
-Use the `@IntRange`,
-`@FloatRange`, and
-`@Size` annotations to
+Use the `https://developer.android.com/reference/androidx/annotation/IntRange`,
+`https://developer.android.com/reference/androidx/annotation/FloatRange`, and
+`https://developer.android.com/reference/androidx/annotation/Size` annotations to
 validate the values of passed parameters. Both `@IntRange` and `@FloatRange`
 are most useful when applied to parameters where users are likely to get the range wrong.
 
@@ -268,13 +259,13 @@ parameter must contain an integer value from 0 to 255:
 
 ### Kotlin
 
-```
+```kotlin
 fun setAlpha(@IntRange(from = 0, to = 255) alpha: Int) { ... }
 ```
 
 ### Java
 
-```
+```java
 public void setAlpha(@IntRange(from=0,to=255) int alpha) { ... }
 ```
 
@@ -284,13 +275,13 @@ value is within a specified range of floating point values. The following exampl
 
 ### Kotlin
 
-```
+```kotlin
 fun setAlpha(@FloatRange(from = 0.0, to = 1.0) alpha: Float) {...}
 ```
 
 ### Java
 
-```
+```java
 public void setAlpha(@FloatRange(from=0.0, to=1.0) float alpha) {...}
 ```
 
@@ -298,10 +289,11 @@ The `@Size` annotation checks the size of a collection or
 array or the length of a string. The `@Size` annotation can be used to verify
 the following qualities:
 
-* Minimum size, such as `@Size(min=2)`
-* Maximum size, such as `@Size(max=2)`
-* Exact size, such as `@Size(2)`
-* A number that the size must be a multiple of, such as `@Size(multiple=2)`
+- Minimum size, such as `@Size(min=2)`
+- Maximum size, such as `@Size(max=2)`
+- Exact size, such as `@Size(2)`
+- A number that the size must be a multiple of, such as `@Size(multiple=2)`
+
 
 For example, `@Size(min=1)`
 checks whether a collection is not empty, and `@Size(3)`
@@ -312,7 +304,7 @@ The following example indicates that the
 
 ### Kotlin
 
-```
+```kotlin
 fun getLocation(button: View, @Size(min=1) location: IntArray) {
     button.getLocationOnScreen(location)
 }
@@ -320,7 +312,7 @@ fun getLocation(button: View, @Size(min=1) location: IntArray) {
 
 ### Java
 
-```
+```java
 void getLocation(View button, @Size(min=1) int[] location) {
     button.getLocationOnScreen(location);
 }
@@ -328,7 +320,7 @@ void getLocation(View button, @Size(min=1) int[] location) {
 
 ## Permission annotations
 
-Use the `@RequiresPermission`
+Use the `https://developer.android.com/reference/androidx/annotation/RequiresPermission`
 annotation to validate the permissions of the caller of a method. To check for a single permission
 from a list of valid permissions, use the `anyOf` attribute. To check for a set of
 permissions, use the `allOf` attribute. The following example annotates the
@@ -337,7 +329,7 @@ permissions, use the `allOf` attribute. The following example annotates the
 
 ### Kotlin
 
-```
+```kotlin
 @RequiresPermission(Manifest.permission.SET_WALLPAPER)
 @Throws(IOException::class)
 abstract fun setWallpaper(bitmap: Bitmap)
@@ -345,7 +337,7 @@ abstract fun setWallpaper(bitmap: Bitmap)
 
 ### Java
 
-```
+```java
 @RequiresPermission(Manifest.permission.SET_WALLPAPER)
 public abstract void setWallpaper(Bitmap bitmap) throws IOException;
 ```
@@ -356,7 +348,7 @@ metadata in the copied image:
 
 ### Kotlin
 
-```
+```kotlin
 @RequiresPermission(allOf = [
     Manifest.permission.READ_EXTERNAL_STORAGE,
     Manifest.permission.ACCESS_MEDIA_LOCATION
@@ -368,7 +360,7 @@ fun copyImageFile(dest: String, source: String) {
 
 ### Java
 
-```
+```java
 @RequiresPermission(allOf = {
     Manifest.permission.READ_EXTERNAL_STORAGE,
     Manifest.permission.ACCESS_MEDIA_LOCATION})
@@ -382,27 +374,27 @@ intent action name:
 
 ### Kotlin
 
-```
+```kotlin
 @RequiresPermission(android.Manifest.permission.BLUETOOTH)
 const val ACTION_REQUEST_DISCOVERABLE = "android.bluetooth.adapter.action.REQUEST_DISCOVERABLE"
 ```
 
 ### Java
 
-```
+```java
 @RequiresPermission(android.Manifest.permission.BLUETOOTH)
 public static final String ACTION_REQUEST_DISCOVERABLE =
             "android.bluetooth.adapter.action.REQUEST_DISCOVERABLE";
 ```
 
 For permissions on content providers that need separate permissions for read and write
-access, wrap each permission requirement in an `@RequiresPermission.Read`
-or `@RequiresPermission.Write`
+access, wrap each permission requirement in an `https://developer.android.com/reference/androidx/annotation/RequiresPermission.Read`
+or `https://developer.android.com/reference/androidx/annotation/RequiresPermission.Write`
 annotation:
 
 ### Kotlin
 
-```
+```kotlin
 @RequiresPermission.Read(RequiresPermission(READ_HISTORY_BOOKMARKS))
 @RequiresPermission.Write(RequiresPermission(WRITE_HISTORY_BOOKMARKS))
 val BOOKMARKS_URI = Uri.parse("content://browser/bookmarks")
@@ -410,7 +402,7 @@ val BOOKMARKS_URI = Uri.parse("content://browser/bookmarks")
 
 ### Java
 
-```
+```java
 @RequiresPermission.Read(@RequiresPermission(READ_HISTORY_BOOKMARKS))
 @RequiresPermission.Write(@RequiresPermission(WRITE_HISTORY_BOOKMARKS))
 public static final Uri BOOKMARKS_URI = Uri.parse("content://browser/bookmarks");
@@ -420,29 +412,28 @@ public static final Uri BOOKMARKS_URI = Uri.parse("content://browser/bookmarks")
 
 When a permission depends on the specific value supplied to a method's parameter, use
 `@RequiresPermission` on the parameter itself without listing the specific permissions.
-For example, the `startActivity(Intent)`
+For example, the `https://developer.android.com/reference/android/app/Activity#startActivity(android.content.Intent)`
 method uses an indirect permission on the intent passed to the method:
 
 ### Kotlin
 
-```
+```kotlin
 abstract fun startActivity(@RequiresPermission intent: Intent, bundle: Bundle?)
 ```
 
 ### Java
 
-```
+```java
 public abstract void startActivity(@RequiresPermission Intent intent, @Nullable Bundle)
 ```
 
 When you use indirect permissions, the build tools perform data flow analysis to check whether the
 argument passed into the method has any `@RequiresPermission` annotations. They then
 enforce any existing annotations from the parameter on the method itself. In the
-`startActivity(Intent)` example, annotations in the `Intent` class cause the resulting warnings
+`startActivity(Intent)` example, annotations in the `https://developer.android.com/reference/android/content/Intent` class cause the resulting warnings
 on invalid uses of `startActivity(Intent)` when an intent without the appropriate
 permissions is passed to the method, as shown in figure 1.
-
-![](/static/studio/images/write/indirect-permissions-warning_2-2_2x.png)
+![](https://developer.android.com/static/studio/images/write/indirect-permissions-warning_2-2_2x.png)
 
 **Figure 1.** The warning generated from an indirect
 permissions annotation on the `startActivity(Intent)` method.
@@ -452,14 +443,14 @@ on the corresponding intent action name in the `Intent` class:
 
 ### Kotlin
 
-```
+```kotlin
 @RequiresPermission(Manifest.permission.CALL_PHONE)
 const val ACTION_CALL = "android.intent.action.CALL"
 ```
 
 ### Java
 
-```
+```java
 @RequiresPermission(Manifest.permission.CALL_PHONE)
 public static final String ACTION_CALL = "android.intent.action.CALL";
 ```
@@ -471,7 +462,7 @@ not be used in conjunction with either the read or the write permissions annotat
 
 ## Return value annotations
 
-Use the `@CheckResult` annotation to
+Use the `https://developer.android.com/reference/androidx/annotation/CheckResult` annotation to
 validate that a method's result or return value is actually used. Instead of annotating every
 non-void method with `@CheckResult`, add the annotation to clarify the results of
 potentially confusing methods.
@@ -481,28 +472,28 @@ For example, new Java developers often mistakenly think that
 the method with `@CheckResult` flags uses of `<String>.trim()`
 where the caller doesn't do anything with the method's return value.
 
-The following example annotates the `checkPermissions()`
+The following example annotates the `https://developer.android.com/reference/android/content/pm/PackageManager#checkPermission(java.lang.String,%20java.lang.String)`
 method to check whether the return value of the method is
-actually referenced. It also names the `enforcePermission()`
+actually referenced. It also names the `https://developer.android.com/reference/android/content/ContextWrapper#enforcePermission(java.lang.String,%20int,%20int,%20java.lang.String)`
 method as a method to be suggested to the developer as a replacement:
 
 ### Kotlin
 
-```
+```kotlin
 @CheckResult(suggest = "#enforcePermission(String,int,int,String)")
 abstract fun checkPermission(permission: String, pid: Int, uid: Int): Int
 ```
 
 ### Java
 
-```
+```java
 @CheckResult(suggest="#enforcePermission(String,int,int,String)")
 public abstract int checkPermission(@NonNull String permission, int pid, int uid);
 ```
 
 ## CallSuper annotations
 
-Use the `@CallSuper` annotation to
+Use the `https://developer.android.com/reference/androidx/annotation/CallSuper` annotation to
 validate that an overriding method calls the super implementation of the method.
 
 The following
@@ -511,7 +502,7 @@ implementations call `super.onCreate()`:
 
 ### Kotlin
 
-```
+```kotlin
 @CallSuper
 override fun onCreate(savedInstanceState: Bundle?) {
 }
@@ -519,7 +510,7 @@ override fun onCreate(savedInstanceState: Bundle?) {
 
 ### Java
 
-```
+```java
 @CallSuper
 protected void onCreate(Bundle savedInstanceState) {
 }
@@ -531,8 +522,8 @@ Typedef annotations check whether a particular parameter, return value,
 or field references a specific set of constants. They also enable code completion to automatically
 offer the allowed constants.
 
-Use the `@IntDef` and
-`@StringDef`
+Use the `https://developer.android.com/reference/androidx/annotation/IntDef` and
+`https://developer.android.com/reference/androidx/annotation/StringDef`
 annotations to create enumerated annotations of integer and string sets to validate other
 types of code references.
 
@@ -547,7 +538,7 @@ as a method parameter references one of the defined constants:
 
 ### Kotlin
 
-```
+```kotlin
 import androidx.annotation.IntDef
 //...
 // Define the list of accepted constants and declare the NavigationMode annotation.
@@ -573,7 +564,7 @@ abstract class ActionBar {
 
 ### Java
 
-```
+```java
 import androidx.annotation.IntDef;
 //...
 public abstract class ActionBar {
@@ -615,7 +606,7 @@ The following example creates the `DisplayOptions` annotation with a list of val
 
 ### Kotlin
 
-```
+```kotlin
 import androidx.annotation.IntDef
 ...
 
@@ -633,7 +624,7 @@ annotation class DisplayOptions
 
 ### Java
 
-```
+```java
 import androidx.annotation.IntDef;
 ...
 
@@ -655,12 +646,12 @@ or return value doesn't reference a valid pattern.
 
 ## Keep annotation
 
-The `@Keep`
+
+The `https://developer.android.com/reference/androidx/annotation/Keep`
 annotation ensures that an annotated class or method is not removed when the code
 is minified at build time. This annotation is typically
 added to methods and classes that are accessed through reflection to prevent the compiler from
 treating the code as unused.
-
 **Caution:** The classes and methods that you annotate
 using `@Keep` always appear in your app's APK, even if you never
 reference these classes and methods within your app's logic.
@@ -671,22 +662,26 @@ access an annotated class or method, use an
 [`-if`](https://www.guardsquare.com/en/products/proguard/manual/usage#if) conditional in your ProGuard rules, specifying the class
 that makes the reflection calls.
 
+
 For more information about how to minify your code and specify which code is not to be removed,
-see [Shrink, obfuscate, and optimize your app](/studio/build/shrink-code).
+see [Shrink, obfuscate, and optimize your app](https://developer.android.com/studio/build/shrink-code).
 
 ## Code visibility annotations
+
 
 Use the following annotations to denote the visibility of specific portions of code, such as
 methods, classes, fields, or packages.
 
 ### Make code visible for testing
 
+
 The
-`@VisibleForTesting`
+`https://developer.android.com/reference/androidx/annotation/VisibleForTesting`
 annotation indicates that an annotated method is more visible than normally necessary to make the
 method testable. This annotation has an optional `otherwise` argument that lets you
 designate what the visibility of the method would be if not for the need to make it visible
 for testing. Lint uses the `otherwise` argument to enforce the intended visibility.
+
 
 In the following example, `myMethod()` is normally `private`, but it is
 `package-private` for tests. With the `VisibleForTesting.PRIVATE`
@@ -695,7 +690,7 @@ context allowed by `private` access, such as from a different compilation unit.
 
 ### Kotlin
 
-```
+```kotlin
 @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
 fun myMethod() {
     ...
@@ -704,10 +699,11 @@ fun myMethod() {
 
 ### Java
 
-```
+```java
 @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
 void myMethod() { ... }
 ```
+
 
 You can also specify `@VisibleForTesting(otherwise = VisibleForTesting.NONE)`
 to indicate that a method exists only for testing. This form is the same as using
@@ -715,14 +711,17 @@ to indicate that a method exists only for testing. This form is the same as usin
 
 ### Restrict an API
 
-The `@RestrictTo`
+
+The `https://developer.android.com/reference/androidx/annotation/RestrictTo`
 annotation indicates that access to the annotated API (package, class, or method) is limited,
 as follows:
 
 #### Subclasses
 
+
 Use the annotation form `@RestrictTo(RestrictTo.Scope.SUBCLASSES)` to restrict
 API access to subclasses only.
+
 
 Only classes that extend the annotated class can access this API. The Java
 `protected` modifier is not restrictive enough, because it allows access
@@ -733,8 +732,10 @@ hint that the class is intended for usages within the class or from subclasses o
 
 #### Libraries
 
+
 Use the annotation form `@RestrictTo(RestrictTo.Scope.LIBRARY_GROUP_PREFIX)` to
 restrict API access to your libraries only.
+
 
 Only your library code can access the annotated API. This lets you not only organize your code
 in whatever package hierarchy you want but also share
@@ -744,8 +745,10 @@ has to be `public` to share it across the various complementary Jetpack librarie
 
 #### Testing
 
+
 Use the annotation form `@RestrictTo(RestrictTo.Scope.TESTS)` to prevent other
 developers from accessing your testing APIs.
+
 
 Only testing code can access the annotated API. This prevents other developers
 from using APIs for development that you intend for testing purposes only.

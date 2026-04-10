@@ -1,19 +1,8 @@
 ---
-title: Use Cronet with other libraries  |  Connectivity  |  Android Developers
+title: https://developer.android.com/develop/connectivity/cronet/integration
 url: https://developer.android.com/develop/connectivity/cronet/integration
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [Develop](https://developer.android.com/develop)
-* [Core areas](https://developer.android.com/develop/core-areas)
-* [Connectivity](https://developer.android.com/develop/connectivity)
-* [Guides](https://developer.android.com/develop/connectivity/overview)
-
-# Use Cronet with other libraries Stay organized with collections Save and categorize content based on your preferences.
-
-
-
 
 Cronet is a powerful and flexible tool that can be used in combination with
 other libraries, providing the best of utility, simplicity, and performance.
@@ -21,7 +10,7 @@ other libraries, providing the best of utility, simplicity, and performance.
 ## ExoPlayer
 
 ExoPlayer natively supports Cronet through its Cronet extension. Cronet is used
-by some of the world’s biggest streaming applications, including YouTube.
+by some of the world's biggest streaming applications, including YouTube.
 
 For more details, visit the [ExoPlayer site](https://exoplayer.dev/network-stacks.html#cronet).
 
@@ -49,7 +38,7 @@ For more details, visit the
 ## Glide
 
 Cronet is a good default choice with Glide and will provide better performance
-than Glide’s default integration with the standard Android networking stack.
+than Glide's default integration with the standard Android networking stack.
 
 For more details, visit the [Glide site](https://bumptech.github.io/glide/int/cronet.html).
 

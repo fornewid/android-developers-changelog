@@ -1,39 +1,20 @@
 ---
-title: Health Connect Jetpack v1.1.0 is now available!  |  Android Developers' Blog
+title: https://developer.android.com/blog/posts/health-connect-jetpack-v1-1-0-is-now-available
 url: https://developer.android.com/blog/posts/health-connect-jetpack-v1-1-0-is-now-available
-source: html-scrape
+source: md.txt
 ---
 
-* [Android Developers](https://developer.android.com/)
-* [Android Developers' Blog](https://developer.android.com/)
-* [Blog](https://developer.android.com/blog)
-
-Stay organized with collections
-
-Save and categorize content based on your preferences.
-
-
-
-#### [Product News](/blog/categories/product-news)
+#### [Product News](https://developer.android.com/blog/categories/product-news)
 
 # Health Connect Jetpack v1.1.0 is now available!
 
 ###### 2-min read
 
-![](/static/blog/assets/health_Connect1_49b5a00627_1xwJyg.webp)
+![](https://developer.android.com/static/blog/assets/health_Connect1_49b5a00627_1xwJyg.webp) 03 Nov 2025 [![](https://developer.android.com/static/blog/assets/Brenda_Shaw_eaa3b6d259_Zriy5T.webp)](https://developer.android.com/blog/authors/brenda-shaw) [##### Brenda Shaw](https://developer.android.com/blog/authors/brenda-shaw)
 
-03
+###### Technical Writer, Devices \& Services Partner Engineering
 
-Nov
-2025
-
-[![](/static/blog/assets/Brenda_Shaw_eaa3b6d259_Zriy5T.webp)](/blog/authors/brenda-shaw)
-
-[##### Brenda Shaw](/blog/authors/brenda-shaw)
-
-###### Technical Writer, Devices & Services Partner Engineering
-
-Health Connect is Android’s on-device platform designed to simplify connectivity between health and fitness apps, allowing developers to build richer experiences with secure, centralized data. Today, we’re thrilled to announce three major updates that empower you to create more intelligent, connected, and nuanced applications: the stable release of the Health Connect Jetpack library 1.1.0 and the expanded device type support.
+Health Connect is Android's on-device platform designed to simplify connectivity between health and fitness apps, allowing developers to build richer experiences with secure, centralized data. Today, we're thrilled to announce three major updates that empower you to create more intelligent, connected, and nuanced applications: the stable release of the Health Connect Jetpack library 1.1.0 and the expanded device type support.
 
 ## Health Connect Jetpack Library 1.1.0 is Now Stable
 
@@ -45,12 +26,12 @@ Since its inception, Health Connect has grown into a robust platform supporting 
 
 Accurate data representation is key to building trust and delivering precise insights. To that end, we have significantly expanded the list of supported device types in Health Connect. This will be available in **1.2.0-alpha02**. When data is written to the platform, specifying the source device is crucial metadata that helps data readers understand its context and quality.
 
-The newly [supported device types](/health-and-fitness/guides/health-connect/develop/metadata#device-type) include:
+The newly [supported device types](https://developer.android.com/health-and-fitness/guides/health-connect/develop/metadata#device-type) include:
 
-* **Consumer Medical Device:** For over-the-counter medical hardware like Continuous Glucose Monitors (CGMs) and Blood Pressure Cuffs.
-* **Glasses:** For smart glasses and other head-mounted optical devices.
-* **Hearables:** For earbuds, headphones, and hearing aids with sensing capabilities.
-* **Fitness Machine:** For stationary equipment like treadmills and indoor cycles, as well as outdoor equipment like bicycles.
+- **Consumer Medical Device:** For over-the-counter medical hardware like Continuous Glucose Monitors (CGMs) and Blood Pressure Cuffs.
+- **Glasses:** For smart glasses and other head-mounted optical devices.
+- **Hearables:** For earbuds, headphones, and hearing aids with sensing capabilities.
+- **Fitness Machine:** For stationary equipment like treadmills and indoor cycles, as well as outdoor equipment like bicycles.
 
 This expansion ensures data is represented more accurately, allowing you to build more nuanced experiences based on the specific hardware used to record it.
 
@@ -58,106 +39,63 @@ This expansion ensures data is represented more accurately, allowing you to buil
 
 We encourage all developers to upgrade to the stable 1.1.0 Health Connect Jetpack library to take full advantage of these new features and improvements.
 
-* Learn more in the official documentation and [release notes](/jetpack/androidx/releases/health-connect).
-* Provide feedback and report issues on our [public issue tracker](https://issuetracker.google.com/issues/new?component=1676744&template=2072671).
+- Learn more in the official documentation and [release notes](https://developer.android.com/jetpack/androidx/releases/health-connect).
+- Provide feedback and report issues on our [public issue tracker](https://issuetracker.google.com/issues/new?component=1676744&template=2072671).
 
-We are committed to the continued growth of the Health Connect platform. We can’t wait to see the incredible experiences you build!
+We are committed to the continued growth of the Health Connect platform. We can't wait to see the incredible experiences you build!
 
 ###### Written by:
 
-* ## [Brenda Shaw](/blog/authors/brenda-shaw)
+-
+
+  ## [Brenda Shaw](https://developer.android.com/blog/authors/brenda-shaw)
 
   ###### Technical Writer
 
-  [read\_more
-  View profile](/blog/authors/brenda-shaw)
-
-  ![](/static/blog/assets/Brenda_Shaw_eaa3b6d259_Zriy5T.webp)
-
-  ![](/static/blog/assets/Brenda_Shaw_eaa3b6d259_Zriy5T.webp)
+  [read_more
+  View profile](https://developer.android.com/blog/authors/brenda-shaw) ![](https://developer.android.com/static/blog/assets/Brenda_Shaw_eaa3b6d259_Zriy5T.webp) ![](https://developer.android.com/static/blog/assets/Brenda_Shaw_eaa3b6d259_Zriy5T.webp)
 
 ## Continue reading
 
-* [![](/static/blog/assets/matthew_warner_67a99317e4_Z2c1VNu.webp)](/blog/authors/matthew-warner)
+- [![](https://developer.android.com/static/blog/assets/matthew_warner_67a99317e4_Z2c1VNu.webp)](https://developer.android.com/blog/authors/matthew-warner) 02 Apr 2026 02 Apr 2026 ![](https://developer.android.com/static/blog/assets/android_studio_gemma4_73370772af_2lUopR.webp)
 
-  02
+  #### [Product News](https://developer.android.com/blog/categories/product-news)
 
-  Apr
-  2026
+  ## [Android Studio supports Gemma 4: our most capable local model for agentic coding](https://developer.android.com/blog/posts/android-studio-supports-gemma-4-our-most-capable-local-model-for-agentic-coding)
 
-  02
+  [arrow_forward](https://developer.android.com/blog/posts/android-studio-supports-gemma-4-our-most-capable-local-model-for-agentic-coding) Every developer's AI workflow and needs are unique, and it's important to be able to choose how AI helps your development. In January, we introduced the ability to choose any local or remote AI model to power AI functionality in Android Studio
 
-  Apr
-  2026
+  ###### [Matthew Warner](https://developer.android.com/blog/authors/matthew-warner) •
+  2 min read
 
-  ![](/static/blog/assets/android_studio_gemma4_73370772af_2lUopR.webp)
+  - [#Android Studio](https://developer.android.com/blog/topics/android-studio)
+- [![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](https://developer.android.com/blog/authors/matt-dyor) 02 Apr 2026 02 Apr 2026 ![](https://developer.android.com/static/blog/assets/as_Panda3_385cde5eac_Z1E8IhJ.webp)
 
-  #### [Product News](/blog/categories/product-news)
+  #### [Product News](https://developer.android.com/blog/categories/product-news)
 
-  ## [Android Studio supports Gemma 4: our most capable local model for agentic coding](/blog/posts/android-studio-supports-gemma-4-our-most-capable-local-model-for-agentic-coding)
+  ## [Increase Guidance and Control over Agent Mode with Android Studio Panda 3](https://developer.android.com/blog/posts/increase-guidance-and-control-over-agent-mode-with-android-studio-panda-3)
 
-  [arrow\_forward](/blog/posts/android-studio-supports-gemma-4-our-most-capable-local-model-for-agentic-coding)
+  [arrow_forward](https://developer.android.com/blog/posts/increase-guidance-and-control-over-agent-mode-with-android-studio-panda-3) Android Studio Panda 3 is now stable and ready for you to use in production. This release gives you even more control and customization over your AI-powered workflows, making it easier than ever to build high-quality Android apps.
 
-  Every developer's AI workflow and needs are unique, and it's important to be able to choose how AI helps your development. In January, we introduced the ability to choose any local or remote AI model to power AI functionality in Android Studio
+  ###### [Matt Dyor](https://developer.android.com/blog/authors/matt-dyor) •
+  3 min read
 
-  ###### [Matthew Warner](/blog/authors/matthew-warner) • 2 min read
+  - [#Android Studio](https://developer.android.com/blog/topics/android-studio)
+- [![](https://developer.android.com/static/blog/assets/Caren_Chang_e58d793559_1i40VV.webp)](https://developer.android.com/blog/authors/caren-chang)[![](https://developer.android.com/static/blog/assets/David_Chou_226df78370_tqGIk.webp)](https://developer.android.com/blog/authors/david-chou) 02 Apr 2026 02 Apr 2026 ![](https://developer.android.com/static/blog/assets/announcing_gemma4_aicore_ce479292b9_Z15e7FP.webp)
 
-  + [#Android Studio](/blog/topics/android-studio)
-* [![](/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](/blog/authors/matt-dyor)
+  #### [Product News](https://developer.android.com/blog/categories/product-news)
 
-  02
+  ## [Announcing Gemma 4 in the AICore Developer Preview](https://developer.android.com/blog/posts/announcing-gemma-4-in-the-ai-core-developer-preview)
 
-  Apr
-  2026
+  [arrow_forward](https://developer.android.com/blog/posts/announcing-gemma-4-in-the-ai-core-developer-preview) At Google, we're committed to bringing the most capable AI models directly to the Android devices in your pocket. Today, we're thrilled to announce the release of our latest state-of-the-art open model: Gemma 4.
 
-  02
-
-  Apr
-  2026
-
-  ![](/static/blog/assets/as_Panda3_385cde5eac_Z1E8IhJ.webp)
-
-  #### [Product News](/blog/categories/product-news)
-
-  ## [Increase Guidance and Control over Agent Mode with Android Studio Panda 3](/blog/posts/increase-guidance-and-control-over-agent-mode-with-android-studio-panda-3)
-
-  [arrow\_forward](/blog/posts/increase-guidance-and-control-over-agent-mode-with-android-studio-panda-3)
-
-  Android Studio Panda 3 is now stable and ready for you to use in production. This release gives you even more control and customization over your AI-powered workflows, making it easier than ever to build high-quality Android apps.
-
-  ###### [Matt Dyor](/blog/authors/matt-dyor) • 3 min read
-
-  + [#Android Studio](/blog/topics/android-studio)
-* [![](/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](/blog/authors/caren-chang)[![](/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](/blog/authors/david-chou)
-
-  02
-
-  Apr
-  2026
-
-  02
-
-  Apr
-  2026
-
-  ![](/static/blog/assets/announcing_gemma4_aicore_ce479292b9_Z15e7FP.webp)
-
-  #### [Product News](/blog/categories/product-news)
-
-  ## [Announcing Gemma 4 in the AICore Developer Preview](/blog/posts/announcing-gemma-4-in-the-ai-core-developer-preview)
-
-  [arrow\_forward](/blog/posts/announcing-gemma-4-in-the-ai-core-developer-preview)
-
-  At Google, we’re committed to bringing the most capable AI models directly to the Android devices in your pocket. Today, we’re thrilled to announce the release of our latest state-of-the-art open model: Gemma 4.
-
-  ###### [Caren Chang](/blog/authors/caren-chang), [David Chou](/blog/authors/david-chou) • 3 min read
+  ###### [Caren Chang](https://developer.android.com/blog/authors/caren-chang), [David Chou](https://developer.android.com/blog/authors/david-chou) •
+  3 min read
 
 # Stay in the loop
 
+
 Get the latest Android development insights delivered to your inbox
 weekly.
-
 [mail
-Subscribe](/subscribe)
-
-![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)

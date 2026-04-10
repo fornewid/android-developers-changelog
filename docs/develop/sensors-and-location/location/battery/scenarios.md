@@ -1,17 +1,8 @@
 ---
-title: Optimize location use for real-world scenarios  |  Sensors and location  |  Android Developers
+title: https://developer.android.com/develop/sensors-and-location/location/battery/scenarios
 url: https://developer.android.com/develop/sensors-and-location/location/battery/scenarios
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [Develop](https://developer.android.com/develop)
-* [Core areas](https://developer.android.com/develop/core-areas)
-* [Sensors and location](https://developer.android.com/develop/sensors-and-location)
-
-# Optimize location use for real-world scenarios Stay organized with collections Save and categorize content based on your preferences.
-
-
 
 This section describes some typical location-gathering scenarios, along with
 recommendations for optimal use of the geofencing and fused location provider
@@ -47,7 +38,7 @@ returned by [`getLastLocation()`](https://developers.google.com/android/referenc
 Example: Requesting updates when a user is within a certain distance of work,
 home, or another location.
 
-Use [geofencing](/training/location/geofencing) in conjunction with fused location provider updates.
+Use [geofencing](https://developer.android.com/training/location/geofencing) in conjunction with fused location provider updates.
 Request updates when the app receives a geofence entrance trigger, and remove
 updates when the app receives a geofence exit trigger. This ensures that the app
 gets more granular location updates only when the user has entered a defined
@@ -80,9 +71,10 @@ certainly involves background location, use the
 
 You should set the following configuration options:
 
-* If you're tracking dwell transitions, use the [`setLoiteringDelay()`](https://developers.google.com/android/reference/com/google/android/gms/location/Geofence.Builder.html#setLoiteringDelay(int))
+- If you're tracking dwell transitions, use the [`setLoiteringDelay()`](https://developers.google.com/android/reference/com/google/android/gms/location/Geofence.Builder.html#setLoiteringDelay(int))
   method passing a value of approximately five minutes or less.
-* Use the [`setNotificationResponsiveness()`](https://developers.google.com/android/reference/com/google/android/gms/location/Geofence.Builder.html#setNotificationResponsiveness(int)), passing a value of
+
+- Use the [`setNotificationResponsiveness()`](https://developers.google.com/android/reference/com/google/android/gms/location/Geofence.Builder.html#setNotificationResponsiveness(int)), passing a value of
   approximately five minutes. However, consider using a value of approximately
   ten minutes if your app can manage the extra delay in responsiveness.
 
@@ -98,9 +90,8 @@ a new area.
 
 Example: An app that passively tracks location
 
-**Note:** Consider if you really need to collect location in the background, since
-this can lead to undesirable battery drain. Also, consider geofencing as an
-option, since geofencing APIs are optimized for performance.
+> [!NOTE]
+> **Note:** Consider if you really need to collect location in the background, since this can lead to undesirable battery drain. Also, consider geofencing as an option, since geofencing APIs are optimized for performance.
 
 Use the [`setPriority()`](https://developers.google.com/android/reference/com/google/android/gms/location/LocationRequest.html#setPriority(int)) method with the [`PRIORITY_NO_POWER`](https://developers.google.com/android/reference/com/google/android/gms/location/LocationRequest.html#PRIORITY_NO_POWER) option if
 possible because it incurs almost no battery drain. If using `PRIORITY_NO_POWER`
@@ -130,4 +121,4 @@ turns off the screen or opens a different app.
 Use a foreground service. If expensive work is potentially going to be done by
 your app on behalf of the user, making the user aware of that work is a
 recommended best practice. A foreground service requires a persistent
-notification. For more information, see [Notifications Overview](/develop/ui/views/notifications).
+notification. For more information, see [Notifications Overview](https://developer.android.com/develop/ui/views/notifications).

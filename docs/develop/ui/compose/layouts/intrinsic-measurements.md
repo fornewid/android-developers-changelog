@@ -1,19 +1,10 @@
 ---
-title: Intrinsic measurements in Compose layouts  |  Jetpack Compose  |  Android Developers
+title: https://developer.android.com/develop/ui/compose/layouts/intrinsic-measurements
 url: https://developer.android.com/develop/ui/compose/layouts/intrinsic-measurements
-source: html-scrape
+source: md.txt
 ---
 
-* [Android Developers](https://developer.android.com/)
-* [Develop](https://developer.android.com/develop)
-* [Core areas](https://developer.android.com/develop/core-areas)
-* [UI](https://developer.android.com/develop/ui)
-* [Docs](https://developer.android.com/develop/ui/compose/documentation)
-
-# Intrinsic measurements in Compose layouts Stay organized with collections Save and categorize content based on your preferences.
-
-
-
+[Video](https://www.youtube.com/watch?v=l6rAoph5UgI)
 
 One of the rules of Compose is that you should only measure your children once;
 measuring children twice throws a runtime exception. However, there are times
@@ -23,36 +14,31 @@ when you need some information about your children before measuring them.
 
 To a composable, you can ask for its `IntrinsicSize.Min` or `IntrinsicSize.Max`:
 
-* `Modifier.width(IntrinsicSize.Min)` - What's the minimum width you need to
-  display your content properly?
-* `Modifier.width(IntrinsicSize.Max)` - What's the maximum width you need to
-  display your content properly?
-* `Modifier.height(IntrinsicSize.Min)` - What's the minimum height you need
-  to display your content properly?
-* `Modifier.height(IntrinsicSize.Max)` - What's the maximum height you need
-  to display your content properly?
+- `Modifier.width(IntrinsicSize.Min)` - What's the minimum width you need to display your content properly?
+- `Modifier.width(IntrinsicSize.Max)` - What's the maximum width you need to display your content properly?
+- `Modifier.height(IntrinsicSize.Min)` - What's the minimum height you need to display your content properly?
+- `Modifier.height(IntrinsicSize.Max)` - What's the maximum height you need to display your content properly?
 
 For example, if you ask the `minIntrinsicHeight` of a `Text` with infinite
 `width` constraints in a custom layout, it returns the `height` of the `Text`
 with the text drawn in a single line.
 
-**Note:** Asking for intrinsics measurements doesn't measure the children twice.
-Children are queried for their intrinsic measurements before they're measured,
-and then based on that information, the parent calculates the constraints to
-measure its children with.
+> [!NOTE]
+> **Note:** Asking for intrinsics measurements doesn't measure the children twice. Children are queried for their intrinsic measurements before they're measured, and then based on that information, the parent calculates the constraints to measure its children with.
 
 ## Intrinsics in action
 
 You can create a composable that displays two texts on the screen separated by a
 divider:
 
-![Two text elements side by side, with a vertical divider between them](/static/develop/ui/compose/images/layout-text-with-divider.png)
+![Two text elements side by side, with a vertical divider between them](https://developer.android.com/static/develop/ui/compose/images/layout-text-with-divider.png)
 
 To do this, use a `Row` with two `Text` composables that fill the available
 space, and a `Divider` in the middle. The `Divider` should be as tall as the
 tallest `Text`, and it should be thin (`width = 1.dp`).
 
-```
+
+```kotlin
 @Composable
 fun TwoTexts(modifier: Modifier = Modifier, text1: String, text2: String) {
     Row(modifier = modifier) {
@@ -77,13 +63,13 @@ fun TwoTexts(modifier: Modifier = Modifier, text1: String, text2: String) {
         )
     }
 }
-
-IntrinsicSnippets.kt
 ```
+
+<br />
 
 The `Divider` expands to the whole screen, which isn't the desired behavior:
 
-![Two text elements side by side, with a divider between them, but the divider stretches down below the bottom of the text](/static/develop/ui/compose/images/layout-text-with-divider-too-long.png)
+![Two text elements side by side, with a divider between them, but the divider stretches down below the bottom of the text](https://developer.android.com/static/develop/ui/compose/images/layout-text-with-divider-too-long.png)
 
 This happens because `Row` measures each child individually, and the height of
 `Text` cannot be used to constrain the `Divider`.
@@ -97,7 +83,8 @@ intrinsic height. Because this modifier is recursive, it queries the
 
 Applying this modifier to your code makes it work as expected:
 
-```
+
+```kotlin
 @Composable
 fun TwoTexts(modifier: Modifier = Modifier, text1: String, text2: String) {
     Row(modifier = modifier.height(IntrinsicSize.Min)) {
@@ -132,25 +119,21 @@ fun TwoTextsPreview() {
         }
     }
 }
-
-IntrinsicSnippets.kt
 ```
+
+<br />
 
 With preview:
 
-![Two text elements side by side, with a vertical divider between them](/static/develop/ui/compose/images/layout-text-with-divider.png)
+![Two text elements side by side, with a vertical divider between them](https://developer.android.com/static/develop/ui/compose/images/layout-text-with-divider.png)
 
 The `Row`'s height is determined as follows:
 
-* The `Row` composable's `minIntrinsicHeight` is the maximum
-  `minIntrinsicHeight` of its children.
-* The `Divider` element's `minIntrinsicHeight` is 0, as it doesn't occupy
-  space if no constraints are given.
-* The `Text` `minIntrinsicHeight` is that of the text for a specific `width`.
-* Therefore, the `Row` element's `height` constraint becomes the maximum
-  `minIntrinsicHeight` of the `Text`s.
-* The `Divider` then expands its `height` to the `height` constraint given by
-  the `Row`.
+- The `Row` composable's `minIntrinsicHeight` is the maximum `minIntrinsicHeight` of its children.
+- The `Divider` element's `minIntrinsicHeight` is 0, as it doesn't occupy space if no constraints are given.
+- The `Text` `minIntrinsicHeight` is that of the text for a specific `width`.
+- Therefore, the `Row` element's `height` constraint becomes the maximum `minIntrinsicHeight` of the `Text`s.
+- The `Divider` then expands its `height` to the `height` constraint given by the `Row`.
 
 ### Intrinsics in your custom layouts
 
@@ -161,9 +144,10 @@ to override these defaults.
 
 To specify the intrinsics measurements of your custom `Layout`, override the
 `minIntrinsicWidth`, `minIntrinsicHeight`, `maxIntrinsicWidth`, and
-`maxIntrinsicHeight` of the [`MeasurePolicy`](/reference/kotlin/androidx/compose/ui/layout/MeasurePolicy) interface when creating it.
+`maxIntrinsicHeight` of the [`MeasurePolicy`](https://developer.android.com/reference/kotlin/androidx/compose/ui/layout/MeasurePolicy) interface when creating it.
 
-```
+
+```kotlin
 @Composable
 fun MyCustomComposable(
     modifier: Modifier = Modifier,
@@ -194,14 +178,15 @@ fun MyCustomComposable(
         }
     )
 }
-
-IntrinsicSnippets.kt
 ```
+
+<br />
 
 When creating your custom `layout` modifier, override the related methods
 in the `LayoutModifier` interface.
 
-```
+
+```kotlin
 fun Modifier.myCustomModifier(/* ... */) = this then object : LayoutModifier {
 
     override fun MeasureScope.measure(
@@ -223,19 +208,13 @@ fun Modifier.myCustomModifier(/* ... */) = this then object : LayoutModifier {
     // Other intrinsics related methods have a default value,
     // you can override only the methods that you need.
 }
-
-IntrinsicSnippets.kt
 ```
+
+<br />
 
 ## Recommended for you
 
-* Note: link text is displayed when JavaScript is off
-* [Custom layouts {:#custom-layouts}](/develop/ui/compose/layouts/custom)
-* [Alignment lines in Jetpack Compose](/develop/ui/compose/layouts/alignment-lines)
-* [Jetpack Compose Phases](/develop/ui/compose/phases)
-
-[Previous
-
-arrow\_back
-
-Alignment lines](/develop/ui/compose/layouts/alignment-lines)
+- Note: link text is displayed when JavaScript is off
+- [Custom layouts {:#custom-layouts}](https://developer.android.com/develop/ui/compose/layouts/custom)
+- [Alignment lines in Jetpack Compose](https://developer.android.com/develop/ui/compose/layouts/alignment-lines)
+- [Jetpack Compose Phases](https://developer.android.com/develop/ui/compose/phases)

@@ -1,18 +1,8 @@
 ---
-title: Android Game Development Extension overview  |  Android game development  |  Android Developers
+title: https://developer.android.com/games/agde/guide
 url: https://developer.android.com/games/agde/guide
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [Games dev center](https://developer.android.com/games)
-
-Send feedback
-
-# Android Game Development Extension overview Stay organized with collections Save and categorize content based on your preferences.
-
-
-
 
 For developers building games for multiple platforms with C/C++ code, the
 Android Game Development Extension allows you to easily add Android as another target platform
@@ -20,7 +10,8 @@ in your existing Visual C++ project. You can then use Visual Studio on Windows
 to build and deploy the Android version of your game to physical devices or an
 emulator.
 
-![UI of the Android Game Development Extension](/static/games/preview/extension/images/extension-hero.png)  
+![UI of the Android Game Development Extension](https://developer.android.com/static/games/preview/extension/images/extension-hero.png)  
+
 **Figure
 1**. Sample code running from Visual Studio on an Android device.
 
@@ -33,11 +24,11 @@ infrastructure and keep your build times as fast as possible.
 
 1. Set up the extension and run the sample project:
 
-   [Quickstart](/games/agde/quickstart)
+   [Quickstart](https://developer.android.com/games/agde/quickstart)
 2. After you set up the extension, you must configure any projects that will use
    it:
 
-   [Project config](/games/agde/adapt-existing-project)
+   [Project config](https://developer.android.com/games/agde/adapt-existing-project)
 
 ## Support
 
@@ -48,10 +39,3 @@ the **Submit Feedback** button in the **Android Game Development Extension** too
 
 We would love to hear from you! Let us know how the Android Game Development Extension is working
 for you by filling out our [feedback form](https://forms.gle/H1AbLgHipEc5ekdm7).
-
-
-
-
-
-
-Send feedback
