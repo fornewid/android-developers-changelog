@@ -1,0 +1,99 @@
+diff --git a/docs/topic/google-play-instant/guides/multiple-entry-points.md b/docs/topic/google-play-instant/guides/multiple-entry-points.md
+index 5b69505..a5024ca 100644
+--- a/docs/topic/google-play-instant/guides/multiple-entry-points.md
++++ b/docs/topic/google-play-instant/guides/multiple-entry-points.md
+@@ -1,17 +1,9 @@
+ ---
+-title: Provide multiple entry points into an instant experience  |  Other Play guides  |  Android Developers
++title: https://developer.android.com/topic/google-play-instant/guides/multiple-entry-points
+ url: https://developer.android.com/topic/google-play-instant/guides/multiple-entry-points
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-* [Google Play](https://developer.android.com/distribute)
+-* [Other Play guides](https://developer.android.com/guide/app-bundle)
+-
+-# Provide multiple entry points into an instant experience Stay organized with collections Save and categorize content based on your preferences.
+-
+-
+-
+ **Warning:** Google Play Instant will no longer be available. Starting December 2025,
+ Instant Apps cannot be published through Google Play, and all
+ [Google Play services Instant APIs](https://developers.google.com/android/reference/com/google/android/gms/instantapps/package-summary)
+@@ -25,13 +17,13 @@ To continue optimizing for user growth, we encourage developers to refer users t
+ their regular app or game, using [deeplinks](https://support.google.com/googleplay/android-developer/answer/12463044)
+ to redirect them to specific journeys or features when relevant.
+ 
+-Each instant experience has at least one *entry point*, which is a single
++Each instant experience has at least one *entry point* , which is a single
+ activity within your app or game. If you want your app or game to have multiple
+ entry points, each starting activity needs to be *addressable*; that is, it
+ needs to correspond to a unique URL.
+ 
+-**Note:** You cannot associate fragments with URLs. Additionally, you cannot launch
+-these fragments independently of an activity.
++> [!NOTE]
++> **Note:** You cannot associate fragments with URLs. Additionally, you cannot launch these fragments independently of an activity.
+ 
+ If the URLs for the entry points in an instant app or game share a domain, each
+ entry point needs to correspond to a different path within that domain. For
+@@ -41,13 +33,11 @@ location. Each of these features corresponds to resources within a web domain,
+ "example.com". To provide a unique URL for each entry point, specify different
+ paths within the domain, as shown in the following table.
+ 
+-**Caution:** To help the system launch the correct activity for each entry point,
+-make sure that your paths don't share a common prefix. For example, if you
+-provided entry points containing the URLs "http://example.com/check" and
+-"http://example.com/checkout", the system's behavior might be undefined.
++> [!CAUTION]
++> **Caution:** To help the system launch the correct activity for each entry point, make sure that your paths don't share a common prefix. For example, if you provided entry points containing the URLs "http://example.com/check" and "http://example.com/checkout", the system's behavior might be undefined.
+ 
+ | Feature | URL |
+-| --- | --- |
++|---|---|
+ | Location finder | http://example.com/finder |
+ | Nearby restaurants | http://example.com/restaurants |
+ | Share location | http://example.com/share |
+@@ -61,23 +51,21 @@ shown in the following code snippet:
+ 
+ AndroidManifest.xml
+ 
+-```
++```xml
+ <manifest>
+-  <activity android:name=".CatalogActiv>ity&q<uot; 
+-    int>ent-fil<ter
+-      !-- List of items in the c>atalog.< --
+-      data android:path=>"<;/items" >/
+- <   /intent-f<ilter
+-  /activity
+-  activity android:n>ame=&<quot;.ItemAct>ivity&q<uot; 
+-    intent-filter
+-      !-- Information about a sp>ecific <item in the catalog. --
+-      data >andro<id:pathPrefix=>&<quot;/ite>ms/" /
+-    /intent-filter
+-/manifest
++  <activity android:name=".CatalogActivity" >
++    <intent-filter>
++      <!-- List of items in the catalog. -->
++      <data android:path="/items" />
++    </intent-filter>
++  </activity>
++  <activity android:name=".ItemActivity" >
++    <intent-filter>
++      <!-- Information about a specific item in the catalog. -->
++      <data android:pathPrefix="/items/" />
++    </intent-filter>
++</manifest>
+ ```
+ 
+-**Note:** To match a `pathPrefix` filter, URLs must contain the path prefix in
+-addition to at least one character following the prefix. Therefore, by following
+-the logic in the preceding code snippet, the URL "/items/" would bring users to
+-`CatalogActivity`.
+\ No newline at end of file
++> [!NOTE]
++> **Note:** To match a `pathPrefix` filter, URLs must contain the path prefix in addition to at least one character following the prefix. Therefore, by following the logic in the preceding code snippet, the URL "/items/" would bring users to `CatalogActivity`.
+\ No newline at end of file

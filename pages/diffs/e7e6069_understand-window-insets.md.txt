@@ -1,0 +1,230 @@
+diff --git a/docs/develop/ui/views/layout/webapps/understand-window-insets.md b/docs/develop/ui/views/layout/webapps/understand-window-insets.md
+index afa0d1d..dba2e08 100644
+--- a/docs/develop/ui/views/layout/webapps/understand-window-insets.md
++++ b/docs/develop/ui/views/layout/webapps/understand-window-insets.md
+@@ -1,18 +1,11 @@
+ ---
+-title: Understand window insets in WebView  |  Android Developers
++title: https://developer.android.com/develop/ui/views/layout/webapps/understand-window-insets
+ url: https://developer.android.com/develop/ui/views/layout/webapps/understand-window-insets
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Develop](https://developer.android.com/develop)
+-
+-# Understand window insets in WebView Stay organized with collections Save and categorize content based on your preferences.
+-
+-
+-
+-
+-WebView manages content alignment using two viewports: the [layout viewport](//developer.mozilla.org/en-US/docs/Glossary/Layout_viewport)
+-(the page size) and the [visual viewport](//developer.mozilla.org/en-US/docs/Glossary/Visual_Viewport) (the part of the page the user
++WebView manages content alignment using two viewports: the [layout viewport](https://developer.mozilla.org/en-US/docs/Glossary/Layout_viewport)
++(the page size) and the [visual viewport](https://developer.mozilla.org/en-US/docs/Glossary/Visual_Viewport) (the part of the page the user
+ actually sees). While the layout viewport is generally static, the visual
+ viewport changes dynamically when users zoom, scroll, or when system UI elements
+ (such as the software keyboard) appear.
+@@ -23,22 +16,23 @@ WebView support for window insets has evolved over time to align web content
+ behavior with native Android app expectations:
+ 
+ | Milestone | Feature added | Scope |
+-| --- | --- | --- |
++|---|---|---|
+ | M136 | `displayCutout()` and `systemBars()` support through CSS safe-area-insets. | Fullscreen WebViews only. |
+ | M139 | `ime()` (input method editor, which is a keyboard) support through visual viewport resizing. | All WebViews. |
+ | M144 | `displayCutout()` and `systemBars()` support. | All WebViews (regardless of fullscreen state). |
+ 
+-For more information, see [`WindowInsetsCompat`](/reference/androidx/core/view/WindowInsetsCompat).
++For more information, see [`WindowInsetsCompat`](https://developer.android.com/reference/androidx/core/view/WindowInsetsCompat).
+ 
+ ## Core mechanics
+ 
+ WebView handles insets through two primary mechanisms:
+ 
+-* **Safe areas (`displayCutout`, `systemBars`):** WebView forwards these
++- **Safe areas (`displayCutout`, `systemBars`):** WebView forwards these
+   dimensions to web content through CSS safe-area-inset-\* variables. This
+   enables developers to prevent their own interactive elements (like navigation
+   bars) from being obscured by notches or status bars.
+-* **Visual viewport resizing using the input method editor (IME):** Starting in
++
++- **Visual viewport resizing using the input method editor (IME):** Starting in
+   M139, the input method editor (IME) directly resizes the visual viewport. This
+   resizing mechanism is also based on the WebView-Window intersection. For
+   example, in Android multitasking mode, if the bottom of a WebView extends
+@@ -71,30 +65,24 @@ smooth transition as the WebView moves or expands to touch the screen edges.
+ 
+ ### Kotlin
+ 
+-```
+-ViewCompat.setOnApplyWindowInsetsListener(myWebView) { _, windowInsets ->
+-    // By returning the original windowInsets object, we override the default
+-    // behavior that zeroes out system insets (like system bars or display
+-    // cutouts) when they don't directly overlap the WebView's screen bounds.
+-    windowInsets
+-}
+-```
++    ViewCompat.setOnApplyWindowInsetsListener(myWebView) { _, windowInsets ->
++        // By returning the original windowInsets object, we override the default
++        // behavior that zeroes out system insets (like system bars or display
++        // cutouts) when they don't directly overlap the WebView's screen bounds.
++        windowInsets
++    }
+ 
+ ### Java
+ 
+-```
+-ViewCompat.setOnApplyWindowInsetsListener(myWebView, (v, windowInsets) -> {
+-  // By returning the original windowInsets object, we override the default
+-  // behavior that zeroes out system insets (like system bars or display
+-  // cutouts) when they don't directly overlap the WebView's screen bounds.
+-  return windowInsets;
+-});
+-```
++    ViewCompat.setOnApplyWindowInsetsListener(myWebView, (v, windowInsets) -> {
++      // By returning the original windowInsets object, we override the default
++      // behavior that zeroes out system insets (like system bars or display
++      // cutouts) when they don't directly overlap the WebView's screen bounds.
++      return windowInsets;
++    });
+ 
+-**Caution:** Returning the original `windowInsets` object overrides WebView's
+-default bounds-checking, but can cause double-padding if your native UI also
+-applies padding based on window insets. To know how to avoid this, see
+-[Implement inset handling](#inset-handling).
++> [!CAUTION]
++> **Caution:** Returning the original `windowInsets` object overrides WebView's default bounds-checking, but can cause double-padding if your native UI also applies padding based on window insets. To know how to avoid this, see [Implement inset handling](https://developer.android.com/develop/ui/views/layout/webapps/understand-window-insets#inset-handling).
+ 
+ ## Manage resize events
+ 
+@@ -118,7 +106,7 @@ WebView's default settings work automatically for most apps. However, if your
+ app uses custom layouts (for example, if you add your own padding to account for
+ the status bar or keyboard), you can use the following approaches to improve how
+ the web content and native UI work together. If your native UI applies padding
+-to a container based on [`WindowInsets`](/reference/android/view/WindowInsets), you must manage these insets
++to a container based on [`WindowInsets`](https://developer.android.com/reference/android/view/WindowInsets), you must manage these insets
+ correctly before they reach the WebView to avoid double-padding.
+ 
+ Double-padding is a situation where the native layout and the web content apply
+@@ -150,78 +138,66 @@ keeping keyboard padding after the keyboard is hidden).
+ 
+ The following example shows a broken interaction between the app and WebView:
+ 
+-1. **Initial state:** The app initially passes non-consumed insets (for example,
+-   `displayCutout()` or `systemBars()`) to the WebView, which internally applies
+-   padding to the web content.
+-2. **State change and error:** If the app changes state (for example, the
+-   keyboard hides) and the app chooses to handle the resulting insets by
+-   returning `WindowInsetsCompat.CONSUMED`.
+-3. **Notification blocked:** Consuming the insets prevents the Android system
+-   from sending the necessary update notification down the view hierarchy to the
+-   WebView.
+-4. **Ghost padding:** Because the WebView doesn't receive the update, it retains
+-   the padding from the previous state, causing ghost padding (for example,
+-   keeping keyboard padding after the keyboard is hidden).
+-
+-Instead, use the [`WindowInsetsCompat.Builder`](/reference/androidx/core/view/WindowInsetsCompat.Builder) to set the handled types to
++1. **Initial state:** The app initially passes non-consumed insets (for example, `displayCutout()` or `systemBars()`) to the WebView, which internally applies padding to the web content.
++2. **State change and error:** If the app changes state (for example, the keyboard hides) and the app chooses to handle the resulting insets by returning `WindowInsetsCompat.CONSUMED`.
++3. **Notification blocked:** Consuming the insets prevents the Android system from sending the necessary update notification down the view hierarchy to the WebView.
++4. **Ghost padding:** Because the WebView doesn't receive the update, it retains the padding from the previous state, causing ghost padding (for example, keeping keyboard padding after the keyboard is hidden).
++
++Instead, use the [`WindowInsetsCompat.Builder`](https://developer.android.com/reference/androidx/core/view/WindowInsetsCompat.Builder) to set the handled types to
+ zero before passing the object to the child views. This informs the WebView that
+ those specific insets have already been accounted for while enabling the
+ notification to continue down the view hierarchy.
+ 
+ ### Kotlin
+ 
+-```
+-ViewCompat.setOnApplyWindowInsetsListener(rootView) { view, windowInsets ->
+-    // 1. Identify the inset types you want to handle natively
+-    val types = WindowInsetsCompat.Type.systemBars() or WindowInsetsCompat.Type.displayCutout()
++    ViewCompat.setOnApplyWindowInsetsListener(rootView) { view, windowInsets ->
++        // 1. Identify the inset types you want to handle natively
++        val types = WindowInsetsCompat.Type.systemBars() or WindowInsetsCompat.Type.displayCutout()
+ 
+-    // 2. Extract the dimensions and apply them as padding to the native container
+-    val insets = windowInsets.getInsets(types)
+-    view.setPadding(insets.left, insets.top, insets.right, insets.bottom)
++        // 2. Extract the dimensions and apply them as padding to the native container
++        val insets = windowInsets.getInsets(types)
++        view.setPadding(insets.left, insets.top, insets.right, insets.bottom)
+ 
+-    // 3. Return a new WindowInsets object with the handled types set to NONE (zeroed).
+-    // This informs the WebView that these areas are already padded, preventing
+-    // double-padding while still allowing the WebView to update its internal state.
+-    WindowInsetsCompat.Builder(windowInsets)
+-        .setInsets(types, Insets.NONE)
+-        .build()
+-}
+-```
++        // 3. Return a new WindowInsets object with the handled types set to NONE (zeroed).
++        // This informs the WebView that these areas are already padded, preventing
++        // double-padding while still allowing the WebView to update its internal state.
++        WindowInsetsCompat.Builder(windowInsets)
++            .setInsets(types, Insets.NONE)
++            .build()
++    }
+ 
+ ### Java
+ 
+-```
+-ViewCompat.setOnApplyWindowInsetsListener(rootView, (view, windowInsets) -> {
+-  // 1. Identify the inset types you want to handle natively
+-  int types = WindowInsetsCompat.Type.systemBars() | WindowInsetsCompat.Type.displayCutout();
+-
+-  // 2. Extract the dimensions and apply them as padding to the native container
+-  Insets insets = windowInsets.getInsets(types);
+-  rootView.setPadding(insets.left, insets.top, insets.right, insets.bottom);
+-
+-  // 3. Return a new Insets object with the handled types set to NONE (zeroed).
+-  // This informs the WebView that these areas are already padded, preventing
+-  // double-padding while still allowing the WebView to update its internal
+-  // state.
+-  return new WindowInsetsCompat.Builder(windowInsets)
+-    .setInsets(types, Insets.NONE)
+-    .build();
+-});
+-```
++    ViewCompat.setOnApplyWindowInsetsListener(rootView, (view, windowInsets) -> {
++      // 1. Identify the inset types you want to handle natively
++      int types = WindowInsetsCompat.Type.systemBars() | WindowInsetsCompat.Type.displayCutout();
++
++      // 2. Extract the dimensions and apply them as padding to the native container
++      Insets insets = windowInsets.getInsets(types);
++      rootView.setPadding(insets.left, insets.top, insets.right, insets.bottom);
++
++      // 3. Return a new Insets object with the handled types set to NONE (zeroed).
++      // This informs the WebView that these areas are already padded, preventing
++      // double-padding while still allowing the WebView to update its internal
++      // state.
++      return new WindowInsetsCompat.Builder(windowInsets)
++        .setInsets(types, Insets.NONE)
++        .build();
++    });
+ 
+ ## How to opt out
+ 
+ To disable these modern behaviors and return to legacy viewport handling, do the
+ following:
+ 
+-1. **Intercept insets:** Use [`setOnApplyWindowInsetsListener`](/reference/android/view/View.OnApplyWindowInsetsListener) or override
+-   [`onApplyWindowInsets`](/reference/android/view/View#onApplyWindowInsets(android.view.WindowInsets)) in a `WebView` subclass.
++1. **Intercept insets:** Use [`setOnApplyWindowInsetsListener`](https://developer.android.com/reference/android/view/View.OnApplyWindowInsetsListener) or override
++   [`onApplyWindowInsets`](https://developer.android.com/reference/android/view/View#onApplyWindowInsets(android.view.WindowInsets)) in a `WebView` subclass.
++
+ 2. **Clear insets:** Return a consumed set of insets (for example,
+    `WindowInsetsCompat.CONSUMED`) from the start. This action prevents the inset
+    notification from propagating to the WebView altogether, effectively
+    disabling modern viewport resizing and forcing the WebView to retain its
+    initial visual viewport size.
+ 
+-**Note:** If you opt out, you must manually manage layout resizing. Failure to do so
+-can prevent the [`scrollIntoView()`](//developer.mozilla.org/en-US/docs/Web/API/Element/scrollIntoView) JavaScript function from functioning
+-correctly, causing the keyboard to cover active input fields.
+\ No newline at end of file
++> [!NOTE]
++> **Note:** If you opt out, you must manually manage layout resizing. Failure to do so can prevent the [`scrollIntoView()`](https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollIntoView) JavaScript function from functioning correctly, causing the keyboard to cover active input fields.
+\ No newline at end of file

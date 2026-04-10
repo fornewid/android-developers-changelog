@@ -1,0 +1,231 @@
+diff --git a/docs/develop/ui/compose/migrate/migration-scenarios/recycler-view.md b/docs/develop/ui/compose/migrate/migration-scenarios/recycler-view.md
+index 66e657b..1040940 100644
+--- a/docs/develop/ui/compose/migrate/migration-scenarios/recycler-view.md
++++ b/docs/develop/ui/compose/migrate/migration-scenarios/recycler-view.md
+@@ -1,26 +1,15 @@
+ ---
+-title: Migrate RecyclerView to Lazy list  |  Jetpack Compose  |  Android Developers
++title: https://developer.android.com/develop/ui/compose/migrate/migration-scenarios/recycler-view
+ url: https://developer.android.com/develop/ui/compose/migrate/migration-scenarios/recycler-view
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-* [Develop](https://developer.android.com/develop)
+-* [Core areas](https://developer.android.com/develop/core-areas)
+-* [UI](https://developer.android.com/develop/ui)
+-* [Docs](https://developer.android.com/develop/ui/compose/documentation)
+-
+-# Migrate RecyclerView to Lazy list Stay organized with collections Save and categorize content based on your preferences.
+-
+-
+-
+-
+-[`RecyclerView`](/develop/ui/views/layout/recyclerview) is a View component that makes it easy to efficiently display
++[`RecyclerView`](https://developer.android.com/develop/ui/views/layout/recyclerview) is a View component that makes it easy to efficiently display
+ large sets of data. Instead of creating views for each item in the data set,
+ `RecyclerView` improves the performance of your app by keeping a small pool of
+ views and recycling through them as you scroll through those items.
+ 
+-In Compose, you can use [Lazy lists](/develop/ui/compose/lists#lazy) to accomplish the same thing. This page
++In Compose, you can use [Lazy lists](https://developer.android.com/develop/ui/compose/lists#lazy) to accomplish the same thing. This page
+ describes how you can migrate your `RecyclerView` implementation to use Lazy lists
+ in Compose.
+ 
+@@ -32,73 +21,76 @@ To migrate your `RecyclerView` implementation to Compose, follow these steps:
+    `ComposeView` to replace it if none is present in the hierarchy yet. This
+    is the container for the Lazy list that you'll add:
+ 
+-   ```
+-         <FrameLayout
+-             android:layout_width="match_parent"
+-             android:layout_height="match_parent">
++             <FrameLayout
++                 android:layout_width="match_parent"
++                 android:layout_height="match_parent">
+ 
+-     <!--    <androidx.recyclerview.widget.RecyclerView-->
+-     <!--            android:id="@+id/recycler_view"-->
+-     <!--            android:layout_width="match_parent"-->
+-     <!--            android:layout_height="match_parent />"-->
++         <!--    <androidx.recyclerview.widget.RecyclerView-->
++         <!--            android:id="@+id/recycler_view"-->
++         <!--            android:layout_width="match_parent"-->
++         <!--            android:layout_height="match_parent />"-->
+ 
+-             <androidx.compose.ui.platform.ComposeView
+-                 android:id="@+id/compose_view"
+-                 android:layout_width="match_parent"
+-                 android:layout_height="match_parent" />
++                 <androidx.compose.ui.platform.ComposeView
++                     android:id="@+id/compose_view"
++                     android:layout_width="match_parent"
++                     android:layout_height="match_parent" />
++
++             </FrameLayout>
+ 
+-         </FrameLayout>
+-   ```
+ 2. Determine what type of Lazy list composable you need based on your
+-   `RecyclerView`’s layout manager (see table below). The composable you select
++   `RecyclerView`'s layout manager (see table below). The composable you select
+    will be the top-level composable of the `ComposeView` you added in the
+    previous step.
+ 
+    | `LayoutManager` | Composable |
+-   | --- | --- |
++   |---|---|
+    | `LinearLayoutManager` | `LazyColumn` or `LazyRow` |
+    | `GridLayoutManager` | `LazyVerticalGrid` or `LazyHorizontalGrid` |
+    | `StaggeredGridLayoutManager` | `LazyVerticalStaggeredGrid` or `LazyHorizontalStaggeredGrid` |
+ 
+-   ```
++
++   ```kotlin
+    // recyclerView.layoutManager = LinearLayoutManager(context)
+    composeView.setContent {
+        LazyColumn(Modifier.fillMaxSize()) {
+            // We use a LazyColumn since the layout manager of the RecyclerView is a vertical LinearLayoutManager
+        }
+    }
+-
+-   MigrationCommonScenariosSnippets.kt
+    ```
++
++   <br />
++
+ 3. Create a corresponding composable for each view type in your
+    `RecyclerView.Adapter` implementation. Each view type typically maps to a
+    `ViewHolder` subclass, though this may not always be the case. These
+    composables will be used as the UI representation for different types of
+    elements in your list:
+ 
+-   ```
++
++   ```kotlin
+    @Composable
+    fun ListItem(data: MyData, modifier: Modifier = Modifier) {
+        Row(modifier.fillMaxWidth()) {
+            Text(text = data.name)
+-           // … other composables required for displaying `data`
++           // ... other composables required for displaying `data`
+        }
+    }
+-
+-   MigrationCommonScenariosSnippets.kt
+    ```
+ 
+-   The logic in your `RecyclerView.Adapter`’s `onCreateViewHolder()` and
++   <br />
++
++   The logic in your `RecyclerView.Adapter`'s `onCreateViewHolder()` and
+    `onBindViewHolder()` methods will be replaced by these composables and the
+    state that you provide them with. In Compose, there is no separation between
+-   creating a composable for an item and binding data into it—these concepts are
++   creating a composable for an item and binding data into it---these concepts are
+    coalesced.
+ 4. Within the `content` slot of the Lazy list (the trailing lambda parameter),
+    use the `items()` function (or an equivalent overload) to iterate through the
+    data for your list. In the `itemContent` lambda, invoke the appropriate
+    composable item for your data:
+ 
+-   ```
++
++   ```kotlin
+    val data = listOf<MyData>(/* ... */)
+    composeView.setContent {
+        LazyColumn(Modifier.fillMaxSize()) {
+@@ -107,16 +99,12 @@ To migrate your `RecyclerView` implementation to Compose, follow these steps:
+            }
+        }
+    }
+-
+-   MigrationCommonScenariosSnippets.kt
+    ```
+ 
+-**Tip:** Provide additional parameters to `items()` to optimize your list: use
+-the `key` parameter to provide a unique key for the underlying data so that
+-scroll position will be maintained when items change, or use the `contentType`
+-parameter to specify a content type for the underlying data (this is a similar
+-concept to `RecyclerView`'s view types) so you can reuse item compositions more
+-efficiently.
++   <br />
++
++> [!TIP]
++> **Tip:** Provide additional parameters to `items()` to optimize your list: use the `key` parameter to provide a unique key for the underlying data so that scroll position will be maintained when items change, or use the `contentType` parameter to specify a content type for the underlying data (this is a similar concept to `RecyclerView`'s view types) so you can reuse item compositions more efficiently.
+ 
+ ## Common use cases
+ 
+@@ -126,19 +114,21 @@ efficiently.
+ special drawing for items in the list. For example, you can add an
+ `ItemDecoration` to add dividers between items:
+ 
+-```
++
++```kotlin
+ val itemDecoration = DividerItemDecoration(recyclerView.context, LinearLayoutManager.VERTICAL)
+ recyclerView.addItemDecoration(itemDecoration)
+-
+-MigrationCommonScenariosSnippets.kt
+ ```
+ 
++<br />
++
+ Compose does not have an equivalent concept of item decorations. Instead, you
+ can add any UI decorations in the list directly in the composition. For example,
+ to add dividers to the list, you can use the `Divider` composable after each
+ item:
+ 
+-```
++
++```kotlin
+ LazyColumn(Modifier.fillMaxSize()) {
+     itemsIndexed(data) { index, d ->
+         ListItem(d)
+@@ -147,33 +137,31 @@ LazyColumn(Modifier.fillMaxSize()) {
+         }
+     }
+ }
+-
+-MigrationCommonScenariosSnippets.kt
+ ```
+ 
++<br />
++
+ ### Item animations
+ 
+ An `ItemAnimator` can be set on a `RecyclerView` to animate the appearance of
+ items as changes are made to the adapter. By default, `RecyclerView` uses
+-[`DefaultItemAnimator`](/reference/androidx/recyclerview/widget/DefaultItemAnimator) which provides basic animations on remove, add, and
++[`DefaultItemAnimator`](https://developer.android.com/reference/androidx/recyclerview/widget/DefaultItemAnimator) which provides basic animations on remove, add, and
+ move events.
+ 
+ Lazy lists have a similar concept through the `animateItemPlacement` modifier.
+-See [Item animations](/develop/ui/compose/lists#item-animations) to learn more.
++See [Item animations](https://developer.android.com/develop/ui/compose/lists#item-animations) to learn more.
+ 
+ ## Additional resources
+ 
+ For more information about migrating a `RecyclerView` to Compose, see the
+ following resources:
+ 
+-* [Lists and Grids](/develop/ui/compose/lists#item-animations): Documentation for how to implement lists and grids in
+-  Compose.
+-* [Jetpack Compose Interop: Using Compose in a RecyclerView](https://medium.com/androiddevelopers/jetpack-compose-interop-using-compose-in-a-recyclerview-569c7ec7a583):
+-  Blog post for efficiently using Compose within a `RecyclerView`.
++- [Lists and Grids](https://developer.android.com/develop/ui/compose/lists#item-animations): Documentation for how to implement lists and grids in Compose.
++- [Jetpack Compose Interop: Using Compose in a RecyclerView](https://medium.com/androiddevelopers/jetpack-compose-interop-using-compose-in-a-recyclerview-569c7ec7a583): Blog post for efficiently using Compose within a `RecyclerView`.
+ 
+ ## Recommended for you
+ 
+-* Note: link text is displayed when JavaScript is off
+-* [Lists and grids](/develop/ui/compose/lists)
+-* [Migrate `CoordinatorLayout` to Compose](/develop/ui/compose/migrate/migration-scenarios/coordinator-layout)
+-* [Other considerations](/develop/ui/compose/migrate/other-considerations)
+\ No newline at end of file
++- Note: link text is displayed when JavaScript is off
++- [Lists and grids](https://developer.android.com/develop/ui/compose/lists)
++- [Migrate `CoordinatorLayout` to Compose](https://developer.android.com/develop/ui/compose/migrate/migration-scenarios/coordinator-layout)
++- [Other considerations](https://developer.android.com/develop/ui/compose/migrate/other-considerations)
+\ No newline at end of file

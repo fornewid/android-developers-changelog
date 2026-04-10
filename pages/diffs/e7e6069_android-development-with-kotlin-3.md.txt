@@ -1,0 +1,117 @@
+diff --git a/docs/courses/quizzes/android-development-with-kotlin-3/android-development-with-kotlin-3.md b/docs/courses/quizzes/android-development-with-kotlin-3/android-development-with-kotlin-3.md
+index a7675de..6825ee7 100644
+--- a/docs/courses/quizzes/android-development-with-kotlin-3/android-development-with-kotlin-3.md
++++ b/docs/courses/quizzes/android-development-with-kotlin-3/android-development-with-kotlin-3.md
+@@ -1,72 +1,59 @@
+ ---
+-title: Lesson 3: Classes and Objects  |  Android Developers
++title: https://developer.android.com/courses/quizzes/android-development-with-kotlin-3/android-development-with-kotlin-3
+ url: https://developer.android.com/courses/quizzes/android-development-with-kotlin-3/android-development-with-kotlin-3
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-Stay organized with collections
+-
+-Save and categorize content based on your preferences.
+-
+-
+-
+ # Lesson 3: Classes and Objects
+ 
+-Return to pathway
+-
+-
+-
+-1. ## What is the default behavior of classes in Kotlin?
+-
+-   All classes are private
+-
+-   All classes are sealed
+-
+-   All classes are final
+-
+-   All classes are protected
+-2. ## Which of the following is the correct way of declaring objects for class `Book` in Kotlin?
+-
+-   `Book b1 = new Book()`
+-
+-   `val b1 = Book()`
+-
+-   `var b1 = (Book) new()`
+-
+-   `val b1 = (new) Book()`
+-3. ## What is true about extension functions in Kotlin?
+-
+-   Choose as many answers as you see fit.
+-
+-   Allows you to write new functions for a class that you cannot modify
++# Lesson 3: Classes and Objects
+ 
+-   Use dot notation to call them on variables of the type you are extending
++<br />
+ 
+-   It must be declared in the same file as the original class you are extending
++Return to pathway  
++1.
+ 
+-   Use the `extend` keyword to declare these functions
+-4. ## Which of the following is true about `data` classes?
++   ## What is the default behavior of classes in Kotlin?
+ 
+-   Choose as many answers as you see fit.
++   All classes are private  
++   All classes are sealed  
++   All classes are final  
++   All classes are protected  
++2.
+ 
+-   It is required for you to implement the `toString()` method
++   ## Which of the following is the correct way of declaring objects for class`Book`in Kotlin?
+ 
+-   No parameters are needed for the primary constructor
++   `Book b1 = new Book()`  
++   `val b1 = Book()`  
++   `var b1 = (Book) new()`  
++   `val b1 = (new) Book()`  
++3.
+ 
+-   Use it for classes that store data
++   ## What is true about extension functions in Kotlin?
+ 
+-   Getter methods are automatically generated for you (and setter methods for mutable variables)
+-5. ## Which keyword is used to indicate that a class can be subclassed?
++   Choose as many answers as you see fit.  
++   Allows you to write new functions for a class that you cannot modify  
++   Use dot notation to call them on variables of the type you are extending  
++   It must be declared in the same file as the original class you are extending  
++   Use the`extend`keyword to declare these functions  
++4.
+ 
+-   `public`
++   ## Which of the following is true about`data`classes?
+ 
+-   `protected`
++   Choose as many answers as you see fit.  
++   It is required for you to implement the`toString()`method  
++   No parameters are needed for the primary constructor  
++   Use it for classes that store data  
++   Getter methods are automatically generated for you (and setter methods for mutable variables)  
++5.
+ 
+-   `internal`
++   ## Which keyword is used to indicate that a class can be subclassed?
+ 
+-   `open`
++   `public`  
++   `protected`  
++   `internal`  
++   `open`  
+ 
+ Submit answers
+ 
+-*error\_outline*
+-An error occurred when grading the quiz. Please try again.
+\ No newline at end of file
++*error_outline*An error occurred when grading the quiz. Please try again.
+\ No newline at end of file

@@ -1,0 +1,654 @@
+diff --git a/docs/develop/ui/compose/text/fonts.md b/docs/develop/ui/compose/text/fonts.md
+index 463d4fd..22f0da3 100644
+--- a/docs/develop/ui/compose/text/fonts.md
++++ b/docs/develop/ui/compose/text/fonts.md
+@@ -1,29 +1,19 @@
+ ---
+-title: Work with fonts  |  Jetpack Compose  |  Android Developers
++title: https://developer.android.com/develop/ui/compose/text/fonts
+ url: https://developer.android.com/develop/ui/compose/text/fonts
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-* [Develop](https://developer.android.com/develop)
+-* [Core areas](https://developer.android.com/develop/core-areas)
+-* [UI](https://developer.android.com/develop/ui)
+-* [Docs](https://developer.android.com/develop/ui/compose/documentation)
+-
+-# Work with fonts Stay organized with collections Save and categorize content based on your preferences.
+-
+-
+-
+-
+ This page describes how to set fonts in your Compose app.
+ 
+ ## Set font
+ 
+ `Text` has a `fontFamily` parameter to allow setting the font used in the
+ composable. By default, serif, sans-serif, monospace and cursive font families
+-are [included](/reference/kotlin/androidx/compose/ui/text/font/FontFamily#summary):
++are [included](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/font/FontFamily#summary):
+ 
+-```
++
++```kotlin
+ @Composable
+ fun DifferentFonts() {
+     Column {
+@@ -31,21 +21,22 @@ fun DifferentFonts() {
+         Text("Hello World", fontFamily = FontFamily.SansSerif)
+     }
+ }
+-
+-TextSnippets.kt
+ ```
+ 
+-![The words ](/static/develop/ui/compose/images/text-different-fonts.png)
++<br />
++
++![The words](https://developer.android.com/static/develop/ui/compose/images/text-different-fonts.png)
+ 
+ You can use the `fontFamily` attribute to work with custom fonts and typefaces
+ defined in the `res/font` folder:
+ 
+-![Graphical depiction of the res > font folder in the development environment ](/static/develop/ui/compose/images/text-font-folder.png)
++![Graphical depiction of the res > font folder in the development environment](https://developer.android.com/static/develop/ui/compose/images/text-font-folder.png)
+ 
+ This example shows how you would define a `fontFamily` based on those font
+-files and using the [`Font` function](/reference/kotlin/androidx/compose/ui/text/font/package-summary#Font(kotlin.Int,androidx.compose.ui.text.font.FontWeight,androidx.compose.ui.text.font.FontStyle)):
++files and using the [`Font` function](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/font/package-summary#Font(kotlin.Int,androidx.compose.ui.text.font.FontWeight,androidx.compose.ui.text.font.FontStyle)):
+ 
+-```
++
++```kotlin
+ val firaSansFamily = FontFamily(
+     Font(R.font.firasans_light, FontWeight.Light),
+     Font(R.font.firasans_regular, FontWeight.Normal),
+@@ -53,15 +44,16 @@ val firaSansFamily = FontFamily(
+     Font(R.font.firasans_medium, FontWeight.Medium),
+     Font(R.font.firasans_bold, FontWeight.Bold)
+ )
+-
+-TextSnippets.kt
+ ```
+ 
++<br />
++
+ You can pass this `fontFamily` to your `Text` composable. Because a
+ `fontFamily` can include different weights, you can manually set `fontWeight` to
+ select the right weight for your text:
+ 
+-```
++
++```kotlin
+ Column {
+     Text(text = "text", fontFamily = firaSansFamily, fontWeight = FontWeight.Light)
+     Text(text = "text", fontFamily = firaSansFamily, fontWeight = FontWeight.Normal)
+@@ -74,18 +66,18 @@ Column {
+     Text(text = "text", fontFamily = firaSansFamily, fontWeight = FontWeight.Medium)
+     Text(text = "text", fontFamily = firaSansFamily, fontWeight = FontWeight.Bold)
+ }
+-
+-TextSnippets.kt
+ ```
+ 
+-![The words ](/static/develop/ui/compose/images/text-font-family.png)
++<br />
+ 
+-To learn how to set the typography in your entire app, see [Custom design systems in Compose](/develop/ui/compose/designsystems/custom).
++![The words](https://developer.android.com/static/develop/ui/compose/images/text-font-family.png)
++
++To learn how to set the typography in your entire app, see [Custom design systems in Compose](https://developer.android.com/develop/ui/compose/designsystems/custom).
+ 
+ ## Downloadable fonts
+ 
+ Starting in [Compose
+-1.2.0](/jetpack/androidx/releases/compose-ui#1.2.0),
++1.2.0](https://developer.android.com/jetpack/androidx/releases/compose-ui#1.2.0),
+ you can use the downloadable fonts API in your Compose app to download [Google
+ fonts](https://fonts.google.com/) asynchronously and use them in your app.
+ 
+@@ -99,7 +91,7 @@ To download a font programmatically from within your app, follow these steps:
+ 
+    ### Groovy
+ 
+-   ```
++   ```groovy
+    dependencies {
+        ...
+        implementation "androidx.compose.ui:ui-text-google-fonts:1.10.5"
+@@ -108,95 +100,79 @@ To download a font programmatically from within your app, follow these steps:
+ 
+    ### Kotlin
+ 
+-   ```
++   ```kotlin
+    dependencies {
+        ...
+        implementation("androidx.compose.ui:ui-text-google-fonts:1.10.5")
+    }
+    ```
+-2. Initialize the
+-   [`GoogleFont.Provider`](/reference/kotlin/androidx/compose/ui/text/googlefonts/GoogleFont.Provider)
+-   with the credentials for Google Fonts:
++2. Initialize the [`GoogleFont.Provider`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/googlefonts/GoogleFont.Provider) with the credentials for Google Fonts:
+ 
+-   ```
++   ```kotlin
+    val provider = GoogleFont.Provider(
+        providerAuthority = "com.google.android.gms.fonts",
+        providerPackage = "com.google.android.gms",
+        certificates = R.array.com_google_android_gms_fonts_certs
+    )
++   ```
++   The parameters the provider receives are:
++   - The font provider authority for Google Fonts.
++   - The font provider package to verify the identity of the provider.
++   - A list of sets of hashes for the certificates to verify the identity of the provider. You can find the hashes required for the Google Fonts provider [in the `font_certs.xml` file](https://github.com/android/compose-samples/blob/main/Jetchat/app/src/main/res/values-v23/font_certs.xml) in the Jetchat sample app.
++3. Define a [`FontFamily`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/font/FontFamily):
++
++   ```kotlin
++   // ...
++    import androidx.compose.ui.text.googlefonts.GoogleFont
++    import androidx.compose.ui.text.font.FontFamily
++    import androidx.compose.ui.text.googlefonts.Font
++    // ...
++
++   val fontName = GoogleFont("Lobster Two")
++
++   val fontFamily = FontFamily(
++       Font(googleFont = fontName, fontProvider = provider)
++   )
++   ```
++   You can query for other parameters for your font like weight and style with [`FontWeight`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/font/FontWeight) and [`FontStyle`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/font/FontStyle) respectively:
+ 
+-   TextDownloadableFontsSnippets.kt
++   ```kotlin
++   // ...
++    import androidx.compose.ui.text.googlefonts.GoogleFont
++    import androidx.compose.ui.text.font.FontFamily
++    import androidx.compose.ui.text.googlefonts.Font
++    // ...
++
++   val fontName = GoogleFont("Lobster Two")
++
++   val fontFamily = FontFamily(
++       Font(
++           googleFont = fontName,
++           fontProvider = provider,
++           weight = FontWeight.Bold,
++           style = FontStyle.Italic
++       )
++   )
+    ```
++4. Configure the `FontFamily` to be used in your Text composable function:
+ 
+-   The parameters the provider receives are:
+-   * The font provider authority for Google Fonts.
+-   * The font provider package to verify the identity of the provider.
+-   * A list of sets of hashes for the certificates to verify the identity of the
+-     provider. You can find the hashes required for the Google Fonts provider
+-     [in the `font_certs.xml` file](https://github.com/android/compose-samples/blob/main/Jetchat/app/src/main/res/values-v23/font_certs.xml) in the
+-     Jetchat sample app.- Define a
+-     [`FontFamily`](/reference/kotlin/androidx/compose/ui/text/font/FontFamily):
+-
+-     ```
+-     // ...
+-      import androidx.compose.ui.text.googlefonts.GoogleFont
+-      import androidx.compose.ui.text.font.FontFamily
+-      import androidx.compose.ui.text.googlefonts.Font
+-      // ...
+-
+-     val fontName = GoogleFont("Lobster Two")
+-
+-     val fontFamily = FontFamily(
+-         Font(googleFont = fontName, fontProvider = provider)
+-     )
+-
+-     TextDownloadableFontsSnippets.kt
+-     ```
+-
+-     You can query for other parameters for your font like weight and style with
+-     [`FontWeight`](/reference/kotlin/androidx/compose/ui/text/font/FontWeight) and
+-     [`FontStyle`](/reference/kotlin/androidx/compose/ui/text/font/FontStyle)
+-     respectively:
+-
+-     ```
+-     // ...
+-      import androidx.compose.ui.text.googlefonts.GoogleFont
+-      import androidx.compose.ui.text.font.FontFamily
+-      import androidx.compose.ui.text.googlefonts.Font
+-      // ...
+-
+-     val fontName = GoogleFont("Lobster Two")
+-
+-     val fontFamily = FontFamily(
+-         Font(
+-             googleFont = fontName,
+-             fontProvider = provider,
+-             weight = FontWeight.Bold,
+-             style = FontStyle.Italic
+-         )
+-     )
+-
+-     TextDownloadableFontsSnippets.kt
+-     ```
+-
+-     - Configure the `FontFamily` to be
+-       used in your Text composable function:
+ 
+-```
++```kotlin
+ Text(
+     fontFamily = fontFamily, text = "Hello World!"
+ )
+-
+-TextDownloadableFontsSnippets.kt
+ ```
+ 
+-![](/static/develop/ui/compose/images/text-dl-fontfamily.png)
++<br />
++
++![](https://developer.android.com/static/develop/ui/compose/images/text-dl-fontfamily.png)
+ 
+ You can also define
+-[Typography](/reference/kotlin/androidx/compose/material3/Typography) to use
++[Typography](https://developer.android.com/reference/kotlin/androidx/compose/material3/Typography) to use
+ your `FontFamily`:
+ 
+-```
++
++```kotlin
+ val MyTypography = Typography(
+     bodyMedium = TextStyle(
+         fontFamily = fontFamily, fontWeight = FontWeight.Normal, fontSize = 12.sp/*...*/
+@@ -212,21 +188,22 @@ val MyTypography = Typography(
+     ),
+     /*...*/
+ )
+-
+-TextDownloadableFontsSnippets.kt
+ ```
+ 
+-Next, set the Typography to your app’s theme:
++<br />
+ 
+-```
++Next, set the Typography to your app's theme:
++
++
++```kotlin
+ MyAppTheme(
+     typography = MyTypography
+ )/*...*/
+-
+-TextDownloadableFontsSnippets.kt
+ ```
+ 
+-For an example of an app that’s implementing downloadable fonts in Compose
++<br />
++
++For an example of an app that's implementing downloadable fonts in Compose
+ together with [Material3](https://m3.material.io/styles/typography/overview),
+ see the [Jetchat](https://github.com/android/compose-samples/tree/main/Jetchat) sample app.
+ 
+@@ -236,7 +213,8 @@ You can determine a chain of fallbacks for your font in case the font fails to
+ download properly. For instance, if you have your downloadable font defined
+ like this:
+ 
+-```
++
++```kotlin
+ // ...
+  import androidx.compose.ui.text.googlefonts.Font
+  // ...
+@@ -247,13 +225,14 @@ val fontFamily = FontFamily(
+     Font(googleFont = fontName, fontProvider = provider),
+     Font(googleFont = fontName, fontProvider = provider, weight = FontWeight.Bold)
+ )
+-
+-TextDownloadableFontsSnippets.kt
+ ```
+ 
++<br />
++
+ You can define the defaults for your font for both weights like this:
+ 
+-```
++
++```kotlin
+ // ...
+  import androidx.compose.ui.text.font.Font
+  import androidx.compose.ui.text.googlefonts.Font
+@@ -267,11 +246,11 @@ val fontFamily = FontFamily(
+     Font(googleFont = fontName, fontProvider = provider, weight = FontWeight.Bold),
+     Font(resId = R.font.my_font_regular_bold, weight = FontWeight.Bold)
+ )
+-
+-TextDownloadableFontsSnippets.kt
+ ```
+ 
+-Make sure you’re adding the correct imports.
++<br />
++
++Make sure you're adding the correct imports.
+ 
+ Defining the `FontFamily` like this creates a `FontFamily` containing two chains,
+ one per weight. The loading mechanism will try to resolve the online font first,
+@@ -286,20 +265,22 @@ the font fails to load asynchronously.
+ Start by creating a
+ [`CoroutineExceptionHandler`](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/-coroutine-exception-handler/index.html):
+ 
+-```
++
++```kotlin
+ val handler = CoroutineExceptionHandler { _, throwable ->
+     // process the Throwable
+     Log.e(TAG, "There has been an issue: ", throwable)
+ }
+-
+-TextDownloadableFontsSnippets.kt
+ ```
+ 
++<br />
++
+ Pass it to the
+-[`createFontFamilyResolver`](/reference/kotlin/androidx/compose/ui/text/font/package-summary#createFontFamilyResolver(android.content.Context))
++[`createFontFamilyResolver`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/font/package-summary#createFontFamilyResolver(android.content.Context))
+ method to have the resolver use the new handler:
+ 
+-```
++
++```kotlin
+ CompositionLocalProvider(
+     LocalFontFamilyResolver provides createFontFamilyResolver(LocalContext.current, handler)
+ ) {
+@@ -309,27 +290,28 @@ CompositionLocalProvider(
+         )
+     }
+ }
+-
+-TextDownloadableFontsSnippets.kt
+ ```
+ 
++<br />
++
+ You can also use the
+-[`isAvailableOnDevice`](/reference/kotlin/androidx/compose/ui/text/googlefonts/package-summary#(androidx.compose.ui.text.googlefonts.GoogleFont.Provider).isAvailableOnDevice(android.content.Context))
++[`isAvailableOnDevice`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/googlefonts/package-summary#(androidx.compose.ui.text.googlefonts.GoogleFont.Provider).isAvailableOnDevice(android.content.Context))
+ API from the provider to test if the provider is available and certificates are
+ configured correctly. To do this, you can call the `isAvailableOnDevice` method
+ that returns false if the provider is configured incorrectly.
+ 
+-```
++
++```kotlin
+ val context = LocalContext.current
+ LaunchedEffect(Unit) {
+     if (provider.isAvailableOnDevice(context)) {
+         Log.d(TAG, "Success!")
+     }
+ }
+-
+-TextDownloadableFontsSnippets.kt
+ ```
+ 
++<br />
++
+ ### Caveats
+ 
+ Google Fonts takes several months to make new fonts available on Android.
+@@ -350,17 +332,13 @@ A variable font is a font format that allows one font file to contain different
+ styles. With variable fonts, you can modify axes (or parameters) to generate
+ your preferred style. These axes can be standard, such as weight, width, slant,
+ and italic, or custom, which differ across variable fonts.
+-
+-![Five configurations of the same variable font with different axis values.](/static/develop/ui/compose/images/text/vf-configs.png)
+-
+-
+-**Figure 1.** Text using the same variable font customized with different axis
+-values.
++![Five configurations of the same variable font with different axis values.](https://developer.android.com/static/develop/ui/compose/images/text/vf-configs.png) **Figure 1.** Text using the same variable font customized with different axis values.
+ 
+ Using variable fonts instead of regular font files allows you to only have one
+ font file instead of multiple.
+ 
+-**Warning:** Variable fonts are only supported on Android O and above.
++> [!WARNING]
++> **Warning:** Variable fonts are only supported on Android O and above.
+ 
+ For more background about variable fonts, see [Google Fonts
+ Knowledge](https://fonts.google.com/knowledge/topics/variable_fonts), the [entire catalog](https://fonts.google.com/?vfonly=true) of available
+@@ -376,12 +354,14 @@ This doc shows you how to implement a variable font in your Compose app.
+    file you add is the *variable font version* of the font, and that the name of
+    your font file is all lowercase and doesn't contain any special characters.
+ 
+-   **Note:** Variable fonts are not currently supported via downloadable fonts. See the
+-   latest updates in [this bug](https://issuetracker.google.com/issues/223262013).
++   > [!NOTE]
++   > **Note:** Variable fonts are not currently supported via downloadable fonts. See the latest updates in [this bug](https://issuetracker.google.com/issues/223262013).
++
+ 2. To load a variable font, define a `FontFamily` using the font placed in the
+    `res/font/` directory:
+ 
+-   ```
++
++   ```kotlin
+    // In Typography.kt
+    @OptIn(ExperimentalTextApi::class)
+    val displayLargeFontFamily =
+@@ -395,18 +375,19 @@ This doc shows you how to implement a variable font in your Compose app.
+                )
+            )
+        )
+-
+-   VariableFontsSnippets.kt
+    ```
+ 
++   <br />
++
+    The `FontVariation` API allows you to configure standard font axes such as
+-   [weight](/reference/kotlin/androidx/compose/ui/text/font/FontVariation#weight(kotlin.Int)), [width](/reference/kotlin/androidx/compose/ui/text/font/FontVariation#width(kotlin.Float)), and [slant](/reference/kotlin/androidx/compose/ui/text/font/FontVariation#slant(kotlin.Float)). These are standard axes that are
++   [weight](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/font/FontVariation#weight(kotlin.Int)), [width](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/font/FontVariation#width(kotlin.Float)), and [slant](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/font/FontVariation#slant(kotlin.Float)). These are standard axes that are
+    available with any variable font. You can create different configurations of the
+    font based on where the font will be used.
+ 3. Variable fonts are only available for Android versions O and above, so add a
+    guardrail and configure an appropriate fallback:
+ 
+-   ```
++
++   ```kotlin
+    // In Typography.kt
+    val default = FontFamily(
+        /*
+@@ -431,13 +412,15 @@ This doc shows you how to implement a variable font in your Compose app.
+    } else {
+        default
+    }
+-
+-   VariableFontsSnippets.kt
+    ```
++
++   <br />
++
+ 4. Extract the settings into a set of constants for easier reuse and replace the
+    font settings with these constants:
+ 
+-   ```
++
++   ```kotlin
+    // VariableFontDimension.kt
+    object DisplayLargeVFConfig {
+        const val WEIGHT = 950
+@@ -462,12 +445,14 @@ This doc shows you how to implement a variable font in your Compose app.
+    } else {
+        default
+    }
+-
+-   VariableFontsSnippets.kt
+    ```
+-5. Configure the Material Design 3 [typography](/develop/ui/compose/designsystems/material3#typography) to use the `FontFamily`:
+ 
+-   ```
++   <br />
++
++5. Configure the Material Design 3 [typography](https://developer.android.com/develop/ui/compose/designsystems/material3#typography) to use the `FontFamily`:
++
++
++   ```kotlin
+    // Type.kt
+    val Typography = Typography(
+        displayLarge = TextStyle(
+@@ -478,11 +463,11 @@ This doc shows you how to implement a variable font in your Compose app.
+            /***/
+        )
+    )
+-
+-   VariableFontsSnippets.kt
+    ```
+ 
+-   This sample uses `displayLarge` [Material 3 typography](/develop/ui/compose/designsystems/material3#typography), which has different
++   <br />
++
++   This sample uses `displayLarge` [Material 3 typography](https://developer.android.com/develop/ui/compose/designsystems/material3#typography), which has different
+    default font settings and recommended uses. For example, you should use
+    `displayLarge` for short, critical text, as it's the largest text on the screen.
+ 
+@@ -491,19 +476,22 @@ This doc shows you how to implement a variable font in your Compose app.
+    instances of `TextStyle` to customize font settings for each font family.
+ 6. Now that you've defined your typography, pass it to the M3 `MaterialTheme`:
+ 
+-   ```
++
++   ```kotlin
+    MaterialTheme(
+        colorScheme = MaterialTheme.colorScheme,
+        typography = Typography,
+        content = content
+    )
+-
+-   VariableFontsSnippets.kt
+    ```
++
++   <br />
++
+ 7. Finally, use a `Text` composable and specify the style to one of the defined
+    typography styles, `MaterialTheme.typography.displayLarge`:
+ 
+-   ```
++
++   ```kotlin
+    @Composable
+    @Preview
+    fun CardDetails() {
+@@ -531,7 +519,7 @@ This doc shows you how to implement a variable font in your Compose app.
+                        maxLines = 2
+                    )
+                    Text(
+-                       text = "Jetpack Compose is Android’s recommended modern toolkit for building native UI. It simplifies and accelerates UI development on Android. Quickly bring your app to life with less code, powerful tools, and intuitive Kotlin APIs.",
++                       text = "Jetpack Compose is Android's recommended modern toolkit for building native UI. It simplifies and accelerates UI development on Android. Quickly bring your app to life with less code, powerful tools, and intuitive Kotlin APIs.",
+                        style = MaterialTheme.typography.bodyLarge,
+                        modifier = Modifier.padding(bottom = 8.dp),
+                        maxLines = 3
+@@ -540,19 +528,16 @@ This doc shows you how to implement a variable font in your Compose app.
+            }
+        }
+    }
+-
+-   VariableFontsSnippets.kt
+    ```
+ 
++   <br />
++
+    Each `Text` composable is configured through its Material theme's style and
+    contains a different variable font configuration. You can use
+    `MaterialTheme.typography` to retrieve the typography provided to the M3
+    `MaterialTheme` composable.
+ 
+-![Three different texts, all showcasing different font configurations.](/static/develop/ui/compose/images/text/vf-standard-axes.png)
+-
+-
+-**Figure 2.** Variable font applied in three different configurations.
++![Three different texts, all showcasing different font configurations.](https://developer.android.com/static/develop/ui/compose/images/text/vf-standard-axes.png) **Figure 2.** Variable font applied in three different configurations.
+ 
+ ### Use custom axes
+ 
+@@ -569,7 +554,8 @@ For more information about the custom axes you can configure for a font, see the
+ 1. To use custom axes, define functions for the custom `ascenderHeight` and
+    `counterWidth` axes:
+ 
+-   ```
++
++   ```kotlin
+    fun ascenderHeight(ascenderHeight: Float): FontVariation.Setting {
+        require(ascenderHeight in 649f..854f) { "'Ascender Height' must be in 649f..854f" }
+        return FontVariation.Setting("YTAS", ascenderHeight)
+@@ -579,22 +565,18 @@ For more information about the custom axes you can configure for a font, see the
+        require(counterWidth in 323..603) { "'Counter width' must be in 323..603" }
+        return FontVariation.Setting("XTRA", counterWidth.toFloat())
+    }
+-
+-   VariableFontsSnippets.kt
+    ```
+ 
+-   These functions do the following:
++   <br />
+ 
+-   * Define guardrails for the values they can accept. As you can see in the
+-     [Variable fonts catalog](https://fonts.google.com/variablefonts?vfquery=roboto+flex), `ascenderHeight (YTAS)` has a
+-     minimum value of `649f` and a maximum of `854f`.
+-   * Return the font setting, so the configuration is ready to add to the font. In
+-     the `FontVariation.Setting()` method, the axis name (`YTAS, XTRA`) is
+-     hardcoded, and it takes the value as a parameter.
++   These functions do the following:
++   - Define guardrails for the values they can accept. As you can see in the [Variable fonts catalog](https://fonts.google.com/variablefonts?vfquery=roboto+flex), `ascenderHeight (YTAS)` has a minimum value of `649f` and a maximum of `854f`.
++   - Return the font setting, so the configuration is ready to add to the font. In the `FontVariation.Setting()` method, the axis name (`YTAS, XTRA`) is hardcoded, and it takes the value as a parameter.
+ 2. Using the axes with the font configuration, pass additional parameters to
+    each `Font` that is loaded:
+ 
+-   ```
++
++   ```kotlin
+    @OptIn(ExperimentalTextApi::class)
+    val displayLargeFontFamily = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+        FontFamily(
+@@ -612,27 +594,24 @@ For more information about the custom axes you can configure for a font, see the
+    } else {
+        default
+    }
+-
+-   VariableFontsSnippets.kt
+    ```
+ 
++   <br />
++
+    Notice that the height of the lowercase ascenders is now increased, and the
+    other text is wider:
+ 
+-![Three different texts showing different configurations for variable fonts, with custom axes set— some have higher lowercase ascenders and are wider than before. ](/static/develop/ui/compose/images/text/vf-custom-axes.png)
+-
+-
+-**Figure 3.** Text showing custom axes set on variable fonts.
++![Three different texts showing different configurations for variable fonts, with custom axes set— some have higher lowercase ascenders and are wider than before.](https://developer.android.com/static/develop/ui/compose/images/text/vf-custom-axes.png) **Figure 3.** Text showing custom axes set on variable fonts.
+ 
+ ### Additional resources
+ 
+ For more information, see the following blog post about variable fonts:
+ 
+-* [Just your type: Variable fonts in Compose](https://medium.com/androiddevelopers/just-your-type-variable-fonts-in-compose-5bf63b357994)
++- [Just your type: Variable fonts in Compose](https://medium.com/androiddevelopers/just-your-type-variable-fonts-in-compose-5bf63b357994)
+ 
+ ## Recommended for you
+ 
+-* Note: link text is displayed when JavaScript is off
+-* [Resources in Compose](/develop/ui/compose/resources)
+-* [Style text](/develop/ui/compose/text/style-text)
+-* [Material Design 2 in Compose](/develop/ui/compose/designsystems/material)
+\ No newline at end of file
++- Note: link text is displayed when JavaScript is off
++- [Resources in Compose](https://developer.android.com/develop/ui/compose/resources)
++- [Style text](https://developer.android.com/develop/ui/compose/text/style-text)
++- [Material Design 2 in Compose](https://developer.android.com/develop/ui/compose/designsystems/material)
+\ No newline at end of file

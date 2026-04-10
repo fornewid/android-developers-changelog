@@ -1,0 +1,12 @@
+diff --git a/docs/design/ui/gallery/creativity/configurable.md b/docs/design/ui/gallery/creativity/configurable.md
+index ccf80b8..b67f2a1 100644
+--- a/docs/design/ui/gallery/creativity/configurable.md
++++ b/docs/design/ui/gallery/creativity/configurable.md
+@@ -14,6 +14,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ Everyone's workstyle is different. Enable users to customize their large screen
+ workspace with movable, resizable palettes, panels, and pickers.
+ 

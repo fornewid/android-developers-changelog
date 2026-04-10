@@ -1,0 +1,174 @@
+diff --git a/docs/courses/quizzes/android-basics-compose-unit-4-pathway-3/android-basics-compose-unit-4-pathway-3.md b/docs/courses/quizzes/android-basics-compose-unit-4-pathway-3/android-basics-compose-unit-4-pathway-3.md
+index f6067f2..2b15e55 100644
+--- a/docs/courses/quizzes/android-basics-compose-unit-4-pathway-3/android-basics-compose-unit-4-pathway-3.md
++++ b/docs/courses/quizzes/android-basics-compose-unit-4-pathway-3/android-basics-compose-unit-4-pathway-3.md
+@@ -1,105 +1,93 @@
+ ---
+-title: Adaptive layouts  |  Android Developers
++title: https://developer.android.com/courses/quizzes/android-basics-compose-unit-4-pathway-3/android-basics-compose-unit-4-pathway-3
+ url: https://developer.android.com/courses/quizzes/android-basics-compose-unit-4-pathway-3/android-basics-compose-unit-4-pathway-3
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-Stay organized with collections
+-
+-Save and categorize content based on your preferences.
+-
+-
+-
+ # Adaptive layouts
+ 
+-Return to pathway
+-
+-
+-
+-1. ## The \_\_\_ composable is used to respond to the Back button, with or without a `NavHost`.
+-
+-   `BackButton`
+-
+-   `BackHandler`
+-
+-   `BackNavigator`
+-
+-   `BackStack`
+-2. ## Which of the following are true about designing for larger screens?
+-
+-   Choose as many answers as you see fit.
+-
+-   Button positioning is more important on larger screen sizes.
+-
+-   Usually no changes are needed to the UI layout to make the app work well for larger screen sizes.
+-
+-   Adding another layout to the same screen removes the need to navigate between screens.
+-
+-   Large screen layouts should avoid placing commonly used buttons in the center of the screen.
+-3. ## A \_\_\_ is a specific measurement of width or height where an app's layout should change.
+-
+-   window class
+-
+-   layout point
+-
+-   size bucket
+-
+-   breakpoint
+-4. ## The compact width window size class generally refers to smaller devices, such as phones in portrait mode.
+-
+-   True
++# Adaptive layouts
+ 
+-   False
+-5. ## The \_\_\_ API makes the implementation of adaptive layouts simpler.
++<br />
+ 
+-   `SizeClass`
++Return to pathway  
++1.
+ 
+-   `WindowSizeState`
++   ## The ___ composable is used to respond to the Back button, with or without a`NavHost`.
+ 
+-   `SizeBucket`
++   `BackButton`  
++   `BackHandler`  
++   `BackNavigator`  
++   `BackStack`  
++2.
+ 
+-   `WindowSizeClass`
+-6. ## A navigation rail is often appropriate for \_\_\_ width layouts.
++   ## Which of the following are true about designing for larger screens?
+ 
+-   compact
++   Choose as many answers as you see fit.  
++   Button positioning is more important on larger screen sizes.  
++   Usually no changes are needed to the UI layout to make the app work well for larger screen sizes.  
++   Adding another layout to the same screen removes the need to navigate between screens.  
++   Large screen layouts should avoid placing commonly used buttons in the center of the screen.  
++3.
+ 
+-   standard
++   ## A ___ is a specific measurement of width or height where an app's layout should change.
+ 
+-   medium
++   window class  
++   layout point  
++   size bucket  
++   breakpoint  
++4.
+ 
+-   expanded
+-7. ## When building apps with adaptive layouts, you should use a single preview for each screen.
++   ## The compact width window size class generally refers to smaller devices, such as phones in portrait mode.
+ 
+-   True
++   True  
++   False  
++5.
+ 
+-   False
+-8. ## The list-detail layout requires Back navigation on compact screens, but not on screens where both the list and detail screens are shown at once.
++   ## The ___ API makes the implementation of adaptive layouts simpler.
+ 
+-   True
++   `SizeClass`  
++   `WindowSizeState`  
++   `SizeBucket`  
++   `WindowSizeClass`  
++6.
+ 
+-   False
+-9. ## Assume you have a contacts app that displays a list of contacts and has details to show for each contact. What are appropriate ways to adapt the UI to different screen sizes?
++   ## A navigation rail is often appropriate for ___ width layouts.
+ 
+-   Use the list-detail layout to show one pane or two panes side-by-side depending on the available width of the screen.
++   compact  
++   standard  
++   medium  
++   expanded  
++7.
+ 
+-   The list items should take up the full width of the screen, regardless of how narrow or wide the screen is.
++   ## When building apps with adaptive layouts, you should use a single preview for each screen.
+ 
+-   The Up button should always be shown within the app and clicking the button should exit the app.
++   True  
++   False  
++8.
+ 
+-   When rotating the device, the selected item in the list (and the corresponding details of that item shown) should be reset to the first item in the list.
++   ## The list-detail layout requires Back navigation on compact screens, but not on screens where both the list and detail screens are shown at once.
+ 
+-   It’s required to use the Jetpack Navigation Component to make the UI responsive to different screen sizes.
+-10. ## Tests can be configured to run only test functions with custom annotations by configuring the \_\_\_.
++   True  
++   False  
++9.
+ 
+-    module
++   ## Assume you have a contacts app that displays a list of contacts and has details to show for each contact. What are appropriate ways to adapt the UI to different screen sizes?
+ 
+-    package
++   Use the list-detail layout to show one pane or two panes side-by-side depending on the available width of the screen.  
++   The list items should take up the full width of the screen, regardless of how narrow or wide the screen is.  
++   The Up button should always be shown within the app and clicking the button should exit the app.  
++   When rotating the device, the selected item in the list (and the corresponding details of that item shown) should be reset to the first item in the list.  
++   It's required to use the Jetpack Navigation Component to make the UI responsive to different screen sizes.  
++10.
+ 
+-    instrumentation class
++    ## Tests can be configured to run only test functions with custom annotations by configuring the ___.
+ 
+-    instrumentation arguments
++    module  
++    package  
++    instrumentation class  
++    instrumentation arguments  
+ 
+ Submit answers
+ 
+-*error\_outline*
+-An error occurred when grading the quiz. Please try again.
+\ No newline at end of file
++*error_outline*An error occurred when grading the quiz. Please try again.
+\ No newline at end of file

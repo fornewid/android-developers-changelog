@@ -1,0 +1,214 @@
+diff --git a/docs/blog/categories/product-news/9.md b/docs/blog/categories/product-news/9.md
+index 7b14a6b..2f3fed7 100644
+--- a/docs/blog/categories/product-news/9.md
++++ b/docs/blog/categories/product-news/9.md
+@@ -1,169 +1,81 @@
+ ---
+-title: Product News  |  Android Developers' Blog
++title: https://developer.android.com/blog/categories/product-news/9
+ url: https://developer.android.com/blog/categories/product-news/9
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-* [Android Developers' Blog](https://developer.android.com/)
+-* [Blog](https://developer.android.com/blog)
+-
+-Stay organized with collections
+-
+-Save and categorize content based on your preferences.
+-
+-
+-
+-![](/static/blog/assets/product_news_droid_599a11ad69_d4ee764ece_1mQM4e.webp)
++![](https://developer.android.com/static/blog/assets/product_news_droid_599a11ad69_d4ee764ece_1mQM4e.webp)
+ 
+ # Product News
+ 
+-Stay in the loop with the latest updates, feature releases, and behind-the-scenes looks at how we’re evolving.
+-
+-* [![](/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](/blog/authors/scott-nien)
+-
+-  13
+-
+-  Nov
+-  2025
+-
+-  13
+-
+-  Nov
+-  2025
+-
+-  ![](/static/blog/assets/camera_X1_5_9f8216fa59_1XU56O.webp)
+-
+-  ## [Introducing CameraX 1.5: Powerful Video Recording and Pro-level Image Capture](/blog/posts/introducing-camera-x-powerful-video-recording-and-pro-level-image-capture)
+-
+-  [arrow\_forward](/blog/posts/introducing-camera-x-powerful-video-recording-and-pro-level-image-capture)
+-
+-  The CameraX team is thrilled to announce the release of version 1.5! This latest update focuses on bringing professional-grade capabilities to your fingertips while making the camera session easier to configure than ever before.
+-
+-  ###### [Scott Nien](/blog/authors/scott-nien) • 7 min read
+-* 3
+-  Authors
+-
+-  10
+-
+-  Nov
+-  2025
+-
+-  10
+-
+-  Nov
+-  2025
+-
+-  ![](/static/blog/assets/raising_The_Bar_1e7745ca31_Z29xq01.webp)
++Stay in the loop with the latest updates, feature releases, and behind-the-scenes looks at how we're evolving.
++- [![](https://developer.android.com/static/blog/assets/scottnien_c517be4920_F68BQ.webp)](https://developer.android.com/blog/authors/scott-nien) 13 Nov 2025 13 Nov 2025 ![](https://developer.android.com/static/blog/assets/camera_X1_5_9f8216fa59_1XU56O.webp)
+ 
+-  ## [Raising the bar on battery performance: excessive partial wake locks metric is now out of beta](/blog/posts/raising-the-bar-on-battery-performance-excessive-partial-wake-locks-metric-is-now-out-of-beta)
++  ## [Introducing CameraX 1.5: Powerful Video Recording and Pro-level Image Capture](https://developer.android.com/blog/posts/introducing-camera-x-powerful-video-recording-and-pro-level-image-capture)
+ 
+-  [arrow\_forward](/blog/posts/raising-the-bar-on-battery-performance-excessive-partial-wake-locks-metric-is-now-out-of-beta)
++  [arrow_forward](https://developer.android.com/blog/posts/introducing-camera-x-powerful-video-recording-and-pro-level-image-capture) The CameraX team is thrilled to announce the release of version 1.5! This latest update focuses on bringing professional-grade capabilities to your fingertips while making the camera session easier to configure than ever before.
+ 
+-  A great user experience is built on a foundation of strong technical performance. We are committed to helping you create stable, responsive, and efficient apps that users love.
++  ###### [Scott Nien](https://developer.android.com/blog/authors/scott-nien) •
++  7 min read
+ 
+-  ###### [Karan Jhavar](/blog/authors/karan-jhavar), [Dan Brown](/blog/authors/dan-brown), [Eric Brenner](/blog/authors/eric-brenner) • 3 min read
+-* [![](/static/blog/assets/Brenda_Shaw_eaa3b6d259_Zriy5T.webp)](/blog/authors/brenda-shaw)
++- 3 Authors 10 Nov 2025 10 Nov 2025 ![](https://developer.android.com/static/blog/assets/raising_The_Bar_1e7745ca31_Z29xq01.webp)
+ 
+-  03
++  ## [Raising the bar on battery performance: excessive partial wake locks metric is now out of beta](https://developer.android.com/blog/posts/raising-the-bar-on-battery-performance-excessive-partial-wake-locks-metric-is-now-out-of-beta)
+ 
+-  Nov
+-  2025
++  [arrow_forward](https://developer.android.com/blog/posts/raising-the-bar-on-battery-performance-excessive-partial-wake-locks-metric-is-now-out-of-beta) A great user experience is built on a foundation of strong technical performance. We are committed to helping you create stable, responsive, and efficient apps that users love.
+ 
+-  03
++  ###### [Karan Jhavar](https://developer.android.com/blog/authors/karan-jhavar), [Dan Brown](https://developer.android.com/blog/authors/dan-brown), [Eric Brenner](https://developer.android.com/blog/authors/eric-brenner) •
++  3 min read
+ 
+-  Nov
+-  2025
++- [![](https://developer.android.com/static/blog/assets/Brenda_Shaw_eaa3b6d259_Zriy5T.webp)](https://developer.android.com/blog/authors/brenda-shaw) 03 Nov 2025 03 Nov 2025 ![](https://developer.android.com/static/blog/assets/health_Connect1_49b5a00627_1xwJyg.webp)
+ 
+-  ![](/static/blog/assets/health_Connect1_49b5a00627_1xwJyg.webp)
++  ## [Health Connect Jetpack v1.1.0 is now available!](https://developer.android.com/blog/posts/health-connect-jetpack-v1-1-0-is-now-available)
+ 
+-  ## [Health Connect Jetpack v1.1.0 is now available!](/blog/posts/health-connect-jetpack-v1-1-0-is-now-available)
++  [arrow_forward](https://developer.android.com/blog/posts/health-connect-jetpack-v1-1-0-is-now-available) Health Connect is Android's on-device platform designed to simplify connectivity between health and fitness apps, allowing developers to build richer experiences with secure, centralized data.
+ 
+-  [arrow\_forward](/blog/posts/health-connect-jetpack-v1-1-0-is-now-available)
++  ###### [Brenda Shaw](https://developer.android.com/blog/authors/brenda-shaw) •
++  2 min read
+ 
+-  Health Connect is Android’s on-device platform designed to simplify connectivity between health and fitness apps, allowing developers to build richer experiences with secure, centralized data.
++- [![](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 30 Oct 2025 30 Oct 2025 ![](https://developer.android.com/static/blog/assets/tas_Fall25_36a55155b3_Zalyay.webp)
+ 
+-  ###### [Brenda Shaw](/blog/authors/brenda-shaw) • 2 min read
+-* [![](/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](/blog/authors/matthew-mccullough)
++  ## [New agentic experiences for Android Studio, new AI APIs, the first Android XR device and more, in our Fall episode of The Android Show](https://developer.android.com/blog/posts/new-agentic-experiences-for-android-studio-new-ai-ap-is-the-first-android-xr-device-and-more-in-our-fall-episode-of-the-android-show)
+ 
+-  30
++  [arrow_forward](https://developer.android.com/blog/posts/new-agentic-experiences-for-android-studio-new-ai-ap-is-the-first-android-xr-device-and-more-in-our-fall-episode-of-the-android-show) We're in an important moment where AI changes everything, from how we work to the expectations that users have for your apps, and our goal on Android is to transform this AI evolution into opportunities for you and your users.
+ 
+-  Oct
+-  2025
++  ###### [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) •
++  5 min read
+ 
+-  30
++- 3 Authors 30 Oct 2025 30 Oct 2025 ![](https://developer.android.com/static/blog/assets/kakao_8769e675f9_Z1GfWxl.webp)
+ 
+-  Oct
+-  2025
++  ## [ML Kit's Prompt API: Unlock Custom On-Device Gemini Nano Experiences](https://developer.android.com/blog/posts/ml-kit-s-prompt-api-unlock-custom-on-device-gemini-nano-experiences)
+ 
+-  ![](/static/blog/assets/tas_Fall25_36a55155b3_Zalyay.webp)
++  [arrow_forward](https://developer.android.com/blog/posts/ml-kit-s-prompt-api-unlock-custom-on-device-gemini-nano-experiences) AI is making it easier to create personalized app experiences that transform content into the right format for users. We previously enabled developers to integrate with Gemini Nano through ML Kit GenAI APIs tailored for specific use cases like summarization and image description.
+ 
+-  ## [New agentic experiences for Android Studio, new AI APIs, the first Android XR device and more, in our Fall episode of The Android Show](/blog/posts/new-agentic-experiences-for-android-studio-new-ai-ap-is-the-first-android-xr-device-and-more-in-our-fall-episode-of-the-android-show)
++  ###### [Caren Chang](https://developer.android.com/blog/authors/caren-chang), [Chengji Yan](https://developer.android.com/blog/authors/chengji-yan), [Penny Li](https://developer.android.com/blog/authors/penny-li) •
++  2 min read
+ 
+-  [arrow\_forward](/blog/posts/new-agentic-experiences-for-android-studio-new-ai-ap-is-the-first-android-xr-device-and-more-in-our-fall-episode-of-the-android-show)
++- [![](https://developer.android.com/static/blog/assets/Rob_Orgiu_f45ebe80ce_22fyUM.webp)](https://developer.android.com/blog/authors/rob-orgiu) 27 Oct 2025 27 Oct 2025 ![](https://developer.android.com/static/blog/assets/material3adaptive_72cc7e27f6_Z1Stpt5.webp)
+ 
+-  We’re in an important moment where AI changes everything, from how we work to the expectations that users have for your apps, and our goal on Android is to transform this AI evolution into opportunities for you and your users.
++  ## [Material 3 Adaptive 1.2.0 is stable](https://developer.android.com/blog/posts/material-3-adaptive-1-2-0-is-stable)
+ 
+-  ###### [Matthew McCullough](/blog/authors/matthew-mccullough) • 5 min read
+-* 3
+-  Authors
+-
+-  30
+-
+-  Oct
+-  2025
+-
+-  30
+-
+-  Oct
+-  2025
+-
+-  ![](/static/blog/assets/kakao_8769e675f9_Z1GfWxl.webp)
+-
+-  ## [ML Kit’s Prompt API: Unlock Custom On-Device Gemini Nano Experiences](/blog/posts/ml-kit-s-prompt-api-unlock-custom-on-device-gemini-nano-experiences)
+-
+-  [arrow\_forward](/blog/posts/ml-kit-s-prompt-api-unlock-custom-on-device-gemini-nano-experiences)
+-
+-  AI is making it easier to create personalized app experiences that transform content into the right format for users. We previously enabled developers to integrate with Gemini Nano through ML Kit GenAI APIs tailored for specific use cases like summarization and image description.
+-
+-  ###### [Caren Chang](/blog/authors/caren-chang), [Chengji Yan](/blog/authors/chengji-yan), [Penny Li](/blog/authors/penny-li) • 2 min read
+-* [![](/static/blog/assets/Rob_Orgiu_f45ebe80ce_22fyUM.webp)](/blog/authors/rob-orgiu)
+-
+-  27
+-
+-  Oct
+-  2025
+-
+-  27
+-
+-  Oct
+-  2025
+-
+-  ![](/static/blog/assets/material3adaptive_72cc7e27f6_Z1Stpt5.webp)
+-
+-  ## [Material 3 Adaptive 1.2.0 is stable](/blog/posts/material-3-adaptive-1-2-0-is-stable)
+-
+-  [arrow\_forward](/blog/posts/material-3-adaptive-1-2-0-is-stable)
+-
+-  We’re excited to announce that Material 3 Adaptive 1.2.0 is now stable!
++  [arrow_forward](https://developer.android.com/blog/posts/material-3-adaptive-1-2-0-is-stable) We're excited to announce that Material 3 Adaptive 1.2.0 is now stable!
+   This release continues to build on the foundations of previous versions, expanding support to more breakpoints for window size classes and new strategies to place display panes automatically.
+ 
+-  ###### [Rob Orgiu](/blog/authors/rob-orgiu) • 2 min read
++  ###### [Rob Orgiu](https://developer.android.com/blog/authors/rob-orgiu) •
++  2 min read
+ 
+-[arrow\_back](/blog/categories/product-news/8)
++[arrow_back](https://developer.android.com/blog/categories/product-news/8)
+ 
+ #### Page 9
+ 
+ ###### of 12
+ 
+-[arrow\_forward](/blog/categories/product-news/10)
++[arrow_forward](https://developer.android.com/blog/categories/product-news/10)
+ 
+ # Stay in the loop
+ 
++
+ Get the latest Android development insights delivered to your inbox
+ weekly.
+-
+ [mail
+-Subscribe](/subscribe)
+-
+-![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file
++Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file

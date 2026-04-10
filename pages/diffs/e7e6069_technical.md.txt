@@ -1,0 +1,220 @@
+diff --git a/docs/quality/technical.md b/docs/quality/technical.md
+index 248b204..a083a43 100644
+--- a/docs/quality/technical.md
++++ b/docs/quality/technical.md
+@@ -1,20 +1,10 @@
+ ---
+-title: What great technical quality looks like  |  App quality  |  Android Developers
++title: https://developer.android.com/quality/technical
+ url: https://developer.android.com/quality/technical
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-* [Design & Plan](https://developer.android.com/design)
+-* [App quality](https://developer.android.com/quality)
+-* [Technical quality](https://developer.android.com/quality/technical)
+-
+-# What great technical quality looks like Stay organized with collections Save and categorize content based on your preferences.
+-
+-
+-
+-
+-![](/static/images/quality/hero-images/technical_quality_highlighted.svg)
++![](https://developer.android.com/static/images/quality/hero-images/technical_quality_highlighted.svg)
+ 
+ Technical quality includes the stability, performance, and resource utilization
+ of your app or game. The technical quality of your app or game can affect the
+@@ -29,8 +19,8 @@ Your app or game should make the most of premium devices like foldables. Follow
+ functional and technical guidelines for each form factor you support.
+ 
+ If it makes sense for your app or game to support multiple form factors, ensure
+-[continuity](/develop/ui/compose/layouts/adaptive/foldables/learn-about-foldables#app_continuity)
+-across form factors for a seamless user experience—for example, by synchronizing
++[continuity](https://developer.android.com/develop/ui/compose/layouts/adaptive/foldables/learn-about-foldables#app_continuity)
++across form factors for a seamless user experience---for example, by synchronizing
+ files and settings between devices, or saving their progress.
+ 
+ ## Stability
+@@ -38,9 +28,9 @@ files and settings between devices, or saving their progress.
+ Stability issues cause your app or game to crash or stop responding, which
+ interrupts user journeys and hurts the user experience. There are different
+ types of issues, including
+-[crashes](/topic/performance/vitals/crash),
+-[ANRs](/topic/performance/vitals/anr), and
+-[LMKs](/topic/performance/memory-management#low-memory_killer),
++[crashes](https://developer.android.com/topic/performance/vitals/crash),
++[ANRs](https://developer.android.com/topic/performance/vitals/anr), and
++[LMKs](https://developer.android.com/topic/performance/memory-management#low-memory_killer),
+ but all are equally disruptive to users.
+ 
+ App or game stability can vary by device. Monitor your stability metrics
+@@ -51,9 +41,9 @@ engagement metrics to ensure that stability issues aren't impacting your
+ users.
+ 
+ Following best practices, such as [opting into
+-GWP-ASan](/ndk/guides/gwp-asan), programming in
+-null-safe languages such as [Kotlin](/kotlin), and using [background work
+-APIs](/guide/background), can reduce stability
++GWP-ASan](https://developer.android.com/ndk/guides/gwp-asan), programming in
++null-safe languages such as [Kotlin](https://developer.android.com/kotlin), and using [background work
++APIs](https://developer.android.com/guide/background), can reduce stability
+ issues and also make debugging easier when they do occur.
+ 
+ ### Stability and Google Play
+@@ -74,7 +64,7 @@ you to per-device issues.
+ The discoverability of your app or game might be limited on devices where your
+ stability metrics exceed Google Play's bad behavior threshold, and a warning
+ might be shown on your store listing on those devices.
+-[Learn more](/topic/performance/vitals#core-vitals)
++[Learn more](https://developer.android.com/topic/performance/vitals#core-vitals)
+ 
+ ## Performance
+ 
+@@ -93,16 +83,16 @@ feedback and abandonment rates to ensure you're meeting user expectations, and
+ check that your performance isn't degrading over time.
+ 
+ Leverage Android to optimize
+-[startup time](/topic/performance/vitals/launch-time).
++[startup time](https://developer.android.com/topic/performance/vitals/launch-time).
+ Providing a
+-[baseline profile](/topic/performance/baselineprofiles/overview)
++[baseline profile](https://developer.android.com/topic/performance/baselineprofiles/overview)
+ and declaring
+-[reportFullyDrawn](/topic/performance/vitals/launch-time#retrieve-TTFD)
++[reportFullyDrawn](https://developer.android.com/topic/performance/vitals/launch-time#retrieve-TTFD)
+ will ensure the most important sections of your code load faster, and adopting
+ the
+-[Game State API](/reference/android/app/GameManager#setGameState(android.app.GameState))
++[Game State API](https://developer.android.com/reference/android/app/GameManager#setGameState(android.app.GameState))
+ (games-only) will help the OS adjust during loading. Reducing [the size of your
+-game or app](#app-size) will also improve start-up time for new installations.
++game or app](https://developer.android.com/quality/technical#app-size) will also improve start-up time for new installations.
+ 
+ ### Rendering (apps)
+ 
+@@ -117,11 +107,11 @@ best-in-class rendering performance compared to your peers. Monitor user
+ feedback and engagement to ensure that you're delivering a good experience.
+ 
+ Providing a
+-[baseline profile](/topic/performance/baselineprofiles/overview)
++[baseline profile](https://developer.android.com/topic/performance/baselineprofiles/overview)
+ can improve rendering performance and startup time. Consider using the
+-[JankStats](/topic/performance/jankstats) library
++[JankStats](https://developer.android.com/topic/performance/jankstats) library
+ to track and analyze performance issues. Review the [best
+-practices](/topic/performance/rendering) for
++practices](https://developer.android.com/topic/performance/rendering) for
+ rendering.
+ 
+ ### Rendering (games)
+@@ -142,15 +132,15 @@ for best-in-class rendering performance compared to peers. Monitor user feedback
+ and engagement to ensure that you are delivering a good experience.
+ 
+ Follow best practices, such as using the
+-[Android Dynamic Performance Framework](/games/optimize/adpf),
+-[Game Mode API](/games/gamemode/about-API-and-interventions)
+-and [frame pacing](/games/sdk/frame-pacing), to
++[Android Dynamic Performance Framework](https://developer.android.com/games/optimize/adpf),
++[Game Mode API](https://developer.android.com/games/gamemode/about-API-and-interventions)
++and [frame pacing](https://developer.android.com/games/sdk/frame-pacing), to
+ optimize visual smoothness and stability. Use
+-[Android Performance Tuner](/games/sdk/performance-tuner)
++[Android Performance Tuner](https://developer.android.com/games/sdk/performance-tuner)
+ to tune quality levels appropriately for the devices you support. Make
+ considered choices about graphics libraries and asset formats. For example,
+-using [Vulkan](/ndk/guides/graphics/getting-started) as a graphics API and
+-[ASTC for assets](/guide/playcore/asset-delivery/texture-compression) can significantly improve
++using [Vulkan](https://developer.android.com/ndk/guides/graphics/getting-started) as a graphics API and
++[ASTC for assets](https://developer.android.com/guide/playcore/asset-delivery/texture-compression) can significantly improve
+ your rendering performance.
+ 
+ ### Google Play guidelines
+@@ -165,9 +155,9 @@ performance metrics that matter most to users and Google Play. Android vitals
+ reports startup time, loading time and rendering metrics daily for all apps and
+ games. It also helps you compare your metrics to your peers, and alerts you if
+ you're not meeting
+-[Play's quality bar](/topic/performance/vitals#core-vitals).
++[Play's quality bar](https://developer.android.com/topic/performance/vitals#core-vitals).
+ 
+-[Play as you Download](/games/distribute/play-as-you-download)
++[Play as you Download](https://developer.android.com/games/distribute/play-as-you-download)
+ is a Google Play feature that allows users to get into your game experience
+ while the game is still downloading, reducing the time from launch to
+ gameplay.
+@@ -176,7 +166,7 @@ gameplay.
+ The discoverability of your app or game might be limited on devices where your
+ performance metrics exceed Google Play's bad behavior threshold, and a warning
+ might be shown on your store listing on those devices.
+-[Learn more](/topic/performance/vitals#core-vitals)
++[Learn more](https://developer.android.com/topic/performance/vitals#core-vitals)
+ 
+ ## Battery and network usage
+ 
+@@ -185,10 +175,10 @@ life and network bandwidth will make your app accessible to more users, increase
+ session length, and improve user retention.
+ Games should reduce frame rates and display refresh rates where appropriate, for
+ example when rendering menus and loading screens. Using the
+-[Game Mode API](/games/gamemode/about-API-and-interventions)
++[Game Mode API](https://developer.android.com/games/gamemode/about-API-and-interventions)
+ can help users make tradeoffs between performance and battery life, and can lead
+ to
+-[longer playtime](/stories/games/gameloft-gamemode).
++[longer playtime](https://developer.android.com/stories/games/gameloft-gamemode).
+ 
+ ### Google Play guidelines
+ 
+@@ -208,8 +198,8 @@ installation and first use. Users are also less likely to uninstall your app to
+ free up device storage.
+ 
+ Follow recommended best practices to minimize the size of your
+-[game](/games/optimize/game-size) or
+-[app](/topic/performance/reduce-apk-size).
++[game](https://developer.android.com/games/optimize/game-size) or
++[app](https://developer.android.com/topic/performance/reduce-apk-size).
+ 
+ ### Google Play guidelines
+ 
+@@ -225,12 +215,12 @@ storage by suggesting apps to uninstall, and will prioritize app size when
+ formulating these recommendations.
+ 
+ If you distribute on Google Play, use the [app bundle
+-format](/guide/app-bundle) to ensure that each user
++format](https://developer.android.com/guide/app-bundle) to ensure that each user
+ downloads only the code and resources necessary to run your app or game. Larger
+ apps and games can further benefit from
+-[Play Feature delivery](/guide/playcore/feature-delivery)
++[Play Feature delivery](https://developer.android.com/guide/playcore/feature-delivery)
+ and
+-[Play Asset delivery](/guide/playcore/asset-delivery),
++[Play Asset delivery](https://developer.android.com/guide/playcore/asset-delivery),
+ where specific parts of your code or assets can be downloaded conditionally or
+ on demand.
+ 
+@@ -249,7 +239,7 @@ guidelines.
+ 
+ **Tools to increase app freshness**
+ Not all users enable background updates. Adopting features like
+-[in-app updates](/guide/playcore/in-app-updates)
++[in-app updates](https://developer.android.com/guide/playcore/in-app-updates)
+ can increase the number of active users on the latest version of your app or
+ game.
+ 
+@@ -262,7 +252,7 @@ them after they've been introduced. Users can be quick to leave feedback in the
+ event of a poor experience, and might not update your app after first install.
+ 
+ To minimize the risk of introducing new issues in a release, take a phased
+-approach to [testing](/training/testing) and
++approach to [testing](https://developer.android.com/training/testing) and
+ rollout, and monitor your metrics frequently during any changes. You can also
+ make it easier to mitigate emerging issues by decoupling binary releases from
+ feature releases with remote configuration SDKs, such as [Firebase Remote
+@@ -285,4 +275,4 @@ API](https://developers.google.com/play/developer/reporting).
+ Google Play evaluates technical quality across all users of your app regardless
+ of what version they are using. Managing your release quality is therefore not
+ only better for users, it's also better for your Google Play quality metrics.
+-[Learn more](/topic/performance/vitals#core-vitals)
+\ No newline at end of file
++[Learn more](https://developer.android.com/topic/performance/vitals#core-vitals)
+\ No newline at end of file

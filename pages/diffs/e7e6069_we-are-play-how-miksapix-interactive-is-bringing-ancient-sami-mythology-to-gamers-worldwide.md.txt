@@ -1,0 +1,191 @@
+diff --git a/docs/blog/posts/we-are-play-how-miksapix-interactive-is-bringing-ancient-sami-mythology-to-gamers-worldwide.md b/docs/blog/posts/we-are-play-how-miksapix-interactive-is-bringing-ancient-sami-mythology-to-gamers-worldwide.md
+index bd0766c..ca75542 100644
+--- a/docs/blog/posts/we-are-play-how-miksapix-interactive-is-bringing-ancient-sami-mythology-to-gamers-worldwide.md
++++ b/docs/blog/posts/we-are-play-how-miksapix-interactive-is-bringing-ancient-sami-mythology-to-gamers-worldwide.md
+@@ -1,55 +1,35 @@
+ ---
+-title: #WeArePlay: How Miksapix Interactive is bringing ancient Sámi Mythology to gamers worldwide  |  Android Developers' Blog
++title: https://developer.android.com/blog/posts/we-are-play-how-miksapix-interactive-is-bringing-ancient-sami-mythology-to-gamers-worldwide
+ url: https://developer.android.com/blog/posts/we-are-play-how-miksapix-interactive-is-bringing-ancient-sami-mythology-to-gamers-worldwide
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-* [Android Developers' Blog](https://developer.android.com/)
+-* [Blog](https://developer.android.com/blog)
+-
+-Stay organized with collections
+-
+-Save and categorize content based on your preferences.
+-
+-
+-
+-#### [Community](/blog/categories/community)
++#### [Community](https://developer.android.com/blog/categories/community)
+ 
+ # #WeArePlay: How Miksapix Interactive is bringing ancient Sámi Mythology to gamers worldwide
+ 
+ ###### 2-min read
+ 
+-![](/static/blog/assets/Android_Devs_Google_Devs_Blog_Header_1200x600_79350b0b52_1w8gkH.webp)
+-
+-08
+-
+-Dec
+-2025
+-
+-[![](/static/blog/assets/Robbie_280bd4586c_2wmcrw.webp)](/blog/authors/robbie-mclachlan)
+-
+-[##### Robbie McLachlan](/blog/authors/robbie-mclachlan)
++![](https://developer.android.com/static/blog/assets/Android_Devs_Google_Devs_Blog_Header_1200x600_79350b0b52_1w8gkH.webp) 08 Dec 2025 [![](https://developer.android.com/static/blog/assets/Robbie_280bd4586c_2wmcrw.webp)](https://developer.android.com/blog/authors/robbie-mclachlan) [##### Robbie McLachlan](https://developer.android.com/blog/authors/robbie-mclachlan)
+ 
+ ###### Brand Marketing Manager , Developer Marketing
+ 
+ In our latest [#WeArePlay](https://play.google.com/console/about/weareplay/) film, which celebrates the people behind apps and games on Google Play, we meet Mikkel - the founder and CEO of [Miksapix Interactive](https://play.google.com/store/apps/developer?id=Miksapix+Interactive&gl=no). Mikkel is on a mission to share the rich stories and culture of the Sámi people through gaming. Discover how he is building a powerful platform for cultural preservation using a super-heroine.
++[Video](https://www.youtube.com/watch?v=gDoPKjqHsCA)
+ 
+ **You went from a career in broadcasting to becoming a founder in the games industry. What inspired that leap?**
+ 
+ I've had an interest in games for a long time and always found the medium interesting. While I was working for a broadcast corporation in Karasjok, I was thinking, "Why aren't there any Sámi games or games with Sámi content?". Sámi culture is quite rich in lore and mythology. I wanted to bring that to a global stage. That's how Miksapix Interactive was born.
+-
+-![05_NORWAY_MIKSAPIX INTERACTIVE_MIKKELSARA.png](/static/blog/assets/05_NORWAY_MIKSAPIX_INTERACTIVE_MIKKELSARA_c275412d5a_1DU9uE.webp)
++![05_NORWAY_MIKSAPIX INTERACTIVE_MIKKELSARA.png](https://developer.android.com/static/blog/assets/05_NORWAY_MIKSAPIX_INTERACTIVE_MIKKELSARA_c275412d5a_1DU9uE.webp)
+ 
+ **Your game,** ***Raanaa - The Shaman Girl*****, is deeply rooted in Sámi culture. What is the significance of telling these specific stories?**
+ 
+-Because these are *our* stories to tell! Our mission is to tell them to a global audience to create awareness about Sámi identity and culture. Most people in the world don't know about the Sámi and the Sámi cultures and lore. With our languages at risk, I hope to use storytelling as a way to inspire Sámi children to value their language, celebrate their identity, and take pride in their cultural heritage. Sámi mythology is rich with powerful matriarchs and goddesses, which inspired us to create a superheroine. Through her journey of self-discovery and empowerment, Raanaa finds her true strength — a story we hope will inspire hope and resilience in pre-teens and teens around the world. Through games like [*Raanaa - The Shaman Girl*,](https://play.google.com/store/apps/details?id=com.miksapix.raanaa&gl=no) we get to convey our stories in new formats.
++Because these are *our* stories to tell! Our mission is to tell them to a global audience to create awareness about Sámi identity and culture. Most people in the world don't know about the Sámi and the Sámi cultures and lore. With our languages at risk, I hope to use storytelling as a way to inspire Sámi children to value their language, celebrate their identity, and take pride in their cultural heritage. Sámi mythology is rich with powerful matriarchs and goddesses, which inspired us to create a superheroine. Through her journey of self-discovery and empowerment, Raanaa finds her true strength --- a story we hope will inspire hope and resilience in pre-teens and teens around the world. Through games like [*Raanaa - The Shaman Girl*,](https://play.google.com/store/apps/details?id=com.miksapix.raanaa&gl=no)we get to convey our stories in new formats.
+ 
+ **How did growing up with rich storytelling affect your games?**
+ 
+ I was raised in a reindeer herders family, which means we spent a lot of time in nature and the fields with the reindeers. Storytelling was a big part of the family. We would eat supper in the Lavvu tent sitting around a bonfire with relatives and parents telling stories. With Miksapix Interactive, I am taking my love for storytelling and bringing it to the world, using my first hand experience of the Sámi culture.
+-
+-![06_NORWAY_MIKSAPIX INTERACTIVE_MIKKELSARA.png](/static/blog/assets/06_NORWAY_MIKSAPIX_INTERACTIVE_MIKKELSARA_4b193d6814_u9yHd.webp)
++![06_NORWAY_MIKSAPIX INTERACTIVE_MIKKELSARA.png](https://developer.android.com/static/blog/assets/06_NORWAY_MIKSAPIX_INTERACTIVE_MIKKELSARA_4b193d6814_u9yHd.webp)
+ 
+ **How has Google Play helped you achieve global reach from your base in the Arctic?**
+ 
+@@ -63,95 +43,54 @@ Discover other inspiring app and game founders featured in [#WeArePlay](https://
+ 
+ ###### Written by:
+ 
+-* ## [Robbie McLachlan](/blog/authors/robbie-mclachlan)
+-
+-  ###### Brand Marketing Manager
++-
+ 
+-  [read\_more
+-  View profile](/blog/authors/robbie-mclachlan)
++  ## [Robbie McLachlan](https://developer.android.com/blog/authors/robbie-mclachlan)
+ 
+-  ![](/static/blog/assets/Robbie_280bd4586c_2wmcrw.webp)
++  ###### Brand Marketing Manager
+ 
+-  ![](/static/blog/assets/Robbie_280bd4586c_2wmcrw.webp)
++  [read_more
++  View profile](https://developer.android.com/blog/authors/robbie-mclachlan) ![](https://developer.android.com/static/blog/assets/Robbie_280bd4586c_2wmcrw.webp) ![](https://developer.android.com/static/blog/assets/Robbie_280bd4586c_2wmcrw.webp)
+ 
+ ## Continue reading
+ 
+-* [![](/static/blog/assets/Robbie_280bd4586c_2wmcrw.webp)](/blog/authors/robbie-mclachlan)
+-
+-  25
+-
+-  Mar
+-  2026
+-
+-  25
++- [![](https://developer.android.com/static/blog/assets/Robbie_280bd4586c_2wmcrw.webp)](https://developer.android.com/blog/authors/robbie-mclachlan) 25 Mar 2026 25 Mar 2026 ![](https://developer.android.com/static/blog/assets/Meet_The_Class_2_bb4f1ec5bd_Z1MklPk.webp)
+ 
+-  Mar
+-  2026
++  #### [Community](https://developer.android.com/blog/categories/community)
+ 
+-  ![](/static/blog/assets/Meet_The_Class_2_bb4f1ec5bd_Z1MklPk.webp)
++  ## [Meet the class of 2026 for the Google Play Apps Accelerator](https://developer.android.com/blog/posts/meet-the-class-of-2026-for-the-google-play-apps-accelerator)
+ 
+-  #### [Community](/blog/categories/community)
++  [arrow_forward](https://developer.android.com/blog/posts/meet-the-class-of-2026-for-the-google-play-apps-accelerator) The wait is over! We are incredibly excited to share the Google Play Apps Accelerator class of 2026.
+ 
+-  ## [Meet the class of 2026 for the Google Play Apps Accelerator](/blog/posts/meet-the-class-of-2026-for-the-google-play-apps-accelerator)
++  ###### [Robbie McLachlan](https://developer.android.com/blog/authors/robbie-mclachlan) •
++  1 min read
+ 
+-  [arrow\_forward](/blog/posts/meet-the-class-of-2026-for-the-google-play-apps-accelerator)
++- [![](https://developer.android.com/static/blog/assets/Robbie_280bd4586c_2wmcrw.webp)](https://developer.android.com/blog/authors/robbie-mclachlan) 11 Dec 2025 11 Dec 2025 ![](https://developer.android.com/static/blog/assets/Android_Devs_Google_Devs_Blog_Header_1200x600_79350b0b52_1w8gkH.webp)
+ 
+-  The wait is over! We are incredibly excited to share the Google Play Apps Accelerator class of 2026.
++  #### [Community](https://developer.android.com/blog/categories/community)
+ 
+-  ###### [Robbie McLachlan](/blog/authors/robbie-mclachlan) • 1 min read
+-* [![](/static/blog/assets/Robbie_280bd4586c_2wmcrw.webp)](/blog/authors/robbie-mclachlan)
++  ## [#WeArePlay: How Matraquina helps non-verbal kids communicate](https://developer.android.com/blog/posts/we-are-play-how-matraquina-helps-non-verbal-kids-communicate)
+ 
+-  11
++  [arrow_forward](https://developer.android.com/blog/posts/we-are-play-how-matraquina-helps-non-verbal-kids-communicate) In our latest #WeArePlay film, we meet Adriano, Wagner and Grazyelle. The trio are behind Matraquinha, an app helping thousands of non-verbal children in more than 80 countries communicate.
+ 
+-  Dec
+-  2025
++  ###### [Robbie McLachlan](https://developer.android.com/blog/authors/robbie-mclachlan) •
++  2 min read
+ 
+-  11
++- [![](https://developer.android.com/static/blog/assets/Robbie_280bd4586c_2wmcrw.webp)](https://developer.android.com/blog/authors/robbie-mclachlan) 25 Nov 2025 25 Nov 2025 ![](https://developer.android.com/static/blog/assets/Android_Devs_Google_Devs_Blog_Header_1200x600_79350b0b52_1w8gkH.webp)
+ 
+-  Dec
+-  2025
++  #### [Community](https://developer.android.com/blog/categories/community)
+ 
+-  ![](/static/blog/assets/Android_Devs_Google_Devs_Blog_Header_1200x600_79350b0b52_1w8gkH.webp)
++  ## [#WeArePlay: Solving the dinner dilemma - how DELISH KITCHEN empowers 13 million home cooks](https://developer.android.com/blog/posts/we-are-play-solving-the-dinner-dilemma-how-delish-kitchen-empowers-13-million-home-cooks)
+ 
+-  #### [Community](/blog/categories/community)
++  [arrow_forward](https://developer.android.com/blog/posts/we-are-play-solving-the-dinner-dilemma-how-delish-kitchen-empowers-13-million-home-cooks) In our latest #WeArePlay film, which celebrates the people behind apps and games on Google Play, we meet Chiharu - a co-founder of DELISH KITCHEN.
+ 
+-  ## [#WeArePlay: How Matraquina helps non-verbal kids communicate](/blog/posts/we-are-play-how-matraquina-helps-non-verbal-kids-communicate)
+-
+-  [arrow\_forward](/blog/posts/we-are-play-how-matraquina-helps-non-verbal-kids-communicate)
+-
+-  In our latest #WeArePlay film, we meet Adriano, Wagner and Grazyelle. The trio are behind Matraquinha, an app helping thousands of non-verbal children in more than 80 countries communicate.
+-
+-  ###### [Robbie McLachlan](/blog/authors/robbie-mclachlan) • 2 min read
+-* [![](/static/blog/assets/Robbie_280bd4586c_2wmcrw.webp)](/blog/authors/robbie-mclachlan)
+-
+-  25
+-
+-  Nov
+-  2025
+-
+-  25
+-
+-  Nov
+-  2025
+-
+-  ![](/static/blog/assets/Android_Devs_Google_Devs_Blog_Header_1200x600_79350b0b52_1w8gkH.webp)
+-
+-  #### [Community](/blog/categories/community)
+-
+-  ## [#WeArePlay: Solving the dinner dilemma - how DELISH KITCHEN empowers 13 million home cooks](/blog/posts/we-are-play-solving-the-dinner-dilemma-how-delish-kitchen-empowers-13-million-home-cooks)
+-
+-  [arrow\_forward](/blog/posts/we-are-play-solving-the-dinner-dilemma-how-delish-kitchen-empowers-13-million-home-cooks)
+-
+-  In our latest #WeArePlay film, which celebrates the people behind apps and games on Google Play, we meet Chiharu - a co-founder of DELISH KITCHEN.
+-
+-  ###### [Robbie McLachlan](/blog/authors/robbie-mclachlan) • 2 min read
++  ###### [Robbie McLachlan](https://developer.android.com/blog/authors/robbie-mclachlan) •
++  2 min read
+ 
+ # Stay in the loop
+ 
++
+ Get the latest Android development insights delivered to your inbox
+ weekly.
+-
+ [mail
+-Subscribe](/subscribe)
+-
+-![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file
++Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file

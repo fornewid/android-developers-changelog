@@ -1,0 +1,93 @@
+diff --git a/docs/courses/quizzes/compose/android-11-week-11-2.md b/docs/courses/quizzes/compose/android-11-week-11-2.md
+index 33ff2dd..21d69b0 100644
+--- a/docs/courses/quizzes/compose/android-11-week-11-2.md
++++ b/docs/courses/quizzes/compose/android-11-week-11-2.md
+@@ -1,57 +1,48 @@
+ ---
+-title: Jetpack Compose quiz  |  Android Developers
++title: https://developer.android.com/courses/quizzes/compose/android-11-week-11-2
+ url: https://developer.android.com/courses/quizzes/compose/android-11-week-11-2
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-Stay organized with collections
+-
+-Save and categorize content based on your preferences.
+-
+-
+-
+ # Jetpack Compose quiz
+ 
+-Return to pathway
+-
+-
+-
+-1. ## \_\_\_ tell a UI element how to lay out, display, or behave within its parent layout.
+-
+-   Modifier parameters
+-
+-   Composers
+-
+-   Kotlin functions
+-
+-   CSS
+-2. ## True or false? To preview composable functions, a developer must deploy the app to an Android device or emulator.
+-
+-   True.
++# Jetpack Compose quiz
+ 
+-   False.
+-3. ## \_\_\_ layout allows you to implement a UI with the basic Material Design layout structure.
++<br />
+ 
+-   TopAppBar
++Return to pathway  
++1.
+ 
+-   ConstraintLayout
++   ## ___ tell a UI element how to lay out, display, or behave within its parent layout.
+ 
+-   Scaffold
++   Modifier parameters  
++   Composers  
++   Kotlin functions  
++   CSS  
++2.
+ 
+-   Column
+-4. ## Which of the following are common strategies for integrating Jetpack Compose with an existing Android app?
++   ## True or false? To preview composable functions, a developer must deploy the app to an Android device or emulator.
+ 
+-   Choose as many answers as you see fit.
++   True.  
++   False.  
++3.
+ 
+-   Integrate Compose in new screens
++   ## ___ layout allows you to implement a UI with the basic Material Design layout structure.
+ 
+-   Migrate in bulk with an automated tool
++   TopAppBar  
++   ConstraintLayout  
++   Scaffold  
++   Column  
++4.
+ 
+-   Use Compose as a replacement for the View system for part of an existing screen
++   ## Which of the following are common strategies for integrating Jetpack Compose with an existing Android app?
+ 
+-   Migrate whole fragments or screens to Compose one at a time
++   Choose as many answers as you see fit.  
++   Integrate Compose in new screens  
++   Migrate in bulk with an automated tool  
++   Use Compose as a replacement for the View system for part of an existing screen  
++   Migrate whole fragments or screens to Compose one at a time  
+ 
+ Submit answers
+ 
+-*error\_outline*
+-An error occurred when grading the quiz. Please try again.
+\ No newline at end of file
++*error_outline*An error occurred when grading the quiz. Please try again.
+\ No newline at end of file

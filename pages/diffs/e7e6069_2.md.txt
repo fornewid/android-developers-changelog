@@ -1,0 +1,673 @@
+diff --git a/docs/blog/latest/2.md b/docs/blog/latest/2.md
+index 8b2d100..7eb55a0 100644
+--- a/docs/blog/latest/2.md
++++ b/docs/blog/latest/2.md
+@@ -1,521 +1,268 @@
+ ---
+-title: Latest  |  Android Developers' Blog
++title: https://developer.android.com/blog/latest/2
+ url: https://developer.android.com/blog/latest/2
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-* [Android Developers' Blog](https://developer.android.com/)
+-* [Blog](https://developer.android.com/blog)
+-
+-Stay organized with collections
+-
+-Save and categorize content based on your preferences.
+-
+-
+-
+ # The Latest
+ 
+ Stay up to date with the latest announcements, feature rollouts, and updates across Android tools, libraries, and platforms.
++- [![](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 05 Mar 2026 05 Mar 2026 ![](https://developer.android.com/static/blog/assets/android_Bench_f2e4dd4fda_2816Hg.webp)
+ 
+-* [![](/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](/blog/authors/matthew-mccullough)
+-
+-  05
+-
+-  Mar
+-  2026
+-
+-  05
+-
+-  Mar
+-  2026
+-
+-  ![](/static/blog/assets/android_Bench_f2e4dd4fda_2816Hg.webp)
+-
+-  #### [Product News](/blog/categories/product-news)
+-
+-  ## [Elevating AI-assisted Android development and improving LLMs with Android Bench](/blog/posts/elevating-ai-assisted-android-development-and-improving-ll-ms-with-android-bench)
+-
+-  [arrow\_forward](/blog/posts/elevating-ai-assisted-android-development-and-improving-ll-ms-with-android-bench)
+-
+-  We want to make it faster and easier for you to build high-quality Android apps, and one way we’re helping you be more productive is by putting AI at your fingertips.
+-
+-  ###### [Matthew McCullough](/blog/authors/matthew-mccullough) • 2 min read
+-* [![](/static/blog/assets/Breana_Tate_24c1d03bf2_Z1NRigS.webp)](/blog/authors/breana-tate)
+-
+-  04
+-
+-  Mar
+-  2026
+-
+-  04
+-
+-  Mar
+-  2026
+-
+-  ![](/static/blog/assets/whoop2_fcb73fdc54_bqwCk.webp)
+-
+-  #### [Case Studies](/blog/categories/case-studies)
+-
+-  ## [How WHOOP decreased excessive partial wake lock sessions by over 90%](/blog/posts/how-whoop-decreased-excessive-partial-wake-lock-sessions)
+-
+-  [arrow\_forward](/blog/posts/how-whoop-decreased-excessive-partial-wake-lock-sessions)
+-
+-  Building an Android app for a wearable means the real work starts when the screen turns off.
+-
+-  ###### [Breana Tate](/blog/authors/breana-tate) • 4 min read
+-* [![](/static/blog/assets/Alice_Yuan_552a4dd4ee_ZlDEgJ.webp)](/blog/authors/alice-yuan)
+-
+-  04
+-
+-  Mar
+-  2026
+-
+-  04
+-
+-  Mar
+-  2026
+-
+-  ![](/static/blog/assets/battery_Performance_08d6713f94_Z1IAO0P.webp)
+-
+-  #### [How-tos](/blog/categories/how-tos)
+-
+-  ## [Battery Technical Quality Enforcement is Here: How to Optimize Common Wake Lock Use Cases](/blog/posts/battery-technical-quality-enforcement-is-here-how-to-optimize-common-wake-lock-use-cases)
+-
+-  [arrow\_forward](/blog/posts/battery-technical-quality-enforcement-is-here-how-to-optimize-common-wake-lock-use-cases)
+-
+-  In recognition that excessive battery drain is top of mind for Android users, Google has been taking significant steps to help developers build more power-efficient apps.
+-
+-  ###### [Alice Yuan](/blog/authors/alice-yuan) • 8 min read
+-* [![](/static/blog/assets/sameer_samat_a8edc4d0ef_Z1LfvLq.webp)](/blog/authors/sameer-samat)
+-
+-  04
+-
+-  Mar
+-  2026
+-
+-  04
+-
+-  Mar
+-  2026
+-
+-  ![](/static/blog/assets/android_Ecosystem_208dfb20df_6DzUd.webp)
+-
+-  #### [Product News](/blog/categories/product-news)
+-
+-  ## [A new era for choice and openness](/blog/posts/a-new-era-for-choice-and-openness)
+-
+-  [arrow\_forward](/blog/posts/a-new-era-for-choice-and-openness)
+-
+-  Android has always driven innovation in the industry through its unique flexibility and openness.
+-
+-  ###### [Sameer Samat](/blog/authors/sameer-samat) • 3 min read
+-* [![](/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](/blog/authors/matt-dyor)
+-
+-  03
+-
+-  Mar
+-  2026
+-
+-  03
+-
+-  Mar
+-  2026
+-
+-  ![](/static/blog/assets/as_Panda3_385cde5eac_Z1E8IhJ.webp)
+-
+-  #### [Product News](/blog/categories/product-news)
+-
+-  ## [Go from prompt to working prototype with Android Studio Panda 2](/blog/posts/go-from-prompt-to-working-prototype-with-android-studio-panda-2)
+-
+-  [arrow\_forward](/blog/posts/go-from-prompt-to-working-prototype-with-android-studio-panda-2)
+-
+-  Android Studio Panda 2 is now stable and ready for you to use in production.
++  #### [Product News](https://developer.android.com/blog/categories/product-news)
+ 
+-  ###### [Matt Dyor](/blog/authors/matt-dyor) • 3 min read
+-* [![](/static/blog/assets/unnamed_fd9e15f738_1EHxqW.webp)](/blog/authors/francesco-romano)
++  ## [Elevating AI-assisted Android development and improving LLMs with Android Bench](https://developer.android.com/blog/posts/elevating-ai-assisted-android-development-and-improving-ll-ms-with-android-bench)
+ 
+-  03
++  [arrow_forward](https://developer.android.com/blog/posts/elevating-ai-assisted-android-development-and-improving-ll-ms-with-android-bench) We want to make it faster and easier for you to build high-quality Android apps, and one way we're helping you be more productive is by putting AI at your fingertips.
+ 
+-  Mar
+-  2026
++  ###### [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) •
++  2 min read
+ 
+-  03
++- [![](https://developer.android.com/static/blog/assets/Breana_Tate_24c1d03bf2_Z1NRigS.webp)](https://developer.android.com/blog/authors/breana-tate) 04 Mar 2026 04 Mar 2026 ![](https://developer.android.com/static/blog/assets/whoop2_fcb73fdc54_bqwCk.webp)
+ 
+-  Mar
+-  2026
++  #### [Case Studies](https://developer.android.com/blog/categories/case-studies)
+ 
+-  ![](/static/blog/assets/android_Connected_34a0ae66a4_1A0pVS.webp)
++  ## [How WHOOP decreased excessive partial wake lock sessions by over 90%](https://developer.android.com/blog/posts/how-whoop-decreased-excessive-partial-wake-lock-sessions)
+ 
+-  #### [Product News](/blog/categories/product-news)
++  [arrow_forward](https://developer.android.com/blog/posts/how-whoop-decreased-excessive-partial-wake-lock-sessions) Building an Android app for a wearable means the real work starts when the screen turns off.
+ 
+-  ## [Android devices extend seamlessly to connected displays](/blog/posts/android-devices-extend-seamlessly-to-connected-displays)
++  ###### [Breana Tate](https://developer.android.com/blog/authors/breana-tate) •
++  4 min read
+ 
+-  [arrow\_forward](/blog/posts/android-devices-extend-seamlessly-to-connected-displays)
++- [![](https://developer.android.com/static/blog/assets/Alice_Yuan_552a4dd4ee_ZlDEgJ.webp)](https://developer.android.com/blog/authors/alice-yuan) 04 Mar 2026 04 Mar 2026 ![](https://developer.android.com/static/blog/assets/battery_Performance_08d6713f94_Z1IAO0P.webp)
+ 
+-  We are excited to announce a major milestone in bringing mobile and desktop computing closer together on Android: connected display support has reached general availability with the Android 16 QPR3 release!
++  #### [How-tos](https://developer.android.com/blog/categories/how-tos)
+ 
+-  ###### [Francesco Romano](/blog/authors/francesco-romano) • 7 min read
+-* [![](/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](/blog/authors/trevor-johns)
++  ## [Battery Technical Quality Enforcement is Here: How to Optimize Common Wake Lock Use Cases](https://developer.android.com/blog/posts/battery-technical-quality-enforcement-is-here-how-to-optimize-common-wake-lock-use-cases)
+ 
+-  02
++  [arrow_forward](https://developer.android.com/blog/posts/battery-technical-quality-enforcement-is-here-how-to-optimize-common-wake-lock-use-cases) In recognition that excessive battery drain is top of mind for Android users, Google has been taking significant steps to help developers build more power-efficient apps.
+ 
+-  Mar
+-  2026
++  ###### [Alice Yuan](https://developer.android.com/blog/authors/alice-yuan) •
++  8 min read
+ 
+-  02
++- [![](https://developer.android.com/static/blog/assets/sameer_samat_a8edc4d0ef_Z1LfvLq.webp)](https://developer.android.com/blog/authors/sameer-samat) 04 Mar 2026 04 Mar 2026 ![](https://developer.android.com/static/blog/assets/android_Ecosystem_208dfb20df_6DzUd.webp)
+ 
+-  Mar
+-  2026
++  #### [Product News](https://developer.android.com/blog/categories/product-news)
+ 
+-  ![](/static/blog/assets/supercharge_99f4219536_Z2aoaib.webp)
++  ## [A new era for choice and openness](https://developer.android.com/blog/posts/a-new-era-for-choice-and-openness)
+ 
+-  #### [Product News](/blog/categories/product-news)
++  [arrow_forward](https://developer.android.com/blog/posts/a-new-era-for-choice-and-openness) Android has always driven innovation in the industry through its unique flexibility and openness.
+ 
+-  ## [Supercharge your Android development with 6 expert tips for Gemini in Android Studio](/blog/posts/supercharge-your-android-development-with-6-expert-tips-for-gemini-in-android-studio)
++  ###### [Sameer Samat](https://developer.android.com/blog/authors/sameer-samat) •
++  3 min read
+ 
+-  [arrow\_forward](/blog/posts/supercharge-your-android-development-with-6-expert-tips-for-gemini-in-android-studio)
++- [![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](https://developer.android.com/blog/authors/matt-dyor) 03 Mar 2026 03 Mar 2026 ![](https://developer.android.com/static/blog/assets/as_Panda3_385cde5eac_Z1E8IhJ.webp)
+ 
+-  In January we announced Android Studio Otter 3 Feature Drop in stable, including Agent Mode enhancements and many other updates to provide more control and flexibility over using AI to help you build high quality Android apps.
++  #### [Product News](https://developer.android.com/blog/categories/product-news)
+ 
+-  ###### [Trevor Johns](/blog/authors/trevor-johns) • 4 min read
+-* [![](/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](/blog/authors/matthew-mccullough)
++  ## [Go from prompt to working prototype with Android Studio Panda 2](https://developer.android.com/blog/posts/go-from-prompt-to-working-prototype-with-android-studio-panda-2)
+ 
+-  26
++  [arrow_forward](https://developer.android.com/blog/posts/go-from-prompt-to-working-prototype-with-android-studio-panda-2) Android Studio Panda 2 is now stable and ready for you to use in production.
+ 
+-  Feb
+-  2026
++  ###### [Matt Dyor](https://developer.android.com/blog/authors/matt-dyor) •
++  3 min read
+ 
+-  26
++- [![](https://developer.android.com/static/blog/assets/unnamed_fd9e15f738_1EHxqW.webp)](https://developer.android.com/blog/authors/francesco-romano) 03 Mar 2026 03 Mar 2026 ![](https://developer.android.com/static/blog/assets/android_Connected_34a0ae66a4_1A0pVS.webp)
+ 
+-  Feb
+-  2026
++  #### [Product News](https://developer.android.com/blog/categories/product-news)
+ 
+-  ![](/static/blog/assets/android17banner_359909419a_Z1HMAIH.webp)
++  ## [Android devices extend seamlessly to connected displays](https://developer.android.com/blog/posts/android-devices-extend-seamlessly-to-connected-displays)
+ 
+-  #### [Product News](/blog/categories/product-news)
++  [arrow_forward](https://developer.android.com/blog/posts/android-devices-extend-seamlessly-to-connected-displays) We are excited to announce a major milestone in bringing mobile and desktop computing closer together on Android: connected display support has reached general availability with the Android 16 QPR3 release!
+ 
+-  ## [The Second Beta of Android 17](/blog/posts/the-second-beta-of-android-17)
++  ###### [Francesco Romano](https://developer.android.com/blog/authors/francesco-romano) •
++  7 min read
+ 
+-  [arrow\_forward](/blog/posts/the-second-beta-of-android-17)
++- [![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](https://developer.android.com/blog/authors/trevor-johns) 02 Mar 2026 02 Mar 2026 ![](https://developer.android.com/static/blog/assets/supercharge_99f4219536_Z2aoaib.webp)
+ 
+-  Today we're releasing the second beta of Android 17, continuing our work to build a platform that prioritizes privacy, security, and refined performance.
++  #### [Product News](https://developer.android.com/blog/categories/product-news)
+ 
+-  ###### [Matthew McCullough](/blog/authors/matthew-mccullough) • 6 min read
+-* [![](/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](/blog/authors/matthew-mccullough)
++  ## [Supercharge your Android development with 6 expert tips for Gemini in Android Studio](https://developer.android.com/blog/posts/supercharge-your-android-development-with-6-expert-tips-for-gemini-in-android-studio)
+ 
+-  25
++  [arrow_forward](https://developer.android.com/blog/posts/supercharge-your-android-development-with-6-expert-tips-for-gemini-in-android-studio) In January we announced Android Studio Otter 3 Feature Drop in stable, including Agent Mode enhancements and many other updates to provide more control and flexibility over using AI to help you build high quality Android apps.
+ 
+-  Feb
+-  2026
++  ###### [Trevor Johns](https://developer.android.com/blog/authors/trevor-johns) •
++  4 min read
+ 
+-  25
++- [![](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 26 Feb 2026 26 Feb 2026 ![](https://developer.android.com/static/blog/assets/android17banner_359909419a_Z1HMAIH.webp)
+ 
+-  Feb
+-  2026
++  #### [Product News](https://developer.android.com/blog/categories/product-news)
+ 
+-  ![](/static/blog/assets/intelligent_OS_215691a288_G81Rr.webp)
++  ## [The Second Beta of Android 17](https://developer.android.com/blog/posts/the-second-beta-of-android-17)
+ 
+-  #### [Product News](/blog/categories/product-news)
++  [arrow_forward](https://developer.android.com/blog/posts/the-second-beta-of-android-17) Today we're releasing the second beta of Android 17, continuing our work to build a platform that prioritizes privacy, security, and refined performance.
+ 
+-  ## [The Intelligent OS: Making AI agents more helpful for Android apps](/blog/posts/the-intelligent-os-making-ai-agents-more-helpful-for-android-apps)
++  ###### [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) •
++  6 min read
+ 
+-  [arrow\_forward](/blog/posts/the-intelligent-os-making-ai-agents-more-helpful-for-android-apps)
++- [![](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 25 Feb 2026 25 Feb 2026 ![](https://developer.android.com/static/blog/assets/intelligent_OS_215691a288_G81Rr.webp)
+ 
+-  User expectations for AI on their devices are fundamentally shifting how they interact with their apps.
++  #### [Product News](https://developer.android.com/blog/categories/product-news)
+ 
+-  ###### [Matthew McCullough](/blog/authors/matthew-mccullough) • 3 min read
+-* 17
++  ## [The Intelligent OS: Making AI agents more helpful for Android apps](https://developer.android.com/blog/posts/the-intelligent-os-making-ai-agents-more-helpful-for-android-apps)
+ 
+-  Feb
+-  2026
++  [arrow_forward](https://developer.android.com/blog/posts/the-intelligent-os-making-ai-agents-more-helpful-for-android-apps) User expectations for AI on their devices are fundamentally shifting how they interact with their apps.
+ 
+-  17
++  ###### [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) •
++  3 min read
+ 
+-  Feb
+-  2026
++- 17 Feb 2026 17 Feb 2026 ![](https://developer.android.com/static/blog/assets/O_SVD_DAC_Banner_1600x476_4x1_1_21e5678d22_Z2feGk6.webp)
+ 
+-  ![](/static/blog/assets/O_SVD_DAC_Banner_1600x476_4x1_1_21e5678d22_Z2feGk6.webp)
++  #### [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs)
+ 
+-  #### [Events & Programs](/blog/categories/events-and-programs)
++  ## [Get ready for Google I/O May 19-20](https://developer.android.com/blog/posts/get-ready-for-google-io-may)
+ 
+-  ## [Get ready for Google I/O May 19-20](/blog/posts/get-ready-for-google-io-may)
+-
+-  [arrow\_forward](/blog/posts/get-ready-for-google-io-may)
+-
+-  Google I/O is back! Join us online as we share our latest AI breakthroughs and updates in products across the company, from Gemini to Android, Chrome, Cloud, and more.
++  [arrow_forward](https://developer.android.com/blog/posts/get-ready-for-google-io-may) Google I/O is back! Join us online as we share our latest AI breakthroughs and updates in products across the company, from Gemini to Android, Chrome, Cloud, and more.
+ 
+   ###### 1 min read
+-* [![](/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](/blog/authors/charles-munger)[![](/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](/blog/authors/shai-barack)
+-
+-  17
+-
+-  Feb
+-  2026
+-
+-  17
+-
+-  Feb
+-  2026
+-
+-  ![](/static/blog/assets/Android_17_s_Lock_Free_Message_Queue_Blog_2169eab465_1EHW3E.webp)
+-
+-  #### [Product News](/blog/categories/product-news)
+-
+-  ## [Under the hood: Android 17’s lock-free MessageQueue](/blog/posts/under-the-hood-android-17-lock-free-message-queue)
+-
+-  [arrow\_forward](/blog/posts/under-the-hood-android-17-lock-free-message-queue)
+-
+-  In Android 17, apps targeting SDK 37 or higher will receive a new implementation of MessageQueue where the implementation is lock-free.
+-
+-  ###### [Charles Munger](/blog/authors/charles-munger), [Shai Barack](/blog/authors/shai-barack) • 16 min read
+-* [![](/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](/blog/authors/matthew-mccullough)
+-
+-  13
+-
+-  Feb
+-  2026
+-
+-  13
+-
+-  Feb
+-  2026
+-
+-  ![](/static/blog/assets/android17banner_359909419a_Z1HMAIH.webp)
+-
+-  #### [Product News](/blog/categories/product-news)
+-
+-  ## [The First Beta of Android 17](/blog/posts/the-first-beta-of-android-17)
+-
+-  [arrow\_forward](/blog/posts/the-first-beta-of-android-17)
+-
+-  Today we're releasing the first beta of Android 17, continuing our work to build a platform that prioritizes privacy, security, and refined performance.
+-
+-  ###### [Matthew McCullough](/blog/authors/matthew-mccullough) • 7 min read
+-* [![](/static/blog/assets/miguel_montemayor_552207c1c6_Z1tItyG.webp)](/blog/authors/miguel-montemayor)
+-
+-  13
+-
+-  Feb
+-  2026
+-
+-  13
+-
+-  Feb
+-  2026
+-
+-  ![](/static/blog/assets/a17beta_bfff40b895_20Bzrw.webp)
+ 
+-  #### [Product News](/blog/categories/product-news)
++- [![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](https://developer.android.com/blog/authors/charles-munger)[![](https://developer.android.com/static/blog/assets/shai_1d2925f4dc_ibtbq.webp)](https://developer.android.com/blog/authors/shai-barack) 17 Feb 2026 17 Feb 2026 ![](https://developer.android.com/static/blog/assets/Android_17_s_Lock_Free_Message_Queue_Blog_2169eab465_1EHW3E.webp)
+ 
+-  ## [Prepare your app for the resizability and orientation changes in Android 17](/blog/posts/prepare-your-app-for-the-resizability-and-orientation-changes-in-android-17)
++  #### [Product News](https://developer.android.com/blog/categories/product-news)
+ 
+-  [arrow\_forward](/blog/posts/prepare-your-app-for-the-resizability-and-orientation-changes-in-android-17)
++  ## [Under the hood: Android 17's lock-free MessageQueue](https://developer.android.com/blog/posts/under-the-hood-android-17-lock-free-message-queue)
+ 
+-  With the release of Android 16 in 2025, we shared our vision for a device ecosystem where apps adapt seamlessly to any screen—whether it’s a phone, foldable, tablet, desktop, car display, or XR. Users expect their apps to work everywhere.
++  [arrow_forward](https://developer.android.com/blog/posts/under-the-hood-android-17-lock-free-message-queue) In Android 17, apps targeting SDK 37 or higher will receive a new implementation of MessageQueue where the implementation is lock-free.
+ 
+-  ###### [Miguel Montemayor](/blog/authors/miguel-montemayor) • 6 min read
+-* [![](/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](/blog/authors/phalene-gowling)
++  ###### [Charles Munger](https://developer.android.com/blog/authors/charles-munger), [Shai Barack](https://developer.android.com/blog/authors/shai-barack) •
++  16 min read
+ 
+-  29
++- [![](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 13 Feb 2026 13 Feb 2026 ![](https://developer.android.com/static/blog/assets/android17banner_359909419a_Z1HMAIH.webp)
+ 
+-  Jan
+-  2026
++  #### [Product News](https://developer.android.com/blog/categories/product-news)
+ 
+-  29
++  ## [The First Beta of Android 17](https://developer.android.com/blog/posts/the-first-beta-of-android-17)
+ 
+-  Jan
+-  2026
++  [arrow_forward](https://developer.android.com/blog/posts/the-first-beta-of-android-17) Today we're releasing the first beta of Android 17, continuing our work to build a platform that prioritizes privacy, security, and refined performance.
+ 
+-  ![](/static/blog/assets/260127_Header_f185aadec0_bMXGR.webp)
++  ###### [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) •
++  7 min read
+ 
+-  #### [Product News](/blog/categories/product-news)
++- [![](https://developer.android.com/static/blog/assets/miguel_montemayor_552207c1c6_Z1tItyG.webp)](https://developer.android.com/blog/authors/miguel-montemayor) 13 Feb 2026 13 Feb 2026 ![](https://developer.android.com/static/blog/assets/a17beta_bfff40b895_20Bzrw.webp)
+ 
+-  ## [Accelerating your insights with faster, smarter monetization data and recommendations](/blog/posts/accelerating-your-insights-with-faster-smarter-monetization-data-and-recommendations)
++  #### [Product News](https://developer.android.com/blog/categories/product-news)
+ 
+-  [arrow\_forward](/blog/posts/accelerating-your-insights-with-faster-smarter-monetization-data-and-recommendations)
++  ## [Prepare your app for the resizability and orientation changes in Android 17](https://developer.android.com/blog/posts/prepare-your-app-for-the-resizability-and-orientation-changes-in-android-17)
+ 
+-  Today, we’re announcing a suite of upgrades to the Google Play Console and beyond, giving you greater visibility into your financial performance and specific, data-backed steps to improve it.
++  [arrow_forward](https://developer.android.com/blog/posts/prepare-your-app-for-the-resizability-and-orientation-changes-in-android-17) With the release of Android 16 in 2025, we shared our vision for a device ecosystem where apps adapt seamlessly to any screen---whether it's a phone, foldable, tablet, desktop, car display, or XR. Users expect their apps to work everywhere.
+ 
+-  ###### [Phalene Gowling](/blog/authors/phalene-gowling) • 2 min read
+-* 4
+-  Authors
++  ###### [Miguel Montemayor](https://developer.android.com/blog/authors/miguel-montemayor) •
++  6 min read
+ 
+-  28
++- [![](https://developer.android.com/static/blog/assets/Phalene_Gowling_0adca8708d_1v9m34.webp)](https://developer.android.com/blog/authors/phalene-gowling) 29 Jan 2026 29 Jan 2026 ![](https://developer.android.com/static/blog/assets/260127_Header_f185aadec0_bMXGR.webp)
+ 
+-  Jan
+-  2026
++  #### [Product News](https://developer.android.com/blog/categories/product-news)
+ 
+-  28
++  ## [Accelerating your insights with faster, smarter monetization data and recommendations](https://developer.android.com/blog/posts/accelerating-your-insights-with-faster-smarter-monetization-data-and-recommendations)
+ 
+-  Jan
+-  2026
++  [arrow_forward](https://developer.android.com/blog/posts/accelerating-your-insights-with-faster-smarter-monetization-data-and-recommendations) Today, we're announcing a suite of upgrades to the Google Play Console and beyond, giving you greater visibility into your financial performance and specific, data-backed steps to improve it.
+ 
+-  ![](/static/blog/assets/Prompt_API_Banner_1_ff0c780828_1kyTTw.webp)
++  ###### [Phalene Gowling](https://developer.android.com/blog/authors/phalene-gowling) •
++  2 min read
+ 
+-  #### [Product News](/blog/categories/product-news)
++- 4 Authors 28 Jan 2026 28 Jan 2026 ![](https://developer.android.com/static/blog/assets/Prompt_API_Banner_1_ff0c780828_1kyTTw.webp)
+ 
+-  ## [How Automated Prompt Optimization Unlocks Quality Gains for ML Kit’s GenAI Prompt API](/blog/posts/how-automated-prompt-optimization-unlocks-quality-gains-for-ml-kit-s-gen-ai-prompt-api)
++  #### [Product News](https://developer.android.com/blog/categories/product-news)
+ 
+-  [arrow\_forward](/blog/posts/how-automated-prompt-optimization-unlocks-quality-gains-for-ml-kit-s-gen-ai-prompt-api)
++  ## [How Automated Prompt Optimization Unlocks Quality Gains for ML Kit's GenAI Prompt API](https://developer.android.com/blog/posts/how-automated-prompt-optimization-unlocks-quality-gains-for-ml-kit-s-gen-ai-prompt-api)
+ 
+-  To further help bring your ML Kit Prompt API use cases to production, we are excited to announce Automated Prompt Optimization (APO) targeting On-Device models on Vertex AI. Automated Prompt Optimization is a tool that helps you automatically find the optimal prompt for your use cases.
++  [arrow_forward](https://developer.android.com/blog/posts/how-automated-prompt-optimization-unlocks-quality-gains-for-ml-kit-s-gen-ai-prompt-api) To further help bring your ML Kit Prompt API use cases to production, we are excited to announce Automated Prompt Optimization (APO) targeting On-Device models on Vertex AI. Automated Prompt Optimization is a tool that helps you automatically find the optimal prompt for your use cases.
+ 
+-  ###### [Chetan Tekur](/blog/authors/chetan-tekur), [Chao Zhao](/blog/authors/chao-zhao), [Paul Zhou](/blog/authors/paul-zhou), [Caren Chang](/blog/authors/caren-chang) • 3 min read
+-* [![](/static/blog/assets/roxana_02dc1d3afc_GLFQH.webp)](/blog/authors/roxanna-walker)[![](/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](/blog/authors/yacine-rezgui)
++  ###### [Chetan Tekur](https://developer.android.com/blog/authors/chetan-tekur), [Chao Zhao](https://developer.android.com/blog/authors/chao-zhao), [Paul Zhou](https://developer.android.com/blog/authors/paul-zhou), [Caren Chang](https://developer.android.com/blog/authors/caren-chang) •
++  3 min read
+ 
+-  27
++- [![](https://developer.android.com/static/blog/assets/roxana_02dc1d3afc_GLFQH.webp)](https://developer.android.com/blog/authors/roxanna-walker)[![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](https://developer.android.com/blog/authors/yacine-rezgui) 27 Jan 2026 27 Jan 2026 ![](https://developer.android.com/static/blog/assets/Android_Photo_Picker_Blogger_60fa0ede59_YTu6Y.webp)
+ 
+-  Jan
+-  2026
++  #### [Product News](https://developer.android.com/blog/categories/product-news)
+ 
+-  27
++  ## [The Embedded Photo Picker](https://developer.android.com/blog/posts/the-embedded-photo-picker)
+ 
+-  Jan
+-  2026
++  [arrow_forward](https://developer.android.com/blog/posts/the-embedded-photo-picker) The Embedded Photo Picker: A more seamless way to privately request photos and videos in your app.
+ 
+-  ![](/static/blog/assets/Android_Photo_Picker_Blogger_60fa0ede59_YTu6Y.webp)
++  ###### [Roxanna Aliabadi Walker](https://developer.android.com/blog/authors/roxanna-walker), [Yacine Rezgui](https://developer.android.com/blog/authors/yacine-rezgui) •
++  8 min read
+ 
+-  #### [Product News](/blog/categories/product-news)
++- 26 Jan 2026 26 Jan 2026 ![](https://developer.android.com/static/blog/assets/Android_Trade_IN_Mode_Blog_9dc083b903_Z28Fz7W.webp)
+ 
+-  ## [The Embedded Photo Picker](/blog/posts/the-embedded-photo-picker)
++  #### [Product News](https://developer.android.com/blog/categories/product-news)
+ 
+-  [arrow\_forward](/blog/posts/the-embedded-photo-picker)
++  ## [Trade-in mode on Android 16+](https://developer.android.com/blog/posts/trade-in-mode-on-android-16)
+ 
+-  The Embedded Photo Picker: A more seamless way to privately request photos and videos in your app.
+-
+-  ###### [Roxanna Aliabadi Walker](/blog/authors/roxanna-walker), [Yacine Rezgui](/blog/authors/yacine-rezgui) • 8 min read
+-* 26
+-
+-  Jan
+-  2026
+-
+-  26
+-
+-  Jan
+-  2026
+-
+-  ![](/static/blog/assets/Android_Trade_IN_Mode_Blog_9dc083b903_Z28Fz7W.webp)
+-
+-  #### [Product News](/blog/categories/product-news)
+-
+-  ## [Trade-in mode on Android 16+](/blog/posts/trade-in-mode-on-android-16)
+-
+-  [arrow\_forward](/blog/posts/trade-in-mode-on-android-16)
+-
+-  Trade-in mode: faster assessment of a factory-reset phone or tablet, bypassing setup wizard, a new feature on Android 16 and above.
++  [arrow_forward](https://developer.android.com/blog/posts/trade-in-mode-on-android-16) Trade-in mode: faster assessment of a factory-reset phone or tablet, bypassing setup wizard, a new feature on Android 16 and above.
+ 
+   ###### 2 min read
+-* [![](/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](/blog/authors/prateek-batra)
+-
+-  26
+-
+-  Jan
+-  2026
+-
+-  26
+-
+-  Jan
+-  2026
+-
+-  ![](/static/blog/assets/beyond_Smartphone_e17b5979d9_ZBzwz8.webp)
+ 
+-  #### [Case Studies](/blog/categories/case-studies)
++- [![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](https://developer.android.com/blog/authors/prateek-batra) 26 Jan 2026 26 Jan 2026 ![](https://developer.android.com/static/blog/assets/beyond_Smartphone_e17b5979d9_ZBzwz8.webp)
+ 
+-  ## [Beyond the smartphone: How JioHotstar optimized its UX for foldables and tablets](/blog/posts/beyond-the-smartphone-how-jio-hotstar-optimized-its-ux-for-foldables-and-tablets)
++  #### [Case Studies](https://developer.android.com/blog/categories/case-studies)
+ 
+-  [arrow\_forward](/blog/posts/beyond-the-smartphone-how-jio-hotstar-optimized-its-ux-for-foldables-and-tablets)
++  ## [Beyond the smartphone: How JioHotstar optimized its UX for foldables and tablets](https://developer.android.com/blog/posts/beyond-the-smartphone-how-jio-hotstar-optimized-its-ux-for-foldables-and-tablets)
+ 
+-  JioHotstar is a leading streaming platform in India, serving a user base exceeding 400 million.
++  [arrow_forward](https://developer.android.com/blog/posts/beyond-the-smartphone-how-jio-hotstar-optimized-its-ux-for-foldables-and-tablets) JioHotstar is a leading streaming platform in India, serving a user base exceeding 400 million.
+ 
+-  ###### [Prateek Batra](/blog/authors/prateek-batra) • 3 min read
+-* [![](/static/blog/assets/Georgia_Doyle_a2f5ebfcdb_Z1cCMui.webp)](/blog/authors/georgia-doyle)[![](/static/blog/assets/Kanu_Tibrewal_20caa0960e_1aI42M.webp)](/blog/authors/kanu-tibrewal)
++  ###### [Prateek Batra](https://developer.android.com/blog/authors/prateek-batra) •
++  3 min read
+ 
+-  21
++- [![](https://developer.android.com/static/blog/assets/Georgia_Doyle_a2f5ebfcdb_Z1cCMui.webp)](https://developer.android.com/blog/authors/georgia-doyle)[![](https://developer.android.com/static/blog/assets/Kanu_Tibrewal_20caa0960e_1aI42M.webp)](https://developer.android.com/blog/authors/kanu-tibrewal) 21 Jan 2026 21 Jan 2026 ![](https://developer.android.com/static/blog/assets/260120_Header_7fdfbedb2d_105hHT.webp)
+ 
+-  Jan
+-  2026
++  #### [Product News](https://developer.android.com/blog/categories/product-news)
+ 
+-  21
++  ## [Ready to review some changes but not others? Try using Play Console's new Save for later feature](https://developer.android.com/blog/posts/try-using-play-consoles-new-save-for-later-feature)
+ 
+-  Jan
+-  2026
++  [arrow_forward](https://developer.android.com/blog/posts/try-using-play-consoles-new-save-for-later-feature) We've launched a new Save for later feature on Google Play Console's Publishing overview to give you more control over when you send changes for review.
+ 
+-  ![](/static/blog/assets/260120_Header_7fdfbedb2d_105hHT.webp)
++  ###### [Georgia Doyle](https://developer.android.com/blog/authors/georgia-doyle), [Kanu Tibrewal](https://developer.android.com/blog/authors/kanu-tibrewal) •
++  2 min read
+ 
+-  #### [Product News](/blog/categories/product-news)
++- [![](https://developer.android.com/static/blog/assets/Sandhya_Mohan_30435468a9_1b689e.webp)](https://developer.android.com/blog/authors/sandhya-mohan)[![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](https://developer.android.com/blog/authors/trevor-johns) 15 Jan 2026 15 Jan 2026 ![](https://developer.android.com/static/blog/assets/as_Otter3feb_2dc12a1b18_Z1VaHAk.webp)
+ 
+-  ## [Ready to review some changes but not others? Try using Play Console’s new Save for later feature](/blog/posts/try-using-play-consoles-new-save-for-later-feature)
++  #### [Product News](https://developer.android.com/blog/categories/product-news)
+ 
+-  [arrow\_forward](/blog/posts/try-using-play-consoles-new-save-for-later-feature)
++  ## [LLM flexibility, Agent Mode improvements, and new agentic experiences in Android Studio Otter 3 Feature Drop](https://developer.android.com/blog/posts/llm-flexibility-agent-mode-improvements-and-new-agentic-experiences-in-android-studio-otter-3-feature-drop)
+ 
+-  We’ve launched a new Save for later feature on Google Play Console’s Publishing overview to give you more control over when you send changes for review.
++  [arrow_forward](https://developer.android.com/blog/posts/llm-flexibility-agent-mode-improvements-and-new-agentic-experiences-in-android-studio-otter-3-feature-drop) We are excited to announce that Android Studio Otter 3 Feature Drop is now stable! This feature-packed release brings a huge update to your agentic workflows in Android Studio, and offers you more flexibility and control for how you use AI to help you build Android apps.
+ 
+-  ###### [Georgia Doyle](/blog/authors/georgia-doyle), [Kanu Tibrewal](/blog/authors/kanu-tibrewal) • 2 min read
+-* [![](/static/blog/assets/Sandhya_Mohan_30435468a9_1b689e.webp)](/blog/authors/sandhya-mohan)[![](/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](/blog/authors/trevor-johns)
++  ###### [Sandhya Mohan](https://developer.android.com/blog/authors/sandhya-mohan), [Trevor Johns](https://developer.android.com/blog/authors/trevor-johns) •
++  9 min read
+ 
+-  15
+-
+-  Jan
+-  2026
+-
+-  15
+-
+-  Jan
+-  2026
+-
+-  ![](/static/blog/assets/as_Otter3feb_2dc12a1b18_Z1VaHAk.webp)
+-
+-  #### [Product News](/blog/categories/product-news)
+-
+-  ## [LLM flexibility, Agent Mode improvements, and new agentic experiences in Android Studio Otter 3 Feature Drop](/blog/posts/llm-flexibility-agent-mode-improvements-and-new-agentic-experiences-in-android-studio-otter-3-feature-drop)
+-
+-  [arrow\_forward](/blog/posts/llm-flexibility-agent-mode-improvements-and-new-agentic-experiences-in-android-studio-otter-3-feature-drop)
+-
+-  We are excited to announce that Android Studio Otter 3 Feature Drop is now stable! This feature-packed release brings a huge update to your agentic workflows in Android Studio, and offers you more flexibility and control for how you use AI to help you build Android apps.
+-
+-  ###### [Sandhya Mohan](/blog/authors/sandhya-mohan), [Trevor Johns](/blog/authors/trevor-johns) • 9 min read
+-
+-[arrow\_back](/blog/latest)
++[arrow_back](https://developer.android.com/blog/latest)
+ 
+ #### Page 2
+ 
+ ###### of 6
+ 
+-[arrow\_forward](/blog/latest/3)
++[arrow_forward](https://developer.android.com/blog/latest/3)
+ 
+ # Popular Topics
+ 
+-* [#Android](/blog/topics/android)
+-* [#Android Studio](/blog/topics/android-studio)
+-* [#Compose](/blog/topics/compose)
+-* [#Jetpack Navigation](/blog/topics/jetpack-navigation)
+-* [#Mobile App Development](/blog/topics/mobile-app-development)
+-* [#Android 17](/blog/topics/android-17)
+-* [#Nav3](/blog/topics/nav3)
+-* [#Now In Android](/blog/topics/now-in-android)
+-* [#Idling Resources](/blog/topics/idling-resources)
+-* [#Performance](/blog/topics/performance)
+-* [#R8](/blog/topics/r8)
+-* [#identity](/blog/topics/identity)
+-* [#Adaptive apps](/blog/topics/adaptive-apps)
+-* [#Android 16](/blog/topics/android-16)
+-* [#Automotive OS](/blog/topics/automotive-os)
+-* [#beta](/blog/topics/beta)
+-* [#authentication](/blog/topics/authentication)
+-* [#CredentialManager](/blog/topics/credential-manager)
+-* [#Foldables](/blog/topics/foldables)
+-* [#Jetpack Compose](/blog/topics/jetpack-compose)
+-* [#Large Screens](/blog/topics/large-screens)
+-* [#Layouts](/blog/topics/layouts)
+-* [#Window Size Classes](/blog/topics/blog-topic)
++- [#Android](https://developer.android.com/blog/topics/android)
++- [#Android Studio](https://developer.android.com/blog/topics/android-studio)
++- [#Compose](https://developer.android.com/blog/topics/compose)
++- [#Jetpack Navigation](https://developer.android.com/blog/topics/jetpack-navigation)
++- [#Mobile App Development](https://developer.android.com/blog/topics/mobile-app-development)
++- [#Android 17](https://developer.android.com/blog/topics/android-17)
++- [#Nav3](https://developer.android.com/blog/topics/nav3)
++- [#Now In Android](https://developer.android.com/blog/topics/now-in-android)
++- [#Idling Resources](https://developer.android.com/blog/topics/idling-resources)
++- [#Performance](https://developer.android.com/blog/topics/performance)
++- [#R8](https://developer.android.com/blog/topics/r8)
++- [#identity](https://developer.android.com/blog/topics/identity)
++- [#Adaptive apps](https://developer.android.com/blog/topics/adaptive-apps)
++- [#Android 16](https://developer.android.com/blog/topics/android-16)
++- [#Automotive OS](https://developer.android.com/blog/topics/automotive-os)
++- [#beta](https://developer.android.com/blog/topics/beta)
++- [#authentication](https://developer.android.com/blog/topics/authentication)
++- [#CredentialManager](https://developer.android.com/blog/topics/credential-manager)
++- [#Foldables](https://developer.android.com/blog/topics/foldables)
++- [#Jetpack Compose](https://developer.android.com/blog/topics/jetpack-compose)
++- [#Large Screens](https://developer.android.com/blog/topics/large-screens)
++- [#Layouts](https://developer.android.com/blog/topics/layouts)
++- [#Window Size Classes](https://developer.android.com/blog/topics/blog-topic)
+ 
+ # Stay in the loop
+ 
++
+ Get the latest Android development insights delivered to your inbox
+ weekly.
+-
+ [mail
+-Subscribe](/subscribe)
+-
+-![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file
++Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file

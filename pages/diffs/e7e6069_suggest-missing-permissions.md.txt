@@ -1,0 +1,74 @@
+diff --git a/docs/studio/prompt-gallery/prompts/suggest-missing-permissions.md b/docs/studio/prompt-gallery/prompts/suggest-missing-permissions.md
+index 2fb722e..11ea1e5 100644
+--- a/docs/studio/prompt-gallery/prompts/suggest-missing-permissions.md
++++ b/docs/studio/prompt-gallery/prompts/suggest-missing-permissions.md
+@@ -1,48 +1,34 @@
+ ---
+-title: Suggest missing permissions  |  Android Studio  |  Android Developers
++title: https://developer.android.com/studio/prompt-gallery/prompts/suggest-missing-permissions
+ url: https://developer.android.com/studio/prompt-gallery/prompts/suggest-missing-permissions
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-* [Develop](https://developer.android.com/develop)
+-* [Android Studio](https://developer.android.com/studio)
+-* [Gemini in Android Studio](https://developer.android.com/gemini-in-android)
+-
+-# Suggest missing permissions Stay organized with collections Save and categorize content based on your preferences.
+-
+-
+-
+-
+ Suggest Android system permissions.
+ 
+----
+-
+-```
+-Please analyze the following file and let me know what Android system permissions it is likely to need, and which of those are missing.
+-
+-Please be succinct in your output.
++*** ** * ** ***
+ 
+-Use the following format for each permission identified in this file:
++    Please analyze the following file and let me know what Android system permissions it is likely to need, and which of those are missing.
+ 
+-Permission analysis...
+-* {PERMISSION NAME}
+-Why: (REASON WHY PERMISSION MAY BE REQUIRED)
++    Please be succinct in your output.
+ 
+-Summary of missing permissions...
+-* {PERMISSION NAME}
+-* ...
++    Use the following format for each permission identified in this file:
+ 
+-Additional comments...
+-{ADDITIONAL OBSERVATIONS}
++    Permission analysis...
++    * {PERMISSION NAME}
++    Why: (REASON WHY PERMISSION MAY BE REQUIRED)
+ 
+-$CURRENT_FILE
+-```
++    Summary of missing permissions...
++    * {PERMISSION NAME}
++    * ...
+ 
++    Additional comments...
++    {ADDITIONAL OBSERVATIONS}
+ 
+-To run this prompt in Android Studio, click **Gemini** in the sidebar and paste it in the chat field.
+-  
+-To save and retrieve prompts in the Studio IDE, go to **Settings > Gemini > Prompt Library**.
++    $CURRENT_FILE
+ 
++> [!NOTE]
++> To run this prompt in Android Studio, click **Gemini** in the sidebar and paste it in the chat field.   
++> To save and retrieve prompts in the Studio IDE, go to **Settings \> Gemini \> Prompt Library**.
+ 
+----
+\ No newline at end of file
++*** ** * ** ***
+\ No newline at end of file

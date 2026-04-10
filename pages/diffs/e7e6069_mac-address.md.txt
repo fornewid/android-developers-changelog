@@ -1,0 +1,30 @@
+diff --git a/docs/about/versions/11/privacy/mac-address.md b/docs/about/versions/11/privacy/mac-address.md
+index 4ea69e6..5a9d2b0 100644
+--- a/docs/about/versions/11/privacy/mac-address.md
++++ b/docs/about/versions/11/privacy/mac-address.md
+@@ -1,18 +1,10 @@
+ ---
+-title: MAC address updates in Android 11  |  Android Developers
++title: https://developer.android.com/about/versions/11/privacy/mac-address
+ url: https://developer.android.com/about/versions/11/privacy/mac-address
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-* [Essentials](https://developer.android.com/get-started)
+-* [Releases](https://developer.android.com/about/versions)
+-
+-# MAC address updates in Android 11 Stay organized with collections Save and categorize content based on your preferences.
+-
+-
+-
+-Android 11 introduces changes related to MAC addresses. These
+-changes affect apps only if they target Android 11. For more
++Android 11 introduces changes related to MAC addresses. These
++changes affect apps only if they target Android 11. For more
+ information on these changes, see [Android
+-11](/training/articles/user-data-ids#mac-11-plus).
+\ No newline at end of file
++11](https://developer.android.com/training/articles/user-data-ids#mac-11-plus).
+\ No newline at end of file

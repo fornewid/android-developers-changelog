@@ -1,0 +1,65 @@
+diff --git a/docs/develop/devices/assistant/grow-overview.md b/docs/develop/devices/assistant/grow-overview.md
+index c916c83..a2a98e3 100644
+--- a/docs/develop/devices/assistant/grow-overview.md
++++ b/docs/develop/devices/assistant/grow-overview.md
+@@ -1,28 +1,20 @@
+ ---
+-title: Grow your app with App Actions  |  Assistant  |  Android Developers
++title: https://developer.android.com/develop/devices/assistant/grow-overview
+ url: https://developer.android.com/develop/devices/assistant/grow-overview
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-* [Develop](https://developer.android.com/develop)
+-* [Devices](https://developer.android.com/develop/devices)
+-* [Assistant](https://developer.android.com/develop/devices/assistant/overview)
+-
+-# Grow your app with App Actions Stay organized with collections Save and categorize content based on your preferences.
+-
+-
+-
+ Extending your app to Assistant with App Actions lets users quickly engage
+ with the key features of your app by talking to Google Assistant. Once you
+ implement App Actions, you can use it to drive user retention and engagement
+ for your app with the following features:
+ 
+-* **System shortcut suggestions**. The Google Shortcuts Integration library
++- **System shortcut suggestions**. The Google Shortcuts Integration library
+   lets Google Assistant suggest your dynamic shortcuts to users. This
+   capability makes it simple for users to discover and replay shortcuts to your
+   app's key features.
+-* **In-app shortcut suggestions**. The [In-App Promo SDK](/guide/app-actions/in-app-promo-sdk) lets you
++
++- **In-app shortcut suggestions** . The [In-App Promo SDK](https://developer.android.com/guide/app-actions/in-app-promo-sdk) lets you
+   easily suggest Assistant shortcuts to users in your app. Users can launch
+   these shortcuts using their voice with Assistant and see them suggested on
+   Google surfaces.
+@@ -31,14 +23,15 @@ for your app with the following features:
+ 
+ To add the Google Shortcuts Integration library to your Android project and
+ push dynamic shortcuts to Assistant, follow the instructions at [Push dynamic
+-shortcuts to Assistant](/guide/app-actions/dynamic-shortcuts).
++shortcuts to Assistant](https://developer.android.com/guide/app-actions/dynamic-shortcuts).
+ 
+ These best practices maximize user exposure to your App Actions bound shortcuts:
+ 
+-* Push a shortcut whenever a user completes a relevant action to help Google
++- Push a shortcut whenever a user completes a relevant action to help Google
+   surfaces, like Assistant, suggest the shortcut to the user. You can push an
+   unlimited number of shortcuts with the Google Shortcuts Integration library.
+-* Define static shortcuts in `shortcuts.xml` for Assistant to suggest
++
++- Define static shortcuts in `shortcuts.xml` for Assistant to suggest
+   proactively to users. These shortcuts can only update by releasing
+   a new version of your app to Google Play Console, so they are best for
+   suggesting shortcuts that apply to all users, for example, "Send an email."
+@@ -59,4 +52,4 @@ Consider suggesting shortcuts during user onboarding or when a user performs an
+ action you want them to quickly replay in the future with Assistant.
+ 
+ For more information about building suggestions for your app, see
+-[Implement suggestions](/guide/app-actions/in-app-promo-sdk#implement_suggestions).
+\ No newline at end of file
++[Implement suggestions](https://developer.android.com/guide/app-actions/in-app-promo-sdk#implement_suggestions).
+\ No newline at end of file

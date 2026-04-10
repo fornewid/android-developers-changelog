@@ -1,0 +1,212 @@
+diff --git a/docs/blog/categories/product-news/10.md b/docs/blog/categories/product-news/10.md
+index 3699cf4..01529ff 100644
+--- a/docs/blog/categories/product-news/10.md
++++ b/docs/blog/categories/product-news/10.md
+@@ -1,167 +1,82 @@
+ ---
+-title: Product News  |  Android Developers' Blog
++title: https://developer.android.com/blog/categories/product-news/10
+ url: https://developer.android.com/blog/categories/product-news/10
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-* [Android Developers' Blog](https://developer.android.com/)
+-* [Blog](https://developer.android.com/blog)
+-
+-Stay organized with collections
+-
+-Save and categorize content based on your preferences.
+-
+-
+-
+-![](/static/blog/assets/product_news_droid_599a11ad69_d4ee764ece_1mQM4e.webp)
++![](https://developer.android.com/static/blog/assets/product_news_droid_599a11ad69_d4ee764ece_1mQM4e.webp)
+ 
+ # Product News
+ 
+-Stay in the loop with the latest updates, feature releases, and behind-the-scenes looks at how we’re evolving.
+-
+-* [![](/static/blog/assets/Luke_Hopkins_9c1e15d778_Z2o9b3q.webp)](/blog/authors/luke-hopkins)
+-
+-  23
+-
+-  Oct
+-  2025
+-
+-  23
+-
+-  Oct
+-  2025
+-
+-  ![](/static/blog/assets/xr_Week5_985628de53_229QRh.webp)
+-
+-  ## [Optimizing Performance for Android XR with Unity](/blog/posts/optimizing-performance-for-android-xr-with-unity)
+-
+-  [arrow\_forward](/blog/posts/optimizing-performance-for-android-xr-with-unity)
+-
+-  Samsung Galaxy XR is here, powered by Android XR! This blog post is part of our Android XR Spotlight Week, where we provide resources—blog posts, videos, sample code, and more—all designed to help you learn, build, and prepare your apps for Android XR.
+-
+-  ###### [Luke Hopkins](/blog/authors/luke-hopkins) • 6 min read
+-* [![](/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](/blog/authors/matthew-mccullough)
+-
+-  22
+-
+-  Oct
+-  2025
+-
+-  22
+-
+-  Oct
+-  2025
+-
+-  ![](/static/blog/assets/Galaxy_XR_BLOG_341f1e7643_2mbd4B.webp)
++Stay in the loop with the latest updates, feature releases, and behind-the-scenes looks at how we're evolving.
++- [![](https://developer.android.com/static/blog/assets/Luke_Hopkins_9c1e15d778_Z2o9b3q.webp)](https://developer.android.com/blog/authors/luke-hopkins) 23 Oct 2025 23 Oct 2025 ![](https://developer.android.com/static/blog/assets/xr_Week5_985628de53_229QRh.webp)
+ 
+-  ## [Giving your apps a new home on Samsung Galaxy XR, the first device powered by Android XR](/blog/posts/giving-your-apps-a-new-home-on-samsung-galaxy-xr-the-first-device-powered-by-android-xr)
++  ## [Optimizing Performance for Android XR with Unity](https://developer.android.com/blog/posts/optimizing-performance-for-android-xr-with-unity)
+ 
+-  [arrow\_forward](/blog/posts/giving-your-apps-a-new-home-on-samsung-galaxy-xr-the-first-device-powered-by-android-xr)
++  [arrow_forward](https://developer.android.com/blog/posts/optimizing-performance-for-android-xr-with-unity) Samsung Galaxy XR is here, powered by Android XR! This blog post is part of our Android XR Spotlight Week, where we provide resources---blog posts, videos, sample code, and more---all designed to help you learn, build, and prepare your apps for Android XR.
+ 
+-  The first device powered by Android XR is here: engineered by Samsung, Galaxy XR, is available now, putting the possibilities of immersive experiences directly into users' hands.
++  ###### [Luke Hopkins](https://developer.android.com/blog/authors/luke-hopkins) •
++  6 min read
+ 
+-  ###### [Matthew McCullough](/blog/authors/matthew-mccullough) • 3 min read
+-* [![](/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](/blog/authors/ran-mor)
++- [![](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 22 Oct 2025 22 Oct 2025 ![](https://developer.android.com/static/blog/assets/Galaxy_XR_BLOG_341f1e7643_2mbd4B.webp)
+ 
+-  20
++  ## [Giving your apps a new home on Samsung Galaxy XR, the first device powered by Android XR](https://developer.android.com/blog/posts/giving-your-apps-a-new-home-on-samsung-galaxy-xr-the-first-device-powered-by-android-xr)
+ 
+-  Oct
+-  2025
++  [arrow_forward](https://developer.android.com/blog/posts/giving-your-apps-a-new-home-on-samsung-galaxy-xr-the-first-device-powered-by-android-xr) The first device powered by Android XR is here: engineered by Samsung, Galaxy XR, is available now, putting the possibilities of immersive experiences directly into users' hands.
+ 
+-  20
++  ###### [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) •
++  3 min read
+ 
+-  Oct
+-  2025
++- [![](https://developer.android.com/static/blog/assets/Ran_Profile_Picture_4af70ee745_20lqjv.webp)](https://developer.android.com/blog/authors/ran-mor) 20 Oct 2025 20 Oct 2025 ![](https://developer.android.com/static/blog/assets/Android_Dynamic_App_Links_Blog_42ba94ce09_GV68O.webp)
+ 
+-  ![](/static/blog/assets/Android_Dynamic_App_Links_Blog_42ba94ce09_GV68O.webp)
++  ## [Dynamic App Links: Elevating your Android deep linking](https://developer.android.com/blog/posts/dynamic-app-links-elevating-your-android-deep-linking)
+ 
+-  ## [Dynamic App Links: Elevating your Android deep linking](/blog/posts/dynamic-app-links-elevating-your-android-deep-linking)
++  [arrow_forward](https://developer.android.com/blog/posts/dynamic-app-links-elevating-your-android-deep-linking) We're excited to announce the availability of Dynamic App Links, a significant leap forward for Android App Links that brings them on par with, and in many ways surpasses, industry standards for deep linking.
+ 
+-  [arrow\_forward](/blog/posts/dynamic-app-links-elevating-your-android-deep-linking)
++  ###### [Ran Mor](https://developer.android.com/blog/authors/ran-mor) •
++  2 min read
+ 
+-  We're excited to announce the availability of Dynamic App Links, a significant leap forward for Android App Links that brings them on par with, and in many ways surpasses, industry standards for deep linking.
++- [![](https://developer.android.com/static/blog/assets/Tahsin_a6df1d8c3c_1WrW45.webp)](https://developer.android.com/blog/authors/tahsin-masrur) 15 Oct 2025 15 Oct 2025 ![](https://developer.android.com/static/blog/assets/25_Android_Camera_X_Feature_blog_1_856fb165e3_Z3rLg4.webp)
+ 
+-  ###### [Ran Mor](/blog/authors/ran-mor) • 2 min read
+-* [![](/static/blog/assets/Tahsin_a6df1d8c3c_1WrW45.webp)](/blog/authors/tahsin-masrur)
++  ## [Beyond Single Features: Guaranteeing Feature Combinations With CameraX 1.5](https://developer.android.com/blog/posts/beyond-single-features-guaranteeing-feature-combinations-with-camera-x-1-5)
+ 
+-  15
++  [arrow_forward](https://developer.android.com/blog/posts/beyond-single-features-guaranteeing-feature-combinations-with-camera-x-1-5) Modern camera apps are defined by powerful, overlapping features. Users expect to record video with stunning HDR, capture fluid motion at 60 FPS, and get buttery-smooth footage with Preview Stabilization---often all at the same time.
+ 
+-  Oct
+-  2025
++  ###### [Tahsin Masrur](https://developer.android.com/blog/authors/tahsin-masrur) •
++  6 min read
+ 
+-  15
++- [![](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d0_l9O72.webp)](https://developer.android.com/blog/authors/thomas-ezan)[![](https://developer.android.com/static/blog/assets/Mozart_Louis_622373dab1_1RaA8T.webp)](https://developer.android.com/blog/authors/mozart-louis) 13 Oct 2025 13 Oct 2025 ![](https://developer.android.com/static/blog/assets/Android_Blog_banners_dd5c7be5f2_ZsFAUM.webp)
+ 
+-  Oct
+-  2025
++  ## [Boost user engagement with AI Image Generation](https://developer.android.com/blog/posts/boost-user-engagement-with-ai-image-generation)
+ 
+-  ![](/static/blog/assets/25_Android_Camera_X_Feature_blog_1_856fb165e3_Z3rLg4.webp)
++  [arrow_forward](https://developer.android.com/blog/posts/boost-user-engagement-with-ai-image-generation) Adding custom images to your app can significantly improve and personalize user experience and boost user engagement.
+ 
+-  ## [Beyond Single Features: Guaranteeing Feature Combinations With CameraX 1.5](/blog/posts/beyond-single-features-guaranteeing-feature-combinations-with-camera-x-1-5)
++  ###### [Thomas Ezan](https://developer.android.com/blog/authors/thomas-ezan), [Mozart Louis](https://developer.android.com/blog/authors/mozart-louis) •
++  5 min read
+ 
+-  [arrow\_forward](/blog/posts/beyond-single-features-guaranteeing-feature-combinations-with-camera-x-1-5)
++- [![](https://developer.android.com/static/blog/assets/unnamed_fd9e15f738_1EHxqW.webp)](https://developer.android.com/blog/authors/francesco-romano) 10 Oct 2025 10 Oct 2025 ![](https://developer.android.com/static/blog/assets/jetpack_Window_Manager_931d67ec18_Z20PMAS.webp)
+ 
+-  Modern camera apps are defined by powerful, overlapping features. Users expect to record video with stunning HDR, capture fluid motion at 60 FPS, and get buttery-smooth footage with Preview Stabilization—often all at the same time.
++  ## [Jetpack WindowManager 1.5 is stable](https://developer.android.com/blog/posts/jetpack-window-manager-1-5-is-stable)
+ 
+-  ###### [Tahsin Masrur](/blog/authors/tahsin-masrur) • 6 min read
+-* [![](/static/blog/assets/thomas_ezan_d29c7508d0_l9O72.webp)](/blog/authors/thomas-ezan)[![](/static/blog/assets/Mozart_Louis_622373dab1_1RaA8T.webp)](/blog/authors/mozart-louis)
++  [arrow_forward](https://developer.android.com/blog/posts/jetpack-window-manager-1-5-is-stable) We're excited to announce that Jetpack WindowManager 1.5.0 is now stable!
+ 
+-  13
+-
+-  Oct
+-  2025
+-
+-  13
+-
+-  Oct
+-  2025
+-
+-  ![](/static/blog/assets/Android_Blog_banners_dd5c7be5f2_ZsFAUM.webp)
+-
+-  ## [Boost user engagement with AI Image Generation](/blog/posts/boost-user-engagement-with-ai-image-generation)
+-
+-  [arrow\_forward](/blog/posts/boost-user-engagement-with-ai-image-generation)
+-
+-  Adding custom images to your app can significantly improve and personalize user experience and boost user engagement.
+-
+-  ###### [Thomas Ezan](/blog/authors/thomas-ezan), [Mozart Louis](/blog/authors/mozart-louis) • 5 min read
+-* [![](/static/blog/assets/unnamed_fd9e15f738_1EHxqW.webp)](/blog/authors/francesco-romano)
+-
+-  10
+-
+-  Oct
+-  2025
+-
+-  10
+-
+-  Oct
+-  2025
+-
+-  ![](/static/blog/assets/jetpack_Window_Manager_931d67ec18_Z20PMAS.webp)
+-
+-  ## [Jetpack WindowManager 1.5 is stable](/blog/posts/jetpack-window-manager-1-5-is-stable)
+-
+-  [arrow\_forward](/blog/posts/jetpack-window-manager-1-5-is-stable)
+-
+-  We're excited to announce that Jetpack WindowManager 1.5.0 is now stable!
+   This release builds on the strong foundation of adaptability in WindowManager, making it even easier to create polished, adaptive UIs that look great on all screen sizes.
+ 
+-  ###### [Francesco Romano](/blog/authors/francesco-romano) • 3 min read
++  ###### [Francesco Romano](https://developer.android.com/blog/authors/francesco-romano) •
++  3 min read
+ 
+-[arrow\_back](/blog/categories/product-news/9)
++[arrow_back](https://developer.android.com/blog/categories/product-news/9)
+ 
+ #### Page 10
+ 
+ ###### of 12
+ 
+-[arrow\_forward](/blog/categories/product-news/11)
++[arrow_forward](https://developer.android.com/blog/categories/product-news/11)
+ 
+ # Stay in the loop
+ 
++
+ Get the latest Android development insights delivered to your inbox
+ weekly.
+-
+ [mail
+-Subscribe](/subscribe)
+-
+-![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file
++Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file

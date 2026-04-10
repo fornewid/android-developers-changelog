@@ -1,0 +1,207 @@
+diff --git a/docs/courses/quizzes/android-development-with-kotlin-5/android-development-with-kotlin-5.md b/docs/courses/quizzes/android-development-with-kotlin-5/android-development-with-kotlin-5.md
+index 9319020..ed15204 100644
+--- a/docs/courses/quizzes/android-development-with-kotlin-5/android-development-with-kotlin-5.md
++++ b/docs/courses/quizzes/android-development-with-kotlin-5/android-development-with-kotlin-5.md
+@@ -1,125 +1,110 @@
+ ---
+-title: Lesson 5: Layouts  |  Android Developers
++title: https://developer.android.com/courses/quizzes/android-development-with-kotlin-5/android-development-with-kotlin-5
+ url: https://developer.android.com/courses/quizzes/android-development-with-kotlin-5/android-development-with-kotlin-5
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-Stay organized with collections
+-
+-Save and categorize content based on your preferences.
+-
+-
+-
+ # Lesson 5: Layouts
+ 
+-Return to pathway
+-
+-
+-
+-1. ## Which of the following is a `ViewGroup`?
+-
+-   `EditText`
+-
+-   `LinearLayout`
+-
+-   `TextView`
+-
+-   `Button`
+-2. ## Which of the following listed view hierarchies is not valid?
+-
+-   `LinearLayout` > `TextView`, `TextView`, `ImageView`
+-
+-   `ScrollView` > `LinearLayout` > `TextView`, `Button`, `ScrollView` > `TextView`
+-
+-   `TextView` > `TextView`, `ImageView`, `ScrollView`
+-
+-   `ConstraintLayout` > `TextView`, `EditText`, `Button`
+-3. ## Styles are resources defined in `styles.xml`. Using styles, you can define colors, fonts, text size, and many other characteristics of a view. True or false?
+-
+-   True, you can define these.
+-
+-   False, you cannot define these.
+-4. ## A `View` can contain any number of `View` or `ViewGroup` as its children. True or false?
+-
+-   True, `View` can contain any number of `View` or `ViewGroup`.
+-
+-   False, `View` can have exactly 1 child.
+-5. ## What is `EditText` a subclass of?
+-
+-   `TextField`
+-
+-   `LinearLayout`
+-
+-   `TextView`
+-
+-   `Button`
+-6. ## Which of the following visibility attribute values, if set on a view, makes it so the view is hidden and does not take up any space in the layout?
+-
+-   visible
+-
+-   invisible
+-
+-   gone
++# Lesson 5: Layouts
+ 
+-   hide
+-7. ## Which one of the following statements is true about `Button` views?
++<br />
+ 
+-   A `Button` view is a `ViewGroup`.
++Return to pathway  
++1.
+ 
+-   You can only have three `Button` views per screen.
++   ## Which of the following is a`ViewGroup`?
+ 
+-   `Button` views are clickable, and on click, the attached click listener performs an action.
++   `EditText`  
++   `LinearLayout`  
++   `TextView`  
++   `Button`  
++2.
+ 
+-   `Button` is an extension of `ImageView`.
+-8. ## In a `ConstraintLayout`, which of the following choices describes the constraints needed to keep a view in place during runtime?
++   ## Which of the following listed view hierarchies is not valid?
+ 
+-   Two horizontal constraints.
++   `LinearLayout`\>`TextView`,`TextView`,`ImageView`  
++   `ScrollView`\>`LinearLayout`\>`TextView`,`Button`,`ScrollView`\>`TextView`  
++   `TextView`\>`TextView`,`ImageView`,`ScrollView`  
++   `ConstraintLayout`\>`TextView`,`EditText`,`Button`  
++3.
+ 
+-   One vertical constraint.
++   ## Styles are resources defined in`styles.xml`. Using styles, you can define colors, fonts, text size, and many other characteristics of a view. True or false?
+ 
+-   At least one horizontal and one vertical constraint.
++   True, you can define these.  
++   False, you cannot define these.  
++4.
+ 
+-   There is no need to constrain the view.
+-9. ## Which of the following constraint types expands a view only as much as needed to fit its contents?
++   ## A`View`can contain any number of`View`or`ViewGroup`as its children. True or false?
+ 
+-   Wrap content
++   True,`View`can contain any number of`View`or`ViewGroup`.  
++   False,`View`can have exactly 1 child.  
++5.
+ 
+-   Match constraint
++   ## What is`EditText`a subclass of?
+ 
+-   Fixed constraint
++   `TextField`  
++   `LinearLayout`  
++   `TextView`  
++   `Button`  
++6.
+ 
+-   Baseline constraint
+-10. ## What are some benefits of using the Layout Editor in Android Studio?
++   ## Which of the following visibility attribute values, if set on a view, makes it so the view is hidden and does not take up any space in the layout?
+ 
+-    Choose as many answers as you see fit.
++   visible  
++   invisible  
++   gone  
++   hide  
++7.
+ 
+-    Drag and drop UI elements onto the screen with the visual design editor
++   ## Which one of the following statements is true about`Button`views?
+ 
+-    Edit view attributes
++   A`Button`view is a`ViewGroup`.  
++   You can only have three`Button`views per screen.  
++   `Button`views are clickable, and on click, the attached click listener performs an action.  
++   `Button`is an extension of`ImageView`.  
++8.
+ 
+-    Test button click behavior and see how the app will respond
++   ## In a`ConstraintLayout`, which of the following choices describes the constraints needed to keep a view in place during runtime?
+ 
+-    Select device type and size for the preview of your layout
+-11. ## Which of the following is not a reason for minimizing calls to `findViewById()`?
++   Two horizontal constraints.  
++   One vertical constraint.  
++   At least one horizontal and one vertical constraint.  
++   There is no need to constrain the view.  
++9.
+ 
+-    Every time `findViewById()` is called, it traverses the view hierarchy.
++   ## Which of the following constraint types expands a view only as much as needed to fit its contents?
+ 
+-    `findViewById()` runs on the main or UI thread.
++   Wrap content  
++   Match constraint  
++   Fixed constraint  
++   Baseline constraint  
++10.
+ 
+-    These calls can slow down the user interface.
++    ## What are some benefits of using the Layout Editor in Android Studio?
+ 
+-    Your app is less likely to crash.
+-12. ## Which is the correct way to reference bound data in the XML layout?
++    Choose as many answers as you see fit.  
++    Drag and drop UI elements onto the screen with the visual design editor  
++    Edit view attributes  
++    Test button click behavior and see how the app will respond  
++    Select device type and size for the preview of your layout  
++11.
+ 
+-    `android:text="@={myDataClass.property}"`
++    ## Which of the following is not a reason for minimizing calls to`findViewById()`?
+ 
+-    `android:text="@={myDataClass}"`
++    Every time`findViewById()`is called, it traverses the view hierarchy.  
++    `findViewById()`runs on the main or UI thread.  
++    These calls can slow down the user interface.  
++    Your app is less likely to crash.  
++12.
+ 
+-    `android:text="@={myDataClass.property.string}"`
++    ## Which is the correct way to reference bound data in the XML layout?
+ 
+-    `android:text="@={myDataClass.bound_data.property}"`
++    `android:text="@={myDataClass.property}"`  
++    `android:text="@={myDataClass}"`  
++    `android:text="@={myDataClass.property.string}"`  
++    `android:text="@={myDataClass.bound_data.property}"`  
+ 
+ Submit answers
+ 
+-*error\_outline*
+-An error occurred when grading the quiz. Please try again.
+\ No newline at end of file
++*error_outline*An error occurred when grading the quiz. Please try again.
+\ No newline at end of file

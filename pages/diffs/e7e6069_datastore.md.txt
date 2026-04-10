@@ -1,0 +1,91 @@
+diff --git a/docs/kotlin/multiplatform/datastore.md b/docs/kotlin/multiplatform/datastore.md
+index 8370c51..64694a9 100644
+--- a/docs/kotlin/multiplatform/datastore.md
++++ b/docs/kotlin/multiplatform/datastore.md
+@@ -49,10 +49,8 @@ source sets due to the differences in file system APIs.
+     /**
+      *   Gets the singleton DataStore instance, creating it if necessary.
+      */
+-    fun createDataStore(producePath: () -> String): DataStore<Preferences> =
+-            PreferenceDataStoreFactory.createWithPath(
+-                produceFile = { producePath().toPath() }
+-            )
++    fun createDataStore(storage: Storage<Preferences>): DataStore<Preferences> =
++            DataStoreFactory.create(storage = storage)
+ 
+     internal const val dataStoreFileName = "dice.preferences_pb"
+ 
+@@ -63,8 +61,11 @@ with the path.
+ 
+     // shared/src/androidMain/kotlin/createDataStore.android.kt
+ 
+-    fun createDataStore(context: Context): DataStore<Preferences> = createDataStore(
+-        producePath = { context.filesDir.resolve(dataStoreFileName).absolutePath }
++    fun createDataStore(): DataStore<Preferences> = createDataStore(
++        storage = FileStorage(
++            serializer = PreferencesSerializer,
++            produceFile = { context.filesDir.resolve(dataStoreFileName) }
++        )
+     )
+ 
+ ### iOS
+@@ -74,16 +75,34 @@ On iOS, you can retrieve the path from the `NSDocumentDirectory`:
+     // shared/src/iosMain/kotlin/createDataStore.ios.kt
+ 
+     fun createDataStore(): DataStore<Preferences> = createDataStore(
+-        producePath = {
+-            val documentDirectory: NSURL? = NSFileManager.defaultManager.URLForDirectory(
+-                directory = NSDocumentDirectory,
+-                inDomain = NSUserDomainMask,
+-                appropriateForURL = null,
+-                create = false,
+-                error = null,
+-            )
+-            requireNotNull(documentDirectory).path + "/$dataStoreFileName"
+-        }
++        storage = OkioStorage(
++            fileSystem = FileSystem.SYSTEM,
++            serializer = PreferencesSerializer,
++            producePath = {
++                val documentDirectory: NSURL? = NSFileManager.defaultManager.URLForDirectory(
++                    directory = NSDocumentDirectory,
++                    inDomain = NSUserDomainMask,
++                    appropriateForURL = null,
++                    create = false,
++                    error = null,
++                )
++                (requireNotNull(documentDirectory).path + "/$dataStoreFileName").toPath()
++            }
++        )
++    )
++
++### Web
++
++To create the `DataStore` instance on Web, you can use `WebLocalStorage` or
++`WebSessionStorage`:
++
++    // shared/src/jsMain/kotlin/createDataStore.web.kt (also works for wasmJsMain)
++
++    fun createDataStore(): DataStore<Preferences> = createDataStore(
++        storage = WebLocalStorage(
++            serializer = PreferencesSerializer,
++            name = dataStoreFileName
++        )
+     )
+ 
+ ### JVM (Desktop)
+@@ -94,10 +113,10 @@ or Kotlin APIs:
+     // shared/src/jvmMain/kotlin/createDataStore.desktop.kt
+ 
+     fun createDataStore(): DataStore<Preferences> = createDataStore(
+-        producePath = {
+-          val file = File(System.getProperty("java.io.tmpdir"), dataStoreFileName)
+-          file.absolutePath
+-        }
++        storage = FileStorage(
++            serializer = PreferencesSerializer,
++            produceFile = { File(System.getProperty("java.io.tmpdir"), dataStoreFileName) }
++        )
+     )
+ 
+ > [!NOTE]

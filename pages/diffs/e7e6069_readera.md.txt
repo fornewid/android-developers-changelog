@@ -1,0 +1,13 @@
+diff --git a/docs/design/ui/gallery/reading/readera.md b/docs/design/ui/gallery/reading/readera.md
+index 25aa4f7..2dc4c02 100644
+--- a/docs/design/ui/gallery/reading/readera.md
++++ b/docs/design/ui/gallery/reading/readera.md
+@@ -13,6 +13,8 @@ source: html-scrape
+ 
+ 
+ 
++
++
+ "By adding support for tablets and foldable devices, we gave users more options
+ for easy and comfortable reading. After adapting for large screens, we have
+ received a lot of positive feedback and have noticed a significant increase in

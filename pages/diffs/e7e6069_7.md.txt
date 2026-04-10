@@ -1,0 +1,211 @@
+diff --git a/docs/blog/categories/product-news/7.md b/docs/blog/categories/product-news/7.md
+index 40eeb7e..1f46bb8 100644
+--- a/docs/blog/categories/product-news/7.md
++++ b/docs/blog/categories/product-news/7.md
+@@ -1,166 +1,80 @@
+ ---
+-title: Product News  |  Android Developers' Blog
++title: https://developer.android.com/blog/categories/product-news/7
+ url: https://developer.android.com/blog/categories/product-news/7
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-* [Android Developers' Blog](https://developer.android.com/)
+-* [Blog](https://developer.android.com/blog)
+-
+-Stay organized with collections
+-
+-Save and categorize content based on your preferences.
+-
+-
+-
+-![](/static/blog/assets/product_news_droid_599a11ad69_d4ee764ece_1mQM4e.webp)
++![](https://developer.android.com/static/blog/assets/product_news_droid_599a11ad69_d4ee764ece_1mQM4e.webp)
+ 
+ # Product News
+ 
+-Stay in the loop with the latest updates, feature releases, and behind-the-scenes looks at how we’re evolving.
+-
+-* [![](/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](/blog/authors/sam-bright)
+-
+-  15
+-
+-  Dec
+-  2025
+-
+-  15
+-
+-  Dec
+-  2025
+-
+-  ![](/static/blog/assets/image_8_8d65429579_7b1Fx.webp)
+-
+-  ## [Notes from Google Play: A look back at the tools that powered your growth in 2025](/blog/posts/notes-from-google-play-a-look-back-at-the-tools-that-powered-your-growth-in-2025)
+-
+-  [arrow\_forward](/blog/posts/notes-from-google-play-a-look-back-at-the-tools-that-powered-your-growth-in-2025)
+-
+-  Together, we’ve built Play into something much more than a store—it’s a dynamic ecosystem powered by your creativity. This year, our focus was ensuring Play continues to be the best destination for people to discover incredible content and enjoy rewarding gaming experiences.
+-
+-  ###### [Sam Bright](/blog/authors/sam-bright) • 7 min read
+-* [![](/static/blog/assets/Santiago_Aboy_Solanes_a5f0203d61_1YKhxs.webp)](/blog/authors/santiago-solanes)[![](/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](/blog/authors/vladimir-marko)
+-
+-  15
+-
+-  Dec
+-  2025
+-
+-  15
+-
+-  Dec
+-  2025
+-
+-  ![](/static/blog/assets/Android_Compile_Speed_d1a7744c0f_ZJfSB.webp)
++Stay in the loop with the latest updates, feature releases, and behind-the-scenes looks at how we're evolving.
++- [![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](https://developer.android.com/blog/authors/sam-bright) 15 Dec 2025 15 Dec 2025 ![](https://developer.android.com/static/blog/assets/image_8_8d65429579_7b1Fx.webp)
+ 
+-  ## [18% Faster Compiles, 0% Compromises](/blog/posts/faster-compiles)
++  ## [Notes from Google Play: A look back at the tools that powered your growth in 2025](https://developer.android.com/blog/posts/notes-from-google-play-a-look-back-at-the-tools-that-powered-your-growth-in-2025)
+ 
+-  [arrow\_forward](/blog/posts/faster-compiles)
++  [arrow_forward](https://developer.android.com/blog/posts/notes-from-google-play-a-look-back-at-the-tools-that-powered-your-growth-in-2025) Together, we've built Play into something much more than a store---it's a dynamic ecosystem powered by your creativity. This year, our focus was ensuring Play continues to be the best destination for people to discover incredible content and enjoy rewarding gaming experiences.
+ 
+-  The Android Runtime (ART) team has reduced compile time by 18% without compromising the compiled code or any peak memory regressions. This improvement was part of our 2025 initiative to improve compile time without sacrificing memory usage or the quality of the compiled code.
++  ###### [Sam Bright](https://developer.android.com/blog/authors/sam-bright) •
++  7 min read
+ 
+-  ###### [Santiago Aboy Solanes](/blog/authors/santiago-solanes), [Vladimír Marko](/blog/authors/vladimir-marko) • 8 min read
+-* [![](/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](/blog/authors/bennet-manuel)[![](/static/blog/assets/Rob_Clifford_6e7c829a3c_ZKhwgg.webp)](/blog/authors/rob-clifford)
++- [![](https://developer.android.com/static/blog/assets/Santiago_Aboy_Solanes_a5f0203d61_1YKhxs.webp)](https://developer.android.com/blog/authors/santiago-solanes)[![](https://developer.android.com/static/blog/assets/vladimir_e5950a98c3_1lDVOl.webp)](https://developer.android.com/blog/authors/vladimir-marko) 15 Dec 2025 15 Dec 2025 ![](https://developer.android.com/static/blog/assets/Android_Compile_Speed_d1a7744c0f_ZJfSB.webp)
+ 
+-  11
++  ## [18% Faster Compiles, 0% Compromises](https://developer.android.com/blog/posts/faster-compiles)
+ 
+-  Dec
+-  2025
++  [arrow_forward](https://developer.android.com/blog/posts/faster-compiles) The Android Runtime (ART) team has reduced compile time by 18% without compromising the compiled code or any peak memory regressions. This improvement was part of our 2025 initiative to improve compile time without sacrificing memory usage or the quality of the compiled code.
+ 
+-  11
++  ###### [Santiago Aboy Solanes](https://developer.android.com/blog/authors/santiago-solanes), [Vladimír Marko](https://developer.android.com/blog/authors/vladimir-marko) •
++  8 min read
+ 
+-  Dec
+-  2025
++- [![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](https://developer.android.com/blog/authors/bennet-manuel)[![](https://developer.android.com/static/blog/assets/Rob_Clifford_6e7c829a3c_ZKhwgg.webp)](https://developer.android.com/blog/authors/rob-clifford) 11 Dec 2025 11 Dec 2025 ![](https://developer.android.com/static/blog/assets/a11y_rev_37216d57dc_Z211KeA.webp)
+ 
+-  ![](/static/blog/assets/a11y_rev_37216d57dc_Z211KeA.webp)
++  ## [Enhancing Android security: Stop malware from snooping on your app data](https://developer.android.com/blog/posts/enhancing-android-security-stop-malware-from-snooping-on-your-app-data)
+ 
+-  ## [Enhancing Android security: Stop malware from snooping on your app data](/blog/posts/enhancing-android-security-stop-malware-from-snooping-on-your-app-data)
++  [arrow_forward](https://developer.android.com/blog/posts/enhancing-android-security-stop-malware-from-snooping-on-your-app-data) Security is foundational to Android. We partner with you to keep the platform safe and protect user data by offering powerful security tools and features, like Credential Manager and FLAG_SECURE.
+ 
+-  [arrow\_forward](/blog/posts/enhancing-android-security-stop-malware-from-snooping-on-your-app-data)
++  ###### [Bennet Manuel](https://developer.android.com/blog/authors/bennet-manuel), [Rob Clifford](https://developer.android.com/blog/authors/rob-clifford) •
++  2 min read
+ 
+-  Security is foundational to Android. We partner with you to keep the platform safe and protect user data by offering powerful security tools and features, like Credential Manager and FLAG\_SECURE.
++- [![](https://developer.android.com/static/blog/assets/matthew_9c798f0c1d_Z1m5WWD.webp)](https://developer.android.com/blog/authors/matthew-forsythe)[![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](https://developer.android.com/blog/authors/ron-aquino) 11 Dec 2025 11 Dec 2025 ![](https://developer.android.com/static/blog/assets/251210_Header_v01_de706a19ce_ZIQ3n5.webp)
+ 
+-  ###### [Bennet Manuel](/blog/authors/bennet-manuel), [Rob Clifford](/blog/authors/rob-clifford) • 2 min read
+-* [![](/static/blog/assets/matthew_9c798f0c1d_Z1m5WWD.webp)](/blog/authors/matthew-forsythe)[![](/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](/blog/authors/ron-aquino)
++  ## [Building a safer Android and Google Play, together](https://developer.android.com/blog/posts/building-a-safer-android-and-google-play-together)
+ 
+-  11
++  [arrow_forward](https://developer.android.com/blog/posts/building-a-safer-android-and-google-play-together) Earlier this year, we reiterated our commitment to keeping Android and Google Play safe for everyone and maintaining a thriving environment where users can trust the apps they download and your business can flourish.
+ 
+-  Dec
+-  2025
++  ###### [Matthew Forsythe](https://developer.android.com/blog/authors/matthew-forsythe), [Ron Aquino](https://developer.android.com/blog/authors/ron-aquino) •
++  3 min read
+ 
+-  11
++- [![](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 08 Dec 2025 08 Dec 2025 ![](https://developer.android.com/static/blog/assets/buildfor_A_Iglassesxr_5141a407fc_7gpQN.webp)
+ 
+-  Dec
+-  2025
++  ## [Build for AI Glasses with the Android XR SDK Developer Preview 3 and unlock new features for immersive experiences](https://developer.android.com/blog/posts/build-for-ai-glasses-with-the-android-xr-sdk-developer-preview-3-and-unlock-new-features-for-immersive-experiences)
+ 
+-  ![](/static/blog/assets/251210_Header_v01_de706a19ce_ZIQ3n5.webp)
++  [arrow_forward](https://developer.android.com/blog/posts/build-for-ai-glasses-with-the-android-xr-sdk-developer-preview-3-and-unlock-new-features-for-immersive-experiences) To support the expanding selection of XR devices, we are announcing Android XR SDK Developer Preview 3!
+ 
+-  ## [Building a safer Android and Google Play, together](/blog/posts/building-a-safer-android-and-google-play-together)
++  ###### [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) •
++  4 min read
+ 
+-  [arrow\_forward](/blog/posts/building-a-safer-android-and-google-play-together)
++- [![](https://developer.android.com/static/blog/assets/Sandhya_Mohan_30435468a9_1b689e.webp)](https://developer.android.com/blog/authors/sandhya-mohan)[![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](https://developer.android.com/blog/authors/trevor-johns) 04 Dec 2025 04 Dec 2025 ![](https://developer.android.com/static/blog/assets/as_Otter2_96831eedef_Z19EUHu.webp)
+ 
+-  Earlier this year, we reiterated our commitment to keeping Android and Google Play safe for everyone and maintaining a thriving environment where users can trust the apps they download and your business can flourish.
++  ## [Android Studio Otter 2 Feature Drop is stable!](https://developer.android.com/blog/posts/android-studio-otter-2-feature-drop-is-stable)
+ 
+-  ###### [Matthew Forsythe](/blog/authors/matthew-forsythe), [Ron Aquino](/blog/authors/ron-aquino) • 3 min read
+-* [![](/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](/blog/authors/matthew-mccullough)
++  [arrow_forward](https://developer.android.com/blog/posts/android-studio-otter-2-feature-drop-is-stable) The Android Studio Otter 2 Feature Drop is here to supercharge your productivity.
+ 
+-  08
++  ###### [Sandhya Mohan](https://developer.android.com/blog/authors/sandhya-mohan), [Trevor Johns](https://developer.android.com/blog/authors/trevor-johns) •
++  3 min read
+ 
+-  Dec
+-  2025
+-
+-  08
+-
+-  Dec
+-  2025
+-
+-  ![](/static/blog/assets/buildfor_A_Iglassesxr_5141a407fc_7gpQN.webp)
+-
+-  ## [Build for AI Glasses with the Android XR SDK Developer Preview 3 and unlock new features for immersive experiences](/blog/posts/build-for-ai-glasses-with-the-android-xr-sdk-developer-preview-3-and-unlock-new-features-for-immersive-experiences)
+-
+-  [arrow\_forward](/blog/posts/build-for-ai-glasses-with-the-android-xr-sdk-developer-preview-3-and-unlock-new-features-for-immersive-experiences)
+-
+-  To support the expanding selection of XR devices, we are announcing Android XR SDK Developer Preview 3!
+-
+-  ###### [Matthew McCullough](/blog/authors/matthew-mccullough) • 4 min read
+-* [![](/static/blog/assets/Sandhya_Mohan_30435468a9_1b689e.webp)](/blog/authors/sandhya-mohan)[![](/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](/blog/authors/trevor-johns)
+-
+-  04
+-
+-  Dec
+-  2025
+-
+-  04
+-
+-  Dec
+-  2025
+-
+-  ![](/static/blog/assets/as_Otter2_96831eedef_Z19EUHu.webp)
+-
+-  ## [Android Studio Otter 2 Feature Drop is stable!](/blog/posts/android-studio-otter-2-feature-drop-is-stable)
+-
+-  [arrow\_forward](/blog/posts/android-studio-otter-2-feature-drop-is-stable)
+-
+-  The Android Studio Otter 2 Feature Drop is here to supercharge your productivity.
+-
+-  ###### [Sandhya Mohan](/blog/authors/sandhya-mohan), [Trevor Johns](/blog/authors/trevor-johns) • 3 min read
+-
+-[arrow\_back](/blog/categories/product-news/6)
++[arrow_back](https://developer.android.com/blog/categories/product-news/6)
+ 
+ #### Page 7
+ 
+ ###### of 12
+ 
+-[arrow\_forward](/blog/categories/product-news/8)
++[arrow_forward](https://developer.android.com/blog/categories/product-news/8)
+ 
+ # Stay in the loop
+ 
++
+ Get the latest Android development insights delivered to your inbox
+ weekly.
+-
+ [mail
+-Subscribe](/subscribe)
+-
+-![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file
++Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file

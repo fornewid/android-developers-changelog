@@ -1,0 +1,130 @@
+diff --git a/docs/privacy-and-security/safetynet/verify-apps.md b/docs/privacy-and-security/safetynet/verify-apps.md
+index 99f7064..6c57c22 100644
+--- a/docs/privacy-and-security/safetynet/verify-apps.md
++++ b/docs/privacy-and-security/safetynet/verify-apps.md
+@@ -1,19 +1,11 @@
+ ---
+-title: SafetyNet Verify Apps API  |  Security  |  Android Developers
++title: https://developer.android.com/privacy-and-security/safetynet/verify-apps
+ url: https://developer.android.com/privacy-and-security/safetynet/verify-apps
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-* [Security](https://developer.android.com/security)
+-
+-# SafetyNet Verify Apps API Stay organized with collections Save and categorize content based on your preferences.
+-
+-
+-
+-**Note:** We recommend using the Play Integrity API to check the status of
+-Play Protect on a device because it offers several benefits over the SafetyNet
+-Verify Apps API. [Learn more](/google/play/integrity/overview).
++> [!NOTE]
++> **Note:** We recommend using the Play Integrity API to check the status of Play Protect on a device because it offers several benefits over the SafetyNet Verify Apps API. [Learn more](https://developer.android.com/google/play/integrity/overview).
+ 
+ The SafetyNet Verify Apps API, a library powered by
+ [Google Play services](https://developers.google.com/android), lets your app
+@@ -50,18 +42,14 @@ the APIs.
+ 
+ ### Verify Apps API Terms of Service
+ 
+-The analyses of apps that identify potential harmful apps may yield both false
+-positives and false negatives. The results (or lack thereof) returned from this
+-API suite are presented to the best of our understanding.
+-You acknowledge and understand that the results returned by this SafetyNet API
+-suite are not guaranteed to be accurate at all times.
++The analyses of apps that identify potential harmful apps may yield both false positives and false negatives. The results (or lack thereof) returned from this API suite are presented to the best of our understanding. You acknowledge and understand that the results returned by this SafetyNet API suite are not guaranteed to be accurate at all times.
+ 
+ ## Add the SafetyNet API dependency
+ 
+ Before using the Verify Apps API, add the SafetyNet API to your
+ project. If you are using Android Studio, add this dependency to
+ your app-level Gradle file. For more information,
+-see [SafetyNet API setup](/training/safetynet#before-you-begin).
++see [SafetyNet API setup](https://developer.android.com/training/safetynet#before-you-begin).
+ 
+ ## Enable app verification
+ 
+@@ -92,7 +80,7 @@ method:
+ 
+ ### Kotlin
+ 
+-```
++```kotlin
+ SafetyNet.getClient(this)
+         .isVerifyAppsEnabled
+         .addOnCompleteListener { task ->
+@@ -110,7 +98,7 @@ SafetyNet.getClient(this)
+ 
+ ### Java
+ 
+-```
++```java
+ SafetyNet.getClient(this)
+     .isVerifyAppsEnabled()
+     .addOnCompleteListener(new OnCompleteListener<VerifyAppsUserResponse>() {
+@@ -143,7 +131,7 @@ method:
+ 
+ ### Kotlin
+ 
+-```
++```kotlin
+ SafetyNet.getClient(this)
+         .enableVerifyApps()
+         .addOnCompleteListener { task ->
+@@ -164,7 +152,7 @@ SafetyNet.getClient(this)
+ 
+ ### Java
+ 
+-```
++```java
+ SafetyNet.getClient(this)
+     .enableVerifyApps()
+     .addOnCompleteListener(new OnCompleteListener<VerifyAppsUserResponse>() {
+@@ -188,13 +176,9 @@ SafetyNet.getClient(this)
+ 
+ Your app can encounter one or more unusual conditions when using this method:
+ 
+-* If the Verify Apps feature is already enabled, the dialog
+-  doesn't appear, and the API behaves as if the user gave consent to enable this
+-  feature.
+-* If the user navigates away from the dialog, the dialog is destroyed, and the
+-  API assumes that the user didn't give consent to enable this feature.
+-* If your app and another app call this method simultaneously, only one dialog
+-  appears, and all apps receive identical return values from the method.
++- If the Verify Apps feature is already enabled, the dialog doesn't appear, and the API behaves as if the user gave consent to enable this feature.
++- If the user navigates away from the dialog, the dialog is destroyed, and the API assumes that the user didn't give consent to enable this feature.
++- If your app and another app call this method simultaneously, only one dialog appears, and all apps receive identical return values from the method.
+ 
+ ## List potentially harmful installed apps
+ 
+@@ -203,15 +187,15 @@ known potentially harmful apps that the user has installed on their device. This
+ list includes categories for the identified potentially harmful apps so that
+ your app can take appropriate action.
+ 
+-**Note:** This method provides only the potentially harmful apps that are
+-associated with the currently active user or account.
++> [!NOTE]
++> **Note:** This method provides only the potentially harmful apps that are associated with the currently active user or account.
+ 
+ The following code snippet shows how to create the callback associated with this
+ method:
+ 
+ ### Kotlin
+ 
+-```
++```kotlin
+ SafetyNet.getClient(this)
+         .listHarmfulApps()
+         .addOnCompleteListener { task ->
+@@ -248,7 +232,7 @@ SafetyNet.getClient(this)
+ 
+ ### Java
+ 
+-```
++```java
+ SafetyNet.getClient(this)
+     .listHarmfulApps()
+     .addOnCompleteListener(new OnCompleteListener<HarmfulAppsResponse>() {

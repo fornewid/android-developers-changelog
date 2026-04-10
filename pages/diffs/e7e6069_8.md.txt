@@ -1,0 +1,216 @@
+diff --git a/docs/blog/categories/product-news/8.md b/docs/blog/categories/product-news/8.md
+index 6982581..a54dd02 100644
+--- a/docs/blog/categories/product-news/8.md
++++ b/docs/blog/categories/product-news/8.md
+@@ -1,169 +1,82 @@
+ ---
+-title: Product News  |  Android Developers' Blog
++title: https://developer.android.com/blog/categories/product-news/8
+ url: https://developer.android.com/blog/categories/product-news/8
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-* [Android Developers' Blog](https://developer.android.com/)
+-* [Blog](https://developer.android.com/blog)
+-
+-Stay organized with collections
+-
+-Save and categorize content based on your preferences.
+-
+-
+-
+-![](/static/blog/assets/product_news_droid_599a11ad69_d4ee764ece_1mQM4e.webp)
++![](https://developer.android.com/static/blog/assets/product_news_droid_599a11ad69_d4ee764ece_1mQM4e.webp)
+ 
+ # Product News
+ 
+-Stay in the loop with the latest updates, feature releases, and behind-the-scenes looks at how we’re evolving.
+-
+-* [![](/static/blog/assets/Nick_Butcher_5393f4552a_19h6h7.webp)](/blog/authors/nick-butcher)
+-
+-  03
+-
+-  Dec
+-  2025
+-
+-  03
+-
+-  Dec
+-  2025
+-
+-  ![](/static/blog/assets/jetpack_Compose_99733114d6_Z2c0xrB.webp)
+-
+-  ## [What's new in the Jetpack Compose December '25 release](/blog/posts/whats-new-in-the-jetpack-compose-december-release)
+-
+-  [arrow\_forward](/blog/posts/whats-new-in-the-jetpack-compose-december-release)
+-
+-  Today, the Jetpack Compose December ‘25 release is stable. This contains version 1.10 of the core Compose modules and version 1.4 of Material 3, adding new features and major performance improvements.
+-
+-  ###### [Nick Butcher](/blog/authors/nick-butcher) • 6 min read
+-* [![](/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](/blog/authors/matthew-mccullough)
+-
+-  02
+-
+-  Dec
+-  2025
+-
+-  02
+-
+-  Dec
+-  2025
+-
+-  ![](/static/blog/assets/a16released_7cb13cc79d_23qyL9.webp)
+-
+-  ## [Android 16 QPR2 is Released](/blog/posts/android-16-qpr-2-is-released)
++Stay in the loop with the latest updates, feature releases, and behind-the-scenes looks at how we're evolving.
++- [![](https://developer.android.com/static/blog/assets/Nick_Butcher_5393f4552a_19h6h7.webp)](https://developer.android.com/blog/authors/nick-butcher) 03 Dec 2025 03 Dec 2025 ![](https://developer.android.com/static/blog/assets/jetpack_Compose_99733114d6_Z2c0xrB.webp)
+ 
+-  [arrow\_forward](/blog/posts/android-16-qpr-2-is-released)
++  ## [What's new in the Jetpack Compose December '25 release](https://developer.android.com/blog/posts/whats-new-in-the-jetpack-compose-december-release)
+ 
+-  Android 16 QPR2 is now released and available in AOSP
++  [arrow_forward](https://developer.android.com/blog/posts/whats-new-in-the-jetpack-compose-december-release) Today, the Jetpack Compose December '25 release is stable. This contains version 1.10 of the core Compose modules and version 1.4 of Material 3, adding new features and major performance improvements.
+ 
+-  ###### [Matthew McCullough](/blog/authors/matthew-mccullough) • 4 min read
+-* [![](/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](/blog/authors/dom-elliott)[![](/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](/blog/authors/eric-lynch)
++  ###### [Nick Butcher](https://developer.android.com/blog/authors/nick-butcher) •
++  6 min read
+ 
+-  19
++- [![](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 02 Dec 2025 02 Dec 2025 ![](https://developer.android.com/static/blog/assets/a16released_7cb13cc79d_23qyL9.webp)
+ 
+-  Nov
+-  2025
++  ## [Android 16 QPR2 is Released](https://developer.android.com/blog/posts/android-16-qpr-2-is-released)
+ 
+-  19
++  [arrow_forward](https://developer.android.com/blog/posts/android-16-qpr-2-is-released) Android 16 QPR2 is now released and available in AOSP
+ 
+-  Nov
+-  2025
++  ###### [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) •
++  4 min read
+ 
+-  ![](/static/blog/assets/SS_Alt_Playbrand_Integrity_API_21cd2391d2_Z1L3CHW.webp)
++- [![](https://developer.android.com/static/blog/assets/dom_elliot_d78b0628db_flDQk.webp)](https://developer.android.com/blog/authors/dom-elliott)[![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](https://developer.android.com/blog/authors/eric-lynch) 19 Nov 2025 19 Nov 2025 ![](https://developer.android.com/static/blog/assets/SS_Alt_Playbrand_Integrity_API_21cd2391d2_Z1L3CHW.webp)
+ 
+-  ## [Stronger threat detection, simpler integration: Protect your growth with the Play Integrity API](/blog/posts/stronger-threat-detection-simpler-integration-protect-your-growth-with-the-play-integrity-api)
++  ## [Stronger threat detection, simpler integration: Protect your growth with the Play Integrity API](https://developer.android.com/blog/posts/stronger-threat-detection-simpler-integration-protect-your-growth-with-the-play-integrity-api)
+ 
+-  [arrow\_forward](/blog/posts/stronger-threat-detection-simpler-integration-protect-your-growth-with-the-play-integrity-api)
++  [arrow_forward](https://developer.android.com/blog/posts/stronger-threat-detection-simpler-integration-protect-your-growth-with-the-play-integrity-api) In the mobile ecosystem, abuse can threaten your revenue, growth, and user trust. To help developers thrive, Google Play offers a resilient threat detection service, Play Integrity API.
+ 
+-  In the mobile ecosystem, abuse can threaten your revenue, growth, and user trust. To help developers thrive, Google Play offers a resilient threat detection service, Play Integrity API.
++  ###### [Dom Elliott](https://developer.android.com/blog/authors/dom-elliott), [Eric Lynch](https://developer.android.com/blog/authors/eric-lynch) •
++  5 min read
+ 
+-  ###### [Dom Elliott](/blog/authors/dom-elliott), [Eric Lynch](/blog/authors/eric-lynch) • 5 min read
+-* [![](/static/blog/assets/don_bccb8c3f75_1ufD8A.webp)](/blog/authors/don-turner)
++- [![](https://developer.android.com/static/blog/assets/don_bccb8c3f75_1ufD8A.webp)](https://developer.android.com/blog/authors/don-turner) 19 Nov 2025 19 Nov 2025 ![](https://developer.android.com/static/blog/assets/jetpack_navigation_d1257f9ca2_Z1dRNOI.webp)
+ 
+-  19
++  ## [Jetpack Navigation 3 is stable](https://developer.android.com/blog/posts/jetpack-navigation-3-is-stable)
+ 
+-  Nov
+-  2025
++  [arrow_forward](https://developer.android.com/blog/posts/jetpack-navigation-3-is-stable) Jetpack Navigation 3 version 1.0 is stable!
+ 
+-  19
++  ###### [Don Turner](https://developer.android.com/blog/authors/don-turner) •
++  3 min read
+ 
+-  Nov
+-  2025
++  - [#Nav3](https://developer.android.com/blog/topics/nav3)
++  - [#Jetpack Navigation](https://developer.android.com/blog/topics/jetpack-navigation)
++- [![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](https://developer.android.com/blog/authors/tor-norbye) 18 Nov 2025 18 Nov 2025 ![](https://developer.android.com/static/blog/assets/gemini3as_Assitance_a5fd86cee5_16VqSB.webp)
+ 
+-  ![](/static/blog/assets/jetpack_navigation_d1257f9ca2_Z1dRNOI.webp)
++  ## [Gemini 3 is now available for AI assistance in Android Studio](https://developer.android.com/blog/posts/gemini-3-is-now-available-for-ai-assistance-in-android-studio)
+ 
+-  ## [Jetpack Navigation 3 is stable](/blog/posts/jetpack-navigation-3-is-stable)
++  [arrow_forward](https://developer.android.com/blog/posts/gemini-3-is-now-available-for-ai-assistance-in-android-studio) The Gemini 3 Pro model, released today and engineered for better coding and agentic experiences, is now available for AI assistance in the latest version of Android Studio Otter.
+ 
+-  [arrow\_forward](/blog/posts/jetpack-navigation-3-is-stable)
++  ###### [Tor Norbye](https://developer.android.com/blog/authors/tor-norbye) •
++  1 min read
+ 
+-  Jetpack Navigation 3 version 1.0 is stable!
++- [![](https://developer.android.com/static/blog/assets/Ajesh_R_Pai_fc75c62777_Z1G5g2B.webp)](https://developer.android.com/blog/authors/ajesh-pai)[![](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2dcD9g.webp)](https://developer.android.com/blog/authors/ben-weiss) 18 Nov 2025 18 Nov 2025 ![](https://developer.android.com/static/blog/assets/performance_Week7_0b86aba329_2gDCJ1.webp)
+ 
+-  ###### [Don Turner](/blog/authors/don-turner) • 3 min read
++  ## [Configure and troubleshoot R8 Keep Rules](https://developer.android.com/blog/posts/configure-and-troubleshoot-r8-keep-rules)
+ 
+-  + [#Nav3](/blog/topics/nav3)
+-  + [#Jetpack Navigation](/blog/topics/jetpack-navigation)
+-* [![](/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](/blog/authors/tor-norbye)
++  [arrow_forward](https://developer.android.com/blog/posts/configure-and-troubleshoot-r8-keep-rules) The Android build system's primary tool for achieving a small, fast, and secure application is the R8 optimizer, the compiler that handles dead code and resource removal for shrinking, code renaming or minification, and app optimization.
+ 
+-  18
++  ###### [Ajesh Pai](https://developer.android.com/blog/authors/ajesh-pai), [Ben Weiss](https://developer.android.com/blog/authors/ben-weiss) •
++  7 min read
+ 
+-  Nov
+-  2025
+-
+-  18
+-
+-  Nov
+-  2025
+-
+-  ![](/static/blog/assets/gemini3as_Assitance_a5fd86cee5_16VqSB.webp)
+-
+-  ## [Gemini 3 is now available for AI assistance in Android Studio](/blog/posts/gemini-3-is-now-available-for-ai-assistance-in-android-studio)
+-
+-  [arrow\_forward](/blog/posts/gemini-3-is-now-available-for-ai-assistance-in-android-studio)
+-
+-  The Gemini 3 Pro model, released today and engineered for better coding and agentic experiences, is now available for AI assistance in the latest version of Android Studio Otter.
+-
+-  ###### [Tor Norbye](/blog/authors/tor-norbye) • 1 min read
+-* [![](/static/blog/assets/Ajesh_R_Pai_fc75c62777_Z1G5g2B.webp)](/blog/authors/ajesh-pai)[![](/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2dcD9g.webp)](/blog/authors/ben-weiss)
+-
+-  18
+-
+-  Nov
+-  2025
+-
+-  18
+-
+-  Nov
+-  2025
+-
+-  ![](/static/blog/assets/performance_Week7_0b86aba329_2gDCJ1.webp)
+-
+-  ## [Configure and troubleshoot R8 Keep Rules](/blog/posts/configure-and-troubleshoot-r8-keep-rules)
+-
+-  [arrow\_forward](/blog/posts/configure-and-troubleshoot-r8-keep-rules)
+-
+-  The Android build system's primary tool for achieving a small, fast, and secure application is the R8 optimizer, the compiler that handles dead code and resource removal for shrinking, code renaming or minification, and app optimization.
+-
+-  ###### [Ajesh Pai](/blog/authors/ajesh-pai), [Ben Weiss](/blog/authors/ben-weiss) • 7 min read
+-
+-[arrow\_back](/blog/categories/product-news/7)
++[arrow_back](https://developer.android.com/blog/categories/product-news/7)
+ 
+ #### Page 8
+ 
+ ###### of 12
+ 
+-[arrow\_forward](/blog/categories/product-news/9)
++[arrow_forward](https://developer.android.com/blog/categories/product-news/9)
+ 
+ # Stay in the loop
+ 
++
+ Get the latest Android development insights delivered to your inbox
+ weekly.
+-
+ [mail
+-Subscribe](/subscribe)
+-
+-![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file
++Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file

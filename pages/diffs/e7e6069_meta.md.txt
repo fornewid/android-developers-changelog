@@ -1,0 +1,13 @@
+diff --git a/docs/design/ui/gallery/social/meta.md b/docs/design/ui/gallery/social/meta.md
+index 0b6fc89..306783b 100644
+--- a/docs/design/ui/gallery/social/meta.md
++++ b/docs/design/ui/gallery/social/meta.md
+@@ -13,6 +13,8 @@ source: html-scrape
+ 
+ 
+ 
++
++
+ "People use large screen devices to boost productivity, which is why adding
+ support for features like drag and drop is key to our users' experience."
+ 

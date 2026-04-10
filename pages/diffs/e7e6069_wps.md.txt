@@ -1,0 +1,12 @@
+diff --git a/docs/design/ui/gallery/productivity/wps.md b/docs/design/ui/gallery/productivity/wps.md
+index 8d2362a..03c31e4 100644
+--- a/docs/design/ui/gallery/productivity/wps.md
++++ b/docs/design/ui/gallery/productivity/wps.md
+@@ -14,6 +14,7 @@ source: html-scrape
+ 
+ 
+ 
++
+ WPS Office: Building continuity with Android foldables
+ 
+ Foldable devices are capable of a variety of postures and folded states,

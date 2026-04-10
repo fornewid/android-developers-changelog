@@ -1,0 +1,159 @@
+diff --git a/docs/courses/quizzes/kotlin-fundamentals-eight/kotlin-fundamentals-eight.md b/docs/courses/quizzes/kotlin-fundamentals-eight/kotlin-fundamentals-eight.md
+index 3e3f076..6c4bf8d 100644
+--- a/docs/courses/quizzes/kotlin-fundamentals-eight/kotlin-fundamentals-eight.md
++++ b/docs/courses/quizzes/kotlin-fundamentals-eight/kotlin-fundamentals-eight.md
+@@ -1,97 +1,82 @@
+ ---
+-title: Kotlin Fundamentals: Connect to the internet quiz  |  Android Developers
++title: https://developer.android.com/courses/quizzes/kotlin-fundamentals-eight/kotlin-fundamentals-eight
+ url: https://developer.android.com/courses/quizzes/kotlin-fundamentals-eight/kotlin-fundamentals-eight
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-Stay organized with collections
+-
+-Save and categorize content based on your preferences.
+-
+-
+-
+ # Kotlin Fundamentals: Connect to the internet quiz
+ 
+-Return to pathway
+-
+-
+-
+-1. ## What are the two key things Retrofit needs to build a web-services API?
+-
+-   The base URI for the web service and a GET query
+-
+-   The base URI for the web service and a converter factory
+-
+-   A network connection to the web service and an authorization token
+-
+-   A converter factory and a parser for the response
+-2. ## What is the purpose of the Moshi library?
+-
+-   To get data back from a web service
+-
+-   To interact with Retrofit to make a web-service request
+-
+-   To parse a JSON object into Kotlin objects
+-
+-   To rename Kotlin objects to match the keys in the JSON response
+-3. ## What are Retrofit call adapters used for?
+-
+-   They enable Retrofit to use coroutines.
+-
+-   They adapt the web-service response into Kotlin data objects.
+-
+-   They change a Retrofit call into a web-service call.
+-
+-   They add the ability to return the default Call class in Retrofit.
+-4. ## Which Glide method do you use to indicate the ImageView that will contain the loaded image?
+-
+-   into()
+-
+-   with()
+-
+-   ImageView()
++# Kotlin Fundamentals: Connect to the internet quiz
+ 
+-   apply()
+-5. ## How do you specify a placeholder image to show when Glide is loading?
++<br />
+ 
+-   Use the into() method with a drawable.
++Return to pathway  
++1.
+ 
+-   Use RequestOptions() and call the placeholder() method with a drawable resource ID.
++   ## What are the two key things Retrofit needs to build a web-services API?
+ 
+-   Assign the Glide.placeholder property to a drawable.
++   The base URI for the web service and a GET query  
++   The base URI for the web service and a converter factory  
++   A network connection to the web service and an authorization token  
++   A converter factory and a parser for the response  
++2.
+ 
+-   Use RequestOptions() and call the loadingImage() method with a drawable.
+-6. ## How do you indicate that a method is a binding adapter?
++   ## What is the purpose of the Moshi library?
+ 
+-   Call the setBindingAdapter() method on the LiveData.
++   To get data back from a web service  
++   To interact with Retrofit to make a web-service request  
++   To parse a JSON object into Kotlin objects  
++   To rename Kotlin objects to match the keys in the JSON response  
++3.
+ 
+-   Put the method into a Kotlin file called BindingAdapters.kt.
++   ## What are Retrofit call adapters used for?
+ 
+-   Use the android:adapter attribute in the XML layout.
++   They enable Retrofit to use coroutines.  
++   They adapt the web-service response into Kotlin data objects.  
++   They change a Retrofit call into a web-service call.  
++   They add the ability to return the default Call class in Retrofit.  
++4.
+ 
+-   Annotate the method with @BindingAdapter.
+-7. ## What does the tag in an XML layout file do?
++   ## Which Glide method do you use to indicate the ImageView that will contain the loaded image?
+ 
+-   Include one layout file in another.
++   into()  
++   with()  
++   ImageView()  
++   apply()  
++5.
+ 
+-   Embed Kotlin code inside the layout file.
++   ## How do you specify a placeholder image to show when Glide is loading?
+ 
+-   Provide access to data-bound properties.
++   Use the into() method with a drawable.  
++   Use RequestOptions() and call the placeholder() method with a drawable resource ID.  
++   Assign the Glide.placeholder property to a drawable.  
++   Use RequestOptions() and call the loadingImage() method with a drawable.  
++6.
+ 
+-   Enable you to reference classes and class members in binding expressions.
+-8. ## How do you add a query option to a REST web-service call in Retrofit? Select all that apply.
++   ## How do you indicate that a method is a binding adapter?
+ 
+-   Choose as many answers as you see fit.
++   Call the setBindingAdapter() method on the LiveData.  
++   Put the method into a Kotlin file called BindingAdapters.kt.  
++   Use the android:adapter attribute in the XML layout.  
++   Annotate the method with @BindingAdapter.  
++7.
+ 
+-   Append the query to the end of the request URL.
++   ## What does thetag in an XML layout file do?
+ 
+-   Add a parameter for the query to the function that makes the request and annotate the parameter with @Query.
++   Include one layout file in another.  
++   Embed Kotlin code inside the layout file.  
++   Provide access to data-bound properties.  
++   Enable you to reference classes and class members in binding expressions.  
++8.
+ 
+-   Use the Query class to build a request.
++   ## How do you add a query option to a REST web-service call in Retrofit? Select all that apply.
+ 
+-   Use the addQuery() method in the Retrofit builder.
++   Choose as many answers as you see fit.  
++   Append the query to the end of the request URL.  
++   Add a parameter for the query to the function that makes the request and annotate the parameter with @Query.  
++   Use the Query class to build a request.  
++   Use the addQuery() method in the Retrofit builder.  
+ 
+ Submit answers
+ 
+-*error\_outline*
+-An error occurred when grading the quiz. Please try again.
+\ No newline at end of file
++*error_outline*An error occurred when grading the quiz. Please try again.
+\ No newline at end of file

@@ -1,0 +1,13 @@
+diff --git a/docs/design/ui/gallery/media/detail.md b/docs/design/ui/gallery/media/detail.md
+index 648964b..0c2a30d 100644
+--- a/docs/design/ui/gallery/media/detail.md
++++ b/docs/design/ui/gallery/media/detail.md
+@@ -13,6 +13,8 @@ source: html-scrape
+ 
+ 
+ 
++
++
+ Create a flexible layout that helps users browse, sort, filter and select their
+ favorite movies, music, or TV shows across all screens.
+ 

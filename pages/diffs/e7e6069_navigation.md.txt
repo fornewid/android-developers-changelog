@@ -1,0 +1,160 @@
+diff --git a/docs/training/wearables/compose/navigation.md b/docs/training/wearables/compose/navigation.md
+index 69c59c8..b2f012e 100644
+--- a/docs/training/wearables/compose/navigation.md
++++ b/docs/training/wearables/compose/navigation.md
+@@ -1,48 +1,33 @@
+ ---
+-title: Navigation with Compose for Wear OS  |  Android Developers
++title: https://developer.android.com/training/wearables/compose/navigation
+ url: https://developer.android.com/training/wearables/compose/navigation
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-* [Develop](https://developer.android.com/develop)
+-* [Devices](https://developer.android.com/develop/devices)
+-* [Wear OS](https://developer.android.com/training/wearables)
++Compose for Wear OS Material version <button value="2.5">2.5</button> <button value="3" default="">3</button>
+ 
+-# Navigation with Compose for Wear OS Stay organized with collections Save and categorize content based on your preferences.
++*** ** * ** ***
+ 
+-
+-
+-
+-Compose for Wear OS Material version
+-
+-2.5
+-3
+-
+-
+----
+-
+-The [Navigation component](/guide/navigation) in Android Jetpack provides
++The [Navigation component](https://developer.android.com/guide/navigation) in Android Jetpack provides
+ support for Jetpack Compose applications. You can navigate between composables
+-while taking advantage of the Navigation component’s infrastructure and
++while taking advantage of the Navigation component's infrastructure and
+ features.
+ 
+ This page describes the differences with Jetpack Navigation on Compose for Wear
+ OS.
+ 
+-**Note:** If you are not familiar with the Navigation component, review the
+-[Navigating with Compose](/jetpack/compose/navigation) resources before
+-continuing.
++> [!NOTE]
++> **Note:** If you are not familiar with the Navigation component, review the [Navigating with Compose](https://developer.android.com/jetpack/compose/navigation) resources before continuing.
+ 
+ ## Setup
+ 
+-Use the following dependency in your app module’s build.gradle file:
++Use the following dependency in your app module's build.gradle file:
+ 
+ ### Kotlin
+ 
+-```
++```kotlin
+ dependencies {
+-    def wear_compose_version = "1.6.0"
++    def wear_compose_version = "1.6.1"
+     implementation "androidx.wear.compose:compose-navigation:$wear_compose_version"
+ }
+ ```
+@@ -56,22 +41,24 @@ Navigating with Compose for Wear OS requires the same three components needed on
+ non-Wear OS apps: the navigation controller, host and graph.
+ 
+ Use
+-[`rememberSwipeDismissableNavController()`](/reference/kotlin/androidx/wear/compose/navigation/package-summary#rememberSwipeDismissableNavController())
++[`rememberSwipeDismissableNavController()`](https://developer.android.com/reference/kotlin/androidx/wear/compose/navigation/package-summary#rememberSwipeDismissableNavController())
+ to create an instance of `WearNavigator`, an implementation of `NavController`
+ suitable for Wear OS applications:
+ 
+-```
+-val navController = rememberSwipeDismissableNavController()
+ 
+-Navigation.kt
++```kotlin
++val navController = rememberSwipeDismissableNavController()
+ ```
+ 
+-The [`NavController`](/reference/kotlin/androidx/navigation/NavController) is
++<br />
++
++The [`NavController`](https://developer.android.com/reference/kotlin/androidx/navigation/NavController) is
+ the primary API used to navigate in Compose applications. It controls navigating
+ between composables in the navigation host which, on Wear OS, is
+-[`SwipeDismissableNavHost`](/reference/kotlin/androidx/wear/compose/navigation/package-summary#SwipeDismissableNavHost(androidx.navigation.NavHostController,kotlin.String,androidx.compose.ui.Modifier,androidx.wear.compose.navigation.SwipeDismissableNavHostState,kotlin.String,kotlin.Function1)).
++[`SwipeDismissableNavHost`](https://developer.android.com/reference/kotlin/androidx/wear/compose/navigation/package-summary#SwipeDismissableNavHost(androidx.navigation.NavHostController,kotlin.String,androidx.compose.ui.Modifier,androidx.wear.compose.navigation.SwipeDismissableNavHostState,kotlin.String,kotlin.Function1)).
+ 
+-```
++
++```kotlin
+ val navController = rememberSwipeDismissableNavController()
+ SwipeDismissableNavHost(
+     navController = navController,
+@@ -79,12 +66,12 @@ SwipeDismissableNavHost(
+ ) {
+     // TODO: build navigation graph
+ }
+-
+-Navigation.kt
+ ```
+ 
++<br />
++
+ Like the
+-[`NavHost` composable](/reference/kotlin/androidx/navigation/compose/package-summary#NavHost(androidx.navigation.NavHostController,kotlin.String,androidx.compose.ui.Modifier,kotlin.String,kotlin.Function1)),
++[`NavHost` composable](https://developer.android.com/reference/kotlin/androidx/navigation/compose/package-summary#NavHost(androidx.navigation.NavHostController,kotlin.String,androidx.compose.ui.Modifier,kotlin.String,kotlin.Function1)),
+ it takes a reference to the navigation controller, the route for the start
+ destination, and the builder for the navigation graph which is shown here as a
+ trailing lambda.
+@@ -92,17 +79,9 @@ trailing lambda.
+ The start destination must be provided in the navigation graph builder, along
+ with all other destinations that should be navigable with the navigation
+ controller.
++In your Wear OS app, declare [`SwipeDismissableNavHost`](https://developer.android.com/reference/kotlin/androidx/wear/compose/navigation/SwipeDismissableNavHost.composable#SwipeDismissableNavHost(androidx.navigation.NavHostController,androidx.navigation.NavGraph,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.wear.compose.navigation.SwipeDismissableNavHostState)) as a content of the [`AppScaffold`](https://developer.android.com/reference/kotlin/androidx/wear/compose/material3/package-summary#AppScaffold(androidx.compose.ui.Modifier,kotlin.Function0,kotlin.Function1)) to support top-level components like time, scroll or position indicator, and page indicator. Use a [`AppScaffold`](https://developer.android.com/reference/kotlin/androidx/wear/compose/material3/package-summary#AppScaffold(androidx.compose.ui.Modifier,kotlin.Function0,kotlin.Function1)) object above the [`SwipeDismissableNavHost`](https://developer.android.com/reference/kotlin/androidx/wear/compose/navigation/SwipeDismissableNavHost.composable#SwipeDismissableNavHost(androidx.navigation.NavHostController,androidx.navigation.NavGraph,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.wear.compose.navigation.SwipeDismissableNavHostState)) and the [`ScreenScaffold`](https://developer.android.com/reference/kotlin/androidx/wear/compose/material3/package-summary#ScreenScaffold(androidx.wear.compose.foundation.lazy.ScalingLazyListState,kotlin.Function1,androidx.compose.ui.Modifier,androidx.compose.foundation.layout.PaddingValues,kotlin.Function0,kotlin.Function1,androidx.compose.ui.unit.Dp,kotlin.Function2)) at the screen level to add a `TimeText` object to the screen by default and to make sure it animates correctly when navigating between screens. Additionally, `ScreenScaffold` adds a `PositionIndicator` for scrollable content.
+ 
+-In your Wear OS app, declare [`SwipeDismissableNavHost`](/reference/kotlin/androidx/wear/compose/navigation/SwipeDismissableNavHost.composable#SwipeDismissableNavHost(androidx.navigation.NavHostController,androidx.navigation.NavGraph,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.wear.compose.navigation.SwipeDismissableNavHostState)) as a content of the
+-[`AppScaffold`](/reference/kotlin/androidx/wear/compose/material3/package-summary#AppScaffold(androidx.compose.ui.Modifier,kotlin.Function0,kotlin.Function1)) to support top-level components like time, scroll or
+-position indicator, and page indicator.
+-Use a [`AppScaffold`](/reference/kotlin/androidx/wear/compose/material3/package-summary#AppScaffold(androidx.compose.ui.Modifier,kotlin.Function0,kotlin.Function1)) object above the [`SwipeDismissableNavHost`](/reference/kotlin/androidx/wear/compose/navigation/SwipeDismissableNavHost.composable#SwipeDismissableNavHost(androidx.navigation.NavHostController,androidx.navigation.NavGraph,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.wear.compose.navigation.SwipeDismissableNavHostState))
+-and the [`ScreenScaffold`](/reference/kotlin/androidx/wear/compose/material3/package-summary#ScreenScaffold(androidx.wear.compose.foundation.lazy.ScalingLazyListState,kotlin.Function1,androidx.compose.ui.Modifier,androidx.compose.foundation.layout.PaddingValues,kotlin.Function0,kotlin.Function1,androidx.compose.ui.unit.Dp,kotlin.Function2)) at the screen level to add a `TimeText` object
+-to the screen by default and to make sure it animates correctly when navigating
+-between screens.
+-Additionally, `ScreenScaffold` adds a `PositionIndicator` for scrollable content.
+-
+-```
++```kotlin
+     AppScaffold {
+         val navController = rememberSwipeDismissableNavController()
+         SwipeDismissableNavHost(
+@@ -136,18 +115,16 @@ fun MessageDetail(id: String) {
+         contentPadding = padding
+     ) { scaffoldPaddingValues ->
+         // Screen content goes here
+-        // ...
+-
+-Navigation.kt
++        // ...https://github.com/android/snippets/blob/b8fe98d6f6b3dfe87812e34ff8eabb22847f6e1f/wear/src/main/java/com/example/wear/snippets/m3/navigation/Navigation.kt#L64-L110
+ ```
+ 
+ To learn more about Jetpack Navigation, see
+-[Navigating with Compose](/jetpack/compose/navigation) or take the
+-[Jetpack Compose Navigation code lab](/codelabs/jetpack-compose-navigation).
++[Navigating with Compose](https://developer.android.com/jetpack/compose/navigation) or take the
++[Jetpack Compose Navigation code lab](https://developer.android.com/codelabs/jetpack-compose-navigation).
+ 
+ ## Recommended for you
+ 
+-* Note: link text is displayed when JavaScript is off
+-* [Migrate Jetpack Navigation to Navigation Compose](/develop/ui/compose/migrate/migration-scenarios/navigation)
+-* [Navigation with Compose](/develop/ui/compose/navigation)
+-* [Navigate between screens with Compose](/codelabs/basic-android-kotlin-compose-navigation/index.lab)
+\ No newline at end of file
++- Note: link text is displayed when JavaScript is off
++- [Migrate Jetpack Navigation to Navigation Compose](https://developer.android.com/develop/ui/compose/migrate/migration-scenarios/navigation)
++- [Navigation with Compose](https://developer.android.com/develop/ui/compose/navigation)
++- [Navigate between screens with Compose](https://developer.android.com/codelabs/basic-android-kotlin-compose-navigation/index.lab)
+\ No newline at end of file

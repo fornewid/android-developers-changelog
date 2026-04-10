@@ -1,0 +1,73 @@
+diff --git a/docs/blog/authors/karan-jhavar.md b/docs/blog/authors/karan-jhavar.md
+index f890323..90ff7ad 100644
+--- a/docs/blog/authors/karan-jhavar.md
++++ b/docs/blog/authors/karan-jhavar.md
+@@ -1,57 +1,31 @@
+ ---
+-title: Karan Jhavar  |  Android Developers' Blog
++title: https://developer.android.com/blog/authors/karan-jhavar
+ url: https://developer.android.com/blog/authors/karan-jhavar
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-* [Android Developers' Blog](https://developer.android.com/)
+-* [Blog](https://developer.android.com/blog)
+-
+-Stay organized with collections
+-
+-Save and categorize content based on your preferences.
+-
+-
+-
+ ## 1
+ 
+-post
+-
+-![](/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)
++post ![](https://developer.android.com/static/blog/assets/Karan_Jhavar_9fe15fcdd8_ZqeKk7.webp)
+ 
+ # Karan Jhavar
+ 
+ ###### Product Manager
+ 
+-* 10
+-
+-  Nov
+-  2025
++- 10 Nov 2025 10 Nov 2025 ![](https://developer.android.com/static/blog/assets/raising_The_Bar_1e7745ca31_Z29xq01.webp)
+ 
+-  10
++  #### [Product News](https://developer.android.com/blog/categories/product-news)
+ 
+-  Nov
+-  2025
++  ## [Raising the bar on battery performance: excessive partial wake locks metric is now out of beta](https://developer.android.com/blog/posts/raising-the-bar-on-battery-performance-excessive-partial-wake-locks-metric-is-now-out-of-beta)
+ 
+-  ![](/static/blog/assets/raising_The_Bar_1e7745ca31_Z29xq01.webp)
+-
+-  #### [Product News](/blog/categories/product-news)
+-
+-  ## [Raising the bar on battery performance: excessive partial wake locks metric is now out of beta](/blog/posts/raising-the-bar-on-battery-performance-excessive-partial-wake-locks-metric-is-now-out-of-beta)
+-
+-  [arrow\_forward](/blog/posts/raising-the-bar-on-battery-performance-excessive-partial-wake-locks-metric-is-now-out-of-beta)
+-
+-  A great user experience is built on a foundation of strong technical performance. We are committed to helping you create stable, responsive, and efficient apps that users love.
++  [arrow_forward](https://developer.android.com/blog/posts/raising-the-bar-on-battery-performance-excessive-partial-wake-locks-metric-is-now-out-of-beta) A great user experience is built on a foundation of strong technical performance. We are committed to helping you create stable, responsive, and efficient apps that users love.
+ 
+   ###### 3 min read
+ 
+ # Stay in the loop
+ 
++
+ Get the latest Android development insights delivered to your inbox
+ weekly.
+-
+ [mail
+-Subscribe](/subscribe)
+-
+-![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file
++Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file

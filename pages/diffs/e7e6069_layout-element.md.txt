@@ -1,0 +1,85 @@
+diff --git a/docs/guide/topics/manifest/layout-element.md b/docs/guide/topics/manifest/layout-element.md
+index e51433c..7c96cdd 100644
+--- a/docs/guide/topics/manifest/layout-element.md
++++ b/docs/guide/topics/manifest/layout-element.md
+@@ -1,19 +1,15 @@
+ ---
+-title: <layout>  |  App architecture  |  Android Developers
++title: https://developer.android.com/guide/topics/manifest/layout-element
+ url: https://developer.android.com/guide/topics/manifest/layout-element
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-* [Design & Plan](https://developer.android.com/design)
+-* [App architecture](https://developer.android.com/topic/architecture/intro)
+-
+-# <layout> Stay organized with collections Save and categorize content based on your preferences.
+-
+-
++# &lt;layout>
+ 
+ syntax:
+-:   ```
++:
++
++    ```xml
+     <layout android:defaultHeight="integer"
+               android:defaultWidth="integer"
+               android:gravity=["top" | "end" | ...]
+@@ -22,34 +18,31 @@ syntax:
+     ```
+ 
+ contained in:
+-:   `<activity>`
++:   [<activity>](https://developer.android.com/guide/topics/manifest/activity-element)
+ 
+ description:
+ :   Contains attributes that affect how an activity behaves in multi-window mode.
+ 
+-    attributes:
+-    :   `android:defaultHeight`
+-        :   Default height of the activity when launched in free-form mode.
++attributes:
++:
++
++    `android:defaultHeight`
++    :   Default height of the activity when launched in free-form mode.
+ 
+-        `android:defaultWidth`
+-        :   Default width of the activity when launched in free-form mode.
++    `android:defaultWidth`
++    :   Default width of the activity when launched in free-form mode.
+ 
+-        `android:gravity`
+-        :   Initial placement of the activity when launched in free-form mode.
+-            See `Gravity` for suitable values.
++    `android:gravity`
++    :   Initial placement of the activity when launched in free-form mode. See[Gravity](https://developer.android.com/reference/android/view/Gravity)for suitable values.
+ 
+-        `android:minHeight`
+-        :   Minimum height for the activity in both split-screen and free-form modes. If the user moves the divider in
+-            split-screen mode to make an activity smaller than the specified minimum, the system crops the activity to the
+-            height the user requests.
++    `android:minHeight`
++    :   Minimum height for the activity in both split-screen and free-form modes. If the user moves the divider in split-screen mode to make an activity smaller than the specified minimum, the system crops the activity to the height the user requests.
+ 
+-        `android:minWidth`
+-        :   Minimum width for the activity in both split-screen and free-form modes. If the user moves the divider in
+-            split-screen mode to make an activity smaller than the specified minimum, the system crops the activity to the
+-            width the user requests.
++    `android:minWidth`
++    :   Minimum width for the activity in both split-screen and free-form modes. If the user moves the divider in split-screen mode to make an activity smaller than the specified minimum, the system crops the activity to the width the user requests.
+ 
+-        introduced in:
+-        :   API Level 24
++    introduced in:
++    :   API Level 24
+ 
+-        see also:
+-        :   `<activity>`
+\ No newline at end of file
++    see also:
++    :   [<activity>](https://developer.android.com/guide/topics/manifest/activity-element)
+\ No newline at end of file

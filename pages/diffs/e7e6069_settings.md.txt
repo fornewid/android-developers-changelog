@@ -1,0 +1,201 @@
+diff --git a/docs/develop/ui/views/components/settings.md b/docs/develop/ui/views/components/settings.md
+index 09d1f6a..92c9d60 100644
+--- a/docs/develop/ui/views/components/settings.md
++++ b/docs/develop/ui/views/components/settings.md
+@@ -1,32 +1,20 @@
+ ---
+-title: Settings  |  Views  |  Android Developers
++title: https://developer.android.com/develop/ui/views/components/settings
+ url: https://developer.android.com/develop/ui/views/components/settings
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-* [Develop](https://developer.android.com/develop)
+-* [Core areas](https://developer.android.com/develop/core-areas)
+-* [UI](https://developer.android.com/develop/ui)
+-* [Views](https://developer.android.com/develop/ui/views/layout/declaring-layout)
+-
+-Stay organized with collections
+-
+-Save and categorize content based on your preferences.
+-
+-
+-
+-
+-# Settings   Part of [Android Jetpack](/jetpack).
++# Settings
++Part of [Android Jetpack](https://developer.android.com/jetpack).
+ 
+ Settings let users change the functionality and behavior of an app. Settings can
+ affect background behavior, such as how often the app synchronizes data with the
+ cloud, or they can be wider-reaching, such as changing the contents and
+ presentation of the user interface.
+ 
+-**Note:** This document explains how to use the [AndroidX Preference
+-library](/reference/androidx/preference/package-summary). Starting with Android
+-10, the platform `android.preference` library is deprecated.
++> [!NOTE]
++> **Note:** This document explains how to use the [AndroidX Preference
++> library](https://developer.android.com/reference/androidx/preference/package-summary). Starting with Android 10, the platform `android.preference` library is deprecated.
+ 
+ To integrate user configurable settings into your app, use the AndroidX
+ Preference library. This library manages the user interface and interacts with
+@@ -36,10 +24,10 @@ consistent user experience across devices and OS versions.
+ 
+ ## Get started
+ 
+-A [`Preference`](/jetpack/androidx/releases/preference) is the basic building
++A [`Preference`](https://developer.android.com/jetpack/androidx/releases/preference) is the basic building
+ block of the Preference library. A settings screen contains a `Preference`
+-*hierarchy*. You can define this hierarchy as an XML resource, or you can [build
+-a hierarchy in code](/guide/topics/ui/settings/programmatic-hierarchy).
++*hierarchy* . You can define this hierarchy as an XML resource, or you can [build
++a hierarchy in code](https://developer.android.com/guide/topics/ui/settings/programmatic-hierarchy).
+ 
+ The following sections describe how to build a simple settings screen using the
+ AndroidX Preference library.
+@@ -49,17 +37,17 @@ file:
+ 
+ ### Groovy
+ 
+-```
++```groovy
+ dependencies {
+-    implementation "androidx.preference:preference-ktx:1.2.0"
++    implementation "androidx.preference:preference-ktx:1.2.0"
+ }
+ ```
+ 
+ ### Kotlin
+ 
+-```
++```kotlin
+ dependencies {
+-    implementation("androidx.preference:preference-ktx:1.2.0")
++    implementation("androidx.preference:preference-ktx:1.2.0")
+ }
+ ```
+ 
+@@ -70,7 +58,7 @@ After a Gradle Sync, you can move on to the XML part of the task.
+ In your project, navigate to `res/xml` folder, create a `preferences.xml` file,
+ and add the following code to it:
+ 
+-```
++```xml
+ <PreferenceScreen
+     xmlns:app="http://schemas.android.com/apk/res-auto">
+ 
+@@ -87,27 +75,27 @@ and add the following code to it:
+ ```
+ 
+ This hierarchy contains two `Preference` objects: a
+-[`SwitchPreferenceCompat`](/reference/androidx/preference/SwitchPreferenceCompat)
++[`SwitchPreferenceCompat`](https://developer.android.com/reference/androidx/preference/SwitchPreferenceCompat)
+ that lets users toggle a setting on and off, and a basic `Preference` with no
+ widget.
+ 
+ When building a hierarchy, each `Preference` must have a unique key.
+ 
+-**Note:** See the [Android Settings Design
+-Guidelines](https://source.android.com/devices/tech/settings/settings-guidelines)
+-for recommendations on how to organize your settings screen.
++> [!NOTE]
++> **Note:** See the [Android Settings Design
++> Guidelines](https://source.android.com/devices/tech/settings/settings-guidelines) for recommendations on how to organize your settings screen.
+ 
+ ### Inflate the hierarchy
+ 
+ To inflate a hierarchy from an XML attribute, create a
+-[`PreferenceFragmentCompat`](/reference/androidx/preference/PreferenceFragmentCompat),
++[`PreferenceFragmentCompat`](https://developer.android.com/reference/androidx/preference/PreferenceFragmentCompat),
+ override
+-[`onCreatePreferences()`](/reference/androidx/preference/PreferenceFragmentCompat#oncreatepreferences),
++[`onCreatePreferences()`](https://developer.android.com/reference/androidx/preference/PreferenceFragmentCompat#oncreatepreferences),
+ and provide the XML resource to inflate, as shown in the following example:
+ 
+ ### Kotlin
+ 
+-```
++```kotlin
+ class MySettingsFragment : PreferenceFragmentCompat() {
+     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
+         setPreferencesFromResource(R.xml.preferences, rootKey)
+@@ -117,7 +105,7 @@ class MySettingsFragment : PreferenceFragmentCompat() {
+ 
+ ### Java
+ 
+-```
++```java
+ public class MySettingsFragment extends PreferenceFragmentCompat {
+     @Override
+     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
+@@ -131,7 +119,7 @@ You can then add this `Fragment` to your `Activity` as you do with any other
+ 
+ ### Kotlin
+ 
+-```
++```kotlin
+ class MySettingsActivity : AppCompatActivity() {
+     override fun onCreate(savedInstanceState: Bundle?) {
+         super.onCreate(savedInstanceState)
+@@ -145,7 +133,7 @@ class MySettingsActivity : AppCompatActivity() {
+ 
+ ### Java
+ 
+-```
++```java
+ public class MySettingsActivity extends AppCompatActivity {
+     @Override
+     protected void onCreate(Bundle savedInstanceState) {
+@@ -159,11 +147,9 @@ public class MySettingsActivity extends AppCompatActivity {
+ ```
+ 
+ The result is shown in the following image:
+-![An image showing an example of Preference screen](/static/develop/ui/views/components/settings/images/settings-simple.png)
+-
++![An image showing an example of Preference screen](https://developer.android.com/static/develop/ui/views/components/settings/images/settings-simple.png) **Figure 1.** A settings screen created using two `Preference` objects.
+ 
+-**Figure 1.** A settings screen created using two `Preference`
+-objects.
++<br />
+ 
+ ## Monitor the preferences
+ 
+@@ -172,7 +158,7 @@ it:
+ 
+ ### Kotlin
+ 
+-```
++```kotlin
+ findPreference<SwitchPreferenceCompat>("notifications")
+     ?.setOnPreferenceChangeListener { _, newValue ->
+         Log.d("Preferences", "Notifications enabled: $newValue")
+@@ -188,7 +174,7 @@ findPreference<Preference>("feedback")
+ 
+ ### Java
+ 
+-```
++```java
+ SwitchPreferenceCompat notificationsPref = findPreference("notifications");
+ 
+ if (notificationsPref != null) {
+@@ -217,7 +203,7 @@ reading the preferences. However, everything is stored using
+ 
+ ### Kotlin
+ 
+-```
++```kotlin
+ val preferences = PreferenceManager.getDefaultSharedPreferences(this).all
+ 
+ preferences.forEach {
+@@ -227,7 +213,7 @@ preferences.forEach {
+ 
+ ### Java
+ 
+-```
++```java
+ var preferences = PreferenceManager.getDefaultSharedPreferences(context).getAll();
+ 
+ preferences.forEach((key, value) ->{

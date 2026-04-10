@@ -1,0 +1,367 @@
+diff --git a/docs/identity/user-data-ids.md b/docs/identity/user-data-ids.md
+index 594549c..97bf608 100644
+--- a/docs/identity/user-data-ids.md
++++ b/docs/identity/user-data-ids.md
+@@ -1,40 +1,28 @@
+ ---
+-title: Best practices for unique identifiers  |  Identity  |  Android Developers
++title: https://developer.android.com/identity/user-data-ids
+ url: https://developer.android.com/identity/user-data-ids
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-* [Design & Plan](https://developer.android.com/design)
+-* [Security](https://developer.android.com/security)
+-* [Identity](https://developer.android.com/identity)
+-* [Guides](https://developer.android.com/identity/credential-manager)
+-
+-# Best practices for unique identifiers Stay organized with collections Save and categorize content based on your preferences.
+-
+-
+-
+ This document provides guidance for selecting appropriate identifiers for your
+ app based on your use case.
+ 
+ For a general look at Android permissions, see [Permissions
+-overview](/training/articles/user-data-overview). For specific best
++overview](https://developer.android.com/training/articles/user-data-overview). For specific best
+ practices for working with Android permissions, see [App permissions best
+-practices](/training/permissions/usage-notes).
++practices](https://developer.android.com/training/permissions/usage-notes).
+ 
+ ## Best practices for working with Android identifiers
+ 
+ To protect the privacy of your users, use the most restrictive identifier that
+ satisfies your app's use case. In particular, follow these best practices:
+ 
+-1. ***Choose user-resettable identifiers whenever possible.*** Your app can
+-   achieve most of its use cases even when it uses identifiers other than
+-   non-resettable hardware IDs.
++1. ***Choose user-resettable identifiers whenever possible.*** Your app can achieve most of its use cases even when it uses identifiers other than non-resettable hardware IDs.
+ 2. ***Avoid using hardware identifiers.*** In most use cases, you can avoid
+    using hardware identifiers, such as International Mobile Equipment Identity
+    (IMEI), without limiting required functionality.
+ 
+-   Android 10 (API level 29) adds restrictions for non-resettable identifiers,
++   Android 10 (API level 29) adds restrictions for non-resettable identifiers,
+    which include both IMEI and serial number. Your app must be a [device or
+    profile owner
+    app](https://source.android.com/devices/tech/admin/managed-profiles#device_administration),
+@@ -48,15 +36,18 @@ satisfies your app's use case. In particular, follow these best practices:
+    you must connect the advertising identifier to personally-identifiable
+    information, do so only with the [explicit consent of the
+    user](https://support.google.com/googleplay/android-developer/answer/11150561).
++
+ 4. ***Don't bridge Advertising ID resets.***
++
+ 5. ***Use a Firebase installation ID (FID) or a privately stored GUID whenever
+    possible for all other use cases, except for payment fraud prevention and
+    telephony.*** For the vast majority of non-ads use cases, an FID or GUID
+    should be sufficient.
++
+ 6. ***Use APIs that are appropriate for your use case to minimize privacy
+    risk.*** Use the [DRM API](https://source.android.com/devices/drm) for
+    high-value content protection and the
+-   [Play Integrity APIs](/google/play/integrity/overview) for abuse protection.
++   [Play Integrity APIs](https://developer.android.com/google/play/integrity/overview) for abuse protection.
+    The Play Integrity APIs are the easiest way to determine whether a device is
+    genuine without incurring privacy risk.
+ 
+@@ -75,7 +66,6 @@ subsequent Advertising IDs together without
+ the user's consent. The [Google Play Developer Content
+ Policy](https://play.google.com/about/developer-content-policy) states the
+ following:
+-
+ > *"...if reset, a new advertising identifier must not be connected to a
+ > previous advertising identifier or data derived from a previous advertising
+ > identifier without the explicit consent of the user."*
+@@ -87,7 +77,6 @@ method to ensure that you aren't circumventing your users' wishes. The [Google
+ Play Developer Content
+ Policy](https://play.google.com/about/developer-content-policy) states the
+ following:
+-
+ > *"...you must abide by a user's 'Opt out of interest-based advertising' or
+ > 'Opt out of Ads Personalization' setting. If a user has enabled this setting,
+ > you may not use the advertising identifier for creating user profiles for
+@@ -95,7 +84,8 @@ following:
+ > Allowed activities include contextual advertising, frequency capping, conversion
+ > tracking, reporting and security and fraud detection."*
+ 
+-**Note:** As part of Google Play services update in late 2021, the advertising ID will be removed when a user opts out of personalization using advertising ID in Android Settings. Any attempts to access the identifier will receive a string of zeros instead of the identifier. See [Play Console Help to learn more](https://support.google.com/googleplay/android-developer/answer/6048248?ref_topic=2364761).
++> [!NOTE]
++> **Note:** As part of Google Play services update in late 2021, the advertising ID will be removed when a user opts out of personalization using advertising ID in Android Settings. Any attempts to access the identifier will receive a string of zeros instead of the identifier. See [Play Console Help to learn more](https://support.google.com/googleplay/android-developer/answer/6048248?ref_topic=2364761).
+ 
+ ***Be aware of any privacy or security policies associated with SDKs you use that are related to Advertising ID use.***
+ For example, if you pass `true` into the
+@@ -113,11 +103,10 @@ SSAID, MAC address, IMEI, etc.,)."
+ As an example, suppose you want to collect information to populate database
+ tables with the following columns:
+ 
+-|  |  |  |  |
+-| --- | --- | --- | --- |
+-| TABLE-01 | | | |
++|---|---|---|---|
++| TABLE-01 ||||
+ | `timestamp` | `ad_id` | `account_id` | `clickid` |
+-| TABLE-02 | | | |
++| TABLE-02 ||||
+ | `account_id` | `name` | `dob` | `country` |
+ 
+ In this example, the `ad_id` column could be joined to PII via the `account_id`
+@@ -130,11 +119,10 @@ explicit. It's possible to have "quasi-identifiers" that appear in both PII and
+ Ad ID keyed tables, which also cause problems. For example, assume we change
+ TABLE-01 and TABLE-02 as follows:
+ 
+-|  |  |  |  |  |
+-| --- | --- | --- | --- | --- |
+-| TABLE-01 | | | | |
+-| `timestamp` | `ad_id` | `clickid` | `dev_model` | |
+-| TABLE-02 | | | | |
++|---|---|---|---|---|
++| TABLE-01 |||||
++| `timestamp` | `ad_id` | `clickid` | `dev_model` ||
++| TABLE-02 |||||
+ | `timestamp` | `demo` | `account_id` | `dev_model` | `name` |
+ 
+ In this case, with sufficiently rare click events, it's still possible to join
+@@ -149,20 +137,18 @@ appear for every timestamp.
+ 
+ Other solutions include the following:
+ 
+-* ***Not designing tables that explicitly link PII with Advertising IDs***. In
++- ***Not designing tables that explicitly link PII with Advertising IDs*** . In
+   the first example above, this would mean not including the `account_id` column
+   in TABLE-01.
+-* ***Segregating and monitoring access control lists for users or roles that have access to both the Advertising ID keyed data and PII***.
++
++- ***Segregating and monitoring access control lists for users or roles that have access to both the Advertising ID keyed data and PII***.
+   By tightly controlling and auditing the ability to access both sources
+   simultaneously (for example, by performing a join between tables), you reduce
+   the risk of association between the Advertising ID and PII. Generally speaking,
+   controlling access means doing the following:
+ 
+-  1. Keep access control lists (ACLs) for Advertiser ID keyed data and PII
+-     disjoint to minimize the number of individuals or roles that are in both
+-     ACLs.
+-  2. Implement access logging and auditing to detect and manage any exceptions
+-     to this rule.
++  1. Keep access control lists (ACLs) for Advertiser ID keyed data and PII disjoint to minimize the number of individuals or roles that are in both ACLs.
++  2. Implement access logging and auditing to detect and manage any exceptions to this rule.
+ 
+ For more information on working responsibly with Advertising IDs, see the
+ [`AdvertisingIdClient`](https://developers.google.com/android/reference/com/google/android/gms/ads/identifier/AdvertisingIdClient) API reference.
+@@ -186,13 +172,13 @@ way to do so is by generating your own GUID using the following code:
+ 
+ ### Kotlin
+ 
+-```
++```kotlin
+ var uniqueID = UUID.randomUUID().toString()
+ ```
+ 
+ ### Java
+ 
+-```
++```java
+ String uniqueID = UUID.randomUUID().toString();
+ ```
+ 
+@@ -200,7 +186,8 @@ Because the identifier is globally unique, it can be used to identify a specific
+ app instance. To avoid concerns related to linking the identifier across apps,
+ store GUIDs in internal storage instead of external (shared) storage. For more
+ information, see the [Data and file storage
+-overview](/guide/topics/data/data-storage) page.
++overview](https://developer.android.com/guide/topics/data/data-storage) page.
++
+ 
+ ## Don't work with MAC addresses
+ 
+@@ -215,36 +202,36 @@ On apps targeting Android 11 and higher, MAC randomization for Passpoint
+ networks is per Passpoint profile, generating a unique MAC address based on the
+ following fields:
+ 
+-* Fully-qualified domain name (FQDN)
+-* Realm
+-* Credential, based on the credential used in the Passpoint profile:
+-  + User credential: user name
+-  + Certificate credential: cert and cert type
+-  + SIM credential: EAP type and IMSI
++- Fully-qualified domain name (FQDN)
++- Realm
++- Credential, based on the credential used in the Passpoint profile:
++  - User credential: user name
++  - Certificate credential: cert and cert type
++  - SIM credential: EAP type and IMSI
+ 
+ In addition, non-privileged apps can't access the device's MAC address; only
+ network interfaces with an IP address are visible. This impacts the
+ [`getifaddrs()`](https://android.googlesource.com/platform/bionic/+/master/libc/include/ifaddrs.h#83)
+ and
+-[`NetworkInterface.getHardwareAddress()`](/reference/java/net/NetworkInterface#getHardwareAddress())
++[`NetworkInterface.getHardwareAddress()`](https://developer.android.com/reference/java/net/NetworkInterface#getHardwareAddress())
+ methods, as well as sending `RTM_GETLINK` Netlink messages.
+ 
+ The following is a list of the ways that apps are affected by this change:
+ 
+-* `NetworkInterface.getHardwareAddress()` returns null for every interface.
+-* Apps cannot use the `bind()` function on `NETLINK_ROUTE` sockets.
+-* The `ip` command does not return information about interfaces.
+-* Apps cannot send `RTM_GETLINK` messages.
++- `NetworkInterface.getHardwareAddress()` returns null for every interface.
++- Apps cannot use the `bind()` function on `NETLINK_ROUTE` sockets.
++- The `ip` command does not return information about interfaces.
++- Apps cannot send `RTM_GETLINK` messages.
+ 
+ Note that most developers should use the higher-level APIs of
+-[`ConnectivityManager`](/reference/android/net/ConnectivityManager) rather than
++[`ConnectivityManager`](https://developer.android.com/reference/android/net/ConnectivityManager) rather than
+ lower-level APIs like
+-[`NetworkInterface`](/reference/java/net/NetworkInterface),
++[`NetworkInterface`](https://developer.android.com/reference/java/net/NetworkInterface),
+ [`getifaddrs()`](https://android.googlesource.com/platform/bionic/+/master/libc/include/ifaddrs.h#83),
+ or Netlink sockets. For example, an app that needs up-to-date information on the
+-current routes can get this information by listening for network changes using [`ConnectivityManager.registerNetworkCallback()`](/reference/android/net/ConnectivityManager#registerNetworkCallback(android.net.NetworkRequest,%20android.net.ConnectivityManager.NetworkCallback))
++current routes can get this information by listening for network changes using [`ConnectivityManager.registerNetworkCallback()`](https://developer.android.com/reference/android/net/ConnectivityManager#registerNetworkCallback(android.net.NetworkRequest,%20android.net.ConnectivityManager.NetworkCallback))
+ and calling the network's associated
+-[`LinkProperties.getRoutes()`](/reference/android/net/LinkProperties#getRoutes()).
++[`LinkProperties.getRoutes()`](https://developer.android.com/reference/android/net/LinkProperties#getRoutes()).
+ 
+ ## Identifier characteristics
+ 
+@@ -259,9 +246,9 @@ each other.
+ Identifier scope explains which systems can access the identifier. Android
+ identifier scope generally comes in three flavors:
+ 
+-* *Single app*: The ID is internal to the app and not accessible to other apps.
+-* *Group of apps*: The ID is accessible to a pre-defined group of related apps.
+-* *Device*: The ID is accessible to all apps installed on the device.
++- *Single app*: The ID is internal to the app and not accessible to other apps.
++- *Group of apps*: The ID is accessible to a pre-defined group of related apps.
++- *Device*: The ID is accessible to all apps installed on the device.
+ 
+ The wider the scope granted to an identifier, the greater the risk of it being
+ used for tracking purposes. Conversely, if an identifier can only be accessed by
+@@ -276,11 +263,10 @@ System Settings, resets on launch, and resets on installation. Android
+ identifiers can have varying lifespans, but the lifespan is usually related
+ to how the ID is reset:
+ 
+-* *Session-only*: A new ID is used every time the user restarts the app.
+-* *Install-reset*: A new ID is used every time user uninstalls and reinstalls
+-  the app.
+-* *FDR-reset*: A new ID is used every time the user factory-resets the device.
+-* *FDR-persistent*: The ID survives factory reset.
++- *Session-only*: A new ID is used every time the user restarts the app.
++- *Install-reset*: A new ID is used every time user uninstalls and reinstalls the app.
++- *FDR-reset*: A new ID is used every time the user factory-resets the device.
++- *FDR-persistent*: The ID survives factory reset.
+ 
+ Resettability gives users the ability to create a new ID that is disassociated
+ from any existing profile information. The longer, and more reliably, an
+@@ -325,6 +311,7 @@ scoped to the device. In many cases, an app-scoped identifier would suffice.
+ 
+ ### Accounts
+ 
++
+ #### Carrier status
+ 
+ *In this case, your app interacts with the device's phone and texting
+@@ -352,7 +339,7 @@ verify access to certain premium app features based on the device's mobile
+ subscriptions via SIM.*
+ 
+ **Recommended identifier to use:** [Subscription ID
+-API](/reference/android/telephony/SubscriptionInfo#getSubscriptionId()) to
++API](https://developer.android.com/reference/android/telephony/SubscriptionInfo#getSubscriptionId()) to
+ identify SIMs that are used on the device.
+ 
+ The Subscription ID provides an index value (starting at 1) for uniquely
+@@ -363,19 +350,18 @@ unless the device is factory reset. However, there may be cases where the same
+ SIM has a different Subscription ID on different devices or different SIMs have
+ the same ID on different devices.
+ 
+-**Note:** Access to this ID requires the
+-[`READ_PHONE_STATE`](/reference/android/Manifest.permission#READ_PHONE_STATE)
+-permission.
++> [!NOTE]
++> **Note:** Access to this ID requires the [`READ_PHONE_STATE`](https://developer.android.com/reference/android/Manifest.permission#READ_PHONE_STATE) permission.
+ 
+ **Why this recommendation?**
+ 
+ Some apps may be currently using the [ICC
+-ID](/reference/android/telephony/SubscriptionInfo#getIccId%28%29) for this
++ID](https://developer.android.com/reference/android/telephony/SubscriptionInfo#getIccId%28%29) for this
+ purpose. Because the ICC ID is globally unique and non-resettable, the access
+ has been restricted to apps with the `READ_PRIVILEGED_PHONE_STATE`
+ permission since Android 10. Beginning with Android 11, Android further
+ restricted access to the ICCID through the
+-[`getIccId()`](/reference/android/telephony/SubscriptionInfo#getIccId%28%29)
++[`getIccId()`](https://developer.android.com/reference/android/telephony/SubscriptionInfo#getIccId%28%29)
+ API, regardless of the app's target API level. Affected apps should migrate to
+ use the Subscription ID instead.
+ 
+@@ -435,6 +421,7 @@ most appropriate solution. If you use an ID for advertising use cases, that ID
+ must be the Advertising ID because the user can reset it. Learn more in the
+ [Google Play Developer Content Policy](https://play.google.com/about/developer-content-policy).
+ 
++
+ #### Conversions
+ 
+ *In this case, you're tracking conversions to detect if your marketing strategy
+@@ -471,22 +458,15 @@ because the user can reset it.
+ *In this case, your app evaluates a user's behavior to help you determine the
+ following:*
+ 
+-* *Which of your organization's other products or apps might be suitable for the
++- *Which of your organization's other products or apps might be suitable for the
+   user.*
+-* *How to keep users interested in using your app.*
+-* *Measure usage statistics and analytics for signed-out or anonymous users.*
++- *How to keep users interested in using your app.*
++- *Measure usage statistics and analytics for signed-out or anonymous users.*
+ 
+ Possible solutions include:
+ 
+-* **App set ID:** An App Set ID allows you to analyze a user's behavior across
+-  multiple apps that your organization owns, as long as you don't use user data
+-  for advertising purposes. If you're targeting devices powered by Google Play
+-  services, we recommend that you use App Set ID.
+-* **Firebase ID (FID):** An FID is scoped to the app that creates it, which
+-  prevents the identifier from being used to track users across apps. It is also
+-  easily resettable, as the user can clear app data or reinstall the app. The
+-  process of creating a FID is straightforward; see the Firebase installations
+-  guide.
++- **App set ID:** An App Set ID allows you to analyze a user's behavior across multiple apps that your organization owns, as long as you don't use user data for advertising purposes. If you're targeting devices powered by Google Play services, we recommend that you use App Set ID.
++- **Firebase ID (FID):** An FID is scoped to the app that creates it, which prevents the identifier from being used to track users across apps. It is also easily resettable, as the user can clear app data or reinstall the app. The process of creating a FID is straightforward; see the Firebase installations guide.
+ 
+ ### App development
+ 
+@@ -564,9 +544,9 @@ backend services.*
+ 
+ **Why this recommendation?**
+ 
+-To verify that a request comes from a genuine Android device—rather than an
+-emulator or other code spoofing another device—use the
+-[Google Play Integrity API](/google/play/integrity/overview).
++To verify that a request comes from a genuine Android device---rather than an
++emulator or other code spoofing another device---use the
++[Google Play Integrity API](https://developer.android.com/google/play/integrity/overview).
+ 
+ #### Ad fraud
+ 
+@@ -581,6 +561,7 @@ Use of the Advertising ID is mandatory for advertising use cases, per the
+ [Google Play Developer Content Policy](https://play.google.com/about/developer-content-policy),
+ because the user can reset it.
+ 
++
+ #### Digital rights management (DRM)
+ 
+ *In this case, your app wants to protect fraudulent access to intellectual
+@@ -593,6 +574,7 @@ Android provides a [DRM API](https://source.android.com/devices/drm), which can
+ be used to limit access to content, includes a per-APK identifier, the
+ Widevine ID.
+ 
++
+ ### User preferences
+ 
+ *In this case, your app saves per-device user state on your app's, particularly

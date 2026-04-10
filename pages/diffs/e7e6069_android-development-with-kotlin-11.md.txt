@@ -1,0 +1,111 @@
+diff --git a/docs/courses/quizzes/android-development-with-kotlin-11/android-development-with-kotlin-11.md b/docs/courses/quizzes/android-development-with-kotlin-11/android-development-with-kotlin-11.md
+index 12fe90d..1a31723 100644
+--- a/docs/courses/quizzes/android-development-with-kotlin-11/android-development-with-kotlin-11.md
++++ b/docs/courses/quizzes/android-development-with-kotlin-11/android-development-with-kotlin-11.md
+@@ -1,68 +1,57 @@
+ ---
+-title: Lesson 11: Connect to the internet  |  Android Developers
++title: https://developer.android.com/courses/quizzes/android-development-with-kotlin-11/android-development-with-kotlin-11
+ url: https://developer.android.com/courses/quizzes/android-development-with-kotlin-11/android-development-with-kotlin-11
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-Stay organized with collections
+-
+-Save and categorize content based on your preferences.
+-
+-
+-
+ # Lesson 11: Connect to the internet
+ 
+-Return to pathway
+-
+-
+-
+-1. ## What are the two key things Retrofit needs to build a web services API?
+-
+-   The base URI for the web service, and a GET query.
+-
+-   The base URI for the web service, and a converter factory.
+-
+-   A network connection to the web service, and an authorization token.
+-
+-   A converter factory, and a parser for the response.
+-2. ## What is the purpose of the Moshi library?
+-
+-   To get data back from a web service.
+-
+-   To interact with Retrofit to make a web service request.
+-
+-   To parse a JSON response from a web service into Kotlin data objects.
+-
+-   To rename Kotlin objects to match the keys in the JSON response.
+-3. ## Which Glide method do you use to indicate the `ImageView` that will contain the loaded image?
++# Lesson 11: Connect to the internet
+ 
+-   `into()`
++<br />
+ 
+-   `with()`
++Return to pathway  
++1.
+ 
+-   `imageview()`
++   ## What are the two key things Retrofit needs to build a web services API?
+ 
+-   `apply()`
+-4. ## How do you specify a placeholder image to show when Glide is loading?
++   The base URI for the web service, and a GET query.  
++   The base URI for the web service, and a converter factory.  
++   A network connection to the web service, and an authorization token.  
++   A converter factory, and a parser for the response.  
++2.
+ 
+-   Use the `into()` method with a drawable.
++   ## What is the purpose of the Moshi library?
+ 
+-   Use `RequestOptions()` and call the `placeholder()` method with a drawable.
++   To get data back from a web service.  
++   To interact with Retrofit to make a web service request.  
++   To parse a JSON response from a web service into Kotlin data objects.  
++   To rename Kotlin objects to match the keys in the JSON response.  
++3.
+ 
+-   Assign the `Glide.placeholder` property to a drawable.
++   ## Which Glide method do you use to indicate the`ImageView`that will contain the loaded image?
+ 
+-   Use `RequestOptions()` and call the `loadingImage()` method with a drawable.
+-5. ## How do you add a query option to a REST web service call in Retrofit?
++   `into()`  
++   `with()`  
++   `imageview()`  
++   `apply()`  
++4.
+ 
+-   Append the query to the end of the request URL.
++   ## How do you specify a placeholder image to show when Glide is loading?
+ 
+-   Add a parameter for the query to the function that makes the request, and annotate that parameter with `@Query`.
++   Use the`into()`method with a drawable.  
++   Use`RequestOptions()`and call the`placeholder()`method with a drawable.  
++   Assign the`Glide.placeholder`property to a drawable.  
++   Use`RequestOptions()`and call the`loadingImage()`method with a drawable.  
++5.
+ 
+-   Use the Query class to build a request.
++   ## How do you add a query option to a REST web service call in Retrofit?
+ 
+-   Use the `addQuery()` method in the Retrofit builder.
++   Append the query to the end of the request URL.  
++   Add a parameter for the query to the function that makes the request, and annotate that parameter with`@Query`.  
++   Use the Query class to build a request.  
++   Use the`addQuery()`method in the Retrofit builder.  
+ 
+ Submit answers
+ 
+-*error\_outline*
+-An error occurred when grading the quiz. Please try again.
+\ No newline at end of file
++*error_outline*An error occurred when grading the quiz. Please try again.
+\ No newline at end of file

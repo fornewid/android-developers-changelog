@@ -1,0 +1,69 @@
+diff --git a/docs/tools/jetifier.md b/docs/tools/jetifier.md
+index a1ea3db..9ec42b7 100644
+--- a/docs/tools/jetifier.md
++++ b/docs/tools/jetifier.md
+@@ -1,25 +1,16 @@
+ ---
+-title: Jetifier  |  Android Studio  |  Android Developers
++title: https://developer.android.com/tools/jetifier
+ url: https://developer.android.com/tools/jetifier
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-* [Develop](https://developer.android.com/develop)
+-* [Android Studio](https://developer.android.com/studio)
+-* [SDK tools guides](https://developer.android.com/tools)
+-
+-# Jetifier Stay organized with collections Save and categorize content based on your preferences.
+-
+-
+-
+ The standalone Jetifier tool migrates support-library-dependent libraries to
+ instead rely on the equivalent AndroidX packages. The tool lets you migrate an
+ individual library directly instead of using the Android Gradle plugin bundled
+ with Android Studio.
+ 
+-**Note:** Before you begin the migration, update your library to use
+-version 28.0.0 of the Support Library.
++> [!NOTE]
++> **Note:** Before you begin the migration, update your library to use version 28.0.0 of the Support Library.
+ 
+ ## Install Jetifier
+ 
+@@ -42,16 +33,16 @@ files, including nested archives.
+ The following table lists the available options for the Jetifier tool commands:
+ 
+ | Option | Required? | Description |
+-| --- | --- | --- |
+-| `-i`, `--input` <path> | yes | Path to input library (JAR, AAR, or ZIP). |
+-| `-o`, `--output` <path> | yes | Path to the output file. If the file already exists, Jetifier overwrites it. |
+-| `-c`, `--config` <path> | no | Path to optional custom config file. |
+-| `-l`, `--log` <level> | no | Logging level. Allowed values are:  * error * warning * info * verbose  If not specified, defaults to "warning". |
++|---|---|---|
++| `-i`, `--input` <var translate="no">\<path\></var> | yes | Path to input library (JAR, AAR, or ZIP). |
++| `-o`, `--output` <var translate="no">\<path\></var> | yes | Path to the output file. If the file already exists, Jetifier overwrites it. |
++| `-c`, `--config` <var translate="no">\<path\></var> | no | Path to optional custom config file. |
++| `-l`, `--log` <var translate="no">\<level\></var> | no | Logging level. Allowed values are: - error - warning - info - verbose If not specified, defaults to "warning". |
+ | `-r` | no | Operate in reverse mode ("de-jetification"). |
+-| `-rebuildTopOfTree`,  `--rebuildTopOfTree` | no | Rebuild the ZIP of Maven distribution according to the generated POM file.  If set, all rewritten libraries are assumed to be part of Support Library. Not needed for jetification. |
++| `-rebuildTopOfTree`, `--rebuildTopOfTree` | no | Rebuild the ZIP of Maven distribution according to the generated POM file. If set, all rewritten libraries are assumed to be part of Support Library. Not needed for jetification. |
+ | `-s`, `--strict` | no | Don't fallback when rules are missing; throw errors instead. |
+-| `-stripSignatures`,  `--stripSignatures` | no | Don't throw an error when jetifying a signed library; strip the signature files instead. |
+-| `-t`, `-timestamp` <arg> | no | Timestamps policy to use for the archived entries as their modified time. Values: keepPrevious (default) epoch or now. |
++| `-stripSignatures`, `--stripSignatures` | no | Don't throw an error when jetifying a signed library; strip the signature files instead. |
++| `-t`, `-timestamp` <var translate="no">\<arg\></var> | no | Timestamps policy to use for the archived entries as their modified time. Values: keepPrevious (default) epoch or now. |
+ 
+ #### Example
+ 
+@@ -110,8 +101,7 @@ AndroidX.
+ 
+ To use a custom config file:
+ 
+-1. Extract the file `default.generated.config` from the utility's
+-   `jetifier-core-*.jar` file and save it.
++1. Extract the file `default.generated.config` from the utility's `jetifier-core-*.jar` file and save it.
+ 2. Make any necessary edits to your copy of the config file.
+ 3. Pass your file to the utility with the `-c` flag.
+ 

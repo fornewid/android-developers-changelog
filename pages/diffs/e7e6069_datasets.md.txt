@@ -1,0 +1,95 @@
+diff --git a/docs/training/data-storage/shared/datasets.md b/docs/training/data-storage/shared/datasets.md
+index 34035f2..c94b2d8 100644
+--- a/docs/training/data-storage/shared/datasets.md
++++ b/docs/training/data-storage/shared/datasets.md
+@@ -1,46 +1,31 @@
+ ---
+-title: Access shared datasets  |  App data and files  |  Android Developers
++title: https://developer.android.com/training/data-storage/shared/datasets
+ url: https://developer.android.com/training/data-storage/shared/datasets
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-* [Develop](https://developer.android.com/develop)
+-* [Core areas](https://developer.android.com/develop/core-areas)
+-* [App data and files](https://developer.android.com/training/data-storage)
+-
+-# Access shared datasets Stay organized with collections Save and categorize content based on your preferences.
+-
+-
+-
+-
+ Starting in Android 11 (API level 30), the system caches large datasets that
+ multiple apps might access for use cases like machine learning and media
+ playback. This functionality helps reduce data redundancy, both over the network
+ and on disk.
+ 
+ When your app needs access to a shared large dataset, it can first look for
+-these cached datasets, called *shared data blobs*, before determining whether to
++these cached datasets, called *shared data blobs* , before determining whether to
+ download a new copy. Apps can access these shared datasets functionality using
+-the APIs in [`BlobStoreManager`](/reference/android/app/blob/BlobStoreManager).
++the APIs in [`BlobStoreManager`](https://developer.android.com/reference/android/app/blob/BlobStoreManager).
+ 
+ The system maintains the shared data blobs and controls which apps can access
+ them. When your app contributes data blobs, you can indicate which other apps
+ should have access by calling one of the following methods:
+ 
+-* To grant access to a specific set of apps on a device, pass the package names
+-  of these apps into
+-  [`allowPackageAccess()`](/reference/android/app/blob/BlobStoreManager.Session#allowPackageAccess(java.lang.String,%20byte%5B%5D)).
+-* To allow only apps whose certificates are signed using the same key as the one
+-  used for your app—such as an app suite that you manage—call
+-  [`allowSameSignatureAccess()`](/reference/android/app/blob/BlobStoreManager.Session#allowSameSignatureAccess()).
+-* To grant access to all apps on a device, call
+-  [`allowPublicAccess()`](/reference/android/app/blob/BlobStoreManager.Session#allowPublicAccess()).
++- To grant access to a specific set of apps on a device, pass the package names of these apps into [`allowPackageAccess()`](https://developer.android.com/reference/android/app/blob/BlobStoreManager.Session#allowPackageAccess(java.lang.String,%20byte%5B%5D)).
++- To allow only apps whose certificates are signed using the same key as the one used for your app---such as an app suite that you manage---call [`allowSameSignatureAccess()`](https://developer.android.com/reference/android/app/blob/BlobStoreManager.Session#allowSameSignatureAccess()).
++- To grant access to all apps on a device, call [`allowPublicAccess()`](https://developer.android.com/reference/android/app/blob/BlobStoreManager.Session#allowPublicAccess()).
+ 
+ ## Access shared data blobs
+ 
+ The system represents each shared data blob using a
+-[`BlobHandle`](/reference/android/app/blob/BlobHandle) object. Each instance of `BlobHandle`
++[`BlobHandle`](https://developer.android.com/reference/android/app/blob/BlobHandle) object. Each instance of `BlobHandle`
+ contains a cryptographically-secure hash and some identifying details for the
+ dataset.
+ 
+@@ -56,7 +41,7 @@ as shown in the following code snippet:
+ 
+ ### Kotlin
+ 
+-```
++```kotlin
+ val blobStoreManager =
+         getSystemService(Context.BLOB_STORE_SERVICE) as BlobStoreManager
+ // The label "Sample photos" is visible to the user.
+@@ -73,7 +58,7 @@ try {
+ 
+ ### Java
+ 
+-```
++```java
+ BlobStoreManager blobStoreManager =
+         ((BlobStoreManager) getSystemService(Context.BLOB_STORE_SERVICE));
+ if (blobStoreManager != null) {
+@@ -97,7 +82,7 @@ to the system, as shown in the following code snippet:
+ 
+ ### Kotlin
+ 
+-```
++```kotlin
+ val sessionId = blobStoreManager.createSession(blobHandle)
+ try {
+     val session = blobStoreManager.openSession(sessionId)
+@@ -121,7 +106,7 @@ try {
+ 
+ ### Java
+ 
+-```
++```java
+ long sessionId = blobStoreManager.createSession(blobHandle);
+ try (BlobStoreManager.Session session =
+         blobStoreManager.openSession(sessionId)) {

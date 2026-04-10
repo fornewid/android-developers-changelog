@@ -1,0 +1,178 @@
+diff --git a/docs/guide/navigation/navigation-event/handle-back.md b/docs/guide/navigation/navigation-event/handle-back.md
+index b521533..ca993b5 100644
+--- a/docs/guide/navigation/navigation-event/handle-back.md
++++ b/docs/guide/navigation/navigation-event/handle-back.md
+@@ -1,23 +1,15 @@
+ ---
+-title: Handle back gestures and predictive back animations  |  App architecture  |  Android Developers
++title: https://developer.android.com/guide/navigation/navigation-event/handle-back
+ url: https://developer.android.com/guide/navigation/navigation-event/handle-back
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-* [Design & Plan](https://developer.android.com/design)
+-* [App architecture](https://developer.android.com/topic/architecture/intro)
+-
+-# Handle back gestures and predictive back animations Stay organized with collections Save and categorize content based on your preferences.
+-
+-
+-
+-
+ You can extend the abstract class `NavigationEventHandler` to handle navigation
+ events across platforms. This class provides methods corresponding to the
+ lifecycle of a navigation gesture.
+ 
+-```
++
++```kotlin
+ val myHandler = object: NavigationEventHandler<NavigationEventInfo>(
+     initialInfo = NavigationEventInfo.None,
+     isBackEnabled = true
+@@ -39,30 +31,32 @@ val myHandler = object: NavigationEventHandler<NavigationEventInfo>(
+         // Cancel the back event
+     }
+ }
+-
+-NavEventSnippets.kt
+ ```
+ 
++<br />
++
+ The `addHandler` function connects the handler to the dispatcher:
+ 
+-```
+-navigationEventDispatcher.addHandler(myHandler)
+ 
+-NavEventSnippets.kt
++```kotlin
++navigationEventDispatcher.addHandler(myHandler)
+ ```
+ 
++<br />
++
+ Call `myHandler.remove()` to remove the handler from the dispatcher:
+ 
+-```
+-myHandler.remove()
+ 
+-NavEventSnippets.kt
++```kotlin
++myHandler.remove()
+ ```
+ 
++<br />
++
+ Handlers are invoked based on priority, and then by recency. All
+-[`PRIORITY_OVERLAY`](/reference/kotlin/androidx/navigationevent/NavigationEventDispatcher#PRIORITY_OVERLAY()) handlers are called before any [`PRIORITY_DEFAULT`](/reference/kotlin/androidx/navigationevent/NavigationEventDispatcher#PRIORITY_DEFAULT())
++[`PRIORITY_OVERLAY`](https://developer.android.com/reference/kotlin/androidx/navigationevent/NavigationEventDispatcher#PRIORITY_OVERLAY()) handlers are called before any [`PRIORITY_DEFAULT`](https://developer.android.com/reference/kotlin/androidx/navigationevent/NavigationEventDispatcher#PRIORITY_DEFAULT())
+ handlers. Within each priority group, handlers are invoked in a Last-In,
+-First-Out (LIFO) order — the most recently added handler is called first.
++First-Out (LIFO) order --- the most recently added handler is called first.
+ 
+ ## Intercept back with Jetpack Compose
+ 
+@@ -74,7 +68,8 @@ its content and links it to the `LocalNavigationEventDispatcherOwner`. It uses
+ Compose's `DisposableEffect` to automatically call the dispatcher's `dispose()`
+ method when the composable leaves the screen, safely managing resources.
+ 
+-```
++
++```kotlin
+ @Composable
+ public fun NavigationBackHandler(
+     state: NavigationEventState<out NavigationEventInfo>,
+@@ -84,14 +79,15 @@ public fun NavigationBackHandler(
+ ){
+ 
+ }
+-
+-NavEventSnippets.kt
+ ```
+ 
++<br />
++
+ This function lets you control event handling precisely within localized UI
+ subtrees.
+ 
+-```
++
++```kotlin
+ @Composable
+ fun HandlingBackWithTransitionState(
+     onNavigateUp: () -> Unit
+@@ -121,41 +117,34 @@ fun HandlingBackWithTransitionState(
+         }
+     )
+ }
+-
+-NavEventSnippets.kt
+ ```
+ 
++<br />
++
+ This example shows how to observe predictive back gesture updates using
+-[`NavigationEventTransitionState`](/reference/kotlin/androidx/navigationevent/NavigationEventTransitionState). The `progress` value can be used to
++[`NavigationEventTransitionState`](https://developer.android.com/reference/kotlin/androidx/navigationevent/NavigationEventTransitionState). The `progress` value can be used to
+ update UI elements in response to the back gesture, while handling completion
+ and cancellation through `NavigationBackHandler`.
+ 
+ ### Access the back gesture or swipe edge in Compose
+ 
+-**Note:** For Android, if you're already using a navigation library with built-in
+-Predictive Back support, like [Navigation 3](/guide/navigation/navigation-3/animate-destinations), use that instead of
+-implementing the guidance here. The following section shows how to create a
+-Predictive Back animation using only `NavigationEvent` and Compose.
+-
+-[
+-
+-](/static/images/topic/libraries/architecture/predictive-back.mp4)
++> [!NOTE]
++> **Note:** For Android, if you're already using a navigation library with built-in Predictive Back support, like [Navigation 3](https://developer.android.com/guide/navigation/navigation-3/animate-destinations), use that instead of implementing the guidance here. The following section shows how to create a Predictive Back animation using only `NavigationEvent` and Compose.
+ 
+-**Figure 1**. A predictive back animation built with `NavigationEvent` and Compose.
++**Figure 1** . A predictive back animation built with `NavigationEvent` and Compose.
+ 
+ To animate the screen while the user swipes back, you'll need to (a) check if
+ the `NavigationEventTransitionState` is `InProgress`, and (b) observe the
+ progress and swipe edge state with `rememberNavigationEventState`:
+ 
+-* `progress`: A Float from `0.0` to `1.0` indicating how far the user has
+-  swiped.
+-* `swipeEdge`: An integer constant (`EDGE_LEFT` or `EDGE_RIGHT`) indicating
+-  where the gesture started.
++- `progress`: A Float from `0.0` to `1.0` indicating how far the user has swiped.
++- `swipeEdge`: An integer constant (`EDGE_LEFT` or `EDGE_RIGHT`) indicating where the gesture started.
+ 
+ The following snippet is a simplified example of how to implement a scale and
+ shift animation:
+ 
+-```
++
++```kotlin
+ object Routes {
+     const val SCREEN_A = "Screen A"
+     const val SCREEN_B = "Screen B"
+@@ -229,18 +218,6 @@ fun ScreenB(
+         // Rest of UI
+     }
+ }
+-
+-NavEventSnippets.kt
+ ```
+ 
+-[Previous
+-
+-arrow\_back
+-
+-Set up development environment](/guide/navigation/navigation-event/setup)
+-
+-[Next
+-
+-Set up a dispatcher
+-
+-arrow\_forward](/guide/navigation/navigation-event/dispatcher)
+\ No newline at end of file
++<br />
+\ No newline at end of file

@@ -1,0 +1,376 @@
+diff --git a/docs/health-and-fitness/health-connect/migration/android-13-to-14.md b/docs/health-and-fitness/health-connect/migration/android-13-to-14.md
+index 2c394a3..42a2cb4 100644
+--- a/docs/health-and-fitness/health-connect/migration/android-13-to-14.md
++++ b/docs/health-and-fitness/health-connect/migration/android-13-to-14.md
+@@ -1,20 +1,9 @@
+ ---
+-title: Migrate Health Connect from Android 13 (APK) to Android 14 (framework)  |  Android health & fitness  |  Android Developers
++title: https://developer.android.com/health-and-fitness/health-connect/migration/android-13-to-14
+ url: https://developer.android.com/health-and-fitness/health-connect/migration/android-13-to-14
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-Starting in 2026, we'll be transitioning away from Google Fit APIs. For more information on the Google Fit migration, see the [Migration Guide](/health-and-fitness/guides/health-connect/migrate/migration-guide).
+-
+-* [Android Developers](https://developer.android.com/)
+-* [Essentials](https://developer.android.com/get-started)
+-* [Health & fitness dev center](https://developer.android.com/health-and-fitness)
+-* [Health Connect Guides](https://developer.android.com/health-and-fitness/health-connect)
+-
+-# Migrate Health Connect from Android 13 (APK) to Android 14 (framework) Stay organized with collections Save and categorize content based on your preferences.
+-
+-
+-
+ Health Connect will be packaged with Android 14 as a common data storage layer
+ for consumer health and fitness data, protected by granular permissions and
+ accessible as an Android system app (referred to throughout this document as the
+@@ -33,16 +22,13 @@ Health Connect API.
+ 
+ ## Migration plan
+ 
+-1. Once Android 14 is released, Google will switch to providing Health Connect
+-   as an Android system app.
++1. Once Android 14 is released, Google will switch to providing Health Connect as an Android system app.
+ 2. Data will then be backfilled from the APK once feature parity is achieved.
+ 3. All entry points will target the system app UI.
+-4. Data migration will commence. Whilst the migration is progressing, the
+-   module APIs will be suspended with a 'Migration in Process' status. This
+-   will also be visible within the Health Connect UI.
++4. Data migration will commence. Whilst the migration is progressing, the module APIs will be suspended with a 'Migration in Process' status. This will also be visible within the Health Connect UI.
+ 5. Once migration is complete, the APK can be uninstalled.
+ 
+-**Note:** Data migration is not expected to exceed 2 hours.
++| **Note:** Data migration is not expected to exceed 2 hours.
+ 
+ ### Example migration scenarios
+ 
+@@ -54,10 +40,10 @@ Here are some example scenarios that explain the migration process for both
+ A user has collected 10 years of running records for 1 hour every day. This
+ equates to:
+ 
+-* Exercise Session Records: 365 \* 10 \* 1
+-* Steps: 365 \* 10 \* 1
+-* Calories: 365 \* 10 \* 1
+-* Total = 365 \* 10 \* 3 (365 \* 30) = 10,950
++- Exercise Session Records: 365 \* 10 \* 1
++- Steps: 365 \* 10 \* 1
++- Calories: 365 \* 10 \* 1
++- Total = 365 \* 10 \* 3 (365 \* 30) = 10,950
+ 
+ Given that 1 chunk equates to 3,000 records, the data totals around 4 chunks.
+ 
+@@ -83,18 +69,10 @@ Android 14, with minimal user intervention.
+ Here's the high-level migration flow:
+ 
+ 1. The user upgrades their device to Android 14.
+-2. Jetpack 14 routes the user to the module APIs, and blocks them whilst the
+-   migration is in progress.
+-3. The migration process starts when the module version is feature compatible
+-   with the APK - in other words, the module version contains the same feature
+-   set, or
+-   more. Once the migration process has commenced, the APK migrates permissions
+-   and data.
+-   1. If both versions are not feature compatible, the module version will
+-      need to be upgraded. Once the upgrade is complete, the migration process
+-      will commence.
+-4. Once the migration has completed, the state is changed to 'Migration
+-   Complete', and the module APIs are unblocked.
++2. Jetpack 14 routes the user to the module APIs, and blocks them whilst the migration is in progress.
++3. The migration process starts when the module version is feature compatible with the APK - in other words, the module version contains the same feature set, or more. Once the migration process has commenced, the APK migrates permissions and data.
++   1. If both versions are not feature compatible, the module version will need to be upgraded. Once the upgrade is complete, the migration process will commence.
++4. Once the migration has completed, the state is changed to 'Migration Complete', and the module APIs are unblocked.
+ 5. The APK can now be uninstalled.
+ 
+ ### Migration UI elements
+@@ -106,29 +84,17 @@ purposes, both before and during migration:
+ is displayed instructing the user to update the APK. If the user declines the
+ update, the module continues to function and starts accumulating permissions
+ and data.
+-
+-![Figure of Phone update required](/static/health-and-fitness/health-connect/images/phone_update_needed.png)
+-
+-
+-**Figure 1**: Prompt to update the Health Connect APK.
++![Figure of Phone update required](https://developer.android.com/static/health-and-fitness/health-connect/images/phone_update_needed.png) **Figure 1**: Prompt to update the Health Connect APK.
+ 
+ **Figure 2.** If the framework module requires an update for it to become
+ feature compatible, a prompt is displayed asking the user to perform the update
+ and reboot their device. If the user declines the update, the module continues
+ to function and starts accumulating permissions and data.
+-
+-![Figure of APK update needed](/static/health-and-fitness/health-connect/images/apk_update_needed.png)
+-
+-
+-**Figure 2**: Prompt to update the framework module.
++![Figure of APK update needed](https://developer.android.com/static/health-and-fitness/health-connect/images/apk_update_needed.png) **Figure 2**: Prompt to update the framework module.
+ 
+ **Figure 3.** A spinner is displayed during the migration process, with text to
+ explain that data is syncing.
+-
+-![Figure of Data Syncing](/static/health-and-fitness/health-connect/images/migration_in_process.png)
+-
+-
+-**Figure 3**: Data migration in progress.
++![Figure of Data Syncing](https://developer.android.com/static/health-and-fitness/health-connect/images/migration_in_process.png) **Figure 3**: Data migration in progress.
+ 
+ ## Deduped data
+ 
+@@ -169,58 +135,54 @@ ensure a smooth transition.
+ In Android 13, you declare permissions using a custom permissions format, in a
+ resource file that is linked to the manifest:
+ 
+-```
+-#AndroidManifest.xml
+-
+-<activity>
+-    android:name=".RationaleActivity"
+-    android:exported="true">
+-    <intent-filter>
+-        <action android:name="androidx.health.ACTION_SHOW_PERMISSIONS_RATIONALE"/>
+-    </intent-filter>
+-    <meta-data
+-        android:name="health_permissions"
+-        android:resource="@array/health_permissions"/>
+-</activity>
+-
+-<queries>
+-    <package android:name="com.google.android.apps.healthdata" />
+-</queries>
+-
+-#health_permissions.xml
+-
+-<resources>
+-  <array name="health_permissions">
+-    <item>androidx.health.permission.SleepSession.READ</item>
+-    <item>androidx.health.permission.SleepStage.READ</item>
+-    <item>androidx.health.permission.Weight.READ</item>
+-    <item>androidx.health.permission.Weight.WRITE</item>
+-  </array>
+-</resources>
+-```
++    #AndroidManifest.xml
++
++    <activity>
++        android:name=".RationaleActivity"
++        android:exported="true">
++        <intent-filter>
++            <action android:name="androidx.health.ACTION_SHOW_PERMISSIONS_RATIONALE"/>
++        </intent-filter>
++        <meta-data
++            android:name="health_permissions"
++            android:resource="@array/health_permissions"/>
++    </activity>
++
++    <queries>
++        <package android:name="com.google.android.apps.healthdata" />
++    </queries>
++
++    #health_permissions.xml
++
++    <resources>
++      <array name="health_permissions">
++        <item>androidx.health.permission.SleepSession.READ</item>
++        <item>androidx.health.permission.SleepStage.READ</item>
++        <item>androidx.health.permission.Weight.READ</item>
++        <item>androidx.health.permission.Weight.WRITE</item>
++      </array>
++    </resources>
+ 
+ To support Android 14, developers need to move to the standard permissions
+ format:
+ 
+-```
+-#AndroidManifest.xml
++    #AndroidManifest.xml
+ 
+-<uses-permission android:name=”android.permission.health.READ_SLEEP” />
+-<uses-permission android:name=”android.permission.health.READ_WEIGHT” />
+-<uses-permission android:name=”android.permission.health.WRITE_WEIGHT” />
++    <uses-permission android:name="android.permission.health.READ_SLEEP" />
++    <uses-permission android:name="android.permission.health.READ_WEIGHT" />
++    <uses-permission android:name="android.permission.health.WRITE_WEIGHT" />
+ 
+-<activity>
+-    android:name=".RationaleActivity"
+-    android:exported="true">
+-    <intent-filter>
+-        <action android:name="androidx.health.ACTION_SHOW_PERMISSIONS_RATIONALE" />
+-    </intent-filter>
+-</activity>
++    <activity>
++        android:name=".RationaleActivity"
++        android:exported="true">
++        <intent-filter>
++            <action android:name="androidx.health.ACTION_SHOW_PERMISSIONS_RATIONALE" />
++        </intent-filter>
++    </activity>
+ 
+-<queries>
+-    <package android:name="com.google.android.apps.healthdata"/>
+-</queries>
+-```
++    <queries>
++        <package android:name="com.google.android.apps.healthdata"/>
++    </queries>
+ 
+ ### Open Health Connect
+ 
+@@ -238,7 +200,7 @@ ACTION_HEALTH_CONNECT_SETTINGS`
+ 
+ ### Getting the Health Connect client
+ 
+-We've created [a single API](/jetpack/androidx/releases/health-connect#1.0.0-alpha11) called `sdkStatus`, available in Jetpack 11, to
++We've created [a single API](https://developer.android.com/jetpack/androidx/releases/health-connect#1.0.0-alpha11) called `sdkStatus`, available in Jetpack 11, to
+ replace two other deprecated APIs - `IsSdkSupported()` and
+ `isProviderAvailable()`.
+ 
+@@ -247,13 +209,12 @@ replace two other deprecated APIs - `IsSdkSupported()` and
+ Four `ExerciseSession` subtypes have been deleted as part of the alpha10
+ release:
+ 
+-* `ExerciseEvent`
+-* `ExerciseLaps`
+-* `ExerciseRepetitions`
+-* `SwimmingStrokes`
++- `ExerciseEvent`
++- `ExerciseLaps`
++- `ExerciseRepetitions`
++- `SwimmingStrokes`
+ 
+-**Important:** If any data exists for these types, it will be deleted during a
+-cleanup. You should stop using these data types.
++| **Important:** If any data exists for these types, it will be deleted during a cleanup. You should stop using these data types.
+ 
+ As with `ExerciseSessionRecord`, `SleepStage` will become a subtype of
+ `SleepSession`.
+@@ -266,34 +227,34 @@ released as part of the April SDK update.
+ The following exercise session types will no longer be supported, and instead
+ added as segment types at a later date:
+ 
+-* `EXERCISE_TYPE_BACK_EXTENSION`
+-* `EXERCISE_TYPE_BARBELL_SHOULDER_PRESS`
+-* `EXERCISE_TYPE_BENCH_PRESS`
+-* `EXERCISE_TYPE_BENCH_SIT_UP`
+-* `EXERCISE_TYPE_BURPEE`
+-* `EXERCISE_TYPE_CRUNCH`
+-* `EXERCISE_TYPE_DEADLIFT`
+-* `EXERCISE_TYPE_DUMBBELL_CURL_LEFT_ARM`
+-* `EXERCISE_TYPE_DUMBBELL_CURL_RIGHT_ARM`
+-* `EXERCISE_TYPE_DUMBBELL_FRONT_RAISE`
+-* `EXERCISE_TYPE_DUMBBELL_LATERAL_RAISE`
+-* `EXERCISE_TYPE_DUMBBELL_TRICEPS_EXTENSION_LEFT_ARM`
+-* `EXERCISE_TYPE_DUMBBELL_TRICEPS_EXTENSION_RIGHT_ARM`
+-* `EXERCISE_TYPE_DUMBBELL_TRICEPS_EXTENSION_TWO_ARM`
+-* `EXERCISE_TYPE_FORWARD_TWIST`
+-* `EXERCISE_TYPE_JUMPING_JACK`
+-* `EXERCISE_TYPE_JUMP_ROPE`
+-* `EXERCISE_TYPE_LAT_PULL_DOWN`
+-* `EXERCISE_TYPE_LUNGE`
+-* `EXERCISE_TYPE_PLANK`
+-* `EXERCISE_TYPE_SQUAT`
+-* `EXERCISE_TYPE_UPPER_TWIST`
++- `EXERCISE_TYPE_BACK_EXTENSION`
++- `EXERCISE_TYPE_BARBELL_SHOULDER_PRESS`
++- `EXERCISE_TYPE_BENCH_PRESS`
++- `EXERCISE_TYPE_BENCH_SIT_UP`
++- `EXERCISE_TYPE_BURPEE`
++- `EXERCISE_TYPE_CRUNCH`
++- `EXERCISE_TYPE_DEADLIFT`
++- `EXERCISE_TYPE_DUMBBELL_CURL_LEFT_ARM`
++- `EXERCISE_TYPE_DUMBBELL_CURL_RIGHT_ARM`
++- `EXERCISE_TYPE_DUMBBELL_FRONT_RAISE`
++- `EXERCISE_TYPE_DUMBBELL_LATERAL_RAISE`
++- `EXERCISE_TYPE_DUMBBELL_TRICEPS_EXTENSION_LEFT_ARM`
++- `EXERCISE_TYPE_DUMBBELL_TRICEPS_EXTENSION_RIGHT_ARM`
++- `EXERCISE_TYPE_DUMBBELL_TRICEPS_EXTENSION_TWO_ARM`
++- `EXERCISE_TYPE_FORWARD_TWIST`
++- `EXERCISE_TYPE_JUMPING_JACK`
++- `EXERCISE_TYPE_JUMP_ROPE`
++- `EXERCISE_TYPE_LAT_PULL_DOWN`
++- `EXERCISE_TYPE_LUNGE`
++- `EXERCISE_TYPE_PLANK`
++- `EXERCISE_TYPE_SQUAT`
++- `EXERCISE_TYPE_UPPER_TWIST`
+ 
+ Replacement types:
+ 
+-* `EXERCISE_TYPE_HIGH_INTENSITY_INTERVAL_TRAINING`
+-* `EXERCISE_TYPE_STRENGTH_TRAINING`
+-* `EXERCISE_TYPE_CALISTHENICS`
++- `EXERCISE_TYPE_HIGH_INTENSITY_INTERVAL_TRAINING`
++- `EXERCISE_TYPE_STRENGTH_TRAINING`
++- `EXERCISE_TYPE_CALISTHENICS`
+ 
+ ### Changelog handling
+ 
+@@ -343,40 +304,38 @@ the following changes in your APK:
+ 1. Set `compileSDKPreview = UpsideDownCake`.
+ 2. Update the manifest to include an intent for Android 14:
+ 
+-```
+-# AndroidManifest.xml
+-
+-<uses-permission android:name=”android.permission.health.READ_SLEEP”/>
+-<uses-permission android:name=”android.permission.health.READ_WEIGHT”/>
+-<uses-permission android:name=”android.permission.health.WRITE_WEIGHT”/>
+-
+-<activity>
+-    android:name=".RationaleActivity"
+-    android:exported="true">
+-    <intent-filter>
+-        <action android:name="androidx.health.ACTION_SHOW_PERMISSIONS_RATIONALE"/>
+-    </intent-filter>
+-</activity>
+-
+-<activity-alias>
+-      android:name="AndroidURationaleActivity"
+-      android:exported="true"
+-      android:targetActivity=".RationaleActivity"
+-      android:permission="android.permission.START_VIEW_PERMISSION_USAGE">
+-      <intent-filter>
+-        <action android:name="android.intent.action.VIEW_PERMISSION_USAGE" />
+-        <category android:name="android.intent.category.HEALTH_PERMISSIONS" />
+-      </intent-filter>
+-</activity-alias>
+-
+-<queries>
+-    <package android:name="com.google.android.apps.healthdata" />
+-</queries>
+-```
++    # AndroidManifest.xml
++
++    <uses-permission android:name="android.permission.health.READ_SLEEP"/>
++    <uses-permission android:name="android.permission.health.READ_WEIGHT"/>
++    <uses-permission android:name="android.permission.health.WRITE_WEIGHT"/>
++
++    <activity>
++        android:name=".RationaleActivity"
++        android:exported="true">
++        <intent-filter>
++            <action android:name="androidx.health.ACTION_SHOW_PERMISSIONS_RATIONALE"/>
++        </intent-filter>
++    </activity>
++
++    <activity-alias>
++          android:name="AndroidURationaleActivity"
++          android:exported="true"
++          android:targetActivity=".RationaleActivity"
++          android:permission="android.permission.START_VIEW_PERMISSION_USAGE">
++          <intent-filter>
++            <action android:name="android.intent.action.VIEW_PERMISSION_USAGE" />
++            <category android:name="android.intent.category.HEALTH_PERMISSIONS" />
++          </intent-filter>
++    </activity-alias>
++
++    <queries>
++        <package android:name="com.google.android.apps.healthdata" />
++    </queries>
+ 
+ ## OEM customization
+ 
+-In Android 14, Health Connect privacy & data management controls are located
++In Android 14, Health Connect privacy \& data management controls are located
+ within System Settings.
+ 
+ To make data management and permissions screens look and feel like part of the

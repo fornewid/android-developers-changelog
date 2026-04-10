@@ -1,0 +1,308 @@
+diff --git a/docs/topic/google-play-instant/getting-started/game-instant-app.md b/docs/topic/google-play-instant/getting-started/game-instant-app.md
+index 1176f20..978f904 100644
+--- a/docs/topic/google-play-instant/getting-started/game-instant-app.md
++++ b/docs/topic/google-play-instant/getting-started/game-instant-app.md
+@@ -1,18 +1,9 @@
+ ---
+-title: Convert an existing game to an instant game  |  Other Play guides  |  Android Developers
++title: https://developer.android.com/topic/google-play-instant/getting-started/game-instant-app
+ url: https://developer.android.com/topic/google-play-instant/getting-started/game-instant-app
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-* [Google Play](https://developer.android.com/distribute)
+-* [Other Play guides](https://developer.android.com/guide/app-bundle)
+-
+-# Convert an existing game to an instant game Stay organized with collections Save and categorize content based on your preferences.
+-
+-
+-
+-
+ **Warning:** Google Play Instant will no longer be available. Starting December 2025,
+ Instant Apps cannot be published through Google Play, and all
+ [Google Play services Instant APIs](https://developers.google.com/android/reference/com/google/android/gms/instantapps/package-summary)
+@@ -27,47 +18,45 @@ their regular app or game, using [deeplinks](https://support.google.com/googlepl
+ to redirect them to specific journeys or features when relevant.
+ 
+ The steps for setting up apps to run on
+-[Google Play Instant](/topic/google-play-instant/overview), as explained
+-in [Create your first instant app](/topic/google-play-instant/getting-started/first-instant-app),
++[Google Play Instant](https://developer.android.com/topic/google-play-instant/overview), as explained
++in [Create your first instant app](https://developer.android.com/topic/google-play-instant/getting-started/first-instant-app),
+ also apply to games. This guide emphasizes some setup steps specific to games.
+ 
+ You can develop games for Google Play Instant using
+ [Unity](https://docs.unity3d.com/Manual/android-sdksetup.html)
+ (with or without the [Google Play Instant Unity
+-plugin](/topic/google-play-instant/getting-started/game-unity-plugin)),
++plugin](https://developer.android.com/topic/google-play-instant/getting-started/game-unity-plugin)),
+ [Cocos2D](https://docs.cocos2d-x.org/cocos2d-x/v3/en/installation/Android-Studio.html),
+-[Android Studio](/studio), or your own custom engine.
++[Android Studio](https://developer.android.com/studio), or your own custom engine.
+ 
+ This guide assumes that you already know the sort of gaming experience you'd
+ like to provide. If you'd like to see ideas and best practices for making
+ high-quality games, read through [UX best practices for games on
+-Google Play Instant](/topic/google-play-instant/best-practices/games).
++Google Play Instant](https://developer.android.com/topic/google-play-instant/best-practices/games).
+ 
+ In addition, before publishing a game that can run on
+ Google Play Instant, you should review the [Technical requirements
+-checklist](/topic/google-play-instant/tech-requirements).
++checklist](https://developer.android.com/topic/google-play-instant/tech-requirements).
+ 
+ ## Specify an entry point
+ 
+ An activity that includes the following intent filter becomes the entry point
+ for the Google Play Instant experience:
+ 
+-```
+-<activity android:name=".GameActivity">
+-   <intent-filter>
+-      <action android:name="android.intent.action.MAIN" />
+-      <category android:name="android.intent.category.LAUNCHER" />
+-   </intent-filter>
+-</activity>
+-```
++    <activity android:name=".GameActivity">
++       <intent-filter>
++          <action android:name="android.intent.action.MAIN" />
++          <category android:name="android.intent.category.LAUNCHER" />
++       </intent-filter>
++    </activity>
+ 
+ This activity is launched when a user taps the **Try Now** button in the Play
+-Store or the [**Instant play**](/topic/google-play-instant/instant-play-games)
++Store or the [**Instant play**](https://developer.android.com/topic/google-play-instant/instant-play-games)
+ button in Google Play Games app. You can also launch this activity directly using the
+-[deep link API](/distribute/marketing-tools/linking-to-google-play#Instant).
++[deep link API](https://developer.android.com/distribute/marketing-tools/linking-to-google-play#Instant).
+ 
+-**Note:** You can bundle this entry point activity with several other
+-activities in a single module that represents your game's instant experience.
++> [!NOTE]
++> **Note:** You can bundle this entry point activity with several other activities in a single module that represents your game's instant experience.
+ 
+ ## Define the correct version codes
+ 
+@@ -77,19 +66,14 @@ players to move from the Google Play Instant experience to downloading
+ and installing the game onto their device. The Android framework considers this
+ transition to be an app update.
+ 
+-**Note:** If the player has the installed version of your game on their device, that
+-installed version always runs instead of your instant experience when users
+-invoke the instant experience from Google Play or from a link. This is true even
+-if the installed version is an older version of your game compared to your
+-instant experience.
++> [!NOTE]
++> **Note:** If the player has the installed version of your game on their device, that installed version always runs instead of your instant experience when users invoke the instant experience from Google Play or from a link. This is true even if the installed version is an older version of your game compared to your instant experience.
+ 
+ To make sure that you follow the recommended versioning scheme, follow one of
+ these strategies:
+ 
+-* Restart the version codes for the Google Play Instant experience at 1.
+-* Increase the version code of the installable app by a large number, such as
+-  1000, to ensure that there is enough space for your instant experience's version
+-  number to increase.
++- Restart the version codes for the Google Play Instant experience at 1.
++- Increase the version code of the installable app by a large number, such as 1000, to ensure that there is enough space for your instant experience's version number to increase.
+ 
+ It's OK to develop your instant game and your installable game in two separate
+ Android Studio projects. If you do so, however, you must do the following to
+@@ -98,11 +82,11 @@ publish your game on Google Play:
+ 1. Use the same package name in both Android Studio projects.
+ 2. In the Google Play Console, upload both variants to the same application.
+ 
+-**Note:** The version code isn't a user-facing value and is primarily used by the
+-system. The user-facing *version name* has no restrictions.
++> [!NOTE]
++> **Note:** The version code isn't a user-facing value and is primarily used by the system. The user-facing *version name* has no restrictions.
+ 
+ For more details on setting your game's version, see [Version your
+-app](/studio/publish/versioning).
++app](https://developer.android.com/studio/publish/versioning).
+ 
+ ## Support the execution environment
+ 
+@@ -117,13 +101,13 @@ targets Android 9 (API level 28) or higher, Android disables cleartext support
+ in your game by default.
+ 
+ If your game targets Android 8.1 (API level 27) or lower, however, you must
+-create a [Network Security Config](/training/articles/security-config) file.
++create a [Network Security Config](https://developer.android.com/training/articles/security-config) file.
+ In this file, set `cleartextTrafficPermitted` to `false`, as shown in the
+ following code snippet:
+ 
+-res/xml/network\_security\_config.xml
++res/xml/network_security_config.xml
+ 
+-```
++```xml
+ <?xml version="1.0" encoding="utf-8"?>
+ <network-security-config>
+     <domain-config cleartextTrafficPermitted="false">
+@@ -139,15 +123,13 @@ sandbox environment that Google Play Instant supports. You can complete
+ this update by adding the `android:targetSandboxVersion` attribute to your
+ games's `<manifest>` element, as shown in the following code snippet:
+ 
+-```
+-<manifest
+-   xmlns:android="http://schemas.android.com/apk/res/android"
+-  ...
+-   android:targetSandboxVersion="2" ...>
+-```
++    <manifest
++       xmlns:android="http://schemas.android.com/apk/res/android"
++      ...
++       android:targetSandboxVersion="2" ...>
+ 
+ For more information, see documentation on the
+-[`targetSandboxVersion`](/guide/topics/manifest/manifest-element#targetSandboxVersion)
++[`targetSandboxVersion`](https://developer.android.com/guide/topics/manifest/manifest-element#targetSandboxVersion)
+ attribute.
+ 
+ ### Don't rely on the presence of a cache or app data
+@@ -156,9 +138,8 @@ Your instant experience remains downloaded on a user's device until the
+ instant experience cache is cleared, which occurs in one of the following
+ situations:
+ 
+-* The instant experience cache is garbage-collected because the device is
+-  running low on available memory.
+-* The user restarts their device.
++- The instant experience cache is garbage-collected because the device is running low on available memory.
++- The user restarts their device.
+ 
+ If either process occurs, the user must re-download your instant experience
+ in order to interact with it.
+@@ -171,7 +152,7 @@ user's progress is preserved.
+ ## Reduce your app size
+ 
+ Unlike other types of apps, games on Google Play Instant have a
+-download size limit of **15 MB**. To create a game of this size, you
++download size limit of **15 MB**. To create a game of this size, you
+ might need to refactor your game's logic. This section describes some tools and
+ techniques to help optimize the size of your game.
+ 
+@@ -180,55 +161,39 @@ techniques to help optimize the size of your game.
+ The following list of tools can help you determine what is contributing to the
+ size of your game:
+ 
+-* [APK Analyzer](/studio/debug/apk-analyzer): Provides a holistic view of the
+-  contents of a compiled APK. Using this view, you can determine the number of
+-  bytes that each element is contributing to the overall size. Use this tool to
+-  quickly check the size of resources, assets, logic, and native libraries that
+-  your game is using.
+-* [Bloaty McBloatface](https://github.com/google/bloaty): Shows the
+-  size profile of binary files.
+-* [Android GPU Inspector](/agi): See the file size effect
+-  of reducing texture size without having to recompile your game.
++- [APK Analyzer](https://developer.android.com/studio/debug/apk-analyzer): Provides a holistic view of the contents of a compiled APK. Using this view, you can determine the number of bytes that each element is contributing to the overall size. Use this tool to quickly check the size of resources, assets, logic, and native libraries that your game is using.
++- [Bloaty McBloatface](https://github.com/google/bloaty): Shows the size profile of binary files.
++- [Android GPU Inspector](https://developer.android.com/agi): See the file size effect of reducing texture size without having to recompile your game.
+ 
+ ### Techniques
+ 
+ The following is a list of techniques that you can use to reduce the size of
+ your game:
+ 
+-* Extract some of your game's logic and place it in one or more [feature
+-  modules](/studio/projects/dynamic-delivery#customize_delivery), which don't
+-  count toward the size limit.
+-* Reduce the resolution of your game's textures.
+-* Consider using the
+-  [WebP](https://blog.chromium.org/2010/09/webp-new-image-format-for-web.html)
+-  format, especially if you're using uncompressed textures on the GPU. The WebP
+-  format creates images that are the same quality as JPEG images but are 15% to
+-  30% smaller. Although it takes longer to decompress WebP images, this
+-  decompression time is still significantly shorter than the download time of your
+-  game's textures. Google has also integrated the format into an [open source game
++- Extract some of your game's logic and place it in one or more [feature
++  modules](https://developer.android.com/studio/projects/dynamic-delivery#customize_delivery), which don't count toward the size limit.
++- Reduce the resolution of your game's textures.
++- Consider using the [WebP](https://blog.chromium.org/2010/09/webp-new-image-format-for-web.html) format, especially if you're using uncompressed textures on the GPU. The WebP format creates images that are the same quality as JPEG images but are 15% to 30% smaller. Although it takes longer to decompress WebP images, this decompression time is still significantly shorter than the download time of your game's textures. Google has also integrated the format into an [open source game
+   engine](https://github.com/google/fplbase/tree/master/cmake/webp).
+-* Compress or re-use sounds and music.
+-* Use different compilation flags to help make your binary file smaller:
+-  + `-fvisibility=hidden` – The most important one. In `cmake`, you can specify
+-    it as follows:
++- Compress or re-use sounds and music.
++- Use different compilation flags to help make your binary file smaller:
++  - `-fvisibility=hidden` -- The most important one. In `cmake`, you can specify it as follows:
+ 
+     ```
+     $ set_target_properties(your-target PROPERTIES CXX_VISIBILITY_PRESET hidden)
+     ```
+-  + `-Oz` – Also important for reducing size. If you compile using `gcc`, use
+-    `-Os` instead.
+-  + `-flto` – Sometimes decreases file size.
+-  + Linker flags – Use `--gc-sections` in conjunction with compiler flags, such
+-    as `-ffunction-sections` and `-fdata-sections`.
+-* Use Proguard to [shrink your code and resources](/studio/build/shrink-code).
+-* Use Gradle 4.4 or higher to generate smaller DEX files.
+-* Implement [cloud delivery of assets](/topic/google-play-instant/getting-started/cloud-delivery-assets).
++  - `-Oz` -- Also important for reducing size. If you compile using `gcc`, use `-Os` instead.
++  - `-flto` -- Sometimes decreases file size.
++  - Linker flags -- Use `--gc-sections` in conjunction with compiler flags, such as `-ffunction-sections` and `-fdata-sections`.
++- Use Proguard to [shrink your code and resources](https://developer.android.com/studio/build/shrink-code).
++- Use Gradle 4.4 or higher to generate smaller DEX files.
++- Implement [cloud delivery of assets](https://developer.android.com/topic/google-play-instant/getting-started/cloud-delivery-assets).
+ 
+ ## Divide a large game into multiple APKs
+ 
+ It can be difficult to optimize the Google Play Instant experience to
+-make your game fit in a single 15 MB APK, even after applying the
+-recommendations to [reduce APK size](#app-size-reduction). To address
++make your game fit in a single 15 MB APK, even after applying the
++recommendations to [reduce APK size](https://developer.android.com/topic/google-play-instant/getting-started/game-instant-app#app-size-reduction). To address
+ this challenge, you can divide your game into multiple APKs. Players start by
+ downloading the primary, base APK; as they play, the remaining *split
+ APKs* are made available to the game in the background.
+@@ -246,16 +211,15 @@ After you configure your game so that it supports instant experiences, add
+ the logic that's shown in the following sections to provide a good user
+ experience.
+ 
+-**Note:** From June 2023 on, only instant apps published using app bundles are
+-available to users. Please ensure all APK based instant apps have been
+-updated to instant enabled bundles.
++> [!NOTE]
++> **Note:** From June 2023 on, only instant apps published using app bundles are available to users. Please ensure all APK based instant apps have been updated to instant enabled bundles.
+ 
+ ## Support 64-bit architectures
+ 
+ Apps published on Google Play need to support 64-bit architectures. Adding a
+ 64-bit version of your app provides performance improvements and sets you up
+ for devices with 64-bit-only hardware.
+-[Learn more about 64-bit support](/google/play/requirements/64-bit).
++[Learn more about 64-bit support](https://developer.android.com/google/play/requirements/64-bit).
+ 
+ ### Check whether game is running instant experience
+ 
+@@ -266,7 +230,7 @@ method. This method returns `true` if the currently-running process is an
+ instant experience.
+ 
+ By doing this check, you can determine whether your app needs to run within a
+-[limited execution environment](#execution-environment) or can take advantage of
++[limited execution environment](https://developer.android.com/topic/google-play-instant/getting-started/game-instant-app#execution-environment) or can take advantage of
+ platform features.
+ 
+ ### Display an installation prompt
+@@ -278,7 +242,7 @@ method in the [Google APIs for Android](https://developers.google.com/android/re
+ 
+ To learn more about how and when you should prompt the player for installation,
+ see [UX best practices for games on
+-Google Play Instant](/topic/google-play-instant/best-practices/games).
++Google Play Instant](https://developer.android.com/topic/google-play-instant/best-practices/games).
+ 
+ ### Transfer data to an installed experience
+ 
+@@ -288,7 +252,7 @@ that the player's progress is transferred from your instant experience to the
+ full version of your game.
+ 
+ If your game [specifies a `targetSandboxVersion`
+-of `2`](#target-sandbox-version), then the player's progress is transferred
++of `2`](https://developer.android.com/topic/google-play-instant/getting-started/game-instant-app#target-sandbox-version), then the player's progress is transferred
+ automatically to the full version of your game. Otherwise, you must transfer the
+ data related to player progress manually. To do so, use the Cookie API - [sample app](https://github.com/android/app-bundle-samples/tree/main/InstantApps/cookie-api)
+ 

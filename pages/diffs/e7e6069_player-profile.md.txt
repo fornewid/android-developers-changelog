@@ -1,0 +1,35 @@
+diff --git a/docs/games/services/unity/v2/api/class/google-play-games/basic-api/player-profile.md b/docs/games/services/unity/v2/api/class/google-play-games/basic-api/player-profile.md
+index 9a3c984..6d8e353 100644
+--- a/docs/games/services/unity/v2/api/class/google-play-games/basic-api/player-profile.md
++++ b/docs/games/services/unity/v2/api/class/google-play-games/basic-api/player-profile.md
+@@ -1,19 +1,10 @@
+ ---
+-title: GooglePlayGames.BasicApi.PlayerProfile Class Reference  |  API reference  |  Android Developers
++title: https://developer.android.com/games/services/unity/v2/api/class/google-play-games/basic-api/player-profile
+ url: https://developer.android.com/games/services/unity/v2/api/class/google-play-games/basic-api/player-profile
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-* [Develop](https://developer.android.com/develop)
+-* [API reference](https://developer.android.com/reference)
+-
+-Stay organized with collections
+-
+-Save and categorize content based on your preferences.
+-
+-
+-
++# GooglePlayGames.BasicApi.PlayerProfile Class Reference
+ 
+ # GooglePlayGames.BasicApi.PlayerProfile
+ 
+@@ -23,4 +14,4 @@ Represents a player, a real-world person (tied to a Games account).
+ 
+ ### Inheritance
+ 
+-Inherits from: [GooglePlayGames.PlayGamesUserProfile](/games/services/unity/v2/api/class/google-play-games/play-games-user-profile)
+\ No newline at end of file
++Inherits from:[GooglePlayGames.PlayGamesUserProfile](https://developer.android.com/games/services/unity/v2/api/class/google-play-games/play-games-user-profile)
+\ No newline at end of file

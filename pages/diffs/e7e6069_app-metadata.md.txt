@@ -1,0 +1,531 @@
+diff --git a/docs/about/versions/14/features/app-metadata.md b/docs/about/versions/14/features/app-metadata.md
+index cfe9d16..9b1b069 100644
+--- a/docs/about/versions/14/features/app-metadata.md
++++ b/docs/about/versions/14/features/app-metadata.md
+@@ -1,18 +1,9 @@
+ ---
+-title: App metadata bundles for data safety  |  Android Developers
++title: https://developer.android.com/about/versions/14/features/app-metadata
+ url: https://developer.android.com/about/versions/14/features/app-metadata
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-* [Essentials](https://developer.android.com/get-started)
+-* [Releases](https://developer.android.com/about/versions)
+-
+-# App metadata bundles for data safety Stay organized with collections Save and categorize content based on your preferences.
+-
+-
+-
+-
+ App metadata bundles provide developers with a transparent way to include
+ information about them (the developer), the app, and if and how they collect,
+ share, and protect user data. The Google Play Store requires developers to
+@@ -50,39 +41,28 @@ Play SDK Index](https://play.google.com/sdks) to see if a provider has provided
+ App metadata bundles reach the device differently, depending on how the app is
+ distributed:
+ 
+-* **Apps preloaded on the system image**: The device manufacturer is
+-  responsible for including the app metadata bundle in a data safety XML file
+-  in the system image.
+-* **Apps distributed by installers**: The installer is responsible for sending
+-  the app metadata bundle to the device. If you develop an app that's
+-  distributed through Google Play, refer to [the instructions in the Play
++- **Apps preloaded on the system image**: The device manufacturer is responsible for including the app metadata bundle in a data safety XML file in the system image.
++- **Apps distributed by installers** : The installer is responsible for sending the app metadata bundle to the device. If you develop an app that's distributed through Google Play, refer to [the instructions in the Play
+   Console Help](https://support.google.com/googleplay/android-developer/answer/10787469). Installers can refer to the [schema for app metadata
+-  bundles](/about/versions/14/features/app-metadata-schema).
++  bundles](https://developer.android.com/about/versions/14/features/app-metadata-schema).
+ 
+ Developers of preloaded apps can create a data safety XML file by using one of
+ the following methods:
+ 
+-* If you develop an app that's published in the Play Store, use the Play
+-  Console's data safety form on the App content page by navigating to
+-  **Policy > App content**. If you have already completed this form, you don't
+-  need to take any additional action.
+-* Download and edit [the template XML file that's available on this page](#manual-xml)
+-  to provide to manufacturers or installers.
++- If you develop an app that's published in the Play Store, use the Play Console's data safety form on the App content page by navigating to **Policy \> App content**. If you have already completed this form, you don't need to take any additional action.
++- Download and edit [the template XML file that's available on this page](https://developer.android.com/about/versions/14/features/app-metadata#manual-xml) to provide to manufacturers or installers.
+ 
+-**Important:** Developers are solely responsible for making complete and accurate
+-declarations in their app metadata bundle. While developers can work with a
+-manufacturer or installer to add an app metadata bundle, manufacturers and
+-installers can't make determinations on behalf of developers of how they handle
+-user data. Only a developer possesses all the information required to create an
+-app metadata bundle.
++> [!IMPORTANT]
++> **Important:** Developers are solely responsible for making complete and accurate declarations in their app metadata bundle. While developers can work with a manufacturer or installer to add an app metadata bundle, manufacturers and installers can't make determinations on behalf of developers of how they handle user data. Only a developer possesses all the information required to create an app metadata bundle.
+ 
+ ## Getting information ready
+ 
+ Before developers start creating an app metadata bundle, complete the following
+ steps:
+ 
+-* Ensure that they've added a privacy policy.
+-* [Review how the app collects and shares user data](/guide/topics/data/collect-share) and the app's security
++- Ensure that they've added a privacy policy.
++
++- [Review how the app collects and shares user data](https://developer.android.com/guide/topics/data/collect-share) and the app's security
+   practices. In particular, check the app's declared permissions and the APIs
+   that the app uses.
+ 
+@@ -95,7 +75,7 @@ steps:
+ ## What developers need to disclose in the app and developer information sections
+ 
+ This section explains what information developers need to disclose in the
+-[app](/about/versions/14/features/app-metadata-schema#app-info) and [developer information](/about/versions/14/features/app-metadata-schema#developer-info) sections of the app metadata bundle. If
++[app](https://developer.android.com/about/versions/14/features/app-metadata-schema#app-info) and [developer information](https://developer.android.com/about/versions/14/features/app-metadata-schema#developer-info) sections of the app metadata bundle. If
+ the app is distributed through the Google Play store, [use the Play Console to
+ enter this information](https://support.google.com/googleplay/android-developer/answer/10787469).
+ 
+@@ -116,16 +96,15 @@ list.
+ 
+ The following categories are intended for preloaded apps:
+ 
+-* OTA - Packages responsible for receiving and installing over-the-air (OTA)
+-  updates
+-* AOSP - Packages available in the Android Open Source Project
+-* Security
+-* Store
++- OTA - Packages responsible for receiving and installing over-the-air (OTA) updates
++- AOSP - Packages available in the Android Open Source Project
++- Security
++- Store
+ 
+ The categories described in the following table are also used by Google Play:
+ 
+ | Category | Examples |
+-| --- | --- |
++|---|---|
+ | Art and Design | Sketchbooks, painter tools, art and design tools, coloring books |
+ | Auto and Vehicles | Auto shopping, auto insurance, auto price comparison, road safety, auto reviews and news |
+ | Beauty | Makeup tutorials, makeover tools, hair styling, beauty shopping, makeup simulators |
+@@ -185,15 +164,13 @@ multiple developer names.
+ If the app is listed on any app registry including stores and other installers,
+ indicate in this field. Multiple entries for multiple stores are permitted.
+ 
+-* **For app registries that are Android installers**: The value should be the
+-  Android package name of the store. For example, use `com.android.vending`
+-  for the Google Play store.
+-* **For other app registries**: The value should be the URL of the registry.
++- **For app registries that are Android installers** : The value should be the Android package name of the store. For example, use `com.android.vending` for the Google Play store.
++- **For other app registries**: The value should be the URL of the registry.
+ 
+ Omit this field for any of the following reasons:
+ 
+-* The developer is an SDK listed in the Google Play SDK Index.
+-* The developer isn't registered on any app store or registry.
++- The developer is an SDK listed in the Google Play SDK Index.
++- The developer isn't registered on any app store or registry.
+ 
+ #### App registry ID
+ 
+@@ -201,16 +178,10 @@ For apps listed on any app registry, including installers and stores, this value
+ should be the developer's store, installer, or registry identity. Multiple
+ entries for multiple stores are permitted.
+ 
+-* **For developers registered with Google Play**: This value **must** be the
+-  URL of the developer page (for example,
+-  `https://play.google.com/store/apps/dev?id=5700313618786177705` is the URL
+-  for developer Google LLC).
+-* **If the developer is an SDK developer listed in the Google Play SDK
+-  Index**: Use the URL of the SDK (for example,
+-  `https://play.google.com/sdks/details/com-google-android-gms-play-services-ads`
+-  is the URL of Google Mobile Ads (GMA) SDK).
+-* **If the developer is registered on another store or registry**: An app
+-  store URL or other identifier can be provided.
++- **For developers registered with Google Play** : This value **must** be the URL of the developer page (for example, `https://play.google.com/store/apps/dev?id=5700313618786177705` is the URL for developer Google LLC).
++- **If the developer is an SDK developer listed in the Google Play SDK
++  Index** : Use the URL of the SDK (for example, `https://play.google.com/sdks/details/com-google-android-gms-play-services-ads` is the URL of Google Mobile Ads (GMA) SDK).
++- **If the developer is registered on another store or registry**: An app store URL or other identifier can be provided.
+ 
+ If a developer isn't registered on any app store, this attribute can be omitted.
+ 
+@@ -218,15 +189,15 @@ If a developer isn't registered on any app store, this attribute can be omitted.
+ 
+ Provide the following information:
+ 
+-* Email
+-* Website
+-* Country or region
+-* Physical mailing address
++- Email
++- Website
++- Country or region
++- Physical mailing address
+ 
+ ## What developers need to disclose in the data safety section
+ 
+ This section explains what information developers need to disclose in the [data
+-safety section](/about/versions/14/features/app-metadata-schema#safety-labels) of the app metadata bundle, and lists the user data types and
++safety section](https://developer.android.com/about/versions/14/features/app-metadata-schema#safety-labels) of the app metadata bundle, and lists the user data types and
+ purposes developers can select. If an app is distributed through the Google Play
+ store, [use the Play Console to enter this information](https://support.google.com/googleplay/android-developer/answer/10787469).
+ 
+@@ -241,16 +212,18 @@ sections:
+ *Collect* in this case means transmitting data from an app off a user's device.
+ Note the following guidelines:
+ 
+-* **Libraries and SDKs**: This includes user data transmitted off device from
++- **Libraries and SDKs**: This includes user data transmitted off device from
+   an app by libraries or SDKs used in an app, irrespective of whether data is
+   transmitted to the app's developer or a third-party server.
+-* **Webview**: This includes user data collected from a webview that has been
++
++- **Webview**: This includes user data collected from a webview that has been
+   opened from the app, if the app is in control of the code and behavior
+   delivered through that webview.
+ 
+   Developers don't need to declare data collection from a webview in which
+   users are navigating the open web.
+-* **Ephemeral processing**: User data transmitted off device that is processed
++
++- **Ephemeral processing**: User data transmitted off device that is processed
+   ephemerally doesn't need to be included in your app metadata bundle if it
+   meets the following standard:
+ 
+@@ -265,7 +238,8 @@ Note the following guidelines:
+   build advertising profiles or other user profiles can't be treated as
+   ephemeral and must be declared as collection or sharing for the relevant
+   purposes.
+-* **Pseudonymous data**: User data collected pseudonymously must be disclosed.
++
++- **Pseudonymous data**: User data collected pseudonymously must be disclosed.
+   For example, data that can reasonably be re-associated with a user must be
+   disclosed.
+ 
+@@ -273,10 +247,11 @@ Note the following guidelines:
+ 
+ The following use cases don't need to be disclosed as collected:
+ 
+-* **On-device access or processing**: User data accessed by an app that is
++- **On-device access or processing** : User data accessed by an app that is
+   only processed locally on the user's device and not sent off device does
+   **not** need to be disclosed.
+-* **End-to-end encryption**: User data that is sent off device, but that is
++
++- **End-to-end encryption** : User data that is sent off device, but that is
+   unreadable by you or anyone other than the sender and recipient as a result
+   of end-to-end encryption does **not** need to be disclosed.
+ 
+@@ -289,17 +264,20 @@ The following use cases don't need to be disclosed as collected:
+ *Sharing* in this case refers to transferring user data collected from an app to
+ a third party. This includes user data transferred in the following ways:
+ 
+-* **Off-device, such as server to server transfers**: For example, if a
++- **Off-device, such as server to server transfers**: For example, if a
+   developer transfers user data collected from an app from the developer's
+   server to a third-party server.
+-* **On-device transfer to another app**: Transferring user data from an app to
++
++- **On-device transfer to another app**: Transferring user data from an app to
+   another app directly on the device. In this case, the developer must
+   disclose data sharing in the data safety section even if the app doesn't
+   transmit the data off the user's device.
+-* **From your app libraries and SDKs**: Transferring data collected from an
++
++- **From your app libraries and SDKs**: Transferring data collected from an
+   app off a user's device directly to a third party using libraries or SDKs
+   that are included in the app.
+-* **From webview which has been opened through your app**: Transferring user
++
++- **From webview which has been opened through your app**: Transferring user
+   data to a third party using a webview that has been opened from the app, if
+   the app is in control of the code and behavior delivered through that
+   webview.
+@@ -309,19 +287,23 @@ a third party. This includes user data transferred in the following ways:
+ 
+ The following types of data transfers don't need to be disclosed as *sharing*:
+ 
+-* **Service providers**: Transferring user data to a service provider that
++- **Service providers** : Transferring user data to a service provider that
+   processes it on behalf of the developer. A *service provider* means an
+   entity that processes user data on behalf of the developer and based on the
+   developer's instructions.
+-* **Legal purposes**: Transferring user data for specific legal purposes, such
++
++- **Legal purposes**: Transferring user data for specific legal purposes, such
+   as in response to a legal obligation or government requests.
+-* **User-initiated action or prominent disclosure and user consent**:
++
++- **User-initiated action or prominent disclosure and user consent**:
+   Transferring user data to a third party based on a specific user-initiated
+   action, where the user reasonably expects the data to be shared, or based on
+   a prominent in-app disclosure and consent.
+-* **Anonymous data**. Transferring user data that has been fully anonymized so
++
++- **Anonymous data**. Transferring user data that has been fully anonymized so
+   that it can no longer be associated with an individual user.
+-* **First and third parties**: *First party* means the developer, the primary
++
++- **First and third parties** : *First party* means the developer, the primary
+   organization responsible for processing data collected by the app. For apps
+   distributed through stores, this is typically the organization publishing
+   the app on the store.
+@@ -336,7 +318,7 @@ The following types of data transfers don't need to be disclosed as *sharing*:
+ #### Data handling
+ 
+ Developers can also disclose whether each data type collected by the app is
+-*optional* or *required*. *Optional* includes the ability to opt in to or opt
++*optional* or *required* . *Optional* includes the ability to opt in to or opt
+ out of data collection. For example, developers can declare a data type as
+ optional where a user has control over its collection and can use the app
+ without providing it; or where a user chooses whether to manually provide that
+@@ -344,15 +326,16 @@ data type. If an app's primary capabilities require the data type, developers
+ should declare that data as required.
+ 
+ Developers can declare that an app collects certain data optionally only if all
+-users–regardless of device or region–can either optionally provide information,
++users--regardless of device or region--can either optionally provide information,
+ opt out, or opt in to have the data collected.
+ 
+ Examples of optional data collection include the following:
+ 
+-* A social media app that asks for a user's birthday for marketing
+-  communication, but that info is not required–the user can still sign up
++- A social media app that asks for a user's birthday for marketing
++  communication, but that info is not required--the user can still sign up
+   without providing that information.
+-* User data that is only collected when a user signs in where users have the
++
++- User data that is only collected when a user signs in where users have the
+   ability to engage with the app without being signed in.
+ 
+ #### Other app and data disclosures
+@@ -361,7 +344,7 @@ The data safety section is also an opportunity for developers to showcase an
+ app's privacy and security practices. For example, developers can highlight the
+ following information:
+ 
+-* **Encryption in transit**: Whether data collected or shared by an app uses
++- **Encryption in transit**: Whether data collected or shared by an app uses
+   encryption in transit to protect the flow of user data from the end user's
+   device to the server.
+ 
+@@ -372,7 +355,7 @@ following information:
+   section that data is transferred over a secure connection as long as they
+   use best industry standards to safely encrypt data while it travels between
+   a user's device and the app's servers.
+-* **Deletion request mechanism**: Whether an app provides a way for users to
++- **Deletion request mechanism**: Whether an app provides a way for users to
+   request deletion of their data.
+ 
+ #### Independent security review (available to all apps)
+@@ -386,63 +369,60 @@ Security Project's (OWASP) Mobile Application Security Verification Standard
+ (MASVS). The third-party organizations performing the reviews are doing so on
+ the developer's behalf.
+ 
+-**Important:** This independent review might not be scoped to verify the accuracy
+-and completeness of a developer's app metadata bundle. Even if developers use
+-third-party tools to diagnose an app's security controls, developers remain
+-solely responsible for making complete and accurate declarations in the app
+-metadata bundle.
++> [!IMPORTANT]
++> **Important:** This independent review might not be scoped to verify the accuracy and completeness of a developer's app metadata bundle. Even if developers use third-party tools to diagnose an app's security controls, developers remain solely responsible for making complete and accurate declarations in the app metadata bundle.
+ 
+ ### Data types and purposes
+ 
+ Developers are asked to provide collection, sharing, and other practices for a
+ range of user data types, as well as the [purposes for which the developer uses
+-that data](#data-purposes), as described in the following tables:
++that data](https://developer.android.com/about/versions/14/features/app-metadata#data-purposes), as described in the following tables:
+ 
+ | Category | Data type | Description |
+-| --- | --- | --- |
++|---|---|---|
+ | Location | Approximate location | User or device physical location to an area greater than or equal to 3 square kilometers, such as the city a user is in, or location provided by Android's `ACCESS_COARSE_LOCATION` permission. |
+-|  | Precise location | User or device physical location within an area less than 3 square kilometers, such as location provided by Android's `ACCESS_FINE_LOCATION` permission. |
++|   | Precise location | User or device physical location within an area less than 3 square kilometers, such as location provided by Android's `ACCESS_FINE_LOCATION` permission. |
+ | Personal info | Name | How a user refers to themselves, such as their first or last name, or nickname. |
+-|  | Email address | A user's email address. |
+-|  | User IDs | Identifiers that relate to an identifiable person. For example, an account ID, account number, or account name. |
+-|  | Address | A user's address, such as a mailing or home address. |
+-|  | Phone number | A user's phone number. |
+-|  | Race and ethnicity | Information about a user's race or ethnicity. |
+-|  | Political or religious beliefs | Information about a user's political or religious beliefs. |
+-|  | Sexual orientation | Information about a user's sexual orientation. |
+-|  | Other info | Any other personal information such as date of birth, gender identity, or veteran status. |
++|   | Email address | A user's email address. |
++|   | User IDs | Identifiers that relate to an identifiable person. For example, an account ID, account number, or account name. |
++|   | Address | A user's address, such as a mailing or home address. |
++|   | Phone number | A user's phone number. |
++|   | Race and ethnicity | Information about a user's race or ethnicity. |
++|   | Political or religious beliefs | Information about a user's political or religious beliefs. |
++|   | Sexual orientation | Information about a user's sexual orientation. |
++|   | Other info | Any other personal information such as date of birth, gender identity, or veteran status. |
+ | Financial info | User payment info | Information about a user's financial accounts such as credit card number. |
+-|  | Purchase history | Information about purchases or transactions a user has made. |
+-|  | Credit score | Information about a user's credit score. |
+-|  | Other financial info | Any other financial information such as user salary or debts. |
++|   | Purchase history | Information about purchases or transactions a user has made. |
++|   | Credit score | Information about a user's credit score. |
++|   | Other financial info | Any other financial information such as user salary or debts. |
+ | Health and fitness | Health info | Information about a user's health, such as medical records or symptoms. |
+-|  | Fitness info | Information about a user's fitness, such as exercise or other physical activity. |
++|   | Fitness info | Information about a user's fitness, such as exercise or other physical activity. |
+ | Messages | Emails | A user's emails including the email subject line, sender, recipients, and the content of the email. |
+-|  | SMS or MMS | A user's text messages including the sender, recipients, and the content of the message. |
+-|  | Other in-app messages | Any other types of messages. For example, instant messages or chat content. |
++|   | SMS or MMS | A user's text messages including the sender, recipients, and the content of the message. |
++|   | Other in-app messages | Any other types of messages. For example, instant messages or chat content. |
+ | Photos and videos | Photos | A user's photos. |
+-|  | Videos | A user's videos. |
++|   | Videos | A user's videos. |
+ | Audio files | Voice or sound recordings | A user's voice such as a voicemail or a sound recording. |
+-|  | Music files | A user's music files. |
+-|  | Other audio files | Any other user-created or user-provided audio files. |
++|   | Music files | A user's music files. |
++|   | Other audio files | Any other user-created or user-provided audio files. |
+ | Files and docs | Files and docs | A user's files or documents, or information about their files or documents such as file names. |
+ | Calendar | Calendar events | Information from a user's calendar such as events, event notes, and attendees. |
+ | Contacts | Contacts | Information about the user's contacts such as contact names, message history, and social graph information like usernames, contact recency, contact frequency, interaction duration and call history. |
+ | App activity | App interactions | Information about how a user interacts with the app. For example, the number of times they visit a page or sections they tap on. |
+-|  | In-app search history | Information about what a user has searched for in the app. |
+-|  | Installed apps | Information about the apps installed on a user's device. |
+-|  | Other user-generated content | Any other user-generated content not listed here, or in any other section. For example, user bios, notes, or open-ended responses. |
+-|  | Other actions | Any other user activity or actions in-app not listed here such as gameplay, likes, and dialog options. |
++|   | In-app search history | Information about what a user has searched for in the app. |
++|   | Installed apps | Information about the apps installed on a user's device. |
++|   | Other user-generated content | Any other user-generated content not listed here, or in any other section. For example, user bios, notes, or open-ended responses. |
++|   | Other actions | Any other user activity or actions in-app not listed here such as gameplay, likes, and dialog options. |
+ | Web browsing | Web browsing history | Information about the websites a user has visited. |
+ | App info and performance | Crash logs | Crash log data from the app. For example, the number of times the app has crashed, stack traces, or other information directly related to a crash. |
+-|  | Diagnostics | Information about the performance of the app. For example battery life, loading time, latency, framerate, or any technical diagnostics. |
+-|  | Other app performance data | Any other app performance data not listed here. |
++|   | Diagnostics | Information about the performance of the app. For example battery life, loading time, latency, framerate, or any technical diagnostics. |
++|   | Other app performance data | Any other app performance data not listed here. |
+ | Device or other IDs | Device or other IDs | Identifiers that relate to an individual device, browser or app. For example, an IMEI number, MAC address, Widevine Device ID, Firebase installation ID, or advertising identifier |
+ 
+ #### Purposes
+ 
+ | Data purpose | Description | Example |
+-| --- | --- | --- |
++|---|---|---|
+ | App functionality | Used for features that are available in the app | For example to enable app features, or authenticate users. |
+ | Analytics | Used to collect data about how users use the app or how it performs | For example, to see how many users are using a particular feature, to monitor app health, to diagnose and fix bugs or crashes, or to make future performance improvements. |
+ | Developer communications | Used to send news or notifications about the app or the developer. | For example, sending a push notification to inform users about an important security update, or informing users about new features of the app. |
+@@ -459,42 +439,40 @@ by adding, editing, or removing elements depending on the type of information
+ that you need to disclose for your app.
+ 
+ Note that the sample file is not necessarily complete. Refer to the [schema for
+-app metadata bundles](/about/versions/14/features/app-metadata) for more information about the required XML structure
++app metadata bundles](https://developer.android.com/about/versions/14/features/app-metadata) for more information about the required XML structure
+ for the app, developer, and data safety sections of the app metadata bundle that
+ your app might need to include.
+ 
+-```
+-<?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
+-<bundle>
+-<long name="version" value="2" />
+-
+-  <pbundle_as_map name="safety_labels">
+-    <long name="version" value="1" />
+-
+-      <pbundle_as_map name="data_labels">
+-        <pbundle_as_map name="data_shared">
+-          <pbundle_as_map name="location">
+-            <pbundle_as_map name="approx_location">
+-              <int-array name="purposes" num="4">
+-                  <item value="1" />
+-                  <item value="2" />
+-                  <item value="5" />
+-                  <item value="6" />
+-              </int-array>
+-            </pbundle_as_map>
+-            <pbundle_as_map name="precise_location">
+-              <int-array name="purposes" num="2">
+-                  <item value="1" />
+-                  <item value="6" />
+-              </int-array>
++    <?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
++    <bundle>
++    <long name="version" value="2" />
++
++      <pbundle_as_map name="safety_labels">
++        <long name="version" value="1" />
++
++          <pbundle_as_map name="data_labels">
++            <pbundle_as_map name="data_shared">
++              <pbundle_as_map name="location">
++                <pbundle_as_map name="approx_location">
++                  <int-array name="purposes" num="4">
++                      <item value="1" />
++                      <item value="2" />
++                      <item value="5" />
++                      <item value="6" />
++                  </int-array>
++                </pbundle_as_map>
++                <pbundle_as_map name="precise_location">
++                  <int-array name="purposes" num="2">
++                      <item value="1" />
++                      <item value="6" />
++                  </int-array>
++                </pbundle_as_map>
++              </pbundle_as_map>
+             </pbundle_as_map>
+-          </pbundle_as_map>
+-        </pbundle_as_map>
+ 
++        </pbundle_as_map>
+     </pbundle_as_map>
+-</pbundle_as_map>
+-</bundle>
+-```
++    </bundle>
+ 
+ ## Frequently asked questions
+ 
+@@ -585,15 +563,15 @@ dedicated email alias.
+ The developer can declare that users can request can delete their data if the
+ developer provides one or more of the following options:
+ 
+-* A mechanism to request data deletion.
+-* An automatic process to initiate deletion or anonymization of collected data
++- A mechanism to request data deletion.
++- An automatic process to initiate deletion or anonymization of collected data
+   within 90 days of collection.
+ 
+   The developer can declare that users can request can delete their data even
+   if the developer needs to retain certain data for legitimate reasons such as
+   legal compliance or abuse prevention.
+ 
+-#### What if the deletion mechanism the developer provides is not available globally to all users — can the developer still indicate I provide a deletion request mechanism?
++#### What if the deletion mechanism the developer provides is not available globally to all users --- can the developer still indicate I provide a deletion request mechanism?
+ 
+ Only one global data safety section is available per app metadata bundle. This
+ should cover data practices based on any usage, region, and user age. In other
+@@ -654,8 +632,9 @@ to declare collection of the data that the payment service collects in
+ connection with its processing of financial transactions, such as a credit card
+ number, if all of the following conditions are met:
+ 
+-* The app never accesses this information.
+-* The payment service collects this information directly from the user, and
++- The app never accesses this information.
++
++- The payment service collects this information directly from the user, and
+   collection is governed by that service's terms.
+ 
+ The developer should review the integration with the payment service closely to
+@@ -705,14 +684,14 @@ as part of account-level documentation and the account sign-up process.
+ #### What are System services?
+ 
+ *System services* are pre-installed software that support core system features.
+-System services should include [`transparency_info`](/about/versions/14/features/app-metadata-schema#transparency-info) and
+-[`system_app_safety_label`](/about/versions/14/features/app-metadata-schema#system-app-safety-label-bundle) bundles (the latter is provided instead of a
+-[`safety_labels`](/about/versions/14/features/app-metadata-schema#safety-labels-bundle) bundle). System services distributed through Google Play
++System services should include [`transparency_info`](https://developer.android.com/about/versions/14/features/app-metadata-schema#transparency-info) and
++[`system_app_safety_label`](https://developer.android.com/about/versions/14/features/app-metadata-schema#system-app-safety-label-bundle) bundles (the latter is provided instead of a
++[`safety_labels`](https://developer.android.com/about/versions/14/features/app-metadata-schema#safety-labels-bundle) bundle). System services distributed through Google Play
+ can apply for an exemption from completing the Google Play Data safety form.
+ 
+ #### How does a developer declare collection of data that is used in a transient way to load pages and service other client-side requests in real time before that data is logged on the developer's servers and used for other purposes?
+ 
+-If this use is [ephemeral](#ephemeral-processing), the developer doesn't need to include it in the
++If this use is [ephemeral](https://developer.android.com/about/versions/14/features/app-metadata#ephemeral-processing), the developer doesn't need to include it in the
+ data safety section of the app metadata bundle. However, the developer must
+ declare any use of that user data beyond the ephemeral processing, including any
+ purposes for which the developer uses the user data that is logged.
+\ No newline at end of file

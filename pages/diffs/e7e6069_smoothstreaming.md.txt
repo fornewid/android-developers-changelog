@@ -1,0 +1,188 @@
+diff --git a/docs/media/media3/exoplayer/smoothstreaming.md b/docs/media/media3/exoplayer/smoothstreaming.md
+index d1a41d6..e655a62 100644
+--- a/docs/media/media3/exoplayer/smoothstreaming.md
++++ b/docs/media/media3/exoplayer/smoothstreaming.md
+@@ -1,36 +1,26 @@
+ ---
+-title: SmoothStreaming  |  Android media  |  Android Developers
++title: https://developer.android.com/media/media3/exoplayer/smoothstreaming
+ url: https://developer.android.com/media/media3/exoplayer/smoothstreaming
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-* [Essentials](https://developer.android.com/get-started)
+-* [Camera & media dev center](https://developer.android.com/media)
+-* [Guides](https://developer.android.com/media/guides)
+-
+-# SmoothStreaming Stay organized with collections Save and categorize content based on your preferences.
+-
+-
+-
+-
+ ExoPlayer supports SmoothStreaming with the FMP4 container format. Media streams
+ must be demuxed, meaning that video, audio, and text must be defined in distinct
+ StreamIndex elements in the SmoothStreaming manifest. The contained audio and
+ video sample formats must also be supported (see the
+-[sample formats](/media/media3/exoplayer/supported-formats#sample-formats) section for details).
++[sample formats](https://developer.android.com/media/media3/exoplayer/supported-formats#sample-formats) section for details).
+ 
+ | Feature | Supported | Comments |
+-| --- | --- | --- |
+-| **Containers** |  |  |
++|---|---|---|
++| **Containers** |   |   |
+ | FMP4 | YES | Demuxed streams only |
+-| **Closed captions/subtitles** |  |  |
++| **Closed captions/subtitles** |   |   |
+ | TTML | YES | Embedded in FMP4 |
+-| **Content protection** |  |  |
++| **Content protection** |   |   |
+ | PlayReady SL2000 | YES | Android TV only |
+-| **Live playback** |  |  |
+-| Regular live playback | YES |  |
+-| **Common Media Client Data (CMCD)** | YES | [Integration Guide](/guide/topics/media/exoplayer/cmcd) |
++| **Live playback** |   |   |
++| Regular live playback | YES |   |
++| **Common Media Client Data (CMCD)** | YES | [Integration Guide](https://developer.android.com/guide/topics/media/exoplayer/cmcd) |
+ 
+ ## Using MediaItem
+ 
+@@ -39,45 +29,40 @@ module.
+ 
+ ### Kotlin
+ 
+-```
+-implementation("androidx.media3:media3-exoplayer-smoothstreaming:1.10.0")
+-```
++    implementation("androidx.media3:media3-exoplayer-smoothstreaming:1.10.0")
+ 
+ ### Groovy
+ 
+-```
+-implementation "androidx.media3:media3-exoplayer-smoothstreaming:1.10.0"
+-```
++    implementation "androidx.media3:media3-exoplayer-smoothstreaming:1.10.0"
+ 
+ You can then create a `MediaItem` for a SmoothStreaming manifest URI and pass it
+ to the player.
+ 
++
+ ### Kotlin
+ 
+-```
++```kotlin
+ // Create a player instance.
+ val player = ExoPlayer.Builder(context).build()
+ // Set the media item to be played.
+ player.setMediaItem(MediaItem.fromUri(ssUri))
+ // Prepare the player.
+ player.prepare()
+-
+-SmoothStreaming.kt
+ ```
+ 
+ ### Java
+ 
+-```
++```java
+ // Create a player instance.
+ ExoPlayer player = new ExoPlayer.Builder(context).build();
+ // Set the media item to be played.
+ player.setMediaItem(MediaItem.fromUri(ssUri));
+ // Prepare the player.
+ player.prepare();
+-
+-SmoothStreaming.java
+ ```
+ 
++<br />
++
+ If your URI doesn't end with `.ism/Manifest`, you can pass
+ `MimeTypes.APPLICATION_SS` to `setMimeType` of `MediaItem.Builder` to explicitly
+ indicate the type of the content.
+@@ -90,9 +75,10 @@ manifest, taking into account both available bandwidth and device capabilities.
+ For more customization options, you can create a `SsMediaSource` and pass it
+ directly to the player instead of a `MediaItem`.
+ 
++
+ ### Kotlin
+ 
+-```
++```kotlin
+ // Create a data source factory.
+ val dataSourceFactory: DataSource.Factory = DefaultHttpDataSource.Factory()
+ // Create a SmoothStreaming media source pointing to a manifest uri.
+@@ -104,13 +90,11 @@ val player = ExoPlayer.Builder(context).build()
+ player.setMediaSource(mediaSource)
+ // Prepare the player.
+ player.prepare()
+-
+-SmoothStreaming.kt
+ ```
+ 
+ ### Java
+ 
+-```
++```java
+ // Create a data source factory.
+ DataSource.Factory dataSourceFactory = new DefaultHttpDataSource.Factory();
+ // Create a SmoothStreaming media source pointing to a manifest uri.
+@@ -122,10 +106,10 @@ ExoPlayer player = new ExoPlayer.Builder(context).build();
+ player.setMediaSource(mediaSource);
+ // Prepare the player.
+ player.prepare();
+-
+-SmoothStreaming.java
+ ```
+ 
++<br />
++
+ ## Accessing the manifest
+ 
+ You can retrieve the current manifest by calling `Player.getCurrentManifest`.
+@@ -135,9 +119,10 @@ the manifest is loaded. This will happen once for on-demand content and
+ possibly many times for live content. The following code snippet shows how an app
+ can do something whenever the manifest is loaded.
+ 
++
+ ### Kotlin
+ 
+-```
++```kotlin
+ player.addListener(
+   object : Player.Listener {
+     override fun onTimelineChanged(timeline: Timeline, @TimelineChangeReason reason: Int) {
+@@ -148,13 +133,11 @@ player.addListener(
+     }
+   }
+ )
+-
+-SmoothStreaming.kt
+ ```
+ 
+ ### Java
+ 
+-```
++```java
+ player.addListener(
+     new Player.Listener() {
+       @Override
+@@ -167,11 +150,11 @@ player.addListener(
+         }
+       }
+     });
+-
+-SmoothStreaming.java
+ ```
+ 
++<br />
++
+ ## Customizing playback
+ 
+ ExoPlayer provides multiple ways for you to tailor playback experience to your
+-app's needs. See the [Customization page](/guide/topics/media/exoplayer/customization) for examples.
+\ No newline at end of file
++app's needs. See the [Customization page](https://developer.android.com/guide/topics/media/exoplayer/customization) for examples.
+\ No newline at end of file

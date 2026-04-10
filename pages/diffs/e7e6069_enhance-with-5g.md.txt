@@ -1,0 +1,81 @@
+diff --git a/docs/develop/connectivity/5g/enhance-with-5g.md b/docs/develop/connectivity/5g/enhance-with-5g.md
+index 3859d18..7cebfde 100644
+--- a/docs/develop/connectivity/5g/enhance-with-5g.md
++++ b/docs/develop/connectivity/5g/enhance-with-5g.md
+@@ -1,30 +1,19 @@
+ ---
+-title: Enhance your apps with 5G  |  Connectivity  |  Android Developers
++title: https://developer.android.com/develop/connectivity/5g/enhance-with-5g
+ url: https://developer.android.com/develop/connectivity/5g/enhance-with-5g
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-* [Develop](https://developer.android.com/develop)
+-* [Core areas](https://developer.android.com/develop/core-areas)
+-* [Connectivity](https://developer.android.com/develop/connectivity)
+-* [Guides](https://developer.android.com/develop/connectivity/overview)
+-
+-# Enhance your apps with 5G Stay organized with collections Save and categorize content based on your preferences.
+-
+-
+-
+-
+ Sometimes changes to an Android app are little steps, and sometimes they
+ require you to completely change the way you think. 5G is not a little step.
+ 
+ **Incremental experience**
+-:   An experience that’s identical to the 4G experience but just happens to be
++:   An experience that's identical to the 4G experience but just happens to be
+     naturally better because of the higher bandwidth and lower latency of 5G.
+     Often just the Wi-Fi experience.
+ 
+ **Transformative experience**
+-:   An experience that’s new and entirely dependent on the benefits of 5G
++:   An experience that's new and entirely dependent on the benefits of 5G
+     (bandwidth and latency) and on being able to detect the unmetered nature of
+     the connection.
+ 
+@@ -33,7 +22,7 @@ new possibilities in your apps. This topic goes over some of the ways that you
+ can transform your user experience.
+ 
+ To jump right into adding 5G capabilities to your apps, see [Add 5G capabilities
+-to your app](/about/versions/11/features/5g).
++to your app](https://developer.android.com/about/versions/11/features/5g).
+ 
+ To learn more about best practices for developing 5G-ready apps, see [Best
+ Practices for 5G App
+@@ -95,22 +84,22 @@ low-latency playback for a specific codec. This helps provide 5G devices with a
+ compelling user experience.
+ 
+ To learn about offering your users a use-case-specific performance boost, see
+-[Use network slicing(/develop/connectivity/5g/use-network-slicing).
++\[Use network slicing(/develop/connectivity/5g/use-network-slicing).
+ 
+ ## Tell your users when they're on 5G
+ 
+ On Android 11 and higher, apps with
+-[`android.Manifest.permission.READ_PHONE_STATE`](/reference/android/Manifest.permission#READ_PHONE_STATE)
++[`android.Manifest.permission.READ_PHONE_STATE`](https://developer.android.com/reference/android/Manifest.permission#READ_PHONE_STATE)
+ permission can request telephony display information updates through
+-[`PhoneStateListener.onDisplayInfoChanged()`](/reference/android/telephony/PhoneStateListener#onDisplayInfoChanged(android.telephony.TelephonyDisplayInfo)).
++[`PhoneStateListener.onDisplayInfoChanged()`](https://developer.android.com/reference/android/telephony/PhoneStateListener#onDisplayInfoChanged(android.telephony.TelephonyDisplayInfo)).
+ This includes radio access technology information for marketing and branding
+ purposes.
+ 
+ Various 5G icon display solutions for different carriers are provided by this
+ new API. The supported technologies include the following:
+ 
+-* LTE
+-* LTE with carrier aggregation (LTE+)
+-* Advanced pro LTE (5Ge)
+-* NR (5G)
+-* NR on millimeter-wave cellular bands (5G+ and 5G UW)
+\ No newline at end of file
++- LTE
++- LTE with carrier aggregation (LTE+)
++- Advanced pro LTE (5Ge)
++- NR (5G)
++- NR on millimeter-wave cellular bands (5G+ and 5G UW)
+\ No newline at end of file

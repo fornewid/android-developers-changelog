@@ -1,0 +1,68 @@
+diff --git a/docs/courses/pathways/android-development-with-kotlin-12.md b/docs/courses/pathways/android-development-with-kotlin-12.md
+index ee5f33f..93fe105 100644
+--- a/docs/courses/pathways/android-development-with-kotlin-12.md
++++ b/docs/courses/pathways/android-development-with-kotlin-12.md
+@@ -1,47 +1,31 @@
+ ---
+-title: Lesson 12: Repository pattern and WorkManager  |  Android Developers
++title: https://developer.android.com/courses/pathways/android-development-with-kotlin-12
+ url: https://developer.android.com/courses/pathways/android-development-with-kotlin-12
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-
+-Stay organized with collections
+-
+-Save and categorize content based on your preferences.
+-
+-
++# Lesson 12: Repository pattern and WorkManager
+ 
+ # Lesson 12: Repository pattern and WorkManager
+ 
+ Learn about the repository pattern, and how to use WorkManager.  
+-Go back
+-
+-*check\_circle*
++Go back  
++*check_circle*  
+ 
+ ## Background work with WorkManager
+ 
+-*keyboard\_arrow\_down*
+-*keyboard\_arrow\_up*
+-
+-*emoji\_objects*
+-Codelab
+-
+-Learn to use WorkManager, a backwards compatible, flexible and simple library for deferrable background work.
+-
+-[Take codelab](/codelabs/android-workmanager)
+-
+-*check\_circle*
++*keyboard_arrow_down* *keyboard_arrow_up*  
++*emoji_objects*Codelab  
++Learn to use WorkManager, a backwards compatible, flexible and simple library for deferrable background work.  
++[Take codelab](https://developer.android.com/codelabs/android-workmanager)  
++*check_circle*  
+ 
+ ## Recommended app architecture
+ 
+-*keyboard\_arrow\_down*
+-*keyboard\_arrow\_up*
+-
+-A guide to recommended app architecture
++*keyboard_arrow_down* *keyboard_arrow_up*  
++A guide to recommended app architecture  
+ 
+ ## Quiz
+ 
+-Earn your badge for completing Lesson 12: Repository pattern and WorkManager.
+-
+-[Take the quiz](/courses/quizzes/android-development-with-kotlin-12/android-development-with-kotlin-12)
+\ No newline at end of file
++Earn your badge for completing Lesson 12: Repository pattern and WorkManager.  
++[Take the quiz](https://developer.android.com/courses/quizzes/android-development-with-kotlin-12/android-development-with-kotlin-12)
+\ No newline at end of file

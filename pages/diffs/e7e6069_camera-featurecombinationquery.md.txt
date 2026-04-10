@@ -1,0 +1,125 @@
+diff --git a/docs/jetpack/androidx/releases/camera-featurecombinationquery.md b/docs/jetpack/androidx/releases/camera-featurecombinationquery.md
+index 7cd1bf9..a8e3943 100644
+--- a/docs/jetpack/androidx/releases/camera-featurecombinationquery.md
++++ b/docs/jetpack/androidx/releases/camera-featurecombinationquery.md
+@@ -1,36 +1,24 @@
+ ---
+-title: camera featurecombinationquery  |  Jetpack  |  Android Developers
++title: https://developer.android.com/jetpack/androidx/releases/camera-featurecombinationquery
+ url: https://developer.android.com/jetpack/androidx/releases/camera-featurecombinationquery
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-* [Get started](https://developer.android.com/get-started/overview)
+-* [Jetpack](https://developer.android.com/jetpack)
+-* [Libraries](https://developer.android.com/jetpack/androidx/explorer)
+-
+-Stay organized with collections
+-
+-Save and categorize content based on your preferences.
+-
+-
+-
+ # Camera Feature Combination Query
+ 
+ API Reference  
+-[androidx.camera.featurecombinationquery](/reference/kotlin/androidx/camera/featurecombinationquery/package-summary)
+-
++[androidx.camera.featurecombinationquery](https://developer.android.com/reference/kotlin/androidx/camera/featurecombinationquery/package-summary)  
+ Query camera capabilities.
+ 
+ | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
+-| --- | --- | --- | --- | --- |
+-| March 25, 2026 | [1.6.0](/jetpack/androidx/releases/camera-featurecombinationquery#1.6.0) | - | - | [1.7.0-alpha01](/jetpack/androidx/releases/camera-featurecombinationquery#1.7.0-alpha01) |
++|---|---|---|---|---|
++| March 11, 2026 | [1.5.3](https://developer.android.com/jetpack/androidx/releases/camera-featurecombinationquery#1.5.3) | [1.6.0-rc01](https://developer.android.com/jetpack/androidx/releases/camera-featurecombinationquery#1.6.0-rc01) | - | [1.7.0-alpha01](https://developer.android.com/jetpack/androidx/releases/camera-featurecombinationquery#1.7.0-alpha01) |
+ 
+ ## Declaring dependencies
+ 
+ To add a dependency on camera feature combination query library, you must add
+ the Google Maven repository to your project. Read
+-[Google's Maven repository](/studio/build/dependencies#google-maven) for more
++[Google's Maven repository](https://developer.android.com/studio/build/dependencies#google-maven) for more
+ information.
+ 
+ Add the dependencies for the artifacts you need in the `build.gradle` file for
+@@ -38,7 +26,7 @@ your app or module:
+ 
+ ### Groovy
+ 
+-```
++```groovy
+ dependencies {
+     // Use to pull in the base feature combination query library
+     implementation "androidx.camera.featurecombinationquery:featurecombinationquery:1.7.0-alpha01"
+@@ -50,7 +38,7 @@ dependencies {
+ 
+ ### Kotlin
+ 
+-```
++```kotlin
+ dependencies {
+     // Use to pull in the base feature combination query library
+     implementation("androidx.camera.featurecombinationquery:featurecombinationquery:1.7.0-alpha01")
+@@ -60,13 +48,13 @@ dependencies {
+ }
+ ```
+ 
+-For more information about dependencies, see [Add build dependencies](/studio/build/dependencies).
++For more information about dependencies, see [Add build dependencies](https://developer.android.com/studio/build/dependencies).
+ 
+ ## Feedback
+ 
+ Your feedback helps make Jetpack better. Let us know if you discover new issues or have
+ ideas for improving this library. Please take a look at the
+-[existing issues](https://issuetracker.google.com/issues?q=componentid:618491%20status:open)
++[existing issues](https://issuetracker.google.com/issues?q=componentid:618491+status:open)
+ in this library before you create a new one. You can add your vote to an existing issue by
+ clicking the star button.
+ 
+@@ -85,12 +73,6 @@ March 11, 2026
+ 
+ ## Version 1.6
+ 
+-### Version 1.6.0
+-
+-March 25, 2026
+-
+-`androidx.camera.featurecombinationquery:featurecombinationquery:1.6.0` and `androidx.camera.featurecombinationquery:featurecombinationquery-play-services:1.6.0` are released. Version 1.6.0 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/2afad3835627a7fdd11578788696f14b7aff6017..18899702605001b396c92fe1f50666948ce85048/camera/featurecombinationquery).
+-
+ ### Version 1.6.0-rc01
+ 
+ February 25, 2026
+@@ -161,12 +143,12 @@ July 16, 2025
+ 
+ **New Features**
+ 
+-* Play Service implementation will automatically pull in the Play Services Implementation when used.
++- Play Service implementation will automatically pull in the Play Services Implementation when used.
+ 
+ **Bug Fixes**
+ 
+-* Clarified restrictions when using deferred surfaces with the play store implementation.
+-* Moved some initialization to the Factory constructor to give clients better control over when they want the Binder calls to happen. Updated the docs to reflect the same.
++- Clarified restrictions when using deferred surfaces with the play store implementation.
++- Moved some initialization to the Factory constructor to give clients better control over when they want the Binder calls to happen. Updated the docs to reflect the same.
+ 
+ ### Version 1.5.0-beta01
+ 
+@@ -176,9 +158,9 @@ June 4, 2025
+ 
+ **New Features**
+ 
+-* With the update to 1.5.0-beta01, the `FeatureCombinationQuery` artifacts have been moved to their own library group. This change is necessary to improve the modularity and maintainability of the CameraX library.
++- With the update to 1.5.0-beta01, the `FeatureCombinationQuery` artifacts have been moved to their own library group. This change is necessary to improve the modularity and maintainability of the CameraX library.
+ 
+ **API Changes**
+ 
+-* `SessionConfigurationCompat` and `SessionParametersCompat` have been renamed to `SessionConfigurationLegacy` and `SessionParametersLegacy` respectively to better reflect their function in supporting older APIs only.
+-* Similarly, the method name/signature of `CameraDeviceSetupCompat.#isSessionConfigurationSupported(SessionConfigurationCompat)` has been changed to `CameraDeviceSetupCompat.#isSessionConfigurationSupportedLegacy(SessionConfigurationLegacy)`
+\ No newline at end of file
++- `SessionConfigurationCompat` and `SessionParametersCompat` have been renamed to `SessionConfigurationLegacy` and `SessionParametersLegacy` respectively to better reflect their function in supporting older APIs only.
++- Similarly, the method name/signature of `CameraDeviceSetupCompat.#isSessionConfigurationSupported(SessionConfigurationCompat)` has been changed to `CameraDeviceSetupCompat.#isSessionConfigurationSupportedLegacy(SessionConfigurationLegacy)`
+\ No newline at end of file

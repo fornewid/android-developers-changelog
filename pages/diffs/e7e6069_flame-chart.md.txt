@@ -1,0 +1,76 @@
+diff --git a/docs/studio/profile/chart-glossary/flame-chart.md b/docs/studio/profile/chart-glossary/flame-chart.md
+index ff14bb7..182e1bd 100644
+--- a/docs/studio/profile/chart-glossary/flame-chart.md
++++ b/docs/studio/profile/chart-glossary/flame-chart.md
+@@ -1,19 +1,9 @@
+ ---
+-title: Flame chart  |  Android Studio  |  Android Developers
++title: https://developer.android.com/studio/profile/chart-glossary/flame-chart
+ url: https://developer.android.com/studio/profile/chart-glossary/flame-chart
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-* [Develop](https://developer.android.com/develop)
+-* [Android Studio](https://developer.android.com/studio)
+-* [IDE guides](https://developer.android.com/studio/intro)
+-
+-# Flame chart Stay organized with collections Save and categorize content based on your preferences.
+-
+-
+-
+-
+ The **Flame Chart** tab provides an inverted call chart that aggregates
+ identical call stacks. That is, identical methods or functions that share the
+ same sequence of callers are collected and represented as one longer bar in a
+@@ -24,31 +14,37 @@ timeline; instead, it indicates the relative amount of time each method or
+ function takes to execute.
+ 
+ To help illustrate this concept, consider the call chart in Figure 1. Note
+-that method D makes multiple calls to B (B1, B2, and
+-B3), and some of those calls to B make a call to C (C1 and
+-C3).
++that method D makes multiple calls to B (B~1~, B~2~, and
++B~3~), and some of those calls to B make a call to C (C~1~ and
++C~3~).
+ 
+-![](/static/studio/images/profile/call_chart_2-2X.png)
++![](https://developer.android.com/static/studio/images/profile/call_chart_2-2X.png)
+ 
+ **Figure 1.** A call chart with multiple method calls
+ that share a common sequence of callers.
+ 
+-Because B1, B2, and B3 share the same sequence
++<br />
++
++Because B~1~, B~2~, and B~3~ share the same sequence
+ of callers (A → D → B) they are aggregated, as shown in Figure 2. Similarly,
+-C1 and C3 are aggregated because they share the same
+-sequence of callers (A → D → B → C); note that C2 is not included
++C~1~ and C~3~ are aggregated because they share the same
++sequence of callers (A → D → B → C); note that C~2~ is not included
+ because it has a different sequence of callers (A → D → C).
+ 
+-![](/static/studio/images/profile/flame_chart_aggregation-2X.png)
++![](https://developer.android.com/static/studio/images/profile/flame_chart_aggregation-2X.png)
+ 
+ **Figure 2.** Aggregating identical methods that share
+ the same call stack.
+ 
++<br />
++
+ The aggregated calls are used to create the flame chart, as shown in Figure 3.
+ Note that, for any given call in a flame chart, the callees that consume the
+ most CPU time appear first.
+ 
+-![](/static/studio/images/profile/flame_chart-2X.png)
++![](https://developer.android.com/static/studio/images/profile/flame_chart-2X.png)
+ 
+ **Figure 3.** A flame chart representation of the call
+-chart shown in figure 5.
+\ No newline at end of file
++chart shown in figure 5.
++
++<br />
+\ No newline at end of file

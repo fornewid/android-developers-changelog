@@ -1,0 +1,78 @@
+diff --git a/docs/social-and-messaging/guides/basic-better-best.md b/docs/social-and-messaging/guides/basic-better-best.md
+index ad0ce04..7a184e8 100644
+--- a/docs/social-and-messaging/guides/basic-better-best.md
++++ b/docs/social-and-messaging/guides/basic-better-best.md
+@@ -1,19 +1,9 @@
+ ---
+-title: Take your social or messaging app to the next level — basic, better, and best  |  Android social  |  Android Developers
++title: https://developer.android.com/social-and-messaging/guides/basic-better-best
+ url: https://developer.android.com/social-and-messaging/guides/basic-better-best
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-* [Essentials](https://developer.android.com/get-started)
+-* [Social & Messaging Dev Center](https://developer.android.com/social-and-messaging)
+-* [Guides](https://developer.android.com/social-and-messaging/guides)
+-
+-# Take your social or messaging app to the next level — basic, better, and best Stay organized with collections Save and categorize content based on your preferences.
+-
+-
+-
+-
+ This guide links to three documents that chart the optimal progression of a
+ social or messaging app from a likely starting place to best-in-class. These
+ documents cover use cases around messaging, media creation, and media playback.
+@@ -31,12 +21,10 @@ integrated and consistent.
+ 
+ Ways to help your app stand out include:
+ 
+-* Support for receiving [rich content](/develop/ui/views/receive-rich-content), including stickers and images through
+-  Android's Image Keyboard, drag and drop, and clipboard.
+-* Support for browsing and selecting user photos and videos, either local or in
+-  the cloud, using Android's built-in [photo picker](/training/data-storage/shared/photopicker).
++- Support for receiving [rich content](https://developer.android.com/develop/ui/views/receive-rich-content), including stickers and images through Android's Image Keyboard, drag and drop, and clipboard.
++- Support for browsing and selecting user photos and videos, either local or in the cloud, using Android's built-in [photo picker](https://developer.android.com/training/data-storage/shared/photopicker).
+ 
+-See the [full guide](/social-and-messaging/guides/communication/basic-better-best) for features to take your messaging and
++See the [full guide](https://developer.android.com/social-and-messaging/guides/communication/basic-better-best) for features to take your messaging and
+ communication experience to the next level.
+ 
+ ## Media creation, capture, and sharing
+@@ -50,13 +38,12 @@ integration into your app.
+ 
+ Ways to help your app stand out include:
+ 
+-* Capture [UltraHDR images](https://github.com/android/platform-samples/blob/main/samples/camera/camera2/src/main/java/com/example/platform/camera/imagecapture/Camera2UltraHDRCapture.kt) and [HDR video](/media/camera/camera2/hdr-video-capture).
+-* Utilize [camera extensions](/media/camera/camera-extensions) such as night mode or bokeh (for portrait
+-  shots).
+-* Support [zero shutter lag](/media/camera/camerax/take-photo#zero-shutter-lag).
+-* Edit video with [custom effects](/media/media3/transformer/transformations#custom-video).
++- Capture [UltraHDR images](https://github.com/android/platform-samples/blob/main/samples/camera/camera2/src/main/java/com/example/platform/camera/imagecapture/Camera2UltraHDRCapture.kt) and [HDR video](https://developer.android.com/media/camera/camera2/hdr-video-capture).
++- Utilize [camera extensions](https://developer.android.com/media/camera/camera-extensions) such as night mode or bokeh (for portrait shots).
++- Support [zero shutter lag](https://developer.android.com/media/camera/camerax/take-photo#zero-shutter-lag).
++- Edit video with [custom effects](https://developer.android.com/media/media3/transformer/transformations#custom-video).
+ 
+-See the [complete guide](/social-and-messaging/guides/media-creation/basic-better-best) for features to consider to take your media capture,
++See the [complete guide](https://developer.android.com/social-and-messaging/guides/media-creation/basic-better-best) for features to consider to take your media capture,
+ editing, and sharing experience to the next level.
+ 
+ ## Media display and playback
+@@ -70,11 +57,9 @@ while making the user experience more integrated and consistent.
+ 
+ Ways to help your app stand out include:
+ 
+-* Support [UltraHDR](/media/grow/ultra-hdr-display) images and [HDR](/media/grow/hdr-playback) video.
+-* Enable [picture-in-picture](/develop/ui/views/picture-in-picture) for video and audio playback.
+-* Implement a [MediaSession](/guide/topics/media/media3/getting-started/mediasession) — made easy with [Media3s](/guide/topics/media/media3) [ExoPlayer](/guide/topics/media/exoplayer) —
+-  to enable playback integration across different apps, system components, and
+-  devices.
++- Support [UltraHDR](https://developer.android.com/media/grow/ultra-hdr-display) images and [HDR](https://developer.android.com/media/grow/hdr-playback) video.
++- Enable [picture-in-picture](https://developer.android.com/develop/ui/views/picture-in-picture) for video and audio playback.
++- Implement a [MediaSession](https://developer.android.com/guide/topics/media/media3/getting-started/mediasession) --- made easy with [Media3s](https://developer.android.com/guide/topics/media/media3) [ExoPlayer](https://developer.android.com/guide/topics/media/exoplayer) --- to enable playback integration across different apps, system components, and devices.
+ 
+-See the [full guide](/social-and-messaging/guides/media-display/basic-better-best) for features to consider to take your media display and
++See the [full guide](https://developer.android.com/social-and-messaging/guides/media-display/basic-better-best) for features to consider to take your media display and
+ playback experience to the next level.
+\ No newline at end of file

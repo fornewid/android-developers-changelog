@@ -1,0 +1,198 @@
+diff --git a/docs/training/wearables/wff/effects.md b/docs/training/wearables/wff/effects.md
+index de7a8f7..a059a50 100644
+--- a/docs/training/wearables/wff/effects.md
++++ b/docs/training/wearables/wff/effects.md
+@@ -1,19 +1,9 @@
+ ---
+-title: Apply masks, blend effects, and tints  |  Wear OS  |  Android Developers
++title: https://developer.android.com/training/wearables/wff/effects
+ url: https://developer.android.com/training/wearables/wff/effects
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-* [Develop](https://developer.android.com/develop)
+-* [Devices](https://developer.android.com/develop/devices)
+-* [Wear OS](https://developer.android.com/training/wearables)
+-
+-# Apply masks, blend effects, and tints Stay organized with collections Save and categorize content based on your preferences.
+-
+-
+-
+-
+ The `Group` and `Part*` elements also provide `tintColor, renderMode` and
+ `blendMode` attributes which are powerful ways of adjusting the appearance of
+ sections of your watch face.
+@@ -36,19 +26,19 @@ different approach is used:
+ 
+ 1. An off-screen canvas is created
+ 2. All child elements with `SOURCE` set (which is the default) are drawn
+-   1. All child elements that are part of the mask (`MASK, ALL`) are applied to
+-      the canvas to clip the resulting image.
++   1. All child elements that are part of the mask (`MASK, ALL`) are applied to the canvas to clip the resulting image.
+ 
+ Note that this means that the order of the elements in the parent node are not
+ taken into account.
+ 
+ In the following example, the `Scene` parent contains three children:
+ 
+-* The **first and third** elements are `MASK` elements, so they're combined
+-  together to form a masking layer
+-* The **second** element is the only non-masking layer
++- The **first and third** elements are `MASK` elements, so they're combined together to form a masking layer
++- The **second** element is the only non-masking layer
+ 
+-```
++<br />
++
++```xml
+ <PartDraw x="175" y="50" width="100" height="100" renderMode="MASK">
+     <Ellipse x="0" y="0" width="100" height="100">
+         <Fill color="#FFFFFF" />
+@@ -69,10 +59,10 @@ In the following example, the `Scene` parent contains three children:
+         <Font family="pacifico" size="72" weight="BOLD" color="#FFFFFF">Hello!</Font>
+     </Text>
+ </PartText>
+-
+-watchface_effects.xml
+ ```
+ 
++<br />
++
+ The third option for `renderMode` in addition to `SOURCE` and `MASK` is `ALL`.
+ `ALL` specifies that the element should be treated both as a `SOURCE` and as a
+ `MASK` which can be useful in some scenarios.
+@@ -87,14 +77,16 @@ mode*](https://en.wikipedia.org/wiki/Blend_modes) when composing `Part*` element
+ 
+ Unlike `renderMode`, which introduces a special mechanism for constructing the
+ source and mask respectively, `blendMode` provides general access to all
+-[Android Graphics blend mode effects](/reference/android/graphics/BlendMode), and applies effects in the order that
++[Android Graphics blend mode effects](https://developer.android.com/reference/android/graphics/BlendMode), and applies effects in the order that
+ elements appear in the scene graph.
+ 
+ In normal operation, when a two `Part*` elements are placed in the scene, the
+ top-most obscures or partially obscures the lower element because the default
+ `blendMode` is `SRC_OVER`.
+ 
+-```
++<br />
++
++```xml
+ <PartDraw x="125" y="115" width="150" height="150">
+     <Rectangle x="0" y="0" width="150" height="150">
+         <Fill color="#ffd3ba" />
+@@ -105,18 +97,20 @@ top-most obscures or partially obscures the lower element because the default
+         <Font family="pacifico" size="96" weight="BOLD" color="#fb5607">Hello!</Font>
+     </Text>
+ </PartText>
+-
+-watchface_effects.xml
+ ```
+ 
+-As a demonstration of using blend modes, choosing [`SRC_ATOP`](/reference/android/graphics/BlendMode#SRC_ATOP), discards
+-*the source pixels that do not cover destination pixels*. Namely, the
++<br />
++
++As a demonstration of using blend modes, choosing [`SRC_ATOP`](https://developer.android.com/reference/android/graphics/BlendMode#SRC_ATOP), discards
++*the source pixels that do not cover destination pixels* . Namely, the
+ `PartText` is the source, and the destination is the `PartDraw`.
+ 
+ So as a result, text is only drawn over the rectangle, and not elsewhere on the
+ watch face:
+ 
+-```
++<br />
++
++```xml
+ <PartDraw x="125" y="115" width="150" height="150">
+     <Rectangle x="0" y="0" width="150" height="150">
+         <Fill color="#ffd3ba" />
+@@ -127,17 +121,19 @@ watch face:
+         <Font family="pacifico" size="96" weight="BOLD" color="#fb5607">Hello!</Font>
+     </Text>
+ </PartText>
+-
+-watchface_effects.xml
+ ```
+ 
+-More complex effects can be applied, such as using [`COLOR_DODGE`](/reference/android/graphics/BlendMode#COLOR_DODGE) instead of
++<br />
++
++More complex effects can be applied, such as using [`COLOR_DODGE`](https://developer.android.com/reference/android/graphics/BlendMode#COLOR_DODGE) instead of
+ `SRC_ATOP`, which *makes destination brighter to reflect source*.
+ 
+-An example of combining multiple `Part*` elements using [`HUE`](/reference/android/graphics/BlendMode#HUE) and
+-[`COLOR_BURN`](/reference/android/graphics/BlendMode#COLOR_BURN) blend modes:
++An example of combining multiple `Part*` elements using [`HUE`](https://developer.android.com/reference/android/graphics/BlendMode#HUE) and
++[`COLOR_BURN`](https://developer.android.com/reference/android/graphics/BlendMode#COLOR_BURN) blend modes:
+ 
+-```
++<br />
++
++```xml
+ <Group name="container" x="75" y="100" width="300" height="300">
+     <PartDraw x="25" y="15" width="150" height="150">
+         <Rectangle x="0" y="0" width="150" height="150">
+@@ -155,10 +151,10 @@ An example of combining multiple `Part*` elements using [`HUE`](/reference/andro
+         </Text>
+     </PartText>
+ </Group>
+-
+-watchface_effects.xml
+ ```
+ 
++<br />
++
+ ## Considerations
+ 
+ The following sections describe some considerations to keep in mind when using
+@@ -176,7 +172,9 @@ taken.
+ For example, considering the previous example used before, and adding in a
+ rectangle mask, noting that the order of the masked element doesn't matter:
+ 
+-```
++<br />
++
++```xml
+ <Group name="container" x="75" y="100" width="300" height="300">
+     <PartDraw x="25" y="15" width="150" height="150">
+         <Rectangle x="0" y="0" width="150" height="150">
+@@ -199,10 +197,10 @@ rectangle mask, noting that the order of the masked element doesn't matter:
+         </Text>
+     </PartText>
+ </Group>
+-
+-watchface_effects.xml
+ ```
+ 
++<br />
++
+ ### Performance
+ 
+ Using either `renderMode` and `blendMode` requires additional computation and
+@@ -218,7 +216,9 @@ the impact that their use may have on the overall performance of the watch face.
+ A `tintColor` can be applied to the whole `Part*` element, `Group`, or
+ individual hands such as `HourHand` and `MinuteHand`, for example:
+ 
+-```
++<br />
++
++```xml
+ <Group x="75" y="100" width="350" height="350" name="group1" tintColor="#ffd3ba">
+     <PartDraw x="25" y="0" width="100" height="100">
+         <Rectangle x="0" y="0" width="100" height="100">
+@@ -236,10 +236,10 @@ individual hands such as `HourHand` and `MinuteHand`, for example:
+         </Text>
+     </PartText>
+ </Group>
+-
+-watchface_effects.xml
+ ```
+ 
++<br />
++
+ This can be useful for styling an entire section of the watch face, including
+ applying the style from the user settings, for example:
+ `tintcolor="[CONFIGURATION.myThemeColor.0]"`.
+\ No newline at end of file

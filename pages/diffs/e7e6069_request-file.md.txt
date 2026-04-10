@@ -1,0 +1,148 @@
+diff --git a/docs/training/secure-file-sharing/request-file.md b/docs/training/secure-file-sharing/request-file.md
+index 312ac02..f9d73e2 100644
+--- a/docs/training/secure-file-sharing/request-file.md
++++ b/docs/training/secure-file-sharing/request-file.md
+@@ -1,43 +1,36 @@
+ ---
+-title: Requesting a shared file  |  App data and files  |  Android Developers
++title: https://developer.android.com/training/secure-file-sharing/request-file
+ url: https://developer.android.com/training/secure-file-sharing/request-file
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-* [Develop](https://developer.android.com/develop)
+-* [Core areas](https://developer.android.com/develop/core-areas)
+-* [App data and files](https://developer.android.com/training/data-storage)
+-
+-# Requesting a shared file Stay organized with collections Save and categorize content based on your preferences.
+-
+-
+-
+-
+ When an app wants to access a file shared by another app, the requesting app (the client)
+ usually sends a request to the app sharing the files (the server). In most cases, the request
+-starts an `Activity` in the server app that displays the files it can share.
++starts an `https://developer.android.com/reference/android/app/Activity` in the server app that displays the files it can share.
+ The user picks a file, after which the server app returns the file's content URI to the
+ client app.
+ 
++
+ This lesson shows you how a client app requests a file from a server app, receives the file's
+ content URI from the server app, and opens the file using the content URI.
+ 
+ ## Send a request for the file
+ 
++
+ To request a file from the server app, the client app calls
+-`startActivityForResult` with an
+-`Intent` containing the action such as
+-`ACTION_PICK` and a MIME type that the client app
++`https://developer.android.com/reference/android/app/Activity#startActivityForResult(android.content.Intent, int)` with an
++`https://developer.android.com/reference/android/content/Intent` containing the action such as
++`https://developer.android.com/reference/android/content/Intent#ACTION_PICK` and a MIME type that the client app
+ can handle.
+ 
++
+ For example, the following code snippet demonstrates how to send an
+-`Intent` to a server app in order to start the
+-`Activity` described in [Sharing a file](/training/secure-file-sharing/share-file#SendURI):
++`https://developer.android.com/reference/android/content/Intent` to a server app in order to start the
++`https://developer.android.com/reference/android/app/Activity` described in [Sharing a file](https://developer.android.com/training/secure-file-sharing/share-file#SendURI):
+ 
+ ### Kotlin
+ 
+-```
++```kotlin
+ class MainActivity : Activity() {
+     private lateinit var requestFileIntent: Intent
+     private lateinit var inputPFD: ParcelFileDescriptor
+@@ -66,7 +59,7 @@ class MainActivity : Activity() {
+ 
+ ### Java
+ 
+-```
++```java
+ public class MainActivity extends Activity {
+     private Intent requestFileIntent;
+     private ParcelFileDescriptor inputPFD;
+@@ -95,27 +88,30 @@ public class MainActivity extends Activity {
+ 
+ ## Access the requested file
+ 
++
+ The server app sends the file's content URI back to the client app in an
+-`Intent`. This `Intent` is passed to the client
+-app in its override of `onActivityResult()`. Once
++`https://developer.android.com/reference/android/content/Intent`. This `https://developer.android.com/reference/android/content/Intent` is passed to the client
++app in its override of `https://developer.android.com/reference/android/app/Activity#onActivityResult(int, int, android.content.Intent)`. Once
+ the client app has the file's content URI, it can access the file by getting its
+-`FileDescriptor`.
++`https://developer.android.com/reference/java/io/FileDescriptor`.
++
+ 
+ File security is preserved in this process only as long as you properly parse the content URI
+ that the client app receives. When parsing content, you must ensure that this URI does not point
+ to anything outside of the intended directory, ensuring that no
+-[path traversal](/privacy-and-security/risks/path-traversal) is being attempted.
++[path traversal](https://developer.android.com/privacy-and-security/risks/path-traversal) is being attempted.
+ Only the client app should gain access to the file, and only for the permissions granted by the
+ server app. Permissions are temporary, so once the client app's task stack is finished, the
+ file is no longer accessible outside the server app.
+ 
++
+ The next snippet demonstrates how the client app handles the
+-`Intent` sent from the server app, and how the client app gets the
+-`FileDescriptor` using the content URI:
++`https://developer.android.com/reference/android/content/Intent` sent from the server app, and how the client app gets the
++`https://developer.android.com/reference/java/io/FileDescriptor` using the content URI:
+ 
+ ### Kotlin
+ 
+-```
++```kotlin
+ /*
+  * When the Activity of the app that hosts files sets a result and calls
+  * finish(), this method is invoked. The returned Intent contains the
+@@ -156,7 +152,7 @@ public override fun onActivityResult(requestCode: Int, resultCode: Int, returnIn
+ 
+ ### Java
+ 
+-```
++```java
+     /*
+      * When the Activity of the app that hosts files sets a result and calls
+      * finish(), this method is invoked. The returned Intent contains the
+@@ -196,23 +192,12 @@ public override fun onActivityResult(requestCode: Int, resultCode: Int, returnIn
+     }
+ ```
+ 
+-The method `openFileDescriptor()`
+-returns a `ParcelFileDescriptor` for the file. From this object, the client
+-app gets a `FileDescriptor` object, which it can then use to read the file.
+-
+-For additional related information, refer to:
+ 
+-* [Intents and Intent Filters](/guide/components/intents-filters)
+-* [Retrieving Data from the Provider](/guide/topics/providers/content-provider-basics#SimpleQuery)
++The method `https://developer.android.com/reference/android/content/ContentResolver#openFileDescriptor(android.net.Uri, java.lang.String)`
++returns a `https://developer.android.com/reference/android/os/ParcelFileDescriptor` for the file. From this object, the client
++app gets a `https://developer.android.com/reference/java/io/FileDescriptor` object, which it can then use to read the file.
+ 
+-[Previous
+-
+-arrow\_back
+-
+-Sharing a file](/training/secure-file-sharing/share-file)
+-
+-[Next
+-
+-Retrieving file information
++For additional related information, refer to:
+ 
+-arrow\_forward](/training/secure-file-sharing/retrieve-info)
+\ No newline at end of file
++- [Intents and Intent Filters](https://developer.android.com/guide/components/intents-filters)
++- [Retrieving Data from the Provider](https://developer.android.com/guide/topics/providers/content-provider-basics#SimpleQuery)
+\ No newline at end of file

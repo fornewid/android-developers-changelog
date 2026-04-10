@@ -1,0 +1,62 @@
+diff --git a/docs/games/services/publishing/api/leaderboardConfigurations/insert.md b/docs/games/services/publishing/api/leaderboardConfigurations/insert.md
+index e67694a..5f1f94d 100644
+--- a/docs/games/services/publishing/api/leaderboardConfigurations/insert.md
++++ b/docs/games/services/publishing/api/leaderboardConfigurations/insert.md
+@@ -1,19 +1,12 @@
+ ---
+-title: LeaderboardConfigurations: insert  |  API reference  |  Android Developers
++title: https://developer.android.com/games/services/publishing/api/leaderboardConfigurations/insert
+ url: https://developer.android.com/games/services/publishing/api/leaderboardConfigurations/insert
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-* [Develop](https://developer.android.com/develop)
+-* [API reference](https://developer.android.com/reference)
++# LeaderboardConfigurations: insert
+ 
+-# LeaderboardConfigurations: insert Stay organized with collections Save and categorize content based on your preferences.
+-
+-
+-
+-
+-**Requires [authorization](#auth)**
++**Requires[authorization](https://developer.android.com/games/services/publishing/api/leaderboardConfigurations/insert#auth)**
+ 
+ Insert a new leaderboard configuration in this application.
+ 
+@@ -27,23 +20,23 @@ POST https://www.googleapis.com/games/v1configuration/applications/applicationId
+ 
+ ### Parameters
+ 
+-| Parameter name | Value | Description |
+-| --- | --- | --- |
+-| **Path parameters** | | |
++| Parameter name  |  Value   |                   Description                    |
++|-----------------|----------|--------------------------------------------------|
++| **Path parameters**                                                         |||
+ | `applicationId` | `string` | The application ID from the Google Play Console. |
+ 
+ ### Authorization
+ 
+-This request requires authorization with the following scope ([read more about authentication and authorization](/accounts/docs/OAuth2)).
++This request requires authorization with the following scope ([read more about authentication and authorization](https://developer.android.com/accounts/docs/OAuth2)).
+ 
+-| Scope |
+-| --- |
++|                       Scope                        |
++|----------------------------------------------------|
+ | `https://www.googleapis.com/auth/androidpublisher` |
+ 
+ ### Request body
+ 
+-In the request body, supply a [LeaderboardConfigurations resource](/games/services/publishing/api/leaderboardConfigurations#resource).
++In the request body, supply a[LeaderboardConfigurations resource](https://developer.android.com/games/services/publishing/api/leaderboardConfigurations#resource).
+ 
+ ## Response
+ 
+-If successful, this method returns a [LeaderboardConfigurations resource](/games/services/publishing/api/leaderboardConfigurations#resource) in the response body.
+\ No newline at end of file
++If successful, this method returns a[LeaderboardConfigurations resource](https://developer.android.com/games/services/publishing/api/leaderboardConfigurations#resource)in the response body.
+\ No newline at end of file

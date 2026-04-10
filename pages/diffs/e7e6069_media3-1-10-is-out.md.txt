@@ -1,0 +1,226 @@
+diff --git a/docs/blog/posts/media3-1-10-is-out.md b/docs/blog/posts/media3-1-10-is-out.md
+index e749a69..295890c 100644
+--- a/docs/blog/posts/media3-1-10-is-out.md
++++ b/docs/blog/posts/media3-1-10-is-out.md
+@@ -1,35 +1,16 @@
+ ---
+-title: Media3 1.10 is out  |  Android Developers' Blog
++title: https://developer.android.com/blog/posts/media3-1-10-is-out
+ url: https://developer.android.com/blog/posts/media3-1-10-is-out
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-* [Android Developers' Blog](https://developer.android.com/)
+-* [Blog](https://developer.android.com/blog)
+-
+-Stay organized with collections
+-
+-Save and categorize content based on your preferences.
+-
+-
+-
+-#### [Product News](/blog/categories/product-news)
++#### [Product News](https://developer.android.com/blog/categories/product-news)
+ 
+ # Media3 1.10 is out
+ 
+ ###### 2-min read
+ 
+-![](/static/blog/assets/Androidmedia3_1_10_6c365d70f6_Oaj9H.webp)
+-
+-30
+-
+-Mar
+-2026
+-
+-[![](/static/blog/assets/andrew_lewis_1f4294eade_ZLA0xp.webp)](/blog/authors/andrew-lewis)
+-
+-[##### Andrew Lewis](/blog/authors/andrew-lewis)
++![](https://developer.android.com/static/blog/assets/Androidmedia3_1_10_6c365d70f6_Oaj9H.webp) 30 Mar 2026 [![](https://developer.android.com/static/blog/assets/andrew_lewis_1f4294eade_ZLA0xp.webp)](https://developer.android.com/blog/authors/andrew-lewis) [##### Andrew Lewis](https://developer.android.com/blog/authors/andrew-lewis)
+ 
+ ###### Software Engineer
+ 
+@@ -37,140 +18,93 @@ Media3 1.10 includes new features, bug fixes and feature improvements, including
+ 
+ #### Playback UI and Compose
+ 
+-We are continuing to expand the media3-ui-compose-material3  module to help you build Compose UIs for playback.  
+-  
+-We've added a new [Player Composable](/reference/kotlin/androidx/media3/ui/compose/material3/package-summary#Player(androidx.media3.common.Player,androidx.compose.ui.Modifier,kotlin.Int,androidx.compose.ui.layout.ContentScale,kotlin.Boolean,kotlin.Function0,kotlin.Boolean,kotlin.Function3,kotlin.Function3,kotlin.Function3)) that combines a ContentFrame with customizable playback controls, giving you an out-of-the-box player widget with a modern UI.
++We are continuing to expand the media3-ui-compose-material3 module to help you build Compose UIs for playback.  
+ 
+-This release also adds a ProgressSlider Composable for displaying player progress and performing seeks using dragging and tapping gestures. For playback speed management, a new PlaybackSpeedControl is available in the base media3-ui-compose module, alongside a styled PlaybackSpeedToggleButton in the Material 3 module.
++We've added a new [Player Composable](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/material3/package-summary#Player(androidx.media3.common.Player,androidx.compose.ui.Modifier,kotlin.Int,androidx.compose.ui.layout.ContentScale,kotlin.Boolean,kotlin.Function0,kotlin.Boolean,kotlin.Function3,kotlin.Function3,kotlin.Function3)) that combines a ContentFrame with customizable playback controls, giving you an out-of-the-box player widget with a modern UI.
+ 
+-We'll continue working on new additions like track selection utils, subtitle support and more customization options in the upcoming Media3 releases. We're eager to hear your feedback so please share your thoughts on the project [issue tracker](https://github.com/androidx/media/issues).
++This release also adds a ProgressSlider Composable for displaying player progress and performing seeks using dragging and tapping gestures. For playback speed management, a new PlaybackSpeedControl is available in the base media3-ui-compose module, alongside a styled PlaybackSpeedToggleButton in the Material 3 module.
+ 
+-![large_media31.102.jpeg](/static/blog/assets/large_media31_102_bc259f4117_Z1jVA9.webp)
+-
+-
+-Player Composable in the Media3 Compose demo app
++We'll continue working on new additions like track selection utils, subtitle support and more customization options in the upcoming Media3 releases. We're eager to hear your feedback so please share your thoughts on the project [issue tracker](https://github.com/androidx/media/issues).
++![large_media31.102.jpeg](https://developer.android.com/static/blog/assets/large_media31_102_bc259f4117_Z1jVA9.webp) Player Composable in the Media3 Compose demo app
+ 
+ #### Playback feature enhancements
+ 
+ Media3 1.10 includes a variety of additions and improvements across the playback modules:
+ 
+-* Format support: ExoPlayer now supports extracting Dolby Vision Profile 10 and Versatile Video Coding (VVC) tracks in MP4 containers, and we've introduced MPEG-H UI manager support in the decoder\_mpeghextension. The IAMF extension now seamlessly supports binaural output, either through the decoder viaiamf\_tools or through the Android OS Spatializer, with new logic to match the output layout of the speakers.
+-* Ad playback: Improvements to reliability, improved HLS interstitial support forX-PLAYOUT-LIMIT  and X-SNAP, and with the latest IMA SDK dependency you can control whether ad click-through URLs open in custom tabs with setEnableCustomTabs.
++- Format support: ExoPlayer now supports extracting Dolby Vision Profile 10 and Versatile Video Coding (VVC) tracks in MP4 containers, and we've introduced MPEG-H UI manager support in the decoder_mpeghextension. The IAMF extension now seamlessly supports binaural output, either through the decoder viaiamf_tools or through the Android OS Spatializer, with new logic to match the output layout of the speakers.
++- Ad playback: Improvements to reliability, improved HLS interstitial support forX-PLAYOUT-LIMIT and X-SNAP, and with the latest IMA SDK dependency you can control whether ad click-through URLs open in custom tabs with setEnableCustomTabs.
+ 
+ HLS: ExoPlayer now allows location fallback upon encountering load errors if redundant streams from different locations are available.
+ 
+-* Session: MediaSessionService now extends LifecycleService, allowing apps to access the lifecycle scoping of the service.
++- Session: MediaSessionService now extends LifecycleService, allowing apps to access the lifecycle scoping of the service.
+ 
+-One of our key focus areas this year is on playback efficiency and performance. Media3 1.10 includes experimental support for scheduling the core playback loop in a more efficient way. You can try this out by enabling experimentalSetDynamicSchedulingEnabled() via the ExoPlayer.Builder. We plan to make further improvements in future releases so stay tuned!
++One of our key focus areas this year is on playback efficiency and performance. Media3 1.10 includes experimental support for scheduling the core playback loop in a more efficient way. You can try this out by enabling experimentalSetDynamicSchedulingEnabled() via the ExoPlayer.Builder. We plan to make further improvements in future releases so stay tuned!
+ 
+ #### Media editing and Transformer
+ 
+-For developers building media editing experiences, we've made speed adjustments more robust. EditedMediaItem.Builder.setFrameRate()can now set a maximum output frame rate for video. This is particularly helpful for controlling output size and maintaining performance when increasing media speed with setSpeed().
++For developers building media editing experiences, we've made speed adjustments more robust. EditedMediaItem.Builder.setFrameRate()can now set a maximum output frame rate for video. This is particularly helpful for controlling output size and maintaining performance when increasing media speed with setSpeed().
+ 
+ #### New modules for frame extraction and applying Lottie effects
+ 
+ In this release we've split some functionality into new modules to reduce the scope of some dependencies:
+ 
+-* FrameExtractor has been removed from the main media3-inspector module, so please migrate your code to use the new media3-inspector-framemodule and update your imports toandroidx.media3.inspector.frame.FrameExtractor.
+-* We have also moved theLottieOverlayeffect to a separate media3-effect-lottie module. As a reminder, this gives you a straightforward way to apply vector-based Lottie animations directly to video frames.
++- FrameExtractor has been removed from the main media3-inspector module, so please migrate your code to use the new media3-inspector-framemodule and update your imports toandroidx.media3.inspector.frame.FrameExtractor.
++- We have also moved theLottieOverlayeffect to a separate media3-effect-lottie module. As a reminder, this gives you a straightforward way to apply vector-based Lottie animations directly to video frames.
+ 
+ Please get in touch via the [issue tracker](https://github.com/androidx/media/issues) if you run into any bugs, or if you have questions or feature requests. We look forward to hearing from you!
+ 
+ ###### Written by:
+ 
+-* ## [Andrew Lewis](/blog/authors/andrew-lewis)
+-
+-  ###### Software Engineer
++-
+ 
+-  [read\_more
+-  View profile](/blog/authors/andrew-lewis)
++  ## [Andrew Lewis](https://developer.android.com/blog/authors/andrew-lewis)
+ 
+-  ![](/static/blog/assets/andrew_lewis_1f4294eade_ZLA0xp.webp)
++  ###### Software Engineer
+ 
+-  ![](/static/blog/assets/andrew_lewis_1f4294eade_ZLA0xp.webp)
++  [read_more
++  View profile](https://developer.android.com/blog/authors/andrew-lewis) ![](https://developer.android.com/static/blog/assets/andrew_lewis_1f4294eade_ZLA0xp.webp) ![](https://developer.android.com/static/blog/assets/andrew_lewis_1f4294eade_ZLA0xp.webp)
+ 
+ ## Continue reading
+ 
+-* [![](/static/blog/assets/matthew_warner_67a99317e4_Z2c1VNu.webp)](/blog/authors/matthew-warner)
+-
+-  02
+-
+-  Apr
+-  2026
+-
+-  02
++- [![](https://developer.android.com/static/blog/assets/matthew_warner_67a99317e4_Z2c1VNu.webp)](https://developer.android.com/blog/authors/matthew-warner) 02 Apr 2026 02 Apr 2026 ![](https://developer.android.com/static/blog/assets/android_studio_gemma4_73370772af_2lUopR.webp)
+ 
+-  Apr
+-  2026
++  #### [Product News](https://developer.android.com/blog/categories/product-news)
+ 
+-  ![](/static/blog/assets/android_studio_gemma4_73370772af_2lUopR.webp)
++  ## [Android Studio supports Gemma 4: our most capable local model for agentic coding](https://developer.android.com/blog/posts/android-studio-supports-gemma-4-our-most-capable-local-model-for-agentic-coding)
+ 
+-  #### [Product News](/blog/categories/product-news)
++  [arrow_forward](https://developer.android.com/blog/posts/android-studio-supports-gemma-4-our-most-capable-local-model-for-agentic-coding) Every developer's AI workflow and needs are unique, and it's important to be able to choose how AI helps your development. In January, we introduced the ability to choose any local or remote AI model to power AI functionality in Android Studio
+ 
+-  ## [Android Studio supports Gemma 4: our most capable local model for agentic coding](/blog/posts/android-studio-supports-gemma-4-our-most-capable-local-model-for-agentic-coding)
++  ###### [Matthew Warner](https://developer.android.com/blog/authors/matthew-warner) •
++  2 min read
+ 
+-  [arrow\_forward](/blog/posts/android-studio-supports-gemma-4-our-most-capable-local-model-for-agentic-coding)
++  - [#Android Studio](https://developer.android.com/blog/topics/android-studio)
++- [![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](https://developer.android.com/blog/authors/matt-dyor) 02 Apr 2026 02 Apr 2026 ![](https://developer.android.com/static/blog/assets/as_Panda3_385cde5eac_Z1E8IhJ.webp)
+ 
+-  Every developer's AI workflow and needs are unique, and it's important to be able to choose how AI helps your development. In January, we introduced the ability to choose any local or remote AI model to power AI functionality in Android Studio
++  #### [Product News](https://developer.android.com/blog/categories/product-news)
+ 
+-  ###### [Matthew Warner](/blog/authors/matthew-warner) • 2 min read
++  ## [Increase Guidance and Control over Agent Mode with Android Studio Panda 3](https://developer.android.com/blog/posts/increase-guidance-and-control-over-agent-mode-with-android-studio-panda-3)
+ 
+-  + [#Android Studio](/blog/topics/android-studio)
+-* [![](/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](/blog/authors/matt-dyor)
++  [arrow_forward](https://developer.android.com/blog/posts/increase-guidance-and-control-over-agent-mode-with-android-studio-panda-3) Android Studio Panda 3 is now stable and ready for you to use in production. This release gives you even more control and customization over your AI-powered workflows, making it easier than ever to build high-quality Android apps.
+ 
+-  02
++  ###### [Matt Dyor](https://developer.android.com/blog/authors/matt-dyor) •
++  3 min read
+ 
+-  Apr
+-  2026
++  - [#Android Studio](https://developer.android.com/blog/topics/android-studio)
++- [![](https://developer.android.com/static/blog/assets/Caren_Chang_e58d793559_1i40VV.webp)](https://developer.android.com/blog/authors/caren-chang)[![](https://developer.android.com/static/blog/assets/David_Chou_226df78370_tqGIk.webp)](https://developer.android.com/blog/authors/david-chou) 02 Apr 2026 02 Apr 2026 ![](https://developer.android.com/static/blog/assets/announcing_gemma4_aicore_ce479292b9_Z15e7FP.webp)
+ 
+-  02
++  #### [Product News](https://developer.android.com/blog/categories/product-news)
+ 
+-  Apr
+-  2026
++  ## [Announcing Gemma 4 in the AICore Developer Preview](https://developer.android.com/blog/posts/announcing-gemma-4-in-the-ai-core-developer-preview)
+ 
+-  ![](/static/blog/assets/as_Panda3_385cde5eac_Z1E8IhJ.webp)
++  [arrow_forward](https://developer.android.com/blog/posts/announcing-gemma-4-in-the-ai-core-developer-preview) At Google, we're committed to bringing the most capable AI models directly to the Android devices in your pocket. Today, we're thrilled to announce the release of our latest state-of-the-art open model: Gemma 4.
+ 
+-  #### [Product News](/blog/categories/product-news)
+-
+-  ## [Increase Guidance and Control over Agent Mode with Android Studio Panda 3](/blog/posts/increase-guidance-and-control-over-agent-mode-with-android-studio-panda-3)
+-
+-  [arrow\_forward](/blog/posts/increase-guidance-and-control-over-agent-mode-with-android-studio-panda-3)
+-
+-  Android Studio Panda 3 is now stable and ready for you to use in production. This release gives you even more control and customization over your AI-powered workflows, making it easier than ever to build high-quality Android apps.
+-
+-  ###### [Matt Dyor](/blog/authors/matt-dyor) • 3 min read
+-
+-  + [#Android Studio](/blog/topics/android-studio)
+-* [![](/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](/blog/authors/caren-chang)[![](/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](/blog/authors/david-chou)
+-
+-  02
+-
+-  Apr
+-  2026
+-
+-  02
+-
+-  Apr
+-  2026
+-
+-  ![](/static/blog/assets/announcing_gemma4_aicore_ce479292b9_Z15e7FP.webp)
+-
+-  #### [Product News](/blog/categories/product-news)
+-
+-  ## [Announcing Gemma 4 in the AICore Developer Preview](/blog/posts/announcing-gemma-4-in-the-ai-core-developer-preview)
+-
+-  [arrow\_forward](/blog/posts/announcing-gemma-4-in-the-ai-core-developer-preview)
+-
+-  At Google, we’re committed to bringing the most capable AI models directly to the Android devices in your pocket. Today, we’re thrilled to announce the release of our latest state-of-the-art open model: Gemma 4.
+-
+-  ###### [Caren Chang](/blog/authors/caren-chang), [David Chou](/blog/authors/david-chou) • 3 min read
++  ###### [Caren Chang](https://developer.android.com/blog/authors/caren-chang), [David Chou](https://developer.android.com/blog/authors/david-chou) •
++  3 min read
+ 
+ # Stay in the loop
+ 
++
+ Get the latest Android development insights delivered to your inbox
+ weekly.
+-
+ [mail
+-Subscribe](/subscribe)
+-
+-![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file
++Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file

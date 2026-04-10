@@ -1,0 +1,227 @@
+diff --git a/docs/develop/ui/views/text-and-emoji/emoji-picker.md b/docs/develop/ui/views/text-and-emoji/emoji-picker.md
+index 1beeb61..c74413a 100644
+--- a/docs/develop/ui/views/text-and-emoji/emoji-picker.md
++++ b/docs/develop/ui/views/text-and-emoji/emoji-picker.md
+@@ -1,28 +1,12 @@
+ ---
+-title: Emoji Picker  |  Views  |  Android Developers
++title: https://developer.android.com/develop/ui/views/text-and-emoji/emoji-picker
+ url: https://developer.android.com/develop/ui/views/text-and-emoji/emoji-picker
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-* [Develop](https://developer.android.com/develop)
+-* [Core areas](https://developer.android.com/develop/core-areas)
+-* [UI](https://developer.android.com/develop/ui)
+-* [Views](https://developer.android.com/develop/ui/views/layout/declaring-layout)
+-
+-# Emoji Picker Stay organized with collections Save and categorize content based on your preferences.
+-
+-
+-
+ The Emoji Picker is a UI solution that offers a modern look and feel, up-to-date
+ emoji, and ease of use. Users can browse and select emoji and their variants
+ or choose from their recently-used emoji.
+-
+-[
+-
+-](/static/images/develop/ui/views/text-and-emoji/emoji-picker.mp4)
+-
+-
+ **Figure 1.** Emoji Picker
+ 
+ With this library, apps from a variety of sources can provide an inclusive and
+@@ -45,26 +29,18 @@ skin tones. The variant you choose is saved in the Emoji Picker, and the last
+ selected variant is used in the main panel.
+ 
+ With this feature, users can send their preferred emoji variants with one tap.
+-
+-![emoji variants](/static/images/develop/ui/views/text-and-emoji/emoji-variants.png)
+-
+-
+-**Figure 2.** Emoji variants.
++![emoji variants](https://developer.android.com/static/images/develop/ui/views/text-and-emoji/emoji-variants.png) **Figure 2.** Emoji variants.
+ 
+ ### Recent emoji
+ 
+-![recent emoji](/static/images/develop/ui/views/text-and-emoji/recent-emoji.png)
+-
+-
+-**Figure 3.** Recent emoji.
++![recent emoji](https://developer.android.com/static/images/develop/ui/views/text-and-emoji/recent-emoji.png) **Figure 3.** Recent emoji.
+ 
+ The `RecentEmojiProvider` is responsible for providing emoji in the
+ **Recently Used** category. The library has a default recent emoji provider
+ that satisfies the most common use case:
+ 
+-* All selected emoji are saved per-app in shared preferences.
+-* The picker displays at most three rows of selected emoji, deduped, in reverse
+-  chronological order.
++- All selected emoji are saved per-app in shared preferences.
++- The picker displays at most three rows of selected emoji, deduped, in reverse chronological order.
+ 
+ If this default behavior is sufficient, then you don't need to use
+ `setRecentEmojiProvider()`.
+@@ -72,9 +48,9 @@ If this default behavior is sufficient, then you don't need to use
+ You might need to customize the provider behavior, however. Here are some common
+ scenarios:
+ 
+-* You want to store different selected emoji per user account.
+-* You want to use data storage other than shared preferences.
+-* You want to display recent emoji sorted by frequency.
++- You want to store different selected emoji per user account.
++- You want to use data storage other than shared preferences.
++- You want to display recent emoji sorted by frequency.
+ 
+ You can then implement the `RecentEmojiProvider` interface and set it using
+ `setRecentEmojiProvider()`.
+@@ -85,11 +61,11 @@ Starting with [Emoji 15.1](https://emojipedia.org/emoji-15.1), the Emoji Picker
+ bidirectional emoji. Users can tap on the bidirectional switcher to toggle
+ between left- and right-facing versions of emoji.
+ 
+-![bidirectional left emoji](/static/images/develop/ui/views/text-and-emoji/bidirectional-left.png "bidirectional emoji facig left")
++![bidirectional left emoji](https://developer.android.com/static/images/develop/ui/views/text-and-emoji/bidirectional-left.png "bidirectional emoji facig left")
+ 
+ **Figure 4.** Bidirectional emoji facing left.
+ 
+-![bidirectional right emoji](/static/images/develop/ui/views/text-and-emoji/bidirectional-right.png "bidrectional emoji facing right")
++![bidirectional right emoji](https://developer.android.com/static/images/develop/ui/views/text-and-emoji/bidirectional-right.png "bidrectional emoji facing right")
+ 
+ **Figure 5.** Bidirectional emoji facing right.
+ 
+@@ -97,16 +73,16 @@ between left- and right-facing versions of emoji.
+ 
+ Users can touch and hold emoji couples to reveal multi-person emoji selections.
+ 
+-![touch and hold emoji couple](/static/images/develop/ui/views/text-and-emoji/long-press-couple.png "touch and hold emoji couple")
++![touch and hold emoji couple](https://developer.android.com/static/images/develop/ui/views/text-and-emoji/long-press-couple.png "touch and hold emoji couple")
+ 
+ **Figure 6.** Touch and hold an emoji couple to reveal multi-person emoji
+ selections.
+ 
+-![tap left emoji person](/static/images/develop/ui/views/text-and-emoji/select-left.png "select the left-half emoji person")
++![tap left emoji person](https://developer.android.com/static/images/develop/ui/views/text-and-emoji/select-left.png "select the left-half emoji person")
+ 
+ **Figure 7.** Select a left-half emoji person.
+ 
+-![tap right emoji person](/static/images/develop/ui/views/text-and-emoji/select-right.png "select the right-half emoji person")
++![tap right emoji person](https://developer.android.com/static/images/develop/ui/views/text-and-emoji/select-right.png "select the right-half emoji person")
+ 
+ **Figure 8.** Select a right-half emoji person.
+ 
+@@ -129,70 +105,62 @@ Your app must target Android 5.0 (API level 21) or higher.
+ 1. Import `androidx.emoji2:emojipicker:$version` in your app's `build.gradle`
+    file.
+ 
+-   ```
+-   dependencies {
+-       implementation "androidx.emoji2:emojipicker:$version"
+-   }
+-   ```
++       dependencies {
++           implementation "androidx.emoji2:emojipicker:$version"
++       }
++
+ 2. Inflate the Emoji Picker view, and optionally set `emojiGridRows` and
+    `emojiGridColumns`.
+ 
+-   * The default number of `emojiGridColumns` is 9.
+-   * Row count is calculated based on the parent view height and the value of
+-     `emojiGridColumns`.
+-   * Use a float value for `emojiGridRows` to indicate that the user can
+-     scroll for more emoji.
+-
+-   ```
+-   <androidx.emoji2.emojipicker.EmojiPickerView
+-       android:id="@+id/emoji_picker"
+-       android:layout_width="match_parent"
+-       android:layout_height="match_parent"
+-       app:emojiGridColumns="9" />
+-   ```
+-
+-   ```
+-   val emojiPickerView = EmojiPickerView(context).apply {
+-       emojiGridColumns = 15
+-       layoutParams = ViewGroup.LayoutParams(
+-           ViewGroup.LayoutParams.MATCH_PARENT,
+-           ViewGroup.LayoutParams.MATCH_PARENT
+-       )
+-   }
+-
+-   findViewById<ViewGroup>(R.id.emoji_picker_layout).addView(emojiPickerView)
+-   ```
++   - The default number of `emojiGridColumns` is 9.
++   - Row count is calculated based on the parent view height and the value of `emojiGridColumns`.
++   - Use a float value for `emojiGridRows` to indicate that the user can scroll for more emoji.
++
++       <androidx.emoji2.emojipicker.EmojiPickerView
++           android:id="@+id/emoji_picker"
++           android:layout_width="match_parent"
++           android:layout_height="match_parent"
++           app:emojiGridColumns="9" />
++
++       val emojiPickerView = EmojiPickerView(context).apply {
++           emojiGridColumns = 15
++           layoutParams = ViewGroup.LayoutParams(
++               ViewGroup.LayoutParams.MATCH_PARENT,
++               ViewGroup.LayoutParams.MATCH_PARENT
++           )
++       }
++
++       findViewById<ViewGroup>(R.id.emoji_picker_layout).addView(emojiPickerView)
++
+ 3. Use `setOnEmojiPickedListener()` to append the selected emoji to a view.
+    For example, to append to an `EditText`, do the following:
+ 
+-   ```
+-   emojiPickerView.setOnEmojiPickedListener {
+-       findViewById<EditText>(R.id.edit_text).append(it.emoji)
+-   }
+-   ```
++       emojiPickerView.setOnEmojiPickedListener {
++           findViewById<EditText>(R.id.edit_text).append(it.emoji)
++       }
++
+ 4. Optionally set `RecentEmojiProvider`, see sample app for an example
+    implementation.
++
+ 5. Optionally customize styles. Create your own style to override common theme
+    attributes and apply the style to the `EmojiPickerView`. For example,
+    overriding `colorControlNormal` changes the category icon color.
+ 
+-   ```
+-   <style name="CustomStyle" >
+-       <item name="colorControlNormal">#FFC0CB</item>
+-   </style>
+-   <androidx.emoji2.emojipicker.EmojiPickerView
+-       android:id="@+id/emoji_picker"
+-       android:layout_width="match_parent"
+-       android:layout_height="match_parent"
+-       android:theme="@style/CustomStyle"
+-       app:emojiGridColumns="9" />
+-   ```
++       <style name="CustomStyle" >
++           <item name="colorControlNormal">#FFC0CB</item>
++       </style>
++       <androidx.emoji2.emojipicker.EmojiPickerView
++           android:id="@+id/emoji_picker"
++           android:layout_width="match_parent"
++           android:layout_height="match_parent"
++           android:theme="@style/CustomStyle"
++           app:emojiGridColumns="9" />
+ 
+ ## Sample App
+ 
+ The [Emoji Picker sample app](https://github.com/androidx/androidx/tree/androidx-main/emoji2/emoji2-emojipicker/samples) demonstrates basic use cases along with
+ the following additional scenarios:
+ 
+-* Layout recalculation when `emojiGridRows` or `emojiGridColumns` are reset.
+-* An overridden recent emoji provider that sorts by frequency.
+-* Additional style customization.
+\ No newline at end of file
++- Layout recalculation when `emojiGridRows` or `emojiGridColumns` are reset.
++- An overridden recent emoji provider that sorts by frequency.
++- Additional style customization.
+\ No newline at end of file

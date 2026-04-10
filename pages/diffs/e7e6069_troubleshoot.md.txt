@@ -1,0 +1,140 @@
+diff --git a/docs/develop/devices/assistant/troubleshoot.md b/docs/develop/devices/assistant/troubleshoot.md
+index 71f0a36..224f652 100644
+--- a/docs/develop/devices/assistant/troubleshoot.md
++++ b/docs/develop/devices/assistant/troubleshoot.md
+@@ -1,18 +1,9 @@
+ ---
+-title: Troubleshoot issues  |  Assistant  |  Android Developers
++title: https://developer.android.com/develop/devices/assistant/troubleshoot
+ url: https://developer.android.com/develop/devices/assistant/troubleshoot
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-* [Develop](https://developer.android.com/develop)
+-* [Devices](https://developer.android.com/develop/devices)
+-* [Assistant](https://developer.android.com/develop/devices/assistant/overview)
+-
+-# Troubleshoot issues Stay organized with collections Save and categorize content based on your preferences.
+-
+-
+-
+ When developing App Actions, you might encounter issues with your setup or with
+ the App Actions test tool. This page describes some commonly encountered issues
+ and their fixes.
+@@ -45,6 +36,8 @@ Here's an example of an entity set reference with a disabled lint check:
+ <entity-set-reference entitySetId="example" tools:ignore="ValidActionsXml" />
+ ```
+ 
++<br />
++
+ ### Error: "Invalid location" for actions schema document when uploading APK
+ 
+ Your APK upload may fail if you use an obfuscation or optimization tool that
+@@ -60,7 +53,7 @@ You may see this error while creating an app release in the Play Console. To
+ accept the Actions on Google Terms of Service, follow these steps:
+ 
+ 1. Select your app in the Play Console.
+-2. Navigate to **Setup > Advanced Settings**.
++2. Navigate to **Setup \> Advanced Settings**.
+ 3. Click the **Actions on Google** tab.
+ 4. Check the box labeled **Integrate my services with App Actions using Actions
+    on Google**, and follow the instructions.
+@@ -97,11 +90,8 @@ package where you don't have permissions to run on.
+ If the error still persists, please file a bug and send the following
+ details to Google:
+ 
+-* Details of the error dialog
+-* Android Studio Logs. Go to **Help > Show Log in Finder**. This shows you
+-  the location of the `idea.log` in your Finder. Search for "Submit Actions
+-  Request Body:" in the log file, and paste the server responses (there
+-  should be two results for actions).
++- Details of the error dialog
++- Android Studio Logs. Go to **Help \> Show Log in Finder** . This shows you the location of the `idea.log` in your Finder. Search for "Submit Actions Request Body:" in the log file, and paste the server responses (there should be two results for actions).
+ 
+ ### The App Actions test tool generates `UnknownHostException`, or other network errors
+ 
+@@ -113,61 +103,34 @@ necessary, proxy access to Google domains.
+ To resolve network issues when running the test tool, check for these common
+ issues:
+ 
+-* Ensure you have an active internet connection before generating previews.
+-* If your internet connection is active, and your local network uses a proxy
++- Ensure you have an active internet connection before generating previews.
++- If your internet connection is active, and your local network uses a proxy
+   server, check the following:
+ 
+-  + Verify your IDE proxy configuration. For more information, see proxy
+-    configuration instructions for [Android Studio](https://developer.android.com/studio/intro/studio-config#proxy), or [IntelliJ](https://www.jetbrains.com/help/idea/settings-http-proxy.html).
+-  + If your proxy requires an access control list (ACL), update the ACL to
+-    allow this URL pattern: `https://actions.googleapis.com/**`.
++  - Verify your IDE proxy configuration. For more information, see proxy configuration instructions for [Android Studio](https://developer.android.com/studio/intro/studio-config#proxy), or [IntelliJ](https://www.jetbrains.com/help/idea/settings-http-proxy.html).
++  - If your proxy requires an access control list (ACL), update the ACL to allow this URL pattern: `https://actions.googleapis.com/**`.
+ 
+ ### When invoking the App Action with the test plugin, the Assistant says, "Sorry, I couldn't find that."
+ 
+ Depending on your setup, this response may appear for different reasons. Try
+ the following steps:
+ 
+-1. Sign in to Android Studio, the Play Console, and your
+-   test device with the same Google Account.
+-2. Enable [device data syncing](//myaccount.google.com/deviceapps).
++1. Sign in to Android Studio, the Play Console, and your test device with the same Google Account.
++2. Enable [device data syncing](https://myaccount.google.com/deviceapps).
+ 3. Set the device and Google Assistant language to `en-US`.
+-4. Check that the package name of the application in the
+-   Google Play Console matches with the package name in the test application.
+-5. In the fulfillment `urlTemplate`definition in your `actions.xml` file,
+-   make sure that the `android:host` and `android:scheme` values match what's
+-   declared in the `AndroidManifest` file.
+-6. Remove all previous installations of your app from your test device and
+-   install a fresh build.
++4. Check that the package name of the application in the Google Play Console matches with the package name in the test application.
++5. In the fulfillment `urlTemplate`definition in your `actions.xml` file, make sure that the `android:host` and `android:scheme` values match what's declared in the `AndroidManifest` file.
++6. Remove all previous installations of your app from your test device and install a fresh build.
+ 7. Delete the preview from App Actions test tool and create a new preview again.
+-8. Check in the Logcat tool for failures related to fulfillment
+-   for Google Assistant. You should see an intent launched to your app.
+-9. [Enable the 'App info for your devices' setting](https://support.google.com/accounts/answer/9503395?co=GENIE.Platform%3DAndroid)
+-   for the account.
+-10. Open Google Assistant and ensure you have completed setup. (Usually the setup
+-    progress bar appears as a blue bar at the bottom of the screen, but
+-    it may look different in some cases.)
+-11. When using Google Assistant to trigger an App Action, make sure that the
+-    invocation name matches the preview created by the App Actions test tool.
++8. Check in the Logcat tool for failures related to fulfillment for Google Assistant. You should see an intent launched to your app.
++9. [Enable the 'App info for your devices' setting](https://support.google.com/accounts/answer/9503395?co=GENIE.Platform%3DAndroid) for the account.
++10. Open Google Assistant and ensure you have completed setup. (Usually the setup progress bar appears as a blue bar at the bottom of the screen, but it may look different in some cases.)
++11. When using Google Assistant to trigger an App Action, make sure that the invocation name matches the preview created by the App Actions test tool.
+ 12. Try using text input instead of voice to avoid any transcription errors.
+-13. Configure your test build so that the `applicationId` exactly matches an
+-    APK or AAB uploaded to the Google Play Console. Note that optional
+-    `applicationIdSuffix` properties can change the final `applicationId` of
+-    builds for certain product flavors and build variants. In this [example](https://www.google.com/url?sa=D&q=https%3A%2F%2Fgithub.com%2Fandroid%2Farchitecture-samples%2Fblob%2Fmaster%2Fapp%2Fbuild.gradle%23L53),
+-    the `applicationId` for the mock product flavor is
+-    `com.example.android.architecture.blueprints.master.mock`, instead of
+-    `com.example.android.architecture.blueprints`.
+-14. Configure your preview to use a unique invocation name. Try using a unique
+-    word that reduces the chances for collision with other apps.
+-15. To isolate issues when troubleshooting a shareable codebase, try running
+-    the [the sample App Actions Fitness App](https://github.com/actions-on-google/appactions-fitness-kotlin).
+-    Make sure that the Fitness app works end-to-end. Then incrementally add
+-    additional features on top of this app to see if you can replicate issues.
++13. Configure your test build so that the `applicationId` exactly matches an APK or AAB uploaded to the Google Play Console. Note that optional `applicationIdSuffix` properties can change the final `applicationId` of builds for certain product flavors and build variants. In this [example](https://www.google.com/url?sa=D&q=https://github.com/android/architecture-samples/blob/master/app/build.gradle%23L53), the `applicationId` for the mock product flavor is `com.example.android.architecture.blueprints.master.mock`, instead of `com.example.android.architecture.blueprints`.
++14. Configure your preview to use a unique invocation name. Try using a unique word that reduces the chances for collision with other apps.
++15. To isolate issues when troubleshooting a shareable codebase, try running the [the sample App Actions Fitness App](https://github.com/actions-on-google/appactions-fitness-kotlin). Make sure that the Fitness app works end-to-end. Then incrementally add additional features on top of this app to see if you can replicate issues.
+ 16. If using G Suite accounts, make sure Google Assistant is [turned on by the
+-    administrator](https://support.google.com/a/answer/9620347#:%7E:text=As%20an%20administrator%2C%20you%20control,or%20while%20working%20from%20home). We recommend creating a non-G Suite test account as a workaround
+-    and setting it up as a
+-    [licensed tester through Play Store](https://developers.google.com/assistant/app/test-tool#additional-testers).
+-    From that account, testers should be able to create previews for their app and
+-    test using that account on their device successfully.
+-17. If you downloaded Google Assistant as a separate app, try force stopping it on your device. You can usually force stop an app through your phone’s Settings app.
+-18. If none of these steps work, raise a issue in the
+-    [App Action issue tracker](https://issuetracker.google.com/issues?q=componentid:617864%20status:open).
+\ No newline at end of file
++    administrator](https://support.google.com/a/answer/9620347#:%7E:text=As%20an%20administrator%2C%20you%20control,or%20while%20working%20from%20home). We recommend creating a non-G Suite test account as a workaround and setting it up as a [licensed tester through Play Store](https://developers.google.com/assistant/app/test-tool#additional-testers). From that account, testers should be able to create previews for their app and test using that account on their device successfully.
++17. If you downloaded Google Assistant as a separate app, try force stopping it on your device. You can usually force stop an app through your phone's Settings app.
++18. If none of these steps work, raise a issue in the [App Action issue tracker](https://issuetracker.google.com/issues?q=componentid:617864+status:open).
+\ No newline at end of file
