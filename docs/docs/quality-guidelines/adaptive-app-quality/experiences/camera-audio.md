@@ -14,13 +14,13 @@ Enable camera and audio hardware selection.
 
 ### Camera
 
-| ID | Tests | Description |
+| Guideline ID | Test IDs | Description |
 |---|---|---|
 | Camera_Switcher | [T-Camera_Switcher](https://developer.android.com/docs/quality-guidelines/adaptive-app-quality/experiences/camera-audio#T-Camera_Switcher) | App includes a camera switcher to toggle between the device's built-in cameras and external cameras. |
 
 ### Audio
 
-| ID | Tests | Description |
+| Guideline ID | Test IDs | Description |
 |---|---|---|
 | Audio_Switcher | [T-Audio_Switcher](https://developer.android.com/docs/quality-guidelines/adaptive-app-quality/experiences/camera-audio#T-Audio_Switcher) | Apps using the microphone or speaker include an audio switcher to toggle between the device's built-in audio devices and external peripherals, for example, headphones or USB microphones. |
 | Audio_Background_Playback | [T-Audio_Background_Playback](https://developer.android.com/docs/quality-guidelines/adaptive-app-quality/experiences/camera-audio#T-Audio_Background_Playback) | App supports [background playback](https://developer.android.com/media/platform/mediaplayer/background) whether the app is visible or not to the user. - Not visible --- The app is in the background hidden by other apps or the lock screen - Visible --- The app can be seen by the user but the app is not in focus, for example, in split-screen mode or desktop windowing mode Non-visible background apps must use a foreground service to prevent the system from killing the app process once the app has lost focus. Visible but unfocused apps don't require a foreground service to ensure the app process continues to run. > [!NOTE] > Always use a foreground service with your audio app to ensure it continues playing in all device states, including when the device is locked. If the app is not visible, it must also display a persistent, non‑dismissible notification in the status bar or on the lock screen to inform the user that the app is running. See [Playing nicely with media controls](https://android-developers.googleblog.com/2020/08/playing-nicely-with-media-controls). > [!NOTE] > Restricting audio background playback to premium subscription tiers is in compliance with this quality guideline. |
@@ -32,13 +32,13 @@ experience, complete the following tests.
 
 ### Camera
 
-| ID | Feature | Description |
+| Test ID | Guideline IDs | Description |
 |---|---|---|
 | T-Camera_Switcher | [Camera_Switcher](https://developer.android.com/docs/quality-guidelines/adaptive-app-quality/experiences/camera-audio#Camera_Switcher) | Connect an external camera. Use the app's camera switcher to toggle between the device's built-in cameras and the external camera. Verify that the camera preview updates correctly for each selected camera. |
 
 ### Audio
 
-| ID | Feature | Description |
+| Test ID | Guideline IDs | Description |
 |---|---|---|
 | T-Audio_Switcher | [Audio_Switcher](https://developer.android.com/docs/quality-guidelines/adaptive-app-quality/experiences/camera-audio#Audio_Switcher) | Connect an external audio device, such as headphones or a USB microphone. Use the app's audio switcher to toggle between the device's built-in audio and the external peripheral. Verify that audio input and output are correctly routed to the selected device. |
 | T-Audio_Background_Playback | [Audio_Background_Playback](https://developer.android.com/docs/quality-guidelines/adaptive-app-quality/experiences/camera-audio#Audio_Background_Playback) | Initiate audio playback. Interact with another *non‑audio* app as the foreground app. Verify that your app continues playing without stutters or pauses. If your app is not visible, verify that a notification is displayed in the status bar. Lock your device and wait for at least a minute to verify that the system doesn't kill the process to save battery. Verify that the app provides a lock screen notification. Use the play and pause buttons directly from the lock screen notification to confirm that the foreground service is communicating with the app. Unlock the screen. Verify that the app continues playback. For non‑visible apps, verify that a notification appears in the status bar. Refocus the app as the foreground app and verify that playback continues without stutters or pauses. |

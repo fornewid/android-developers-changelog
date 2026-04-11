@@ -419,7 +419,7 @@ var firstName by remember { mutableStateOf("") }
 var lastName by remember { mutableStateOf("") }
 
 val fullNameBad by remember { derivedStateOf { "$firstName $lastName" } } // This is bad!!!
-val fullNameCorrect = "$firstName $lastName" // This is correcthttps://github.com/android/snippets/blob/b8fe98d6f6b3dfe87812e34ff8eabb22847f6e1f/compose/snippets/src/main/java/com/example/compose/snippets/sideeffects/SideEffectsSnippets.kt#L262-L267
+val fullNameCorrect = "$firstName $lastName" // This is correcthttps://github.com/android/snippets/blob/b863a7feef0f7db7d00f637d615fe8bc4f49406b/compose/snippets/src/main/java/com/example/compose/snippets/sideeffects/SideEffectsSnippets.kt#L262-L267
 ```
 
 <br />

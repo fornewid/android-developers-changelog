@@ -64,11 +64,16 @@ class MyBluetoothService(
        override fun run() {
            var numBytes: Int // bytes returned from read()
 
-           // Keep listening to the InputStream until an exception occurs.
+           // Keep listening to the InputStream until an exception occurs
+           // or read() returns -1
            while (true) {
                // Read from the InputStream.
-               numBytes = try {
-                   mmInStream.read(mmBuffer)
+               try {
+                   numBytes = mmInStream.read(mmBuffer)
+                   if (numBytes < 0) {
+                       Log.i(TAG, "returns -1, Input stream disconnected")
+                       break
+                   }
                } catch (e: IOException) {
                    Log.d(TAG, "Input stream was disconnected", e)
                    break
@@ -171,6 +176,10 @@ public class MyBluetoothService {
                try {
                    // Read from the InputStream.
                    numBytes = mmInStream.read(mmBuffer);
+                   if (numBytes < 0) {
+                        Log.i(TAG, "Read return -1, Input stream disconnected");
+                        break;
+                   }
                    // Send the obtained bytes to the UI activity.
                    Message readMsg = handler.obtainMessage(
                            MessageConstants.MESSAGE_READ, numBytes, -1,

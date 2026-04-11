@@ -35,7 +35,7 @@ val initialMediaItems = pullMediaItemsFromService(count = 20)
 for (index in 0 until initialMediaItems.size) {
   preloadManager.add(initialMediaItems[index], /* rankingData= */ index)
 }
-// items aren't actually loaded yet! need to call invalidate() after thishttps://github.com/androidx/media/blob/cb6e2102e139dd040742d54acf24f99e81ff06a4/docsamples/src/main/java/androidx/media3/docsamples/exoplayer/preloadmanager/PreloadManagerManagePlay.kt#L37-L41
+// items aren't actually loaded yet! need to call invalidate() after thishttps://github.com/androidx/media/blob/5f240712785b1e67fec4316d09ce928f83571ee9/docsamples/src/main/java/androidx/media3/docsamples/exoplayer/preloadmanager/PreloadManagerManagePlay.kt#L37-L41
 ```
 
 <br />

@@ -120,7 +120,7 @@ player to the view:
 
 ```kotlin
 // Bind the player to the view.
-playerView.player = playerhttps://github.com/androidx/media/blob/fa2d5c78e5605282bd916828d2635b24912c2be9/docsamples/src/main/java/androidx/media3/docsamples/exoplayer/HelloWorld.kt#L41-L42
+playerView.player = playerhttps://github.com/androidx/media/blob/5f240712785b1e67fec4316d09ce928f83571ee9/docsamples/src/main/java/androidx/media3/docsamples/exoplayer/HelloWorld.kt#L41-L42
 ```
 
 ### Java

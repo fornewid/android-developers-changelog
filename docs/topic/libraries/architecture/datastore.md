@@ -664,7 +664,7 @@ and the service code:
     val dataStore = MultiProcessDataStoreFactory.create(
         serializer = TimeSerializer,
         produceFile = {
-            File("${context.cacheDir.path}/time.pb")
+            File("${context.filesDir.path}/time.pb")
         },
         corruptionHandler = null
     )

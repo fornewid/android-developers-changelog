@@ -108,6 +108,8 @@ Select a quality tier and get started making your app adaptive today!
 
 Previous versions of the adaptive app quality guidelines:
 
+- [2026-04-07 --- Tier 2](https://developer.android.com/docs/quality-guidelines/archive/adaptive/tier-2-2026-04-07)
+
 - [2026-01-21 --- Large screen app quality guidelines](https://developer.android.com/docs/quality-guidelines/archive/adaptive/large-screen-app-quality)
 
-  [ID map --- large screen app quality guidelines to adaptive app quality guidelines](https://developer.android.com/docs/quality-guidelines/archive/adaptive/id-map-ls-adaptive)
+  - [ID map](https://developer.android.com/docs/quality-guidelines/archive/adaptive/id-map-ls-adaptive) --- Large screen app quality guidelines to adaptive app quality guidelines

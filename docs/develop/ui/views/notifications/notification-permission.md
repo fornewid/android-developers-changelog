@@ -34,11 +34,11 @@ appears in the following code snippet:
 
 ```xml
 <manifest ...>
-    <uses-permission android:name="android.permission.POST_NOTIFICATI>ONS&q<uot;/
-    appli>cation ...
-      <  ...
-    /ap<plication>
-/manifest
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+    <application ...>
+        ...
+    </application>
+</manifest>
 ```
 
 ## App capabilities depend on user choice in permissions dialog
