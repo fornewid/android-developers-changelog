@@ -1,0 +1,170 @@
+diff --git a/docs/health-and-fitness/health-connect/migration/fit.md b/docs/health-and-fitness/health-connect/migration/fit.md
+index 7b97e69..993934f 100644
+--- a/docs/health-and-fitness/health-connect/migration/fit.md
++++ b/docs/health-and-fitness/health-connect/migration/fit.md
+@@ -4,21 +4,78 @@ url: https://developer.android.com/health-and-fitness/health-connect/migration/f
+ source: md.txt
+ ---
+ 
+-The Google Fit APIs will be deprecated in 2026. Google offers several health
+-and wellness products and services to help your users continue to achieve their
+-goals after deprecation.
++The Google Fit APIs are deprecated and scheduled for end of service in late
++2026. Google offers several health and wellness products and services to help
++your users continue to achieve their goals after deprecation.
++> **Caution:** The Google Fit API (including the REST API) will only be
++> supported until the end of 2026. We recommend migrating to the Google Health API
++> for cloud-based integrations or Health Connect for step tracking and
++> mobile-first apps.
+ 
+ The following guidelines show you which service to migrate to based on how
+-you're using Google Fit Android APIs.
++you're using Google Fit APIs.
+ 
+-We will keep this page updated with the latest information and guidance.
++## Recommended Migration Paths
++
++Your choice of API should be based on your application type and specific data
++needs.
++
++### By Application Type
++
++| Application Type | Recommended Path | Primary Reason |
++|---|---|---|
++| Step Tracking App | [Health Connect](https://developer.android.com/health-and-fitness/health-connect) | Mobile-centric reading of aggregated steps data from various sources. |
++| Fitness Trackers Companion App | [Google Health API](https://developers.google.com/health) | Web-centric platform requiring OAuth for user integration. |
++| Health and Fitness Platform | The [Google Health API](https://developers.google.com/health) \& [Health Connect](https://developer.android.com/health-and-fitness/health-connect) | Use the Google Health API for Fitbit/Google device data and Health Connect for on-device aggregated data. |
++
++### By current integration
++
++| Current Integration | Recommended Path | Availability |
++|---|---|---|
++| Google Fit (Android \& REST API) | Google Health API | Available |
++| Reading mobile steps (with Google Fit Recording API) | Health Connect | Available |
++| Fit API on Wear OS | Health Services | Available |
++| Fitbit Web API | Google Health API | Available |
++| Recording API on Mobile | Health Connect | Available |
++| Health Connect | Keep existing integration or add the Google Health API | Available |
++
++## Technical comparisons
++
++The following sections provide a technical comparison between the Google Fit
++APIs, the Google Health API, and Health Connect to help you choose the right
++migration path.
++
++### Fit API versus Google Health API
++
++Use this path if your app is a web-based platform or requires server-to-server
++(S2S) interactions.
++
++| Feature | Fit API (Android/REST) | Google Health API |
++|---|---|---|
++| Project Setup | [Google Cloud Console](https://console.cloud.google.com/) | [Create Google Cloud project](https://console.cloud.google.com/) |
++| OAuth Configuration | Android or Web application type | Web application type |
++| Data Architecture | `com.google` prefixed types | Unified Google Health API data types |
++| App Registration | Create Google Cloud project | [Create Google Cloud project and enable the Google Health API](https://developers.google.com/health/setup) |
++
++### Fit API versus Health Connect
++
++Use this path for mobile-first Android applications reading local device
++metrics.
++
++| Feature | Fit API for Android | Health Connect |
++|---|---|---|
++| Registration | Google Cloud Console | Play Store project and health apps declaration |
++| Authentication | OAuth 2.0 required | No OAuth required (on-device permissions) |
++| Data storage | Cloud-centric | Device-centric (on-device) |
++| Audience | Legacy Android developers | Modern Android mobile developers |
++| Permissions | OAuth scopes | Android manifest permissions |
+ 
+ ## Fit API integrations
+ 
+-If you use one or more Fit APIs but **don't** include a direct link to the Fit
+-app in your UI, these guidelines are for you. If you surface Fit in your UI,
+-reference the
+-[Fit app integrations guidelines](https://developer.android.com/health-and-fitness/guides/health-connect/migrate/migration-guide#fit_app_integrations).
++The following sections provide guidance on migrating from each of the Google
++Fit APIs. If your integration also includes UI elements that connect to the
++Google Fit app, see [Fit app integrations guidelines](https://developer.android.com/health-and-fitness/health-connect/migration/fit#fit-app-integrations)
++for additional guidance.
+ 
+ ### Apps using the Fit Recording API for recording steps
+ 
+@@ -31,7 +88,7 @@ Follow these steps to migrate from the Fit Recording API:
+ 
+ |---|---|
+ | **Phone** | **Wear** |
+-| 1. To show a total step count, [add Health Connect to your app](https://developer.android.com/health-and-fitness/guides/health-connect/develop/get-started). The total includes [mobile steps](https://developer.android.com/health-and-fitness/guides/health-connect/develop/steps#read-mobile-steps) (Android 14 or higher) and steps from other apps and devices. 2. To continue showing local steps data in your app, implement data capture using the [Recording API on mobile](https://developer.android.com/health-and-fitness/guides/recording-api). | Use Health Services: - PassiveMonitoringClient - ExerciseClient See the [Health Services documentation](https://developer.android.com/training/wearables/health-services) for more on the differences between the two. |
++| 1. To show a total step count, [add Health Connect to your app](https://developer.android.com/health-and-fitness/guides/health-connect/develop/get-started). The total includes [mobile steps](https://developer.android.com/health-and-fitness/guides/health-connect/develop/steps#read-mobile-steps) (Android 14 or higher) and steps from other apps and devices. 2. To continue showing local steps data in your app, implement writing data using [Health Connect's write API](https://developer.android.com/health-and-fitness/guides/health-connect/develop/write-data). | Use Health Services: - PassiveMonitoringClient - ExerciseClient See the [Health Services documentation](https://developer.android.com/training/wearables/health-services) for more on the differences between the two. |
+ [*Table 1: Migration steps from Fit Recording API*]
+ 
+ ### Apps using the History API to read or write data to the fitness store
+@@ -44,7 +101,7 @@ Follow these steps to migrate from the History API:
+ 
+ |---|---|
+ | **Phone** | **Wear** |
+-| [Add Health Connect to your app](https://developer.android.com/health-and-fitness/guides/health-connect/develop/get-started). | Not applicable. Use Health Connect from your mobile app and not the wearable. |
++| [Transition to the Google Health API](https://developers.google.com/health). | Not applicable. Use Health Connect from your mobile app and not the wearable. |
+ [*Table 2: Migration steps from Fit History API*]
+ 
+ ### Apps using the Sensor API to display real-time fitness data
+@@ -75,7 +132,7 @@ Follow these steps to migrate from the Session API:
+ 
+ |---|---|
+ | **Phone** | **Wear** |
+-| Start/stop: Not applicable. The application should track the state of ongoing sessions internally. Read/write: [Add Health Connect to your app](https://developer.android.com/health-and-fitness/guides/health-connect/develop/get-started). | Start/stop: Use Health Services (ExerciseClient) Read/write: Use Health Connect with your mobile app. *For specific workflows, we advise the following:* - Inserting a session: Developers should use Health Connect with their mobile app and either insert an `ExerciseSessionRecord` or a `SleepSessionRecord` accordingly. |
++| Start/stop: Not applicable. The application should track the state of ongoing sessions internally. Read/write: [Transition to the Google Health API](https://developers.google.com/health). | Start/stop: Use Health Services (ExerciseClient) Read/write: Use Health Connect with your mobile app. *For specific workflows, we advise the following:* - Inserting a session: Developers should use Health Connect with their mobile app and either insert an `ExerciseSessionRecord` or a `SleepSessionRecord` accordingly. |
+ [*Table 4: Migration steps from Fit Session API*]
+ 
+ ### Apps using the Goals API
+@@ -101,10 +158,20 @@ sensor data into the Google Fit platform using the [BLE API](https://developers.
+ | Use Android Bluetooth APIs directly. | Use Android Bluetooth APIs directly. |
+ [*Table 6: Migration steps from Fit BLE API*]
+ 
++### Deprecated features
++
++The following features don't have a direct API replacement. Use the recommended
++Android standard APIs:
++
++- **Sensor API**: Use the Android Sensors framework or the Fused Location Provider API for real-time raw data.
++- **Goals API**: No replacement API available. Manage goal tracking and daily activity targets within your application logic.
++- **Bluetooth Low Energy (BLE) API**: Use the Android Bluetooth APIs directly to communicate with hardware.
++
+ ## Fit app integrations
+ 
+-The following shows you how to integrate your Fit app depending if you have
+-existing users or new users for your app.
++If your app connects to Google Fit for data sharing, follow guidance on
++migrating existing and new users to Health Connect or the Google Health API in
++these sections:
+ 
+ ### Existing users of your app
+ 
+@@ -118,19 +185,20 @@ experience. In the meantime, you can [connect with us](https://developer.android
+ 
+ |---|---|
+ | check**Do this** | close**Don't do this** |
+-| [Offer Health Connect](https://developer.android.com/health-and-fitness/guides/health-connect/design/ui-guidelines#promote-health-connect) as a new option in your app. Focus on user benefits like richer data and insights, privacy, and security. ![Sync with Health Connect](https://developer.android.com/static/health-and-fitness/health-connect/images/sync-with-hc.png) | Ask users to disconnect from Google Fit. ![Disconnect from Health Connect](https://developer.android.com/static/health-and-fitness/health-connect/images/disconnect-hc.png) |
++| [Offer Health Connect](https://developer.android.com/health-and-fitness/guides/health-connect/design/ui-guidelines#promote-health-connect) or the [Google Health API](https://developers.google.com/health) as a new option in your app. Focus on user benefits like richer data and insights, privacy, and security. ![Sync with Health Connect](https://developer.android.com/static/health-and-fitness/health-connect/images/sync-with-hc.png) | Ask users to disconnect from Google Fit. ![Disconnect from Health Connect](https://developer.android.com/static/health-and-fitness/health-connect/images/disconnect-hc.png) |
+ [*Table 7: Recommendations for existing users with Fit app integrations*]
+ 
+ ### New users of your app
+ 
+ To offer a similar experience to new users of your app, we recommend
+-[building a Health Connect integration](https://developer.android.com/health-and-fitness/guides/health-connect/develop/get-started).
++building an integration with [Health Connect](https://developer.android.com/health-and-fitness/guides/health-connect/develop/get-started) or the
++[Google Health API](https://developers.google.com/health).
+ 
+-Health Connect offers you access to new data sources and types to provide a
+-richer experience for users. Data is stored on-device and is shared securely
+-between apps that the user allows, making it private, and secure.
++Health Connect offers access to new data sources and types to provide a
++richer experience for users, with data stored securely on-device. The Google
++Health API provides a web-centric platform for Fitbit and Google device data.
+ 
+ |---|---|
+ | check**Do this** | close**Don't do this** |
+-| Include Health Connect in your app's [setup flow](https://developer.android.com/health-and-fitness/guides/health-connect/design/ui-guidelines#app-setup-flow). | Offer Fit as an app that users can connect to once Health Connect is available. |
++| Include Health Connect or the Google Health API in your app's [setup flow](https://developer.android.com/health-and-fitness/guides/health-connect/design/ui-guidelines#app-setup-flow). | Offer Fit as an app that users can connect to once Health Connect is available. |
+ [*Table 8: Recommendations for new users with Fit app integrations*]
+\ No newline at end of file

@@ -1,0 +1,13 @@
+diff --git a/docs/build/releases/agp-9-2-0-release-notes.md b/docs/build/releases/agp-9-2-0-release-notes.md
+index cbb5624..8763ffc 100644
+--- a/docs/build/releases/agp-9-2-0-release-notes.md
++++ b/docs/build/releases/agp-9-2-0-release-notes.md
+@@ -17,7 +17,7 @@ Here is other compatibility info:
+ 
+ |   | Minimum version | Default version | Notes |
+ |---:|:---:|:---:|:---:|
+-| Gradle | 9.5.0-milestone-7 | 9.5.0-milestone-7 | To learn more, see [updating Gradle](https://developer.android.com/build/releases/gradle-plugin?buildsystem=ndk-build#updating-gradle). |
++| Gradle | 9.4.1 | 9.4.1 | To learn more, see [updating Gradle](https://developer.android.com/build/releases/gradle-plugin?buildsystem=ndk-build#updating-gradle). |
+ | SDK Build Tools | 36.0.0 | 36.0.0 | [Install](https://developer.android.com/studio/intro/update#sdk-manager) or [configure](https://developer.android.com/tools/releases/build-tools) SDK Build Tools. |
+ | NDK | N/A | 28.2.13676358 | [Install](https://developer.android.com/studio/projects/install-ndk#specific-version) or [configure](https://developer.android.com/studio/projects/install-ndk#apply-specific-version) a different version of the NDK. |
+ | JDK | 17 | 17 | To learn more, see [setting the JDK version](https://developer.android.com/studio/intro/studio-config#jdk). |

@@ -1,0 +1,13 @@
+diff --git a/docs/training/wearables/compose/migrate-to-material3.md b/docs/training/wearables/compose/migrate-to-material3.md
+index 079869f..93e39e6 100644
+--- a/docs/training/wearables/compose/migrate-to-material3.md
++++ b/docs/training/wearables/compose/migrate-to-material3.md
+@@ -471,7 +471,7 @@ fun MessageDetail(id: String) {
+         contentPadding = padding
+     ) { scaffoldPaddingValues ->
+         // Screen content goes here
+-        // ...https://github.com/android/snippets/blob/b8fe98d6f6b3dfe87812e34ff8eabb22847f6e1f/wear/src/main/java/com/example/wear/snippets/m3/navigation/Navigation.kt#L64-L110
++        // ...https://github.com/android/snippets/blob/b863a7feef0f7db7d00f637d615fe8bc4f49406b/wear/src/main/java/com/example/wear/snippets/m3/navigation/Navigation.kt#L64-L110
+ ```
+ 
+ <br />

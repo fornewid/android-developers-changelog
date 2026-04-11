@@ -1,0 +1,22 @@
+diff --git a/docs/develop/ui/compose/glance/create-app-widget.md b/docs/develop/ui/compose/glance/create-app-widget.md
+index 51a8996..439b1d6 100644
+--- a/docs/develop/ui/compose/glance/create-app-widget.md
++++ b/docs/develop/ui/compose/glance/create-app-widget.md
+@@ -36,7 +36,7 @@ metadata in your app.
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/my_app_widget_info" />
+-       </receiver>https://github.com/android/snippets/blob/b8fe98d6f6b3dfe87812e34ff8eabb22847f6e1f/compose/snippets/src/main/AndroidManifest.xml#L60-L68
++       </receiver>https://github.com/android/snippets/blob/b863a7feef0f7db7d00f637d615fe8bc4f49406b/compose/snippets/src/main/AndroidManifest.xml#L60-L68
+ 
+ ## Add the `AppWidgetProviderInfo` metadata
+ 
+@@ -49,7 +49,7 @@ the library:
+ 
+     <appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
+         android:initialLayout="@layout/glance_default_loading_layout">
+-    </appwidget-provider>https://github.com/android/snippets/blob/b8fe98d6f6b3dfe87812e34ff8eabb22847f6e1f/compose/snippets/src/main/res/xml/my_app_widget_info.xml#L18-L20
++    </appwidget-provider>https://github.com/android/snippets/blob/b863a7feef0f7db7d00f637d615fe8bc4f49406b/compose/snippets/src/main/res/xml/my_app_widget_info.xml#L18-L20
+ 
+ ## Define `GlanceAppWidget`
+ 

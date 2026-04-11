@@ -1,0 +1,13 @@
+diff --git a/docs/develop/ui/compose/touch-input/scroll/scroll-modifiers.md b/docs/develop/ui/compose/touch-input/scroll/scroll-modifiers.md
+index 0e9544e..441fef4 100644
+--- a/docs/develop/ui/compose/touch-input/scroll/scroll-modifiers.md
++++ b/docs/develop/ui/compose/touch-input/scroll/scroll-modifiers.md
+@@ -179,7 +179,7 @@ private fun ScrollableAreaSample() {
+         }
+     }
+ }
+-// ...https://github.com/android/snippets/blob/b8fe98d6f6b3dfe87812e34ff8eabb22847f6e1f/compose/snippets/src/main/java/com/example/compose/snippets/touchinput/gestures/GesturesSnippets.kt#L194-L360
++// ...https://github.com/android/snippets/blob/b863a7feef0f7db7d00f637d615fe8bc4f49406b/compose/snippets/src/main/java/com/example/compose/snippets/touchinput/gestures/GesturesSnippets.kt#L194-L360
+ ```
+ 
+ <br />

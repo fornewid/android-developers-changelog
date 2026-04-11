@@ -1,0 +1,13 @@
+diff --git a/docs/ai/gemini/live.md b/docs/ai/gemini/live.md
+index 304b1eb..bd54fd0 100644
+--- a/docs/ai/gemini/live.md
++++ b/docs/ai/gemini/live.md
+@@ -29,7 +29,7 @@ BoM](https://firebase.google.com/docs/android/learn-more#bom) to manage library
+ 
+     dependencies {
+       // Import the Firebase BoM
+-      implementation(platform("com.google.firebase:firebase-bom:34.11.0"))
++      implementation(platform("com.google.firebase:firebase-bom:34.12.0"))
+       // Add the dependency for the Firebase AI Logic library
+       // When using the BoM, you don't specify versions in Firebase library dependencies
+       implementation("com.google.firebase:firebase-ai")

@@ -1,0 +1,22 @@
+diff --git a/docs/docs/quality-guidelines/adaptive-app-quality/experiences/stylus.md b/docs/docs/quality-guidelines/adaptive-app-quality/experiences/stylus.md
+index 10a7e08..9a74a2c 100644
+--- a/docs/docs/quality-guidelines/adaptive-app-quality/experiences/stylus.md
++++ b/docs/docs/quality-guidelines/adaptive-app-quality/experiences/stylus.md
+@@ -15,7 +15,7 @@ Build creative freedom into your app with stylus support.
+ 
+ ### Stylus
+ 
+-| ID | Tests | Description |
++| Guideline ID | Test IDs | Description |
+ |---|---|---|
+ | Stylus_Draw_Write | [T-Stylus_Draw_Write](https://developer.android.com/docs/quality-guidelines/adaptive-app-quality/experiences/stylus#T-Stylus_Draw_Write) | App supports drawing and writing with a stylus. Drawings and writing can be erased with the stylus. |
+ | Stylus_Drag_Drop | [T-Stylus_Drag_Drop](https://developer.android.com/docs/quality-guidelines/adaptive-app-quality/experiences/stylus#T-Stylus_Drag_Drop) | App provides stylus support for dragging and dropping content between elements within the app and, in multi-window mode, to and from other apps. See [Enable drag and drop](https://developer.android.com/develop/ui/views/touch-and-input/drag-drop). |
+@@ -28,7 +28,7 @@ complete the following tests.
+ 
+ ### Stylus
+ 
+-| ID | Feature | Description |
++| Test ID | Guideline IDs | Description |
+ |---|---|---|
+ | T-Stylus_Draw_Write | [Stylus_Draw_Write](https://developer.android.com/docs/quality-guidelines/adaptive-app-quality/experiences/stylus#Stylus_Draw_Write) | Draw and write within the app using a stylus. Erase drawings and writing using the stylus. |
+ | T-Stylus_Drag_Drop | [Stylus_Drag_Drop](https://developer.android.com/docs/quality-guidelines/adaptive-app-quality/experiences/stylus#Stylus_Drag_Drop) | Using a stylus, drag and drop content on drop targets within the app. In multi-window mode, drag and drop content between the app and another app (to and from both apps). |

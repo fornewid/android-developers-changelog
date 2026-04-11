@@ -1,0 +1,21 @@
+diff --git a/docs/develop/ui/views/notifications/notification-permission.md b/docs/develop/ui/views/notifications/notification-permission.md
+index b487635..019f19c 100644
+--- a/docs/develop/ui/views/notifications/notification-permission.md
++++ b/docs/develop/ui/views/notifications/notification-permission.md
+@@ -34,11 +34,11 @@ appears in the following code snippet:
+ 
+ ```xml
+ <manifest ...>
+-    <uses-permission android:name="android.permission.POST_NOTIFICATI>ONS&q<uot;/
+-    appli>cation ...
+-      <  ...
+-    /ap<plication>
+-/manifest
++    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
++    <application ...>
++        ...
++    </application>
++</manifest>
+ ```
+ 
+ ## App capabilities depend on user choice in permissions dialog

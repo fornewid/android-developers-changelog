@@ -1,0 +1,28 @@
+diff --git a/docs/develop/ui/compose/quick-guides/content/create-navigation-drawer.md b/docs/develop/ui/compose/quick-guides/content/create-navigation-drawer.md
+index 4ca9e0c..2e62f20 100644
+--- a/docs/develop/ui/compose/quick-guides/content/create-navigation-drawer.md
++++ b/docs/develop/ui/compose/quick-guides/content/create-navigation-drawer.md
+@@ -41,7 +41,7 @@ higher.
+ 
+ You can use the [`ModalNavigationDrawer`](https://developer.android.com/reference/kotlin/androidx/compose/material3/ModalNavigationDrawer.composable#ModalNavigationDrawer(kotlin.Function0,androidx.compose.ui.Modifier,androidx.compose.material3.DrawerState,kotlin.Boolean,androidx.compose.ui.graphics.Color,kotlin.Function0)) composable to implement a
+ navigation drawer:
+-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-navigation-drawer_f22a55f344cef6013eb105e25c28e4a43518cd9209c85b3983abbe19f172a793.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
++<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-navigation-drawer_3ad967a4132245370cf99a25fcd30c334ffff96068bda5f739a70c617dcc7240.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+ 
+ ### Key points
+ 
+@@ -52,12 +52,12 @@ navigation drawer:
+   For example, you can toggle whether or not the drawer responds to drags with
+   the `gesturesEnabled` parameter as in the following example:
+ 
+-  <iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-navigation-drawer_6f0a5163a98ba23e660d8b7232eeb7a420bf57581a16f029192e197b5710fb6a.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
++  <iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-navigation-drawer_4789032c54721525f11b148b477623b8baf8c07c5cc99f9297c15f485df8a15d.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+ 
+ ## Control navigation drawer behavior
+ 
+ To control how the drawer opens and closes, use [`DrawerState`](https://developer.android.com/reference/kotlin/androidx/compose/material3/DrawerState):
+-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-navigation-drawer_b7ff90a0ca3f0e8331461edbc6778e2a24f8bd090f91fb21ba9c35e6cf6173bd.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
++<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-navigation-drawer_396e15d67020e6d4efbb7cfe87b4401c84061920df4daefe31307c6c48ee5f3f.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+ 
+ ### Key points
+ 

@@ -1,0 +1,39 @@
+diff --git a/docs/develop/ui/compose/quick-guides/content/create-chip.md b/docs/develop/ui/compose/quick-guides/content/create-chip.md
+index 2a064da..9cebf12 100644
+--- a/docs/develop/ui/compose/quick-guides/content/create-chip.md
++++ b/docs/develop/ui/compose/quick-guides/content/create-chip.md
+@@ -34,14 +34,14 @@ assist chip that nudges the user in a particular direction. One distinguishing
+ feature is its `leadingIcon` parameter that lets you display an icon on the left
+ side of the chip, as shown in figure 1. The following example demonstrates how
+ you can implement it:
+-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-chip_d1f9a6b267a35d6e7e3ea18d5d832361c12797141647888354b4536b20405fd5.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe> ![A simple assist chip.](https://developer.android.com/static/develop/ui/compose/images/components/chip-assist.png) **Figure 1.** Assist chip.
++<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-chip_c58cd8e91ee3e3859e42c9b5f4c4731840ec73f303cd73eb72f452f003261bf2.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe> ![A simple assist chip.](https://developer.android.com/static/develop/ui/compose/images/components/chip-assist.png) **Figure 1.** Assist chip.
+ 
+ ## Create a filter chip
+ 
+ The [`FilterChip`](https://developer.android.com/reference/kotlin/androidx/compose/material3/FilterChip.composable) composable requires you to track whether or not the chip
+ is selected. The following example demonstrates how you can show a leading
+ checked icon only when the user has selected the chip:
+-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-chip_8f1e422b422724138b2b247d929223bfdbd1b3f54a4ed83f5a51c5f206015cc8.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
++<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-chip_2c0207a39e45489784d3649e0171b5d8e8223253bbefc784a2257ee4c8a3c029.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+ 
+ ### Results
+ 
+@@ -60,7 +60,7 @@ state. The user dismisses the chip when they press it.
+ > [!NOTE]
+ > **Note:** Consider how you might use a chip like this in the preceding email use case, with a name passed in for the `text` parameter, and a function that performs the necessary network calls for `onDismiss`.
+ 
+-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-chip_d51342887415a2fe7b9b7738b42d4905f9ae3e6db8237e5f3568e6225675a63e.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
++<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-chip_43e95ee8cffaa76882d196b9d1656922ec914e4b9ec410f2f45e8d3933d59581.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+ 
+ ### Results
+ 
+@@ -75,7 +75,7 @@ might use suggestion chips to present possible responses to the most recent
+ message.
+ 
+ Consider this implementation of `SuggestionChip`:
+-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-chip_26469dfe7cc1e8708f326ba74eb8c765c118854ca7a84d935d5aeb2b8514d4c3.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
++<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-chip_0bbc4378d702b18e17dd0717cf01925cc5f55d06b66bb446c9c552f533aa10be.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+ 
+ ### Results
+ 

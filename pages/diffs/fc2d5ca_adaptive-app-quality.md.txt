@@ -1,0 +1,16 @@
+diff --git a/docs/docs/quality-guidelines/adaptive-app-quality.md b/docs/docs/quality-guidelines/adaptive-app-quality.md
+index dbb6966..ca60793 100644
+--- a/docs/docs/quality-guidelines/adaptive-app-quality.md
++++ b/docs/docs/quality-guidelines/adaptive-app-quality.md
+@@ -108,6 +108,8 @@ Select a quality tier and get started making your app adaptive today!
+ 
+ Previous versions of the adaptive app quality guidelines:
+ 
++- [2026-04-07 --- Tier 2](https://developer.android.com/docs/quality-guidelines/archive/adaptive/tier-2-2026-04-07)
++
+ - [2026-01-21 --- Large screen app quality guidelines](https://developer.android.com/docs/quality-guidelines/archive/adaptive/large-screen-app-quality)
+ 
+-  [ID map --- large screen app quality guidelines to adaptive app quality guidelines](https://developer.android.com/docs/quality-guidelines/archive/adaptive/id-map-ls-adaptive)
+\ No newline at end of file
++  - [ID map](https://developer.android.com/docs/quality-guidelines/archive/adaptive/id-map-ls-adaptive) --- Large screen app quality guidelines to adaptive app quality guidelines
+\ No newline at end of file
