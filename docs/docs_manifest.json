@@ -20960,8 +20960,8 @@
     },
     "develop/ui/compose/animation/composables-modifiers.md": {
       "original_url": "https://developer.android.com/develop/ui/compose/animation/composables-modifiers",
-      "hash": "bef20a8980cfc8f040ae055d22bdcefe2f575b64eb538df9c9dfcd282ec37df5",
-      "last_updated": "2026-04-09T17:10:51.611129",
+      "hash": "d16087d120ca7277f9fc019222c202821450851347c55c757e01ecf85fd495af",
+      "last_updated": "2026-04-12T15:16:12.114713",
       "fetch_method": "md.txt"
     },
     "studio/releases/past-releases/as-0-8-6-release-notes.md": {
@@ -22586,8 +22586,8 @@
     },
     "develop/ui/views/notifications/bubbles.md": {
       "original_url": "https://developer.android.com/develop/ui/views/notifications/bubbles",
-      "hash": "07a2b43d9566e5d145f05732eb33d81244cc9df2f32c9e6185adc2aaffd48d84",
-      "last_updated": "2026-04-08T15:41:53.472404",
+      "hash": "d955526e130627c8f41d33b1fbd6ff35b4c1a911583bcb2c724bd3c7d2c46a18",
+      "last_updated": "2026-04-12T15:16:46.528471",
       "fetch_method": "md.txt"
     },
     "design/ui/cars/guides/app-types/plan-browsing-views.md": {
@@ -23030,8 +23030,8 @@
     },
     "develop/devices/assistant/cars.md": {
       "original_url": "https://developer.android.com/develop/devices/assistant/cars",
-      "hash": "74760f9f81f212cce9fbd3846e0c9efed7ec9584fabacdd87dcc190267db7bfb",
-      "last_updated": "2026-04-10T15:20:26.850192",
+      "hash": "cd8859c06747507baa6c4fa5a310868add2a9023b451247d7633c2838d8448ee",
+      "last_updated": "2026-04-12T15:16:58.379194",
       "fetch_method": "md.txt"
     },
     "privacy-and-security/risks/insecure-machine-to-machine.md": {
@@ -26114,8 +26114,8 @@
     },
     "jetpack/androidx/releases/wear-compose-remote.md": {
       "original_url": "https://developer.android.com/jetpack/androidx/releases/wear-compose-remote",
-      "hash": "aba6f1e40f4ff02b82b39dbe9078d6c384469c7d3481c6d2f4ca522693d1f0d2",
-      "last_updated": "2026-04-11T15:13:08.498414",
+      "hash": "216234965beb2764a9f52e07569e280f787c9875fc5d5bfa163b1b2cb8c8255b",
+      "last_updated": "2026-04-12T15:14:41.292854",
       "fetch_method": "md.txt"
     },
     "games/pgs/play-games-sidekick-sdk.md": {
@@ -27967,5 +27967,5 @@
       "fetch_method": "md.txt"
     }
   },
-  "last_updated": "2026-04-11T15:15:26.495066"
+  "last_updated": "2026-04-12T15:17:01.814478"
 }
