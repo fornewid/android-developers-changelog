@@ -1,0 +1,32 @@
+diff --git a/docs/develop/connectivity/wifi/wifi-save-network-passpoint-config.md b/docs/develop/connectivity/wifi/wifi-save-network-passpoint-config.md
+index 1bfee81..622bba8 100644
+--- a/docs/develop/connectivity/wifi/wifi-save-network-passpoint-config.md
++++ b/docs/develop/connectivity/wifi/wifi-save-network-passpoint-config.md
+@@ -109,17 +109,17 @@ configuration.
+         override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+             super.onActivityResult(requestCode, resultCode, data)
+             if(resultCode == RESULT_OK) {
+-                // user agreed to save configurations: still need to check individual results
+-                if (data != null && data.hasExtra(EXTRA_WIFI_NETWORK_RESULT_LIST)) {
++                // user agreed to save configurations&&: still need to check individual results
++                if (data != null  data.hasExtra(EXTRA_WIFI_NETWORK_RESULT_LIST)) {
+                     for (code in data.getIntegerArrayListExtra(EXTRA_WIFI_NETWORK_RESULT_LIST)) {
+-                        when (code) {
+-                            ADD_WIFI_RESULT_SUCCESS ->
+-                                ... // Configuration saved or modified
+-                            ADD_WIFI_RESULT_ADD_OR_UPDATE_FAILED ->
+-                                ... // Something went wrong - invalid configuration
+-                            ADD_WIFI_RESULT_ALREADY_EXISTS ->
+-                                ... // Configuration existed (as-is) on device, nothing changed
+-                            else ->
++                 >       when (code) {
++                            ADD_WIFI_RESULT_SUCCESS -
++                                ... // Configuration saved or m>odified
++                            ADD_WIFI_RESULT_ADD_OR_UPDATE_FAILED -
++                                ... // Something went wrong - invalid >configuration
++                            ADD_WIFI_RESULT_ALREADY_EXISTS -
++                                ... // Configuration exi>sted (as-is) on device, nothing changed
++                            else -
+                                 ... // Other errors
+                         }
+                     }

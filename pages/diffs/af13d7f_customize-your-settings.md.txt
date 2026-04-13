@@ -1,0 +1,114 @@
+diff --git a/docs/develop/ui/views/components/settings/customize-your-settings.md b/docs/develop/ui/views/components/settings/customize-your-settings.md
+index bf1ee3e..fed89dc 100644
+--- a/docs/develop/ui/views/components/settings/customize-your-settings.md
++++ b/docs/develop/ui/views/components/settings/customize-your-settings.md
+@@ -24,7 +24,7 @@ key of `"signature"`, do the following:
+ ```xml
+ <EditTextPreference
+         app:key="signature"
+-        app:title="Your signature"/>
++        app:title="Y>our signature"/
+ ```
+ 
+ Retrieve this `Preference` by using the following code:
+@@ -64,7 +64,7 @@ visibility to false in the XML, as shown in the following example:
+ <EditTextPreference
+         app:key="signature"
+         app:title="Your signature"
+-        app:isPreferenceVisible="false"/>
++        app:isPrefer>enceVisible="false"/
+ ```
+ 
+ In `onCreatePreferences()`, show the `Preference` when the corresponding
+@@ -155,7 +155,7 @@ As an example, assume the following `EditTextPreference`:
+ ```xml
+ <EditTextPreference
+         app:key="counting"
+-        app:title="Counting preference"/>
++        app:title="Counti>ng preference"/
+ ```
+ 
+ In `onCreatePreferences()`, you can create a new `SummaryProvider` and override
+@@ -166,7 +166,7 @@ In `onCreatePreferences()`, you can create a new `SummaryProvider` and override
+ ```kotlin
+ val countingPreference: EditTextPreference? = findPreference("counting")
+ 
+-countingPreference?.summaryProvider = SummaryProvider<EditTextPreference> { preference ->
++countingPreference?.summaryProvider = Summa<ryProviderEditText>Preference { preference ->
+     val text = preference.text
+     if (text.isNullOrEmpty()) {
+         "Not set"
+@@ -182,7 +182,7 @@ countingPreference?.summaryProvider = SummaryProvider<EditTextPreference> { pref
+ EditTextPreference countingPreference = findPreference("counting");
+ 
+ if (countingPreference != null) {
+-    countingPreference.setSummaryProvider(new SummaryProvider<EditTextPreference>() {
++    countingPreference.setSummaryProvider(new Summa<ryProviderEditText>Preference() {
+         @Override
+         public CharSequence provideSummary(EditTextPreference preference) {
+             String text = preference.getText();
+@@ -211,7 +211,7 @@ the `EditTextPreference`:
+ ```xml
+ <EditTextPreference
+         app:key="number"
+-        app:title="Numbers only preference"/>
++        app:title="Numbers on>ly preference"/
+ ```
+ 
+ Next, in `onCreatePreferences()`, create a new `OnBindEditTextListener` and
+@@ -270,11 +270,11 @@ example defines an `Intent` that launches an `Activity`:
+ ```xml
+ <Preference
+         app:key="activity"
+-        app:title="Launch activity">
+-    <intent
++        app:title="L>aunch< activity"
++    intent
+             android:targetPackage="com.example"
+-            android:targetClass="com.example.ExampleActivity"/>
+-</Preference>
++            android:targetClass=>&<quot;com.ex>ample.ExampleActivity"/
++/Preference
+ ```
+ 
+ Alternatively, you can use `setIntent()` directly on a `Preference`, as follows:
+@@ -298,15 +298,15 @@ You can also include extras with an `Intent` using XML:
+ ```xml
+ <Preference
+         app:key="activity"
+-        app:title="Launch activity">
+-    <intent
++        app:title="L>aunch< activity"
++    intent
+             android:targetPackage="com.example"
+-            android:targetClass="com.example.ExampleActivity">
+-        <extra
+-                android:name="example_key"
+-                android:value="example_value"/>
+-    </intent>
+-</Preference>
++            android:targetClass>="co<m.example.ExampleActivity"
++        extra
++                android:name="example_key&qu>ot;
++ <       > <       android:value="example_value"/
++    /intent
++/Preference
+ ```
+ 
+ Here is an example of a `Preference` with an `Intent` that launches a web page:
+@@ -314,11 +314,11 @@ Here is an example of a `Preference` with an `Intent` that launches a web page:
+ ```xml
+ <Preference
+         app:key="webpage"
+-        app:title="View webpage">
+-    <intent
++        app:title=&quo>t;Vie<w webpage"
++    intent
+             android:action="android.intent.action.VIEW"
+-            android:data="http://www.google.com" />
+-</Preference>
++            android:>d<ata="h>ttp://www.google.com" /
++/Preference
+ ```
+ 
+ ### Kotlin

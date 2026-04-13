@@ -1,0 +1,19 @@
+diff --git a/docs/guide/practices/page-sizes.md b/docs/guide/practices/page-sizes.md
+index 75db5e3..be6117c 100644
+--- a/docs/guide/practices/page-sizes.md
++++ b/docs/guide/practices/page-sizes.md
+@@ -261,6 +261,14 @@ In your `build.gradle.kts` file, add the following option:
+       }
+     }
+ 
++##### AGP version 8.0 or lower
++
++If you are using an AGP version same or lower than 8.0, you also need to disable
++the uncompressed native library option for App Bundles in your
++`gradle.properties` file:
++
++    android.bundle.enableUncompressedNativeLibs=false
++
+ > [!WARNING]
+ > **Warning:** When you use compressed shared libraries, your app takes up more space when installed, as libraries are extracted from the APK and copied onto disk. Your app might more frequently fail to install because this increase in disk usage means there is less space on device. To avoid this, upgrade to AGP version 8.5.1 or higher.
+ 

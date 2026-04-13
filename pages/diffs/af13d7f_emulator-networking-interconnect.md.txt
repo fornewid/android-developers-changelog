@@ -1,0 +1,14 @@
+diff --git a/docs/studio/run/emulator-networking-interconnect.md b/docs/studio/run/emulator-networking-interconnect.md
+index 7d3001b..fd804f6 100644
+--- a/docs/studio/run/emulator-networking-interconnect.md
++++ b/docs/studio/run/emulator-networking-interconnect.md
+@@ -30,6 +30,9 @@ the following command from your host machine:
+ 
+     adb shell ip addr show wlan0
+ 
++> [!NOTE]
++> **Note:** If you need to revert to the previous networking model, start the emulator from the command line with the `-feature -WiFiPacketStream` flags.
++
+ ## Android Emulator Prior to Version 36.5
+ 
+ If you are using an earlier version of the Android Emulator, direct

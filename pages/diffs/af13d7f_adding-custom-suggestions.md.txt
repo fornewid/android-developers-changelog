@@ -1,0 +1,182 @@
+diff --git a/docs/develop/ui/views/search/adding-custom-suggestions.md b/docs/develop/ui/views/search/adding-custom-suggestions.md
+index 163343d..09d881e 100644
+--- a/docs/develop/ui/views/search/adding-custom-suggestions.md
++++ b/docs/develop/ui/views/search/adding-custom-suggestions.md
+@@ -79,12 +79,12 @@ To add support for custom suggestions, add the
+ as shown in the following example:
+ 
+ ```xml
+-<?xml version="1.0" encoding="utf-8"?>
+-<searchable xmlns:android="http://schemas.android.com/apk/res/android"
++<?xml version="1.0" encodin>g<="utf-8"?
++searchable xmlns:android="http://schemas.android.com/apk/res/android"
+     android:label="@string/app_label"
+-    android:hint="@string/search_hint"
+-    android:searchSuggestAuthority="com.example.MyCustomSuggestionProvider">
+-</searchable>
++   android:hint="@string/search_hint"
++    android:searchSuggest>A<uthority=&q>uot;com.example.MyCustomSuggestionProvider"
++/searchable
+ ```
+ 
+ You might need additional attributes, depending on the type of intent you
+@@ -180,14 +180,14 @@ For example, here's how you might form the
+ search statement:
+ 
+ ```xml
+-<?xml version="1.0" encoding="utf-8"?>
+-<searchable xmlns:android="http://schemas.android.com/apk/res/android"
++<?xml version="1.0" encodin>g<="utf-8"?
++searchable xmlns:android="http://schemas.android.com/apk/res/android"
+     android:label="@string/app_label"
+     android:hint="@string/search_hint"
+     android:searchSuggestAuthority="com.example.MyCustomSuggestionProvider"
+-    android:searchSuggestIntentAction="android.intent.action.VIEW"
+-    android:searchSuggestSelection="word MATCH ?">
+-</searchable>
++    android:searchSuggestIntentAction="android.inte>n<t.action.VI>EW"
++    android:searchSuggestSelection="word MATCH ?"
++/searchable
+ ```
+ 
+ With this configuration, your `query()` method delivers the
+@@ -206,7 +206,9 @@ Another attribute in the preceding example is
+ sent with each intent when the user selects a suggestion. This is discussed
+ further in the [Declare an intent for
+ suggestions](https://developer.android.com/develop/ui/views/search/adding-custom-suggestions#IntentForSuggestions) section.
+-| **Tip:** If you don't want to define a selection clause in the `android:searchSuggestSelection` attribute, but you still want to receive the query text in the `selectionArgs` parameter, provide a non-null value for the `android:searchSuggestSelection` attribute. This triggers the query to pass in `selectionArgs`, and you can ignore the `selection` parameter. This way, you can instead define the actual selection clause at a lower level so that your content provider doesn't have to handle it.
++
++> [!TIP]
++> **Tip:** If you don't want to define a selection clause in the `android:searchSuggestSelection` attribute, but you still want to receive the query text in the `selectionArgs` parameter, provide a non-null value for the `android:searchSuggestSelection` attribute. This triggers the query to pass in `selectionArgs`, and you can ignore the `selection` parameter. This way, you can instead define the actual selection clause at a lower level so that your content provider doesn't have to handle it.
+ 
+ ### Build a suggestion table
+ 
+@@ -215,7 +217,9 @@ system expects specific columns in each row. Regardless of whether you store
+ your suggestion data in a SQLite database on the device, a database on a web
+ server, or another format on the device or web, format the suggestions as rows
+ in a table and present them with a `Cursor`.
+-| **Note:** If your search suggestions aren't stored in a table format---such as a SQLite table---using the columns required by the system, then you can search your suggestion data for matches and then format them into the necessary table on each request. To do so, create a `https://developer.android.com/reference/android/database/MatrixCursor` using the required column names and then add a row for each suggestion using `https://developer.android.com/reference/android/database/MatrixCursor#addRow(java.lang.Object[])`. Return the final product from your content provider's `query()` method.
++
++> [!NOTE]
++> **Note:** If your search suggestions aren't stored in a table format---such as a SQLite table---using the columns required by the system, then you can search your suggestion data for matches and then format them into the necessary table on each request. To do so, create a `https://developer.android.com/reference/android/database/MatrixCursor` using the required column names and then add a row for each suggestion using `https://developer.android.com/reference/android/database/MatrixCursor#addRow(java.lang.Object[])`. Return the final product from your content provider's `query()` method.
+ 
+ The system understands several columns, but only two of them are required:
+ 
+@@ -331,13 +335,13 @@ you can define the action in two ways:
+ - Use the `android:searchSuggestIntentAction` attribute of your searchable configuration file to define the action for all suggestions, as shown in the following example:
+ 
+   ```xml
+-  <?xml version="1.0" encoding="utf-8"?>
+-  <searchable xmlns:android="http://schemas.android.com/apk/res/android"
++  <?xml version="1.0" encoding=<"utf-8"?>
++  searchable xmlns:android="http://schemas.android.com/apk/res/android"
+       android:label="@string/app_label"
+       android:hint="@string/search_hint"
+       android:searchSuggestAuthority="com.example.MyCustomSuggestionProvider"
+-      android:searchSuggestIntentAction="android.intent.action.VIEW" >
+-  </searchable>
++      an<droid:searchSuggestIntentAction="android.intent.action.VIEW" >
++  /searchable>
+   ```
+ - Use the `SUGGEST_COLUMN_INTENT_ACTION` column to define the action for individual suggestions. To do this, add the `SUGGEST_COLUMN_INTENT_ACTION` column to your suggestions table and, for each suggestion, place in it the action to use---such as `"android.intent.action.VIEW"`.
+ 
+@@ -349,7 +353,9 @@ suggestions by declaring a different action in the
+ in the `SUGGEST_COLUMN_INTENT_ACTION` column, then the intent
+ provided in the `android:searchSuggestIntentAction` attribute is
+ used.
+-| **Note:** If you don't include the `android:searchSuggestIntentAction` attribute in your searchable configuration, then you *must* include a value in the `SUGGEST_COLUMN_INTENT_ACTION` column for every suggestion, or else the intent fails.
++
++> [!NOTE]
++> **Note:** If you don't include the `android:searchSuggestIntentAction` attribute in your searchable configuration, then you *must* include a value in the `SUGGEST_COLUMN_INTENT_ACTION` column for every suggestion, or else the intent fails.
+ 
+ ### Declare intent data
+ 
+@@ -373,7 +379,10 @@ You can define the data included with the intent in two ways:
+   is attached to the intent exactly as you define it in this column. You can
+   then retrieve it with `getData()` or
+   `getDataString()`.
+-  | **Tip** : It's usually easier to use the table's row ID as the intent data, because it's always unique. The easiest way to do this is by using the `SUGGEST_COLUMN_INTENT_DATA` column name as an alias for the row ID column.
++
++  > [!TIP]
++  > **Tip** : It's usually easier to use the table's row ID as the intent data, because it's always unique. The easiest way to do this is by using the `SUGGEST_COLUMN_INTENT_DATA` column name as an alias for the row ID column.
++
+ - Fragment a data URI into two pieces: the portion common to all suggestions and the portion unique to each suggestion. Place these parts into the `android:searchSuggestintentData` attribute of the searchable configuration and the `SUGGEST_COLUMN_INTENT_DATA_ID` column of your suggestions table, respectively.
+ 
+   The following example shows how to declare the piece of the URI that is
+@@ -382,14 +391,14 @@ You can define the data included with the intent in two ways:
+   configuration:
+ 
+   ```xml
+-    <?xml version="1.0" encoding="utf-8"?>
+-    <searchable xmlns:android="http://schemas.android.com/apk/res/android"
++    <?xml version="1.0" encoding=&q<uot;utf-8"?>
++    searchable xmlns:android="http://schemas.android.com/apk/res/android"
+         android:label="@string/app_label"
+         android:hint="@string/search_hint"
+         android:searchSuggestAuthority="com.example.MyCustomSuggestionProvider"
+-        android:searchSuggestIntentAction="android.intent.action.VIEW"
+-        android:searchSuggestIntentData="content://com.example/datatable" >
+-    </searchable>
++        android:searchSuggestIntentAction="android.intent.action.VIEW";
++     <   android:searchSuggestIntentData="content://com.example/datatable" >
++    /searchable>
+     
+   ```
+ 
+@@ -457,7 +466,9 @@ carries a complete URI pointing to the suggested item, as synthesized by the
+ `SUGGEST_COLUMN_INTENT_DATA_ID` column. The URI then passes to the
+ local `showResult()` method that queries the content provider for the
+ item specified by the URI.
+-| **Note:** You do *not* need to add an intent filter to your Android manifest file for the intent action you defined with the `android:searchSuggestIntentAction` attribute or `SUGGEST_COLUMN_INTENT_ACTION` column. The system opens your searchable activity by name to deliver the suggestion's intent, so the activity doesn't need to declare the accepted action.
++
++> [!NOTE]
++> **Note:** You do *not* need to add an intent filter to your Android manifest file for the intent action you defined with the `android:searchSuggestIntentAction` attribute or `SUGGEST_COLUMN_INTENT_ACTION` column. The system opens your searchable activity by name to deliver the suggestion's intent, so the activity doesn't need to declare the accepted action.
+ 
+ ## Rewrite the query text
+ 
+@@ -492,10 +503,10 @@ example:
+ <provider android:name="MySuggestionProvider"
+           android:authorities="com.example.MyCustomSuggestionProvider"
+           android:readPermission="com.example.provider.READ_MY_DATA"
+-          android:writePermission="com.example.provider.WRITE_MY_DATA">
+-  <path-permission android:pathPrefix="/search_suggest_query"
+-                   android:readPermission="android.permission.GLOBAL_SEARCH" />
+-</provider>
++          android:writePermission=">com<.example.provider.WRITE_MY_DATA"
++  path-permission android:pathPrefix="/search_suggest_query"
++                   android:r>e<adPermiss>ion="android.permission.GLOBAL_SEARCH" /
++/provider
+ ```
+ 
+ In this example, the provider restricts read and write access to the content.
+@@ -525,15 +536,15 @@ attribute to your searchable configuration, as shown in the following
+ example:
+ 
+ ```xml
+-<?xml version="1.0" encoding="utf-8"?>
+-<searchable xmlns:android="http://schemas.android.com/apk/res/android"
++<?xml version="1.0" encoding=<"utf-8"?>
++searchable xmlns:android="http://schemas.android.com/apk/res/android"
+     android:label="@string/app_label"
+     android:hint="@string/search_hint"
+     android:searchSuggestAuthority="com.example.MyCustomSuggestionProvider"
+     android:searchSuggestIntentAction="android.intent.action.VIEW"
+-    android:includeInGlobalSearch="true"
++    android:includeInGlobalSearch=&qu<ot;true"
+     android:searchSettingsDescription="@string/search_description" >
+-</searchable>
++/searchable>
+ ```
+ 
+ Make the string for `android:searchSettingsDescription` as concise
+@@ -604,7 +615,9 @@ following ways:
+ 
+ If none of your suggestions ever change, then you don't need the
+ `SUGGEST_COLUMN_SHORTCUT_ID` column.
+-| **Note:** Quick Search Box ultimately decides whether to create a shortcut for a suggestion, considering these values as a strong request from your app. There is no guarantee that the behavior you request for your suggestion shortcuts are fulfilled.
++
++> [!NOTE]
++> **Note:** Quick Search Box ultimately decides whether to create a shortcut for a suggestion, considering these values as a strong request from your app. There is no guarantee that the behavior you request for your suggestion shortcuts are fulfilled.
+ 
+ ### About Quick Search Box suggestion ranking
+ 

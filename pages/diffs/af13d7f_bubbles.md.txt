@@ -1,0 +1,16 @@
+diff --git a/docs/develop/ui/views/notifications/bubbles.md b/docs/develop/ui/views/notifications/bubbles.md
+index 40115d9..a649ece 100644
+--- a/docs/develop/ui/views/notifications/bubbles.md
++++ b/docs/develop/ui/views/notifications/bubbles.md
+@@ -39,9 +39,9 @@ The following code demonstrates how to implement a bubble:
+       android:name=".bubbles.BubbleActivity"
+       android:theme="@style/AppTheme.NoActionBar"
+       android:label="@string/title_activity_bubble"
+-      android:allowEmbedded="true&quo>t;
++      android:allowEmbedded="true"
+       android:resizeableActivity="true"
+-    /
++    />
+ 
+ If your app shows multiple bubbles of the same type, like multiple chat
+ conversations with different contacts, the activity must be able to launch

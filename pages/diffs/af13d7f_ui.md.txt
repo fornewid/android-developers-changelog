@@ -1,0 +1,24 @@
+diff --git a/docs/topic/libraries/architecture/paging/ui.md b/docs/topic/libraries/architecture/paging/ui.md
+index a5bf5f4..6e77db3 100644
+--- a/docs/topic/libraries/architecture/paging/ui.md
++++ b/docs/topic/libraries/architecture/paging/ui.md
+@@ -75,7 +75,7 @@ class ConcertAdapter() :
+     }
+ 
+     companion object {
+-        private val DIFF_CALLBACK = ... // See https://developer.android.com/topic/libraries/architecture/paging/ui#implement-diffing-callback section.
++        private val DIFF_CALLBACK = ... // See Implement the diffing callback section.
+     }
+ }
+ ```
+@@ -98,8 +98,8 @@ public class ConcertAdapter
+         holder.bindTo(concert);
+     }
+ 
+-    private static DiffUtil.ItemCallback<Concert> DIFF_CALLBACK
+-            = ... // See https://developer.android.com/topic/libraries/architecture/paging/ui#implement-diffing-callback section.
++    private static DiffUti<l.ItemC>allbackConcert DIFF_CALLBACK
++           https://developer.android.com/topic/libraries/architecture/paging/ui#implement-diffing-callback= ... // See Implement the diffing callback section.
+ }
+ ```
+ 

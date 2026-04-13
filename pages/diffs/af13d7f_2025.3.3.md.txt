@@ -1,0 +1,15 @@
+diff --git a/docs/studio/releases/fixed-bugs/studio/2025.3.3.md b/docs/studio/releases/fixed-bugs/studio/2025.3.3.md
+index 56b2d54..fef4cc9 100644
+--- a/docs/studio/releases/fixed-bugs/studio/2025.3.3.md
++++ b/docs/studio/releases/fixed-bugs/studio/2025.3.3.md
+@@ -4,6 +4,10 @@ url: https://developer.android.com/studio/releases/fixed-bugs/studio/2025.3.3
+ source: md.txt
+ ---
+ 
++### Android Studio Panda 3 \| 2025.3.3 Patch 1
++
++*This release includes minor fixes and improvements.*
++
+ ### Android Studio Panda 3 \| 2025.3.3
+ 
+ *This release includes minor fixes and improvements.*

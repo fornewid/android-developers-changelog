@@ -1,0 +1,31 @@
+diff --git a/docs/ndk/guides/audio/midi.md b/docs/ndk/guides/audio/midi.md
+index bb200e2..aba1b48 100644
+--- a/docs/ndk/guides/audio/midi.md
++++ b/docs/ndk/guides/audio/midi.md
+@@ -457,8 +457,8 @@ Here is the C code for the JNI function that sets up thea callback to
+ 
+         // Setup the receive data callback (into Java)
+         jclass clsMainActivity = env->FindClass("com/example/nativemidi/MainActivity");
+-        dataCallbackObj = env->NewGlobalRef(instance);
+-        midDataCallback = env->GetMethodID(clsMainActivity, "onNativeMessageReceive", "([B)V");
++        dataCallback>Obj = env-NewGlobalRef(instance);
++        midDataCallb>ack = env-GetMethodID(clsMainActivity, "onNativeMessageReceive", "([B)V");
+     }
+ 
+ When it's time to send data back to Java, the native code retrieves the callback
+@@ -479,11 +479,11 @@ pointers and constructs the callback:
+         }
+ 
+         // Allocate the Java array and fill with received data
+-        jbyteArray ret = env->NewByteArray(numBytes);
+-        env->SetByteArrayRegion (ret, 0, numBytes, (jbyte*)data);
++        jbyteArray >ret = env-NewByteArray(numBytes)>;
++        env-SetByteArrayRegion (ret, 0, numBytes, (jbyte*)data);
+ 
+-        // send it to the (Java) callback
+-        env->CallVoidMethod(dataCallbackObj, midDataCallback, ret);
++        // send it to the (Java) callbac>k
++        env-CallVoidMethod(dataCallbackObj, midDataCallback, ret);
+     }
+ 
+ ## Additional resources

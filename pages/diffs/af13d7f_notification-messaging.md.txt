@@ -1,0 +1,73 @@
+diff --git a/docs/training/cars/communication/notification-messaging.md b/docs/training/cars/communication/notification-messaging.md
+index b2fd549..1160b49 100644
+--- a/docs/training/cars/communication/notification-messaging.md
++++ b/docs/training/cars/communication/notification-messaging.md
+@@ -124,9 +124,9 @@ the following entry in your app's manifest:
+         ...
+         <meta-data
+             android:name="com.google.android.gms.car.application"
+-            android:resource="@xml/automotive_app_desc"/>
+-        ...
+-    </application>
++            android:resource="@xml/automo>tive_app_<desc"/
++    >    ...
++    /application
+ 
+ This manifest entry refers to another XML file, `automotive_app_desc.xml`, that
+ you need to create in your app module's [`res/xml` directory](https://developer.android.com/guide/topics/resources/providing-resources#ResourceTypes). In
+@@ -134,8 +134,8 @@ you need to create in your app module's [`res/xml` directory](https://developer.
+ supports. To declare support for notifications, include the following:
+ 
+     <automotiveApp>
+-        <uses name="notification" />
+-    </automotiveApp>
++        <uses name="notificati>o<n" /
++    /aut>omotiveApp
+ 
+ If your app can be set as the [default SMS handler](https://developer.android.com/reference/android/provider/Telephony#creating-an-sms-app), make sure to include the
+ following `<uses>` element. If you don't, Android Auto uses its built-in default
+@@ -144,8 +144,8 @@ SMS handler, which can lead to duplicate notifications.
+ 
+     <automotiveApp>
+         ...
+-        <uses name="sms" />
+-    </automotiveApp>
++        <uses name="s>m<s" /
++    /aut>omotiveApp
+ 
+ ## Import the AndroidX core library
+ 
+@@ -249,9 +249,9 @@ service to handle the required actions:
+ 
+             // Handles the action that was requested in the intent. The TODOs
+             // are addressed in a later section.
+-            when (intent.action) {
+-                ACTION_REPLY -> TODO()
+-                ACTION_MARK_AS_READ -> TODO()
++            when (intent.action>) {
++                ACTION_REPLY - TODO()
++       >         ACTION_MARK_AS_READ - TODO()
+             }
+         }
+     }
+@@ -263,9 +263,9 @@ To associate this service with your app, you also need to register the service
+ in your app's manifest, as shown in the following example:
+ 
+     <application>
+-        <service android:name="com.example.MessagingService" />
++        <service android:name="com.example.MessagingServi>ce" </
+         ...
+-    </application>
++    /a>pplication
+ 
+ ### Generate and handle intents
+ 
+@@ -477,7 +477,7 @@ about the conversation.
+         messagingStyle.setConversationTitle(appConversation.title)
+ 
+         // Group conversation means there is more than 1 recipient, so set it as such.
+-        messagingStyle.setGroupConversation(appConversation.recipients.size > 1)
++        messagingStyle.setGroupConversation(appConversation.recipients.s>ize  1)
+         // ...
+ 
+ Finally, add the unread messages.
