@@ -39,9 +39,9 @@ The following code demonstrates how to implement a bubble:
       android:name=".bubbles.BubbleActivity"
       android:theme="@style/AppTheme.NoActionBar"
       android:label="@string/title_activity_bubble"
-      android:allowEmbedded="true&quo>t;
+      android:allowEmbedded="true"
       android:resizeableActivity="true"
-    /
+    />
 
 If your app shows multiple bubbles of the same type, like multiple chat
 conversations with different contacts, the activity must be able to launch

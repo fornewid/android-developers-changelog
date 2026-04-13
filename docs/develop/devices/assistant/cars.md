@@ -176,7 +176,7 @@ your car app:
    fun onCreateScreen(@NonNull intent: Intent): Screen {
      if (intent.getData() != null) {
          val uri: Uri = intent.getData()
-         // uri = &quot;YOUR_SCHEME://YOUR_HOST?name=Levis%20center"
+         // uri = "YOUR_SCHEME://YOUR_HOST?name=Levis%20center"
          // Build your Templates with parsed uri parameters
      ...
     }
@@ -190,7 +190,7 @@ your car app:
    public Screen onCreateScreen(@NonNull Intent intent) {
    if (intent.getData() != null) {
      Uri uri = intent.getData();
-     // uri = &quot;YOUR_SCHEME://YOUR_HOST?name=Levis%20center"
+     // uri = "YOUR_SCHEME://YOUR_HOST?name=Levis%20center"
      // Build your Templates with parsed uri parameters
    ...
    }
@@ -208,7 +208,7 @@ your car app:
    fun onNewIntent(@NonNull intent: Intent): Screen {
      if (intent.getData() != null) {
          val uri: Uri = intent.getData()
-         // uri = &quot;YOUR_SCHEME://YOUR_HOST?name=Levis%20center"
+         // uri = "YOUR_SCHEME://YOUR_HOST?name=Levis%20center"
          // Build your Templates with parsed uri parameters
          ...
      }
@@ -222,7 +222,7 @@ your car app:
    public void onNewIntent(@NonNull Intent intent) {
    if (intent.getData() != null) {
     Uri uri = intent.getData();
-    // uri = &quot;YOUR_SCHEME://YOUR_HOST?name=Levis%20center"
+    // uri = "YOUR_SCHEME://YOUR_HOST?name=Levis%20center"
     // Build your Templates with parsed uri parameters
     ...
    }

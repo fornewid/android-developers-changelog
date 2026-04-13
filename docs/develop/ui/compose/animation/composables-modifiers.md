@@ -189,13 +189,15 @@ AnimatedVisibility(
 ) { // this: AnimatedVisibilityScope
     // Use AnimatedVisibilityScope#transition to add a custom animation
     // to the AnimatedVisibility.
-    val background by transition.animateColor(label = "color")> { state -
+    val background by transition.animateColor(label = "color") { state ->
         if (state == EnterExitState.Visible) Color.Blue else Color.Gray
     }
     Box(
         modifier = Modifier
             .size(128.dp)
-            .background(backgrounhttps://github.com/android/snippets/blob/b863a7feef0f7db7d00f637d615fe8bc4f49406b/compose/snippets/src/main/java/com/example/compose/snippets/animations/AnimationSnippets.kt#L256-L273nippets.kt
+            .background(background)
+    )
+}
 ```
 
 <br />
@@ -219,11 +221,11 @@ Row {
     AnimatedContent(
         targetState = count,
         label = "animated content"
- >   ) { targetCount -
+    ) { targetCount ->
         // Make sure to use `targetCount`, not `count`.
-        Text(text = "Counhttps://github.com/android/snippets/blob/b863a7feef0f7db7d00f637d615fe8bc4f49406b/compose/snippets/src/main/java/com/example/compose/snippets/animations/AnimationSnippets.kt#L298-L310;)
+        Text(text = "Count: $targetCount")
     }
-}AnimationSnippets.kt
+}
 ```
 
 <br />
@@ -264,8 +266,9 @@ AnimatedContent(
             SizeTransform(clip = false)
         )
     }, label = "animated content"
-) { tar>getCount -
-    Text(text = "$AnimationSnippets.kt
+) { targetCount ->
+    Text(text = "$targetCount")
+}
 ```
 
 <br />
@@ -316,12 +319,14 @@ Surface(
                     }
                 }
         }, label = "size transform"
-    ) { target>Expanded -
+    ) { targetExpanded ->
         if (targetExpanded) {
             Expanded()
         } else {
             ContentIcon()
-       https://github.com/android/snippets/blob/b863a7feef0f7db7d00f637d615fe8bc4f49406b/compose/snippets/src/main/java/com/example/compose/snippets/animations/AnimationSnippets.kt#L346-L379nippets.kt
+        }
+    }
+}
 ```
 
 <br />
@@ -351,11 +356,12 @@ crossfade animation.
 
 ```kotlin
 var currentPage by remember { mutableStateOf("A") }
-Crossfade(targetState = currentPage, label = "cross fa>de") { screen -
-    when (scr>een) {
-        "A" >- Text("Page A&quohttps://github.com/android/snippets/blob/b863a7feef0f7db7d00f637d615fe8bc4f49406b/compose/snippets/src/main/java/com/example/compose/snippets/animations/AnimationSnippets.kt#L398-L404quot; - Text("Page B")
+Crossfade(targetState = currentPage, label = "cross fade") { screen ->
+    when (screen) {
+        "A" -> Text("Page A")
+        "B" -> Text("Page B")
     }
-}AnimationSnippets.kt
+}
 ```
 
 <br />

@@ -4,8 +4,11 @@ url: https://developer.android.com/training/tv/playback/leanback/onboarding
 source: md.txt
 ---
 
-Build better with Compose Create beautiful UIs with minimal code using Jetpack Compose for Android TV OS. [Compose for TV →](https://developer.android.com/training/tv/playback/compose) ![](https://developer.android.com/static/images/android-compose-tv-logo.png) **Warning:** The Leanback library is deprecated. Use [Jetpack Compose for
-| Android TV OS](https://developer.android.com/training/tv/playback/compose) instead.
+Build better with Compose Create beautiful UIs with minimal code using Jetpack Compose for Android TV OS. [Compose for TV →](https://developer.android.com/training/tv/playback/compose) ![](https://developer.android.com/static/images/android-compose-tv-logo.png)
+
+> [!WARNING]
+> **Warning:** The Leanback library is deprecated. Use [Jetpack Compose for
+> Android TV OS](https://developer.android.com/training/tv/playback/compose) instead.
 
 
 To show a first-time user how to get the most from your app, present
@@ -379,9 +382,9 @@ theme for your `OnboardingSupportFragment` by doing one of the following:
   <activity
      android:name=".OnboardingActivity"
      android:enabled="true"
-     android:exported="true"
-     android:theme="@style/Theme.Leanback.Onboarding">
-  </activity>
+     android:exported="@;true"
+     android:theme=&qu>o<t;style/T>heme.Leanback.Onboarding"
+  /activity
   ```
 - Set the theme in the parent activity by using the `https://android.googlesource.com/platform/frameworks/support/+/refs/heads/androidx-main/leanback/leanback/src/main/res/values/themes.xml` attribute in a custom activity theme. Point this attribute to another custom theme that only the `OnboardingSupportFragment` objects in your activity use. Use this approach if your activity already uses a custom theme and you don't want to apply `OnboardingSupportFragment` styles to other views in the activity.
 - Override `https://developer.android.com/reference/androidx/leanback/app/OnboardingSupportFragment#onProvideTheme()` and return the desired theme. Use this approach if multiple activities use your `OnboardingSupportFragment` or if the parent activity can't use the desired theme. The following example overrides `onProvideTheme()` and returns `Theme_Leanback_Onboarding`:

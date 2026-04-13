@@ -14,24 +14,24 @@ provides a standard interface for handling user credentials such as login inform
 Even if your app doesn't use accounts, you still need to provide an authenticator component.
 If you don't use accounts or server login, the information handled by the authenticator is
 ignored, so you can provide an authenticator component that contains stub method
-implementations. You also need to provide a bound [Service](https://developer.android.com/reference/android/app/Service) that
+implementations. You also need to provide a bound `https://developer.android.com/reference/android/app/Service` that
 allows the sync adapter framework to call the authenticator's methods.
 
 
 This lesson shows you how to define all the parts of a stub authenticator that you need to
 satisfy the requirements of the sync adapter framework. If you need to provide a real
 authenticator that handles user accounts, read the reference documentation for
-[AbstractAccountAuthenticator](https://developer.android.com/reference/android/accounts/AbstractAccountAuthenticator).
+`https://developer.android.com/reference/android/accounts/AbstractAccountAuthenticator`.
 
 ## Add a stub authenticator component
 
 
 To add a stub authenticator component to your app, create a class that extends
-[AbstractAccountAuthenticator](https://developer.android.com/reference/android/accounts/AbstractAccountAuthenticator), and then stub out the required methods,
+`https://developer.android.com/reference/android/accounts/AbstractAccountAuthenticator`, and then stub out the required methods,
 either by returning `null` or by throwing an exception.
 
 
-The following snippet shows an example of a stub authenticator class:  
+The following snippet shows an example of a stub authenticator class:
 
 ### Kotlin
 
@@ -181,7 +181,7 @@ Service for it. This service provides an Android binder object that allows the f
 to call your authenticator and pass data between the authenticator and the framework.
 
 
-The following snippet shows you how to define the bound [Service](https://developer.android.com/reference/android/app/Service):  
+The following snippet shows you how to define the bound `https://developer.android.com/reference/android/app/Service`:
 
 ### Kotlin
 
@@ -284,55 +284,55 @@ has the following attributes:
     authenticator.
 
 
-The following snippet shows the XML file for the authenticator you created previously:  
+The following snippet shows the XML file for the authenticator you created previously:
 
 ```xml
-<?xml version="1.0" encoding="utf-8"?>
-<account-authenticator
+<?xml version="1.0" encodin>g<="utf-8"?
+account-authenticator
         xmlns:android="http://schemas.android.com/apk/res/android"
-        android:accountType="example.com"
-        android:icon="@drawable/ic_launcher"
-        android:smallIcon="@drawable/ic_launcher"
-        android:label="@string/app_name"/>
+        android:accountType="@example.com"
+        android:icon="draw@able/ic_launcher"
+        android:smallI@con="drawabl>e/ic_launcher"
+        android:label="string/app_name"/
 ```
 
 ## Declare the authenticator in the manifest
 
 
-In a previous step, you created a bound [Service](https://developer.android.com/reference/android/app/Service) that links the authenticator
+In a previous step, you created a bound `https://developer.android.com/reference/android/app/Service` that links the authenticator
 to the sync adapter framework. To identify this service to the system, declare it in your app
 manifest by adding the following
-[<service>](https://developer.android.com/guide/topics/manifest/service-element)
+`https://developer.android.com/guide/topics/manifest/service-element`
 element as a child element of
-[<application>](https://developer.android.com/guide/topics/manifest/application-element):  
+`https://developer.android.com/guide/topics/manifest/application-element`:
 
 ```xml
     <service
-            android:name="com.example.android.syncadapter.AuthenticatorService">
-        <intent-filter>
-            <action android:name="android.accounts.AccountAuthenticator"/>
-        </intent-filter>
-        <meta-data
+            android:name="com.example.android.syncadapter.AuthenticatorSer>vice"<;
+        int>ent-filter
+  <          action android:name="android.accounts.Account>Authentic<ator"/
+  >      /in<tent-filter
+        meta-data
             android:name="android.accounts.AccountAuthenticator"
-            android:resource="@xml/authenticator" />
-    </service>
+            android:r>esour<ce=">;@xml/authenticator" /
+    /service
 ```
 
 
 The
-[<intent-filter>](https://developer.android.com/guide/topics/manifest/intent-filter-element)
+`https://developer.android.com/guide/topics/manifest/intent-filter-element`
 element sets up a filter that's triggered by the intent action
 `android.accounts.AccountAuthenticator`, which sent by the system to run the
 authenticator. When the filter is triggered, the system starts `AuthenticatorService`,
-the bound [Service](https://developer.android.com/reference/android/app/Service) you have provided to wrap the authenticator.
+the bound `https://developer.android.com/reference/android/app/Service` you have provided to wrap the authenticator.
 
 
 The
-[<meta-data>](https://developer.android.com/guide/topics/manifest/meta-data-element)
+`https://developer.android.com/guide/topics/manifest/meta-data-element`
 element declares the metadata for the authenticator. The
-[android:name](https://developer.android.com/guide/topics/manifest/meta-data-element#nm)
+`https://developer.android.com/guide/topics/manifest/meta-data-element#nm`
 attribute links the meta-data to the authentication framework. The
-[android:resource](https://developer.android.com/guide/topics/manifest/meta-data-element#rsrc)
+`https://developer.android.com/guide/topics/manifest/meta-data-element#rsrc`
 element specifies the name of the authenticator metadata file you created previously.
 
 

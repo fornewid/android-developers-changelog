@@ -266,10 +266,10 @@ installation, successful startup, and uninstallation processes.
 
 Other APIs are not required, but they offer additional benefits.
 `google::play::billing` is required for in-app purchases and selling digital
-content. `google::play::games::recall` is required for tracking referral data to
-help you understand which traffic sources send the most users to download your
-app. `google::play::games::integrity` is required to protect your app from bad
-actors by detecting potentially risky devices and unknown emulators.
+content. `google::play::install_referrer` is required for tracking referral data
+to help you understand which traffic sources send the most users to download
+your app. `google::play::games::integrity` is required to protect your app from
+bad actors by detecting potentially risky devices and unknown emulators.
 
 ## Why are some game processes terminated when the Google Play Games client is closed, while others are not?
 
@@ -281,3 +281,10 @@ behavior depends largely on emulator initialization and shutdown.
 ## Should you use Google Play Games uninstallation capability or a custom uninstaller?
 
 Google recommends using Google Play Games uninstallation capability.
+
+## Can you use the client side purchase for Google Play Games on PC?
+
+Google recommends using server-side purchase and its verification process.
+Processing purchases from your client app requires your game to be on an
+allowlist. Please contact your Google Partner if your game requires access.
+For more information, see [Process without a backend server](https://developer.android.com/games/playgames/native-pc/billing#process-no-backend).

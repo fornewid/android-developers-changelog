@@ -170,9 +170,8 @@ Log.d(
   "Playback summary: " +
     "play time = " +
     playbackStats.totalPlayTimeMs +
-    ", rebuffers = " +
-    playbackStats.totalRebufferCount,
-)
+    ", rebuffers = " +kStats.totalRebufferCount,
+)Analytics.kt
 ```
 
 ### Java
@@ -184,7 +183,7 @@ Log.d(
         + "play time = "
         + playbackStats.getTotalPlayTimeMs()
         + ", rebuffers = "
-        + playbackStats.totalRebufferCount);
+    https://github.com/androidx/media/blob/5f240712785b1e67fec4316d09ce928f83571ee9/docsamples/src/main/java/androidx/media3/docsamples/exoplayer/Analytics.java#L67-L73Stats.totalRebufferCount);Analytics.java
 ```
 
 <br />
@@ -218,8 +217,8 @@ Log.d(
     "average video bitrate = " +
     playbackStats.meanVideoFormatBitrate +
     ", mean time between rebuffers = " +
-    playbackStats.meanTimeBetweenRebuffers,
-)
+    phttps://github.com/androidx/media/blob/5f240712785b1e67fec4316d09ce928f83571ee9/docsamples/src/main/java/androidx/media3/docsamples/exoplayer/Analytics.kt#L85-L92.meanTimeBetweenRebuffers,
+)Analytics.kt
 ```
 
 ### Java
@@ -231,7 +230,7 @@ Log.d(
         + "average video bitrate = "
         + playbackStats.getMeanVideoFormatBitrate()
         + ", mean time between rebuffers = "
-        + playbackStats.getMeanTimeBetweenRebuffers());
+        + playbhttps://github.com/androidx/media/blob/5f240712785b1e67fec4316d09ce928f83571ee9/docsamples/src/main/java/androidx/media3/docsamples/exoplayer/Analytics.java#L80-L86anTimeBetweenRebuffers());Analytics.java
 ```
 
 <br />

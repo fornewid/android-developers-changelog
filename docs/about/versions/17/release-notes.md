@@ -214,7 +214,7 @@ android:recreateOnConfigChanges manifest attribute.
 
 #### Privacy \& Security
 
-- **Cleartext Deprecation** : [`android:usesCleartextTraffic`](https://developer.android.com/guide/topics/manifest/application-element#usesCleartextTraffic) is deprecated. Apps targeting SDK 37+ relying on this attribute will default to blocking cleartext; migrate to [**Network Security Configuration**](https://developer.android.com/training/articles/security-config).
+- **Cleartext Deprecation** : [`android:usesCleartextTraffic`](https://developer.android.com/guide/topics/manifest/application-element#usesCleartextTraffic) will be deprecated in a future release, gated on the future SDK level. Apps relying on this attribute will default to blocking cleartext; migrate to [**Network Security Configuration**](https://developer.android.com/training/articles/security-config).
 - **HPKE Hybrid Cryptography** : Introduced a public [Service Provider Interface](https://developer.android.com/reference/android/crypto/hpke/HpkeSpi) for an implementation of HPKE hybrid cryptography.
 
 #### Connectivity \& Tools

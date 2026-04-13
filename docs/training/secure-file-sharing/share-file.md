@@ -4,46 +4,69 @@ url: https://developer.android.com/training/secure-file-sharing/share-file
 source: md.txt
 ---
 
-# Sharing a file
+Once you have set up your app to share files using content URIs, you can respond to other apps'
+requests for those files. One way to respond to these requests is to provide a file selection
+interface from the server app that other applications can invoke. This approach allows a client
+application to let users select a file from the server app and then receive the selected file's
+content URI.
 
-Once you have set up your app to share files using content URIs, you can respond to other apps' requests for those files. One way to respond to these requests is to provide a file selection interface from the server app that other applications can invoke. This approach allows a client application to let users select a file from the server app and then receive the selected file's content URI.
 
-This lesson shows you how to create a file selection[Activity](https://developer.android.com/reference/android/app/Activity)in your app that responds to requests for files.
+This lesson shows you how to create a file selection `https://developer.android.com/reference/android/app/Activity` in your app
+that responds to requests for files.
 
 ## Receive file requests
 
-To receive requests for files from client apps and respond with a content URI, your app should provide a file selection[Activity](https://developer.android.com/reference/android/app/Activity). Client apps start this[Activity](https://developer.android.com/reference/android/app/Activity)by calling[startActivityForResult()](https://developer.android.com/reference/android/app/Activity#startActivityForResult(android.content.Intent, int))with an[Intent](https://developer.android.com/reference/android/content/Intent)containing the action[ACTION_PICK](https://developer.android.com/reference/android/content/Intent#ACTION_PICK). When the client app calls[startActivityForResult()](https://developer.android.com/reference/android/app/Activity#startActivityForResult(android.content.Intent, int)), your app can return a result to the client app, in the form of a content URI for the file the user selected.
 
-To learn how to implement a request for a file in a client app, see the lesson[Requesting a shared file](https://developer.android.com/training/secure-file-sharing/request-file).
+To receive requests for files from client apps and respond with a content URI, your app should
+provide a file selection `https://developer.android.com/reference/android/app/Activity`. Client apps start this
+`https://developer.android.com/reference/android/app/Activity` by calling `https://developer.android.com/reference/android/app/Activity#startActivityForResult(android.content.Intent, int)` with an `https://developer.android.com/reference/android/content/Intent` containing the action
+`https://developer.android.com/reference/android/content/Intent#ACTION_PICK`. When the client app calls
+`https://developer.android.com/reference/android/app/Activity#startActivityForResult(android.content.Intent, int)`, your app can
+return a result to the client app, in the form of a content URI for the file the user selected.
+
+
+To learn how to implement a request for a file in a client app, see the lesson
+[Requesting a shared file](https://developer.android.com/training/secure-file-sharing/request-file).
 
 ## Create a file selection Activity
 
-To set up the file selection[Activity](https://developer.android.com/reference/android/app/Activity), start by specifying the[Activity](https://developer.android.com/reference/android/app/Activity)in your manifest, along with an intent filter that matches the action[ACTION_PICK](https://developer.android.com/reference/android/content/Intent#ACTION_PICK)and the categories[CATEGORY_DEFAULT](https://developer.android.com/reference/android/content/Intent#CATEGORY_DEFAULT)and[CATEGORY_OPENABLE](https://developer.android.com/reference/android/content/Intent#CATEGORY_OPENABLE). Also add MIME type filters for the files your app serves to other apps. The following snippet shows you how to specify the new[Activity](https://developer.android.com/reference/android/app/Activity)and intent filter:  
+
+To set up the file selection `https://developer.android.com/reference/android/app/Activity`, start by specifying the
+`https://developer.android.com/reference/android/app/Activity` in your manifest, along with an intent filter
+that matches the action `https://developer.android.com/reference/android/content/Intent#ACTION_PICK` and the
+categories `https://developer.android.com/reference/android/content/Intent#CATEGORY_DEFAULT` and
+`https://developer.android.com/reference/android/content/Intent#CATEGORY_OPENABLE`. Also add MIME type filters
+for the files your app serves to other apps. The following snippet shows you how to specify the
+new `https://developer.android.com/reference/android/app/Activity` and intent filter:
 
 ```xml
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
-    ...
-        <application>
+<manifest xmlns:android="http://schemas.android.com/apk/res/and>roid"
+    ..<.
+        a>pplication
         ...
-            <activity
+  <          activity
                 android:name=".FileSelectActivity"
-                android:label="@File Selector" >
-                <intent-filter>
-                    <action
-                        android:name="android.intent.action.PICK"/>
-                    <category
-                        android:name="android.intent.category.DEFAULT"/>
-                    <category
-                        android:name="android.intent.category.OPENABLE"/>
-                    <data android:mimeType="text/plain"/>
-                    <data android:mimeType="image/*"/>
-                </intent-filter>
-            </activity>
+           @     android:la>bel="File Se<lector" >
+                inte<nt-filter
+                    action
+                        android:name>="android.intent<.action.PICK"/
+                    category
+                        android>:name="android.i<ntent.category.DEFAULT"/
+                    category
+                      >  android:name="<android.intent.category.OPENABLE&qu>ot;/
+                <    data android:mimeType=">text/plain"/<
+             >       data a<ndroid:mi>meType="image/*"/
+                /intent-filter
+            /activity
 ```
 
 ### Define the file selection Activity in code
 
-Next, define an[Activity](https://developer.android.com/reference/android/app/Activity)subclass that displays the files available from your app's`files/images/`directory in internal storage and allows the user to pick the desired file. The following snippet demonstrates how to define this[Activity](https://developer.android.com/reference/android/app/Activity)and respond to the user's selection:  
+
+Next, define an `https://developer.android.com/reference/android/app/Activity` subclass that displays the files available from
+your app's `files/images/` directory in internal storage and allows the user to pick
+the desired file. The following snippet demonstrates how to define this
+`https://developer.android.com/reference/android/app/Activity` and respond to the user's selection:
 
 ### Kotlin
 
@@ -55,9 +78,9 @@ class MainActivity : Activity() {
     // The path to the "images" subdirectory
     private lateinit var imagesDir: File
     // Array of files in the images subdirectory
-    private lateinit var imageFiles: Array<File>
+    private lateinit var ima<geFi>les: ArrayFile
     // Array of filenames corresponding to imageFiles
-    private lateinit var imageFilenames: Array<String>
+    private lateinit var imageFi<lename>s: ArrayString
 
     // Initialize the Activity
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -125,21 +148,54 @@ public class MainActivity extends Activity {
 
 ## Respond to a file selection
 
-Once a user selects a shared file, your application must determine what file was selected and then generate a content URI for the file. Since the[Activity](https://developer.android.com/reference/android/app/Activity)displays the list of available files in a[ListView](https://developer.android.com/reference/android/widget/ListView), when the user clicks a file name the system calls the method[onItemClick()](https://developer.android.com/reference/android/widget/AdapterView.OnItemClickListener#onItemClick(android.widget.AdapterView<?>, android.view.View, int, long)), in which you can get the selected file.
 
-When using an intent to send a file's URI from one app to another, you must be careful to get a URI that other apps can read. Doing so on devices running Android 6.0 (API level 23) and later requires special care because of changes to the permissions model in that version of Android, particularly[READ_EXTERNAL_STORAGE](https://developer.android.com/reference/android/Manifest.permission#READ_EXTERNAL_STORAGE)'s becoming a[dangerous permission](https://developer.android.com/guide/topics/permissions/requesting#normal-dangerous), which the receiving app might lack.
+Once a user selects a shared file, your application must determine what file was selected and
+then generate a content URI for the file. Since the `https://developer.android.com/reference/android/app/Activity` displays the
+list of available files in a `https://developer.android.com/reference/android/widget/ListView`, when the user clicks a file name
+the system calls the method `https://developer.android.com/reference/android/widget/AdapterView.OnItemClickListener#onItemClick(android.widget.AdapterView<?>, android.view.View, int, long)`, in which you can get the selected file.
 
-With these considerations in mind, we recommend that you avoid using[Uri.fromFile()](https://developer.android.com/reference/android/net/Uri#fromFile(java.io.File)), which presents several drawbacks. This method:
+
+When using an intent to send a file's URI from one app to another,
+you must be careful to get a URI that other
+apps can read. Doing so on devices running Android 6.0 (API level 23) and later
+requires special
+care because of changes to the permissions model in that version of Android, particularly
+`https://developer.android.com/reference/android/Manifest.permission#READ_EXTERNAL_STORAGE`'s
+becoming a [dangerous permission](https://developer.android.com/guide/topics/permissions/requesting#normal-dangerous), which the receiving app might lack.
+
+
+With these considerations in mind, we recommend that you avoid using
+`https://developer.android.com/reference/android/net/Uri#fromFile(java.io.File)`, which
+presents several drawbacks. This method:
 
 - Does not allow file sharing across profiles.
-- Requires that your app have[WRITE_EXTERNAL_STORAGE](https://developer.android.com/reference/android/Manifest.permission#WRITE_EXTERNAL_STORAGE)permission on devices running Android 4.4 (API level 19) or lower.
-- Requires that receiving apps have the[READ_EXTERNAL_STORAGE](https://developer.android.com/reference/android/Manifest.permission#READ_EXTERNAL_STORAGE)permission, which will fail on important share targets, like Gmail, that don't have that permission.
+- Requires that your app have `https://developer.android.com/reference/android/Manifest.permission#WRITE_EXTERNAL_STORAGE` permission on devices running Android 4.4 (API level 19) or lower.
+- Requires that receiving apps have the `https://developer.android.com/reference/android/Manifest.permission#READ_EXTERNAL_STORAGE` permission, which will fail on important share targets, like Gmail, that don't have that permission.
 
-Instead of using[Uri.fromFile()](https://developer.android.com/reference/android/net/Uri#fromFile(java.io.File)), you can use[URI permissions](https://developer.android.com/training/secure-file-sharing/share-file#GrantPermissions)to grant other apps access to specific URIs. While URI permissions don't work on`file://`URIs generated by[Uri.fromFile()](https://developer.android.com/reference/android/net/Uri#fromFile(java.io.File)), they do work on URIs associated with Content Providers. The[FileProvider](https://developer.android.com/reference/androidx/core/content/FileProvider)API can help you create such URIs. This approach also works with files that are not in external storage, but in the local storage of the app sending the intent.
 
-In[onItemClick()](https://developer.android.com/reference/android/widget/AdapterView.OnItemClickListener#onItemClick(android.widget.AdapterView<?>, android.view.View, int, long)), get a[File](https://developer.android.com/reference/java/io/File)object for the file name of the selected file and pass it as an argument to[getUriForFile()](https://developer.android.com/reference/androidx/core/content/FileProvider#getUriForFile(android.content.Context, java.lang.String, java.io.File)), along with the authority that you specified in the[<provider>](https://developer.android.com/guide/topics/manifest/provider-element)element for the[FileProvider](https://developer.android.com/reference/androidx/core/content/FileProvider). The resulting content URI contains the authority, a path segment corresponding to the file's directory (as specified in the XML meta-data), and the name of the file including its extension. How[FileProvider](https://developer.android.com/reference/androidx/core/content/FileProvider)maps directories to path segments based on XML meta-data is described in the section[Specify sharable directories](https://developer.android.com/training/secure-file-sharing/setup-sharing#DefineMetaData).
+Instead of using `https://developer.android.com/reference/android/net/Uri#fromFile(java.io.File)`,
+you can use [URI permissions](https://developer.android.com/training/secure-file-sharing/share-file#GrantPermissions) to grant other apps
+access to specific URIs. While URI permissions don't work on `file://` URIs
+generated by `https://developer.android.com/reference/android/net/Uri#fromFile(java.io.File)`, they do
+work on URIs associated with Content Providers. The
+`https://developer.android.com/reference/androidx/core/content/FileProvider` API can
+help you create such URIs. This approach also works with files that are not
+in external storage, but in the local storage of the app sending the intent.
 
-The following snippet shows you how to detect the selected file and get a content URI for it:  
+
+In `https://developer.android.com/reference/android/widget/AdapterView.OnItemClickListener#onItemClick(android.widget.AdapterView<?>, android.view.View, int, long)`, get a
+`https://developer.android.com/reference/java/io/File` object for the file name of the selected file and pass it as an argument to
+`https://developer.android.com/reference/androidx/core/content/FileProvider#getUriForFile(android.content.Context, java.lang.String, java.io.File)`, along with the
+authority that you specified in the
+`https://developer.android.com/guide/topics/manifest/provider-element` element for the `https://developer.android.com/reference/androidx/core/content/FileProvider`.
+The resulting content URI contains the authority, a path segment corresponding to the file's
+directory (as specified in the XML meta-data), and the name of the file including its
+extension. How `https://developer.android.com/reference/androidx/core/content/FileProvider` maps directories to path
+segments based on XML meta-data is described in the section
+[Specify sharable directories](https://developer.android.com/training/secure-file-sharing/setup-sharing#DefineMetaData).
+
+
+The following snippet shows you how to detect the selected file and get a content URI for it:
 
 ### Kotlin
 
@@ -219,13 +275,25 @@ The following snippet shows you how to detect the selected file and get a conten
     }
 ```
 
-Remember that you can only generate content URIs for files that reside in a directory you've specified in the meta-data file that contains the`<paths>`element, as described in the section[Specify sharable directories](https://developer.android.com/training/secure-file-sharing/setup-sharing#DefineMetaData). If you call[getUriForFile()](https://developer.android.com/reference/androidx/core/content/FileProvider#getUriForFile(android.content.Context, java.lang.String, java.io.File))for a[File](https://developer.android.com/reference/java/io/File)in a path that you haven't specified, you receive an[IllegalArgumentException](https://developer.android.com/reference/java/lang/IllegalArgumentException).
+
+Remember that you can only generate content URIs for files that reside in a directory
+you've specified in the meta-data file that contains the `<paths>` element, as
+described in the section [Specify sharable directories](https://developer.android.com/training/secure-file-sharing/setup-sharing#DefineMetaData). If you call
+`https://developer.android.com/reference/androidx/core/content/FileProvider#getUriForFile(android.content.Context, java.lang.String, java.io.File)` for a
+`https://developer.android.com/reference/java/io/File` in a path that you haven't specified, you receive an
+`https://developer.android.com/reference/java/lang/IllegalArgumentException`.
 
 ## Grant permissions for the file
 
-Now that you have a content URI for the file you want to share with another app, you need to allow the client app to access the file. To allow access, grant permissions to the client app by adding the content URI to an[Intent](https://developer.android.com/reference/android/content/Intent)and then setting permission flags on the[Intent](https://developer.android.com/reference/android/content/Intent). The permissions you grant are temporary and expire automatically when the receiving app's task stack is finished.
 
-The following code snippet shows you how to set read permission for the file:  
+Now that you have a content URI for the file you want to share with another app, you need to
+allow the client app to access the file. To allow access, grant permissions to the client app by
+adding the content URI to an `https://developer.android.com/reference/android/content/Intent` and then setting permission flags on
+the `https://developer.android.com/reference/android/content/Intent`. The permissions you grant are temporary and expire
+automatically when the receiving app's task stack is finished.
+
+
+The following code snippet shows you how to set read permission for the file:
 
 ### Kotlin
 
@@ -273,13 +341,39 @@ The following code snippet shows you how to set read permission for the file:
     }
 ```
 
-**Caution:** Calling[setFlags()](https://developer.android.com/reference/android/content/Intent#setFlags(int))is the only way to securely grant access to your files using temporary access permissions. Avoid calling[Context.grantUriPermission()](https://developer.android.com/reference/android/content/Context#grantUriPermission(java.lang.String, android.net.Uri, int))method for a file's content URI, since this method grants access that you can only revoke by calling[Context.revokeUriPermission()](https://developer.android.com/reference/android/content/Context#revokeUriPermission(android.net.Uri, int)).
 
-Don't use[Uri.fromFile()](https://developer.android.com/reference/android/net/Uri#fromFile(java.io.File)). It forces receiving apps to have the[READ_EXTERNAL_STORAGE](https://developer.android.com/reference/android/Manifest.permission#READ_EXTERNAL_STORAGE)permission, won't work at all if you are trying to share across users, and in versions of Android lower than 4.4 (API level 19), would require your app to have[WRITE_EXTERNAL_STORAGE](https://developer.android.com/reference/android/Manifest.permission#WRITE_EXTERNAL_STORAGE). And really important share targets, such as the Gmail app, don't have the[READ_EXTERNAL_STORAGE](https://developer.android.com/reference/android/Manifest.permission#READ_EXTERNAL_STORAGE), causing this call to fail. Instead, you can use URI permissions to grant other apps access to specific URIs. While URI permissions don't work on file:// URIs as is generated by[Uri.fromFile()](https://developer.android.com/reference/android/net/Uri#fromFile(java.io.File)), they do work on Uris associated with Content Providers. Rather than implement your own just for this, you can and should use[FileProvider](https://developer.android.com/reference/androidx/core/content/FileProvider)as explained in[File sharing](https://developer.android.com/training/secure-file-sharing).
+**Caution:** Calling `https://developer.android.com/reference/android/content/Intent#setFlags(int)` is the only
+way to securely grant access to your files using temporary access permissions. Avoid calling
+`https://developer.android.com/reference/android/content/Context#grantUriPermission(java.lang.String, android.net.Uri, int)` method for a
+file's content URI, since this method grants access that you can only revoke by
+calling `https://developer.android.com/reference/android/content/Context#revokeUriPermission(android.net.Uri, int)`.
+
+
+Don't use `https://developer.android.com/reference/android/net/Uri#fromFile(java.io.File)`. It forces receiving apps
+to have the `https://developer.android.com/reference/android/Manifest.permission#READ_EXTERNAL_STORAGE` permission,
+
+won't work at all if you are trying to share across users, and in versions
+of Android lower than 4.4 (API level 19), would require your
+app to have `https://developer.android.com/reference/android/Manifest.permission#WRITE_EXTERNAL_STORAGE`.
+And really important share targets, such as the Gmail app, don't have
+the `https://developer.android.com/reference/android/Manifest.permission#READ_EXTERNAL_STORAGE`, causing
+this call to fail.
+
+Instead, you can use URI permissions to grant other apps access to specific URIs.
+While URI permissions don't work on file:// URIs as is generated by
+`https://developer.android.com/reference/android/net/Uri#fromFile(java.io.File)`, they do
+work on Uris associated with Content Providers. Rather than implement your own just for this,
+you can and should use `https://developer.android.com/reference/androidx/core/content/FileProvider`
+as explained in [File sharing](https://developer.android.com/training/secure-file-sharing).
+
 
 ## Share the file with the requesting app
 
-To share the file with the app that requested it, pass the[Intent](https://developer.android.com/reference/android/content/Intent)containing the content URI and permissions to[setResult()](https://developer.android.com/reference/android/app/Activity#setResult(int)). When the[Activity](https://developer.android.com/reference/android/app/Activity)you have just defined is finished, the system sends the[Intent](https://developer.android.com/reference/android/content/Intent)containing the content URI to the client app. The following code snippet shows you how to do this:  
+
+To share the file with the app that requested it, pass the `https://developer.android.com/reference/android/content/Intent`
+containing the content URI and permissions to `https://developer.android.com/reference/android/app/Activity#setResult(int)`. When the `https://developer.android.com/reference/android/app/Activity` you have just defined is finished, the
+system sends the `https://developer.android.com/reference/android/content/Intent` containing the content URI to the client app.
+The following code snippet shows you how to do this:
 
 ### Kotlin
 
@@ -335,7 +429,12 @@ To share the file with the app that requested it, pass the[Intent](https://devel
         });
 ```
 
-Provide users with a way to return immediately to the client app once they have chosen a file. One way to do this is to provide a checkmark or**Done** button. Associate a method with the button using the button's[android:onClick](https://developer.android.com/reference/android/view/View#attr_android:onClick)attribute. In the method, call[finish()](https://developer.android.com/reference/android/app/Activity#finish()). For example:  
+
+Provide users with a way to return immediately to the client app once they have chosen a file.
+One way to do this is to provide a checkmark or **Done** button. Associate a method with
+the button using the button's
+`https://developer.android.com/reference/android/view/View#attr_android:onClick` attribute. In the method, call
+`https://developer.android.com/reference/android/app/Activity#finish()`. For example:
 
 ### Kotlin
 

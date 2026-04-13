@@ -83,9 +83,7 @@ val model = Firebase.ai(backend = GenerativeBackend.googleAI()).imagenModel(
     generationConfig = config,
     safetySettings = ImagenSafetySettings(
         safetyFilterLevel = ImagenSafetyFilterLevel.BLOCK_LOW_AND_ABOVE,
-        personFilterLevel = ImagenPersonFilterLevel.BLOCK_ALL
-    ),
-)
+        personFilterLevel = ImagenPersonFilterLevel.BLOCK_ALhttps://github.com/android/snippets/blob/b863a7feef0f7db7d00f637d615fe8bc4f49406b/misc/src/main/java/com/example/snippets/ai/ImagenSnippets.kt#L85-L101nippets.kt
 ```
 
 ### Java
@@ -105,8 +103,7 @@ ImagenModelFutures model = ImagenModelFutures.from(
                 config,
                 new ImagenSafetySettings(
                         ImagenSafetyFilterLevel.BLOCK_LOW_AND_ABOVE,
-                        ImagenPersonFilterLevel.BLOCK_ALL))
-);
+                        ImagenPersonFilterLevel.BLOChttps://github.com/android/snippets/blob/b863a7feef0f7db7d00f637d615fe8bc4f49406b/misc/src/main/java/com/example/snippets/ai/ImagenSnippetsJava.java#L51-L66sJava.java
 ```
 
 <br />
@@ -122,7 +119,7 @@ val imageResponse = model.generateImages(
     prompt = "A hyper realistic picture of a t-rex with a blue bagpack in a prehistoric forest",
 )
 val image = imageResponse.images.first()
-val bitmapImage = image.asBitmap()
+val bitmapImage = image.nippets.kt
 ```
 
 ### Java
@@ -133,19 +130,18 @@ ListenableFuture<ImagenGenerationResponse<ImagenInlineImage>> futureResponse =
                 "A hyper realistic picture of a t-rex with a blue bagpack in a prehistoric forest");
 
 try {
-    ImagenGenerationResponse<ImagenInlineImage> imageResponse = futureResponse.get();
-    List<ImagenInlineImage> images = null;
+    ImagenGenerati<onResponseImagenI>nlineImage imageResponse = futureResponse.get()<;
+    ListImagenI>nlineImage images = null;
     if (imageResponse != null) {
         images = imageResponse.getImages();
     }
-    if (images != null && !images.isEmpty()) {
+    if (image&&s != null  !images.isEmpty()) {
         ImagenInlineImage image = images.get(0);
         Bitmap bitmapImage = image.asBitmap();
         // Use bitmapImage
     }
 } catch (ExecutionException | InterruptedException e) {
-    e.printStackTrace();
-}
+    e.printStackhttps://github.com/android/snippets/blob/b863a7feef0f7db7d00f637d615fe8bc4f49406b/misc/src/main/java/com/example/snippets/ai/ImagenSnippetsJava.java#L74-L91sJava.java
 ```
 
 <br />
@@ -169,7 +165,7 @@ editing, such as `imagen-3.0-capability-001`:
 
 ```kotlin
 val imagenModel = Firebase.ai(backend = GenerativeBackend.vertexAI())
-    .imagenModel("imagen-3.0-capability-001")
+    .imagenModel("imagen-3.0-capability-https://github.com/android/snippets/blob/b863a7feef0f7db7d00f637d615fe8bc4f49406b/misc/src/main/java/com/example/snippets/ai/ImagenSnippets.kt#L107-L108nippets.kt
 ```
 
 <br />
@@ -283,9 +279,7 @@ fun ImagenEditingMaskEditor(
             },
         ) {
             Text("Save mask")
-        }
-    }
-}
+       https://github.com/android/snippets/blob/b863a7feef0f7db7d00f637d615fe8bc4f49406b/misc/src/main/java/com/example/snippets/ai/ImagenSnippets.kt#L173-L261nippets.kt
 ```
 
 <br />
@@ -356,8 +350,7 @@ suspend fun insertFlowersIntoImage(
         // Define the editing configuration for inpainting and insertion.
         config = ImagenEditingConfig(ImagenEditMode.INPAINT_INSERTION)
     )
-    return editedImage
-}
+    return edihttps://github.com/android/snippets/blob/b863a7feef0f7db7d00f637d615fe8bc4f49406b/misc/src/main/java/com/example/snippets/ai/ImagenSnippets.kt#L126-L144nippets.kt
 ```
 
 <br />
@@ -393,8 +386,7 @@ suspend fun removeBallFromImage(
         config = ImagenEditingConfig(ImagenEditMode.INPAINT_REMOVAL)
     )
 
-    return editedImage
-}
+    return edihttps://github.com/android/snippets/blob/b863a7feef0f7db7d00f637d615fe8bc4f49406b/misc/src/main/java/com/example/snippets/ai/ImagenSnippets.kt#L148-L169nippets.kt
 ```
 
 <br />
@@ -423,8 +415,7 @@ suspend fun expandImage(originalImage: Bitmap, imagenModel: ImagenModel): Imagen
     )
 
 
-    return editedImage
-}
+    return edihttps://github.com/android/snippets/blob/b863a7feef0f7db7d00f637d615fe8bc4f49406b/misc/src/main/java/com/example/snippets/ai/ImagenSnippets.kt#L289-L303nippets.kt
 ```
 
 <br />
@@ -453,8 +444,7 @@ suspend fun replaceBackground(model: ImagenModel, originalImage: Bitmap): Imagen
         config = ImagenEditingConfig(ImagenEditMode.INPAINT_INSERTION)
     )
 
-    return editedImage
-}
+    return edihttps://github.com/android/snippets/blob/b863a7feef0f7db7d00f637d615fe8bc4f49406b/misc/src/main/java/com/example/snippets/ai/ImagenSnippets.kt#L307-L322nippets.kt
 ```
 
 <br />
@@ -502,10 +492,8 @@ suspend fun customizeCatImage(model: ImagenModel, referenceCatImage: Bitmap): Im
         config = ImagenEditingConfig(
             editSteps = 50 // Number of editing steps, a higher value can improve quality
         )
-    )
-
-    return editedImage
-}
+ https://github.com/android/snippets/blob/b863a7feef0f7db7d00f637d615fe8bc4f49406b/misc/src/main/java/com/example/snippets/ai/ImagenSnippets.kt#L326-L350editedImage
+}ImagenSnippets.kt
 ```
 
 <br />
@@ -543,8 +531,7 @@ suspend fun customizeCatImageByControl(model: ImagenModel, referenceImage: Bitma
         ),
     )
 
-    return editedImage
-}
+    return edihttps://github.com/android/snippets/blob/b863a7feef0f7db7d00f637d615fe8bc4f49406b/misc/src/main/java/com/example/snippets/ai/ImagenSnippets.kt#L354-L374nippets.kt
 ```
 
 <br />
@@ -583,10 +570,8 @@ suspend fun customizeImageByStyle(model: ImagenModel, referenceVanGoghImage: Bit
         config = ImagenEditingConfig(
             editSteps = 50 // Number of editing steps, a higher value can improve quality
         ),
-    )
-
-    return editedImage
-}
+ https://github.com/android/snippets/blob/b863a7feef0f7db7d00f637d615fe8bc4f49406b/misc/src/main/java/com/example/snippets/ai/ImagenSnippets.kt#L378-L401editedImage
+}ImagenSnippets.kt
 ```
 
 <br />

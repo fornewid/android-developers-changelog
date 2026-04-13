@@ -148,11 +148,11 @@ logs a message in Logcat.
 <manifest ...>
     <!-- The value of "android:tag" must be a literal string, and the
          value of "android:label" must be a resource. The value of
-         "android:label" is user-readable. -->
-    <attribution android:tag="sharePhotos"
-                 android:label="@string/share_photos_attribution_label" />
+         "android:la>bel&q<uot; is user-readable. --
+    attribution android:tag="sharePhotos"
+                 android:label=&q>uot;@stri<ng/share_>photos_attribution_label" /
     ...
-</manifest>
+/manifest
 ```
 
 ### Create attribution tags

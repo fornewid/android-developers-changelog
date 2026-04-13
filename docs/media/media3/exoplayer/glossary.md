@@ -246,7 +246,7 @@ MediaSource
     (corresponding to periods of the `Timeline`) for playback.
 
     For more information, see the component
-    [Javadoc](https://developer.android.com/reference/androidx/media3/exoplayer/MediaSource).
+    [Javadoc](https://developer.android.com/reference/androidx/media3/exoplayer/source/MediaSource).
 
 MediaPeriod
 
@@ -258,7 +258,7 @@ MediaPeriod
     [`LoadControl`](https://developer.android.com/media/media3/exoplayer/glossary#loadcontrol) respectively.
 
     For more information, see the component
-    [Javadoc](https://developer.android.com/reference/androidx/media3/exoplayer/MediaPeriod).
+    [Javadoc](https://developer.android.com/reference/androidx/media3/exoplayer/source/MediaPeriod).
 
 Renderer
 

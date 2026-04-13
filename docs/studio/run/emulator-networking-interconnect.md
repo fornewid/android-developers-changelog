@@ -30,6 +30,9 @@ the following command from your host machine:
 
     adb shell ip addr show wlan0
 
+> [!NOTE]
+> **Note:** If you need to revert to the previous networking model, start the emulator from the command line with the `-feature -WiFiPacketStream` flags.
+
 ## Android Emulator Prior to Version 36.5
 
 If you are using an earlier version of the Android Emulator, direct

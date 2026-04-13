@@ -161,9 +161,9 @@ Android Automotive OS:
     <application>
         ...
         <meta-data android:name="com.android.automotive"
-            android:resource="@xml/automotive_app_desc"/>
-        ...
-    </application>
+            android:resource="@xml/automo>tive_app_<desc"/
+    >    ...
+    /application
 
 This manifest entry refers to an XML file that declares the automotive
 capabilities that your app supports.
@@ -173,8 +173,8 @@ add an XML file named `automotive_app_desc.xml` to the `res/xml/` directory in
 your Android Automotive OS module. This file should include the following content:
 
     <automotiveApp>
-        <uses name="template"/>
-    </automotiveApp>
+        <uses name="templ>a<te"/
+    /aut>omotiveApp
 
 > [!NOTE]
 > **Note:** Don't include any references to the `com.google.android.gms.car.application` attribute that is required for Android Auto in your Android Automotive OS app.
@@ -200,17 +200,17 @@ follows:
     android:exported="true"
     android:theme="@android:style/Theme.DeviceDefault.NoActionBar"
     android:name="androidx.car.app.activity.CarAppActivity"
-    android:launchMode="singleTask"
-    android:label="Your app name">
+    android:launchMode=&quot;singleTask"
+<    android:label="<;Your app name">
 
-    <intent-filter>
-        <action android:name="android.intent.action.MAIN" />
-        <category android:name="android.intent.category.LAUNCHER" />
-    </intent-filter>
+    intent-filter>
+        acti<on android:name="android.intent.action.MAIN" />
+   <     category android<:name="android.intent.category.LAUNCHER" />
+    /intent-fi<lter>
 
-    <meta-data android:name="distractionOptimized" android:value="true" />
+    meta-data android:name="distractionOptimized" android:value="true" />
 
-</activity>
+/activity>
 ```
 
 - `android:name` is set to the fully-qualified class name of the `CarAppActivity` class from the `app-automotive` artifact.
@@ -234,26 +234,26 @@ snippet:
     android:exported="true"
     android:theme="@android:style/Theme.DeviceDefault.NoActionBar"
     android:name="androidx.car.app.activity.CarAppActivity"
-    android:launchMode="singleTask"
-    android:label="Your app name">
+    android:launchMode=&quot;singleTask"
+<    android:label="<;Your app name">
 
-    <intent-filter>
-        <action android:name="android.intent.action.MAIN" />
-        <category android:name="android.intent.category.LAUNCHER" />
-        <!-- Include the category below ONLY for navigation apps -->
-        <category android:name="android.intent.category.APP_MAPS" />
-    </intent-filter>
+    intent-filter>
+        acti<on android:name="android.intent.action.MAIN" />
+       \<category android:name="android.intent.category.LAUNCHER" </>
+        !-- Include the category below ONLY for navigation< apps -->
+        <category android:name="android.intent.category.APP_MAPS" /&<gt;
+    /intent-filter&<gt;
 
-    <!-- Include the intent-filter below ONLY for navigation apps -->
-    <intent-filter>
-        <action android:name="androidx.car.app.action.NAVIGATE" />
-        <category android:name="android.intent.category.DEFAULT" />
-        <data android:scheme="geo" />
-    </intent-filter>
+    !-- Include the intent-filter below ONLY for navigation a<pps -->
+    intent-filter>
+        action android:name="<androidx.car.app.action.NAVIGATE&<quot; />
+        c<ategory android:name="android.intent.category.DEFAULT" />
+<        data android:scheme="geo" />
+    /intent-filter>
 
-    <meta-data android:name="distractionOptimized" android:value="true" />
+    meta-data android:name="distractionOptimized" android:value="true" />
 
-</activity>
+/activity>
 ```
 
 - The additional [`android.intent.category.APP_MAPS`](https://developer.android.com/reference/android/content/Intent#CATEGORY_APP_MAPS) category informs the system that your app is able to show the user's location.

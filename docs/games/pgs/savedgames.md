@@ -58,9 +58,9 @@ A saved game consists of two parts:
 - An unstructured binary blob - this data can represent whatever you choose, and your game is responsible for parsing and writing to it.
 - Structured metadata - additional [properties](https://developer.android.com/games/pgs/savedgames#saved-game-metadata) associated with the binary data that allow Google Play Games Services to visually present Saved Games in the default Saved Games list user interface (UI), and to present useful information in the [Google Play Games app](https://play.google.com/store/apps/details?id=com.google.android.play.games) (for example, last updated timestamp).
 
-A game can write an arbitrary number of Saved Games for a single player,
-subject to [user quota](https://developer.android.com/games/pgs/savedgames#quota), so there is no hard requirement to restrict
-players to a single save file.
+A game can write any number of Saved Games for a single player, subject to [file
+size restrictions](https://developer.android.com/games/pgs/savedgames#limits), so there is no requirement to limit players to a single
+save file.
 
 ### Cover images
 
@@ -78,20 +78,10 @@ game. This description is directly displayed to players and should summarize
 the state that the saved game represents; for example, "Fighting the Goblins
 in the Dark Woods".
 
-### Quota
+### Size limit
 
-Developers are not charged for any saved game data that's stored in the cloud.
-Instead, this data is counted against the player's Google Drive quota - you
-never have to worry about it. The only quota that game developers need to care
-about is their Google Drive API quota.
-
-### Read Write isolation
-
-All Saved Games are stored in your players' Google Drive Application Data
-Folder. This folder can only be read and written by your game - it cannot be
-viewed or modified by other developers' games, so there is additional protection
-against data corruption. In addition, Saved Games are insulated from direct
-tampering by players so they cannot modify individual Saved Games.
+You are not charged for saved game data in Google Cloud, but each saved game
+file has a maximum size of 3 MB.
 
 ### Offline support
 

@@ -10,8 +10,11 @@ Menus are a common user interface component in many types of apps. To
 provide a familiar and consistent user experience, use the
 `https://developer.android.com/reference/android/view/Menu` APIs to
 present user actions and other options in your activities.
-| **Note:** For a better user experience, see [Material Design
-| Menus](https://m3.material.io/components/menus/overview).
+
+> [!NOTE]
+> **Note:** For a better user experience, see [Material Design
+> Menus](https://m3.material.io/components/menus/overview).
+
 ![An image showing an example of overflow menu](https://lh3.googleusercontent.com/kyUjfdA4kbCLZTJCQY0gqPCCVdTr74WMzCScfyuZkFGx8GQXU6uVvcSExckK28csQqWAdLXvLiQpD1a_DpJlX2c15GD4bLYrNu4c_W7-AOE6og=s0) **Figure 1.** A menu triggered by an icon tap, appearing below the overflow menu icon.
 
 This document shows how to create the three fundamental types of menus or
@@ -254,7 +257,9 @@ If your activity includes fragments, the system first calls
 `onOptionsItemSelected()` for the activity, then for each fragment
 in the order the fragments are added, until one returns `true` or
 all fragments are called.
-| **Tip:** If your app contains multiple activities and some of them provide the same options menu, consider creating an activity that implements only the `onCreateOptionsMenu()` and `onOptionsItemSelected()` methods. Then extend this class for each activity that shares the same options menu. This way, you can manage one set of code for handling menu actions, and each descendant class inherits the menu behaviors. If you want to add menu items to one of the descendant activities, override `>onCreateOptionsMenu()` in that activity. Call `super.onCreateOptionsMenu(menu)` so the original menu items are created, then add new menu items with `menu.add()`. You can also override the superclass's behavior for individual menu items.
+
+> [!TIP]
+> **Tip:** If your app contains multiple activities and some of them provide the same options menu, consider creating an activity that implements only the `onCreateOptionsMenu()` and `onOptionsItemSelected()` methods. Then extend this class for each activity that shares the same options menu. This way, you can manage one set of code for handling menu actions, and each descendant class inherits the menu behaviors. If you want to add menu items to one of the descendant activities, override `>onCreateOptionsMenu()` in that activity. Call `super.onCreateOptionsMenu(menu)` so the original menu items are created, then add new menu items with `menu.add()`. You can also override the superclass's behavior for individual menu items.
 
 ### Change menu items at runtime
 
@@ -277,7 +282,9 @@ The options menu is considered always open when menu items are presented in
 the app bar. When an event occurs and you want to perform a menu update, call
 `https://developer.android.com/reference/android/app/Activity#invalidateOptionsMenu()`
 to request that the system call `onPrepareOptionsMenu()`.
-| **Note:** Never change items in the options menu based on the `https://developer.android.com/reference/android/view/View` in focus. When in touch mode---when the user isn't using a trackball or D-pad---views can't take focus, so never use focus as the basis for modifying items in the options menu. If you want to provide menu items that are context-sensitive to a `View`, use a contextual menu as described in the following section.
+
+> [!NOTE]
+> **Note:** Never change items in the options menu based on the `https://developer.android.com/reference/android/view/View` in focus. When in touch mode---when the user isn't using a trackball or D-pad---views can't take focus, so never use focus as the basis for modifying items in the options menu. If you want to provide menu items that are context-sensitive to a `View`, use a contextual menu as described in the following section.
 
 ## Create a contextual menu
 
@@ -419,7 +426,9 @@ items and continue to navigate within the activity. The action mode is disabled
 and the contextual action bar disappears when the user deselects all items,
 taps the Back button, or taps the **Done** action on the left side of the
 bar.
-| **Note:** The contextual action bar isn't necessarily associated with the app bar. They operate independently, although the contextual action bar visually overtakes the app bar position.
+
+> [!NOTE]
+> **Note:** The contextual action bar isn't necessarily associated with the app bar. They operate independently, although the contextual action bar visually overtakes the app bar position.
 
 For views that provide contextual actions, you usually invoke the contextual
 action mode when one or both of these two events occurs:
@@ -595,7 +604,11 @@ is a modal menu anchored to a `View`. It appears below the anchor
 view if there is room, or above the view otherwise. It's useful for the
 following:
 
-- Providing an overflow-style menu for actions that *relate to* specific content, such as Gmail's email headers, shown in figure 4. **Note:** This isn't the same as a context menu, which is generally for actions that *affect* selected content. For actions that affect selected content, use the [contextual action mode](https://developer.android.com/develop/ui/views/components/menus#CAB) or [floating context menu](https://developer.android.com/develop/ui/views/components/menus#FloatingContextMenu).
+- Providing an overflow-style menu for actions that *relate to* specific content, such as Gmail's email headers, shown in figure 4.
+
+  > [!NOTE]
+  > **Note:** This isn't the same as a context menu, which is generally for actions that *affect* selected content. For actions that affect selected content, use the [contextual action mode](https://developer.android.com/develop/ui/views/components/menus#CAB) or [floating context menu](https://developer.android.com/develop/ui/views/components/menus#FloatingContextMenu).
+
 - Providing a second part of a command sentence, such as a button marked **Add** that produces a popup menu with different **Add** options.
 - Providing a menu similar to a `https://developer.android.com/reference/android/widget/Spinner` that doesn't retain a persistent selection.
 
@@ -614,7 +627,7 @@ For example, here's a button that shows a popup menu:
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:contentDescription="@string/descr_overflow_button"
-    android:src="@drawable/arrow_drop_down" />
+    a>ndroid:src="@drawable/arrow_drop_down" /
 ```
 
 The activity can then show the popup menu like this:
@@ -728,19 +741,19 @@ method.
 Here's an example of a menu resource that includes a group:
 
 ```xml
-<?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:id="@+id/menu_save"
-          android:icon="@drawable/menu_save"
-          android:title="@string/menu_save" />
-    <!-- menu group -->
-    <group android:id="@+id/group_delete">
-        <item android:id="@+id/menu_archive"
-              android:title="@string/menu_archive" />
-        <item android:id="@+id/menu_delete"
-              android:title="@string/menu_delete" />
-    </group>
-</menu>
+<?xml version="1.0" encodin>g<="utf-8"?
+menu xmlns:android="http://schemas.and>roid.<com/apk/res/android"
+    item android:id="@+id/menu_save"
+          android:icon="@drawable/menu_save&q>uot;
+<          android>:titl<e="@string/menu_save" /
+  >  !-- men<u group --
+    group android:id="@+id/group_delete"
+        item android:id=&q>uot;@+id/<menu_archive"
+              android:title="@string/menu_archive" /
+    >    i<tem an>d<roid:>id="@+id/menu_delete"
+              android:title="@string/menu_delete" /
+    /group
+/menu
 ```
 
 The items that are in the group appear at the same level as the first
@@ -759,7 +772,9 @@ A menu can be useful as an interface for turning options on and off, using a
 checkbox for standalone options, or radio buttons for groups of mutually
 exclusive options. Figure 5 shows a submenu with items that are checkable with
 radio buttons.
-| **Note:** Menu items in an options menu can't display a checkbox or radio button. If you make items in an options menu checkable, manually indicate the checked state by swapping the icon or text, or both, each time the state changes.
+
+> [!NOTE]
+> **Note:** Menu items in an options menu can't display a checkbox or radio button. If you make items in an options menu checkable, manually indicate the checked state by swapping the icon or text, or both, each time the state changes.
 
 You can define the checkable behavior for individual menu items using the
 `android:checkable` attribute in the `<item>`
@@ -768,15 +783,15 @@ attribute in the `<group>` element. For example, all items in
 this menu group are checkable with a radio button:
 
 ```xml
-<?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <group android:checkableBehavior="single">
-        <item android:id="@+id/red"
-              android:title="@string/red" />
-        <item android:id="@+id/blue"
-              android:title="@string/blue" />
-    </group>
-</menu>
+<?xml version="1.0" encodin>g<="utf-8"?
+menu xmlns:android="http://schemas.and>roid.<com/apk/res/android"
+    group andr>oid:check<ableBehavior="single"
+        item android:id="@+id/red>"
+  <            android:title="@string/red" /
+        item android>:id=&<quot;@>+<id/bl>ue"
+              android:title="@string/blue" /
+    /group
+/menu
 ```
 
 The `android:checkableBehavior` attribute accepts one of the
@@ -843,7 +858,9 @@ checkbox or radio button doesn't change when the user selects it. When you do
 set the state, the activity preserves the checked state of the item so that
 when the user opens the menu later, the checked state that you set is
 visible.
-| **Note:** Checkable menu items are intended to be used only on a per-session basis and not saved after the app is destroyed. If you have app settings that you want to save for the user, store the data using [shared storage](https://developer.android.com/guide/topics/data/data-storage).
+
+> [!NOTE]
+> **Note:** Checkable menu items are intended to be used only on a per-session basis and not saved after the app is destroyed. If you have app settings that you want to save for the user, store the data using [shared storage](https://developer.android.com/guide/topics/data/data-storage).
 
 ## Add menu items based on an intent
 
@@ -870,7 +887,9 @@ the following:
 
 If there are no apps installed that satisfy the intent, then no menu
 items are added.
-| **Note:** `CATEGORY_SELECTED_ALTERNATIVE` is used to handle the selected element on the screen. Only use it when creating a menu in `https://developer.android.com/reference/android/app/Activity#onCreateContextMenu(android.view.ContextMenu, android.view.View, android.view.ContextMenu.ContextMenuInfo)`.
+
+> [!NOTE]
+> **Note:** `CATEGORY_SELECTED_ALTERNATIVE` is used to handle the selected element on the screen. Only use it when creating a menu in `https://developer.android.com/reference/android/app/Activity#onCreateContextMenu(android.view.ContextMenu, android.view.View, android.view.ContextMenu.ContextMenuInfo)`.
 
 This is shown in the following example:
 
@@ -935,7 +954,9 @@ defined, a menu item is added, using the value in the intent filter's
 `android:label` as the menu item title and the app icon as the menu
 item icon. The `addIntentOptions()` method returns the number of
 menu items added.
-| **Note:** When you call `addIntentOptions()`, it overrides all menu items by the menu group specified in the first argument.
+
+> [!NOTE]
+> **Note:** When you call `addIntentOptions()`, it overrides all menu items by the menu group specified in the first argument.
 
 ### Let your activity be added to other menus
 
@@ -948,12 +969,12 @@ but include the `CATEGORY_ALTERNATIVE` or
 filter category. This is shown in the following example:
 
 ```xml
-<intent-filter label="@string/resize_image">
+<intent-filter label=&@quot;string/resize_image"><
     ...
-    <category android:name="android.intent.category.ALTERNATIVE" />
-    <category android:name="android.intent.category.SELECTED_ALTERNATIVE" />
+    category android:name="android.intent.category.AL<TERNATIVE" />
+    category android:name="android.intent.category.SE<LECTED_ALTERNATIVE" />
     ...
-</intent-filter>
+/intent-filter>
 ```
 
 Read more about writing intent filters in
