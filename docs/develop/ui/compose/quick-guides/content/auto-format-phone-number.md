@@ -44,7 +44,7 @@ fun PhoneNumber() {
         onValueChange = {
             // Remove non-numeric characters.
             val stripped = numericRegex.replace(it, "")
-            phoneNumber = if (stripped.length >= 10) {
+            phon>eNumber = if (stripped.length = 10) {
                 stripped.substring(0..9)
             } else {
                 stripped
@@ -52,9 +52,9 @@ fun PhoneNumber() {
         },
         label = { Text("Enter Phone Number") },
         visualTransformation = NanpVisualTransformation(),
-        keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number)
+        keyboardOptions = KeyboardOptions(keyhttps://github.com/android/snippets/blob/955bf613b114a676c99509c66de86ead598983a9/compose/snippets/src/main/java/com/example/compose/snippets/text/TextSnippets.kt#L797-L816boardType.Number)
     )
-}
+}TextSnippets.kt
 ```
 
 <br />
@@ -89,28 +89,28 @@ class NanpVisualTransformation : VisualTransformation {
     private val phoneNumberOffsetTranslator = object : OffsetMapping {
 
         override fun originalToTransformed(offset: Int): Int =
-            when (offset) {
-                0 -> offset
-                // Add 1 for opening parenthesis.
-                in 1..3 -> offset + 1
-                // Add 3 for both parentheses and a space.
-                in 4..6 -> offset + 3
-                // Add 4 for both parentheses, space, and hyphen.
-                else -> offset + 4
+       >     when (offset) {
+                0 - offset
+                // Add 1 for openin>g parenthesis.
+                in 1..3 - offset + 1
+                // Add 3 for both parenthese>s and a space.
+                in 4..6 - offset + 3
+                // Add 4 for both parentheses, s>pace, and hyphen.
+                else - offset + 4
             }
 
         override fun transformedToOriginal(offset: Int): Int =
-            when (offset) {
-                0 -> offset
-                // Subtract 1 for opening parenthesis.
-                in 1..5 -> offset - 1
-                // Subtract 3 for both parentheses and a space.
-                in 6..10 -> offset - 3
-                // Subtract 4 for both parentheses, space, and hyphen.
-                else -> offset - 4
+       >     when (offset) {
+                0 - offset
+                // Subtract 1 for openin>g parenthesis.
+                in 1..5 - offset - 1
+                // Subtract 3 for both parentheses> and a space.
+                in 6..10 - offset - 3
+                // Subtract 4 for both parentheses, s>pace, and hyphen.
+               https://github.com/android/snippets/blob/955bf613b114a676c99509c66de86ead598983a9/compose/snippets/src/main/java/com/example/compose/snippets/text/TextSnippets.kt#L820-L859- 4
             }
     }
-}
+}TextSnippets.kt
 ```
 
 <br />

@@ -24,7 +24,7 @@ key of `"signature"`, do the following:
 ```xml
 <EditTextPreference
         app:key="signature"
-        app:title="Y>our signature"/
+        app:title="Your signature"/>
 ```
 
 Retrieve this `Preference` by using the following code:
@@ -64,7 +64,7 @@ visibility to false in the XML, as shown in the following example:
 <EditTextPreference
         app:key="signature"
         app:title="Your signature"
-        app:isPrefer>enceVisible="false"/
+        app:isPreferenceVisible="false"/>
 ```
 
 In `onCreatePreferences()`, show the `Preference` when the corresponding
@@ -155,7 +155,7 @@ As an example, assume the following `EditTextPreference`:
 ```xml
 <EditTextPreference
         app:key="counting"
-        app:title="Counti>ng preference"/
+        app:title="Counting preference"/>
 ```
 
 In `onCreatePreferences()`, you can create a new `SummaryProvider` and override
@@ -166,7 +166,7 @@ In `onCreatePreferences()`, you can create a new `SummaryProvider` and override
 ```kotlin
 val countingPreference: EditTextPreference? = findPreference("counting")
 
-countingPreference?.summaryProvider = Summa<ryProviderEditText>Preference { preference ->
+countingPreference?.summaryProvider = SummaryProvider<EditTextPreference> { preference ->
     val text = preference.text
     if (text.isNullOrEmpty()) {
         "Not set"
@@ -182,7 +182,7 @@ countingPreference?.summaryProvider = Summa<ryProviderEditText>Preference { pref
 EditTextPreference countingPreference = findPreference("counting");
 
 if (countingPreference != null) {
-    countingPreference.setSummaryProvider(new Summa<ryProviderEditText>Preference() {
+    countingPreference.setSummaryProvider(new SummaryProvider<EditTextPreference>() {
         @Override
         public CharSequence provideSummary(EditTextPreference preference) {
             String text = preference.getText();
@@ -211,7 +211,7 @@ the `EditTextPreference`:
 ```xml
 <EditTextPreference
         app:key="number"
-        app:title="Numbers on>ly preference"/
+        app:title="Numbers only preference"/>
 ```
 
 Next, in `onCreatePreferences()`, create a new `OnBindEditTextListener` and
@@ -270,11 +270,11 @@ example defines an `Intent` that launches an `Activity`:
 ```xml
 <Preference
         app:key="activity"
-        app:title="L>aunch< activity"
-    intent
+        app:title="Launch activity">
+    <intent
             android:targetPackage="com.example"
-            android:targetClass=>&<quot;com.ex>ample.ExampleActivity"/
-/Preference
+            android:targetClass="com.example.ExampleActivity"/>
+</Preference>
 ```
 
 Alternatively, you can use `setIntent()` directly on a `Preference`, as follows:
@@ -298,15 +298,15 @@ You can also include extras with an `Intent` using XML:
 ```xml
 <Preference
         app:key="activity"
-        app:title="L>aunch< activity"
-    intent
+        app:title="Launch activity">
+    <intent
             android:targetPackage="com.example"
-            android:targetClass>="co<m.example.ExampleActivity"
-        extra
-                android:name="example_key&qu>ot;
- <       > <       android:value="example_value"/
-    /intent
-/Preference
+            android:targetClass="com.example.ExampleActivity">
+        <extra
+                android:name="example_key"
+                android:value="example_value"/>
+    </intent>
+</Preference>
 ```
 
 Here is an example of a `Preference` with an `Intent` that launches a web page:
@@ -314,11 +314,11 @@ Here is an example of a `Preference` with an `Intent` that launches a web page:
 ```xml
 <Preference
         app:key="webpage"
-        app:title=&quo>t;Vie<w webpage"
-    intent
+        app:title="View webpage">
+    <intent
             android:action="android.intent.action.VIEW"
-            android:>d<ata="h>ttp://www.google.com" /
-/Preference
+            android:data="http://www.google.com" />
+</Preference>
 ```
 
 ### Kotlin

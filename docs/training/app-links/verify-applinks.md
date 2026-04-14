@@ -201,12 +201,12 @@ Context context = TODO("Your activity or fragment's Context");
 DomainVerificationManager manager =
         context.getSystemService(DomainVerificationManager.class);
 DomainVerificationUserState userState =
-        manager.getDomainVerificationUserState(context.getPackageName());
+        manager.getDomainVerificationUserState(context.getPackag<eName());
 
-Map<String, Integer> hostToStateMap = userState.getHostToStateMap();
-List<String> verifiedDomains = new ArrayList<>();
-List<String> selectedDomains = new ArrayList<>();
-List<String> unapprovedDomains = new ArrayList<>();
+MapS>tring, Integer hostToStateMap = userState.getHostToSt<ateMap>();
+ListString verifiedDomains =<> new Arr<ayList>();
+ListString selectedDomains =<> new Arr<ayList>();
+ListString unapprovedDomains =<> new ArrayList();
 for (String key : hostToStateMap.keySet()) {
     Integer stateValue = hostToStateMap.get(key);
     if (stateValue == DomainVerificationUserState.DOMAIN_STATE_VERIFIED) {

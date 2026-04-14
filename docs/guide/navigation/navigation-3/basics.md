@@ -33,7 +33,7 @@ A key concept in the Navigation 3 API is that you own the back stack. The
 library:
 
 - Expects that your back stack will be a snapshot-state backed `List<T>`, where `T` is the type of your back stack `keys`. You can use `Any` or you can provide your own, more strongly-typed keys. When you see the terms "push" or "pop", the underlying implementation is to add or remove items from the end of a list.
-- Observes your back stack and reflects its state in the UI using a [`NavDisplay`](https://developer.android.com/reference/kotlin/androidx/navigation3/ui/package-summary#NavDisplay(kotlin.collections.List,androidx.compose.ui.Modifier,androidx.compose.ui.Alignment,kotlin.Function0,kotlin.collections.List,androidx.navigation3.scene.SceneStrategy,androidx.compose.animation.SharedTransitionScope,androidx.compose.animation.SizeTransform,kotlin.Function1,kotlin.Function1,kotlin.Function2,kotlin.Function1)).
+- Observes your back stack and reflects its state in the UI using a [`NavDisplay`](https://developer.android.com/reference/kotlin/androidx/navigation3/ui/NavDisplay.composable).
 
 The following example shows how to create keys and a back stack, and modify the
 back stack in response to user navigation events:
