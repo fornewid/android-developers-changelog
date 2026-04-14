@@ -1,0 +1,13 @@
+diff --git a/docs/guide/navigation/navigation-3/scenes.md b/docs/guide/navigation/navigation-3/scenes.md
+index fc2b0195..e6d77cba 100644
+--- a/docs/guide/navigation/navigation-3/scenes.md
++++ b/docs/guide/navigation/navigation-3/scenes.md
+@@ -46,7 +46,7 @@ The core of a `SceneStrategy` is its [`calculateScene`](https://developer.androi
+ public fun calculateScene(
+     entries: List<NavEntry<T>>,
+     onBack: (count: Int) -> Unit,
+-): Scene<T>?https://github.com/android/snippets/blob/914071a7a696105194828231ac06d8d0b243d424/compose/snippets/src/main/java/com/example/compose/snippets/navigation3/scenes/ScenesSnippets.kt#L47-L51
++): Scene<T>?https://github.com/android/snippets/blob/955bf613b114a676c99509c66de86ead598983a9/compose/snippets/src/main/java/com/example/compose/snippets/navigation3/scenes/ScenesSnippets.kt#L47-L51
+ ```
+ 
+ <br />

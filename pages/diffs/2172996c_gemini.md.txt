@@ -1,0 +1,13 @@
+diff --git a/docs/ai/gemini.md b/docs/ai/gemini.md
+index 9e9d5787..8daab597 100644
+--- a/docs/ai/gemini.md
++++ b/docs/ai/gemini.md
+@@ -61,7 +61,7 @@ val model = Firebase.ai(backend = GenerativeBackend.googleAI())
+     .generativeModel("gemini-2.5-flash")
+ 
+ val response = model.generateContent("Write a story about a magic backpack")
+-val output = response.texthttps://github.com/android/snippets/blob/82c9cc5fa6c192fb3ca71de0fdddac8d7997cff2/misc/src/main/java/com/example/snippets/ai/GeminiOverview.kt#L27-L32
++val output = response.texthttps://github.com/android/snippets/blob/955bf613b114a676c99509c66de86ead598983a9/misc/src/main/java/com/example/snippets/ai/GeminiOverview.kt#L27-L32
+ ```
+ 
+ ### Java

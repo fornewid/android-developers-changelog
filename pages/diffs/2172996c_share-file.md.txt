@@ -1,0 +1,57 @@
+diff --git a/docs/training/secure-file-sharing/share-file.md b/docs/training/secure-file-sharing/share-file.md
+index bae71023..6177f771 100644
+--- a/docs/training/secure-file-sharing/share-file.md
++++ b/docs/training/secure-file-sharing/share-file.md
+@@ -40,24 +40,24 @@ for the files your app serves to other apps. The following snippet shows you how
+ new `https://developer.android.com/reference/android/app/Activity` and intent filter:
+ 
+ ```xml
+-<manifest xmlns:android="http://schemas.android.com/apk/res/and>roid"
+-    ..<.
+-        a>pplication
++<manifest xmlns:android="http://schemas.android.com/apk/res/android">
++    ...
++        <application>
+         ...
+-  <          activity
++            <activity
+                 android:name=".FileSelectActivity"
+-           @     android:la>bel="File Se<lector" >
+-                inte<nt-filter
+-                    action
+-                        android:name>="android.intent<.action.PICK"/
+-                    category
+-                        android>:name="android.i<ntent.category.DEFAULT"/
+-                    category
+-                      >  android:name="<android.intent.category.OPENABLE&qu>ot;/
+-                <    data android:mimeType=">text/plain"/<
+-             >       data a<ndroid:mi>meType="image/*"/
+-                /intent-filter
+-            /activity
++                android:label="@File Selector" >
++                <intent-filter>
++                    <action
++                        android:name="android.intent.action.PICK"/>
++                    <category
++                        android:name="android.intent.category.DEFAULT"/>
++                    <category
++                        android:name="android.intent.category.OPENABLE"/>
++                    <data android:mimeType="text/plain"/>
++                    <data android:mimeType="image/*"/>
++                </intent-filter>
++            </activity>
+ ```
+ 
+ ### Define the file selection Activity in code
+@@ -78,9 +78,9 @@ class MainActivity : Activity() {
+     // The path to the "images" subdirectory
+     private lateinit var imagesDir: File
+     // Array of files in the images subdirectory
+-    private lateinit var ima<geFi>les: ArrayFile
++    private lateinit var imageFiles: Array<File>
+     // Array of filenames corresponding to imageFiles
+-    private lateinit var imageFi<lename>s: ArrayString
++    private lateinit var imageFilenames: Array<String>
+ 
+     // Initialize the Activity
+     override fun onCreate(savedInstanceState: Bundle?) {
