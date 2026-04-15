@@ -1,35 +1,16 @@
 ---
-title: Use R8 to shrink, optimize, and fast-track your app  |  Android Developers' Blog
+title: https://developer.android.com/blog/posts/use-r8-to-shrink-optimize-and-fast-track-your-app
 url: https://developer.android.com/blog/posts/use-r8-to-shrink-optimize-and-fast-track-your-app
-source: html-scrape
+source: md.txt
 ---
 
-* [Android Developers](https://developer.android.com/)
-* [Android Developers' Blog](https://developer.android.com/)
-* [Blog](https://developer.android.com/blog)
-
-Stay organized with collections
-
-Save and categorize content based on your preferences.
-
-
-
-#### [Events & Programs](/blog/categories/events-and-programs)
+#### [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs)
 
 # Use R8 to shrink, optimize, and fast-track your app
 
 ###### 5-min read
 
-![](/static/blog/assets/performance_Week10_467f2693b4_2su32q.webp)
-
-17
-
-Nov
-2025
-
-[![](/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2dcD9g.webp)](/blog/authors/ben-weiss)
-
-[##### Ben Weiss](/blog/authors/ben-weiss)
+![](https://developer.android.com/static/blog/assets/performance_Week10_467f2693b4_2su32q.webp) 17 Nov 2025 [![](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2dcD9g.webp)](https://developer.android.com/blog/authors/ben-weiss) [##### Ben Weiss](https://developer.android.com/blog/authors/ben-weiss)
 
 ###### Developer Relations Engineer
 
@@ -37,17 +18,18 @@ Nov
 
 Welcome to day one of Android Performance Spotlight Week!
 
-We're kicking things off with the single most impactful, low-effort change you can make to improve your app's performance: enabling the R8 optimizer in **full mode**.
+We're kicking things off with the single most impactful, low-effort change you can make to improve your app's performance: enabling the R8 optimizer in **full mode**.
 
-You probably already know R8 as a tool to shrink your app's size. It does a fantastic job of removing unused code and resources, reducing your app's size. But its real power, the one it's really *g-R8* at, is as an **optimizer**.
+You probably already know R8 as a tool to shrink your app's size. It does a fantastic job of removing unused code and resources, reducing your app's size. But its real power, the one it's really *g-R8* at, is as an **optimizer**.
 
 When you enable full mode and allow optimizations, R8 performs deep, whole-program optimizations, rewriting your code to be fundamentally more efficient. This isn't just a minor tweak.
 
 After reading this article, check out the Performance Spotlight Week introduction to the R8 optimizer on YouTube.
+[Video](https://www.youtube.com/watch?v=QqO2jZ-NZko)
 
 ## **How R8 makes your app more performant**
 
-![image.png](/static/blog/assets/image_dca3cc5295_Z1A8Xzp.webp)
+![image.png](https://developer.android.com/static/blog/assets/image_dca3cc5295_Z1A8Xzp.webp)
 
 Let's shine a spotlight on the largest steps that the R8 optimizer takes to improve app performance.
 
@@ -57,51 +39,49 @@ Let's shine a spotlight on the largest steps that the R8 optimizer takes to impr
 
 **Class merging**, and other strategies are applied to make the code more compact. All your beautiful abstractions, such as interfaces and class hierarchies don't matter at this point and are likely to be removed.
 
-**Code minification** is used to change the names of classes, fields, and methods to shorter, meaningless ones. So instead of `MyDataModel` you might end up with a class called `a`. This is what causes the most confusion when reading stack traces from an R8 optimized app. (Note that we have [improved this in AGP 9.0](/studio/preview/features#logcat-retrace)!)
+**Code minification** is used to change the names of classes, fields, and methods to shorter, meaningless ones. So instead of `MyDataModel` you might end up with a class called `a`. This is what causes the most confusion when reading stack traces from an R8 optimized app. (Note that we have [improved this in AGP 9.0](https://developer.android.com/studio/preview/features#logcat-retrace)!)
 
 **Resource shrinking** further reduces an app's size by removing unused resources such as xml files and drawables.
 
-By applying these steps the R8 optimizer improves **app startup times**, enables **smoother UI rendering**, with fewer slow and frozen frames and improves overall on-device resource usage.
+By applying these steps the R8 optimizer improves **app startup times** , enables **smoother UI rendering**, with fewer slow and frozen frames and improves overall on-device resource usage.
 
 ## **Case Study: Reddit's performance improvements with R8**
 
 As one example of the performance improvements that R8 can bring, let's take a look at an example from Reddit. After enabling R8 in full mode, the Reddit for Android app saw significant performance improvements in various areas.
-
-![image.png](/static/blog/assets/image_a2ed383169_1pIfAy.webp)
+![image.png](https://developer.android.com/static/blog/assets/image_a2ed383169_1pIfAy.webp)
 
 Caption: How R8 improved Reddit's app performance
 
-The team observed a **40% faster cold startup**, a **30% reduction in "Application Not Responding" (ANR) errors**, a **25% improvement in frame rendering**, and a **14% reduction in app size**.
+The team observed a **40% faster cold startup** , a **30% reduction in "Application Not Responding" (ANR) errors** , a **25% improvement in frame rendering** , and a **14% reduction in app size**.
 
 These enhancements are crucial for user satisfaction. A faster startup means less waiting and quicker access to content. Fewer ANRs lead to a more stable and reliable app, reducing user frustration. Smoother frame rendering removes UI jank, making scrolling and animations feel fluid and responsive. This positive technical impact was also clearly visible in user sentiment.
 
-You can read more about their improvements [on our blog](https://android-developers.googleblog.com/2025/11/how-reddit-used-r8-optimizer-for-high.html).
+You can read more about their improvements [on our blog](https://android-developers.googleblog.com/2025/11/how-reddit-used-r8-optimizer-for-high.html).
 
 ## **Non-technical side effects of using R8**
 
 During our work with partners we have seen that these technical improvements have a direct impact on user satisfaction and can be reflected in user retention, engagement and session length. User stickiness, which can be measured with daily, weekly or monthly active users, has also been positively affected by technical performance improvements. And we've seen app ratings on the Play Store rise in correlation with R8 adoption. Sharing this with your product owners, CTOs and decision makers can help speed up your app's performance.
+![image.png](https://developer.android.com/static/blog/assets/image_68c1afc874_ZvmMzr.webp)
 
-![image.png](/static/blog/assets/image_68c1afc874_ZvmMzr.webp)
-
-So let's call it what it is: Deliberate performance optimization is a **virtue**.
+So let's call it what it is: Deliberate performance optimization is a **virtue**.
 
 ## **Guiding you to a more performant app**
 
-We heard that our developer guidance for R8 needed to be improved. So we went to work. The [developer guidance](/topic/performance/app-optimization/enable-app-optimization) for the R8 optimizer now is much more actionable and provides comprehensive guidance to enable and debug R8.
+We heard that our developer guidance for R8 needed to be improved. So we went to work. The [developer guidance](https://developer.android.com/topic/performance/app-optimization/enable-app-optimization) for the R8 optimizer now is much more actionable and provides comprehensive guidance to enable and debug R8.
 
 The documentation guides you on the high-level strategy for adoption, emphasizing the importance of choosing optimization-friendly libraries and, crucially, adopting R8's features incrementally to ensure stability. This phased approach allows you to safely unlock the benefits of R8 while providing you with guidance on difficult-to-debug issues.
 
-We have significantly expanded our [guidance on Keep Rules](/topic/performance/app-optimization/keep-rules-overview), which are the primary mechanism for controlling the R8 optimizer. We now provide a section on what Keep Rules are, how to apply them and guide you with best practices for writing and maintaining them. We also provide practical and actionable use cases and examples, helping you understand how to correctly prevent R8 from removing code that is needed at runtime, such as code accessed via reflection or use of the JNI native interface.
+We have significantly expanded our [guidance on Keep Rules](https://developer.android.com/topic/performance/app-optimization/keep-rules-overview), which are the primary mechanism for controlling the R8 optimizer. We now provide a section on what Keep Rules are, how to apply them and guide you with best practices for writing and maintaining them. We also provide practical and actionable use cases and examples, helping you understand how to correctly prevent R8 from removing code that is needed at runtime, such as code accessed via reflection or use of the JNI native interface.
 
-The documentation now also covers essential follow-up steps and advanced scenarios. We added a section on [testing and troubleshooting](/topic/performance/app-optimization/test-and-troubleshoot-the-optimization), so you can verify the performance gains and debug any potential issues that arise. The [advanced configurations](/topic/performance/app-optimization/target-a-build-variant) section explains how to target specific build variants, customize which resources are kept or removed, and offers special optimization instructions for library authors, ensuring you can provide an optimized and R8-friendly package for other developers to use.
+The documentation now also covers essential follow-up steps and advanced scenarios. We added a section on [testing and troubleshooting](https://developer.android.com/topic/performance/app-optimization/test-and-troubleshoot-the-optimization), so you can verify the performance gains and debug any potential issues that arise. The [advanced configurations](https://developer.android.com/topic/performance/app-optimization/target-a-build-variant) section explains how to target specific build variants, customize which resources are kept or removed, and offers special optimization instructions for library authors, ensuring you can provide an optimized and R8-friendly package for other developers to use.
 
 ## **Enable the R8 optimizer's full potential**
 
-The R8 optimizer defaults to using "full mode" since version 8.0 of the Android Gradle Plugin. If your project has been developed over many years, it might still include a legacy flag to disable it. Check your `gradle.properties` file for this line and remove it.
+The R8 optimizer defaults to using "full mode" since version 8.0 of the Android Gradle Plugin. If your project has been developed over many years, it might still include a legacy flag to disable it. Check your `gradle.properties` file for this line and remove it.
 
-`android.enableR8.fullMode=false // delete this line to enable R8's full potential`
+`android.enableR8.fullMode=false // delete this line to enable R8's full potential`
 
-Now check whether you have enabled R8 in your app's build.gradle.kts file for the release variant. It's enabled by setting isMinifyEnabled and isShrinkResources to true. You can also pass default and custom configuration files at this step.
+Now check whether you have enabled R8 in your app's build.gradle.kts file for the release variant. It's enabled by setting isMinifyEnabled and isShrinkResources to true. You can also pass default and custom configuration files at this step.
 
 ```
   release {
@@ -123,135 +103,96 @@ Now check whether you have enabled R8 in your app's build.gradle.kts file for t
 
 ## **Case Study: Disney+ performance improvements**
 
-Engineers at **Disney+** invest in app performance and are optimizing the app's user experience. Sometimes even seemingly small changes can make a huge impact. While inspecting their R8 configuration, the team found that the `-dontoptimize` flag was being used. It was brought in by a default configuration file, which is still used in many apps today.
+Engineers at **Disney+** invest in app performance and are optimizing the app's user experience. Sometimes even seemingly small changes can make a huge impact. While inspecting their R8 configuration, the team found that the `-dontoptimize` flag was being used. It was brought in by a default configuration file, which is still used in many apps today.
 
-After replacing `proguard-android.txt` with `proguard-android-optimize.txt`, the Disney+ team saw significant improvements in their app's performance.
-
-![image.png](/static/blog/assets/image_e1c31bed94_Z22pPju.webp)
+After replacing `proguard-android.txt` with `proguard-android-optimize.txt`, the Disney+ team saw significant improvements in their app's performance.
+![image.png](https://developer.android.com/static/blog/assets/image_e1c31bed94_Z22pPju.webp)
 
 After a new version of the app containing this change was rolled out to users, Disney+ saw 30% faster app startup and 25% fewer user-perceived ANRs.
 
-Today many apps still use the `proguard-android.txt` file which contains the -`dontoptimize` flag. And that's where our tooling improvements come in.
+Today many apps still use the `proguard-android.txt` file which contains the -`dontoptimize` flag. And that's where our tooling improvements come in.
 
 ## **Tooling support**
 
-Starting with [Android Studio Narwhal 3 Feature Drop](/studio/releases/past-releases/as-narwhal-3-feature-drop-release-notes#r8-inspections), you will see a lint warning when using `proguard-android.txt`
+Starting with [Android Studio Narwhal 3 Feature Drop](https://developer.android.com/studio/releases/past-releases/as-narwhal-3-feature-drop-release-notes#r8-inspections), you will see a lint warning when using `proguard-android.txt`
+![image.png](https://developer.android.com/static/blog/assets/image_d82ca43ebb_1tMLY0.webp)
 
-![image.png](/static/blog/assets/image_d82ca43ebb_1tMLY0.webp)
+And from AGP 9.0 onwards we are **entirely dropping support** for the file. This means you will have to migrate to `proguard-android-optimize.txt`.
 
-And from AGP 9.0 onwards we are **entirely dropping support** for the file. This means you will have to migrate to `proguard-android-optimize.txt`.
-
-We've also invested in **new Android Studio features** to make debugging R8-optimized code easier than ever. Starting in AGP 9.0 you can now automatically de-obfuscate stack traces within Android Studio's logcat for R8-processed builds, helping you pinpoint the exact line of code causing an issue, even in a fully optimized app. This will be covered in more depth in tomorrow's blog post on this Android Performance Spotlight Week.
+We've also invested in **new Android Studio features** to make debugging R8-optimized code easier than ever. Starting in AGP 9.0 you can now automatically de-obfuscate stack traces within Android Studio's logcat for R8-processed builds, helping you pinpoint the exact line of code causing an issue, even in a fully optimized app. This will be covered in more depth in tomorrow's blog post on this Android Performance Spotlight Week.
 
 ## **Next Steps**
 
 Check out the Performance Spotlight Week introduction to the R8 optimizer on YouTube.
+[Video](https://www.youtube.com/watch?v=QqO2jZ-NZko)
 
 ## 📣 Take the Performance Challenge!
 
 It's time to see the benefits for yourself.
 
-We challenge you to enable R8 full mode for your app *today*.
+We challenge you to enable R8 full mode for your app *today*.
 
-1. Follow our developer guides to get started:[**Enable app optimization**](/topic/performance/app-optimization/enable-app-optimization).
-2. Check if you still use `proguard-android.txt` and replace it with `proguard-android-optimize.txt`.
-3. Then, **measure the impact**. Don't just *feel* the difference, *verify* it. Measure your performance gains by adapting the code from our[**Macrobenchmark sample app on GitHub**](https://github.com/android/performance-samples/blob/main/MacrobenchmarkSample/macrobenchmark/src/main/kotlin/com/example/macrobenchmark/benchmark/startup/FullyDrawnStartupBenchmark.kt) to measure your startup times before and after.
+1. Follow our developer guides to get started:[**Enable app optimization**](https://developer.android.com/topic/performance/app-optimization/enable-app-optimization).
+2. Check if you still use `proguard-android.txt` and replace it with `proguard-android-optimize.txt`.
+3. Then, **measure the impact** . Don't just *feel* the difference, *verify* it. Measure your performance gains by adapting the code from our[**Macrobenchmark sample app on GitHub**](https://github.com/android/performance-samples/blob/main/MacrobenchmarkSample/macrobenchmark/src/main/kotlin/com/example/macrobenchmark/benchmark/startup/FullyDrawnStartupBenchmark.kt) to measure your startup times before and after.
 
-We're confident you'll see a meaningful improvement in your app's performance. Use #optimizationEnabled for any questions on enabling or troubleshooting R8. We're here to help.
+We're confident you'll see a meaningful improvement in your app's performance. Use #optimizationEnabled for any questions on enabling or troubleshooting R8. We're here to help.
 
 ## Bring your questions for the Ask Android session on Friday
 
-Use the social tag #AskAndroid to bring any performance questions. Throughout the week we are monitoring your questions and will answer several in the Ask Android session on performance on Friday, November 21. Stay tuned for tomorrow, where we'll dive even deeper into debugging and troubleshooting. But for now, get started with R8 and get your app on the fast track.
+Use the social tag #AskAndroid to bring any performance questions. Throughout the week we are monitoring your questions and will answer several in the Ask Android session on performance on Friday, November 21. Stay tuned for tomorrow, where we'll dive even deeper into debugging and troubleshooting. But for now, get started with R8 and get your app on the fast track.
 
 ###### Written by:
 
-* ## [Ben Weiss](/blog/authors/ben-weiss)
+-
+
+  ## [Ben Weiss](https://developer.android.com/blog/authors/ben-weiss)
 
   ###### Developer Relations Engineer
 
-  [read\_more
-  View profile](/blog/authors/ben-weiss)
-
-  ![](/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2dcD9g.webp)
-
-  ![](/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2dcD9g.webp)
+  [read_more
+  View profile](https://developer.android.com/blog/authors/ben-weiss) ![](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2dcD9g.webp) ![](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2dcD9g.webp)
 
 ## Continue reading
 
-* [![](/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2dcD9g.webp)](/blog/authors/ben-weiss)[![](/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](/blog/authors/sara-hamilton)
+- [![](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2dcD9g.webp)](https://developer.android.com/blog/authors/ben-weiss)[![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](https://developer.android.com/blog/authors/sara-hamilton) 21 Nov 2025 21 Nov 2025 ![](https://developer.android.com/static/blog/assets/performance_Week12_b8eed5b989_2b3WAh.webp)
 
-  21
+  #### [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs)
 
-  Nov
-  2025
+  ## [Fully Optimized: Wrapping up Performance Spotlight Week](https://developer.android.com/blog/posts/fully-optimized-wrapping-up-performance-spotlight-week)
 
-  21
+  [arrow_forward](https://developer.android.com/blog/posts/fully-optimized-wrapping-up-performance-spotlight-week) From the foundational powers of the R8 optimizer and Profile Guided Optimizations, to performance improvements with Jetpack Compose, to a new guide on leveling up your app's performance, we've covered the low effort, high impact tools you need to build a performant app.
 
-  Nov
-  2025
+  ###### [Ben Weiss](https://developer.android.com/blog/authors/ben-weiss), [Sara Hamilton](https://developer.android.com/blog/authors/sara-hamilton) •
+  3 min read
 
-  ![](/static/blog/assets/performance_Week12_b8eed5b989_2b3WAh.webp)
+- 14 Apr 2026 14 Apr 2026 ![](https://developer.android.com/static/blog/assets/Blog_banner_Dark_2000x1000_B_c6418d3a5c_ZbdvH4.webp)
 
-  #### [Events & Programs](/blog/categories/events-and-programs)
+  #### [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs)
 
-  ## [Fully Optimized: Wrapping up Performance Spotlight Week](/blog/posts/fully-optimized-wrapping-up-performance-spotlight-week)
+  ## [Get ready for Google I/O: Livestream schedule revealed](https://developer.android.com/blog/posts/get-ready-for-google-io-livestream-schedule-revealed)
 
-  [arrow\_forward](/blog/posts/fully-optimized-wrapping-up-performance-spotlight-week)
-
-  From the foundational powers of the R8 optimizer and Profile Guided Optimizations, to performance improvements with Jetpack Compose, to a new guide on leveling up your app's performance, we've covered the low effort, high impact tools you need to build a performant app.
-
-  ###### [Ben Weiss](/blog/authors/ben-weiss), [Sara Hamilton](/blog/authors/sara-hamilton) • 3 min read
-* [![](/static/blog/assets/maru_ahues_7598dede84_Zr7Omv.webp)](/blog/authors/maru-ahues-bouza)
-
-  11
-
-  Mar
-  2026
-
-  11
-
-  Mar
-  2026
-
-  ![](/static/blog/assets/Google_Play_Level_Up_metadata_banner_2048x1323_33658d545a_ZDM8Sn.webp)
-
-  #### [Events & Programs](/blog/categories/events-and-programs)
-
-  ## [Level Up: Test Sidekick and prepare for upcoming program milestones](/blog/posts/level-up-test-sidekick-and-prepare-for-upcoming-program-milestones)
-
-  [arrow\_forward](/blog/posts/level-up-test-sidekick-and-prepare-for-upcoming-program-milestones)
-
-  Last September, we shared our vision for the future of Google Play Games grounded in a core belief: the best way to drive your game’s success is to deliver a world-class player experience.
-
-  ###### [Maru Ahues Bouza](/blog/authors/maru-ahues-bouza) • 3 min read
-* 17
-
-  Feb
-  2026
-
-  17
-
-  Feb
-  2026
-
-  ![](/static/blog/assets/O_SVD_DAC_Banner_1600x476_4x1_1_21e5678d22_Z2feGk6.webp)
-
-  #### [Events & Programs](/blog/categories/events-and-programs)
-
-  ## [Get ready for Google I/O May 19-20](/blog/posts/get-ready-for-google-io-may)
-
-  [arrow\_forward](/blog/posts/get-ready-for-google-io-may)
-
-  Google I/O is back! Join us online as we share our latest AI breakthroughs and updates in products across the company, from Gemini to Android, Chrome, Cloud, and more.
+  [arrow_forward](https://developer.android.com/blog/posts/get-ready-for-google-io-livestream-schedule-revealed) The Google I/O schedule is here!
 
   ###### 1 min read
 
+  - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
+  - [#Generative AI](https://developer.android.com/blog/topics/generative-ai)
+- [![](https://developer.android.com/static/blog/assets/maru_ahues_7598dede84_Zr7Omv.webp)](https://developer.android.com/blog/authors/maru-ahues-bouza) 11 Mar 2026 11 Mar 2026 ![](https://developer.android.com/static/blog/assets/Google_Play_Level_Up_metadata_banner_2048x1323_33658d545a_ZDM8Sn.webp)
+
+  #### [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs)
+
+  ## [Level Up: Test Sidekick and prepare for upcoming program milestones](https://developer.android.com/blog/posts/level-up-test-sidekick-and-prepare-for-upcoming-program-milestones)
+
+  [arrow_forward](https://developer.android.com/blog/posts/level-up-test-sidekick-and-prepare-for-upcoming-program-milestones) Last September, we shared our vision for the future of Google Play Games grounded in a core belief: the best way to drive your game's success is to deliver a world-class player experience.
+
+  ###### [Maru Ahues Bouza](https://developer.android.com/blog/authors/maru-ahues-bouza) •
+  3 min read
+
 # Stay in the loop
+
 
 Get the latest Android development insights delivered to your inbox
 weekly.
-
 [mail
-Subscribe](/subscribe)
-
-![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)

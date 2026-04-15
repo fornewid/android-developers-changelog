@@ -234,9 +234,9 @@ app manifest. The following code snippet illustrates how to declare this class a
 
     <service
             android:name="com.example.android.tvleanback.UpdateRecommendationsService"
-            android:enable>d=&<quot;true&qu>o<t; /
-  /a>pplication
-/manifest
+            android:enabled="true" />
+  </application>
+</manifest>
 ```
 
 ## Build recommendations
@@ -463,13 +463,13 @@ following sample code demonstrates how to add this configuration to the manifest
   <application ... >
     <receiver android:name="com.example.android.tvleanback.BootupActivity"
               android:enabled="true"
-              andr>oid:exp<orted="f>alse"<;
-      intent-filter
-        action android:name="and>roid.in<tent.action.BO>OT_CO<MPLETED&q>uot<;/
-      /in>t<ent-filte>r
-    /receiver
-  /application
-/manifest
+              android:exported="false">
+      <intent-filter>
+        <action android:name="android.intent.action.BOOT_COMPLETED"/>
+      </intent-filter>
+    </receiver>
+  </application>
+</manifest>
 ```
 
 

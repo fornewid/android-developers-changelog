@@ -79,7 +79,7 @@ Media browser
 Media browser service
 :   An Android service implemented by your media app that complies with the
     [`MediaBrowserServiceCompat`](https://developer.android.com/reference/androidx/media/MediaBrowserServiceCompat) API. Your app uses this service to expose
-    content. We also support [\`MediaLibrarySerice'](https://developer.android.com/training/cars/media/configure-manifest).
+    content. We also support [`MediaLibraryService`](https://developer.android.com/media/media3/session/serve-content).
 
 Media item
 

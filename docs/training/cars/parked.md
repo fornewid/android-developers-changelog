@@ -52,7 +52,7 @@ built-in. See [Distribute to cars](https://developer.android.com/training/cars/d
 on the publishing process.
 
 > [!IMPORTANT]
-> **Important:** To ensure a good experience when using parked apps, Google works with OEMs to fix system issues that negatively affect parked app experiences on cars with Google built-in. As part of this collaboration, there is additional filtering built into the Play Store to prevent parked apps from being distributed to devices without the necessary fixes. If your app is otherwise compatible with a device, this might be the reason why it is not installable on that device.
+> **Important:** To ensure a good experience when using parked apps, Google works with OEMs to fix system issues that negatively affect parked app experiences on cars with Google built-in. As part of this collaboration, there is additional filtering built into the Google Play Store to prevent parked apps from being distributed to devices without the necessary fixes. If your app is otherwise compatible with a device, this might be the reason why it is not installable on that device.
 
 ## Give feedback on parked apps
 

@@ -25,8 +25,8 @@ either through the Google Play app or website.
 
 ## Google Play Core libraries
 
-The [Google Play Core libraries](https://developer.android.com/guide/playcore) allow your app to interact with the Play
-Store app.
+The [Google Play Core libraries](https://developer.android.com/guide/playcore) allow your app to interact with the Google
+Play app.
 
 The following libraries are supported by cars with Google built-in:
 

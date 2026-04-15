@@ -27,7 +27,7 @@ the user's real world and lets you organize 3D entities such as panels and 3D
 models into a hierarchical structure, and hold the state of those entities.
 
 Once you've gained access to the scene graph, you can use the APIs in Jetpack
-Compose for XR to create spatial UI (for example, [`SpatialPanel`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/package-summary#SpatialPanel(androidx.xr.compose.subspace.layout.SubspaceModifier,androidx.xr.compose.subspace.layout.SpatialShape,androidx.xr.compose.subspace.DragPolicy,androidx.xr.compose.subspace.ResizePolicy,kotlin.Function0)) and
+Compose for XR to create spatial UI (for example, [`SpatialPanel`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/SpatialPanel.composable#SpatialPanel(androidx.xr.compose.subspace.layout.SubspaceModifier,androidx.xr.compose.subspace.layout.SpatialShape,androidx.xr.compose.subspace.DragPolicy,androidx.xr.compose.subspace.ResizePolicy,androidx.xr.compose.subspace.layout.InteractionPolicy,kotlin.Function0)) and
 [`Orbiter`](https://developer.android.com/reference/kotlin/androidx/xr/compose/spatial/Orbiter.composable#Orbiter(androidx.xr.compose.spatial.ContentEdge.Horizontal,androidx.compose.ui.unit.Dp,androidx.xr.compose.spatial.OrbiterOffsetType,androidx.compose.ui.Alignment.Horizontal,androidx.xr.compose.subspace.layout.SpatialShape,androidx.compose.ui.unit.Dp,kotlin.Boolean,kotlin.Function0)) instances) within the scene graph. For 3D content such as 3D
 models, you can access the Session directly. To learn more, see [About the
 ActivitySpace](https://developer.android.com/develop/xr/jetpack-xr-sdk/work-with-entities#activityspace) on this page.

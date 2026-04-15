@@ -19,10 +19,10 @@ Auto and Android Automotive OS:
 ## Test in real vehicles
 
 To test your app in real vehicles, you must install it from a trusted source
-such as the Play Store, with one exception detailed in
+such as Google Play, with one exception detailed in
 [Allow unknown sources](https://developer.android.com/training/cars/testing#unknown-sources). You can use [Internal App Sharing](https://play.google.com/console/about/internalappsharing/) or an
 [Internal Test Track](https://play.google.com/console/about/internal-testing/) to distribute your app to devices without going through
-the Play Store review process.
+the Google Play review process.
 
 ### Allow unknown sources
 

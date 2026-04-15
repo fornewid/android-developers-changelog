@@ -65,8 +65,8 @@ only support certain types of apps as described in the following table:
 ## Integrate with Google apps and services
 
 You can build your own apps for use in vehicles that support [Android for
-Cars](https://developer.android.com/cars), including Android Auto and [Google Built-in](https://built-in.google/cars/). The following
-resources contain additional guidance relating to implementation:
+Cars](https://developer.android.com/cars), including Android Auto and [cars with Google built-in](https://built-in.google/cars/). The
+following resources contain additional guidance relating to implementation:
 
 - Your app can launch navigation in Google Maps built-in through
   [Google Maps for Automotive intents](https://developer.android.com/training/cars/platforms/automotive-os/android-intents-automotive).

@@ -1,41 +1,26 @@
 ---
-title: The Embedded Photo Picker  |  Android Developers' Blog
+title: https://developer.android.com/blog/posts/the-embedded-photo-picker
 url: https://developer.android.com/blog/posts/the-embedded-photo-picker
-source: html-scrape
+source: md.txt
 ---
 
-* [Android Developers](https://developer.android.com/)
-* [Android Developers' Blog](https://developer.android.com/)
-* [Blog](https://developer.android.com/blog)
-
-Stay organized with collections
-
-Save and categorize content based on your preferences.
-
-
-
-#### [Product News](/blog/categories/product-news)
+#### [Product News](https://developer.android.com/blog/categories/product-news)
 
 # The Embedded Photo Picker
 
 ###### 8-min read
 
-![](/static/blog/assets/Android_Photo_Picker_Blogger_60fa0ede59_YTu6Y.webp)
+![](https://developer.android.com/static/blog/assets/Android_Photo_Picker_Blogger_60fa0ede59_YTu6Y.webp) 27 Jan 2026 [![](https://developer.android.com/static/blog/assets/roxana_02dc1d3afc_GLFQH.webp)](https://developer.android.com/blog/authors/roxanna-walker)[![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](https://developer.android.com/blog/authors/yacine-rezgui)
 
-27
-
-Jan
-2026
-
-[![](/static/blog/assets/roxana_02dc1d3afc_GLFQH.webp)](/blog/authors/roxanna-walker)[![](/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](/blog/authors/yacine-rezgui)
-
-##### [Roxanna Aliabadi Walker](/blog/authors/roxanna-walker) & [Yacine Rezgui](/blog/authors/yacine-rezgui)
+##### [Roxanna Aliabadi Walker](https://developer.android.com/blog/authors/roxanna-walker)
+\&
+[Yacine Rezgui](https://developer.android.com/blog/authors/yacine-rezgui)
 
 ## **The Embedded Photo Picker: A more seamless way to privately request photos and videos in your app**
 
-![photopicker.png](/static/blog/assets/photopicker_ce2c4832e2_Z1LaAYt.webp)
+![photopicker.png](https://developer.android.com/static/blog/assets/photopicker_ce2c4832e2_Z1LaAYt.webp)
 
-Get ready to enhance your app's user experience with an exciting new way to use the Android photo picker! The new embedded photo picker offers a seamless and privacy-focused way for users to select photos and videos, right within your app's interface. Now your app can get all the same benefits available with the photo picker, including access to cloud content, integrated directly into your app’s experience.
+Get ready to enhance your app's user experience with an exciting new way to use the Android photo picker! The new embedded photo picker offers a seamless and privacy-focused way for users to select photos and videos, right within your app's interface. Now your app can get all the same benefits available with the photo picker, including access to cloud content, integrated directly into your app's experience.
 
 ### **Why embedded?**
 
@@ -49,17 +34,16 @@ With the embedded photo picker, your app doesn't need access to the user's photo
 
 Google Messages showcases the power of the embedded photo picker. Here's how they've integrated it:
 
-* **Intuitive placement:**The photo picker sits right below the camera button, giving users a clear choice between capturing a new photo or selecting an existing one.
-* **Dynamic preview:** Immediately after a user taps a photo, they see a large preview, making it easy to confirm their selection. If they deselect the photo, the preview disappears, keeping the experience clean and uncluttered.
-* **Expand for more content:**The initial view is simplified, offering easy access to recent photos. However, users can easily expand the photo picker to browse and choose from all photos and videos in their library, including cloud content from Google Photos.
-* **Respecting user choices:** The embedded photo picker only grants access to the specific photos or videos the user selects, meaning they can stop requesting the photo and video permissions altogether. This also saves the Messages from needing to handle situations where users only grant limited access to photos and videos.
+- **Intuitive placement:**The photo picker sits right below the camera button, giving users a clear choice between capturing a new photo or selecting an existing one.
+- **Dynamic preview:** Immediately after a user taps a photo, they see a large preview, making it easy to confirm their selection. If they deselect the photo, the preview disappears, keeping the experience clean and uncluttered.
+- **Expand for more content:**The initial view is simplified, offering easy access to recent photos. However, users can easily expand the photo picker to browse and choose from all photos and videos in their library, including cloud content from Google Photos.
+- **Respecting user choices:** The embedded photo picker only grants access to the specific photos or videos the user selects, meaning they can stop requesting the photo and video permissions altogether. This also saves the Messages from needing to handle situations where users only grant limited access to photos and videos.
 
-![gif1.gif](/static/blog/assets/gif1_6da309a505_1HrfcC.webp)
-![gif2.gif](/static/blog/assets/gif2_ea91aa5328_bL0it.webp)
+![gif1.gif](https://developer.android.com/static/blog/assets/gif1_6da309a505_1HrfcC.webp) ![gif2.gif](https://developer.android.com/static/blog/assets/gif2_ea91aa5328_bL0it.webp)
 
 ### **Implementation**
 
-Integrating the embedded photo picker is made easy with the [Photo Picker Jetpack library](/jetpack/androidx/releases/photopicker).
+Integrating the embedded photo picker is made easy with the [Photo Picker Jetpack library](https://developer.android.com/jetpack/androidx/releases/photopicker).
 
 ### **Jetpack Compose**
 
@@ -67,7 +51,7 @@ First, include the Jetpack Photo Picker library as a dependency.
 
 `implementation("androidx.photopicker:photopicker-compose:1.0.0-alpha01")`
 
-The EmbeddedPhotoPicker composable function provides a mechanism to include the embedded photo picker UI directly within your Compose screen. This composable creates a SurfaceView which hosts the embedded photo picker UI. It manages the connection to the EmbeddedPhotoPicker service, handles user interactions, and communicates selected media URIs to the calling application.
+The EmbeddedPhotoPicker composable function provides a mechanism to include the embedded photo picker UI directly within your Compose screen. This composable creates a SurfaceView which hosts the embedded photo picker UI. It manages the connection to the EmbeddedPhotoPicker service, handles user interactions, and communicates selected media URIs to the calling application.
 
 ```
   @Composable
@@ -229,7 +213,7 @@ override fun onCreate(savedInstanceState: Bundle?) {
 }
 ```
 
-You can call different methods of `EmbeddedPhotoPickerSession` to interact with the embedded picker.
+You can call different methods of `EmbeddedPhotoPickerSession` to interact with the embedded picker.
 
 ```
   // Notify the embedded picker of a configuration change
@@ -249,117 +233,72 @@ openSession.notifyVisibilityChanged(/* visible: */ false)
 openSession.requestRevokeUriPermission(removedUris)
 ```
 
-It's important to note that the embedded photo picker experience is available for users running Android 14 (API level 34) or higher with SDK Extensions 15+. [Read more about photo picker device availability](/training/data-storage/shared/photo-picker/embedded#device-availability).
+It's important to note that the embedded photo picker experience is available for users running Android 14 (API level 34) or higher with SDK Extensions 15+. [Read more about photo picker device availability](https://developer.android.com/training/data-storage/shared/photo-picker/embedded#device-availability).
 
 For enhanced user privacy and security, the system renders the embedded photo picker in a way that prevents any drawing or overlaying. This intentional design choice means that your UX should consider the photo picker's display area as a distinct and dedicated element, much like you would plan for an advertising banner.  
-  
-If you have any feedback or suggestions, submit tickets to our [issue tracker](/about/versions/14/feedback#create_vote).
+
+If you have any feedback or suggestions, submit tickets to our [issue tracker](https://developer.android.com/about/versions/14/feedback#create_vote).
 
 ###### Written by:
 
-* ## [Roxanna Aliabadi Walker](/blog/authors/roxanna-walker)
+-
+
+  ## [Roxanna Aliabadi Walker](https://developer.android.com/blog/authors/roxanna-walker)
 
   ###### Product Manager
 
-  [read\_more
-  View profile](/blog/authors/roxanna-walker)
+  [read_more
+  View profile](https://developer.android.com/blog/authors/roxanna-walker) ![](https://developer.android.com/static/blog/assets/roxana_02dc1d3afc_GLFQH.webp) ![](https://developer.android.com/static/blog/assets/roxana_02dc1d3afc_GLFQH.webp)
+-
 
-  ![](/static/blog/assets/roxana_02dc1d3afc_GLFQH.webp)
-
-  ![](/static/blog/assets/roxana_02dc1d3afc_GLFQH.webp)
-* ## [Yacine Rezgui](/blog/authors/yacine-rezgui)
+  ## [Yacine Rezgui](https://developer.android.com/blog/authors/yacine-rezgui)
 
   ###### Developer Relations Engineer
 
-  [read\_more
-  View profile](/blog/authors/yacine-rezgui)
-
-  ![](/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)
-
-  ![](/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)
+  [read_more
+  View profile](https://developer.android.com/blog/authors/yacine-rezgui) ![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg) ![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)
 
 ## Continue reading
 
-* [![](/static/blog/assets/roxana_02dc1d3afc_GLFQH.webp)](/blog/authors/roxanna-walker)
+- [![](https://developer.android.com/static/blog/assets/roxana_02dc1d3afc_GLFQH.webp)](https://developer.android.com/blog/authors/roxanna-walker) 26 Mar 2026 26 Mar 2026 ![](https://developer.android.com/static/blog/assets/contact_Picker_4392c5da87_ZQDO82.webp)
 
-  26
+  #### [Product News](https://developer.android.com/blog/categories/product-news)
 
-  Mar
-  2026
+  ## [Contact Picker: Privacy-First Contact Sharing](https://developer.android.com/blog/posts/contact-picker-privacy-first-contact-sharing)
 
-  26
+  [arrow_forward](https://developer.android.com/blog/posts/contact-picker-privacy-first-contact-sharing) Privacy and user control remain at the heart of the Android experience. Just as the photo picker made media sharing secure and easy to implement, we are now bringing that same level of privacy, simplicity, and great user experience to contact selection.
 
-  Mar
-  2026
+  ###### [Roxanna Aliabadi Walker](https://developer.android.com/blog/authors/roxanna-walker) •
+  4 min read
 
-  ![](/static/blog/assets/contact_Picker_4392c5da87_ZQDO82.webp)
+- [![](https://developer.android.com/static/blog/assets/headshot_e042d23f90_2x0LLK.webp)](https://developer.android.com/blog/authors/steven-jenkins) 13 Apr 2026 13 Apr 2026 ![](https://developer.android.com/static/blog/assets/Multi_Device_Interactions_with_Android_Emulator_Strapi_5d6ea711e7_Z1AYEiA.webp)
 
-  #### [Product News](/blog/categories/product-news)
+  #### [Product News](https://developer.android.com/blog/categories/product-news)
 
-  ## [Contact Picker: Privacy-First Contact Sharing](/blog/posts/contact-picker-privacy-first-contact-sharing)
+  ## [Test Multi-Device Interactions with the Android Emulator](https://developer.android.com/blog/posts/test-multi-device-interactions-with-the-android-emulator)
 
-  [arrow\_forward](/blog/posts/contact-picker-privacy-first-contact-sharing)
+  [arrow_forward](https://developer.android.com/blog/posts/test-multi-device-interactions-with-the-android-emulator) Testing multi-device interactions is now easier than ever with the Android Emulator.
 
-  Privacy and user control remain at the heart of the Android experience. Just as the photo picker made media sharing secure and easy to implement, we are now bringing that same level of privacy, simplicity, and great user experience to contact selection.
+  ###### [Steven Jenkins](https://developer.android.com/blog/authors/steven-jenkins) •
+  2 min read
 
-  ###### [Roxanna Aliabadi Walker](/blog/authors/roxanna-walker) • 4 min read
-* [![](/static/blog/assets/matthew_warner_67a99317e4_Z2c1VNu.webp)](/blog/authors/matthew-warner)
+- [![](https://developer.android.com/static/blog/assets/matthew_warner_67a99317e4_Z2c1VNu.webp)](https://developer.android.com/blog/authors/matthew-warner) 02 Apr 2026 02 Apr 2026 ![](https://developer.android.com/static/blog/assets/android_studio_gemma4_73370772af_2lUopR.webp)
 
-  02
+  #### [Product News](https://developer.android.com/blog/categories/product-news)
 
-  Apr
-  2026
+  ## [Android Studio supports Gemma 4: our most capable local model for agentic coding](https://developer.android.com/blog/posts/android-studio-supports-gemma-4-our-most-capable-local-model-for-agentic-coding)
 
-  02
+  [arrow_forward](https://developer.android.com/blog/posts/android-studio-supports-gemma-4-our-most-capable-local-model-for-agentic-coding) Every developer's AI workflow and needs are unique, and it's important to be able to choose how AI helps your development. In January, we introduced the ability to choose any local or remote AI model to power AI functionality in Android Studio
 
-  Apr
-  2026
+  ###### [Matthew Warner](https://developer.android.com/blog/authors/matthew-warner) •
+  2 min read
 
-  ![](/static/blog/assets/android_studio_gemma4_73370772af_2lUopR.webp)
-
-  #### [Product News](/blog/categories/product-news)
-
-  ## [Android Studio supports Gemma 4: our most capable local model for agentic coding](/blog/posts/android-studio-supports-gemma-4-our-most-capable-local-model-for-agentic-coding)
-
-  [arrow\_forward](/blog/posts/android-studio-supports-gemma-4-our-most-capable-local-model-for-agentic-coding)
-
-  Every developer's AI workflow and needs are unique, and it's important to be able to choose how AI helps your development. In January, we introduced the ability to choose any local or remote AI model to power AI functionality in Android Studio
-
-  ###### [Matthew Warner](/blog/authors/matthew-warner) • 2 min read
-
-  + [#Android Studio](/blog/topics/android-studio)
-* [![](/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](/blog/authors/matt-dyor)
-
-  02
-
-  Apr
-  2026
-
-  02
-
-  Apr
-  2026
-
-  ![](/static/blog/assets/as_Panda3_385cde5eac_Z1E8IhJ.webp)
-
-  #### [Product News](/blog/categories/product-news)
-
-  ## [Increase Guidance and Control over Agent Mode with Android Studio Panda 3](/blog/posts/increase-guidance-and-control-over-agent-mode-with-android-studio-panda-3)
-
-  [arrow\_forward](/blog/posts/increase-guidance-and-control-over-agent-mode-with-android-studio-panda-3)
-
-  Android Studio Panda 3 is now stable and ready for you to use in production. This release gives you even more control and customization over your AI-powered workflows, making it easier than ever to build high-quality Android apps.
-
-  ###### [Matt Dyor](/blog/authors/matt-dyor) • 3 min read
-
-  + [#Android Studio](/blog/topics/android-studio)
+  - [#Android Studio](https://developer.android.com/blog/topics/android-studio)
 
 # Stay in the loop
 
+
 Get the latest Android development insights delivered to your inbox
 weekly.
-
 [mail
-Subscribe](/subscribe)
-
-![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)

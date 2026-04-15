@@ -99,8 +99,8 @@ detailed example of how to implement package validation for your service's
 `onGetRoot` method.
 
 In addition to allowing system apps, you must allow Google Assistant connect to
-your `MediaBrowserService`. Google Assistant uses [separate package names](https://developer.android.com/media/implement/assistant#signatures)
-for the phone, which includes Android Auto Android AAOS.
+your `MediaBrowserService`. Google Assistant uses [different package names](https://developer.android.com/media/implement/assistant#signatures)
+for its mobile and AAOS apps.
 
 > [!CAUTION]
 > **Caution:** Don't perform checks for user authentication or other slow processes within your service's `onGetRoot` implementation. Your service must quickly return a non-null `BrowserRoot` when `onGetRoot` is called so that the calling service doesn't timeout. Handle user authentication and other business logic for slow processes in the [`onLoadChildren`](https://developer.android.com/reference/androidx/media/MediaBrowserServiceCompat#onLoadChildren(java.lang.String,androidx.media.MediaBrowserServiceCompat.Result%3Cjava.util.List%3Candroid.support.v4.media.MediaBrowserCompat.MediaItem%3E%3E,android.os.Bundle)) method instead.

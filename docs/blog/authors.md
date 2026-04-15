@@ -1,153 +1,104 @@
 ---
-title: Authors  |  Android Developers' Blog
+title: https://developer.android.com/blog/authors
 url: https://developer.android.com/blog/authors
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [Android Developers' Blog](https://developer.android.com/)
-* [Blog](https://developer.android.com/blog)
-
-Stay organized with collections
-
-Save and categorize content based on your preferences.
-
-
 
 # Authors
 
-* ## [Ajesh Pai](/blog/authors/ajesh-pai)
+-
+
+  ## [Ajesh Pai](https://developer.android.com/blog/authors/ajesh-pai)
 
   ###### Developer Relations Engineer
 
-  [read\_more
-  2 posts](/blog/authors/ajesh-pai)
+  [read_more
+  2 posts](https://developer.android.com/blog/authors/ajesh-pai) [read_more
+  2 posts](https://developer.android.com/blog/authors/ajesh-pai) ![](https://developer.android.com/static/blog/assets/Ajesh_R_Pai_fc75c62777_Z1G5g2B.webp) ![](https://developer.android.com/static/blog/assets/Ajesh_R_Pai_fc75c62777_Z1G5g2B.webp)
+-
 
-  [read\_more
-  2 posts](/blog/authors/ajesh-pai)
-
-  ![](/static/blog/assets/Ajesh_R_Pai_fc75c62777_Z1G5g2B.webp)
-
-  ![](/static/blog/assets/Ajesh_R_Pai_fc75c62777_Z1G5g2B.webp)
-* ## [Alice Yuan](/blog/authors/alice-yuan)
+  ## [Alice Yuan](https://developer.android.com/blog/authors/alice-yuan)
 
   ###### Developer Relations Engineer
 
-  [read\_more
-  3 posts](/blog/authors/alice-yuan)
+  [read_more
+  3 posts](https://developer.android.com/blog/authors/alice-yuan) [read_more
+  3 posts](https://developer.android.com/blog/authors/alice-yuan) ![](https://developer.android.com/static/blog/assets/Alice_Yuan_552a4dd4ee_ZlDEgJ.webp) ![](https://developer.android.com/static/blog/assets/Alice_Yuan_552a4dd4ee_ZlDEgJ.webp)
+-
 
-  [read\_more
-  3 posts](/blog/authors/alice-yuan)
-
-  ![](/static/blog/assets/Alice_Yuan_552a4dd4ee_ZlDEgJ.webp)
-
-  ![](/static/blog/assets/Alice_Yuan_552a4dd4ee_ZlDEgJ.webp)
-* ## [Amrit Sanjeev](/blog/authors/amrit-sanjeev)
+  ## [Amrit Sanjeev](https://developer.android.com/blog/authors/amrit-sanjeev)
 
   ###### Staff Developer Advocate
 
-  [read\_more
-  1 post](/blog/authors/amrit-sanjeev)
+  [read_more
+  1 post](https://developer.android.com/blog/authors/amrit-sanjeev) [read_more
+  1 post](https://developer.android.com/blog/authors/amrit-sanjeev) ![](https://developer.android.com/static/blog/assets/Amrit_Sanjeev_5215e0d7cc_CrDLy.webp) ![](https://developer.android.com/static/blog/assets/Amrit_Sanjeev_5215e0d7cc_CrDLy.webp)
+-
 
-  [read\_more
-  1 post](/blog/authors/amrit-sanjeev)
-
-  ![](/static/blog/assets/Amrit_Sanjeev_5215e0d7cc_CrDLy.webp)
-
-  ![](/static/blog/assets/Amrit_Sanjeev_5215e0d7cc_CrDLy.webp)
-* ## [Andrew Lewis](/blog/authors/andrew-lewis)
+  ## [Andrew Lewis](https://developer.android.com/blog/authors/andrew-lewis)
 
   ###### Software Engineer
 
-  [read\_more
-  1 post](/blog/authors/andrew-lewis)
+  [read_more
+  1 post](https://developer.android.com/blog/authors/andrew-lewis) [read_more
+  1 post](https://developer.android.com/blog/authors/andrew-lewis) ![](https://developer.android.com/static/blog/assets/andrew_lewis_1f4294eade_ZLA0xp.webp) ![](https://developer.android.com/static/blog/assets/andrew_lewis_1f4294eade_ZLA0xp.webp)
+-
 
-  [read\_more
-  1 post](/blog/authors/andrew-lewis)
-
-  ![](/static/blog/assets/andrew_lewis_1f4294eade_ZLA0xp.webp)
-
-  ![](/static/blog/assets/andrew_lewis_1f4294eade_ZLA0xp.webp)
-* ## [Ben Trengrove](/blog/authors/ben-trengrove)
+  ## [Ben Trengrove](https://developer.android.com/blog/authors/ben-trengrove)
 
   ###### Developer Relations Engineer
 
-  [read\_more
-  1 post](/blog/authors/ben-trengrove)
+  [read_more
+  1 post](https://developer.android.com/blog/authors/ben-trengrove) [read_more
+  1 post](https://developer.android.com/blog/authors/ben-trengrove) ![](https://developer.android.com/static/blog/assets/Ben_Trengrove_b9e17c8c2e_2uVqlp.webp) ![](https://developer.android.com/static/blog/assets/Ben_Trengrove_b9e17c8c2e_2uVqlp.webp)
+-
 
-  [read\_more
-  1 post](/blog/authors/ben-trengrove)
-
-  ![](/static/blog/assets/Ben_Trengrove_b9e17c8c2e_2uVqlp.webp)
-
-  ![](/static/blog/assets/Ben_Trengrove_b9e17c8c2e_2uVqlp.webp)
-* ## [Ben Weiss](/blog/authors/ben-weiss)
+  ## [Ben Weiss](https://developer.android.com/blog/authors/ben-weiss)
 
   ###### Developer Relations Engineer
 
-  [read\_more
-  7 posts](/blog/authors/ben-weiss)
+  [read_more
+  7 posts](https://developer.android.com/blog/authors/ben-weiss) [read_more
+  7 posts](https://developer.android.com/blog/authors/ben-weiss) ![](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2dcD9g.webp) ![](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2dcD9g.webp)
+-
 
-  [read\_more
-  7 posts](/blog/authors/ben-weiss)
-
-  ![](/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2dcD9g.webp)
-
-  ![](/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2dcD9g.webp)
-* ## [Bennet Manuel](/blog/authors/bennet-manuel)
+  ## [Bennet Manuel](https://developer.android.com/blog/authors/bennet-manuel)
 
   ###### Group Product Manager
 
-  [read\_more
-  1 post](/blog/authors/bennet-manuel)
+  [read_more
+  1 post](https://developer.android.com/blog/authors/bennet-manuel) [read_more
+  1 post](https://developer.android.com/blog/authors/bennet-manuel) ![](https://developer.android.com/static/blog/assets/Bennet_Manuel_4be9960838_MydbH.webp) ![](https://developer.android.com/static/blog/assets/Bennet_Manuel_4be9960838_MydbH.webp)
+-
 
-  [read\_more
-  1 post](/blog/authors/bennet-manuel)
-
-  ![](/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)
-
-  ![](/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)
-* ## [Bradley Allen](/blog/authors/bradley-allen)
+  ## [Bradley Allen](https://developer.android.com/blog/authors/bradley-allen)
 
   ###### Technical Writer
 
-  [read\_more
-  1 post](/blog/authors/bradley-allen)
+  [read_more
+  1 post](https://developer.android.com/blog/authors/bradley-allen) [read_more
+  1 post](https://developer.android.com/blog/authors/bradley-allen) ![](https://developer.android.com/static/blog/assets/Bradley_Allen_df04d56088_22TwMm.webp) ![](https://developer.android.com/static/blog/assets/Bradley_Allen_df04d56088_22TwMm.webp)
+-
 
-  [read\_more
-  1 post](/blog/authors/bradley-allen)
-
-  ![](/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)
-
-  ![](/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)
-* ## [Breana Tate](/blog/authors/breana-tate)
+  ## [Breana Tate](https://developer.android.com/blog/authors/breana-tate)
 
   ###### Developer Relations Engineer
 
-  [read\_more
-  2 posts](/blog/authors/breana-tate)
-
-  [read\_more
-  2 posts](/blog/authors/breana-tate)
-
-  ![](/static/blog/assets/Breana_Tate_24c1d03bf2_Z1NRigS.webp)
-
-  ![](/static/blog/assets/Breana_Tate_24c1d03bf2_Z1NRigS.webp)
-
-arrow\_back
+  [read_more
+  2 posts](https://developer.android.com/blog/authors/breana-tate) [read_more
+  2 posts](https://developer.android.com/blog/authors/breana-tate) ![](https://developer.android.com/static/blog/assets/Breana_Tate_24c1d03bf2_Z1NRigS.webp) ![](https://developer.android.com/static/blog/assets/Breana_Tate_24c1d03bf2_Z1NRigS.webp)
+<button class="adb--button adb--standard adb--outlined adb--disabled adb--global-hover-button astro-vnzlvqnm" disabled=""> arrow_back </button>
 
 #### Page 1
 
 ###### of 10
 
-[arrow\_forward](/blog/authors/2)
+[arrow_forward](https://developer.android.com/blog/authors/2)
 
 # Stay in the loop
 
+
 Get the latest Android development insights delivered to your inbox
 weekly.
-
 [mail
-Subscribe](/subscribe)
-
-![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)

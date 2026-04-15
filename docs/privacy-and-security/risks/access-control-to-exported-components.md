@@ -116,7 +116,7 @@ beyond, this attribute is set to `false`by default.
 
     <activity
         android:name=".MyActivity"
-        android:exporte>d="false"/
+        android:exported="false"/>
 
 ### Apply signature-based permissions
 
@@ -129,9 +129,9 @@ custom permissions do consider the [corresponding security guidelines](https://d
 ### Xml
 
     <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-        package="com>.exam<ple.myapp"
-        permission android:name="my_custom_permission_name"
-                    android>:protectionLevel="signature" /
+        package="com.example.myapp">
+        <permission android:name="my_custom_permission_name"
+                    android:protectionLevel="signature" />
 
 ### Single-task endpoints
 

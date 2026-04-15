@@ -161,9 +161,9 @@ Android Automotive OS:
     <application>
         ...
         <meta-data android:name="com.android.automotive"
-            android:resource="@xml/automo>tive_app_<desc"/
-    >    ...
-    /application
+            android:resource="@xml/automotive_app_desc"/>
+        ...
+    </application>
 
 This manifest entry refers to an XML file that declares the automotive
 capabilities that your app supports.
@@ -173,8 +173,8 @@ add an XML file named `automotive_app_desc.xml` to the `res/xml/` directory in
 your Android Automotive OS module. This file should include the following content:
 
     <automotiveApp>
-        <uses name="templ>a<te"/
-    /aut>omotiveApp
+        <uses name="template"/>
+    </automotiveApp>
 
 > [!NOTE]
 > **Note:** Don't include any references to the `com.google.android.gms.car.application` attribute that is required for Android Auto in your Android Automotive OS app.
@@ -200,17 +200,17 @@ follows:
     android:exported="true"
     android:theme="@android:style/Theme.DeviceDefault.NoActionBar"
     android:name="androidx.car.app.activity.CarAppActivity"
-    android:launchMode=&quot;singleTask"
-<    android:label="<;Your app name">
+    android:launchMode="singleTask"
+    android:label="Your app name">
 
-    intent-filter>
-        acti<on android:name="android.intent.action.MAIN" />
-   <     category android<:name="android.intent.category.LAUNCHER" />
-    /intent-fi<lter>
+    <intent-filter>
+        <action android:name="android.intent.action.MAIN" />
+        <category android:name="android.intent.category.LAUNCHER" />
+    </intent-filter>
 
-    meta-data android:name="distractionOptimized" android:value="true" />
+    <meta-data android:name="distractionOptimized" android:value="true" />
 
-/activity>
+</activity>
 ```
 
 - `android:name` is set to the fully-qualified class name of the `CarAppActivity` class from the `app-automotive` artifact.
@@ -234,26 +234,26 @@ snippet:
     android:exported="true"
     android:theme="@android:style/Theme.DeviceDefault.NoActionBar"
     android:name="androidx.car.app.activity.CarAppActivity"
-    android:launchMode=&quot;singleTask"
-<    android:label="<;Your app name">
+    android:launchMode="singleTask"
+    android:label="Your app name">
 
-    intent-filter>
-        acti<on android:name="android.intent.action.MAIN" />
-       \<category android:name="android.intent.category.LAUNCHER" </>
-        !-- Include the category below ONLY for navigation< apps -->
-        <category android:name="android.intent.category.APP_MAPS" /&<gt;
-    /intent-filter&<gt;
+    <intent-filter>
+        <action android:name="android.intent.action.MAIN" />
+        <category android:name="android.intent.category.LAUNCHER" />
+        <!-- Include the category below ONLY for navigation apps -->
+        <category android:name="android.intent.category.APP_MAPS" />
+    </intent-filter>
 
-    !-- Include the intent-filter below ONLY for navigation a<pps -->
-    intent-filter>
-        action android:name="<androidx.car.app.action.NAVIGATE&<quot; />
-        c<ategory android:name="android.intent.category.DEFAULT" />
-<        data android:scheme="geo" />
-    /intent-filter>
+    <!-- Include the intent-filter below ONLY for navigation apps -->
+    <intent-filter>
+        <action android:name="androidx.car.app.action.NAVIGATE" />
+        <category android:name="android.intent.category.DEFAULT" />
+        <data android:scheme="geo" />
+    </intent-filter>
 
-    meta-data android:name="distractionOptimized" android:value="true" />
+    <meta-data android:name="distractionOptimized" android:value="true" />
 
-/activity>
+</activity>
 ```
 
 - The additional [`android.intent.category.APP_MAPS`](https://developer.android.com/reference/android/content/Intent#CATEGORY_APP_MAPS) category informs the system that your app is able to show the user's location.
@@ -284,18 +284,22 @@ both when your car app's `Session` is being created during
 [`onCreateScreen()`](https://developer.android.com/reference/androidx/car/app/Session#onCreateScreen(android.content.Intent)) as well as when it receives a new intent during
 [`onNewIntent()`](https://developer.android.com/reference/androidx/car/app/Session#onNewIntent(android.content.Intent)):
 
-    class MySession : Session() {
 
-      ...
-
-      override fun onCreateScreen(intent: Intent) : Screen {
+```kotlin
+class MySession : Session() {
+    // ...
+    override fun onCreateScreen(intent: Intent): Screen {
         // Handle the intent when the app is being started for the first time
-      }
-
-      override fun onNewIntent(intent: Intent) {
-        // Handle the intent when the app is already running
-      }
+        return MyStartScreen(carContext)
     }
+
+    override fun onNewIntent(intent: Intent) {
+        // Handle the intent when the app is already running
+    }
+}
+```
+
+<br />
 
 > [!TIP]
 > **Tip:** You can use [`ScreenManager`](https://developer.android.com/reference/androidx/car/app/ScreenManager) to modify the screen stack when handling an intent. For example, it can be used to pre-seed a back stack when an intent opens to a `Screen` that would normally require the user to navigate through other screens first.
@@ -307,20 +311,20 @@ OS app:
 
 ### Package names
 
-Because you distribute a separate Android Package Kit (APK) for Android Automotive OS, you can
-reuse the package name from your mobile app or create a new package
-name. If you use a different package name, your app has two separate Play Store
-listings. If you reuse your current package name, your app has a
+Because you distribute a separate Android Package Kit (APK) for Android
+Automotive OS, you can reuse the package name from your mobile app or create a
+new package name. If you use a different package name, your app has two separate
+Play Store listings. If you reuse your current package name, your app has a
 single listing across both platforms.
 
-This is predominantly a business decision. For example, if you have one team working on
-the mobile app, and a separate team working on your Android Automotive
-OS app, then it might make sense to have separate package names and let each
-team manage its own Play Store listing. There is not a large difference in the
-technical effort required to use either approach.
+This is predominantly a business decision. For example, if you have one team
+working on the mobile app, and a separate team working on your Android
+Automotive OS app, then it might make sense to have separate package names and
+let each team manage its own Play Store listing. There is not a large difference
+in the technical effort required to use either approach.
 
-The following table summarizes some other key differences between keeping your current package
-name or using a new package name:
+The following table summarizes some other key differences between keeping your
+current package name or using a new package name:
 
 | Feature | Same package name | New package name |
 |---|---|---|
@@ -333,16 +337,17 @@ name or using a new package name:
 
 ### Offline content
 
-If applicable, implement offline support in your app. Cars with Android Automotive
-OS are expected to have their own data connectivity, meaning a
-data plan is included in the cost of the vehicle or paid for by the user. However,
-cars are also expected to have more variable connectivity than mobile devices.
+If applicable, implement offline support in your app. Cars with Android
+Automotive OS are expected to have their own data connectivity, meaning a
+data plan is included in the cost of the vehicle or paid for by the user.
+However, cars are also expected to have more variable connectivity than mobile
+devices.
 
 Here are a few things to keep in mind as you consider your offline support
 strategy:
 
 - The best time to download content is while your app is in use.
-- Do not assume that WiFi is available. A car might never come into WiFi range, or the Original Equipment Manufacturer (OEM) might have disabled WiFi in favor of a cellular network.
+- Don't assume that WiFi is available. A car might never come into WiFi range, or the Original Equipment Manufacturer (OEM) might have disabled WiFi in favor of a mobile network.
 - While it is okay to smartly cache content you expect users to use, we recommend that you let the user change this behavior.
 - The disk space on cars varies, so give users a way to delete offline content.
 

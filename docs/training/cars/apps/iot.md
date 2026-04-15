@@ -40,17 +40,25 @@ For IOT apps, the [`GridTemplate`](https://developer.android.com/reference/andro
 is a great choice for displaying a list of devices and allowing the user to
 interact with them, as shown in the following sample:
 
-### Kotlin
 
 ```kotlin
 val listBuilder = ItemList.Builder()
+val headerBuilder = Header.Builder()
+val garageIcon = IconCompat.createWithResource(
+    carContext,
+    R.drawable.ic_garage
+)
 
 listBuilder.addItem(
     GridItem.Builder()
         .setTitle("Garage door")
-        .setImage(...)
-        // Handle user interactions
-        .setOnClickListener {...}
+        .setImage(
+            CarIcon.Builder(garageIcon).build(),
+            GridItem.IMAGE_TYPE_ICON
+        )
+        .setOnClickListener {
+            // Handle user interactions
+        }
         .build()
 )
 
@@ -64,38 +72,12 @@ listBuilder.addItem(
 )
 
 return GridTemplate.Builder()
-    .setTitle("Devices")
-    .setHeaderAction(Action.APP_ICON)
+    .setHeader(
+        headerBuilder.setTitle("Devices")
+            .setStartHeaderAction(Action.APP_ICON).build()
+    )
     .setSingleList(listBuilder.build())
     .build()
 ```
 
-### Java
-
-```java
-ItemList.Builder listBuilder = new ItemList.Builder();
-
-listBuilder.addItem(
-    new GridItem.Builder()
-        .setTitle("Garage door")
-        .setImage(...)
-        // Handle user interactions
-        .setOnClickListener(() -> {...})
-        .build()
-);
-
-listBuilder.addItem(
-    new GridItem.Builder()
-        .setTitle("Garage lights")
-        // Show a loading indicator until the status of the device is known
-        // (call invalidate() when the status is known to refresh the screen)
-        .setLoading(true)
-        .build()
-);
-
-return new GridTemplate.Builder()
-    .setTitle("Devices")
-    .setHeaderAction(Action.APP_ICON)
-    .setSingleList(listBuilder.build())
-    .build();
-```
+<br />

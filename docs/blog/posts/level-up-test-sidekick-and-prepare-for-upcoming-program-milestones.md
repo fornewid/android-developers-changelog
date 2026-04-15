@@ -74,6 +74,18 @@ In the meantime, the path to your first program milestone begins today. By prior
 
 ## Continue reading
 
+- 14 Apr 2026 14 Apr 2026 ![](https://developer.android.com/static/blog/assets/Blog_banner_Dark_2000x1000_B_c6418d3a5c_ZbdvH4.webp)
+
+  #### [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs)
+
+  ## [Get ready for Google I/O: Livestream schedule revealed](https://developer.android.com/blog/posts/get-ready-for-google-io-livestream-schedule-revealed)
+
+  [arrow_forward](https://developer.android.com/blog/posts/get-ready-for-google-io-livestream-schedule-revealed) The Google I/O schedule is here!
+
+  ###### 1 min read
+
+  - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
+  - [#Generative AI](https://developer.android.com/blog/topics/generative-ai)
 - 17 Feb 2026 17 Feb 2026 ![](https://developer.android.com/static/blog/assets/O_SVD_DAC_Banner_1600x476_4x1_1_21e5678d22_Z2feGk6.webp)
 
   #### [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs)
@@ -94,17 +106,6 @@ In the meantime, the path to your first program milestone begins today. By prior
 
   ###### [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) •
   2 min read
-
-- [![](https://developer.android.com/static/blog/assets/don_bccb8c3f75_1ufD8A.webp)](https://developer.android.com/blog/authors/don-turner) 01 Dec 2025 01 Dec 2025 ![](https://developer.android.com/static/blog/assets/Spotlightweek_Blog_banner_2_77cf3dc16b_Z1N257A.webp)
-
-  #### [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs)
-
-  ## [Learn about our newest Jetpack Navigation library with the Nav3 Spotlight Week](https://developer.android.com/blog/posts/learn-about-our-newest-jetpack-navigation-library-with-the-nav3-spotlight-week)
-
-  [arrow_forward](https://developer.android.com/blog/posts/learn-about-our-newest-jetpack-navigation-library-with-the-nav3-spotlight-week) Jetpack Navigation 3 is now stable, and using it can help you reduce tech debt, provide better separation of concerns, speed up feature development time, and support new form factors.
-
-  ###### [Don Turner](https://developer.android.com/blog/authors/don-turner) •
-  1 min read
 
 # Stay in the loop
 

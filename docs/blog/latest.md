@@ -7,6 +7,29 @@ source: md.txt
 # The Latest
 
 Stay up to date with the latest announcements, feature rollouts, and updates across Android tools, libraries, and platforms.
+- 14 Apr 2026 14 Apr 2026 ![](https://developer.android.com/static/blog/assets/Blog_banner_Dark_2000x1000_B_c6418d3a5c_ZbdvH4.webp)
+
+  #### [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs)
+
+  ## [Get ready for Google I/O: Livestream schedule revealed](https://developer.android.com/blog/posts/get-ready-for-google-io-livestream-schedule-revealed)
+
+  [arrow_forward](https://developer.android.com/blog/posts/get-ready-for-google-io-livestream-schedule-revealed) The Google I/O schedule is here!
+
+  ###### 1 min read
+
+  - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
+  - [#Generative AI](https://developer.android.com/blog/topics/generative-ai)
+- [![](https://developer.android.com/static/blog/assets/headshot_e042d23f90_2x0LLK.webp)](https://developer.android.com/blog/authors/steven-jenkins) 13 Apr 2026 13 Apr 2026 ![](https://developer.android.com/static/blog/assets/Multi_Device_Interactions_with_Android_Emulator_Strapi_5d6ea711e7_Z1AYEiA.webp)
+
+  #### [Product News](https://developer.android.com/blog/categories/product-news)
+
+  ## [Test Multi-Device Interactions with the Android Emulator](https://developer.android.com/blog/posts/test-multi-device-interactions-with-the-android-emulator)
+
+  [arrow_forward](https://developer.android.com/blog/posts/test-multi-device-interactions-with-the-android-emulator) Testing multi-device interactions is now easier than ever with the Android Emulator.
+
+  ###### [Steven Jenkins](https://developer.android.com/blog/authors/steven-jenkins) •
+  2 min read
+
 - [![](https://developer.android.com/static/blog/assets/matthew_warner_67a99317e4_Z2c1VNu.webp)](https://developer.android.com/blog/authors/matthew-warner) 02 Apr 2026 02 Apr 2026 ![](https://developer.android.com/static/blog/assets/android_studio_gemma4_73370772af_2lUopR.webp)
 
   #### [Product News](https://developer.android.com/blog/categories/product-news)
@@ -213,28 +236,6 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
   ###### [Maru Ahues Bouza](https://developer.android.com/blog/authors/maru-ahues-bouza) •
   3 min read
 
-- [![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](https://developer.android.com/blog/authors/yabin-cui) 10 Mar 2026 10 Mar 2026 ![](https://developer.android.com/static/blog/assets/P_Mguide_a86dec5079_EWlMa.webp)
-
-  #### [Product News](https://developer.android.com/blog/categories/product-news)
-
-  ## [Boosting Android Performance: Introducing AutoFDO for the Kernel](https://developer.android.com/blog/posts/boosting-android-performance-introducing-autofdo-for-the-kernel)
-
-  [arrow_forward](https://developer.android.com/blog/posts/boosting-android-performance-introducing-autofdo-for-the-kernel) Today, we're excited to share how we are bringing Automatic Feedback-Directed Optimization (AutoFDO) to the Android kernel to deliver significant performance wins for users.
-
-  ###### [Yabin Cui](https://developer.android.com/blog/authors/yabin-cui) •
-  4 min read
-
-- [![](https://developer.android.com/static/blog/assets/Mayuri_Khinvasara_Khabya_92848b1e1b_1xSr0w.webp)](https://developer.android.com/blog/authors/mayuri-khabya) 05 Mar 2026 05 Mar 2026 ![](https://developer.android.com/static/blog/assets/meta_Header_2ac893569c_ZLkD4s.webp)
-
-  #### [Case Studies](https://developer.android.com/blog/categories/case-studies)
-
-  ## [Instagram and Facebook deliver instant playback and boost user engagement with Media3 PreloadManager](https://developer.android.com/blog/posts/instagram-and-facebook-deliver-instant-playback-and-boost-user-engagement-with-media3-preload-manager)
-
-  [arrow_forward](https://developer.android.com/blog/posts/instagram-and-facebook-deliver-instant-playback-and-boost-user-engagement-with-media3-preload-manager) In the dynamic world of social media, user attention is won or lost quickly. Meta apps (Facebook and Instagram) are among the world's largest social platforms and serve billions of users globally.
-
-  ###### [Mayuri Khinvasara Khabya](https://developer.android.com/blog/authors/mayuri-khabya) •
-  4 min read
-
 <button class="adb--button adb--standard adb--outlined adb--disabled adb--global-hover-button astro-vnzlvqnm" disabled=""> arrow_back </button>
 
 #### Page 1
@@ -261,6 +262,8 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
 - [#Android 16](https://developer.android.com/blog/topics/android-16)
 - [#Automotive OS](https://developer.android.com/blog/topics/automotive-os)
 - [#beta](https://developer.android.com/blog/topics/beta)
+- [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
+- [#Generative AI](https://developer.android.com/blog/topics/generative-ai)
 - [#authentication](https://developer.android.com/blog/topics/authentication)
 - [#CredentialManager](https://developer.android.com/blog/topics/credential-manager)
 - [#Foldables](https://developer.android.com/blog/topics/foldables)

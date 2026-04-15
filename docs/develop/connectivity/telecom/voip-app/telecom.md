@@ -382,3 +382,78 @@ the lifetime of the call.
                 }.launchIn(this)
             }
         }
+
+## Integrate with the system call log
+
+Core-Telecom allows your application to integrate with the system call log. This
+feature enables calls made or received using your VoIP application to appear in
+the system dialer call history, allowing users to use the dialer to initiate a
+callback.
+
+### Enable call log integration
+
+To enable this feature, your application must register to handle the
+`TelecomManager.ACTION_CALL_BACK` intent in your `AndroidManifest.xml` and
+provide an `Activity` to process the callback. For example, let
+`VoipCallbackActivity` be the activity that handles the callback, then your
+manifest should look like:
+
+#### Register the intent in the manifest
+
+    <activity
+        android:name=".VoipCallbackActivity"
+        android:exported="true">
+        <intent-filter>
+            <action android:name="android.telecom.action.CALL_BACK" />
+        </intent-filter>
+    </activity>
+
+#### Handle the callback intent
+
+When the user initiates a callback from the system dialer, your registered
+activity is launched with the [`TelecomManager.ACTION_CALL_BACK`](https://developer.android.com/reference/android/telecom/TelecomManager#ACTION_CALL_BACK) action.
+The intent contains [`TelecomManager.EXTRA_UUID`](https://developer.android.com/reference/android/telecom/TelecomManager#EXTRA_UUID) provided to your app when
+you originally added the call using `CallsManager`.
+
+The `CallControlScope` method [`getCallId`](https://developer.android.com/reference/androidx/core/telecom/CallControlScope#getCallId()) returns this unique ID for the
+call.
+
+You should save all the information required to start the call identified by the
+UUID inside your app (for example, a list of phone numbers for a group call) so
+you can reconstruct and place the call again when the callback is triggered.
+
+    class VoipCallbackActivity : Activity() {
+
+        override fun onCreate(savedInstanceState: Bundle?) {
+            super.onCreate(savedInstanceState)
+
+            if (intent?.action == TelecomManager.ACTION_CALL_BACK) {
+                val uuidString = intent.getStringExtra(TelecomManager.EXTRA_UUID)
+                if (uuidString != null) {
+                    val uuid = UUID.fromString(uuidString)
+                    
+                    // Retrieve your persisted call info using the UUID
+                    val callData = CallRepository.getCallByUuid(uuid)
+                    
+                    if (callData != null) {
+                        // Place the call again using your app's logic
+                        // ...
+                    }
+                }
+            }
+            finish()
+        }
+    }
+
+### Opt-out of call log integration
+
+By default, calls are logged to the system call log. You can opt-out of this
+feature on a per-call basis by setting the [`isLogged`](https://developer.android.com/reference/androidx/core/telecom/CallAttributesCompat#isLogExcluded()) parameter to `false`
+when creating `CallAttributesCompat`:
+
+    val callAttributes = CallAttributesCompat(
+        displayName = callerName,
+        address = addressUri,
+        direction = CallAttributesCompat.DIRECTION_OUTGOING,
+        isLogExcluded = true // Opt-out of system call logging
+    )

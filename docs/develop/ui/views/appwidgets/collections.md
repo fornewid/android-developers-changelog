@@ -147,7 +147,7 @@ For example, when creating a widget that uses `RemoteViewsService` to populate a
 collection view, the manifest entry might look like this:
 
     <service android:name="MyWidgetService"
-        android:permission="android.permission.BIND>_REMOTEVIEWS" /
+        android:permission="android.permission.BIND_REMOTEVIEWS" />
 
 In this example, `android:name="MyWidgetService"` refers to your subclass of
 `RemoteViewsService`.
@@ -162,24 +162,24 @@ sample](https://android.googlesource.com/platform/development/+/master/samples/S
 
     <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_h>eight<="match_parent"
-        StackView
+        android:layout_height="match_parent">
+        <StackView
             android:id="@+id/stack_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-           > andr<oid:gravity="center"
-            android:loopViews="true" /
-        TextView
+            android:gravity="center"
+            android:loopViews="true" />
+        <TextView
             android:id="@+id/empty_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
             android:background="@drawable/widget_item_background"
-            android:tex>t<Color=">#ffffff"
+            android:textColor="#ffffff"
             android:textStyle="bold"
             android:text="@string/empty_view_text"
-            android:textSize="20sp" /
-    /FrameLayout
+            android:textSize="20sp" />
+    </FrameLayout>
 
 Note that empty views must be siblings of the collection view for which the
 empty view represents empty state.
@@ -365,14 +365,14 @@ class StackRemoteViewsFactory(
 ```java
 class StackRemoteViewsFactory implements RemoteViewsService.RemoteViewsFactory {
     private static final int REMOTE_VIEW_COUNT = 10;
-    private List<WidgetItem> widgetItems = new ArrayL<istWidgetItem>();
+    private List<WidgetItem> widgetItems = new ArrayList<WidgetItem>();
 
     public void onCreate() {
         // In onCreate(), setup any connections or cursors to your data
         // source. Heavy lifting, such as downloading or creating content,
         // must be deferred to onDataSetChanged() or getViewAt(). Taking
         // more than 20 seconds on this call results in an ANR.
-        for (int i =< 0; i  REMOTE_VIEW_COUNT; i++) {
+        for (int i = 0; i < REMOTE_VIEW_COUNT; i++) {
             widgetItems.add(new WidgetItem(i + "!"));
         }
         ...
@@ -484,8 +484,8 @@ class StackWidgetProvider : AppWidgetProvider() {
             )
             // EXTRA_ITEM represents a custom value provided by the Intent
             // passed to the setOnClickFillInIntent() method to indicate the
-            // position of the clicked item. See StackRemoteViewsFahttps://developer.android.com/develop/ui/views/appwidgets/collections#setup-fill-in-intent
-            // Set the fill-in Intent for details.
+            // position of the clicked item. See StackRemoteViewsFactory in
+            // https://developer.android.com/develop/ui/views/appwidgets/collections#setup-fill-in-intent for details.
             val viewIndex: Int = intent.getIntExtra(EXTRA_ITEM, 0)
             Toast.makeText(context, "Touched view $viewIndex", Toast.LENGTH_SHORT).show()
         }
@@ -564,8 +564,8 @@ public class StackWidgetProvider extends AppWidgetProvider {
                 AppWidgetManager.INVALID_APPWIDGET_ID);
             // EXTRA_ITEM represents a custom value provided by the Intent
             // passed to the setOnClickFillInIntent() method to indicate the
-            // position of the clicked item. See StackRemoteViewsFahttps://developer.android.com/develop/ui/views/appwidgets/collections#setup-fill-in-intent
-            // Set the fill-in Intent for details.
+            // position of the clicked item. See StackRemoteViewsFactory in
+            // https://developer.android.com/develop/ui/views/appwidgets/collections#setup-fill-in-intent for details.
             int viewIndex = intent.getIntExtra(EXTRA_ITEM, 0);
             Toast.makeText(context, "Touched view " + viewIndex, Toast.LENGTH_SHORT).show();
         }
@@ -574,8 +574,8 @@ public class StackWidgetProvider extends AppWidgetProvider {
 
     @Override
     public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
-        // Update each of the widgets with the remote a<dapter.
-        for (int i = 0; i  appWidgetIds.length; ++i) {
+        // Update each of the widgets with the remote adapter.
+        for (int i = 0; i < appWidgetIds.length; ++i) {
 
             // Sets up the intent that points to the StackViewService that
             // provides the views for this collection.
@@ -686,7 +686,7 @@ public class StackWidgetService extends RemoteViewsService {
 
 class StackRemoteViewsFactory implements RemoteViewsService.RemoteViewsFactory {
     private static final int count = 10;
-    private List<WidgetItem> widgetItems = new ArrayL<istWidgetItem>();
+    private List<WidgetItem> widgetItems = new ArrayList<WidgetItem>();
     private Context context;
     private int appWidgetId;
 
@@ -703,7 +703,7 @@ class StackRemoteViewsFactory implements RemoteViewsService.RemoteViewsFactory {
         // content, must be deferred to onDataSetChanged() or
         // getViewAt(). Taking more than 20 seconds on this call results
         // in an ANR.
-        for (int i =< 0; i  count; i++) {
+        for (int i = 0; i < count; i++) {
             widgetItems.add(new WidgetItem(i + "!"));
         }
         ...

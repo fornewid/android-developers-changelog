@@ -186,7 +186,9 @@ fun ToastGreetingButton(greeting: String) {
     Button(onClick = {
         Toast.makeText(context, greeting, Toast.LENGTH_SHORT).show()
     }) {
-        Text("Greet"https://github.com/android/snippets/blob/b863a7feef0f7db7d00f637d615fe8bc4f49406b/compose/snippets/src/main/java/com/example/compose/snippets/interop/InteroperabilityAPIsSnippets.kt#L284-L292nippets.kt
+        Text("Greet")
+    }
+}
 ```
 
 <br />

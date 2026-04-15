@@ -4,7 +4,7 @@ url: https://developer.android.com/guide/navigation/navigation-3/animate-destina
 source: md.txt
 ---
 
-[`NavDisplay`](https://developer.android.com/reference/kotlin/androidx/navigation3/ui/package-summary#NavDisplay(kotlin.collections.List,androidx.compose.ui.Modifier,androidx.compose.ui.Alignment,kotlin.Function0,kotlin.collections.List,androidx.navigation3.scene.SceneStrategy,androidx.compose.animation.SharedTransitionScope,androidx.compose.animation.SizeTransform,kotlin.Function1,kotlin.Function1,kotlin.Function2,kotlin.Function1)) provides built-in animation capabilities to create smooth
+[`NavDisplay`](https://developer.android.com/reference/kotlin/androidx/navigation3/ui/NavDisplay.composable) provides built-in animation capabilities to create smooth
 visual transitions as users navigate through your app. You can customize these
 animations globally for the `NavDisplay` or at the [`Scene`](https://developer.android.com/reference/kotlin/androidx/navigation3/scene/Scene) level using
 metadata.
@@ -165,3 +165,5 @@ SharedTransitionLayout {
 ```
 
 <br />
+
+**Figure 2** . Jumpy transition when not passing the `SharedTransitionScope` to `NavDisplay`. **Figure 3** . Smooth transition when passing the `SharedTransitionScope` to `NavDisplay`.

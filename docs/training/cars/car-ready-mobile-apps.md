@@ -37,8 +37,8 @@ built-in, it must [meet Google Play feature requirements](https://developer.andr
 
 #### Dependency on an unavailable Google Play service
 
-If your app has a breaking dependency on a Google Play service that is not
-[available on Cars with Google built-in](https://developer.android.com/training/cars/platforms/automotive-os/google-play/google-services),
+If your app has a breaking dependency on a Google Play services API that is not
+available for [cars with Google built-in](https://developer.android.com/training/cars/platforms/automotive-os/google-play/google-services),
 you'll need to implement an alternative or remove the dependency.
 
 ## Test your app

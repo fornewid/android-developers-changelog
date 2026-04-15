@@ -42,7 +42,7 @@ been optimized for XR.
 - **Make judicious use of elevation**: Apply spatial elevation to temporary components that remain stationary and don't scroll with the content. Avoid elevating large areas to prevent visual discomfort and maintain a balanced visual hierarchy.
 
 Jetpack Compose for XR introduces new components that manage XR enhancements so
-that you don't have to. For example, you can use [`SpatialPopup`](https://developer.android.com/reference/kotlin/androidx/xr/compose/spatial/package-summary#SpatialPopup(androidx.compose.ui.Alignment,androidx.compose.ui.unit.IntOffset,kotlin.Function0,androidx.xr.compose.spatial.SpatialPopupProperties,kotlin.Function0)) and
+that you don't have to. For example, you can use [`SpatialPopup`](https://developer.android.com/reference/kotlin/androidx/xr/compose/spatial/SpatialPopup.composable#SpatialPopup(androidx.compose.ui.Alignment,androidx.compose.ui.unit.IntOffset,kotlin.Function0,androidx.compose.ui.unit.Dp,androidx.compose.ui.window.PopupProperties,kotlin.Function0)) and
 [`SpatialDialog`](https://developer.android.com/reference/kotlin/androidx/xr/compose/spatial/SpatialDialog.composable#SpatialDialog(kotlin.Function0,androidx.xr.compose.spatial.SpatialDialogProperties,kotlin.Function0)) to replace their 2D counterparts. These components appear
 as typical 2D UI when spatial UI isn't available, and they show your app's
 spatial UI when they can. Using them is as straightforward as making a one-line
@@ -182,7 +182,7 @@ interactions.
 
 By default, your app shows with a single panel in Home Space. [Learn how to
 transition between Home Space and Full Space](https://developer.android.com/develop/xr/jetpack-xr-sdk/transition-home-space-to-full-space). To bring that content to Full
-Space, you can use [`SpatialPanel`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/package-summary#SpatialPanel(androidx.xr.compose.subspace.layout.SubspaceModifier,androidx.xr.compose.subspace.layout.SpatialShape,androidx.xr.compose.subspace.DragPolicy,androidx.xr.compose.subspace.ResizePolicy,kotlin.Function0)).
+Space, you can use [`SpatialPanel`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/SpatialPanel.composable#SpatialPanel(androidx.xr.compose.subspace.layout.SubspaceModifier,androidx.xr.compose.subspace.layout.SpatialShape,androidx.xr.compose.subspace.DragPolicy,androidx.xr.compose.subspace.ResizePolicy,androidx.xr.compose.subspace.layout.InteractionPolicy,kotlin.Function0)).
 
 Here's an example of how you might do this.
 
@@ -211,7 +211,7 @@ your 2D UI to multiple spatial panels. If you choose to use multiple panels for
 your app's UI, you can position and rotate panels (analogous to laying out your
 UI in 2D). You'll start with a clear design vision for what you want to
 accomplish, and then you can use Spatial UI Layout APIs ([`SpatialBox`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/SpatialBox.composable#SpatialBox(androidx.xr.compose.subspace.layout.SubspaceModifier,androidx.xr.compose.subspace.layout.SpatialAlignment,kotlin.Boolean,kotlin.Function1)),
-[`SpatialRow`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/package-summary#SpatialRow(androidx.xr.compose.subspace.layout.SubspaceModifier,androidx.xr.compose.subspace.layout.SpatialAlignment,kotlin.Function1)), [`SpatialColumn`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/package-summary#SpatialColumn(androidx.xr.compose.subspace.layout.SubspaceModifier,androidx.xr.compose.subspace.layout.SpatialAlignment,kotlin.Function1)), [`SpatialLayoutSpacer`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/SpatialLayoutSpacer.composable#SpatialLayoutSpacer(androidx.xr.compose.subspace.layout.SubspaceModifier)),
+[`SpatialRow`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/SpatialRow.composable#SpatialRow(androidx.xr.compose.subspace.layout.SubspaceModifier,androidx.xr.compose.subspace.layout.SpatialAlignment.Vertical,androidx.xr.compose.subspace.layout.SpatialAlignment.Depth,androidx.xr.compose.subspace.layout.SpatialArrangement.Horizontal,kotlin.Function1)), [`SpatialColumn`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/SpatialColumn.composable#SpatialColumn(androidx.xr.compose.subspace.layout.SubspaceModifier,androidx.xr.compose.subspace.layout.SpatialAlignment,androidx.xr.compose.subspace.layout.SpatialArrangement.Vertical,kotlin.Function1)), [`SpatialLayoutSpacer`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/SpatialLayoutSpacer.composable#SpatialLayoutSpacer(androidx.xr.compose.subspace.layout.SubspaceModifier)),
 [`SpatialAlignment`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/layout/SpatialAlignment)) and subspace modifiers to position and rotate panels.
 There are some key patterns that you'll want to avoid as you implement multiple
 panels.

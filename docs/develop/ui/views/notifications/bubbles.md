@@ -4,34 +4,41 @@ url: https://developer.android.com/develop/ui/views/notifications/bubbles
 source: md.txt
 ---
 
-Bubbles make it easier for users to see and participate in conversations.
+Notification bubbles make it easier for users to see and participate in
+conversations.
 **Figure 1.** A chat bubble.
 
-Bubbles are built into the notification system. They float on top of other app
-content and follow the user wherever they go. Users can expand bubbles to reveal
+They float on top of other app content and users can expand bubbles to reveal
 and interact with the app content, and they can collapse them when they're not
 using them.
 
 When the device is locked, or the always-on-display is active, bubbles appear as
 notifications normally do.
 
-Bubbles are an opt-out feature. When an app presents its first bubble, a
-permission dialog offers two choices:
+Notification bubbles are enabled by the user. They can do this by tapping on
+the bubble button on notifications that support bubbles. This allows that
+specific chat to always bubble. In settings, users can adjust which chats
+they've bubbled or modify the settings for the overall app.
 
-- Block all bubbles from your app. Notifications aren't blocked, but they never appear as bubbles.
-- Allow all bubbles from your app. All notifications sent with `BubbleMetaData` appear as bubbles.
+Users can do the following:
 
-## The notification Bubble API
+- Block all notification bubbles from your app. Notifications aren't blocked, but they never appear as bubbles.
+- Allow selected notification bubbles from your app. Notifications bubble using the bubble button are "selected".
+- Allow all notification bubbles from your app. All notifications sent with `BubbleMetadata` appear as bubbles.
 
-Bubbles are created using the notification API, so send your notification as
-normal. If you want your notification to display as a bubble, attach extra data
-to it.
+> [!NOTE]
+> **Note:** As of Android 17, bubbles has been formalized as a proper windowing mode, like split screen. This allows users to add any app to the bubble UI along with notification bubbles.
 
-The expanded view of a bubble is created from an activity that you choose.
-Configure the activity to display properly as a bubble. The activity must be
+## The Notification Bubble API
+
+Notification bubbles are created using the notification API. If you want your
+notification to appear as a bubble, attach extra data to it.
+
+The expanded view of the bubble is created from an activity that you choose.
+Configure the activity to appear properly as a bubble. The activity must be
 [resizeable](https://developer.android.com/guide/topics/manifest/activity-element#resizeableActivity) and
 [embedded](https://developer.android.com/guide/topics/manifest/activity-element#embedded). If it lacks
-either of these requirements, it displays as a notification instead.
+either of these requirements, the system displays it as a notification instead.
 
 The following code demonstrates how to implement a bubble:
 
@@ -52,7 +59,7 @@ notifications aren't shown as bubbles unless you explicitly set
 set this value, as the system automatically sets all conversations'
 `documentLaunchMode` to `"always"`.
 
-To send a bubble, follow these steps:
+To send a notification bubble, follow these steps:
 
 1. [Create a notification](https://developer.android.com/training/notify-user/build-notification) as you normally do.
 2. Call [`BubbleMetadata.Builder(PendingIntent,

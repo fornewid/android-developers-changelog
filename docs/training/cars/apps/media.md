@@ -4,7 +4,7 @@ url: https://developer.android.com/training/cars/apps/media
 source: md.txt
 ---
 
-Templated media apps are in beta At this time, anyone can publish templated media apps to internal testing and closed testing tracks on the Play Store. Publishing to open tracks and production tracks will be permitted at a later date. [Nominate yourself to be an early access partner →](https://goo.gle/Media-Comms-EAP) ![](https://developer.android.com/static/images/picto-icons/test-tube-2.svg)
+Templated media apps are in beta At this time, anyone can publish templated media apps to internal testing and closed testing tracks on the Google Play Store. Publishing to open tracks and production tracks will be permitted at a later date. [Nominate yourself to be an early access partner →](https://goo.gle/Media-Comms-EAP) ![](https://developer.android.com/static/images/picto-icons/test-tube-2.svg)
 
 Media apps using the Car App Library templates can customize their media
 browsing and playback experience while ensuring the experience is

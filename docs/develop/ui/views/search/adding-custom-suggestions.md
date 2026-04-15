@@ -79,12 +79,12 @@ To add support for custom suggestions, add the
 as shown in the following example:
 
 ```xml
-<?xml version="1.0" encodin>g<="utf-8"?
-searchable xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<searchable xmlns:android="http://schemas.android.com/apk/res/android"
     android:label="@string/app_label"
-   android:hint="@string/search_hint"
-    android:searchSuggest>A<uthority=&q>uot;com.example.MyCustomSuggestionProvider"
-/searchable
+    android:hint="@string/search_hint"
+    android:searchSuggestAuthority="com.example.MyCustomSuggestionProvider">
+</searchable>
 ```
 
 You might need additional attributes, depending on the type of intent you
@@ -180,14 +180,14 @@ For example, here's how you might form the
 search statement:
 
 ```xml
-<?xml version="1.0" encodin>g<="utf-8"?
-searchable xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<searchable xmlns:android="http://schemas.android.com/apk/res/android"
     android:label="@string/app_label"
     android:hint="@string/search_hint"
     android:searchSuggestAuthority="com.example.MyCustomSuggestionProvider"
-    android:searchSuggestIntentAction="android.inte>n<t.action.VI>EW"
-    android:searchSuggestSelection="word MATCH ?"
-/searchable
+    android:searchSuggestIntentAction="android.intent.action.VIEW"
+    android:searchSuggestSelection="word MATCH ?">
+</searchable>
 ```
 
 With this configuration, your `query()` method delivers the
@@ -335,13 +335,13 @@ you can define the action in two ways:
 - Use the `android:searchSuggestIntentAction` attribute of your searchable configuration file to define the action for all suggestions, as shown in the following example:
 
   ```xml
-  <?xml version="1.0" encoding=<"utf-8"?>
-  searchable xmlns:android="http://schemas.android.com/apk/res/android"
+  <?xml version="1.0" encoding="utf-8"?>
+  <searchable xmlns:android="http://schemas.android.com/apk/res/android"
       android:label="@string/app_label"
       android:hint="@string/search_hint"
       android:searchSuggestAuthority="com.example.MyCustomSuggestionProvider"
-      an<droid:searchSuggestIntentAction="android.intent.action.VIEW" >
-  /searchable>
+      android:searchSuggestIntentAction="android.intent.action.VIEW" >
+  </searchable>
   ```
 - Use the `SUGGEST_COLUMN_INTENT_ACTION` column to define the action for individual suggestions. To do this, add the `SUGGEST_COLUMN_INTENT_ACTION` column to your suggestions table and, for each suggestion, place in it the action to use---such as `"android.intent.action.VIEW"`.
 
@@ -391,14 +391,14 @@ You can define the data included with the intent in two ways:
   configuration:
 
   ```xml
-    <?xml version="1.0" encoding=&q<uot;utf-8"?>
-    searchable xmlns:android="http://schemas.android.com/apk/res/android"
+    <?xml version="1.0" encoding="utf-8"?>
+    <searchable xmlns:android="http://schemas.android.com/apk/res/android"
         android:label="@string/app_label"
         android:hint="@string/search_hint"
         android:searchSuggestAuthority="com.example.MyCustomSuggestionProvider"
-        android:searchSuggestIntentAction="android.intent.action.VIEW";
-     <   android:searchSuggestIntentData="content://com.example/datatable" >
-    /searchable>
+        android:searchSuggestIntentAction="android.intent.action.VIEW"
+        android:searchSuggestIntentData="content://com.example/datatable" >
+    </searchable>
     
   ```
 
@@ -503,10 +503,10 @@ example:
 <provider android:name="MySuggestionProvider"
           android:authorities="com.example.MyCustomSuggestionProvider"
           android:readPermission="com.example.provider.READ_MY_DATA"
-          android:writePermission=">com<.example.provider.WRITE_MY_DATA"
-  path-permission android:pathPrefix="/search_suggest_query"
-                   android:r>e<adPermiss>ion="android.permission.GLOBAL_SEARCH" /
-/provider
+          android:writePermission="com.example.provider.WRITE_MY_DATA">
+  <path-permission android:pathPrefix="/search_suggest_query"
+                   android:readPermission="android.permission.GLOBAL_SEARCH" />
+</provider>
 ```
 
 In this example, the provider restricts read and write access to the content.
@@ -536,15 +536,15 @@ attribute to your searchable configuration, as shown in the following
 example:
 
 ```xml
-<?xml version="1.0" encoding=<"utf-8"?>
-searchable xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<searchable xmlns:android="http://schemas.android.com/apk/res/android"
     android:label="@string/app_label"
     android:hint="@string/search_hint"
     android:searchSuggestAuthority="com.example.MyCustomSuggestionProvider"
     android:searchSuggestIntentAction="android.intent.action.VIEW"
-    android:includeInGlobalSearch=&qu<ot;true"
+    android:includeInGlobalSearch="true"
     android:searchSettingsDescription="@string/search_description" >
-/searchable>
+</searchable>
 ```
 
 Make the string for `android:searchSettingsDescription` as concise

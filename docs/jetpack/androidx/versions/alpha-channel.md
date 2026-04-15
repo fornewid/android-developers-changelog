@@ -16,6 +16,27 @@ to 2018.
 To view the current versions for every component,
 see the [versions page](https://developer.android.com/jetpack/androidx/versions).
 
+### April 8, 2026
+
+- [Appcompat Version 1.8.0-alpha01](https://developer.android.com/jetpack/androidx/releases/appcompat#1.8.0-alpha01)
+- [Compose Material 3 Version 1.5.0-alpha17](https://developer.android.com/jetpack/androidx/releases/compose-material3#1.5.0-alpha17)
+- [Compose Material3 Adaptive Version 1.3.0-alpha10](https://developer.android.com/jetpack/androidx/releases/compose-material3-adaptive#1.3.0-alpha10)
+- [Compose Remote Version 1.0.0-alpha08](https://developer.android.com/jetpack/androidx/releases/compose-remote#1.0.0-alpha08)
+- [Core Core-ktx Core-testing Version 1.19.0-alpha01](https://developer.android.com/jetpack/androidx/releases/core#1.19.0-alpha01)
+- [Wear Wear-core Version 1.0.0-alpha07](https://developer.android.com/jetpack/androidx/releases/glance-wear#1.0.0-alpha07)
+- [Lint-gradle Version 1.0.0-alpha06](https://developer.android.com/jetpack/androidx/releases/lint#1.0.0-alpha06)
+- [Media Version 1.8.0-alpha01](https://developer.android.com/jetpack/androidx/releases/media#media-1.8.0-alpha01)
+- [Navigation3 Version 1.2.0-alpha01](https://developer.android.com/jetpack/androidx/releases/navigation3#1.2.0-alpha01)
+- [Pdf Version 1.0.0-alpha17](https://developer.android.com/jetpack/androidx/releases/pdf#1.0.0-alpha17)
+- [Room3 Version 3.0.0-alpha03](https://developer.android.com/jetpack/androidx/releases/room3#3.0.0-alpha03)
+- [Sqlite Version 2.7.0-alpha03](https://developer.android.com/jetpack/androidx/releases/sqlite#2.7.0-alpha03)
+- [Text-vertical Version 1.0.0-alpha04](https://developer.android.com/jetpack/androidx/releases/text-vertical#1.0.0-alpha04)
+- [Tracing Version 2.0.0-alpha05](https://developer.android.com/jetpack/androidx/releases/tracing#2.0.0-alpha05)
+- [Wear-core Version 1.1.0-alpha02](https://developer.android.com/jetpack/androidx/releases/wear#wear-core-1.1.0-alpha02)
+- [Wear Compose Version 1.7.0-alpha01](https://developer.android.com/jetpack/androidx/releases/wear-compose#1.7.0-alpha01)
+- [Wear Compose Remote Version 1.0.0-alpha02](https://developer.android.com/jetpack/androidx/releases/wear-compose-remote#remote-material3-1.0.0-alpha02)
+- [Xr Glimmer Version 1.0.0-alpha10](https://developer.android.com/jetpack/androidx/releases/xr-glimmer#1.0.0-alpha10)
+
 ### March 25, 2026
 
 - [AppSearch Version 1.2.0-alpha01](https://developer.android.com/jetpack/androidx/releases/appsearch#1.2.0-alpha01)

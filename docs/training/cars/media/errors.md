@@ -4,7 +4,7 @@ url: https://developer.android.com/training/cars/media/errors
 source: md.txt
 ---
 
-Android Auto and Android Automotive (AAOS) set the playback state to
+Android Auto and Android Automotive OS (AAOS) set the playback state to
 `STATE_ERROR` and provide a user-facing, localized error message. The apps can
 then display the message to the user.
 
