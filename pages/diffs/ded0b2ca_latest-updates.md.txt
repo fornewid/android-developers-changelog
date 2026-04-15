@@ -1,0 +1,237 @@
+diff --git a/docs/latest-updates.md b/docs/latest-updates.md
+index 33c9c4d7..6bbf5fa7 100644
+--- a/docs/latest-updates.md
++++ b/docs/latest-updates.md
+@@ -17,110 +17,116 @@ The latest updated popular libraries. [See all Jetpack library updates](https://
+ 
+ - stable
+ 
+-  ### camera
++  ### compose
+ 
+-  February 25, 2026 <button class="devsite-dialog-button button button-white" data-modal-dialog-id="camera-updates-dialog"> Maven group versions → </button>
++  April 8, 2026 <button class="devsite-dialog-button button button-white" data-modal-dialog-id="compose-updates-dialog"> Maven group versions → </button>
+ - stable
+ 
+-  ### compose
++  ### camera
+ 
+-  February 25, 2026 <button class="devsite-dialog-button button button-white" data-modal-dialog-id="compose-updates-dialog"> Maven group versions → </button>
+-- rc
++  March 25, 2026 <button class="devsite-dialog-button button button-white" data-modal-dialog-id="camera-updates-dialog"> Maven group versions → </button>
++- alpha
+ 
+-  ### [activity](https://developer.android.com/jetpack/androidx/releases/activity#1.13.0-rc01)
++  ### [appcompat](https://developer.android.com/jetpack/androidx/releases/appcompat#1.8.0-alpha01)
+ 
+-  February 25, 2026  
+-  1.13.0
++  April 8, 2026  
++  1.8.0
+ - alpha
+ 
+-  ### [lifecycle](https://developer.android.com/jetpack/androidx/releases/lifecycle#2.11.0-alpha01)
++  ### [core](https://developer.android.com/jetpack/androidx/releases/core#1.19.0-alpha01)
+ 
+-  February 25, 2026  
+-  2.11.0
+-- alpha
++  April 8, 2026  
++  1.19.0
++- rc
+ 
+-  ### [navigation3](https://developer.android.com/jetpack/androidx/releases/navigation3#1.1.0-alpha05)
++  ### [core uwb](https://developer.android.com/jetpack/androidx/releases/core-uwb#1.0.0-rc01)
+ 
+-  February 25, 2026  
+-  1.1.0
++  April 8, 2026  
++  1.0.0
+ - alpha
+ 
+-  ### [navigationevent](https://developer.android.com/jetpack/androidx/releases/navigationevent#1.1.0-alpha01)
++  ### [navigation3](https://developer.android.com/jetpack/androidx/releases/navigation3#1.2.0-alpha01)
++
++  April 8, 2026  
++  1.2.0
++- stable
++
++  ### [navigation3](https://developer.android.com/jetpack/androidx/releases/navigation3#1.1.0)
+ 
+-  February 25, 2026  
++  April 8, 2026  
+   1.1.0
+-- alpha
++- rc
+ 
+-  ### [xr arcore](https://developer.android.com/jetpack/androidx/releases/xr-arcore#1.0.0-alpha11)
++  ### [navigationevent](https://developer.android.com/jetpack/androidx/releases/navigationevent#1.1.0-rc01)
+ 
+-  February 25, 2026  
+-  1.0.0
+-- alpha
++  April 8, 2026  
++  1.1.0
++- beta
+ 
+-  ### [xr compose](https://developer.android.com/jetpack/androidx/releases/xr-compose#1.0.0-alpha11)
++  ### [paging](https://developer.android.com/jetpack/androidx/releases/paging#3.5.0-beta01)
+ 
+-  February 25, 2026  
+-  1.0.0
++  April 8, 2026  
++  3.5.0
+ - alpha
+ 
+-  ### [xr compose material3](https://developer.android.com/jetpack/androidx/releases/xr-compose-material3#1.0.0-alpha15)
++  ### [room3](https://developer.android.com/jetpack/androidx/releases/room3#3.0.0-alpha03)
+ 
+-  February 25, 2026  
+-  1.0.0
++  April 8, 2026  
++  3.0.0
+ - alpha
+ 
+-  ### [xr glimmer](https://developer.android.com/jetpack/androidx/releases/xr-glimmer#1.0.0-alpha07)
++  ### [xr glimmer](https://developer.android.com/jetpack/androidx/releases/xr-glimmer#1.0.0-alpha10)
+ 
+-  February 25, 2026  
++  April 8, 2026  
+   1.0.0
+-- alpha
++- stable
+ 
+-  ### [xr projected](https://developer.android.com/jetpack/androidx/releases/xr-projected#1.0.0-alpha05)
++  ### [media3](https://developer.android.com/jetpack/androidx/releases/media3#1.10.0)
+ 
+-  February 25, 2026  
+-  1.0.0
+-- alpha
++  March 26, 2026  
++  1.10.0
++- rc
+ 
+-  ### [xr runtime](https://developer.android.com/jetpack/androidx/releases/xr-runtime#1.0.0-alpha11)
++  ### [media3](https://developer.android.com/jetpack/androidx/releases/media3#1.10.0-rc03)
+ 
+-  February 25, 2026  
+-  1.0.0
++  March 26, 2026  
++  1.10.0
+ - alpha
+ 
+-  ### [xr scenecore](https://developer.android.com/jetpack/androidx/releases/xr-scenecore#1.0.0-alpha12)
++  ### [appsearch](https://developer.android.com/jetpack/androidx/releases/appsearch#1.2.0-alpha01)
+ 
+-  February 25, 2026  
+-  1.0.0
+-- beta
++  March 25, 2026  
++  1.2.0
++- stable
+ 
+-  ### [media3](https://developer.android.com/jetpack/androidx/releases/media3#1.10.0-beta01)
++  ### [work](https://developer.android.com/jetpack/androidx/releases/work#2.11.2)
+ 
+-  February 25, 2026  
+-  1.10.0
++  March 25, 2026  
++  2.11.2
+ - stable
+ 
+-  ### [activity](https://developer.android.com/jetpack/androidx/releases/activity#1.12.4)
++  ### [activity](https://developer.android.com/jetpack/androidx/releases/activity#1.13.0)
+ 
+-  February 11, 2026  
+-  1.12.4
++  March 11, 2026  
++  1.13.0
+ - stable
+ 
+-  ### [navigation3](https://developer.android.com/jetpack/androidx/releases/navigation3#1.0.1)
++  ### [collection](https://developer.android.com/jetpack/androidx/releases/collection#1.6.0)
+ 
+-  February 11, 2026  
+-  1.0.1
++  March 11, 2026  
++  1.6.0
+ - stable
+ 
+-  ### [paging](https://developer.android.com/jetpack/androidx/releases/paging#3.4.1)
++  ### [core](https://developer.android.com/jetpack/androidx/releases/core#1.18.0)
+ 
+-  February 11, 2026  
+-  3.4.1
++  March 11, 2026  
++  1.18.0
+ - stable
+ 
+-  ### [media3](https://developer.android.com/jetpack/androidx/releases/media3#1.9.2)
++  ### [paging](https://developer.android.com/jetpack/androidx/releases/paging#3.4.2)
+ 
+-  February 6, 2026  
+-  1.9.2
++  March 11, 2026  
++  3.4.2
+ - stable
+ 
+   ### [navigation](https://developer.android.com/jetpack/androidx/releases/navigation#2.9.7)
+@@ -135,28 +141,10 @@ The latest updated popular libraries. [See all Jetpack library updates](https://
+   1.0.2
+ - stable
+ 
+-  ### [work](https://developer.android.com/jetpack/androidx/releases/work#2.11.1)
+-
+-  January 28, 2026  
+-  2.11.1
+-- stable
+-
+   ### [lifecycle](https://developer.android.com/jetpack/androidx/releases/lifecycle#2.10.0)
+ 
+   November 19, 2025  
+   2.10.0
+-- stable
+-
+-  ### [room](https://developer.android.com/jetpack/androidx/releases/room#2.8.4)
+-
+-  November 19, 2025  
+-  2.8.4
+-- stable
+-
+-  ### [benchmark](https://developer.android.com/jetpack/androidx/releases/benchmark#1.4.1)
+-
+-  September 10, 2025  
+-  1.4.1
+ 
+ ## ![](https://developer.android.com/static/images/logos/android-studio.svg) Android Studio
+ 
+@@ -190,29 +178,6 @@ SEPTEMBER 3, 2024 Android 15 continues our mission of building a private and sec
+ 
+ The latest version of Wear OS includes location-based time zone detection and refined experiences for kids. Test your app using the official emulator in Android Studio.
+ 
+-## ![](https://developer.android.com/static/images/picto-icons/flask.svg) Experimental
+-
+-New features and APIs to try and give us feedback [See all Experimental features](http://developer.android.com/latest-updates/experimental) Preview
+-
+-### [Android XR Developer Preview](http://developer.android.com/xr)
+-
+-December 12, 2024 Build experiences that push boundaries and transform how people create, explore, and enjoy entertainment, powered by Android XR. Libraries
+-
+-### [Gemini Nano experimental access!](https://android-developers.googleblog.com/2024/10/gemini-nano-experimental-access-available-on-android.html)
+-
+-October 1, 2024 Available in Google AI Edge SDK  
+-Gemini Nano is Google's most efficient AI model built for on-device tasks on Android. Try Gemini Nano today to experiment with text-to-text prompts on Pixel 9 devices... Platform
+-
+-### [Desktop windowing on Android tablets](https://android-developers.googleblog.com/2024/09/developer-preview-desktop-windowing-on-android-tablets.html)
+-
+-SEPTEMBER 12, 2024 Available in Android 15 QPR1  
+-Get your apps ready for desktop windowing! With this feature, users can run multiple apps simultaneously in individually resizable windows. Now in Developer Preview to test your apps on Android 15 QPR1 Beta 2... Android Studio
+-
+-### [Compose Preview Screenshot Testing tool](http://developer.android.com/studio/preview/compose-screenshot-testing)
+-
+-September 6, 2024 Available in Android Studio Ladybug  
+-The Compose Preview Screenshot Testing tool lets you test your Compose UI and prevent regressions by generating HTML reports that help you visually detect app...
+-
+ ### Compose Maven Group versions
+ 
+ 

@@ -1,0 +1,47 @@
+diff --git a/docs/blog/categories/product-news/7.md b/docs/blog/categories/product-news/7.md
+index 1f46bb8c..dfa8f809 100644
+--- a/docs/blog/categories/product-news/7.md
++++ b/docs/blog/categories/product-news/7.md
+@@ -9,7 +9,16 @@ source: md.txt
+ # Product News
+ 
+ Stay in the loop with the latest updates, feature releases, and behind-the-scenes looks at how we're evolving.
+-- [![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](https://developer.android.com/blog/authors/sam-bright) 15 Dec 2025 15 Dec 2025 ![](https://developer.android.com/static/blog/assets/image_8_8d65429579_7b1Fx.webp)
++- [![](https://developer.android.com/static/blog/assets/Donovan_Mc_Murray_9413499dd8_ZJ6yBx.webp)](https://developer.android.com/blog/authors/donovan-mcmurray) 17 Dec 2025 17 Dec 2025 ![](https://developer.android.com/static/blog/assets/Brighten_Real_Time_0d4c07ef35_U1qMY.webp)
++
++  ## [Brighten Your Real-Time Camera Feeds with Low Light Boost](https://developer.android.com/blog/posts/brighten-your-real-time-camera-feeds-with-low-light-boost)
++
++  [arrow_forward](https://developer.android.com/blog/posts/brighten-your-real-time-camera-feeds-with-low-light-boost) Today, we're diving into Low Light Boost (LLB), a powerful feature designed to brighten real-time camera streams
++
++  ###### [Donovan McMurray](https://developer.android.com/blog/authors/donovan-mcmurray) •
++  7 min read
++
++- [![](https://developer.android.com/static/blog/assets/Sam_Bright_Headshot_2023_ca4877d69c_1VeLdh.webp)](https://developer.android.com/blog/authors/sam-bright) 15 Dec 2025 15 Dec 2025 ![](https://developer.android.com/static/blog/assets/image_8_8d65429579_7b1Fx.webp)
+ 
+   ## [Notes from Google Play: A look back at the tools that powered your growth in 2025](https://developer.android.com/blog/posts/notes-from-google-play-a-look-back-at-the-tools-that-powered-your-growth-in-2025)
+ 
+@@ -27,7 +36,7 @@ Stay in the loop with the latest updates, feature releases, and behind-the-scene
+   ###### [Santiago Aboy Solanes](https://developer.android.com/blog/authors/santiago-solanes), [Vladimír Marko](https://developer.android.com/blog/authors/vladimir-marko) •
+   8 min read
+ 
+-- [![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](https://developer.android.com/blog/authors/bennet-manuel)[![](https://developer.android.com/static/blog/assets/Rob_Clifford_6e7c829a3c_ZKhwgg.webp)](https://developer.android.com/blog/authors/rob-clifford) 11 Dec 2025 11 Dec 2025 ![](https://developer.android.com/static/blog/assets/a11y_rev_37216d57dc_Z211KeA.webp)
++- [![](https://developer.android.com/static/blog/assets/Bennet_Manuel_4be9960838_MydbH.webp)](https://developer.android.com/blog/authors/bennet-manuel)[![](https://developer.android.com/static/blog/assets/Rob_Clifford_6e7c829a3c_ZKhwgg.webp)](https://developer.android.com/blog/authors/rob-clifford) 11 Dec 2025 11 Dec 2025 ![](https://developer.android.com/static/blog/assets/a11y_rev_37216d57dc_Z211KeA.webp)
+ 
+   ## [Enhancing Android security: Stop malware from snooping on your app data](https://developer.android.com/blog/posts/enhancing-android-security-stop-malware-from-snooping-on-your-app-data)
+ 
+@@ -54,15 +63,6 @@ Stay in the loop with the latest updates, feature releases, and behind-the-scene
+   ###### [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) •
+   4 min read
+ 
+-- [![](https://developer.android.com/static/blog/assets/Sandhya_Mohan_30435468a9_1b689e.webp)](https://developer.android.com/blog/authors/sandhya-mohan)[![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](https://developer.android.com/blog/authors/trevor-johns) 04 Dec 2025 04 Dec 2025 ![](https://developer.android.com/static/blog/assets/as_Otter2_96831eedef_Z19EUHu.webp)
+-
+-  ## [Android Studio Otter 2 Feature Drop is stable!](https://developer.android.com/blog/posts/android-studio-otter-2-feature-drop-is-stable)
+-
+-  [arrow_forward](https://developer.android.com/blog/posts/android-studio-otter-2-feature-drop-is-stable) The Android Studio Otter 2 Feature Drop is here to supercharge your productivity.
+-
+-  ###### [Sandhya Mohan](https://developer.android.com/blog/authors/sandhya-mohan), [Trevor Johns](https://developer.android.com/blog/authors/trevor-johns) •
+-  3 min read
+-
+ [arrow_back](https://developer.android.com/blog/categories/product-news/6)
+ 
+ #### Page 7

@@ -1,0 +1,69 @@
+diff --git a/docs/develop/background-work/background-tasks/persistent/how-to/manage-work.md b/docs/develop/background-work/background-tasks/persistent/how-to/manage-work.md
+index fd7f4efc..398b021f 100644
+--- a/docs/develop/background-work/background-tasks/persistent/how-to/manage-work.md
++++ b/docs/develop/background-work/background-tasks/persistent/how-to/manage-work.md
+@@ -127,10 +127,10 @@ WorkManager by its `name`, `id` or by a `tag` associated with it.
+     workManager.getWorkInfoById(syncWorker.id) // ListenableFuture<WorkInfo>
+ 
+     // by name
+-    workManager.getWorkInfosForUniqueWork("sync") // Listen<able<FutureLi>>stWorkInfo
++    workManager.getWorkInfosForUniqueWork("sync") // ListenableFuture<List<WorkInfo>>
+ 
+     // by tag
+-    workManager.getWorkInfosByTag("syncTag")< // <Listenab>>leFutureListWorkInfo
++    workManager.getWorkInfosByTag("syncTag") // ListenableFuture<List<WorkInfo>>
+ 
+ ### Java
+ 
+@@ -138,10 +138,10 @@ WorkManager by its `name`, `id` or by a `tag` associated with it.
+     workManager.getWorkInfoById(syncWorker.id); // ListenableFuture<WorkInfo>
+ 
+     // by name
+-    workManager.getWorkInfosForUniqueWork("sync"); // Listen<able<FutureLi>>stWorkInfo
++    workManager.getWorkInfosForUniqueWork("sync"); // ListenableFuture<List<WorkInfo>>
+ 
+     // by tag
+-    workManager.getWorkInfosByTag("syncTag");< // <Listenab>>leFutureListWorkInfo
++    workManager.getWorkInfosByTag("syncTag"); // ListenableFuture<List<WorkInfo>>
+ 
+ The query returns a
+ [`ListenableFuture`](https://guava.dev/releases/23.1-android/api/docs/com/google/common/util/concurrent/ListenableFuture.html)
+@@ -198,7 +198,7 @@ either "*preProcess* " or "*sync*".
+         )
+        .build()
+ 
+-    v<al w<orkInfos>>: ListenableFutureListWorkInfo = workManager.getWorkInfos(workQuery)
++    val workInfos: ListenableFuture<List<WorkInfo>> = workManager.getWorkInfos(workQuery)
+ 
+ ### Java
+ 
+@@ -207,9 +207,9 @@ either "*preProcess* " or "*sync*".
+            .addStates(Arrays.asList(WorkInfo.State.FAILED, WorkInfo.State.CANCELLED))
+            .addUniqueWorkNames(Arrays.asList("preProcess", "sync")
+          )
+-     <   .<build();>>
++        .build();
+ 
+-    ListenableFutureListWorkInfo workInfos = workManager.getWorkInfos(workQuery);
++    ListenableFuture<List<WorkInfo>> workInfos = workManager.getWorkInfos(workQuery);
+ 
+ Each component (tag, state, or name) in a `WorkQuery` is `AND`-ed with the
+ others. Each value in a component is `OR`-ed. For example: `(name1 OR name2
+@@ -234,7 +234,7 @@ associated with it.
+     workManager.cancelUniqueWork("sync")
+ 
+     // by tag
+-    workManager.cancelAllWorkByTag(&quot;syncTag")
++    workManager.cancelAllWorkByTag("syncTag")
+ 
+ ### Java
+ 
+@@ -245,7 +245,7 @@ associated with it.
+     workManager.cancelUniqueWork("sync");
+ 
+     // by tag
+-    workManager.cancelAllWorkByTag(&quot;syncTag");
++    workManager.cancelAllWorkByTag("syncTag");
+ 
+ Under the hood, WorkManager checks the
+ [`State`](https://developer.android.com/reference/androidx/work/WorkInfo.State) of the work. If the work is

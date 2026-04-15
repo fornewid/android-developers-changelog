@@ -1,0 +1,71 @@
+diff --git a/docs/blog/latest/2.md b/docs/blog/latest/2.md
+index 7eb55a08..e9118501 100644
+--- a/docs/blog/latest/2.md
++++ b/docs/blog/latest/2.md
+@@ -7,6 +7,28 @@ source: md.txt
+ # The Latest
+ 
+ Stay up to date with the latest announcements, feature rollouts, and updates across Android tools, libraries, and platforms.
++- [![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](https://developer.android.com/blog/authors/yabin-cui) 10 Mar 2026 10 Mar 2026 ![](https://developer.android.com/static/blog/assets/P_Mguide_a86dec5079_EWlMa.webp)
++
++  #### [Product News](https://developer.android.com/blog/categories/product-news)
++
++  ## [Boosting Android Performance: Introducing AutoFDO for the Kernel](https://developer.android.com/blog/posts/boosting-android-performance-introducing-autofdo-for-the-kernel)
++
++  [arrow_forward](https://developer.android.com/blog/posts/boosting-android-performance-introducing-autofdo-for-the-kernel) Today, we're excited to share how we are bringing Automatic Feedback-Directed Optimization (AutoFDO) to the Android kernel to deliver significant performance wins for users.
++
++  ###### [Yabin Cui](https://developer.android.com/blog/authors/yabin-cui) •
++  4 min read
++
++- [![](https://developer.android.com/static/blog/assets/Mayuri_Khinvasara_Khabya_92848b1e1b_1xSr0w.webp)](https://developer.android.com/blog/authors/mayuri-khabya) 05 Mar 2026 05 Mar 2026 ![](https://developer.android.com/static/blog/assets/meta_Header_2ac893569c_ZLkD4s.webp)
++
++  #### [Case Studies](https://developer.android.com/blog/categories/case-studies)
++
++  ## [Instagram and Facebook deliver instant playback and boost user engagement with Media3 PreloadManager](https://developer.android.com/blog/posts/instagram-and-facebook-deliver-instant-playback-and-boost-user-engagement-with-media3-preload-manager)
++
++  [arrow_forward](https://developer.android.com/blog/posts/instagram-and-facebook-deliver-instant-playback-and-boost-user-engagement-with-media3-preload-manager) In the dynamic world of social media, user attention is won or lost quickly. Meta apps (Facebook and Instagram) are among the world's largest social platforms and serve billions of users globally.
++
++  ###### [Mayuri Khinvasara Khabya](https://developer.android.com/blog/authors/mayuri-khabya) •
++  4 min read
++
+ - [![](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 05 Mar 2026 05 Mar 2026 ![](https://developer.android.com/static/blog/assets/android_Bench_f2e4dd4fda_2816Hg.webp)
+ 
+   #### [Product News](https://developer.android.com/blog/categories/product-news)
+@@ -203,28 +225,6 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
+   ###### [Prateek Batra](https://developer.android.com/blog/authors/prateek-batra) •
+   3 min read
+ 
+-- [![](https://developer.android.com/static/blog/assets/Georgia_Doyle_a2f5ebfcdb_Z1cCMui.webp)](https://developer.android.com/blog/authors/georgia-doyle)[![](https://developer.android.com/static/blog/assets/Kanu_Tibrewal_20caa0960e_1aI42M.webp)](https://developer.android.com/blog/authors/kanu-tibrewal) 21 Jan 2026 21 Jan 2026 ![](https://developer.android.com/static/blog/assets/260120_Header_7fdfbedb2d_105hHT.webp)
+-
+-  #### [Product News](https://developer.android.com/blog/categories/product-news)
+-
+-  ## [Ready to review some changes but not others? Try using Play Console's new Save for later feature](https://developer.android.com/blog/posts/try-using-play-consoles-new-save-for-later-feature)
+-
+-  [arrow_forward](https://developer.android.com/blog/posts/try-using-play-consoles-new-save-for-later-feature) We've launched a new Save for later feature on Google Play Console's Publishing overview to give you more control over when you send changes for review.
+-
+-  ###### [Georgia Doyle](https://developer.android.com/blog/authors/georgia-doyle), [Kanu Tibrewal](https://developer.android.com/blog/authors/kanu-tibrewal) •
+-  2 min read
+-
+-- [![](https://developer.android.com/static/blog/assets/Sandhya_Mohan_30435468a9_1b689e.webp)](https://developer.android.com/blog/authors/sandhya-mohan)[![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](https://developer.android.com/blog/authors/trevor-johns) 15 Jan 2026 15 Jan 2026 ![](https://developer.android.com/static/blog/assets/as_Otter3feb_2dc12a1b18_Z1VaHAk.webp)
+-
+-  #### [Product News](https://developer.android.com/blog/categories/product-news)
+-
+-  ## [LLM flexibility, Agent Mode improvements, and new agentic experiences in Android Studio Otter 3 Feature Drop](https://developer.android.com/blog/posts/llm-flexibility-agent-mode-improvements-and-new-agentic-experiences-in-android-studio-otter-3-feature-drop)
+-
+-  [arrow_forward](https://developer.android.com/blog/posts/llm-flexibility-agent-mode-improvements-and-new-agentic-experiences-in-android-studio-otter-3-feature-drop) We are excited to announce that Android Studio Otter 3 Feature Drop is now stable! This feature-packed release brings a huge update to your agentic workflows in Android Studio, and offers you more flexibility and control for how you use AI to help you build Android apps.
+-
+-  ###### [Sandhya Mohan](https://developer.android.com/blog/authors/sandhya-mohan), [Trevor Johns](https://developer.android.com/blog/authors/trevor-johns) •
+-  9 min read
+-
+ [arrow_back](https://developer.android.com/blog/latest)
+ 
+ #### Page 2
+@@ -251,6 +251,8 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
+ - [#Android 16](https://developer.android.com/blog/topics/android-16)
+ - [#Automotive OS](https://developer.android.com/blog/topics/automotive-os)
+ - [#beta](https://developer.android.com/blog/topics/beta)
++- [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
++- [#Generative AI](https://developer.android.com/blog/topics/generative-ai)
+ - [#authentication](https://developer.android.com/blog/topics/authentication)
+ - [#CredentialManager](https://developer.android.com/blog/topics/credential-manager)
+ - [#Foldables](https://developer.android.com/blog/topics/foldables)

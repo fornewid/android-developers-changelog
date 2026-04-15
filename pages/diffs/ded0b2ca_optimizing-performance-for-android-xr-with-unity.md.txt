@@ -1,0 +1,39 @@
+diff --git a/docs/blog/posts/optimizing-performance-for-android-xr-with-unity.md b/docs/blog/posts/optimizing-performance-for-android-xr-with-unity.md
+index 1ba48a10..a9a8d920 100644
+--- a/docs/blog/posts/optimizing-performance-for-android-xr-with-unity.md
++++ b/docs/blog/posts/optimizing-performance-for-android-xr-with-unity.md
+@@ -139,6 +139,17 @@ Ready to dive deeper? Check out these resources:
+ 
+ ## Continue reading
+ 
++- [![](https://developer.android.com/static/blog/assets/headshot_e042d23f90_2x0LLK.webp)](https://developer.android.com/blog/authors/steven-jenkins) 13 Apr 2026 13 Apr 2026 ![](https://developer.android.com/static/blog/assets/Multi_Device_Interactions_with_Android_Emulator_Strapi_5d6ea711e7_Z1AYEiA.webp)
++
++  #### [Product News](https://developer.android.com/blog/categories/product-news)
++
++  ## [Test Multi-Device Interactions with the Android Emulator](https://developer.android.com/blog/posts/test-multi-device-interactions-with-the-android-emulator)
++
++  [arrow_forward](https://developer.android.com/blog/posts/test-multi-device-interactions-with-the-android-emulator) Testing multi-device interactions is now easier than ever with the Android Emulator.
++
++  ###### [Steven Jenkins](https://developer.android.com/blog/authors/steven-jenkins) •
++  2 min read
++
+ - [![](https://developer.android.com/static/blog/assets/matthew_warner_67a99317e4_Z2c1VNu.webp)](https://developer.android.com/blog/authors/matthew-warner) 02 Apr 2026 02 Apr 2026 ![](https://developer.android.com/static/blog/assets/android_studio_gemma4_73370772af_2lUopR.webp)
+ 
+   #### [Product News](https://developer.android.com/blog/categories/product-news)
+@@ -163,16 +174,6 @@ Ready to dive deeper? Check out these resources:
+   3 min read
+ 
+   - [#Android Studio](https://developer.android.com/blog/topics/android-studio)
+-- [![](https://developer.android.com/static/blog/assets/Caren_Chang_e58d793559_1i40VV.webp)](https://developer.android.com/blog/authors/caren-chang)[![](https://developer.android.com/static/blog/assets/David_Chou_226df78370_tqGIk.webp)](https://developer.android.com/blog/authors/david-chou) 02 Apr 2026 02 Apr 2026 ![](https://developer.android.com/static/blog/assets/announcing_gemma4_aicore_ce479292b9_Z15e7FP.webp)
+-
+-  #### [Product News](https://developer.android.com/blog/categories/product-news)
+-
+-  ## [Announcing Gemma 4 in the AICore Developer Preview](https://developer.android.com/blog/posts/announcing-gemma-4-in-the-ai-core-developer-preview)
+-
+-  [arrow_forward](https://developer.android.com/blog/posts/announcing-gemma-4-in-the-ai-core-developer-preview) At Google, we're committed to bringing the most capable AI models directly to the Android devices in your pocket. Today, we're thrilled to announce the release of our latest state-of-the-art open model: Gemma 4.
+-
+-  ###### [Caren Chang](https://developer.android.com/blog/authors/caren-chang), [David Chou](https://developer.android.com/blog/authors/david-chou) •
+-  3 min read
+ 
+ # Stay in the loop
+ 

@@ -1,0 +1,63 @@
+diff --git a/docs/blog.md b/docs/blog.md
+index 908befa5..ae941879 100644
+--- a/docs/blog.md
++++ b/docs/blog.md
+@@ -22,6 +22,29 @@ Tools and resources to help you build faster and easier.
+ 
+ ## The Latest
+ 
++- 14 Apr 2026 14 Apr 2026 ![](https://developer.android.com/static/blog/assets/Blog_banner_Dark_2000x1000_B_c6418d3a5c_ZbdvH4.webp)
++
++  #### [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs)
++
++  ## [Get ready for Google I/O: Livestream schedule revealed](https://developer.android.com/blog/posts/get-ready-for-google-io-livestream-schedule-revealed)
++
++  The Google I/O schedule is here!
++
++  ###### 1 min read
++
++  - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
++  - [#Generative AI](https://developer.android.com/blog/topics/generative-ai)
++- [![](https://developer.android.com/static/blog/assets/headshot_e042d23f90_2x0LLK.webp)](https://developer.android.com/blog/authors/steven-jenkins) 13 Apr 2026 13 Apr 2026 ![](https://developer.android.com/static/blog/assets/Multi_Device_Interactions_with_Android_Emulator_Strapi_5d6ea711e7_Z1AYEiA.webp)
++
++  #### [Product News](https://developer.android.com/blog/categories/product-news)
++
++  ## [Test Multi-Device Interactions with the Android Emulator](https://developer.android.com/blog/posts/test-multi-device-interactions-with-the-android-emulator)
++
++  Testing multi-device interactions is now easier than ever with the Android Emulator.
++
++  ###### [Steven Jenkins](https://developer.android.com/blog/authors/steven-jenkins) •
++  2 min read
++
+ - [![](https://developer.android.com/static/blog/assets/matthew_warner_67a99317e4_Z2c1VNu.webp)](https://developer.android.com/blog/authors/matthew-warner) 02 Apr 2026 02 Apr 2026 ![](https://developer.android.com/static/blog/assets/android_studio_gemma4_73370772af_2lUopR.webp)
+ 
+   #### [Product News](https://developer.android.com/blog/categories/product-news)
+@@ -68,28 +91,6 @@ Tools and resources to help you build faster and easier.
+   ###### [Michael Stillwell](https://developer.android.com/blog/authors/michael-stillwell), [Dimitris Kosmidis](https://developer.android.com/blog/authors/dimitris-kosmidis) •
+   2 min read
+ 
+-- [![](https://developer.android.com/static/blog/assets/matthew_9c798f0c1d_Z1m5WWD.webp)](https://developer.android.com/blog/authors/matthew-forsythe) 30 Mar 2026 30 Mar 2026 ![](https://developer.android.com/static/blog/assets/android_Verification2_40caaf2e67_NyvEj.webp)
+-
+-  #### [Product News](https://developer.android.com/blog/categories/product-news)
+-
+-  ## [Android developer verification: Rolling out to all developers on Play Console and Android Developer Console](https://developer.android.com/blog/posts/android-developer-verification-rolling-out-to-all-developers-on-play-console-and-android-developer-console)
+-
+-  Android is for everyone. It's built on a commitment to an open and safe platform. Users should feel confident installing apps, no matter where they get them from.
+-
+-  ###### [Matthew Forsythe](https://developer.android.com/blog/authors/matthew-forsythe) •
+-  3 min read
+-
+-- [![](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2dcD9g.webp)](https://developer.android.com/blog/authors/ben-weiss) 30 Mar 2026 30 Mar 2026 ![](https://developer.android.com/static/blog/assets/monzo_boosts_performance_aff3a37917_6VY99.webp)
+-
+-  #### [Case Studies](https://developer.android.com/blog/categories/case-studies)
+-
+-  ## [Monzo boosts performance metrics by up to 35% with a simple R8 update](https://developer.android.com/blog/posts/monzo-boosts-performance-metrics-by-up-to-35-with-a-simple-r8-update)
+-
+-  Monzo is a UK digital bank with 15 million customers and growing. As the app scaled, the engineering team identified app startup time as a critical area for improvement but worried it would require significant changes to their codebase.
+-
+-  ###### [Ben Weiss](https://developer.android.com/blog/authors/ben-weiss) •
+-  2 min read
+-
+ [arrow_forward
+ See all latest posts](https://developer.android.com/blog/latest) ![](https://developer.android.com/static/blog/assets/product_news_droid_599a11ad69_d4ee764ece_1mQM4e.webp)
+ 

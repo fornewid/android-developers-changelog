@@ -1,0 +1,36 @@
+diff --git a/docs/blog/categories/product-news/8.md b/docs/blog/categories/product-news/8.md
+index a54dd022..da5c09d5 100644
+--- a/docs/blog/categories/product-news/8.md
++++ b/docs/blog/categories/product-news/8.md
+@@ -9,6 +9,15 @@ source: md.txt
+ # Product News
+ 
+ Stay in the loop with the latest updates, feature releases, and behind-the-scenes looks at how we're evolving.
++- [![](https://developer.android.com/static/blog/assets/Sandhya_Mohan_30435468a9_1b689e.webp)](https://developer.android.com/blog/authors/sandhya-mohan)[![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](https://developer.android.com/blog/authors/trevor-johns) 04 Dec 2025 04 Dec 2025 ![](https://developer.android.com/static/blog/assets/as_Otter2_96831eedef_Z19EUHu.webp)
++
++  ## [Android Studio Otter 2 Feature Drop is stable!](https://developer.android.com/blog/posts/android-studio-otter-2-feature-drop-is-stable)
++
++  [arrow_forward](https://developer.android.com/blog/posts/android-studio-otter-2-feature-drop-is-stable) The Android Studio Otter 2 Feature Drop is here to supercharge your productivity.
++
++  ###### [Sandhya Mohan](https://developer.android.com/blog/authors/sandhya-mohan), [Trevor Johns](https://developer.android.com/blog/authors/trevor-johns) •
++  3 min read
++
+ - [![](https://developer.android.com/static/blog/assets/Nick_Butcher_5393f4552a_19h6h7.webp)](https://developer.android.com/blog/authors/nick-butcher) 03 Dec 2025 03 Dec 2025 ![](https://developer.android.com/static/blog/assets/jetpack_Compose_99733114d6_Z2c0xrB.webp)
+ 
+   ## [What's new in the Jetpack Compose December '25 release](https://developer.android.com/blog/posts/whats-new-in-the-jetpack-compose-december-release)
+@@ -56,15 +65,6 @@ Stay in the loop with the latest updates, feature releases, and behind-the-scene
+   ###### [Tor Norbye](https://developer.android.com/blog/authors/tor-norbye) •
+   1 min read
+ 
+-- [![](https://developer.android.com/static/blog/assets/Ajesh_R_Pai_fc75c62777_Z1G5g2B.webp)](https://developer.android.com/blog/authors/ajesh-pai)[![](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2dcD9g.webp)](https://developer.android.com/blog/authors/ben-weiss) 18 Nov 2025 18 Nov 2025 ![](https://developer.android.com/static/blog/assets/performance_Week7_0b86aba329_2gDCJ1.webp)
+-
+-  ## [Configure and troubleshoot R8 Keep Rules](https://developer.android.com/blog/posts/configure-and-troubleshoot-r8-keep-rules)
+-
+-  [arrow_forward](https://developer.android.com/blog/posts/configure-and-troubleshoot-r8-keep-rules) The Android build system's primary tool for achieving a small, fast, and secure application is the R8 optimizer, the compiler that handles dead code and resource removal for shrinking, code renaming or minification, and app optimization.
+-
+-  ###### [Ajesh Pai](https://developer.android.com/blog/authors/ajesh-pai), [Ben Weiss](https://developer.android.com/blog/authors/ben-weiss) •
+-  7 min read
+-
+ [arrow_back](https://developer.android.com/blog/categories/product-news/7)
+ 
+ #### Page 8

@@ -1,0 +1,141 @@
+diff --git a/docs/blog/categories/product-news/12.md b/docs/blog/categories/product-news/12.md
+index 5958bd8c..437562ba 100644
+--- a/docs/blog/categories/product-news/12.md
++++ b/docs/blog/categories/product-news/12.md
+@@ -1,105 +1,63 @@
+ ---
+-title: Product News  |  Android Developers' Blog
++title: https://developer.android.com/blog/categories/product-news/12
+ url: https://developer.android.com/blog/categories/product-news/12
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-* [Android Developers' Blog](https://developer.android.com/)
+-* [Blog](https://developer.android.com/blog)
+-
+-Stay organized with collections
+-
+-Save and categorize content based on your preferences.
+-
+-
+-
+-![](/static/blog/assets/product_news_droid_599a11ad69_d4ee764ece_1mQM4e.webp)
++![](https://developer.android.com/static/blog/assets/product_news_droid_599a11ad69_d4ee764ece_1mQM4e.webp)
+ 
+ # Product News
+ 
+-Stay in the loop with the latest updates, feature releases, and behind-the-scenes looks at how we’re evolving.
+-
+-* [![](/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z15U8cx.webp)](/blog/authors/fahd-imtiaz)
+-
+-  20
+-
+-  May
+-  2025
+-
+-  20
+-
+-  May
+-  2025
+-
+-  ![](/static/blog/assets/yt_adaptive_b9097334d4_Z1poFG.webp)
++Stay in the loop with the latest updates, feature releases, and behind-the-scenes looks at how we're evolving.
++- [![](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z15U8cx.webp)](https://developer.android.com/blog/authors/fahd-imtiaz) 10 Jun 2025 10 Jun 2025 ![](https://developer.android.com/static/blog/assets/across_Devices_1742e15ff4_ZE5L7I.webp)
+ 
+-  ## [Google I/O 2025: Build adaptive Android apps that shine across form factors](/blog/posts/google-i-o-2025-build-adaptive-android-apps-that-shine-across-form-factors)
++  ## [A product manager's guide to adapting Android apps across devices](https://developer.android.com/blog/posts/product-manager-guide-to-adapting-android-apps-across-devices)
+ 
+-  [arrow\_forward](/blog/posts/google-i-o-2025-build-adaptive-android-apps-that-shine-across-form-factors)
++  [arrow_forward](https://developer.android.com/blog/posts/product-manager-guide-to-adapting-android-apps-across-devices) This includes the start of Android 16's rollout, with details for both developers and users, a Developer Preview for enhanced Android desktop experiences with connected displays, and updates for Android users across Google apps and more, plus the June Pixel Drop.
+ 
+-  At Google I/O this year, we are exploring how adaptive development isn’t just a good idea, but essential to building apps that shine across the expanding Android device ecosystem.
++  ###### [Fahd Imtiaz](https://developer.android.com/blog/authors/fahd-imtiaz) •
++  6 min read
+ 
+-  ###### [Fahd Imtiaz](/blog/authors/fahd-imtiaz) • 5 min read
+-* [![](/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](/blog/authors/matthew-mccullough)
++- [![](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z15U8cx.webp)](https://developer.android.com/blog/authors/fahd-imtiaz) 20 May 2025 20 May 2025 ![](https://developer.android.com/static/blog/assets/yt_adaptive_b9097334d4_Z1poFG.webp)
+ 
+-  20
++  ## [Google I/O 2025: Build adaptive Android apps that shine across form factors](https://developer.android.com/blog/posts/google-i-o-2025-build-adaptive-android-apps-that-shine-across-form-factors)
+ 
+-  May
+-  2025
++  [arrow_forward](https://developer.android.com/blog/posts/google-i-o-2025-build-adaptive-android-apps-that-shine-across-form-factors) At Google I/O this year, we are exploring how adaptive development isn't just a good idea, but essential to building apps that shine across the expanding Android device ecosystem.
+ 
+-  20
++  ###### [Fahd Imtiaz](https://developer.android.com/blog/authors/fahd-imtiaz) •
++  5 min read
+ 
+-  May
+-  2025
++- [![](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 20 May 2025 20 May 2025 ![](https://developer.android.com/static/blog/assets/IO_25_Blog_Hero_Template_Art_Long_01_126026f6a9_Z2cQC8F.webp)
+ 
+-  ![](/static/blog/assets/IO_25_Blog_Hero_Template_Art_Long_01_126026f6a9_Z2cQC8F.webp)
++  ## [Updates to the Android XR SDK: Introducing Developer Preview 2](https://developer.android.com/blog/posts/updates-to-the-android-xr-sdk-introducing-developer-preview-2)
+ 
+-  ## [Updates to the Android XR SDK: Introducing Developer Preview 2](/blog/posts/updates-to-the-android-xr-sdk-introducing-developer-preview-2)
++  [arrow_forward](https://developer.android.com/blog/posts/updates-to-the-android-xr-sdk-introducing-developer-preview-2) Since launching the Android XR SDK Developer Preview alongside Samsung, Qualcomm, and Unity last year, we've been blown away by all of the excitement we've been hearing from the broader Android community.
+ 
+-  [arrow\_forward](/blog/posts/updates-to-the-android-xr-sdk-introducing-developer-preview-2)
++  ###### [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) •
++  4 min read
+ 
+-  Since launching the Android XR SDK Developer Preview alongside Samsung, Qualcomm, and Unity last year, we’ve been blown away by all of the excitement we’ve been hearing from the broader Android community.
++  - [#Android](https://developer.android.com/blog/topics/android)
++- [![](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 12 Dec 2024 12 Dec 2024 ![](https://developer.android.com/static/blog/assets/Android_XR_Unlocked_2a393b1726_2cbGb7.webp)
+ 
+-  ###### [Matthew McCullough](/blog/authors/matthew-mccullough) • 4 min read
++  ## [Introducing Android XR SDK Developer Preview](https://developer.android.com/blog/posts/introducing-android-xr-sdk-developer-preview)
+ 
+-  + [#Android](/blog/topics/android)
+-* [![](/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](/blog/authors/matthew-mccullough)
++  [arrow_forward](https://developer.android.com/blog/posts/introducing-android-xr-sdk-developer-preview) Today, we're launching the developer preview of the Android XR SDK - a comprehensive development kit for Android XR. It's the newest platform in the Android family built for extended reality (XR) headsets (and glasses in the future!).
+ 
+-  12
++  ###### [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) •
++  5 min read
+ 
+-  Dec
+-  2024
+-
+-  12
+-
+-  Dec
+-  2024
+-
+-  ![](/static/blog/assets/Android_XR_Unlocked_2a393b1726_2cbGb7.webp)
+-
+-  ## [Introducing Android XR SDK Developer Preview](/blog/posts/introducing-android-xr-sdk-developer-preview)
+-
+-  [arrow\_forward](/blog/posts/introducing-android-xr-sdk-developer-preview)
+-
+-  Today, we're launching the developer preview of the Android XR SDK - a comprehensive development kit for Android XR. It's the newest platform in the Android family built for extended reality (XR) headsets (and glasses in the future!).
+-
+-  ###### [Matthew McCullough](/blog/authors/matthew-mccullough) • 5 min read
+-
+-[arrow\_back](/blog/categories/product-news/11)
++[arrow_back](https://developer.android.com/blog/categories/product-news/11)
+ 
+ #### Page 12
+ 
+ ###### of 12
+ 
+-arrow\_forward
++<button class="adb--button adb--standard adb--filled adb--disabled adb--global-hover-button astro-vnzlvqnm" disabled=""> arrow_forward </button>
+ 
+ # Stay in the loop
+ 
++
+ Get the latest Android development insights delivered to your inbox
+ weekly.
+-
+ [mail
+-Subscribe](/subscribe)
+-
+-![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file
++Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file

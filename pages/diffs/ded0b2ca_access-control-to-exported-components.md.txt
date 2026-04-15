@@ -1,0 +1,26 @@
+diff --git a/docs/privacy-and-security/risks/access-control-to-exported-components.md b/docs/privacy-and-security/risks/access-control-to-exported-components.md
+index cb4ef91c..0e877dda 100644
+--- a/docs/privacy-and-security/risks/access-control-to-exported-components.md
++++ b/docs/privacy-and-security/risks/access-control-to-exported-components.md
+@@ -116,7 +116,7 @@ beyond, this attribute is set to `false`by default.
+ 
+     <activity
+         android:name=".MyActivity"
+-        android:exporte>d="false"/
++        android:exported="false"/>
+ 
+ ### Apply signature-based permissions
+ 
+@@ -129,9 +129,9 @@ custom permissions do consider the [corresponding security guidelines](https://d
+ ### Xml
+ 
+     <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+-        package="com>.exam<ple.myapp"
+-        permission android:name="my_custom_permission_name"
+-                    android>:protectionLevel="signature" /
++        package="com.example.myapp">
++        <permission android:name="my_custom_permission_name"
++                    android:protectionLevel="signature" />
+ 
+ ### Single-task endpoints
+ 

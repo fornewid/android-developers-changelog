@@ -1,0 +1,13 @@
+diff --git a/docs/develop/ui/compose/layouts/adaptive/support-bubbles.md b/docs/develop/ui/compose/layouts/adaptive/support-bubbles.md
+index d5802fd9..f62e8aa8 100644
+--- a/docs/develop/ui/compose/layouts/adaptive/support-bubbles.md
++++ b/docs/develop/ui/compose/layouts/adaptive/support-bubbles.md
+@@ -5,7 +5,7 @@ source: md.txt
+ ---
+ 
+ Bubbles is a windowing mode feature that offers a new floating UI experience
+-similar to the [messaging bubbles API](https://developer.android.com/develop/ui/views/notifications/bubbles). Users can create an app bubble on
++similar to the [notification bubbles API](https://developer.android.com/develop/ui/views/notifications/bubbles). Users can create an app bubble on
+ their phone, foldable, or tablet by long-pressing an app icon on the launcher.
+ ![](https://developer.android.com/static/develop/ui/compose/images/layouts/adaptive/Bubbles.gif) **Figure 1.** Bubbling the calendar app
+ 

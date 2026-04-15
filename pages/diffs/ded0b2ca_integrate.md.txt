@@ -1,0 +1,76 @@
+diff --git a/docs/google/play/billing/integrate.md b/docs/google/play/billing/integrate.md
+index 28f8c5d6..b1179bd8 100644
+--- a/docs/google/play/billing/integrate.md
++++ b/docs/google/play/billing/integrate.md
+@@ -787,59 +787,22 @@ need to be acknowledged, see the [Sell subscriptions](https://developer.android.
+ 
+ ### Recap
+ 
+-The following code snippet shows a recap of these steps.
++The following is a recap of these steps.
+ 
+-### Kotlin
++1. Send the purchase to your secure backend to [verify purchases before
++   granting entitlements](https://developer.android.com/google/play/billing/security#verify).
+ 
+-```kotlin
+-fun handlePurchase(Purchase purchase) {
+-    // Purchase retrieved from BillingClient#queryPurchasesAsync or your
+-    // onPurchasesUpdated.
+-    Purchase purchase = ...;
+-
+-    // Step 1: Send the purchase to your secure backend to verify the purchase
+-    // following
+-    // https://developer.android.com/google/play/billing/security#verify
+-.
+-    // Step 2: Update your entitlement storage with the purchase. If purchase is
+-    // in PENDING state then ensure the entitlement is marked as pending and the
+-    // user does not receive benefits yet. It is recommended that this step is
+-    // done on your secure backend and can combine in the API call to your
+-    // backend in step 1.
+-
+-    // Step 3: Notify the user using appropriate messaging (delaying
+-    // notification if needed as discussed above).
+-
+-    // Step 4: Notify Google the purchase was processed using the steps
+-    // discussed in the processing purchases section.
+-}
+-```
++2. Update your entitlement storage with the purchase. If purchase is
++   in PENDING state then ensure the entitlement is marked as pending and the
++   user does not receive benefits yet. It is recommended that this step is
++   done on your secure backend and can combine in the API call to your
++   backend in step 1.
+ 
+-### Java
++3. Notify the user using appropriate messaging (delaying
++   notification if needed as discussed previously).
+ 
+-```java
+-void handlePurchase(Purchase purchase) {
+-    // Purchase retrieved from BillingClient#queryPurchasesAsync or your
+-    // onPurchasesUpdated.
+-    Purchase purchase = ...;
+-
+-    // Step 1: Send the purchase to your secure backend to verify the purchase
+-    // following
+-    // https://developer.android.com/google/play/billing/security#verify
+-
+-    // Step 2: Update your entitlement storage with the purchase. If purchase is
+-    // in PENDING state then ensure the entitlement is marked as pending and the
+-    // user does not receive benefits yet. It is recommended that this step is
+-    // done on your secure backend and can combine in the API call to your
+-    // backend in step 1.
+-
+-    // Step 3: Notify the user using appropriate messaging (delaying
+-    // notification if needed as discussed above).
+-
+-    // Step 4: Notify Google the purchase was processed using the steps
+-    // discussed in the processing purchases section.
+-}
+-```
++4. Notify Google the purchase was processed using the steps
++   discussed in the processing purchases section.
+ 
+ To verify your app has correctly implemented these steps you can follow the
+ [testing guide](https://developer.android.com/google/play/billing/test).

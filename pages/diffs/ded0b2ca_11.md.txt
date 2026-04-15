@@ -1,0 +1,215 @@
+diff --git a/docs/blog/categories/product-news/11.md b/docs/blog/categories/product-news/11.md
+index 329ad0e3..65a7ee6c 100644
+--- a/docs/blog/categories/product-news/11.md
++++ b/docs/blog/categories/product-news/11.md
+@@ -1,168 +1,83 @@
+ ---
+-title: Product News  |  Android Developers' Blog
++title: https://developer.android.com/blog/categories/product-news/11
+ url: https://developer.android.com/blog/categories/product-news/11
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-* [Android Developers' Blog](https://developer.android.com/)
+-* [Blog](https://developer.android.com/blog)
+-
+-Stay organized with collections
+-
+-Save and categorize content based on your preferences.
+-
+-
+-
+-![](/static/blog/assets/product_news_droid_599a11ad69_d4ee764ece_1mQM4e.webp)
++![](https://developer.android.com/static/blog/assets/product_news_droid_599a11ad69_d4ee764ece_1mQM4e.webp)
+ 
+ # Product News
+ 
+-Stay in the loop with the latest updates, feature releases, and behind-the-scenes looks at how we’re evolving.
+-
+-* [![](/static/blog/assets/2_o2_H5_V1lr_Zrcfhto_Au9_B2_Q_fd3ec10461_acae303cd5_Z2izffS.webp)](/blog/authors/paris-hsu)
+-
+-  09
+-
+-  Oct
+-  2025
+-
+-  09
+-
+-  Oct
+-  2025
+-
+-  ![](/static/blog/assets/as_Narwhal_7bf25b6657_Zl5Grc.webp)
+-
+-  ## [Android Studio Narwhal 4 Feature Drop: watch face support and improved stability](/blog/posts/android-studio-narwhal-4-feature-drop-watch-face-support-and-improved-stability)
+-
+-  [arrow\_forward](/blog/posts/android-studio-narwhal-4-feature-drop-watch-face-support-and-improved-stability)
+-
+-  Android Studio Narwhal 4 Feature Drop is now stable and ready for you to use!
+-
+-  ###### [Paris Hsu](/blog/authors/paris-hsu) • 5 min read
+-
+-  + [#Android Studio](/blog/topics/android-studio)
+-* [![](/static/blog/assets/Alice_Yuan_552a4dd4ee_ZlDEgJ.webp)](/blog/authors/alice-yuan)
+-
+-  02
+-
+-  Oct
+-  2025
+-
+-  02
+-
+-  Oct
+-  2025
++Stay in the loop with the latest updates, feature releases, and behind-the-scenes looks at how we're evolving.
++- [![](https://developer.android.com/static/blog/assets/unnamed_fd9e15f738_1EHxqW.webp)](https://developer.android.com/blog/authors/francesco-romano) 10 Oct 2025 10 Oct 2025 ![](https://developer.android.com/static/blog/assets/jetpack_Window_Manager_931d67ec18_Z20PMAS.webp)
+ 
+-  ![](/static/blog/assets/6m_Evk_L_Olno_HD_56e1732bf5_2enBUx.webp)
++  ## [Jetpack WindowManager 1.5 is stable](https://developer.android.com/blog/posts/jetpack-window-manager-1-5-is-stable)
+ 
+-  ## [Optimize your app battery using Android vitals wake lock metric](/blog/posts/optimize-your-app-battery-using-android-vitals-wake-lock-metric)
++  [arrow_forward](https://developer.android.com/blog/posts/jetpack-window-manager-1-5-is-stable) We're excited to announce that Jetpack WindowManager 1.5.0 is now stable!
+ 
+-  [arrow\_forward](/blog/posts/optimize-your-app-battery-using-android-vitals-wake-lock-metric)
++  This release builds on the strong foundation of adaptability in WindowManager, making it even easier to create polished, adaptive UIs that look great on all screen sizes.
+ 
+-  Battery life is a crucial aspect of user experience and wake locks play a major role. In this blog post we’ll explore what wake locks are, what are some best practices for using them and how you can better understand your own app’s behavior with the Play Console metric.
++  ###### [Francesco Romano](https://developer.android.com/blog/authors/francesco-romano) •
++  3 min read
+ 
+-  ###### [Alice Yuan](/blog/authors/alice-yuan) • 7 min read
+-* [![](/static/blog/assets/Mayuri_Khinvasara_Khabya_92848b1e1b_1xSr0w.webp)](/blog/authors/mayuri-khabya)
++- [![](https://developer.android.com/static/blog/assets/2_o2_H5_V1lr_Zrcfhto_Au9_B2_Q_fd3ec10461_acae303cd5_Z2izffS.webp)](https://developer.android.com/blog/authors/paris-hsu) 09 Oct 2025 09 Oct 2025 ![](https://developer.android.com/static/blog/assets/as_Narwhal_7bf25b6657_Zl5Grc.webp)
+ 
+-  22
++  ## [Android Studio Narwhal 4 Feature Drop: watch face support and improved stability](https://developer.android.com/blog/posts/android-studio-narwhal-4-feature-drop-watch-face-support-and-improved-stability)
+ 
+-  Sep
+-  2025
++  [arrow_forward](https://developer.android.com/blog/posts/android-studio-narwhal-4-feature-drop-watch-face-support-and-improved-stability) Android Studio Narwhal 4 Feature Drop is now stable and ready for you to use!
+ 
+-  22
++  ###### [Paris Hsu](https://developer.android.com/blog/authors/paris-hsu) •
++  5 min read
+ 
+-  Sep
+-  2025
++  - [#Android Studio](https://developer.android.com/blog/topics/android-studio)
++- [![](https://developer.android.com/static/blog/assets/Alice_Yuan_552a4dd4ee_ZlDEgJ.webp)](https://developer.android.com/blog/authors/alice-yuan) 02 Oct 2025 02 Oct 2025 ![](https://developer.android.com/static/blog/assets/6m_Evk_L_Olno_HD_56e1732bf5_2enBUx.webp)
+ 
+-  ![](/static/blog/assets/elevating_Media2_20563cb635_1XxrMX.webp)
++  ## [Optimize your app battery using Android vitals wake lock metric](https://developer.android.com/blog/posts/optimize-your-app-battery-using-android-vitals-wake-lock-metric)
+ 
+-  ## [Elevating media playback: A deep dive into Media3’s PreloadManager - Part 2](/blog/posts/elevating-media-playback-a-deep-dive-into-media3-s-preload-manager-part-2)
++  [arrow_forward](https://developer.android.com/blog/posts/optimize-your-app-battery-using-android-vitals-wake-lock-metric) Battery life is a crucial aspect of user experience and wake locks play a major role. In this blog post we'll explore what wake locks are, what are some best practices for using them and how you can better understand your own app's behavior with the Play Console metric.
+ 
+-  [arrow\_forward](/blog/posts/elevating-media-playback-a-deep-dive-into-media3-s-preload-manager-part-2)
++  ###### [Alice Yuan](https://developer.android.com/blog/authors/alice-yuan) •
++  7 min read
+ 
+-  Welcome to the second installment of our three-part series on media preloading with Media3. This series is designed to guide you through the process of building highly responsive, low-latency media experiences in your Android apps.
++- [![](https://developer.android.com/static/blog/assets/Mayuri_Khinvasara_Khabya_92848b1e1b_1xSr0w.webp)](https://developer.android.com/blog/authors/mayuri-khabya) 22 Sep 2025 22 Sep 2025 ![](https://developer.android.com/static/blog/assets/elevating_Media2_20563cb635_1XxrMX.webp)
+ 
+-  ###### [Mayuri Khinvasara Khabya](/blog/authors/mayuri-khabya) • 9 min read
+-* [![](/static/blog/assets/Mayuri_Khinvasara_Khabya_92848b1e1b_1xSr0w.webp)](/blog/authors/mayuri-khabya)
++  ## [Elevating media playback: A deep dive into Media3's PreloadManager - Part 2](https://developer.android.com/blog/posts/elevating-media-playback-a-deep-dive-into-media3-s-preload-manager-part-2)
+ 
+-  05
++  [arrow_forward](https://developer.android.com/blog/posts/elevating-media-playback-a-deep-dive-into-media3-s-preload-manager-part-2) Welcome to the second installment of our three-part series on media preloading with Media3. This series is designed to guide you through the process of building highly responsive, low-latency media experiences in your Android apps.
+ 
+-  Sep
+-  2025
++  ###### [Mayuri Khinvasara Khabya](https://developer.android.com/blog/authors/mayuri-khabya) •
++  9 min read
+ 
+-  05
++- [![](https://developer.android.com/static/blog/assets/Mayuri_Khinvasara_Khabya_92848b1e1b_1xSr0w.webp)](https://developer.android.com/blog/authors/mayuri-khabya) 05 Sep 2025 05 Sep 2025 ![](https://developer.android.com/static/blog/assets/elevating_Media_Playback_16bfc9b0d6_25Uc6u.webp)
+ 
+-  Sep
+-  2025
++  ## [Elevating media playback: Introducing preloading with Media3 - Part 1](https://developer.android.com/blog/posts/elevating-media-playback-introducing-preloading-with-media3-part-1)
+ 
+-  ![](/static/blog/assets/elevating_Media_Playback_16bfc9b0d6_25Uc6u.webp)
++  [arrow_forward](https://developer.android.com/blog/posts/elevating-media-playback-introducing-preloading-with-media3-part-1) In today's media-centric apps, delivering a smooth, uninterrupted playback experience is key to a delightful user experience. Users expect their videos to start instantly and play seamlessly without pauses.
+ 
+-  ## [Elevating media playback: Introducing preloading with Media3 - Part 1](/blog/posts/elevating-media-playback-introducing-preloading-with-media3-part-1)
++  ###### [Mayuri Khinvasara Khabya](https://developer.android.com/blog/authors/mayuri-khabya) •
++  8 min read
+ 
+-  [arrow\_forward](/blog/posts/elevating-media-playback-introducing-preloading-with-media3-part-1)
++- [![](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z15U8cx.webp)](https://developer.android.com/blog/authors/fahd-imtiaz)[![](https://developer.android.com/static/blog/assets/miguel_montemayor_552207c1c6_Z1tItyG.webp)](https://developer.android.com/blog/authors/miguel-montemayor) 03 Sep 2025 03 Sep 2025 ![](https://developer.android.com/static/blog/assets/yt_MBG_2_a56f169e60_ZSoFHF.webp)
+ 
+-  In today's media-centric apps, delivering a smooth, uninterrupted playback experience is key to a delightful user experience. Users expect their videos to start instantly and play seamlessly without pauses.
++  ## [Unfold new possibilities with Compose Adaptive Layouts 1.2 beta](https://developer.android.com/blog/posts/unfold-new-possibilities-with-compose-adaptive-layouts)
+ 
+-  ###### [Mayuri Khinvasara Khabya](/blog/authors/mayuri-khabya) • 8 min read
+-* [![](/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z15U8cx.webp)](/blog/authors/fahd-imtiaz)[![](/static/blog/assets/miguel_montemayor_552207c1c6_Z1tItyG.webp)](/blog/authors/miguel-montemayor)
++  [arrow_forward](https://developer.android.com/blog/posts/unfold-new-possibilities-with-compose-adaptive-layouts) With new form factors like the Pixel 10 Pro Fold joining the Android ecosystem, adaptive app development is essential for creating high-quality user experiences across phones, tablets, and foldables.
+ 
+-  03
++  ###### [Fahd Imtiaz](https://developer.android.com/blog/authors/fahd-imtiaz), [Miguel Montemayor](https://developer.android.com/blog/authors/miguel-montemayor) •
++  3 min read
+ 
+-  Sep
+-  2025
+-
+-  03
+-
+-  Sep
+-  2025
+-
+-  ![](/static/blog/assets/yt_MBG_2_a56f169e60_ZSoFHF.webp)
+-
+-  ## [Unfold new possibilities with Compose Adaptive Layouts 1.2 beta](/blog/posts/unfold-new-possibilities-with-compose-adaptive-layouts)
+-
+-  [arrow\_forward](/blog/posts/unfold-new-possibilities-with-compose-adaptive-layouts)
+-
+-  With new form factors like the Pixel 10 Pro Fold joining the Android ecosystem, adaptive app development is essential for creating high-quality user experiences across phones, tablets, and foldables.
+-
+-  ###### [Fahd Imtiaz](/blog/authors/fahd-imtiaz), [Miguel Montemayor](/blog/authors/miguel-montemayor) • 3 min read
+-* [![](/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z15U8cx.webp)](/blog/authors/fahd-imtiaz)
+-
+-  10
+-
+-  Jun
+-  2025
+-
+-  10
+-
+-  Jun
+-  2025
+-
+-  ![](/static/blog/assets/across_Devices_1742e15ff4_ZE5L7I.webp)
+-
+-  ## [A product manager's guide to adapting Android apps across devices](/blog/posts/product-manager-guide-to-adapting-android-apps-across-devices)
+-
+-  [arrow\_forward](/blog/posts/product-manager-guide-to-adapting-android-apps-across-devices)
+-
+-  This includes the start of Android 16's rollout, with details for both developers and users, a Developer Preview for enhanced Android desktop experiences with connected displays, and updates for Android users across Google apps and more, plus the June Pixel Drop.
+-
+-  ###### [Fahd Imtiaz](/blog/authors/fahd-imtiaz) • 6 min read
+-
+-[arrow\_back](/blog/categories/product-news/10)
++[arrow_back](https://developer.android.com/blog/categories/product-news/10)
+ 
+ #### Page 11
+ 
+ ###### of 12
+ 
+-[arrow\_forward](/blog/categories/product-news/12)
++[arrow_forward](https://developer.android.com/blog/categories/product-news/12)
+ 
+ # Stay in the loop
+ 
++
+ Get the latest Android development insights delivered to your inbox
+ weekly.
+-
+ [mail
+-Subscribe](/subscribe)
+-
+-![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file
++Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file

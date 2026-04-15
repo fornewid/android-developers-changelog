@@ -1,0 +1,27 @@
+diff --git a/docs/develop/ui/compose/side-effects.md b/docs/develop/ui/compose/side-effects.md
+index e389d46c..8c70fade 100644
+--- a/docs/develop/ui/compose/side-effects.md
++++ b/docs/develop/ui/compose/side-effects.md
+@@ -4,13 +4,6 @@ url: https://developer.android.com/develop/ui/compose/side-effects
+ source: md.txt
+ ---
+ 
+-Compose applications using various Effect APIs for more predictable behavior and
+-proper lifecycle management.
+-keywords_public: Android, Jetpack Compose, Side Effects,
+-LaunchedEffect, rememberCoroutineScope, rememberUpdatedState, DisposableEffect,
+-SideEffect, produceState, derivedStateOf, snapshotFlow, Compose State,
+-Coroutines
+-
+ A **side-effect** is a change to the state of the app that happens outside the
+ scope of a composable function.
+ Due to composables' lifecycle and properties such as unpredictable
+@@ -419,7 +412,7 @@ var firstName by remember { mutableStateOf("") }
+ var lastName by remember { mutableStateOf("") }
+ 
+ val fullNameBad by remember { derivedStateOf { "$firstName $lastName" } } // This is bad!!!
+-val fullNameCorrect = "$firstName $lastName" // This is correcthttps://github.com/android/snippets/blob/b863a7feef0f7db7d00f637d615fe8bc4f49406b/compose/snippets/src/main/java/com/example/compose/snippets/sideeffects/SideEffectsSnippets.kt#L262-L267
++val fullNameCorrect = "$firstName $lastName" // This is correcthttps://github.com/android/snippets/blob/955bf613b114a676c99509c66de86ead598983a9/compose/snippets/src/main/java/com/example/compose/snippets/sideeffects/SideEffectsSnippets.kt#L262-L267
+ ```
+ 
+ <br />

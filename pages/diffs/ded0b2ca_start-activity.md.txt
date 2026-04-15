@@ -1,0 +1,63 @@
+diff --git a/docs/develop/ui/views/animations/transitions/start-activity.md b/docs/develop/ui/views/animations/transitions/start-activity.md
+index 7beb2c87..82731b4d 100644
+--- a/docs/develop/ui/views/animations/transitions/start-activity.md
++++ b/docs/develop/ui/views/animations/transitions/start-activity.md
+@@ -87,30 +87,30 @@ attribute when you define a style that inherits from the Material theme. You can
+ enter, exit, and shared element transitions in your style definition:
+ 
+ ```xml
+-<style name="BaseAppTheme" parent="android:Them<e.Material">
+-  !-- enable window con<tent transitions -->
+-  item name="android:<windowActi<vityTransitions">true/item>
+-
+-  !--< specify enter and exit transitions -->
+-  item name="<android:w<indowEnterTransition">@transition/explode/item>
+- < item name<="android:windowExitTransition"><@transition/explode/item>
+-
+-  !-- specify shared element t@ransitions -->
+-  item name=&qu<ot;androi<d:windowSharedElementEnterTransition">
+-    transiti@on/change_image_transform/item><;
+-  ite<m name="android:windowSharedElementExitTransition">
+-    transition/change_image_transform/item>
+-/style>
++<style name="BaseAppTheme" parent="android:Theme.Material">
++  <!-- enable window content transitions -->
++  <item name="android:windowActivityTransitions">true</item>
++
++  <!-- specify enter and exit transitions -->
++  <item name="android:windowEnterTransition">@transition/explode</item>
++  <item name="android:windowExitTransition">@transition/explode</item>
++
++  <!-- specify shared element transitions -->
++  <item name="android:windowSharedElementEnterTransition">
++    @transition/change_image_transform</item>
++  <item name="android:windowSharedElementExitTransition">
++    @transition/change_image_transform</item>
++</style>
+ ```
+ 
+ The `change_image_transform` transition in this example is defined as follows:
+ 
+ ```xml
+-<!-- res/transition/change_image_transform.xml --&g<t;
+-!-- (see also Shared Transitions below) -<->
+-transitionSet xmlns:android="http://schemas.android.com/apk/res/a<ndroid">
+-  chan<geImageTransform/>
+-/transitionSet>
++<!-- res/transition/change_image_transform.xml -->
++<!-- (see also Shared Transitions below) -->
++<transitionSet xmlns:android="http://schemas.android.com/apk/res/android">
++  <changeImageTransform/>
++</transitionSet>
+ ```
+ 
+ The `changeImageTransform` element corresponds to the
+@@ -209,7 +209,7 @@ shared element, do the following:
+ val imgContainerView = findViewById<View>(R.id.img_container)
+ 
+ // Get the common element for the transition in this activity
+-val androidRobotView = findViewB<yIdView>(R.id.image_small)
++val androidRobotView = findViewById<View>(R.id.image_small)
+ 
+ // Define a click listener
+ imgContainerView.setOnClickListener( {

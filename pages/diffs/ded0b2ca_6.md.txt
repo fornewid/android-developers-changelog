@@ -1,0 +1,44 @@
+diff --git a/docs/blog/latest/6.md b/docs/blog/latest/6.md
+index 80909104..1bc6534e 100644
+--- a/docs/blog/latest/6.md
++++ b/docs/blog/latest/6.md
+@@ -7,6 +7,30 @@ source: md.txt
+ # The Latest
+ 
+ Stay up to date with the latest announcements, feature rollouts, and updates across Android tools, libraries, and platforms.
++- [![](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d0_l9O72.webp)](https://developer.android.com/blog/authors/thomas-ezan)[![](https://developer.android.com/static/blog/assets/Mozart_Louis_622373dab1_1RaA8T.webp)](https://developer.android.com/blog/authors/mozart-louis) 13 Oct 2025 13 Oct 2025 ![](https://developer.android.com/static/blog/assets/Android_Blog_banners_dd5c7be5f2_ZsFAUM.webp)
++
++  #### [Product News](https://developer.android.com/blog/categories/product-news)
++
++  ## [Boost user engagement with AI Image Generation](https://developer.android.com/blog/posts/boost-user-engagement-with-ai-image-generation)
++
++  [arrow_forward](https://developer.android.com/blog/posts/boost-user-engagement-with-ai-image-generation) Adding custom images to your app can significantly improve and personalize user experience and boost user engagement.
++
++  ###### [Thomas Ezan](https://developer.android.com/blog/authors/thomas-ezan), [Mozart Louis](https://developer.android.com/blog/authors/mozart-louis) •
++  5 min read
++
++- [![](https://developer.android.com/static/blog/assets/unnamed_fd9e15f738_1EHxqW.webp)](https://developer.android.com/blog/authors/francesco-romano) 10 Oct 2025 10 Oct 2025 ![](https://developer.android.com/static/blog/assets/jetpack_Window_Manager_931d67ec18_Z20PMAS.webp)
++
++  #### [Product News](https://developer.android.com/blog/categories/product-news)
++
++  ## [Jetpack WindowManager 1.5 is stable](https://developer.android.com/blog/posts/jetpack-window-manager-1-5-is-stable)
++
++  [arrow_forward](https://developer.android.com/blog/posts/jetpack-window-manager-1-5-is-stable) We're excited to announce that Jetpack WindowManager 1.5.0 is now stable!
++
++  This release builds on the strong foundation of adaptability in WindowManager, making it even easier to create polished, adaptive UIs that look great on all screen sizes.
++
++  ###### [Francesco Romano](https://developer.android.com/blog/authors/francesco-romano) •
++  3 min read
++
+ - [![](https://developer.android.com/static/blog/assets/Robbie_280bd4586c_2wmcrw.webp)](https://developer.android.com/blog/authors/robbie-mclachlan) 09 Oct 2025 09 Oct 2025 ![](https://developer.android.com/static/blog/assets/Android_Devs_Google_Devs_Blog_Header_1200x600_79350b0b52_1w8gkH.webp)
+ 
+   #### [Community](https://developer.android.com/blog/categories/community)
+@@ -232,6 +256,8 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
+ - [#Android 16](https://developer.android.com/blog/topics/android-16)
+ - [#Automotive OS](https://developer.android.com/blog/topics/automotive-os)
+ - [#beta](https://developer.android.com/blog/topics/beta)
++- [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
++- [#Generative AI](https://developer.android.com/blog/topics/generative-ai)
+ - [#authentication](https://developer.android.com/blog/topics/authentication)
+ - [#CredentialManager](https://developer.android.com/blog/topics/credential-manager)
+ - [#Foldables](https://developer.android.com/blog/topics/foldables)

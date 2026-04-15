@@ -1,0 +1,22 @@
+diff --git a/docs/develop/ui/compose/quick-guides/content/create-progress-indicator.md b/docs/develop/ui/compose/quick-guides/content/create-progress-indicator.md
+index 5ca4cd72..3c3661bf 100644
+--- a/docs/develop/ui/compose/quick-guides/content/create-progress-indicator.md
++++ b/docs/develop/ui/compose/quick-guides/content/create-progress-indicator.md
+@@ -50,7 +50,7 @@ progress indicator to iterate up in turn.
+ > [!NOTE]
+ > **Note:** The following example uses a coroutine to do the work of iterating the `progress` value because it would otherwise block the UI thread.
+ 
+-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-progress-indicator_dfe8b0d34cd24191849e6053d09d16c8877eadb0c8c9d301755c4dc9c727c8ad.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
++<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-progress-indicator_a315f187b57454269cac23b2a488e5a2e1c67031ee17bb1a93d2c7e439f2d634.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+ 
+ ### Results
+ 
+@@ -73,7 +73,7 @@ indeterminate indicator with a button press.
+ > [!NOTE]
+ > **Note:** This example also demonstrates how you can pass values for the `color` and `trackColor` parameters to customize the appearance of the indicator.
+ 
+-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-progress-indicator_4149ed2841b4c1c4c12889bcce8def4051a492fb1a00c414ec1044032f131db5.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
++<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-progress-indicator_e4b0bb6127421cf91eec78ecbc21061722c72115fd20cc202f7b5747eaffd857.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+ 
+ ### Results
+ 

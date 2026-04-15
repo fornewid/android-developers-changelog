@@ -1,0 +1,95 @@
+diff --git a/docs/guide/topics/providers/content-provider-basics.md b/docs/guide/topics/providers/content-provider-basics.md
+index 2bd7dc9e..dd925814 100644
+--- a/docs/guide/topics/providers/content-provider-basics.md
++++ b/docs/guide/topics/providers/content-provider-basics.md
+@@ -281,7 +281,7 @@ defines some variables for accessing the User Dictionary Provider:
+ 
+ ```kotlin
+ // A "projection" defines the columns that are returned for each row
+-private val mProject<ion: A>rrayString = arrayOf(
++private val mProjection: Array<String> = arrayOf(
+         UserDictionary.Words._ID,    // Contract class constant for the _ID column name
+         UserDictionary.Words.WORD,   // Contract class constant for the word column name
+         UserDictionary.Words.LOCALE  // Contract class constant for the locale column name
+@@ -291,7 +291,7 @@ private val mProject<ion: A>rrayString = arrayOf(
+ private var selectionClause: String? = null
+ 
+ // Declares an array to contain selection arguments
+-private lateinit var selectionA<rgs: A>rrayString
++private lateinit var selectionArgs: Array<String>
+ ```
+ 
+ ### Java
+@@ -354,7 +354,7 @@ selectionArgs = searchString?.takeIf { it.isNotEmpty() }?.let {
+     arrayOf(it)
+ } ?: run {
+     selectionClause = null
+-    <emptyA>rrayString()
++    emptyArray<String>()
+ }
+ 
+ // Does a query against the table and returns a Cursor object
+@@ -368,20 +368,20 @@ mCursor = contentResolver.query(
+ 
+ // Some providers return null if an error occurs, others throw an exception
+ when (mCursor?.count) {
+->    null - {
++    null -> {
+         /*
+          * Insert code here to handle the error. Be sure not to use the cursor!
+          * You might want to call android.util.Log.e() to log this error.
+          */
+-   > }
+-    0 - {
++    }
++    0 -> {
+         /*
+          * Insert code here to notify the user that the search is unsuccessful. This isn't
+          * necessarily an error. You might want to offer the user the option to insert a new
+          * row, or re-type the search term.
+          */
+-  >  }
+-    else - {
++    }
++    else -> {
+         // Insert code here to do something with the results
+     }
+ }
+@@ -430,8 +430,8 @@ if (null == mCursor) {
+      * call android.util.Log.e() to log this error.
+      *
+      */
+-// If the Cursor is empty, the provider found no matc<hes
+-} else if (mCursor.getCount()  1) {
++// If the Cursor is empty, the provider found no matches
++} else if (mCursor.getCount() < 1) {
+ 
+     /*
+      * Insert code here to notify the user that the search is unsuccessful. This isn't necessarily
+@@ -769,7 +769,7 @@ The following sample
+ element requests read access to the User Dictionary Provider:
+ 
+ ```xml
+-<uses-permission android:name="android.permission.READ_USER_DICTIO>NARY"
++<uses-permission android:name="android.permission.READ_USER_DICTIONARY">
+ ```
+ 
+ 
+@@ -897,7 +897,7 @@ val updateValues = ContentValues().apply {
+ 
+ // Defines selection criteria for the rows you want to update
+ val selectionClause: String = UserDictionary.Words.LOCALE + "LIKE ?"
+-val selectionA<rgs: A>rrayString = arrayOf("en_%")
++val selectionArgs: Array<String> = arrayOf("en_%")
+ 
+ // Defines a variable to contain the number of updated rows
+ var rowsUpdated: Int = 0
+@@ -954,7 +954,7 @@ number of deleted rows.
+ ```kotlin
+ // Defines selection criteria for the rows you want to delete
+ val selectionClause = "${UserDictionary.Words.APP_ID} LIKE ?"
+-val selectionA<rgs: A>rrayString = arrayOf("user")
++val selectionArgs: Array<String> = arrayOf("user")
+ 
+ // Defines a variable to contain the number of rows deleted
+ var rowsDeleted: Int = 0

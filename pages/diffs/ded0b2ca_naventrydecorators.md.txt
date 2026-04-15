@@ -1,0 +1,13 @@
+diff --git a/docs/guide/navigation/navigation-3/naventrydecorators.md b/docs/guide/navigation/navigation-3/naventrydecorators.md
+index 4ce50bcf..c233be52 100644
+--- a/docs/guide/navigation/navigation-3/naventrydecorators.md
++++ b/docs/guide/navigation/navigation-3/naventrydecorators.md
+@@ -45,7 +45,7 @@ the state - a `SaveableStateHolder` - and uses it to construct the decorator.
+ Once you've created your `NavEntryDecorator`, decorate the entries in your
+ back stack in one of two ways:
+ 
+-- Use [`rememberDecoratedNavEntries`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/rememberDecoratedNavEntries.composable#rememberDecoratedNavEntries(kotlin.collections.List,kotlin.collections.List)). This function is useful when you have multiple back stacks, each with its own set of decorators (see [this code recipe](https://github.com/android/nav3-recipes/tree/main/app/src/main/java/com/example/nav3recipes/multiplestacks) for more details). The function returns a decorated list of `NavEntry`s that you can use with [`NavDisplay`](https://developer.android.com/reference/kotlin/androidx/navigation3/ui/package-summary#NavDisplay(kotlin.collections.List,androidx.compose.ui.Modifier,androidx.compose.ui.Alignment,androidx.navigation3.scene.SceneStrategy,androidx.compose.animation.SharedTransitionScope,androidx.compose.animation.SizeTransform,kotlin.Function1,kotlin.Function1,kotlin.Function2,kotlin.Function0)).
++- Use [`rememberDecoratedNavEntries`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/rememberDecoratedNavEntries.composable). This function is useful when you have multiple back stacks, each with its own set of decorators (see [this code recipe](https://github.com/android/nav3-recipes/tree/main/app/src/main/java/com/example/nav3recipes/multiplestacks) for more details). The function returns a decorated list of `NavEntry`s that you can use with [`NavDisplay`](https://developer.android.com/reference/kotlin/androidx/navigation3/ui/NavDisplay.composable).
+ - Supply your decorator directly to `NavDisplay` using the `entryDecorators` parameter. `NavDisplay` calls `rememberDecoratedNavEntries` under the hood and displays the decorated entries.
+ 
+ ### Include the default decorator

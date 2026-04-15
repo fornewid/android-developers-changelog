@@ -1,0 +1,49 @@
+diff --git a/docs/training/cars/apps/library/start-screen.md b/docs/training/cars/apps/library/start-screen.md
+index 19da3e89..205cf128 100644
+--- a/docs/training/cars/apps/library/start-screen.md
++++ b/docs/training/cars/apps/library/start-screen.md
+@@ -12,28 +12,20 @@ car screen.
+ This code snippet shows how to declare a `Screen` that uses a
+ [`PaneTemplate`](https://developer.android.com/reference/androidx/car/app/model/PaneTemplate) template to display a "Hello world!" string:
+ 
+-### Kotlin
+ 
+-    class HelloWorldScreen(carContext: CarContext) : Screen(carContext) {
+-        override fun onGetTemplate(): Template {
+-            val row = Row.Builder().setTitle("Hello world!").build()
+-            val pane = Pane.Builder().addRow(row).build()
+-            return PaneTemplate.Builder(pane)
+-                .setHeaderAction(Action.APP_ICON)
+-                .build()
+-        }
++```kotlin
++class MyStartScreen(carContext: CarContext) : Screen(carContext) {
++    override fun onGetTemplate(): Template {
++        val row = Row.Builder().setTitle("Hello world!").build()
++        val pane = Pane.Builder().addRow(row).build()
++        val header = Header.Builder()
++            .setStartHeaderAction(Action.APP_ICON)
++            .build()
++        return PaneTemplate.Builder(pane)
++            .setHeader(header)
++            .build()
+     }
++}
++```
+ 
+-### Java
+-
+-    public class HelloWorldScreen extends Screen {
+-        @NonNull
+-        @Override
+-        public Template onGetTemplate() {
+-            Row row = new Row.Builder().setTitle("Hello world!").build();
+-            Pane pane = new Pane.Builder().addRow(row).build();
+-            return new PaneTemplate.Builder(pane)
+-                .setHeaderAction(Action.APP_ICON)
+-                .build();
+-        }
+-    }
+\ No newline at end of file
++<br />
+\ No newline at end of file

@@ -1,0 +1,13 @@
+diff --git a/docs/develop/ui/views/haptics/haptic-feedback.md b/docs/develop/ui/views/haptics/haptic-feedback.md
+index 7629ff22..6ce06c28 100644
+--- a/docs/develop/ui/views/haptics/haptic-feedback.md
++++ b/docs/develop/ui/views/haptics/haptic-feedback.md
+@@ -189,7 +189,7 @@ The app needs to have the
+ to vibrate the device using this service. The permission can be added to the
+ application manifest file:
+ 
+-    <uses-permission android:name="android.permission.VIBR>ATE"/
++    <uses-permission android:name="android.permission.VIBRATE"/>
+ 
+ ### Play a predefined `VibrationEffect`
+ 

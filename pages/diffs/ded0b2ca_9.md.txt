@@ -1,0 +1,37 @@
+diff --git a/docs/blog/categories/product-news/9.md b/docs/blog/categories/product-news/9.md
+index 2f3fed72..a04e70fb 100644
+--- a/docs/blog/categories/product-news/9.md
++++ b/docs/blog/categories/product-news/9.md
+@@ -9,6 +9,15 @@ source: md.txt
+ # Product News
+ 
+ Stay in the loop with the latest updates, feature releases, and behind-the-scenes looks at how we're evolving.
++- [![](https://developer.android.com/static/blog/assets/Ajesh_R_Pai_fc75c62777_Z1G5g2B.webp)](https://developer.android.com/blog/authors/ajesh-pai)[![](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2dcD9g.webp)](https://developer.android.com/blog/authors/ben-weiss) 18 Nov 2025 18 Nov 2025 ![](https://developer.android.com/static/blog/assets/performance_Week7_0b86aba329_2gDCJ1.webp)
++
++  ## [Configure and troubleshoot R8 Keep Rules](https://developer.android.com/blog/posts/configure-and-troubleshoot-r8-keep-rules)
++
++  [arrow_forward](https://developer.android.com/blog/posts/configure-and-troubleshoot-r8-keep-rules) The Android build system's primary tool for achieving a small, fast, and secure application is the R8 optimizer, the compiler that handles dead code and resource removal for shrinking, code renaming or minification, and app optimization.
++
++  ###### [Ajesh Pai](https://developer.android.com/blog/authors/ajesh-pai), [Ben Weiss](https://developer.android.com/blog/authors/ben-weiss) •
++  7 min read
++
+ - [![](https://developer.android.com/static/blog/assets/scottnien_c517be4920_F68BQ.webp)](https://developer.android.com/blog/authors/scott-nien) 13 Nov 2025 13 Nov 2025 ![](https://developer.android.com/static/blog/assets/camera_X1_5_9f8216fa59_1XU56O.webp)
+ 
+   ## [Introducing CameraX 1.5: Powerful Video Recording and Pro-level Image Capture](https://developer.android.com/blog/posts/introducing-camera-x-powerful-video-recording-and-pro-level-image-capture)
+@@ -54,16 +63,6 @@ Stay in the loop with the latest updates, feature releases, and behind-the-scene
+   ###### [Caren Chang](https://developer.android.com/blog/authors/caren-chang), [Chengji Yan](https://developer.android.com/blog/authors/chengji-yan), [Penny Li](https://developer.android.com/blog/authors/penny-li) •
+   2 min read
+ 
+-- [![](https://developer.android.com/static/blog/assets/Rob_Orgiu_f45ebe80ce_22fyUM.webp)](https://developer.android.com/blog/authors/rob-orgiu) 27 Oct 2025 27 Oct 2025 ![](https://developer.android.com/static/blog/assets/material3adaptive_72cc7e27f6_Z1Stpt5.webp)
+-
+-  ## [Material 3 Adaptive 1.2.0 is stable](https://developer.android.com/blog/posts/material-3-adaptive-1-2-0-is-stable)
+-
+-  [arrow_forward](https://developer.android.com/blog/posts/material-3-adaptive-1-2-0-is-stable) We're excited to announce that Material 3 Adaptive 1.2.0 is now stable!
+-  This release continues to build on the foundations of previous versions, expanding support to more breakpoints for window size classes and new strategies to place display panes automatically.
+-
+-  ###### [Rob Orgiu](https://developer.android.com/blog/authors/rob-orgiu) •
+-  2 min read
+-
+ [arrow_back](https://developer.android.com/blog/categories/product-news/8)
+ 
+ #### Page 9

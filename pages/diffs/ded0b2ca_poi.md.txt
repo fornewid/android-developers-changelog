@@ -1,0 +1,62 @@
+diff --git a/docs/training/cars/apps/poi.md b/docs/training/cars/apps/poi.md
+index 3eed8389..e6714067 100644
+--- a/docs/training/cars/apps/poi.md
++++ b/docs/training/cars/apps/poi.md
+@@ -11,7 +11,8 @@ app.
+ ## Declare category support in your manifest
+ 
+ Your app needs to declare the `androidx.car.app.category.POI`
+-[car app category](https://developer.android.com/training/cars/apps#supported-app-categories) in the intent filter of its
++[car app category](https://developer.android.com/training/cars/apps#supported-app-categories) in the intent
++filter of its
+ [`CarAppService`](https://developer.android.com/reference/androidx/car/app/CarAppService).
+ 
+ > [!IMPORTANT]
+@@ -35,7 +36,8 @@ The following example shows how to declare the app category:
+ 
+ ## Access the map templates
+ 
+-POI apps can access the [`PlaceListMapTemplate`](https://developer.android.com/reference/androidx/car/app/model/PlaceListMapTemplate)
++POI apps can access the
++[`PlaceListMapTemplate`](https://developer.android.com/reference/androidx/car/app/model/PlaceListMapTemplate)
+ and [`MapWithContentTemplate`](https://developer.android.com/reference/androidx/car/app/navigation/model/MapWithContentTemplate).
+ 
+ The `PlaceListMapTemplate` is specifically designed for showing a list of the
+@@ -72,33 +74,20 @@ to set the listener on the template to enable list refresh.
+ 
+ The following snippet shows how to set the listener on the template:
+ 
+-### Kotlin
+ 
+ ```kotlin
+-PlaceListMapTemplate.Builder()
+-    ...
++return PlaceListMapTemplate.Builder()
++    // ...
+     .setOnContentRefreshListener {
+         // Execute any desired logic
+-        ...
++        // ...
+         // Then call invalidate() so onGetTemplate() is called again
+         invalidate()
+     }
+     .build()
+ ```
+ 
+-### Java
+-
+-```java
+-new PlaceListMapTemplate.Builder()
+-        ...
+-        .setOnContentRefreshListener(() -> {
+-            // Execute any desired logic
+-            ...
+-            // Then call invalidate() so onGetTemplate() is called again
+-            invalidate();
+-        })
+-        .build();
+-```
++<br />
+ 
+ The refresh button is only shown in the header of the
+ `PlaceListMapTemplate` if the listener has a value.

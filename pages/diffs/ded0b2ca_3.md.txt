@@ -1,0 +1,89 @@
+diff --git a/docs/blog/latest/3.md b/docs/blog/latest/3.md
+index dc6259bb..8d2e7c4b 100644
+--- a/docs/blog/latest/3.md
++++ b/docs/blog/latest/3.md
+@@ -7,6 +7,28 @@ source: md.txt
+ # The Latest
+ 
+ Stay up to date with the latest announcements, feature rollouts, and updates across Android tools, libraries, and platforms.
++- [![](https://developer.android.com/static/blog/assets/Georgia_Doyle_a2f5ebfcdb_Z1cCMui.webp)](https://developer.android.com/blog/authors/georgia-doyle)[![](https://developer.android.com/static/blog/assets/Kanu_Tibrewal_20caa0960e_1aI42M.webp)](https://developer.android.com/blog/authors/kanu-tibrewal) 21 Jan 2026 21 Jan 2026 ![](https://developer.android.com/static/blog/assets/260120_Header_7fdfbedb2d_105hHT.webp)
++
++  #### [Product News](https://developer.android.com/blog/categories/product-news)
++
++  ## [Ready to review some changes but not others? Try using Play Console's new Save for later feature](https://developer.android.com/blog/posts/try-using-play-consoles-new-save-for-later-feature)
++
++  [arrow_forward](https://developer.android.com/blog/posts/try-using-play-consoles-new-save-for-later-feature) We've launched a new Save for later feature on Google Play Console's Publishing overview to give you more control over when you send changes for review.
++
++  ###### [Georgia Doyle](https://developer.android.com/blog/authors/georgia-doyle), [Kanu Tibrewal](https://developer.android.com/blog/authors/kanu-tibrewal) •
++  2 min read
++
++- [![](https://developer.android.com/static/blog/assets/Sandhya_Mohan_30435468a9_1b689e.webp)](https://developer.android.com/blog/authors/sandhya-mohan)[![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](https://developer.android.com/blog/authors/trevor-johns) 15 Jan 2026 15 Jan 2026 ![](https://developer.android.com/static/blog/assets/as_Otter3feb_2dc12a1b18_Z1VaHAk.webp)
++
++  #### [Product News](https://developer.android.com/blog/categories/product-news)
++
++  ## [LLM flexibility, Agent Mode improvements, and new agentic experiences in Android Studio Otter 3 Feature Drop](https://developer.android.com/blog/posts/llm-flexibility-agent-mode-improvements-and-new-agentic-experiences-in-android-studio-otter-3-feature-drop)
++
++  [arrow_forward](https://developer.android.com/blog/posts/llm-flexibility-agent-mode-improvements-and-new-agentic-experiences-in-android-studio-otter-3-feature-drop) We are excited to announce that Android Studio Otter 3 Feature Drop is now stable! This feature-packed release brings a huge update to your agentic workflows in Android Studio, and offers you more flexibility and control for how you use AI to help you build Android apps.
++
++  ###### [Sandhya Mohan](https://developer.android.com/blog/authors/sandhya-mohan), [Trevor Johns](https://developer.android.com/blog/authors/trevor-johns) •
++  9 min read
++
+ - [![](https://developer.android.com/static/blog/assets/Amrit_Sanjeev_5215e0d7cc_CrDLy.webp)](https://developer.android.com/blog/authors/amrit-sanjeev)[![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](https://developer.android.com/blog/authors/trevor-johns) 08 Jan 2026 08 Jan 2026 ![](https://developer.android.com/static/blog/assets/Ultrahumanx_Gi_AS_Banner_1612731319_Z23acG3.webp)
+ 
+   #### [Case Studies](https://developer.android.com/blog/categories/case-studies)
+@@ -78,7 +100,7 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
+   ###### [Donovan McMurray](https://developer.android.com/blog/authors/donovan-mcmurray) •
+   7 min read
+ 
+-- [![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](https://developer.android.com/blog/authors/sam-bright) 15 Dec 2025 15 Dec 2025 ![](https://developer.android.com/static/blog/assets/image_8_8d65429579_7b1Fx.webp)
++- [![](https://developer.android.com/static/blog/assets/Sam_Bright_Headshot_2023_ca4877d69c_1VeLdh.webp)](https://developer.android.com/blog/authors/sam-bright) 15 Dec 2025 15 Dec 2025 ![](https://developer.android.com/static/blog/assets/image_8_8d65429579_7b1Fx.webp)
+ 
+   #### [Product News](https://developer.android.com/blog/categories/product-news)
+ 
+@@ -122,7 +144,7 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
+   ###### [Robbie McLachlan](https://developer.android.com/blog/authors/robbie-mclachlan) •
+   2 min read
+ 
+-- [![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](https://developer.android.com/blog/authors/bennet-manuel)[![](https://developer.android.com/static/blog/assets/Rob_Clifford_6e7c829a3c_ZKhwgg.webp)](https://developer.android.com/blog/authors/rob-clifford) 11 Dec 2025 11 Dec 2025 ![](https://developer.android.com/static/blog/assets/a11y_rev_37216d57dc_Z211KeA.webp)
++- [![](https://developer.android.com/static/blog/assets/Bennet_Manuel_4be9960838_MydbH.webp)](https://developer.android.com/blog/authors/bennet-manuel)[![](https://developer.android.com/static/blog/assets/Rob_Clifford_6e7c829a3c_ZKhwgg.webp)](https://developer.android.com/blog/authors/rob-clifford) 11 Dec 2025 11 Dec 2025 ![](https://developer.android.com/static/blog/assets/a11y_rev_37216d57dc_Z211KeA.webp)
+ 
+   #### [Product News](https://developer.android.com/blog/categories/product-news)
+ 
+@@ -210,28 +232,6 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
+   ###### [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) •
+   4 min read
+ 
+-- [![](https://developer.android.com/static/blog/assets/don_bccb8c3f75_1ufD8A.webp)](https://developer.android.com/blog/authors/don-turner) 01 Dec 2025 01 Dec 2025 ![](https://developer.android.com/static/blog/assets/Spotlightweek_Blog_banner_2_77cf3dc16b_Z1N257A.webp)
+-
+-  #### [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs)
+-
+-  ## [Learn about our newest Jetpack Navigation library with the Nav3 Spotlight Week](https://developer.android.com/blog/posts/learn-about-our-newest-jetpack-navigation-library-with-the-nav3-spotlight-week)
+-
+-  [arrow_forward](https://developer.android.com/blog/posts/learn-about-our-newest-jetpack-navigation-library-with-the-nav3-spotlight-week) Jetpack Navigation 3 is now stable, and using it can help you reduce tech debt, provide better separation of concerns, speed up feature development time, and support new form factors.
+-
+-  ###### [Don Turner](https://developer.android.com/blog/authors/don-turner) •
+-  1 min read
+-
+-- [![](https://developer.android.com/static/blog/assets/Robbie_280bd4586c_2wmcrw.webp)](https://developer.android.com/blog/authors/robbie-mclachlan) 25 Nov 2025 25 Nov 2025 ![](https://developer.android.com/static/blog/assets/Android_Devs_Google_Devs_Blog_Header_1200x600_79350b0b52_1w8gkH.webp)
+-
+-  #### [Community](https://developer.android.com/blog/categories/community)
+-
+-  ## [#WeArePlay: Solving the dinner dilemma - how DELISH KITCHEN empowers 13 million home cooks](https://developer.android.com/blog/posts/we-are-play-solving-the-dinner-dilemma-how-delish-kitchen-empowers-13-million-home-cooks)
+-
+-  [arrow_forward](https://developer.android.com/blog/posts/we-are-play-solving-the-dinner-dilemma-how-delish-kitchen-empowers-13-million-home-cooks) In our latest #WeArePlay film, which celebrates the people behind apps and games on Google Play, we meet Chiharu - a co-founder of DELISH KITCHEN.
+-
+-  ###### [Robbie McLachlan](https://developer.android.com/blog/authors/robbie-mclachlan) •
+-  2 min read
+-
+ [arrow_back](https://developer.android.com/blog/latest/2)
+ 
+ #### Page 3
+@@ -258,6 +258,8 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
+ - [#Android 16](https://developer.android.com/blog/topics/android-16)
+ - [#Automotive OS](https://developer.android.com/blog/topics/automotive-os)
+ - [#beta](https://developer.android.com/blog/topics/beta)
++- [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
++- [#Generative AI](https://developer.android.com/blog/topics/generative-ai)
+ - [#authentication](https://developer.android.com/blog/topics/authentication)
+ - [#CredentialManager](https://developer.android.com/blog/topics/credential-manager)
+ - [#Foldables](https://developer.android.com/blog/topics/foldables)
