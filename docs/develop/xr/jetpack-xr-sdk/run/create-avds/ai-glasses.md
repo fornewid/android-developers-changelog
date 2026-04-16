@@ -78,8 +78,8 @@ First, create a phone AVD to act as the host device for the AI glasses:
 5. In the **Select system image** section, select the most-recent system image
    that is compatible with your system from the list of system images:
 
-   - Google Play ARM 64 v8a System Image (macOS)
-   - Google Play Intel x86_64 Atom System Image (Windows and Linux)
+   - Pre-Release 16 KB Page Size Google Play ARM 64 v8a System Image (macOS)
+   - Pre-Release 16 KB Page Size Google Play Intel x86_64 Atom System Image (Windows and Linux)
 
    ![The AVD system image configuration for the phone host
    device.](https://developer.android.com/static/images/develop/xr/jetpack-xr-sdk/run/host-device-avd-system-image.png)

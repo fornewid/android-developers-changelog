@@ -19,7 +19,7 @@ Today, the [Jetpack Compose December '25 release](https://developer.android.com/
 To use today's release, upgrade your Compose BOM version to `2025.12.00`:
 
 ```
-  implementation(platform("androidx.compose:compose-bom:2025.12.00"))
+implementation(platform("androidx.compose:compose-bom:2025.12.00"))
 ```
 
 ## **Performance improvements**
@@ -47,7 +47,7 @@ We've also optimized performance elsewhere, with improvements to `Modifier.onPla
 Compose offers a number of APIs to hold and manage state across different lifecycles; for example, `remember` persists state across compositions, and `rememberSavable`/`rememberSerializable` to persist across activity or process recreation. [`retain`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/retain/package-summary#retain(kotlin.Function0)) is a new API that sits between these APIs, enabling you to persist values across configuration changes without being serialized, but not across process death. As `retain` does not serialize your state, you can persist objects like lambda expressions, flows, and large objects like bitmaps, which cannot be easily serialized. For example, you may use `retain` to manage a media player (such as ExoPlayer) to ensure that media playback doesn't get interrupted by a configuration change.
 
 ```
-  @Composable
+@Composable
 
 fun MediaPlayer() {
 
@@ -91,7 +91,7 @@ layout changes whenever a matching key is found in the target state. However, yo
 To control whether the shared element transition occurs, you can now customize the `SharedContentConfig` passed to `rememberSharedContentState()`. The `isEnabled` property determines if the shared element is active.
 
 ```
-  SharedTransitionLayout {
+SharedTransitionLayout {
 
         val transition = updateTransition(currentState)
 
@@ -128,7 +128,7 @@ A new modifier, [`Modifier.skipToLookaheadPosition()`](https://developer.android
 This release adds a new shared element transition API, `prepareTransitionWithInitialVelocity`, which lets you pass an initial velocity (e.g. from a gesture) to a shared element transition:
 
 ```
-  Modifier.fillMaxSize()
+Modifier.fillMaxSize()
 
     .draggable2D(
 
@@ -162,7 +162,7 @@ This release adds a new shared element transition API, `prepareTransitionWithIni
 *Veiled animated content -- note the semi-opaque veil (or scrim) over the grid content during the animation*
 
 ```
-  AnimatedContent(
+AnimatedContent(
 
     targetState = page,
 
@@ -191,6 +191,7 @@ This release adds a new shared element transition API, `prepareTransitionWithIni
     ...
 
 }
+
 ```
 
 ## **Upcoming changes**
@@ -204,7 +205,7 @@ Compose 1.9 introduced [`Modifier.onVisibilityChanged`](https://developer.androi
 We plan to change coroutine dispatch in tests to improve test flakiness and catch more issues. Currently, tests use the `UnconfinedTestDispatcher`, which differs from production behavior; e.g., [effects](https://developer.android.com/develop/ui/compose/side-effects) may run immediately rather than being enqueued. In a future release, we plan to introduce a new API that uses `StandardTestDispatcher` by default to match production behaviours. You can try the new behavior **now** in 1.10:
 
 ```
-  @get:Rule // also createAndroidComposeRule, createEmptyComposeRule
+@get:Rule // also createAndroidComposeRule, createEmptyComposeRule
 
 val rule = createComposeRule(effectContext = StandardTestDispatcher())
 ```
@@ -212,7 +213,7 @@ val rule = createComposeRule(effectContext = StandardTestDispatcher())
 Using the `StandardTestDispatcher` will queue tasks, so you must use synchronization mechanisms like `composeTestRule.waitForIdle()` or `composeTestRule.runOnIdle()`. If your test uses `runTest`, you must ensure that `runTest` and your Compose rule share the same `StandardTestDispatcher` instance for synchronization.
 
 ```
-  // 1. Create a SINGLE dispatcher instance
+// 1. Create a SINGLE dispatcher instance
 
 val testDispatcher = StandardTestDispatcher()
 
@@ -235,6 +236,7 @@ fun myTest() = runTest(testDispatcher) {
     composeRule.setContent { /* ... */ }
 
 }
+
 ```
 
 ## **Tools**
@@ -267,6 +269,17 @@ We continue to invest in Jetpack Compose to provide you with the APIs and tools 
 
 ## Continue reading
 
+- [![](https://developer.android.com/static/blog/assets/Bennet_Manuel_4be9960838_MydbH.webp)](https://developer.android.com/blog/authors/bennet-manuel) 15 Apr 2026 15 Apr 2026 ![](https://developer.android.com/static/blog/assets/260409_Uyo_policy_bundle_Header_dae9a057fb_2u7Yfb.webp)
+
+  #### [Product News](https://developer.android.com/blog/categories/product-news)
+
+  ## [Boosting user privacy and business protection with updated Play policies](https://developer.android.com/blog/posts/boosting-user-privacy-and-business-protection-with-updated-play-policies)
+
+  [arrow_forward](https://developer.android.com/blog/posts/boosting-user-privacy-and-business-protection-with-updated-play-policies) Making Google Play the safest and most trusted experience possible. Today, we're announcing a new set of policy updates and an account transfer feature to boost user privacy and protect your business from fraud.
+
+  ###### [Bennet Manuel](https://developer.android.com/blog/authors/bennet-manuel) •
+  3 min read
+
 - [![](https://developer.android.com/static/blog/assets/headshot_e042d23f90_2x0LLK.webp)](https://developer.android.com/blog/authors/steven-jenkins) 13 Apr 2026 13 Apr 2026 ![](https://developer.android.com/static/blog/assets/Multi_Device_Interactions_with_Android_Emulator_Strapi_5d6ea711e7_Z1AYEiA.webp)
 
   #### [Product News](https://developer.android.com/blog/categories/product-news)
@@ -288,18 +301,6 @@ We continue to invest in Jetpack Compose to provide you with the APIs and tools 
 
   ###### [Matthew Warner](https://developer.android.com/blog/authors/matthew-warner) •
   2 min read
-
-  - [#Android Studio](https://developer.android.com/blog/topics/android-studio)
-- [![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](https://developer.android.com/blog/authors/matt-dyor) 02 Apr 2026 02 Apr 2026 ![](https://developer.android.com/static/blog/assets/as_Panda3_385cde5eac_Z1E8IhJ.webp)
-
-  #### [Product News](https://developer.android.com/blog/categories/product-news)
-
-  ## [Increase Guidance and Control over Agent Mode with Android Studio Panda 3](https://developer.android.com/blog/posts/increase-guidance-and-control-over-agent-mode-with-android-studio-panda-3)
-
-  [arrow_forward](https://developer.android.com/blog/posts/increase-guidance-and-control-over-agent-mode-with-android-studio-panda-3) Android Studio Panda 3 is now stable and ready for you to use in production. This release gives you even more control and customization over your AI-powered workflows, making it easier than ever to build high-quality Android apps.
-
-  ###### [Matt Dyor](https://developer.android.com/blog/authors/matt-dyor) •
-  3 min read
 
   - [#Android Studio](https://developer.android.com/blog/topics/android-studio)
 

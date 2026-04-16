@@ -35,7 +35,7 @@ Implementing this is straightforward if you're familiar with the [VideoCapture](
 **1. Check for High-Speed Support:** Use the new [Recorder.getHighSpeedVideoCapabilities()](https://developer.android.com/reference/androidx/camera/video/Recorder#getHighSpeedVideoCapabilities(androidx.camera.core.CameraInfo))method to query if the device supports this feature.
 
 ```
-  val cameraInfo = cameraProvider.getCameraInfo(cameraSelector)
+val cameraInfo = cameraProvider.getCameraInfo(cameraSelector)
 
 val highSpeedCapabilities = Recorder.getHighSpeedVideoCapabilities(cameraInfo)
 
@@ -48,7 +48,7 @@ if (highSpeedCapabilities == null) {
 **2. Configure and Bind the Use Case:** Use the returned `videoCapabilities` (which contains supported video quality information) to build a [HighSpeedVideoSessionConfig](https://developer.android.com/reference/kotlin/androidx/camera/video/HighSpeedVideoSessionConfig). You must then query the supported frame rate ranges via [cameraInfo.getSupportedFrameRateRanges()](https://developer.android.com/reference/androidx/camera/core/CameraInfo#getSupportedFrameRateRanges(androidx.camera.core.SessionConfig)) and set the desired range. Invoke [setSlowMotionEnabled(true)](https://developer.android.com/reference/kotlin/androidx/camera/video/HighSpeedVideoSessionConfig.Builder?_gl=1*1eperjw*_up*MQ..*_ga*NTc4Mzk5NDgzLjE3NjIyMzgyNzY.*_ga_6HH9YJMN9M*czE3NjIyMzgyNzYkbzEkZzAkdDE3NjIyMzgyNzYkajYwJGwwJGgxMzAyMzMwOTk4#setSlowMotionEnabled(kotlin.Boolean)) to record slow motion videos, otherwise it will record high-frame-rate videos. The final step is to use the regular `Recorder.prepareRecording().start()` to begin recording the video.
 
 ```
-  val preview = Preview.Builder().build()
+val preview = Preview.Builder().build()
 val quality = highSpeedCapabilities
         .getSupportedQualities(DynamicRange.SDR).first()
 
@@ -95,7 +95,7 @@ The feature group API enables two essential use cases:
 If you want to capture using the best possible combination of features, you can provide a prioritized list. CameraX will attempt to enable them in order, selecting the first combination the device fully supports.
 
 ```
-  val sessionConfig = SessionConfig(
+val sessionConfig = SessionConfig(
     useCases = listOf(preview, videoCapture),
     preferredFeatureGroup = listOf(
         GroupableFeature.HDR_HLG10,
@@ -130,7 +130,7 @@ You can now accurately reflect which feature combinations are supported in your 
 To determine whether to gray out a toggle, use the following codes to check for feature combination support. Initially, query the status of every individual feature. Once a feature is enabled, re-query the remaining features with the enabled features to see if their toggles must now be grayed out due to compatibility constraints.
 
 ```
-  fun disableFeatureIfNotSuported(
+fun disableFeatureIfNotSuported(
    enabledFeatures: Set<GroupableFeature>,     
    featureToCheck:GroupableFeature
 ) {
@@ -164,7 +164,7 @@ CameraX 1.5 brings major upgrades to [ImageCapture](https://developer.android.co
 For complete control over post-processing, CameraX now supports DNG (RAW) capture. This gives you access to the unprocessed, uncompressed image data directly from the camera sensor, enabling professional-grade editing and color grading. The API supports capturing the DNG file alone, or capturing simultaneous JPEG and DNG outputs. See the sample code below for how to capture JPEG and DNG files simultaneously.
 
 ```
-  val capabilities = ImageCapture.getImageCaptureCapabilities(cameraInfo)
+val capabilities = ImageCapture.getImageCaptureCapabilities(cameraInfo)
 val imageCapture = ImageCapture.Builder().apply {
     if (capabilities.supportedOutputFormats
              .contains(OUTPUT_FORMAT_RAW_JPEG)) {
@@ -198,7 +198,7 @@ imageCapture.takePicture(
 Get the best of both worlds: the stunning computational photography of Camera Extensions (like Night Mode) combined with the brilliant color and dynamic range of Ultra HDR. This feature is now supported on many recent premium Android phones, such as the Pixel 9/10 series and Samsung S24/S25 series.
 
 ```
-  // Support UltraHDR when Extension is enabled. 
+// Support UltraHDR when Extension is enabled. 
 
 val extensionsEnabledCameraSelector = extensionsManager
      .getExtensionEnabledCameraSelector(
@@ -243,7 +243,7 @@ We know how much you enjoy Jetpack Compose, and we're excited to announce that t
 To use CameraX 1.5, please add the following dependencies to your libs.versions.toml. (We recommend using 1.5.1 which contains many critical bug fixes and concurrent camera improvements.)
 
 ```
-  [versions]
+[versions]
 
 camerax = "1.5.1"
 
@@ -268,7 +268,7 @@ androidx-camera-extensions = { module = "androidx.camera:camera-extensions", ver
 And then add these to your module build.gradle.kts dependencies:
 
 ```
-  dependencies {
+dependencies {
 
   ..
 
@@ -303,6 +303,17 @@ Have questions or want to connect with the CameraX team? Join the CameraX develo
 
 ## Continue reading
 
+- [![](https://developer.android.com/static/blog/assets/Bennet_Manuel_4be9960838_MydbH.webp)](https://developer.android.com/blog/authors/bennet-manuel) 15 Apr 2026 15 Apr 2026 ![](https://developer.android.com/static/blog/assets/260409_Uyo_policy_bundle_Header_dae9a057fb_2u7Yfb.webp)
+
+  #### [Product News](https://developer.android.com/blog/categories/product-news)
+
+  ## [Boosting user privacy and business protection with updated Play policies](https://developer.android.com/blog/posts/boosting-user-privacy-and-business-protection-with-updated-play-policies)
+
+  [arrow_forward](https://developer.android.com/blog/posts/boosting-user-privacy-and-business-protection-with-updated-play-policies) Making Google Play the safest and most trusted experience possible. Today, we're announcing a new set of policy updates and an account transfer feature to boost user privacy and protect your business from fraud.
+
+  ###### [Bennet Manuel](https://developer.android.com/blog/authors/bennet-manuel) •
+  3 min read
+
 - [![](https://developer.android.com/static/blog/assets/headshot_e042d23f90_2x0LLK.webp)](https://developer.android.com/blog/authors/steven-jenkins) 13 Apr 2026 13 Apr 2026 ![](https://developer.android.com/static/blog/assets/Multi_Device_Interactions_with_Android_Emulator_Strapi_5d6ea711e7_Z1AYEiA.webp)
 
   #### [Product News](https://developer.android.com/blog/categories/product-news)
@@ -324,18 +335,6 @@ Have questions or want to connect with the CameraX team? Join the CameraX develo
 
   ###### [Matthew Warner](https://developer.android.com/blog/authors/matthew-warner) •
   2 min read
-
-  - [#Android Studio](https://developer.android.com/blog/topics/android-studio)
-- [![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](https://developer.android.com/blog/authors/matt-dyor) 02 Apr 2026 02 Apr 2026 ![](https://developer.android.com/static/blog/assets/as_Panda3_385cde5eac_Z1E8IhJ.webp)
-
-  #### [Product News](https://developer.android.com/blog/categories/product-news)
-
-  ## [Increase Guidance and Control over Agent Mode with Android Studio Panda 3](https://developer.android.com/blog/posts/increase-guidance-and-control-over-agent-mode-with-android-studio-panda-3)
-
-  [arrow_forward](https://developer.android.com/blog/posts/increase-guidance-and-control-over-agent-mode-with-android-studio-panda-3) Android Studio Panda 3 is now stable and ready for you to use in production. This release gives you even more control and customization over your AI-powered workflows, making it easier than ever to build high-quality Android apps.
-
-  ###### [Matt Dyor](https://developer.android.com/blog/authors/matt-dyor) •
-  3 min read
 
   - [#Android Studio](https://developer.android.com/blog/topics/android-studio)
 

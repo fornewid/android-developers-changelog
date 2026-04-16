@@ -49,7 +49,7 @@ Preloading is only started when no media is being loaded for the ongoing playbac
 If you're still not sure whether you need preloading, this API is a great low-lift option to try it out!
 
 ```
-  player.preloadConfiguration =
+player.preloadConfiguration =
     PreloadConfiguration(/* targetPreloadDurationUs= */ 5_000_000L)
 ```
 
@@ -58,7 +58,7 @@ With the [PreloadConfiguration](https://developer.android.com/reference/kotlin/a
 Once opted-in, playlist preloading can be turned off again by using `PreloadConfiguration.DEFAULT` to disable playlist preloading:
 
 ```
-  player.preloadConfiguration = PreloadConfiguration.DEFAULT
+player.preloadConfiguration = PreloadConfiguration.DEFAULT
 ```
 
 ### 2. Preloading dynamic lists with PreloadManager
@@ -72,7 +72,7 @@ The [DefaultPreloadManager](https://developer.android.com/reference/androidx/med
 The builder of `DefaultPreloadManager` can build both the DefaultPreloadManager and any [ExoPlayer](https://developer.android.com/media/media3/exoplayer) instances that will play its preloaded content. To create a DefaultPreloadManager, you will need to pass a TargetPreloadStatusControl, which the preload manager can query to find out how much to load for an item. We will explain and define an example of TargetPreloadStatusControl in the section below.
 
 ```
-  val preloadManagerBuilder =
+val preloadManagerBuilder =
 DefaultPreloadManager.Builder(context, targetPreloadStatusControl)
 val preloadManager = val preloadManagerBuilder.build()
 
@@ -101,7 +101,7 @@ For example,
 This granular control can help you optimize your resource utilization which is recommended for a seamless playback.
 
 ```
-  import androidx.media3.exoplayer.DefaultPreloadManager.PreloadStatus
+import androidx.media3.exoplayer.DefaultPreloadManager.PreloadStatus
 
 
 class MyTargetPreloadStatusControl(
@@ -155,7 +155,7 @@ With your manager created, you can start telling it what to work on. As your use
 As you populate your feed, you must inform the [manager](https://developer.android.com/reference/androidx/media3/exoplayer/source/preload/DefaultPreloadManager) of the media it needs to track. If you are starting, you could add the entire list you want to preload. Subsequently you can keep adding a single item to the list as and when required. You have full control over what items are in the preloading list which means you also have to manage what is added and removed from the manager.
 
 ```
-  val initialMediaItems = pullMediaItemsFromService(/* count= */ 20)
+val initialMediaItems = pullMediaItemsFromService(/* count= */ 20)
 for (index in 0 until initialMediaItems.size) {
     preloadManager.add(
         initialMediaItems.get(index),index)
@@ -168,7 +168,7 @@ The manager will now start fetching data for this `MediaItem` in the background.
 After adding, tell the manager to re-evaluate its new list (hinting that something has changed like adding/ removing an item, or the user switches to play a new item.)
 
 ```
-  preloadManager.invalidate()
+preloadManager.invalidate()
 ```
 
 **2. Retrieve and Play an Item**
@@ -178,7 +178,7 @@ Here comes the main playback logic. When the user decides to play that video, yo
 If the retrieved item from the PreloadManager is null, that means the mediaItem is not preloaded yet or added to the PreloadMamager, so you choose to set the mediaItem directly.
 
 ```
-  // When a media item is about to displ​​ay on the screen
+// When a media item is about to displ​​ay on the screen
 val mediaSource = preloadManager.getMediaSource(mediaItem)
 if (mediaSource!= null) {
   player.setMediaSource(mediaSource)
@@ -199,7 +199,7 @@ By preparing the MediaSource retrieved from the PreloadManager, you seamlessly t
 Since our feed / list could be dynamic, it's important to notify the PreloadManager of your current playing index so that it can always prioritize items nearest to your current index for preloading.
 
 ```
-  preloadManager.setCurrentPlayingIndex(currentIndex)
+preloadManager.setCurrentPlayingIndex(currentIndex)
 // Need to call invalidate() to update the priorities
 preloadManager.invalidate()
 ```
@@ -209,7 +209,7 @@ preloadManager.invalidate()
 To keep the manager efficient, you should remove items it no longer needs to track, such as items that are far away from the user's current position.
 
 ```
-  // When an item is too far from the current playing index
+// When an item is too far from the current playing index
 preloadManager.remove(mediaItem)
 ```
 
@@ -220,7 +220,7 @@ If you need to clear all items at once, you can call `preloadManager.reset()`.
 When you no longer need the PreloadManager (e.g., when your UI is destroyed), you must release it to free up its resources. A good place to do this is where you're already releasing your Player's resources. It's recommended to release the manager before the player as the player can continue to play if you don't need any more preloading.
 
 ```
-  // In your Activity's onDestroy() or Composable's onDispose
+// In your Activity's onDestroy() or Composable's onDispose
 preloadManager.release()
 ```
 
@@ -265,6 +265,17 @@ Stay tuned, and go make your app faster! 🚀
   ###### [Mayuri Khinvasara Khabya](https://developer.android.com/blog/authors/mayuri-khabya) •
   9 min read
 
+- [![](https://developer.android.com/static/blog/assets/Bennet_Manuel_4be9960838_MydbH.webp)](https://developer.android.com/blog/authors/bennet-manuel) 15 Apr 2026 15 Apr 2026 ![](https://developer.android.com/static/blog/assets/260409_Uyo_policy_bundle_Header_dae9a057fb_2u7Yfb.webp)
+
+  #### [Product News](https://developer.android.com/blog/categories/product-news)
+
+  ## [Boosting user privacy and business protection with updated Play policies](https://developer.android.com/blog/posts/boosting-user-privacy-and-business-protection-with-updated-play-policies)
+
+  [arrow_forward](https://developer.android.com/blog/posts/boosting-user-privacy-and-business-protection-with-updated-play-policies) Making Google Play the safest and most trusted experience possible. Today, we're announcing a new set of policy updates and an account transfer feature to boost user privacy and protect your business from fraud.
+
+  ###### [Bennet Manuel](https://developer.android.com/blog/authors/bennet-manuel) •
+  3 min read
+
 - [![](https://developer.android.com/static/blog/assets/headshot_e042d23f90_2x0LLK.webp)](https://developer.android.com/blog/authors/steven-jenkins) 13 Apr 2026 13 Apr 2026 ![](https://developer.android.com/static/blog/assets/Multi_Device_Interactions_with_Android_Emulator_Strapi_5d6ea711e7_Z1AYEiA.webp)
 
   #### [Product News](https://developer.android.com/blog/categories/product-news)
@@ -275,19 +286,6 @@ Stay tuned, and go make your app faster! 🚀
 
   ###### [Steven Jenkins](https://developer.android.com/blog/authors/steven-jenkins) •
   2 min read
-
-- [![](https://developer.android.com/static/blog/assets/matthew_warner_67a99317e4_Z2c1VNu.webp)](https://developer.android.com/blog/authors/matthew-warner) 02 Apr 2026 02 Apr 2026 ![](https://developer.android.com/static/blog/assets/android_studio_gemma4_73370772af_2lUopR.webp)
-
-  #### [Product News](https://developer.android.com/blog/categories/product-news)
-
-  ## [Android Studio supports Gemma 4: our most capable local model for agentic coding](https://developer.android.com/blog/posts/android-studio-supports-gemma-4-our-most-capable-local-model-for-agentic-coding)
-
-  [arrow_forward](https://developer.android.com/blog/posts/android-studio-supports-gemma-4-our-most-capable-local-model-for-agentic-coding) Every developer's AI workflow and needs are unique, and it's important to be able to choose how AI helps your development. In January, we introduced the ability to choose any local or remote AI model to power AI functionality in Android Studio
-
-  ###### [Matthew Warner](https://developer.android.com/blog/authors/matthew-warner) •
-  2 min read
-
-  - [#Android Studio](https://developer.android.com/blog/topics/android-studio)
 
 # Stay in the loop
 

@@ -63,7 +63,7 @@ You can use [PerfettoSQL](https://perfetto.dev/docs/analysis/perfetto-sql-gettin
 For example, this query finds `MessageQueue` contention coincident with dropped frames (jank):
 
 ```
-  INCLUDE PERFETTO MODULE android.monitor_contention;
+INCLUDE PERFETTO MODULE android.monitor_contention;
 INCLUDE PERFETTO MODULE android.frames.jank_type;
 
 SELECT
@@ -88,7 +88,7 @@ ORDER BY SUM(dur) DESC;
 In this more complex example, join trace data that spans multiple tables to identify MessageQueue contention during app startup:
 
 ```
-  INCLUDE PERFETTO MODULE android.monitor_contention; 
+INCLUDE PERFETTO MODULE android.monitor_contention; 
 INCLUDE PERFETTO MODULE android.startup.startups; 
 
 -- Join package and process information for startups
@@ -129,7 +129,7 @@ Lock-free software often relies on atomic Read-Modify-Write primitives that the 
 On older generation ARM64 CPUs, atomics used a Load-Link/Store-Conditional (LL/SC) loop. The CPU loads a value and marks the address. If another thread writes to that address, the store fails, and the loop retries. Because the threads can keep trying and succeed without waiting for another thread, this operation is lock-free.
 
 ```
-  ARM64 LL/SC loop example
+ARM64 LL/SC loop example
 retry:
     ldxr    x0, [x1]        // Load exclusive from address x1 to x0
     add     x0, x0, #1      // Increment value by 1
@@ -143,7 +143,7 @@ retry:
 Newer ARM architectures (ARMv8.1) support **Large System Extensions (LSE)** which include instructions in the form of Compare-And-Swap (CAS) or Load-And-Add (demonstrated below). In Android 17 we added support to the Android Runtime (ART) compiler to detect when LSE is supported and emit optimized instructions:
 
 ```
-  / ARMv8.1 LSE atomic example
+/ ARMv8.1 LSE atomic example
 ldadd   x0, x1, [x2]    // Atomic load-add.
                         // Faster, no loop required.
 ```
@@ -164,7 +164,7 @@ To remove lock contention from `MessageQueue`, our engineers designed a novel da
 The list of `Messages` is kept in a Treiber stack \[1\], a lock-free stack that uses a CAS loop to update the head pointer.
 
 ```
-  public class TreiberStack <E> {
+public class TreiberStack <E> {
     AtomicReference<Node<E>> top =
             new AtomicReference<Node<E>>();
     public void push(E item) {
@@ -259,7 +259,7 @@ While developing and testing DeliQueue, the team ran many benchmarks and careful
 A standard comparator uses conditional jumps, with the condition for deciding which `Message` comes first simplified below:
 
 ```
-  static int compareMessages(@NonNull Message m1, @NonNull Message m2) {
+static int compareMessages(@NonNull Message m1, @NonNull Message m2) {
     if (m1 == m2) {
         return 0;
     }
@@ -291,7 +291,7 @@ Recall that the original `MessageQueue` code used a singly-linked list for the o
 Realizing that branch misses were slowing down our heap code, we optimized the code using **branch-free programming**:
 
 ```
-  // Branchless Logic
+// Branchless Logic
 static int compareMessages(@NonNull Message m1, @NonNull Message m2) {
     final long when1 = m1.when;
     final long when2 = m2.when;
@@ -314,7 +314,7 @@ static int compareMessages(@NonNull Message m1, @NonNull Message m2) {
 To understand the optimization, [disassemble the two examples in Compiler Explorer](https://godbolt.org/z/bvGh7aadG) and use [LLVM-MCA](https://llvm.org/docs/CommandGuide/llvm-mca.html), a CPU simulator that can generate an [estimated timeline of CPU cycles](https://godbolt.org/z/EYxn6MasE).
 
 ```
-  The original code:
+The original code:
 Index     01234567890123
 [0,0]     DeER .    .  .   sub  x0, x2, x3
 [0,1]     D=eER.    .  .   cmp  x0, #0
@@ -342,7 +342,7 @@ Index     01234567890123
 Note the one conditional branch, `b.le`, which avoids comparing the `insertSeq` fields if the result is already known from comparing the `when` fields.
 
 ```
-  The branchless code:
+The branchless code:
 Index     012345678
 [0,0]     DeER .  .   sub       x0, x2, x3
 [0,1]     DeER .  .   sub       x1, x4, x5
@@ -376,7 +376,7 @@ To improve our debugging capabilities, we built new **analysis tools** . Below i
 To enable `MessageQueue` tracing in the `system_server` process, include the following in your Perfetto configuration:
 
 ```
-  data_sources {
+data_sources {
   config {
     name: "track_event"
     target_buffer: 0  # Change this per your buffers configuration
@@ -429,6 +429,17 @@ DeliQueue is rolling out to apps in Android 17. App developers should review pre
 
 ## Continue reading
 
+- [![](https://developer.android.com/static/blog/assets/Bennet_Manuel_4be9960838_MydbH.webp)](https://developer.android.com/blog/authors/bennet-manuel) 15 Apr 2026 15 Apr 2026 ![](https://developer.android.com/static/blog/assets/260409_Uyo_policy_bundle_Header_dae9a057fb_2u7Yfb.webp)
+
+  #### [Product News](https://developer.android.com/blog/categories/product-news)
+
+  ## [Boosting user privacy and business protection with updated Play policies](https://developer.android.com/blog/posts/boosting-user-privacy-and-business-protection-with-updated-play-policies)
+
+  [arrow_forward](https://developer.android.com/blog/posts/boosting-user-privacy-and-business-protection-with-updated-play-policies) Making Google Play the safest and most trusted experience possible. Today, we're announcing a new set of policy updates and an account transfer feature to boost user privacy and protect your business from fraud.
+
+  ###### [Bennet Manuel](https://developer.android.com/blog/authors/bennet-manuel) •
+  3 min read
+
 - [![](https://developer.android.com/static/blog/assets/headshot_e042d23f90_2x0LLK.webp)](https://developer.android.com/blog/authors/steven-jenkins) 13 Apr 2026 13 Apr 2026 ![](https://developer.android.com/static/blog/assets/Multi_Device_Interactions_with_Android_Emulator_Strapi_5d6ea711e7_Z1AYEiA.webp)
 
   #### [Product News](https://developer.android.com/blog/categories/product-news)
@@ -450,18 +461,6 @@ DeliQueue is rolling out to apps in Android 17. App developers should review pre
 
   ###### [Matthew Warner](https://developer.android.com/blog/authors/matthew-warner) •
   2 min read
-
-  - [#Android Studio](https://developer.android.com/blog/topics/android-studio)
-- [![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](https://developer.android.com/blog/authors/matt-dyor) 02 Apr 2026 02 Apr 2026 ![](https://developer.android.com/static/blog/assets/as_Panda3_385cde5eac_Z1E8IhJ.webp)
-
-  #### [Product News](https://developer.android.com/blog/categories/product-news)
-
-  ## [Increase Guidance and Control over Agent Mode with Android Studio Panda 3](https://developer.android.com/blog/posts/increase-guidance-and-control-over-agent-mode-with-android-studio-panda-3)
-
-  [arrow_forward](https://developer.android.com/blog/posts/increase-guidance-and-control-over-agent-mode-with-android-studio-panda-3) Android Studio Panda 3 is now stable and ready for you to use in production. This release gives you even more control and customization over your AI-powered workflows, making it easier than ever to build high-quality Android apps.
-
-  ###### [Matt Dyor](https://developer.android.com/blog/authors/matt-dyor) •
-  3 min read
 
   - [#Android Studio](https://developer.android.com/blog/topics/android-studio)
 

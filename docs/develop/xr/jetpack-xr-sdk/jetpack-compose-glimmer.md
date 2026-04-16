@@ -21,7 +21,7 @@ Here are the main features of Jetpack Compose Glimmer:
 - **Built on Jetpack Compose, allowing for pre-compatible input**: The Jetpack Compose Glimmer library leverages lower-level Compose features to support user input methods like tap and swipe by default.
 - **Pre-built components and extensibility**: Jetpack Compose Glimmer offers prebuilt composables and components like cards and lists for common use cases, while also being extensible for more custom needs.
 
-![](https://developer.android.com/static/images/develop/xr/jetpack-xr-sdk/glimmer/glimmer-overview.jpg) An example of different UI layouts that you might create with Jetpack Compose Glimmer.
+![](https://developer.android.com/static/images/design/ui/glasses/guides/glasses_bento.jpg) An example of different UI layouts that you might create with Jetpack Compose Glimmer.
 
 This guide explains the following areas:
 

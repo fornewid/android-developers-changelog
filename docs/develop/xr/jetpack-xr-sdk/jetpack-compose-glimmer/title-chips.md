@@ -18,7 +18,13 @@ status. Since title chips are not focusable or interactive, they serve a purely
 informational role within the a Jetpack Compose Glimmer UI. For example, you
 might provide a title chip labeled "Ingredients" next to a scrollable list of
 ingredients.
-![](https://developer.android.com/static/images/design/ui/glasses/guides/glasses_components_titlechips.png) **Figure 1.** An example of some different styles of title chips in Jetpack Compose Glimmer.
+![](https://developer.android.com/static/images/design/ui/glasses/guides/glasses_components_titlechip_anatomy.png) **Figure 1.** An example of some different styles of title chips in Jetpack Compose Glimmer.
+
+Default title chip and Sticky title chip shown. Sticky title chips are displayed
+with an outline.
+
+1. Title chips label
+2. Optional leading icon or entity
 
 ## Basic example: Display a short title chip
 

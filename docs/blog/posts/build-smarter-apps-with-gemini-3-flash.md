@@ -27,7 +27,7 @@ Just like the Pro model, Gemini 3 Flash is available in preview directly through
 Here is how to add it to your Kotlin code:
 
 ```kotlin
-  val model = Firebase.ai(backend = GenerativeBackend.googleAI())
+val model = Firebase.ai(backend = GenerativeBackend.googleAI())
 
     .generativeModel(modelName = "gemini-3-flash-preview")
 ```
@@ -46,7 +46,7 @@ The [Firebase AI monitoring](https://firebase.google.com/docs/ai-logic/monitorin
 You can use [server prompt templates](https://firebase.blog/posts/2025/12/server-prompt-templates-ai-logic) to store your prompt and schema securely on Firebase servers instead of hardcoding them in your app binary. This capability ensures your sensitive prompts remain secure, prevents unauthorized prompt extraction, and allows for faster iteration without requiring app updates.
 
 ```kotlin
-  ---
+---
 
 model: 'gemini-3-flash-preview'
 
@@ -91,7 +91,7 @@ Create a story about {{topic}} with the length of {{length}} words in the {{lang
 *Server prompt template defined using the Firebase console *
 
 ```kotlin
-  val generativeModel = Firebase.ai.templateGenerativeModel()
+val generativeModel = Firebase.ai.templateGenerativeModel()
 val response = generativeModel.generateContent("storyteller-v10",
     mapOf(
         "topic" to topic,
@@ -138,6 +138,17 @@ You can start experimenting with Gemini 3 Flash via Firebase AI Logic today. Lea
   ###### [Thomas Ezan](https://developer.android.com/blog/authors/thomas-ezan), [Mozart Louis](https://developer.android.com/blog/authors/mozart-louis) •
   5 min read
 
+- [![](https://developer.android.com/static/blog/assets/Bennet_Manuel_4be9960838_MydbH.webp)](https://developer.android.com/blog/authors/bennet-manuel) 15 Apr 2026 15 Apr 2026 ![](https://developer.android.com/static/blog/assets/260409_Uyo_policy_bundle_Header_dae9a057fb_2u7Yfb.webp)
+
+  #### [Product News](https://developer.android.com/blog/categories/product-news)
+
+  ## [Boosting user privacy and business protection with updated Play policies](https://developer.android.com/blog/posts/boosting-user-privacy-and-business-protection-with-updated-play-policies)
+
+  [arrow_forward](https://developer.android.com/blog/posts/boosting-user-privacy-and-business-protection-with-updated-play-policies) Making Google Play the safest and most trusted experience possible. Today, we're announcing a new set of policy updates and an account transfer feature to boost user privacy and protect your business from fraud.
+
+  ###### [Bennet Manuel](https://developer.android.com/blog/authors/bennet-manuel) •
+  3 min read
+
 - [![](https://developer.android.com/static/blog/assets/headshot_e042d23f90_2x0LLK.webp)](https://developer.android.com/blog/authors/steven-jenkins) 13 Apr 2026 13 Apr 2026 ![](https://developer.android.com/static/blog/assets/Multi_Device_Interactions_with_Android_Emulator_Strapi_5d6ea711e7_Z1AYEiA.webp)
 
   #### [Product News](https://developer.android.com/blog/categories/product-news)
@@ -148,19 +159,6 @@ You can start experimenting with Gemini 3 Flash via Firebase AI Logic today. Lea
 
   ###### [Steven Jenkins](https://developer.android.com/blog/authors/steven-jenkins) •
   2 min read
-
-- [![](https://developer.android.com/static/blog/assets/matthew_warner_67a99317e4_Z2c1VNu.webp)](https://developer.android.com/blog/authors/matthew-warner) 02 Apr 2026 02 Apr 2026 ![](https://developer.android.com/static/blog/assets/android_studio_gemma4_73370772af_2lUopR.webp)
-
-  #### [Product News](https://developer.android.com/blog/categories/product-news)
-
-  ## [Android Studio supports Gemma 4: our most capable local model for agentic coding](https://developer.android.com/blog/posts/android-studio-supports-gemma-4-our-most-capable-local-model-for-agentic-coding)
-
-  [arrow_forward](https://developer.android.com/blog/posts/android-studio-supports-gemma-4-our-most-capable-local-model-for-agentic-coding) Every developer's AI workflow and needs are unique, and it's important to be able to choose how AI helps your development. In January, we introduced the ability to choose any local or remote AI model to power AI functionality in Android Studio
-
-  ###### [Matthew Warner](https://developer.android.com/blog/authors/matthew-warner) •
-  2 min read
-
-  - [#Android Studio](https://developer.android.com/blog/topics/android-studio)
 
 # Stay in the loop
 

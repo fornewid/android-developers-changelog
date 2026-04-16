@@ -102,15 +102,15 @@ values for each color role as described in the following table:
 
 | Color Role | Defaults |
 |---|---|
-| primary | #A8C7FA |
+| primary | #9BBFFF |
 | secondary | #4C88E9 |
-| positive | #4CE995 |
-| negative | #F57084 |
-| surface | #000000 |
+| positive | #63FEA8 |
+| negative | #FFA7A0 |
+| surface | #262626 |
 | outline | #606460 |
 | outlineVariant | #42434A |
 
-Note that while [`surface`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/Colors#surface()), [`outline`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/Colors#outline()) and [`outlineVariant`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/Colors#outlineVariant()) are
+Note that while [`surface`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/Colors#surface()), [`outline`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/Colors#outline()), and [`outlineVariant`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/Colors#outlineVariant()) are
 marked as customizable, we strongly recommend that you don't customize these
 values.
 

@@ -13,7 +13,7 @@ Applicable XR devices This guidance helps you build experiences for these types 
 
 In Jetpack Compose Glimmer, the [`Button`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/Button.composable#Button(kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.xr.glimmer.ButtonSize,kotlin.Function0,kotlin.Function0,androidx.compose.ui.graphics.Shape,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.foundation.BorderStroke,androidx.compose.foundation.layout.PaddingValues,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Function1)) component is an interactive
 component that's optimized for AI glasses input, offering clear visual feedback
-for their enabled, hovered, and pressed states to guide user actions.
+for their unfocused, focused, and pressed states to guide user actions.
 ![](https://developer.android.com/static/images/design/ui/glasses/guides/glasses_components_buttons.png) **Figure 1.** An example of some different styles of buttons in Jetpack Compose Glimmer.
 
 ## Example: Button variations

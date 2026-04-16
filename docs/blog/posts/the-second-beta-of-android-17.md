@@ -35,7 +35,7 @@ A new system-level EyeDropper API allows your app to request a color from any pi
 ![Eyedropper_Tester.webp](https://developer.android.com/static/blog/assets/Eyedropper_Tester_0bb86c767e_WUEHE.webp)
 
 ```
-  val eyeDropperLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+val eyeDropperLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
   result -> if (result.resultCode == Activity.RESULT_OK) {
     val color = result.data?.getIntExtra(Intent.EXTRA_COLOR, Color.BLACK)
     // Use the picked color in your app
@@ -54,7 +54,7 @@ A new system-level contacts picker via [ACTION_PICK_CONTACTS](https://developer.
 ![android-17-contact-picker.gif](https://developer.android.com/static/blog/assets/android_17_contact_picker_abefb8ca84_2uQ92i.webp)
 
 ```
-  val contactPicker = rememberLauncherForActivityResult(StartActivityForResult()) {
+val contactPicker = rememberLauncherForActivityResult(StartActivityForResult()) {
     if (it.resultCode == RESULT_OK) {
         val uri = it.data?.data ?: return@rememberLauncherForActivityResult
         // Handle result logic
@@ -77,7 +77,7 @@ contactPicker.launch(intent)
 Previously, touchpads reported events in a very different way from mice when an app had captured the pointer, reporting the locations of fingers on the pad rather than the relative movements that would be reported by a mouse. This made it quite difficult to support touchpads properly in first-person games. Now, by default the system will recognize pointer movement and scrolling gestures when the touchpad is captured, and report them just like mouse events. You can still request the old, detailed finger location data by explicitly requesting capture in the new "absolute" mode.
 
 ```
-  // To request the new default relative mode (mouse-like events)
+// To request the new default relative mode (mouse-like events)
 // This is the same as requesting with View.POINTER_CAPTURE_MODE_RELATIVE
 view.requestPointerCapture()
 

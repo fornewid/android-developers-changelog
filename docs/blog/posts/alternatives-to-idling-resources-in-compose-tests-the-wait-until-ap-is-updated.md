@@ -105,7 +105,7 @@ Happy... wait for it... testing!
 *Code snippets license:*
 
 ```
-  Copyright 2022 Google LLC.
+Copyright 2022 Google LLC.
 SPDX-License-Identifier: Apache-2.0
 ```
 - [#Android](https://developer.android.com/blog/topics/android)

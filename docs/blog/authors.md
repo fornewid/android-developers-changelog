@@ -67,8 +67,8 @@ source: md.txt
   ###### Group Product Manager
 
   [read_more
-  1 post](https://developer.android.com/blog/authors/bennet-manuel) [read_more
-  1 post](https://developer.android.com/blog/authors/bennet-manuel) ![](https://developer.android.com/static/blog/assets/Bennet_Manuel_4be9960838_MydbH.webp) ![](https://developer.android.com/static/blog/assets/Bennet_Manuel_4be9960838_MydbH.webp)
+  2 posts](https://developer.android.com/blog/authors/bennet-manuel) [read_more
+  2 posts](https://developer.android.com/blog/authors/bennet-manuel) ![](https://developer.android.com/static/blog/assets/Bennet_Manuel_4be9960838_MydbH.webp) ![](https://developer.android.com/static/blog/assets/Bennet_Manuel_4be9960838_MydbH.webp)
 -
 
   ## [Bradley Allen](https://developer.android.com/blog/authors/bradley-allen)

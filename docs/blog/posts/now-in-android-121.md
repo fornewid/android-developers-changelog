@@ -34,7 +34,7 @@ The first beta of Android 16 QPR2 is now available, the inaugural Android releas
 You can call new APIs by checking [`SDK_INT_FULL`](https://developer.android.com/reference/android/os/Build.VERSION#SDK_INT_FULL) against the [`VERSION_CODES_FULL`](https://developer.android.com/reference/android/os/Build.VERSION_CODES_FULL) enumeration:
 
 ```kotlin
-  if (Build.VERSION.SDK_INT_FULL >= Build.VERSION_CODES_FULL.BAKLAVA_1) {
+if (Build.VERSION.SDK_INT_FULL >= Build.VERSION_CODES_FULL.BAKLAVA_1) {
   // Call new APIs from the Android 16 QPR2 release
 }
 ```

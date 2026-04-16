@@ -12,10 +12,11 @@ Applicable XR devices This guidance helps you build experiences for these types 
 <br />
 
 All Jetpack Compose Glimmer components are designed to work with standard input
-methods, such as a tap or swipe on the AI glasses' touchpad, while also being
-receptive to lower-level input commands that are specific to AI glasses
-hardware. Jetpack Compose Glimmer components automatically handle the necessary
-input events. For custom components, you can utilize existing Compose APIs like
+methods similar to phones, such as a tap or swipe on the AI glasses' touchpad,
+while also being receptive to input commands that are specific to AI glasses
+hardware, such as [camera and display buttons](https://developer.android.com/design/ui/ai-glasses/guides/interaction/inputs). Jetpack Compose Glimmer
+components automatically handle the necessary input events. For custom
+components, you can utilize existing Compose APIs like
 [`Modifier.draggable`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier#(androidx.compose.ui.Modifier).draggable(androidx.compose.foundation.gestures.DraggableState,androidx.compose.foundation.gestures.Orientation,kotlin.Boolean,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Boolean,kotlin.coroutines.SuspendFunction2,kotlin.coroutines.SuspendFunction2,kotlin.Boolean)) or [`Modifier.scrollable`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier#(androidx.compose.ui.Modifier).scrollable(androidx.compose.foundation.gestures.ScrollableState,androidx.compose.foundation.gestures.Orientation,kotlin.Boolean,kotlin.Boolean,androidx.compose.foundation.gestures.FlingBehavior,androidx.compose.foundation.interaction.MutableInteractionSource)) to implement specific
 interaction behaviors.
 

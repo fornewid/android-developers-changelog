@@ -27,7 +27,7 @@ Minor SDK releases allow us to deliver APIs and features more rapidly outside of
 To support this, we have introduced new fields to the `Build` class as of Android 16, allowing your app to check for these new APIs using `SDK_INT_FULL` and `VERSION_CODES_FULL`.
 
 ```
-  if ((Build.VERSION.SDK_INT >= Build.VERSION_CODES.BAKLAVA) && (Build.VERSION.SDK_INT_FULL >= Build.VERSION_CODES_FULL.BAKLAVA_1)) {
+if ((Build.VERSION.SDK_INT >= Build.VERSION_CODES.BAKLAVA) && (Build.VERSION.SDK_INT_FULL >= Build.VERSION_CODES_FULL.BAKLAVA_1)) {
     // Call new APIs from the Android 16 QPR2 release
 }
 ```

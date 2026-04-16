@@ -4,6 +4,8 @@ url: https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_t
 source: md.txt
 ---
 
+### XR_ANDROID_eye_tracking
+
 **Name String**
 
 `XR_ANDROID_eye_tracking`
@@ -20,9 +22,13 @@ Instance extension
 
 1
 
+**Ratification Status**
+
+Not ratified
+
 **Extension and Version Dependencies**
 
-[OpenXR 1.0](https://registry.khronos.org/OpenXR/specs/1.0/html/xrspec.html#versions-1.0)
+[OpenXR 1.0](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#versions-1.0)
 
 **Last Modified Date**
 
@@ -34,48 +40,39 @@ No known IP claims.
 
 **Contributors**
 
-Spencer Quin, Google
+Spencer Quin, Google  
 
-Jared Finder, Google
+Jared Finder, Google  
 
-Levana Chen, Google
+Levana Chen, Google  
 
-Kenny Vercaemer, Google
+Kenny Vercaemer, Google  
 
-Prasanthi Gurumurthy, Google
+Prasanthi Gurumurthy, Google  
 
 Nihav Jain, Google
 
 ## Overview
 
-This extension enables applications to obtain position and orientation of the
-user's eyes, as well as eye tracking status.
+This extension enables applications to obtain position and orientation of the user's eyes, as well as eye tracking status.
 
-Eye tracking data is provided in two modes: coarse and fine. Coarse tracking
-provides a coarse estimate of the user's eyes, while fine tracking provides a
-more accurate estimate. Coarse tracking is meant for applications that want to
-provide a basic avatar-like representation, while fine tracking is meant for
-more precise applications.
+Eye tracking data is provided in two modes: coarse and fine. Coarse tracking provides a coarse estimate of the user's eyes, while fine tracking provides a more accurate estimate. Coarse tracking is meant for applications that want to provide a basic avatar-like representation, while fine tracking is meant for more precise applications.
 
-For
-interaction, [`XR_EXT_eye_gaze_interaction`](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#XR_EXT_eye_gaze_interaction) **should** be used.
+For interaction, `XR_EXT_eye_gaze_interaction` **should** be used.
 
-> [!CAUTION]
-> **Caution:**   
->
-> **Permissions**   
->
-> Android applications **must** have the android.permission.EYE_TRACKING_COARSE or the android.permission.EYE_TRACKING_FINE permission listed in their manifest. These permissions are considered dangerous permissions. The application **must** [request the permission at runtime](https://developer.android.com/training/permissions/requesting) to use these functions:
->
-> - [`xrCreateEyeTrackerANDROID`](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#xrCreateEyeTrackerANDROID)(at least one of the permissions)
-> - [`xrGetCoarseTrackingEyesInfoANDROID`](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#xrGetCoarseTrackingEyesInfoANDROID)(android.permission.EYE_TRACKING_COARSE)
-> - [`xrGetFineTrackingEyesInfoANDROID`](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#xrGetFineTrackingEyesInfoANDROID)(android.permission.EYE_TRACKING_FINE)
->
-> (protection level: dangerous)
+### Permissions
+
+Android applications **must** have the android.permission.EYE_TRACKING_COARSE or the android.permission.EYE_TRACKING_FINE permission listed in their manifest. These permissions are considered dangerous permissions. The application **must** request the permission at runtime to use these functions:
+
+- [xrCreateEyeTrackerANDROID](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#xrCreateEyeTrackerANDROID) (at least one of the permissions)
+- [xrGetCoarseTrackingEyesInfoANDROID](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#xrGetCoarseTrackingEyesInfoANDROID) (android.permission.EYE_TRACKING_COARSE)
+- [xrGetFineTrackingEyesInfoANDROID](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#xrGetFineTrackingEyesInfoANDROID) (android.permission.EYE_TRACKING_FINE)
+
+(protection level: dangerous)
 
 ## Inspect system capability
 
-The [`XrSystemEyeTrackingPropertiesANDROID`](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#XrSystemEyeTrackingPropertiesANDROID) structure is defined as:
+The [XrSystemEyeTrackingPropertiesANDROID](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#XrSystemEyeTrackingPropertiesANDROID) structure is defined as:
 
     typedef struct XrSystemEyeTrackingPropertiesANDROID {
         XrStructureType    type;
@@ -85,41 +82,33 @@ The [`XrSystemEyeTrackingPropertiesANDROID`](https://developer.android.com/devel
 
 ### Member Descriptions
 
-- `type` is the [`XrStructureType`](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#XrStructureType) of this structure.
+- `type` is the [XrStructureType](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#XrStructureType) of this structure.
 - `next` is `NULL` or a pointer to the next structure in a structure chain. No such structures are defined in core OpenXR or this extension.
-- `supportsEyeTracking` is an [`XrBool32`](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#XrBool32), indicating if the current system supports eye tracking.
+- `supportsEyeTracking` is an `XrBool32` indicating if current system supports eye tracking.
 
-An application **can** inspect whether the system is capable of eye tracking by
-chaining an [`XrSystemEyeTrackingPropertiesANDROID`](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#XrSystemEyeTrackingPropertiesANDROID) structure to the
-[XrSystemProperties](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#XrSystemProperties) when calling [`xrGetSystemProperties`](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#xrGetSystemProperties). If
-`supportsEyeTracking` returns `XR_FALSE`, then an application will receive
-`XR_ERROR_FEATURE_UNSUPPORTED` from [`xrCreateEyeTrackerANDROID`](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#xrCreateEyeTrackerANDROID).
+An application **can** inspect whether the system is capable of eye tracking by extending the [XrSystemProperties](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#XrSystemProperties) with [XrSystemEyeTrackingPropertiesANDROID](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#XrSystemEyeTrackingPropertiesANDROID) structure when calling [xrGetSystemProperties](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#xrGetSystemProperties) .
+
+If and only if a runtime returns `XR_FALSE` for `supportsEyeTracking` , the runtime **must** return `XR_ERROR_FEATURE_UNSUPPORTED` from [xrCreateEyeTrackerANDROID](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#xrCreateEyeTrackerANDROID) .
 
 ### Valid Usage (Implicit)
 
-- The `XR_ANDROID_eye_tracking` extension **must** be enabled prior to using [`XrSystemEyeTrackingPropertiesANDROID`](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#XrSystemEyeTrackingPropertiesANDROID)
-- `type` **must** be `XR_TYPE_SYSTEM_EYE_TRACKING_PROPERTIES_ANDROID`
-- `next` **must** be `NULL` or a valid pointer to the [next structure in a structure chain](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#fundamentals-valid-usage-for-structure-pointer-chains)
+- [](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#VUID-XrSystemEyeTrackingPropertiesANDROID-extension-notenabled) The `XR_ANDROID_eye_tracking` extension **must** be enabled prior to using [XrSystemEyeTrackingPropertiesANDROID](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#XrSystemEyeTrackingPropertiesANDROID)
+- [](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#VUID-XrSystemEyeTrackingPropertiesANDROID-type-type) `type` **must** be `XR_TYPE_SYSTEM_EYE_TRACKING_PROPERTIES_ANDROID`
+- [](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#VUID-XrSystemEyeTrackingPropertiesANDROID-next-next) `next` **must** be `NULL` or a valid pointer to the [next structure in a structure chain](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#valid-usage-for-structure-pointer-chains)
 
-## Create an eye tracker handle
+## Creating an eye tracker handle
 
     XR_DEFINE_HANDLE(XrEyeTrackerANDROID)
 
-The [`XrEyeTrackerANDROID`](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#XrEyeTrackerANDROID) handle represents an eye tracker for tracking eyes
-and accurately maps what the user is looking at.
+The [XrEyeTrackerANDROID](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#XrEyeTrackerANDROID) handle represents an eye tracker for tracking eyes and accurately maps where the user is looking.
 
-Eye tracking data can be sensitive personal information and is closely linked to
-personal privacy and integrity. It is strongly recommended that applications
-that store or transfer eye tracking data always ask the user for active and
-specific acceptance to do so.
+Eye tracking data is sensitive personal information and is closely linked to personal privacy and integrity. It is strongly recommended that applications that store or transfer eye tracking data always ask the user for active and specific acceptance to do so.
 
-This handle **can** be used to access eye tracking data using other functions in
-this extension.
+The application uses this handle to access eye tracking data using other functions in this extension.
 
 Eye tracking provides eye pose and status representation in the scene.
 
-The [`xrCreateEyeTrackerANDROID`](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#xrCreateEyeTrackerANDROID) function is defined
-as:
+The [xrCreateEyeTrackerANDROID](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#xrCreateEyeTrackerANDROID) function is defined as:
 
     XrResult xrCreateEyeTrackerANDROID(
         XrSession                                   session,
@@ -128,98 +117,94 @@ as:
 
 ### Parameter Descriptions
 
-- `session` is an [`XrSession`](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#XrSession) handle in which the eye tracking will be active.
-- `createInfo` is the [`XrEyeTrackerCreateInfoANDROID`](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#XrEyeTrackerCreateInfoANDROID) used to specify the eye tracking.
-- `eyeTracker` is the returned [`XrEyeTrackerANDROID`](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#XrEyeTrackerANDROID) handle.
+- `session` is an [XrSession](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#XrSession) handle in which the eye tracking will be active.
+- `createInfo` is the [XrEyeTrackerCreateInfoANDROID](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#XrEyeTrackerCreateInfoANDROID) used to specify the eye tracking.
+- `eyeTracker` is the returned [XrEyeTrackerANDROID](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#XrEyeTrackerANDROID) handle.
 
-An application **can** create an [`XrEyeTrackerANDROID`](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#XrEyeTrackerANDROID) handle using
-[`xrCreateEyeTrackerANDROID`](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#xrCreateEyeTrackerANDROID) function.
+An application creates an [XrEyeTrackerANDROID](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#XrEyeTrackerANDROID) handle using the [xrCreateEyeTrackerANDROID](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#xrCreateEyeTrackerANDROID) function.
 
-If the system does not support eye tracking, then `XR_ERROR_FEATURE_UNSUPPORTED`
-will be returned from [`xrCreateEyeTrackerANDROID`](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#xrCreateEyeTrackerANDROID).
+If the system does not support eye tracking, the runtime **must** return `XR_ERROR_FEATURE_UNSUPPORTED` from [xrCreateEyeTrackerANDROID](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#xrCreateEyeTrackerANDROID) .
 
 ### Valid Usage (Implicit)
 
-- The `XR_ANDROID_eye_tracking` extension **must** be enabled prior to calling [`xrCreateEyeTrackerANDROID`](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#xrCreateEyeTrackerANDROID)
-- `session` **must** be a valid [`XrSession`](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#XrSession) handle
-- `createInfo` **must** be a pointer to a valid [`XrEyeTrackerCreateInfoANDROID`](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#XrEyeTrackerCreateInfoANDROID) structure
-- `eyeTracker` **must** be a pointer to an [`XrEyeTrackerANDROID`](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#XrEyeTrackerANDROID) handle
+- [](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#VUID-xrCreateEyeTrackerANDROID-extension-notenabled) The `XR_ANDROID_eye_tracking` extension **must** be enabled prior to calling [xrCreateEyeTrackerANDROID](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#xrCreateEyeTrackerANDROID)
+- [](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#VUID-xrCreateEyeTrackerANDROID-session-parameter) `session` **must** be a valid [XrSession](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#XrSession) handle
+- [](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#VUID-xrCreateEyeTrackerANDROID-createInfo-parameter) `createInfo` **must** be a pointer to a valid [XrEyeTrackerCreateInfoANDROID](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#XrEyeTrackerCreateInfoANDROID) structure
+- [](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#VUID-xrCreateEyeTrackerANDROID-eyeTracker-parameter) `eyeTracker` **must** be a pointer to an [XrEyeTrackerANDROID](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#XrEyeTrackerANDROID) handle
 
 ### Return Codes
 
-[**Success**](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#fundamentals-successcodes)
+[Success](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#fundamentals-successcodes)
 
 - `XR_SUCCESS`
 - `XR_SESSION_LOSS_PENDING`
 
-[**Failure**](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#fundamentals-errorcodes)
+[Failure](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#fundamentals-errorcodes)
 
+- `XR_ERROR_FEATURE_UNSUPPORTED`
 - `XR_ERROR_FUNCTION_UNSUPPORTED`
-- `XR_ERROR_VALIDATION_FAILURE`
-- `XR_ERROR_RUNTIME_FAILURE`
 - `XR_ERROR_HANDLE_INVALID`
 - `XR_ERROR_INSTANCE_LOST`
-- `XR_ERROR_SESSION_LOST`
-- `XR_ERROR_OUT_OF_MEMORY`
 - `XR_ERROR_LIMIT_REACHED`
-- `XR_ERROR_FEATURE_UNSUPPORTED`
+- `XR_ERROR_OUT_OF_MEMORY`
+- `XR_ERROR_RUNTIME_FAILURE`
+- `XR_ERROR_SESSION_LOST`
+- `XR_ERROR_VALIDATION_FAILURE`
 
-The [`XrEyeTrackerCreateInfoANDROID`](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#XrEyeTrackerCreateInfoANDROID) structure is defined as:
+The [XrEyeTrackerCreateInfoANDROID](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#XrEyeTrackerCreateInfoANDROID) structure is defined as:
 
     typedef struct XrEyeTrackerCreateInfoANDROID {
         XrStructureType    type;
-        void*              next;
+        const void*        next;
     } XrEyeTrackerCreateInfoANDROID;
 
 ### Member Descriptions
 
-- `type` is the [`XrStructureType`](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#XrStructureType) of this structure.
+- `type` is the [XrStructureType](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#XrStructureType) of this structure.
 - `next` is `NULL` or a pointer to the next structure in a structure chain. No such structures are defined in core OpenXR or this extension.
 
-The [`XrEyeTrackerCreateInfoANDROID`](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#XrEyeTrackerCreateInfoANDROID) structure describes the information to
-create an [`XrEyeTrackerANDROID`](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#XrEyeTrackerANDROID) handle.
+The [XrEyeTrackerCreateInfoANDROID](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#XrEyeTrackerCreateInfoANDROID) structure describes the information to create an [XrEyeTrackerANDROID](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#XrEyeTrackerANDROID) handle.
 
 ### Valid Usage (Implicit)
 
-- The `XR_ANDROID_eye_tracking` extension **must** be enabled prior to using [`XrEyeTrackerCreateInfoANDROID`](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#XrEyeTrackerCreateInfoANDROID)
-- `type` **must** be `XR_TYPE_EYE_TRACKER_CREATE_INFO_ANDROID`
-- `next` **must** be `NULL` or a valid pointer to the [next structure in a structure chain](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#fundamentals-valid-usage-for-structure-pointer-chains)
+- [](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#VUID-XrEyeTrackerCreateInfoANDROID-extension-notenabled) The `XR_ANDROID_eye_tracking` extension **must** be enabled prior to using [XrEyeTrackerCreateInfoANDROID](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#XrEyeTrackerCreateInfoANDROID)
+- [](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#VUID-XrEyeTrackerCreateInfoANDROID-type-type) `type` **must** be `XR_TYPE_EYE_TRACKER_CREATE_INFO_ANDROID`
+- [](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#VUID-XrEyeTrackerCreateInfoANDROID-next-next) `next` **must** be `NULL` or a valid pointer to the [next structure in a structure chain](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#valid-usage-for-structure-pointer-chains)
 
-The [`xrDestroyEyeTrackerANDROID`](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#xrDestroyEyeTrackerANDROID) function is defined as:
+The [xrDestroyEyeTrackerANDROID](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#xrDestroyEyeTrackerANDROID) function is defined as:
 
     XrResult xrDestroyEyeTrackerANDROID(
         XrEyeTrackerANDROID                         eyeTracker);
 
 ### Parameter Descriptions
 
-- `eyeTracker` is an [`XrEyeTrackerANDROID`](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#XrEyeTrackerANDROID) previously created by [`xrCreateEyeTrackerANDROID`](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#xrCreateEyeTrackerANDROID).
+- `eyeTracker` is an [XrEyeTrackerANDROID](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#XrEyeTrackerANDROID) previously created by [xrCreateEyeTrackerANDROID](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#xrCreateEyeTrackerANDROID) .
 
-[`xrDestroyEyeTrackerANDROID`](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#xrDestroyEyeTrackerANDROID) function releases the `eyeTracker` and the
-underlying resources when finished with eye tracking experiences.
+[xrDestroyEyeTrackerANDROID](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#xrDestroyEyeTrackerANDROID) function releases the `eyeTracker` and the underlying resources when finished with eye tracking experiences.
 
 ### Valid Usage (Implicit)
 
-- The `XR_ANDROID_eye_tracking` extension **must** be enabled prior to calling [`xrDestroyEyeTrackerANDROID`](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#xrDestroyEyeTrackerANDROID)
-- `eyeTracker` **must** be a valid [`XrEyeTrackerANDROID`](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#XrEyeTrackerANDROID) handle.
+- [](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#VUID-xrDestroyEyeTrackerANDROID-extension-notenabled) The `XR_ANDROID_eye_tracking` extension **must** be enabled prior to calling [xrDestroyEyeTrackerANDROID](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#xrDestroyEyeTrackerANDROID)
+- [](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#VUID-xrDestroyEyeTrackerANDROID-eyeTracker-parameter) `eyeTracker` **must** be a valid [XrEyeTrackerANDROID](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#XrEyeTrackerANDROID) handle
 
 ### Thread Safety
 
-- Access to `eyeTracker`, and any child handles, **must** be externally synchronized
+- Access to `eyeTracker` , and any child handles, **must** be externally synchronized
 
 ### Return Codes
 
-[**Success**](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#fundamentals-successcodes)
+[Success](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#fundamentals-successcodes)
 
 - `XR_SUCCESS`
 
-[**Failure**](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#fundamentals-errorcodes)
+[Failure](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#fundamentals-errorcodes)
 
 - `XR_ERROR_FUNCTION_UNSUPPORTED`
 - `XR_ERROR_HANDLE_INVALID`
 
 ## Getting eyes information
 
-The [`xrGetCoarseTrackingEyesInfoANDROID`](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#xrGetCoarseTrackingEyesInfoANDROID) function is defined as:
+The [xrGetCoarseTrackingEyesInfoANDROID](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#xrGetCoarseTrackingEyesInfoANDROID) function is defined as:
 
     XrResult xrGetCoarseTrackingEyesInfoANDROID(
         XrEyeTrackerANDROID                         eyeTracker,
@@ -228,57 +213,46 @@ The [`xrGetCoarseTrackingEyesInfoANDROID`](https://developer.android.com/develop
 
 ### Parameter Descriptions
 
-- `eyeTracker` is an [`XrEyeTrackerANDROID`](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#XrEyeTrackerANDROID) previously created by [`xrCreateEyeTrackerANDROID`](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#xrCreateEyeTrackerANDROID).
-- `getInfo` is a pointer to [`XrEyesGetInfoANDROID`](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#XrEyesGetInfoANDROID) used to specify what output is required.
-- `infoOutput` is a pointer to [`XrEyesANDROID`](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#XrEyesANDROID) that contains the returned eyes information including poses and states.
+- `eyeTracker` is an [XrEyeTrackerANDROID](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#XrEyeTrackerANDROID) previously created by [xrCreateEyeTrackerANDROID](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#xrCreateEyeTrackerANDROID) .
+- `getInfo` is a pointer to [XrEyesGetInfoANDROID](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#XrEyesGetInfoANDROID) used to provide info for querying eye poses and states.
+- `eyesOutput` is a pointer to [XrEyesANDROID](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#XrEyesANDROID) that contains the returned eyes information including poses and states.
 
-[`xrGetCoarseTrackingEyesInfoANDROID`](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#xrGetCoarseTrackingEyesInfoANDROID) function gets the information for eye
-states and
-poses in a way that preserves user privacy.
+[xrGetCoarseTrackingEyesInfoANDROID](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#xrGetCoarseTrackingEyesInfoANDROID) function gets the information for eye states and poses in a way that preserves user privacy.
 
-The runtime must return `XR_ERROR_PERMISSION_INSUFFICIENT` if the application
-does not have the `android.permission.EYE_TRACKING_COARSE` permission.
+The runtime **must** return `XR_ERROR_PERMISSION_INSUFFICIENT` if the application does not have the android.permission.EYE_TRACKING_COARSE permission.
 
-The eyes information is resolved and relative to the base space at the time of
-the call to [`xrGetCoarseTrackingEyesInfoANDROID`](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#xrGetCoarseTrackingEyesInfoANDROID) using
-[`XrEyesGetInfoANDROID::time`, `XrEyesGetInfoANDROID::baseSpace`](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#XrEyesGetInfoANDROID).
+The eye poses are expressed in [XrEyesGetInfoANDROID](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#XrEyesGetInfoANDROID) :: `baseSpace` at [XrEyesGetInfoANDROID](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#XrEyesGetInfoANDROID) :: `time` .
 
-At any point of time both the position and direction of the eye pose is tracked
-or untracked. This means that applications can expect that both
-`XR_SPACE_LOCATION_POSITION_TRACKED_BIT` and
-`XR_SPACE_LOCATION_ORIENTATION_TRACKED_BIT` will either be set or cleared on the
-supplied [`XrEyesANDROID::eyes`](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#XrEyesANDROID), and that [`XrEyesANDROID::mode`](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#XrEyesANDROID) will
-indicate the tracking states.
+At any point of time both the position and direction of the eye pose is tracked or untracked. This means that the runtime **must** set both `XR_SPACE_LOCATION_POSITION_TRACKED_BIT` and `XR_SPACE_LOCATION_ORIENTATION_TRACKED_BIT` or clear both `XR_SPACE_LOCATION_POSITION_TRACKED_BIT` and `XR_SPACE_LOCATION_ORIENTATION_TRACKED_BIT` on the supplied [XrEyesANDROID](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#XrEyesANDROID) :: `eyes` , and set [XrEyesANDROID](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#XrEyesANDROID) :: `mode` to indicate the tracking states.
 
 ### Valid Usage (Implicit)
 
-- The `XR_ANDROID_eye_tracking` extension **must** be enabled prior to calling [`xrGetCoarseTrackingEyesInfoANDROID`](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#xrGetCoarseTrackingEyesInfoANDROID)
-- `eyeTracker` **must** be a valid [`XrEyeTrackerANDROID`](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#XrEyeTrackerANDROID) handle
-- `getInfo` **must** be a pointer to a valid [`XrEyesGetInfoANDROID`](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#XrEyesGetInfoANDROID) structure
-- `eyesOutput` **must** be a pointer to an [`XrEyesANDROID`](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#XrEyesANDROID) structure
+- [](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#VUID-xrGetCoarseTrackingEyesInfoANDROID-extension-notenabled) The `XR_ANDROID_eye_tracking` extension **must** be enabled prior to calling [xrGetCoarseTrackingEyesInfoANDROID](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#xrGetCoarseTrackingEyesInfoANDROID)
+- [](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#VUID-xrGetCoarseTrackingEyesInfoANDROID-eyeTracker-parameter) `eyeTracker` **must** be a valid [XrEyeTrackerANDROID](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#XrEyeTrackerANDROID) handle
+- [](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#VUID-xrGetCoarseTrackingEyesInfoANDROID-getInfo-parameter) `getInfo` **must** be a pointer to a valid [XrEyesGetInfoANDROID](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#XrEyesGetInfoANDROID) structure
+- [](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#VUID-xrGetCoarseTrackingEyesInfoANDROID-eyesOutput-parameter) `eyesOutput` **must** be a pointer to an [XrEyesANDROID](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#XrEyesANDROID) structure
 
 ### Return Codes
 
-[**Success**](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#fundamentals-successcodes)
+[Success](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#fundamentals-successcodes)
 
 - `XR_SUCCESS`
 - `XR_SESSION_LOSS_PENDING`
 
-[**Failure**](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#fundamentals-errorcodes)
+[Failure](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#fundamentals-errorcodes)
 
 - `XR_ERROR_FUNCTION_UNSUPPORTED`
-- `XR_ERROR_VALIDATION_FAILURE`
-- `XR_ERROR_RUNTIME_FAILURE`
 - `XR_ERROR_HANDLE_INVALID`
 - `XR_ERROR_INSTANCE_LOST`
-- `XR_ERROR_SESSION_LOST`
-- `XR_ERROR_OUT_OF_MEMORY`
 - `XR_ERROR_LIMIT_REACHED`
-- `XR_ERROR_TIME_INVALID`
+- `XR_ERROR_OUT_OF_MEMORY`
 - `XR_ERROR_PERMISSION_INSUFFICIENT`
+- `XR_ERROR_RUNTIME_FAILURE`
+- `XR_ERROR_SESSION_LOST`
+- `XR_ERROR_TIME_INVALID`
+- `XR_ERROR_VALIDATION_FAILURE`
 
-The [`xrGetFineTrackingEyesInfoANDROID`](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#xrGetFineTrackingEyesInfoANDROID)
-function is defined as:
+The [xrGetFineTrackingEyesInfoANDROID](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#xrGetFineTrackingEyesInfoANDROID) function is defined as:
 
     XrResult xrGetFineTrackingEyesInfoANDROID(
         XrEyeTrackerANDROID                         eyeTracker,
@@ -287,76 +261,69 @@ function is defined as:
 
 ### Parameter Descriptions
 
-- `eyeTracker` is an [`XrEyeTrackerANDROID`](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#XrEyeTrackerANDROID) previously created by [`xrCreateEyeTrackerANDROID`](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#xrCreateEyeTrackerANDROID).
-- `getInfo` is a pointer to [`XrEyesGetInfoANDROID`](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#XrEyesGetInfoANDROID) used to specify what output is required.
-- `infoOutput` is a pointer to [`XrEyesANDROID`](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#XrEyesANDROID) that contains the returned eyes information including poses and states. [`xrGetFineTrackingEyesInfoANDROID`](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#xrGetFineTrackingEyesInfoANDROID) function gets the information for eye states and poses with higher precision than [`xrGetCoarseTrackingEyesInfoANDROID`](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#xrGetCoarseTrackingEyesInfoANDROID).
+- `eyeTracker` is an [XrEyeTrackerANDROID](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#XrEyeTrackerANDROID) previously created by [xrCreateEyeTrackerANDROID](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#xrCreateEyeTrackerANDROID) .
+- `getInfo` is a pointer to [XrEyesGetInfoANDROID](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#XrEyesGetInfoANDROID) used to specify what output is required.
+- `eyesOutput` is a pointer to [XrEyesANDROID](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#XrEyesANDROID) that contains the returned eyes information including poses and states.
 
-The runtime must return `XR_ERROR_PERMISSION_INSUFFICIENT` if the application
-does not have the `android.permission.EYE_TRACKING_FINE` permission.
+[xrGetFineTrackingEyesInfoANDROID](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#xrGetFineTrackingEyesInfoANDROID) function gets the information for eye states and poses with higher precision than [xrGetCoarseTrackingEyesInfoANDROID](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#xrGetCoarseTrackingEyesInfoANDROID) .
 
-The eyes information is resolved and relative to the base space at the time of
-the call to [`xrGetFineTrackingEyesInfoANDROID`](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#xrGetFineTrackingEyesInfoANDROID) using
-[`XrEyesGetInfoANDROID::time`, `XrEyesGetInfoANDROID::baseSpace`](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#XrEyesGetInfoANDROID).
+The runtime **must** return `XR_ERROR_PERMISSION_INSUFFICIENT` if the application does not have the android.permission.EYE_TRACKING_FINE permission.
 
-At any point of time both the position and direction of the eye pose is tracked
-or untracked. This means that applications can expect that both
-`XR_SPACE_LOCATION_POSITION_TRACKED_BIT` and
-`XR_SPACE_LOCATION_ORIENTATION_TRACKED_BIT` will either be set or cleared on the
-supplied [`XrEyesANDROID::eyes`](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#XrEyesANDROID), and that [`XrEyesANDROID::mode`](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#XrEyesANDROID) will
-indicate the tracking states.
+The eyes information is resolved and relative to the base space at the time of the call to [xrGetFineTrackingEyesInfoANDROID](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#xrGetFineTrackingEyesInfoANDROID) using [XrEyesGetInfoANDROID](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#XrEyesGetInfoANDROID) :: `time` , [XrEyesGetInfoANDROID](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#XrEyesGetInfoANDROID) :: `baseSpace` . The runtime **must** resolve the location defined by [XrEyesGetInfoANDROID](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#XrEyesGetInfoANDROID) :: `baseSpace` at the time of the call.
+
+At any point of time both the position and direction of the eye pose is tracked or untracked. This means that the runtime **must** set both `XR_SPACE_LOCATION_POSITION_TRACKED_BIT` and `XR_SPACE_LOCATION_ORIENTATION_TRACKED_BIT` or clear both `XR_SPACE_LOCATION_POSITION_TRACKED_BIT` and `XR_SPACE_LOCATION_ORIENTATION_TRACKED_BIT` on the supplied [XrEyesANDROID](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#XrEyesANDROID) :: `eyes` , and set [XrEyesANDROID](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#XrEyesANDROID) :: `mode` to indicate the tracking states.
 
 ### Valid Usage (Implicit)
 
-- The `XR_ANDROID_eye_tracking` extension **must** be enabled prior to calling [`xrGetFineTrackingEyesInfoANDROID`](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#xrGetFineTrackingEyesInfoANDROID)
-- `eyeTracker` **must** be a valid [`XrEyeTrackerANDROID`](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#XrEyeTrackerANDROID) handle
-- `getInfo` **must** be a pointer to a valid [`XrEyesGetInfoANDROID`](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#XrEyesGetInfoANDROID) structure
-- `eyesOutput` **must** be a pointer to an [`XrEyesANDROID`](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#XrEyesANDROID) structure
+- [](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#VUID-xrGetFineTrackingEyesInfoANDROID-extension-notenabled) The `XR_ANDROID_eye_tracking` extension **must** be enabled prior to calling [xrGetFineTrackingEyesInfoANDROID](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#xrGetFineTrackingEyesInfoANDROID)
+- [](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#VUID-xrGetFineTrackingEyesInfoANDROID-eyeTracker-parameter) `eyeTracker` **must** be a valid [XrEyeTrackerANDROID](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#XrEyeTrackerANDROID) handle
+- [](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#VUID-xrGetFineTrackingEyesInfoANDROID-getInfo-parameter) `getInfo` **must** be a pointer to a valid [XrEyesGetInfoANDROID](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#XrEyesGetInfoANDROID) structure
+- [](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#VUID-xrGetFineTrackingEyesInfoANDROID-eyesOutput-parameter) `eyesOutput` **must** be a pointer to an [XrEyesANDROID](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#XrEyesANDROID) structure
 
 ### Return Codes
 
-[**Success**](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#fundamentals-successcodes)
+[Success](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#fundamentals-successcodes)
 
 - `XR_SUCCESS`
 - `XR_SESSION_LOSS_PENDING`
 
-[**Failure**](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#fundamentals-errorcodes)
+[Failure](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#fundamentals-errorcodes)
 
 - `XR_ERROR_FUNCTION_UNSUPPORTED`
-- `XR_ERROR_VALIDATION_FAILURE`
-- `XR_ERROR_RUNTIME_FAILURE`
 - `XR_ERROR_HANDLE_INVALID`
 - `XR_ERROR_INSTANCE_LOST`
-- `XR_ERROR_SESSION_LOST`
-- `XR_ERROR_OUT_OF_MEMORY`
 - `XR_ERROR_LIMIT_REACHED`
-- `XR_ERROR_TIME_INVALID`
+- `XR_ERROR_OUT_OF_MEMORY`
 - `XR_ERROR_PERMISSION_INSUFFICIENT`
+- `XR_ERROR_RUNTIME_FAILURE`
+- `XR_ERROR_SESSION_LOST`
+- `XR_ERROR_TIME_INVALID`
+- `XR_ERROR_VALIDATION_FAILURE`
 
-[`XrEyesGetInfoANDROID`](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#XrEyesGetInfoANDROID) structure contains the information required to
-retrieve eye poses and states.
+[XrEyesGetInfoANDROID](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#XrEyesGetInfoANDROID) structure contains the information required to retrieve eye poses and states.
 
     typedef struct XrEyesGetInfoANDROID {
         XrStructureType    type;
-        void*              next;
+        const void*        next;
         XrTime             time;
         XrSpace            baseSpace;
     } XrEyesGetInfoANDROID;
 
 ### Member Descriptions
 
-- `type` is the [`XrStructureType`](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#XrStructureType) of this structure.
+- `type` is the [XrStructureType](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#XrStructureType) of this structure.
 - `next` is `NULL` or a pointer to the next structure in a structure chain. No such structures are defined in core OpenXR or this extension.
-- `time` is the [`XrTime`](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#XrTime) at which to evaluate the coordinates relative to the `baseSpace`.
-- `baseSpace` the eye pose will be relative to this [`XrSpace`](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#XrSpace) at `time`.
+- `time` is the `XrTime` at which to evaluate the coordinates relative to the `baseSpace` .
+- `baseSpace` is the [XrSpace](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#XrSpace) the eye poses will be relative to at `time` .
 
 ### Valid Usage (Implicit)
 
-- The `XR_ANDROID_eye_tracking` extension **must** be enabled prior to using [`XrEyesGetInfoANDROID`](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#XrEyesGetInfoANDROID)
-- `type` **must** be `XR_TYPE_EYES_GET_INFO_ANDROID`
-- `next` **must** be `NULL` or a valid pointer to the [next structure in a structure chain](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#fundamentals-valid-usage-for-structure-pointer-chains)
-- `baseSpace` **must** be a valid [`XrSpace`](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#XrSpace) handle
+- [](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#VUID-XrEyesGetInfoANDROID-extension-notenabled) The `XR_ANDROID_eye_tracking` extension **must** be enabled prior to using [XrEyesGetInfoANDROID](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#XrEyesGetInfoANDROID)
+- [](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#VUID-XrEyesGetInfoANDROID-type-type) `type` **must** be `XR_TYPE_EYES_GET_INFO_ANDROID`
+- [](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#VUID-XrEyesGetInfoANDROID-next-next) `next` **must** be `NULL` or a valid pointer to the [next structure in a structure chain](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#valid-usage-for-structure-pointer-chains)
+- [](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#VUID-XrEyesGetInfoANDROID-baseSpace-parameter) `baseSpace` **must** be a valid [XrSpace](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#XrSpace) handle
 
-[`XrEyesANDROID`](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#XrEyesANDROID) structure contains information on the tracked eyes.
+The [XrEyesANDROID](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#XrEyesANDROID) structure contains information about the tracked eyes.
 
     typedef struct XrEyesANDROID {
         XrStructureType             type;
@@ -367,21 +334,20 @@ retrieve eye poses and states.
 
 ### Member Descriptions
 
-- `type` is the [`XrStructureType`](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#XrStructureType) of this structure.
+- `type` is the [XrStructureType](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#XrStructureType) of this structure.
 - `next` is `NULL` or a pointer to the next structure in a structure chain. No such structures are defined in core OpenXR or this extension.
-- `eyes` is an array of [`XrEyeANDROID`](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#XrEyeANDROID) for the left and right eyes as indexed by `XrEyeIndexANDROID`.
-- `mode` is the [`XrEyeTrackingModeANDROID`](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#XrEyeTrackingModeANDROID) to indicate if the eyes are tracking and which ones.
+- `eyes` is an array of [XrEyeANDROID](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#XrEyeANDROID) , of size `XR_EYE_MAX_ANDROID` , for the left and right eyes as indexed by [XrEyeIndexANDROID](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#XrEyeIndexANDROID) .
+- `mode` is the [XrEyeTrackingModeANDROID](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#XrEyeTrackingModeANDROID) indicating which of the eyes are currently tracking.
 
 ### Valid Usage (Implicit)
 
-- The `XR_ANDROID_eye_tracking` extension **must** be enabled prior to using [`XrEyesANDROID`](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#XrEyesANDROID)
-- `type` **must** be `XR_TYPE_EYES_ANDROID`
-- `next` **must** be `NULL` or a valid pointer to the [next structure in a structure chain](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#fundamentals-valid-usage-for-structure-pointer-chains)
-- Any given element of `eyes` **must** be a valid [`XrEyeANDROID`](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#XrEyeANDROID) structure
-- `mode` **must** be a valid [`XrEyeTrackingModeANDROID`](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#XrEyeTrackingModeANDROID) value
+- [](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#VUID-XrEyesANDROID-extension-notenabled) The `XR_ANDROID_eye_tracking` extension **must** be enabled prior to using [XrEyesANDROID](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#XrEyesANDROID)
+- [](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#VUID-XrEyesANDROID-type-type) `type` **must** be `XR_TYPE_EYES_ANDROID`
+- [](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#VUID-XrEyesANDROID-next-next) `next` **must** be `NULL` or a valid pointer to the [next structure in a structure chain](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#valid-usage-for-structure-pointer-chains)
+- [](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#VUID-XrEyesANDROID-eyes-parameter) Any given element of `eyes` **must** be a valid [XrEyeANDROID](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#XrEyeANDROID) structure
+- [](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#VUID-XrEyesANDROID-mode-parameter) `mode` **must** be a valid [XrEyeTrackingModeANDROID](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#XrEyeTrackingModeANDROID) value
 
-[`XrEyeANDROID`](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#XrEyeANDROID) structure describes the state, position and orientation of an
-eye.
+The [XrEyeANDROID](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#XrEyeANDROID) structure describes the state, position and orientation of an eye.
 
     typedef struct XrEyeANDROID {
         XrEyeStateANDROID    eyeState;
@@ -390,69 +356,92 @@ eye.
 
 ### Member Descriptions
 
-- `eyeState` is the [`XrEyeStateANDROID`](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#XrEyeStateANDROID) of an eye.
-- `pose` is an [`XrPosef`](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#XrPosef) defining the position and orientation of the origin of an eye within the reference frame of the corresponding [`XrEyesGetInfoANDROID::baseSpace`](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#XrEyesGetInfoANDROID). An identity orientation here represents a coordinate axes with +Z into the user's eyes, +X to the right and +Y up.
+- `eyeState` is the [XrEyeStateANDROID](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#XrEyeStateANDROID) of an eye.
+- `eyePose` is an [XrPosef](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#XrPosef) defining the position and orientation of the pupil of an eye within the reference frame of the corresponding [XrEyesGetInfoANDROID](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#XrEyesGetInfoANDROID) :: `baseSpace` . An identity orientation here represents a coordinate axes with +Z into the user's eyes, +X to the right and +Y up.
 
 ### Valid Usage (Implicit)
 
-- The `XR_ANDROID_eye_tracking` extension **must** be enabled prior to using [`XrEyeANDROID`](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#XrEyeANDROID)
-- `eyeState` **must** be a valid [`XrEyeStateANDROID`](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#XrEyeStateANDROID) value
+- [](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#VUID-XrEyeANDROID-extension-notenabled) The `XR_ANDROID_eye_tracking` extension **must** be enabled prior to using [XrEyeANDROID](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#XrEyeANDROID)
+- [](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#VUID-XrEyeANDROID-eyeState-parameter) `eyeState` **must** be a valid [XrEyeStateANDROID](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#XrEyeStateANDROID) value
 
-The [`XrEyeStateANDROID`](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#XrEyeStateANDROID) enumeration identifies the different states of
-tracked eyes.
+The [XrEyeStateANDROID](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#XrEyeStateANDROID) enumeration identifies the different state of tracked eyes.
 
     typedef enum XrEyeStateANDROID {
         XR_EYE_STATE_INVALID_ANDROID = 0,
         XR_EYE_STATE_GAZING_ANDROID = 1,
-        XR_EYE_STATE_SHUT_ANDROID = 2
+        XR_EYE_STATE_SHUT_ANDROID = 2,
+        XR_EYE_STATE_MAX_ENUM_ANDROID = 0x7FFFFFFF
     } XrEyeStateANDROID;
 
 The enums have the following meanings:
 
-|---|---|
-| **Enum** | **Description** |
-| `XR_EYE_STATE_INVALID_ANDROID` | Indicates that the eye is in an error state or not present. |
-| `XR_EYE_STATE_GAZING_ANDROID` | Indicates that the eye is gazing. |
-| `XR_EYE_STATE_SHUT_ANDROID` | Indicates that the eye is shut due to a wink or a blink. |
+Enum Description
 
-The [`XrEyeIndexANDROID`](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#XrEyeIndexANDROID) enumeration identifies the index of the left or
-right eye.
+`XR_EYE_STATE_INVALID_ANDROID`
+
+Indicates that the eye is in an error state or not present.
+
+`XR_EYE_STATE_GAZING_ANDROID`
+
+Indicates that the eye is currently gazing.
+
+`XR_EYE_STATE_SHUT_ANDROID`
+
+Indicates that the eye is currently shut due to a wink or a blink.
+
+The [XrEyeIndexANDROID](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#XrEyeIndexANDROID) enumeration identifies the index of the left or right eyes.
 
     typedef enum XrEyeIndexANDROID {
         XR_EYE_INDEX_LEFT_ANDROID = 0,
-        XR_EYE_INDEX_RIGHT_ANDROID = 1
+        XR_EYE_INDEX_RIGHT_ANDROID = 1,
+        XR_EYE_INDEX_MAX_ENUM_ANDROID = 0x7FFFFFFF
     } XrEyeIndexANDROID;
 
 The enums have the following meanings:
 
-|---|---|
-| **Enum** | **Description** |
-| `XR_EYE_INDEX_LEFT_ANDROID` | Left eye. |
-| `XR_EYE_INDEX_RIGHT_ANDROID` | Right eye. |
+Enum Description
 
-The [`XrEyeTrackingModeANDROID`](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#XrEyeTrackingModeANDROID) enumeration identifies the different modes of
-tracked eyes.
+`XR_EYE_INDEX_LEFT_ANDROID`
+
+Left eye.
+
+`XR_EYE_INDEX_RIGHT_ANDROID`
+
+Right eye.
+
+The [XrEyeTrackingModeANDROID](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#XrEyeTrackingModeANDROID) enumeration identifies the different state of tracked eyes.
 
     typedef enum XrEyeTrackingModeANDROID {
         XR_EYE_TRACKING_MODE_NOT_TRACKING_ANDROID = 0,
         XR_EYE_TRACKING_MODE_RIGHT_ANDROID = 1,
         XR_EYE_TRACKING_MODE_LEFT_ANDROID = 2,
-        XR_EYE_TRACKING_MODE_BOTH_ANDROID = 3
+        XR_EYE_TRACKING_MODE_BOTH_ANDROID = 3,
+        XR_EYE_TRACKING_MODE_MAX_ENUM_ANDROID = 0x7FFFFFFF
     } XrEyeTrackingModeANDROID;
 
 The enums have the following meanings:
 
-|---|---|
-| **Enum** | **Description** |
-| `XR_EYE_TRACKING_MODE_NOT_TRACKING_ANDROID` | Indicates that eye tracking is not active. |
-| `XR_EYE_TRACKING_MODE_RIGHT_ANDROID` | Indicates that only the right eye is tracking. |
-| `XR_EYE_TRACKING_MODE_LEFT_ANDROID` | Indicates that only the left eye is tracking. |
-| `XR_EYE_TRACKING_MODE_BOTH_ANDROID` | Indicates that both the left and right eyes are tracking. |
+Enum Description
+
+`XR_EYE_TRACKING_MODE_NOT_TRACKING_ANDROID`
+
+Indicates that eye tracking is not currently active.
+
+`XR_EYE_TRACKING_MODE_RIGHT_ANDROID`
+
+Indicates that only the right eye is tracking.
+
+`XR_EYE_TRACKING_MODE_LEFT_ANDROID`
+
+Indicates that only the left eye is tracking.
+
+`XR_EYE_TRACKING_MODE_BOTH_ANDROID`
+
+Indicates that both the left and right eyes are tracking.
 
 ## Example code for eye tracking
 
-The following example code demonstrates how to get eye information relative to a
-view space.
+The following example code demonstrates how to get eyes information relative to a view space.
 
     XrSession session; // previously initialized, e.g. created at app startup.
     XrSpace viewSpace; // space created for XR_REFERENCE_SPACE_TYPE_VIEW.
@@ -502,55 +491,52 @@ view space.
     // after usage
     CHK_XR(xrDestroyEyeTrackerANDROID(eyeTracker));
 
-**New Object Types**
+## New Object Types
 
-- [`XrEyeTrackerANDROID`](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#XrEyeTrackerANDROID)
+- [XrEyeTrackerANDROID](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#XrEyeTrackerANDROID)
 
-**New Enum Constants**
+## New Commands
 
+- [xrCreateEyeTrackerANDROID](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#xrCreateEyeTrackerANDROID)
+- [xrDestroyEyeTrackerANDROID](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#xrDestroyEyeTrackerANDROID)
+- [xrGetCoarseTrackingEyesInfoANDROID](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#xrGetCoarseTrackingEyesInfoANDROID)
+- [xrGetFineTrackingEyesInfoANDROID](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#xrGetFineTrackingEyesInfoANDROID)
+
+## New Structures
+
+- [XrEyeANDROID](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#XrEyeANDROID)
+- [XrEyeTrackerCreateInfoANDROID](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#XrEyeTrackerCreateInfoANDROID)
+- [XrEyesANDROID](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#XrEyesANDROID)
+- [XrEyesGetInfoANDROID](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#XrEyesGetInfoANDROID)
+- Extending [XrSystemProperties](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#XrSystemProperties) :
+
+  - [XrSystemEyeTrackingPropertiesANDROID](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#XrSystemEyeTrackingPropertiesANDROID)
+
+## New Enums
+
+- [XrEyeIndexANDROID](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#XrEyeIndexANDROID)
+- [XrEyeStateANDROID](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#XrEyeStateANDROID)
+- [XrEyeTrackingModeANDROID](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#XrEyeTrackingModeANDROID)
+
+## New Enum Constants
+
+- `XR_ANDROID_EYE_TRACKING_EXTENSION_NAME`
+- `XR_ANDROID_eye_tracking_SPEC_VERSION`
 - `XR_EYE_MAX_ANDROID`
+- Extending [XrObjectType](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#XrObjectType) :
 
-[`XrObjectType`](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#XrObjectType) enumeration is extended with:
+  - `XR_OBJECT_TYPE_EYE_TRACKER_ANDROID`
+- Extending [XrStructureType](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#XrStructureType) :
 
-- `XR_OBJECT_TYPE_EYE_TRACKER_ANDROID`
+  - `XR_TYPE_EYES_ANDROID`
+  - `XR_TYPE_EYES_GET_INFO_ANDROID`
+  - `XR_TYPE_EYE_TRACKER_CREATE_INFO_ANDROID`
+  - `XR_TYPE_SYSTEM_EYE_TRACKING_PROPERTIES_ANDROID`
 
-[`XrStructureType`](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#XrStructureType) enumeration is extended with:
+## Issues
 
-- `XR_TYPE_EYES_ANDROID`
-- `XR_TYPE_EYE_TRACKER_CREATE_INFO_ANDROID`
-- `XR_TYPE_EYES_GET_INFO_ANDROID`
-- `XR_TYPE_SYSTEM_EYE_TRACKING_PROPERTIES_ANDROID`
-
-**New Enums**
-
-- [`XrEyeIndexANDROID`](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#XrEyeIndexANDROID)
-- [`XrEyeStateANDROID`](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#XrEyeStateANDROID)
-- [`XrEyeTrackingModeANDROID`](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#XrEyeTrackingModeANDROID)
-
-**New Structures**
-
-- [`XrEyeANDROID`](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#XrEyeANDROID)
-- [`XrEyesANDROID`](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#XrEyesANDROID)
-- [`XrEyesGetInfoANDROID`](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#XrEyesGetInfoANDROID)
-- [`XrEyeTrackerCreateInfoANDROID`](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#XrEyeTrackerCreateInfoANDROID)
-- [`XrSystemEyeTrackingPropertiesANDROID`](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#XrSystemEyeTrackingPropertiesANDROID)
-
-**New Functions**
-
-- [`xrCreateEyeTrackerANDROID`](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#xrCreateEyeTrackerANDROID)
-- [`xrDestroyEyeTrackerANDROID`](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#xrDestroyEyeTrackerANDROID)
-- [`xrGetCoarseTrackingEyesInfoANDROID`](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#xrGetCoarseTrackingEyesInfoANDROID)
-- [`xrGetFineTrackingEyesInfoANDROID`](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#xrGetFineTrackingEyesInfoANDROID)
-
-**Issues**
-
-**Version History**
+## Version History
 
 - Revision 1, 2025-01-17 (Kenny Vercaemer)
+
   - Initial extension description
-
-*** ** * ** ***
-
-OpenXR™ and the OpenXR logo are trademarks owned
-by The Khronos Group Inc. and are registered as a trademark in China,
-the European Union, Japan and the United Kingdom.

@@ -73,7 +73,7 @@ On very large surfaces, simply scaling up a tablet's *Expanded* layout isn't alw
 To include the new window size classes in your project, simply call the function from the [WindowSizeClass.BREAKPOINTS_V2](https://developer.android.com/reference/androidx/window/core/layout/WindowSizeClass#BREAKPOINTS_V2()) set instead of [WindowSizeClass.BREAKPOINTS_V1](https://developer.android.com/reference/androidx/window/core/layout/WindowSizeClass#BREAKPOINTS_V1()):
 
 ```
-  val currentWindowMetrics =
+val currentWindowMetrics =
     WindowMetricsCalculator.getOrCreate()
     .computeCurrentWindowMetrics(LocalContext.current)
 
@@ -84,7 +84,7 @@ val sizeClass = WindowSizeClass.BREAKPOINTS_V2
 Then apply the correct layout when you're sure your app has at least that much space:
 
 ```
-  if(sizeClass.isWidthAtLeastBreakpoint(
+if(sizeClass.isWidthAtLeastBreakpoint(
     WindowSizeClass.WIDTH_DP_LARGE_LOWER_BOUND)){
     ...
 	// Window is at least 1200 dp wide.
@@ -104,7 +104,7 @@ For out-of-the-box canonical layouts, like list-detail and supporting pane, you 
 It's also easy to build your own custom Scenes by [modifying the Scene recipes](https://github.com/android/nav3-recipes?tab=readme-ov-file#create-custom-scenes) or starting from scratch. For example, let's consider a Scene that displays three panes side by side:
 
 ```
-  class ThreePaneScene<T : Any>(
+class ThreePaneScene<T : Any>(
     override val key: Any,
     override val previousEntries: List<NavEntry<T>>,
     val firstEntry: NavEntry<T>,
@@ -130,7 +130,7 @@ It's also easy to build your own custom Scenes by [modifying the Scene recipes](
 In this scenario, you could define a [SceneStrategy](https://developer.android.com/reference/kotlin/androidx/navigation3/ui/SceneStrategy) to show three panes if the window width is wide enough and the entries from your back stack have declared that they support being displayed in a three-pane scene.
 
 ```
-  class ThreePaneSceneStrategy<T : Any>(val windowSizeClass: WindowSizeClass) : SceneStrategy<T> {
+class ThreePaneSceneStrategy<T : Any>(val windowSizeClass: WindowSizeClass) : SceneStrategy<T> {
     override fun SceneStrategyScope<T>.calculateScene(entries: List<NavEntry<T>>): Scene<T>? {
         if (windowSizeClass.isWidthAtLeastBreakpoint(WIDTH_DP_LARGE_LOWER_BOUND)) {
             val lastThree = entries.takeLast(3)
@@ -157,7 +157,7 @@ In this scenario, you could define a [SceneStrategy](https://developer.android.c
 You can use your ThreePaneSceneStrategy with other strategies when creating your [NavDisplay](https://developer.android.com/reference/kotlin/androidx/navigation3/ui/NavDisplay). For example, we could also add a TwoPaneStrategy to display two panes side by side when there isn't enough space to show three.
 
 ```
-  val strategy = ThreePaneSceneStrategy() then TwoPaneSceneStrategy()
+val strategy = ThreePaneSceneStrategy() then TwoPaneSceneStrategy()
 
 NavDisplay(..., 
   sceneStrategy = strategy,
@@ -229,6 +229,17 @@ We're committed to making Android a versatile platform that adapts to the many w
   ###### [Francesco Romano](https://developer.android.com/blog/authors/francesco-romano) •
   3 min read
 
+- [![](https://developer.android.com/static/blog/assets/Bennet_Manuel_4be9960838_MydbH.webp)](https://developer.android.com/blog/authors/bennet-manuel) 15 Apr 2026 15 Apr 2026 ![](https://developer.android.com/static/blog/assets/260409_Uyo_policy_bundle_Header_dae9a057fb_2u7Yfb.webp)
+
+  #### [Product News](https://developer.android.com/blog/categories/product-news)
+
+  ## [Boosting user privacy and business protection with updated Play policies](https://developer.android.com/blog/posts/boosting-user-privacy-and-business-protection-with-updated-play-policies)
+
+  [arrow_forward](https://developer.android.com/blog/posts/boosting-user-privacy-and-business-protection-with-updated-play-policies) Making Google Play the safest and most trusted experience possible. Today, we're announcing a new set of policy updates and an account transfer feature to boost user privacy and protect your business from fraud.
+
+  ###### [Bennet Manuel](https://developer.android.com/blog/authors/bennet-manuel) •
+  3 min read
+
 - [![](https://developer.android.com/static/blog/assets/headshot_e042d23f90_2x0LLK.webp)](https://developer.android.com/blog/authors/steven-jenkins) 13 Apr 2026 13 Apr 2026 ![](https://developer.android.com/static/blog/assets/Multi_Device_Interactions_with_Android_Emulator_Strapi_5d6ea711e7_Z1AYEiA.webp)
 
   #### [Product News](https://developer.android.com/blog/categories/product-news)
@@ -239,19 +250,6 @@ We're committed to making Android a versatile platform that adapts to the many w
 
   ###### [Steven Jenkins](https://developer.android.com/blog/authors/steven-jenkins) •
   2 min read
-
-- [![](https://developer.android.com/static/blog/assets/matthew_warner_67a99317e4_Z2c1VNu.webp)](https://developer.android.com/blog/authors/matthew-warner) 02 Apr 2026 02 Apr 2026 ![](https://developer.android.com/static/blog/assets/android_studio_gemma4_73370772af_2lUopR.webp)
-
-  #### [Product News](https://developer.android.com/blog/categories/product-news)
-
-  ## [Android Studio supports Gemma 4: our most capable local model for agentic coding](https://developer.android.com/blog/posts/android-studio-supports-gemma-4-our-most-capable-local-model-for-agentic-coding)
-
-  [arrow_forward](https://developer.android.com/blog/posts/android-studio-supports-gemma-4-our-most-capable-local-model-for-agentic-coding) Every developer's AI workflow and needs are unique, and it's important to be able to choose how AI helps your development. In January, we introduced the ability to choose any local or remote AI model to power AI functionality in Android Studio
-
-  ###### [Matthew Warner](https://developer.android.com/blog/authors/matthew-warner) •
-  2 min read
-
-  - [#Android Studio](https://developer.android.com/blog/topics/android-studio)
 
 # Stay in the loop
 

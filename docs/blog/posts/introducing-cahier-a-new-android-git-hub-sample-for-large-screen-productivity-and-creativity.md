@@ -144,32 +144,32 @@ Here's how we implemented these features in Cahier:
 To enable multi-instance, we first needed to signal to the system that the app supports being launched multiple times by adding the `PROPERTY_SUPPORTS_MULTI_INSTANCE_SYSTEM_UI` property to `MainActivity`'s declaration in `AndroidManifest`:
 
 ```
-  <activity
+<activity
 
-    android:name="com.example.cahier.MainActivity"
+    android:name="com.example.cahier.MainActivity"
 
-    android:exported="true"
+    android:exported="true"
 
-    android:label="@string/app_name"
+    android:label="@string/app_name"
 
-    android:theme="@style/Theme.MyApplication"
+    android:theme="@style/Theme.MyApplication"
 
-    android:showWhenLocked="true"
+    android:showWhenLocked="true"
 
-    android:turnScreenOn="true"
+    android:turnScreenOn="true"
 
-    android:resizeableActivity="true"
+    android:resizeableActivity="true"
 
-    android:launchMode="singleInstancePerTask">
+    android:launchMode="singleInstancePerTask">
 
 
-    <property
+    <property
 
-        android:name="android.window.PROPERTY_SUPPORTS_MULTI_INSTANCE_SYSTEM_UI"
+        android:name="android.window.PROPERTY_SUPPORTS_MULTI_INSTANCE_SYSTEM_UI"
 
-        android:value="true"/>
+        android:value="true"/>
 
-    ...
+    ...
 
 </activity>
 ```
@@ -177,7 +177,7 @@ To enable multi-instance, we first needed to signal to the system that the app s
 Next, we implemented the logic to launch a new instance of the app. In [CahierHomeScreen.kt](https://github.com/android/cahier/blob/main/app/src/main/java/com/example/cahier/ui/CahierHomeScreen.kt), when a user opts to open a note in a new window, we create a new Intent with specific flags that instruct the system on how to handle the new activity launch. The combination of `FLAG_ACTIVITY_NEW_TASK`, `FLAG_ACTIVITY_MULTIPLE_TASK`, and `FLAG_ACTIVITY_LAUNCH_ADJACENT` ensures the note opens in a new, separate window alongside the existing one.
 
 ```
-  fun openNewWindow(activity: Activity?, note: Note) {
+fun openNewWindow(activity: Activity?, note: Note) {
 
     val intent = Intent(activity, MainActivity::class.java)
 
@@ -198,7 +198,7 @@ Next, we implemented the logic to launch a new instance of the app. In [CahierHo
 To support multi-window mode, we needed to signal to the system that the app supports resizability by setting the Manifest's `<activity>` or `<application>` element.
 
 ```
-  <activity
+<activity
 
     android:name="com.example.cahier.MainActivity"
 
@@ -229,7 +229,7 @@ By default, the Jetpack Compose pointer input system is designed so that just on
 To solve this, we created a custom `pointerInputWithSiblingFallthrough` modifier, and we put our `Box` using that modifier before `InProgressStrokes` in the composable code. This utility is a thin wrapper around the standard [pointerInput](https://developer.android.com/reference/kotlin/androidx/compose/ui/input/pointer/package-summary#(androidx.compose.ui.Modifier).pointerInput(kotlin.Array,androidx.compose.ui.input.pointer.PointerInputEventHandler) system but with one critical change: it overrides the [sharePointerInputWithSiblings()](https://developer.android.com/reference/kotlin/androidx/compose/ui/node/PointerInputModifierNode#sharePointerInputWithSiblings()) function to return `true`. This tells the Compose framework to allow pointer events to pass through to sibling composables, even after being consumed.
 
 ```
-  internal fun Modifier.pointerInputWithSiblingFallthrough(
+internal fun Modifier.pointerInputWithSiblingFallthrough(
 
     pointerInputEventHandler: PointerInputEventHandler
 
@@ -319,7 +319,7 @@ private data class PointerInputSiblingFallthroughElement(
 Here's how it's used in [`DrawingSurface`](https://github.com/android/cahier/blob/main/app/src/main/java/com/example/cahier/ui/DrawingSurface.kt):
 
 ```
-  Box(
+Box(
 
     modifier = Modifier
 

@@ -25,9 +25,8 @@ Glimmer and AI glasses with a display.
 > [!WARNING]
 > **Warning:** Don't use `LazyColumn` in your AI glasses activities.
 
-Jetpack Compose Glimmer lists have a few unique constraints:
+Jetpack Compose Glimmer lists have some unique constraints:
 
-- Lists should only show three items or less within a view.
 - When a list contains more items than can fit within a view, a black scrim is used near the list's bounds.
 
 ## Example: Display a vertical list with three items

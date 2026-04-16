@@ -45,7 +45,7 @@ Join the [Developer Preview](https://developers.google.com/ml-kit/genai/aicore-d
 You can try out the model without code by following the [Developer Preview guide](https://developers.google.com/ml-kit/genai/aicore-dev-preview). If you want to jump straight into integrating these models with your existing workflow, we've made that seamless. Head over to [Android Studio](https://developer.android.com/studio/gemini/use-a-local-model) to refine your prompt and build with the familiar ML Kit Prompt API. We've introduced a new ability to specify a model, allowing you to target the E2B (fast) or E4B (full) variants for testing.
 
 ```kotlin
-  // Define the configuration with a specific track and preference
+// Define the configuration with a specific track and preference
 val previewFullConfig = generationConfig {
     modelConfig = ModelConfig {
         releaseTrack = ModelReleaseTrack.PREVIEW
@@ -127,16 +127,16 @@ Ready to see what Gemma 4 can do for your users?
   ###### [Caren Chang](https://developer.android.com/blog/authors/caren-chang), [Chengji Yan](https://developer.android.com/blog/authors/chengji-yan), [Penny Li](https://developer.android.com/blog/authors/penny-li) •
   2 min read
 
-- [![](https://developer.android.com/static/blog/assets/headshot_e042d23f90_2x0LLK.webp)](https://developer.android.com/blog/authors/steven-jenkins) 13 Apr 2026 13 Apr 2026 ![](https://developer.android.com/static/blog/assets/Multi_Device_Interactions_with_Android_Emulator_Strapi_5d6ea711e7_Z1AYEiA.webp)
+- [![](https://developer.android.com/static/blog/assets/Bennet_Manuel_4be9960838_MydbH.webp)](https://developer.android.com/blog/authors/bennet-manuel) 15 Apr 2026 15 Apr 2026 ![](https://developer.android.com/static/blog/assets/260409_Uyo_policy_bundle_Header_dae9a057fb_2u7Yfb.webp)
 
   #### [Product News](https://developer.android.com/blog/categories/product-news)
 
-  ## [Test Multi-Device Interactions with the Android Emulator](https://developer.android.com/blog/posts/test-multi-device-interactions-with-the-android-emulator)
+  ## [Boosting user privacy and business protection with updated Play policies](https://developer.android.com/blog/posts/boosting-user-privacy-and-business-protection-with-updated-play-policies)
 
-  [arrow_forward](https://developer.android.com/blog/posts/test-multi-device-interactions-with-the-android-emulator) Testing multi-device interactions is now easier than ever with the Android Emulator.
+  [arrow_forward](https://developer.android.com/blog/posts/boosting-user-privacy-and-business-protection-with-updated-play-policies) Making Google Play the safest and most trusted experience possible. Today, we're announcing a new set of policy updates and an account transfer feature to boost user privacy and protect your business from fraud.
 
-  ###### [Steven Jenkins](https://developer.android.com/blog/authors/steven-jenkins) •
-  2 min read
+  ###### [Bennet Manuel](https://developer.android.com/blog/authors/bennet-manuel) •
+  3 min read
 
 # Stay in the loop
 

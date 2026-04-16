@@ -16,7 +16,7 @@ and system-level interactions.
 AppFunctions serve as the mobile equivalent of tools within the [Model Context
 Protocol (MCP)](https://modelcontextprotocol.io/docs/getting-started/intro). While MCP traditionally standardizes how agents
 connect to server-side tools, AppFunctions provide the same mechanism for
-Android apps. This enables you to expose your app's capabilities as
+Android apps. This lets you expose your app's capabilities as
 orchestratable "tools" that authorized apps (callers) can discover and execute
 to fulfill user intents. Callers must have the [`EXECUTE_APP_FUNCTIONS`](https://developer.android.com/reference/android/Manifest.permission#EXECUTE_APP_FUNCTIONS)
 permission to discover and execute AppFunctions, and can include agents, apps,
@@ -159,44 +159,33 @@ data class Note(
 
 <br />
 
-## FAQs
+## Frequently asked questions (FAQs)
 
 The following section addresses frequently asked questions about AppFunctions.
 
-**Q: I'm an app developer. Can I implement AppFunctions today?**
+**I'm an app developer. Can I implement AppFunctions today?**
 
-**A**: Yes, it's possible to implement and test AppFunctions within your app by
+Yes, it's possible to implement and test AppFunctions within your app by
 following the guidance detailed in the preceding sections.
 
-**Q: I have implemented AppFunctions in my app. Why can my system agent not
-access them?**
+**I have implemented AppFunctions in my app. Why can my system agent not access
+them?**
 
-**A**: AppFunctions are an experimental feature. To carefully evaluate the
+AppFunctions are an experimental feature. To carefully evaluate the
 quality of the overall experience during this experimental phase, only a limited
 number of apps and system agents can access the entire pipeline.
 
-**Q: I'm developing an agent. Can I access AppFunctions provided by apps?**
+**How can I prepare my app for general availability of AppFunctions?**
 
-**A**: Your test agent can access AppFunctions in a development environment.
-During this experimental phase, only a limited number of system agents can
-access and execute AppFunctions in production.
-
-**Q: Which system agents have access to AppFunctions?**
-
-**A**: Only a limited number of system agents can access the entire pipeline
-while AppFunctions are experimental.
-
-**Q: How can I prepare my app for general availability of AppFunctions?**
-
-**A** : Consider which features of your app you want to expose to agentic
+Consider which features of your app you want to expose to agentic
 automation. You can implement AppFunctions in your app. To do so, follow the
 steps in the preceding sections on this page, and verify that they are
 registered on the device by calling `adb shell cmd app_function
 list-app-functions`.
 
-**Q: Can I get early access to the end-to-end agentic developer experience?**
+**Can I get early access to the end-to-end agentic developer experience?**
 
-**A** : We're conducting an Early Access Program (EAP) to onboard select apps in
+We're conducting an Early Access Program (EAP) to onboard select apps in
 testing the end-to-end developer experience required to launch AppFunctions to
 production on Android. You can register your interest in integrating your
 AppFunctions through this [EAP registration up form](https://forms.gle/GN5ybjQFhzHRCguM7). By
@@ -204,7 +193,7 @@ registering your interest, you do NOT automatically obtain access to the full
 integration. We'll email you if your app is selected for the EAP, or to let you
 know when AppFunctions become publicly available.
 
-**Q: How can I provide feedback on AppFunctions?**
+**How can I provide feedback on AppFunctions?**
 
-**A** : You can provide feedback on the API by [filing an issue](https://issuetracker.google.com/issues/new?component=1709065&template=2081773)
+You can provide feedback on the API by [filing an issue](https://issuetracker.google.com/issues/new?component=1709065&template=2081773)
 and registering your interest in the Early Access Program form.

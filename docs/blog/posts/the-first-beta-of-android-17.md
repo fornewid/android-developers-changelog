@@ -99,7 +99,7 @@ Android 17 brings professional-grade tools to media and camera apps, with featur
 We have introduced `updateOutputConfigurations`[`()`](https://developer.android.com/reference/android/hardware/camera2/CameraCaptureSession) to [`CameraCaptureSession`](https://developer.android.com/reference/android/hardware/camera2/CameraCaptureSession). This allows you to dynamically attach and detach output surfaces without the need to reconfigure the entire camera capture session. This change enables seamless transitions between camera use cases and modes (such as shooting still images vs shooting videos) without the memory cost and code complexity of configuring and holding onto all camera output surfaces that your app might need during camera start up. This helps to eliminate user-visible glitches or freezes during operation.
 
 ```
-  fun updateCameraSession(session: CameraCaptureSession, newOutputConfigs:  List<OutputConfiguration>)) {
+fun updateCameraSession(session: CameraCaptureSession, newOutputConfigs:  List<OutputConfiguration>)) {
     // Dynamically update the session without closing and reopening
     try {
         

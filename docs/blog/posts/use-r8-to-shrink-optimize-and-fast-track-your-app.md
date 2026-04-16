@@ -84,7 +84,7 @@ The R8 optimizer defaults to using "full mode" since version 8.0 of the Android 
 Now check whether you have enabled R8 in your app's build.gradle.kts file for the release variant. It's enabled by setting isMinifyEnabled and isShrinkResources to true. You can also pass default and custom configuration files at this step.
 
 ```
-  release {
+release {
 
    isMinifyEnabled = true
 

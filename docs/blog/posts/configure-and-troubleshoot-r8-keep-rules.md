@@ -39,7 +39,7 @@ See the official guide for more details on [Keep Rules](https://developer.androi
 Custom Keep Rules for an application are written in text file. By convention, this file is named `proguard-rules.pro` and is located in the root of the app or library module. This file is then specified in your module's `build.gradle.kts` file's `release` build type.
 
 ```
-  release {
+release {
 
     isShrinkResources = true
 
@@ -92,7 +92,7 @@ Avoid using these global flags in a production environment wherever possible for
 The easiest way to nullify R8's benefits is to **write overly-broad Keep Rules** . Keep rules like the one below instruct the R8 optimizer to not shrink, not obfuscate, and not optimize *any* class in this package or *any* of its sub-packages. This completely removes R8's benefits for that entire package. Try to write narrow and specific Keep Rules instead.  
 
 ```
-  -keep class com.example.package.** { *;} // WIDE KEEP RULES CAUSE PROBLEMS
+-keep class com.example.package.** { *;} // WIDE KEEP RULES CAUSE PROBLEMS
 ```
 
 ## The inversion operator (!)
@@ -100,7 +100,7 @@ The easiest way to nullify R8's benefits is to **write overly-broad Keep Rules**
 The inversion operator (!) seems like a powerful way to exclude a package from a rule. But it's not that simple. Take this example:
 
 ```
-  -keep class !com.example.my_package.** { *; } // USE WITH CAUTION
+-keep class !com.example.my_package.** { *; } // USE WITH CAUTION
 ```
 
 You might think that this rule means "*do not keep classes in* `com.example.package`." But it actually means "*keep every class, method and propertyin the entire application that is not in *`com.example.package`." If that came as a surprise to you, best check for any negations in your R8 configuration.
@@ -130,7 +130,7 @@ Good Keep Rules should be as **narrow and specific as possible** . They should p
 Instead of writing separate Keep Rules for multiple different data models, write one rule that targets a common base class or interface. The below rule tells R8 to keep any members of classes that implement this interface and is highly scalable.
 
 ```
-  # Keep all fields of any class that implements SerializableModel
+# Keep all fields of any class that implements SerializableModel
 
 -keepclassmembers class * implements com.example.models.SerializableModel {
 
@@ -144,7 +144,7 @@ Instead of writing separate Keep Rules for multiple different data models, write
 Create a custom annotation (e.g., `@Serialize`) and use it to "tag" classes that need their fields preserved. This is another clean, declarative, and highly scalable pattern. You can create Keep Rules for already existing annotations from frameworks you're using as well.
 
 ```
-  # Keep all fields of any class annotated with @Serialize
+# Keep all fields of any class annotated with @Serialize
 
 -keepclassmembers class * {
 
@@ -170,7 +170,7 @@ You can find more about the keep option in our [documentation for Keep Options.]
 Modifiers like `allowshrinking` and `allowobfuscation` relax a broad `-keep` rule, giving optimization power back to R8. For example, if a legacy library forces you to use `-keep` on an entire class, you might be able to reclaim some optimization by allowing shrinking and obfuscation:
 
 ```
-  # Keep this class, but allow R8 to remove it if it's unused and allow R8 to rename it.
+# Keep this class, but allow R8 to remove it if it's unused and allow R8 to rename it.
 
 -keep,allowshrinking,allowobfuscation class com.example.LegacyClass
 ```
@@ -196,7 +196,7 @@ Every Android app relies on libraries one way or another. So let's talk about be
 If your library uses reflection or JNI, you have the responsibility to provide the necessary Keep Rules to its consumers. These rules are placed in a `consumer-rules.pro` file, which is then automatically bundled inside the library's AAR file.
 
 ```
-  android {
+android {
 
     defaultConfig {
 
@@ -216,7 +216,7 @@ If your library uses reflection or JNI, you have the responsibility to provide t
 If you must use a library that includes problematic Keep Rules, you can filter them out in your `build.gradle.kts` file starting with AGP 9.0 This tells R8 to ignore the rules coming from a specific dependency.
 
 ```
-  release {
+release {
 
     optimization.keepRules {
 
@@ -244,7 +244,7 @@ When R8 removes code it should have kept, or your APK is larger than expected, u
 Because R8 merges rules from dozens of sources, it can be hard to know what the "final" ruleset is. Adding this flag to your `proguard-rules.pro` file generates a complete report:
 
 ```
-  # Outputs the final, merged set of rules to the specified file
+# Outputs the final, merged set of rules to the specified file
 
 -printconfiguration build/outputs/logs/configuration.txt
 ```
@@ -256,7 +256,7 @@ You can search this file to find redundant rules or trace a problematic rule (li
 If a class you expected to be removed is still in your app, R8 can tell you why. Just add this rule:
 
 ```
-  # Asks R8 to explain why it's keeping a specific class
+# Asks R8 to explain why it's keeping a specific class
 
 class com.example.MyUnusedClass
 
@@ -310,6 +310,17 @@ Stay tuned for tomorrow, where we'll talk about Profile Guided Optimization with
 
 ## Continue reading
 
+- [![](https://developer.android.com/static/blog/assets/Bennet_Manuel_4be9960838_MydbH.webp)](https://developer.android.com/blog/authors/bennet-manuel) 15 Apr 2026 15 Apr 2026 ![](https://developer.android.com/static/blog/assets/260409_Uyo_policy_bundle_Header_dae9a057fb_2u7Yfb.webp)
+
+  #### [Product News](https://developer.android.com/blog/categories/product-news)
+
+  ## [Boosting user privacy and business protection with updated Play policies](https://developer.android.com/blog/posts/boosting-user-privacy-and-business-protection-with-updated-play-policies)
+
+  [arrow_forward](https://developer.android.com/blog/posts/boosting-user-privacy-and-business-protection-with-updated-play-policies) Making Google Play the safest and most trusted experience possible. Today, we're announcing a new set of policy updates and an account transfer feature to boost user privacy and protect your business from fraud.
+
+  ###### [Bennet Manuel](https://developer.android.com/blog/authors/bennet-manuel) •
+  3 min read
+
 - [![](https://developer.android.com/static/blog/assets/headshot_e042d23f90_2x0LLK.webp)](https://developer.android.com/blog/authors/steven-jenkins) 13 Apr 2026 13 Apr 2026 ![](https://developer.android.com/static/blog/assets/Multi_Device_Interactions_with_Android_Emulator_Strapi_5d6ea711e7_Z1AYEiA.webp)
 
   #### [Product News](https://developer.android.com/blog/categories/product-news)
@@ -331,18 +342,6 @@ Stay tuned for tomorrow, where we'll talk about Profile Guided Optimization with
 
   ###### [Matthew Warner](https://developer.android.com/blog/authors/matthew-warner) •
   2 min read
-
-  - [#Android Studio](https://developer.android.com/blog/topics/android-studio)
-- [![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](https://developer.android.com/blog/authors/matt-dyor) 02 Apr 2026 02 Apr 2026 ![](https://developer.android.com/static/blog/assets/as_Panda3_385cde5eac_Z1E8IhJ.webp)
-
-  #### [Product News](https://developer.android.com/blog/categories/product-news)
-
-  ## [Increase Guidance and Control over Agent Mode with Android Studio Panda 3](https://developer.android.com/blog/posts/increase-guidance-and-control-over-agent-mode-with-android-studio-panda-3)
-
-  [arrow_forward](https://developer.android.com/blog/posts/increase-guidance-and-control-over-agent-mode-with-android-studio-panda-3) Android Studio Panda 3 is now stable and ready for you to use in production. This release gives you even more control and customization over your AI-powered workflows, making it easier than ever to build high-quality Android apps.
-
-  ###### [Matt Dyor](https://developer.android.com/blog/authors/matt-dyor) •
-  3 min read
 
   - [#Android Studio](https://developer.android.com/blog/topics/android-studio)
 

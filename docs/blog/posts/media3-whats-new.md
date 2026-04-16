@@ -42,7 +42,7 @@ The new `media3-inspector` module combines all utilities to inspect media withou
 `MetadataRetriever` and `FrameExtractor` follow a simple `AutoCloseable` pattern. Have a look at our [new guide pages](https://developer.android.com/media/media3/inspector) for more details.
 
 ```
-  suspend fun extractThumbnail(mediaItem: MediaItem) {
+suspend fun extractThumbnail(mediaItem: MediaItem) {
 
   FrameExtractor.Builder(context, mediaItem).build().use {
 
@@ -60,7 +60,7 @@ In previous releases we started providing connector code between Compose UI elem
 We are also still working on even more Compose components, like a prebuilt seek bar, a complete out-of-the-box replacement for `PlayerView`, as well as subtitle and ad integration.
 
 ```
-  @Composable
+@Composable
 fun SimplePlayerUI(player: Player, modifier: Modifier = Modifier) {
   Column(modifier) {
     ContentFrame(player)  // Video surface and shutter logic
@@ -84,17 +84,17 @@ The [CastPlayer](https://developer.android.com/media/media3/cast/create-castplay
 When you set up your `MediaSession`, simply build a `CastPlayer` around your `ExoPlayer` and add a `MediaRouteButton` to your UI and you're done!
 
 ```
-  // MediaSession setup with CastPlayer 
+// MediaSession setup with CastPlayer 
 
-val exoPlayer = ExoPlayer.Builder(context).build()
+val exoPlayer = ExoPlayer.Builder(context).build()
 
-val castPlayer = CastPlayer.Builder(context).setLocalPlayer(exoPlayer).build()
+val castPlayer = CastPlayer.Builder(context).setLocalPlayer(exoPlayer).build()
 
-val session = MediaSession.Builder(context, castPlayer).build()
+val session = MediaSession.Builder(context, castPlayer).build()
 
-// MediaRouteButton in UI 
+// MediaRouteButton in UI 
 
-@Composable fun UIWithMediaRouteButton() {
+@Composable fun UIWithMediaRouteButton() {
 
   MediaRouteButton()
 
@@ -133,7 +133,7 @@ Until now, defining your preferences for which buttons should show up in the med
 Media3 1.9.0 has new functionality to make this a lot simpler -- you can now [define your media button preferences](https://developer.android.com/media/media3/session/control-playback#commands) with a standard player command, requiring no custom command handling at all.
 
 ```
-  session.setMediaButtonPreferences(listOf(
+session.setMediaButtonPreferences(listOf(
     CommandButton.Builder(CommandButton.ICON_FAST_FORWARD) // choose an icon
       .setDisplayName(R.string.skip_forward)
       .setPlayerCommand(Player.COMMAND_SEEK_FORWARD) // choose an action 
@@ -163,7 +163,7 @@ Note that while Transformer no longer uses the Android platform's [MediaMuxer](h
 The 1.9.0 release simplifies speed adjustments APIs for media editing. We've introduced new methods directly on `EditedMediaItem.Builder` to control speed, making the API more intuitive. You can now change the speed of a clip by calling `setSpeed(SpeedProvider provider)` on the `EditedMediaItem.Builder`:
 
 ```
-  val speedProvider = object : SpeedProvider {
+val speedProvider = object : SpeedProvider {
     override fun getSpeed(presentationTimeUs: Long): Float {
         return speed
     }
@@ -197,7 +197,7 @@ We encourage you to migrate to the new constructor or the convenience methods fo
 Example of creating a video-only sequence:
 
 ```
-  EditedMediaItemSequence videoOnlySequence =
+EditedMediaItemSequence videoOnlySequence =
     EditedMediaItemSequence.Builder(setOf(C.TRACK_TYPE_VIDEO))
         .addItem(editedMediaItem)
         .build()
@@ -217,6 +217,17 @@ Please get in touch via the [Media3 issue Tracker](https://github.com/androidx/m
   View profile](https://developer.android.com/blog/authors/kristina-simakova) ![](https://developer.android.com/static/blog/assets/Kristina_Simakova_0a7a20024f_a9nfE.webp) ![](https://developer.android.com/static/blog/assets/Kristina_Simakova_0a7a20024f_a9nfE.webp)
 
 ## Continue reading
+
+- [![](https://developer.android.com/static/blog/assets/Bennet_Manuel_4be9960838_MydbH.webp)](https://developer.android.com/blog/authors/bennet-manuel) 15 Apr 2026 15 Apr 2026 ![](https://developer.android.com/static/blog/assets/260409_Uyo_policy_bundle_Header_dae9a057fb_2u7Yfb.webp)
+
+  #### [Product News](https://developer.android.com/blog/categories/product-news)
+
+  ## [Boosting user privacy and business protection with updated Play policies](https://developer.android.com/blog/posts/boosting-user-privacy-and-business-protection-with-updated-play-policies)
+
+  [arrow_forward](https://developer.android.com/blog/posts/boosting-user-privacy-and-business-protection-with-updated-play-policies) Making Google Play the safest and most trusted experience possible. Today, we're announcing a new set of policy updates and an account transfer feature to boost user privacy and protect your business from fraud.
+
+  ###### [Bennet Manuel](https://developer.android.com/blog/authors/bennet-manuel) •
+  3 min read
 
 - [![](https://developer.android.com/static/blog/assets/headshot_e042d23f90_2x0LLK.webp)](https://developer.android.com/blog/authors/steven-jenkins) 13 Apr 2026 13 Apr 2026 ![](https://developer.android.com/static/blog/assets/Multi_Device_Interactions_with_Android_Emulator_Strapi_5d6ea711e7_Z1AYEiA.webp)
 
@@ -239,18 +250,6 @@ Please get in touch via the [Media3 issue Tracker](https://github.com/androidx/m
 
   ###### [Matthew Warner](https://developer.android.com/blog/authors/matthew-warner) •
   2 min read
-
-  - [#Android Studio](https://developer.android.com/blog/topics/android-studio)
-- [![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](https://developer.android.com/blog/authors/matt-dyor) 02 Apr 2026 02 Apr 2026 ![](https://developer.android.com/static/blog/assets/as_Panda3_385cde5eac_Z1E8IhJ.webp)
-
-  #### [Product News](https://developer.android.com/blog/categories/product-news)
-
-  ## [Increase Guidance and Control over Agent Mode with Android Studio Panda 3](https://developer.android.com/blog/posts/increase-guidance-and-control-over-agent-mode-with-android-studio-panda-3)
-
-  [arrow_forward](https://developer.android.com/blog/posts/increase-guidance-and-control-over-agent-mode-with-android-studio-panda-3) Android Studio Panda 3 is now stable and ready for you to use in production. This release gives you even more control and customization over your AI-powered workflows, making it easier than ever to build high-quality Android apps.
-
-  ###### [Matt Dyor](https://developer.android.com/blog/authors/matt-dyor) •
-  3 min read
 
   - [#Android Studio](https://developer.android.com/blog/topics/android-studio)
 

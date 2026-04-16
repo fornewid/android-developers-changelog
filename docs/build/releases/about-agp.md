@@ -230,8 +230,9 @@ The minimum versions of Android Studio and AGP are as follows:
 
 | API level | Minimum Android Studio version | Minimum AGP version |
 |---|---|---|
+| 37 | Panda 3 \| 2025.3.3 Patch 1 | 9.1.1 |
 | 36.1 | Narwhal 3 Feature Drop \| 2025.1.3 | 8.13.0 |
-| 36.0 | Meerkat \| 2024.3.1 Patch 1 | 8.9.1 |
+| 36 | Meerkat \| 2024.3.1 Patch 1 | 8.9.1 |
 | 35 | Koala Feature Drop \| 2024.2.1 | 8.6.0 |
 | 34 | Hedgehog \| 2023.1.1 | 8.1.1 |
 | 33 | Flamingo \| 2022.2.1 | 7.2 |
