@@ -1,0 +1,13 @@
+diff --git a/docs/blog/posts/use-r8-to-shrink-optimize-and-fast-track-your-app.md b/docs/blog/posts/use-r8-to-shrink-optimize-and-fast-track-your-app.md
+index 0e369706..57ae8048 100644
+--- a/docs/blog/posts/use-r8-to-shrink-optimize-and-fast-track-your-app.md
++++ b/docs/blog/posts/use-r8-to-shrink-optimize-and-fast-track-your-app.md
+@@ -84,7 +84,7 @@ The R8 optimizer defaults to using "full mode" since version 8.0 of the Android
+ Now check whether you have enabled R8 in your app's build.gradle.kts file for the release variant. It's enabled by setting isMinifyEnabled and isShrinkResources to true. You can also pass default and custom configuration files at this step.
+ 
+ ```
+-  release {
++release {
+ 
+    isMinifyEnabled = true
+ 

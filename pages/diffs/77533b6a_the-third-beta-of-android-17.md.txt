@@ -1,0 +1,85 @@
+diff --git a/docs/blog/posts/the-third-beta-of-android-17.md b/docs/blog/posts/the-third-beta-of-android-17.md
+index eb6fe0c1..8c350a95 100644
+--- a/docs/blog/posts/the-third-beta-of-android-17.md
++++ b/docs/blog/posts/the-third-beta-of-android-17.md
+@@ -38,7 +38,7 @@ Android now allows you to tailor the visual presentation of the photo picker to
+ This is all part of our effort to help make the privacy-preserving Android photo picker fit seamlessly with your app experience. [Learn more about how you can embed the photo picker directly into your app for the most native experience](https://android-developers.googleblog.com/2026/01/httpsandroid-developers.googleblog.com202506android-embedded-photo-picker.html%20.html).
+ 
+ ```
+-  val params = PhotoPickerUiCustomizationParams.Builder()
++val params = PhotoPickerUiCustomizationParams.Builder()
+ .setAspectRatio(PhotoPickerUiCustomizationParams.ASPECT_RATIO_PORTRAIT_9_16)
+ .build()
+ val intent = Intent(MediaStore.ACTION_PICK_IMAGES).apply {
+@@ -58,7 +58,7 @@ startActivityForResult(intent, REQUEST_CODE)
+ Android now includes a specific device category for Bluetooth Low Energy (BLE) Audio hearing aids. With the addition of the [AudioDeviceInfo.TYPE_BLE_HEARING_AID](https://developer.android.com/reference/android/media/AudioDeviceInfo#TYPE_BLE_HEARING_AID) constant, your app can now distinguish hearing aids from regular headsets.
+ 
+ ```
+-  val audioManager = getSystemService(Context.AUDIO_SERVICE) as AudioManager
++val audioManager = getSystemService(Context.AUDIO_SERVICE) as AudioManager
+ val devices = audioManager.getDevices(AudioManager.GET_DEVICES_OUTPUTS)
+ val isHearingAidConnected = devices.any { it.type == AudioDeviceInfo.TYPE_BLE_HEARING_AID }
+ ```
+@@ -72,7 +72,7 @@ Android 17 allows users to independently manage where specific system sounds are
+ Android 17 introduces a system-provided Extended HE-AAC software encoder. This encoder supports both low and high bitrates using unified speech and audio coding. You can access this encoder via the [MediaCodec](https://developer.android.com/reference/android/media/MediaCodec) API using the name `c2.android.xheaac.encoder` or by querying for the `audio/mp4a-latm` MIME type.
+ 
+ ```
+-  val encoder = MediaCodec.createByCodecName("c2.android.xheaac.encoder")
++val encoder = MediaCodec.createByCodecName("c2.android.xheaac.encoder")
+ val format = MediaFormat.createAudioFormat(MediaFormat.MIMETYPE_AUDIO_AAC, 48000, 1)
+ format.setInteger(MediaFormat.KEY_BIT_RATE, 24000)
+ format.setInteger(MediaFormat.KEY_AAC_PROFILE, MediaCodecInfo.CodecProfileLevel.AACObjectXHE)
+@@ -86,7 +86,7 @@ encoder.configure(format, null, null, MediaCodec.CONFIGURE_FLAG_ENCODE)
+ Android 17 introduces a new variant of AlarmManager.setExactAndAllowWhileIdle that accepts an OnAlarmListener instead of a PendingIntent. This new callback-based mechanism is ideal for apps that currently rely on continuous wakelocks to perform periodic tasks, such as messaging apps maintaining socket connections.
+ 
+ ```
+-  val alarmManager = getSystemService(AlarmManager::class.java)
++val alarmManager = getSystemService(AlarmManager::class.java)
+ val listener = AlarmManager.OnAlarmListener {
+ // Do work here
+ }
+@@ -111,7 +111,7 @@ Android is introducing a system-rendered location button that you will be able t
+ This feature splits the existing "Show passwords" system setting into two distinct user preferences: one for touch-based inputs and another for physical (hardware) keyboard inputs. Characters entered via physical keyboards are now hidden immediately by default.
+ 
+ ```
+-  val isPhysical = event.source and InputDevice.SOURCE_KEYBOARD == InputDevice.SOURCE_KEYBOARD
++val isPhysical = event.source and InputDevice.SOURCE_KEYBOARD == InputDevice.SOURCE_KEYBOARD
+ val shouldShow = android.text.ShowSecretsSetting.shouldShowPassword(context, isPhysical)
+ ```
+ 
+@@ -122,7 +122,7 @@ val shouldShow = android.text.ShowSecretsSetting.shouldShowPassword(context, isP
+ To improve security against code injection attacks, Android now enforces that dynamically loaded native libraries must be read-only. If your app targets Android 17 or higher, all native files loaded using System.load() must be marked as read-only beforehand.
+ 
+ ```
+-  val libraryFile = File(context.filesDir, "my_native_lib.so")
++val libraryFile = File(context.filesDir, "my_native_lib.so")
+ // Mark the file as read-only before loading to comply with Android 17+ security requirements
+ libraryFile.setReadOnly()
+ System.load(libraryFile.absolutePath)
+@@ -139,7 +139,7 @@ To prepare for future advancements in quantum computing, Android is introducing
+ This feature improves the visual consistency of app widgets when they are shown on connected or external displays with different pixel densities using DP or SP units.
+ 
+ ```
+-  val options = appWidgetManager.getAppWidgetOptions(appWidgetId)
++val options = appWidgetManager.getAppWidgetOptions(appWidgetId)
+ val displayId = options.getInt(AppWidgetManager.OPTION_APPWIDGET_DISPLAY_ID)
+ val remoteViews = RemoteViews(context.packageName, R.layout.widget_layout)
+ remoteViews.setViewPadding(
+@@ -160,7 +160,7 @@ Android now provides a user setting to hide app names (labels) on the home scree
+ Unlike traditional Picture-in-Picture, these pinned windows remain interactive while staying always-on-top of other application windows in desktop mode.
+ 
+ ```
+-  val appTask: ActivityManager.AppTask = activity.getSystemService(ActivityManager::class.java).appTasks[0]
++val appTask: ActivityManager.AppTask = activity.getSystemService(ActivityManager::class.java).appTasks[0]
+ appTask.requestWindowingLayer(
+ ActivityManager.AppTask.WINDOWING_LAYER_PINNED,
+ context.mainExecutor,
+@@ -186,7 +186,7 @@ override fun onError(error: Exception) {}
+ By using the new ACTION_VPN_APP_EXCLUSION_SETTINGS Intent, your app can launch a system-managed Settings screen where users can select applications to bypass the VPN tunnel.
+ 
+ ```
+-  val intent = Intent(Settings.ACTION_VPN_APP_EXCLUSION_SETTINGS)
++val intent = Intent(Settings.ACTION_VPN_APP_EXCLUSION_SETTINGS)
+ if (intent.resolveActivity(packageManager) != null) {
+ startActivity(intent)
+ }

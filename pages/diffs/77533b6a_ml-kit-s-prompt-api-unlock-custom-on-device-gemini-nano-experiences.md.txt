@@ -1,0 +1,35 @@
+diff --git a/docs/blog/posts/ml-kit-s-prompt-api-unlock-custom-on-device-gemini-nano-experiences.md b/docs/blog/posts/ml-kit-s-prompt-api-unlock-custom-on-device-gemini-nano-experiences.md
+index 4c42d8ab..a7f5ad9a 100644
+--- a/docs/blog/posts/ml-kit-s-prompt-api-unlock-custom-on-device-gemini-nano-experiences.md
++++ b/docs/blog/posts/ml-kit-s-prompt-api-unlock-custom-on-device-gemini-nano-experiences.md
+@@ -43,7 +43,7 @@ Prompt API allows for highly customized GenAI use cases. Here are some recommend
+ Prompt API lets you create custom prompts and set optional generation parameters with just a few lines of code:
+ 
+ ```
+-  Generation.getClient().generateContent(
++Generation.getClient().generateContent(
+    generateContentRequest(
+        ImagePart(bitmapImage),
+        TextPart("Categorize this image as one of the following: car, motorcycle, bike, scooter, other. Return only the category as the response."),
+@@ -122,16 +122,16 @@ Start implementing Prompt API in your Android apps today with guidance from our
+   ###### [Chetan Tekur](https://developer.android.com/blog/authors/chetan-tekur), [Chao Zhao](https://developer.android.com/blog/authors/chao-zhao), [Paul Zhou](https://developer.android.com/blog/authors/paul-zhou), [Caren Chang](https://developer.android.com/blog/authors/caren-chang) •
+   3 min read
+ 
+-- [![](https://developer.android.com/static/blog/assets/headshot_e042d23f90_2x0LLK.webp)](https://developer.android.com/blog/authors/steven-jenkins) 13 Apr 2026 13 Apr 2026 ![](https://developer.android.com/static/blog/assets/Multi_Device_Interactions_with_Android_Emulator_Strapi_5d6ea711e7_Z1AYEiA.webp)
++- [![](https://developer.android.com/static/blog/assets/Bennet_Manuel_4be9960838_MydbH.webp)](https://developer.android.com/blog/authors/bennet-manuel) 15 Apr 2026 15 Apr 2026 ![](https://developer.android.com/static/blog/assets/260409_Uyo_policy_bundle_Header_dae9a057fb_2u7Yfb.webp)
+ 
+   #### [Product News](https://developer.android.com/blog/categories/product-news)
+ 
+-  ## [Test Multi-Device Interactions with the Android Emulator](https://developer.android.com/blog/posts/test-multi-device-interactions-with-the-android-emulator)
++  ## [Boosting user privacy and business protection with updated Play policies](https://developer.android.com/blog/posts/boosting-user-privacy-and-business-protection-with-updated-play-policies)
+ 
+-  [arrow_forward](https://developer.android.com/blog/posts/test-multi-device-interactions-with-the-android-emulator) Testing multi-device interactions is now easier than ever with the Android Emulator.
++  [arrow_forward](https://developer.android.com/blog/posts/boosting-user-privacy-and-business-protection-with-updated-play-policies) Making Google Play the safest and most trusted experience possible. Today, we're announcing a new set of policy updates and an account transfer feature to boost user privacy and protect your business from fraud.
+ 
+-  ###### [Steven Jenkins](https://developer.android.com/blog/authors/steven-jenkins) •
+-  2 min read
++  ###### [Bennet Manuel](https://developer.android.com/blog/authors/bennet-manuel) •
++  3 min read
+ 
+ # Stay in the loop
+ 

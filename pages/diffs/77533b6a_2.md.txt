@@ -1,0 +1,40 @@
+diff --git a/docs/blog/latest/2.md b/docs/blog/latest/2.md
+index e9118501..01245810 100644
+--- a/docs/blog/latest/2.md
++++ b/docs/blog/latest/2.md
+@@ -7,6 +7,17 @@ source: md.txt
+ # The Latest
+ 
+ Stay up to date with the latest announcements, feature rollouts, and updates across Android tools, libraries, and platforms.
++- [![](https://developer.android.com/static/blog/assets/maru_ahues_7598dede84_Zr7Omv.webp)](https://developer.android.com/blog/authors/maru-ahues-bouza) 11 Mar 2026 11 Mar 2026 ![](https://developer.android.com/static/blog/assets/Google_Play_Level_Up_metadata_banner_2048x1323_33658d545a_ZDM8Sn.webp)
++
++  #### [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs)
++
++  ## [Level Up: Test Sidekick and prepare for upcoming program milestones](https://developer.android.com/blog/posts/level-up-test-sidekick-and-prepare-for-upcoming-program-milestones)
++
++  [arrow_forward](https://developer.android.com/blog/posts/level-up-test-sidekick-and-prepare-for-upcoming-program-milestones) Last September, we shared our vision for the future of Google Play Games grounded in a core belief: the best way to drive your game's success is to deliver a world-class player experience.
++
++  ###### [Maru Ahues Bouza](https://developer.android.com/blog/authors/maru-ahues-bouza) •
++  3 min read
++
+ - [![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](https://developer.android.com/blog/authors/yabin-cui) 10 Mar 2026 10 Mar 2026 ![](https://developer.android.com/static/blog/assets/P_Mguide_a86dec5079_EWlMa.webp)
+ 
+   #### [Product News](https://developer.android.com/blog/categories/product-news)
+@@ -214,17 +225,6 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
+ 
+   ###### 2 min read
+ 
+-- [![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](https://developer.android.com/blog/authors/prateek-batra) 26 Jan 2026 26 Jan 2026 ![](https://developer.android.com/static/blog/assets/beyond_Smartphone_e17b5979d9_ZBzwz8.webp)
+-
+-  #### [Case Studies](https://developer.android.com/blog/categories/case-studies)
+-
+-  ## [Beyond the smartphone: How JioHotstar optimized its UX for foldables and tablets](https://developer.android.com/blog/posts/beyond-the-smartphone-how-jio-hotstar-optimized-its-ux-for-foldables-and-tablets)
+-
+-  [arrow_forward](https://developer.android.com/blog/posts/beyond-the-smartphone-how-jio-hotstar-optimized-its-ux-for-foldables-and-tablets) JioHotstar is a leading streaming platform in India, serving a user base exceeding 400 million.
+-
+-  ###### [Prateek Batra](https://developer.android.com/blog/authors/prateek-batra) •
+-  3 min read
+-
+ [arrow_back](https://developer.android.com/blog/latest)
+ 
+ #### Page 2

@@ -1,0 +1,61 @@
+diff --git a/docs/blog/posts/contact-picker-privacy-first-contact-sharing.md b/docs/blog/posts/contact-picker-privacy-first-contact-sharing.md
+index 0e2a561a..751fc394 100644
+--- a/docs/blog/posts/contact-picker-privacy-first-contact-sharing.md
++++ b/docs/blog/posts/contact-picker-privacy-first-contact-sharing.md
+@@ -43,7 +43,7 @@ For devices running Android 17 or higher, the system automatically upgrades lega
+ Integrate the contact pickerTo integrate the Contact Picker, developers use the `ACTION_PICK_CONTACTS` intent. Below is a code example demonstrating how to launch the picker and request specific data fields, such as email and phone numbers.
+ 
+ ```kotlin
+-  // State to hold the list of selected contacts
++// State to hold the list of selected contacts
+ var contacts by remember { mutableStateOf<List>(emptyList()) }
+ // Launcher for the Contact Picker intent
+ val pickContact = rememberLauncherForActivityResult(StartActivityForResult()) {
+@@ -76,7 +76,6 @@ pickContact.launch(pickContactIntent)
+ After the user makes a selection, the app processes the result by querying the returned Session URI to extract the requested contact information.
+ 
+ ```kotlin
+-  
+ // Data class representing a parsed Contact with selected details
+ data class Contact(val id: String, val name: String, val email: String?, val phone: String?)
+ 
+@@ -156,30 +155,28 @@ To provide the best user experience and maintain high security standards, we rec
+   ###### [Roxanna Aliabadi Walker](https://developer.android.com/blog/authors/roxanna-walker), [Yacine Rezgui](https://developer.android.com/blog/authors/yacine-rezgui) •
+   8 min read
+ 
+-- [![](https://developer.android.com/static/blog/assets/headshot_e042d23f90_2x0LLK.webp)](https://developer.android.com/blog/authors/steven-jenkins) 13 Apr 2026 13 Apr 2026 ![](https://developer.android.com/static/blog/assets/Multi_Device_Interactions_with_Android_Emulator_Strapi_5d6ea711e7_Z1AYEiA.webp)
++- [![](https://developer.android.com/static/blog/assets/Bennet_Manuel_4be9960838_MydbH.webp)](https://developer.android.com/blog/authors/bennet-manuel) 15 Apr 2026 15 Apr 2026 ![](https://developer.android.com/static/blog/assets/260409_Uyo_policy_bundle_Header_dae9a057fb_2u7Yfb.webp)
+ 
+   #### [Product News](https://developer.android.com/blog/categories/product-news)
+ 
+-  ## [Test Multi-Device Interactions with the Android Emulator](https://developer.android.com/blog/posts/test-multi-device-interactions-with-the-android-emulator)
++  ## [Boosting user privacy and business protection with updated Play policies](https://developer.android.com/blog/posts/boosting-user-privacy-and-business-protection-with-updated-play-policies)
+ 
+-  [arrow_forward](https://developer.android.com/blog/posts/test-multi-device-interactions-with-the-android-emulator) Testing multi-device interactions is now easier than ever with the Android Emulator.
++  [arrow_forward](https://developer.android.com/blog/posts/boosting-user-privacy-and-business-protection-with-updated-play-policies) Making Google Play the safest and most trusted experience possible. Today, we're announcing a new set of policy updates and an account transfer feature to boost user privacy and protect your business from fraud.
+ 
+-  ###### [Steven Jenkins](https://developer.android.com/blog/authors/steven-jenkins) •
+-  2 min read
++  ###### [Bennet Manuel](https://developer.android.com/blog/authors/bennet-manuel) •
++  3 min read
+ 
+-- [![](https://developer.android.com/static/blog/assets/matthew_warner_67a99317e4_Z2c1VNu.webp)](https://developer.android.com/blog/authors/matthew-warner) 02 Apr 2026 02 Apr 2026 ![](https://developer.android.com/static/blog/assets/android_studio_gemma4_73370772af_2lUopR.webp)
++- [![](https://developer.android.com/static/blog/assets/headshot_e042d23f90_2x0LLK.webp)](https://developer.android.com/blog/authors/steven-jenkins) 13 Apr 2026 13 Apr 2026 ![](https://developer.android.com/static/blog/assets/Multi_Device_Interactions_with_Android_Emulator_Strapi_5d6ea711e7_Z1AYEiA.webp)
+ 
+   #### [Product News](https://developer.android.com/blog/categories/product-news)
+ 
+-  ## [Android Studio supports Gemma 4: our most capable local model for agentic coding](https://developer.android.com/blog/posts/android-studio-supports-gemma-4-our-most-capable-local-model-for-agentic-coding)
++  ## [Test Multi-Device Interactions with the Android Emulator](https://developer.android.com/blog/posts/test-multi-device-interactions-with-the-android-emulator)
+ 
+-  [arrow_forward](https://developer.android.com/blog/posts/android-studio-supports-gemma-4-our-most-capable-local-model-for-agentic-coding) Every developer's AI workflow and needs are unique, and it's important to be able to choose how AI helps your development. In January, we introduced the ability to choose any local or remote AI model to power AI functionality in Android Studio
++  [arrow_forward](https://developer.android.com/blog/posts/test-multi-device-interactions-with-the-android-emulator) Testing multi-device interactions is now easier than ever with the Android Emulator.
+ 
+-  ###### [Matthew Warner](https://developer.android.com/blog/authors/matthew-warner) •
++  ###### [Steven Jenkins](https://developer.android.com/blog/authors/steven-jenkins) •
+   2 min read
+ 
+-  - [#Android Studio](https://developer.android.com/blog/topics/android-studio)
+-
+ # Stay in the loop
+ 
+ 

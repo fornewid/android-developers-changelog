@@ -1,0 +1,68 @@
+diff --git a/docs/blog/posts/beyond-single-features-guaranteeing-feature-combinations-with-camera-x-1-5.md b/docs/blog/posts/beyond-single-features-guaranteeing-feature-combinations-with-camera-x-1-5.md
+index b2a6beab..26f5caaa 100644
+--- a/docs/blog/posts/beyond-single-features-guaranteeing-feature-combinations-with-camera-x-1-5.md
++++ b/docs/blog/posts/beyond-single-features-guaranteeing-feature-combinations-with-camera-x-1-5.md
+@@ -66,7 +66,7 @@ If you want to enable the best possible features by default, you can provide a p
+ For instance, if a device can handle HDR and 60 FPS together but not with Preview Stabilization, CameraX will enable the first two and discard the third. This way, you get the best possible experience without writing complex, device-specific checks.
+ 
+ ```
+-  cameraProvider.bindToLifecycle(
++cameraProvider.bindToLifecycle(
+ 
+     lifecycleOwner,
+ 
+@@ -119,7 +119,7 @@ For this code snippet, CameraX will attempt to enable feature combinations in th
+ To create a UI that responds to user selections and prevents users from selecting an unsupported feature combination, you can query for support directly. The function below checks which features are incompatible with the user's *current* selections, allowing you to disable the corresponding UI elements.
+ 
+ ```
+-  /**
++/**
+ 
+  * Returns a list of features that are NOT supported in combination
+ 
+@@ -181,7 +181,7 @@ fun getUnsupportedFeatures(
+ You can then wire this logic into your ViewModel or UI controller to react to user input and re-bind the camera with a guaranteed-to-work configuration.
+ 
+ ```
+-  // Invoked when user turns some feature on/off.
++// Invoked when user turns some feature on/off.
+ 
+ fun onFeatureChange(currentFeatures: Set<GroupableFeature>) {
+ 
+@@ -252,6 +252,17 @@ To learn more, check out the official documentation. We can't wait to see what y
+ 
+ ## Continue reading
+ 
++- [![](https://developer.android.com/static/blog/assets/Bennet_Manuel_4be9960838_MydbH.webp)](https://developer.android.com/blog/authors/bennet-manuel) 15 Apr 2026 15 Apr 2026 ![](https://developer.android.com/static/blog/assets/260409_Uyo_policy_bundle_Header_dae9a057fb_2u7Yfb.webp)
++
++  #### [Product News](https://developer.android.com/blog/categories/product-news)
++
++  ## [Boosting user privacy and business protection with updated Play policies](https://developer.android.com/blog/posts/boosting-user-privacy-and-business-protection-with-updated-play-policies)
++
++  [arrow_forward](https://developer.android.com/blog/posts/boosting-user-privacy-and-business-protection-with-updated-play-policies) Making Google Play the safest and most trusted experience possible. Today, we're announcing a new set of policy updates and an account transfer feature to boost user privacy and protect your business from fraud.
++
++  ###### [Bennet Manuel](https://developer.android.com/blog/authors/bennet-manuel) •
++  3 min read
++
+ - [![](https://developer.android.com/static/blog/assets/headshot_e042d23f90_2x0LLK.webp)](https://developer.android.com/blog/authors/steven-jenkins) 13 Apr 2026 13 Apr 2026 ![](https://developer.android.com/static/blog/assets/Multi_Device_Interactions_with_Android_Emulator_Strapi_5d6ea711e7_Z1AYEiA.webp)
+ 
+   #### [Product News](https://developer.android.com/blog/categories/product-news)
+@@ -274,18 +285,6 @@ To learn more, check out the official documentation. We can't wait to see what y
+   ###### [Matthew Warner](https://developer.android.com/blog/authors/matthew-warner) •
+   2 min read
+ 
+-  - [#Android Studio](https://developer.android.com/blog/topics/android-studio)
+-- [![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](https://developer.android.com/blog/authors/matt-dyor) 02 Apr 2026 02 Apr 2026 ![](https://developer.android.com/static/blog/assets/as_Panda3_385cde5eac_Z1E8IhJ.webp)
+-
+-  #### [Product News](https://developer.android.com/blog/categories/product-news)
+-
+-  ## [Increase Guidance and Control over Agent Mode with Android Studio Panda 3](https://developer.android.com/blog/posts/increase-guidance-and-control-over-agent-mode-with-android-studio-panda-3)
+-
+-  [arrow_forward](https://developer.android.com/blog/posts/increase-guidance-and-control-over-agent-mode-with-android-studio-panda-3) Android Studio Panda 3 is now stable and ready for you to use in production. This release gives you even more control and customization over your AI-powered workflows, making it easier than ever to build high-quality Android apps.
+-
+-  ###### [Matt Dyor](https://developer.android.com/blog/authors/matt-dyor) •
+-  3 min read
+-
+   - [#Android Studio](https://developer.android.com/blog/topics/android-studio)
+ 
+ # Stay in the loop

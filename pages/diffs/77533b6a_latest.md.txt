@@ -1,0 +1,40 @@
+diff --git a/docs/blog/latest.md b/docs/blog/latest.md
+index 2ba0412a..329a026d 100644
+--- a/docs/blog/latest.md
++++ b/docs/blog/latest.md
+@@ -7,6 +7,17 @@ source: md.txt
+ # The Latest
+ 
+ Stay up to date with the latest announcements, feature rollouts, and updates across Android tools, libraries, and platforms.
++- [![](https://developer.android.com/static/blog/assets/Bennet_Manuel_4be9960838_MydbH.webp)](https://developer.android.com/blog/authors/bennet-manuel) 15 Apr 2026 15 Apr 2026 ![](https://developer.android.com/static/blog/assets/260409_Uyo_policy_bundle_Header_dae9a057fb_2u7Yfb.webp)
++
++  #### [Product News](https://developer.android.com/blog/categories/product-news)
++
++  ## [Boosting user privacy and business protection with updated Play policies](https://developer.android.com/blog/posts/boosting-user-privacy-and-business-protection-with-updated-play-policies)
++
++  [arrow_forward](https://developer.android.com/blog/posts/boosting-user-privacy-and-business-protection-with-updated-play-policies) Making Google Play the safest and most trusted experience possible. Today, we're announcing a new set of policy updates and an account transfer feature to boost user privacy and protect your business from fraud.
++
++  ###### [Bennet Manuel](https://developer.android.com/blog/authors/bennet-manuel) •
++  3 min read
++
+ - 14 Apr 2026 14 Apr 2026 ![](https://developer.android.com/static/blog/assets/Blog_banner_Dark_2000x1000_B_c6418d3a5c_ZbdvH4.webp)
+ 
+   #### [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs)
+@@ -225,17 +236,6 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
+   ###### [Daniel Santiago Rivera](https://developer.android.com/blog/authors/daniel-santiago-rivera) •
+   4 min read
+ 
+-- [![](https://developer.android.com/static/blog/assets/maru_ahues_7598dede84_Zr7Omv.webp)](https://developer.android.com/blog/authors/maru-ahues-bouza) 11 Mar 2026 11 Mar 2026 ![](https://developer.android.com/static/blog/assets/Google_Play_Level_Up_metadata_banner_2048x1323_33658d545a_ZDM8Sn.webp)
+-
+-  #### [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs)
+-
+-  ## [Level Up: Test Sidekick and prepare for upcoming program milestones](https://developer.android.com/blog/posts/level-up-test-sidekick-and-prepare-for-upcoming-program-milestones)
+-
+-  [arrow_forward](https://developer.android.com/blog/posts/level-up-test-sidekick-and-prepare-for-upcoming-program-milestones) Last September, we shared our vision for the future of Google Play Games grounded in a core belief: the best way to drive your game's success is to deliver a world-class player experience.
+-
+-  ###### [Maru Ahues Bouza](https://developer.android.com/blog/authors/maru-ahues-bouza) •
+-  3 min read
+-
+ <button class="adb--button adb--standard adb--outlined adb--disabled adb--global-hover-button astro-vnzlvqnm" disabled=""> arrow_back </button>
+ 
+ #### Page 1

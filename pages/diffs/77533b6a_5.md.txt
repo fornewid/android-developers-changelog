@@ -1,0 +1,40 @@
+diff --git a/docs/blog/latest/5.md b/docs/blog/latest/5.md
+index 29c937f3..2a771c74 100644
+--- a/docs/blog/latest/5.md
++++ b/docs/blog/latest/5.md
+@@ -7,6 +7,17 @@ source: md.txt
+ # The Latest
+ 
+ Stay up to date with the latest announcements, feature rollouts, and updates across Android tools, libraries, and platforms.
++- [![](https://developer.android.com/static/blog/assets/Sa_ryong_Kang_34a2e9f899_2qsGGB.webp)](https://developer.android.com/blog/authors/sa-ryong-kang)[![](https://developer.android.com/static/blog/assets/Caren_Chang_e58d793559_1i40VV.webp)](https://developer.android.com/blog/authors/caren-chang) 30 Oct 2025 30 Oct 2025 ![](https://developer.android.com/static/blog/assets/kakao_Mobility_fa49c20743_Z1YdLaQ.webp)
++
++  #### [Case Studies](https://developer.android.com/blog/categories/case-studies)
++
++  ## [Kakao Mobility uses Gemini Nano on-device to reduce costs and boost call conversion by 45%](https://developer.android.com/blog/posts/kakao-mobility-uses-gemini-nano-on-device-to-reduce-costs-and-boost-call-conversion-by-45)
++
++  [arrow_forward](https://developer.android.com/blog/posts/kakao-mobility-uses-gemini-nano-on-device-to-reduce-costs-and-boost-call-conversion-by-45) Kakao Mobility is South Korea's leading mobility business, offering a range of transportation and delivery services, including taxi-hailing, navigation, bike and scooter-sharing, parking, and parcel delivery, through its Kakao T app.
++
++  ###### [Sa-ryong Kang](https://developer.android.com/blog/authors/sa-ryong-kang), [Caren Chang](https://developer.android.com/blog/authors/caren-chang) •
++  4 min read
++
+ - [![](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d0_l9O72.webp)](https://developer.android.com/blog/authors/thomas-ezan) 30 Oct 2025 30 Oct 2025 ![](https://developer.android.com/static/blog/assets/thomas_bc2cd0efa0_19rH0O.webp)
+ 
+   #### [Case Studies](https://developer.android.com/blog/categories/case-studies)
+@@ -222,17 +233,6 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
+   3 min read
+ 
+   - [#Mobile App Development](https://developer.android.com/blog/topics/mobile-app-development)
+-- [![](https://developer.android.com/static/blog/assets/Tahsin_a6df1d8c3c_1WrW45.webp)](https://developer.android.com/blog/authors/tahsin-masrur) 15 Oct 2025 15 Oct 2025 ![](https://developer.android.com/static/blog/assets/25_Android_Camera_X_Feature_blog_1_856fb165e3_Z3rLg4.webp)
+-
+-  #### [Product News](https://developer.android.com/blog/categories/product-news)
+-
+-  ## [Beyond Single Features: Guaranteeing Feature Combinations With CameraX 1.5](https://developer.android.com/blog/posts/beyond-single-features-guaranteeing-feature-combinations-with-camera-x-1-5)
+-
+-  [arrow_forward](https://developer.android.com/blog/posts/beyond-single-features-guaranteeing-feature-combinations-with-camera-x-1-5) Modern camera apps are defined by powerful, overlapping features. Users expect to record video with stunning HDR, capture fluid motion at 60 FPS, and get buttery-smooth footage with Preview Stabilization---often all at the same time.
+-
+-  ###### [Tahsin Masrur](https://developer.android.com/blog/authors/tahsin-masrur) •
+-  6 min read
+-
+ [arrow_back](https://developer.android.com/blog/latest/4)
+ 
+ #### Page 5

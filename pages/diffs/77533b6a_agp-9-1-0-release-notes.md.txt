@@ -1,0 +1,14 @@
+diff --git a/docs/build/releases/agp-9-1-0-release-notes.md b/docs/build/releases/agp-9-1-0-release-notes.md
+index 9912a3db..2552bad5 100644
+--- a/docs/build/releases/agp-9-1-0-release-notes.md
++++ b/docs/build/releases/agp-9-1-0-release-notes.md
+@@ -11,7 +11,8 @@ features and improvements.
+ 
+ ## Compatibility
+ 
+-The maximum API level that Android Gradle plugin 9.1 supports is API level 36.1.
++Android Gradle plugin 9.1.1 supports Android API level 37.0 and below.
++
+ Here is other compatibility info:
+ 
+ 

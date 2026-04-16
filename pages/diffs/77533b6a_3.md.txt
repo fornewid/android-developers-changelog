@@ -1,0 +1,40 @@
+diff --git a/docs/blog/latest/3.md b/docs/blog/latest/3.md
+index 8d2e7c4b..9fe4395a 100644
+--- a/docs/blog/latest/3.md
++++ b/docs/blog/latest/3.md
+@@ -7,6 +7,17 @@ source: md.txt
+ # The Latest
+ 
+ Stay up to date with the latest announcements, feature rollouts, and updates across Android tools, libraries, and platforms.
++- [![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](https://developer.android.com/blog/authors/prateek-batra) 26 Jan 2026 26 Jan 2026 ![](https://developer.android.com/static/blog/assets/beyond_Smartphone_e17b5979d9_ZBzwz8.webp)
++
++  #### [Case Studies](https://developer.android.com/blog/categories/case-studies)
++
++  ## [Beyond the smartphone: How JioHotstar optimized its UX for foldables and tablets](https://developer.android.com/blog/posts/beyond-the-smartphone-how-jio-hotstar-optimized-its-ux-for-foldables-and-tablets)
++
++  [arrow_forward](https://developer.android.com/blog/posts/beyond-the-smartphone-how-jio-hotstar-optimized-its-ux-for-foldables-and-tablets) JioHotstar is a leading streaming platform in India, serving a user base exceeding 400 million.
++
++  ###### [Prateek Batra](https://developer.android.com/blog/authors/prateek-batra) •
++  3 min read
++
+ - [![](https://developer.android.com/static/blog/assets/Georgia_Doyle_a2f5ebfcdb_Z1cCMui.webp)](https://developer.android.com/blog/authors/georgia-doyle)[![](https://developer.android.com/static/blog/assets/Kanu_Tibrewal_20caa0960e_1aI42M.webp)](https://developer.android.com/blog/authors/kanu-tibrewal) 21 Jan 2026 21 Jan 2026 ![](https://developer.android.com/static/blog/assets/260120_Header_7fdfbedb2d_105hHT.webp)
+ 
+   #### [Product News](https://developer.android.com/blog/categories/product-news)
+@@ -221,17 +232,6 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
+   ###### [Thomas Ezan](https://developer.android.com/blog/authors/thomas-ezan), [Ivy Knight](https://developer.android.com/blog/authors/ivy-knight) •
+   2 min read
+ 
+-- [![](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 02 Dec 2025 02 Dec 2025 ![](https://developer.android.com/static/blog/assets/a16released_7cb13cc79d_23qyL9.webp)
+-
+-  #### [Product News](https://developer.android.com/blog/categories/product-news)
+-
+-  ## [Android 16 QPR2 is Released](https://developer.android.com/blog/posts/android-16-qpr-2-is-released)
+-
+-  [arrow_forward](https://developer.android.com/blog/posts/android-16-qpr-2-is-released) Android 16 QPR2 is now released and available in AOSP
+-
+-  ###### [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) •
+-  4 min read
+-
+ [arrow_back](https://developer.android.com/blog/latest/2)
+ 
+ #### Page 3

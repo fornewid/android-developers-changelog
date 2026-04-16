@@ -1,0 +1,13 @@
+diff --git a/docs/jetpack/androidx/explorer.md b/docs/jetpack/androidx/explorer.md
+index 0d80e77d..62adc97d 100644
+--- a/docs/jetpack/androidx/explorer.md
++++ b/docs/jetpack/androidx/explorer.md
+@@ -149,7 +149,7 @@ Select a category:
+ | [viewpager2](https://developer.android.com/jetpack/androidx/releases/viewpager2) | Display Views or Fragments in a swipeable format. |
+ | [wear](https://developer.android.com/jetpack/androidx/releases/wear) | Create applications for Wear OS by Google smartwatches. |
+ | [wear.compose](https://developer.android.com/jetpack/androidx/releases/wear-compose) | Write Jetpack Compose applications for Wear OS devices by providing functionality to support different device sizes and navigation gestures. |
+-| [wear.compose.remote](https://developer.android.com/jetpack/androidx/releases/wear-compose-remote) | TODO |
++| [wear.compose.remote](https://developer.android.com/jetpack/androidx/releases/wear-compose-remote) | Write Widgets and other Remote UI for Wear OS using the Material 3 Expressive design system. |
+ | [wear.protolayout](https://developer.android.com/jetpack/androidx/releases/wear-protolayout) | This library allows defining a set of UI layouts and non-UI expressions to be rendered/evaluated on remote surfaces. |
+ | [wear.tiles](https://developer.android.com/jetpack/androidx/releases/wear-tiles) | Create applications for Wear OS by Google smartwatches. |
+ | [wear.watchface](https://developer.android.com/jetpack/androidx/releases/wear-watchface) | Create applications for Wear OS by Google smartwatches. |

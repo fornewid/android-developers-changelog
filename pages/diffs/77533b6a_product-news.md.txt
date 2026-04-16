@@ -1,0 +1,36 @@
+diff --git a/docs/blog/categories/product-news.md b/docs/blog/categories/product-news.md
+index ce55a255..b152b1c5 100644
+--- a/docs/blog/categories/product-news.md
++++ b/docs/blog/categories/product-news.md
+@@ -9,6 +9,15 @@ source: md.txt
+ # Product News
+ 
+ Stay in the loop with the latest updates, feature releases, and behind-the-scenes looks at how we're evolving.
++- [![](https://developer.android.com/static/blog/assets/Bennet_Manuel_4be9960838_MydbH.webp)](https://developer.android.com/blog/authors/bennet-manuel) 15 Apr 2026 15 Apr 2026 ![](https://developer.android.com/static/blog/assets/260409_Uyo_policy_bundle_Header_dae9a057fb_2u7Yfb.webp)
++
++  ## [Boosting user privacy and business protection with updated Play policies](https://developer.android.com/blog/posts/boosting-user-privacy-and-business-protection-with-updated-play-policies)
++
++  [arrow_forward](https://developer.android.com/blog/posts/boosting-user-privacy-and-business-protection-with-updated-play-policies) Making Google Play the safest and most trusted experience possible. Today, we're announcing a new set of policy updates and an account transfer feature to boost user privacy and protect your business from fraud.
++
++  ###### [Bennet Manuel](https://developer.android.com/blog/authors/bennet-manuel) •
++  3 min read
++
+ - [![](https://developer.android.com/static/blog/assets/headshot_e042d23f90_2x0LLK.webp)](https://developer.android.com/blog/authors/steven-jenkins) 13 Apr 2026 13 Apr 2026 ![](https://developer.android.com/static/blog/assets/Multi_Device_Interactions_with_Android_Emulator_Strapi_5d6ea711e7_Z1AYEiA.webp)
+ 
+   ## [Test Multi-Device Interactions with the Android Emulator](https://developer.android.com/blog/posts/test-multi-device-interactions-with-the-android-emulator)
+@@ -57,15 +66,6 @@ Stay in the loop with the latest updates, feature releases, and behind-the-scene
+   2 min read
+ 
+   - [#Android Studio](https://developer.android.com/blog/topics/android-studio)
+-- [![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](https://developer.android.com/blog/authors/michael-stillwell)[![](https://developer.android.com/static/blog/assets/dimitris_kosmidis_08bb21b8a2_Lifx.webp)](https://developer.android.com/blog/authors/dimitris-kosmidis) 01 Apr 2026 01 Apr 2026 ![](https://developer.android.com/static/blog/assets/wear_os_64_1de6378905_ZOTQoW.webp)
+-
+-  ## [Get your Wear OS apps ready for the 64-bit requirement](https://developer.android.com/blog/posts/get-your-wear-os-apps-ready-for-the-64-bit-requirement)
+-
+-  [arrow_forward](https://developer.android.com/blog/posts/get-your-wear-os-apps-ready-for-the-64-bit-requirement) 64-bit architectures provide performance improvements and a foundation for future innovation, delivering faster and richer experiences for your users. We've supported 64-bit CPUs since Android 5.
+-
+-  ###### [Michael Stillwell](https://developer.android.com/blog/authors/michael-stillwell), [Dimitris Kosmidis](https://developer.android.com/blog/authors/dimitris-kosmidis) •
+-  2 min read
+-
+ <button class="adb--button adb--standard adb--outlined adb--disabled adb--global-hover-button astro-vnzlvqnm" disabled=""> arrow_back </button>
+ 
+ #### Page 1

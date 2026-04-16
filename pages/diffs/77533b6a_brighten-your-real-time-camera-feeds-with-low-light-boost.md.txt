@@ -1,0 +1,104 @@
+diff --git a/docs/blog/posts/brighten-your-real-time-camera-feeds-with-low-light-boost.md b/docs/blog/posts/brighten-your-real-time-camera-feeds-with-low-light-boost.md
+index fc78e5a7..27f8cf1f 100644
+--- a/docs/blog/posts/brighten-your-real-time-camera-feeds-with-low-light-boost.md
++++ b/docs/blog/posts/brighten-your-real-time-camera-feeds-with-low-light-boost.md
+@@ -100,7 +100,7 @@ Available on select devices running Android 15 and higher, LLB AE Mode functions
+ First, check if the camera device supports LLB AE Mode.
+ 
+ ```
+-  val cameraInfo = cameraProvider.getCameraInfo(cameraSelector)
++val cameraInfo = cameraProvider.getCameraInfo(cameraSelector)
+ val isLlbSupported = cameraInfo.isLowLightBoostSupported
+ ```
+ 
+@@ -109,7 +109,7 @@ val isLlbSupported = cameraInfo.isLowLightBoostSupported
+ If supported, you can enable LLB AE Mode using CameraX's CameraControl object.
+ 
+ ```
+-  // After setting up your camera, use the CameraInfo object to enable LLB AE Mode.
++// After setting up your camera, use the CameraInfo object to enable LLB AE Mode.
+ camera = cameraProvider.bindToLifecycle(...)
+ 
+ if (isLlbSupported) {
+@@ -131,7 +131,7 @@ if (isLlbSupported) {
+ Just because you requested the mode doesn't mean it's currently "boosting." The system only activates the boost when the scene is actually dark. You can set up an [Observer](https://developer.android.com/reference/androidx/lifecycle/Observer) to update your UI (like showing a moon icon) or convert to a Flow using the extension function asFlow().
+ 
+ ```
+-  if (isLlbSupported) {
++if (isLlbSupported) {
+   camera?.cameraInfo.lowLightBoostState.asFlow().collectLatest { state ->
+     // Update UI accordingly
+     updateMoonIcon(state == LowLightBoostState.ACTIVE)
+@@ -150,7 +150,7 @@ For devices that don't support the hardware AE mode, Google Low Light Boost acts
+ This feature is delivered via Google Play services.
+ 
+ ```
+-  implementation("com.google.android.gms:play-services-camera-low-light-boost:16.0.1-beta06")
++implementation("com.google.android.gms:play-services-camera-low-light-boost:16.0.1-beta06")
+ // Add coroutines-play-services to simplify Task APIs
+ implementation("org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.10.2")
+ ```
+@@ -160,7 +160,7 @@ implementation("org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.10.2")
+ Before starting your camera, use the LowLightBoostClient to ensure the module is installed and the device is supported.
+ 
+ ```
+-  val llbClient = LowLightBoost.getClient(context)
++val llbClient = LowLightBoost.getClient(context)
+ 
+ // Check support and install if necessary
+ val isSupported = llbClient.isCameraSupported(cameraId).await()
+@@ -177,7 +177,7 @@ if (isSupported && !isInstalled) {
+ Google LLB processes each frame, so you must give your display Surface to the `LowLightBoostSession`, and it gives you back a Surface that has the brightening applied. For Camera2 apps, you can add the resulting Surface with [CaptureRequest.Builder.addTarget()](https://developer.android.com/reference/android/hardware/camera2/CaptureRequest.Builder#addTarget(android.view.Surface)). For CameraX, this processing pipeline aligns best with the [CameraEffect](https://developer.android.com/reference/androidx/camera/core/CameraEffect#CameraEffect(int,java.util.concurrent.Executor,androidx.camera.core.SurfaceProcessor,androidx.core.util.Consumer%3Cjava.lang.Throwable%3E)) class, where you can apply the effect with a [SurfaceProcessor](https://developer.android.com/reference/androidx/camera/core/SurfaceProcessor) and provide it back to your Preview with a [SurfaceProvider](https://developer.android.com/reference/androidx/camera/core/Preview.SurfaceProvider), as seen in this code.
+ 
+ ```
+-  // With a SurfaceOutput from SurfaceProcessor.onSurfaceOutput() and a
++// With a SurfaceOutput from SurfaceProcessor.onSurfaceOutput() and a
+ // SurfaceRequest from Preview.SurfaceProvider.onSurfaceRequested(),
+ // create a LLB Session.
+ suspend fun createLlbSession(surfaceRequest: SurfaceRequest, outputSurfaceForLlb: Surface) {
+@@ -217,7 +217,7 @@ suspend fun createLlbSession(surfaceRequest: SurfaceRequest, outputSurfaceForLlb
+ For the algorithm to work, it needs to analyze the camera's auto-exposure state. You must pass capture results back to the LLB session. In CameraX, this can be done by extending your Preview.Builder with [Camera2Interop.Extender.setSessionCaptureCallback()](https://developer.android.com/reference/androidx/camera/camera2/interop/Camera2Interop.Extender#setSessionCaptureCallback(android.hardware.camera2.CameraCaptureSession.CaptureCallback)).
+ 
+ ```
+-  Camera2Interop.Extender(previewBuilder).setSessionCaptureCallback(
++Camera2Interop.Extender(previewBuilder).setSessionCaptureCallback(
+   object : CameraCaptureSession.CaptureCallback() {
+     override fun onCaptureCompleted(
+       session: CameraCaptureSession,
+@@ -252,6 +252,17 @@ To see these features in action within a complete, production-ready codebase, ch
+ 
+ ## Continue reading
+ 
++- [![](https://developer.android.com/static/blog/assets/Bennet_Manuel_4be9960838_MydbH.webp)](https://developer.android.com/blog/authors/bennet-manuel) 15 Apr 2026 15 Apr 2026 ![](https://developer.android.com/static/blog/assets/260409_Uyo_policy_bundle_Header_dae9a057fb_2u7Yfb.webp)
++
++  #### [Product News](https://developer.android.com/blog/categories/product-news)
++
++  ## [Boosting user privacy and business protection with updated Play policies](https://developer.android.com/blog/posts/boosting-user-privacy-and-business-protection-with-updated-play-policies)
++
++  [arrow_forward](https://developer.android.com/blog/posts/boosting-user-privacy-and-business-protection-with-updated-play-policies) Making Google Play the safest and most trusted experience possible. Today, we're announcing a new set of policy updates and an account transfer feature to boost user privacy and protect your business from fraud.
++
++  ###### [Bennet Manuel](https://developer.android.com/blog/authors/bennet-manuel) •
++  3 min read
++
+ - [![](https://developer.android.com/static/blog/assets/headshot_e042d23f90_2x0LLK.webp)](https://developer.android.com/blog/authors/steven-jenkins) 13 Apr 2026 13 Apr 2026 ![](https://developer.android.com/static/blog/assets/Multi_Device_Interactions_with_Android_Emulator_Strapi_5d6ea711e7_Z1AYEiA.webp)
+ 
+   #### [Product News](https://developer.android.com/blog/categories/product-news)
+@@ -274,18 +285,6 @@ To see these features in action within a complete, production-ready codebase, ch
+   ###### [Matthew Warner](https://developer.android.com/blog/authors/matthew-warner) •
+   2 min read
+ 
+-  - [#Android Studio](https://developer.android.com/blog/topics/android-studio)
+-- [![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](https://developer.android.com/blog/authors/matt-dyor) 02 Apr 2026 02 Apr 2026 ![](https://developer.android.com/static/blog/assets/as_Panda3_385cde5eac_Z1E8IhJ.webp)
+-
+-  #### [Product News](https://developer.android.com/blog/categories/product-news)
+-
+-  ## [Increase Guidance and Control over Agent Mode with Android Studio Panda 3](https://developer.android.com/blog/posts/increase-guidance-and-control-over-agent-mode-with-android-studio-panda-3)
+-
+-  [arrow_forward](https://developer.android.com/blog/posts/increase-guidance-and-control-over-agent-mode-with-android-studio-panda-3) Android Studio Panda 3 is now stable and ready for you to use in production. This release gives you even more control and customization over your AI-powered workflows, making it easier than ever to build high-quality Android apps.
+-
+-  ###### [Matt Dyor](https://developer.android.com/blog/authors/matt-dyor) •
+-  3 min read
+-
+   - [#Android Studio](https://developer.android.com/blog/topics/android-studio)
+ 
+ # Stay in the loop

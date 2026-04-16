@@ -1,0 +1,31 @@
+diff --git a/docs/jetpack/androidx/releases/ink.md b/docs/jetpack/androidx/releases/ink.md
+index 89a93e21..d73cb834 100644
+--- a/docs/jetpack/androidx/releases/ink.md
++++ b/docs/jetpack/androidx/releases/ink.md
+@@ -6,17 +6,6 @@ source: md.txt
+ 
+ # ink
+ 
+-API Reference  
+-[androidx.ink.authoring](https://developer.android.com/reference/kotlin/androidx/ink/authoring/package-summary)  
+-[androidx.ink.authoring.compose](https://developer.android.com/reference/kotlin/androidx/ink/authoring/compose/package-summary)  
+-[androidx.ink.brush](https://developer.android.com/reference/kotlin/androidx/ink/brush/package-summary)  
+-[androidx.ink.brush.compose](https://developer.android.com/reference/kotlin/androidx/ink/brush/compose/package-summary)  
+-[androidx.ink.geometry](https://developer.android.com/reference/kotlin/androidx/ink/geometry/package-summary)  
+-[androidx.ink.geometry.compose](https://developer.android.com/reference/kotlin/androidx/ink/geometry/compose/package-summary)  
+-[androidx.ink.rendering.android.canvas](https://developer.android.com/reference/kotlin/androidx/ink/rendering/android/canvas/package-summary)  
+-[androidx.ink.rendering.android.view](https://developer.android.com/reference/kotlin/androidx/ink/rendering/android/view/package-summary)  
+-[androidx.ink.storage](https://developer.android.com/reference/kotlin/androidx/ink/storage/package-summary)  
+-[androidx.ink.strokes](https://developer.android.com/reference/kotlin/androidx/ink/strokes/package-summary)  
+ Inspire best-in-class pen apps. Lower the developer barrier to entry for high performance, beautiful inking experiences.
+ 
+ | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
+@@ -85,8 +74,6 @@ clicking the star button.
+ See the [Issue Tracker documentation](https://developers.google.com/issue-tracker)
+ for more information.
+ 
+-There are no release notes for this artifact.
+-
+ ## Version 1.1
+ 
+ ### Version 1.1.0-alpha01

@@ -1,0 +1,31 @@
+diff --git a/docs/blog/posts/create-a-spotlight-effect-with-camera-x-and-jetpack-compose.md b/docs/blog/posts/create-a-spotlight-effect-with-camera-x-and-jetpack-compose.md
+index 06a3eee3..282b7687 100644
+--- a/docs/blog/posts/create-a-spotlight-effect-with-camera-x-and-jetpack-compose.md
++++ b/docs/blog/posts/create-a-spotlight-effect-with-camera-x-and-jetpack-compose.md
+@@ -36,7 +36,7 @@ First, let's modify the CameraPreviewViewModel to enable face detection. We'll u
+ - Set a [`CaptureCallback`](https://developer.android.com/reference/android/hardware/camera2/CameraCaptureSession.CaptureCallback) to get the face information from the capture result.
+ 
+ ```kotlin
+-  class CameraPreviewViewModel : ViewModel() {
++class CameraPreviewViewModel : ViewModel() {
+     ...
+     private val _sensorFaceRects = MutableStateFlow(listOf<Rect>())
+     val sensorFaceRects: StateFlow<List<Rect>> = _sensorFaceRects.asStateFlow()
+@@ -84,7 +84,7 @@ These transformations are done using transformation matrices. Each of the transf
+ We can create a helper method that can do the transformation for us:
+ 
+ ```kotlin
+-  private fun List<Rect>.transformToUiCoords(
++private fun List<Rect>.transformToUiCoords(
+     transformationInfo: SurfaceRequest.TransformationInfo?,
+     uiToBufferCoordinateTransformer: MutableCoordinateTransformer
+ ): List<Rect> = this.map { sensorRect ->
+@@ -115,7 +115,7 @@ We can create a helper method that can do the transformation for us:
+ Now, let's update the `CameraPreviewContent` composable to draw the spotlight effect. We'll use a [`Canvas`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/package-summary#Canvas(android.graphics.Canvas)) composable to draw a gradient mask over the preview, making the detected faces visible:
+ 
+ ```kotlin
+-  @Composable
++@Composable
+ fun CameraPreviewContent(
+     viewModel: CameraPreviewViewModel,
+     modifier: Modifier = Modifier,

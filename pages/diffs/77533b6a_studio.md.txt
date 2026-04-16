@@ -1,0 +1,25 @@
+diff --git a/docs/studio.md b/docs/studio.md
+index 678e79d7..7f656c49 100644
+--- a/docs/studio.md
++++ b/docs/studio.md
+@@ -30,15 +30,15 @@ Gemini in Android Studio is an AI assistant that helps you generate code, fix co
+ 
+ [Try Gemini in Android Studio](http://developer.android.com/studio/gemini/overview) Feature
+ 
+-### [Code anywhere with Android Studio Cloud](http://developer.android.com/studio/preview/android-studio-cloud)
++### [Test on real devices with Android Device Streaming](http://developer.android.com/studio/run/android-device-streaming)
+ 
+ 
+-Try Android Studio Cloud directly in your browser, accessed through Firebase Studio.
+-Streamline your workflow and skip local installations. Try the Early Access Preview.
++Android Device Streaming lets you run apps on real devices, directly from Android Studio,
++to help you make sure your app works great across different screen sizes, OEMs, and
++Android versions.
+ 
+ 
+-![](https://developer.android.com/static/images/studio/try-asc-promo.png)
+-[Try Android Studio Cloud](http://developer.android.com/studio/preview/android-studio-cloud)
++[Try Android Device Streaming](http://developer.android.com/studio/run/android-device-streaming)
+ 
+ ### Core features
+ 
