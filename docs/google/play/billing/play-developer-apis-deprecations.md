@@ -12,7 +12,9 @@ features which are in a deprecation period.
 The features and APIs in this section are deprecated as of May 21, 2025, and
 will be shut down on August 31, 2027. However, you can avail an
 extension for the deprecated items up to November 1, 2027.
-| **Note:** [Client libraries](https://developers.google.com/android-publisher/libraries) released after November 1, 2025, will no longer include these features and APIs. However, existing libraries can still access them until the shutdown date.
+
+> [!NOTE]
+> **Note:** [Client libraries](https://developers.google.com/android-publisher/libraries) released after November 1, 2025, will no longer include these features and APIs. However, existing libraries can still access them until the shutdown date.
 
 ### Deprecated subscription APIs
 

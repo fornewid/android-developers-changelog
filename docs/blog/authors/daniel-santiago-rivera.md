@@ -18,7 +18,7 @@ Save and categorize content based on your preferences.
 
 post
 
-![](/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)
+![](/static/blog/assets/Daniel_Santiago_Rivera_157422eedb_Z1DQYwY.webp)
 
 # Daniel Santiago Rivera
 

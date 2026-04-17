@@ -87,7 +87,9 @@ three days.
 Prepaid plans with a duration shorter than one week must be acknowledged within
 half the plan duration. For example, developers have 1.5 days to acknowledge a
 three-day prepaid plan.
-| **Warning:** If a user on a prepaid plan purchases a top-up, and you do not acknowledge the purchase within the corresponding period, the top-up purchase is revoked, the remaining subscription is revoked and canceled, and the user is issued a refund.
+
+> [!WARNING]
+> **Warning:** If a user on a prepaid plan purchases a top-up, and you do not acknowledge the purchase within the corresponding period, the top-up purchase is revoked, the remaining subscription is revoked and canceled, and the user is issued a refund.
 
 ## Installment subscriptions integration
 
@@ -170,7 +172,9 @@ the corresponding `productId` as part of the subscription status information.
 Each [`SubscriptionPurchaseLineItem`](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.subscriptionsv2#subscriptionpurchaselineitem) object associated with a
 subscription purchase contains the `productId` value associated with the
 subscription that the user purchased in that line item.
-| **Note:** You set the product ID in the Play Console when you define the subscription, or using the Google Play Developer API as part of the [`Subscription`](https://developers.google.com/android-publisher/api-ref/rest/v3/monetization.subscriptions#resource:-subscription) object sent in [monetization.subscriptions.create](https://developers.google.com/android-publisher/api-ref/rest/v3/monetization.subscriptions/create) and [monetization.subscriptions.patch](https://developers.google.com/android-publisher/api-ref/rest/v3/monetization.subscriptions/patch).
+
+> [!NOTE]
+> **Note:** You set the product ID in the Play Console when you define the subscription, or using the Google Play Developer API as part of the [`Subscription`](https://developers.google.com/android-publisher/api-ref/rest/v3/monetization.subscriptions#resource:-subscription) object sent in [monetization.subscriptions.create](https://developers.google.com/android-publisher/api-ref/rest/v3/monetization.subscriptions/create) and [monetization.subscriptions.patch](https://developers.google.com/android-publisher/api-ref/rest/v3/monetization.subscriptions/patch).
 
 Use the following URL to direct users to a specific subscription management
 screen, replacing "your-sub-product-id" and "your-app-package" with the
@@ -212,7 +216,9 @@ current paid billing period is applied, and when any entitlement change occurs.
 
 The following table lists available replacement modes and example usage, and
 count of payments considered paid.
-| **Note:** For installment subscriptions, all replacement modes are supported. Additionally, after a replacement occurs for installment subscriptions, it is possible that the first committed payment of the new plan will be recorded as paid depending on the replacement mode.
+
+> [!NOTE]
+> **Note:** For installment subscriptions, all replacement modes are supported. Additionally, after a replacement occurs for installment subscriptions, it is possible that the first committed payment of the new plan will be recorded as paid depending on the replacement mode.
 
 |---|---|---|---|
 | Replacement mode | Description | Example usage | Committed payments recorded as paid (For installment subscription replacement) |
@@ -223,8 +229,9 @@ count of payments considered paid.
 | `DEFERRED` | The subscription item is upgraded or downgraded only when the subscription renews, but the new purchase is issued immediately with the following two items: - The existing item with auto renew disabled and expiry time set to the end of current billing cycle. - The new entitlement which begins after the existing item expires. You can allow users to make additional changes if they want. For example, users can revert to the original plan or initiate a new deferred plan change. **Note:** For installment subscriptions, the plan change occurs at the start of the next payment date. | Downgrade to a less expensive tier. | 1 |
 | `KEEP_EXISTING` | The payment schedule for the subscription item remains unchanged in the replacement. | Add or remove subscription item from a subscription with add-ons when a specific item should be unchanged. | N/A |
 
-| **Note:** In Play Billing Library version 5 and lower, replacement modes were represented by `ProrationMode`. The new [`ReplacementMode`](https://developer.android.com/reference/com/android/billingclient/api/BillingFlowParams.SubscriptionUpdateParams.ReplacementMode) enum includes equivalent modes for all proration modes. `ReplacementMode.DEFERRED` includes some improvements to make it simpler to manage deferred changes of plan. The user experience is exactly the same. Read the [Replacement examples and
-| behaviors](https://developer.android.com/google/play/billing/subscriptions#replacement-examples) section to learn more.
+> [!NOTE]
+> **Note:** In Play Billing Library version 5 and lower, replacement modes were represented by `ProrationMode`. The new [`ReplacementMode`](https://developer.android.com/reference/com/android/billingclient/api/BillingFlowParams.SubscriptionUpdateParams.ReplacementMode) enum includes equivalent modes for all proration modes. `ReplacementMode.DEFERRED` includes some improvements to make it simpler to manage deferred changes of plan. The user experience is exactly the same. Read the [Replacement examples and
+> behaviors](https://developer.android.com/google/play/billing/subscriptions#replacement-examples) section to learn more.
 
 To learn more about different upsell and winback applications of upgrade or
 downgrade offers, read the offers and promotions guide.
@@ -508,7 +515,8 @@ billingClient.launchBillingFlow(billingFlowParams);
 
 #### Set SubscriptionUpdateParams for replacement (deprecated)
 
-| **Note:** Starting with the PBL 8.1 release, [`SubscriptionUpdateParams`](https://developer.android.com/reference/com/android/billingclient/api/BillingFlowParams.SubscriptionUpdateParams) is deprecated. Alternately, use `SubscriptionProductReplacementParams` to specify the replacement parameters.
+> [!NOTE]
+> **Note:** Starting with the PBL 8.1 release, [`SubscriptionUpdateParams`](https://developer.android.com/reference/com/android/billingclient/api/BillingFlowParams.SubscriptionUpdateParams) is deprecated. Alternately, use `SubscriptionProductReplacementParams` to specify the replacement parameters.
 
 The following example shows how to update a subscription by using
 `SubscriptionUpdateParams`.
@@ -697,7 +705,8 @@ access to your services.
 
 ### Before subscription expiration - in Play Store
 
-| **Note:** Supporting restore is required for all developers.
+> [!NOTE]
+> **Note:** Supporting restore is required for all developers.
 
 While the subscription is canceled but still active, users can restore the
 subscription in the Google Play subscriptions center by clicking
@@ -725,8 +734,11 @@ resource.
 
 ### After subscription expiration - in Play Store
 
-| **Note:** Resubscribe from Play Store is only available to apps with Google Play Billing Library versions 2.0 and later.
-| **Note:** All subscription SKUs for eligible apps have resubscribe enabled by default. You can opt out at any time by adjusting the SKU settings through the [Google Play Console](https://support.google.com/googleplay/android-developer/answer/140504).
+> [!NOTE]
+> **Note:** Resubscribe from Play Store is only available to apps with Google Play Billing Library versions 2.0 and later.
+
+> [!NOTE]
+> **Note:** All subscription SKUs for eligible apps have resubscribe enabled by default. You can opt out at any time by adjusting the SKU settings through the [Google Play Console](https://support.google.com/googleplay/android-developer/answer/140504).
 
 If enabled, users can resubscribe to the same SKU for up to one year after
 expiration by clicking **Resubscribe** in the Google Play subscriptions center.
@@ -844,7 +856,9 @@ period](https://developer.android.com/google/play/billing/lifecycle/subscription
 hold](https://developer.android.com/google/play/billing/lifecycle/subscriptions#account-hold) sections, or
 you can implement the in-app messaging API, where Google shows a message to
 users in your app.
-| **Note:** You can use [Play Billing Lab Subscription State Transition](https://developer.android.com/google/play/billing/test#subscription-state-transition) feature to test payment decline scenarios.
+
+> [!NOTE]
+> **Note:** You can use [Play Billing Lab Subscription State Transition](https://developer.android.com/google/play/billing/test#subscription-state-transition) feature to test payment decline scenarios.
 
 ### In-app messaging
 
@@ -925,7 +939,8 @@ billingClient.showInAppMessages(activity,
 
 ## Handle subscription pending transactions
 
-| **Note:** Pending transactions are only available for purchasing prepaid plan with Google Play Billing Library versions 7.0 and higher. You need to support and enable pending transactions **explicitly**.
+> [!NOTE]
+> **Note:** Pending transactions are only available for purchasing prepaid plan with Google Play Billing Library versions 7.0 and higher. You need to support and enable pending transactions **explicitly**.
 
 [Pending transactions](https://developer.android.com/google/play/billing/integrate#pending) can happen in initial purchase, top-up, upgrade or
 downgrade. The subscription purchase starts with the

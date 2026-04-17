@@ -8,15 +8,14 @@ source: md.txt
 
 # Wear Compose Material 3
 
-API Reference  
-[androidx.wear.compose.material3](https://developer.android.com/reference/kotlin/androidx/wear/compose/material3/package-summary)  
-Write Jetpack Compose applications for Wear OS devices by providing functionality to support different device sizes and navigation gestures using the Material 3 Expressive design system.  
+Write Jetpack Compose applications for Wear OS devices by providing functionality to support different device sizes and navigation gestures using the Material 3 Expressive design system.
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
 | August 27, 2025 | [1.5.0](https://developer.android.com/jetpack/androidx/releases/wear-compose#1.5.0) | - | - | - |
 
-| **Note:** This library supersedes the `androidx.wear.compose:compose-material` library. This library implements Material 3 Expressive design for Wear OS and is recommended for developers to use. Don't mix objects from this library with objects in the [Compose Material 3](https://developer.android.com/jetpack/androidx/releases/compose-material3) mobile library.
+> [!NOTE]
+> **Note:** This library supersedes the `androidx.wear.compose:compose-material` library. This library implements Material 3 Expressive design for Wear OS and is recommended for developers to use. Don't mix objects from this library with objects in the [Compose Material 3](https://developer.android.com/jetpack/androidx/releases/compose-material3) mobile library.
 
 ## Declaring dependencies
 
@@ -25,7 +24,7 @@ project. Read [Google's Maven repository](https://developer.android.com/studio/b
 for more information.
 
 Add the dependencies for the artifacts you need in the `build.gradle` file for
-your app or module:  
+your app or module:
 
 ### Groovy
 

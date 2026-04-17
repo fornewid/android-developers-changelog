@@ -12,7 +12,14 @@ alerts, and provide direct device interaction from anywhere.
 
 Always take the presence and prominence of system bars into account, whether
 you're designing layouts, input methods, or other device capabilities.
-![](https://developer.android.com/static/images/design/ui/mobile/system-bars-image-behind.png) **Figure 1.** Images behind system bars. **Note:** System bars and navigation can vary by device manufacturer. Older devices may have hardware navigation buttons instead of software buttons.
+
+> [!IMPORTANT]
+> **Important:** We released an agent skill to help you migrate your Jetpack Compose app to add adaptive edge-to-edge support. Try out the skill from the [Android skills repository](https://github.com/android/skills).
+
+![](https://developer.android.com/static/images/design/ui/mobile/system-bars-image-behind.png) **Figure 1.** Images behind system bars.
+
+> [!NOTE]
+> **Note:** System bars and navigation can vary by device manufacturer. Older devices may have hardware navigation buttons instead of software buttons.
 
 ## Takeaways
 
@@ -131,15 +138,12 @@ adaptation. In the following example, the handle in the navigation bar changes
 to a dark color if it's placed above light content, and vice-versa.
 ![](https://developer.android.com/static/images/design/ui/mobile/system-bars-dynamic-color-adaptation.png) **Figure 8.** Dynamic color adaptation.
 
-Transparent gesture navigation bars are always recommended.  
-![](https://developer.android.com/static/images/design/ui/mobile/system-bars-do.png)  
-check_circle
+Transparent gesture navigation bars are always recommended.
+![](https://developer.android.com/static/images/design/ui/mobile/system-bars-do.png)
 
 ### Do
 
-Keep the gesture navigation bar transparent.  
-![](https://developer.android.com/static/images/design/ui/mobile/system-bars-dont.png)  
-cancel
+Keep the gesture navigation bar transparent. ![](https://developer.android.com/static/images/design/ui/mobile/system-bars-dont.png)
 
 ### Don't
 

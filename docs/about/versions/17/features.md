@@ -37,10 +37,45 @@ The new triggers are:
 - [`TRIGGER_TYPE_COLD_START`](https://developer.android.com/reference/android/os/ProfilingTrigger#TRIGGER_TYPE_COLD_START): Trigger occurs during app cold start. It provides both a call stack sample and a system trace in the response.
 - [`TRIGGER_TYPE_OOM`](https://developer.android.com/reference/android/os/ProfilingTrigger#TRIGGER_TYPE_OOM): Trigger occurs when an app throws an [`OutOfMemoryError`](https://developer.android.com/reference/java/lang/OutOfMemoryError) and provides a Java Heap Dump in response.
 - [`TRIGGER_TYPE_KILL_EXCESSIVE_CPU_USAGE`](https://developer.android.com/reference/android/os/ProfilingTrigger#TRIGGER_TYPE_KILL_EXCESSIVE_CPU_USAGE): Trigger occurs when an app is killed due to abnormal and excessive CPU usage and provides a call stack sample in response.
+- [`TRIGGER_TYPE_ANOMALY`](https://developer.android.com/reference/android/os/ProfilingTrigger#TRIGGER_TYPE_ANOMALY): Detect system performance anomalies such as excessive binder calls and excessive memory usage.
 
 To understand how to set up the system trigger, see the documentation on
 [trigger-based profiling](https://developer.android.com/topic/performance/tracing/profiling-manager/trigger-based-capture) and how to [retrieve and analyze profiling data
 documentation](https://developer.android.com/topic/performance/tracing/profiling-manager/retrieve-and-analyze).
+
+#### Profiling trigger for app anomalies
+
+Android 17
+introduces an on-device anomaly detection service that monitors for
+resource-intensive behaviors and potential compatibility regressions. Integrated
+with [`ProfilingManager`](https://developer.android.com/topic/performance/tracing/profiling-manager/overview), this service allows your app to receive profiling
+artifacts triggered by specific system-detected events.
+
+Use the [`TRIGGER_TYPE_ANOMALY`](https://developer.android.com/reference/android/os/ProfilingTrigger#TRIGGER_TYPE_ANOMALY) trigger to detect system performance issues
+such as excessive binder calls and excessive memory usage. When an app breaches
+OS-defined memory limits, the anomaly trigger allows developers to receive
+app-specific heap dumps to help identify and fix memory issues. Additionally,
+for excessive binder spam, the anomaly trigger provides a stack sampling profile
+on binder transactions.
+
+This API callback occurs prior to any system imposed enforcements. For
+example, it can help developers collect debug data before the app is
+terminated by the system for exceeding memory limits.
+
+    val profilingManager =
+        applicationContext.getSystemService(ProfilingManager::class.java)
+    val triggers = ArrayList<ProfilingTrigger>()
+    triggers.add(ProfilingTrigger.Builder(ProfilingTrigger.TRIGGER_TYPE_ANOMALY))
+    val mainExecutor: Executor = Executors.newSingleThreadExecutor()
+    val resultCallback = Consumer<ProfilingResult> { profilingResult ->
+        if (profilingResult.errorCode != ProfilingResult.ERROR_NONE) {
+            // upload profile result to server for further analysis
+            setupProfileUploadWorker(profilingResult.resultFilePath)
+        }
+        profilingManager.registerForAllProfilingResults(mainExecutor,
+                                                        resultCallback)
+        profilingManager.addProfilingTriggers(triggers)
+    }
 
 ### JobDebugInfo APIs
 

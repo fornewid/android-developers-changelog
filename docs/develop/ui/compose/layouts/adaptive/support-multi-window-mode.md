@@ -289,7 +289,8 @@ settings to determine whether the activity can run in multi-window mode.
 ### `resizeableActivity`
 
 Set this attribute in your manifest's [`<activity>`](https://developer.android.com/guide/topics/manifest/activity-element) or [`<application>`](https://developer.android.com/guide/topics/manifest/application-element)
-element to enable or disable multi-window mode for API level 30 and lower:
+element to enable or disable multi-window mode for API levels 24 through 30
+(the attribute was introduced in API level 24):
 
     <application
       android:name=".MyActivity"

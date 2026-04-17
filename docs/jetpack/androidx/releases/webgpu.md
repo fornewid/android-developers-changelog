@@ -6,8 +6,6 @@ source: md.txt
 
 # webgpu
 
-API Reference  
-[androidx.webgpu](https://developer.android.com/reference/kotlin/androidx/webgpu/package-summary)  
 A modern GPU API for graphics and compute from Kotlin.
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |

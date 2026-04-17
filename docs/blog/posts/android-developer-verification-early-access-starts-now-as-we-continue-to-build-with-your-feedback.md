@@ -80,6 +80,29 @@ We are committed to working with you to keep the ecosystem safe while getting th
 
 ## Continue reading
 
+* [![](/static/blog/assets/Adarsh_profile_picture_8e88f2831a_1Ut9s6.webp)](/blog/authors/adarsh-fernando)[![](/static/blog/assets/estebandlc_profile_800x800_1d536f02a7_Z2cAv7x.webp)](/blog/authors/esteban-de-la-canal)
+
+  16
+
+  Apr
+  2026
+
+  16
+
+  Apr
+  2026
+
+  ![](/static/blog/assets/hours_CLI_Dark_Strapi_2x_427f20cc78_Z1oqB1M.webp)
+
+  #### [How-tos](/blog/categories/how-tos)
+
+  ## [Android CLI: Build Android apps 3x faster using any agent](/blog/posts/android-cli-build-android-apps-3x-faster-using-any-agent)
+
+  [arrow\_forward](/blog/posts/android-cli-build-android-apps-3x-faster-using-any-agent)
+
+  Whether you are using Gemini in Android Studio, Gemini CLI, Antigravity, or third-party agents like Claude Code or Codex, our mission is to ensure that high-quality Android development is possible everywhere.
+
+  ###### [Adarsh Fernando](/blog/authors/adarsh-fernando), [Esteban de la Canal](/blog/authors/esteban-de-la-canal) • 4 min read
 * [![](/static/blog/assets/Alice_Yuan_552a4dd4ee_ZlDEgJ.webp)](/blog/authors/alice-yuan)
 
   04
@@ -126,29 +149,6 @@ We are committed to working with you to keep the ecosystem safe while getting th
   We wanted to provide you with examples of AI-enabled features using both on-device and Cloud models and inspire you to create delightful experiences for your users.
 
   ###### [Thomas Ezan](/blog/authors/thomas-ezan), [Ivy Knight](/blog/authors/ivy-knight) • 2 min read
-* [![](/static/blog/assets/Alice_Yuan_552a4dd4ee_ZlDEgJ.webp)](/blog/authors/alice-yuan)
-
-  20
-
-  Nov
-  2025
-
-  20
-
-  Nov
-  2025
-
-  ![](/static/blog/assets/performance_Week8_4d6efcacbe_ZI6a5e.webp)
-
-  #### [How-tos](/blog/categories/how-tos)
-
-  ## [Leveling Guide for your Performance Journey](/blog/posts/leveling-guide-for-your-performance-journey)
-
-  [arrow\_forward](/blog/posts/leveling-guide-for-your-performance-journey)
-
-  The performance leveling guide features 5 levels. We'll start with level 1, which introduces minimal adoption effort performance tooling, and we'll go up to level 5, ideal for apps that have the resourcing to maintain a bespoke performance framework.
-
-  ###### [Alice Yuan](/blog/authors/alice-yuan) • 9 min read
 
 # Stay in the loop
 

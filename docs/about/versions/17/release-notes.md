@@ -4,6 +4,15 @@ url: https://developer.android.com/about/versions/17/release-notes
 source: md.txt
 ---
 
+### Beta 4
+
+|---|---|
+| **Release date** | April 16, 2026 |
+| **Builds** | CP21.260330.008 |
+| **Emulator support** | x86 (64-bit), ARM (v8-A) |
+| **Security patch level** | 2026-04-05 |
+| **Google Play services** | 26.11.36 |
+
 ### Beta 3
 
 |---|---|
@@ -30,6 +39,48 @@ source: md.txt
 | **Emulator support** | x86 (64-bit), ARM (v8-A) |
 | **Security patch level** | 2026-01-05 |
 | **Google Play services** | 25.47.33 |
+
+### Android 17 Beta 4 (April 2026)
+
+[Android 17 is on its last scheduled beta with Beta 4](https://android-developers.googleblog.com/2026/04/the-fourth-beta-of-android-17.html),
+so perform your final compatibility testing and start publishing
+your Android 17-targeted apps to the Google Play Store.
+
+If you develop an Android SDK, library, tool, or game engine,
+it's critical to prepare any necessary updates now to prevent
+your downstream app and game developers from being blocked by
+compatibility issues and allow them to target the latest SDK
+features. Make sure to let your downstream developers know if
+updates are needed to fully support Android 17.
+
+#### App Memory Limits
+
+Android 17 beta 4 introduces conservative, app memory limits to
+improve system stability. If your app is killed by these limits,
+[ApplicationExitInfo.getDescription](https://developer.android.com/reference/android/app/ApplicationExitInfo#getDescription()) will contain "MemoryLimiter". You can also use [trigger-based profiling](https://developer.android.com/topic/performance/tracing/profiling-manager/trigger-based-capture) to capture heap dumps when limits are hit using [TRIGGER_TYPE_ANOMALY](https://developer.android.com/reference/android/os/ProfilingTrigger#TRIGGER_TYPE_ANOMALY).
+
+#### Background audio hardening changes
+
+Starting in Android 17, the audio framework enforces restrictions on background audio interactions including audio playback, audio focus requests, and volume change APIs. Based on your feedback, we've made some changes since beta 2,including targetSDK gating while-in-use FGS enforcement and exempting alarm audio. Full details available in the
+[updated guidance](https://developer.android.com/versions/17/changes/bg-audio).
+
+### Top Issues fixed in Beta 4
+
+- *An issue where webpage URLs were automatically included when sharing screenshots from the capture preview, causing unwanted links to be shared with image files. ([**Issue #444631269**](https://issuetracker.google.com/issues/444631269))*
+- *An accessibility issue caused the device to become completely unresponsive and unusable. ([**Issue #484755628**](https://issuetracker.google.com/issues/484755628))*
+- *An issue where the media control widget could disappear or fail to navigate between multiple active media sessions. ([**Issue #457008153**](https://issuetracker.google.com/issues/457008153), [**Issue #466760800**](https://issuetracker.google.com/issues/466760800), [**Issue #497131275**](https://issuetracker.google.com/issues/497131275), [**Issue #499041878**](https://issuetracker.google.com/issues/499041878))*
+- *An issue where dream services failed to correctly process key events, trigger keyguard bouncer prompts, or execute service lifecycle callbacks. ([**Issue #485661973**](https://issuetracker.google.com/issues/485661973))*
+- *An issue that prevented users from successfully downloading and applying cinematic or local weather wallpaper effects. ([**Issue #475924636**](https://issuetracker.google.com/issues/475924636))*
+- *An issue where the device would freeze and spontaneously restart while typing in messaging applications. ([**Issue #478417840**](https://issuetracker.google.com/issues/478417840))*
+- *A critical system instability issue that causes the device to hang and crash during normal usage. ([**Issue #427436873**](https://issuetracker.google.com/issues/427436873), [**Issue #428838049**](https://issuetracker.google.com/issues/428838049))*
+- *An issue causing devices to experience significantly reduced charging speeds when approaching the 80% battery limit, resulting in long delays before the device reaches its target charge and enters bypass mode. ([**Issue #485148344**](https://issuetracker.google.com/issues/485148344), [**Issue #490178498**](https://issuetracker.google.com/issues/490178498))*
+- *A rendering issue that caused multicolored horizontal lines to randomly obscure the device display. ([**Issue #478953060**](https://issuetracker.google.com/issues/478953060), [**Issue #478177624**](https://issuetracker.google.com/issues/478177624), [**Issue #483765859**](https://issuetracker.google.com/issues/483765859), [**Issue #487263076**](https://issuetracker.google.com/issues/487263076))*
+- *Pulling down the notification drawer while a feedback report is in progress can cause a System UI crash and device freeze. ([**Issue #488920581**](https://issuetracker.google.com/issues/488920581))*
+- *Critical system components including Pixel Launcher and navigation may crash or become unresponsive for several minutes after a device reboot. ([**Issue #317282987**](https://issuetracker.google.com/issues/317282987), [**Issue #316689583**](https://issuetracker.google.com/issues/316689583), [**Issue #316188779**](https://issuetracker.google.com/issues/316188779))*
+- *An accessibility issue that prevents users from properly interacting with apps after minimizing and returning to a split-screen view. ([**Issue #490735259**](https://issuetracker.google.com/issues/490735259))*
+- *An issue that prevented Bluetooth from being re-enabled after it was turned off via the system settings or quick settings panel. ([**Issue #498320401**](https://issuetracker.google.com/issues/498320401))*
+- *Notifications marked with setSilent(true) may unexpectedly play alert sounds on Android 16 when multiple notifications are present in the shade. ([**Issue #467164528**](https://issuetracker.google.com/issues/467164528))*
+- *Wi-Fi analyzer applications fail to detect any available Wi-Fi signals, preventing network scanning and signal monitoring. ([**Issue #488493098**](https://issuetracker.google.com/issues/488493098), [**Issue #488244938**](https://issuetracker.google.com/issues/488244938), [**Issue #491531212**](https://issuetracker.google.com/issues/491531212), [**Issue #490566133**](https://issuetracker.google.com/issues/490566133), [**Issue #488742605**](https://issuetracker.google.com/issues/488742605), [**Issue #488437847**](https://issuetracker.google.com/issues/488437847), [**Issue #489664292**](https://issuetracker.google.com/issues/489664292), [**Issue #492229996**](https://issuetracker.google.com/issues/492229996), [**Issue #492403933**](https://issuetracker.google.com/issues/492403933), [**Issue #492078596**](https://issuetracker.google.com/issues/492078596), [**Issue #493259320**](https://issuetracker.google.com/issues/493259320), [**Issue #490313462**](https://issuetracker.google.com/issues/490313462), [**Issue #494716049**](https://issuetracker.google.com/issues/494716049), [**Issue #495146669**](https://issuetracker.google.com/issues/495146669), [**Issue #490268954**](https://issuetracker.google.com/issues/490268954), [**Issue #496870370**](https://issuetracker.google.com/issues/496870370), [**Issue #497174811**](https://issuetracker.google.com/issues/497174811), [**Issue #496927303**](https://issuetracker.google.com/issues/496927303), [**Issue #497726865**](https://issuetracker.google.com/issues/497726865), [**Issue #498299558**](https://issuetracker.google.com/issues/498299558), [**Issue #496860223**](https://issuetracker.google.com/issues/496860223), [**Issue #498454519**](https://issuetracker.google.com/issues/498454519), [**Issue #499751486**](https://issuetracker.google.com/issues/499751486), [**Issue #491171326**](https://issuetracker.google.com/issues/491171326))*
 
 ### Android 17 Beta 3 (March 2026)
 

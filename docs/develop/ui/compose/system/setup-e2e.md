@@ -14,6 +14,9 @@ setup steps. Without these steps, your app might draw solid colors behind the
 system bars or not animate its content synchronously with on-screen keyboard
 (IME) transitions.
 
+> [!IMPORTANT]
+> **Important:** We released an agent skill to help you migrate your Jetpack Compose app to add adaptive edge-to-edge support. Try out the skill from the [Android skills repository](https://github.com/android/skills).
+
 ## 1. Enable edge-to-edge display
 
 To enable edge-to-edge on previous Android versions, call

@@ -103,3 +103,10 @@ the primary purposes is to share the instructions with your team.
 
 > [!NOTE]
 > **Note:** Gemini combines rules and instructions in `AGENTS.md` files when processing your query.
+
+## What's the difference between `AGENTS.md` files and skills?
+
+Skills represent on-demand expertise that are invoked when your request matches a
+skills description, whereas content in `AGENTS.md` is added to the beginning of every
+prompt. We recommend using skills for specific tasks and `AGENTS.md` files to influence
+the agent's general behavior. To learn more about skills, see [Intro to Android skills](https://developer.android.com/tools/agents/android-skills).

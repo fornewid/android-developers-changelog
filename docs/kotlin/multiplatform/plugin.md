@@ -22,6 +22,11 @@ To apply this plugin, refer to the [Apply the Android-KMP plugin](https://develo
 section. If you need to migrate from the legacy APIs, check the [Migration
 Guide](https://developer.android.com/kotlin/multiplatform/plugin#migrate).
 
+For help with the AGP 9.0+ migration, you can use the [agent skill](https://github.com/Kotlin/kotlin-agent-skills/tree/main/skills/kotlin-tooling-agp9-migration)
+created by JetBrains for KMP apps. For more information about using skills in
+Android Studio, see [Extend Agent Mode with skills](https://developer.android.com/studio/gemini/skills). Keep in mind
+that AI results aren't entirely predictable.
+
 > [!CAUTION]
 > **Caution:** Before you migrate to the new plugin, be aware of the [known issues](https://developer.android.com/kotlin/multiplatform/plugin#known-issues) and [unsupported features](https://developer.android.com/kotlin/multiplatform/plugin#unsupported-features-and-workarounds).
 

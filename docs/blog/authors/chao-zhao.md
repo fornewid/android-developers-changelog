@@ -18,7 +18,7 @@ Save and categorize content based on your preferences.
 
 post
 
-![](/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)
+![](/static/blog/assets/chao_zhao_f14947a7e2_ZsSDYG.webp)
 
 # Chao Zhao
 

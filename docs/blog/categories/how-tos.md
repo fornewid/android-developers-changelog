@@ -20,6 +20,27 @@ Save and categorize content based on your preferences.
 
 From quick tips to deep-dive tutorials, these step-by-step guides are designed to help you work smarter and faster.
 
+* [![](/static/blog/assets/Adarsh_profile_picture_8e88f2831a_1Ut9s6.webp)](/blog/authors/adarsh-fernando)[![](/static/blog/assets/estebandlc_profile_800x800_1d536f02a7_Z2cAv7x.webp)](/blog/authors/esteban-de-la-canal)
+
+  16
+
+  Apr
+  2026
+
+  16
+
+  Apr
+  2026
+
+  ![](/static/blog/assets/hours_CLI_Dark_Strapi_2x_427f20cc78_Z1oqB1M.webp)
+
+  ## [Android CLI: Build Android apps 3x faster using any agent](/blog/posts/android-cli-build-android-apps-3x-faster-using-any-agent)
+
+  [arrow\_forward](/blog/posts/android-cli-build-android-apps-3x-faster-using-any-agent)
+
+  Whether you are using Gemini in Android Studio, Gemini CLI, Antigravity, or third-party agents like Claude Code or Codex, our mission is to ensure that high-quality Android development is possible everywhere.
+
+  ###### [Adarsh Fernando](/blog/authors/adarsh-fernando), [Esteban de la Canal](/blog/authors/esteban-de-la-canal) • 4 min read
 * [![](/static/blog/assets/Alice_Yuan_552a4dd4ee_ZlDEgJ.webp)](/blog/authors/alice-yuan)
 
   04
@@ -129,27 +150,6 @@ From quick tips to deep-dive tutorials, these step-by-step guides are designed t
 
   + [#Performance](/blog/topics/performance)
   + [#R8](/blog/topics/r8)
-* [![](/static/blog/assets/matthew_9c798f0c1d_Z1m5WWD.webp)](/blog/authors/matthew-forsythe)
-
-  12
-
-  Nov
-  2025
-
-  12
-
-  Nov
-  2025
-
-  ![](/static/blog/assets/developer_Verification_2bb1c616ea_Z11taB3.webp)
-
-  ## [Android developer verification: Early access starts now as we continue to build with your feedback](/blog/posts/android-developer-verification-early-access-starts-now-as-we-continue-to-build-with-your-feedback)
-
-  [arrow\_forward](/blog/posts/android-developer-verification-early-access-starts-now-as-we-continue-to-build-with-your-feedback)
-
-  We recently announced new developer verification requirements, which serve as an additional layer of defense in our ongoing effort to keep Android users safe. We know that security works best when it accounts for the diverse ways people use our tools.
-
-  ###### [Matthew Forsythe](/blog/authors/matthew-forsythe) • 3 min read
 
 arrow\_back
 

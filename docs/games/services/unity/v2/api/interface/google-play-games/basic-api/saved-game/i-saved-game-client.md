@@ -49,7 +49,7 @@ void CommitUpdate(
   ISavedGameMetadata metadata,
   SavedGameMetadataUpdate updateForMetadata,
   byte[] updatedBinaryData,
-  Action&lhttps://developer.android.com/games/services/unity/v2/api/namespace/google-play-games/basic-api/saved-game#namespace_google_play_games_1_1_basic_api_1_1_saved_game_1a4bbde44ee3348f73449c1432a85637ab SavedGameRequestStatus, ISavedGameMetadata > callback
+  Action< SavedGameRequestStatus, ISavedGameMetadata > callback
 )
 ```
 Durably commits an update to the passed saved game.
@@ -84,7 +84,7 @@ This will delete the data of the snapshot locally and on the server.
 ```c#
 void FetchAllSavedGames(
   DataSource source,
-  Action&lhttps://developer.android.com/games/services/unity/v2/api/namespace/google-play-games/basic-api/saved-game#namespace_google_play_games_1_1_basic_api_1_1_saved_game_1a4bbde44ee3348f73449c1432a85637ab SavedGameRequestStatus, Lishttps://developer.android.com/games/services/unity/v2/api/interface/google-play-games/basic-api/saved-game/i-saved-game-metadata#interface_google_play_games_1_1_basic_api_1_1_saved_game_1_1_i_saved_game_metadata< ISavedGameMetadata >> callback
+  Action< SavedGameRequestStatus, List< ISavedGameMetadata >> callback
 )
 ```
 Returns the metadata for all known saved games for this game.
@@ -104,7 +104,7 @@ void OpenWithAutomaticConflictResolution(
   string filename,
   DataSource source,
   ConflictResolutionStrategy resolutionStrategy,
-  Action&lhttps://developer.android.com/games/services/unity/v2/api/namespace/google-play-games/basic-api/saved-game#namespace_google_play_games_1_1_basic_api_1_1_saved_game_1a4bbde44ee3348f73449c1432a85637ab SavedGameRequestStatus, ISavedGameMetadata > callback
+  Action< SavedGameRequestStatus, ISavedGameMetadata > callback
 )
 ```
 Opens the file with the indicated name and data source.
@@ -125,7 +125,7 @@ void OpenWithManualConflictResolution(
   DataSource source,
   bool prefetchDataOnConflict,
   ConflictCallback conflictCallback,
-  Action&lhttps://developer.android.com/games/services/unity/v2/api/namespace/google-play-games/basic-api/saved-game#namespace_google_play_games_1_1_basic_api_1_1_saved_game_1a4bbde44ee3348f73449c1432a85637ab SavedGameRequestStatus, ISavedGameMetadata > completedCallback
+  Action< SavedGameRequestStatus, ISavedGameMetadata > completedCallback
 )
 ```
 Opens the file with the indicated name and data source.
@@ -143,7 +143,7 @@ If there is a conflict that requires resolution, it will be resolved manually us
 ```c#
 void ReadBinaryData(
   ISavedGameMetadata metadata,
-  Action&lhttps://developer.android.com/games/services/unity/v2/api/namespace/google-play-games/basic-api/saved-game#namespace_google_play_games_1_1_basic_api_1_1_saved_game_1a4bbde44ee3348f73449c1432a85637ab SavedGameRequestStatus, byte[]> completedCallback
+  Action< SavedGameRequestStatus, byte[]> completedCallback
 )
 ```
 Reads the binary data of the passed saved game.
@@ -164,7 +164,7 @@ void ShowSelectSavedGameUI(
   uint maxDisplayedSavedGames,
   bool showCreateSaveUI,
   bool showDeleteSaveUI,
-  Action&lhttps://developer.android.com/games/services/unity/v2/api/namespace/google-play-games/basic-api/saved-game#namespace_google_play_games_1_1_basic_api_1_1_saved_game_1a4e46a22deed238dbb8ad23eb71d5194f SelectUIStatus, ISavedGameMetadata > callback
+  Action< SelectUIStatus, ISavedGameMetadata > callback
 )
 ```
 Shows the select saved game UI with the indicated configuration.

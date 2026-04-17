@@ -54,8 +54,8 @@ scaffold's inner content. To do so, create an instance of
 
 There are three types of `TopAppBarScrollBehavior`. They are as follows:
 
-- `enterAlwaysScrollBehavior`: When the user pulls up the scaffold's inner content, the top app bar collapses. The app bar expands when the user then pulls down the inner content.
-- `exitUntilCollapsedScrollBehavior`: Similar to `enterAlwaysScrollBehavior`, though the app bar additionally expands when the user reaches the end of the scaffold's inner content.
+- `enterAlwaysScrollBehavior`: When the user pulls up the scaffold's inner content, the top app bar collapses. The app bar expands when the user starts pulling down the inner content.
+- `exitUntilCollapsedScrollBehavior`: Similar to `enterAlwaysScrollBehavior`, though the app bar only expands when the user pulls the content all the way down.
 - `pinnedScrollBehavior`: The app bar remains in place and does not react to scrolling.
 
 The following examples implement several of these options.

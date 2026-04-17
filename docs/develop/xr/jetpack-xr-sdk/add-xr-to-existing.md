@@ -285,7 +285,7 @@ if (LocalSpatialCapabilities.current.isSpatialUiEnabled) {
 }
 
 // Similar check for audio
-val spatialAudioEnabled = LocalSpatialCapabilities.current.isSpatialAudioEnabledhttps://github.com/android/snippets/blob/955bf613b114a676c99509c66de86ead598983a9/xr/src/main/java/com/example/xr/compose/SpatialCapabilities.kt#L37-L44
+val spatialAudioEnabled = LocalSpatialCapabilities.current.isSpatialAudioEnabledhttps://github.com/android/snippets/blob/b99814d50c0bd341a83912e2c52bcbb6c0dd5568/xr/src/main/java/com/example/xr/compose/SpatialCapabilities.kt#L37-L44
 ```
 
 <br />

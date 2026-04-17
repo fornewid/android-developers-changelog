@@ -46,7 +46,7 @@ The core of a `SceneStrategy` is its [`calculateScene`](https://developer.androi
 public fun calculateScene(
     entries: List<NavEntry<T>>,
     onBack: (count: Int) -> Unit,
-): Scene<T>?https://github.com/android/snippets/blob/955bf613b114a676c99509c66de86ead598983a9/compose/snippets/src/main/java/com/example/compose/snippets/navigation3/scenes/ScenesSnippets.kt#L47-L51
+): Scene<T>?https://github.com/android/snippets/blob/b99814d50c0bd341a83912e2c52bcbb6c0dd5568/compose/snippets/src/main/java/com/example/compose/snippets/navigation3/scenes/ScenesSnippets.kt#L47-L51
 ```
 
 <br />

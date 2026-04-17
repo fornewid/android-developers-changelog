@@ -30,16 +30,16 @@ Evaluate if the XML layout serves as a foundation-level design system component 
 \* **Feature parity \& restriction:** Ensure the new composable enforces the same UI constraints as the original XML component, preventing unauthorized style overrides while maintaining the intended flexibility.
 
 Example before migration:
-`xml
-<style
-name="Widget.Rounded.Button"
-parent="Widget.Button.Borderless">
-<item name="android:fontFamily">sans-serif-medium</item>
-<item name="android:minWidth">@dimen/min_width</item>
-<item name="android:paddingStart">@dimen/padding_2</item>
-<item name="android:paddingEnd">@dimen/padding_2</item>
-<item name="cornerRadius">8dp</item>
-</style>`
+
+    <style
+        name="Widget.Rounded.Button"
+        parent="Widget.Button.Borderless">
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:minWidth">@dimen/min_width</item>
+        <item name="android:paddingStart">@dimen/padding_2</item>
+        <item name="android:paddingEnd">@dimen/padding_2</item>
+        <item name="cornerRadius">8dp</item>
+    </style>https://github.com/android/snippets/blob/b99814d50c0bd341a83912e2c52bcbb6c0dd5568/compose/snippets/src/main/res/xml/compose_migration_skill_rounded_button.xml#L18-L26
 
 Example after migration:
 

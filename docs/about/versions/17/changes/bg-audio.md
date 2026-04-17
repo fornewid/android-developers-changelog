@@ -4,21 +4,31 @@ url: https://developer.android.com/about/versions/17/changes/bg-audio
 source: md.txt
 ---
 
-Starting in Android 17, the audio framework enforces restrictions on background
-audio interactions including audio playback, [audio focus](https://developer.android.com/media/optimize/audio-focus) requests, and
-[volume change](https://developer.android.com/reference/android/media/AudioManager#adjustStreamVolume(int,%20int,%20int)) APIs to ensure that these changes are started intentionally
-by the user.
+Starting in Android 17, the audio framework enforces restrictions on
+background audio interactions including audio playback, [audio focus](https://developer.android.com/media/optimize/audio-focus)
+requests, and [volume change](https://developer.android.com/reference/android/media/AudioManager#adjustStreamVolume(int,%20int,%20int)) APIs to ensure that these changes are started
+intentionally by the user.
 
-If an app developer intends to control audio without a visible activity, they
-should ensure that the app has a foreground service (that is not of type
-`SHORT_SERVICE`) which was started with [while-in-use](https://developer.android.com/develop/background-work/services/fgs/restrictions-bg-start#wiu-restrictions-exemptions) (WIU) capabilities. A
-foreground service is granted WIU capabilities if it is started in response to a
-`MediaSessionEvent` or while the app is visible to the user.
+All apps running on Android 17 that have these background audio
+interactions must have a visible activity or must be running a foreground
+service that is not of type `SHORT_SERVICE`. This applies whether or not the app
+targets API level 37.
+
+If an app targets Android 17 (API level 37), there is an additional
+restriction. If the app is running in the background, the app must be running a
+foreground service that has [while-in-use](https://developer.android.com/develop/background-work/services/fgs/restrictions-bg-start#wiu-restrictions-exemptions) (WIU) capabilities. (A foreground
+service is granted WIU capabilities if it is started in response to a
+`MediaSessionEvent` or while the app is visible to the user.) However, the
+requirement for WIU capabilities is waived if the app has been granted the
+[exact alarm](https://developer.android.com/develop/background-work/services/alarms#exact) permission, and it is making changes to audio streams that have
+the [`USAGE_ALARM`](https://developer.android.com/reference/android/media/AudioAttributes#USAGE_ALARM) attribute.
 
 If the app tries to call audio APIs while the app is not in a valid lifecycle,
 the audio playback and volume change APIs fail silently without throwing an
 exception or providing a failure message. The audio focus API fails with the
 result code `AUDIOFOCUS_REQUEST_FAILED`.
+
+## Why we're making the change
 
 The intention of introducing these restrictions is to reduce unintentional
 background audio buggy experiences. Some examples include:
@@ -47,8 +57,8 @@ must already meet the requirements being introduced for playback (typically
 through utilizing the recommended [telecom APIs](https://developer.android.com/develop/connectivity/telecom#integrate-a-calling-solution))) to successfully record
 audio, and it is thus unlikely to be impacted.
 
-If your app intends to continue audio playback while the screen is off or while
-the user has fully dismissed your activity, which is most commonly seen in music
+If your app intends to continue audio playback **while the screen is off** or
+**while your activity is not visible**, which is most commonly seen in music
 streaming apps or podcast apps, then your app is considered to provide
 background audio functionality and must meet the new requirements.
 
@@ -102,26 +112,35 @@ For example, if your app starts a foreground service in response to
   to start audio playback should return, resulting in a newly started FGS.
 - Test audio playback behavior with adb shell commands.
 
-## Testing changes on Android 16 and Android 17
+## Testing changes
 
-The feature is already implemented at the "warning" level from
-Android 16 onwards. This means apps can use `adb shell cmd audio
-set-enable-hardening` to manually test background audio hardening enforcement.
+You can test your app's compliance on apps running Android 17 or higher
+(beginning with Beta 3) by running the following ADB command:
 
-To enable enforcement on devices running Android 16, run the following
-command:
+    adb shell cmd audio set-enable-hardening <enable|disable|throw>
 
-    adb shell cmd audio set-enable-hardening 1
+This command has the following options:
 
-To disable enforcement on devices running Android 17, run the following
-command:
+- `enable`: Enables all audio hardening restrictions for all apps. The
+  requirement for WIU foreground services is applied whether or not an app
+  targets Android 17 (API level 37). In addition, the requirement is
+  enforced even if the app is making changes to alarm streams and has the
+  exact alarm permission.
 
-    adb shell cmd audio set-enable-hardening 0
+- `disable`: Disables all audio hardening restrictions.
 
-We also recommend using `logcat` or the adb command `adb dumpsys audio` to
-identify if the app
-encountered silent failures due to audio hardening enforcement. If it did, the
-log will have an entry prefixed by `AudioHardening` with your package name.
+- `throw`: Enables all audio hardening restrictions for all apps, like
+  `enable`. In addition, this flag enables loud failures, throwing
+  `IllegalStateException` for volume and focus interactions. For audio
+  playback, the write method persistently returns an error code. For playback
+  modes without explicit writes, the app crashes.
+
+Use `adb dumpsys audio` or `logcat` to identify if the app encountered silent
+failures due to audio hardening enforcement. If it did, there will be an entry
+prefixed by `AudioHardening` with your package name. If the message contains
+`level: full`, your app is running a foreground service, but the service does
+not have while-in-use capability. If the message contains `level: partial`, your
+app is not running a foreground service at all.
 
 ## Understanding FGS with while-in-use capability
 
@@ -142,7 +161,7 @@ Here's a handy reference:
 - Standard FGS: Services started while the app is visible or granted [background activity launch capability](https://developer.android.com/guide/components/activities/background-starts#exceptions) are granted WIU access.
 - Background-Started FGS (BFSL): Most do not grant WIU access. The [primary
   exceptions](https://developer.android.com/develop/background-work/services/fgs/restrictions-bg-start#background-start-restriction-exemptions) that grant WIU are interactions involving explicit user intent for example, notification clicks, widget interactions, or media key events from an external device.
-- System started FGS: FGS started using system-server delegation (for example, by using Telecom jetpack library) are granted WIU access.
+- System started FGS: Foreground services are granted WIU access if they are started by system-server delegation (for example, from the Telecom jetpack library), or by system bindings representing an elevated foreground state to perform dedicated functionality (such as for a [`VoiceInteractionService`](https://developer.android.com/reference/android/service/voice/VoiceInteractionService).
 
 Read more in [Restrictions on starting a foreground service from the
 background](https://developer.android.com/develop/background-work/services/fgs/restrictions-bg-start).

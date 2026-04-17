@@ -47,7 +47,7 @@ simplest possible top app bar and in this example just contains a title.
 The following example does not pass `TopAppBar` a value for
 `scrollBehavior`, so the top app bar does not react to scrolling of the inner
 content.
-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/display-app-bar_456209e45f57d9a3249d3242beb4136ba664aa844208395e65c7daa3f4bbbaf5.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/display-app-bar_89657901947c5e1b39ada7702914836389de3b8f5f95f21377858081f756bbf6.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
 
 ### Center-aligned top app bar
 
@@ -64,7 +64,7 @@ dedicated [`CenterAlignedTopAppBar`](https://developer.android.com/reference/kot
 This example uses `enterAlwaysScrollBehavior()` to get the value that it passes
 for `scrollBehavior`. The bar collapses when the user scrolls the
 scaffold's inner content.
-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/display-app-bar_53dc461bc37249b610e1604a5aa802153ba498fc699fcfb809662aa96082ed22.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/display-app-bar_a9971becf8729deb742a20f4dae14c30163100d56a71d8379a4706a54490773f.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
 
 ### Medium top app bar
 
@@ -83,7 +83,7 @@ one, use the [`MediumTopAppBar`](https://developer.android.com/reference/kotlin/
 
 Like the previous code, this example uses `enterAlwaysScrollBehavior()` to
 get the value that it passes for `scrollBehavior`.
-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/display-app-bar_e77a162c0ff8b5003d5938b81a14e117324b42771686190e6d3df93918f19980.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/display-app-bar_81ad72b521c2b2624fee927db3412b69fc2c41d91d97887c9a9ee00108d9e7bf.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
 
 ### Large top app bar
 
@@ -102,7 +102,7 @@ This example uses
 `scrollBehavior`. The bar collapses when the user scrolls the
 scaffold's inner content, but then expands when the user scrolls to the end of
 the inner content.
-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/display-app-bar_85cc0da15e84339bf89188dc94edded94b3afb99849364cbde6a6d951ce88635.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/display-app-bar_a1ca65380dc1b81f5c69a545cd4df67dc9aa5b6bdb88614d535b77c5667d9755.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
 
 ## Implement a bottom app bar
 
@@ -124,7 +124,7 @@ parameters:
 > [!NOTE]
 > **Note:** You can also use `BottomAppBar` without passing a value for `actions` and `floatingActionButton`. You create a custom bottom app bar by filling `BottomAppBar` with content as you would other containers.
 
-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/display-app-bar_fa73ff9b6296eef7a035e01b7dd2102547ceef12aee96d40f09753a108278579.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/display-app-bar_f8f0a236013df0caa8c27f25e0d874e6a8a9144aafaf84b61d7e5b00aeff9535.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
 
 ## Key points
 

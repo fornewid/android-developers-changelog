@@ -18,7 +18,7 @@ Save and categorize content based on your preferences.
 
 post
 
-![](/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)
+![](/static/blog/assets/Tor_Norbye_7b1b17eb31_ZSRUB7.webp)
 
 # Tor Norbye
 

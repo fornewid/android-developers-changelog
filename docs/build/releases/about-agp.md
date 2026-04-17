@@ -10,6 +10,9 @@ source: md.txt
 The Android Studio build system is based on Gradle, and the Android Gradle
 plugin adds several features that are specific to build Android apps.
 
+> [!IMPORTANT]
+> **Important:** You can use an agent skill to help you upgrade your project to AGP version 9.x. If your app doesn't use Kotlin Multiplatform (KMP), try the AGP 9 upgrade skill from the [Android skills repository](https://github.com/android/skills). If your app uses KMP, try the skill from [JetBrains](https://github.com/Kotlin/kotlin-agent-skills/tree/main/skills/kotlin-tooling-agp9-migration).
+
 This page explains how to keep your Gradle tools up to date. For release notes
 on the Android Gradle plugin, see the [release notes page](https://developer.android.com/build/releases/gradle-plugin).
 

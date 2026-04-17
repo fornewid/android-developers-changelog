@@ -49,15 +49,19 @@ following steps:
    both the [`ProductDetails`](https://developer.android.com/reference/com/android/billingclient/api/ProductDetails) indicating the subscription item, and an
    [`offerToken`](https://developer.android.com/google/play/billing/subscriptions#offers) selecting a specific subscription [`base plan`](https://developer.android.com/google/play/billing/subscriptions#base-plans-and-offers) or
    [`offer`](https://developer.android.com/google/play/billing/subscriptions#offers).
-   | **Note:** All items in the `ProductDetails` must be from the same app.
+
+   > [!NOTE]
+   > **Note:** All items in the `ProductDetails` must be from the same app.
+
 3. Specify the item details in the
    [`BillingFlowParams.Builder.setProductDetailsParamsList`](https://developer.android.com/reference/com/android/billingclient/api/BillingFlowParams.Builder#setProductDetailsParamsList(java.util.List%3Ccom.android.billingclient.api.BillingFlowParams.ProductDetailsParams%3E)) method. The
    [`BillingFlowParams`](https://developer.android.com/reference/com/android/billingclient/api/BillingFlowParams) class specifies the details of a purchase flow.
 
-   | **Note:** The first item in the list is referred to as the base item, and the remaining items are referred to as add-ons. And every item in this list must be unique. In other words, you can't set two [`ProductDetails`](https://developer.android.com/reference/com/android/billingclient/api/ProductDetails) with the same [`productId`](https://developer.android.com/reference/com/android/billingclient/api/ProductDetails#getProductId()) in the list.
+   > [!NOTE]
+   > **Note:** The first item in the list is referred to as the base item, and the remaining items are referred to as add-ons. And every item in this list must be unique. In other words, you can't set two [`ProductDetails`](https://developer.android.com/reference/com/android/billingclient/api/ProductDetails) with the same [`productId`](https://developer.android.com/reference/com/android/billingclient/api/ProductDetails#getProductId()) in the list.
 
    The following sample shows how to launch the billing flow for a subscription
-   purchase with multiple items:  
+   purchase with multiple items:
 
    #### Java
 
@@ -77,7 +81,9 @@ following steps:
               .build();
        billingClient.launchBillingFlow(billingFlowParams);
    ```
-   | **Note:** An in-app purchase will still be represented by the [`Purchase`](https://developer.android.com/reference/com/android/billingclient/api/Purchase) object. And the [`getProducts()`](https://developer.android.com/reference/com/android/billingclient/api/Purchase#getProducts()) method returns entitlements for all the items the user has from this purchase.
+
+   > [!NOTE]
+   > **Note:** An in-app purchase will still be represented by the [`Purchase`](https://developer.android.com/reference/com/android/billingclient/api/Purchase) object. And the [`getProducts()`](https://developer.android.com/reference/com/android/billingclient/api/Purchase#getProducts()) method returns entitlements for all the items the user has from this purchase.
 
 #### Rules applicable for items in the purchase
 
@@ -95,7 +101,9 @@ returns multiple items which can be retrieved using
 [`Purchase.getProducts()`](https://developer.android.com/reference/com/android/billingclient/api/Purchase#getProducts) in the Google
 Play Billing Library, and then the `lineItems` list in
 [`purchases.subscriptionsv2.get`](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.subscriptionsv2) of the [Google Play Developer API](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.subscriptionsv2).
-| **Note:** For each call of the [`launchBillingFlow`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient#launchBillingFlow(android.app.Activity,com.android.billingclient.api.BillingFlowParams)) API, there is a limit of 50 items (active items + new items). If the cart contains more than 50 items, Google Play blocks the purchase flow.
+
+> [!NOTE]
+> **Note:** For each call of the [`launchBillingFlow`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient#launchBillingFlow(android.app.Activity,com.android.billingclient.api.BillingFlowParams)) API, there is a limit of 50 items (active items + new items). If the cart contains more than 50 items, Google Play blocks the purchase flow.
 
 ## Modify subscriptions with add-ons
 
@@ -115,7 +123,7 @@ parameters, and ensure the following:
 - When launching the billing flow, you will need to specify all active items in the subscription with add-ons excluding those to be removed, along with any new add-ons.
 
 The following sample shows how to call the [`launchBillingFlow`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient#launchBillingFlow(android.app.Activity,com.android.billingclient.api.BillingFlowParams)) API when
-changing an existing purchase of subscription with add-ons:  
+changing an existing purchase of subscription with add-ons:
 
 #### Java
 
@@ -175,9 +183,9 @@ with add-ons, and the corresponding behaviour.
 | A | A (base item), B | No | - Item B is added immediately with a prorated charge. - Item A's behaviour depends on the [Base plan and offer changes](https://support.google.com/googleplay/android-developer/answer/12154973) setting of the base plan. - The pricing for item A is updated to the latest price and users may lose any introductory payments they got during signup based on offer eligibility criteria. |
 | A (base item), B | A (base item), C | No | - B is scheduled for deferred removal. - C is added immediately with a prorated charge. - Item A's behaviour depends on the [Base plan and offer changes](https://support.google.com/googleplay/android-developer/answer/12154973) setting of the base plan. |
 | A (base item), B | B (base item) | No | A is scheduled for a deferred removal. |
-| A (base item), B | C (base item) | Yes | - The replacement for A -\> C depends on [setSubscriptionReplacementMode](https://developer.android.com/reference/com/android/billingclient/api/BillingFlowParams.SubscriptionUpdateParams.Builder#setSubscriptionReplacementMode(int)) (deprecated in PBL 8.1). - B is scheduled for deferred removal. |
-| A (base item), B | C (base item), B | Yes | The replacement for A -\> C depends on [setSubscriptionReplacementMode](https://developer.android.com/reference/com/android/billingclient/api/BillingFlowParams.SubscriptionUpdateParams.Builder#setSubscriptionReplacementMode(int)) (deprecated in PBL 8.1). |
-| A (base item), B | C (base item), D | Yes | - The replacement for A -\> C depends on [setSubscriptionReplacementMode](https://developer.android.com/reference/com/android/billingclient/api/BillingFlowParams.SubscriptionUpdateParams.Builder#setSubscriptionReplacementMode(int)) (deprecated in PBL 8.1). - B is scheduled for deferred removal. - D is added immediately with a prorated charge. |
+| A (base item), B | C (base item) | Yes | - The replacement for A -\> C depends on `https://developer.android.com/reference/com/android/billingclient/api/BillingFlowParams.SubscriptionUpdateParams.Builder#setSubscriptionReplacementMode(int)` (deprecated in PBL 8.1). - B is scheduled for deferred removal. |
+| A (base item), B | C (base item), B | Yes | The replacement for A -\> C depends on `https://developer.android.com/reference/com/android/billingclient/api/BillingFlowParams.SubscriptionUpdateParams.Builder#setSubscriptionReplacementMode(int)` (deprecated in PBL 8.1). |
+| A (base item), B | C (base item), D | Yes | - The replacement for A -\> C depends on `https://developer.android.com/reference/com/android/billingclient/api/BillingFlowParams.SubscriptionUpdateParams.Builder#setSubscriptionReplacementMode(int)` (deprecated in PBL 8.1). - B is scheduled for deferred removal. - D is added immediately with a prorated charge. |
 
 ## Real-time developer notifications
 
@@ -247,7 +255,9 @@ subscriptions:
 - Call [`orders.refund`](https://developers.google.com/android-publisher/api-ref/rest/v3/orders/refund) to fully refund specific subscription payments
   the user has made without revoking access to the subscription.
 
-  | **Note:** Don't call [`purchases.subscriptions.refund (deprecated)`](https://developer.android.com/android-publisher/api-ref/rest/v3/purchases.subscriptions/refund) for a subscription with add-ons.
+  > [!NOTE]
+  > **Note:** Don't call [`purchases.subscriptions.refund (deprecated)`](https://developer.android.com/android-publisher/api-ref/rest/v3/purchases.subscriptions/refund) for a subscription with add-ons.
+
 - Call [`purchases.subscriptionsv2.revoke`](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.subscriptionsv2/revoke) to immediately revoke access
   to all subscription items. With this API, you can:
 

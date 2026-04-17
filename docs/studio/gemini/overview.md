@@ -24,6 +24,9 @@ Gemini in Android Studio is available in the following editions:
   - Standard tier
   - Enterprise tier
 
+If you're interested in agent-driven development for Android using agents outside
+of Android Studio, use [Android CLI](https://developer.android.com/tools/agents/android-cli).
+
 ## What is the right tier for me?
 
 If you're an individual freelance developer, student, or hobbyist we recommend
