@@ -1,0 +1,83 @@
+diff --git a/docs/google/play/billing/one-time-product-multi-purchase-options-offers.md b/docs/google/play/billing/one-time-product-multi-purchase-options-offers.md
+index 717c8f35..ee3ddf12 100644
+--- a/docs/google/play/billing/one-time-product-multi-purchase-options-offers.md
++++ b/docs/google/play/billing/one-time-product-multi-purchase-options-offers.md
+@@ -31,7 +31,9 @@ eligible offers for each [`ProductDetails`](https://developer.android.com/refere
+ for which the user is eligible will be returned as part of this list. Your code
+ in the [`onProductDetailsResponse()`](https://developer.android.com/reference/com/android/billingclient/api/ProductDetailsResponseListener#onProductDetailsResponse(com.android.billingclient.api.ProdctDetails.ProductDetailsResult)) method should handle the returned
+ offers.
+-| **Note:** If you continue to call the `getOneTimePurchaseOfferDetails()` method instead of the new `getOneTimePurchaseOfferDetailsList()` method, the backwards compatible purchase option offer is returned instead of all the eligible offers. By default, the first created buy purchase option is considered as backward compatible. However, if a backward compatible offer isn't available, the `QueryProductDetailsResult` will have an `UnfetchedProduct` object that has original requested product ID, product type, and the status code as `NO_ELIGIBLE_OFFER`.
++
++> [!NOTE]
++> **Note:** If you continue to call the `getOneTimePurchaseOfferDetails()` method instead of the new `getOneTimePurchaseOfferDetailsList()` method, the backwards compatible purchase option offer is returned instead of all the eligible offers. By default, the first created buy purchase option is considered as backward compatible. However, if a backward compatible offer isn't available, the `QueryProductDetailsResult` will have an `UnfetchedProduct` object that has original requested product ID, product type, and the status code as `NO_ELIGIBLE_OFFER`.
+ 
+ ## Launch the billing flow
+ 
+@@ -119,7 +121,9 @@ The rent purchase option lets users access the one-time products for a specified
+ time duration. You can specify the rental period and it's expiration. This
+ document describes the steps to integrate the rent purchase option with the Play
+ Billing Library (PBL).
+-| **Note:** You must grant user entitlement for your one-time products available on rent. For more information, see [Grant entitlement to the user](https://developer.android.com/google/play/billing/integrate#granting-entitlement).
++
++> [!NOTE]
++> **Note:** You must grant user entitlement for your one-time products available on rent. For more information, see [Grant entitlement to the user](https://developer.android.com/google/play/billing/integrate#granting-entitlement).
+ 
+ #### Integrate rent purchase option with PBL
+ 
+@@ -142,7 +146,7 @@ To launch a purchase flow for a rental offer, do the following steps:
+ 1. Fetch the rent purchase option metadata by using the
+    [`ProductDetails.oneTimePurchaseOfferDetails.getRentalDetails()`]() method.
+ 
+-   The following sample shows how to get the rent purchase metadata:  
++   The following sample shows how to get the rent purchase metadata:
+ 
+    #### Java
+ 
+@@ -262,7 +266,8 @@ To launch a purchase flow for a rental offer, do the following steps:
+ ### Pre-order offer
+ 
+ 
+-| **EAP:** This product or feature is in the Early Access Program (EAP). Products and features in EAP are available "as is" and might have limited support. To access the EAP feature submit a request using the [One-time products EAP Interest Form](https://docs.google.com/forms/d/e/1FAIpQLSfBsxfQg4a8uC7Ct9O4ssn121KE6l8TC4qh3ZvA5tJpFLycqw/viewform?usp=dialog).
++> [!WARNING]
++> **EAP:** This product or feature is in the Early Access Program (EAP). Products and features in EAP are available "as is" and might have limited support. To access the EAP feature submit a request using the [One-time products EAP Interest Form](https://docs.google.com/forms/d/e/1FAIpQLSfBsxfQg4a8uC7Ct9O4ssn121KE6l8TC4qh3ZvA5tJpFLycqw/viewform?usp=dialog).
+ 
+ <br />
+ 
+@@ -343,7 +348,7 @@ To launch a purchase flow for a pre-order offer, do the following steps:
+    offer, they will receive an offer with PreorderDetails and offerId in the
+    `queryProductDetailsAsync()` method.
+ 
+-   The following sample shows how to launch the billing flow:  
++   The following sample shows how to launch the billing flow:
+ 
+    #### Java
+ 
+@@ -405,7 +410,7 @@ absolute discount offered.
+ 
+ The following sample shows how to get the discounted offer's original full price
+ and its percentage discount. Note that the percentage discount information is
+-only returned for discounted offers.  
++only returned for discounted offers.
+ 
+ #### Java
+ 
+@@ -446,7 +451,7 @@ billingClient.queryProductDetailsAsync(
+ The following example shows how to get the discounted offer's original full
+ price and its absolute discount in micros. Note that the absolute discount in
+ micros information is only returned for discounted offers. Either the absolute
+-discount or percentage discount must be specified for a discount offer.  
++discount or percentage discount must be specified for a discount offer.
+ 
+ #### Java
+ 
+@@ -608,7 +613,9 @@ based on Play country. When you configure regional availability for an offer, it
+ will only be returned as part of `getOneTimePurchaseOfferDetailsList()` if the
+ user is in a targeted country or region, otherwise it won't be part of the list
+ of offers returned when you call `queryProductDetailsAsync()`.
+-| **Note:** Country or regional eligibility for a user may change between you displaying the eligible products for them and launching the purchase flow in some rare cases. For example, the user could change their country. Such a change may make the previously returned offer ineligible in the user's new country or region. Google Play will double check the user's country eligibility when the billing flow is launched to make sure country eligibility is enforced. If the user is not eligible, the `PurchasesUpdatedListener` will get an `ITEM_UNAVAILABLE` response code.
++
++> [!NOTE]
++> **Note:** Country or regional eligibility for a user may change between you displaying the eligible products for them and launching the purchase flow in some rare cases. For example, the user could change their country. Such a change may make the previously returned offer ineligible in the user's new country or region. Google Play will double check the user's country eligibility when the billing flow is launched to make sure country eligibility is enforced. If the user is not eligible, the `PurchasesUpdatedListener` will get an `ITEM_UNAVAILABLE` response code.
+ 
+ ## Offer tags
+ 

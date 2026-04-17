@@ -1,0 +1,32 @@
+diff --git a/docs/guide/navigation/navigation-3/migration-guide.md b/docs/guide/navigation/navigation-3/migration-guide.md
+index 858c1fd0..faf2e829 100644
+--- a/docs/guide/navigation/navigation-3/migration-guide.md
++++ b/docs/guide/navigation/navigation-3/migration-guide.md
+@@ -14,6 +14,9 @@ To migrate your app from [Navigation 2](https://developer.android.com/guide/navi
+ 6. Replace `NavHost` with `NavDisplay`.
+ 7. Remove Navigation 2 dependencies.
+ 
++> [!IMPORTANT]
++> **Important:** We released an agent skill to help you install and migrate to Jetpack Navigation 3. Try out the skill from the [Android skills repository](https://github.com/android/skills).
++
+ <br />
+ 
+ 
+@@ -478,7 +481,7 @@ Replace `NavHost` with `NavDisplay`.
+ - Delete `NavHost` and replace it with `NavDisplay`.
+ - Specify `entries = navigationState.toEntries(entryProvider)` as a parameter. This converts the navigation state into the entries that `NavDisplay` shows using the `entryProvider`.
+ - Connect `NavDisplay.onBack` to `navigator.goBack()`. This causes `navigator` to update the navigation state when `NavDisplay`'s built-in back handler completes.
+-- If you have dialog destinations, add `DialogSceneStrategy` to `NavDisplay`'s `sceneStrategy` parameter.
++- If you have dialog destinations, add `DialogSceneStrategy` to `NavDisplay`'s `sceneStrategies` parameter.
+ 
+ For example:
+ 
+@@ -487,7 +490,7 @@ For example:
+     NavDisplay(
+         entries = navigationState.toEntries(entryProvider),
+         onBack = { navigator.goBack() },
+-        sceneStrategy = remember { DialogSceneStrategy() }
++        sceneStrategies = remember { listOf(DialogSceneStrategy()) }
+     )
+ 
+ ## Step 7: Remove Navigation 2 dependencies

@@ -1,0 +1,97 @@
+diff --git a/docs/design/ui/mobile/guides/layout-and-content/edge-to-edge.md b/docs/design/ui/mobile/guides/layout-and-content/edge-to-edge.md
+index 798e7c6c..5f62e0c6 100644
+--- a/docs/design/ui/mobile/guides/layout-and-content/edge-to-edge.md
++++ b/docs/design/ui/mobile/guides/layout-and-content/edge-to-edge.md
+@@ -10,6 +10,9 @@ An edge-to-edge app takes advantage of the entire screen by drawing UI under the
+ system bars.
+ ![](https://developer.android.com/static/images/design/ui/mobile/e2e-app-contrast.gif) **Figure 1.** Left. An app that isn't edge-to-edge. Right. An app that is edge-to-edge.
+ 
++> [!IMPORTANT]
++> **Important:** We released an agent skill to help you migrate your Jetpack Compose app to add adaptive edge-to-edge support. Try out the skill from the [Android skills repository](https://github.com/android/skills).
++
+ ## Takeaways
+ 
+ - Draw background and scrolling content underneath system bars for an edge-to-edge experience.
+@@ -42,15 +45,12 @@ following section discusses additional status bar considerations.
+ #### Scrolling content
+ 
+ Top app bars should collapse while scrolling. Learn how to [collapse](https://developer.android.com/develop/ui/compose/components/app-bars#scroll) the
+-Material 3 TopAppBar.  
+-![](https://developer.android.com/static/images/design/ui/mobile/e2e-collapse-bar.gif)  
+-check_circle
++Material 3 TopAppBar.
++![](https://developer.android.com/static/images/design/ui/mobile/e2e-collapse-bar.gif)
+ 
+ ### Do
+ 
+-Collapse the top app bar to status bar height if the app bar is sticky.  
+-![](https://developer.android.com/static/images/design/ui/mobile/e2e-bg-color.gif)  
+-check_circle
++Collapse the top app bar to status bar height if the app bar is sticky. ![](https://developer.android.com/static/images/design/ui/mobile/e2e-bg-color.gif)
+ 
+ ### Do
+ 
+@@ -63,20 +63,18 @@ scrollable UI edge-to-edge by implementing the steps in the [LazyColumn](https:/
+ doing one of the following:
+ 
+ - Rely on the Material 3 TopAppBar automatic protection when [scrolling](https://developer.android.com/develop/ui/compose/components/app-bars#scroll), if applicable.
+-- Create a custom gradient composable or use [GradientProtection](https://developer.android.com/reference/androidx/core/view/insetscontrast/GradientProtection) for Views. For more information on doing this in compose, see [System bar protection](https://developer.android.com/develop/ui/compose/layouts/system-bars).
++- Create a custom gradient composable or use [GradientProtection](https://developer.android.com/reference/androidx/core/view/insetscontrast/GradientProtection) for Views. For more information on doing this in compose, see [System bar
++  protection](https://developer.android.com/develop/ui/compose/layouts/system-bars).
+ 
+ ![](https://developer.android.com/static/images/design/ui/mobile/e2e-protection.png) **Figure 3.** An app with gesture insets highlighted green.
+ 
+ For adaptive layouts, ensure there are separate protections for panes with
+-different background colors.  
+-![](https://developer.android.com/static/images/design/ui/mobile/e2e-gradient-protection-dont.png)  
+-cancel
++different background colors.
++![](https://developer.android.com/static/images/design/ui/mobile/e2e-gradient-protection-dont.png)
+ 
+ ### Don´t
+ 
+-Have gradient protection that mismatches each pane's background  
+-![](https://developer.android.com/static/images/design/ui/mobile/e2e-gradient-protection-do.png)  
+-check_circle
++Have gradient protection that mismatches each pane's background ![](https://developer.android.com/static/images/design/ui/mobile/e2e-gradient-protection-do.png)
+ 
+ ### Do
+ 
+@@ -96,15 +94,12 @@ The following section includes additional navigation bar considerations.
+ 
+ #### Scrolling content
+ 
+-Bottom app bars should collapse while scrolling.  
+-![](https://developer.android.com/static/images/design/ui/mobile/e2e-scrim-do.gif)  
+-check_circle
++Bottom app bars should collapse while scrolling.
++![](https://developer.android.com/static/images/design/ui/mobile/e2e-scrim-do.gif)
+ 
+ ### Do
+ 
+-Add system bar scrim for three-button navigation when the bottom app bar animates away.  
+-![](https://developer.android.com/static/images/design/ui/mobile/e2e-transparent-do.gif)  
+-check_circle
++Add system bar scrim for three-button navigation when the bottom app bar animates away. ![](https://developer.android.com/static/images/design/ui/mobile/e2e-transparent-do.gif)
+ 
+ ### Do
+ 
+@@ -114,15 +109,12 @@ Keep gesture navigation transparent and don't add an additional scrim.
+ 
+ Display cutouts can affect the appearance of your UI. Apps must handle display
+ cutout insets so that important parts of the UI don't draw underneath the
+-display cutout.  
+-![](https://developer.android.com/static/images/design/ui/mobile/e2e-inset-do.png)  
+-check_circle
++display cutout.
++![](https://developer.android.com/static/images/design/ui/mobile/e2e-inset-do.png)
+ 
+ ### Do
+ 
+-Inset critical UI using display cutout insets.  
+-![](https://developer.android.com/static/images/design/ui/mobile/e2e-inset-dont.png)  
+-cancel
++Inset critical UI using display cutout insets. ![](https://developer.android.com/static/images/design/ui/mobile/e2e-inset-dont.png)
+ 
+ ### Don´t
+ 

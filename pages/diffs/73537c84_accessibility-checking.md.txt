@@ -1,0 +1,112 @@
+diff --git a/docs/training/testing/espresso/accessibility-checking.md b/docs/training/testing/espresso/accessibility-checking.md
+index 73dc0f8e..3e27f970 100644
+--- a/docs/training/testing/espresso/accessibility-checking.md
++++ b/docs/training/testing/espresso/accessibility-checking.md
+@@ -20,32 +20,28 @@ class:
+ 
+ ### Kotlin
+ 
+-```kotlin
+-import androidx.test.espresso.accessibility.AccessibilityChecks
+-
+-@RunWith(AndroidJUnit4::class)
+-@LargeTest
+-class MyWelcomeWorkflowIntegrationTest {
+-    init {
+-        AccessibilityChecks.enable()
++    import androidx.test.espresso.accessibility.AccessibilityChecks
++
++    @RunWith(AndroidJUnit4::class)
++    @LargeTest
++    class MyWelcomeWorkflowIntegrationTest {
++        init {
++            AccessibilityChecks.enable()
++        }
+     }
+-}
+-```
+ 
+ ### Java
+ 
+-```java
+-import androidx.test.espresso.accessibility.AccessibilityChecks;
++    import androidx.test.espresso.accessibility.AccessibilityChecks;
+ 
+-@RunWith(AndroidJUnit4.class)
+-@LargeTest
+-public class MyWelcomeWorkflowIntegrationTest {
+-    @BeforeClass
+-    public void enableAccessibilityChecks() {
+-        AccessibilityChecks.enable();
++    @RunWith(AndroidJUnit4.class)
++    @LargeTest
++    public class MyWelcomeWorkflowIntegrationTest {
++        @BeforeClass
++        public void enableAccessibilityChecks() {
++            AccessibilityChecks.enable();
++        }
+     }
+-}
+-```
+ 
+ By default, the checks run when you perform any view action defined in
+ [`ViewActions`](https://developer.android.com/reference/androidx/test/espresso/action/ViewActions). Each
+@@ -57,15 +53,11 @@ as shown in the following code snippet:
+ 
+ ### Kotlin
+ 
+-```kotlin
+-AccessibilityChecks.enable().setRunChecksFromRootView(true)
+-```
++    AccessibilityChecks.enable().setRunChecksFromRootView(true)
+ 
+ ### Java
+ 
+-```java
+-AccessibilityChecks.enable().setRunChecksFromRootView(true);
+-```
++    AccessibilityChecks.enable().setRunChecksFromRootView(true);
+ 
+ ## Suppress subsets of results
+ 
+@@ -100,24 +92,20 @@ element's color contrast. The element's ID is `countTV`.
+ 
+ ### Kotlin
+ 
+-```kotlin
+-AccessibilityChecks.enable().apply {
+-        setSuppressingResultMatcher(
+-                allOf(
+-                    matchesCheck(TextContrastCheck::class.java),
+-                    matchesViews(withId(R.id.countTV))
+-                )
+-        )
+-}
+-```
++    AccessibilityChecks.enable().apply {
++            setSuppressingResultMatcher(
++                    allOf(
++                        matchesCheck(TextContrastCheck::class.java),
++                        matchesViews(withId(R.id.countTV))
++                    )
++            )
++    }
+ 
+ ### Java
+ 
+-```java
+-AccessibilityValidator myChecksValidator =
+-    AccessibilityChecks.enable()
+-        .setSuppressingResultMatcher(
+-            allOf(
+-                matchesCheck(TextContrastCheck.class),
+-                matchesViews(withId(R.id.countTV))));
+-```
+\ No newline at end of file
++    AccessibilityValidator myChecksValidator =
++        AccessibilityChecks.enable()
++            .setSuppressingResultMatcher(
++                allOf(
++                    matchesCheck(TextContrastCheck.class),
++                    matchesViews(withId(R.id.countTV))));
+\ No newline at end of file

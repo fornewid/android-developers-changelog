@@ -1,0 +1,67 @@
+diff --git a/docs/about/versions/17/behavior-changes-17.md b/docs/about/versions/17/behavior-changes-17.md
+index fcd45985..da1fc9ee 100644
+--- a/docs/about/versions/17/behavior-changes-17.md
++++ b/docs/about/versions/17/behavior-changes-17.md
+@@ -211,6 +211,29 @@ the [`ContactsContract.Data`](https://developer.android.com/reference/android/pr
+ uses a pattern that isn't compatible with these, it will be
+ rejected and cause an exception to be thrown.
+ 
++## Media
++
++Android 17 includes the following changes to media behavior.
++
++### Background audio hardening
++
++Beginning with Android 17, the audio framework enforces restrictions on
++background audio interactions including audio playback, audio focus requests,
++and volume change APIs to ensure that these changes are started intentionally by
++the user.
++
++Some audio restrictions apply to all apps. However, the restrictions are more
++stringent if an app targets Android 17 (API level 37). If one of these apps
++interacts with audio while it is in the background, it must have a foreground
++service running. In addition, the app must meet one or both of these
++requirements:
++
++- The foreground service must have while-in-use (WIU) capabilities.
++- The app must have the [exact alarm](https://developer.android.com/develop/background-work/services/alarms#exact) permission and be interacting with [`USAGE_ALARM`](https://developer.android.com/reference/android/media/AudioAttributes#USAGE_ALARM) audio streams.
++
++For more information, including mitigation strategies, see [Background audio
++hardening](https://developer.android.com/about/versions/17/changes/bg-audio).
++
+ ## Device form factors
+ 
+ Android 17 includes the following changes to improve user
+@@ -226,4 +249,29 @@ changes with SDK 36, but this opt-out will no longer be
+ available for apps that target Android 17 (API level 37) or higher.
+ 
+ For more information, see [Restrictions on orientation and resizability are
+-ignored](https://developer.android.com/about/versions/17/changes/ff-restrictions-ignored).
+\ No newline at end of file
++ignored](https://developer.android.com/about/versions/17/changes/ff-restrictions-ignored).
++
++## Connectivity
++
++Android 17 introduces the following change to improve consistency and
++align with standard Java `InputStream` behavior for Bluetooth RFCOMM sockets.
++
++### Consistent BluetoothSocket read() behavior for RFCOMM
++
++For apps targeting Android 17 (API level 37), the
++[`read()`](https://developer.android.com/reference/java/io/InputStream#read(byte%5B%5D)) method of the `InputStream` obtained from an
++RFCOMM-based [`BluetoothSocket`](https://developer.android.com/reference/android/bluetooth/BluetoothSocket) now returns `-1` when the
++socket is closed or the connection is dropped.
++
++This change makes RFCOMM socket behavior consistent with LE CoC sockets and
++aligns with the standard [`InputStream.read()`](https://developer.android.com/reference/java/io/InputStream#read(byte%5B%5D))
++documentation, which states that `-1` is returned when the end of the stream is
++reached.
++
++Apps that rely solely on catching an IOException to break out of a read loop may
++be impacted by this change and should update the BluetoothSocket read loops to
++explicitly check for a return value of `-1`. This ensures the loop terminates
++correctly when the remote device disconnects or the socket is closed. For an
++example of the recommended implementation, see the
++[code snippet](https://developer.android.com/develop/connectivity/bluetooth/transfer-data#example) in the [Transfer Bluetooth data](https://developer.android.com/develop/connectivity/bluetooth/transfer-data)
++guide.
+\ No newline at end of file

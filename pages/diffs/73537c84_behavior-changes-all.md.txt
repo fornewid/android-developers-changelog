@@ -1,0 +1,50 @@
+diff --git a/docs/about/versions/17/behavior-changes-all.md b/docs/about/versions/17/behavior-changes-all.md
+index dd941e03..0c98933d 100644
+--- a/docs/about/versions/17/behavior-changes-all.md
++++ b/docs/about/versions/17/behavior-changes-all.md
+@@ -17,6 +17,35 @@ targeting Android 17](https://developer.android.com/about/versions/17/behavior-c
+ > [!NOTE]
+ > **Note:** This page lists some of the more important changes. For more detailed information, see the [Android 17 release notes](https://developer.android.com/about/versions/17/release-notes).
+ 
++## Core functionality
++
++Android 17 (API level 37) includes the following changes that modify or
++expand various core capabilities of the Android system.
++
++### App memory limits
++
++Android 17 introduces app memory limits based on the device's total RAM
++to create a more stable and deterministic environment for your applications and
++Android users. In Android 17, limits are set conservatively to establish system
++baselines, targeting extreme memory leaks and other outliers before they trigger
++system-wide instability resulting in UI stuttering, higher battery drain, and
++apps being killed. While we anticipate minimal impact on the vast majority of
++app sessions, we recommend the [following memory best practices](https://developer.android.com/topic/performance/memory),
++including establishing a baseline for memory.
++
++You can determine if your app session was impacted by calling
++[`getDescription`](https://developer.android.com/reference/android/app/ApplicationExitInfo#getDescription%28%29) in [`ApplicationExitInfo`](https://developer.android.com/reference/android/app/ApplicationExitInfo); if your app was
++affected, the exit reason will be [`REASON_OTHER`](https://developer.android.com/reference/android/app/ApplicationExitInfo#REASON_OTHER) and
++the description will contain the string `"MemoryLimiter:AnonSwap"` along with
++other information. You can also use [trigger-based profiling](https://developer.android.com/topic/performance/tracing/profiling-manager/trigger-based-capture) with
++[`TRIGGER_TYPE_ANOMALY`](https://developer.android.com/about/versions/17/features#anomaly-profiling-trigger) to get heap dumps that are collected when the
++memory limit is hit.
++![](https://developer.android.com/static/about/versions/17/images/leak-canary-screenshot.png) The LeakCanary task in the Android Studio Profiler.
++
++To help you find memory leaks, Android Studio Panda adds LeakCanary integration
++directly in the Android Studio Profiler as a dedicated task, contextualized
++within the IDE and fully integrated with your source code.
++
+ ## Security
+ 
+ Android 17 includes the following improvements to device and app
+@@ -122,6 +151,9 @@ the audio playback and volume change APIs fail silently without throwing an
+ exception or providing a failure message. The audio focus API fails with the
+ result code `AUDIOFOCUS_REQUEST_FAILED`.
+ 
++> [!NOTE]
++> **Note:** The restrictions are more stringent if an app targets Android 17 (API level 37). For these apps, the foreground service must have while-in-use (WIU) capabilities, unless the app has the [exact alarm](https://developer.android.com/develop/background-work/services/alarms#exact) permission and is interacting with [`USAGE_ALARM`](https://developer.android.com/reference/android/media/AudioAttributes#USAGE_ALARM) audio streams.
++
+ For more information, including mitigation strategies, see [Background audio
+ hardening](https://developer.android.com/about/versions/17/changes/bg-audio).
+ 

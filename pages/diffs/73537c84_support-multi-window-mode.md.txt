@@ -1,0 +1,14 @@
+diff --git a/docs/develop/ui/views/layout/support-multi-window-mode.md b/docs/develop/ui/views/layout/support-multi-window-mode.md
+index cc7963b6..8383252c 100644
+--- a/docs/develop/ui/views/layout/support-multi-window-mode.md
++++ b/docs/develop/ui/views/layout/support-multi-window-mode.md
+@@ -323,7 +323,8 @@ settings to determine whether the activity can run in multi-window mode.
+ ### `resizeableActivity`
+ 
+ Set this attribute in your manifest's [`<activity>`](https://developer.android.com/guide/topics/manifest/activity-element) or [`<application>`](https://developer.android.com/guide/topics/manifest/application-element)
+-element to enable or disable multi-window mode for API level 30 and lower:
++element to enable or disable multi-window mode for API levels 24 through 30
++(the attribute was introduced in API level 24):
+ 
+     <application
+       android:name=".MyActivity"
