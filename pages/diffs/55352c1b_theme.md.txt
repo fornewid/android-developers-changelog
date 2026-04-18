@@ -1,0 +1,13 @@
+diff --git a/docs/develop/ui/compose/glance/theme.md b/docs/develop/ui/compose/glance/theme.md
+index d9c21cfe..af3b163e 100644
+--- a/docs/develop/ui/compose/glance/theme.md
++++ b/docs/develop/ui/compose/glance/theme.md
+@@ -139,7 +139,7 @@ For example, the following snippet shows how to create a drawable (a shape):
+     <shape xmlns:android="http://schemas.android.com/apk/res/android">
+         <corners android:radius="16dp"/>
+         <stroke android:color="@color/outline_color" android:width="1dp"/>
+-    </shape>https://github.com/android/snippets/blob/b99814d50c0bd341a83912e2c52bcbb6c0dd5568/compose/snippets/src/main/res/drawable/button_outline.xml#L18-L21
++    </shape>https://github.com/android/snippets/blob/4fe2def8df52a175e66e770f90d72528db7d4c9a/compose/snippets/src/main/res/drawable/button_outline.xml#L18-L21
+ 
+ Provide it to the target composable:
+ 

@@ -1,0 +1,89 @@
+diff --git a/docs/blog/latest/2.md b/docs/blog/latest/2.md
+index 01245810..aa67b59a 100644
+--- a/docs/blog/latest/2.md
++++ b/docs/blog/latest/2.md
+@@ -7,6 +7,39 @@ source: md.txt
+ # The Latest
+ 
+ Stay up to date with the latest announcements, feature rollouts, and updates across Android tools, libraries, and platforms.
++- [![](https://developer.android.com/static/blog/assets/Ivy_Knight_3071ce592d_2j4ER1.webp)](https://developer.android.com/blog/authors/ivy-knight) 16 Mar 2026 16 Mar 2026 ![](https://developer.android.com/static/blog/assets/get_Inspired_6627220d63_Z2niudI.webp)
++
++  #### [Product News](https://developer.android.com/blog/categories/product-news)
++
++  ## [Get inspired and take your apps to desktop](https://developer.android.com/blog/posts/get-inspired-and-take-your-apps-to-desktop)
++
++  [arrow_forward](https://developer.android.com/blog/posts/get-inspired-and-take-your-apps-to-desktop) We're thrilled to announce major updates to our design resources, giving you the comprehensive guidance you need to create polished, adaptive Android apps across all form factors! We now have Desktop Experience guidance and a refreshed Android Design Gallery.
++
++  ###### [Ivy Knight](https://developer.android.com/blog/authors/ivy-knight) •
++  2 min read
++
++- [![](https://developer.android.com/static/blog/assets/Ben_Trengrove_b9e17c8c2e_2uVqlp.webp)](https://developer.android.com/blog/authors/ben-trengrove)[![](https://developer.android.com/static/blog/assets/Ajesh_R_Pai_fc75c62777_Z1G5g2B.webp)](https://developer.android.com/blog/authors/ajesh-pai) 13 Mar 2026 13 Mar 2026 ![](https://developer.android.com/static/blog/assets/tiktok_Case_Study_ae91bba156_1Bjq08.webp)
++
++  #### [Case Studies](https://developer.android.com/blog/categories/case-studies)
++
++  ## [TikTok reduces code size by 58% and improves app performance for new features with Jetpack Compose](https://developer.android.com/blog/posts/tiktok-reduces-code-size-and-improves-app-performance-for-new-features-with-jetpack-compose)
++
++  [arrow_forward](https://developer.android.com/blog/posts/tiktok-reduces-code-size-and-improves-app-performance-for-new-features-with-jetpack-compose) TikTok is a global short-video platform known for its massive user base and innovative features.
++
++  ###### [Ben Trengrove](https://developer.android.com/blog/authors/ben-trengrove), [Ajesh Pai](https://developer.android.com/blog/authors/ajesh-pai) •
++  2 min read
++
++- [![](https://developer.android.com/static/blog/assets/Daniel_Santiago_Rivera_157422eedb_Z1DQYwY.webp)](https://developer.android.com/blog/authors/daniel-santiago-rivera) 13 Mar 2026 13 Mar 2026 ![](https://developer.android.com/static/blog/assets/elevating_Media2_20563cb635_1XxrMX.webp)
++
++  #### [Product News](https://developer.android.com/blog/categories/product-news)
++
++  ## [Room 3.0 - Modernizing the Room](https://developer.android.com/blog/posts/modernizing-the-room)
++
++  [arrow_forward](https://developer.android.com/blog/posts/modernizing-the-room) The first alpha of Room 3.0 has been released! Room 3.0 is a major breaking version of the library that focuses on Kotlin Multiplatform (KMP) and adds support for JavaScript and WebAssembly (WASM) on top of the existing Android, iOS and JVM desktop support.
++
++  ###### [Daniel Santiago Rivera](https://developer.android.com/blog/authors/daniel-santiago-rivera) •
++  4 min read
++
+ - [![](https://developer.android.com/static/blog/assets/maru_ahues_7598dede84_Zr7Omv.webp)](https://developer.android.com/blog/authors/maru-ahues-bouza) 11 Mar 2026 11 Mar 2026 ![](https://developer.android.com/static/blog/assets/Google_Play_Level_Up_metadata_banner_2048x1323_33658d545a_ZDM8Sn.webp)
+ 
+   #### [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs)
+@@ -193,43 +226,11 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
+   ###### [Phalene Gowling](https://developer.android.com/blog/authors/phalene-gowling) •
+   2 min read
+ 
+-- 4 Authors 28 Jan 2026 28 Jan 2026 ![](https://developer.android.com/static/blog/assets/Prompt_API_Banner_1_ff0c780828_1kyTTw.webp)
+-
+-  #### [Product News](https://developer.android.com/blog/categories/product-news)
+-
+-  ## [How Automated Prompt Optimization Unlocks Quality Gains for ML Kit's GenAI Prompt API](https://developer.android.com/blog/posts/how-automated-prompt-optimization-unlocks-quality-gains-for-ml-kit-s-gen-ai-prompt-api)
+-
+-  [arrow_forward](https://developer.android.com/blog/posts/how-automated-prompt-optimization-unlocks-quality-gains-for-ml-kit-s-gen-ai-prompt-api) To further help bring your ML Kit Prompt API use cases to production, we are excited to announce Automated Prompt Optimization (APO) targeting On-Device models on Vertex AI. Automated Prompt Optimization is a tool that helps you automatically find the optimal prompt for your use cases.
+-
+-  ###### [Chetan Tekur](https://developer.android.com/blog/authors/chetan-tekur), [Chao Zhao](https://developer.android.com/blog/authors/chao-zhao), [Paul Zhou](https://developer.android.com/blog/authors/paul-zhou), [Caren Chang](https://developer.android.com/blog/authors/caren-chang) •
+-  3 min read
+-
+-- [![](https://developer.android.com/static/blog/assets/roxana_02dc1d3afc_GLFQH.webp)](https://developer.android.com/blog/authors/roxanna-walker)[![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](https://developer.android.com/blog/authors/yacine-rezgui) 27 Jan 2026 27 Jan 2026 ![](https://developer.android.com/static/blog/assets/Android_Photo_Picker_Blogger_60fa0ede59_YTu6Y.webp)
+-
+-  #### [Product News](https://developer.android.com/blog/categories/product-news)
+-
+-  ## [The Embedded Photo Picker](https://developer.android.com/blog/posts/the-embedded-photo-picker)
+-
+-  [arrow_forward](https://developer.android.com/blog/posts/the-embedded-photo-picker) The Embedded Photo Picker: A more seamless way to privately request photos and videos in your app.
+-
+-  ###### [Roxanna Aliabadi Walker](https://developer.android.com/blog/authors/roxanna-walker), [Yacine Rezgui](https://developer.android.com/blog/authors/yacine-rezgui) •
+-  8 min read
+-
+-- 26 Jan 2026 26 Jan 2026 ![](https://developer.android.com/static/blog/assets/Android_Trade_IN_Mode_Blog_9dc083b903_Z28Fz7W.webp)
+-
+-  #### [Product News](https://developer.android.com/blog/categories/product-news)
+-
+-  ## [Trade-in mode on Android 16+](https://developer.android.com/blog/posts/trade-in-mode-on-android-16)
+-
+-  [arrow_forward](https://developer.android.com/blog/posts/trade-in-mode-on-android-16) Trade-in mode: faster assessment of a factory-reset phone or tablet, bypassing setup wizard, a new feature on Android 16 and above.
+-
+-  ###### 2 min read
+-
+ [arrow_back](https://developer.android.com/blog/latest)
+ 
+ #### Page 2
+ 
+-###### of 6
++###### of 7
+ 
+ [arrow_forward](https://developer.android.com/blog/latest/3)
+ 

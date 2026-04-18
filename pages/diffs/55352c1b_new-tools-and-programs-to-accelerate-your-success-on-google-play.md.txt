@@ -1,0 +1,40 @@
+diff --git a/docs/blog/posts/new-tools-and-programs-to-accelerate-your-success-on-google-play.md b/docs/blog/posts/new-tools-and-programs-to-accelerate-your-success-on-google-play.md
+index b0f29e80..18e582b6 100644
+--- a/docs/blog/posts/new-tools-and-programs-to-accelerate-your-success-on-google-play.md
++++ b/docs/blog/posts/new-tools-and-programs-to-accelerate-your-success-on-google-play.md
+@@ -103,6 +103,17 @@ The features announced today are more than just updates; they are the building b
+ 
+ ## Continue reading
+ 
++- [![](https://developer.android.com/static/blog/assets/Adarsh_profile_picture_8e88f2831a_1Ut9s6.webp)](https://developer.android.com/blog/authors/adarsh-fernando)[![](https://developer.android.com/static/blog/assets/estebandlc_profile_800x800_1d536f02a7_Z2cAv7x.webp)](https://developer.android.com/blog/authors/esteban-de-la-canal) 16 Apr 2026 16 Apr 2026 ![](https://developer.android.com/static/blog/assets/hours_CLI_Dark_Strapi_2x_427f20cc78_Z1oqB1M.webp)
++
++  #### [How-tos](https://developer.android.com/blog/categories/how-tos)
++
++  ## [Android CLI and skills: Build Android apps 3x faster using any agent](https://developer.android.com/blog/posts/android-cli-build-android-apps-3x-faster-using-any-agent)
++
++  [arrow_forward](https://developer.android.com/blog/posts/android-cli-build-android-apps-3x-faster-using-any-agent) Whether you are using Gemini in Android Studio, Gemini CLI, Antigravity, or third-party agents like Claude Code or Codex, our mission is to ensure that high-quality Android development is possible everywhere.
++
++  ###### [Adarsh Fernando](https://developer.android.com/blog/authors/adarsh-fernando), [Esteban de la Canal](https://developer.android.com/blog/authors/esteban-de-la-canal) •
++  4 min read
++
+ - [![](https://developer.android.com/static/blog/assets/Alice_Yuan_552a4dd4ee_ZlDEgJ.webp)](https://developer.android.com/blog/authors/alice-yuan) 04 Mar 2026 04 Mar 2026 ![](https://developer.android.com/static/blog/assets/battery_Performance_08d6713f94_Z1IAO0P.webp)
+ 
+   #### [How-tos](https://developer.android.com/blog/categories/how-tos)
+@@ -125,17 +136,6 @@ The features announced today are more than just updates; they are the building b
+   ###### [Thomas Ezan](https://developer.android.com/blog/authors/thomas-ezan), [Ivy Knight](https://developer.android.com/blog/authors/ivy-knight) •
+   2 min read
+ 
+-- [![](https://developer.android.com/static/blog/assets/Alice_Yuan_552a4dd4ee_ZlDEgJ.webp)](https://developer.android.com/blog/authors/alice-yuan) 20 Nov 2025 20 Nov 2025 ![](https://developer.android.com/static/blog/assets/performance_Week8_4d6efcacbe_ZI6a5e.webp)
+-
+-  #### [How-tos](https://developer.android.com/blog/categories/how-tos)
+-
+-  ## [Leveling Guide for your Performance Journey](https://developer.android.com/blog/posts/leveling-guide-for-your-performance-journey)
+-
+-  [arrow_forward](https://developer.android.com/blog/posts/leveling-guide-for-your-performance-journey) The performance leveling guide features 5 levels. We'll start with level 1, which introduces minimal adoption effort performance tooling, and we'll go up to level 5, ideal for apps that have the resourcing to maintain a bespoke performance framework.
+-
+-  ###### [Alice Yuan](https://developer.android.com/blog/authors/alice-yuan) •
+-  9 min read
+-
+ # Stay in the loop
+ 
+ 

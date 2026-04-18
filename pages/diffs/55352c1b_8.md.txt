@@ -1,0 +1,62 @@
+diff --git a/docs/blog/categories/product-news/8.md b/docs/blog/categories/product-news/8.md
+index ac84d6d2..d6d296f0 100644
+--- a/docs/blog/categories/product-news/8.md
++++ b/docs/blog/categories/product-news/8.md
+@@ -9,6 +9,24 @@ source: md.txt
+ # Product News
+ 
+ Stay in the loop with the latest updates, feature releases, and behind-the-scenes looks at how we're evolving.
++- [![](https://developer.android.com/static/blog/assets/Bennet_Manuel_4be9960838_MydbH.webp)](https://developer.android.com/blog/authors/bennet-manuel)[![](https://developer.android.com/static/blog/assets/Rob_Clifford_6e7c829a3c_ZKhwgg.webp)](https://developer.android.com/blog/authors/rob-clifford) 11 Dec 2025 11 Dec 2025 ![](https://developer.android.com/static/blog/assets/a11y_rev_37216d57dc_Z211KeA.webp)
++
++  ## [Enhancing Android security: Stop malware from snooping on your app data](https://developer.android.com/blog/posts/enhancing-android-security-stop-malware-from-snooping-on-your-app-data)
++
++  [arrow_forward](https://developer.android.com/blog/posts/enhancing-android-security-stop-malware-from-snooping-on-your-app-data) Security is foundational to Android. We partner with you to keep the platform safe and protect user data by offering powerful security tools and features, like Credential Manager and FLAG_SECURE.
++
++  ###### [Bennet Manuel](https://developer.android.com/blog/authors/bennet-manuel), [Rob Clifford](https://developer.android.com/blog/authors/rob-clifford) •
++  2 min read
++
++- [![](https://developer.android.com/static/blog/assets/matthew_9c798f0c1d_Z1m5WWD.webp)](https://developer.android.com/blog/authors/matthew-forsythe)[![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](https://developer.android.com/blog/authors/ron-aquino) 11 Dec 2025 11 Dec 2025 ![](https://developer.android.com/static/blog/assets/251210_Header_v01_de706a19ce_ZIQ3n5.webp)
++
++  ## [Building a safer Android and Google Play, together](https://developer.android.com/blog/posts/building-a-safer-android-and-google-play-together)
++
++  [arrow_forward](https://developer.android.com/blog/posts/building-a-safer-android-and-google-play-together) Earlier this year, we reiterated our commitment to keeping Android and Google Play safe for everyone and maintaining a thriving environment where users can trust the apps they download and your business can flourish.
++
++  ###### [Matthew Forsythe](https://developer.android.com/blog/authors/matthew-forsythe), [Ron Aquino](https://developer.android.com/blog/authors/ron-aquino) •
++  3 min read
++
+ - [![](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 08 Dec 2025 08 Dec 2025 ![](https://developer.android.com/static/blog/assets/buildfor_A_Iglassesxr_5141a407fc_7gpQN.webp)
+ 
+   ## [Build for AI Glasses with the Android XR SDK Developer Preview 3 and unlock new features for immersive experiences](https://developer.android.com/blog/posts/build-for-ai-glasses-with-the-android-xr-sdk-developer-preview-3-and-unlock-new-features-for-immersive-experiences)
+@@ -45,31 +63,11 @@ Stay in the loop with the latest updates, feature releases, and behind-the-scene
+   ###### [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) •
+   4 min read
+ 
+-- [![](https://developer.android.com/static/blog/assets/dom_elliot_d78b0628db_flDQk.webp)](https://developer.android.com/blog/authors/dom-elliott)[![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](https://developer.android.com/blog/authors/eric-lynch) 19 Nov 2025 19 Nov 2025 ![](https://developer.android.com/static/blog/assets/SS_Alt_Playbrand_Integrity_API_21cd2391d2_Z1L3CHW.webp)
+-
+-  ## [Stronger threat detection, simpler integration: Protect your growth with the Play Integrity API](https://developer.android.com/blog/posts/stronger-threat-detection-simpler-integration-protect-your-growth-with-the-play-integrity-api)
+-
+-  [arrow_forward](https://developer.android.com/blog/posts/stronger-threat-detection-simpler-integration-protect-your-growth-with-the-play-integrity-api) In the mobile ecosystem, abuse can threaten your revenue, growth, and user trust. To help developers thrive, Google Play offers a resilient threat detection service, Play Integrity API.
+-
+-  ###### [Dom Elliott](https://developer.android.com/blog/authors/dom-elliott), [Eric Lynch](https://developer.android.com/blog/authors/eric-lynch) •
+-  5 min read
+-
+-- [![](https://developer.android.com/static/blog/assets/don_bccb8c3f75_1ufD8A.webp)](https://developer.android.com/blog/authors/don-turner) 19 Nov 2025 19 Nov 2025 ![](https://developer.android.com/static/blog/assets/jetpack_navigation_d1257f9ca2_Z1dRNOI.webp)
+-
+-  ## [Jetpack Navigation 3 is stable](https://developer.android.com/blog/posts/jetpack-navigation-3-is-stable)
+-
+-  [arrow_forward](https://developer.android.com/blog/posts/jetpack-navigation-3-is-stable) Jetpack Navigation 3 version 1.0 is stable!
+-
+-  ###### [Don Turner](https://developer.android.com/blog/authors/don-turner) •
+-  3 min read
+-
+-  - [#Nav3](https://developer.android.com/blog/topics/nav3)
+-  - [#Jetpack Navigation](https://developer.android.com/blog/topics/jetpack-navigation)
+ [arrow_back](https://developer.android.com/blog/categories/product-news/7)
+ 
+ #### Page 8
+ 
+-###### of 12
++###### of 13
+ 
+ [arrow_forward](https://developer.android.com/blog/categories/product-news/9)
+ 

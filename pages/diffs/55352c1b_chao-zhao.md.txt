@@ -1,0 +1,73 @@
+diff --git a/docs/blog/authors/chao-zhao.md b/docs/blog/authors/chao-zhao.md
+index a6699a88..838f5369 100644
+--- a/docs/blog/authors/chao-zhao.md
++++ b/docs/blog/authors/chao-zhao.md
+@@ -1,57 +1,31 @@
+ ---
+-title: Chao Zhao  |  Android Developers' Blog
++title: https://developer.android.com/blog/authors/chao-zhao
+ url: https://developer.android.com/blog/authors/chao-zhao
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-* [Android Developers' Blog](https://developer.android.com/)
+-* [Blog](https://developer.android.com/blog)
+-
+-Stay organized with collections
+-
+-Save and categorize content based on your preferences.
+-
+-
+-
+ ## 1
+ 
+-post
+-
+-![](/static/blog/assets/chao_zhao_f14947a7e2_ZsSDYG.webp)
++post ![](https://developer.android.com/static/blog/assets/chao_zhao_f14947a7e2_ZsSDYG.webp)
+ 
+ # Chao Zhao
+ 
+ ###### Software Engineer
+ 
+-* 28
+-
+-  Jan
+-  2026
++- 28 Jan 2026 28 Jan 2026 ![](https://developer.android.com/static/blog/assets/Prompt_API_Banner_1_ff0c780828_1kyTTw.webp)
+ 
+-  28
++  #### [Product News](https://developer.android.com/blog/categories/product-news)
+ 
+-  Jan
+-  2026
++  ## [How Automated Prompt Optimization Unlocks Quality Gains for ML Kit's GenAI Prompt API](https://developer.android.com/blog/posts/how-automated-prompt-optimization-unlocks-quality-gains-for-ml-kit-s-gen-ai-prompt-api)
+ 
+-  ![](/static/blog/assets/Prompt_API_Banner_1_ff0c780828_1kyTTw.webp)
+-
+-  #### [Product News](/blog/categories/product-news)
+-
+-  ## [How Automated Prompt Optimization Unlocks Quality Gains for ML Kit’s GenAI Prompt API](/blog/posts/how-automated-prompt-optimization-unlocks-quality-gains-for-ml-kit-s-gen-ai-prompt-api)
+-
+-  [arrow\_forward](/blog/posts/how-automated-prompt-optimization-unlocks-quality-gains-for-ml-kit-s-gen-ai-prompt-api)
+-
+-  To further help bring your ML Kit Prompt API use cases to production, we are excited to announce Automated Prompt Optimization (APO) targeting On-Device models on Vertex AI. Automated Prompt Optimization is a tool that helps you automatically find the optimal prompt for your use cases.
++  [arrow_forward](https://developer.android.com/blog/posts/how-automated-prompt-optimization-unlocks-quality-gains-for-ml-kit-s-gen-ai-prompt-api) To further help bring your ML Kit Prompt API use cases to production, we are excited to announce Automated Prompt Optimization (APO) targeting On-Device models on Vertex AI. Automated Prompt Optimization is a tool that helps you automatically find the optimal prompt for your use cases.
+ 
+   ###### 3 min read
+ 
+ # Stay in the loop
+ 
++
+ Get the latest Android development insights delivered to your inbox
+ weekly.
+-
+ [mail
+-Subscribe](/subscribe)
+-
+-![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file
++Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file

@@ -1,0 +1,13 @@
+diff --git a/docs/jetpack/androidx/releases/ink.md b/docs/jetpack/androidx/releases/ink.md
+index d73cb834..263d7cbf 100644
+--- a/docs/jetpack/androidx/releases/ink.md
++++ b/docs/jetpack/androidx/releases/ink.md
+@@ -6,7 +6,7 @@ source: md.txt
+ 
+ # ink
+ 
+-Inspire best-in-class pen apps. Lower the developer barrier to entry for high performance, beautiful inking experiences.
++Inspire best-in-class pen apps. Lower the developer barrier to entry for high performance, beautiful inking experiences. Supports Inking on Android and server-side JVM (currently supported on Linux for x86_64).
+ 
+ | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
+ |---|---|---|---|---|

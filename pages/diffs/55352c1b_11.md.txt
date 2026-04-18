@@ -1,0 +1,60 @@
+diff --git a/docs/blog/categories/product-news/11.md b/docs/blog/categories/product-news/11.md
+index d71ca793..05476e28 100644
+--- a/docs/blog/categories/product-news/11.md
++++ b/docs/blog/categories/product-news/11.md
+@@ -9,6 +9,24 @@ source: md.txt
+ # Product News
+ 
+ Stay in the loop with the latest updates, feature releases, and behind-the-scenes looks at how we're evolving.
++- [![](https://developer.android.com/static/blog/assets/Ran_Profile_Picture_4af70ee745_20lqjv.webp)](https://developer.android.com/blog/authors/ran-mor) 20 Oct 2025 20 Oct 2025 ![](https://developer.android.com/static/blog/assets/Android_Dynamic_App_Links_Blog_42ba94ce09_GV68O.webp)
++
++  ## [Dynamic App Links: Elevating your Android deep linking](https://developer.android.com/blog/posts/dynamic-app-links-elevating-your-android-deep-linking)
++
++  [arrow_forward](https://developer.android.com/blog/posts/dynamic-app-links-elevating-your-android-deep-linking) We're excited to announce the availability of Dynamic App Links, a significant leap forward for Android App Links that brings them on par with, and in many ways surpasses, industry standards for deep linking.
++
++  ###### [Ran Mor](https://developer.android.com/blog/authors/ran-mor) •
++  2 min read
++
++- [![](https://developer.android.com/static/blog/assets/Tahsin_a6df1d8c3c_1WrW45.webp)](https://developer.android.com/blog/authors/tahsin-masrur) 15 Oct 2025 15 Oct 2025 ![](https://developer.android.com/static/blog/assets/25_Android_Camera_X_Feature_blog_1_856fb165e3_Z3rLg4.webp)
++
++  ## [Beyond Single Features: Guaranteeing Feature Combinations With CameraX 1.5](https://developer.android.com/blog/posts/beyond-single-features-guaranteeing-feature-combinations-with-camera-x-1-5)
++
++  [arrow_forward](https://developer.android.com/blog/posts/beyond-single-features-guaranteeing-feature-combinations-with-camera-x-1-5) Modern camera apps are defined by powerful, overlapping features. Users expect to record video with stunning HDR, capture fluid motion at 60 FPS, and get buttery-smooth footage with Preview Stabilization---often all at the same time.
++
++  ###### [Tahsin Masrur](https://developer.android.com/blog/authors/tahsin-masrur) •
++  6 min read
++
+ - [![](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d0_l9O72.webp)](https://developer.android.com/blog/authors/thomas-ezan)[![](https://developer.android.com/static/blog/assets/Mozart_Louis_622373dab1_1RaA8T.webp)](https://developer.android.com/blog/authors/mozart-louis) 13 Oct 2025 13 Oct 2025 ![](https://developer.android.com/static/blog/assets/Android_Blog_banners_dd5c7be5f2_ZsFAUM.webp)
+ 
+   ## [Boost user engagement with AI Image Generation](https://developer.android.com/blog/posts/boost-user-engagement-with-ai-image-generation)
+@@ -48,29 +66,11 @@ Stay in the loop with the latest updates, feature releases, and behind-the-scene
+   ###### [Alice Yuan](https://developer.android.com/blog/authors/alice-yuan) •
+   7 min read
+ 
+-- [![](https://developer.android.com/static/blog/assets/Mayuri_Khinvasara_Khabya_92848b1e1b_1xSr0w.webp)](https://developer.android.com/blog/authors/mayuri-khabya) 22 Sep 2025 22 Sep 2025 ![](https://developer.android.com/static/blog/assets/elevating_Media2_20563cb635_1XxrMX.webp)
+-
+-  ## [Elevating media playback: A deep dive into Media3's PreloadManager - Part 2](https://developer.android.com/blog/posts/elevating-media-playback-a-deep-dive-into-media3-s-preload-manager-part-2)
+-
+-  [arrow_forward](https://developer.android.com/blog/posts/elevating-media-playback-a-deep-dive-into-media3-s-preload-manager-part-2) Welcome to the second installment of our three-part series on media preloading with Media3. This series is designed to guide you through the process of building highly responsive, low-latency media experiences in your Android apps.
+-
+-  ###### [Mayuri Khinvasara Khabya](https://developer.android.com/blog/authors/mayuri-khabya) •
+-  9 min read
+-
+-- [![](https://developer.android.com/static/blog/assets/Mayuri_Khinvasara_Khabya_92848b1e1b_1xSr0w.webp)](https://developer.android.com/blog/authors/mayuri-khabya) 05 Sep 2025 05 Sep 2025 ![](https://developer.android.com/static/blog/assets/elevating_Media_Playback_16bfc9b0d6_25Uc6u.webp)
+-
+-  ## [Elevating media playback: Introducing preloading with Media3 - Part 1](https://developer.android.com/blog/posts/elevating-media-playback-introducing-preloading-with-media3-part-1)
+-
+-  [arrow_forward](https://developer.android.com/blog/posts/elevating-media-playback-introducing-preloading-with-media3-part-1) In today's media-centric apps, delivering a smooth, uninterrupted playback experience is key to a delightful user experience. Users expect their videos to start instantly and play seamlessly without pauses.
+-
+-  ###### [Mayuri Khinvasara Khabya](https://developer.android.com/blog/authors/mayuri-khabya) •
+-  8 min read
+-
+ [arrow_back](https://developer.android.com/blog/categories/product-news/10)
+ 
+ #### Page 11
+ 
+-###### of 12
++###### of 13
+ 
+ [arrow_forward](https://developer.android.com/blog/categories/product-news/12)
+ 

@@ -1,0 +1,31 @@
+diff --git a/docs/develop/ui/compose/text/user-input.md b/docs/develop/ui/compose/text/user-input.md
+index b29f1e47..7d4fc463 100644
+--- a/docs/develop/ui/compose/text/user-input.md
++++ b/docs/develop/ui/compose/text/user-input.md
+@@ -251,7 +251,7 @@ your state variable:
+   // textFieldState.selection: TextRange(18, 18)
+   textFieldState.edit { selectAll() }
+   // textFieldState.text : I love Compose!!!!
+-  // textFieldState.selection: TextRange(0, 18)https://github.com/android/snippets/blob/b99814d50c0bd341a83912e2c52bcbb6c0dd5568/compose/snippets/src/main/java/com/example/compose/snippets/text/StateBasedText.kt#L181-L195
++  // textFieldState.selection: TextRange(0, 18)https://github.com/android/snippets/blob/4fe2def8df52a175e66e770f90d72528db7d4c9a/compose/snippets/src/main/java/com/example/compose/snippets/text/StateBasedText.kt#L181-L195
+   ```
+ 
+   <br />
+@@ -263,7 +263,7 @@ your state variable:
+   ```kotlin
+   textFieldState.setTextAndPlaceCursorAtEnd("I really love Android")
+   // textFieldState.text : I really love Android
+-  // textFieldState.selection : TextRange(21, 21)https://github.com/android/snippets/blob/b99814d50c0bd341a83912e2c52bcbb6c0dd5568/compose/snippets/src/main/java/com/example/compose/snippets/text/StateBasedText.kt#L199-L201
++  // textFieldState.selection : TextRange(21, 21)https://github.com/android/snippets/blob/4fe2def8df52a175e66e770f90d72528db7d4c9a/compose/snippets/src/main/java/com/example/compose/snippets/text/StateBasedText.kt#L199-L201
+   ```
+ 
+   <br />
+@@ -274,7 +274,7 @@ your state variable:
+   ```kotlin
+   textFieldState.clearText()
+   // textFieldState.text :
+-  // textFieldState.selection : TextRange(0, 0)https://github.com/android/snippets/blob/b99814d50c0bd341a83912e2c52bcbb6c0dd5568/compose/snippets/src/main/java/com/example/compose/snippets/text/StateBasedText.kt#L205-L207
++  // textFieldState.selection : TextRange(0, 0)https://github.com/android/snippets/blob/4fe2def8df52a175e66e770f90d72528db7d4c9a/compose/snippets/src/main/java/com/example/compose/snippets/text/StateBasedText.kt#L205-L207
+   ```
+ 
+   <br />
