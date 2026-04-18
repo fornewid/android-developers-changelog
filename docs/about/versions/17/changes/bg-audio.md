@@ -18,7 +18,7 @@ If an app targets Android 17 (API level 37), there is an additional
 restriction. If the app is running in the background, the app must be running a
 foreground service that has [while-in-use](https://developer.android.com/develop/background-work/services/fgs/restrictions-bg-start#wiu-restrictions-exemptions) (WIU) capabilities. (A foreground
 service is granted WIU capabilities if it is started in response to a
-`MediaSessionEvent` or while the app is visible to the user.) However, the
+user-initated operation or while the app is visible to the user.) However, the
 requirement for WIU capabilities is waived if the app has been granted the
 [exact alarm](https://developer.android.com/develop/background-work/services/alarms#exact) permission, and it is making changes to audio streams that have
 the [`USAGE_ALARM`](https://developer.android.com/reference/android/media/AudioAttributes#USAGE_ALARM) attribute.
@@ -161,7 +161,7 @@ Here's a handy reference:
 - Standard FGS: Services started while the app is visible or granted [background activity launch capability](https://developer.android.com/guide/components/activities/background-starts#exceptions) are granted WIU access.
 - Background-Started FGS (BFSL): Most do not grant WIU access. The [primary
   exceptions](https://developer.android.com/develop/background-work/services/fgs/restrictions-bg-start#background-start-restriction-exemptions) that grant WIU are interactions involving explicit user intent for example, notification clicks, widget interactions, or media key events from an external device.
-- System started FGS: Foreground services are granted WIU access if they are started by system-server delegation (for example, from the Telecom jetpack library), or by system bindings representing an elevated foreground state to perform dedicated functionality (such as for a [`VoiceInteractionService`](https://developer.android.com/reference/android/service/voice/VoiceInteractionService).
+- System started FGS: Foreground services are granted WIU access if they are started by system-server delegation (for example, from the Telecom jetpack library), or by system bindings representing an elevated foreground state to perform dedicated functionality (such as for a [`VoiceInteractionService`](https://developer.android.com/reference/android/service/voice/VoiceInteractionService)).
 
 Read more in [Restrictions on starting a foreground service from the
 background](https://developer.android.com/develop/background-work/services/fgs/restrictions-bg-start).

@@ -51,7 +51,7 @@ To get started, ensure you have the latest version of **Android Studio** install
 
 1. Install an LLM provider, such as [LM Studio](https://lmstudio.ai/) or [Ollama](https://ollama.com/), on your local computer.
 2. In **Settings \> Tools \> AI \> Model Providers** add your LM Studio or Ollama instance.
-3. ![large_Screenshot_gemma4.png](https://storage.googleapis.com/androiddevblog-cloudrun-stage_strapi-assets/cms/large_Screenshot_gemma4_e5d1d69bf8/large_Screenshot_gemma4_e5d1d69bf8.png?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=557651074845-compute@developer.gserviceaccount.com/20260414/auto/storage/goog4_request&X-Goog-Date=20260414T145611Z&X-Goog-Expires=604800&X-Goog-SignedHeaders=host&X-Goog-Signature=3dab208046fdf9e2be4d8b690cdba573cd9746f88d071cbc6953fddfb896c55174afee2ac69c8ea66b4a5d7ea5802d46f1c20ed183d8961e93df1c080f68ceec1dc5a2a7f97d468560235d49765788e64143d761c8692cee88e46e681f0ea9d2d1e055e6939f460c8fb216799419aad5dbbc7ff91c7dc590e22435fd5b3879529b26f88d2ab2e9723f9f61ceb04830dae9b548847593f4361138bac69f4a46eaa428f2029cc31359959d789261bef9b58277ab8cfdc8f36dfc0c2daf9330b967d3899f2a42370f0e3d64296d5d0b8cddf97ce35536ab82f1155e49571fc9595aea9343e0a19f592f8380e45de52653c2b174ae69860fe797d5d83728c334cea0)
+3. ![large_Screenshot_gemma4.png](https://developer.android.com/static/blog/assets/large_Screenshot_gemma4_e5d1d69bf8_2an2Nb.webp)
 4. Download the Gemma 4 model from [Ollama](https://ollama.com/library?sort=newest&q=gemma) or [LM Studio](https://lmstudio.ai/models). Refer to hardware requirements for model size selection.
 5. In Agent Mode, select **Gemma 4** as your active model.
 

@@ -6,7 +6,7 @@ source: md.txt
 
 # ink
 
-Inspire best-in-class pen apps. Lower the developer barrier to entry for high performance, beautiful inking experiences.
+Inspire best-in-class pen apps. Lower the developer barrier to entry for high performance, beautiful inking experiences. Supports Inking on Android and server-side JVM (currently supported on Linux for x86_64).
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|

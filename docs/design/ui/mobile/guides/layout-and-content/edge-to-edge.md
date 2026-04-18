@@ -45,16 +45,18 @@ following section discusses additional status bar considerations.
 #### Scrolling content
 
 Top app bars should collapse while scrolling. Learn how to [collapse](https://developer.android.com/develop/ui/compose/components/app-bars#scroll) the
-Material 3 TopAppBar.
+Material 3 TopAppBar. In Material 3, small top app bars can collapse to status
+bar height or scroll offscreen. Medium and large top app bars can collapse to a
+smaller app bar. See the [Material guidance](https://m3.material.io/components/app-bars/guidelines).
 ![](https://developer.android.com/static/images/design/ui/mobile/e2e-collapse-bar.gif)
 
 ### Do
 
-Collapse the top app bar to status bar height if the app bar is sticky. ![](https://developer.android.com/static/images/design/ui/mobile/e2e-bg-color.gif)
+Collapse the small top app bar to status bar height if the app bar is sticky. ![](https://developer.android.com/static/images/design/ui/mobile/e2e-bg-color.gif)
 
 ### Do
 
-Add a matching background color gradient if the top app bar is not sticky.
+Add a matching background color gradient if the small top app bar is not sticky.
 
 Status bars should be translucent when the UI scrolls underneath, so that the
 status bar icons don't look cluttered. To accomplish this, first make a

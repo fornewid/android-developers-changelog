@@ -113,11 +113,12 @@ Unit test generation demo
 Android Studio Panda 4 Canary 2 introduces access to an enhanced Agent Mode
 experience when you subscribe to the [Google One AI Pro or Ultra
 plans](https://one.google.com/about/google-ai-plans/). The Google One
-integration supercharges your Android development with higher rate limits and an
-expanded context window for the default Gemini model. If you are subscribed to a
-Google One AI Pro or Ultra plan, you can take advantage of these benefits
-automatically when you sign in to your Google Account in Android Studio.
-![](https://developer.android.com/static/studio/images/google-one-integration.png) Google One integration for Gemini in Android Studio.
+integration supercharges your Android development with higher rate limits for
+the default Gemini model. If you are subscribed to a Google One AI Pro or Ultra
+plan, you can take advantage of these benefits automatically when you sign in to
+your Google Account in Android Studio. Using Gemini in Android Studio with a
+Google One AI Pro or Ultra plan doesn't affect your quota for other AI tools,
+such as Gemini CLI or Antigravity.
 
 ## Android Studio Quail 1
 

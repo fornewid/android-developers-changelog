@@ -39,7 +39,7 @@ Example before migration:
         <item name="android:paddingStart">@dimen/padding_2</item>
         <item name="android:paddingEnd">@dimen/padding_2</item>
         <item name="cornerRadius">8dp</item>
-    </style>https://github.com/android/snippets/blob/b99814d50c0bd341a83912e2c52bcbb6c0dd5568/compose/snippets/src/main/res/xml/compose_migration_skill_rounded_button.xml#L18-L26
+    </style>https://github.com/android/snippets/blob/4fe2def8df52a175e66e770f90d72528db7d4c9a/compose/snippets/src/main/res/xml/compose_migration_skill_rounded_button.xml#L18-L26
 
 Example after migration:
 

@@ -28,8 +28,8 @@ You also need to add the following dependencies to your Gradle build script:
 
 ```kotlin
 dependencies {
-    implementation("androidx.credentials:credentials:1.6.0-rc02")
-    implementation("androidx.credentials:credentials-play-services-auth:1.6.0-rc02")
+    implementation("androidx.credentials:credentials:1.6.0")
+    implementation("androidx.credentials:credentials-play-services-auth:1.6.0")
 }
 ```
 
@@ -37,8 +37,8 @@ dependencies {
 
 ```groovy
 dependencies {
-    implementation "androidx.credentials:credentials:1.6.0-rc02"
-    implementation "androidx.credentials:credentials-play-services-auth:1.6.0-rc02"
+    implementation "androidx.credentials:credentials:1.6.0"
+    implementation "androidx.credentials:credentials-play-services-auth:1.6.0"
 }
 ```
 
@@ -193,7 +193,8 @@ request:
 
 ## Call the Credential Manager API
 
-In your client app, make a call to the Credential Manager API, with the DigitalCredential API request provided by your app's backend.
+In your client app, make a call to the Credential Manager API, with the
+DigitalCredential API request provided by your app's backend.
 
     val requestJson = generateTs43DigitalCredentialRequestFromServer()
     val digiCredOption = GetDigitalCredentialOption(requestJson = requestJson)
@@ -244,6 +245,25 @@ credential json from the [`DigitalCredential`](https://developer.android.com/ide
 From your client app, send the DigitalCredential API response back to the
 backend server where it can be validated and used to exchange for the verified
 phone number with an aggregator.
+
+In some cases, the response may contain a TS.43 error. The error response is a
+json object following the OpenID4VP error response format:
+
+    {
+      "protocol": "openid4vp-v1-unsigned",
+
+      "data": {
+        "error": "<error_code>",
+        "error_description": "<Human-readable description of the error>",
+      }
+    }
+
+There are 2 possible `error_code` values:
+
+- `invalid_request`: This indicates that the request was malformed.
+- `server_error`: This indicates that there were failures when processing the request. This could be either local errors or TS.43 issues.
+
+The `error_description` field provides additional details about the issue.
 
 ## Validate the Digital Credential response
 

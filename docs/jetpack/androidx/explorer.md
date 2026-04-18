@@ -80,7 +80,7 @@ Select a category:
 | [health.connect](https://developer.android.com/jetpack/androidx/releases/health-connect) | Allows developers to read or write user's health and fitness records. |
 | [heifwriter](https://developer.android.com/jetpack/androidx/releases/heifwriter) | Encode an image or image collection in HEIF format using the available codecs on the Android device. |
 | [hilt \*](https://developer.android.com/jetpack/androidx/releases/hilt) | Extend the functionality of Dagger Hilt to enable dependency injection of certain classes from the androidx libraries. |
-| [ink](https://developer.android.com/jetpack/androidx/releases/ink) | Inspire best-in-class pen apps. Lower the developer barrier to entry for high performance, beautiful inking experiences. |
+| [ink](https://developer.android.com/jetpack/androidx/releases/ink) | Inspire best-in-class pen apps. Lower the developer barrier to entry for high performance, beautiful inking experiences. Supports Inking on Android and server-side JVM (currently supported on Linux for x86_64). |
 | [input](https://developer.android.com/jetpack/androidx/releases/input) | Reduce the latency of input interactions by predicting future MotionEvents |
 | [interpolator](https://developer.android.com/jetpack/androidx/releases/interpolator) | Use animation interpolators on older platforms. |
 | [javascriptengine](https://developer.android.com/jetpack/androidx/releases/javascriptengine) | Enable your Android app to evaluate JavaScript. |

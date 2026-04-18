@@ -4,10 +4,10 @@ url: https://developer.android.com/develop/ui/compose/layouts/adaptive/support-m
 source: md.txt
 ---
 
-\[compact\]: /develop/ui/compose/layouts/adaptive/window-size-classes\[medium\]: /develop/ui/compose/layouts/adaptive/window-size-classes\[expanded\]: /develop/ui/compose/layouts/adaptive/window-size-classes Multi-window mode enables multiple apps to share the same screen simultaneously. Apps can be side by side or one above the other (split-screen mode), one app in a small window overlaying other apps (picture-in-picture mode), or individual apps in separate movable, resizable windows (desktop windowing mode).
-
-<br />
-
+Multi-window mode enables multiple apps to share the same screen simultaneously.
+Apps can be side by side or one above the other (split-screen mode), one app in
+a small window overlaying other apps (picture-in-picture mode), or individual
+apps in separate movable, resizable windows (desktop windowing mode).
 Your browser doesn't support the video tag. **Figure 1.** Display two apps side by side in split-screen mode.
 
 For user instructions about how to access split‑screen mode on phones, go
@@ -41,12 +41,12 @@ device:
 
 - **Android 12** (API level 31) makes multi-window mode standard behavior.
 
-  - **On large screens** (\[medium\]\[\] or \[expanded\]\[\] window size class), the
+  - **On large screens** ([medium](https://developer.android.com/develop/ui/compose/layouts/adaptive/window-size-classes) or [expanded](https://developer.android.com/develop/ui/compose/layouts/adaptive/window-size-classes) window size class), the
     platform supports all apps in multi-window mode regardless of app
     configuration. If `resizeableActivity="false"`, the app is put into
     compatibility mode when necessary to accommodate display dimensions.
 
-  - **On small screens** (\[compact\]\[\] window size class), the system checks
+  - **On small screens** ([compact](https://developer.android.com/develop/ui/compose/layouts/adaptive/window-size-classes) window size class), the system checks
     an activity's [`minWidth`](https://developer.android.com/reference/kotlin/android/content/pm/ActivityInfo.WindowLayout#android:minwidth) and [`minHeight`](https://developer.android.com/reference/kotlin/android/content/pm/ActivityInfo.WindowLayout#android:minheight) to determine whether
     the activity can run in multi-window mode. If
     `resizeableActivity="false"`, the app is prevented from running in
@@ -281,7 +281,7 @@ Chromebooks, your app might run in a resizable window even if you specify
 > **Note:** If you build a multi-orientation app that targets API level 23 or lower, and the user uses the app in multi-window mode, the system forcibly resizes the app. The system presents a dialog warning the user that the app might behave unexpectedly. The system does *not* resize fixed-orientation apps; if the user attempts to open a fixed-orientation app under multi-window mode, the app takes over the whole screen.
 
 Android 12 (API level 31) defaults to multi-window mode. On large screens
-(\[medium\]\[\] or \[expanded\]\[\] window size class), all apps run in multi-window
+([medium](https://developer.android.com/develop/ui/compose/layouts/adaptive/window-size-classes) or [expanded](https://developer.android.com/develop/ui/compose/layouts/adaptive/window-size-classes) window size class), all apps run in multi-window
 mode regardless of app configuration. On small screens, the system checks an
 activity's [`minWidth`](https://developer.android.com/reference/kotlin/android/content/pm/ActivityInfo.WindowLayout#android:minwidth), [`minHeight`](https://developer.android.com/reference/kotlin/android/content/pm/ActivityInfo.WindowLayout#android:minheight), and [`resizeableActivity`](https://developer.android.com/guide/topics/manifest/application-element#resizeableActivity)
 settings to determine whether the activity can run in multi-window mode.
@@ -308,8 +308,8 @@ this attribute, the attribute's value defaults to true.
 If your app targets API level 31 or higher, this attribute works differently on
 small and large screens:
 
-- **Large screens** (\[medium\]\[\] or \[expanded\]\[\] window size class): All apps support multi-window mode. The attribute indicates whether an activity can be resized. If `resizeableActivity="false"`, the app is put into compatibility mode when necessary to conform to display dimensions.
-- **Small screens** (\[compact\]\[\] window size class): If `resizeableActivity="true"` and activity minimum width and minimum height are within the multi-window requirements, the activity supports multi-window mode. If `resizeableActivity="false"`, the activity does not support multi-window mode regardless of activity minimum width and height.
+- **Large screens** ([medium](https://developer.android.com/develop/ui/compose/layouts/adaptive/window-size-classes) or [expanded](https://developer.android.com/develop/ui/compose/layouts/adaptive/window-size-classes) window size class): All apps support multi-window mode. The attribute indicates whether an activity can be resized. If `resizeableActivity="false"`, the app is put into compatibility mode when necessary to conform to display dimensions.
+- **Small screens** ([compact](https://developer.android.com/develop/ui/compose/layouts/adaptive/window-size-classes) window size class): If `resizeableActivity="true"` and activity minimum width and minimum height are within the multi-window requirements, the activity supports multi-window mode. If `resizeableActivity="false"`, the activity does not support multi-window mode regardless of activity minimum width and height.
 
 If your app targets API level 36 or higher, this attribute is ignored on
 displays having smallest width \>= 600dp. However, the app fully respects the

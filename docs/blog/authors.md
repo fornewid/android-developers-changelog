@@ -8,6 +8,15 @@ source: md.txt
 
 -
 
+  ## [Adarsh Fernando](https://developer.android.com/blog/authors/adarsh-fernando)
+
+  ###### Group Product Manager
+
+  [read_more
+  1 post](https://developer.android.com/blog/authors/adarsh-fernando) [read_more
+  1 post](https://developer.android.com/blog/authors/adarsh-fernando) ![](https://developer.android.com/static/blog/assets/Adarsh_profile_picture_8e88f2831a_1Ut9s6.webp) ![](https://developer.android.com/static/blog/assets/Adarsh_profile_picture_8e88f2831a_1Ut9s6.webp)
+-
+
   ## [Ajesh Pai](https://developer.android.com/blog/authors/ajesh-pai)
 
   ###### Developer Relations Engineer
@@ -78,15 +87,6 @@ source: md.txt
   [read_more
   1 post](https://developer.android.com/blog/authors/bradley-allen) [read_more
   1 post](https://developer.android.com/blog/authors/bradley-allen) ![](https://developer.android.com/static/blog/assets/Bradley_Allen_df04d56088_22TwMm.webp) ![](https://developer.android.com/static/blog/assets/Bradley_Allen_df04d56088_22TwMm.webp)
--
-
-  ## [Breana Tate](https://developer.android.com/blog/authors/breana-tate)
-
-  ###### Developer Relations Engineer
-
-  [read_more
-  2 posts](https://developer.android.com/blog/authors/breana-tate) [read_more
-  2 posts](https://developer.android.com/blog/authors/breana-tate) ![](https://developer.android.com/static/blog/assets/Breana_Tate_24c1d03bf2_Z1NRigS.webp) ![](https://developer.android.com/static/blog/assets/Breana_Tate_24c1d03bf2_Z1NRigS.webp)
 <button class="adb--button adb--standard adb--outlined adb--disabled adb--global-hover-button astro-vnzlvqnm" disabled=""> arrow_back </button>
 
 #### Page 1
