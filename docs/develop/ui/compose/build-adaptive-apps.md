@@ -102,7 +102,7 @@ receives updates whenever the window size class changes:
 
 
 ```kotlin
-val windowSizeClass = currentWindowAdaptiveInfo().windowSizeClasshttps://github.com/android/snippets/blob/955bf613b114a676c99509c66de86ead598983a9/compose/snippets/src/main/java/com/example/compose/snippets/layouts/AdaptiveLayoutSnippets.kt#L85-L85
+val windowSizeClass = currentWindowAdaptiveInfo().windowSizeClasshttps://github.com/android/snippets/blob/4fe2def8df52a175e66e770f90d72528db7d4c9a/compose/snippets/src/main/java/com/example/compose/snippets/layouts/AdaptiveLayoutSnippets.kt#L85-L85
 ```
 
 <br />

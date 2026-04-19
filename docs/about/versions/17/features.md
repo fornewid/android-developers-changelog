@@ -303,7 +303,7 @@ verify device capabilities, and start a DL-TDoA session:
             val rangingManager = context.getSystemService(RangingManager::class.java)
 
             // Register for device capabilities
-            val capabilitiesCallback = object : RangingManager.CapabilitiesCallback {
+            val capabilitiesCallback = object : RangingManager.RangingCapabilitiesCallback {
                 override fun onRangingCapabilities(capabilities: RangingCapabilities) {
                     // Make sure Dl-TDoA is supported before starting the session
                     if (capabilities.uwbCapabilities != null && capabilities.uwbCapabilities!!.isDlTdoaSupported) {
@@ -322,7 +322,7 @@ verify device capabilities, and start a DL-TDoA session:
             // Create session and configure parameters
             val executor = Executors.newSingleThreadExecutor()
             val rangingSession = rangingManager.createRangingSession(executor, RangingSessionCallback())
-            val rangingRoundIndexes = intArrayOf(0)
+            val rangingRoundIndexes = byteArrayOf(0)
             val config: ByteArray = byteArrayOf() // OOB config data
             val params = DlTdoaRangingParams.createFromFiraConfigPacket(config, rangingRoundIndexes)
 
@@ -359,11 +359,11 @@ verify device capabilities, and start a DL-TDoA session:
             RangingManager rangingManager = context.getSystemService(RangingManager.class);
 
             // Register for device capabilities
-            RangingManager.CapabilitiesCallback capabilitiesCallback = new RangingManager.CapabilitiesCallback() {
+            RangingManager.CapabilitiesCallback capabilitiesCallback = new RangingManager.RangingCapabilitiesCallback() {
                 @Override
                 public void onRangingCapabilities(RangingCapabilities capabilities) {
                     // Make sure Dl-TDoA is supported before starting the session
-                    if (capabilities.getUwbCapabilities() != null && capabilities.getUwbCapabilities().isDlTdoaSupported) {
+                    if (capabilities.getUwbCapabilities() != null && capabilities.getUwbCapabilities().isDlTdoaSupported()) {
                         startDlTDoASession(context);
                     }
                 }
@@ -377,7 +377,7 @@ verify device capabilities, and start a DL-TDoA session:
             // Create session and configure parameters
             Executor executor = Executors.newSingleThreadExecutor();
             RangingSession rangingSession = rangingManager.createRangingSession(executor, new RangingSessionCallback());
-            int[] rangingRoundIndexes = new int[] {0};
+            byte[] rangingRoundIndexes = new byte[] {0};
             byte[] config = new byte[0]; // OOB config data
             DlTdoaRangingParams params = DlTdoaRangingParams.createFromFiraConfigPacket(config, rangingRoundIndexes);
 
