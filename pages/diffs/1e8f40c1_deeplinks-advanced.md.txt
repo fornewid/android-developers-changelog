@@ -1,0 +1,20 @@
+diff --git a/docs/guide/navigation/navigation-3/recipes/deeplinks-advanced.md b/docs/guide/navigation/navigation-3/recipes/deeplinks-advanced.md
+index 67361646..3226d77f 100644
+--- a/docs/guide/navigation/navigation-3/recipes/deeplinks-advanced.md
++++ b/docs/guide/navigation/navigation-3/recipes/deeplinks-advanced.md
+@@ -52,6 +52,7 @@ import com.example.nav3recipes.common.deeplink.LIST_LOCATIONS
+ import com.example.nav3recipes.common.deeplink.MenuDropDown
+ import com.example.nav3recipes.common.deeplink.PaddedButton
+ import com.example.nav3recipes.common.deeplink.TextContent
++import com.example.nav3recipes.ui.setEdgeToEdgeConfig
+ 
+ internal const val ADVANCED_PATH_BASE = "https://www.nav3deeplink.com"
+ 
+@@ -74,6 +75,7 @@ internal const val ADVANCED_PATH_BASE = "https://www.nav3deeplink.com"
+ class AdvancedCreateDeepLinkActivity: ComponentActivity() {
+ 
+     override fun onCreate(savedInstanceState: Bundle?) {
++        setEdgeToEdgeConfig()
+         super.onCreate(savedInstanceState)
+ 
+         setContent {

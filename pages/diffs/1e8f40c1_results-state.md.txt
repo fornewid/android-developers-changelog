@@ -1,0 +1,17 @@
+diff --git a/docs/guide/navigation/navigation-3/recipes/results-state.md b/docs/guide/navigation/navigation-3/recipes/results-state.md
+index 74e70c3b..8f9f5be6 100644
+--- a/docs/guide/navigation/navigation-3/recipes/results-state.md
++++ b/docs/guide/navigation/navigation-3/recipes/results-state.md
+@@ -221,10 +221,12 @@ import com.example.nav3recipes.results.common.HomeScreen
+ import com.example.nav3recipes.results.common.Person
+ import com.example.nav3recipes.results.common.PersonDetailsForm
+ import com.example.nav3recipes.results.common.PersonDetailsScreen
++import com.example.nav3recipes.ui.setEdgeToEdgeConfig
+ 
+ class ResultStateActivity : ComponentActivity() {
+ 
+     override fun onCreate(savedInstanceState: Bundle?) {
++        setEdgeToEdgeConfig()
+         super.onCreate(savedInstanceState)
+ 
+         setContent {

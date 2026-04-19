@@ -1,0 +1,79 @@
+diff --git a/docs/guide/navigation/navigation-3/recipes/sharedviewmodel.md b/docs/guide/navigation/navigation-3/recipes/sharedviewmodel.md
+index 97d62cdd..d97435d6 100644
+--- a/docs/guide/navigation/navigation-3/recipes/sharedviewmodel.md
++++ b/docs/guide/navigation/navigation-3/recipes/sharedviewmodel.md
+@@ -43,8 +43,7 @@ The `toContentKey()` extension function is used to standardize how the parent `N
+ 
+ When `ChildScreen` requests a parent `CounterViewModel`:
+ 
+-    val parentViewModel = viewModel(
+-        modelClass = CounterViewModel::class,
++    val parentViewModel = viewModel<CounterViewModel>(
+         viewModelStoreOwner = LocalSharedViewModelStoreOwner.current
+     )
+ 
+@@ -52,9 +51,7 @@ The decorator ensures it receives the **same instance** that `ParentScreen` is u
+ 
+ The `ChildScreen` can still request its own `CounterViewModel` from the default `LocalViewModelStoreOwner`:
+ 
+-    val standaloneViewModel = viewModel(
+-        modelClass = CounterViewModel::class,
+-    )
++    val standaloneViewModel = viewModel<CounterViewModel>()
+ 
+ In contrast, `StandaloneScreen` does not define a parent, so it only gets its own fresh `ViewModelStore` and a new instance of `CounterViewModel`.
+ [![](https://developer.android.com/static/images/picto-icons/code.svg) Explore View the full recipe on GitHub.](https://github.com/android/nav3-recipes/tree/main/app/src/main/java/com/example/nav3recipes/sharedviewmodel)
+@@ -86,18 +83,17 @@ import androidx.compose.runtime.staticCompositionLocalOf
+ import androidx.lifecycle.ViewModel
+ import androidx.lifecycle.ViewModelStore
+ import androidx.lifecycle.ViewModelStoreOwner
++import androidx.lifecycle.viewmodel.ViewModelStoreProvider
+ import androidx.lifecycle.viewmodel.compose.LocalViewModelStoreOwner
++import androidx.lifecycle.viewmodel.compose.rememberViewModelStoreOwner
++import androidx.lifecycle.viewmodel.compose.rememberViewModelStoreProvider
+ import androidx.navigation3.runtime.NavEntry
+ import androidx.navigation3.runtime.NavEntryDecorator
+ import androidx.navigation3.runtime.NavMetadataKey
++import androidx.navigation3.runtime.SaveableStateHolderNavEntryDecorator
+ import androidx.navigation3.runtime.get
+ import androidx.navigation3.runtime.metadata
+ import androidx.savedstate.compose.LocalSavedStateRegistryOwner
+-import androidx.lifecycle.viewmodel.ViewModelStoreProvider
+-import androidx.lifecycle.viewmodel.compose.rememberViewModelStoreOwner
+-import androidx.lifecycle.viewmodel.compose.rememberViewModelStoreProvider
+-import androidx.navigation3.runtime.SaveableStateHolderNavEntryDecorator
+-import kotlin.collections.mutableListOf
+ 
+ /**
+  * Returns a [SharedViewModelStoreNavEntryDecorator] that is remembered across recompositions.
+@@ -258,7 +254,7 @@ class SharedViewModelActivity : ComponentActivity() {
+                         val viewModel = viewModel<CounterViewModel>()
+ 
+                         ContentRed("Parent screen") {
+-                            Button(onClick = dropUnlessResumed { viewModel.count++ }) {
++                            Button(onClick = { viewModel.count++ }) {
+                                 Text("Count: ${viewModel.count}")
+                             }
+                             Button(onClick = dropUnlessResumed { backStack.add(ChildScreen) }) {
+@@ -278,10 +274,10 @@ class SharedViewModelActivity : ComponentActivity() {
+                         val standaloneViewModel = viewModel<CounterViewModel>()
+ 
+                         ContentBlue("Child screen") {
+-                            Button(onClick = dropUnlessResumed { parentViewModel.count++ }) {
++                            Button(onClick = { parentViewModel.count++ }) {
+                                 Text("Parent count: ${parentViewModel.count}")
+                             }
+-                            Button(onClick = dropUnlessResumed { standaloneViewModel.count++ }) {
++                            Button(onClick = { standaloneViewModel.count++ }) {
+                                 Text("Standalone Count: ${standaloneViewModel.count}")
+                             }
+                             Button(onClick = dropUnlessResumed { backStack.add(StandaloneScreen) }) {
+@@ -293,7 +289,7 @@ class SharedViewModelActivity : ComponentActivity() {
+                         val viewModel = viewModel<CounterViewModel>()
+ 
+                         ContentGreen("Standalone screen") {
+-                            Button(onClick = dropUnlessResumed {
++                            Button(onClick = {
+                                 viewModel.count++
+                             }) {
+                                 Text("Count: ${viewModel.count}")
