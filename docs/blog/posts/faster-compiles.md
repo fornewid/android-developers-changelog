@@ -10,7 +10,7 @@ source: md.txt
 
 ###### 8-min read
 
-![](https://developer.android.com/static/blog/assets/Android_Compile_Speed_d1a7744c0f_ZJfSB.webp) 15 Dec 2025 [![](https://developer.android.com/static/blog/assets/Santiago_Aboy_Solanes_a5f0203d61_1YKhxs.webp)](https://developer.android.com/blog/authors/santiago-solanes)[![](https://developer.android.com/static/blog/assets/vladimir_e5950a98c3_1lDVOl.webp)](https://developer.android.com/blog/authors/vladimir-marko)
+![](https://developer.android.com/static/blog/assets/Android_Compile_Speed_d1a7744c0f_ZJfSB.webp) 15 Dec 2025 [![](https://developer.android.com/static/blog/assets/Santiago_Aboy_Solanes_a5f0203d61_1YKhxs.webp)](https://developer.android.com/blog/authors/santiago-solanes)[![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](https://developer.android.com/blog/authors/vladimir-marko)
 
 ##### [Santiago Aboy Solanes](https://developer.android.com/blog/authors/santiago-solanes)
 \&
@@ -132,7 +132,7 @@ All of these improvements are available in the 2025 end-of-year Android update, 
   ###### Software Engineer
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/vladimir-marko) ![](https://developer.android.com/static/blog/assets/vladimir_e5950a98c3_1lDVOl.webp) ![](https://developer.android.com/static/blog/assets/vladimir_e5950a98c3_1lDVOl.webp)
+  View profile](https://developer.android.com/blog/authors/vladimir-marko) ![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg) ![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)
 
 ## Continue reading
 

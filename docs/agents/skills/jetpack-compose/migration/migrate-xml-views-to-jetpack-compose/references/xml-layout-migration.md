@@ -6,7 +6,8 @@ source: md.txt
 
 ## 1. Structural analysis \& mapping
 
-**Identify the precise mapping** between XML elements and Compose equivalents. You must determine:
+**Identify the precise mapping** between XML elements and Compose equivalents.
+You must determine:
 \* The exact `@Composable` functions (e.g., `ConstraintLayout`, `Column`, `LazyColumn`) that replace the XML tag hierarchy.
 \* The specific parameters and `Modifier` extensions required to replicate XML attributes (e.g., `layout_width`, `padding`, `elevation`).
 \* The appropriate state management strategy for interactive elements.
@@ -43,35 +44,40 @@ Example before migration:
 
 Example after migration:
 
-## ```kotlin
+
+```kotlin
 @Composable
 fun RoundedBorderlessButton(
-text: String,
-onClick: () -> Unit,
-modifier: Modifier = Modifier,
-enabled: Boolean = true
+    text: String,
+    onClick: () -> Unit,
+    modifier: Modifier = Modifier,
+    enabled: Boolean = true
 ) {
-TextButton(
-onClick, modifier
-.defaultMinSize(minWidth = dimensionResource(R.dimen.min_width))
-.padding(
-start = dimensionResource(R.dimen.padding_2),
-end = dimensionResource(R.dimen.padding_2)
-), enabled, shape = RoundedCornerShape(8.dp),
-colors = ButtonDefaults.textButtonColors(
-contentColor = MaterialTheme.colorScheme.primary
-)
-) {
-Text(
-text = text,
-style = MaterialTheme.typography.bodyMedium.copy(
-fontFamily = FontFamily.SansSerif,
-fontWeight = FontWeight.Medium
-)
-)
-}
+    TextButton(
+        onClick, modifier
+            .defaultMinSize(minWidth = dimensionResource(R.dimen.min_width))
+            .padding(
+                start = dimensionResource(R.dimen.padding_2),
+                end = dimensionResource(R.dimen.padding_2)
+            ), enabled, shape = RoundedCornerShape(8.dp),
+        colors = ButtonDefaults.textButtonColors(
+            contentColor = MaterialTheme.colorScheme.primary
+        )
+    ) {
+        Text(
+            text = text,
+            style = MaterialTheme.typography.bodyMedium.copy(
+                fontFamily = FontFamily.SansSerif,
+                fontWeight = FontWeight.Medium
+            )
+        )
+    }
 }
 ```
+
+<br />
+
+*** ** * ** ***
 
 ## 5. Output requirements
 

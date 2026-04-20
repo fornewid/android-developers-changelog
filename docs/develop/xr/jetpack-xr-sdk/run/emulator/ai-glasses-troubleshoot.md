@@ -19,7 +19,7 @@ different reason.
 
 > [!NOTE]
 > **Note:** If you don't see an issue listed here, you can also check the [release
-> notes](https://developer.android.com/studio/releases/emulator) and [known issues](https://developer.android.com/studio/run/emulator-troubleshooting) for the standard Android Emulator to see if your issue is listed there. If you encounter a new issue, please see the [support
+> notes](https://developer.android.com/studio/releases/emulator) and [known issues](https://developer.android.com/studio/run/emulator-troubleshooting) for the core Android Emulator to see if your issue is listed there. If you encounter a new issue, please see the [support
 > page](https://developer.android.com/develop/xr/support#android-xr-emulator) to see how to report the issue to us.
 
 ## Can't pair emulators using Pairing Assistant
@@ -46,7 +46,7 @@ Follow these steps to manually pair the emulators on the phone AVD:
    launched.](https://developer.android.com/static/images/develop/xr/jetpack-xr-sdk/run/ai-glasses-avd-ready-to-pair.png)
 3. In the Android Studio **Device Manager** , find the [phone AVD
    that you created](https://developer.android.com/develop/xr/jetpack-xr-sdk/run/emulator/ai-glasses) to act as a host device for the AI glasses emulator,
-   and click **Start** .
+   and click **Start**.
 
    ![Click](https://developer.android.com/static/images/develop/xr/jetpack-xr-sdk/run/phone-avd-start.png)
 4. Check that the phone emulator has fully launched by waiting until you see
@@ -56,7 +56,7 @@ Follow these steps to manually pair the emulators on the phone AVD:
 
    ![The app icon for the Glasses
    app.](https://developer.android.com/static/images/develop/xr/jetpack-xr-sdk/run/glasses-companion-app.png)
-6. Select **Set up Glasses**.
+6. Select **Set up glasses**.
 
    ![The app screen that shows the virtual devices are ready to
    pair.](https://developer.android.com/static/images/develop/xr/jetpack-xr-sdk/run/manual-pairing-set-up-glasses.png)
@@ -75,48 +75,30 @@ Follow these steps to manually pair the emulators on the phone AVD:
 
    <br />
 
-8. Select **Begin Pairing** on each app screen when prompted.
+8. Select **Begin Pairing**.
 
-
-   <br />
-
-
-   ![Select Begin Pairing on the first app screen.](https://developer.android.com/static/images/develop/xr/jetpack-xr-sdk/run/manual-pairing-begin-pairing.png)
-
-   <br />
-
-   ![Select Begin Pairing on the second app screen.](https://developer.android.com/static/images/develop/xr/jetpack-xr-sdk/run/manual-pairing-put-on-glasses.png)
-
-   <br />
-
+   ![Select Begin Pairing on the first app
+   screen.](https://developer.android.com/static/images/develop/xr/jetpack-xr-sdk/run/manual-pairing-begin-pairing.png)
 9. Select the AI glasses AVD from the list of devices.
-
-   The emulators now attempt to pair the devices.
 
    ![Select the AI glasses AVD from the list that
    displays.](https://developer.android.com/static/images/develop/xr/jetpack-xr-sdk/run/manual-pairing-select-avd.png)
-10. During pairing, accept the association requests for both the Glasses and Glasses Core apps.
 
+   The emulators now attempt to pair to each other.
+10. During pairing, accept the association request for the
+    Glasses Core app.
 
-    <br />
-
-
-    ![The association request for the Glasses app.](https://developer.android.com/static/images/develop/xr/jetpack-xr-sdk/run/manual-pairing-companion-association.png)
-
-    <br />
-
-    ![The association request for the Glasses Core app.](https://developer.android.com/static/images/develop/xr/jetpack-xr-sdk/run/manual-pairing-core-association.png)
-
-    <br />
-
+    ![The association request for the Glasses Core
+    app.](https://developer.android.com/static/images/develop/xr/jetpack-xr-sdk/run/manual-pairing-core-association.png)
 11. Select **Next** to finish the pairing process.
 
 > [!NOTE]
 > **Note:** After you've completed pairing the first time, the emulators automatically reconnect the devices to each other whenever you launch them. If the emulators fail to reconnect the devices, follow the troubleshooting steps for when the [emulators don't reconnect the devices on relaunch](https://developer.android.com/develop/xr/jetpack-xr-sdk/run/emulator/ai-glasses-troubleshoot#emulators-dont-reconnect).
 
-## Emulator for AI glasses not pairing
+## Emulator for AI glasses not in pairing mode
 
-While [pairing the emulators](https://developer.android.com/develop/xr/jetpack-xr-sdk/run/create-avds/ai-glasses#pair-avds), you encounter a message that says
+While [pairing the emulators](https://developer.android.com/develop/xr/jetpack-xr-sdk/run/create-avds/ai-glasses#pair-avds) using the Pairing Assistant or manually by
+following the steps in the preceding section, you encounter a message that says
 "Disconnected" or "Couldn't pair glasses" and the emulators won't pair.
 
 
@@ -124,7 +106,7 @@ While [pairing the emulators](https://developer.android.com/develop/xr/jetpack-x
 
 <br />
 
-![](https://developer.android.com/static/images/develop/xr/jetpack-xr-sdk/run/companion-app-pairing-issue.webp) You might see this message in the Glasses app if there are issues while pairing.
+![](https://developer.android.com/static/images/develop/xr/jetpack-xr-sdk/run/companion-app-pairing-issue.png) You might see this message in the Glasses app if there are issues while pairing.
 
 <br />
 
@@ -142,6 +124,8 @@ The glasses emulator isn't in pairing mode.
 
    ![Click "Wipe Data" to start the AI glasses emulator while wiping user
    data.](https://developer.android.com/static/images/develop/xr/jetpack-xr-sdk/run/ai-glasses-avd-wipe-data.webp)
+3. Attempt to pair again [using the Pairing Assistant](https://developer.android.com/develop/xr/jetpack-xr-sdk/run/create-avds/ai-glasses#pair-avds), and then try
+   [manually pairing](https://developer.android.com/develop/xr/jetpack-xr-sdk/run/emulator/ai-glasses-troubleshoot#pairing-assistant-fix) if that doesn't succeed.
 
 ## Paired emulators don't reconnect devices on relaunch
 

@@ -5,7 +5,7 @@ source: md.txt
 ---
 
 There may be instances where you will want to view and edit your
-Play Games Services project directly in Google Cloud Platform.
+Play Games Services project directly in Google Cloud.
 
 Typical scenarios include:
 
@@ -16,20 +16,20 @@ Typical scenarios include:
 
 ### View your project
 
-To view your project in Google Cloud Platform:
+To view your project in Google Cloud:
 
 1. Select a credential for your game on the **Configuration** page (**Grow users \> Play Games
    Services \> Setup and
    management \> Configuration**).
-2. Scroll to the bottom of the **Authentication** section and click **View in
-   Google Cloud Platform**.
+2. Go to the **Authentication** section and click **View in
+   Google Cloud**.
 
 ### Adjust API usage quotas
 
-In Google Cloud Platform, you can view the API usage limits currently set up for
+In Google Cloud, you can view the API usage limits set up for
 your game and the amount of quota that has been used. You can also set per-user
-limits to prevent an abusive user (or a buggy game client) from depleting your
-quota.
+limits to prevent an abusive user (or a buggy game client) from depleting
+your quota.
 
 To view or change usage limits for your project, or to request an increase to
 your quota, do the following:
@@ -39,26 +39,25 @@ your quota, do the following:
    API library](https://console.cloud.google.com/apis/enabled) in the API Console, and select an API from the list.
 3. To view and change quota-related settings, select **Quotas** . To view usage statistics, select **Usage**.
 
-Be aware that "users" are determined based on the IP address of the
-client making the quota request. For instance, if all of your requests came from
-a single server, that server might be erroneously tagged as a single spammy user.
-To prevent this, you can attach a `userIp=x.x.x.x` argument to your API endpoint
-requests.
+Be aware that "users" are determined based on the IP address of the client
+making the quota request. For example, if all of your requests came from a
+single server, that server might be erroneously tagged as a single spammy
+user. To prevent this, you can attach a `userIp=x.x.x.x` argument to your API
+endpoint requests.
 
-To learn more about setting per-user quotas, see
-Google Cloud [documentation](https://cloud.google.com/apis/docs/capping-api-usage).
+To learn more about setting per-user quotas, see [Capping API usage](https://cloud.google.com/apis/docs/capping-api-usage).
 
 In addition to a per-user limit, there is an application-wide
 per-day limit for the Google Play Games Services API. Typically, you
-will not need to change the pre-allocated limit. However, if you anticipate a
-large spike in volume (for example, for an upcoming launch event), you can
+won't need to change the pre-allocated limit. However, if you anticipate
+a large spike in volume (for example, for an upcoming launch event), you can
 request for additional quota by clicking the **Request more** link.
 
 ### Activate other APIs
 
 When you create your client ID in Play Console, the
 Google Play Games Services API is automatically turned on for your project. You
-can activate other Google APIs from Google Cloud Platform.
+can activate other Google APIs from Google Cloud.
 
 To enable an API for your project, do the following:
 
@@ -99,18 +98,76 @@ you must have also configured your OAuth audience setting in Google Cloud as
 ### Modify client ID related attributes
 
 > [!IMPORTANT]
-> **Important:** If you change the launch URL of your web app, you must follow the instructions below to make the corresponding change in Play Console to avoid getting `origin_mismatch` errors. If you change the package name of your Android app, you must create a new linked app entry and remove the existing linked app entry that has the old package name.
+> **Important:** If you change the launch URL of your web app, you must follow the instructions in this section to make the corresponding change in Play Console to avoid getting `origin_mismatch` errors. If you change the package name of your Android app, you must create a new linked app entry and remove the existing linked app entry that has the old package name.
 
 To modify attributes related to your OAuth 2.0 client ID (web
-origins and redirect urls for a web app, etc.):
+origins and redirect URLs for a web app, etc.):
 
 1. Open Play Console and navigate to your game.
 2. Select a credential for your game on the **Configuration** page (**Grow users \> Play Games
    Services \> Setup and
    management \> Configuration**).
 3. Scroll to the bottom of the **Authentication** section and click **View in
-   Google Cloud Platform**.
+   Google Cloud**.
 4. In Google Cloud, select your project.
 5. In the sidebar on the left, select **APIs \& auth** . Make sure that the Google Play Games Services API status is **ON** in the displayed list of APIs.
 6. In the sidebar on the left, select **Registered apps**.
 7. Expand the OAuth 2.0 Client ID section and find the attribute to edit.
+
+### Migrate OAuth clients from an existing Cloud project
+
+To view your project in Google Cloud, follow the steps in
+[View your project](https://developer.android.com/games/pgs/console/cloud-platform#view-project).
+
+For setting up Play Games Services (PGS), a unique Google Cloud project is
+required. If multiple games share one Cloud project, you must migrate
+their [Android OAuth clients](https://support.google.com/cloud/answer/15549257) to independent projects to ensure proper
+configuration.
+![High-level view of two games sharing one Google Cloud project](https://developer.android.com/static/games/pgs/console/images/games-sharing-cloud-project.png) **Figure 1.** Example of Game 1 and Game 2 sharing a Google Cloud project
+
+In the preceding example, Game 1 and Game 2 have created their web and Android
+clients within a single Google Cloud project for Sign-in with Google. We need to
+move Game 2's web and Android clients from the current **legacy** Google Cloud
+project to a new **target** Google Cloud project.
+![High-level view of migrating Game 2 to new Google Cloud project](https://developer.android.com/static/games/pgs/console/images/migrating-game-to-new-project.png) **Figure 2.** Migrating Game 2 clients to a new target Google Cloud project
+
+#### Step 1: Backend preparation
+
+Before performing the switch, you must adapt your backend and clients to handle
+the simultaneous existence of both old and new Web client IDs.
+
+- **Server-side configuration**: If your server validates the web client ID within the ID token, you will need to update your server-side logic to simultaneously support ID tokens issued by both the old clients in the Legacy Cloud Project and the new clients you need to generate in the Target Cloud Project.
+- **Client-side configuration** : Your client application needs to support multiple Web Client IDs to sign in using the new Web Client ID when switching. You can use any of the following methods:
+  - Built-in 2 Web Client IDs in the client app, switching to the new Web Client ID when the old client ID expires
+  - Dynamically obtain the latest Web Client ID from the server to complete the switch
+- **Pre-create Web clients**: In your target project, you need to create a new Web client in advance to avoid potential delays during the atomic switch.
+
+#### Step 2: Configure new web and Android OAuth clients in the correct Google Cloud
+
+Step 2.1: Create a new web OAuth client for Game 2 in the **target** Google
+Cloud project:
+![Google Cloud UI for creating a new web OAuth client ID](https://developer.android.com/static/games/pgs/console/images/create-web-oauth-client.png) **Figure 3.** Creating a new web OAuth client
+
+Step 2.2:
+Warning: Modifying the Android client will prevent your game's users from
+signing into your game using Sign-in with Google, so you must ensure that you
+perform Step 2.3 immediately after Step 2.2. It is recommended to open 2 web
+pages simultaneously for the operations to minimize the time interval between
+modification and recreation.
+
+Change the package name of Game 2's Android client in the **legacy** Google
+Cloud project to an invalid value, such as `com.noexist.none`.
+![Google Cloud UI for changing Android client package name](https://developer.android.com/static/games/pgs/console/images/change-package-name-legacy-project.png) **Figure 4.** Changing package name of Android client in legacy project
+
+Step 2.3: Immediately create a new Android client for Game 2 with the same
+Game 2's SHA-1 fingerprint and package name in the **target** Google Cloud
+project:
+![Google Cloud UI for creating a new Android OAuth client ID](https://developer.android.com/static/games/pgs/console/images/create-android-client-target-project.png) **Figure 5.** Creating a new Android client in target project
+
+#### Step 3: Real-time configuration deployment
+
+After successfully creating the new Android client in the **target** project,
+immediately perform the following:
+
+- **Redirect clients**: Use your dynamic configuration mechanism (such as Remote Config) to immediately switch the client application so that it begins using the new Web client ID.
+- **Keep the old clients**: Retain the old OAuth clients as a fallback option to roll back to the previous OAuth client sign-in if any issues arise.

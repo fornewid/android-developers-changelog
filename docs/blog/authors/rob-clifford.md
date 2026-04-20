@@ -6,7 +6,6 @@ source: html-scrape
 
 * [Android Developers](https://developer.android.com/)
 * [Android Developers' Blog](https://developer.android.com/)
-* [Blog](https://developer.android.com/blog)
 
 Stay organized with collections
 

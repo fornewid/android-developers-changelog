@@ -18,7 +18,7 @@ the familiar environment of Android Studio.
 Before you can run your app in the Android XR Emulator, you need to set it up.
 Create Android Virtual Devices (AVDs) for AI glasses to use with the Android XR
 Emulator as you test and debug your app. The emulator for AI glasses acts as a
-standalone, virtual device that you can pair with an emulator instance running a
+separate, virtual device that you can pair with an emulator instance running a
 phone AVD.
 
 Follow the steps in the following sections to set up everything you need for
@@ -40,8 +40,8 @@ the following system requirements.
 
 ## Create an Android Virtual Device for AI glasses
 
-Follow these steps to create an AVD for AI glasses to use as you test and debug
-your app:
+Follow these steps to create an AVD for AI glasses that you can use as you test
+and debug your app:
 
 1. Open the latest Canary build of Android Studio, and then click **Tools \>
    Device Manager \> Add a new device
@@ -59,8 +59,8 @@ your app:
 
    ![Android Studio "Configure virtual device"
    window.](https://developer.android.com/static/images/develop/xr/jetpack-xr-sdk/run/ai-glasses-avd-system-image.png)
-5. Click **Finish** and click **Yes** if prompted to download the system image
-   that you selected.
+5. Click **Finish** , and also click **Yes** if prompted to download the system
+   image that you selected.
 
 ## Create a phone AVD to act as the host device
 
@@ -71,7 +71,8 @@ First, create a phone AVD to act as the host device for the AI glasses:
    ![](https://developer.android.com/static/studio/images/buttons/ic_plus.png) \> Create Virtual Device**.
 2. In the **Add Device** window, in the **Form Factor** section, select **Phone**.
 3. Select any phone device (this example uses a Pixel 9 Pro), and then click **Next**.
-4. From the **API** drop-down menu, select **API CANARY Preview**.
+4. From the **API** drop-down menu, select **API 37.0 "CinnamonBun;
+   Android 17.0"**.
 
    ![The AVD API level configuration for the phone host
    device.](https://developer.android.com/static/images/develop/xr/jetpack-xr-sdk/run/host-device-avd-api.png)
@@ -83,21 +84,22 @@ First, create a phone AVD to act as the host device for the AI glasses:
 
    ![The AVD system image configuration for the phone host
    device.](https://developer.android.com/static/images/develop/xr/jetpack-xr-sdk/run/host-device-avd-system-image.png)
-6. Click **Finish**.
+6. Click **Finish** , and also click **Yes** if prompted to download the system
+   image that you selected.
 
 ## Pair the devices
 
 Finally, pair the devices:
-
-> [!NOTE]
-> **Note:** If you're having issues pairing the devices using the Pairing Assistant, you can also try to [pair
-> manually](https://developer.android.com/develop/xr/jetpack-xr-sdk/run/emulator/ai-glasses-troubleshoot#pairing-assistant).
 
 1. In the Device Manager, find the AI glasses AVD and select **Pair Glasses**
    from the overflow menu.
 
    ![The Pair Glasses option in the Device Manager launches the Pairing
    Assistant.](https://developer.android.com/static/images/develop/xr/jetpack-xr-sdk/run/ai-glasses-avd-pair-glasses.png)
+
+   > [!NOTE]
+   > **Note:** If you encounter issues while pairing the devices using the Pairing Assistant, you can also try to [pair manually](https://developer.android.com/develop/xr/jetpack-xr-sdk/run/emulator/ai-glasses-troubleshoot#pairing-assistant).
+
 2. Select the phone AVD from the list of compatible devices.
 
    ![The list of compatible host devices that can be
@@ -105,10 +107,10 @@ Finally, pair the devices:
 
    The Pairing Assistant launches both AVDs in the emulator and initiates
    pairing.
+3. On the phone AVD, accept the permission requests to associate the devices.
 
    ![The Pairing Assistant uses the phone AVD to present association
    requests.](https://developer.android.com/static/images/develop/xr/jetpack-xr-sdk/run/pairing-assistant-accept-requests.png)
-3. On the phone AVD, accept both requests to associate the devices.
 
    The Pairing Assistant completes pairing.
 
