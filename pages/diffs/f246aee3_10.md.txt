@@ -1,0 +1,29 @@
+diff --git a/docs/blog/authors/10.md b/docs/blog/authors/10.md
+index 033ba267..ca1402c0 100644
+--- a/docs/blog/authors/10.md
++++ b/docs/blog/authors/10.md
+@@ -6,15 +6,6 @@ source: md.txt
+ 
+ # Authors
+ 
+--
+-
+-  ## [Tor Norbye](https://developer.android.com/blog/authors/tor-norbye)
+-
+-  ###### Senior Director of Engineering
+-
+-  [read_more
+-  1 post](https://developer.android.com/blog/authors/tor-norbye) [read_more
+-  1 post](https://developer.android.com/blog/authors/tor-norbye) ![](https://developer.android.com/static/blog/assets/Tor_Norbye_7b1b17eb31_ZSRUB7.webp) ![](https://developer.android.com/static/blog/assets/Tor_Norbye_7b1b17eb31_ZSRUB7.webp)
+ -
+ 
+   ## [Trevor Johns](https://developer.android.com/blog/authors/trevor-johns)
+@@ -41,7 +32,7 @@ source: md.txt
+ 
+   [read_more
+   1 post](https://developer.android.com/blog/authors/vladimir-marko) [read_more
+-  1 post](https://developer.android.com/blog/authors/vladimir-marko) ![](https://developer.android.com/static/blog/assets/vladimir_e5950a98c3_1lDVOl.webp) ![](https://developer.android.com/static/blog/assets/vladimir_e5950a98c3_1lDVOl.webp)
++  1 post](https://developer.android.com/blog/authors/vladimir-marko) ![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg) ![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)
+ -
+ 
+   ## [Yabin Cui](https://developer.android.com/blog/authors/yabin-cui)

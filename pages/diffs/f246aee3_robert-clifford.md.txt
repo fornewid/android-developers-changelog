@@ -1,0 +1,32 @@
+diff --git a/docs/blog/authors/robert-clifford.md b/docs/blog/authors/robert-clifford.md
+index 49ff5f80..e9756c89 100644
+--- a/docs/blog/authors/robert-clifford.md
++++ b/docs/blog/authors/robert-clifford.md
+@@ -4,9 +4,9 @@ url: https://developer.android.com/blog/authors/robert-clifford
+ source: md.txt
+ ---
+ 
+-## 1
++## 2
+ 
+-post ![](https://developer.android.com/static/blog/assets/robert_clifford_a139ee8d05_N2ze5.webp)
++posts ![](https://developer.android.com/static/blog/assets/robert_clifford_a139ee8d05_N2ze5.webp)
+ 
+ # Robert Clifford
+ 
+@@ -23,6 +23,15 @@ post ![](https://developer.android.com/static/blog/assets/robert_clifford_a139ee
+   ###### 3 min read
+ 
+   - [#Android 17](https://developer.android.com/blog/topics/android-17)
++- 11 Dec 2025 11 Dec 2025 ![](https://developer.android.com/static/blog/assets/a11y_rev_37216d57dc_Z211KeA.webp)
++
++  #### [Product News](https://developer.android.com/blog/categories/product-news)
++
++  ## [Enhancing Android security: Stop malware from snooping on your app data](https://developer.android.com/blog/posts/enhancing-android-security-stop-malware-from-snooping-on-your-app-data)
++
++  [arrow_forward](https://developer.android.com/blog/posts/enhancing-android-security-stop-malware-from-snooping-on-your-app-data) Security is foundational to Android. We partner with you to keep the platform safe and protect user data by offering powerful security tools and features, like Credential Manager and FLAG_SECURE.
++
++  ###### 2 min read
+ 
+ # Stay in the loop
+ 

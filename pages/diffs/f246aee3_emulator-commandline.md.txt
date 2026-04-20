@@ -1,0 +1,27 @@
+diff --git a/docs/studio/run/emulator-commandline.md b/docs/studio/run/emulator-commandline.md
+index 8ba1bd29..d664048f 100644
+--- a/docs/studio/run/emulator-commandline.md
++++ b/docs/studio/run/emulator-commandline.md
+@@ -39,11 +39,11 @@ For example, if you launch the emulator from within Android Studio running on a
+ command line will be similar to the following:
+ 
+ ```
+-/Users/janedoe/Library/Android/sdk/emulator/emulator -avd Pixel8_API_34 -netdelay none -netspeed full -qt-hide-window -grpc-use-token -idle-grpc-timeout
++/Users/janedoe/Library/Android/sdk/emulator/emulator -avd Pixel8_API_34 -netdelay none -netspeed full -qt-hide-window -grpc-use-token -idle-grpc-timeout 300
+ ```
+ 
+ 
+-Please note that the arguments ` -qt-hide-window -grpc-use-token -idle-grpc-timeout ` are only used to run the emulator window within Android Studio. If you want to run the emulator on its own window, you should not use those extra parameters.
++Please note that the arguments ` -qt-hide-window -grpc-use-token -idle-grpc-timeout 300 ` are only used to run the emulator window within Android Studio. If you want to run the emulator on its own window, you should not use those extra parameters.
+ 
+ 
+ You can specify startup options when you start the emulator, but not after it has started.
+@@ -220,7 +220,7 @@ The following table lists command-line startup options that you might use more o
+ | `-no-snapshot-save` | Performs a quick boot if possible, but does not save the emulator state on exit. |
+ | `-no-snapshot` | Disables the Quick Boot feature completely and doesn't load or save the emulator state. |
+ | **Device Hardware** ||
+-| `-camera-back mode` `-camera-front mode` | Sets the emulation mode for a camera facing back or front. This overrides any camera setting in the AVD. `mode` can be any of the following values: - `emulated` - The emulator simulates a camera in the software. - `webcamn` - The emulator uses a webcam connected to your development computer, specified by number. For a list of webcams, use the `-webcam-list` option. For example, `webcam0`. - `none` - Disables the camera in the virtual device. For example: ``` emulator @Pixel8_API_34 -camera-back webcam0 ``` |
++| `-camera-back mode` `-camera-front mode` | Sets the emulation mode for a camera facing back or front. This overrides any camera setting in the AVD. `mode` can be any of the following values: - `emulated` - The emulator simulates a camera in the software. - `environment` - The emulator uses a virtual scene defined in the environment configuration file of the AVD. - `webcamn` - The emulator uses a webcam connected to your development computer, specified by number. For a list of webcams, use the `-webcam-list` option. For example, `webcam0`. - `imagefile:filename` - The emulator uses an image file for the camera output. - `videofile:filename` - The emulator uses a video for the camera output. - `image360:filename` - The emulator uses an equirectangular panoramic image for the camera output. Available in version 36.6.4 and higher. - `none` - Disables the camera in the virtual device. For example: ``` emulator @Pixel8_API_34 -camera-back webcam0 ``` |
+ | `-webcam-list` | Lists the webcams on your development computer that are available for emulation. For example: ``` emulator @Pixel8_API_34 -webcam-list List of web cameras connected to the computer: Camera 'webcam0' is connected to device 'webcam0' on channel 0 using pixel format 'UYVY' ``` In the example, the first `webcam0` is the name you use on the command line. The second `webcam0` is the name used by the OS on the development computer. The second name varies depending on the OS. As of SDK Tools 25.2.4, the AVD name is required. |
+ | **Disk images and memory** ||
+ | `-memory size` | Specifies the physical RAM size, from 1536 to 8192 MBs. For example: <br /> ``` emulator @Pixel8_API_34 -memory 2048 ``` This value overrides the AVD setting. |

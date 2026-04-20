@@ -1,0 +1,12 @@
+diff --git a/docs/blog/authors/rob-clifford.md b/docs/blog/authors/rob-clifford.md
+index 771e03f6..e590b144 100644
+--- a/docs/blog/authors/rob-clifford.md
++++ b/docs/blog/authors/rob-clifford.md
+@@ -6,7 +6,6 @@ source: html-scrape
+ 
+ * [Android Developers](https://developer.android.com/)
+ * [Android Developers' Blog](https://developer.android.com/)
+-* [Blog](https://developer.android.com/blog)
+ 
+ Stay organized with collections
+ 

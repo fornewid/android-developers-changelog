@@ -1,0 +1,22 @@
+diff --git a/docs/guide/navigation/navigation-3/recipes/results-state.md b/docs/guide/navigation/navigation-3/recipes/results-state.md
+index 8f9f5be6..ade93b5a 100644
+--- a/docs/guide/navigation/navigation-3/recipes/results-state.md
++++ b/docs/guide/navigation/navigation-3/recipes/results-state.md
+@@ -74,7 +74,7 @@ import kotlinx.serialization.Serializable
+ data object Home : NavKey
+ 
+ @Serializable
+-class PersonDetailsForm : NavKeyhttps://github.com/android/nav3-recipes/blob/d2a2288a393dfa373e02b04c48c483cd9add9dbf/app/src/main/java/com/example/nav3recipes/results/common/NavKeys.kt
++class PersonDetailsForm : NavKeyhttps://github.com/android/nav3-recipes/blob/9472c04828064426becc47e447c4a0dfe00bf399/app/src/main/java/com/example/nav3recipes/results/common/NavKeys.kt
+ ```
+ 
+ ```
+@@ -100,7 +100,7 @@ import android.os.Parcelable
+ import kotlinx.parcelize.Parcelize
+ 
+ @Parcelize
+-data class Person(val name: String, val favoriteColor: String) : Parcelablehttps://github.com/android/nav3-recipes/blob/d2a2288a393dfa373e02b04c48c483cd9add9dbf/app/src/main/java/com/example/nav3recipes/results/common/Person.kt
++data class Person(val name: String, val favoriteColor: String) : Parcelablehttps://github.com/android/nav3-recipes/blob/9472c04828064426becc47e447c4a0dfe00bf399/app/src/main/java/com/example/nav3recipes/results/common/Person.kt
+ ```
+ 
+ ```

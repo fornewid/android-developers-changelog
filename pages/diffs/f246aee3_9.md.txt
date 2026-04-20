@@ -1,0 +1,36 @@
+diff --git a/docs/blog/authors/9.md b/docs/blog/authors/9.md
+index 347eb070..d38c4dde 100644
+--- a/docs/blog/authors/9.md
++++ b/docs/blog/authors/9.md
+@@ -6,15 +6,6 @@ source: md.txt
+ 
+ # Authors
+ 
+--
+-
+-  ## [Sandhya Mohan](https://developer.android.com/blog/authors/sandhya-mohan)
+-
+-  ###### Product Manager
+-
+-  [read_more
+-  2 posts](https://developer.android.com/blog/authors/sandhya-mohan) [read_more
+-  2 posts](https://developer.android.com/blog/authors/sandhya-mohan) ![](https://developer.android.com/static/blog/assets/Sandhya_Mohan_30435468a9_1b689e.webp) ![](https://developer.android.com/static/blog/assets/Sandhya_Mohan_30435468a9_1b689e.webp)
+ -
+ 
+   ## [Santiago Aboy Solanes](https://developer.android.com/blog/authors/santiago-solanes)
+@@ -87,6 +78,15 @@ source: md.txt
+   [read_more
+   5 posts](https://developer.android.com/blog/authors/thomas-ezan) [read_more
+   5 posts](https://developer.android.com/blog/authors/thomas-ezan) ![](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d0_l9O72.webp) ![](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d0_l9O72.webp)
++-
++
++  ## [Tor Norbye](https://developer.android.com/blog/authors/tor-norbye)
++
++  ###### Senior Director of Engineering
++
++  [read_more
++  1 post](https://developer.android.com/blog/authors/tor-norbye) [read_more
++  1 post](https://developer.android.com/blog/authors/tor-norbye) ![](https://developer.android.com/static/blog/assets/Tor_Norbye_7b1b17eb31_ZSRUB7.webp) ![](https://developer.android.com/static/blog/assets/Tor_Norbye_7b1b17eb31_ZSRUB7.webp)
+ [arrow_back](https://developer.android.com/blog/authors/8)
+ 
+ #### Page 9

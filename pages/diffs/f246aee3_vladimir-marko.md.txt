@@ -1,0 +1,13 @@
+diff --git a/docs/blog/authors/vladimir-marko.md b/docs/blog/authors/vladimir-marko.md
+index c7e67e64..4f88bc99 100644
+--- a/docs/blog/authors/vladimir-marko.md
++++ b/docs/blog/authors/vladimir-marko.md
+@@ -6,7 +6,7 @@ source: md.txt
+ 
+ ## 1
+ 
+-post ![](https://developer.android.com/static/blog/assets/vladimir_e5950a98c3_1lDVOl.webp)
++post ![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)
+ 
+ # Vladimír Marko
+ 
