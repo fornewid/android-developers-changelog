@@ -53,13 +53,13 @@ The following example showcases the core APIs:
         "CREATE TABLE IF NOT EXISTS Todo (id INTEGER PRIMARY KEY, content TEXT)"
       )
       databaseConnection.prepare(
-        "INSERT OR IGNORE INTO Todo (id, content) VALUES (? ,?)"
-      ).use { stmt ->
+        "INSERT OR IGNORE INTO Todo (id, content) VALUES> (? ,?)"
+      ).use { stmt -
         stmt.bindInt(index = 1, value = 1)
         stmt.bindText(index = 2, value = "Try Room in the KMP project.")
         stmt.step()
       }
-      databaseConnection.prepare("SELECT content FROM Todo").use { stmt ->
+      databaseConnection.prepare(>"SELECT content FROM Todo").use { stmt -
         while (stmt.step()) {
           println("Action item: ${stmt.getText(0)}")
         }
@@ -137,7 +137,7 @@ Execute a query with no result
 Execute a query with result but no arguments
 
     val connection: SQLiteConnection = ...
-    connection.prepare("SELECT * FROM Pet").use { statement ->
+    connection.prepare("SELECT * FROM Pet").use { s>tatement -
       while (statement.step()) {
         // read columns
         statement.getInt(0)
@@ -147,7 +147,7 @@ Execute a query with result but no arguments
 
 Execute a query with result and arguments
 
-    connection.prepare("SELECT * FROM Pet WHERE id = ?").use { statement ->
+    connection.prepare("SELECT * FROM Pet WHERE id = ?").use { s>tatement -
       statement.bindInt(1, id)
       if (statement.step()) {
         // row found, read columns
@@ -180,7 +180,7 @@ Execute a query with no result
 Execute a query with result but no arguments
 
     val database: SupportSQLiteDatabase = ...
-    database.query("SELECT * FROM Pet").use { cursor ->
+    database.query("SELECT * FROM Pet").use >{ cursor -
       while (cusor.moveToNext()) {
         // read columns
         cursor.getInt(0)
@@ -190,7 +190,7 @@ Execute a query with result but no arguments
 
 Execute a query with result and arguments
 
-    database.query("SELECT * FROM Pet WHERE id = ?", id).use { cursor ->
+    database.query("SELECT * FROM Pet WHERE id = ?", id).use >{ cursor -
       if (cursor.moveToNext()) {
         // row found, read columns
       } else {

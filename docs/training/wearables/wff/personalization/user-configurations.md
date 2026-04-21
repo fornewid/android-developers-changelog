@@ -71,7 +71,7 @@ Boolean options can then be used in a two ways:
        <Compare expression="my_expression">
            <!-- Content goes here -->
        </Compare>
-   </Condition>https://github.com/android/snippets/blob/4fe2def8df52a175e66e770f90d72528db7d4c9a/watchface/src/main/res/raw/watchface_boolean_configuration.xml#L59-L75
+   </Condition>https://github.com/android/snippets/blob/e7a7941977ffc6645aa89155f2f94985055e5f46/watchface/src/main/res/raw/watchface_boolean_configuration.xml#L59-L75
    ```
 
    <br />
@@ -135,7 +135,7 @@ Similar to boolean options, there are again two ways to use this:
        <Compare expression="background_zero_and_something_else">
            <!-- Content goes here -->
        </Compare>
-   </Condition>https://github.com/android/snippets/blob/4fe2def8df52a175e66e770f90d72528db7d4c9a/watchface/src/main/res/raw/watchface_list_configuration.xml#L58-L74
+   </Condition>https://github.com/android/snippets/blob/e7a7941977ffc6645aa89155f2f94985055e5f46/watchface/src/main/res/raw/watchface_list_configuration.xml#L58-L74
    ```
 
    <br />

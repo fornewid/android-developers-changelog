@@ -6,8 +6,6 @@ source: md.txt
 
 # Collection
 
-API Reference  
-[androidx.collection](https://developer.android.com/reference/kotlin/androidx/collection/package-summary)  
 Reduce the memory impact of existing and new collections that are small.
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |

@@ -15,6 +15,12 @@ source: html-scrape
 
 
 
+**Note:** [Next Edit Prediction](/studio/gemini/next-edit-prediction) is now the
+default experience for users on some Gemini flash models. We encourage you to
+try it out. You can toggle between Next Edit Prediction and traditional AI code
+completion at
+**File** (**Android Studio** on macOS) > **Settings > Tools > AI > Editor**.
+
 Gemini offers AI-enabled autocompletion of code in Android Studio that appears
 as gray italicized text as you type. This feature saves you time and lets you
 complete coding projects faster by suggesting full functions. When AI code
