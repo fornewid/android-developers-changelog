@@ -1,0 +1,28 @@
+diff --git a/docs/google/play/integrity/verdicts.md b/docs/google/play/integrity/verdicts.md
+index b620f17a..6e36d5b9 100644
+--- a/docs/google/play/integrity/verdicts.md
++++ b/docs/google/play/integrity/verdicts.md
+@@ -312,7 +312,8 @@ If your app is being released to [Google Play Games for PC](https://developer.an
+ 
+ ### Optional device information and device recall
+ 
+-If you [opt in to receive additional
++You can opt in to receive optional device labels as part of a [tiered
++enforcement strategy](https://developer.android.com/google/play/integrity/overview#have-tiered). If you [opt in to receive additional
+ labels](https://developer.android.com/google/play/integrity/setup#configure-api) in the integrity verdict,
+ `deviceRecognitionVerdict` can contain the following additional labels:
+ 
+@@ -338,8 +339,11 @@ verdict if each of the label's criteria is met.
+ #### Device attributes
+ 
+ You can also opt in to device attributes, which tells the Android SDK version of
+-the Android OS running on the device. In the future, it may be extended with
+-other device attributes.
++the Android OS running on the device. The Android SDK version is useful for
++differentiating between devices running Android 13 and higher and devices
++running lower Android SDK versions as part of a
++[tiered enforcement strategy](https://developer.android.com/google/play/integrity/overview#have-tiered). In the future, it might be extended
++with other device attributes.
+ 
+ The SDK version value is the Android SDK version number defined in
+ [`Build.VERSION_CODES`](https://developer.android.com/reference/android/os/Build.VERSION_CODES). The SDK

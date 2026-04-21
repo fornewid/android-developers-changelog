@@ -1,0 +1,45 @@
+diff --git a/docs/games/pgs/play-games-sidekick-sdk.md b/docs/games/pgs/play-games-sidekick-sdk.md
+index 70bfbf65..37dc7d09 100644
+--- a/docs/games/pgs/play-games-sidekick-sdk.md
++++ b/docs/games/pgs/play-games-sidekick-sdk.md
+@@ -16,17 +16,29 @@ repositories.
+ 
+ For example, in your module's `build.gradle.kts` file, add the following:
+ 
+-    dependencyResolutionManagement {
+-      repositories {
+-        google()
+-        // Other repositories
+-      }
+-    }
+-
+-    dependencies {
+-      // Other dependencies
+-      implementation("com.google.android.play:sidekick:*")
+-    }
++```
++dependencyResolutionManagement {
++  repositories {
++    google()
++    // Other repositories
++  }
++}
++```
++
++<br />
++
++```
++dependencies {
++  // Other dependencies
++  implementation("com.google.android.play:sidekick:+")
++}
++```
++
++### Implementation requirements
++
++- **Minimum SDK level:** Sidekick latest version requires a `minSdkVersion` of 23.
++- **Testing workflow:** Tests can be conducted only through [internal or closed testing](https://support.google.com/googleplay/android-developer/answer/9845334) tracks using the Google Play Console.
++- **Feature disabling:** If you need to disable the feature, you must either deploy your application again after removing the SDK or contact [support](https://play.google.com/console/help-and-support) to request remote disablement.
+ 
+ ### Games using multiple processes
+ 
