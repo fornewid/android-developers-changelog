@@ -1,0 +1,40 @@
+diff --git a/docs/blog/latest/5.md b/docs/blog/latest/5.md
+index e4e338ca..be0d6479 100644
+--- a/docs/blog/latest/5.md
++++ b/docs/blog/latest/5.md
+@@ -7,6 +7,17 @@ source: md.txt
+ # The Latest
+ 
+ Stay up to date with the latest announcements, feature rollouts, and updates across Android tools, libraries, and platforms.
++- [![](https://developer.android.com/static/blog/assets/matthew_9c798f0c1d_Z1m5WWD.webp)](https://developer.android.com/blog/authors/matthew-forsythe) 12 Nov 2025 12 Nov 2025 ![](https://developer.android.com/static/blog/assets/developer_Verification_2bb1c616ea_Z11taB3.webp)
++
++  #### [How-tos](https://developer.android.com/blog/categories/how-tos)
++
++  ## [Android developer verification: Early access starts now as we continue to build with your feedback](https://developer.android.com/blog/posts/android-developer-verification-early-access-starts-now-as-we-continue-to-build-with-your-feedback)
++
++  [arrow_forward](https://developer.android.com/blog/posts/android-developer-verification-early-access-starts-now-as-we-continue-to-build-with-your-feedback) We recently announced new developer verification requirements, which serve as an additional layer of defense in our ongoing effort to keep Android users safe. We know that security works best when it accounts for the diverse ways people use our tools.
++
++  ###### [Matthew Forsythe](https://developer.android.com/blog/authors/matthew-forsythe) •
++  3 min read
++
+ - 3 Authors 10 Nov 2025 10 Nov 2025 ![](https://developer.android.com/static/blog/assets/raising_The_Bar_1e7745ca31_Z29xq01.webp)
+ 
+   #### [Product News](https://developer.android.com/blog/categories/product-news)
+@@ -216,17 +227,6 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
+   ###### [Jan Kleinert](https://developer.android.com/blog/authors/jan-kleinert), [Bradley Allen](https://developer.android.com/blog/authors/bradley-allen) •
+   1 min read
+ 
+-- [![](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 22 Oct 2025 22 Oct 2025 ![](https://developer.android.com/static/blog/assets/Galaxy_XR_BLOG_341f1e7643_2mbd4B.webp)
+-
+-  #### [Product News](https://developer.android.com/blog/categories/product-news)
+-
+-  ## [Giving your apps a new home on Samsung Galaxy XR, the first device powered by Android XR](https://developer.android.com/blog/posts/giving-your-apps-a-new-home-on-samsung-galaxy-xr-the-first-device-powered-by-android-xr)
+-
+-  [arrow_forward](https://developer.android.com/blog/posts/giving-your-apps-a-new-home-on-samsung-galaxy-xr-the-first-device-powered-by-android-xr) The first device powered by Android XR is here: engineered by Samsung, Galaxy XR, is available now, putting the possibilities of immersive experiences directly into users' hands.
+-
+-  ###### [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) •
+-  3 min read
+-
+ [arrow_back](https://developer.android.com/blog/latest/4)
+ 
+ #### Page 5

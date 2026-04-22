@@ -1,0 +1,36 @@
+diff --git a/docs/blog/categories/product-news/8.md b/docs/blog/categories/product-news/8.md
+index b88fe4bb..05eb1e72 100644
+--- a/docs/blog/categories/product-news/8.md
++++ b/docs/blog/categories/product-news/8.md
+@@ -9,6 +9,15 @@ source: md.txt
+ # Product News
+ 
+ Stay in the loop with the latest updates, feature releases, and behind-the-scenes looks at how we're evolving.
++- [![](https://developer.android.com/static/blog/assets/Santiago_Aboy_Solanes_a5f0203d61_1YKhxs.webp)](https://developer.android.com/blog/authors/santiago-solanes)[![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](https://developer.android.com/blog/authors/vladimir-marko) 15 Dec 2025 15 Dec 2025 ![](https://developer.android.com/static/blog/assets/Android_Compile_Speed_d1a7744c0f_ZJfSB.webp)
++
++  ## [18% Faster Compiles, 0% Compromises](https://developer.android.com/blog/posts/faster-compiles)
++
++  [arrow_forward](https://developer.android.com/blog/posts/faster-compiles) The Android Runtime (ART) team has reduced compile time by 18% without compromising the compiled code or any peak memory regressions. This improvement was part of our 2025 initiative to improve compile time without sacrificing memory usage or the quality of the compiled code.
++
++  ###### [Santiago Aboy Solanes](https://developer.android.com/blog/authors/santiago-solanes), [Vladimír Marko](https://developer.android.com/blog/authors/vladimir-marko) •
++  8 min read
++
+ - [![](https://developer.android.com/static/blog/assets/Bennet_Manuel_4be9960838_MydbH.webp)](https://developer.android.com/blog/authors/bennet-manuel)[![](https://developer.android.com/static/blog/assets/robert_clifford_a139ee8d05_N2ze5.webp)](https://developer.android.com/blog/authors/robert-clifford) 11 Dec 2025 11 Dec 2025 ![](https://developer.android.com/static/blog/assets/a11y_rev_37216d57dc_Z211KeA.webp)
+ 
+   ## [Enhancing Android security: Stop malware from snooping on your app data](https://developer.android.com/blog/posts/enhancing-android-security-stop-malware-from-snooping-on-your-app-data)
+@@ -54,15 +63,6 @@ Stay in the loop with the latest updates, feature releases, and behind-the-scene
+   ###### [Nick Butcher](https://developer.android.com/blog/authors/nick-butcher) •
+   6 min read
+ 
+-- [![](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 02 Dec 2025 02 Dec 2025 ![](https://developer.android.com/static/blog/assets/a16released_7cb13cc79d_23qyL9.webp)
+-
+-  ## [Android 16 QPR2 is Released](https://developer.android.com/blog/posts/android-16-qpr-2-is-released)
+-
+-  [arrow_forward](https://developer.android.com/blog/posts/android-16-qpr-2-is-released) Android 16 QPR2 is now released and available in AOSP
+-
+-  ###### [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) •
+-  4 min read
+-
+ [arrow_back](https://developer.android.com/blog/categories/product-news/7)
+ 
+ #### Page 8

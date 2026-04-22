@@ -1,0 +1,14 @@
+diff --git a/docs/studio/test/coverage-report.md b/docs/studio/test/coverage-report.md
+index 148ffeb0..9db5a59b 100644
+--- a/docs/studio/test/coverage-report.md
++++ b/docs/studio/test/coverage-report.md
+@@ -95,6 +95,9 @@ test types (unit and instrumentation), modules, and build variants.
+ This provides a comprehensive view of your project's code coverage in a
+ single dashboard.
+ 
++> [!WARNING]
++> **Experimental:** This is an experimental feature. To enable this feature, set `android.experimental.reportAggregationSupport=true` in your `gradle.properties` file.
++
+ ### Prerequisites
+ 
+ - Android Gradle Plugin 9.2.0-alpha07 or higher

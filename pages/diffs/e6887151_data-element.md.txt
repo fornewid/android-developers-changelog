@@ -1,0 +1,31 @@
+diff --git a/docs/guide/topics/manifest/data-element.md b/docs/guide/topics/manifest/data-element.md
+index ba6053e5..965c8c6f 100644
+--- a/docs/guide/topics/manifest/data-element.md
++++ b/docs/guide/topics/manifest/data-element.md
+@@ -182,9 +182,23 @@ attributes:
+         The `pathPattern` attribute specifies a complete path that is matched against the
+         complete path in the `Intent` object, but it can contain the following wildcards:
+ 
+-        - A period (`.`) matches any character.
+-        - An asterisk (`*`) matches a sequence of zero to many occurrences of the immediately preceding character.
+-        - A period followed by an asterisk (`.*`) matches any sequence of zero to many characters.
++        - A period (`.`) matches any single character. To match a literal period, escape it as `\\.` in your XML.
++        - An asterisk (`*`) matches a sequence of zero to many occurrences of the immediately preceding character. For example, `a*` matches "a" and "aa", but doesn't match an empty string.
++        - A period followed by an asterisk (`.*`) matches any sequence of zero or more characters. For example, `.*` matches an empty string, and `b.*` matches "b", "bc", and "bcd".
++
++
++        **Important Considerations for `pathPattern`:**
++
++        - **No Backtracking:** Android's pattern matcher evaluates strings in a single forward pass without backtracking. If a wildcard consumes characters that are needed later in the pattern, the match will fail.
++        - **`.*` is Lazy:** The `.*` wildcard is lazy. It consumes characters until it finds the *first* occurrence of the next literal character in the pattern.
++          - `"abc.*xyz"` will **not** match `"abcpxqrxyz"`. The `.*` lazily stops at the first `"x"` (from `"px..."`). The remaining string `"qrxyz"` fails to match the expected `"yz"`.
++          - *Warning:* Because `.*` looks for an exact character match to stop, `"a.*.c"` will **not** match `"abbbc"`. The matcher treats the second `.` as a literal period and scans the string looking for a `"."`, failing when it reaches the end.
++        - **`*` is Greedy:** A specific character followed by an asterisk (like `a*`) is greedy. It consumes *all* consecutive occurrences of that character without looking ahead.
++          - `"a*a"` will **not** match strings like `"aaa"`. The `a*` part greedily consumes all three `"a"`s. The pattern then expects the final `"a"`, but the string is already exhausted, causing the match to fail.
++        - **Best Practices:**
++          - Avoid patterns where the character immediately following an `*` is the same as the character preceding it (e.g., `a*a`).
++          - Avoid placing wildcards immediately after `.*` (e.g., `.*.` or `.*.*`).
++          - If you intend to match a prefix, it is safer and more efficient to use `android:pathPrefix` instead of ending a `pathPattern` with `.*`.
+ 
+ 
+         <br />

@@ -1,0 +1,37 @@
+diff --git a/docs/blog/categories/product-news/12.md b/docs/blog/categories/product-news/12.md
+index e9cd3cc6..85a2ae0c 100644
+--- a/docs/blog/categories/product-news/12.md
++++ b/docs/blog/categories/product-news/12.md
+@@ -9,6 +9,15 @@ source: md.txt
+ # Product News
+ 
+ Stay in the loop with the latest updates, feature releases, and behind-the-scenes looks at how we're evolving.
++- [![](https://developer.android.com/static/blog/assets/Alice_Yuan_552a4dd4ee_ZlDEgJ.webp)](https://developer.android.com/blog/authors/alice-yuan) 02 Oct 2025 02 Oct 2025 ![](https://developer.android.com/static/blog/assets/6m_Evk_L_Olno_HD_56e1732bf5_2enBUx.webp)
++
++  ## [Optimize your app battery using Android vitals wake lock metric](https://developer.android.com/blog/posts/optimize-your-app-battery-using-android-vitals-wake-lock-metric)
++
++  [arrow_forward](https://developer.android.com/blog/posts/optimize-your-app-battery-using-android-vitals-wake-lock-metric) Battery life is a crucial aspect of user experience and wake locks play a major role. In this blog post we'll explore what wake locks are, what are some best practices for using them and how you can better understand your own app's behavior with the Play Console metric.
++
++  ###### [Alice Yuan](https://developer.android.com/blog/authors/alice-yuan) •
++  7 min read
++
+ - [![](https://developer.android.com/static/blog/assets/Mayuri_Khinvasara_Khabya_92848b1e1b_1xSr0w.webp)](https://developer.android.com/blog/authors/mayuri-khabya) 22 Sep 2025 22 Sep 2025 ![](https://developer.android.com/static/blog/assets/elevating_Media2_20563cb635_1XxrMX.webp)
+ 
+   ## [Elevating media playback: A deep dive into Media3's PreloadManager - Part 2](https://developer.android.com/blog/posts/elevating-media-playback-a-deep-dive-into-media3-s-preload-manager-part-2)
+@@ -54,16 +63,6 @@ Stay in the loop with the latest updates, feature releases, and behind-the-scene
+   ###### [Fahd Imtiaz](https://developer.android.com/blog/authors/fahd-imtiaz) •
+   5 min read
+ 
+-- [![](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 20 May 2025 20 May 2025 ![](https://developer.android.com/static/blog/assets/IO_25_Blog_Hero_Template_Art_Long_01_126026f6a9_Z2cQC8F.webp)
+-
+-  ## [Updates to the Android XR SDK: Introducing Developer Preview 2](https://developer.android.com/blog/posts/updates-to-the-android-xr-sdk-introducing-developer-preview-2)
+-
+-  [arrow_forward](https://developer.android.com/blog/posts/updates-to-the-android-xr-sdk-introducing-developer-preview-2) Since launching the Android XR SDK Developer Preview alongside Samsung, Qualcomm, and Unity last year, we've been blown away by all of the excitement we've been hearing from the broader Android community.
+-
+-  ###### [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) •
+-  4 min read
+-
+-  - [#Android](https://developer.android.com/blog/topics/android)
+ [arrow_back](https://developer.android.com/blog/categories/product-news/11)
+ 
+ #### Page 12

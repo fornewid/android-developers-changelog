@@ -1,0 +1,64 @@
+diff --git a/docs/build.md b/docs/build.md
+index b7ab3c20..8ac90da0 100644
+--- a/docs/build.md
++++ b/docs/build.md
+@@ -287,8 +287,8 @@ plugins {
+      * see https://docs.gradle.org/current/userguide/plugins.html#sec:subprojects_plugins_dsl.
+      */
+ 
+-    id("com.android.application") version "9.1.0" apply false
+-    id("com.android.library") version "9.1.0" apply false
++    id("com.android.application") version "9.2.0" apply false
++    id("com.android.library") version "9.2.0" apply false
+     id("org.jetbrains.kotlin.android") version "2.3.10" apply false
+ }
+ ```
+@@ -305,8 +305,8 @@ plugins {
+      * see https://docs.gradle.org/current/userguide/plugins.html#sec:subprojects_plugins_dsl.
+      */
+ 
+-    id 'com.android.application' version '9.1.0' apply false
+-    id 'com.android.library' version '9.1.0' apply false
++    id 'com.android.application' version '9.2.0' apply false
++    id 'com.android.library' version '9.2.0' apply false
+     id 'org.jetbrains.kotlin.android' version '2.3.10' apply false
+ }
+ ```
+@@ -353,6 +353,37 @@ specifying the minimum version that your application runs on.
+     enabled in your build.
+ 
+ 
++    If you need to compile against a specific minor API level, use the expanded `compileSdk`
++    block syntax and specify a
++    [`minorApiLevel`](https://developer.android.com/reference/tools/gradle-api/current/com/android/build/api/dsl/CompileSdkVersion#minorApiLevel):
++
++    ### Kotlin
++
++    ```kotlin
++        android {
++            compileSdk {
++                version = release(36) {
++                    minorApiLevel = 1
++                }
++            }
++        }
++        
++    ```
++
++    ### Groovy
++
++    ```groovy
++        android {
++            compileSdk {
++                version = release(36) {
++                    minorApiLevel = 1
++                }
++            }
++        }
++        
++    ```
++
++
+     Android Studio displays warnings if your `compileSdk` conflicts
+     with the current version of Android Studio, AGP, or your project's library
+     dependency requirements.

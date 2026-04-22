@@ -1,0 +1,44 @@
+diff --git a/docs/blog/latest/6.md b/docs/blog/latest/6.md
+index 64e30244..4da127e6 100644
+--- a/docs/blog/latest/6.md
++++ b/docs/blog/latest/6.md
+@@ -7,6 +7,17 @@ source: md.txt
+ # The Latest
+ 
+ Stay up to date with the latest announcements, feature rollouts, and updates across Android tools, libraries, and platforms.
++- [![](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 22 Oct 2025 22 Oct 2025 ![](https://developer.android.com/static/blog/assets/Galaxy_XR_BLOG_341f1e7643_2mbd4B.webp)
++
++  #### [Product News](https://developer.android.com/blog/categories/product-news)
++
++  ## [Giving your apps a new home on Samsung Galaxy XR, the first device powered by Android XR](https://developer.android.com/blog/posts/giving-your-apps-a-new-home-on-samsung-galaxy-xr-the-first-device-powered-by-android-xr)
++
++  [arrow_forward](https://developer.android.com/blog/posts/giving-your-apps-a-new-home-on-samsung-galaxy-xr-the-first-device-powered-by-android-xr) The first device powered by Android XR is here: engineered by Samsung, Galaxy XR, is available now, putting the possibilities of immersive experiences directly into users' hands.
++
++  ###### [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) •
++  3 min read
++
+ - [![](https://developer.android.com/static/blog/assets/Ran_Profile_Picture_4af70ee745_20lqjv.webp)](https://developer.android.com/blog/authors/ran-mor) 20 Oct 2025 20 Oct 2025 ![](https://developer.android.com/static/blog/assets/Android_Dynamic_App_Links_Blog_42ba94ce09_GV68O.webp)
+ 
+   #### [Product News](https://developer.android.com/blog/categories/product-news)
+@@ -228,21 +239,6 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
+   ###### [Niharika Arora](https://developer.android.com/blog/authors/niharika-arora), [Joseph Lewis](https://developer.android.com/blog/authors/joseph-lewis) •
+   10 min read
+ 
+-- [![](https://developer.android.com/static/blog/assets/jolanda_b0e2beee3e_Z1KU2ms.webp)](https://developer.android.com/blog/authors/jolanda-verhoef) 23 Jan 2025 23 Jan 2025 ![](https://developer.android.com/static/blog/assets/camera_X_Jetpack_09bc5a0414_Z1DttIl.webp)
+-
+-  #### [How-tos](https://developer.android.com/blog/categories/how-tos)
+-
+-  ## [Create a spotlight effect with CameraX and Jetpack Compose](https://developer.android.com/blog/posts/create-a-spotlight-effect-with-camera-x-and-jetpack-compose)
+-
+-  [arrow_forward](https://developer.android.com/blog/posts/create-a-spotlight-effect-with-camera-x-and-jetpack-compose) In this post, we'll dive into something a bit more visually engaging --- implementing a spotlight effect on top of our camera preview, using face detection as the basis for the effect.
+-
+-  ###### [Jolanda Verhoef](https://developer.android.com/blog/authors/jolanda-verhoef) •
+-  8 min read
+-
+-  - [#Android](https://developer.android.com/blog/topics/android)
+-  - [#Compose](https://developer.android.com/blog/topics/compose)
+-  - [#Mobile App Development](https://developer.android.com/blog/topics/mobile-app-development)
+-  - +1 ↩
+ [arrow_back](https://developer.android.com/blog/latest/5)
+ 
+ #### Page 6

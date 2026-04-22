@@ -1,0 +1,13 @@
+diff --git a/docs/about/versions/17/gsi-release-notes.md b/docs/about/versions/17/gsi-release-notes.md
+index 5c2ff66a..2461b0e5 100644
+--- a/docs/about/versions/17/gsi-release-notes.md
++++ b/docs/about/versions/17/gsi-release-notes.md
+@@ -91,7 +91,7 @@ occur with some devices and builds:
+     Date: April 16, 2026
+     Build: CP21.260330.008
+     Security patch level: April 2026
+-    Google Play Services: 26.02.35
++    Google Play Services: 26.11.36
+ 
+ | Type | Download Link and SHA-256 Checksum |
+ |---|---|

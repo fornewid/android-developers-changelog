@@ -1,0 +1,40 @@
+diff --git a/docs/blog/latest/3.md b/docs/blog/latest/3.md
+index 5d570a1b..7a68fb1c 100644
+--- a/docs/blog/latest/3.md
++++ b/docs/blog/latest/3.md
+@@ -7,6 +7,17 @@ source: md.txt
+ # The Latest
+ 
+ Stay up to date with the latest announcements, feature rollouts, and updates across Android tools, libraries, and platforms.
++- [![](https://developer.android.com/static/blog/assets/Phalene_Gowling_0adca8708d_1v9m34.webp)](https://developer.android.com/blog/authors/phalene-gowling) 29 Jan 2026 29 Jan 2026 ![](https://developer.android.com/static/blog/assets/260127_Header_f185aadec0_bMXGR.webp)
++
++  #### [Product News](https://developer.android.com/blog/categories/product-news)
++
++  ## [Accelerating your insights with faster, smarter monetization data and recommendations](https://developer.android.com/blog/posts/accelerating-your-insights-with-faster-smarter-monetization-data-and-recommendations)
++
++  [arrow_forward](https://developer.android.com/blog/posts/accelerating-your-insights-with-faster-smarter-monetization-data-and-recommendations) Today, we're announcing a suite of upgrades to the Google Play Console and beyond, giving you greater visibility into your financial performance and specific, data-backed steps to improve it.
++
++  ###### [Phalene Gowling](https://developer.android.com/blog/authors/phalene-gowling) •
++  2 min read
++
+ - 4 Authors 28 Jan 2026 28 Jan 2026 ![](https://developer.android.com/static/blog/assets/Prompt_API_Banner_1_ff0c780828_1kyTTw.webp)
+ 
+   #### [Product News](https://developer.android.com/blog/categories/product-news)
+@@ -220,17 +231,6 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
+   ###### [Robbie McLachlan](https://developer.android.com/blog/authors/robbie-mclachlan) •
+   2 min read
+ 
+-- [![](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 08 Dec 2025 08 Dec 2025 ![](https://developer.android.com/static/blog/assets/buildfor_A_Iglassesxr_5141a407fc_7gpQN.webp)
+-
+-  #### [Product News](https://developer.android.com/blog/categories/product-news)
+-
+-  ## [Build for AI Glasses with the Android XR SDK Developer Preview 3 and unlock new features for immersive experiences](https://developer.android.com/blog/posts/build-for-ai-glasses-with-the-android-xr-sdk-developer-preview-3-and-unlock-new-features-for-immersive-experiences)
+-
+-  [arrow_forward](https://developer.android.com/blog/posts/build-for-ai-glasses-with-the-android-xr-sdk-developer-preview-3-and-unlock-new-features-for-immersive-experiences) To support the expanding selection of XR devices, we are announcing Android XR SDK Developer Preview 3!
+-
+-  ###### [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) •
+-  4 min read
+-
+ [arrow_back](https://developer.android.com/blog/latest/2)
+ 
+ #### Page 3

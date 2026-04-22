@@ -1,0 +1,28 @@
+diff --git a/docs/training/app-links/verify-applinks.md b/docs/training/app-links/verify-applinks.md
+index 7e5bec6a..6ebb41b0 100644
+--- a/docs/training/app-links/verify-applinks.md
++++ b/docs/training/app-links/verify-applinks.md
+@@ -324,4 +324,20 @@ In addition, consider introducing a dialog or trampoline activity that allows
+ the user to open the link in the first-party app if the user prefers to do so,
+ acting as a proxy. Before setting up such a dialog or trampoline activity, set
+ up your app so that it has [package visibility](https://developer.android.com/training/package-visibility)
+-into the first-party apps that match your app's web intent filter.
+\ No newline at end of file
++into the first-party apps that match your app's web intent filter.
++
++## Digital Asset Links update latency
++
++When you update the `assetlinks.json` file on your web server, the time it takes
++for these changes to be reflected on end-user devices depends on the OS version:
++
++- **Android 15 (API level 35) and higher:** The system periodically re-verifies domains in the background. Changes can take up to seven days to propagate to all end-user devices due to the system's caching and scheduled re-verification.
++- **Android 14 (API level 34) and lower:** The system does not perform periodic background re-verification. Updates to the file are typically only picked up when the app is installed or updated.
++
++**Testing updates**
++
++To force a re-verification on a specific device during testing, you can
++uninstall and reinstall the app. However, be aware that server-side caches might
++still delay the delivery of the updated `assetlinks.json` file to the device,
++even after reinstalling. Because the cache is time-based, the delay typically
++resolves automatically if you try again after a few hours.
+\ No newline at end of file
