@@ -892,6 +892,11 @@ val inAppMessageParams = InAppMessageParams.newBuilder()
         .addInAppMessageCategoryToShow(InAppMessageCategoryId.TRANSACTIONAL)
         .build()
 
+// Note: To display the in-app message, PBL requires an activity instance that
+// can provide a valid window token. This token is necessary for the Play Store
+// to display the message overlay correctly on top of the application's window.
+// The passed Activity must be in a state where its window is created and
+// attached to the WindowManager.
 billingClient.showInAppMessages(activity,
         inAppMessageParams,
         object : InAppMessageResponseListener() {
@@ -917,6 +922,11 @@ InAppMessageParams inAppMessageParams = InAppMessageParams.newBuilder()
         .addInAppMessageCategoryToShow(InAppMessageCategoryId.TRANSACTIONAL)
         .build();
 
+// Note: To display the in-app message, PBL requires an activity instance that
+// can provide a valid window token. This token is necessary for the Play Store
+// to display the message overlay correctly on top of the application's window.
+// The passed Activity must be in a state where its window is created and
+// attached to the WindowManager.
 billingClient.showInAppMessages(activity,
         inAppMessageParams,
         new InAppMessageResponseListener() {

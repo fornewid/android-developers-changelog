@@ -217,7 +217,7 @@ codebase. See [Migrate Jetpack Navigation to Navigation Compose](https://develop
 more information.
 
 > [!NOTE]
-> **Note:** Using Navigation Compose in a Compose-only app is not a prerequisite. You can continue using [Fragment-based Navigation component](https://developer.android.com/guide/navigation/navigation-getting-started), as long as you keep Fragments for [hosting your composable content](https://developer.android.com/develop/ui/compose/migrate/interoperability-apis/compose-in-views).
+> **Note:** While you can continue using Fragments to host composable content with a Fragment-based Navigation component, the recommended end goal for a Compose-first architecture is to replace Fragments entirely with screen-level composables managed by Navigation Compose.
 
 ## Additional resources
 

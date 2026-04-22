@@ -91,7 +91,7 @@ occur with some devices and builds:
     Date: April 16, 2026
     Build: CP21.260330.008
     Security patch level: April 2026
-    Google Play Services: 26.02.35
+    Google Play Services: 26.11.36
 
 | Type | Download Link and SHA-256 Checksum |
 |---|---|

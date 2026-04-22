@@ -25,9 +25,8 @@ continue using [Fragment-based Navigation component](https://developer.android.c
 Compose codebase. See the [navigation interop documentation](https://developer.android.com/develop/ui/compose/navigation#interoperability) for more
 information.
 
-Using Navigation Compose in a Compose-only app is not a prerequisite. You can
-*continue using* [*Fragment-based Navigation component*](https://developer.android.com/guide/navigation/navigation-getting-started), as long as you keep
-Fragments for [hosting your composable content](https://developer.android.com/develop/ui/compose/migrate/interoperability-apis/compose-in-views).
+> [!NOTE]
+> **Note:** Using Navigation Compose in a Compose-only app is not a prerequisite. You can *continue using* [*Fragment-based Navigation component*](https://developer.android.com/guide/navigation/navigation-getting-started), as long as you keep Fragments for [hosting your composable content](https://developer.android.com/develop/ui/compose/migrate/interoperability-apis/compose-in-views). The recommended end goal for a Compose-first architecture is to replace Fragments entirely with screen-level composables managed by Navigation Compose.
 
 > [!NOTE]
 > **Note:** Currently, it's not possible to use any single form of the Navigation component to navigate between a mix of Fragment and composable destinations. All destinations must be uniformly either Fragments (using Jetpack Navigation) or composables (using Navigation Compose).
@@ -81,8 +80,8 @@ To migrate to Navigation Compose, follow these steps:
 4. Set up the [`NavController`](https://developer.android.com/develop/ui/compose/navigation#getting-started) in a place where all composables that need
    to reference it have access to it (this is usually inside your `App`
    composable). This approach follows the [principles of state hoisting](https://developer.android.com/develop/ui/compose/state#state-hoisting)
-   and lets you use the `NavController` as the source of truth for
-   navigating between composable screens and maintaining the back stack:
+   and lets you use the `NavController` as the source of truth for navigating
+   between composable screens and maintaining the back stack:
 
 
    ```kotlin

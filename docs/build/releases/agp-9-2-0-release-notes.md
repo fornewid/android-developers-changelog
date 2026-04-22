@@ -26,6 +26,9 @@ Here is other compatibility info:
 
 ## Unified coverage and test reports
 
+> [!WARNING]
+> **Experimental:** This is an experimental feature. To enable this feature, set `android.experimental.reportAggregationSupport=true` in your `gradle.properties` file.
+
 AGP 9.2.0-alpha07 introduces tasks to generate HTML dashboards that consolidate
 test results and coverage from various test types (unit and instrumentation),
 modules, and build variants, providing a comprehensive overview in a single

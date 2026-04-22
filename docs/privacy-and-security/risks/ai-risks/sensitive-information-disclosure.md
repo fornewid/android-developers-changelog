@@ -6,17 +6,36 @@ source: md.txt
 
 [OWASP Risk Description](https://genai.owasp.org/llmrisk/llm022025-sensitive-information-disclosure/)
 
-Sensitive information disclosure is a vulnerability where a large language model (LLM) unintentionally reveals confidential, private, proprietary, or otherwise restricted data in its responses. This can happen when the model leaks information from its training data or reveals sensitive details provided to it within the context of a user's session. Attackers can exploit this by crafting specific queries or using prompt injection techniques to trick the model into divulging information it shouldn't. The core issue is the LLM's inability to distinguish between public data and confidential information it has processed.
+Sensitive information disclosure is a vulnerability where a large language model
+(LLM) unintentionally reveals confidential, private, proprietary, or otherwise
+restricted data in its responses. This can happen when the model leaks
+information from its training data or reveals sensitive details provided to it
+within the context of a user's session. Attackers can exploit this by crafting
+specific queries or using prompt injection techniques to trick the model into
+divulging information it shouldn't. The core issue is the LLM's inability to
+distinguish between public data and confidential information it has processed.
 
 ## Types of disclosure relevant to Android
 
-**Training data leakage**: This occurs when an LLM regurgitates specific, verbatim data fragments it was trained on. If the training dataset included personal information (PII), proprietary code, or internal documents, the model might reproduce this information in its output when prompted correctly. For Android apps, this could involve pre-trained models bundled with the app or models accessed using cloud APIs.
+**Training data leakage**: This occurs when an LLM regurgitates specific,
+verbatim data fragments it was trained on. If the training dataset included
+personal information (PII), proprietary code, or internal documents, the model
+might reproduce this information in its output when prompted correctly. For
+Android apps, this could involve pre-trained models bundled with the app or
+models accessed using cloud APIs.
 
-**Contextual data disclosure**: This is a more immediate risk for Android apps, involving the LLM exposing sensitive information that a user provides during an app session. For example, if your application permits a user to input personally identifiable information (PII) into an LLM for summarization, a subsequent prompt injection attack could enable an attacker to manipulate the model into disclosing the contents. This also applies to any sensitive data your app implicitly passes to the LLM.
+**Contextual data disclosure**: This is a more immediate risk for Android apps,
+involving the LLM exposing sensitive information that a user provides during an
+app session. For example, if your application permits a user to input
+personally identifiable information (PII) into an LLM for summarization, a
+subsequent prompt injection attack could enable an attacker to manipulate the
+model into disclosing the contents. This also applies to any sensitive data your
+app implicitly passes to the LLM.
 
 ## Why Android Developers should care
 
-Sensitive information disclosure can severely compromise an application and its users:
+Sensitive information disclosure can severely compromise an application and its
+users:
 
 - **Privacy violations**: An attacker could extract personally identifiable information (PII) like names, emails, phone numbers, or even location data from your users, leading to identity theft and severe regulatory penalties (for example, under GDPR or CCPA). This is particularly critical for Android apps handling user data.
 - **Intellectual property Theft**: If your app's LLM processes proprietary algorithms, financial data, or other internal business information, an attacker could force its revelation, causing significant competitive and financial damage to your organization.
@@ -25,7 +44,8 @@ Sensitive information disclosure can severely compromise an application and its 
 
 ## Mitigations for Android app developers
 
-Mitigating this vulnerability requires a multi-layered approach focused on data hygiene and controlling the LLM's access within your Android application.
+Mitigating this vulnerability requires a multi-layered approach focused on data
+hygiene and controlling the LLM's access within your Android application.
 
 ### Data sanitization and minimization:
 
@@ -52,11 +72,18 @@ Mitigating this vulnerability requires a multi-layered approach focused on data 
 
 ### Regular auditing and red teaming:
 
-- **Proactive Testing** : Actively test and**red team**your Android application to discover if and how the LLM might leak sensitive information. This involves intentionally trying to make the LLM reveal data it shouldn't.
+- **Proactive Testing** : Actively test and **red team** your Android application to discover if and how the LLM might leak sensitive information. This involves intentionally trying to make the LLM reveal data it shouldn't.
 
 ## Summary
 
-Sensitive Information Disclosure occurs when an LLM reveals confidential data from its training set or user sessions, posing significant risks like privacy violations and intellectual property theft. Mitigation requires a layered defense within your Android app, prioritizing the sanitization of data before it reaches the LLM, enforcing the principle of least privilege to limit the model's data access, and implementing robust filters to scan and redact sensitive information from the model's final output before it reaches the user. Utilizing on-device ML and tools like Firebase App Check can further enhance security.
+Sensitive Information Disclosure occurs when an LLM reveals confidential data
+from its training set or user sessions, posing significant risks like privacy
+violations and intellectual property theft. Mitigation requires a layered
+defense within your Android app, prioritizing the sanitization of data before it
+reaches the LLM, enforcing the principle of least privilege to limit the model's
+data access, and implementing robust filters to scan and redact sensitive
+information from the model's final output before it reaches the user. Utilizing
+on-device ML and tools like Firebase App Check can further enhance security.
 
 ## Additional resources
 

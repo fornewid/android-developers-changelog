@@ -226,6 +226,9 @@ API reference.
 The Android Gradle Plugin provides unified test report tasks, which generate
 HTML dashboards that merge results from unit and instrumented tests.
 
+> [!WARNING]
+> **Experimental:** This is an experimental feature. To enable this feature, set `android.experimental.reportAggregationSupport=true` in your `gradle.properties` file.
+
 ### Prerequisites
 
 - Android Gradle Plugin 9.2.0-alpha07 or higher.

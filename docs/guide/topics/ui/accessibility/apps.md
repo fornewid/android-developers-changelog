@@ -4,6 +4,9 @@ url: https://developer.android.com/guide/topics/ui/accessibility/apps
 source: md.txt
 ---
 
+> [!NOTE]
+> **Note:** Documentation across [developer.android.com](https://developer.android.com/) is being refactored to show how to accomplish tasks with Compose. We recommend using Compose for your app, but you can still access the Views-specific information for the concepts on this page at [Make apps more accessible (Views)](https://developer.android.com/guide/topics/ui/accessibility/views/apps-views).
+
 Try to make your Android app usable for everyone, including people with
 accessibility needs.
 
@@ -26,11 +29,11 @@ of the background behind the text---to be above a specific threshold. The
 exact threshold depends on the text's font size and whether the text appears in
 bold:
 
-- If the text is smaller than 18pt, or if the text is bold and smaller than 14pt, set the color contrast ratio to at least 4.5:1.
+- If the text is smaller than 18sp, or if the text is bold and smaller than 14sp, use foreground and background colors that result in a [color contrast ratio](https://m3.material.io/foundations/designing/color-contrast) of at least 4.5:1.
 - For all other text, set the color contrast ratio to at least 3:1.
 
 The following image shows two examples of text-to-background color contrast:
-![Pictures displaying text](https://developer.android.com/static/images/guide/topics/ui/accessibility/color-contrast.svg) **Figure 1.** Lower than recommended (left) and sufficient (right) color contrast.
+![Two examples of the word 'Text' on colored backgrounds. The example on the left has low color contrast between the text and background, while the example on right has sufficient color contrast.](https://developer.android.com/static/images/guide/topics/ui/accessibility/color-contrast.svg) **Figure 1.** Lower than recommended (left) and sufficient (right) color contrast.
 
 To check the text-to-background color contrast in your app, use an online color
 contrast checker or the [Accessibility
@@ -39,32 +42,45 @@ app.
 
 ## Use large, simple controls
 
-Your app's UI is easier to use if its controls are easier to see
-and tap. We recommend that each interactive UI element have a focusable area, or
-*touch target size*, of at least 48dpx48dp. Larger is even better.
+Your app's UI is easier to use if its controls are easier to see and tap. For
+touch interfaces, we recommend that each interactive UI element have a focusable
+area, or *touch target size*, of at least 48dpx48dp. Larger is even better.
 
-For a given UI element to have a large enough touch target size, the following
-conditions should **both** be true:
+> [!NOTE]
+> **Note:** For precise input (mouses and trackpads), the touch target can be smaller. See [Pointer interactions](https://developer.android.com/design/ui/desktop/guides/interaction/pointer-interactions) for more information.
 
-- The sum of the values of [`android:paddingLeft`](https://developer.android.com/reference/android/view/View#attr_android:paddingLeft), [`android:minWidth`](https://developer.android.com/reference/android/view/View#attr_android:minWidth), and [`android:paddingRight`](https://developer.android.com/reference/android/view/View#attr_android:paddingRight) is greater than or equal to 48dp.
-- The sum of the values of [`android:paddingTop`](https://developer.android.com/reference/android/view/View#attr_android:paddingTop), [`android:minHeight`](https://developer.android.com/reference/android/view/View#attr_android:minHeight), and [`android:paddingBottom`](https://developer.android.com/reference/android/view/View#attr_android:paddingBottom) is greater than or equal to 48dp.
+In Jetpack Compose, many built-in Material components like `Button`,
+`IconButton`, and `ListItem` already enforce this minimum size. However, when
+creating custom interactive elements, you need to set the size yourself.
 
-The padding values allow an object's *visible* size to be less than 48dpx48dp
-while still having the recommended touch target size.
+In the following snippet, a small UI element is made accessible by giving it a
+larger touch target:
 
-The following code snippet shows an element that has the recommended touch
-target size:
 
-```xml
-<ImageButton ...
-    android:paddingLeft="4dp"
-    android:minWidth="40dp"
-    android:paddingRight="4dp"
-
-    android:paddingTop="8dp"
-    android:minHeight="32dp"
-    android:paddingBottom="8dp" />
+```kotlin
+@Composable
+private fun LargeBox() {
+    var clicked by remember { mutableStateOf(false) }
+    Box(
+        Modifier
+            .size(100.dp)
+            .background(if (clicked) Color.DarkGray else Color.LightGray)
+    ) {
+        Box(
+            Modifier
+                .align(Alignment.Center)
+                .clickable { clicked = !clicked }
+                .background(Color.Black)
+                .sizeIn(minWidth = 48.dp, minHeight = 48.dp)
+        )
+    }
+}
 ```
+
+<br />
+
+For more information about touch target sizes, see
+[Minimum touch target sizes](https://developer.android.com/develop/ui/compose/accessibility/api-defaults#minimum-target-sizes).
 
 ## Describe each UI element
 
@@ -73,35 +89,53 @@ describes the element's purpose. In most cases, you include this description in
 the element's `contentDescription` attribute, as shown in the following code
 snippet:
 
-```xml
-<!-- Use string resources for easier localization. -->
-<!-- The en-US value for the following string is "Inspect". -->
-<ImageView
-    ...
-    android:contentDescription="@string/inspect" />
+
+```kotlin
+@Composable
+private fun ShareButton(onClick: () -> Unit) {
+    IconButton(onClick = onClick) {
+        Icon(
+            imageVector = Icons.Filled.Share,
+            contentDescription = stringResource(R.string.label_share)
+        )
+    }
+}
 ```
-| **Note:** Don't provide descriptions for [`TextView`](https://developer.android.com/reference/android/widget/TextView) elements. Android accessibility services automatically announce the text itself as the description.
+
+<br />
+
+Note that you do not need to provide a `contentDescription` for `Text`
+composables. Android accessibility services (like TalkBack) automatically
+announce the text itself.
 
 When adding descriptions to your app's UI elements, keep the following best
 practices in mind:
 
-- Don't include the type of UI element in the content description. Screen
-  readers automatically announce both the element's type and description. For
+- Use descriptions to convey the purpose and result of the interaction, not the
+  visual details. Use the [`Role` semantics property](https://developer.android.com/guide/topics/ui/accessibility/custom-views)
+  (like `Role.Button` or `Role.Switch`) to expose a UI element's type. This
+  way, screen readers can announce the element correctly.
+
+- Avoid redundancies in descriptions. For
   example, if selecting a button causes a "submit" action to occur in your app,
   make the button's description `"Submit"`, not `"Submit button"`.
 
-- Each description must be unique. That way, when screen reader users
+- Each description should be unique. That way, when screen reader users
   encounter a repeated element description, they correctly recognize that the
   focus is on an element that already had focus earlier. In particular, each item
-  within a view group such as
-  [`RecyclerView`](https://developer.android.com/reference/androidx/recyclerview/widget/RecyclerView) must have
-  a different description. Each description must reflect the content that's unique
+  within a list such as `LazyColumn` should have
+  a different description, each reflecting the content that's unique
   to a given item, such as the name of a city in a list of locations.
 
-- If your app's `minSdkVersion` is `16` or higher, you can set the
-  [`android:importantForAccessibility`](https://developer.android.com/reference/android/view/View#attr_android:importantForAccessibility)
-  attribute to `"no"` for graphical elements that are only used for decorative
-  effect.
+- Use the `hideFromAccessibility` API to mark purely decorative elements so
+  that accessibility services can ignore them. If a UI element has a
+  `contentDescription` parameter but is purely decorative (such as an `Icon`
+  that is part of another UI element), pass `null` to avoid redundant labeling.
+  For more elaborate use cases, see [Merging and clearing](https://developer.android.com/develop/ui/compose/accessibility/merging-clearing).
+
+- Test your code to make sure the content description is delivered as expected.
+  Android Lint, Compose testing, and [manual and automated test tools](https://developer.android.com/develop/ui/compose/accessibility/testing)
+  can flag common issues and expose problems in your implementation.
 
 ## Additional resources
 
@@ -110,10 +144,12 @@ additional resources:
 
 ### Codelabs
 
-- [Starting Android
-  Accessibility](https://codelabs.developers.google.com/codelabs/starting-android-accessibility)
+- [Accessibility in Jetpack Compose](https://developer.android.com/codelabs/jetpack-compose-accessibility#0)
 
-### Blog posts
+### Videos
 
-- [Accessibility: Are You Serving All Your
-  Users?](https://android-developers.googleblog.com/2012/04/accessibility-are-you-serving-all-your.html)
+- [Build more accessible UIs with Jetpack Compose](https://www.youtube.com/watch?v=80qkStdDWXQ)
+
+### Views content
+
+- [Make apps more accessible (Views)](https://developer.android.com/guide/topics/ui/accessibility/views/apps-views)

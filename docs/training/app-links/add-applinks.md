@@ -182,3 +182,104 @@ list of matching apps that appear in the dialog.
 
 > [!NOTE]
 > **Note:** Consider storing the matching path so that the user doesn't have to re-select if a similar web intent is launched later.
+
+## Dynamic App Links backward compatibility for Android 14 and lower
+
+Dynamic App Link features, including advanced matching rules in
+`assetlinks.json` and the use of `<uri-relative-filter-group>`, are only fully
+supported on Android 15 (API level 35) and higher.
+
+On Android 14 (API level 34) and lower, the system only considers the `scheme`
+and `host` declared in your manifest's `<data>` elements for App Link
+verification. Path-specific rules, exclusions, and dynamic updates from
+assetlinks.json are not applied.
+
+This means if your manifest only specifies `scheme` and `host`, your app might
+unexpectedly capture all paths for the verified domain on Android 14 and lower,
+regardless of the path-specific rules defined in your `assetlinks.json` for
+Android 15 and higher.
+
+### Fallback strategy for lower Android versions to be configured with no deep links
+
+To prevent your app from handling all links for a domain on Android 14 and
+lower when you intend to use Dynamic App Links for more specific paths on
+Android 15 and higher, include a non-matching path in your manifest's intent
+filter.
+Add a `<data>` element with an `android:path` attribute that is unlikely to
+ever be a valid path for your links. This ensures that the intent filter
+doesn't match all paths on lower versions.
+
+Example:
+
+    <activity
+        android:name=".MainActivity"
+        android:exported="true"
+        ...>
+        <intent-filter android:autoVerify="true">
+            <action android:name="android.intent.action.VIEW" />
+            <category android:name="android.intent.category.DEFAULT" />
+            <category android:name="android.intent.category.BROWSABLE" />
+
+            <data android:scheme="http" />
+            <data android:scheme="https" />
+            <data android:host="www.example.com" />
+
+            <!-- Add a non-matching path for backward compatibility -->
+            <data android:path="/no_match_for_older_android_versions" />
+
+            <uri-relative-filter-group android:allow="true">
+              <data android:pathPattern="/.*"/>
+            </uri-relative-filter-group>
+        </intent-filter>
+    </activity>
+
+By adding `<data android:path="/no_match_for_older_android_versions" />`, you
+ensure that on Android 14 and lower, this intent filter doesn't match any
+incoming links, while still allowing the domain to be verified for use with
+Dynamic App Links on Android 15 and higher based on the advanced matching
+rules in your `assetlinks.json` rules.
+
+> [!WARNING]
+> **Warning:** If you configure `<uri-relative-filter-group>` in your manifest for Android 15 and higher, ensure that a valid `assetlinks.json` file is accessible at the specified host. If the `assetlinks.json` file is missing or invalid, App Links verification fails on Android 15 and higher, and your app doesn't handle any links for that domain. In other cases, where the `assetlinks.json` file is valid but missing the dynamic configuration, the app might open for all paths on Android 15 and higher based on the static manifest declaration.
+
+### Migrating existing App Links
+
+If you already have App Links with specific path rules (such as
+`android:pathPrefix`) in your manifest and want to start using Dynamic App Links
+on Android 15 and higher, you can safely add the `<uri-relative-filter-group>`
+element directly to your existing intent filters.
+
+Because Android 14 and lower ignore the `<uri-relative-filter-group>` element,
+your existing App Links continue to work exactly as they do now on devices
+running lower versions of Android.
+
+However, you must carefully consider how Android 15 and higher evaluates the
+"mixed" configuration:
+
+- **Two-layer filtering:** On Android 15 and higher, the system evaluates intent filters as a union. A URL passes the manifest check if it satisfies either your legacy static `<data>` tags or the broad rules in your `<uri-relative-filter-group>`. Once the URL passes this initial manifest check, the system then applies the dynamic rules defined in your `assetlinks.json` file as a second layer of fine-grained filtering. This means the server-side JSON rules ultimately dictate which of those matched URLs actually open the app.
+
+**Example of a hybrid configuration:**
+
+    <intent-filter android:autoVerify="true">
+        <action android:name="android.intent.action.VIEW" />
+        <category android:name="android.intent.category.DEFAULT" />
+        <category android:name="android.intent.category.BROWSABLE" />
+
+        <data android:scheme="https" />
+        <data android:host="www.example.com" />
+
+        <!-- Legacy rule: Android 14 and lower use this. Android 15 and higher
+             also use this. -->
+        <data android:pathPrefix="/store" />
+
+        <!--
+          Dynamic rule: Android 14 and lower ignore this. Android 15 and higher
+          evaluate this as a union between all paths and the configuration
+          specified in the assetlinks.json file. Make sure to apply further
+          refinements in the assetlinks.json file to prevent all URL paths from
+          opening in the app.
+        -->
+        <uri-relative-filter-group android:allow="true">
+            <data android:pathPrefix="/" />
+        </uri-relative-filter-group>
+    </intent-filter>

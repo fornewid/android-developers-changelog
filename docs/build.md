@@ -287,8 +287,8 @@ plugins {
      * see https://docs.gradle.org/current/userguide/plugins.html#sec:subprojects_plugins_dsl.
      */
 
-    id("com.android.application") version "9.1.0" apply false
-    id("com.android.library") version "9.1.0" apply false
+    id("com.android.application") version "9.2.0" apply false
+    id("com.android.library") version "9.2.0" apply false
     id("org.jetbrains.kotlin.android") version "2.3.10" apply false
 }
 ```
@@ -305,8 +305,8 @@ plugins {
      * see https://docs.gradle.org/current/userguide/plugins.html#sec:subprojects_plugins_dsl.
      */
 
-    id 'com.android.application' version '9.1.0' apply false
-    id 'com.android.library' version '9.1.0' apply false
+    id 'com.android.application' version '9.2.0' apply false
+    id 'com.android.library' version '9.2.0' apply false
     id 'org.jetbrains.kotlin.android' version '2.3.10' apply false
 }
 ```
@@ -351,6 +351,37 @@ specifying the minimum version that your application runs on.
     The newer Java APIs are supported on earlier versions of Android through
     [desugaring](https://developer.android.com/studio/write/java8-support), which must be
     enabled in your build.
+
+
+    If you need to compile against a specific minor API level, use the expanded `compileSdk`
+    block syntax and specify a
+    [`minorApiLevel`](https://developer.android.com/reference/tools/gradle-api/current/com/android/build/api/dsl/CompileSdkVersion#minorApiLevel):
+
+    ### Kotlin
+
+    ```kotlin
+        android {
+            compileSdk {
+                version = release(36) {
+                    minorApiLevel = 1
+                }
+            }
+        }
+        
+    ```
+
+    ### Groovy
+
+    ```groovy
+        android {
+            compileSdk {
+                version = release(36) {
+                    minorApiLevel = 1
+                }
+            }
+        }
+        
+    ```
 
 
     Android Studio displays warnings if your `compileSdk` conflicts

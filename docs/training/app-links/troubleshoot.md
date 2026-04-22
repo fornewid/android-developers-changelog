@@ -75,3 +75,10 @@ Incorrect signature in assetlinks.json
     - Signing the app with a debug certificate and only having the release signature in `assetlinks.json`.
     - Having a lower case signature in `assetlinks.json`. The signature should be in upper case.
     - If you are using Play App Signing, make sure you're using the signature that Google uses to sign each of your releases. You can verify these details, including a complete JSON snippet, by following instructions about [declaring website associations](https://developer.android.com/training/app-links/troubleshoot#web-assoc).
+
+## Capture a bug report
+
+For complex issues that are difficult to reproduce,
+[capture a bug report](https://developer.android.com/studio/debug/bug-report) and analyze it. This can
+provide valuable insights into the verification process and any system-level
+errors.
