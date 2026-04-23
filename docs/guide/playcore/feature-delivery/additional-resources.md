@@ -11,10 +11,6 @@ To learn more about customizable feature delivery, consult the following resourc
 - [PlayCore API sample](https://github.com/android/app-bundle-samples/tree/main/DynamicFeatures), which demonstrates usage of the PlayCore API to request and download feature modules.
 - [Dynamic code loading sample](https://github.com/googlesamples/android-dynamic-code-loading), which demonstrates three different approaches to safely access code from an installed feature module.
 
-## Codelabs
-
-- [On demand modules](https://codelabs.developers.google.com/codelabs/on-demand-dynamic-delivery/index.html), which helps you create an app that downloads and installs feature modules on demand.
-
 ## Blog posts
 
 - [Configuring your app for Play Feature Delivery](https://medium.com/androiddevelopers/configuring-your-app-for-play-feature-delivery-f15a93856a0d)

@@ -16,7 +16,7 @@ Save and categorize content based on your preferences.
 
 # #Android Studio
 
-* [![](/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](/blog/authors/matt-dyor)
+* [![](/static/blog/assets/matt_dyor_b779fca40e_Z2hl456.webp)](/blog/authors/matt-dyor)
 
   02
 

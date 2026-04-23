@@ -18,7 +18,7 @@ Save and categorize content based on your preferences.
 
 post
 
-![](/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)
+![](/static/blog/assets/Eric_Lynch_bb0a252f52_Z1St4R.webp)
 
 # Eric Lynch
 
