@@ -1,0 +1,81 @@
+diff --git a/docs/google/play/age-signals/use-age-signals-api.md b/docs/google/play/age-signals/use-age-signals-api.md
+index 047fe888..addea664 100644
+--- a/docs/google/play/age-signals/use-age-signals-api.md
++++ b/docs/google/play/age-signals/use-age-signals-api.md
+@@ -12,10 +12,9 @@ required by law to provide age category data.
+ 
+ Play returns an age range based on the age bands defined by the applicable
+ jurisdiction and regions. The default ages the API returns in applicable
+-jurisdictions and regions are 0-12, 13-15, 16-17, and 18+ but
+-[custom age ranges](https://developer.android.com/google/play/age-signals/use-age-signals-api#custom-age-ranges) may be received. Google Play automatically updates
+-cached age signals for a user within 2 to 8 weeks following the user's
+-birthday.
++jurisdictions and regions are 0-12, 13-15, 16-17, and 18+ but [custom age
++ranges](https://developer.android.com/google/play/age-signals/use-age-signals-api#custom-age-ranges) may be received. Google Play automatically updates cached age signals
++for a user within 2 to 8 weeks following the user's birthday.
+ 
+ ## Integrate Play Age Signals API into your app
+ 
+@@ -85,18 +84,31 @@ The default age ranges that the API returns in applicable jurisdictions and
+ regions are 0-12, 13-15, 16-17, and 18+.
+ 
+ Alternatively, to customize the default age ranges according to your app's
+-minimum ages, you can provide these minimum ages for your app on the
+-[Age signals](https://play.google.com/console/developers/app/age-signals) page in your Google Play Console. The age ranges returned will
+-override the default API response. For example, if you provide minimum ages of
+-9, 15, and 17, a 14-year-old user would fall within the 10-15 age range.
+-
+-To customize the default age ranges returned by the Age Signals API, you can
+-provide minimum ages for your app:
++minimum ages, you can provide these minimum ages for your app on the [Age
++signals](https://play.google.com/console/developers/app/age-signals) page in your Google Play Console.
+ 
+ 1. Go to the [Age signals](https://play.google.com/console/developers/app/age-signals) page in your Play Console.
+ 2. On the **Custom age ranges** tab, enter up to three minimum ages for your app. Minimum ages must be at least 2 years apart and can be changed once annually.
+ 3. Click **Save**.
+ 
++The age ranges returned will override the default API response. For example:
++
++- If you set one minimum age (15) in the Google Play Console:
++
++  - A 0 to 14 year old, will return `ageLower = 0` and `ageUpper = 14`.
++  - A 15+ year old, will return `ageLower = 15`.
++- If you set two minimum ages (13 and 17):
++
++  - A 0 to 12 year old, will return `ageLower = 0` and `ageUpper = 12`.
++  - A 13 to 16 year old, will return `ageLower = 13` and `ageUpper = 16`.
++  - A 17+ year old, will return `ageLower = 17`.
++- If you set three minimum ages (11, 13 and 15):
++
++  - A 0 to 10 year old, will return `ageLower = 0` and `ageUpper = 10`.
++  - An 11 or 12 year old, will return `ageLower = 11` and `ageUpper = 12`.
++  - An 13 or 14 year old, will return `ageLower = 13` and `ageUpper = 14`.
++  - A 15+ year old, will return `ageLower = 15`.
++
+ ## Age signals responses
+ 
+ The Play Age Signals API (beta) response includes the following fields and
+@@ -130,8 +142,8 @@ In Brazil, `userStatus` can only be `DECLARED`,
+ > [!NOTE]
+ > **Note:** Use library version 0.0.3 or higher to receive `DECLARED` as a user status. Earlier library versions will return `null` instead of `DECLARED`.
+ 
+-For a user who declared their age and shares it with apps, you would receive
+-the following:
++For a user who declared their age and shares it with apps, you would receive the
++following:
+ 
+ - `userStatus` would be `AgeSignalsVerificationStatus.DECLARED`.
+ - `ageLower` would be a number (for example, 13).
+@@ -184,9 +196,9 @@ receive the following:
+ 
+ ## Handle API error codes
+ 
+-If your app makes a Play Age Signals API request and the call fails, your
+-app receives an error code. These errors can happen for various reasons, such as
+-the Play Store app being out of date.
++If your app makes a Play Age Signals API request and the call fails, your app
++receives an error code. These errors can happen for various reasons, such as the
++Play Store app being out of date.
+ 
+ ### Retry strategy
+ 

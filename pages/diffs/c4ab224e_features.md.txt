@@ -1,0 +1,27 @@
+diff --git a/docs/about/versions/17/features.md b/docs/about/versions/17/features.md
+index fae7d952..8605c46b 100644
+--- a/docs/about/versions/17/features.md
++++ b/docs/about/versions/17/features.md
+@@ -238,12 +238,16 @@ Handoff can be offered as a fallback option or directly implemented with URL
+ Handoff.
+ 
+ Handoff support is implemented on a per-activity basis. To enable Handoff, call
+-the `setHandoffEnabled()` method for the activity. Additional data may need to
+-be passed along with the handoff so the recreated activity on the receiving
+-device can restore appropriate state. Implement the
+-`onHandoffActivityRequested()` callback to return a `HandoffActivityData` object
+-which contains details that specify how Handoff should handle and recreate
+-the activity on the receiving device.
++the
++[`setHandoffEnabled()`](https://developer.android.com/reference/android/app/Activity#setHandoffEnabled(boolean,%20android.app.HandoffActivityParams))
++method for the activity. Additional data may need to be passed along with the
++handoff so the recreated activity on the receiving device can restore
++appropriate state. Implement the
++[`onHandoffActivityDataRequested()`](https://developer.android.com/reference/android/app/Activity#onHandoffActivityDataRequested(android.app.HandoffActivityDataRequestInfo))
++callback to return a
++[`HandoffActivityData`](https://developer.android.com/reference/android/app/HandoffActivityData) object which
++contains details that specify how Handoff should handle and recreate the
++activity on the receiving device.
+ 
+ ### Live Update - Semantic color API
+ 
