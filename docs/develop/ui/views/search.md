@@ -4,22 +4,19 @@ url: https://developer.android.com/develop/ui/views/search
 source: md.txt
 ---
 
-Try the Compose way  
-Jetpack Compose is the recommended UI toolkit for Android. Learn how to add search functionality in Compose.  
-[Search bar →](https://developer.android.com/develop/ui/compose/components/search-bar)  
-![](https://developer.android.com/static/images/android-compose-ui-logo.png)
+Try the Compose way Jetpack Compose is the recommended UI toolkit for Android. Learn how to add search functionality in Compose. [Search bar →](https://developer.android.com/develop/ui/compose/components/search-bar) ![](https://developer.android.com/static/images/android-compose-ui-logo.png)
 
 Search is a core user feature on Android. Users must be able
 to search any data that is available to them, whether the content is located on the device or
 the internet. To help create a consistent search experience for users, Android provides a
-search framework that helps you implement search for your application.  
+search framework that helps you implement search for your application.
 ![](https://developer.android.com/static/images/search/search-suggest-custom.png)
 
 **Figure 1.** A search dialog with custom
 search suggestions.
 
 The search framework offers two modes of search input: a search dialog at the top of the
-screen or a search widget ([SearchView](https://developer.android.com/reference/android/widget/SearchView)) that you can embed in your activity
+screen or a search widget (`https://developer.android.com/reference/android/widget/SearchView`) that you can embed in your activity
 layout. In either case, the Android system assists your search implementation by
 delivering search queries to a specific activity that performs searches. You can also enable
 the search dialog or widget to provide search suggestions as the user types. Figure 1 shows an
@@ -34,7 +31,7 @@ Once you set up either the search dialog or the search widget, you can do the fo
 
 **Note** : The search framework does *not* provide APIs to
 search your data. To perform a search, you need to use APIs appropriate for your data. For example,
-if your data is stored in an SQLite database, use the [android.database.sqlite](https://developer.android.com/reference/android/database/sqlite/package-summary)
+if your data is stored in an SQLite database, use the `https://developer.android.com/reference/android/database/sqlite/package-summary`
 APIs to perform searches.
 
 <br />
@@ -88,8 +85,8 @@ principles:
   session. A user might not want previous searches to be revealed to other device users. If your
   application provides suggestions that
   can reveal previous search activities, implement a way for the user to clear their
-  search history. If you are using [SearchRecentSuggestions](https://developer.android.com/reference/android/provider/SearchRecentSuggestions),
+  search history. If you are using `https://developer.android.com/reference/android/provider/SearchRecentSuggestions`,
   you can call the
-  [clearHistory()](https://developer.android.com/reference/android/provider/SearchRecentSuggestions#clearHistory())
+  `https://developer.android.com/reference/android/provider/SearchRecentSuggestions#clearHistory()`
   method. If you are implementing custom suggestions, you need to provide a similar "clear history"
   method in your content provider that the user can execute.

@@ -4,7 +4,8 @@ url: https://developer.android.com/health-and-fitness/fitness/basic-app/overview
 source: md.txt
 ---
 
-| **Note:** This guide uses `SensorManager` for retrieving steps data. We recommend using the [Recording API on mobile](https://developer.android.com/health-and-fitness/guides/recording-api) for recording steps in a power-efficient way.
+> [!NOTE]
+> **Note:** This guide uses `SensorManager` for retrieving steps data. We recommend using the [Recording API on mobile](https://developer.android.com/health-and-fitness/guides/recording-api) for recording steps in a power-efficient way.
 
 This guide walks you through building a basic mobile step counter app, which
 is a common foundation for many Health \& Fitness apps.
@@ -32,7 +33,7 @@ permissions at once when the user starts the app.
 
 The [step counter sensor](https://developer.android.com/guide/topics/sensors/sensors_motion#sensors-motion-stepcounter), which many exercise apps rely on, uses the
 `ACTIVITY_RECOGNITION` permission. Add this permission in your
-AndroidManifest.xml file:  
+AndroidManifest.xml file:
 
     <?xml version="1.0" encoding="utf-8"?>
     <manifest xmlns:android="http://schemas.android.com/apk/res/android"
@@ -47,7 +48,7 @@ To request the `ACTIVITY_RECOGNITION` permission at runtime refer to the
 
 You will also need to declare a `FOREGROUND_SERVICE` in the manifest. Since you
 are requesting the `ACTIVITY_RECOGNITION` permission, declare
-`FOREGROUND_SERVICE_TYPE_HEALTH`:  
+`FOREGROUND_SERVICE_TYPE_HEALTH`:
 
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE_HEALTH"/>
@@ -73,7 +74,7 @@ In this example app, the UI has three basic states:
 - **Error:** Shows a message when something goes wrong.
 
 The `ViewModel` exposes these states as a Kotlin `Flow`. Use a sealed class to
-contain the classes and objects that represent the possible states:  
+contain the classes and objects that represent the possible states:
 
     class TodayScreenViewModel(...) {
 
@@ -89,6 +90,6 @@ contain the classes and objects that represent the possible states:
         data object Error: TodayScreenState()
     }
 
-Compose UI then collects this `Flow` as a Compose `State` and acts on it:  
+Compose UI then collects this `Flow` as a Compose `State` and acts on it:
 
     val state: TodayScreenState = todayScreenViewModel.currentScreenState.collectAsState().value

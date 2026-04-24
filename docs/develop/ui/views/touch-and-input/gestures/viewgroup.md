@@ -4,18 +4,15 @@ url: https://developer.android.com/develop/ui/views/touch-and-input/gestures/vie
 source: md.txt
 ---
 
-Try the Compose way  
-Jetpack Compose is the recommended UI toolkit for Android. Learn about gestures in Compose.  
-[Gestures →](https://developer.android.com/develop/ui/compose/touch-input/pointer-input/understand-gestures#event-propagation)  
-![](https://developer.android.com/static/images/android-compose-ui-logo.png)
+Try the Compose way Jetpack Compose is the recommended UI toolkit for Android. Learn about gestures in Compose. [Gestures →](https://developer.android.com/develop/ui/compose/touch-input/pointer-input/understand-gestures#event-propagation) ![](https://developer.android.com/static/images/android-compose-ui-logo.png)
 
 Handling touch events in a
-[ViewGroup](https://developer.android.com/reference/android/view/ViewGroup) takes special care
+`https://developer.android.com/reference/android/view/ViewGroup` takes special care
 because it's common for a `ViewGroup` to have children that are targets for different
 touch events than the `ViewGroup` itself. To make sure each view correctly receives the
 touch events intended for it, override the
-[onInterceptTouchEvent()](https://developer.android.com/reference/android/view/ViewGroup#onInterceptTouchEvent(android.view.MotionEvent))
-method.  
+`https://developer.android.com/reference/android/view/ViewGroup#onInterceptTouchEvent(android.view.MotionEvent)`
+method.
 Refer to the following related resources:
 
 - [Input events overview](https://developer.android.com/guide/topics/ui/ui-events)
@@ -27,15 +24,15 @@ Refer to the following related resources:
 The `onInterceptTouchEvent()` method is called whenever a touch event is detected on
 the surface of a `ViewGroup`, including on the surface of its children. If
 `onInterceptTouchEvent()` returns `true`, the
-[MotionEvent](https://developer.android.com/reference/android/view/MotionEvent)
+`https://developer.android.com/reference/android/view/MotionEvent`
 is intercepted, meaning it isn't passed onto the child but rather to the
-[onTouchEvent()](https://developer.android.com/reference/android/view/View#onTouchEvent(android.view.MotionEvent))
+`https://developer.android.com/reference/android/view/View#onTouchEvent(android.view.MotionEvent)`
 method of the parent.
 
 The `onInterceptTouchEvent()` method gives a parent the chance to see touch events
 before its children do. If you return `true` from `onInterceptTouchEvent()`,
 the child view that was previously handling touch events receives an
-[ACTION_CANCEL](https://developer.android.com/reference/android/view/MotionEvent#ACTION_CANCEL),
+`https://developer.android.com/reference/android/view/MotionEvent#ACTION_CANCEL`,
 and the events from that point forward are sent to the parent's `onTouchEvent()` method
 for the usual handling. `onInterceptTouchEvent()` can also return `false` and
 spy on events as they travel down the view hierarchy to their usual targets, which handle the
@@ -47,7 +44,7 @@ horizontally, the child view no longer gets touch events, and `MyViewGroup` hand
 events by scrolling its contents. However, if you tap buttons in the child view, or scroll the child
 view vertically, the parent doesn't intercept those touch events because the child is the intended
 target. In those cases, `onInterceptTouchEvent()` returns `false`, and the
-`MyViewGroup` class's `onTouchEvent()` isn't called.  
+`MyViewGroup` class's `onTouchEvent()` isn't called.
 
 ### Kotlin
 
@@ -172,21 +169,21 @@ public class MyViewGroup extends ViewGroup {
 ```
 
 Note that `ViewGroup` also provides a
-[requestDisallowInterceptTouchEvent()](https://developer.android.com/reference/android/view/ViewGroup#requestDisallowInterceptTouchEvent(boolean))
+`https://developer.android.com/reference/android/view/ViewGroup#requestDisallowInterceptTouchEvent(boolean)`
 method. The `ViewGroup` calls this method when a child doesn't want the parent and its
 ancestors to intercept touch events with `onInterceptTouchEvent()`.
 
 ### Process ACTION_OUTSIDE events
 
 If a `ViewGroup` receives a `MotionEvent` with an
-[ACTION_OUTSIDE](https://developer.android.com/reference/android/view/MotionEvent#ACTION_OUTSIDE),
+`https://developer.android.com/reference/android/view/MotionEvent#ACTION_OUTSIDE`,
 the event isn't dispatched to its children by default. To process a `MotionEvent` with
 `ACTION_OUTSIDE`, either override
-[dispatchTouchEvent(MotionEvent event)](https://developer.android.com/reference/android/view/ViewGroup#dispatchTouchEvent(android.view.MotionEvent))
-to dispatch to the appropriate [View](https://developer.android.com/reference/android/view/View) or
+`https://developer.android.com/reference/android/view/ViewGroup#dispatchTouchEvent(android.view.MotionEvent)`
+to dispatch to the appropriate `https://developer.android.com/reference/android/view/View` or
 handle it in the relevant
-[Window.Callback](https://developer.android.com/reference/android/view/Window.Callback)---for
-example, [Activity](https://developer.android.com/reference/android/app/Activity).
+`https://developer.android.com/reference/android/view/Window.Callback`---for
+example, `https://developer.android.com/reference/android/app/Activity`.
 
 ## Use ViewConfiguration constants
 
@@ -199,11 +196,11 @@ interpreted as scrolling. Touch slop is typically used to prevent accidental scr
 is performing another touch operation, such as touching on-screen elements.
 
 Two other commonly used `ViewConfiguration` methods are
-[getScaledMinimumFlingVelocity()](https://developer.android.com/reference/android/view/ViewConfiguration#getScaledMinimumFlingVelocity())
+`https://developer.android.com/reference/android/view/ViewConfiguration#getScaledMinimumFlingVelocity()`
 and
-[getScaledMaximumFlingVelocity()](https://developer.android.com/reference/android/view/ViewConfiguration#getScaledMaximumFlingVelocity()).
+`https://developer.android.com/reference/android/view/ViewConfiguration#getScaledMaximumFlingVelocity()`.
 These methods return the minimum and maximum velocity, respectively, to initiate a fling measured
-in pixels per second. For example:  
+in pixels per second. For example:
 
 ### Kotlin
 
@@ -257,14 +254,14 @@ case MotionEvent.ACTION_UP: {
 ## Extend a child view's touchable area
 
 Android provides the
-[TouchDelegate](https://developer.android.com/reference/android/view/TouchDelegate) class to make it
+`https://developer.android.com/reference/android/view/TouchDelegate` class to make it
 possible for a parent to extend the touchable area of a child view beyond the child's bounds. This
 is useful when the child has to be small but needs a larger touch region. You can also use this
 approach to shrink the child's touch region.
 
 In the following example, an
-[ImageButton](https://developer.android.com/reference/android/widget/ImageButton) is the _delegate
-view_---that is, the child whose touch area the parent extends. Here is the layout file:  
+`https://developer.android.com/reference/android/widget/ImageButton` is the _delegate
+view_---that is, the child whose touch area the parent extends. Here is the layout file:
 
 ```xml
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -283,7 +280,7 @@ view_---that is, the child whose touch area the parent extends. Here is the layo
 
 The following snippet completes these tasks:
 
-- Gets the parent view and posts a [Runnable](https://developer.android.com/reference/java/lang/Runnable) on the UI thread. This makes sure that the parent lays out its children before calling the [getHitRect()](https://developer.android.com/reference/android/view/View#getHitRect(android.graphics.Rect)) method. The `getHitRect()` method gets the child's *hit rectangle* (or touchable area) in the parent's coordinates.
+- Gets the parent view and posts a `https://developer.android.com/reference/java/lang/Runnable` on the UI thread. This makes sure that the parent lays out its children before calling the `https://developer.android.com/reference/android/view/View#getHitRect(android.graphics.Rect)` method. The `getHitRect()` method gets the child's *hit rectangle* (or touchable area) in the parent's coordinates.
 - Finds the `ImageButton` child view and calls `getHitRect()` to get the bounds of the child's touchable area.
 - Extends the bounds of the `ImageButton` child view's hit rectangle.
 - Instantiates a `TouchDelegate`, passing in the expanded hit rectangle and the `ImageButton` child view as parameters.
@@ -291,7 +288,7 @@ The following snippet completes these tasks:
 
 In its capacity as touch delegate for the `ImageButton` child view, the parent view
 receives all touch events. If the touch event occurs within the child's hit rectangle, the parent
-passes the touch event to the child for handling.  
+passes the touch event to the child for handling.
 
 ### Kotlin
 

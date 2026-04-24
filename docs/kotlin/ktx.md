@@ -323,9 +323,9 @@ To include these modules, add the following to your app's `build.gradle` file:
 
 ```groovy
 dependencies {
-    implementation "androidx.navigation:navigation-runtime-ktx:2.9.7"
-    implementation "androidx.navigation:navigation-fragment-ktx:2.9.7"
-    implementation "androidx.navigation:navigation-ui-ktx:2.9.7"
+    implementation "androidx.navigation:navigation-runtime-ktx:2.9.8"
+    implementation "androidx.navigation:navigation-fragment-ktx:2.9.8"
+    implementation "androidx.navigation:navigation-ui-ktx:2.9.8"
 }
 ```
 
@@ -333,9 +333,9 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.navigation:navigation-runtime-ktx:2.9.7")
-    implementation("androidx.navigation:navigation-fragment-ktx:2.9.7")
-    implementation("androidx.navigation:navigation-ui-ktx:2.9.7")
+    implementation("androidx.navigation:navigation-runtime-ktx:2.9.8")
+    implementation("androidx.navigation:navigation-fragment-ktx:2.9.8")
+    implementation("androidx.navigation:navigation-ui-ktx:2.9.8")
 }
 ```
 

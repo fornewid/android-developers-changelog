@@ -6,10 +6,11 @@ source: md.txt
 
 The URL on the Group Release Note column is updated depending on which BOM
 version is selected from the drop-down.
-Make a selection 2026.04.00 2026.03.01 2026.03.00 2026.02.01 2026.02.00 2026.01.01 2026.01.00 2025.12.01 2025.12.00 2025.11.01 2025.11.00 2025.10.01 2025.10.00 2025.09.01 2025.09.00 2025.08.01 2025.08.00 2025.07.01 2025.07.00 2025.06.01 2025.06.00 2025.05.01 2025.05.00 2025.04.01 2025.04.00 2025.03.01 2025.03.00 2025.02.00 2025.01.01 2025.01.00 2024.12.01 2024.11.00 2024.10.01 2024.10.00 2024.09.03 2024.09.02 2024.09.01 2024.09.00 2024.08.00 2024.06.00 2024.05.00 2024.04.01 2024.04.00 2024.03.00 2024.02.02 2024.02.01 2024.02.00 2024.01.00 2023.10.01 2023.10.00 2023.09.02 2023.09.01 2023.09.00 2023.08.00 2023.06.01 2023.06.00 2023.05.01 2023.05.00 2023.04.01 2023.04.00 2023.03.00 2023.01.00 2022.12.00 2022.11.00 2022.10.00
+Make a selection 2026.04.01 2026.04.00 2026.03.01 2026.03.00 2026.02.01 2026.02.00 2026.01.01 2026.01.00 2025.12.01 2025.12.00 2025.11.01 2025.11.00 2025.10.01 2025.10.00 2025.09.01 2025.09.00 2025.08.01 2025.08.00 2025.07.01 2025.07.00 2025.06.01 2025.06.00 2025.05.01 2025.05.00 2025.04.01 2025.04.00 2025.03.01 2025.03.00 2025.02.00 2025.01.01 2025.01.00 2024.12.01 2024.11.00 2024.10.01 2024.10.00 2024.09.03 2024.09.02 2024.09.01 2024.09.00 2024.08.00 2024.06.00 2024.05.00 2024.04.01 2024.04.00 2024.03.00 2024.02.02 2024.02.01 2024.02.00 2024.01.00 2023.10.01 2023.10.00 2023.09.02 2023.09.01 2023.09.00 2023.08.00 2023.06.01 2023.06.00 2023.05.01 2023.05.00 2023.04.01 2023.04.00 2023.03.00 2023.01.00 2022.12.00 2022.11.00 2022.10.00
 
 | Library | BOM Versions | Group Release Note |
 |---|---|---|
+| androidx.compose.animation:animation | 1.11.0 | [Compose Animation Group](https://developer.android.com/jetpack/androidx/releases/compose-animation#1.11.0) |
 | androidx.compose.animation:animation | 1.10.6 | [Compose Animation Group](https://developer.android.com/jetpack/androidx/releases/compose-animation#1.10.6) |
 | androidx.compose.animation:animation | 1.10.6 | [Compose Animation Group](https://developer.android.com/jetpack/androidx/releases/compose-animation#1.10.6) |
 | androidx.compose.animation:animation | 1.10.5 | [Compose Animation Group](https://developer.android.com/jetpack/androidx/releases/compose-animation#1.10.5) |
@@ -75,6 +76,7 @@ Make a selection 2026.04.00 2026.03.01 2026.03.00 2026.02.01 2026.02.00 2026.01.
 | androidx.compose.animation:animation | 1.3.2 | [Compose Animation Group](https://developer.android.com/jetpack/androidx/releases/compose-animation#1.3.2) |
 | androidx.compose.animation:animation | 1.3.1 | [Compose Animation Group](https://developer.android.com/jetpack/androidx/releases/compose-animation#1.3.1) |
 | androidx.compose.animation:animation | 1.3.0 | [Compose Animation Group](https://developer.android.com/jetpack/androidx/releases/compose-animation#1.3.0) |
+| androidx.compose.animation:animation-core | 1.11.0 |   |
 | androidx.compose.animation:animation-core | 1.10.6 |   |
 | androidx.compose.animation:animation-core | 1.10.6 |   |
 | androidx.compose.animation:animation-core | 1.10.5 |   |
@@ -140,6 +142,7 @@ Make a selection 2026.04.00 2026.03.01 2026.03.00 2026.02.01 2026.02.00 2026.01.
 | androidx.compose.animation:animation-core | 1.3.2 |   |
 | androidx.compose.animation:animation-core | 1.3.1 |   |
 | androidx.compose.animation:animation-core | 1.3.0 |   |
+| androidx.compose.animation:animation-graphics | 1.11.0 |   |
 | androidx.compose.animation:animation-graphics | 1.10.6 |   |
 | androidx.compose.animation:animation-graphics | 1.10.6 |   |
 | androidx.compose.animation:animation-graphics | 1.10.5 |   |
@@ -205,6 +208,7 @@ Make a selection 2026.04.00 2026.03.01 2026.03.00 2026.02.01 2026.02.00 2026.01.
 | androidx.compose.animation:animation-graphics | 1.3.2 |   |
 | androidx.compose.animation:animation-graphics | 1.3.1 |   |
 | androidx.compose.animation:animation-graphics | 1.3.0 |   |
+| androidx.compose.foundation:foundation | 1.11.0 | [Compose Foundation Group](https://developer.android.com/jetpack/androidx/releases/compose-foundation#1.11.0) |
 | androidx.compose.foundation:foundation | 1.10.6 | [Compose Foundation Group](https://developer.android.com/jetpack/androidx/releases/compose-foundation#1.10.6) |
 | androidx.compose.foundation:foundation | 1.10.6 | [Compose Foundation Group](https://developer.android.com/jetpack/androidx/releases/compose-foundation#1.10.6) |
 | androidx.compose.foundation:foundation | 1.10.5 | [Compose Foundation Group](https://developer.android.com/jetpack/androidx/releases/compose-foundation#1.10.5) |
@@ -270,6 +274,7 @@ Make a selection 2026.04.00 2026.03.01 2026.03.00 2026.02.01 2026.02.00 2026.01.
 | androidx.compose.foundation:foundation | 1.3.2 | [Compose Foundation Group](https://developer.android.com/jetpack/androidx/releases/compose-foundation#1.3.2) |
 | androidx.compose.foundation:foundation | 1.3.1 | [Compose Foundation Group](https://developer.android.com/jetpack/androidx/releases/compose-foundation#1.3.1) |
 | androidx.compose.foundation:foundation | 1.3.0 | [Compose Foundation Group](https://developer.android.com/jetpack/androidx/releases/compose-foundation#1.3.0) |
+| androidx.compose.foundation:foundation-layout | 1.11.0 |   |
 | androidx.compose.foundation:foundation-layout | 1.10.6 |   |
 | androidx.compose.foundation:foundation-layout | 1.10.6 |   |
 | androidx.compose.foundation:foundation-layout | 1.10.5 |   |
@@ -335,6 +340,7 @@ Make a selection 2026.04.00 2026.03.01 2026.03.00 2026.02.01 2026.02.00 2026.01.
 | androidx.compose.foundation:foundation-layout | 1.3.2 |   |
 | androidx.compose.foundation:foundation-layout | 1.3.1 |   |
 | androidx.compose.foundation:foundation-layout | 1.3.0 |   |
+| androidx.compose.material:material | 1.11.0 | [Compose Material Group](https://developer.android.com/jetpack/androidx/releases/compose-material#1.11.0) |
 | androidx.compose.material:material | 1.10.6 | [Compose Material Group](https://developer.android.com/jetpack/androidx/releases/compose-material#1.10.6) |
 | androidx.compose.material:material | 1.10.6 | [Compose Material Group](https://developer.android.com/jetpack/androidx/releases/compose-material#1.10.6) |
 | androidx.compose.material:material | 1.10.5 | [Compose Material Group](https://developer.android.com/jetpack/androidx/releases/compose-material#1.10.5) |
@@ -465,6 +471,7 @@ Make a selection 2026.04.00 2026.03.01 2026.03.00 2026.02.01 2026.02.00 2026.01.
 | androidx.compose.material:material-icons-core | 1.7.8 |   |
 | androidx.compose.material:material-icons-core | 1.7.8 |   |
 | androidx.compose.material:material-icons-core | 1.7.8 |   |
+| androidx.compose.material:material-icons-core | 1.7.8 |   |
 | androidx.compose.material:material-icons-extended | 1.7.8 |   |
 | androidx.compose.material:material-icons-extended | 1.7.8 |   |
 | androidx.compose.material:material-icons-extended | 1.7.8 |   |
@@ -530,6 +537,8 @@ Make a selection 2026.04.00 2026.03.01 2026.03.00 2026.02.01 2026.02.00 2026.01.
 | androidx.compose.material:material-icons-extended | 1.7.8 |   |
 | androidx.compose.material:material-icons-extended | 1.7.8 |   |
 | androidx.compose.material:material-icons-extended | 1.7.8 |   |
+| androidx.compose.material:material-icons-extended | 1.7.8 |   |
+| androidx.compose.material:material-ripple | 1.11.0 |   |
 | androidx.compose.material:material-ripple | 1.10.6 |   |
 | androidx.compose.material:material-ripple | 1.10.6 |   |
 | androidx.compose.material:material-ripple | 1.10.5 |   |
@@ -609,6 +618,7 @@ Make a selection 2026.04.00 2026.03.01 2026.03.00 2026.02.01 2026.02.00 2026.01.
 | androidx.compose.material3:material3 | 1.4.0 | [Compose Material3 Group](https://developer.android.com/jetpack/androidx/releases/compose-material3#1.4.0) |
 | androidx.compose.material3:material3 | 1.4.0 | [Compose Material3 Group](https://developer.android.com/jetpack/androidx/releases/compose-material3#1.4.0) |
 | androidx.compose.material3:material3 | 1.4.0 | [Compose Material3 Group](https://developer.android.com/jetpack/androidx/releases/compose-material3#1.4.0) |
+| androidx.compose.material3:material3 | 1.4.0 | [Compose Material3 Group](https://developer.android.com/jetpack/androidx/releases/compose-material3#1.4.0) |
 | androidx.compose.material3:material3 | 1.3.2 | [Compose Material3 Group](https://developer.android.com/jetpack/androidx/releases/compose-material3#1.3.2) |
 | androidx.compose.material3:material3 | 1.3.2 | [Compose Material3 Group](https://developer.android.com/jetpack/androidx/releases/compose-material3#1.3.2) |
 | androidx.compose.material3:material3 | 1.3.2 | [Compose Material3 Group](https://developer.android.com/jetpack/androidx/releases/compose-material3#1.3.2) |
@@ -660,6 +670,7 @@ Make a selection 2026.04.00 2026.03.01 2026.03.00 2026.02.01 2026.02.00 2026.01.
 | androidx.compose.material3:material3 | 1.0.1 | [Compose Material3 Group](https://developer.android.com/jetpack/androidx/releases/compose-material3#1.0.1) |
 | androidx.compose.material3:material3 | 1.0.1 | [Compose Material3 Group](https://developer.android.com/jetpack/androidx/releases/compose-material3#1.0.1) |
 | androidx.compose.material3:material3 | 1.0.0 | [Compose Material3 Group](https://developer.android.com/jetpack/androidx/releases/compose-material3#1.0.0) |
+| androidx.compose.material3:material3-window-size-class | 1.4.0 |   |
 | androidx.compose.material3:material3-window-size-class | 1.4.0 |   |
 | androidx.compose.material3:material3-window-size-class | 1.4.0 |   |
 | androidx.compose.material3:material3-window-size-class | 1.4.0 |   |
@@ -737,6 +748,7 @@ Make a selection 2026.04.00 2026.03.01 2026.03.00 2026.02.01 2026.02.00 2026.01.
 | androidx.compose.material3.adaptive:adaptive | 1.2.0 | [Compose Material3 Adaptive Group](https://developer.android.com/jetpack/androidx/releases/compose-material3-adaptive#1.2.0) |
 | androidx.compose.material3.adaptive:adaptive | 1.2.0 | [Compose Material3 Adaptive Group](https://developer.android.com/jetpack/androidx/releases/compose-material3-adaptive#1.2.0) |
 | androidx.compose.material3.adaptive:adaptive | 1.2.0 | [Compose Material3 Adaptive Group](https://developer.android.com/jetpack/androidx/releases/compose-material3-adaptive#1.2.0) |
+| androidx.compose.material3.adaptive:adaptive | 1.2.0 | [Compose Material3 Adaptive Group](https://developer.android.com/jetpack/androidx/releases/compose-material3-adaptive#1.2.0) |
 | androidx.compose.material3.adaptive:adaptive | 1.1.0 | [Compose Material3 Adaptive Group](https://developer.android.com/jetpack/androidx/releases/compose-material3-adaptive#1.1.0) |
 | androidx.compose.material3.adaptive:adaptive | 1.1.0 | [Compose Material3 Adaptive Group](https://developer.android.com/jetpack/androidx/releases/compose-material3-adaptive#1.1.0) |
 | androidx.compose.material3.adaptive:adaptive | 1.1.0 | [Compose Material3 Adaptive Group](https://developer.android.com/jetpack/androidx/releases/compose-material3-adaptive#1.1.0) |
@@ -790,6 +802,7 @@ Make a selection 2026.04.00 2026.03.01 2026.03.00 2026.02.01 2026.02.00 2026.01.
 | androidx.compose.material3.adaptive:adaptive |   |   |
 | androidx.compose.material3.adaptive:adaptive |   |   |
 | androidx.compose.material3.adaptive:adaptive |   |   |
+| androidx.compose.material3.adaptive:adaptive-layout | 1.2.0 |   |
 | androidx.compose.material3.adaptive:adaptive-layout | 1.2.0 |   |
 | androidx.compose.material3.adaptive:adaptive-layout | 1.2.0 |   |
 | androidx.compose.material3.adaptive:adaptive-layout | 1.2.0 |   |
@@ -867,6 +880,7 @@ Make a selection 2026.04.00 2026.03.01 2026.03.00 2026.02.01 2026.02.00 2026.01.
 | androidx.compose.material3.adaptive:adaptive-navigation | 1.2.0 |   |
 | androidx.compose.material3.adaptive:adaptive-navigation | 1.2.0 |   |
 | androidx.compose.material3.adaptive:adaptive-navigation | 1.2.0 |   |
+| androidx.compose.material3.adaptive:adaptive-navigation | 1.2.0 |   |
 | androidx.compose.material3.adaptive:adaptive-navigation | 1.1.0 |   |
 | androidx.compose.material3.adaptive:adaptive-navigation | 1.1.0 |   |
 | androidx.compose.material3.adaptive:adaptive-navigation | 1.1.0 |   |
@@ -920,6 +934,7 @@ Make a selection 2026.04.00 2026.03.01 2026.03.00 2026.02.01 2026.02.00 2026.01.
 | androidx.compose.material3.adaptive:adaptive-navigation |   |   |
 | androidx.compose.material3.adaptive:adaptive-navigation |   |   |
 | androidx.compose.material3.adaptive:adaptive-navigation |   |   |
+| androidx.compose.runtime:runtime | 1.11.0 | [Compose Runtime Group](https://developer.android.com/jetpack/androidx/releases/compose-runtime#1.11.0) |
 | androidx.compose.runtime:runtime | 1.10.6 | [Compose Runtime Group](https://developer.android.com/jetpack/androidx/releases/compose-runtime#1.10.6) |
 | androidx.compose.runtime:runtime | 1.10.6 | [Compose Runtime Group](https://developer.android.com/jetpack/androidx/releases/compose-runtime#1.10.6) |
 | androidx.compose.runtime:runtime | 1.10.5 | [Compose Runtime Group](https://developer.android.com/jetpack/androidx/releases/compose-runtime#1.10.5) |
@@ -985,6 +1000,7 @@ Make a selection 2026.04.00 2026.03.01 2026.03.00 2026.02.01 2026.02.00 2026.01.
 | androidx.compose.runtime:runtime | 1.3.2 | [Compose Runtime Group](https://developer.android.com/jetpack/androidx/releases/compose-runtime#1.3.2) |
 | androidx.compose.runtime:runtime | 1.3.1 | [Compose Runtime Group](https://developer.android.com/jetpack/androidx/releases/compose-runtime#1.3.1) |
 | androidx.compose.runtime:runtime | 1.3.0 | [Compose Runtime Group](https://developer.android.com/jetpack/androidx/releases/compose-runtime#1.3.0) |
+| androidx.compose.runtime:runtime-livedata | 1.11.0 |   |
 | androidx.compose.runtime:runtime-livedata | 1.10.6 |   |
 | androidx.compose.runtime:runtime-livedata | 1.10.6 |   |
 | androidx.compose.runtime:runtime-livedata | 1.10.5 |   |
@@ -1050,6 +1066,7 @@ Make a selection 2026.04.00 2026.03.01 2026.03.00 2026.02.01 2026.02.00 2026.01.
 | androidx.compose.runtime:runtime-livedata | 1.3.2 |   |
 | androidx.compose.runtime:runtime-livedata | 1.3.1 |   |
 | androidx.compose.runtime:runtime-livedata | 1.3.0 |   |
+| androidx.compose.runtime:runtime-rxjava2 | 1.11.0 |   |
 | androidx.compose.runtime:runtime-rxjava2 | 1.10.6 |   |
 | androidx.compose.runtime:runtime-rxjava2 | 1.10.6 |   |
 | androidx.compose.runtime:runtime-rxjava2 | 1.10.5 |   |
@@ -1115,6 +1132,7 @@ Make a selection 2026.04.00 2026.03.01 2026.03.00 2026.02.01 2026.02.00 2026.01.
 | androidx.compose.runtime:runtime-rxjava2 | 1.3.2 |   |
 | androidx.compose.runtime:runtime-rxjava2 | 1.3.1 |   |
 | androidx.compose.runtime:runtime-rxjava2 | 1.3.0 |   |
+| androidx.compose.runtime:runtime-rxjava3 | 1.11.0 |   |
 | androidx.compose.runtime:runtime-rxjava3 | 1.10.6 |   |
 | androidx.compose.runtime:runtime-rxjava3 | 1.10.6 |   |
 | androidx.compose.runtime:runtime-rxjava3 | 1.10.5 |   |
@@ -1180,6 +1198,7 @@ Make a selection 2026.04.00 2026.03.01 2026.03.00 2026.02.01 2026.02.00 2026.01.
 | androidx.compose.runtime:runtime-rxjava3 | 1.3.2 |   |
 | androidx.compose.runtime:runtime-rxjava3 | 1.3.1 |   |
 | androidx.compose.runtime:runtime-rxjava3 | 1.3.0 |   |
+| androidx.compose.runtime:runtime-saveable | 1.11.0 |   |
 | androidx.compose.runtime:runtime-saveable | 1.10.6 |   |
 | androidx.compose.runtime:runtime-saveable | 1.10.6 |   |
 | androidx.compose.runtime:runtime-saveable | 1.10.5 |   |
@@ -1245,6 +1264,7 @@ Make a selection 2026.04.00 2026.03.01 2026.03.00 2026.02.01 2026.02.00 2026.01.
 | androidx.compose.runtime:runtime-saveable | 1.3.2 |   |
 | androidx.compose.runtime:runtime-saveable | 1.3.1 |   |
 | androidx.compose.runtime:runtime-saveable | 1.3.0 |   |
+| androidx.compose.ui:ui | 1.11.0 | [Compose UI Group](https://developer.android.com/jetpack/androidx/releases/compose-ui#1.11.0) |
 | androidx.compose.ui:ui | 1.10.6 | [Compose UI Group](https://developer.android.com/jetpack/androidx/releases/compose-ui#1.10.6) |
 | androidx.compose.ui:ui | 1.10.6 | [Compose UI Group](https://developer.android.com/jetpack/androidx/releases/compose-ui#1.10.6) |
 | androidx.compose.ui:ui | 1.10.5 | [Compose UI Group](https://developer.android.com/jetpack/androidx/releases/compose-ui#1.10.5) |
@@ -1310,6 +1330,7 @@ Make a selection 2026.04.00 2026.03.01 2026.03.00 2026.02.01 2026.02.00 2026.01.
 | androidx.compose.ui:ui | 1.3.2 | [Compose UI Group](https://developer.android.com/jetpack/androidx/releases/compose-ui#1.3.2) |
 | androidx.compose.ui:ui | 1.3.1 | [Compose UI Group](https://developer.android.com/jetpack/androidx/releases/compose-ui#1.3.1) |
 | androidx.compose.ui:ui | 1.3.0 | [Compose UI Group](https://developer.android.com/jetpack/androidx/releases/compose-ui#1.3.0) |
+| androidx.compose.ui:ui-geometry | 1.11.0 |   |
 | androidx.compose.ui:ui-geometry | 1.10.6 |   |
 | androidx.compose.ui:ui-geometry | 1.10.6 |   |
 | androidx.compose.ui:ui-geometry | 1.10.5 |   |
@@ -1375,6 +1396,7 @@ Make a selection 2026.04.00 2026.03.01 2026.03.00 2026.02.01 2026.02.00 2026.01.
 | androidx.compose.ui:ui-geometry | 1.3.2 |   |
 | androidx.compose.ui:ui-geometry | 1.3.1 |   |
 | androidx.compose.ui:ui-geometry | 1.3.0 |   |
+| androidx.compose.ui:ui-graphics | 1.11.0 |   |
 | androidx.compose.ui:ui-graphics | 1.10.6 |   |
 | androidx.compose.ui:ui-graphics | 1.10.6 |   |
 | androidx.compose.ui:ui-graphics | 1.10.5 |   |
@@ -1440,6 +1462,7 @@ Make a selection 2026.04.00 2026.03.01 2026.03.00 2026.02.01 2026.02.00 2026.01.
 | androidx.compose.ui:ui-graphics | 1.3.2 |   |
 | androidx.compose.ui:ui-graphics | 1.3.1 |   |
 | androidx.compose.ui:ui-graphics | 1.3.0 |   |
+| androidx.compose.ui:ui-test | 1.11.0 |   |
 | androidx.compose.ui:ui-test | 1.10.6 |   |
 | androidx.compose.ui:ui-test | 1.10.6 |   |
 | androidx.compose.ui:ui-test | 1.10.5 |   |
@@ -1505,6 +1528,7 @@ Make a selection 2026.04.00 2026.03.01 2026.03.00 2026.02.01 2026.02.00 2026.01.
 | androidx.compose.ui:ui-test | 1.3.2 |   |
 | androidx.compose.ui:ui-test | 1.3.1 |   |
 | androidx.compose.ui:ui-test | 1.3.0 |   |
+| androidx.compose.ui:ui-test-junit4 | 1.11.0 |   |
 | androidx.compose.ui:ui-test-junit4 | 1.10.6 |   |
 | androidx.compose.ui:ui-test-junit4 | 1.10.6 |   |
 | androidx.compose.ui:ui-test-junit4 | 1.10.5 |   |
@@ -1570,6 +1594,7 @@ Make a selection 2026.04.00 2026.03.01 2026.03.00 2026.02.01 2026.02.00 2026.01.
 | androidx.compose.ui:ui-test-junit4 | 1.3.2 |   |
 | androidx.compose.ui:ui-test-junit4 | 1.3.1 |   |
 | androidx.compose.ui:ui-test-junit4 | 1.3.0 |   |
+| androidx.compose.ui:ui-test-manifest | 1.11.0 |   |
 | androidx.compose.ui:ui-test-manifest | 1.10.6 |   |
 | androidx.compose.ui:ui-test-manifest | 1.10.6 |   |
 | androidx.compose.ui:ui-test-manifest | 1.10.5 |   |
@@ -1635,6 +1660,7 @@ Make a selection 2026.04.00 2026.03.01 2026.03.00 2026.02.01 2026.02.00 2026.01.
 | androidx.compose.ui:ui-test-manifest | 1.3.2 |   |
 | androidx.compose.ui:ui-test-manifest | 1.3.1 |   |
 | androidx.compose.ui:ui-test-manifest | 1.3.0 |   |
+| androidx.compose.ui:ui-text | 1.11.0 |   |
 | androidx.compose.ui:ui-text | 1.10.6 |   |
 | androidx.compose.ui:ui-text | 1.10.6 |   |
 | androidx.compose.ui:ui-text | 1.10.5 |   |
@@ -1700,6 +1726,7 @@ Make a selection 2026.04.00 2026.03.01 2026.03.00 2026.02.01 2026.02.00 2026.01.
 | androidx.compose.ui:ui-text | 1.3.2 |   |
 | androidx.compose.ui:ui-text | 1.3.1 |   |
 | androidx.compose.ui:ui-text | 1.3.0 |   |
+| androidx.compose.ui:ui-text-google-fonts | 1.11.0 |   |
 | androidx.compose.ui:ui-text-google-fonts | 1.10.6 |   |
 | androidx.compose.ui:ui-text-google-fonts | 1.10.6 |   |
 | androidx.compose.ui:ui-text-google-fonts | 1.10.5 |   |
@@ -1765,6 +1792,7 @@ Make a selection 2026.04.00 2026.03.01 2026.03.00 2026.02.01 2026.02.00 2026.01.
 | androidx.compose.ui:ui-text-google-fonts | 1.3.2 |   |
 | androidx.compose.ui:ui-text-google-fonts | 1.3.1 |   |
 | androidx.compose.ui:ui-text-google-fonts | 1.3.0 |   |
+| androidx.compose.ui:ui-tooling | 1.11.0 |   |
 | androidx.compose.ui:ui-tooling | 1.10.6 |   |
 | androidx.compose.ui:ui-tooling | 1.10.6 |   |
 | androidx.compose.ui:ui-tooling | 1.10.5 |   |
@@ -1830,6 +1858,7 @@ Make a selection 2026.04.00 2026.03.01 2026.03.00 2026.02.01 2026.02.00 2026.01.
 | androidx.compose.ui:ui-tooling | 1.3.2 |   |
 | androidx.compose.ui:ui-tooling | 1.3.1 |   |
 | androidx.compose.ui:ui-tooling | 1.3.0 |   |
+| androidx.compose.ui:ui-tooling-data | 1.11.0 |   |
 | androidx.compose.ui:ui-tooling-data | 1.10.6 |   |
 | androidx.compose.ui:ui-tooling-data | 1.10.6 |   |
 | androidx.compose.ui:ui-tooling-data | 1.10.5 |   |
@@ -1895,6 +1924,7 @@ Make a selection 2026.04.00 2026.03.01 2026.03.00 2026.02.01 2026.02.00 2026.01.
 | androidx.compose.ui:ui-tooling-data | 1.3.2 |   |
 | androidx.compose.ui:ui-tooling-data | 1.3.1 |   |
 | androidx.compose.ui:ui-tooling-data | 1.3.0 |   |
+| androidx.compose.ui:ui-tooling-preview | 1.11.0 |   |
 | androidx.compose.ui:ui-tooling-preview | 1.10.6 |   |
 | androidx.compose.ui:ui-tooling-preview | 1.10.6 |   |
 | androidx.compose.ui:ui-tooling-preview | 1.10.5 |   |
@@ -1960,6 +1990,7 @@ Make a selection 2026.04.00 2026.03.01 2026.03.00 2026.02.01 2026.02.00 2026.01.
 | androidx.compose.ui:ui-tooling-preview | 1.3.2 |   |
 | androidx.compose.ui:ui-tooling-preview | 1.3.1 |   |
 | androidx.compose.ui:ui-tooling-preview | 1.3.0 |   |
+| androidx.compose.ui:ui-unit | 1.11.0 |   |
 | androidx.compose.ui:ui-unit | 1.10.6 |   |
 | androidx.compose.ui:ui-unit | 1.10.6 |   |
 | androidx.compose.ui:ui-unit | 1.10.5 |   |
@@ -2025,6 +2056,7 @@ Make a selection 2026.04.00 2026.03.01 2026.03.00 2026.02.01 2026.02.00 2026.01.
 | androidx.compose.ui:ui-unit | 1.3.2 |   |
 | androidx.compose.ui:ui-unit | 1.3.1 |   |
 | androidx.compose.ui:ui-unit | 1.3.0 |   |
+| androidx.compose.ui:ui-util | 1.11.0 |   |
 | androidx.compose.ui:ui-util | 1.10.6 |   |
 | androidx.compose.ui:ui-util | 1.10.6 |   |
 | androidx.compose.ui:ui-util | 1.10.5 |   |
@@ -2090,6 +2122,7 @@ Make a selection 2026.04.00 2026.03.01 2026.03.00 2026.02.01 2026.02.00 2026.01.
 | androidx.compose.ui:ui-util | 1.3.2 |   |
 | androidx.compose.ui:ui-util | 1.3.1 |   |
 | androidx.compose.ui:ui-util | 1.3.0 |   |
+| androidx.compose.ui:ui-viewbinding | 1.11.0 |   |
 | androidx.compose.ui:ui-viewbinding | 1.10.6 |   |
 | androidx.compose.ui:ui-viewbinding | 1.10.6 |   |
 | androidx.compose.ui:ui-viewbinding | 1.10.5 |   |

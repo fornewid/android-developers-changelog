@@ -43,7 +43,7 @@ Integrate the following libraries into your Wear OS module:
 ## Create the Health Services Manager
 
 To make using [Health Services](https://developers.google.com/android/reference/com/google/android/gms/wearable/WearableListenerService) a bit more convenient, and expose a smaller
-and smoother API, you can create a wrapper like this:  
+and smoother API, you can create a wrapper like this:
 
     private const val TAG = "WATCHMAIN"
 
@@ -96,7 +96,7 @@ and smoother API, you can create a wrapper like this:
         class MeasureData(val data: List<SampleDataPoint<Double>>) : MeasureMessage()
     }
 
-Once you have created the Hilt module to manage it, using the following snippet:  
+Once you have created the Hilt module to manage it, using the following snippet:
 
     @Module
     @InstallIn(SingletonComponent::class)
@@ -115,7 +115,7 @@ registers a listener for the heart monitor and emits the received data.
 
 Fitness-related data updates require the `BODY_SENSORS` permission. If you
 haven't done so already, declare the `BODY_SENSORS` permission in your
-app's manifest file. Then, request the permission, as shown in this snippet:  
+app's manifest file. Then, request the permission, as shown in this snippet:
 
     val permissionState = rememberPermissionState(
         permission = Manifest.permission.BODY_SENSORS,
@@ -134,26 +134,26 @@ If you test your app on a physical device, data should start updating.
 
 Starting in Wear OS 4, emulators also show test data automatically. On previous
 versions, you can simulate the data stream from the sensor. In a terminal
-window, run this ADB command:  
+window, run this ADB command:
 
     adb shell am broadcast \
     -a "whs.USE_SYNTHETIC_PROVIDERS" \
     com.google.android.wearable.healthservices
 
 To see different heart rate values, try simulating different exercises.
-This command simulates walking:  
+This command simulates walking:
 
     adb shell am broadcast \
     -a "whs.synthetic.user.START_WALKING" \
     com.google.android.wearable.healthservices
 
-This command simulates running:  
+This command simulates running:
 
     adb shell am broadcast \
     -a "whs.synthetic.user.START_RUNNING" \
     com.google.android.wearable.healthservices
 
-To stop simulating the data, run this command:  
+To stop simulating the data, run this command:
 
     adb shell am broadcast -a \
     "whs.USE_SENSOR_PROVIDERS" \
@@ -167,7 +167,7 @@ UI, the current heart rate value appears, being measured by the sensor on the
 wearable device.
 
 In your `ViewModel`, start collecting data using the heart rate flow object,
-as shown in the following snippet:  
+as shown in the following snippet:
 
     val hr: MutableState<Double> = mutableStateOf(0.0)
 
@@ -189,7 +189,7 @@ as shown in the following snippet:
         }
 
 Use a composable object similar to the following to display the live data in
-your app's UI:  
+your app's UI:
 
     val heartRate by viewModel.hr
 
@@ -202,7 +202,7 @@ your app's UI:
 
 To send health and fitness data to a handheld device, use the `DataClient`
 class in Health Services. The following code snippet shows how to send heart
-rate data that your app previously collected:  
+rate data that your app previously collected:
 
     class HealthServicesManager(context: Context) {
         private val dataClient by lazy { Wearable.getDataClient(context) }
@@ -231,7 +231,7 @@ rate data that your app previously collected:
 ## Receive the data on the phone
 
 To receive the data on the phone, create a
-[`WearableListenerService`](https://developers.google.com/android/reference/com/google/android/gms/wearable/WearableListenerService):  
+[`WearableListenerService`](https://developers.google.com/android/reference/com/google/android/gms/wearable/WearableListenerService):
 
     @AndroidEntryPoint
     class DataLayerListenerService : WearableListenerService() {
@@ -270,7 +270,7 @@ Upon completion of this step, notice a few interesting details:
 - The class implements `onDataChanged()` and receives a collection of events that you can parse and use
 
 The following `HeartRateMonitor` logic lets you send the received heart rate
-values to another part of your app's codebase:  
+values to another part of your app's codebase:
 
     class HeartRateMonitor {
         private val datapoints = MutableSharedFlow<Int>(extraBufferCapacity = 10)
@@ -286,7 +286,7 @@ A data bus receives the events from the `onDataChanged()` method and makes them
 available to data observers using a `SharedFlow`.
 
 The final bit is the declaration of the `Service` in the phone application
-`AndroidManifest.xml`:  
+`AndroidManifest.xml`:
 
     <service
         android:name=".DataLayerListenerService"

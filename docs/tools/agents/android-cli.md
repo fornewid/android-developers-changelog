@@ -4,7 +4,7 @@ url: https://developer.android.com/tools/agents/android-cli
 source: md.txt
 ---
 
-The Android CLI is a command-line interface that enables you to more easily and
+Android CLI is a command-line interface that enables you to more easily and
 efficiently build for Android using any tool of your choice. It standardizes
 core development competencies for agent-first workflows, providing an entry
 point to the official tools, skills, and knowledge you need to develop more
@@ -14,30 +14,30 @@ automation for the increasingly distributed nature of Android development.
 For example, an agent or script can use the CLI to automate environment setup,
 scaffold new projects from templates, and manage virtual devices directly from
 your terminal. It also gives your agents access to [Android skills](https://developer.android.com/tools/agents/android-skills)
-and the specialized [Android Knowledge Base](https://developer.android.com/studio/gemini/knowledge-base) to help ensure that your
+and the specialized [Android Knowledge Base](https://developer.android.com/studio/gemini/access-helpful-resources) to help ensure that your
 projects apply Android-recommended patterns and best practices.
 
-## Install the Android CLI
+## Install Android CLI
 
-To install the Android CLI, follow these steps:
+To install Android CLI, follow these steps:
 
-1. [Download the Android CLI](https://developer.android.com/tools/agents).
+1. [Download Android CLI](https://developer.android.com/tools/agents).
 
 2. To make sure you're using the latest version, update
-   the Android CLI:
+   Android CLI:
 
        android update
 
    > [!TIP]
    > **Tip:** Run [`android update`](https://developer.android.com/tools/agents/android-cli#update) regularly to keep up with the latest features.
 
-To check if the Android CLI is already installed on your machine, run
+To check if Android CLI is already installed on your machine, run
 `which android` or `command -v android`: if it returns a path, then it's
 installed.
 
 ### Set up for agents
 
-To help agents understand and use the Android CLI, run `init` to install the
+To help agents understand and use Android CLI, run `init` to install the
 `android-cli` skill:
 
     android init
@@ -48,6 +48,22 @@ To help agents understand and use the Android CLI, run `init` to install the
 
 If you encounter any issues or wish to provide feedback, please
 [report a bug](https://issuetracker.google.com/issues/new?component=2091212).
+
+## Configure Android CLI
+
+Create a `.androidrc` file to automatically apply flags and options
+every time you invoke Android CLI. Save the file in the following
+location, depending on your operating system:
+
+- **macOS and Linux** : `~/.androidrc`
+- **Windows** : `%USERPROFILE%\.androidrc`
+
+Add the flags you want to apply automatically to the file, one per line.
+
+For example, to make Android CLI use a specific Android SDK by default
+every time, add the [`--sdk`](https://developer.android.com/tools/agents/android-cli#sdk) flag to your file:
+
+    --sdk=<path-to-sdk>
 
 ## Global options
 
@@ -135,7 +151,7 @@ other tools and commands to locate build artifacts efficiently.
 - `android docs fetch <kb-url>`
 
 **Description:** The `android docs` command is a two-step process for
-accessing the [Android Knowledge Base](https://developer.android.com/studio/gemini/knowledge-base) directly from the CLI.
+accessing the [Android Knowledge Base](https://developer.android.com/studio/gemini/access-helpful-resources) directly from the CLI.
 First, search for documentation related to your query using the `search`
 command. The search results will include special URLs starting with `kb://`,
 which you can then use with the `fetch` command to output the documentation

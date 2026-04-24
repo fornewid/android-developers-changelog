@@ -29,8 +29,7 @@ For more information, see the guidance on
 [adapting your layout](https://developer.android.com/design/ui/mobile/guides/layout-and-content/adapt-layout)
 and
 [canonical layouts](https://developer.android.com/design/ui/mobile/guides/layout-and-content/canonical-layouts).
-![](https://developer.android.com/static/images/design/ui/mobile/layout-basics-orientation.png)  
-**Device safe areas**
+![](https://developer.android.com/static/images/design/ui/mobile/layout-basics-orientation.png) **Device safe areas**
 
 
 Honor device safe areas, which includes parts of the UI such as display
@@ -38,15 +37,13 @@ cutouts, edge-to-edge insets, edge displays, software keyboards, and
 system bars. Provide a flexible layout for users to
 interact with the keyboard.
 Warning: Be careful when covering content with the keyboard.
-Alas, your browser doesn't support HTML5 video. That's OK! You can still [download the video](https://developer.android.com/static/images/design/ui/mobile/layout-basics-video-1.mp4) and watch it with a video player.  
-**Interaction ergonomics**
+Alas, your browser doesn't support HTML5 video. That's OK! You can still [download the video](https://developer.android.com/static/images/design/ui/mobile/layout-basics-video-1.mp4) and watch it with a video player. **Interaction ergonomics**
 
 
 Keep essential interactions, like primary navigation, in a reachable screen
 area. Floating action buttons (FABs) provide a
 prominent and reachable interaction point
-![](https://developer.android.com/static/images/design/ui/mobile/layout-basics-1-takeaways-key-essential-layout.png)  
-**Containment groups**
+![](https://developer.android.com/static/images/design/ui/mobile/layout-basics-1-takeaways-key-essential-layout.png) **Containment groups**
 
 
 Use containment to group related content to guide the user through content and
@@ -59,24 +56,19 @@ Provide consistent alignment between similar content and UI elements.
 
 <br />
 
-![](https://developer.android.com/static/images/design/ui/mobile/layout-basics_alignment_do.png)  
-check_circle
+![](https://developer.android.com/static/images/design/ui/mobile/layout-basics_alignment_do.png)
 
 ### Do
 
-Establish consistent spacing between like elements.  
-![](https://developer.android.com/static/images/design/ui/mobile/layout-basics_alignment_dont.png)  
-cancel
+Establish consistent spacing between like elements. ![](https://developer.android.com/static/images/design/ui/mobile/layout-basics_alignment_dont.png)
 
 ### Don't
 
-Disrupt readability by inconsistently spacing like elements, which can make designs appear haphazard.  
-**Essential interactions**
+Disrupt readability by inconsistently spacing like elements, which can make designs appear haphazard. **Essential interactions**
 
 
 Don't overwhelm your user with too many actions per view.
-![](https://developer.android.com/static/images/design/ui/mobile/layout-basics-1-takeaways-key-actions.png)  
-**Notate layout specs**
+![](https://developer.android.com/static/images/design/ui/mobile/layout-basics-1-takeaways-key-actions.png) **Notate layout specs**
 
 
 When building custom layouts, notate how content should sit within the layout

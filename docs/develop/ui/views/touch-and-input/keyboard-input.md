@@ -4,10 +4,7 @@ url: https://developer.android.com/develop/ui/views/touch-and-input/keyboard-inp
 source: md.txt
 ---
 
-Try the Compose way  
-Jetpack Compose is the recommended UI toolkit for Android. Learn about touch and input in Compose.  
-[Touch and input →](https://developer.android.com/develop/ui/compose/touch-input)  
-![](https://developer.android.com/static/images/android-compose-ui-logo.png)
+Try the Compose way Jetpack Compose is the recommended UI toolkit for Android. Learn about touch and input in Compose. [Touch and input →](https://developer.android.com/develop/ui/compose/touch-input) ![](https://developer.android.com/static/images/android-compose-ui-logo.png)
 
 The Android system shows an on-screen keyboard---known as a
 *soft input method*---when a text field in your UI receives focus.

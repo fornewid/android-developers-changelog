@@ -211,7 +211,7 @@ to point to your existing source files, proceed as follows:
        implementation 'androidx.mediarouter:mediarouter:1.8.1'
        implementation 'androidx.palette:palette-ktx:1.0.0'
        implementation 'androidx.recyclerview:recyclerview:1.4.0'
-       implementation 'androidx.annotation:annotation:1.9.1'
+       implementation 'androidx.annotation:annotation:1.10.0'
 
        // Note: these libraries require that the Google repository has been declared
        // in the pluginManagement section of the top-level build.gradle file.
@@ -235,7 +235,7 @@ to point to your existing source files, proceed as follows:
        implementation("androidx.mediarouter:mediarouter:1.8.1")
        implementation("androidx.palette:palette-ktx:1.0.0")
        implementation("androidx.recyclerview:recyclerview:1.4.0")
-       implementation("androidx.annotation:annotation:1.9.1")
+       implementation("androidx.annotation:annotation:1.10.0")
 
        // Note: these libraries require that the Google repository has been declared
        // in the pluginManagement section of the top-level build.gradle.kts file.

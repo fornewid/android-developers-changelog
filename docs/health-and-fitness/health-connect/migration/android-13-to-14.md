@@ -28,7 +28,8 @@ Health Connect API.
 4. Data migration will commence. Whilst the migration is progressing, the module APIs will be suspended with a 'Migration in Process' status. This will also be visible within the Health Connect UI.
 5. Once migration is complete, the APK can be uninstalled.
 
-| **Note:** Data migration is not expected to exceed 2 hours.
+> [!NOTE]
+> **Note:** Data migration is not expected to exceed 2 hours.
 
 ### Example migration scenarios
 
@@ -214,7 +215,8 @@ release:
 - `ExerciseRepetitions`
 - `SwimmingStrokes`
 
-| **Important:** If any data exists for these types, it will be deleted during a cleanup. You should stop using these data types.
+> [!IMPORTANT]
+> **Important:** If any data exists for these types, it will be deleted during a cleanup. You should stop using these data types.
 
 As with `ExerciseSessionRecord`, `SleepStage` will become a subtype of
 `SleepSession`.
