@@ -1,0 +1,30 @@
+diff --git a/docs/kotlin/ktx.md b/docs/kotlin/ktx.md
+index 02a19fab..4ed533fd 100644
+--- a/docs/kotlin/ktx.md
++++ b/docs/kotlin/ktx.md
+@@ -323,9 +323,9 @@ To include these modules, add the following to your app's `build.gradle` file:
+ 
+ ```groovy
+ dependencies {
+-    implementation "androidx.navigation:navigation-runtime-ktx:2.9.7"
+-    implementation "androidx.navigation:navigation-fragment-ktx:2.9.7"
+-    implementation "androidx.navigation:navigation-ui-ktx:2.9.7"
++    implementation "androidx.navigation:navigation-runtime-ktx:2.9.8"
++    implementation "androidx.navigation:navigation-fragment-ktx:2.9.8"
++    implementation "androidx.navigation:navigation-ui-ktx:2.9.8"
+ }
+ ```
+ 
+@@ -333,9 +333,9 @@ dependencies {
+ 
+ ```kotlin
+ dependencies {
+-    implementation("androidx.navigation:navigation-runtime-ktx:2.9.7")
+-    implementation("androidx.navigation:navigation-fragment-ktx:2.9.7")
+-    implementation("androidx.navigation:navigation-ui-ktx:2.9.7")
++    implementation("androidx.navigation:navigation-runtime-ktx:2.9.8")
++    implementation("androidx.navigation:navigation-fragment-ktx:2.9.8")
++    implementation("androidx.navigation:navigation-ui-ktx:2.9.8")
+ }
+ ```
+ 

@@ -1,0 +1,22 @@
+diff --git a/docs/develop/ui/compose/navigation.md b/docs/develop/ui/compose/navigation.md
+index 7f01ac3d..bc051fd9 100644
+--- a/docs/develop/ui/compose/navigation.md
++++ b/docs/develop/ui/compose/navigation.md
+@@ -23,7 +23,7 @@ To support Compose, use the following dependency in your app module's
+ 
+ ```groovy
+ dependencies {
+-    def nav_version = "2.9.7"
++    def nav_version = "2.9.8"
+ 
+     implementation "androidx.navigation:navigation-compose:$nav_version"
+ }
+@@ -33,7 +33,7 @@ dependencies {
+ 
+ ```kotlin
+ dependencies {
+-    val nav_version = "2.9.7"
++    val nav_version = "2.9.8"
+ 
+     implementation("androidx.navigation:navigation-compose:$nav_version")
+ }

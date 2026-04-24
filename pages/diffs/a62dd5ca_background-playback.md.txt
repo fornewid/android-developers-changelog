@@ -1,0 +1,121 @@
+diff --git a/docs/media/media3/session/background-playback.md b/docs/media/media3/session/background-playback.md
+index cd350c26..ed224089 100644
+--- a/docs/media/media3/session/background-playback.md
++++ b/docs/media/media3/session/background-playback.md
+@@ -450,10 +450,10 @@ media button preferences specifically for the platform session as follows:
+ ### Kotlin
+ 
+ ```kotlin
+-override fun onConnect(
++override fun onConnectAsync(
+   session: MediaSession,
+   controller: MediaSession.ControllerInfo,
+-): ConnectionResult {
++): ListenableFuture<ConnectionResult> {
+   if (session.isMediaNotificationController(controller)) {
+     val playerCommands =
+       ConnectionResult.DEFAULT_PLAYER_COMMANDS.buildUpon()
+@@ -463,13 +463,15 @@ override fun onConnect(
+         .remove(COMMAND_SEEK_TO_NEXT_MEDIA_ITEM)
+         .build()
+     // Custom button preferences and commands to configure the platform session.
+-    return AcceptedResultBuilder(session)
+-      .setMediaButtonPreferences(listOf(seekBackButton, seekForwardButton))
+-      .setAvailablePlayerCommands(playerCommands)
+-      .build()
++    return immediateFuture(
++      AcceptedResultBuilder(session)
++        .setMediaButtonPreferences(listOf(seekBackButton, seekForwardButton))
++        .setAvailablePlayerCommands(playerCommands)
++        .build()
++    )
+   }
+   // Default commands with default button preferences for all other controllers.
+-  return AcceptedResultBuilder(session).build()
++  return immediateFuture(AcceptedResultBuilder(session).build())
+ }
+ ```
+ 
+@@ -477,7 +479,7 @@ override fun onConnect(
+ 
+ ```java
+ @Override
+-public ConnectionResult onConnect(
++public ListenableFuture<ConnectionResult> onConnectAsync(
+     MediaSession session, MediaSession.ControllerInfo controller) {
+   if (session.isMediaNotificationController(controller)) {
+     Player.Commands playerCommands =
+@@ -489,13 +491,14 @@ public ConnectionResult onConnect(
+             .remove(COMMAND_SEEK_TO_NEXT_MEDIA_ITEM)
+             .build();
+     // Custom button preferences and commands to configure the platform session.
+-    return new AcceptedResultBuilder(session)
+-        .setMediaButtonPreferences(ImmutableList.of(seekBackButton, seekForwardButton))
+-        .setAvailablePlayerCommands(playerCommands)
+-        .build();
++    return immediateFuture(
++        new AcceptedResultBuilder(session)
++            .setMediaButtonPreferences(ImmutableList.of(seekBackButton, seekForwardButton))
++            .setAvailablePlayerCommands(playerCommands)
++            .build());
+   }
+   // Default commands with default button preferences for all other controllers.
+-  return new AcceptedResultBuilder(session).build();
++  return immediateFuture(new AcceptedResultBuilder(session).build());
+ }
+ ```
+ 
+@@ -515,20 +518,22 @@ incoming custom commands from that controller:
+ ### Kotlin
+ 
+ ```kotlin
+-override fun onConnect(
++override fun onConnectAsync(
+   session: MediaSession,
+   controller: MediaSession.ControllerInfo,
+-): ConnectionResult {
++): ListenableFuture<ConnectionResult> {
+   val sessionCommands =
+     ConnectionResult.DEFAULT_SESSION_COMMANDS.buildUpon().add(customCommand).build()
+   if (session.isMediaNotificationController(controller)) {
+     // ... See above.
+   } else if (session.isAutoCompanionController(controller)) {
+     // Available commands to accept incoming custom commands from Auto.
+-    return AcceptedResultBuilder(session).setAvailableSessionCommands(sessionCommands).build()
++    return immediateFuture(
++      AcceptedResultBuilder(session).setAvailableSessionCommands(sessionCommands).build()
++    )
+   }
+   // Default commands for all other controllers.
+-  return AcceptedResultBuilder(session).build()
++  return immediateFuture(AcceptedResultBuilder(session).build())
+ }
+ ```
+ 
+@@ -536,7 +541,7 @@ override fun onConnect(
+ 
+ ```java
+ @Override
+-public ConnectionResult onConnect(
++public ListenableFuture<ConnectionResult> onConnectAsync(
+     MediaSession session, MediaSession.ControllerInfo controller) {
+   SessionCommands sessionCommands =
+       ConnectionResult.DEFAULT_SESSION_COMMANDS.buildUpon().add(customCommand).build();
+@@ -544,12 +549,13 @@ public ConnectionResult onConnect(
+     // ... See above.
+   } else if (session.isAutoCompanionController(controller)) {
+     // Available commands to accept incoming custom commands from Auto.
+-    return new AcceptedResultBuilder(session)
+-        .setAvailableSessionCommands(sessionCommands)
+-        .build();
++    return immediateFuture(
++        new AcceptedResultBuilder(session)
++            .setAvailableSessionCommands(sessionCommands)
++            .build());
+   }
+   // Default commands for all other controllers.
+-  return new AcceptedResultBuilder(session).build();
++  return immediateFuture(new AcceptedResultBuilder(session).build());
+ }
+ ```
+ 

@@ -1,0 +1,13 @@
+diff --git a/docs/studio/run/managing-avds.md b/docs/studio/run/managing-avds.md
+index ff5e4266..55ca4b18 100644
+--- a/docs/studio/run/managing-avds.md
++++ b/docs/studio/run/managing-avds.md
+@@ -103,7 +103,7 @@ images.
+ The API level of the target device is important, because your app
+ doesn't run on a system image with an API level that's lower than the one
+ required by your app, as specified in the
+-[`minSdk`](https://developer.android.com/reference/tools/gradle-api/9.1/com/android/build/api/dsl/BaseFlavor#minSdk()) attribute in the app manifest file. For more
++[`minSdk`](https://developer.android.com/reference/tools/gradle-api/9.2/com/android/build/api/dsl/BaseFlavor#minSdk()) attribute in the app manifest file. For more
+ information about the relationship between system API level and
+ `minSdk`, see [Version your app](https://developer.android.com/studio/publish/versioning).
+ 

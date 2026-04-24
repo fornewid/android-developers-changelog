@@ -1,0 +1,22 @@
+diff --git a/docs/identity/credential-manager/signal-api-rp.md b/docs/identity/credential-manager/signal-api-rp.md
+index 7fb4279a..26a7770c 100644
+--- a/docs/identity/credential-manager/signal-api-rp.md
++++ b/docs/identity/credential-manager/signal-api-rp.md
+@@ -53,7 +53,7 @@ To use the Signal API, follow these steps:
+ 
+    ```kotlin
+    dependencies {
+-       implementation("androidx.credentials:credentials:1.6.0-rc02")
++       implementation("androidx.credentials:credentials:1.7.0-alpha01")
+    }
+    ```
+ 
+@@ -61,7 +61,7 @@ To use the Signal API, follow these steps:
+ 
+    ```groovy
+    dependencies {
+-       implementation "androidx.credentials:credentials:1.6.0-rc02"
++       implementation "androidx.credentials:credentials:1.7.0-alpha01"
+    }
+    ```
+ 

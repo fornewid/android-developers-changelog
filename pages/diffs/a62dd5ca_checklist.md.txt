@@ -1,0 +1,21 @@
+diff --git a/docs/games/playgames/native-pc/checklist.md b/docs/games/playgames/native-pc/checklist.md
+index ea226850..b573eb49 100644
+--- a/docs/games/playgames/native-pc/checklist.md
++++ b/docs/games/playgames/native-pc/checklist.md
+@@ -44,7 +44,7 @@ practices before you submit it for review on Google Play Games on PC.
+ - **Manage developer mode purchases:** When you test purchases in developer mode, consume the purchase within three minutes to prevent automatic refunds. For more information, see the [Testing FAQ](https://developer.android.com/games/playgames/native-pc/faq).
+ - **Remove developer mode:** You must remove the `<IsDeveloperMode>` tag before packaging your release build as soon as possible. For more information, see the [Developer mode guide](https://developer.android.com/games/playgames/native-pc/setup/developer_mode).
+ - **Forward arguments using third-party launchers:** Pass all unknown command-line arguments received by the launcher from the Google Play Games client directly to the spawned game process. For more information, see the [Multi-process guide](https://developer.android.com/games/playgames/native-pc/setup).
+-- **Test with a VPN:** If you test from an unsupported region, use a virtual private network (VPN) with TUN mode enabled to acquire a supported IP address. For more information, see the [VPN testing FAQ](https://developer.android.com/games/playgames/native-pc/faq).
++- **Test with a VPN:** If you test from an unsupported region, use a VPN (VPN) with TUN mode enabled to acquire a supported IP address. For more information, see the [VPN testing FAQ](https://developer.android.com/games/playgames/native-pc/faq).
+ - **Support desktop shortcuts:** For seamless shortcut support, see the [Shortcut FAQ](https://developer.android.com/games/playgames/native-pc/faq#create-game-shortcut) for shortcut execution. Directly launching the game or a third-party launcher using a shortcut might lead to initialization errors.
+ 
+ ## Package, test, and publish your game
+@@ -60,6 +60,7 @@ practices before you submit it for review on Google Play Games on PC.
+ - **Upload store assets:** Upload your packaged WAB file to the **Production track** and configure visual assets. For more information, see the [Asset upload guide](https://developer.android.com/games/playgames/native-pc/publish/developer-installed).
+ - **Publish for user environment testing:** Select **Publish** in the Google Play Console. Unlike the Android version, selecting **Publish** on the WAB doesn't trigger a public release. Instead, it makes the app searchable for your shared test accounts to conduct tests in a user environment after Google's review process.
+ - **Launch officially:** Google controls the launch based on the official launch date you shared with your Play partner.
++- **Test during pre-registration:** During the pre-registration phase, you must conduct internal testing in a country that is not included in your selected pre-registration regions.
+ 
+ ## Migrate from the API to the SDK
+ 

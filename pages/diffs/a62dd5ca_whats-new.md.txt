@@ -1,0 +1,12 @@
+diff --git a/docs/training/cars/whats-new.md b/docs/training/cars/whats-new.md
+index 42e687db..4e477264 100644
+--- a/docs/training/cars/whats-new.md
++++ b/docs/training/cars/whats-new.md
+@@ -25,6 +25,7 @@ notes about the [Android for Cars App Library](https://developer.android.com/tra
+ 
+ | Date | Type | Details |
+ |---|---|---|
++| April 14, 2026 | Content update | Updated the app manifest requirements in [Mark your app as a browser](https://developer.android.com/training/cars/parked/browser#mark-browser). |
+ | October 20, 2025 | Content update | Added a new section, [Mark your app as a browser](https://developer.android.com/training/cars/parked/browser#mark-browser), in [Build browsers for Android Automotive OS](https://developer.android.com/training/cars/parked/browser). |
+ | August 15, 2025 | Content update | Added a new section, [Provide artwork from your app's resources](https://developer.android.com/training/cars/media/create-media-browser/media-artwork#resources) in [Display media artwork](https://developer.android.com/training/cars/media/create-media-browser/media-artwork). |
+ | August 12, 2025 | Content update | Refactored [Build media apps for cars](https://developer.android.com/training/cars/media) to make content more findable. |

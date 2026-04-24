@@ -1,0 +1,13 @@
+diff --git a/docs/kotlin/multiplatform/plugin.md b/docs/kotlin/multiplatform/plugin.md
+index fc7226d0..cd5947bf 100644
+--- a/docs/kotlin/multiplatform/plugin.md
++++ b/docs/kotlin/multiplatform/plugin.md
+@@ -148,7 +148,7 @@ steps:
+        # https://kotlinlang.org/docs/releases.html
+ 
+        [versions]
+-       androidGradlePlugin = "9.1.0"
++       androidGradlePlugin = "9.2.0"
+        kotlin = "KOTLIN_VERSION"
+ 
+        [plugins]

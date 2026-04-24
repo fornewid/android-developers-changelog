@@ -1,0 +1,41 @@
+diff --git a/docs/blog/authors/niharika-arora.md b/docs/blog/authors/niharika-arora.md
+index 598ec9c3..82fdcbe0 100644
+--- a/docs/blog/authors/niharika-arora.md
++++ b/docs/blog/authors/niharika-arora.md
+@@ -14,7 +14,7 @@ Save and categorize content based on your preferences.
+ 
+ 
+ 
+-## 4
++## 5
+ 
+ posts
+ 
+@@ -30,6 +30,27 @@ posts
+ 
+ [![Medium](/static/blog/assets/medium.3PVAuSX0.svg)](https://medium.com/@nik-arora8059)
+ 
++* 22
++
++  Apr
++  2026
++
++  22
++
++  Apr
++  2026
++
++  ![](/static/blog/assets/Streamline_user_animation_V02_Strapi_abd12985d7_SvAX9.webp)
++
++  #### [How-tos](/blog/categories/how-tos)
++
++  ## [Streamline User Journeys with Verified Email via Credential Manager](/blog/posts/streamline-user-journeys-with-verified-email-via-credential-manager)
++
++  [arrow\_forward](/blog/posts/streamline-user-journeys-with-verified-email-via-credential-manager)
++
++  Today, we're excited to announce a new verified email credential issued by Google, which developers can now retrieve directly from Android’s Credential Manager Digital Credential API.
++
++  ###### 3 min read
+ * 18
+ 
+   Nov
