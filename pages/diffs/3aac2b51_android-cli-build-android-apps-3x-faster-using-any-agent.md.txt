@@ -1,0 +1,40 @@
+diff --git a/docs/blog/posts/android-cli-build-android-apps-3x-faster-using-any-agent.md b/docs/blog/posts/android-cli-build-android-apps-3x-faster-using-any-agent.md
+index 549da6a6..35fb4058 100644
+--- a/docs/blog/posts/android-cli-build-android-apps-3x-faster-using-any-agent.md
++++ b/docs/blog/posts/android-cli-build-android-apps-3x-faster-using-any-agent.md
+@@ -102,6 +102,17 @@ Android CLI is available in preview today, along with a growing set of Android s
+ 
+ ## Continue reading
+ 
++- [![](https://developer.android.com/static/blog/assets/niharika_2910f6d612_C99s1.webp)](https://developer.android.com/blog/authors/niharika-arora)[![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](https://developer.android.com/blog/authors/jean-pierre-pralle) 22 Apr 2026 22 Apr 2026 ![](https://developer.android.com/static/blog/assets/Streamline_user_animation_V02_Strapi_abd12985d7_SvAX9.webp)
++
++  #### [How-tos](https://developer.android.com/blog/categories/how-tos)
++
++  ## [Streamline User Journeys with Verified Email via Credential Manager](https://developer.android.com/blog/posts/streamline-user-journeys-with-verified-email-via-credential-manager)
++
++  [arrow_forward](https://developer.android.com/blog/posts/streamline-user-journeys-with-verified-email-via-credential-manager) Today, we're excited to announce a new verified email credential issued by Google, which developers can now retrieve directly from Android's Credential Manager Digital Credential API.
++
++  ###### [Niharika Arora](https://developer.android.com/blog/authors/niharika-arora), [Jean-Pierre Pralle](https://developer.android.com/blog/authors/jean-pierre-pralle) •
++  3 min read
++
+ - [![](https://developer.android.com/static/blog/assets/Alice_Yuan_552a4dd4ee_ZlDEgJ.webp)](https://developer.android.com/blog/authors/alice-yuan) 04 Mar 2026 04 Mar 2026 ![](https://developer.android.com/static/blog/assets/battery_Performance_08d6713f94_Z1IAO0P.webp)
+ 
+   #### [How-tos](https://developer.android.com/blog/categories/how-tos)
+@@ -124,17 +135,6 @@ Android CLI is available in preview today, along with a growing set of Android s
+   ###### [Thomas Ezan](https://developer.android.com/blog/authors/thomas-ezan), [Ivy Knight](https://developer.android.com/blog/authors/ivy-knight) •
+   2 min read
+ 
+-- [![](https://developer.android.com/static/blog/assets/Alice_Yuan_552a4dd4ee_ZlDEgJ.webp)](https://developer.android.com/blog/authors/alice-yuan) 20 Nov 2025 20 Nov 2025 ![](https://developer.android.com/static/blog/assets/performance_Week8_4d6efcacbe_ZI6a5e.webp)
+-
+-  #### [How-tos](https://developer.android.com/blog/categories/how-tos)
+-
+-  ## [Leveling Guide for your Performance Journey](https://developer.android.com/blog/posts/leveling-guide-for-your-performance-journey)
+-
+-  [arrow_forward](https://developer.android.com/blog/posts/leveling-guide-for-your-performance-journey) The performance leveling guide features 5 levels. We'll start with level 1, which introduces minimal adoption effort performance tooling, and we'll go up to level 5, ideal for apps that have the resourcing to maintain a bespoke performance framework.
+-
+-  ###### [Alice Yuan](https://developer.android.com/blog/authors/alice-yuan) •
+-  9 min read
+-
+ # Stay in the loop
+ 
+ 

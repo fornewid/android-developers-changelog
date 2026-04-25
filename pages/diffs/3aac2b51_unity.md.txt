@@ -1,0 +1,23 @@
+diff --git a/docs/games/playgames/native-pc/unity.md b/docs/games/playgames/native-pc/unity.md
+index 6c688995..04aebfd9 100644
+--- a/docs/games/playgames/native-pc/unity.md
++++ b/docs/games/playgames/native-pc/unity.md
+@@ -27,7 +27,9 @@ This current release supports the following Google Play modules:
+ 
+ - **Initialization:** Manage the connection lifecycle between your Unity game and the Google Play Games on PC platform.
+ - **Google Play Billing:** Full support for In-App Purchases (IAP) and subscriptions using the modern `BillingClient`.
+-- **Play Integrity:** Protect your game from abuse and unauthorized modifications by requesting integrity tokens directly from Unity.
++- **Play Integrity:** Protect your game from abuse and unauthorized modifications by requesting integrity tokens directly through the Google Play Games PC SDK for Unity.
++- **Play Install Referrer:** Identify user acquisition channels and track referral information by retrieving the referral string and installation timestamp through the Google Play Games PC SDK for Unity.
++- **Play Games Services Recall:** Seamlessly sign in users by linking in-game accounts with Google Play Games Services accounts, enabling cross-device progress synchronization.
+ 
+ ## System Requirements
+ 
+@@ -46,4 +48,4 @@ requirements:
+ Consider the following next steps:
+ 
+ - Learn how to [integrate Google Play Games PC SDK with Unity](https://developer.android.com/games/playgames/native-pc/unity/unity_start) using UPM and configure your build manifest.
+-- View code samples and reference documentation for [features](https://developer.android.com/games/playgames/native-pc/unity/features) such as Billing, Integrity, and Initialization.
+\ No newline at end of file
++- View code samples and reference documentation for [features](https://developer.android.com/games/playgames/native-pc/unity/features) such as Billing, Integrity, Install Referrer, Recall, and Initialization.
+\ No newline at end of file

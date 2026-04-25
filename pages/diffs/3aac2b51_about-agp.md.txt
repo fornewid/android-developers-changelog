@@ -1,0 +1,87 @@
+diff --git a/docs/build/releases/about-agp.md b/docs/build/releases/about-agp.md
+index e693b3db..58e02f6d 100644
+--- a/docs/build/releases/about-agp.md
++++ b/docs/build/releases/about-agp.md
+@@ -45,15 +45,15 @@ either the **File** \> **Project
+ Structure** \> **Project** menu in Android Studio, or
+ the top-level `build.gradle.kts` file. The plugin version applies to
+ all modules built in that Android Studio project. The following example sets
+-the plugin to version 9.1.0 from the
++the plugin to version 9.2.0 from the
+ `build.gradle.kts` file:
+ 
+ ### Kotlin
+ 
+ ```kotlin
+ plugins {
+-    id("com.android.application") version "9.1.0" apply false
+-    id("com.android.library") version "9.1.0" apply false
++    id("com.android.application") version "9.2.0" apply false
++    id("com.android.library") version "9.2.0" apply false
+     id("org.jetbrains.kotlin.android") version "2.3.10" apply false
+ }
+ ```
+@@ -62,8 +62,8 @@ plugins {
+ 
+ ```groovy
+ plugins {
+-    id 'com.android.application' version '9.1.0' apply false
+-    id 'com.android.library' version '9.1.0' apply false
++    id 'com.android.application' version '9.2.0' apply false
++    id 'com.android.library' version '9.2.0' apply false
+     id 'org.jetbrains.kotlin.android' version '2.3.10' apply false
+ }
+ ```
+@@ -71,7 +71,7 @@ plugins {
+ 
+ **Caution:** You should not use dynamic dependencies in version
+ numbers, such as
+-`'com.android.tools.build:gradle:9.1.+'`.
++`'com.android.tools.build:gradle:9.2.+'`.
+ Using this feature can cause unexpected version updates and difficulty
+ resolving version differences.
+ 
+@@ -95,6 +95,7 @@ use the latest possible version of both Gradle and the plugin.
+ 
+ | Plugin version | Minimum required Gradle version |
+ |---|---|
++| 9.2 | 9.4.1 |
+ | 9.1 | 9.3.1 |
+ | 9.0 | 9.1.0 |
+ | 8.13 | 8.13 |
+@@ -145,23 +146,23 @@ or update your Gradle version using the command line.
+ The preferred way is to use the
+ [Gradle Wrapper](https://docs.gradle.org/current/userguide/gradle_wrapper.html)
+ command line tool, which updates the `gradlew` scripts. The following
+-example sets the Gradle version to 9.3.1 using the Gradle Wrapper.
++example sets the Gradle version to 9.4.1 using the Gradle Wrapper.
+ Note, you need to run this command *twice* to upgrade both Gradle and the
+ Gradle Wrapper itself (for more information, see
+ [Upgrading the Gradle Wrapper](https://docs.gradle.org/current/userguide/gradle_wrapper.html#sec:upgrading_wrapper)).
+ 
+-    gradle wrapper --gradle-version 9.3.1
++    gradle wrapper --gradle-version 9.4.1
+ 
+ 
+ However this might fail in some cases, for example if you've just updated AGP
+ and it's no longer compliant with the current Gradle version. In this case,
+ you need to edit the Gradle distribution reference in the
+ `gradle/wrapper/gradle-wrapper.properties` file. The following
+-example sets the Gradle version to 9.3.1 in the
++example sets the Gradle version to 9.4.1 in the
+ `gradle-wrapper.properties` file.
+ 
+     ...
+-    distributionUrl = https\://services.gradle.org/distributions/gradle-9.3.1-bin.zip
++    distributionUrl = https\://services.gradle.org/distributions/gradle-9.4.1-bin.zip
+     ...
+ 
+ 
+@@ -181,6 +182,7 @@ Android Studio.
+ 
+ | Android Studio version | Required AGP version |
+ |---|---|
++| Panda 4 \| 2025.3.4 | 4.0-9.2 |
+ | Panda 3 \| 2025.3.3 | 4.0-9.1 |
+ | Panda 2 \| 2025.3.2 | 4.0-9.1 |
+ | Panda 1 \| 2025.3.1 | 4.0-9.0 |

@@ -1,0 +1,27 @@
+diff --git a/docs/games/playgames/native-pc/pgs.md b/docs/games/playgames/native-pc/pgs.md
+index 8eabc460..f75bee8d 100644
+--- a/docs/games/playgames/native-pc/pgs.md
++++ b/docs/games/playgames/native-pc/pgs.md
+@@ -34,14 +34,14 @@ your game's `manifest.xml`.
+ Example `manifest.xml` contents:
+ 
+     <?xml version="1.0" encoding="utf-8"?>
+-    <Manifest version="1">
+-        <Application>
+-            <PackageName>com.example.package</PackageName>
+-            \<PlayGamesServices\>
+-    \<ProjectId\>123456789\</ProjectId\>
+-    \</PlayGamesServices\>
+-        </Application>
+-    </Manifest>
++    <?Manifest version="1">
++       <?Application>
++         <?PackageName>com.example.package<?/PackageName>
++    \<?PlayGamesServices\>
++    \<?ProjectId\>123456789\<?/ProjectId\>
++    \<?/PlayGamesServices\>
++       <?/Application>
++    <?/Manifest>
+ 
+ ## **Step 2**: Request Recall access when signing-in
+ 

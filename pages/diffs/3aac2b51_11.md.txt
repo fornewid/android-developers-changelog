@@ -1,0 +1,37 @@
+diff --git a/docs/blog/categories/product-news/11.md b/docs/blog/categories/product-news/11.md
+index 871513b2..69329e3a 100644
+--- a/docs/blog/categories/product-news/11.md
++++ b/docs/blog/categories/product-news/11.md
+@@ -9,6 +9,15 @@ source: md.txt
+ # Product News
+ 
+ Stay in the loop with the latest updates, feature releases, and behind-the-scenes looks at how we're evolving.
++- [![](https://developer.android.com/static/blog/assets/Luke_Hopkins_9c1e15d778_Z2o9b3q.webp)](https://developer.android.com/blog/authors/luke-hopkins) 23 Oct 2025 23 Oct 2025 ![](https://developer.android.com/static/blog/assets/xr_Week5_985628de53_229QRh.webp)
++
++  ## [Optimizing Performance for Android XR with Unity](https://developer.android.com/blog/posts/optimizing-performance-for-android-xr-with-unity)
++
++  [arrow_forward](https://developer.android.com/blog/posts/optimizing-performance-for-android-xr-with-unity) Samsung Galaxy XR is here, powered by Android XR! This blog post is part of our Android XR Spotlight Week, where we provide resources---blog posts, videos, sample code, and more---all designed to help you learn, build, and prepare your apps for Android XR.
++
++  ###### [Luke Hopkins](https://developer.android.com/blog/authors/luke-hopkins) •
++  6 min read
++
+ - [![](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 22 Oct 2025 22 Oct 2025 ![](https://developer.android.com/static/blog/assets/Galaxy_XR_BLOG_341f1e7643_2mbd4B.webp)
+ 
+   ## [Giving your apps a new home on Samsung Galaxy XR, the first device powered by Android XR](https://developer.android.com/blog/posts/giving-your-apps-a-new-home-on-samsung-galaxy-xr-the-first-device-powered-by-android-xr)
+@@ -56,16 +65,6 @@ Stay in the loop with the latest updates, feature releases, and behind-the-scene
+   ###### [Francesco Romano](https://developer.android.com/blog/authors/francesco-romano) •
+   3 min read
+ 
+-- [![](https://developer.android.com/static/blog/assets/2_o2_H5_V1lr_Zrcfhto_Au9_B2_Q_fd3ec10461_acae303cd5_Z2izffS.webp)](https://developer.android.com/blog/authors/paris-hsu) 09 Oct 2025 09 Oct 2025 ![](https://developer.android.com/static/blog/assets/as_Narwhal_7bf25b6657_Zl5Grc.webp)
+-
+-  ## [Android Studio Narwhal 4 Feature Drop: watch face support and improved stability](https://developer.android.com/blog/posts/android-studio-narwhal-4-feature-drop-watch-face-support-and-improved-stability)
+-
+-  [arrow_forward](https://developer.android.com/blog/posts/android-studio-narwhal-4-feature-drop-watch-face-support-and-improved-stability) Android Studio Narwhal 4 Feature Drop is now stable and ready for you to use!
+-
+-  ###### [Paris Hsu](https://developer.android.com/blog/authors/paris-hsu) •
+-  5 min read
+-
+-  - [#Android Studio](https://developer.android.com/blog/topics/android-studio)
+ [arrow_back](https://developer.android.com/blog/categories/product-news/10)
+ 
+ #### Page 11

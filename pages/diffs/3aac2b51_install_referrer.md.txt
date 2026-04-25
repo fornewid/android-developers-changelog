@@ -1,0 +1,73 @@
+diff --git a/docs/games/playgames/native-pc/unity/install_referrer.md b/docs/games/playgames/native-pc/unity/install_referrer.md
+index 2b3e7dff..4b057b1e 100644
+--- a/docs/games/playgames/native-pc/unity/install_referrer.md
++++ b/docs/games/playgames/native-pc/unity/install_referrer.md
+@@ -1,19 +1,9 @@
+ ---
+-title: Google Play Install Referrer  |  Play for Native PC  |  Android Developers
++title: https://developer.android.com/games/playgames/native-pc/unity/install_referrer
+ url: https://developer.android.com/games/playgames/native-pc/unity/install_referrer
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Home](https://developer.android.com/)
+-* [Play for Native PC](https://developer.android.com/games/playgames/native-pc)
+-* [Guides](https://developer.android.com/games/playgames/native-pc/setup)
+-
+-# Google Play Install Referrer Stay organized with collections Save and categorize content based on your preferences.
+-
+-
+-
+-
+-
+ Make informed marketing decisions by identifying your most valuable user
+ acquisition channels for your game. Use the Google Play Install Referrer API for
+ a reliable way to track your apps' referral information.
+@@ -31,20 +21,17 @@ help you make the most of your advertising spend and maximize ROI.
+ Start by linking your users to your application's Google Play store page. In the
+ URL, include query parameters for:
+ 
+-* `id`: The Play package name of your game
+-* `referrer`: A string representing the referral source. This string can be
+-  queried once your application is installed and running.
++- `id`: The Play package name of your game
++- `referrer`: A string representing the referral source. This string can be queried once your application is installed and running.
+ 
+-```
+-https://play.google.com/store/apps/details?id=com.example.package&referrer=example_referrer_source
+-```
++    https://play.google.com/store/apps/details?id=com.example.package&referrer=example_referrer_source
+ 
+ ## Create the client
+ 
+ Always use the factory to create an `InstallReferrerClient`. This ensures that
+ Unity-safe callbacks are automatically registered.
+ 
+-```
++```c#
+ using UnityEngine;
+ using System;
+ using System.Threading.Tasks;
+@@ -80,17 +67,18 @@ public class InstallReferrerManager : MonoBehaviour
+ 
+ ## Query the install referrer
+ 
+-**Note:** The referrer is available for 90 days after the installation of your game.
++> [!NOTE]
++> **Note:** The referrer is available for 90 days after the installation of your game.
+ 
+ After the user installs and launches the game, your app can determine the
+ traffic source that led to the installation using the Install Referrer API.
+ 
+ Query the referrer details using
+-[`GetInstallReferrerAsync`](/games/playgames/native-pc/unity/api_reference#playpcsdkmanaged-installreferrer). The response contains the
++[`GetInstallReferrerAsync`](https://developer.android.com/games/playgames/native-pc/unity/api_reference#playpcsdkmanaged-installreferrer). The response contains the
+ same string passed into the `referrer` query parameter of your store listing
+ page.
+ 
+-```
++```c#
+ public async Task GetInstallReferrerAsync()
+ {
+     try

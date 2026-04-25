@@ -1,0 +1,37 @@
+diff --git a/docs/blog/categories/product-news/12.md b/docs/blog/categories/product-news/12.md
+index 85a2ae0c..66f18177 100644
+--- a/docs/blog/categories/product-news/12.md
++++ b/docs/blog/categories/product-news/12.md
+@@ -9,6 +9,16 @@ source: md.txt
+ # Product News
+ 
+ Stay in the loop with the latest updates, feature releases, and behind-the-scenes looks at how we're evolving.
++- [![](https://developer.android.com/static/blog/assets/2_o2_H5_V1lr_Zrcfhto_Au9_B2_Q_fd3ec10461_acae303cd5_Z2izffS.webp)](https://developer.android.com/blog/authors/paris-hsu) 09 Oct 2025 09 Oct 2025 ![](https://developer.android.com/static/blog/assets/as_Narwhal_7bf25b6657_Zl5Grc.webp)
++
++  ## [Android Studio Narwhal 4 Feature Drop: watch face support and improved stability](https://developer.android.com/blog/posts/android-studio-narwhal-4-feature-drop-watch-face-support-and-improved-stability)
++
++  [arrow_forward](https://developer.android.com/blog/posts/android-studio-narwhal-4-feature-drop-watch-face-support-and-improved-stability) Android Studio Narwhal 4 Feature Drop is now stable and ready for you to use!
++
++  ###### [Paris Hsu](https://developer.android.com/blog/authors/paris-hsu) •
++  5 min read
++
++  - [#Android Studio](https://developer.android.com/blog/topics/android-studio)
+ - [![](https://developer.android.com/static/blog/assets/Alice_Yuan_552a4dd4ee_ZlDEgJ.webp)](https://developer.android.com/blog/authors/alice-yuan) 02 Oct 2025 02 Oct 2025 ![](https://developer.android.com/static/blog/assets/6m_Evk_L_Olno_HD_56e1732bf5_2enBUx.webp)
+ 
+   ## [Optimize your app battery using Android vitals wake lock metric](https://developer.android.com/blog/posts/optimize-your-app-battery-using-android-vitals-wake-lock-metric)
+@@ -54,15 +64,6 @@ Stay in the loop with the latest updates, feature releases, and behind-the-scene
+   ###### [Fahd Imtiaz](https://developer.android.com/blog/authors/fahd-imtiaz) •
+   6 min read
+ 
+-- [![](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z15U8cx.webp)](https://developer.android.com/blog/authors/fahd-imtiaz) 20 May 2025 20 May 2025 ![](https://developer.android.com/static/blog/assets/yt_adaptive_b9097334d4_Z1poFG.webp)
+-
+-  ## [Google I/O 2025: Build adaptive Android apps that shine across form factors](https://developer.android.com/blog/posts/google-i-o-2025-build-adaptive-android-apps-that-shine-across-form-factors)
+-
+-  [arrow_forward](https://developer.android.com/blog/posts/google-i-o-2025-build-adaptive-android-apps-that-shine-across-form-factors) At Google I/O this year, we are exploring how adaptive development isn't just a good idea, but essential to building apps that shine across the expanding Android device ecosystem.
+-
+-  ###### [Fahd Imtiaz](https://developer.android.com/blog/authors/fahd-imtiaz) •
+-  5 min read
+-
+ [arrow_back](https://developer.android.com/blog/categories/product-news/11)
+ 
+ #### Page 12

@@ -1,0 +1,419 @@
+diff --git a/docs/develop/ui/views/components/dialogs.md b/docs/develop/ui/views/components/dialogs.md
+index e2daf236..e37f347d 100644
+--- a/docs/develop/ui/views/components/dialogs.md
++++ b/docs/develop/ui/views/components/dialogs.md
+@@ -4,37 +4,39 @@ url: https://developer.android.com/develop/ui/views/components/dialogs
+ source: md.txt
+ ---
+ 
+-Try the Compose way  
+-Jetpack Compose is the recommended UI toolkit for Android. Learn how to add components in Compose.  
+-[Dialogs →](https://developer.android.com/develop/ui/compose/components/dialog)  
+-![](https://developer.android.com/static/images/android-compose-ui-logo.png)
++Try the Compose way Jetpack Compose is the recommended UI toolkit for Android. Learn how to add components in Compose. [Dialogs →](https://developer.android.com/develop/ui/compose/components/dialog) ![](https://developer.android.com/static/images/android-compose-ui-logo.png)
+ 
+ A *dialog* is a small window that prompts the user to make a
+ decision or enter additional information. A dialog doesn't fill the screen and
+ is normally used for modal events that require users to take an action before
+ they can proceed.
+-| **Note:** For information about how to design your dialogs, including recommendations for language, read the [Material
+-| Design Dialogs](https://m3.material.io/components/dialogs/guidelines) guidelines.
++
++> [!NOTE]
++> **Note:** For information about how to design your dialogs, including recommendations for language, read the [Material
++> Design Dialogs](https://m3.material.io/components/dialogs/guidelines) guidelines.
++
+ ![An image showing a basic dialog](https://lh3.googleusercontent.com/fIXXFT91EOxFZU9bo9eIPY1icVtiiPzmKMKEF2PJT7FAKucMUiG6L3z-ny-vLp8sYgHxwFbl6ZOGZYgRwaP72xVMefVoeWr6i_lOySPuBcZnkQ=s0) **Figure 1.** A basic dialog.
+ 
+-The [Dialog](https://developer.android.com/reference/android/app/Dialog)
++The `https://developer.android.com/reference/android/app/Dialog`
+ class is the base class for dialogs, but don't instantiate `Dialog`
+ directly. Instead, use one of the following subclasses:
+ 
+-[AlertDialog](https://developer.android.com/reference/android/app/AlertDialog)
++`https://developer.android.com/reference/android/app/AlertDialog`
+ :   A dialog that can show a title, up to three buttons, a list of selectable
+     items, or a custom layout.
+ 
+-[DatePickerDialog](https://developer.android.com/reference/android/app/DatePickerDialog)
++`https://developer.android.com/reference/android/app/DatePickerDialog`
+ or
+-[TimePickerDialog](https://developer.android.com/reference/android/app/TimePickerDialog)
++`https://developer.android.com/reference/android/app/TimePickerDialog`
+ :   A dialog with a predefined UI that lets the user select a date or
+     time.
+-| **Caution:** Android includes another dialog class called [ProgressDialog](https://developer.android.com/reference/android/app/ProgressDialog) that shows a dialog with a progress bar. This widget is deprecated, because it prevents users from interacting with the app while progress is being displayed. If you need to indicate loading or indeterminate progress, follow the design guidelines in [Progress \& activity](https://material.io/archive/guidelines/components/progress-activity.html) and use a [ProgressBar](https://developer.android.com/reference/android/widget/ProgressBar) in your layout instead of using `ProgressDialog`.
++
++> [!CAUTION]
++> **Caution:** Android includes another dialog class called `https://developer.android.com/reference/android/app/ProgressDialog` that shows a dialog with a progress bar. This widget is deprecated, because it prevents users from interacting with the app while progress is being displayed. If you need to indicate loading or indeterminate progress, follow the design guidelines in [Progress \& activity](https://material.io/archive/guidelines/components/progress-activity.html) and use a `https://developer.android.com/reference/android/widget/ProgressBar` in your layout instead of using `ProgressDialog`.
+ 
+ These classes define the style and structure for your dialog. You also need
+ a
+-[DialogFragment](https://developer.android.com/reference/androidx/fragment/app/DialogFragment)
++`https://developer.android.com/reference/androidx/fragment/app/DialogFragment`
+ as a container for your dialog. The `DialogFragment` class provides
+ all the controls you need to create your dialog and manage its appearance,
+ instead of calling methods on the `Dialog` object.
+@@ -44,7 +46,7 @@ handle lifecycle events such as when the user taps the Back button or rotates
+ the screen. The `DialogFragment` class also lets you reuse the
+ dialog's UI as an embeddable component in a larger UI---just like a
+ traditional
+-[Fragment](https://developer.android.com/reference/androidx/fragment/app/Fragment)---such
++`https://developer.android.com/reference/androidx/fragment/app/Fragment`---such
+ as when you want the dialog UI to appear differently on large and small
+ screens.
+ 
+@@ -61,11 +63,11 @@ layouts and those described in
+ [Material Design
+ Dialogs](https://m3.material.io/components/dialogs/guidelines)---by extending `DialogFragment` and creating an
+ `AlertDialog` in the
+-[onCreateDialog()](https://developer.android.com/reference/androidx/fragment/app/DialogFragment#onCreateDialog(android.os.Bundle))
++`https://developer.android.com/reference/androidx/fragment/app/DialogFragment#onCreateDialog(android.os.Bundle)`
+ callback method.
+ 
+ For example, here's a basic `AlertDialog` that's managed within a
+-`DialogFragment`:  
++`DialogFragment`:
+ 
+ ### Kotlin
+ 
+@@ -127,12 +129,12 @@ StartGameDialogFragment().show(supportFragmentManager, "GAME_DIALOG");
+ ```
+ 
+ When you create an instance of this class and call
+-[show()](https://developer.android.com/reference/androidx/fragment/app/DialogFragment#show(androidx.fragment.app.FragmentManager,java.lang.String))
++`https://developer.android.com/reference/androidx/fragment/app/DialogFragment#show(androidx.fragment.app.FragmentManager,java.lang.String)`
+ on that object, the dialog appears as shown in the following figure.
+ ![An image showing a basic dialog with two action buttons](https://developer.android.com/static/images/ui/dialog_buttons.png) **Figure 2.** A dialog with a message and two action buttons.
+ 
+ The next section provides more detail about using the
+-[AlertDialog.Builder](https://developer.android.com/reference/android/app/AlertDialog.Builder)
++`https://developer.android.com/reference/android/app/AlertDialog.Builder`
+ APIs to create the dialog.
+ 
+ Depending on how complex your dialog is, you can implement a variety of
+@@ -153,7 +155,7 @@ The `AlertDialog.Builder` class provides APIs that let you create
+ an `AlertDialog` with these kinds of content, including a custom
+ layout.
+ 
+-To build an `AlertDialog`, do the following:  
++To build an `AlertDialog`, do the following:
+ 
+ ### Kotlin
+ 
+@@ -187,10 +189,10 @@ The previous code snippet generates this dialog:
+ ### Add buttons
+ 
+ To add action buttons like those in figure 2, call the
+-[setPositiveButton()](https://developer.android.com/reference/android/app/AlertDialog.Builder#setPositiveButton(int, android.content.DialogInterface.OnClickListener))
++`https://developer.android.com/reference/android/app/AlertDialog.Builder#setPositiveButton(int, android.content.DialogInterface.OnClickListener)`
+ and
+-[setNegativeButton()](https://developer.android.com/reference/android/app/AlertDialog.Builder#setNegativeButton(int, android.content.DialogInterface.OnClickListener))
+-methods:  
++`https://developer.android.com/reference/android/app/AlertDialog.Builder#setNegativeButton(int, android.content.DialogInterface.OnClickListener)`
++methods:
+ 
+ ### Kotlin
+ 
+@@ -236,7 +238,7 @@ The `set...Button()` methods require a title for the
+ button---supplied by a
+ [string resource](https://developer.android.com/guide/topics/resources/string-resource)---and
+ a
+-[DialogInterface.OnClickListener](https://developer.android.com/reference/android/content/DialogInterface.OnClickListener)
++`https://developer.android.com/reference/android/content/DialogInterface.OnClickListener`
+ that defines the action to take when the user taps the button.
+ 
+ There are three action buttons you can add:
+@@ -261,7 +263,7 @@ APIs:
+ - A persistent multiple-choice list (checkboxes).
+ 
+ To create a single-choice list like the one in figure 5, use the
+-[setItems()](https://developer.android.com/reference/android/app/AlertDialog.Builder#setItems(int, android.content.DialogInterface.OnClickListener))
++`https://developer.android.com/reference/android/app/AlertDialog.Builder#setItems(int, android.content.DialogInterface.OnClickListener)`
+ method:
+ 
+ ### Kotlin
+@@ -305,34 +307,36 @@ This code snippet generates a dialog like the following:
+ 
+ Because the list appears in the dialog's content area, the dialog can't show
+ both a message and a list. Set a title for the dialog with
+-[setTitle()](https://developer.android.com/reference/android/app/AlertDialog.Builder#setTitle(int)).
++`https://developer.android.com/reference/android/app/AlertDialog.Builder#setTitle(int)`.
+ To specify the items for the list, call `setItems()`, passing an
+ array. Alternatively, you can specify a list using
+-[setAdapter()](https://developer.android.com/reference/android/app/AlertDialog.Builder#setAdapter(android.widget.ListAdapter, android.content.DialogInterface.OnClickListener)).
++`https://developer.android.com/reference/android/app/AlertDialog.Builder#setAdapter(android.widget.ListAdapter, android.content.DialogInterface.OnClickListener)`.
+ This lets you back the list with dynamic data---such as from a
+ database---using a
+-[ListAdapter](https://developer.android.com/reference/android/widget/ListAdapter).
++`https://developer.android.com/reference/android/widget/ListAdapter`.
+ 
+ If you back your list with a `ListAdapter`, always use a
+-[Loader](https://developer.android.com/reference/androidx/loader/content/Loader)
++`https://developer.android.com/reference/androidx/loader/content/Loader`
+ so that the content loads asynchronously. This is described further in
+ [Build layouts
+ with an adapter](https://developer.android.com/guide/topics/ui/declaring-layout#AdapterViews) and
+ [Loaders](https://developer.android.com/guide/components/loaders).
+-| **Note:** By default, tapping a list item dismisses the dialog, unless you use one of the following persistent-choice lists.
++
++> [!NOTE]
++> **Note:** By default, tapping a list item dismisses the dialog, unless you use one of the following persistent-choice lists.
+ 
+ #### Add a persistent multiple-choice or single-choice list
+ 
+ To add a list of multiple-choice items (checkboxes) or single-choice items
+ (radio buttons), use the
+-[setMultiChoiceItems()](https://developer.android.com/reference/android/app/AlertDialog.Builder#setMultiChoiceItems(android.database.Cursor, java.lang.String, java.lang.String, android.content.DialogInterface.OnMultiChoiceClickListener))
++`https://developer.android.com/reference/android/app/AlertDialog.Builder#setMultiChoiceItems(android.database.Cursor, java.lang.String, java.lang.String, android.content.DialogInterface.OnMultiChoiceClickListener)`
+ or
+-[setSingleChoiceItems()](https://developer.android.com/reference/android/app/AlertDialog.Builder#setSingleChoiceItems(int, int, android.content.DialogInterface.OnClickListener))
++`https://developer.android.com/reference/android/app/AlertDialog.Builder#setSingleChoiceItems(int, int, android.content.DialogInterface.OnClickListener)`
+ methods, respectively.
+ 
+ For example, here's how you can create a multiple-choice list like the one
+ shown in figure 6 that saves the selected items in an
+-[ArrayList](https://developer.android.com/reference/java/util/ArrayList):  
++`https://developer.android.com/reference/java/util/ArrayList`:
+ 
+ ### Kotlin
+ 
+@@ -404,7 +408,7 @@ public Dialog onCreateDialog(Bundle savedInstanceState) {
+ ```
+ ![An image showing a dialog containing a list of multiple-choice items.](https://developer.android.com/static/images/ui/alert_dialog_4.png) **Figure 6.** A list of multiple-choice items.
+ 
+-A single-choice alert dialog can be obtained like this:  
++A single-choice alert dialog can be obtained like this:
+ 
+ ### Kotlin
+ 
+@@ -457,7 +461,7 @@ This results in the following example:
+ 
+ If you want a custom layout in a dialog, create a layout and add it to an
+ `AlertDialog` by calling
+-[setView()](https://developer.android.com/reference/android/app/AlertDialog.Builder#setView(android.view.View))
++`https://developer.android.com/reference/android/app/AlertDialog.Builder#setView(android.view.View)`
+ on your `AlertDialog.Builder` object.
+ ![An image showing a custom dialog layout.](https://developer.android.com/static/images/ui/dialog_custom.png) **Figure 8.** A custom dialog layout.
+ 
+@@ -467,7 +471,7 @@ By default, the custom layout fills the dialog window, but you can still use
+ For example, here's the layout file for the preceding custom dialog
+ layout:
+ 
+-res/layout/dialog_signin.xml  
++res/layout/dialog_signin.xml
+ 
+ ```xml
+ <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+@@ -504,18 +508,20 @@ res/layout/dialog_signin.xml
+         android:hint="@string/password"/>
+ </LinearLayout>
+ ```
+-| **Tip:** By default, when you set an [EditText](https://developer.android.com/reference/android/widget/EditText) element to use the `"textPassword"` input type, the font family is set to monospace. Change its font family to `"sans-serif"` so that both text fields use a matching font style.
++
++> [!NOTE]
++> **Tip:** By default, when you set an `https://developer.android.com/reference/android/widget/EditText` element to use the `"textPassword"` input type, the font family is set to monospace. Change its font family to `"sans-serif"` so that both text fields use a matching font style.
+ 
+ To inflate the layout in your `DialogFragment`, get a
+-[LayoutInflater](https://developer.android.com/reference/android/view/LayoutInflater)
++`https://developer.android.com/reference/android/view/LayoutInflater`
+ with
+-[getLayoutInflater()](https://developer.android.com/reference/android/app/Activity#getLayoutInflater())
++`https://developer.android.com/reference/android/app/Activity#getLayoutInflater()`
+ and call
+-[inflate()](https://developer.android.com/reference/android/view/LayoutInflater#inflate(int, android.view.ViewGroup)).
++`https://developer.android.com/reference/android/view/LayoutInflater#inflate(int, android.view.ViewGroup)`.
+ The first parameter is the layout resource ID, and the second parameter is a
+ parent view for the layout. You can then call
+-[setView()](https://developer.android.com/reference/android/app/AlertDialog#setView(android.view.View))
+-to place the layout in the dialog. This is shown in the following example.  
++`https://developer.android.com/reference/android/app/AlertDialog#setView(android.view.View)`
++to place the layout in the dialog. This is shown in the following example.
+ 
+ ### Kotlin
+ 
+@@ -573,13 +579,13 @@ public Dialog onCreateDialog(Bundle savedInstanceState) {
+ ```
+ 
+ If you want a custom dialog, you can instead display an
+-[Activity](https://developer.android.com/reference/android/app/Activity) as a
++`https://developer.android.com/reference/android/app/Activity` as a
+ dialog instead of using the `Dialog` APIs. Create an activity and
+ set its theme to
+-[Theme.Holo.Dialog](https://developer.android.com/reference/android/R.style#Theme_Holo_Dialog)
++`https://developer.android.com/reference/android/R.style#Theme_Holo_Dialog`
+ in the
+ [`<activity>`](https://developer.android.com/guide/topics/manifest/activity-element)
+-manifest element:  
++manifest element:
+ 
+ ```xml
+ <activity android:theme="@android:style/Theme.Holo.Dialog" >
+@@ -597,7 +603,7 @@ for each type of click event. Then, implement that interface in the host
+ component that receives the action events from the dialog.
+ 
+ For example, here's a `DialogFragment` that defines an interface
+-through which it delivers the events back to the host activity:  
++through which it delivers the events back to the host activity:
+ 
+ ### Kotlin
+ 
+@@ -670,7 +676,7 @@ public class NoticeDialogFragment extends DialogFragment {
+ 
+ The activity hosting the dialog creates an instance of the dialog with the
+ dialog fragment's constructor and receives the dialog's events through an
+-implementation of the `NoticeDialogListener` interface:  
++implementation of the `NoticeDialogListener` interface:
+ 
+ ### Kotlin
+ 
+@@ -730,9 +736,9 @@ public class MainActivity extends FragmentActivity
+ 
+ Because the host activity implements the
+ `NoticeDialogListener`---which is enforced by the
+-[onAttach()](https://developer.android.com/reference/androidx/fragment/app/Fragment#onAttach(android.content.Context))
++`https://developer.android.com/reference/androidx/fragment/app/Fragment#onAttach(android.content.Context)`
+ callback method shown in the preceding example---the dialog fragment can
+-use the interface callback methods to deliver click events to the activity:  
++use the interface callback methods to deliver click events to the activity:
+ 
+ ### Kotlin
+ 
+@@ -792,18 +798,18 @@ public class NoticeDialogFragment extends DialogFragment {
+ 
+ When you want to show your dialog, create an instance of your
+ `DialogFragment` and call
+-[show()](https://developer.android.com/reference/androidx/fragment/app/DialogFragment#show(androidx.fragment.app.FragmentManager,java.lang.String)),
++`https://developer.android.com/reference/androidx/fragment/app/DialogFragment#show(androidx.fragment.app.FragmentManager,java.lang.String)`,
+ passing the
+-[FragmentManager](https://developer.android.com/reference/androidx/fragment/app/FragmentManager)
++`https://developer.android.com/reference/androidx/fragment/app/FragmentManager`
+ and a tag name for the dialog fragment.
+ 
+ You can get the `FragmentManager` by calling
+-[getSupportFragmentManager()](https://developer.android.com/reference/androidx/fragment/app/FragmentActivity#getSupportFragmentManager())
++`https://developer.android.com/reference/androidx/fragment/app/FragmentActivity#getSupportFragmentManager()`
+ from the
+-[FragmentActivity](https://developer.android.com/reference/androidx/fragment/app/FragmentActivity)
++`https://developer.android.com/reference/androidx/fragment/app/FragmentActivity`
+ or by calling
+-[getParentFragmentManager()](https://developer.android.com/reference/androidx/fragment/app/Fragment#getParentFragmentManager())
+-from a `Fragment`. See the following for an example:  
++`https://developer.android.com/reference/androidx/fragment/app/Fragment#getParentFragmentManager()`
++from a `Fragment`. See the following for an example:
+ 
+ ### Kotlin
+ 
+@@ -826,7 +832,7 @@ public void confirmStartGame() {
+ The second argument, `"game"`, is a unique tag name that the
+ system uses to save and restore the fragment state when necessary. The tag also
+ lets you get a handle to the fragment by calling
+-[findFragmentByTag()](https://developer.android.com/reference/androidx/fragment/app/FragmentManager#findFragmentByTag(java.lang.String)).
++`https://developer.android.com/reference/androidx/fragment/app/FragmentManager#findFragmentByTag(java.lang.String)`.
+ 
+ ## Show a dialog fullscreen or as an embedded fragment
+ 
+@@ -840,12 +846,12 @@ However, you can't use `AlertDialog.Builder` or other
+ `Dialog` objects to build the dialog in this case. If you want the
+ `DialogFragment` to be embeddable, define the dialog's UI in a
+ layout, then load the layout in the
+-[onCreateView()](https://developer.android.com/reference/androidx/fragment/app/Fragment#onCreateView(android.view.LayoutInflater, android.view.ViewGroup, android.os.Bundle))
++`https://developer.android.com/reference/androidx/fragment/app/Fragment#onCreateView(android.view.LayoutInflater, android.view.ViewGroup, android.os.Bundle)`
+ callback.
+ 
+ Here's an example `DialogFragment` that can appear as a dialog or
+ an embeddable fragment, using a layout named
+-`purchase_items.xml`:  
++`purchase_items.xml`:
+ 
+ ### Kotlin
+ 
+@@ -906,7 +912,7 @@ public class CustomDialogFragment extends DialogFragment {
+ ```
+ 
+ The following example determines whether to show the fragment as a dialog or
+-a fullscreen UI, based on the screen size:  
++a fullscreen UI, based on the screen size:
+ 
+ ### Kotlin
+ 
+@@ -970,7 +976,7 @@ value](https://developer.android.com/guide/topics/resources/more-resources#Bool)
+ resource](https://developer.android.com/guide/topics/resources/providing-resources#AlternativeResources) value for different screen sizes. For example, here are two
+ versions of the bool resource for different screen sizes:
+ 
+-res/values/bools.xml  
++res/values/bools.xml
+ 
+ ```xml
+ <!-- Default boolean values -->
+@@ -979,7 +985,7 @@ res/values/bools.xml
+ </resources>
+ ```
+ 
+-res/values-large/bools.xml  
++res/values-large/bools.xml
+ 
+ ```xml
+ <!-- Large screen boolean values -->
+@@ -990,8 +996,8 @@ res/values-large/bools.xml
+ 
+ Then you can initialize the `mIsLargeLayout` value during the
+ activity's
+-[onCreate()](https://developer.android.com/reference/android/app/Activity#onCreate(android.os.Bundle))
+-method, as shown in the following example:  
++`https://developer.android.com/reference/android/app/Activity#onCreate(android.os.Bundle)`
++method, as shown in the following example:
+ 
+ ### Kotlin
+ 
+@@ -1028,8 +1034,8 @@ screens and you want to improve the experience on tablets by showing a
+ short-lived activity as a dialog.
+ 
+ To show an activity as a dialog only on large screens, apply the
+-[Theme.Holo.DialogWhenLarge](https://developer.android.com/reference/android/R.style#Theme_Holo_DialogWhenLarge)
+-theme to the `<activity>` manifest element:  
++`https://developer.android.com/reference/android/R.style#Theme_Holo_DialogWhenLarge`
++theme to the `<activity>` manifest element:
+ 
+ ```xml
+ <activity android:theme="@android:style/Theme.Holo.DialogWhenLarge" >
+@@ -1046,27 +1052,29 @@ When the user taps an action button created with an
+ The system also dismisses the dialog when the user taps an item in a dialog
+ list, except when the list uses radio buttons or checkboxes. Otherwise, you can
+ manually dismiss your dialog by calling
+-[dismiss()](https://developer.android.com/reference/androidx/fragment/app/DialogFragment#dismiss())
++`https://developer.android.com/reference/androidx/fragment/app/DialogFragment#dismiss()`
+ on your `DialogFragment`.
+ 
+ If you need to perform certain actions when the dialog goes away, you can
+ implement the
+-[onDismiss()](https://developer.android.com/reference/androidx/fragment/app/DialogFragment#onDismiss(android.content.DialogInterface))
++`https://developer.android.com/reference/androidx/fragment/app/DialogFragment#onDismiss(android.content.DialogInterface)`
+ method in your `DialogFragment`.
+ 
+ You can also *cancel* a dialog. This is a special event that
+ indicates that the user is leaving the dialog without completing the task. This
+ occurs if the user taps the Back button or taps the screen outside the dialog
+ area or if you explicitly call
+-[cancel()](https://developer.android.com/reference/android/app/Dialog#cancel())
++`https://developer.android.com/reference/android/app/Dialog#cancel()`
+ on the `Dialog`, such as in response to a "Cancel" button in the
+ dialog.
+ 
+ As shown in the preceding example, you can respond to the cancel event by
+ implementing
+-[onCancel()](https://developer.android.com/reference/androidx/fragment/app/DialogFragment#onCancel(android.content.DialogInterface))
++`https://developer.android.com/reference/androidx/fragment/app/DialogFragment#onCancel(android.content.DialogInterface)`
+ in your `DialogFragment` class.
+-| **Note:** The system calls `onDismiss()` on each event that invokes the `onCancel()` callback. However, if you call [Dialog.dismiss()](https://developer.android.com/reference/android/app/Dialog#dismiss()) or [DialogFragment.dismiss()](https://developer.android.com/reference/androidx/fragment/app/DialogFragment#dismiss()), the system calls [onDismiss()](https://developer.android.com/reference/androidx/fragment/app/DialogFragment#onDismiss(android.content.DialogInterface)) but *not* `onCancel()`. You generally call `dismiss()` when the user taps the *positive* button in your dialog to remove the dialog from view.
+-|
+-| <br />
+-|
+\ No newline at end of file
++
++> [!NOTE]
++> **Note:** The system calls `onDismiss()` on each event that invokes the `onCancel()` callback. However, if you call `https://developer.android.com/reference/android/app/Dialog#dismiss()` or `https://developer.android.com/reference/androidx/fragment/app/DialogFragment#dismiss()`, the system calls `https://developer.android.com/reference/androidx/fragment/app/DialogFragment#onDismiss(android.content.DialogInterface)` but *not* `onCancel()`. You generally call `dismiss()` when the user taps the *positive* button in your dialog to remove the dialog from view.
++>
++> <br />
++>
+\ No newline at end of file

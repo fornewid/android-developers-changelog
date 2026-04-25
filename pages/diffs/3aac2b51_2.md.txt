@@ -1,0 +1,72 @@
+diff --git a/docs/blog/latest/2.md b/docs/blog/latest/2.md
+index c38206d8..b09d1965 100644
+--- a/docs/blog/latest/2.md
++++ b/docs/blog/latest/2.md
+@@ -7,6 +7,29 @@ source: md.txt
+ # The Latest
+ 
+ Stay up to date with the latest announcements, feature rollouts, and updates across Android tools, libraries, and platforms.
++- [![](https://developer.android.com/static/blog/assets/Robbie_280bd4586c_2wmcrw.webp)](https://developer.android.com/blog/authors/robbie-mclachlan) 25 Mar 2026 25 Mar 2026 ![](https://developer.android.com/static/blog/assets/Meet_The_Class_2_bb4f1ec5bd_Z1MklPk.webp)
++
++  #### [Community](https://developer.android.com/blog/categories/community)
++
++  ## [Meet the class of 2026 for the Google Play Apps Accelerator](https://developer.android.com/blog/posts/meet-the-class-of-2026-for-the-google-play-apps-accelerator)
++
++  [arrow_forward](https://developer.android.com/blog/posts/meet-the-class-of-2026-for-the-google-play-apps-accelerator) The wait is over! We are incredibly excited to share the Google Play Apps Accelerator class of 2026.
++
++  ###### [Robbie McLachlan](https://developer.android.com/blog/authors/robbie-mclachlan) •
++  1 min read
++
++- [![](https://developer.android.com/static/blog/assets/Eser_Blue_ae0cb5cc85_Z1jraMn.webp)](https://developer.android.com/blog/authors/eser-erdem) 24 Mar 2026 24 Mar 2026 ![](https://developer.android.com/static/blog/assets/AAOS_SDV_Hero_dark_6dfe605408_bCiba.webp)
++
++  #### [Product News](https://developer.android.com/blog/categories/product-news)
++
++  ## [Beyond Infotainment: Extending Android Automotive OS for Software-defined Vehicles](https://developer.android.com/blog/posts/beyond-infotainment-extending-android-automotive-os-for-software-defined-vehicles)
++
++  [arrow_forward](https://developer.android.com/blog/posts/beyond-infotainment-extending-android-automotive-os-for-software-defined-vehicles) At Google we're deeply committed to the automotive industry--not just as a technology provider, but as a partner in the industry's transformation.
++
++  ###### [Eser Erdem](https://developer.android.com/blog/authors/eser-erdem) •
++  3 min read
++
++  - [#Automotive OS](https://developer.android.com/blog/topics/automotive-os)
+ - [![](https://developer.android.com/static/blog/assets/matthew_9c798f0c1d_Z1m5WWD.webp)](https://developer.android.com/blog/authors/matthew-forsythe) 19 Mar 2026 19 Mar 2026 ![](https://developer.android.com/static/blog/assets/android_Verification2_b4044e9b89_1tLhzE.webp)
+ 
+   #### [Product News](https://developer.android.com/blog/categories/product-news)
+@@ -129,7 +152,7 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
+   ###### [Sameer Samat](https://developer.android.com/blog/authors/sameer-samat) •
+   3 min read
+ 
+-- [![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](https://developer.android.com/blog/authors/matt-dyor) 03 Mar 2026 03 Mar 2026 ![](https://developer.android.com/static/blog/assets/as_Panda3_385cde5eac_Z1E8IhJ.webp)
++- [![](https://developer.android.com/static/blog/assets/matt_dyor_b779fca40e_Z2hl456.webp)](https://developer.android.com/blog/authors/matt-dyor) 03 Mar 2026 03 Mar 2026 ![](https://developer.android.com/static/blog/assets/as_Panda3_385cde5eac_Z1E8IhJ.webp)
+ 
+   #### [Product News](https://developer.android.com/blog/categories/product-news)
+ 
+@@ -205,28 +228,6 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
+   ###### [Charles Munger](https://developer.android.com/blog/authors/charles-munger), [Shai Barack](https://developer.android.com/blog/authors/shai-barack) •
+   16 min read
+ 
+-- [![](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 13 Feb 2026 13 Feb 2026 ![](https://developer.android.com/static/blog/assets/android17banner_359909419a_Z1HMAIH.webp)
+-
+-  #### [Product News](https://developer.android.com/blog/categories/product-news)
+-
+-  ## [The First Beta of Android 17](https://developer.android.com/blog/posts/the-first-beta-of-android-17)
+-
+-  [arrow_forward](https://developer.android.com/blog/posts/the-first-beta-of-android-17) Today we're releasing the first beta of Android 17, continuing our work to build a platform that prioritizes privacy, security, and refined performance.
+-
+-  ###### [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) •
+-  7 min read
+-
+-- [![](https://developer.android.com/static/blog/assets/miguel_montemayor_552207c1c6_Z1tItyG.webp)](https://developer.android.com/blog/authors/miguel-montemayor) 13 Feb 2026 13 Feb 2026 ![](https://developer.android.com/static/blog/assets/a17beta_bfff40b895_20Bzrw.webp)
+-
+-  #### [Product News](https://developer.android.com/blog/categories/product-news)
+-
+-  ## [Prepare your app for the resizability and orientation changes in Android 17](https://developer.android.com/blog/posts/prepare-your-app-for-the-resizability-and-orientation-changes-in-android-17)
+-
+-  [arrow_forward](https://developer.android.com/blog/posts/prepare-your-app-for-the-resizability-and-orientation-changes-in-android-17) With the release of Android 16 in 2025, we shared our vision for a device ecosystem where apps adapt seamlessly to any screen---whether it's a phone, foldable, tablet, desktop, car display, or XR. Users expect their apps to work everywhere.
+-
+-  ###### [Miguel Montemayor](https://developer.android.com/blog/authors/miguel-montemayor) •
+-  6 min read
+-
+ [arrow_back](https://developer.android.com/blog/latest)
+ 
+ #### Page 2

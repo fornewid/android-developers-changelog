@@ -1,0 +1,23 @@
+diff --git a/docs/health-and-fitness/health-connect/ui/data.md b/docs/health-and-fitness/health-connect/ui/data.md
+index f4a9af5b..92c3c476 100644
+--- a/docs/health-and-fitness/health-connect/ui/data.md
++++ b/docs/health-and-fitness/health-connect/ui/data.md
+@@ -27,7 +27,7 @@ and provides clarity about where health information originated.
+ You don't need to request any sensitive permission, such as
+ `QUERY_ALL_PACKAGES`, in order to retrieve this information. The following
+ example demonstrates how to retrieve the app label and icon for a given package
+-from the `PackageManager`:  
++from the `PackageManager`:
+ 
+     fun getAppLabelAndIcon(context: Context, packageName: String): Pair<CharSequence?, Drawable?>{
+         return try {
+@@ -52,8 +52,7 @@ Your app should help users obtain information about where data
+ originates from, with a direct link to the "App permissions" screen in
+ Health Connect. This type of attribution is suitable for the following screens:
+ Activity details, Reports and insights.
+-![Attribution in activity details and report screens in the partner app](https://developer.android.com/static/health-and-fitness/health-connect/images/hc_education_variation.png) ![Attribution in insight screens in the partner app](https://developer.android.com/static/health-and-fitness/health-connect/images/hc_education_variation_3.png)
+-**Figure 2**: Attribution with education variations
++![Attribution in activity details and report screens in the partner app](https://developer.android.com/static/health-and-fitness/health-connect/images/hc_education_variation.png) ![Attribution in insight screens in the partner app](https://developer.android.com/static/health-and-fitness/health-connect/images/hc_education_variation_3.png) **Figure 2**: Attribution with education variations
+ 
+ ![Attribution in activity details and report screens in the partner app](https://developer.android.com/static/health-and-fitness/health-connect/images/hc_education_variation.png)
+ ![Attribution in insight screens in the partner app](https://developer.android.com/static/health-and-fitness/health-connect/images/hc_education_variation_3.png)

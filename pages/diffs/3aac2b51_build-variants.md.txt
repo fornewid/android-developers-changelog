@@ -1,0 +1,13 @@
+diff --git a/docs/build/build-variants.md b/docs/build/build-variants.md
+index 669f0899..60b54fd6 100644
+--- a/docs/build/build-variants.md
++++ b/docs/build/build-variants.md
+@@ -43,7 +43,7 @@ configures app signing with a generic debug keystore.
+ 
+ 
+ You can add the debug build type to your configuration if you want to add
+-or change certain settings. The following sample specifies an [`applicationIdSuffix`](https://developer.android.com/reference/tools/gradle-api/9.1/com/android/build/api/dsl/ApplicationVariantDimension#applicationIdSuffix()) for the debug build type and configures
++or change certain settings. The following sample specifies an [`applicationIdSuffix`](https://developer.android.com/reference/tools/gradle-api/9.2/com/android/build/api/dsl/ApplicationVariantDimension#applicationIdSuffix()) for the debug build type and configures
+ a "staging" build type that is initialized using settings from the debug build type:
+ 
+ ### Kotlin

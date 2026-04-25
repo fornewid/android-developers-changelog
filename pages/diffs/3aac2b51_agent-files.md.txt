@@ -1,0 +1,74 @@
+diff --git a/docs/studio/gemini/agent-files.md b/docs/studio/gemini/agent-files.md
+index 13e8aaad..a230c57f 100644
+--- a/docs/studio/gemini/agent-files.md
++++ b/docs/studio/gemini/agent-files.md
+@@ -8,16 +8,17 @@ source: md.txt
+ > **Note:** Agent files titled `AGENTS.md` are compatible with Android Studio Narwhal 4 Feature Drop Canary 4 and higher. To use agent files with Android Studio Narwhal 3 Feature Drop, use the name `AGENT.md` instead of `AGENTS.md`.
+ 
+ Give Gemini in Android Studio customized instructions to follow using one or
+-more `AGENTS.md` files. `AGENTS.md` files are placed alongside the other files in
+-your codebase, so it's straightforward to check them in to your version control
+-system (VCS) and share project-specific instructions, coding style rules, and
+-other guidance with your entire team.
++more `AGENTS.md` files. `AGENTS.md` files are placed alongside the other files
++in your codebase, so it's straightforward to check them in to your version
++control system (VCS) and share project-specific instructions, coding style
++rules, and other guidance with your entire team.
+ 
+ To get started, follow these steps:
+ 
+ 1. Create an `AGENTS.md` file anywhere in your project's file system. Gemini
+-   scans the current directory and all parent directories for `AGENTS.md` files when
+-   you submit a query. For more details, see [How `AGENTS.md` files work](https://developer.android.com/studio/gemini/agent-files#how-agent-files-work).
++   scans the current directory and all parent directories for `AGENTS.md` files
++   when you submit a query. For more details, see [How `AGENTS.md` files
++   work](https://developer.android.com/studio/gemini/agent-files#how-agent-files-work).
+ 
+    > [!TIP]
+    > **Tip:** Use multiple instruction files across different directories for more granular control over different parts of your codebase. For example, you can have a global `AGENTS.md` file at the project root and more specific `AGENTS.md` files in subdirectories for different modules.
+@@ -31,16 +32,16 @@ To get started, follow these steps:
+ ## Manage `AGENTS.md` files as context
+ 
+ You can apply or remove `AGENTS.md` files as context for a particular query
+-using the **Context** drawer in the chat panel. The **`AGENTS.md` Files** options
+-includes all `AGENTS.md` files in the current directory and its parent
++using the **Context** drawer in the chat panel. The **`AGENTS.md` Files**
++options includes all `AGENTS.md` files in the current directory and its parent
+ directories.
+ ![Manage AGENTS.md files as context](https://developer.android.com/static/studio/gemini/images/context-menu-agent-md.png) **Figure 1.** Manage `AGENTS.md` files as context.
+ 
+ ## Example instructions
+ 
+-You can use the `AGENTS.md` file to give instructions to the agent. The following
+-are some examples, but the instructions that you provide should be specific to
+-your project.
++You can use the `AGENTS.md` file to give instructions to the agent. The
++following are some examples, but the instructions that you provide should be
++specific to your project.
+ 
+ - "The main activity is `/path/to/MainActivity.kt`."
+ - "The code to support navigating between screens is `path/to/navigation/UiNavigation.kt`"
+@@ -79,7 +80,7 @@ files:
+ 
+     @./get-started.md
+ 
+-    ## Coding style
++    ## Coding style {:#coding-style}
+ 
+     @./shared/style-guidance.md
+ 
+@@ -106,7 +107,8 @@ the primary purposes is to share the instructions with your team.
+ 
+ ## What's the difference between `AGENTS.md` files and skills?
+ 
+-Skills represent on-demand expertise that are invoked when your request matches a
+-skills description, whereas content in `AGENTS.md` is added to the beginning of every
+-prompt. We recommend using skills for specific tasks and `AGENTS.md` files to influence
+-the agent's general behavior. To learn more about skills, see [Intro to Android skills](https://developer.android.com/tools/agents/android-skills).
+\ No newline at end of file
++Skills represent on-demand expertise that are invoked when your request
++matches a skills description, whereas content in `AGENTS.md` is added to the
++beginning of every prompt. We recommend using skills for specific tasks and
++`AGENTS.md` files to influence the agent's general behavior. To learn more
++about skills, see the [Android skills overview](https://developer.android.com/tools/agents/android-skills).
+\ No newline at end of file

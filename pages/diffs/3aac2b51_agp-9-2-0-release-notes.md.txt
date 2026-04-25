@@ -1,0 +1,62 @@
+diff --git a/docs/build/releases/agp-9-2-0-release-notes.md b/docs/build/releases/agp-9-2-0-release-notes.md
+index efc15b16..3f6868ec 100644
+--- a/docs/build/releases/agp-9-2-0-release-notes.md
++++ b/docs/build/releases/agp-9-2-0-release-notes.md
+@@ -35,6 +35,57 @@ modules, and build variants, providing a comprehensive overview in a single
+ dashboard. For more information, see [Generate unified code coverage reports](https://developer.android.com/studio/test/coverage-report#unified)
+ and [View unified test reports](https://developer.android.com/studio/test/command-line#view-test-reports).
+ 
++## R8 changes
++
++The following R8 changes are included in AGP 9.2.0.
++
++### Stricter `-keepattributes` semantics for keeping runtime invisible annotations
++
++Runtime invisible annotations cannot be read at runtime. D8 therefore
++unconditionally removes runtime invisible annotations, with no option to change
++this.
++
++For compatibility with ProGuard, R8 supports outputting runtime invisible
++annotations. But when compiling to DEX, runtime invisible annotations should
++generally never be retained. However, it's common practice to include the
++convenient rule `-keepattributes *Annotation*` (either directly or indirectly
++from consumer keep rules) for R8 to keep runtime visible annotations.
++Unfortunately this also ends up keeping runtime invisible annotations.
++
++To mitigate this problem and better match D8 behavior, `-keepattributes`
++patterns with wildcards no longer match `RuntimeInvisibleAnnotations`,
++`RuntimeInvisibleParameterAnnotations`, and `RuntimeInvisibleTypeAnnotations`.
++As a result, runtime invisible annotations will only be kept if the attribute
++name is mentioned explicitly without wildcards.
++
++None of the following rules will now keep runtime invisible annotations:
++
++    -keepattributes *
++    -keepattributes *Annotation*
++    -keepattributes *Invisible*
++
++To keep runtime invisible annotations, use the following rule:
++
++    -keepattributes RuntimeInvisibleAnnotations,
++                    RuntimeInvisibleParameterAnnotations,
++                    RuntimeInvisibleTypeAnnotations
++
++### Support for negated names in member rules
++
++The configuration language has been extended so that you can now match on
++negated member name patterns.
++
++For example, to match all methods that don't end in "ForTesting" use the
++following rule:
++
++    -keepclassmembers class com.example.MyClass {
++      *** !*ForTesting(...);
++    }
++
++Member name patterns can also be negated in the precondition of `-if`
++rules. If a negated member name pattern contains wildcards, such
++wildcards cannot be back-referenced in the `-if` consequent rule.
++
+ ## Fixed issues
+ 
+ 

@@ -1,0 +1,55 @@
+diff --git a/docs/develop/ui/views/components/appbar/actions.md b/docs/develop/ui/views/components/appbar/actions.md
+index b82fff0a..11b86598 100644
+--- a/docs/develop/ui/views/components/appbar/actions.md
++++ b/docs/develop/ui/views/components/appbar/actions.md
+@@ -4,15 +4,11 @@ url: https://developer.android.com/develop/ui/views/components/appbar/actions
+ source: md.txt
+ ---
+ 
+-Try the Compose way  
+-Jetpack Compose is the recommended UI toolkit for Android. Learn how to add components in Compose.  
+-[Dynamic top app bar →](https://developer.android.com/develop/ui/compose/components/app-bars-dynamic)  
+-![](https://developer.android.com/static/images/android-compose-ui-logo.png)
++Try the Compose way Jetpack Compose is the recommended UI toolkit for Android. Learn how to add components in Compose. [Dynamic top app bar →](https://developer.android.com/develop/ui/compose/components/app-bars-dynamic) ![](https://developer.android.com/static/images/android-compose-ui-logo.png)
+ 
+ The app bar lets you add buttons for user actions. This feature lets you put
+ the most important *actions* for the current context at the top of the app.
+-For example, a photo browsing app might show *share* and *create
+-album* buttons at the top when the user is looking at their photo roll. When
++For example, a photo browsing app might show *share* and *create album* buttons at the top when the user is looking at their photo roll. When
+ the user looks at an individual photo, the app might show *crop* and
+ *filter* buttons.
+ 
+@@ -33,7 +29,7 @@ actions to the action bar, create a new XML file in your project's
+ Add an
+ [`<item>`](https://developer.android.com/guide/topics/resources/menu-resource#item-element)
+ element for each item you want to include in the action bar, as shown in the
+-following sample menu XML file:  
++following sample menu XML file:
+ 
+ ```xml
+ <menu xmlns:android="http://schemas.android.com/apk/res/android" 
+@@ -71,19 +67,19 @@ in the app bar. You can find many useful icons in
+ 
+ When the user selects one of the app bar items, the system calls your
+ activity's
+-[onOptionsItemSelected()](https://developer.android.com/reference/android/app/Activity#onOptionsItemSelected(android.view.MenuItem))
++`https://developer.android.com/reference/android/app/Activity#onOptionsItemSelected(android.view.MenuItem)`
+ callback method and passes a
+-[MenuItem](https://developer.android.com/reference/android/view/MenuItem) object
++`https://developer.android.com/reference/android/view/MenuItem` object
+ to indicate which item was tapped. In your implementation of
+ `onOptionsItemSelected()`, call the
+-[MenuItem.getItemId()](https://developer.android.com/reference/android/view/MenuItem#getItemId())
++`https://developer.android.com/reference/android/view/MenuItem#getItemId()`
+ method to determine which item was tapped. The ID returned matches the value you
+ declare in the corresponding `<item>` element's
+ `android:id` attribute.
+ 
+ For example, the following code snippet checks which action the user selects.
+ If the method doesn't recognize the user's action, it invokes the superclass
+-method:  
++method:
+ 
+ ### Kotlin
+ 

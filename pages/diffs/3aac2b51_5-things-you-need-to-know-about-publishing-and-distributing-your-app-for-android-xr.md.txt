@@ -1,0 +1,40 @@
+diff --git a/docs/blog/posts/5-things-you-need-to-know-about-publishing-and-distributing-your-app-for-android-xr.md b/docs/blog/posts/5-things-you-need-to-know-about-publishing-and-distributing-your-app-for-android-xr.md
+index b0e65ae6..b38e208e 100644
+--- a/docs/blog/posts/5-things-you-need-to-know-about-publishing-and-distributing-your-app-for-android-xr.md
++++ b/docs/blog/posts/5-things-you-need-to-know-about-publishing-and-distributing-your-app-for-android-xr.md
+@@ -132,6 +132,17 @@ By following this guidance, you can help ensure your innovative Android XR apps
+ 
+ ## Continue reading
+ 
++- [![](https://developer.android.com/static/blog/assets/niharika_2910f6d612_C99s1.webp)](https://developer.android.com/blog/authors/niharika-arora)[![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](https://developer.android.com/blog/authors/jean-pierre-pralle) 22 Apr 2026 22 Apr 2026 ![](https://developer.android.com/static/blog/assets/Streamline_user_animation_V02_Strapi_abd12985d7_SvAX9.webp)
++
++  #### [How-tos](https://developer.android.com/blog/categories/how-tos)
++
++  ## [Streamline User Journeys with Verified Email via Credential Manager](https://developer.android.com/blog/posts/streamline-user-journeys-with-verified-email-via-credential-manager)
++
++  [arrow_forward](https://developer.android.com/blog/posts/streamline-user-journeys-with-verified-email-via-credential-manager) Today, we're excited to announce a new verified email credential issued by Google, which developers can now retrieve directly from Android's Credential Manager Digital Credential API.
++
++  ###### [Niharika Arora](https://developer.android.com/blog/authors/niharika-arora), [Jean-Pierre Pralle](https://developer.android.com/blog/authors/jean-pierre-pralle) •
++  3 min read
++
+ - [![](https://developer.android.com/static/blog/assets/Adarsh_profile_picture_8e88f2831a_1Ut9s6.webp)](https://developer.android.com/blog/authors/adarsh-fernando)[![](https://developer.android.com/static/blog/assets/estebandlc_profile_800x800_1d536f02a7_Z2cAv7x.webp)](https://developer.android.com/blog/authors/esteban-de-la-canal) 16 Apr 2026 16 Apr 2026 ![](https://developer.android.com/static/blog/assets/hours_CLI_Dark_Strapi_2x_427f20cc78_Z1oqB1M.webp)
+ 
+   #### [How-tos](https://developer.android.com/blog/categories/how-tos)
+@@ -154,17 +165,6 @@ By following this guidance, you can help ensure your innovative Android XR apps
+   ###### [Alice Yuan](https://developer.android.com/blog/authors/alice-yuan) •
+   8 min read
+ 
+-- [![](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d0_l9O72.webp)](https://developer.android.com/blog/authors/thomas-ezan)[![](https://developer.android.com/static/blog/assets/Ivy_Knight_3071ce592d_2j4ER1.webp)](https://developer.android.com/blog/authors/ivy-knight) 02 Dec 2025 02 Dec 2025 ![](https://developer.android.com/static/blog/assets/sample_readme_bazel_9348d9f325_Z57CJe.webp)
+-
+-  #### [How-tos](https://developer.android.com/blog/categories/how-tos)
+-
+-  ## [Explore AI on Android with Our Sample Catalog App](https://developer.android.com/blog/posts/explore-ai-on-android-with-our-sample-catalog-app)
+-
+-  [arrow_forward](https://developer.android.com/blog/posts/explore-ai-on-android-with-our-sample-catalog-app) We wanted to provide you with examples of AI-enabled features using both on-device and Cloud models and inspire you to create delightful experiences for your users.
+-
+-  ###### [Thomas Ezan](https://developer.android.com/blog/authors/thomas-ezan), [Ivy Knight](https://developer.android.com/blog/authors/ivy-knight) •
+-  2 min read
+-
+ # Stay in the loop
+ 
+ 

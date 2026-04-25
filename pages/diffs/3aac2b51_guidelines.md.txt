@@ -1,0 +1,16 @@
+diff --git a/docs/health-and-fitness/health-connect/ui/guidelines.md b/docs/health-and-fitness/health-connect/ui/guidelines.md
+index 13c6927a..8f301729 100644
+--- a/docs/health-and-fitness/health-connect/ui/guidelines.md
++++ b/docs/health-and-fitness/health-connect/ui/guidelines.md
+@@ -21,7 +21,10 @@ At a high-level, the UX flow can be broken down into the following stages:
+ 
+ Product icons should be used on a white or a very light gray background.
+ You may also use the icon on a black background if necessary.
+-| **Note:** All product icons should have a transparent background when placed on a solid background.
++
++> [!NOTE]
++> **Note:** All product icons should have a transparent background when placed on a solid background.
++
+ ![Guidelines for Health Connect assets](https://developer.android.com/static/health-and-fitness/health-connect/images/health_connect_logo_guidelines.png) **Figure 2**: Guidelines for Health Connect assets
+ 
+ Download the following icons:

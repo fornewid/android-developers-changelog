@@ -1,0 +1,32 @@
+diff --git a/docs/design/ui/mobile/guides/layout-and-content/content-structure.md b/docs/design/ui/mobile/guides/layout-and-content/content-structure.md
+index 88cd5c55..9115d65f 100644
+--- a/docs/design/ui/mobile/guides/layout-and-content/content-structure.md
++++ b/docs/design/ui/mobile/guides/layout-and-content/content-structure.md
+@@ -38,7 +38,7 @@ providing consistent spacing units.
+ 
+ Be careful of establishing an accompanying grid of rows as it can restrict
+ horizontal content scaling across orientations and form factors, typically
+-establishing padding rules will provide the needed visual consistency.  
++establishing padding rules will provide the needed visual consistency.
+ **Place content**
+ 
+ 
+@@ -111,15 +111,12 @@ actions.
+ ### Alignment
+ 
+ Use [`AlignmentLine`](https://developer.android.com/jetpack/compose/layouts/alignment-lines) to create custom alignment lines, which parent layouts
+-can use to align and position their children.  
+-![](https://developer.android.com/static/images/design/ui/mobile/content-structure_alignment_do.png)  
+-check_circle
++can use to align and position their children.
++![](https://developer.android.com/static/images/design/ui/mobile/content-structure_alignment_do.png)
+ 
+ ### Do
+ 
+-Establish consistent spacing between like elements.  
+-![](https://developer.android.com/static/images/design/ui/mobile/content-structure_alignment_dont.png)  
+-cancel
++Establish consistent spacing between like elements. ![](https://developer.android.com/static/images/design/ui/mobile/content-structure_alignment_dont.png)
+ 
+ ### Don't
+ 

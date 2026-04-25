@@ -1,0 +1,301 @@
+diff --git a/docs/studio/releases.md b/docs/studio/releases.md
+index 85d9c5c3..2522b661 100644
+--- a/docs/studio/releases.md
++++ b/docs/studio/releases.md
+@@ -8,13 +8,13 @@ Android Studio is the official IDE for Android development, and includes
+ everything you need to build Android apps.
+ 
+ This page lists new features and improvements in the latest version in the
+-stable channel, Android Studio Panda 3. You can update to it inside Android
++stable channel, Android Studio Panda 4. You can update to it inside Android
+ Studio by clicking **Help** \> **Check for updates**
+ (**Android Studio** \> **Check for updates** on macOS), or by downloading
+ directly:
+ 
+ 
+-## Download Android Studio Panda 3 \| 2025.3.3 Patch 1
++## Download Android Studio Panda 4 \| 2025.3.4
+ 
+ Before downloading, you must agree to the following terms and conditions.
+ 
+@@ -76,13 +76,13 @@ This is the Android Software Development Kit License Agreement
+ 
+ ### 14. General Legal Terms
+ 
+-14.1 The License Agreement constitutes the whole legal agreement between you and Google and governs your use of the SDK (excluding any services which Google may provide to you under a separate written agreement), and completely replaces any prior agreements between you and Google in relation to the SDK. 14.2 You agree that if Google does not exercise or enforce any legal right or remedy which is contained in the License Agreement (or which Google has the benefit of under any applicable law), this will not be taken to be a formal waiver of Google's rights and that those rights or remedies will still be available to Google. 14.3 If any court of law, having the jurisdiction to decide on this matter, rules that any provision of the License Agreement is invalid, then that provision will be removed from the License Agreement without affecting the rest of the License Agreement. The remaining provisions of the License Agreement will continue to be valid and enforceable. 14.4 You acknowledge and agree that each member of the group of companies of which Google is the parent shall be third party beneficiaries to the License Agreement and that such other companies shall be entitled to directly enforce, and rely upon, any provision of the License Agreement that confers a benefit on (or rights in favor of) them. Other than this, no other person or company shall be third party beneficiaries to the License Agreement. 14.5 EXPORT RESTRICTIONS. THE SDK IS SUBJECT TO UNITED STATES EXPORT LAWS AND REGULATIONS. YOU MUST COMPLY WITH ALL DOMESTIC AND INTERNATIONAL EXPORT LAWS AND REGULATIONS THAT APPLY TO THE SDK. THESE LAWS INCLUDE RESTRICTIONS ON DESTINATIONS, END USERS AND END USE. 14.6 The rights granted in the License Agreement may not be assigned or transferred by either you or Google without the prior written approval of the other party. Neither you nor Google shall be permitted to delegate their responsibilities or obligations under the License Agreement without the prior written approval of the other party. 14.7 The License Agreement, and your relationship with Google under the License Agreement, shall be governed by the laws of the State of California without regard to its conflict of laws provisions. You and Google agree to submit to the exclusive jurisdiction of the courts located within the county of Santa Clara, California to resolve any legal matter arising from the License Agreement. Notwithstanding this, you agree that Google shall still be allowed to apply for injunctive remedies (or an equivalent type of urgent legal relief) in any jurisdiction. *July 27, 2021* I have read and agree with the above terms and conditions <button class="button button-disabled"> Download Android Studio Panda 3 \| 2025.3.3 Patch 1 for Linux </button> [Download Android Studio Panda 3 \| 2025.3.3 Patch 1
++14.1 The License Agreement constitutes the whole legal agreement between you and Google and governs your use of the SDK (excluding any services which Google may provide to you under a separate written agreement), and completely replaces any prior agreements between you and Google in relation to the SDK. 14.2 You agree that if Google does not exercise or enforce any legal right or remedy which is contained in the License Agreement (or which Google has the benefit of under any applicable law), this will not be taken to be a formal waiver of Google's rights and that those rights or remedies will still be available to Google. 14.3 If any court of law, having the jurisdiction to decide on this matter, rules that any provision of the License Agreement is invalid, then that provision will be removed from the License Agreement without affecting the rest of the License Agreement. The remaining provisions of the License Agreement will continue to be valid and enforceable. 14.4 You acknowledge and agree that each member of the group of companies of which Google is the parent shall be third party beneficiaries to the License Agreement and that such other companies shall be entitled to directly enforce, and rely upon, any provision of the License Agreement that confers a benefit on (or rights in favor of) them. Other than this, no other person or company shall be third party beneficiaries to the License Agreement. 14.5 EXPORT RESTRICTIONS. THE SDK IS SUBJECT TO UNITED STATES EXPORT LAWS AND REGULATIONS. YOU MUST COMPLY WITH ALL DOMESTIC AND INTERNATIONAL EXPORT LAWS AND REGULATIONS THAT APPLY TO THE SDK. THESE LAWS INCLUDE RESTRICTIONS ON DESTINATIONS, END USERS AND END USE. 14.6 The rights granted in the License Agreement may not be assigned or transferred by either you or Google without the prior written approval of the other party. Neither you nor Google shall be permitted to delegate their responsibilities or obligations under the License Agreement without the prior written approval of the other party. 14.7 The License Agreement, and your relationship with Google under the License Agreement, shall be governed by the laws of the State of California without regard to its conflict of laws provisions. You and Google agree to submit to the exclusive jurisdiction of the courts located within the county of Santa Clara, California to resolve any legal matter arising from the License Agreement. Notwithstanding this, you agree that Google shall still be allowed to apply for injunctive remedies (or an equivalent type of urgent legal relief) in any jurisdiction. *July 27, 2021* I have read and agree with the above terms and conditions <button class="button button-disabled"> Download Android Studio Panda 4 \| 2025.3.4 for Linux </button> [Download Android Studio Panda 4 \| 2025.3.4
+ for
+-Linux](https://edgedl.me.gvt1.com/android/studio/ide-zips/2025.3.3.7/android-studio-panda3-patch1-linux.tar.gz)
++Linux](https://edgedl.me.gvt1.com/android/studio/ide-zips/2025.3.4.6/android-studio-panda4-linux.tar.gz)
+ 
+-*android-studio-panda3-patch1-linux.tar.gz*
++*android-studio-panda4-linux.tar.gz*
+ 
+-## Download Android Studio Panda 3 \| 2025.3.3 Patch 1
++## Download Android Studio Panda 4 \| 2025.3.4
+ 
+ Before downloading, you must agree to the following terms and conditions.
+ 
+@@ -144,13 +144,13 @@ This is the Android Software Development Kit License Agreement
+ 
+ ### 14. General Legal Terms
+ 
+-14.1 The License Agreement constitutes the whole legal agreement between you and Google and governs your use of the SDK (excluding any services which Google may provide to you under a separate written agreement), and completely replaces any prior agreements between you and Google in relation to the SDK. 14.2 You agree that if Google does not exercise or enforce any legal right or remedy which is contained in the License Agreement (or which Google has the benefit of under any applicable law), this will not be taken to be a formal waiver of Google's rights and that those rights or remedies will still be available to Google. 14.3 If any court of law, having the jurisdiction to decide on this matter, rules that any provision of the License Agreement is invalid, then that provision will be removed from the License Agreement without affecting the rest of the License Agreement. The remaining provisions of the License Agreement will continue to be valid and enforceable. 14.4 You acknowledge and agree that each member of the group of companies of which Google is the parent shall be third party beneficiaries to the License Agreement and that such other companies shall be entitled to directly enforce, and rely upon, any provision of the License Agreement that confers a benefit on (or rights in favor of) them. Other than this, no other person or company shall be third party beneficiaries to the License Agreement. 14.5 EXPORT RESTRICTIONS. THE SDK IS SUBJECT TO UNITED STATES EXPORT LAWS AND REGULATIONS. YOU MUST COMPLY WITH ALL DOMESTIC AND INTERNATIONAL EXPORT LAWS AND REGULATIONS THAT APPLY TO THE SDK. THESE LAWS INCLUDE RESTRICTIONS ON DESTINATIONS, END USERS AND END USE. 14.6 The rights granted in the License Agreement may not be assigned or transferred by either you or Google without the prior written approval of the other party. Neither you nor Google shall be permitted to delegate their responsibilities or obligations under the License Agreement without the prior written approval of the other party. 14.7 The License Agreement, and your relationship with Google under the License Agreement, shall be governed by the laws of the State of California without regard to its conflict of laws provisions. You and Google agree to submit to the exclusive jurisdiction of the courts located within the county of Santa Clara, California to resolve any legal matter arising from the License Agreement. Notwithstanding this, you agree that Google shall still be allowed to apply for injunctive remedies (or an equivalent type of urgent legal relief) in any jurisdiction. *July 27, 2021* I have read and agree with the above terms and conditions <button class="button button-disabled"> Download Android Studio Panda 3 \| 2025.3.3 Patch 1 for ChromeOS </button> [Download Android Studio Panda 3 \| 2025.3.3 Patch 1
++14.1 The License Agreement constitutes the whole legal agreement between you and Google and governs your use of the SDK (excluding any services which Google may provide to you under a separate written agreement), and completely replaces any prior agreements between you and Google in relation to the SDK. 14.2 You agree that if Google does not exercise or enforce any legal right or remedy which is contained in the License Agreement (or which Google has the benefit of under any applicable law), this will not be taken to be a formal waiver of Google's rights and that those rights or remedies will still be available to Google. 14.3 If any court of law, having the jurisdiction to decide on this matter, rules that any provision of the License Agreement is invalid, then that provision will be removed from the License Agreement without affecting the rest of the License Agreement. The remaining provisions of the License Agreement will continue to be valid and enforceable. 14.4 You acknowledge and agree that each member of the group of companies of which Google is the parent shall be third party beneficiaries to the License Agreement and that such other companies shall be entitled to directly enforce, and rely upon, any provision of the License Agreement that confers a benefit on (or rights in favor of) them. Other than this, no other person or company shall be third party beneficiaries to the License Agreement. 14.5 EXPORT RESTRICTIONS. THE SDK IS SUBJECT TO UNITED STATES EXPORT LAWS AND REGULATIONS. YOU MUST COMPLY WITH ALL DOMESTIC AND INTERNATIONAL EXPORT LAWS AND REGULATIONS THAT APPLY TO THE SDK. THESE LAWS INCLUDE RESTRICTIONS ON DESTINATIONS, END USERS AND END USE. 14.6 The rights granted in the License Agreement may not be assigned or transferred by either you or Google without the prior written approval of the other party. Neither you nor Google shall be permitted to delegate their responsibilities or obligations under the License Agreement without the prior written approval of the other party. 14.7 The License Agreement, and your relationship with Google under the License Agreement, shall be governed by the laws of the State of California without regard to its conflict of laws provisions. You and Google agree to submit to the exclusive jurisdiction of the courts located within the county of Santa Clara, California to resolve any legal matter arising from the License Agreement. Notwithstanding this, you agree that Google shall still be allowed to apply for injunctive remedies (or an equivalent type of urgent legal relief) in any jurisdiction. *July 27, 2021* I have read and agree with the above terms and conditions <button class="button button-disabled"> Download Android Studio Panda 4 \| 2025.3.4 for ChromeOS </button> [Download Android Studio Panda 4 \| 2025.3.4
+ for
+-ChromeOS](https://edgedl.me.gvt1.com/android/studio/install/2025.3.3.7/android-studio-panda3-patch1-cros.deb)
++ChromeOS](https://edgedl.me.gvt1.com/android/studio/install/2025.3.4.6/android-studio-panda4-cros.deb)
+ 
+-*android-studio-panda3-patch1-cros.deb*
++*android-studio-panda4-cros.deb*
+ 
+-## Download Android Studio Panda 3 \| 2025.3.3 Patch 1
++## Download Android Studio Panda 4 \| 2025.3.4
+ 
+ Before downloading, you must agree to the following terms and conditions.
+ 
+@@ -212,13 +212,13 @@ This is the Android Software Development Kit License Agreement
+ 
+ ### 14. General Legal Terms
+ 
+-14.1 The License Agreement constitutes the whole legal agreement between you and Google and governs your use of the SDK (excluding any services which Google may provide to you under a separate written agreement), and completely replaces any prior agreements between you and Google in relation to the SDK. 14.2 You agree that if Google does not exercise or enforce any legal right or remedy which is contained in the License Agreement (or which Google has the benefit of under any applicable law), this will not be taken to be a formal waiver of Google's rights and that those rights or remedies will still be available to Google. 14.3 If any court of law, having the jurisdiction to decide on this matter, rules that any provision of the License Agreement is invalid, then that provision will be removed from the License Agreement without affecting the rest of the License Agreement. The remaining provisions of the License Agreement will continue to be valid and enforceable. 14.4 You acknowledge and agree that each member of the group of companies of which Google is the parent shall be third party beneficiaries to the License Agreement and that such other companies shall be entitled to directly enforce, and rely upon, any provision of the License Agreement that confers a benefit on (or rights in favor of) them. Other than this, no other person or company shall be third party beneficiaries to the License Agreement. 14.5 EXPORT RESTRICTIONS. THE SDK IS SUBJECT TO UNITED STATES EXPORT LAWS AND REGULATIONS. YOU MUST COMPLY WITH ALL DOMESTIC AND INTERNATIONAL EXPORT LAWS AND REGULATIONS THAT APPLY TO THE SDK. THESE LAWS INCLUDE RESTRICTIONS ON DESTINATIONS, END USERS AND END USE. 14.6 The rights granted in the License Agreement may not be assigned or transferred by either you or Google without the prior written approval of the other party. Neither you nor Google shall be permitted to delegate their responsibilities or obligations under the License Agreement without the prior written approval of the other party. 14.7 The License Agreement, and your relationship with Google under the License Agreement, shall be governed by the laws of the State of California without regard to its conflict of laws provisions. You and Google agree to submit to the exclusive jurisdiction of the courts located within the county of Santa Clara, California to resolve any legal matter arising from the License Agreement. Notwithstanding this, you agree that Google shall still be allowed to apply for injunctive remedies (or an equivalent type of urgent legal relief) in any jurisdiction. *July 27, 2021* I have read and agree with the above terms and conditions <button class="button button-disabled"> Download Android Studio Panda 3 \| 2025.3.3 Patch 1 for Mac </button> [Download Android Studio Panda 3 \| 2025.3.3 Patch 1
++14.1 The License Agreement constitutes the whole legal agreement between you and Google and governs your use of the SDK (excluding any services which Google may provide to you under a separate written agreement), and completely replaces any prior agreements between you and Google in relation to the SDK. 14.2 You agree that if Google does not exercise or enforce any legal right or remedy which is contained in the License Agreement (or which Google has the benefit of under any applicable law), this will not be taken to be a formal waiver of Google's rights and that those rights or remedies will still be available to Google. 14.3 If any court of law, having the jurisdiction to decide on this matter, rules that any provision of the License Agreement is invalid, then that provision will be removed from the License Agreement without affecting the rest of the License Agreement. The remaining provisions of the License Agreement will continue to be valid and enforceable. 14.4 You acknowledge and agree that each member of the group of companies of which Google is the parent shall be third party beneficiaries to the License Agreement and that such other companies shall be entitled to directly enforce, and rely upon, any provision of the License Agreement that confers a benefit on (or rights in favor of) them. Other than this, no other person or company shall be third party beneficiaries to the License Agreement. 14.5 EXPORT RESTRICTIONS. THE SDK IS SUBJECT TO UNITED STATES EXPORT LAWS AND REGULATIONS. YOU MUST COMPLY WITH ALL DOMESTIC AND INTERNATIONAL EXPORT LAWS AND REGULATIONS THAT APPLY TO THE SDK. THESE LAWS INCLUDE RESTRICTIONS ON DESTINATIONS, END USERS AND END USE. 14.6 The rights granted in the License Agreement may not be assigned or transferred by either you or Google without the prior written approval of the other party. Neither you nor Google shall be permitted to delegate their responsibilities or obligations under the License Agreement without the prior written approval of the other party. 14.7 The License Agreement, and your relationship with Google under the License Agreement, shall be governed by the laws of the State of California without regard to its conflict of laws provisions. You and Google agree to submit to the exclusive jurisdiction of the courts located within the county of Santa Clara, California to resolve any legal matter arising from the License Agreement. Notwithstanding this, you agree that Google shall still be allowed to apply for injunctive remedies (or an equivalent type of urgent legal relief) in any jurisdiction. *July 27, 2021* I have read and agree with the above terms and conditions <button class="button button-disabled"> Download Android Studio Panda 4 \| 2025.3.4 for Mac </button> [Download Android Studio Panda 4 \| 2025.3.4
+ for
+-Mac](https://edgedl.me.gvt1.com/android/studio/install/2025.3.3.7/android-studio-panda3-patch1-mac.dmg)
++Mac](https://edgedl.me.gvt1.com/android/studio/install/2025.3.4.6/android-studio-panda4-mac.dmg)
+ 
+-*android-studio-panda3-patch1-mac.dmg*
++*android-studio-panda4-mac.dmg*
+ 
+-## Download Android Studio Panda 3 \| 2025.3.3 Patch 1
++## Download Android Studio Panda 4 \| 2025.3.4
+ 
+ Before downloading, you must agree to the following terms and conditions.
+ 
+@@ -280,13 +280,13 @@ This is the Android Software Development Kit License Agreement
+ 
+ ### 14. General Legal Terms
+ 
+-14.1 The License Agreement constitutes the whole legal agreement between you and Google and governs your use of the SDK (excluding any services which Google may provide to you under a separate written agreement), and completely replaces any prior agreements between you and Google in relation to the SDK. 14.2 You agree that if Google does not exercise or enforce any legal right or remedy which is contained in the License Agreement (or which Google has the benefit of under any applicable law), this will not be taken to be a formal waiver of Google's rights and that those rights or remedies will still be available to Google. 14.3 If any court of law, having the jurisdiction to decide on this matter, rules that any provision of the License Agreement is invalid, then that provision will be removed from the License Agreement without affecting the rest of the License Agreement. The remaining provisions of the License Agreement will continue to be valid and enforceable. 14.4 You acknowledge and agree that each member of the group of companies of which Google is the parent shall be third party beneficiaries to the License Agreement and that such other companies shall be entitled to directly enforce, and rely upon, any provision of the License Agreement that confers a benefit on (or rights in favor of) them. Other than this, no other person or company shall be third party beneficiaries to the License Agreement. 14.5 EXPORT RESTRICTIONS. THE SDK IS SUBJECT TO UNITED STATES EXPORT LAWS AND REGULATIONS. YOU MUST COMPLY WITH ALL DOMESTIC AND INTERNATIONAL EXPORT LAWS AND REGULATIONS THAT APPLY TO THE SDK. THESE LAWS INCLUDE RESTRICTIONS ON DESTINATIONS, END USERS AND END USE. 14.6 The rights granted in the License Agreement may not be assigned or transferred by either you or Google without the prior written approval of the other party. Neither you nor Google shall be permitted to delegate their responsibilities or obligations under the License Agreement without the prior written approval of the other party. 14.7 The License Agreement, and your relationship with Google under the License Agreement, shall be governed by the laws of the State of California without regard to its conflict of laws provisions. You and Google agree to submit to the exclusive jurisdiction of the courts located within the county of Santa Clara, California to resolve any legal matter arising from the License Agreement. Notwithstanding this, you agree that Google shall still be allowed to apply for injunctive remedies (or an equivalent type of urgent legal relief) in any jurisdiction. *July 27, 2021* I have read and agree with the above terms and conditions <button class="button button-disabled"> Download Android Studio Panda 3 \| 2025.3.3 Patch 1 for Mac (ARM) </button> [Download Android Studio Panda 3 \| 2025.3.3 Patch 1
++14.1 The License Agreement constitutes the whole legal agreement between you and Google and governs your use of the SDK (excluding any services which Google may provide to you under a separate written agreement), and completely replaces any prior agreements between you and Google in relation to the SDK. 14.2 You agree that if Google does not exercise or enforce any legal right or remedy which is contained in the License Agreement (or which Google has the benefit of under any applicable law), this will not be taken to be a formal waiver of Google's rights and that those rights or remedies will still be available to Google. 14.3 If any court of law, having the jurisdiction to decide on this matter, rules that any provision of the License Agreement is invalid, then that provision will be removed from the License Agreement without affecting the rest of the License Agreement. The remaining provisions of the License Agreement will continue to be valid and enforceable. 14.4 You acknowledge and agree that each member of the group of companies of which Google is the parent shall be third party beneficiaries to the License Agreement and that such other companies shall be entitled to directly enforce, and rely upon, any provision of the License Agreement that confers a benefit on (or rights in favor of) them. Other than this, no other person or company shall be third party beneficiaries to the License Agreement. 14.5 EXPORT RESTRICTIONS. THE SDK IS SUBJECT TO UNITED STATES EXPORT LAWS AND REGULATIONS. YOU MUST COMPLY WITH ALL DOMESTIC AND INTERNATIONAL EXPORT LAWS AND REGULATIONS THAT APPLY TO THE SDK. THESE LAWS INCLUDE RESTRICTIONS ON DESTINATIONS, END USERS AND END USE. 14.6 The rights granted in the License Agreement may not be assigned or transferred by either you or Google without the prior written approval of the other party. Neither you nor Google shall be permitted to delegate their responsibilities or obligations under the License Agreement without the prior written approval of the other party. 14.7 The License Agreement, and your relationship with Google under the License Agreement, shall be governed by the laws of the State of California without regard to its conflict of laws provisions. You and Google agree to submit to the exclusive jurisdiction of the courts located within the county of Santa Clara, California to resolve any legal matter arising from the License Agreement. Notwithstanding this, you agree that Google shall still be allowed to apply for injunctive remedies (or an equivalent type of urgent legal relief) in any jurisdiction. *July 27, 2021* I have read and agree with the above terms and conditions <button class="button button-disabled"> Download Android Studio Panda 4 \| 2025.3.4 for Mac (ARM) </button> [Download Android Studio Panda 4 \| 2025.3.4
+ for
+-Mac (ARM)](https://edgedl.me.gvt1.com/android/studio/install/2025.3.3.7/android-studio-panda3-patch1-mac_arm.dmg)
++Mac (ARM)](https://edgedl.me.gvt1.com/android/studio/install/2025.3.4.6/android-studio-panda4-mac_arm.dmg)
+ 
+-*android-studio-panda3-patch1-mac_arm.dmg*
++*android-studio-panda4-mac_arm.dmg*
+ 
+-## Download Android Studio Panda 3 \| 2025.3.3 Patch 1
++## Download Android Studio Panda 4 \| 2025.3.4
+ 
+ Before downloading, you must agree to the following terms and conditions.
+ 
+@@ -352,16 +352,16 @@ This is the Android Software Development Kit License Agreement
+ 
+ ### Select the version of Android Studio that's right for your Mac:
+ 
+-#### Android Studio Panda 3 \| 2025.3.3 Patch 1
++#### Android Studio Panda 4 \| 2025.3.4
+ 
+-<button class="button button-disabled"> Mac with Apple chip </button> [Mac with Apple chip](https://edgedl.me.gvt1.com/android/studio/install/2025.3.3.7/android-studio-panda3-patch1-mac_arm.dmg)
++<button class="button button-disabled"> Mac with Apple chip </button> [Mac with Apple chip](https://edgedl.me.gvt1.com/android/studio/install/2025.3.4.6/android-studio-panda4-mac_arm.dmg)
+ 
+-*android-studio-panda3-patch1-mac_arm.dmg*
+-<button class="button button-disabled"> Mac with Intel chip </button> [Mac with Intel chip](https://edgedl.me.gvt1.com/android/studio/install/2025.3.3.7/android-studio-panda3-patch1-mac.dmg)
++*android-studio-panda4-mac_arm.dmg*
++<button class="button button-disabled"> Mac with Intel chip </button> [Mac with Intel chip](https://edgedl.me.gvt1.com/android/studio/install/2025.3.4.6/android-studio-panda4-mac.dmg)
+ 
+-*android-studio-panda3-patch1-mac.dmg*
++*android-studio-panda4-mac.dmg*
+ 
+-## Download Android Studio Panda 3 \| 2025.3.3 Patch 1
++## Download Android Studio Panda 4 \| 2025.3.4
+ 
+ Before downloading, you must agree to the following terms and conditions.
+ 
+@@ -423,13 +423,13 @@ This is the Android Software Development Kit License Agreement
+ 
+ ### 14. General Legal Terms
+ 
+-14.1 The License Agreement constitutes the whole legal agreement between you and Google and governs your use of the SDK (excluding any services which Google may provide to you under a separate written agreement), and completely replaces any prior agreements between you and Google in relation to the SDK. 14.2 You agree that if Google does not exercise or enforce any legal right or remedy which is contained in the License Agreement (or which Google has the benefit of under any applicable law), this will not be taken to be a formal waiver of Google's rights and that those rights or remedies will still be available to Google. 14.3 If any court of law, having the jurisdiction to decide on this matter, rules that any provision of the License Agreement is invalid, then that provision will be removed from the License Agreement without affecting the rest of the License Agreement. The remaining provisions of the License Agreement will continue to be valid and enforceable. 14.4 You acknowledge and agree that each member of the group of companies of which Google is the parent shall be third party beneficiaries to the License Agreement and that such other companies shall be entitled to directly enforce, and rely upon, any provision of the License Agreement that confers a benefit on (or rights in favor of) them. Other than this, no other person or company shall be third party beneficiaries to the License Agreement. 14.5 EXPORT RESTRICTIONS. THE SDK IS SUBJECT TO UNITED STATES EXPORT LAWS AND REGULATIONS. YOU MUST COMPLY WITH ALL DOMESTIC AND INTERNATIONAL EXPORT LAWS AND REGULATIONS THAT APPLY TO THE SDK. THESE LAWS INCLUDE RESTRICTIONS ON DESTINATIONS, END USERS AND END USE. 14.6 The rights granted in the License Agreement may not be assigned or transferred by either you or Google without the prior written approval of the other party. Neither you nor Google shall be permitted to delegate their responsibilities or obligations under the License Agreement without the prior written approval of the other party. 14.7 The License Agreement, and your relationship with Google under the License Agreement, shall be governed by the laws of the State of California without regard to its conflict of laws provisions. You and Google agree to submit to the exclusive jurisdiction of the courts located within the county of Santa Clara, California to resolve any legal matter arising from the License Agreement. Notwithstanding this, you agree that Google shall still be allowed to apply for injunctive remedies (or an equivalent type of urgent legal relief) in any jurisdiction. *July 27, 2021* I have read and agree with the above terms and conditions <button class="button button-disabled"> Download Android Studio Panda 3 \| 2025.3.3 Patch 1 for Windows </button> [Download Android Studio Panda 3 \| 2025.3.3 Patch 1
++14.1 The License Agreement constitutes the whole legal agreement between you and Google and governs your use of the SDK (excluding any services which Google may provide to you under a separate written agreement), and completely replaces any prior agreements between you and Google in relation to the SDK. 14.2 You agree that if Google does not exercise or enforce any legal right or remedy which is contained in the License Agreement (or which Google has the benefit of under any applicable law), this will not be taken to be a formal waiver of Google's rights and that those rights or remedies will still be available to Google. 14.3 If any court of law, having the jurisdiction to decide on this matter, rules that any provision of the License Agreement is invalid, then that provision will be removed from the License Agreement without affecting the rest of the License Agreement. The remaining provisions of the License Agreement will continue to be valid and enforceable. 14.4 You acknowledge and agree that each member of the group of companies of which Google is the parent shall be third party beneficiaries to the License Agreement and that such other companies shall be entitled to directly enforce, and rely upon, any provision of the License Agreement that confers a benefit on (or rights in favor of) them. Other than this, no other person or company shall be third party beneficiaries to the License Agreement. 14.5 EXPORT RESTRICTIONS. THE SDK IS SUBJECT TO UNITED STATES EXPORT LAWS AND REGULATIONS. YOU MUST COMPLY WITH ALL DOMESTIC AND INTERNATIONAL EXPORT LAWS AND REGULATIONS THAT APPLY TO THE SDK. THESE LAWS INCLUDE RESTRICTIONS ON DESTINATIONS, END USERS AND END USE. 14.6 The rights granted in the License Agreement may not be assigned or transferred by either you or Google without the prior written approval of the other party. Neither you nor Google shall be permitted to delegate their responsibilities or obligations under the License Agreement without the prior written approval of the other party. 14.7 The License Agreement, and your relationship with Google under the License Agreement, shall be governed by the laws of the State of California without regard to its conflict of laws provisions. You and Google agree to submit to the exclusive jurisdiction of the courts located within the county of Santa Clara, California to resolve any legal matter arising from the License Agreement. Notwithstanding this, you agree that Google shall still be allowed to apply for injunctive remedies (or an equivalent type of urgent legal relief) in any jurisdiction. *July 27, 2021* I have read and agree with the above terms and conditions <button class="button button-disabled"> Download Android Studio Panda 4 \| 2025.3.4 for Windows </button> [Download Android Studio Panda 4 \| 2025.3.4
+ for
+-Windows](https://edgedl.me.gvt1.com/android/studio/ide-zips/2025.3.3.7/android-studio-panda3-patch1-windows.zip)
++Windows](https://edgedl.me.gvt1.com/android/studio/ide-zips/2025.3.4.6/android-studio-panda4-windows.zip)
+ 
+-*android-studio-panda3-patch1-windows.zip*
++*android-studio-panda4-windows.zip*
+ 
+-## Download Android Studio Panda 3 \| 2025.3.3 Patch 1
++## Download Android Studio Panda 4 \| 2025.3.4
+ 
+ Before downloading, you must agree to the following terms and conditions.
+ 
+@@ -491,11 +491,11 @@ This is the Android Software Development Kit License Agreement
+ 
+ ### 14. General Legal Terms
+ 
+-14.1 The License Agreement constitutes the whole legal agreement between you and Google and governs your use of the SDK (excluding any services which Google may provide to you under a separate written agreement), and completely replaces any prior agreements between you and Google in relation to the SDK. 14.2 You agree that if Google does not exercise or enforce any legal right or remedy which is contained in the License Agreement (or which Google has the benefit of under any applicable law), this will not be taken to be a formal waiver of Google's rights and that those rights or remedies will still be available to Google. 14.3 If any court of law, having the jurisdiction to decide on this matter, rules that any provision of the License Agreement is invalid, then that provision will be removed from the License Agreement without affecting the rest of the License Agreement. The remaining provisions of the License Agreement will continue to be valid and enforceable. 14.4 You acknowledge and agree that each member of the group of companies of which Google is the parent shall be third party beneficiaries to the License Agreement and that such other companies shall be entitled to directly enforce, and rely upon, any provision of the License Agreement that confers a benefit on (or rights in favor of) them. Other than this, no other person or company shall be third party beneficiaries to the License Agreement. 14.5 EXPORT RESTRICTIONS. THE SDK IS SUBJECT TO UNITED STATES EXPORT LAWS AND REGULATIONS. YOU MUST COMPLY WITH ALL DOMESTIC AND INTERNATIONAL EXPORT LAWS AND REGULATIONS THAT APPLY TO THE SDK. THESE LAWS INCLUDE RESTRICTIONS ON DESTINATIONS, END USERS AND END USE. 14.6 The rights granted in the License Agreement may not be assigned or transferred by either you or Google without the prior written approval of the other party. Neither you nor Google shall be permitted to delegate their responsibilities or obligations under the License Agreement without the prior written approval of the other party. 14.7 The License Agreement, and your relationship with Google under the License Agreement, shall be governed by the laws of the State of California without regard to its conflict of laws provisions. You and Google agree to submit to the exclusive jurisdiction of the courts located within the county of Santa Clara, California to resolve any legal matter arising from the License Agreement. Notwithstanding this, you agree that Google shall still be allowed to apply for injunctive remedies (or an equivalent type of urgent legal relief) in any jurisdiction. *July 27, 2021* I have read and agree with the above terms and conditions <button class="button button-disabled"> Download Android Studio Panda 3 \| 2025.3.3 Patch 1 for Windows </button> [Download Android Studio Panda 3 \| 2025.3.3 Patch 1
++14.1 The License Agreement constitutes the whole legal agreement between you and Google and governs your use of the SDK (excluding any services which Google may provide to you under a separate written agreement), and completely replaces any prior agreements between you and Google in relation to the SDK. 14.2 You agree that if Google does not exercise or enforce any legal right or remedy which is contained in the License Agreement (or which Google has the benefit of under any applicable law), this will not be taken to be a formal waiver of Google's rights and that those rights or remedies will still be available to Google. 14.3 If any court of law, having the jurisdiction to decide on this matter, rules that any provision of the License Agreement is invalid, then that provision will be removed from the License Agreement without affecting the rest of the License Agreement. The remaining provisions of the License Agreement will continue to be valid and enforceable. 14.4 You acknowledge and agree that each member of the group of companies of which Google is the parent shall be third party beneficiaries to the License Agreement and that such other companies shall be entitled to directly enforce, and rely upon, any provision of the License Agreement that confers a benefit on (or rights in favor of) them. Other than this, no other person or company shall be third party beneficiaries to the License Agreement. 14.5 EXPORT RESTRICTIONS. THE SDK IS SUBJECT TO UNITED STATES EXPORT LAWS AND REGULATIONS. YOU MUST COMPLY WITH ALL DOMESTIC AND INTERNATIONAL EXPORT LAWS AND REGULATIONS THAT APPLY TO THE SDK. THESE LAWS INCLUDE RESTRICTIONS ON DESTINATIONS, END USERS AND END USE. 14.6 The rights granted in the License Agreement may not be assigned or transferred by either you or Google without the prior written approval of the other party. Neither you nor Google shall be permitted to delegate their responsibilities or obligations under the License Agreement without the prior written approval of the other party. 14.7 The License Agreement, and your relationship with Google under the License Agreement, shall be governed by the laws of the State of California without regard to its conflict of laws provisions. You and Google agree to submit to the exclusive jurisdiction of the courts located within the county of Santa Clara, California to resolve any legal matter arising from the License Agreement. Notwithstanding this, you agree that Google shall still be allowed to apply for injunctive remedies (or an equivalent type of urgent legal relief) in any jurisdiction. *July 27, 2021* I have read and agree with the above terms and conditions <button class="button button-disabled"> Download Android Studio Panda 4 \| 2025.3.4 for Windows </button> [Download Android Studio Panda 4 \| 2025.3.4
+ for
+-Windows](https://edgedl.me.gvt1.com/android/studio/install/2025.3.3.7/android-studio-panda3-patch1-windows.exe)
++Windows](https://edgedl.me.gvt1.com/android/studio/install/2025.3.4.6/android-studio-panda4-windows.exe)
+ 
+-*android-studio-panda3-patch1-windows.exe*
++*android-studio-panda4-windows.exe*
+ 
+ ## Download Android Command Line Tools
+ 
+@@ -712,7 +712,7 @@ minor features and bug fixes. See
+ Studio version naming.
+ 
+ To see what's been fixed in this version of Android Studio, see the
+-[closed issues](https://developer.android.com/studio/releases/fixed-bugs/studio/2025.3.3).
++[closed issues](https://developer.android.com/studio/releases/fixed-bugs/studio/2025.3.4).
+ 
+ To view the release notes for older versions of Android Studio, see
+ [Past releases](https://developer.android.com/studio/past-releases/past-android-studio-releases).
+@@ -741,6 +741,7 @@ Android Studio.
+ 
+ | Android Studio version | Required AGP version |
+ |---|---|
++| Panda 4 \| 2025.3.4 | 4.0-9.2 |
+ | Panda 3 \| 2025.3.3 | 4.0-9.1 |
+ | Panda 2 \| 2025.3.2 | 4.0-9.1 |
+ | Panda 1 \| 2025.3.1 | 4.0-9.0 |
+@@ -814,15 +815,12 @@ released in the previous 10 months. When a version falls outside of that
+ compatibility window, service integrations become disabled and you are required
+ to update Android Studio.
+ 
+-> [!NOTE]
+-> This Cloud services compatibility policy is being announced with the stable channel release of Android Studio Meerkat Feature Drop. Enforcement will begin with the stable channel release of Android Studio Narwhal Feature Drop, which will fall out of the compatibility window in Q2 of 2026.
+-
+ ### Android Studio versions that are currently
+ compatible with Cloud services
+ 
+-As of the stable channel release of Android Studio Meerkat Feature Drop, all
+-versions of Studio are compatible with Cloud services. Enforcement will begin
+-with Android Studio Narwhal Feature Drop.
++Currently, support for Android Studio Narwhal Feature Drop has been
++deprecated and will be disabled entirely at the next major release. All newer
++versions are currently supported.
+ 
+ <br />
+ 
+@@ -842,36 +840,93 @@ The following are features currently available in Studio Labs.
+ |---|---|---|
+ | Journeys for Android Studio | Use natural language to describe steps and assertions for end-to-end tests. | [Journeys for Android Studio](https://developer.android.com/studio/gemini/journeys) |
+ 
++The following are new features in Android Studio Panda 4.
+ 
+-## Patch releases
++## Gemini API Starter template
+ 
+-The following is a list of the patch releases in Android Studio Panda 3.
++The Gemini API Starter template provides a straightforward path for Android
++developers to integrate AI features into their applications. By leveraging
++Firebase AI Logic, developers can avoid manual configuration and security
++management.
++![](https://developer.android.com/static/studio/preview/features/images/GeminiAPIStarter.png) Gemini API Starter new project template
+ 
+-### Android Studio Panda 3 \| 2025.3.3 Patch 1 (April 2026)
++Key Features:
+ 
+-This minor update includes
+-[these bug fixes](https://developer.android.com/studio/releases/fixed-bugs/studio/2025.3.3#android-studio-panda-3-|-2025.3.3-patch-1).
+-Additionally, this update adds development support for Android API level 37.
++- **No API Key Management**: Eliminates the need to manually provision, embed, or rotate API keys within your client-side code, reducing security risks and setup time.
++- **Automated Firebase Integration**: Seamlessly connects your Android Studio project to Firebase services. The template handles the backend plumbing required to communicate with Gemini models securely.
++- **Production-Ready Architecture**: Built on top of Firebase's managed infrastructure, ensuring that your AI features can scale from a local prototype to a production environment without architectural changes.
+ 
+-<br />
++To get started, go to **File** \> **New** \> **New Project** and select the
++**Gemini API Starter** template from the list of available project types.
++
++## Generate unit tests with Gemini
++
++Gemini in Android Studio can generate comprehensive, compilable unit tests for
++your Kotlin and Java code. Gemini analyzes your source code to identify
++constructor dependencies, business logic branches, and edge cases, and then
++automatically creates a complete test class. This includes the generation of
++`setUp` methods, mock initialization, and individual test cases tailored to your
++project's specific architecture and coding style.
++
++To get started, open a source file, right-click the code you want to test, and
++select **AI \> Generate Unit Tests** . For more details, see
++[Generate unit tests with Gemini](https://developer.android.com/studio/gemini/generate-unit-tests#prerequisites).
++Unit test generation demo
++
++## Google One integration for Gemini in Android Studio
++
++Android Studio Panda 4 introduces access to an enhanced Agent Mode
++experience when you subscribe to the [Google One AI Pro or Ultra
++plans](https://one.google.com/about/google-ai-plans/). The Google One
++integration supercharges your Android development with higher rate limits for
++the default Gemini model. If you are subscribed to a Google One AI Pro or Ultra
++plan, you can take advantage of these benefits automatically when you sign in to
++your Google Account in Android Studio. Using Gemini in Android Studio with a
++Google One AI Pro or Ultra plan doesn't affect your quota for other AI tools,
++such as Gemini CLI or Antigravity.
++
++## Next Edit Prediction (NEP)
++
++Android Studio Panda 4 introduces Next Edit Prediction (NEP), a major evolution
++of the editor's AI capabilities. While traditional [AI Code Completion](https://developer.android.com/studio/gemini/code-completion)
++focuses on suggesting code at your current cursor position, NEP is designed for
++"away from cursor" updates.
++
++By using Gemini to analyze your recent edits across multiple files, NEP
++anticipates your next logical move. It proactively suggests changes elsewhere in
++your codebase---helping you maintain consistency and speed up repetitive
++refactoring tasks.
++
++## Ask Mode
+ 
+-The following are new features in Android Studio Panda 3.
++In Android Studio Panda 4, we are removing the *Ask* tab and replacing it with a
++dedicated conversation mode, allowing you to ask the agent questions and get
++answers without prompting it to execute tasks.
+ 
+-## Manage permissions in Agent Mode
++## Planning Mode
+ 
+-You can now manage specific permissions for the agent, giving you granular
+-control over your workspace. Permissions let you control whether the agent can
+-perform certain actions, including the following:
++The new Planning Mode prompts the agent to come up with a detailed project plan
++before it begins executing tasks. Instead of a single pass where the model
++directly predicts the next token of code, Planning Mode facilitates a
++multi-stage reasoning process, giving the agent additional space to evaluate its
++own proposed logic before presenting it to you.
+ 
+-- Read and update project files, external directories, and sensitive data (such as credentials).
+-- Access Google Search and other domains.
+-- Run shell commands.
+-- Interact with MCP servers.
++## Developer verification support
+ 
+-Learn more at [Manage agent permissions](https://developer.android.com/studio/gemini/permissions).
++To help you meet the upcoming Android developer verification requirements, we
++are bringing registration checks directly into your workflow. You will now see
++your app's registration status right in Android Studio when you generate a
++signed App Bundle or APK. By moving these checks closer to build time, you
++can catch any issues early and ensure your apps are ready before the
++[verification requirement](https://developer.android.com/developer-verification) goes into effect for certified
++Android devices starting in September 2026.
+ 
+-## Skills for Agent Mode
++## Agent Web Search
+ 
+-Starting in Android Studio Panda 3, you can use skills to enhance Agent
+-Mode's capabilities with specialized expertise and custom workflows. Learn more
+-at [Extend Agent Mode with skills](https://developer.android.com/studio/preview/skills).
+\ No newline at end of file
++While Android Studio's agent already leverages the [Android Knowledge Base](https://developer.android.com/studio/gemini/knowledge-base)
++for official documentation, modern Android development relies on a vast
++ecosystem of external libraries. Agent Web Search expands Gemini's reach,
++allowing it to query Google directly to fetch current reference material from
++across the web. From checking the latest setup guides for Coil to finding
++advanced configuration tips for Koin or Moshi, the agent can now pull in the
++most up-to-date information in real time.
+\ No newline at end of file

@@ -1,0 +1,22 @@
+diff --git a/docs/guide/navigation/navigation-3/recipes/scenes-twopane.md b/docs/guide/navigation/navigation-3/recipes/scenes-twopane.md
+index 098df38f..bc89dded 100644
+--- a/docs/guide/navigation/navigation-3/recipes/scenes-twopane.md
++++ b/docs/guide/navigation/navigation-3/recipes/scenes-twopane.md
+@@ -22,7 +22,7 @@ package com.example.nav3recipes.scenes.twopane
+ import androidx.compose.foundation.layout.Column
+ import androidx.compose.foundation.layout.Row
+ import androidx.compose.foundation.layout.fillMaxSize
+-import androidx.compose.material3.adaptive.currentWindowAdaptiveInfo
++import androidx.compose.material3.adaptive.currentWindowAdaptiveInfoV2
+ import androidx.compose.runtime.Composable
+ import androidx.compose.runtime.remember
+ import androidx.compose.ui.Modifier
+@@ -73,7 +73,7 @@ data class TwoPaneScene<T : Any>(
+ 
+ @Composable
+ fun <T : Any> rememberTwoPaneSceneStrategy(): TwoPaneSceneStrategy<T> {
+-    val windowSizeClass = currentWindowAdaptiveInfo().windowSizeClass
++    val windowSizeClass = currentWindowAdaptiveInfoV2().windowSizeClass
+ 
+     return remember(windowSizeClass) {
+         TwoPaneSceneStrategy(windowSizeClass)
