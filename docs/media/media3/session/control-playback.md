@@ -314,12 +314,17 @@ each connected controller.
 private class CustomMediaSessionCallback : MediaSession.Callback {
 
   // Configure commands available to the controller in onConnect()
-  override fun onConnect(session: MediaSession, controller: ControllerInfo): ConnectionResult {
+  override fun onConnectAsync(
+    session: MediaSession,
+    controller: ControllerInfo,
+  ): ListenableFuture<ConnectionResult> {
     val sessionCommands =
       ConnectionResult.DEFAULT_SESSION_COMMANDS.buildUpon()
         .add(SessionCommand(SAVE_TO_FAVORITES, Bundle.EMPTY))
         .build()
-    return AcceptedResultBuilder(session).setAvailableSessionCommands(sessionCommands).build()
+    return Futures.immediateFuture(
+      AcceptedResultBuilder(session).setAvailableSessionCommands(sessionCommands).build()
+    )
   }
 }
 ```
@@ -331,15 +336,15 @@ private static class CustomMediaSessionCallback implements MediaSession.Callback
 
   // Configure commands available to the controller in onConnect()
   @Override
-  public ConnectionResult onConnect(MediaSession session, ControllerInfo controller) {
+  public ListenableFuture<ConnectionResult> onConnectAsync(
+      MediaSession session, ControllerInfo controller) {
     SessionCommands sessionCommands =
         ConnectionResult.DEFAULT_SESSION_COMMANDS
             .buildUpon()
             .add(new SessionCommand(SAVE_TO_FAVORITES, new Bundle()))
             .build();
-    return new AcceptedResultBuilder(session)
-        .setAvailableSessionCommands(sessionCommands)
-        .build();
+    return Futures.immediateFuture(
+        new AcceptedResultBuilder(session).setAvailableSessionCommands(sessionCommands).build());
   }
 }
 ```

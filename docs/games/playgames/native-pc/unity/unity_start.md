@@ -11,7 +11,7 @@ Google Play Games PC SDK into your Unity project.
 
 Download the latest version of the Unity Package using the download link.
 
-Download: [Play Games PC Unity SDK](https://dl.google.com/play/games/native/sdk/unity/play_pc_sdk_unity_26.2.121.0.tgz)
+Download: [Play Games PC Unity SDK](https://developer.android.com/games/playgames/native-pc/downloads/unity)
 
 ## Step 2: Import the package
 
@@ -71,6 +71,11 @@ by adding a `manifest.xml` file in the same directory as your game's executable.
 
    Example: If your game is at `Builds/MyGame.exe`, the manifest must be at
    `Builds/manifest.xml`.
+
+**Note:** If you want to use the PC SDK while developing in the Unity Editor
+without needing to digitally sign your game executable or launch it from Google
+Play Games. For additional manifest configuration steps, see
+[developer mode setup guide](https://developer.android.com/games/playgames/native-pc/setup/developer_mode).
 
 ## Step 5: Initialize the SDK
 

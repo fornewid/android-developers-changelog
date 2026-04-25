@@ -104,7 +104,10 @@ Your app should provide bitmap graphics based on screen density ranges or
 buckets. The operating system automatically displays the correct graphic to
 the device in question using these buckets. Ensure high-fidelity graphics are
 shown on every device by providing assets for each bucket.
-![Example of image resolution sizes and bucket labels.](https://developer.android.com/static/images/design/ui/mobile/graphics_5.png) **Figure 5.** Party cantaloupe in their respective densities and scale to export. **Note:** You don't need to provide vector drawables for all densities, since vectors automatically scale across densities.
+![Example of image resolution sizes and bucket labels.](https://developer.android.com/static/images/design/ui/mobile/graphics_5.png) **Figure 5.** Party cantaloupe in their respective densities and scale to export.
+
+> [!NOTE]
+> **Note:** You don't need to provide vector drawables for all densities, since vectors automatically scale across densities.
 
 ### Padding
 

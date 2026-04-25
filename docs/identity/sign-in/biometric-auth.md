@@ -286,8 +286,9 @@ cryptography into your biometric authentication workflow using an instance of
 [`CryptoObject`](https://developer.android.com/reference/androidx/biometric/BiometricPrompt.CryptoObject).
 The framework supports the following cryptographic objects:
 [`Signature`](https://developer.android.com/reference/java/security/Signature),
-[`Cipher`](https://developer.android.com/reference/javax/crypto/Cipher), and
-[`Mac`](https://developer.android.com/reference/javax/crypto/Mac).
+[`Cipher`](https://developer.android.com/reference/javax/crypto/Cipher),
+[`Mac`](https://developer.android.com/reference/javax/crypto/Mac), and
+[`KeyAgreement`](https://developer.android.com/reference/javax/crypto/KeyAgreement).
 
 After the user authenticates successfully using a biometric prompt, your app can
 perform a cryptographic operation. For example, if you authenticate using a

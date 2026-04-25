@@ -33,4 +33,7 @@ with the following screen across all entry points:
 
 If the user selects **Cancel** on the permissions request screen twice in a
 row, your app should present the user with a screen similar to the following:
-![Permissions cancelled twice by user](https://developer.android.com/static/health-and-fitness/health-connect/images/hc_permissions_cancelled_twice.png) **Figure 3**: Permissions cancelled twice by user **Note:** Once this screen is displayed, users need to re-enable permissions from within the Health Connect Settings menu.
+![Permissions cancelled twice by user](https://developer.android.com/static/health-and-fitness/health-connect/images/hc_permissions_cancelled_twice.png) **Figure 3**: Permissions cancelled twice by user
+
+> [!NOTE]
+> **Note:** Once this screen is displayed, users need to re-enable permissions from within the Health Connect Settings menu.

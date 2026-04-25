@@ -37,12 +37,12 @@ Enable developer mode for your application by setting `IsDeveloperMode` to
 `true` inside of the your application's `manifest.xml`.
 
     <?xml version="1.0" encoding="utf-8"?>
-    <Manifest version="1">
-        <Application>
-            <PackageName>com.example.package</PackageName>
-            \<IsDeveloperMode\>true\</IsDeveloperMode\>
-        </Application>
-    </Manifest>
+    <?Manifest version="1">
+       <?Application>
+         <?PackageName>com.example.package<?/PackageName>
+    \<?IsDeveloperMode\>true\</?IsDeveloperMode\>
+       <?/Application>
+    <?/Manifest>
 
 ## **Step 2**: Enable early access
 

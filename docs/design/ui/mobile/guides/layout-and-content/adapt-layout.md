@@ -42,8 +42,7 @@ factor qualities. Or design content to be responsive at a foundational level by
 notating how content should be constrained, expand, or reflow.
 
 
-![](https://developer.android.com/static/images/design/ui/mobile/layout_adapt_maxwidth_do.png)  
-check_circle
+![](https://developer.android.com/static/images/design/ui/mobile/layout_adapt_maxwidth_do.png)
 
 ### Do
 
@@ -52,8 +51,7 @@ Set a max width on content and components to prevent stretching full width.
 <br />
 
 
-![](https://developer.android.com/static/images/design/ui/mobile/layout_adapt_maxwidth_dont.png)  
-cancel
+![](https://developer.android.com/static/images/design/ui/mobile/layout_adapt_maxwidth_dont.png)
 
 ### Don't
 
@@ -62,8 +60,7 @@ Allow content to stretch full width.
 <br />
 
 
-![](https://developer.android.com/static/images/design/ui/mobile/layout_adapt_panes.png)  
-check_circle
+![](https://developer.android.com/static/images/design/ui/mobile/layout_adapt_panes.png)
 
 ### Do
 

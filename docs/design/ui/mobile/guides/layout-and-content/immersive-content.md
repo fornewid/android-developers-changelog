@@ -47,7 +47,7 @@ To implement immersive mode, you can use `WindowInsetsControllerCompat` to hide
 both the status bar and the navigation bar--or just one of them. For details,
 refer to the [Hide system bars developer guide](https://developer.android.com/develop/ui/views/layout/immersive).
 
-The following sections describe examples of immersive mode use cases.  
+The following sections describe examples of immersive mode use cases.
 Alas, your browser doesn't support HTML5 video. That's OK! You can still [download the video](https://developer.android.com/static/images/design/ui/mobile/immersive-mode-tap-to-reveal.mp4) and watch it with a video player. **Video 1:** Video playback - tapping to reveal relevant video player UI
 
 <br />

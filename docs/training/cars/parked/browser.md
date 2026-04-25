@@ -6,8 +6,8 @@ source: md.txt
 
 The Browsers category is in beta At this time, anyone can publish browsers to internal testing tracks on the Play Store. Publishing to closed testing, open testing, and production tracks will be permitted at a later date. [Nominate yourself to be an early access partner →](https://forms.gle/VsXEdDEBidxw8q8u8) ![](https://developer.android.com/static/images/picto-icons/test-tube-2.svg)
 
-Beyond the requirements described in [Build parked apps for cars](https://developer.android.com/training/cars/parked) and [Add support for
-Android Automotive OS to your parked app](https://developer.android.com/training/cars/parked/automotive-os),
+Beyond the requirements described in [Build parked apps for cars](https://developer.android.com/training/cars/parked) and
+[Add support for Android Automotive OS to your parked app](https://developer.android.com/training/cars/parked/automotive-os),
 there are a few additional requirements specific to browsers that are detailed
 on this page.
 
@@ -24,15 +24,14 @@ the following within an exported `<activity>` element:
         android:exported="true">
       ...
       <intent-filter>
-        <action android:name="android.intent.action.VIEW"/>
-        <category android:name="android.intent.category.DEFAULT"/>
-        <category android:name="android.intent.category.BROWSABLE"/>
-        <data android:scheme="http"/>
+        <action android:name="android.intent.action.MAIN"/>
+       ...
+        <category android:name="android.intent.category.APP_BROWSER"/>
       </intent-filter>
     </activity>
 
-> [!CAUTION]
-> **Caution:** Don't include any [`<data>`](https://developer.android.com/guide/topics/manifest/data-element) elements in this intent filter that define the [`android:host`](https://developer.android.com/guide/topics/manifest/data-element#host) or [`android:port`](https://developer.android.com/guide/topics/manifest/data-element#port) attributes.
+For more information, see
+[`android.intent.category.APP_BROWSER`](https://developer.android.com/reference/android/content/Intent#CATEGORY_APP_BROWSER).
 
 ## Allow users to block access to sensitive data
 
@@ -63,19 +62,13 @@ To determine if the user has secured their device with a PIN, pattern, or
 password, you can use the [`KeyguardManager::isDeviceSecure`](https://developer.android.com/reference/android/app/KeyguardManager#isDeviceSecure())
 method.
 
-### Kotlin
 
 ```kotlin
-val keyguardManager = context.getSystemService(KeyguardManager::class.java)
-val isDeviceSecure = keyguardManager.isDeviceSecure()
+val keyguardManager = context.getSystemService<KeyguardManager>()
+val isDeviceSecure = keyguardManager?.isDeviceSecure == truehttps://github.com/android/snippets/blob/e7a7941977ffc6645aa89155f2f94985055e5f46/cars/src/main/java/com/example/cars/parked/Browser.kt#L27-L28
 ```
 
-### Java
-
-```java
-KeyguardManager keyguardManager = (KeyguardManager) context.getSystemService(Context.KEYGUARD_SERVICE);
-boolean isDeviceSecure = keyguardManager.isDeviceSecure();
-```
+<br />
 
 ### Open the lock screen settings
 
@@ -84,17 +77,15 @@ can open up the Security screen within the Settings app using the
 [`Settings.ACTION_SECURITY_SETTINGS`](https://developer.android.com/reference/android/provider/Settings#ACTION_SECURITY_SETTINGS)
 intent action.
 
-### Kotlin
 
 ```kotlin
-context.startActivity(Intent(Settings.ACTION_SECURITY_SETTINGS))
+context.startActivity(
+    Intent(Settings.ACTION_SECURITY_SETTINGS)
+        .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+)
 ```
 
-### Java
-
-```java
-context.startActivity(new Intent(Settings.ACTION_SECURITY_SETTINGS))
-```
+<br />
 
 ### Prompt the user to authenticate
 

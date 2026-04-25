@@ -20,10 +20,11 @@ You can use an Android skill to do tasks such as the following:
 By using Android skills, you can help ground LLMs with more recent knowledge
 and context on specialized Android workflows.
 
-Android skills follow the [agent skills](https://agentskills.io/home) open standard, so they
-are compatible with any AI tool that supports skills. This page explains how to use skills
-in Android Studio and how to use the [Android CLI](https://developer.android.com/tools/agents/android-cli) to install skills for use
-with any agent and tooling of your choice.
+Android skills follow the [agent skills](https://agentskills.io/home) open
+standard, so they are compatible with any AI tool that supports skills. This
+page explains how to use skills in Android Studio and how to use the
+[Android CLI](https://developer.android.com/tools/agents/android-cli) to install skills for use with any agent and
+tooling of your choice.
 
 > [!NOTE]
 > **Note:** How to structure and use skills might differ slightly based on the agent and development environment you're using. Be sure to check the documentation for your agent and tooling.
@@ -47,17 +48,18 @@ your choice.
 
 ### Android CLI
 
-We recommend installing an Android skill using the [Android CLI](https://developer.android.com/tools/agents/android-cli),
-which makes it easier to discover, download, and manage skills for any agent of
-your choice.
+We recommend installing an Android skill using the
+[Android CLI](https://developer.android.com/tools/agents/android-cli), which makes it easier to discover, download,
+and manage skills for any agent of your choice.
 
 - To see the list of available skills, run [`android skills list`](https://developer.android.com/tools/agents/android-cli#skills-list).
 - To install a skill, run [`android skills add --skill skill-name`](https://developer.android.com/tools/agents/android-cli#skills-add).
 
 ### Android Studio
 
-You can download a skill from the [Android skills GitHub repo](https://goo.gle/android-skills)
-and [import it into your project in Android Studio](https://developer.android.com/studio/gemini/skills).
+You can download a skill from the
+[Android skills GitHub repo](https://goo.gle/android-skills) and
+[import it into your project in Android Studio](https://developer.android.com/studio/gemini/skills).
 
 ## Activate a skill
 
@@ -86,9 +88,9 @@ Skills must follow these rules:
 
 - **One directory per skill:** Each skill must have its own unique directory that includes a `SKILL.md` file and any [additional resources](https://developer.android.com/tools/agents/android-skills#directories).
 - **Nesting:** All skills must be in the `.skills/` or `.agent/skills/` directory at the project root. However, you can use subdirectories for better organization (for example, `skills/ui-flows/<skill name>/SKILL.md` or `skills/testing/<skill name>/SKILL.md`).
-- **Scope:** Currently, only skills located within the project's codebase are supported.
+- **Scope:** Only skills located within the project's codebase are supported.
 
-![](https://developer.android.com/static/studio/images/skill-files.png)
+![Directory structure showing the location of skill files in a project](https://developer.android.com/static/studio/images/skill-files.png) Skill files structure.
 
 The `SKILL.md` file uses a YAML block for metadata and standard Markdown for the
 instructions.

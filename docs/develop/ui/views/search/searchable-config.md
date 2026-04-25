@@ -252,7 +252,9 @@ elements:
         screen. Also, be sure not to define an action key for a key that's needed for typing a search
         query. This limits the available and reasonable action keys to the call button and menu
         button.
-        | **Note:** Action keys are not generally discoverable, so don't provide them as a core user feature.
+
+        > [!NOTE]
+        > **Note:** Action keys are not generally discoverable, so don't provide them as a core user feature.
 
         You must define the `android:keycode` to define the key and at least one of the
         other three attributes to define the search action.

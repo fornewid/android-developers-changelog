@@ -296,98 +296,33 @@ using.
 
 NDK version r28 and higher compile 16 KB-aligned by default.
 
-#### Android NDK r27
+#### Android NDK r27 and lower
+
 
 To support compiling 16 KB-aligned shared libraries with Android NDK
-version r27 and higher, you need to update your `ndk-build`, `build.gradle`,
-`build.gradle.kts`, or linker flags as follows:
-
-### ndk-build
-
-In your `Application.mk`:
-
-    APP_SUPPORT_FLEXIBLE_PAGE_SIZES := true
-
-### Groovy
-
-In your `build.gradle` file, set the argument
-`-DANDROID_SUPPORT_FLEXIBLE_PAGE_SIZES=ON`:
-
-    android {
-      ...
-      defaultConfig {
-        ...
-        // This block is different from the one you use to link Gradle
-        // to your CMake or ndk-build script.
-        externalNativeBuild {
-          // For ndk-build, instead use the ndkBuild block.
-          cmake {
-            // Passes optional arguments to CMake.
-            arguments "-DANDROID_SUPPORT_FLEXIBLE_PAGE_SIZES=ON"
-          }
-        }
-      }
-    }
-
-### Kotlin
-
-In your `build.gradle.kts` file, set the argument
-`-DANDROID_SUPPORT_FLEXIBLE_PAGE_SIZES=ON`:
-
-    android {
-      ...
-      defaultConfig {
-        ...
-        // This block is different from the one you use to link Gradle
-        // to your CMake or ndk-build script.
-        externalNativeBuild {
-          // For ndk-build, instead use the ndkBuild block.
-          cmake {
-            // Passes optional arguments to CMake.
-            arguments += listOf("-DANDROID_SUPPORT_FLEXIBLE_PAGE_SIZES=ON")
-          }
-        }
-      }
-    }
-
-### Other build systems
-
-Specify the following linker flags:
+version r27 or lower, use the following linker flags:
 
     -Wl,-z,max-page-size=16384
+    -Wl,-z,common-page-size=16384
 
-#### Android NDK r26 and lower
-
-Always update your NDK. This should only be used as a last resort,
-and no support is guaranteed.
-
-To support compiling 16 KB-aligned shared libraries with Android NDK
-version r26 or lower, you need to update your `ndk-build` or `cmake`
-configuration as follows:
+Here's how to update your build system configuration files:
 
 ### ndk-build
 
-Update your `Android.mk` to enable 16 KB ELF alignment:
+If you're using ndk-build, update your `Android.mk` to enable 16 KB ELF
+alignment:
 
-    LOCAL_LDFLAGS += "-Wl,-z,max-page-size=16384"
+    LOCAL_LDFLAGS += -Wl,-z,max-page-size=16384 -Wl,-z,common-page-size=16384
 
 ### CMake
 
-Update your `CMakeLists.txt` to enable 16 KB ELF alignment:
+If you're using CMake, update your `CMakeLists.txt` to enable 16 KB ELF
+alignment:
 
-    target_link_options(${CMAKE_PROJECT_NAME} PRIVATE "-Wl,-z,max-page-size=16384")
-
-#### Android NDK r22 and lower is not compatible
-
-Always update your NDK. This should only be used as a last resort,
-and no support is guaranteed.
-
-In addition to steps for NDK r26 and lower, `common-page-size=16384` can
-workaround bugs in old [GNU ld](https://sourceware.org/bugzilla/show_bug.cgi?id=28824) and [LLVM lld](https://github.com/llvm/llvm-project/issues/65002) linkers. This only works
-if the ELF also has present a `.relro_padding` section. This depends on the
-version of the linker and the specific program that is written. There is no
-support for these NDK versions, and if it does not work, update the NDK version
-before reporting any issue.
+    target_link_options(${CMAKE_PROJECT_NAME} PRIVATE
+        "-Wl,-z,max-page-size=16384"
+        "-Wl,-z,common-page-size=16384"
+    )
 
 > [!NOTE]
 > **Note:** Even if your app dynamically links to the C++ standard library (`libc++_shared.so`) from NDKs r26 and lower, some of which don't have a 16 KB aligned `libc++_shared.so`, you should still update the alignment of all other libraries here, and you should update your code to avoid depending on `PAGE_SIZE`. In order to test on those lower versions of the NDK on 16 KB devices, canary releases of LTS NDK versions [r23](https://ci.android.com/builds/branches/aosp-ndk-release-r23/grid) and [r25](https://ci.android.com/builds/branches/aosp-ndk-r25-release/grid) are available on Android CI with 16 KB aligned `libc++_shared.so` libraries.

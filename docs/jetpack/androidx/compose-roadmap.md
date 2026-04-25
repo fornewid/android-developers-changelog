@@ -4,7 +4,7 @@ url: https://developer.android.com/jetpack/androidx/compose-roadmap
 source: md.txt
 ---
 
-Last updated: September 4, 2024
+Last updated: April 2026
 
 Welcome to the Jetpack Compose roadmap, outlining upcoming plans for Jetpack
 Compose. For completed features, please see [release notes](https://developer.android.com/jetpack/androidx/releases/compose).
@@ -21,28 +21,21 @@ stable release. *Backlog* items are planned but not likely to land soon.
 
 |---|---|---|---|
 | **Area** | **In Focus** | **Backlog** | **Done** |
-| Material 3 | Segmented button control group (M3) Bottom App Bar (RTL Alignment) Badge (alignment update) Swipe to Refresh (M3 design refresh) Performance Benchmarking / Baseline profiles for M3 | Motion/transition subsystem | Pickers Tooltips SearchBar Bottom sheets |
-| Foundation | Lazy item animations Flow layouts new features and stabilisation Stabilize AnchoredDraggable Modifier.node migration and performance improvements Drag and drop support in Lazy layouts Sticky headers for lists | Sticky headers for lists Scrollbars | Public API for anchored components |
-| UI | Autofill Text Editing Improvements Text selection and API improvements <br /> AccessibilityChecks Clickables in text Support autosize Text | Multistyle text editing Support autosize Text Smart text selection and linkify Long text layout and editing Text selection and API improvements Support Async Drawing Support multi-threaded measure Two pane composable | Hardware keyboard input Styled string resources Support Drag and Drop across screens Support Graphics SubLayer |
-| Animation |   |   | Shared element transitions |
-| Compiler \& Runtime | SlotTable Rewrite LazyList Scheduling / Thread Utilization Interruptible Composition LazyList Item Animations | Modifier Hoisting Optimization Shared SlotTable for Subcompositions | External Type Stability Configuration Group Eliding Optimizations Strong Skipping Mode Intrinsic Remember Support multithreaded scheduler |
-| Testing | Accessibility Checks for Compose Better error handling | Support Multi modal input injection Support Common tests |   |
-| Tools | @Preview Screenshot Testing Glance Widgets Preview GenAI \& UI development experiments Ongoing Quality \& Performance improvements Preview Organization \& Zoom | More advanced Animation / Navigation support (Concepting) | [Compose Preview](https://developer.android.com/jetpack/compose/tooling/previews) [Animation Preview](https://developer.android.com/jetpack/compose/tooling/animation-preview) [Interactive mode](https://developer.android.com/jetpack/compose/tooling/previews#preview-interactive) [Multipreview Templates](https://developer.android.com/jetpack/compose/tooling/previews#multipreview-templates) [Preview Parameters](https://developer.android.com/reference/kotlin/androidx/compose/ui/tooling/preview/PreviewParameter) [Live Edit](https://developer.android.com/jetpack/compose/tooling/iterative-development#live-edit) [Compose UI Check](https://twitter.com/androidstudio/status/1716549517363880225) [Layout Inspector: Recomposition Counts \& Highlights](https://developer.android.com/jetpack/compose/tooling/layout-inspector) [Relay](https://developer.android.com/jetpack/compose/tooling/relay) |
-
-## Jetpack Library Integrations
-
-|---|---|---|
-| **Area** | **In Focus** | **Done** |
-| Navigation |   | Transition animations |
-| Paging |   | Getting Paging Compose APIs to stable |
-| Constraint/Motion Layout | ConstraintLayout DSL parity with existing features MotionLayout DSL MotionLayout integration with LookAheadLayout |   |
+| Material 3 | Scrollbars Styles integration with Material 3 Stabilize Material 3 Expressive Components Bottom sheet improvements and bug fixes Focus indications Adaptive Components | Motion Subsystem M3 Component updates |
+| Foundation | Styles (Experimental) FlexBox layout (Experimental) Grid layout (Experimental) UIMediaQuery (Experimental) Gesture disambiguation |   | Drag and drop support in Lazy layouts Stabilize AnchoredDraggable Public API for anchored components |
+| Graphics | Mesh Gradients GraphicsLayer Outsets Export portion of Bitmap Performance improvements: vector caching | Improvements to AVDs Blur improvements Advanced Graphical Effects Performance improvements: shadows, ripples | Drop shadows and inner shadows |
+| Text | Text selection and API improvements Multistyle text editing | Support all IME flags Support Variable fonts via downloadable fonts Text selection and API improvements | Smart text selection and linkify Support autosize Text Autofill Hardware keyboard input Styled string resources Support Drag \& Drop across screens Clickables in text AccessibilityChecks |
+| Animation | Layout animation visual debugging Advanced layout animation |   | Shared element transitions Shared element visual debugging LazyList Item Animations |
+| Compiler \& Runtime | SlotTable Rewrite LazyList Scheduling / Thread Utilization | Modifier Hoisting Optimization Shared SlotTable for Subcompositions | External Type Stability Configuration Group Eliding Optimizations Strong Skipping Mode Intrinsic Remember Support multithreaded scheduler |
+| Testing | Screenshot testing improvements | Support Multi modal input injection Support Common tests | Standard Test dispatcher Accessibility Checks for Compose |
+| Tools | GenAI \& UI development experiments Ongoing Quality \& Performance improvements | More advanced Animation / Navigation support (Concepting) | Glance Widgets Preview @Preview Screenshot Testing Preview Organization \& Zoom [Compose Preview](https://developer.android.com/jetpack/compose/tooling/previews) [Animation Preview](https://developer.android.com/jetpack/compose/tooling/animation-preview) [Interactive mode](https://developer.android.com/jetpack/compose/tooling/previews#preview-interactive) [Multipreview Templates](https://developer.android.com/jetpack/compose/tooling/previews#multipreview-templates) [Preview Parameters](https://developer.android.com/reference/kotlin/androidx/compose/ui/tooling/preview/PreviewParameter) [Live Edit](https://developer.android.com/jetpack/compose/tooling/iterative-development#live-edit) [Compose UI Check](https://twitter.com/androidstudio/status/1716549517363880225) [Layout Inspector: Recomposition Counts \& Highlights](https://developer.android.com/jetpack/compose/tooling/layout-inspector) |
 
 ## Platforms
 
 |---|---|---|
 | **Platform** | **In Focus** | **Done** |
-| Homescreen widgets | [Compose API](https://goo.gle/glance) |   |
-| TV Compose | [Compose API](https://developer.android.com/jetpack/androidx/releases/tv) |   |
+| Homescreen widgets |   | [Compose API](https://goo.gle/glance) |
+| TV Compose |   | [Compose API](https://developer.android.com/jetpack/androidx/releases/tv) |
 
 ## Proposals
 

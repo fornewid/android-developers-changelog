@@ -16,8 +16,7 @@ source: md.txt
   - If refining the rule, give instructions on finding a narrower and specific keep rule using the [/references/REFLECTION-GUIDE.md](https://developer.android.com/agents/skills/performance/r8-analyzer/references/REFLECTION-GUIDE).
   - If removing, provide reasoning on why it needs to be removed.
 - \[ \] Step 8: After keep analysis, order the keep rule analysis based on the impact to the codebase hierarchy defined in [references/KEEP-RULES-IMPACT-HIERARCHY.md](https://developer.android.com/agents/skills/performance/r8-analyzer/references/KEEP-RULES-IMPACT-HIERARCHY)
-- \[ \] Step 9: Advise the user to run tests using [UI
-  automator](https://developer.android.com/training/testing/other-components/ui-automator) to assess that there is no issue with the suggested changes, concentrating on the packages where keep rules will be affected.
+- \[ \] Step 9: Advise the user to run tests using [UI automator](https://developer.android.com/training/testing/other-components/ui-automator) to assess that there is no issue with the suggested changes, concentrating on the packages where keep rules will be affected.
 
 ## Mandatory rules
 

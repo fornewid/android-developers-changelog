@@ -25,8 +25,8 @@ version of [Credential Manager, Play Services Auth](https://developer.android.co
 
 ```kotlin
 dependencies {
-    implementation("androidx.credentials:credentials:1.6.0-rc02")
-    implementation("androidx.credentials:credentials-play-services-auth:1.6.0-rc02")
+    implementation("androidx.credentials:credentials:1.7.0-alpha01")
+    implementation("androidx.credentials:credentials-play-services-auth:1.7.0-alpha01")
     implementation("com.google.android.libraries.identity.googleid:googleid:<latest version>")
 }
 ```
@@ -35,8 +35,8 @@ dependencies {
 
 ```groovy
 dependencies {
-    implementation "androidx.credentials:credentials:1.6.0-rc02"
-    implementation "androidx.credentials:credentials-play-services-auth:1.6.0-rc02"
+    implementation "androidx.credentials:credentials:1.7.0-alpha01"
+    implementation "androidx.credentials:credentials-play-services-auth:1.7.0-alpha01"
     implementation "com.google.android.libraries.identity.googleid:googleid:<latest version>"
 }
 ```

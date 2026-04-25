@@ -18,7 +18,9 @@ Android devices.
 - **Density-independent pixels (dp)**: density-independent pixels are flexible units that scale to have uniform dimensions on any screen. They are based on the physical density of the screen. These units are relative to a 160 dpi (dots per inch) screen, on which 1 dp is roughly equal to 1 px.
 - **Scalable pixels (sp)**: Scalable pixels serve the same function as dp, but for fonts. The default value of an sp is the same as the default value for a dp. The Android system calculates the actual font size to use based on the device and the user's preference set in the Settings app of their Android device.
 
-| **Important:** Always specify font sizes in sp units or scalable pixels.
+> [!IMPORTANT]
+> **Important:** Always specify font sizes in sp units or scalable pixels.
+
 ![](https://developer.android.com/static/images/design/ui/mobile/grids-and-units-1-dp-and-sp.png) **Figure 1:** Notating dp versus sp
 
 The primary difference between these units of measurement is that scalable
@@ -55,7 +57,7 @@ dp = (width in pixels \* 160) / screen density
 
 Building with an underlying grid helps create consistent spacing and alignment
 across your UI. Android UI utilizes an 8 dp grid for layout, components, and
-spacing.  
+spacing.
 Alas, your browser doesn't support HTML5 video. That's OK! You can still [download the video](https://developer.android.com/images/XXXXX) and watch it with a video player. **Video 1:** Showing an 8 dp grid highlighting 8 dp increments
 
 Smaller elements such as icons, type, and some elements within components are

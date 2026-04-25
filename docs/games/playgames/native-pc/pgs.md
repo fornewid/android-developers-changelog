@@ -34,14 +34,14 @@ your game's `manifest.xml`.
 Example `manifest.xml` contents:
 
     <?xml version="1.0" encoding="utf-8"?>
-    <Manifest version="1">
-        <Application>
-            <PackageName>com.example.package</PackageName>
-            \<PlayGamesServices\>
-    \<ProjectId\>123456789\</ProjectId\>
-    \</PlayGamesServices\>
-        </Application>
-    </Manifest>
+    <?Manifest version="1">
+       <?Application>
+         <?PackageName>com.example.package<?/PackageName>
+    \<?PlayGamesServices\>
+    \<?ProjectId\>123456789\<?/ProjectId\>
+    \<?/PlayGamesServices\>
+       <?/Application>
+    <?/Manifest>
 
 ## **Step 2**: Request Recall access when signing-in
 

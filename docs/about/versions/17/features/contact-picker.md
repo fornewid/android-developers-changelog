@@ -47,7 +47,7 @@ selections.
                 contacts = processContactPickerResultUri(resultUri, context)
             }
         }
-    }https://github.com/android/snippets/blob/e7a7941977ffc6645aa89155f2f94985055e5f46/contacts/src/main/java/com/example/contacts/ContactPickerActivity.kt#L89-L99
+    }https://github.com/android/snippets/blob/14699840f1b3a7e50f0a020665e1cd96e31f6a47/contacts/src/main/java/com/example/contacts/ContactPickerActivity.kt#L89-L99
 
 ## Selection mode
 
@@ -78,7 +78,7 @@ specific number.
     }
 
     // Launch the picker
-    pickContact.launch(pickContactIntent)https://github.com/android/snippets/blob/e7a7941977ffc6645aa89155f2f94985055e5f46/contacts/src/main/java/com/example/contacts/ContactPickerActivity.kt#L112-L127
+    pickContact.launch(pickContactIntent)https://github.com/android/snippets/blob/14699840f1b3a7e50f0a020665e1cd96e31f6a47/contacts/src/main/java/com/example/contacts/ContactPickerActivity.kt#L112-L127
 
 ### Select multiple contacts
 
@@ -106,7 +106,7 @@ optionally limit the number of items a user can select.
     }
 
     // Launch the picker
-    pickContact.launch(pickContactIntent)https://github.com/android/snippets/blob/e7a7941977ffc6645aa89155f2f94985055e5f46/contacts/src/main/java/com/example/contacts/ContactPickerActivity.kt#L140-L161
+    pickContact.launch(pickContactIntent)https://github.com/android/snippets/blob/14699840f1b3a7e50f0a020665e1cd96e31f6a47/contacts/src/main/java/com/example/contacts/ContactPickerActivity.kt#L140-L161
 
 ## Handle the results
 
@@ -178,7 +178,7 @@ You can query this URI using a standard `ContentResolver`. The resulting
         }
 
         return@withContext contactsMap.values.toList()
-    }https://github.com/android/snippets/blob/e7a7941977ffc6645aa89155f2f94985055e5f46/contacts/src/main/java/com/example/contacts/ContactPickerActivity.kt#L222-L283
+    }https://github.com/android/snippets/blob/14699840f1b3a7e50f0a020665e1cd96e31f6a47/contacts/src/main/java/com/example/contacts/ContactPickerActivity.kt#L222-L283
 
 > [!NOTE]
 > **Note:** Contact Picker Session URIs don't support custom `selection` and `selectionArgs`. Setting these parameters will raise an exception.

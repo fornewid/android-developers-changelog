@@ -10,7 +10,10 @@ to improve user productivity and ease of use.
 
 Users press <kbd>Meta+/</kbd> to open the keyboard shortcuts screen, which is
 available on [Android 7.0](https://developer.android.com/about/versions/nougat/android-7.0#keyboard_shortcuts_helper) (API level 24) and higher.
-![Application open on a device showing system shortcuts.](https://developer.android.com/static/images/develop/ui/touch-input/keyboard-input/keyboard_shortcut_helper.png) **Figure 1.** Keyboard Shortcuts Helper. **Note:** The Meta key is not present on all keyboards. On macOS keyboards, the Meta key is the Command key; on Windows keyboards, the Windows key; and on ChromeOS keyboards, the Search key.
+![Application open on a device showing system shortcuts.](https://developer.android.com/static/images/develop/ui/touch-input/keyboard-input/keyboard_shortcut_helper.png) **Figure 1.** Keyboard Shortcuts Helper.
+
+> [!NOTE]
+> **Note:** The Meta key is not present on all keyboards. On macOS keyboards, the Meta key is the Command key; on Windows keyboards, the Windows key; and on ChromeOS keyboards, the Search key.
 
 ## Provide shortcuts to Keyboard Shortcuts Helper
 
@@ -18,7 +21,7 @@ You can provide available keyboard shortcut lists to
 Keyboard Shortcuts Helper by overriding the
 [`onProvideKeyboardShortcuts()`](https://developer.android.com/reference/kotlin/android/view/Window.Callback#onprovidekeyboardshortcuts) window callback.
 The following snippet demonstrates an implementation of
-`onProvideKeyboardShortcuts()` to add a group of four shortcuts:  
+`onProvideKeyboardShortcuts()` to add a group of four shortcuts:
 
     class MainActivity : ComponentActivity() {
         // Activity codes such as overridden onStart method.
@@ -61,7 +64,7 @@ Your app registers two or more groups of keyboard shortcuts by creating a
 In the following snippet, two `KeyboardShortCutGroup` objects are added to the
 mutable list passed to the `onProvideKeyboardShortcuts()` method.
 The objects are displayed as categories in Keyboard Shortcuts Helper as
-[figure 2](https://developer.android.com/static/images/develop/ui/touch-input/keyboard-input/keyboard_shortcut_group.png) shows.  
+[figure 2](https://developer.android.com/static/images/develop/ui/touch-input/keyboard-input/keyboard_shortcut_group.png) shows.
 
     override fun onProvideKeyboardShortcuts(
         data: MutableList<KeyboardShortcutGroup>?,
@@ -95,7 +98,7 @@ The objects are displayed as categories in Keyboard Shortcuts Helper as
 Apps display the keyboard shortcuts screen by
 calling the [`requestShowKeyboardShortcuts()`](https://developer.android.com/reference/kotlin/android/app/Activity#requestshowkeyboardshortcuts)
 method. In the following snippet, Keyboard Shortcuts Helper opens when users tap
-or click the button or press the <kbd>Enter</kbd> key.  
+or click the button or press the <kbd>Enter</kbd> key.
 
     val activity = LocalActivity.current
 

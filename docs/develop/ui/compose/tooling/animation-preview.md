@@ -46,7 +46,7 @@ Animation Preview currently supports the
 [`rememberInfiniteTransition`](https://developer.android.com/develop/ui/compose/animation#rememberinfinitetransition),
 and [`AnimatedContent`](https://developer.android.com/develop/ui/compose/animation#animatedcontent)
 APIs. To access the latest features, use Animation Preview with
-Android Studio Panda 3 and `compose.animation` 1.10.5 and higher.
+Android Studio Panda 4 and `compose.animation` 1.10.5 and higher.
 
 ## Recommended for you
 

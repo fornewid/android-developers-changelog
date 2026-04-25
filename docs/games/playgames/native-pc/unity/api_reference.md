@@ -23,7 +23,7 @@ Play Games PC SDK runtime.
 
 | Type | Name | Description |
 |---|---|---|
-| `Enum` | `InitializationError` | Error codes returned during initialization (e.g., `SdkRuntimeUnavailable`, `SdkRuntimeUpdateRequired`). |
+| `Enum` | `InitializationError` | Error codes returned during initialization such as `SdkRuntimeUnavailable` and `SdkRuntimeUpdateRequired`. |
 
 ## Namespace: PlayPcSdkManaged.Billing
 
@@ -62,7 +62,7 @@ Parameters and Models
 
 | Type | Name | Description |
 |---|---|---|
-| `Enum` | `BillingError` | Status codes representing the outcome of a billing operation (e.g., `Ok`, `UserCanceled`, `ItemAlreadyOwned`). |
+| `Enum` | `BillingError` | Status codes representing the outcome of a billing operation such as `Ok`, `UserCanceled` and `ItemAlreadyOwned`. |
 | `Enum` | `ProductType` | Defines the type of product: `InApp` (1) or `Subs` (Subscription). |
 | `Enum` | `PurchaseState` | The state of the purchase: `Unspecified` (0), `Purchased` (1), or `Pending` (2). |
 
@@ -92,7 +92,63 @@ Clients and results
 
 | Type | Name | Description |
 |---|---|---|
-| `Enum` | `IntegrityError` | Status codes representing the outcome of an integrity operation (e.g., `Ok`, `CloudProjectNumberIsInvalid`, `NetworkError`). |
+| `Enum` | `IntegrityError` | Status codes representing the outcome of an integrity operation such as `Ok`, `CloudProjectNumberIsInvalid` and `NetworkError`. |
+
+## Namespace: PlayPcSdkManaged.InstallReferrer
+
+Provides access to the Play Install Referrer API, which lets your game identify
+the source that referred the installation from the Google Play Store.
+
+### Classes
+
+Clients and results
+
+| Type | Name | Description |
+|---|---|---|
+| `Class` | `InstallReferrerClient` | The main client for interacting with the Install Referrer service. Manages the native C++ connection and must be disposed. |
+| `Class` | `GetInstallReferrerResult` | The result returned by `GetInstallReferrerAsync`. Contains the referral information on success. |
+
+### Structs
+
+Models
+
+| Type | Name | Description |
+|---|---|---|
+| `Struct` | `GetInstallReferrerResultValue` | Represents the successful result of a query, containing the `InstallReferrer` string and `InstallTimeEpochSeconds`. |
+
+### Enums
+
+| Type | Name | Description |
+|---|---|---|
+| `Enum` | `InstallReferrerError` | Status codes representing the outcome of an install referrer operation such as `Ok` and `Error`. |
+
+## Namespace: PlayPcSdkManaged.Recall
+
+Provides access to the Play Games Services Recall API, which lets you link
+in-game accounts with Google Play Games Services accounts.
+
+### Classes
+
+Clients and results
+
+| Type | Name | Description |
+|---|---|---|
+| `Class` | `RecallClient` | The main client for interacting with the Recall service. Manages the native C++ connection and must be disposed. |
+| `Class` | `RequestRecallAccessResult` | The result returned by `RequestRecallAccessAsync`. Contains the recall session ID on success. |
+
+### Structs
+
+Models
+
+| Type | Name | Description |
+|---|---|---|
+| `Struct` | `RequestRecallAccessResultValue` | Represents the successful result of an access request, containing the `RecallSessionId`. |
+
+### Enums
+
+| Type | Name | Description |
+|---|---|---|
+| `Enum` | `GamesRecallError` | Status codes representing the outcome of a recall operation such as `Ok` and `Error`. |
 
 ## Namespace: PlayPcSdkManaged.Unity
 
@@ -102,7 +158,7 @@ Unity-specific helpers and adapters for the SDK.
 
 | Type | Name | Description |
 |---|---|---|
-| `Class` | `PlayPcSdkFactory` | The factory class used to create instances of `BillingClient` and `IntegrityClient`, and to retrieve the `InitializationHandler`. This class handles the Unity-specific callback generation. |
+| `Class` | `PlayPcSdkFactory` | The factory class used to create instances of `BillingClient`, `IntegrityClient`, `InstallReferrerClient`, and `RecallClient`, and to retrieve the `InitializationHandler`. This class handles the Unity-specific callback generation. |
 
 ## Namespace: PlayPcSdkManaged.Core
 

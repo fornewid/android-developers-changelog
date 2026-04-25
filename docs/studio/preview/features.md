@@ -30,9 +30,8 @@ respective channels.
 
 | Version | Channel |
 |---|---|
-| Android Studio Panda 3 | Stable |
-| Android Gradle plugin 9.1.0 | Stable |
-| Android Studio Panda 4 | RC |
+| Android Studio Panda 4 | Stable |
+| Android Gradle plugin 9.2.0 | Stable |
 | Android Studio Quail 1 | Canary |
 
 <br />
@@ -69,56 +68,6 @@ The following are features currently available in Studio Labs.
 | Feature | Description | Docs |
 |---|---|---|
 | Journeys for Android Studio | Use natural language to describe steps and assertions for end-to-end tests. | [Journeys for Android Studio](https://developer.android.com/studio/gemini/journeys) |
-
-## Android Studio Panda 4
-
-The following are new features in Android Studio Panda 4.
-
-To see what's been fixed in this version of Android Studio, see the [closed
-issues](https://developer.android.com/studio/releases/fixed-bugs/studio/2025.3.4).
-
-### Gemini API Starter template
-
-The Gemini API Starter template provides a straightforward path for Android
-developers to integrate AI features into their applications. By leveraging
-Firebase AI Logic, developers can avoid manual configuration and security
-management.
-![](https://developer.android.com/static/studio/preview/features/images/GeminiAPIStarter.png) Gemini API Starter new project template
-
-Key Features:
-
-- **No API Key Management**: Eliminates the need to manually provision, embed, or rotate API keys within your client-side code, reducing security risks and setup time.
-- **Automated Firebase Integration**: Seamlessly connects your Android Studio project to Firebase services. The template handles the backend plumbing required to communicate with Gemini models securely.
-- **Production-Ready Architecture**: Built on top of Firebase's managed infrastructure, ensuring that your AI features can scale from a local prototype to a production environment without architectural changes.
-
-To get started, go to **File** \> **New** \> **New Project** and select the
-**Gemini API Starter** template from the list of available project types.
-
-### Generate unit tests with Gemini
-
-Gemini in Android Studio can generate comprehensive, compilable unit tests for
-your Kotlin and Java code. Gemini analyzes your source code to identify
-constructor dependencies, business logic branches, and edge cases, and then
-automatically creates a complete test class. This includes the generation of
-`setUp` methods, mock initialization, and individual test cases tailored to your
-project's specific architecture and coding style.
-
-To get started, open a source file, right-click the code you want to test, and
-select **AI \> Generate Unit Tests** . For more details, see
-[Generate unit tests with Gemini](https://developer.android.com/studio/gemini/generate-unit-tests#prerequisites).
-Unit test generation demo
-
-### Google One integration for Gemini in Android Studio
-
-Android Studio Panda 4 Canary 2 introduces access to an enhanced Agent Mode
-experience when you subscribe to the [Google One AI Pro or Ultra
-plans](https://one.google.com/about/google-ai-plans/). The Google One
-integration supercharges your Android development with higher rate limits for
-the default Gemini model. If you are subscribed to a Google One AI Pro or Ultra
-plan, you can take advantage of these benefits automatically when you sign in to
-your Google Account in Android Studio. Using Gemini in Android Studio with a
-Google One AI Pro or Ultra plan doesn't affect your quota for other AI tools,
-such as Gemini CLI or Antigravity.
 
 ## Android Studio Quail 1
 
