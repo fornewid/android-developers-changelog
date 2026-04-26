@@ -1,0 +1,47 @@
+diff --git a/docs/topic/architecture/recommendations.md b/docs/topic/architecture/recommendations.md
+index 530c91db..daa92d03 100644
+--- a/docs/topic/architecture/recommendations.md
++++ b/docs/topic/architecture/recommendations.md
+@@ -68,9 +68,9 @@ data layer. Here are some best practices for ViewModels:
+ 
+ | Recommendation | Description |
+ |---|---|
+-| Keep ViewModels independent of the Android lifecycle. **Strongly recommended** | In ViewModels, don't hold a reference to any lifecycle-related type. Don't pass `Activity`, `Context` or `Resources` as a dependency. If something needs a `Context` in the ViewModel, carefully evaluate if that is in the right layer. |
++| Keep ViewModels independent of the Android lifecycle. **Strongly recommended** | In ViewModels, don't hold a reference to any lifecycle-related type. Don't pass `Activity`, `Context`, or `Resources` as a dependency. If something needs a `Context` in the ViewModel, carefully evaluate if that is in the right layer. |
+ | Use [coroutines and flows](https://developer.android.com/kotlin/coroutines?gclid=CjwKCAjwhNWZBhB_EiwAPzlhNtReVIBfrUFBUt6SqZz3YLezP9YEiGuBube4YSTrOF-0ovxzpNGNaRoCiYsQAvD_BwE&gclsrc=aw.ds). **Strongly recommended** | The ViewModel interacts with the data or domain layers using the following: - Kotlin flows for receiving application data - `suspend` functions for performing actions using [`viewModelScope`](https://developer.android.com/topic/libraries/architecture/coroutines#viewmodelscope) |
+-| Use ViewModels at screen level. **Strongly recommended** | Do not use ViewModels in reusable pieces of UI. You should use ViewModels in: - Screen-level composables, - Activities/Fragments in Views, - Destinations or graphs when using [Jetpack Navigation](https://developer.android.com/guide/navigation). |
++| Use ViewModels at screen level. **Strongly recommended** | Do not use ViewModels in reusable pieces of UI. You should use ViewModels in: - Screen-level composables - Destinations or graphs when using [Jetpack Navigation](https://developer.android.com/guide/navigation) For more complex composables, or those with dynamic behavior based on state, use `rememberViewModelStoreOwner()` to scope a ViewModel directly to the composable's call site. |
+ | Use [plain state holder classes](https://developer.android.com/topic/architecture/ui-layer/stateholders#ui-logic) in reusable UI components. **Strongly recommended** | Use [plain state holder classes](https://developer.android.com/topic/architecture/ui-layer/stateholders#ui-logic) for handling complexity in reusable UI components. When you do this, the state can be hoisted and controlled externally. |
+ | Do not use [`AndroidViewModel`](https://developer.android.com/reference/androidx/lifecycle/AndroidViewModel). **Recommended** | Use the [`ViewModel`](https://developer.android.com/reference/androidx/lifecycle/ViewModel) class, not [`AndroidViewModel`](https://developer.android.com/reference/androidx/lifecycle/AndroidViewModel). Don't use the `Application` class in the ViewModel. Instead, move the dependency to the UI or the data layer. |
+ | Expose a UI state. **Recommended** | Make your ViewModels expose data to the UI through a single property called `uiState`. If the UI shows multiple, unrelated pieces of data, the VM can [expose multiple UI state properties](https://developer.android.com/jetpack/guide/ui-layer#additional-considerations). - Make `uiState` a `StateFlow`. - Create the `uiState` using the [`stateIn`](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/state-in.html) operator with the [`WhileSubscribed(5000)`](https://medium.com/androiddevelopers/migrating-from-livedata-to-kotlins-flow-379292f419fb) policy if the data comes as a stream of data from other layers of the hierarchy. (See [this code example](https://github.com/android/compose-samples/blob/main/JetNews/app/src/main/java/com/example/jetnews/ui/interests/InterestsViewModel.kt#L56).) - For simpler cases with no streams of data coming from the data layer, it's acceptable to use a `MutableStateFlow` exposed as an immutable `StateFlow`. - You can choose to have the `${Screen}UiState` as a data class that can contain data, errors, and loading signals. This class can also be a sealed class if the different states are exclusive. |
+@@ -145,7 +145,7 @@ between components:
+ |---|---|
+ | Use [dependency injection](https://developer.android.com/training/dependency-injection). **Strongly recommended** | Use [dependency injection](https://developer.android.com/training/dependency-injection) best practices, mainly [constructor injection](https://developer.android.com/training/dependency-injection#what-is-di) when possible. |
+ | Scope to a component when necessary. **Strongly recommended** | Scope to a [dependency container](https://developer.android.com/training/dependency-injection/manual#dependencies-container) when the type contains mutable data that needs to be shared or the type is expensive to initialize and is widely used in the app. |
+-| Use [Hilt](https://developer.android.com/training/dependency-injection/hilt-android). **Recommended** | Use [Hilt](https://developer.android.com/training/dependency-injection/hilt-android) or [manual dependency injection](https://developer.android.com/training/dependency-injection/manual) in simple apps. Use [Hilt](https://developer.android.com/training/dependency-injection/hilt-android) if your project is complex enough-for example, if it includes any of the following: - Multiple screens with ViewModels - Uses WorkManager - Has ViewModels scoped to the navigation back stack |
++| Use [Hilt](https://developer.android.com/training/dependency-injection/hilt-android). **Recommended** | Use [Hilt](https://developer.android.com/training/dependency-injection/hilt-android) or [manual dependency injection](https://developer.android.com/training/dependency-injection/manual) in simple apps. Use [Hilt](https://developer.android.com/training/dependency-injection/hilt-android) if your project is complex enough---for example, if it includes any of the following: - Multiple screens with ViewModels - Uses WorkManager - Has ViewModels scoped to the navigation back stack |
+ 
+ ## Testing
+ 
+@@ -153,7 +153,7 @@ The following are some best practices for [testing](https://developer.android.co
+ 
+ | Recommendation | Description |
+ |---|---|
+-| [Know what to test](https://developer.android.com/training/testing/fundamentals/what-to-test). **Strongly recommended** | Unless the project is as simple as a "hello world" app, test it. At minimum, include the following: - Unit tests for ViewModels, including Flows - Unit tests for data layer entities-that is, repositories and data sources - UI navigation tests that are useful as regression tests in CI |
++| [Know what to test](https://developer.android.com/training/testing/fundamentals/what-to-test). **Strongly recommended** | Unless the project is as simple as a "hello world" app, test it. At minimum, include the following: - Unit tests for ViewModels, including Flows - Unit tests for data layer entities---that is, repositories and data sources - UI navigation tests that are useful as regression tests in CI |
+ | Prefer fakes to mocks. **Strongly recommended** | For more information on using fakes, see [Use test doubles in Android](https://developer.android.com/training/testing/fundamentals/test-doubles). |
+ | Test StateFlows. **Strongly recommended** | When testing `StateFlow`, do the following: - [Assert on the `value` property](https://developer.android.com/kotlin/flow/test#stateflows) whenever possible. - Use [`WhileSubscribed`](https://developer.android.com/kotlin/flow/test#statein). |
+ 
+@@ -173,9 +173,9 @@ When naming your codebase, you should be aware of the following best practices:
+ 
+ | Recommendation | Description |
+ |---|---|
+-| Naming methods. **Optional** | Use verb phrases to name methods-for example, `makePayment()`. |
+-| Naming properties. **Optional** | Use noun phrases to name properties-for example, `inProgressTopicSelection`. |
+-| Naming streams of data. **Optional** | When a class exposes a Flow stream or any other stream, the naming convention is `get{model}Stream`. For example, `getAuthorStream(): Flow<Author>`. If the function returns a list of models, use the plural model name: `getAuthorsStream(): Flow<List<Author>>`. |
++| Naming methods. **Optional** | Use verb phrases to name methods---for example, `makePayment()`. |
++| Naming properties. **Optional** | Use noun phrases to name properties---for example, `inProgressTopicSelection`. |
++| Naming streams of data. **Optional** | When a class exposes a Flow stream or any other stream, the naming convention is `get{model}Stream`---for example, `getAuthorStream(): Flow<Author>`. If the function returns a list of models, use the plural model name: `getAuthorsStream(): Flow<List<Author>>`. |
+ | Naming interfaces implementations. **Optional** | Use meaningful names for the implementations of interfaces. Use `Default` as the prefix if a better name cannot be found. For example, for a `NewsRepository` interface, you might have an `OfflineFirstNewsRepository`, or `InMemoryNewsRepository`. If you cannot find a good name, use `DefaultNewsRepository`. Prefix fake implementations with `Fake`, as in `FakeAuthorsRepository`. |
+ 
+ ## Additional resources

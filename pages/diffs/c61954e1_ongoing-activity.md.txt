@@ -1,0 +1,13 @@
+diff --git a/docs/training/wearables/notifications/ongoing-activity.md b/docs/training/wearables/notifications/ongoing-activity.md
+index 4a0fd065..25bcb52a 100644
+--- a/docs/training/wearables/notifications/ongoing-activity.md
++++ b/docs/training/wearables/notifications/ongoing-activity.md
+@@ -104,7 +104,7 @@ val notificationBuilder = NotificationCompat.Builder(this, CHANNEL_ID)
+     .setCategory(NotificationCompat.CATEGORY_WORKOUT)
+     .setContentIntent(pendingIntent)
+     .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
+-    .setOngoing(true) // Important!https://github.com/android/snippets/blob/e7a7941977ffc6645aa89155f2f94985055e5f46/wear/src/main/java/com/example/wear/snippets/alwayson/AlwaysOnService.kt#L148-L167
++    .setOngoing(true) // Important!https://github.com/android/snippets/blob/4fe2def8df52a175e66e770f90d72528db7d4c9a/wear/src/main/java/com/example/wear/snippets/alwayson/AlwaysOnService.kt#L148-L167
+ ```
+ 
+ <br />

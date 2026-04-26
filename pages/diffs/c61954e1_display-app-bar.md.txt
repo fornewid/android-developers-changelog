@@ -1,0 +1,49 @@
+diff --git a/docs/develop/ui/compose/quick-guides/content/display-app-bar.md b/docs/develop/ui/compose/quick-guides/content/display-app-bar.md
+index f35cb47f..f9499b2a 100644
+--- a/docs/develop/ui/compose/quick-guides/content/display-app-bar.md
++++ b/docs/develop/ui/compose/quick-guides/content/display-app-bar.md
+@@ -47,7 +47,7 @@ simplest possible top app bar and in this example just contains a title.
+ The following example does not pass `TopAppBar` a value for
+ `scrollBehavior`, so the top app bar does not react to scrolling of the inner
+ content.
+-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/display-app-bar_c33615f0bee94409206d0d32231e6a99efecfcc340db7ce0cbac7037281857ce.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
++<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/display-app-bar_5881683269563ffaa6f68abeba98c9d42bae7125708733d27d758cca4c033e21.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+ 
+ ### Center-aligned top app bar
+ 
+@@ -64,7 +64,7 @@ dedicated [`CenterAlignedTopAppBar`](https://developer.android.com/reference/kot
+ This example uses `enterAlwaysScrollBehavior()` to get the value that it passes
+ for `scrollBehavior`. The bar collapses when the user scrolls the
+ scaffold's inner content.
+-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/display-app-bar_1fdd8cbe88e26ab45023b8e5cb03545df8104c0a736df6ef410cc3efe36abba3.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
++<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/display-app-bar_34519a507bc2d40be90fd825b57832596f68c9447e29026bf5c6179284c59a95.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+ 
+ ### Medium top app bar
+ 
+@@ -83,7 +83,7 @@ one, use the [`MediumTopAppBar`](https://developer.android.com/reference/kotlin/
+ 
+ Like the previous code, this example uses `enterAlwaysScrollBehavior()` to
+ get the value that it passes for `scrollBehavior`.
+-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/display-app-bar_c2f42cc4acf23ffeecee547a01807457b6ead8e1d18fd3db6d414fc9f1669cbf.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
++<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/display-app-bar_8ff37c53d08caeefadd7aa76de72dce6df2157d086e107d3c90e3d267aa85733.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+ 
+ ### Large top app bar
+ 
+@@ -102,7 +102,7 @@ This example uses
+ `scrollBehavior`. The bar collapses when the user scrolls the
+ scaffold's inner content, but then expands when the user scrolls to the end of
+ the inner content.
+-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/display-app-bar_b63738fe40c2f53836d777293469c1271af294c85a22c9a506a5c578af8f8692.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
++<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/display-app-bar_d10d2e13ef65d0c1d73be60c6aa25a5cb359c3cc8b09f4af0934b0398124a959.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+ 
+ ## Implement a bottom app bar
+ 
+@@ -124,7 +124,7 @@ parameters:
+ > [!NOTE]
+ > **Note:** You can also use `BottomAppBar` without passing a value for `actions` and `floatingActionButton`. You create a custom bottom app bar by filling `BottomAppBar` with content as you would other containers.
+ 
+-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/display-app-bar_a25a65dc5bebc2aa2fb0024b3c2957d62c7659248c09d337e9b52d58f26fdadc.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
++<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/display-app-bar_3672ade241a2ccd7fa0a67da3fb0da880a913e59278057cd7e7dae2f9acb075b.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+ 
+ ## Key points
+ 
