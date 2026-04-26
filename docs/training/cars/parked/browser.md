@@ -65,7 +65,7 @@ method.
 
 ```kotlin
 val keyguardManager = context.getSystemService<KeyguardManager>()
-val isDeviceSecure = keyguardManager?.isDeviceSecure == truehttps://github.com/android/snippets/blob/e7a7941977ffc6645aa89155f2f94985055e5f46/cars/src/main/java/com/example/cars/parked/Browser.kt#L27-L28
+val isDeviceSecure = keyguardManager?.isDeviceSecure == truehttps://github.com/android/snippets/blob/908c46de548e0b8489cafce12f8520a7905358ed/cars/src/main/java/com/example/cars/parked/Browser.kt#L27-L28
 ```
 
 <br />

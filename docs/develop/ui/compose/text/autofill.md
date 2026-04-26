@@ -154,7 +154,7 @@ button:
 
 
    ```kotlin
-   val autofillManager = LocalAutofillManager.currenthttps://github.com/android/snippets/blob/14699840f1b3a7e50f0a020665e1cd96e31f6a47/compose/snippets/src/main/java/com/example/compose/snippets/text/AutofillSnippets.kt#L91-L91
+   val autofillManager = LocalAutofillManager.currenthttps://github.com/android/snippets/blob/908c46de548e0b8489cafce12f8520a7905358ed/compose/snippets/src/main/java/com/example/compose/snippets/text/AutofillSnippets.kt#L91-L91
    ```
 
    <br />
