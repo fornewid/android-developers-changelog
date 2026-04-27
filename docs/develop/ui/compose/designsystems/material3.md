@@ -104,7 +104,7 @@ val md_theme_dark_primary = Color(0xFFACD370)
 val md_theme_dark_onPrimary = Color(0xFF213600)
 val md_theme_dark_primaryContainer = Color(0xFF324F00)
 // ..
-// ..https://github.com/android/snippets/blob/b99814d50c0bd341a83912e2c52bcbb6c0dd5568/compose/snippets/src/main/java/com/example/compose/snippets/designsystems/Material3Snippets.kt#L96-L106
+// ..https://github.com/android/snippets/blob/4fe2def8df52a175e66e770f90d72528db7d4c9a/compose/snippets/src/main/java/com/example/compose/snippets/designsystems/Material3Snippets.kt#L96-L106
 ```
 
 <br />
@@ -283,7 +283,7 @@ val replyTypography = Typography(
     ),
     // ..
 )
-// ..https://github.com/android/snippets/blob/b99814d50c0bd341a83912e2c52bcbb6c0dd5568/compose/snippets/src/main/java/com/example/compose/snippets/designsystems/Material3Snippets.kt#L194-L209
+// ..https://github.com/android/snippets/blob/4fe2def8df52a175e66e770f90d72528db7d4c9a/compose/snippets/src/main/java/com/example/compose/snippets/designsystems/Material3Snippets.kt#L194-L209
 ```
 
 <br />
