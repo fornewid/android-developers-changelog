@@ -1,0 +1,13 @@
+diff --git a/docs/develop/ui/compose/components/datepickers.md b/docs/develop/ui/compose/components/datepickers.md
+index 9853c187..b48de1bd 100644
+--- a/docs/develop/ui/compose/components/datepickers.md
++++ b/docs/develop/ui/compose/components/datepickers.md
+@@ -359,7 +359,7 @@ snippets app](https://github.com/android/snippets/tree/main/compose/snippets/src
+             onDismiss = { showModal = false }
+         )
+     }
+-// ...https://github.com/android/snippets/blob/14699840f1b3a7e50f0a020665e1cd96e31f6a47/compose/snippets/src/main/java/com/example/compose/snippets/components/DatePickers.kt#L74-L163
++// ...https://github.com/android/snippets/blob/e7a7941977ffc6645aa89155f2f94985055e5f46/compose/snippets/src/main/java/com/example/compose/snippets/components/DatePickers.kt#L74-L163
+ ```
+ 
+ <br />
