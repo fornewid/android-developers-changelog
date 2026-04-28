@@ -1,0 +1,13 @@
+diff --git a/docs/training/wearables/wff/transform/content.md b/docs/training/wearables/wff/transform/content.md
+index 2233e8a4..be21c984 100644
+--- a/docs/training/wearables/wff/transform/content.md
++++ b/docs/training/wearables/wff/transform/content.md
+@@ -40,7 +40,7 @@ example:
+     <Default>
+         <!-- content -->
+     </Default>
+-</Condition>https://github.com/android/snippets/blob/b99814d50c0bd341a83912e2c52bcbb6c0dd5568/watchface/src/main/res/raw/watchface_dynamic_content.xml#L20-L55
++</Condition>https://github.com/android/snippets/blob/4fe2def8df52a175e66e770f90d72528db7d4c9a/watchface/src/main/res/raw/watchface_dynamic_content.xml#L20-L55
+ ```
+ 
+ <br />

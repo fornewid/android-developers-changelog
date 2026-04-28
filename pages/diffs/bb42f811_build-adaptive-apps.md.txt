@@ -1,0 +1,13 @@
+diff --git a/docs/develop/ui/compose/build-adaptive-apps.md b/docs/develop/ui/compose/build-adaptive-apps.md
+index 4f04812c..fef511a0 100644
+--- a/docs/develop/ui/compose/build-adaptive-apps.md
++++ b/docs/develop/ui/compose/build-adaptive-apps.md
+@@ -102,7 +102,7 @@ receives updates whenever the window size class changes:
+ 
+ 
+ ```kotlin
+-val windowSizeClass = currentWindowAdaptiveInfo().windowSizeClasshttps://github.com/android/snippets/blob/4fe2def8df52a175e66e770f90d72528db7d4c9a/compose/snippets/src/main/java/com/example/compose/snippets/layouts/AdaptiveLayoutSnippets.kt#L85-L85
++val windowSizeClass = currentWindowAdaptiveInfo().windowSizeClasshttps://github.com/android/snippets/blob/908c46de548e0b8489cafce12f8520a7905358ed/compose/snippets/src/main/java/com/example/compose/snippets/layouts/AdaptiveLayoutSnippets.kt#L85-L85
+ ```
+ 
+ <br />

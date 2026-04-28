@@ -1,0 +1,19 @@
+diff --git a/docs/develop/ui/compose/quick-guides/content/create-bottom-sheet.md b/docs/develop/ui/compose/quick-guides/content/create-bottom-sheet.md
+index ba0e7fad..3fed161a 100644
+--- a/docs/develop/ui/compose/quick-guides/content/create-bottom-sheet.md
++++ b/docs/develop/ui/compose/quick-guides/content/create-bottom-sheet.md
+@@ -28,12 +28,12 @@ higher.
+ 
+ To implement a [bottom sheet](https://m3.material.io/components/bottom-sheets/overview), use the [`ModalBottomSheet`](https://developer.android.com/reference/kotlin/androidx/compose/material3/ModalBottomSheet.composable)
+ composable:
+-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-bottom-sheet_ec8c0a8f8b620f98a1b296b864cd597322c55c71aba9287ebbeedf0570404868.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
++<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-bottom-sheet_9acdd68862625056bcffe79cede84ad036aeb68cd48f1f0148ebb76643c55298.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+ 
+ ## Expand and collapse the sheet
+ 
+ To expand and collapse the sheet, use [`SheetState`](https://developer.android.com/reference/kotlin/androidx/compose/material3/SheetState):
+-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-bottom-sheet_4118a43906037b9ebc4cacd54e8d85da82993090111104015474b37dfcbdc7aa.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
++<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-bottom-sheet_b166ba5c5d08cd6cb332527534040e2a8fd4d64750207f3d165fe093f3cf4606.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+ 
+ ### Key points
+ 

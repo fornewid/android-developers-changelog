@@ -1,0 +1,160 @@
+diff --git a/docs/topic/libraries/architecture/paging/v3-overview.md b/docs/topic/libraries/architecture/paging/v3-overview.md
+index f3df5824..d042d78a 100644
+--- a/docs/topic/libraries/architecture/paging/v3-overview.md
++++ b/docs/topic/libraries/architecture/paging/v3-overview.md
+@@ -20,76 +20,37 @@ The Paging library includes the following features:
+ 
+ - In-memory caching for your paged data. This helps ensure that your app uses system resources efficiently while working with paged data.
+ - Built-in request deduplication, which helps ensure that your app uses network bandwidth and system resources efficiently.
+-- Configurable [`RecyclerView`](https://developer.android.com/reference/kotlin/androidx/recyclerview/widget/RecyclerView) adapters that automatically request data as the user scrolls toward the end of the loaded data.
+-- First-class support for Kotlin coroutines and flows as well as [`LiveData`](https://developer.android.com/reference/kotlin/androidx/lifecycle/LiveData) and RxJava.
++- First-class support for Kotlin coroutines and flows.
+ - Built-in support for error handling, including refresh and retry capabilities.
+ 
+-## Provide feedback
+-
+-Your feedback helps make Jetpack better. Let us know if you discover new issues
+-or have ideas for improving this library. Check the
+-[existing issues](https://issuetracker.google.com/issues?q=componentid:413106+status:open)
+-for this library before you create a new one. You can add your vote to an
+-existing issue by clicking the star button.
+-
+-[Create a new issue](https://issuetracker.google.com/issues/new?component=413106&template=1096385)
+-
+-See the [Issue Tracker
+-documentation](https://developers.google.com/issue-tracker) for more
+-information about submitting feedback.
+-
+ ## Setup
+ 
+ To import Paging components into your Android app, add the following
+ dependencies to your app's `build.gradle` file:
+ 
+-### Groovy
++### Kotlin
+ 
+-```groovy
++```kotlin
+ dependencies {
+-  def paging_version = "3.4.1"
+-
+-  implementation "androidx.paging:paging-runtime:$paging_version"
+-
+-  // alternatively - without Android dependencies for tests
+-  testImplementation "androidx.paging:paging-common:$paging_version"
+-
+-  // optional - RxJava2 support
+-  implementation "androidx.paging:paging-rxjava2:$paging_version"
+-
+-  // optional - RxJava3 support
+-  implementation "androidx.paging:paging-rxjava3:$paging_version"
++  val paging_version = "3.4.2"
+ 
+-  // optional - Guava ListenableFuture support
+-  implementation "androidx.paging:paging-guava:$paging_version"
++  implementation("androidx.paging:paging-common:$paging_version")
+ 
+-  // optional - Jetpack Compose integration
+-  implementation "androidx.paging:paging-compose:3.5.0-alpha01"
++  // Jetpack Compose integration
++  implementation("androidx.paging:paging-compose:$paging_version")
+ }
+ ```
+ 
+-### Kotlin
++### Groovy
+ 
+-```kotlin
++```groovy
+ dependencies {
+-  val paging_version = "3.4.1"
+-
+-  implementation("androidx.paging:paging-runtime:$paging_version")
+-
+-  // alternatively - without Android dependencies for tests
+-  testImplementation("androidx.paging:paging-common:$paging_version")
++  def paging_version = "3.4.2"
+ 
+-  // optional - RxJava2 support
+-  implementation("androidx.paging:paging-rxjava2:$paging_version")
++  implementation "androidx.paging:paging-common:$paging_version"
+ 
+-  // optional - RxJava3 support
+-  implementation("androidx.paging:paging-rxjava3:$paging_version")
+-
+-  // optional - Guava ListenableFuture support
+-  implementation("androidx.paging:paging-guava:$paging_version")
+-
+-  // optional - Jetpack Compose integration
+-  implementation("androidx.paging:paging-compose:3.5.0-alpha01")
++  // Jetpack Compose integration
++  implementation "androidx.paging:paging-compose:$paging_version"
+ }
+ ```
+ 
+@@ -104,7 +65,7 @@ layers of your app:
+ 
+ ![An image showing paged data flows from the PagingSource or RemoteMediator components in the repository layer to the Pager component in the ViewModel layer.
+ Then the Pager component exposes a Flow of PagingData to the
+-PagingDataAdapter in the UI layer.](https://developer.android.com/static/topic/libraries/architecture/images/paging3-library-architecture.svg) **Figure 1.** An example of how the Paging library fits into your app architecture.
++lazy layout components in the UI layer.](https://developer.android.com/static/topic/libraries/architecture/images/paging3-library-architecture.svg) **Figure 1.** An example of how the Paging library fits into your app architecture.
+ 
+ This section describes the Paging library components that operate at each layer
+ and how they work together to load and display paged data.
+@@ -138,26 +99,41 @@ stores the result.
+ 
+ ### UI layer
+ 
+-The primary Paging library component in the UI layer is
+-[`PagingDataAdapter`](https://developer.android.com/reference/kotlin/androidx/paging/PagingDataAdapter), a
+-[`RecyclerView`](https://developer.android.com/reference/kotlin/androidx/recyclerview/widget/RecyclerView)
+-adapter that handles paginated data.
+-
+-Alternatively, you can use the included
+-[`AsyncPagingDataDiffer`](https://developer.android.com/reference/kotlin/androidx/paging/AsyncPagingDataDiffer)
+-component to build your own custom adapter.
++The primary Paging UI API is [`collectAsLazyPagingItems()`](https://developer.android.com/reference/kotlin/androidx/paging/compose/collectAsLazyPagingItems.composable). It exposes paged
++items as a list of data that can be easily consumed by Compose's lazy layout
++components, like `LazyColumn` and `LazyRow`.
+ 
+-> [!NOTE]
+-> **Note:** If your app uses [Compose](https://developer.android.com/jetpack/compose) for its UI, use the [`androidx.paging:paging-compose`](https://developer.android.com/reference/kotlin/androidx/paging/compose/package-summary) artifact to integrate Paging with your UI layer instead. To learn more, see the API documentation for [`collectAsLazyPagingItems()`](https://developer.android.com/reference/kotlin/androidx/paging/compose/package-summary#collectaslazypagingitems).
++Add the `androidx.paging:paging-compose` library to use Compose-compatible APIs
++that let the UI automatically react to data loads, updates, and errors without
++the need for adapters or diffing logic. Use the
++[`collectAsLazyPagingItems()`](https://developer.android.com/reference/kotlin/androidx/paging/compose/collectAsLazyPagingItems.composable) extension function on a `Flow<PagingData>`
++to pass in the returned [`LazyPagingItems`](https://developer.android.com/reference/kotlin/androidx/paging/compose/LazyPagingItems) to `items()` in a `LazyColumn`.
+ 
+-## Additional resources
+ 
+-To learn more about the Paging library, see the following additional resources:
++```kotlin
++@Composable
++fun MessageList(pager: Pager<Int, Message>) {
++    val lazyPagingItems = pager.flow.collectAsLazyPagingItems()
++
++    LazyColumn {
++        items(
++            lazyPagingItems.itemCount,
++            key = lazyPagingItems.itemKey { it.id }
++        ) { index ->
++            val message = lazyPagingItems[index]
++            if (message != null) {
++                MessageRow(message)
++            } else {
++                MessagePlaceholder()
++            }
++        }
++    }
++}
++```
+ 
+-### Codelabs
++<br />
+ 
+-- [Android Paging Basics codelab](https://developer.android.com/codelabs/android-paging-basics)
+-- [Android Paging Advanced codelab](https://codelabs.developers.google.com/codelabs/android-paging)
++For more information, see [Large data-sets (paging)](https://developer.android.com/develop/ui/compose/lists#large-datasets).
+ 
+ ## Recommended for you
+ 

@@ -1,0 +1,13 @@
+diff --git a/docs/develop/ui/compose/animation/value-based.md b/docs/develop/ui/compose/animation/value-based.md
+index 1ddc9a46..3831377c 100644
+--- a/docs/develop/ui/compose/animation/value-based.md
++++ b/docs/develop/ui/compose/animation/value-based.md
+@@ -145,7 +145,7 @@ enters composition.
+ var currentState = remember { MutableTransitionState(BoxState.Collapsed) }
+ currentState.targetState = BoxState.Expanded
+ val transition = rememberTransition(currentState, label = "box state")
+-// ......https://github.com/android/snippets/blob/908c46de548e0b8489cafce12f8520a7905358ed/compose/snippets/src/main/java/com/example/compose/snippets/animations/AnimationSnippets.kt#L467-L471
++// ......https://github.com/android/snippets/blob/14699840f1b3a7e50f0a020665e1cd96e31f6a47/compose/snippets/src/main/java/com/example/compose/snippets/animations/AnimationSnippets.kt#L467-L471
+ ```
+ 
+ <br />

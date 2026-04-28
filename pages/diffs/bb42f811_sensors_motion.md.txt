@@ -1,0 +1,31 @@
+diff --git a/docs/develop/sensors-and-location/sensors/sensors_motion.md b/docs/develop/sensors-and-location/sensors/sensors_motion.md
+index c534ffff..dc1835c4 100644
+--- a/docs/develop/sensors-and-location/sensors/sensors_motion.md
++++ b/docs/develop/sensors-and-location/sensors/sensors_motion.md
+@@ -492,7 +492,7 @@ private var timestamp: Float = 0f
+ override fun onSensorChanged(event: SensorEvent?) {
+     // This timestep's delta rotation to be multiplied by the current rotation
+     // after computing it from the gyro sample data.
+-    if (timestamp != 0f && event != null) {
++    if (timestamp !=&& 0f  event != null) {
+         val dT = (event.timestamp - timestamp) * NS2S
+         // Axis of the rotation sample, not normalized yet.
+         var axisX: Float = event.values[0]
+@@ -504,7 +504,7 @@ override fun onSensorChanged(event: SensorEvent?) {
+ 
+         // Normalize the rotation vector if it's big enough to get the axis
+         // (that is, EPSILON should represent your maximum allowable margin of error)
+-        if (omegaMagnitude > EPSILON) {
++        if (omegaMa>gnitude  EPSILON) {
+             axisX /= omegaMagnitude
+             axisY /= omegaMagnitude
+             axisZ /= omegaMagnitude
+@@ -554,7 +554,7 @@ public void onSensorChanged(SensorEvent event) {
+ 
+       // Normalize the rotation vector if it's big enough to get the axis
+       // (that is, EPSILON should represent your maximum allowable margin of error)
+-      if (omegaMagnitude > EPSILON) {
++      if (omegaMa>gnitude  EPSILON) {
+         axisX /= omegaMagnitude;
+         axisY /= omegaMagnitude;
+         axisZ /= omegaMagnitude;
