@@ -5,7 +5,7 @@ source: md.txt
 ---
 
 > [!NOTE]
-> **Note:** The `mediaQuery` function and the related data types are experimental and subject to change. File any issues on the [issue tracker](https://issuetracker.google.com/issues?q=componentid:1876021).
+> **Note:** The `mediaQuery` function and the related data types are experimental and subject to change. File any issues on the [issue tracker](https://issuetracker.google.com/issues/new?component=1070487&template=1667231).
 
 You need various types of information, such as device capability
 and app status, to update your app layout.

@@ -4,46 +4,41 @@ url: https://developer.android.com/topic/libraries/architecture/coroutines
 source: md.txt
 ---
 
-[Kotlin coroutines](https://developer.android.com/kotlin/coroutines) provide an API that enables you to write
-asynchronous code. With Kotlin coroutines, you can define a
-[`CoroutineScope`](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/-coroutine-scope/),
-which helps you to manage when your coroutines should run. Each asynchronous
-operation runs within a particular scope.
+[Kotlin coroutines](https://developer.android.com/kotlin/coroutines) provide an API that lets you write asynchronous
+code. With Kotlin coroutines, you can define a [`CoroutineScope`](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/-coroutine-scope/), which
+helps you to manage when your coroutines should run. Each asynchronous operation
+runs within a particular scope.
 
-[Lifecycle-aware components](https://developer.android.com/topic/libraries/architecture/lifecycle) provide
-first-class support for coroutines for logical scopes in your app along with an
-interoperability layer with [`LiveData`](https://developer.android.com/topic/libraries/architecture/livedata).
-This topic explains how to use coroutines effectively with lifecycle-aware
-components.
+[Lifecycle-aware components](https://developer.android.com/topic/libraries/architecture/lifecycle) provide first-class support for coroutines for
+logical scopes in your app. This document explains how to use coroutines
+effectively with lifecycle-aware components.
 
-## Add KTX dependencies
+## Add dependencies
 
 The built-in coroutine scopes described in this topic are contained in the
-[KTX extensions](https://developer.android.com/kotlin/ktx) for each corresponding component. Be sure to add
-the appropriate dependencies when using these scopes.
+Lifecycle API. Be sure to add the appropriate dependencies when using these
+scopes.
 
-- For [`ViewModelScope`](https://developer.android.com/topic/libraries/architecture/coroutines#viewmodelscope), use `androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0` or higher.
-- For [`LifecycleScope`](https://developer.android.com/topic/libraries/architecture/coroutines#lifecyclescope), use `androidx.lifecycle:lifecycle-runtime-ktx:2.4.0` or higher.
-- For [`liveData`](https://developer.android.com/topic/libraries/architecture/coroutines#livedata), use `androidx.lifecycle:lifecycle-livedata-ktx:2.4.0` or higher.
+- For ViewModel utilities in Compose, use `implementation("androidx.lifecycle:lifecycle-viewmodel-compose:$lifecycle_version")`.
+- For Lifecycle utilities in Compose, use `implementation("androidx.lifecycle:lifecycle-runtime-compose:$lifecycle_version")`.
 
 ## Lifecycle-aware coroutine scopes
 
-Lifecycle-aware components define the following built-in scopes that you can use
-in your app.
+Compose and the Lifecycle libraries provide the following built-in scopes that
+you can use in your app.
 
 ### ViewModelScope
 
-A `ViewModelScope` is defined for each
-[`ViewModel`](https://developer.android.com/topic/libraries/architecture/viewmodel) in your app. Any
-coroutine launched in this scope is automatically canceled if the `ViewModel`
-is cleared. Coroutines are useful here for when you have work that needs to be
-done only if the `ViewModel` is active. For example, if you are computing some
-data for a layout, you should scope the work to the `ViewModel` so that if the
+A `ViewModelScope` is defined for each [`ViewModel`](https://developer.android.com/topic/libraries/architecture/viewmodel) in your app. Any
+coroutine launched in this scope is automatically canceled if the `ViewModel` is
+cleared. Coroutines are useful here for when you have work that needs to be done
+only if the `ViewModel` is active. For example, if you are computing some data
+for a layout, you should scope the work to the `ViewModel` so that if the
 `ViewModel` is cleared, the work is canceled automatically to avoid consuming
 resources.
 
 You can access the `CoroutineScope` of a `ViewModel` through the
-`viewModelScope` property of the ViewModel, as shown in the following example:
+`viewModelScope` property of the `ViewModel`, as shown in the following example:
 
     class MyViewModel: ViewModel() {
         init {
@@ -53,288 +48,154 @@ You can access the `CoroutineScope` of a `ViewModel` through the
         }
     }
 
-### LifecycleScope
+For more advanced use cases, you can pass a custom `CoroutineScope` directly
+into the ViewModel's constructor to replace the default `viewModelScope`. This
+approach offers more control and flexibility, particularly for:
 
-A `LifecycleScope` is defined for each
-[`Lifecycle`](https://developer.android.com/topic/libraries/architecture/lifecycle) object. Any coroutine
-launched in this scope is canceled when the `Lifecycle` is destroyed. You can
-access the `CoroutineScope` of the `Lifecycle` either via
-`lifecycle.coroutineScope` or `lifecycleOwner.lifecycleScope` properties.
+- Testing: It lets you inject a `TestScope`, making it easier to control time
+  and verify coroutine behavior in unit tests.
 
-The example below demonstrates how to use `lifecycleOwner.lifecycleScope` to
-create precomputed text asynchronously:
+- Custom configuration: You can configure the scope with a specific
+  `CoroutineDispatcher` (like `Dispatchers.Default` for heavy computation) or
+  a custom `CoroutineExceptionHandler` before the ViewModel even starts its
+  work.
 
-    class MyFragment: Fragment() {
-        override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-            super.onViewCreated(view, savedInstanceState)
-            viewLifecycleOwner.lifecycleScope.launch {
-                val params = TextViewCompat.getTextMetricsParams(textView)
-                val precomputedText = withContext(Dispatchers.Default) {
-                    PrecomputedTextCompat.create(longTextContent, params)
-                }
-                TextViewCompat.setPrecomputedText(textView, precomputedText)
-            }
-        }
-    }
+### Composition-bound scopes
 
-## Restartable Lifecycle-aware coroutines
+Side effects such as animations, network calls, or timers must be scoped to the
+lifecycle of the composable. This way, when a composable leaves the screen
+(exits the composition), any running coroutines are automatically canceled to
+prevent memory leaks.
 
-Even though the `lifecycleScope` provides a proper way to cancel
-long-running operations automatically when the `Lifecycle` is `DESTROYED`,
-you might have other cases where you want to start the execution of a code
-block when the `Lifecycle` is in a certain state, and cancel when it is in
-another state. For example, you might want to collect a flow when the
-`Lifecycle` is `STARTED` and cancel the collection when it's `STOPPED`. This
-approach processes the flow emissions only when the UI is visible on the screen,
-saving resources and potentially avoiding app crashes.
+Compose provides the [`LaunchedEffect`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/package-summary#LaunchedEffect(kotlin.Any,kotlin.coroutines.SuspendFunction1)) API to handle Composition scoping
+declaratively.
 
-For these cases, `Lifecycle` and `LifecycleOwner` provide the suspend
-`repeatOnLifecycle` API that does exactly that. The following example contains a
-code block that runs every time the associated `Lifecycle` is at least in the
-`STARTED` state and cancels when the `Lifecycle` is `STOPPED`:
+`LaunchedEffect` creates a [`CoroutineScope`](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/-coroutine-scope/) that lets you run suspend
+functions. The scope is tied to the Composition lifecycle of the composable, not
+the Lifecycle of the host Activity.
 
-    class MyFragment : Fragment() {
-
-        val viewModel: MyViewModel by viewModel()
-
-        override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-            super.onViewCreated(view, savedInstanceState)
-
-            // Create a new coroutine in the lifecycleScope
-            viewLifecycleOwner.lifecycleScope.launch {
-                // repeatOnLifecycle launches the block in a new coroutine every time the
-                // lifecycle is in the STARTED state (or above) and cancels it when it's STOPPED.
-                viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
-                    // Trigger the flow and start listening for values.
-                    // This happens when lifecycle is STARTED and stops
-                    // collecting when the lifecycle is STOPPED
-                    viewModel.someDataFlow.collect {
-                        // Process item
-                    }
-                }
-            }
-        }
-    }
-
-### Lifecycle-aware flow collection
-
-If you only need to perform lifecycle-aware collection on a single flow, you can
-use the
-[`Flow.flowWithLifecycle()`](https://developer.android.com/reference/kotlin/androidx/lifecycle/package-summary#flowwithlifecycle)
-method to simplify your code:
-
-    viewLifecycleOwner.lifecycleScope.launch {
-        exampleProvider.exampleFlow()
-            .flowWithLifecycle(viewLifecycleOwner.lifecycle, Lifecycle.State.STARTED)
-            .collect {
-                // Process the value.
-            }
-    }
-
-However, if you need to perform lifecycle-aware collection on multiple flows in
-parallel, then you must collect each flow in different coroutines. In that case,
-it's more efficient to use `repeatOnLifecycle()` directly:
-
-    viewLifecycleOwner.lifecycleScope.launch {
-        viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
-            // Because collect is a suspend function, if you want to
-            // collect multiple flows in parallel, you need to do so in
-            // different coroutines.
-            launch {
-                flow1.collect { /* Process the value. */ }
-            }
-
-            launch {
-                flow2.collect { /* Process the value. */ }
-            }
-        }
-    }
-
-## Suspend Lifecycle-aware coroutines
-
-Even though the `CoroutineScope` provides a proper way to cancel
-long-running operations automatically, you might have other cases where you want
-to suspend execution of a code block unless the `Lifecycle` is in a certain
-state. For example, to run a `FragmentTransaction`, you must wait until the
-`Lifecycle` is at least `STARTED`. For these cases, `Lifecycle` provides
-additional methods: `lifecycle.whenCreated`, `lifecycle.whenStarted`, and
-`lifecycle.whenResumed`. Any coroutine run inside these blocks is suspended if
-the `Lifecycle` isn't at least in the minimal desired state.
-
-The example below contains a code block that runs only when the associated
-`Lifecycle` is at least in the `STARTED` state:
-
-    class MyFragment: Fragment {
-        init { // Notice that we can safely launch in the constructor of the Fragment.
-            lifecycleScope.launch {
-                whenStarted {
-                    // The block inside will run only when Lifecycle is at least STARTED.
-                    // It will start executing when fragment is started and
-                    // can call other suspend methods.
-                    loadingView.visibility = View.VISIBLE
-                    val canAccess = withContext(Dispatchers.IO) {
-                        checkUserAccess()
-                    }
-
-                    // When checkUserAccess returns, the next line is automatically
-                    // suspended if the Lifecycle is not *at least* STARTED.
-                    // We could safely run fragment transactions because we know the
-                    // code won't run unless the lifecycle is at least STARTED.
-                    loadingView.visibility = View.GONE
-                    if (canAccess == false) {
-                        findNavController().popBackStack()
-                    } else {
-                        showContent()
-                    }
-                }
-
-                // This line runs only after the whenStarted block above has completed.
-
-            }
-        }
-    }
-
-If the `Lifecycle` is destroyed while a coroutine is active via one of the
-`when` methods, the coroutine is automatically canceled. In the example below,
-the `finally` block runs once the `Lifecycle` state is `DESTROYED`:
-
-    class MyFragment: Fragment {
-        init {
-            lifecycleScope.launchWhenStarted {
-                try {
-                    // Call some suspend functions.
-                } finally {
-                    // This line might execute after Lifecycle is DESTROYED.
-                    if (lifecycle.state >= STARTED) {
-                        // Here, since we've checked, it is safe to run any
-                        // Fragment transactions.
-                    }
-                }
-            }
-        }
-    }
+- Enter: The coroutine starts when the composable enters the composition.
+- Exit: The coroutine is canceled when the composable leaves the composition.
+- Relaunch: If any key passed to `LaunchedEffect` changes, the existing coroutine is canceled and a new one is launched.
 
 > [!NOTE]
-> **Note:** Even though these methods provide convenience when working with `Lifecycle`, you should use them only when the information is valid within the scope of the `Lifecycle` (precomputed text, for example). Keep in mind that if the activity restarts, the coroutine is not restarted.
+> **Note:** Because `LaunchedEffect` is tied to the Composition, it can run even if the composable is not currently visible to the user. For example, a `HorizontalPager` often composes neighboring pages off-screen to prepare for a swipe. If your side effect relies on the user actually viewing the screen (like an analytics event), use standard Lifecycle-aware APIs (like `LifecycleEventEffect`) instead of `LaunchedEffect`.
 
-> [!WARNING]
-> **Warning:** Prefer collecting flows using the `repeatOnLifecycle` API instead of collecting inside the `launchWhenX` APIs. As the latter APIs suspend the coroutine instead of cancelling it when the `Lifecycle` is `STOPPED`, upstream flows are kept active in the background, potentially emitting new items and wasting resources.
+The following example demonstrates how to use `LaunchedEffect` to create a
+pulsing animation. The coroutine is tied to the composable's presence in the
+composition and reacts to configuration changes:
 
-## Use coroutines with LiveData
 
-When using [`LiveData`](https://developer.android.com/topic/libraries/architecture/livedata), you might need
-to calculate values asynchronously. For example, you might want to retrieve a
-user's preferences and serve them to your UI. In
-these cases, you can use the `liveData` builder function to call a `suspend`
-function, serving the result as a `LiveData` object.
+```kotlin
+// Allow the pulse rate to be configured, so it can be sped up if the user is running
+// out of time
+var pulseRateMs by remember { mutableLongStateOf(3000L) }
+val alpha = remember { Animatable(1f) }
+LaunchedEffect(pulseRateMs) { // Restart the effect when the pulse rate changes
+    while (isActive) {
+        delay(pulseRateMs) // Pulse the alpha every pulseRateMs to alert the user
+        alpha.animateTo(0f)
+        alpha.animateTo(1f)
+    }
+}
+```
 
-In the example below, `loadUser()` is a suspend function declared elsewhere. Use
-the `liveData` builder function to call `loadUser()` asynchronously, and then
-use `emit()` to emit the result:
+<br />
 
-    val user: LiveData<User> = liveData {
-        val data = database.loadUser() // loadUser is a suspend function.
-        emit(data)
+For more information on `LaunchedEffect`, see [Side-effects in Compose](https://developer.android.com/develop/ui/compose/side-effects#launchedeffect).
+
+## Lifecycle-aware flow collection
+
+To safely collect flows in Jetpack Compose, use the
+[`collectAsStateWithLifecycle`](https://developer.android.com/reference/kotlin/androidx/lifecycle/compose/package-summary#extension-functions) API. This single function converts a `Flow`
+into a Compose `State` object and automatically manages the lifecycle
+subscription for you. By default, collection begins when the lifecycle is
+`STARTED` and stops when the lifecycle is `STOPPED`. To override this default
+behavior, pass in the `minActiveState` parameter with the lifecycle method you
+want, like `Lifecycle.State.RESUMED`.
+
+The following example demonstrates how to collect a ViewModel's `StateFlow` in a
+composable:
+
+
+```kotlin
+@Composable
+private fun ConversationScreen(
+    conversationViewModel: ConversationViewModel = viewModel()
+) {
+
+    val messages by conversationViewModel.messages.collectAsStateWithLifecycle()
+
+    ConversationScreen(
+        messages = messages,
+        onSendMessage = { message: Message -> conversationViewModel.sendMessage(message) }
+    )
+}
+
+@Composable
+private fun ConversationScreen(
+    messages: List<Message>,
+    onSendMessage: (Message) -> Unit
+) {
+
+    MessagesList(messages, onSendMessage)
+    /* ... */
+}
+```
+
+<br />
+
+### Parallel collection of multiple flows
+
+In Compose, you can collect multiple flows in parallel by declaring multiple
+state variables. Because `collectAsStateWithLifecycle` manages its own
+underlying scope, parallel collection is handled automatically:
+
+    @Composable
+    fun DashboardScreen(viewModel: DashboardViewModel = viewModel()) {
+        // Both flows are collected safely in parallel and will emit updates when either changes, the composables will recompose
+        val userData by viewModel.userFlow.collectAsStateWithLifecycle()
+        val feedData by viewModel.feedFlow.collectAsStateWithLifecycle()
+
+        // ...
     }
 
-The `liveData` building block serves as a
-[structured concurrency primitive](https://medium.com/@elizarov/structured-concurrency-722d765aa952)
-between coroutines and `LiveData`. The code block starts executing when
-`LiveData` becomes active and is automatically canceled after a configurable
-timeout when the `LiveData` becomes inactive. If it is canceled before
-completion, it is restarted if the `LiveData` becomes active again. If it
-completed successfully in a previous run, it doesn't restart. Note that it is
-restarted only if canceled automatically. If the block is canceled for any other
-reason (e.g. throwing a `CancellationException`), it is **not** restarted.
+## Calculate values asynchronously using Flows
 
-You can also emit multiple values from the block. Each `emit()` call suspends
-the execution of the block until the `LiveData` value is set on the main thread.
+When you need to calculate values asynchronously, use `StateFlow` with the
+`stateIn` operator.
 
-    val user: LiveData<Result> = liveData {
-        emit(Result.loading())
-        try {
-            emit(Result.success(fetchUser()))
-        } catch(ioException: Exception) {
-            emit(Result.error(ioException))
-        }
+The following snippet uses a standard `Flow` converted to a `StateFlow`. The
+[`WhileSubscribed(5000)`](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/-while-subscribed.html) parameter keeps the subscription active for five
+seconds after the UI disappears to handle configuration changes.
+
+    val uiState: StateFlow<Result> = flow {
+        emit(repository.fetchData())
     }
+    .stateIn(
+        scope = viewModelScope,
+        started = SharingStarted.WhileSubscribed(5_000),
+        initialValue = Result.Loading
+    )
 
-You can also combine `liveData` with
-[`Transformations`](https://developer.android.com/reference/androidx/lifecycle/Transformations), as shown in
-the following example:
+Use `collectAsStateWithLifecycle` to convert the collected values into Compose
+[`State`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/State), so that your UI can reactively update whenever the data changes.
 
-    class MyViewModel: ViewModel() {
-        private val userId: LiveData<String> = MutableLiveData()
-        val user = userId.switchMap { id ->
-            liveData(context = viewModelScope.coroutineContext + Dispatchers.IO) {
-                emit(database.loadUserById(id))
-            }
-        }
-    }
+> [!NOTE]
+> **Note:** For one-off asynchronous UI tasks that don't need to survive configuration changes (like decoding a bitmap or loading a localized string), you can use the [`produceState`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/package-summary#produceState(kotlin.Any,kotlin.coroutines.SuspendFunction1)) API directly in your composable. However, for loading screen data, `StateFlow` and `ViewModel` are recommended.
 
-You can emit multiple values from a `LiveData` by calling the `emitSource()`
-function whenever you want to emit a new value. Note that each call to `emit()`
-or `emitSource()` removes the previously-added source.
-
-    class UserDao: Dao {
-        @Query("SELECT * FROM User WHERE id = :id")
-        fun getUser(id: String): LiveData<User>
-    }
-
-    class MyRepository {
-        fun getUser(id: String) = liveData<User> {
-            val disposable = emitSource(
-                userDao.getUser(id).map {
-                    Result.loading(it)
-                }
-            )
-            try {
-                val user = webservice.fetchUser(id)
-                // Stop the previous emission to avoid dispatching the updated user
-                // as `loading`.
-                disposable.dispose()
-                // Update the database.
-                userDao.insert(user)
-                // Re-establish the emission with success type.
-                emitSource(
-                    userDao.getUser(id).map {
-                        Result.success(it)
-                    }
-                )
-            } catch(exception: IOException) {
-                // Any call to `emit` disposes the previous one automatically so we don't
-                // need to dispose it here as we didn't get an updated value.
-                emitSource(
-                    userDao.getUser(id).map {
-                        Result.error(exception, it)
-                    }
-                )
-            }
-        }
-    }
-
-For more coroutines-related information, see the following links:
-
-- [Improve app performance with Kotlin coroutines](https://developer.android.com/kotlin/coroutines)
-- [Coroutines overview](https://kotlinlang.org/docs/reference/coroutines-overview.html)
-- [Threading in CoroutineWorker](https://developer.android.com/topic/libraries/architecture/workmanager/advanced/coroutineworker)
+For more information about state, see [State and Jetpack Compose](https://developer.android.com/develop/ui/compose/state).
 
 ## Additional resources
 
-To learn more about using coroutines with lifecycle-aware components, consult
-the following additional resources.
+### Views content
 
-### Samples
+- [Use Kotlin coroutines with lifecycle-aware components (Views)](https://developer.android.com/topic/libraries/architecture/views/coroutines-views)
 
-### Blogs
-
-- [Coroutines on Android: Application patterns](https://medium.com/androiddevelopers/coroutines-on-android-part-iii-real-work-2ba8a2ec2f45)
-- [Easy coroutines in Android: viewModelScope](https://medium.com/androiddevelopers/easy-coroutines-in-android-viewmodelscope-25bffb605471)
-- [Testing two consecutive LiveData emissions in coroutines](https://medium.com/androiddevelopers/testing-two-consecutive-livedata-emissions-in-coroutines-5680b693cbf8)
+## Samples
 
 ## Recommended for you
 
 - Note: link text is displayed when JavaScript is off
-- [LiveData overview](https://developer.android.com/topic/libraries/architecture/livedata)
 - [Handling Lifecycles with Lifecycle-Aware Components](https://developer.android.com/topic/libraries/architecture/lifecycle)
 - [Load and display paged data](https://developer.android.com/topic/libraries/architecture/paging/v3-paged-data)

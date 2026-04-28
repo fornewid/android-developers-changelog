@@ -103,6 +103,13 @@ associated with the creation request. There are two key components:
         processCreationRequest(request.requestJson)
     }
 
+### Key attestation
+
+Note the following about key attestation:
+
+- When generating a key attestation, you might be using `BigInteger.toByteArray()` to convert the key materials to, for example, a JSON web key. This method can sometimes add a sign byte and cause a validation error. If this happens, remove these bytes before sending the key attestation to the issuer.
+- We recommend [using the `android_key_attestation`](https://developer.android.com/identity/digital-credentials/credential-issuer/keystore-attestation) as the key proof type.
+
 ### Return the creation response
 
 Once the wallet finishes the steps needed to save the credential, finish the
