@@ -4,9 +4,15 @@ url: https://developer.android.com/health-and-fitness/health-connect/ui/onboard-
 source: md.txt
 ---
 
-Many apps have a custom onboarding flow such as feature education or asking user
-consent. To enable Health Connect to launch your onboarding flow, add the
-following to your manifest:  
+Many apps have a custom onboarding flow for workflows such as educating the user
+about app features or asking for user consent. To create a seamless connection
+flow, your app can also use the [Matchmaking API](https://developer.android.com/health-and-fitness/health-connect/ui/matchmaking) to prompt users
+to connect other apps that can write data your app is configured to read.
+
+To include a custom onboarding flow, configure Health Connect to launch it
+automatically after permissions are granted. However, be aware that the
+Matchmaking API does not support this trigger. To do this, add the
+following to your manifest:
 
     <!-- Required to support pre-Android 14 devices with APK Health Connect -->
     <activity
@@ -29,9 +35,7 @@ following to your manifest:
     </activity-alias>
 
 Users may initiate the connection to your app directly from the Health
-Connect app, rather than from within your app. If your app requires any
-additional interaction beyond being granted permission to read or write data,
-provide an onboarding activity.
+Connect app, rather than from within your app.
 
 ## Version support
 
@@ -61,5 +65,5 @@ brings the user to the **Manage permissions** screen once the user attempts to
 connect the app. This may be acceptable for apps where permissions being
 granted is the only prerequisite for the integration to function.
 
-Note that the onboarding activity may be launched more than once, for example if
-the user later revokes permissions to your app and then reconnects it.
+Note that the onboarding activity may be launched more than once, for example
+if the user later revokes permissions to your app and then reconnects it.

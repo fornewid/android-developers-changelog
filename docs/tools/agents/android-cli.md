@@ -45,6 +45,7 @@ To help agents understand and use Android CLI, run `init` to install the
 ## Known issues
 
 - The `android emulator` command for Windows is currently disabled.
+- Downloading Android CLI from Windows PowerShell isn't currently supported.
 
 If you encounter any issues or wish to provide feedback, please
 [report a bug](https://issuetracker.google.com/issues/new?component=2091212).

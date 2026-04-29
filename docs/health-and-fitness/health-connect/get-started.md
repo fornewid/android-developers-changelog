@@ -54,11 +54,20 @@ Add the Health Connect SDK dependency in your module-level `build.gradle` file:
 
     dependencies {
       ...
-      implementation "androidx.health.connect:connect-client:1.2.0-alpha02"
+      implementation "androidx.health.connect:connect-client:1.2.0-alpha04"
       ...
     }
 
 Refer to the [Health Connect releases](https://developer.android.com/jetpack/androidx/releases/health-connect) for the latest version.
+
+### Use Canary release channel features
+
+To use features in the **Canary** release channel, modify the version of the
+`compileSdk` in your module-level `build.gradle` file:
+
+    android {
+      compileSdkPreview = "CANARY"
+    }
 
 > [!NOTE]
 > **Note:** The Health Connect SDK supports Android 8 (API level 26) or higher, while the Health Connect app is only compatible with Android 9 (API level 28) or higher. This means that third-party apps can support users with Android 8, but only users with Android 9 or higher can use Health Connect.
@@ -289,6 +298,11 @@ the user later revokes permissions to your app and then reconnects it.
 ## Step 5: Perform operations
 
 Now that everything is set, perform read and write operations in your app.
+
+Your users might use other apps that sync data with Health Connect for your app
+to access. If the user has not set up these apps to write to Health Connect
+yet, you can use the [Matchmaking API](https://developer.android.com/health-and-fitness/health-connect/ui/matchmaking) to seamlessly connect
+these apps for your users.
 
 ### Write data
 

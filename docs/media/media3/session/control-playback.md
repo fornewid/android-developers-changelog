@@ -323,7 +323,9 @@ private class CustomMediaSessionCallback : MediaSession.Callback {
         .add(SessionCommand(SAVE_TO_FAVORITES, Bundle.EMPTY))
         .build()
     return Futures.immediateFuture(
-      AcceptedResultBuilder(session).setAvailableSessionCommands(sessionCommands).build()
+      AcceptedResultBuilder(session, controller)
+        .setAvailableSessionCommands(sessionCommands)
+        .build()
     )
   }
 }
@@ -344,7 +346,9 @@ private static class CustomMediaSessionCallback implements MediaSession.Callback
             .add(new SessionCommand(SAVE_TO_FAVORITES, new Bundle()))
             .build();
     return Futures.immediateFuture(
-        new AcceptedResultBuilder(session).setAvailableSessionCommands(sessionCommands).build());
+        new AcceptedResultBuilder(session, controller)
+            .setAvailableSessionCommands(sessionCommands)
+            .build());
   }
 }
 ```

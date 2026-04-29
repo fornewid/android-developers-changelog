@@ -23,7 +23,7 @@ To use the Kotlin DSL with Fragments, add the following dependency to your app's
 
 ```groovy
 dependencies {
-    def nav_version = "2.9.7"
+    def nav_version = "2.9.8"
 
     api "androidx.navigation:navigation-fragment-ktx:$nav_version"
 }
@@ -33,7 +33,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    val nav_version = "2.9.7"
+    val nav_version = "2.9.8"
 
     api("androidx.navigation:navigation-fragment-ktx:$nav_version")
 }

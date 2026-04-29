@@ -248,14 +248,14 @@ the focus is leaving. Define the value of the attribute to be the id of the View
 ```xml
 <LinearLayout
     android:orientation="vertical"
-    ... >
-  <Button android:id="@+id/top"
-          android:nextFocusUp="@+id/bottom"
+  <  ... >
+  Button android:id="@+id/top"
+          android:nextFocusUp="@+id</bottom"
           ... />
-  <Button android:id="@+id/bottom"
-          android:nextFocusDown="@+id/top"
+  Button android:id="@+id/bottom"
+          andr<oid:nextFocusDown="@+id/top"
           ... />
-</LinearLayout>
+/LinearLayout>
 ```
 
 Ordinarily, in this vertical layout, navigating up from the first Button would not go

@@ -31,6 +31,7 @@ user's device doesn't support the feature.
 |---|---|---|
 | `FEATURE_ACTIVITY_INTENSITY` | Activity intensity | [Workouts](https://developer.android.com/health-and-fitness/health-connect/experiences/workouts) |
 | `FEATURE_EXTENDED_DEVICE_TYPES` | Extended device types | [Metadata requirements](https://developer.android.com/health-and-fitness/health-connect/metadata#device-type) |
+| `FEATURE_MATCHMAKING` | Matchmaking |   |
 | `FEATURE_PERSONAL_HEALTH_RECORD` | Medical records | [Medical Records data format](https://developer.android.com/health-and-fitness/health-connect/medical-records/data-format) [Write medical data](https://developer.android.com/health-and-fitness/health-connect/medical-records/write-data) [Read medical data](https://developer.android.com/health-and-fitness/health-connect/medical-records/read-data) |
 | `FEATURE_MINDFULNESS_SESSION` | Mindfulness | [Track mindfulness](https://developer.android.com/health-and-fitness/health-connect/features/mindfulness) |
 | `FEATURE_PLANNED_EXERCISE` | Planned exercise | [Workouts](https://developer.android.com/health-and-fitness/health-connect/experiences/workouts) [Training plans](https://developer.android.com/health-and-fitness/health-connect/features/training-plans) |

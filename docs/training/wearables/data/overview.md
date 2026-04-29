@@ -84,7 +84,7 @@ Include the following dependency in the build.gradle file of your Wear module:
 
     dependencies {
         ...
-        implementation("com.google.android.gms:play-services-wearable:19.0.0")
+        implementation("com.google.android.gms:play-services-wearable:20.0.1")
     }
 
 ### Facilitate the initial pairing process

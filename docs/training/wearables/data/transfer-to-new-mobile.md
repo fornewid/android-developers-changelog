@@ -74,7 +74,7 @@ steps:
    ```groovy
    dependencies {
        ...
-       implementation 'com.google.android.gms:play-services-wearable:19.0.0'
+       implementation 'com.google.android.gms:play-services-wearable:20.0.1'
    }
    ```
 2. Declare and export the `WearableListenerService` in your app's
