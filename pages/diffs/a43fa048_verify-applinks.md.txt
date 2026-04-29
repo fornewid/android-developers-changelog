@@ -1,0 +1,153 @@
+diff --git a/docs/training/app-links/verify-applinks.md b/docs/training/app-links/verify-applinks.md
+index 6ebb41b0..cff43192 100644
+--- a/docs/training/app-links/verify-applinks.md
++++ b/docs/training/app-links/verify-applinks.md
+@@ -19,7 +19,7 @@ The system's auto-verification involves the following:
+    - Action: `android.intent.action.VIEW`
+    - Categories: `android.intent.category.BROWSABLE` and `android.intent.category.DEFAULT`
+    - Data scheme: `http` or `https`
+-2. For each unique host name found in the above intent filters, Android queries the corresponding websites for the Digital Asset Links file at `https:///.well-known/assetlinks.json`.
++2. For each unique hostname found in the intent filters, Android queries the corresponding websites for the Digital Asset Links file at https://<var translate="no">hostname</var>/.well-known/assetlinks.json.
+ 
+ > [!NOTE]
+ > **Note:** On Android 11 (API level 30) and lower, the system establishes your app as the default handler for the specified URL patterns only if it finds a matching Digital Asset Links file for *all* hosts in the manifest.
+@@ -116,8 +116,8 @@ return for a given domain:
+ 
+ `none`
+ :   Nothing has been recorded for this domain. Wait a few more minutes for the
+-    verification agent to finish the requests related to domain verification, then
+-    [invoke the domain verification process](https://developer.android.com/training/app-links/verify-applinks#invoke-domain-verification) again.
++    verification agent to finish the requests related to domain verification, and
++    then [invoke the domain verification process](https://developer.android.com/training/app-links/verify-applinks#invoke-domain-verification) again.
+ 
+ `verified`
+ :   The domain is successfully verified for the declaring app.
+@@ -175,53 +175,49 @@ The following code snippet demonstrates how to use the
+ 
+ ### Kotlin
+ 
+-```kotlin
+-val context: Context = TODO("Your activity or fragment's Context")
+-val manager = context.getSystemService(DomainVerificationManager::class.java)
+-val userState = manager.getDomainVerificationUserState(context.packageName)
++    val context: Context = TODO("Your activity or fragment's Context")
++    val manager = context.getSystemService(DomainVerificationManager::class.java)
++    val userState = manager.getDomainVerificationUserState(context.packageName)
+ 
+-// Domains that have passed Android App Links verification.
+-val verifiedDomains = userState?.hostToStateMap
+-    ?.filterValues { it == DomainVerificationUserState.DOMAIN_STATE_VERIFIED }
++    // Domains that have passed Android App Links verification.
++    val verifiedDomains = userState?.hostToStateMap
++        ?.filterValues { it == DomainVerificationUserState.DOMAIN_STATE_VERIFIED }
+ 
+-// Domains that haven't passed Android App Links verification but that the user
+-// has associated with an app.
+-val selectedDomains = userState?.hostToStateMap
+-    ?.filterValues { it == DomainVerificationUserState.DOMAIN_STATE_SELECTED }
++    // Domains that haven't passed Android App Links verification but that the
++    // user has associated with an app.
++    val selectedDomains = userState?.hostToStateMap
++        ?.filterValues { it == DomainVerificationUserState.DOMAIN_STATE_SELECTED }
+ 
+-// All other domains.
+-val unapprovedDomains = userState?.hostToStateMap
+-    ?.filterValues { it == DomainVerificationUserState.DOMAIN_STATE_NONE }
+-```
++    // All other domains.
++    val unapprovedDomains = userState?.hostToStateMap
++        ?.filterValues { it == DomainVerificationUserState.DOMAIN_STATE_NONE }
+ 
+ ### Java
+ 
+-```java
+-Context context = TODO("Your activity or fragment's Context");
+-DomainVerificationManager manager =
+-        context.getSystemService(DomainVerificationManager.class);
+-DomainVerificationUserState userState =
+-        manager.getDomainVerificationUserState(context.getPackageName());
+-
+-Map<String, Integer> hostToStateMap = userState.getHostToStateMap();
+-List<String> verifiedDomains = new ArrayList<>();
+-List<String> selectedDomains = new ArrayList<>();
+-List<String> unapprovedDomains = new ArrayList<>();
+-for (String key : hostToStateMap.keySet()) {
+-    Integer stateValue = hostToStateMap.get(key);
+-    if (stateValue == DomainVerificationUserState.DOMAIN_STATE_VERIFIED) {
+-        // Domain has passed Android App Links verification.
+-        verifiedDomains.add(key);
+-    } else if (stateValue == DomainVerificationUserState.DOMAIN_STATE_SELECTED) {
+-        // Domain hasn't passed Android App Links verification, but the user has
+-        // associated it with an app.
+-        selectedDomains.add(key);
+-    } else {
+-        // All other domains.
+-        unapprovedDomains.add(key);
++    Context context = TODO("Your activity or fragment's Context");
++    DomainVerificationManager manager =
++            context.getSystemService(DomainVerificationManager.class);
++    DomainVerificationUserState userState =
++            manager.getDomainVerificationUserState(context.getPackageName());
++
++    Map<String, Integer> hostToStateMap = userState.getHostToStateMap();
++    List<String> verifiedDomains = new ArrayList<>();
++    List<String> selectedDomains = new ArrayList<>();
++    List<String> unapprovedDomains = new ArrayList<>();
++    for (String key : hostToStateMap.keySet()) {
++        Integer stateValue = hostToStateMap.get(key);
++        if (stateValue == DomainVerificationUserState.DOMAIN_STATE_VERIFIED) {
++            // Domain has passed Android App Links verification.
++            verifiedDomains.add(key);
++        } else if (stateValue == DomainVerificationUserState.DOMAIN_STATE_SELECTED) {
++            // Domain hasn't passed Android App Links verification, but the user
++            // has associated it with an app.
++            selectedDomains.add(key);
++        } else {
++            // All other domains.
++            unapprovedDomains.add(key);
++        }
+     }
+-}
+-```
+ 
+ #### Command-line program
+ 
+@@ -260,7 +256,7 @@ commands is available from the output of `adb shell pm`.
+ 
+ > [!NOTE]
+ > **Note:** The system can only associate one app at a time with a domain, even when you use shell commands. Some special cases, such as [installing two app variants
+-> simultaneously](https://developer.android.com/training/app-links/verify-applinks#multi-app-same-domain), require special handling to open a given web link in the intended app.
++> simultaneously](https://developer.android.com/training/app-links/add-applinks#check-multiple), require special handling to open a given web link in the intended app.
+ 
+ ### Provide context for the request
+ 
+@@ -280,21 +276,17 @@ the following code snippet:
+ 
+ ### Kotlin
+ 
+-```kotlin
+-val context: Context = TODO("Your activity or fragment's Context")
+-val intent = Intent(Settings.ACTION_APP_OPEN_BY_DEFAULT_SETTINGS,
+-    Uri.parse("package:${context.packageName}"))
+-context.startActivity(intent)
+-```
++    val context: Context = TODO("Your activity or fragment's Context")
++    val intent = Intent(Settings.ACTION_APP_OPEN_BY_DEFAULT_SETTINGS,
++        Uri.parse("package:${context.packageName}"))
++    context.startActivity(intent)
+ 
+ ### Java
+ 
+-```java
+-Context context = TODO("Your activity or fragment's Context");
+-Intent intent = new Intent(Settings.ACTION_APP_OPEN_BY_DEFAULT_SETTINGS,
+-    Uri.parse("package:" + context.getPackageName()));
+-context.startActivity(intent);
+-```
++    Context context = TODO("Your activity or fragment's Context");
++    Intent intent = new Intent(Settings.ACTION_APP_OPEN_BY_DEFAULT_SETTINGS,
++        Uri.parse("package:" + context.getPackageName()));
++    context.startActivity(intent);
+ 
+ When the intent is invoked, users see a settings screen called **Open by
+ default** . This screen contains a radio button called **Open supported links**,

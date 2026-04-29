@@ -1,0 +1,13 @@
+diff --git a/docs/training/wearables/data/overview.md b/docs/training/wearables/data/overview.md
+index 7158bda6..52369b83 100644
+--- a/docs/training/wearables/data/overview.md
++++ b/docs/training/wearables/data/overview.md
+@@ -84,7 +84,7 @@ Include the following dependency in the build.gradle file of your Wear module:
+ 
+     dependencies {
+         ...
+-        implementation("com.google.android.gms:play-services-wearable:19.0.0")
++        implementation("com.google.android.gms:play-services-wearable:20.0.1")
+     }
+ 
+ ### Facilitate the initial pairing process

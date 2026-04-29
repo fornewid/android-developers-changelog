@@ -1,0 +1,40 @@
+diff --git a/docs/blog/latest/5.md b/docs/blog/latest/5.md
+index 2a5267e3..99192fa6 100644
+--- a/docs/blog/latest/5.md
++++ b/docs/blog/latest/5.md
+@@ -73,6 +73,17 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
+   ###### [Brenda Shaw](https://developer.android.com/blog/authors/brenda-shaw) •
+   2 min read
+ 
++- [![](https://developer.android.com/static/blog/assets/Stevan_Silva_7661118077_V4WGm.webp)](https://developer.android.com/blog/authors/stevan-silva) 30 Oct 2025 30 Oct 2025 ![](https://developer.android.com/static/blog/assets/how_Calm_edf30223a8_kG1yA.webp)
++
++  #### [Case Studies](https://developer.android.com/blog/categories/case-studies)
++
++  ## [How Calm Reimagined Mindfulness for Android XR](https://developer.android.com/blog/posts/how-calm-reimagined-mindfulness-for-android-xr)
++
++  [arrow_forward](https://developer.android.com/blog/posts/how-calm-reimagined-mindfulness-for-android-xr) Calm is a leading mental health and wellness company with over 180 million downloads. When they started their development for Android XR, their core engineering team was able to build their first functional XR orbiter menus on Day 1 and a core experience in just two weeks.
++
++  ###### [Stevan Silva](https://developer.android.com/blog/authors/stevan-silva) •
++  4 min read
++
+ - [![](https://developer.android.com/static/blog/assets/Sa_ryong_Kang_34a2e9f899_2qsGGB.webp)](https://developer.android.com/blog/authors/sa-ryong-kang)[![](https://developer.android.com/static/blog/assets/Caren_Chang_e58d793559_1i40VV.webp)](https://developer.android.com/blog/authors/caren-chang) 30 Oct 2025 30 Oct 2025 ![](https://developer.android.com/static/blog/assets/kakao_Mobility_fa49c20743_Z1YdLaQ.webp)
+ 
+   #### [Case Studies](https://developer.android.com/blog/categories/case-studies)
+@@ -128,17 +139,6 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
+   ###### [Paul Feng](https://developer.android.com/blog/authors/paul-feng) •
+   4 min read
+ 
+-- [![](https://developer.android.com/static/blog/assets/Stevan_Silva_7661118077_V4WGm.webp)](https://developer.android.com/blog/authors/stevan-silva) 30 Oct 2025 30 Oct 2025 ![](https://developer.android.com/static/blog/assets/how_Calm_edf30223a8_kG1yA.webp)
+-
+-  #### [Case Studies](https://developer.android.com/blog/categories/case-studies)
+-
+-  ## [How Calm Reimagined Mindfulness for Android XR](https://developer.android.com/blog/posts/how-calm-reimagined-mindfulness-for-android-xr)
+-
+-  [arrow_forward](https://developer.android.com/blog/posts/how-calm-reimagined-mindfulness-for-android-xr) Calm is a leading mental health and wellness company with over 180 million downloads. When they started their development for Android XR, their core engineering team was able to build their first functional XR orbiter menus on Day 1 and a core experience in just two weeks.
+-
+-  ###### [Stevan Silva](https://developer.android.com/blog/authors/stevan-silva) •
+-  4 min read
+-
+ - [![](https://developer.android.com/static/blog/assets/Chris_Assigbe_2_a72a1e1687_sAjN.webp)](https://developer.android.com/blog/authors/chris-assigbe) 29 Oct 2025 29 Oct 2025 ![](https://developer.android.com/static/blog/assets/introducing_Cahier_792458c981_Z15HUkw.webp)
+ 
+   #### [How-tos](https://developer.android.com/blog/categories/how-tos)

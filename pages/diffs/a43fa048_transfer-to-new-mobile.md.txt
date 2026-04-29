@@ -1,0 +1,13 @@
+diff --git a/docs/training/wearables/data/transfer-to-new-mobile.md b/docs/training/wearables/data/transfer-to-new-mobile.md
+index 76e22fac..e9ed171d 100644
+--- a/docs/training/wearables/data/transfer-to-new-mobile.md
++++ b/docs/training/wearables/data/transfer-to-new-mobile.md
+@@ -74,7 +74,7 @@ steps:
+    ```groovy
+    dependencies {
+        ...
+-       implementation 'com.google.android.gms:play-services-wearable:19.0.0'
++       implementation 'com.google.android.gms:play-services-wearable:20.0.1'
+    }
+    ```
+ 2. Declare and export the `WearableListenerService` in your app's

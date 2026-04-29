@@ -1,0 +1,22 @@
+diff --git a/docs/training/app-links/add-applinks.md b/docs/training/app-links/add-applinks.md
+index 0ffc83d4..eb4e8830 100644
+--- a/docs/training/app-links/add-applinks.md
++++ b/docs/training/app-links/add-applinks.md
+@@ -39,7 +39,7 @@ well as `autoVerify="true`":
+ 
+ ## Key points about the code
+ 
+-- **AutoVerify** : The `android:autoVerify="true`" attribute is required for App Links. It signals to the system that it should attempt to verify the association between your app and the schemes and domain(s) specified in the `<data>` tags. It's recommended to add `autoVerify="true`" to every Intent filter that you want to be verifiable.
++- **AutoVerify** : The `android:autoVerify="true"` attribute is required for App Links. It signals to the system that it should attempt to verify the association between your app and the schemes and domain(s) specified in the `<data>` tags. It's recommended to add `autoVerify="true`" to every Intent filter that you want to be verifiable.
+ - **Data elements** : Each App Links Intent filter must include one or more `<data>` elements that specify the schemes and host formats that match your verifiable website domain.
+ - **Schemes** : The intent filter must include `<data>` elements for both `http` and `https` schemes.
+ - **Hosts** : You can optionally add `<data>` elements to match one or more
+@@ -242,7 +242,7 @@ rules in your `assetlinks.json` rules.
+ > [!WARNING]
+ > **Warning:** If you configure `<uri-relative-filter-group>` in your manifest for Android 15 and higher, ensure that a valid `assetlinks.json` file is accessible at the specified host. If the `assetlinks.json` file is missing or invalid, App Links verification fails on Android 15 and higher, and your app doesn't handle any links for that domain. In other cases, where the `assetlinks.json` file is valid but missing the dynamic configuration, the app might open for all paths on Android 15 and higher based on the static manifest declaration.
+ 
+-### Migrating existing App Links
++### Migration of existing App Links
+ 
+ If you already have App Links with specific path rules (such as
+ `android:pathPrefix`) in your manifest and want to start using Dynamic App Links

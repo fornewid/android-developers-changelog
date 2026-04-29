@@ -1,0 +1,53 @@
+diff --git a/docs/media/media3/exoplayer/hls.md b/docs/media/media3/exoplayer/hls.md
+index 9d86235b..aeb7cb1f 100644
+--- a/docs/media/media3/exoplayer/hls.md
++++ b/docs/media/media3/exoplayer/hls.md
+@@ -507,15 +507,19 @@ class HlsInterstitialsActivity : Activity() {
+   private var player: ExoPlayer? = null
+   private var adsResumptionStates: List<HlsInterstitialsAdsLoader.AdsResumptionState>? = null
+ 
++  @Suppress("DEPRECATION") // getParcelableArrayList without class type is deprecated in API 33+
+   override fun onCreate(savedInstanceState: Bundle?) {
+     super.onCreate(savedInstanceState)
+     // Create the ads loader instance.
+     hlsInterstitialsAdsLoader = HlsInterstitialsAdsLoader(this)
+     // Restore ad resumption states.
+-    savedInstanceState?.getParcelableArrayList<Bundle>(ADS_RESUMPTION_STATE_KEY)?.let { bundles ->
+-      adsResumptionStates =
+-        bundles.map { HlsInterstitialsAdsLoader.AdsResumptionState.fromBundle(it) }
+-    }
++    val bundles =
++      if (Build.VERSION.SDK_INT >= 33) {
++        savedInstanceState?.getParcelableArrayList(ADS_RESUMPTION_STATE_KEY, Bundle::class.java)
++      } else {
++        savedInstanceState?.getParcelableArrayList(ADS_RESUMPTION_STATE_KEY)
++      }
++    adsResumptionStates = bundles?.map(HlsInterstitialsAdsLoader.AdsResumptionState::fromBundle)
+   }
+ 
+   override fun onStart() {
+@@ -611,6 +615,8 @@ public static class HlsInterstitialsActivity extends Activity {
+ 
+   private List<HlsInterstitialsAdsLoader.AdsResumptionState> adsResumptionStates;
+ 
++  @SuppressWarnings(
++      "deprecation") // getParcelableArrayList without class type is deprecated in API 33+
+   @Override
+   protected void onCreate(@Nullable Bundle savedInstanceState) {
+     super.onCreate(savedInstanceState);
+@@ -618,8 +624,13 @@ public static class HlsInterstitialsActivity extends Activity {
+     hlsInterstitialsAdsLoader = new HlsInterstitialsAdsLoader(this);
+     // Restore ad resumption states.
+     if (savedInstanceState != null) {
+-      ArrayList<Bundle> bundles =
+-          savedInstanceState.getParcelableArrayList(ADS_RESUMPTION_STATE_KEY);
++      ArrayList<Bundle> bundles;
++      if (Build.VERSION.SDK_INT >= 33) {
++        bundles =
++            savedInstanceState.getParcelableArrayList(ADS_RESUMPTION_STATE_KEY, Bundle.class);
++      } else {
++        bundles = savedInstanceState.getParcelableArrayList(ADS_RESUMPTION_STATE_KEY);
++      }
+       if (bundles != null) {
+         adsResumptionStates = new ArrayList<>();
+         for (Bundle bundle : bundles) {

@@ -1,0 +1,38 @@
+diff --git a/docs/blog/latest/3.md b/docs/blog/latest/3.md
+index 0ac39228..9951d38d 100644
+--- a/docs/blog/latest/3.md
++++ b/docs/blog/latest/3.md
+@@ -62,16 +62,6 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
+   ###### [Roxanna Aliabadi Walker](https://developer.android.com/blog/authors/roxanna-walker), [Yacine Rezgui](https://developer.android.com/blog/authors/yacine-rezgui) •
+   8 min read
+ 
+-- 26 Jan 2026 26 Jan 2026 ![](https://developer.android.com/static/blog/assets/Android_Trade_IN_Mode_Blog_9dc083b903_Z28Fz7W.webp)
+-
+-  #### [Product News](https://developer.android.com/blog/categories/product-news)
+-
+-  ## [Trade-in mode on Android 16+](https://developer.android.com/blog/posts/trade-in-mode-on-android-16)
+-
+-  [arrow_forward](https://developer.android.com/blog/posts/trade-in-mode-on-android-16) Trade-in mode: faster assessment of a factory-reset phone or tablet, bypassing setup wizard, a new feature on Android 16 and above.
+-
+-  ###### 2 min read
+-
+ - [![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](https://developer.android.com/blog/authors/prateek-batra) 26 Jan 2026 26 Jan 2026 ![](https://developer.android.com/static/blog/assets/beyond_Smartphone_e17b5979d9_ZBzwz8.webp)
+ 
+   #### [Case Studies](https://developer.android.com/blog/categories/case-studies)
+@@ -83,6 +73,16 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
+   ###### [Prateek Batra](https://developer.android.com/blog/authors/prateek-batra) •
+   3 min read
+ 
++- 26 Jan 2026 26 Jan 2026 ![](https://developer.android.com/static/blog/assets/Android_Trade_IN_Mode_Blog_9dc083b903_Z28Fz7W.webp)
++
++  #### [Product News](https://developer.android.com/blog/categories/product-news)
++
++  ## [Trade-in mode on Android 16+](https://developer.android.com/blog/posts/trade-in-mode-on-android-16)
++
++  [arrow_forward](https://developer.android.com/blog/posts/trade-in-mode-on-android-16) Trade-in mode: faster assessment of a factory-reset phone or tablet, bypassing setup wizard, a new feature on Android 16 and above.
++
++  ###### 2 min read
++
+ - [![](https://developer.android.com/static/blog/assets/Georgia_Doyle_a2f5ebfcdb_Z1cCMui.webp)](https://developer.android.com/blog/authors/georgia-doyle)[![](https://developer.android.com/static/blog/assets/Kanu_Tibrewal_20caa0960e_1aI42M.webp)](https://developer.android.com/blog/authors/kanu-tibrewal) 21 Jan 2026 21 Jan 2026 ![](https://developer.android.com/static/blog/assets/260120_Header_7fdfbedb2d_105hHT.webp)
+ 
+   #### [Product News](https://developer.android.com/blog/categories/product-news)

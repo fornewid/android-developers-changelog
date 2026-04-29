@@ -1,0 +1,120 @@
+diff --git a/docs/guide/playcore/install-prompt/kotlin-java.md b/docs/guide/playcore/install-prompt/kotlin-java.md
+index 7531b9e0..20ca07d8 100644
+--- a/docs/guide/playcore/install-prompt/kotlin-java.md
++++ b/docs/guide/playcore/install-prompt/kotlin-java.md
+@@ -13,58 +13,14 @@ The Play In-App Install Prompts Library is part of the [Google Play Core
+ libraries](https://developer.android.com/guide/playcore). To use the library, include the following Gradle
+ dependency:
+ 
+-### Groovy
+-
+-    // In your app's build.gradle file:
+-    ...
+-    dependencies {
+-        // This dependency is downloaded from the <a href="/studio/build/dependencies#google-maven">Google's Maven repository</a>.
+-        // So, make sure you also include that repository in your project's build.gradle file.
+-        implementation 'com.google.android.play:crossdeviceprompt:0.0.1'
+-        ...
+-    }
+-
+-### Kotlin
+-
+     // In your app's build.gradle.kts file:
+     ...
+     dependencies {
+-        // This dependency is downloaded from the <a href="/studio/build/dependencies#google-maven">Google's Maven repository</a>.
+-        // So, make sure you also include that repository in your project's build.gradle file.
+         implementation("com.google.android.play:crossdeviceprompt:0.0.1")
+         ...
+     }
+ 
+-## Create the CrossDevicePromptManager
+-
+-The `CrossDevicePromptManager` is the interface that lets your app request
+-information and launch the install prompt flow. Create an instance to obtain it:
+-
+-### Kotlin
+-
+-    import com.google.android.play.core.crossdeviceprompt.CrossDevicePromptInfo
+-    import com.google.android.play.core.crossdeviceprompt.CrossDevicePromptManager
+-    import com.google.android.play.core.crossdeviceprompt.CrossDevicePromptManagerFactory
+-    import com.google.android.play.core.crossdeviceprompt.model.CrossDevicePromptInstallationRequest
+-
+-    ...
+-
+-    val crossDevicePromptManager: CrossDevicePromptManager =
+-        CrossDevicePromptManagerFactory.create(context)
+-
+-### Java
+-
+-    import com.google.android.play.core.crossdeviceprompt.CrossDevicePromptInfo;
+-    import com.google.android.play.core.crossdeviceprompt.CrossDevicePromptManager;
+-    import com.google.android.play.core.crossdeviceprompt.CrossDevicePromptManagerFactory;
+-    import com.google.android.play.core.crossdeviceprompt.model.CrossDevicePromptInstallationRequest;
+-
+-    ...
+-
+-    CrossDevicePromptManager crossDevicePromptManager =
+-        CrossDevicePromptManagerFactory.create(context);
+-
+-## Request a CrossDevicePromptInstallationRequest object
++## Show the cross device install prompt
+ 
+ Determine the best moment in your app's flow to prompt the user to install your
+ app on another device (for example, when they cast a video from their phone to a
+@@ -72,42 +28,22 @@ TV). When your app reaches one of these points, perform the following steps:
+ 
+ 1. Create a `CrossDevicePromptInstallationRequest`.
+ 2. Use the `CrossDevicePromptManager` to create a request task that accepts the request as a parameter.
++3. Use the resulting `CrossDevicePromptInfo` object with `launchPromptFlow()` to show the prompt to the user.
+ 
+-If the task is successful, the API returns the `CrossDevicePromptInfo` object in
+-the success callback. Otherwise, the API returns an `Exception` in the failure
+-callback.
+-
+-### Kotlin
+-
+-    val request: CrossDevicePromptInstallationRequest? =
+-        CrossDevicePromptInstallationRequest.create()
+-    val result: Task<CrossDevicePromptInfo?> =
+-        crossDevicePromptManager.requestInstallationPromptFlow(request)
+-
+-    result.addOnSuccessListener { crossDevicePromptInfo ->
+-        // Requested a prompt flow successfully
+-    }
+-
+-    result.addOnFailureListener { e ->
+-        // Failed to request a prompt flow
+-    }
+-
+-### Java
+-
+-    CrossDevicePromptInstallationRequest request =
+-        CrossDevicePromptInstallationRequest.create();
+-    Task<CrossDevicePromptInfo> result =
+-        crossDevicePromptManager.requestInstallationPromptFlow(request);
++If an error occurs either in obtaining the `CrossDevicePromptInfo` or showing
++the prompt, an exception is thrown.
+ 
+-    result.addOnSuccessListener(crossDevicePromptInfo -> {
+-        // Requested a prompt flow successfully
+-    });
++    val crossDevicePromptManager = CrossDevicePromptManagerFactory.create(activity)
++    val request = CrossDevicePromptInstallationRequest.create()
+ 
+-    result.addOnFailureListener(e -> {
+-        // Failed to request a prompt flow
+-    });
++    try {
++        val info = crossDevicePromptManager.requestInstallationPromptFlow(request).await()
++        crossDevicePromptManager.launchPromptFlow(activity, info).await()
++    } catch (e: CrossDevicePromptException) {
++        Log.e(TAG, "Cross-device prompt failed with error: ${e.errorCode}", e)
++    }https://github.com/android/snippets/blob/6ecfaf2718475a5b9fcc2e030c3ff17802e4b205/installprompt/src/main/java/com/example/crossdeviceinstallprompt/MainActivity.kt#L83-L91
+ 
+ > [!IMPORTANT]
+-> **Important:** If an error occurs during the in-app install prompt flow, don't inform the user or change your app's normal flow. Continue your app's normal flow after `onComplete` is called.
++> **Important:** If an error occurs during the in-app install prompt flow, don't inform the user or change your app's normal flow. Continue your app's normal flow.
+ 
+ To verify your implementation, see [Test in-app install prompts](https://developer.android.com/guide/playcore/install-prompt/test).
+\ No newline at end of file

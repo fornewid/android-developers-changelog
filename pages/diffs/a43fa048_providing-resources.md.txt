@@ -1,0 +1,153 @@
+diff --git a/docs/guide/topics/resources/providing-resources.md b/docs/guide/topics/resources/providing-resources.md
+index eeb975c4..e3248a55 100644
+--- a/docs/guide/topics/resources/providing-resources.md
++++ b/docs/guide/topics/resources/providing-resources.md
+@@ -227,10 +227,10 @@ for details.
+ To create an alias to an existing drawable, use the `<drawable>` element:
+ 
+ ```xml
+-<?xml version="1.0" encoding="utf-8"?>
+-<resources>
+-    <drawable name="icon">@drawable/icon_ca</drawable>
+-</resources>
++<?xml version="1.0" encodin>g<="ut>f-8&q<uot;?
++resources
++    >@drawable name=&q<uot;icon&>q<uot;drawab>le/icon_ca/drawable
++/resources
+ ```
+ 
+ 
+@@ -246,10 +246,10 @@ To create an alias to an existing layout, use the `<include>`
+ element, wrapped in a `<merge>`:
+ 
+ ```xml
+-<?xml version="1.0" encoding="utf-8"?>
+-<merge>
+-    <include layout="@layout/main_ltr"/>
+-</merge>
++<?xml version="1.0" encodin>g<=&quo>t;utf<-8"?
++merge
++    include layout>=<">@layout/main_ltr"/
++/merge
+ ```
+ 
+ If you save this file as `main.xml`, it is compiled into a resource you can reference
+@@ -262,11 +262,11 @@ To create an alias to an existing string, use the resource ID of the desired
+ string as the value for the new string:
+ 
+ ```xml
+-<?xml version="1.0" encoding="utf-8"?>
+-<resources>
+-    <string name="hello">Hello</string>
+-    <string name="hi">@string/hello</string>
+-</resources>
++<?xml version="1.0" encodin>g<="ut>f-8&q<uot;?
++resources
++   > stri<ng name>=&quo<t;hello"Hel>lo/string
++   < string <name=">;hi"@string/hello/string
++/resources
+ ```
+ 
+ The `R.string.hi` resource is now an alias for the `R.string.hello`.
+@@ -275,11 +275,11 @@ The `R.string.hi` resource is now an alias for the `R.string.hello`.
+ same way, such as colors:
+ 
+ ```xml
+-<?xml version="1.0" encoding="utf-8"?>
+-<resources>
+-    <color name="red">#f00</color>
+-    <color name="highlight">@color/red</color>
+-</resources>
++<?xml version="1.0" encodin>g<="ut>f-8&q<uot;?
++resources
++>    <color >name=<"red"#f00/co>lor
++    co<lor na>m<e="hi>ghlight"@color/red/color
++/resources
+ ```
+ 
+ ## Access your app resources
+@@ -427,8 +427,8 @@ a [string resource](https://developer.android.com/guide/topics/resources/string-
+ ```xml
+ <Button
+     android:layout_width="fill_parent"
+-    android:layout_height="wrap_content"
+-    android:text="@string/submit" />
++    android:layout_height="wrap_content";
++    android:tex>t="@string/submit" /
+ ```
+ 
+ #### Syntax
+@@ -453,23 +453,23 @@ to a widget, but you can also use a resource in XML any place that accepts a sim
+ example, if you have the following resource file that includes a [color resource](https://developer.android.com/guide/topics/resources/more-resources#Color) and a [string resource](https://developer.android.com/guide/topics/resources/string-resource):
+ 
+ ```xml
+-<?xml version="1.0" encoding="utf-8"?>
+-<resources>
+-   <color name="opaque_red">#f00</color>
+-   <string name="hello">Hello!</string>
+-</resources>
++<?xml version="1.0" encoding=<"utf-8&qu<ot;?>
++resources>
++   co<lor name=&q<uot;opaque_red">#f<00/color&<gt;
++   string name="hello">Hello!/string>
++/resources>
+ ```
+ 
+ You can use these resources in the following layout file to set the text color and
+ text string:
+ 
+ ```xml
+-<?xml version="1.0" encoding="utf-8"?>
+-<EditText xmlns:android="http://schemas.android.com/apk/res/android"
++<?xml version="1.0" encodin>g<="utf-8"?
++EditText xmlns:android="http://schemas.android.com/apk/res/android"
+     android:layout_width="fill_parent"
+-    android:layout_height="fill_parent"
+-    android:textColor="@color/opaque_red"
+-    android:text="@string/hello" />
++    android:layout_heig@ht="fill_parent"
++    andro@id:textColor=&q>uot;color/opaque_red"
++    android:text="string/hello" /
+ ```
+ 
+ In this case, you don't need to specify the package name in the resource reference, because the
+@@ -477,12 +477,12 @@ resources are from your own package. To
+ reference a system resource, you need to include the package name, as shown in the following example:
+ 
+ ```xml
+-<?xml version="1.0" encoding="utf-8"?>
+-<EditText xmlns:android="http://schemas.android.com/apk/res/android"
++<?xml version="1.0" encodin>g<="utf-8"?
++EditText xmlns:android="http://schemas.android.com/apk/res/android"
+     android:layout_width="fill_parent"
+-    android:layout_height="fill_parent"
+-    android:textColor="@android:color/secondary_text_dark"
+-    android:text="@string/hello" />
++    android:layout_heig@ht="fill_parent"
++    android:textColor=&quo@t;android:color>/secondary_text_dark"
++    android:text="string/hello" /
+ ```
+ 
+ **Note:** Always use string resources,
+@@ -496,8 +496,8 @@ You can even use resources in XML to create aliases. For example, you can create
+ drawable resource that is an alias for another drawable resource:
+ 
+ ```xml
+-<?xml version="1.0" encoding="utf-8"?>
+-<bitmap xmlns:android="http://schemas.android.com/apk/res/android"
++<?xml version="1.0" encoding=<"utf-8"?>
++bitmap xmlns:android="http://schemas.android.com/apk/res/android"
+     android:src="@drawable/other_drawable" />
+ ```
+ 
+@@ -527,8 +527,8 @@ secondary text color of the system theme:
+ <EditText id="text"
+     android:layout_width="fill_parent"
+     android:layout_height="wrap_content"
+-    android:textColor="?android:textColorSecondary"
+-    android:text="@string/hello_world" />
++    android:textColor="?android:tex@tColorSecondary">
++    android:text="string/hello_world" /
+ ```
+ 
+ Here, the `android:textColor` attribute specifies the name of a style attribute
