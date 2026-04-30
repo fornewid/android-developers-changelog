@@ -1,0 +1,13 @@
+diff --git a/docs/blog/posts/android-studio-supports-gemma-4-our-most-capable-local-model-for-agentic-coding.md b/docs/blog/posts/android-studio-supports-gemma-4-our-most-capable-local-model-for-agentic-coding.md
+index 37114d46..6e41b0d2 100644
+--- a/docs/blog/posts/android-studio-supports-gemma-4-our-most-capable-local-model-for-agentic-coding.md
++++ b/docs/blog/posts/android-studio-supports-gemma-4-our-most-capable-local-model-for-agentic-coding.md
+@@ -73,7 +73,7 @@ We are excited to see how Gemma 4 enables more private, secure, and powerful dev
+ 
+ ## Continue reading
+ 
+-- [![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](https://developer.android.com/blog/authors/matt-dyor) 02 Apr 2026 02 Apr 2026 ![](https://developer.android.com/static/blog/assets/as_Panda3_385cde5eac_Z1E8IhJ.webp)
++- [![](https://developer.android.com/static/blog/assets/matt_dyor_b779fca40e_Z2hl456.webp)](https://developer.android.com/blog/authors/matt-dyor) 02 Apr 2026 02 Apr 2026 ![](https://developer.android.com/static/blog/assets/as_Panda3_385cde5eac_Z1E8IhJ.webp)
+ 
+   #### [Product News](https://developer.android.com/blog/categories/product-news)
+ 

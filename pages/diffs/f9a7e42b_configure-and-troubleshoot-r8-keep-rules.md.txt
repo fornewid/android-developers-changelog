@@ -1,0 +1,13 @@
+diff --git a/docs/blog/posts/configure-and-troubleshoot-r8-keep-rules.md b/docs/blog/posts/configure-and-troubleshoot-r8-keep-rules.md
+index 73395aa2..9c7ae0ef 100644
+--- a/docs/blog/posts/configure-and-troubleshoot-r8-keep-rules.md
++++ b/docs/blog/posts/configure-and-troubleshoot-r8-keep-rules.md
+@@ -123,7 +123,7 @@ Good Keep Rules should be as **narrow and specific as possible** . They should p
+ |---|---|
+ | `-keep class com.example.** { ; }` | **Low:** Keeps an entire package and its subpackages |
+ | `-keep class com.example.MyClass { ; }` | **Low:** Keeps an entire class which is likely still too wide |
+-| -keepclassmembers class com.example.MyClass { private java.lang.String secretMessage; public void onNativeEvent(java.lang.String); } | **High:** Only relevant methods and properties from a specific class are kept |
++| ``` -keepclassmembers class com.example.MyClass { private java.lang.String secretMessage; public void onNativeEvent(java.lang.String); } ``` | **High:** Only relevant methods and properties from a specific class are kept |
+ 
+ ## Use common ancestors
+ 
