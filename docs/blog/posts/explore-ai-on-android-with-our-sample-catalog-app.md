@@ -27,7 +27,10 @@ We are thrilled to announce the launch of the redesigned [**Android AI Sample Ca
 The Android AI Sample Catalog is designed as a one-stop destination to explore the capabilities of Google AI APIs and SDKs. Inside, you'll find a collection of samples demonstrating a wide range of AI use cases that you can test yourself. We really designed this catalog to give you a hands-on feel for what you can build and help you find the right solution and capability for your needs.  
 
 Here are some of the samples you can find in the catalog:
-![imagen1.png](https://developer.android.com/static/blog/assets/imagen1_d77d50cefb_Cus7H.webp)
+
+|---|---|
+| ![imagen1.png](https://developer.android.com/static/blog/assets/imagen1_d77d50cefb_Cus7H.webp) **Image generation with Imagen** Uses Imagen to generate images of landscapes, objects and people in various artistic styles. | ![gemini2.png](https://developer.android.com/static/blog/assets/gemini2_327b13f202_16yxfl.webp) **On-device summarization with Gemini Nano** Lets you summarize text on-device using Gemini Nano via the GenAI Summarization API. |
+| ![banana3.png](https://developer.android.com/static/blog/assets/banana3_e8d35f7ef1_Z2wmNwN.webp) **Chat with Nano Banana** A chatbot app using the Gemini 3 Pro Image model (a.k.a. "Nano Banana Pro") letting you edit images via a conversation with the model. | ![gemini4.png](https://developer.android.com/static/blog/assets/gemini4_fddfda5828_Z2m9A76.webp) **On-device image description with Gemini Nano** Lets you generate image descriptions using Gemini Nano via the GenAI Image Description API. |
 
 Other samples include: image editing via Imagen mask-editing capabilities, a to-do list app controlled via the voice using the Gemini Live API, on-device rewrite assistance powered by Gemini Nano, and more!   
 

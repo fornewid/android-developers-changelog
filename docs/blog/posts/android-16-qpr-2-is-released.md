@@ -50,7 +50,12 @@ This is largely intended as an accessibility feature. We strongly recommend impl
 ## Custom Icon Shapes \& Auto-Theming
 
 In QPR2, users can select specific shapes for their app icons, which apply to all icons and folder previews. Additionally, if your app does not provide a dedicated themed icon, the system can now automatically generate one by applying a color filtering algorithm to your existing launcher icon.
-![image.png](https://developer.android.com/static/blog/assets/image_929bed7f05_1nIksG.webp)
+
+|---|---|
+| ![image.png](https://developer.android.com/static/blog/assets/image_929bed7f05_1nIksG.webp) | ![image.png](https://developer.android.com/static/blog/assets/image_d8db5a2ae5_Z1ueAkI.webp) |
+| Custom Icon Shapes ||
+| ![image.png](https://developer.android.com/static/blog/assets/image_a4a5af6aa4_Z1QyBx3.webp) | ![image.png](https://developer.android.com/static/blog/assets/image_e982588671_7zJrO.webp) |
+| Test Icon Shape \& Color in Android Studio | Automatic system icon color filtering |
 
 ## Interactive Chooser Sessions
 

@@ -95,15 +95,19 @@ mode and launch a target activity into the adjacent window.
 To launch an adjacent activity, use `FLAG_ACTIVITY_LAUNCH_ADJACENT` in
 conjunction with [`FLAG_ACTIVITY_NEW_TASK`](https://developer.android.com/reference/kotlin/android/content/Intent#flag_activity_new_task), for example:
 
-<br />
-
 ### Kotlin
 
-    fun openUrlInAdjacentWindow(url: String) {
-        Intent(Intent.ACTION_VIEW).apply { data = Uri.parse(url)
-           addFlags(Intent.FLAG_ACTIVITY_LAUNCH_ADJACENT or Intent.FLAG_ACTIVITY_NEW_TASK)
-        }.also { intent -> startActivity(intent) }
-    }
+
+```kotlin
+fun openUrlInAdjacentWindow(url: String) {
+    Intent(Intent.ACTION_VIEW).apply {
+        data = Uri.parse(url)
+        addFlags(Intent.FLAG_ACTIVITY_LAUNCH_ADJACENT or Intent.FLAG_ACTIVITY_NEW_TASK)
+    }.also { intent -> startActivity(intent) }
+}
+```
+
+<br />
 
 ### Java
 
@@ -199,18 +203,22 @@ The callback is invoked when an activity gains or loses the top resumed activity
 position, which is important when an activity uses a shared singleton resource,
 such as the microphone or camera:
 
-<br />
-
 ### Kotlin
 
-    override fun onTopResumedActivityChanged(topResumed: Boolean) {
-        if (topResumed) {
-            // Top resumed activity.
-            // Can be a signal to re-acquire exclusive resources.
-        } else {
-            // No longer the top resumed activity.
-        }
+
+```kotlin
+override fun onTopResumedActivityChanged(topResumed: Boolean) {
+    super.onTopResumedActivityChanged(topResumed)
+    if (topResumed) {
+        // Top resumed activity.
+        // Can be a signal to re-acquire exclusive resources.
+    } else {
+        // No longer the top resumed activity.
     }
+}
+```
+
+<br />
 
 ### Java
 
@@ -271,14 +279,17 @@ To obtain metrics for displays other than the current display, do the following
 - Get the `WindowManager` of the window context
 - Get the `WindowMetrics` of the maximum display area available to the app
 
-<br />
-
 ### Kotlin
 
-    val windowMetrics = context.createDisplayContext(display)
-                               .createWindowContext(WindowManager.LayoutParams.TYPE_APPLICATION, null)
-                               .getSystemService(WindowManager::class.java)
-                               .maximumWindowMetrics
+
+```kotlin
+val windowMetrics = context.createDisplayContext(display)
+    .createWindowContext(WindowManager.LayoutParams.TYPE_APPLICATION, null)
+    .getSystemService(WindowManager::class.java)
+    .maximumWindowMetricshttps://github.com/android/snippets/blob/6ecfaf2718475a5b9fcc2e030c3ff17802e4b205/compose/snippets/src/main/java/com/example/compose/snippets/adaptivelayouts/SupportMultiWindowMode.kt#L51-L54
+```
+
+<br />
 
 ### Java
 

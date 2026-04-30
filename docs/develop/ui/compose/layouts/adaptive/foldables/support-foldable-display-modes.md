@@ -83,15 +83,20 @@ dual‑screen mode in your app's main activity:
 
 ### Kotlin
 
-    private lateinit var windowAreaController: WindowAreaController
-    private lateinit var displayExecutor: Executor
-    private var windowAreaSession: WindowAreaSession? = null
-    private var windowAreaInfo: WindowAreaInfo? = null
-    private var capabilityStatus: WindowAreaCapability.Status =
-        WindowAreaCapability.Status.WINDOW_AREA_STATUS_UNSUPPORTED
 
-    private val dualScreenOperation = WindowAreaCapability.Operation.OPERATION_PRESENT_ON_AREA
-    private val rearDisplayOperation = WindowAreaCapability.Operation.OPERATION_TRANSFER_ACTIVITY_TO_AREA
+```kotlin
+private lateinit var windowAreaController: WindowAreaController
+private lateinit var displayExecutor: Executor
+private var windowAreaSession: WindowAreaSession? = null
+private var windowAreaInfo: WindowAreaInfo? = null
+private var capabilityStatus: WindowAreaCapability.Status =
+    WindowAreaCapability.Status.WINDOW_AREA_STATUS_UNSUPPORTED
+
+private val dualScreenOperation = WindowAreaCapability.Operation.OPERATION_PRESENT_ON_AREA
+private val rearDisplayOperation = WindowAreaCapability.Operation.OPERATION_TRANSFER_ACTIVITY_TO_AREAhttps://github.com/android/snippets/blob/6f769f0d39037f509d452f2ca7387e34b03e59f8/compose/snippets/src/main/java/com/example/compose/snippets/adaptivelayouts/SupportFoldableDisplayModes.kt#L56-L64
+```
+
+<br />
 
 ### Java
 
@@ -115,21 +120,26 @@ activity:
 
 ### Kotlin
 
-    displayExecutor = ContextCompat.getMainExecutor(this)
-    windowAreaController = WindowAreaController.getOrCreate()
 
-    lifecycleScope.launch(Dispatchers.Main) {
-        lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
-            windowAreaController.windowAreaInfos
-                .map { info -> info.firstOrNull { it.type == WindowAreaInfo.Type.TYPE_REAR_FACING } }
-                .onEach { info -> windowAreaInfo = info }
-                .map { it?.getCapability(operation)?.status ?: WindowAreaCapability.Status.WINDOW_AREA_STATUS_UNSUPPORTED }
-                .distinctUntilChanged()
-                .collect {
-                    capabilityStatus = it
-                }
-        }
+```kotlin
+displayExecutor = ContextCompat.getMainExecutor(this)
+windowAreaController = WindowAreaController.getOrCreate()
+
+lifecycleScope.launch(Dispatchers.Main) {
+    lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
+        windowAreaController.windowAreaInfos
+            .map { info -> info.firstOrNull { it.type == WindowAreaInfo.Type.TYPE_REAR_FACING } }
+            .onEach { info -> windowAreaInfo = info }
+            .map { it?.getCapability(operation)?.status ?: WindowAreaCapability.Status.WINDOW_AREA_STATUS_UNSUPPORTED }
+            .distinctUntilChanged()
+            .collect {
+                capabilityStatus = it
+            }
     }
+}
+```
+
+<br />
 
 ### Java
 
@@ -153,23 +163,28 @@ capability:
 
 ### Kotlin
 
-    when (capabilityStatus) {
-        WindowAreaCapability.Status.WINDOW_AREA_STATUS_UNSUPPORTED -> {
-          // The selected display mode is not supported on this device.
-        }
-        WindowAreaCapability.Status.WINDOW_AREA_STATUS_UNAVAILABLE -> {
-          // The selected display mode is not available.
-        }
-        WindowAreaCapability.Status.WINDOW_AREA_STATUS_AVAILABLE -> {
-          // The selected display mode is available and can be enabled.
-        }
-        WindowAreaCapability.Status.WINDOW_AREA_STATUS_ACTIVE -> {
-          // The selected display mode is already active.
-        }
-        else -> {
-          // The selected display mode status is unknown.
-        }
+
+```kotlin
+when (capabilityStatus) {
+    WindowAreaCapability.Status.WINDOW_AREA_STATUS_UNSUPPORTED -> {
+      // The selected display mode is not supported on this device.
     }
+    WindowAreaCapability.Status.WINDOW_AREA_STATUS_UNAVAILABLE -> {
+      // The selected display mode is not available.
+    }
+    WindowAreaCapability.Status.WINDOW_AREA_STATUS_AVAILABLE -> {
+      // The selected display mode is available and can be enabled.
+    }
+    WindowAreaCapability.Status.WINDOW_AREA_STATUS_ACTIVE -> {
+      // The selected display mode is already active.
+    }
+    else -> {
+      // The selected display mode status is unknown.
+    }
+}
+```
+
+<br />
 
 ### Java
 
@@ -196,21 +211,26 @@ otherwise calls the [`presentContentOnWindowArea()`](https://developer.android.c
 
 ### Kotlin
 
-    fun toggleDualScreenMode() {
-        if (windowAreaSession != null) {
-            windowAreaSession?.close()
-        }
-        else {
-            windowAreaInfo?.token?.let { token ->
-                windowAreaController.presentContentOnWindowArea(
-                    token = token,
-                    activity = this,
-                    executor = displayExecutor,
-                    windowAreaPresentationSessionCallback = this
-                )
-            }
+
+```kotlin
+fun toggleDualScreenMode() {
+    if (windowAreaSession != null) {
+        windowAreaSession?.close()
+    }
+    else {
+        windowAreaInfo?.token?.let { token ->
+            windowAreaController.presentContentOnWindowArea(
+                token = token,
+                activity = this,
+                executor = displayExecutor,
+                windowAreaPresentationSessionCallback = this
+            )
         }
     }
+}
+```
+
+<br />
 
 ### Java
 
@@ -232,12 +252,17 @@ to the other display of a foldable, you initiate a session that is returned
 through the listener's [`onSessionStarted()`](https://developer.android.com/reference/kotlin/androidx/window/area/WindowAreaPresentationSessionCallback#onSessionStarted(androidx.window.area.WindowAreaSessionPresenter)) method. When you close the
 session, you get a confirmation in the [`onSessionEnded()`](https://developer.android.com/reference/kotlin/androidx/window/area/WindowAreaPresentationSessionCallback#onSessionEnded(kotlin.Throwable)) method.
 
-To create the listener, implement the `WindowAreaPresentationSessionCallback`
+To create the listener, implement the [`WindowAreaPresentationSessionCallback`](https://developer.android.com/reference/kotlin/androidx/window/area/WindowAreaPresentationSessionCallback)
 interface:
 
 ### Kotlin
 
-    class MainActivity : AppCompatActivity(), windowAreaPresentationSessionCallback
+
+```kotlin
+class ExampleActivity : ComponentActivity(), WindowAreaPresentationSessionCallback {
+```
+
+<br />
 
 ### Java
 
@@ -261,22 +286,29 @@ errors, and log the state:
 
 ### Kotlin
 
-    override fun onSessionStarted(session: WindowAreaSessionPresenter) {
-        windowAreaSession = session
-        val view = TextView(session.context)
-        view.text = "Hello world!"
-        session.setContentView(view)
-    }
 
-    override fun onSessionEnded(t: Throwable?) {
-        if(t != null) {
-            Log.e(logTag, "Something was broken: ${t.message}")
+```kotlin
+override fun onSessionStarted(session: WindowAreaSessionPresenter) {
+    windowAreaSession = session
+    session.setContentView(ComposeView(session.context).apply {
+        setContent {
+            MyScreen()
         }
-    }
+    })
+}
 
-    override fun onContainerVisibilityChanged(isVisible: Boolean) {
-        Log.d(logTag, "onContainerVisibilityChanged. isVisible = $isVisible")
+override fun onSessionEnded(t: Throwable?) {
+    if (t != null) {
+        Log.e(logTag, "Something was broken: ${t.message}")
     }
+}
+
+override fun onContainerVisibilityChanged(isVisible: Boolean) {
+     Log.d(logTag, "onContainerVisibilityChanged. isVisible = $isVisible")
+}
+```
+
+<br />
 
 ### Java
 
@@ -312,25 +344,30 @@ function:
 
 ### Kotlin
 
-    fun toggleRearDisplayMode() {
-        if(capabilityStatus == WindowAreaCapability.Status.WINDOW_AREA_STATUS_ACTIVE) {
-            if(windowAreaSession == null) {
-                windowAreaSession = windowAreaInfo?.getActiveSession(
-                    operation
-                )
-            }
-            windowAreaSession?.close()
-        } else {
-            windowAreaInfo?.token?.let { token ->
-                windowAreaController.transferActivityToWindowArea(
-                    token = token,
-                    activity = this,
-                    executor = displayExecutor,
-                    windowAreaSessionCallback = this
-                )
-            }
+
+```kotlin
+fun toggleRearDisplayMode() {
+    if(capabilityStatus == WindowAreaCapability.Status.WINDOW_AREA_STATUS_ACTIVE) {
+        if(windowAreaSession == null) {
+            windowAreaSession = windowAreaInfo?.getActiveSession(
+                operation
+            )
+        }
+        windowAreaSession?.close()
+    } else {
+        windowAreaInfo?.token?.let { token ->
+            windowAreaController.transferActivityToWindowArea(
+                token = token,
+                activity = this,
+                executor = displayExecutor,
+                windowAreaSessionCallback = this
+            )
         }
     }
+}
+```
+
+<br />
 
 ### Java
 
@@ -349,22 +386,30 @@ function:
         }
     }
 
-In this case, the activity displayed is used as a `WindowAreaSessionCallback`,
-which is simpler to implement because the callback doesn't receive a presenter
-that allows showing content on a window area but instead transfers the whole
-activity to another area:
+In this case, the activity displayed is used as a `WindowAreaSessionCallback`.
+
+The Rear Display API works with a listener approach: when you request to move
+the content to the other display, you initiate a session that is returned
+through the listener's `onSessionStarted()` method. When you instead want to
+return to the inner (and bigger) display, you close the session, and you get a
+confirmation in the `onSessionEnded()` method.
 
 ### Kotlin
 
-    override fun onSessionStarted() {
-        Log.d(logTag, "onSessionStarted")
-    }
 
-    override fun onSessionEnded(t: Throwable?) {
-        if(t != null) {
-            Log.e(logTag, "Something was broken: ${t.message}")
-        }
+```kotlin
+override fun onSessionStarted(session: WindowAreaSession) {
+     Log.d(logTag, "onSessionStarted")
+}
+
+override fun onSessionEnded(t: Throwable?) {
+    if (t != null) {
+        Log.e(logTag, "Something was broken: ${t.message}")
     }
+}
+```
+
+<br />
 
 ### Java
 

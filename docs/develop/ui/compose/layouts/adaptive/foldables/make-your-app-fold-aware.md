@@ -35,27 +35,27 @@ lifecycle is `STOPPED`. Execution of the code block is automatically restarted
 when the lifecycle is `STARTED` again. In the following example, the code block
 collects and uses `WindowLayoutInfo` data:
 
-    class DisplayFeaturesActivity : AppCompatActivity() {
 
-        private lateinit var binding: ActivityDisplayFeaturesBinding
+```kotlin
+class DisplayFeaturesActivity : ComponentActivity() {
 
-        override fun onCreate(savedInstanceState: Bundle?) {
-            super.onCreate(savedInstanceState)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        // ...
 
-            binding = ActivityDisplayFeaturesBinding.inflate(layoutInflater)
-            setContentView(binding.root)
-
-            lifecycleScope.launch(Dispatchers.Main) {
-                lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
-                    WindowInfoTracker.getOrCreate(this@DisplayFeaturesActivity)
-                        .windowLayoutInfo(this@DisplayFeaturesActivity)
-                        .collect { newLayoutInfo ->
-                            // Use newLayoutInfo to update the layout.
-                        }
-                }
+        lifecycleScope.launch(Dispatchers.Main) {
+            lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                WindowInfoTracker.getOrCreate(this@DisplayFeaturesActivity)
+                    .windowLayoutInfo(this@DisplayFeaturesActivity)
+                    .collect { newLayoutInfo ->
+                        // Use newLayoutInfo to update the layout.
+                    }
             }
         }
     }
+}
+```
+
+<br />
 
 ### Java callbacks
 
@@ -132,7 +132,7 @@ app to receive `WindowLayoutInfo` updates, for example:
        protected void onCreate(@Nullable Bundle savedInstanceState) {
            super.onCreate(savedInstanceState);
 
-           binding = ActivitySplitLayoutBinding.inflate(getLayoutInflater());
+           binding = ActivityRxBinding.inflate(getLayoutInflater());
            setContentView(binding.getRoot());
 
             // Create a new observable.
@@ -195,24 +195,29 @@ The bounds can be used to position elements on screen relative to the feature:
 
 ### Kotlin
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        // ...
-        lifecycleScope.launch(Dispatchers.Main) {
-            lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
-                // Safely collects from WindowInfoTracker when the lifecycle is
-                // STARTED and stops collection when the lifecycle is STOPPED.
-                WindowInfoTracker.getOrCreate(this@MainActivity)
-                    .windowLayoutInfo(this@MainActivity)
-                    .collect { layoutInfo ->
-                        // New posture information.
-                        val foldingFeature = layoutInfo.displayFeatures
-                            .filterIsInstance<FoldingFeature>()
-                            .firstOrNull()
-                        // Use information from the foldingFeature object.
-                    }
-            }
+
+```kotlin
+override fun onCreate(savedInstanceState: Bundle?) {
+    // ...
+    lifecycleScope.launch(Dispatchers.Main) {
+        lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
+            // Safely collects from WindowInfoTracker when the lifecycle is
+            // STARTED and stops collection when the lifecycle is STOPPED.
+            WindowInfoTracker.getOrCreate(this@MainActivity)
+                .windowLayoutInfo(this@MainActivity)
+                .collect { layoutInfo ->
+                    // New posture information.
+                    val foldingFeature = layoutInfo.displayFeatures
+                        .filterIsInstance<FoldingFeature>()
+                        .firstOrNull()
+                    // Use information from the foldingFeature object.
+                }
         }
     }
+}
+```
+
+<br />
 
 ### Java
 
@@ -269,11 +274,16 @@ whether the device is in tabletop posture:
 
 ### Kotlin
 
-    fun isTableTopPosture(foldFeature : FoldingFeature?) : Boolean {
-        contract { returns(true) implies (foldFeature != null) }
-        return foldFeature?.state == FoldingFeature.State.HALF_OPENED &&
-                foldFeature.orientation == FoldingFeature.Orientation.HORIZONTAL
-    }
+
+```kotlin
+fun isTableTopPosture(foldFeature: FoldingFeature?): Boolean {
+    contract { returns(true) implies (foldFeature != null) }
+    return foldFeature?.state == FoldingFeature.State.HALF_OPENED &&
+        foldFeature.orientation == FoldingFeature.Orientation.HORIZONTAL
+}
+```
+
+<br />
 
 ### Java
 
@@ -301,12 +311,17 @@ and run A/B tests on your app UI for tabletop and full‑screen layouts.
 
 ### Kotlin
 
-    if (WindowSdkExtensions.getInstance().extensionsVersion >= 6) {
-        val postures = WindowInfoTracker.getOrCreate(context).supportedPostures
-        if (postures.contains(TABLE_TOP)) {
-            // Device supports tabletop posture.
-       }
+
+```kotlin
+if (WindowSdkExtensions.getInstance().extensionVersion >= 6) {
+    val postures = WindowInfoTracker.getOrCreate(context).supportedPostures
+    if (postures.contains(SupportedPosture.TABLETOP)) {
+        // Device supports tabletop posture.
     }
+}
+```
+
+<br />
 
 ### Java
 
@@ -347,11 +362,16 @@ vertical instead of horizontal:
 
 ### Kotlin
 
-    fun isBookPosture(foldFeature : FoldingFeature?) : Boolean {
-        contract { returns(true) implies (foldFeature != null) }
-        return foldFeature?.state == FoldingFeature.State.HALF_OPENED &&
-                foldFeature.orientation == FoldingFeature.Orientation.VERTICAL
-    }
+
+```kotlin
+fun isBookPosture(foldFeature: FoldingFeature?): Boolean {
+    contract { returns(true) implies (foldFeature != null) }
+    return foldFeature?.state == FoldingFeature.State.HALF_OPENED &&
+        foldFeature.orientation == FoldingFeature.Orientation.VERTICAL
+}
+```
+
+<br />
 
 ### Java
 

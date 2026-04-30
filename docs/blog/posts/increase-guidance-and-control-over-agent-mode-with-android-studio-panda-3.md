@@ -10,7 +10,7 @@ source: md.txt
 
 ###### 3-min read
 
-![](https://developer.android.com/static/blog/assets/as_Panda3_385cde5eac_Z1E8IhJ.webp) 02 Apr 2026 [![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](https://developer.android.com/blog/authors/matt-dyor) [##### Matt Dyor](https://developer.android.com/blog/authors/matt-dyor)
+![](https://developer.android.com/static/blog/assets/as_Panda3_385cde5eac_Z1E8IhJ.webp) 02 Apr 2026 [![](https://developer.android.com/static/blog/assets/matt_dyor_b779fca40e_Z2hl456.webp)](https://developer.android.com/blog/authors/matt-dyor) [##### Matt Dyor](https://developer.android.com/blog/authors/matt-dyor)
 
 ###### Senior Product Manager
 
@@ -90,11 +90,11 @@ As always, your feedback is crucial to us. [Check known issues](https://develope
   ###### Senior Product Manager
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/matt-dyor) ![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg) ![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)
+  View profile](https://developer.android.com/blog/authors/matt-dyor) ![](https://developer.android.com/static/blog/assets/matt_dyor_b779fca40e_Z2hl456.webp) ![](https://developer.android.com/static/blog/assets/matt_dyor_b779fca40e_Z2hl456.webp)
 
 ## Continue reading
 
-- [![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](https://developer.android.com/blog/authors/matt-dyor) 21 Apr 2026 21 Apr 2026 ![](https://developer.android.com/static/blog/assets/as_Panda3_385cde5eac_Z1E8IhJ.webp)
+- [![](https://developer.android.com/static/blog/assets/matt_dyor_b779fca40e_Z2hl456.webp)](https://developer.android.com/blog/authors/matt-dyor) 21 Apr 2026 21 Apr 2026 ![](https://developer.android.com/static/blog/assets/as_Panda3_385cde5eac_Z1E8IhJ.webp)
 
   #### [Product News](https://developer.android.com/blog/categories/product-news)
 

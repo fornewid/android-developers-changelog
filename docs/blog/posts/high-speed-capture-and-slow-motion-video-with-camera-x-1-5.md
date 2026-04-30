@@ -266,11 +266,15 @@ When you enable `setSlowMotionEnabled(true)` in CameraX, the resulting video fil
 
 - **Distinct UI Recognition in Thumbnail:** In your Google Photos library, slow-motion videos can be identified by specific UI elements, distinguishing them from normal videos.
 
-![normal.png](https://developer.android.com/static/blog/assets/normal_e584da1c42_Z9i5AN.webp)
+|---|---|
+| ![normal.png](https://developer.android.com/static/blog/assets/normal_e584da1c42_Z9i5AN.webp) | ![slowmotion.png](https://developer.android.com/static/blog/assets/slowmotion_af17b75fb9_Z1l2CLu.webp) |
+| Normal video thumbnail | Slow-motion video thumbnail |
 
 - **Adjustable Speed Segments during Playback:** When playing a slow-motion video, Google Photos provides controls to adjust which parts of the video play at slow speed and which play at normal speed, giving users creative control. The edited video can then be exported as a new video file using the **Share** button, preserving the slow-motion segments you defined.
 
-![normal2.png](https://developer.android.com/static/blog/assets/normal2_865208c389_utnXO.webp)
+|---|---|
+| ![normal2.png](https://developer.android.com/static/blog/assets/normal2_865208c389_utnXO.webp) | ![slowmotion2.png](https://developer.android.com/static/blog/assets/slowmotion2_2378e880d0_ZqsQxG.webp) |
+| Normal video playback | Slow-motion video playback with editing controls |
 
 *** ** * ** ***
 
