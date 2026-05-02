@@ -163,13 +163,28 @@ def generate_summary(client, filename, content, is_new=False):
     {content[:15000]}
     """
     
+    primary_model = 'gemini-2.0-flash-lite'
+    fallback_model = 'gemini-2.5-flash'
+
     for attempt in range(3):
         try:
-            response = client.models.generate_content(
-                model='gemini-2.0-flash-lite',
-                contents=prompt,
-                config={'response_mime_type': 'application/json'}
-            )
+            try:
+                response = client.models.generate_content(
+                    model=primary_model,
+                    contents=prompt,
+                    config={'response_mime_type': 'application/json'}
+                )
+            except Exception as primary_error:
+                err_msg = str(primary_error)
+                if "429" in err_msg and "free_tier" in err_msg:
+                    logger.warning(f"{primary_model} blocked by free_tier quota for {filename}, falling back to {fallback_model}")
+                    response = client.models.generate_content(
+                        model=fallback_model,
+                        contents=prompt,
+                        config={'response_mime_type': 'application/json'}
+                    )
+                else:
+                    raise
             return json.loads(response.text)
         except Exception as e:
             time.sleep(2)
