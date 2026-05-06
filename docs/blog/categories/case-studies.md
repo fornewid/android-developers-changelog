@@ -20,6 +20,29 @@ Save and categorize content based on your preferences.
 
 Real-world results from real-world users. Explore how different teams use our tools to achieve their goals.
 
+* [![](/static/blog/assets/thomas_ezan_d29c7508d0_l9O72.webp)](/blog/authors/thomas-ezan)[![](/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_1hBimO.webp)](/blog/authors/tracy-agyemang)
+
+  04
+
+  May
+  2026
+
+  04
+
+  May
+  2026
+
+  ![](/static/blog/assets/AANDDM_KARROT_Strapi_eed79b0e1b_cCxXk.webp)
+
+  ## [Gemini and Firebase AI Logic enabled Karrot to increase sales with a translation feature built in under 2 weeks](/blog/posts/gemini-and-firebase-ai-logic-enabled-karrot-to-increase-sales-with-a-translation-feature)
+
+  [arrow\_forward](/blog/posts/gemini-and-firebase-ai-logic-enabled-karrot-to-increase-sales-with-a-translation-feature)
+
+  Karrot is a hyperlocal, community-driven peer-to-peer marketplace app that enables users to buy, sell, and trade items with other verified users. Since launching in South Korea in 2015, the platform has expanded into global markets, amassing over 43 million registered users.
+
+  ###### [Thomas Ezan](/blog/authors/thomas-ezan), [Tracy Agyemang](/blog/authors/tracy-agyemang) • 2 min read
+
+  + [#Android](/blog/topics/android)
 * [![](/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2dcD9g.webp)](/blog/authors/ben-weiss)
 
   30
@@ -125,27 +148,6 @@ Real-world results from real-world users. Explore how different teams use our to
   JioHotstar is a leading streaming platform in India, serving a user base exceeding 400 million.
 
   ###### [Prateek Batra](/blog/authors/prateek-batra) • 3 min read
-* [![](/static/blog/assets/Amrit_Sanjeev_5215e0d7cc_CrDLy.webp)](/blog/authors/amrit-sanjeev)[![](/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](/blog/authors/trevor-johns)
-
-  08
-
-  Jan
-  2026
-
-  08
-
-  Jan
-  2026
-
-  ![](/static/blog/assets/Ultrahumanx_Gi_AS_Banner_1612731319_Z23acG3.webp)
-
-  ## [Ultrahuman launches features 15% faster with Gemini in Android Studio](/blog/posts/ultrahuman-launches-features-faster-with-gemini-in-android-studio)
-
-  [arrow\_forward](/blog/posts/ultrahuman-launches-features-faster-with-gemini-in-android-studio)
-
-  Ultrahuman is a consumer health-tech startup that provides daily well-being insights to users based on biometric data from the company’s wearables, like the RING Air and the M1 Live Continuous Glucose Monitor (CGM).
-
-  ###### [Amrit Sanjeev](/blog/authors/amrit-sanjeev), [Trevor Johns](/blog/authors/trevor-johns) • 2 min read
 
 arrow\_back
 
