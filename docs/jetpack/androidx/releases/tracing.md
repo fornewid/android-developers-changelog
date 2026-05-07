@@ -6,13 +6,11 @@ source: md.txt
 
 # Tracing
 
-API Reference  
-[androidx.tracing](https://developer.android.com/reference/kotlin/androidx/tracing/package-summary)  
 Write trace events to the system trace buffer.
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| March 11, 2026 | [1.3.0](https://developer.android.com/jetpack/androidx/releases/tracing#1.3.0) | - | - | [2.0.0-alpha03](https://developer.android.com/jetpack/androidx/releases/tracing#2.0.0-alpha03) |
+| May 06, 2026 | [1.3.0](https://developer.android.com/jetpack/androidx/releases/tracing#1.3.0) | - | - | [2.0.0-alpha07](https://developer.android.com/jetpack/androidx/releases/tracing#2.0.0-alpha07) |
 
 ## Feedback
 
@@ -27,7 +25,68 @@ clicking the star button.
 See the [Issue Tracker documentation](https://developers.google.com/issue-tracker)
 for more information.
 
-## Version 2.0
+## Tracing Version 2.0
+
+### Version 2.0.0-alpha07
+
+May 06, 2026
+
+`androidx.tracing:tracing-*:2.0.0-alpha07` is released. Version 2.0.0-alpha07 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/df4b49eda6f6834b6bc4c8aa30a581fa577a511e..bf10070790b9acc5ad74a86f3546e71139336096/tracing).
+
+**API Changes**
+
+- Add a API to obtain a stub tracer that can be used when tracing is disabled. ([I84c98](https://android-review.googlesource.com/#/q/I84c98b7a8f4af0e99f6d5a77a4ba54271655dd09))
+- Make tracing lifecycle consistent with system tracing. ([Ib391b](https://android-review.googlesource.com/#/q/Ib391b68941c5e7c7e5ef8d85241fa4593469f3e7))
+- Counter APIs are now entirely allocation free. ([I5e73a](https://android-review.googlesource.com/#/q/I5e73a5c996315ba653bd886d656ce1b41c68bf59))
+
+**Bug Fixes**
+
+- Fixed a keep rule for the Perfetto SDK (`tracing-perfetto`) which ensures that the Perfetto SDK can be enabled. ([I1d227](https://android-review.googlesource.com/#/q/I1d2277c09195c168298cd03d9577997e37a1b40c))
+- Add the ability to trace `flush()` events. ([I38014](https://android-review.googlesource.com/#/q/I380149a36b78de8cb9f7e60bf0e680494cf6ea31), [b/495852704](https://issuetracker.google.com/issues/495852704))
+
+### Version 2.0.0-alpha06
+
+April 22, 2026
+
+`androidx.tracing:tracing-*:2.0.0-alpha06` is released. Version 2.0.0-alpha06 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/43ba8bda1ec01d3d9d4ab6a1ea0cc20d41a80019..6d3a1c7bf300b8737528ebd4d68d583550a3d084/tracing).
+
+**API Changes**
+
+- Unrestrict `File.createPerfettoFile()` so others can safely create sinks. When a `block()` throws an exception in `trace` / `traceCoroutine` create an `instant` event for the exception with the metadata representing the corresponding stack trace elements. ([I682e5](https://android-review.googlesource.com/#/q/I682e5ead8bef323eeb2d36063bf19f5cd8e37cf0), [b/501536851](https://issuetracker.google.com/issues/501536851), [b/437166283](https://issuetracker.google.com/issues/437166283))
+- Add a `setCounter(...)` overload that takes a Java `Long` type. ([Ic0469](https://android-review.googlesource.com/#/q/Ic0469f059bc7464cde0504e1a9707ec33f406b81), [b/356082604](https://issuetracker.google.com/issues/356082604))
+- Tracing 2.0 now uses `Long` for platform specific `Thread` identifiers. ([I67277](https://android-review.googlesource.com/#/q/I6727760e6de05981d11ee66b64809ee4faa1a0e2))
+
+**Bug Fixes**
+
+- Improve documentation for `AttributeEntry.reset()`. ([I5d3a1](https://android-review.googlesource.com/#/q/I5d3a14f867f229964c4ce1320bc7f6a647b64797), [b/496079439](https://issuetracker.google.com/issues/496079439))
+
+### Version 2.0.0-alpha05
+
+April 08, 2026
+
+`androidx.tracing:tracing-*:2.0.0-alpha05` is released. Version 2.0.0-alpha05 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/4f1927c2c3b66d0c3a6b9118974d818d2dc5a06a..43ba8bda1ec01d3d9d4ab6a1ea0cc20d41a80019/tracing).
+
+**API Changes**
+
+- `TraceSink` factory functions now return `TraceSink` and not `AbstractTraceSink`. Files now have a unique suffix. We make sure that we can atomically create a **new** file that will be used to store trace packets. ([I4c4aa](https://android-review.googlesource.com/#/q/I4c4aadbaf2259ec49e8c3a446a9bbeb64f4c5bb1), [b/496298726](https://issuetracker.google.com/issues/496298726))
+- Simplify and make coroutine context propagation faster. ([Ia62db](https://android-review.googlesource.com/#/q/Ia62dba4bdfad3dad667b09a17e1e6c70013f788d))
+- Introduce the optional `attributes()` when constructing a `TraceDriver` that provides a way to add metadata pertaining to a trace. ([Ia147e](https://android-review.googlesource.com/#/q/Ia147ec79e079068718942d902f54bec6671999d4))
+
+**Bug Fixes**
+
+- Process threads and counter tracks are now synchronized. This fixes exceptions of the form: `java.lang.NullPointerException: Cannot invoke "androidx.tracing.ThreadTrack.flush$tracing()" because "threadTrack" is null`
+- Avoid emitting sink events when tracing is disabled.
+
+### Version 2.0.0-alpha04
+
+March 25, 2026
+
+`androidx.tracing:tracing-*:2.0.0-alpha04` is released. Version 2.0.0-alpha04 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/1a508f033de883ba2853b9f9ae1853eec7010638..1abcb4178d48853948b9b566cabff9222d90ab69/tracing).
+
+**API Changes**
+
+- Make `AbstractTraceDriver` really abstract, and move the `Perfetto` implementation into the `tracing-wire` module. ([Ie2f59](https://android-review.googlesource.com/#/q/Ie2f5910ced640fa038598c04aa0f1a6286cd25b5))
+- Give more descriptive names to base implementations to avoid using the wrong one. For developers previously extending `androidx.tracing.Trace{Sink|Driver}` they will now need to switch to using `AbstractTrace{Sink|Driver}`. ([I9b46d](https://android-review.googlesource.com/#/q/I9b46d82d87e0cfc573057872ad8822551803e424))
 
 ### Version 2.0.0-alpha03
 

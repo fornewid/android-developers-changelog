@@ -10,7 +10,7 @@ Create performant health applications in a platform agnostic way.
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| February 25, 2026 | [1.0.0](https://developer.android.com/jetpack/androidx/releases/health#1.0.0) | [1.1.0-rc01](https://developer.android.com/jetpack/androidx/releases/health#1.1.0-rc01) | - | - |
+| May 06, 2026 | [1.0.0](https://developer.android.com/jetpack/androidx/releases/health#1.0.0) | [1.1.0-rc02](https://developer.android.com/jetpack/androidx/releases/health#1.1.0-rc02) | - | - |
 
 ## Declaring dependencies
 
@@ -25,7 +25,7 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.health:health-services-client:1.1.0-rc01"
+    implementation "androidx.health:health-services-client:1.1.0-rc02"
 }
 ```
 
@@ -33,7 +33,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.health:health-services-client:1.1.0-rc01")
+    implementation("androidx.health:health-services-client:1.1.0-rc02")
 }
 ```
 
@@ -148,6 +148,16 @@ May 11, 2022
 - API to check for permissions or revoke granted health permissions.
 
 ## Health Services Client Version 1.1
+
+### Version 1.1.0-rc02
+
+May 06, 2026
+
+`androidx.health:health-services-client:1.1.0-rc02`, `androidx.health:health-services-client-external-protobuf:1.1.0-rc02`, and `androidx.health:health-services-client-proto:1.1.0-rc02` are released. Version 1.1.0-rc02 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/7ff96b5234fa386046d864758f46119069f76c8e..3bcb69d968b4cfce9aa0d3f7c73e8b82527f0ce3/health).
+
+**Notable:**
+
+- Relax swimming pool length requirement to just when you request distance ([2dc7a2e](https://android.googlesource.com/platform/frameworks/support/+/2dc7a2e173a807c9b179c155dcd80f0e2ee5ceed))
 
 ### Version 1.1.0-rc01
 

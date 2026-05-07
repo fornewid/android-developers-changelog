@@ -97,8 +97,8 @@ which your [app must create](https://developer.android.com/develop/xr/jetpack-xr
 
 Device pose information is not enabled by default on XR sessions. To enable your
 app to retrieve device pose information, configure the session and set both the
-[`GeospatialMode.VPS_AND_GPS`](https://developer.android.com/reference/kotlin/androidx/xr/runtime/GeospatialMode#VPS_AND_GPS()) and [`DeviceTrackingMode.LAST_KNOWN`](https://developer.android.com/reference/kotlin/androidx/xr/runtime/DeviceTrackingMode#LAST_KNOWN())
-modes:
+[`GeospatialMode.VPS_AND_GPS`](https://developer.android.com/reference/kotlin/androidx/xr/runtime/GeospatialMode#VPS_AND_GPS()) and
+[`DeviceTrackingMode.SPATIAL_LAST_KNOWN`](https://developer.android.com/reference/kotlin/androidx/xr/runtime/DeviceTrackingMode#SPATIAL_LAST_KNOWN()) modes:
 
 
 ```kotlin
@@ -132,8 +132,8 @@ The `GeospatialMode.VPS_AND_GPS` mode leverages both **Visual Positioning System
 geospatial position.
 
 Not all XR devices support the `GeospatialMode.VPS_AND_GPS` and
-`DeviceTrackingMode.LAST_KNOWN` modes. If [`Session.configure()`](https://developer.android.com/reference/kotlin/androidx/xr/runtime/Session#configure(androidx.xr.runtime.Config)) succeeds,
-the device supports these modes.
+`DeviceTrackingMode.SPATIAL_LAST_KNOWN` modes. If
+[`Session.configure()`](https://developer.android.com/reference/kotlin/androidx/xr/runtime/Session#configure(androidx.xr.runtime.Config)) succeeds, the device supports these modes.
 
 ## Prompt user to allow usage of device data
 
@@ -210,7 +210,7 @@ when (result) {
 
 Your app must be [properly set up to communicate with the ARCore API on Google
 Cloud](https://developers.google.com/ar/develop/authorization?platform=android); otherwise, your app receives a
-[`VpsAvailabilityNotAuthorized`](https://developer.android.com/reference/kotlin/androidx/xr/runtime/VpsAvailabilityNotAuthorized) result.
+[`VpsAvailabilityNotAuthorized`](https://developer.android.com/reference/kotlin/androidx/xr/arcore/VpsAvailabilityNotAuthorized) result.
 
 ## Convert a device pose to a geospatial pose
 

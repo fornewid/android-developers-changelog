@@ -10,7 +10,7 @@ Write Widgets and other Remote UI for Wear OS using the Material 3 Expressive de
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| April 08, 2026 | - | - | - | [1.0.0-alpha02](https://developer.android.com/jetpack/androidx/releases/wear-compose-remote#1.0.0-alpha02) |
+| May 06, 2026 | - | - | - | [1.0.0-alpha03](https://developer.android.com/jetpack/androidx/releases/wear-compose-remote#1.0.0-alpha03) |
 
 ## Declaring dependencies
 
@@ -25,7 +25,7 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.wear.compose.remote:remote-material3:1.0.0-alpha02"
+    implementation "androidx.wear.compose.remote:remote-material3:1.0.0-alpha03"
 }
 ```
 
@@ -33,7 +33,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.wear.compose.remote:remote-material3:1.0.0-alpha02")
+    implementation("androidx.wear.compose.remote:remote-material3:1.0.0-alpha03")
 }
 ```
 
@@ -53,6 +53,17 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.0
+
+### Version 1.0.0-alpha03
+
+May 06, 2026
+
+`androidx.wear.compose.remote:remote-material3:1.0.0-alpha03` is released. Version 1.0.0-alpha03 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/951845221205b7a428a9d779107760fc929863ee..8db6b19df41c512621b47ea1370552eaa910997b/wear/compose/remote/remote-material3).
+
+**API Changes**
+
+- Modifier clickable changed to not accept null value for action parameter. `Action.Empty` should be used instead. ([I21be9](https://android-review.googlesource.com/#/q/I21be9ccd0c402e176cbb5998ba4e73b76851d4d8), [b/498881738](https://issuetracker.google.com/issues/498881738))
+- Modifier `clickable(varargs action)` was changed to `clickable(action)`. Use `CombinedAction` for a list of actions. ([I8432d](https://android-review.googlesource.com/#/q/I8432da06a6ca0c39c297cc6f65bf4b4d67967630), [b/498881738](https://issuetracker.google.com/issues/498881738))
 
 ### Version 1.0.0-alpha02
 

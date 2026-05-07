@@ -6,16 +6,14 @@ source: md.txt
 
 # ARCore for Jetpack XR
 
-[User Guide](https://developer.android.com/develop/xr/jetpack-xr-sdk/work-with-arcore) API Reference  
-[androidx.xr.arcore](https://developer.android.com/reference/androidx/xr/arcore)  
-
+[User Guide](https://developer.android.com/develop/xr/jetpack-xr-sdk/work-with-arcore)
 
 Bring digital content into the real world with perception capabilities.
 
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| February 25, 2026 | - | - | - | [1.0.0-alpha11](https://developer.android.com/jetpack/androidx/releases/xr-arcore#1.0.0-alpha11) |
+| May 06, 2026 | - | - | - | [1.0.0-alpha13](https://developer.android.com/jetpack/androidx/releases/xr-arcore#1.0.0-alpha13) |
 
 
 ## Declaring dependencies
@@ -32,11 +30,11 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.xr.arcore:arcore:1.0.0-alpha11"
+    implementation "androidx.xr.arcore:arcore:1.0.0-alpha13"
 
     // Optional dependencies for asynchronous conversions
-    implementation "androidx.xr.arcore:arcore-guava:1.0.0-alpha11"
-    implementation "androidx.xr.arcore:arcore-rxjava3:1.0.0-alpha11"
+    implementation "androidx.xr.arcore:arcore-guava:1.0.0-alpha13"
+    implementation "androidx.xr.arcore:arcore-rxjava3:1.0.0-alpha13"
 }
 ```
 
@@ -44,11 +42,11 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.xr.arcore:arcore:1.0.0-alpha11")
+    implementation("androidx.xr.arcore:arcore:1.0.0-alpha13")
 
     // Optional dependencies for asynchronous conversions
-    implementation("androidx.xr.arcore:arcore-guava:1.0.0-alpha11")
-    implementation("androidx.xr.arcore:arcore-rxjava3:1.0.0-alpha11")
+    implementation("androidx.xr.arcore:arcore-guava:1.0.0-alpha13")
+    implementation("androidx.xr.arcore:arcore-rxjava3:1.0.0-alpha13")
 }
 ```
 
@@ -68,6 +66,57 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.0
+
+### Version 1.0.0-alpha13
+
+May 06, 2026
+
+`androidx.xr.arcore:arcore-*:1.0.0-alpha13` is released. Version 1.0.0-alpha13 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/bc435de8f136679d268375c04ab31ecc94fa99f9..0671e372f2168396421338583e76edca824d7d22/xr/arcore).
+
+**API Changes**
+
+- `TrackingState` and `VpsAvailabilityResult` have moved to the `androidx.xr.arcore package`, and the types in `androidx.xr.runtime` are now deprecated. ([Ic7930](https://android-review.googlesource.com/#/q/Ic79303427f1301f722efb7f624033f9f11b49544), [b/480462213](https://issuetracker.google.com/issues/480462213))
+- Renamed `Plane.Type` to `PlaneType`. ([I8c90c](https://android-review.googlesource.com/#/q/I8c90cccb087dd6bf0d5342d39db5e6eca210e572), [b/482675376](https://issuetracker.google.com/issues/482675376))
+- Renamed `Hand.HandSide` to `HandSide`. ([Ica562](https://android-review.googlesource.com/#/q/Ica562ae66c9d59f927f5201b3315c82317840793), [b/482675376](https://issuetracker.google.com/issues/482675376))
+- Renamed `Plane.Label` to `PlaneLabel`. ([Ic6b67](https://android-review.googlesource.com/#/q/Ic6b67074e9a22f44cd2ec30dad0c5f17fc9631af), [b/482675376](https://issuetracker.google.com/issues/482675376))
+- Renamed `Geospatial.Surface` to `GeospatialSurface`. ([I1a8be](https://android-review.googlesource.com/#/q/I1a8be619cb27cd3915a2098bb85e167fcea595b7), [b/482675376](https://issuetracker.google.com/issues/482675376))
+- Renamed `Geospatial.State`to `GeospatialState`. ([I203fa](https://android-review.googlesource.com/#/q/I203fa5118d103987272b5667bb67dc656efbaffb), [b/482675376](https://issuetracker.google.com/issues/482675376))
+- Moved `NativeData` API to `xr:runtime:runtime` library. ([I87954](https://android-review.googlesource.com/#/q/I87954b9811c11c019f9a256dacd11c352b79cc56), [b/494251500](https://issuetracker.google.com/issues/494251500))
+- `Session.create` and `Session.configure` are now non-exhaustive and require else clauses in when statements. ([I9885e](https://android-review.googlesource.com/#/q/I9885e2b6bdb6da77988d04402f0df73380f6807a), [b/495805998](https://issuetracker.google.com/issues/495805998), [b/495805998](https://issuetracker.google.com/issues/495805998))
+- `androidx.xr.runtime.FieldOfView` has been deprecated. Use `androidx.xr.runtime.math.FieldOfView` instead. ([Ia01a0](https://android-review.googlesource.com/#/q/Ia01a0ac228dc4a93c1bb2979b26d4f400be4fe99), [b/480233045](https://issuetracker.google.com/issues/480233045))
+- Changed Orbiter to use either an `OrbiterAnchorPoint + VolumeOffset` or an `OrbiterPoseProvider` instead of position, offset, offsetType, alignment, and elevation. Also removed the `shouldRenderInNonSpatial` parameter. If the developer does not want the orbiter to render in non-spatial they should wrap the orbiter in an if statement and check the `SpatialCapabilities`. ([I9fbb3](https://android-review.googlesource.com/#/q/I9fbb3826fb7e709f86fee3e033585cdd97bc0b79), [b/462428503](https://issuetracker.google.com/issues/462428503))
+- Added movable modifiers. These modifiers work well, right now, for `SpatialPanels` and `SpatialExternalSurface`. Very soon they will also be supported for `SpatialGltfModels`. However, the intention is to have these supported well for all `SubspaceComposables`. ([I9a3cd](https://android-review.googlesource.com/#/q/I9a3cd5a7989887a09282207629cd4a6dd39dfae7), [b/479530787](https://issuetracker.google.com/issues/479530787), [b/478935063](https://issuetracker.google.com/issues/478935063), [b/478935063](https://issuetracker.google.com/issues/478935063))
+- Developers are expected to observe the `ArDevice.state` Flow to monitor `State.trackingState` and adjust their application's rendering or warnings accordingly based on the tracking fidelity. ([Ic00f0](https://android-review.googlesource.com/#/q/Ic00f0e941ad4491ea15efdc42045eee256f50191), [b/445466590](https://issuetracker.google.com/issues/445466590))
+- Renamed `HandJointType` enum values. ([Ifbc83](https://android-review.googlesource.com/#/q/Ifbc83b1141960fc83d32a08e6b8a65c7091ce612), [b/482670596](https://issuetracker.google.com/issues/482670596))
+- Renamed `FaceConfidenceRegion` constants. ([Ia62d5](https://android-review.googlesource.com/#/q/Ia62d5d829ba0cf819d18bc96121045421acd7e60), [b/482670596](https://issuetracker.google.com/issues/482670596))
+- Renamed `FaceBlendShapeType` constants. ([I33b8b](https://android-review.googlesource.com/#/q/I33b8b8460697dfd1d71d8d9d39a3d673d8abfad7), [b/482670596](https://issuetracker.google.com/issues/482670596))
+- Added `CreatePoseFromGeospatialPoseErrorInternal` and `CreateGeospatialPoseFromPoseErrorInternal`. ([I4bcf1](https://android-review.googlesource.com/#/q/I4bcf1942bf859413b3f99a4618c48eb0ef63fd81), [b/482666615](https://issuetracker.google.com/issues/482666615))
+- Renamed `DeviceTrackingMode.LAST_KNOWN` to `SPATIAL_LAST_KNOWN` (with a deprecated fallback), added `INERTIAL_LAST_KNOWN` for 3DoF tracking, and added `TRACKING_DEGRADED` to `TrackingState`. ([Ie661c](https://android-review.googlesource.com/#/q/Ie661cfd441521987dcebd7e1fd1e7cfc3ef5ab9d), [b/445466590](https://issuetracker.google.com/issues/445466590))
+- Deprecated `GroupEntity`. To have an Entity with only the base Entity functionality, call `Entity.create` which will return and Entity interface. ([I4c450](https://android-review.googlesource.com/#/q/I4c45068d0b8f9a15a2b2ce29bc3523cf93463446), [b/473867483](https://issuetracker.google.com/issues/473867483))
+- Added `XrLog` API. Set `XrLog.isEnabled`to `true` to enable logging in JetpackXR, and use `XrLog.Level` to set the log level. ([I76a1f](https://android-review.googlesource.com/#/q/I76a1f066b96ab6f07016d57c7e8e83518cb67de6), [b/463460895](https://issuetracker.google.com/issues/463460895), [b/487378441](https://issuetracker.google.com/issues/487378441))
+
+**Bug Fixes**
+
+- Add the device tracking state support to the openxr devices. ([I91485](https://android-review.googlesource.com/#/q/I914850cda132645b7c8d40e12e204e7528ac056a), [b/445466590](https://issuetracker.google.com/issues/445466590))
+
+### Version 1.0.0-alpha12
+
+March 25, 2026
+
+`androidx.xr.arcore:arcore-*:1.0.0-alpha12` is released. Version 1.0.0-alpha12 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/c6ef8fa5ea41c72f3cc3e7c77e7981305dfecf33..bc435de8f136679d268375c04ab31ecc94fa99f9/xr/arcore).
+
+**API Changes**
+
+- Changed `Config.augmentedObjectCategories` from a List to a Set. ([I25a64](https://android-review.googlesource.com/#/q/I25a64eb05fa641c80185dbff62b7d140a2d4cac0), [b/487376359](https://issuetracker.google.com/issues/487376359))
+- The types `androidx.xr.arcore.Eye` and `androidx.xr.arcore.Hand`. ([I42438](https://android-review.googlesource.com/#/q/I42438bade68de856a267bdd7280ee89b81f7eb5b), [b/449032900](https://issuetracker.google.com/issues/449032900))
+- Added `Session.create` overload to allow passing an Android Context for resource-scoping. ([I7d3fe](https://android-review.googlesource.com/#/q/I7d3fec251fb7d1a415a812286d71adbf23a910b2), [b/415805990](https://issuetracker.google.com/issues/415805990), [b/477386334](https://issuetracker.google.com/issues/477386334))
+- Changes `FakeRuntimeAnchor.ANCHOR_RESOURCE_LIMIT` to `FakeRuntimeAnchor.anchorResourceLimit`. ([I90841](https://android-review.googlesource.com/#/q/I9084135267eeede19b5d4125432a409f33aa4ee8), [b/431992235](https://issuetracker.google.com/issues/431992235))
+- Making `TiltGesture` API experimental as it may be changed or removed in the future. To use this api, opt in to `@ExperimentalGesturesApi` ([Ic9858](https://android-review.googlesource.com/#/q/Ic98584011ddc6c6ba6c44a6d979ce56ca04860c4))
+- Added ability to set categories for `AugmentedObject` tracking in the Config ([I1f6e4](https://android-review.googlesource.com/#/q/I1f6e4e634a511ab591802327ce3d45da6a3a0510), [b/480220930](https://issuetracker.google.com/issues/480220930))
+
+**Bug Fixes**
+
+- Fixed Chrome's build by updating META-INF/services/ file with actual location of `PerceptionRuntimeFactory`. ([I7a801](https://android-review.googlesource.com/#/q/I7a80111b2144ed2406cb2bd0113100faac9057b0), [b/481288291](https://issuetracker.google.com/issues/481288291))
 
 ### Version 1.0.0-alpha11
 

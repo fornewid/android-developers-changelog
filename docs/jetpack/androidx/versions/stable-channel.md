@@ -19,6 +19,39 @@ see the [versions page](https://developer.android.com/jetpack/androidx/versions)
 The first stable release of AndroidX 1.0.0 suitable for use in
 production was released on September 21, 2018.
 
+## May 06, 2026
+
+- [Camera Featurecombinationquery Version 1.6.1](https://developer.android.com/jetpack/androidx/releases/camera-featurecombinationquery#1.6.1)
+- [Camera Version 1.6.1](https://developer.android.com/jetpack/androidx/releases/camera#1.6.1)
+- [Camera Viewfinder Version 1.6.1](https://developer.android.com/jetpack/androidx/releases/camera-viewfinder#1.6.1)
+- [Compose Animation Version 1.11.1](https://developer.android.com/jetpack/androidx/releases/compose-animation#1.11.1)
+- [Compose Foundation Version 1.11.1](https://developer.android.com/jetpack/androidx/releases/compose-foundation#1.11.1)
+- [Compose Material Version 1.11.1](https://developer.android.com/jetpack/androidx/releases/compose-material#1.11.1)
+- [Compose Runtime Version 1.11.1](https://developer.android.com/jetpack/androidx/releases/compose-runtime#1.11.1)
+- [Compose UI Version 1.11.1](https://developer.android.com/jetpack/androidx/releases/compose-ui#1.11.1)
+- [Games-activity Version 4.4.2](https://developer.android.com/jetpack/androidx/releases/games#games-activity-4.4.2)
+- [Games-text-input Version 4.3.1](https://developer.android.com/jetpack/androidx/releases/games#games-text-input-4.3.1)
+- [Graphics-path Version 1.1.0](https://developer.android.com/jetpack/androidx/releases/graphics#graphics-path-1.1.0)
+- [Javascriptengine Version 1.1.0](https://developer.android.com/jetpack/androidx/releases/javascriptengine#1.1.0)
+- [Media Version 1.8.0](https://developer.android.com/jetpack/androidx/releases/media#media-1.8.0)
+- [Navigationevent Version 1.1.1](https://developer.android.com/jetpack/androidx/releases/navigationevent#1.1.1)
+- [Paging Version 3.5.0](https://developer.android.com/jetpack/androidx/releases/paging#3.5.0)
+- [Tv-foundation Version 1.0.0](https://developer.android.com/jetpack/androidx/releases/tv#tv-foundation-1.0.0)
+- [Tv-material Version 1.1.0](https://developer.android.com/jetpack/androidx/releases/tv#tv-material-1.1.0)
+- [Uwb Uwb-rxjava3 Version 1.0.0](https://developer.android.com/jetpack/androidx/releases/core-uwb#1.0.0)
+- [Webkit Version 1.16.0](https://developer.android.com/jetpack/androidx/releases/webkit#webkit-1.16.0)
+
+## April 22, 2026
+
+- [Compose Animation Version 1.11.0](https://developer.android.com/jetpack/androidx/releases/compose-animation#1.11.0)
+- [Compose Foundation Version 1.11.0](https://developer.android.com/jetpack/androidx/releases/compose-foundation#1.11.0)
+- [Compose Material Version 1.11.0](https://developer.android.com/jetpack/androidx/releases/compose-material#1.11.0)
+- [Compose Runtime Version 1.11.0](https://developer.android.com/jetpack/androidx/releases/compose-runtime#1.11.0)
+- [Compose UI Version 1.11.0](https://developer.android.com/jetpack/androidx/releases/compose-ui#1.11.0)
+- [Navigation Version 2.9.8](https://developer.android.com/jetpack/androidx/releases/navigation#2.9.8)
+- [Navigation3 Version 1.1.1](https://developer.android.com/jetpack/androidx/releases/navigation3#1.1.1)
+- [Navigationevent Version 1.1.0](https://developer.android.com/jetpack/androidx/releases/navigationevent#1.1.0)
+
 ### April 8, 2026
 
 - [Annotation Version 1.10.0](https://developer.android.com/jetpack/androidx/releases/annotation#1.10.0)

@@ -6,9 +6,7 @@ source: md.txt
 
 # Security
 
-[User Guide](https://developer.android.com/topic/security/data) [Code Sample](https://github.com/android/security-samples) API Reference  
-[androidx.security.crypto](https://developer.android.com/reference/kotlin/androidx/security/crypto/package-summary)  
-Safely manage keys and encrypt files and sharedpreferences.
+[User Guide](https://developer.android.com/topic/security/data) [Code Sample](https://github.com/android/security-samples) Safely manage keys and encrypt files and sharedpreferences.
 
 
 This table lists all the artifacts in the `androidx.security` group.
@@ -20,7 +18,7 @@ This table lists all the artifacts in the `androidx.security` group.
 | security-app-authenticator-testing | [1.0.0](https://developer.android.com/jetpack/androidx/releases/security#security-app-authenticator-testing-1.0.0) | - | - | - |
 | security-identity-credential | - | - | - | [1.0.0-alpha03](https://developer.android.com/jetpack/androidx/releases/security#security-identity-credential-1.0.0-alpha03) |
 
-This library was last updated on: March 11, 2026
+This library was last updated on: May 06, 2026
 
 ## Declaring dependencies
 
@@ -47,6 +45,39 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Security-State-Provider Version 1.0
+
+### Version 1.0.0-beta01
+
+May 06, 2026
+
+`androidx.security:security-state-provider:1.0.0-beta01` is released. Version 1.0.0-beta01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/df4b49eda6f6834b6bc4c8aa30a581fa577a511e..e29a10982f4299b1fa812e229d76792092a62814/security/security-state-provider).
+
+**API Changes**
+
+- Added `ListenableFuture` support for `SecurityPatchState` and `UpdateInfoService`. ([b91f15ae](https://android.googlesource.com/platform/frameworks/support/+/b91f15aedf0a396437dfd232ca14fd21901739b1))
+
+### Version 1.0.0-alpha04
+
+April 22, 2026
+
+`androidx.security:security-state-provider:1.0.0-alpha04` is released. Version 1.0.0-alpha04 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/4f1927c2c3b66d0c3a6b9118974d818d2dc5a06a..df4b49eda6f6834b6bc4c8aa30a581fa577a511e/security/security-state-provider).
+
+**API Changes**
+
+- Updated `UpdateInfo` to expose a strongly-typed `SecurityPatchLevel` object instead of a raw `String`. This provides better API ergonomics while maintaining safe IPC compatibility across different library versions. ([I0736d](https://android-review.googlesource.com/#/q/I0736d71fa4d01443a1374588db455769b01c5f41))
+
+### Version 1.0.0-alpha03
+
+March 25, 2026
+
+`androidx.security:security-state-provider:1.0.0-alpha03` is released. Version 1.0.0-alpha03 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/cdf076c6abd0f3125cb0302756fcb77fe981ab7c..1abcb4178d48853948b9b566cabff9222d90ab69/security/security-state-provider).
+
+**API Changes**
+
+- Refactored `UpdateInfoService` to use a secure session model for client interactions. This update enhances security and improves telemetry accuracy by:
+  - **Identity Validation:** Enforcing strict validation of a client's package name and UID when a session is opened to prevent identity spoofing.
+  - **Session Management:** Introducing a dedicated, per-client session interface to safely handle update queries and manage concurrent teardown requests.
+  - **Automatic Cleanup:** Automatically detecting when a client application crashes or terminates unexpectedly, ensuring resources are freed and disconnection telemetry is reliably triggered. ([I2cf65](https://android-review.googlesource.com/#/q/I2cf65bab8bd53329697af1553d1e547bb1c90be5))
 
 ### Version 1.0.0-alpha02
 
@@ -81,6 +112,48 @@ September 24, 2025
 - Includes `UpdateInfo`: A data class to represent information about an available update for a component, including URI, component name, Security Patch Level (SPL), and published date.
 
 ## Security-State Version 1.1
+
+### Version 1.1.0-beta01
+
+May 06, 2026
+
+`androidx.security:security-state:1.1.0-beta01` is released. Version 1.1.0-beta01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/df4b49eda6f6834b6bc4c8aa30a581fa577a511e..e29a10982f4299b1fa812e229d76792092a62814/security/security-state).
+
+**API Changes**
+
+- Added `ListenableFuture` support for `SecurityPatchState` and `UpdateInfoService`. ([b91f15ae](https://android.googlesource.com/platform/frameworks/support/+/b91f15aedf0a396437dfd232ca14fd21901739b1))
+
+**Bug Fixes**
+
+- Fixed kernel version branch comparison in `isDeviceFullyUpdated()`. ([164b537](https://android.googlesource.com/platform/frameworks/support/+/164b537dff05d4a3d2f33491c4440718a3526f1b))
+
+### Version 1.1.0-alpha04
+
+April 22, 2026
+
+`androidx.security:security-state:1.1.0-alpha04` is released. Version 1.1.0-alpha04 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/4f1927c2c3b66d0c3a6b9118974d818d2dc5a06a..df4b49eda6f6834b6bc4c8aa30a581fa577a511e/security/security-state).
+
+**API Changes**
+
+- Updated `UpdateInfo` to expose a strongly-typed `SecurityPatchLevel` object instead of a raw `String`. This provides better API ergonomics while maintaining safe IPC compatibility across different library versions. ([I0736d](https://android-review.googlesource.com/#/q/I0736d71fa4d01443a1374588db455769b01c5f41))
+
+**Bug Fixes**
+
+- Refactored the client-side IPC logic in `SecurityPatchState` to use Kotlin coroutines instead of raw Java threads. This introduces a bounded thread pool bulkhead to safely handle deadlocked remote providers and prevents unbounded thread explosions. ([Iaa398](https://android-review.googlesource.com/#/q/Iaa39812dc602dde3647dc19f10b2ddfcf8473a95))
+
+### Version 1.1.0-alpha03
+
+March 25, 2026
+
+`androidx.security:security-state:1.1.0-alpha03` is released. Version 1.1.0-alpha03 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/1a508f033de883ba2853b9f9ae1853eec7010638..4f1927c2c3b66d0c3a6b9118974d818d2dc5a06a/security/security-state).
+
+**API Changes**
+
+- Updated the client-side `SecurityPatchState` to support the new secure session model when communicating with update providers. This architectural change fortifies the client against IPC race conditions, preventing crashes and connection errors that could occur during coroutine timeouts or unexpected service disconnections. ([I2cf65](https://android-review.googlesource.com/#/q/I2cf65bab8bd53329697af1553d1e547bb1c90be5))
+
+**Bug Fixes**
+
+- Updated the client-side discovery logic to enforce a stricter security boundary when identifying trusted update providers. `SecurityPatchState` now explicitly verifies that hosts hold the `android.permission.READ_PRIVILEGED_PHONE_STATE` permission. This prevents potential spoofing by unprivileged third-party apps preloaded on the system partition, guaranteeing the provider is a legitimate system component. ([I3464b](https://android-review.googlesource.com/#/q/I3464b8305b9f93c953b7aae3a6ca7931133c68d9))
 
 ### Version 1.1.0-alpha02
 

@@ -10,7 +10,7 @@ source: md.txt
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| March 25, 2026 | [1.10.6](https://developer.android.com/jetpack/androidx/releases/compose-runtime#1.10.6) | - | [1.11.0-beta02](https://developer.android.com/jetpack/androidx/releases/compose-runtime#1.11.0-beta02) | - |
+| May 06, 2026 | [1.11.1](https://developer.android.com/jetpack/androidx/releases/compose-runtime#1.11.1) | - | - | [1.12.0-alpha02](https://developer.android.com/jetpack/androidx/releases/compose-runtime#1.12.0-alpha02) |
 
 ## Structure
 
@@ -43,9 +43,9 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.compose.runtime:runtime:1.10.6"
-    implementation "androidx.compose.runtime:runtime-livedata:1.10.6"
-    implementation "androidx.compose.runtime:runtime-rxjava2:1.10.6"
+    implementation "androidx.compose.runtime:runtime:1.11.1"
+    implementation "androidx.compose.runtime:runtime-livedata:1.11.1"
+    implementation "androidx.compose.runtime:runtime-rxjava2:1.11.1"
 }
 
 android {
@@ -67,9 +67,9 @@ android {
 
 ```kotlin
 dependencies {
-    implementation("androidx.compose.runtime:runtime:1.10.6")
-    implementation("androidx.compose.runtime:runtime-livedata:1.10.6")
-    implementation("androidx.compose.runtime:runtime-rxjava2:1.10.6")
+    implementation("androidx.compose.runtime:runtime:1.11.1")
+    implementation("androidx.compose.runtime:runtime-livedata:1.11.1")
+    implementation("androidx.compose.runtime:runtime-rxjava2:1.11.1")
 }
 
 android {
@@ -101,6 +101,31 @@ clicking the star button.
 
 See the [Issue Tracker documentation](https://developers.google.com/issue-tracker)
 for more information.
+
+## Version 1.12
+
+### Version 1.12.0-alpha02
+
+May 06, 2026
+
+`androidx.compose.runtime:runtime-*:1.12.0-alpha02` is released. Version 1.12.0-alpha02 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/35ca96cc1f129a6cc9d6650029cd6155668f4e7a..5ec3fd7563f4f9b2ba745aac0ad7770cc4cd087f/compose/runtime).
+
+**API Changes**
+
+- Added an overload to `SideEffect` that accepts key arguments. The new API can be used to fire one-shot `SideEffects` without the need for a `LaunchedEffect` or `DisposableEffect` whose `CoroutineScope` or `onDispose` block are unused. ([I528b2](https://android-review.googlesource.com/#/q/I528b214d6fc40d3436c178e9a23cd897443f8f0c), [b/476108743](https://issuetracker.google.com/issues/476108743))
+
+### Version 1.12.0-alpha01
+
+April 22, 2026
+
+`androidx.compose.runtime:runtime-*:1.12.0-alpha01` is released. Version 1.12.0-alpha01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/ecc44700355708734de3756bf5e677323ae14ed1..35ca96cc1f129a6cc9d6650029cd6155668f4e7a/compose/runtime).
+
+**Bug Fixes**
+
+- Fixed an issue in the LinkTable that can cause invalid node operations. ([I491c3](https://android-review.googlesource.com/#/q/I491c34222c1fa4006516c3dbad14289dd5391298))
+- Updated Compose compileSdk to API 37. This means that a minimum AGP version of 9.2.0 is required when using Compose. ([Id45cd](https://android-review.googlesource.com/#/q/Id45cdca34ef948e06259b2dd9adc901b7c930492), [b/413674743](https://issuetracker.google.com/issues/413674743))
+- Fixed a caching issue in the LinkTable where content insertions that trigger resizes could lead to stale values being read, which could cause CompositionLocals to not be resolved. ([I8016c](https://android-review.googlesource.com/#/q/I8016cc973b6ad8c92b91c4af649e660db010a022))
+- Fixed a bug that was causing `T.writableRecord` to throw unnecessary `IllegalStateException`s ([Ia778f](https://android-review.googlesource.com/#/q/Ia778fb060336a827788fe2a4f5b42ddf96092b78), [b/440975176](https://issuetracker.google.com/issues/440975176))
 
 ## Runtime Tracing Version 1.7
 
@@ -166,6 +191,39 @@ September 7, 2022
 - `androidx.compose.runtime:runtime-tracing` is a library which - in the presence of tooling supporting it (coming soon) - allows for extended tracing in a Compose app. This initial release is 1.0.0-alpha01.
 
 ## Version 1.11
+
+### Version 1.11.1
+
+May 06, 2026
+
+`androidx.compose.runtime:runtime-*:1.11.1` is released. Version 1.11.1 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/6ce2d81339d3380e021df09daaa55acb307ee912..5d39d0c458dbf0b3791cfaba65f42a27e442c15f/compose/runtime).
+
+### Version 1.11.0
+
+April 22, 2026
+
+`androidx.compose.runtime:runtime-*:1.11.0` is released. Version 1.11.0 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/deab088e55dabc3db4d0638d62ea3132fc51d69b..6ce2d81339d3380e021df09daaa55acb307ee912/compose/runtime).
+
+**Important changes since 1.10.0:**
+
+**New Experimental SlotTable**
+
+- We've rewritten the `SlotTable`, which is the internal data structure used by the Compose Runtime to track your composition hierarchy, determine the changes caused by a recomposition, and store remembered values. This rewrite is focused on improving recomposition performance and does so primarily by using substantially fewer memory copy operations than the gap buffer `SlotTable`. Certain changes to your composition hierarchy, like reordering a long list of items, can recompose over twice as fast compared to the former `SlotTable`. Most other operations are on the order of 10% faster to recompose under the new `SlotTable` implementation. The `SlotTable` implementation used by the runtime affects all Composable methods and requires no recompilation. Using the new `SlotTable` is an app-wide change, including for dependencies.
+- This `SlotTable` implementation is still experimental and currently disabled by default. It can be enabled by setting `ComposeRuntimeFlags.isLinkBufferComposerEnabled` to `true`. In release builds with minification enabled, this value is assumed to be false in the default proguard-rules.pro file supplied with the runtime. To enable the new `SlotTable` in production, this assumption needs to be changed to true in the application's `proguard-rules.pro` file. See the documentation on `ComposeRuntimeFlags.isLinkBufferComposerEnabled` for more information.
+
+**Host-default composition locals**
+
+- Added `compositionLocalWithHostDefaultOf` which allows defining CompositionLocals that fallback to the hosting environment (e.g. Android `View` tags) for their default values.
+
+**More efficient `snapshotFlow` observation with `SnapshotFlowManager`**
+
+- Introduced `SnapshotFlowManager` API for more efficient observations of `snapshotFlow`. Reusing the same `SnapshotFlowManager` for multiple `snapshotFlow` instances registers fewer snapshot apply observers, processing state updates faster.
+
+### Version 1.11.0-rc01
+
+April 08, 2026
+
+`androidx.compose.runtime:runtime-*:1.11.0-rc01` is released. Version 1.11.0-rc01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/56409d2ed9fc0e8746250e5d8862c080d0c80087..ecc44700355708734de3756bf5e677323ae14ed1/compose/runtime).
 
 ### Version 1.11.0-beta02
 

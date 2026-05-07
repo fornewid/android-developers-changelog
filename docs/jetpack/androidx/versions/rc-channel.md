@@ -16,6 +16,18 @@ prior to 2018.
 To view the current versions for every component,
 see the [versions page](https://developer.android.com/jetpack/androidx/versions).
 
+## May 06, 2026
+
+- [Health-services-client Health-services-client-external-protobuf Health-services-client-proto Version 1.1.0-rc02](https://developer.android.com/jetpack/androidx/releases/health#1.1.0-rc02)
+- [Savedstate Version 1.5.0-rc01](https://developer.android.com/jetpack/androidx/releases/savedstate#1.5.0-rc01)
+
+## April 22, 2026
+
+- [Javascriptengine Version 1.1.0-rc01](https://developer.android.com/jetpack/androidx/releases/javascriptengine#javascriptengine-1.1.0-rc01)
+- [Media Version 1.8.0-rc01](https://developer.android.com/jetpack/androidx/releases/media#media-1.8.0-rc01)
+- [Paging Version 3.5.0-rc01](https://developer.android.com/jetpack/androidx/releases/paging#3.5.0-rc01)
+- [Webkit Version 1.16.0-rc01](https://developer.android.com/jetpack/androidx/releases/webkit#webkit-1.16.0-rc01)
+
 ### April 8, 2026
 
 - [Compose Animation Version 1.11.0-rc01](https://developer.android.com/jetpack/androidx/releases/compose-animation#1.11.0-rc01)

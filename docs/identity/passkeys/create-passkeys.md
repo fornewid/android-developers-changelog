@@ -50,8 +50,8 @@ Add the following dependencies to your app module's `build.gradle` file:
 
 ```kotlin
 dependencies {
-    implementation("androidx.credentials:credentials:1.6.0-rc02")
-    implementation("androidx.credentials:credentials-play-services-auth:1.6.0-rc02")
+    implementation("androidx.credentials:credentials:1.7.0-alpha02")
+    implementation("androidx.credentials:credentials-play-services-auth:1.7.0-alpha02")
 }
 ```
 
@@ -59,13 +59,13 @@ dependencies {
 
 ```groovy
 dependencies {
-    implementation "androidx.credentials:credentials:1.6.0-rc02"
-    implementation "androidx.credentials:credentials-play-services-auth:1.6.0-rc02"
+    implementation "androidx.credentials:credentials:1.7.0-alpha02"
+    implementation "androidx.credentials:credentials-play-services-auth:1.7.0-alpha02"
 }
 ```
 
 > [!NOTE]
-> **Note:** Use the latest available versions of the dependencies. Versions of [`androidx.credentials`](https://developer.android.com/jetpack/androidx/releases/credentials) earlier than version 1.2 throw an `UnsupportedOperationException("Post-U not supported yet")` exception on Android 14.
+> **Note:** Use the latest available versions of the dependencies. Versions of [`androidx.credentials`](https://developer.android.com/identity/passkeys/create-passkeys#automatic-upgrade) earlier than version 1.2 throw an `UnsupportedOperationException("Post-U not supported yet")` exception on Android 14.
 
 ## Instantiate Credential Manager
 
@@ -151,7 +151,7 @@ Key fields in the public key creation options include:
   prevent the creation of a duplicate passkey if one already exists with the
   same credential provider.
 
-## Request a passkey
+## Create a passkey
 
 After you have parsed the server-side public key creation options, create a
 passkey by wrapping these options in a `CreatePublicKeyCredentialRequest` object
@@ -166,16 +166,27 @@ The `createPublicKeyCredentialRequest` includes the following:
     If you set the value to `true` and there are no immediately available credentials, Credential Manager won't show any UI and the request will fail immediately, returning NoCredentialException for get requests and [`CreateCredentialNoCreateOptionException`](https://developer.android.com/reference/kotlin/androidx/credentials/exceptions/CreateCredentialNoCreateOptionException) for create requests.
 - `origin`: This field is automatically set for Android apps. For browsers and similarly privileged apps that need to set `origin`, see [Make Credential
   Manager calls on behalf of other parties for privileged apps](https://developer.android.com/training/sign-in/privileged-apps).
-- `isConditional`: This is an optional field that defaults to `false`. When you set this to `true` and if a user doesn't have a passkey, you automatically create one on their behalf the next time that they sign in with a saved password. The passkey is stored in the user's credential provider. The conditional create feature requires the [latest version](https://developer.android.com/jetpack/androidx/releases/credentials) of `androidx.credentials`.
-
-> [!NOTE]
-> **Note:** If a passkey is created with the conditional create option, credential providers are responsible for notifying users about a newly created passkey. For example, Google Password Manager notifies users when a passkey is automatically created, however other credential providers might have their own conditions and notifications for this feature.
+- `isConditional`: This is an optional field that defaults to `false`. For more information, see [Automatically create a passkey](https://developer.android.com/identity/passkeys/create-passkeys#automatic-upgrade).
 
 Calling the `createCredential()` function launches Credential Manager's built-in
 bottom sheet UI that prompts the user to use a passkey and to select a
 credential provider and account for storage. However, if `isConditional` is set
 to `true`, the bottom sheet UI does not display, and the passkey is
 automatically created.
+
+### Automatically create a passkey
+
+You can automatically create a passkey for a user after a successful password
+login by setting the `isConditional` parameter to
+`true` in your `CreatePublicKeyCredentialRequest` while creating a passkey. If
+the user doesn't already have a passkey, your app will automatically attempt to
+create one in the background and store it in the user's credential provider,
+such as Google Password Manager. For an example of how this is implemented, see
+the [public sample](https://github.com/android/identity-samples/blob/main/Shrine/app/src/main/java/com/authentication/shrine/ui/AuthenticationScreen.kt#L98).
+![An example of the notification Google Password Manager shows after passkey creation](https://developer.android.com/static/identity/passkeys/images/conditional-create-gpm.svg) **Figure 2:**Google Password Manager notification
+
+> [!NOTE]
+> **Note:** If a passkey is created automatically, credential providers are responsible for notifying users about a newly created passkey. Google Password Manager notifies users when a passkey is automatically created. However, other credential providers might have their own conditions and notifications for this feature.
 
 ## Handle the response
 
@@ -271,7 +282,7 @@ To obtain the app's SHA 256 fingerprint:
    origins as valid on the app server.
 
 > [!NOTE]
-> **Note:** When you save the passkey on the app server, make sure that you save the Authenticator Attestation Globally Unique Identifier ([AAGUID](https://web.dev/articles/webauthn-aaguid)) from the client data. The AAGUID is a unique number that identifies the model of the authenticator. For more information, see [Manage passkeys](https://web.dev/articles/passkey-registration#save-credential).
+> **Note:** When you save the passkey on the app server, make sure that you save the Authenticator Attestation Globally Unique Identifier ([AAGUID](https://web.dev/articles/webauthn-aaguid)) from the client data. The AAGUID is a unique number that identifies the model of the authenticator. For more information, see [Manage passkeys](https://developer.android.com/identity/passkeys/manage-passkeys).
 
 ## Notify the user
 

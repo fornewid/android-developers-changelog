@@ -10,7 +10,7 @@ source: md.txt
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| March 25, 2026 | [1.10.6](https://developer.android.com/jetpack/androidx/releases/compose-ui#1.10.6) | - | [1.11.0-beta02](https://developer.android.com/jetpack/androidx/releases/compose-ui#1.11.0-beta02) | - |
+| May 06, 2026 | [1.11.1](https://developer.android.com/jetpack/androidx/releases/compose-ui#1.11.1) | - | - | [1.12.0-alpha02](https://developer.android.com/jetpack/androidx/releases/compose-ui#1.12.0-alpha02) |
 
 ## Structure
 
@@ -43,7 +43,7 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.compose.ui:ui:1.10.6"
+    implementation "androidx.compose.ui:ui:1.11.1"
 }
 
 android {
@@ -65,7 +65,7 @@ android {
 
 ```kotlin
 dependencies {
-    implementation("androidx.compose.ui:ui:1.10.6")
+    implementation("androidx.compose.ui:ui:1.11.1")
 }
 
 android {
@@ -98,7 +98,82 @@ clicking the star button.
 See the [Issue Tracker documentation](https://developers.google.com/issue-tracker)
 for more information.
 
+## Version 1.12
+
+### Version 1.12.0-alpha02
+
+May 06, 2026
+
+`androidx.compose.ui:ui-*:1.12.0-alpha02` is released. Version 1.12.0-alpha02 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/df4b49eda6f6834b6bc4c8aa30a581fa577a511e..351656707899bbbcbadeae1b992fc4040f30e48f/compose/ui).
+
+**API Changes**
+
+- Introduces `MeshGradient` Modifier. ([Ia9a08](https://android-review.googlesource.com/#/q/Ia9a087ec10d66c9341beab479cb8f93411c5dc4a), [b/455752719](https://issuetracker.google.com/issues/455752719))
+- Removes built-in autofill debug logging callbacks. The same functionality can be achieved by logging from `AutofillManager.AutofillCallback`. ([I631c7](https://android-review.googlesource.com/#/q/I631c79553995df07a25c2c2e6f3b8dbdca47686e), [b/502279690](https://issuetracker.google.com/issues/502279690))
+- Support variation settings for downloadable fonts ([Ic25c7](https://android-review.googlesource.com/#/q/Ic25c7e562d3f251fd500fe2425b6e37f236f5ebc), [b/496278020](https://issuetracker.google.com/issues/496278020))
+- Updated `mediaQuery` and `derivedMediaQuery` to return a generic type instead of a `Boolean`, allowing more flexible usage when building adaptive UIs. ([I93830](https://android-review.googlesource.com/#/q/I9383020bc5f562b35bb7fad3cdc09d0366a697cb), [b/498698350](https://issuetracker.google.com/issues/498698350))
+
+### Version 1.12.0-alpha01
+
+April 22, 2026
+
+`androidx.compose.ui:ui-*:1.12.0-alpha01` is released. Version 1.12.0-alpha01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/ecc44700355708734de3756bf5e677323ae14ed1..df4b49eda6f6834b6bc4c8aa30a581fa577a511e/compose/ui).
+
+**API Changes**
+
+- Removes feature flag `ComposeUiFlags.isIndirectPointerNavigationGestureDetectorEnabled` ([I82be3](https://android-review.googlesource.com/#/q/I82be398ae4b272d986c150e35f786a319ce1028e), [b/455601135](https://issuetracker.google.com/issues/455601135))
+- Made `mediaQuery` an inline function ([Ie9457](https://android-review.googlesource.com/#/q/Ie94575295ba12008e82db3394b84373f70cd473c), [b/498698350](https://issuetracker.google.com/issues/498698350))
+- `ComposeViewContext` has moved out of the experimental stage and the `ExperimentalComposeViewContextApi` annotation was removed ([I32eca](https://android-review.googlesource.com/#/q/I32eca0ca231b38241e6b46ba6b222a8f183cb968))
+- `ComposeView.disableWindowInsetsRulers()` is now not experimental ([Ia81a5](https://android-review.googlesource.com/#/q/Ia81a51bcc17a5447dbc8683926ca4dd973e1b46c))
+- Added `hasPendingWork()` API to allow passively checking if the Compose UI currently has pending work without triggering a wait or advancing the clock. This is useful for manual clock tests to determine when animations or other background work have finished. ([Ic54e3](https://android-review.googlesource.com/#/q/Ic54e3a857dc2a3f28bce9db2cb665254072e046a))
+- Removed the feature flag `AndroidComposeUiFlags.isForceChildLayoutAfterMeasurementEnabled` ([I7fd25](https://android-review.googlesource.com/#/q/I7fd257b27134a6855328919afb98c427f016be50), [b/491111451](https://issuetracker.google.com/issues/491111451))
+- Removed feature flag `AndroidComposeUiFlags.isSharedFontEnabled` ([I2cebe](https://android-review.googlesource.com/#/q/I2cebecf97c89bba9250d524862f13c5f4d6d0d17), [b/479898293](https://issuetracker.google.com/issues/479898293))
+- Adds additional `KeyboardType` options to complete the set of supported keyboard options on Android, including date, time, datetime, signed decimal, and more. ([I3713e](https://android-review.googlesource.com/#/q/I3713e4fd9c4201aca7ae18debf22728cd08b598e), [b/202353328](https://issuetracker.google.com/issues/202353328))
+- Removed the `AndroidComposeUiFlags.isSharedHapticsEnabled` flag ([I6a1d4](https://android-review.googlesource.com/#/q/I6a1d44bdfefc67b4b5264050b12d95f82ee6c145), [b/479895628](https://issuetracker.google.com/issues/479895628))
+- Removed the `AndroidComposeUiFlags.isSharedClipboardManagerEnabled` flag ([I41e3c](https://android-review.googlesource.com/#/q/I41e3cc31b342eaf9c5efa0f9e9cf3712ebeccbec), [b/479895130](https://issuetracker.google.com/issues/479895130))
+- Removed `AndroidComposeUiFlags.isSharedViewConfigurationEnabled` flag ([I6d3aa](https://android-review.googlesource.com/#/q/I6d3aa9694a7cf53bc4f40af95bda9f7187689d15), [b/479890645](https://issuetracker.google.com/issues/479890645))
+- Removed the feature flag `AndroidComposeUiFlags.isSharedDrawingEnabled`. ([I27912](https://android-review.googlesource.com/#/q/I279124b3c73e349b3b8cd7d0b9e7d62c869e6e1a), [b/479849019](https://issuetracker.google.com/issues/479849019))
+- Removed the feature flag `AndroidComposeUiFlags.isSharedAccessibilityManagerEnabled` ([I6b726](https://android-review.googlesource.com/#/q/I6b726c2190f959567f26ab4c9dfa8d9eed7390d7), [b/479845566](https://issuetracker.google.com/issues/479845566))
+- Remove `AndroidComposeUiFlags.isSharedWindowInfoEnabled` flag ([Ife9a9](https://android-review.googlesource.com/#/q/Ife9a9c79777b0544d681d26128489dc32840d82a), [b/479837249](https://issuetracker.google.com/issues/479837249))
+- Remove the `AndroidComposeUiFlags.isSharedComposeViewContextEnabled` flag. ([Ic522a](https://android-review.googlesource.com/#/q/Ic522a536ac97f70ecc26b9827608da02019cf2c2), [b/479834257](https://issuetracker.google.com/issues/479834257))
+- Add variation settings to customize downloadable variable fonts ([Ifdc93](https://android-review.googlesource.com/#/q/Ifdc9339f5b4f1ed9146807742705fc8d7d84b0b4), [b/223262013](https://issuetracker.google.com/issues/223262013))
+- Add variation settings to customize downloadable variable fonts ([I390af](https://android-review.googlesource.com/#/q/I390af395ea9ec47f1d7293e2eca4c97db37905bf), [b/223262013](https://issuetracker.google.com/issues/223262013))
+- Remove flag `isTraversableDelegatesFixEnabled` ([Ia7dfe](https://android-review.googlesource.com/#/q/Ia7dfe8bd1b12c83b9c4c8bedd7c8f86bf035a527), [b/485962494](https://issuetracker.google.com/issues/485962494))
+- Introduced `runWhenIdle` and its suspending variant `awaitAndRunWhenIdle` on `ComposeTestRule` and `ComposeUiTest` to improve test performance and state stability. These APIs synchronize the UI once, then execute a block of code without the overhead of repeated synchronizations for each operation. This results in significantly faster and less flaky test execution, especially for tests that sample many properties, such as in animation testing. ([Iabf66](https://android-review.googlesource.com/#/q/Iabf66f0e12327bd2eed9feb0cff09a6d2a59bc2d), [b/490270394](https://issuetracker.google.com/issues/490270394))
+- Adds `LayerOutsets` to `GraphicsLayer` \& `Modifier.graphicsLayer` which can be used to increase the visual bounds of the layer beyond its measured size. This can be used to avoid the implicit `clipToBounds` behavior when the layer is promoted to an Offscreen buffer. ([Ic1189](https://android-review.googlesource.com/#/q/Ic1189399d9e43795fe013dee10cca2562ab4e7bb))
+- Disabled logging autofill input events by default. They are now enabled by calling `ComposeView.setAutofillDebugEnabled`. ([I5b430](https://android-review.googlesource.com/#/q/I5b43001bbfabccdf922094bca7c2d6f64b51987f), [b/487947860](https://issuetracker.google.com/issues/487947860))
+- Changed the VelocityTracker to use the implementation provided by the Android Framework (configurable with `AndroidComposeUiFlags.isFrameworkVelocityTrackerEnabled`). ([Ibc7e2](https://android-review.googlesource.com/#/q/Ibc7e24c4840a9e6235240642945db374b8068e10), [b/359962905](https://issuetracker.google.com/issues/359962905))
+- When `AndroidComposeUiFlags.isForceChildLayoutAfterMeasurementEnabled` is true, child Views will always have layout called after measurement during a layout pass. Compose doesn't always layout a child after measurement, but Views require it for proper state management. ([Ib4fe9](https://android-review.googlesource.com/#/q/Ib4fe9663b7b13312cb9258a65edddd45016eaeec), [b/430974758](https://issuetracker.google.com/issues/430974758))
+- Adding `isVirtual` to `LayoutInfo` ([I3e5cd](https://android-review.googlesource.com/#/q/I3e5cdcd0437b1bdb54bb2a12302dcb99421fe218), [b/494243978](https://issuetracker.google.com/issues/494243978))
+- Cleaned up the `isGraphicsLayerShapeSemanticsEnabled` flag. ([I44be0](https://android-review.googlesource.com/#/q/I44be05e25252a75049ff1ac45eb76f27e160cab9), [b/455600081](https://issuetracker.google.com/issues/455600081))
+- Added a new Font API to use downloadable without a manual step of adding font certificates to the codebase. ([I30b86](https://android-review.googlesource.com/#/q/I30b868b30ce881605879b4645ca73ed4ad03c2a2), [b/479454159](https://issuetracker.google.com/issues/479454159))
+- Added `onRootWithViewInteraction` to scope Compose semantic searches to specific Android Views . This simplifies testing hybrid UIs, such as `RecyclerViews`, without requiring unique test tags in production code . ([Ic02c4](https://android-review.googlesource.com/#/q/Ic02c4648a4813c698205c0fc5800ebf8655da7e7), [b/175226753](https://issuetracker.google.com/issues/175226753))
+
+**Bug Fixes**
+
+- The `captureToImage()` API now allows you to capture a popup or dialog together with its anchor in a single bitmap. ([I9b83a](https://android-review.googlesource.com/#/q/I9b83a05040887d3a18d569376f89f9d8f30593a5), [b/443137545](https://issuetracker.google.com/issues/443137545))
+- Updated Compose `compileSdk` to API 37. This means that a minimum AGP version of 9.2.0 is required when using Compose. ([Id45cd](https://android-review.googlesource.com/#/q/Id45cdca34ef948e06259b2dd9adc901b7c930492), [b/413674743](https://issuetracker.google.com/issues/413674743))
+- Setting `ContentDataType.None` in semantics now prevents autofill events from being sent by Compose. This should prevent initialization costs associated with requesting autofill services. ([I8fbda](https://android-review.googlesource.com/#/q/I8fbda79955e6f83135bcfee5450cb4d0da07f6d2), [b/487947860](https://issuetracker.google.com/issues/487947860))
+
 ## Version 1.11
+
+### Version 1.11.1
+
+May 06, 2026
+
+`androidx.compose.ui:ui-*:1.11.1` is released. Version 1.11.1 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/6ce2d81339d3380e021df09daaa55acb307ee912..5d39d0c458dbf0b3791cfaba65f42a27e442c15f/compose/ui).
+
+### Version 1.11.0
+
+April 22, 2026
+
+`androidx.compose.ui:ui-*:1.11.0` is released. Version 1.11.0 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/deab088e55dabc3db4d0638d62ea3132fc51d69b..6ce2d81339d3380e021df09daaa55acb307ee912/compose/ui).
+
+### Version 1.11.0-rc01
+
+April 08, 2026
+
+`androidx.compose.ui:ui-*:1.11.0-rc01` is released. Version 1.11.0-rc01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/56409d2ed9fc0e8746250e5d8862c080d0c80087..ecc44700355708734de3756bf5e677323ae14ed1/compose/ui).
 
 ### Version 1.11.0-beta02
 

@@ -6,10 +6,7 @@ source: md.txt
 
 # Sqlite
 
-[User Guide](https://developer.android.com/training/data-storage/sqlite) API Reference  
-[androidx.sqlite.db](https://developer.android.com/reference/kotlin/androidx/sqlite/db/package-summary)  
-[androidx.sqlite.db.framework](https://developer.android.com/reference/kotlin/androidx/sqlite/db/framework/package-summary)  
-The `androidx.sqlite` library contains abstract interfaces along with basic implementations which can be used to build your own libraries that access SQLite.
+[User Guide](https://developer.android.com/training/data-storage/sqlite) The `androidx.sqlite` library contains abstract interfaces along with basic implementations which can be used to build your own libraries that access SQLite.
 
 <br />
 
@@ -21,7 +18,7 @@ while harnessing the full power of SQLite.
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| March 11, 2026 | [2.6.2](https://developer.android.com/jetpack/androidx/releases/sqlite#2.6.2) | - | - | [2.7.0-alpha01](https://developer.android.com/jetpack/androidx/releases/sqlite#2.7.0-alpha01) |
+| May 06, 2026 | [2.6.2](https://developer.android.com/jetpack/androidx/releases/sqlite#2.6.2) | - | - | [2.7.0-alpha04](https://developer.android.com/jetpack/androidx/releases/sqlite#2.7.0-alpha04) |
 
 ## Declaring dependencies
 
@@ -80,6 +77,39 @@ clicking the star button.
 
 See the [Issue Tracker documentation](https://developers.google.com/issue-tracker)
 for more information.
+
+## Version 2.7
+
+### Version 2.7.0-alpha04
+
+May 06, 2026
+
+`androidx.sqlite:sqlite-*:2.7.0-alpha04` is released. Version 2.7.0-alpha04 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/ec20b1544fe91db83862ce16c68a099d18d31b10..2108adaf188c53e47ffad4cbc8d66d865191e950/sqlite).
+
+### Version 2.7.0-alpha03
+
+April 08, 2026
+
+`androidx.sqlite:sqlite-*:2.7.0-alpha03` is released. Version 2.7.0-alpha03 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/4f1927c2c3b66d0c3a6b9118974d818d2dc5a06a..ec20b1544fe91db83862ce16c68a099d18d31b10/sqlite).
+
+**API Changes**
+
+- Remove `openAsync()`, `prepareAsync()` and `stepAsync()` from the common interfaces, keeping the suspend APIs only on the web source set interfaces. The suspend APIs are renamed, dropping the 'async' suffix since they no longer conflict with their blocking counterparts in the non-web source set.
+- The top-level suspend extension functions are moved into a new artifact `andriodx.sqlite:sqlite-async` and a new package `androidx.sqlite.async`. This is done in order to avoid sub-optimal usages of these extension functions on common sources that do not target web. They should also be avoided if the targets are only web. However, if targeting both web and non-web platforms, then the top-level functions are useful and allow writing common code for all platforms that uses the `SQLiteDriver` interfaces. ([I63c2c](https://android-review.googlesource.com/#/q/I63c2c815d8baeb8335812977c7e684fefda05421), [b/336758416](https://issuetracker.google.com/issues/336758416), [b/493837704](https://issuetracker.google.com/issues/493837704))
+
+**External Contribution**
+
+- Merge sqlite-ktx into the sqlite library. All Kotlin extensions are now part of the main sqlite artifact. sqlite-ktx is now an empty artifact for compatibility. ([Ib9512](https://android-review.googlesource.com/#/q/Ib9512812d09ba74dcfbed0c073095af5f620854e))
+
+### Version 2.7.0-alpha02
+
+March 25, 2026
+
+`androidx.sqlite:sqlite-*:2.7.0-alpha02` is released. Version 2.7.0-alpha02 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/1a508f033de883ba2853b9f9ae1853eec7010638..4f1927c2c3b66d0c3a6b9118974d818d2dc5a06a/sqlite).
+
+**Bug Fixes**
+
+- Fix missing symbols issue on iOS when using the `NativeSQLiteDriver` and dynamically linking to IOS's SQLite library ([b/434324365](https://issuetracker.google.com/434324365)).
 
 ### Version 2.7.0-alpha01
 

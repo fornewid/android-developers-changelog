@@ -6,14 +6,7 @@ source: md.txt
 
 # Wear
 
-[User Guide](https://developer.android.com/training/wearables) [Code Sample](https://github.com/android/wear-os-samples) API Reference  
-[androidx.wear.activity](https://developer.android.com/reference/kotlin/androidx/wear/activity/package-summary)  
-[androidx.wear.ambient](https://developer.android.com/reference/kotlin/androidx/wear/ambient/package-summary)  
-[androidx.wear.input](https://developer.android.com/reference/kotlin/androidx/wear/input/package-summary)  
-[androidx.wear.utils](https://developer.android.com/reference/kotlin/androidx/wear/utils/package-summary)  
-[androidx.wear.widget](https://developer.android.com/reference/kotlin/androidx/wear/widget/package-summary)  
-[androidx.wear.widget.drawer](https://developer.android.com/reference/kotlin/androidx/wear/widget/drawer/package-summary)  
-(*See the refdocs for all wear packages*) Create applications for Wear OS by Google smartwatches.
+[User Guide](https://developer.android.com/training/wearables) [Code Sample](https://github.com/android/wear-os-samples) Create applications for Wear OS by Google smartwatches.
 
 
 This table lists all the artifacts in the `androidx.wear` group.
@@ -27,7 +20,7 @@ This table lists all the artifacts in the `androidx.wear` group.
 | wear-phone-interactions | [1.1.0](https://developer.android.com/jetpack/androidx/releases/wear#wear-phone-interactions-1.1.0) | - | - | - |
 | wear-remote-interactions | [1.2.0](https://developer.android.com/jetpack/androidx/releases/wear#wear-remote-interactions-1.2.0) | - | - | - |
 
-This library was last updated on: February 25, 2026
+This library was last updated on: May 06, 2026
 
 ## Declaring dependencies
 
@@ -92,6 +85,38 @@ clicking the star button.
 
 See the [Issue Tracker documentation](https://developers.google.com/issue-tracker)
 for more information.
+
+## Wear Core Version 1.1
+
+### Version 1.1.0-beta01
+
+May 06, 2026
+
+`androidx.wear:wear-core:1.1.0-beta01` is released. Version 1.1.0-beta01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/951845221205b7a428a9d779107760fc929863ee..a44ab81865c19417cd41148601333c7b371b1bf4/wear/wear-core).
+
+**API Changes**
+
+- Added `CINNAMON_BUN` in `WearApiVersionHelper` for API compatibility checks against the SDK 37.
+
+### Version 1.1.0-alpha02
+
+April 08, 2026
+
+`androidx.wear:wear-core:1.1.0-alpha02` is released. Version 1.1.0-alpha02 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/4f1927c2c3b66d0c3a6b9118974d818d2dc5a06a..4c9e6b44e0f35c9a0595abec3ba2fd139900c25d/wear/wear-core).
+
+**New Features**
+
+- Add new `VersionCodes` for `WearApiVersionHelper` ([I86bc1](https://android-review.googlesource.com/#/q/I86bc1f13e0991b61df83af65e1917314c0f11cb3), [b/487264133](https://issuetracker.google.com/issues/487264133))
+
+### Version 1.1.0-alpha-01
+
+March 25, 2026
+
+`androidx.wear:wear-core:1.1.0-alpha-01` is released. Version 1.1.0-alpha-01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/ea52d659916d0fe20e20ad2ed5574bf39e7e69a4..c2ea94b9c81b831ccd524579aa6dfd72c504fffe/wear/wear-core).
+
+**API Changes**
+
+- Added `CINNAMON_BUN` (SDK 37) in `WearApiVersionHelper`. ([Id1ee0](https://android-review.googlesource.com/#/q/Id1ee0edc658ccc7cd90ee7609e332c714f4c887d), [b/487264133](https://issuetracker.google.com/issues/487264133))
 
 ## Wear Core Version 1.0
 

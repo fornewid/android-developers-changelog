@@ -6,14 +6,11 @@ source: md.txt
 
 # Jetpack SceneCore
 
-[User Guide](https://developer.android.com/develop/devices/xr/jetpack-xr-sdk) [Code Sample](https://github.com/android/xr-samples) API Reference  
-[androidx.xr.scenecore](https://developer.android.com/reference/androidx/xr/scenecore/package-summary)  
-[androidx.xr.scenecore.testing](https://developer.android.com/reference/androidx/xr/scenecore/testing/package-summary)  
-Build and manipulate the Android XR scene graph with 3D content.
+[User Guide](https://developer.android.com/develop/devices/xr/jetpack-xr-sdk) [Code Sample](https://github.com/android/xr-samples) Build and manipulate the Android XR scene graph with 3D content.
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| February 25, 2026 | - | - | - | [1.0.0-alpha12](https://developer.android.com/jetpack/androidx/releases/xr-scenecore#1.0.0-alpha12) |
+| May 06, 2026 | - | - | - | [1.0.0-alpha14](https://developer.android.com/jetpack/androidx/releases/xr-scenecore#1.0.0-alpha14) |
 
 ## Declaring dependencies
 
@@ -28,13 +25,13 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.xr.scenecore:scenecore:1.0.0-alpha12"
+    implementation "androidx.xr.scenecore:scenecore:1.0.0-alpha14"
 
     // Optional dependencies for asynchronous conversions
-    implementation "androidx.xr.scenecore:scenecore-guava:1.0.0-alpha12"
+    implementation "androidx.xr.scenecore:scenecore-guava:1.0.0-alpha14"
 
     // Use to write unit tests
-    testImplementation "androidx.xr.scenecore:scenecore-testing:1.0.0-alpha12"
+    testImplementation "androidx.xr.scenecore:scenecore-testing:1.0.0-alpha14"
 }
 ```
 
@@ -42,13 +39,13 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.xr.scenecore:scenecore:1.0.0-alpha12")
+    implementation("androidx.xr.scenecore:scenecore:1.0.0-alpha14")
 
     // Optional dependencies for asynchronous conversions
-    implementation("androidx.xr.scenecore:scenecore-guava:1.0.0-alpha12")
+    implementation("androidx.xr.scenecore:scenecore-guava:1.0.0-alpha14")
 
     // Use to write unit tests
-    testImplementation("androidx.xr.scenecore:scenecore-testing:1.0.0-alpha12")
+    testImplementation("androidx.xr.scenecore:scenecore-testing:1.0.0-alpha14")
 }
 ```
 
@@ -69,6 +66,48 @@ for more information.
 
 ## Version 1.0
 
+### Version 1.0.0-alpha14
+
+May 06, 2026
+
+`androidx.xr.scenecore:scenecore-*:1.0.0-alpha14` is released. Version 1.0.0-alpha14 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/0731bcada85ff22cf1ddd54167e83f02bbd022be..c335dd6f34a8575245fc6d8139e95871bea35e9f/xr/scenecore).
+
+**API Changes**
+
+- `TrackingState` and `VpsAvailabilityResult` have moved to the `androidx.xr.arcore package`, and the types in `androidx.xr.runtime` are now deprecated. ([Ic7930](https://android-review.googlesource.com/#/q/Ic79303427f1301f722efb7f624033f9f11b49544), [b/480462213](https://issuetracker.google.com/issues/480462213))
+- Renamed `Plane.Type` to `PlaneType`. ([I8c90c](https://android-review.googlesource.com/#/q/I8c90cccb087dd6bf0d5342d39db5e6eca210e572), [b/482675376](https://issuetracker.google.com/issues/482675376))
+- Renamed `Plane.Label` to `PlaneLabel`. ([Ic6b67](https://android-review.googlesource.com/#/q/Ic6b67074e9a22f44cd2ec30dad0c5f17fc9631af), [b/482675376](https://issuetracker.google.com/issues/482675376))
+- `androidx.xr.runtime.FieldOfView` has been deprecated. Use `androidx.xr.runtime.math.FieldOfView` instead. ([Ia01a0](https://android-review.googlesource.com/#/q/Ia01a0ac228dc4a93c1bb2979b26d4f400be4fe99), [b/480233045](https://issuetracker.google.com/issues/480233045))
+- `Matrix4.pose` has been renamed to `Matrix4.toPose()`. The pose property is now deprecated. ([I329b4](https://android-review.googlesource.com/#/q/I329b4d05fc0757359864a2762f76422d2154c37e), [b/493383490](https://issuetracker.google.com/issues/493383490))
+- Renamed `HandJointType` enum values. ([Ifbc83](https://android-review.googlesource.com/#/q/Ifbc83b1141960fc83d32a08e6b8a65c7091ce612), [b/482670596](https://issuetracker.google.com/issues/482670596))
+- Expose `Component.onAttach` and `onDetach` as public API to allow custom `Component` implementations. ([I0ca1f](https://android-review.googlesource.com/#/q/I0ca1f8d0f5e50616339d2f73143c1dc6521cf724))
+- Adding spatial audio components ([I39ddd](https://android-review.googlesource.com/#/q/I39dddfdcb6c55e5d5e760381bed283636ec2df0f), [b/489421980](https://issuetracker.google.com/issues/489421980), [b/436642086](https://issuetracker.google.com/issues/436642086), [b/436642499](https://issuetracker.google.com/issues/436642499))
+- Remove Entity from `PointSourceParams`. Instead the Entity will be used directly with `SpatialAudioTrack`, `SpatialSoundPool`, and `SpatialMediaPlayer` ([Ib3685](https://android-review.googlesource.com/#/q/Ib3685c5b2dc0afb0e99e9cdfe02b23ae712e25f7), [b/489421980](https://issuetracker.google.com/issues/489421980), [b/436634048](https://issuetracker.google.com/issues/436634048))
+- Renamed `DeviceTrackingMode.LAST_KNOWN` to `SPATIAL_LAST_KNOWN` (with a deprecated fallback), added `INERTIAL_LAST_KNOWN` for 3DoF tracking, and added `TRACKING_DEGRADED` to `TrackingState`. ([Ie661c](https://android-review.googlesource.com/#/q/Ie661cfd441521987dcebd7e1fd1e7cfc3ef5ab9d), [b/445466590](https://issuetracker.google.com/issues/445466590))
+- Deprecated `GroupEntity`. To have an Entity with only the base Entity functionality, call `Entity.create` which will return and Entity interface. ([I4c450](https://android-review.googlesource.com/#/q/I4c45068d0b8f9a15a2b2ce29bc3523cf93463446), [b/473867483](https://issuetracker.google.com/issues/473867483))
+- Added `XrLog` API. Set `XrLog.isEnabled` to `true` to enable logging in JetpackXR, and use `XrLog.Level` to set the log level. ([I76a1f](https://android-review.googlesource.com/#/q/I76a1f066b96ab6f07016d57c7e8e83518cb67de6), [b/463460895](https://issuetracker.google.com/issues/463460895), [b/487378441](https://issuetracker.google.com/issues/487378441))
+
+**Bug Fixes**
+
+- `Scene.keyEntity` now defaults to `mainPanelEntity`. ([I6a3ef](https://android-review.googlesource.com/#/q/I6a3ef4236bb5645462b089531ca6292653ddfffc))
+
+### Version 1.0.0-alpha13
+
+March 25, 2026
+
+`androidx.xr.scenecore:scenecore-*:1.0.0-alpha13` is released. Version 1.0.0-alpha13 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/bf48d1095789789d9d62bfd42bb4f8c9a335ecea..0731bcada85ff22cf1ddd54167e83f02bbd022be/xr/scenecore).
+
+**API Changes**
+
+- Removed `unscaledGravityAlignedActivitySpace` flag from `Session.create`. `ActivitySpace` is always unscaled and gravity-aligned now. ([If6f11](https://android-review.googlesource.com/#/q/If6f11877880f649ecf7a4844db3e809064cc10fb), [b/458173423](https://issuetracker.google.com/issues/458173423))
+- Removed deprecated `setMaterialOverride` and `clearMaterialOverride` functions from `GltfModelEntity` which are now called on the individual `GltfModelNode`. ([I2e5d2](https://android-review.googlesource.com/#/q/I2e5d2dd560845113bf20b2b0d339e602b062123c))
+- Added `transformPixelCoordinatesToLocalPosition` and `transformNormalizedCoordinatesToLocalPosition` to `PanelEntity` and removed equivalent experimental methods that used to return poses instead of `Vector3` positions. ([Ib6960](https://android-review.googlesource.com/#/q/Ib6960082962b970caabf9e8fca1bee7c9e0909a2), [b/460123106](https://issuetracker.google.com/issues/460123106), [b/458333591](https://issuetracker.google.com/issues/458333591))
+- Added `GltfAnimation` APIs for controlling glTF animations in `SceneCore`. ([I2c172](https://android-review.googlesource.com/#/q/I2c172cc173fb9f65376ff3116f00f8dea8990b68), [b/466065486](https://issuetracker.google.com/issues/466065486), [b/465819070](https://issuetracker.google.com/issues/465819070), [b/465818617](https://issuetracker.google.com/issues/465818617))
+- Renamed `ScenePose.activitySpacePose` to `ScenePose.poseInActivitySpace` ([I8f175](https://android-review.googlesource.com/#/q/I8f17516589bbd7630c2b93d3a2a04e06a5b1cf72), [b/427822261](https://issuetracker.google.com/issues/427822261))
+- Added Scenecore Projected Runtime Implementation ([I9c4ab](https://android-review.googlesource.com/#/q/I9c4ab3407e40ccdc04699381e58366d64c188cb8), [b/476440158](https://issuetracker.google.com/issues/476440158))
+- When resizing the main panel entity, it may reposition itself to the `ActivitySpace` origin. There is no workaround other than manually or programmatically repositioning the panel back to its original location. This bug will be fixed in a future release. ([b/489427007](https://issuetracker.google.com/issues/489427007)).
+- In some cases, the affordance for `MovableComponent` may not appear for `SurfaceEntity` and other non-Panel entity types. Explicitly setting `MovableComponent.size` will cause the affordance to appear. This bug will be fixed in a future release ([b/490983469](https://issuetracker.google.com/issues/490983469)).
+
 ### Version 1.0.0-alpha12
 
 February 25, 2026
@@ -78,6 +117,7 @@ February 25, 2026
 **Known Issues**
 
 - Anchored entities may snap from their anchored position to the activity space origin after several seconds.
+- Apps might crash when creating `SurfaceEntity` instances. This issue is resolved in `androidx.xr.scenecore:scenecore-*:1.0.0-alpha13` and subsequent releases. Affected apps should update to the latest versions.
 
 **API Changes**
 

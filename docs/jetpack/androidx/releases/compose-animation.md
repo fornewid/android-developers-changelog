@@ -10,7 +10,7 @@ source: md.txt
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| March 25, 2026 | [1.10.6](https://developer.android.com/jetpack/androidx/releases/compose-animation#1.10.6) | - | [1.11.0-beta02](https://developer.android.com/jetpack/androidx/releases/compose-animation#1.11.0-beta02) | - |
+| May 06, 2026 | [1.11.1](https://developer.android.com/jetpack/androidx/releases/compose-animation#1.11.1) | - | - | [1.12.0-alpha02](https://developer.android.com/jetpack/androidx/releases/compose-animation#1.12.0-alpha02) |
 
 ## Structure
 
@@ -43,7 +43,7 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.compose.animation:animation:1.10.6"
+    implementation "androidx.compose.animation:animation:1.11.1"
 }
 
 android {
@@ -65,7 +65,7 @@ android {
 
 ```kotlin
 dependencies {
-    implementation("androidx.compose.animation:animation:1.10.6")
+    implementation("androidx.compose.animation:animation:1.11.1")
 }
 
 android {
@@ -98,7 +98,66 @@ clicking the star button.
 See the [Issue Tracker documentation](https://developers.google.com/issue-tracker)
 for more information.
 
+## Version 1.12
+
+### Version 1.12.0-alpha02
+
+May 06, 2026
+
+`androidx.compose.animation:animation-*:1.12.0-alpha02` is released. Version 1.12.0-alpha02 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/df4b49eda6f6834b6bc4c8aa30a581fa577a511e..351656707899bbbcbadeae1b992fc4040f30e48f/compose/animation).
+
+### Version 1.12.0-alpha01
+
+April 22, 2026
+
+`androidx.compose.animation:animation-*:1.12.0-alpha01` is released. Version 1.12.0-alpha01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/ecc44700355708734de3756bf5e677323ae14ed1..df4b49eda6f6834b6bc4c8aa30a581fa577a511e/compose/animation).
+
+**Bug Fixes**
+
+- Updated Compose `compileSdk` to API 37. This means that a minimum AGP version of 9.2.0 is required when using Compose. ([Id45cd](https://android-review.googlesource.com/#/q/Id45cdca34ef948e06259b2dd9adc901b7c930492), [b/413674743](https://issuetracker.google.com/issues/413674743))
+- End the `SeekableTransitionState` animation before composition ([1bf9dc](https://android-review.googlesource.com/#/q/1bf9dcf), [b/410055849](https://issuetracker.google.com/410055849))
+
 ## Version 1.11
+
+### Version 1.11.1
+
+May 06, 2026
+
+`androidx.compose.animation:animation-*:1.11.1` is released. Version 1.11.1 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/6ce2d81339d3380e021df09daaa55acb307ee912..5d39d0c458dbf0b3791cfaba65f42a27e442c15f/compose/animation).
+
+### Version 1.11.0
+
+April 22, 2026
+
+`androidx.compose.animation:animation-*:1.11.0` is released. Version 1.11.0 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/deab088e55dabc3db4d0638d62ea3132fc51d69b..6ce2d81339d3380e021df09daaa55acb307ee912/compose/animation).
+
+**Important changes since 1.10.0:**
+
+- `androidx.compose.animation:animation-*:1.11.0` is released. This stable release consolidates improvements and fixes from the 1.11.0 development cycle, focusing on shared element stability, threading reliability, and new developer tooling.
+
+**New Features**
+
+- **Visual Debugging for Lookahead:** Introduced a new set of visual debugging capabilities that allows visualizations of information related to shared elements and `Modifier.animatedBounds`. Such information includes: target bounds, the trajectory of the bounds animation, number of matches found, whether the transition is active, etc.
+
+**API Changes**
+
+- Added new APIs `LookaheadAnimationVisualDebugging`, `CustomizedLookaheadAnimationVisualDebugging`, and `LookaheadAnimationVisualDebugConfig` to help debug animated bounds and shared element animations. ([Id5575](https://android-review.googlesource.com/#/q/Id5575), [b/390011686](https://issuetracker.google.com/390011686), [b/466169919](https://issuetracker.google.com/466169919))
+
+**Bug Fixes**
+
+- **Thread Safety:** `SeekableTransitionState` now properly handles off-thread state changes. Previously, if the state was modified off the UI thread using `Snapshot.withMutableSnapshot()`, the transition incorrectly tried to handle the update off of the UI thread. ([0aba38](https://android-review.googlesource.com/#/q/0aba38))
+- **Performance:** Improved performance of `sharedElements` map access. ([93f57d](https://android-review.googlesource.com/#/q/93f57d))
+- **State Reporting:** Fixed `isTransitionActive` so that it only reports true when there are active animations from matched shared elements. ([d3426a](https://android-review.googlesource.com/#/q/d3426a), [b/474385510](https://issuetracker.google.com/474385510))
+- **Stability:** Required shared transition root to be placed before querying bounds ([77d59c](https://android-review.googlesource.com/#/q/77d59c)) and ensured positions for `sharedElements` are only acquired if `SharedTransitionLayout` is attached. ([I2a035](https://android-review.googlesource.com/#/q/I2a035))
+- **Interruption Handling:** Fixed the corner case interruption handling when a child exit animation finishes while the parent transition is still running in `AnimatedContent`. ([ad9b4f](https://android-review.googlesource.com/#/q/ad9b4f))
+- **Validation:** Validated duration in `InfiniteRepeatableSpec` to prevent 0-duration cycles. ([151b6d](https://android-review.googlesource.com/#/q/151b6d))
+- **Customization:** Respect `visibilityThreshold` in custom `AnimationSpec` for `animateFloatAsState`. ([3a1cdc](https://android-review.googlesource.com/#/q/3a1cdc))
+
+### Version 1.11.0-rc01
+
+April 08, 2026
+
+`androidx.compose.animation:animation-*:1.11.0-rc01` is released. Version 1.11.0-rc01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/56409d2ed9fc0e8746250e5d8862c080d0c80087..ecc44700355708734de3756bf5e677323ae14ed1/compose/animation).
 
 ### Version 1.11.0-beta02
 
@@ -226,6 +285,7 @@ January 14, 2026
 December 03, 2025
 
 `androidx.compose.animation:animation-*:1.10.0` is released. Version 1.10.0 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/1dc35fe3e1d2d1b9dad444a0458c5e8039ba3d26..a1a52f4350c7cb9288486c6fbc7c03af2d6ef9b9/compose/animation).
+
 **Important changes since 1.9.0:**
 
 - Shared transition APIs are stable in 1.10

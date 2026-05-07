@@ -6,20 +6,14 @@ source: md.txt
 
 # Core
 
-[Code Sample](https://github.com/android/user-interface-samples/tree/main/Notifications) API Reference  
-[androidx.core.animation](https://developer.android.com/reference/kotlin/androidx/core/animation/package-summary)  
-[androidx.core.app](https://developer.android.com/reference/kotlin/androidx/core/app/package-summary)  
-[androidx.core.content](https://developer.android.com/reference/kotlin/androidx/core/content/package-summary)  
-[androidx.core.role](https://developer.android.com/reference/kotlin/androidx/core/role/package-summary)  
-[androidx.core.view](https://developer.android.com/reference/kotlin/androidx/core/view/package-summary)  
-(*See the refdocs for all core packages*) Target the latest platform features and APIs while also supporting older devices.
+[Code Sample](https://github.com/android/user-interface-samples/tree/main/Notifications) Target the latest platform features and APIs while also supporting older devices.
 
 
 This table lists all the artifacts in the `androidx.core` group.
 
 | Artifact | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| core | [1.18.0](https://developer.android.com/jetpack/androidx/releases/core#1.18.0) | - | - | - |
+| core | [1.18.0](https://developer.android.com/jetpack/androidx/releases/core#1.18.0) | - | - | [1.19.0-alpha02](https://developer.android.com/jetpack/androidx/releases/core#1.19.0-alpha02) |
 | core-animation | [1.0.0](https://developer.android.com/jetpack/androidx/releases/core#core-animation-1.0.0) | - | - | - |
 | core-google-shortcuts | [1.1.0](https://developer.android.com/jetpack/androidx/releases/core#core-google-shortcuts-1.1.0) | - | - | [1.2.0-alpha01](https://developer.android.com/jetpack/androidx/releases/core#core-google-shortcuts-1.2.0-alpha01) |
 | core-performance | [1.0.0](https://developer.android.com/jetpack/androidx/releases/core#1.0.0) | - | - | - |
@@ -27,7 +21,7 @@ This table lists all the artifacts in the `androidx.core` group.
 | core-role | [1.1.0](https://developer.android.com/jetpack/androidx/releases/core#core-role-1.1.0) | - | - | - |
 | core-splashscreen | [1.2.0](https://developer.android.com/jetpack/androidx/releases/core#core-splashscreen-1.2.0) | - | - | - |
 
-This library was last updated on: March 11, 2026
+This library was last updated on: May 06, 2026
 
 ## Declaring dependencies
 
@@ -118,6 +112,54 @@ clicking the star button.
 
 See the [Issue Tracker documentation](https://developers.google.com/issue-tracker)
 for more information.
+
+## Core and Core-ktx Version 1.19
+
+### Version 1.19.0-alpha02
+
+May 06, 2026
+
+`androidx.core:core:1.19.0-alpha02`, `androidx.core:core-ktx:1.19.0-alpha02`, and `androidx.core:core-testing:1.19.0-alpha02` are released. Version 1.19.0-alpha02 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/951845221205b7a428a9d779107760fc929863ee..f5d3df649a48687b0e609c7430ce92e6a66c3fec/core).
+
+**API Changes**
+
+- Deprecate `BuildCompat.isAtLeastB*`. Callers should check `SDK_INT(_FULL)` directly instead ([I09666](https://android-review.googlesource.com/#/q/I09666cdd6e54fe19c5dee6577dd6d2155955b277), [b/505015815](https://issuetracker.google.com/issues/505015815))
+
+**Bug Fixes**
+
+- Fixed a test failure in `CallSessionTest`on Android 17 (SDK 37) by suppressing version-specific bug mitigation tests on unaffected platform versions. ([I970a7](https://android-review.googlesource.com/#/q/I970a73a2cf0d0240f3b24dc0c58d2720d86298b6), [b/502732317](https://issuetracker.google.com/issues/502732317))
+- Fixed an issue on Android 14-16 where audio calls might unexpectedly route to speaker on the call start ([Ic7000](https://android-review.googlesource.com/#/q/Ic7000c50f1817065c25538abe7274018367662cc), [b/491932378](https://issuetracker.google.com/issues/491932378))
+- Fixed a crash (`IllegalStateException`) in `core-telecom` that could occur if the Telecom framework or a remote service dispatched connection events multiple times during extension setup. ([I00f82](https://android-review.googlesource.com/#/q/I00f829a4a2317d4a9d136df2712df450257f3681), [b/476724351](https://issuetracker.google.com/issues/476724351))
+- Telecom will now use a fallback heuristic to identify wearable devices for audio routing decisions when the `BLUETOOTH_CONNECT` permission is denied. ([Iec271](https://android-review.googlesource.com/#/q/Iec271c4a9a56a02bfd15824cae1bd25debe14e00), [b/499302063](https://issuetracker.google.com/issues/499302063))
+
+**External Contribution**
+
+- Add `TextAttributeCompat` as a backwards compatible variant of `TextAttribute`. ([Ib4a46](https://android-review.googlesource.com/#/q/Ib4a46c1a99aa2f2723e3e5ac4778039f2cdd5b75), [b/460301602](https://issuetracker.google.com/issues/460301602))
+
+### Version 1.19.0-alpha01
+
+April 08, 2026
+
+`androidx.core:core:1.19.0-alpha01`, `androidx.core:core-ktx:1.19.0-alpha01`, and `androidx.core:core-testing:1.19.0-alpha01` are released. Version 1.19.0-alpha01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/d0311626e34d3399038ccd85c9ea91f7297de350..684b3295267fc81724f6bd72bf540c456cc1d347/core).
+
+**Important Changes**
+
+- core-ktx APIs have been merged into the core library. All Kotlin extensions are now part of the main core artifact. core-ktx is now an empty artifact for compatibility. ([I6adbe](https://android-review.googlesource.com/#/q/I6adbeb4b24f7f71c7885e72d3e8e1c3a37f425ab))
+
+**API Changes**
+
+- Add new APIs to get and set math info ([Ib5ad3](https://android-review.googlesource.com/#/q/Ib5ad3c55c42e0e7c294d9202a3125ff97c548bff), [b/394599312](https://issuetracker.google.com/issues/394599312))
+- Add variation settings to customize downloadable variable fonts ([Ifdc93](https://android-review.googlesource.com/#/q/Ifdc9339f5b4f1ed9146807742705fc8d7d84b0b4), [b/223262013](https://issuetracker.google.com/issues/223262013))
+- Added `unwrap()` to `AccessibilityNodeInfoCompat.SelectionCompat` to retrieve the underlying platform `AccessibilityNodeInfo.Selection` object. ([I3078a](https://android-review.googlesource.com/#/q/I3078a8ddb3fe55bdc5c57cae06795296b191a365), [b/479902413](https://issuetracker.google.com/issues/479902413))
+- Added `getView()` and `getVirtualDescendantId()` to `AccessibilityNodeInfoCompat.SelectionPositionCompat`. ([Ib0c48](https://android-review.googlesource.com/#/q/Ib0c48a0bc53935bc5f5dc8729500d9435ada60cb), [b/362783892](https://issuetracker.google.com/issues/362783892))
+- Corrects `ACTION_ARGUMENT_SELECTION_PARCELABLE` definition in AndroidX to match that within the framework sdk to have a single action literal. ([Ib40af](https://android-review.googlesource.com/#/q/Ib40afdb9771e6cbbe0569798bf9e008323830a63), [b/479852824](https://issuetracker.google.com/issues/479852824))
+- Add `EXTRA_PREFER_SMALL_ICON` key constant to `NotificationCompat` ([I713c9](https://android-review.googlesource.com/#/q/I713c9038cff97e3ae74fa1845b852f77fe3e0068), [b/469460575](https://issuetracker.google.com/issues/469460575), [b/478869887](https://issuetracker.google.com/issues/478869887))
+- Add support for `MetricStyle`, semantic style, and related APIs in `NotificationCompat`. ([I6c194](https://android-review.googlesource.com/#/q/I6c1941302a2ec5d61c3d83fa9c34343e54991f72), [b/445685015](https://issuetracker.google.com/issues/445685015), [b/446155056](https://issuetracker.google.com/issues/446155056), [b/446157356](https://issuetracker.google.com/issues/446157356), [b/467924497](https://issuetracker.google.com/issues/467924497))
+- Annotate `BuildCompat.isAtLeastB_1` with @ChecksSdkIntAtLeast ([I18a28](https://android-review.googlesource.com/#/q/I18a281e4da7733751ff0819a0795f833cf818e94), [b/462789273](https://issuetracker.google.com/issues/462789273))
+
+**Bug Fixes**
+
+- Fixed `equals()` method behavior in `AccessibilityNodeInfoCompat.SelectionPositionCompat` and `AccessibilityNodeInfoCompat.SelectionCompat` to properly evaluate equality. ([Icbe1d](https://android-review.googlesource.com/#/q/Icbe1d9cc8ab54d92641d5e758c5049b341b6d8db), [b/495537199](https://issuetracker.google.com/issues/495537199))
 
 ## Core-Pip Version 1.0
 
@@ -355,6 +397,30 @@ July 26, 2023
 - Added `AltitudeConverterCompat` class with a single static method `addMslAltitudeToLocation(Context, Location)` ([I11168](https://android.googlesource.com/platform/frameworks/support/+/340afce6e1887c3322e839fe311748580bdd517c)).
 
 ## Core-telecom Version 1.1
+
+### Version 1.1.0-alpha05
+
+April 22, 2026
+
+`androidx.core:core-telecom:1.1.0-alpha05` is released. Version 1.1.0-alpha05 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/7660321fb775ac566c4dba19331d3778097c68bd..3edf226b37ade9712d8cb1590622d1c4500f5f0d/core/core-telecom).
+
+**Bug Fixes**
+
+- Fixed an issue on Android 14-16 where audio calls might unexpectedly route to speaker on the call start ([Ic7000](https://android-review.googlesource.com/#/q/Ic7000c50f1817065c25538abe7274018367662cc), [b/491932378](https://issuetracker.google.com/issues/491932378))
+- Fixed a crash (`IllegalStateException`) in `core-telecom` that could occur if the Telecom framework or a remote service dispatched connection events multiple times during extension setup. ([I00f82](https://android-review.googlesource.com/#/q/I00f829a4a2317d4a9d136df2712df450257f3681), [b/476724351](https://issuetracker.google.com/issues/476724351))
+- Telecom will now use a fallback heuristic to identify wearable devices for audio routing decisions when the `BLUETOOTH_CONNECT` permission is denied. ([Iec271](https://android-review.googlesource.com/#/q/Iec271c4a9a56a02bfd15824cae1bd25debe14e00), [b/499302063](https://issuetracker.google.com/issues/499302063))
+
+### Version 1.1.0-alpha04
+
+March 25, 2026
+
+`androidx.core:core-telecom:1.1.0-alpha04` is released. Version 1.1.0-alpha04 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/d70b7e8d1b45adbfec4334c6db491905b0b6534e..7660321fb775ac566c4dba19331d3778097c68bd/core/core-telecom).
+
+**Bug Fixes**
+
+- Fixed an issue on older Android versions where incoming or upgraded video calls would sometimes incorrectly route audio to the earpiece. The library now enforces a switch to the speaker if this misrouting is detected. ([I0fc797](https://android-review.git.corp.google.com/q/I0fc797186e4d22c29f3a45f9cf584015472597d7), [I29fd22](https://android-review.git.corp.google.com/q/I29fd225926d4830b36e09e7e15e7e66471eff7da))
+- Removed A2DP Bluetooth devices from the list of available endpoints shown in the pre-call screen, as these devices are not supported for voice communication by the Android platform Telecom framework. This aligns the available devices with platform behavior. ([I98b729](https://android-review.git.corp.google.com/q/I98b729e518cca5b4f9087236838f50469350bfed))
+- Skipped running call extensions logic for managed calls to prevent potential crashes or unexpected behavior. ([I177905](https://android-review.git.corp.google.com/q/I17790599cd36b50bff9acda031f6736ea82a0f5d))
 
 ### Version 1.1.0-alpha03
 

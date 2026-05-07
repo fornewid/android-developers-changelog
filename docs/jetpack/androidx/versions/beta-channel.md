@@ -16,6 +16,21 @@ to 2018.
 To view the current versions for every component,
 see the [versions page](https://developer.android.com/jetpack/androidx/versions).
 
+## May 06, 2026
+
+- [Compose Material3 Adaptive Version 1.3.0-beta01](https://developer.android.com/jetpack/androidx/releases/compose-material3-adaptive#1.3.0-beta01)
+- [Security-state Version 1.1.0-beta01](https://developer.android.com/jetpack/androidx/releases/security#security-state-1.1.0-beta01)
+- [Security-state-provider Version 1.0.0-beta01](https://developer.android.com/jetpack/androidx/releases/security#security-state-provider-1.0.0-beta01)
+- [Wear-core Version 1.1.0-beta01](https://developer.android.com/jetpack/androidx/releases/wear#wear-core-1.1.0-beta01)
+
+## April 22, 2026
+
+- [Car App Version 1.8.0-beta01](https://developer.android.com/jetpack/androidx/releases/car-app#1.8.0-beta01)
+- [Hilt Version 1.4.0-beta01](https://developer.android.com/jetpack/androidx/releases/hilt#1.4.0-beta01)
+- [Lifecycle Version 2.11.0-beta01](https://developer.android.com/jetpack/androidx/releases/lifecycle#2.11.0-beta01)
+- [Lint Version 1.0.0-beta01](https://developer.android.com/jetpack/androidx/releases/lint#1.0.0-beta01)
+- [Savedstate Version 1.5.0-beta01](https://developer.android.com/jetpack/androidx/releases/savedstate#1.5.0-beta01)
+
 ### April 8, 2026
 
 - [Javascriptengine Version 1.1.0-beta01](https://developer.android.com/jetpack/androidx/releases/javascriptengine#1.1.0-beta01)

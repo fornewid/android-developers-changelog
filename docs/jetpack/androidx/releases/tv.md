@@ -6,16 +6,11 @@ source: md.txt
 
 # tv
 
-API Reference  
-[androidx.tv.foundation](https://developer.android.com/reference/kotlin/androidx/tv/foundation/package-summary)  
-[androidx.tv.foundation.lazy.grid](https://developer.android.com/reference/kotlin/androidx/tv/foundation/lazy/grid/package-summary)  
-[androidx.tv.foundation.lazy.list](https://developer.android.com/reference/kotlin/androidx/tv/foundation/lazy/list/package-summary)  
-[androidx.tv.material3](https://developer.android.com/reference/kotlin/androidx/tv/material3/package-summary)  
 Provides developers with Compose and Material design functionalities in order to write applications for TV
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| March 11, 2026 | [1.0.1](https://developer.android.com/jetpack/androidx/releases/tv#1.0.1) | - | [1.1.0-beta01](https://developer.android.com/jetpack/androidx/releases/tv#1.1.0-beta01) | - |
+| May 06, 2026 | [1.0.1](https://developer.android.com/jetpack/androidx/releases/tv#1.0.1) | - | [1.1.0-beta01](https://developer.android.com/jetpack/androidx/releases/tv#1.1.0-beta01) | - |
 
 ## Declaring dependencies
 
@@ -30,8 +25,8 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.tv:tv-foundation:1.0.0-beta01"
-    implementation "androidx.tv:tv-material:1.1.0-beta01"
+    implementation "androidx.tv:tv-foundation:1.0.0"
+    implementation "androidx.tv:tv-material:1.1.0"
 }
 ```
 
@@ -39,8 +34,8 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.tv:tv-foundation:1.0.0-beta01")
-    implementation("androidx.tv:tv-material:1.1.0-beta01")
+    implementation("androidx.tv:tv-foundation:1.0.0")
+    implementation("androidx.tv:tv-material:1.1.0")
 }
 ```
 
@@ -62,6 +57,12 @@ for more information.
 There are no release notes for this artifact.
 
 ## Tv-Material Version 1.1
+
+### Version 1.1.0-rc01
+
+April 08, 2026
+
+`androidx.tv:tv-material:1.1.0-rc01` is released. Version 1.1.0-rc01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/1a508f033de883ba2853b9f9ae1853eec7010638..35ab9cbc7736d5ed0b59d3ece0d2c7ca9531db72/tv/tv-material).
 
 ### Version 1.1.0-beta01
 
@@ -96,6 +97,12 @@ January 15, 2025
 - Surface (non-interactive) has a simplified implementation as compared to the interactive ones. ([I7ea545150](https://android-review.googlesource.com/q/I7ea545150dfce518ba280247843140530c3d1ecd))
 
 ## Tv-Material Version 1.0
+
+### Version 1.0.0
+
+May 06, 2026
+
+`androidx.tv:tv-foundation:1.0.0` is released. Version 1.0.0 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/362dfa0918241714146398df26a837a8304472e0..f829d50dbd135871f0a43a3eb73e1644cb976e6d/tv/tv-foundation).
 
 ### Version 1.0.1
 
@@ -176,7 +183,19 @@ May 1, 2024
 - Some carousel features have been dropped for the beta launch due to necessary APIs being experimental ([I0e755d4](https://android-review.googlesource.com/#/q/I0e755d4d2200553e6196e74bb0a40ce7aa7d541b))
 - Changing `contentColor` in `Surface` no longer animates between states ([I436e794f](https://android-review.googlesource.com/#/q/I436e794f32ef2f9dbe28c5dc854330ce34023b9d))
 
-## Version 1.0.0
+## Tv-Foundation Version 1.0.0
+
+### Version 1.1.0
+
+May 06, 2026
+
+`androidx.tv:tv-material:1.1.0` is released. Version 1.1.0 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/362dfa0918241714146398df26a837a8304472e0..1b97e977a33b52672b68b052fe671ede5798bae1/tv/tv-material).
+
+### Version 1.0.0-rc01
+
+April 08, 2026
+
+`androidx.tv:tv-foundation:1.0.0-rc01` is released. Version 1.0.0-rc01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/1a508f033de883ba2853b9f9ae1853eec7010638..6c5f3bbffc0257ceeb4050a57712b2d37dccb38f/tv/tv-foundation).
 
 ### Version 1.0.0-beta01
 

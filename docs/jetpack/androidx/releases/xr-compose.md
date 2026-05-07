@@ -10,7 +10,7 @@ source: md.txt
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| March 25, 2026 | - | - | - | [1.0.0-alpha12](https://developer.android.com/jetpack/androidx/releases/xr-compose#1.0.0-alpha12) |
+| May 06, 2026 | - | - | - | [1.0.0-alpha13](https://developer.android.com/jetpack/androidx/releases/xr-compose#1.0.0-alpha13) |
 
 ## Declaring dependencies
 
@@ -25,10 +25,10 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.xr.compose:compose:1.0.0-alpha12"
+    implementation "androidx.xr.compose:compose:1.0.0-alpha13"
 
     // Use to write unit tests
-    testImplementation "androidx.xr.compose:compose-testing:1.0.0-alpha12"
+    testImplementation "androidx.xr.compose:compose-testing:1.0.0-alpha13"
 }
 ```
 
@@ -36,10 +36,10 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.xr.compose:compose:1.0.0-alpha12")
+    implementation("androidx.xr.compose:compose:1.0.0-alpha13")
 
     // Use to write unit tests
-    testImplementation("androidx.xr.compose:compose-testing:1.0.0-alpha12")
+    testImplementation("androidx.xr.compose:compose-testing:1.0.0-alpha13")
 }
 ```
 
@@ -59,6 +59,33 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.0
+
+### Version 1.0.0-alpha13
+
+May 06, 2026
+
+`androidx.xr.compose:compose:1.0.0-alpha13` and `androidx.xr.compose:compose-testing:1.0.0-alpha13` are released. Version 1.0.0-alpha13 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/0121e6a2cc0e61e205e8b6dd6cbf762caa1dcb86..27d0d096d63fb669b5bb4658ca4ce53ecb44e8d5/xr/compose).
+
+**API Changes**
+
+- The Orbiter API is pending additional changes, we recommend suppressing the deprecation notices for Orbiters and keeping an eye out for Orbiter changes in upcoming releases.
+- Those using `SceneCoreEntity` to render glTFs should ensure that they are passing `session.scene.activitySpace` to the `parent` parameter of their `GltfModel.create` call to ensure that their glTFs will render.
+- Adding `SpatialGltfModel` API to allow developers to add Gltfs to their Compose For XR apps. Developers can also query animations and nodes inside their Gltf models. ([I8b542](https://android-review.googlesource.com/#/q/I8b542678d5e78770f43b72d417853d5930600dbe), [b/495422586](https://issuetracker.google.com/issues/495422586))
+- Changes `SceneCoreEntitySizeAdapter` from class to interface ([I5a784](https://android-review.googlesource.com/#/q/I5a784b24f9610a0009fe7b9c6a8040cf19462998), [b/475292310](https://issuetracker.google.com/issues/475292310))
+- Renamed `SurfaceProtection` to `SpatialExternalSurfaceProtection`. Updated `SpatialExternalSurface` kdocs ([Ifad0a](https://android-review.googlesource.com/#/q/Ifad0a1acb4cadf408f6ecdfc3686523181704a85), [b/485231082](https://issuetracker.google.com/issues/485231082))
+- Deprecate `currentWindowAdaptiveInfo` and introduce V2 of it ([I40ecf](https://android-review.googlesource.com/#/q/I40ecff8c40e9de56cc15c1787c2ba958bfe6ee79), [b/424442112](https://issuetracker.google.com/issues/424442112))
+- The `resizable` modifier is now public and applicable to groups (e.g. `SpatialRow`). ([I2bcf6](https://android-review.googlesource.com/#/q/I2bcf61d71d78a18495ed0ae986c3aff086a440f6), [b/348483527](https://issuetracker.google.com/issues/348483527), [b/489753178](https://issuetracker.google.com/issues/489753178), [b/479530787](https://issuetracker.google.com/issues/479530787))
+- The `movable` modifier is now public. This modifier work well, right now, for `SpatialPanels` and `SpatialExternalSurface`; however, the intention is to have these supported well for all `SubspaceComposables`. ([I9a3cd](https://android-review.googlesource.com/#/q/I9a3cd5a7989887a09282207629cd4a6dd39dfae7), [b/479530787](https://issuetracker.google.com/issues/479530787), [b/478935063](https://issuetracker.google.com/issues/478935063), [b/478935063](https://issuetracker.google.com/issues/478935063))
+- `SpatialEnterTransition` and `SpatialExitTransition` marked as `@Immutable` ([If1710](https://android-review.googlesource.com/#/q/If17108c900a075d2daec0030172d1e806a6a6964), [b/487757837](https://issuetracker.google.com/issues/487757837))
+- The `SpatialGltfModel` API is marked as restricted for this release pending additional testing. ([Ibf003](https://android-review.googlesource.com/#/q/Ibf003499d9a4c284ad6ad1abe3bff58e428ff87e), [b/466090694](https://issuetracker.google.com/issues/466090694))
+- Renamed `DeviceTrackingMode.LAST_KNOWN` to `SPATIAL_LAST_KNOWN` (with a deprecated fallback), added `INERTIAL_LAST_KNOWN` for 3DoF tracking, and added `TRACKING_DEGRADED` to `TrackingState`. ([Ie661c](https://android-review.googlesource.com/#/q/Ie661cfd441521987dcebd7e1fd1e7cfc3ef5ab9d), [b/445466590](https://issuetracker.google.com/issues/445466590))
+- Removing deprecated `SpatialLayoutSpacer` ([I7b36c](https://android-review.googlesource.com/#/q/I7b36c46ce60e5912b984395d66f55352caf1bee3))
+- Removing deprecated padding API ([If1886](https://android-review.googlesource.com/#/q/If188618e37aa061f8bdb9f9cc5d8292e4e8db40e))
+- Added `floatRange` to bias values. Removed default value for `LayoutDirection` ([I9d74e](https://android-review.googlesource.com/#/q/I9d74e5d03cdc41a6ac09a2e4a7a25d1fbfb76946))
+
+**Bug Fixes**
+
+- Added code samples and KDoc documentation for `SpatialColumn`, `SpatialRow`, and `SpatialCurvedRow`. ([Iaf54f](https://android-review.googlesource.com/#/q/Iaf54f15ccd39fd6ac5f5ac3304f3eee968ec6a2a), [b/495777633](https://issuetracker.google.com/issues/495777633))
 
 ### Version 1.0.0-alpha12
 
@@ -83,6 +110,10 @@ February 25, 2026
 **New Features**
 
 - Adding `SuperSampling` parameter to `SpatialExternalSurfaces` ([Icd4d1](https://android-review.googlesource.com/#/q/Icd4d18c137960ab4c84f03ce97e3ada0c7dc4cb6))
+
+**Known Issues**
+
+- An issue with `SurfaceEntity` in SceneCore can cause apps to crash when creating instances of `SpatialExternalSurface`. This issue is resolved in `androidx.xr.scenecore:scenecore-*:1.0.0-alpha13`, `androidx.xr.compose:compose:1.0.0-alpha12`, and their subsequent releases. Affected apps should update to the latest versions.
 
 **API Changes**
 

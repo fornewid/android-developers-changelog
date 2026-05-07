@@ -35,7 +35,7 @@ following dependency in your app module's `build.gradle` file:
 
 ```groovy
 dependencies {
-  def nav_version = "2.9.7"
+  def nav_version = "2.9.8"
 
   androidTestImplementation "androidx.navigation:navigation-testing:$nav_version"
 }
@@ -45,7 +45,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-  val nav_version = "2.9.7"
+  val nav_version = "2.9.8"
 
   androidTestImplementation("androidx.navigation:navigation-testing:$nav_version")
 }

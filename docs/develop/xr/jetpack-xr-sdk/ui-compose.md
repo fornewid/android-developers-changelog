@@ -57,7 +57,7 @@ they will fall back to their 2D counterparts.
 
 ## Create a spatial panel
 
-A [`SpatialPanel`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/SpatialPanel.composable#SpatialPanel(androidx.xr.compose.subspace.layout.SubspaceModifier,androidx.xr.compose.subspace.layout.SpatialShape,androidx.xr.compose.subspace.DragPolicy,androidx.xr.compose.subspace.ResizePolicy,androidx.xr.compose.subspace.layout.InteractionPolicy,kotlin.Function0)pose.subspace.layout.SpatialShape,androidx.xr.compose.subspace.DragPolicy,androidx.xr.compose.subspace.ResizePolicy,kotlin.Function0)) is a subspace composable that lets you display app
+A [`SpatialPanel`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/SpatialPanel.composable#SpatialPanel(androidx.xr.compose.subspace.layout.SubspaceModifier,androidx.xr.compose.subspace.layout.SpatialShape,androidx.xr.compose.subspace.DragPolicy,androidx.xr.compose.subspace.ResizePolicy,androidx.xr.compose.subspace.layout.InteractionPolicy,kotlin.Function0)) is a subspace composable that lets you display app
 content--for example, you could display video playback, still images, or any
 other content in a spatial panel.
 
@@ -110,15 +110,15 @@ fun SpatialPanelContent() {
 
 ### Key points about the code
 
-- Because [`SpatialPanel`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/SpatialPanel.composable#SpatialPanel(androidx.xr.compose.subspace.layout.SubspaceModifier,androidx.xr.compose.subspace.layout.SpatialShape,androidx.xr.compose.subspace.DragPolicy,androidx.xr.compose.subspace.ResizePolicy,androidx.xr.compose.subspace.layout.InteractionPolicy,kotlin.Function0)pose.subspace.layout.SpatialShape,androidx.xr.compose.subspace.DragPolicy,androidx.xr.compose.subspace.ResizePolicy,kotlin.Function0)) APIs are subspace composables, you must call them inside \[`Subspace`\]\[4\]. Calling them outside of a subspace throws an exception.
+- Because [`SpatialPanel`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/SpatialPanel.composable#SpatialPanel(androidx.xr.compose.subspace.layout.SubspaceModifier,androidx.xr.compose.subspace.layout.SpatialShape,androidx.xr.compose.subspace.DragPolicy,androidx.xr.compose.subspace.ResizePolicy,androidx.xr.compose.subspace.layout.InteractionPolicy,kotlin.Function0)) APIs are subspace composables, you must call them inside [`Subspace`](https://developer.android.com/reference/kotlin/androidx/xr/compose/spatial/Subspace.composable#Subspace(androidx.xr.compose.subspace.layout.SubspaceModifier,kotlin.Boolean,kotlin.Function1)). Calling them outside of a subspace throws an exception.
 - The size of the `SpatialPanel` has been set using the `height` and `width` specifications on the `SubspaceModifier`. Omitting these specifications lets the size of the panel be determined by the measurements of its contents.
-- Allow the user to move a panel by adding a [`MovePolicy`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/MovePolicy).
-- Allow the user to resize a panel by adding a [`ResizePolicy`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/ResizePolicy).
+- Allow the user to move a panel by adding a [`movable`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/layout/SubspaceModifier#(androidx.xr.compose.subspace.layout.SubspaceModifier).movable(kotlin.Boolean,kotlin.Boolean,kotlin.Boolean,kotlin.Function1,kotlin.Function1,kotlin.Function1)) subspace modifier.
+- Allow the user to resize a panel by adding a [`resizable`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/layout/SubspaceModifier#(androidx.xr.compose.subspace.layout.SubspaceModifier).resizable(kotlin.Boolean,androidx.xr.compose.unit.DpVolumeSize,androidx.xr.compose.unit.DpVolumeSize,kotlin.Boolean,kotlin.Function1,kotlin.Function1,kotlin.Function1)) subspace modifier.
 - See our [spatial panel design guidance](https://developer.android.com/design/ui/xr/guides/spatial-ui#spatial-panels) for details on sizing and positioning. See our [reference documentation](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/package-summary) for more specifics on code implementation.
 
-#### How a `MovePolicy` works
+#### How the `movable` modifier works
 
-As a user moves a panel away from them, by default, a `MovePolicy`
+As a user moves a panel away from them, by default, the `movable` modifier
 scales the panel in a similar way to how panels are resized by the system in
 [home space](https://developer.android.com/develop/xr/jetpack-xr-sdk/transition-home-space-to-full-space). All children content inherit this behavior. To disable this,
 set the `shouldScaleWithDistance` parameter to `false`.
@@ -197,7 +197,7 @@ fun OrbiterExample() {
 
 You can create multiple spatial panels and place them within a spatial layout
 using [`SpatialRow`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/SpatialRow.composable), [`SpatialColumn`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/SpatialColumn.composable#SpatialColumn(androidx.xr.compose.subspace.layout.SubspaceModifier,androidx.xr.compose.subspace.layout.SpatialAlignment.Horizontal,androidx.xr.compose.subspace.layout.SpatialAlignment.Depth,androidx.xr.compose.subspace.layout.SpatialArrangement.Vertical,kotlin.Function1)), [`SpatialBox`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/SpatialBox.composable#SpatialBox(androidx.xr.compose.subspace.layout.SubspaceModifier,androidx.xr.compose.subspace.layout.SpatialAlignment,kotlin.Boolean,kotlin.Function1)), and
-[`SpatialLayoutSpacer`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/SpatialLayoutSpacer.composable#SpatialLayoutSpacer(androidx.xr.compose.subspace.layout.SubspaceModifier)).
+[`SpatialSpacer`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/SpatialSpacer.composable#SpatialSpacer(androidx.xr.compose.subspace.layout.SubspaceModifier)).
 
 ![Example of multiple spatial panels in a spatial layout](https://developer.android.com/static/images/develop/xr/jetpack-xr-sdk/develop-ui/develop-ui-xr-spatial-panels.jpg)
 
@@ -265,14 +265,56 @@ fun SpatialPanelContent(text: String) {
 
 ### Key points about the code
 
-- [`SpatialRow`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/SpatialRow.composable), [`SpatialColumn`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/SpatialColumn.composable#SpatialColumn(androidx.xr.compose.subspace.layout.SubspaceModifier,androidx.xr.compose.subspace.layout.SpatialAlignment.Horizontal,androidx.xr.compose.subspace.layout.SpatialAlignment.Depth,androidx.xr.compose.subspace.layout.SpatialArrangement.Vertical,kotlin.Function1)), [`SpatialBox`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/SpatialBox.composable#SpatialBox(androidx.xr.compose.subspace.layout.SubspaceModifier,androidx.xr.compose.subspace.layout.SpatialAlignment,kotlin.Boolean,kotlin.Function1)), and [`SpatialLayoutSpacer`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/SpatialLayoutSpacer.composable#SpatialLayoutSpacer(androidx.xr.compose.subspace.layout.SubspaceModifier)) are all subspace composables and must be placed within a subspace.
+- [`SpatialRow`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/SpatialRow.composable), [`SpatialColumn`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/SpatialColumn.composable#SpatialColumn(androidx.xr.compose.subspace.layout.SubspaceModifier,androidx.xr.compose.subspace.layout.SpatialAlignment.Horizontal,androidx.xr.compose.subspace.layout.SpatialAlignment.Depth,androidx.xr.compose.subspace.layout.SpatialArrangement.Vertical,kotlin.Function1)), [`SpatialBox`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/SpatialBox.composable#SpatialBox(androidx.xr.compose.subspace.layout.SubspaceModifier,androidx.xr.compose.subspace.layout.SpatialAlignment,kotlin.Boolean,kotlin.Function1)), and [`SpatialSpacer`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/SpatialSpacer.composable#SpatialSpacer(androidx.xr.compose.subspace.layout.SubspaceModifier)) are all subspace composables and must be placed within a subspace.
 - Use [`SubspaceModifier`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/layout/SubspaceModifier) to customize your layout.
 - For layouts with multiple panels in a row, we recommend setting a curve radius of 825dp using a `SubspaceModifier` so the panels will surround your user. See our [design guidance](https://developer.android.com/design/ui/xr/guides/spatial-ui#spatial-panels) for details.
 
+## Add a 3D object to your layout using SpatialGltfModel
+
+Android XR supports the [glTF](https://www.khronos.org/gltf/) format for 3D models, typically saved as
+`.glb` files. To add these objects to your layout, you should use the
+[`SpatialGltfModel`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/SpatialGltfModel.composable#SpatialGltfModel(androidx.xr.compose.subspace.SpatialGltfModelState,androidx.xr.compose.subspace.layout.SubspaceModifier,kotlin.Function0)) composable. This API simplifies the
+process of loading assets and managing their state.
+
+To display a model, first define its source and state using
+[`rememberSpatialGltfModelState`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/rememberSpatialGltfModelState.composable#rememberSpatialGltfModelState(androidx.xr.compose.subspace.SpatialGltfModelSource)). You can load
+models from your app's [`assets`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/SpatialGltfModelSource#fromPath(java.nio.file.Path)) folder, a [`URI`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/SpatialGltfModelSource#fromUri(android.net.Uri)), or
+[`raw data`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/SpatialGltfModelSource#fromData(kotlin.ByteArray,kotlin.String)).
+
+
+```kotlin
+val modelState = rememberSpatialGltfModelState(
+    source = SpatialGltfModelSource.fromPath(
+        Paths.get("models/model_name.glb")
+    )
+)
+```
+
+<br />
+
+Once the state is defined, use the `SpatialGltfModel` composable to render it
+within a Subspace.
+
+
+```kotlin
+SpatialGltfModel(state = modelState, modifier = SubspaceModifier)
+```
+
+<br />
+
+### Key points about the code
+
+- Asynchronous loading: The model is loaded asynchronously. During initial composition, its intrinsic size might be zero; the layout re-measures once the model is ready.
+- Controlling state: Use [`SpatialGltfModelState.status`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/SpatialGltfModelState#status()) to query the loading status or to control animations.
+- Sizing and scaling: By default, the layout size matches the bounding box of the asset. You can override this with a `SubspaceModifier.size` to scale the model uniformly to fit within specified bounds.
+
 ## Use a SceneCoreEntity to place entities in your layout
 
-To place a 3D object in your layout, you'll need to use a subspace composable
-called a [`SceneCoreEntity`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/SceneCoreEntity.composable#SceneCoreEntity(kotlin.Function0,androidx.xr.compose.subspace.layout.SubspaceModifier,kotlin.Function1,androidx.xr.compose.subspace.SceneCoreEntitySizeAdapter,kotlin.Function0)). Here's an example of how to do that.
+The [`SceneCoreEntity`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/SceneCoreEntity.composable#SceneCoreEntity(kotlin.Function0,androidx.xr.compose.subspace.layout.SubspaceModifier,kotlin.Function1,androidx.xr.compose.subspace.SceneCoreEntitySizeAdapter,kotlin.Function0)) composable bridges the [Jetpack
+SceneCore](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/package-summary) and [Compose for XR](https://developer.android.com/reference/kotlin/androidx/xr/compose/spatial/package-summary) libraries so that you can use
+entities built with SceneCore in Compose layouts. This lets you build
+lower-level entities and custom components while allowing Compose to size,
+position, reparent, add children, and apply modifiers to those entities.
 
 
 ```kotlin
@@ -303,6 +345,12 @@ Subspace {
 ```
 
 <br />
+
+### Key points about the code
+
+- Factory block: The factory block is where you initialize the underlying `SceneCore` entity.
+- Update block: Use the update block to modify the entity's properties in response to changes in your Compose state.
+- Size Adaptation: The `sizeAdapter` communicates the entity's dimensions back to the Compose layout system.
 
 ### Additional information
 
@@ -379,10 +427,11 @@ streams. To enable this, you must create a secure surface that renders to
 protected graphics buffers. This prevents the content from being screen-recorded
 or accessed by non-secure system components.
 
-To create a secure surface, set the `surfaceProtection` parameter to
-`SurfaceProtection.Protected` on the [`SpatialExternalSurface`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/SpatialExternalSurface.composable#SpatialExternalSurface(androidx.xr.compose.subspace.StereoMode,androidx.xr.compose.subspace.layout.SubspaceModifier,androidx.xr.compose.subspace.draw.SpatialFeatheringEffect,androidx.xr.compose.subspace.SurfaceProtection,androidx.xr.compose.subspace.DragPolicy,androidx.xr.compose.subspace.ResizePolicy,androidx.xr.compose.subspace.layout.InteractionPolicy,androidx.xr.compose.subspace.SuperSamplingPattern,kotlin.Function1)) composable.
-Additionally, you must configure [Media3 Exoplayer](https://developer.android.com/develop/xr/jetpack-xr-sdk/add-3d-models) with the appropriate DRM
-information to handle the license acquisition from a license server.
+To create a secure surface, set the `SpatialExternalSurfaceProtection` parameter
+to `SpatialExternalSurfaceProtection.Protected` on the
+[`SpatialExternalSurface`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/SpatialExternalSurface.composable#SpatialExternalSurface(androidx.xr.compose.subspace.StereoMode,androidx.xr.compose.subspace.layout.SubspaceModifier,androidx.xr.compose.subspace.draw.SpatialFeatheringEffect,androidx.xr.compose.subspace.SurfaceProtection,androidx.xr.compose.subspace.DragPolicy,androidx.xr.compose.subspace.ResizePolicy,androidx.xr.compose.subspace.layout.InteractionPolicy,androidx.xr.compose.subspace.SuperSamplingPattern,kotlin.Function1)) composable. Additionally, you must configure
+[Media3 Exoplayer](https://developer.android.com/develop/xr/jetpack-xr-sdk/add-3d-models) with the appropriate DRM information to handle the
+license acquisition from a license server.
 
 The following example demonstrates how to configure `SpatialExternalSurface` and
 `ExoPlayer` to play a DRM-protected video stream:
@@ -435,7 +484,7 @@ fun DrmSpatialVideoPlayer() {
 
 #### Key points about the code
 
-- Protected Surface: Setting `surfaceProtection = SurfaceProtection.Protected` on `SpatialExternalSurface` is essential so that the underlying `Surface` is backed by secure buffers suitable for DRM content.
+- Protected Surface: Setting `surfaceProtection = SpatialExternalSurfaceProtection.Protected` on `SpatialExternalSurface` is essential so that the underlying `Surface` is backed by secure buffers suitable for DRM content.
 - DRM Configuration: You must configure the `MediaItem` with the DRM scheme (for example, `C.WIDEVINE_UUID`) and the URI of your license server. ExoPlayer uses this information to manage the DRM session.
 - Secure Content: When rendering to a protected surface, the video content is decoded and displayed on a secure path, which helps satisfy content licensing requirements. This also prevents the content from appearing in screen captures.
 

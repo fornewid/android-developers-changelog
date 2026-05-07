@@ -6,8 +6,6 @@ source: md.txt
 
 # camera viewfinder
 
-API Reference  
-[androidx.camera.viewfinder](https://developer.android.com/reference/kotlin/androidx/camera/viewfinder/package-summary)  
 Standalone Composable and View based Viewfinder for Camera"
 
 
@@ -15,11 +13,11 @@ This table lists all the artifacts in the `androidx.camera-viewfinder` group.
 
 | Artifact | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| viewfinder-compose | [1.5.3](https://developer.android.com/jetpack/androidx/releases/camera-viewfinder#1.5.3) | [1.6.0-rc01](https://developer.android.com/jetpack/androidx/releases/camera-viewfinder#1.6.0-rc01) | - | [1.7.0-alpha01](https://developer.android.com/jetpack/androidx/releases/camera-viewfinder#1.7.0-alpha01) |
-| viewfinder-core | [1.5.3](https://developer.android.com/jetpack/androidx/releases/camera-viewfinder#1.5.3) | [1.6.0-rc01](https://developer.android.com/jetpack/androidx/releases/camera-viewfinder#1.6.0-rc01) | - | [1.7.0-alpha01](https://developer.android.com/jetpack/androidx/releases/camera-viewfinder#1.7.0-alpha01) |
-| viewfinder-view | [1.5.3](https://developer.android.com/jetpack/androidx/releases/camera-viewfinder#1.5.3) | [1.6.0-rc01](https://developer.android.com/jetpack/androidx/releases/camera-viewfinder#1.6.0-rc01) | - | [1.7.0-alpha01](https://developer.android.com/jetpack/androidx/releases/camera-viewfinder#1.7.0-alpha01) |
+| viewfinder-compose | [1.6.1](https://developer.android.com/jetpack/androidx/releases/camera-viewfinder#1.6.1) | - | - | [1.7.0-alpha01](https://developer.android.com/jetpack/androidx/releases/camera-viewfinder#1.7.0-alpha01) |
+| viewfinder-core | [1.6.1](https://developer.android.com/jetpack/androidx/releases/camera-viewfinder#1.6.1) | - | - | [1.7.0-alpha01](https://developer.android.com/jetpack/androidx/releases/camera-viewfinder#1.7.0-alpha01) |
+| viewfinder-view | [1.6.1](https://developer.android.com/jetpack/androidx/releases/camera-viewfinder#1.6.1) | - | - | [1.7.0-alpha01](https://developer.android.com/jetpack/androidx/releases/camera-viewfinder#1.7.0-alpha01) |
 
-This library was last updated on: March 11, 2026
+This library was last updated on: May 06, 2026
 
 ## Declaring dependencies
 
@@ -80,6 +78,22 @@ March 11, 2026
 `androidx.camera.viewfinder:viewfinder-compose:1.7.0-alpha01`, `androidx.camera.viewfinder:viewfinder-core:1.7.0-alpha01`, and `androidx.camera.viewfinder:viewfinder-view:1.7.0-alpha01` are released. Version 1.7.0-alpha01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/0dc6fa695e63a0bbc17f07b7368ba2567fb47d01..1a508f033de883ba2853b9f9ae1853eec7010638/camera/viewfinder).
 
 ## Version 1.6
+
+### Version 1.6.1
+
+May 06, 2026
+
+`androidx.camera.viewfinder:viewfinder-compose:1.6.1`, `androidx.camera.viewfinder:viewfinder-core:1.6.1`, and `androidx.camera.viewfinder:viewfinder-view:1.6.1` are released. Version 1.6.1 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/18899702605001b396c92fe1f50666948ce85048..987b9ac8585b31424a397206c492196dd163997b/camera/viewfinder).
+
+### Version 1.6.0
+
+March 25, 2026
+
+`androidx.camera.viewfinder:viewfinder-compose:1.6.0`, `androidx.camera.viewfinder:viewfinder-core:1.6.0`, and `androidx.camera.viewfinder:viewfinder-view:1.6.0` are released. Version 1.6.0 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/2afad3835627a7fdd11578788696f14b7aff6017..18899702605001b396c92fe1f50666948ce85048/camera/viewfinder).
+
+**Important changes since 1.5.0:**
+
+- Exposed the default viewfinder `ImplementationMode` via the new `ViewfinderDefaults.implementationMode` public API. This is now used as the default for both `ViewfinderView` and the `Viewfinder` composable. ([Ic3f52](https://android-review.googlesource.com/#/q/Ic3f52afe6a4e188b3487f124b4fa873d5e2f2b06))
 
 ### Version 1.6.0-rc01
 

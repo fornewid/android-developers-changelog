@@ -10,7 +10,7 @@ source: md.txt
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| March 25, 2026 | [1.10.6](https://developer.android.com/jetpack/androidx/releases/compose-foundation#1.10.6) | - | [1.11.0-beta02](https://developer.android.com/jetpack/androidx/releases/compose-foundation#1.11.0-beta02) | - |
+| May 06, 2026 | [1.11.1](https://developer.android.com/jetpack/androidx/releases/compose-foundation#1.11.1) | - | - | [1.12.0-alpha02](https://developer.android.com/jetpack/androidx/releases/compose-foundation#1.12.0-alpha02) |
 
 ## Structure
 
@@ -43,7 +43,7 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.compose.foundation:foundation:1.10.6"
+    implementation "androidx.compose.foundation:foundation:1.11.1"
 }
 
 android {
@@ -65,7 +65,7 @@ android {
 
 ```kotlin
 dependencies {
-    implementation("androidx.compose.foundation:foundation:1.10.6")
+    implementation("androidx.compose.foundation:foundation:1.11.1")
 }
 
 android {
@@ -98,7 +98,74 @@ clicking the star button.
 See the [Issue Tracker documentation](https://developers.google.com/issue-tracker)
 for more information.
 
+## Version 1.12
+
+### Version 1.12.0-alpha02
+
+May 06, 2026
+
+`androidx.compose.foundation:foundation-*:1.12.0-alpha02` is released. Version 1.12.0-alpha02 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/df4b49eda6f6834b6bc4c8aa30a581fa577a511e..5ec3fd7563f4f9b2ba745aac0ad7770cc4cd087f/compose/foundation).
+
+### Version 1.12.0-alpha01
+
+April 22, 2026
+
+`androidx.compose.foundation:foundation-*:1.12.0-alpha01` is released. Version 1.12.0-alpha01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/ecc44700355708734de3756bf5e677323ae14ed1..df4b49eda6f6834b6bc4c8aa30a581fa577a511e/compose/foundation).
+
+**API Changes**
+
+- A new flag `isBasicTextFieldHeighInLinesOptimizationEnabled` was added to enable optimisation in calculating text field's height in the number of min/max lines. If should be on by default. If you find any regressions in the text field layout and disabling this flag fixes it, please file a bug to Compose team to investigate. ([Idffae](https://android-review.googlesource.com/#/q/Idffaeae4572fb2a657968561ea27357ab3a3ace4), [b/486871837](https://issuetracker.google.com/issues/486871837), [b/487546327](https://issuetracker.google.com/issues/487546327))
+- Fix `textfield` selection while editing text during gesture. ([I6fd98](https://android-review.googlesource.com/#/q/I6fd9868b321a099dc9b04430dc62069d0c895077), [b/490509264](https://issuetracker.google.com/issues/490509264))
+- Added `colorFilter` support to `StyleScope` in Compose Foundation. ([I553a0](https://android-review.googlesource.com/#/q/I553a0bda0b23ec220d542b6a6b3278099b25980a))
+- Added `textMotion` to `StyleScope`. ([Id8523](https://android-review.googlesource.com/#/q/Id852338eca11f96a76fee08ba4449ab116b09bd5), [b/482301609](https://issuetracker.google.com/issues/482301609))
+- Adds additional `KeyboardType` options to complete the set of supported keyboard options on Android, including date, time, datetime, signed decimal, and more. ([I3713e](https://android-review.googlesource.com/#/q/I3713e4fd9c4201aca7ae18debf22728cd08b598e), [b/202353328](https://issuetracker.google.com/issues/202353328))
+- Remove flag `isNestedDraggablesTouchConflictFixEnabled` ([I79e52](https://android-review.googlesource.com/#/q/I79e52bb1c60ac0c1111d213d21ec670a6f45dbd7), [b/485966180](https://issuetracker.google.com/issues/485966180))
+- Remove flag `isDelayPressesUsingGestureConsumptionEnabled` ([I533dd](https://android-review.googlesource.com/#/q/I533ddad246b4dc9feead3f109dd8ec096dfa1ae4), [b/485966702](https://issuetracker.google.com/issues/485966702))
+- Remove flag `isBringIntoViewRltBouncyBehaviorInPagerFixEnabled` as it's been released in a stable version. ([I73fb2](https://android-review.googlesource.com/#/q/I73fb27dc6e95d97c1b374e43e5678a4cb19c8047), [b/485967682](https://issuetracker.google.com/issues/485967682))
+- Remove flag `isCacheWindowRefillFixEnabled` as it's been released in a stable version. ([Ic7505](https://android-review.googlesource.com/#/q/Ic75054674d701b8a8eede5b632caa7c0bc80dc06), [b/485967875](https://issuetracker.google.com/issues/485967875))
+- Removes `ComposeFoundationFlags#isNonSuspendingPointerInputInCombinedClickableEnabled` ([I1f76c](https://android-review.googlesource.com/#/q/I1f76c7c99a895986bea609a08c9b570e9b5a1851), [b/485966320](https://issuetracker.google.com/issues/485966320), [b/477836055](https://issuetracker.google.com/issues/477836055))
+- Added overloads for `contentPadding` and `externalPadding` in `StyleScope` that accept `PaddingValues`. ([I3a6ce](https://android-review.googlesource.com/#/q/I3a6cec53d43e4d22309bd37da4a02a16f2bd514b), [b/493154098](https://issuetracker.google.com/issues/493154098))
+- Changed the `VelocityTracker` to use the implementation provided by the Android Framework (configurable with `AndroidComposeUiFlags.isFrameworkVelocityTrackerEnabled`). ([Ibc7e2](https://android-review.googlesource.com/#/q/Ibc7e24c4840a9e6235240642945db374b8068e10), [b/359962905](https://issuetracker.google.com/issues/359962905))
+
+**Bug Fixes**
+
+- Changed how animations and properties are tracked to avoid overlapping animations for the same property. ([I4921f](https://android-review.googlesource.com/#/q/I4921f32f149283c1d22f1e6808a73d52155be4ac))
+- Fixed the bug that context menu will crash when the `TextField`(or selectable text) is in a Dialog. ([I21461](https://android-review.googlesource.com/#/q/I21461d5d0659676c4b18370dc3db57e3f43e8a6e), [b/441759435](https://issuetracker.google.com/issues/441759435))
+- Updated Compose `compileSdk` to API 37. This means that a minimum AGP version of 9.2.0 is required when using Compose. ([Id45cd](https://android-review.googlesource.com/#/q/Id45cdca34ef948e06259b2dd9adc901b7c930492), [b/413674743](https://issuetracker.google.com/issues/413674743))
+- Fixed an issue in Grid where keyboard focus and accessibility traversal followed the item composition order rather than the visual Z-shaped placement order. ([I122a8](https://android-review.googlesource.com/#/q/I122a8ef9905023f5fc6944dca2f6a72280b85475), [b/494096503](https://issuetracker.google.com/issues/494096503))
+- Fixed a bug where the text selection toolbar would incorrectly hide when the start and end handles aligned horizontally (e.g. selecting across multiple lines ending on an empty line). ([I391d2](https://android-review.googlesource.com/#/q/I391d2f7d91999f24e6a2d1781c5a80cfb56f8d0a), [b/497724722](https://issuetracker.google.com/issues/497724722))
+- Fixed an issue in `FlexBox` where items would not shrink correctly when exceeding the container bounds. ([Ia741d](https://android-review.googlesource.com/#/q/Ia741d22a77ae3f33e45b2e65532a16a7131e413a), [b/480797591](https://issuetracker.google.com/issues/480797591))
+- Bugfix for `foregroundColor` not being correctly invalidated. ([I74abe](https://android-review.googlesource.com/#/q/I74abe341bed1ee265a735f0a7d08dc8f1883188c), [b/493245886](https://issuetracker.google.com/issues/493245886))
+- Fixes stale insets for the case where the inset listener for Compose is detached and reattached. ([I1e905](https://android-review.googlesource.com/#/q/I1e9052add06cee77ea66749619fed01091cb32fa), [b/491346046](https://issuetracker.google.com/issues/491346046), [b/486084139](https://issuetracker.google.com/issues/486084139))
+- When a user moves the cursor outside the scrollable area, the cursor is now scrolled into the visible space. ([If694c](https://android-review.googlesource.com/#/q/If694c0325af3704dda197b33f027946fcc69e658), [b/266094055](https://issuetracker.google.com/issues/266094055))
+
 ## Version 1.11
+
+### Version 1.11.1
+
+May 06, 2026
+
+`androidx.compose.foundation:foundation-*:1.11.1` is released. Version 1.11.1 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/6ce2d81339d3380e021df09daaa55acb307ee912..5d39d0c458dbf0b3791cfaba65f42a27e442c15f/compose/foundation).
+
+**Bug Fixes**
+
+- Fixed an issue in `FlexBox` where items would not shrink correctly when exceeding the container bounds. ([Ia741d](https://android-review.googlesource.com/#/q/Ia741d22a77ae3f33e45b2e65532a16a7131e413a), [b/480797591](https://issuetracker.google.com/issues/480797591))
+
+### Version 1.11.0
+
+April 22, 2026
+
+`androidx.compose.foundation:foundation-*:1.11.0` is released. Version 1.11.0 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/deab088e55dabc3db4d0638d62ea3132fc51d69b..6ce2d81339d3380e021df09daaa55acb307ee912/compose/foundation).
+
+### Version 1.11.0-rc01
+
+April 08, 2026
+
+`androidx.compose.foundation:foundation-*:1.11.0-rc01` is released. Version 1.11.0-rc01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/56409d2ed9fc0e8746250e5d8862c080d0c80087..ecc44700355708734de3756bf5e677323ae14ed1/compose/foundation).
+
+**API Changes**
+
+- Fix `textfield` selection while editing text during gesture. ([I2ba33](https://android-review.googlesource.com/#/q/I2ba330289884de53d0c8f9dd3b27f01ebbf0396e), [b/490509264](https://issuetracker.google.com/issues/490509264))
 
 ### Version 1.11.0-beta02
 

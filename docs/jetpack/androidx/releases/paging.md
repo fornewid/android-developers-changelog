@@ -13,10 +13,10 @@ This table lists all the artifacts in the `androidx.paging` group.
 
 | Artifact | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| paging-\* | [3.4.1](https://developer.android.com/jetpack/androidx/releases/paging#3.4.1) | - | - | [3.5.0-alpha01](https://developer.android.com/jetpack/androidx/releases/paging#3.5.0-alpha01) |
-| paging-compose | [3.4.1](https://developer.android.com/jetpack/androidx/releases/paging#3.4.1) | - | - | [3.5.0-alpha01](https://developer.android.com/jetpack/androidx/releases/paging#3.5.0-alpha01) |
+| paging-\* | [3.5.0](https://developer.android.com/jetpack/androidx/releases/paging#3.5.0) | - | - | - |
+| paging-compose | [3.5.0](https://developer.android.com/jetpack/androidx/releases/paging#3.5.0) | - | - | - |
 
-This library was last updated on: March 11, 2026
+This library was last updated on: May 06, 2026
 
 ## Declaring dependencies
 
@@ -31,7 +31,7 @@ your app or module:
 
 ```groovy
 dependencies {
-  def paging_version = "3.4.1"
+  def paging_version = "3.5.0"
 
   implementation "androidx.paging:paging-runtime:$paging_version"
 
@@ -48,7 +48,7 @@ dependencies {
   implementation "androidx.paging:paging-guava:$paging_version"
 
   // optional - Jetpack Compose integration
-  implementation "androidx.paging:paging-compose:3.5.0-alpha01"
+  implementation "androidx.paging:paging-compose:3.5.0"
 }
 ```
 
@@ -56,7 +56,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-  val paging_version = "3.4.1"
+  val paging_version = "3.5.0"
 
   implementation("androidx.paging:paging-runtime:$paging_version")
 
@@ -73,7 +73,7 @@ dependencies {
   implementation("androidx.paging:paging-guava:$paging_version")
 
   // optional - Jetpack Compose integration
-  implementation("androidx.paging:paging-compose:3.5.0-alpha01")
+  implementation("androidx.paging:paging-compose:3.5.0")
 }
 ```
 
@@ -96,6 +96,32 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 3.5
+
+### Version 3.5.0
+
+May 06, 2026
+
+`androidx.paging:paging-*:3.5.0` is released. Version 3.5.0 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/e1d643601cb239f3506da86f62e3b5619294e6e0..d0f5daa3f889fbbaad88763d8e0bc8dfbf90f03f/paging).
+
+### Version 3.5.0-rc01
+
+April 22, 2026
+
+`androidx.paging:paging-*:3.5.0-rc01` is released. Version 3.5.0-rc01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/1084df59b549f7ddc3e0b18213917a26af4aff10..ea98cdb782363cf3ee86f5c3393757dd1f608653/paging).
+
+**No changes**
+
+- There are no notable changes from version `3.5.0-beta01`.
+
+### Version 3.5.0-beta01
+
+April 08, 2026
+
+`androidx.paging:paging-*:3.5.0-beta01` is released. Version 3.5.0-beta01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/1a508f033de883ba2853b9f9ae1853eec7010638..1084df59b549f7ddc3e0b18213917a26af4aff10/paging).
+
+**API Changes**
+
+- The `Flow<PagingData>.asState` API has been renamed to `Flow<PagingData>.asItemSnapshotListFlow` ([I0dc11](https://android-review.googlesource.com/#/q/I0dc1134fe42ffa2dd48d1f60beb86f66ffa80c08), [b/496548025](https://issuetracker.google.com/issues/496548025))
 
 ### Version 3.5.0-alpha01
 
@@ -152,6 +178,16 @@ March 11, 2026
 - Added `Pager.refresh` and `Pager.retry` to recover from load errors when using `asState` API. See [this document](https://cs.android.com/androidx/platform/frameworks/support/+/androidx-main:paging/samples/src/main/java/androidx/paging/samples/PagerAsStateSamples.kt?q=pagerasstatesample) for more sample usages of the new APIs. ([I1e1e9](https://android-review.googlesource.com/#/q/I1e1e9544dd3786b9b778daed2995db04734defdf), [If3c87](https://android-review.googlesource.com/#/q/If3c8768f87a35e6271479b853b637fa60520bd9b), [Idbd48](https://android-review.googlesource.com/#/q/Idbd4853898c0c3d6199914c8c0637b97e337c1f0), [Id1e1d](https://android-review.googlesource.com/#/q/Id1e1d4de0a64ffa6297fa9e6d9901a5cacfaad2e), [I816fe](https://android-review.googlesource.com/#/q/I816febd0a51413c9e8102f9c32cf8dc4dc67892f))
 
 ## Version 3.4
+
+### Version 3.4.2
+
+March 11, 2026
+
+`androidx.paging:paging-*:3.4.2` is released. Version 3.4.2 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/302478513a01447578462b168226f9de5a26ed10..e1d643601cb239f3506da86f62e3b5619294e6e0/paging).
+
+**No changes**
+
+- This release does not have any api or behavioral change from version 3.4.1.
 
 ### Version 3.4.1
 

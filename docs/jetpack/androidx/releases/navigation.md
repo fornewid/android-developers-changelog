@@ -6,21 +6,11 @@ source: md.txt
 
 # Navigation
 
-[User Guide](https://developer.android.com/guide/navigation) [Code Sample](https://github.com/android/architecture-components-samples) [Codelab](https://codelabs.developers.google.com/codelabs/android-navigation) API Reference  
-[androidx.navigation](https://developer.android.com/reference/kotlin/androidx/navigation/package-summary)  
-[androidx.navigation.compose](https://developer.android.com/reference/kotlin/androidx/navigation/compose/package-summary)  
-[androidx.navigation.dynamicfeatures](https://developer.android.com/reference/kotlin/androidx/navigation/dynamicfeatures/package-summary)  
-[androidx.navigation.dynamicfeatures.fragment](https://developer.android.com/reference/kotlin/androidx/navigation/dynamicfeatures/fragment/package-summary)  
-[androidx.navigation.dynamicfeatures.fragment.ui](https://developer.android.com/reference/kotlin/androidx/navigation/dynamicfeatures/fragment/ui/package-summary)  
-[androidx.navigation.fragment](https://developer.android.com/reference/kotlin/androidx/navigation/fragment/package-summary)  
-[androidx.navigation.fragment.compose](https://developer.android.com/reference/kotlin/androidx/navigation/fragment/compose/package-summary)  
-[androidx.navigation.testing](https://developer.android.com/reference/kotlin/androidx/navigation/testing/package-summary)  
-[androidx.navigation.ui](https://developer.android.com/reference/kotlin/androidx/navigation/ui/package-summary)  
-Navigation is a framework for navigating between 'destinations' within an Android application that provides a consistent API whether destinations are implemented as Fragments, Activities, or other components.
+[User Guide](https://developer.android.com/guide/navigation) [Code Sample](https://github.com/android/architecture-components-samples) [Codelab](https://codelabs.developers.google.com/codelabs/android-navigation) Navigation is a framework for navigating between 'destinations' within an Android application that provides a consistent API whether destinations are implemented as Fragments, Activities, or other components.
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| March 11, 2026 | [2.9.7](https://developer.android.com/jetpack/androidx/releases/navigation#2.9.7) | - | - | [2.10.0-alpha01](https://developer.android.com/jetpack/androidx/releases/navigation#2.10.0-alpha01) |
+| May 06, 2026 | [2.9.8](https://developer.android.com/jetpack/androidx/releases/navigation#2.9.8) | - | - | [2.10.0-alpha04](https://developer.android.com/jetpack/androidx/releases/navigation#2.10.0-alpha04) |
 
 ## Declaring dependencies
 
@@ -40,7 +30,7 @@ plugins {
 }
   
 dependencies {
-  def nav_version = "2.9.7"
+  def nav_version = "2.9.8"
 
   // Jetpack Compose Integration
   implementation "androidx.navigation:navigation-compose:$nav_version"
@@ -69,7 +59,7 @@ plugins {
 }
 
 dependencies {
-  val nav_version = "2.9.7"
+  val nav_version = "2.9.8"
 
   // Jetpack Compose integration
   implementation("androidx.navigation:navigation-compose:$nav_version")
@@ -102,7 +92,7 @@ buildscript {
         google()
     }
     dependencies {
-        def nav_version = "2.9.7"
+        def nav_version = "2.9.8"
         classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$nav_version"
     }
 }
@@ -116,7 +106,7 @@ buildscript {
         google()
     }
     dependencies {
-        val nav_version = "2.9.7"
+        val nav_version = "2.9.8"
         classpath("androidx.navigation:navigation-safe-args-gradle-plugin:$nav_version")
     }
 }
@@ -182,7 +172,38 @@ clicking the star button.
 See the [Issue Tracker documentation](https://developers.google.com/issue-tracker)
 for more information.
 
-## Version 2.10
+## Navigation Version 2.10
+
+### Version 2.10.0-alpha04
+
+May 06, 2026
+
+`androidx.navigation:navigation-*:2.10.0-alpha04` is released. Version 2.10.0-alpha04 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/35ca96cc1f129a6cc9d6650029cd6155668f4e7a..5ec3fd7563f4f9b2ba745aac0ad7770cc4cd087f/navigation).
+
+**Bug Fixes**
+
+- Improved `NavHost` to bolster against possible `NullPointerException`s caused by a race condition with predictive back. ([Ie36c6](https://android-review.googlesource.com/#/q/Ie36c68ee4a24307194d85ef08737b091225194f6), [b/500945998](https://issuetracker.google.com/issues/500945998))
+
+### Version 2.10.0-alpha03
+
+April 22, 2026
+
+`androidx.navigation:navigation-*:2.10.0-alpha03` is released. Version 2.10.0-alpha03 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/3268ea760d665cee25941f7245395b2ebdf5bb50..6621e5c304ab7a8ac67f938c3ef741428a21184d/navigation).
+
+**Bug Fixes**
+
+- Updated Compose `compileSdk` to API 37. This means that a minimum AGP version of 9.2.0 is required when using Compose. ([Id45cd](https://android-review.googlesource.com/#/q/Id45cdca34ef948e06259b2dd9adc901b7c930492), [b/413674743](https://issuetracker.google.com/issues/413674743))
+
+**External Contribution**
+
+- `watchos` and `tvos` targets added to `navigation-common`, `navigation-runtime` and `navigation-testing` modules ([I60e46](https://android-review.googlesource.com/#/q/I60e460eb4b5ff4d653f1b4d4cf3acad0643253e8))
+- Make `DefaultNavTransitions` public ([Ide293](https://android-review.googlesource.com/#/q/Ide293e6b1c4fa7892375345e664ca9135c997b6b))
+
+### Version 2.10.0-alpha02
+
+March 25, 2026
+
+`androidx.navigation:navigation-*:2.10.0-alpha02` is released. Version 2.10.0-alpha02 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/a15c668d4bb2e00cfa8ed1af96895a84c3e7e2d5..3268ea760d665cee25941f7245395b2ebdf5bb50/navigation).
 
 ### Version 2.10.0-alpha01
 
@@ -203,6 +224,16 @@ March 11, 2026
 - `navigation:navigation-common`, `navigation:navigation-runtime`, and `navigation:navigation-testing` now support desktop, linux, macOS, iOS, javascript, and WASM in addition to android. Thanks Konstantin Tskhovrebov!([I035d9](https://android-review.googlesource.com/#/q/I035d92d46ba5e4f46f27a18686d9c669d0af3457), [Iec624](https://android-review.googlesource.com/#/q/Iec6244141b76c9dcd717c75e959cac531d47e8ae), [I1615d](https://android-review.googlesource.com/#/q/I1615d9b8b27ee93ba621f181f9b1bb70a7941d50))
 
 ## Version 2.9
+
+### Version 2.9.8
+
+April 22, 2026
+
+`androidx.navigation:navigation-*:2.9.8` is released. Version 2.9.8 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/587126e8aabdc62a54ccd3011688507299ad66b5..75fb15aa8f834f82fc4658d3f3c8b76f6a9e5b24/navigation).
+
+**Bug Fixes**
+
+- Improved `NavHost` to bolster against possible `NullPointerException`s caused by a race condition with predictive back. ([Ie36c6](https://android-review.googlesource.com/#/q/Ie36c68ee4a24307194d85ef08737b091225194f6), [b/500945998](https://issuetracker.google.com/issues/500945998))
 
 ### Version 2.9.7
 

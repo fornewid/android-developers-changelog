@@ -43,20 +43,20 @@ Then, add the necessary dependencies to your app's `build.gradle.kts` file:
 
 ```groovy
 dependencies {
-    implementation "androidx.xr.runtime:runtime:1.0.0-alpha12"
-    implementation "androidx.xr.scenecore:scenecore:1.0.0-alpha13"
-    implementation "androidx.xr.compose:compose:1.0.0-alpha12"
+    implementation "androidx.xr.runtime:runtime:1.0.0-alpha13"
+    implementation "androidx.xr.scenecore:scenecore:1.0.0-alpha14"
+    implementation "androidx.xr.compose:compose:1.0.0-alpha13"
     implementation "androidx.xr.compose.material3:material3:1.0.0-alpha16"
-    implementation "androidx.xr.arcore:arcore:1.0.0-alpha12"
+    implementation "androidx.xr.arcore:arcore:1.0.0-alpha13"
 
     // For compatibility with guava, use these dependencies:
-    implementation "androidx.xr.arcore:arcore-guava:1.0.0-alpha12"
-    implementation "androidx.xr.runtime:runtime-guava:1.0.0-alpha12"
-    implementation "androidx.xr.scenecore:scenecore-guava:1.0.0-alpha13"
+    implementation "androidx.xr.arcore:arcore-guava:1.0.0-alpha13"
+    implementation "androidx.xr.runtime:runtime-guava:1.0.0-alpha13"
+    implementation "androidx.xr.scenecore:scenecore-guava:1.0.0-alpha14"
 
     // For compatibility with rxjava3, use these dependencies:
-    implementation "androidx.xr.arcore:arcore-rxjava3:1.0.0-alpha12"
-    implementation "androidx.xr.runtime:runtime-rxjava3:1.0.0-alpha12"
+    implementation "androidx.xr.arcore:arcore-rxjava3:1.0.0-alpha13"
+    implementation "androidx.xr.runtime:runtime-rxjava3:1.0.0-alpha13"
 }
 ```
 
@@ -64,20 +64,20 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.xr.runtime:runtime:1.0.0-alpha12")
-    implementation("androidx.xr.scenecore:scenecore:1.0.0-alpha13")
-    implementation("androidx.xr.compose:compose:1.0.0-alpha12")
+    implementation("androidx.xr.runtime:runtime:1.0.0-alpha13")
+    implementation("androidx.xr.scenecore:scenecore:1.0.0-alpha14")
+    implementation("androidx.xr.compose:compose:1.0.0-alpha13")
     implementation("androidx.xr.compose.material3:material3:1.0.0-alpha16")
-    implementation("androidx.xr.arcore:arcore:1.0.0-alpha12")
+    implementation("androidx.xr.arcore:arcore:1.0.0-alpha13")
 
     // For compatibility with guava, use these dependencies:
-    implementation("androidx.xr.arcore:arcore-guava:1.0.0-alpha12")
-    implementation("androidx.xr.runtime:runtime-guava:1.0.0-alpha12")
-    implementation("androidx.xr.scenecore:scenecore-guava:1.0.0-alpha13")
+    implementation("androidx.xr.arcore:arcore-guava:1.0.0-alpha13")
+    implementation("androidx.xr.runtime:runtime-guava:1.0.0-alpha13")
+    implementation("androidx.xr.scenecore:scenecore-guava:1.0.0-alpha14")
 
     // For compatibility with rxjava3, use these dependencies:
-    implementation("androidx.xr.arcore:arcore-rxjava3:1.0.0-alpha12")
-    implementation("androidx.xr.runtime:runtime-rxjava3:1.0.0-alpha12")
+    implementation("androidx.xr.arcore:arcore-rxjava3:1.0.0-alpha13")
+    implementation("androidx.xr.runtime:runtime-rxjava3:1.0.0-alpha13")
 }
 ```
 
@@ -125,25 +125,23 @@ Then, add the necessary dependencies to your app's `build.gradle.kts` file:
 
 ### Groovy
 
-```groovy
-dependencies {
-    implementation "androidx.xr.runtime:runtime:1.0.0-alpha12"
-    implementation "androidx.xr.glimmer:glimmer:1.0.0-alpha10"
-    implementation "androidx.xr.projected:projected:1.0.0-alpha06"
-    implementation "androidx.xr.arcore:arcore:1.0.0-alpha12"
-}
-```
+    dependencies {
+        implementation "androidx.xr.runtime:runtime:1.0.0-alpha13"
+        implementation "androidx.xr.glimmer:glimmer:1.0.0-alpha11"
+        implementation "androidx.xr.glimmer:glimmer-google-fonts:1.0.0-alpha11"
+        implementation "androidx.xr.projected:projected:1.0.0-alpha06"
+        implementation "androidx.xr.arcore:arcore:1.0.0-alpha12"
+    }
 
 ### Kotlin
 
-```kotlin
-dependencies {
-    implementation("androidx.xr.runtime:runtime:1.0.0-alpha12")
-    implementation("androidx.xr.glimmer:glimmer:1.0.0-alpha10")
-    implementation("androidx.xr.projected:projected:1.0.0-alpha06")
-    implementation("androidx.xr.arcore:arcore:1.0.0-alpha12")
-}
-```
+    dependencies {
+        implementation("androidx.xr.runtime:runtime:1.0.0-alpha13")
+        implementation("androidx.xr.glimmer:glimmer:1.0.0-alpha11")
+        implementation("androidx.xr.glimmer:glimmer-google-fonts:1.0.0-alpha11")
+        implementation("androidx.xr.projected:projected:1.0.0-alpha06")
+        implementation("androidx.xr.arcore:arcore:1.0.0-alpha12")
+    }
 
 > [!NOTE]
 > **Note:** While developing for AI glasses, use these stated library versions even if newer versions of these Jetpack libraries have already been released.

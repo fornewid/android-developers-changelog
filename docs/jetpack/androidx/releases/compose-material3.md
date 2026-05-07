@@ -10,7 +10,7 @@ source: md.txt
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| March 25, 2026 | [1.4.0](https://developer.android.com/jetpack/androidx/releases/compose-material3#1.4.0) | - | - | [1.5.0-alpha16](https://developer.android.com/jetpack/androidx/releases/compose-material3#1.5.0-alpha16) |
+| May 06, 2026 | [1.4.0](https://developer.android.com/jetpack/androidx/releases/compose-material3#1.4.0) | - | - | [1.5.0-alpha19](https://developer.android.com/jetpack/androidx/releases/compose-material3#1.5.0-alpha19) |
 
 > [!NOTE]
 > **Note:** To develop UIs for Wear OS apps using Material 3 Expressive, use the [Wear Compose Material 3](https://developer.android.com/jetpack/androidx/releases/wear-compose-m3) library instead of this one.
@@ -48,7 +48,7 @@ your app or module:
 dependencies {
     implementation "androidx.compose.material3:material3:1.4.0"
     implementation "androidx.compose.material3:material3-window-size-class:1.4.0"
-    implementation "androidx.compose.material3:material3-adaptive-navigation-suite:1.5.0-alpha16"
+    implementation "androidx.compose.material3:material3-adaptive-navigation-suite:1.5.0-alpha19"
 }
 
 android {
@@ -72,7 +72,7 @@ android {
 dependencies {
     implementation("androidx.compose.material3:material3:1.4.0")
     implementation("androidx.compose.material3:material3-window-size-class:1.4.0")
-    implementation("androidx.compose.material3:material3-adaptive-navigation-suite:1.5.0-alpha16")
+    implementation("androidx.compose.material3:material3-adaptive-navigation-suite:1.5.0-alpha19")
 }
 
 android {
@@ -317,6 +317,72 @@ Material3 adaptive pane scaffold APIs:
   - [AnimatedPane](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/package-summary#(androidx.compose.material3.adaptive.ThreePaneScaffoldScope).AnimatedPane(androidx.compose.ui.Modifier,kotlin.Function2))
 
 ## Compose Material3 Version 1.5
+
+### Version 1.5.0-alpha19
+
+May 06, 2026
+
+`androidx.compose.material3:material3-*:1.5.0-alpha19` is released. Version 1.5.0-alpha19 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/df4b49eda6f6834b6bc4c8aa30a581fa577a511e..8c3e1a24a2ed0291812bf3ffa251a3bde94e271d/compose/material3).
+
+**New Features**
+
+- Typography now supports a default font family that will be merged with provided text styles if they don't have a font family explicitly set. ([I2e305](https://android-review.googlesource.com/#/q/I2e3058a9437d30958da3f1f4e593deea0a28a34d), [b/500356360](https://issuetracker.google.com/issues/500356360))
+
+**API Changes**
+
+- Removes `supportingText` as a trailing lambda for `DropdownMenuItem`. Instead move it to right after the `trailingIcon`. ([I5694b](https://android-review.googlesource.com/#/q/I5694bd72532bfd2a8fad76b8435c8633c997fdec), [b/503047115](https://issuetracker.google.com/issues/503047115))
+- Promote `ToggleButtons` to stable. ([I8a771](https://android-review.googlesource.com/#/q/I8a77146a7edfb5f413cca61747214c10175a1fb1), [b/497876827](https://issuetracker.google.com/issues/497876827))
+- Promote expressive menu APIs. Remove `DropdownMenuItem` since it is a deprecated experimental expressive API that was a part of a 1.5.0-alpha. ([I1d556](https://android-review.googlesource.com/#/q/I1d556bbbab02d773d55dd1442db673567f3f9fe1), [b/497885285](https://issuetracker.google.com/issues/497885285))
+- Graduate FAB and FAB Menu APIs from Experimental Expressive ([Ie509c](https://android-review.googlesource.com/#/q/Ie509ca9c973d44cfe418edbfd420ccc4ba1a6c15), [b/497892373](https://issuetracker.google.com/issues/497892373))
+- Promote expressive button APIs. Remove the deprecated experimental API `SmallButtonContentPadding`which was introduced in a 1.5.0-alpha. ([Iee31e](https://android-review.googlesource.com/#/q/Iee31ee0268842ef16f24a8b354014eb1e2a66f99), [b/497873833](https://issuetracker.google.com/issues/497873833))
+- Move scaffold order APIs back to experimental ([I01492](https://android-review.googlesource.com/#/q/I014926abcda6d9a26c4c30ee10f77ef3371369b2), [b/489424245](https://issuetracker.google.com/issues/489424245))
+- Add another Typography consturctor overload ([I8b3b3](https://android-review.googlesource.com/#/q/I8b3b31585b7308cb5cb4dde326fba89694d2f0bc), [b/500356360](https://issuetracker.google.com/issues/500356360))
+- Revert `MaterialShapes` and `LoadingIndicator` promotions to stable. ([I30e69](https://android-review.googlesource.com/#/q/I30e694a1af90ce8f6ef1f984008a01eda00c547c), [b/497876695](https://issuetracker.google.com/issues/497876695), [b/497877850](https://issuetracker.google.com/issues/497877850))
+
+**Bug Fixes**
+
+- Fix bug in slider's implementation that caused padding from the inset focus rings to be applied to the track and thumb when the component is not in focus. ([I16315](https://android-review.googlesource.com/#/q/I16315352d6a3cfa8405f8e8436d0e893e8a970ca), [b/506158497](https://issuetracker.google.com/issues/506158497))
+- Fixed an issue in `ModalBottomSheet` where `imePadding` was applied unconditionally, preventing control over IME behavior via `contentWindowInsets`. ([Ied801](https://android-review.googlesource.com/#/q/Ied80163ecfcd8aa555758933f5c6e7f3467622ab), [b/289824811](https://issuetracker.google.com/issues/289824811))
+- \[FAB\] Fix crash in `Modifier.animateFloatingActionButton` caused by density int vs float rounding ([I2d25f](https://android-review.googlesource.com/#/q/I2d25fadc476d557323052d9b15dc6f11a0a41343), [b/489769219](https://issuetracker.google.com/issues/489769219))
+- Fix focus getting trapped inside the date range picker. Tabbing moves focus in and out the dates, and arrow keys move focus through the dates. ([I7f3ea](https://android-review.googlesource.com/#/q/I7f3eac5c7c3071a8c59abad5ad6de99877ced21c), [b/498332749](https://issuetracker.google.com/issues/498332749))
+- Revert medium and large buttons changes for precision pointer mode, and dialog's default icon size also for precision pointer mode ([I58d8c](https://android-review.googlesource.com/#/q/I58d8cead645e5b7541f5ceeca0c2ab7914376872), [b/496938250](https://issuetracker.google.com/issues/496938250), [b/500356640](https://issuetracker.google.com/issues/500356640))
+- Fixed keyboard focus getting trapped in non dialog date picker. Also fixed focus order of dismiss and confirm buttons not following their visual order. ([Ibbe2e](https://android-review.googlesource.com/#/q/Ibbe2e20f3313749d2eba5d938197ead3d895036b), [b/500454457](https://issuetracker.google.com/issues/500454457))
+
+### Version 1.5.0-alpha18
+
+April 22, 2026
+
+`androidx.compose.material3:material3-*:1.5.0-alpha18` is released. Version 1.5.0-alpha18 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/be2c7c8bda728bbe318cc54c05b93ca77a2a7c74..df4b49eda6f6834b6bc4c8aa30a581fa577a511e/compose/material3).
+
+**New Features**
+
+- Add `FilterChip`, `ElevatedFilterChip`, and `InputChip` overloads with shape morphing. Add new shape, spacing, and color defaults for these overloads. ([I84717](https://android-review.googlesource.com/#/q/I847178aa1f2dbda2e4971832085251ccfefa43ac), [b/442678355](https://issuetracker.google.com/issues/442678355))
+- Adds inset focus ring support via an opt-in API, using the new `LocalRippleThemeConfiguration` composition local. ([I0551a](https://android-review.googlesource.com/#/q/I0551ae78abc7faae4afcf3e9ccfbff622b015bd9), [b/282184440](https://issuetracker.google.com/issues/282184440)).
+
+**API Changes**
+
+- Renamed `rememberWithGapSearchBarState` to `rememberSearchBarWithGapState`. ([I5f54b](https://android-review.googlesource.com/#/q/I5f54b0a8c2ba9dccb19aa3cc586c3a15412c845d), [b/498697243](https://issuetracker.google.com/issues/498697243))
+- `RippleThemeConfiguration` and `LocalRippleThemeConfiguration` APIs are graduated to stable, adding the ability to configure ripples to be drawn with an inset focus ring appearance, instead of the opacity-based focus indication. APIs using the material-ripple configuration APIs are deprecated. ([Ide5d0](https://android-review.googlesource.com/#/q/Ide5d0bbd2c05620b30fb1e9d0f74c5f4acc3c10f), [b/485893129](https://issuetracker.google.com/issues/485893129))
+- Promote `WavyProgressIndicator` apis ([Id72a3](https://android-review.googlesource.com/#/q/Id72a36a60fa393b26f9e91239b70b9d369928db7), [b/497877853](https://issuetracker.google.com/issues/497877853))
+- Promote `materialExpressTheme`, `expressiveLightColorScheme` ([I40eab](https://android-review.googlesource.com/#/q/I40eab704c0bb7c7a4fd015ed0e57650fa7f6acef), [b/497876844](https://issuetracker.google.com/issues/497876844))
+- `BottomSheet` composable has been moved to `BottomSheet.kt` ([If7e33](https://android-review.googlesource.com/#/q/If7e3334b6e912ef797cce0acfa18bd89693baebc), [b/500091309](https://issuetracker.google.com/issues/500091309))
+- Add `Material3ExpressiveApi` annotation that doesn't require `OptIn`. ([Ib9f2e](https://android-review.googlesource.com/#/q/Ib9f2ed4648540d58800fa25b3c9a1f7265ea8cc7), [b/499994043](https://issuetracker.google.com/issues/499994043))
+- Adds `DropdownMenuPopupPositionProviders` to `DropdownMenuPopup`, so developers can now configure the position of the menu is placed relative to the anchor. This allows for submenu support within Dropdown Menus. You can now create cascading submenus using new anchor-relative positionings. Pass these new positioning options into `rememberDropdownMenuPopupPositionProvider` to configure your menu. For a complete implementation, refer to the catalog menu sample. ([Ic1ace](https://android-review.googlesource.com/#/q/Ic1ace6a9d9e84b2eeb7bc737b046003224c0eb6d), [b/476161294](https://issuetracker.google.com/issues/476161294))
+
+**Bug Fixes**
+
+- Update material3 components to support inset focus ring indications ([I88006](https://android-review.googlesource.com/#/q/I8800643c049f6b63fd5ac90d1290bfeb59b3edfb), [b/498610244](https://issuetracker.google.com/issues/498610244), [b/467984300](https://issuetracker.google.com/issues/467984300), [b/498281359](https://issuetracker.google.com/issues/498281359))
+- Resolved an issue in `TimePicker` samples where `TalkBack` focus moved, allowing invalid time entry ([I51690](https://android-review.googlesource.com/#/q/I516902c572c6b1dcdaa9b2dd2ebebbc98ec82474), [b/498364606](https://issuetracker.google.com/issues/498364606))
+
+### Version 1.5.0-alpha17
+
+April 08, 2026
+
+`androidx.compose.material3:material3-*:1.5.0-alpha17` is released. Version 1.5.0-alpha17 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/4f1927c2c3b66d0c3a6b9118974d818d2dc5a06a..c656c03d44d333d412d260e5c5bc95a482820745/compose/material3).
+
+**API Changes**
+
+- Promoted `TopAppBarScrollBehavior` and its associated methods to stable. These APIs no longer require the `@ExperimentalMaterial3Api` opt-in. ([Ieb2d1](https://android-review.googlesource.com/#/q/Ieb2d11f5cfaf333eb89966f7af5672fe79ebb7d3), [b/496918628](https://issuetracker.google.com/issues/496918628))
 
 ### Version 1.5.0-alpha16
 

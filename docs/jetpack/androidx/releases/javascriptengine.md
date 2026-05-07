@@ -6,13 +6,11 @@ source: md.txt
 
 # JavascriptEngine
 
-API Reference  
-[androidx.javascriptengine](https://developer.android.com/reference/kotlin/androidx/javascriptengine/package-summary)  
 Enable your Android app to evaluate JavaScript.
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| March 11, 2026 | [1.0.0](https://developer.android.com/jetpack/androidx/releases/javascriptengine#1.0.0) | - | - | [1.1.0-alpha01](https://developer.android.com/jetpack/androidx/releases/javascriptengine#1.1.0-alpha01) |
+| May 06, 2026 | [1.1.0](https://developer.android.com/jetpack/androidx/releases/javascriptengine#1.1.0) | - | - | - |
 
 ## Declaring dependencies
 
@@ -27,7 +25,7 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.javascriptengine:javascriptengine:1.1.0-alpha01"
+    implementation "androidx.javascriptengine:javascriptengine:1.1.0"
 }
 ```
 
@@ -35,7 +33,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.javascriptengine:javascriptengine:1.1.0-alpha01")
+    implementation("androidx.javascriptengine:javascriptengine:1.1.0")
 }
 ```
 
@@ -54,7 +52,39 @@ clicking the star button.
 See the [Issue Tracker documentation](https://developers.google.com/issue-tracker)
 for more information.
 
-## Version 1.1
+## Javascriptengine Version 1.1
+
+### Version 1.1.0
+
+May 06, 2026
+
+`androidx.javascriptengine:javascriptengine:1.1.0` is released. Version 1.1.0 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/87de50e190d7e843166cedd9df75192e999fe84b..6d096598690b7d68e3ec2acafb57e3da463d6746/javascriptengine/javascriptengine).
+
+### Version 1.1.0-rc01
+
+April 22, 2026
+
+`androidx.javascriptengine:javascriptengine:1.1.0-rc01` is released. Version 1.1.0-rc01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/951845221205b7a428a9d779107760fc929863ee..33fd7cb5d38888473f4021c8df5a992177e87b34/javascriptengine/javascriptengine).
+
+### Version 1.1.0-beta01
+
+April 08, 2026
+
+`androidx.javascriptengine:javascriptengine:1.1.0-beta01` is released. Version 1.1.0-beta01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/4f1927c2c3b66d0c3a6b9118974d818d2dc5a06a..951845221205b7a428a9d779107760fc929863ee/javascriptengine/javascriptengine).
+
+**Bug Fixes**
+
+- Update `JavaScriptEngine` to 1.1.0-beta01 ([I7b63b](https://android-review.googlesource.com/#/q/I7b63bf41abb737adfaacdd565b19d6ddda9c5610))
+
+### Version 1.1.0-alpha02
+
+March 25, 2026
+
+`androidx.javascriptengine:javascriptengine:1.1.0-alpha02` is released. Version 1.1.0-alpha02 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/1a508f033de883ba2853b9f9ae1853eec7010638..1abcb4178d48853948b9b566cabff9222d90ab69/javascriptengine/javascriptengine).
+
+**New Features**
+
+- Add message ports API to provide symmetric, flexible, and low-overhead communication with JavaScript isolates. This allows strings and `ArrayBuffers` to be sent and received without embedding them inside evaluations or named data blobs. ([I04bc0](https://android-review.googlesource.com/#/q/I04bc0b0cb601d37562c4c12390e0f39c1378a47e), [b/490128971](https://issuetracker.google.com/issues/490128971))
 
 ### Version 1.1.0-alpha01
 

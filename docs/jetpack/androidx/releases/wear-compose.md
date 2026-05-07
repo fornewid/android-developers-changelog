@@ -12,7 +12,7 @@ Write Jetpack Compose applications for Wear OS devices by providing functionalit
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| March 25, 2026 | [1.6.0](https://developer.android.com/jetpack/androidx/releases/wear-compose#1.6.0) | - | - | - |
+| May 06, 2026 | [1.6.1](https://developer.android.com/jetpack/androidx/releases/wear-compose#1.6.1) | - | - | [1.7.0-alpha02](https://developer.android.com/jetpack/androidx/releases/wear-compose#1.7.0-alpha02) |
 
 > [!NOTE]
 > **Note:** The `androidx.wear.compose:compose-material` library is superseded by the [`androidx.wear.compose:compose-material3`](https://developer.android.com/jetpack/androidx/releases/wear-compose-m3) library. We recommend that developers use the Wear Compose Material 3 library to get the latest features, including [Material 3 Expressive design](https://android-developers.googleblog.com/2025/05/whats-new-in-wear-os-6.html).
@@ -30,16 +30,16 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.wear.compose:compose-foundation:1.6.0"
+    implementation "androidx.wear.compose:compose-foundation:1.6.1"
 
     // For Wear Material Design UX guidelines and specifications
-    implementation "androidx.wear.compose:compose-material:1.6.0"
+    implementation "androidx.wear.compose:compose-material:1.6.1"
 
     // For integration between Wear Compose and Androidx Navigation libraries
-    implementation "androidx.wear.compose:compose-navigation:1.6.0"
+    implementation "androidx.wear.compose:compose-navigation:1.6.1"
 
     // For Wear preview annotations
-    implementation("androidx.wear.compose:compose-ui-tooling:1.6.0")
+    implementation("androidx.wear.compose:compose-ui-tooling:1.6.1")
     
     // NOTE: DO NOT INCLUDE a dependency on androidx.compose.material:material.
     // androidx.wear.compose:compose-material is designed as a replacement
@@ -53,16 +53,16 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.wear.compose:compose-foundation:1.6.0")
+    implementation("androidx.wear.compose:compose-foundation:1.6.1")
 
     // For Wear Material Design UX guidelines and specifications
-    implementation("androidx.wear.compose:compose-material:1.6.0")
+    implementation("androidx.wear.compose:compose-material:1.6.1")
 
     // For integration between Wear Compose and Androidx Navigation libraries
-    implementation("androidx.wear.compose:compose-navigation:1.6.0")
+    implementation("androidx.wear.compose:compose-navigation:1.6.1")
     
     // For Wear preview annotations
-    implementation("androidx.wear.compose:compose-ui-tooling:1.6.0")
+    implementation("androidx.wear.compose:compose-ui-tooling:1.6.1")
 
     // NOTE: DO NOT INCLUDE a dependency on androidx.compose.material:material.
     // androidx.wear.compose:compose-material is designed as a replacement
@@ -89,7 +89,54 @@ for more information.
 
 <br />
 
+## Version 1.7
+
+### Version 1.7.0-alpha02
+
+May 06, 2026
+
+`androidx.wear.compose:compose-*:1.7.0-alpha02` is released. Version 1.7.0-alpha02 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/f58bb1c0233dd798effef03a699ace0a84e367ac..91b07a1ba9b7194e13c4584b74e7bd3830d77b28/wear/compose).
+
+**Bug Fixes**
+
+- Fixed `GestureIndicator` size in `AlertDialogs` ([I0c16e](https://android-review.googlesource.com/#/q/I0c16e4ec0d65a2a859c183ba7b7bec7363dde30e), [b/504912009](https://issuetracker.google.com/issues/504912009))
+- Adjusted `LeftRevealed`/`RightRevealed` anchors of `SwipeToReveal` for out-of-bounds revealed positioning. ([Id84ff](https://android-review.googlesource.com/#/q/Id84ff5fad36ded043f41a0f722130ab8f4698ac5), [b/498681589](https://issuetracker.google.com/issues/498681589))
+- Add state description to `Checkbox` and `Switch` ([Iba12e](https://android-review.googlesource.com/#/q/Iba12e0de27dc6433013cd838d4daa3442fbdaff2), [b/485098874](https://issuetracker.google.com/issues/485098874))
+- Fixed a visual bug in `FadingExpandingLabel` where old text would flash when the number of lines decreased. ([Ia40c9](https://android-review.googlesource.com/#/q/Ia40c90ce996105726ca25fcaa00462ebb1cd805f), [b/503709020](https://issuetracker.google.com/issues/503709020))
+- Add default one-handed gesture support to `Material3 AlertDialog` ([I5848e](https://android-review.googlesource.com/#/q/I5848e25f3e725f843a978fe337cc285aab158538), [b/479098589](https://issuetracker.google.com/issues/479098589))
+- Built-in visibility logic in one-handed has been removed ([I8c602](https://android-review.googlesource.com/#/q/I8c6024d48e39ce71ce652e799144be99dff1b6dd), [b/502903320](https://issuetracker.google.com/issues/502903320))
+
+### Version 1.7.0-alpha01
+
+April 08, 2026
+
+`androidx.wear.compose:compose-*:1.7.0-alpha01` is released. Version 1.7.0-alpha01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/dfff8817db6e7a1f48813f8240bc5c631f499588..f58bb1c0233dd798effef03a699ace0a84e367ac/wear/compose).
+
+**API Changes**
+
+- Introduced new API for one-handed gestures, where prioritized callbacks may be registered for primary and dismiss actions. The system automatically identifies the most relevant on-screen target to ensure gestures and their indicators are only triggered for elements the user can currently see and interact with. Add `Modifier.oneHandedGesture` to the composable associated with the gesture (e.g. Button) and use `OneHandedGestureDefaults.GestureIndicator` to indicate to the user when the gesture action is available. Scrolling and paging can also be triggered with the primary gesture, with `OneHandedGestureDefaults.scrollDown` and `OneHandedGestureDefaults.scrollToNextPage` recommended to be used in the callbacks. `OneHandedGestureDefaults.ScrollGestureIndicator` and `OneHandedGestureDefaults.VerticalPageGestureIndicator` are provided as alternatives to `ScrollIndicator` and `PageIndicator` respectively, to temporarily display a gesture indicator to the user. ([Ic6324](https://android-review.googlesource.com/#/q/Ic6324cdb1363866c0ebf587274176190349b5b5c), [b/479098447](https://issuetracker.google.com/issues/479098447), [b/485488443](https://issuetracker.google.com/issues/485488443))
+- Added `requestAnchorItem` to `TransformingLazyColumnState` and introduced `TransformingLazyColumnAnchorType` to provide developers precise control over item expansion direction and layout anchoring. ([I0c1e6](https://android-review.googlesource.com/#/q/I0c1e6ec013814162aac3b7c06ce3d7e820224d7e), [b/494301025](https://issuetracker.google.com/issues/494301025))
+- Added `isSwipeToRevealDualFlingThresholdEnabled` flag, which is on by default, but can be disabled if bug fixes to swipe behavior in `SwipeToReveal` in this release cause a regression (in which case, please file a bug as soon as possible) ([Ie6db6](https://android-review.googlesource.com/#/q/Ie6db68fed30cfbf53a329ea058c9145d0763a498), [b/497743775](https://issuetracker.google.com/issues/497743775))
+
+**Bug Fixes**
+
+- Improved `SwipeToReveal` to support fast flings, allowing users to fully reveal actions regardless of swipe distance (this change can be disabled by turning off isSwipeToRevealDualFlingThresholdEnabled flag). ([I833fd](https://android-review.googlesource.com/#/q/I833fd891caad05eefd04fb058cf73f09cb1dc3e0), [b/490728860](https://issuetracker.google.com/issues/490728860))
+- Fixed `SwipeToReveal` to trigger the full swipe when swiping over 75% of the screen width (this change can be disabled by turning off `isSwipeToRevealDualFlingThresholdEnabled` flag). ([Id5604](https://android-review.googlesource.com/#/q/Id56043ad442081688bb73fbbfb764dfdeda12eda), [b/490728860](https://issuetracker.google.com/issues/490728860))
+- Added a second haptic feedback for `SwipeToReveal` when the swipe reaches the partial reveal state (this change can be disabled by turning off `isSwipeToRevealDualFlingThresholdEnabled` flag). ([Ic27e3](https://android-review.googlesource.com/#/q/Ic27e35b51e9269a84cbc33707b5fee10a0318fb1), [b/492273799](https://issuetracker.google.com/issues/492273799))
+- Fixed an issue in `TransformingLazyColumn` where item animations (`Modifier.animateItem`) stopped working. ([I904ec](https://android-review.googlesource.com/#/q/I904ec88174205cb9d9f3c5d33dfda55a9b20910b), [b/493167084](https://issuetracker.google.com/issues/493167084))
+- Fixed a bug in `PickerGroup` (and hence `DatePicker`) to prevent multiple touches causing intended scrolling on unselected Picker columns ([Id76c5](https://android-review.googlesource.com/#/q/Id76c5e69645232a1b23a26c11f6fbce8746599f6), [b/378646798](https://issuetracker.google.com/issues/378646798))
+
 ## Wear Compose Version 1.6
+
+### Version 1.6.1
+
+April 08, 2026
+
+`androidx.wear.compose:compose-*:1.6.1` is released. Version 1.6.1 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/d367d3435230f7062833893131f93932ceb13f9b..dfff8817db6e7a1f48813f8240bc5c631f499588/wear/compose).
+
+**Bug Fixes**
+
+- Fixed an issue where item animations (via `Modifier.animateItem`) stopped working in `TransformingLazyColumn`. ([I904ec](https://android-review.googlesource.com/#/q/I904ec88174205cb9d9f3c5d33dfda55a9b20910b), [b/493167084](https://issuetracker.google.com/issues/493167084))
 
 ### Version 1.6.0
 

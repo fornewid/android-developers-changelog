@@ -6,13 +6,11 @@ source: md.txt
 
 # Jetpack Compose Glimmer
 
-API Reference  
-[androidx.xr.glimmer](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/package-summary)  
 Design language and UI toolkit for building augmented Android XR experiences
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| March 11, 2026 | - | - | - | [1.0.0-alpha08](https://developer.android.com/jetpack/androidx/releases/xr-glimmer#1.0.0-alpha08) |
+| May 06, 2026 | - | - | - | [1.0.0-alpha12](https://developer.android.com/jetpack/androidx/releases/xr-glimmer#1.0.0-alpha12) |
 
 ## Declaring dependencies
 
@@ -29,7 +27,7 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.xr.glimmer:glimmer:1.0.0-alpha08"
+    implementation "androidx.xr.glimmer:glimmer:1.0.0-alpha12"
 }
 ```
 
@@ -37,7 +35,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.xr.glimmer:glimmer:1.0.0-alpha08")
+    implementation("androidx.xr.glimmer:glimmer:1.0.0-alpha12")
 }
 ```
 
@@ -56,7 +54,56 @@ clicking the star button.
 See the [Issue Tracker documentation](https://developers.google.com/issue-tracker)
 for more information.
 
-## Version 1.0
+## glimmer and glimmer-google-fonts version 1.0
+
+### Version 1.0.0-alpha12
+
+May 06, 2026
+
+`androidx.xr.glimmer:glimmer:1.0.0-alpha12` and `androidx.xr.glimmer:glimmer-google-fonts:1.0.0-alpha12` are released. Version 1.0.0-alpha12 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/df4b49eda6f6834b6bc4c8aa30a581fa577a511e..5ec3fd7563f4f9b2ba745aac0ad7770cc4cd087f/xr/glimmer).
+
+**API Changes**
+
+- Introduce Glimmer Pager API ([I2d830](https://android-review.googlesource.com/#/q/I2d8308b83d326df2d8685ba21bd6c19479cebc9b), [b/481670271](https://issuetracker.google.com/issues/481670271))
+- Added `ToggleButton` and `IconToggleButton` APIs ([I2656b](https://android-review.googlesource.com/#/q/I2656bf9eef8e5a2e65fb98465c31147d9cc6b9e0), [Ib1667](https://android-review.googlesource.com/#/q/Ib16670db1d9300644aa033a79b38da170fe3f365), [b/481299196](https://issuetracker.google.com/issues/481299196), [b/481663547](https://issuetracker.google.com/issues/481663547))
+
+### Version 1.0.0-alpha11
+
+April 22, 2026
+
+`androidx.xr.glimmer:glimmer:1.0.0-alpha11` and `androidx.xr.glimmer:glimmer-google-fonts:1.0.0-alpha11` are released. Version 1.0.0-alpha11 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/951845221205b7a428a9d779107760fc929863ee..885dafb47387f4ea0318276b4dd9fa6a896a87c6/xr/glimmer).
+
+**API Changes**
+
+- `glimmer-google-fonts` is released - add this dependency and use `createGoogleSansFlexTypography` to create a `Typography` instance with the recommended Google Sans Flex configuration. This `Typography` instance can be provided as normal through `GlimmerTheme`. ([Iec9e4](https://android-review.googlesource.com/#/q/Iec9e4f4c332acc3b24919e319d6fa54cc1a6cea1), [b/458447191](https://issuetracker.google.com/issues/458447191))
+
+### Version 1.0.0-alpha10
+
+April 08, 2026
+
+`androidx.xr.glimmer:glimmer:1.0.0-alpha10` is released. Version 1.0.0-alpha10 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/4f1927c2c3b66d0c3a6b9118974d818d2dc5a06a..951845221205b7a428a9d779107760fc929863ee/xr/glimmer/glimmer).
+
+**API Changes**
+
+- Added `IconButton` API. ([I0f3dd](https://android-review.googlesource.com/#/q/I0f3dd7df505aa1067631ee7e28f13bbe7c09b04b), [b/481298420](https://issuetracker.google.com/issues/481298420))
+- Genericized the type of the `StackState` saver as `Saver<StackState, *>`. ([Ic164f](https://android-review.googlesource.com/#/q/Ic164fa5853a1fd02aef746cb1e7f1599c4fea33e), [b/491893461](https://issuetracker.google.com/issues/491893461))
+
+**Bug Fixes**
+
+- Updated Compose `compileSdk` to API 37. This means that a minimum AGP version of 9.2.0 is required when using Compose. ([Id45cd](https://android-review.googlesource.com/#/q/Id45cdca34ef948e06259b2dd9adc901b7c930492), [b/413674743](https://issuetracker.google.com/issues/413674743))
+
+### Version 1.0.0-alpha09
+
+March 25, 2026
+
+`androidx.xr.glimmer:glimmer:1.0.0-alpha09` is released. Version 1.0.0-alpha09 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/1a508f033de883ba2853b9f9ae1853eec7010638..4f1927c2c3b66d0c3a6b9118974d818d2dc5a06a/xr/glimmer/glimmer).
+
+**API Changes**
+
+- Adjusted the default values for primary, positive, negative, and surface. Added a new color axis called "background". ([I6bb6c](https://android-review.googlesource.com/#/q/I6bb6cc19998f938b23838c06fc7c71b23961eb56), [b/481671956](https://issuetracker.google.com/issues/481671956))
+- Added a `ComponentSpacingValues` subsystem in `GlimmerTheme` that provides values for use across components for paddings and other spacing elements. Existing `PascalCase` spacing and padding constants in component Defaults objects (e.g., `ContentPadding`, `ItemSpacing`) have been renamed to `camelCase` and converted to Composable properties. ([I96e30](https://android-review.googlesource.com/#/q/I96e306ab5dd6aca0cb176c8a2101e1fb9da90213), [b/491166461](https://issuetracker.google.com/issues/491166461))
+- Move `onClick` to the last position in parameter list to be used as trailing lambda. Don't consume `IndirectPointerEvent(s)` if no applicable lambda is provided ([I9343e](https://android-review.googlesource.com/#/q/I9343e536af5d22574a73ecc2f4261453f13bc88d), [b/486965466](https://issuetracker.google.com/issues/486965466))
+- Renamed Depth and related entities to `DepthEffect`. The layer properties of `DepthEffect` are made public. ([Ie26d2](https://android-review.googlesource.com/#/q/Ie26d2fdab839cec2d2cf0d4b46d07164df3b51e3), [b/485632564](https://issuetracker.google.com/issues/485632564))
 
 ### Version 1.0.0-alpha08
 

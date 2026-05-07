@@ -6,20 +6,14 @@ source: md.txt
 
 # XR Runtime
 
-[User Guide](https://developer.android.com/develop/xr/jetpack-xr-sdk/work-with-arcore) API Reference  
-[androidx.xr.runtime](https://developer.android.com/reference/androidx/xr/runtime/package-summary)  
-
-[androidx.xr.runtime.java](https://developer.android.com/reference/androidx/xr/runtime/java/package-summary)  
-
-[androidx.xr.runtime.math](https://developer.android.com/reference/androidx/xr/runtime/math/package-summary)  
-
+[User Guide](https://developer.android.com/develop/xr/jetpack-xr-sdk/work-with-arcore)
 
 Start your custom AR or 3D session with our native runtime.
 
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| February 25, 2026 | - | - | - | [1.0.0-alpha11](https://developer.android.com/jetpack/androidx/releases/xr-runtime#1.0.0-alpha11) |
+| May 06, 2026 | - | - | - | [1.0.0-alpha13](https://developer.android.com/jetpack/androidx/releases/xr-runtime#1.0.0-alpha13) |
 
 
 ## Declaring dependencies
@@ -36,14 +30,14 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.xr.runtime:runtime:1.0.0-alpha11"
+    implementation "androidx.xr.runtime:runtime:1.0.0-alpha13"
 
     // Optional dependencies for asynchronous conversions
-    implementation "androidx.xr.runtime:runtime-guava:1.0.0-alpha11"
-    implementation "androidx.xr.runtime:runtime-rxjava3:1.0.0-alpha11"
+    implementation "androidx.xr.runtime:runtime-guava:1.0.0-alpha13"
+    implementation "androidx.xr.runtime:runtime-rxjava3:1.0.0-alpha13"
 
     // Use in environments that do not support OpenXR
-    testImplementation "androidx.xr.runtime:runtime-testing:1.0.0-alpha11"
+    testImplementation "androidx.xr.runtime:runtime-testing:1.0.0-alpha13"
 }
 ```
 
@@ -51,14 +45,14 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.xr.runtime:runtime:1.0.0-alpha11")
+    implementation("androidx.xr.runtime:runtime:1.0.0-alpha13")
 
     // Optional dependencies for asynchronous conversions
-    implementation("androidx.xr.runtime:runtime-guava:1.0.0-alpha11")
-    implementation("androidx.xr.runtime:runtime-rxjava3:1.0.0-alpha11")
+    implementation("androidx.xr.runtime:runtime-guava:1.0.0-alpha13")
+    implementation("androidx.xr.runtime:runtime-rxjava3:1.0.0-alpha13")
 
     // Use in environments that do not support OpenXR
-    testImplementation("androidx.xr.runtime:runtime-testing:1.0.0-alpha11")
+    testImplementation("androidx.xr.runtime:runtime-testing:1.0.0-alpha13")
 }
 ```
 
@@ -78,6 +72,42 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.0
+
+### Version 1.0.0-alpha13
+
+May 06, 2026
+
+`androidx.xr.runtime:runtime-*:1.0.0-alpha13` is released. Version 1.0.0-alpha13 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/e7913eae74f4112f4fbb22ea1a5037cd8b0e73f0..f0d77f65175480acff2718b61a7c34c502a1802e/xr/runtime).
+
+**API Changes**
+
+- `TrackingState` and `VpsAvailabilityResult` have moved to the `androidx.xr.arcore package`, and the types in `androidx.xr.runtime` are now deprecated. ([Ic7930](https://android-review.googlesource.com/#/q/Ic79303427f1301f722efb7f624033f9f11b49544), [b/480462213](https://issuetracker.google.com/issues/480462213))
+- `Session.getNativeData()` is now defined the `xr:runtime:runtime` module and provides \[`nativeFunctionTablePointer`\] for OpenXR-backed runtimes. ([Ifa862](https://android-review.googlesource.com/#/q/Ifa8620c5df2e78985bb4c6ea36461e2c5ae7c20f))
+- Moved `NativeData` API to `xr:runtime:runtime` library. ([I87954](https://android-review.googlesource.com/#/q/I87954b9811c11c019f9a256dacd11c352b79cc56), [b/494251500](https://issuetracker.google.com/issues/494251500))
+- `Session.create` and `Session.configure` are now non-exhaustive and require else clauses in when statements. ([I9885e](https://android-review.googlesource.com/#/q/I9885e2b6bdb6da77988d04402f0df73380f6807a), [b/495805998](https://issuetracker.google.com/issues/495805998), [b/495805998](https://issuetracker.google.com/issues/495805998))
+- `androidx.xr.runtime.FieldOfView` has been deprecated. Use `androidx.xr.runtime.math.FieldOfView` instead. ([Ia01a0](https://android-review.googlesource.com/#/q/Ia01a0ac228dc4a93c1bb2979b26d4f400be4fe99), [b/480233045](https://issuetracker.google.com/issues/480233045))
+- `Matrix4.pose` has been renamed to `Matrix4.toPose()`. The pose property is now deprecated. ([I329b4](https://android-review.googlesource.com/#/q/I329b4d05fc0757359864a2762f76422d2154c37e), [b/493383490](https://issuetracker.google.com/issues/493383490))
+- Added the `XrServiceAvailability` API ([If379e](https://android-review.googlesource.com/#/q/If379eefa6e058cd4c90c7efc5e27787e79350ecc), [b/493558010](https://issuetracker.google.com/issues/493558010))
+- Added the `ExperimentalXrServiceAvailabilityApi` annotation ([Icab49](https://android-review.googlesource.com/#/q/Icab49610d9967f0c3c1e34b3ef25872bdceb42ea), [b/491069725](https://issuetracker.google.com/issues/491069725))
+- Remove the suffix for `@PreviewSpatialApi` ([If5242](https://android-review.googlesource.com/#/q/If5242d7000a9514c7d0952e39f9eb170d534ccfd), [b/491939311](https://issuetracker.google.com/issues/491939311))
+- Renamed `DeviceTrackingMode.LAST_KNOWN` to `SPATIAL_LAST_KNOWN` (with a deprecated fallback), added `INERTIAL_LAST_KNOWN` for 3DoF tracking, and added `TRACKING_DEGRADED` to `TrackingState`. ([Ie661c](https://android-review.googlesource.com/#/q/Ie661cfd441521987dcebd7e1fd1e7cfc3ef5ab9d), [b/445466590](https://issuetracker.google.com/issues/445466590))
+- Added `XrLog` API. Set `XrLog.isEnabled` to `true` to enable logging in JetpackXR, and use \[`XrLog.Level`\] to set the log level. ([I76a1f](https://android-review.googlesource.com/#/q/I76a1f066b96ab6f07016d57c7e8e83518cb67de6), [b/463460895](https://issuetracker.google.com/issues/463460895), [b/487378441](https://issuetracker.google.com/issues/487378441))
+- Adding `DISPLAY_CATEGORY_XR_PROJECTED`, this constant is used in the Manifest file to indicate the activity is meant for a XR projected display ([I26d8b](https://android-review.googlesource.com/#/q/I26d8b14946a4f523044486b1ad56f860d0423363))
+
+### Version 1.0.0-alpha12
+
+March 25, 2026
+
+`androidx.xr.runtime:runtime-*:1.0.0-alpha12` is released. Version 1.0.0-alpha12 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/6671838a2686d9e8b03e38681b78ebb63031c549..e7913eae74f4112f4fbb22ea1a5037cd8b0e73f0/xr/runtime).
+
+**API Changes**
+
+- Changed `Config.augmentedObjectCategories` from a List to a Set, ([I25a64](https://android-review.googlesource.com/#/q/I25a64eb05fa641c80185dbff62b7d140a2d4cac0), [b/487376359](https://issuetracker.google.com/issues/487376359))
+- Removed `unscaledGravityAlignedActivitySpace` flag from `Session.create`. `ActivitySpace` is always unscaled and gravity-aligned now. ([If6f11](https://android-review.googlesource.com/#/q/If6f11877880f649ecf7a4844db3e809064cc10fb), [b/458173423](https://issuetracker.google.com/issues/458173423))
+- Added `Session.create` overload to allow passing an Android Context for resource-scoping. ([I7d3fe](https://android-review.googlesource.com/#/q/I7d3fec251fb7d1a415a812286d71adbf23a910b2), [b/415805990](https://issuetracker.google.com/issues/415805990), [b/477386334](https://issuetracker.google.com/issues/477386334))
+- Added `JvmOverloads` to `FloatSize2d.to3d`, `Matrix3.copy`, and `Matrix4.copy` ([I69586](https://android-review.googlesource.com/#/q/I695860cf9d75d118905cd01123a8b977b806fa61), [b/481371562](https://issuetracker.google.com/issues/481371562))
+- Added ability to set categories for `AugmentedObject` tracking in the Config ([I1f6e4](https://android-review.googlesource.com/#/q/I1f6e4e634a511ab591802327ce3d45da6a3a0510), [b/480220930](https://issuetracker.google.com/issues/480220930))
+- Added `xr:runtime:runtime-interfaces` module. ([I52ac6](https://android-review.googlesource.com/#/q/I52ac614c450be6b8a36e75611face78945f14667), [b/461561664](https://issuetracker.google.com/issues/461561664))
 
 ### Version 1.0.0-alpha11
 

@@ -6,37 +6,27 @@ source: md.txt
 
 # CameraX
 
-[User Guide](https://developer.android.com/training/camerax) [Code Sample](https://github.com/android/camera-samples) API Reference  
-[androidx.camera.camera2](https://developer.android.com/reference/kotlin/androidx/camera/camera2/package-summary)  
-[androidx.camera.core](https://developer.android.com/reference/kotlin/androidx/camera/core/package-summary)  
-[androidx.camera.extensions](https://developer.android.com/reference/kotlin/androidx/camera/extensions/package-summary)  
-[androidx.camera.lifecycle](https://developer.android.com/reference/kotlin/androidx/camera/lifecycle/package-summary)  
-[androidx.camera.view](https://developer.android.com/reference/kotlin/androidx/camera/view/package-summary)  
-[androidx.camera.video](https://developer.android.com/reference/kotlin/androidx/camera/video/package-summary)  
-[androidx.camera.mlkit.vision](https://developer.android.com/reference/kotlin/androidx/camera/mlkit/vision/package-summary)  
-[androidx.camera.viewfinder](https://developer.android.com/reference/kotlin/androidx/camera/viewfinder/package-summary)  
-[androidx.camera.effects](https://developer.android.com/reference/kotlin/androidx/camera/effects/package-summary)  
-CameraX is an addition to Jetpack that makes it easier to add camera capabilities to your app. The library provides a number of compatibility fixes and workarounds to help make the developer experience consistent across many devices.
+[User Guide](https://developer.android.com/training/camerax) [Code Sample](https://github.com/android/camera-samples) CameraX is an addition to Jetpack that makes it easier to add camera capabilities to your app. The library provides a number of compatibility fixes and workarounds to help make the developer experience consistent across many devices.
 
 
 This table lists all the artifacts in the `androidx.camera` group.
 
 | Artifact | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| camera-camera2 | [1.5.3](https://developer.android.com/jetpack/androidx/releases/camera#1.5.3) | [1.6.0-rc01](https://developer.android.com/jetpack/androidx/releases/camera#1.6.0-rc01) | - | [1.7.0-alpha01](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-alpha01) |
-| camera-core | [1.5.3](https://developer.android.com/jetpack/androidx/releases/camera#1.5.3) | [1.6.0-rc01](https://developer.android.com/jetpack/androidx/releases/camera#1.6.0-rc01) | - | [1.7.0-alpha01](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-alpha01) |
-| camera-compose | [1.5.3](https://developer.android.com/jetpack/androidx/releases/camera#1.5.3) | [1.6.0-rc01](https://developer.android.com/jetpack/androidx/releases/camera#1.6.0-rc01) | - | [1.7.0-alpha01](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-alpha01) |
-| camera-effects | [1.5.3](https://developer.android.com/jetpack/androidx/releases/camera#1.5.3) | [1.6.0-rc01](https://developer.android.com/jetpack/androidx/releases/camera#1.6.0-rc01) | - | [1.7.0-alpha01](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-alpha01) |
-| camera-extensions | [1.5.3](https://developer.android.com/jetpack/androidx/releases/camera#1.5.3) | [1.6.0-rc01](https://developer.android.com/jetpack/androidx/releases/camera#1.6.0-rc01) | - | [1.7.0-alpha01](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-alpha01) |
+| camera-camera2 | [1.6.1](https://developer.android.com/jetpack/androidx/releases/camera#1.6.1) | - | - | [1.7.0-alpha01](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-alpha01) |
+| camera-core | [1.6.1](https://developer.android.com/jetpack/androidx/releases/camera#1.6.1) | - | - | [1.7.0-alpha01](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-alpha01) |
+| camera-compose | [1.6.1](https://developer.android.com/jetpack/androidx/releases/camera#1.6.1) | - | - | [1.7.0-alpha01](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-alpha01) |
+| camera-effects | [1.6.1](https://developer.android.com/jetpack/androidx/releases/camera#1.6.1) | - | - | [1.7.0-alpha01](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-alpha01) |
+| camera-extensions | [1.6.1](https://developer.android.com/jetpack/androidx/releases/camera#1.6.1) | - | - | [1.7.0-alpha01](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-alpha01) |
 | camera-feature-combination-query | - | - | - | [1.5.0-alpha06](https://developer.android.com/jetpack/androidx/releases/camera#1.5.0-alpha06) |
 | camera-feature-combination-query-play-services | - | - | - | [1.5.0-alpha06](https://developer.android.com/jetpack/androidx/releases/camera#1.5.0-alpha06) |
-| camera-lifecycle | [1.5.3](https://developer.android.com/jetpack/androidx/releases/camera#1.5.3) | [1.6.0-rc01](https://developer.android.com/jetpack/androidx/releases/camera#1.6.0-rc01) | - | [1.7.0-alpha01](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-alpha01) |
-| camera-mlkit-vision | [1.5.3](https://developer.android.com/jetpack/androidx/releases/camera#1.5.3) | [1.6.0-rc01](https://developer.android.com/jetpack/androidx/releases/camera#1.6.0-rc01) | - | [1.7.0-alpha01](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-alpha01) |
-| camera-view | [1.5.3](https://developer.android.com/jetpack/androidx/releases/camera#1.5.3) | [1.6.0-rc01](https://developer.android.com/jetpack/androidx/releases/camera#1.6.0-rc01) | - | [1.7.0-alpha01](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-alpha01) |
+| camera-lifecycle | [1.6.1](https://developer.android.com/jetpack/androidx/releases/camera#1.6.1) | - | - | [1.7.0-alpha01](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-alpha01) |
+| camera-mlkit-vision | [1.6.1](https://developer.android.com/jetpack/androidx/releases/camera#1.6.1) | - | - | [1.7.0-alpha01](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-alpha01) |
+| camera-view | [1.6.1](https://developer.android.com/jetpack/androidx/releases/camera#1.6.1) | - | - | [1.7.0-alpha01](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-alpha01) |
 | camera-viewfinder | - | - | [1.3.0-beta02](https://developer.android.com/jetpack/androidx/releases/camera#1.3.0-beta02) | [1.4.0-alpha07](https://developer.android.com/jetpack/androidx/releases/camera#1.4.0-alpha07) |
-| camera-video | [1.5.3](https://developer.android.com/jetpack/androidx/releases/camera#1.5.3) | [1.6.0-rc01](https://developer.android.com/jetpack/androidx/releases/camera#1.6.0-rc01) | - | [1.7.0-alpha01](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-alpha01) |
+| camera-video | [1.6.1](https://developer.android.com/jetpack/androidx/releases/camera#1.6.1) | - | - | [1.7.0-alpha01](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-alpha01) |
 
-This library was last updated on: March 11, 2026
+This library was last updated on: May 06, 2026
 
 ## Device testing
 
@@ -166,6 +156,54 @@ March 11, 2026
 - Fixed a bug in `ImageAnalysis` where images were not correctly rotated when output image rotation is enabled and the initial relative rotation is 0 degrees. ([Id46c2](https://android-review.googlesource.com/#/q/Id46c2a7a2a1212e636ace2b96945184eae507d7b), [b/487160584](https://issuetracker.google.com/issues/487160584))
 
 ## Camera Version 1.6
+
+### Version 1.6.1
+
+May 06, 2026
+
+`androidx.camera:camera-*:1.6.1` is released. Version 1.6.1 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/18899702605001b396c92fe1f50666948ce85048..987b9ac8585b31424a397206c492196dd163997b/camera).
+
+**Bug Fixes**
+
+- Fixed a compilation error "Cannot access class `ListenableFuture`" when using CameraX 1.6.0. ([Ic8cba](https://android-review.googlesource.com/#/q/Ic8cba6ae5318d3e6098cc54042c6aebba837996e), [b/497571473](https://issuetracker.google.com/issues/497571473))
+
+### Version 1.6.0
+
+March 25, 2026
+
+`androidx.camera:camera-*:1.6.0` is released. Version 1.6.0 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/2afad3835627a7fdd11578788696f14b7aff6017..18899702605001b396c92fe1f50666948ce85048/camera).
+
+**Important changes since 1.5.0:**
+
+**1. Migrated to a High-Performance, Unified Camera Stack**
+
+- CameraX now uses `CameraPipe`---the same modern, high-performance stack powering the Pixel camera. This transition streamlines architectural efficiency and provides a scalable foundation for bringing advanced computational photography features to the developer ecosystem.
+
+**2. Media3 Muxer Integration**
+
+- CameraX now integrates the Media3 Muxer by default within the [VideoCapture](https://developer.android.com/media/camera/camerax/video-capture#videocapture-api-overview) API. This migration provides several benefits:
+  - **Enhanced Performance:** More efficient video processing and muxing.
+  - **Crash Resilience:** Improved protection against video file corruption, ensuring that data is preserved even if the application crashes during recording.
+
+**3. Feature Group improvement**
+
+- [Feature Group](https://developer.android.com/reference/androidx/camera/core/SessionConfig.Builder#setPreferredFeatureGroup(kotlin.Array)) API now supports Video Stabilization and 4K recording. [`GroupableFeatures`](https://developer.android.com/reference/kotlin/androidx/camera/video/GroupableFeatures?hl=en) includes [`VIDEO_STABILIZATION`](https://developer.android.com/reference/kotlin/androidx/camera/video/GroupableFeatures?hl=en#VIDEO_STABILIZATION()), [`UHD_RECORDING`](https://developer.android.com/reference/kotlin/androidx/camera/video/GroupableFeatures?hl=en#UHD_RECORDING()) to allow apps to enable them together with other features. [`CameraEffect`](https://developer.android.com/reference/androidx/camera/core/CameraEffect) and [`ImageAnalysis`](https://developer.android.com/reference/androidx/camera/core/ImageAnalysis) in [`SessionConfig`](https://developer.android.com/reference/androidx/camera/core/SessionConfig) is supported when the feature group is enabled.
+
+**4. Stabilized SessionConfig API**
+
+- [`SessionConfig`](https://developer.android.com/reference/androidx/camera/core/SessionConfig) has graduated from experimental to a fully stable public API including [`SessionConfig`](https://developer.android.com/reference/androidx/camera/core/SessionConfig) and [`HighSpeedVideoSessionConfig`](https://developer.android.com/reference/androidx/camera/video/HighSpeedVideoSessionConfig). CameraX Extensions can now be implemented with a new [`ExtensionSessionConfig`](https://developer.android.com/reference/androidx/camera/extensions/ExtensionSessionConfig) AP. A new [`isSessionConfigSupported`](https://developer.android.com/reference/androidx/camera/core/CameraInfo?hl=en#isSessionConfigSupported(androidx.camera.core.SessionConfig)) API is introduced, allowing developers to query whether a specific combination of use cases and features (such as HDR, stabilization, specific resolutions, CameraX Extensions or slow motion) is supported by the device before binding to the lifecycle.
+
+**Bug Fixes**
+
+- Fixed a crash that happens in all CameraX apps that run on the upcoming Android 17 devices due to a unknown dynamic range mode being added which CameraX didn't handle it appropriately. The same fix is also cherry picked in 1.5.2. **Please DO update your CameraX version to either 1.5.2 or 1.6.0 to avoid the crash when Android 17 is published** . ([Ibd7b5](https://android-review.googlesource.com/#/q/Ibd7b5f532f7af0f43415aaef09cc9ce5f26763f6))
+- The feature group API now provides consistent results when `PREVIEW_STABILIZATION` is used with `VideoCapture`. This corrects a bug that caused inconsistent results when a Preview use case was not also active. ([Ifed82](https://android-review.googlesource.com/#/q/Ifed82d0d9ce2cfdb407523535d9e4c8c4a51f46d), [b/449913903](https://issuetracker.google.com/issues/449913903))
+- Fixed an issue where unsupported preferred features were incorrectly made available. Features are now correctly filtered when their required use cases are not met. ([I38db8](https://android-review.googlesource.com/#/q/I38db88ca0ae9c2cd87b49ceffddd7980b3178576), [b/449532342](https://issuetracker.google.com/issues/449532342))
+- Fixed glitchy video result on Samsung Galaxy S6. ([I612d9](https://android-review.git.corp.google.com/#/q/I612d902c2aa36dfd5b77a53a59a5646cadf96272), [b/235127608](https://issuetracker.google.com/issues/235127608))
+- Fixed an issue where `CameraInfo#isFeatureGroupSupported` could incorrectly return true for `PREVIEW_STABILIZATION` if the `SessionConfig` in the query was already configured with other features. ([I2c355c](https://android-review.googlesource.com/#/q/I2c355c533f737d1797a7427d37661781cd1480b2), [b/437816469](https://issuetracker.google.com/issues/437816469))
+- Excluded problematic YUV format output sizes from Samsung Z Fold 4 device. The received images have distortion issue when using those output sizes. ([I776bf](https://android-review.googlesource.com/#/q/I776bf1f9447fba5b6354b597fb8067d25419756a), [b/460322307](https://issuetracker.google.com/issues/460322307))
+- Fixed a device-specific issue on Samsung A53 where image capture with torch enabled would fail sometimes if `VideoCapture` use case is bound. ([I0f183](https://android-review.googlesource.com/#/q/I0f183808184febdcb203e8f5658e7663d8dc44b9), [b/458197367](https://issuetracker.google.com/issues/458197367))
+- Fixes an issue on some devices where using the flash with the ultra-wide camera may result in underexposed images. ([Ib7530](https://android-review.googlesource.com/#/q/Ib75308343ede2999677ffce021affa013d175668), [b/444590340](https://issuetracker.google.com/issues/444590340))
+- Updated the `ExifInterface` dependency to include a fix for parsing JPEGs with `0xFF` padding, which resolves image capture failures on devices where the JPEG encoder adds fill bytes before markers. ([I0eb49](https://android-review.googlesource.com/#/q/I0eb49797f167c36511bc5a2ea5c31a920f598b6d))
 
 ### Version 1.6.0-rc01
 

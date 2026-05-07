@@ -10,7 +10,7 @@ source: md.txt
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| March 11, 2026 | [1.2.1](https://developer.android.com/jetpack/androidx/releases/datastore#1.2.1) | - | - | [1.3.0-alpha07](https://developer.android.com/jetpack/androidx/releases/datastore#1.3.0-alpha07) |
+| May 06, 2026 | [1.2.1](https://developer.android.com/jetpack/androidx/releases/datastore#1.2.1) | - | - | [1.3.0-alpha09](https://developer.android.com/jetpack/androidx/releases/datastore#1.3.0-alpha09) |
 
 ## Declare dependencies
 
@@ -248,6 +248,31 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.3
+
+### Version 1.3.0-alpha09
+
+May 06, 2026
+
+`androidx.datastore:datastore-*:1.3.0-alpha09` is released. Version 1.3.0-alpha09 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/35ca96cc1f129a6cc9d6650029cd6155668f4e7a..cf2f8d0fe4a727775ee70389170ce7ae0e152c6c/datastore).
+
+**API Changes**
+
+- Make `ReThrowCorruptionHandler` public. ([I137bb](https://android-review.googlesource.com/#/q/I137bb14c906007e8032c55f1524e954533664e0c), [b/427722902](https://issuetracker.google.com/issues/427722902))
+- Make tracing lifecycle consistent with system tracing. ([Ib391b](https://android-review.googlesource.com/#/q/Ib391b68941c5e7c7e5ef8d85241fa4593469f3e7))
+
+### Version 1.3.0-alpha08
+
+April 22, 2026
+
+`androidx.datastore:datastore-*:1.3.0-alpha08` is released. Version 1.3.0-alpha08 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/8107a93d3eeb340973ffee74a307faabd1152ea5..35ca96cc1f129a6cc9d6650029cd6155668f4e7a/datastore).
+
+**New Features**
+
+- Added support for Origin Private File System (OPFS) in DataStore for web platforms. This implementation introduces `WebOpfsStorage` and includes architectural support for asynchronous file I/O, cross-tab notifications using the `BroadcastChannel` API, and distributed locking via the native `Web Locks API` for exclusive write access. [Id7f5807](https://android-review.googlesource.com/q/Id7f5807b6d5abd94ac268b91dcbe5f19e2ff8ef5) [b/316376114](https://buganizer.corp.google.com/issues/316376114)
+
+**API Changes**
+
+- Introduced `WebLocalStorage` and `WebSessionStorage` APIs for explicit storage type management in Web environments. [I35fa259b](https://android-review.googlesource.com/q/I35fa259b5d5940d599e8dce0efe79d9a15886895) [b/316376114](https://buganizer.corp.google.com/issues/316376114)
 
 ### Version 1.3.0-alpha07
 

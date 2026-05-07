@@ -30,7 +30,7 @@ which your [app must create](https://developer.android.com/develop/xr/jetpack-xr
 
 Device pose information is not enabled by default on XR sessions. To enable your
 app to retrieve device pose information, configure the session and set the
-[`DeviceTrackingMode.LAST_KNOWN`](https://developer.android.com/reference/kotlin/androidx/xr/runtime/DeviceTrackingMode#LAST_KNOWN()) mode:
+[`DeviceTrackingMode.SPATIAL_LAST_KNOWN`](https://developer.android.com/reference/kotlin/androidx/xr/runtime/DeviceTrackingMode#SPATIAL_LAST_KNOWN()) mode:
 
 
 ```kotlin
@@ -55,7 +55,7 @@ try {
 
 <br />
 
-Not all XR devices support the `DeviceTrackingMode.LAST_KNOWN` mode. If
+Not all XR devices support the `DeviceTrackingMode.SPATIAL_LAST_KNOWN` mode. If
 [`Session.configure()`](https://developer.android.com/reference/kotlin/androidx/xr/runtime/Session#configure(androidx.xr.runtime.Config)) succeeds, the device supports this mode.
 
 > [!NOTE]

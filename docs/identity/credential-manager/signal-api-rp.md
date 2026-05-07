@@ -53,7 +53,7 @@ To use the Signal API, follow these steps:
 
    ```kotlin
    dependencies {
-       implementation("androidx.credentials:credentials:1.7.0-alpha01")
+       implementation("androidx.credentials:credentials:1.7.0-alpha02")
    }
    ```
 
@@ -61,7 +61,7 @@ To use the Signal API, follow these steps:
 
    ```groovy
    dependencies {
-       implementation "androidx.credentials:credentials:1.7.0-alpha01"
+       implementation "androidx.credentials:credentials:1.7.0-alpha02"
    }
    ```
 

@@ -6,13 +6,11 @@ source: md.txt
 
 # Savedstate
 
-[User Guide](https://developer.android.com/topic/libraries/architecture/viewmodel-savedstate) [Codelab](https://codelabs.developers.google.com/codelabs/android-lifecycles/#6) API Reference  
-[androidx.savedstate](https://developer.android.com/reference/kotlin/androidx/savedstate/package-summary)  
-Write pluggable components that save the UI state when a process dies, and restore it when the process restarts.
+[User Guide](https://developer.android.com/topic/libraries/architecture/viewmodel-savedstate) [Codelab](https://codelabs.developers.google.com/codelabs/android-lifecycles/#6) Write pluggable components that save the UI state when a process dies, and restore it when the process restarts.
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| March 11, 2026 | [1.4.0](https://developer.android.com/jetpack/androidx/releases/savedstate#1.4.0) | - | - | [1.5.0-alpha01](https://developer.android.com/jetpack/androidx/releases/savedstate#1.5.0-alpha01) |
+| May 06, 2026 | [1.4.0](https://developer.android.com/jetpack/androidx/releases/savedstate#1.4.0) | [1.5.0-rc01](https://developer.android.com/jetpack/androidx/releases/savedstate#1.5.0-rc01) | - | - |
 
 ## Declaring dependencies
 
@@ -63,6 +61,24 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.5
+
+### Version 1.5.0-rc01
+
+May 06, 2026
+
+`androidx.savedstate:savedstate-*:1.5.0-rc01` is released. Version 1.5.0-rc01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/35ca96cc1f129a6cc9d6650029cd6155668f4e7a..5ec3fd7563f4f9b2ba745aac0ad7770cc4cd087f/savedstate).
+
+### Version 1.5.0-beta01
+
+April 22, 2026
+
+`androidx.savedstate:savedstate-*:1.5.0-beta01` is released. Version 1.5.0-beta01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/3268ea760d665cee25941f7245395b2ebdf5bb50..35ca96cc1f129a6cc9d6650029cd6155668f4e7a/savedstate).
+
+### Version 1.5.0-alpha02
+
+March 25, 2026
+
+`androidx.savedstate:savedstate-*:1.5.0-alpha02` is released. Version 1.5.0-alpha02 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/1a508f033de883ba2853b9f9ae1853eec7010638..3268ea760d665cee25941f7245395b2ebdf5bb50/savedstate).
 
 ### Version 1.5.0-alpha01
 

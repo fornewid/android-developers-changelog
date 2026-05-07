@@ -117,3 +117,85 @@ and use `addOnCompleteListener` to retrieve the results. For example:
 
 > [!NOTE]
 > **Note:** You shouldn't store the player ID returned from the Android SDK in the game's backend, as it's possible for an untrusted device to tamper with it. Instead, you should [enable server-side API access](https://developer.android.com/games/pgs/android/server-access) and retrieve the player ID or other data with a server-side call directly from the game's backend.
+
+### Prevent auto-triggered profile creation
+
+You can disable auto-triggered profile creation prompts
+through the manifest file. This allows users without a Play Games Services
+profile to continue to load the game without being prompted to create a
+Play Games Services profile.
+For more information, see [Profile creation options](https://developer.android.com/games/pgs/signin#profile-creation-options).
+
+To use this feature, ensure that the following conditions are met:
+
+- No Play Games Services profile exists on any of the Google Accounts signed in on the device.
+- Your game is integrated with the Play Games Services SDK `com.google.android.gms:play-services-games-v2:21.0.0` or higher.
+
+To prevent the automatically triggered profile creation prompts, complete the
+following steps:
+
+1. In the `AndroidManifest.xml` file, add the
+   `com.google.android.gms.games.SUPPRESS_GAME_PROFILE_CREATION` tag in the
+   `<meta-data>` element and attributes to the `<application>` element:
+
+
+   ```
+   <application>
+       ...
+       <meta-data
+           android:name="com.google.android.gms.games.SUPPRESS_GAME_PROFILE_CREATION"
+           android:value="true" />
+       ...
+   </application>
+   ```
+
+   <br />
+
+   Setting this flag to true informs Play Games Services that your game will
+   handle the profile creation process. Consequently, the Play Games Services
+   won't automatically display the profile creation user interface for users
+   on the device who don't have an existing Play Games Services profile.
+2. When you call any Play Games Services API, the
+   [`GamesClientStatusCodes.SIGN_IN_REQUIRED`](https://developers.google.com/android/reference/com/google/android/gms/common/api/CommonStatusCodes#SIGN_IN_REQUIRED())
+   status code indicates that the call failed because the user couldn't be
+   automatically authenticated due to the absence of a Play Games Services
+   profile.
+
+   This allows users without a Play Games Services
+   profile to proceed with your implemented authentication methods without
+   immediately being prompted to create a Play Games Services profile.
+   Profile creation can be initiated by calling
+   [`GamesSignInService.signin()`](https://developers.google.com/android/reference/com/google/android/gms/games/GamesSignInClient#public-abstract-taskauthenticationresult-signin).
+
+   > [!NOTE]
+   > **Note:** For users who already have a profile but failed the initial authentication, Play Games Services attempts to authenticate them again when you call `GamesSignInService.signin()`.
+
+   ```java
+   import com.google.android.gms.games.PlayGames;
+   ...
+
+   // Get the achievements client using Play Games services.
+   AchievementsClient achievementsClient = PlayGames.getAchievementsClient(getActivity());
+   achievementsClient.getAchievementsIntent()
+       .addOnFailureListener(
+           new OnFailureListener() {
+             @Override
+             public void onFailure(@NonNull Exception exception) {
+               int statusCode = ((ApiException) exception).getStatusCode();
+               if (statusCode == GamesClientStatusCodes.SIGN_IN_REQUIRED) {
+                 // SIGN_IN_REQUIRED: The user needs to sign in with Play Games Services.
+                 // Call GamesSignInService.signin() to prompt for
+                 // authentication at a suitable time which will trigger the
+                 // profile creation UI.
+                 // (e.g., after a tutorial). Use GamesSignInService.isAuthenticated() to check auth status.
+               }
+             }
+           });
+   ```
+
+   > [!NOTE]
+   > **Note:** When the `com.google.android.gms.games.SUPPRESS_GAME_PROFILE_CREATION` tag is enabled, automatic profile creation is disabled on the new devices, which in turn prevents the retrieval of `com.google.android.gms.games.PROFILELESS_RECALL_ENABLED` tokens. You must manually initiate the authentication process on the second device once a Play Games Services profile has been created.
+
+3. After you add the suppression tag, use the `logcat` window to verify the
+   addition. The `logcat` output contains a message similar to the following:
+   "Game opted out of automatic profile creation prompt (using manifest)".

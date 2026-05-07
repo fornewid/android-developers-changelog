@@ -237,6 +237,71 @@ the game until authentication completes.
 > **Note:** For more information about how Player IDs work, visit the topic [here on
 > next generation Player IDs](https://developer.android.com/games/pgs/next-gen-player-ids)
 
+## Prevent auto-triggered profile creation
+
+You can disable auto-triggered profile creation prompts
+through the manifest file. This allows users without a Play Games Services
+profile to continue to load the game without being prompted to create a
+Play Games Services profile.
+For more information, see [Profile creation options](https://developer.android.com/games/pgs/console/setup#create_a_credential).
+
+To use this feature, ensure the following conditions are met:
+
+- The device has no Play Games Services profile on any of the signed-in Google Accounts.
+- Your game is integrated with [Play Games Services
+  Unity plugin](https://github.com/playgameservices/play-games-plugin-for-unity/tree/master/current-build) `2.1.0` or higher.
+
+1. In the `AndroidManifest.xml` file, add the
+   `com.google.android.gms.games.SUPPRESS_GAME_PROFILE_CREATION` tag in the
+   `<meta-data>` element and attributes to the `<application>` element:
+
+
+   ```xml
+   <application>
+       ...
+       <meta-data
+           android:name="com.google.android.gms.games.SUPPRESS_GAME_PROFILE_CREATION"
+           android:value="true" />
+       ...
+   </application>
+   ```
+
+   <br />
+
+   Setting this flag to true informs Play Games Services that your game will
+   handle the profile creation process. Consequently, the Play Games Services
+   won't automatically display the profile creation user interface for users
+   on the device who don't have an existing Play Games Services profile.
+2. To handle cases where a user is unauthenticated due to a missing
+   Play Games Services profile, you can use
+   [PlayGamesPlatform.Instance.IsAuthenticated()](https://developer.android.com/games/services/unity/v2/api/class/google-play-games/play-games-platform#isauthenticated). This method returns
+   `false` because profile creation fails. To resolve this, start the profile
+   creation process by calling
+   [PlayGamesPlatform.Instance.ManuallyAuthenticate()](https://developer.android.com/games/services/unity/v2/api/class/google-play-games/play-games-platform#manuallyauthenticate).
+
+   > [!NOTE]
+   > **Note:** For users who already have a profile but failed the initial authentication, Play Games Services attempts to authenticate them again when you call `PlayGamesPlatform.Instance.ManuallyAuthenticate()`.
+
+
+
+       if (!PlayGamesPlatform.Instance.IsAuthenticated()) {
+         // The user is unauthenticated, likely due to a missing Play Games profile.
+         // Calling PlayGamesPlatform.Instance.ManuallyAuthenticate() will trigger
+         // the profile creation UI.
+         PlayGamesPlatform.Instance.ManuallyAuthenticate((SignInStatus status) => {
+           // ...
+         });
+       }
+
+   <br />
+
+   > [!NOTE]
+   > **Note:** When the `com.google.android.gms.games.SUPPRESS_GAME_PROFILE_CREATION` tag is enabled, automatic profile creation is disabled on the new devices, which in turn prevents the retrieval of `com.google.android.gms.games.PROFILELESS_RECALL_ENABLED` tokens. You must manually initiate the authentication process on the second device once a Play Games Services profile has been created.
+
+3. After you add the suppression tag, use the `logcat` window to verify the
+   addition. The `logcat` output contains a message similar to the following:
+   "Game opted out of automatic profile creation prompt (using manifest)".
+
 ## Use Play App Signing
 
 Google manages and protects your app's signing key using Play App Signing.

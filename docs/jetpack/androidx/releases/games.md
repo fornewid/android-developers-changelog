@@ -19,14 +19,14 @@ This table lists all the artifacts in the `androidx.games` group.
 
 | Artifact | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| games-activity | [4.4.0](https://developer.android.com/jetpack/androidx/releases/games#games-activity-4.4.0) | - | - | - |
+| games-activity | [4.4.2](https://developer.android.com/jetpack/androidx/releases/games#games-activity-4.4.2) | - | - | - |
 | games-controller | [2.0.2](https://developer.android.com/jetpack/androidx/releases/games#games-controller-2.0.2) | - | - | [2.3.0-alpha01](https://developer.android.com/jetpack/androidx/releases/games#games-controller-2.3.0-alpha01) |
 | games-frame-pacing | [2.1.3](https://developer.android.com/jetpack/androidx/releases/games#games-frame-pacing-2.1.3) | - | - | [2.3.0-alpha01](https://developer.android.com/jetpack/androidx/releases/games#games-frame-pacing-2.3.0-alpha01) |
 | games-memory-advice | [2.0.1](https://developer.android.com/jetpack/androidx/releases/games#games-memory-advice-2.0.1) | - | [2.1.0-beta01](https://developer.android.com/jetpack/androidx/releases/games#games-memory-advice-2.1.0-beta01) | [2.3.0-alpha01](https://developer.android.com/jetpack/androidx/releases/games#games-memory-advice-2.3.0-alpha01) |
-| games-text-input | [4.3.0](https://developer.android.com/jetpack/androidx/releases/games#games-text-input-4.3.0) | - | - | - |
+| games-text-input | [4.3.1](https://developer.android.com/jetpack/androidx/releases/games#games-text-input-4.3.1) | - | - | - |
 | games-performance-tuner | [2.0.0](https://developer.android.com/jetpack/androidx/releases/games#games-performance-tuner-2.0.0) | - | - | [2.3.0-alpha01](https://developer.android.com/jetpack/androidx/releases/games#games-performance-tuner-2.3.0-alpha01) |
 
-This library was last updated on: March 11, 2026
+This library was last updated on: May 06, 2026
 
 ## Requirements
 
@@ -67,14 +67,14 @@ dependencies {
     implementation "androidx.games:games-performance-tuner:2.0.0"
 
     // To use the Games Activity library
-    implementation "androidx.games:games-activity:4.4.0"
+    implementation "androidx.games:games-activity:4.4.2"
 
     // To use the Games Controller Library
     implementation "androidx.games:games-controller:2.0.2"
 
     // To use the Games Text Input Library
     // Do not include this if games-activity has been included
-    implementation "androidx.games:games-text-input:4.3.0"
+    implementation "androidx.games:games-text-input:4.3.1"
 }
 ```
 
@@ -99,14 +99,14 @@ dependencies {
     implementation("androidx.games:games-performance-tuner:2.0.0")
 
     // To use the Games Activity library
-    implementation("androidx.games:games-activity:4.4.0")
+    implementation("androidx.games:games-activity:4.4.2")
 
     // To use the Games Controller Library
     implementation("androidx.games:games-controller:2.0.2")
 
     // To use the Games Text Input Library
     // Do not include this if games-activity has been included
-    implementation("androidx.games:games-text-input:4.3.0")
+    implementation("androidx.games:games-text-input:4.3.1")
 }
 }
 ```
@@ -338,6 +338,12 @@ February 23, 2022
 
 ## Games-Text-Input Version 4.3
 
+### Version 4.3.1
+
+May 06, 2026
+
+`androidx.games:games-text-input:4.3.1` is released. Version 4.3.1 contains [these commits](https://android.googlesource.com/platform/frameworks/opt/gamesdk/+log/007a00cd01d5cbe6d75566d3fcd6b7b19050d2f3..38611794fe1b1287ec6ae0c973fad524ddfd2a81/game-text-input).
+
 ### Version 4.3.0
 
 March 11, 2026
@@ -371,6 +377,18 @@ August 7, 2024
 - Fixed functionality of deletion with and without text selection.
 
 ## Games-Activity Version 4
+
+### Version 4.4.2
+
+May 06, 2026
+
+`androidx.games:games-activity:4.4.2` is released. Version 4.4.2 contains [these commits](https://android.googlesource.com/platform/frameworks/opt/gamesdk/+log/007a00cd01d5cbe6d75566d3fcd6b7b19050d2f3..abacb92361432e5c93a3f99729eb1247406cdbd5/game-activity).
+
+### Version 4.4.1
+
+April 08, 2026
+
+`androidx.games:games-activity:4.4.1` is released. Version 4.4.1 contains [these commits](https://android.googlesource.com/platform/frameworks/opt/gamesdk/+log/d8d6dc333c8ff9524e565b1d12636b23cb79cc0a..007a00cd01d5cbe6d75566d3fcd6b7b19050d2f3/game-activity).
 
 ### Version 4.4.0
 

@@ -95,10 +95,36 @@ Users who don't have a Play Games Services profile are prompted to
 Players need a Play Games Services profile to engage with the platform. Some
 players might not have a Play Games Services profile when they start your game.
 These players will be asked to create one.
+You can decide the right experience for your users by picking one of the
+following options:
+
+### Auto-triggered profile creation prompts
 
 Auto-triggered profile creation prompts appear automatically by default when you
 launch a game without a Play Games Services profile.
 [![Profile creation prompt when you launch a game.](https://developer.android.com/static/images/games/pgs/profileprompt.png)](https://developer.android.com/static/images/games/pgs/profileprompt.png) Profile creation prompt when you launch a game (click to enlarge).
+
+#### Stop auto-triggered profile creation prompts
+
+Disable profile prompts at launch by configuring the manifest file to prevent
+auto-triggered prompts. This lets users without a Play Games Services profile
+to continue to load the game without being prompted to create a
+Play Games Services profile.
+
+While users can sign in with any identity provider, you should display a profile
+creation prompt to encourage them to authenticate with Play Games
+platform authentication. Display this prompt as needed, but make sure it occurs
+before users make significant progress in features such as achievements and
+leaderboards.
+
+Consider triggering the profile prompt during these recommended moments:
+
+- After completing a tutorial.
+- During a rewarded moment (for example, winning a match, collecting a rare item, or hitting a milestone).
+- At the time of launching a second session.
+
+For more information, see [Prevent auto-triggered profile creation (Java)](https://developer.android.com/games/pgs/android/android-signin#prevent-auto-profile)
+and [Prevent auto-triggered profile creation (Unity)](https://developer.android.com/games/pgs/unity/unity-start#prevent-auto-profile).
 
 ### In-game authentication
 
@@ -184,8 +210,9 @@ implement [seamless restore](https://developer.android.com/games/pgs/seamless-re
 
 ### Guest mode
 
-Players can launch the game and play using a local guest account.
-PGS still authenticates in the background. If the player chooses to **Save
-Progress**, the game converts the guest session into a permanent IGA and binds
-it to the PGS Player ID.
+Players can launch your game and play by using a local guest account.
+Play Games Services still authenticates the player in the background. If the
+player selects **Save Progress** , your game converts the guest session into a
+permanent IGA and binds it to the player ID. For more information about conflict
+resolution, see [Guest account](https://developer.android.com/games/pgs/savedgames#guest-account).
 [![Guest Mode - No IGA created](https://developer.android.com/static/images/games/pgs/scenario5a.png)](https://developer.android.com/static/images/games/pgs/scenario5a.png) Guest Mode - No IGA created (click to enlarge). [![Guest Mode - IGA created](https://developer.android.com/static/images/games/pgs/scenario5b.png)](https://developer.android.com/static/images/games/pgs/scenario5b.png) Guest Mode - IGA created (click to enlarge).

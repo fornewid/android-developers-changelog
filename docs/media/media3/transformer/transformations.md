@@ -4,10 +4,6 @@ url: https://developer.android.com/media/media3/transformer/transformations
 source: md.txt
 ---
 
-clips, apply video effects, and optimize exports.
-keywords_public: Media3, Transformer, transcode, video editing, trimming, audio
-processing, Android media
-
 ## Transcode between formats
 
 You can specify the output audio and video formats you want to produce when

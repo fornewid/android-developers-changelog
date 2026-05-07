@@ -32,7 +32,24 @@ your game needs to implement a cloud save solution which has two parts:
    - **Multiple accounts per user:** Handle instances where a single user interacts with the application using different accounts.
    - **State conflicts:** Resolve discrepancies that arise between the local game state and the cloud-saved game state.
 
-## Saved games
+## Guest account
+
+When a player on a guest account signs in and links to a [Player
+ID](https://developer.android.com/games/pgs/platform-authentication#player-id) with existing cloud-saved
+progress, your game might accidentally overwrite significant historical data. If
+a player has a local guest account with significant progress and a cloud backup
+of the last played In-Game Account (IGA) linked to Play Games Services, your game
+shouldn't automatically overwrite the local data. Instead, prompt the player to
+choose between the two states.
+
+Considering this, you have two options:
+
+- **Option 1:** Maintain the current flow where cloud progress is restored. A warning message is displayed to indicate an existing account was detected, and its progress will be used.
+- **Option 2 (Recommended):** Display a message informing the player that an existing account with progress was detected. Linking the guest account replaces the cloud progress with the current guest progress. The message displayed for both local and cloud-saved progress so the player can make an informed decision.
+
+![Conflict resolution flow between Cloud Save and Guest account progress](https://developer.android.com/static/images/games/pgs/new/conflict.png) Conflict resolution flow between Cloud Save and Guest account progress.
+
+## Saved Games
 
 The Saved Games service gives you a convenient way to save
 your players' game progression to Google's servers. Your game can retrieve the
@@ -51,7 +68,7 @@ This service offers several key advantages for both players and developers:
 To learn how to implement saved games for your platform, see
 [Client implementations](https://developer.android.com/games/pgs/savedgames#client-implementations).
 
-## Saved Games basics
+### Saved Games basics
 
 A saved game consists of two parts:
 
@@ -61,6 +78,23 @@ A saved game consists of two parts:
 A game can write any number of Saved Games for a single player, subject to [file
 size restrictions](https://developer.android.com/games/pgs/savedgames#limits), so there is no requirement to limit players to a single
 save file.
+
+### Conflict resolution
+
+When using the Saved Games service, your game may encounter conflicts when
+attempting to save data. These conflicts can occur when a user is running more
+than one instance of your application on different devices or computers. Your
+application must be able to resolve these conflicts in a way that provides the
+best user experience.
+
+Typically, data conflicts occur when an instance of your application is unable
+to reach the Saved Games service while attempting to load data or save it. In
+general, the best way to avoid data conflicts is to always load the latest data
+from the service when your application starts up or resumes, and save data to
+the service with reasonable frequency. However, it is not always possible to
+avoid data conflicts. Your application should make every effort to handle
+conflicts such that your users' data is preserved and that they have a good
+experience.
 
 ### Cover images
 
@@ -90,29 +124,12 @@ offline, but won't be able to sync with Google Play Games Services until
 network connectivity is established. Once reconnected, Google Play Games Services
 asynchronously updates the saved game data on Google's servers.
 
-### Conflict resolution
-
-When using the Saved Games service, your game may encounter conflicts when
-attempting to save data. These conflicts can occur when a user is running more
-than one instance of your application on different devices or computers. Your
-application must be able to resolve these conflicts in a way that provides the
-best user experience.
-
-Typically, data conflicts occur when an instance of your application is unable
-to reach the Saved Games service while attempting to load data or save it. In
-general, the best way to avoid data conflicts is to always load the latest data
-from the service when your application starts up or resumes, and save data to
-the service with reasonable frequency. However, it is not always possible to
-avoid data conflicts. Your application should make every effort to handle
-conflicts such that your users' data is preserved and that they have a good
-experience.
-
 ### Limits
 
 Google Play Games Services enforces size limits on binary data and cover
 image sizes of 3 MB and 800 KB respectively.
 
-### Saved game metadata
+### Saved Game metadata
 
 The structured metadata for a saved game contains these these properties:
 

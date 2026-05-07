@@ -6,13 +6,11 @@ source: md.txt
 
 # credentials
 
-[User Guide](https://developer.android.com/training/sign-in/passkeys) API Reference  
-[androidx.credentials](https://developer.android.com/reference/kotlin/androidx/credentials/package-summary)  
-This library provides unified access to a user's credentials. This can include passwords, passkeys and federated credentials. This library should be used to provide seamless and secure sign-in experiences.
+[User Guide](https://developer.android.com/training/sign-in/passkeys) This library provides unified access to a user's credentials. This can include passwords, passkeys and federated credentials. This library should be used to provide seamless and secure sign-in experiences.
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| March 11, 2026 | [1.5.0](https://developer.android.com/jetpack/androidx/releases/credentials#1.5.0) | [1.6.0-rc02](https://developer.android.com/jetpack/androidx/releases/credentials#1.6.0-rc02) | - | [1.6.0-rc02](https://developer.android.com/jetpack/androidx/releases/credentials#1.6.0-rc02) |
+| May 06, 2026 | [1.6.0](https://developer.android.com/jetpack/androidx/releases/credentials#1.6.0) | - | - | [1.7.0-alpha02](https://developer.android.com/jetpack/androidx/releases/credentials#1.7.0-alpha02) |
 
 ## Declaring dependencies
 
@@ -27,8 +25,8 @@ your app or module:
 
 ```kotlin
 dependencies {
-    implementation("androidx.credentials:credentials:1.6.0-rc02")
-    implementation("androidx.credentials:credentials-play-services-auth:1.6.0-rc02")
+    implementation("androidx.credentials:credentials:1.7.0-alpha02")
+    implementation("androidx.credentials:credentials-play-services-auth:1.7.0-alpha02")
 }
 ```
 
@@ -36,8 +34,8 @@ dependencies {
 
 ```groovy
 dependencies {
-    implementation "androidx.credentials:credentials:1.6.0-rc02"
-    implementation "androidx.credentials:credentials-play-services-auth:1.6.0-rc02"
+    implementation "androidx.credentials:credentials:1.7.0-alpha02"
+    implementation "androidx.credentials:credentials-play-services-auth:1.7.0-alpha02"
 }
 ```
 
@@ -58,6 +56,24 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 There are no release notes for this artifact.
+
+## Credentials Credentials-play-services-auth Version 1.7
+
+### Version 1.7.0-alpha02
+
+May 06, 2026
+
+`androidx.credentials:credentials:1.7.0-alpha02` and `androidx.credentials:credentials-play-services-auth:1.7.0-alpha02` are released. Version 1.7.0-alpha02 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/df4b49eda6f6834b6bc4c8aa30a581fa577a511e..6b0038b63d8b655e705d4118f483922a4083931e/credentials).
+
+### Version 1.7.0-alpha01
+
+April 22, 2026
+
+`androidx.credentials:credentials:1.7.0-alpha01` and `androidx.credentials:credentials-play-services-auth:1.7.0-alpha01` are released. Version 1.7.0-alpha01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/73c49c625afa14864002e62b7db64050670c0b25..412954d4caa85d7f1003107fd178c2a069e5dbcd/credentials).
+
+**API Changes**
+
+- Support large credential payloads for `getCredential` API
 
 ## Credentials e2ee Version 1.0.
 
@@ -86,7 +102,17 @@ April 3, 2024
 
 - Support for creating an `IdentityKey` from a passkey ([Iba31e](https://android-review.googlesource.com/#/q/Iba31e191a7c1b74e7762613ca7abe8e69e37c83c))
 
-## Version 1.6
+## Credentials Credentials-play-services-auth Version 1.6
+
+### Version 1.6.0
+
+April 08, 2026
+
+`androidx.credentials:credentials:1.6.0` and `androidx.credentials:credentials-play-services-auth:1.6.0` are released. Version 1.6.0 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/9aca98b55b132550a298cc52cb2e42cedb32c452..73c49c625afa14864002e62b7db64050670c0b25/credentials).
+
+**Important changes since 1.5.0:**
+
+- Fix propagation of `CreatePublicKeyCredentialRequest.isConditional` bit.
 
 ### Version 1.6.0-rc02
 

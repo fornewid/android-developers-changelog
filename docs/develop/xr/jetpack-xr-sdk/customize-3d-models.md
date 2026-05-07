@@ -12,20 +12,44 @@ Applicable XR devices This guidance helps you build experiences for these types 
 <br />
 
 After you've [added a 3D model to your app](https://developer.android.com/develop/xr/jetpack-xr-sdk/add-3d-models), you can enhance the visual
-experience by defining custom material properties and applying textures to the
-object. Jetpack XR's material system is based on the [glTF™ 2.0](https://registry.khronos.org/glTF/specs/2.0/glTF-2.0.html)
-specification, and 3D models are rendered using
-[physically-based rendering (PBR)](https://en.wikipedia.org/wiki/Physically_based_rendering). These are open standards maintained by
-the Khronos Group.
+and interactive experience by customizing it. For example, you can play
+and control embedded glTF animations, define custom material properties (like
+base colors or metallic roughness), and apply custom textures to your 3D
+models. These capabilities let you dynamically alter an object's
+appearance and behavior at runtime.
 
-Material attributes can be adjusted during runtime to change an object's
-appearance dynamically based on user input or the current state of the app.
+## Animate 3D models
 
-For details about each supported property and the customizable parameters
-in Android XR, see our [reference documentation](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/KhronosPbrMaterial). To better understand these
-properties, see the [Khronos glossary](https://www.khronos.org/gltf/pbr#pbr-glossary).
+As part of the glTF specification, 3D models can have embedded animations.
+Skeletal (rigged), rigid, and morph target (blend shapes) animations are all
+supported in the Jetpack XR SDK. Material animations created with the
+[`KHR_animation_pointer` glTF extension](https://github.com/KhronosGroup/glTF/blob/main/extensions/2.0/Khronos/KHR_animation_pointer/README.md) are also supported.
+
+To play an animation, specify the name of the specific track from the
+list of [`animations`](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/GltfModelEntity#animations()). Call
+[`GltfAnimation.start()`](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/GltfAnimation#start(androidx.xr.scenecore.GltfAnimationStartOptions)) to begin playing. You can
+optionally specify the speed, the seek time, and whether or not the animation
+should loop using [`GltfAnimationStartOptions`](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/GltfAnimationStartOptions).
+
+
+```kotlin
+gltfEntity.startAnimation(loop = true, animationName = "Walk")
+```
+
+<br />
+
+You can also `pause()`, `resume()`, and `stop()` animations, as well as use
+`seekTo()` to jump to a specific time in the animation track. To query the
+current state of the animation, use
+[`GltfAnimation.AnimationState`](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/GltfAnimation.AnimationState).
 
 ## Customize the material properties of your 3D model
+
+Jetpack XR's material system is based on the [glTF™ 2.0](https://registry.khronos.org/glTF/specs/2.0/glTF-2.0.html)
+specification, and 3D models are rendered using
+[physically-based rendering (PBR)](https://en.wikipedia.org/wiki/Physically_based_rendering). You can adjust aterial attributes
+during runtime to change an object's appearance dynamically based on user input
+or the current state of the app.
 
 A `Material` defines a set of visual properties for an object's surface and
 determines how that surface interacts with light in the scene.
@@ -36,6 +60,10 @@ classes are used to create and manipulate these materials. As the name implies,
 lighting. [`KhronosPbrMaterial`](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/KhronosPbrMaterial) lets you customize a wider range of
 properties, such as sheen color, how metallic or rough an object is, and whether
 it emits light.
+
+For more information about each supported property and the customizable parameters
+in Android XR, see our [reference documentation](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/KhronosPbrMaterial). To better understand these
+properties, see the [Khronos glossary](https://www.khronos.org/gltf/pbr#pbr-glossary).
 
 ![Example of changing the base colors on a 3d model](https://developer.android.com/static/images/develop/xr/jetpack-xr-sdk/customize-3d-models/change_color.gif)
 
@@ -65,7 +93,7 @@ pbrMaterial.setBaseColorFactor(
         x = 0.5f,
         y = 0.0f,
         z = 0.5f,
-        w = 0.0f
+        w = 1.0f
     )
 )
 ```
@@ -134,7 +162,7 @@ gltfModelNode.setMaterialOverride(
 
 <br />
 
-To remove the newly-created materials, call [`clearMaterialOverride`](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/GltfModelNode=clearMaterialOverride(kotlin.String,kotlin.Int)) on
+To remove the newly-created materials, call [`clearMaterialOverride`](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/GltfModelNode#clearMaterialOverride(kotlin.Int)) on
 the previously overridden node on your [`GltfModelNode`](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/GltfModelNode). This returns
 your 3D Model to its default state:
 

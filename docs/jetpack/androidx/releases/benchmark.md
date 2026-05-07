@@ -10,7 +10,7 @@ source: md.txt
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| March 25, 2026 | [1.4.1](https://developer.android.com/jetpack/androidx/releases/benchmark#1.4.1) | - | - | [1.5.0-alpha05](https://developer.android.com/jetpack/androidx/releases/benchmark#1.5.0-alpha05) |
+| May 06, 2026 | [1.4.1](https://developer.android.com/jetpack/androidx/releases/benchmark#1.4.1) | - | - | [1.5.0-alpha06](https://developer.android.com/jetpack/androidx/releases/benchmark#1.5.0-alpha06) |
 
 ## Declaring dependencies
 
@@ -137,6 +137,16 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.5
+
+### Version 1.5.0-alpha06
+
+May 06, 2026
+
+`androidx.benchmark:benchmark-*:1.5.0-alpha06` is released. Version 1.5.0-alpha06 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/4f1927c2c3b66d0c3a6b9118974d818d2dc5a06a..bf10070790b9acc5ad74a86f3546e71139336096/benchmark).
+
+**Bug Fixes**
+
+- Handle multi-user environments gracefully when moving files from the benchmark output directory to the additional test output directory. ([I90da5](https://android-review.googlesource.com/#/q/I90da528659c85a6b05e3991db176ff34b97a2823), [b/489358149](https://issuetracker.google.com/issues/489358149))
 
 ### Version 1.5.0-alpha05
 

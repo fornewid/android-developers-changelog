@@ -10,7 +10,7 @@ source: md.txt
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| March 25, 2026 | [1.10.6](https://developer.android.com/jetpack/androidx/releases/compose-material#1.10.6) | - | [1.11.0-beta02](https://developer.android.com/jetpack/androidx/releases/compose-material#1.11.0-beta02) | - |
+| May 06, 2026 | [1.11.1](https://developer.android.com/jetpack/androidx/releases/compose-material#1.11.1) | - | - | [1.12.0-alpha02](https://developer.android.com/jetpack/androidx/releases/compose-material#1.12.0-alpha02) |
 
 ## Structure
 
@@ -43,7 +43,7 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.compose.material:material:1.10.6"
+    implementation "androidx.compose.material:material:1.11.1"
 }
 
 android {
@@ -65,7 +65,7 @@ android {
 
 ```kotlin
 dependencies {
-    implementation("androidx.compose.material:material:1.10.6")
+    implementation("androidx.compose.material:material:1.11.1")
 }
 
 android {
@@ -98,7 +98,47 @@ clicking the star button.
 See the [Issue Tracker documentation](https://developers.google.com/issue-tracker)
 for more information.
 
+## Version 1.12
+
+### Version 1.12.0-alpha02
+
+May 06, 2026
+
+`androidx.compose.material:material-*:1.12.0-alpha02` is released. Version 1.12.0-alpha02 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/df4b49eda6f6834b6bc4c8aa30a581fa577a511e..5ec3fd7563f4f9b2ba745aac0ad7770cc4cd087f/compose/material).
+
+### Version 1.12.0-alpha01
+
+April 22, 2026
+
+`androidx.compose.material:material-*:1.12.0-alpha01` is released. Version 1.12.0-alpha01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/ecc44700355708734de3756bf5e677323ae14ed1..df4b49eda6f6834b6bc4c8aa30a581fa577a511e/compose/material).
+
+**API Changes**
+
+- Changed the `VelocityTracker` to use the implementation provided by the Android Framework (configurable with `AndroidComposeUiFlags.isFrameworkVelocityTrackerEnabled`). ([Ibc7e2](https://android-review.googlesource.com/#/q/Ibc7e24c4840a9e6235240642945db374b8068e10), [b/359962905](https://issuetracker.google.com/issues/359962905))
+
+**Bug Fixes**
+
+- Updated Compose `compileSdk` to API 37. This means that a minimum AGP version of 9.2.0 is required when using Compose. ([Id45cd](https://android-review.googlesource.com/#/q/Id45cdca34ef948e06259b2dd9adc901b7c930492), [b/413674743](https://issuetracker.google.com/issues/413674743))
+
 ## Version 1.11
+
+### Version 1.11.1
+
+May 06, 2026
+
+`androidx.compose.material:material-*:1.11.1` is released. Version 1.11.1 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/6ce2d81339d3380e021df09daaa55acb307ee912..5d39d0c458dbf0b3791cfaba65f42a27e442c15f/compose/material).
+
+### Version 1.11.0
+
+April 22, 2026
+
+`androidx.compose.material:material-*:1.11.0` is released. Version 1.11.0 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/deab088e55dabc3db4d0638d62ea3132fc51d69b..6ce2d81339d3380e021df09daaa55acb307ee912/compose/material).
+
+### Version 1.11.0-rc01
+
+April 08, 2026
+
+`androidx.compose.material:material-*:1.11.0-rc01` is released. Version 1.11.0-rc01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/56409d2ed9fc0e8746250e5d8862c080d0c80087..ecc44700355708734de3756bf5e677323ae14ed1/compose/material).
 
 ### Version 1.11.0-beta02
 

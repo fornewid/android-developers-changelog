@@ -124,26 +124,26 @@ dependencies:
 ```kotlin
 dependencies {
 
-    val composeBom = platform("androidx.compose:compose-bom:2026.03.00")
+    val composeBom = platform("androidx.compose:compose-bom:2026.04.01")
 
     // General compose dependencies
     implementation(composeBom)
     implementation("androidx.activity:activity-compose:1.13.0")
-    implementation("androidx.compose.ui:ui-tooling-preview:1.10.6")
+    implementation("androidx.compose.ui:ui-tooling-preview:1.11.1")
     // Other compose dependencies
 
     // Compose for Wear OS dependencies
-    implementation("androidx.wear.compose:compose-material3:1.6.0")
+    implementation("androidx.wear.compose:compose-material3:1.6.1")
 
     // Foundation is additive, so you can use the mobile version in your Wear OS app.
-    implementation("androidx.wear.compose:compose-foundation:1.6.0")
+    implementation("androidx.wear.compose:compose-foundation:1.6.1")
 
     // Wear OS preview annotations
-    implementation("androidx.wear.compose:compose-ui-tooling:1.6.0")
+    implementation("androidx.wear.compose:compose-ui-tooling:1.6.1")
 
     // If you are using Compose Navigation, use the Wear OS version (NOT THE MOBILE VERSION).
     // Uncomment the line below and update the version number.
-    // implementation("androidx.wear.compose:compose-navigation:1.6.0")
+    // implementation("androidx.wear.compose:compose-navigation:1.6.1")
 
     // Testing
     testImplementation("junit:junit:4.13.2")

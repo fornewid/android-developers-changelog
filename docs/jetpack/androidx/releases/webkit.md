@@ -6,13 +6,11 @@ source: md.txt
 
 # Webkit
 
-[User Guide](https://developer.android.com/guide/webapps/managing-webview) API Reference  
-[androidx.webkit](https://developer.android.com/reference/kotlin/androidx/webkit/package-summary)  
-Work with modern WebView APIs on Android 5 and above.
+[User Guide](https://developer.android.com/guide/webapps/managing-webview) Work with modern WebView APIs on Android 5 and above.
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| March 11, 2026 | [1.15.0](https://developer.android.com/jetpack/androidx/releases/webkit#1.15.0) | - | - | [1.16.0-alpha03](https://developer.android.com/jetpack/androidx/releases/webkit#1.16.0-alpha03) |
+| May 06, 2026 | [1.16.0](https://developer.android.com/jetpack/androidx/releases/webkit#1.16.0) | - | - | - |
 
 ## Declaring dependencies
 
@@ -27,7 +25,7 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.webkit:webkit:1.15.0"
+    implementation "androidx.webkit:webkit:1.16.0"
 }
 ```
 
@@ -35,7 +33,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.webkit:webkit:1.15.0")
+    implementation("androidx.webkit:webkit:1.16.0")
 }
 ```
 
@@ -54,7 +52,69 @@ clicking the star button.
 See the [Issue Tracker documentation](https://developers.google.com/issue-tracker)
 for more information.
 
-## Version 1.16
+## Webkit Version 1.16
+
+### Version 1.16.0
+
+May 06, 2026
+
+`androidx.webkit:webkit:1.16.0` is released. Version 1.16.0 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/f35ed15ba0388327d2b70a31d141da182ff721c8..5744fa6296a0f6147952e836b3d92dd87ff7d4dd/webkit/webkit).
+
+**Important changes since 1.15.0:**
+
+The 1.16.0 stable release brings multiple APIs out of experimental status, significantly improving stability and developer experience for features like async `WebView` startup and navigation listening.  
+The minimum supported SDK (minSdk) for this library has been increased to 24.
+
+- The [`startUpWebView`](https://developer.android.com/reference/androidx/webkit/WebViewCompat#startUpWebView(android.content.Context,androidx.webkit.WebViewStartUpConfig,androidx.webkit.WebViewOutcomeReceiver%3Candroidx.webkit.WebViewStartUpResult,androidx.webkit.WebViewStartupException%3E)) API and related async startup configuration APIs in `ProcessGlobalConfig` and `WebViewStartUpConfig` have been graduated from experimental to stable. These APIs let applications trigger WebView startup earlier, ensuring portions of the startup run in the background to improve responsiveness. The previous version of `startUpWebView` has been deprecated, and users should migrate to the new version, which takes a `WebViewOutcomeReceiver` to facilitate failure callbacks.
+- The navigation APIs, including [`WebViewCompat\#addNavigationListener`](https://developer.android.com/reference/androidx/webkit/WebViewCompat#addNavigationListener(android.webkit.WebView,java.util.concurrent.Executor,androidx.webkit.NavigationListener)), [`NavigationListener`](https://developer.android.com/reference/androidx/webkit/NavigationListener), [`Navigation`](https://developer.android.com/reference/androidx/webkit/Navigation), and [`Page`](https://developer.android.com/reference/androidx/webkit/Page) have been graduated to stable. These APIs let app developers receive callbacks from WebView during the different stages of page navigation through the [`NavigationListener`](http://go/android-dev/reference/androidx/webkit/NavigationListener) interface. This also includes the option to receive performance metrics from the page, which makes it easier for app developers to measure performance of first-party pages in their apps. The [`Navigation`](https://developer.android.com/reference/androidx/webkit/Navigation) and [`Page`](https://developer.android.com/reference/androidx/webkit/Page) objects serve as unique identifiers that serve as the link between the different callbacks when multiple WebViews or navigations might be happening concurrently. The `Navigation` object also provides more information about the specific nature of the ongoing navigation, including how it was started, and whether it succeeded or resulted in an error page, while the `Page` object provides the specific URL.
+- [`WebViewCompat\#saveState`](https://developer.android.com/reference/androidx/webkit/WebViewCompat#saveState(android.webkit.WebView,android.os.Bundle,int,boolean)) extends the [`WebView\#saveState`](https://developer.android.com/reference/android/webkit/WebView.html#saveState(android.os.Bundle)) method with more controls that allow developers to specify a maximum size for the state and whether forward history entries should be included. The saved state object is still compatible with [`WebView\#restoreState`](https://developer.android.com/reference/android/webkit/WebView.html#restoreState(android.os.Bundle))
+- This version of the library introduces [`WebViewOutcomeReceiver`](https://developer.android.com/reference/androidx/webkit/WebViewOutcomeReceiver) as a library-specific implementation of [`android.os.OutcomeReceiver`](https://developer.android.com/reference/android/os/OutcomeReceiver), which allows this library to provide a similar mechanism for asynchronous callback result handling without a need to depend on higher `targetSdk` values. This class was named `androidx.webkit.OutcomeReceiverCompat` while in experimental status but has been renamed to avoid any name clashes.
+- **External Contribution:** New APIs were introduced to inject persistent `JavaScript` as part of the document loaded event ([`WebViewCompat#addJavaScriptOnEvent`](https://developer.android.com/reference/androidx/webkit/WebViewCompat#addJavaScriptOnEvent(android.webkit.WebView,java.lang.String,int,java.util.Set%3Cjava.lang.String%3E,androidx.webkit.JavaScriptExecutionWorld))), inject `JavaScript` and `WebMessageListeners` into [isolated worlds](https://developer.android.com/reference/androidx/webkit/JavaScriptExecutionWorld) to prevent collisions with existing page `JavaScript`, and execute `JavaScript` as a response to a web message ([`JavaScriptReplyProxy#executeJavaScript`](http://go/android-dev/reference/androidx/webkit/JavaScriptReplyProxy#executeJavaScript(java.lang.String,androidx.webkit.WebViewOutcomeReceiver%3Cjava.lang.String,androidx.webkit.JavaScriptExecutionException%3E))).
+
+  **Experimental APIs added since 1.15.0**
+- Added [`WebViewBuilder.applyTo`](https://developer.android.com/reference/androidx/webkit/WebViewBuilder#applyTo(T)) API for applying builder configurations to pre-constructed `WebViews`. This lets you use the configuration capabilities of the `WebViewBuilder` API, and the corresponding guarantees that settings won't change, with pre-existing `WebView` objects. This is intended to be used with `WebView` instances created from layout inflation, or with subclasses of `WebView`.
+
+**Experimental APIs updated since 1.15.0**
+
+- The [`BackForwardCacheSettings`](https://developer.android.com/reference/androidx/webkit/BackForwardCacheSettings) object has been changed from a configuration object that is provided through `WebSettingsCompat` to a live object that can be obtained by calling [WebSettingsCompat#getBackForwardCacheSettings](https://developer.android.com/reference/androidx/webkit/WebSettingsCompat#getBackForwardCacheSettings(android.webkit.WebSettings)). The object now has setter methods that update the settings directly. The previous `Builder` nested class has been removed, as has `WebSettingsCompat#setBackForwardCacheSettings.` Apps that previously used these methods will experience build errors when upgrading.
+- `Profile#setSpeculativeLoadingConfig` is deprecated. Use `Profile#setMaxPrerenders`, `PrefetchCache#setMaxPrefetches`, and `PrefetchCache#setPrefetchTtlSeconds` instead.
+- Removed `Profile#clearPrefetchAsync` as it was a no-op.
+- Changed the return type of `StartUpLocation.getStackInformation()` from `String` to `Throwable` to allow apps to process the information better.
+
+### Version 1.16.0-rc01
+
+April 22, 2026
+
+`androidx.webkit:webkit:1.16.0-rc01` is released. Version 1.16.0-rc01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/951845221205b7a428a9d779107760fc929863ee..69a3842c3da27089adcfd5f6593cace86258fa9b/webkit/webkit).
+
+- There are no changes since `androidx.webkit:webkit:1.16.0-beta01` .
+
+### Version 1.16.0-beta01
+
+April 08, 2026
+
+`androidx.webkit:webkit:1.16.0-beta01` is released. Version 1.16.0-beta01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/4f1927c2c3b66d0c3a6b9118974d818d2dc5a06a..cf4acc3c7b7fb09822200e21faddec615955dafe/webkit/webkit).
+
+**API Changes**
+
+- The `CallbackExecutor` argument to `Profile.prefetchUrlAsync` is now nullable and defaults to the main thread if not provided. ([Ib89ef](https://android-review.googlesource.com/#/q/Ib89ef77acac24aa312d13f1328abf0dfc1710fce), [b/483041824](https://issuetracker.google.com/issues/483041824))
+
+### Version 1.16.0-alpha04
+
+March 25, 2026
+
+`androidx.webkit:webkit:1.16.0-alpha04` is released. Version 1.16.0-alpha04 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/1a508f033de883ba2853b9f9ae1853eec7010638..4f1927c2c3b66d0c3a6b9118974d818d2dc5a06a/webkit/webkit).
+
+**API Changes**
+
+- The [`startUpWebView`](https://developer.android.com/reference/androidx/webkit/WebViewCompat#startUpWebView(android.content.Context,androidx.webkit.WebViewStartUpConfig,androidx.webkit.WebViewOutcomeReceiver)) API and related async startup configuration APIs in `ProcessGlobalConfig` and `WebViewStartUpConfig` have been graduated from experimental to stable.  
+  WebView startup can be a time-consuming process, so these APIs allow applications to trigger WebView startup at the right time, ensuring that portions of WebView startup which are able to run in the background will do so, improving the responsiveness of the first WebView usage.  
+  These APIs were previously released as experimental, and can now be used without an `@OptIn` annotation. The [previous version of `startUpWebView`](https://developer.android.com/reference/androidx/webkit/WebViewCompat#startUpWebView(android.content.Context,androidx.webkit.WebViewStartUpConfig,androidx.webkit.WebViewCompat.WebViewStartUpCallback)) has been deprecated, and users of that API should migrate to the new version, which takes a `WebViewOutcomeReceiver` to facilitate failure callbacks. ([Iebb60](https://android-review.googlesource.com/#/q/Iebb606901c73244f24f9d9f78bfa8dde6e8f791f), [I56bf7](https://android-review.googlesource.com/#/q/I56bf73694714021668fd6e3497c68020f2983b17))
+- Navigation APIs no longer require the use of `@OptIn` annotations.  
+  This covers [`WebViewCompat#addNavigationListener`](https://developer.android.com/reference/androidx/webkit/WebViewCompat#addNavigationListener(android.webkit.WebView,java.util.concurrent.Executor,androidx.webkit.NavigationListener)), as well as the [`NavigationListener`](http://go/android-dev/reference/androidx/webkit/NavigationListener) interface, and the [Navigation](http://go/android-dev/reference/androidx/webkit/Navigation) and [Page](https://developer.android.com/reference/androidx/webkit/Page) classes. Note that the `Navigation` and `Page` types are now classes instead of interfaces.  
+  These APIs should now be feature checked using the new `WebViewFeature#NAVIGATION_LISTENER` feature constant. ([I410c8](https://android-review.googlesource.com/#/q/I410c8377e6139cbb5f6e65999701fec8f1ce5907), [b/474625648](https://issuetracker.google.com/issues/474625648), [b/448580228](https://issuetracker.google.com/issues/448580228), [b/479792864](https://issuetracker.google.com/issues/479792864), [b/432696062](https://issuetracker.google.com/issues/432696062), [b/474625648](https://issuetracker.google.com/issues/474625648))
+- Removes the experimental annotation from [`WebViewCompat#saveState`](https://developer.android.com/reference/androidx/webkit/WebViewCompat#saveState(android.webkit.WebView,android.os.Bundle,int,boolean)). This API is similar to [`WebView#saveState`](https://developer.android.com/reference/android/webkit/WebView#saveState(android.os.Bundle)), but allows the developer to specify a maximum size for the state, and whether forward history entries should be included. ([Ie3fe1](https://android-review.googlesource.com/#/q/Ie3fe1e984db78d359f3f4c7d2a46f1be62d8f30b), [b/389076708](https://issuetracker.google.com/issues/389076708))
+- `Profile#setSpeculativeLoadingConfig` is deprecated. Use `Profile#setMaxPrerenders`, `PrefetchCache#setMaxPrefetches`, `PrefetchCache#setPrefetchTtlSeconds` instead. ([I9f0f7](https://android-review.googlesource.com/#/q/I9f0f744d0fb419be6f2505d68695ba77a0de82de), [I9b977](https://android-review.googlesource.com/#/q/I9b97740a1c0826132cd0b6dabb7d6f2a34958285), [b/466301565](https://issuetracker.google.com/issues/466301565))
 
 ### Version 1.16.0-alpha03
 

@@ -6,13 +6,11 @@ source: md.txt
 
 # appfunctions
 
-API Reference  
-[androidx.appfunctions](https://developer.android.com/reference/kotlin/androidx/appfunctions/package-summary)  
 Allows apps to share functionality and data with AI assistants, enabling them to discover and execute tasks directly on the device to fulfill user requests.
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| March 11, 2026 | - | - | - | [1.0.0-alpha08](https://developer.android.com/jetpack/androidx/releases/appfunctions#1.0.0-alpha08) |
+| May 06, 2026 | - | - | - | [1.0.0-alpha09](https://developer.android.com/jetpack/androidx/releases/appfunctions#1.0.0-alpha09) |
 
 ## Declaring dependencies
 
@@ -27,11 +25,11 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.appfunctions:appfunctions:1.0.0-alpha08"
-    implementation "androidx.appfunctions:appfunctions-service:1.0.0-alpha08"
+    implementation "androidx.appfunctions:appfunctions:1.0.0-alpha09"
+    implementation "androidx.appfunctions:appfunctions-service:1.0.0-alpha09"
     // Use Kotlin Symbol Processing (KSP) for the appfunctions compiler plugin.
     // See https://kotlinlang.org/docs/ksp-quickstart.html to add KSP to your build
-    ksp "androidx.appfunctions:appfunctions-compiler:1.0.0-alpha08"
+    ksp "androidx.appfunctions:appfunctions-compiler:1.0.0-alpha09"
 }
 ```
 
@@ -39,11 +37,11 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.appfunctions:appfunctions:1.0.0-alpha08")
-    implementation("androidx.appfunctions:appfunctions-service:1.0.0-alpha08")
+    implementation("androidx.appfunctions:appfunctions:1.0.0-alpha09")
+    implementation("androidx.appfunctions:appfunctions-service:1.0.0-alpha09")
     // Use Kotlin Symbol Processing (KSP) for the appfunctions compiler plugin.
     // See https://kotlinlang.org/docs/ksp-quickstart.html to add KSP to your build
-    ksp("androidx.appfunctions:appfunctions-compiler:1.0.0-alpha08")
+    ksp("androidx.appfunctions:appfunctions-compiler:1.0.0-alpha09")
 }
 ```
 
@@ -65,6 +63,20 @@ for more information.
 There are no release notes for this artifact.
 
 ## Version 1.0
+
+### Version 1.0.0-alpha09
+
+May 06, 2026
+
+`androidx.appfunctions:appfunctions-*:1.0.0-alpha09` is released. Version 1.0.0-alpha09 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/1a508f033de883ba2853b9f9ae1853eec7010638..05192460aef562f83eca3446674026b917977615/appfunctions).
+
+**API Changes**
+
+- Accept `AppInteractionAttribution` in `ExecuteAppFunctionRequest` ([I70ad8](https://android-review.googlesource.com/#/q/I70ad80ec0d58a0ef29dd3b04cb94a94b6fb136f2), [b/462092640](https://issuetracker.google.com/issues/462092640))
+
+**Bug Fixes**
+
+- Fix `AppFunctionUriGrant` compatibility issue on SDK37 ([I21110](https://android-review.googlesource.com/#/q/I21110a9c2e593927a2ac2097a70d40c1fc30afae), [b/485613578](https://issuetracker.google.com/issues/485613578))
 
 ### Version 1.0.0-alpha08
 

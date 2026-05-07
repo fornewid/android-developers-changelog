@@ -260,6 +260,9 @@ Google Play privileges to publish notifications to your topic.
 
    ![a configured topic](https://developer.android.com/static/images/google/play/billing/configured-topic.png) **Figure 3.** A configured topic.
 
+> [!NOTE]
+> **Note:** If your organization's [domain restricted sharing](https://cloud.google.com/resource-manager/docs/organization-policy/domain-restricted-sharing#how-drs-works) configuration prevents you from granting publish permissions, you must [add an exception](https://cloud.google.com/resource-manager/docs/organization-policy/restricting-domains#configure-exceptions) for the Google Play service account.
+
 ### Enable Real-time developer notifications for your app
 
 To enable Real-time developer notifications for your app, do the following:
@@ -308,8 +311,8 @@ To receive Real-time developer notifications, you should create a secure
 backend server to consume the messages sent to your Cloud Pub/Sub topic.
 
 You can test your configuration by using the **Send Test Message** button in
-the Google Play Console as described in the previous section. If you have not
-configured a backend server to consume notifications, you can use the
+the Google Play Console as described in the previous section. If you
+have not configured a backend server to consume notifications, you can use the
 `gcloud` command line tool to verify the configuration. For instructions on
 processing messages using `gcloud`, see
 [Pull the message from the subscription](https://cloud.google.com/pubsub/docs/quickstart-console#pull_the_message_from_the_subscription).

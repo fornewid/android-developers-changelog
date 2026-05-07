@@ -67,7 +67,7 @@ plugins {
 }
   
 dependencies {
-  def nav_version = "2.9.7"
+  def nav_version = "2.9.8"
 
   // Jetpack Compose Integration
   implementation "androidx.navigation:navigation-compose:$nav_version"
@@ -96,7 +96,7 @@ plugins {
 }
 
 dependencies {
-  val nav_version = "2.9.7"
+  val nav_version = "2.9.8"
 
   // Jetpack Compose integration
   implementation("androidx.navigation:navigation-compose:$nav_version")

@@ -6,13 +6,11 @@ source: md.txt
 
 # navigationevent
 
-API Reference  
-[androidx.navigationevent](https://developer.android.com/reference/kotlin/androidx/navigationevent/package-summary)  
 The Navigation Event library provides a KMP-first API for handling system back as well as [Predictive Back](https://developer.android.com/guide/navigation/custom-back/predictive-back-gesture).
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| February 25, 2026 | [1.0.2](https://developer.android.com/jetpack/androidx/releases/navigationevent#1.0.2) | - | - | [1.1.0-alpha01](https://developer.android.com/jetpack/androidx/releases/navigationevent#1.1.0-alpha01) |
+| May 06, 2026 | [1.1.1](https://developer.android.com/jetpack/androidx/releases/navigationevent#1.1.1) | - | - | - |
 
 ## Declaring dependencies
 
@@ -27,7 +25,7 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.navigationevent:navigationevent:1.1.0-alpha01"
+    implementation "androidx.navigationevent:navigationevent:1.1.1"
 }
 ```
 
@@ -35,7 +33,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.navigationevent:navigationevent:1.1.0-alpha01")
+    implementation("androidx.navigationevent:navigationevent:1.1.1")
 }
 ```
 
@@ -57,6 +55,42 @@ for more information.
 There are no release notes for this artifact.
 
 ## Version 1.1
+
+### Version 1.1.1
+
+May 06, 2026
+
+`androidx.navigationevent:navigationevent-*:1.1.1` is released. Version 1.1.1 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/3e089b0941e5813485187ff92255ccc352237b42..5eec291a14d537254ca7a4a2c8c33822a6530710/navigationevent).
+
+**Bug Fixes**
+
+- Removed the no-op `NavigationEventHandler` when in inspection mode to enable Predictive Back in Android Studio Previews.
+
+### Version 1.1.0
+
+April 22, 2026
+
+`androidx.navigationevent:navigationevent-*:1.1.0` is released. Version 1.1.0 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/a7bd43e4ff5a6c4f70a22b93597ac88425fe5e84..3e089b0941e5813485187ff92255ccc352237b42/navigationevent).
+
+### Version 1.1.0-rc01
+
+April 08, 2026
+
+`androidx.navigationevent:navigationevent-*:1.1.0-rc01` is released. Version 1.1.0-rc01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/9b50dbba6a2338e2659bd9ccdd682779ca02615f..273e77554d5c4410532d0d7dd23b49937d4f137f/navigationevent).
+
+**Bug Fixes**
+
+- Updated Compose compileSdk to API 37. This means that a minimum AGP version of 9.2.0 is required when using Compose. ([Id45cd](https://android-review.googlesource.com/#/q/Id45cdca34ef948e06259b2dd9adc901b7c930492), [b/413674743](https://issuetracker.google.com/issues/413674743))
+
+### Version 1.1.0-beta01
+
+March 27, 2026
+
+`androidx.navigationevent:navigationevent-*:1.1.0-beta01` is released. Version 1.1.0-beta01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/c640b9aa8e30b5db9ee258561ad1fc4bc947e69d..9b50dbba6a2338e2659bd9ccdd682779ca02615f/navigationevent).
+
+**API Changes**
+
+- Add `OnForwardCompletedFallback` to `NavigationEventDispatcher`, enabling a default system behavior for unhandled forward navigation events. ([Iac620](https://android-review.googlesource.com/#/q/Iac6205388c43b21e51406b0aa5c42040b2ad325d), [b/489138116](https://issuetracker.google.com/issues/489138116))
 
 ### Version 1.1.0-alpha01
 

@@ -6,8 +6,6 @@ source: md.txt
 
 # graphics
 
-API Reference  
-[androidx.graphics](https://developer.android.com/reference/kotlin/androidx/graphics/package-summary)  
 Leverage graphics facilities across multiple Android platform releases
 
 
@@ -16,10 +14,10 @@ This table lists all the artifacts in the `androidx.graphics` group.
 | Artifact | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
 | graphics-core | [1.0.4](https://developer.android.com/jetpack/androidx/releases/graphics#graphics-core-1.0.4) | - | - | - |
-| graphics-path | [1.0.1](https://developer.android.com/jetpack/androidx/releases/graphics#graphics-path-1.0.1) | [1.1.0-rc01](https://developer.android.com/jetpack/androidx/releases/graphics#graphics-path-1.1.0-rc01) | - | - |
+| graphics-path | [1.1.0](https://developer.android.com/jetpack/androidx/releases/graphics#graphics-path-1.1.0) | - | - | - |
 | graphics-shapes | [1.1.0](https://developer.android.com/jetpack/androidx/releases/graphics#graphics-shapes-1.1.0) | - | - | - |
 
-This library was last updated on: March 11, 2026
+This library was last updated on: May 06, 2026
 
 ## Declaring dependencies
 
@@ -35,7 +33,7 @@ your app or module:
 ```groovy
 dependencies {
     implementation "androidx.graphics:graphics-core:1.0.4"
-    implementation "androidx.graphics:graphics-path:1.1.0-rc01"
+    implementation "androidx.graphics:graphics-path:1.1.0"
     implementation "androidx.graphics:graphics-shapes:1.1.0"
 }
 ```
@@ -45,7 +43,7 @@ dependencies {
 ```kotlin
 dependencies {
     implementation("androidx.graphics:graphics-core:1.0.4")
-    implementation("androidx.graphics:graphics-path:1.1.0-rc01")
+    implementation("androidx.graphics:graphics-path:1.1.0")
     implementation("androidx.graphics:graphics-shapes:1.1.0")
 }
 ```
@@ -239,6 +237,12 @@ Graphics-Shapes is a new library which allows easy creation and rendering of rou
 - Use the new `Morph(Polygon, Polygon)` API to automatically calculate a "morph" shape whose progress can be set from 0 to 1 to animate between the starting and ending shapes. Animate that progress over time, drawing the result on every frame, to create a smooth animation between these new rounded shapes.
 
 ## Graphics Path Version 1.1
+
+### Version 1.1.0
+
+May 06, 2026
+
+`androidx.graphics:graphics-path:1.1.0` is released. Version 1.1.0 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/7620069dd1c615be201490afe981639f04cec40f..1c44f0be720ff16cd30357ad2375239bf97a1da8/graphics/graphics-path).
 
 ### Version 1.1.0-rc01
 

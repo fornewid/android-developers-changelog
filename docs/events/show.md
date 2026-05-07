@@ -4,17 +4,13 @@ url: https://developer.android.com/events/show
 source: md.txt
 ---
 
-![](http://developer.android.com/static/images/events/tas-xr/title.svg)  
-Watch the show now!
+# The Android Show \| I/O Edition
 
-## Curious what we covered?
+![Android Show logo](https://developer.android.com/static/images/events/tas-io/title-io.svg) Save the date [Video](https://www.youtube.com/watch?v=-Gii_RXT91I)
 
-In the XR Edition of The Android Show, we covered the latest platform updates and new capabilities across glasses, headsets and everything in between. We also explored how integrating Gemini enables more conversational, contextual, and helpful experiences.
+### Build for the Future with Android
 
-Watch The Android Show \| XR Edition to see what's new, including how to adapt your existing apps and build new XR experiences on Android XR!  
-[Read more](https://android-developers.googleblog.com/2025/12/start-building-for-glasses-new-devices.html)[![](http://developer.android.com/static/images/events/tas-xr/xr-callout.png)](https://android-developers.googleblog.com/2025/12/build-for-ai-glasses-with-android-xr.html)  
 
-### [Introducing the Android XR SDK Developer Preview 3](https://android-developers.googleblog.com/2025/12/build-for-ai-glasses-with-android-xr.html)
-
-If you are developing for Android, you are already developing for Android XR. The release of Android XR SDK Developer Preview 3 brings increased stability for headset APIs and, most significantly, opens up development for AI Glasses.  
-[Read what's new](https://android-developers.googleblog.com/2025/12/build-for-ai-glasses-with-android-xr.html)
+Tune in to The Android Show on May 12 at 10 am PT, and stay for an exclusive Developers
+Cut following the main show. See why this is one of the biggest years for Android yet.
+Add to calendar [Google Calendar](https://calendar.google.com/calendar/render?action=TEMPLATE&text=The+Android+Show+%7C+I/O+Edition+%26+Developers+Cut&dates=20260512T170000Z/20260512T180000Z&details=Watch+some+of+Android's+biggest+announcements+ever,+including+an+inside+look+with+a+Developers+Cut.%0A%0AJoin+us+for+the+event+at+10+am+PST:+https://developer.android.com/events/show) [Outlook](https://outlook.live.com/calendar/deeplink/compose?body=Watch+some+of+Android's+biggest+announcements+ever,+including+an+inside+look+with+a+Developers+Cut.%0A%0AJoin+us+for+the+event+at+10+am+PST:+https://developer.android.com/events/show&enddt=2026-05-12T18:00:00Z&path=/calendar/action/compose&rru=addevent&startdt=2026-05-12T17:00:00Z&subject=The+Android+Show+%7C+I/O+Edition+%26+Developers+Cut) [Apple Calendar](https://developer.android.com/assets/calendar/the-android-show-io-26.ics)

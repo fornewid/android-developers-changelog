@@ -12,7 +12,7 @@ This page describes how to implement basic `FlexBox` layouts.
    `lib.versions.toml`.
 
        [versions]
-       compose = "1.12.0-alpha01"
+       compose = "1.12.0-alpha02"
 
        [libraries]
        androidx-compose-foundation-layout = { group = "androidx.compose.foundation", name = "foundation-layout", version.ref = "compose" }
