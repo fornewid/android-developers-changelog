@@ -1,0 +1,26 @@
+diff --git a/docs/identity/digital-credentials/phone-number-verification.md b/docs/identity/digital-credentials/phone-number-verification.md
+index e9b6299c..e3bb9323 100644
+--- a/docs/identity/digital-credentials/phone-number-verification.md
++++ b/docs/identity/digital-credentials/phone-number-verification.md
+@@ -28,8 +28,8 @@ You also need to add the following dependencies to your Gradle build script:
+ 
+ ```kotlin
+ dependencies {
+-    implementation("androidx.credentials:credentials:1.6.0")
+-    implementation("androidx.credentials:credentials-play-services-auth:1.6.0")
++    implementation("androidx.credentials:credentials:1.7.0-alpha02")
++    implementation("androidx.credentials:credentials-play-services-auth:1.7.0-alpha02")
+ }
+ ```
+ 
+@@ -37,8 +37,8 @@ dependencies {
+ 
+ ```groovy
+ dependencies {
+-    implementation "androidx.credentials:credentials:1.6.0"
+-    implementation "androidx.credentials:credentials-play-services-auth:1.6.0"
++    implementation "androidx.credentials:credentials:1.7.0-alpha02"
++    implementation "androidx.credentials:credentials-play-services-auth:1.7.0-alpha02"
+ }
+ ```
+ 

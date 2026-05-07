@@ -1,0 +1,22 @@
+diff --git a/docs/health-and-fitness/health-services/active-data/measure-client.md b/docs/health-and-fitness/health-services/active-data/measure-client.md
+index 1a688362..252d524c 100644
+--- a/docs/health-and-fitness/health-services/active-data/measure-client.md
++++ b/docs/health-and-fitness/health-services/active-data/measure-client.md
+@@ -26,7 +26,7 @@ Then, in your module-level `build.gradle` file, add the following dependency:
+ 
+ ```groovy
+ dependencies {
+-    implementation "androidx.health:health-services-client:1.1.0-rc01"
++    implementation "androidx.health:health-services-client:1.1.0-rc02"
+ }
+ ```
+ 
+@@ -34,7 +34,7 @@ dependencies {
+ 
+ ```kotlin
+ dependencies {
+-    implementation("androidx.health:health-services-client:1.1.0-rc01")
++    implementation("androidx.health:health-services-client:1.1.0-rc02")
+ }
+ ```
+ 
