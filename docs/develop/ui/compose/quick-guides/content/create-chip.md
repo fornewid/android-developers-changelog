@@ -25,7 +25,7 @@ higher.
 
 ### Dependencies
 
-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-chip_504265100ae01120c9f8aa6e5287923881f65f7e4bc6b06f0aa1c8888205eb6f.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-chip_8ddf5aa3cb8a389106067652c87e5a49819935bcb72d45b23ad4c8b3b9f29375.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
 
 ## Create an assist chip
 
@@ -34,14 +34,14 @@ assist chip that nudges the user in a particular direction. One distinguishing
 feature is its `leadingIcon` parameter that lets you display an icon on the left
 side of the chip, as shown in figure 1. The following example demonstrates how
 you can implement it:
-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-chip_7781ec8d84eb3187f7e3846b37a7916f956e83b4e6ff8afcde207caf128df02f.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe> ![A simple assist chip.](https://developer.android.com/static/develop/ui/compose/images/components/chip-assist.png) **Figure 1.** Assist chip.
+<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-chip_9bd3dd2d55bb51619ac26854f6132d3d7825b33ff6f26dccbb4fa562b49977f7.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe> ![A simple assist chip.](https://developer.android.com/static/develop/ui/compose/images/components/chip-assist.png) **Figure 1.** Assist chip.
 
 ## Create a filter chip
 
 The [`FilterChip`](https://developer.android.com/reference/kotlin/androidx/compose/material3/FilterChip.composable) composable requires you to track whether or not the chip
 is selected. The following example demonstrates how you can show a leading
 checked icon only when the user has selected the chip:
-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-chip_934680a10e09dd963b5dface2db957ffb486376289705ea2c89f683b9ac8bc70.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-chip_a48b7ff4bfc57496fd5e982ce785944d7538eff2ee2c9a20686accb9532559d1.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
 
 ### Results
 
@@ -60,7 +60,7 @@ state. The user dismisses the chip when they press it.
 > [!NOTE]
 > **Note:** Consider how you might use a chip like this in the preceding email use case, with a name passed in for the `text` parameter, and a function that performs the necessary network calls for `onDismiss`.
 
-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-chip_f58506932037e88908df0f01c2542a3646d159482ce6ad63a2ecf5ca2be88437.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-chip_144ec3aaf5fc6c46b29294e0d17cec5d61391fb9c572991ac3f6591f318e2626.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
 
 ### Results
 
@@ -75,7 +75,7 @@ might use suggestion chips to present possible responses to the most recent
 message.
 
 Consider this implementation of `SuggestionChip`:
-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-chip_03c67ff34967f21d3f592bb31aef650607d5067943993e8706aa373e5ed2347c.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-chip_bd118a399d7f22e7bf5cc1d0ed83a4b2655bae472d7e77a70dcb369f3db9c050.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
 
 ### Results
 

@@ -86,7 +86,7 @@ val results = androidx.xr.arcore.hitTest(session, ray)
 // When interested in the first Table hit:
 val tableHit = results.firstOrNull {
     val trackable = it.trackable
-    trackable is Plane && trackable.state.value.label == Plane.Label.TABLE
+    trackable is Plane && trackable.state.value.label == PlaneLabel.TABLE
 }
 ```
 

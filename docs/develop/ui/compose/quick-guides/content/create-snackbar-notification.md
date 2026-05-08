@@ -31,7 +31,7 @@ or higher.
 
 ### Dependencies
 
-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-snackbar-notification_504265100ae01120c9f8aa6e5287923881f65f7e4bc6b06f0aa1c8888205eb6f.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-snackbar-notification_8ddf5aa3cb8a389106067652c87e5a49819935bcb72d45b23ad4c8b3b9f29375.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
 
 ## Create a basic snackbar
 
@@ -42,14 +42,14 @@ To implement a snackbar, you first create [`SnackbarHost`](https://developer.and
 This suspending function requires a `CoroutineScope` such as with using
 [`rememberCoroutineScope`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/package-summary#remembercoroutinescope) --- and can be called in response to UI events to
 show a [`Snackbar`](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#snackbar) within `Scaffold`.
-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-snackbar-notification_d6346f76499460ff1af643afc1560b411bed35e9206f67e8646450828dfb5069.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-snackbar-notification_c26e78aad6a340565438d38d150426a537207c6abce4638aa1d0c9bd01dc176c.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
 
 ## Create a snackbar with action
 
 You can provide an optional action and adjust the duration of the `Snackbar`.
 The `snackbarHostState.showSnackbar()` function accepts additional `actionLabel`
 and `duration` parameters, and returns a [`SnackbarResult`](https://developer.android.com/reference/kotlin/androidx/compose/material3/SnackbarResult).
-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-snackbar-notification_3b00046db902e20d9ae5fd72df2ef9ec3238fface462e572424f87646e1a0280.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-snackbar-notification_c7fed19bd158e49e1510eaa2158d0990e7c62f70a312a38c9654ec98f6b0c15f.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
 
 You can provide a custom `Snackbar` with the `snackbarHost` parameter. See the
 [`SnackbarHost` API reference docs](https://developer.android.com/reference/kotlin/androidx/compose/material/package-summary#snackbarhost) for more information.

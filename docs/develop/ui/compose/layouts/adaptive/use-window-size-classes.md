@@ -76,7 +76,7 @@ updates whenever the window size class changes:
 
 
 ```kotlin
-val windowSizeClass = currentWindowAdaptiveInfo().windowSizeClasshttps://github.com/android/snippets/blob/908c46de548e0b8489cafce12f8520a7905358ed/compose/snippets/src/main/java/com/example/compose/snippets/layouts/AdaptiveLayoutSnippets.kt#L85-L85
+val windowSizeClass = currentWindowAdaptiveInfo().windowSizeClass
 ```
 
 <br />

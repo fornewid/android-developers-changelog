@@ -171,9 +171,9 @@ main app content beneath it appears darkened and grayed out:
 
 ### Advanced example
 
-The following is a more advanced implemented of the `Dialog` composable. In this
-case, the component manually implements a similar interface to the `AlertDialog`
-example above.
+The following is a more advanced implementation of the `Dialog` composable. In
+this case, the component manually implements a similar interface to the
+`AlertDialog` example above.
 
 > [!CAUTION]
 > **Caution:** If you only need to display a two-button dialog as in this example, you should use `AlertDialog` and its more convenient API. However, if you want to create a more complex dialog, perhaps with forms and multiple buttons, you should use `Dialog` with custom content, as in the following example.

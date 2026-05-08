@@ -41,7 +41,7 @@ the prompt, an exception is thrown.
         crossDevicePromptManager.launchPromptFlow(activity, info).await()
     } catch (e: CrossDevicePromptException) {
         Log.e(TAG, "Cross-device prompt failed with error: ${e.errorCode}", e)
-    }https://github.com/android/snippets/blob/6ecfaf2718475a5b9fcc2e030c3ff17802e4b205/installprompt/src/main/java/com/example/crossdeviceinstallprompt/MainActivity.kt#L83-L91
+    }
 
 > [!IMPORTANT]
 > **Important:** If an error occurs during the in-app install prompt flow, don't inform the user or change your app's normal flow. Continue your app's normal flow.

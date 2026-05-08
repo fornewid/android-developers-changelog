@@ -13,7 +13,7 @@ primary focus of your app.
 > **Note:** The [`SearchBar`](https://developer.android.com/reference/kotlin/androidx/compose/material3/SearchBar.composable#SearchBar(kotlin.Function0,kotlin.Boolean,kotlin.Function1,androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Shape,androidx.compose.material3.SearchBarColors,androidx.compose.ui.unit.Dp,androidx.compose.ui.unit.Dp,androidx.compose.foundation.layout.WindowInsets,kotlin.Function1)) composable is experimental.
 
 ![Two search bars are shown. The one on the left only has a text field.
-The search bar on the left has a text field and a search suggestion beneath it.](https://developer.android.com/static/develop/ui/compose/images/components/m3-search-bar.png) **Figure 1.** A basic search bar (1) and a search bar with a suggestion (2).
+The search bar on the right has a text field and a search suggestion beneath it.](https://developer.android.com/static/develop/ui/compose/images/components/m3-search-bar.png) **Figure 1.** A basic search bar (1) and a search bar with a suggestion (2).
 
 ## API surface
 
@@ -21,7 +21,7 @@ Use the [`SearchBar`](https://developer.android.com/reference/kotlin/androidx/co
 this composable include the following:
 
 - `inputField`: Defines the input field of the search bar. It typically utilizes `SearchBarDefaults.InputField`, which allows customization of:
-  - `query`: The query text to be shown in the input field..
+  - `query`: The query text to be shown in the input field.
   - `onQueryChange`: Lambda to handle changes in the query string.
 - `expanded`: A boolean indicating whether the search bar is expanded to show suggestions or filtered results.
 - `onExpandedChange`: Lambda to handle changes in the dropdown's expanded state.
@@ -101,7 +101,7 @@ fun SimpleSearchBar(
 - The `SearchBar` contains an `inputField` for user input and a [`Column`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/Column.composable#Column(androidx.compose.ui.Modifier,androidx.compose.foundation.layout.Arrangement.Vertical,androidx.compose.ui.Alignment.Horizontal,kotlin.Function1)) to display search suggestions.
   - `SearchBarDefaults.InputField` creates the input field and handles changes to the user query.
   - `onQueryChange` handles the text input and updates the state whenever the text in the input field changes.
-  - `The expanded` state controls the visibility of the suggestion list.
+  - `expanded` state controls the visibility of the suggestion list.
 - `searchResults.forEach { result -> ... }` iterates through the `searchResults` list and creates a `ListItem` for each result.
   - When a `ListItem` is clicked, it updates the `textFieldState`, collapses the search bar, and fills the `textField` with the selected search result.
 

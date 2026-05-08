@@ -27,9 +27,6 @@ your app or module:
 dependencies {
     implementation "androidx.xr.scenecore:scenecore:1.0.0-alpha14"
 
-    // Optional dependencies for asynchronous conversions
-    implementation "androidx.xr.scenecore:scenecore-guava:1.0.0-alpha14"
-
     // Use to write unit tests
     testImplementation "androidx.xr.scenecore:scenecore-testing:1.0.0-alpha14"
 }
@@ -40,9 +37,6 @@ dependencies {
 ```kotlin
 dependencies {
     implementation("androidx.xr.scenecore:scenecore:1.0.0-alpha14")
-
-    // Optional dependencies for asynchronous conversions
-    implementation("androidx.xr.scenecore:scenecore-guava:1.0.0-alpha14")
 
     // Use to write unit tests
     testImplementation("androidx.xr.scenecore:scenecore-testing:1.0.0-alpha14")

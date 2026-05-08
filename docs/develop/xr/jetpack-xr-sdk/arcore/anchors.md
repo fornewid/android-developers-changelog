@@ -60,10 +60,7 @@ makes the anchor follow the attached `Anchorable` when it moves through space.
 
 
 ```kotlin
-when (val result = anchorable.createAnchor(pose)) {
-    is AnchorCreateSuccess -> { /* anchor stored in `result.anchor`. */ }
-    else -> { /* handle failure */ }
-}
+val anchor = plane.createAnchor(pose)
 ```
 
 <br />
@@ -74,10 +71,7 @@ To create an anchor that isn't attached to an `Anchorable`:
 
 
 ```kotlin
-when (val result = Anchor.create(session, pose)) {
-    is AnchorCreateSuccess -> { /* anchor stored in `result.anchor`. */ }
-    else -> { /* handle failure */ }
-}
+val anchor = Anchor.create(session, pose)
 ```
 
 <br />

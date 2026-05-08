@@ -138,9 +138,8 @@ NavigationRail()
 
 // New XR differentiated approach
 Orbiter(
-    position = ContentEdge.Start,
-    offset = dimensionResource(R.dimen.start_orbiter_padding),
-    alignment = Alignment.Top
+    anchorPoint = OrbiterAnchorPoint.StartTop,
+    offset = DpVolumeOffset(x = dimensionResource(R.dimen.start_orbiter_padding)),
 ) {
     NavigationRail()
 }
@@ -191,7 +190,7 @@ Here's an example of how you might do this.
 if (LocalSpatialCapabilities.current.isSpatialUiEnabled) {
     Subspace {
         SpatialPanel(
-            dragPolicy = MovePolicy(),
+            modifier = SubspaceModifier.movable(),
             resizePolicy = ResizePolicy(),
         ) {
             AppContent()
@@ -285,7 +284,7 @@ if (LocalSpatialCapabilities.current.isSpatialUiEnabled) {
 }
 
 // Similar check for audio
-val spatialAudioEnabled = LocalSpatialCapabilities.current.isSpatialAudioEnabledhttps://github.com/android/snippets/blob/955bf613b114a676c99509c66de86ead598983a9/xr/src/main/java/com/example/xr/compose/SpatialCapabilities.kt#L37-L44
+val spatialAudioEnabled = LocalSpatialCapabilities.current.isSpatialAudioEnabled
 ```
 
 <br />

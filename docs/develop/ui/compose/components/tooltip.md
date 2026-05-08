@@ -182,8 +182,8 @@ fun AdvancedRichTooltipExample(
 
 ### Key points about the code
 
-- A `RichToolTip` displays a tooltip with a title and dismiss action.
-- When activated, either by a long-press or hovering over the `ToolTipBox` content with the mouse pointer, the tooltip is displayed for about one second. You can dismiss this tooltip by either tapping elsewhere on the screen or using the dismiss action button.
+- A `RichTooltip` displays a tooltip with a title and dismiss action.
+- When activated, either by a long-press or hovering over the `TooltipBox` content with the mouse pointer, the tooltip is displayed for about one second. You can dismiss this tooltip by either tapping elsewhere on the screen or using the dismiss action button.
 - When the dismiss action executes, the system launches a coroutine to call `tooltipState.dismiss`. This verifies the action execution isn't blocked while the tooltip is displayed.
 - `onClick = coroutineScope.launch { tooltipState.show() } }` launches a coroutine to manually show the tooltip using `tooltipState.show`.
 - The `action` parameter allows for the adding of interactive elements to a tooltip, such as a button.

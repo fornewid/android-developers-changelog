@@ -28,7 +28,7 @@ parameters for the `Slider` composable are the following:
 - **`onValueChange`**: A lambda that gets called every time the value is changed.
 - **`enabled`**: A boolean value that indicates if the user can interact with the slider.
 
-The following example is a straightforward slider. That allows the user to
+The following example is a straightforward slider. It allows the user to
 select a value from `0.0` to `1.0`. Because the user can select any value in
 that range, the slider is *continuous*.
 
@@ -92,7 +92,7 @@ fun SliderAdvancedExample() {
 <br />
 
 The implementation appears as follows:
-![A discrete slider with a range from 0 to 50, showing five tick marks at equal intervals. The thumb is positioned near the second tick mark, indicating a selected just of 16.](https://developer.android.com/static/develop/ui/compose/images/components/slider-advanced.png) **Figure 3.** A slider with steps and a set value range.
+![A discrete slider with a range from 0 to 50, showing five tick marks at equal intervals. The thumb is positioned near the second tick mark, indicating a selected value of 16.](https://developer.android.com/static/develop/ui/compose/images/components/slider-advanced.png) **Figure 3.** A slider with steps and a set value range.
 
 > [!NOTE]
 > **Note:** The very beginning and end of a slider count as "steps". In the preceding example where the range is `0f..50f` and the number of `steps` is `3`, each interval along the range is `12.5` because the beginning and end of the slider are also intervals the user can select.

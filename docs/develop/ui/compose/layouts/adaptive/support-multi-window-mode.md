@@ -259,7 +259,7 @@ To obtain metrics for displays other than the current display, do the following
 val windowMetrics = context.createDisplayContext(display)
     .createWindowContext(WindowManager.LayoutParams.TYPE_APPLICATION, null)
     .getSystemService(WindowManager::class.java)
-    .maximumWindowMetricshttps://github.com/android/snippets/blob/6ecfaf2718475a5b9fcc2e030c3ff17802e4b205/compose/snippets/src/main/java/com/example/compose/snippets/adaptivelayouts/SupportMultiWindowMode.kt#L51-L54
+    .maximumWindowMetrics
 ```
 
 <br />

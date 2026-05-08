@@ -32,10 +32,6 @@ your app or module:
 dependencies {
     implementation "androidx.xr.runtime:runtime:1.0.0-alpha13"
 
-    // Optional dependencies for asynchronous conversions
-    implementation "androidx.xr.runtime:runtime-guava:1.0.0-alpha13"
-    implementation "androidx.xr.runtime:runtime-rxjava3:1.0.0-alpha13"
-
     // Use in environments that do not support OpenXR
     testImplementation "androidx.xr.runtime:runtime-testing:1.0.0-alpha13"
 }
@@ -46,10 +42,6 @@ dependencies {
 ```kotlin
 dependencies {
     implementation("androidx.xr.runtime:runtime:1.0.0-alpha13")
-
-    // Optional dependencies for asynchronous conversions
-    implementation("androidx.xr.runtime:runtime-guava:1.0.0-alpha13")
-    implementation("androidx.xr.runtime:runtime-rxjava3:1.0.0-alpha13")
 
     // Use in environments that do not support OpenXR
     testImplementation("androidx.xr.runtime:runtime-testing:1.0.0-alpha13")

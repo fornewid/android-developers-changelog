@@ -42,6 +42,18 @@ To help agents understand and use Android CLI, run `init` to install the
 
     android init
 
+## Data collected
+
+Android CLI collects data on basic usage of the tool. Here's the data that we
+collect:
+
+- Invocations of the `android` command and sub-commands, for example `android run` and `android create`.
+- Names of the arguments or options used, for example `--sdk` or `--version`. We *don't* collect the values passed to the CLI. For example, if the command `android create --name=com.company.internal.app` is executed, we record that `android create` was executed using the `--name` argument but we don't store the value `com.company.internal.app`.
+- The agent or tool invoking the CLI if it matches a specific enum value, such as `GEMINI`, `CLAUDE`, or `CODEX`.
+- Stack traces and exception messages, where identifying information is anonymized before collection to help ensure privacy.
+
+We don't collect responses of the CLI when a command is executed.
+
 ## Known issues
 
 - The `android emulator` command for Windows is currently disabled.

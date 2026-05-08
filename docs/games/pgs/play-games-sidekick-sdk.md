@@ -4,10 +4,13 @@ url: https://developer.android.com/games/pgs/play-games-sidekick-sdk
 source: md.txt
 ---
 
+> [!NOTE]
+> **Note:** You must complete the [Sidekick SDK registration form](https://forms.gle/HbSayip7NBrTsmL49) to publish APKs on Google Play using the Sidekick SDK.
+
 The Sidekick SDK is available to developers who:
 
 - Publish releases as an APK, rather than an Android App Bundle (AAB).
-- Need access to Sidekick, but use an incompatible anti-tampering solution. If you have other questions, [request support](https://docs.google.com/forms/d/1NPmZ04tyT97tb8q-NbElU_HJ3YuPWOkXvhwJB3mTmB8/viewform).
+- Need access to Sidekick, but use an incompatible anti-tampering solution.
 
 To add Sidekick SDK, add the `com.google.android.play:sidekick`
 to your dependencies. Make sure that you include Google's Maven
@@ -65,3 +68,10 @@ are needed.
   [...] <!-- Up to 5 processes ($Process1, $Process2, ..., $Process5) -->
 </application>
 ```
+
+### Publish on Google Play
+
+To publish releases on Google Play using the Sidekick SDK,
+complete the [Sidekick SDK registration form](https://forms.gle/HbSayip7NBrTsmL49). Your game will
+be approved within 1-2 weeks, after which you can upload releases that have
+integrated the Sidekick SDK as normal.

@@ -62,7 +62,7 @@ improve system stability. If your app is killed by these limits,
 #### Background audio hardening changes
 
 Starting in Android 17, the audio framework enforces restrictions on background audio interactions including audio playback, audio focus requests, and volume change APIs. Based on your feedback, we've made some changes since beta 2,including targetSDK gating while-in-use FGS enforcement and exempting alarm audio. Full details available in the
-[updated guidance](https://developer.android.com/versions/17/changes/bg-audio).
+[updated guidance](https://developer.android.com/about/versions/17/changes/bg-audio).
 
 ### Top Issues fixed in Beta 4
 

@@ -32,13 +32,18 @@ To add an image in your notification, pass an instance of
 [`NotificationCompat.BigPictureStyle`](/reference/androidx/core/app/NotificationCompat.BigPictureStyle) to `setStyle()`.
 
 ```
-  val notification = NotificationCompat.Builder(context, CHANNEL_ID)
-          .setSmallIcon(R.drawable.new_post)
-          .setContentTitle(imageTitle)
-          .setContentText(imageDescription)
-          .setStyle(NotificationCompat.BigPictureStyle()
-                  .bigPicture(myBitmap))
-          .build()
+var notification =
+    NotificationCompat.Builder(context, CHANNEL_ID)
+        .setSmallIcon(com.example.compose.snippets.R.drawable.ic_logo)
+        .setContentTitle("Title")
+        .setContentText("Content text")
+        .setStyle(
+            NotificationCompat.BigPictureStyle()
+                .bigPicture(bitmapImage)
+        )
+        .build()
+
+NotificationsSnippets.kt
 ```
 
 To make the image appear as a thumbnail only while the notification is
@@ -50,17 +55,20 @@ and pass it `null` so the large icon goes away when the notification is
 expanded:
 
 ```
-  val notification = NotificationCompat.Builder(context, CHANNEL_ID)
-          .setSmallIcon(R.drawable.new_post)
-          .setContentTitle(imageTitle)
-          .setContentText(imageDescription)
-          .setLargeIcon(myBitmap)
-          .setStyle(NotificationCompat.BigPictureStyle()
-                  .bigPicture(myBitmap)
-                  .bigLargeIcon(null))
-          .build()
-```
+notification = NotificationCompat.Builder(context, CHANNEL_ID)
+    .setSmallIcon(R.drawable.ic_logo)
+    .setContentTitle("Title")
+    .setContentText("Content text")
+    .setLargeIcon(Icon.createWithResource(context, R.drawable.dog))
+    .setStyle(
+        NotificationCompat.BigPictureStyle()
+            .bigPicture(bitmapImage)
+            .bigLargeIcon(null as Bitmap?)
+    )
+    .build()
 
+NotificationsSnippets.kt
+```
 
 ![A collapsed notification and an expanded notification containing a blue image](/static/images/ui/notifications/template-image_2x.png)
 
@@ -74,16 +82,19 @@ Apply [`NotificationCompat.BigTextStyle`](/reference/androidx/core/app/Notificat
 content area of the notification:
 
 ```
-  val notification = NotificationCompat.Builder(context, CHANNEL_ID)
-          .setSmallIcon(R.drawable.new_mail)
-          .setContentTitle(emailObject.getSenderName())
-          .setContentText(emailObject.getSubject())
-          .setLargeIcon(emailObject.getSenderAvatar())
-          .setStyle(NotificationCompat.BigTextStyle()
-                  .bigText(emailObject.getSubjectAndSnippet()))
-          .build()
-```
+notification = NotificationCompat.Builder(context, CHANNEL_ID)
+    .setSmallIcon(R.drawable.ic_logo)
+    .setContentTitle("Sender name")
+    .setContentText("Email subject")
+    .setLargeIcon(Icon.createWithResource(context, R.drawable.dog))
+    .setStyle(
+        NotificationCompat.BigTextStyle()
+            .bigText(someVeryLongMessage)
+    )
+    .build()
 
+NotificationsSnippets.kt
+```
 
 ![A collapsed notification and an expanded notification using BigTextStyle](/static/images/ui/notifications/template-large-text_2x.png)
 
@@ -111,18 +122,20 @@ visible.
 [adding styling with HTML markup](/guide/topics/resources/string-resource#StylingWithHTML), such as bolding the subject.
 
 ```
-  val notification = NotificationCompat.Builder(context, CHANNEL_ID)
-          .setSmallIcon(R.drawable.baseline_email_24)
-          .setContentTitle("5 New mails from Frank")
-          .setContentText("Check them out")
-          .setLargeIcon(BitmapFactory.decodeResource(resources, R.drawable.logo))
-          .setStyle(
-                  NotificationCompat.InboxStyle()
-                  .addLine("Re: Planning")
-                  .addLine("Delivery on its way")
-                  .addLine("Follow-up")
-          )
-          .build()
+notification = NotificationCompat.Builder(context, CHANNEL_ID)
+    .setSmallIcon(R.drawable.mail)
+    .setContentTitle("5 New mails from Frank")
+    .setContentText("Check them out")
+    .setLargeIcon(bitmapImage)
+    .setStyle(
+        NotificationCompat.InboxStyle()
+            .addLine("Re: Planning")
+            .addLine("Delivery on its way")
+            .addLine("Follow-up")
+    )
+    .build()
+
+NotificationsSnippets.kt
 ```
 
 The result looks like the following figure:
@@ -149,23 +162,27 @@ time received, and the sender's name. You can also pass this information as a
 following example:
 
 ```
-  val message1 = NotificationCompat.MessagingStyle.Message(
-          messages[0].getText(),
-          messages[0].getTime(),
-          messages[0].getSender())
-  val message2 = NotificationCompat.MessagingStyle.Message(
-          messages[1].getText(),
-          messages[1].getTime(),
-          messages[1].getSender())
-  val notification = NotificationCompat.Builder(context, CHANNEL_ID)
-          .setSmallIcon(R.drawable.new_message)
-          .setStyle(
-                  NotificationCompat.MessagingStyle(resources.getString(R.string.reply_name))
-                  .addMessage(message1)
-                  .addMessage(message2))
-          .build()
-```
+val message1 = NotificationCompat.MessagingStyle.Message(
+    messages[0].text,
+    messages[0].time,
+    messages[0].sender
+)
+val message2 = NotificationCompat.MessagingStyle.Message(
+    messages[1].text,
+    messages[1].time,
+    messages[1].sender
+)
+notification = NotificationCompat.Builder(context, CHANNEL_ID)
+    .setSmallIcon(R.drawable.ic_logo)
+    .setStyle(
+        NotificationCompat.MessagingStyle(Person.Builder().setName("Me").build())
+            .addMessage(message1)
+            .addMessage(message2)
+    )
+    .build()
 
+NotificationsSnippets.kt
+```
 
 ![A notification in messaging style](/static/images/ui/notifications/template-messaging_2x.png)
 
@@ -212,23 +229,24 @@ in the collapsed view. To do so, provide the action button indexes to
 The following example shows how to create a notification with media controls:
 
 ```
-  val notification = NotificationCompat.Builder(context, CHANNEL_ID)
-          // Show controls on lock screen even when user hides sensitive content.
-          .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
-          .setSmallIcon(R.drawable.ic_stat_player)
-          // Add media control buttons that invoke intents in your media service
-          .addAction(R.drawable.ic_prev, "Previous", prevPendingIntent) // #0
-          .addAction(R.drawable.ic_pause, "Pause", pausePendingIntent) // #1
-          .addAction(R.drawable.ic_next, "Next", nextPendingIntent) // #2
-          // Apply the media style template.
-          .setStyle(MediaStyleNotificationHelper.MediaStyle(mediaSession)
-                  .setShowActionsInCompactView(1 /* #1: pause button \*/))
-          .setContentTitle("Wonderful music")
-          .setContentText("My Awesome Band")
-          .setLargeIcon(albumArtBitmap)
-          .build()
-```
+notification = NotificationCompat.Builder(context, CHANNEL_ID)
+    // Show controls on lock screen even when user hides sensitive content.
+    .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
+    .setSmallIcon(com.example.compose.snippets.R.drawable.play)
+    // Add media control buttons that invoke intents in your media service
+    .addAction(R.drawable.previous, "Previous", null /* Add valid intent */) // #0
+    .addAction(R.drawable.pause, "Pause", null /* Add valid intent */) // #1
+    .addAction(R.drawable.next, "Next", null /* Add valid intent */) // #2
+    // Apply the media style template.
+    .setStyle(MediaStyleNotificationHelper.MediaStyle(mediaSession)
+        .setShowActionsInCompactView(1 /* #1: pause button */))
+    .setContentTitle("Wonderful music")
+    .setContentText("My Awesome Band")
+    .setLargeIcon(bitmapImage)
+    .build()
 
+NotificationsSnippets.kt
+```
 
 ![A notification with media style](/static/images/ui/notifications/template-media_2x.png)
 

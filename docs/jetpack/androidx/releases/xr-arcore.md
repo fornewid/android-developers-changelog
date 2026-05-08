@@ -31,10 +31,6 @@ your app or module:
 ```groovy
 dependencies {
     implementation "androidx.xr.arcore:arcore:1.0.0-alpha13"
-
-    // Optional dependencies for asynchronous conversions
-    implementation "androidx.xr.arcore:arcore-guava:1.0.0-alpha13"
-    implementation "androidx.xr.arcore:arcore-rxjava3:1.0.0-alpha13"
 }
 ```
 
@@ -43,10 +39,6 @@ dependencies {
 ```kotlin
 dependencies {
     implementation("androidx.xr.arcore:arcore:1.0.0-alpha13")
-
-    // Optional dependencies for asynchronous conversions
-    implementation("androidx.xr.arcore:arcore-guava:1.0.0-alpha13")
-    implementation("androidx.xr.arcore:arcore-rxjava3:1.0.0-alpha13")
 }
 ```
 

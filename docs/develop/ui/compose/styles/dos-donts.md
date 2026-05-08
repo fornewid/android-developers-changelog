@@ -123,3 +123,82 @@ Although you could provide a style to any composable, it's not expected that
 layout-based composables, or screen-level composables, will accept style - it's
 unclear from a consumer standpoint what a style would do at this level.
 Styles are designed for components, not necessarily layouts.
+
+## Don't: Create styles in Composition
+
+`CompositionLocals` are read at the point the style is defined, not where it's
+consumed. When the style is actually used, the state of the `CompositionLocal`
+could have changed, resulting in an inaccurate style.
+
+
+```kotlin
+// DON'T - Create styles in Composition that access composition locals in this way - this will likely lead to issues when style is used / accessed, as it would not get updated when the value changes.
+@Composable
+fun containerStyle(): Style {
+    val background = MaterialTheme.colorScheme.background
+    val onBackground = MaterialTheme.colorScheme.onBackground
+    return Style {
+        background(background)
+        contentColor(onBackground)
+    }
+}
+
+// Do: Instead, Create StyleScope extension functions for your subsystems to access themed composition Locals
+val StyleScope.colors: JetsnackColors
+    get() = JetsnackTheme.LocalJetsnackTheme.currentValue.colors
+
+val StyleScope.typography: androidx.compose.material3.Typography
+    get() = JetsnackTheme.LocalJetsnackTheme.currentValue.typography
+val StyleScope.shapes: Shapes
+    get() = JetsnackTheme.LocalJetsnackTheme.currentValue.shapes
+// Access CompositionLocals
+val button = Style {
+    background(colors.brandSecondary)
+    shape(shapes.small)
+}
+```
+
+<br />
+
+## Do: Create one style for subsystem value changes
+
+For example, if switching between dark and light mode, query existing themed
+values (through the `CompositionLocal`) to change the `Style` dynamically:
+
+
+```kotlin
+// Do: Use CompositionLocals or themed values to create a single style
+val buttonStyle = Style {
+    background(colors.brandSecondary)
+    shape(shapes.small)
+}
+```
+
+<br />
+
+## Do: Switch out whole Styles when the component fundamentally differs across theme definitions
+
+You can switch out whole style objects at a theme level if they are
+fundamentally different themes.
+
+For example, if you're creating an app that has different themes per product /
+page or offering, and many properties for a Style are different, switching out
+whole sets of styles at a theme level is acceptable.
+
+
+```kotlin
+// DO Switch out whole styles when many properties differ - if Product A and Product B are two white labelled apps that provide different Themes.
+val productBThemedButton = Style {
+    shape(shapes.small)
+    background(colors.brandSecondary)
+    // other properties are fundamentally different
+}
+
+val productAThemedButton = Style {
+    shape(shapes.large)
+    background(colors.brand)
+    // other properties are fundamentally different
+}
+```
+
+<br />

@@ -137,7 +137,10 @@ Checking for these capabilities may potentially involve blocking calls, and
 
 Positional sound sources are defined by [`PointSourceParams`](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/PointSourceParams) and an
 associated [`Entity`](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/Entity). The position and orientation of the `Entity` dictates
-where the `PointSourceParams` is rendered in 3D space.
+where the `PointSourceParams` is rendered in 3D space. Call
+[`setPointSourceParams`](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/SpatialMediaPlayer#setPointSourceParams(androidx.xr.runtime.Session,android.media.MediaPlayer,androidx.xr.scenecore.PointSourceParams,androidx.xr.scenecore.Entity)) on the
+[`SpatialMediaPlayer`](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/SpatialMediaPlayer) to set the `PointSourceParams` and
+its associated `entity` on a `MediaPlayer` instance.
 
 > [!IMPORTANT]
 > **Important:** To properly render positional audio, the files must be mono or stereo and the Usage in [`AudioAttributes`](https://developer.android.com/reference/android/media/AudioAttributes) must not be [`USAGE_MEDIA`](https://developer.android.com/reference/android/media/AudioAttributes#USAGE_MEDIA), nor can the ContentType be [`CONTENT_TYPE_MOVIE`](https://developer.android.com/reference/android/media/AudioAttributes#CONTENT_TYPE_MOVIE), [`CONTENT_TYPE_MUSIC`](https://developer.android.com/reference/android/media/AudioAttributes#CONTENT_TYPE_MUSIC), or [`CONTENT_TYPE_SPEECH`](https://developer.android.com/reference/android/media/AudioAttributes#CONTENT_TYPE_SPEECH).
@@ -166,7 +169,7 @@ if (session.scene.spatialCapabilities.contains(SpatialCapability.SPATIAL_AUDIO)
         )
         .build()
 
-    val pointSource = PointSourceParams(entity)
+    val pointSource = PointSourceParams()
 
     val soundEffect = appContext.assets.openFd("sounds/tiger_16db.mp3")
     val pointSoundId = soundPool.load(soundEffect, lowPriority)
@@ -176,6 +179,7 @@ if (session.scene.spatialCapabilities.contains(SpatialCapability.SPATIAL_AUDIO)
         if (status == 0) {
             SpatialSoundPool.play(
                 session = session,
+                entity = entity,
                 soundPool = soundPool,
                 soundID = pointSoundId,
                 params = pointSource,
@@ -195,7 +199,7 @@ if (session.scene.spatialCapabilities.contains(SpatialCapability.SPATIAL_AUDIO)
 
 **Key points about the code**
 
-- The first step is to check if Spatial Audio capabilities are currently available by using [`spatialCapabilities`](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/Scene#spatialCapabilities()).
+- The first step is to check if Spatial Audio capabilities are available by using [`spatialCapabilities`](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/Scene#spatialCapabilities()).
 - Setting the contentType to [`CONTENT_TYPE_SONIFICATION`](https://developer.android.com/reference/android/media/AudioAttributes#CONTENT_TYPE_SONIFICATION) and usage to [`USAGE_ASSISTANCE_SONIFICATION`](https://developer.android.com/reference/android/media/AudioAttributes#USAGE_ASSISTANCE_SONIFICATION) lets the system treat this audio file as a sound effect.
 - The preceding example loads the audio file into the pool immediately before using it to keep the code together for simplicity. Ideally, you should load all of your sound effects asynchronously as you load your app so all the audio files are available in the pool when you need it.
 
@@ -249,7 +253,7 @@ center channel of the file to be an `Entity`.
 if (session.scene.spatialCapabilities.contains(SpatialCapability.SPATIAL_AUDIO)) {
     // The session has spatial audio capabilities
 
-    val pointSourceAttributes = PointSourceParams(session.scene.mainPanelEntity)
+    val pointSourceAttributes = PointSourceParams()
 
     val mediaPlayer = MediaPlayer()
 
@@ -266,7 +270,8 @@ if (session.scene.spatialCapabilities.contains(SpatialCapability.SPATIAL_AUDIO))
     SpatialMediaPlayer.setPointSourceParams(
         session,
         mediaPlayer,
-        pointSourceAttributes
+        pointSourceAttributes,
+        entity = session.scene.mainPanelEntity,
     )
 
     mediaPlayer.setAudioAttributes(audioAttributes)
@@ -287,8 +292,7 @@ if (session.scene.spatialCapabilities.contains(SpatialCapability.SPATIAL_AUDIO))
 ### Add ambisonic sound fields to your app
 
 The simplest way to play back ambisonic sound fields is by loading the file with
-a `MediaPlayer`. Since ambisonic sound applies to the entire soundscape, you do
-not need to specify an `Entity` to provide a position. Instead, you create an
+a `MediaPlayer`. Since ambisonic sound applies to the entire soundscape, you don't need to specify an `Entity` to provide a position. Instead, you create an
 instance of the [`SoundFieldAttributes`](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/SoundFieldAttributes) with the appropriate ambisonic
 order specifying the number of channels.
 

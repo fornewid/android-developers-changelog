@@ -5,7 +5,7 @@ source: md.txt
 ---
 
 The [`Switch`](https://developer.android.com/reference/kotlin/androidx/compose/material3/Switch.composable#Switch(kotlin.Boolean,kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Function0,kotlin.Boolean,androidx.compose.material3.SwitchColors,androidx.compose.foundation.interaction.MutableInteractionSource)) component allows users to toggle between two states: checked
-and unchecked. In your app you may use a switch to let the user to do one of the
+and unchecked. In your app you may use a switch to let the user do one of the
 following:
 
 - Toggle a setting on or off.

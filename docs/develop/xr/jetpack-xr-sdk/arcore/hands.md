@@ -80,7 +80,7 @@ user's hands, for example, to attach a model to the left palm:
 
 
 ```kotlin
-val palmPose = leftHandState.handJoints[HandJointType.HAND_JOINT_TYPE_PALM] ?: return
+val palmPose = leftHandState.handJoints[HandJointType.PALM] ?: return
 
 // the down direction points in the same direction as the palm
 val angle = Vector3.angleBetween(palmPose.rotation * Vector3.Down, Vector3.Up)
@@ -105,7 +105,7 @@ Or to attach a model to your right hand's index finger tip:
 
 
 ```kotlin
-val tipPose = rightHandState.handJoints[HandJointType.HAND_JOINT_TYPE_INDEX_TIP] ?: return
+val tipPose = rightHandState.handJoints[HandJointType.INDEX_TIP] ?: return
 
 // the forward direction points towards the finger tip.
 val angle = Vector3.angleBetween(tipPose.rotation * Vector3.Forward, Vector3.Up)
@@ -138,9 +138,9 @@ distance between the two tip joints:
 
 
 ```kotlin
-val thumbTip = handState.handJoints[HandJointType.HAND_JOINT_TYPE_THUMB_TIP] ?: return false
+val thumbTip = handState.handJoints[HandJointType.THUMB_TIP] ?: return false
 val thumbTipPose = session.scene.perceptionSpace.transformPoseTo(thumbTip, session.scene.activitySpace)
-val indexTip = handState.handJoints[HandJointType.HAND_JOINT_TYPE_INDEX_TIP] ?: return false
+val indexTip = handState.handJoints[HandJointType.INDEX_TIP] ?: return false
 val indexTipPose = session.scene.perceptionSpace.transformPoseTo(indexTip, session.scene.activitySpace)
 return Vector3.distance(thumbTipPose.translation, indexTipPose.translation) < 0.05
 ```
@@ -159,9 +159,9 @@ fun pointingInSameDirection(joint1: HandJointType, joint2: HandJointType): Boole
     val forward2 = handState.handJoints[joint2]?.forward ?: return false
     return Vector3.angleBetween(forward1, forward2) < threshold
 }
-return pointingInSameDirection(HandJointType.HAND_JOINT_TYPE_INDEX_PROXIMAL, HandJointType.HAND_JOINT_TYPE_INDEX_TIP) &&
-    pointingInSameDirection(HandJointType.HAND_JOINT_TYPE_MIDDLE_PROXIMAL, HandJointType.HAND_JOINT_TYPE_MIDDLE_TIP) &&
-    pointingInSameDirection(HandJointType.HAND_JOINT_TYPE_RING_PROXIMAL, HandJointType.HAND_JOINT_TYPE_RING_TIP)
+return pointingInSameDirection(HandJointType.INDEX_PROXIMAL, HandJointType.INDEX_TIP) &&
+    pointingInSameDirection(HandJointType.MIDDLE_PROXIMAL, HandJointType.MIDDLE_TIP) &&
+    pointingInSameDirection(HandJointType.RING_PROXIMAL, HandJointType.RING_TIP)
 ```
 
 <br />
@@ -181,7 +181,7 @@ custom gestures to avoid conflicts with system navigation gestures:
 
 ```kotlin
 val handedness = Hand.getPrimaryHandSide(activity.contentResolver)
-val secondaryHand = if (handedness == Hand.HandSide.LEFT) Hand.right(session) else Hand.left(session)
+val secondaryHand = if (handedness == HandSide.LEFT) Hand.right(session) else Hand.left(session)
 val handState = secondaryHand?.state ?: return
 detectGesture(handState)
 ```

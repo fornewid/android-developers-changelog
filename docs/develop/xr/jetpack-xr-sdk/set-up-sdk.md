@@ -48,15 +48,6 @@ dependencies {
     implementation "androidx.xr.compose:compose:1.0.0-alpha13"
     implementation "androidx.xr.compose.material3:material3:1.0.0-alpha16"
     implementation "androidx.xr.arcore:arcore:1.0.0-alpha13"
-
-    // For compatibility with guava, use these dependencies:
-    implementation "androidx.xr.arcore:arcore-guava:1.0.0-alpha13"
-    implementation "androidx.xr.runtime:runtime-guava:1.0.0-alpha13"
-    implementation "androidx.xr.scenecore:scenecore-guava:1.0.0-alpha14"
-
-    // For compatibility with rxjava3, use these dependencies:
-    implementation "androidx.xr.arcore:arcore-rxjava3:1.0.0-alpha13"
-    implementation "androidx.xr.runtime:runtime-rxjava3:1.0.0-alpha13"
 }
 ```
 
@@ -69,15 +60,6 @@ dependencies {
     implementation("androidx.xr.compose:compose:1.0.0-alpha13")
     implementation("androidx.xr.compose.material3:material3:1.0.0-alpha16")
     implementation("androidx.xr.arcore:arcore:1.0.0-alpha13")
-
-    // For compatibility with guava, use these dependencies:
-    implementation("androidx.xr.arcore:arcore-guava:1.0.0-alpha13")
-    implementation("androidx.xr.runtime:runtime-guava:1.0.0-alpha13")
-    implementation("androidx.xr.scenecore:scenecore-guava:1.0.0-alpha14")
-
-    // For compatibility with rxjava3, use these dependencies:
-    implementation("androidx.xr.arcore:arcore-rxjava3:1.0.0-alpha13")
-    implementation("androidx.xr.runtime:runtime-rxjava3:1.0.0-alpha13")
 }
 ```
 

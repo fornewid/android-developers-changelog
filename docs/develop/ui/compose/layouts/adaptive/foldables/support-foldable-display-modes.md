@@ -93,7 +93,7 @@ private var capabilityStatus: WindowAreaCapability.Status =
     WindowAreaCapability.Status.WINDOW_AREA_STATUS_UNSUPPORTED
 
 private val dualScreenOperation = WindowAreaCapability.Operation.OPERATION_PRESENT_ON_AREA
-private val rearDisplayOperation = WindowAreaCapability.Operation.OPERATION_TRANSFER_ACTIVITY_TO_AREAhttps://github.com/android/snippets/blob/6f769f0d39037f509d452f2ca7387e34b03e59f8/compose/snippets/src/main/java/com/example/compose/snippets/adaptivelayouts/SupportFoldableDisplayModes.kt#L56-L64
+private val rearDisplayOperation = WindowAreaCapability.Operation.OPERATION_TRANSFER_ACTIVITY_TO_AREA
 ```
 
 <br />

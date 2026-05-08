@@ -5,8 +5,8 @@ source: md.txt
 ---
 
 The [`Card`](https://developer.android.com/reference/kotlin/androidx/compose/material3/Card.composable#Card(androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Shape,androidx.compose.material3.CardColors,androidx.compose.material3.CardElevation,androidx.compose.foundation.BorderStroke,kotlin.Function1)) composable acts as a Material Design container for your UI.
-Cards typically present a single coherent piece of content. The following are
-some examples of where you might use a card:
+Cards typically present a single coherent piece of content. The following
+examples show where you might use a card:
 
 - A product in a shopping app.
 - A news story in a news app.
@@ -33,7 +33,7 @@ call to `Text` in the following minimal example:
     }
 
 > [!NOTE]
-> **Note:** By default, a `Card` wraps its content in a `Column` composable, placing each item inside the card below one another.
+> **Note:** By default, a `Card` wraps its content in a `Column` composable and places each item inside the card below the previous one.
 
 ## Advanced implementations
 

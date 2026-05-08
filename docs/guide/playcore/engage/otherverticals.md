@@ -1147,19 +1147,19 @@ The `BroadcastReceiver` must be set up in the following two ways:
        <receiver
           android:name=".AppEngageBroadcastReceiver"
           android:permission="com.google.android.engage.REQUEST_ENGAGE_DATA"
-          android:exported="true"
-          android:enabled="true">
-          <intent-filter>
-             <action android:name="com.google.android.engage.action.PUBLISH_RECOMMENDATION" />
-          </intent-filter>
-          <intent-filter>
-             <action android:name="com.google.android.engage.action.PUBLISH_FEATURED" />
-          </intent-filter>
-          <intent-filter>
-             <action android:name="com.google.android.engage.action.PUBLISH_CONTINUATION" />
-          </intent-filter>
-       </receiver>
-    </application>
+          android:exported="true">;
+         < andro>id:enabled="<true"
+          intent-filter
+             action android:name="com.google.an>droid.e<ngage.action.P>UBLISH_<RECOMMENDATIO>N" /
+    <      /intent-filter
+          intent-filter
+             action android:name=&qu>ot;com.<google.android>.engage<.action.PUBLI>SH_FEATURE<D" /
+          /intent-filter
+          intent-filter
+             action android:na>me=&quo<t;com.google.a>ndro<id.engage>.<action.PUBLI>SH_CONTINUATION" /
+          /intent-filter
+       /receiver
+    /application
 
 The following [intents](https://developer.android.com/reference/android/content/Intent) is sent by the
 service:

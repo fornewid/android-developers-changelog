@@ -33,7 +33,8 @@ should loop using [`GltfAnimationStartOptions`](https://developer.android.com/re
 
 
 ```kotlin
-gltfEntity.startAnimation(loop = true, animationName = "Walk")
+val animation = gltfEntity.animations.find { it.name == "Walk" }
+animation?.start(GltfAnimationStartOptions(shouldLoop = true))
 ```
 
 <br />

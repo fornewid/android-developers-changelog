@@ -349,7 +349,7 @@ fun BottomAppBarExample() {
 <br />
 
 This implementation appears as follows:
-![A screen in an app with a bottom app bar that holds for action icons on the left side, and a floating action button on the right.](https://developer.android.com/static/develop/ui/compose/images/components/appbar-bottom.png) **Figure 6.** An example implementation of a bottom app bar.
+![A screen in an app with a bottom app bar that holds four action icons on the left side, and a floating action button on the right.](https://developer.android.com/static/develop/ui/compose/images/components/appbar-bottom.png) **Figure 6.** An example implementation of a bottom app bar.
 
 > [!NOTE]
 > **Note:** You can also use `BottomAppBar` without passing a value for `actions` and `floatingActionButton`. In that case, you can create a custom bottom app bar by filling `BottomAppBar` with content as you would other containers.

@@ -17,45 +17,39 @@ changed over time.
 ## Requirements
 
 To publish on the Play Store, your watch app must satisfy all the applicable
-requirements. In addition, your mobile app should [satisfy the
-core app quality requirements](https://developer.android.com/docs/quality-guidelines/core-app-quality). To filter for guidelines that are relevant
-to your app, select the **Apps** and **Watch faces** items
-in the following interactive checklist:
+requirements. In addition, your mobile app should [satisfy the core app quality
+requirements](https://developer.android.com/docs/quality-guidelines/core-app-quality).
+
+### Target SDK version
+
+As of August 31, 2025, all new apps [must target Android 14 (API level 34) or
+higher](https://support.google.com/googleplay/android-developer/answer/11926878) to be submitted to Google Play. [Wear OS 5](https://developer.android.com/training/wearables/versions/5) is based on this
+version.
+
+Also, as of the same date, apps targeting Android 12 (API level 31) or lower
+aren't discoverable from the Play Store on devices that run Wear OS versions
+higher than your app's target API level.
+
+### Watch Face Format
+
+As of January 2026, the Watch Face Format is required for installing watch faces
+on all Wear OS devices.
+
+Learn more about the user-facing changes in this [Help Center article](https://support.google.com/wearos/thread/284572445).
+
+### Support for 64-bit architecture
+
+As of September 15, 2026, all Wear OS apps must [support 64-bit devices](https://developer.android.com/google/play/requirements/64-bit).
+
+*** ** * ** ***
+
+To filter for guidelines that are relevant to your app, select the **Apps** and
+**Watch faces** items in the following interactive checklist:
 
 | Quality requirement categories |
 |---|
 | Apps |
 | Watch Faces |
-
-### Target SDK version
-
-> [!CAUTION]
-> **Caution:** As of August 31, 2025, all new apps [must target Android 14 (API level
-> 34) or higher](https://support.google.com/googleplay/android-developer/answer/11926878) to be submitted to Google Play. [Wear OS 5](https://developer.android.com/training/wearables/versions/5) is based on this version.  
->
-> Also, as of the same date, apps targeting Android 12 (API level 31) or lower aren't discoverable from the Play Store on devices that run Wear OS versions higher than your app's target API level.
-
-#### Test your app
-
-Test your app and make sure it works on a watch running Wear OS 3.0 or
-higher. If you pair your mobile device or emulator with a Wear OS emulator for
-testing, check how your app behaves on each of these emulators:
-
-- Wear OS small round 1.2" (192dp)
-- Wear OS large round 1.39" (227dp)
-
-Additionally, you can use [Firebase Test Lab](https://firebase.google.com/docs/test-lab) to run tests written for your
-standalone Wear OS app on physical Google Pixel Watch devices. Learn more about
-the [supported physical Android devices](https://firebase.google.com/docs/test-lab/android/available-testing-devices) in Firebase Test Lab.
-
-### Watch Face Format
-
-**Note:**As of January 2026, the Watch Face Format is required for
-installing watch faces on all Wear OS devices.
-
-Learn more about the user-facing changes in this
-[Help Center
-article](https://support.google.com/wearos/thread/284572445).
 
 ### Visual experience
 
@@ -89,9 +83,9 @@ expected performance and functional behavior:
 
 | Area | Requirement | ID | Benchmark |
 |---|---|---|---|
-| SDK | Target API level | `WO-P1` | Ensure that your app meets Google Play's [target API level requirements](https://developer.android.com/google/play/requirements/target-sdk). |
-| Stability | Basic user experience (apps) | `WO-P2` | Ensure that your app installs, launches, and completes necessary tasks without crashing. |
-| Stability | Basic user experience (watch faces) | `WO-P3` | Ensure that the user can install, set, and personalize the watch face without crashing, including adding complications when applicable. |
+| SDK | Target API level | `WO-P1` | Check that your app meets Google Play's [target API level requirements](https://developer.android.com/google/play/requirements/target-sdk). |
+| Stability | Basic user experience (apps) | `WO-P2` | Verify that your app installs, launches, and completes necessary tasks without crashing. |
+| Stability | Basic user experience (watch faces) | `WO-P3` | Check that the user can install, set, and personalize the watch face without crashing, including adding complications when applicable. |
 | N/A | N/A | `WO-P4` | *This is no longer a quality requirement for Wear OS apps.* |
 | Companion app | Companion app | `WO-P5` | For [non-standalone apps](https://developer.android.com/training/wearables/apps/standalone-apps), ensure that the companion app can connect with the Wear app and allows the user to use the Wear app as expected. For more information, see [Core app quality](https://developer.android.com/docs/quality-guidelines/core-app-quality). |
 | Identity | Authentication | `WO-P6` | Your app must not ask the user to input a username or password directly on the Wear OS device. For more information about best practices, see [Authentication on wearables](https://developer.android.com/training/wearables/apps/auth-wear#auth-methods). |
@@ -153,12 +147,29 @@ You can learn more about
 [managing
 policy violations and appeals](https://support.google.com/googleplay/android-developer/answer/9899142) in the Google Play policy center.
 
+
+**How should I test my app?**
+
+
+Test your app and make sure it works on a watch running Wear OS 3.0 or
+higher. If you pair your mobile device or emulator with a Wear OS emulator for
+testing, verify that your app behaves as expected on each of these emulators:
+
+- Wear OS small round 1.2" (192dp)
+- Wear OS large round 1.39" (227dp)
+
+
+Additionally, you can use \[Firebase Test Lab\]\[8\] to run tests written for your
+standalone Wear OS app on physical Google Pixel Watch devices. Learn more about
+the \[supported physical Android devices\]\[9\] in Firebase Test Lab.
+
 ## Version history
 
 The following table provides a summary of changed content on this page:
 
 | Date | Description of change |
 |---|---|
+| April 1, 2026 | Several updates: - Added upcoming requirement to support [64-bit architectures](https://developer.android.com/docs/quality-guidelines/wear-app-quality#support-64-bit). - Rearranged beginning sections of this page to group all app configuration requirements together, and to move the **Apps** and **Watch faces** checkbox buttons closer to the requirement tables that show detailed guidelines for each of these Wear OS experiences. |
 | March 12, 2026 | Removed requirement to mention Wear OS in Play listing description (WO-G2). |
 | May 15, 2024 | Several updates: - Specified a limit to the number of watch face shapes within a watch face source file (`res/xml/watch_face_shapes.xml`). - Clarified the total size limit of a watch face source file. |
 | February 14, 2024 | Removed requirement to implement rotary input to scroll through screens in Wear OS apps (WO-V7). |

@@ -533,6 +533,43 @@ In your activity, override
 [`onNewIntent()`](https://developer.android.com/reference/android/app/Activity#onNewIntent(android.content.Intent))
 and handle the new video, stopping any existing video playback if needed.
 
+## Support PiP for camera apps
+
+To enable PiP for camera apps, you should ensure the camera
+remains active in PiP mode by not closing the camera when `onPause()` is called:
+
+### Java
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        // Don't close the camera if the app is entering PiP mode
+        if (!isInPictureInPictureMode()) {
+            closeCamera();
+        }
+    }
+
+Like with other use cases, hide non-essential UI elements
+(such as controls and overlays), and add custom actions to control the camera
+(for example, stop recording or flip camera).
+
+### Calculate sourceRectHint for smooth transitions
+
+Providing an accurate `sourceRectHint` with the exact screen coordinates of
+the camera viewfinder is essential for a smooth enter animation. You can get
+the bounds from the preview view using `getGlobalVisibleRect()` as follows:
+
+### Java
+
+    View previewView = findViewById(R.id.preview_view);
+    Rect globalRect = new Rect();
+    // Ensure the view is laid out before calling getGlobalVisibleRect() to get valid screen coordinates.
+    previewView.getGlobalVisibleRect(globalRect);
+    PictureInPictureParams params = new PictureInPictureParams.Builder()
+        .setSourceRectHint(globalRect)
+        .build();
+    setPictureInPictureParams(params);
+
 ## Best practices
 
 PiP might be disabled on devices that have low RAM. Before your app uses PiP,

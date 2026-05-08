@@ -133,6 +133,11 @@ May 06, 2026
 - Add APIs to configure Room's connection pool. The builder functions `setSingleConnectionPool()` and `setMultipleConnectionPool()` can be used to control the maximum amount of connection Room will open to the database. ([I9700d](https://android-review.googlesource.com/#/q/I9700d1d245a112116b1e237011a94e57d1477c1b), [b/438041176](https://issuetracker.google.com/issues/438041176), [b/432820350](https://issuetracker.google.com/issues/432820350))
 - Remove Room's `DatabaseConfiguration` from public API since no other public API referenced the config. ([I5f1e9](https://android-review.googlesource.com/#/q/I5f1e9d384206a2ee87197ae5b94d0b96b75809b5), [b/438041176](https://issuetracker.google.com/issues/438041176))
 
+**Bug Fixes**
+
+- Restrict Web targets to use a single connection pool to avoid 'database locked' issues that arise with OPFS ([b/496255935](https://issuetracker.google.com/issues/496255935)).
+- Attempt to fix (again) a 'Method too large' error that occurs due to Room generating a `onValidateSchema` that is too large. The function is split based on the amount of statements, but the measuring is not precise. If you still encounter this error you can adjust the amount of statements Room will count towards a split via the annotation processor option `room.validationSplitSize`. The default value is currently set to 300 statements, therefore use a lower number if the issue is still present ([b/493708172](https://issuetracker.google.com/issues/493708172)).
+
 ### Version 3.0.0-alpha03
 
 April 08, 2026

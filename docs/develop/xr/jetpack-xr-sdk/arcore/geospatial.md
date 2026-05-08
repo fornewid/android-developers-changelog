@@ -106,8 +106,8 @@ app to retrieve device pose information, configure the session and set both the
 val newConfig = Config(
     // Set the GeospatialMode to VPS_AND_GPS.
     geospatial = GeospatialMode.VPS_AND_GPS,
-    // Set the DeviceTrackingMode to LAST_KNOWN.
-    deviceTracking = DeviceTrackingMode.LAST_KNOWN
+    // Set the DeviceTrackingMode to SPATIAL_LAST_KNOWN.
+    deviceTracking = DeviceTrackingMode.SPATIAL_LAST_KNOWN
 )
 // Apply the configuration to the session.
 try {
@@ -246,6 +246,8 @@ when (val result = geospatial.createGeospatialPoseFromPose(devicePose)) {
     is CreateGeospatialPoseFromPoseNotTracking -> {
         // Geospatial is not currently tracking.
     }
+
+    is CreateGeospatialPoseFromPoseErrorInternal -> TODO()
 }
 ```
 
@@ -272,6 +274,9 @@ when (val result = geospatial.createPoseFromGeospatialPose(geoPose)) {
     }
     is CreatePoseFromGeospatialPoseNotTracking -> {
         // Geospatial is not currently tracking.
+    }
+    is CreatePoseFromGeospatialPoseErrorInternal -> {
+        // An internal error occurred.
     }
 }
 ```

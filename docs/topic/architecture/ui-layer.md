@@ -4,10 +4,11 @@ url: https://developer.android.com/topic/architecture/ui-layer
 source: md.txt
 ---
 
-The role of the UI is to display the application data on the screen and also to
-serve as the primary point of user interaction. Whenever the data changes,
+The role of the UI is to display the application data on the screen.
+The UI also serves as the primary point of user interaction.
+Whenever the data changes,
 either due to user interaction (like pressing a button) or external input (like
-a network response), the UI should update to reflect those changes.
+a network response), the UI updates to reflect those changes.
 *Effectively, the UI is a visual representation of the application state as
 retrieved from the data layer.*
 
@@ -17,23 +18,23 @@ might only need part of the data for the UI, or you might need to merge two
 different data sources to present information that is relevant to the user.
 Regardless of the logic you apply, you need to pass the UI all the information
 it needs to render fully. *The UI layer is the pipeline that converts
-application data changes to a form that the UI can present and then displays
+application data changes to a form that the UI can present, and then displays
 it.*
 ![In a typical architecture, the UI layer's UI elements depend on state
 holders, which in turn depend on classes from either the data layer or the
 optional domain layer.](https://developer.android.com/static/topic/libraries/architecture/images/mad-arch-ui-overview.png) **Figure 1.** The UI layer's role in app architecture.
 
 > [!NOTE]
-> **Note:** The recommendations and best practices present in this page can be applied to a broad spectrum of apps to allow them to scale, improve quality and robustness, and make them easier to test. However, you should treat them as guidelines and adapt them to your requirements as needed.
+> **Note:** The recommendations and best practices on this page can be applied to a broad spectrum of apps to allow them to scale, improve their quality and robustness, and make them easier to test. Treat them as guidelines, and adapt them to your requirements as needed.
 
 [Video](https://www.youtube.com/watch?v=p9VR8KbmzEE)
 
 ## A basic case study
 
 Consider an app that fetches news articles for a user to read. The app has an
-articles screen that presents articles available to read, and also allows
-signed-in users to bookmark articles that really stand out. Given that there may
-be a lot of articles at any moment in time, the reader should be able to browse
+articles screen that presents articles available to read, and also lets
+signed-in users bookmark articles that really stand out. Given that there might
+be a lot of articles at any time, the reader must be able to browse
 articles by category. In summary, the app lets users do the following:
 
 - View articles available to read.
@@ -41,7 +42,7 @@ articles by category. In summary, the app lets users do the following:
 - Sign in and bookmark certain articles.
 - Access some premium features if eligible.
 
-![](https://developer.android.com/static/topic/libraries/architecture/images/mad-arch-ui-basic-case-study.png) **Figure 2.** A sample news app for a UI case study.
+![A sample news app showing article previews, one of which is bookmarked.](https://developer.android.com/static/topic/libraries/architecture/images/mad-arch-ui-basic-case-study.png) **Figure 2.** A sample news app for a UI case study.
 
 The following sections use this example as a case study to introduce the
 principles of unidirectional data flow, as well as illustrating the problems
@@ -50,9 +51,10 @@ layer.
 
 ## UI layer architecture
 
-The term *UI* refers to UI elements such as activities and fragments that
-display the data, independent of what APIs they use to do this (Views or
-[Jetpack Compose](https://developer.android.com/jetpack/compose)). Because the role of the [data
+The term *UI* refers to UI elements such as containers and composable functions
+that display data. For building Android UIs,
+[Jetpack Compose](https://developer.android.com/compose) is the recommended toolkit.
+Because the role of the [data
 layer](https://developer.android.com/jetpack/guide/data-layer) is to hold, manage, and provide access to the
 app data, the UI layer must perform the following steps:
 
@@ -64,26 +66,26 @@ app data, the UI layer must perform the following steps:
 The rest of this guide demonstrates how to implement a UI layer that performs
 these steps. In particular, this guide covers the following tasks and concepts:
 
-- How to define the UI state.
-- Unidirectional data flow (UDF) as a means of producing and managing the UI state.
-- How to expose UI state with observable data types according to UDF principles.
-- How to implement UI that consumes the observable UI state.
+- How to define the UI state
+- Unidirectional data flow (UDF) as a means of producing and managing the UI state
+- How to expose UI state with observable data types according to UDF principles
+- How to implement a UI that consumes the observable UI state
 
 The most fundamental of these is the definition of the UI state.
 
 ## Define UI state
 
-Refer to the [case study](https://developer.android.com/topic/architecture/ui-layer#case-study) outlined earlier. In short, the UI shows
+In the [case study](https://developer.android.com/topic/architecture/ui-layer#case-study) outlined earlier, the UI shows
 a list of articles along with some metadata for each article. This information
 that the app presents to the user is the UI state.
 
-In other words: if the UI is what the user sees, the UI state is what the app
+In other words, if the UI is what the user sees, the UI state is what the app
 says they should see. Like two sides of the same coin, the UI is the visual
 representation of the UI state. Any changes to the UI state are immediately
 reflected in the UI.
 ![UI is a result of binding UI elements on the screen with the UI state.](https://developer.android.com/static/topic/libraries/architecture/images/mad-arch-ui-elements-state.png) **Figure 3.** UI is a result of binding UI elements on the screen with the UI state.
 
-Consider the case study; in order to fulfill the News app's requirements, the
+Consider the case study: to fulfill the News app's requirements, the
 information required to fully render the UI can be encapsulated in a
 `NewsUiState` data class defined as follows:
 
@@ -101,22 +103,26 @@ information required to fully render the UI can be encapsulated in a
         ...
     )
 
+For more information on UI state,
+see [State and Jetpack Compose](https://developer.android.com/develop/ui/compose/state).
+
 ### Immutability
 
-The UI state definition in the example above is immutable. The key benefit of
+The UI state definition in the previous example is immutable. The key benefit of
 this is that immutable objects provide guarantees regarding the state of the
-application at an instant in time. This frees up the UI to focus on a single
-role: to read the state and update its UI elements accordingly. As a result, you
-should never modify the UI state in the UI directly unless the UI itself is the
+application at an instant in time. This frees up the UI to focus on its primary
+role: to read the state and update its UI elements accordingly.
+Never modify the UI state in the UI directly unless the UI itself is the
 sole source of its data. Violating this principle results in multiple sources of
 truth for the same piece of information, leading to data inconsistencies and
 subtle bugs.
 
-For example, if the `bookmarked` flag in a `NewsItemUiState` object from the UI
-state in the case study were updated in the `Activity` class, that flag would be
-competing with the data layer as the source of the bookmarked status of an
+For example, consider the earlier case study.
+If the `bookmarked` flag in a `NewsItemUiState` object from the UI
+state is updated in the `Activity` class, that flag
+competes with the data layer as the source of the bookmarked status of an
 article. Immutable data classes are very useful for preventing this kind of
-antipattern.
+inconsistency.
 
 > [!IMPORTANT]
 > **Key Point:** Only sources or owners of data should be responsible for updating the data they expose.
@@ -136,32 +142,30 @@ For example, the state of a screen displaying news might be called
 
 The previous section established that the UI state is an immutable snapshot of
 the details needed for the UI to render. However, the dynamic nature of data in
-apps means that state might change over time. This might be due to user
+apps means that state can change over time. This might be due to user
 interaction or other events that modify the underlying data that is used to
 populate the app.
 
-These interactions may benefit from a mediator to process them, defining the
-logic to be applied to each event and performing the requisite transformations
-to the backing data sources in order to create UI state. These interactions and
-their logic may be housed in the UI itself, but this can quickly get unwieldy as
-the UI starts to become more than its name suggests: it becomes data owner,
-producer, transformer, and more. Furthermore, this can affect testability
-because the resulting code is a tightly coupled amalgam with no discernable
-boundaries. Ultimately, the UI stands to benefit from reduced burden. Unless the
-UI state is very simple, the UI's sole responsibility should be to consume and
-display UI state.
+These interactions can benefit from a mediator to process them, defining the
+logic to be applied to each event and transforming the backing data sources
+to create UI state. Although these interactions and
+their logic can be housed in the UI itself, this can quickly get unwieldy as
+the UI takes on too much responsibility.
+Furthermore, this can affect testability
+because the resulting code is tightly coupled.
+Unless the UI state is very simple, make sure the UI's sole responsibility is
+to consume and display UI state.
 
 This section discusses Unidirectional Data Flow (UDF), an architecture pattern
 that helps enforce this healthy separation of responsibility.
 
 ### State holders
 
-The classes that are responsible for the production of UI state and contain the
-necessary logic for that task are called *state holders* . State holders come in
-a variety of sizes depending on the scope of the corresponding UI elements that
-they manage, ranging from a single widget like a [bottom app
-bar](https://material.io/components/app-bars-bottom) to a whole screen or a
-navigation destination.
+State holders are the classes responsible for producing UI state and for the
+logic needed to produce that state.
+State holders come in various sizes depending on the scope of the corresponding
+UI elements that they manage, ranging from a single widget like a
+[bottom app bar](https://developer.android.com/develop/ui/compose/components/app-bars#bottom) to a whole screen or a navigation destination.
 
 In the latter case, the typical implementation is an instance of a
 [ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel), although depending on the
@@ -196,11 +200,11 @@ incorporating the effects of events that may cause mutations of the state. The
 [case study](https://developer.android.com/topic/architecture/ui-layer#case-study) mentioned earlier contains a list of articles, each
 having a title, description, source, author name, publication date, and whether
 it was bookmarked. The UI for each article item looks like this:
-![](https://developer.android.com/static/topic/libraries/architecture/images/mad-arch-ui-basic-case-study-item.png) **Figure 5.** UI of an article item in the case study app.
+![A single article item from the case study app. The UI shows a thumbnail, the article title, the author, the estimated reading time for the article, and a bookmark icon.](https://developer.android.com/static/topic/libraries/architecture/images/mad-arch-ui-basic-case-study-item.png) **Figure 5.** UI of an article item in the case study app.
 
 A user requesting to bookmark an article is an example of an event that can
 cause state mutations. As the state producer, it's the ViewModel's
-responsibility to define all the logic required in order to populate all fields
+responsibility to define all the logic required to populate all fields
 in the UI state and process the events needed for the UI to render fully.
 ![A UI event occurs when the user bookmarks an artcile. The ViewModel
 notifies the data layer of the state change. The data layer persists the
@@ -219,11 +223,11 @@ layer](https://developer.android.com/jetpack/guide/data-layer) page. However, th
 logic that are important to define:
 
 - **Business logic** is the implementation of product requirements for app data. As mentioned already, one example is bookmarking an article in the case study app. Business logic is usually placed in the domain or data layers, but never in the UI layer.
-- **UI behavior logic** or **UI logic** is *how* to display state changes on the screen. Examples include obtaining the right text to show on the screen using Android [`Resources`](https://developer.android.com/reference/android/content/res/Resources), navigating to a particular screen when the user clicks a button, or displaying a user message on the screen using a [toast](https://developer.android.com/guide/topics/ui/notifiers/toasts) or a [snackbar](https://developer.android.com/training/snackbar).
+- **UI behavior logic** or **UI logic** is *how* to display state changes on the screen. Examples include obtaining the right text to show on the screen using Android [`Resources`](https://developer.android.com/reference/android/content/res/Resources), navigating to a particular screen when the user clicks a button, or displaying a user message on the screen using a [toast](https://developer.android.com/guide/topics/ui/notifiers/toasts) or a [snackbar](https://developer.android.com/develop/ui/compose/components/snackbar).
 
-The UI logic, particularly when it involves UI types like
-[`Context`](https://developer.android.com/reference/android/content/Context), should live in the UI, not in
-the ViewModel. If the UI grows in complexity and you want to delegate the UI
+Keep UI logic in the UI, not in the ViewModel, particularly when it involves
+UI types like [`Context`](https://developer.android.com/reference/android/content/Context).
+If the UI grows in complexity and you want to delegate the UI
 logic to another class to favor testability and separation of concerns, **you
 can create a simple class as a state holder**. Simple classes created in the UI
 can take Android SDK dependencies because they follow the lifecycle of the UI;
@@ -250,61 +254,41 @@ In other words, UDF allows for the following:
 ## Expose UI state
 
 After you define your UI state and determine how you will manage the production
-of that state, the next step is to present the produced state to the UI. Because
-you're using UDF to manage the production of state, you can consider the
+of that state, the next step is to present the produced state to the UI.
+
+When using UDF to manage the production of state, you can consider the
 produced state to be a stream---in other words, multiple versions of the state
-will be produced over time. As a result, you should expose the UI state in an
-observable data holder like `LiveData` or `StateFlow`. The reason for this is so
-that the UI can react to any changes made in the state without having to
-manually pull data directly from the ViewModel. These types also have the
+are produced over time. Expose the UI state in an
+observable data holder like `StateFlow`. This lets the UI react to any changes
+made in the state without having to manually pull data directly from the
+ViewModel. This also has the
 benefit of always having the latest version of the UI state cached, which is
 useful for quick state restoration after configuration changes.
-
-### Views
-
-    class NewsViewModel(...) : ViewModel() {
-
-        val uiState: StateFlow<NewsUiState> = ...
-    }
-
-### Compose
 
     class NewsViewModel(...) : ViewModel() {
 
         val uiState: NewsUiState = ...
     }
 
-For an introduction to `LiveData` as an observable data holder, see [this
-codelab](https://developer.android.com/codelabs/basic-android-kotlin-training-livedata). For a similar
-introduction to Kotlin flows, see [Kotlin flows on Android](https://developer.android.com/kotlin/flow).
+For an introduction to Kotlin flows, see [Kotlin flows on Android](https://developer.android.com/kotlin/flow).
+To learn how to use `StateFlow` as an observable data holder,
+see the
+[Advanced State and Side Effects in Jetpack Compose](https://developer.android.com/codelabs/jetpack-compose-advanced-state-side-effects) codelab.
 
 > [!NOTE]
 > **Note:** In Jetpack Compose apps, you can use Compose's observable [State
-> APIs](https://developer.android.com/jetpack/compose/state#state-in-composables) such as `mutableStateOf` or `snapshotFlow` for the exposure of UI state. Any type of observable data holder such as `StateFlow` or `LiveData` that you see in this guide can be easily consumed in Compose using the appropriate [extensions](https://developer.android.com/jetpack/compose/libraries#streams).
+> APIs](https://developer.android.com/jetpack/compose/state#state-in-composables) such as `mutableStateOf` or `snapshotFlow` for the exposure of UI state. Any type of observable data holder such as `StateFlow` that you see in this guide can be consumed in Compose using the appropriate [extensions](https://developer.android.com/jetpack/compose/libraries#streams).
 
 In cases where the data exposed to the UI is relatively simple, it's often worth
 wrapping the data in a UI state type because it conveys the relationship between
 the emission of the state holder and its associated screen or UI element.
-Furthermore, as the UI element grows more complex, it's always easier to add to
-the definition of the UI state to accommodate the extra information needed to
-render the UI element.
+As the UI element grows more complex, it's straightforward to add to
+the definition of the UI state, so you can accommodate the extra information
+needed to render the UI element.
 
-A common way of creating a stream of `UiState` is by exposing a backing mutable
-stream as an immutable stream from the ViewModel---for example, exposing a
-`MutableStateFlow<UiState>` as a `StateFlow<UiState>`.
-
-### Views
-
-    class NewsViewModel(...) : ViewModel() {
-
-        private val _uiState = MutableStateFlow(NewsUiState())
-        val uiState: StateFlow<NewsUiState> = _uiState.asStateFlow()
-
-        ...
-
-    }
-
-### Compose
+A common way of creating a stream of `UiState` is by exposing a `mutableStateOf`
+property with a `private set`, keeping the state mutable inside the ViewModel
+but read-only for the UI.
 
     class NewsViewModel(...) : ViewModel() {
 
@@ -315,50 +299,17 @@ stream as an immutable stream from the ViewModel---for example, exposing a
     }
 
 The ViewModel can then expose methods that internally mutate the state,
-publishing updates for the UI to consume. Take, for example, the case where an
-asynchronous action needs to be performed; a coroutine can be launched using the
-[`viewModelScope`](https://developer.android.com/topic/libraries/architecture/coroutines#viewmodelscope), and
-the mutable state can be updated upon completion.
-
-### Views
+publishing updates for the UI to consume. Take, for example, the case where
+you need to perform an asynchronous action.
+You can launch a coroutine using the [`viewModelScope`](https://developer.android.com/topic/libraries/architecture/coroutines#viewmodelscope),
+and then update the mutable state upon completion.
 
     class NewsViewModel(
         private val repository: NewsRepository,
         ...
     ) : ViewModel() {
 
-        private val _uiState = MutableStateFlow(NewsUiState())
-        val uiState: StateFlow<NewsUiState> = _uiState.asStateFlow()
-
-        private var fetchJob: Job? = null
-
-        fun fetchArticles(category: String) {
-            fetchJob?.cancel()
-            fetchJob = viewModelScope.launch {
-                try {
-                    val newsItems = repository.newsItemsForCategory(category)
-                    _uiState.update {
-                        it.copy(newsItems = newsItems)
-                    }
-                } catch (ioe: IOException) {
-                    // Handle the error and notify the UI when appropriate.
-                    _uiState.update {
-                        val messages = getMessagesFromThrowable(ioe)
-                        it.copy(userMessages = messages)
-                     }
-                }
-            }
-        }
-    }
-
-### Compose
-
-    class NewsViewModel(
-        private val repository: NewsRepository,
-        ...
-    ) : ViewModel() {
-
-       var uiState by mutableStateOf(NewsUiState())
+        var uiState by mutableStateOf(NewsUiState())
             private set
 
         private var fetchJob: Job? = null
@@ -378,21 +329,23 @@ the mutable state can be updated upon completion.
         }
     }
 
-In the above example, the `NewsViewModel` class attempts to fetch articles for a
-certain category and then reflects the result of the attempt---whether success or
-failure---in the UI state where the UI can react to it appropriately. See the
-[Show errors on the screen](https://developer.android.com/topic/architecture/ui-layer#show-errors) section to learn more about error
-handling.
+In the preceding example, the `NewsViewModel` class attempts to fetch articles
+for a certain category and then reflects the result of the attempt---whether
+success or
+failure---in the UI state, where the UI can react to it appropriately.
+For more information about error handling, see the
+[Show errors on the screen](https://developer.android.com/topic/architecture/ui-layer#show-errors) section.
 
 > [!NOTE]
-> **Note:** The pattern shown in the example above where state is mutated through functions on the ViewModel is one of the more popular implementations of unidirectional data flow.
+> **Note:** The pattern shown in the previous example, where state is mutated through functions on the ViewModel, is one of the more popular implementations of unidirectional data flow.
 
 ### Additional considerations
 
 In addition to the previous guidance, consider the following when exposing UI
 state:
 
-- **A UI state object should handle states that are related to each other.**
+- **Use a single UI state object to handle states that
+  are related to each other.**
   This leads to fewer inconsistencies and it makes the code easier to
   understand. If you expose the list of news items and the number of bookmarks
   in two different streams, you might end up in a situation where one was
@@ -400,7 +353,7 @@ state:
   kept up to date. Furthermore, some business logic may require a combination of
   sources. For example, you might need to show a bookmark button only if the
   user is signed in *and* that user is a subscriber to a premium news service.
-  You could define a UI state class as follows:
+  You can define a UI state class as follows:
 
       data class NewsUiState(
           val isSignedIn: Boolean = false,
@@ -416,72 +369,69 @@ state:
   becomes increasingly important.
 - **UI states: single stream or multiple streams?** The key guiding principle
   for choosing between exposing UI state in a single stream or in multiple
-  streams is the previous bullet point: the relationship between the items
-  emitted. The biggest advantage to a single-stream exposure is convenience and
+  streams is the relationship between the items
+  emitted. The biggest advantages of a single-stream exposure are
+  convenience and
   data consistency: consumers of state always have the latest information
-  available at any instant in time. However, there are instances where separate
+  available at any given time. However, there are instances where separate
   streams of state from the ViewModel might be appropriate:
 
   - **Unrelated data types:** Some states that are needed to render the UI might
-    be completely independent from each other. In cases like these, the costs of
+    be completely independent from each other. In such cases, the costs of
     bundling these disparate states together might outweigh the benefits,
-    especially if one of these states is updated more frequently than the other.
+    especially if one of these states updates more frequently than the other.
 
   - **`UiState` diffing:** The more fields there are in a `UiState` object, the
-    more likely it is that the stream will emit as a result of one of its fields
-    being updated. Because views don't have a diffing mechanism to understand
+    more likely it is that the stream emits as a result of one of its fields
+    being updated. Because UI elements don't have a diffing mechanism to
+    understand
     whether consecutive emissions are different or the same, every emission
-    causes an update to the view. This means that mitigation using the `Flow`
-    APIs or methods like
-    [`distinctUntilChanged()`](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/distinct-until-changed.html)
-    on the `LiveData` might be necessary.
+    causes an update to the UI element. This means that mitigation using
+    `Flow` API methods like [`distinctUntilChanged()`](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/distinct-until-changed.html) might be
+    necessary.
+
+For more information about rendering and the UI state,
+see [Lifecycle of composables](https://developer.android.com/develop/ui/compose/lifecycle).
 
 ## Consume UI state
 
-To consume the stream of `UiState` objects in the UI, you use the terminal
-operator for the observable data type that you're using. For example, for
-`LiveData` you use the `observe()` method, and for Kotlin flows you use the
-`collect()` method or its variations.
+To consume the stream of `UiState` objects in the UI, use the terminal
+operator for the observable data type that you're using. For example,
+for Kotlin flows use the `collect()` method or its variations.
 
-When consuming observable data holders in the UI, make sure you take the
-lifecycle of the UI into consideration. This is important because the UI
-shouldn't be observing the UI state when the view isn't being displayed to the
-user. To learn more about this topic, see [this blog
-post](https://medium.com/androiddevelopers/a-safer-way-to-collect-flows-from-android-uis-23080b1f8bda).
-When using `LiveData`, the `LifecycleOwner` implicitly takes care of lifecycle
-concerns. When using flows, it's best to handle this with the appropriate
-coroutine scope and the `repeatOnLifecycle` API:
+When consuming observable data holders in the UI, make sure to consider the
+lifecycle of the UI. Don't make the UI observe the UI state when the composable
+isn't being displayed to the user. To learn more about this topic, see this
+[blog post](https://medium.com/androiddevelopers/consuming-flows-safely-in-jetpack-compose-cde014d0d5a3). When using flows, it's best to handle lifecycle concerns with
+the appropriate coroutine scope and the `collectAsStateWithLifecycle` API:
 
-### Views
 
-    class NewsActivity : AppCompatActivity() {
+```kotlin
+@Composable
+private fun ConversationScreen(
+    conversationViewModel: ConversationViewModel = viewModel()
+) {
 
-        private val viewModel: NewsViewModel by viewModels()
+    val messages by conversationViewModel.messages.collectAsStateWithLifecycle()
 
-        override fun onCreate(savedInstanceState: Bundle?) {
-            ...
+    ConversationScreen(
+        messages = messages,
+        onSendMessage = { message: Message -> conversationViewModel.sendMessage(message) }
+    )
+}
 
-            lifecycleScope.launch {
-                repeatOnLifecycle(Lifecycle.State.STARTED) {
-                    viewModel.uiState.collect {
-                        // Update UI elements
-                    }
-                }
-            }
-        }
-    }
+@Composable
+private fun ConversationScreen(
+    messages: List<Message>,
+    onSendMessage: (Message) -> Unit
+) {
 
-### Compose
+    MessagesList(messages, onSendMessage)
+    /* ... */
+}
+```
 
-    @Composable
-    fun LatestNewsScreen(
-        viewModel: NewsViewModel = viewModel()
-    ) {
-        // Show UI elements based on the viewModel.uiState
-    }
-
-> [!NOTE]
-> **Note:** The specific `StateFlow` objects used in this example don't stop performing work when they have no active collectors, but when you're working with flows you might not know how they're implemented. Using lifecycle-aware flow collection lets you make these kinds of changes to the ViewModel flows later without revisiting downstream collector code.
+<br />
 
 ### Show in-progress operations
 
@@ -495,30 +445,6 @@ boolean field:
 
 This flag's value represents the presence or absence of a progress bar in the
 UI.
-
-### Views
-
-    class NewsActivity : AppCompatActivity() {
-
-        private val viewModel: NewsViewModel by viewModels()
-
-        override fun onCreate(savedInstanceState: Bundle?) {
-            ...
-
-            lifecycleScope.launch {
-                repeatOnLifecycle(Lifecycle.State.STARTED) {
-                    // Bind the visibility of the progressBar to the state
-                    // of isFetchingArticles.
-                    viewModel.uiState
-                        .map { it.isFetchingArticles }
-                        .distinctUntilChanged()
-                        .collect { progressBar.isVisible = it }
-                }
-            }
-        }
-    }
-
-### Compose
 
     @Composable
     fun LatestNewsScreen(
@@ -545,7 +471,7 @@ operation. Therefore, while an in-progress operation is either loading or not
 loading, error states might need to be modeled with data classes that host the
 metadata appropriate for the context of the error.
 
-For example, consider the example from the previous section which showed a
+Consider the previous example that showed a
 progress bar while fetching articles. If this operation results in an error, you
 might want to display one or more messages to the user detailing what went
 wrong.
@@ -557,15 +483,15 @@ wrong.
         ...
     )
 
-The error messages might then be presented to the user in the form of UI
-elements like [snackbars](https://material.io/components/snackbars/android).
-Because this is related to how UI events are produced and consumed, see the [UI
-events](https://developer.android.com/jetpack/guide/ui-layer/events) page to learn more.
+You might then present the error messages to the user in the form of UI
+elements like [snackbars](https://developer.android.com/develop/ui/compose/components/snackbar).
+For more information on how UI events are produced and consumed, see [UI
+events](https://developer.android.com/jetpack/guide/ui-layer/events).
 
 ## Threading and concurrency
 
-Any work performed in a ViewModel should be *main-safe*---safe to call from the
-main thread. This is because the data and domain layers are responsible for
+Make sure all work performed in a ViewModel is *main-safe*---safe to call from the
+main thread. The data and domain layers are responsible for
 moving work to a different thread.
 
 If a ViewModel performs long-running operations, then it is also responsible for
@@ -578,35 +504,58 @@ see [Kotlin coroutines on Android](https://developer.android.com/kotlin/coroutin
 
 Changes in app navigation are often driven by event-like emissions. For example,
 after a `SignInViewModel` class performs a sign-in, the `UiState` might have an
-`isSignedIn` field set to `true`. Triggers like these should be consumed just
-like the ones covered in the [Consume UI state](https://developer.android.com/topic/architecture/ui-layer#consume-ui-state) section
-above, except that the consumption implementation should defer to the
-[Navigation component](https://developer.android.com/guide/navigation).
+`isSignedIn` field set to `true`. Consume triggers like these just
+like the ones covered in the earlier [Consume UI state](https://developer.android.com/topic/architecture/ui-layer#consume-ui-state) section,
+but defer the consumption implementation to the [Navigation component](https://developer.android.com/guide/navigation).
+
+For more information about UI navigation,
+see [Navigation 3](https://developer.android.com/guide/navigation/navigation-3).
 
 ## Paging
 
 The [Paging library](https://developer.android.com/topic/libraries/architecture/paging/v3-overview) is
 consumed in the UI with a type called `PagingData`. Because `PagingData`
 represents and contains items that can change over time---in other words, it is
-not an immutable type---it should not be represented in an immutable UI state.
-Instead, you should expose it from the ViewModel independently in its own
-stream. See the [Android Paging](https://developer.android.com/codelabs/android-paging) codelab for a
-specific example of this.
+not an immutable type---do not represent it in an immutable UI state.
+Instead, expose it from the ViewModel independently in its own
+stream.
+
+The following example shows the Paging library's Compose API:
+
+
+```kotlin
+@Composable
+fun MyScreen(flow: Flow<PagingData<String>>) {
+    val lazyPagingItems = flow.collectAsLazyPagingItems()
+    LazyColumn {
+        items(
+            lazyPagingItems.itemCount,
+            key = lazyPagingItems.itemKey { it }
+        ) { index ->
+            val item = lazyPagingItems[index]
+            Text("Item is $item")
+        }
+    }
+}
+```
+
+<br />
 
 ## Animations
 
-In order to provide fluid and smooth top-level navigation transitions, you might
-want to wait for the second screen to load data before starting the animation.
-The Android view framework provides hooks to delay transitions between fragment
-destinations with the
-[`postponeEnterTransition()`](https://developer.android.com/reference/androidx/fragment/app/Fragment#postponeEnterTransition())
-and
-[`startPostponedEnterTransition()`](https://developer.android.com/reference/androidx/fragment/app/Fragment#startPostponedEnterTransition())
-APIs. These APIs provide a way to ensure that the UI elements on the second
-screen (typically an image fetched from the network) are ready to be displayed
-before the UI animates the transition to that screen. For more details and
-implementation specifics, see the [Android Motion
-sample](https://github.com/android/animation-samples/tree/main/Motion).
+In order to provide smooth top-level navigation transitions,
+you might want to wait for the second screen to load data before starting
+the animation.
+
+For more information on navigation transitions,
+see [Navigation 3](https://developer.android.com/guide/navigation/navigation-3/animate-destinations) and
+[Shared element transitions in Compose](https://developer.android.com/develop/ui/compose/animation/shared-elements).
+
+## Additional resources
+
+### Views content
+
+- [UI layer (Views)](https://developer.android.com/topic/architecture/views/ui-layer)
 
 ## Samples
 

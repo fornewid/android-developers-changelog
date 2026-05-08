@@ -336,7 +336,7 @@ MediaSource.Factory hlsMediaSourceFactory =
 // Build player with default media source factory.
 ExoPlayer player = new ExoPlayer.Builder(context).build();
 
-// Create an media source from an HLS media item with ads configuration.
+// Create a media source from an HLS media item with ads configuration.
 MediaSource mediaSource =
     hlsMediaSourceFactory.createMediaSource(
         new MediaItem.Builder()

@@ -4,6 +4,9 @@ url: https://developer.android.com/guide/topics/ui/accessibility/principles
 source: md.txt
 ---
 
+> [!NOTE]
+> **Note:** Documentation across [developer.android.com](https://developer.android.com/) is being refactored to show how to accomplish tasks with Compose. We recommend using Compose for your app, but you can still access the Views-specific information for the concepts on this page at [Principles for improving app accessibility (Views)](https://developer.android.com/guide/topics/ui/accessibility/views/principles-views).
+
 To assist users with accessibility needs, the Android framework lets you
 create an accessibility service that can present content from apps to users
 and also operate apps on their behalf.
@@ -29,10 +32,11 @@ can further improve your app's accessibility:
 :   By adding accessibility actions, you can enable users of accessibility
     services to complete critical user flows within your app.
 
-[Extend system widgets](https://developer.android.com/guide/topics/ui/accessibility/principles#system-widgets)
-:   Build on the view elements that the framework includes, rather than
-    creating your own custom views. The framework's view and widget classes already
-    provide most of the accessibility capabilities that your app needs.
+[Use built-in accessibility features](https://developer.android.com/guide/topics/ui/accessibility/principles#built-in-a11y)
+:   Compose offers many accessibility behaviors by default. Take advantage of
+    predefined accessibility behaviors to make your components accessible with
+    little or no additional work. Compose also provides ways to support more
+    specific accessibility requirements not covered by the default features.
 
 [Use cues other than color](https://developer.android.com/guide/topics/ui/accessibility/principles#cues-other-than-color)
 :   Users must be able to clearly distinguish between categories of elements in
@@ -46,65 +50,57 @@ can further improve your app's accessibility:
 ## Label elements
 
 It's important to provide users with useful and descriptive labels for each
-interactive UI element in your app. Each label must explain the meaning and
-purpose of a particular element. Screen readers such as TalkBack can announce
-these labels to users.
+interactive UI element in your app. Each label must explain the semantics
+of a particular element---that is, the element's meaning and purpose. Screen
+readers such as TalkBack can announce these labels to users.
 
-In most cases, you specify a UI element's description in the layout
-resource file that contains the element. Usually, you add labels using
-the `contentDescription` attribute, as explained in the guide to [making apps
-more accessible](https://developer.android.com/guide/topics/ui/accessibility/apps#describe-ui-element). There
-are several other labeling techniques described in the following sections.
+In most cases, Compose APIs and Material have
+[default accessibility support](https://developer.android.com/develop/ui/compose/accessibility/api-defaults) in place. However, if you need to manually
+specify a UI element's semantic properties, use the `semantics` modifier and
+the `contentDescription` property. For more information about semantics, see
+[Semantics](https://developer.android.com/develop/ui/compose/accessibility/semantics).
+
+The following sections describe several other labeling techniques.
 
 ### Editable elements
 
-When labeling editable elements, such as
-[`EditText`](https://developer.android.com/reference/android/widget/EditText) objects, it's helpful to show
+When labeling editable elements, such as text fields, it's helpful to show
 text that gives an example of valid input in the element itself, in addition to
 making this example text available to screen readers. In these situations, you
-can use the `android:hint` attribute, as shown in the following snippet:
+can use placeholder text, also called hint text.
 
-```xml
-<!-- The hint text for en-US locale would be
-     "Apartment, suite, or building". -->
-<EditText
-   android:id="@+id/addressLine2"
-   android:hint="@string/aptSuiteBuilding" ... />
+In the following example, the `TextField` has a `placeholder` parameter that
+provides hint text.
+
+
+```kotlin
+val usernameState = rememberTextFieldState()
+TextField(
+    state = usernameState,
+    lineLimits = TextFieldLineLimits.SingleLine,
+    placeholder = { Text("Enter Username") }
+)
 ```
 
-In this situation, the `View` object must have its `android:labelFor` attribute
-set to the ID of the `EditText` element. For more details, see the following
-section.
+<br />
 
-#### Pairs of elements where one describes the other
+It's also common for a text field to have a corresponding
+descriptive label that describes what users must enter as input.
 
-It's common for an `EditText` element to have a corresponding
-[`View`](https://developer.android.com/reference/android/view/View) object that describes what users must
-enter in the `EditText` element. You can indicate this relationship by setting
-the `View` object's `android:labelFor` attribute.
+In the following example, the `TextField` has a `label` parameter that provides
+an accessibility description.
 
-An example of labeling such element pairs appears in the following snippet:
 
-```xml
-<!-- Label text for en-US locale would be "Username:" -->
-<TextView
-   android:id="@+id/usernameLabel" ...
-   android:text="@string/username"
-   android:labelFor="@+id/usernameEntry" />
-
-<EditText
-   android:id="@+id/usernameEntry" ... />
-
-<!-- Label text for en-US locale would be "Password:" -->
-<TextView
-   android:id="@+id/passwordLabel" ...
-   android:text="@string/password
-   android:labelFor="@+id/passwordEntry" />
-
-<EditText
-   android:id="@+id/passwordEntry"
-   android:inputType="textPassword" ... />
+```kotlin
+TextField(
+    state = rememberTextFieldState(initialText = "Hello"),
+    label = { Text("Label") }
+)
 ```
+
+<br />
+
+For more information about text and user input, see [Configure text fields](https://developer.android.com/develop/ui/compose/text/user-input).
 
 ### Elements in a collection
 
@@ -114,417 +110,409 @@ element when announcing a label. This correspondence lets users know when
 they cycle through the UI or when they move focus to an element that
 they already discovered.
 
-In particular, include additional text or contextual information in
-elements within reused layouts---such as
-[`RecyclerView`](https://developer.android.com/reference/androidx/recyclerview/widget/RecyclerView)
-objects---so that each child element is uniquely identified.
+For example, when you have a `LazyColumn` or `LazyRow`, use the `semantics`
+modifier to assign a unique `collectionItemInfo` to each item, as shown in the
+following snippet:
 
-To do so, set the content description as part of your adapter implementation, as
-shown in the following code snippet:
-
-### Kotlin
 
 ```kotlin
-data class MovieRating(val title: String, val starRating: Integer)
-
-class MyMovieRatingsAdapter(private val myData: Array<MovieRating>):
-        RecyclerView.Adapter<MyMovieRatingsAdapter.MyRatingViewHolder>() {
-
-    class MyRatingViewHolder(val ratingView: ImageView) :
-            RecyclerView.ViewHolder(ratingView)
-
-    override fun onBindViewHolder(holder: MyRatingViewHolder, position: Int) {
-        val ratingData = myData[position]
-        holder.ratingView.contentDescription = "Movie ${position}: " +
-                "${ratingData.title}, ${ratingData.starRating} stars"
-    }
-}
-```
-
-### Java
-
-```java
-public class MovieRating {
-    private String title;
-    private int starRating;
-    // ...
-    public String getTitle() { return title; }
-    public int getStarRating() { return starRating; }
-}
-
-public class MyMovieRatingsAdapter
-        extends RecyclerView.Adapter<MyAdapter.MyRatingViewHolder> {
-    private MovieRating[] myData;
-
-
-    public static class MyRatingViewHolder extends RecyclerView.ViewHolder {
-        public ImageView ratingView;
-        public MyRatingViewHolder(ImageView iv) {
-            super(iv);
-            ratingView = iv;
+MilkyWayList(
+    modifier = Modifier
+        .semantics {
+            collectionInfo = CollectionInfo(
+                rowCount = milkyWay.count(),
+                columnCount = 1
+            )
         }
-    }
-
-    @Override
-    public void onBindViewHolder(MyRatingViewHolder holder, int position) {
-        MovieRating ratingData = myData[position];
-        holder.ratingView.setContentDescription("Movie " + position + ": " +
-                ratingData.getTitle() + ", " + ratingData.getStarRating() +
-                " stars")
+) {
+    milkyWay.forEachIndexed { index, text ->
+        Text(
+            text = text,
+            modifier = Modifier.semantics {
+                collectionItemInfo =
+                    CollectionItemInfo(index, 0, 0, 0)
+            }
+        )
     }
 }
 ```
+
+<br />
+
+For more information about semantics properties for lists and grids, see
+[List and item information](https://developer.android.com/develop/ui/compose/accessibility/semantics#list-item-info).
 
 ### Groups of related content
 
 If your app displays several UI elements that form a natural group, such as
 details of a song or attributes of a message, arrange these elements within a
-container, which is usually a subclass of `ViewGroup`. Set the container
-object's
-[`android:screenReaderFocusable`](https://developer.android.com/reference/android/view/View#attr_android:screenReaderFocusable)
-attribute to `true`, and each inner object's
-[`android:focusable`](https://developer.android.com/reference/android/view/View#attr_android:focusable)
-attribute to `false`. This way, accessibility services can present the inner
-elements' content descriptions, one after the other, in a single announcement.
-This consolidation of related elements helps users of assistive technology
-discover the information on the screen more efficiently.
+parent container (like `Column`, `Row`, or `Box`). Use the parent container's
+`semantics` modifier to set `mergeDescendants` to `true`.
 
-> [!NOTE]
-> **Note:** On Android 4.4 (API level 19) and lower, the `android:screenReaderFocusable` attribute isn't available, so set the container's `android:focusable` attribute instead.
+This way, accessibility services can present the inner elements' content
+descriptions one after the other, in a single announcement. Consolidating
+related elements helps users of assistive technology discover the information
+on the screen more efficiently.
 
-The following snippet contains pieces of content that relate to one
-another, so the container element, an instance of `ConstraintLayout`, has its
-`android:screenReaderFocusable` attribute set to `true` and the inner
-`TextView` elements each have their `android:focusable` attribute set to
-`false`:
+In the following snippet, the `Row` composable acts as the parent container.
+Within the `Row` are related elements that show metadata for a blog
+post---the author's avatar, the author's name, and the estimated reading time.
+Setting `mergeDescendants` to `true` groups these inner elements, so
+accessibility services can treat them as one unit.
 
-```xml
-<!-- In response to a single user interaction, accessibility services announce
-     both the title and the artist of the song. -->
-<ConstraintLayout
-    android:id="@+id/song_data_container" ...
-    android:screenReaderFocusable="true">
 
-    <TextView
-        android:id="@+id/song_title" ...
-        android:focusable="false"
-        android:text="@string/my_song_title" />
-    <TextView
-        android:id="@+id/song_artist"
-        android:focusable="false"
-        android:text="@string/my_songwriter" />
-</ConstraintLayout>
+```kotlin
+@Composable
+private fun PostMetadata(metadata: Metadata) {
+    // Merge elements below for accessibility purposes
+    Row(modifier = Modifier.semantics(mergeDescendants = true) {}) {
+        Image(
+            imageVector = Icons.Filled.AccountCircle,
+            contentDescription = null // decorative
+        )
+        Column {
+            Text(metadata.author.name)
+            Text("${metadata.date} • ${metadata.readTimeMinutes} min read")
+        }
+    }
+}
 ```
+
+<br />
+
+When grouping related elements like in the previous example, make only the
+parent container interactive. Avoid adding `clickable` or `focusable` modifiers
+to the inner child elements. Instead, apply the modifiers to the parent `Row`
+or `Column`.
 
 Because accessibility services announce the inner elements' descriptions in a
 single utterance, it's important to keep each description as short as possible
 while still conveying the element's meaning.
-**Note:**In general, you should
-avoid creating a content description for a group by aggregating the text of its
+**Note:** In general, when
+creating a content description for a group, avoid aggregating the text of its
 children. Doing so makes the group's description brittle, and when the text of a
-child changes, the group's description may no longer match the visible text.
+child changes, the group's description might no longer match the visible text.
 
 
-In a list or a grid context, a screenreader may consolidate the text of a list or
-grid element's child text nodes. It is best to avoid modifying this
+In a list or a grid context, a screen reader might consolidate the text of a
+list or grid element's child text nodes. It is best to avoid modifying this
 announcement.
 
-#### Nested groups
-
-If your app's interface presents multidimensional information, such as a
-day-by-day list of festival events, use the `android:screenReaderFocusable`
-attribute on the inner group containers. This labeling scheme provides a good
-balance between the number of announcements needed to discover the screen's
-content and the length of each announcement.
-
-The following code snippet shows one method of labeling groups inside of
-larger groups:
-
-```xml
-<!-- In response to a single user interaction, accessibility services
-     announce the events for a single stage only. -->
-<ConstraintLayout
-    android:id="@+id/festival_event_table" ... >
-    <ConstraintLayout
-        android:id="@+id/stage_a_event_column"
-        android:screenReaderFocusable="true">
-
-        <!-- UI elements that describe the events on Stage A. -->
-
-    </ConstraintLayout>
-    <ConstraintLayout
-        android:id="@+id/stage_b_event_column"
-        android:screenReaderFocusable="true">
-
-        <!-- UI elements that describe the events on Stage B. -->
-
-    </ConstraintLayout>
-</ConstraintLayout>
-```
+For more information about merging semantics, see [Merging and clearing](https://developer.android.com/develop/ui/compose/accessibility/merging-clearing).
 
 ### Headings within text
 
 Some apps use *headings* to summarize groups of text that appear on screen. If
-a particular `View` element represents a heading, you can indicate its purpose
-for accessibility services by setting the element's
-[`android:accessibilityHeading`](https://developer.android.com/reference/android/view/View#attr_android:accessibilityHeading) attribute to
-`true`.
+a particular element represents a heading, you can indicate its purpose
+for accessibility services by setting the `heading` property in the `semantics`
+modifier.
+
+
+```kotlin
+@Composable
+private fun Subsection(text: String) {
+    Text(
+        text = text,
+        style = MaterialTheme.typography.headlineSmall,
+        modifier = Modifier.semantics { heading() }
+    )
+}
+```
+
+<br />
 
 Users of accessibility services can choose to navigate between headings
 instead of between paragraphs or between words. This flexibility improves the
 text navigation experience.
 
+For more information about the `heading` semantics property, see [Headings](https://developer.android.com/develop/ui/compose/accessibility/semantics#headings).
+
 ### Accessibility pane titles
 
 In Android 9 (API level 28) and higher, you can provide
 accessibility-friendly titles for a screen's *panes*. For accessibility
-purposes, a pane is a visually distinct portion of a window, such as the
-contents of a fragment. For accessibility services to understand a
+purposes, a pane is a visually distinct portion of a window.
+
+For accessibility services to understand a
 pane's window-like behavior, give descriptive titles to your app's
 panes. Accessibility services can then provide more granular information to
 users when a pane's appearance or content changes.
 
-To specify the title of a pane, use the
-[`android:accessibilityPaneTitle`](https://developer.android.com/reference/android/R.attr#accessibilityPaneTitle)
-attribute, as shown in the following snippet:
 
-```xml
-<!-- Accessibility services receive announcements about content changes
-     that are scoped to either the "shopping cart view" section (top) or
-     "browse items" section (bottom) -->
-<MyShoppingCartView
-     android:id="@+id/shoppingCartContainer"
-     android:accessibilityPaneTitle="@string/shoppingCart" ... />
-
-<MyShoppingBrowseView
-     android:id="@+id/browseItemsContainer"
-     android:accessibilityPaneTitle="@string/browseProducts" ... />
+```kotlin
+ShareSheet(
+    message = "Choose how to share this photo",
+    modifier = Modifier
+        .fillMaxWidth()
+        .align(Alignment.TopCenter)
+        .semantics { paneTitle = "New bottom sheet" }
+)
 ```
+
+<br />
+
+> [!NOTE]
+> **Note:** Use unique pane titles across your app. Because TalkBack uses pane titles as identifiers, reusing generic titles (like "List" or "Details") on completely independent screens can cause unintended side effects and unpredictable accessibility behavior.
+
+For more information about the `paneTitle` semantics property, see
+[Window-like components](https://developer.android.com/develop/ui/compose/accessibility/semantics#window-like).
 
 ### Decorative elements
 
 If an element in your UI exists only for visual spacing or visual appearance
-purposes, set its
-[`android:importantForAccessibility`](https://developer.android.com/reference/android/view/View#attr_android:importantForAccessibility)
-attribute to `"no"`.
+purposes, set the appropriate properties on the element to indicate that
+accessibility services can ignore it.
 
-## Add accessibility actions
+For `Image` or `Icon` composables, set `contentDescription = null`. For other
+purely decorative elements that provide no context or functionality, you can
+use `hideFromAccessibility`. This semantics property tells accessibility
+services to ignore the item.
 
-It's important to allow users of accessibility services to easily perform all
-user flows within your app. For example, if a user can swipe on an item in a
-list, this action can also be exposed to accessibility services so users have
-an alternate way to complete the same user flow.
+If an interactive composable contains decorative, non-interactive child
+elements, use `clearAndSetSemantics` to make sure that accessibility services
+don't traverse them. Note that `clearAndSetSemantics` fully erases the default
+semantics of an element and its children. This lets you define a new, unified
+accessibility element. Normally, you use this approach for complex custom
+components.
 
-### Make all actions accessible
+In the following example, `Icon` and `Text` are decorative child elements
+inside a custom toggle. To prevent accessibility services from traversing
+these children individually, you can clear their semantics by using
+`clearAndSetSemantics` on the parent `Row`. This tells accessibility services
+to treat the entire `Row` as a traversable toggle:
 
-A user of TalkBack, [Voice Access](https://support.google.com/accessibility/android/answer/6151848),
-or Switch Access might need alternate ways to complete certain user flows within
-the app. For actions associated with gestures such as drag-and-drop or swipes,
-your app can expose the actions in a way that is accessible to users of
-accessibility services.
-
-Using [accessibility actions](https://developer.android.com/reference/kotlin/androidx/core/view/accessibility/AccessibilityNodeInfoCompat.AccessibilityActionCompat),
-the app can provide alternative ways for users to complete an action.
-
-For example, if your app allows users to swipe on an item, you can also
-expose the functionality through a custom accessibility action, like this:
-
-### Kotlin
 
 ```kotlin
-ViewCompat.addAccessibilityAction(
-    // View to add accessibility action
-    itemView,
-    // Label surfaced to user by an accessibility service
-    getText(R.id.archive)
-) { _, _ ->
-    // Same method executed when swiping on itemView
-    archiveItem()
-    true
+// Developer might intend this to be a toggleable.
+// Using `clearAndSetSemantics`, on the Row, a clickable modifier is applied,
+// a custom description is set, and a Role is applied.
+
+@Composable
+fun FavoriteToggle() {
+    val checked = remember { mutableStateOf(true) }
+    Row(
+        modifier = Modifier
+            .toggleable(
+                value = checked.value,
+                onValueChange = { checked.value = it }
+            )
+            .clearAndSetSemantics {
+                stateDescription = if (checked.value) "Favorited" else "Not favorited"
+                toggleableState = ToggleableState(checked.value)
+                role = Role.Switch
+            },
+    ) {
+        Icon(
+            imageVector = Icons.Default.Favorite,
+            contentDescription = null // not needed here
+
+        )
+        Text("Favorite?")
+    }
 }
 ```
 
-### Java
+<br />
 
-```java
-ViewCompat.addAccessibilityAction(
-    // View to add accessibility action
-    itemView,
-    // Label surfaced to user by an accessibility service
-    getText(R.id.archive),
-    (view, arguments) -> {
-        // Same method executed when swiping on itemView
-        archiveItem();
-        return true;
-    }
-);
+For more information about clearing semantics, see
+[Clear and set semantics](https://developer.android.com/develop/ui/compose/accessibility/merging-clearing#clear-and-set).
+
+## Add accessibility actions
+
+It's important to make sure that users of accessibility services have a way to
+complete all user flows in your app.
+
+If your custom composable's interaction changes the app's state in a way that
+isn't obvious, provide descriptive labels for standard tap actions using
+parameters like `onClickLabel` or `onLongClickLabel` in `Modifier.clickable`
+or `Modifier.combinedClickable`.
+
+For complex interactions not mappable to standard taps, use `customActions`.
+
+For example, if your app lets users drag an item to another location or swipe
+on an item in a list, you can provide an alternate way to complete these user
+flows by exposing the action to accessibility services. This way, users of
+TalkBack, [Voice Access](https://support.google.com/accessibility/android/answer/6151848), or Switch Access can perform actions that might
+otherwise be available only through gestures.
+
+In Compose, you can define custom accessibility actions through the
+`customActions` property in the `semantics` modifier, using
+`CustomAccessibilityAction`.
+
+For example, if your app lets users swipe on an item to dismiss it, you can
+expose the functionality through a custom accessibility action:
+
+
+```kotlin
+SwipeToDismissBox(
+    modifier = Modifier.semantics {
+        // Represents the swipe to dismiss for accessibility
+        customActions = listOf(
+            CustomAccessibilityAction(
+                label = "Remove article from list",
+                action = {
+                    removeArticle()
+                    true
+                }
+            )
+        )
+    },
+    state = rememberSwipeToDismissBoxState(),
+    backgroundContent = {}
+) {
+    ArticleListItem()
+}
 ```
+
+<br />
 
 With the custom accessibility action implemented, users can access the
 action through the actions menu.
 
+For more information about custom actions, see [Custom actions](https://developer.android.com/develop/ui/compose/accessibility/semantics#custom-actions).
+
 ### Make available actions understandable
 
-When a view supports actions such as touch \& hold, an accessibility service such
-as TalkBack announces it as "Double tap and hold to long press."
+When a UI element supports actions like touch \& hold, an accessibility service
+such as TalkBack announces it as "Double tap and hold to long press."
 
 This generic announcement doesn't give the user any context about what a
 touch \& hold action does.
 
-To make this announcement more descriptive, you can replace the accessibility
-action's announcement like so:
+To make this announcement more useful, specify a meaningful description for
+the action.
 
-### Kotlin
+In Compose, standard interaction modifiers like `clickable` and
+`combinedClickable` have built-in parameters (namely `onClickLabel` and
+`onLongClickLabel`) that you can use to provide descriptions for the actions,
+as in the following example:
+
 
 ```kotlin
-ViewCompat.replaceAccessibilityAction(
-    // View that contains touch & hold action
-    itemView,
-    AccessibilityNodeInfoCompat.AccessibilityActionCompat.ACTION_LONG_CLICK,
-    // Announcement read by TalkBack to surface this action
-    getText(R.string.favorite),
-    null
+var contextMenuPhotoId by rememberSaveable { mutableStateOf<Int?>(null) }
+val haptics = LocalHapticFeedback.current
+LazyVerticalGrid(columns = GridCells.Adaptive(minSize = 128.dp)) {
+    items(photos, { it.id }) { photo ->
+        ImageItem(
+            photo,
+            Modifier
+                .combinedClickable(
+                    onClick = { activePhotoId = photo.id },
+                    onLongClick = {
+                        haptics.performHapticFeedback(HapticFeedbackType.LongPress)
+                        contextMenuPhotoId = photo.id
+                    },
+                    onLongClickLabel = stringResource(R.string.open_context_menu)
+                )
+        )
+    }
+}
+if (contextMenuPhotoId != null) {
+    PhotoActionsSheet(
+        photo = photos.first { it.id == contextMenuPhotoId },
+        onDismissSheet = { contextMenuPhotoId = null }
+    )
+}
+```
+
+<br />
+
+This results in TalkBack announcing "Open context menu," helping
+users understand the purpose of the action.
+
+You can also specify a label directly in the `semantics` modifier.
+
+For more information about responding to taps and clicks, see
+[Tap and press](https://developer.android.com/develop/ui/compose/touch-input/pointer-input/tap-and-press) and [Interactive elements](https://developer.android.com/develop/ui/compose/accessibility/api-defaults#interactive-elements).
+
+## Use built-in accessibility features
+
+When designing your app's UI, take advantage of built-in accessibility features
+to avoid reimplementing functionality that already exists. Material, Compose UI,
+and Foundation APIs implement and offer many accessible practices by default.
+
+In Jetpack Compose, use built-in composables like `Button`, `Switch`, and
+`Checkbox` to create accessible UIs. These components come prepackaged with
+`semantics` modifiers, such as `role` and `stateDescription`, that you can use
+to make your apps more accessible.
+
+### Apply semantics to custom components
+
+When creating a custom component, be mindful of what kind of accessibility
+support this component requires to fulfill its role. Often, the standard
+Compose APIs that you're already using---such as `clickable`, `toggleable`, or
+`selectable`---are sufficient because they automatically populate the semantics
+tree for you.
+
+However, some components require more specific information than standard
+modifiers provide. In these cases, look for specialized modifiers (like
+`triStateToggleable`) or, if none exist, explicitly provide semantics using
+the low-level `Modifier.semantics`.
+
+For example, consider a `TriStateSwitch`, a switch with three states (On,
+Off, and Indeterminate).
+
+While a standard `toggleable` modifier assumes two states, the
+`triStateToggleable` modifier handles the complexity of the third state. It
+automatically sets the accessibility `Role` (`Switch`) and `State`. This way,
+accessibility services receive accurate information, and you don't need to
+manually define the semantics.
+
+The following code snippet shows a `TriStateSwitch` using this approach:
+
+```kotlin
+@Composable
+fun TriStateSwitch(
+    state: ToggleableState,
+    onClick: () -> Unit,
+    modifier: Modifier = Modifier
+) {
+    // A real implementation would include custom drawing for the switch.
+    // This example uses a Box to demonstrate the semantics.
+    Box(
+        modifier = modifier
+            .size(width = 64.dp, height = 40.dp)
+            // triStateToggleable handles the semantics (Role and State)
+            // automatically, so explicit Modifier.semantics is not needed here.
+            .triStateToggleable(
+                state = state,
+                onClick = onClick,
+                role = Role.Switch
+            )
+            // Add visual feedback based on the state
+            .background(
+                when (state) {
+                    ToggleableState.On -> Color.Green
+                    ToggleableState.Off -> Color.Gray
+                    ToggleableState.Indeterminate -> Color.Yellow
+                }
+            )
+    )
+}
+
+// Usage within another composable:
+var state by remember { mutableStateOf(ToggleableState.Off) }
+TriStateSwitch(
+    state = state,
+    onClick = {
+        state = when (state) {
+            ToggleableState.Off -> ToggleableState.Indeterminate
+            ToggleableState.Indeterminate -> ToggleableState.On
+            ToggleableState.On -> ToggleableState.Off
+        }
+    }
 )
 ```
 
-### Java
+> [!NOTE]
+> **Note:** If you need highly custom UI elements not covered by standard composables, you can build them using lower-level drawing APIs (like `androidx.compose.ui.graphics.Canvas`) or `Layout` composables. In such cases, you must explicitly define their accessibility properties using `Modifier.semantics`.
 
-```java
-ViewCompat.replaceAccessibilityAction(
-    // View that contains touch & hold action
-    itemView,
-    AccessibilityNodeInfoCompat.AccessibilityActionCompat.ACTION_LONG_CLICK,
-    // Announcement read by TalkBack to surface this action
-    getText(R.string.favorite),
-    null
-);
-```
-
-This results in TalkBack announcing "Double tap and hold to favorite," helping
-users understand the purpose of the action.
-
-## Extend system widgets
-
-**Note:** When you design your app's UI, use or extend
-system-provided widgets that are as far down Android's class hierarchy as
-possible. System-provided widgets that are far down the hierarchy already
-have most of the accessibility capabilities your app needs. It's easier
-to extend these system-provided widgets than to create your own from the more
-generic [`View`](https://developer.android.com/reference/kotlin/android/view/View),
-[`ViewCompat`](https://developer.android.com/reference/kotlin/androidx/core/view/ViewCompat),
-[`Canvas`](https://developer.android.com/reference/kotlin/android/graphics/Canvas), and
-[`CanvasCompat`](https://github.com/material-components/material-components-android/blob/master/lib/java/com/google/android/material/canvas/CanvasCompat.java)
-classes.
-
-If you must extend `View` or `Canvas` directly, which
-might be necessary for a highly customized experience or a game level, see
-[Make custom views more
-accessible](https://developer.android.com/guide/topics/ui/accessibility/custom-views).
-
-This section uses the example of implementing a special type of
-[`Switch`](https://developer.android.com/reference/android/widget/Switch) called `TriSwitch` while following
-best practices around extending system widgets. A `TriSwitch`
-object works similarly to a `Switch` object, except that each instance of
-`TriSwitch` allows the user to toggle among three possible states.
-
-### Extend from far down the class hierarchy
-
-The `Switch` object inherits from several framework UI classes in its hierarchy:
-
-```
-View
-↳ TextView
-  ↳ Button
-    ↳ CompoundButton
-      ↳ Switch
-```
-
-It's best for the new `TriSwitch` class to extend directly from the `Switch`
-class. This way, the [Android accessibility
-framework](https://developer.android.com/reference/kotlin/android/view/accessibility/package-summary)
-provides most of the accessibility capabilities the `TriSwitch` class
-needs:
-
-- **Accessibility actions:** information for the system about how accessibility services can emulate each possible user input that's performed on a `TriSwitch` object. (Inherited from `View`.)
-- **Accessibility events:** information for accessibility services about every possible way that a `TriSwitch` object's appearance can change when the screen refreshes or updates. (Inherited from `View`.)
-- **Characteristics:** details about each `TriSwitch` object, such as the contents of any text that it displays. (Inherited from `TextView`.)
-- **State information:** description of a `TriSwitch` object's current state, such as "checked" or "unchecked." (Inherited from `CompoundButton`.)
-- **Text description of state:** text-based explanation of what each state represents. (Inherited from `Switch`.)
-
-This behavior from `Switch` and its superclasses is almost the
-same behavior for `TriSwitch` objects. Therefore, your implementation can
-focus on expanding the number of possible states from two to three.
-
-### Define custom events
-
-When you extend a system widget, you likely change an aspect of how users
-interact with that widget. It's important to define these interaction changes
-so that accessibility services can update your app's widget as if the user
-interacts with the widget directly.
-
-A general guideline is that for every view-based callback you override,
-you also need to redefine the corresponding accessibility action by overriding
-[`ViewCompat.replaceAccessibilityAction()`](https://developer.android.com/reference/androidx/core/view/ViewCompat#replaceAccessibilityAction(android.view.View,%20androidx.core.view.accessibility.AccessibilityNodeInfoCompat.AccessibilityActionCompat,%20java.lang.CharSequence,%20androidx.core.view.accessibility.AccessibilityViewCommand)).
-In your app's tests, you can validate the behavior of these redefined actions by
-calling
-[`ViewCompat.performAccessibilityAction()`](https://developer.android.com/reference/androidx/core/view/ViewCompat#performAccessibilityAction(android.view.View,%20int,%20android.os.Bundle)).
-
-#### How this principle can work for TriSwitch objects
-
-Unlike an ordinary `Switch` object, tapping a `TriSwitch` object cycles through
-three possible states. Therefore, the corresponding `ACTION_CLICK` accessibility
-action needs to be updated:
-
-### Kotlin
-
-```kotlin
-class TriSwitch(context: Context) : Switch(context) {
-    // 0, 1, or 2
-    var currentState: Int = 0
-        private set
-
-    init {
-        updateAccessibilityActions()
-    }
-
-    private fun updateAccessibilityActions() {
-        ViewCompat.replaceAccessibilityAction(this, ACTION_CLICK,
-            action-label) {
-            view, args -> moveToNextState()
-        })
-    }
-
-    private fun moveToNextState() {
-        currentState = (currentState + 1) % 3
-    }
-}
-```
-
-### Java
-
-```java
-public class TriSwitch extends Switch {
-    // 0, 1, or 2
-    private int currentState;
-
-    public int getCurrentState() {
-        return currentState;
-    }
-
-    public TriSwitch() {
-        updateAccessibilityActions();
-    }
-
-    private void updateAccessibilityActions() {
-        ViewCompat.replaceAccessibilityAction(this, ACTION_CLICK,
-            action-label, (view, args) -> moveToNextState());
-    }
-
-    private void moveToNextState() {
-        currentState = (currentState + 1) % 3;
-    }
-}
-```
+When building a custom component, make sure you provide all relevant semantic
+properties for accessibility purposes. For example, if your component mimics
+a standard control like a switch or button, these properties include the
+component's role (such as `Role.Switch` or `Role.Button`), `stateDescription`
+(such as "On", "Off", "Checked", or "Not checked"), and any relevant action
+labels. For more information, see [Custom components](https://developer.android.com/develop/ui/compose/accessibility/api-defaults#custom-components).
 
 ## Use cues other than color
 
@@ -540,30 +528,28 @@ Figure 1 shows two versions of an activity. One version uses only color to
 distinguish between two possible actions in a workflow. The other version uses
 the best practice of including shapes and text in addition to color to
 highlight the differences between the two options:
-![](https://developer.android.com/static/images/guide/topics/ui/accessibility/cues-other-than-color.svg) **Figure 1.** Examples of creating UI elements using color only (left) and using color, shapes, and text (right).
+![On the left is a screen with two cirular buttons, one green and one red. On the right is the same screen, but the two circular buttons are labeled with text and meaningful icons.](https://developer.android.com/static/images/guide/topics/ui/accessibility/cues-other-than-color.svg) **Figure 1.** Examples of creating UI elements using color only (left) and using color, shapes, and text (right).
 
 ## Make media content more accessible
 
 
 If you're developing an app that includes media content, such as a video clip
 or an audio recording, try to support users with different types of
-accessibility needs in understanding this material. In particular, we
-encourage you to do the following:
+accessibility needs in understanding the material. In particular, try
+to do the following:
 
 - Include controls that allow users to pause or stop the media, change the volume, and toggle subtitles (captions).
 - If a video presents information that is vital to completing a workflow, provide the same content in an alternate format, such as a transcript.
 
 ## Additional resources
 
-To learn more about making your app more accessible, see the following
+For more information about making your app more accessible, see the following
 additional resources:
 
 ### Codelabs
 
-- [Starting Android
-  accessibility](https://codelabs.developers.google.com/codelabs/basic-android-accessibility/)
+- [Accessibility in Jetpack Compose](https://developer.android.com/codelabs/jetpack-compose-accessibility#0)
 
-### Blog posts
+### Views content
 
-- [Accessibility: Are You Serving All Your
-  Users?](https://android-developers.googleblog.com/2012/04/accessibility-are-you-serving-all-your.html)
+- [Principles for improving app accessibility (Views)](https://developer.android.com/guide/topics/ui/accessibility/views/principles-views)

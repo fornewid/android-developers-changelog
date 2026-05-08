@@ -242,3 +242,9 @@ implementing adaptive icons.
 arrow\_back
 
 Test predictive back](/develop/ui/compose/system/predictive-back-test)
+
+[Next
+
+Bubbles
+
+arrow\_forward](/develop/ui/compose/layouts/adaptive/support-bubbles)

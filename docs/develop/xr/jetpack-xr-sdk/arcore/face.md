@@ -58,8 +58,8 @@ val face = Face.getUserFace(session) ?: return
 face.state.collect { state ->
     if (state.trackingState != TrackingState.TRACKING) return@collect
 
-    val confidence = state.getConfidence(FaceConfidenceRegion.FACE_CONFIDENCE_REGION_LOWER)
-    val blendShapeValue = state.blendShapes[FaceBlendShapeType.FACE_BLEND_SHAPE_TYPE_LIPS_TOWARD]
+    val confidence = state.getConfidence(FaceConfidenceRegion.LOWER)
+    val blendShapeValue = state.blendShapes[FaceBlendShapeType.LIPS_TOWARD]
 }
 ```
 

@@ -75,8 +75,8 @@ Subspace {
     SpatialPanel(
         SubspaceModifier
             .height(824.dp)
-            .width(1400.dp),
-        dragPolicy = MovePolicy(),
+            .width(1400.dp)
+            .movable(),
         resizePolicy = ResizePolicy(),
     ) {
         SpatialPanelContent()
@@ -145,9 +145,9 @@ Subspace {
     SpatialPanel(
         SubspaceModifier
             .height(824.dp)
-            .width(1400.dp),
-        dragPolicy = MovePolicy(),
-        resizePolicy = ResizePolicy(),
+            .width(1400.dp)
+            .resizable()
+            .movable(),
     ) {
         SpatialPanelContent()
         OrbiterExample()
@@ -162,9 +162,8 @@ Subspace {
 @Composable
 fun OrbiterExample() {
     Orbiter(
-        position = ContentEdge.Bottom,
-        offset = 96.dp,
-        alignment = Alignment.CenterHorizontally
+        anchorPoint = OrbiterAnchorPoint.Bottom,
+        offset = DpVolumeOffset(y = 96.dp),
     ) {
         Surface(Modifier.clip(CircleShape)) {
             Row(
@@ -318,6 +317,7 @@ position, reparent, add children, and apply modifiers to those entities.
 
 
 ```kotlin
+val density = LocalDensity.current
 Subspace {
     SceneCoreEntity(
         modifier = SubspaceModifier.offset(x = 50.dp),
@@ -329,14 +329,22 @@ Subspace {
             )
         },
         update = { entity ->
-            // compose state changes may be applied to the
-            // SceneCore entity here.
+            // Compose state changes may be applied to the SceneCore entity here.
             entity.stereoMode = SurfaceEntity.StereoMode.SIDE_BY_SIDE
         },
         sizeAdapter =
-            SceneCoreEntitySizeAdapter({
-                IntSize2d(it.width, it.height)
-            }),
+            object : SceneCoreEntitySizeAdapter<SurfaceEntity> {
+                override fun onLayoutSizeChanged(
+                    entity: SurfaceEntity,
+                    size: IntVolumeSize
+                ) {
+                    val extents = FloatSize2d(
+                        Meter.fromPixel(size.width.toFloat(), density).toM(),
+                        Meter.fromPixel(size.height.toFloat(), density).toM(),
+                    )
+                    entity.shape = SurfaceEntity.Shape.Quad(extents)
+                }
+            },
     ) {
         // Content here will be children of the SceneCoreEntity
         // in the scene graph.
@@ -448,7 +456,7 @@ fun DrmSpatialVideoPlayer() {
                 .width(1200.dp)
                 .height(676.dp),
             stereoMode = StereoMode.SideBySide,
-            surfaceProtection = SurfaceProtection.Protected
+            surfaceProtection = SpatialExternalSurfaceProtection.Protected
         ) {
             val exoPlayer = remember { ExoPlayer.Builder(context).build() }
 
@@ -517,7 +525,7 @@ which case `SpatialDialog` falls back to its 2D counterpart, [`Dialog`](https://
 fun DelayedDialog() {
     var showDialog by remember { mutableStateOf(false) }
     LaunchedEffect(Unit) {
-        delay(3000)
+        delay(3000.milliseconds)
         showDialog = true
     }
     if (showDialog) {
@@ -573,9 +581,8 @@ The following example shows how to anchor an orbiter to a spatial row:
 Subspace {
     SpatialRow {
         Orbiter(
-            position = ContentEdge.Top,
-            offset = 8.dp,
-            offsetType = OrbiterOffsetType.InnerEdge,
+            anchorPoint = OrbiterAnchorPoint.Top,
+            offset = DpVolumeOffset(y = 8.dp),
             shape = SpatialRoundedCornerShape(size = CornerSize(50))
         ) {
             Text(
