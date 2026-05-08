@@ -1,0 +1,18 @@
+diff --git a/docs/agents/skills/xr/display-ai-glasses-with-jetpack-compose-glimmer/references/card-samples-source.md b/docs/agents/skills/xr/display-ai-glasses-with-jetpack-compose-glimmer/references/card-samples-source.md
+index 87f48130..ba6e2603 100644
+--- a/docs/agents/skills/xr/display-ai-glasses-with-jetpack-compose-glimmer/references/card-samples-source.md
++++ b/docs/agents/skills/xr/display-ai-glasses-with-jetpack-compose-glimmer/references/card-samples-source.md
+@@ -44,11 +44,11 @@ import androidx.xr.glimmer.Card
+ import androidx.xr.glimmer.GlimmerTheme
+ import androidx.xr.glimmer.Icon
+ import androidx.xr.glimmer.Text
+-import androidx.xr.glimmer.list.VerticalList
++import androidx.xr.glimmer.list.GlimmerLazyColumn
+ 
+ @Composable
+ fun CardSampleUsage() {
+-    VerticalList {
++    GlimmerLazyColumn {
+         item { CardSample() }
+         item { CardWithTrailingIconSample() }
+         item { CardWithTitleAndSubtitleAndLeadingIconSample() }

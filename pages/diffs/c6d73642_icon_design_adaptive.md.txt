@@ -1,0 +1,18 @@
+diff --git a/docs/develop/ui/compose/system/icon_design_adaptive.md b/docs/develop/ui/compose/system/icon_design_adaptive.md
+index ad5d909e..c8283585 100644
+--- a/docs/develop/ui/compose/system/icon_design_adaptive.md
++++ b/docs/develop/ui/compose/system/icon_design_adaptive.md
+@@ -241,4 +241,10 @@ implementing adaptive icons.
+ 
+ arrow\_back
+ 
+-Test predictive back](/develop/ui/compose/system/predictive-back-test)
+\ No newline at end of file
++Test predictive back](/develop/ui/compose/system/predictive-back-test)
++
++[Next
++
++Bubbles
++
++arrow\_forward](/develop/ui/compose/layouts/adaptive/support-bubbles)
+\ No newline at end of file

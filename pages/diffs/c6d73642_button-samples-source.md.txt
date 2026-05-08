@@ -1,0 +1,18 @@
+diff --git a/docs/agents/skills/xr/display-ai-glasses-with-jetpack-compose-glimmer/references/button-samples-source.md b/docs/agents/skills/xr/display-ai-glasses-with-jetpack-compose-glimmer/references/button-samples-source.md
+index b6d8ce62..d4098d14 100644
+--- a/docs/agents/skills/xr/display-ai-glasses-with-jetpack-compose-glimmer/references/button-samples-source.md
++++ b/docs/agents/skills/xr/display-ai-glasses-with-jetpack-compose-glimmer/references/button-samples-source.md
+@@ -39,11 +39,11 @@ import androidx.xr.glimmer.ButtonSize
+ import androidx.xr.glimmer.GlimmerTheme
+ import androidx.xr.glimmer.Icon
+ import androidx.xr.glimmer.Text
+-import androidx.xr.glimmer.list.VerticalList
++import androidx.xr.glimmer.list.GlimmerLazyColumn
+ 
+ @Composable
+ fun ButtonSampleUsage() {
+-    VerticalList(
++    GlimmerLazyColumn(
+         horizontalAlignment = Alignment.CenterHorizontally,
+         modifier = Modifier.fillMaxSize().wrapContentSize(Alignment.Center),
+     ) {

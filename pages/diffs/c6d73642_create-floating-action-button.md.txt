@@ -1,0 +1,22 @@
+diff --git a/docs/develop/ui/compose/quick-guides/content/create-floating-action-button.md b/docs/develop/ui/compose/quick-guides/content/create-floating-action-button.md
+index cd849b3c..669b1ec7 100644
+--- a/docs/develop/ui/compose/quick-guides/content/create-floating-action-button.md
++++ b/docs/develop/ui/compose/quick-guides/content/create-floating-action-button.md
+@@ -35,7 +35,7 @@ higher.
+ 
+ 
+ ```kotlin
+-  implementation(platform("androidx.compose:compose-bom:2026.03.00"))
++  implementation(platform("androidx.compose:compose-bom:2026.04.01"))
+ ```
+ 
+ <br />
+@@ -44,7 +44,7 @@ higher.
+ 
+ 
+ ```groovy
+-  implementation platform('androidx.compose:compose-bom:2026.03.00')
++  implementation platform('androidx.compose:compose-bom:2026.04.01')
+ ```
+ 
+ <br />

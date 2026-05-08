@@ -1,0 +1,24 @@
+diff --git a/docs/jetpack/androidx/releases/xr-scenecore.md b/docs/jetpack/androidx/releases/xr-scenecore.md
+index a74fe97e..233906b3 100644
+--- a/docs/jetpack/androidx/releases/xr-scenecore.md
++++ b/docs/jetpack/androidx/releases/xr-scenecore.md
+@@ -27,9 +27,6 @@ your app or module:
+ dependencies {
+     implementation "androidx.xr.scenecore:scenecore:1.0.0-alpha14"
+ 
+-    // Optional dependencies for asynchronous conversions
+-    implementation "androidx.xr.scenecore:scenecore-guava:1.0.0-alpha14"
+-
+     // Use to write unit tests
+     testImplementation "androidx.xr.scenecore:scenecore-testing:1.0.0-alpha14"
+ }
+@@ -41,9 +38,6 @@ dependencies {
+ dependencies {
+     implementation("androidx.xr.scenecore:scenecore:1.0.0-alpha14")
+ 
+-    // Optional dependencies for asynchronous conversions
+-    implementation("androidx.xr.scenecore:scenecore-guava:1.0.0-alpha14")
+-
+     // Use to write unit tests
+     testImplementation("androidx.xr.scenecore:scenecore-testing:1.0.0-alpha14")
+ }
