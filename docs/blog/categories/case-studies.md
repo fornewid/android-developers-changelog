@@ -43,7 +43,7 @@ Real-world results from real-world users. Explore how different teams use our to
   ###### [Thomas Ezan](/blog/authors/thomas-ezan), [Tracy Agyemang](/blog/authors/tracy-agyemang) • 2 min read
 
   + [#Android](/blog/topics/android)
-* [![](/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2dcD9g.webp)](/blog/authors/ben-weiss)
+* [![](/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2dcD9g.webp)](/blog/authors/ben-weiss)[![](/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_1hBimO.webp)](/blog/authors/tracy-agyemang)
 
   30
 
@@ -63,7 +63,7 @@ Real-world results from real-world users. Explore how different teams use our to
 
   Monzo is a UK digital bank with 15 million customers and growing. As the app scaled, the engineering team identified app startup time as a critical area for improvement but worried it would require significant changes to their codebase.
 
-  ###### [Ben Weiss](/blog/authors/ben-weiss) • 2 min read
+  ###### [Ben Weiss](/blog/authors/ben-weiss), [Tracy Agyemang](/blog/authors/tracy-agyemang) • 2 min read
 * [![](/static/blog/assets/Ben_Trengrove_b9e17c8c2e_2uVqlp.webp)](/blog/authors/ben-trengrove)[![](/static/blog/assets/Ajesh_R_Pai_fc75c62777_Z1G5g2B.webp)](/blog/authors/ajesh-pai)
 
   13
@@ -85,7 +85,7 @@ Real-world results from real-world users. Explore how different teams use our to
   TikTok is a global short-video platform known for its massive user base and innovative features.
 
   ###### [Ben Trengrove](/blog/authors/ben-trengrove), [Ajesh Pai](/blog/authors/ajesh-pai) • 2 min read
-* [![](/static/blog/assets/Mayuri_Khinvasara_Khabya_92848b1e1b_1xSr0w.webp)](/blog/authors/mayuri-khabya)
+* [![](/static/blog/assets/Mayuri_Khinvasara_Khabya_92848b1e1b_1xSr0w.webp)](/blog/authors/mayuri-khabya)[![](/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_1hBimO.webp)](/blog/authors/tracy-agyemang)
 
   05
 
@@ -105,8 +105,8 @@ Real-world results from real-world users. Explore how different teams use our to
 
   In the dynamic world of social media, user attention is won or lost quickly. Meta apps (Facebook and Instagram) are among the world's largest social platforms and serve billions of users globally.
 
-  ###### [Mayuri Khinvasara Khabya](/blog/authors/mayuri-khabya) • 4 min read
-* [![](/static/blog/assets/Breana_Tate_24c1d03bf2_Z1NRigS.webp)](/blog/authors/breana-tate)
+  ###### [Mayuri Khinvasara Khabya](/blog/authors/mayuri-khabya), [Tracy Agyemang](/blog/authors/tracy-agyemang) • 4 min read
+* [![](/static/blog/assets/Breana_Tate_24c1d03bf2_Z1NRigS.webp)](/blog/authors/breana-tate)[![](/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_1hBimO.webp)](/blog/authors/tracy-agyemang)
 
   04
 
@@ -126,7 +126,7 @@ Real-world results from real-world users. Explore how different teams use our to
 
   Building an Android app for a wearable means the real work starts when the screen turns off.
 
-  ###### [Breana Tate](/blog/authors/breana-tate) • 4 min read
+  ###### [Breana Tate](/blog/authors/breana-tate), [Tracy Agyemang](/blog/authors/tracy-agyemang) • 4 min read
 * [![](/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](/blog/authors/prateek-batra)
 
   26

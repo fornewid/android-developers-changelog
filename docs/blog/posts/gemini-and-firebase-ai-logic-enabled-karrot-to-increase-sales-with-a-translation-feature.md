@@ -94,7 +94,7 @@ Learn how to build Gemini-enabled features like AI translations and in-app perso
 
 ## Continue reading
 
-* [![](/static/blog/assets/thomas_ezan_d29c7508d0_l9O72.webp)](/blog/authors/thomas-ezan)
+* [![](/static/blog/assets/thomas_ezan_d29c7508d0_l9O72.webp)](/blog/authors/thomas-ezan)[![](/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_1hBimO.webp)](/blog/authors/tracy-agyemang)
 
   30
 
@@ -116,8 +116,8 @@ Learn how to build Gemini-enabled features like AI translations and in-app perso
 
   As the world's largest online bus ticketing platform, redBus serves millions of travelers across India, Southeast Asia, and Latin America.
 
-  ###### [Thomas Ezan](/blog/authors/thomas-ezan) • 3 min read
-* [![](/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2dcD9g.webp)](/blog/authors/ben-weiss)
+  ###### [Thomas Ezan](/blog/authors/thomas-ezan), [Tracy Agyemang](/blog/authors/tracy-agyemang) • 3 min read
+* [![](/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2dcD9g.webp)](/blog/authors/ben-weiss)[![](/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_1hBimO.webp)](/blog/authors/tracy-agyemang)
 
   30
 
@@ -139,30 +139,30 @@ Learn how to build Gemini-enabled features like AI translations and in-app perso
 
   Monzo is a UK digital bank with 15 million customers and growing. As the app scaled, the engineering team identified app startup time as a critical area for improvement but worried it would require significant changes to their codebase.
 
-  ###### [Ben Weiss](/blog/authors/ben-weiss) • 2 min read
-* [![](/static/blog/assets/Ben_Trengrove_b9e17c8c2e_2uVqlp.webp)](/blog/authors/ben-trengrove)[![](/static/blog/assets/Ajesh_R_Pai_fc75c62777_Z1G5g2B.webp)](/blog/authors/ajesh-pai)
+  ###### [Ben Weiss](/blog/authors/ben-weiss), [Tracy Agyemang](/blog/authors/tracy-agyemang) • 2 min read
+* [![](/static/blog/assets/Mayuri_Khinvasara_Khabya_92848b1e1b_1xSr0w.webp)](/blog/authors/mayuri-khabya)[![](/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_1hBimO.webp)](/blog/authors/tracy-agyemang)
 
-  13
-
-  Mar
-  2026
-
-  13
+  05
 
   Mar
   2026
 
-  ![](/static/blog/assets/tiktok_Case_Study_ae91bba156_1Bjq08.webp)
+  05
+
+  Mar
+  2026
+
+  ![](/static/blog/assets/meta_Header_2ac893569c_ZLkD4s.webp)
 
   #### [Case Studies](/blog/categories/case-studies)
 
-  ## [TikTok reduces code size by 58% and improves app performance for new features with Jetpack Compose](/blog/posts/tiktok-reduces-code-size-and-improves-app-performance-for-new-features-with-jetpack-compose)
+  ## [Instagram and Facebook deliver instant playback and boost user engagement with Media3 PreloadManager](/blog/posts/instagram-and-facebook-deliver-instant-playback-and-boost-user-engagement-with-media3-preload-manager)
 
-  [arrow\_forward](/blog/posts/tiktok-reduces-code-size-and-improves-app-performance-for-new-features-with-jetpack-compose)
+  [arrow\_forward](/blog/posts/instagram-and-facebook-deliver-instant-playback-and-boost-user-engagement-with-media3-preload-manager)
 
-  TikTok is a global short-video platform known for its massive user base and innovative features.
+  In the dynamic world of social media, user attention is won or lost quickly. Meta apps (Facebook and Instagram) are among the world's largest social platforms and serve billions of users globally.
 
-  ###### [Ben Trengrove](/blog/authors/ben-trengrove), [Ajesh Pai](/blog/authors/ajesh-pai) • 2 min read
+  ###### [Mayuri Khinvasara Khabya](/blog/authors/mayuri-khabya), [Tracy Agyemang](/blog/authors/tracy-agyemang) • 4 min read
 
 # Stay in the loop
 

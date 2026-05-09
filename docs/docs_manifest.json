@@ -26444,8 +26444,8 @@
     },
     "blog/categories/case-studies/3.md": {
       "original_url": "https://developer.android.com/blog/categories/case-studies/3",
-      "hash": "463824cd4527376f21c30abd431d62c7d63fc54604f1ef72d2109bf9e85a3eda",
-      "last_updated": "2026-05-06T15:46:26.080295",
+      "hash": "b0137ab42211683584242b05dac4c922cf9a37e63e7e4948a53009dfef781e7e",
+      "last_updated": "2026-05-09T15:20:03.230486",
       "fetch_method": "html-scrape"
     },
     "blog/authors/chetan-tekur.md": {
@@ -26582,8 +26582,8 @@
     },
     "blog/categories/case-studies.md": {
       "original_url": "https://developer.android.com/blog/categories/case-studies",
-      "hash": "2a5182cca70ccb7d9684c38478dbe74953a65e636c6b64829a0e8ba50b7114ff",
-      "last_updated": "2026-05-06T15:47:00.904561",
+      "hash": "9d3a72bbee0577106561acd4a9c6ee90016db4867fe2ff78537450f09fa7395f",
+      "last_updated": "2026-05-09T15:21:01.689215",
       "fetch_method": "html-scrape"
     },
     "blog/posts/monzo-boosts-performance-metrics-by-up-to-35-with-a-simple-r8-update.md": {
@@ -28532,8 +28532,8 @@
     },
     "blog/topics/android/2.md": {
       "original_url": "https://developer.android.com/blog/topics/android/2",
-      "hash": "69a1376d044e32432b5bf92d9aa87fb49264ec46b9ff085395ed016ee73b6216",
-      "last_updated": "2026-05-06T15:45:00.937622",
+      "hash": "5da82cb66db4e2280f5e2813eb950a17a6add00fe3657db374458d4499de7f40",
+      "last_updated": "2026-05-09T15:18:31.164606",
       "fetch_method": "html-scrape"
     },
     "develop/ui/compose/notifications/bubbles.md": {
@@ -28556,8 +28556,8 @@
     },
     "blog/posts/gemini-and-firebase-ai-logic-enabled-karrot-to-increase-sales-with-a-translation-feature.md": {
       "original_url": "https://developer.android.com/blog/posts/gemini-and-firebase-ai-logic-enabled-karrot-to-increase-sales-with-a-translation-feature",
-      "hash": "6fe11fbdad4107a5e68588273c8663701a21a7baa3ce6a341b6a63c08837603b",
-      "last_updated": "2026-05-06T15:45:51.836902",
+      "hash": "339788f47a1521d763acdc4a3834d7f1fd54af8b868700371434a12a9910756e",
+      "last_updated": "2026-05-09T15:19:28.933082",
       "fetch_method": "html-scrape"
     },
     "guide/components/activities/secure-bal.md": {
@@ -28568,8 +28568,8 @@
     },
     "blog/authors/tracy-agyemang.md": {
       "original_url": "https://developer.android.com/blog/authors/tracy-agyemang",
-      "hash": "b17ea470e9efc3e88b64800cff21aa03921562e35f4eded8e2e19682ecb1a60e",
-      "last_updated": "2026-05-06T15:46:25.948855",
+      "hash": "50945899c7ba2e1f9ace54291d0f7771c060d4c05a280e95fae84b750bdecfec",
+      "last_updated": "2026-05-09T15:20:04.705457",
       "fetch_method": "html-scrape"
     },
     "guide/topics/ui/accessibility/composables.md": {
@@ -28673,7 +28673,25 @@
       "hash": "d384ea4e568068aef46d7df407003afdf7a66f746aa84e61fa2e139931987480",
       "last_updated": "2026-05-08T15:33:19.795048",
       "fetch_method": "md.txt"
+    },
+    "blog/authors/tracy-agyemang/2.md": {
+      "original_url": "https://developer.android.com/blog/authors/tracy-agyemang/2",
+      "hash": "31e38a885dc1826d0fd389d90b328da37a4a8684a35c4485fb2793e52d8a6093",
+      "last_updated": "2026-05-09T15:20:48.289957",
+      "fetch_method": "html-scrape"
+    },
+    "blog/posts/a-look-ahead-making-it-easier-and-faster-to-publish-safer-apps.md": {
+      "original_url": "https://developer.android.com/blog/posts/a-look-ahead-making-it-easier-and-faster-to-publish-safer-apps",
+      "hash": "f42c684e0ebc729d53968b4a8928a454e86453b314a452196c5dcd701a0ebc8c",
+      "last_updated": "2026-05-09T15:21:48.506034",
+      "fetch_method": "html-scrape"
+    },
+    "blog/authors/vijaya-kaza.md": {
+      "original_url": "https://developer.android.com/blog/authors/vijaya-kaza",
+      "hash": "cc968f98648650d943b89efdd59afb850632de4b878abae3527f38cb185c9b72",
+      "last_updated": "2026-05-09T15:22:16.287841",
+      "fetch_method": "html-scrape"
     }
   },
-  "last_updated": "2026-05-08T15:35:36.796709"
+  "last_updated": "2026-05-09T15:23:50.836953"
 }
