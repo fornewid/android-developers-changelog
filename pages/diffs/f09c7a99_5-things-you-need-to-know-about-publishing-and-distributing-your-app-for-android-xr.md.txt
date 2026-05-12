@@ -1,0 +1,13 @@
+diff --git a/docs/blog/posts/5-things-you-need-to-know-about-publishing-and-distributing-your-app-for-android-xr.md b/docs/blog/posts/5-things-you-need-to-know-about-publishing-and-distributing-your-app-for-android-xr.md
+index b38e208e..14f0259c 100644
+--- a/docs/blog/posts/5-things-you-need-to-know-about-publishing-and-distributing-your-app-for-android-xr.md
++++ b/docs/blog/posts/5-things-you-need-to-know-about-publishing-and-distributing-your-app-for-android-xr.md
+@@ -132,7 +132,7 @@ By following this guidance, you can help ensure your innovative Android XR apps
+ 
+ ## Continue reading
+ 
+-- [![](https://developer.android.com/static/blog/assets/niharika_2910f6d612_C99s1.webp)](https://developer.android.com/blog/authors/niharika-arora)[![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](https://developer.android.com/blog/authors/jean-pierre-pralle) 22 Apr 2026 22 Apr 2026 ![](https://developer.android.com/static/blog/assets/Streamline_user_animation_V02_Strapi_abd12985d7_SvAX9.webp)
++- [![](https://developer.android.com/static/blog/assets/niharika_2910f6d612_C99s1.webp)](https://developer.android.com/blog/authors/niharika-arora)[![](https://developer.android.com/static/blog/assets/Jean_Pierre_Pralle_2bf889a65a_2buQLX.webp)](https://developer.android.com/blog/authors/jean-pierre-pralle) 22 Apr 2026 22 Apr 2026 ![](https://developer.android.com/static/blog/assets/Streamline_user_animation_V02_Strapi_abd12985d7_SvAX9.webp)
+ 
+   #### [How-tos](https://developer.android.com/blog/categories/how-tos)
+ 

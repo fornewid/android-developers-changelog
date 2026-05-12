@@ -1,0 +1,12 @@
+diff --git a/docs/agents/skills/xr/display-ai-glasses-with-jetpack-compose-glimmer/references/iconbutton-source.md b/docs/agents/skills/xr/display-ai-glasses-with-jetpack-compose-glimmer/references/iconbutton-source.md
+index 60d6ea86..6668e8fe 100644
+--- a/docs/agents/skills/xr/display-ai-glasses-with-jetpack-compose-glimmer/references/iconbutton-source.md
++++ b/docs/agents/skills/xr/display-ai-glasses-with-jetpack-compose-glimmer/references/iconbutton-source.md
+@@ -97,6 +97,7 @@ public fun IconButton(
+         modifier
+             .semantics { role = Role.Button }
+             .surface(
++                enabled = enabled,
+                 shape = shape,
+                 color = color,
+                 contentColor = contentColor,

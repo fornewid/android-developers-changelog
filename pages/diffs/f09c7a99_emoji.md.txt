@@ -1,0 +1,13 @@
+diff --git a/docs/develop/ui/compose/text/emoji.md b/docs/develop/ui/compose/text/emoji.md
+index 66c12d0c..30020bff 100644
+--- a/docs/develop/ui/compose/text/emoji.md
++++ b/docs/develop/ui/compose/text/emoji.md
+@@ -58,7 +58,7 @@ Text(
+ 
+ <br />
+ 
+-## Interoperatibility
++## Interoperability
+ 
+ If your app uses both Views and Compose in the same `Activity`, make sure you
+ are using the appropriate APIs to configure emojis correctly. The following

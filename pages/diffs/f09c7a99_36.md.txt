@@ -1,0 +1,21 @@
+diff --git a/docs/studio/releases/fixed-bugs/emulator/36.md b/docs/studio/releases/fixed-bugs/emulator/36.md
+index b76dd538..7c2a070c 100644
+--- a/docs/studio/releases/fixed-bugs/emulator/36.md
++++ b/docs/studio/releases/fixed-bugs/emulator/36.md
+@@ -4,6 +4,16 @@ url: https://developer.android.com/studio/releases/fixed-bugs/emulator/36
+ source: md.txt
+ ---
+ 
++### Android Emulator 36.6.8 Canary
++
++*This release includes minor fixes and improvements.*
++
++### Android Emulator 36.6.7 Canary
++
++For phone AVDs on API 37, the Emulator's minimum memory (RAM) requirement has been raised to 4 GB.
++
++*This release includes minor fixes and improvements.*
++
+ ### Android Emulator 36.6.6 Canary
+ 
+ *This release includes minor fixes and improvements.*

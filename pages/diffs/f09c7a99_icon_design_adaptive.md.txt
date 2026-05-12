@@ -1,0 +1,13 @@
+diff --git a/docs/develop/ui/compose/system/icon_design_adaptive.md b/docs/develop/ui/compose/system/icon_design_adaptive.md
+index c8283585..30924266 100644
+--- a/docs/develop/ui/compose/system/icon_design_adaptive.md
++++ b/docs/develop/ui/compose/system/icon_design_adaptive.md
+@@ -241,7 +241,7 @@ implementing adaptive icons.
+ 
+ arrow\_back
+ 
+-Test predictive back](/develop/ui/compose/system/predictive-back-test)
++Implement best practices for shortcuts](/develop/ui/compose/system/shortcuts/best-practices)
+ 
+ [Next
+ 
