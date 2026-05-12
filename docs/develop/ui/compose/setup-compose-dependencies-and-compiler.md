@@ -21,7 +21,7 @@ Set up the Compose Compiler Gradle plugin:
 2. In the `versions` and `plugins` sections, add the new dependency:
 
     [versions]
-    kotlin = "2.3.10"
+    kotlin = "2.3.21"
 
     [plugins]
     org-jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
@@ -53,14 +53,14 @@ Add the plugin to `build.gradle.kts` files associated with modules where Compose
 is used:
 
     plugins {
-        id("org.jetbrains.kotlin.plugin.compose") version "2.3.10" // this version matches your Kotlin version
+        id("org.jetbrains.kotlin.plugin.compose") version "2.3.21" // this version matches your Kotlin version
     }
 
 Add the classpath to your top-level project `build.gradle.kts` file:
 
     buildscript {
         dependencies {
-            classpath("org.jetbrains.kotlin.plugin.compose:org.jetbrains.kotlin.plugin.compose.gradle.plugin:2.3.10")
+            classpath("org.jetbrains.kotlin.plugin.compose:org.jetbrains.kotlin.plugin.compose.gradle.plugin:2.3.21")
         }
     }
 
@@ -81,7 +81,7 @@ For the full list of available options, see the [documentation](https://www.jetb
 
 ## Set up Compose dependencies
 
-Always use the latest Compose BOM version: `2026.03.00`.
+Always use the latest Compose BOM version: `2026.04.01`.
 
 Set the `compose` flag to `true` inside the Android [`BuildFeatures`](https://developer.android.com/reference/tools/gradle-api/7.0/com/android/build/api/dsl/BuildFeatures)
 to enable [Compose functionality](https://developer.android.com/develop/ui/compose/tooling) in Android Studio.
@@ -110,7 +110,7 @@ Add the Compose BOM and the subset of Compose library dependencies:
 
     dependencies {
 
-        def composeBom = platform('androidx.compose:compose-bom:2026.03.00')
+        def composeBom = platform('androidx.compose:compose-bom:2026.04.01')
         implementation composeBom
         androidTestImplementation composeBom
 
@@ -149,7 +149,7 @@ Add the Compose BOM and the subset of Compose library dependencies:
 
     dependencies {
 
-        val composeBom = platform("androidx.compose:compose-bom:2026.03.00")
+        val composeBom = platform("androidx.compose:compose-bom:2026.04.01")
         implementation(composeBom)
         androidTestImplementation(composeBom)
 

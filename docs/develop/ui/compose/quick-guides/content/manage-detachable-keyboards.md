@@ -37,7 +37,7 @@ configuration changes.
 
 Update the `<activity>` element in the app manifest by adding the
 `keyboard|keyboardHidden` values to the list of already managed configuration
-changes:  
+changes:
 
     <activity
         ...
@@ -46,7 +46,7 @@ changes:
 ### 2. Add an empty view to the view hierarchy
 
 Declare a new view and add your handler code inside the view's
-`onConfigurationChanged()` method:  
+`onConfigurationChanged()` method:
 
 ### Kotlin
 
@@ -67,7 +67,8 @@ Declare a new view and add your handler code inside the view's
         }
     };
 
-| **Note:** Compose-based hierarchies require the addition of a view because the view's configuration handler is the only method that is always called for configuration changes.
+> [!NOTE]
+> **Note:** Compose-based hierarchies require the addition of a view because the view's configuration handler is the only method that is always called for configuration changes.
 
 ## Key points
 
@@ -77,17 +78,13 @@ Declare a new view and add your handler code inside the view's
 ## Collections that contain this guide
 
 This guide is part of these curated Quick Guide collections that cover broader
-Android development goals:  
-![](https://developer.android.com/static/images/quick-guides/collection-illustration.png)  
-![](https://developer.android.com/static/images/picto-icons/collection.svg)  
+Android development goals:
+![](https://developer.android.com/static/images/quick-guides/collection-illustration.png) ![](https://developer.android.com/static/images/picto-icons/collection.svg)
 
 ### Optimize for large screens
 
-Enable your app to support an optimized user experience on tablets, foldables, and ChromeOS devices.  
-[Quick guide collection](https://developer.android.com/quick-guides/collections/optimize-for-large-screens)
-![](https://developer.android.com/static/images/picto-icons/help.svg)  
+Enable your app to support an optimized user experience on tablets, foldables, and ChromeOS devices. [Quick guide collection](https://developer.android.com/quick-guides/collections/optimize-for-large-screens) ![](https://developer.android.com/static/images/picto-icons/help.svg)
 
 ## Have questions or feedback
 
-Go to our frequently asked questions page and learn about quick guides or reach out and let us know your thoughts.  
-[Go to FAQ](https://developer.android.com/quick-guides/faq) [Leave feedback](https://issuetracker.google.com/issues/new?component=1573691&template=1993320)
+Go to our frequently asked questions page and learn about quick guides or reach out and let us know your thoughts. [Go to FAQ](https://developer.android.com/quick-guides/faq) [Leave feedback](https://issuetracker.google.com/issues/new?component=1573691&template=1993320)

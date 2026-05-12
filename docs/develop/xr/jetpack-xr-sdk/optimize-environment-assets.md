@@ -30,7 +30,7 @@ This updated asset structure provides these advantages:
 - **Optimized lighting:** Using a lower resolution skybox resource specifically for the lighting map is beneficial for performance without significantly impacting the visual results of the lighting on objects.
 
 To learn more about adding a spatial Environment in your app, see our guide on
-[adding environments to your app](https://developer.android.com/develop/xr/jetpack-xr-sdk/add-environment).
+[adding environments to your app](https://developer.android.com/develop/xr/jetpack-xr-sdk/add-environments).
 
 > [!NOTE]
 > **Note:** It's important to provide an IBL asset if your app sets a custom environment, especially if your app has any 3D objects. This is because, if your app provides a glb/glTF but no IBL ZIP file, the 3D objects in the user's environment appear with incorrect lighting (for example, too bright or dim, reflecting objects that the user can't otherwise see).

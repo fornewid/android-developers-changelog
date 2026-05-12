@@ -268,7 +268,7 @@ appropriate [artifact(s)](https://developer.android.com/jetpack/androidx/release
 > [!NOTE]
 > **Note:** You are not limited to these integrations. You can build an extension function for Jetpack Compose that reads other observable types. If your app uses a custom observable class, convert it to produce `State<T>` using the [`produceState`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/produceState.composable#produceState(kotlin.Any,kotlin.coroutines.SuspendFunction1)) API.  
 >
-> See the implementation of the builtins for examples of how to do this: [collectAsStateWithLifecycle](https://cs.android.com/androidx/platform/frameworks/support/+/androidx-main:lifecycle/lifecycle-runtime-compose/src/commonMain/kotlin/androidx/lifecycle/compose/FlowExt.kt). Any object that allows Jetpack Compose to subscribe to every change can be converted to `State<T>` and read in a Composable.
+> See the implementation of the built-ins for examples of how to do this: [collectAsStateWithLifecycle](https://cs.android.com/androidx/platform/frameworks/support/+/androidx-main:lifecycle/lifecycle-runtime-compose/src/commonMain/kotlin/androidx/lifecycle/compose/FlowExt.kt). Any object that allows Jetpack Compose to subscribe to every change can be converted to `State<T>` and read in a Composable.
 
 ### Stateful versus stateless
 
@@ -369,7 +369,7 @@ See the [Where to hoist state](https://developer.android.com/develop/ui/compose/
 
 The [`rememberSaveable`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/saveable/rememberSaveable.composable#rememberSaveable(kotlin.Array,androidx.compose.runtime.saveable.Saver,kotlin.String,kotlin.Function0)) API behaves similarly to `remember` because it
 retains state across recompositions, and also across activity or process
-recreation using the saved instance state mechanism. For example, this happens,
+recreation using the saved instance state mechanism. For example, this happens
 when the screen is rotated.
 
 > [!NOTE]
@@ -459,7 +459,7 @@ fun CityScreen() {
 
 ## State holders in Compose
 
-Simple state hoisting can be managed in the composable functions itself.
+Simple state hoisting can be managed in the composable functions themselves.
 However, if the amount of state to keep track of increases, or the logic to
 perform in composable functions arises, it's a good practice to delegate the
 logic and state responsibilities to other classes: **state holders**.

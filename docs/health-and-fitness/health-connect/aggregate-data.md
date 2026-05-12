@@ -25,24 +25,20 @@ Cumulative aggregation computes the total value.
 
 The following example shows you how to aggregate data for a data type:
 
-    suspend fun aggregateDistance(
-        healthConnectClient: HealthConnectClient,
-        startTime: Instant,
-        endTime: Instant
-    ) {
-        try {
-            val response = healthConnectClient.aggregate(
-                AggregateRequest(
-                    metrics = setOf(DistanceRecord.DISTANCE_TOTAL),
-                    timeRangeFilter = TimeRangeFilter.between(startTime, endTime)
-                )
-            )
-            // The result may be null if no data is available in the time range
-            val distanceTotalInMeters = response[DistanceRecord.DISTANCE_TOTAL]?.inMeters ?: 0L
-        } catch (e: Exception) {
-            // Run error handling here
-        }
-    }
+
+```kotlin
+suspend fun readDistanceAggregate(startTime: Instant, endTime: Instant): Number {
+    val response = healthConnectClient.aggregate(
+        AggregateRequest(
+            metrics = setOf(DistanceRecord.DISTANCE_TOTAL),
+            timeRangeFilter = TimeRangeFilter.between(startTime, endTime)
+        )
+    )
+    return response[DistanceRecord.DISTANCE_TOTAL]?.inMeters ?: 0L
+}
+```
+
+<br />
 
 ### Filter by data origin
 
@@ -52,26 +48,31 @@ data written by a specific app.
 The following example shows how to use `dataOriginFilter` and
 [`AggregateRequest`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/request/AggregateRequest) to aggregate steps from a specific app:
 
-    suspend fun aggregateStepsFromSpecificApp(
-        healthConnectClient: HealthConnectClient,
-        startTime: Instant,
-        endTime: Instant,
-        appPackageName: String
-    ) {
-        try {
-            val response = healthConnectClient.aggregate(
-                AggregateRequest(
-                    metrics = setOf(StepsRecord.COUNT_TOTAL),
-                    timeRangeFilter = TimeRangeFilter.between(startTime, endTime),
-                    dataOriginFilter = setOf(DataOrigin(appPackageName))
-                )
+
+```kotlin
+suspend fun aggregateStepsFromSpecificApp(
+    healthConnectClient: HealthConnectClient,
+    startTime: Instant,
+    endTime: Instant,
+    appPackageName: String
+) {
+    try {
+        val response = healthConnectClient.aggregate(
+            AggregateRequest(
+                metrics = setOf(StepsRecord.COUNT_TOTAL),
+                timeRangeFilter = TimeRangeFilter.between(startTime, endTime),
+                dataOriginFilter = setOf(DataOrigin(appPackageName))
             )
-            // The result may be null if no data is available in the time range
-            val totalSteps = response[StepsRecord.COUNT_TOTAL] ?: 0L
-        } catch (e: Exception) {
-            // Run error handling here
-        }
+        )
+        // The result may be null if no data is available in the time range
+        val totalSteps = response[StepsRecord.COUNT_TOTAL] ?: 0L
+    } catch (e: Exception) {
+        // Run error handling here
     }
+}
+```
+
+<br />
 
 ### Statistical aggregation
 
@@ -80,26 +81,23 @@ records with samples.
 
 The following example shows how to use statistical aggregation:
 
-    suspend fun aggregateHeartRate(
-        healthConnectClient: HealthConnectClient,
-        startTime: Instant,
-        endTime: Instant
-    ) {
-        try {
-            val response =
-                healthConnectClient.aggregate(
-                    AggregateRequest(
-                        setOf(HeartRateRecord.BPM_MAX, HeartRateRecord.BPM_MIN),
-                        timeRangeFilter = TimeRangeFilter.between(startTime, endTime)
-                    )
-                )
-            // The result may be null if no data is available in the time range
-            val minimumHeartRate = response[HeartRateRecord.BPM_MIN] ?: 0L
-            val maximumHeartRate = response[HeartRateRecord.BPM_MAX] ?: 0L
-        } catch (e: Exception) {
-            // Run error handling here
-        }
-    }
+
+```kotlin
+suspend fun readHeartRateAggregate(startTime: Instant, endTime: Instant): Pair<Long, Long> {
+    val response = healthConnectClient.aggregate(
+        AggregateRequest(
+            metrics = setOf(HeartRateRecord.BPM_MAX, HeartRateRecord.BPM_MIN),
+            timeRangeFilter = TimeRangeFilter.between(startTime, endTime)
+        )
+    )
+    val minimumHeartRate = response[HeartRateRecord.BPM_MIN] ?: 0L
+    val maximumHeartRate = response[HeartRateRecord.BPM_MAX] ?: 0L
+
+    return maximumHeartRate to minimumHeartRate
+}
+```
+
+<br />
 
 ## Buckets
 
@@ -122,28 +120,33 @@ You can use pairs of [`Instant`](https://developer.android.com/reference/java/ti
 
 The following shows an example of aggregating steps into minute-long buckets:
 
-    suspend fun aggregateStepsIntoMinutes(
-        healthConnectClient: HealthConnectClient,
-        startTime: LocalDateTime,
-        endTime: LocalDateTime
-    ) {
-        try {
-            val response =
-                healthConnectClient.aggregateGroupByDuration(
-                    AggregateGroupByDurationRequest(
-                        metrics = setOf(StepsRecord.COUNT_TOTAL),
-                        timeRangeFilter = TimeRangeFilter.between(startTime, endTime),
-                        timeRangeSlicer = Duration.ofMinutes(1L)
-                    )
+
+```kotlin
+suspend fun aggregateStepsIntoMinutes(
+    healthConnectClient: HealthConnectClient,
+    startTime: LocalDateTime,
+    endTime: LocalDateTime
+) {
+    try {
+        val response =
+            healthConnectClient.aggregateGroupByDuration(
+                AggregateGroupByDurationRequest(
+                    metrics = setOf(StepsRecord.COUNT_TOTAL),
+                    timeRangeFilter = TimeRangeFilter.between(startTime, endTime),
+                    timeRangeSlicer = Duration.ofMinutes(1L)
                 )
-            for (durationResult in response) {
-                // The result may be null if no data is available in the time range
-                val totalSteps = durationResult.result[StepsRecord.COUNT_TOTAL] ?: 0L
-            }
-        } catch (e: Exception) {
-            // Run error handling here
+            )
+        for (durationResult in response) {
+            // The result may be null if no data is available in the time range
+            val totalSteps = durationResult.result[StepsRecord.COUNT_TOTAL] ?: 0L
         }
+    } catch (e: Exception) {
+        // Run error handling here
     }
+}
+```
+
+<br />
 
 ### Period
 
@@ -155,28 +158,33 @@ metric types, the time range, and the [`Period`](https://developer.android.com/r
 
 The following shows an example of aggregating steps into monthly buckets:
 
-    suspend fun aggregateStepsIntoMonths(
-        healthConnectClient: HealthConnectClient,
-        startTime: LocalDateTime,
-        endTime: LocalDateTime
-    ) {
-        try {
-            val response =
-                healthConnectClient.aggregateGroupByPeriod(
-                    AggregateGroupByPeriodRequest(
-                        metrics = setOf(StepsRecord.COUNT_TOTAL),
-                        timeRangeFilter = TimeRangeFilter.between(startTime, endTime),
-                        timeRangeSlicer = Period.ofMonths(1)
-                    )
+
+```kotlin
+suspend fun aggregateStepsIntoMonths(
+    healthConnectClient: HealthConnectClient,
+    startTime: LocalDateTime,
+    endTime: LocalDateTime
+) {
+    try {
+        val response =
+            healthConnectClient.aggregateGroupByPeriod(
+                AggregateGroupByPeriodRequest(
+                    metrics = setOf(StepsRecord.COUNT_TOTAL),
+                    timeRangeFilter = TimeRangeFilter.between(startTime, endTime),
+                    timeRangeSlicer = Period.ofMonths(1)
                 )
-            for (monthlyResult in response) {
-                // The result may be null if no data is available in the time range
-                val totalSteps = monthlyResult.result[StepsRecord.COUNT_TOTAL] ?: 0L
-            }
-        } catch (e: Exception) {
-            // Run error handling here
+            )
+        for (monthlyResult in response) {
+            // The result may be null if no data is available in the time range
+            val totalSteps = monthlyResult.result[StepsRecord.COUNT_TOTAL] ?: 0L
         }
+    } catch (e: Exception) {
+        // Run error handling here
     }
+}
+```
+
+<br />
 
 > [!NOTE]
 > **Note:** When running bucket aggregates per period, make sure that the start and end times set are not using the [`Instant`](https://developer.android.com/reference/java/time/Instant) class. Otherwise, the app returns an `IllegalStateException`.

@@ -46,9 +46,6 @@ which one best fits your needs and users:
 - **Health Connect**: Health Connect unifies data across Android's portfolio of devices and apps into an ecosystem, providing a common health platform for Android developers. Health Connect provides an API for reading and writing the user's health and fitness data, standardizes the data schema upon storage, and centralizes permissions control.
 - **Fitbit Web API**: The Fitbit Web API is a platform-agnostic interface to integrate with the Fitbit ecosystem. It gives users the ability to store, share, and manage their data directly in the cloud. In the Fitbit Web API, the user's data is tied to their Fitbit account instead of their device. This means the Fitbit Web API is account-centric instead of device-centric.
 
-Check out the [Health Connect comparison guide](https://developer.android.com/health-and-fitness/guides/health-connect/migrate/comparison-guide) for more
-details.
-
 ## How do I get help?
 
 If you find a bug or need help with the migration, submit your feedback using

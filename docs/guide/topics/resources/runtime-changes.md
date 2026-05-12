@@ -19,7 +19,9 @@ example, rotating or folding the device changes the amount of screen space
 available to your app. Likewise, altering device settings like the font size,
 language, or preferred theme changes their respective values in the
 [`Configuration`](https://developer.android.com/reference/android/content/res/Configuration) object.
-| **Note:** Connecting or disconnecting external peripherals and multi-tasking is more common on [large screen devices](https://developer.android.com/large-screens) such as tablets, foldables, or Chrome OS. Configuration changes can occur more often in those devices due to their flexibility.
+
+> [!NOTE]
+> **Note:** Connecting or disconnecting external peripherals and multi-tasking is more common on [large screen devices](https://developer.android.com/large-screens) such as tablets, foldables, or Chrome OS. Configuration changes can occur more often in those devices due to their flexibility.
 
 These parameters usually require large enough changes to your application's UI
 that the Android platform has a purpose-built mechanism for when they change.
@@ -52,7 +54,9 @@ is because `Activity` recreation creates a completely new instance of the `Activ
 and the UI. Furthermore, the old `Activity` is no longer visible or valid, so any
 remaining references to it or its contained objects are stale. They can cause
 bugs, memory leaks, and crashes.
-| **Note:** `Activity` recreation due to configuration changes is only one of the cases in which the system might destroy an `Activity` and recreate it later. For more information, read about the [`Activity` lifecycle](https://developer.android.com/guide/components/activities/intro-activities#mtal).
+
+> [!NOTE]
+> **Note:** `Activity` recreation due to configuration changes is only one of the cases in which the system might destroy an `Activity` and recreate it later. For more information, read about the [`Activity` lifecycle](https://developer.android.com/guide/components/activities/intro-activities#mtal).
 
 ## User expectations
 
@@ -76,7 +80,8 @@ while it is in the background. These actions include:
 - Connecting or disconnecting a hardware keyboard
 - Connecting or disconnecting a dock
 
-| **Note:** Historically, you could prevent some of these configuration changes by restricting supported aspect ratios and orientations or disabling resizing. In Android 12L (API level 32) and higher, an app that has added these restrictions enters a [compatibility mode](https://developer.android.com/guide/practices/enhanced-letterboxing) if it does not directly support the current device state. If an app has added these restrictions to avoid `Activity` recreation, make sure that the app functions correctly and that it does not lose state when unlocking those restrictions to make full use of the screen on all devices.
+> [!NOTE]
+> **Note:** Historically, you could prevent some of these configuration changes by restricting supported aspect ratios and orientations or disabling resizing. In Android 12L (API level 32) and higher, an app that has added these restrictions enters a [compatibility mode](https://developer.android.com/guide/practices/enhanced-letterboxing) if it does not directly support the current device state. If an app has added these restrictions to avoid `Activity` recreation, make sure that the app functions correctly and that it does not lose state when unlocking those restrictions to make full use of the screen on all devices.
 
 There are three primary approaches you can take to preserve relevant state through
 `Activity` recreation. Which to use depends on the type of state you want to
@@ -115,7 +120,9 @@ the screen orientation and keyboard availability change:
 Some configuration changes always cause the activity to restart. You can't disable
 them. For example, you can't disable the [dynamic colors change](https://developer.android.com/develop/ui/views/theming/dynamic-colors)
 introduced in Android 12L (API level 32).
-| **Warning:** Even when you disable activity recreation for a given configuration change, the change itself continues to occur. Disabling `Activity` recreation transfers the responsibility of handling that configuration change to the `Activity`. If you disable `Activity` recreation, your app must appropriately handle the change when it does occur.
+
+> [!WARNING]
+> **Warning:** Even when you disable activity recreation for a given configuration change, the change itself continues to occur. Disabling `Activity` recreation transfers the responsibility of handling that configuration change to the `Activity`. If you disable `Activity` recreation, your app must appropriately handle the change when it does occur.
 
 ## React to configuration changes in the View system
 
@@ -125,7 +132,9 @@ disabled `Activity` recreation, the activity receives a call to
 call to [`View.onConfigurationChanged()`](https://developer.android.com/reference/kotlin/android/view/View#onconfigurationchanged). For configuration changes you
 have not added to `android:configChanges`, the system recreates the activity
 as usual.
-| **Warning:** In the `View` system, disabling `Activity` recreation can make it much more difficult to use alternative resources. This is because the system no longer applies them for you. In apps built with the `View` system, only disable `Activity` recreation as a last resort when you must avoid restarts due to a configuration change. It is not recommended for most applications.
+
+> [!WARNING]
+> **Warning:** In the `View` system, disabling `Activity` recreation can make it much more difficult to use alternative resources. This is because the system no longer applies them for you. In apps built with the `View` system, only disable `Activity` recreation as a last resort when you must avoid restarts due to a configuration change. It is not recommended for most applications.
 
 The `onConfigurationChanged()` callback method receives a
 [`Configuration`](https://developer.android.com/reference/android/content/res/Configuration) object that specifies the new device configuration. Read
@@ -180,7 +189,8 @@ activity lifecycle. This is because of the following:
 - **Unavoidable changes:** configuration changes that you cannot prevent can restart your application.
 - **Process death:** your application must be able to handle system-initiated process death. If the user leaves your application and the app goes to the background, the system might destroy the app.
 
-| **Important:** When you disable activity recreation for a configuration change, you are responsible for resetting any elements for which you provide alternatives. For example, if you disable activity recreation for an `Activity` that has images that change between landscape and portrait, you must reassign each resource to each element during [`onConfigurationChanged`](https://developer.android.com/reference/android/app/Activity#onConfigurationChanged(android.content.res.Configuration))().
+> [!IMPORTANT]
+> **Important:** When you disable activity recreation for a configuration change, you are responsible for resetting any elements for which you provide alternatives. For example, if you disable activity recreation for an `Activity` that has images that change between landscape and portrait, you must reassign each resource to each element during [`onConfigurationChanged`](https://developer.android.com/reference/android/app/Activity#onConfigurationChanged(android.content.res.Configuration))().
 
 ## React to configuration changes in Jetpack Compose
 
@@ -194,7 +204,9 @@ the [`LocalConfiguration`](https://developer.android.com/reference/kotlin/androi
 composable functions reading from `LocalConfiguration.current` recompose. For
 information about how composition locals work, see [Locally scoped
 data with CompositionLocal](https://developer.android.com/jetpack/compose/compositionlocal).
-| **Important:** As discussed in the [Restrict `Activity` recreation](https://developer.android.com/guide/topics/resources/runtime-changes#restrict-activity) section, it is impossible to entirely disable `Activity` recreation in an Android app, so it is still necessary to save state correctly when the system recreates an `Activity`. In addition, views embedded in Compose with the [interoperability APIs](https://developer.android.com/jetpack/compose/interop/interop-apis), such as `AndroidView`, can expect `Activity` recreation to occur on configuration changes. Also, if a composable function recomposes due to a configuration change, views used inside the interoperability APIs recompose as well.
+
+> [!IMPORTANT]
+> **Important:** As discussed in the [Restrict `Activity` recreation](https://developer.android.com/guide/topics/resources/runtime-changes#restrict-activity) section, it is impossible to entirely disable `Activity` recreation in an Android app, so it is still necessary to save state correctly when the system recreates an `Activity`. In addition, views embedded in Compose with the [interoperability APIs](https://developer.android.com/jetpack/compose/interop/interop-apis), such as `AndroidView`, can expect `Activity` recreation to occur on configuration changes. Also, if a composable function recomposes due to a configuration change, views used inside the interoperability APIs recompose as well.
 
 ### Example
 
@@ -216,8 +228,10 @@ The composable reacts to system locale configuration changes by calling
 To avoid `Activity` recreation when the locale changes, the `Activity` hosting the
 Compose code needs to opt out of locale configuration changes. To do so, you
 set `android:configChanges` to `locale|layoutDirection`.
-| **Warning:** For composable functions to recompose, the read state must be of type [`State`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/State). This is the case with configuration-related composition locals and `LocalConfiguration` in particular. Attempting to read the current locale in Compose using `Locale.getDefault()` doesn't cause the composable to recompose and doesn't react to configuration changes. This is because it's not of type `State`. For more information about state in Compose, see [State and Jetpack
-| Compose](https://developer.android.com/jetpack/compose/state).
+
+> [!WARNING]
+> **Warning:** For composable functions to recompose, the read state must be of type [`State`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/State). This is the case with configuration-related composition locals and `LocalConfiguration` in particular. Attempting to read the current locale in Compose using `Locale.getDefault()` doesn't cause the composable to recompose and doesn't react to configuration changes. This is because it's not of type `State`. For more information about state in Compose, see [State and Jetpack
+> Compose](https://developer.android.com/jetpack/compose/state).
 
 ## Configuration changes: Key concepts and best practices
 
@@ -257,7 +271,9 @@ When you disable `Activity` recreation for size-based configuration changes, the
 system doesn't recreate the `Activity`. Instead, it receives a call to
 [`Activity.onConfigurationChanged()`](https://developer.android.com/reference/android/app/Activity#onConfigurationChanged(android.content.res.Configuration)). Any attached views receive a call to
 [`View.onConfigurationChanged()`](https://developer.android.com/reference/kotlin/android/view/View#onconfigurationchanged).
-| **Important:** In Android 12 (API level 31) and Android 12L (API level 32), `Activity.onConfigurationChanged()` is called only when the change is significant. This is a bug that was fixed in future API versions.
+
+> [!IMPORTANT]
+> **Important:** In Android 12 (API level 31) and Android 12L (API level 32), `Activity.onConfigurationChanged()` is called only when the change is significant. This is a bug that was fixed in future API versions.
 
 `Activity` recreation is disabled for size-based configuration changes when
 you have
@@ -282,4 +298,6 @@ For code that is dependent on listening for size-based configuration
 changes, we recommend using a utility `View` with an overridden
 `View.onConfigurationChanged()` instead of relying on `Activity` recreation or
 `Activity.onConfigurationChanged()`.
-| **Note:** `Activity` recreation isn't disabled if you have `android:configChanges=""` for the `Activity` in the manifest file. This also occurs with unrelated size-based configuration changes like `android:configChanges="uiMode"`.
+
+> [!NOTE]
+> **Note:** `Activity` recreation isn't disabled if you have `android:configChanges=""` for the `Activity` in the manifest file. This also occurs with unrelated size-based configuration changes like `android:configChanges="uiMode"`.

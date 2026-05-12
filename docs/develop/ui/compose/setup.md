@@ -20,7 +20,7 @@ Android Studio includes various project templates to help you get started. To
 create a new project that has Compose setup correctly, proceed as follows:
 
 1. If you're in the **Welcome to Android Studio** window, click **Start a new
-   Android Studio project** . If you already have an Android Studio project open , select **File \> New \> New Project** from the menu bar.
+   Android Studio project** . If you already have an Android Studio project open, select **File \> New \> New Project** from the menu bar.
 2. In the **Select a Project Template** window, select **Empty
    Activity** and click **Next**.
 3. In the **Configure your project** window, do the following:

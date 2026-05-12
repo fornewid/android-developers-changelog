@@ -26,7 +26,7 @@ information, so Play can automatically register most of your package names using
 information that you've provided.
 
 - **For new Play apps**: When you create a new app in the Google Play Console, Play will automatically register the package name and link it to your account. However, If that name is already used by another developer you will be prompted to pick another name. If you have been using this name off Play you will still be able to use it on Play too.
-- **For existing Play apps**: When Android developer verification registration opens to all developers in March 2026, Google Play will automatically register all Play apps using information developers have already shared. We expect to automatically register 98% of all Play apps. The remaining 2% will require the developers to manually register these apps. Starting in March, developers can see their apps' auto-registration results displayed above the app list in Play Console.
+- **For existing Play apps**: Google Play will automatically register all Play apps using information developers have already shared. We expect to automatically register 99% of all Play apps. The remaining 1% will require developers to manually register these apps. Developers can see their apps' auto-registration results displayed above the app list in Play Console.
 
 ### Review
 

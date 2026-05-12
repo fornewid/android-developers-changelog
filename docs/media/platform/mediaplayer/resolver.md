@@ -4,9 +4,9 @@ url: https://developer.android.com/media/platform/mediaplayer/resolver
 source: md.txt
 ---
 
-# Retrieve media from a content resolver
-
-You can have your media player application retrieve music that the user has on their device by querying the[`ContentResolver`](https://developer.android.com/reference/android/content/ContentResolver)for external media:  
+You can have your media player application retrieve music that the user has
+on their device by querying
+the [`ContentResolver`](https://developer.android.com/reference/android/content/ContentResolver) for external media:
 
 ### Kotlin
 
@@ -51,7 +51,7 @@ You can have your media player application retrieve music that the user has on t
         } while (cursor.moveToNext());
     }
 
-To use this with the[`MediaPlayer`](https://developer.android.com/reference/android/media/MediaPlayer), you can do this:  
+To use this with the [`MediaPlayer`](https://developer.android.com/reference/android/media/MediaPlayer), you can do this:
 
 ### Kotlin
 
@@ -90,9 +90,11 @@ To use this with the[`MediaPlayer`](https://developer.android.com/reference/andr
 
 ## Learn more
 
-Jetpack Media3 is the recommended solution for media playback in your app.[Read more](https://developer.android.com/media/media3)about it.
+Jetpack Media3 is the recommended solution for media playback in your app. [Read
+more](https://developer.android.com/media/media3) about it.
 
-These pages cover topics relating to recording, storing, and playing back audio and video:
+These pages cover topics relating to recording, storing, and playing back audio
+and video:
 
 - [Supported Media Formats](https://developer.android.com/guide/topics/media/media-formats)
 - [MediaRecorder](https://developer.android.com/guide/topics/media/mediarecorder)

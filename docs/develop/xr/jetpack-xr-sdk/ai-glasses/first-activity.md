@@ -35,20 +35,20 @@ Add the following [library dependencies for AI glasses](https://developer.androi
 
     dependencies {
         implementation "androidx.xr.runtime:runtime:1.0.0-alpha13"
-        implementation "androidx.xr.glimmer:glimmer:1.0.0-alpha11"
-        implementation "androidx.xr.glimmer:glimmer-google-fonts:1.0.0-alpha11"
-        implementation "androidx.xr.projected:projected:1.0.0-alpha06"
-        implementation "androidx.xr.arcore:arcore:1.0.0-alpha12"
+        implementation "androidx.xr.glimmer:glimmer:1.0.0-alpha12"
+        implementation "androidx.xr.glimmer:glimmer-google-fonts:1.0.0-alpha12"
+        implementation "androidx.xr.projected:projected:1.0.0-alpha07"
+        implementation "androidx.xr.arcore:arcore:1.0.0-alpha13"
     }
 
 ### Kotlin
 
     dependencies {
         implementation("androidx.xr.runtime:runtime:1.0.0-alpha13")
-        implementation("androidx.xr.glimmer:glimmer:1.0.0-alpha11")
-        implementation("androidx.xr.glimmer:glimmer-google-fonts:1.0.0-alpha11")
-        implementation("androidx.xr.projected:projected:1.0.0-alpha06")
-        implementation("androidx.xr.arcore:arcore:1.0.0-alpha12")
+        implementation("androidx.xr.glimmer:glimmer:1.0.0-alpha12")
+        implementation("androidx.xr.glimmer:glimmer-google-fonts:1.0.0-alpha12")
+        implementation("androidx.xr.projected:projected:1.0.0-alpha07")
+        implementation("androidx.xr.arcore:arcore:1.0.0-alpha13")
     }
 
 ## Declare your activity in your app's manifest

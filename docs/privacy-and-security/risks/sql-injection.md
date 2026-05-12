@@ -4,8 +4,6 @@ url: https://developer.android.com/privacy-and-security/risks/sql-injection
 source: md.txt
 ---
 
-# SQL injection
-
 <br />
 
 **OWASP category:** [MASVS-CODE: Code Quality](https://mas.owasp.org/MASVS/10-MASVS-CODE)
@@ -14,21 +12,21 @@ source: md.txt
 
 SQL injection exploits vulnerable applications by inserting code into SQL statements to access underlying databases beyond their intentionally-exposed interfaces. The attack can expose private data, corrupt database contents, and even compromising of backend infrastructure.
 
-SQL can be vulnerable to injection via queries that are created dynamically by concatenating user input before execution. Targeting web, mobile and any SQL database application, SQL injection usually features in the[OWASP Top Ten](https://owasp.org/www-community/attacks/SQL_Injection)of web vulnerabilities. Attackers used the technique in several high-profile breaches.
+SQL can be vulnerable to injection via queries that are created dynamically by concatenating user input before execution. Targeting web, mobile and any SQL database application, SQL injection usually features in the [OWASP Top Ten](https://owasp.org/www-community/attacks/SQL_Injection) of web vulnerabilities. Attackers used the technique in several high-profile breaches.
 
-In this basic example, an unescaped input by a user into an order number box can be inserted into the SQL string and interpreted as the following query:  
+In this basic example, an unescaped input by a user into an order number box can be inserted into the SQL string and interpreted as the following query:
 
     SELECT * FROM users WHERE email = 'example@example.com' AND order_number = '251542'' LIMIT 1
 
-Such code would generate a database syntax error in a web console, which shows the application may be vulnerable to SQL injection. Replacing the order number with`'OR 1=1--`means authentication can be achieved since the database evaluates the statement to`True`, as one always equals one.
+Such code would generate a database syntax error in a web console, which shows the application may be vulnerable to SQL injection. Replacing the order number with `'OR 1=1--` means authentication can be achieved since the database evaluates the statement to `True`, as one always equals one.
 
-Similarly, this query returns all rows from a table:  
+Similarly, this query returns all rows from a table:
 
     SELECT * FROM purchases WHERE email='admin@app.com' OR 1=1;
 
 ### Content providers
 
-Content providers offer a structured storage mechanism that can be limited to an application or exported for sharing with other apps. Permissions should be set based on the principle of least privilege; an exported`ContentProvider`can have a single specified permission for reading and writing.
+Content providers offer a structured storage mechanism that can be limited to an application or exported for sharing with other apps. Permissions should be set based on the principle of least privilege; an exported `ContentProvider` can have a single specified permission for reading and writing.
 
 It is worth noting that not all SQL injections lead to exploitation. Some content providers already grant readers complete access to the SQLite database; being able to execute arbitrary queries yields little advantage. Patterns that can represent a security issue include:
 
@@ -39,13 +37,16 @@ It is worth noting that not all SQL injections lead to exploitation. Some conten
 
 ## Impact
 
-SQL injection can expose sensitive user or application data, overcome authentication and authorization restrictions, and leave databases vulnerable to corruption or deletion. Impacts can include dangerous and lasting implications for users whose personal data has been exposed. Providers of apps and services risk losing intellectual property or user trust.
+SQL injection can expose sensitive user or application data, overcome authentication and authorization restrictions, and leave databases vulnerable to corruption or deletion.
+Impacts can include dangerous and lasting implications for users whose personal data has been exposed. Providers of apps and services risk losing intellectual property or user trust.
 
 ## Mitigations
 
 ### Replaceable parameters
 
-Using`?`as a replaceable parameter in selection clauses and a separate array of selection arguments binds the user input directly to the query rather than interpreting it as part of a SQL statement.  
+Using `?` as a replaceable parameter in selection clauses and a separate array
+of selection arguments binds the user input directly to the query rather than
+interpreting it as part of a SQL statement.
 
 ### Kotlin
 
@@ -71,7 +72,7 @@ Using`?`as a replaceable parameter in selection clauses and a separate array of 
 
 The user input is bound directly to the query rather than being treated as SQL, preventing code injection.
 
-Here's a more elaborate example showing a shopping app's query to retrieve purchase details with replaceable parameters:  
+Here's a more elaborate example showing a shopping app's query to retrieve purchase details with replaceable parameters:
 
 ### Kotlin
 
@@ -105,11 +106,12 @@ Here's a more elaborate example showing a shopping app's query to retrieve purch
 
 ### Use PreparedStatement objects
 
-The[`PreparedStatement`](https://developer.android.com/reference/java/sql/PreparedStatement)interface precompiles SQL statements as an object which can then be executed efficiently multiple times. PreparedStatement uses`?`as a placeholder for parameters, which would make the following compiled injection attempt ineffective:  
+The [`PreparedStatement`](https://developer.android.com/reference/java/sql/PreparedStatement) interface precompiles SQL statements as an object which can then be executed efficiently multiple times. PreparedStatement uses `?` as a placeholder for parameters, which would make the following compiled injection attempt ineffective:
 
     WHERE id=295094 OR 1=1;
 
-In this case,`295094 OR 1=1`statement is read as the value for ID, likely yielding no results, whereas a raw query would interpret the`OR 1=1`statement as another part of the`WHERE`clause. The example below shows a parametrized query:  
+In this case, `295094 OR 1=1` statement is read as the value for ID, likely yielding no results, whereas a raw query would interpret the `OR 1=1` statement as another part of the `WHERE` clause.
+The example below shows a parametrized query:
 
 ### Kotlin
 
@@ -128,7 +130,7 @@ In this case,`295094 OR 1=1`statement is read as the value for ID, likely yieldi
 
 ### Use query methods
 
-In this longer example, the`selection`and`selectionArgs`of the`query()`method are combined to make a`WHERE`clause. Since the arguments are provided separately, they are escaped before their combination, preventing SQL injection.  
+In this longer example, the `selection` and `selectionArgs` of the `query()` method are combined to make a `WHERE` clause. Since the arguments are provided separately, they are escaped before their combination, preventing SQL injection.
 
 ### Kotlin
 
@@ -193,17 +195,17 @@ In this longer example, the`selection`and`selectionArgs`of the`query()`method ar
 
 ### Use properly configured SQLiteQueryBuilder
 
-Developers can further protect applications by using[`SQLiteQueryBuilder`](https://developer.android.com/reference/android/database/sqlite/SQLiteQueryBuilder), a class that helps build queries to be sent to`SQLiteDatabase`objects. Recommended configurations include:
+Developers can further protect applications by using [`SQLiteQueryBuilder`](https://developer.android.com/reference/android/database/sqlite/SQLiteQueryBuilder), a class that helps build queries to be sent to `SQLiteDatabase` objects. Recommended configurations include:
 
-- [`setStrict()`](https://developer.android.com/reference/android/database/sqlite/SQLiteQueryBuilder#setStrict(boolean))mode for query validation.
-- [`setStrictColumns()`](https://developer.android.com/reference/android/database/sqlite/SQLiteQueryBuilder#setStrictColumns(boolean))to validate that columns are allow-listed in the setProjectionMap.
-- [`setStrictGrammar()`](https://developer.android.com/reference/android/database/sqlite/SQLiteQueryBuilder#setStrictGrammar(boolean))to limit subqueries.
+- [`setStrict()`](https://developer.android.com/reference/android/database/sqlite/SQLiteQueryBuilder#setStrict(boolean)) mode for query validation.
+- [`setStrictColumns()`](https://developer.android.com/reference/android/database/sqlite/SQLiteQueryBuilder#setStrictColumns(boolean)) to validate that columns are allow-listed in the setProjectionMap.
+- [`setStrictGrammar()`](https://developer.android.com/reference/android/database/sqlite/SQLiteQueryBuilder#setStrictGrammar(boolean)) to limit subqueries.
 
 ### Use Room library
 
-The`android.database.sqlite`package provides APIs necessary for using databases on Android. However, this approach requires writing low-level code and lacks compile-time verification of raw SQL queries. As data graphs change, affected SQL queries need to be updated manually -- a time-consuming and error-prone process.
+The `android.database.sqlite` package provides APIs necessary for using databases on Android. However, this approach requires writing low-level code and lacks compile-time verification of raw SQL queries. As data graphs change, affected SQL queries need to be updated manually -- a time-consuming and error-prone process.
 
-A high-level solution is to use the[Room Persistence Library](https://developer.android.com/training/basics/data-storage/room)as an abstraction layer for SQLite databases. Room's features comprise:
+A high-level solution is to use the [Room Persistence Library](https://developer.android.com/training/basics/data-storage/room) as an abstraction layer for SQLite databases. Room's features comprise:
 
 - A database class which serves as the main access point for connecting to the app's persisted data.
 - Data entities representing the database's tables.

@@ -4,8 +4,6 @@ url: https://developer.android.com/guide/navigation/design/nested-graphs
 source: md.txt
 ---
 
-# Nested graphs
-
 Login flows, wizards, or other subflows within your app are usually best
 represented as nested navigation graphs. By nesting self-contained
 subnavigation flows in this way, the main flow of your app's UI is easier to
@@ -53,7 +51,7 @@ new destination. You then call `composable()` and `dialog()` within
 `navigation()`'s lambda to add destinations to the nested graph.
 
 Consider how the following snippet implements the graph in figure 2 using
-Compose:  
+Compose:
 
     // Routes
     @Serializable object Title
@@ -116,11 +114,12 @@ Compose:
 
 To [navigate](https://developer.android.com/guide/navigation/use-graph/navigate) directly to a nested destination, use a route type as you would
 to any other destination. This is because routes are a global concept used to
-identify destinations that any screen can navigate to:  
+identify destinations that any screen can navigate to:
 
     navController.navigate(route = Match)
 
-| **Note:** You should encapsulate the creation of your destinations and navigation events in separate files. For more on this, see [Encapsulate your code](https://developer.android.com/guide/navigation/design/encapsulate)
+> [!NOTE]
+> **Note:** You should encapsulate the creation of your destinations and navigation events in separate files. For more on this, see [Encapsulate your code](https://developer.android.com/guide/navigation/design/encapsulate)
 
 ## XML
 
@@ -205,7 +204,7 @@ another](https://developer.android.com/guide/navigation/navigation-nested-graphs
 allows the included graph to be defined in a separate module or project
 altogether, which maximizes reusability.
 
-The following snippet demonstrates how you can use `<include>`:  
+The following snippet demonstrates how you can use `<include>`:
 
     <!-- (root) nav_graph.xml -->
     <?xml version="1.0" encoding="utf-8"?>

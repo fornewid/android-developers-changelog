@@ -71,8 +71,7 @@ First, create a phone AVD to act as the host device for the AI glasses:
    ![](https://developer.android.com/static/studio/images/buttons/ic_plus.png) \> Create Virtual Device**.
 2. In the **Add Device** window, in the **Form Factor** section, select **Phone**.
 3. Select any phone device (this example uses a Pixel 9 Pro), and then click **Next**.
-4. From the **API** drop-down menu, select **API 37.0 "CinnamonBun;
-   Android 17.0"**.
+4. From the **API** drop-down menu, select **API CANARY Preview**.
 
    ![The AVD API level configuration for the phone host
    device.](https://developer.android.com/static/images/develop/xr/jetpack-xr-sdk/run/host-device-avd-api.png)

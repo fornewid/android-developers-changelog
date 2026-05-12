@@ -6,7 +6,7 @@ source: md.txt
 
 # The Android Show \| I/O Edition
 
-![Android Show logo](https://developer.android.com/static/images/events/tas-io/title-io.svg) Save the date [Video](https://www.youtube.com/watch?v=-Gii_RXT91I)
+![Android Show logo](https://developer.android.com/static/images/events/tas-io/title-io.svg) Save the date [Video](https://www.youtube.com/watch?v=dXCCleAddEA)
 
 ### Build for the Future with Android
 

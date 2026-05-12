@@ -4,19 +4,28 @@ url: https://developer.android.com/privacy-and-security/risks/use-of-native-code
 source: md.txt
 ---
 
-# Use of native code
-
 <br />
 
 **OWASP category:** [MASVS-CODE: Code Quality](https://mas.owasp.org/MASVS/10-MASVS-CODE)
 
 ## Overview
 
-Android applications can take advantage of native code written in languages like C and C++ for specific functionalities. However, when an application utilizes the Java Native Interface (JNI) to interact with this native code, it potentially exposes itself to vulnerabilities like buffer overflows and other issues that may be present in the native code implementation.
+Android applications can take advantage of native code written in languages like
+C and C++ for specific functionalities. However, when an application utilizes
+the Java Native Interface (JNI) to interact with this native code, it
+potentially exposes itself to vulnerabilities like buffer overflows and other
+issues that may be present in the native code implementation.
 
 ## Impact
 
-Despite very positive impacts such as performance optimization and obfuscation, utilizing native code in Android applications can have negative security impacts. Native code languages like C/C++ lack the memory safety features of Java/Kotlin, making them susceptible to vulnerabilities like buffer overflows, use-after-free errors, and other memory corruption issues -- leading to crashes or arbitrary code execution. Additionally, if a vulnerability exists in the native code component, it can potentially compromise the entire application, even if the rest is written securely in Java.
+Despite very positive impacts such as performance optimization and obfuscation,
+utilizing native code in Android applications can have negative security
+impacts. Native code languages like C/C++ lack the memory safety features of
+Java/Kotlin, making them susceptible to vulnerabilities like buffer overflows,
+use-after-free errors, and other memory corruption issues -- leading to crashes
+or arbitrary code execution. Additionally, if a vulnerability exists in the
+native code component, it can potentially compromise the entire application,
+even if the rest is written securely in Java.
 
 ## Mitigations
 
@@ -27,9 +36,14 @@ Despite very positive impacts such as performance optimization and obfuscation, 
 
 ### Harden the compilation options
 
-Native libraries utilizing the ELF format can be hardened against a range of vulnerabilities by activating protective mechanisms like stack protection (Canary), relocation read-only (RELRO), data execution prevention (NX), and position-independent executables (PIE). Conveniently, the Android NDK compilation options already enable all these protections by default.
+Native libraries utilizing the ELF format can be hardened against a range of
+vulnerabilities by activating protective mechanisms like stack protection
+(Canary), relocation read-only (RELRO), data execution prevention (NX), and
+position-independent executables (PIE). Conveniently, the Android NDK
+compilation options already enable all these protections by default.
 
-To verify the implementation of these security mechanisms within a binary, you can employ tools like`hardening-check`or`pwntools`.  
+To verify the implementation of these security mechanisms within a binary, you
+can employ tools like `hardening-check` or `pwntools`.
 
 ### Bash
 
@@ -42,7 +56,14 @@ To verify the implementation of these security mechanisms within a binary, you c
 
 ### Verify third-party libraries are not vulnerable
 
-When choosing third-party libraries, prioritize using those with a solid reputation in the development community. Resources like the[Google Play SDK Index](https://play.google.com/sdks)can help you identify well-regarded and trustworthy libraries. Ensure you keep the libraries updated to the latest versions and proactively search for any known vulnerabilities related to them using resources like the databases from[Exploit-DB](https://www.exploit-db.com/). A web search using keywords like`[library_name] vulnerability`or`[library_name] CVE`can reveal critical security information.
+When choosing third-party libraries, prioritize using those with a solid
+reputation in the development community. Resources like the [Google Play SDK
+Index](https://play.google.com/sdks) can help you identify well-regarded and trustworthy libraries. Ensure
+you keep the libraries updated to the latest versions and proactively search for
+any known vulnerabilities related to them using resources like the databases
+from [Exploit-DB](https://www.exploit-db.com/). A web search using keywords like
+`[library_name] vulnerability` or `[library_name] CVE` can reveal critical
+security information.
 
 ## Resources
 

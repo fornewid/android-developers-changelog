@@ -223,9 +223,11 @@ fun MultipleStylesButton() {
                 }
             }
         }
-        Box(modifier = Modifier.semantics(properties = {
-            role = Role.Button
-        }).styleable(styleState, edgeStyle)) {
+        Box(modifier = Modifier
+            .semantics(properties = {
+                role = Role.Button
+            })
+            .styleable(styleState, edgeStyle)) {
             Box(
                 modifier = Modifier
                     .styleable(styleState, frontStyle),
@@ -241,95 +243,6 @@ fun MultipleStylesButton() {
                     }
                 )
             }
-        }
-    }
-}
-```
-
-<br />
-
-### Gradient glow effect button
-
-To achieve a gradient glow effect that infinitely animates, you can use Styles
-in combination with `rememberInfiniteTransition`, as follows:
-
-> [!NOTE]
-> **Note:** Infinite animations are not supported by the Styles API. This example uses a combination of `rememberInfiniteTransition` and Styles.
-
-**Figure 4.** Gradient glow effect button.
-
-
-```kotlin
-@Preview
-@Composable
-fun GradientGlowButtonExample() {
-    val infiniteTransition = rememberInfiniteTransition(label = "glowing_button_85_animation")
-    val animatedProgress by infiniteTransition.animateFloat(
-        initialValue = 0f,
-        targetValue = 1f,
-        animationSpec = infiniteRepeatable(
-            animation = tween(durationMillis = 20000, easing = LinearEasing),
-        ), label = "progress"
-    )
-
-    val gradientColors = listOf(
-        Color(0xffff0000), Color(0xffff7300), Color(0xfffffb00), Color(0xff48ff00),
-        Color(0xff00ffd5), Color(0xff002bff), Color(0xff7a00ff), Color(0xffff00c8),
-        Color(0xffff0000)
-    )
-
-    val glowingBrush = remember(animatedProgress) {
-        object : ShaderBrush() {
-            override fun createShader(size: Size): Shader {
-                val width = size.width * 4
-                val brushSize = width * animatedProgress
-                return LinearGradientShader(
-                    colors = gradientColors,
-                    from = Offset(brushSize, 0f),
-                    to = Offset(brushSize + width, 0f),
-                    tileMode = TileMode.Repeated
-                )
-            }
-        }
-    }
-
-
-    Box(
-        modifier = Modifier
-            .padding(32.dp),
-        contentAlignment = Alignment.Center
-    ) {
-        BaseButton(
-            onClick = { },
-            style = Style {
-                dropShadow(
-                    Shadow(
-                        brush = glowingBrush,
-                        radius = 5.dp
-                    )
-                )
-                transformOrigin(TransformOrigin.Center)
-                pressed {
-                    animate {
-                        dropShadow(
-                            Shadow(
-                                brush = glowingBrush,
-                                radius = 10.dp
-                            )
-                        )
-                        scale(0.95f)
-                    }
-
-                }
-                size(width = 200.dp, height = 50.dp)
-                background(Color(0xFF111111))
-                shape(RoundedCornerShape(10.dp))
-                contentColor(Color.White)
-                contentPadding(vertical = (0.6f * 14).dp, horizontal = (2f * 14).dp)
-                border(width = 0.dp, color = Color.Transparent)
-            }
-        ) {
-            BaseText(text = "Button 85")
         }
     }
 }

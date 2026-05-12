@@ -128,6 +128,7 @@ public fun Button(
             modifier
                 .semantics { role = Role.Button }
                 .surface(
+                    enabled = enabled,
                     shape = shape,
                     color = color,
                     contentColor = contentColor,

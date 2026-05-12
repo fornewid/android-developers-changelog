@@ -71,7 +71,7 @@ LaunchedEffect(pulseRateMs) { // Restart the effect when the pulse rate changes
 
 In the code above, the animation uses the suspending function
 [`delay`](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/delay.html)
-to wait the set amount of time. Then, it sequentially animates the alpha
+to wait for the set amount of time. Then, it sequentially animates the alpha
 to zero and back again using
 [`animateTo`](https://developer.android.com/reference/kotlin/androidx/compose/animation/core/Animatable#animateTo(kotlin.Any,androidx.compose.animation.core.AnimationSpec,kotlin.Any,kotlin.Function1)).
 This will repeat for the life of the composable.
@@ -518,7 +518,7 @@ fun HomeScreen(
 <br />
 
 `currentOnStart` and `currentOnStop` are not needed as `DisposableEffect`
-keys, because their value never change in Composition due to the usage of
+keys, because their values never change in Composition due to the usage of
 `rememberUpdatedState`. If you don't pass `lifecycleOwner` as a parameter and
 it changes, `HomeScreen` recomposes, but the `DisposableEffect` isn't disposed
 of and restarted. That causes problems because the wrong `lifecycleOwner` is

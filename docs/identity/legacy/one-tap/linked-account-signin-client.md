@@ -4,8 +4,9 @@ url: https://developer.android.com/identity/legacy/one-tap/linked-account-signin
 source: md.txt
 ---
 
-| **Caution:** One Tap for Android is deprecated. To ensure the continued security and usability of your app, [migrate to
-| Credential Manager](https://developer.android.com/identity/sign-in/credential-manager). Credential Manager supports passkey, password, and federated identity authentication (such as Sign-in with Google), stronger security, and a more consistent user experience.
+> [!CAUTION]
+> **Caution:** One Tap for Android is deprecated. To ensure the continued security and usability of your app, [migrate to
+> Credential Manager](https://developer.android.com/identity/sign-in/credential-manager). Credential Manager supports passkey, password, and federated identity authentication (such as Sign-in with Google), stronger security, and a more consistent user experience.
 
 Linked Account Sign-In enables [One Tap Sign In With Google](https://developer.android.com/identity/legacy/one-tap/overview) for users
 that already have their Google Account linked to your service. This improves the
@@ -35,7 +36,8 @@ Get the latest Google Play services on your development host:
 
 1. Open the [Android SDK Manager](https://developer.android.com/studio/intro/update#sdk-manager).
 
-| **Note:** If this is your first time setting up your Android Development environment, you should review and install the [Android SDK recommended packages](https://developer.android.com/studio/intro/update#recommended).
+> [!NOTE]
+> **Note:** If this is your first time setting up your Android Development environment, you should review and install the [Android SDK recommended packages](https://developer.android.com/studio/intro/update#recommended).
 
 1. Under **SDK Tools** , find **Google Play services**.
 

@@ -4,6 +4,9 @@ url: https://developer.android.com/ai/imagen
 source: md.txt
 ---
 
+> [!WARNING]
+> **Warning:** All Imagen models are deprecated and will shut down on June 24, 2026 As a replacement, you can migrate your apps to use [Gemini Image models](https://developer.android.com/ai/gemini/developer-api#generate-images) (the "Nano Banana" models).
+
 Imagen is an image generation model. It can be used to generate
 custom avatars for user profiles or to integrate personalized visual assets into
 existing screen flows to increase user engagement.
@@ -45,7 +48,7 @@ Add the following dependencies to your `build.gradle` file:
 
     dependencies {
       // Import the BoM for the Firebase platform
-      implementation(platform("com.google.firebase:firebase-bom:34.12.0"))
+      implementation(platform("com.google.firebase:firebase-bom:34.13.0"))
 
       // Add the dependency for the Firebase AI Logic library. When using the BoM,
       // you don't specify versions in Firebase library dependencies

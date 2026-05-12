@@ -4,8 +4,6 @@ url: https://developer.android.com/privacy-and-security/risks/webview-unsafe-fil
 source: md.txt
 ---
 
-# WebViews – Unsafe File Inclusion
-
 <br />
 
 **OWASP category:** [MASVS-STORAGE: Storage](https://mas.owasp.org/MASVS/05-MASVS-STORAGE)
@@ -60,7 +58,7 @@ mistakes](https://blog.oversecured.com/Android-security-checklist-webview/).
 
 Use [`WebViewAssetLoader`](https://developer.android.com/reference/androidx/webkit/WebViewAssetLoader) instead of the mentioned methods. This method uses
 the `http(s)//:` scheme instead of a `file://` scheme to access local file
-system assets and is not vulnerable to the described attack.  
+system assets and is not vulnerable to the described attack.
 
 ### Kotlin
 

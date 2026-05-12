@@ -49,23 +49,28 @@ To feed data into Health Connect, carry out the following steps:
    If it's not versioned, you can use the `Long` value
    of the current timestamp as an alternative.
 
-       val recordVersion = 0L
-       // Specify as needed
-       // The clientRecordId is an ID that you choose for your record. This
-       // is often the same ID you use in your app's datastore.
-       val clientRecordId = "<your-record-id>"
 
-       val record = WeightRecord(
-           metadata = Metadata.activelyRecorded(
-               clientRecordId = clientRecordId,
-               clientRecordVersion = recordVersion,
-               device = Device(type = Device.TYPE_SCALE)
-           ),
-           weight = Mass.kilograms(62.0),
-           time = Instant.now(),
-           zoneOffset = ZoneOffset.UTC,
-       )
-       healthConnectClient.insertRecords(listOf()(record))
+   ```kotlin
+   val recordVersion = 0L
+   // Specify as needed
+   // The clientRecordId is an ID that you choose for your record. This
+   // is often the same ID you use in your app's datastore.
+   val clientRecordId = "<your-record-id>"
+
+   val record = WeightRecord(
+       metadata = Metadata(
+           clientRecordId = clientRecordId,
+           clientRecordVersion = recordVersion,
+           device = Device(type = Device.TYPE_SCALE)
+       ),
+       weight = Mass.kilograms(62.0),
+       time = Instant.now(),
+       zoneOffset = ZoneOffset.UTC,
+   )
+   healthConnectClient.insertRecords(listOf(record))
+   ```
+
+   <br />
 
 4. [Upsert](https://developer.android.com/guide/health-and-fitness/health-connect/develop/write-data#upsert-through-client-id) data to Health Connect using
    [`insertRecords`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/HealthConnectClient#insertRecords(kotlin.collections.List)). Upserting data means that any existing
@@ -74,7 +79,12 @@ To feed data into Health Connect, carry out the following steps:
    is higher than the existing value. Otherwise, the upserted data is written
    as new data.
 
-       healthConnectClient.insertRecords(arrayListOf(record))
+
+   ```kotlin
+   healthConnectClient.insertRecords(arrayListOf(record))
+   ```
+
+   <br />
 
 To learn about the practical considerations for feeding data, check out the best
 practices for [Write data](https://developer.android.com/guide/health-and-fitness/health-connect/plan/best-practices#write-data).
@@ -87,15 +97,20 @@ you pull data changes from Health Connect.
 
 The [`insertRecords`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/HealthConnectClient#insertRecords(kotlin.collections.List)) function returns a
 [`InsertRecordsResponse`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/response/InsertRecordsResponse) that contains the list of `id` values.
-Use the response to get the Record IDs and store them.  
+Use the response to get the Record IDs and store them.
 
-    val response = healthConnectClient.insertRecords(arrayListOf(record))
 
-    for (recordId in response.recordIdsList) {
-        // Store recordId to your app's datastore
-    }
+```kotlin
+val response = healthConnectClient.insertRecords(listOf(record))
+for (recordId in response.recordIdsList) {
+    // Store recordId to your app's datastore
+}
+```
 
-| **Note:** If your app needs to read data from Health Connect, you must store the `id`. This is necessary to correctly process deletion changelogs, as `DeletionChange` notifications only provide the record `id`.
+<br />
+
+> [!NOTE]
+> **Note:** If your app needs to read data from Health Connect, you must store the `id`. This is necessary to correctly process deletion changelogs, as `DeletionChange` notifications only provide the record `id`.
 
 ## Pull data from Health Connect
 
@@ -111,13 +126,19 @@ return both a list of data changes, and a new *Changes* token to be used next
 time.
 
 To obtain a *Changes* token, call [`getChangesToken`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/HealthConnectClient#getChangesToken(androidx.health.connect.client.request.ChangesTokenRequest)) and
-supply the required data types.  
+supply the required data types.
 
-    val changesToken = healthConnectClient.getChangesToken(
-        ChangesTokenRequest(recordTypes = setOf(WeightRecord::class))
-    )
 
-| **Note:** We recommend getting separate tokens per data type instead of getting them in bulk to avoid having an `Exception` in case one of the permissions is revoked.
+```kotlin
+val changesToken = healthConnectClient.getChangesToken(
+    ChangesTokenRequest(recordTypes = setOf(WeightRecord::class))
+)
+```
+
+<br />
+
+> [!NOTE]
+> **Note:** We recommend getting separate tokens per data type instead of getting them in bulk to avoid having an `Exception` in case one of the permissions is revoked.
 
 ### Check for data changes
 
@@ -132,24 +153,29 @@ if there are available data changes. Here are the following steps:
 4. Repeat Steps 1-3 until there are no *Changes* left.
 5. Store the next token and reserve it for a future import.
 
-    suspend fun processChanges(token: String): String {
-        var nextChangesToken = token
-        do {
-            val response = healthConnectClient.getChanges(nextChangesToken)
-            response.changes.forEach { change ->
-                when (change) {
-                    is UpsertionChange ->
-                        if (change.record.metadata.dataOrigin.packageName != context.packageName) {
-                            processUpsertionChange(change)
-                        }
-                    is DeletionChange -> processDeletionChange(change)
-                }
+
+```kotlin
+suspend fun processChanges(context: Context, token: String): String {
+    var nextChangesToken = token
+    do {
+        val response = healthConnectClient.getChanges(nextChangesToken)
+        response.changes.forEach { change ->
+            when (change) {
+                is UpsertionChange ->
+                    if (change.record.metadata.dataOrigin.packageName != context.packageName) {
+                        processUpsertionChange(change)
+                    }
+                is DeletionChange -> processDeletionChange(change)
             }
-            nextChangesToken = response.nextChangesToken
-        } while (response.hasMore)
-        // Return and store the changes token for use next time.
-        return nextChangesToken
-    }
+        }
+        nextChangesToken = response.nextChangesToken
+    } while (response.hasMore)
+    // Return and store the changes token for use next time.
+    return nextChangesToken
+}
+```
+
+<br />
 
 To learn about the practical considerations for pulling data, check out the best
 practices for [Sync data](https://developer.android.com/guide/health-and-fitness/health-connect/plan/best-practices#sync-data).
@@ -161,7 +187,9 @@ and the `lastModifiedTime` from its `metadata` to [upsert](https://developer.and
 For `DeletionChange`, use the `id` provided to [delete](https://developer.android.com/guide/health-and-fitness/health-connect/develop/delete-data) the record.
 This requires that you have stored the record `id` as mentioned in
 [Store Health Connect IDs](https://developer.android.com/health-and-fitness/health-connect/sync-data#store-ids).
-| **Note:** [`DeletionChange`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/changes/DeletionChange) only contains the `id` of the deleted record, and not the record type, due to privacy. With that, you can either specify only 1 data type for each call of `getChanges`, or make sure that you've stored this information separately beforehand.
+
+> [!NOTE]
+> **Note:** [`DeletionChange`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/changes/DeletionChange) only contains the `id` of the deleted record, and not the record type, due to privacy. With that, you can either specify only 1 data type for each call of `getChanges`, or make sure that you've stored this information separately beforehand.
 
 ## Delete data from Health Connect
 
@@ -193,7 +221,7 @@ see [Companion device pairing](https://developer.android.com/develop/connectivit
 ### Declare the service in the Manifest
 
 Next, declare `CompanionDeviceService` in your app's manifest file. Add the
-following to your `AndroidManifest.xml`:  
+following to your `AndroidManifest.xml`:
 
     <manifest ...>
        <application ...>
@@ -213,85 +241,52 @@ following to your `AndroidManifest.xml`:
 Finally, create a class that extends `CompanionDeviceService`. This service
 handles the connection to the wearable device and receives data through BLE
 GATT callbacks. When new data is received, it's immediately written to Health
-Connect.  
+Connect.
 
-    import android.companion.CompanionDeviceService
-    import android.bluetooth.BluetoothGatt
-    import android.bluetooth.BluetoothGattCallback
-    import android.bluetooth.BluetoothGattCharacteristic
-    import androidx.health.connect.client.permission.HealthPermission
-    import androidx.health.connect.client.HealthConnectClient
-    import androidx.health.connect.client.records.HeartRateRecord
-    import androidx.health.connect.client.records.StepsRecord
-    import kotlinx.coroutines.CoroutineScope
-    import kotlinx.coroutines.Dispatchers
-    import kotlinx.coroutines.SupervisorJob
-    import kotlinx.coroutines.launch
 
-    class MyWearableService : CompanionDeviceService() {
+```kotlin
+private val serviceScope = CoroutineScope(SupervisorJob() + Dispatchers.IO)
+private var healthConnectClient: HealthConnectClient? = null
+private var bluetoothGatt: BluetoothGatt? = null
 
-       // A coroutine scope for handling suspend functions like writing to Health Connect
-       private val serviceScope = CoroutineScope(SupervisorJob() + Dispatchers.IO)
-       private var healthConnectClient: HealthConnectClient? = null
-       private var bluetoothGatt: BluetoothGatt? = null
+override fun onDeviceAppeared(address: String) {
+    super.onDeviceAppeared(address)
+    healthConnectClient = HealthConnectClient.getOrCreate(this)
 
-       // This is called by the system when your wearable connects
-       override fun onDeviceAppeared(address: String) {
-           super.onDeviceAppeared(address)
-           healthConnectClient = HealthConnectClient.getOrCreate(this)
+    serviceScope.launch {
+        val granted = healthConnectClient?.permissionController?.getGrantedPermissions()
 
-           serviceScope.launch {
-               // Check which permissions have been granted before subscribing to data from the wearable.
-               // A service cannot request permissions, so your app must have already requested
-               // and been granted them from an Activity.
-               val granted = healthConnectClient?.permissionController?.getGrantedPermissions()
+        // 1. Check permissions ONCE when the device connects
+        if (granted?.contains(HealthPermission.getWritePermission(HeartRateRecord::class)) ?: false) {
+            // This is where you'd actually start the Bluetooth connection
+            // bluetoothGatt = gattCallback.connect(...)
+        }
 
-               // ... set up your GATT connection here ...
-
-               // Once connected, subscribe to notifications for the data types you have
-               // permission to write.
-               if (granted?.contains(HealthPermission.getWritePermission(HeartRateRecord::class)) == true) {
-                   // subscribeToHeartRate(bluetoothGatt)
-               }
-           }
-       }
-
-       // The core of your low-latency pipeline is the BLE callback
-       private val gattCallback = object : BluetoothGattCallback() {
-           override fun onCharacteristicChanged(gatt: BluetoothGatt, characteristic: BluetoothGattCharacteristic, value: ByteArray) {
-               super.onCharacteristicChanged(gatt, characteristic, value)
-
-               // 1. Instantly receive the data
-               val rawData = value
-
-               // 2. Parse the data from the wearable
-               val healthData = parseWearableData(rawData) // Your custom parsing logic
-
-               // 3. Immediately process it. For simplicity, this example writes
-               //    directly to Health Connect. A real-world app might write to its
-               //    own datastore first and then sync with Health Connect.
-               serviceScope.launch {
-                   writeToHealthConnect(healthData)
-               }
-           }
-       }
-
-       private suspend fun writeToHealthConnect(healthData: HealthData) {
-           val records = prepareHealthConnectRecords(healthData) // Convert to Health Connect records
-           try {
-               healthConnectClient?.insertRecords(records)
-           } catch (e: Exception) {
-               // Handle exceptions
-           }
-       }
-
-       // This is called by the system when your wearable disconnects
-       override fun onDeviceDisappeared(address: String) {
-           super.onDeviceDisappeared(address)
-           // Clean up your GATT connection and other resources
-           bluetoothGatt?.close()
-       }
+        // 2. Do your initial database read
+        readExerciseSessionAndRoute()
     }
+}
+
+private val gattCallback = object : BluetoothGattCallback() {
+    override fun onCharacteristicChanged(
+        gatt: BluetoothGatt,
+        characteristic: BluetoothGattCharacteristic,
+        value: ByteArray
+    ) {
+        super.onCharacteristicChanged(gatt, characteristic, value)
+
+        // 3. ONLY process the incoming data here
+        val rawData = value
+
+        serviceScope.launch {
+            // parseWearableData(rawData)
+            // insertExerciseRoute() or writeToHealthConnect()
+        }
+    }
+}
+```
+
+<br />
 
 ## Best practices for syncing data
 

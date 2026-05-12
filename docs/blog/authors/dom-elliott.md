@@ -10,7 +10,7 @@ post ![](https://developer.android.com/static/blog/assets/dom_elliot_d78b0628db_
 
 # Dom Elliott
 
-###### Group Product Manager
+###### Principal Product Manager
 
 - 19 Nov 2025 19 Nov 2025 ![](https://developer.android.com/static/blog/assets/SS_Alt_Playbrand_Integrity_API_21cd2391d2_Z1L3CHW.webp)
 

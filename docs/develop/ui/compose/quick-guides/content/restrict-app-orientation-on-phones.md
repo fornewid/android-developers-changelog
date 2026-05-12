@@ -9,8 +9,10 @@ source: md.txt
 Your app works great on phones in portrait orientation, so you've restricted the
 app to portrait only. But you see an opportunity to do more on large screens in
 landscape orientation or unfolded foldables.
-| **Note:** For apps targeting Android 16 (API level 36) and higher, orientation, resizability, and aspect ratio restrictions no longer apply on displays with smallest width \>= 600dp. You can learn more at [Behavior changes: Apps targeting
-| Android 16 or higher](https://developer.android.com/about/versions/16/behavior-changes-16#ignore-orientation).
+
+> [!NOTE]
+> **Note:** For apps targeting Android 16 (API level 36) and higher, orientation, resizability, and aspect ratio restrictions no longer apply on displays with smallest width \>= 600dp. You can learn more at [Behavior changes: Apps targeting
+> Android 16 or higher](https://developer.android.com/about/versions/16/behavior-changes-16#ignore-orientation).
 
 How can you have it both ways---restrict the app to portrait orientation on
 a foldable's outer screen, but enable landscape on the inner screen?
@@ -40,7 +42,8 @@ This implementation is compatible with all API levels.
     implementation "androidx.window:window:1.5.1"
     implementation "androidx.window:window-core:1.5.1"
 
-| **Note:** Set the version to the latest stable release.
+> [!NOTE]
+> **Note:** Set the version to the latest stable release.
 
 ## Manage app orientation
 
@@ -54,13 +57,14 @@ the manifest orientation setting.
 You can either avoid declaring the [`screenOrientation`](https://developer.android.com/guide/topics/manifest/activity-element#screen) element of the app
 manifest (in which case orientation defaults to `unspecified`) or set screen
 orientation to `fullUser`. If the user has not locked sensor-based rotation,
-your app will support all device orientations.  
+your app will support all device orientations.
 
     <activity
         android:name=".MyActivity"
         android:screenOrientation="fullUser">
 
-| **Note:** `screenOrientation` is ignored (or is equivalent to `unspecified`) when apps run in multi‑window mode. So, if you restrict your app to one orientation, the app might not work properly in multi‑window mode.
+> [!NOTE]
+> **Note:** `screenOrientation` is ignored (or is equivalent to `unspecified`) when apps run in multi‑window mode. So, if you restrict your app to one orientation, the app might not work properly in multi‑window mode.
 
 The difference between `unspecified` and `fullUser` is subtle but important. If
 you don't declare a `screenOrientation` value, the system chooses the
@@ -84,20 +88,20 @@ With the manifest set to support all user‑permitted orientations, you can
 specify app orientation programmatically based on screen size.
 
 Add the [Jetpack WindowManager](https://developer.android.com/jetpack/androidx/releases/window) libraries to the module's `build.gradle` or
-`build.gradle.kts` file:  
+`build.gradle.kts` file:
 
 ### Kotlin
 
 ```kotlin
-implementation("androidx.window:window:<var translate="no">version</var>")
-implementation("androidx.window:window-core:<var translate="no">version</var>")
+implementation("androidx.window:window:`version`")
+implementation("androidx.window:window-core:`version`")
 ```
 
 ### Groovy
 
 ```groovy
-implementation 'androidx.window:window:<var translate="no">version</var>'
-implementation 'androidx.window:window-core:<var translate="no">version</var>'
+implementation 'androidx.window:window:`version`'
+implementation 'androidx.window:window-core:`version`'
 ```
 
 Use the Jetpack WindowManager
@@ -109,7 +113,7 @@ compared to window size classes to decide when to restrict orientation.
 screens.
 
 Use the [`WindowSizeClass#minWidthDp`](https://developer.android.com/reference/kotlin/androidx/window/core/layout/WindowSizeClass#minWidthDp()) and
-[`WindowSizeClass#minHeightDp`](https://developer.android.com/reference/kotlin/androidx/window/core/layout/WindowSizeClass#minHeightDp()) breakpoints to determine the screen size:  
+[`WindowSizeClass#minHeightDp`](https://developer.android.com/reference/kotlin/androidx/window/core/layout/WindowSizeClass#minHeightDp()) breakpoints to determine the screen size:
 
     /** Determines whether the device has a compact screen. **/
     fun compactScreen() : Boolean {
@@ -133,7 +137,7 @@ See [WindowManager](https://developer.android.com/jetpack/androidx/releases/wind
 
 When you've determined that the device has compact screen size, you can call
 [`Activity#setRequestedOrientation()`](https://developer.android.com/reference/kotlin/android/app/Activity#setrequestedorientation) to override the manifest's
-`screenOrientation` setting:  
+`screenOrientation` setting:
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -163,7 +167,8 @@ When you've determined that the device has compact screen size, you can call
         })
     }
 
-| **Note:** The manifest setting is not changed, just overridden.
+> [!NOTE]
+> **Note:** The manifest setting is not changed, just overridden.
 
 By adding the logic to the `onCreate()` and `View.onConfigurationChanged()`
 methods, you're able to obtain the maximum window metrics and override the
@@ -174,7 +179,9 @@ activity recreation, refer to [Handle configuration changes](https://developer.a
 
 If you are using Jetpack Compose, you can use the same `compactScreen()` function
 in your app's root Composable to achieve the same result.
-| **Note:** If you did not specify `android:screenOrientation` in the manifest, replace the occurrences of `ActivityInfo.SCREEN_ORIENTATION_FULL_USER` with `ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED` to match the defaults.
+
+> [!NOTE]
+> **Note:** If you did not specify `android:screenOrientation` in the manifest, replace the occurrences of `ActivityInfo.SCREEN_ORIENTATION_FULL_USER` with `ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED` to match the defaults.
 
 ## Key points
 
@@ -185,17 +192,13 @@ in your app's root Composable to achieve the same result.
 ## Collections that contain this guide
 
 This guide is part of these curated Quick Guide collections that cover broader
-Android development goals:  
-![](https://developer.android.com/static/images/quick-guides/collection-illustration.png)  
-![](https://developer.android.com/static/images/picto-icons/collection.svg)  
+Android development goals:
+![](https://developer.android.com/static/images/quick-guides/collection-illustration.png) ![](https://developer.android.com/static/images/picto-icons/collection.svg)
 
 ### Optimize for large screens
 
-Enable your app to support an optimized user experience on tablets, foldables, and ChromeOS devices.  
-[Quick guide collection](https://developer.android.com/quick-guides/collections/optimize-for-large-screens)
-![](https://developer.android.com/static/images/picto-icons/help.svg)  
+Enable your app to support an optimized user experience on tablets, foldables, and ChromeOS devices. [Quick guide collection](https://developer.android.com/quick-guides/collections/optimize-for-large-screens) ![](https://developer.android.com/static/images/picto-icons/help.svg)
 
 ## Have questions or feedback
 
-Go to our frequently asked questions page and learn about quick guides or reach out and let us know your thoughts.  
-[Go to FAQ](https://developer.android.com/quick-guides/faq) [Leave feedback](https://issuetracker.google.com/issues/new?component=1573691&template=1993320)
+Go to our frequently asked questions page and learn about quick guides or reach out and let us know your thoughts. [Go to FAQ](https://developer.android.com/quick-guides/faq) [Leave feedback](https://issuetracker.google.com/issues/new?component=1573691&template=1993320)

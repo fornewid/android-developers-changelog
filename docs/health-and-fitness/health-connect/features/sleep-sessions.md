@@ -161,19 +161,24 @@ Health Connect.
 
 - Sessions should be used to add data from a specific sleep session, for sleep:
 
-    suspend fun writeSleepSession(healthConnectClient: HealthConnectClient) {
-        healthConnectClient.insertRecords(
-            listOf(
-                SleepSessionRecord(
-                    startTime = Instant.parse("2022-05-10T23:00:00.000Z"),
-                    startZoneOffset = ZoneOffset.of("-08:00"),
-                    endTime = Instant.parse("2022-05-11T07:00:00.000Z"),
-                    endZoneOffset = ZoneOffset.of("-08:00"),
-                    title = "My Sleep"
-                ),
-            )
+
+```kotlin
+suspend fun writeSleepSession(healthConnectClient: HealthConnectClient) {
+    healthConnectClient.insertRecords(
+        listOf(
+            SleepSessionRecord(
+                startTime = Instant.parse("2022-05-10T23:00:00.000Z"),
+                startZoneOffset = ZoneOffset.of("-08:00"),
+                endTime = Instant.parse("2022-05-11T07:00:00.000Z"),
+                endZoneOffset = ZoneOffset.of("-08:00"),
+                title = "My Sleep"
+            ),
         )
-    }
+    )
+}
+```
+
+<br />
 
 - Subtype data needs to be aligned in a session with sequential timestamps that don't overlap. Gaps are allowed, however.
 - Subtype data doesn't contain a UUID, but associated data has distinct UUIDs.
@@ -205,45 +210,35 @@ The `SleepSessionRecord` data type has two parts:
 
 Here's how you insert a sleep session without stages:
 
-    SleepSessionRecord(
-          title = "weekend sleep",
-          startTime = startTime,
-          endTime = endTime,
-          startZoneOffset = ZoneOffset.UTC,
-          endZoneOffset = ZoneOffset.UTC,
-    )
+
+```kotlin
+SleepSessionRecord(
+    title = "weekend sleep",
+    startTime = startTime,
+    endTime = endTime,
+    startZoneOffset = ZoneOffset.UTC,
+    endZoneOffset = ZoneOffset.UTC,
+)
+```
+
+<br />
 
 Here's how to add stages that cover the entire period of a sleep session:
 
     val stages = listOf(
         SleepSessionRecord.Stage(
-            startTime = Instant.parse("2022-05-10T23:00:00.000Z"),
-            endTime = Instant.parse("2022-05-11T01:00:00.000Z"),
+            startTime = START_TIME,
+            endTime = END_TIME,
             stage = SleepSessionRecord.STAGE_TYPE_SLEEPING,
-        ),
-        SleepSessionRecord.Stage(
-            startTime = Instant.parse("2022-05-11T01:00:00.000Z"),
-            endTime = Instant.parse("2022-05-11T02:30:00.000Z"),
-            stage = SleepSessionRecord.STAGE_TYPE_LIGHT,
-        ),
-        SleepSessionRecord.Stage(
-            startTime = Instant.parse("2022-05-11T02:30:00.000Z"),
-            endTime = Instant.parse("2022-05-11T05:00:00.000Z"),
-            stage = SleepSessionRecord.STAGE_TYPE_DEEP,
-        ),
-        SleepSessionRecord.Stage(
-            startTime = Instant.parse("2022-05-11T05:00:00.000Z"),
-            endTime = Instant.parse("2022-05-11T07:00:00.000Z"),
-            stage = SleepSessionRecord.STAGE_TYPE_REM,
-        ),
+        )
     )
 
     SleepSessionRecord(
             title = "weekend sleep",
-            startTime = Instant.parse("2022-05-10T23:00:00.000Z"),
-            endTime = Instant.parse("2022-05-11T07:00:00.000Z"),
-            startZoneOffset = ZoneOffset.of("-08:00"),
-            endZoneOffset = ZoneOffset.of("-08:00"),
+            startTime = START_TIME,
+            endTime = END_TIME,
+            startZoneOffset = START_ZONE_OFFSET,
+            endZoneOffset = END_ZONE_OFFSET,
             stages = stages,
     )
 
@@ -252,35 +247,34 @@ Here's how to add stages that cover the entire period of a sleep session:
 For every sleep session returned, you should check whether sleep stage data is
 also present:
 
-    suspend fun readSleepSessions(
-        healthConnectClient: HealthConnectClient,
-        startTime: Instant,
-        endTime: Instant
-    ) {
-        val response =
-            healthConnectClient.readRecords(
-                ReadRecordsRequest(
-                    SleepSessionRecord::class,
-                    timeRangeFilter = TimeRangeFilter.between(startTime, endTime)
-                )
-            )
-        for (sleepRecord in response.records) {
-            // Retrieve relevant sleep stages from each sleep record
-            val sleepStages = sleepRecord.stages
-        }
-    }
+
+```kotlin
+val response =
+    healthConnectClient.readRecords(
+        ReadRecordsRequest(
+            SleepSessionRecord::class,
+            timeRangeFilter = TimeRangeFilter.between(startTime, endTime)
+        )
+    )
+for (sleepRecord in response.records) {
+    // Retrieve relevant sleep stages from each sleep record
+    val sleepStages = sleepRecord.stages
+}
+```
+
+<br />
 
 ### Delete a sleep session
 
 This is how to delete a session. For this example, we've used a sleep session:
 
-    suspend fun deleteSleepSession(
-        healthConnectClient: HealthConnectClient,
-        sleepRecord: SleepSessionRecord,
-    ) {
-        val timeRangeFilter = TimeRangeFilter.between(sleepRecord.startTime, sleepRecord.endTime)
-        healthConnectClient.deleteRecords(SleepSessionRecord::class, timeRangeFilter)
-    }
+
+```kotlin
+val timeRangeFilter = TimeRangeFilter.between(sleepRecord.startTime, sleepRecord.endTime)
+healthConnectClient.deleteRecords(SleepSessionRecord::class, timeRangeFilter)
+```
+
+<br />
 
 > [!NOTE]
 > **Note:** Deleting a session does not automatically delete data associated with that session.

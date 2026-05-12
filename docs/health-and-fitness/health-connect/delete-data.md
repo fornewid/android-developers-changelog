@@ -6,7 +6,9 @@ source: md.txt
 
 Deleting data is a key part of the CRUD operations in Health Connect. This guide
 shows you how you can delete records in two ways.
-| **Tip:** For further guidance on deleting data, take a look at the [Android Developer video for reading and writing data](https://www.youtube.com/watch?v=NAx7Gv_Hk7E&t=299) in Health Connect.
+
+> [!TIP]
+> **Tip:** For further guidance on deleting data, take a look at the [Android Developer video for reading and writing data](https://www.youtube.com/watch?v=NAx7Gv_Hk7E&t=299) in Health Connect.
 
 ## Delete using Record IDs
 
@@ -16,22 +18,22 @@ supply it with two lists of `Strings`, one for the Record IDs and one for the
 Client IDs. If you only have one of the IDs available, you can set `emptyList()`
 on the other list.
 
-The following code example shows how to delete Steps data using its IDs:  
+The following code example shows how to delete Steps data using its IDs:
 
-    suspend fun deleteStepsByUniqueIdentifier(
-        healthConnectClient: HealthConnectClient,
-        idList: List<String>
-    ) {
-        try {
-            healthConnectClient.deleteRecords(
-                StepsRecord::class,
-                idList = idList,
-                clientRecordIdsList = emptyList()
-            )
-        } catch (e: Exception) {
-            // Run error handling here
-        }
-    }
+
+```kotlin
+try {
+    healthConnectClient.deleteRecords(
+        recordType = StepsRecord::class,
+        recordIdsList = idList,
+        clientRecordIdsList = emptyList<String>()
+    )
+} catch (e: Exception) {
+    // Run error handling here
+}
+```
+
+<br />
 
 ## Delete using a time range
 
@@ -40,19 +42,18 @@ Use [`deleteRecords`](https://developer.android.com/reference/kotlin/androidx/he
 [`TimeRangeFilter`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/time/TimeRangeFilter) object that takes
 a start and end timestamp values.
 
-The following code example shows how to delete Steps data of a specific time:  
+The following code example shows how to delete Steps data of a specific time:
 
-    suspend fun deleteStepsByTimeRange(
-        healthConnectClient: HealthConnectClient,
-        startTime: Instant,
-        endTime: Instant
-    ) {
-        try {
-            healthConnectClient.deleteRecords(
-                StepsRecord::class,
-                timeRangeFilter = TimeRangeFilter.between(startTime, endTime)
-            )
-        } catch (e: Exception) {
-            // Run error handling here
-        }
-    }
+
+```kotlin
+try {
+    healthConnectClient.deleteRecords(
+        StepsRecord::class,
+        timeRangeFilter = TimeRangeFilter.between(startTime, endTime)
+    )
+} catch (e: Exception) {
+    // Run error handling here
+}
+```
+
+<br />

@@ -4,7 +4,8 @@ url: https://developer.android.com/health-and-fitness/health-connect/test/unit-t
 source: md.txt
 ---
 
-| **Note:** The Health Connect Testing library is in alpha, so future versions might include breaking changes.
+> [!NOTE]
+> **Note:** The Health Connect Testing library is in alpha, so future versions might include breaking changes.
 
 The Health Connect Testing library (`androidx.health.connect:connect-testing`)
 simplifies the creation of automated tests. You can use this library to verify
@@ -15,7 +16,7 @@ You can use the library to create [local unit tests](https://developer.android.c
 the behavior of the classes in your app that interact with the [Health Connect
 client](https://developer.android.com/reference/kotlin/androidx/health/connect/client/HealthConnectClient).
 
-To start using the library, add it as a test dependency:  
+To start using the library, add it as a test dependency:
 
      testImplementation("androidx.health.connect:connect-testing:1.0.0-alpha03")
 
@@ -36,14 +37,14 @@ To learn more about replacing dependencies in tests, read
 
 For example, if the class that interacts with the client is called
 `HealthConnectManager` and it takes a `HealthConnectClient` as a dependency, it
-would look like:  
+would look like:
 
     class HealthConnectManager(
         private val healthConnectClient: HealthConnectClient,
         ...
     ) { }
 
-In tests, you can pass a fake to your class under test instead:  
+In tests, you can pass a fake to your class under test instead:
 
     import androidx.health.connect.client.testing.ExperimentalTestingApi
     import androidx.health.connect.client.testing.FakeHealthConnectClient
@@ -54,7 +55,7 @@ In tests, you can pass a fake to your class under test instead:
 
         @Test
         fun readRecords_filterByActivity() = runTest {
-            // Create a Fake with 2 running records.
+            // Create a Fake with one running and one biking record.
             val fake = FakeHealthConnectClient()
             fake.insertRecords(listOf(fakeRunRecord1, fakeBikeRecord1))
 
@@ -83,7 +84,7 @@ the documentation for `insertRecords` mentions these exceptions:
 
 These exceptions cover cases like a bad connection or no space left on the
 device. Your app must react correctly to these runtime issues, as they can
-happen at any time.  
+happen at any time.
 
     import androidx.health.connect.client.testing.stubs.stub
 
@@ -110,7 +111,7 @@ Aggregation calls don't have fake implementations. Instead, aggregation calls
 use stubs that you can program to behave in a certain way. You can access the
 stubs through the `overrides` property of the `FakeHealthConnectClient`.
 
-For example, you can program the aggregate function to return a specific result:  
+For example, you can program the aggregate function to return a specific result:
 
     import androidx.health.connect.client.testing.AggregationResult
     import androidx.health.connect.client.records.HeartRateRecord
@@ -137,14 +138,14 @@ For example, you can program the aggregate function to return a specific result:
         fake.overrides.aggregate = stub(result)
 
 Then, you can verify that your class under test, `HealthConnectManager` in this
-case, processed the result correctly:  
+case, processed the result correctly:
 
     // Create a manager that depends on the fake.
     val manager = HealthConnectManager(fake)
     // Call the function that in turn calls aggregate on the client.
     val report = manager.getHeartRateReport()
 
-    // Verify that the manager is exposing an error.
+    // Verify that the manager processed the result correctly.
     assertThat(report.bpmAverage).isEqualTo(74.0)
 
 ## Permissions
@@ -158,7 +159,7 @@ to check for permissions. This is typically done before every call to the
 client.
 
 To test this functionality, you can set which permissions are available using
-the `FakePermissionController`:  
+the `FakePermissionController`:
 
     import androidx.health.connect.client.testing.FakePermissionController
 
@@ -180,7 +181,8 @@ the `FakePermissionController`:
         assertThat(manager.errors).hasSize(1)
     }
 
-| **Caution:** You should also have tests to verify correct behavior when the client throws a SecurityException. Users can revoke permissions at any time.
+> [!CAUTION]
+> **Caution:** You should also have tests to verify correct behavior when the client throws a SecurityException. Users can revoke permissions at any time.
 
 ## Pagination
 
@@ -189,9 +191,9 @@ provides mechanisms to help you verify that your paging implementation for
 records and changes behaves correctly.
 
 Your subject under test, `HealthConnectManager` in our example, can specify the
-page size in the `ReadRecordsRequest`:  
+page size in the `ReadRecordsRequest`:
 
-    fun fetchRecordsReport(pageSize: Int = 1000) }
+    fun fetchRecordsReport(pageSize: Int = 1000) {
         val pagedRequest =
             ReadRecordsRequest(
                 timeRangeFilter = ...,
@@ -201,15 +203,16 @@ page size in the `ReadRecordsRequest`:
             )
         val page = client.readRecords(pagedRequest)
         ...
+    }
 
 Setting the page size to a small value, such as 2, lets you test
 pagination. For example, you can insert 5 records so that `readRecords` returns
-3 different pages:  
+3 different pages:
 
     @Test
     fun readRecords_multiplePages() = runTest {
 
-        // Create a Fake with 2 running records.
+        // Create a Fake with 5 running records.
         val fake = FakeHealthConnectClient()
         fake.insertRecords(generateRunningRecords(5))
 

@@ -28,16 +28,11 @@ reflections and specular highlights will be based on a bright room with
 a single directional light.
 
 For a quick overview of the supported materials, refer to the [glTF PBR
-Properties](https://www.khronos.org/gltf/pbr/) on the Khronos site.
+Properties](https://www.khronos.org/gltf/pbr/) on the Khronos site. To learn how to customize your
+3D models with these properties and others, see
+[Customize 3D models in your app](https://developer.android.com/develop/xr/jetpack-xr-sdk/customize-3d-models)
 
-There are two primary ways for apps built with the Jetpack XR SDK to load 3D
-models.
-
-- Load it into the `ActivitySpace` as described in [Place a 3D model into the
-  `ActivitySpace`](https://developer.android.com/develop/xr/jetpack-xr-sdk/add-3d-models#place-3d)
-- Use the built-in [Scene Viewer](https://developer.android.com/develop/xr/jetpack-xr-sdk/add-3d-models#load-3d) through an intent
-
-## Place a 3D model into the ActivitySpace
+## Add a glTF file to your assets folder
 
 Once you have your glTF file, the next step is to add it to the assets directory
 in Android Studio. We recommend creating a `models` directory to better organize
@@ -45,45 +40,10 @@ your asset types.
 
 ![Example of adding assets to the /models directory](https://developer.android.com/static/images/develop/xr/jetpack-xr-sdk/add-3d-models/models-directory.png)
 
-To load the glTF model, call [`GltfModel.create()`](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/GltfModel#create(androidx.xr.runtime.Session,java.nio.file.Path)).
-
-
-```kotlin
-val gltfModel = GltfModel.create(session, Paths.get("models", "saturn_rings.glb"))
-```
-
-<br />
-
-At this point, the model is loaded into memory, but it's not being rendered yet.
-If you have many 3D models to load or your model is large, it's a good idea to
-load them asynchronously ahead of time. This way, users don't have to wait for
-your models to be loaded into memory.
-
 > [!TIP]
 > **Tip:** If your app is going over [Google Play's maximum size
 > limits](https://support.google.com/googleplay/android-developer/answer/9859372#size_limits) due to 3D assets and high resolution textures, you should consider using [Play Asset Delivery](https://developer.android.com/guide/playcore/asset-delivery) to optimize the delivery of your assets. For more information, see how to [package and distribute apps for
 > Android XR](https://developer.android.com/develop/xr/package-and-distribute).
-
-We need to add the glTF into the [`ActivitySpace`](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/ActivitySpace). Call
-[`GltfModelEntity.create`](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/GltfModelEntity#create) to create an entity and place it into the
-`ActivitySpace`. As best practice, you should [check that the app is in a state
-which allows for spatial capabilities](https://developer.android.com/develop/xr/jetpack-xr-sdk/check-spatial-capabilities).
-
-
-```kotlin
-if (session.scene.spatialCapabilities.contains(SpatialCapability.SPATIAL_3D_CONTENT)) {
-    val gltfEntity = GltfModelEntity.create(session, gltfModel)
-}
-```
-
-<br />
-
-You should now see the loaded 3D model when you run your app.
-
-![Example of the loaded 3d model](https://developer.android.com/static/images/develop/xr/jetpack-xr-sdk/add-3d-models/3d-model.jpg)
-
-> [!IMPORTANT]
-> **Important:** Some 3D content, such as 3D models, will only be visible when the app is in Full Space.
 
 ## Add a 3D object using SpatialGltfModel
 
@@ -118,13 +78,50 @@ SpatialGltfModel(state = modelState, modifier = SubspaceModifier)
 
 <br />
 
-## Place a 3D model into a Compose SceneCoreEntity
+## Place a 3D model using a Compose SceneCoreEntity
 
 To place a 3D model using [`SceneCoreEntity`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/SceneCoreEntity.composable#SceneCoreEntity(kotlin.Function0,androidx.xr.compose.subspace.layout.SubspaceModifier,kotlin.Function1,androidx.xr.compose.subspace.SceneCoreEntitySizeAdapter,kotlin.Function0)), you first need to load
 the glTF into memory using [`GltfModel.create()`](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/GltfModel#create(androidx.xr.runtime.Session,java.nio.file.Path)). You can then place a 3D
 model into a [`SceneCoreEntity`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/SceneCoreEntity.composable#SceneCoreEntity(kotlin.Function0,androidx.xr.compose.subspace.layout.SubspaceModifier,kotlin.Function1,androidx.xr.compose.subspace.SceneCoreEntitySizeAdapter,kotlin.Function0)) to bridge SceneCore components with
 Compose for XR layouts. Refer to
 [Use a SceneCoreEntity to place a 3D object in your layout](https://developer.android.com/develop/xr/jetpack-xr-sdk/ui-compose#use-scenecoreentity).
+
+## Place a 3D model using Jetpack Scenecore
+
+To load the glTF model, call [`GltfModel.create()`](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/GltfModel#create(androidx.xr.runtime.Session,java.nio.file.Path)).
+
+
+```kotlin
+val gltfModel = GltfModel.create(session, Paths.get("models", "saturn_rings.glb"))
+```
+
+<br />
+
+At this point, the model is loaded into memory, but it's not being rendered yet.
+If you have many 3D models to load or your model is large, it's a good idea to
+load them asynchronously ahead of time. This way, users don't have to wait for
+your models to be loaded into memory.
+
+Add the glTF to the [`ActivitySpace`](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/ActivitySpace). Call
+[`GltfModelEntity.create`](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/GltfModelEntity#create) to create an entity and place it into the
+`ActivitySpace`. As best practice, you should [check that the app is in a state
+which allows for spatial capabilities](https://developer.android.com/develop/xr/jetpack-xr-sdk/check-spatial-capabilities).
+
+
+```kotlin
+if (session.scene.spatialCapabilities.contains(SpatialCapability.SPATIAL_3D_CONTENT)) {
+    val gltfEntity = GltfModelEntity.create(session, gltfModel)
+}
+```
+
+<br />
+
+You should now see the loaded 3D model when you run your app.
+
+![Example of the loaded 3d model](https://developer.android.com/static/images/develop/xr/jetpack-xr-sdk/add-3d-models/3d-model.jpg)
+
+> [!IMPORTANT]
+> **Important:** Some 3D content, such as 3D models, will only be visible when the app is in Full Space.
 
 ## Load a 3D model using Scene Viewer
 

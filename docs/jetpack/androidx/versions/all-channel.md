@@ -31,7 +31,11 @@ To get the latest product updates delivered to you in an RSS feed, add the URL o
 
 These Jetpack libraries have been recently updated.
 
-## May 06, 2026
+### May 16, 2026
+
+- [Media3 Version 1.9.4](https://developer.android.com/jetpack/androidx/releases/media3#1.9.4)
+
+### May 06, 2026
 
 - [Appfunctions Version 1.0.0-alpha09](https://developer.android.com/jetpack/androidx/releases/appfunctions#1.0.0-alpha09)
 - [Benchmark Version 1.5.0-alpha06](https://developer.android.com/jetpack/androidx/releases/benchmark#1.5.0-alpha06)
@@ -84,7 +88,7 @@ These Jetpack libraries have been recently updated.
 - [Xr Runtime Version 1.0.0-alpha13](https://developer.android.com/jetpack/androidx/releases/xr-runtime#1.0.0-alpha13)
 - [Xr Scenecore Version 1.0.0-alpha14](https://developer.android.com/jetpack/androidx/releases/xr-scenecore#1.0.0-alpha14)
 
-## April 22, 2026
+### April 22, 2026
 
 - [Biometric Version 1.4.0-alpha07](https://developer.android.com/jetpack/androidx/releases/biometric#1.4.0-alpha07)
 - [Car App Version 1.8.0-beta01](https://developer.android.com/jetpack/androidx/releases/car-app#1.8.0-beta01)

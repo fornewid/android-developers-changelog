@@ -39,7 +39,9 @@ The impact of exploiting this vulnerability varies depending on what the Content
 ### Mitigations
 
 To mitigate this vulnerability, use the algorithm below to validate the file descriptor. After passing validation, the file descriptor can be used safely.
-**Note:** Only the file descriptor is safe. If you decide to reuse the URI, you need to repeat the validation process.  
+
+> [!NOTE]
+> **Note:** Only the file descriptor is safe. If you decide to reuse the URI, you need to repeat the validation process.
 
 ### Kotlin
 
@@ -144,7 +146,7 @@ Validate incoming URIs. For example, using an allowlist of expected authorities 
 
 #### URI targets non-exported or permission-protected content provider that belongs to vulnerable app
 
-Check, if URI targets your app:  
+Check, if URI targets your app:
 
 ### Kotlin
 
@@ -165,7 +167,7 @@ Check, if URI targets your app:
         return ctx.getPackageName().equals(info.packageName);
     }
 
-Or if targeted provider is exported:  
+Or if targeted provider is exported:
 
 ### Kotlin
 
@@ -186,7 +188,7 @@ Or if targeted provider is exported:
         return info.exported;
     }
 
-Or if granted explicit permission to the URI - this check is base on assumption that if granted explicit permission to access the data, the URI isn't malicious:  
+Or if granted explicit permission to the URI - this check is base on assumption that if granted explicit permission to access the data, the URI isn't malicious:
 
 ### Kotlin
 
@@ -215,7 +217,7 @@ This attack is relevant to the following situations:
 - Ecosystems of applications where apps define and use custom permissions or other authentication mechanisms.
 - Permission proxy attacks, where an attacker abuses a vulnerable app that's holding a runtime permission, such as READ_CONTACTS, to retrieve data from a system provider.
 
-Test if the URI permission has been granted:  
+Test if the URI permission has been granted:
 
 ### Kotlin
 
@@ -238,6 +240,8 @@ Test if the URI permission has been granted:
     }
 
 If usage of other content providers doesn't require a permission grant - such as when the app allows all apps from the ecosystem to access all data - then explicitly forbid usage of these authorities.
-| **Note:** Maintaining a denylist is error prone. Denying a package prefix makes this mitigation more robust.
+
+> [!NOTE]
+> **Note:** Maintaining a denylist is error prone. Denying a package prefix makes this mitigation more robust.
 
 *** ** * ** ***

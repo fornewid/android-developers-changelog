@@ -291,7 +291,7 @@ Define a key that will be used to persist data to disk.
 ### JSON DataStore
 
 For JSON datastore, add a `@Serialization` annotation to the data that you
-want to persist
+want to persist.
 
     @Serializable
     data class Settings(
@@ -333,7 +333,7 @@ Proto DataStore requires a predefined schema in a proto file in the
 that you persist in your Proto DataStore. To learn more about defining a proto
 schema, see the [protobuf language guide](https://developers.google.com/protocol-buffers/docs/proto3).
 
-Add a file called settings.proto inside `src/main/proto` folder:
+Add a file called `settings.proto` inside the `src/main/proto` folder:
 
     syntax = "proto3";
 
@@ -376,11 +376,10 @@ You need to specify a name for the file that is used to persist the data.
 
 The Preferences DataStore implementation uses the [`DataStore`](https://developer.android.com/reference/kotlin/androidx/datastore/core/DataStore) and
 [`Preferences`](https://developer.android.com/reference/kotlin/androidx/datastore/preferences/core/Preferences) classes to persist key-value pairs to disk. Use the
-property delegate created by [preferencesDataStore](https://developer.android.com/reference/kotlin/androidx/datastore/preferences/package-summary#dataStore) to create an instance
+property delegate created by [`preferencesDataStore`](https://developer.android.com/reference/kotlin/androidx/datastore/preferences/package-summary#preferencesDataStore(kotlin.String,androidx.datastore.core.handlers.ReplaceFileCorruptionHandler,kotlin.Function1,kotlinx.coroutines.CoroutineScope)) to create an instance
 of `DataStore<Preferences>`. Call it once at the top level of your Kotlin
 file. Access DataStore through this property throughout the rest of your
 application. This makes it easier to keep your DataStore as a singleton.
-Alternatively, use [RxPreferenceDataStoreBuilder](https://developer.android.com/reference/kotlin/androidx/datastore/rxjava2/RxDataStoreBuilder) if you're using RxJava.
 The mandatory `name` parameter is the name of the Preferences DataStore.
 
     // At the top level of your kotlin file:
@@ -390,10 +389,10 @@ The mandatory `name` parameter is the name of the Preferences DataStore.
 
 Use the property delegate created by `dataStore` to create an instance of
 `DataStore<T>`, where T is the serializable data class. Call it once
-at the top level of your kotlin file and access it through this property
+at the top level of your Kotlin file and access it through this property
 delegate throughout the rest of your app. The `fileName` parameter tells
 DataStore which file to use to store the data, and the `serializer` parameter
-tells DataStore the name of the serializer class defined in step 1.
+tells DataStore the name of the serializer class defined earlier.
 
     val Context.dataStore: DataStore<Settings> by dataStore(
         fileName = "settings.json",
@@ -407,7 +406,7 @@ Use the property delegate created by `dataStore` to create an instance of
 once at the top level of your Kotlin file and access it through this property
 delegate throughout the rest of your app. The `fileName` parameter tells
 DataStore which file to use to store the data, and the `serializer` parameter
-tells DataStore the name of the serializer class defined in step 1.
+tells DataStore the name of the serializer class defined earlier.
 
     val Context.dataStore: DataStore<Settings> by dataStore(
         fileName = "settings.pb",
@@ -423,8 +422,8 @@ You need to specify a name for the file that is used to persist the data.
 Because Preferences DataStore doesn't use a predefined schema, you must use
 the corresponding key type function to define a key for each value that you
 need to store in the `DataStore<Preferences>` instance. For example, to define
-a key for an int value, use [`intPreferencesKey()`](https://developer.android.com/reference/kotlin/androidx/datastore/preferences/core/package-summary#intPreferencesKey(kotlin.String)). Then, use the
-[DataStore.data](https://developer.android.com/reference/kotlin/androidx/datastore/core/DataStore#data) property to expose the appropriate stored value using a
+a key for an int value, use [`intPreferencesKey`](https://developer.android.com/reference/kotlin/androidx/datastore/preferences/core/package-summary#intPreferencesKey(kotlin.String)). Then, use the
+[`DataStore.data`](https://developer.android.com/reference/kotlin/androidx/datastore/core/DataStore#data()) property to expose the appropriate stored value using a
 Flow.
 
     fun counterFlow(): Flow<Int> = context.dataStore.data.map { preferences ->
@@ -449,9 +448,23 @@ stored object.
         settings.exampleCounter
     }
 
+Use [`collectAsStateWithLifecycle`](https://developer.android.com/reference/kotlin/androidx/lifecycle/compose/package-summary#extension-functions) to consume the `Flow` produced by
+a ViewModel in a composable.
+This safely converts the DataStore Flow into Compose State that triggers
+recomposition.
+
+    @Composable
+    fun SomeScreen(counterFlow: Flow<Int>) {
+      val counter by counterFlow.collectAsStateWithLifecycle(initialValue = 0)
+      Text(text = "Example counter: ${counter}")
+    }
+
+For more information on `collectAsStateWithLifecycle`,
+see [State and Jetpack Compose](https://developer.android.com/develop/ui/compose/state#use-other-types-of-state-in-jetpack-compose).
+
 ## Write to DataStore
 
-DataStore provides an [updateData()](https://developer.android.com/reference/kotlin/androidx/datastore/core/DataStore#updatedata) function that transactionally updates a
+DataStore provides an [updateData](https://developer.android.com/reference/kotlin/androidx/datastore/core/DataStore#updatedata) function that transactionally updates a
 stored object. `updateData` gives you the current state of the data as an
 instance of your data type and updates the data transactionally in an atomic
 read-write-modify operation. All of the code in the `updateData` block is
@@ -468,7 +481,7 @@ treated as a single transaction.
     }
 
 > [!NOTE]
-> **Note:** You can also use the `[edit][11]` suspend function. This function provides a `MutablePreferences` object that you can modify.
+> **Note:** You can also use the [`edit`](https://developer.android.com/reference/kotlin/androidx/datastore/preferences/core/package-summary#edit) suspend function. This function provides a `MutablePreferences` object that you can modify.
 
 ### JSON DataStore
 
@@ -486,136 +499,72 @@ treated as a single transaction.
         }
     }
 
-## Compose Sample
+## Use DataStore in a Compose app
 
-You can put these functions together in a class and use it in a Compose app.
+To use DataStore in a Compose app, follow Android app architecture guidelines by
+keeping DataStore operations in your data layer (such as a repository) and
+exposing the data to your UI through a `ViewModel`.
 
-### Preferences DataStore
+Avoid reading from or writing to DataStore directly within your composable
+functions.
 
-We can now put these functions into a class called `PreferencesDataStore` and
-use it in a Compose App.
+1. **Expose DataStore through a ViewModel.**
+   Pass your repository (which wraps the DataStore) into your `ViewModel` and
+   convert the `Flow` to a `StateFlow` so the UI can easily observe it, as shown in
+   the following snippet:
 
-    val context = LocalContext.current
-    val coroutineScope = rememberCoroutineScope()
-    val preferencesDataStore = remember(context) { PreferencesDataStore(context) }
+       class SettingsViewModel(
+           private val userPreferencesRepository: UserPreferencesRepository
+       ) : ViewModel() {
 
-    // Display counter value.
-    val exampleCounter by preferencesDataStore.counterFlow()
-        .collectAsState(initial = 0, coroutineScope.coroutineContext)
-    Text(
-        text = "Counter $exampleCounter",
-        fontSize = 25.sp
-    )
+           // Expose the DataStore flow as a StateFlow for Compose
+           val userSettings: StateFlow<UserSettings> = userPreferencesRepository.userSettingsFlow
+               .stateIn(
+                   scope = viewModelScope,
+                   started = SharingStarted.WhileSubscribed(5000),
+                   initialValue = UserSettings.getDefaultInstance()
+               )
 
-    // Update the counter.
-    Button(
-        onClick = {
-            coroutineScope.launch { preferencesDataStore.incrementCounter() }
-        }
-    ) {
-        Text("increment")
-    }
+           fun updateCounter(newValue: Int) {
+               viewModelScope.launch {
+                   userPreferencesRepository.updateCounter(newValue)
+               }
+           }
+       }
 
-### JSON DataStore
+2. **Observe and write from your composable.**
+   Use `collectAsStateWithLifecycle` to safely observe the `StateFlow` in your UI,
+   and call the `ViewModel` functions to handle writes, as shown in the following
+   snippet:
 
-We can now put these functions into a class called `JSONDataStore` and use it
-in a Compose App.
+       @Composable
+       fun SettingsScreen(
+           viewModel: SettingsViewModel = viewModel()
+       ) {
+           // Safely collect the state
+           val settings by viewModel.userSettings.collectAsStateWithLifecycle()
 
-    val context = LocalContext.current
-    val coroutineScope = rememberCoroutineScope()
-    val jsonDataStore = remember(context) { JsonDataStore(context) }
+           Column(modifier = Modifier.padding(16.dp)) {
+               Text(text = "Current counter: ${settings.counter}")
 
-    // Display counter value.
-    val exampleCounter by jsonDataStore.counterFlow()
-        .collectAsState(initial = 0, coroutineScope.coroutineContext)
-    Text(
-        text = "Counter $exampleCounter",
-        fontSize = 25.sp
-    )
+               Spacer(modifier = Modifier.height(8.dp))
 
-    // Update the counter.
-    Button(onClick = { coroutineScope.launch { jsonDataStore.incrementCounter() } }) {
-        Text("increment")
-    }
-
-### Proto DataStore
-
-We can now put these functions into a class called `ProtoDataStore` and use it
-in a Compose App.
-
-    val context = LocalContext.current
-    val coroutineScope = rememberCoroutineScope()
-    val protoDataStore = remember(context) { ProtoDataStore(context) }
-
-    // Display counter value.
-    val exampleCounter by protoDataStore.counterFlow()
-        .collectAsState(initial = 0, coroutineScope.coroutineContext)
-    Text(
-        text = "Counter $exampleCounter",
-        fontSize = 25.sp
-    )
-
-    // Update the counter.
-    Button(onClick = { coroutineScope.launch { protoDataStore.incrementCounter() } }) {
-        Text("increment")
-    }
-
-## Use DataStore in synchronous code
-
-> [!CAUTION]
-> **Caution:** Avoid blocking threads on DataStore data reads whenever possible. Blocking the UI thread can cause [ANRs](https://developer.android.com/topic/performance/vitals/anr) or unresponsive UI, and blocking other threads can result in [deadlock](https://en.wikipedia.org/wiki/Deadlock).
-
-One of the primary benefits of DataStore is the asynchronous API, but it may not
-always be feasible to change your surrounding code to be asynchronous. This
-might be the case if you're working with an existing codebase that uses
-synchronous disk I/O or if you have a dependency that doesn't provide an
-asynchronous API.
-
-Kotlin coroutines provide the [`runBlocking()`](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/run-blocking.html) coroutine builder to help
-bridge the gap between synchronous and asynchronous code. You can use
-`runBlocking()` to read data from DataStore synchronously. RxJava offers
-blocking methods on `Flowable`. The following code blocks the calling thread
-until DataStore returns data:
-
-### Kotlin
-
-    val exampleData = runBlocking { context.dataStore.data.first() }
-
-### Java
-
-    Settings settings = dataStore.data().blockingFirst();
-
-Performing synchronous I/O operations on the UI thread can cause ANRs or
-unresponsive UI. You can mitigate these issues by asynchronously preloading the
-data from DataStore:
-
-### Kotlin
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        lifecycleScope.launch {
-            context.dataStore.data.first()
-            // You should also handle IOExceptions here.
-        }
-    }
-
-### Java
-
-    dataStore.data().first().subscribe();
-
-This way, DataStore asynchronously reads the data and caches it in memory. Later
-synchronous reads using `runBlocking()` may be faster or may avoid a disk I/O
-operation altogether if the initial read has completed.
+               Button(onClick = { viewModel.updateCounter(settings.counter + 1) }) {
+                   Text("Increment Counter")
+               }
+           }
+       }
 
 ## Use DataStore in multi-process code
 
 > [!NOTE]
-> **Note:** DataStore multi-process has been available since the 1.1.0 release
+> **Note:** DataStore multi-process has been available since the 1.1.0 release.
 
 You can configure DataStore to access the same data across different processes
 with the same data consistency properties as from within a single process. In
-particular, DataStore provides:
+particular, DataStore provides the following properties:
 
-- Reads only return the data that has been persisted to disk.
+- Reads return only the data that has been persisted to disk.
 - Read-after-write consistency.
 - Writes are serialized.
 - Reads are never blocked by writes.
@@ -623,8 +572,8 @@ particular, DataStore provides:
 Consider a sample application with a service and an activity where the service
 is running in a separate process and periodically updates the DataStore.
 
-This example uses a JSON datastore, but you can also use a preferences or proto
-datastore.
+This example uses a JSON datastore, but you can also use a Preferences or Proto
+DataStore.
 
     @Serializable
     data class Time(
@@ -676,9 +625,9 @@ Add the following to your `AndroidManifiest.xml`:
         android:process=":my_process_id" />
 
 > [!IMPORTANT]
-> **Important:** To run the service in a different process, use the android:process attribute. Note that the process ID is prefixed with a colon (':'). This makes the service run in a new process, private to the application.
+> **Important:** To run the service in a different process, use the `android:process` attribute. Note that the process ID is prefixed with a colon (`:`). This makes the service run in a new process, private to the application.
 
-The service periodically calls `updateLastUpdateTime()`, which writes to the
+The service periodically calls `updateLastUpdateTime`, which writes to the
 datastore using `updateData`.
 
     suspend fun updateLastUpdateTime() {
@@ -749,6 +698,9 @@ instance is unique per process:
     fun provideDataStore(@ApplicationContext context: Context): DataStore<Settings> =
        MultiProcessDataStoreFactory.create(...)
 
+> [!WARNING]
+> **Warning:** This is a simplified example and you shouldn't access DataStore from the composable in your production code. You should always use ViewModel to generate the state that Compose will render.
+
 ## Handle file corruption
 
 There are rare occasions where DataStore's persistent on-disk file could get
@@ -762,7 +714,7 @@ corruption handler replaces the corrupted file with a new one containing a
 predefined default value.
 
 To set up this handler, provide a `corruptionHandler` when creating the
-DataStore instance in `by dataStore()` or in the `DataStoreFactory` factory
+DataStore instance in `by dataStore` or in the `DataStoreFactory` factory
 method:
 
     val dataStore: DataStore<Settings> = DataStoreFactory.create(

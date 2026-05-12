@@ -221,116 +221,133 @@ To learn more about background reads, see [Background read example](https://deve
 The following code snippet demonstrates how to read a session in Health Connect
 and request a route from that session:
 
-    suspend fun readExerciseSessionAndRoute() {
-        val endTime = Instant.now()
-        val startTime = endTime.minus(Duration.ofHours(1))
 
-        val grantedPermissions =
-            healthConnectClient.permissionController.getGrantedPermissions()
-        if (!grantedPermissions.contains(
-              HealthPermission.getReadPermission(ExerciseSessionRecord::class))) {
-            // The user doesn't allow the app to read exercise session data.
-            return
+```kotlin
+private suspend fun readExerciseSessionAndRoute() {
+    val client = healthConnectClient ?: return
+
+    val endTime = Instant.now()
+    val startTime = endTime.minus(Duration.ofHours(1))
+
+    val grantedPermissions = client.permissionController.getGrantedPermissions()
+
+    // 1. Verify basic Exercise Session permissions
+    if (!grantedPermissions.contains(
+            HealthPermission.getReadPermission(ExerciseSessionRecord::class)
+        )
+    ) {
+        return
+    }
+
+    // 2. Read the sessions
+    val readResponse = client.readRecords(
+        ReadRecordsRequest(
+            ExerciseSessionRecord::class,
+            TimeRangeFilter.between(startTime, endTime)
+        )
+    )
+
+    val exerciseRecord = readResponse.records.firstOrNull() ?: return
+    val recordId = exerciseRecord.metadata.id
+
+    // 3. Read the specific record to check for the route
+    val sessionResponse = client.readRecord(ExerciseSessionRecord::class, recordId)
+
+    // 4. Handle the Route Result directly from the response
+    when (val routeResult = sessionResponse.record.exerciseRouteResult) {
+        is ExerciseRouteResult.Data -> {
+            displayExerciseRoute(routeResult.exerciseRoute)
         }
-
-        val readResponse =
-          healthConnectClient.readRecords(
-            ReadRecordsRequest(
-              ExerciseSessionRecord::class,
-              TimeRangeFilter.between(startTime, endTime)
-            )
-          )
-        val exerciseRecord = readResponse.records.first()
-        val recordId = exerciseRecord.metadata.id
-
-        // See https://developer.android.com/training/basics/intents/result#launch
-        // for appropriately handling ActivityResultContract.
-        val requestExerciseRouteLauncher = fragment.registerForActivityResul
-        (ExerciseRouteRequestContract()) { exerciseRoute: ExerciseRoute? ->
-                if (exerciseRoute != null) {
-                    displayExerciseRoute(exerciseRoute)
-                } else {
-                    // Consent was denied
-                }
-            }
-
-        val exerciseSessionRecord =
-          healthConnectClient.readRecord(ExerciseSessionRecord::class, recordId).record
-
-        when (val exerciseRouteResult = exerciseSessionRecord.exerciseRouteResult) {
-            is ExerciseRouteResult.Data ->
-                displayExerciseRoute(exerciseRouteResult.exerciseRoute)
-            is ExerciseRouteResult.ConsentRequired ->
-                requestExerciseRouteLauncher.launch(recordId)
-            is ExerciseRouteResult.NoData -> Unit // No exercise route to show
-            else -> Unit
+        is ExerciseRouteResult.ConsentRequired -> {
+            // Since you are in a Service, you cannot launch ActivityResultLauncher.
+            // Send a notification to the user to grant route-specific consent.
+            handleConsentRequired(recordId)
         }
-      }
+        is ExerciseRouteResult.NoData -> Unit
+        else -> Unit
+    }
+}
 
-      fun displayExerciseRoute(route: ExerciseRoute?) {
-        val locations = route.route.orEmpty()
-        for (location in locations) {
-          // Handle location.
-        }
-      }
+private fun displayExerciseRoute(route: ExerciseRoute) {
+    val locations = route.route.orEmpty()
+    for (location in locations) {
+        println(location)
+    }
+}
+```
+
+<br />
 
 ### Write an exercise route
 
 The following code demonstrates how to record a session that includes an
 exercise route:
 
-    suspend fun InsertExerciseRoute(healthConnectClient: HealthConnectClient) {
-        val grantedPermissions =
-            healthConnectClient.permissionController.getGrantedPermissions()
-        if (!grantedPermissions.contains(
-              getWritePermission(ExerciseSessionRecord::class))) {
-            // The user doesn't allow the app to write exercise session data.
-            return
-        }
 
-        val sessionStartTime = Instant.now()
-        val sessionDuration = Duration.ofMinutes(20)
-        val sessionEndTime = sessionStartTime.plus(sessionDuration)
+```kotlin
+private suspend fun insertExerciseRoute() {
+    val client = healthConnectClient ?: return
 
-        val exerciseRoute =
-            if (grantedPermissions.contains(PERMISSION_WRITE_EXERCISE_ROUTE)) ExerciseRoute(
-                listOf(
-                    ExerciseRoute.Location(
-                        // Location times must be on or after the session start time
-                        time = sessionStartTime,
-                        latitude = 6.5483,
-                        longitude = 0.5488,
-                        horizontalAccuracy = Length.meters(2.0),
-                        verticalAccuracy = Length.meters(2.0),
-                        altitude = Length.meters(9.0),
-                    ), ExerciseRoute.Location(
-                        // Location times must be before the session end time
-                        time = sessionEndTime.minusSeconds(1),
-                        latitude = 6.4578,
-                        longitude = 0.6577,
-                        horizontalAccuracy = Length.meters(2.0),
-                        verticalAccuracy = Length.meters(2.0),
-                        altitude = Length.meters(9.2),
-                    )
+    val grantedPermissions = client.permissionController.getGrantedPermissions()
+
+    // 1. Verify Session Write Permission
+    val hasWriteSession = grantedPermissions.contains(
+        HealthPermission.getWritePermission(ExerciseSessionRecord::class)
+    )
+    if (!hasWriteSession) return
+
+    val sessionStartTime = Instant.now()
+    val sessionDuration = Duration.ofMinutes(20)
+    val sessionEndTime = sessionStartTime.plus(sessionDuration)
+
+    // 2. Build the route if route-specific write permission is granted
+    val hasWriteRoute = grantedPermissions.contains(HealthPermission.PERMISSION_WRITE_EXERCISE_ROUTE)
+
+    val exerciseRoute = if (hasWriteRoute) {
+        ExerciseRoute(
+            listOf(
+                ExerciseRoute.Location(
+                    time = sessionStartTime,
+                    latitude = 6.5483,
+                    longitude = 0.5488,
+                    horizontalAccuracy = Length.meters(2.0),
+                    verticalAccuracy = Length.meters(2.0),
+                    altitude = Length.meters(9.0),
+                ),
+                ExerciseRoute.Location(
+                    time = sessionEndTime.minusSeconds(1),
+                    latitude = 6.4578,
+                    longitude = 0.6577,
+                    horizontalAccuracy = Length.meters(2.0),
+                    verticalAccuracy = Length.meters(2.0),
+                    altitude = Length.meters(9.2),
                 )
             )
-            else
-            // The user doesn't allow the app to write exercise route data.
-                null
-        val exerciseSessionRecord = ExerciseSessionRecord(
-            startTime = sessionStartTime,
-            startZoneOffset = ZoneOffset.UTC,
-            endTime = sessionEndTime,
-            endZoneOffset = ZoneOffset.UTC,
-            exerciseType = ExerciseSessionRecord.EXERCISE_TYPE_BIKING,
-            title = "Morning Bike Ride",
-            exerciseRoute = exerciseRoute,
-            metadata = Metadata.manualEntry(
-                device = Device(type = Device.TYPE_PHONE)
-            ),
         )
-        val response = healthConnectClient.insertRecords(listOf(exerciseSessionRecord))
+    } else {
+        null
     }
+
+    // 3. Create the session record
+    val exerciseSessionRecord = ExerciseSessionRecord(
+        startTime = sessionStartTime,
+        startZoneOffset = ZoneOffset.UTC,
+        endTime = sessionEndTime,
+        endZoneOffset = ZoneOffset.UTC,
+        exerciseType = ExerciseSessionRecord.EXERCISE_TYPE_BIKING,
+        title = "Morning Bike Ride",
+        exerciseRoute = exerciseRoute,
+        metadata = Metadata(
+            device = Device(type = Device.TYPE_PHONE)
+        )
+    )
+
+    // 4. Insert into Health Connect
+    client.insertRecords(listOf(exerciseSessionRecord))
+}
+```
+
+<br />
 
 ## Exercise sessions
 
@@ -438,26 +455,36 @@ There are two ways to delete an exercise session:
 
 Here's how you delete subtype data according to time range:
 
-    suspend fun deleteExerciseSessionByTimeRange(
-        healthConnectClient: HealthConnectClient,
-        exerciseRecord: ExerciseSessionRecord,
-    ) {
-        val timeRangeFilter = TimeRangeFilter.between(exerciseRecord.startTime, exerciseRecord.endTime)
-        healthConnectClient.deleteRecords(ExerciseSessionRecord::class, timeRangeFilter)
-        // delete the associated distance record
-        healthConnectClient.deleteRecords(DistanceRecord::class, timeRangeFilter)
-    }
+
+```kotlin
+suspend fun deleteExerciseSessionByTimeRange(
+    healthConnectClient: HealthConnectClient,
+    exerciseRecord: ExerciseSessionRecord,
+) {
+    val timeRangeFilter = TimeRangeFilter.between(exerciseRecord.startTime, exerciseRecord.endTime)
+    healthConnectClient.deleteRecords(ExerciseSessionRecord::class, timeRangeFilter)
+    // delete the associated distance record
+    healthConnectClient.deleteRecords(DistanceRecord::class, timeRangeFilter)
+}
+```
+
+<br />
 
 You can also delete subtype data by UID. Doing so only deletes the
 exercise session, not the associated data:
 
-    suspend fun deleteExerciseSessionByUid(
-        healthConnectClient: HealthConnectClient,
-        exerciseRecord: ExerciseSessionRecord,
-    ) {
-        healthConnectClient.deleteRecords(
-            ExerciseSessionRecord::class,
-            recordIdsList = listOf(exerciseRecord.metadata.id),
-            clientRecordIdsList = emptyList()
-        )
-    }
+
+```kotlin
+suspend fun deleteExerciseSessionByUid(
+    healthConnectClient: HealthConnectClient,
+    exerciseRecord: ExerciseSessionRecord,
+) {
+    healthConnectClient.deleteRecords(
+        ExerciseSessionRecord::class,
+        recordIdsList = listOf(exerciseRecord.metadata.id),
+        clientRecordIdsList = emptyList()
+    )
+}
+```
+
+<br />

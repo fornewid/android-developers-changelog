@@ -74,7 +74,6 @@ import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
 import org.intellij.lang.annotations.Language
 
-// TODO: b/423573184 align on disabled behavior / state
 /**
  * A surface is a fundamental building block in Glimmer. A surface represents a distinct visual area
  * or 'physical' boundary for components such as buttons and cards. A [surface] implements shared
@@ -109,6 +108,10 @@ import org.intellij.lang.annotations.Language
  * Similarly, to create a focusable surface:
  *
  * @sample androidx.xr.glimmer.samples.FocusableSurfaceSample
+ * @param enabled controls the enabled state of this surface. When `false`, a disabled overlay
+ *   visual will be drawn on top of the surface. Note that this only affects the visual decoration;
+ *   it does not intercept input or block interaction states (such as focus or press) from the
+ *   [interactionSource].
  * @param shape the [Shape] used to clip this surface, and also used to draw the background and
  *   border
  * @param color the background [Color] for this surface
@@ -123,6 +126,7 @@ import org.intellij.lang.annotations.Language
  */
 @Composable
 public fun Modifier.surface(
+    enabled: Boolean = true,
     shape: Shape = GlimmerTheme.shapes.medium,
     color: Color = GlimmerTheme.colors.surface,
     contentColor: Color = calculateContentColor(color),
@@ -133,7 +137,14 @@ public fun Modifier.surface(
     return this.surfaceDepthEffect(depthEffect, shape, interactionSource)
         .clip(shape)
         .contentColorProvider(contentColor)
-        .then(SurfaceNodeElement(shape, border, interactionSource))
+        .then(
+            SurfaceNodeElement(
+                enabled = enabled,
+                shape = shape,
+                border = border,
+                interactionSource = interactionSource,
+            )
+        )
         .background(color = color, shape = shape)
 }
 
@@ -210,18 +221,32 @@ public object SurfaceDefaults {
  * overlay.
  */
 private class SurfaceNodeElement(
+    private val enabled: Boolean,
     private val shape: Shape,
     private val border: BorderStroke?,
     private val interactionSource: InteractionSource?,
 ) : ModifierNodeElement<SurfaceNode>() {
-    override fun create(): SurfaceNode = SurfaceNode(shape, border, interactionSource)
+    override fun create(): SurfaceNode =
+        SurfaceNode(
+            enabled = enabled,
+            shape = shape,
+            border = border,
+            interactionSource = interactionSource,
+        )
 
-    override fun update(node: SurfaceNode) = node.update(shape, border, interactionSource)
+    override fun update(node: SurfaceNode) =
+        node.update(
+            enabled = enabled,
+            shape = shape,
+            border = border,
+            interactionSource = interactionSource,
+        )
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is SurfaceNodeElement) return false
 
+        if (enabled != other.enabled) return false
         if (shape != other.shape) return false
         if (border != other.border) return false
         if (interactionSource != other.interactionSource) return false
@@ -230,7 +255,8 @@ private class SurfaceNodeElement(
     }
 
     override fun hashCode(): Int {
-        var result = shape.hashCode()
+        var result = enabled.hashCode()
+        result = 31 * result + shape.hashCode()
         result = 31 * result + (border?.hashCode() ?: 0)
         result = 31 * result + (interactionSource?.hashCode() ?: 0)
         return result
@@ -238,6 +264,7 @@ private class SurfaceNodeElement(
 
     override fun InspectorInfo.inspectableProperties() {
         name = "surface"
+        properties["enabled"] = enabled
         properties["shape"] = shape
         properties["border"] = border
         properties["interactionSource"] = interactionSource
@@ -245,6 +272,7 @@ private class SurfaceNodeElement(
 }
 
 private class SurfaceNode(
+    private var enabled: Boolean,
     private var shape: Shape,
     private var border: BorderStroke?,
     private var interactionSource: InteractionSource?,
@@ -301,7 +329,16 @@ private class SurfaceNode(
     private var minimumPressDuration: Job? = null
     private var pressReleaseAnimation: Job? = null
 
-    fun update(shape: Shape, border: BorderStroke?, interactionSource: InteractionSource?) {
+    fun update(
+        enabled: Boolean,
+        shape: Shape,
+        border: BorderStroke?,
+        interactionSource: InteractionSource?,
+    ) {
+        if (this.enabled != enabled) {
+            this.enabled = enabled
+            invalidateDraw()
+        }
         if (this.shape != shape) {
             this.shape = shape
             invalidateDraw()
@@ -516,6 +553,9 @@ private class SurfaceNode(
                 )
             }
         }
+        if (!enabled) {
+            drawRect(DisabledOverlayColor)
+        }
     }
 
     override fun onDetach() {
@@ -616,6 +656,8 @@ private val FocusedHighlightRotationStartAngleRadians: Double = Math.toRadians(-
 private val FocusedHighlightRotationEndAngleRadians: Double = Math.toRadians(35.0)
 
 private val PressedOverlayColor = Color.White
+
+internal val DisabledOverlayColor = Color(0x8F191919)
 
 private const val PressedOverlayAlpha = 0.16f
 

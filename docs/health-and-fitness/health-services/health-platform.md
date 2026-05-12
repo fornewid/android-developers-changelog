@@ -4,7 +4,8 @@ url: https://developer.android.com/health-and-fitness/health-services/health-pla
 source: md.txt
 ---
 
-| **Note:** The Health Platform API Version 1 is deprecated as of May 11, 2022. It has been replaced with Health Connect. Health Connect is an API and platform that unifies data from multiple devices and apps, including Samsung Health, into a single ecosystem. It also provides a single interface for reading and writing a user's health and fitness data. See the [Health Connect documentation](https://developer.android.com/guide/health-and-fitness/health-connect) to learn about the platform. See [Get started](https://developer.android.com/guide/health-and-fitness/health-connect/get-started) to integrate with the API.
+> [!NOTE]
+> **Note:** The Health Platform API Version 1 is deprecated as of May 11, 2022. It has been replaced with Health Connect. Health Connect is an API and platform that unifies data from multiple devices and apps, including Samsung Health, into a single ecosystem. It also provides a single interface for reading and writing a user's health and fitness data. See the [Health Connect documentation](https://developer.android.com/guide/health-and-fitness/health-connect) to learn about the platform. See [Get started](https://developer.android.com/guide/health-and-fitness/health-connect/get-started) to integrate with the API.
 
 Health Platform API is an Android API that provides developers with a single
 interface for reading, writing, and sharing a user's historic health, wellness,
@@ -21,7 +22,9 @@ The Health Platform API software developer kit gives Android app developers
 everything they need to provide access to a user's health and wellness data on
 select Samsung devices, and it lets apps perform bulk operations
 such as inserting, deleting, and reading data.
-| **Note:** See the [Health Platform sample](https://github.com/android/health-samples/tree/main/health-platform-v1/HealthPlatformSample) on GitHub for a complete example of using the Health Platform API.
+
+> [!NOTE]
+> **Note:** See the [Health Platform sample](https://github.com/android/health-samples/tree/main/health-platform-v1/HealthPlatformSample) on GitHub for a complete example of using the Health Platform API.
 
 ## Get started
 
@@ -47,7 +50,7 @@ The Health Platform V1 release contains the following:
 Install Health Platform using the following steps:
 
 In the app's root `build.gradle` file, add the repository, as shown in the
-following example:  
+following example:
 
     allprojects {
         . . .
@@ -58,7 +61,7 @@ following example:
     }
 
 Add a dependency on the Health Platform SDK in your module's `build.gradle`
-file, as shown in the following example:  
+file, as shown in the following example:
 
 ### Kotlin
 
@@ -196,7 +199,8 @@ series.
 | `DataType.StepsCadenceSeriesDataType` | `STEPS_CADENCE` | Required |
 [*Table 3: Health Platform `SeriesData` types*]
 
-| **Note:** `SeriesData` types are a subset of `SampleData` types. These data types can be written either as `SampleData` or `SeriesData`. For performance and storage optimization, we strongly recommend that high-frequency data, such as a continuous sensor stream, be written using `SeriesData`.
+> [!NOTE]
+> **Note:** `SeriesData` types are a subset of `SampleData` types. These data types can be written either as `SampleData` or `SeriesData`. For performance and storage optimization, we strongly recommend that high-frequency data, such as a continuous sensor stream, be written using `SeriesData`.
 
 ## Developer functions
 
@@ -222,7 +226,8 @@ The following steps describe how to connect to Health Platform:
 1. Use `HealthDataService.getClient` to create new `HealthDataClient` instances.
 2. The client app must then request permission from the user using the `requestPermissions (Set)` method.
 
-| **Note:** Only Samsung devices with Android SDK version 26 or higher are supported.
+> [!NOTE]
+> **Note:** Only Samsung devices with Android SDK version 26 or higher are supported.
 
 `HealthDataClient` automatically manages its connection to the underlying
 storage layer and handles all Inter-Process Communication (IPC) and

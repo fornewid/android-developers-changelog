@@ -4,17 +4,16 @@ url: https://developer.android.com/privacy-and-security/risks/hardcoded-cryptogr
 source: md.txt
 ---
 
-# Hardcoded Cryptographic Secrets
-
 <br />
 
 **OWASP category:** [MASVS-CRYPTO: Cryptography](https://mas.owasp.org/MASVS/06-MASVS-CRYPTO)
 
 ## Overview
 
-| **Note:** This article isn't focused on how to protect API keys.
+> [!NOTE]
+> **Note:** This article isn't focused on how to protect API keys.
 
-Developers use cryptography to protect confidentiality and integrity of data using robust algorithms. However, the key storage is often underused, and it's common to find them hardcoded into the application as a string or byte array in the code or in an asset file such as`strings.xml`. If secrets are exposed in any files of the app, this goes against[Kerchoff's principle](https://en.wikipedia.org/wiki/Kerckhoffs%27s_principle)and the security model can be considered as broken.
+Developers use cryptography to protect confidentiality and integrity of data using robust algorithms. However, the key storage is often underused, and it's common to find them hardcoded into the application as a string or byte array in the code or in an asset file such as `strings.xml`. If secrets are exposed in any files of the app, this goes against [Kerchoff's principle](https://en.wikipedia.org/wiki/Kerckhoffs%27s_principle) and the security model can be considered as broken.
 
 ## Impact
 
@@ -22,9 +21,10 @@ An attacker with access to reverse engineering tools can retrieve a hard-coded s
 
 ## Mitigations
 
-To mitigate this issue, consider using the[KeyChain](https://developer.android.com/reference/android/security/KeyChain)API when you want system-wide credentials, or the[Android Keystore](https://developer.android.com/training/articles/keystore)provider to let an individual app store its own credentials that only the app itself can access.
+To mitigate this issue, consider using the [KeyChain](https://developer.android.com/reference/android/security/KeyChain) API when you want system-wide credentials, or the [Android Keystore](https://developer.android.com/training/articles/keystore) provider to let an individual app store its own credentials that only the app itself can access.
 
-The following code snippet shows how to store and use a symmetric key using`KeyStore`:  
+The following code snippet shows how to store and use a symmetric key using
+`KeyStore`:
 
 ### Kotlin
 

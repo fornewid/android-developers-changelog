@@ -180,22 +180,29 @@ The following aggregate values are available for
 
 The following code snippet demonstrates how to write a mindfulness session:
 
-    if (healthConnectClient.features.getFeatureStatus(FEATURE_MINDFULNESS_SESSION) == HealthConnectFeatures.FEATURE_STATUS_AVAILABLE) {
-            healthConnectClient.insertRecords(listOf(MindfulnessSessionRecord(
-                startTime = Instant.now().minus(Duration.ofHours(1)),
-                startZoneOffset = ZoneOffset.UTC,
-                endTime = Instant.now(),
-                endZoneOffset = ZoneOffset.UTC,
-                mindfulnessSessionType = MindfulnessSessionRecord.MINDFULNESS_SESSION_TYPE_MEDITATION,
-                title = "Lake meditation",
-                notes = "Meditation by the lake",
-                metadata = Metadata.activelyRecorded(
-                    clientRecordId = "myid",
-                    clientRecordVersion = 0.0,
-                    device = Device(type = Device.TYPE_PHONE)
-                ),
-            )))
-        }
+
+```kotlin
+val isAvailable = healthConnectClient.features.getFeatureStatus(FEATURE_MINDFULNESS_SESSION)
+
+if (isAvailable == HealthConnectFeatures.FEATURE_STATUS_AVAILABLE) {
+
+    val record = MindfulnessSessionRecord(
+        startTime = Instant.now().minus(Duration.ofHours(1)),
+        startZoneOffset = ZoneOffset.UTC,
+        endTime = Instant.now(),
+        endZoneOffset = ZoneOffset.UTC,
+        mindfulnessSessionType = MindfulnessSessionRecord.MINDFULNESS_SESSION_TYPE_MEDITATION,
+        title = "Lake meditation",
+        notes = "Meditation by the lake",
+        metadata = Metadata(
+            clientRecordId = "myid",
+            clientRecordVersion = 1L,
+            device = Device(type = Device.TYPE_PHONE)
+        )
+    )
+```
+
+<br />
 
 ## Read mindfulness session
 

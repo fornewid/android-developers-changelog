@@ -77,7 +77,7 @@ file:
 ```groovy
 dependencies {
     // ... other dependencies
-    compileOnly "com.android.extensions.xr:extensions-xr:1.1.0"
+    compileOnly "com.android.extensions.xr:extensions-xr:1.3.0"
 }
 ```
 
@@ -86,7 +86,7 @@ dependencies {
 ```kotlin
 dependencies {
     // ... other dependencies
-    compileOnly("com.android.extensions.xr:extensions-xr:1.1.0")
+    compileOnly("com.android.extensions.xr:extensions-xr:1.3.0")
 }
 ```
 
@@ -109,20 +109,20 @@ Then, add the necessary dependencies to your app's `build.gradle.kts` file:
 
     dependencies {
         implementation "androidx.xr.runtime:runtime:1.0.0-alpha13"
-        implementation "androidx.xr.glimmer:glimmer:1.0.0-alpha11"
-        implementation "androidx.xr.glimmer:glimmer-google-fonts:1.0.0-alpha11"
-        implementation "androidx.xr.projected:projected:1.0.0-alpha06"
-        implementation "androidx.xr.arcore:arcore:1.0.0-alpha12"
+        implementation "androidx.xr.glimmer:glimmer:1.0.0-alpha12"
+        implementation "androidx.xr.glimmer:glimmer-google-fonts:1.0.0-alpha12"
+        implementation "androidx.xr.projected:projected:1.0.0-alpha07"
+        implementation "androidx.xr.arcore:arcore:1.0.0-alpha13"
     }
 
 ### Kotlin
 
     dependencies {
         implementation("androidx.xr.runtime:runtime:1.0.0-alpha13")
-        implementation("androidx.xr.glimmer:glimmer:1.0.0-alpha11")
-        implementation("androidx.xr.glimmer:glimmer-google-fonts:1.0.0-alpha11")
-        implementation("androidx.xr.projected:projected:1.0.0-alpha06")
-        implementation("androidx.xr.arcore:arcore:1.0.0-alpha12")
+        implementation("androidx.xr.glimmer:glimmer:1.0.0-alpha12")
+        implementation("androidx.xr.glimmer:glimmer-google-fonts:1.0.0-alpha12")
+        implementation("androidx.xr.projected:projected:1.0.0-alpha07")
+        implementation("androidx.xr.arcore:arcore:1.0.0-alpha13")
     }
 
 > [!NOTE]

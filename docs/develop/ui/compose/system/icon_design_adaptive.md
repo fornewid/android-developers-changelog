@@ -241,7 +241,7 @@ implementing adaptive icons.
 
 arrow\_back
 
-Test predictive back](/develop/ui/compose/system/predictive-back-test)
+Implement best practices for shortcuts](/develop/ui/compose/system/shortcuts/best-practices)
 
 [Next
 

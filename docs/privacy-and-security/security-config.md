@@ -230,7 +230,7 @@ privacy leak present in standard TLS handshakes.
 
 The default behavior of Encrypted Client Hello depends on the API level:
 
-- Starting with Android 17 (API level 37), ECH is used in "opportunistic" mode by default. Apps can [opt out of the feature](https://developer.android.com/privacy-and-security/security-config#echOptOut) or modify its behavior either [globally](https://developer.android.com/privacy-and-security/security-config#base-config) or on a [per-domain basis](https://developer.android.com/privacy-and-security/security-config#domain-config).
+- Starting with Android 17 (API level 37), ECH is used in "enabled" mode by default. Apps can [opt out of the feature](https://developer.android.com/privacy-and-security/security-config#echOptOut) or modify its behavior either [globally](https://developer.android.com/privacy-and-security/security-config#base-config) or on a [per-domain basis](https://developer.android.com/privacy-and-security/security-config#domain-config).
 - On Android 16 (API level 36) and lower, ECH is not available.
 
 ### Opt out of Encrypted Client Hello
@@ -624,7 +624,7 @@ syntax:
 :
 
     ```xml
-    <domainEncryption mode=["enabled" | "opportunistic" | "disabled"]/>
+    <domainEncryption mode=["enabled" | "disabled"]/>
     ```
 
 description:
@@ -643,11 +643,11 @@ description:
     The `mode` attribute can be one of the following:
 
     - `enabled`: Enforce ECH on a connection when the ECH configuration is provided when establishing the TLS handshake, and enable ECH GREASE otherwise.
-    - `opportunistic`: Use ECH on a connection when the ECH configuration is provided when establishing the TLS handshake. If the connection fails or the configuration was not provided, fall back to a standard non-encrypted TLS ClientHello. This mode does not enable ECH GREASE.
     - `disabled`: Don't attempt to use ECH or ECH GREASE on any connections.
 
 
-    If not specified, the default `mode` is `"opportunistic"`.
+    If not specified, the default `mode` is `"enabled"` for apps
+    targeting API level 37 or higher, and `"disabled"` otherwise.
 
 ### \<debug-overrides\>
 

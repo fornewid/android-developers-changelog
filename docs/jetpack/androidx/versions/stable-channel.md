@@ -19,7 +19,11 @@ see the [versions page](https://developer.android.com/jetpack/androidx/versions)
 The first stable release of AndroidX 1.0.0 suitable for use in
 production was released on September 21, 2018.
 
-## May 06, 2026
+### May 16, 2026
+
+- [Media3 Version 1.9.4](https://developer.android.com/jetpack/androidx/releases/media3#1.9.4)
+
+### May 06, 2026
 
 - [Camera Featurecombinationquery Version 1.6.1](https://developer.android.com/jetpack/androidx/releases/camera-featurecombinationquery#1.6.1)
 - [Camera Version 1.6.1](https://developer.android.com/jetpack/androidx/releases/camera#1.6.1)
@@ -41,7 +45,7 @@ production was released on September 21, 2018.
 - [Uwb Uwb-rxjava3 Version 1.0.0](https://developer.android.com/jetpack/androidx/releases/core-uwb#1.0.0)
 - [Webkit Version 1.16.0](https://developer.android.com/jetpack/androidx/releases/webkit#webkit-1.16.0)
 
-## April 22, 2026
+### April 22, 2026
 
 - [Compose Animation Version 1.11.0](https://developer.android.com/jetpack/androidx/releases/compose-animation#1.11.0)
 - [Compose Foundation Version 1.11.0](https://developer.android.com/jetpack/androidx/releases/compose-foundation#1.11.0)

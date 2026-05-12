@@ -577,11 +577,11 @@ firebaseTestLab {
 
     results {
       /**
-       * The name of the Google storage bucket to store the test results ihttps://firebase.google.com/docs/projects/iam/permissions#test-lab
+       * The name of the Google storage bucket to store the test results in.
        *
        * If left unspecified, the default bucket is used.
        *
-       * Please refer to Firebase Test Lab permissions for required permissions
+       * Please refer to https://firebase.google.com/docs/projects/iam/permissions#test-lab for required permissions
        * for using the bucket.
        */
       cloudStorageBucket = "bucketLocationName"

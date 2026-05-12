@@ -34,19 +34,24 @@ across health, fitness, and wellness platforms.
 
 The following example shows how to set steps count data:
 
-    val endTime = Instant.now()
-    val startTime = endTime.minus(Duration.ofMinutes(15))
 
-    val stepsRecord = StepsRecord(
-        count = 120,
-        startTime = startTime,
-        endTime = endTime,
-        startZoneOffset = ZoneOffset.UTC,
-        endZoneOffset = ZoneOffset.UTC,
-        metadata = Metadata.autoRecorded(
-            device = Device(type = Device.TYPE_WATCH)
-        )
+```kotlin
+val zoneOffset = ZoneOffset.systemDefault().rules.getOffset(startTime)
+val stepsRecord = StepsRecord(
+    count = 120,
+    startTime = startTime,
+    endTime = endTime,
+    startZoneOffset = zoneOffset,
+    endZoneOffset = zoneOffset,
+    metadata = Metadata(
+        device = Device(type = Device.TYPE_WATCH),
+        recordingMethod = Metadata.RECORDING_METHOD_AUTOMATICALLY_RECORDED
     )
+)
+healthConnectClient.insertRecords(listOf(stepsRecord))
+```
+
+<br />
 
 > [!NOTE]
 > **Note:** Only write a zero value if the device was worn and no activity occurred. Don't write data if the device was off-body or the data is incomplete. For best practices on handling time zones, see the [Time zone handling](https://developer.android.com/health-and-fitness/health-connect/write-data#time-zone-handling) section.
@@ -65,29 +70,34 @@ In this data type, all of the nutrients are represented in units of
 The following example shows how to set nutrition data for a user who has
 eaten a banana:
 
-    val endTime = Instant.now()
-    val startTime = endTime.minus(Duration.ofMinutes(1))
 
-    val banana = NutritionRecord(
-        name = "banana",
-        energy = 105.0.kilocalories,
-        dietaryFiber = 3.1.grams,
-        potassium = 0.422.grams,
-        totalCarbohydrate = 27.0.grams,
-        totalFat = 0.4.grams,
-        saturatedFat = 0.1.grams,
-        sodium = 0.001.grams,
-        sugar = 14.0.grams,
-        vitaminB6 = 0.0005.grams,
-        vitaminC = 0.0103.grams,
-        startTime = startTime,
-        endTime = endTime,
-        startZoneOffset = ZoneOffset.UTC,
-        endZoneOffset = ZoneOffset.UTC,
-        metadata = Metadata.manualEntry(
-            device = Device(type = Device.TYPE_PHONE)
-        )
+```kotlin
+val endTime = Instant.now()
+val startTime = endTime.minus(Duration.ofMinutes(1))
+
+val banana = NutritionRecord(
+    name = "banana",
+    energy = 105.0.kilocalories,
+    dietaryFiber = 3.1.grams,
+    potassium = 0.422.grams,
+    totalCarbohydrate = 27.0.grams,
+    totalFat = 0.4.grams,
+    saturatedFat = 0.1.grams,
+    sodium = 0.001.grams,
+    sugar = 14.0.grams,
+    vitaminB6 = 0.0005.grams,
+    vitaminC = 0.0103.grams,
+    startTime = startTime,
+    endTime = endTime,
+    startZoneOffset = ZoneOffset.UTC,
+    endZoneOffset = ZoneOffset.UTC,
+    metadata = Metadata(
+        device = Device(type = Device.TYPE_PHONE)
     )
+)
+```
+
+<br />
 
 ### Records with series data
 
@@ -101,24 +111,29 @@ value and a `time` value.
 
 The following example shows how to set heart rate series data:
 
-    val endTime = Instant.now()
-    val startTime = endTime.minus(Duration.ofMinutes(5))
 
-    val heartRateRecord = HeartRateRecord(
-        startTime = startTime,
-        startZoneOffset = ZoneOffset.UTC,
-        endTime = endTime,
-        endZoneOffset = ZoneOffset.UTC,
-        // records 10 arbitrary data, to replace with actual data
-        samples = List(10) { index ->
-            HeartRateRecord.Sample(
-                time = startTime + Duration.ofSeconds(index.toLong()),
-                beatsPerMinute = 100 + index.toLong(),
-            )
-        },
-        metadata = Metadata.autoRecorded(
-            device = Device(type = Device.TYPE_WATCH)
-        ))
+```kotlin
+val endTime = Instant.now()
+val startTime = endTime.minus(Duration.ofMinutes(5))
+
+val heartRateRecord = HeartRateRecord(
+    startTime = startTime,
+    startZoneOffset = ZoneOffset.UTC,
+    endTime = endTime,
+    endZoneOffset = ZoneOffset.UTC,
+    // records 10 arbitrary data, to replace with actual data
+    samples = List(10) { index ->
+        HeartRateRecord.Sample(
+            time = startTime + Duration.ofSeconds(index.toLong()),
+            beatsPerMinute = 100 + index.toLong(),
+        )
+    },
+    metadata = Metadata(
+        device = Device(type = Device.TYPE_WATCH)
+    ))
+```
+
+<br />
 
 ## Request permissions from the user
 
@@ -174,25 +189,24 @@ use [`insertRecords`](https://developer.android.com/reference/kotlin/androidx/he
 
 The following example shows how to write data inserting step counts:
 
-    suspend fun insertSteps(healthConnectClient: HealthConnectClient) {
-        val endTime = Instant.now()
-        val startTime = endTime.minus(Duration.ofMinutes(5))
-        try {
-            val stepsRecord = StepsRecord(
-                count = 120,
-                startTime = startTime,
-                endTime = endTime,
-                startZoneOffset = ZoneOffset.UTC,
-                endZoneOffset = ZoneOffset.UTC,
-                metadata = Metadata.autoRecorded(
-                    device = Device(type = Device.TYPE_WATCH)
-                )
-            )
-            healthConnectClient.insertRecords(listOf(stepsRecord))
-        } catch (e: Exception) {
-            // Run error handling here
-        }
-    }
+
+```kotlin
+val zoneOffset = ZoneOffset.systemDefault().rules.getOffset(startTime)
+val stepsRecord = StepsRecord(
+    count = 120,
+    startTime = startTime,
+    endTime = endTime,
+    startZoneOffset = zoneOffset,
+    endZoneOffset = zoneOffset,
+    metadata = Metadata(
+        device = Device(type = Device.TYPE_WATCH),
+        recordingMethod = Metadata.RECORDING_METHOD_AUTOMATICALLY_RECORDED
+    )
+)
+healthConnectClient.insertRecords(listOf(stepsRecord))
+```
+
+<br />
 
 ## Update data
 
@@ -224,39 +238,45 @@ the changes.
 The following example shows how to update data. For this purpose, each record
 has its zone offset values adjusted into PST.
 
-    suspend fun updateSteps(
-        healthConnectClient: HealthConnectClient,
-        prevRecordStartTime: Instant,
-        prevRecordEndTime: Instant
-    ) {
-        try {
-            val request = healthConnectClient.readRecords(
-                ReadRecordsRequest(
-                    recordType = StepsRecord::class, timeRangeFilter = TimeRangeFilter.between(
-                        prevRecordStartTime, prevRecordEndTime
-                    )
+
+```kotlin
+suspend fun updateSteps(
+    healthConnectClient: HealthConnectClient,
+    prevRecordStartTime: Instant,
+    prevRecordEndTime: Instant
+) {
+    try {
+        val request = healthConnectClient.readRecords(
+            ReadRecordsRequest(
+                recordType = StepsRecord::class, timeRangeFilter = TimeRangeFilter.between(
+                    prevRecordStartTime,
+                    prevRecordEndTime
                 )
             )
+        )
 
-            val newStepsRecords = arrayListOf<StepsRecord>()
-            for (record in request.records) {
-                // Adjusted both offset values to reflect changes
-                val sr = StepsRecord(
-                    count = record.count,
-                    startTime = record.startTime,
-                    startZoneOffset = record.startTime.atZone(ZoneId.of("PST")).offset,
-                    endTime = record.endTime,
-                    endZoneOffset = record.endTime.atZone(ZoneId.of("PST")).offset,
-                    metadata = record.metadata
-                )
-                newStepsRecords.add(sr)
-            }
-
-            healthConnectClient.updateRecords(newStepsRecords)
-        } catch (e: Exception) {
-            // Run error handling here
+        val newStepsRecords = arrayListOf<StepsRecord>()
+        for (record in request.records) {
+            // Adjusted both offset values to reflect changes
+            val sr = StepsRecord(
+                count = record.count,
+                startTime = record.startTime,
+                startZoneOffset = record.startTime.atZone(ZoneId.of("PST")).offset,
+                endTime = record.endTime,
+                endZoneOffset = record.endTime.atZone(ZoneId.of("PST")).offset,
+                metadata = record.metadata
+            )
+            newStepsRecords.add(sr)
         }
+
+        healthConnectClient.updateRecords(newStepsRecords)
+    } catch (e: Exception) {
+        // Run error handling here
     }
+}
+```
+
+<br />
 
 ### Upsert through Client Record ID
 
@@ -272,40 +292,57 @@ your app datastore to Health Connect.
 The following example shows how to perform an upsert on data pulled from
 the app datastore:
 
-    suspend fun pullStepsFromDatastore() : ArrayList<StepsRecord> {
-        val appStepsRecords = arrayListOf<StepsRecord>()
-        // Pull data from app datastore
-        // ...
-        // Make changes to data if necessary
-        // ...
-        // Store data in appStepsRecords
-        // ...
-        var sr = StepsRecord(
-            metadata = Metadata.autoRecorded(
-                clientRecordId = "Your client record ID",
-                device = Device(type = Device.TYPE_WATCH)
-            ),
-            // Assign more parameters for this record
-        )
-        appStepsRecords.add(sr)
-        // ...
-        return appStepsRecords
-    }
 
-    suspend fun upsertSteps(
-        healthConnectClient: HealthConnectClient,
-        newStepsRecords: ArrayList<StepsRecord>
-    ) {
-        try {
-            healthConnectClient.insertRecords(newStepsRecords)
-        } catch (e: Exception) {
-            // Run error handling here
-        }
+```kotlin
+suspend fun pullStepsFromDatastore(startTime: Instant, endTime: Instant) : ArrayList<StepsRecord> {
+    val appStepsRecords = arrayListOf<StepsRecord>()
+    // Pull data from app datastore
+    // ...
+    // Make changes to data if necessary
+    // ...
+    // Store data in appStepsRecords
+    // ...
+    var sr = StepsRecord(
+        metadata = Metadata(
+            clientRecordId = "Your client record ID",
+            device = Device(type = Device.TYPE_WATCH)
+        ),
+        startTime = startTime,
+        startZoneOffset = startTime.atZone(ZoneId.of("PST")).offset,
+        endTime = endTime,
+        endZoneOffset = endTime.atZone(ZoneId.of("PST")).offset,
+        count = 120
+    )
+    appStepsRecords.add(sr)
+    // ...
+    return appStepsRecords
+}
+
+suspend fun upsertSteps(
+    healthConnectClient: HealthConnectClient,
+    newStepsRecords: ArrayList<StepsRecord>
+) {
+    try {
+        healthConnectClient.insertRecords(newStepsRecords)
+    } catch (e: Exception) {
+        // Run error handling here
     }
+}
+```
+
+<br />
 
 After that, you can call these functions in your main thread.
 
-    upsertSteps(healthConnectClient, pullStepsFromDatastore())
+
+```kotlin
+upsertSteps(healthConnectClient, pullStepsFromDatastore(
+    startTime = startTime,
+    endTime = endTime
+))
+```
+
+<br />
 
 #### Value check in Client Record Version
 
@@ -319,21 +356,26 @@ To include versioning in your data, you need to supply
 `Metadata.clientRecordVersion` with a `Long` value based on your versioning
 logic.
 
-    val endTime = Instant.now()
-    val startTime = endTime.minus(Duration.ofMinutes(15))
 
-    val stepsRecord = StepsRecord(
-        count = 100L,
-        startTime = startTime,
-        startZoneOffset = ZoneOffset.UTC,
-        endTime = endTime,
-        endZoneOffset = ZoneOffset.UTC,
-        metadata = Metadata.manualEntry(
-            clientRecordId = "Your supplied record ID",
-            clientRecordVersion = 0L, // Your supplied record version
-            device = Device(type = Device.TYPE_WATCH)
-        )
+```kotlin
+val endTime = Instant.now()
+val startTime = endTime.minus(Duration.ofMinutes(15))
+
+val stepsRecord = StepsRecord(
+    count = 100L,
+    startTime = startTime,
+    startZoneOffset = ZoneOffset.UTC,
+    endTime = endTime,
+    endZoneOffset = ZoneOffset.UTC,
+    metadata = Metadata(
+        clientRecordId = "Your supplied record ID",
+        clientRecordVersion = 0L, // Your supplied record version
+        device = Device(type = Device.TYPE_WATCH)
     )
+)
+```
+
+<br />
 
 Upserts don't automatically increment `version` whenever there are changes,
 preventing any unexpected instances of overwriting data. With that, you have to
@@ -382,27 +424,32 @@ other zones. Instead, calculate the offset based on the device's actual
 location. You can retrieve the device's time zone using
 `ZoneId.systemDefault()`.
 
-    val endTime = Instant.now()
-    val startTime = endTime.minus(java.time.Duration.ofDays(1))
-    val stepsRecords = mutableListOf<StepsRecord>()
-    var sampleTime = startTime
-    val minutesBetweenSamples = 15L
-    while (sampleTime < endTime) {
-        // Get the default ZoneId then convert it to an offset
-        val zoneOffset = ZoneOffset.systemDefault().rules.getOffset(sampleTime)
-        stepsRecords += StepsRecord(
-            startTime = sampleTime.minus(java.time.Duration.ofMinutes(minutesBetweenSamples)),
-            startZoneOffset = zoneOffset,
-            endTime = sampleTime,
-            endZoneOffset = zoneOffset,
-            count = Random.nextLong(1, 100),
-            metadata = Metadata.unknownRecordingMethod(),
-        )
-        sampleTime = sampleTime.plus(java.time.Duration.ofMinutes(minutesBetweenSamples))
-    }
-    healthConnectClient.insertRecords(
-        stepsRecords
+
+```kotlin
+val endTime = Instant.now()
+val startTime = endTime.minus(Duration.ofDays(1))
+val stepsRecords = mutableListOf<StepsRecord>()
+var sampleTime = startTime
+val minutesBetweenSamples = 15L
+while (sampleTime < endTime) {
+    // Get the default ZoneId then convert it to an offset
+    val zoneOffset = ZoneOffset.systemDefault().rules.getOffset(sampleTime)
+    stepsRecords += StepsRecord(
+        startTime = sampleTime.minus(Duration.ofMinutes(minutesBetweenSamples)),
+        startZoneOffset = zoneOffset,
+        endTime = sampleTime,
+        endZoneOffset = zoneOffset,
+        count = Random.nextLong(1, 100),
+        metadata = Metadata(),
     )
+    sampleTime = sampleTime.plus(Duration.ofMinutes(minutesBetweenSamples))
+}
+healthConnectClient.insertRecords(
+    stepsRecords
+)
+```
+
+<br />
 
 See the [documentation for `ZoneId`](https://developer.android.com/reference/kotlin/java/time/ZoneId) for more details.
 
@@ -505,32 +552,37 @@ performance of querying and processing data.
 The following example shows how to create a `HeartRateRecord` for a single
 minute, containing multiple samples:
 
-    val startTime = Instant.now().truncatedTo(ChronoUnit.MINUTES)
-    val endTime = startTime.plus(Duration.ofMinutes(1))
 
-    val heartRateRecord = HeartRateRecord(
-        startTime = startTime,
-        startZoneOffset = ZoneOffset.UTC,
-        endTime = endTime,
-        endZoneOffset = ZoneOffset.UTC,
-        // Create a new record every minute, containing a list of samples.
-        samples = listOf(
-            HeartRateRecord.Sample(
-                time = startTime + Duration.ofSeconds(15),
-                beatsPerMinute = 80,
-            ),
-            HeartRateRecord.Sample(
-                time = startTime + Duration.ofSeconds(30),
-                beatsPerMinute = 82,
-            ),
-            HeartRateRecord.Sample(
-                time = startTime + Duration.ofSeconds(45),
-                beatsPerMinute = 85,
-            )
+```kotlin
+val startTime = Instant.now().truncatedTo(ChronoUnit.MINUTES)
+val endTime = startTime.plus(Duration.ofMinutes(1))
+
+val heartRateRecord = HeartRateRecord(
+    startTime = startTime,
+    startZoneOffset = ZoneOffset.UTC,
+    endTime = endTime,
+    endZoneOffset = ZoneOffset.UTC,
+    // Create a new record every minute, containing a list of samples.
+    samples = listOf(
+        HeartRateRecord.Sample(
+            time = startTime + Duration.ofSeconds(15),
+            beatsPerMinute = 80,
         ),
-        metadata = Metadata.autoRecorded(
-            device = Device(type = Device.TYPE_WATCH)
-        ))
+        HeartRateRecord.Sample(
+            time = startTime + Duration.ofSeconds(30),
+            beatsPerMinute = 82,
+        ),
+        HeartRateRecord.Sample(
+            time = startTime + Duration.ofSeconds(45),
+            beatsPerMinute = 85,
+        )
+    ),
+    metadata = Metadata(
+        device = Device(type = Device.TYPE_WATCH)
+    ))
+```
+
+<br />
 
 ### Write data monitored throughout the day
 
@@ -621,41 +673,52 @@ represented.
 
 The following example shows how to write data for a triathlon:
 
-    val swimStartTime = Instant.parse("2024-08-22T08:00:00Z")
-    val swimEndTime = Instant.parse("2024-08-22T08:30:00Z")
-    val bikeStartTime = Instant.parse("2024-08-22T08:40:00Z")
-    val bikeEndTime = Instant.parse("2024-08-22T09:40:00Z")
-    val runStartTime = Instant.parse("2024-08-22T09:50:00Z")
-    val runEndTime = Instant.parse("2024-08-22T10:20:00Z")
 
-    val swimSession = ExerciseSessionRecord(
-        startTime = swimStartTime,
-        endTime = swimEndTime,
-        exerciseType = ExerciseSessionRecord.EXERCISE_TYPE_SWIMMING_OPEN_WATER,
-        metadata = Metadata.autoRecorded(
-          device = Device(type = Device.TYPE_WATCH)
-        )
-    )
+```kotlin
+val swimStartTime = Instant.parse("2024-08-22T08:00:00Z")
+val swimEndTime = Instant.parse("2024-08-22T08:30:00Z")
+val bikeStartTime = Instant.parse("2024-08-22T08:40:00Z")
+val bikeEndTime = Instant.parse("2024-08-22T09:40:00Z")
+val runStartTime = Instant.parse("2024-08-22T09:50:00Z")
+val runEndTime = Instant.parse("2024-08-22T10:20:00Z")
 
-    val bikeSession = ExerciseSessionRecord(
-        startTime = bikeStartTime,
-        endTime = bikeEndTime,
-        exerciseType = ExerciseSessionRecord.EXERCISE_TYPE_BIKING,
-        metadata = Metadata.autoRecorded(
-          device = Device(type = Device.TYPE_WATCH)
-        )
-    )
+val swimSession = ExerciseSessionRecord(
+    startTime = swimStartTime,
+    endTime = swimEndTime,
+    exerciseType = ExerciseSessionRecord.EXERCISE_TYPE_SWIMMING_OPEN_WATER,
+    metadata = Metadata(
+        device = Device(type = Device.TYPE_WATCH)
+    ),
+    startZoneOffset = null,
+    endZoneOffset = null,
+)
 
-    val runSession = ExerciseSessionRecord(
-        startTime = runStartTime,
-        endTime = runEndTime,
-        exerciseType = ExerciseSessionRecord.EXERCISE_TYPE_RUNNING,
-        metadata = Metadata.autoRecorded(
-          device = Device(type = Device.TYPE_WATCH)
-        )
-    )
+val bikeSession = ExerciseSessionRecord(
+    startTime = bikeStartTime,
+    endTime = bikeEndTime,
+    exerciseType = ExerciseSessionRecord.EXERCISE_TYPE_BIKING,
+    metadata = Metadata(
+        device = Device(type = Device.TYPE_WATCH)
+    ),
+    startZoneOffset = null,
+    endZoneOffset = null,
+)
 
-    healthConnectClient.insertRecords(listOf(swimSession, bikeSession, runSession))
+val runSession = ExerciseSessionRecord(
+    startTime = runStartTime,
+    endTime = runEndTime,
+    exerciseType = ExerciseSessionRecord.EXERCISE_TYPE_RUNNING,
+    metadata = Metadata(
+        device = Device(type = Device.TYPE_WATCH)
+    ),
+    startZoneOffset = null,
+    endZoneOffset = null,
+)
+
+healthConnectClient.insertRecords(listOf(swimSession, bikeSession, runSession))
+```
+
+<br />
 
 ## Handle exceptions
 

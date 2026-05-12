@@ -17,7 +17,7 @@ This implementation works with Compose versions 1.2.0 and higher.
 ### Dependencies
 
 Include the following dependencies in your `build.gradle`:
-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/filter-list-while-typing_001484963577bfc707b73b4b52991a87aa138867a07f2bcb7db27c9e469d1df4.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/filter-list-while-typing_d9d3be52482042dfef4fc8f32315804eccd14b236281e2e4a515e841537161a0.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
 
 ## Filter a list based on text input
 

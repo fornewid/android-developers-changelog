@@ -4,23 +4,39 @@ url: https://developer.android.com/guide/playcore/asset-delivery/integrate-unity
 source: md.txt
 ---
 
-# Integrate asset delivery (Unity)
-
-When integrating asset delivery, Unity games can access asset packs using Addressables or AssetBundles. Addressables are the more recent and recommended asset delivery solution for games built with Unity 2019.4 or higher, while AssetBundles provide support of asset packs in Unity 2017.4 and 2018.4.
+When integrating asset delivery, Unity games
+can access asset packs using Addressables or AssetBundles. Addressables are the
+more recent and recommended asset delivery solution for games built with Unity
+2019.4 or higher, while AssetBundles provide support of asset packs in Unity
+2017.4 and 2018.4.
 
 ## Unity Addressables
 
-Games built with Unity 2019.4 or higher should use[Addressables](https://unity.com/how-to/simplify-your-content-management-addressables#where-can-i-learn-more-about-addressables)for asset delivery on Android. Unity provides a Play Asset Delivery (PAD) API for handling Android asset packs using Addressables. For information about using Addressables, see the following:
+Games built with Unity 2019.4 or higher should use
+[Addressables](https://unity.com/how-to/simplify-your-content-management-addressables#where-can-i-learn-more-about-addressables)
+for asset delivery on Android. Unity provides a Play Asset Delivery (PAD) API
+for handling Android asset packs using Addressables. For information about using
+Addressables, see the following:
 
 - [Addressables for Android package](https://docs.unity3d.com/Packages/com.unity.addressables.android@1.0/manual/index.html)
 - [PAD guide for Unity](https://docs.unity3d.com/Manual/play-asset-delivery.html)
-- PAD API for Unity[reference documentation](https://docs.unity3d.com/ScriptReference/Android.AndroidAssetPacks.html)
+- PAD API for Unity [reference documentation](https://docs.unity3d.com/ScriptReference/Android.AndroidAssetPacks.html)
 
 ## Use AssetBundle files
 
-Games built with Unity 2017.4 and 2018.4 can use AssetBundle files for asset delivery on Android. Unity[AssetBundle](https://docs.unity3d.com/Manual/AssetBundlesIntro.html)files contain serialized assets that can be loaded by the Unity engine while the app is running. These files are platform-specific (for example, built for Android) and can be used in combination with asset packs. Most commonly, one AssetBundle file is packaged into a single asset pack, with the pack using the same name as the AssetBundle. If you want more flexibility in creating an asset pack, configure the asset pack[using the API](https://developer.android.com/guide/playcore/asset-delivery/integrate-unity#configure-asset-packs-api).
+Games built with Unity 2017.4 and 2018.4 can use AssetBundle files for asset
+delivery on Android. Unity
+[AssetBundle](https://docs.unity3d.com/Manual/AssetBundlesIntro.html)
+files contain serialized assets that can be loaded by the Unity engine while the
+app is running. These files are platform-specific (for example, built for
+Android) and can be used in combination with asset packs. Most commonly,
+one AssetBundle file is packaged into a single asset pack, with the pack
+using the same name as the AssetBundle. If you want more flexibility in creating an
+asset pack,
+configure the asset pack [using the API](https://developer.android.com/guide/playcore/asset-delivery/integrate-unity#configure-asset-packs-api).
 
-At runtime, use the[Play Asset Delivery for Unity](https://developer.android.com/reference/unity/class/Google/Play/AssetDelivery/PlayAssetDelivery)class to retrieve an AssetBundle packaged in an asset pack.
+At runtime, use the [Play Asset Delivery for Unity](https://developer.android.com/reference/unity/class/Google/Play/AssetDelivery/PlayAssetDelivery)
+class to retrieve an AssetBundle packaged in an asset pack.
 
 ### Prerequisites
 
@@ -28,13 +44,16 @@ At runtime, use the[Play Asset Delivery for Unity](https://developer.android.com
 
 ### OpenUPM-CLI
 
-If you have the[OpenUPM CLI](https://github.com/openupm/openupm-cli#installation)installed you can install the OpenUPM registry with the following command:  
+If you have the [OpenUPM CLI](https://github.com/openupm/openupm-cli#installation)
+installed you can install the OpenUPM registry with the following command:
 
     openupm add com.google.play.assetdelivery
 
 ### OpenUPM
 
-1. Open the[package manager settings](https://docs.unity3d.com/Manual/class-PackageManager.html)by selecting the Unity menu option**Edit \> Project Settings \> Package Manager**.
+1. Open the [package manager settings](https://docs.unity3d.com/Manual/class-PackageManager.html)
+   by selecting the Unity menu option
+   **Edit \> Project Settings \> Package Manager**.
 
 2. Add OpenUPM as a scoped registry to the Package Manager window:
 
@@ -46,44 +65,59 @@ If you have the[OpenUPM CLI](https://github.com/openupm/openupm-cli#installation
          com.google.play.assetdelivery
          com.google.android.appbundle
 
-3. Open the[package manager menu](https://docs.unity3d.com/Manual/upm-ui-install.html)by selecting the Unity menu option**Window \> Package Manager**.
+3. Open the [package manager menu](https://docs.unity3d.com/Manual/upm-ui-install.html) by selecting the Unity
+   menu option **Window \> Package Manager**.
 
-4. Set the manager scope drop-down to select**My Registries**.
+4. Set the manager scope drop-down to select **My Registries**.
 
-5. Select the**Google Play Integrity plugin for Unity** package from the package list and press**Install**.
+5. Select the **Google Play Integrity plugin for Unity** package from the
+   package list and press **Install**.
 
 ### Import from GitHub
 
-1. Download the latest[`.unitypackage`](https://github.com/google/play-asset-delivery-unity/releases/latest)release from GitHub.
+1. Download the latest [`.unitypackage`](https://github.com/google/play-asset-delivery-unity/releases/latest)
+   release from GitHub.
 
-2. Import the`.unitypackage`file by selecting the Unity menu option**Assets \> Import package \> Custom Package**and importing all items.
+2. Import the `.unitypackage` file by selecting the Unity menu option
+   **Assets \> Import package \> Custom Package** and importing all items.
 
-| **Note:** By downloading and using Google Play Unity Plugins, you agree to the[Play Core Software Development Kit Terms of Service](https://developer.android.com/guide/playcore#license).
+> [!NOTE]
+> **Note:** By downloading and using Google Play Unity Plugins, you agree to the [Play Core Software Development Kit Terms of Service](https://developer.android.com/guide/playcore#license).
 
 1. [Create AssetBundles in Unity](https://docs.unity3d.com/Manual/AssetBundles-Workflow.html).
 
-   | **Note:** You can use the[Unity AssetBundle Browser](https://docs.unity3d.com/Manual/AssetBundles-Browser.html)to create and manage AssetBundles in your Unity project.
+   > [!NOTE]
+   > **Note:** You can use the [Unity AssetBundle Browser](https://docs.unity3d.com/Manual/AssetBundles-Browser.html) to create and manage AssetBundles in your Unity project.
 
 ### Configure AssetBundles using the UI
 
 1. Configure each AssetBundle in an asset pack:
 
-   1. Select**Google \> Android App Bundle \> Asset Delivery Settings**.
-   2. To select folders that directly contain AssetBundle files, click**Add Folder**.
+   1. Select **Google \> Android App Bundle \> Asset Delivery Settings**.
+   2. To select folders that directly contain AssetBundle files, click **Add
+      Folder**.
 
    ![](https://developer.android.com/static/images/app-bundle/unity-add-assetbundle-folder.png)
-2. For each bundle, change the**Delivery Mode** to**Install Time** ,**Fast Follow** , or**On Demand**. Resolve any errors or dependencies and close the window.
+2. For each bundle, change the **Delivery Mode** to **Install Time** , **Fast
+   Follow** , or **On Demand**. Resolve any errors or dependencies and close the
+   window.
 
    ![](https://developer.android.com/static/images/app-bundle/unity-asset-delivery-method-per-bundle.png)
-3. Select**Google \> Build Android App Bundle**to build the app bundle.
+3. Select **Google \> Build Android App Bundle** to build the app bundle.
 
-4. (Optional) Configure your app bundle to support different[texture compression formats](https://developer.android.com/guide/playcore/asset-delivery/texture-compression).
+4. (Optional) Configure your app bundle to support different [texture
+   compression formats](https://developer.android.com/guide/playcore/asset-delivery/texture-compression).
 
 ### Configure asset packs using the API
 
-You can configure asset delivery through editor scripts which can be run as part of an automated build system.
+You can configure asset delivery through editor scripts which can be run as part
+of an automated build system.
 
-Use the[`AssetPackConfig`](https://developer.android.com/reference/unity/class/Google/Android/AppBundle/Editor/AssetPackConfig)class to define which assets to include in an Android App Bundle build, as well as the delivery mode of the assets. These asset packs do not need to contain an AssetBundle.  
+Use the
+[`AssetPackConfig`](https://developer.android.com/reference/unity/class/Google/Android/AppBundle/Editor/AssetPackConfig)
+class to define which assets to include in an Android App Bundle build, as well
+as the delivery mode of the assets. These asset packs do not need to contain
+an AssetBundle.
 
 ```c#
 public void ConfigureAssetPacks {
@@ -103,32 +137,55 @@ public void ConfigureAssetPacks {
 }
 ```
 
-You can also use the static[`BuildBundle`](https://developer.android.com/reference/unity/class/Google/Android/AppBundle/Editor/Bundletool#classGoogle_1_1Android_1_1AppBundle_1_1Editor_1_1Bundletool_1a419f1884fceff86fad1175c0546b85e8)method in the`Bundletool`class to generate an Android App Bundle with asset packs, given[BuildPlayerOptions](https://docs.unity3d.com/ScriptReference/BuildPlayerOptions.html)and[`AssetPackConfig`](https://developer.android.com/reference/unity/class/Google/Android/AppBundle/Editor/AssetPackConfig).
+You can also use the static
+[`BuildBundle`](https://developer.android.com/reference/unity/class/Google/Android/AppBundle/Editor/Bundletool#classGoogle_1_1Android_1_1AppBundle_1_1Editor_1_1Bundletool_1a419f1884fceff86fad1175c0546b85e8)
+method in the `Bundletool` class to generate an Android App Bundle with asset
+packs, given
+[BuildPlayerOptions](https://docs.unity3d.com/ScriptReference/BuildPlayerOptions.html)
+and
+[`AssetPackConfig`](https://developer.android.com/reference/unity/class/Google/Android/AppBundle/Editor/AssetPackConfig).
 
-For a guided tutorial, see the[Using Play Asset Delivery in Unity games Codelab](https://codelabs.developers.google.com/codelabs/unity-gamepad).
+For a guided tutorial, see the
+[Using Play Asset Delivery in Unity games Codelab](https://codelabs.developers.google.com/codelabs/unity-gamepad).
 
 ### Integrate with Play Asset Delivery Unity API
 
-The[Play Asset Delivery Unity API](https://developer.android.com/reference/unity/class/Google/Play/AssetDelivery/PlayAssetDelivery)provides the functionality for requesting asset packs, managing downloads, and accessing the assets. Make sure to[Add the Unity plugin](https://developer.android.com/guide/playcore#unity)into your project first.
+The
+[Play Asset Delivery Unity API](https://developer.android.com/reference/unity/class/Google/Play/AssetDelivery/PlayAssetDelivery)
+provides the functionality for requesting asset packs, managing downloads, and
+accessing the assets. Make sure to [Add the Unity plugin](https://developer.android.com/guide/playcore#unity) into your project
+first.
 
-The functions you use in the API depend on how you created the asset packs.
+The functions you use in the API depend on how you created
+the asset packs.
 
-If you[created asset packs using the plugin UI](https://developer.android.com/guide/playcore/asset-delivery/integrate-unity#configure-assetbundles-ui), select**Plugin-configured asset packs**.
+If you
+[created asset packs using the plugin UI](https://developer.android.com/guide/playcore/asset-delivery/integrate-unity#configure-assetbundles-ui),
+select **Plugin-configured asset packs**.
 
-If you[created asset packs using the API (or plugin UI)](https://developer.android.com/guide/playcore/asset-delivery/integrate-unity#configure-asset-packs-api), select**API-configured asset packs**.  
-Plugin-configured asset packsAPI-configured asset packs
+If you
+[created asset packs using the API (or plugin UI)](https://developer.android.com/guide/playcore/asset-delivery/integrate-unity#configure-asset-packs-api),
+select **API-configured asset packs**.
+<button value="plugin" default="">Plugin-configured asset packs</button> <button value="api">API-configured asset packs</button>
 
-You implement the API according to the delivery type of the asset pack you wish to access. These steps are shown in the following flowchart.
+You implement the API according to the delivery type of
+the asset pack you wish to access. These steps are shown in the following
+flowchart.
 
 ![Asset pack flow diagram for the plugin](https://developer.android.com/static/images/app-bundle/asset-pack-flow-unity-plugin.png)
 
-**Figure 1.**Flow diagram for accessing asset packs
+
+**Figure 1.** Flow diagram for accessing asset packs
 
 <br />
 
 ## Retrieve AssetBundles
 
-Import the[Play Asset Delivery library](https://developer.android.com/reference/unity/class/Google/Play/AssetDelivery/PlayAssetDelivery)and call the[`RetrieveAssetBundleAsync()`](https://developer.android.com/reference/unity/class/Google/Play/AssetDelivery/PlayAssetDelivery#retrieveassetbundleasync)method to retrieve an AssetBundle.  
+Import the
+[Play Asset Delivery library](https://developer.android.com/reference/unity/class/Google/Play/AssetDelivery/PlayAssetDelivery)
+and call the
+[`RetrieveAssetBundleAsync()`](https://developer.android.com/reference/unity/class/Google/Play/AssetDelivery/PlayAssetDelivery#retrieveassetbundleasync)
+method to retrieve an AssetBundle.
 
 ```c#
 using Google.Play.AssetDelivery;
@@ -139,7 +196,8 @@ PlayAssetBundleRequest bundleRequest = PlayAssetDelivery.RetrieveAssetBundleAsyn
 
 ## Install-time delivery
 
-Asset packs configured as`install-time`are immediately available at app launch. You can use the following to load a scene from the AssetBundle:  
+Asset packs configured as `install-time` are immediately available at app
+launch. You can use the following to load a scene from the AssetBundle:
 
 ```c#
 AssetBundle assetBundle = bundleRequest.AssetBundle;
@@ -151,15 +209,20 @@ SceneManager.LoadScene(scenePaths[path-index]);
 
 ## Fast-follow and on-demand delivery
 
-These sections apply to`fast-follow`and`on-demand`asset packs.
+These sections apply to `fast-follow` and `on-demand` asset packs.
 
 ### Check status
 
-Each asset pack is stored in a separate folder in the app's internal storage. Use the[`isDownloaded()`](https://developer.android.com/reference/unity/class/Google/Play/AssetDelivery/PlayAssetDelivery#isdownloaded)method to determine if an asset pack has already been downloaded.
+Each asset pack is stored in a separate folder in the app's internal storage.
+Use the
+[`isDownloaded()`](https://developer.android.com/reference/unity/class/Google/Play/AssetDelivery/PlayAssetDelivery#isdownloaded)
+method to determine if an asset pack has already been downloaded.
 
 ### Monitor the download
 
-Query the[`PlayAssetBundleRequest`](https://developer.android.com/reference/unity/class/Google/Play/AssetDelivery/PlayAssetBundleRequest)object to monitor the status of the request:  
+Query the
+[`PlayAssetBundleRequest`](https://developer.android.com/reference/unity/class/Google/Play/AssetDelivery/PlayAssetBundleRequest)
+object to monitor the status of the request:
 
 ```c#
 // Download progress of request, between 0.0f and 1.0f. The value will always be
@@ -203,11 +266,21 @@ switch(status) {
 
 #### Large downloads
 
-Asset packs larger than 200MB can download automatically, but only on Wi-Fi. If the user is not on Wi-Fi, the`PlayAssetBundleRequest`status is set to[`AssetDeliveryStatus.WaitingForWifi`](https://developer.android.com/reference/unity/namespace/Google/Play/AssetDelivery#assetdeliverystatus)and the download is paused. In this case, either wait until the device connects to Wi-Fi, resuming the download, or prompt the user for approval to download the pack over a cellular connection.
+Asset packs larger than 200MB can download automatically, but only on Wi-Fi. If
+the user is not on Wi-Fi, the `PlayAssetBundleRequest` status is set to
+[`AssetDeliveryStatus.WaitingForWifi`](https://developer.android.com/reference/unity/namespace/Google/Play/AssetDelivery#assetdeliverystatus)
+and the download is paused. In this case, either wait until the device connects
+to Wi-Fi, resuming the download, or prompt the user for approval to download the
+pack over a cellular connection.
 
 #### Required user confirmation
 
-If a pack has the`AssetDeliveryStatus.RequiresUserConfirmation`status, the download won't proceed until the user accepts the dialog that is shown with`PlayAssetDelivery.ShowConfirmationDialog()`. This status can arise if the app is not recognized by Play. Note that calling`PlayAssetDelivery.ShowConfirmationDialog()`in this case causes the app to be updated. After the update, request the assets again.  
+If a pack has the `AssetDeliveryStatus.RequiresUserConfirmation` status, the
+download won't proceed until the user accepts the dialog that is shown with
+`PlayAssetDelivery.ShowConfirmationDialog()`. This status can arise if the app
+is not recognized by Play. Note that calling
+`PlayAssetDelivery.ShowConfirmationDialog()` in this case causes the app to
+be updated. After the update, request the assets again.
 
 ```c#
 if(request.Status == AssetDeliveryStatus.RequiresUserConfirmation
@@ -232,7 +305,12 @@ if(request.Status == AssetDeliveryStatus.RequiresUserConfirmation
 
 #### Cancel a request (on-demand only)
 
-If you need to cancel the request before the AssetBundles are loaded into memory, call the[`AttemptCancel()`](https://developer.android.com/reference/unity/play/class/Google/Play/AssetDelivery/PlayAssetBundleRequest#classGoogle_1_1Play_1_1AssetDelivery_1_1PlayAssetBundleRequest_1a352bfe7cdff7d41c9039b1b54f1f61ad)method on the[`PlayAssetBundleRequest`](https://developer.android.com/reference/unity/class/Google/Play/AssetDelivery/PlayAssetBundleRequest)object:  
+If you need to cancel the request before the AssetBundles are loaded into
+memory, call the
+[`AttemptCancel()`](https://developer.android.com/reference/unity/play/class/Google/Play/AssetDelivery/PlayAssetBundleRequest#classGoogle_1_1Play_1_1AssetDelivery_1_1PlayAssetBundleRequest_1a352bfe7cdff7d41c9039b1b54f1f61ad)
+method on the
+[`PlayAssetBundleRequest`](https://developer.android.com/reference/unity/class/Google/Play/AssetDelivery/PlayAssetBundleRequest)
+object:
 
 ```c#
 // Will only attempt if the status is Pending, Retrieving, or Available - otherwise
@@ -247,7 +325,10 @@ if(bundleRequest.Error == AssetDeliveryErrorCode.Canceled) {
 
 ### Request asset packs asynchronously
 
-In most cases, you should use[Coroutines](https://docs.unity3d.com/Manual/Coroutines.html)to request asset packs asynchronously and monitor progress, as shown by the following:  
+In most cases, you should use
+[Coroutines](https://docs.unity3d.com/Manual/Coroutines.html) to
+request asset packs asynchronously and monitor progress, as shown by the
+following:
 
 ```c#
 private IEnumerator LoadAssetBundleCoroutine(string assetBundleName) {
@@ -289,7 +370,8 @@ private IEnumerator LoadAssetBundleCoroutine(string assetBundleName) {
     AssetBundle assetBundle = bundleRequest.AssetBundle;
 ```
 
-For more information on handling errors, see the list of[`AssetDeliveryErrorCodes`](https://developer.android.com/reference/unity/namespace/Google/Play/AssetDelivery#namespaceGoogle_1_1Play_1_1AssetDelivery_1a84566dc4da8247c6613f8bfb2d2c1736).
+For more information on handling errors, see the list of
+[`AssetDeliveryErrorCodes`](https://developer.android.com/reference/unity/namespace/Google/Play/AssetDelivery#namespaceGoogle_1_1Play_1_1AssetDelivery_1a84566dc4da8247c6613f8bfb2d2c1736).
 
 ## Other Play Core API methods
 
@@ -297,7 +379,8 @@ The following are some additional API methods you may want to use in your app.
 
 ### Check download size
 
-Check the size of an AssetBundle by making an asynchronous call to Google Play and setting a callback method for when the operation completes:  
+Check the size of an AssetBundle by making an asynchronous call to Google Play
+and setting a callback method for when the operation completes:
 
 ```c#
 public IEnumerator GetDownloadSize() {
@@ -316,7 +399,9 @@ public IEnumerator GetDownloadSize() {
 
 ### Remove AssetBundles
 
-You can remove fast-follow and on-demand AssetBundles that are not currently loaded into memory. Make the following asynchronous call and set a callback method for when it completes:  
+You can remove fast-follow and on-demand AssetBundles that are not currently
+loaded into memory. Make the following asynchronous call and set a callback
+method for when it completes:
 
 ```c#
 PlayAsyncOperation<string> removeOperation = PlayAssetDelivery.RemoveAssetPack(assetBundleName);
@@ -333,4 +418,5 @@ removeOperation.Completed += (operation) =>
 
 ## Next steps
 
-[Test asset delivery](https://developer.android.com/guide/playcore/asset-delivery/test)locally and from Google Play.
+[Test asset delivery](https://developer.android.com/guide/playcore/asset-delivery/test) locally and from
+Google Play.

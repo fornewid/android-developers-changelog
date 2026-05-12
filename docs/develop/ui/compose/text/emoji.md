@@ -58,7 +58,7 @@ Text(
 
 <br />
 
-## Interoperatibility
+## Interoperability
 
 If your app uses both Views and Compose in the same `Activity`, make sure you
 are using the appropriate APIs to configure emojis correctly. The following

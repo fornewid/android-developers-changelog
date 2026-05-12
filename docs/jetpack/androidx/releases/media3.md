@@ -333,6 +333,16 @@ Use the 1.10.0 [stable version](https://developer.android.com/jetpack/androidx/r
 
 ## Version 1.9.0
 
+### 1.9.4
+
+May 16, 2026
+
+Version 1.9.4 contains the following
+[commits](https://github.com/androidx/media/commits/1.9.4).
+
+- Effect:
+  - Explicitly set `GL_DRAW_BUFFER` and `GL_READ_BUFFER` when transitioning from surfaceless context.
+
 ### 1.9.3
 
 March 16, 2026

@@ -4,7 +4,8 @@ url: https://developer.android.com/games/services/publishing/api/imageConfigurat
 source: md.txt
 ---
 
-| **Deprecated:** This API is deprecated and is being removed, so you shouldn't use it. Attempting to use this API causes errors.
+> [!WARNING]
+> **Deprecated:** This API is deprecated and is being removed, so you shouldn't use it. Attempting to use this API causes errors.
 
 
 **Requires [authorization](https://developer.android.com/games/services/publishing/api/imageConfigurations/upload#auth)**
@@ -50,7 +51,7 @@ Do not supply a request body with this method.
 
 If successful, this method returns a response body with the following structure:
 
-```text
+```
 {
   "kind": "gamesConfiguration#imageConfiguration",
   "url": string,

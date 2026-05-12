@@ -6,8 +6,10 @@ source: md.txt
 
 The following example shows you how to read raw data as part of the common
 workflow.
-| **Tip:** For further guidance on reading raw data, take a look at the [Android
-| Developer video for reading and writing data](https://www.youtube.com/watch?v=NAx7Gv_Hk7E&t=122) in Health Connect.
+
+> [!TIP]
+> **Tip:** For further guidance on reading raw data, take a look at the [Android
+> Developer video for reading and writing data](https://www.youtube.com/watch?v=NAx7Gv_Hk7E&t=122) in Health Connect.
 
 ## Read data
 
@@ -30,58 +32,55 @@ step count data.
 
 To read records, create a [`ReadRecordsRequest`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/request/ReadRecordsRequest) and supply
 it when you call [`readRecords`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/HealthConnectClient#readRecords(androidx.health.connect.client.request.ReadRecordsRequest)).
-| **Note:** For cumulative types like `StepsRecord`, use `aggregate()` instead of `readRecords()` to avoid double counting from multiple sources and improve accuracy. See [Read aggregated
-| data](https://developer.android.com/reference/kotlin/androidx/health/connect/client/aggregate/package-summary) for more information.
+
+> [!NOTE]
+> **Note:** For cumulative types like `StepsRecord`, use `aggregate()` instead of `readRecords()` to avoid double counting from multiple sources and improve accuracy. See [Read aggregated
+> data](https://developer.android.com/reference/kotlin/androidx/health/connect/client/aggregate/package-summary) for more information.
 
 The following example shows how to read step count data for a user within a
 certain time. For an extended example with [`SensorManager`](https://developer.android.com/reference/android/hardware/SensorManager),
-see the [step count](https://developer.android.com/health-and-fitness/guides/basic-fitness-app/read-step-count-data) data guide.  
+see the [step count](https://developer.android.com/health-and-fitness/guides/basic-fitness-app/read-step-count-data) data guide.
 
-    suspend fun readStepsByTimeRange(
-        healthConnectClient: HealthConnectClient,
-        startTime: Instant,
-        endTime: Instant
-    ) {
-        try {
-            val response = healthConnectClient.readRecords(
-                ReadRecordsRequest(
-                    StepsRecord::class,
-                    timeRangeFilter = TimeRangeFilter.between(startTime, endTime)
-                )
-            )
-            for (record in response.records) {
-                // Process each record
-            }
-        } catch (e: Exception) {
-            // Run error handling here
-        }
-    }
+
+```kotlin
+val response = healthConnectClient.readRecords(
+    ReadRecordsRequest(
+        HeartRateRecord::class,
+        timeRangeFilter = TimeRangeFilter.between(startTime, endTime)
+    )
+)
+response.records.forEach { record ->
+    /* Process records */
+}
+```
+
+<br />
 
 You can also read your data in an aggregated manner using
-[`aggregate`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/aggregate/package-summary).  
+[`aggregate`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/aggregate/package-summary).
 
-    suspend fun readStepsByTimeRange(
-        healthConnectClient: HealthConnectClient,
-        startTime: Instant,
-        endTime: Instant
-    ) {
-        try {
-            val response = healthConnectClient.aggregate(
-                AggregateRequest(
-                    metrics = setOf(StepsRecord.COUNT_TOTAL),
-                    timeRangeFilter = TimeRangeFilter.between(startTime, endTime)
-                )
-            )
-            // The result may be null if no data is available in the time range
-            val stepCount = response[StepsRecord.COUNT_TOTAL]
-        } catch (e: Exception) {
-            // Run error handling here
-        }
-    }
 
-| **Note:** If you're interested in obtaining calculated data such as averages and totals, it is recommended to use [aggregation](https://developer.android.com/health-and-fitness/guides/health-connect/develop/aggregate-data). You can set [smaller time slices](https://developer.android.com/health-and-fitness/guides/health-connect/develop/aggregate-data#buckets) whenever you aggregate. The aggregation API also contains logic to handle duplicate records, and lessens the chances of rate limiting.
+```kotlin
+suspend fun readStepsAggregate(startTime: Instant, endTime: Instant): Long {
+    val response = healthConnectClient.aggregate(
+        AggregateRequest(
+            metrics = setOf(StepsRecord.COUNT_TOTAL),
+            timeRangeFilter = TimeRangeFilter.between(startTime, endTime)
+        )
+    )
+    return response[StepsRecord.COUNT_TOTAL] ?: 0L
+}
+```
+
+<br />
+
+> [!NOTE]
+> **Note:** If you're interested in obtaining calculated data such as averages and totals, it is recommended to use [aggregation](https://developer.android.com/health-and-fitness/guides/health-connect/develop/aggregate-data). You can set [smaller time slices](https://developer.android.com/health-and-fitness/guides/health-connect/develop/aggregate-data#buckets) whenever you aggregate. The aggregation API also contains logic to handle duplicate records, and lessens the chances of rate limiting.
 
 ## Read mobile steps
+
+> [!WARNING]
+> **Warning:** Starting with the Health Connect update in June 2026, on-device steps are attributed to a device-specific **Synthetic Package Name (SPN)** instead of the generic `"android"` package name. See [Attribution change for on-device steps](https://developer.android.com/health-and-fitness/health-connect/read-data#attribution-change) for details.
 
 With Android 14 (API level 34) and SDK Extension version 20 or higher,
 Health Connect provides on-device step counting. If any app has been granted
@@ -89,66 +88,135 @@ the `READ_STEPS` permission, Health Connect starts capturing steps from the
 Android-powered device, and users see steps data automatically added to
 Health Connect **Steps** entries.
 
-To check if on-device step counting is available, you need to verify that the
-device is running Android 14 (API level 34) and has at least SDK extension
-version 20. You can use the following code:  
+To check if on-device step counting is available, verify that the device is
+running Android 14 (API level 34) and has at least SDK extension version 20:
 
     val isStepTrackingAvailable =
         Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE &&
             SdkExtensions.getExtensionVersion(Build.VERSION_CODES.UPSIDE_DOWN_CAKE) >= 20
 
-Mobile steps captured by Health Connect have their
-[`DataOrigin`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/metadata/DataOrigin) set to the package name `android`. If your app
-simply reads aggregated step counts using [`aggregate`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/aggregate/package-summary) and
-doesn't filter by `DataOrigin`, on-device steps are automatically included in
-the total.
+If your app reads aggregated step counts using
+[`aggregate`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/aggregate/package-summary) and doesn't filter by `DataOrigin`, on-device
+steps are automatically included in the total, and no changes are required for
+the June 2026 update.
+
+### Attribution change for on-device steps
+
+Starting with the June 2026 update, steps tracked natively by Health
+Connect are attributed to a **Synthetic Package Name (SPN)** , such as
+`com.android.healthconnect.phone.jd5bdd37e1a8d3667a05d0abebfc4a89e`.
+
+Previously, built-in steps were attributed to the package name `android`.
+Historical step data recorded before June 2026 retains the `android` package
+name.
+
+SPNs are device-specific and scoped on a per-application basis to protect
+user privacy:
+
+- **Stable:** The SPN for the current device is stable for your application.
+- **Application-Scoped:** Different applications on the same device see different SPNs for on-device step data.
+
+#### Query for on-device steps
+
+Because SPNs are scoped and device-specific, you **must not** hardcode SPN
+values. Instead, use the `getCurrentDeviceDataSource()` API to retrieve the
+SPN for the current device.
+
+While on-device step counting requires SDK extension version 20 or higher,
+the `getCurrentDeviceDataSource()` API is available on Android 14 (API level
+34) with SDK extension version 11 or higher.
+
+The `getCurrentDeviceDataSource()` API is not yet available in the Health
+Connect Jetpack library. The following examples use the Android framework API
+instead:
+
+    import android.content.Context
+    import android.health.connect.HealthConnectManager
+
+    val healthConnectManager = context.getSystemService(HealthConnectManager::class.java)
+    val deviceDataSource = healthConnectManager?.getCurrentDeviceDataSource()
+    val currentDeviceSpn = deviceDataSource?.deviceDataOrigin?.packageName
 
 If your app needs to read on-device steps, or if it displays step data
-broken down by source application or device, you can query for records
-where the `DataOrigin` is `android`. If your app shows attribution for step
-data, you should attribute data from the android package to the current device.
-You can do this by using a label such as "Your phone", retrieving the device
-name with `Settings.Global.getString(resolver, Settings.Global.DEVICE_NAME)`,
-or inspecting the [`Device`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/metadata/Device) field in the record's metadata.
+broken down by source application or device, you must query for records
+where the `DataOrigin` is `android` **or** matches the device's SPN. If
+your app shows attribution for step data, use [`metadata.device`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/metadata/Device)
+to identify the source device for individual records. For on-device steps
+identified by an SPN in aggregated data, you can use device metadata such as
+`model` or `manufacturer` from `DeviceDataSource` for attribution, or use a
+generic label like "Your phone" for on-device steps.
 
-The following example shows how to read aggregated mobile step count data by
-filtering for the `android` data origin:  
+The following example shows how to read aggregated on-device step count data
+by filtering for both `android` and the current device SPN:
 
-    suspend fun readStepsByTimeRange(
+    import android.content.Context
+    import android.health.connect.HealthConnectManager
+    import android.os.Build
+    import android.os.ext.SdkExtensions
+    import androidx.health.connect.client.HealthConnectClient
+    import androidx.health.connect.client.records.StepsRecord
+    import androidx.health.connect.client.records.metadata.DataOrigin
+    import androidx.health.connect.client.request.AggregateRequest
+    import androidx.health.connect.client.time.TimeRangeFilter
+    import java.time.Instant
+
+    suspend fun readDeviceStepsByTimeRange(
         healthConnectClient: HealthConnectClient,
+        context: Context,
         startTime: Instant,
         endTime: Instant
     ) {
+        // 1. Check if SDK Extension 11+ is available for getCurrentDeviceDataSource()
+        val isDataSourceApiAvailable = Build.VERSION.SDK_INT >= Build.VERSION_CODES.U &&
+                SdkExtensions.getExtensionVersion(Build.VERSION_CODES.U) >= 11
+
         try {
+            val healthConnectManager = context.getSystemService(HealthConnectManager::class.java)
+
+            // 2. Safely fetch the package name only if API is available and data exists
+            val currentDeviceSpn = if (isDataSourceApiAvailable) {
+                healthConnectManager?.getCurrentDeviceDataSource()?.deviceDataOrigin?.packageName
+            } else {
+                null
+            }
+
+            val dataOriginFilters = mutableSetOf(DataOrigin("android"))
+
+            // 3. Explicit null-safety check using .let
+            currentDeviceSpn?.let {
+                dataOriginFilters.add(DataOrigin(it))
+            }
+
             val response = healthConnectClient.aggregate(
                 AggregateRequest(
                     metrics = setOf(StepsRecord.COUNT_TOTAL),
                     timeRangeFilter = TimeRangeFilter.between(startTime, endTime),
-                    dataOriginFilter = setOf(DataOrigin("android"))
+                    dataOriginFilter = dataOriginFilters
                 )
             )
-            // The result may be null if no data is available in the time range
+
             val stepCount = response[StepsRecord.COUNT_TOTAL]
+
         } catch (e: Exception) {
-            // Run error handling here
+            // Now this catch block only handles actual runtime exceptions, 
+            // rather than Errors from missing methods.
         }
     }
 
-| **Note:** If your app has significant users on Android 13 and lower, we recommend also maintaining or adding an integration with the local [Recording API](https://developer.android.com/health-and-fitness/recording-api).
+> [!NOTE]
+> **Note:** If your app has significant users on Android 13 and lower, we recommend also maintaining or adding an integration with the local [Recording API](https://developer.android.com/health-and-fitness/recording-api).
 
 ### On-Device Step Counting
 
-Diving deeper into the on-device step counting feature:
-
 - **Sensor Usage** : Health Connect utilizes the [`TYPE_STEP_COUNTER`](https://developer.android.com/reference/android/hardware/Sensor#TYPE_STEP_COUNTER) sensor from `SensorManager`. This sensor is optimized for low power consumption, making it ideal for continuous background step tracking.
 - **Data Granularity**: To conserve battery life, step data is typically batched and written to the Health Connect database no more frequently than once per minute.
-- **Attribution** : As mentioned earlier, all steps recorded by this on-device feature are attributed to the `android` package name in the [`DataOrigin`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/metadata/DataOrigin).
+- **Attribution** : Steps recorded by this feature before June 2026 are attributed to the `android` package name in the [`DataOrigin`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/metadata/DataOrigin). After this date, they are attributed to a device-specific SPN. See [Attribution change for on-device steps](https://developer.android.com/health-and-fitness/health-connect/read-data#attribution-change).
 - **Activation** : The on-device step counting mechanism is active only when at least one application on the device has been granted the `READ_STEPS` permission within Health Connect.
 
-### Background read example
+## Background read example
 
 To read data in the background, declare the following permission in your
-manifest file:  
+manifest file:
 
     <application>
       <uses-permission android:name="android.permission.health.READ_HEALTH_DATA_IN_BACKGROUND" />
@@ -156,49 +224,47 @@ manifest file:
     </application>
 
 The following example shows how to read step count data in the background for a
-user within a certain time by using [`WorkManager`](https://developer.android.com/reference/kotlin/androidx/work/WorkManager):  
+user within a certain time by using [`WorkManager`](https://developer.android.com/reference/kotlin/androidx/work/WorkManager):
 
-    class ScheduleWorker(private val appContext: Context, workerParams: WorkerParameters):
-        CoroutineWorker(appContext, workerParams) {
 
-        override suspend fun doWork(): Result {
-            // Read data and process it.
-            ...
+```kotlin
+class ScheduleWorker(appContext: Context, workerParams: WorkerParameters) :
+    CoroutineWorker(appContext, workerParams) {
 
-            // Return success indicating successful data retrieval
-            return Result.success()
-        }
+    override suspend fun doWork(): Result {
+        val healthConnectClient = HealthConnectClient.getOrCreate(applicationContext)
+        // Perform background read logic here
+        return Result.success()
     }
+}
+```
 
+```kotlin
+@OptIn(ExperimentalFeatureAvailabilityApi::class)
+fun enqueueBackgroundReadWorker(context: Context, healthConnectClient: HealthConnectClient) {
     if (healthConnectClient
-        .features
-        .getFeatureStatus(
-        HealthConnectFeatures.FEATURE_READ_HEALTH_DATA_IN_BACKGROUND
-        ) == HealthConnectFeatures.FEATURE_STATUS_AVAILABLE) {
+            .features
+            .getFeatureStatus(
+                HealthConnectFeatures.FEATURE_READ_HEALTH_DATA_IN_BACKGROUND
+            ) == HealthConnectFeatures.FEATURE_STATUS_AVAILABLE
+    ) {
 
-        // Check if necessary permission is granted
-        val grantedPermissions = healthConnectClient.permissionController.getGrantedPermissions()
+        val periodicWorkRequest = PeriodicWorkRequestBuilder<ScheduleWorker>(1, TimeUnit.HOURS)
+            .build()
 
-        if (PERMISSION_READ_HEALTH_DATA_IN_BACKGROUND !in grantedPermissions) {
-            // Perform read in foreground
-            ...
-        } else {
-            // Schedule the periodic work request in background
-            val periodicWorkRequest = PeriodicWorkRequestBuilder<ScheduleWorker>(1, TimeUnit.HOURS)
-                .build()
-
-            WorkManager.getInstance(context).enqueueUniquePeriodicWork(
-                "read_health_connect",
-                ExistingPeriodicWorkPolicy.KEEP,
-                periodicWorkRequest
-            )
-        }
-    } else {
-      // Background reading is not available, perform read in foreground
-      ...
+        WorkManager.getInstance(context).enqueueUniquePeriodicWork(
+            "read_health_connect",
+            ExistingPeriodicWorkPolicy.KEEP,
+            periodicWorkRequest
+        )
     }
+}
+```
 
-| **Note:** If the user doesn't grant all of the permissions that are required for background reads, your app should still run, and it should perform as many tasks as it can with the permissions that the user granted.
+<br />
+
+> [!NOTE]
+> **Note:** If the user doesn't grant all of the permissions that are required for background reads, your app should still run, and it should perform as many tasks as it can with the permissions that the user granted.
 
 The [`ReadRecordsRequest`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/request/package-summary#ReadRecordsRequest(androidx.health.connect.client.time.TimeRangeFilter,kotlin.collections.Set,kotlin.Boolean,kotlin.Int,kotlin.String)) parameter has a default `pageSize` value of 1000.
 If the number of records in a single `readResponse` exceeds the
@@ -206,42 +272,45 @@ If the number of records in a single `readResponse` exceeds the
 over all pages of the response to retrieve all records by using `pageToken`.
 However, be careful to avoid rate-limiting concerns.
 
-### pageToken read example
+## pageToken read example
 
 It is recommended to use `pageToken` for reading records to retrieve all
 available data from the requested time period.
 
 The following example shows how to read all records until all page tokens have
-been exhausted:  
+been exhausted:
 
-    val type = HeartRateRecord::class
-    val endTime = Instant.now()
-    val startTime = endTime.minus(Duration.ofDays(7))
 
-    try {
-        var pageToken: String? = null
-        do {
-            val readResponse =
-                healthConnectClient.readRecords(
-                    ReadRecordsRequest(
-                        recordType = type,
-                        timeRangeFilter = TimeRangeFilter.between(
-                            startTime,
-                            endTime
-                        ),
-                        pageToken = pageToken
-                    )
+```kotlin
+val type = HeartRateRecord::class
+val endTime = Instant.now()
+val startTime = endTime.minus(Duration.ofDays(7))
+
+try {
+    var pageToken: String? = null
+    do {
+        val readResponse =
+            healthConnectClient.readRecords(
+                ReadRecordsRequest(
+                    recordType = type,
+                    timeRangeFilter = TimeRangeFilter.between(
+                        startTime,
+                        endTime
+                    ),
+                    pageToken = pageToken
                 )
-            val records = readResponse.records
-            // Do something with records
-            pageToken = readResponse.pageToken
-        } while (pageToken != null)
-    } catch (quotaError: IllegalStateException) {
-        // Backoff
-    }
+            )
+        val records = readResponse.records
+        // Do something with records
+        pageToken = readResponse.pageToken
+    } while (pageToken != null)
+} catch (quotaError: IllegalStateException) {
+    // Backoff
+}
+```
+For information about best practices when reading large datasets, refer to [Plan to avoid rate limiting](https://developer.android.com/health-and-fitness/guides/health-connect/plan/rate-limiting).
 
-For information about best practices when reading large datasets, refer to
-[Plan to avoid rate limiting](https://developer.android.com/health-and-fitness/guides/health-connect/plan/rate-limiting).
+<br />
 
 ## Read previously written data
 
@@ -266,22 +335,27 @@ To read historical data, you need to indicate the package name as a
 [`ReadRecordsRequest`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/request/ReadRecordsRequest).
 
 The following example shows how to indicate a package name when reading
-heart rate records:  
+heart rate records:
 
-    try {
-        val response =  healthConnectClient.readRecords(
-            ReadRecordsRequest(
-                recordType = HeartRateRecord::class,
-                timeRangeFilter = TimeRangeFilter.between(startTime, endTime),
-                dataOriginFilter = setOf(DataOrigin("com.my.package.name"))
-            )
+
+```kotlin
+try {
+    val response =  healthConnectClient.readRecords(
+        ReadRecordsRequest(
+            recordType = HeartRateRecord::class,
+            timeRangeFilter = TimeRangeFilter.between(startTime, endTime),
+            dataOriginFilter = setOf(DataOrigin("com.my.package.name"))
         )
-        for (record in response.records) {
-            // Process each record
-        }
-    } catch (e: Exception) {
-        // Run error handling here
+    )
+    for (record in response.records) {
+        // Process each record
     }
+} catch (e: Exception) {
+    // Run error handling here
+}
+```
+
+<br />
 
 ## Read data older than 30 days
 

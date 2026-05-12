@@ -69,7 +69,7 @@ decide on each node's size and location in 2D space.
 **Figure 4.** The measurement and placement of each layout node in the UI tree
 during the layout phase.
 
-During the layout phase, the tree is traversed using the following three step
+During the layout phase, the tree is traversed using the following three-step
 algorithm:
 
 1. **Measure children**: A node measures its children if any exist.
@@ -126,7 +126,7 @@ the `value`. This tracking allows Compose to re-execute the reader when the
 state's `value` changes, and is the basis of state observability in Compose.
 
 You commonly create state using `mutableStateOf()` and then access it through
-one of two ways: by directly accessing the `value` property, or alternatively by
+one of two ways: by directly accessing the `value` property, or by
 using a Kotlin property delegate. You can read more about them in [State in
 composables](https://developer.android.com/develop/ui/compose/state#state-in-composables). For the purposes of this guide, a "state read" refers to either
 of those equivalent access methods.
@@ -344,7 +344,7 @@ this change means that if the `firstVisibleItemScrollOffset`'s `value` changes,
 Compose only has to restart the layout and drawing phases.
 
 > [!NOTE]
-> **Note:** You might wonder if taking a lambda parameter might add extra cost compared to taking a value. It does. However, the benefit of limiting the state read to the layout phase overweighs the cost in this case. The `value` of `firstVisibleItemScrollOffset` changes every frame during scroll, and by deferring the state read to the layout phase, you can avoid recompositions all along.
+> **Note:** You might wonder if taking a lambda parameter might add extra cost compared to taking a value. It does. However, the benefit of limiting the state read to the layout phase outweighs the cost in this case. The `value` of `firstVisibleItemScrollOffset` changes every frame during scroll, and by deferring the state read to the layout phase, you can avoid recompositions all along.
 
 Of course, it is often absolutely necessary to read states in the composition
 phase. Even so, there are cases where you can minimize the number of
@@ -430,7 +430,7 @@ This example may seem contrived, but be careful of this general pattern:
 The fix for the preceding sample is to use the proper layout primitives. The
 preceding example can be implemented with a `Column()`, but you may have a more
 complex example which requires something custom, which will require writing a
-custom layout. See the [Custom layouts](https://developer.android.com/develop/ui/compose/layouts/custom) guide for more inform
+custom layout. See the [Custom layouts](https://developer.android.com/develop/ui/compose/layouts/custom) guide for more information.
 
 The general principle here is to have a single source of truth for multiple UI
 elements that should be measured and placed with regards to one another. Using

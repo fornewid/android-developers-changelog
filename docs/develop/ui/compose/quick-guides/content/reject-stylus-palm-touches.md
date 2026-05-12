@@ -42,11 +42,12 @@ app.
 - Ignore motion events that have the `ACTION_CANCEL` and
   `ACTION_POINTER_UP`/`FLAG_CANCELED` properties.
 
-| **Warning:** Android 12 (API level 32) and lower provide only `ACTION_POINTER_UP` for non-primary multi-pointer events. `FLAG_CANCELED` is not set for cancelable events such as palm touches. As a result, apps cannot determine whether the touch was intended or not on Android 12 and lower.
+> [!WARNING]
+> **Warning:** Android 12 (API level 32) and lower provide only `ACTION_POINTER_UP` for non-primary multi-pointer events. `FLAG_CANCELED` is not set for cancelable events such as palm touches. As a result, apps cannot determine whether the touch was intended or not on Android 12 and lower.
 
 ### 1. Acquire motion event objects
 
-Add an [`OnTouchListener`](https://developer.android.com/reference/kotlin/android/view/View.OnTouchListener) to your app:  
+Add an [`OnTouchListener`](https://developer.android.com/reference/kotlin/android/view/View.OnTouchListener) to your app:
 
 ### Kotlin
 
@@ -66,7 +67,7 @@ Add an [`OnTouchListener`](https://developer.android.com/reference/kotlin/androi
 ### 2. Determine the event action and flags
 
 Check for `ACTION_CANCEL`, which indicates a single-pointer event on all API
-levels. On Android 13 and higher, check `ACTION_POINTER_UP` for `FLAG_CANCELED.`  
+levels. On Android 13 and higher, check `ACTION_POINTER_UP` for `FLAG_CANCELED.`
 
 ### Kotlin
 
@@ -125,17 +126,13 @@ app](https://developer.android.com/codelabs/large-screens/advanced-stylus-suppor
 ## Collections that contain this guide
 
 This guide is part of these curated Quick Guide collections that cover broader
-Android development goals:  
-![](https://developer.android.com/static/images/quick-guides/collection-illustration.png)  
-![](https://developer.android.com/static/images/picto-icons/collection.svg)  
+Android development goals:
+![](https://developer.android.com/static/images/quick-guides/collection-illustration.png) ![](https://developer.android.com/static/images/picto-icons/collection.svg)
 
 ### Optimize for large screens
 
-Enable your app to support an optimized user experience on tablets, foldables, and ChromeOS devices.  
-[Quick guide collection](https://developer.android.com/quick-guides/collections/optimize-for-large-screens)
-![](https://developer.android.com/static/images/picto-icons/help.svg)  
+Enable your app to support an optimized user experience on tablets, foldables, and ChromeOS devices. [Quick guide collection](https://developer.android.com/quick-guides/collections/optimize-for-large-screens) ![](https://developer.android.com/static/images/picto-icons/help.svg)
 
 ## Have questions or feedback
 
-Go to our frequently asked questions page and learn about quick guides or reach out and let us know your thoughts.  
-[Go to FAQ](https://developer.android.com/quick-guides/faq) [Leave feedback](https://issuetracker.google.com/issues/new?component=1573691&template=1993320)
+Go to our frequently asked questions page and learn about quick guides or reach out and let us know your thoughts. [Go to FAQ](https://developer.android.com/quick-guides/faq) [Leave feedback](https://issuetracker.google.com/issues/new?component=1573691&template=1993320)

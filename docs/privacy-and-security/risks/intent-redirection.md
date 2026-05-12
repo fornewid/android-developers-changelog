@@ -4,32 +4,39 @@ url: https://developer.android.com/privacy-and-security/risks/intent-redirection
 source: md.txt
 ---
 
-# Intent redirection
-
 <br />
 
 **OWASP category:** [MASVS-PLATFORM: Platform Interaction](https://mas.owasp.org/MASVS/09-MASVS-PLATFORM)
 
 ## Overview
 
-An intent redirection occurs when an attacker can partly or fully control the contents of an intent used to launch a new component in the context of a vulnerable app.
+An intent redirection occurs when an attacker can partly or fully control the
+contents of an intent used to launch a new component in the context of a
+vulnerable app.
 
-The intent used to launch the new component can be supplied in several ways, most commonly either as a serialized intent in an`extras`field, or marshaled to a string and parsed. Partial control of parameters can also lead to the same result.
+The intent used to launch the new component can be supplied in several ways,
+most commonly either as a serialized intent in an `extras` field, or marshaled
+to a string and parsed. Partial control of parameters can also lead to the same
+result.
 
 ## Impact
 
-The impact can vary. An attacker might execute internal features in the vulnerable app, or it might access private components like unexported ContentProvider objects.
+The impact can vary. An attacker might execute internal features in the
+vulnerable app, or it might access private components like unexported
+ContentProvider objects.
 
 ## Mitigations
 
-In general, don't expose features related to redirecting nested intents. In cases where it's unavoidable, apply the following mitigation methods:
+In general, don't expose features related to redirecting nested intents. In
+cases where it's unavoidable, apply the following mitigation methods:
 
 - Properly sanitize the bundled information. It's important to remember to check or clear flags (`FLAG_GRANT_READ_URI_PERMISSION,
   FLAG_GRANT_WRITE_URI_PERMISSION, FLAG_GRANT_PERSISTABLE_URI_PERMISSION, and
-  FLAG_GRANT_PREFIX_URI_PERMISSION`), and to check where the intent is being redirected.[`IntentSanitizer`](https://developer.android.com/reference/kotlin/androidx/core/content/IntentSanitizer)can help with this process.
-- Use[`PendingIntent`](https://developer.android.com/guide/components/intents-filters#PendingIntent)objects. This prevents your component from being exported and makes the target action intent immutable.
+  FLAG_GRANT_PREFIX_URI_PERMISSION`), and to check where the intent is being redirected. [`IntentSanitizer`](https://developer.android.com/reference/kotlin/androidx/core/content/IntentSanitizer) can help with this process.
+- Use [`PendingIntent`](https://developer.android.com/guide/components/intents-filters#PendingIntent) objects. This prevents your component from being exported and makes the target action intent immutable.
 
-Apps can check where an intent is being redirected using methods such as[`ResolveActivity`](https://developer.android.com/reference/android/content/Intent#resolveActivity(android.content.pm.PackageManager)):  
+Apps can check where an intent is being redirected using methods such as
+[`ResolveActivity`](https://developer.android.com/reference/android/content/Intent#resolveActivity(android.content.pm.PackageManager)):
 
 ### Kotlin
 
@@ -56,7 +63,8 @@ Apps can check where an intent is being redirected using methods such as[`Resolv
         startActivity(forward);
     }
 
-Apps can use[`IntentSanitizer`](https://developer.android.com/reference/kotlin/androidx/core/content/IntentSanitizer)using logic similar to the following:  
+Apps can use [`IntentSanitizer`](https://developer.android.com/reference/kotlin/androidx/core/content/IntentSanitizer) using logic similar to the
+following:
 
 ### Kotlin
 
@@ -78,14 +86,21 @@ Apps can use[`IntentSanitizer`](https://developer.android.com/reference/kotlin/a
 
 #### Default protection
 
-Android 16 introduces a by-default security hardening solution to`Intent`redirection exploits. In most cases, apps that use intents normally won't experience any compatibility issues.
+Android 16 introduces a by-default security hardening solution to `Intent`
+redirection exploits. In most cases, apps that use intents normally won't
+experience any compatibility issues.
 
 ##### Opt out of Intent redirection handling
 
-Android 16 introduces a new API that allows apps to opt out of launch security protections. This might be necessary in specific cases where the default security behavior interferes with legitimate app use cases.
-| **Important:** Opting out of security protections should be done with caution and only when absolutely necessary, as it can increase the risk of security vulnerabilities. Carefully assess the potential impact on your app's security before using this API.
+Android 16 introduces a new API that allows apps to opt out of launch security
+protections. This might be necessary in specific cases where the default
+security behavior interferes with legitimate app use cases.
 
-In Android 16, you can opt out of security protections by using the`removeLaunchSecurityProtection()`method on the`Intent`object. For example:  
+> [!IMPORTANT]
+> **Important:** Opting out of security protections should be done with caution and only when absolutely necessary, as it can increase the risk of security vulnerabilities. Carefully assess the potential impact on your app's security before using this API.
+
+In Android 16, you can opt out of security protections by using the
+`removeLaunchSecurityProtection()` method on the `Intent` object. For example:
 
     val i = intent
     val iSublevel: Intent? = i.getParcelableExtra("sub_intent")
@@ -94,17 +109,20 @@ In Android 16, you can opt out of security protections by using the`removeLaunch
 
 #### Common mistakes
 
-- Checking if`getCallingActivity()`returns a non-null value. Malicious apps can supply a null value for this function.
-- Assuming that`checkCallingPermission()`works in all contexts, or that the method throws an exception when it is actually returning an integer.
+- Checking if `getCallingActivity()` returns a non-null value. Malicious apps can supply a null value for this function.
+- Assuming that `checkCallingPermission()` works in all contexts, or that the method throws an exception when it is actually returning an integer.
 
 #### Debugging features
 
-For apps that target Android 12 (API level 31) or higher, you can enable a[debugging feature](https://developer.android.com/guide/components/intents-filters#DetectUnsafeIntentLaunches)that, in some cases, helps you detect whether your app is performing an unsafe launch of an intent.
+For apps that target Android 12 (API level 31) or higher, you can enable a
+[debugging feature](https://developer.android.com/guide/components/intents-filters#DetectUnsafeIntentLaunches) that, in some cases, helps you detect whether your app is
+performing an unsafe launch of an intent.
 
-If your app performs**both** of the following actions, the system detects an unsafe intent launch, and a`StrictMode`violation occurs:
+If your app performs **both** of the following actions, the system detects an
+unsafe intent launch, and a `StrictMode` violation occurs:
 
 - Your app unparcels a nested intent from the extras of a delivered intent.
-- Your app immediately starts an app component using that nested intent, such as passing the intent into`startActivity()`,`startService()`, or`bindService()`.
+- Your app immediately starts an app component using that nested intent, such as passing the intent into `startActivity()`, `startService()`, or `bindService()`.
 
 ## Resources
 

@@ -236,6 +236,19 @@ Google Play Games on PC.
    opened. If the client is not open, the Google Play Games client opens before
    the game or launcher runs. You need to manage the game or launcher to
    prevent multiple instances from running.
+4. Is there any way to verify the Google Play Games on PC installation without using the SDK?
+
+   You can verify the installation status of Google Play Games on PC without
+   integrating the SDK by checking for the presence of the following Windows
+   Registry key:
+
+   `HKEY_LOCAL_MACHINE\SOFTWARE\Google\Play Games Services`
+
+   The presence of this key indicates that the Google Play Games services
+   (required to run games on PC) are installed on the machine.
+   If the key is missing, you should direct the user to the
+   [Google Play Games on PC installation page](https://play.google.com/googleplaygames) to download and
+   install the client.
 
 ## Testing
 

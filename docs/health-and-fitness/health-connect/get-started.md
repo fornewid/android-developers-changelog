@@ -88,18 +88,30 @@ The main function to check for feature availability is
 [`getFeatureStatus()`](https://developer.android.com/health-and-fitness/guides/health-connect/develop/feature-availability#perform-check). This returns integer constants
 `FEATURE_STATUS_AVAILABLE` or `FEATURE_STATUS_UNAVAILABLE`:
 
-    if (healthConnectClient
-         .features
-         .getFeatureStatus(
-           HealthConnectFeatures.FEATURE_READ_HEALTH_DATA_IN_BACKGROUND
-         ) == HealthConnectFeatures.FEATURE_STATUS_AVAILABLE) {
 
-      // Feature is available
-      ...
-    } else {
-      // Feature is not available
-      ...
+```kotlin
+@OptIn(ExperimentalFeatureAvailabilityApi::class)
+fun enqueueBackgroundReadWorker(context: Context, healthConnectClient: HealthConnectClient) {
+    if (healthConnectClient
+            .features
+            .getFeatureStatus(
+                HealthConnectFeatures.FEATURE_READ_HEALTH_DATA_IN_BACKGROUND
+            ) == HealthConnectFeatures.FEATURE_STATUS_AVAILABLE
+    ) {
+
+        val periodicWorkRequest = PeriodicWorkRequestBuilder<ScheduleWorker>(1, TimeUnit.HOURS)
+            .build()
+
+        WorkManager.getInstance(context).enqueueUniquePeriodicWork(
+            "read_health_connect",
+            ExistingPeriodicWorkPolicy.KEEP,
+            periodicWorkRequest
+        )
     }
+}
+```
+
+<br />
 
 > [!NOTE]
 > **Note:** If a feature isn't available, ask the user to update Health Connect. Features tied to the system module remain unavailable on Android 13 and lower, even with the APK.
@@ -194,25 +206,30 @@ Then in your Activity, check if Health Connect is installed
 using [`getSdkStatus`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/HealthConnectClient#getSdkStatus(android.content.Context,kotlin.String)). If it is, obtain a
 `HealthConnectClient` instance.
 
-    val availabilityStatus = HealthConnectClient.getSdkStatus(context, providerPackageName)
-    if (availabilityStatus == HealthConnectClient.SDK_UNAVAILABLE) {
-      return // early return as there is no viable integration
+
+```kotlin
+val availabilityStatus = HealthConnectClient.getSdkStatus(context)
+if (availabilityStatus == HealthConnectClient.SDK_UNAVAILABLE) {
+    Box(modifier = modifier.padding(16.dp), contentAlignment = Alignment.Center) {
+        Text(
+            text = "Health Connect is not available on this device. Please ensure it is installed and updated.",
+            style = MaterialTheme.typography.bodyLarge,
+            textAlign = TextAlign.Center
+        )
     }
-    if (availabilityStatus == HealthConnectClient.SDK_UNAVAILABLE_PROVIDER_UPDATE_REQUIRED) {
-      // Optionally redirect to package installer to find a provider, for example:
-      val uriString = "market://details?id=$providerPackageName&url=healthconnect%3A%2F%2Fonboarding"
-      context.startActivity(
-        Intent(Intent.ACTION_VIEW).apply {
-          setPackage("com.android.vending")
-          data = Uri.parse(uriString)
-          putExtra("overlay", true)
-          putExtra("callerId", context.packageName)
-        }
-      )
-      return
+    return
+}
+
+val healthConnectClient = remember {
+    if (availabilityStatus == HealthConnectClient.SDK_AVAILABLE) {
+        HealthConnectClient.getOrCreate(context)
+    } else {
+        null
     }
-    val healthConnectClient = HealthConnectClient.getOrCreate(context)
-    // Issue operations with healthConnectClient
+}
+```
+
+<br />
 
 ## Step 4: Request permissions from the user
 
@@ -309,35 +326,45 @@ these apps for your users.
 Structure your data into a record. Check out the list of
 [data types](https://developer.android.com/guide/health-and-fitness/health-connect/plan/data-types#alpha10) available in Health Connect.
 
-    val stepsRecord = StepsRecord(
-        count = 120,
-        startTime = START_TIME,
-        endTime = END_TIME,
-        startZoneOffset = START_ZONE_OFFSET,
-        endZoneOffset = END_ZONE_OFFSET,
+
+```kotlin
+val zoneOffset = ZoneOffset.systemDefault().rules.getOffset(startTime)
+val stepsRecord = StepsRecord(
+    count = 120,
+    startTime = startTime,
+    endTime = endTime,
+    startZoneOffset = zoneOffset,
+    endZoneOffset = zoneOffset,
+    metadata = Metadata(
+        device = Device(type = Device.TYPE_WATCH),
+        recordingMethod = Metadata.RECORDING_METHOD_AUTOMATICALLY_RECORDED
     )
+)
+healthConnectClient.insertRecords(listOf(stepsRecord))
+```
+
+<br />
 
 Then write your record using [`insertRecords`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/HealthConnectClient#insertRecords(kotlin.collections.List)).
 
-    suspend fun insertSteps(healthConnectClient: HealthConnectClient) {
-        val endTime = Instant.now()
-        val startTime = endTime.minus(Duration.ofMinutes(15))
-        try {
-            val stepsRecord = StepsRecord(
-                count = 120,
-                startTime = startTime,
-                endTime = endTime,
-                startZoneOffset = ZoneOffset.UTC,
-                endZoneOffset = ZoneOffset.UTC,
-                metadata = Metadata.autoRecorded(
-                    device = Device(type = Device.TYPE_WATCH)
-                ),
-            )
-            healthConnectClient.insertRecords(listOf(stepsRecord))
-        } catch (e: Exception) {
-            // Run error handling here
-        }
-    }
+
+```kotlin
+val zoneOffset = ZoneOffset.systemDefault().rules.getOffset(startTime)
+val stepsRecord = StepsRecord(
+    count = 120,
+    startTime = startTime,
+    endTime = endTime,
+    startZoneOffset = zoneOffset,
+    endZoneOffset = zoneOffset,
+    metadata = Metadata(
+        device = Device(type = Device.TYPE_WATCH),
+        recordingMethod = Metadata.RECORDING_METHOD_AUTOMATICALLY_RECORDED
+    )
+)
+healthConnectClient.insertRecords(listOf(stepsRecord))
+```
+
+<br />
 
 ### Read data
 
@@ -347,47 +374,38 @@ You can read your data individually using [`readRecords`](https://developer.andr
 > **Note:** For cumulative types like `StepsRecord`, use `aggregate()` instead of `readRecords()` to avoid double counting from multiple sources and improve accuracy. See [Read aggregated
 > data](https://developer.android.com/reference/kotlin/androidx/health/connect/client/aggregate/package-summary) for more information.
 
-    suspend fun readHeartRateByTimeRange(
-        healthConnectClient: HealthConnectClient,
-        startTime: Instant,
-        endTime: Instant
-    ) {
-        try {
-            val response = healthConnectClient.readRecords(
-                ReadRecordsRequest(
-                    HeartRateRecord::class,
-                    timeRangeFilter = TimeRangeFilter.between(startTime, endTime)
-                )
-            )
-            for (record in response.records) {
-                // Process each record
-            }
-        } catch (e: Exception) {
-            // Run error handling here
-        }
-    }
+
+```kotlin
+val response = healthConnectClient.readRecords(
+    ReadRecordsRequest(
+        HeartRateRecord::class,
+        timeRangeFilter = TimeRangeFilter.between(startTime, endTime)
+    )
+)
+response.records.forEach { record ->
+    /* Process records */
+}
+```
+
+<br />
 
 You can also read your data in an aggregated manner using
 [`aggregate`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/aggregate/package-summary).
 
-    suspend fun aggregateSteps(
-        healthConnectClient: HealthConnectClient,
-        startTime: Instant,
-        endTime: Instant
-    ) {
-        try {
-            val response = healthConnectClient.aggregate(
-                AggregateRequest(
-                    metrics = setOf(StepsRecord.COUNT_TOTAL),
-                    timeRangeFilter = TimeRangeFilter.between(startTime, endTime)
-                )
-            )
-            // The result may be null if no data is available in the time range
-            val stepCount = response[StepsRecord.COUNT_TOTAL]
-        } catch (e: Exception) {
-            // Run error handling here
-        }
-    }
+
+```kotlin
+suspend fun readStepsAggregate(startTime: Instant, endTime: Instant): Long {
+    val response = healthConnectClient.aggregate(
+        AggregateRequest(
+            metrics = setOf(StepsRecord.COUNT_TOTAL),
+            timeRangeFilter = TimeRangeFilter.between(startTime, endTime)
+        )
+    )
+    return response[StepsRecord.COUNT_TOTAL] ?: 0L
+}
+```
+
+<br />
 
 > [!IMPORTANT]
 > **Important:** Health Connect can read data for up to 30 days prior to the time permission was granted. If you would like your app to read records beyond 30 days, use the `PERMISSION_READ_HEALTH_DATA_HISTORY` permission. See [Read restrictions](https://developer.android.com/health-and-fitness/guides/health-connect/develop/read-data#read-restriction) for more information.

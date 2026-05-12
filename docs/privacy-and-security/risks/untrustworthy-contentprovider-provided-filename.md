@@ -4,29 +4,41 @@ url: https://developer.android.com/privacy-and-security/risks/untrustworthy-cont
 source: md.txt
 ---
 
-# Improperly trusting ContentProvider-provided filename
-
 <br />
 
 **OWASP category:** [MASVS-CODE: Code Quality](https://mas.owasp.org/MASVS/10-MASVS-CODE)
 
+
 ## Overview
 
-[*FileProvider*](https://developer.android.com/reference/androidx/core/content/FileProvider), a subclass of[*ContentProvider*](https://developer.android.com/reference/android/content/ContentProvider), is intended to provide a secure method for an application ("server application") to[share files with another application](https://developer.android.com/training/secure-file-sharing)("client application"). However, if the client application does not properly handle the filename provided by the server application, an attacker-controlled server application may be able to implement its own malicious*FileProvider*to overwrite files in the client application's app-specific storage.
+[*FileProvider*](https://developer.android.com/reference/androidx/core/content/FileProvider), a subclass of [*ContentProvider*](https://developer.android.com/reference/android/content/ContentProvider), is intended to
+provide a secure method for an application ("server application") to [share
+files with another application](https://developer.android.com/training/secure-file-sharing) ("client application"). However, if the
+client application does not properly handle the filename provided by the server
+application, an attacker-controlled server application may be able to implement
+its own malicious *FileProvider* to overwrite files in the client application's
+app-specific storage.
 
 ## Impact
 
-If an attacker can overwrite an application's files, this can lead to malicious code execution (by overwriting the application's code), or allow otherwise modifying the application's behavior (for example, by overwriting the application's shared preferences or other configuration files).
+If an attacker can overwrite an application's files, this can lead to malicious
+code execution (by overwriting the application's code), or allow otherwise
+modifying the application's behavior (for example, by overwriting the
+application's shared preferences or other configuration files).
 
 ## Mitigations
 
 ### Don't Trust User Input
 
-Prefer working without user input when using file system calls by generating a unique filename when writing the received file to storage.
+Prefer working without user input when using file system calls by generating a
+unique filename when writing the received file to storage.
 
-In other words: When the client application writes the received file to storage, it should ignore the filename provided by the server application and instead use its own internally generated unique identifier as the filename.
+In other words: When the client application writes the received file to storage,
+it should ignore the filename provided by the server application and instead use
+its own internally generated unique identifier as the filename.
 
-This example builds upon the code found at[https://developer.android.com/training/secure-file-sharing/request-file](https://developer.android.com/training/secure-file-sharing/request-file#java):  
+This example builds upon the code found at
+[https://developer.android.com/training/secure-file-sharing/request-file](https://developer.android.com/training/secure-file-sharing/request-file#java):
 
 ### Kotlin
 
@@ -84,12 +96,15 @@ This example builds upon the code found at[https://developer.android.com/trainin
 
 Sanitize the provided filename when writing the received file to storage.
 
-This mitigation is less desirable than the preceding mitigation because it can be challenging to handle all potential cases. Nonetheless: If generating a unique filename is not practical, the client application should sanitize the provided filename. Sanitization includes:
+This mitigation is less desirable than the preceding mitigation because it can
+be challenging to handle all potential cases. Nonetheless: If generating a
+unique filename is not practical, the client application should sanitize the
+provided filename. Sanitization includes:
 
 - Sanitizing path traversal characters in the filename
 - Performing a canonicalization to confirm there are no path traversals
 
-This example code builds upon the guidance on[retrieving file information](https://developer.android.com/training/secure-file-sharing/retrieve-info):  
+This example code builds upon the guidance on [retrieving file information](https://developer.android.com/training/secure-file-sharing/retrieve-info):
 
 ### Kotlin
 
@@ -165,7 +180,8 @@ This example code builds upon the guidance on[retrieving file information](https
         // Handle exception
     }
 
-Contributors: Dimitrios Valsamaras and Michael Peck of Microsoft Threat Intelligence
+Contributors: Dimitrios Valsamaras and Michael Peck of Microsoft Threat
+Intelligence
 
 ## Resources
 

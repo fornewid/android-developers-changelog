@@ -6,7 +6,7 @@ source: md.txt
 
 To integrate the Ink API, add the dependencies to your app.
 
-The Ink API library is available from the Google Maven repository.  
+The Ink API library is available from the Google Maven repository.
 
 ### Kotlin
 

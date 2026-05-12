@@ -5,7 +5,7 @@ source: md.txt
 ---
 
 See the [ExoPlayer supported formats
-page](https://developer.android.com/guide/topics/media/exoplayer/media-items) for an introduction to
+page](https://developer.android.com/guide/topics/media/exoplayer/supported-formats) for an introduction to
 media formats in general. The same limitations on loading, extracting, and
 decoding streams apply with Transformer, though Transformer does not support
 ExoPlayer's bundled software decoder modules.

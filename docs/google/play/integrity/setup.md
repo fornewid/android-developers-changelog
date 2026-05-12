@@ -247,14 +247,14 @@ by default:
 
 | Response field | Value | Description |
 |---|---|---|
-| Device integrity | `MEETS_DEVICE_INTEGRITY` | The app is running on a genuine and certified Android device. On Android 13 and higher, there is hardware-backed proof that the device bootloader is locked and the loaded Android OS is a certified device manufacturer image. |
-|   | Empty (a blank value) | The app is running on a device that has signs of attack (such as API hooking) or system compromise (such as being rooted), or the app is not running on a physical device (such as an emulator that does not pass Google Play integrity checks). |
 | Play account details | `LICENSED` | The user has an app entitlement. In other words, the user installed or updated your app from Google Play on their device. |
 |   | `UNLICENSED` | The user doesn't have an app entitlement. This happens when, for example, the user sideloads your app or doesn't acquire it from Google Play. |
 |   | `UNEVALUATED` | Licensing details were not evaluated because a requirement was missed. This could happen for several reasons, including the following: - The device is not trustworthy enough. - The user is not signed in to Google Play. - The version of your app installed on the device is unknown to Google Play. |
 | Application integrity | `PLAY_RECOGNIZED` | The app and certificate match the versions distributed by Google Play. |
 |   | `UNRECOGNIZED_VERSION` | The certificate or package name does not match Google Play records. |
 |   | `UNEVALUATED` | Application integrity was not evaluated. A necessary requirement was missed, such as the device not being trustworthy enough. |
+| Device integrity | `MEETS_DEVICE_INTEGRITY` | The app is running on a genuine and certified Android device. On Android 13 and higher, there is hardware-backed proof that the device bootloader is locked and the loaded Android OS is a certified device manufacturer image. |
+|   | Empty (a blank value) | The app is running on a device that has signs of attack (such as API hooking) or system compromise (such as being rooted), or the app is not running on a physical device (such as an emulator that does not pass Google Play integrity checks). |
 
 ### Google Play Games for PC
 

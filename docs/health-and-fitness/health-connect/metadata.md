@@ -9,14 +9,16 @@ source: md.txt
 
 There are changes to metadata in Health Connect for
 developers who upgrade to release 1.1.0-alpha12 or later.
-| **Warning:** Updating Jetpack versions without implementing these changes will break your Health Connect integration.
+
+> [!WARNING]
+> **Warning:** Updating Jetpack versions without implementing these changes will break your Health Connect integration.
 
 ## Library information
 
 The [Google Maven Android gradle plugin](https://developer.android.com/build/dependencies#google-maven) artifact ID
 identifies the Health Connect library to which you will need to upgrade.
 Add this Health Connect SDK dependency to your module-level
-`build.gradle` file:  
+`build.gradle` file:
 
     dependencies {
       implementation "androidx.health.connect:connect-client:1.1.0-alpha12"
@@ -45,16 +47,21 @@ to instantiate `Metadata`:
 | `RECORDING_METHOD_AUTOMATICALLY_RECORDED` | A device or sensor recorded the data. |
 | `RECORDING_METHOD_ACTIVELY_RECORDED` | The user initiated the start or end of the recording session on a device. |
 
-For example:  
+For example:
 
-    StepsRecord(
-        startTime = Instant.ofEpochMilli(1234L),
-        startZoneOffset = null,
-        endTime = Instant.ofEpochMilli(1236L),
-        endZoneOffset = null,
-        metadata = Metadata.manualEntry(),
-        Count = 10,
-    )
+
+```kotlin
+ StepsRecord(
+    startTime = Instant.ofEpochMilli(1234L),
+    startZoneOffset = null,
+    endTime = Instant.ofEpochMilli(1236L),
+    endZoneOffset = null,
+    metadata = Metadata(),
+    count = 10
+)
+```
+
+<br />
 
 ### Device type
 
@@ -104,37 +111,44 @@ To determine whether a user's device supports Extended Device Types on Health Co
       // Feature isn't available
     }
 
-See [Check for feature availability](https://developer.android.com/health-and-fitness/guides/health-connect/develop/feature-availability) to learn more. **Note:** If known, provide the \`manufacturer\` and \`model\` of the device in addition to device type. Doing so helps with attribution in reader applications, so users can understand which device or application recorded their data.
+See [Check for feature availability](https://developer.android.com/health-and-fitness/guides/health-connect/develop/feature-availability) to learn more.
 
-For example:  
+> [!NOTE]
+> **Note:** If known, provide the \`manufacturer\` and \`model\` of the device in addition to device type. Doing so helps with attribution in reader applications, so users can understand which device or application recorded their data.
 
-    // Watch
-    private val WATCH_DEVICE = Device(
-        manufacturer = "Google",
-        model = "Pixel Watch",
-        type = Device.TYPE_WATCH
-    )
+For example:
 
-    // Phone
-    private val PHONE_DEVICE = Device(
-        manufacturer = "Google",
-        model = "Pixel 8",
-        type = Device.TYPE_PHONE
-    )
 
-    // Ring
-    private val RING_DEVICE = Device(
-        manufacturer = "Oura",
-        model = "Ring Gen3",
-        type = Device.TYPE_RING
-    )
+```kotlin
+ val WATCH_DEVICE = Device(
+    manufacturer = "Google",
+    model = "Pixel Watch",
+    type = Device.TYPE_WATCH
+)
 
-    // Scale
-    private val SCALE_DEVICE = Device(
-        manufacturer = "Withings",
-        model = "Body Comp",
-        type = Device.TYPE_SCALE
-    )
+// Phone
+ val PHONE_DEVICE = Device(
+    manufacturer = "Google",
+    model = "Pixel 8",
+    type = Device.TYPE_PHONE
+)
+
+// Ring
+ val RING_DEVICE = Device(
+    manufacturer = "Oura",
+    model = "Ring Gen3",
+    type = Device.TYPE_RING
+)
+
+// Scale
+ val SCALE_DEVICE = Device(
+    manufacturer = "Withings",
+    model = "Body Comp",
+    type = Device.TYPE_SCALE
+)
+```
+
+<br />
 
 ### Snippets updated
 
@@ -178,7 +192,7 @@ For more information, see the [Android Open Source Project](https://cs.android.c
 
 Use the [Testing Library](https://developer.android.com/health-and-fitness/guides/health-connect/test/unit-tests) and
 [`MetadataTestHelper`](https://cs.android.com/androidx/platform/frameworks/support/+/androidx-main:health/connect/connect-testing/src/main/java/androidx/health/connect/client/testing/MetadataTestHelper.kt) to mock expected metadata
-values:  
+values:
 
     private val TEST_METADATA =
         Metadata.unknownRecordingMethod(
@@ -191,7 +205,7 @@ This simulates the behavior of the Health Connect implementation,
 which automatically populates these values during record insertion.
 
 For the testing library, you need to add this Health Connect SDK dependency to
-your module-level `build.gradle` file:  
+your module-level `build.gradle` file:
 
     dependencies {
       testImplementation "androidx.health.connect:connect-testing:1.0.0-alpha02"

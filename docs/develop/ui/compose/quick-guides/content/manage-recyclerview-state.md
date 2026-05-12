@@ -41,7 +41,7 @@ of list items when they're bound to a `ViewHolder`.
 
 Enable the state restoration policy of the `RecyclerView` adapter so that the
 scrolling position of the `RecyclerView` is maintained across configuration
-changes. Add the policy specification to the adapter constructor:  
+changes. Add the policy specification to the adapter constructor:
 
 ### Kotlin
 
@@ -67,7 +67,7 @@ changes. Add the policy specification to the adapter constructor:
 Save the state of complex `RecyclerView` list items, such as items that contain
 `EditText` elements. For example, to save the state of an `EditText`, add a
 callback similar to an `onClick` handler to capture text changes. Within the
-callback, define what data to save:  
+callback, define what data to save:
 
 ### Kotlin
 
@@ -97,7 +97,7 @@ store the state.
 ### 3. Add list item state to the `Adapter`
 
 Add the state of list items to your `RecyclerView.Adapter`. Pass the item state
-to the adapter constructor when your host `Activity` or `Fragment` is created:  
+to the adapter constructor when your host `Activity` or `Fragment` is created:
 
 ### Kotlin
 
@@ -110,7 +110,7 @@ to the adapter constructor when your host `Activity` or `Fragment` is created:
 ### 4. Recover list item state in the adapter's `ViewHolder`
 
 In the `RecyclerView.Adapter`, when you bind a [`ViewHolder`](https://developer.android.com/reference/kotlin/androidx/recyclerview/widget/RecyclerView.ViewHolder) to an item,
-restore the item's state:  
+restore the item's state:
 
 ### Kotlin
 
@@ -143,17 +143,13 @@ restore the item's state:
 ## Collections that contain this guide
 
 This guide is part of these curated Quick Guide collections that cover broader
-Android development goals:  
-![](https://developer.android.com/static/images/quick-guides/collection-illustration.png)  
-![](https://developer.android.com/static/images/picto-icons/collection.svg)  
+Android development goals:
+![](https://developer.android.com/static/images/quick-guides/collection-illustration.png) ![](https://developer.android.com/static/images/picto-icons/collection.svg)
 
 ### Optimize for large screens
 
-Enable your app to support an optimized user experience on tablets, foldables, and ChromeOS devices.  
-[Quick guide collection](https://developer.android.com/quick-guides/collections/optimize-for-large-screens)
-![](https://developer.android.com/static/images/picto-icons/help.svg)  
+Enable your app to support an optimized user experience on tablets, foldables, and ChromeOS devices. [Quick guide collection](https://developer.android.com/quick-guides/collections/optimize-for-large-screens) ![](https://developer.android.com/static/images/picto-icons/help.svg)
 
 ## Have questions or feedback
 
-Go to our frequently asked questions page and learn about quick guides or reach out and let us know your thoughts.  
-[Go to FAQ](https://developer.android.com/quick-guides/faq) [Leave feedback](https://issuetracker.google.com/issues/new?component=1573691&template=1993320)
+Go to our frequently asked questions page and learn about quick guides or reach out and let us know your thoughts. [Go to FAQ](https://developer.android.com/quick-guides/faq) [Leave feedback](https://issuetracker.google.com/issues/new?component=1573691&template=1993320)

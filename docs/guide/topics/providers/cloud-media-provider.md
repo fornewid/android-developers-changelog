@@ -4,39 +4,63 @@ url: https://developer.android.com/guide/topics/providers/cloud-media-provider
 source: md.txt
 ---
 
-# Create a cloud media provider for Android
-
-A cloud media provider provides additional cloud media content to the[Android photo picker](https://developer.android.com/training/data-storage/shared/photopicker). Users are able to select photos or videos supplied by the cloud media provider when an app uses`ACTION_PICK_IMAGES`or`ACTION_GET_CONTENT`to request media files from the user. A cloud media provider can also give information about*albums*, which can be browsed in the Android photo picker.
+A cloud media provider provides additional cloud media content to the [Android
+photo picker](https://developer.android.com/training/data-storage/shared/photopicker). Users are able to select photos or videos supplied by the
+cloud media provider when an app uses `ACTION_PICK_IMAGES` or
+`ACTION_GET_CONTENT` to request media files from the user. A cloud media
+provider can also give information about *albums*, which can be browsed in the
+Android photo picker.
 
 ## Before you begin
 
-Take the following items into consideration before you begin building your cloud media provider.
+Take the following items into consideration before you begin building your cloud
+media provider.
 
 ### Eligibility
 
-Android is running a pilot program to allow OEM-nominated apps to become cloud media providers.**Only apps nominated by OEMs are eligible to participate in this program to become a cloud media provider for Android at this time**. Each OEM can nominate up to 3 apps. Once approved, these apps become accessible as cloud media providers on any GMS Android-powered device on which they are installed.
+Android is running a pilot program to allow OEM-nominated apps to become cloud
+media providers. **Only apps nominated by OEMs are eligible to participate in
+this program to become a cloud media provider for Android at this time**. Each
+OEM can nominate up to 3 apps. Once approved, these apps become accessible as
+cloud media providers on any GMS Android-powered device on which they are
+installed.
 
-Android maintains a server-side list of all eligible cloud providers. Each OEM can choose a default cloud provider using a[configurable overlay](https://source.android.com/docs/core/runtime/rros#static-rros). Nominated apps must meet all technical requirements and pass all quality tests. To learn more about the OEM cloud media provider pilot program's process and requirements,[complete the inquiry form](https://docs.google.com/forms/d/1MGECQc2N-UnYFF5DIxeRq7AjrJ9bh_3KmoWsK8dq9ZM/edit).
+Android maintains a server-side list of all eligible cloud providers. Each OEM
+can choose a default cloud provider using a [configurable overlay](https://source.android.com/docs/core/runtime/rros#static-rros). Nominated
+apps must meet all technical requirements and pass all quality tests. To learn
+more about the OEM cloud media provider pilot program's process and
+requirements, [complete the inquiry form](https://docs.google.com/forms/d/1MGECQc2N-UnYFF5DIxeRq7AjrJ9bh_3KmoWsK8dq9ZM/edit).
 
 ### Decide if you need to create a cloud media provider
 
-Cloud media providers are intended to be apps or services that act as a users' primary source for backing up and retrieving photos and videos from the cloud. If your app has a library of useful content, but it is not typically used as a photo storage solution, you should consider creating a[document provider](https://developer.android.com/guide/topics/providers/create-document-provider)instead.
+Cloud media providers are intended to be apps or services that act as a users'
+primary source for backing up and retrieving photos and videos from the cloud.
+If your app has a library of useful content, but it is not typically used as a
+photo storage solution, you should consider creating a [document provider](https://developer.android.com/guide/topics/providers/create-document-provider)
+instead.
 
 ### One active cloud provider per profile
 
-There can be at most one active cloud media provider at a time for each[Android profile](https://source.android.com/docs/devices/admin/multi-user#general_defs). Users might remove or change their selected cloud media provider app at any time from photo picker settings.
+There can be at most one active cloud media provider at a time for each [Android
+profile](https://source.android.com/docs/devices/admin/multi-user#general_defs). Users might remove or change their selected cloud media provider
+app at any time from photo picker settings.
 
-By default, the Android photo picker will attempt to choose a cloud provider automatically.
+By default, the Android photo picker will attempt to choose a cloud provider
+automatically.
 
 - If there is only one eligible cloud provider on the device, that app will be selected as the current provider automatically.
-- If there are more than one eligible cloud providers on the device and one of them matches the OEM chosen default, then the OEM-chosen app will be selected.
+- If there are more than one eligible cloud providers on the device and one of
+  them matches the OEM chosen default, then the OEM-chosen app will be selected.
 
-- If there are more than one eligible cloud providers on the device, and none of them match the OEM chosen default, no app will be selected.
+- If there are more than one eligible cloud providers on the device, and none of
+  them match the OEM chosen default, no app will be selected.
 
 ## Build your cloud media provider
 
-The following diagram illustrates the sequence of events both before and during a photo selection session between the Android app, the Android photo picker, the local device's`MediaProvider`, and a`CloudMediaProvider`.
-![Sequence diagram showing flow from photo picker to a cloud media provider](https://developer.android.com/static/guide/topics/providers/images/cloud-media-provider-sequence.svg)**Figure 1:**Event sequence diagram during a photo selection session.
+The following diagram illustrates the sequence of events both before and during
+a photo selection session between the Android app, the Android photo picker, the
+local device's `MediaProvider`, and a `CloudMediaProvider`.
+![Sequence diagram showing flow from photo picker to a cloud media provider](https://developer.android.com/static/guide/topics/providers/images/cloud-media-provider-sequence.svg) **Figure 1:** Event sequence diagram during a photo selection session.
 
 1. The system initializes the user's preferred cloud provider and periodically syncs media metadata into the Android photo picker backend.
 2. When an Android app launches the photo picker, before showing a merged local or cloud item grid to the user, the photo picker performs a latency-sensitive incremental sync with the cloud provider to ensure results are as up-to-date as possible. After receiving a response, or when the deadline is reached, the photo picker grid now displays all accessible photos, combining those stored locally on your device with those synced from the cloud.
@@ -46,27 +70,39 @@ The following diagram illustrates the sequence of events both before and during 
 
 ## Common Issues
 
-Here are some important considerations to keep in mind when considering your implementation:
+Here are some important considerations to keep in mind when considering your
+implementation:
 
 ### Avoid duplicate files
 
-Since the Android photo picker has no way of inspecting the cloud media state, the`CloudMediaProvider`needs to provide the`MEDIA_STORE_URI`in the cursor row of any file that exists both in the cloud and on the local device, or the user will see duplicate files in the photo picker.
+Since the Android photo picker has no way of inspecting the cloud media state,
+the `CloudMediaProvider` needs to provide the `MEDIA_STORE_URI` in the cursor
+row of any file that exists both in the cloud and on the local device, or the
+user will see duplicate files in the photo picker.
 
 ### Optimize image sizes for preview display
 
-It's very important that the file returned from`onOpenPreview`is not the full resolution image, and adheres to the`Size`being requested. Too large an image will incur loading times in the UI, and too small an image might be pixelated or blurry based on the screen size of the device.
+It's very important that the file returned from `onOpenPreview` is not the full
+resolution image, and adheres to the `Size` being requested. Too large an image
+will incur loading times in the UI, and too small an image might be pixelated or
+blurry based on the screen size of the device.
 
 ### Handle correct orientation
 
-If thumbnails returned in`onOpenPreview`do not contain their EXIF data, they should be returned in the correct orientation to avoid thumbnails being rotated incorrectly in the preview grid.
+If thumbnails returned in `onOpenPreview` do not contain their EXIF data, they
+should be returned in the correct orientation to avoid thumbnails being rotated
+incorrectly in the preview grid.
 
 ### Prevent unauthorized access
 
-Check for the`MANAGE_CLOUD_MEDIA_PROVIDERS_PERMISSION`before returning data to the caller from the ContentProvider. This will prevent unauthorized apps from accessing cloud data.
+Check for the `MANAGE_CLOUD_MEDIA_PROVIDERS_PERMISSION` before returning data to
+the caller from the ContentProvider. This will prevent unauthorized apps from
+accessing cloud data.
 
 ## The CloudMediaProvider class
 
-Derived from`android.content.ContentProvider`, the[`CloudMediaProvider`](https://developer.android.com/reference/kotlin/android/provider/CloudMediaProvider)class includes methods like the ones shown in the following example:  
+Derived from `android.content.ContentProvider`, the [`CloudMediaProvider`](https://developer.android.com/reference/kotlin/android/provider/CloudMediaProvider)
+class includes methods like the ones shown in the following example:
 
 ### Kotlin
 
@@ -134,7 +170,11 @@ Derived from`android.content.ContentProvider`, the[`CloudMediaProvider`](https:/
 
 ## The CloudMediaProviderContract class
 
-In addition to the primary`CloudMediaProvider`implementation class, the Android photo picker incorporates a[`CloudMediaProviderContract`](https://developer.android.com/reference/kotlin/android/provider/CloudMediaProviderContract)class. This class outlines the interoperability between the photo picker and the cloud media provider, encompassing aspects such as`MediaCollectionInfo`for synchronization operations, anticipated`Cursor`columns, and`Bundle`extras.  
+In addition to the primary `CloudMediaProvider` implementation class, the
+Android photo picker incorporates a [`CloudMediaProviderContract`](https://developer.android.com/reference/kotlin/android/provider/CloudMediaProviderContract) class.
+This class outlines the interoperability between the photo picker and the cloud
+media provider, encompassing aspects such as `MediaCollectionInfo` for
+synchronization operations, anticipated `Cursor` columns, and `Bundle` extras.
 
 ### Kotlin
 
@@ -244,7 +284,14 @@ In addition to the primary`CloudMediaProvider`implementation class, the Android 
 
 ### onGetMediaCollectionInfo
 
-The[`onGetMediaCollectionInfo()`](https://developer.android.com/reference/kotlin/android/provider/CloudMediaProvider#ongetmediacollectioninfo)method is used by the operating system to assess the validity of its cached cloud media items and determine necessary synchronization with the cloud media provider. Due to the potential for frequent calls by the operating system,`onGetMediaCollectionInfo()`is considered performance-critical; it is crucial to avoid long-running operations or side effects that could negatively impact performance. The operating system caches previous responses from this method and compares them with subsequent responses to determine the appropriate actions.  
+The [`onGetMediaCollectionInfo()`](https://developer.android.com/reference/kotlin/android/provider/CloudMediaProvider#ongetmediacollectioninfo) method is used by the operating system to
+assess the validity of its cached cloud media items and determine necessary
+synchronization with the cloud media provider. Due to the potential for frequent
+calls by the operating system, `onGetMediaCollectionInfo()` is considered
+performance-critical; it is crucial to avoid long-running operations or side
+effects that could negatively impact performance. The operating system caches
+previous responses from this method and compares them with subsequent responses
+to determine the appropriate actions.
 
 ### Kotlin
 
@@ -255,7 +302,7 @@ The[`onGetMediaCollectionInfo()`](https://developer.android.com/reference/kotlin
     @NonNull
     public abstract Bundle onGetMediaCollectionInfo(@NonNull Bundle extras);
 
-The returned[`MediaCollectionInfo`](https://developer.android.com/reference/kotlin/android/provider/CloudMediaProviderContract.MediaCollectionInfo)bundle includes the following constants:
+The returned [`MediaCollectionInfo`](https://developer.android.com/reference/kotlin/android/provider/CloudMediaProviderContract.MediaCollectionInfo) bundle includes the following constants:
 
 - [`MEDIA_COLLECTION_ID`](https://developer.android.com/reference/kotlin/android/provider/CloudMediaProviderContract.MediaCollectionInfo#MEDIA_COLLECTION_ID:kotlin.String)
 - [`LAST_MEDIA_SYNC_GENERATION`](https://developer.android.com/reference/kotlin/android/provider/CloudMediaProviderContract.MediaCollectionInfo#LAST_MEDIA_SYNC_GENERATION:kotlin.String)
@@ -264,11 +311,22 @@ The returned[`MediaCollectionInfo`](https://developer.android.com/reference/kotl
 
 ### onQueryMedia
 
-The[`onQueryMedia()`](https://developer.android.com/reference/kotlin/android/provider/CloudMediaProvider#onquerymedia)method is used to populate the main photo grid in photo picker in a variety of views. These calls might be latency sensitive, and can be called as part of a background proactive sync, or during photo picker sessions when a full or incremental sync state is required. The photo picker user interface won't wait indefinitely for a response to display results, and might time out these requests for user interface purposes. The returned cursor will still attempt to be processed into the photo picker's database for future sessions.
+The [`onQueryMedia()`](https://developer.android.com/reference/kotlin/android/provider/CloudMediaProvider#onquerymedia) method is used to populate the main photo grid in
+photo picker in a variety of views. These calls might be latency sensitive, and
+can be called as part of a background proactive sync, or during photo picker
+sessions when a full or incremental sync state is required. The photo picker
+user interface won't wait indefinitely for a response to display results, and
+might time out these requests for user interface purposes. The returned cursor
+will still attempt to be processed into the photo picker's database for future
+sessions.
 
-This method returns a`Cursor`representing all media items in the media collection optionally filtered by the provided extras and sorted in reverse chronological order of`MediaColumns#DATE_TAKEN_MILLIS`(most recent items first).
+This method returns a `Cursor` representing all media items in the media
+collection optionally filtered by the provided extras and sorted in reverse
+chronological order of `MediaColumns#DATE_TAKEN_MILLIS` (most recent items
+first).
 
-The returned[`CloudMediaProviderContract`](https://developer.android.com/reference/kotlin/android/provider/CloudMediaProviderContract)bundle includes the following constants:
+The returned [`CloudMediaProviderContract`](https://developer.android.com/reference/kotlin/android/provider/CloudMediaProviderContract) bundle includes the following
+constants:
 
 - [`EXTRA_ALBUM_ID`](https://developer.android.com/reference/kotlin/android/provider/CloudMediaProviderContract#extra_album_id)
 - [`EXTRA_LOOPING_PLAYBACK_ENABLED`](https://developer.android.com/reference/kotlin/android/provider/CloudMediaProviderContract#extra_looping_playback_enabled)
@@ -281,40 +339,81 @@ The returned[`CloudMediaProviderContract`](https://developer.android.com/referen
 - [`MANAGE_CLOUD_MEDIA_PROVIDERS_PERMISSION`](https://developer.android.com/reference/kotlin/android/provider/CloudMediaProviderContract#manage_cloud_media_providers_permission)
 - [`PROVIDER_INTERFACE`](https://developer.android.com/reference/kotlin/android/provider/CloudMediaProviderContract#provider_interface)
 
-The cloud media provider must set`CloudMediaProviderContract#EXTRA_MEDIA_COLLECTION_ID`as part of the returned`Bundle`. Not setting this is an error and invalidates the returned`Cursor`. If the cloud media provider handled any filters in the provided extras, it must add the key to the`ContentResolver#EXTRA_HONORED_ARGS`as part of the returned`Cursor#setExtras`.
+The cloud media provider must set
+`CloudMediaProviderContract#EXTRA_MEDIA_COLLECTION_ID` as part of the returned
+`Bundle`. Not setting this is an error and invalidates the returned `Cursor`. If
+the cloud media provider handled any filters in the provided extras, it must add
+the key to the `ContentResolver#EXTRA_HONORED_ARGS` as part of the returned
+`Cursor#setExtras`.
 
 ### onQueryDeletedMedia
 
-The[`onQueryDeletedMedia()`](https://developer.android.com/reference/kotlin/android/provider/CloudMediaProvider#onquerydeletedmedia)method is used to ensure deleted items in the cloud account are correctly removed from the photo picker user interface. Due to their potential latency sensitivity, these calls might be initiated as part of:
+The [`onQueryDeletedMedia()`](https://developer.android.com/reference/kotlin/android/provider/CloudMediaProvider#onquerydeletedmedia) method is used to ensure deleted items in the
+cloud account are correctly removed from the photo picker user interface. Due to
+their potential latency sensitivity, these calls might be initiated as part of:
 
 - Background proactive synchronization
 - Photo picker sessions (when a full or incremental sync state is required)
 
-The photo picker's user interface prioritizes a responsive user experience and will not wait indefinitely for a response. To maintain smooth interactions, timeouts might occur. Any returned`Cursor`will still attempt to be processed into the photo picker's database for future sessions.
+The photo picker's user interface prioritizes a responsive user experience and
+will not wait indefinitely for a response. To maintain smooth interactions,
+timeouts might occur. Any returned `Cursor` will still attempt to be processed
+into the photo picker's database for future sessions.
 
-This method returns a`Cursor`representing all deleted media items in the entire media collection within the current provider version as returned by`onGetMediaCollectionInfo()`. These items can be optionally filtered by extras. The cloud media provider must set the`CloudMediaProviderContract#EXTRA_MEDIA_COLLECTION_ID`as part of the returned`Cursor#setExtras`Not setting this is an error and invalidates the`Cursor`. If the provider handled any filters in the provided extras, it must add the key to the`ContentResolver#EXTRA_HONORED_ARGS`.
+This method returns a `Cursor` representing all deleted media items in the
+entire media collection within the current provider version as returned by
+`onGetMediaCollectionInfo()`. These items can be optionally filtered by extras.
+The cloud media provider must set the
+`CloudMediaProviderContract#EXTRA_MEDIA_COLLECTION_ID` as part of the returned
+`Cursor#setExtras` Not setting this is an error and invalidates the `Cursor`. If
+the provider handled any filters in the provided extras, it must add the key to
+the `ContentResolver#EXTRA_HONORED_ARGS`.
 
 ### onQueryAlbums
 
-The[`onQueryAlbums()`](https://developer.android.com/reference/kotlin/android/provider/CloudMediaProvider#onqueryalbums)method is used to fetch a list of Cloud albums that are available in the cloud provider, and their associated metadata. See[`CloudMediaProviderContract.AlbumColumns`](https://developer.android.com/reference/kotlin/android/provider/CloudMediaProviderContract.AlbumColumns)for additional details.
+The [`onQueryAlbums()`](https://developer.android.com/reference/kotlin/android/provider/CloudMediaProvider#onqueryalbums) method is used to fetch a list of Cloud albums that
+are available in the cloud provider, and their associated metadata. See
+[`CloudMediaProviderContract.AlbumColumns`](https://developer.android.com/reference/kotlin/android/provider/CloudMediaProviderContract.AlbumColumns) for additional details.
 
-This method returns a`Cursor`representing all album items in the media collection optionally filtered by the provided extras and sorted in reverse chronological order of`AlbumColumns#DATE_TAKEN_MILLIS`, most recent items first. The cloud media provider must set the`CloudMediaProviderContract#EXTRA_MEDIA_COLLECTION_ID`as part of the returned`Cursor`. Not setting this is an error and invalidates the returned`Cursor`. If the provider handled any filters in the provided extras, it must add the key to the`ContentResolver#EXTRA_HONORED_ARGS`as part of the returned`Cursor`.
+This method returns a `Cursor` representing all album items in the media
+collection optionally filtered by the provided extras and sorted in reverse
+chronological order of `AlbumColumns#DATE_TAKEN_MILLIS` , most recent items
+first. The cloud media provider must set the
+`CloudMediaProviderContract#EXTRA_MEDIA_COLLECTION_ID` as part of the returned
+`Cursor`. Not setting this is an error and invalidates the returned `Cursor`. If
+the provider handled any filters in the provided extras, it must add the key to
+the `ContentResolver#EXTRA_HONORED_ARGS` as part of the returned `Cursor`.
 
 ### onOpenMedia
 
-The[`onOpenMedia()`](https://developer.android.com/reference/kotlin/android/provider/CloudMediaProvider#onopenmedia)method should return the full size media identified by the provided`mediaId`. If this method blocks while downloading content to the device, you should periodically check the provided`CancellationSignal`to abort abandoned requests.
+The [`onOpenMedia()`](https://developer.android.com/reference/kotlin/android/provider/CloudMediaProvider#onopenmedia) method should return the full size media identified by
+the provided `mediaId`. If this method blocks while downloading content to the
+device, you should periodically check the provided `CancellationSignal` to abort
+abandoned requests.
 
 ### onOpenPreview
 
-The[`onOpenPreview()`](https://developer.android.com/reference/kotlin/android/provider/CloudMediaProvider#onopenpreview)method should return a thumbnail of the provided`size`for the item of the provided mediaId. The thumbnail should be in the original`CloudMediaProviderContract.MediaColumns#MIME_TYPE`and is expected to be much lower resolution than the item returned by`onOpenMedia`. If this method is blocked while downloading content to the device, you should periodically check the provided`CancellationSignal`to abort abandoned requests.
+The [`onOpenPreview()`](https://developer.android.com/reference/kotlin/android/provider/CloudMediaProvider#onopenpreview) method should return a thumbnail of the provided
+`size` for the item of the provided mediaId. The thumbnail should be in the
+original `CloudMediaProviderContract.MediaColumns#MIME_TYPE` and is expected to
+be much lower resolution than the item returned by `onOpenMedia`. If this method
+is blocked while downloading content to the device, you should periodically
+check the provided `CancellationSignal` to abort abandoned requests.
 
 ### onCreateCloudMediaSurfaceController
 
-The[`onCreateCloudMediaSurfaceController()`](https://developer.android.com/reference/kotlin/android/provider/CloudMediaProvider#oncreatecloudmediasurfacecontroller)method should return a`CloudMediaSurfaceController`used for rendering the preview of media items, or`null`if preview rendering is not supported.
+The [`onCreateCloudMediaSurfaceController()`](https://developer.android.com/reference/kotlin/android/provider/CloudMediaProvider#oncreatecloudmediasurfacecontroller) method should return a
+`CloudMediaSurfaceController` used for rendering the preview of media items, or
+`null` if preview rendering is not supported.
 
-The`CloudMediaSurfaceController`manages rendering the preview of media items on given instances of`Surface`. The methods of this class are meant to be asynchronous, and should not block by performing any heavy operation. A single`CloudMediaSurfaceController`instance is responsible for rendering multiple media items associated with multiple surfaces.
+The `CloudMediaSurfaceController` manages rendering the preview of media items
+on given instances of `Surface`. The methods of this class are meant to be
+asynchronous, and should not block by performing any heavy operation. A single
+`CloudMediaSurfaceController` instance is responsible for rendering multiple
+media items associated with multiple surfaces.
 
-The`CloudMediaSurfaceController`has support for the following list of lifecycle callbacks:
+The `CloudMediaSurfaceController` has support for the following list of
+lifecycle callbacks:
 
 - [`onConfigChange`](https://developer.android.com/reference/kotlin/android/provider/CloudMediaProvider.CloudMediaSurfaceController#onconfigchange)
 - [`onDestroy`](https://developer.android.com/reference/kotlin/android/provider/CloudMediaProvider.CloudMediaSurfaceController#onDestroy)

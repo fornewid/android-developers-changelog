@@ -61,7 +61,8 @@ to Android TV and submit your app for review.
    4. Confirm your opt-in and agree to the review policy.
 4. **Start rollout:** You can now begin rolling out your TV app.
 
-| **Note:** Check that your app meets all requirements to avoid being rejected after it's reviewed for Android TV quality.
+> [!NOTE]
+> **Note:** Check that your app meets all requirements to avoid being rejected after it's reviewed for Android TV quality.
 
 ### Results
 

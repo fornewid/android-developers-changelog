@@ -56,8 +56,7 @@ The Lazy components are different to most layouts in Compose. Instead of
 accepting a `@Composable` content block parameter, allowing apps to directly
 emit composables, the Lazy components provide a `LazyListScope.()` block. This
 [`LazyListScope`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/LazyListScope)
-block offers a DSL which allows apps to *describe* the item contents. The
-Lazy component is then responsible for adding the each item's content as
+block offers a DSL which allows apps to *describe* the item contents. The Lazy component is then responsible for adding each item's content as
 required by the layout and scroll position.
 
 > [!IMPORTANT]
@@ -131,7 +130,7 @@ and
 [`LazyHorizontalGrid`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/grid/LazyHorizontalGrid.composable)
 composables provide support for displaying items in a grid. A Lazy vertical grid
 will display its items in a vertically scrollable container, spanned across
-multiple columns, while the Lazy horizontal grids will have the same behaviour
+multiple columns, while the Lazy horizontal grids will have the same behavior
 on the horizontal axis.
 
 Grids have the same powerful API capabilities as lists and they also use a
@@ -1150,7 +1149,7 @@ reusing and your Lazy layout performance.
 ### Measuring performance
 
 You can only reliably measure the performance of a Lazy layout when running in
-release mode and with R8 optimisation enabled. On debug builds, Lazy layout
+release mode and with R8 optimization enabled. On debug builds, Lazy layout
 scrolling may appear slower. For more information on this, read through
 [Compose performance](https://developer.android.com/develop/ui/compose/performance).
 

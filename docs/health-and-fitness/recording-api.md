@@ -14,7 +14,9 @@ If your app needs to read other health and fitness data from various sources in
 addition to on-device steps, integrating with [Health Connect](https://developer.android.com/health-and-fitness/health-connect) is a
 better option. Health Connect also provides access to [on-device steps](https://developer.android.com/health-and-fitness/health-connect/features/steps)
 natively on Android 14 (API level 34) and higher.
-| **Note:** The Recording API on mobile is a replacement for the Google Fit Android API, which is being deprecated.
+
+> [!NOTE]
+> **Note:** The Recording API on mobile is a replacement for the Google Fit Android API, which is being deprecated.
 
 This guide shows you how to use the Recording API on mobile in your health \&
 fitness experiences.
@@ -39,7 +41,7 @@ The Recording API on mobile can record the following data types:
 
 ## Get Started
 
-To get started, add the following dependency in your `build.gradle` file:  
+To get started, add the following dependency in your `build.gradle` file:
 
 ### Kotlin DSL
 
@@ -74,7 +76,7 @@ the following permission](https://developer.android.com/training/permissions/req
 
 To use the Recording API on mobile, the user must have Google Play services
 updated to `LOCAL_RECORDING_CLIENT_MIN_VERSION_CODE`. You can check for this
-using the [`isGooglePlayServicesAvailable`](https://developers.google.com/android/reference/com/google/android/gms/common/GoogleApiAvailability#public-int-isgoogleplayservicesavailable-context-context,-int-minapkversion) method:  
+using the [`isGooglePlayServicesAvailable`](https://developers.google.com/android/reference/com/google/android/gms/common/GoogleApiAvailability#public-int-isgoogleplayservicesavailable-context-context,-int-minapkversion) method:
 
     val hasMinPlayServices = isGooglePlayServicesAvailable(context, LocalRecordingClient.LOCAL_RECORDING_CLIENT_MIN_VERSION_CODE)
 
@@ -91,7 +93,7 @@ exception.
 ## Subscribe to Fitness Data
 
 To request background collection of steps data, use the
-`subscribe` method, as shown in the following code snippet:  
+`subscribe` method, as shown in the following code snippet:
 
     val localRecordingClient = FitnessLocal.getLocalRecordingClient(this)
     // Subscribe to steps data
@@ -108,7 +110,7 @@ To request background collection of steps data, use the
 Once subscribed, request the data using the `readData` method. Then, you can
 obtain LocalDataPoints from the resulting [`LocalDataSet`](https://developers.google.com/android/reference/com/google/android/gms/fitness/data/LocalDataSet) by
 making a [`LocalDataReadRequest`](https://developers.google.com/android/reference/com/google/android/gms/fitness/request/LocalDataReadRequest), as shown in the following code
-snippet:  
+snippet:
 
     val endTime = LocalDateTime.now().atZone(ZoneId.systemDefault())
     val startTime = endTime.minusWeeks(1)
@@ -159,7 +161,7 @@ the background.
 
 In order to free up resources, you should make sure to unsubscribe from the
 collection of sensor data when your app is no longer in need of it. To
-unsubscribe, use the `unsubscribe` method:  
+unsubscribe, use the `unsubscribe` method:
 
     val localRecordingClient = FitnessLocal.getLocalRecordingClient(this)
     // Unsubscribe from steps data

@@ -4,8 +4,6 @@ url: https://developer.android.com/privacy-and-security/risks/zip-path-traversal
 source: md.txt
 ---
 
-# Zip Path Traversal
-
 <br />
 
 **OWASP category:** [MASVS-STORAGE: Storage](https://mas.owasp.org/MASVS/05-MASVS-STORAGE)
@@ -14,9 +12,9 @@ source: md.txt
 
 The Zip Path Traversal vulnerability, also known as ZipSlip, is related to handling compressed archives. On this page, we demonstrate this vulnerability using the ZIP format as an example, but similar problems can arise in libraries handling other formats, like TAR, RAR, or 7z.
 
-The underlying reason for this problem is that inside ZIP archives, each packed file is stored with a fully qualified name, which allows special characters such as slashes and dots. The default library from the`java.util.zip`package doesn't check the names of the archive entries for directory traversal characters (`../`), so special care must be taken when concatenating the name extracted from the archive with the targeted directory path.
+The underlying reason for this problem is that inside ZIP archives, each packed file is stored with a fully qualified name, which allows special characters such as slashes and dots. The default library from the `java.util.zip` package doesn't check the names of the archive entries for directory traversal characters (`../`), so special care must be taken when concatenating the name extracted from the archive with the targeted directory path.
 
-It's very important to validate any ZIP-extracting code snippets or libraries from external sources.**Many such libraries are vulnerable to Zip Path Traversals.**
+It's very important to validate any ZIP-extracting code snippets or libraries from external sources. **Many such libraries are vulnerable to Zip Path Traversals.**
 
 ## Impact
 
@@ -24,7 +22,7 @@ The Zip Path Traversal vulnerability can be used to achieve arbitrary file overw
 
 ## Mitigations
 
-To mitigate this issue, before extracting each entry, you should always verify that the target path is a child of the destination directory. The code below assumes that the destination directory is safe -- writable by your app only and not under attacker control -- otherwise your app could be prone to other vulnerabilities such as symlink attacks.  
+To mitigate this issue, before extracting each entry, you should always verify that the target path is a child of the destination directory. The code below assumes that the destination directory is safe -- writable by your app only and not under attacker control -- otherwise your app could be prone to other vulnerabilities such as symlink attacks.
 
 ### Kotlin
 
@@ -54,7 +52,7 @@ To mitigate this issue, before extracting each entry, you should always verify t
         return f;
      }
 
-To avoid accidentally overwriting existing files, you should also make sure that the destination directory is empty before starting the extraction process. Otherwise you risk potential app crashes, or in extreme cases, an application compromise.  
+To avoid accidentally overwriting existing files, you should also make sure that the destination directory is empty before starting the extraction process. Otherwise you risk potential app crashes, or in extreme cases, an application compromise.
 
 ### Kotlin
 

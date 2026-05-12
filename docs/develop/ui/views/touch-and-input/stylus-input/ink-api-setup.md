@@ -4,7 +4,8 @@ url: https://developer.android.com/develop/ui/views/touch-and-input/stylus-input
 source: md.txt
 ---
 
-To integrate the Ink API, add the following dependencies to your app from the Google Maven repository:  
+To integrate the Ink API, add the following dependencies to your app from the
+Google Maven repository:
 
 ### Kotlin
 
