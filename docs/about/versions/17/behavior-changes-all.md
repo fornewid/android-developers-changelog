@@ -95,6 +95,13 @@ exception, the return value depends on what API level the app targets:
 - Apps targeting Android 17 (API level 37) or higher: `getNumericErrorCode()` returns the new `ERROR_TOO_MANY_KEYS` value.
 - All other apps: `getNumericErrorCode()` returns `ERROR_INCORRECT_USAGE`.
 
+### Block cross profile loopback traffic
+
+Beginning with Android 17, cross-profile loopback traffic is no longer
+permitted by default. Loopback traffic within the same profile is not affected.
+This change applies to all apps running on Android 17 or higher,
+regardless of what API level the app targets.
+
 ## User experience and system UI
 
 Android 17 includes the following changes that are intended

@@ -53,7 +53,7 @@ Figure 1 shows how the lint tool processes app source files.
 ![Code scanning workflow with the lint tool.](https://developer.android.com/static/studio/images/write/lint.png) **Figure 1.** Code scanning workflow with the lint tool.
 
 **App source files**
-:   The source files consist of files that make up your Android project, including Kotlin, Java, and
+:   The source files consist of files that make up your Android project, including Kotlin and
     XML files, icons, and ProGuard configuration files.
 
 **The `lint.xml` file**
@@ -169,19 +169,16 @@ AndroidManifest.xml:23: Warning: <uses-sdk> tag appears after <application> tag 
 AndroidManifest.xml:23: Warning: <uses-sdk> tag should specify a target API level (the highest verified version; when running on later versions, compatibility behaviors may be enabled) with android:targetSdkVersion="?" [UsesMinSdkAttributes]
   <uses-sdk android:minSdkVersion="7" />
   ^
-res/layout/preferences.xml: Warning: The resource R.layout.preferences appears to be unused [UnusedResources]
 res: Warning: Missing density variation folders in res: drawable-xhdpi [IconMissingDensityFolder]
 0 errors, 4 warnings
 ```
 
-The example output lists four warnings and no errors.
+The example output lists three warnings and no errors.
 
 Two warnings relate to the project's `AndroidManifest.xml` file:
 
 - `ManifestOrder`
 - `UsesMinSdkAttributes`
-
-One warning relates to the `Preferences.xml` layout file: `UnusedResources`.
 
 One warning relates to the `res` directory:
 `IconMissingDensityFolder`.
@@ -243,18 +240,18 @@ The following example shows the contents of a `lint.xml` file:
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <lint>
-    <!-- Disable the IconMissingDensityFolder check in this project -->
-    <issue id="IconMissingDensityFolder" severity="ignore" />
+    <!-- Disable the ComposableNaming check in this project -->
+    <issue id="ComposableNaming" severity="ignore" />
 
-    <!-- Ignore the ObsoleteLayoutParam issue in the specified files -->
-    <issue id="ObsoleteLayoutParam">
-        <ignore path="res/layout/activation.xml" />
-        <ignore path="res/layout-xlarge/activation.xml" />
+    <!-- Ignore the ComposeUnrememberedState issue in the specified files -->
+    <issue id="ComposeUnrememberedState">
+        <ignore path="src/main/java/com/example/myapp/MainActivity.kt" />
+        <ignore path="src/main/java/com/example/myapp/ui/components/SpecialButton.kt" />
     </issue>
 
-    <!-- Ignore the UselessLeaf issue in the specified file -->
-    <issue id="UselessLeaf">
-        <ignore path="res/layout/main.xml" />
+    <!-- Ignore the ComposeModifierMissing issue in the specified file -->
+    <issue id="ComposeModifierMissing">
+        <ignore path="src/main/java/com/example/myapp/ui/screens/HomeScreen.kt" />
     </issue>
 
     <!-- Change the severity of hardcoded strings to "error" -->
@@ -262,14 +259,14 @@ The following example shows the contents of a `lint.xml` file:
 </lint>
 ```
 
-This example shows how different issue types are reported. The
-`IconMissingDensityFolder`
-check is disabled completely, and the `ObsoleteLayoutParam` check is disabled only
+This example shows how different issue types are configured. The
+`ComposableNaming`
+check is disabled completely, and the `ComposeUnrememberedState` check is disabled only
 in the files specified in the enclosed `<ignore ... />` declarations.
 
-### Configure lint checking for Kotlin, Java, and XML source files
+### Configure lint checking for Kotlin and XML source files
 
-You can turn off lint checking for your Kotlin, Java, and XML source files
+You can turn off lint checking for your Kotlin and XML source files
 in the **Preferences** dialog:
 
 1. Select **File \> Settings** (on Windows) or **Android Studio \> Preferences** (on macOS or Linux).
@@ -279,38 +276,25 @@ in the **Preferences** dialog:
 You can set these either for the IDE or for individual projects by
 selecting the appropriate profile.
 
-#### Configure lint checking in Java or Kotlin
+#### Configure lint checking in Kotlin
 
-To disable lint checking specifically for a class or method in your Android project,
+To disable lint checking specifically for a class or function in your Android project,
 add the `@SuppressLint` annotation to that code.
 
 The following example shows how you can turn off lint checking for the `NewApi`
-issue in the `onCreate` method. The lint tool continues to check for the
-`NewApi` issue in other methods of this class.
-
-### Kotlin
+issue in a specific function. The lint tool continues to check for the
+`NewApi` issue in other functions of this class.
 
 ```kotlin
 @SuppressLint("NewApi")
-override fun onCreate(savedInstanceState: Bundle?) {
-    super.onCreate(savedInstanceState)
-    setContentView(R.layout.main)
-```
-
-### Java
-
-```java
-@SuppressLint("NewApi")
-@Override
-public void onCreate(Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
-    setContentView(R.layout.main);
+fun logNotificationChannelInfo() {
+    // Uses NotificationChannel (requires API 26+)
+    ...
+}
 ```
 
 The same can be accomplished on any Composable. The following code snippet shows how you can turn
 off `NewApi` checks on any Composable.
-
-### Kotlin
 
 ```kotlin
   @SuppressLint("NewApi")
@@ -324,31 +308,14 @@ off `NewApi` checks on any Composable.
 The following example shows how to turn off lint checking for the `ParserError`
 issue in the `FeedProvider` class:
 
-### Kotlin
-
 ```kotlin
 @SuppressLint("ParserError")
 class FeedProvider : ContentProvider() {
 ```
 
-### Java
-
-```java
-@SuppressLint("ParserError")
-public class FeedProvider extends ContentProvider {
-```
-
 To suppress checking for all lint issues in the file, use the `all` keyword:
 
-### Kotlin
-
 ```kotlin
-@SuppressLint("all")
-```
-
-### Java
-
-```java
 @SuppressLint("all")
 ```
 
@@ -365,20 +332,19 @@ namespace xmlns:tools="http://schemas.android.com/tools"
 ```
 
 The following example shows how you can turn off lint checking for the
-`UnusedResources` issue in a `<LinearLayout>` element of an XML
-layout file. The `ignore` attribute is inherited by the children elements of the parent
-element where the attribute is declared. In this example, the lint check is also disabled for the
-child `<TextView>` element:
+`UnusedResources` issue in a `<resources>` element of a
+`strings.xml` file. The `ignore` attribute is inherited by the children elements of the parent
+element where the attribute is declared. In this example, the lint check is also disabled for all
+enclosed `<string>` elements:
 
 ```xml
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<resources
     xmlns:tools="http://schemas.android.com/tools"
     tools:ignore="UnusedResources" >
 
-    <TextView
-        android:text="@string/auto_update_prompt" />
-</LinearLayout>
+    <string name="app_name">My App</string>
+    <string name="unused_string">Unused String</string>
+</resources>
 ```
 
 To disable more than one issue, list the issues to disable in a comma-separated string. For

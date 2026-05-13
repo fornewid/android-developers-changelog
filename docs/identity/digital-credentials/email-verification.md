@@ -114,6 +114,28 @@ Credentials](https://developer.android.com/identity/digital-credentials#verified
 > **Note:** Apart from a user's email information, you can request other unverified fields, such as the user's given name, family name, name, and the profile picture of their Google Account. However, only the email is verified by Google.   
 > For phone number verification, see [Firebase Phone Number Verification](https://firebase.google.com/docs/phone-number-verification). Note that you can't request a phone number and email in the same invocation as these are separate capabilities.
 
+## Validity and freshness
+
+The system issues [verifiable credentials](https://developer.android.com/identity/digital-credentials#verified) (VCs) based on the user's current
+email from the active Google Accounts on the device. These credentials are
+issued to the device in advance, typically while the device is idle. While these
+credentials might remain valid for multiple days, the system performs a check at
+the moment of sharing the credentials to ensure that the account still exists,
+is on the device, and that the email address is valid---effectively prioritizing
+the account's immediate status over the credential's validity window.
+
+To help ensure authenticity, a Key Binding (kb) signature is generated at the
+time of sharing, incorporating the nonce.
+
+If a device is offline or the account is removed, the process fails rather than
+providing an expired VC or a VC for an inactive Google Account.
+
+### Email deliverability
+
+While the process confirms the account's legitimacy, it does not guarantee inbox
+delivery (for instance, the email might be diverted to spam). An OTP remains the
+definitive method for confirming email deliverability.
+
 ## Comparison with Sign in with Google
 
 While both Digital Credentials and [Sign in with Google](https://developer.android.com/identity/sign-in/credential-manager-siwg) solutions provide a

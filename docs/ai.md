@@ -4,45 +4,57 @@ url: https://developer.android.com/ai
 source: md.txt
 ---
 
-## Build intelligent experiences on Android with AI
+## Integrate your app with the Android intelligence system
 
-Drive innovation in your Android apps using Google's latest AI advancements. Explore on-device generative capabilities with Gemini Nano and the GenAI APIs as part of ML Kit, harness powerful cloud models like Gemini Flash (including image generation with Nano Banana), Gemini Pro, and Imagen using Firebase, and optimize traditional ML tasks with LiteRT and ML Kit.
+Android is evolving into an intelligence system, powered by AI. Integrate your app through a self-service model, and become part of the next generation of intelligent experiences on Android. ![AI on Android](https://developer.android.com/static/images/ai/ai-hero.png)
 
 ## Find your Android AI pathway
 
-Select from Google's cutting-edge AI/ML solutions to empower and enlighten your Android app users. [![](http://developer.android.com/static/images/picto-icons/gpu-hardware_dt.svg)](http://developer.android.com/ai/gemini-nano)
+Select from Google's cutting-edge AI/ML solutions to empower and enlighten your Android app users. [![](http://developer.android.com/static/images/picto-icons/android-ktx.svg)](http://developer.android.com/ai/appfunctions)
 
-### [On-Device with Gemini Nano](http://developer.android.com/ai/gemini-nano)
+### [Prepare and connect your app to the intelligence system](http://developer.android.com/ai/appfunctions)
 
-Access the power of on-device AI with Gemini Nano and the GenAI APIs as part of ML Kit. [![](http://developer.android.com/static/images/logos/gemini_dt.svg)](http://developer.android.com/ai/gemini)
+Make your app's capabilities available to qualified agents using AppFunctions or rely on UI automation on supported devices as a fall back. [![](http://developer.android.com/static/images/spot-icons/apps-games-insights.svg)](http://developer.android.com/ai/overview)
 
-### [Harness the power of advanced Gemini models](http://developer.android.com/ai/gemini)
+### [Bring intelligence into your app with Gemini models](http://developer.android.com/ai/overview)
 
-Access the full power of flagship models such as Gemini Pro, Gemini Flash (including Nano Banana), and Imagen using Firebase AI. [![](http://developer.android.com/static/images/picto-icons/lightbulb-spark_dt.svg)](http://developer.android.com/ai/overview)
+Implement on-device features with Gemini Nano and ML Kit GenAI APIs, or harness the full power of Cloud and Hybrid AI with Firebase AI Logic. [![](http://developer.android.com/static/images/picto-icons/machine-learning.svg)](http://developer.android.com/tools/agents)
 
-### [Choose the right AI solution for your app](http://developer.android.com/ai/overview)
+### [Use AI to build intelligent Android apps](http://developer.android.com/tools/agents)
 
-Finding the right AI-ML solution for your app can seem challenging. Read our overview to help you find the right tool for your use case. [Get started with generative AI on Android arrow_right_alt](http://developer.android.com/ai/overview) ![](http://developer.android.com/static/images/picto-icons/stars.svg)
+Leverage agentic tools for Android development, including Gemini in Android Studio, Android CLI, and the official suite of Android skills, to accelerate your workflow. [Download Android CLI download](http://developer.android.com/tools/agents) [Get started with AI on Android arrow_right_alt](http://developer.android.com/ai/overview) ![](http://developer.android.com/static/images/picto-icons/stars.svg)
 
-## New Android AI Features
+## New Android intelligent features
 
-Supercharge Your Android Apps with the Latest AI Innovations. New feature
+New feature
 
-### [GenAI APIs](http://developer.android.com/ai/gemini-nano)
+### [AppFunctions](http://developer.android.com/ai/appfunctions)
 
-Use the GenAI APIs powered by Gemini Nano to help your app perform common tasks. [Learn more](http://developer.android.com/ai/gemini-nano) New feature
+AppFunctions is an Android API designed to simplify building Android MCP integrations. It empowers your apps to behave like on-device MCP servers, contributing functions that act as tools for use by proactive features along with client agents and assistants. AppFunctions integration with Gemini is currently in a private preview with trusted testers, but you can begin preparing your apps now using AppFunctions and development tools. [Learn more](http://developer.android.com/ai/appfunctions) New feature
 
-### [Play for On Device AI](http://developer.android.com/google/play/on-device-ai)
+### [Android Computer Control](http://developer.android.com/ai/computer-control)
 
-Play for On-device AI helps improve ML model performance and simplify distribution using App Bundles and Google Play delivery. [Learn more](http://developer.android.com/google/play/on-device-ai) ![](http://developer.android.com/static/images/picto-icons/learning-resources_dt.svg)
+Prepare your app for automation with Android Computer Control. This framework lets OEM-preloaded assistants interact with supported apps using task automation, with no code changes required by your app. [Learn more](http://developer.android.com/ai/computer-control) New feature
+
+### [New ML Kit APIs](http://developer.android.com/ai/gemini-nano)
+
+Take advantage of Gemini Nano's audio capabilities with the Speech Recognition API, and reduce inference times when using Prompt API with the prefix caching feature. [Learn more](http://developer.android.com/ai/gemini-nano) New feature
+
+### [AICore Developer Preview](http://developer.android.com/blog/posts/announcing-gemma-4-in-the-ai-core-developer-preview)
+
+Join the AICore Developer Preview to prototype with on-device Gemini Nano models. Test custom prompts and optimize performance. [Learn more](http://developer.android.com/blog/posts/announcing-gemma-4-in-the-ai-core-developer-preview) New feature
+
+### [Gemma 4](http://developer.android.com/blog/posts/gemma-4-the-new-standard-for-local-agentic-intelligence-on-android)
+
+Unlock local agentic intelligence on Android with Gemma 4, our open model featuring advanced reasoning and tool calling. Code with Gemma 4 in Android Studio, and build on-device AI features with ML Kit GenAI APIs today. [Learn more](http://developer.android.com/blog/posts/gemma-4-the-new-standard-for-local-agentic-intelligence-on-android) ![](http://developer.android.com/static/images/picto-icons/learning-resources_dt.svg)
 
 ## AI case studies
 
-![](http://developer.android.com/static/images/ai/envision.png)
+![](http://developer.android.com/static/images/ai/kakao-logo.png)
 
-### Envision helps summarize documents
+### Kakao Mobility boosts conversions by 45%
 
-Envision utilizes GenAI API's Summarization feature to provide users concise and meaningful summaries of documents. [Learn more](https://android-developers.googleblog.com/2025/05/on-device-gen-ai-apis-ml-kit-gemini-nano.html) ![](http://developer.android.com/static/images/logos/firebase.svg)
+By implementing Gemini Nano on-device, Kakao Mobility streamlined address entry and reduced order completion time by 24% while reducing server costs and enhancing user privacy. [Learn more](http://developer.android.com/blog/posts/kakao-mobility-uses-gemini-nano-on-device-to-reduce-costs-and-boost-call-conversion-by-45) ![](http://developer.android.com/static/images/logos/firebase.svg)
 
 ### Innovative Android apps using Firebase AI
 
@@ -82,7 +94,15 @@ AI-powered tools can automate repetitive tasks, suggest code, debug errors, and 
 
 ### [Gemini in Android Studio](http://developer.android.com/gemini-in-android)
 
-Gemini in Android Studio is your coding companion for Android development. It can generate code, find relevant resources, learn best practices, troubleshoot errors, and save time. [Learn more](http://developer.android.com/gemini-in-android) [![](http://developer.android.com/static/images/ai/google-ai-studio.png)](https://aistudio.google.com/app/prompts/new_chat)
+Gemini in Android Studio is your coding companion for Android development. It can generate code, find relevant resources, learn best practices, troubleshoot errors, and save time. [Learn more](http://developer.android.com/gemini-in-android) [![](http://developer.android.com/static/images/logos/android.svg)](http://developer.android.com/tools/agents)
+
+### [Android CLI](http://developer.android.com/tools/agents)
+
+Android CLI makes it faster and easier to build Android apps using the agents and developer environments of your choice. [Learn more](http://developer.android.com/tools/agents) [![](http://developer.android.com/static/images/ai/aicore-logo.png)](http://developer.android.com/blog/posts/announcing-gemma-4-in-the-ai-core-developer-preview)
+
+### [Join the AICore Developer Preview](http://developer.android.com/blog/posts/announcing-gemma-4-in-the-ai-core-developer-preview)
+
+Get early access to the latest Gemini Nano models. Test your prompts, explore on-device performance, and help shape the future of on-device AI before it hits production. [Learn more](http://developer.android.com/blog/posts/announcing-gemma-4-in-the-ai-core-developer-preview) [![](http://developer.android.com/static/images/ai/google-ai-studio.png)](https://aistudio.google.com/app/prompts/new_chat)
 
 ### [Google AI Studio](https://aistudio.google.com/app/prompts/new_chat)
 

@@ -7,6 +7,18 @@ source: md.txt
 # The Latest
 
 Stay up to date with the latest announcements, feature rollouts, and updates across Android tools, libraries, and platforms.
+- [![](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 12 May 2026 12 May 2026 ![](https://developer.android.com/static/blog/assets/Tas_Developers_cut_Strapi_3636223c9c_Z2pmmBN.webp)
+
+  #### [Product News](https://developer.android.com/blog/categories/product-news)
+
+  ## [Building for the Intelligence System on Android](https://developer.android.com/blog/posts/building-for-the-intelligence-system-on-android)
+
+  [arrow_forward](https://developer.android.com/blog/posts/building-for-the-intelligence-system-on-android) Announced today during The Android Show, Android is transitioning from an operating system to an intelligence system, creating more opportunities for engagement with your apps.
+
+  ###### [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) •
+  4 min read
+
+  - [#Android](https://developer.android.com/blog/topics/android)
 - [![](https://developer.android.com/static/blog/assets/Vijaya_Kaza_38a0089092_1sYB49.webp)](https://developer.android.com/blog/authors/vijaya-kaza) 07 May 2026 07 May 2026 ![](https://developer.android.com/static/blog/assets/260429_A_look_ahead_to_2026_Banner_Strapi_2000_x_1000_px_b302a5104a_1L2cA4.webp)
 
   #### [Product News](https://developer.android.com/blog/categories/product-news)
@@ -221,17 +233,6 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
 
   ###### [Andrew Lewis](https://developer.android.com/blog/authors/andrew-lewis) •
   2 min read
-
-- [![](https://developer.android.com/static/blog/assets/roxana_02dc1d3afc_GLFQH.webp)](https://developer.android.com/blog/authors/roxanna-walker) 26 Mar 2026 26 Mar 2026 ![](https://developer.android.com/static/blog/assets/contact_Picker_4392c5da87_ZQDO82.webp)
-
-  #### [Product News](https://developer.android.com/blog/categories/product-news)
-
-  ## [Contact Picker: Privacy-First Contact Sharing](https://developer.android.com/blog/posts/contact-picker-privacy-first-contact-sharing)
-
-  [arrow_forward](https://developer.android.com/blog/posts/contact-picker-privacy-first-contact-sharing) Privacy and user control remain at the heart of the Android experience. Just as the photo picker made media sharing secure and easy to implement, we are now bringing that same level of privacy, simplicity, and great user experience to contact selection.
-
-  ###### [Roxanna Aliabadi Walker](https://developer.android.com/blog/authors/roxanna-walker) •
-  4 min read
 
 <button class="adb--button adb--standard adb--outlined adb--disabled adb--global-hover-button astro-vnzlvqnm" disabled=""> arrow_back </button>
 

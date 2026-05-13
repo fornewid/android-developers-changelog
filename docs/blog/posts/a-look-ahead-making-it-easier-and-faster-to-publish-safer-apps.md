@@ -64,6 +64,18 @@ Google Play is committed to helping you grow your business while keeping users s
 
 ## Continue reading
 
+- [![](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 12 May 2026 12 May 2026 ![](https://developer.android.com/static/blog/assets/Tas_Developers_cut_Strapi_3636223c9c_Z2pmmBN.webp)
+
+  #### [Product News](https://developer.android.com/blog/categories/product-news)
+
+  ## [Building for the Intelligence System on Android](https://developer.android.com/blog/posts/building-for-the-intelligence-system-on-android)
+
+  [arrow_forward](https://developer.android.com/blog/posts/building-for-the-intelligence-system-on-android) Announced today during The Android Show, Android is transitioning from an operating system to an intelligence system, creating more opportunities for engagement with your apps.
+
+  ###### [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) •
+  4 min read
+
+  - [#Android](https://developer.android.com/blog/topics/android)
 - [![](https://developer.android.com/static/blog/assets/matthew_9c798f0c1d_Z1m5WWD.webp)](https://developer.android.com/blog/authors/matthew-forsythe) 19 Mar 2026 19 Mar 2026 ![](https://developer.android.com/static/blog/assets/android_Verification2_b4044e9b89_1tLhzE.webp)
 
   #### [Product News](https://developer.android.com/blog/categories/product-news)
@@ -88,16 +100,6 @@ Google Play is committed to helping you grow your business while keeping users s
   4 min read
 
   - [#Android](https://developer.android.com/blog/topics/android)
-- [![](https://developer.android.com/static/blog/assets/meghan_d663ed9c69_e0a5b5a564_Z21FLk.webp)](https://developer.android.com/blog/authors/meghan-mehta) 22 Apr 2026 22 Apr 2026 ![](https://developer.android.com/static/blog/assets/0420_Compose_1_11_Strapi_9c17b19a5e_1zjMqo.webp)
-
-  #### [Product News](https://developer.android.com/blog/categories/product-news)
-
-  ## [What's new in the Jetpack Compose April '26 release](https://developer.android.com/blog/posts/whats-new-in-the-jetpack-compose-april-26-release)
-
-  [arrow_forward](https://developer.android.com/blog/posts/whats-new-in-the-jetpack-compose-april-26-release) The Jetpack Compose April '26 release is stable. This release contains version 1.11 of core Compose modules (see the full BOM mapping), shared element debug tools, trackpad events, and more.
-
-  ###### [Meghan Mehta](https://developer.android.com/blog/authors/meghan-mehta) •
-  5 min read
 
 # Stay in the loop
 

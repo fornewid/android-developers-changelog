@@ -40,18 +40,15 @@ because input data is processed locally. These benefits can be critical for
 certain use cases, like message summarization, making on-device a priority when
 choosing the right solutions.
 
-**Gemini Nano** lets you run inference directly on an Android-powered
-device. If you're working with text, images, or audio, start with [**ML Kit's
-GenAI APIs**](https://developers.google.com/ml-kit/genai) for out-of-the-box solutions. The ML Kit GenAI APIs are
-powered by Gemini Nano and fine-tuned for specific on-device tasks. The ML Kit
-GenAI APIs are an ideal path to production for your apps due to their
-higher-level interface and scalability. These APIs allow you to implement
-use-cases to **summarize, proofread** , and **rewrite** text, generate
-**image descriptions** , and perform **speech recognition**.
-
-To move beyond the fundamental use cases provided by the ML Kit GenAI APIs,
-consider [**Gemini Nano Experimental Access**](https://developer.android.com/ai/gemini-nano/experimental). Gemini Nano Experimental
-Access gives you more direct access to custom prompting with Gemini Nano.
+Gemini Nano lets you run inference directly on an Android-powered device. If
+you're working with text, images, or audio, start with [ML Kit's GenAI
+APIs](https://developers.google.com/ml-kit/genai) for out-of-the-box solutions. The ML Kit GenAI APIs are powered by
+Gemini Nano, leveraging AICore as the underlying system service, and are
+fine-tuned for specific on-device tasks. The ML Kit GenAI APIs are an ideal path
+to production for your apps due to their higher-level interface and scalability.
+These APIs allow you to send natural language requests with both text and image
+inputs, enabling a variety of use cases such as image understanding, short
+translations, guided summarizations, and more.
 
 For traditional machine learning tasks, you have the flexibility to implement
 your own custom models. We provide robust tools like [ML Kit](https://developer.android.com/ai/overview#ml-kit),
@@ -121,8 +118,8 @@ mobile app without needing to train models or require generative output. It's
 ideal for efficiently enhancing apps with "smart" capabilities using Google's
 optimized models or by deploying custom TensorFlow Lite models.
 
-Get started with our comprehensive guides and documentation at the [ML Kit
-developer site](https://developers.google.com/ml-kit).
+Get started with our comprehensive guides and documentation at the
+[ML Kit developer site](https://developers.google.com/ml-kit).
 
 ### Custom ML deployment with LiteRT
 
@@ -161,24 +158,37 @@ analyzing and interpreting input.
 
 Explore the solutions and start building with [MediaPipe](https://ai.google.dev/edge/mediapipe/solutions/guide.md).
 
-## Choose an approach: On-device or cloud
+## Integrate your app with the device assistant
 
-When integrating AI/ML features into your Android app, a crucial early decision
-is whether to perform processing directly on the user's device or in the cloud.
-Tools like ML Kit, Gemini Nano, and TensorFlow Lite enable on-device
-capabilities, while the Gemini cloud APIs with Firebase AI Logic can provide
-powerful cloud-based processing. Making the right choice depends on a variety of
-factors specific to your use case and user needs.
+While traditional AI integration focuses on "getting AI into your app," you can
+also "get your app into AI." By contributing your app's functionality to system
+AI features, you allow system-level assistants (such as Gemini) to discover and
+invoke your app's capabilities agentically. [AppFunctions](https://developer.android.com/ai/overview#appfunctions) is the primary
+way to achieve this integration, enabling your app to become a participant in
+the broader Android AI ecosystem.
 
-Consider the following aspects to guide your decision:
+## Choose an approach
 
-- **Connectivity and offline functionality**: If your application needs to function reliably without an internet connection, on-device solutions like Gemini Nano are ideal. Cloud-based processing, by its nature, requires network access.
-- **Data privacy**: For use cases where user data must remain on the device for privacy reasons, on-device processing offers a distinct advantage by keeping sensitive information local.
-- **Model capabilities and task complexity**: Cloud-based models are often significantly larger, more powerful, and updated more frequently, making them suitable for highly complex AI tasks or when processing larger inputs where higher output quality and extensive capabilities are paramount. Simpler tasks might be well-handled by on-device models.
-- **Cost considerations**: Cloud APIs typically involve usage-based pricing, meaning costs can scale with the number of inferences or amount of data processed. On-device inference, while generally free from direct per-use charges, incurs development costs and can impact device resources like battery life and overall performance.
-- **Device resources**: On-device models consume storage space on the user's device. It's also important to be aware of the device compatibility of specific on-device models, such as Gemini Nano, to ensure your target audience can use the features.
-- **Fine-tuning and customization**: If you require the ability to fine-tune models for your specific use case, cloud-based solutions generally offer greater flexibility and more extensive options for customization.
-- **Cross-platform consistency**: If consistent AI features across multiple platforms, including iOS, are critical, be mindful that some on-device solutions, like Gemini Nano, may not yet be available on all operating systems.
+When incorporating AI to improve your Android app, you should consider three
+primary approaches: performing processing on-device, leveraging cloud-based
+models, or adding your app's functionality to system-level AI. Tools like ML
+Kit, Gemini Nano, and LiteRT enable on-device capabilities, while the Gemini
+cloud APIs with Firebase AI Logic provide powerful cloud-based processing.
+AppFunctions represents a third path, allowing you to "get your app into AI" by
+making its features agentically available to the system.
+
+Consider these factors when choosing your approach:
+
+| Factor | On-device solutions | Cloud solutions |
+|---|---|---|
+| Connectivity and offline functionality | Ideal for offline use; functions without a network connection. | Requires a network connection to communicate with remote servers. |
+| Data privacy | Processes and stores sensitive data locally on the device. | Data is transmitted to the cloud, requiring trust in provider security. |
+| Discoverability and reach | Direct OS integration (AppFunctions) allows assistants to discover features. | Discovery is typically limited to the app's internal UI or specific API integrations. |
+| Model capabilities | Optimized for low latency and specific, less intensive tasks. | Powerful models capable of handling high complexity and large inputs. |
+| Cost considerations | No direct per-use charges; utilizes existing device hardware. | Typically involves usage-based pricing or ongoing subscription costs. |
+| Device resources | Utilizes local storage, RAM, and battery life. | Minimal local impact; heavy lifting is offloaded to the server. |
+| Fine-tuning | Limited flexibility; constrained by local hardware capabilities. | Greater flexibility for extensive customization and large-scale tuning. |
+| Cross-platform consistency | Availability may vary depending on OS and hardware support. | Consistent experience across any platform with internet access. |
 
 By carefully considering your use case requirements and the available options,
 you can find the perfect AI/ML solution to enhance your Android app and deliver
@@ -198,6 +208,8 @@ integrating AI/ML technologies into your Android projects.
 - **B) Analyzing existing data/input for prediction, classification,
   detection, understanding patterns, or processing real-time streams (like
   video/audio)?** → Go to [**Traditional ML \& Perception**](https://developer.android.com/ai/overview#t)
+- **C) Enhancing your app's functionality to integrate with system AI features
+  (getting your app into AI)?** → Go to [**Getting your app into AI**](https://developer.android.com/ai/overview#get-app-into-ai)
 
 *** ** * ** ***
 
@@ -251,21 +263,18 @@ understanding or interaction tasks.
 
 #### On-device generative AI (Using Gemini Nano)
 
-*Caveats*: Requires compatible Android devices, limited iOS support, specific
-token limits (1024 prompt, 4096 context), models are less powerful than cloud
-counterparts.
+*Caveats*: Requires compatible Android devices, limited iOS support, models
+are less powerful than cloud counterparts.
 
-**Does your use case *specifically* match the streamlined tasks offered by
-the ML Kit GenAI APIs? (summarize text, proofread text, rewrite text,
-generate image descriptions, or perform speech recognition) AND are the token
-limits sufficient?**
+With ML Kit's Prompt API you can send natural language requests with text-only
+or text-and-image inputs for a variety of use cases, such as image
+understanding, short translations, and guided summarizations. If your use
+cases can be satisfied by [these token limits](https://developers.google.com/ml-kit/genai/prompt/android/get-started#supported-features), ML Kit GenAI APIs are
+your best option for on-device generative AI. ML Kit also offers streamlined
+APIs for common tasks like summarization and smart reply.
 
-- **A) Yes** :
-  - **→ Use: ML Kit GenAI APIs (powered by Gemini Nano)**
-  - *Why*: Easiest way to integrate specific, common generative tasks on-device, highest priority on-device solution.
-- **B) No** (You need more flexible prompting or tasks beyond the specific ML Kit GenAI APIs, but still want on-device execution within Nano's capabilities):
-  - **→ Use: Gemini Nano Experimental Access**
-  - *Why*: Provides open prompting capabilities on-device for use cases beyond the structured ML Kit GenAI APIs, respecting Nano's limitations.
+- **→ Use: [ML Kit GenAI APIs (powered by Gemini Nano)](https://developers.google.com/ml-kit/genai)**
+- *Why*: Easiest way to integrate generative AI tasks on-device using natural language prompts, highest priority on-device solution.
 
 *** ** * ** ***
 
@@ -280,7 +289,7 @@ flexibility/control?**
 
 - **A) Prefer easier integration, a managed API experience, and are likely
   using Firebase already?**
-  - **→ Use: Firebase AI Logic SDK** → Go to [**Firebase AI Logic**](https://developer.android.com/ai/overview?tab=t.466um8gk14b7#bookmark=kix.lga3yghibwcu)
+  - **→ Use: Firebase AI Logic SDK** → Go to [**Firebase AI Logic**](https://developer.android.com/ai/overview#firebase-ai-logic)
 - **B) Need maximum flexibility, access to the widest range of models
   (including third-party/custom), advanced fine-tuning, and are willing to
   manage your own backend integration (more complex)?**
@@ -303,3 +312,13 @@ of generative task and performance profile do you need?**
   understanding or manipulation based on text prompts?**
   - **→ Use: [Firebase AI Logic SDK with Imagen 3](https://developer.android.com/ai/imagen)**
   - *Why*: State-of-the-art image generation model accessed using the managed Firebase environment.
+
+*** ** * ** ***
+
+### AppFunctions
+
+You need to enhance your app's functionality to integrate with system AI
+features (getting your app into AI).
+
+- **→ Use: [AppFunctions](https://developer.android.com/ai/appfunctions)**
+- *Why*: Enables system AI features, such as Assistant, to discover and invoke your app's capabilities.

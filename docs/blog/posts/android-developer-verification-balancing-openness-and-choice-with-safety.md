@@ -60,6 +60,18 @@ Visit our [website](https://developer.android.com/developer-verification) for mo
 
 ## Continue reading
 
+- [![](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 12 May 2026 12 May 2026 ![](https://developer.android.com/static/blog/assets/Tas_Developers_cut_Strapi_3636223c9c_Z2pmmBN.webp)
+
+  #### [Product News](https://developer.android.com/blog/categories/product-news)
+
+  ## [Building for the Intelligence System on Android](https://developer.android.com/blog/posts/building-for-the-intelligence-system-on-android)
+
+  [arrow_forward](https://developer.android.com/blog/posts/building-for-the-intelligence-system-on-android) Announced today during The Android Show, Android is transitioning from an operating system to an intelligence system, creating more opportunities for engagement with your apps.
+
+  ###### [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) •
+  4 min read
+
+  - [#Android](https://developer.android.com/blog/topics/android)
 - [![](https://developer.android.com/static/blog/assets/Vijaya_Kaza_38a0089092_1sYB49.webp)](https://developer.android.com/blog/authors/vijaya-kaza) 07 May 2026 07 May 2026 ![](https://developer.android.com/static/blog/assets/260429_A_look_ahead_to_2026_Banner_Strapi_2000_x_1000_px_b302a5104a_1L2cA4.webp)
 
   #### [Product News](https://developer.android.com/blog/categories/product-news)
@@ -81,17 +93,6 @@ Visit our [website](https://developer.android.com/developer-verification) for mo
   [arrow_forward](https://developer.android.com/blog/posts/android-developer-verification-rolling-out-to-all-developers-on-play-console-and-android-developer-console) Android is for everyone. It's built on a commitment to an open and safe platform. Users should feel confident installing apps, no matter where they get them from.
 
   ###### [Matthew Forsythe](https://developer.android.com/blog/authors/matthew-forsythe) •
-  3 min read
-
-- [![](https://developer.android.com/static/blog/assets/matthew_9c798f0c1d_Z1m5WWD.webp)](https://developer.android.com/blog/authors/matthew-forsythe)[![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](https://developer.android.com/blog/authors/ron-aquino) 11 Dec 2025 11 Dec 2025 ![](https://developer.android.com/static/blog/assets/251210_Header_v01_de706a19ce_ZIQ3n5.webp)
-
-  #### [Product News](https://developer.android.com/blog/categories/product-news)
-
-  ## [Building a safer Android and Google Play, together](https://developer.android.com/blog/posts/building-a-safer-android-and-google-play-together)
-
-  [arrow_forward](https://developer.android.com/blog/posts/building-a-safer-android-and-google-play-together) Earlier this year, we reiterated our commitment to keeping Android and Google Play safe for everyone and maintaining a thriving environment where users can trust the apps they download and your business can flourish.
-
-  ###### [Matthew Forsythe](https://developer.android.com/blog/authors/matthew-forsythe), [Ron Aquino](https://developer.android.com/blog/authors/ron-aquino) •
   3 min read
 
 # Stay in the loop

@@ -211,6 +211,14 @@ reference image:
 The verification task creates an HTML report at
 `{module}/build/reports/screenshotTest/preview/{variant}/index.html`.
 
+## Troubleshooting
+
+Compose Preview Screenshot Testing runs host-side tests, which can be
+memory-intensive. You can increase the maximum heap size for the test JVM by
+adding the following property to your `gradle.properties` file:
+
+    android.compose.screenshot.maxHeapSize=4g
+
 ## Known issues
 
 - **Kotlin Multiplatform (KMP):** Both the IDE and the underlying plugin are engineered exclusively for Android projects. They don't support non-Android targets in KMP projects.

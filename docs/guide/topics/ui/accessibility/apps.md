@@ -112,7 +112,7 @@ When adding descriptions to your app's UI elements, keep the following best
 practices in mind:
 
 - Use descriptions to convey the purpose and result of the interaction, not the
-  visual details. Use the [`Role` semantics property](https://developer.android.com/guide/topics/ui/accessibility/custom-views)
+  visual details. Use the [`Role` semantics property](https://developer.android.com/guide/topics/ui/accessibility/composables#describe)
   (like `Role.Button` or `Role.Switch`) to expose a UI element's type. This
   way, screen readers can announce the element correctly.
 

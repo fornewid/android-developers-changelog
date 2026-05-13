@@ -51,6 +51,12 @@ various devices to ensure a quality user experience.
 > [!NOTE]
 > **Note:** Widget dimensions in the table encompass all device orientations, including landscape mode on phones, to ensure optimal functionality in a variety of scenarios.
 
+## Widgets on Auto
+
+When creating widgets on Auto, widgets will scale up to match the larger device
+screen. 2x2 grids work best on Auto. For more information, see
+[Adapt widgets for Cars](https://developer.android.com/design/ui/cars/guides/flows/widgets).
+
 ## Breakpoints
 
 Breakpoints are essential for crafting adaptable, user-friendly resizable

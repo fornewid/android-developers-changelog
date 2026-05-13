@@ -64,6 +64,13 @@ improve system stability. If your app is killed by these limits,
 Starting in Android 17, the audio framework enforces restrictions on background audio interactions including audio playback, audio focus requests, and volume change APIs. Based on your feedback, we've made some changes since beta 2,including targetSDK gating while-in-use FGS enforcement and exempting alarm audio. Full details available in the
 [updated guidance](https://developer.android.com/about/versions/17/changes/bg-audio).
 
+#### Block cross profile loopback traffic
+
+Beginning with Android 17, cross-profile loopback traffic is no longer
+permitted by default. Loopback traffic within the same profile is not affected.
+This change applies to all apps running on Android 17 or higher,
+regardless of what API level the app targets.
+
 ### Top Issues fixed in Beta 4
 
 - *An issue where webpage URLs were automatically included when sharing screenshots from the capture preview, causing unwanted links to be shared with image files. ([**Issue #444631269**](https://issuetracker.google.com/issues/444631269))*

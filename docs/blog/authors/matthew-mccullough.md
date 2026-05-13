@@ -4,7 +4,7 @@ url: https://developer.android.com/blog/authors/matthew-mccullough
 source: md.txt
 ---
 
-## 13
+## 14
 
 posts ![](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)
 
@@ -12,6 +12,17 @@ posts ![](https://developer.android.com/static/blog/assets/matthew_mccullough_dc
 
 ###### Vice President, Product Management, Android Developer
 
+- 12 May 2026 12 May 2026 ![](https://developer.android.com/static/blog/assets/Tas_Developers_cut_Strapi_3636223c9c_Z2pmmBN.webp)
+
+  #### [Product News](https://developer.android.com/blog/categories/product-news)
+
+  ## [Building for the Intelligence System on Android](https://developer.android.com/blog/posts/building-for-the-intelligence-system-on-android)
+
+  [arrow_forward](https://developer.android.com/blog/posts/building-for-the-intelligence-system-on-android) Announced today during The Android Show, Android is transitioning from an operating system to an intelligence system, creating more opportunities for engagement with your apps.
+
+  ###### 4 min read
+
+  - [#Android](https://developer.android.com/blog/topics/android)
 - 02 Apr 2026 02 Apr 2026 ![](https://developer.android.com/static/blog/assets/Gemma_Android_2x1_2x_a6d27254c4_Z10SxJJ.webp)
 
   #### [Product News](https://developer.android.com/blog/categories/product-news)
@@ -64,16 +75,6 @@ posts ![](https://developer.android.com/static/blog/assets/matthew_mccullough_dc
   [arrow_forward](https://developer.android.com/blog/posts/the-intelligent-os-making-ai-agents-more-helpful-for-android-apps) User expectations for AI on their devices are fundamentally shifting how they interact with their apps.
 
   ###### 3 min read
-
-- 13 Feb 2026 13 Feb 2026 ![](https://developer.android.com/static/blog/assets/android17banner_359909419a_Z1HMAIH.webp)
-
-  #### [Product News](https://developer.android.com/blog/categories/product-news)
-
-  ## [The First Beta of Android 17](https://developer.android.com/blog/posts/the-first-beta-of-android-17)
-
-  [arrow_forward](https://developer.android.com/blog/posts/the-first-beta-of-android-17) Today we're releasing the first beta of Android 17, continuing our work to build a platform that prioritizes privacy, security, and refined performance.
-
-  ###### 7 min read
 
 <button class="adb--button adb--standard adb--outlined adb--disabled adb--global-hover-button astro-vnzlvqnm" disabled=""> arrow_back </button>
 

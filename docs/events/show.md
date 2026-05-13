@@ -6,11 +6,22 @@ source: md.txt
 
 # The Android Show \| I/O Edition
 
-![Android Show logo](https://developer.android.com/static/images/events/tas-io/title-io.svg) Save the date [Video](https://www.youtube.com/watch?v=dXCCleAddEA)
+![Android Show logo](https://developer.android.com/static/images/events/tas-io/title-io.svg) Watch the show now! [Video](https://www.youtube.com/watch?v=KvTRMSa1w4E)
 
-### Build for the Future with Android
+### It's here. Watch some of Android's biggest announcements
 
 
-Tune in to The Android Show on May 12 at 10 am PT, and stay for an exclusive Developers
-Cut following the main show. See why this is one of the biggest years for Android yet.
-Add to calendar [Google Calendar](https://calendar.google.com/calendar/render?action=TEMPLATE&text=The+Android+Show+%7C+I/O+Edition+%26+Developers+Cut&dates=20260512T170000Z/20260512T180000Z&details=Watch+some+of+Android's+biggest+announcements+ever,+including+an+inside+look+with+a+Developers+Cut.%0A%0AJoin+us+for+the+event+at+10+am+PST:+https://developer.android.com/events/show) [Outlook](https://outlook.live.com/calendar/deeplink/compose?body=Watch+some+of+Android's+biggest+announcements+ever,+including+an+inside+look+with+a+Developers+Cut.%0A%0AJoin+us+for+the+event+at+10+am+PST:+https://developer.android.com/events/show&enddt=2026-05-12T18:00:00Z&path=/calendar/action/compose&rru=addevent&startdt=2026-05-12T17:00:00Z&subject=The+Android+Show+%7C+I/O+Edition+%26+Developers+Cut) [Apple Calendar](https://developer.android.com/assets/calendar/the-android-show-io-26.ics)
+Get the inside scoop with the Developers Cut
+[Watch the event here](https://www.youtube.com/live/KvTRMSa1w4E) [Read more](https://developer.android.com/blog/posts/building-for-the-intelligence-system-on-android)
+
+### From operating system to intelligence system
+
+Learn about new user journeys and opportunities for app engagement with Magic Cue and App Functions
+
+### Develop easily across devices
+
+Whether XR, foldables, or the new [Googlebook](https://developer.android.com/googlebook), create device-differentiated experiences with JetPack Compose
+
+### Adaptive Widgets
+
+Build them for your users, whether Wear OS, Auto, and more [Read more about the newest updates here](https://developer.android.com/blog/posts/building-for-the-intelligence-system-on-android)

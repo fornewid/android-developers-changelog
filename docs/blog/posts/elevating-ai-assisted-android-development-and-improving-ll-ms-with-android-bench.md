@@ -59,6 +59,18 @@ We're looking forward to how [Android Bench](http://d.android.com/bench) can imp
 
 ## Continue reading
 
+- [![](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 12 May 2026 12 May 2026 ![](https://developer.android.com/static/blog/assets/Tas_Developers_cut_Strapi_3636223c9c_Z2pmmBN.webp)
+
+  #### [Product News](https://developer.android.com/blog/categories/product-news)
+
+  ## [Building for the Intelligence System on Android](https://developer.android.com/blog/posts/building-for-the-intelligence-system-on-android)
+
+  [arrow_forward](https://developer.android.com/blog/posts/building-for-the-intelligence-system-on-android) Announced today during The Android Show, Android is transitioning from an operating system to an intelligence system, creating more opportunities for engagement with your apps.
+
+  ###### [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) •
+  4 min read
+
+  - [#Android](https://developer.android.com/blog/topics/android)
 - [![](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 02 Apr 2026 02 Apr 2026 ![](https://developer.android.com/static/blog/assets/Gemma_Android_2x1_2x_a6d27254c4_Z10SxJJ.webp)
 
   #### [Product News](https://developer.android.com/blog/categories/product-news)
@@ -84,16 +96,6 @@ We're looking forward to how [Android Bench](http://d.android.com/bench) can imp
 
   - [#Android 17](https://developer.android.com/blog/topics/android-17)
   - [#beta](https://developer.android.com/blog/topics/beta)
-- [![](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 26 Feb 2026 26 Feb 2026 ![](https://developer.android.com/static/blog/assets/android17banner_359909419a_Z1HMAIH.webp)
-
-  #### [Product News](https://developer.android.com/blog/categories/product-news)
-
-  ## [The Second Beta of Android 17](https://developer.android.com/blog/posts/the-second-beta-of-android-17)
-
-  [arrow_forward](https://developer.android.com/blog/posts/the-second-beta-of-android-17) Today we're releasing the second beta of Android 17, continuing our work to build a platform that prioritizes privacy, security, and refined performance.
-
-  ###### [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) •
-  6 min read
 
 # Stay in the loop
 

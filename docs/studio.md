@@ -19,6 +19,10 @@ Your current device is not supported.
 
 <br />
 
+
+[Read release notes
+![](https://developer.android.com/static/images/studio/icon-books.svg)](https://developer.android.com/studio/releases)
+
 ### New features
 
 Feature
