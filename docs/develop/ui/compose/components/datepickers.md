@@ -345,7 +345,7 @@ snippets app](https://github.com/android/snippets/tree/main/compose/snippets/src
 // ...
         if (selectedDate != null) {
             val date = Date(selectedDate!!)
-            val formattedDate = SimpleDateFormat("MMM dd, yyyy", Locale.getDefault()).format(date)
+            val formattedDate = SimpleDateFormat("MMM dd, yyyy", LocalLocale.current.platformLocale).format(date)
             Text("Selected date: $formattedDate")
         } else {
             Text("No date selected")

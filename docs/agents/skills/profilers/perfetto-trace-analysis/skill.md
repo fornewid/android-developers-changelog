@@ -4,14 +4,10 @@ url: https://developer.android.com/agents/skills/profilers/perfetto-trace-analys
 source: md.txt
 ---
 
-or jank issues in Android apps. Use when the user provides a Perfetto trace file
-and asks any question, ongoing investigation, or open-ended request to analyze
-its contents.
-
 ## Resources
 
-- **Domain Hints:** Reference files for specific performance areas are located in [`references/hints_[domain].md`](https://developer.android.com/agents/skills/perfetto-trace-analysis/references/hints_*) (e.g., `hints_cpu.md`, `hints_io.md`). To avoid context bloat, do not load all hints at once; read the specific file only when you have narrowed your investigation to that domain.
-- **Perfetto SQL Skill:** This workspace may contain a `perfetto-sql` skill that guides translating intents into valid queries. You must search for and locate it, then follow its [Execution Protocol](https://developer.android.com/agents/skills/profilers/perfetto-sql/skill) for all SQL generation. If it is not present, proceed as without it, downloading the trace processor and creating + running the queries to the best of your abilities.
+- **Domain Hints:** Reference files for specific performance areas: [`CPU`](https://developer.android.com/agents/skills/profilers/perfetto-trace-analysis/references/hints_cpu), [`Graphics`](https://developer.android.com/agents/skills/profilers/perfetto-trace-analysis/references/hints_graphics), [`I/O`](https://developer.android.com/agents/skills/profilers/perfetto-trace-analysis/references/hints_io), [`IPC`](https://developer.android.com/agents/skills/profilers/perfetto-trace-analysis/references/hints_ipc), [`Memory`](https://developer.android.com/agents/skills/profilers/perfetto-trace-analysis/references/hints_memory), [`Power`](https://developer.android.com/agents/skills/profilers/perfetto-trace-analysis/references/hints_power).
+- **Perfetto SQL Reference:** Reference guidelines for translating intents into valid queries are located in [the SQL reference](https://developer.android.com/agents/skills/profilers/perfetto-trace-analysis/references/sql). You must read this reference and follow its Execution Protocol for all SQL generation.
 
 ## Setup Phase (Mandatory)
 
@@ -20,7 +16,7 @@ its contents.
    - Name the file using the trace's filename appended with `_analysis.md` (e.g., `[trace_filename]_analysis.md`). Before creating it, check if a file with that name already exists by listing the directory's contents---to avoid biasing your investigation, DO NOT read the file's contents to check for its existence. If it does, append an incrementing version number (e.g., `_v2.md`, `_v3.md`) until you find an available filename. You MUST hardcode this exact filename in all subsequent tool calls.
    - Use this scratchpad STRICTLY to log verified facts: timestamps, slice names, thread IDs (utid/tid), and thread states.
    - DO NOT write preliminary hypotheses or premature conclusions in the scratchpad. It is a strict Chain of Evidence.
-2. **Locate SQL Skill:** Search your workspace for the `perfetto-sql` skill (e.g., using `glob` or `list_directory`). If available, you MUST locate and follow its [Execution Protocol](https://developer.android.com/agents/skills/profilers/perfetto-sql/skill) for all SQL generation. If it is not present, proceed as normal. Do not guess schemas.
+2. **Review SQL Reference:** Read the SQL reference in [`references/sql.md`](https://developer.android.com/agents/skills/profilers/perfetto-trace-analysis/references/sql) and follow its Execution Protocol for all SQL generation. Do not guess schemas.
 3. **Target Resolution:** If the user's request is broad (e.g., "why is the app slow?") and doesn't specify a package name:
    - Execute a query to identify the active application: `sql INCLUDE
      PERFETTO MODULE android.startup.startups; SELECT package FROM
@@ -33,7 +29,7 @@ Follow this iterative loop until you have isolated the definitive root cause(s):
 
 ### 1. Formulate Hypothesis
 
-- **Prioritization:** Form hypotheses using information from: user prompt \> built-in hints ([`references/hints_*.md`](https://developer.android.com/agents/skills/perfetto-trace-analysis/references/hints_*)) \> general knowledge.
+- **Prioritization:** Form hypotheses using information from: user prompt \> built-in hints ([`references/hints_*.md`](https://developer.android.com/agents/skills/profilers/perfetto-trace-analysis/references/hints_cpu)) \> general knowledge.
 - **Source Attribution:** Explicitly mention the source of your hypothesis (e.g., "Based on hints_io.md...").
 - **Focus Constraint:** Focus on the primary bottleneck. Avoid investigating deep into binder transactions unless the user explicitly asks for it or there is no other obvious bottleneck.
 - **State Reasoning:** Briefly state your reasoning based on previous findings *before* generating a new query.

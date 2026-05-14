@@ -58,29 +58,17 @@ one activity to another. For example, most browsers can share the URL of the cur
 page as text with another app. This is useful for sharing an article or website with friends through
 email or social networking. Here's an example of how to do this:
 
-### Kotlin
-
 ```kotlin
-val sendIntent: Intent = Intent().apply {
-    action = Intent.ACTION_SEND
-    putExtra(Intent.EXTRA_TEXT, "This is my text to send.")
-    type = "text/plain"
+fun shareText(context: Context) {
+    val sendIntent: Intent = Intent().apply {
+        action = ACTION_SEND
+        putExtra(Intent.EXTRA_TEXT, "This is my text to send.")
+        type = "text/plain"
+    }
+
+    val shareIntent = Intent.createChooser(sendIntent, null)
+    context.startActivity(shareIntent)
 }
-
-val shareIntent = Intent.createChooser(sendIntent, null)
-startActivity(shareIntent)
-```
-
-### Java
-
-```java
-Intent sendIntent = new Intent();
-sendIntent.setAction(Intent.ACTION_SEND);
-sendIntent.putExtra(Intent.EXTRA_TEXT, "This is my text to send.");
-sendIntent.setType("text/plain");
-
-Intent shareIntent = Intent.createChooser(sendIntent, null);
-startActivity(shareIntent);
 ```
 
 Optionally, you can add extras to include more information, such as email recipients
@@ -104,27 +92,18 @@ Set the appropriate MIME type and place a URI to the data in the extra
 shown in the following example.
 This is commonly used to share an image but can be used to share any type of binary content.
 
-### Kotlin
-
 ```kotlin
-val shareIntent: Intent = Intent().apply {
-    action = Intent.ACTION_SEND
-    // Example: content://com.google.android.apps.photos.contentprovider/...
-    putExtra(Intent.EXTRA_STREAM, uriToImage)
-    type = "image/jpeg"
+fun shareBinaryContent(context: Context) {
+    val shareIntent: Intent = Intent().apply {
+        action = ACTION_SEND
+        // Example: content://com.google.android.apps.photos.contentprovider/...
+        val imageUri: Uri =
+            Uri.parse("content://com.google.android.apps.photos.contentprovider/0/1/mediakey/1")
+        putExtra(Intent.EXTRA_STREAM, imageUri)
+        type = "image/jpeg"
+    }
+    context.startActivity(Intent.createChooser(shareIntent, null))
 }
-startActivity(Intent.createChooser(shareIntent, null))
-```
-
-### Java
-
-```java
-Intent shareIntent = new Intent();
-shareIntent.setAction(Intent.ACTION_SEND);
-// Example: content://com.google.android.apps.photos.contentprovider/...
-shareIntent.putExtra(Intent.EXTRA_STREAM, uriToImage);
-shareIntent.setType("image/jpeg");
-startActivity(Intent.createChooser(shareIntent, null));
 ```
 
 The receiving application needs permission to access the data the `https://developer.android.com/reference/android/net/Uri`
@@ -168,35 +147,20 @@ unclear to the receiver what is intended to be sent. If it's necessary to send m
 `"*/*"`. It's up to the receiving application to parse
 and process your data. Here's an example:
 
-### Kotlin
-
 ```kotlin
-val imageUris: ArrayList<Uri> = arrayListOf(
-        // Add your image URIs here
-        imageUri1,
-        imageUri2
-)
+fun shareMultiple(context: Context) {
+    val imageUris: ArrayList<Uri> = arrayListOf(
+        Uri.parse("content://com.google.android.apps.photos.contentprovider/0/1/mediakey/1"),
+        Uri.parse("content://com.google.android.apps.photos.contentprovider/0/1/mediakey/2")
+    )
 
-val shareIntent = Intent().apply {
-    action = Intent.ACTION_SEND_MULTIPLE
-    putParcelableArrayListExtra(Intent.EXTRA_STREAM, imageUris)
-    type = "image/*"
+    val shareIntent = Intent().apply {
+        action = Intent.ACTION_SEND_MULTIPLE
+        putParcelableArrayListExtra(Intent.EXTRA_STREAM, imageUris)
+        type = "image/*"
+    }
+    context.startActivity(Intent.createChooser(shareIntent, null))
 }
-startActivity(Intent.createChooser(shareIntent, null))
-```
-
-### Java
-
-```java
-ArrayList<Uri> imageUris = new ArrayList<Uri>();
-imageUris.add(imageUri1); // Add your image URIs here
-imageUris.add(imageUri2);
-
-Intent shareIntent = new Intent();
-shareIntent.setAction(Intent.ACTION_SEND_MULTIPLE);
-shareIntent.putParcelableArrayListExtra(Intent.EXTRA_STREAM, imageUris);
-shareIntent.setType("image/*");
-startActivity(Intent.createChooser(shareIntent, null));
 ```
 
 Be sure the provided `https://developer.android.com/reference/android/net/Uri` objects point
@@ -221,38 +185,25 @@ see `https://developer.android.com/reference/android/content/Intent#FLAG_GRANT_R
 
 Here's an example:
 
-### Kotlin
-
 ```kotlin
- val share = Intent.createChooser(Intent().apply {
-      action = Intent.ACTION_SEND
-      putExtra(Intent.EXTRA_TEXT, "https://developer.android.com/training/sharing/")
+fun richContentToTextPreviewShares(context: Context) {
+    val share = Intent.createChooser(
+        Intent().apply {
+            action = ACTION_SEND
+            putExtra(Intent.EXTRA_TEXT, "https://developer.android.com/training/sharing/")
 
-      // (Optional) Here you're setting the title of the content
-      putExtra(Intent.EXTRA_TITLE, "Introducing content previews")
+            // (Optional) Here you're setting the title of the content
+            putExtra(Intent.EXTRA_TITLE, "Introducing content previews")
 
-      // (Optional) Here you're passing a content URI to an image to be displayed
-      data = contentUri
-      flags = Intent.FLAG_GRANT_READ_URI_PERMISSION
-  }, null)
-  startActivity(share)
-```
-
-### Java
-
-```java
-Intent sendIntent = new Intent(Intent.ACTION_SEND);
-sendIntent.putExtra(Intent.EXTRA_TEXT, "https://developer.android.com/training/sharing/");
-
-// (Optional) Here you're setting the title of the content
-sendIntent.putExtra(Intent.EXTRA_TITLE, "Introducing content previews");
-
-// (Optional) Here you're passing a content URI to an image to be displayed
-sendIntent.setData(contentUri);
-sendIntent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-
-// Show the Sharesheet
-startActivity(Intent.createChooser(sendIntent, null));
+            // (Optional) Here you're passing a content URI to an image to be displayed
+            data =
+                Uri.parse("content://com.google.android.apps.photos.contentprovider/0/1/mediakey/A123456789")
+            flags = Intent.FLAG_GRANT_READ_URI_PERMISSION
+        },
+        null
+    )
+    context.startActivity(share)
+}
 ```
 
 The preview looks something like this:
@@ -277,50 +228,27 @@ an array containing all of your custom actions and specify it as
 `https://developer.android.com/reference/android/content/Intent#EXTRA_CHOOSER_CUSTOM_ACTIONS`
 of the share `Intent`.
 
-### Kotlin
-
 ```kotlin
-val sendIntent = Intent(Intent.ACTION_SEND)
-    .setType("text/plain")
-    .putExtra(Intent.EXTRA_TEXT, text)
-val shareIntent = Intent.createChooser(sendIntent, null)
-val customActions = arrayOf(
-    ChooserAction.Builder(
-        Icon.createWithResource(context, R.drawable.ic_custom_action),
-        "Custom",
-        PendingIntent.getBroadcast(
-            context,
-            1,
-            Intent(Intent.ACTION_VIEW),
-            PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_CANCEL_CURRENT
-        )
-    ).build()
-)
-shareIntent.putExtra(Intent.EXTRA_CHOOSER_CUSTOM_ACTIONS, customActions)
-context.startActivity(shareIntent)
-```
-
-### Java
-
-```java
-Intent sendIntent = new Intent(Intent.ACTION_SEND)
-        .setType("text.plain")
-        .putExtra(Intent.EXTRA_TEXT, text);
-Intent shareIntent = Intent.createChooser(sendIntent, null);
-ChooserAction[] actions = new ChooserAction[]{
-        new ChooserAction.Builder(
-                Icon.createWithResource(context, R.drawable.ic_custom_action),
-                "Custom",
-                PendingIntent.getBroadcast(
-                        context,
-                        1,
-                        new Intent(Intent.ACTION_VIEW),
-                        PendingIntent.FLAG_IMMUTABLE | PendingIntent.FLAG_CANCEL_CURRENT
-                )
+fun sharesheetCustomActions(context: Context, previewText: String) {
+    val sendIntent = Intent(ACTION_SEND)
+        .setType("text/plain")
+        .putExtra(Intent.EXTRA_TEXT, previewText)
+    val shareIntent = Intent.createChooser(sendIntent, null)
+    val customActions = arrayOf(
+        ChooserAction.Builder(
+            Icon.createWithResource(context, R.drawable.ic_logo),
+            "Custom",
+            PendingIntent.getBroadcast(
+                context,
+                1,
+                Intent(Intent.ACTION_VIEW),
+                PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_CANCEL_CURRENT
+            )
         ).build()
-};
-shareIntent.putExtra(Intent.EXTRA_CHOOSER_CUSTOM_ACTIONS, actions);
-context.startActivity(shareIntent);
+    )
+    shareIntent.putExtra(Intent.EXTRA_CHOOSER_CUSTOM_ACTIONS, customActions)
+    context.startActivity(shareIntent)
+}
 ```
 
 ### Add custom targets
@@ -335,21 +263,17 @@ Add `Intent.EXTRA_CHOOSER_TARGETS` and `Intent.EXTRA_INITIAL_INTENTS` to
 your share Intent *after* calling
 `https://developer.android.com/reference/android/content/Intent#createChooser(android.content.Intent,%20java.lang.CharSequence)`:
 
-### Kotlin
-
 ```kotlin
-val share = Intent.createChooser(myShareIntent, null).apply {
-    putExtra(Intent.EXTRA_CHOOSER_TARGETS, myChooserTargetArray)
-    putExtra(Intent.EXTRA_INITIAL_INTENTS, myInitialIntentArray)
+val share = Intent.createChooser(shareIntent, null).apply {
+    putExtra(
+        Intent.EXTRA_CHOOSER_TARGETS,
+        arrayOf(chooserTargetJessica, chooserTargetSpyros)
+    )
+    putExtra(
+        Intent.EXTRA_INITIAL_INTENTS,
+        arrayOf(intentTargetNearbyShare, intentTargetMaps)
+    )
 }
-```
-
-### Java
-
-```java
-Intent shareIntent = Intent.createChooser(sendIntent, null);
-share.putExtra(Intent.EXTRA_CHOOSER_TARGETS, myChooserTargetArray);
-share.putExtra(Intent.EXTRA_INITIAL_INTENTS, myInitialIntentArray);
 ```
 
 Use this feature with care. Every custom `Intent`
@@ -369,25 +293,16 @@ outside your app.
 
 Add `Intent.EXTRA_EXCLUDE_COMPONENTS` to your intent after calling `Intent.createChooser()`:
 
-### Kotlin
-
 ```kotlin
-  val share = Intent.createChooser(Intent(), null).apply {
-    // Only use for components you have control over
-    val excludedComponentNames = arrayOf(ComponentName("com.example.android", "ExampleClass"))
-    putExtra(Intent.EXTRA_EXCLUDE_COMPONENTS, excludedComponentNames)
-  }
-```
-
-### Java
-
-```java
-  Intent shareIntent = Intent.createChooser(new Intent(), null);
-  // Only use for components you have control over
-  ComponentName[] excludedComponentNames = {
-          new ComponentName("com.example.android", "ExampleClass")
-  };
-  shareIntent.putExtra(Intent.EXTRA_EXCLUDE_COMPONENTS, excludedComponentNames);
+fun excludeSpecificTargets(context: Context) {
+    val share = Intent.createChooser(Intent(ACTION_SEND), null).apply {
+        // Only use for components you have control over
+        val excludedComponentNames =
+            arrayOf(ComponentName("com.example.android", "ExampleClass"))
+        putExtra(Intent.EXTRA_EXCLUDE_COMPONENTS, excludedComponentNames)
+    }
+    context.startActivity(share)
+}
 ```
 
 ### Get information about sharing
@@ -399,67 +314,36 @@ targets your users select using an `IntentSender`.
 First create a `PendingIntent` for a `BroadcastReceiver` and supply its
 `IntentSender` in `Intent.createChooser()`:
 
-### Kotlin
-
 ```kotlin
-var share = Intent(Intent.ACTION_SEND)
-// ...
-val pi = PendingIntent.getBroadcast(
-    myContext, requestCode,
-    Intent(myContext, MyBroadcastReceiver::class.java),
-    PendingIntent.FLAG_MUTABLE or PendingIntent.FLAG_UPDATE_CURRENT
-)
-share = Intent.createChooser(share, null, pi.intentSender)
-```
-
-### Java
-
-```java
-Intent share = new Intent(ACTION_SEND);
-...
-PendingIntent pi = PendingIntent.getBroadcast(myContext, requestCode,
-        new Intent(myContext, MyBroadcastReceiver.class),
-        PendingIntent.FLAG_MUTABLE | PendingIntent.FLAG_UPDATE_CURRENT);
-share = Intent.createChooser(share, null, pi.getIntentSender());
+fun infoAboutSharing(context: Context, requestCode: Int) {
+    var share = Intent(ACTION_SEND)
+    // ...
+    val pi = PendingIntent.getBroadcast(
+        context, requestCode,
+        Intent(context, ShareBroadcastReceiver::class.java),
+        PendingIntent.FLAG_MUTABLE or PendingIntent.FLAG_UPDATE_CURRENT
+    )
+    share = Intent.createChooser(share, null, pi.intentSender)
+    context.startActivity(share)
+}
 ```
 
 Receive the callback in `MyBroadcastReceiver` and look in
 `Intent.EXTRA_CHOOSER_RESULT`:
 
-### Kotlin
-
 ```kotlin
-override fun onReceive(context: Context, intent: Intent) {
-  ...
-  val chooserResult: ChooserResult? = IntentCompat.getParcelableExtra(
-      intent,
-      Intent.EXTRA_CHOOSER_RESULT,
-      ChooserResult::class.java,
-  )
-  chooserResult?.let {
-      Log.i(
-          TAG,
-          "Share callback: isShortcut: ${it.isShortcut}, type: ${typeToString(it.type)}, componentName: ${it.selectedComponent}",
-      )
-  } ?: Log.i(TAG, "chooserResult is null")
-}
-```
-
-### Java
-
-```java
-@Override public void onReceive(Context context, Intent intent) {
-  ...
-  ChooserResult chooserResult = intent.getParcelableExtra(EXTRA_CHOOSER_RESULT);
-  Log.i(
-      TAG,
-      "Share callback: isShortcut: "
-          + chooserResult.isShortcut()
-          + ", type: "
-          + chooserResult.getType()
-          + ", componentName: "
-          + chooserResult.getSelectedComponent()
-  );
+override fun onReceive(context: Context?, intent: Intent) {
+    val TAG = ShareBroadcastReceiver::class.simpleName
+    val chooserResult: ChooserResult? = IntentCompat.getParcelableExtra(
+        intent,
+        Intent.EXTRA_CHOOSER_RESULT,
+        ChooserResult::class.java,
+    )
+    chooserResult?.let {
+        Log.i(TAG,
+            "Share callback: isShortcut: ${it.isShortcut}, type: ${typeToString(it.type)}, componentName: ${it.selectedComponent}",
+        )
+    } ?: Log.i(TAG, "chooserResult is null")
 }
 ```
 See the [platform share sample](https://github.com/android/platform-samples/tree/main/samples/user-interface/share) for more information:
@@ -475,50 +359,27 @@ an array containing all of your custom actions and specify it as
 `https://developer.android.com/reference/android/content/Intent#EXTRA_CHOOSER_CUSTOM_ACTIONS`
 of the share `Intent`.
 
-### Kotlin
-
 ```kotlin
-val sendIntent = Intent(Intent.ACTION_SEND)
-    .setType("text/plain")
-    .putExtra(Intent.EXTRA_TEXT, text)
-val shareIntent = Intent.createChooser(sendIntent, null)
-val customActions = arrayOf(
-    ChooserAction.Builder(
-        Icon.createWithResource(context, R.drawable.ic_custom_action),
-        "Custom",
-        PendingIntent.getBroadcast(
-            context,
-            1,
-            Intent(Intent.ACTION_VIEW),
-            PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_CANCEL_CURRENT
-        )
-    ).build()
-)
-shareIntent.putExtra(Intent.EXTRA_CHOOSER_CUSTOM_ACTIONS, customActions)
-context.startActivity(shareIntent)
-```
-
-### Java
-
-```java
-Intent sendIntent = new Intent(Intent.ACTION_SEND)
-        .setType("text.plain")
-        .putExtra(Intent.EXTRA_TEXT, text);
-Intent shareIntent = Intent.createChooser(sendIntent, null);
-ChooserAction[] actions = new ChooserAction[]{
-        new ChooserAction.Builder(
-                Icon.createWithResource(context, R.drawable.ic_custom_action),
-                "Custom",
-                PendingIntent.getBroadcast(
-                        context,
-                        1,
-                        new Intent(Intent.ACTION_VIEW),
-                        PendingIntent.FLAG_IMMUTABLE | PendingIntent.FLAG_CANCEL_CURRENT
-                )
+fun customActions(context: Context, text: String) {
+    val sendIntent = Intent(ACTION_SEND)
+        .setType("text/plain")
+        .putExtra(Intent.EXTRA_TEXT, text)
+    val shareIntent = Intent.createChooser(sendIntent, null)
+    val customActions = arrayOf(
+        ChooserAction.Builder(
+            Icon.createWithResource(context, R.drawable.ic_logo),
+            "Custom",
+            PendingIntent.getBroadcast(
+                context,
+                1,
+                Intent(Intent.ACTION_VIEW),
+                PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_CANCEL_CURRENT
+            )
         ).build()
-};
-shareIntent.putExtra(Intent.EXTRA_CHOOSER_CUSTOM_ACTIONS, actions);
-context.startActivity(shareIntent);
+    )
+    shareIntent.putExtra(Intent.EXTRA_CHOOSER_CUSTOM_ACTIONS, customActions)
+    context.startActivity(shareIntent)
+}
 ```
 
 ## Use the Android intent resolver
@@ -541,25 +402,15 @@ matches, it runs.
 
 Here is an example of how to use the Android intent resolver to send text:
 
-### Kotlin
-
 ```kotlin
-val sendIntent: Intent = Intent().apply {
-    action = Intent.ACTION_SEND
-    putExtra(Intent.EXTRA_TEXT, "This is my text to send.")
-    type = "text/plain"
+fun intentResolver(context: Context) {
+    val sendIntent: Intent = Intent().apply {
+        action = ACTION_SEND
+        putExtra(Intent.EXTRA_TEXT, "This is my text to send.")
+        type = "text/plain"
+    }
+    context.startActivity(sendIntent)
 }
-startActivity(sendIntent)
-```
-
-### Java
-
-```java
-Intent sendIntent = new Intent();
-sendIntent.setAction(Intent.ACTION_SEND);
-sendIntent.putExtra(Intent.EXTRA_TEXT, "This is my text to send.");
-sendIntent.setType("text/plain");
-startActivity(sendIntent);
 ```
 
 ## Learn more

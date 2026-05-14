@@ -175,13 +175,6 @@ Explore how modern Android architecture is implemented in a real world app [View
 | [tv](https://developer.android.com/jetpack/androidx/releases/tv) | Provides developers with Compose and Material design functionalities in order to write applications for TV |
 | [tvprovider](https://developer.android.com/jetpack/androidx/releases/tvprovider) | Provide Android TV channels. |
 | [text-vertical](https://developer.android.com/jetpack/androidx/releases/text-vertical) | TODO |
-| [xr.arcore](https://developer.android.com/jetpack/androidx/releases/xr-arcore) | Bring digital content into the real world with perception capabilities. |
-| [xr.compose](https://developer.android.com/jetpack/androidx/releases/xr-compose) | Declaratively build spatial UI layouts that take advantage of Android XR's spatial capabilities. |
-| [xr.compose.material3](https://developer.android.com/jetpack/androidx/releases/xr-compose-material3) | Build with Material components and layouts that adapt for XR |
-| [xr.glimmer](https://developer.android.com/jetpack/androidx/releases/xr-glimmer) | Design language and UI toolkit for building augmented Android XR experiences |
-| [xr.projected](https://developer.android.com/jetpack/androidx/releases/xr-projected) | Build experiences that leverage the unique capabilities of connected XR devices. |
-| [xr.runtime](https://developer.android.com/jetpack/androidx/releases/xr-runtime) | Start your custom AR or 3D session with our native runtime. |
-| [xr.scenecore](https://developer.android.com/jetpack/androidx/releases/xr-scenecore) | Build and manipulate the Android XR scene graph with 3D content. |
 | [vectordrawable](https://developer.android.com/jetpack/androidx/releases/vectordrawable) | Render vector graphics. |
 | [versionedparcelable](https://developer.android.com/jetpack/androidx/releases/versionedparcelable) | Provides a stable and compact binary serialization format that can be passed across processes or persisted safely. |
 | [viewpager](https://developer.android.com/jetpack/androidx/releases/viewpager) | Display Views or Fragments in a swipeable format. If possible, use viewpager2 instead. |
@@ -197,6 +190,13 @@ Explore how modern Android architecture is implemented in a real world app [View
 | [webkit](https://developer.android.com/jetpack/androidx/releases/webkit) | Work with modern WebView APIs on Android 5 and above. |
 | [window](https://developer.android.com/jetpack/androidx/releases/window) | Helps support different device form factors such as foldable devices. |
 | [window.extensions.core](https://developer.android.com/jetpack/androidx/releases/window-extensions-core) | The Core APIs for Window Manager Library Extensions |
+| [xr.arcore](https://developer.android.com/jetpack/androidx/releases/xr-arcore) | Bring digital content into the real world with perception capabilities. |
+| [xr.compose](https://developer.android.com/jetpack/androidx/releases/xr-compose) | Declaratively build spatial UI layouts that take advantage of Android XR's spatial capabilities. |
+| [xr.compose.material3](https://developer.android.com/jetpack/androidx/releases/xr-compose-material3) | Build with Material components and layouts that adapt for XR |
+| [xr.glimmer](https://developer.android.com/jetpack/androidx/releases/xr-glimmer) | Design language and UI toolkit for building augmented Android XR experiences |
+| [xr.projected](https://developer.android.com/jetpack/androidx/releases/xr-projected) | Build experiences that leverage the unique capabilities of connected XR devices. |
+| [xr.runtime](https://developer.android.com/jetpack/androidx/releases/xr-runtime) | Start your custom AR or 3D session with our native runtime. |
+| [xr.scenecore](https://developer.android.com/jetpack/androidx/releases/xr-scenecore) | Build and manipulate the Android XR scene graph with 3D content. |
 
 ## News and videos
 

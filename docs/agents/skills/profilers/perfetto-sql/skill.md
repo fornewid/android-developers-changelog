@@ -31,17 +31,16 @@ source: md.txt
   > **Precedence Rule:** Always prefer using `SPAN_JOIN` or standard library
   > functions (for example, `intervals.overlap`) to calculate overlaps
   > **between two different sets of intervals** . Avoid manual arithmetic if a
-  > standard library feature or `SPAN_JOIN` can achieve the same result.
-  > Use the following logic if no built-in alternative exists.
+  > standard library feature or `SPAN_JOIN` can achieve the same result. Use
+  > the following logic if no built-in alternative exists.
   1. **Condition:** The intervals overlap if `start1 < end2` and `start2 <
      end1`.
   2. **Duration:** The overlap duration is calculated as `MIN(end1, end2) -
      MAX(start1, start2)`
 
-     > **Important:** Incomplete Perfetto slices have a duration
-     > of -1 (`dur = -1`). Always calculate the effective end time using
-     > `ts + IIF(dur = -1, trace_end() - ts, dur)` before applying
-     > this logic.
+     > **Important:** Incomplete Perfetto slices have a duration of -1
+     > (`dur = -1`). Always calculate the effective end time using `ts +
+     > IIF(dur = -1, trace_end() - ts, dur)` before applying this logic.
 - Query `android_thread_slices_for_all_startups` for app startup requests.
 
 - Join `counter_track` with `counter` to get values of counter with a specific
@@ -59,18 +58,15 @@ source: md.txt
 - To calculate the total time spent in slices matching a specific name pattern
   (for example, `*{name_pattern}*`), you must sum their durations. **Why it's
   useful** : This helps quantify the total impact of a specific function or
-  feature on performance across multiple calls. Here is an example query
-  (note the safe handling of incomplete slices):
-  `sql
-  SELECT
-  count(*) as total_count,
-  sum(IIF(slice.dur = -1, trace_end() - slice.ts, slice.dur)) / 1000000.0 as total_dur_ms
-  FROM slice
-  WHERE slice.name GLOB '*{name_pattern}*';`
+  feature on performance across multiple calls. Here is an example query (note
+  the safe handling of incomplete slices): `sql SELECT count(*) as
+  total_count, sum(IIF(slice.dur = -1, trace_end() - slice.ts, slice.dur)) /
+  1000000.0 as total_dur_ms FROM slice WHERE slice.name GLOB
+  '*{name_pattern}*';`
 
 ## Resources
 
-- **Documentation:** The Perfetto Standard Library documentation is in [`references/perfetto-stdlib-docs.md`](https://developer.android.com/agents/skills/profilers/perfetto-sql/references/perfetto-stdlib-docs). Use this file as a reference to discover available modules, find schemas (columns and types) for specific tables or views, or determine the `INCLUDE PERFETTO MODULE` statements required before drafting SQL query.
+- **Documentation:** The Perfetto Standard Library documentation is in [`perfetto-stdlib-docs.md`](https://developer.android.com/agents/skills/profilers/common/perfetto-stdlib). Use this file as a reference to discover available modules, find schemas (columns and types) for specific tables or views, or determine the `INCLUDE PERFETTO MODULE` statements required before drafting SQL query.
 - **Execution Tool:** Queries are executed using the official `trace_processor` wrapper script downloaded directly from Perfetto. Output is returned in pure CSV format.
 
 ## Execution Protocol
@@ -83,29 +79,30 @@ You must follow these steps sequentially, mirroring a multi-agent pipeline:
 working directory or in your path, download it directly from the Perfetto index:
 `curl -LO https://get.perfetto.dev/trace_processor && chmod +x
 ./trace_processor`
-> **Important:** The file served at this URL is a `~10KB` Python
-> wrapper script. Don't assume the download failed because it is human-readable
-> text. This is the intended behavior. This script handles lazy-loading the real
-> binary into `~/.local/share/perfetto/` on its first run. Use it directly.
+> **Important:** The file served at this URL is a `~10KB` Python wrapper script.
+> Don't assume the download failed because it is human-readable text. This is
+> the intended behavior. This script handles lazy-loading the real binary into
+> `~/.local/share/perfetto/` on its first run. Use it directly.
 
 ### Step 1: Dissection and Schema Research
 
 1. Identify the core question, required data points, and filtering conditions.
 2. **Precedence Rule:** If the user's request contains a SQL query, use it **without modification** and skip to Step 2 for validation.
-3. **Mandatory Schema and Module Search:** For every table or view you plan to use, you MUST find its schema in [`references/perfetto-stdlib-docs.md`](https://developer.android.com/agents/skills/profilers/perfetto-sql/references/perfetto-stdlib-docs). **Don't read the entire documentation file** --- it consumes the context window. Follow this precise workflow:
+3. **Mandatory Schema and Module Search:** For every table or view you plan to use, you MUST find its schema in [`references/perfetto-stdlib-docs.md`](https://developer.android.com/agents/skills/profilers/common/perfetto-stdlib). **Don't read the entire documentation file** --- it consumes the context window. Follow this precise workflow:
    - **Discovery and Search:** Use available search tools (`grep`, `read_file` or file search) with line limits to discover relevant views, tables or modules based on your problem domain and high-level intents (for example, 'CPU time', 'running time', 'overlap', 'jank').
      - **Why:** Searching solely for exact table names misses comprehensive, pre-computed views built for these analyses.
      - **Note:** You must verify if a Standard Library module already provides the needed abstraction before drafting manual arithmetic or custom functions.
    - **Targeted Bounded Reads:** Once you identify the relevant modules, efficiently read the tables and views within that module section.
-   - **Extract:** Extract only the schema, columns, and the exact `INCLUDE PERFETTO MODULE` statements for the required object from the documentation.
+   - **Extract:** Extract only the schema, columns, and the exact `INCLUDE
+     PERFETTO MODULE` statements for the required object from the documentation.
    - **Verify:** Review the columns, types, and descriptions to ensure the table matches your needs.
 4. Print the research results before drafting the query:
 5. *Tables/Views:* `Schema for {name}:` listing columns and types.
 
 ### Step 2: Draft and Validate Loop (Max 3 Iterations)
 
-Draft the SQL query in SQLite syntax using **only** the schemas
-retrieved in Step 1. After drafting, you must validate against this checklist:
+Draft the SQL query in SQLite syntax using **only** the schemas retrieved in
+Step 1. After drafting, you must validate against this checklist:
 
 - \[ \] **SQLite Syntax:** Does the query parse successfully without syntax errors?
 - \[ \] **Idempotency:** Are all object creations safe to re-run? (Did you use `CREATE OR REPLACE PERFETTO` and `DROP TABLE IF EXISTS` for virtual tables?)

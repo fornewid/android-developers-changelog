@@ -113,7 +113,7 @@ particular Android XR device might support additional formats, such as
 
 
 ```kotlin
-val audioCapabilities = AudioCapabilities.getCapabilities(context, androidx.media3.common.AudioAttributes.DEFAULT, null)
+val audioCapabilities = AudioCapabilities.getCapabilities(context, androidx.media3.common.AudioAttributes.DEFAULT, null, emptyList())
 if (audioCapabilities.supportsEncoding(C.ENCODING_AC3)) {
     // Device supports playback of the Dolby Digital media format.
 }

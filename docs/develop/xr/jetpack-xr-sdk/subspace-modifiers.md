@@ -53,16 +53,19 @@ specify the direction and the amount of rotation in different ways:
 - Using an `axisAngle`, which is a `Vector3` representing the axis of rotation, and the amount of degrees it should be rotated around,
 - Using a `Quaternion` that represents the rotation.
 
-### `lookAtUser`
+### `rotateToLookAtUser`
 
-The [`lookAtUser`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/layout/SubspaceModifier#(androidx.xr.compose.subspace.layout.SubspaceModifier).lookAtUser(kotlin.Boolean,androidx.xr.runtime.math.Vector3)) modifier continually rotates the given composable
-in space such that it appears to be facing the viewer. A similar modifier,
-[`billboard`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/layout/SubspaceModifier#(androidx.xr.compose.subspace.layout.SubspaceModifier).billboard(kotlin.Boolean)), rotates to face the viewer, but the content will
-remain upright.
+The [`rotateToLookAtUser`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/layout/SubspaceModifier#(androidx.xr.compose.subspace.layout.SubspaceModifier).rotateToLookAtUser(androidx.xr.runtime.math.Vector3)) modifier continuously rotates
+content so that it faces the user at all times. You can also use this modifier
+to achieve a "billboard" effect where the content rotates to face the user on
+the Y-axis while still remaining upright and aligned with gravity. To do this,
+combine the [`rotateToLookAtUser`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/layout/SubspaceModifier#(androidx.xr.compose.subspace.layout.SubspaceModifier).rotateToLookAtUser(androidx.xr.runtime.math.Vector3)) modifier with
+the [`gravityAligned`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/layout/package-summary#(androidx.xr.compose.subspace.layout.SubspaceModifier).gravityAligned()) modifier.
 
-These modifiers require the `android.permission.HEAD_TRACKING` permission [to be
-granted to your app](https://developer.android.com/training/permissions/requesting). Additionally, the
-[current session](https://developer.android.com/develop/xr/jetpack-xr-sdk/add-session#localsession) must [be configured](https://developer.android.com/develop/xr/jetpack-xr-sdk/arcore#configure-session) to set
+This modifier requires your app to [configure](https://developer.android.com/develop/xr/jetpack-xr-sdk/arcore#configure-session) the
+[current session's](https://developer.android.com/develop/xr/jetpack-xr-sdk/add-session#localsession) object with
+[`DeviceTrackingMode.LAST_KNOWN`](https://developer.android.com/reference/kotlin/androidx/xr/runtime/DeviceTrackingMode#LAST_KNOWN()).
+
 [`HeadTrackingMode.LAST_KNOWN`](https://developer.android.com/reference/kotlin/androidx/xr/runtime/HeadTrackingMode#LAST_KNOWN()).
 
 ## Change the appearance of composables

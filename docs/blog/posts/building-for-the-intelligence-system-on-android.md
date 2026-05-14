@@ -15,12 +15,7 @@ source: md.txt
 ###### Vice President, Product Management, Android Developer
 
 Announced today during [The Android Show](https://developer.android.com/events/show), Android is transitioning from an operating system to an intelligence system, creating more opportunities for engagement with your apps. Through deep integration between hardware and software, Android devices will be able to handle the heavy lifting of anticipating user needs, so your app can focus on delivering that experience at the right moment. As part of this, we are [announcing](https://blog.google/products-and-platforms/platforms/android/gemini-intelligence) Gemini Intelligence, a suite of new features that bring the best of Gemini to our most advanced Android devices.
-
-<br />
-
 [Video](https://www.youtube.com/watch?v=KvTRMSa1w4E)
-
-<br />
 
 **Task Automation with Gemini**
 

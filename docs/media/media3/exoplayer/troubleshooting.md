@@ -398,12 +398,12 @@ Whole packages can be opted-in by adding a `package-info` file:
 Whole projects can be opted-in by suppressing the specific lint error in their
 [`lint.xml` file](https://developer.android.com/studio/write/lint#pref):
 
-     <?xml version="1.0" encoding="utf-8"?>
-     <lint>
-       <issue id="UnsafeOptInUsageError">
-         <option name="opt-in" value="androidx.media3.common.util.UnstableApi" />
-       </issue>
-     </lint>
+     <?xml version="1.0" encodin>g=<&quo>t;ut<f-8"?
+     lint
+       issue id=&qu>ot;Uns<afeOptInUsageError"
+         option name="opt-in" value=&qu>ot;a<ndroid>x.<media>3.common.util.UnstableApi" /
+       /issue
+     /lint
 
 There is a `kotlin.OptIn` annotation as well that shouldn't be used. It's
 important to use the `androidx.annotation.OptIn` annotation.

@@ -14,8 +14,6 @@ constructor injection, you don't need to use Hilt to instantiate that class.
 Instead, you can directly call a class constructor by passing in fake or mock
 dependencies, just as you would if the constructor weren't annotated:
 
-### Kotlin
-
 ```kotlin
 @ActivityScoped
 class AnalyticsAdapter @Inject constructor(
@@ -34,31 +32,10 @@ class AnalyticsAdapterTest {
 }
 ```
 
-### Java
-
-```java
-@ActivityScope
-public class AnalyticsAdapter {
-
-  private final AnalyticsService analyticsService;
-
-  @Inject
-  AnalyticsAdapter(AnalyticsService analyticsService) {
-    this.analyticsService = analyticsService;
-  }
-}
-
-public final class AnalyticsAdapterTest {
-
-  @Test
-  public void happyPath() {
-    // You don't need Hilt to create an instance of AnalyticsAdapter.
-    // You can pass a fake or mock AnalyticsService.
-    AnalyticsAdapter adapter = new AnalyticsAdapter(fakeAnalyticsService);
-    assertEquals(...);
-  }
-}
-```
+The same applies to ViewModel classes obtained by calling `hiltViewModel()` in
+your composables. In unit tests, construct the ViewModel directly with fakes.
+For information on how state flows from a ViewModel into composables, see
+[State and Jetpack Compose](https://developer.android.com/develop/ui/compose/state) and [Where to hoist state](https://developer.android.com/develop/ui/compose/state-hoisting).
 
 ## End-to-end tests
 
@@ -71,51 +48,25 @@ generates a new set of components for each test.
 To use Hilt in your tests, include the `hilt-android-testing` dependency in your
 project:
 
-### Groovy
-
-```groovy
-dependencies {
-    // For Robolectric tests.
-    testImplementation 'com.google.dagger:hilt-android-testing:2.57.1'
-    // ...with Kotlin.
-    kaptTest 'com.google.dagger:hilt-android-compiler:2.57.1'
-    // ...with Java.
-    testAnnotationProcessor 'com.google.dagger:hilt-android-compiler:2.57.1'
-
-
-    // For instrumented tests.
-    androidTestImplementation 'com.google.dagger:hilt-android-testing:2.57.1'
-    // ...with Kotlin.
-    kaptAndroidTest 'com.google.dagger:hilt-android-compiler:2.57.1'
-    // ...with Java.
-    androidTestAnnotationProcessor 'com.google.dagger:hilt-android-compiler:2.57.1'
-}
-```
-
-### Kotlin
-
 ```kotlin
 dependencies {
     // For Robolectric tests.
     testImplementation("com.google.dagger:hilt-android-testing:2.57.1")
-    // ...with Kotlin.
-    kaptTest("com.google.dagger:hilt-android-compiler:2.57.1")
-    // ...with Java.
-    testAnnotationProcessor("com.google.dagger:hilt-android-compiler:2.57.1")
-
+    kspTest("com.google.dagger:hilt-android-compiler:2.57.1")
 
     // For instrumented tests.
     androidTestImplementation("com.google.dagger:hilt-android-testing:2.57.1")
-    // ...with Kotlin.
-    kaptAndroidTest("com.google.dagger:hilt-android-compiler:2.57.1")
-    // ...with Java.
-    androidTestAnnotationProcessor("com.google.dagger:hilt-android-compiler:2.57.1")
+    kspAndroidTest("com.google.dagger:hilt-android-compiler:2.57.1")
+
+    // Compose UI test rule.
+    androidTestImplementation("androidx.compose.ui:ui-test-junit4")
+    debugImplementation("androidx.compose.ui:ui-test-manifest")
+
 }
 ```
 
 > [!NOTE]
-> **Note:** If you use [Jetpack
-> integrations](https://developer.android.com/training/dependency-injection/hilt-jetpack), you must also include the annotation processors for the integrated libraries with `kaptTest` or `kaptAndroidTest` for Kotlin, or with `testAnnotationProcessor` or `androidTestAnnotationProcessor` for Java.
+> **Note:** If you use [Jetpack integrations](https://developer.android.com/training/dependency-injection/hilt-jetpack) (like `hilt-navigation-compose` to obtain a ViewModel through `hiltViewModel()`), you must also add their annotation processors to your test dependencies.
 
 ### UI test setup
 
@@ -125,29 +76,17 @@ annotation is responsible for generating the Hilt components for each test.
 Also, you need to add the `HiltAndroidRule` to the test class. It manages the
 components' state and is used to perform injection on your test:
 
-### Kotlin
-
 ```kotlin
 @HiltAndroidTest
-class SettingsActivityTest {
+class SettingsScreenTest {
 
-  @get:Rule
-  var hiltRule = HiltAndroidRule(this)
+    @get:Rule(order = 0)
+    val hiltRule = HiltAndroidRule(this)
 
-  // UI tests here.
-}
-```
+    @get:Rule(order = 1)
+    val composeRule = createAndroidComposeRule<HiltTestActivity>()
 
-### Java
-
-```java
-@HiltAndroidTest
-public final class SettingsActivityTest {
-
-  @Rule
-  public HiltAndroidRule hiltRule = new HiltAndroidRule(this);
-
-  // UI tests here.
+    // Compose UI tests here.
 }
 ```
 
@@ -157,6 +96,11 @@ public final class SettingsActivityTest {
 
 Next, your test needs to know about the `Application` class that Hilt
 automatically generates for you.
+
+To let Hilt inject dependencies, you must create an empty activity named
+`HiltTestActivity` in your `androidTest` source set and annotate it with
+`@AndroidEntryPoint`. `createAndroidComposeRule` then uses this activity as the
+host for your composable content.
 
 #### Test application
 
@@ -178,10 +122,8 @@ tests](https://developer.android.com/training/testing/ui-testing), you need to c
 This makes Hilt work for all of the instrumented tests in your project. Perform
 the following steps:
 
-1. Create a custom class that extends [`AndroidJUnitRunner`](https://developer.android.com/reference/androidx/test/runner/AndroidJUnitRunner) in the `androidTest` folder.
+1. Create a custom class that extends [`AndroidJUnitRunner`](https://developer.android.com/reference/kotlin/androidx/test/runner/AndroidJUnitRunner) in the `androidTest` folder.
 2. Override the `newApplication` function and pass in the name of the generated Hilt test application.
-
-### Kotlin
 
 ```kotlin
 // A custom runner to set up the instrumented application class for tests.
@@ -193,37 +135,10 @@ class CustomTestRunner : AndroidJUnitRunner() {
 }
 ```
 
-### Java
-
-```java
-// A custom runner to set up the instrumented application class for tests.
-public final class CustomTestRunner extends AndroidJUnitRunner {
-
-  @Override
-  public Application newApplication(ClassLoader cl, String className, Context context)
-      throws ClassNotFoundException, IllegalAccessException, InstantiationException {
-    return super.newApplication(cl, HiltTestApplication.class.getName(), context);
-  }
-}
-```
-
 Next, configure this test runner in your Gradle file as described in the
 [instrumented unit test
 guide](https://developer.android.com/training/testing/unit-testing/instrumented-unit-tests#setup). Make sure
 you use the full classpath:
-
-### Groovy
-
-```groovy
-android {
-    defaultConfig {
-        // Replace com.example.android.dagger with your class path.
-        testInstrumentationRunner "com.example.android.dagger.CustomTestRunner"
-    }
-}
-```
-
-### Kotlin
 
 ```kotlin
 android {
@@ -244,12 +159,10 @@ to use in the `robolectric.properties` file:
 Alternatively, you can configure the application on each test individually by
 using Robolectric's `@Config` annotation:
 
-### Kotlin
-
 ```kotlin
 @HiltAndroidTest
 @Config(application = HiltTestApplication::class)
-class SettingsActivityTest {
+class SettingsScreenTest {
 
   @get:Rule
   var hiltRule = HiltAndroidRule(this)
@@ -257,42 +170,6 @@ class SettingsActivityTest {
   // Robolectric tests here.
 }
 ```
-
-### Java
-
-```java
-@HiltAndroidTest
-@Config(application = HiltTestApplication.class)
-class SettingsActivityTest {
-
-  @Rule public HiltAndroidRule hiltRule = new HiltAndroidRule(this);
-
-  // Robolectric tests here.
-}
-```
-
-If you use an Android Gradle Plugin version lower than 4.2, enable
-transforming `@AndroidEntryPoint` classes in local unit tests by applying the
-following configuration in your module's `build.gradle` file:
-
-### Groovy
-
-```groovy
-hilt {
-    enableTransformForLocalTests = true
-}
-```
-
-### Kotlin
-
-```kotlin
-hilt {
-    enableTransformForLocalTests = true
-}
-```
-
-More information about `enableTransformForLocalTests` in the [Hilt
-documentation](https://dagger.dev/hilt/gradle-setup#gradle-plugin-local-tests).
 
 ### Testing features
 
@@ -306,49 +183,32 @@ populate the `@Inject` fields, call `hiltRule.inject()`.
 
 See the following example of an instrumented test:
 
-### Kotlin
-
 ```kotlin
 @HiltAndroidTest
-class SettingsActivityTest {
+class SettingsScreenTest {
 
-  @get:Rule
-  var hiltRule = HiltAndroidRule(this)
+    @get:Rule(order = 0)
+    val hiltRule = HiltAndroidRule(this)
 
-  @Inject
-  lateinit var analyticsAdapter: AnalyticsAdapter
+    @get:Rule(order = 1)
+    val composeRule = createAndroidComposeRule<HiltTestActivity>()
 
-  @Before
-  fun init() {
-    hiltRule.inject()
-  }
+    @Inject
+    lateinit var analyticsAdapter: AnalyticsAdapter
 
-  @Test
-  fun `happy path`() {
-    // Can already use analyticsAdapter here.
-  }
-}
-```
+    @Before
+    fun init() {
+        hiltRule.inject()
+    }
 
-### Java
-
-```java
-@HiltAndroidTest
-public final class SettingsActivityTest {
-
-  @Rule public HiltAndroidRule hiltRule = new HiltAndroidRule(this);
-
-  @Inject AnalyticsAdapter analyticsAdapter;
-
-  @Before
-  public void init() {
-    hiltRule.inject();
-  }
-
-  @Test
-  public void happyPath() {
-    // Can already use analyticsAdapter here.
-  }
+    @Test
+    fun settingsScreen_showsTitle() {
+        composeRule.setContent {
+            SettingsScreen()
+        }
+        composeRule.onNodeWithText("Settings").assertIsDisplayed()
+        // analyticsRepository is available here.
+    }
 }
 ```
 
@@ -363,8 +223,6 @@ to use in the test.
 For example, suppose your production code declares a binding for
 `AnalyticsService` as follows:
 
-### Kotlin
-
 ```kotlin
 @Module
 @InstallIn(SingletonComponent::class)
@@ -378,27 +236,10 @@ abstract class AnalyticsModule {
 }
 ```
 
-### Java
-
-```java
-@Module
-@InstallIn(SingletonComponent.class)
-public abstract class AnalyticsModule {
-
-  @Singleton
-  @Binds
-  public abstract AnalyticsService bindAnalyticsService(
-    AnalyticsServiceImpl analyticsServiceImpl
-  );
-}
-```
-
 To replace the `AnalyticsService` binding in tests, create a new Hilt module in
 the `test` or `androidTest` folder with the fake dependency and annotate it
 with `@TestInstallIn`. All the tests in that folder are injected with the fake
 dependency instead.
-
-### Kotlin
 
 ```kotlin
 @Module
@@ -416,23 +257,9 @@ abstract class FakeAnalyticsModule {
 }
 ```
 
-### Java
-
-```java
-@Module
-@TestInstallIn(
-    components = SingletonComponent.class,
-    replaces = AnalyticsModule.class
-)
-public abstract class FakeAnalyticsModule {
-
-  @Singleton
-  @Binds
-  public abstract AnalyticsService bindAnalyticsService(
-    FakeAnalyticsService fakeAnalyticsService
-  );
-}
-```
+Because composables typically consume these dependencies indirectly through a
+ViewModel obtained with `hiltViewModel()`, replacing the binding in Hilt is
+enough. The composable under test picks up the fake automatically.
 
 #### Replace a binding in a single test
 
@@ -440,35 +267,23 @@ To replace a binding in a single test instead of all tests, uninstall a Hilt
 module from a test using the `@UninstallModules` annotation and create a new
 test module inside the test.
 
-Following the `AnalyticsService` example from the previous version, begin by telling
-Hilt to ignore the production module by using the `@UninstallModules` annotation
-in the test class:
-
-### Kotlin
+Following the `AnalyticsService` example from the previous version, begin by
+telling Hilt to ignore the production module by using the `@UninstallModules`
+annotation in the test class:
 
 ```kotlin
 @UninstallModules(AnalyticsModule::class)
 @HiltAndroidTest
-class SettingsActivityTest { ... }
-```
-
-### Java
-
-```java
-@UninstallModules(AnalyticsModule.class)
-@HiltAndroidTest
-public final class SettingsActivityTest { ... }
+class SettingsScreenTest { ... }
 ```
 
 Next, you must replace the binding. Create a new module within the test class
 that defines the test binding:
 
-### Kotlin
-
 ```kotlin
 @UninstallModules(AnalyticsModule::class)
 @HiltAndroidTest
-class SettingsActivityTest {
+class SettingsScreenTest {
 
   @Module
   @InstallIn(SingletonComponent::class)
@@ -481,28 +296,7 @@ class SettingsActivityTest {
     ): AnalyticsService
   }
 
-  ...
-}
-```
-
-### Java
-
-```java
-@UninstallModules(AnalyticsModule.class)
-@HiltAndroidTest
-public final class SettingsActivityTest {
-
-  @Module
-  @InstallIn(SingletonComponent.class)
-  public abstract class TestModule {
-
-    @Singleton
-    @Binds
-    public abstract AnalyticsService bindAnalyticsService(
-      FakeAnalyticsService fakeAnalyticsService
-    );
-  }
-  ...
+  // ...
 }
 ```
 
@@ -530,28 +324,13 @@ the declared field type with any qualifiers that are present for that field.
 In the `AnalyticsService` example, you can replace `AnalyticsService` with a
 fake by using `@BindValue`:
 
-### Kotlin
-
 ```kotlin
 @UninstallModules(AnalyticsModule::class)
 @HiltAndroidTest
-class SettingsActivityTest {
+class SettingsScreenTest {
 
   @BindValue @JvmField
   val analyticsService: AnalyticsService = FakeAnalyticsService()
-
-  ...
-}
-```
-
-### Java
-
-```java
-@UninstallModules(AnalyticsModule.class)
-@HiltAndroidTest
-class SettingsActivityTest {
-
-  @BindValue AnalyticsService analyticsService = FakeAnalyticsService();
 
   ...
 }
@@ -565,27 +344,13 @@ if you use testing libraries such as
 [Mockito](https://site.mockito.org/), you could use it in a
 Robolectric test as follows:
 
-### Kotlin
-
 ```kotlin
 ...
-class SettingsActivityTest {
+class SettingsScreenTest {
   ...
 
   @BindValue @ExampleQualifier @Mock
   lateinit var qualifiedVariable: ExampleCustomType
-
-  // Robolectric tests here
-}
-```
-
-### Java
-
-```java
-...
-class SettingsActivityTest {
-  ...
-  @BindValue @ExampleQualifier @Mock ExampleCustomType qualifiedVariable;
 
   // Robolectric tests here
 }
@@ -610,18 +375,9 @@ generated Hilt application to extend.
 `@CustomTestApplication` will generate an `Application` class ready for testing
 with Hilt that extends the application you passed as a parameter.
 
-### Kotlin
-
 ```kotlin
 @CustomTestApplication(BaseApplication::class)
 interface HiltTestApplication
-```
-
-### Java
-
-```java
-@CustomTestApplication(BaseApplication.class)
-interface HiltTestApplication { }
 ```
 
 In the example, Hilt generates an `Application` named
@@ -637,86 +393,42 @@ application](https://developer.android.com/training/dependency-injection/hilt-te
 
 ### Multiple TestRule objects in your instrumented test
 
-If you have other `TestRule` objects in your test, there are multiple ways to
-ensure that all of the rules work together.
-
-You can wrap the rules together as follows:
-
-### Kotlin
+Compose UI tests already combine `HiltAndroidRule` with a Compose test rule
+such as `createAndroidComposeRule`. If you have additional `TestRule` objects,
+make sure `HiltAndroidRule` runs first. Declare the execution order with the
+`order` attribute on `@Rule`:
 
 ```kotlin
 @HiltAndroidTest
-class SettingsActivityTest {
-
-  @get:Rule
-  var rule = RuleChain.outerRule(HiltAndroidRule(this)).
-        around(SettingsActivityTestRule(...))
-
-  // UI tests here.
-}
-```
-
-### Java
-
-```java
-@HiltAndroidTest
-public final class SettingsActivityTest {
-
-  @Rule public RuleChain rule = RuleChain.outerRule(new HiltAndroidRule(this))
-        .around(new SettingsActivityTestRule(...));
-
-  // UI tests here.
-}
-```
-
-Alternatively, you can use both rules at the same level as long as the
-`HiltAndroidRule` executes first. Specify the execution order using the
-`order` attribute in the `@Rule` annotation. This only works in JUnit version
-4.13 or higher:
-
-### Kotlin
-
-```kotlin
-@HiltAndroidTest
-class SettingsActivityTest {
+class SettingsScreenTest {
 
   @get:Rule(order = 0)
   var hiltRule = HiltAndroidRule(this)
 
   @get:Rule(order = 1)
-  var settingsActivityTestRule = SettingsActivityTestRule(...)
+  val composeRule = createAndroidComposeRule<HiltTestActivity>()
+
+  @get:Rule(order = 2)
+  val otherRule = SomeOtherRule()
 
   // UI tests here.
 }
 ```
 
-### Java
+Alternatively, you can wrap the rules with `RuleChain`, placing
+`HiltAndroidRule` as the outer rule.
 
-```java
+```kotlin
 @HiltAndroidTest
-public final class SettingsActivityTest {
+class SettingsScreenTest {
 
-  @Rule(order = 0)
-  public HiltAndroidRule hiltRule = new HiltAndroidRule(this);
-
-  @Rule(order = 1)
-  public SettingsActivityTestRule settingsActivityTestRule = new SettingsActivityTestRule(...);
+  @get:Rule
+  var rule = RuleChain.outerRule(HiltAndroidRule(this)).
+        around(SettingsScreenTestRule(...))
 
   // UI tests here.
 }
 ```
-
-### launchFragmentInContainer
-
-It is not possible to use `launchFragmentInContainer` from the
-`androidx.fragment:fragment-testing` library with Hilt, because it relies on an
-activity that is not annotated with `@AndroidEntryPoint`.
-
-Use the
-[`launchFragmentInHiltContainer`](https://github.com/android/architecture-samples/blob/views-hilt/app/src/androidTest/java/com/example/android/architecture/blueprints/todoapp/HiltExt.kt#L37)
-code from the
-[`architecture-samples`](https://github.com/android/architecture-samples) GitHub
-repository instead.
 
 ### Use an entry point before the singleton component is available
 
@@ -726,3 +438,16 @@ Hilt test.
 
 More information about `@EarlyEntryPoint` in the
 [Hilt documentation](https://dagger.dev/hilt/early-entry-point).
+
+## Additional resources
+
+To learn more about testing, see the following additional resources:
+
+### Documentation
+
+- [Test your Compose layout](https://developer.android.com/develop/ui/compose/testing)
+- [Testing cheatsheet](https://developer.android.com/develop/ui/compose/testing/testing-cheatsheet)
+
+### Views content
+
+- [Hilt testing guide (Views)](https://developer.android.com/topic/architecture/views/dependency-injection/hilt-testing-views)

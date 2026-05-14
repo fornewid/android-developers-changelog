@@ -17,6 +17,19 @@ enhanced with spatial UI behaviors.
 Alas, your browser doesn't support HTML5 video. That's OK! You can still [download the
 video](https://developer.android.com/static/videos/design/ui/xr/visual-design-ls-adapted-opt.mp4) and watch it with a video player.
 
+You can adapt your current M3 implementation by adding the
+`EnableXrComponentOverrides` wrapper. Add the [XR Compose Material3 library](https://developer.android.com/jetpack/androidx/releases/xr-compose-material3#declaring_dependencies)
+to your app's dependencies.
+
+## Use EnableXrComponentOverrides to adapt your existing app
+
+All M3 Compose UI inside of the [`EnableXrComponentOverrides`](https://developer.android.com/reference/kotlin/androidx/xr/compose/material3/package-summary#EnableXrComponentOverrides(androidx.xr.compose.material3.XrComponentOverrideEnabler,kotlin.Function0)) wrapper will
+adapt on XR devices. This wrapper lets you choose any components you want to
+exclude from this behavior.
+
+Add the `EnableXrComponentOverrides` wrapper to adapt your app to Material
+Design for XR.
+
 ## Navigation rail
 
 Navigation rail in any Compose layout, including [`NavigationSuiteScaffold`](https://developer.android.com/develop/ui/compose/layouts/adaptive/build-adaptive-navigation)

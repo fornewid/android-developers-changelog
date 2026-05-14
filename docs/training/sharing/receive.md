@@ -108,92 +108,54 @@ application may send you. For example, the wrong MIME type might be set, or the
 image being sent might be extremely large. Also, remember to process binary data
 in a separate thread rather than the main ("UI") thread.
 
-### Kotlin
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        ...
-        when {
-            intent?.action == Intent.ACTION_SEND -> {
-                if ("text/plain" == intent.type) {
-                    handleSendText(intent) // Handle text being sent
-                } else if (intent.type?.startsWith("image/") == true) {
-                    handleSendImage(intent) // Handle single image being sent
-                }
-            }
-            intent?.action == Intent.ACTION_SEND_MULTIPLE
-                    && intent.type?.startsWith("image/") == true -> {
-                    handleSendMultipleImages(intent) // Handle multiple images being sent
-            }
-            else -> {
-                // Handle other intents, such as being started from the home screen
+```kotlin
+@Composable
+fun SharesheetHandler() {
+    val context = LocalContext.current
+    val intent = (context as? Activity)?.intent
+
+    when (intent?.action) {
+        ACTION_SEND -> {
+            if ("text/plain" == intent.type) {
+                handleSendText(intent) // Handle text being sent.
+            } else if (intent.type?.startsWith("image/") == true) {
+                handleSendImage(intent) // Handle single image being sent
             }
         }
-        ...
-    }
 
-    private fun handleSendText(intent: Intent) {
-        intent.getStringExtra(Intent.EXTRA_TEXT)?.let {
-            // Update UI to reflect text being shared
-        }
-    }
-
-    private fun handleSendImage(intent: Intent) {
-        (intent.getParcelableExtra<Parcelable>(Intent.EXTRA_STREAM) as? Uri)?.let {
-            // Update UI to reflect image being shared
-        }
-    }
-
-    private fun handleSendMultipleImages(intent: Intent) {
-        intent.getParcelableArrayListExtra<Parcelable>(Intent.EXTRA_STREAM)?.let {
-            // Update UI to reflect multiple images being shared
-        }
-    }
-
-### Java
-
-    void onCreate (Bundle savedInstanceState) {
-        ...
-        // Get intent, action and MIME type
-        Intent intent = getIntent();
-        String action = intent.getAction();
-        String type = intent.getType();
-
-        if (Intent.ACTION_SEND.equals(action) && type != null) {
-            if ("text/plain".equals(type)) {
-                handleSendText(intent); // Handle text being sent
-            } else if (type.startsWith("image/")) {
-                handleSendImage(intent); // Handle single image being sent
+        Intent.ACTION_SEND_MULTIPLE -> {
+            if (intent.type?.startsWith("image/") == true) {
+                handleSendMultipleImages(intent) // Handle multiple images being sent
             }
-        } else if (Intent.ACTION_SEND_MULTIPLE.equals(action) && type != null) {
-            if (type.startsWith("image/")) {
-                handleSendMultipleImages(intent); // Handle multiple images being sent
-            }
-        } else {
+        }
+
+        else -> {
             // Handle other intents, such as being started from the home screen
         }
-        ...
     }
+}
 
-    void handleSendText(Intent intent) {
-        String sharedText = intent.getStringExtra(Intent.EXTRA_TEXT);
-        if (sharedText != null) {
-            // Update UI to reflect text being shared
-        }
+fun handleSendText(intent: Intent) {
+    intent.getStringExtra(Intent.EXTRA_TEXT)?.let {
+        // Update ViewModel state to change state of text being shared
     }
+}
 
-    void handleSendImage(Intent intent) {
-        Uri imageUri = (Uri) intent.getParcelableExtra(Intent.EXTRA_STREAM);
-        if (imageUri != null) {
-            // Update UI to reflect image being shared
-        }
+fun handleSendImage(intent: Intent) {
+    IntentCompat.getParcelableExtra(intent, Intent.EXTRA_STREAM, Uri::class.java).let {
+        // Update ViewModel state to change state of image being shared
     }
+}
 
-    void handleSendMultipleImages(Intent intent) {
-        ArrayList<Uri> imageUris = intent.getParcelableArrayListExtra(Intent.EXTRA_STREAM);
-        if (imageUris != null) {
-            // Update UI to reflect multiple images being shared
-        }
+fun handleSendMultipleImages(intent: Intent) {
+    IntentCompat.getParcelableArrayListExtra(intent, Intent.EXTRA_STREAM, Uri::class.java).let {
+        // Update ViewModel state to change state of image(s) being shared
     }
+}
+```
+
+<br />
 
 Updating the UI after receiving the data can be as simple as populating an
 [`EditText`](https://developer.android.com/reference/android/widget/EditText), or it can be more
@@ -206,26 +168,17 @@ When taking a screenshot, you can share the screenshot and any associated URL.
 This provides a richer user experience. When receiving a URL make sure to get
 the `EXTRA_TEXT` field from the intent, as shown in the following example:
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        ...
-        when {
-            intent?.action == Intent.ACTION_SEND -> {
-                if (intent.type?.startsWith("image/") == true) {
-                    handleSendImage(intent)
-                }
-             }
-        ...
-    }
-    private fun handleSendImage(intent: Intent) {
-        (intent.getParcelableExtra<Parcelable>(Intent.EXTRA_STREAM) as? Uri)?.let {
-         // Handle the EXTRA_TEXT as well
-         intent.getCharSequenceExtra(Intent.EXTRA_TEXT)
-        // Update UI to reflect image being shared and the EXTRA_TEXT
-        // if available
-        }
-    }
-    ...
-    }
+
+```kotlin
+IntentCompat.getParcelableExtra(intent, Intent.EXTRA_STREAM, Uri::class.java).let {
+    // Handle the EXTRA_TEXT as well
+    val extraText = intent.getCharSequenceExtra(Intent.EXTRA_TEXT)
+    // Update ViewModel state to change state image being shared and the EXTRA_TEXT
+    // if available
+}
+```
+
+<br />
 
 ### Ensure users recognize your app
 

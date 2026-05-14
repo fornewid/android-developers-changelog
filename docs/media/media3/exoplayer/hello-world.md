@@ -32,19 +32,19 @@ you can add dependencies on the modules like this:
 
 ### Kotlin
 
-    implementation("androidx.media3:media3-exoplayer:1.10.0")
-    implementation("androidx.media3:media3-exoplayer-dash:1.10.0")
-    implementation("androidx.media3:media3-ui:1.10.0")
-    implementation("androidx.media3:media3-ui-compose-material3:1.10.0")
+    implementation("androidx.media3:media3-exoplayer:1.10.1")
+    implementation("androidx.media3:media3-exoplayer-dash:1.10.1")
+    implementation("androidx.media3:media3-ui:1.10.1")
+    implementation("androidx.media3:media3-ui-compose-material3:1.10.1")
 
 ### Groovy
 
-    implementation "androidx.media3:media3-exoplayer:1.10.0"
-    implementation "androidx.media3:media3-exoplayer-dash:1.10.0"
-    implementation "androidx.media3:media3-ui:1.10.0"
-    implementation("androidx.media3:media3-ui-compose-material3:1.10.0")
+    implementation "androidx.media3:media3-exoplayer:1.10.1"
+    implementation "androidx.media3:media3-exoplayer-dash:1.10.1"
+    implementation "androidx.media3:media3-ui:1.10.1"
+    implementation("androidx.media3:media3-ui-compose-material3:1.10.1")
 
-where 1.10.0 is your preferred version (the latest version can be found by
+where 1.10.1 is your preferred version (the latest version can be found by
 consulting the [release notes](https://github.com/androidx/media/tree/release/RELEASENOTES.md)). All modules must be of the same version.
 
 AndroidX Media3 has library modules that depend on

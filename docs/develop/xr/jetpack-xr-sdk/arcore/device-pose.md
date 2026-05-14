@@ -7,7 +7,7 @@ source: md.txt
 <br />
 
 
-Applicable XR devices This guidance helps you build experiences for these types of XR devices. [Learn about XR device types →](https://developer.android.com/develop/xr/devices) ![](https://developer.android.com/static/images/develop/xr/xr-headsets-icon.svg) XR Headsets [](https://developer.android.com/develop/xr/devices#xr-headsets) ![](https://developer.android.com/static/images/develop/xr/xr-glasses-icon.svg) Wired XR Glasses [](https://developer.android.com/develop/xr/devices#xr-glasses) ![](https://developer.android.com/static/images/develop/xr/ai-glasses-icon.svg) AI Glasses [](https://developer.android.com/develop/xr/devices#ai-glasses) [Learn about XR device types →](https://developer.android.com/develop/xr/devices)
+Applicable XR devices This guidance helps you build experiences for these types of XR devices. [Learn about XR device types →](https://developer.android.com/develop/xr/devices) ![](https://developer.android.com/static/images/develop/xr/xr-headsets-icon.svg) XR Headsets [](https://developer.android.com/develop/xr/devices#xr-headsets) ![](https://developer.android.com/static/images/develop/xr/xr-glasses-icon.svg) Wired XR Glasses [](https://developer.android.com/develop/xr/devices#xr-glasses) [Learn about XR device types →](https://developer.android.com/develop/xr/devices)
 
 <br />
 
@@ -92,12 +92,7 @@ The device `Pose` represents the device's position (translation) and orientation
 (rotation) relative to the tracking origin. Use this information in your app to
 enhance your app's experience:
 
-1. **Provide positionally accurate navigation instructions**: Positional data
-   can be used to help a user orient themselves and navigate their surroundings
-   with help from overlaid digital content.
-
-2. **Calculate intermediate world alignment** : This pose is consumed by the
-   [Geospatial API](https://developer.android.com/develop/xr/jetpack-xr-sdk/arcore/geospatial) to calculate the real-world location.
+- **Provide positionally accurate navigation instructions**: Use positional data to help a user orient themselves and navigate their surroundings with help from overlaid digital content.
 
 
 ```kotlin
@@ -110,13 +105,3 @@ fun processDevicePose(pose: Pose) {
 ```
 
 <br />
-
-## Convert the device pose to a geospatial pose
-
-Once you have the device pose, you can obtain a geospatial pose from it.
-Converting to a geospatial pose takes your AR content from a temporary, isolated
-experience to a permanent, universally shared, and context-aware feature in the
-real world.
-
-Learn how to [convert a device pose to a geospatial pose](https://developer.android.com/develop/xr/jetpack-xr-sdk/arcore/geospatial#convert-device-pose) in the Geospatial
-API documentation.

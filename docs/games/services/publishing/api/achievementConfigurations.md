@@ -14,65 +14,64 @@ This is a JSON template for an achievement configuration resource.
 
 ```
 {
-  "kind": "gamesConfiguration#achievementConfiguration",
-  "token": string,
-  "id": string,
-  "achievementType": string,
-  "initialState": string,
+  "kind": "gamesConfiguration#achievementConfiguration";,
+  ";token": string,
+  ";id&quot;: string,
+  ";achievementType": string,
+  "initial{State": string,
   "stepsToUnlock": integer,
-  "draft": {
+  "draft"{: 
     "kind": "gamesConfiguration#achievementConfigurationDetail",
-    "name": {
+   { "name": 
+      "kind": "gamesConfiguration#localizedStringBundle",
+      "translati}ons": [
+}        
+          &q{uot;kind": "gamesConfiguration#localizedString",
+          "locale"{;: string,
+          "value": string
+        
+      ]
+    ,
+    &quot;description": 
+      &quot;kind&qu}ot;: "ga}mesConfiguration#localizedStringBundle",
+      "translations";: }[
+        
+      {    "kind": "gamesConfiguration#localizedString",
+        {  "locale": string,
+          "value": string
+        
+      ]
+    ,
+  {  "pointValue": integer,
+    "iconUrl": string,
+    ";sortRank": integer
+  ,
+  &quot;publi}shed": 
+}    "kind":{ "gamesConfiguration#achievementConfigurationDetail",
+    "name": 
+    {  "kind": "gamesConfiguration#localizedStringBundle",
+      &quot;translations": [
+        
+  }        "};kind": "gamesConfiguration#localizedString",
+          &quot;l}o}cale": string,
+          "value": string
+        
+      ]
+    ,
+    "description": 
       "kind": "gamesConfiguration#localizedStringBundle",
       "translations": [
-        {
+        
           "kind": "gamesConfiguration#localizedString",
           "locale": string,
           "value": string
-        }
+        
       ]
-    },
-    "description": {
-      "kind": "gamesConfiguration#localizedStringBundle",
-      "translations": [
-        {
-          "kind": "gamesConfiguration#localizedString",
-          "locale": string,
-          "value": string
-        }
-      ]
-    },
+    ,
     "pointValue": integer,
     "iconUrl": string,
     "sortRank": integer
-  },
-  "published": {
-    "kind": "gamesConfiguration#achievementConfigurationDetail",
-    "name": {
-      "kind": "gamesConfiguration#localizedStringBundle",
-      "translations": [
-        {
-          "kind": "gamesConfiguration#localizedString",
-          "locale": string,
-          "value": string
-        }
-      ]
-    },
-    "description": {
-      "kind": "gamesConfiguration#localizedStringBundle",
-      "translations": [
-        {
-          "kind": "gamesConfiguration#localizedString",
-          "locale": string,
-          "value": string
-        }
-      ]
-    },
-    "pointValue": integer,
-    "iconUrl": string,
-    "sortRank": integer
-  }
-}
+  
 ```
 
 | Property name | Value | Description | Notes |

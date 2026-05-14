@@ -40,8 +40,8 @@ source: md.txt
   ###### Staff Developer Advocate
 
   [read_more
-  1 post](https://developer.android.com/blog/authors/amrit-sanjeev) [read_more
-  1 post](https://developer.android.com/blog/authors/amrit-sanjeev) ![](https://developer.android.com/static/blog/assets/Amrit_Sanjeev_5215e0d7cc_CrDLy.webp) ![](https://developer.android.com/static/blog/assets/Amrit_Sanjeev_5215e0d7cc_CrDLy.webp)
+  2 posts](https://developer.android.com/blog/authors/amrit-sanjeev) [read_more
+  2 posts](https://developer.android.com/blog/authors/amrit-sanjeev) ![](https://developer.android.com/static/blog/assets/Amrit_Sanjeev_5215e0d7cc_CrDLy.webp) ![](https://developer.android.com/static/blog/assets/Amrit_Sanjeev_5215e0d7cc_CrDLy.webp)
 -
 
   ## [Andrew Lewis](https://developer.android.com/blog/authors/andrew-lewis)
@@ -51,6 +51,15 @@ source: md.txt
   [read_more
   1 post](https://developer.android.com/blog/authors/andrew-lewis) [read_more
   1 post](https://developer.android.com/blog/authors/andrew-lewis) ![](https://developer.android.com/static/blog/assets/andrew_lewis_1f4294eade_ZLA0xp.webp) ![](https://developer.android.com/static/blog/assets/andrew_lewis_1f4294eade_ZLA0xp.webp)
+-
+
+  ## [Ash Nohe](https://developer.android.com/blog/authors/ash-nohe)
+
+  ###### Sr. Android Developer Relations Engineer
+
+  [read_more
+  1 post](https://developer.android.com/blog/authors/ash-nohe) [read_more
+  1 post](https://developer.android.com/blog/authors/ash-nohe) ![](https://developer.android.com/static/blog/assets/ash_32bd9f9ed7_Zhh9o0.webp) ![](https://developer.android.com/static/blog/assets/ash_32bd9f9ed7_Zhh9o0.webp)
 -
 
   ## [Ben Trengrove](https://developer.android.com/blog/authors/ben-trengrove)
@@ -78,20 +87,11 @@ source: md.txt
   [read_more
   2 posts](https://developer.android.com/blog/authors/bennet-manuel) [read_more
   2 posts](https://developer.android.com/blog/authors/bennet-manuel) ![](https://developer.android.com/static/blog/assets/Bennet_Manuel_4be9960838_MydbH.webp) ![](https://developer.android.com/static/blog/assets/Bennet_Manuel_4be9960838_MydbH.webp)
--
-
-  ## [Bradley Allen](https://developer.android.com/blog/authors/bradley-allen)
-
-  ###### Technical Writer
-
-  [read_more
-  1 post](https://developer.android.com/blog/authors/bradley-allen) [read_more
-  1 post](https://developer.android.com/blog/authors/bradley-allen) ![](https://developer.android.com/static/blog/assets/Bradley_Allen_df04d56088_22TwMm.webp) ![](https://developer.android.com/static/blog/assets/Bradley_Allen_df04d56088_22TwMm.webp)
 <button class="adb--button adb--standard adb--outlined adb--disabled adb--global-hover-button astro-vnzlvqnm" disabled=""> arrow_back </button>
 
 #### Page 1
 
-###### of 10
+###### of 11
 
 [arrow_forward](https://developer.android.com/blog/authors/2)
 

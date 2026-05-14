@@ -21,13 +21,13 @@ Add the dependencies for the required modules:
 
 ### Kotlin
 
-    implementation("androidx.media3:media3-inspector:1.10.0")
-    implementation("androidx.media3:media3-inspector-frame:1.10.0")
+    implementation("androidx.media3:media3-inspector:1.10.1")
+    implementation("androidx.media3:media3-inspector-frame:1.10.1")
 
 ### Groovy
 
-    implementation "androidx.media3:media3-inspector:1.10.0"
-    implementation "androidx.media3:media3-inspector-frame:1.10.0"
+    implementation "androidx.media3:media3-inspector:1.10.1"
+    implementation "androidx.media3:media3-inspector-frame:1.10.1"
 
 If you are migrating your app from platform APIs, these features provide
 equivalent functionality:

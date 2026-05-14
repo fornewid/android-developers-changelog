@@ -44,11 +44,11 @@ To play a DASH stream, you need to depend on the DASH module.
 
 ### Kotlin
 
-    implementation("androidx.media3:media3-exoplayer-dash:1.10.0")
+    implementation("androidx.media3:media3-exoplayer-dash:1.10.1")
 
 ### Groovy
 
-    implementation "androidx.media3:media3-exoplayer-dash:1.10.0"
+    implementation "androidx.media3:media3-exoplayer-dash:1.10.1"
 
 You can then create a `MediaItem` for a DASH MPD URI and pass it to the player.
 

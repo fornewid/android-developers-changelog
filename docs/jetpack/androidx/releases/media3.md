@@ -10,7 +10,7 @@ source: md.txt
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| March 26, 2026 | [1.10.0](https://developer.android.com/jetpack/androidx/releases/media3#1.10.0) | - | - | - |
+| May 12, 2026 | [1.10.1](https://developer.android.com/jetpack/androidx/releases/media3#1.10.1) | - | - | - |
 
 ## Declaring dependencies
 
@@ -25,7 +25,7 @@ your app or module:
 
 ```groovy
 dependencies {
-    def media3_version = "1.10.0"
+    def media3_version = "1.10.1"
 
     // For media playback using ExoPlayer
     implementation "androidx.media3:media3-exoplayer:$media3_version"
@@ -112,7 +112,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    val media3_version = "1.10.0"
+    val media3_version = "1.10.1"
 
     // For media playback using ExoPlayer
     implementation("androidx.media3:media3-exoplayer:$media3_version")
@@ -204,6 +204,39 @@ Your feedback helps make Jetpack better. You can use the
 to questions, known issues and feature requests, and to file new issues.
 
 ## Version 1.10.0
+
+### 1.10.1
+
+May 12, 2026
+
+- Common library:
+  - Fix handling of `onAudioSessionIdChanged` in `SimpleBasePlayer` and `ForwardingSimpleBasePlayer`.
+- ExoPlayer:
+  - Fix race condition related to audio session ID generation that could lead to an `IllegalStateException` with tunneling mode. ([#3099](https://github.com/androidx/media/issues/3099)).
+  - Fix possible app crashes when recovering from decoder errors with renderer prewarming.
+  - Fix issue where video artifacts were caused by supplying initialization data when using an AV1-based Dolby Vision codec ([#3153](https://github.com/androidx/media/pull/3153)).
+- Track selection:
+  - Adjust track selection logic in `VideoTrackInfo` to resolve fallback MIME types and move HDR and codec score preferences to quality preferences ([#3135](https://github.com/androidx/media/issues/3135)).
+- Extractors:
+  - MP3: Ignore Xing data length if it is longer than the known stream length ([#3117](https://github.com/androidx/media/issues/3117)).
+  - Fix `ArrayIndexOutOfBoundsException` in `Mp4Extractor` when `FLAG_OMIT_TRACK_SAMPLE_TABLE` is set and the track lacks a sync sample (`stss`) box.
+- Audio:
+  - Fix bug where audio events may be misrouted if multiple audio renderers are added to the player.
+- Video:
+  - Adjust logic for codec reuse at frame rate changes on API below 30 to avoid codec resets where they are not beneficial ([#3120](https://github.com/androidx/media/issues/3120)).
+  - Disable forced synchronization workaround in `queueSecureInputBuffer` for API 31+. The workaround was an artificial bottleneck that forced decryption to run serially which prevented garbled video due to a framework issue existing prior to API 31.
+- Image:
+  - Fix issue in scrubbing mode where image updates would only take effect when the user "stops scrubbing" ([#2815](https://github.com/androidx/media/issues/2815)).
+- Session:
+  - Fix bug where `ForegroundServiceStartNotAllowedException` wasn't propagated across thread boundaries in case the application thread is not the main thread ([#2499](https://github.com/androidx/media/issues/2499)).
+  - Fix bug where `COMMAND_SEEK_TO_MEDIA_ITEM` is not available in a `MediaController` when connecting to a platform-only session that supports seeking to other items but no playlist modifications.
+  - Fix issue where `MediaController` can't set media items on platform media sessions that don't allow `PREPARE_FROM` actions.
+  - Fix bug where own process wasn't marked with `Controller.isTrusted()` on API 27 or before when connecting via platform controllers.
+- HLS extension:
+  - Fix a bug where an `ArrayIndexOutOfBoundsException` is thrown during stream fallback if the track selection is a subset of the available tracks ([#3161](https://github.com/androidx/media/issues/3161)).
+  - Fix an issue where the initialization segment was not carried over across media playlist updates if the `#EXT-X-MAP` tag was not repeated in subsequent updates ([#3105](https://github.com/androidx/media/issues/3105)).
+- DASH extension:
+  - Fix crash in `SampleQueue` when seeking into a chunk that is currently being canceled.
 
 ### 1.10.0
 

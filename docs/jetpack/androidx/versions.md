@@ -154,7 +154,7 @@ release notes to view the version updates for all of the artifacts.
 | [loader](https://developer.android.com/jetpack/androidx/releases/loader) | October 9, 2019 | [1.1.0](https://developer.android.com/jetpack/androidx/releases/loader#1.1.0) | - | - | - |
 | [localbroadcastmanager](https://developer.android.com/jetpack/androidx/releases/localbroadcastmanager) | January 12, 2022 | [1.1.0](https://developer.android.com/jetpack/androidx/releases/localbroadcastmanager#1.1.0) | - | - | - |
 | [media](https://developer.android.com/jetpack/androidx/releases/media) | May 06, 2026 | [1.8.0](https://developer.android.com/jetpack/androidx/releases/media#1.8.0) | - | - | - |
-| [media3](https://developer.android.com/jetpack/androidx/releases/media3) | March 26, 2026 | [1.10.0](https://developer.android.com/jetpack/androidx/releases/media3#1.10.0) | - | - | - |
+| [media3](https://developer.android.com/jetpack/androidx/releases/media3) | May 12, 2026 | [1.10.1](https://developer.android.com/jetpack/androidx/releases/media3#1.10.1) | - | - | - |
 | [mediarouter](https://developer.android.com/jetpack/androidx/releases/mediarouter) | February 11, 2026 | [1.8.1](https://developer.android.com/jetpack/androidx/releases/mediarouter#1.8.1) | - | - | [1.9.0-alpha01](https://developer.android.com/jetpack/androidx/releases/mediarouter#1.9.0-alpha01) |
 | [multidex](https://developer.android.com/jetpack/androidx/releases/multidex) | December 17, 2018 | [2.0.1](https://developer.android.com/jetpack/androidx/releases/multidex#2.0.1) | - | - | - |
 | [metrics](https://developer.android.com/jetpack/androidx/releases/metrics) | October 8, 2025 | [1.0.0](https://developer.android.com/jetpack/androidx/releases/metrics#1.0.0) | - | - | - |
@@ -192,19 +192,12 @@ release notes to view the version updates for all of the artifacts.
 | [swiperefreshlayout](https://developer.android.com/jetpack/androidx/releases/swiperefreshlayout) | December 3, 2025 | [1.2.0](https://developer.android.com/jetpack/androidx/releases/swiperefreshlayout#1.2.0) | - | - | - |
 | [test (\*)](https://developer.android.com/jetpack/androidx/releases/test) | January 14, 2026 | [1.0.1](https://developer.android.com/jetpack/androidx/releases/test#1.0.1) | - | - | [1.1.0-alpha04](https://developer.android.com/jetpack/androidx/releases/test#1.1.0-alpha04) |
 | [test.uiautomator](https://developer.android.com/jetpack/androidx/releases/test-uiautomator) | March 11, 2026 | [2.3.0](https://developer.android.com/jetpack/androidx/releases/test-uiautomator#2.3.0) | - | [2.4.0-beta02](https://developer.android.com/jetpack/androidx/releases/test-uiautomator#2.4.0-beta02) | - |
+| [text-vertical](https://developer.android.com/jetpack/androidx/releases/text-vertical) | April 22, 2026 | - | - | - | [1.0.0-alpha05](https://developer.android.com/jetpack/androidx/releases/text-vertical#1.0.0-alpha05) |
 | [textclassifier](https://developer.android.com/jetpack/androidx/releases/textclassifier) | March 23, 2022 | - | - | - | [1.0.0-alpha04](https://developer.android.com/jetpack/androidx/releases/textclassifier#1.0.0-alpha04) |
 | [tracing](https://developer.android.com/jetpack/androidx/releases/tracing) | May 06, 2026 | [1.3.0](https://developer.android.com/jetpack/androidx/releases/tracing#1.3.0) | - | - | [2.0.0-alpha07](https://developer.android.com/jetpack/androidx/releases/tracing#2.0.0-alpha07) |
 | [transition](https://developer.android.com/jetpack/androidx/releases/transition) | January 14, 2026 | [1.7.0](https://developer.android.com/jetpack/androidx/releases/transition#1.7.0) | - | - | - |
 | [tv](https://developer.android.com/jetpack/androidx/releases/tv) | May 06, 2026 | [1.0.1](https://developer.android.com/jetpack/androidx/releases/tv#1.0.1) | - | [1.1.0-beta01](https://developer.android.com/jetpack/androidx/releases/tv#1.1.0-beta01) | - |
 | [tvprovider](https://developer.android.com/jetpack/androidx/releases/tvprovider) | May 7, 2025 | [1.1.0](https://developer.android.com/jetpack/androidx/releases/tvprovider#1.1.0) | - | - | - |
-| [text-vertical](https://developer.android.com/jetpack/androidx/releases/text-vertical) | April 22, 2026 | - | - | - | [1.0.0-alpha05](https://developer.android.com/jetpack/androidx/releases/text-vertical#1.0.0-alpha05) |
-| [xr.arcore](https://developer.android.com/jetpack/androidx/releases/xr-arcore) | May 06, 2026 | - | - | - | [1.0.0-alpha13](https://developer.android.com/jetpack/androidx/releases/xr-arcore#1.0.0-alpha13) |
-| [xr.compose](https://developer.android.com/jetpack/androidx/releases/xr-compose) | May 06, 2026 | - | - | - | [1.0.0-alpha13](https://developer.android.com/jetpack/androidx/releases/xr-compose#1.0.0-alpha13) |
-| [xr.compose.material3](https://developer.android.com/jetpack/androidx/releases/xr-compose-material3) | March 25, 2026 | - | - | - | [1.0.0-alpha16](https://developer.android.com/jetpack/androidx/releases/xr-compose-material3#1.0.0-alpha16) |
-| [xr.glimmer](https://developer.android.com/jetpack/androidx/releases/xr-glimmer) | May 06, 2026 | - | - | - | [1.0.0-alpha12](https://developer.android.com/jetpack/androidx/releases/xr-glimmer#1.0.0-alpha12) |
-| [xr.projected](https://developer.android.com/jetpack/androidx/releases/xr-projected) | May 06, 2026 | - | - | - | [1.0.0-alpha07](https://developer.android.com/jetpack/androidx/releases/xr-projected#1.0.0-alpha07) |
-| [xr.runtime](https://developer.android.com/jetpack/androidx/releases/xr-runtime) | May 06, 2026 | - | - | - | [1.0.0-alpha13](https://developer.android.com/jetpack/androidx/releases/xr-runtime#1.0.0-alpha13) |
-| [xr.scenecore](https://developer.android.com/jetpack/androidx/releases/xr-scenecore) | May 06, 2026 | - | - | - | [1.0.0-alpha14](https://developer.android.com/jetpack/androidx/releases/xr-scenecore#1.0.0-alpha14) |
 | [vectordrawable](https://developer.android.com/jetpack/androidx/releases/vectordrawable) | May 1, 2024 | [1.2.0](https://developer.android.com/jetpack/androidx/releases/vectordrawable#1.2.0) | - | - | - |
 | [versionedparcelable](https://developer.android.com/jetpack/androidx/releases/versionedparcelable) | January 29, 2025 | [1.2.1](https://developer.android.com/jetpack/androidx/releases/versionedparcelable#1.2.1) | - | - | - |
 | [viewpager](https://developer.android.com/jetpack/androidx/releases/viewpager) | December 11, 2024 | [1.1.0](https://developer.android.com/jetpack/androidx/releases/viewpager#1.1.0) | - | - | - |
@@ -221,6 +214,13 @@ release notes to view the version updates for all of the artifacts.
 | [window](https://developer.android.com/jetpack/androidx/releases/window) | April 22, 2026 | [1.5.1](https://developer.android.com/jetpack/androidx/releases/window#1.5.1) | - | - | [1.6.0-alpha03](https://developer.android.com/jetpack/androidx/releases/window#1.6.0-alpha03) |
 | [window.extensions.core](https://developer.android.com/jetpack/androidx/releases/window-extensions-core) | June 7, 2023 | [1.0.0](https://developer.android.com/jetpack/androidx/releases/window-extensions-core#1.0.0) | - | - | - |
 | [work](https://developer.android.com/jetpack/androidx/releases/work) | March 25, 2026 | [2.11.2](https://developer.android.com/jetpack/androidx/releases/work#2.11.2) | - | - | - |
+| [xr.arcore](https://developer.android.com/jetpack/androidx/releases/xr-arcore) | May 06, 2026 | - | - | - | [1.0.0-alpha13](https://developer.android.com/jetpack/androidx/releases/xr-arcore#1.0.0-alpha13) |
+| [xr.compose](https://developer.android.com/jetpack/androidx/releases/xr-compose) | May 06, 2026 | - | - | - | [1.0.0-alpha13](https://developer.android.com/jetpack/androidx/releases/xr-compose#1.0.0-alpha13) |
+| [xr.compose.material3](https://developer.android.com/jetpack/androidx/releases/xr-compose-material3) | March 25, 2026 | - | - | - | [1.0.0-alpha16](https://developer.android.com/jetpack/androidx/releases/xr-compose-material3#1.0.0-alpha16) |
+| [xr.glimmer](https://developer.android.com/jetpack/androidx/releases/xr-glimmer) | May 06, 2026 | - | - | - | [1.0.0-alpha12](https://developer.android.com/jetpack/androidx/releases/xr-glimmer#1.0.0-alpha12) |
+| [xr.projected](https://developer.android.com/jetpack/androidx/releases/xr-projected) | May 06, 2026 | - | - | - | [1.0.0-alpha07](https://developer.android.com/jetpack/androidx/releases/xr-projected#1.0.0-alpha07) |
+| [xr.runtime](https://developer.android.com/jetpack/androidx/releases/xr-runtime) | May 06, 2026 | - | - | - | [1.0.0-alpha13](https://developer.android.com/jetpack/androidx/releases/xr-runtime#1.0.0-alpha13) |
+| [xr.scenecore](https://developer.android.com/jetpack/androidx/releases/xr-scenecore) | May 06, 2026 | - | - | - | [1.0.0-alpha14](https://developer.android.com/jetpack/androidx/releases/xr-scenecore#1.0.0-alpha14) |
 
 <br />
 

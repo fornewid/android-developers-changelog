@@ -8,11 +8,11 @@ source: md.txt
 
 ### Kotlin
 
-    implementation("androidx.media3:media3-ui:1.10.0")
+    implementation("androidx.media3:media3-ui:1.10.1")
 
 ### Groovy
 
-    implementation "androidx.media3:media3-ui:1.10.0"
+    implementation "androidx.media3:media3-ui:1.10.1"
 
 ## PlayerView
 

@@ -48,11 +48,14 @@ Android CLI collects data on basic usage of the tool. Here's the data that we
 collect:
 
 - Invocations of the `android` command and sub-commands, for example `android run` and `android create`.
-- Names of the arguments or options used, for example `--sdk` or `--version`. We *don't* collect the values passed to the CLI. For example, if the command `android create --name=com.company.internal.app` is executed, we record that `android create` was executed using the `--name` argument but we don't store the value `com.company.internal.app`.
-- The agent or tool invoking the CLI if it matches a specific enum value, such as `GEMINI`, `CLAUDE`, or `CODEX`.
+- Names of non-positional arguments or options used, for example `--sdk` or `--version`.
+- Positional arguments and flag values that map to a fixed, predefined set of system options managed by Android CLI. For example, we collect emulator template names such as `medium_phone` and `large_desktop`, and agent names such as `GEMINI`, `CLAUDE`, or `CODEX`.
 - Stack traces and exception messages, where identifying information is anonymized before collection to help ensure privacy.
 
-We don't collect responses of the CLI when a command is executed.
+Here are some examples of data that we *don't* collect:
+
+- We don't collect responses of the CLI when a command is run.
+- We don't collect user-created inputs or external identifiers passed to the CLI, such as specific Maven coordinates, local file paths, or custom project names. For example, if the command `android create --name=com.company.internal.app` is executed, we record that `android create` was executed using the `--name` argument but we don't store the value `com.company.internal.app`.
 
 ## Known issues
 

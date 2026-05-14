@@ -12,14 +12,14 @@ to add both of them because the Material3 one depends on the core one.
 ### Kotlin
 
     // Include only one of the following dependencies
-    implementation("androidx.media3:media3-ui-compose:1.10.0")
-    implementation("androidx.media3:media3-ui-compose-material3:1.10.0")
+    implementation("androidx.media3:media3-ui-compose:1.10.1")
+    implementation("androidx.media3:media3-ui-compose-material3:1.10.1")
 
 ### Groovy
 
     // Include only one of the following dependencies
-    implementation "androidx.media3:media3-ui-compose:1.10.0"
-    implementation "androidx.media3:media3-ui-compose-material3:1.10.0"
+    implementation "androidx.media3:media3-ui-compose:1.10.1"
+    implementation "androidx.media3:media3-ui-compose-material3:1.10.1"
 
 We highly encourage you to develop your app in a Compose-first fashion or
 [migrate from using Views](https://developer.android.com/develop/ui/compose/migrate).

@@ -35,6 +35,10 @@ These Jetpack libraries have been recently updated.
 
 - [Media3 Version 1.9.4](https://developer.android.com/jetpack/androidx/releases/media3#1.9.4)
 
+### May 12, 2026
+
+- [Media3 Version 1.10.1](https://developer.android.com/jetpack/androidx/releases/media3#1.10.1)
+
 ### May 06, 2026
 
 - [Appfunctions Version 1.0.0-alpha09](https://developer.android.com/jetpack/androidx/releases/appfunctions#1.0.0-alpha09)

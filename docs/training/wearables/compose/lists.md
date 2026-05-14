@@ -126,7 +126,7 @@ arrive at once, the list should skip to display the very latest item at the
 bottom (meaning some intermediate items might not be displayed at all unless the
 user scrolls back up).
 
-To support these use cases, `TransformingLazyColumn` lets you to reverse the
+To support these use cases, `TransformingLazyColumn` lets you reverse the
 layout by setting `reverseLayout = true`. This changes the list's anchor from
 the top edge to the bottom edge.
 

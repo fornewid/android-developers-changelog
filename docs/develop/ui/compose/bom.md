@@ -17,7 +17,7 @@ new versions.
 ```kotlin
 dependencies {
     // Specify the Compose BOM with a version definition
-    val composeBom = platform("androidx.compose:compose-bom:2026.03.00")
+    val composeBom = platform("androidx.compose:compose-bom:2026.04.01")
     implementation(composeBom)
     testImplementation(composeBom)
     androidTestImplementation(composeBom)
@@ -36,7 +36,7 @@ dependencies {
 ```groovy
 dependencies {
     // Specify the Compose BOM with a version definition
-    Dependency composeBom = platform('androidx.compose:compose-bom:2026.03.00')
+    Dependency composeBom = platform('androidx.compose:compose-bom:2026.04.01')
     implementation composeBom
     testImplementation composeBom
     androidTestImplementation composeBom
@@ -81,7 +81,7 @@ of the animation library, no matter what version is designated in the BOM:
 ```kotlin
 dependencies {
     // Specify the Compose BOM with a version definition
-    val composeBom = platform("androidx.compose:compose-bom:2026.03.00")
+    val composeBom = platform("androidx.compose:compose-bom:2026.04.01")
     implementation(composeBom)
 
     // Override the BOM version when needed
@@ -96,7 +96,7 @@ dependencies {
 ```groovy
 dependencies {
     // Specify the Compose BOM with a version definition
-    Dependency composeBom = platform("androidx.compose:compose-bom:2026.03.00")
+    Dependency composeBom = platform("androidx.compose:compose-bom:2026.04.01")
     implementation composeBom
 
     // Override the BOM version when needed
@@ -188,8 +188,8 @@ The Alpha and Beta versions of the BOM are specified by adding `-alpha` and
 ```kotlin
 dependencies {
     // Specify the Compose BOM with a version definition
-    val composeBom = platform("androidx.compose:compose-bom-alpha:2026.03.00")
-    //            or platform("androidx.compose:compose-bom-beta:2026.03.00")
+    val composeBom = platform("androidx.compose:compose-bom-alpha:2026.04.01")
+    //            or platform("androidx.compose:compose-bom-beta:2026.04.01")
     implementation(composeBom)
     // ..
 }
@@ -200,8 +200,8 @@ dependencies {
 ```groovy
 dependencies {
     // Specify the Compose BOM with a version definition
-    Dependency composeBom = platform('androidx.compose:compose-bom-alpha:2026.03.00')
-    //                   or platform('androidx.compose:compose-bom-beta:2026.03.00')
+    Dependency composeBom = platform('androidx.compose:compose-bom-alpha:2026.04.01')
+    //                   or platform('androidx.compose:compose-bom-beta:2026.04.01')
     implementation composeBom
     // ..
 }

@@ -23,6 +23,10 @@ production was released on September 21, 2018.
 
 - [Media3 Version 1.9.4](https://developer.android.com/jetpack/androidx/releases/media3#1.9.4)
 
+### May 12, 2026
+
+- [Media3 Version 1.10.1](https://developer.android.com/jetpack/androidx/releases/media3#1.10.1)
+
 ### May 06, 2026
 
 - [Camera Featurecombinationquery Version 1.6.1](https://developer.android.com/jetpack/androidx/releases/camera-featurecombinationquery#1.6.1)

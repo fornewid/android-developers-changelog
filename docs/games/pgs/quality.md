@@ -40,15 +40,15 @@ of how to implement authentication on mobile games, see [Platform authentication
 
 | ID | Importance | Description |
 |---|---|---|
-| 1.1 | Required | **Authenticate players with Google Play Games Services.** 1.1.1. Initialize the Google Play Games Services SDK and check if the player is authenticated. If the player is not automatically authenticated then provide a manual sign-in option. :   Automatic authentication will get players quickly authenticated and authorized to use the full set of features provided by the Google Play Games Services. If the user declines, your game should offer the opportunity for them to authenticate later (e.g. with a button in the game menu, etc.). The sign-in button should be easy for players to find; for example, it should be accessible from your main screen or located in the Settings screen. This button shouldn't be buried multiple levels deep in your game menu. |
+| 1.1 | Required | **Authenticate players with Google Play Games Services.** 1.1.1. Initialize the Google Play Games Services SDK and check if the player is authenticated. :   Automatic authentication will get players quickly authenticated and authorized to use the full set of features provided by the Google Play Games Services. If the user declines, your game should offer the opportunity for them to authenticate later (e.g. with a button in the game menu, etc.). The sign-in button should be easy for players to find; for example, it should be accessible from your main screen or located in the Settings screen. This button shouldn't be buried multiple levels deep in your game menu. |
 | 1.2 | Best practices | **Follow Google branding guidelines.** To provide players with an end-to-end experience that is attractive and consistent, implement the [Google Play Games Services branding guidelines](https://developer.android.com/games/pgs/branding). |
 | 1.3 | Best practices | **Remind players that they are authenticated.** Give authenticated players an appropriate reminder or cue when your game performs some action on their behalf. For example, when a authenticated player finishes a level, you can provide a message like this to indicate that the player's score and achievements are being automatically uploaded: *"You are authenticated with Google. Your achievements and scores will be saved automatically."* |
-| 1.4 | Required | **Back up player progress using the Play Games Services ID.** To ensure players do not lose their progress when switching or resetting devices, or if they play on multiple devices, ensure their progress is backed up to a Cloud Save solution, and use the Play Games Services ID as a key, [securely](https://developer.android.com/games/pgs/signin#secure-access) if using your own backend game server. When players authenticate with their Play Games Services ID, check whether progress exists for that account and if it does, allow the player to pick up where they left off. You can use your own cloud save solution or Play Games Services saved games. If the user is not authenticated, try to maintain the player's progress locally, then sync that progress when the player eventually authenticates. This helps to prevent losing any of the player's progress if the player postpones to authenticate your game. |
+| 1.4 | Required | **Back up player progress using the Play Games Services ID.** To ensure players don't lose their progress when switching or resetting devices, or if they play on multiple devices, ensure their progress is backed up to a Cloud Save solution, and use the Play Games Services ID as a key, [securely](https://developer.android.com/games/pgs/signin#secure-access) if using your own backend game server. When players authenticate with their Play Games Services ID, check whether progress exists for that account and if it does, allow the player to pick up where they left off. You can use your own cloud save solution or Play Games Services saved games. If the user is not authenticated, try to maintain the player's progress locally, then sync that progress when the player eventually authenticates. This helps to prevent losing any of the player's progress if the player postpones to authenticate your game. |
 
 ## 2. Achievements
 
-The following checklist tasks apply to implementing the
-[Achievements](https://developer.android.com/games/pgs/achievements) feature in your game.
+The following checklist tasks apply to implementing the [Achievements](https://developer.android.com/games/pgs/achievements)
+feature in your game.
 
 | ID | Importance | Description |
 |---|---|---|
@@ -77,8 +77,8 @@ A few examples to help you design high quality achievements:
 #### Good example
 
 The following screenshot shows good examples of achievements. Achievements with
-unique *names* , *icons* , and *descriptions*. The descriptions inform
-what you need to do to get the achievement.
+unique *names* , *icons* , and *descriptions*. The descriptions inform what you
+need to do to get the achievement.
 [![Good achievements with unique names, icons, and descriptions.](https://developer.android.com/static/images/games/pgs/Goodachievements.png)](https://developer.android.com/static/images/games/pgs/Goodachievements.png) Good achievements with unique names, icons, and descriptions (click to enlarge).
 
 #### Bad example
@@ -88,22 +88,25 @@ The following screenshot shows bad examples of achievements.
 
 ## 3. Leaderboards
 
-The following checklist tasks apply to implementing the [Leaderboards](https://developer.android.com/games/pgs/leaderboards) feature in your game.
+The following checklist tasks apply to implementing leaderboards.
+
+For more information, see the [Leaderboards](https://developer.android.com/games/pgs/leaderboards)
+feature in your game.
 
 | ID | Importance | Description |
 |---|---|---|
 | 3.1 | Best practice | **Make leaderboards visible in your main menu and after key transitions.** Leaderboards should be readily accessible on the loading of a game. After critical transitions in a game (for example, at the end of a level, or when the player dies), players should immediately see links to the relevant leaderboards. |
 | 3.2 | Best practice | **Define upper limits for scores that can be submitted.** If possible, add limits when defining your leaderboards so that obviously fake scores are discarded. |
 | 3.3 | Best practice | **Use custom icons.** Create a custom icon for each leaderboard you define; don't just use your game's icon, as it will display poorly in the Google Play Games app. |
-| 3.4 | Best practice | **Keep the frequency of score submissions appropriate.** Submit scores after critical transitions in the game, such as at the end of a level or when a player's game character dies. For games without critical transitions (for example, an "endless runner" type game), use good judgment on how frequently to submit scores. Scores should not be submitted continuously or every second. |
-| 3.5 | Best practices | **Make use of scoretags.** Scoretags are extra bits of data that can be sent with your score submission. For instance, you can implement a scoretag as a flag to confirm that a player's submitted score is valid. Custom leaderboards can also read this tag data. If the scoretag consisted of an ID for a YouTube video containing that player's gameplay, for instance, your game could create a link to view that video within your leaderboard. |
+| 3.4 | Best practice | **Keep the frequency of score submissions appropriate.** Submit scores after critical transitions in the game, such as at the end of a level or when a player's game character dies. For games without critical transitions (for example, an "endless runner" type game), use good judgment on how frequently to submit scores. Scores shouldn't be submitted continuously or every second. |
+| 3.5 | Best practices | **Make use of scoretags.** Scoretags are extra bits of data that can be sent with your score submission. For example, you can implement a scoretag as a flag to confirm that a player's submitted score is valid. Custom leaderboards can also read this tag data. If the scoretag consisted of an ID for a YouTube video containing that player's gameplay, for example, your game could create a link to view that video within your leaderboard. |
 | 3.6 | Best practices | **Creatively design your own leaderboard UI** If you have the resources, build your own custom leaderboard view on top of the social leaderboard data. Social leaderboards typically create a more engaging experience than public leaderboards. Check first to determine if there are any entries in the social leaderboard. If not, use the public leaderboard instead. |
 | 3.7 | Best practices | **Show players how they stack up against the competition.** The leaderboards API supports showing score windows (for example, a player's rank within +/-10 spots). If you are creating a custom view, this can be a powerful way to motivate engagement. This could be shown right after a critical transition in the game (for example, at the end of a level or when a player's game character dies). Avoid putting unnecessary clicks between your players and their ranking information. |
 
 ## 4. Friends
 
-The following checklist tasks apply to implementing the
-[Friends service](https://developer.android.com/games/pgs/friends) in your game.
+The following checklist tasks apply to implementing the [Friends service](https://developer.android.com/games/pgs/friends) in
+your game.
 
 | ID | Importance | Description |
 |---|---|---|
@@ -123,16 +126,16 @@ limit is exceeded, see [Managing Quota and Rate Limiting](https://developer.andr
 
 | ID | Importance | Description |
 |---|---|---|
-| 5.1 | Best practice | **Use the client libraries.** The mobile client libraries employ a number of strategies to reduce the calls you make to the service. For instance, data for achievements and leaderboards is cached, so players can view their achievements as often as they like without requiring the service to make multiple calls. The Android client library will not to send a player's score to the server if your score isn't as good as one you recently submitted. The Android library also automatically combines frequent achievement increment calls when it detects that you are being rate limited. |
+| 5.1 | Best practice | **Use the client libraries.** The mobile client libraries use several strategies to reduce the number of calls you make to the service. For example, the libraries perform the following actions: - **Cache data:** The libraries cache data for achievements and leaderboards. This caching lets players view their achievements as often as they like without making multiple service calls. - **Filter scores:** The Android client library only sends a player's score to the server if it is better than a recently submitted score. - **Combine calls:** The Android library automatically combines frequent achievement increment calls when it detects rate limiting. |
 | 5.2 | Best practices | **Combine frequent calls to incremental achievements.** If you're making a fighting game and you have a 'Throw 5000 punches' achievement, don't send an achievement increment call every time somebody throws a punch. Wait until the end of the round, and then send one `increment(xxx)` call (where xxx is the total number of punches thrown that round), or wait until 50 punches are thrown before sending a single `increment(50)` call. |
-| 5.3 | Best practices | **Be aware of your usage.** Be conscious of the number of calls you make to Google Play Games Services. Even if you avoid hitting rate limits, frequent calls can lead to high network traffic, and cause the device's battery to drain more rapidly. To avoid this, you can use these techniques: - When performing saved games, keep the frequency to once every few minutes, not on every button click. - Wait until the player's game is over before submitting a high score. - Review your app's daily quota by going to your project dashboard in the Google Cloud Platform. |
+| 5.3 | Best practices | **Be aware of your usage.** Be conscious of the number of calls you make to Google Play Games Services. Even if you avoid hitting rate limits, frequent calls can lead to high network traffic, and cause the device's battery to drain more rapidly. To avoid this, you can use these techniques: - When performing saved games, keep the frequency to once every few minutes, not on every button click. - Wait until the player's game is over before submitting a high score. - Review your app's daily quota by going to your project dashboard in the Google Cloud. |
 
 ## 6. Saved games
 
-The following checklist tasks apply to implementing the
-[Saved Games](https://developer.android.com/games/pgs/savedgames) feature in your game.
+The following checklist tasks apply to implementing the [Saved Games](https://developer.android.com/games/pgs/savedgames) feature
+in your game.
 
 | ID | Importance | Description |
 |---|---|---|
-| 6.1 | Required | **Add metadata to provide additional context for saved games.** At minimum, you must include the following metadata when committing a saved game: - Cover image - A screenshot that captures game progress and reminds players of where they left the game. - Description - Short description that provides additional context for the cover image. - Time stamp - Indicates how long the player has been playing this saved game. |
+| 6.1 | Required | **Add metadata to provide additional context for saved games.** At minimum, you must include the following metadata when committing a saved game: - Cover image - A screenshot that captures game progress and reminds players of where they left the game. - Description - Short description that provides additional context for the cover image. - Timestamp - Indicates how long the player has been playing this saved game. |
 | 6.2 | Required | **Allow players to load saved games.** Load the correct saved game when players make a selection from either the [Play Games app](https://play.google.com/store/apps/details?id=com.google.android.play.games) or the default Saved Games selection UI. |

@@ -112,7 +112,9 @@ configuration or configuration features, they will fall back to any rules
 declared in the manifest. Your App link can still correctly open your app or
 fall back gracefully to the web for users on previous Android versions. In most
 cases, you can safely deploy dynamic rules without affecting the experience for
-the rest of your user base.
+the rest of your user base. For more details on how to configure your intent
+filters for backward compatibility, see [Dynamic App Links backward
+compatibility for Android 14 and lower](https://developer.android.com/training/app-links/add-applinks#dynamic-app-links-backward-compatibility).
 
 ### Considerations for setting up Dynamic App Links filter rules
 

@@ -23,12 +23,12 @@ To get started, add a dependency on the Transformer, Effect, and Common modules
 of Jetpack Media3:
 
 ```groovy
-implementation "androidx.media3:media3-transformer:1.10.0"
-implementation "androidx.media3:media3-effect:1.10.0"
-implementation "androidx.media3:media3-common:1.10.0"
+implementation "androidx.media3:media3-transformer:1.10.1"
+implementation "androidx.media3:media3-effect:1.10.1"
+implementation "androidx.media3:media3-common:1.10.1"
 ```
 
-Make sure to replace `1.10.0` with your preferred version of the
+Make sure to replace `1.10.1` with your preferred version of the
 library. You can refer to the
 [release notes](https://github.com/androidx/media/tree/release/RELEASENOTES.md)
 to see the latest version.
