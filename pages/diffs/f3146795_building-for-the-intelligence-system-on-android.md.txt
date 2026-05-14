@@ -1,0 +1,18 @@
+diff --git a/docs/blog/posts/building-for-the-intelligence-system-on-android.md b/docs/blog/posts/building-for-the-intelligence-system-on-android.md
+index 2aad2a00..07b17c98 100644
+--- a/docs/blog/posts/building-for-the-intelligence-system-on-android.md
++++ b/docs/blog/posts/building-for-the-intelligence-system-on-android.md
+@@ -15,13 +15,8 @@ source: md.txt
+ ###### Vice President, Product Management, Android Developer
+ 
+ Announced today during [The Android Show](https://developer.android.com/events/show), Android is transitioning from an operating system to an intelligence system, creating more opportunities for engagement with your apps. Through deep integration between hardware and software, Android devices will be able to handle the heavy lifting of anticipating user needs, so your app can focus on delivering that experience at the right moment. As part of this, we are [announcing](https://blog.google/products-and-platforms/platforms/android/gemini-intelligence) Gemini Intelligence, a suite of new features that bring the best of Gemini to our most advanced Android devices.
+-
+-<br />
+-
+ [Video](https://www.youtube.com/watch?v=KvTRMSa1w4E)
+ 
+-<br />
+-
+ **Task Automation with Gemini**
+ 
+ With Gemini Intelligence, we're expanding Gemini's ability to [automate tasks](http://d.android.com/ai/computer-control) across selected apps on behalf of the user with built-in transparency and control. This creates another avenue for user engagement, driving high-intent traffic to your app without requiring code or major engineering work from you. By allowing Gemini to navigate complex, multi-step tasks, such as ordering a latte from a cafe or building a shopping cart from a grocery list in a notes app, Gemini handles the logistics for users, so you're free to focus on innovation and building great features.
