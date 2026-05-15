@@ -1,0 +1,13 @@
+diff --git a/docs/training/sharing/receive.md b/docs/training/sharing/receive.md
+index 6162c1a4..eb97923d 100644
+--- a/docs/training/sharing/receive.md
++++ b/docs/training/sharing/receive.md
+@@ -35,7 +35,7 @@ common MIME types for sending and receiving simple data in Android.
+ | Receivers register for | Senders send |
+ |---|---|
+ | `text/*` | - `text/plain` - `text/rtf` - `text/html` - `text/json` |
+-| `` `image/*` `` | - `image/jpg` - `image/png` - `image/gif` |
++| `image/*` | - `image/jpg` - `image/png` - `image/gif` |
+ | `video/*` | - `video/mp4` - `video/3gp` |
+ | Supported file extensions | `application/pdf` |
+ 

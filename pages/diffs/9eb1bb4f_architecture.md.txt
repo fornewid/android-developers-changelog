@@ -1,0 +1,13 @@
+diff --git a/docs/develop/ui/compose/architecture.md b/docs/develop/ui/compose/architecture.md
+index b11728cb..11357a4d 100644
+--- a/docs/develop/ui/compose/architecture.md
++++ b/docs/develop/ui/compose/architecture.md
+@@ -133,7 +133,7 @@ For example, a composable that accepts a `String` and a lambda as parameters can
+ be called from many contexts and is highly reusable. Suppose that the top app
+ bar in your app always displays text and has a
+ back button. You can define a more generic `MyAppTopAppBar` composable
+-that receives the text and the back button handle as parameters:
++that receives the text and the back button handler as parameters:
+ 
+ 
+ ```kotlin

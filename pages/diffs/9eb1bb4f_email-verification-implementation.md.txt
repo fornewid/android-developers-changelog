@@ -1,0 +1,41 @@
+diff --git a/docs/identity/digital-credentials/email-verification-implementation.md b/docs/identity/digital-credentials/email-verification-implementation.md
+index 46a522be..b8a35477 100644
+--- a/docs/identity/digital-credentials/email-verification-implementation.md
++++ b/docs/identity/digital-credentials/email-verification-implementation.md
+@@ -41,9 +41,10 @@ Use your app or activity context to create a `CredentialManager` object.
+ 
+ ## Construct the Digital Credential request
+ 
+-To request a verified email, construct a [`GetCredentialRequest`](https://developer.android.com/reference/android/credentials/GetCredentialRequest) containing
+-a [`GetDigitalCredentialOption`](https://developer.android.com/reference/androidx/credentials/GetDigitalCredentialOption). This option requires a `requestJson`
+-string formatted as an OpenID for Verifiable Presentations (OpenID4VP) request.
++To request a verified email, construct a [`GetCredentialRequest`](https://developer.android.com/reference/android/credentials/GetCredentialRequest)
++containing a [`GetDigitalCredentialOption`](https://developer.android.com/reference/androidx/credentials/GetDigitalCredentialOption). This option requires a
++`requestJson` string formatted as an OpenID for Verifiable Presentations
++(OpenID4VP) request.
+ 
+ The OpenID4VP request JSON must follow a specific structure. The current
+ providers support a JSON structure with an outer `"digital": {"requests":
+@@ -183,7 +184,8 @@ The following code extracts the raw [Selective Disclosure JWT
+ 
+ ## Handle the response
+ 
+-The Credential Manager API will return a [`DigitalCredential`](https://developer.android.com/reference/androidx/credentials/DigitalCredential) response.
++The Credential Manager API will return a [`DigitalCredential`](https://developer.android.com/reference/androidx/credentials/DigitalCredential)
++response.
+ 
+ The following is an example of what the raw `responseJsonString` looks like, and
+ what the claims look like after parsing the inner SD-JWT where you get
+@@ -286,9 +288,9 @@ standard passkey registration.
+ ## WebView support
+ 
+ For the flow to work on a WebView, developers should implement a [JavaScript
+-bridge](https://developer.android.com/identity/sign-in/credential-manager-webview) (JS Bridge) to facilitate the handoff. This bridge allows the Webview
+-to signal the native app, which can then perform the actual call to the
+-Credential Manager API.
++bridge](https://developer.android.com/identity/sign-in/credential-manager-webview) (JS Bridge) to facilitate the handoff. This bridge allows the
++Webview to signal the native app, which can then perform the actual call
++to the Credential Manager API.
+ 
+ ## See also
+ 

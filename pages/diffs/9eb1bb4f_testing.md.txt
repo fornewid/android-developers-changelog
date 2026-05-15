@@ -1,0 +1,13 @@
+diff --git a/docs/develop/ui/compose/testing.md b/docs/develop/ui/compose/testing.md
+index 1be1b5b5..d58d00fe 100644
+--- a/docs/develop/ui/compose/testing.md
++++ b/docs/develop/ui/compose/testing.md
+@@ -42,7 +42,7 @@ learn about testing in Compose.
+ 
+ ## Setup
+ 
+-Set up your app to let you test compose code.
++Set up your app to let you test Compose code.
+ 
+ First, add the following dependencies to the `build.gradle` file of the module
+ containing your UI tests:
