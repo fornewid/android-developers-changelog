@@ -145,7 +145,7 @@ retained across configuration changes. For this, you must use
 saved in a `Bundle`. For other values, you can pass in a custom saver object.
 
 > [!CAUTION]
-> **Caution:** Using mutable objects such as `ArrayList<T>` or `mutableListOf()` as state in Compose causes your users to see incorrect or stale data in your app. Mutable objects that are not observable, such as ArrayList or a mutable data class, are not observable by Compose and don't trigger a recomposition when they change. Instead of using non-observable mutable objects, the recommendation is to use an observable data holder such as `State<List<T>>` and the immutable `listOf()`.
+> **Caution:** Using mutable objects such as `ArrayList<T>` or `mutableListOf()` as state in Compose causes your users to see incorrect or stale data in your app. Mutable objects that are not observable, such as `ArrayList<T>` or a mutable data class, are not observable by Compose and don't trigger a recomposition when they change. Instead of using non-observable mutable objects, the recommendation is to use an observable data holder such as `State<List<T>>` and the immutable `listOf()`.
 
 ## Other supported types of state
 
@@ -167,7 +167,7 @@ appropriate [artifact(s)](https://developer.android.com/jetpack/androidx/release
   Android apps.
 
   > [!NOTE]
-  > **Note:** To learn more about collecting flows safely in Android with `collectAsStateWithLifecycle()` API , you can read [this blog
+  > **Note:** To learn more about collecting flows safely in Android with `collectAsStateWithLifecycle()` API, you can read [this blog
   > post](https://medium.com/androiddevelopers/consuming-flows-safely-in-jetpack-compose-cde014d0d5a3).
 
   The following [dependency](https://developer.android.com/jetpack/androidx/releases/lifecycle) is required in the `build.gradle` file (it should
@@ -280,7 +280,7 @@ use it without having to manage the state themselves. However, composables with
 internal state tend to be less reusable and harder to test.
 
 A *stateless* composable is a composable that doesn't hold any state. An easy
-way to achieve stateless is by using [state
+way to achieve statelessness is by using [state
 hoisting](https://developer.android.com/develop/ui/compose/state#state-hoisting).
 
 As you develop reusable composables, you often want to expose both a stateful

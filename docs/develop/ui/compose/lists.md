@@ -298,7 +298,7 @@ right), and then `8.dp` to the top and bottom of the content.
 
 Please note that this padding is applied to the *content* , not to the
 `LazyColumn` itself. In the example above, the first item will add `8.dp`
-padding to it's top, the last item will add `8.dp` to its bottom, and all items
+padding to its top, the last item will add `8.dp` to its bottom, and all items
 will have `16.dp` padding on the left and the right.
 
 As another example, you can pass `Scaffold`'s `PaddingValues` into

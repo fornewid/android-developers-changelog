@@ -134,3 +134,29 @@ To set a custom theme for your car app:
            <item name="carPermissionActivityLayout">@layout/my_custom_background</item>
          </style>
        </resources>
+
+### Car App API level
+
+The Car App Library defines its own API levels so that you can know which
+library features are supported by the template host on a vehicle.
+To retrieve the highest Car App API level supported by a host, use the
+[`getCarAppApiLevel()`](https://developer.android.com/reference/androidx/car/app/CarContext#getCarAppApiLevel())
+method.
+
+Declare the minimum Car App API level supported by your app in your
+`AndroidManifest.xml` file:
+
+    <manifest ...>
+        <application ...>
+            <meta-data
+                android:name="androidx.car.app.minCarApiLevel"
+                android:value="1"/>
+        </application>
+    </manifest>
+
+For details about maintaining backward compatibility and declaring
+the minimum API level required to use a feature, see the documentation for the
+[`RequiresCarApi`](https://developer.android.com/reference/androidx/car/app/annotations/RequiresCarApi) annotation. For a definition of which API
+level is required to use a certain feature of the Car App Library, check the
+reference documentation for
+[`CarAppApiLevels`](https://developer.android.com/reference/androidx/car/app/versioning/CarAppApiLevels).

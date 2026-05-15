@@ -6,7 +6,7 @@ source: md.txt
 
 ## Resources
 
-- **Domain Hints:** Reference files for specific performance areas: [`CPU`](https://developer.android.com/agents/skills/profilers/perfetto-trace-analysis/references/hints_cpu), [`Graphics`](https://developer.android.com/agents/skills/profilers/perfetto-trace-analysis/references/hints_graphics), [`I/O`](https://developer.android.com/agents/skills/profilers/perfetto-trace-analysis/references/hints_io), [`IPC`](https://developer.android.com/agents/skills/profilers/perfetto-trace-analysis/references/hints_ipc), [`Memory`](https://developer.android.com/agents/skills/profilers/perfetto-trace-analysis/references/hints_memory), [`Power`](https://developer.android.com/agents/skills/profilers/perfetto-trace-analysis/references/hints_power).
+- **Domain Hints:** Reference files for specific performance areas: [`CPU`](https://developer.android.com/agents/skills/profilers/perfetto-trace-analysis/references/hints_cpu), [`Graphics`](https://developer.android.com/agents/skills/profilers/perfetto-trace-analysis/references/hints_graphics), [`I/O`](https://developer.android.com/agents/skills/profilers/perfetto-trace-analysis/references/hints_io), [`IPC`](https://developer.android.com/agents/skills/profilers/perfetto-trace-analysis/references/hints_ipc), [`Memory`](https://developer.android.com/agents/skills/profilers/perfetto-trace-analysis/references/hints_memory), [`Power`](https://developer.android.com/agents/skills/profilers/perfetto-trace-analysis/references/hints_power). These files each contain multiple expert-vetted, powerful trace analysis techniques to steer and aid in the analysis.
 - **Perfetto SQL Reference:** Reference guidelines for translating intents into valid queries are located in [the SQL reference](https://developer.android.com/agents/skills/profilers/perfetto-trace-analysis/references/sql). You must read this reference and follow its Execution Protocol for all SQL generation.
 
 ## Setup Phase (Mandatory)
@@ -16,8 +16,9 @@ source: md.txt
    - Name the file using the trace's filename appended with `_analysis.md` (e.g., `[trace_filename]_analysis.md`). Before creating it, check if a file with that name already exists by listing the directory's contents---to avoid biasing your investigation, DO NOT read the file's contents to check for its existence. If it does, append an incrementing version number (e.g., `_v2.md`, `_v3.md`) until you find an available filename. You MUST hardcode this exact filename in all subsequent tool calls.
    - Use this scratchpad STRICTLY to log verified facts: timestamps, slice names, thread IDs (utid/tid), and thread states.
    - DO NOT write preliminary hypotheses or premature conclusions in the scratchpad. It is a strict Chain of Evidence.
-2. **Review SQL Reference:** Read the SQL reference in [`references/sql.md`](https://developer.android.com/agents/skills/profilers/perfetto-trace-analysis/references/sql) and follow its Execution Protocol for all SQL generation. Do not guess schemas.
-3. **Target Resolution:** If the user's request is broad (e.g., "why is the app slow?") and doesn't specify a package name:
+2. **Review Domain Hints:** Read the Domain Hints in each file to get a high-level overview of what techniques are possible. Make sure to use this baseline knowledge when researching and retrieving hints during the ongoing investigation.
+3. **Review SQL Reference:** Read the SQL reference in [`references/sql.md`](https://developer.android.com/agents/skills/profilers/perfetto-trace-analysis/references/sql) and follow its Execution Protocol for all SQL generation. Do not guess schemas.
+4. **Target Resolution:** If the user's request is broad (e.g., "why is the app slow?") and doesn't specify a package name:
    - Execute a query to identify the active application: `sql INCLUDE
      PERFETTO MODULE android.startup.startups; SELECT package FROM
      android_startups;`
@@ -29,7 +30,7 @@ Follow this iterative loop until you have isolated the definitive root cause(s):
 
 ### 1. Formulate Hypothesis
 
-- **Prioritization:** Form hypotheses using information from: user prompt \> built-in hints ([`references/hints_*.md`](https://developer.android.com/agents/skills/profilers/perfetto-trace-analysis/references/hints_cpu)) \> general knowledge.
+- **Prioritization:** Form hypotheses using information from: user prompt \> "Domain Hints" ([`CPU`](https://developer.android.com/agents/skills/profilers/perfetto-trace-analysis/references/hints_cpu), [`Graphics`](https://developer.android.com/agents/skills/profilers/perfetto-trace-analysis/references/hints_graphics), [`I/O`](https://developer.android.com/agents/skills/profilers/perfetto-trace-analysis/references/hints_io), [`IPC`](https://developer.android.com/agents/skills/profilers/perfetto-trace-analysis/references/hints_ipc), [`Memory`](https://developer.android.com/agents/skills/profilers/perfetto-trace-analysis/references/hints_memory), [`Power`](https://developer.android.com/agents/skills/profilers/perfetto-trace-analysis/references/hints_power)) \> general knowledge. Be sure to leverage these "Domain Hints" as they are expert-vetted analysis techniques.
 - **Source Attribution:** Explicitly mention the source of your hypothesis (e.g., "Based on hints_io.md...").
 - **Focus Constraint:** Focus on the primary bottleneck. Avoid investigating deep into binder transactions unless the user explicitly asks for it or there is no other obvious bottleneck.
 - **State Reasoning:** Briefly state your reasoning based on previous findings *before* generating a new query.
@@ -49,7 +50,7 @@ Follow this iterative loop until you have isolated the definitive root cause(s):
 
 ### 4. Exhaustive Investigation (Do Not Give Up Early)
 
-- **Multiple Bottlenecks:** Complex performance issues rarely have a single cause. Do NOT stop your investigation after finding the first anomaly. Even if you find a major bottleneck (e.g., emulator graphics lag), you MUST continue searching for other independent system-wide issues (e.g., lock contention, I/O stalls).
+- **Multiple Bottlenecks:** Complex performance issues rarely have a single cause. Do NOT stop your investigation after finding the first anomaly. Even if you find a major bottleneck (e.g., emulator graphics lag), you MUST continue searching for other independent system-wide issues (e.g., lock contention, I/O stalls). To find other bottlenecks, search through the content of the "Domain Hints" files ([`CPU`](https://developer.android.com/agents/skills/profilers/perfetto-trace-analysis/references/hints_cpu), [`Graphics`](https://developer.android.com/agents/skills/profilers/perfetto-trace-analysis/references/hints_graphics), [`I/O`](https://developer.android.com/agents/skills/profilers/perfetto-trace-analysis/references/hints_io), [`IPC`](https://developer.android.com/agents/skills/profilers/perfetto-trace-analysis/references/hints_ipc), [`Memory`](https://developer.android.com/agents/skills/profilers/perfetto-trace-analysis/references/hints_memory), [`Power`](https://developer.android.com/agents/skills/profilers/perfetto-trace-analysis/references/hints_power)) to retrieve and leverage expert-vetted, powerful trace analysis techniques. Investigate each relevant hint with depth.
 - **Global Verification:** Periodically perform a system-wide query for the longest running slices (`ORDER BY slice.dur DESC`) and most frequent D-states to ensure your local investigation hasn't missed a massive, unrelated system stall.
 - **Persist Through Dead Ends:** If a hypothesis is disproven or a query returns empty, do not conclude. Pivot your focus, broaden your search constraints (fuzzy matching, wider time windows), and continue the mission.
 

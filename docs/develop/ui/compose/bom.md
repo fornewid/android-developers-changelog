@@ -59,7 +59,7 @@ The Compose Kotlin compiler extension (androidx.compose.compiler) is not linked
 to the Compose library versions. Instead, it is linked to versions of the Kotlin
 compiler plugin and released in a separate cadence from the rest of Compose.
 
-As of Kotlin 2.0, the Compose appcompiler is managed alongside the Kotlin
+As of Kotlin 2.0, the Compose compiler is managed alongside the Kotlin
 compiler and uses the same version as the Kotlin compiler.
 See [Compose Compiler Gradle plugin](https://developer.android.com/develop/ui/compose/compiler) for
 configuration details.

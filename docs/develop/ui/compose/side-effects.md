@@ -347,7 +347,7 @@ to recompose. This often occurs when something is frequently changing, such as
 a scroll position, but the composable only needs to react to it once it crosses
 a certain threshold. `derivedStateOf` creates a new Compose state object you
 can observe that only updates as much as you need. In this way, it acts
-similarly to the Kotlin Flows
+similarly to the Kotlin Flow
 [`distinctUntilChanged()`](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/distinct-until-changed.html#:%7E:text=Returns%20flow%20where%20all%20subsequent,a%20StateFlow%20has%20no%20effect.)
 operator.
 

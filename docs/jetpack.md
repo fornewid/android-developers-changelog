@@ -169,12 +169,12 @@ Explore how modern Android architecture is implemented in a real world app [View
 | [sqlite](https://developer.android.com/jetpack/androidx/releases/sqlite) | Work with local SQLite databases. If possible, use Room instead. |
 | [swiperefreshlayout](https://developer.android.com/jetpack/androidx/releases/swiperefreshlayout) | Implement the swipe-to-refresh UI pattern. |
 | [test.uiautomator](https://developer.android.com/jetpack/androidx/releases/test-uiautomator) | Framework for cross app functional UI testing |
+| [text-vertical](https://developer.android.com/jetpack/androidx/releases/text-vertical) | TODO |
 | [textclassifier](https://developer.android.com/jetpack/androidx/releases/textclassifier) | Identifies conversations, links, selections, and other similar constructs in text. |
 | [tracing](https://developer.android.com/jetpack/androidx/releases/tracing) | Write trace events to the system trace buffer. |
 | [transition](https://developer.android.com/jetpack/androidx/releases/transition) | Animate motion in the UI with starting and ending layouts. |
 | [tv](https://developer.android.com/jetpack/androidx/releases/tv) | Provides developers with Compose and Material design functionalities in order to write applications for TV |
 | [tvprovider](https://developer.android.com/jetpack/androidx/releases/tvprovider) | Provide Android TV channels. |
-| [text-vertical](https://developer.android.com/jetpack/androidx/releases/text-vertical) | TODO |
 | [vectordrawable](https://developer.android.com/jetpack/androidx/releases/vectordrawable) | Render vector graphics. |
 | [versionedparcelable](https://developer.android.com/jetpack/androidx/releases/versionedparcelable) | Provides a stable and compact binary serialization format that can be passed across processes or persisted safely. |
 | [viewpager](https://developer.android.com/jetpack/androidx/releases/viewpager) | Display Views or Fragments in a swipeable format. If possible, use viewpager2 instead. |

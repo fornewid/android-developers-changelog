@@ -105,3 +105,14 @@ Follow these steps to assist the developer:
   - [TV Recommendations](https://developer.android.com/guide/playcore/engage/tv/recommendations)
   - [TV Continue Watching](https://developer.android.com/guide/playcore/engage/tv/continue-watching)
   - [TV Entitlements](https://developer.android.com/guide/playcore/engage/tv/entitlements)
+- **Vertical-Specific Schemas:**
+
+  - [Food Schema](https://developer.android.com/agents/skills/play/engage-sdk-integration/references/schemas/food)
+  - [Watch Schema](https://developer.android.com/agents/skills/play/engage-sdk-integration/references/schemas/watch)
+  - [Listen Schema](https://developer.android.com/agents/skills/play/engage-sdk-integration/references/schemas/listen)
+  - [Read Schema](https://developer.android.com/agents/skills/play/engage-sdk-integration/references/schemas/read)
+  - [Shopping Schema](https://developer.android.com/agents/skills/play/engage-sdk-integration/references/schemas/shopping)
+  - [Social Schema](https://developer.android.com/agents/skills/play/engage-sdk-integration/references/schemas/social)
+  - [Travel Schema](https://developer.android.com/agents/skills/play/engage-sdk-integration/references/schemas/travel)
+  - [TV Schema](https://developer.android.com/agents/skills/play/engage-sdk-integration/references/schemas/tv)
+  - [Other Schema](https://developer.android.com/agents/skills/play/engage-sdk-integration/references/schemas/other)

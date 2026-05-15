@@ -35,7 +35,7 @@ common MIME types for sending and receiving simple data in Android.
 | Receivers register for | Senders send |
 |---|---|
 | `text/*` | - `text/plain` - `text/rtf` - `text/html` - `text/json` |
-| `` `image/*` `` | - `image/jpg` - `image/png` - `image/gif` |
+| `image/*` | - `image/jpg` - `image/png` - `image/gif` |
 | `video/*` | - `video/mp4` - `video/3gp` |
 | Supported file extensions | `application/pdf` |
 

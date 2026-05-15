@@ -46,6 +46,43 @@ To help you find memory leaks, Android Studio Panda adds LeakCanary integration
 directly in the Android Studio Profiler as a dedicated task, contextualized
 within the IDE and fully integrated with your source code.
 
+## Privacy
+
+Android 17 includes the following changes to improve user privacy.
+
+### SMS OTP protection
+
+Beginning with Android 17, Android is expanding its protection
+for SMS messages containing one-time passwords (OTP).
+
+In previous versions of Android, this protection was primarily focused on the
+SMS Retriever format. Delivery of messages containing an SMS retriever hash was
+delayed for most apps for three hours. However, certain certain apps (like the
+default SMS handler) were exempt from the delay, and the app that owned the hash
+was also exempted.
+
+Beginning with Android 17, the protection is also applied to WebOTP
+format messages. If an app has permission to read SMS messages but is not the
+intended recipient of a WebOTP message (as determined by domain verification),
+the message is not accessible to the app until three hours after the message's
+receipt. This change is intended to improve user security by ensuring that only
+apps associated with the domain mentioned in the message can programmatically
+read the verification code.
+
+During this three hour delay, the [`SMS_RECEIVED_ACTION`](https://developer.android.com/reference/android/provider/Telephony.Sms.Intents#SMS_RECEIVED_ACTION) broadcast is
+withheld and SMS provider database queries are filtered. The SMS message is
+available to these apps after the delay. This change applies to **all apps**,
+regardless of their target API level.
+
+Certain apps such as the default SMS assistant app, connected device companion
+apps, etc., are exempted from this delay. All apps that rely on reading SMS
+messages for OTP extraction should transition to using SMS Retriever or SMS User
+Consent APIs to ensure continued functionality.
+
+> [!NOTE]
+> **Note:** If your app targets Android 17 (API level 37) or higher, this protection is also extended to standard SMS messages. For more information, see [OTP protection for standard SMS messages](https://developer.android.com/about/versions/17/behavior-changes-17#sms-otp-protection) in the [Behavior changes:
+> Apps targeting Android 17](https://developer.android.com/about/versions/17/behavior-changes-17) documentation.
+
 ## Security
 
 Android 17 includes the following improvements to device and app

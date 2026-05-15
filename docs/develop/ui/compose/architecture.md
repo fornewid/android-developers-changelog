@@ -133,7 +133,7 @@ For example, a composable that accepts a `String` and a lambda as parameters can
 be called from many contexts and is highly reusable. Suppose that the top app
 bar in your app always displays text and has a
 back button. You can define a more generic `MyAppTopAppBar` composable
-that receives the text and the back button handle as parameters:
+that receives the text and the back button handler as parameters:
 
 
 ```kotlin

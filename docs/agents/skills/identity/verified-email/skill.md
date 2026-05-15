@@ -1,8 +1,101 @@
 ---
-title: https://developer.android.com/identity/digital-credentials/email-verification-implementation
-url: https://developer.android.com/identity/digital-credentials/email-verification-implementation
+title: https://developer.android.com/agents/skills/identity/verified-email/skill
+url: https://developer.android.com/agents/skills/identity/verified-email/skill
 source: md.txt
 ---
+
+## Fundamentals
+
+- *[Overview of Digital Credentials](https://developer.android.com/identity/digital-credentials/email-verification)*: Learn about cryptographically verifiable documents and the role of Credential Manager.
+- *[Glossary](https://developer.android.com/identity/digital-credentials/email-verification-implementation)* : Definitions for `dcql_query`, `UserInfoCredential`, and `GetDigitalCredentialOption`.
+
+### Standards \& Examples
+
+- *[OpenID4VP Standard](https://openid.net/specs/openid-4-verifiable-presentations-1_0.html#name-introduction)*: The specification used to create digital credentials requests.
+- *[Digital Credentials Demo](https://digital-credentials.dev/)*: Example requests and cross-platform testing tool.
+- *[W3C Verifiable Credentials](https://www.w3.org/TR/vc-data-model-2.0/)*: The data model for cryptographically secured claims.
+- *[SD-JWT](https://datatracker.ietf.org/doc/draft-ietf-oauth-selective-disclosure-jwt/)*: Selective Disclosure JSON Web Token format used for responses.
+- *[mdoc](https://www.iso.org/standard/69084.html)*: ISO/IEC 18013-5 standard for mobile documents.
+
+### Requirements
+
+- **SDK Version**: Minimum SDK 28 (Android 9) is required.
+- **GMS Version**: Google Play services version 25.49.x or higher.
+
+### Use Cases
+
+Email verification is applicable for the following use cases:
+
+- **Account Creation/Sign-up**: Remove friction by skipping manual email verification.
+- **Account Recovery**: Securely verify email ownership during recovery flows.
+- **Re-authentication**: Versatile verification for high-risk actions, independent of the initial sign-in method.
+
+### Limitations \& Nuances
+
+- **Workspace Accounts**: Google does not issue verifiable credentials for Google Workspace Accounts.
+- **Freshness**: For non-@gmail.com addresses, Google verifies the email at account creation but there is no freshness claim; implement an additional challenge like an OTP.
+
+### Scope \& Pre-requisites
+
+**Crucial** : This skill focuses exclusively on the **Android client-side
+integration** . It does **not** implement the app's server-side cryptographic
+validation logic. Server-side validation of the returned credential is required
+for security and must be implemented in your backend.
+
+## Codebase exploration for Use Cases
+
+Get started with the following queries in project source code to find relevant
+screens with different use cases to implement verified email:
+
+- `SignUpScreen`
+- `"Email address"`
+- `"Recover Account"`
+- `"Account Recovery"`
+- `"Forgot password?"`
+- `"Delete Account"`
+
+## Identifying Integration Points
+
+To implement this feature effectively, you must first locate the relevant
+flows in your codebase. To initiate, start with the following strategies to
+cater to different use cases using verified email:
+
+### 1. Search for Navigation Routes
+
+If your app uses Navigation, search for routes or destinations related
+to authentication:
+
+Look for:
+
+- **Keywords** : `signup`, `registration`, `create_account`, `forgot_password`, `recovery`, `verify_email`.
+- **Code Pattern** : Search for `NavHost` or `composable` destinations using these strings.
+
+### 2. Locate Authentication ViewModels
+
+Find the business logic handling user attributes and account creation, account
+recovery:
+
+- **Keywords** : `SignUpViewModel`, `AuthViewModel`, `RegistrationRepository`.
+- **Code Pattern** : Look for methods like `onCrea teAccount`, `onRecoverAccount`, or `validateEmail`.
+
+### 3. Find instances of reauthentication for sensitive actions
+
+For reauthentication use cases, find areas where users perform sensitive
+actions:
+
+- **Keywords** : `ChangePassword`, `UpdatePayment`, `DeleteAccount`, `UpdateDetails`, `EditUserDetails`
+
+## Important pointers for Implementation
+
+- Construct a Digital Credential Request and present it to the user.
+- Make sure to follow the request JSON structure as mentioned in [documentation](https://developer.android.com/identity/digital-credentials/email-verification-implementation#construct-request).
+- While presenting the request to the user, check if result credential is DigitalCredential and credential.credentialJson as responseJsonString
+- Parse the response from the client.
+- Offer a passkey creation option if one is not already present.
+- Assume a local `SdJwtParser` to parse raw SD-JWT and return a `JSONObject`.
+- Use a `VerifiedUserInfo` data class to store the parsed name and email.
+- Leave a TODO for developers to handle the app's server-side validation and parsing.
+- Direct users to the home screen after API call success and show a snackbar with user details for reference purpose only.
 
 This guide describes how to implement verified email retrieval using the
 [Digital Credentials Verifier API](https://developer.android.com/identity/digital-credentials/credential-verifier) through an [OpenID for Verifiable
@@ -296,3 +389,12 @@ to the Credential Manager API.
 
 - [Overview of verified email retrieval](https://developer.android.com/identity/digital-credentials/email-verification)
 - [Credential Manager](https://developer.android.com/identity/credential-manager)
+
+## Critical Security Guidelines
+
+To maintain the integrity of the email verification flow, the following security
+requirements are mandatory:
+
+- **Server-side Validation** : Never trust claims parsed on the client for security-sensitive operations like account creation. Send the complete, raw `responseJsonString` and the original `nonce` to the app's server for full verification.
+- **Nonce Integrity** : Generate a unique, cryptographically secure nonce for every request and **never** reuse a nonce across multiple requests to prevent replay attacks.
+- **Cryptographic Checks** : The app's server must validate the issuer (`iss`) field, the SD-JWT signature, and the presenter identity using the `cnf` field.

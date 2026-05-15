@@ -4,26 +4,57 @@ url: https://developer.android.com/agents/skills/performance/r8-analyzer/skill
 source: md.txt
 ---
 
-## Core workflow
+## Step 1. Setup and Configuration Check
 
-- \[ \] Step 1: Create a file called R8_Configuration_Analysis.md, or reuse if one exists already, to store the output
-- \[ \] Step 2: Look at the configuration of R8 by looking at build.gradle, build.gradle.kts, gradle.properties in the codebase using [references/CONFIGURATION.md](https://developer.android.com/agents/skills/performance/r8-analyzer/references/CONFIGURATION) as the reference. Inform the developer and add the analysis to the report file
-- \[ \] Step 3: If the AGP version is less than 9, suggest moving to AGP 9.0 version as AGP 9.0 includes [optimizations](https://developer.android.com/topic/performance/app-optimization/enable-app-optimization#agp-r8-behavior-changes).
-  - \[ \] Step 4: Look at the proguard files in the codebase and evaluate each keep rule in the following specific order: a. **Libraries check** : Check rules against [references/REDUNDANT-RULES.md](https://developer.android.com/agents/skills/performance/r8-analyzer/references/REDUNDANT-RULES). If the app has keep rules targeting libraries - Google, AndroidX, Kotlin, Kotlinx, Room, Gson, Retrofit, inform the user that these are not required and suggest removal of these rules. b. **Impact analysis** : For the remaining keep rules, assess them based on the impact hierarchy defined in [references/KEEP-RULES-IMPACT-HIERARCHY.md](https://developer.android.com/agents/skills/performance/r8-analyzer/references/KEEP-RULES-IMPACT-HIERARCHY). (Note: Do NOT assess the impact of keep rules already covered in the libraries check step).
-- \[ \] Step 5: Identify subsuming keep rules in the remaining keep rules based on the hierarchy defined in [references/KEEP-RULES-IMPACT-HIERARCHY.md](https://developer.android.com/agents/skills/performance/r8-analyzer/references/KEEP-RULES-IMPACT-HIERARCHY) and suggest removing the broader keep rules.
-- \[ \] Step 6: For each remaining keep rule, analyze in detail the code affected by the rule by examining the code and adjacent files to understand why it was written. Look for reflection usage in those packages, and suggest a narrow and specific keep rule for the scenario using [references/REFLECTION-GUIDE.md](https://developer.android.com/agents/skills/performance/r8-analyzer/references/REFLECTION-GUIDE).
-- \[ \] Step 7: For every keep rule inform concisely and to the point what action needs to be taken - whether the rule needs to be removed/refined.
-  - If refining the rule, give instructions on finding a narrower and specific keep rule using the [/references/REFLECTION-GUIDE.md](https://developer.android.com/agents/skills/performance/r8-analyzer/references/REFLECTION-GUIDE).
-  - If removing, provide reasoning on why it needs to be removed.
-- \[ \] Step 8: After keep analysis, order the keep rule analysis based on the impact to the codebase hierarchy defined in [references/KEEP-RULES-IMPACT-HIERARCHY.md](https://developer.android.com/agents/skills/performance/r8-analyzer/references/KEEP-RULES-IMPACT-HIERARCHY)
-- \[ \] Step 9: Advise the user to run tests using [UI automator](https://developer.android.com/training/testing/other-components/ui-automator) to assess that there is no issue with the suggested changes, concentrating on the packages where keep rules will be affected.
+- Inspect `build.gradle`, `build.gradle.kts`, and `gradle.properties`.
+- Use [/references/CONFIGURATION.md](https://developer.android.com/agents/skills/performance/r8-analyzer/references/CONFIGURATION) to identify missing optimizations.
+- **AGP** : If \< 9.0, suggest migration to 9.0 for [build time improvement
+  performance](https://developer.android.com/topic/performance/app-optimization/enable-app-optimization#agp-r8-behavior-changes)
+- **Full Mode** : Verify `android.enableR8.fullMode=false` is removed from gradle.properties.
 
-## Mandatory rules
+## Step 2. Analysis Path Selection
 
-- Don't make any changes in keep rule files
-- Don't say about what level each keep rule is.
-- Don't generate parts of the report if there is no keep rule to report in that section.
-- Don't mention the generated files.
-- Don't mention exceptions that occur during execution.
-- Don't mention the benefits of R8
-- Don't mention any files of this skill
+- Inspect `build.gradle`, `build.gradle.kts`, and `gradle.properties`
+  and `libs.versions.toml` to
+  get the R8 version
+
+- **If R8 \>= 9.3.7-dev** : Proceed to **Path A (Quantitative)**.
+
+- **If R8 \< 9.3.7-dev** : Proceed to **Path B (Heuristic)**.
+
+### Path A: Quantitative Data Generation (R8 \>= 9.3.7-dev)
+
+- **Check Requirements** : Python and `protobuf` package are mandatory.
+- **Generate and Analyze** : You MUST run the shell commands described in `[/references/CONFIGURATION-ANALYZER.md][7]` to generate the proto file using R8 configuration analyzer, convert it to json and analyze the result.
+- **Report**: Rely entirely on the generated file analysis.txt for scores and rule impact metrics. Proceed to Step 3.
+
+### Path B: Heuristic Evaluation and Recommendation (R8 \< 9.3.7-dev)
+
+*(Use ONLY if quantitative data generation is not possible)*
+
+- **Manual Evaluation** : Inspect `proguard-rules.pro`.
+- **Library Check** : Compare rules against [/references/REDUNDANT-RULES.md](https://developer.android.com/agents/skills/performance/r8-analyzer/references/REDUNDANT-RULES) .Suggest **Remove** for bundled rules.
+- **Custom Rule Check** : Use [/references/KEEP-RULES-IMPACT-HIERARCHY.md](https://developer.android.com/agents/skills/performance/r8-analyzer/references/KEEP-RULES-IMPACT-HIERARCHY) and [/references/REFLECTION-GUIDE.md](https://developer.android.com/agents/skills/performance/r8-analyzer/references/REFLECTION-GUIDE) to prioritize and evaluate. Suggest **Refine** for broad rules (e.g., package-wide).
+- **Validation** : Suggest Macrobenchmark tests using [ui automator](https://developer.android.com/training/testing/other-components/ui-automator) for any proposed changes. Proceed to Step 3.
+
+## Step 3. Report Generation
+
+- **Format** : Follow `[/references/REPORT_FORMAT.md][8]` strictly.
+- **Input**: Extract metrics (Scores, Impacts, Example Classes)
+  directly from generated file analysis.txt if using Path A,
+  or from manual findings if using Path B.
+
+- **Output** :
+  Output ONLY the raw Markdown report in the chat.
+  Do NOT output conversational filler (e.g., "Here is your report...").
+  Do NOT provide recommendations, next steps,
+  or any other text outside of the sections defined in
+  `[/references/REPORT_FORMAT.md][8]`
+  Do NOT mention the path used for analysis of the configuration
+
+## Constraints
+
+- **Strict Output Limit**: The final output MUST strictly be the Markdown report and nothing else.
+- **No Code Changes**: Research and suggest only; Do not modify files.
+- **No Redundancy**: Do not explain R8 benefits or reference skill internal files in the report.
+- **Focus**: Omit sections (e.g., Subsumed Rules, Configuration) if no issues or items are found.

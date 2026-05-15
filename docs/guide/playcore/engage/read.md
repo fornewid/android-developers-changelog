@@ -165,11 +165,11 @@ Potter* book series, which has 7 books).
 
 Required specifications for image assets are listed below:
 
-| Aspect ratio | Requirement | Minimum pixels | Recommended pixels |
+| Aspect ratio | Supported cluster(s) | Minimum pixels | Recommended pixels |
 |---|---|---|---|
-| Square (1x1) | **Required** | 300x300 | 1200x1200 |
-| Landscape (1.91x1) | Optional | 600x314 | 1200x628 |
-| Portrait (4x5) | Optional | 480x600 | 960x1200 |
+| Square (1x1) | All clusters | 300x300 | 1200x1200 |
+| Landscape (1.91x1) | Featured and continuation | 600x314 | 1200x628 |
+| Portrait (4x5) | Recommendation | 480x600 | 960x1200 |
 
 *File formats*
 

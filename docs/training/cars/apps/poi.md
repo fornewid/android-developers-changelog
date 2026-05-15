@@ -11,12 +11,12 @@ app.
 ## Declare category support in your manifest
 
 Your app needs to declare the `androidx.car.app.category.POI`
-[car app category](https://developer.android.com/training/cars/apps#supported-app-categories) in the intent
-filter of its
+[car app category](https://developer.android.com/training/cars/apps/library/set-up-project#supported-app-categories)
+in the intent filter of its
 [`CarAppService`](https://developer.android.com/reference/androidx/car/app/CarAppService).
 
 > [!IMPORTANT]
-> **Important:** As of Car App Library version 1.3, the `androidx.car.app.category.PARKING` and `androidx.car.app.category.CHARGING` [car app categories](https://developer.android.com/training/cars/apps#supported-app-categories) are deprecated. Use the `androidx.car.app.category.POI` category instead.
+> **Important:** Beginning with Car App Library version 1.3, the `androidx.car.app.category.PARKING` and `androidx.car.app.category.CHARGING` [car app categories](https://developer.android.com/training/cars/apps/library/set-up-project#supported-app-categories) are deprecated. Use the `androidx.car.app.category.POI` category instead.
 
 The following example shows how to declare the app category:
 
@@ -62,8 +62,8 @@ To access these templates, your app needs to declare the
 
 ## Refresh PlaceListMapTemplate content
 
-You can let drivers refresh content with the tap of a button while browsing
-lists of places built with
+You can provide drivers a way to refresh content by tapping a button while
+browsing lists of places built with
 [`PlaceListMapTemplate`](https://developer.android.com/reference/androidx/car/app/model/PlaceListMapTemplate).
 Implement the
 [`OnContentRefreshListener`](https://developer.android.com/reference/androidx/car/app/model/OnContentRefreshListener)
@@ -108,6 +108,6 @@ template quota.
 
 Voice-enable your POI app using Assistant to allow users to search for points of
 interest by asking things like, *"Hey Google, find nearby charging stations on
-ExampleApp"* . For detailed instructions, see [App Actions for Cars](https://developer.android.com/guide/app-actions/cars).
+ExampleApp"* . For detailed instructions, see [App Actions for Cars](https://developer.android.com/develop/devices/assistant/cars).
 
 *** ** * ** ***

@@ -42,7 +42,7 @@ learn about testing in Compose.
 
 ## Setup
 
-Set up your app to let you test compose code.
+Set up your app to let you test Compose code.
 
 First, add the following dependencies to the `build.gradle` file of the module
 containing your UI tests:

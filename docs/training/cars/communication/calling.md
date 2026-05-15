@@ -46,7 +46,7 @@ following:
 #### Declare category support in your manifest
 
 Your app needs to declare the `androidx.car.app.category.CALLING`
-[car app category](https://developer.android.com/training/cars/apps#supported-app-categories) in the intent
+[car app category](https://developer.android.com/training/cars/apps/library/set-up-project#supported-app-categories) in the intent
 filter of its [`CarAppService`](https://developer.android.com/reference/androidx/car/app/CarAppService).
 
     <application>

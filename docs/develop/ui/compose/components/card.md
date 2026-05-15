@@ -38,7 +38,7 @@ call to `Text` in the following minimal example:
 ## Advanced implementations
 
 See the [reference](https://developer.android.com/reference/kotlin/androidx/compose/material3/Card.composable#Card(androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Shape,androidx.compose.material3.CardColors,androidx.compose.material3.CardElevation,androidx.compose.foundation.BorderStroke,kotlin.Function1)) for the API definition of `Card`. It defines several
-parameters that allow you customize the appearance and behavior of the
+parameters that allow you to customize the appearance and behavior of the
 component.
 
 Some key parameters to note are the following:

@@ -17,7 +17,7 @@ Compose for an existing app project, or import a sample app written in Compose.
 
 If you want to start a new project that includes support for Compose by default,
 Android Studio includes various project templates to help you get started. To
-create a new project that has Compose setup correctly, proceed as follows:
+create a new project that has Compose set up correctly, proceed as follows:
 
 1. If you're in the **Welcome to Android Studio** window, click **Start a new
    Android Studio project** . If you already have an Android Studio project open, select **File \> New \> New Project** from the menu bar.

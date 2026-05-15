@@ -1,6 +1,6 @@
 ---
-title: https://developer.android.com/identity/digital-credentials/email-verification-implementation
-url: https://developer.android.com/identity/digital-credentials/email-verification-implementation
+title: https://developer.android.com/identity/digital-credentials/email-verification-common
+url: https://developer.android.com/identity/digital-credentials/email-verification-common
 source: md.txt
 ---
 

@@ -413,7 +413,7 @@ fun MessageList(messages: List<Message>) {
 Kotlin guarantees type-safe builders using
 [function literals with receiver](https://kotlinlang.org/docs/lambdas.html#function-literals-with-receiver).
 If we take the [`Canvas`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/Canvas.composable#Canvas(androidx.compose.ui.Modifier,kotlin.Function1))
-composable as example, it takes as a parameter a function with
+composable as an example, it takes as a parameter a function with
 [`DrawScope`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/drawscope/DrawScope)
 as the receiver, `onDraw: DrawScope.() -> Unit`, allowing the block of code to
 call member functions defined in `DrawScope`.

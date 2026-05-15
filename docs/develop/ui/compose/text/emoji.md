@@ -208,7 +208,7 @@ See the [Interoperability APIs](https://developer.android.com/develop/ui/compose
 ## Troubleshooting
 
 If you're seeing *tofu* (☐) instead of the emoji, first check if the problem is
-your specific test device. There are few main things you can check:
+your specific test device. There are a few main things you can check:
 
 - You might be using a [recently flashed device or a new emulator](https://developer.android.com/develop/ui/views/text-and-emoji/emoji2#appcompat-displays-tofu-new-or-flashed-device). If possible, try another real test device you use often that is signed into your Google Account. Remember that API should be 30 or below to ensure emojis work in the correct versions.
 - The test phone [doesn't support downloadable fonts](https://developer.android.com/develop/ui/views/text-and-emoji/emoji2#appcompat-displays-tofu-no-downloadable-font-support).

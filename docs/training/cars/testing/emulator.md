@@ -142,7 +142,7 @@ current speed of the vehicle, you can find the property for speed
 ([`VehiclePropertyIds.PERF_VEHICLE_SPEED`](https://developer.android.com/reference/android/car/VehiclePropertyIds#PERF_VEHICLE_SPEED)) and change its value.
 
 > [!TIP]
-> **Tip:** If your app is built using the [Car App Library](https://developer.android.com/training/cars/apps), we recommend using the [`CarHardwareManager` API](https://developer.android.com/training/cars/apps#car-hardware) to read these values because it provides a uniform interface across Android Auto and Android Automotive OS.
+> **Tip:** If your app is built using the [Car App Library](https://developer.android.com/training/cars/apps), we recommend using the [`CarHardwareManager` API](https://developer.android.com/training/cars/apps/library/car-hardware-api) to read these values because it provides a uniform interface across Android Auto and Android Automotive OS.
 
 #### Simulate driving
 

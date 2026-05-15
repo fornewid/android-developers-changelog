@@ -8,6 +8,21 @@ Jetpack Compose delivers excellent performance out of the box. Configure your
 app using best practices to avoid common pitfalls and optimize your Compose
 application's performance.
 
+## Benchmarking Jetpack Compose
+
+To validate Jetpack Compose performance against Views, we use hero
+benchmarks---benchmarks that focus on important, real-world user journeys, like
+cold starting an app or scrolling a list or grid with images. We conduct these
+benchmarks using the open-source Pokedex app, comparing its [Views](https://github.com/skydoves/pokedex) and
+[Compose](https://github.com/skydoves/pokedex-compose) implementations.
+
+These benchmarks show that Compose 1.9 and later match the Views performance for
+jank while scrolling.
+![Since Compose 1.9.0, Compose and Views have the same jank rate](https://developer.android.com/static/develop/ui/compose/performance/images/jank.svg) Since Compose 1.9.0, Compose and Views have the same jank rate.
+
+For additional metrics and to learn about our methodologies, see [Hero
+benchmarks](https://developer.android.com/develop/ui/compose/performance/herobenchmark).
+
 ## Key concepts
 
 These are some of the key concepts for performance in Compose:

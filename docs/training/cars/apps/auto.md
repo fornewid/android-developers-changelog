@@ -4,13 +4,14 @@ url: https://developer.android.com/training/cars/apps/auto
 source: md.txt
 ---
 
-Review the following information to learn how make changes to your app's manifest
-so that Android Auto can discover and interact with your app's `CarAppService`.
+Read the following information to learn how to make changes to your app's
+manifest so that Android Auto can discover and interact with your app's
+`CarAppService`.
 
 ## Declare Android Auto support
 
-The [Android Auto host](https://developer.android.com/training/cars/apps#key-terms-concepts) checks whether
-the app has declared support for [Android Auto](https://developer.android.com/training/cars#auto).
+The [Android Auto host](https://developer.android.com/training/cars/apps/library/glossary-concepts) checks
+whether the app has declared support for [Android Auto](https://developer.android.com/training/cars#auto).
 To enable this support, include the following entry in your app's manifest:
 
     <application>
@@ -21,8 +22,9 @@ To enable this support, include the following entry in your app's manifest:
         ...
     </application>
 
-This manifest entry refers to another XML file that you create with the
-path `AppProjectDirectory/app/src/main/res/xml/automotive_app_desc.xml`.
+That manifest entry refers to another XML file that you create with the
+path
+`AppProjectDirectory/app/src/main/res/xml/automotive_app_desc.xml`.
 In that file, you declare what Android Auto capabilities your app supports.
 
 Apps using the [Android for Cars App

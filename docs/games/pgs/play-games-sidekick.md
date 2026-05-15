@@ -33,7 +33,7 @@ the following features:
 
 New features will continue to be added:
 
-- **Gemini Live:** Only available to Early Access Partners (EAP). If your game is not an EAP title, Gemini Live won't appear on your game.
+- **Gemini Live:** Only available to Early Access Partners (EAP). If your game is not an EAP title, Gemini Live won't appear on your game. There will be a minimum of 3 months notice for any changes from this EAP program to move to the General Availability (GA) phase. Use our EAP program to test for performance in your test tracks.
 
 ## Software and hardware requirements
 
@@ -99,7 +99,7 @@ follow these steps:
 5. Select **Save changes**.
 
 If your app updates are infrequent, we may periodically update the Play Games
-Sidekick for you. You can opt out of Sidekick via the advanced settings in the
+Sidekick for you. You can opt out of Sidekick using the advanced settings in the
 Google Play Console at any time
 
 ## Promote Sidekick to production

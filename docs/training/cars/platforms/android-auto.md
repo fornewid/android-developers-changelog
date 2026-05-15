@@ -111,7 +111,7 @@ navigating back or exiting the current app.
 Due to restrictions imposed by Android Auto and Android more generally, there
 are some notable behavior differences when an app runs on the head unit.
 
-#### Starting other apps
+#### Start other apps
 
 Because only apps in supported categories that have declared support for Android
 Auto can have their activities run on the head unit, it is likely that intents
@@ -120,7 +120,7 @@ web page or Google Play Store page, the corresponding app will be opened on the
 phone instead. All other activity-launching intents are blocked and the user is
 notified that the corresponding app can't be opened.
 
-#### Accepting permissions
+#### Accept permissions
 
 On devices running Android 15, it isn't possible for users to accept
 runtime permissions requests on the head unit. When an app requests a
@@ -142,7 +142,7 @@ sources include the following:
 
 To detect whether Android Auto is running on a device, you can use the
 `CarConnection` API that is part of the Android for Cars App Library. See
-[Connection API](https://developer.android.com/training/cars/apps#car-connection) for more details.
+[Connection API](https://developer.android.com/training/cars/apps/library/connection-api) for more details.
 
 > [!CAUTION]
 > **Caution:** On devices running Android 12 or higher, Android Auto doesn't change the [UI mode](https://developer.android.com/reference/android/content/res/Configuration#uiMode) of the device when running, so don't rely on it.

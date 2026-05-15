@@ -120,7 +120,7 @@ common 80-bit Intel-only `long double`).
 ### x86_64
 
 This ABI is for CPUs supporting the instruction set commonly referred to as
-"x86-64".
+"x86-64-v2".
 
 Android's ABI includes the base instruction set plus
 [MMX](https://en.wikipedia.org/wiki/MMX_%28instruction_set%29),
@@ -232,17 +232,11 @@ In a fat APK, each library resides under a directory whose name matches a corres
 For example, a fat APK may contain:
 
 ```
-/lib/armeabi/libfoo.so
 /lib/armeabi-v7a/libfoo.so
 /lib/arm64-v8a/libfoo.so
 /lib/x86/libfoo.so
 /lib/x86_64/libfoo.so
 ```
-
-**Note:** ARMv7-based Android devices running 4.0.3 or earlier
-install native libraries from the `armeabi` directory instead of the `armeabi-v7a`
-directory if both directories exist. This is because `/lib/armeabi/` comes after
-`/lib/armeabi-v7a/` in the APK. This issue is fixed from 4.0.4.
 
 ### Android platform ABI support
 
@@ -255,22 +249,9 @@ properties indicate:
 This mechanism ensures that the system extracts the best machine code from
 the package at installation time.
 
-For best performance, you should compile directly for the primary ABI. For example, a
-typical ARMv5TE-based device would only define the primary ABI: `armeabi`. By contrast, a
-typical, ARMv7-based device would define the primary ABI as `armeabi-v7a` and the secondary
-one as `armeabi`, since it can run application native binaries generated for each of them.
-
-64-bit devices also support their 32-bit variants. Using arm64-v8a devices
-as an example, the device can also run armeabi and armeabi-v7a code. Note,
-however, that your application will perform much better on 64-bit devices if it
-targets arm64-v8a rather than relying on the device running the armeabi-v7a
-version of your application.
-
-Many x86-based devices can also run `armeabi-v7a` and `armeabi` NDK binaries. For
-such devices, the primary ABI would be `x86`, and the second one, `armeabi-v7a`.
-
 You can force install an apk for a specific [ABI](https://developer.android.com/ndk/guides/abis#sa).
-This is useful for testing. Use the following command:
+This can be useful for testing on devices that support more than one ABI.
+Use the following command:
 
 ```
 adb install --abi abi-identifier path_to_apk

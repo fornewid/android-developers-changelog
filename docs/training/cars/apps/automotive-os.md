@@ -17,7 +17,7 @@ To run your car app on Android Automotive OS, you need the latest
 Templates Host, which comes as a system app.
 
 > [!NOTE]
-> **Note:** You may need to navigate to the Play Store listing for the [Google Automotive App
+> **Note:** You might need to navigate to the Play Store listing for the [Google Automotive App
 > Host](https://play.google.com/store/apps/details?id=com.google.android.apps.automotive.templates.host) to install or update the host.
 
 ## Development overview
@@ -28,9 +28,9 @@ described in sections on this page:
 1. [Create an automotive module](https://developer.android.com/training/cars/apps/automotive-os#automotive-module)
 2. [Declare support for Android Automotive OS](https://developer.android.com/training/cars/apps/automotive-os#manifest-car-app)
 3. [Declare your `CarAppService` and `CarAppActivity`](https://developer.android.com/training/cars/apps/automotive-os#car-app-activity)
-4. [Update your Gradle dependencies](https://developer.android.com/training/cars/apps/automotive-os#gradle)
+4. [Update your Gradle dependencies](https://developer.android.com/training/cars/apps/automotive-os#update-gradle-dependencies)
 
-Use [Android Studio Bumblebee](https://developer.android.com/studio/) or newer to ensure
+Use [Android Studio Bumblebee](https://developer.android.com/studio) or newer to ensure
 that all Automotive OS features are enabled.
 
 ## Create an automotive module
@@ -115,7 +115,7 @@ requirements](https://developer.android.com/training/cars/platforms/automotive-o
 
 ## Update your Gradle dependencies
 
-Within you automotive module, you must add a dependency on the
+Within your automotive module, you must add a dependency on the
 [`androidx.car.app:app-automotive` artifact](https://developer.android.com/jetpack/androidx/releases/car-app),
 which includes the `CarAppActivity` implementation required for your app to run
 on Android Automotive OS.
@@ -170,7 +170,8 @@ capabilities that your app supports.
 
 To indicate that you have a Car App Library app,
 add an XML file named `automotive_app_desc.xml` to the `res/xml/` directory in
-your Android Automotive OS module. This file should include the following content:
+your Android Automotive OS module. This file should include the following
+content:
 
     <automotiveApp>
         <uses name="template"/>
@@ -183,9 +184,10 @@ your Android Automotive OS module. This file should include the following conten
 
 As with Android Auto, Android Automotive OS uses your `CarAppService`
 implementation to run your app. Refer to
-[Create your CarAppService and Session](https://developer.android.com/training/cars/apps#create-carappservice)
-and [Declare your CarAppService](https://developer.android.com/training/cars/apps#declare-carappservice) for
-instructions on implementing and declaring your `CarAppService`.
+[Create your CarAppService and Session](https://developer.android.com/training/cars/apps/library/carappservice-session)
+and
+[Declare your CarAppService](https://developer.android.com/training/cars/apps/library/set-up-project#declare-carappservice)
+for instructions on implementing and declaring your `CarAppService`.
 
 Unlike Android Auto, you must include an additional application component,
 the `CarAppActivity`, to serve as the entry point for your Android Automotive OS
@@ -262,7 +264,7 @@ snippet:
 ## Support deep links
 
 To improve your templated app's experience on Android Automotive OS devices, you
-can support add support for [deep links](https://developer.android.com/training/app-links) to your `CarAppActivity`. For
+can add support for [deep links](https://developer.android.com/training/app-links) to your `CarAppActivity`. For
 example, this allows users to open your app directly from a browser or when
 receiving a URL shared from a phone using [Quick Share](https://support.google.com/android/answer/9286773).
 
