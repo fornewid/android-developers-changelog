@@ -1,0 +1,13 @@
+diff --git a/docs/training/wearables/compose/lists.md b/docs/training/wearables/compose/lists.md
+index 23b13d04..84ad90ca 100644
+--- a/docs/training/wearables/compose/lists.md
++++ b/docs/training/wearables/compose/lists.md
+@@ -98,7 +98,7 @@ when using the physical crown or bezel.
+ 
+ ```kotlin
+ val columnState = rememberTransformingLazyColumnState()
+-ScreenScaffold(scrollState = columnState) {
++ScreenScaffold(scrollState = columnState) { contentPadding ->
+     TransformingLazyColumn(
+         state = columnState,
+         flingBehavior = TransformingLazyColumnDefaults.snapFlingBehavior(columnState),
