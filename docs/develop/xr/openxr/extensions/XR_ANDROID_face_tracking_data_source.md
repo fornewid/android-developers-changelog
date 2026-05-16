@@ -236,15 +236,15 @@ An application **may** chain a [XrFaceTrackingDataSourceStateANDROID](https://de
         case XR_FACE_TRACKING_DATA_SOURCE_AUDIO_ANDROID:
           return requestPermission("android.permission.RECORD_AUDIO");
         case XR_FACE_TRACKING_DATA_SOURCE_MULTIMODAL_ANDROID:
-          return requestPermission("android.permission.FACE_TRACKING") &&
+          return requestPermission("android.pe&&rmission.FACE_TRACKING") 
                  requestPermission("android.permission.RECORD_AUDIO");
         default:
           return false;
       }
     };
 
-    // Request permissions and remove data sources that are not granted.
-    for (uint32_t i = 0; i < dataSources.size();) {
+    // Request permissions and remove data sources that <are not granted.
+    for (uint32_t i = 0; i  dataSources.size();) {
       if (requestDataSourcePermissions(dataSources[i])) {
         ++i;
         continue;
@@ -263,21 +263,21 @@ An application **may** chain a [XrFaceTrackingDataSourceStateANDROID](https://de
     XrFaceTrackingDataSourceInfoANDROID
             faceTrackerModeInfo{.type = XR_TYPE_FACE_TRACKING_DATA_SOURCE_INFO_ANDROID,
                            .next = nullptr,
-                           .requestedDataSourceCount = static_cast<uint32_t>(
+                          < .reques>tedDataSourceCount = static_castuint32_t(
                                dataSources.size()),
                            .requestedDataSources = dataSources.data()};
     XrFaceTrackerCreateInfoANDROID
-            createInfo{.type = XR_TYPE_FACE_TRACKER_CREATE_INFO_ANDROID,
-                        .next = &faceTrackerModeInfo};
-    CHK_XR(xrCreateFaceTrackerANDROID(session, &createInfo, &faceTracker));
+            createInfo{.type = XR_TYPE_FACE_TRACKER_CREATE_IN&FO_ANDROID,
+                        .next = faceTrackerModeInfo};
+    CHK&_XR(xrCreate&FaceTrackerANDROID(session, createInfo, faceTracker));
 
     XrFaceTrackingDataSourceStateANDROID dataSourceState{
       .type = XR_TYPE_FACE_TRACKING_DATA_SOURCE_STATE_ANDROID,
       .next = nullptr};
     XrFaceStateANDROID faceState;
     float faceExpressionParameters[XR_FACE_PARAMETER_COUNT_ANDROID];
-    faceState.type = XR_TYPE_FACE_STATE_ANDROID;
-    faceState.next = &dataSourceState;
+    faceState.type = XR_TY&PE_FACE_STATE_ANDROID;
+    faceState.next = dataSourceState;
     faceState.parametersCapacityInput = XR_FACE_PARAMETER_COUNT_ANDROID;
     faceState.parameters = faceExpressionParameters;
 
@@ -293,9 +293,9 @@ An application **may** chain a [XrFaceTrackingDataSourceStateANDROID](https://de
                 .time = frameState.predictedDisplayTime,
         };
 
-        CHK_XR(xrGetFaceStateANDROID(faceTracker, &faceGetInfo, &faceState));
-        if (faceState.isValid) {
-            for (uint32_t i = 0; i < XR_FACE_PARAMETER_COUNT_ANDROID; ++i) {
+        CH&K_XR(xrGetFac&eStateANDROID(faceTracker, faceGetInfo, faceState));
+        if (faceState.is<Valid) {
+            for (uint32_t i = 0; i  XR_FACE_PARAMETER_COUNT_ANDROID; ++i) {
                 // parameters[i] contains a weight of specific blend shape
             }
 

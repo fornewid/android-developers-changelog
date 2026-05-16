@@ -70,25 +70,8 @@ public class MainActivity extends AppCompatActivity implements ComponentCallback
 }
 ```
 
-### C#
-
-```c#
-using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
-
-class LowMemoryTrigger : MonoBehaviour
-{
-    private void Start()
-    {
-        Application.lowMemory += OnLowMemory;
-    }
-    private void OnLowMemory()
-    {
-        // Respond to low memory condition (e.g., Resources.UnloadUnusedAssets())
-    }
-}
-```
+> [!NOTE]
+> **Note:** Some game engines might not support `onTrimMemory()` callback with `TRIM_MEMORY_UI_HIDDEN` or `TRIM_MEMORY_BACKGROUND`. Additionally, game engines might pause execution when the application moves to the background. Consequently, events sent from customized Java or Kotlin code might not reach the engine main thread immediately. Handling these events on a running background thread to release unmanaged memory is an effective way to maintain your game's health.
 
 ## Be conservative with memory budgets
 
@@ -161,6 +144,8 @@ You can also issue SQL queries on the data it produces for offline processing.
 Enable long traces from the
 [System Tracing app](https://developer.android.com/topic/performance/tracing/on-device). Make sure the
 **memory:Memory** category is enabled for the trace.
+For custom memory instrumentation in development and testing, you can also use
+the (Beta)[heapprofd API](https://perfetto.dev/docs/instrumentation/heapprofd-api).
 
 ### heapprofd
 

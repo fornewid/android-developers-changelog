@@ -24,6 +24,86 @@ Espresso's [`onView`](https://developer.android.com/reference/androidx/test/espr
         Espresso.onView(withText("Hello Compose")).check(matches(isDisplayed()))
     }
 
+## Add View-scoped semantics for Compose interop testing
+
+> [!NOTE]
+> **Note:** The `onRootWithViewInteraction` API is included in [`androidx.compose.ui:ui-test-junit4:1.12.0-alpha01+`](https://developer.android.com/jetpack/androidx/releases/compose-ui#1.12.0-alpha01) and [`androidx.compose.ui:ui-test:1.12.0-alpha01+`](https://developer.android.com/jetpack/androidx/releases/compose-ui#1.12.0-alpha01). This API is experimental and subject to change.
+
+### Scope Compose searches to specific Views
+
+When migrating complex UIs to Compose, you might encounter identical Compose
+elements nested inside multiple traditional Android Views---such as within a
+`RecyclerView` or a `ViewPager`. In these scenarios, a standard Compose search
+like `onNodeWithText("Save")` might fail with a "Multiple nodes found" error.
+
+Instead of modifying your production code to inject dynamic test tags to
+distinguish these elements, you can scope your Compose test directly to a
+specific Android View.
+
+Use the `onRootWithViewInteraction` API on your test rule. This function accepts
+an Espresso `ViewInteraction`, allowing you to leverage Espresso to isolate a
+specific container View and perform Compose interactions exclusively within
+that scoped hierarchy.
+
+> [!NOTE]
+> **Note:** This API is specifically designed for testing Compose components nested inside Views. To test Views nested inside Compose, continue using standard Espresso interactions.
+
+#### Interact with a list item
+
+If you need to interact with a Compose element inside a specific `RecyclerView`
+row, use Espresso to locate the row, then scope your Compose interaction to it.
+This ignores identical Compose elements in all other rows.
+
+
+```kotlin
+@Test
+fun testComposeButtonInsideRecyclerViewItem() = runComposeUiTest {
+    // Scroll to the desired position using Espresso
+    Espresso.onView(withId(recyclerViewId))
+        .perform(RecyclerViewActions.scrollToPosition<MyViewHolder>(3))
+
+    // Define an Espresso ViewInteraction that uniquely identifies the row
+    val rowView = Espresso.onView(
+        allOf(
+            withId(rootViewId),
+            hasDescendant(withText("Item #3"))
+        )
+    )
+
+    // Scope the Compose search strictly to that specific row View
+    onRootWithViewInteraction(rowView)
+        .onNode(hasText("Like"))
+        .performClick()
+}
+```
+
+<br />
+
+#### Resolve ambiguity in ViewPagers
+
+When multiple fragments with identical Compose layouts are in memory
+simultaneously, you can scope the search to the specific fragment's root View ID
+to prevent matching ambiguity.
+
+
+```kotlin
+@Test
+fun testComposeButtonInsideViewPagerItem() = runComposeUiTest {
+    // Swipe to the desired page using Espresso
+    Espresso.onView(withId(viewPagerViewId)).perform(swipeLeft())
+
+    // Identify the specific container view using Espresso
+    val fragmentB = Espresso.onView(withId(fragmentRootViewId))
+
+    // The generic text "Save" is now unique within this view scope
+    onRootWithViewInteraction(fragmentB)
+        .onNode(hasText("Save"))
+        .assertIsDisplayed()
+}
+```
+
+<br />
+
 ## Interoperability with UiAutomator
 
 By default, composables are accessible from [UiAutomator](https://developer.android.com/training/testing/other-components/ui-automator) only by their

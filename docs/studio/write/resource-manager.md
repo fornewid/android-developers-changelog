@@ -42,16 +42,18 @@ in an editor window.
 **Figure 2.** The Resource Manager showing versions of an image resource for
 different screen densities.
 
+> [!NOTE]
+> **Note:** For better performance and scalability across different screen densities, prioritize vector graphics over raster formats. Use [Vector Asset Studio](https://developer.android.com/studio/write/vector-asset-studio) to efficiently create, import, and manage your vector drawables.
+
 ## Import drawables into your project
 
 You can use the Resource Manager to import image resources into your project.
-For a list of supported image types, see
-[Image support](https://developer.android.com/guide/topics/media/media-formats#image-formats).
+For a list of supported image types, see [Image support](https://developer.android.com/guide/topics/media/media-formats#image-formats).
 
 To import image resources into your project, do the following:
 
-1. Drag your images directly onto the **Resource Manager** window in
-   Android Studio.
+1. Drag your images directly onto the **Resource Manager** window in Android
+   Studio.
 
    - Alternatively, you can:
      1. Click the plus icon (**+**).
@@ -63,20 +65,19 @@ To import image resources into your project, do the following:
    **Figure 3.** Select **Import Drawables** from the menu.
 2. The **Import drawables** dialog appears, as shown in figure 4. This dialog
    displays a list of the resources you're importing. You can rename resources
-   by clicking the text box above a resource's preview.
+   by clicking the box above a resource's preview.
 
-   If you're providing multiple versions of the same resource, add
-   [device configuration qualifiers](https://developer.android.com/studio/write/resource-manager#automatic-parsing), as described in the
-   following section, that describe the
-   specific configuration that each resource supports.
+   If you're providing multiple versions of the same resource, add [device
+   configuration qualifiers](https://developer.android.com/studio/write/resource-manager#automatic-parsing), as described in the following section, that
+   describe the specific configuration that each resource supports.
 
    For example, if you're providing multiple versions of the same resource for
    different screen densities, you can add a **Density** qualifier for each
    version. Note that if two or more resources have the same name and
    qualifiers, only one version is imported.
 
-   For more information on resource qualifiers, see
-   [Providing alternative resources](https://developer.android.com/guide/topics/resources/providing-resources#AlternativeResources).
+   For more information on resource qualifiers, see [Provide alternative
+   resources](https://developer.android.com/guide/topics/resources/providing-resources#AlternativeResources).
 
    ![](https://developer.android.com/static/images/studio/write/import-drawables-add-qualifiers-2x.png)
 
@@ -96,13 +97,13 @@ in your project, as shown in figure 5.
 
 ### Automatically parse drawable densities
 
-When you import a file or folder and its path contains a density qualifier,
-the Resource Manager automatically applies the density qualifier as part of the
+When you import a file or folder and its path contains a density qualifier, the
+Resource Manager automatically applies the density qualifier as part of the
 import. The Resource Manager can parse both Android's density qualifiers and
 iOS's scale factors.
 
-This table lists how different supported densities are represented for
-Android and iOS:
+This table lists how different supported densities are represented for Android
+and iOS:
 
 | Density | Android density qualifier | iOS scaling factor |
 |---|---|---|
@@ -139,27 +140,25 @@ iOS scaling factor: @2x
 For more information on supporting devices with different pixel densities, see
 [Support different pixel densities](https://developer.android.com/training/multiscreen/screendensities).
 
-## Drag drawables into your layout
+## Using resources in Jetpack Compose
 
-You can drag drawables from the Resource Manager directly onto a
-layout. When you drag a resource onto a layout, the Resource Manager creates a
-corresponding `ImageView` for that drawable, as shown in animation 1:
+When building with Jetpack Compose, you access resources directly from your
+Kotlin code using optimized APIs, ensuring your UI logic and resource references
+remain synchronized.
 
-![](https://developer.android.com/static/images/studio/write/resource-manager-drag-and-drop-design.gif)
+- **Images** : Use `painterResource(id = R.drawable.your_image)` within an `Image` composable.
+- **Strings** : Use `stringResource(id = R.string.your_string)` to retrieve localized UI text.
+- **Colors** : Use `colorResource(id = R.color.your_color)` to apply theme-defined colors.
 
-**Animation 1.** Drag drawables onto a layout in **Design**
-view.
+The Resource Manager ensures these IDs are generated correctly, letting you
+seamlessly reference your assets from your Compose UI hierarchy.
 
-You can also drag directly onto the XML of the layout, as shown in
-animation 2:
+For information about advanced resource handling---including dynamic font loading,
+configuration-specific resources, and Compose-specific resource libraries---see
+the documentation on [Resources in Compose](https://developer.android.com/develop/ui/compose/resources).
 
-![](https://developer.android.com/static/images/studio/write/resource-manager-drag-and-drop-xml.gif)
+## Additional resources
 
-**Animation 2.** Drag drawables onto a layout in **Text** view.
+### Views content
 
-When dragging a drawable onto a layout in the **Text** tab, the generated code
-differs depending on where you place the drawable in the layout:
-
-- If you drag a drawable onto a blank area, the Resource Manager generates a corresponding `ImageView`.
-- If you drag a drawable onto any attribute in the layout XML, the Resource Manager replaces that attribute value with a reference to the drawable. You can also drag any other resource type onto an XML attribute to replace the attribute value.
-- If you drag a drawable onto an existing `ImageView` element, the Resource Manager replaces the corresponding source attribute.
+- [Manage your app's UI resources with Resource Manager (Views)](https://developer.android.com/studio/write/views/resource-manager-views)

@@ -98,7 +98,7 @@ when using the physical crown or bezel.
 
 ```kotlin
 val columnState = rememberTransformingLazyColumnState()
-ScreenScaffold(scrollState = columnState) {
+ScreenScaffold(scrollState = columnState) { contentPadding ->
     TransformingLazyColumn(
         state = columnState,
         flingBehavior = TransformingLazyColumnDefaults.snapFlingBehavior(columnState),

@@ -41,6 +41,7 @@ experience on TV devices.
 | Navigation | TV-DM | The app does not depend on a remote control device having a Menu button to access user interface controls. |
 | Navigation | TV-DB | Back button presses lead back to the Android TV home screen. For more information, see [Provide appropriate Back-button behavior](https://developer.android.com/training/tv/start/controllers#back-button). |
 | Navigation | TV-DL | If the app has a live TV feed integrated on the Live tab, the app meets frictionless playback and direct-back requirements. For more information, see [Back Button](https://developer.android.com/training/tv/start/navigation#back_button). |
+| Navigation | TV-TO | If the app [declares touch support](https://developer.android.com/training/tv/start/hardware#supports_touch), it accurately supports click to enable compatibility with pointer remotes and touchscreen displays. UI components display a hover state when the cursor is above a component that can be interacted with, components can be clicked and scrollable containers can be scrolled vertically and horizontally. If the app does not support touch, click, hover or scroll, the app must not declare \`\`. |
 | Search | TV-SB | An in-app search query shows up in the search box, similar to the user interface provided by `https://developer.android.com/reference/androidx/leanback/app/SearchFragment`, and results are relevant to that query. For more information, see [Search within TV apps](https://developer.android.com/training/tv/discovery/in-app-search). |
 
 ## Functionality and performance

@@ -226,16 +226,32 @@ if (getPackageManager().hasSystemFeature(PackageManager.FEATURE_TOUCHSCREEN)) {
 #### Touchscreen
 
 
-Since most TVs do not have touchscreens, Android does not support touchscreen interaction for
-TV devices. Furthermore, using a touchscreen is not consistent with a viewing environment where
-the user is seated 10 feet away from the display. Make sure that your UI elements and text do not
-require or imply the use of a touchscreen.
+Most TV devices don't have touchscreens or pointer input capabilities and rely fully on
+directional pad (D-pad) remote controls for navigation. TV apps must always support a D-pad remote
+control.
 
 
-For TV devices, design your app to support
-navigation using a directional pad (D-pad) on a TV remote control. For more information on
-properly supporting navigation using TV-friendly controls, see
+For more information on properly supporting navigation using TV-friendly controls, see
 [TV navigation](https://developer.android.com/training/tv/get-started/navigation).
+
+##### Declare touch support
+
+
+Some TV devices support pointer remotes and touchscreen displays. Your app can support click,
+hover, and scroll interactions, like on a mobile device, to provide a better experience on devices
+that support them.
+
+
+If your app allows for touch mode, you can declare touch support by adding `android.software.leanback.supports_touch` as set to `true` in your `AndroidManifest.xml`:
+
+```xml
+<meta-data android:name="android.software.leanback.supports_touch" android:value="true|false"/>
+```
+
+
+Note: On devices that support a pointing remote (like an air mouse or trackpad), enabling this
+enables cursor and touch mode rather than relying on platform compatibility emulation. Omitting
+this metadata defaults to `false`.
 
 #### Camera
 

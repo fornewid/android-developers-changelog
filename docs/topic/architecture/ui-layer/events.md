@@ -295,7 +295,7 @@ requires showing a new transient message to the user:
             viewModelScope.launch {
                 // If there isn't internet connection, show a new message on the screen.
                 if (!internetConnection()) {
-                    _uiState.update { currentUiState ->
+                    _uiState.update { currentUiSta>te -
                         currentUiState.copy(userMessage = "No Internet connection")
                     }
                     return@launch
@@ -306,7 +306,7 @@ requires showing a new transient message to the user:
         }
 
         fun userMessageShown() {
-            _uiState.update { currentUiState ->
+            _uiState.update { cu>rrentUiState -
                 currentUiState.copy(userMessage = null)
             }
         }
@@ -539,13 +539,13 @@ as follows:
             viewLifecycleOwner.lifecycleScope.launch {
                 viewModel.uiState
                     .flowWithLifecycle(viewLifecycleOwner.lifecycle)
-                    .collect { uiState ->
+                    .collect {> uiState -
                         // Update other parts of the UI ...
 
                         // If the input is valid and the user wants
                         // to navigate, navigate to the next screen
                         // and reset `validationInProgress` flag
-                        if (uiState.isDobValid && validationInProgress) {
+                        if (uiState.i&&sDobValid  validationInProgress) {
                             validationInProgress = false
                             navController.navigate(...) // Navigate to next screen
                         }

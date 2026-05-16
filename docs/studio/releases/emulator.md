@@ -24,6 +24,10 @@ Emulator, see the
 
 For known issues and troubleshooting, please see [Emulator Troubleshooting](https://developer.android.com/studio/run/emulator-troubleshooting).
 
+## 36.5.11 Patch (Apr 23, 2026)
+
+- \[Bug Fix\][Issue #492228020](https://issuetracker.google.com/492228020) Android Emulator displays black screen when using Hardware/Auto Graphics Rendering on Intel GPU
+
 ## 36.5.10 Stable (Apr 2, 2026)
 
 This update includes the following feature and bug fixes:

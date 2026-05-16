@@ -11,9 +11,12 @@ The agent reduces the time you spend setting up dependencies, writing
 boilerplate code, and creating basic navigation, allowing you to focus on the
 creative aspects of app development.
 
+By default, the agent is highly optimized to scaffold modern, declarative UIs
+using [Jetpack Compose](https://developer.android.com/develop/ui/compose/documentation).
+
 ## What you can build
 
-The agent is capable of generating a variety of multiscreen apps:
+The agent is capable of generating a variety of apps:
 
 - **Single-screen apps:** Build basic apps with static UI layouts, such as a profile screen, a settings page, or a calculator.
 - **Multipage apps:** Create applications with basic navigation between screens, like a flashcard app for studying.
@@ -26,9 +29,9 @@ To use the agent to set up a project, do the following:
 
 1. Start Android Studio.
 2. Select **New Project** on the **Welcome to Android Studio** screen (or
-   **File \> New \> New Project** from within a project)
+   **File \> New \> New Project** from within a project).
 
-   ![The Welcome to Android Studion screen, which has the New Project, Open, and Clone Repository buttons.](https://developer.android.com/static/studio/gemini/images/welcome_to_android_studio.png) **Figure 1.** Start a new project.
+   ![The Welcome to Android Studio screen, which has the New Project, Open, and Clone Repository buttons.](https://developer.android.com/static/studio/gemini/images/welcome_to_android_studio.png) **Figure 1.** Start a project.
 3. Select **Create with AI**.
 
    ![The new project dialog, which has cards for various kinds of
@@ -93,9 +96,10 @@ you can expect:
 To maximize the effectiveness of using the agent to generate new projects,
 consider the following tips:
 
-- **Clearly define project requirements**: Start with a clear and detailed prompt. Specify the app's purpose, target audience, core functionalities, and any specific technologies or libraries you want to use. For example, instead of "Create a note app," try "Create a simple note-taking app, using a Room database to allow users to add, edit, and delete notes. Use Material 3 with a vibrant color scheme."
+- **Clearly define project requirements**: Start with a clear and detailed prompt. Specify the app's purpose, target audience, core functionalities, and any specific technologies or libraries you want to use. For example, instead of "Create a note app," try "Create a simple note-taking app, using Jetpack Compose and a Room database to let users add, edit, and delete notes. Use Material 3 with a vibrant color scheme."
+- **Specify Jetpack Compose** : While the AI can generate legacy XML views if requested, we strongly recommend including "Jetpack Compose" in your prompt to get the most maintainable and modern UI code. If you are new to this paradigm, explore the [Compose documentation](https://developer.android.com/develop/ui/compose/documentation).
 - **Use an AI Studio API key**: Both code quality and the visual look and feel of the generated app are greatly improved when using the agent with an AI Studio API key to access the latest Gemini models.
 - **Upload design mockups**: (Optional) If you have design mockups or wireframes from designers, provide them to the agent in the New Project dialog. Visual references greatly help the AI understand your intended layout and aesthetics, leading to generated code that more closely matches your design vision.
-- **Specify desired form factors**: Clearly state which form factors you are targeting (for example, phone, tablet, Wear OS, Android TV). This helps the agent generate appropriate layouts and configurations for each device type. For example, "Generate a project for a phone and tablet, with responsive layouts for both." Verify you have an appropriate emulator image configured for the agent to use during evaluation.
+- **Specify desired form factors**: Clearly state which form factors you are targeting (for example, phone, tablet, Wear OS, Android TV). This helps the agent generate appropriate layouts and configurations for each device type. For example, "Generate a project for a phone and tablet, with responsive layouts for both." Verify that you have an appropriate emulator image configured for the agent to use during evaluation.
 - **Iterate and refine**: Don't be afraid to iterate. If the initial output isn't perfect, refine your prompt or provide additional details in the Agent Mode chat to try again. The agent can learn from more specific instructions.
-- **Provide examples**: If possible, include examples of similar apps or UI patterns you admire. This can guide the AI towards generating designs and structures that align with your preferences.
+- **Provide examples**: If possible, include examples of similar apps or UI patterns you admire. This can guide the AI toward designs and structures that align with your preferences.
