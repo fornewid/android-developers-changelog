@@ -1826,8 +1826,8 @@
     },
     "get-started.md": {
       "original_url": "https://developer.android.com/get-started",
-      "hash": "6178d0613517f7e5499410e250f94383d26d5b1547aec7737923581c4bc3648c",
-      "last_updated": "2026-04-10T15:15:53.414362",
+      "hash": "b2039347b0e012bc49d01673d8dea12229f1f915e70f25262fda861499508554",
+      "last_updated": "2026-05-17T15:22:00.456784",
       "fetch_method": "md.txt"
     },
     "develop/devices/assistant/overview.md": {
@@ -7424,8 +7424,8 @@
     },
     "large-screens/stories.md": {
       "original_url": "https://developer.android.com/large-screens/stories",
-      "hash": "ba02cb8d0d2c60f0cd9704399e5e49c710501b3faef4b993588a6b4fbd5f2dd1",
-      "last_updated": "2026-04-10T15:17:16.630251",
+      "hash": "d88c96eb9bef2cac5072e0993e0d21de29418902168ee08b3581e416bc3225f2",
+      "last_updated": "2026-05-17T15:23:02.143353",
       "fetch_method": "md.txt"
     },
     "training/wearables/user-input/wear-ime.md": {
@@ -9380,8 +9380,8 @@
     },
     "training/tv.md": {
       "original_url": "https://developer.android.com/training/tv",
-      "hash": "a29aff7164ccd571e1629d58fe38cfec6c78dc3a5a5c5076fc098df70ed1687e",
-      "last_updated": "2026-04-08T15:33:29.790991",
+      "hash": "ead13f7acbc980caf64c1ae6fa67b47b3e734195a10b894c56e993b992781587",
+      "last_updated": "2026-05-17T15:23:03.063522",
       "fetch_method": "md.txt"
     },
     "develop/ui/compose/state-saving.md": {
@@ -13286,8 +13286,8 @@
     },
     "develop/ui/compose/adopt.md": {
       "original_url": "https://developer.android.com/develop/ui/compose/adopt",
-      "hash": "9993072aee49dffdd8b206403e6b73d4b2b6ce7761e25e9b6966350911da1326",
-      "last_updated": "2026-04-09T17:07:08.833148",
+      "hash": "4942261ce8580c61f25157ca98e1a7f17699972922259a742336a34b311f0d2f",
+      "last_updated": "2026-05-17T15:24:33.424484",
       "fetch_method": "md.txt"
     },
     "develop/connectivity/cronet.md": {
@@ -16556,8 +16556,8 @@
     },
     "develop.md": {
       "original_url": "https://developer.android.com/develop",
-      "hash": "e37070c25dfbf58b9f48e32f17de4f9f75ece6b692e84f1cd3b7f9d557af26c9",
-      "last_updated": "2026-04-09T17:09:30.971462",
+      "hash": "412a6085cc67b6721422f7495fa29c6837b23d64516d1712332c58d96e0ccd75",
+      "last_updated": "2026-05-17T15:25:23.560103",
       "fetch_method": "md.txt"
     },
     "develop/ui/views/touch-and-input/stylus-input/about-ink-api.md": {
@@ -18158,8 +18158,8 @@
     },
     "design.md": {
       "original_url": "https://developer.android.com/design",
-      "hash": "740325558d870e471bb7ebaa544387a8cebdd856ea89ade869641a1f07f154c9",
-      "last_updated": "2026-04-09T17:09:26.894988",
+      "hash": "2900a3930d5401f14fd83bc50c0f5300a5830f34641dc3f98bf6038fce653277",
+      "last_updated": "2026-05-17T15:25:08.952211",
       "fetch_method": "md.txt"
     },
     "google/play/requirements/64-bit.md": {
@@ -19310,8 +19310,8 @@
     },
     "adaptive-apps.md": {
       "original_url": "https://developer.android.com/adaptive-apps",
-      "hash": "936da4aaad7ec6ac90754cef1a13359bce28eaecabb23169d80180fccab8d319",
-      "last_updated": "2026-04-10T15:20:08.687839",
+      "hash": "0a211b2eaefdb4296c683544648a91ab1d6ced5acd07fcca5fc19a00f449f19e",
+      "last_updated": "2026-05-17T15:26:07.148060",
       "fetch_method": "md.txt"
     },
     "develop/ui/views/touch-and-input/stylus-input/ink-api-geometry-apis.md": {
@@ -22076,8 +22076,8 @@
     },
     "develop/ui/compose/build-adaptive-apps.md": {
       "original_url": "https://developer.android.com/develop/ui/compose/build-adaptive-apps",
-      "hash": "a427b23c46a16169cc3c15041fc7bf09f47cd6d00bebb9bc609738ad43a0b3b2",
-      "last_updated": "2026-05-08T15:34:38.751814",
+      "hash": "56e6f40677603103f41546fc48ea034b30b8f71b074acc3e90a3519b2a9c0f5d",
+      "last_updated": "2026-05-17T15:26:05.670980",
       "fetch_method": "md.txt"
     },
     "develop/ui/compose/layouts/visibility-modifiers.md": {
@@ -22604,8 +22604,8 @@
     },
     "develop/ui.md": {
       "original_url": "https://developer.android.com/develop/ui",
-      "hash": "eeb81b53e2e0d52e938d62c3b4117e7af1693240836d8374a17f71c1934ab022",
-      "last_updated": "2026-04-10T15:20:39.093605",
+      "hash": "07289c7d8a266b196c4b76c8bb6fa9211812b46bc1c974942d51ab0b61f3c1ee",
+      "last_updated": "2026-05-17T15:26:39.545414",
       "fetch_method": "md.txt"
     },
     "courses/extras/sql-primer.md": {
@@ -22664,8 +22664,8 @@
     },
     "multidevice.md": {
       "original_url": "https://developer.android.com/multidevice",
-      "hash": "00b33d9b29424ef7098ff42cde5adbc060a94a57cc47d62fc661fef4495c3da4",
-      "last_updated": "2026-05-13T15:56:25.572368",
+      "hash": "ea03d1b4f2c9b52d270c79b22ee8299cad62a61b2b220e61d15e8c0703114d24",
+      "last_updated": "2026-05-17T15:26:31.872518",
       "fetch_method": "md.txt"
     },
     "courses/pathways/android-development-with-kotlin-9.md": {
@@ -29279,7 +29279,337 @@
       "hash": "22037e6c5a3a953c29528a6dc694571e04e59bf5b69c99779d2be1b1dff6e01e",
       "last_updated": "2026-05-16T15:26:14.566950",
       "fetch_method": "md.txt"
+    },
+    "develop/adaptive-apps/guides/grid/item-properties.md": {
+      "original_url": "https://developer.android.com/develop/adaptive-apps/guides/grid/item-properties",
+      "hash": "849006b0a1d259b8386160595ef0d239c9c3c68730f849e4f0ae73b26b91482e",
+      "last_updated": "2026-05-17T15:21:37.648285",
+      "fetch_method": "md.txt"
+    },
+    "develop/adaptive-apps/guides/tv/build-adaptive-apps-for-tv.md": {
+      "original_url": "https://developer.android.com/develop/adaptive-apps/guides/tv/build-adaptive-apps-for-tv",
+      "hash": "7872a8310c5f088c590507599ed9824ac95510b71af9eebb9f835fed430bf098",
+      "last_updated": "2026-05-17T15:21:40.599976",
+      "fetch_method": "md.txt"
+    },
+    "develop/adaptive-apps/guides/foldables/learn-about-foldables.md": {
+      "original_url": "https://developer.android.com/develop/adaptive-apps/guides/foldables/learn-about-foldables",
+      "hash": "c4157422e75dbf94304ce2842ec78f2c618dac035c28231e193142faa5a86898",
+      "last_updated": "2026-05-17T15:21:44.539690",
+      "fetch_method": "md.txt"
+    },
+    "develop/adaptive-apps/guides/support-connected-displays.md": {
+      "original_url": "https://developer.android.com/develop/adaptive-apps/guides/support-connected-displays",
+      "hash": "c5827ab6053c24640b13bbd582dd010dd951c20b0e34e295e9e72f6738d83390",
+      "last_updated": "2026-05-17T15:21:51.502282",
+      "fetch_method": "md.txt"
+    },
+    "training/tv/build-adaptive-apps.md": {
+      "original_url": "https://developer.android.com/training/tv/build-adaptive-apps",
+      "hash": "453bd503ba8bde5f9ad267f6b96376e4f3fd40d4a8b66d8c02cd491125ea0308",
+      "last_updated": "2026-05-17T15:21:53.216885",
+      "fetch_method": "md.txt"
+    },
+    "develop/adaptive-apps/guides/support-desktop-windowing.md": {
+      "original_url": "https://developer.android.com/develop/adaptive-apps/guides/support-desktop-windowing",
+      "hash": "4f0e5911ab8e0cf0d179442f597f9cc07d438396b534f99894bc5da9f18f7cd6",
+      "last_updated": "2026-05-17T15:21:56.660566",
+      "fetch_method": "md.txt"
+    },
+    "develop/adaptive-apps/guides/mediaquery.md": {
+      "original_url": "https://developer.android.com/develop/adaptive-apps/guides/mediaquery",
+      "hash": "8bfbac1b2e74438d90fa33d3f58b5f4929cdce2f8176744e524c6d25374252ec",
+      "last_updated": "2026-05-17T15:21:57.382195",
+      "fetch_method": "md.txt"
+    },
+    "develop/adaptive-apps/guides/camera-form-factors-support.md": {
+      "original_url": "https://developer.android.com/develop/adaptive-apps/guides/camera-form-factors-support",
+      "hash": "002086b7c49769c929dca8f750bdf08e1c526a3c5dbdcb6d11944e8272475f14",
+      "last_updated": "2026-05-17T15:22:17.969932",
+      "fetch_method": "md.txt"
+    },
+    "develop/adaptive-apps/quality-guidelines/adaptive-app-quality.md": {
+      "original_url": "https://developer.android.com/develop/adaptive-apps/quality-guidelines/adaptive-app-quality",
+      "hash": "274566b23e9916f0f96c27acff9d06afc674fc0d646c1a1589b183b9025b8922",
+      "last_updated": "2026-05-17T15:22:20.218743",
+      "fetch_method": "md.txt"
+    },
+    "develop/adaptive-apps.md": {
+      "original_url": "https://developer.android.com/develop/adaptive-apps",
+      "hash": "5383ac964493aee4cdaffdaf019adbaac3b43e7b03324ccdd549015470292b2d",
+      "last_updated": "2026-05-17T15:22:21.491893",
+      "fetch_method": "md.txt"
+    },
+    "develop/adaptive-apps/quality-guidelines/android-xr.md": {
+      "original_url": "https://developer.android.com/develop/adaptive-apps/quality-guidelines/android-xr",
+      "hash": "abf963e922f2d63c42042c03efc76ca0e338c2451c312d6583e6ec668374bf0f",
+      "last_updated": "2026-05-17T15:22:23.786482",
+      "fetch_method": "md.txt"
+    },
+    "develop/adaptive-apps/guides/support-different-display-sizes.md": {
+      "original_url": "https://developer.android.com/develop/adaptive-apps/guides/support-different-display-sizes",
+      "hash": "7b61602ff8f01f77cdcd1d5026c980e42785871e23563c4e2c441c4eefc75b3b",
+      "last_updated": "2026-05-17T15:22:25.794868",
+      "fetch_method": "md.txt"
+    },
+    "develop/adaptive-apps/guides/flexbox/get-started.md": {
+      "original_url": "https://developer.android.com/develop/adaptive-apps/guides/flexbox/get-started",
+      "hash": "86b3c4922d2eabaa5e2aab16ea518b601ff31390eeacebee97c1b863a1c65b56",
+      "last_updated": "2026-05-17T15:22:26.019381",
+      "fetch_method": "md.txt"
+    },
+    "develop/adaptive-apps/guides/foldables/make-your-app-fold-aware.md": {
+      "original_url": "https://developer.android.com/develop/adaptive-apps/guides/foldables/make-your-app-fold-aware",
+      "hash": "575f926540715d5c0a2f80403570769f35c97b22f7228258bdb0abf1de2c1f15",
+      "last_updated": "2026-05-17T15:22:26.664784",
+      "fetch_method": "md.txt"
+    },
+    "develop/adaptive-apps/quality-guidelines/car-app-quality.md": {
+      "original_url": "https://developer.android.com/develop/adaptive-apps/quality-guidelines/car-app-quality",
+      "hash": "9c68abc5a84ebd16eb6752aa11809ec1b3334adc01f9bf4eec259d1046550fd0",
+      "last_updated": "2026-05-17T15:22:27.301467",
+      "fetch_method": "md.txt"
+    },
+    "develop/adaptive-apps/quality-guidelines/adaptive-app-quality/experiences/foldables.md": {
+      "original_url": "https://developer.android.com/develop/adaptive-apps/quality-guidelines/adaptive-app-quality/experiences/foldables",
+      "hash": "1de74a6519a7591cda8cbe333a2097f787967e93aa4d22464d5c91d94485a578",
+      "last_updated": "2026-05-17T15:22:29.271740",
+      "fetch_method": "md.txt"
+    },
+    "develop/adaptive-apps/guides/flexbox.md": {
+      "original_url": "https://developer.android.com/develop/adaptive-apps/guides/flexbox",
+      "hash": "fd91486e840e7f94c978257b71cb72765f0d8c014637649f17f2490c7a060407",
+      "last_updated": "2026-05-17T15:22:30.244867",
+      "fetch_method": "md.txt"
+    },
+    "develop/adaptive-apps/guides/grid/container-properties.md": {
+      "original_url": "https://developer.android.com/develop/adaptive-apps/guides/grid/container-properties",
+      "hash": "98303d4f06935bb403ef82c64259c2c0f1fa16078ed2c3b373a9c96d0ff673dc",
+      "last_updated": "2026-05-17T15:22:34.392845",
+      "fetch_method": "md.txt"
+    },
+    "develop/adaptive-apps/guides/list-detail.md": {
+      "original_url": "https://developer.android.com/develop/adaptive-apps/guides/list-detail",
+      "hash": "732dec6a8b25ee0c215c5c7be04834dd114cbc7e3aea9bdc63b5d23f1dca2bc2",
+      "last_updated": "2026-05-17T15:22:34.571438",
+      "fetch_method": "md.txt"
+    },
+    "develop/adaptive-apps/quality-guidelines/wear-app-quality.md": {
+      "original_url": "https://developer.android.com/develop/adaptive-apps/quality-guidelines/wear-app-quality",
+      "hash": "78a2e7be5be98ae9c649de59ff8eb2e42c61eac21d518dc3bb2c4a8b16b2b0f1",
+      "last_updated": "2026-05-17T15:22:37.847475",
+      "fetch_method": "md.txt"
+    },
+    "develop/adaptive-apps/guides/grid.md": {
+      "original_url": "https://developer.android.com/develop/adaptive-apps/guides/grid",
+      "hash": "55708c4e0227b778f3f795fbee5c94e74aa19e82078a45706a01dd660f31c9ef",
+      "last_updated": "2026-05-17T15:22:39.248496",
+      "fetch_method": "md.txt"
+    },
+    "develop/adaptive-apps/guides/foldables/support-foldable-display-modes.md": {
+      "original_url": "https://developer.android.com/develop/adaptive-apps/guides/foldables/support-foldable-display-modes",
+      "hash": "d79d1013e741d4f04db19e8abb7359a7a8ab86d8deb440ada715c34a5f0d958f",
+      "last_updated": "2026-05-17T15:22:40.428945",
+      "fetch_method": "md.txt"
+    },
+    "develop/adaptive-apps/samples.md": {
+      "original_url": "https://developer.android.com/develop/adaptive-apps/samples",
+      "hash": "23daaaa7fdbf8287b57aaa7bae53dbbfd8cab9fb995560c4e67cfdfd39afde24",
+      "last_updated": "2026-05-17T15:22:59.535491",
+      "fetch_method": "md.txt"
+    },
+    "develop/adaptive-apps/quality-guidelines/adaptive-app-quality/experiences/stylus.md": {
+      "original_url": "https://developer.android.com/develop/adaptive-apps/quality-guidelines/adaptive-app-quality/experiences/stylus",
+      "hash": "043ed3c41e06e05747f6c59f084146357ba52071ae58c5414ccf7233c38f32db",
+      "last_updated": "2026-05-17T15:23:03.801585",
+      "fetch_method": "md.txt"
+    },
+    "develop/adaptive-apps/guides/canonical-layouts.md": {
+      "original_url": "https://developer.android.com/develop/adaptive-apps/guides/canonical-layouts",
+      "hash": "9dcbda17ec2af48d9c0e95a84e94049ee8fb3e33db7f55ab20c29e79877483c4",
+      "last_updated": "2026-05-17T15:23:05.298623",
+      "fetch_method": "md.txt"
+    },
+    "develop/adaptive-apps/quality-guidelines/adaptive-app-quality/tier-1.md": {
+      "original_url": "https://developer.android.com/develop/adaptive-apps/quality-guidelines/adaptive-app-quality/tier-1",
+      "hash": "09b355905ca157ac580e59bae9dd2e462dc629d13c5db0a17627fb5ab8921840",
+      "last_updated": "2026-05-17T15:23:09.564357",
+      "fetch_method": "md.txt"
+    },
+    "develop/adaptive-apps/guides/build-adaptive-navigation.md": {
+      "original_url": "https://developer.android.com/develop/adaptive-apps/guides/build-adaptive-navigation",
+      "hash": "450ad50899b08c30f376004b2e74509df9fa72c594db450f2b51e53f445f8e71",
+      "last_updated": "2026-05-17T15:23:11.478624",
+      "fetch_method": "md.txt"
+    },
+    "training/cars/parked/build-adaptive-apps.md": {
+      "original_url": "https://developer.android.com/training/cars/parked/build-adaptive-apps",
+      "hash": "cf61207e3ad2569b0c7a36833a0f56f38d84b17e9015cb0bce4cd7e9cf907faf",
+      "last_updated": "2026-05-17T15:23:16.687352",
+      "fetch_method": "md.txt"
+    },
+    "develop/xr/jetpack-xr-sdk/build-adaptive-apps.md": {
+      "original_url": "https://developer.android.com/develop/xr/jetpack-xr-sdk/build-adaptive-apps",
+      "hash": "f73694b840ba3e9c4200363e36d26c93035ff63e36b134c720d73ed47e60e67c",
+      "last_updated": "2026-05-17T15:23:33.810912",
+      "fetch_method": "md.txt"
+    },
+    "develop/adaptive-apps/quality-guidelines/widget-quality.md": {
+      "original_url": "https://developer.android.com/develop/adaptive-apps/quality-guidelines/widget-quality",
+      "hash": "72d8d1233d85863cde722cd3e89e2a024f1cfba0889acecac1f5e900fc17c2b7",
+      "last_updated": "2026-05-17T15:23:34.330537",
+      "fetch_method": "md.txt"
+    },
+    "develop/adaptive-apps/quality-guidelines/core-app-quality.md": {
+      "original_url": "https://developer.android.com/develop/adaptive-apps/quality-guidelines/core-app-quality",
+      "hash": "42f4ae51467a0c8ab4de2c027d1a27e1981bdfca378fd288cf186488498baa60",
+      "last_updated": "2026-05-17T15:23:38.577152",
+      "fetch_method": "md.txt"
+    },
+    "develop/adaptive-apps/quality-guidelines/adaptive-app-quality/experiences/desktop.md": {
+      "original_url": "https://developer.android.com/develop/adaptive-apps/quality-guidelines/adaptive-app-quality/experiences/desktop",
+      "hash": "6eb1c15909d33aa17771fc64835ad5500f6300ff90e086899974a1cddd5b975b",
+      "last_updated": "2026-05-17T15:23:44.059209",
+      "fetch_method": "md.txt"
+    },
+    "develop/adaptive-apps/quality-guidelines/adaptive-app-quality/tier-3.md": {
+      "original_url": "https://developer.android.com/develop/adaptive-apps/quality-guidelines/adaptive-app-quality/tier-3",
+      "hash": "8cd2b4774d5f708055db8f2e2363d1822c58a4e75c83e37a041bf4a66582d9cb",
+      "last_updated": "2026-05-17T15:23:48.044596",
+      "fetch_method": "md.txt"
+    },
+    "develop/adaptive-apps/guides/flexbox/container-behavior.md": {
+      "original_url": "https://developer.android.com/develop/adaptive-apps/guides/flexbox/container-behavior",
+      "hash": "8a868eed5c88e1794697d916ff0297eeaf7a2ddb00fd2321bd944d11bedc39a3",
+      "last_updated": "2026-05-17T15:23:48.174596",
+      "fetch_method": "md.txt"
+    },
+    "develop/devices/chromeos/learn/build-adaptive-apps.md": {
+      "original_url": "https://developer.android.com/develop/devices/chromeos/learn/build-adaptive-apps",
+      "hash": "550cdbc465c41e2c3bb9e7c26cf41ca783b09da429de167561ae486e11f94900",
+      "last_updated": "2026-05-17T15:23:49.596048",
+      "fetch_method": "md.txt"
+    },
+    "develop/adaptive-apps/guides/get-started-with-adaptive-apps.md": {
+      "original_url": "https://developer.android.com/develop/adaptive-apps/guides/get-started-with-adaptive-apps",
+      "hash": "072336291d1d0c24e38948c4545fd0ce31e0a598c375e4d9cea0c07d05e0c347",
+      "last_updated": "2026-05-17T15:24:14.473758",
+      "fetch_method": "md.txt"
+    },
+    "develop/adaptive-apps/guides/build-a-supporting-pane-layout.md": {
+      "original_url": "https://developer.android.com/develop/adaptive-apps/guides/build-a-supporting-pane-layout",
+      "hash": "1e7f227b73e37d897556df8c4f9397ffc6e4ac74efd2f3b4a8a8bcbf0d0b4c78",
+      "last_updated": "2026-05-17T15:24:17.079331",
+      "fetch_method": "md.txt"
+    },
+    "develop/adaptive-apps/guides/app-orientation-aspect-ratio-resizability.md": {
+      "original_url": "https://developer.android.com/develop/adaptive-apps/guides/app-orientation-aspect-ratio-resizability",
+      "hash": "0466f4818c0ef509e5c7a030eb21465b11cd8534a74a505366905c8f6fce379c",
+      "last_updated": "2026-05-17T15:24:18.796927",
+      "fetch_method": "md.txt"
+    },
+    "develop/adaptive-apps/quality-guidelines/adaptive-app-quality/experiences/camera-audio.md": {
+      "original_url": "https://developer.android.com/develop/adaptive-apps/quality-guidelines/adaptive-app-quality/experiences/camera-audio",
+      "hash": "ee9ac153be0ed908ef614d96acc160585c20544a557009231ce844afb3a6b3ae",
+      "last_updated": "2026-05-17T15:24:25.661617",
+      "fetch_method": "md.txt"
+    },
+    "develop/adaptive-apps/guides/cars/build-adaptive-apps-for-cars.md": {
+      "original_url": "https://developer.android.com/develop/adaptive-apps/guides/cars/build-adaptive-apps-for-cars",
+      "hash": "36e0e71a619b7e68e91145d0c86658cd51226c2bf6d439b40213f931a3aee3ee",
+      "last_updated": "2026-05-17T15:24:31.607506",
+      "fetch_method": "md.txt"
+    },
+    "develop/adaptive-apps/quality-guidelines/adaptive-app-quality/tier-2.md": {
+      "original_url": "https://developer.android.com/develop/adaptive-apps/quality-guidelines/adaptive-app-quality/tier-2",
+      "hash": "1177f5eb94f7619626c862ccc33d6db9b15c1028c4a3ef8a012efc6ee5bef892",
+      "last_updated": "2026-05-17T15:25:08.524224",
+      "fetch_method": "md.txt"
+    },
+    "develop/adaptive-apps/guides/custom.md": {
+      "original_url": "https://developer.android.com/develop/adaptive-apps/guides/custom",
+      "hash": "573c0ac8c5b4d6395b35c2c975ad5bbf82ba1c480647caa988998788c1aaebd2",
+      "last_updated": "2026-05-17T15:25:10.182247",
+      "fetch_method": "md.txt"
+    },
+    "develop/adaptive-apps/guides/use-window-size-classes.md": {
+      "original_url": "https://developer.android.com/develop/adaptive-apps/guides/use-window-size-classes",
+      "hash": "f7436e535aac6f5e012f4aa205fa87ebfc5120e43d0f8e7b302ce854a95b03fc",
+      "last_updated": "2026-05-17T15:25:10.480717",
+      "fetch_method": "md.txt"
+    },
+    "multidevice-development.md": {
+      "original_url": "https://developer.android.com/multidevice-development",
+      "hash": "77b2db58ed5be14a74dcdf0cafaede000ed074dbe28c8e28a2c5624f9fd92a47",
+      "last_updated": "2026-05-17T15:25:21.737741",
+      "fetch_method": "md.txt"
+    },
+    "develop/adaptive-apps/guides/support-bubbles.md": {
+      "original_url": "https://developer.android.com/develop/adaptive-apps/guides/support-bubbles",
+      "hash": "34b6db2d7f652f5f5fb378ec660c38f7641910fa1302d441d82ec4145f075362",
+      "last_updated": "2026-05-17T15:25:22.575788",
+      "fetch_method": "md.txt"
+    },
+    "develop/adaptive-apps/guides/xr/build-adaptive-apps-for-xr.md": {
+      "original_url": "https://developer.android.com/develop/adaptive-apps/guides/xr/build-adaptive-apps-for-xr",
+      "hash": "92fe761cec5163f6107e027bd5748e95c1e5fba1e9269d8b22af2a32e62d2400",
+      "last_updated": "2026-05-17T15:25:25.475553",
+      "fetch_method": "md.txt"
+    },
+    "develop/adaptive-apps/guides/flexbox/item-behavior.md": {
+      "original_url": "https://developer.android.com/develop/adaptive-apps/guides/flexbox/item-behavior",
+      "hash": "334ab56318225837f4cb627a7b92a3ccacf70a58b50320527af06d4e22329849",
+      "last_updated": "2026-05-17T15:25:26.502059",
+      "fetch_method": "md.txt"
+    },
+    "develop/adaptive-apps/guides/chromeos/build-adaptive-apps-for-chromeos.md": {
+      "original_url": "https://developer.android.com/develop/adaptive-apps/guides/chromeos/build-adaptive-apps-for-chromeos",
+      "hash": "6fa7bce67319fad962914f17db00465b2675c2537c45cf7bfc02393d37eae056",
+      "last_updated": "2026-05-17T15:25:52.419622",
+      "fetch_method": "md.txt"
+    },
+    "phones-tablets-foldables.md": {
+      "original_url": "https://developer.android.com/phones-tablets-foldables",
+      "hash": "6cea3a96e7f3a0833b58e265120bde7daedd8c1bd90ee7d60c47d4804af1bbfd",
+      "last_updated": "2026-05-17T15:25:56.087672",
+      "fetch_method": "md.txt"
+    },
+    "develop/adaptive-apps/guides/adaptive-dos-and-donts.md": {
+      "original_url": "https://developer.android.com/develop/adaptive-apps/guides/adaptive-dos-and-donts",
+      "hash": "2284fcf3a8d78d19ead9c2bd304e381714ccd2d20ce23ee355f5ff04c386fc26",
+      "last_updated": "2026-05-17T15:25:57.886333",
+      "fetch_method": "md.txt"
+    },
+    "develop/adaptive-apps/guides/foldables/trifolds-and-landscape-foldables.md": {
+      "original_url": "https://developer.android.com/develop/adaptive-apps/guides/foldables/trifolds-and-landscape-foldables",
+      "hash": "2667000d3a415331762b8142e199ea230f0f3bf00216061eac40c78b0ae51c64",
+      "last_updated": "2026-05-17T15:26:00.087866",
+      "fetch_method": "md.txt"
+    },
+    "develop/adaptive-apps/guides/support-multi-window-mode.md": {
+      "original_url": "https://developer.android.com/develop/adaptive-apps/guides/support-multi-window-mode",
+      "hash": "97aaf787c0982995d45bb5648baa5c4d72330e0fdb531fabb272597e0e85800a",
+      "last_updated": "2026-05-17T15:26:04.823130",
+      "fetch_method": "md.txt"
+    },
+    "games/build-adaptive-apps.md": {
+      "original_url": "https://developer.android.com/games/build-adaptive-apps",
+      "hash": "f21442180ca922c52de81e22be834ba5336114dbb41834bff026228a706dedb8",
+      "last_updated": "2026-05-17T15:26:31.130510",
+      "fetch_method": "md.txt"
+    },
+    "develop/adaptive-apps/quality-guidelines/tv-app-quality.md": {
+      "original_url": "https://developer.android.com/develop/adaptive-apps/quality-guidelines/tv-app-quality",
+      "hash": "7fb77962ba3be7605ecef493a40448d8c1623f993ca9938fdf566bde8f1c21d8",
+      "last_updated": "2026-05-17T15:26:39.092277",
+      "fetch_method": "md.txt"
+    },
+    "develop/adaptive-apps/guides/grid/get-started.md": {
+      "original_url": "https://developer.android.com/develop/adaptive-apps/guides/grid/get-started",
+      "hash": "b4e5a0dcd6a0fc68a7acd651d8a978e7a1812c63a43e42c7226ce312b4749e1d",
+      "last_updated": "2026-05-17T15:26:39.240713",
+      "fetch_method": "md.txt"
     }
   },
-  "last_updated": "2026-05-16T15:26:17.645756"
+  "last_updated": "2026-05-17T15:26:52.577216"
 }
