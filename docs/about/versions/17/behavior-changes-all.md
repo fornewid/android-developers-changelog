@@ -107,8 +107,12 @@ configuration file and you don't need to set `usesCleartextTraffic`.
 
 ### Restrict implicit URI grants
 
-Currently, if an app launches an intent with a URI that has the action `Send`,
-`SendMultiple`, or `ImageCapture`, the system automatically grants the read and
+Currently, if an app launches an intent with a URI that has the action
+[`ACTION_SEND`](https://developer.android.com/reference/android/content/Intent#ACTION_SEND),
+[`SEND_MULTIPLE`](https://developer.android.com/reference/android/content/Intent#ACTION_SEND_MULTIPLE),
+or
+[`ACTION_IMAGE_CAPTURE`](https://developer.android.com/reference/android/provider/MediaStore#ACTION_IMAGE_CAPTURE),
+the system automatically grants the read and
 write URI permissions to the target app. We plan to change this behavior in
 Android 18. For this reason, we recommend that apps explicitly
 grant the relevant URI permissions instead of relying on the system to grant

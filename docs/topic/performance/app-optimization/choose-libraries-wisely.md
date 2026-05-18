@@ -22,9 +22,9 @@ optimization.
 ### Prefer codegen over reflection
 
 Choose libraries that use [code generation (*codegen*)](https://en.wikipedia.org/wiki/Code_generation_(compiler))
-instead of reflection. With codegen, the optimizer can more easily determine
-what code is actually used at runtime and what code can be removed. It can be
-difficult to tell whether a library uses codegen or reflection, but there are
+instead of reflection. With codegen, the optimizer can determine what code is
+actually used at runtime and what code can be removed. It can be difficult to
+tell whether a library uses codegen or reflection, but there are
 some signs---see the [tips](https://developer.android.com/topic/performance/app-optimization/choose-libraries-wisely#tips) for help.
 
 For more information about codegen versus reflection, see [Optimization for
@@ -55,8 +55,10 @@ configuring app optimization. If there are, you should try to look for
 alternatives to that library. Keep in mind the following:
 
 - The [AndroidX libraries](https://developer.android.com/jetpack/androidx) and libraries such as [Hilt](https://developer.android.com/training/dependency-injection/hilt-android) work well with app optimization because they mostly use codegen instead of reflection. When they do use reflection, they provide minimal keep rules to keep only the code that is needed.
-- Serialization libraries frequently use reflection to avoid boilerplate code when instantiating or serializing objects. Instead of reflection-based approaches (such as Gson for JSON), look for libraries that use codegen to avoid these problems, for example by using [Kotlin Serialization](https://github.com/Kotlin/kotlinx.serialization) or [Moshi with codegen](https://github.com/square/moshi#codegen).
+- Serialization libraries frequently use reflection to avoid boilerplate code when instantiating or serializing objects. Instead of reflection-based approaches (such as Gson for JSON), look for libraries that use codegen to avoid these problems, for example by using [Kotlin Serialization](https://github.com/Kotlin/kotlinx.serialization) {:.external} or [Moshi with codegen](https://github.com/square/moshi#codegen).
 - If possible, avoid libraries that include package-wide keep rules. Package-wide keep rules can help resolve errors, but broad keep rules should eventually be refined to keep only the code that is needed. For more information, see [Adopt optimizations incrementally](https://developer.android.com/topic/performance/app-optimization/adopt-optimizations-incrementally).
+- Before publishing an app that uses a third-party library, use the [R8
+  Configuration Analyzer](https://developer.android.com/topic/performance/app-optimization/r8-configuration-analyzer) to audit its provided keep rules. By reviewing the report, you can verify if the library's keep rules are overly broad, preventing R8 from performing critical optimizations on your codebase. This check ensures that the libraries you select align with your app's performance goals and don't introduce unnecessary configuration bloat.
 - Libraries shouldn't require you to copy and paste keep rules from documentation into a file in your project, especially not package-wide keep rules. These rules become a maintenance burden on the app developer in the long term, and are difficult to optimize and change over time.
 
 ## Enable optimization after adding a new library
@@ -99,7 +101,7 @@ the following code:
 
 Gson is a serialization library that often causes issues with app optimization
 because it heavily uses reflection. The following code snippet shows how Gson is
-typically used, which can easily cause crashes at runtime. Notice that when you
+typically used, which can cause crashes at runtime. Notice that when you
 use Gson to get a list of User objects, you don't call the constructor or pass a
 factory to the `fromJson()` function. Constructing or consuming app-defined
 classes without either of the following is a sign that a library might be using

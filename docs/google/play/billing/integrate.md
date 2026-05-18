@@ -613,7 +613,7 @@ to the user and notify the user. Before granting entitlement, verify that your
 app is checking that the [purchase state](https://developer.android.com/reference/com/android/billingclient/api/Purchase#getpurchasestate) is [`PURCHASED`](https://developer.android.com/reference/com/android/billingclient/api/Purchase.PurchaseState). If the
 purchase is in PENDING state, your app should notify the user that they still
 need to complete actions to complete the purchase before entitlement is granted.
-Only grant entitlement when the purchase transitions from PENDING to SUCCESS.
+Only grant entitlement when the purchase transitions from PENDING to PURCHASED.
 Additional information can be found in [Handling pending transactions](https://developer.android.com/google/play/billing/integrate#pending).
 
 If you have attached user identifiers to the purchase as discussed in [attaching

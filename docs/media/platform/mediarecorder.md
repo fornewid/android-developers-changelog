@@ -4,32 +4,50 @@ url: https://developer.android.com/media/platform/mediarecorder
 source: md.txt
 ---
 
-# MediaRecorder overview
+The Android multimedia framework includes support for capturing and encoding a variety of common
+audio and video formats. You can use the `https://developer.android.com/reference/android/media/MediaRecorder` APIs if supported
+by the device hardware.
 
-The Android multimedia framework includes support for capturing and encoding a variety of common audio and video formats. You can use the[MediaRecorder](https://developer.android.com/reference/android/media/MediaRecorder)APIs if supported by the device hardware.
+This document shows you how to use `MediaRecorder` to write an application that captures audio from a device
+microphone, save the audio, and play it back (with `https://developer.android.com/reference/android/media/MediaPlayer`). To record video you'll need to
+use the device's camera along with `MediaRecorder`. This is described in the [Camera](https://developer.android.com/guide/topics/media/camera) guide.
 
-This document shows you how to use`MediaRecorder`to write an application that captures audio from a device microphone, save the audio, and play it back (with[MediaPlayer](https://developer.android.com/reference/android/media/MediaPlayer)). To record video you'll need to use the device's camera along with`MediaRecorder`. This is described in the[Camera](https://developer.android.com/guide/topics/media/camera)guide.
-
-**Note:**The Android Emulator cannot record audio. Be sure to test your code on a real device that can record.
+**Note:** The Android Emulator cannot record
+audio. Be sure to test your code on a real device that can record.
 
 ## Requesting permission to record audio
 
-To be able to record, your app must tell the user that it will access the device's audio input. You must include this permission tag in the app's manifest file:  
+To be able to record, your app must tell the user that it will access the
+device's audio input. You must include this permission tag in the app's manifest file:
 
 ```xml
-<uses-permission android:name="android.permission.RECORD_AUDIO" />
+<uses-permission android:name="android.permission.RECORD_AUD>IO" /
 ```
 
-`RECORD_AUDIO`is considered a["dangerous" permission](https://developer.android.com/guide/topics/permissions/requesting#normal-dangerous)because it may pose a risk to the user's privacy. Starting with Android 6.0 (API level 23) an app that uses a dangerous permission must ask the user for approval at run time. After the user has granted permission, the app should remember and not ask again. The sample code below shows how to implement this behavior using[ActivityCompat.requestPermissions()](https://developer.android.com/reference/androidx/core/app/ActivityCompat#requestPermissions(android.app.Activity, java.lang.String[], int)).
+`RECORD_AUDIO` is considered a
+["dangerous" permission](https://developer.android.com/guide/topics/permissions/requesting#normal-dangerous)
+because it may pose a risk to the user's privacy. Starting with Android 6.0 (API level 23) an app
+that uses a dangerous permission must ask the user for approval at run time. After the user has
+granted permission, the app should remember and not ask again. The sample code below shows how to
+implement this behavior using
+`https://developer.android.com/reference/androidx/core/app/ActivityCompat#requestPermissions(android.app.Activity, java.lang.String[], int)`.
 
 ## Creating and running a MediaRecorder
 
-Initialize a new instance of[MediaRecorder](https://developer.android.com/reference/android/media/MediaRecorder)with the following calls:
+Initialize a new instance of `https://developer.android.com/reference/android/media/MediaRecorder`
+with the following calls:
 
-- Set the audio source using[setAudioSource()](https://developer.android.com/reference/android/media/MediaRecorder#setAudioSource(int)). You'll probably use[MIC](https://developer.android.com/reference/android/media/MediaRecorder.AudioSource#MIC).
+- Set the audio source using `https://developer.android.com/reference/android/media/MediaRecorder#setAudioSource(int)`. You'll probably use `https://developer.android.com/reference/android/media/MediaRecorder.AudioSource#MIC`.
 
-  **Note:** Most of the audio sources (including`DEFAULT`) apply processing to the audio signal. To record raw audio select[UNPROCESSED](https://developer.android.com/reference/android/media/MediaRecorder.AudioSource#UNPROCESSED). Some devices do not support unprocessed input. Call[AudioManager.getProperty(AudioManager.PROPERTY_SUPPORT_AUDIO_SOURCE_UNPROCESSED)](https://developer.android.com/reference/android/media/AudioManager#getProperty(java.lang.String))first to verify it's available. If it is not, try using[VOICE_RECOGNITION](https://developer.android.com/reference/android/media/MediaRecorder.AudioSource#VOICE_RECOGNITION)instead, which does not employ AGC or noise suppression. You can use`UNPROCESSED`as an audio source even when the property is not supported, but there is no guarantee whether the signal will be unprocessed or not in that case.
-- Set the output file format using[setOutputFormat()](https://developer.android.com/reference/android/media/MediaRecorder#setOutputFormat(int)). Note that starting with Android 8.0 (API level 26)`MediaRecorder`supports the MPEG2_TS format, which is useful for streaming:  
+  **Note:** Most of the audio sources (including `DEFAULT`) apply processing to the
+  audio signal. To record raw audio select
+  `https://developer.android.com/reference/android/media/MediaRecorder.AudioSource#UNPROCESSED`. Some devices do not support unprocessed
+  input. Call `https://developer.android.com/reference/android/media/AudioManager#getProperty(java.lang.String)` first to verify it's available.
+  If it is not, try using `https://developer.android.com/reference/android/media/MediaRecorder.AudioSource#VOICE_RECOGNITION` instead,
+  which does not employ AGC or noise suppression. You can use `UNPROCESSED`
+  as an audio source even when the property is not supported, but there is no guarantee whether
+  the signal will be unprocessed or not in that case.
+- Set the output file format using `https://developer.android.com/reference/android/media/MediaRecorder#setOutputFormat(int)`. Note that starting with Android 8.0 (API level 26) `MediaRecorder` supports the MPEG2_TS format, which is useful for streaming:
 
   ### Kotlin
 
@@ -42,37 +60,64 @@ Initialize a new instance of[MediaRecorder](https://developer.android.com/refere
   ```java
   mediaRecorder.setOutputFormat(MediaRecorder.OutputFormat.MPEG_2_TS);
   ```
-- Set the output file name using[setOutputFile()](https://developer.android.com/reference/android/media/MediaRecorder#setOutputFile(java.io.File)). You must specify a file descriptor that represents an actual file.
-- Set the audio encoder using[setAudioEncoder()](https://developer.android.com/reference/android/media/MediaRecorder#setAudioEncoder(int)).
-- Complete the initialization by calling[prepare()](https://developer.android.com/reference/android/media/MediaRecorder#prepare()).
+- Set the output file name using `https://developer.android.com/reference/android/media/MediaRecorder#setOutputFile(java.io.File)`. You must specify a file descriptor that represents an actual file.
+- Set the audio encoder using `https://developer.android.com/reference/android/media/MediaRecorder#setAudioEncoder(int)`.
+- Complete the initialization by calling `https://developer.android.com/reference/android/media/MediaRecorder#prepare()`.
 
-Start and stop the recorder by calling[start()](https://developer.android.com/reference/android/media/MediaRecorder#start())and[stop()](https://developer.android.com/reference/android/media/MediaRecorder#start())respectively.
+Start and stop the recorder by calling
+`https://developer.android.com/reference/android/media/MediaRecorder#start()` and
+`https://developer.android.com/reference/android/media/MediaRecorder#start()`
+respectively.
 
-When you are done with the`MediaRecorder`instance free its resources as soon as possible by calling[release()](https://developer.android.com/reference/android/media/MediaRecorder#release()).
+When you are done with the `MediaRecorder` instance free its resources
+as soon as possible by calling
+`https://developer.android.com/reference/android/media/MediaRecorder#release()`.
 
-**Note:** On devices running Android 9 (API level 28) or higher, apps running in the background cannot access the microphone. Therefore, your app should record audio only when it's in the foreground or when you include an instance of`MediaRecorder`in a[foreground service](https://developer.android.com/guide/components/services#Foreground).
+**Note:** On devices running Android 9 (API level 28) or
+higher, apps running in the background cannot access the microphone. Therefore,
+your app should record audio only when it's in the foreground or when you
+include an instance of `MediaRecorder` in a
+[foreground service](https://developer.android.com/guide/components/services#Foreground).
 
 ## Using MediaMuxer to record multiple channels
 
-Starting with Android 8.0 (API level 26) you can use a[MediaMuxer](https://developer.android.com/reference/android/media/MediaMuxer)to record multiple simultaneous audio and video streams. In earlier versions of Android you can only record one audio track and/or one video track at a time.
+Starting with Android 8.0 (API level 26) you can use a `https://developer.android.com/reference/android/media/MediaMuxer`
+to record multiple simultaneous audio and video streams. In earlier versions of Android you can only
+record one audio track and/or one video track at a time.
 
-Use the[addTrack()](https://developer.android.com/reference/android/media/MediaMuxer#addTrack(android.media.MediaFormat))method to mix multiple tracks together.
+Use the `https://developer.android.com/reference/android/media/MediaMuxer#addTrack(android.media.MediaFormat)`
+method to mix multiple tracks together.
 
-You can also add one or more metadata tracks with custom information for each frame, but only to MP4 containers. Your app defines the format and content of the metadata.
+You can also add one or more metadata tracks with custom information for each frame, but
+only to MP4 containers. Your app defines the format and content of the metadata.
 
 ## Adding metadata
 
-Metadata can be useful for offline processing. For example, data captured from the gyro sensor could be used to perform video stabilization.
 
-When you add a metadata track, the track's mime format must start with the prefix`application/`. Writing metadata is the same as writing video or audio data, except that the data does not come from a`MediaCodec`. Instead, the app passes a`ByteBuffer`with an associated timestamp to the[writeSampleData()](https://developer.android.com/reference/android/media/MediaMuxer#writeSampleData(int, java.nio.ByteBuffer, android.media.MediaCodec.BufferInfo))method. The timestamp must be in the same time base as the video and audio tracks.
+Metadata can be useful for offline processing. For example, data captured from
+the gyro sensor could be used to perform video stabilization.
 
-The generated MP4 file uses the`TextMetaDataSampleEntry`defined in section 12.3.3.2 of the[ISO BMFF](https://en.wikipedia.org/wiki/ISO_base_media_file_format)specification to signal the metadata's mime format. When you use a[MediaExtractor](https://developer.android.com/reference/android/media/MediaExtractor)to extract a file that contains metadata tracks, the metadata's mime format appears as an instance of[MediaFormat](https://developer.android.com/reference/android/media/MediaFormat).
+
+When you add a metadata track, the track's mime format must start with the prefix
+`application/`. Writing metadata is the same as writing video or audio data, except
+that the data does not come from a `MediaCodec`. Instead, the app passes a
+`ByteBuffer` with an associated timestamp to the
+`https://developer.android.com/reference/android/media/MediaMuxer#writeSampleData(int, java.nio.ByteBuffer, android.media.MediaCodec.BufferInfo)` method.
+The timestamp must be in the same time base as the video and audio tracks.
+
+
+The generated MP4 file uses the `TextMetaDataSampleEntry` defined in section 12.3.3.2
+of the [ISO BMFF](https://en.wikipedia.org/wiki/ISO_base_media_file_format) specification
+to signal the metadata's mime format. When you use a `https://developer.android.com/reference/android/media/MediaExtractor` to extract a file that contains metadata tracks, the metadata's mime
+format appears as an instance of `https://developer.android.com/reference/android/media/MediaFormat`.
 
 ## Sample code
 
-The[MediaRecorder](https://github.com/android/media-samples/tree/main/MediaRecorder/)sample demonstrates how to make a video recording using MediaRecorder and the Camera API.
+The [MediaRecorder](https://github.com/android/media-samples/tree/main/MediaRecorder/)
+sample demonstrates how to make a video recording using MediaRecorder and the Camera API.
 
-The example activity below shows how to use`MediaRecorder`to record an audio file. It Also uses`MediaPlayer`to play the audio back.  
+The example activity below shows how to use `MediaRecorder` to record an audio file. It
+Also uses `MediaPlayer` to play the audio back.
 
 ### Kotlin
 
@@ -109,11 +154,11 @@ class AudioRecordTest : AppCompatActivity() {
 
     // Requesting permission to RECORD_AUDIO
     private var permissionToRecordAccepted = false
-    private var permissions: Array<String> = arrayOf(Manifest.permission.RECORD_AUDIO)
+    private va<r perm>issions: ArrayString = arrayOf(Manifest.permission.RECORD_AUDIO)
 
     override fun onRequestPermissionsResult(
             requestCode: Int,
-            permissions: Array<String>,
+          <  perm>issions: ArrayString,
             grantResults: IntArray
     ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
@@ -185,9 +230,9 @@ class AudioRecordTest : AppCompatActivity() {
 
         var clicker: OnClickListener = OnClickListener {
             onRecord(mStartRecording)
-            text = when (mStartRecording) {
-                true -> "Stop recording"
-                false -> "Start recording"
+            text = when (m>StartRecording) {
+                true - >"Stop recording"
+                false - "Start recording"
             }
             mStartRecording = !mStartRecording
         }
@@ -201,10 +246,10 @@ class AudioRecordTest : AppCompatActivity() {
     internal inner class PlayButton(ctx: Context) : Button(ctx) {
         var mStartPlaying = true
         var clicker: OnClickListener = OnClickListener {
-            onPlay(mStartPlaying)
-            text = when (mStartPlaying) {
-                true -> "Stop playing"
-                false -> "Start playing"
+            onPlay(mStartPla>ying)
+            text = when (mStartPl>aying) {
+                true - "Stop playing"
+                false - "Start playing"
             }
             mStartPlaying = !mStartPlaying
         }

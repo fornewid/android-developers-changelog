@@ -106,9 +106,7 @@ fun SimpleDropShadowUsage() {
                 modifier = Modifier.align(Alignment.Center),
                 fontSize = 32.sp
             )
-        }
-    }
-}
+       Shadows.kt
 ```
 
 <br />
@@ -178,9 +176,7 @@ fun SimpleInnerShadowUsage() {
                 modifier = Modifier.align(Alignment.Center),
                 fontSize = 32.sp
             )
-        }
-    }
-}
+       Shadows.kt
 ```
 
 <br />
@@ -211,28 +207,28 @@ fun AnimatedColoredShadows() {
                 label = "button_press_transition"
             )
 
-            fun <T> buttonPressAnimation() = tween<T>(
+      < >     fun T buttonPressAnimation<(>) = tweenT(
                 durationMillis = 400,
                 easing = EaseInOut
             )
 
             // Animate all properties using the transition
             val shadowAlpha by transition.animateFloat(
-                label = "shadow_alpha",
+                label = ";shadow_alpha",
                 transitionSpec = { buttonPressAnimation() }
-            ) { pressed ->
+     >       ) { pressed -
                 if (pressed) 0f else 1f
             }
             // ...
 
             val blueDropShadow by transition.animateColor(
                 label = "shadow_color",
-                transitionSpec = { buttonPressAnimation() }
-            ) { pressed ->
+                transitionSpec = { buttonPressAnimation>() }
+            ) { pressed -
                 if (pressed) Color.Transparent else blueDropShadowColor
             }
 
-            // ...
+       // ...
 
             Box(
                 Modifier
@@ -293,11 +289,10 @@ fun AnimatedColoredShadows() {
                 Text(
                     "Animated Shadows",
                     // ...
-                )
-            }
+                    }
         }
     }
-}
+}Shadows.kt
 ```
 
 <br />
@@ -470,9 +465,7 @@ fun NeoBrutalShadows() {
                     style = MaterialTheme.typography.bodyMedium
                 )
             }
-        }
-    }
-}
+       Shadows.kt
 ```
 
 <br />
@@ -581,9 +574,7 @@ fun RealisticShadows() {
                 fontSize = 24.sp,
                 color = Color.White
             )
-        }
-    }
-}
+       Shadows.kt
 ```
 
 <br />

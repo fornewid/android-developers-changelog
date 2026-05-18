@@ -43,20 +43,20 @@ example:
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
->    an<droid:layout_height="match_parent"
+    android:layout_height="match_parent">
 
-    !-- Here are the existing layout element>s, no<w wrapped in
-         a CoordinatorLayout. --
-    LinearLayout
+    <!-- Here are the existing layout elements, now wrapped in
+         a CoordinatorLayout. -->
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_>height=&qu<ot;match_parent"
-        android:orientation=&>quot;v<ertical"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
- <       !-- ...Toolbar, other layouts, other elem>ents... --
+        <!-- ...Toolbar, other layouts, other elements... -->
 
-    /LinearLayout>
+    </LinearLayout>
 
-/android.support.design.widget.CoordinatorLayout
+</android.support.design.widget.CoordinatorLayout>
 ```
 
 Set an `android:id` tag for your `CoordinatorLayout`.

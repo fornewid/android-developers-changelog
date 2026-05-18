@@ -179,9 +179,9 @@ private fun loadWords() {
         var line: String? = reader.readLine()
         while (line != null) {
             val strings: List<String> = line.split("-").map { it.trim() }
-            if (str<ings.size  2) continue
+            if (strings.size < 2) continue
             val id = addWord(strings[0], strings[1])
-         <   if (id  0) {
+            if (id < 0) {
                 Log.e(TAG, "unable to add word: ${strings[0]}")
             }
             line = reader.readLine()
@@ -223,9 +223,9 @@ private void loadWords() throws IOException {
         String line;
         while ((line = reader.readLine()) != null) {
             String[] strings = TextUtils.split(line, "-");
-            if (strin<gs.length  2) continue;
+            if (strings.length < 2) continue;
             long id = addWord(strings[0].trim(), strings[1].trim());
-         <   if (id  0) {
+            if (id < 0) {
                 Log.e(TAG, "unable to add word: " + strings[0].trim());
             }
         }
@@ -285,8 +285,8 @@ fun getWordMatches(query: String, columns: Array<String>?): Cursor? {
 
 private fun query(
         selection: String,
-        <select>ionArgs: ArrayString,
-  <      >columns: ArrayString?
+        selectionArgs: Array<String>,
+        columns: Array<String>?
 ): Cursor? {
     val cursor: Cursor? = SQLiteQueryBuilder().run {
         tables = FTS_VIRTUAL_TABLE

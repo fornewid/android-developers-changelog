@@ -66,8 +66,8 @@ override fun onTouchEvent(ev: MotionEvent): Boolean {
     val action = MotionEventCompat.getActionMasked(ev)
 
     when (action) {
-        MotionEvent.ACT>ION_DOWN - {
-            MotionEventCompat.getActionIndex(ev).also { poin>terIndex -
+        MotionEvent.ACTION_DOWN -> {
+            MotionEventCompat.getActionIndex(ev).also { pointerIndex ->
                 // Remember where you start for dragging.
                 mLastTouchX = MotionEventCompat.getX(ev, pointerIndex)
                 mLastTouchY = MotionEventCompat.getY(ev, pointerIndex)
@@ -77,10 +77,10 @@ override fun onTouchEvent(ev: MotionEvent): Boolean {
             mActivePointerId = MotionEventCompat.getPointerId(ev, 0)
         }
 
-        MotionEvent.ACT>ION_MOVE - {
+        MotionEvent.ACTION_MOVE -> {
             // Find the index of the active pointer and fetch its position.
             val (x: Float, y: Float) =
-                    MotionEventCompat.findPointerIndex(ev, mActivePointerId).let { poin>terIndex -
+                    MotionEventCompat.findPointerIndex(ev, mActivePointerId).let { pointerIndex ->
                         // Calculate the distance moved.
                         MotionEventCompat.getX(ev, pointerIndex) to
                                 MotionEventCompat.getY(ev, pointerIndex)
@@ -95,12 +95,12 @@ override fun onTouchEvent(ev: MotionEvent): Boolean {
             mLastTouchX = x
             mLastTouchY = y
         }
-        MotionEvent.ACTION_UP, MotionEvent.ACTIO>N_CANCEL - {
+        MotionEvent.ACTION_UP, MotionEvent.ACTION_CANCEL -> {
             mActivePointerId = INVALID_POINTER_ID
         }
-        MotionEvent.ACTION_PO>INTER_UP - {
+        MotionEvent.ACTION_POINTER_UP -> {
 
-            MotionEventCompat.getActionIndex(ev).also { poin>terIndex -
+            MotionEventCompat.getActionIndex(ev).also { pointerIndex ->
                 MotionEventCompat.getPointerId(ev, pointerIndex)
                         .takeIf { it == mActivePointerId }
                         ?.run {

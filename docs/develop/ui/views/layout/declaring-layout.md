@@ -66,20 +66,20 @@ example, here's an XML layout that uses a vertical `LinearLayout` to
 hold a `TextView` and a `Button`:
 
 ```xml
-<?xml version="1.0" encoding=<"utf-8"?>
-LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="match_parent"
-              android:layout_height="match_parent"<;
+              android:layout_height="match_parent"
               android:orientation="vertical" >
-    TextView android:id="@+id/text"
+    <TextView android:id="@+id/text"
               android:layout_width="wrap_content"
-              android:la<yout_height="wrap_content"
+              android:layout_height="wrap_content"
               android:text="Hello, I am a TextView" />
-    Button android:id="@+id/button"
-            android:layout_wi<dth="wrap_content"
+    <Button android:id="@+id/button"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Hello, I am a Button" />
-/LinearLayout>
+</LinearLayout>
 ```
 
 After you declare your layout in XML, save the file with the
@@ -148,7 +148,7 @@ XML attribute common to all `View` objects, and it is defined by the
 XML tag is the following:
 
 ```xml
-android:id=&@quot;+id/my_button"
+android:id="@+id/my_button"
 ```
 
 The *at* symbol (@) at the beginning of the string indicates that
@@ -162,7 +162,7 @@ Android resource ID, you don't need the *plus* symbol, but you must add the
 `android` package namespace as follows:
 
 ```xml
-android:id=&@quot;android:id/empty"
+android:id="@android:id/empty"
 ```
 
 The `android` package namespace indicates that you're referencing
@@ -175,10 +175,10 @@ pattern as follows:
 1. Define a view in the layout file and assign it a unique ID, as in the following example:
 
    ```xml
-   <Button android:id=&@quot;+id/my_button"
+   <Button android:id="@+id/my_button"
            android:layout_width="wrap_content"
-           android:layout_height="wrap_conten@t"
-           android:text="string/my_button_text"/>
+           android:layout_height="wrap_content"
+           android:text="@string/my_button_text"/>
    ```
 2. Create an instance of the view object and capture it from the layout, typically in the `https://developer.android.com/reference/android/app/Activity#onCreate(android.os.Bundle)` method, as shown in the following example:
 
@@ -314,27 +314,27 @@ Besides setting margins and padding programmatically, you can also set them
 in your XML layouts, as shown in the following example:
 
 ```xml
-  <?xml version="1.0" encoding=&q<uot;utf-8"?>
-  LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  <?xml version="1.0" encoding="utf-8"?>
+  <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-  <              android:orientation="vertical" >
-      TextView android:id="@+id/text"
+                android:orientation="vertical" >
+      <TextView android:id="@+id/text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="16dp&q<uot;
+  android:layout_margin="16dp"
                 android:padding="8dp"
                 android:text="Hello, I am a TextView" />
-      Button android:id="@+id/button"
+      <Button android:id="@+id/button"
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
-              android:layout_marginTop="16dp"
-              android:paddingBottom="4dp&q<uot;
+  android:layout_marginTop="16dp"
+              android:paddingBottom="4dp"
               android:paddingEnd="8dp"
               android:paddingStart="8dp"
               android:paddingTop="4dp"
               android:text="Hello, I am a Button" />
-  /LinearLayout>
+  </LinearLayout>
   
 ```
 

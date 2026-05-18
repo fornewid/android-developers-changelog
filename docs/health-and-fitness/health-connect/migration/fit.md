@@ -4,8 +4,8 @@ url: https://developer.android.com/health-and-fitness/health-connect/migration/f
 source: md.txt
 ---
 
-The Google Fit APIs are deprecated and scheduled for end of service in late
-2026. Google offers several health and wellness products and services to help
+The Google Fit APIs will be supported until the end of 2026.
+Google offers several health and wellness products and services to help
 your users continue to achieve their goals after deprecation.
 > **Caution:** The Google Fit API (including the REST API) will only be
 > supported until the end of 2026. We recommend migrating to the Google Health API
@@ -15,14 +15,14 @@ your users continue to achieve their goals after deprecation.
 The following guidelines show you which service to migrate to based on how
 you're using Google Fit APIs.
 
-## Recommended Migration Paths
+## Recommended migration paths
 
 Your choice of API should be based on your application type and specific data
 needs.
 
-### By Application Type
+### By application type
 
-| Application Type | Recommended Path | Primary Reason |
+| Application type | Recommended path | Primary reason |
 |---|---|---|
 | Step Tracking App | [Health Connect](https://developer.android.com/health-and-fitness/health-connect) | Mobile-centric reading of aggregated steps data from various sources. |
 | Fitness Trackers Companion App | [Google Health API](https://developers.google.com/health) | Web-centric platform requiring OAuth for user integration. |
@@ -30,13 +30,12 @@ needs.
 
 ### By current integration
 
-| Current Integration | Recommended Path | Availability |
+| Current integration | Recommended path | Availability |
 |---|---|---|
-| Google Fit (Android \& REST API) | Google Health API | Available |
+| Fit History API and Fit Session API | Google Health API | Available |
 | Reading mobile steps (with Google Fit Recording API) | Health Connect | Available |
 | Fit API on Wear OS | Health Services | Available |
 | Fitbit Web API | Google Health API | Available |
-| Recording API on Mobile | Health Connect | Available |
 | Health Connect | Keep existing integration or add the Google Health API | Available |
 
 ## Technical comparisons

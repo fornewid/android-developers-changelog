@@ -23,8 +23,14 @@ To activate a skill on demand, ask the agent to perform a task that is relevant
 to the skill. You can also enter `@` in the input box to trigger a specific
 skill.
 
-To import an Android skill into Android Studio, download the skills from the
+To import an Android skill into Android Studio, download the skill from the
 [GitHub repository](https://github.com/android/skills) and save it in a directory called
-`.skills/` or `.agent/skills/` at your project root.
+`.agents/skills` or `.android-studio/skills` at your project root or your home
+directory.
+
+Note that Android Studio, before Quail, used to load skills from non-standard
+directories --- `.skills` and `agent/skills`. If you have skills in those
+locations, move them to `.agents/skills` or `.android-studio/skills` when
+upgrading Android Studio to Quail 1 or later versions.
 
 To learn more about Android skills, see [Intro to Android skills](https://developer.android.com/tools/agents/android-skills).

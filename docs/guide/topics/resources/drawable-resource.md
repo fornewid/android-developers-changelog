@@ -5,34 +5,34 @@ source: md.txt
 ---
 
 A drawable resource is a general concept for a graphic that can be drawn to the screen and that
-you can retrieve with APIs such as [getDrawable(int)](https://developer.android.com/reference/android/content/res/Resources#getDrawable(int,%20android.content.res.Resources.Theme)) or apply
+you can retrieve with APIs such as `https://developer.android.com/reference/android/content/res/Resources#getDrawable(int,%20android.content.res.Resources.Theme)` or apply
 to another XML resource with attributes such as `android:drawable` and `android:icon`.
 There are several types of drawables:
 
 [Bitmap file](https://developer.android.com/guide/topics/resources/drawable-resource#Bitmap)
 
 :   A bitmap graphic file (PNG, WEBP, JPG, or GIF).
-    Creates a [BitmapDrawable](https://developer.android.com/reference/android/graphics/drawable/BitmapDrawable).
+    Creates a `https://developer.android.com/reference/android/graphics/drawable/BitmapDrawable`.
 
 [Nine-patch file](https://developer.android.com/guide/topics/resources/drawable-resource#NinePatch)
-:   A PNG file with stretchable regions to let images resize based on content (`.9.png`). Creates a [NinePatchDrawable](https://developer.android.com/reference/android/graphics/drawable/NinePatchDrawable).
+:   A PNG file with stretchable regions to let images resize based on content (`.9.png`). Creates a `https://developer.android.com/reference/android/graphics/drawable/NinePatchDrawable`.
 
 [Layer list](https://developer.android.com/guide/topics/resources/drawable-resource#LayerList)
 :   A drawable that manages an array of other drawables. These are drawn in array order, so the
-    element with the largest index is drawn on top. Creates a [LayerDrawable](https://developer.android.com/reference/android/graphics/drawable/LayerDrawable).
+    element with the largest index is drawn on top. Creates a `https://developer.android.com/reference/android/graphics/drawable/LayerDrawable`.
 
 [State list](https://developer.android.com/guide/topics/resources/drawable-resource#StateList)
 :   An XML file that references different bitmap graphics
     for different states---for example, to use a different image when a button is tapped.
-    Creates a [StateListDrawable](https://developer.android.com/reference/android/graphics/drawable/StateListDrawable).
+    Creates a `https://developer.android.com/reference/android/graphics/drawable/StateListDrawable`.
 
 [Level list](https://developer.android.com/guide/topics/resources/drawable-resource#LevelList)
 :   An XML file that defines a drawable that manages a number of alternate drawables, each
-    assigned a maximum numerical value. Creates a [LevelListDrawable](https://developer.android.com/reference/android/graphics/drawable/LevelListDrawable).
+    assigned a maximum numerical value. Creates a `https://developer.android.com/reference/android/graphics/drawable/LevelListDrawable`.
 
 [Transition drawable](https://developer.android.com/guide/topics/resources/drawable-resource#Transition)
 :   An XML file that defines a drawable that can cross-fade between two drawable resources.
-    Creates a [TransitionDrawable](https://developer.android.com/reference/android/graphics/drawable/TransitionDrawable).
+    Creates a `https://developer.android.com/reference/android/graphics/drawable/TransitionDrawable`.
 
 [Inset drawable](https://developer.android.com/guide/topics/resources/drawable-resource#Inset)
 :   An XML file that defines a drawable that insets another drawable by a specified distance.
@@ -41,18 +41,18 @@ There are several types of drawables:
 
 [Clip drawable](https://developer.android.com/guide/topics/resources/drawable-resource#Clip)
 :   An XML file that defines a drawable that clips another drawable based on this drawable's
-    current level value. Creates a [ClipDrawable](https://developer.android.com/reference/android/graphics/drawable/ClipDrawable).
+    current level value. Creates a `https://developer.android.com/reference/android/graphics/drawable/ClipDrawable`.
 
 [Scale drawable](https://developer.android.com/guide/topics/resources/drawable-resource#Scale)
 :   An XML file that defines a drawable that changes the size of another drawable based on its
-    current level value. Creates a [ScaleDrawable](https://developer.android.com/reference/android/graphics/drawable/ScaleDrawable)
+    current level value. Creates a `https://developer.android.com/reference/android/graphics/drawable/ScaleDrawable`
 
 [Shape drawable](https://developer.android.com/guide/topics/resources/drawable-resource#Shape).
 :   An XML file that defines a geometric shape, including colors and gradients.
-    Creates a [GradientDrawable](https://developer.android.com/reference/android/graphics/drawable/GradientDrawable).
+    Creates a `https://developer.android.com/reference/android/graphics/drawable/GradientDrawable`.
 
 For information about how to
-create an [AnimationDrawable](https://developer.android.com/reference/android/graphics/drawable/AnimationDrawable),
+create an `https://developer.android.com/reference/android/graphics/drawable/AnimationDrawable`,
 see the [Animation resources](https://developer.android.com/guide/topics/resources/animation-resource) document.
 
 **Note:** A [color resource](https://developer.android.com/guide/topics/resources/more-resources#Color) can also be
@@ -80,26 +80,26 @@ the `res/raw/` folder instead, where they aren't optimized.
 
 ### Bitmap file
 
-A bitmap file is a PNG, WEBP, JPG, or GIF file. Android creates a [Drawable](https://developer.android.com/reference/android/graphics/drawable/Drawable)
+A bitmap file is a PNG, WEBP, JPG, or GIF file. Android creates a `https://developer.android.com/reference/android/graphics/drawable/Drawable`
 resource for any of these files when you save them in the `res/drawable/` directory.
 
 file location:
-:   `res/drawable/`*filename*`.png` (`.png`, `.webp`, `.jpg`, or `.gif`)  
+:   `res/drawable/filename.png` (`.png`, `.webp`, `.jpg`, or `.gif`)  
 
     The filename is the resource ID
 
 compiled resource datatype:
-:   Resource pointer to a [BitmapDrawable](https://developer.android.com/reference/android/graphics/drawable/BitmapDrawable)
+:   Resource pointer to a `https://developer.android.com/reference/android/graphics/drawable/BitmapDrawable`
 
 resource reference:
 :
-    In Java: `R.drawable.`*filename*  
+    In Java: `R.drawable.filename`  
 
-    In XML: `@[`*package* `:]drawable/`*filename*
+    In XML: `@[package:]drawable/filename`
 
 example:
 :   With an image saved at `res/drawable/myimage.png`, this layout XML applies
-    the image to a view:  
+    the image to a view:
 
     ```xml
     <ImageView
@@ -108,7 +108,7 @@ example:
         android:src="@drawable/myimage" />
     ```
 
-    The following application code retrieves the image as a [Drawable](https://developer.android.com/reference/android/graphics/drawable/Drawable):
+    The following application code retrieves the image as a `https://developer.android.com/reference/android/graphics/drawable/Drawable`:
 
     ### Kotlin
 
@@ -123,7 +123,7 @@ example:
 see also:
 :
     - [Drawables overview](https://developer.android.com/develop/ui/views/graphics/drawables)
-    - [BitmapDrawable](https://developer.android.com/reference/android/graphics/drawable/BitmapDrawable)
+    - `https://developer.android.com/reference/android/graphics/drawable/BitmapDrawable`
 
 ### XML bitmap
 
@@ -138,25 +138,25 @@ attribute from an `<item>` element and nest a `<bitmap>` inside it
 that defines the drawable item.
 
 file location:
-:   `res/drawable/`*filename*`.xml`  
+:   `res/drawable/filename.xml`  
 
     The filename is the resource ID
 
 compiled resource datatype:
-:   Resource pointer to a [BitmapDrawable](https://developer.android.com/reference/android/graphics/drawable/BitmapDrawable)
+:   Resource pointer to a `https://developer.android.com/reference/android/graphics/drawable/BitmapDrawable`
 
 resource reference:
 :
-    In Java: `R.drawable.`*filename*  
+    In Java: `R.drawable.filename`  
 
-    In XML: `@[`*package* `:]drawable/`*filename*
+    In XML: `@[package:]drawable/filename`
 
 syntax:
 :
 
     ```xml
-    <?xml version="1.0" encoding="utf-8"?>
-    <bitmap
+    <?xml version="1.0" encodin>g<=";utf-8"?
+    bitmap
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:src="@[package:]drawable/drawable_resource"
         android:antialias=["true" | "false"]
@@ -164,9 +164,9 @@ syntax:
         android:filter=["true" | "false"]
         android:gravity=["top" | "bottom" | "left" | "right" | "center_vertical" |
                           "fill_vertical" | "center_horizontal" | "fill_horizontal" |
-                          "center" | "fill" | "clip_vertical" | "clip_horizontal"]
+        >                  "center" | "fill" | "clip_vertical" | "clip_horizontal"]
         android:mipMap=["true" | "false"]
-        android:tileMode=["disabled" | "clamp" | "repeat" | "mirror"] />
+        android:tileMode=["disabled" | "clamp" | "repeat" | "mirror"] /
     ```
 
 elements:
@@ -222,7 +222,7 @@ elements:
 
 
         `android:mipMap`
-        :   *Boolean* . Enables or disables the mipmap hint. See [setHasMipMap()](https://developer.android.com/reference/android/graphics/Bitmap#setHasMipMap(boolean)) for more information.
+        :   *Boolean* . Enables or disables the mipmap hint. See `https://developer.android.com/reference/android/graphics/Bitmap#setHasMipMap(boolean)` for more information.
             The default value is false.
 
         `android:tileMode`
@@ -243,29 +243,29 @@ example:
 :
 
     ```xml
-    <?xml version="1.0" encoding="utf-8"?>
-    <bitmap xmlns:android="http://schemas.android.com/apk/res/android"
-        android:src="@drawable/icon"
-        android:tileMode="repeat" />
+    <?xml version="1.0" encodin>g<="utf-8"?
+    bitmap xmlns:android="http://schemas.android.com/apk/res/android"
+        android:src="@drawable/ic>on"
+        android:tileMode="repeat" /
     ```
 
 
 see also:
 :
-    - [BitmapDrawable](https://developer.android.com/reference/android/graphics/drawable/BitmapDrawable)
+    - `https://developer.android.com/reference/android/graphics/drawable/BitmapDrawable`
     - [Create
       alias resources](https://developer.android.com/guide/topics/resources/providing-resources#AliasResources)
 
 ## Nine-patch
 
-A [NinePatch](https://developer.android.com/reference/android/graphics/NinePatch) is a PNG image in which you can define stretchable regions
+A `https://developer.android.com/reference/android/graphics/NinePatch` is a PNG image in which you can define stretchable regions
 that Android scales when content within the view exceeds the normal image bounds. You
 typically assign this type of image as the background of a view that has at least one dimension set
 to `"wrap_content"`.
 
 When the view grows to accommodate the content, the nine-patch image
 is also scaled to match the size of the view. An example use of a nine-patch image is the
-background used by Android's standard [Button](https://developer.android.com/reference/android/widget/Button) widget, which must stretch to
+background used by Android's standard `https://developer.android.com/reference/android/widget/Button` widget, which must stretch to
 accommodate the text (or image) inside the button.
 
 As with a normal [bitmap](https://developer.android.com/guide/topics/resources/drawable-resource#Bitmap), you can reference a nine-patch file directly
@@ -277,22 +277,22 @@ see [Create resizable bitmaps (9-patch files)](https://developer.android.com/stu
 ### Nine-patch file
 
 file location:
-:   `res/drawable/`*filename*`.9.png`  
+:   `res/drawable/filename.9.png`  
 
     The filename is the resource ID
 
 compiled resource datatype:
-:   Resource pointer to a [NinePatchDrawable](https://developer.android.com/reference/android/graphics/drawable/NinePatchDrawable)
+:   Resource pointer to a `https://developer.android.com/reference/android/graphics/drawable/NinePatchDrawable`
 
 resource reference:
 :
-    In Java: `R.drawable.`*filename*  
+    In Java: `R.drawable.filename`  
 
-    In XML: `@[`*package* `:]drawable/`*filename*
+    In XML: `@[package:]drawable/filename`
 
 example:
 :   With an image saved at `res/drawable/myninepatch.9.png`, this layout XML
-    applies the nine-patch to a view:  
+    applies the nine-patch to a view:
 
     ```xml
     <Button
@@ -304,7 +304,7 @@ example:
 see also:
 :
     - [Create resizable bitmaps (9-patch files)](https://developer.android.com/studio/write/draw9patch)
-    - [NinePatchDrawable](https://developer.android.com/reference/android/graphics/drawable/NinePatchDrawable)
+    - `https://developer.android.com/reference/android/graphics/drawable/NinePatchDrawable`
 
 ### XML nine-patch
 
@@ -312,28 +312,28 @@ An XML nine-patch is a resource defined in XML that points to a nine-patch file.
 specify dithering for the image.
 
 file location:
-:   `res/drawable/`*filename*`.xml`  
+:   `res/drawable/filename.xml`  
 
     The filename is the resource ID
 
 compiled resource datatype:
-:   Resource pointer to a [NinePatchDrawable](https://developer.android.com/reference/android/graphics/drawable/NinePatchDrawable)
+:   Resource pointer to a `https://developer.android.com/reference/android/graphics/drawable/NinePatchDrawable`
 
 resource reference:
 :
-    In Java: `R.drawable.`*filename*  
+    In Java: `R.drawable.filename`  
 
-    In XML: `@[`*package* `:]drawable/`*filename*
+    In XML: `@[package:]drawable/filename`
 
 syntax:
 :
 
     ```xml
-    <?xml version="1.0" encoding="utf-8"?>
-    <nine-patch
+    <?xml version="1.0" encodin>g<="utf-8"?
+    nine-patch
         xmlns:android="http://schemas.android.com/apk/res/android"
-        android:src="@[package:]drawable/drawable_resource"
-        android:dither=["true" | "false"] />
+        android:src="@[package:]drawable/drawable_resource">
+        android:dither=["true" | "false"] /
     ```
 
 elements:
@@ -362,49 +362,48 @@ example:
 :
 
     ```xml
-    <?xml version="1.0" encoding="utf-8"?>
-    <nine-patch xmlns:android="http://schemas.android.com/apk/res/android"
-        android:src="@drawable/myninepatch"
-        android:dither="false" />
+    <?xml version="1.0" encodin>g<="utf-8"?
+    nine-patch xmlns:android="http://schemas.android.com/apk/res/android"
+        android:src="@drawable/mynine>patch"
+        android:dither="false" /
     ```
 
 ## Layer list
 
-A [LayerDrawable](https://developer.android.com/reference/android/graphics/drawable/LayerDrawable) is a drawable object
+A `https://developer.android.com/reference/android/graphics/drawable/LayerDrawable` is a drawable object
 that manages an array of other drawables. Each drawable in the list is drawn in the order of the
 list. The last drawable in the list is drawn on top.
 
 Each drawable is represented by an `<item>` element inside a single `<layer-list>` element.
 
 file location:
-:   `res/drawable/`*filename*`.xml`  
+:   `res/drawable/filename.xml`  
 
     The filename is the resource ID
 
 compiled resource datatype:
-:   Resource pointer to a [LayerDrawable](https://developer.android.com/reference/android/graphics/drawable/LayerDrawable)
+:   Resource pointer to a `https://developer.android.com/reference/android/graphics/drawable/LayerDrawable`
 
 resource reference:
 :
-    In Java: `R.drawable.`*filename*  
+    In Java: `R.drawable.filename`  
 
-    In XML: `@[`*package* `:]drawable/`*filename*
+    In XML: `@[package:]drawable/filename`
 
 syntax:
 :
 
     ```xml
-    <?xml version="1.0" encoding="utf-8"?>
-    <layer-list
-        xmlns:android="http://schemas.android.com/apk/res/android" >
-        <item
-            android:drawable="@[package:]drawable/drawable_resource"
+    <?xml version="1.0" encoding=<"utf-8"?>
+    layer-list
+        xmlns:android="http://schemas.a>ndroi<d.com/apk/res/android" 
+        item
+            android:drawable=";@[package:]drawable/drawable_resource&quot;
             android:id="@[+][package:]id/resource_name"
-            android:top="dimension"
-            android:right="dimension"
+      pan>android:top="dimension&quot;    android:right="dimension&qu>o<t;
             android:bottom="dimension"
-            android:left="dimension" />
-    </layer-list>
+            android:left="dimension" /
+    /layer-list>
     ```
 
 elements:
@@ -433,9 +432,9 @@ elements:
         `android:id`
         :   *Resource ID* . A unique resource ID for this drawable. To create a new resource
             ID for this item, use the form:
-            `"@+id/`*name*`"`. The plus symbol indicates that this is created as a new
+            `"@+id/name"`. The plus symbol indicates that this is created as a new
             ID. You can use this identifier to
-            retrieve and modify the drawable with [View.findViewById()](https://developer.android.com/reference/android/view/View#findViewById(int)) or [Activity.findViewById()](https://developer.android.com/reference/android/app/Activity#findViewById(int)).
+            retrieve and modify the drawable with `https://developer.android.com/reference/android/view/View#findViewById(int)` or `https://developer.android.com/reference/android/app/Activity#findViewById(int)`.
 
         `android:top`
         :   *Dimension* . The top offset, as a dimension value or [dimension resource](https://developer.android.com/guide/topics/resources/more-resources#Dimension).
@@ -459,7 +458,7 @@ elements:
         that scales to fit its container view:
 
         ```xml
-        <item android:drawable="@drawable/image" />
+        <item android:drawable="@drawable/ima>ge" /
         ```
 
 
@@ -468,31 +467,31 @@ elements:
 
         ```xml
         <item>
-          <bitmap android:src="@drawable/image"
-                  android:gravity="center" />
-        </item>
+          <bitmap android:src=&quot;@drawable/image"
+                  android:gravity=>&<quot;>center" /
+        /item
         ```
 
 
 example:
-    : XML file saved at `res/drawable/layers.xml`:  
+:   XML file saved at `res/drawable/layers.xml`:
 
     ```xml
-    <?xml version="1.0" encoding="utf-8"?>
-    <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
-        <item>
-          <bitmap android:src="@drawable/android_red"
-            android:gravity="center" />
-        </item>
-        <item android:top="10dp" android:left="10dp">
-          <bitmap android:src="@drawable/android_green"
-            android:gravity="center" />
-        </item>
-        <item android:top="20dp" android:left="20dp">
-          <bitmap android:src="@drawable/android_blue"
-            android:gravity="center" />
-        </item>
-    </layer-list>
+    <?xml version="1.0" encodin>g<="utf-8"?
+    layer-list xmlns:android="http://schemas.and>roid.<com/>apk/res</android"
+        item
+          bitmap android:src="@drawable/android_red&>quot;<
+        >    a<ndroid:gravity="center" /
+        /it>em
+        <item android:top="10dp" android:left="10dp"
+          bitmap an>droid<:src=>"<;@drawable/android_green"
+            andr>oid:gra<vity="center" /
+        /item
+        item android:top="20dp" andr>oid:l<eft=&>q<uot;20dp&qu>ot;
+          bitmap android:src="@drawable/android_blue"
+            android:gravity="center" /
+        /item
+    /layer-list
     ```
 
     This example uses a nested `<bitmap>` element to define the drawable
@@ -506,7 +505,7 @@ example:
     <ImageView
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:src="@drawable/layers" />
+        android:src=>"@drawable/layers" /
     ```
 
 
@@ -516,13 +515,13 @@ example:
 
 see also:
 :
-    - [LayerDrawable](https://developer.android.com/reference/android/graphics/drawable/LayerDrawable)
+    - `https://developer.android.com/reference/android/graphics/drawable/LayerDrawable`
 
 ## State list
 
-A [StateListDrawable](https://developer.android.com/reference/android/graphics/drawable/StateListDrawable) is a drawable object defined in XML
+A `https://developer.android.com/reference/android/graphics/drawable/StateListDrawable` is a drawable object defined in XML
 that uses multiple images to represent the same graphic, depending on the state of
-the object. For example, the state of a [Button](https://developer.android.com/reference/android/widget/Button) widget can be tapped, focused,
+the object. For example, the state of a `https://developer.android.com/reference/android/widget/Button` widget can be tapped, focused,
 or neither; using a state list drawable, you can provide a different background image for each
 state.
 
@@ -535,40 +534,40 @@ matches the current state is used. The selection is *not* based on the "best
 match," but rather the first item that meets the minimum criteria of the state.
 
 file location:
-:   `res/drawable/`*filename*`.xml`  
+:   `res/drawable/filename.xml`  
 
     The filename is the resource ID
 
 compiled resource datatype:
-:   Resource pointer to a [StateListDrawable](https://developer.android.com/reference/android/graphics/drawable/StateListDrawable)
+:   Resource pointer to a `https://developer.android.com/reference/android/graphics/drawable/StateListDrawable`
 
 resource reference:
 :
-    In Java: `R.drawable.`*filename*  
+    In Java: `R.drawable.filename`  
 
-    In XML: `@[`*package* `:]drawable/`*filename*
+    In XML: `@[package:]drawable/filename`
 
 syntax:
 :
 
     ```xml
-    <?xml version="1.0" encoding="utf-8"?>
-    <selector xmlns:android="http://schemas.android.com/apk/res/android"
+    <?xml version="1.0" encoding=<"utf-8"?>
+    selector xmlns:android="http://schemas.android.com/apk/res/android"
         android:constantSize=["true" | "false"]
-        android:dither=["true" | "false"]
-        android:variablePadding=["true" | "false"] >
-        <item
+        android:dither=["true" |< &quot;false"]
+        android:variablePadding=[&quot;true" | "false"] >
+        item
             android:drawable="@[package:]drawable/drawable_resource"
             android:state_pressed=["true" | "false"]
             android:state_focused=["true" | "false"]
             android:state_hovered=["true" | "false"]
             android:state_selected=["true" | "false"]
             android:state_checkable=["true" | "false"]
-            android:state_checked=["true" | "false"]
+      <      android:state_checked=["true" | "false"]
             android:state_enabled=["true" | "false"]
             android:state_activated=["true" | "false"]
             android:state_window_focused=["true" | "false"] />
-    </selector>
+    /selector>
     ```
 
 elements:
@@ -665,19 +664,19 @@ elements:
 
 
 example:
-    : XML file saved at `res/drawable/button.xml`:  
+:   XML file saved at `res/drawable/button.xml`:
 
     ```xml
-    <?xml version="1.0" encoding="utf-8"?>
-    <selector xmlns:android="http://schemas.android.com/apk/res/android">
-        <item android:state_pressed="true"
-              android:drawable="@drawable/button_pressed" /> <!-- pressed -->
-        <item android:state_focused="true"
-              android:drawable="@drawable/button_focused" /> <!-- focused -->
-        <item android:state_hovered="true"
-              android:drawable="@drawable/button_focused" /> <!-- hovered -->
-        <item android:drawable="@drawable/button_normal" /> <!-- default -->
-    </selector>
+    <?xml version="1.0" encoding=<"utf-8"?>
+    selector xmlns:android="http://schemas.androi<d.com/apk/res/android">
+        item android:state_pressed="true"
+              a<ndroid:drawabl>e=&qu<ot;@drawable/button_pressed" /> !-- pressed --
+        item android:state_focused="<;true"
+      >     <   android:drawable="@drawable/button_focused" /> !-- focused --
+        item andr<oid:state_hove>red=&<quot;true"
+              android:drawable="@d<rawable/button>_<focused" /> !-- hovered --
+        item android:drawable="@drawable/button_normal" /> !-- default --
+    /selector>
     ```
 
 
@@ -692,41 +691,41 @@ example:
 
 see also:
 :
-    - [StateListDrawable](https://developer.android.com/reference/android/graphics/drawable/StateListDrawable)
+    - `https://developer.android.com/reference/android/graphics/drawable/StateListDrawable`
 
 ## Level list
 
 A drawable that manages a number of alternate drawables, each assigned a maximum numerical
-value. Setting the level value of the drawable with [setLevel()](https://developer.android.com/reference/android/graphics/drawable/Drawable#setLevel(int)) loads the drawable resource in the
+value. Setting the level value of the drawable with `https://developer.android.com/reference/android/graphics/drawable/Drawable#setLevel(int)` loads the drawable resource in the
 level list that has an `android:maxLevel` value greater than or equal to the value
 passed to the method.
 
 file location:
-:   `res/drawable/`*filename*`.xml`  
+:   `res/drawable/filename.xml`  
 
     The filename is the resource ID
 
 compiled resource datatype:
-:   Resource pointer to a [LevelListDrawable](https://developer.android.com/reference/android/graphics/drawable/LevelListDrawable)
+:   Resource pointer to a `https://developer.android.com/reference/android/graphics/drawable/LevelListDrawable`
 
 resource reference:
 :
-    In Java: `R.drawable.`*filename*  
+    In Java: `R.drawable.filename`  
 
-    In XML: `@[`*package* `:]drawable/`*filename*
+    In XML: `@[package:]drawable/filename`
 
 syntax:
 :
 
     ```xml
-    <?xml version="1.0" encoding="utf-8"?>
-    <level-list
-        xmlns:android="http://schemas.android.com/apk/res/android" >
-        <item
-            android:drawable="@drawable/drawable_resource"
-            android:maxLevel="integer"
-            android:minLevel="integer" />
-    </level-list>
+    <?xml version="1.0" encoding=<"utf-8"?>
+    level-list
+        xmlns:android="http://schemas.a>ndroi<d.com/apk/res/android" 
+        item
+       *     *android:drawable="@drawable/drawable_resource"
+            android:maxLevel=&qu>o<t;integer&q>uot;
+            android:minLevel="integer" /
+    /level-list
     ```
 
 elements:
@@ -760,62 +759,61 @@ example:
 :
 
     ```xml
-    <?xml version="1.0" encoding="utf-8"?>
-    <level-list xmlns:android="http://schemas.android.com/apk/res/android" >
-        <item
-            android:drawable="@drawable/status_off"
-            android:maxLevel="0" />
-        <item
-            android:drawable="@drawable/status_on"
-            android:maxLevel="1" />
-    </level-list>
+    <?xml version="1.0" encoding=<"utf-8"?>
+    level-list xmlns:android="http://schemas.a>ndroi<d.com/apk/res/android" 
+        item
+            android:drawable="@drawable/stat>us_of<f"
+            android:maxLevel="0" /
+        item
+            android:drawable>=<"@draw>able/status_on"
+            android:maxLevel="1" /
+    /level-list
     ```
 
-    Once this is applied to a [View](https://developer.android.com/reference/android/view/View), the level can be changed with [setLevel()](https://developer.android.com/reference/android/graphics/drawable/Drawable#setLevel(int)) or [setImageLevel()](https://developer.android.com/reference/android/widget/ImageView#setImageLevel(int)).
+    Once this is applied to a `https://developer.android.com/reference/android/view/View`, the level can be changed with `https://developer.android.com/reference/android/graphics/drawable/Drawable#setLevel(int)` or `https://developer.android.com/reference/android/widget/ImageView#setImageLevel(int)`.
 
 
 see also:
 :
-    - [LevelListDrawable](https://developer.android.com/reference/android/graphics/drawable/LevelListDrawable)
+    - `https://developer.android.com/reference/android/graphics/drawable/LevelListDrawable`
 
 ## Transition drawable
 
-A [TransitionDrawable](https://developer.android.com/reference/android/graphics/drawable/TransitionDrawable) is a drawable object
+A `https://developer.android.com/reference/android/graphics/drawable/TransitionDrawable` is a drawable object
 that can cross-fade between two other drawable resources.
 
 Each drawable is represented by an `<item>` element inside a single `<transition>` element. No more than two items are supported. To transition forward, call
-[startTransition()](https://developer.android.com/reference/android/graphics/drawable/TransitionDrawable#startTransition(int)). To
-transition backward, call [reverseTransition()](https://developer.android.com/reference/android/graphics/drawable/TransitionDrawable#reverseTransition(int)).
+`https://developer.android.com/reference/android/graphics/drawable/TransitionDrawable#startTransition(int)`. To
+transition backward, call `https://developer.android.com/reference/android/graphics/drawable/TransitionDrawable#reverseTransition(int)`.
 
 file location:
-:   `res/drawable/`*filename*`.xml`  
+:   `res/drawable/filename.xml`  
 
     The filename is the resource ID
 
 compiled resource datatype:
-:   Resource pointer to a [TransitionDrawable](https://developer.android.com/reference/android/graphics/drawable/TransitionDrawable)
+:   Resource pointer to a `https://developer.android.com/reference/android/graphics/drawable/TransitionDrawable`
 
 resource reference:
 :
-    In Java: `R.drawable.`*filename*  
+    In Java: `R.drawable.filename`  
 
-    In XML: `@[`*package* `:]drawable/`*filename*
+    In XML: `@[package:]drawable/filename`
 
 syntax:
 :
 
     ```xml
-    <?xml version="1.0" encoding="utf-8"?>
-    <transition
-    xmlns:android="http://schemas.android.com/apk/res/android" >
-        <item
-            android:drawable="@[package:]drawable/drawable_resource"
+    <?xml version="1.0" encoding=<"utf-8"?>
+    transition
+    xmlns:android="http://schemas.a>ndroi<d.com/apk/res/android" 
+        item
+            android:drawable=";@[package:]drawable/drawable_resource&quot;
             android:id="@[+][package:]id/resource_name"
-            android:top="dimension"
-            android:right="dimension"
+      pan>android:top="dimension&quot;    android:right="dimension&qu>o<t;
             android:bottom="dimension"
-            android:left="dimension" />
-    </transition>
+            android:left="dimension" /
+    /transition>
     ```
 
 elements:
@@ -844,9 +842,9 @@ elements:
         `android:id`
         :   *Resource ID* . A unique resource ID for this drawable. To create a new resource
             ID for this item, use the form:
-            `"@+id/`*name*`"`. The plus symbol indicates that this is created as a new
+            `"@+id/name"`. The plus symbol indicates that this is created as a new
             ID. You can use this identifier to
-            retrieve and modify the drawable with [View.findViewById()](https://developer.android.com/reference/android/view/View#findViewById(int)) or [Activity.findViewById()](https://developer.android.com/reference/android/app/Activity#findViewById(int)).
+            retrieve and modify the drawable with `https://developer.android.com/reference/android/view/View#findViewById(int)` or `https://developer.android.com/reference/android/app/Activity#findViewById(int)`.
 
         `android:top`
         :   *Integer*. The top offset in pixels.
@@ -862,14 +860,14 @@ elements:
 
 
 example:
-    : XML file saved at `res/drawable/transition.xml`:  
+:   XML file saved at `res/drawable/transition.xml`:
 
     ```xml
-    <?xml version="1.0" encoding="utf-8"?>
-    <transition xmlns:android="http://schemas.android.com/apk/res/android">
-        <item android:drawable="@drawable/on" />
-        <item android:drawable="@drawable/off" />
-    </transition>
+    <?xml version="1.0" encodin>g<="utf-8"?
+    transition xmlns:android="http://schemas.and>roid.<com/apk/res/android"
+        item and>roid:<drawable="@drawable/on" /
+       > <item androi>d:drawable="@drawable/off" /
+    /transition
     ```
 
 
@@ -880,7 +878,7 @@ example:
         android:id="@+id/button"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:src="@drawable/transition" />
+        androi>d:src="@drawable/transition" /
     ```
 
 
@@ -909,7 +907,7 @@ example:
 
 see also:
 :
-    - [TransitionDrawable](https://developer.android.com/reference/android/graphics/drawable/TransitionDrawable)
+    - `https://developer.android.com/reference/android/graphics/drawable/TransitionDrawable`
 
 ## Inset drawable
 
@@ -917,31 +915,31 @@ A drawable defined in XML that insets another drawable by a specified distance. 
 when a view needs a background that is smaller than the view's actual bounds.
 
 file location:
-:   `res/drawable/`*filename*`.xml`  
+:   `res/drawable/filename.xml`  
 
     The filename is the resource ID
 
 compiled resource datatype:
-:   Resource pointer to a [InsetDrawable](https://developer.android.com/reference/android/graphics/drawable/InsetDrawable)
+:   Resource pointer to a `https://developer.android.com/reference/android/graphics/drawable/InsetDrawable`
 
 resource reference:
 :
-    In Java: `R.drawable.`*filename*  
+    In Java: `R.drawable.filename`  
 
-    In XML: `@[`*package* `:]drawable/`*filename*
+    In XML: `@[package:]drawable/filename`
 
 syntax:
 :
 
     ```xml
-    <?xml version="1.0" encoding="utf-8"?>
-    <inset
+    <?xml version="1.0" encoding=<";utf-8"?>
+    inset
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:drawable="@drawable/drawable_resource"
-        android:insetTop="dimension"
-        android:insetRight="dimension"
-        android:insetBottom="dimension"
-        android:insetLeft="dimension" />
+        android:insetTop=&quot;dimension"
+        android:insetRight="dimension&quot;
+        andr>oid:insetBottom="dimension"
+        android:insetLeft="dimension" /
     ```
 
 elements:
@@ -977,16 +975,16 @@ example:
 :
 
     ```xml
-    <?xml version="1.0" encoding="utf-8"?>
-    <inset xmlns:android="http://schemas.android.com/apk/res/android"
+    <?xml version="1.0" encoding=<"utf-8"?>
+    inset xmlns:android="http://schemas.android.com/apk/res/android"
         android:drawable="@drawable/background"
-        android:insetTop="10dp"
-        android:insetLeft="10dp" />
+        android:ins>etTop="10dp"
+        android:insetLeft="10dp" /
     ```
 
 see also:
 :
-    - [InsetDrawable](https://developer.android.com/reference/android/graphics/drawable/InsetDrawable)
+    - `https://developer.android.com/reference/android/graphics/drawable/InsetDrawable`
 
 ## Clip drawable
 
@@ -996,31 +994,31 @@ as a gravity to control where it is placed in its overall container. Most often 
 things like progress bars.
 
 file location:
-:   `res/drawable/`*filename*`.xml`  
+:   `res/drawable/filename.xml`  
 
     The filename is the resource ID
 
 compiled resource datatype:
-:   Resource pointer to a [ClipDrawable](https://developer.android.com/reference/android/graphics/drawable/ClipDrawable)
+:   Resource pointer to a `https://developer.android.com/reference/android/graphics/drawable/ClipDrawable`
 
 resource reference:
 :
-    In Java: `R.drawable.`*filename*  
+    In Java: `R.drawable.filename`  
 
-    In XML: `@[`*package* `:]drawable/`*filename*
+    In XML: `@[package:]drawable/filename`
 
 syntax:
 :
 
     ```xml
-    <?xml version="1.0" encoding="utf-8"?>
-    <clip
+    <?xml version="1.0" encoding=<&quot;utf-8"?>
+    clip
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:drawable="@drawable/drawable_resource"
         android:clipOrientation=["horizontal" | "vertical"]
         android:gravity=["top" | "bottom" | "left" | "right" | "center_vertical" |
-                         "fill_vertical" | "center_horizontal" | "fill_horizontal" |
-                         "center" | "fill" | "clip_vertical" | "clip_horizontal"] />
+                         "fill_vertical" >| "center_horizontal" | "fill_horizontal" |
+                         "center" | "fill" | "clip_vertical" | "clip_horizontal"] /
     ```
 
 elements:
@@ -1072,14 +1070,14 @@ elements:
 
 
 example:
-    : XML file saved at `res/drawable/clip.xml`:  
+:   XML file saved at `res/drawable/clip.xml`:
 
     ```xml
-    <?xml version="1.0" encoding="utf-8"?>
-    <clip xmlns:android="http://schemas.android.com/apk/res/android"
+    <?xml version="1.0" encoding=<"utf-8"?>
+    clip xmlns:android="http://schemas.android.com/apk/res/android"
         android:drawable="@drawable/android"
-        android:clipOrientation="horizontal"
-        android:gravity="left" />
+        android:clipOrientatio>n="horizontal"
+        android:gravity="left" /
     ```
 
     The following layout XML applies the clip drawable to a view:
@@ -1127,7 +1125,7 @@ example:
 
 see also:
 :
-    - [ClipDrawable](https://developer.android.com/reference/android/graphics/drawable/ClipDrawable)
+    - `https://developer.android.com/reference/android/graphics/drawable/ClipDrawable`
 
 ## Scale drawable
 
@@ -1135,32 +1133,32 @@ A drawable defined in XML that changes the size of another drawable based on its
 level.
 
 file location:
-:   `res/drawable/`*filename*`.xml`  
+:   `res/drawable/filename.xml`  
 
     The filename is the resource ID
 
 compiled resource datatype:
-:   Resource pointer to a [ScaleDrawable](https://developer.android.com/reference/android/graphics/drawable/ScaleDrawable)
+:   Resource pointer to a `https://developer.android.com/reference/android/graphics/drawable/ScaleDrawable`
 
 resource reference:
 :
-    In Java: `R.drawable.`*filename*  
+    In Java: `R.drawable.filename`  
 
-    In XML: `@[`*package* `:]drawable/`*filename*
+    In XML: `@[package:]drawable/filename`
 
 syntax:
 :
 
     ```xml
-    <?xml version="1.0" encoding="utf-8"?>
-    <scale
+    <?xml version="1.0" encoding=<";utf-8"?>
+    scale
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:drawable="@drawable/drawable_resource"
         android:scaleGravity=["top" | "bottom" | "left" | "right" | "center_vertical" |
-                              "fill_vertical" | "center_horizontal" | "fill_horizontal" |
-                              "center" | "fill" | "clip_vertical" | "clip_horizontal"]
+                              "fill_vertical" | "center_horizontal" | "fill_horizontal&quot; |
+                         *     *n>"ce>nter" | "fill" | "clip_vertical" | "clip_horizontal"]
         android:scaleHeight="percentage"
-        android:scaleWidth="percentage" />
+        android:scaleWidth="percentage" /
     ```
 
 elements:
@@ -1212,76 +1210,75 @@ example:
 :
 
     ```xml
-    <?xml version="1.0" encoding="utf-8"?>
-    <scale xmlns:android="http://schemas.android.com/apk/res/android"
+    <?xml version="1.0" encoding=<"utf-8"?>
+    scale xmlns:android="http://schemas.android.com/apk/res/android"
         android:drawable="@drawable/logo"
         android:scaleGravity="center_vertical|center_horizontal"
-        android:scaleHeight="80%"
-        android:scaleWidth="80%" />
+        and>roid:scaleHeight="80%"
+        android:scaleWidth="80%" /
     ```
 
 see also:
 :
-    - [ScaleDrawable](https://developer.android.com/reference/android/graphics/drawable/ScaleDrawable)
+    - `https://developer.android.com/reference/android/graphics/drawable/ScaleDrawable`
 
 ## Shape drawable
 
 This is a generic shape defined in XML.
 
 file location:
-:   `res/drawable/`*filename*`.xml`  
+:   `res/drawable/filename.xml`  
 
     The filename is the resource ID
 
 compiled resource datatype:
-:   Resource pointer to a [GradientDrawable](https://developer.android.com/reference/android/graphics/drawable/GradientDrawable)
+:   Resource pointer to a `https://developer.android.com/reference/android/graphics/drawable/GradientDrawable`
 
 resource reference:
 :
-    In Java: `R.drawable.`*filename*  
+    In Java: `R.drawable.filename`  
 
-    In XML: `@[`*package* `:]drawable/`*filename*
+    In XML: `@[package:]drawable/filename`
 
 syntax:
 :
 
     ```xml
-    <?xml version="1.0" encoding="utf-8"?>
-    <shape
+    <?xml version="1.0" encoding=<";utf-8"?>
+    shape
         xmlns:android="http://schemas.android.com/apk/res/android"
-        android:shape=["rectangle" | "oval" | "line" | "ring"] >
-        <corners
+        android:shape=["rectang<le"; | "oval" | &quot;line" | "ring"] >
+        corners
             android:radius="integer"
             android:topLeftRadius="integer"
-            android:topRightRadius="integer"
+            android:topRightRadius=&q>uot;i<nteger&quot;
             android:bottomLeftRadius="integer"
-            android:bottomRightRadius="integer" />
-        <gradient
-            android:angle="integer"
-            android:centerX="float"
-            android:centerY="float"
+            android:bottomRightRadius=&quot;integer" /
+        gradient
+            android:angle="integer&quot;
+            android:centerX="float&quot;
+            android:centerY=&quot;float"
             android:centerColor="integer"
-            android:endColor="color"
-            android:gradientRadius="integer"
+            android:endColor="color">;
+       <https://developer.android.com/guide/topics/resources/drawable-resource#padding-elementandroid:gradientRadius=&quot;integer"
             android:startColor="color"
-            android:type=["linear" | "radial" | "sweep"]
-            android:useLevel=["true" | "false"] />
-        <padding
-            android:left="integer"
-            android:top="integer"
-            android:right="integer"
-            android:bottom="integer" />
-        <size
+            android:type=["linear"; |> &quo<t;radial" | "sweep"]
+            android:useLevel=["tru>e&quo<t; | "false"] /
+       an>padding>
+        <https://developer.android.com/guide/topics/resources/drawable-resource#stroke-elementhttps://developer.android.com/guide/topics/resources/drawable-resource#stroke-elementdroid:left="integer"        android:top=";integer"
+            android:right=\&quot;integer"
+            android:botto>m<="integer" /
+        size
             android:width="integer"
-            android:height="integer" />
-        <solid
-            android:color="color" />
-        <stroke
+            android:height="integer" /
+        solid
+            android:color="color" /
+        stroke
             android:width="integer"
             android:color="color"
             android:dashWidth="integer"
-            android:dashGap="integer" />
-    </shape>
+            android:dashGap="integer" /
+    /shape>
     ```
 
 elements:
@@ -1329,7 +1326,7 @@ elements:
 
         `android:useLevel`
         :   *Boolean* . True if this is used as
-            a [LevelListDrawable](https://developer.android.com/reference/android/graphics/drawable/LevelListDrawable). This normally is false,
+            a `https://developer.android.com/reference/android/graphics/drawable/LevelListDrawable`. This normally is false,
             or else your shape might not appear.
 
     `<corners>`
@@ -1398,7 +1395,7 @@ elements:
 
 
         `android:useLevel`
-        :   *Boolean* . True if this is used as a [LevelListDrawable](https://developer.android.com/reference/android/graphics/drawable/LevelListDrawable).
+        :   *Boolean* . True if this is used as a `https://developer.android.com/reference/android/graphics/drawable/LevelListDrawable`.
 
     `<padding>`
 
@@ -1427,7 +1424,7 @@ elements:
         :   *Dimension* . The width of the shape, as a dimension value or [dimension resource](https://developer.android.com/guide/topics/resources/more-resources#Dimension).
 
         **Note:** By default, the shape scales to the size of the container
-        view proportionate to the dimensions defined here. When you use the shape in an [ImageView](https://developer.android.com/reference/android/widget/ImageView), you can restrict scaling by setting the [`android:scaleType`](https://developer.android.com/reference/android/widget/ImageView#attr_android:scaleType) to `"center"`.
+        view proportionate to the dimensions defined here. When you use the shape in an `https://developer.android.com/reference/android/widget/ImageView`, you can restrict scaling by setting the [`android:scaleType`](https://developer.android.com/reference/android/widget/ImageView#attr_android:scaleType) to `"center"`.
 
     `<solid>`
 
@@ -1455,22 +1452,22 @@ elements:
         :   *Dimension* . The size of each dash line, as a dimension value or [dimension resource](https://developer.android.com/guide/topics/resources/more-resources#Dimension). Only valid if `android:dashGap` is set.
 
 example:
-    : XML file saved at `res/drawable/gradient_box.xml`:  
+:   XML file saved at `res/drawable/gradient_box.xml`:
 
     ```xml
-    <?xml version="1.0" encoding="utf-8"?>
-    <shape xmlns:android="http://schemas.android.com/apk/res/android"
-        android:shape="rectangle">
-        <gradient
+    <?xml version="1.0" encoding=<"utf-8"?>
+    shape xmlns:android="http://schemas.android.com/apk/res/android"
+      <  android:shape="rectangle">
+        gradient
             android:startColor="#FFFF0000"
-            android:endColor="#80FF00FF"
+            androi<d:endColor="#80FF00FF"
             android:angle="45"/>
-        <padding android:left="7dp"
-            android:top="7dp"
+        padding android:left="7dp"
+     <       android:top="7dp&quo<t;
             android:right="7dp"
             android:bottom="7dp" />
-        <corners android:radius="8dp" />
-    </shape>
+        corners android:radius="8dp" />
+    /shape>
     ```
 
 
@@ -1504,4 +1501,4 @@ example:
 
 see also:
 :
-    - [ShapeDrawable](https://developer.android.com/reference/android/graphics/drawable/ShapeDrawable)
+    - `https://developer.android.com/reference/android/graphics/drawable/ShapeDrawable`

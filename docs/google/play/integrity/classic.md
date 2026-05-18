@@ -86,7 +86,9 @@ further protect your app against certain attacks, such as replay and tampering
 attacks. The Play Integrity API returns the value you set in this field, inside
 the signed integrity response. Carefully follow the guidance on [how to generate
 nonces](https://developer.android.com/google/play/integrity/classic#nonce) to protect your app from attacks.
-| **Caution:** The value passed as the `nonce` is visible in cleartext to your app, and to Google. You should encrypt or hash the data you wish to set in this field before passing it to the Play Integrity API.
+
+> [!CAUTION]
+> **Caution:** The value passed as the `nonce` is visible in cleartext to your app, and to Google. You should encrypt or hash the data you wish to set in this field before passing it to the Play Integrity API.
 
 ### Retry classic requests with exponential backoff
 
@@ -147,7 +149,8 @@ When you receive an integrity verdict:
 2. Compute a digest of the request in the same manner as in the app (e.g. SHA256 of a stable request serialization).
 3. Compare the app-side and server-side digests. If they do not match, the request is not trustworthy.
 
-| **Note:** You should also verify both the device and app integrity signals to ensure that the results of the high-value action were created by your untampered app on an untampered device.
+> [!NOTE]
+> **Note:** You should also verify both the device and app integrity signals to ensure that the results of the high-value action were created by your untampered app on an untampered device.
 
 ### Include unique values to protect against replay attacks
 
@@ -206,7 +209,8 @@ Play. To do so, complete the following steps:
 3. Use the manager to call `requestIntegrityToken()`, supplying the
    `IntegrityTokenRequest`.
 
-   | **Caution:** `nonce` values are passed as-is to Google's systems, so you shouldn't include personally identifiable information or other sensitive data directly or indirectly in the `nonce`.
+   > [!CAUTION]
+   > **Caution:** `nonce` values are passed as-is to Google's systems, so you shouldn't include personally identifiable information or other sensitive data directly or indirectly in the `nonce`.
 
 ### Kotlin
 
@@ -309,7 +313,7 @@ void MyClass::RequestIntegrityToken()
 
   // Initiate the integrity token request, passing the delegate to handle the result.
   GetGameInstance()
-    ->GetSubsystem<UIntegrityManager>()
+    ->Ge<tSubsystemUIntegr>ityManager()
     ->RequestIntegrityToken(Request, Delegate);
 }
 ```
@@ -343,7 +347,7 @@ if (error_code != INTEGRITY_NO_ERROR)
 
 IntegrityResponseStatus response_status;
 
-/// Check for https://developer.android.com/google/play/integrity/error-codes.
+//https://developer.android.com/google/play/integrity/error-codes error codes.
 IntegrityErrorCode error_code =
         IntegrityTokenResponse_getStatus(response, &response_status);
 if (error_code == INTEGRITY_NO_ERROR
@@ -395,13 +399,17 @@ steps:
    playintegrity.googleapis.com/v1/PACKAGE_NAME:decodeIntegrityToken -d \
    '{ "integrity_token": "INTEGRITY_TOKEN" }'
    ```
-   | **Note:** To access the API's REST interface, you can use the [Google API Client Library](https://developers.google.com/api-client-library), which is available in many programming languages, [including Java](https://github.com/googleapis/google-api-java-client-services/tree/main/clients/google-api-services-playintegrity/v1).
+
+   > [!NOTE]
+   > **Note:** To access the API's REST interface, you can use the [Google API Client Library](https://developers.google.com/api-client-library), which is available in many programming languages, [including Java](https://github.com/googleapis/google-api-java-client-services/tree/main/clients/google-api-services-playintegrity/v1).
+
 3. Read the JSON response.
 
 ### Decrypt and verify locally
 
-| **Note:** To protect your app's security, it's recommended that you [allow Google
-| Play to manage your response encryption](https://developer.android.com/google/play/integrity/classic#decrypt-verify-google-servers) for your app.
+> [!NOTE]
+> **Note:** To protect your app's security, it's recommended that you [allow Google
+> Play to manage your response encryption](https://developer.android.com/google/play/integrity/classic#decrypt-verify-google-servers) for your app.
 
 If you choose to manage and download your response encryption keys, you can
 decrypt and verify the returned token within your own secure server environment.
@@ -411,7 +419,7 @@ method.
 The following example shows how to decode the AES key and the DER-encoded public
 EC key for signature verification from the Play Console to language-specific
 (the Java programming language, in our case) keys in the app's backend. Note
-that the keys are base64-encoded using default flags.  
+that the keys are base64-encoded using default flags.
 
 ### Kotlin
 
@@ -462,7 +470,7 @@ PublicKey verificationKey =
 ```
 
 Next, use these keys to first decrypt the integrity token (JWE part) and then
-verify and extract the nested JWS part.  
+verify and extract the nested JWS part.
 
 ### Kotlin
 
@@ -517,5 +525,7 @@ your app from Google Play.
 
 To learn how to trigger these dialogs from your app based on the server's
 response, see [Remediation dialogs](https://developer.android.com/google/play/integrity/remediation).
-| **Tip:** At any time, users can [check their device's Play Protect certification
-| status and troubleshoot issues](https://support.google.com/googleplay/answer/7165974) in the Play Store app. You can point your users to this support page if they need help troubleshooting a device integrity issue.
+
+> [!TIP]
+> **Tip:** At any time, users can [check their device's Play Protect certification
+> status and troubleshoot issues](https://support.google.com/googleplay/answer/7165974) in the Play Store app. You can point your users to this support page if they need help troubleshooting a device integrity issue.

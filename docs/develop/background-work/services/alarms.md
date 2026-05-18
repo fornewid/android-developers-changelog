@@ -176,11 +176,11 @@ permission in your app's manifest file, as shown in the following code snippet:
 
 ```xml
 <manifest ...>
-    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM"/>
-    <application ...>
-        ...
-    </application>
-</manifest>
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_AL>ARM&q<uot;/
+    appli>cation ...
+      <  ...
+    /ap<plication>
+/manifest
 ```
 
 If your app targets Android 13 (API level 33) or higher, you have the option to
@@ -190,11 +190,11 @@ permission.
 
 ```xml
 <manifest ...>
-    <uses-permission android:name="android.permission.USE_EXACT_ALARM"/>
-    <application ...>
-        ...
-    </application>
-</manifest>
+    <uses-permission android:name="android.permission.USE_EXACT_AL>ARM&q<uot;/
+    appli>cation ...
+      <  ...
+    /ap<plication>
+/manifest
 ```
 
 While both the `SCHEDULE_EXACT_ALARM` and the `USE_EXACT_ALARM` permissions
@@ -588,7 +588,7 @@ Here are the steps:
    app has already been launched by the user at least once):
 
    ```xml
-   <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+   <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLE>TED"/
    ```
 2. Implement a
    [`BroadcastReceiver`](https://developer.android.com/reference/android/content/BroadcastReceiver)
@@ -627,11 +627,11 @@ Here are the steps:
 
    ```xml
    <receiver android:name=".SampleBootReceiver"
-           android:enabled="false">
-       <intent-filter>
-           <action android:name="android.intent.action.BOOT_COMPLETED"></action>
-       </intent-filter>
-   </receiver>
+           android:enabl>ed=&q<uot;false&quo>t;
+       in<tent-filter
+           action android:name="android.inte><nt.acti>on.BO<OT_COMPLETED&q>u<ot;/actio>n
+       /intent-filter
+   /receiver
    ```
 
    Notice that in the manifest, the boot receiver is set to

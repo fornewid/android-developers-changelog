@@ -60,15 +60,22 @@ timeline (Figure 3).
 
 ## Create the bulk trace analysis script
 
-The following sample script executes the query in multiple traces using [Perfetto's Python BatchTraceProcessor](https://perfetto.dev/docs/analysis/trace-processor-python).
+The following sample script executes the query in multiple traces using
+[Perfetto's Python `BatchTraceProcessor`](https://perfetto.dev/docs/analysis/trace-processor-python).
 
     from perfetto.batch_trace_processor import BatchTraceProcessor
     import glob
     import plotly.express as px
 
+    # Collect all trace files in the local directory
     traces = glob.glob('*.perfetto-trace')
 
+    if not traces:
+        print("No .perfetto-trace files found in the current directory.")
+        exit(1)
+
     if __name__ == '__main__':
+        # Process all traces in parallel to aggregate metrics across runs
         with BatchTraceProcessor(traces) as btp:
             query = """
             CREATE OR REPLACE PERFETTO FUNCTION find_slices(pattern STRING) RETURNS
@@ -87,7 +94,8 @@ The following sample script executes the query in multiple traces using [Perfett
             SELECT ts,name,dur / 1000000 as dur_ms from generate_start_to_end_slices('activityStart','*Choreographer#doFrame [0-9]*', true)
             """
             df = btp.query_and_flatten(query)
-
+            # Plot the distribution of startup times, tracking trace file paths on
+            # hover
             violin = px.violin(df, x='dur_ms', hover_data='_path', title='startup time', points='all')
             violin.show()
 
@@ -125,4 +133,5 @@ Other use cases include extracting statistics from the field to gauge impact,
 detecting regressions, and more.
 
 > [!NOTE]
-> **Note:** The local [Batch Trace Processor Python API](https://perfetto.dev/docs/analysis/trace-processor-python) can analyze dozens or hundreds of traces. However, its scalability depends on your computer's memory. To analyze thousands of traces, refer to the [Perfetto Bigtrace documentation](https://perfetto.dev/docs/deployment/deploying-bigtrace-on-a-single-machine) to deploy a scalable cluster.
+> **Note:** The local [Batch Trace Processor Python API](https://perfetto.dev/docs/analysis/trace-processor-python) can analyze dozens or hundreds of traces. However, its scalability depends on your computer's memory. To analyze thousands of traces, refer to the [Perfetto Bigtrace
+> documentation](https://perfetto.dev/docs/deployment/deploying-bigtrace-on-a-single-machine) to deploy a scalable cluster.

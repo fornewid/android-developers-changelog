@@ -1197,37 +1197,37 @@ class ScriptC_*filename*(rs: RenderScript) : ScriptC(...) {
     // for kernels with int2 result
     //   note that the Kotlin type name "Int2" is not the same as the script type name "int2"
     object result_int2 {
-        fun get(): Int2 = …
+      ...  fun get(): Int2 = 
     }
 
     // for kernels with int2[10] result
     //   note that the Kotlin type name "Int2" is not the same as the script type name "int2"
-    object resultArray10_int2 {
-        fun get(): Array<Int2> = …
+    object resul<tArray10..._int2 {
+        fun get(): ArrayInt2> = 
     }
 
     // for kernels with uint result
-    //   note that the Kotlin type "long" is a wider signed type than the unsigned script type "uint"
+    //   note that the Kotlin type "long" is a wider signed type than the unsigned script type "...;uint"
     object result_uint {
-        fun get(): Long = …
+        fun get(): Long = 
     }
 
     // for kernels with uint[10] result
-    //   note that the Kotlin type "long" is a wider signed type than the unsigned script type "uint"
+    //   note that the Kotlin type "long" is a wider signed type than the unsigned script ty...pe "uint"
     object resultArray10_uint {
-        fun get(): LongArray = …
+        fun get(): LongArray = 
     }
 
     // for kernels with uint2 result
-    //   note that the Kotlin type "Long2" is a wider signed type than the unsigned script type "uint2"
+    //   note that the Kotlin type "Long2" is a wider signed typ...e than the unsigned script type "uint2"
     object result_uint2 {
-        fun get(): Long2 = …
+        fun get(): Long2 = 
     }
 
     // for kernels with uint2[10] result
-    //   note that the Kotlin type "Long2" is a wider signed type than the unsigned script type "uint2"
+    //   note that the Kotlin type "Long2" is a <wider sig...ned type than the unsigned script type "uint2"
     object resultArray10_uint2 {
-        fun get(): Array<Long2> = …
+        fun get(): ArrayLong2> = 
     }
 }
 ```
@@ -1249,37 +1249,37 @@ public class ScriptC_*filename* extends ScriptC {
   // for kernels with int2 result
   //   note that the Java type name "Int2" is not the same as the script type name "int2"
   public static class result_int2 {
-    public Int2 get() { ... }
+    …public Int2 get() {  }
   }
 
   // for kernels with int2[10] result
   //   note that the Java type name "Int2" is not the same as the script type name "int2"
-  public static class resultArray10_int2 {
-    public Int2[] get() { ... }
+  public static class resultA...rray10_int2 {
+    public Int2[] get() {  }
   }
 
   // for kernels with uint result
   //   note that the Java type "long" is a wider signed type than the unsigned script type "uint"
-  public static class result_uint {
-    public long get() { ... }
+…  public static class result_uint {
+    public long get() {  }
   }
 
   // for kernels with uint[10] result
-  //   note that the Java type "long" is a wider signed type than the unsigned script type "uint"
+  //   note that the Java type "long" is a wider signed type than the unsigned script type "...uint"
   public static class resultArray10_uint {
-    public long[] get() { ... }
+    public long[] get() {  }
   }
 
   // for kernels with uint2 result
-  //   note that the Java type "Long2" is a wider signed type than the unsigned script type "uint2"
+  //   note that the Java type "Long2" is a wider signed type than the u...nsigned script type "uint2"
   public static class result_uint2 {
-    public Long2 get() { ... }
+    public Long2 get() {  }
   }
 
   // for kernels with uint2[10] result
-  //   note that the Java type "Long2" is a wider signed type than the unsigned script type "uint2"
+  //   note that the Java type "Long2" is a wider signed type... than the unsigned script type "uint2"
   public static class resultArray10_uint2 {
-    public Long2[] get() { ... }
+    public Long2[] get() {  }
   }
 }
 ```
