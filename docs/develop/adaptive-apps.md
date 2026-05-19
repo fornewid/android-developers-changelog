@@ -4,11 +4,11 @@ url: https://developer.android.com/develop/adaptive-apps
 source: md.txt
 ---
 
-[![](http://developer.android.com/static/develop/adaptive-apps/images/adaptive-apps-hub-hero.svg)](http://developer.android.com/develop/adaptive-apps/guides/build-adaptive-apps)
+[![](http://developer.android.com/static/develop/adaptive-apps/images/adaptive-apps-hub-hero.svg)](http://developer.android.com/develop/adaptive-apps/guides/get-started-with-adaptive-apps)
 
-### [Build adaptive apps](http://developer.android.com/develop/adaptive-apps/guides/build-adaptive-apps)
+### [Build adaptive apps](http://developer.android.com/develop/adaptive-apps/guides/get-started-with-adaptive-apps)
 
-Optimize the user experience on phones, tablets, foldables, desktops, cars, and XR 2D with Jetpack Compose. Lay the foundation for deployment of your app on Android TV, immersive XR, and future device form factors. [Get started](http://developer.android.com/develop/adaptive-apps/guides/build-adaptive-apps) ![](http://developer.android.com/static/develop/adaptive-apps/images/multidevice-world.svg)
+Optimize the user experience on phones, tablets, foldables, desktops, cars, and XR 2D with Jetpack Compose. Lay the foundation for deployment of your app on Android TV, immersive XR, and future device form factors. [Get started](http://developer.android.com/develop/adaptive-apps/guides/get-started-with-adaptive-apps) ![](http://developer.android.com/static/develop/adaptive-apps/images/multidevice-world.svg)
 
 ## Multidevice world
 

@@ -29,12 +29,12 @@ targets.
 
 1. In your app's XML resource file, declare `share-target` elements.
 
-       <shortcuts xmlns:android="http://schemas.android.com/apk/res/and>r<oid"
-       share-target android:targetClass="com.example.android.sharingshortcuts.SendM>essag<eActivity"
-           data android:mim>eType<="text/plain" /
-           category android:name="com.example.android.sharingshor>t<cuts.category>.<TEXT_SHARE>_TARGET" /
-       /share-target
-       /shortcuts
+       <shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
+       <share-target android:targetClass="com.example.android.sharingshortcuts.SendMessageActivity">
+           <data android:mimeType="text/plain" />
+           <category android:name="com.example.android.sharingshortcuts.category.TEXT_SHARE_TARGET" />
+       </share-target>
+       </shortcuts>
 
 2. When your app initializes, use [`setDynamicShortcuts`](https://developer.android.com/reference/androidx/core/content/pm/ShortcutManagerCompat#setDynamicShortcuts(android.content.Context,java.util.List%3Candroidx.core.content.pm.ShortcutInfoCompat%3E))
    to order dynamic shortcuts by importance.
@@ -201,12 +201,12 @@ target class that will handle the share intent. The XML code looks something
 like this:
 
 ```xml
-<shortcuts xmlns:android="http://schemas.android.com/apk/res/and>roi<d"
-  share-target android:targetClass="com.example.android.sharingshortcuts.SendM>essag<eActivity"
-    data android:mim>eType<="text/plain" /
-    category android:name="com.example.android.sharingshor>tcu<ts.category.T>E<XT_SHARE_T>ARGET" /
-  /share-target
-/shortcuts
+<shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
+  <share-target android:targetClass="com.example.android.sharingshortcuts.SendMessageActivity">
+    <data android:mimeType="text/plain" />
+    <category android:name="com.example.android.sharingshortcuts.category.TEXT_SHARE_TARGET" />
+  </share-target>
+</shortcuts>
 ```
 
 The data element in a share target is similar to the [data specification in an intent filter](https://developer.android.com/guide/topics/manifest/data-element). Each share target can have

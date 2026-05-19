@@ -62,20 +62,20 @@ each style you want to create, follow these steps:
 For example, suppose you define the following style:
 
 ```xml
-<?xml version="1.0" encoding=<"utf>-8&qu<ot;?>
-resources
-    style name="GreenText" >parent=&q<uot;TextAppearance.AppCompat&>quot;
- <     >  ite<m name>=<"andr>oid:textColor"#00FF00/item
-    /style
-/resources
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="GreenText" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">#00FF00</item>
+    </style>
+</resources>
 ```
 
 You can apply the style to a view as follows:
 
 ```xml
 <TextView
-    style="@style/GreenText">
-    ... /
+    style="@style/GreenText"
+    ... />
 ```
 
 Each attribute specified in the style is applied to that view if the view accepts it. The view
@@ -99,9 +99,9 @@ For example, you can inherit the Android platform's default text appearance and 
 follows:
 
 ```xml
-<style name="GreenText" parent="@android:style/>TextA<ppearance"
-    item name>="<andro>i<d:text>Color"#00FF00/item
-/style
+<style name="GreenText" parent="@android:style/TextAppearance">
+    <item name="android:textColor">#00FF00</item>
+</style>
 ```
 
 However, always inherit your core app styles from the Android Support Library. The styles in the
@@ -114,9 +114,9 @@ To inherit styles from a library or your own project, declare the parent style n
 the following example inherits text appearance styles from the Support Library:
 
 ```xml
-<style name="GreenText" parent="TextAppear>ance.<AppCompat"
-    item name>="<andro>i<d:text>Color"#00FF00/item
-/style
+<style name="GreenText" parent="TextAppearance.AppCompat">
+    <item name="android:textColor">#00FF00</item>
+</style>
 ```
 
 You can also inherit styles---except those from the platform---by extending a style's
@@ -127,9 +127,9 @@ the following style inherits all styles from the `GreenText` in the preceding ex
 and then increases the text size:
 
 ```xml
-<style name="GreenText.L>arge&<quot;
-    item name="an>droi<d:tex>t<Size&q>uot;22dp/item
-/style
+<style name="GreenText.Large">
+    <item name="android:textSize">22dp</item>
+</style>
 ```
 
 You can continue inheriting styles like this as many times as you want by chaining on more
@@ -160,9 +160,9 @@ the whole app:
 
 ```xml
 <manifest ... >
-    <application android:theme="@style/Theme.AppCompat&>quot;< ... 
-    /a>p<plication>
-/manifest
+    <application android:theme="@style/Theme.AppCompat" ... >
+    </application>
+</manifest>
 ```
 
 And here's how to apply the "light" theme to just one activity:
@@ -170,10 +170,10 @@ And here's how to apply the "light" theme to just one activity:
 ```xml
 <manifest ... >
     <application ... >
-        <activity android:theme="@style/Theme.AppCompat.Light&>quot; ...< 
-       > /act<ivity
-    /a>p<plication>
-/manifest
+        <activity android:theme="@style/Theme.AppCompat.Light" ... >
+        </activity>
+    </application>
+</manifest>
 ```
 
 Every view in the app or activity applies the styles that it supports from those defined in the
@@ -228,7 +228,7 @@ that functions similarly to a style, as shown in the following example:
 <TextView
     ...
     android:textAppearance="@android:style/TextAppearance.Material.Headline"
-    android:text="This text is styled via tex>tAppearance!" /
+    android:text="This text is styled via textAppearance!" />
 ```
 
 `TextAppearance` lets you define text-specific styling while leaving the style of a
@@ -260,12 +260,12 @@ can quickly customize your app's color design by updating the provided colors.
 For example, your `styles.xml` file looks similar to this:
 
 ```xml
-<style name="AppTheme" parent="Theme.AppCompat.Light>.Dark<ActionBar"
-    !-- Customize> your< theme here. --
-    item> name="colorPr<imary>"<;@color/colorPrimary/item
-  >  item name="color<Prima>ryDar<k"@color/colorPrim>aryDark/item
-    i<tem n>a<me=&qu>ot;colorAccent"@color/colorAccent/item
-/style
+<style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <!-- Customize your theme here. -->
+    <item name="colorPrimary">@color/colorPrimary</item>
+    <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+    <item name="colorAccent">@color/colorAccent</item>
+</style>
 ```
 
 The style values are actually references to other
@@ -278,28 +278,28 @@ to improve the user experience with dynamic color and additional custom colors.
 Once you know your colors, update the values in `res/values/colors.xml`:
 
 ```xml
-<?xml version="1.0" encodin>g<="ut>f-8&q<uot;?
-resources
-    !--   Color for the app bar and other pri>mary <UI elements. --
-    color> name=&<quot;c>olorPr<imary"#3F51B5/color
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--   Color for the app bar and other primary UI elements. -->
+    <color name="colorPrimary">#3F51B5</color>
 
-    !--   A darker variant of the primary color, used for
-           the status bar (on Android 5.0>+) an<d contextual app bars. --
-   > color <name=&>quot;c<olorPrimaryDark"#303F9F/color
+    <!--   A darker variant of the primary color, used for
+           the status bar (on Android 5.0+) and contextual app bars. -->
+    <color name="colorPrimaryDark">#303F9F</color>
 
-    !--   a secondary color for cont>rols <like checkboxes and text> fields<. --
- > <  color name="colorAccent"#FF4081/color
-/resources
+    <!--   a secondary color for controls like checkboxes and text fields. -->
+    <color name="colorAccent">#FF4081</color>
+</resources>
 ```
 
 You can then override whatever other styles you want. For example, you can change the activity
 background color as follows:
 
 ```xml
-<style name="AppTheme" parent="Theme.AppCompat.Light>.DarkActionBa<r"
+<style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
     ...
-    item name=">android:windowBackground&<quot;>@<color/>activityBackground/item
-/style
+    <item name="android:windowBackground">@color/activityBackground</item>
+</style>
 ```
 
 For a list of attributes you can use in your theme, see the table of attributes at
@@ -355,15 +355,15 @@ this:
 ```xml
 <resources>
     <!-- Base set of styles that apply to all versions. -->
-    <style name="BaseAppTheme" parent="Theme.AppCompat.Light>.DarkActi<onBar"
-        item> name="colorPr<imary>"@co<lor/primaryColor/item
-      >  item name="color<Prima>ryDark&qu<ot;@color/primaryTextCo>lor/item
-        item< name>=&quo<t;colo>rAccen<t"@color/secondaryColor/item
-    /style
+    <style name="BaseAppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/primaryColor</item>
+        <item name="colorPrimaryDark">@color/primaryTextColor</item>
+        <item name="colorAccent">@color/secondaryColor</item>
+    </style>
 
-    !-- Declare the theme nam>e tha<t's actually applied in the manifest file>.< --
-    st>yle name="AppTheme" parent="BaseAppTheme" /
-/resources
+    <!-- Declare the theme name that's actually applied in the manifest file. -->
+    <style name="AppTheme" parent="BaseAppTheme" />
+</resources>
 ```
 
 Then, add the version-specific styles in `res/values-v21/styles.xml`, as follows:
@@ -371,12 +371,12 @@ Then, add the version-specific styles in `res/values-v21/styles.xml`, as follows
 ```xml
 <resources>
     <!-- extend the base theme to add styles available only with API level 21+ -->
-    <style name="AppTheme" parent=&quo>t;BaseApp<Theme"
-        item name="android:w>indo<wActi>vityTrans<itions"true/item
-        item name=&>quot;android:windowEnterTransit<ion&q>uot;@andr<oid:transition/slide_right/item
-        >item name="android:window<ExitT>ransi<tion&q>u<ot;@androi>d:transition/slide_left/item
-    /style
-/resources
+    <style name="AppTheme" parent="BaseAppTheme">
+        <item name="android:windowActivityTransitions">true</item>
+        <item name="android:windowEnterTransition">@android:transition/slide_right</item>
+        <item name="android:windowExitTransition">@android:transition/slide_left</item>
+    </style>
+</resources>
 ```
 
 Now you can apply `AppTheme` in your manifest file, and the system selects the styles
@@ -396,18 +396,18 @@ following applies the library's borderless button style:
 
 ```xml
 <Button
-    style="@style/Widget.AppCompat.Button.Borderless">
-    ... /
+    style="@style/Widget.AppCompat.Button.Borderless"
+    ... />
 ```
 
 If you want to apply this style to all buttons, you can declare it in your theme's
 `https://developer.android.com/reference/android/R.attr#buttonStyle` as follows:
 
 ```xml
-<style name="AppTheme" parent="Theme.AppCompat.Light>.Dark<ActionBar"
-    ite>m name="buttonStyle"@style/Widg<et.Ap>pCompat.B<utton.>Borderless/item
+<style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <item name="buttonStyle">@style/Widget.AppCompat.Button.Borderless</item>
     ...
-/style
+</style>
 ```
 
 You can also extend widget styles, just like [extending any other style](https://developer.android.com/develop/ui/views/theming/themes#Customize),

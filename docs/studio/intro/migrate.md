@@ -4,6 +4,8 @@ url: https://developer.android.com/studio/intro/migrate
 source: md.txt
 ---
 
+<br />
+
 Migrating your projects to Android Studio requires adapting to a new project
 structure, build system, and IDE functionality.
 
@@ -26,9 +28,9 @@ IDEA](https://www.jetbrains.com/idea/) IDE. To familiarize yourself
 with the IDE basics, such as navigation, code completion, and keyboard
 shortcuts, see [Meet Android Studio](https://developer.android.com/studio/intro).
 
-Android Studio organizes code into projects, which contain everything that defines
-your Android app, from app source code to build configurations and test code.
-Projects open in separate Android Studio windows. Each project
+Android Studio organizes code into projects, which contain everything that
+defines your Android app, from app source code to build configurations and test
+code. Projects open in separate Android Studio windows. Each project
 contains one or more modules, which let you divide your project into
 discrete units of functionality. Modules can be independently built, tested, and
 debugged.
@@ -115,7 +117,7 @@ to point to your existing source files, proceed as follows:
 
    By default, Android Studio expects your project to be organized as
    shown in figure 1.
-   ![](https://developer.android.com/static/images/tools/studio/project-structure_2x.png) **Figure 1.** The default project structure for an Android app module.
+   ![](https://developer.android.com/static/images/tools/studio-import-project-structure-android-R2.png) **Figure 1.** The default project structure for an Android app module.
 
    In `settings.gradle`, for Groovy, or
    `settings.gradle.kts`, for Kotlin script, you set the repositories
@@ -190,9 +192,11 @@ to point to your existing source files, proceed as follows:
    longer need to add these libraries as source code projects. You can instead
    refer to them in the `dependencies{}` block of your build file. The
    build system then handles these libraries for you, including downloading
-   libraries, merging in resources, and merging manifest entries. The following
-   example adds the declaration statements for a number of AndroidX libraries to
-   the `dependencies{}` block of a build file.
+   libraries, merging in resources, and merging manifest entries.
+
+   The following example adds the declaration statements for Jetpack Compose and
+   core AndroidX libraries to the `dependencies{}` block of a
+   build file.
 
    ### Groovy
 
@@ -201,20 +205,19 @@ to point to your existing source files, proceed as follows:
    dependencies {
        implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-       // AndroidX libraries
-       implementation 'androidx.core:core-ktx:1.18.0'
-       implementation 'androidx.appcompat:appcompat:1.7.1'
-       implementation 'androidx.cardview:cardview:1.0.0'
-       implementation 'com.google.android.material:material:1.7.0'
-       implementation 'androidx.gridlayout:gridlayout:1.1.0'
-       implementation 'androidx.leanback:leanback:'
-       implementation 'androidx.mediarouter:mediarouter:1.8.1'
-       implementation 'androidx.palette:palette-ktx:1.0.0'
-       implementation 'androidx.recyclerview:recyclerview:1.4.0'
-       implementation 'androidx.annotation:annotation:1.10.0'
+       // Define the Compose Bill of Materials (BOM)
+       def composeBom = platform("androidx.compose:compose-bom:2026.05.00")
+       implementation composeBom
+       androidTestImplementation composeBom
 
-       // Note: these libraries require that the Google repository has been declared
-       // in the pluginManagement section of the top-level build.gradle file.
+       // Jetpack Compose foundational libraries
+       implementation 'androidx.compose.ui:ui'
+       implementation 'androidx.compose.material3:material3'
+       implementation 'androidx.compose.ui:ui-tooling-preview'
+
+       // Activity integration
+       implementation 'androidx.activity:activity-compose:1.13.0'
+       implementation 'androidx.activity:activity-ktx:1.13.0'
    }
    ```
 
@@ -225,20 +228,19 @@ to point to your existing source files, proceed as follows:
    dependencies {
        implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
 
-       // AndroidX libraries
-       implementation("androidx.core:core-ktx:1.18.0")
-       implementation("androidx.appcompat:appcompat:1.7.1")
-       implementation("androidx.cardview:cardview:1.0.0")
-       implementation("com.google.android.material:material:1.7.0")
-       implementation("androidx.gridlayout:gridlayout:1.1.0")
-       implementation("androidx.leanback:leanback:")
-       implementation("androidx.mediarouter:mediarouter:1.8.1")
-       implementation("androidx.palette:palette-ktx:1.0.0")
-       implementation("androidx.recyclerview:recyclerview:1.4.0")
-       implementation("androidx.annotation:annotation:1.10.0")
+       // Define the Compose Bill of Materials (BOM)
+       val composeBom = platform("androidx.compose:compose-bom:2026.05.00")
+       implementation(composeBom)
+       androidTestImplementation(composeBom)
 
-       // Note: these libraries require that the Google repository has been declared
-       // in the pluginManagement section of the top-level build.gradle.kts file.
+       // Jetpack Compose foundational libraries
+       implementation("androidx.compose.ui:ui")
+       implementation("androidx.compose.material3:material3")
+       implementation("androidx.compose.ui:ui-tooling-preview")
+
+       // Activity integration
+       implementation("androidx.activity:activity-compose:1.13.0")
+       implementation("androidx.activity:activity-ktx:1.13.0")
    }
    ```
    For help determining the correct declaration statements for your libraries, search [the Google Maven

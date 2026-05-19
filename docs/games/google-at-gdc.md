@@ -5,9 +5,7 @@ source: html-scrape
 ---
 
 * [Android Developers](https://developer.android.com/)
-* [Google Play](https://developer.android.com/distribute)
 * [Games dev center](https://developer.android.com/games)
-* [Google at GDC](https://developer.android.com/games/google-at-gdc)
 
 Send feedback
 

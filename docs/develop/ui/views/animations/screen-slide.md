@@ -32,17 +32,17 @@ contains a text view to display some text:
 ```xml
 <!-- fragment_screen_slide_page.xml -->
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    an@droid:id="+id/content"
+    android:id="@+id/content"
     android:layout_width="match_parent"
-    android>:layou<t_height="match_parent" 
+    android:layout_height="match_parent" >
 
-    TextView style="?android:textAppearanceMedium"
+    <TextView style="?android:textAppearanceMedium"
         android:padding="16dp"
         android:lineSpacingMultiplier="1.2"
         android:layout_width="match_parent"
-        a>n<droid:layou>t_height="wrap_content"
-        android:text="@string/lorem_ipsum" /
-/ScrollView
+        android:layout_height="wrap_content"
+        android:text="@string/lorem_ipsum" />
+</ScrollView>
 ```
 
 ## Create the fragment
@@ -101,7 +101,7 @@ To begin, create a layout that contains a `https://developer.android.com/referen
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/pager"
     android:layout_width="match_parent"
-    android:>layout_height="match_parent" /
+    android:layout_height="match_parent" />
 ```
 
 Create an activity that does the following things:

@@ -4,6 +4,9 @@ url: https://developer.android.com/agi/sys-trace/vertex-memory-bw
 source: md.txt
 ---
 
+> [!NOTE]
+> **Note:** Android Performance Analyzer is the new recommended tool for system profiling. Learn more and get the public beta release in the [APA docs](https://developer.android.com/android-performance-analyzer).
+
 The memory bandwidth of vertex data can be a potential bottleneck for your game's GPU performance. There are some counters in an AGI system profile that can help diagnose vertex memory bandwidth issues.
 
 ## Qualcomm Adreno counters

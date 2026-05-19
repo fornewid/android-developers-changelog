@@ -12,9 +12,8 @@ There are two ways to connect to a Media app:
 ## `MediaController`
 
 A media controller interacts with a media session to query and control a media
-app's playback. In Media3, the [`MediaController`](https://developer.android.com/reference/kotlin/androidx/media3/session/MediaController)
-API implements the `Player` interface. Examples of client apps that use a media
-controller include:
+app's playback. In Media3, the [`MediaController`](https://developer.android.com/reference/kotlin/androidx/media3/session/MediaController) API implements the `Player`
+interface. Examples of client apps that use a media controller include:
 
 - [Android system media controls](https://developer.android.com/media/implement/surfaces/mobile)
 - Android Wear OS companion app
@@ -97,7 +96,7 @@ command to its underlying `Player`.
 > **Tip:** A media controller implements the `Player` interface, and as such you can use it within your UI as a `Player`.
 
 You can add a `Player.Listener` to the controller to listen for changes in the
-`Player` state. Refer to the [Player events](https://developer.android.com/guide/topics/media/exoplayer/listening-to-player-events) guide for more details on using a
+`Player` state. Refer to the [Player events](https://developer.android.com/media/media3/exoplayer/players#listening-to-player-events) guide for more details on using a
 `Player.Listener`.
 
 The `MediaController.Listener` interface defines additional callbacks for events
@@ -293,7 +292,7 @@ app.
 
 To resolve the app's preferences with the constraints and requirements of your
 UI, use `CommandButton.DisplayConstraints`. You can define the limits and
-restrictions of your UI can do, and the [`resolve`](https://developer.android.com/reference/kotlin/androidx/media3/session/CommandButton.DisplayConstraints#resolve(java.util.List%3Candroidx.media3.session.CommandButton%3E,androidx.media3.common.Player)) method
+restrictions of your UI can do, and the [`resolve()`](https://developer.android.com/reference/kotlin/androidx/media3/session/CommandButton.DisplayConstraints#resolve(java.util.List%3Candroidx.media3.session.CommandButton%3E,androidx.media3.common.Player)) method
 provides a definite list of buttons to display with their icon, position and
 intended action. If a user clicks one of these buttons, you can use
 `CommandButton.executeAction` to trigger the associated action in the media

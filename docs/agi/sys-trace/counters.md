@@ -4,6 +4,9 @@ url: https://developer.android.com/agi/sys-trace/counters
 source: md.txt
 ---
 
+> [!NOTE]
+> **Note:** Android Performance Analyzer is the new recommended tool for system profiling. Learn more and get the public beta release in the [APA docs](https://developer.android.com/android-performance-analyzer).
+
 Android GPU Inspector (AGI) can sample GPU performance counters from Arm® Mali™,
 Imagination® PowerVR™, and Qualcomm® Adreno™ GPUs. You can use this data to
 identify bottlenecks in your app's GPU usage.

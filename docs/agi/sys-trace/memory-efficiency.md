@@ -4,6 +4,9 @@ url: https://developer.android.com/agi/sys-trace/memory-efficiency
 source: md.txt
 ---
 
+> [!NOTE]
+> **Note:** Android Performance Analyzer is the new recommended tool for system profiling. Learn more and get the public beta release in the [APA docs](https://developer.android.com/android-performance-analyzer).
+
 An app's memory usage characteristics are a fundamental aspect of its
 performance. You can use the **System Profiler** to analyze these
 characteristics by looking at the available GPU counter information.

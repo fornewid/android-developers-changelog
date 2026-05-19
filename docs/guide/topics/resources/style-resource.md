@@ -4,20 +4,26 @@ url: https://developer.android.com/guide/topics/resources/style-resource
 source: md.txt
 ---
 
-# Style resource
+A style resource defines the format and look for a UI.
+A style can be applied to an individual `https://developer.android.com/reference/android/view/View` (from within a layout file) or to
+an entire `https://developer.android.com/reference/android/app/Activity` or application (from within the manifest file).
 
-A style resource defines the format and look for a UI. A style can be applied to an individual[View](https://developer.android.com/reference/android/view/View)(from within a layout file) or to an entire[Activity](https://developer.android.com/reference/android/app/Activity)or application (from within the manifest file).
+For more information about creating and applying styles, please read
+[Styles and Themes](https://developer.android.com/guide/topics/ui/themes).
 
-For more information about creating and applying styles, please read[Styles and Themes](https://developer.android.com/guide/topics/ui/themes).
-
-**Note:** A style is a simple resource that is referenced using the value provided in the`name`attribute (not the name of the XML file). As such, you can combine style resources with other simple resources in the one XML file, under one`<resources>`element.
+**Note:** A style is a simple resource that is referenced
+using the value provided in the `name` attribute (not the name of the XML file). As
+such, you can combine style resources with other simple resources in the one XML file,
+under one `<resources>` element.
 
 file location:
-:   `res/values/`*filename*`.xml`  
-    The filename is arbitrary. The element's`name`will be used as the resource ID.
+:   `res/values/filename.xml`  
+
+    The filename is arbitrary. The element's `name` will be used as the resource ID.
 
 resource reference:
-:   In XML:`@[package:]style/`*style_name*
+:
+    In XML: `@[package:]style/style_name`
 
 syntax:
 :
@@ -44,30 +50,37 @@ elements:
         No attributes.
 
     `<style>`
-    :   Defines a single style. Contains`<item>`elements.
+    :   Defines a single style. Contains `<item>` elements.
 
         attributes:
 
         `name`
-        :   *String* .**Required**. A name for the style, which is used as the resource ID to apply the style to a View, Activity, or application.
+        :   *String* . **Required**. A name for the style, which is used as the
+            resource ID to apply the style to a View, Activity, or application.
 
         `parent`
-        :   *Style resource*. Reference to a style from which this style should inherit style properties.
+        :   *Style resource*. Reference to a style from which this
+            style should inherit style properties.
+
 
     `<item>`
-    :   Defines a single property for the style. Must be a child of a`<style>`element.
+    :   Defines a single property for the style. Must be a child of a
+        `<style>` element.
 
         <br />
 
+
         attributes:
 
         `name`
-        :   *Attribute resource* .**Required** . The name of the style property to be defined, with a package prefix if necessary (for example`android:textColor`).
+        :   *Attribute resource* . **Required** . The name of the style property
+            to be defined, with a package prefix if necessary (for example `android:textColor`).
+
 
 example:
 :
 
-    XML file for the style (saved in`res/values/`):
+    XML file for the style (saved in `res/values/`):
     :
 
         ```xml
@@ -80,7 +93,8 @@ example:
         </resources>
         ```
 
-    XML file that applies the style to a[TextView](https://developer.android.com/reference/android/widget/TextView)(saved in`res/layout/`):
+    XML file that applies the style to a `https://developer.android.com/reference/android/widget/TextView`
+    (saved in `res/layout/`):
     :
 
         ```xml

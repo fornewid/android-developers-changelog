@@ -12,6 +12,11 @@ between apps.
 
 ![](https://developer.android.com/static/images/large-screens/gallery/samples/social/gallery_social_drag.png)
 
+When a pointer input is available, desktop devices let you drag with more
+precision.
+
+![](https://developer.android.com/static/images/large-screens/gallery/samples/social/gallery_social_dragdrop.png)
+
 *** ** * ** ***
 
 

@@ -79,7 +79,7 @@ dependencies in your app's `build.gradle` file as follows:
 
 ```kotlin
 dependencies {
-   val composeBom = platform("androidx.compose:compose-bom:2026.04.01")
+   val composeBom = platform("androidx.compose:compose-bom:2026.05.00")
    implementation(composeBom)
 
    // General compose dependencies.
@@ -97,7 +97,7 @@ dependencies {
 
 ```groovy
 dependencies {
-   def composeBom = platform('androidx.compose:compose-bom:2026.04.01')
+   def composeBom = platform('androidx.compose:compose-bom:2026.05.00')
    implementation composeBom
 
    // General compose dependencies.

@@ -30,7 +30,7 @@ higher.
 
 ### Dependencies
 
-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/lazily-load-list_dbcb737c61bb81be58f6ea47f22de7f8fb60bfb88fe836c8504b36f45d633278.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/lazily-load-list_86fddb5de3e61399225a6de1d99663b41336ef6543e9a3e6ff007f85010fdd0e.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
 
 ## Display paged content
 

@@ -14,6 +14,11 @@ depending on the screen size.
 
 ![](https://developer.android.com/static/images/large-screens/gallery/samples/productivity/gallery_productivity_files.png)
 
+On a desktop, you can use a context menu to provide custom actions for file
+interactions when you right-click.
+
+![](https://developer.android.com/static/images/large-screens/gallery/samples/productivity/gallery_productivity_laptop_menu.png)
+
 ## Items and overviews
 
 Show more details about list details on another screen, or adjacent to the list,

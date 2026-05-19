@@ -151,14 +151,14 @@ use the WebOTP or SMS Retriever formats). For most apps targeting
 Android 17 (API level 37) or higher, these SMS messages do not become
 available until three hours after receipt. This delay is intended to help
 prevent OTP hijacking. During this three hour delay, the
-[`SMS_RECEIVED_ACTION`](https://developer.android.com/reference/android/provider/Telephony.Sms.Intents#SMS_RECEIVED_ACTION) broadcast is withheld and SMS provider database
-queries are filtered. The SMS message is available to these apps after the
-delay.
+[`SMS_RECEIVED_ACTION`](https://developer.android.com/reference/android/provider/Telephony.Sms.Intents#SMS_RECEIVED_ACTION) broadcast is withheld and
+[SMS provider](https://developer.android.com/reference/android/provider/Telephony.Sms) database queries are filtered. The SMS message is
+available to these apps after the delay.
 
 Certain apps such as the default SMS assistant app, connected device companion
 apps, etc., are exempted from this delay. All apps that rely on reading SMS
-messages for OTP extraction should transition to using SMS Retriever or SMS User
-Consent APIs to ensure continued functionality.
+messages for OTP extraction should transition to using [SMS Retriever](https://developer.android.com/identity/sms-retriever) or [SMS
+User Consent](https://developers.google.com/identity/sms-retriever/user-consent/overview) APIs to ensure continued functionality.
 
 > [!NOTE]
 > **Note:** Additional SMS OTP protections for WebOTP and SMS Retriever format messages apply to all apps, regardless of their target API level. For more information, see [SMS OTP protection](https://developer.android.com/about/versions/17/behavior-changes-all#sms-otp-all-apps) in the [Behavior changes for all

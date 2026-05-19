@@ -155,8 +155,8 @@ syntax:
 :
 
     ```xml
-    <?xml version="1.0" encodin>g<=";utf-8"?
-    bitmap
+    <?xml version="1.0" encoding="utf-8"?>
+    <bitmap
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:src="@[package:]drawable/drawable_resource"
         android:antialias=["true" | "false"]
@@ -164,9 +164,9 @@ syntax:
         android:filter=["true" | "false"]
         android:gravity=["top" | "bottom" | "left" | "right" | "center_vertical" |
                           "fill_vertical" | "center_horizontal" | "fill_horizontal" |
-        >                  "center" | "fill" | "clip_vertical" | "clip_horizontal"]
+                          "center" | "fill" | "clip_vertical" | "clip_horizontal"]
         android:mipMap=["true" | "false"]
-        android:tileMode=["disabled" | "clamp" | "repeat" | "mirror"] /
+        android:tileMode=["disabled" | "clamp" | "repeat" | "mirror"] />
     ```
 
 elements:
@@ -243,10 +243,10 @@ example:
 :
 
     ```xml
-    <?xml version="1.0" encodin>g<="utf-8"?
-    bitmap xmlns:android="http://schemas.android.com/apk/res/android"
-        android:src="@drawable/ic>on"
-        android:tileMode="repeat" /
+    <?xml version="1.0" encoding="utf-8"?>
+    <bitmap xmlns:android="http://schemas.android.com/apk/res/android"
+        android:src="@drawable/icon"
+        android:tileMode="repeat" />
     ```
 
 
@@ -329,11 +329,11 @@ syntax:
 :
 
     ```xml
-    <?xml version="1.0" encodin>g<="utf-8"?
-    nine-patch
+    <?xml version="1.0" encoding="utf-8"?>
+    <nine-patch
         xmlns:android="http://schemas.android.com/apk/res/android"
-        android:src="@[package:]drawable/drawable_resource">
-        android:dither=["true" | "false"] /
+        android:src="@[package:]drawable/drawable_resource"
+        android:dither=["true" | "false"] />
     ```
 
 elements:
@@ -362,10 +362,10 @@ example:
 :
 
     ```xml
-    <?xml version="1.0" encodin>g<="utf-8"?
-    nine-patch xmlns:android="http://schemas.android.com/apk/res/android"
-        android:src="@drawable/mynine>patch"
-        android:dither="false" /
+    <?xml version="1.0" encoding="utf-8"?>
+    <nine-patch xmlns:android="http://schemas.android.com/apk/res/android"
+        android:src="@drawable/myninepatch"
+        android:dither="false" />
     ```
 
 ## Layer list
@@ -394,16 +394,17 @@ syntax:
 :
 
     ```xml
-    <?xml version="1.0" encoding=<"utf-8"?>
-    layer-list
-        xmlns:android="http://schemas.a>ndroi<d.com/apk/res/android" 
-        item
-            android:drawable=";@[package:]drawable/drawable_resource&quot;
+    <?xml version="1.0" encoding="utf-8"?>
+    <layer-list
+        xmlns:android="http://schemas.android.com/apk/res/android" >
+        <item
+            android:drawable="@[package:]drawable/drawable_resource"
             android:id="@[+][package:]id/resource_name"
-      pan>android:top="dimension&quot;    android:right="dimension&qu>o<t;
+            android:top="dimension"
+            android:right="dimension"
             android:bottom="dimension"
-            android:left="dimension" /
-    /layer-list>
+            android:left="dimension" />
+    </layer-list>
     ```
 
 elements:
@@ -458,7 +459,7 @@ elements:
         that scales to fit its container view:
 
         ```xml
-        <item android:drawable="@drawable/ima>ge" /
+        <item android:drawable="@drawable/image" />
         ```
 
 
@@ -467,9 +468,9 @@ elements:
 
         ```xml
         <item>
-          <bitmap android:src=&quot;@drawable/image"
-                  android:gravity=>&<quot;>center" /
-        /item
+          <bitmap android:src="@drawable/image"
+                  android:gravity="center" />
+        </item>
         ```
 
 
@@ -477,21 +478,21 @@ example:
 :   XML file saved at `res/drawable/layers.xml`:
 
     ```xml
-    <?xml version="1.0" encodin>g<="utf-8"?
-    layer-list xmlns:android="http://schemas.and>roid.<com/>apk/res</android"
-        item
-          bitmap android:src="@drawable/android_red&>quot;<
-        >    a<ndroid:gravity="center" /
-        /it>em
-        <item android:top="10dp" android:left="10dp"
-          bitmap an>droid<:src=>"<;@drawable/android_green"
-            andr>oid:gra<vity="center" /
-        /item
-        item android:top="20dp" andr>oid:l<eft=&>q<uot;20dp&qu>ot;
-          bitmap android:src="@drawable/android_blue"
-            android:gravity="center" /
-        /item
-    /layer-list
+    <?xml version="1.0" encoding="utf-8"?>
+    <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+        <item>
+          <bitmap android:src="@drawable/android_red"
+            android:gravity="center" />
+        </item>
+        <item android:top="10dp" android:left="10dp">
+          <bitmap android:src="@drawable/android_green"
+            android:gravity="center" />
+        </item>
+        <item android:top="20dp" android:left="20dp">
+          <bitmap android:src="@drawable/android_blue"
+            android:gravity="center" />
+        </item>
+    </layer-list>
     ```
 
     This example uses a nested `<bitmap>` element to define the drawable
@@ -505,7 +506,7 @@ example:
     <ImageView
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:src=>"@drawable/layers" /
+        android:src="@drawable/layers" />
     ```
 
 
@@ -551,23 +552,23 @@ syntax:
 :
 
     ```xml
-    <?xml version="1.0" encoding=<"utf-8"?>
-    selector xmlns:android="http://schemas.android.com/apk/res/android"
+    <?xml version="1.0" encoding="utf-8"?>
+    <selector xmlns:android="http://schemas.android.com/apk/res/android"
         android:constantSize=["true" | "false"]
-        android:dither=["true" |< &quot;false"]
-        android:variablePadding=[&quot;true" | "false"] >
-        item
+        android:dither=["true" | "false"]
+        android:variablePadding=["true" | "false"] >
+        <item
             android:drawable="@[package:]drawable/drawable_resource"
             android:state_pressed=["true" | "false"]
             android:state_focused=["true" | "false"]
             android:state_hovered=["true" | "false"]
             android:state_selected=["true" | "false"]
             android:state_checkable=["true" | "false"]
-      <      android:state_checked=["true" | "false"]
+            android:state_checked=["true" | "false"]
             android:state_enabled=["true" | "false"]
             android:state_activated=["true" | "false"]
             android:state_window_focused=["true" | "false"] />
-    /selector>
+    </selector>
     ```
 
 elements:
@@ -667,16 +668,16 @@ example:
 :   XML file saved at `res/drawable/button.xml`:
 
     ```xml
-    <?xml version="1.0" encoding=<"utf-8"?>
-    selector xmlns:android="http://schemas.androi<d.com/apk/res/android">
-        item android:state_pressed="true"
-              a<ndroid:drawabl>e=&qu<ot;@drawable/button_pressed" /> !-- pressed --
-        item android:state_focused="<;true"
-      >     <   android:drawable="@drawable/button_focused" /> !-- focused --
-        item andr<oid:state_hove>red=&<quot;true"
-              android:drawable="@d<rawable/button>_<focused" /> !-- hovered --
-        item android:drawable="@drawable/button_normal" /> !-- default --
-    /selector>
+    <?xml version="1.0" encoding="utf-8"?>
+    <selector xmlns:android="http://schemas.android.com/apk/res/android">
+        <item android:state_pressed="true"
+              android:drawable="@drawable/button_pressed" /> <!-- pressed -->
+        <item android:state_focused="true"
+              android:drawable="@drawable/button_focused" /> <!-- focused -->
+        <item android:state_hovered="true"
+              android:drawable="@drawable/button_focused" /> <!-- hovered -->
+        <item android:drawable="@drawable/button_normal" /> <!-- default -->
+    </selector>
     ```
 
 
@@ -718,14 +719,14 @@ syntax:
 :
 
     ```xml
-    <?xml version="1.0" encoding=<"utf-8"?>
-    level-list
-        xmlns:android="http://schemas.a>ndroi<d.com/apk/res/android" 
-        item
-       *     *android:drawable="@drawable/drawable_resource"
-            android:maxLevel=&qu>o<t;integer&q>uot;
-            android:minLevel="integer" /
-    /level-list
+    <?xml version="1.0" encoding="utf-8"?>
+    <level-list
+        xmlns:android="http://schemas.android.com/apk/res/android" >
+        <item
+            android:drawable="@drawable/drawable_resource"
+            android:maxLevel="integer"
+            android:minLevel="integer" />
+    </level-list>
     ```
 
 elements:
@@ -759,15 +760,15 @@ example:
 :
 
     ```xml
-    <?xml version="1.0" encoding=<"utf-8"?>
-    level-list xmlns:android="http://schemas.a>ndroi<d.com/apk/res/android" 
-        item
-            android:drawable="@drawable/stat>us_of<f"
-            android:maxLevel="0" /
-        item
-            android:drawable>=<"@draw>able/status_on"
-            android:maxLevel="1" /
-    /level-list
+    <?xml version="1.0" encoding="utf-8"?>
+    <level-list xmlns:android="http://schemas.android.com/apk/res/android" >
+        <item
+            android:drawable="@drawable/status_off"
+            android:maxLevel="0" />
+        <item
+            android:drawable="@drawable/status_on"
+            android:maxLevel="1" />
+    </level-list>
     ```
 
     Once this is applied to a `https://developer.android.com/reference/android/view/View`, the level can be changed with `https://developer.android.com/reference/android/graphics/drawable/Drawable#setLevel(int)` or `https://developer.android.com/reference/android/widget/ImageView#setImageLevel(int)`.
@@ -804,16 +805,17 @@ syntax:
 :
 
     ```xml
-    <?xml version="1.0" encoding=<"utf-8"?>
-    transition
-    xmlns:android="http://schemas.a>ndroi<d.com/apk/res/android" 
-        item
-            android:drawable=";@[package:]drawable/drawable_resource&quot;
+    <?xml version="1.0" encoding="utf-8"?>
+    <transition
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+        <item
+            android:drawable="@[package:]drawable/drawable_resource"
             android:id="@[+][package:]id/resource_name"
-      pan>android:top="dimension&quot;    android:right="dimension&qu>o<t;
+            android:top="dimension"
+            android:right="dimension"
             android:bottom="dimension"
-            android:left="dimension" /
-    /transition>
+            android:left="dimension" />
+    </transition>
     ```
 
 elements:
@@ -863,11 +865,11 @@ example:
 :   XML file saved at `res/drawable/transition.xml`:
 
     ```xml
-    <?xml version="1.0" encodin>g<="utf-8"?
-    transition xmlns:android="http://schemas.and>roid.<com/apk/res/android"
-        item and>roid:<drawable="@drawable/on" /
-       > <item androi>d:drawable="@drawable/off" /
-    /transition
+    <?xml version="1.0" encoding="utf-8"?>
+    <transition xmlns:android="http://schemas.android.com/apk/res/android">
+        <item android:drawable="@drawable/on" />
+        <item android:drawable="@drawable/off" />
+    </transition>
     ```
 
 
@@ -878,7 +880,7 @@ example:
         android:id="@+id/button"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        androi>d:src="@drawable/transition" /
+        android:src="@drawable/transition" />
     ```
 
 
@@ -932,14 +934,14 @@ syntax:
 :
 
     ```xml
-    <?xml version="1.0" encoding=<";utf-8"?>
-    inset
+    <?xml version="1.0" encoding="utf-8"?>
+    <inset
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:drawable="@drawable/drawable_resource"
-        android:insetTop=&quot;dimension"
-        android:insetRight="dimension&quot;
-        andr>oid:insetBottom="dimension"
-        android:insetLeft="dimension" /
+        android:insetTop="dimension"
+        android:insetRight="dimension"
+        android:insetBottom="dimension"
+        android:insetLeft="dimension" />
     ```
 
 elements:
@@ -975,11 +977,11 @@ example:
 :
 
     ```xml
-    <?xml version="1.0" encoding=<"utf-8"?>
-    inset xmlns:android="http://schemas.android.com/apk/res/android"
+    <?xml version="1.0" encoding="utf-8"?>
+    <inset xmlns:android="http://schemas.android.com/apk/res/android"
         android:drawable="@drawable/background"
-        android:ins>etTop="10dp"
-        android:insetLeft="10dp" /
+        android:insetTop="10dp"
+        android:insetLeft="10dp" />
     ```
 
 see also:
@@ -1011,14 +1013,14 @@ syntax:
 :
 
     ```xml
-    <?xml version="1.0" encoding=<&quot;utf-8"?>
-    clip
+    <?xml version="1.0" encoding="utf-8"?>
+    <clip
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:drawable="@drawable/drawable_resource"
         android:clipOrientation=["horizontal" | "vertical"]
         android:gravity=["top" | "bottom" | "left" | "right" | "center_vertical" |
-                         "fill_vertical" >| "center_horizontal" | "fill_horizontal" |
-                         "center" | "fill" | "clip_vertical" | "clip_horizontal"] /
+                         "fill_vertical" | "center_horizontal" | "fill_horizontal" |
+                         "center" | "fill" | "clip_vertical" | "clip_horizontal"] />
     ```
 
 elements:
@@ -1073,11 +1075,11 @@ example:
 :   XML file saved at `res/drawable/clip.xml`:
 
     ```xml
-    <?xml version="1.0" encoding=<"utf-8"?>
-    clip xmlns:android="http://schemas.android.com/apk/res/android"
+    <?xml version="1.0" encoding="utf-8"?>
+    <clip xmlns:android="http://schemas.android.com/apk/res/android"
         android:drawable="@drawable/android"
-        android:clipOrientatio>n="horizontal"
-        android:gravity="left" /
+        android:clipOrientation="horizontal"
+        android:gravity="left" />
     ```
 
     The following layout XML applies the clip drawable to a view:
@@ -1150,15 +1152,15 @@ syntax:
 :
 
     ```xml
-    <?xml version="1.0" encoding=<";utf-8"?>
-    scale
+    <?xml version="1.0" encoding="utf-8"?>
+    <scale
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:drawable="@drawable/drawable_resource"
         android:scaleGravity=["top" | "bottom" | "left" | "right" | "center_vertical" |
-                              "fill_vertical" | "center_horizontal" | "fill_horizontal&quot; |
-                         *     *n>"ce>nter" | "fill" | "clip_vertical" | "clip_horizontal"]
+                              "fill_vertical" | "center_horizontal" | "fill_horizontal" |
+                              "center" | "fill" | "clip_vertical" | "clip_horizontal"]
         android:scaleHeight="percentage"
-        android:scaleWidth="percentage" /
+        android:scaleWidth="percentage" />
     ```
 
 elements:
@@ -1210,12 +1212,12 @@ example:
 :
 
     ```xml
-    <?xml version="1.0" encoding=<"utf-8"?>
-    scale xmlns:android="http://schemas.android.com/apk/res/android"
+    <?xml version="1.0" encoding="utf-8"?>
+    <scale xmlns:android="http://schemas.android.com/apk/res/android"
         android:drawable="@drawable/logo"
         android:scaleGravity="center_vertical|center_horizontal"
-        and>roid:scaleHeight="80%"
-        android:scaleWidth="80%" /
+        android:scaleHeight="80%"
+        android:scaleWidth="80%" />
     ```
 
 see also:
@@ -1244,41 +1246,42 @@ syntax:
 :
 
     ```xml
-    <?xml version="1.0" encoding=<";utf-8"?>
-    shape
+    <?xml version="1.0" encoding="utf-8"?>
+    <shape
         xmlns:android="http://schemas.android.com/apk/res/android"
-        android:shape=["rectang<le"; | "oval" | &quot;line" | "ring"] >
-        corners
+        android:shape=["rectangle" | "oval" | "line" | "ring"] >
+        <corners
             android:radius="integer"
             android:topLeftRadius="integer"
-            android:topRightRadius=&q>uot;i<nteger&quot;
+            android:topRightRadius="integer"
             android:bottomLeftRadius="integer"
-            android:bottomRightRadius=&quot;integer" /
-        gradient
-            android:angle="integer&quot;
-            android:centerX="float&quot;
-            android:centerY=&quot;float"
+            android:bottomRightRadius="integer" />
+        <gradient
+            android:angle="integer"
+            android:centerX="float"
+            android:centerY="float"
             android:centerColor="integer"
-            android:endColor="color">;
-       <https://developer.android.com/guide/topics/resources/drawable-resource#padding-elementandroid:gradientRadius=&quot;integer"
+            android:endColor="color"
+            android:gradientRadius="integer"
             android:startColor="color"
-            android:type=["linear"; |> &quo<t;radial" | "sweep"]
-            android:useLevel=["tru>e&quo<t; | "false"] /
-       an>padding>
-        <https://developer.android.com/guide/topics/resources/drawable-resource#stroke-elementhttps://developer.android.com/guide/topics/resources/drawable-resource#stroke-elementdroid:left="integer"        android:top=";integer"
-            android:right=\&quot;integer"
-            android:botto>m<="integer" /
-        size
+            android:type=["linear" | "radial" | "sweep"]
+            android:useLevel=["true" | "false"] />
+        <padding
+            android:left="integer"
+            android:top="integer"
+            android:right="integer"
+            android:bottom="integer" />
+        <size
             android:width="integer"
-            android:height="integer" /
-        solid
-            android:color="color" /
-        stroke
+            android:height="integer" />
+        <solid
+            android:color="color" />
+        <stroke
             android:width="integer"
             android:color="color"
             android:dashWidth="integer"
-            android:dashGap="integer" /
-    /shape>
+            android:dashGap="integer" />
+    </shape>
     ```
 
 elements:
@@ -1455,19 +1458,19 @@ example:
 :   XML file saved at `res/drawable/gradient_box.xml`:
 
     ```xml
-    <?xml version="1.0" encoding=<"utf-8"?>
-    shape xmlns:android="http://schemas.android.com/apk/res/android"
-      <  android:shape="rectangle">
-        gradient
+    <?xml version="1.0" encoding="utf-8"?>
+    <shape xmlns:android="http://schemas.android.com/apk/res/android"
+        android:shape="rectangle">
+        <gradient
             android:startColor="#FFFF0000"
-            androi<d:endColor="#80FF00FF"
+            android:endColor="#80FF00FF"
             android:angle="45"/>
-        padding android:left="7dp"
-     <       android:top="7dp&quo<t;
+        <padding android:left="7dp"
+            android:top="7dp"
             android:right="7dp"
             android:bottom="7dp" />
-        corners android:radius="8dp" />
-    /shape>
+        <corners android:radius="8dp" />
+    </shape>
     ```
 
 

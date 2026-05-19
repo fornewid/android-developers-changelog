@@ -4,9 +4,11 @@ url: https://developer.android.com/guide/topics/resources/complex-xml-resources
 source: md.txt
 ---
 
-# Inline complex XML resources
-
-Certain resource types are a composition of multiple complex resources represented by XML files. One example is an animated vector drawable, which is a drawable resource encapsulating a vector drawable and an animation. This requires the use of at least three XML files, as shown in the following examples.
+Certain resource types are a composition of multiple complex resources represented by XML files.
+One example is an animated vector drawable, which is a drawable resource encapsulating a vector
+drawable and an animation. This requires the use of at least three XML files, as shown in the
+following
+examples.
 
 `res/drawable/avd.xml`
 :
@@ -55,9 +57,14 @@ Certain resource types are a composition of multiple complex resources represent
         android:valueTo="360" />
     ```
 
-If the vector drawable and animations are re-used elsewhere, this is the best way to implement an animated vector drawable. But if these files are only used for this animated vector drawable, then there is a more compact way to implement them.
 
-Using AAPT's inline resource format, you can define all three resources in the same XML file, as shown in the following example. For an animated vector drawable, put the file under`res/drawable/`.
+If the vector drawable and animations are re-used elsewhere, this is the best way to implement an
+animated vector drawable. But if these files are only used for this animated vector drawable,
+then there is a more compact way to implement them.
+
+Using AAPT's inline resource format, you can define all three resources in the same XML file, as
+shown in the following example.
+For an animated vector drawable, put the file under `res/drawable/`.
 
 `res/drawable/avd.xml`
 :
@@ -97,6 +104,9 @@ Using AAPT's inline resource format, you can define all three resources in the s
     </animated-vector>
     ```
 
-The XML tag`<aapt:attr >`tells AAPT to treat the tag's child as a resource and extract it into its own resource file. The value in the attribute name specifies where to use the inline resource within the parent tag.
+The XML tag `<aapt:attr >` tells AAPT to treat the tag's child as a
+resource and extract it into its own resource file. The value in the attribute name specifies where
+to use the inline resource within the parent tag.
 
-AAPT generates resource files and names for all the inline resources. Applications built using this inline format are compatible with all versions of Android.
+AAPT generates resource files and names for all the inline resources.
+Applications built using this inline format are compatible with all versions of Android.

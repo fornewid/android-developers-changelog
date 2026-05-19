@@ -28,15 +28,15 @@ In order for your application to use the OpenGL ES 2.0 API, you must add the fol
 declaration to your manifest:
 
 ```xml
-<uses-feature android:glEsVersion="0x00020000" android:require>d="true" /
+<uses-feature android:glEsVersion="0x00020000" android:required="true" />
 ```
 
 If your application uses texture compression, you must also declare which compression formats
 your app supports, so that it is only installed on compatible devices.
 
 ```xml
-<supports-gl-texture android:name="GL_OES_compressed_ETC1_RGB8_textu>r<e" /
-supports-gl-texture android:name="GL_OES_compressed_pale>tted_texture" /
+<supports-gl-texture android:name="GL_OES_compressed_ETC1_RGB8_texture" />
+<supports-gl-texture android:name="GL_OES_compressed_paletted_texture" />
 ```
 
 For more information about texture compression formats, see the

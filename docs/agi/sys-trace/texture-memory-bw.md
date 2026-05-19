@@ -4,6 +4,9 @@ url: https://developer.android.com/agi/sys-trace/texture-memory-bw
 source: md.txt
 ---
 
+> [!NOTE]
+> **Note:** Android Performance Analyzer is the new recommended tool for system profiling. Learn more and get the public beta release in the [APA docs](https://developer.android.com/android-performance-analyzer).
+
 The memory bandwidth of texture data can be a potential bottleneck for your
 app's GPU performance. There are some counters in an **AGI System Profile** that can help diagnose texture memory bandwidth issues.
 

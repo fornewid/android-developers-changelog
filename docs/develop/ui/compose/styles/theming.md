@@ -30,7 +30,7 @@ subsystems and components: **Styles**.
 | Layer | Responsibility | Example |
 |---|---|---|
 | **Subsystem values** | Named values | `val Primary = Color(0xFF34A85E)` |
-| **Atomic Styles** | Style that does exactly one property change | `val buttonStyle = paddingAtomic then roundedCornerShapeAtomic then primaryBackgroundAtomic then largeSize then interactiveShadowAtomic` |
+| **Atomic Styles** | Style that does exactly one property change | `val largeSizeAtomic = Style { size(100.dp, 40.dp) }` |
 | **Component Styles** | Component-specific configurations | A Button with Primary background and 16dp padding. `val buttonStyle = Style { contentPadding(16.dp) shape(RoundedCornerShape(8.dp)) background(Color.Blue) }` |
 | **Components** | The functional UI element that consumes a Style. | `Button(style = buttonStyle) { ... }` |
 

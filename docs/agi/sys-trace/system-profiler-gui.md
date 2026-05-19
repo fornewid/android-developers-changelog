@@ -4,6 +4,9 @@ url: https://developer.android.com/agi/sys-trace/system-profiler-gui
 source: md.txt
 ---
 
+> [!NOTE]
+> **Note:** Android Performance Analyzer is the new recommended tool for system profiling. Learn more and get the public beta release in the [APA docs](https://developer.android.com/android-performance-analyzer).
+
 In Android GPU Inspector (AGI), you can view and analyze a
 [system profile](https://developer.android.com/agi/sys-trace/system-profiler) in the System Profiler UI.
 After you profile a system and [open the trace file](https://developer.android.com/agi/start#system-profile) in

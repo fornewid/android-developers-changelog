@@ -17,7 +17,7 @@ source: md.txt
 FotMob recently experienced its largest single-day increase on Wear OS among its installed audience in 5 years, at 2-3x the daily average. The secret? A simple cross-device installation flow that helps users discover their Wear OS app directly from their phone.
 
 [FotMob](https://www.fotmob.com/) is one of the world's most popular football (some call it soccer!) platforms, known for its [mobile app](https://play.google.com/store/apps/details?id=com.mobilefootie.wc2010) that provides real-time scores, statistical analysis, and news.
-![fotmob-side-by-side.png](https://developer.android.com/static/blog/assets/fotmob_side_by_side_a12d07bc19_knYh7.webp)
+![fotmob-side-by-side.png](https://developer.android.com/static/blog/assets/fotmob_side_by_side_c1332b8f37_2bbOh.webp)
 
 In addition to the mobile app, FotMob is available on Wear OS, allowing users to keep on top of the latest scores and results directly from their wrist.
 
@@ -53,7 +53,7 @@ By looking for only nodes *without* the capability, the team ensured the FotMob 
 ### Initiating the install flow
 
 The FotMob team designed an educational half-page prompt that quickly makes the user aware of the opportunity, allowing them either to kick off the install flow, or dismiss it. This featured a prominent screenshot of the Wear OS experience, allowing the user to immediately see how the app might look on their watch.
-![7mhoRMcXVgfD67T.png](https://developer.android.com/static/blog/assets/7mho_R_Mc_X_Vgf_D67_T_994ca35e71_1hD9JD.webp)
+![fotmob_wear_wrist.png](https://developer.android.com/static/blog/assets/fotmob_wear_wrist_41bc498b9b_2qeAJb.webp)
 
 To start the installation, the app uses the `RemoteActivityHelper` API, to launch the Play Store on the watch:
 
@@ -62,7 +62,7 @@ val remoteActivityHelper = RemoteActivityHelper(context)
 
 remoteActivityHelper.startRemoteActivity(
     Intent(Intent.ACTION_VIEW)
-        .setData("market://details{context.packageName}?id=$".toUri())
+        .setData("market://details?id=${context.packageName}".toUri())
         .addCategory(Intent.CATEGORY_BROWSABLE),
     nodeId
 ).await()

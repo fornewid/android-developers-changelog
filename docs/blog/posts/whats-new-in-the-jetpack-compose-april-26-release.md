@@ -75,14 +75,14 @@ We introduced [`HostDefaultProvider`](https://developer.android.com/reference/ko
 
 By implementing the `PreviewWrapperProvider` interface and applying the new `@PreviewWrapper` annotation, you can easily inject custom logic, such as applying a specific `Theme`. The annotation can be applied to a function annotated with `@Composable` and `@Preview` or `@MultiPreview`, offering a generic, easy-to-use solution that works across preview features and significantly reduces repetitive code.
 
-```
-class ThemeWrapper: PreviewWrapper {
+```kotlin
+class ThemeWrapper: PreviewWrapper {
     @Composable
     override fun Wrap(content: @Composable (() -> Unit)) {
         JetsnackTheme {
             content()
         }
-    }
+    }
 }
 
 @PreviewWrapperProvider(ThemeWrapper::class)
@@ -187,13 +187,13 @@ fun VideoPlayer() {
 
 Now, with `UIMediaQuery`, you can add the `mediaQuery` syntax to query device properties, such as if a device is in tabletop mode:
 
-```
+```kotlin
 @OptIn(ExperimentalMediaQueryApi::class)
 @Composable
 fun VideoPlayer() {
     if (mediaQuery { windowPosture == UiMediaScope.Posture.Tabletop }) {
-        TabletopLayout()
-    } else {
+        TabletopLayout()
+    } else {
         FlatLayout()
     }
 }

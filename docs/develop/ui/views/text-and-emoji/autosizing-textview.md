@@ -50,11 +50,11 @@ uniformly on horizontal and vertical axes.
 - To define the default setting in XML, use the `android` namespace and set the [`autoSizeTextType`](https://developer.android.com/reference/android/widget/TextView#attr_android:autoSizeTextType) attribute to *none* or *uniform*.
 
 ```xml
-<?xml version="1.0" encodin>g<="utf-8"?
-TextView
+<?xml version="1.0" encoding="utf-8"?>
+<TextView
     android:layout_width="match_parent"
     android:layout_height="200dp"
->    android:autoSizeTextType="uniform" /
+    android:autoSizeTextType="uniform" />
 ```
 
 #### Define the default setting using the Support Library
@@ -63,19 +63,19 @@ TextView
 - To define the default setting in XML through the Support Library, use the `app` namespace and set the `autoSizeTextType` attribute to *none* or *uniform*.
 
 ```xml
-<?xml version="1.0" encodin>g<="utf-8"?
-LinearLayout
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_par>ent&<quot;
-    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-  TextView
+  <TextView
       android:layout_width="match_parent"
-    >  <android:layou>t_height="200dp"
-      app:autoSizeTextType="uniform" /
+      android:layout_height="200dp"
+      app:autoSizeTextType="uniform" />
 
-/LinearLayout
+</LinearLayout>
 ```
 
 ### Granularity
@@ -93,14 +93,14 @@ size set in the granularity attribute.
   - Set the [`autoSizeMinTextSize`](https://developer.android.com/reference/android/widget/TextView#attr_android:autoSizeMinTextSize), [`autoSizeMaxTextSize`](https://developer.android.com/reference/android/widget/TextView#attr_android:autoSizeMaxTextSize), and [`autoSizeStepGranularity`](https://developer.android.com/reference/android/widget/TextView#attr_android:autoSizeStepGranularity) attributes to define the dimensions for the autosizing of `TextView`.
 
 ```xml
-<?xml version="1.0" encodin>g<="utf-8"?
-TextView
+<?xml version="1.0" encoding="utf-8"?>
+<TextView
     android:layout_width="match_parent"
     android:layout_height="200dp"
     android:autoSizeTextType="uniform"
     android:autoSizeMinTextSize="12sp"
-    android:autoSizeMax>TextSize="100sp"
-    android:autoSizeStepGranularity="2sp" /
+    android:autoSizeMaxTextSize="100sp"
+    android:autoSizeStepGranularity="2sp" />
 ```
 
 #### Define granularity using the Support Library
@@ -109,22 +109,22 @@ TextView
 - To define a range of text sizes and a dimension in XML through the Support Library, use the `app` namespace and set the `autoSizeText`, `autoSizeMinTextSize`, `autoSizeMaxTextSize`, and `autoSizeStepGranularity` attributes in the layout XML file.
 
 ```xml
-<?xml version="1.0" encodin>g<="utf-8"?
-LinearLayout
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_par>ent&<quot;
-    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-  TextView
+  <TextView
       android:layout_width="match_parent"
       android:layout_height="200dp"
       app:autoSizeTextType="uniform"
-      app:autoSizeMinTextS>iz<e="12sp&>quot;
+      app:autoSizeMinTextSize="12sp"
       app:autoSizeMaxTextSize="100sp"
-      app:autoSizeStepGranularity="2sp" /
+      app:autoSizeStepGranularity="2sp" />
 
-/LinearLayout
+</LinearLayout>
 ```
 
 ### Preset sizes
@@ -140,23 +140,23 @@ Preset sizes let you specify the values that the
 
 ```xml
 <resources>
-  <array name="autosize_text_s>izes&<quot;
-   < item>1<0sp/item
-<    i>tem&g<t;12sp/it<em
-  >  ite<m>20sp</item>
-    <item>40<sp/it>em
-<    it>e<m>100sp>/item
-  /array
-/resources
+  <array name="autosize_text_sizes">
+    <item>10sp</item>
+    <item>12sp</item>
+    <item>20sp</item>
+    <item>40sp</item>
+    <item>100sp</item>
+  </array>
+</resources>
 ```
 
 ```xml
-<?xml version="1.0" encodin>g<="utf-8"?
-TextView
+<?xml version="1.0" encoding="utf-8"?>
+<TextView
     android:layout_width="match_parent"
     android:layout_height="200dp"
     android:autoSizeTextType="uniform"
-    android:>autoSizePresetSizes="@array/autosize_text_sizes" /
+    android:autoSizePresetSizes="@array/autosize_text_sizes" />
 ```
 
 #### Set up preset sizes using the Support Library
@@ -166,30 +166,30 @@ TextView
 
 ```xml
 <resources>
-  <array name="autosize_text_s>izes&<quot;
-   < item>1<0sp/item
-<    i>tem&g<t;12sp/it<em
-  >  ite<m>20sp</item>
-    <item>40<sp/it>em
-<    it>e<m>100sp>/item
-  /array
-/resources
+  <array name="autosize_text_sizes">
+    <item>10sp</item>
+    <item>12sp</item>
+    <item>20sp</item>
+    <item>40sp</item>
+    <item>100sp</item>
+  </array>
+</resources>
 ```
 
 ```xml
-<?xml version="1.0" encodin>g<="utf-8"?
-LinearLayout
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_par>ent&<quot;
-    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-  TextView
+  <TextView
       android:layout_width="match_parent"
       android:layout_height="200dp"
-      app:autoSiz>e<TextType=&quo>t;uniform"
-      app:autoSizePresetSizes="@array/autosize_text_sizes" /
-/LinearLayout
+      app:autoSizeTextType="uniform"
+      app:autoSizePresetSizes="@array/autosize_text_sizes" />
+</LinearLayout>
 ```
 
 ## Additional resources

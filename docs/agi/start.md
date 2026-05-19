@@ -12,6 +12,9 @@ on your Android app using Android GPU Inspector (AGI).
 This quickstart is intended for developers that are familiar with graphics
 development on Android.
 
+> [!NOTE]
+> **Note:** Android Performance Analyzer is the new recommended tool for system profiling. Learn more and get the public beta release in the [APA docs](https://developer.android.com/android-performance-analyzer).
+
 ## Computer requirements
 
 The computer that runs AGI must meet these requirements:

@@ -19,7 +19,9 @@ To use `PdfViewerFragment`, your application must target a minimum of Android S
 (API level 31) and SDK extension level 13. If these compatibility requirements
 are not satisfied, the library throws an
 [`UnsupportedOperationException`](https://developer.android.com/reference/java/lang/UnsupportedOperationException).
-| **Note:** Edit mode is not currently supported in `PdfViewerFragment`.
+
+> [!NOTE]
+> **Note:** Edit mode is not currently supported in `PdfViewerFragment`.
 
 You can check the SDK extension version at runtime using the `SdkExtensions`
 module. This enables you to conditionally load the fragment and PDF document

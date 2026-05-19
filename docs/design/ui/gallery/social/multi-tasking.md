@@ -25,6 +25,11 @@ writing, search while chatting, schedule while video calling.
 
 ![](https://developer.android.com/static/images/large-screens/gallery/samples/social/gallery_social_multiwindow.png)
 
+On desktop experiences, apps can become windowed for more flexibility. Apps can
+also be resized in these windows.
+
+![](https://developer.android.com/static/images/large-screens/gallery/samples/social/gallery_productivity_laptop_multiwindow.webp)
+
 *** ** * ** ***
 
 

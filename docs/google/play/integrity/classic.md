@@ -313,7 +313,7 @@ void MyClass::RequestIntegrityToken()
 
   // Initiate the integrity token request, passing the delegate to handle the result.
   GetGameInstance()
-    ->Ge<tSubsystemUIntegr>ityManager()
+    ->GetSubsystem<UIntegrityManager>()
     ->RequestIntegrityToken(Request, Delegate);
 }
 ```
@@ -347,7 +347,7 @@ if (error_code != INTEGRITY_NO_ERROR)
 
 IntegrityResponseStatus response_status;
 
-//https://developer.android.com/google/play/integrity/error-codes error codes.
+/// Check for https://developer.android.com/google/play/integrity/error-codes.
 IntegrityErrorCode error_code =
         IntegrityTokenResponse_getStatus(response, &response_status);
 if (error_code == INTEGRITY_NO_ERROR

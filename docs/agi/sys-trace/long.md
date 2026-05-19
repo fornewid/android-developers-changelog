@@ -4,6 +4,9 @@ url: https://developer.android.com/agi/sys-trace/long
 source: md.txt
 ---
 
+> [!NOTE]
+> **Note:** Android Performance Analyzer is the new recommended tool for system profiling. Learn more and get the public beta release in the [APA docs](https://developer.android.com/android-performance-analyzer).
+
 Estimating CPU and GPU frame processing times (frame times) is essential for
 understanding your app's performance and locating bottlenecks. When you
 profile an app with AGI, System Profiler provides trace data that you can use

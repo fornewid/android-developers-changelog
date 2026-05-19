@@ -22,7 +22,7 @@ higher.
 
 ### Dependencies
 
-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/display-animated-image_c879e048f33ce550d5e1c462bfee3fc5cf3bc81f5c0683d29dea68d6ca8538d6.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/display-animated-image_0d543e3b6c450627a424e8eb3745ea88fe3f8d285adb8d735956038516ef86fb.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
 
 ## Display an animated image
 

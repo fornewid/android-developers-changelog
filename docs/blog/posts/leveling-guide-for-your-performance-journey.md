@@ -24,13 +24,7 @@ The performance leveling guide features 5 levels. We'll start with level 1, whic
 
 <br />
 
-Feel free to jump to the level that resonates most with you:
-
-- [Level 1: Use Play Console provided field monitoring](https://docs.google.com/document/d/1KU461XfG9MX6rbyL5dEu81oyuwhugeMSx0qgM7t98_8/edit?resourcekey=0-rS4v80rH-CsHHON3i7TxAw&tab=t.9545yu9a8hu#heading=h.q7g5xad1u72f)
-- [Level 2: Follow the App Performance Score action items](https://docs.google.com/document/d/1KU461XfG9MX6rbyL5dEu81oyuwhugeMSx0qgM7t98_8/edit?resourcekey=0-rS4v80rH-CsHHON3i7TxAw&tab=t.9545yu9a8hu#heading=h.bmmrmlrl1cx)
-- [Level 3: Leverage local performance test frameworks](https://docs.google.com/document/d/1KU461XfG9MX6rbyL5dEu81oyuwhugeMSx0qgM7t98_8/edit?resourcekey=0-rS4v80rH-CsHHON3i7TxAw&tab=t.9545yu9a8hu#heading=h.ol5g0pdijonl)
-- [Level 4: Use trace analysis tools like Perfetto](https://docs.google.com/document/d/1KU461XfG9MX6rbyL5dEu81oyuwhugeMSx0qgM7t98_8/edit?resourcekey=0-rS4v80rH-CsHHON3i7TxAw&tab=t.9545yu9a8hu#heading=h.dkfldbvxyw0j)
-- [Level 5: Build your own performance tracking framework](https://docs.google.com/document/d/1KU461XfG9MX6rbyL5dEu81oyuwhugeMSx0qgM7t98_8/edit?resourcekey=0-rS4v80rH-CsHHON3i7TxAw&tab=t.9545yu9a8hu#heading=h.uimonjgw1jv3)
+Explore the level that resonates most with you:
 
 ## **Level 1: Use Play Console provided field monitoring**
 

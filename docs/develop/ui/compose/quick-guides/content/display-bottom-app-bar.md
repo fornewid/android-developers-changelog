@@ -21,7 +21,7 @@ higher.
 
 ### Dependencies
 
-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/display-bottom-app-bar_bca39c46d56eb0afcca4670aace1c5ded6814f024d8b03cf2b878f1794e2c03e.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/display-bottom-app-bar_c5f0504ac10b42fce1c3da419a874b30d9e9638281b489f41c26c3c8bcd78e93.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
 
 ## Create a bottom app bar
 

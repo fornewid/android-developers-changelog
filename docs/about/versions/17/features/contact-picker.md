@@ -71,6 +71,7 @@ specific number.
 
     // Set up the intent for the Contact Picker
     val pickContactIntent = Intent(ACTION_PICK_CONTACTS).apply {
+        putExtra(EXTRA_USE_SYSTEM_CONTACTS_PICKER, true)
         putStringArrayListExtra(
             EXTRA_PICK_CONTACTS_REQUESTED_DATA_FIELDS,
             requestedFields
@@ -92,6 +93,7 @@ optionally limit the number of items a user can select.
 
     // Set up the intent for the Contact Picker
     val pickContactIntent = Intent(ACTION_PICK_CONTACTS).apply {
+        putExtra(EXTRA_USE_SYSTEM_CONTACTS_PICKER, true)
         // Enable multi-select
         putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true)
         // Set limit of selectable contacts

@@ -21,7 +21,7 @@ To be able to record, your app must tell the user that it will access the
 device's audio input. You must include this permission tag in the app's manifest file:
 
 ```xml
-<uses-permission android:name="android.permission.RECORD_AUD>IO" /
+<uses-permission android:name="android.permission.RECORD_AUDIO" />
 ```
 
 `RECORD_AUDIO` is considered a
@@ -154,11 +154,11 @@ class AudioRecordTest : AppCompatActivity() {
 
     // Requesting permission to RECORD_AUDIO
     private var permissionToRecordAccepted = false
-    private va<r perm>issions: ArrayString = arrayOf(Manifest.permission.RECORD_AUDIO)
+    private var permissions: Array<String> = arrayOf(Manifest.permission.RECORD_AUDIO)
 
     override fun onRequestPermissionsResult(
             requestCode: Int,
-          <  perm>issions: ArrayString,
+            permissions: Array<String>,
             grantResults: IntArray
     ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
@@ -230,9 +230,9 @@ class AudioRecordTest : AppCompatActivity() {
 
         var clicker: OnClickListener = OnClickListener {
             onRecord(mStartRecording)
-            text = when (m>StartRecording) {
-                true - >"Stop recording"
-                false - "Start recording"
+            text = when (mStartRecording) {
+                true -> "Stop recording"
+                false -> "Start recording"
             }
             mStartRecording = !mStartRecording
         }
@@ -246,10 +246,10 @@ class AudioRecordTest : AppCompatActivity() {
     internal inner class PlayButton(ctx: Context) : Button(ctx) {
         var mStartPlaying = true
         var clicker: OnClickListener = OnClickListener {
-            onPlay(mStartPla>ying)
-            text = when (mStartPl>aying) {
-                true - "Stop playing"
-                false - "Start playing"
+            onPlay(mStartPlaying)
+            text = when (mStartPlaying) {
+                true -> "Stop playing"
+                false -> "Start playing"
             }
             mStartPlaying = !mStartPlaying
         }
