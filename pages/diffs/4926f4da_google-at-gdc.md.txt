@@ -1,0 +1,14 @@
+diff --git a/docs/games/google-at-gdc.md b/docs/games/google-at-gdc.md
+index 26d398dc..67c9e892 100644
+--- a/docs/games/google-at-gdc.md
++++ b/docs/games/google-at-gdc.md
+@@ -5,9 +5,7 @@ source: html-scrape
+ ---
+ 
+ * [Android Developers](https://developer.android.com/)
+-* [Google Play](https://developer.android.com/distribute)
+ * [Games dev center](https://developer.android.com/games)
+-* [Google at GDC](https://developer.android.com/games/google-at-gdc)
+ 
+ Send feedback
+ 

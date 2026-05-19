@@ -1,0 +1,16 @@
+diff --git a/docs/design/ui/gallery/social/drag-and-drop.md b/docs/design/ui/gallery/social/drag-and-drop.md
+index 7d8f985b..d5cd836c 100644
+--- a/docs/design/ui/gallery/social/drag-and-drop.md
++++ b/docs/design/ui/gallery/social/drag-and-drop.md
+@@ -12,6 +12,11 @@ between apps.
+ 
+ ![](https://developer.android.com/static/images/large-screens/gallery/samples/social/gallery_social_drag.png)
+ 
++When a pointer input is available, desktop devices let you drag with more
++precision.
++
++![](https://developer.android.com/static/images/large-screens/gallery/samples/social/gallery_social_dragdrop.png)
++
+ *** ** * ** ***
+ 
+ 

@@ -1,0 +1,299 @@
+diff --git a/docs/guide/topics/resources/more-resources.md b/docs/guide/topics/resources/more-resources.md
+index 920ea00b..333c3e41 100644
+--- a/docs/guide/topics/resources/more-resources.md
++++ b/docs/guide/topics/resources/more-resources.md
+@@ -54,12 +54,12 @@ syntax:
+ :
+ 
+     ```xml
+-    <?xml version="1.0" encoding=<"utf>-8&qu<ot;?>
+-    resources
+-        bool
+-            na>me="bool_<name&qu<ot;
+-            [true | false]/bool>
+-    /resources>
++    <?xml version="1.0" encoding="utf-8"?>
++    <resources>
++        <bool
++            name="bool_name"
++            >[true | false]</bool>
++    </resources>
+     ```
+ 
+ elements:
+@@ -83,11 +83,11 @@ example:
+ :   XML file saved at `res/values-small/bools.xml`:
+ 
+     ```xml
+-    <?xml version="1.0" encoding=<"utf>-8&qu<ot;?>
+-    resources
+-        bool n<ame="s<creen_small">true/bool>
+-    <    boo<l name="adjust_view_bounds">true/bool>
+-    /resources>
++    <?xml version="1.0" encoding="utf-8"?>
++    <resources>
++        <bool name="screen_small">true</bool>
++        <bool name="adjust_view_bounds">true</bool>
++    </resources>
+     ```
+ 
+ 
+@@ -149,12 +149,12 @@ syntax:
+ :
+ 
+     ```xml
+-    <?xml version="1.0" encoding=<"utf-8&quo<t;?&gt;
+-    resources>;
+-        color
+-            >name=&quo<t;color_<name"
+-            hex_color/color>
+-    /resources>
++    <?xml version="1.0" encoding="utf-8"?>
++    <resources>
++        <color
++            name="color_name"
++            >hex_color</color>
++    </resources>
+     ```
+ 
+ elements:
+@@ -176,11 +176,11 @@ example:
+ :   XML file saved at `res/values/colors.xml`:
+ 
+     ```xml
+-    <?xml version="1.0" encoding=<"utf-8&qu<ot;?>
+-    resources>
+-       co<lor name=&q<uot;opaque_red">#f00/color><
+-       colo<r name="translucent_red">#80ff0000/color>
+-    /resources>
++    <?xml version="1.0" encoding="utf-8"?>
++    <resources>
++       <color name="opaque_red">#f00</color>
++       <color name="translucent_red">#80ff0000</color>
++    </resources>
+     ```
+ 
+ 
+@@ -263,12 +263,12 @@ syntax:
+ :
+ 
+     ```xml
+-    <?xml version="1.0" encoding=<"utf-8&quo<t;?&gt;
+-    resources>;
+-        dimen
+-            name>="di<mensio>n<_name">;
+-            dimension/dimen
+-    /resources
++    <?xml version="1.0" encoding="utf-8"?>
++    <resources>
++        <dimen
++            name="dimension_name"
++            >dimension</dimen>
++    </resources>
+     ```
+ 
+ elements:
+@@ -290,13 +290,13 @@ example:
+ :   XML file saved at `res/values/dimens.xml`:
+ 
+     ```xml
+-    <?xml version="1.0" encoding=<"utf-8&quo<t;?>
+-    resources>
+-        dimen n<ame="te<xtview_height">25dp/dimen<>
+-        dim<en name="textview_width&<quot;>150<dp/dimen>
+-        dimen name<="b<all_radius">30dp/dimen>
+-        dimen name="font_size">16sp/dimen>
+-    /resources>
++    <?xml version="1.0" encoding="utf-8"?>
++    <resources>
++        <dimen name="textview_height">25dp</dimen>
++        <dimen name="textview_width">150dp</dimen>
++        <dimen name="ball_radius">30dp</dimen>
++        <dimen name="font_size">16sp</dimen>
++    </resources>
+     ```
+ 
+ 
+@@ -351,12 +351,12 @@ syntax:
+ :
+ 
+     ```xml
+-    <?xml version="1.0" encoding=<"utf>-8&qu<ot;?>
+-    resources
+-        item
+-            type=&quot;>i<d"
+-      >      name="id_name" /
+-    /resources
++    <?xml version="1.0" encoding="utf-8"?>
++    <resources>
++        <item
++            type="id"
++            name="id_name" />
++    </resources>
+     ```
+ 
+ elements:
+@@ -382,18 +382,18 @@ example:
+ :   XML file saved at `res/values/ids.xml`:
+ 
+     ```xml
+-    <?xml version="1.0" encoding=<"utf-8&quo<t;?>
+-    resources>
+-        item ty>pe=&q<uot;id" name="button_ok&q>u<ot; /
+-        item type="id" name="dialog_exit" /
+-    /resources>
++    <?xml version="1.0" encoding="utf-8"?>
++    <resources>
++        <item type="id" name="button_ok" />
++        <item type="id" name="dialog_exit" />
++    </resources>
+     ```
+ 
+     The following layout snippet uses the `"button_ok"` ID for a `Button` widget:
+ 
+     ```xml
+-    <Button android:id=&quot;@id/button_ok"
+-        style="@style/>button_style" /
++    <Button android:id="@id/button_ok"
++        style="@style/button_style" />
+     ```
+ 
+     The `android:id` value here doesn't include the plus sign in the ID reference,
+@@ -466,12 +466,12 @@ syntax:
+ :
+ 
+     ```xml
+-    <?xml version="1.0" encoding=<"utf-8&quo<t;?>
+-    resources>
+-        integer
+-            na>me=&quo<t;intege>r<_name">;
+-            integer/integer
+-    /resources
++    <?xml version="1.0" encoding="utf-8"?>
++    <resources>
++        <integer
++            name="integer_name"
++            >integer</integer>
++    </resources>
+     ```
+ 
+ elements:
+@@ -494,11 +494,11 @@ example:
+ :   XML file saved at `res/values/integers.xml`:
+ 
+     ```xml
+-    <?xml version="1.0" encoding=<"utf-8&quo<t;?>
+-    resources>
+-        i<nteger name=&q<uot;max_speed">75/<integer><;
+-        integer name="min_speed">5/integer>
+-    /resources>
++    <?xml version="1.0" encoding="utf-8"?>
++    <resources>
++        <integer name="max_speed">75</integer>
++        <integer name="min_speed">5</integer>
++    </resources>
+     ```
+ 
+     The following application code retrieves an integer:
+@@ -540,14 +540,14 @@ syntax:
+ :
+ 
+     ```xml
+-    <?xml version="1.0" encoding=<"utf-8&quo<t;?>
+-    resources>
+-        integer-array
+-            name=&quo<t;integer_array_n>ame&quo<t;>>;
+-       <     item
+-          <      integer/item
+-        /integer-array>
+-    /resources>
++    <?xml version="1.0" encoding="utf-8"?>
++    <resources>
++        <integer-array
++            name="integer_array_name">
++            <item
++                >integer</item>
++        </integer-array>
++    </resources>
+     ```
+ 
+ elements:
+@@ -578,15 +578,15 @@ example:
+ :   XML file saved at `res/values/integers.xml`:
+ 
+     ```xml
+-    <?xml version="1.0" encoding=<"utf-8&quo<t;?>
+-    resources>
+-        integer-a<rray n<ame="bits&<quot;&<gt;
+-            ite<m>4/<item>
+-          <  item&<gt;8/item&g<t;
+-            item&<gt;16/item>
+-            item>32/item>
+-        /integer-array>
+-    /resources>
++    <?xml version="1.0" encoding="utf-8"?>
++    <resources>
++        <integer-array name="bits">
++            <item>4</item>
++            <item>8</item>
++            <item>16</item>
++            <item>32</item>
++        </integer-array>
++    </resources>
+     ```
+ 
+ 
+@@ -633,13 +633,13 @@ syntax:
+ :
+ 
+     ```xml
+-    <?xml version="1.0" encoding=<"utf-8&quo<t;?&gt;
+-    resources>;
+-        array
+-            name=&quo<t;in>teger_ar<ray_n>ame&q<uot;><
+-            itemresource/item
+-        /array>
+-    /resources>
++    <?xml version="1.0" encoding="utf-8"?>
++    <resources>
++        <array
++            name="integer_array_name">
++            <item>resource</item>
++        </array>
++    </resources>
+     ```
+ 
+ elements:
+@@ -670,19 +670,19 @@ example:
+ :   XML file saved at `res/values/arrays.xml`:
+ 
+     ```xml
+-    <?xml version="1.0" encoding=<"utf-8&quo<t;?>
+-    resources>
+-        ar<ray name="icon<s">
+-       <     item>@drawable/<home/item>
+-     <       item>@drawa<ble/setting<s/item>
+-     <       item>@drawable/logo<ut/item>
+-      <  /array>
+-      <  array name=&<quot;colors&quo<t;>
+-           < item>#F<FFF0000/<item>
+-            item>#FF00FF00/item>
+-            item>#FF0000FF/item>
+-        /array>
+-    /resources>
++    <?xml version="1.0" encoding="utf-8"?>
++    <resources>
++        <array name="icons">
++            <item>@drawable/home</item>
++            <item>@drawable/settings</item>
++            <item>@drawable/logout</item>
++        </array>
++        <array name="colors">
++            <item>#FFFF0000</item>
++            <item>#FF00FF00</item>
++            <item>#FF0000FF</item>
++        </array>
++    </resources>
+     ```
+ 
+ 

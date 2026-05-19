@@ -1,0 +1,14 @@
+diff --git a/docs/agi/sys-trace/threads-scheduling.md b/docs/agi/sys-trace/threads-scheduling.md
+index dbf7d654..c1767d5d 100644
+--- a/docs/agi/sys-trace/threads-scheduling.md
++++ b/docs/agi/sys-trace/threads-scheduling.md
+@@ -4,6 +4,9 @@ url: https://developer.android.com/agi/sys-trace/threads-scheduling
+ source: md.txt
+ ---
+ 
++> [!NOTE]
++> **Note:** Android Performance Analyzer is the new recommended tool for system profiling. Learn more and get the public beta release in the [APA docs](https://developer.android.com/android-performance-analyzer).
++
+ There are a few things to consider in order to determine if your game process threads are appropriately utilized and scheduled for the best performance.
+ 
+ - Frame pacing
