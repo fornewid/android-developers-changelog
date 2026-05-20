@@ -8,20 +8,27 @@ source: md.txt
 
 ### [Develop with the Android XR SDK](http://developer.android.com/develop/xr/get-started)
 
-Redefine how users interact with your app with Android XR --- from focused productivity and immersive entertainment on XR headsets and wired XR glasses, to lightweight, additive experiences on AI glasses.
+Redefine how users interact with your app with Android XR --- from focused productivity and immersive entertainment on XR headsets and wired XR glasses, to lightweight, additive experiences on audio glasses and display glasses.
 [Develop for XR](http://developer.android.com/develop/xr/get-started) XR headsets \| Wired XR glasses
 
 ### [Build immersive experiences](https://developer.android.com/develop/xr/explore/immersive)
 
-Build helpful and delightful immersive experiences that transport users to a fully-virtual space, or blend semi-immersive digital content with the user's environment to unlock real-world multi-tasking. [Build immersive](https://developer.android.com/develop/xr/explore/immersive) AI glasses
+Build helpful and delightful immersive experiences that transport users to a fully-virtual space, or blend semi-immersive digital content with the user's environment to unlock real-world multi-tasking. [Build immersive](https://developer.android.com/develop/xr/explore/immersive) Audio glasses \| Display glasses
 
 ### [Build augmented experiences](https://developer.android.com/develop/xr/explore/augmented)
 
-Build lightweight, additive experiences that help users in everyday life on the go, at home, or at work. [Build augmented](https://developer.android.com/develop/xr/explore/augmented) [![](http://developer.android.com/static/images/cluster-illustrations/material-design-16-9.svg)](http://developer.android.com/develop/xr/tools-technologies)
+Build lightweight, additive experiences that help users in everyday life on the go, at home, or at work. [Build augmented](https://developer.android.com/develop/xr/explore/augmented) [![](http://developer.android.com/static/images/develop/xr/android-bot-glasses-looking-left.webp)](http://developer.android.com/develop/xr/catalyst)
+
+### [Accelerate your vision with the Android XR Developer Catalyst Program](http://developer.android.com/develop/xr/catalyst)
+
+Build the next generation of extended reality experiences for Android XR.
+
+The Android XR Developer Catalyst Program is designed to empower developers like you! Whether you're an established studio or an independent developer, the program provides the resources, hardware, and funding needed to build and scale innovative experiences across wired XR glasses, audio glasses, and display glasses.
+[Learn more](http://developer.android.com/develop/xr/catalyst) [![](http://developer.android.com/static/images/cluster-illustrations/material-design-16-9.svg)](http://developer.android.com/develop/xr/tools-technologies)
 
 ### [Start with the tools you're familiar with](http://developer.android.com/develop/xr/tools-technologies)
 
-The Android XR Software Development Kit supports developing from where your app is today. Choose whether you want to develop with Android Jetpack XR, Unity, OpenXR, or WebXR. [Select your tools](http://developer.android.com/develop/xr/tools-technologies) [![](http://developer.android.com/static/images/cluster-illustrations/share-feedback.svg)](https://google.qualtrics.com/jfe/form/SV_ezBhaM4WC0T7g8d?Q_Language=en&utm_campaign=Q3&campaignDate=August2025&referral_code=UXRMkVr1825587)
+The Android XR Software Development Kit supports developing from where your app is today. Choose whether you want to develop with the Android Jetpack XR SDK, Unity, Godot, Unreal Engine, OpenXR, or WebXR. [Select your tools](http://developer.android.com/develop/xr/tools-technologies) [![](http://developer.android.com/static/images/cluster-illustrations/share-feedback.svg)](https://google.qualtrics.com/jfe/form/SV_ezBhaM4WC0T7g8d?Q_Language=en&utm_campaign=Q3&campaignDate=August2025&referral_code=UXRMkVr1825587)
 
 ### [Improve the Android XR Developer Experience](https://google.qualtrics.com/jfe/form/SV_ezBhaM4WC0T7g8d?Q_Language=en&utm_campaign=Q3&campaignDate=August2025&referral_code=UXRMkVr1825587)
 
@@ -34,15 +41,15 @@ This JetNews app is an Android large-screen app adapted for Android XR.
 
 *** ** * ** ***
 
-## Build a new app or port a Unity, OpenXR, or WebXR app
+## Build new, or port an app using other XR tools
 
-Bring existing immersive experiences to a new audience, with minimal development lift. [Develop with Unity, OpenXR, or WebXR](http://developer.android.com/develop/xr#build-with) ![](https://developer.android.com/static/images/develop/xr/job-simulator.jpg) Job Simulator is an Unity game ported to Android XR.
+Bring your apps and experiences built with Unity, Godot, Unreal Engine, OpenXR, or WebXR to a new audience with minimal development lift. [Develop with other XR tools](http://developer.android.com/develop/xr#build-with) ![](https://developer.android.com/static/images/develop/xr/job-simulator.jpg) Job Simulator is an Unity game ported to Android XR.
 
 *** ** * ** ***
 
-## Extend a mobile app to AI glasses
+## Extend a mobile app to intelligent eyewear
 
-Extend your mobile app to AI glasses with augmented experiences that help your users connect with the world around them. [Start building for AI glasses](http://developer.android.com/develop/xr/jetpack-xr-sdk/ai-glasses/build) ![](http://developer.android.com/static/images/design/ui/glasses/guides/glasses_principle_hands-free.png)
+Extend your mobile app to intelligent eyewear, such as audio glasses and display glasses, with augmented experiences that help your users connect with the world around them. [Start building for audio glasses and display glasses](http://developer.android.com/develop/xr/jetpack-xr-sdk/glasses/build) ![](http://developer.android.com/static/images/design/ui/glasses/guides/glasses_principle_hands-free.png)
 
 ## Simplified development
 
@@ -75,11 +82,11 @@ Create XR experiences using familiar tools, extended for XR. All XR devices
 
 ### Android Studio
 
-Develop with familiar Android Studio tools. Use the Android XR emulator to test your app directly on either your machine using virtual devices for [XR headsets and wired XR glasses](https://developer.android.com/develop/xr/jetpack-xr-sdk/run/create-avds/xr-headsets-glasses) or [AI glasses](https://developer.android.com/develop/xr/jetpack-xr-sdk/run/create-avds/ai-glasses). Debug your app's layout using the Layout Inspector. AI glasses
+Develop with familiar Android Studio tools. Test your app using virtual devices for [XR headsets and wired XR glasses](https://developer.android.com/develop/xr/jetpack-xr-sdk/run/create-avds/xr-headsets-glasses) or [audio glasses and display glasses](https://developer.android.com/develop/xr/jetpack-xr-sdk/run/create-avds/glasses). Debug your app's layout using the Layout Inspector. Display glasses
 
-### Jetpack Compose Glimmer
+### [Jetpack Compose Glimmer](http://developer.android.com/develop/xr/jetpack-xr-sdk/jetpack-compose-glimmer)
 
-Jetpack Compose Glimmer is a UI toolkit for building augmented Android XR experiences, optimized for display AI Glasses. Build beautiful, minimal, and comfortable UI for devices that are worn all day. XR headsets \| Wired XR glasses
+Jetpack Compose Glimmer is a UI toolkit for building augmented Android XR experiences, optimized for display glasses. Build beautiful, minimal, and comfortable UI for devices that are worn all day. XR headsets \| Wired XR glasses
 
 ### [Jetpack Compose for XR](http://developer.android.com/develop/xr/jetpack-xr-sdk/ui-compose)
 
@@ -99,11 +106,14 @@ Brings perception capabilities for your app to understand and interact with real
 
 ### 3D tools
 
-Use the 3D tool of your choice to create glTF or GLB files. Examples: [Blender](https://www.blender.org/), [Maya](https://www.autodesk.com/products/maya), [Spline](https://spline.design/) All XR devices
+Use the 3D tool of your choice to create glTF or GLB files.
+
+Examples: [Blender](https://www.blender.org/), [Maya](https://www.autodesk.com/products/maya), [Spline](https://spline.design/)
+All XR devices
 
 ### [Explore Android XR samples](http://developer.android.com/develop/xr/samples)
 
-Explore our samples to learn how to build both immersive experiences for devices like XR headsets and wired XR glasses, and augmented experiences for devices like AI glasses. See how XR features and concepts come together in real apps.
+Explore and learn how XR features and concepts come together in real apps for both immersive and augmented experiences on all types of Android XR devices.
 
 ## Build with Unity, OpenXR, Godot, Unreal Engine, or WebXR
 
@@ -135,4 +145,4 @@ Build meaningful experiences for XR headsets and wired XR glasses directly in a 
 
 ## Get started with design
 
-Android XR includes ready-to-go UI, components, and spatial elements. [Design for XR headsets \& wired XR glasses](http://developer.android.com/design/ui/xr) [Design for AI glasses](http://developer.android.com/design/ui/ai-glasses)
+Android XR includes ready-to-go UI, components, and spatial elements. [Design for XR headsets \& wired XR glasses](http://developer.android.com/design/ui/xr) [Design for audio glasses and display glasses](http://developer.android.com/design/ui/ai-glasses)

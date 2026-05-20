@@ -4,6 +4,15 @@ url: https://developer.android.com/about/versions/17/qpr1/release-notes
 source: md.txt
 ---
 
+### Beta 3
+
+|---|---|
+| **Release date** | May 19, 2026 |
+| **Builds** | CP31.260508.005 |
+| **Emulator support** | x86 (64-bit), ARM (v8-A) |
+| **Security patch level** | 2026-05-05 |
+| **Google Play services** | 26.15.33 |
+
 ### Beta 2
 
 |---|---|
@@ -22,7 +31,7 @@ source: md.txt
 | **Security patch level** | 2026-04-05 |
 | **Google Play services** | 26.11.36 |
 
-### Android 17 QPR 1 Beta 2 (May 2026)
+### Android 17 QPR 1 Beta 3 (May 2026)
 
 Building on the [initial release of Android 17](https://developer.android.com/about/versions/17), we continue to
 update the platform with fixes and improvements that are then rolled out to
@@ -38,7 +47,17 @@ user experience of your app).
 Unlike developer previews and betas for unreleased, major versions of Android,
 these builds are suitable for general use.
 
-### Top Issues fixed in Beta 2
+### Top Issues fixed in Beta 3 (May 2026)
+
+- *A recurring system error in ContextHubClientManager that caused excessive logcat noise when attempting to send messages to unregistered clients. ([**Issue #289721806**](https://issuetracker.google.com/issues/289721806))*
+- *Clicking on the* date on at a glance prompts to open the terminal *([**Issue #506101970**](https://issuetracker.google.com/issues/506101970))*
+- *Wi-Fi unexpectedly disconnects due to erroneous low-quality detection despite strong signal strength. ([**Issue #494670350**](https://issuetracker.google.com/issues/494670350))*
+- *Users experienced frequent crackling or distorted audio during media playback from any source. ([**Issue #482749744**](https://issuetracker.google.com/issues/482749744), [**Issue #471865281**](https://issuetracker.google.com/issues/471865281), [**Issue #485701794**](https://issuetracker.google.com/issues/485701794), [**Issue #489062503**](https://issuetracker.google.com/issues/489062503), [**Issue #494050912**](https://issuetracker.google.com/issues/494050912), [**Issue #494901502**](https://issuetracker.google.com/issues/494901502), [**Issue #493915745**](https://issuetracker.google.com/issues/493915745), [**Issue #458363923**](https://issuetracker.google.com/issues/458363923))*
+- *UI elements are partially cut off or positioned off-screen when apps are expanded to full-screen mode. ([**Issue #476830614**](https://issuetracker.google.com/issues/476830614), [**Issue #489452085**](https://issuetracker.google.com/issues/489452085))*
+- *Home screen widgets would disappear or become unavailable in the widget picker after a device reboot. ([**Issue #488125748**](https://issuetracker.google.com/issues/488125748), [**Issue #505117543**](https://issuetracker.google.com/issues/505117543), [**Issue #505671079**](https://issuetracker.google.com/issues/505671079), [**Issue #497140330**](https://issuetracker.google.com/issues/497140330), [**Issue #506685943**](https://issuetracker.google.com/issues/506685943), [**Issue #510967059**](https://issuetracker.google.com/issues/510967059))*
+- *The mobile data icon incorrectly remains active in the Quick Settings panel after Airplane Mode is enabled. ([**Issue #501368569**](https://issuetracker.google.com/issues/501368569), [**Issue #505757076**](https://issuetracker.google.com/issues/505757076))*
+
+### Top Issues fixed in Beta 2 (May 2026)
 
 - *Resolved an issue where the Terminal app fails to launch, resulting in an unresolvable error pop-up and infinite loading. ([**Issue #501751748**](https://issuetracker.google.com/issues/501751748))*
 - *Fixed a display issue where date and weather information overlapped the fingerprint sensor area on the lock screen. ([**Issue #498106709**](https://issuetracker.google.com/issues/498106709))*

@@ -6,13 +6,11 @@ source: md.txt
 
 # Material Design for XR
 
-[User Guide](https://developer.android.com/develop/xr/jetpack-xr-sdk/material-design) API Reference  
-[androidx.xr.compose.material3](https://developer.android.com/reference/kotlin/androidx/xr/compose/material3/package-summary)  
-Build with Material components and layouts that adapt for XR
+[User Guide](https://developer.android.com/develop/xr/jetpack-xr-sdk/material-design) Build with Material components and layouts that adapt for XR
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| February 25, 2026 | - | - | - | [1.0.0-alpha15](https://developer.android.com/jetpack/androidx/releases/xr-compose-material3#1.0.0-alpha15) |
+| May 19, 2026 | - | - | - | [1.0.0-alpha17](https://developer.android.com/jetpack/androidx/releases/xr-compose-material3#1.0.0-alpha17) |
 
 ## Declaring dependencies
 
@@ -28,7 +26,7 @@ your app or module:
 ```groovy
 dependencies {
     // Use to implement XR Compose Material3
-    implementation "androidx.xr.compose.material3:material3:1.0.0-alpha15"
+    implementation "androidx.xr.compose.material3:material3:1.0.0-alpha17"
 }
 ```
 
@@ -37,7 +35,7 @@ dependencies {
 ```kotlin
 dependencies {
     // Use to implement XR Compose Material3
-   implementation("androidx.xr.compose.material3:material3:1.0.0-alpha15")
+   implementation("androidx.xr.compose.material3:material3:1.0.0-alpha17")
 }
 ```
 
@@ -57,6 +55,27 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.0
+
+### Version 1.0.0-alpha17
+
+May 19, 2026
+
+`androidx.xr.compose.material3:material3:1.0.0-alpha17` is released. Version 1.0.0-alpha17 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/03e8089df94c39eaf258d82271bb97697e95d5a9..92a04f7c6f34453321c5cf56381648170950a0c5/xr/compose/material3/material3).
+
+**API Changes**
+
+- Changed `Orbiter` to use either an `OrbiterAnchorPoint` + `VolumeOffset` or an `OrbiterPoseProvider` instead of position, offset, offsetType, alignment, and elevation. Also removed the `shouldRenderInNonSpatial` parameter. If the developer does not want the orbiter to render in non-spatial they should wrap the orbiter in an if statement and check the `SpatialCapabilities`. ([I9fbb3](https://android-review.googlesource.com/#/q/I9fbb3826fb7e709f86fee3e033585cdd97bc0b79))
+- Added movable modifiers. These modifiers currently work for `SpatialPanels` and `SpatialExternalSurface`. They will be supported in the future for `SpatialGltfModel` and eventually all `SubspaceComposables`. ([I9a3cd](https://android-review.googlesource.com/#/q/I9a3cd5a7989887a09282207629cd4a6dd39dfae7))
+
+### Version 1.0.0-alpha16
+
+March 25, 2026
+
+`androidx.xr.compose.material3:material3:1.0.0-alpha16` is released. Version 1.0.0-alpha16 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/3c5ca110d9a6bce5bd9efd6a97f6579d27385abc..03e8089df94c39eaf258d82271bb97697e95d5a9/xr/compose/material3/material3).
+
+**API Changes**
+
+- Changed Orbiter to use either an `OrbiterAnchorPoint` + `VolumeOffset` or an `OrbiterPoseProvider` instead of `position`, `offset`, `offsetType`, `alignment`, and elevation. Also removed the `shouldRenderInNonSpatial` parameter. If the developer does not want the orbiter to render in non-spatial they should wrap the orbiter in an if statement and check the `SpatialCapabilities`. ([I9fbb3](https://android-review.googlesource.com/#/q/I9fbb3826fb7e709f86fee3e033585cdd97bc0b79), [b/462428503](https://issuetracker.google.com/issues/462428503))
 
 ### Version 1.0.0-alpha15
 

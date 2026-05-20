@@ -10,7 +10,7 @@ source: md.txt
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| May 06, 2026 | [1.4.0](https://developer.android.com/jetpack/androidx/releases/savedstate#1.4.0) | [1.5.0-rc01](https://developer.android.com/jetpack/androidx/releases/savedstate#1.5.0-rc01) | - | - |
+| May 19, 2026 | [1.5.0](https://developer.android.com/jetpack/androidx/releases/savedstate#1.5.0) | - | - | - |
 
 ## Declaring dependencies
 
@@ -26,10 +26,10 @@ your app or module:
 ```groovy
 dependencies {
     // Java language implementation
-    implementation "androidx.savedstate:savedstate:1.4.0"
+    implementation "androidx.savedstate:savedstate:1.5.0"
 
     // Kotlin
-    implementation "androidx.savedstate:savedstate-ktx:1.4.0"
+    implementation "androidx.savedstate:savedstate-ktx:1.5.0"
 }
 ```
 
@@ -38,10 +38,10 @@ dependencies {
 ```kotlin
 dependencies {
     // Java language implementation
-    implementation("androidx.savedstate:savedstate:1.4.0")
+    implementation("androidx.savedstate:savedstate:1.5.0")
 
     // Kotlin
-    implementation("androidx.savedstate:savedstate-ktx:1.4.0")
+    implementation("androidx.savedstate:savedstate-ktx:1.5.0")
 }
 ```
 
@@ -61,6 +61,19 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.5
+
+### Version 1.5.0
+
+May 19, 2026
+
+`androidx.savedstate:savedstate-*:1.5.0` is released. Version 1.5.0 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/56090e32a2b7028588a6dd0c73d706c6dd8dd1ee..696d8ec0adf47d3d677cb0f42a5974f1f97fb411/savedstate).
+
+**Important changes since 1.4.0:**
+
+- Enable generic serialization for `SavedState` objects, allowing them to be encoded and decoded using standard formats like CBOR or JSON across all platforms. ([Iafda4](https://android-review.googlesource.com/#/q/Iba02ed1a48285a26dd5910b98849175bbf11e8cf), [b/425919375](https://issuetracker.google.com/issues/425919375))
+- Add `putKotlinSerializable` and `getKotlinSerializable` extension functions to `SavedStateWriter` and `SavedStateReader` to allow directly storing and retrieving Kotlin Serializable objects using keys, streamlining the integration with SavedState APIs. ([Iba02e](https://developer.android.com/jetpack/androidx/releases/savedstate#:%7E:text=with%20SavedState%20APIs.%20(-,Iba02e,-)))
+- Add factory functions for `LifecycleOwner`, `ViewModelStoreOwner`, and `SavedStateRegistryOwner` to reduce boilerplate when composing custom owner components. ([I9682c](https://android-review.googlesource.com/#/q/I9682c335efa683b00f36d4e4423780d45a33f320))
+- Enable saving and restoring `SnapshotStateSet` (created via `mutableStateSetOf()`) with `rememberSerializable`. You can now use `SnapshotStateSet` in `rememberSerializable` without requiring a custom saver. ([I9a4ed](https://android-review.googlesource.com/#/q/I9a4ed31c263ad4f66f6510acb20bec559905612e), [b/449498367](https://issuetracker.google.com/issues/449498367))
 
 ### Version 1.5.0-rc01
 

@@ -4,14 +4,29 @@ url: https://developer.android.com/blog/authors/paul-feng
 source: md.txt
 ---
 
-## 1
+## 2
 
-post ![](https://developer.android.com/static/blog/assets/paul_feng_759ac95845_spvRU.webp)
+posts ![](https://developer.android.com/static/blog/assets/paul_feng_759ac95845_spvRU.webp)
 
 # Paul Feng
 
 ###### VP, Google Play Eng, Product, UX
 
+- 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/IO_26_Blog_Strapi_Icons_2000x1000px_0a8b06b49b_Z1e2APA.webp)
+
+  #### [Product News](https://developer.android.com/blog/categories/product-news)
+
+  ## [I/O 2026: What's new in Google Play](https://developer.android.com/blog/posts/i-o-2026-what-s-new-in-google-play)
+
+  [arrow_forward](https://developer.android.com/blog/posts/i-o-2026-what-s-new-in-google-play) At this year's Google I/O, we talked about our evolving business model that offers more choice and new ways for your apps and content to be discovered on and off the store. We also unveiled advanced tools and insights that will help scale your business with less complexity.
+
+  ###### 6 min read
+
+  - [#Google Play](https://developer.android.com/blog/topics/google-play)
+  - [#Play Console](https://developer.android.com/blog/topics/play-console)
+  - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
+  - [#Android Developers](https://developer.android.com/blog/topics/android-developers)
+  - +2 ↩
 - 30 Oct 2025 30 Oct 2025 ![](https://developer.android.com/static/blog/assets/platime_53a39a9cc7_ZmGlDX.webp)
 
   #### [How-tos](https://developer.android.com/blog/categories/how-tos)

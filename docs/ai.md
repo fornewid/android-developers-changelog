@@ -6,7 +6,7 @@ source: md.txt
 
 ## Integrate your app with the Android intelligence system
 
-Android is evolving into an intelligence system, powered by AI. Integrate your app through a self-service model, and become part of the next generation of intelligent experiences on Android. ![AI on Android](https://developer.android.com/static/images/ai/ai-hero.png)
+Android is evolving into an intelligence system, powered by AI. Integrate your app through a self-service model, and become part of the next generation of intelligent experiences on Android. ![AI on Android](https://developer.android.com/static/ai/assets/images/ai-hero.png)
 
 ## Find your Android AI pathway
 

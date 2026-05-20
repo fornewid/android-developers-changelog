@@ -13,7 +13,7 @@ Start your custom AR or 3D session with our native runtime.
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| May 06, 2026 | - | - | - | [1.0.0-alpha13](https://developer.android.com/jetpack/androidx/releases/xr-runtime#1.0.0-alpha13) |
+| May 19, 2026 | - | - | - | [1.0.0-alpha14](https://developer.android.com/jetpack/androidx/releases/xr-runtime#1.0.0-alpha14) |
 
 
 ## Declaring dependencies
@@ -30,10 +30,10 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.xr.runtime:runtime:1.0.0-alpha13"
+    implementation "androidx.xr.runtime:runtime:1.0.0-alpha14"
 
     // Use in environments that do not support OpenXR
-    testImplementation "androidx.xr.runtime:runtime-testing:1.0.0-alpha13"
+    testImplementation "androidx.xr.runtime:runtime-testing:1.0.0-alpha14"
 }
 ```
 
@@ -41,10 +41,10 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.xr.runtime:runtime:1.0.0-alpha13")
+    implementation("androidx.xr.runtime:runtime:1.0.0-alpha14")
 
     // Use in environments that do not support OpenXR
-    testImplementation("androidx.xr.runtime:runtime-testing:1.0.0-alpha13")
+    testImplementation("androidx.xr.runtime:runtime-testing:1.0.0-alpha14")
 }
 ```
 
@@ -64,6 +64,28 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.0
+
+### Version 1.0.0-alpha14
+
+May 19, 2026
+
+`androidx.xr.runtime:runtime-*:1.0.0-alpha14` is released. Version 1.0.0-alpha14 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/f0d77f65175480acff2718b61a7c34c502a1802e..e2cf81ac79d4a2cf6fe7d512d38c94b6b01ee384/xr/runtime).
+
+**API Changes**
+
+- Deprecating `GeospatialMode.VPS_AND_GPS` in favor of `GeospatialMode.SPATIAL` and introducing a new lower-power tracking mode, `GeospatialMode.INERTIAL`, which uses only IMU and GPS. ([I1e6cd](https://android-review.googlesource.com/#/q/I1e6cde5e98a05f7e52c6c107d596a004d8158022))
+- Removes deprecation tag on `androidx.xr.runtime.FieldOfView`. Makes `androidx.xr.runtime.math.FieldOfView` a type aliaas of `androidx.xr.runtime.FieldOfView` in preparation for the latter's removal in the next release. Clients must migrate to the `androidx.xr.runtime.math` version wherever they are using the `androidx.xr.runtime` version. ([I6ce15](https://android-review.googlesource.com/#/q/I6ce156340a5b990016ed60d330e0e673d799246e))
+- Added the `PreviewProjectedApi` annotation ([Ic49f6](https://android-review.googlesource.com/#/q/Ic49f60a65d71050f38b5c4df4eaafc4b6dd010c6))
+- Removed `AugmentedObjectCategory.allSupported` ([I08656](https://android-review.googlesource.com/#/q/I0865696cf9a8f07b6a4557ed6642006af685cb4e))
+- Adding APIs in `XrDevice` for determining device support for hand tracking, eye tracking, depth estimation, geospatial, and rendering. ([I00696](https://android-review.googlesource.com/#/q/I006964e70e8301fffa08cd470a6f4460995b5bec))
+- `Session.getNativeData` has been replaced with `XrDevice.getNativeInstanceData` and `Session.getNativeSessionData`. ([Ieb077](https://android-review.googlesource.com/#/q/Ieb07742f2bb95f097afc598f22d273e8f464f74b))
+- Annotated `DeviceTrackingMode.INERTIAL_LAST_KNOWN` with `@PreviewSpatialApi`. ([I99868](https://android-review.googlesource.com/#/q/I99868a9f3894e87040b453f109d3a8efb90b4a41))
+- Added `XrDeviceTestRule` for its use in unit tests. ([I87584](https://android-review.googlesource.com/#/q/I87584e28a51edfc2b5832e0ed4e533a8ca73f55d))
+- Adding `CATEGORY_XR_PROJECTED_LAUNCHER`, this constant is used in the Manifest file to indicate the activity should be discovered as a launcher by the system. ([Ia3069](https://android-review.googlesource.com/#/q/Ia306924431e6681173d177f95c63195e8510a8f6))
+
+**External Contribution**
+
+- Add `AugmentedImageMode` to the `Config` API ([I0cf09](https://android-review.googlesource.com/#/q/I0cf0953c17e691b1501e08182b3d027efa891753))
 
 ### Version 1.0.0-alpha13
 

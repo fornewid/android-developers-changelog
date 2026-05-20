@@ -190,29 +190,35 @@ Don't wait. Start getting ready for Android 17 today!
   ###### [Fahd Imtiaz](https://developer.android.com/blog/authors/fahd-imtiaz), [Miguel Montemayor](https://developer.android.com/blog/authors/miguel-montemayor) •
   3 min read
 
-- [![](https://developer.android.com/static/blog/assets/Nataraj_K_work_profile_20e513e403_Z1TR4EY.webp)](https://developer.android.com/blog/authors/nataraj-k-r) 14 May 2026 14 May 2026 ![](https://developer.android.com/static/blog/assets/Bring_Native_Visibilityto_Your_Vo_IP_App_Experience_Strapi_4359a69748_Z2wOXhv.webp)
+- [![](https://developer.android.com/static/blog/assets/paul_feng_759ac95845_spvRU.webp)](https://developer.android.com/blog/authors/paul-feng) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/IO_26_Blog_Strapi_Icons_2000x1000px_0a8b06b49b_Z1e2APA.webp)
 
   #### [Product News](https://developer.android.com/blog/categories/product-news)
 
-  ## [Bring Native Visibility to Your VoIP App Experience with Telecom's Latest Alpha](https://developer.android.com/blog/posts/bring-native-visibility-to-your-vo-ip-app-experience-with-telecom-s-latest-alpha)
+  ## [I/O 2026: What's new in Google Play](https://developer.android.com/blog/posts/i-o-2026-what-s-new-in-google-play)
 
-  [arrow_forward](https://developer.android.com/blog/posts/bring-native-visibility-to-your-vo-ip-app-experience-with-telecom-s-latest-alpha) Building on this foundation, Jetpack Telecom v1.1.0 brings native-level visibility and convenience to third-party VoIP apps.
+  [arrow_forward](https://developer.android.com/blog/posts/i-o-2026-what-s-new-in-google-play) At this year's Google I/O, we talked about our evolving business model that offers more choice and new ways for your apps and content to be discovered on and off the store. We also unveiled advanced tools and insights that will help scale your business with less complexity.
 
-  ###### [Nataraj K R](https://developer.android.com/blog/authors/nataraj-k-r) •
-  2 min read
+  ###### [Paul Feng](https://developer.android.com/blog/authors/paul-feng) •
+  6 min read
 
-- [![](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 12 May 2026 12 May 2026 ![](https://developer.android.com/static/blog/assets/Tas_Developers_cut_Strapi_3636223c9c_Z2pmmBN.webp)
+  - [#Google Play](https://developer.android.com/blog/topics/google-play)
+  - [#Play Console](https://developer.android.com/blog/topics/play-console)
+  - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
+  - [#Android Developers](https://developer.android.com/blog/topics/android-developers)
+  - +2 ↩
+- [![](https://developer.android.com/static/blog/assets/Luke_Hopkins_9c1e15d778_Z2o9b3q.webp)](https://developer.android.com/blog/authors/luke-hopkins) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Combo3_Strapi_2000x1000_56726aebea_Z1kvKHr.webp)
 
   #### [Product News](https://developer.android.com/blog/categories/product-news)
 
-  ## [Building for the Intelligence System on Android](https://developer.android.com/blog/posts/building-for-the-intelligence-system-on-android)
+  ## [Android XR Updates for Unity, Unreal, and Godot](https://developer.android.com/blog/posts/android-xr-updates-for-unity-unreal-and-godot)
 
-  [arrow_forward](https://developer.android.com/blog/posts/building-for-the-intelligence-system-on-android) Announced today during The Android Show, Android is transitioning from an operating system to an intelligence system, creating more opportunities for engagement with your apps.
+  [arrow_forward](https://developer.android.com/blog/posts/android-xr-updates-for-unity-unreal-and-godot) We are excited to announce that official support for Unreal Engine and Godot has arrived for Android XR. We are also launching new tools designed to boost your productivity and enable new XR capabilities: the Android XR Engine Hub and the Android XR Interaction Framework.
 
-  ###### [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) •
+  ###### [Luke Hopkins](https://developer.android.com/blog/authors/luke-hopkins) •
   4 min read
 
-  - [#Android](https://developer.android.com/blog/topics/android)
+  - [#Android XR](https://developer.android.com/blog/topics/android-xr)
+  - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
 
 # Stay in the loop
 

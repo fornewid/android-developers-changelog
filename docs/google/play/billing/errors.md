@@ -370,22 +370,23 @@ Examples of when this can occur include:
 - The user is in an unsupported country.
 - The user is an enterprise user, and their enterprise admin has disabled users from making purchases.
 - Google Play is unable to charge the user's payment method. For example, the user's credit card might have expired.
+- The Play Store app is blocked by the system (for example, in an OEM-customized kids mode). In this case, the `BillingResult` includes the *Play Store is blocked* debug message.
 
 #### Possible resolution
 
-Automatic retries are unlikely to help in this case. However, a manual retry can
-help if the user addresses the condition that caused the issue. For example, if
-the user updates their Play Store version to a supported version, then a manual
-retry of the initial operation could work.
+- Automatic retries are unlikely to help in this case. However, a manual retry can
+  help if the user addresses the condition that caused the issue. For example, if
+  the user updates their Play Store version to a supported version, then a manual
+  retry of the initial operation could work.
 
-If this error occurs when the user is not in session, retrying might not make
-sense.
-When you receive a [`BILLING_UNAVAILABLE`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient.BillingResponseCode#BILLING_UNAVAILABLE)
-error as a result of the purchase flow, it's very likely the user received
-feedback from Google Play during the purchase process and might be aware of what
-went wrong. In this case, you could show an error message specifying something
-went wrong and offer a "Try again" button to give the user the option of a
-manual retry after they address the issue.
+- If this error occurs when the user is not in session, retrying might not make
+  sense.
+  When you receive a [`BILLING_UNAVAILABLE`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient.BillingResponseCode#BILLING_UNAVAILABLE)
+  error as a result of the purchase flow, it's very likely the user received
+  feedback from Google Play during the purchase process and might be aware of what
+  went wrong. In this case, you could show an error message specifying something
+  went wrong and offer a **Try again** button to give the user the option of a
+  manual retry after they address the issue.
 
 ### [ERROR](https://developer.android.com/reference/com/android/billingclient/api/BillingClient.BillingResponseCode#ERROR) (Error Code 6)
 

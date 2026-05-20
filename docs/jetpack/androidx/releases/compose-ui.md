@@ -10,7 +10,7 @@ source: md.txt
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| May 06, 2026 | [1.11.1](https://developer.android.com/jetpack/androidx/releases/compose-ui#1.11.1) | - | - | [1.12.0-alpha02](https://developer.android.com/jetpack/androidx/releases/compose-ui#1.12.0-alpha02) |
+| May 19, 2026 | [1.11.2](https://developer.android.com/jetpack/androidx/releases/compose-ui#1.11.2) | - | - | [1.12.0-alpha03](https://developer.android.com/jetpack/androidx/releases/compose-ui#1.12.0-alpha03) |
 
 ## Structure
 
@@ -43,7 +43,7 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.compose.ui:ui:1.11.1"
+    implementation "androidx.compose.ui:ui:1.11.2"
 }
 
 android {
@@ -65,7 +65,7 @@ android {
 
 ```kotlin
 dependencies {
-    implementation("androidx.compose.ui:ui:1.11.1")
+    implementation("androidx.compose.ui:ui:1.11.2")
 }
 
 android {
@@ -99,6 +99,45 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.12
+
+### Version 1.12.0-alpha03
+
+May 19, 2026
+
+`androidx.compose.ui:ui-*:1.12.0-alpha03` is released. Version 1.12.0-alpha03 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/e29a10982f4299b1fa812e229d76792092a62814..b5d2acb5ad0a36c9d2aba8feb4c7951165f30fbe/compose/ui).
+
+**API Changes**
+
+- Added a new `credentialRequest` Semantics property and a `CredentialRequestData` helper on API 34+ to allow Jetpack Compose text fields to integrate with Android's Credential Manager via the Autofill framework. ([Ida2bf](https://android-review.googlesource.com/#/q/Ida2bf2292460e115b7f57f208e0616cf886cbd01), [b/488446455](https://issuetracker.google.com/issues/488446455))
+- Added a `ParagraphIntrinsics` factory function that takes the `softWrap` argument among others. Internally, we could use it as a signal that the text is rendered as a single line and perform certain optimisations. ([I66ca4](https://android-review.googlesource.com/#/q/I66ca486f47acab3254bb7a41d6c8c3f271d73d49), [b/485495112](https://issuetracker.google.com/issues/485495112))
+- Added support for automatic interaction sounds (clicks and focus navigation) to Compose components, with a new `SoundEffectOnInteraction` Composable to allow opt-out. Note that as a consequence of this change semantics click listeners must now be called from the main thread, which may effect a small number of test cases. ([I78f65](https://android-review.googlesource.com/#/q/I78f6551c0d99aac4a51b708a9c40b99062c765f3))
+- Stabilized `Font` factory function taking `variationSettings`. ([I183f2](https://android-review.googlesource.com/#/q/I183f286dd05c6168540c66bdd85fba81978e4f62))
+- Stabilized `ResourceFont` `loadingStrategy` property and `copy` method. ([I40d84](https://android-review.googlesource.com/#/q/I40d84ded5582ecec104d59123524eeed9bace484))
+- Stabilized `InterceptPlatformTextInput` and `PlatformTextInputInterceptor` APIs. ([Id2784](https://android-review.googlesource.com/#/q/Id27842e2858644a33822066cda0c05cfd62fa017))
+- To improve platform separation, `registerIdlingResource` and `unregisterIdlingResource` have been moved to extension functions; you may need to update your imports. ([I21d3d](https://android-review.googlesource.com/#/q/I21d3df65e81c29fb847c3bd24ac099714de55ade), [b/471148519](https://issuetracker.google.com/issues/471148519))
+- Introduced `runWithoutImplicitWait` to `ComposeTestRule` and `ComposeUiTest` to improve test performance during state inspection. This API allows to execute a block of code with implicit synchronization disabled, avoiding the overhead of repeated synchronizations for each node query. This results in significantly faster test execution, especially for tests that manually step through frames and sample multiple properties, such as in animation testing. ([Ie00e9](https://android-review.googlesource.com/#/q/Ie00e911f5a278f37cc9d10369c2e16edbad1703b), [b/490270394](https://issuetracker.google.com/issues/490270394))
+- The `@PreviewWrapper` annotation can now be applied to `MultiPreview` annotation classes, allowing developers to create reusable, pre-wrapped preview configurations. ([I8ae66](https://android-review.googlesource.com/#/q/I8ae665ab37dc5d8f9c0379f84b8ee7f0fab4e19e), [b/511170361](https://issuetracker.google.com/issues/511170361))
+- Introduces `MeshGradientPainter` for rendering mesh gradients.`Modifier.meshGradient` has been removed, use `MeshGradientPainter` with `Modifier.paint` instead. `MeshGradientRenderer` is now internal. ([I2d170](https://android-review.googlesource.com/#/q/I2d170f2e93aed3b353eb0dd55a642d7dd243b253), [b/508110246](https://issuetracker.google.com/issues/508110246))
+- Rulers can now be provided individually by supplying a lambda that responds whether the Ruler can be provided, along with separate lambda that provides the Ruler's value. The `isRulerProvided` lambda isn't observed and should be optimistic in whether a value can be provided. The `rulerProvider` lambda is observed so that if any value changes, it will update the ruler value and all readers of the ruler. ([Ie9089](https://android-review.googlesource.com/#/q/Ie9089f59027910100819466f00cf869fe853939e))
+- In the experimental Style API, added support for creating custom style types that can have custom style scopes. This allows subsetting the properties settable by a style (such as removing the graphics layer or text properties entirely) as well as allowing the scope to be extended independently of other styles (such as only supporting the `playing { }` syntax in a `MediaPlayer` composable). This change breaks binary and source compatibility. The primary change that breaks source compatibility is that helper functions in the `StyleScope` have moved to be extension functions (e.g. `fun contentProperty(all: Dp)` is now an extension function). Either importing the required extension functions or by importing all symbols from androidx.compose.foundation.styles should be all that is required get code that calls these methods to compile correctly. ([I1ef27](https://android-review.googlesource.com/#/q/I1ef2747803fb7ee7474aebe21af3968fe25d5c40), [b/493676648](https://issuetracker.google.com/issues/493676648))
+- Adds `updatePointerBy()` with default argument for the pointer id. ([I99f30](https://android-review.googlesource.com/#/q/I99f30e8b64425f544fac51c24a641a52b3b523d8), [b/502001776](https://issuetracker.google.com/issues/502001776))
+- `DeferredTargetAnimation` is no longer experimental, please remove opt-in." into androidx-main
+- Added flag `isClearNestedScrollCoroutineScopeFixEnabled` to control the fix. ([Ibd394](https://android-review.googlesource.com/#/q/Ibd394d3e330fc12b4ed3e12813118cf791eb743b), [b/505343254](https://issuetracker.google.com/issues/505343254))
+- `DeferredTargetAnimation` is no longer experimental, please remove opt-in. ([I1e4ae](https://android-review.googlesource.com/#/q/I1e4aeb4d0542a5ef99d7adc3282794e652b0ba49), [b/500030165](https://issuetracker.google.com/issues/500030165))
+- New enum to support triggers in ui-tooling ([I6e198](https://android-review.googlesource.com/#/q/I6e19896c8cea4e5006de7b414bf67ab92cd5e83d), [b/478807872](https://issuetracker.google.com/issues/478807872))
+- The `ComposeViewContext` is allowed to be created without the reference View being attached. It still requires that the reference View is attached prior to calling `setContent()`. ([Id0952](https://android-review.googlesource.com/#/q/Id0952d3e58d400376975ca6d3b2c172e88173f67))
+
+**Bug Fixes**
+
+- Fixes `focusRestorer` not properly restoring focus when multiple save calls occur for the same layout ([I10277](https://android-review.googlesource.com/#/q/I10277d5126ca12f3e93858d2c1cf0dc2f54f53eb), [b/505371994](https://issuetracker.google.com/issues/505371994))
+- A previous performance improvement had the side-effect of disallowing unattached `ComposeViews` from being measured. This change now allows it without reintroducing the performance problem. ([I9b2c5](https://android-review.googlesource.com/#/q/I9b2c56e548f3bdb6d5fba9b17f416e62276d03f4), [b/508650647](https://issuetracker.google.com/issues/508650647))
+- Composition is now recreated on `ComposeViewContext` change to support faster access to the `ComposeViewContext`. ([I3b3a8](https://android-review.googlesource.com/#/q/I3b3a8876e531448e0579fd074c9ab61ce5b289bc), [b/487364963](https://issuetracker.google.com/issues/487364963))
+- Allow Compose to set non-sRGB colors on paint and shader on Android, preserving wide color gamut by correctly mapping Compose color spaces to platform equivalents. Color spaces not supported for platform rendering operations (e.g., CIE XYZ, CIE Lab, OkLab) or not available on the current API level will safely fallback to the Srgb color space. ([I3efb5](https://android-review.googlesource.com/#/q/I3efb592f298a380c79ddb40e5185dec8089e1edb), [b/388511109](https://issuetracker.google.com/issues/388511109))
+
+**External Contribution**
+
+- `androidx.compose.ui.platform.NativeClipboard` typealias is deprecated, use `android.content.ClipboardManager` directly instead ([Ibc611](https://android-review.googlesource.com/#/q/Ibc6113ed6d98b8721aed89f6fb5c4c0b2e83232b))
+- Replace `Clipboard.nativeClipboard` property to `Clipboard.nativeClipboardManager` extension to avoid exposing platform type into `commonMain` sourceset via `typealias` ([Ibc611](https://android-review.googlesource.com/#/q/Ibc6113ed6d98b8721aed89f6fb5c4c0b2e83232b))
 
 ### Version 1.12.0-alpha02
 
@@ -156,6 +195,12 @@ April 22, 2026
 - Setting `ContentDataType.None` in semantics now prevents autofill events from being sent by Compose. This should prevent initialization costs associated with requesting autofill services. ([I8fbda](https://android-review.googlesource.com/#/q/I8fbda79955e6f83135bcfee5450cb4d0da07f6d2), [b/487947860](https://issuetracker.google.com/issues/487947860))
 
 ## Version 1.11
+
+### Version 1.11.2
+
+May 19, 2026
+
+`androidx.compose.ui:ui-*:1.11.2` is released. Version 1.11.2 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/5d39d0c458dbf0b3791cfaba65f42a27e442c15f..f024db30e2eb34d643af9804ac0650840a49a05c/compose/ui).
 
 ### Version 1.11.1
 

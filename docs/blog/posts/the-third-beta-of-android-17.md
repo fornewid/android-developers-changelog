@@ -220,6 +220,18 @@ For complete information, visit the [Android 17 developer site](https://develope
 
 ## Continue reading
 
+- [![](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Text_Strapi_2000x1000_2d4221d884_ZtW7eg.webp)
+
+  #### [Product News](https://developer.android.com/blog/categories/product-news)
+
+  ## [17 Things to know for Android developers at Google I/O!](https://developer.android.com/blog/posts/17-things-to-know-for-android-developers-at-google-i-o)
+
+  [arrow_forward](https://developer.android.com/blog/posts/17-things-to-know-for-android-developers-at-google-i-o) Google I/O '26 features 17 key announcements for Android developers focusing on agent-led productivity, Compose First as our UI standard, and high-performance media and adaptive development for the expanding ecosystem.
+
+  ###### [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) •
+  8 min read
+
+  - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
 - [![](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 12 May 2026 12 May 2026 ![](https://developer.android.com/static/blog/assets/Tas_Developers_cut_Strapi_3636223c9c_Z2pmmBN.webp)
 
   #### [Product News](https://developer.android.com/blog/categories/product-news)
@@ -244,18 +256,6 @@ For complete information, visit the [Android 17 developer site](https://develope
   2 min read
 
   - [#Android Studio](https://developer.android.com/blog/topics/android-studio)
-- [![](https://developer.android.com/static/blog/assets/robert_clifford_a139ee8d05_N2ze5.webp)](https://developer.android.com/blog/authors/robert-clifford) 26 Mar 2026 26 Mar 2026 ![](https://developer.android.com/static/blog/assets/Redefining_Location_5e4a362604_Z1wl0mf.webp)
-
-  #### [Product News](https://developer.android.com/blog/categories/product-news)
-
-  ## [Redefining Location Privacy: New Tools and Improvements for Android 17](https://developer.android.com/blog/posts/redefining-location-privacy-new-tools-and-improvements-for-android-17)
-
-  [arrow_forward](https://developer.android.com/blog/posts/redefining-location-privacy-new-tools-and-improvements-for-android-17) A pillar of the Android ecosystem is our shared commitment to user trust. As the mobile landscape has evolved, so does our approach to protecting sensitive information.
-
-  ###### [Robert Clifford](https://developer.android.com/blog/authors/robert-clifford) •
-  3 min read
-
-  - [#Android 17](https://developer.android.com/blog/topics/android-17)
 
 # Stay in the loop
 

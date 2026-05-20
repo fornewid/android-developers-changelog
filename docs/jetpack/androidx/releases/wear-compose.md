@@ -12,7 +12,7 @@ Write Jetpack Compose applications for Wear OS devices by providing functionalit
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| May 06, 2026 | [1.6.1](https://developer.android.com/jetpack/androidx/releases/wear-compose#1.6.1) | - | - | [1.7.0-alpha02](https://developer.android.com/jetpack/androidx/releases/wear-compose#1.7.0-alpha02) |
+| May 19, 2026 | [1.6.2](https://developer.android.com/jetpack/androidx/releases/wear-compose#1.6.2) | - | - | [1.7.0-alpha03](https://developer.android.com/jetpack/androidx/releases/wear-compose#1.7.0-alpha03) |
 
 > [!NOTE]
 > **Note:** The `androidx.wear.compose:compose-material` library is superseded by the [`androidx.wear.compose:compose-material3`](https://developer.android.com/jetpack/androidx/releases/wear-compose-m3) library. We recommend that developers use the Wear Compose Material 3 library to get the latest features, including [Material 3 Expressive design](https://android-developers.googleblog.com/2025/05/whats-new-in-wear-os-6.html).
@@ -30,16 +30,16 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.wear.compose:compose-foundation:1.6.1"
+    implementation "androidx.wear.compose:compose-foundation:1.6.2"
 
     // For Wear Material Design UX guidelines and specifications
-    implementation "androidx.wear.compose:compose-material:1.6.1"
+    implementation "androidx.wear.compose:compose-material:1.6.2"
 
     // For integration between Wear Compose and Androidx Navigation libraries
-    implementation "androidx.wear.compose:compose-navigation:1.6.1"
+    implementation "androidx.wear.compose:compose-navigation:1.6.2"
 
     // For Wear preview annotations
-    implementation("androidx.wear.compose:compose-ui-tooling:1.6.1")
+    implementation("androidx.wear.compose:compose-ui-tooling:1.6.2")
     
     // NOTE: DO NOT INCLUDE a dependency on androidx.compose.material:material.
     // androidx.wear.compose:compose-material is designed as a replacement
@@ -53,16 +53,16 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.wear.compose:compose-foundation:1.6.1")
+    implementation("androidx.wear.compose:compose-foundation:1.6.2")
 
     // For Wear Material Design UX guidelines and specifications
-    implementation("androidx.wear.compose:compose-material:1.6.1")
+    implementation("androidx.wear.compose:compose-material:1.6.2")
 
     // For integration between Wear Compose and Androidx Navigation libraries
-    implementation("androidx.wear.compose:compose-navigation:1.6.1")
+    implementation("androidx.wear.compose:compose-navigation:1.6.2")
     
     // For Wear preview annotations
-    implementation("androidx.wear.compose:compose-ui-tooling:1.6.1")
+    implementation("androidx.wear.compose:compose-ui-tooling:1.6.2")
 
     // NOTE: DO NOT INCLUDE a dependency on androidx.compose.material:material.
     // androidx.wear.compose:compose-material is designed as a replacement
@@ -90,6 +90,34 @@ for more information.
 <br />
 
 ## Version 1.7
+
+### Version 1.7.0-alpha03
+
+May 19, 2026
+
+`androidx.wear.compose:compose-*:1.7.0-alpha03` is released. Version 1.7.0-alpha03 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/89ae1d19a395b3c7bc01d591e3924e35d954ad34..ba1ad80843e7ebc1cd4308ee040181e82066ba73/wear/compose).
+
+**API Changes**
+
+- Add non-composable `Modifier.oneHandedGesture()` if developer wants to provide the key manually. ([I191e1](https://android-review.googlesource.com/#/q/I191e1f1b463ecf44b942d577aa63822bed6d9486), [b/504712626](https://issuetracker.google.com/issues/504712626))
+- Expose `RemoteState` static factories ([I544f0](https://android-review.googlesource.com/#/q/I544f0fc816ce073606a98911261876de43e76cd1), [b/484137042](https://issuetracker.google.com/issues/484137042))
+- Remove gesture indicators from `OneHandedGestureDefaults` and add color support to one-handed gestures ([I7934f](https://android-review.googlesource.com/#/q/I7934f80bead49c5c1ae136ad8479163ba3b6c340), [b/505009712](https://issuetracker.google.com/issues/505009712), [b/504712626](https://issuetracker.google.com/issues/504712626))
+- Added explicit handling for one-handed dismiss gestures in `AlertDialog`. ([Id71e8](https://android-review.googlesource.com/#/q/Id71e888bae326c3e111868a3b426e8bcb9ed24ac), [b/509675781](https://issuetracker.google.com/issues/509675781))
+- Update `RemoteText` to use `RemoteFontFamily` instead of `FontFamily` ([Ib76b6](https://android-review.googlesource.com/#/q/Ib76b66464b97b40f914639aef783a3e26a6a6964), [b/502907551](https://issuetracker.google.com/issues/502907551))
+- `DeferredTargetAnimation` is no longer experimental, please remove opt-in. ([I1e4ae](https://android-review.googlesource.com/#/q/I1e4aeb4d0542a5ef99d7adc3282794e652b0ba49), [b/500030165](https://issuetracker.google.com/issues/500030165))
+
+**Bug Fixes**
+
+- Fix concurency issue when triggering one-handed gestures ([I7b95f](https://android-review.googlesource.com/#/q/I7b95fdc4d94a32ef9088cabbe53cf63b06fcbe4f), [b/512086558](https://issuetracker.google.com/issues/512086558))
+- Fixed that one-handed gesture indicators are mirrored based on wrist orientation rather than `LayoutDirection`. ([I6db5d](https://android-review.googlesource.com/#/q/I6db5d2b2f03db95354baf8393bf91563a4337fdc), [b/512003346](https://issuetracker.google.com/issues/512003346))
+- Fix border drawing on TLC items ([I0c3c1](https://android-review.googlesource.com/#/q/I0c3c1a9c04ddc0e99477c28867bf884a7a14708a), [b/510772213](https://issuetracker.google.com/issues/510772213))
+- Added inline image previews for samples in Kdoc for `SurfaceTransformation`.kt, `SwitchButton`.kt and `TextButton`.kt. These images will now render in the documentation for Wear Compose Material 3 DAC pages, providing developers with immediate visual context for each button variant and example. ([Ib53ae](https://android-review.googlesource.com/#/q/Ib53ae7447954e5e0565cbf8c79cab32408911437), [b/484905061](https://issuetracker.google.com/issues/484905061))
+- Added inline image previews for all samples in Kdoc of Button.kt. These images will now render directly in the documentation on the Wear Compose Material 3 DAC pages, providing developers with immediate visual context for each button variant and example. ([Ie2fb5](https://android-review.googlesource.com/#/q/Ie2fb5bc9d693843d01303649c99f2d0395e4bf6d), [b/484905061](https://issuetracker.google.com/issues/484905061))
+- Added inline image previews for samples in KDoc within `Card.kt`, `IconButton.kt`, `LevelIndicator.kt`, and `ListHeader.kt`. These images will now render in the documentation for Wear Compose Material 3 DAC pages. ([I371bc](https://android-review.googlesource.com/#/q/I371bc1604d30750b8003f2b66e643e1ae8235d15), [b/484905061](https://issuetracker.google.com/issues/484905061))
+- Added inline image previews for samples in KDoc for `Picker`, `SegmentedCircularProgressIndicator`, `Slider`, and `Stepper`. These images will now render in the documentation for Wear Compose Material 3 DAC pages, providing developers with immediate visual context for these components and examples. ([I6c6ef](https://android-review.googlesource.com/#/q/I6c6ef6ad62b4840d24d90a04afdadf19638b397a), [b/484905061](https://issuetracker.google.com/issues/484905061))
+- Added inline image previews for samples in KDoc for `CheckboxButton`, `SplitCheckboxButton`, `CircularProgressIndicator`, `ConfirmationDialog`, `SuccessConfirmationDialog`, `FailureConfirmationDialog`, and `curvedText`. These images will now render in the documentation for Wear Compose Material 3 DAC pages, providing developers with immediate visual context for these components and examples. ([Ie4662](https://android-review.googlesource.com/#/q/Ie466232a9a91b7bef35611bf2c1f2056340cb2c9), [b/484905061](https://issuetracker.google.com/issues/484905061))
+- `Fix AlertDialogScreenshotTest test` ([I9be58](https://android-review.googlesource.com/#/q/I9be58a14cb359857133141d0fb33ca0e21f95889), [b/508678506](https://issuetracker.google.com/issues/508678506))
+- Added inline image previews for samples in KDoc for `NonClickableCard`, `OpenOnPhoneDialog`, `VerticalPageIndicator`, `VerticalPagerScaffold`, and `RadioButton`. These images will now render in the documentation for Wear Compose Material 3 DAC pages, providing developers with immediate visual context for these components and examples. ([I2aa2d](https://android-review.googlesource.com/#/q/I2aa2d5da7ddd61c6067c891127c768d4db44847b), [b/484905061](https://issuetracker.google.com/issues/484905061))
 
 ### Version 1.7.0-alpha02
 
@@ -127,6 +155,18 @@ April 08, 2026
 - Fixed a bug in `PickerGroup` (and hence `DatePicker`) to prevent multiple touches causing intended scrolling on unselected Picker columns ([Id76c5](https://android-review.googlesource.com/#/q/Id76c5e69645232a1b23a26c11f6fbce8746599f6), [b/378646798](https://issuetracker.google.com/issues/378646798))
 
 ## Wear Compose Version 1.6
+
+### Version 1.6.2
+
+May 19, 2026
+
+`androidx.wear.compose:compose-*:1.6.2` is released. Version 1.6.2 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/dfff8817db6e7a1f48813f8240bc5c631f499588..f65727cc5cc63d05724c0edb55900bc8790b14e8/wear/compose).
+
+**Bug Fixes**
+
+- Fix border drawing on `TransformingLazyColumn` items ([I0c3c1](https://android-review.googlesource.com/#/q/I0c3c1a9c04ddc0e99477c28867bf884a7a14708a), [b/510772213](https://issuetracker.google.com/issues/510772213))
+
+- Fix `itemSpacing` assignment in `TransformingLazyColumn` content padding measurement strategy ([I12d2f](https://android-review.googlesource.com/#/q/I12d2f00d650323540fa5d2c74d8cff3cc2610484), [b/498137919](https://issuetracker.google.com/issues/498137919))
 
 ### Version 1.6.1
 

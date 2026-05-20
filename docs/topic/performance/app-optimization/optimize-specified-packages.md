@@ -7,7 +7,9 @@ source: md.txt
 You can optimize specific packages by using R8 with `packageScope`. This is
 designed as an optional first step for apps that don't yet use R8 and is not
 recommended for apps that already use R8.
-| **Note:** `packageScope` is only compatible with R8 in [full mode](https://developer.android.com/topic/performance/app-optimization/full-mode), and not compatibility mode.
+
+> [!NOTE]
+> **Note:** `packageScope` is only compatible with R8 in [full mode](https://developer.android.com/topic/performance/app-optimization/full-mode), and not compatibility mode.
 
 ## Consider whether to use `packageScope`
 
@@ -40,7 +42,7 @@ stable libraries that have been configured for R8 compatibility.
 
 ### Enable support for using R8 with packageScope
 
-Add the following to your project's `gradle.properties` file:  
+Add the following to your project's `gradle.properties` file:
 
     android.r8.gradual.support=true
 
@@ -49,7 +51,7 @@ Add the following to your project's `gradle.properties` file:
 In your module-level `build.gradle.kts` (or `build.gradle`) file, add an
 `optimization` block to your release build configuration. Inside this block, use
 `packageScope` to list the specific packages you want to optimize. In your
-`build.gradle.kts` file, wrap your package list in `setOf()`.  
+`build.gradle.kts` file, wrap your package list in `setOf()`.
 
 ### Kotlin
 

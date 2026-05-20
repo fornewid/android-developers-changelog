@@ -218,7 +218,7 @@ following snippet represents the generated JSON file:
                 "thermalThrottleSleepSeconds": 0
             }
         ]
-    }https://github.com/android/performance-samples/blob/cae5530b13ce3adf7bd54ea5bd92fe9b4fb8c585/MacrobenchmarkSample/com.example.macrobenchmark-benchmarkData.json
+    }
 
 ## Additional resources
 

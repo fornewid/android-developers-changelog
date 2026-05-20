@@ -264,3 +264,17 @@ entity.addComponent(interactableComponent)
 ```
 
 <br />
+
+### Create custom 3D models at runtime
+
+> [!WARNING]
+> **Preview:** We're in the process of rolling out experimental support for Custom Meshes, and this feature is an early preview. Try it out and [give us
+> feedback](https://developer.android.com/develop/xr/support#jetpack-xr-sdk-libraries)!
+
+The Custom Mesh API lets you programmatically generate 3D shapes directly in
+your code, rather than loading static assets like glTF files. By building custom
+geometry on the fly, you can render procedural data, dynamic custom shapes, and
+seemingly infinite 3D environments such as terrain that continuously generates
+as your users explore. Additionally, generating meshes at runtime contributes to
+smaller binary sizes by eliminating the need to package countless variations of
+a single 3D asset.

@@ -7,53 +7,85 @@ source: md.txt
 <br />
 
 
-Applicable XR devices This guidance helps you build experiences for these types of XR devices. [Learn about XR device types →](https://developer.android.com/develop/xr/devices) ![](https://developer.android.com/static/images/develop/xr/ai-glasses-icon.svg) AI Glasses [](https://developer.android.com/develop/xr/devices#ai-glasses) [Learn about XR device types →](https://developer.android.com/develop/xr/devices)
+Applicable XR devices This guidance helps you build experiences for these types of XR devices. [Learn about XR device types →](https://developer.android.com/develop/xr/devices) ![](https://developer.android.com/static/images/develop/xr/ai-glasses-icon.svg) Display Glasses [](https://developer.android.com/develop/xr/devices#audio-display) [Learn about XR device types →](https://developer.android.com/develop/xr/devices)
 
 <br />
 
-In Jetpack Compose Glimmer, lists are vertically scrollable UI components that
-efficiently render only visible items, designed to provide specific behaviors
-and input compatibility for AI glasses apps. Jetpack Compose Glimmer
-accomplishes this using the [`VerticalList`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/list/VerticalList.composable#VerticalList(androidx.compose.ui.Modifier,androidx.xr.glimmer.list.ListState,androidx.compose.foundation.layout.PaddingValues,kotlin.Boolean,androidx.compose.foundation.OverscrollEffect,androidx.compose.foundation.gestures.FlingBehavior,kotlin.Boolean,androidx.compose.ui.Alignment.Horizontal,androidx.compose.foundation.layout.Arrangement.Vertical,kotlin.Function1)) and [`ListItem`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/ListItem.composable#ListItem(androidx.compose.ui.Modifier,kotlin.Function0,kotlin.Function0,kotlin.Function0,androidx.compose.ui.graphics.Shape,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.foundation.BorderStroke,androidx.compose.foundation.layout.PaddingValues,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Function0)) components.
+In Jetpack Compose Glimmer, the [`VerticalList`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/list/VerticalList.composable) works similarly to a Compose
+[`LazyColumn`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/LazyColumn.composable) by only composing and laying out visible items to maintain
+high performance. However for Jetpack Compose Glimmer, vertical lists are built
+for display glasses controls, where the user interacts using a touchpad rather
+than a touchscreen. While a mobile user can tap any coordinate on a screen at
+any time, a user with display glasses can interact only with the item that holds
+focus.
 ![](https://developer.android.com/static/images/design/ui/glasses/guides/glasses_components_lists.png) **Figure 1.** An example of some different styles of lists in Jetpack Compose Glimmer.
 
-The [`VerticalList`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/list/VerticalList.composable#VerticalList(androidx.compose.ui.Modifier,androidx.xr.glimmer.list.ListState,androidx.compose.foundation.layout.PaddingValues,kotlin.Boolean,androidx.compose.foundation.OverscrollEffect,androidx.compose.foundation.gestures.FlingBehavior,kotlin.Boolean,androidx.compose.ui.Alignment.Horizontal,androidx.compose.foundation.layout.Arrangement.Vertical,kotlin.Function1)) is Jetpack Compose Glimmer's component for displaying
-scrollable vertical content. It offers the same API functionality as
-[`LazyColumn`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/LazyColumn.composable#LazyColumn(androidx.compose.ui.Modifier,androidx.compose.foundation.lazy.LazyListState,androidx.compose.foundation.layout.PaddingValues,kotlin.Boolean,androidx.compose.foundation.layout.Arrangement.Vertical,androidx.compose.ui.Alignment.Horizontal,androidx.compose.foundation.gestures.FlingBehavior,kotlin.Boolean,androidx.compose.foundation.OverscrollEffect,kotlin.Function1)) but with behaviors specifically optimized for Jetpack Compose
-Glimmer and AI glasses with a display.
+## Focus behavior and child items
 
-> [!WARNING]
-> **Warning:** Don't use `LazyColumn` in your AI glasses activities.
+Vertical lists are optimized to handle focus-based navigation automatically.
+Unlike lists for mobile devices where focus and scroll are often separate, a
+vertical list orchestrates the two by moving focus through its child items as
+the user scrolls with the touchpad. The list itself isn't focusable, so it
+manages and requests focus for its children so that the user has a clear point
+of interaction while scrolling.
 
-Jetpack Compose Glimmer lists have some unique constraints:
+Because there is no direct touch input, make all child items you place inside a
+vertical list focusable, and provide a visual response when the items have
+focus, such as an active border or highlight. While users can still scroll past
+non-focusable items, they can't interact with them. Use built-in components like
+[`ListItem`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/ListItem.composable) or [`Card`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/Card.composable) within your vertical lists whenever possible, as
+these components are already focusable and provide visual feedback for focus
+states.
 
-- When a list contains more items than can fit within a view, a black scrim is used near the list's bounds.
+## Example: Vertical list with multiple items
 
-## Example: Display a vertical list with three items
+The following code shows how to use a vertical list with item and items DSL
+methods to create a list of items:
 
-The following code shows how to use a [`VerticalList`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/list/VerticalList.composable#VerticalList(androidx.compose.ui.Modifier,androidx.xr.glimmer.list.ListState,androidx.compose.foundation.layout.PaddingValues,kotlin.Boolean,androidx.compose.foundation.OverscrollEffect,androidx.compose.foundation.gestures.FlingBehavior,kotlin.Boolean,androidx.compose.ui.Alignment.Horizontal,androidx.compose.foundation.layout.Arrangement.Vertical,kotlin.Function1)) and [`ListItem`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/ListItem.composable#ListItem(androidx.compose.ui.Modifier,kotlin.Function0,kotlin.Function0,kotlin.Function0,androidx.compose.ui.graphics.Shape,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.foundation.BorderStroke,androidx.compose.foundation.layout.PaddingValues,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Function0))
-components to create a list of three items:
 
-    @Composable
-    fun GlimmerListWithButtons() {
-        VerticalList(
-            contentPadding = PaddingValues(16.dp),
-            verticalArrangement = Arrangement.spacedBy(20.dp)
-        ) {
-            items(count = 3) { index ->
-                ListItem(
-                    onClick = { /* Handle Click */ },
-                    leadingIcon = if (index == 1) {
-                        { Icon(Icons.Rounded.Favorite, "Favorite Icon") }
-                    } else null
-                ) {
-                    Text("List Item + $index")
-                }
-            }
-        }
+```kotlin
+@Composable
+fun VerticalListSample() {
+    VerticalList {
+        item { ListItem { Text("Header") } }
+        items(count = 10) { index -> ListItem { Text("Item-$index") } }
+        item { ListItem { Text("Footer") } }
     }
+}
+```
 
-### Key points about the code
+<br />
 
-- The list displays three items that are generated dynamically, with each being a [`ListItem`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/ListItem.composable#ListItem(androidx.compose.ui.Modifier,kotlin.Function0,kotlin.Function0,kotlin.Function0,androidx.compose.ui.graphics.Shape,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.foundation.BorderStroke,androidx.compose.foundation.layout.PaddingValues,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Function0)).
-- Each `ListItem` can be customized, and an icon can be added to it.
+> [!CAUTION]
+> **Caution:** For display glasses, don't use the Compose [`LazyColumn`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/LazyColumn.composable) except in rare cases where scrolling is managed entirely programmatically.
+
+## Example: Vertical list with a title slot
+
+Jetpack Compose Glimmer also provides an overload of vertical list that contains
+a title slot. The non-focusable title (typically a [`TitleChip`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/TitleChip.composable)) remains
+static at the top center while the list content scrolls underneath it.
+
+The following code creates a vertical list with a title slot:
+
+
+```kotlin
+@Composable
+fun VerticalListWithTitleChipSample() {
+    val ingredientItems =
+        listOf("Milk", "Flour", "Egg", "Salt", "Apples", "Butter", "Vanilla", "Sugar", "Cinnamon")
+    VerticalList(title = { TitleChip { Text("Ingredients") } }) {
+        items(ingredientItems) { text -> ListItem { Text(text) } }
+    }
+}
+```
+
+<br />
+
+## Use list state for programmatic list operations
+
+Use the [`ListState`]() to control and observe different aspects of the list's
+state, such as its scroll position using the [`firstVisibleItemIndex`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/list/ListState#firstVisibleItemIndex()) and
+[`firstVisibleItemScrollOffset`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/list/ListState#firstVisibleItemScrollOffset()) properties.
+
+You can [hoist this state](https://developer.android.com/develop/ui/compose/state-hoisting) using [`rememberListState`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/list/rememberListState.composable) to programmatically
+scroll using [`scrollToItem`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/list/ListState#scrollToItem(kotlin.Int,kotlin.Int)) and [`animateScrollToItem`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/list/ListState#animateScrollToItem(kotlin.Int,kotlin.Int)).

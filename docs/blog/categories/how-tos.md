@@ -9,7 +9,7 @@ source: md.txt
 # How-tos
 
 From quick tips to deep-dive tutorials, these step-by-step guides are designed to help you work smarter and faster.
-- [![](https://developer.android.com/static/blog/assets/niharika_2910f6d612_C99s1.webp)](https://developer.android.com/blog/authors/niharika-arora)[![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](https://developer.android.com/blog/authors/jean-pierre-pralle) 22 Apr 2026 22 Apr 2026 ![](https://developer.android.com/static/blog/assets/Streamline_user_animation_V02_Strapi_abd12985d7_SvAX9.webp)
+- [![](https://developer.android.com/static/blog/assets/niharika_2910f6d612_C99s1.webp)](https://developer.android.com/blog/authors/niharika-arora)[![](https://developer.android.com/static/blog/assets/Jean_Pierre_Pralle_2bf889a65a_2buQLX.webp)](https://developer.android.com/blog/authors/jean-pierre-pralle) 22 Apr 2026 22 Apr 2026 ![](https://developer.android.com/static/blog/assets/Streamline_user_animation_V02_Strapi_abd12985d7_SvAX9.webp)
 
   ## [Streamline User Journeys with Verified Email via Credential Manager](https://developer.android.com/blog/posts/streamline-user-journeys-with-verified-email-via-credential-manager)
 

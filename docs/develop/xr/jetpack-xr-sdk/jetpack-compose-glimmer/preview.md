@@ -4,14 +4,19 @@ url: https://developer.android.com/develop/xr/jetpack-xr-sdk/jetpack-compose-gli
 source: md.txt
 ---
 
-[Jetpack Compose Glimmer](https://developer.android.com/develop/xr/jetpack-xr-sdk/jetpack-compose-glimmer) is your UI toolkit for building rich, ambient
-experiences for display AI glasses. As you develop your Jetpack Compose Glimmer
-UI, use composable previews to visualize and iterate on your designs quickly and
-efficiently. Composable previews give you a live, interactive rendering of your
-Jetpack Compose Glimmer UI components directly within Android Studio. These
-previews eliminate the need to continuously build and run your app on an
-emulator or physical device for every small UI change, dramatically accelerating
-your development cycle.
+<br />
+
+
+Applicable XR devices This guidance helps you build experiences for these types of XR devices. [Learn about XR device types →](https://developer.android.com/develop/xr/devices) ![](https://developer.android.com/static/images/develop/xr/ai-glasses-icon.svg) Display Glasses [](https://developer.android.com/develop/xr/devices#audio-display) [Learn about XR device types →](https://developer.android.com/develop/xr/devices)
+
+<br />
+
+As you develop your Jetpack Compose Glimmer UI, use composable previews to
+visualize and iterate on your designs quickly and efficiently. Composable
+previews give you a live, interactive rendering of your Jetpack Compose Glimmer
+UI components directly within Android Studio. These previews eliminate the need
+to continuously build and run your app on an emulator or physical device for
+every small UI change, dramatically accelerating your development cycle.
 [![](https://developer.android.com/static/images/picto-icons/plus.svg) See also If you are new to composable previews in Android development, see the general Compose documentation.](https://developer.android.com/develop/ui/compose/tooling/previews)
 
 ## Preview Jetpack Compose Glimmer UI components
@@ -24,14 +29,14 @@ your development cycle.
 4. From the **Device** drop-down menu, select **AI Glasses**.
 
    This adjusts the preview surface to match the unique resolution and aspect
-   ratio of an AI glasses display.
+   ratio of display glasses.
 
-   ![Select AI Glasses for the device in the composable function preview
+   ![Select "AI Glasses" for the device in the composable function preview
    configuration.](https://developer.android.com/static/images/develop/xr/jetpack-xr-sdk/glimmer/preview-configuration.png)
 5. Select either the **Design** or **Split** view to see the preview.
 
-   ![The composable preview is shown in the Split view for a simulated AI
-   Glasses
+   ![The composable preview is shown in the Split view for a simulated display
+   glasses
    device.](https://developer.android.com/static/images/develop/xr/jetpack-xr-sdk/glimmer/composable-preview.png)
 
 ## Adjust the preview environment

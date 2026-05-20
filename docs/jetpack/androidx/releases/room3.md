@@ -10,7 +10,7 @@ The Room persistence library provides an abstraction layer over SQLite to allow 
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| May 06, 2026 | - | - | - | [3.0.0-alpha04](https://developer.android.com/jetpack/androidx/releases/room3#3.0.0-alpha04) |
+| May 19, 2026 | - | - | - | [3.0.0-alpha05](https://developer.android.com/jetpack/androidx/releases/room3#3.0.0-alpha05) |
 
 ## Declaring dependencies
 
@@ -121,6 +121,16 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 3.0
+
+### Version 3.0.0-alpha05
+
+May 19, 2026
+
+`androidx.room3:room3-*:3.0.0-alpha05` is released. Version 3.0.0-alpha05 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/0c82232cfb54d1dcc3ad73598fcc81ceff9b88d6..3301965961089ff8ab504bdda95cc8992393d5d0/room3).
+
+**API Changes**
+
+- Updates `@Relation` and `@Junction` such that `parentColumns` and `entityColumns` properties are an array of column names to be used as keys for solving relationships, in turn supporting composite relationship keys. ([I92196](https://android-review.googlesource.com/#/q/I92196913553b083ba9d8b4180dccef79603e8d19), [b/64247765](https://issuetracker.google.com/issues/64247765))
 
 ### Version 3.0.0-alpha04
 

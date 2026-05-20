@@ -48,6 +48,17 @@ Keep content succinct and mindful of style best practices, like color usage. ![]
 
 Overwhelm users with too much content within cards or abandon style guidelines.
 
+Use a button group with a card to display more than one action.
+![](https://developer.android.com/static/images/design/ui/glasses/guides/glasses_components_cards_buttons_do.png)
+
+### Do
+
+Have exactly one nested button in a card for clearer focus. ![](https://developer.android.com/static/images/design/ui/glasses/guides/glasses_components_cards_buttons_dont.png)
+
+### Don't
+
+Have multiple buttons within a card. Cards shouldn't be treated as a mobile dialog.
+
 ## Anatomy
 
 Cards are built with pre-set slot templates.
@@ -66,8 +77,8 @@ card's content area.
 content area.
 
 **5.** Action: A slot for a primary interactive element, such as a Button. This
-allows users to perform an action directly from the card. The slot is available
-on a separate overload of the Card composable.
+allows users to perform an action directly from the card. If a card has an
+action, it should only contain a single action.
 
 **6.** Main Content: The core body of the card, where you place the primary Text
 or other content.

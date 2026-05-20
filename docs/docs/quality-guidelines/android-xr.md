@@ -10,7 +10,7 @@ To verify that your app provides a great user experience on XR headsets and
 wired XR glasses, review the following compatibility checklists and tests.
 
 > [!WARNING]
-> **Preview:** Stay tuned in the future for updates to the app quality guidelines for [augmented experiences](https://developer.android.com/develop/xr/explore/augmented) for devices like AI glasses.
+> **Preview:** Stay tuned in the future for updates to the app quality guidelines for [augmented experiences](https://developer.android.com/develop/xr/explore/augmented) for intelligent eyewear devices like audio glasses and display glasses.
 
 The checklists and tests define a comprehensive set of quality requirements for
 most types of Android apps.

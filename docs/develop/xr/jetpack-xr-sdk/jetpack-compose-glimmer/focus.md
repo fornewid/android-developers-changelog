@@ -7,20 +7,24 @@ source: md.txt
 <br />
 
 
-Applicable XR devices This guidance helps you build experiences for these types of XR devices. [Learn about XR device types →](https://developer.android.com/develop/xr/devices) ![](https://developer.android.com/static/images/develop/xr/ai-glasses-icon.svg) AI Glasses [](https://developer.android.com/develop/xr/devices#ai-glasses) [Learn about XR device types →](https://developer.android.com/develop/xr/devices)
+Applicable XR devices This guidance helps you build experiences for these types of XR devices. [Learn about XR device types →](https://developer.android.com/develop/xr/devices) ![](https://developer.android.com/static/images/develop/xr/ai-glasses-icon.svg) Display Glasses [](https://developer.android.com/develop/xr/devices#audio-display) [Learn about XR device types →](https://developer.android.com/develop/xr/devices)
 
 <br />
 
 All Jetpack Compose Glimmer components are designed to work with standard input
-methods similar to phones, such as a tap or swipe on the AI glasses' touchpad,
-while also being receptive to input commands that are specific to AI glasses
-hardware, such as [camera and display buttons](https://developer.android.com/design/ui/ai-glasses/guides/interaction/inputs). Jetpack Compose Glimmer
-components automatically handle the necessary input events. For custom
-components, you can utilize existing Compose APIs like
-[`Modifier.draggable`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier#(androidx.compose.ui.Modifier).draggable(androidx.compose.foundation.gestures.DraggableState,androidx.compose.foundation.gestures.Orientation,kotlin.Boolean,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Boolean,kotlin.coroutines.SuspendFunction2,kotlin.coroutines.SuspendFunction2,kotlin.Boolean)) or [`Modifier.scrollable`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier#(androidx.compose.ui.Modifier).scrollable(androidx.compose.foundation.gestures.ScrollableState,androidx.compose.foundation.gestures.Orientation,kotlin.Boolean,kotlin.Boolean,androidx.compose.foundation.gestures.FlingBehavior,androidx.compose.foundation.interaction.MutableInteractionSource)) to implement specific
-interaction behaviors.
+methods, such as a tap or swipe on the glasses' touchpad, while also being
+receptive to lower-level input commands that are specific to the hardware on
+display glasses. Jetpack Compose Glimmer components automatically handle the
+necessary input events.
 
-On AI glasses with a display, pointer input can affect focus:
+For standard actions like scroll and drag, use the Jetpack Compose Glimmer
+components to promote a consistent experience. However, for custom components or
+bespoke interaction behaviors, you can use existing Compose APIs like
+[`Modifier.draggable`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier#(androidx.compose.ui.Modifier).draggable(androidx.compose.foundation.gestures.DraggableState,androidx.compose.foundation.gestures.Orientation,kotlin.Boolean,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Boolean,kotlin.coroutines.SuspendFunction2,kotlin.coroutines.SuspendFunction2,kotlin.Boolean)) or [`Modifier.scrollable`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier#(androidx.compose.ui.Modifier).scrollable(androidx.compose.foundation.gestures.ScrollableState,androidx.compose.foundation.gestures.Orientation,kotlin.Boolean,kotlin.Boolean,androidx.compose.foundation.gestures.FlingBehavior,androidx.compose.foundation.interaction.MutableInteractionSource)).
+
+## Pointer input and focus
+
+On display glasses, pointer input can affect focus:
 
 - **Tap**: Direct interaction for activating element. Focus moves to an element when a user interacts with it.
 - **Swipe**: Used for navigation and scrolling. Unhandled swipe gestures automatically translate into focus movements, enabling seamless UI navigation without direct pointer input.
@@ -34,10 +38,14 @@ On AI glasses with a display, pointer input can affect focus:
 >
 > Using a feature of Jetpack Compose, the system can automatically set the initial
 > focus to the very-first focusable element when the screen loads, which is often
-> the top-left item on the screen. This feature is still in development and isn't
-> enabled by default. To activate this feature, set the
-> `isInitialFocusOnFocusableAvailable` flag to `true` in your activity's
-> [`onCreate()`](https://developer.android.com/reference/kotlin/android/app/Activity#onCreate(android.os.Bundle)) method.
+> the top-left item on the screen.
+>
+> This feature is still in development and isn't enabled by default. To activate
+> this feature, set the `isInitialFocusOnFocusableAvailable` flag to `true` in
+> your activity's [`onCreate()`](https://developer.android.com/reference/kotlin/android/app/Activity#onCreate(android.os.Bundle)) method.
+>
+>     import androidx.compose.ui.ExperimentalComposeUiApi
+>     import androidx.compose.ui.ComposeUiFlags
 >
 >     class GlassesActivityExample : ComponentActivity() {
 >         override fun onCreate(savedInstanceState: Bundle?) {
@@ -74,6 +82,7 @@ To change the initially-focused item, you can add a top-level
     Modifier.focusProperties {
         onEnter = {
             initialFocus.requestFocus()
+            // Prevent focus from exiting the group
             cancelFocusChange()
         }
     }
@@ -95,10 +104,10 @@ clear visual feedback during user interaction.
 
 - **Default** : The button's background color is derived from
   [`GlimmerTheme.colors.surface`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/Colors#surface()), its main content calculates the content
-  color of that surface, and icons are [`GlimmerTheme.colors.primary`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/Colors#primary()).
+  color of that surface.
 
 - **Focused**: The border width is increased to communicate focus.
 
 - **Focused + Pressed** : The background is set to
-  `GlimmerTheme.colors.surface` at full opacity to communicate its selected
-  state.
+  `GlimmerTheme.colors.surface` at increased opacity to communicate its
+  selected state.

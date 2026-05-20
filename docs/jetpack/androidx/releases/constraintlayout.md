@@ -6,10 +6,10 @@ source: md.txt
 
 # Constraintlayout
 
-[User Guide](https://developer.android.com/training/constraint-layout) [Code Sample](https://github.com/android/performance-samples/tree/main/ConstraintLayoutPerformance)  
-API Reference  
-[androidx.constraintlayout.widget](https://developer.android.com/reference/kotlin/androidx/constraintlayout/widget/package-summary)  
-Position and size widgets in a flexible way with relative positioning.  
+[User Guide](https://developer.android.com/training/constraint-layout) [Code Sample](https://github.com/android/performance-samples/tree/main/ConstraintLayoutPerformance) Position and size widgets in a flexible way with relative positioning.
+
+> [!CAUTION]
+> **Caution:** This library is in maintenance mode and will only receive critical fixes; new features are not planned. We recommend using [Jetpack Compose](https://developer.android.com/jetpack/compose) for building Android UIs. See [Compose-first](https://developer.android.com/develop/ui/compose/first) for more information.
 
 
 This table lists all the artifacts in the `androidx.constraintlayout` group.
@@ -27,7 +27,7 @@ project. Read [Google's Maven repository](https://developer.android.com/studio/b
 for more information.
 
 Add the dependencies for the artifacts you need in the `build.gradle` file for
-your app or module:  
+your app or module:
 
 ### Groovy
 

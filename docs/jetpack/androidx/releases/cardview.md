@@ -6,10 +6,10 @@ source: md.txt
 
 # Cardview
 
-[User Guide](https://developer.android.com/guide/topics/ui/layout/cardview) [Code Sample](https://github.com/android/views-widgets-samples)  
-API Reference  
-[androidx.cardview.widget](https://developer.android.com/reference/kotlin/androidx/cardview/widget/package-summary)  
-Implement the Material Design card pattern with round corners and drop shadows.  
+[User Guide](https://developer.android.com/guide/topics/ui/layout/cardview) [Code Sample](https://github.com/android/views-widgets-samples) Implement the Material Design card pattern with round corners and drop shadows.
+
+> [!CAUTION]
+> **Caution:** This library is in maintenance mode and will only receive critical fixes; new features are not planned. We recommend using [Jetpack Compose](https://developer.android.com/jetpack/compose) for building Android UIs. See [Compose-first](https://developer.android.com/develop/ui/compose/first) for more information.
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
@@ -22,7 +22,7 @@ project. Read [Google's Maven repository](https://developer.android.com/studio/b
 for more information.
 
 Add the dependencies for the artifacts you need in the `build.gradle` file for
-your app or module:  
+your app or module:
 
 ### Groovy
 

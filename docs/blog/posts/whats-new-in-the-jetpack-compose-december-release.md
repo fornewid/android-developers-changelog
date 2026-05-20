@@ -269,41 +269,47 @@ We continue to invest in Jetpack Compose to provide you with the APIs and tools 
 
 ## Continue reading
 
-- [![](https://developer.android.com/static/blog/assets/Nataraj_K_work_profile_20e513e403_Z1TR4EY.webp)](https://developer.android.com/blog/authors/nataraj-k-r) 14 May 2026 14 May 2026 ![](https://developer.android.com/static/blog/assets/Bring_Native_Visibilityto_Your_Vo_IP_App_Experience_Strapi_4359a69748_Z2wOXhv.webp)
+- [![](https://developer.android.com/static/blog/assets/Nick_Butcher_5393f4552a_19h6h7.webp)](https://developer.android.com/blog/authors/nick-butcher) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Compose_first_Meta_04fd0498ba_1T1vC6.webp)
 
   #### [Product News](https://developer.android.com/blog/categories/product-news)
 
-  ## [Bring Native Visibility to Your VoIP App Experience with Telecom's Latest Alpha](https://developer.android.com/blog/posts/bring-native-visibility-to-your-vo-ip-app-experience-with-telecom-s-latest-alpha)
+  ## [Android UI Development is Compose First](https://developer.android.com/blog/posts/android-ui-development-is-compose-first)
 
-  [arrow_forward](https://developer.android.com/blog/posts/bring-native-visibility-to-your-vo-ip-app-experience-with-telecom-s-latest-alpha) Building on this foundation, Jetpack Telecom v1.1.0 brings native-level visibility and convenience to third-party VoIP apps.
+  [arrow_forward](https://developer.android.com/blog/posts/android-ui-development-is-compose-first) In the almost-5-years since Jetpack Compose launched, we've invested in bringing you all the features, performance and tools that you need to build amazing UIs across the variety of Android devices.
 
-  ###### [Nataraj K R](https://developer.android.com/blog/authors/nataraj-k-r) •
+  ###### [Nick Butcher](https://developer.android.com/blog/authors/nick-butcher) •
   2 min read
 
-- [![](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 12 May 2026 12 May 2026 ![](https://developer.android.com/static/blog/assets/Tas_Developers_cut_Strapi_3636223c9c_Z2pmmBN.webp)
+  - [#Adaptive \& Differentiated](https://developer.android.com/blog/topics/adaptive-and-differentiated)
+- [![](https://developer.android.com/static/blog/assets/paul_feng_759ac95845_spvRU.webp)](https://developer.android.com/blog/authors/paul-feng) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/IO_26_Blog_Strapi_Icons_2000x1000px_0a8b06b49b_Z1e2APA.webp)
 
   #### [Product News](https://developer.android.com/blog/categories/product-news)
 
-  ## [Building for the Intelligence System on Android](https://developer.android.com/blog/posts/building-for-the-intelligence-system-on-android)
+  ## [I/O 2026: What's new in Google Play](https://developer.android.com/blog/posts/i-o-2026-what-s-new-in-google-play)
 
-  [arrow_forward](https://developer.android.com/blog/posts/building-for-the-intelligence-system-on-android) Announced today during The Android Show, Android is transitioning from an operating system to an intelligence system, creating more opportunities for engagement with your apps.
+  [arrow_forward](https://developer.android.com/blog/posts/i-o-2026-what-s-new-in-google-play) At this year's Google I/O, we talked about our evolving business model that offers more choice and new ways for your apps and content to be discovered on and off the store. We also unveiled advanced tools and insights that will help scale your business with less complexity.
 
-  ###### [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) •
+  ###### [Paul Feng](https://developer.android.com/blog/authors/paul-feng) •
+  6 min read
+
+  - [#Google Play](https://developer.android.com/blog/topics/google-play)
+  - [#Play Console](https://developer.android.com/blog/topics/play-console)
+  - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
+  - [#Android Developers](https://developer.android.com/blog/topics/android-developers)
+  - +2 ↩
+- [![](https://developer.android.com/static/blog/assets/Luke_Hopkins_9c1e15d778_Z2o9b3q.webp)](https://developer.android.com/blog/authors/luke-hopkins) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Combo3_Strapi_2000x1000_56726aebea_Z1kvKHr.webp)
+
+  #### [Product News](https://developer.android.com/blog/categories/product-news)
+
+  ## [Android XR Updates for Unity, Unreal, and Godot](https://developer.android.com/blog/posts/android-xr-updates-for-unity-unreal-and-godot)
+
+  [arrow_forward](https://developer.android.com/blog/posts/android-xr-updates-for-unity-unreal-and-godot) We are excited to announce that official support for Unreal Engine and Godot has arrived for Android XR. We are also launching new tools designed to boost your productivity and enable new XR capabilities: the Android XR Engine Hub and the Android XR Interaction Framework.
+
+  ###### [Luke Hopkins](https://developer.android.com/blog/authors/luke-hopkins) •
   4 min read
 
-  - [#Android](https://developer.android.com/blog/topics/android)
-- [![](https://developer.android.com/static/blog/assets/Vijaya_Kaza_38a0089092_1sYB49.webp)](https://developer.android.com/blog/authors/vijaya-kaza) 07 May 2026 07 May 2026 ![](https://developer.android.com/static/blog/assets/260429_A_look_ahead_to_2026_Banner_Strapi_2000_x_1000_px_b302a5104a_1L2cA4.webp)
-
-  #### [Product News](https://developer.android.com/blog/categories/product-news)
-
-  ## [A look ahead: Making it easier and faster to publish safer apps](https://developer.android.com/blog/posts/a-look-ahead-making-it-easier-and-faster-to-publish-safer-apps)
-
-  [arrow_forward](https://developer.android.com/blog/posts/a-look-ahead-making-it-easier-and-faster-to-publish-safer-apps) The mobile ecosystem is always evolving, bringing both new opportunities and new threats. Through these changes, Android and Google Play remain committed to ensuring that billions of users can continue to enjoy their apps with confidence and developer innovation can thrive.
-
-  ###### [Vijaya Kaza](https://developer.android.com/blog/authors/vijaya-kaza) •
-  3 min read
-
-  - [#Android](https://developer.android.com/blog/topics/android)
+  - [#Android XR](https://developer.android.com/blog/topics/android-xr)
+  - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
 
 # Stay in the loop
 

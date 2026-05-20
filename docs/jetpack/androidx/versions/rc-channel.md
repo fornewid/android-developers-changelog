@@ -16,6 +16,12 @@ prior to 2018.
 To view the current versions for every component,
 see the [versions page](https://developer.android.com/jetpack/androidx/versions).
 
+## May 19, 2026
+
+- [Core Core-ktx Core-testing Version 1.19.0-rc01](https://developer.android.com/jetpack/androidx/releases/core#1.19.0-rc01)
+- [Lint Version 1.0.0-rc01](https://developer.android.com/jetpack/androidx/releases/lint#1.0.0-rc01)
+- [Wear-core Version 1.1.0-rc01](https://developer.android.com/jetpack/androidx/releases/wear#wear-core-1.1.0-rc01)
+
 ## May 06, 2026
 
 - [Health-services-client Health-services-client-external-protobuf Health-services-client-proto Version 1.1.0-rc02](https://developer.android.com/jetpack/androidx/releases/health#1.1.0-rc02)

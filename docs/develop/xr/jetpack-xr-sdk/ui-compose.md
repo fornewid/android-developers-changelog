@@ -76,7 +76,7 @@ Subspace {
         SubspaceModifier
             .height(824.dp)
             .width(1400.dp)
-            .movable(),
+            .transformingMovable(),
         resizePolicy = ResizePolicy(),
     ) {
         SpatialPanelContent()
@@ -147,7 +147,7 @@ Subspace {
             .height(824.dp)
             .width(1400.dp)
             .resizable()
-            .movable(),
+            .transformingMovable(),
     ) {
         SpatialPanelContent()
         OrbiterExample()

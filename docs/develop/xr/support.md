@@ -36,9 +36,11 @@ description:
 - To learn how to use the Android logging system, see the [Logcat command-line
   tool](https://developer.android.com/tools/debugging/debugging-log) documentation.
 
-## Report issues (Android XR)
+## Report issues or provide feedback (Android XR)
 
-Use the links in this section to search open issues or file new issues.
+Use the links in this section to search open issues or to file new issues. File
+issues either to report bugs that you've encountered, or to give your feedback
+on APIs, samples, system behaviors, or documentation.
 
 ### Android XR system
 
@@ -84,7 +86,7 @@ Read this detailed [guidance](https://developer.android.com/studio/report-bugs#e
 - [Search issues](https://github.com/android/xr-samples/issues)
 - [Release notes](https://github.com/android/xr-samples/releases)
 
-### Prototype Gemini Live API To-do App for AI Glasses
+### Prototype Gemini Live API To-do App for audio glasses and display glasses
 
 - [Report an issue](https://github.com/android/ai-samples/issues/new)
 - [Search issues](https://github.com/android/ai-samples/issues)

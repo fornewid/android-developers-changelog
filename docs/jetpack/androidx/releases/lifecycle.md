@@ -6,19 +6,17 @@ source: md.txt
 
 # Lifecycle
 
-[User Guide](https://developer.android.com/topic/libraries/architecture/lifecycle) [Code Sample](https://github.com/android/architecture-components-samples) [Codelab](https://codelabs.developers.google.com/codelabs/android-lifecycles/index.html?index#0) API Reference  
-[androidx.lifecycle](https://developer.android.com/reference/kotlin/androidx/lifecycle/package-summary)  
-Lifecycle-aware components perform actions in response to a change in the lifecycle status of another component, such as activities and fragments. These components help you produce better-organized, and often lighter-weight code, that is easier to maintain.
+[User Guide](https://developer.android.com/topic/libraries/architecture/lifecycle) [Code Sample](https://github.com/android/architecture-components-samples) [Codelab](https://codelabs.developers.google.com/codelabs/android-lifecycles/index.html?index#0) Lifecycle-aware components perform actions in response to a change in the lifecycle status of another component, such as activities and fragments. These components help you produce better-organized, and often lighter-weight code, that is easier to maintain.
 
 
 This table lists all the artifacts in the `androidx.lifecycle` group.
 
 | Artifact | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| lifecycle-\* | [2.10.0](https://developer.android.com/jetpack/androidx/releases/lifecycle#2.10.0) | - | - | [2.11.0-alpha02](https://developer.android.com/jetpack/androidx/releases/lifecycle#2.11.0-alpha02) |
-| lifecycle-viewmodel-navigation3 | [2.10.0](https://developer.android.com/jetpack/androidx/releases/lifecycle#2.10.0) | - | - | [2.11.0-alpha02](https://developer.android.com/jetpack/androidx/releases/lifecycle#2.11.0-alpha02) |
+| lifecycle-\* | [2.10.0](https://developer.android.com/jetpack/androidx/releases/lifecycle#2.10.0) | - | [2.11.0-beta02](https://developer.android.com/jetpack/androidx/releases/lifecycle#2.11.0-beta02) | - |
+| lifecycle-viewmodel-navigation3 | [2.10.0](https://developer.android.com/jetpack/androidx/releases/lifecycle#2.10.0) | - | [2.11.0-beta02](https://developer.android.com/jetpack/androidx/releases/lifecycle#2.11.0-beta02) | - |
 
-This library was last updated on: March 11, 2026
+This library was last updated on: May 19, 2026
 
 ## Declaring dependencies
 
@@ -56,7 +54,7 @@ your app or module:
         implementation "androidx.lifecycle:lifecycle-viewmodel-savedstate:$lifecycle_version"
 
         // ViewModel integration with Navigation3
-        implementation "androidx.lifecycle:lifecycle-viewmodel-navigation3:2.11.0-alpha02"
+        implementation "androidx.lifecycle:lifecycle-viewmodel-navigation3:2.11.0-beta02"
 
         // Annotation processor
         kapt "androidx.lifecycle:lifecycle-compiler:$lifecycle_version"
@@ -103,7 +101,7 @@ your app or module:
         implementation("androidx.lifecycle:lifecycle-viewmodel-savedstate:$lifecycle_version")
 
         // ViewModel integration with Navigation3
-        implementation("androidx.lifecycle:lifecycle-viewmodel-navigation3:2.11.0-alpha02")
+        implementation("androidx.lifecycle:lifecycle-viewmodel-navigation3:2.11.0-beta02")
 
         // Annotation processor
         kapt("androidx.lifecycle:lifecycle-compiler:$lifecycle_version")
@@ -226,6 +224,56 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 2.11
+
+### Version 2.11.0-beta02
+
+May 19, 2026
+
+`androidx.lifecycle:lifecycle-*:2.11.0-beta02` is released. Version 2.11.0-beta02 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/35ca96cc1f129a6cc9d6650029cd6155668f4e7a..2539c25fdfa11866cf01ef266f0ddc10b0143658/lifecycle).
+
+**API Changes**
+
+- Add a `rememberViewModelStoreNavEntryDecorator` overload that accepts a `ViewModelStoreProvider`. This allows developers to hoist the provider above the decorator's composition scope, enabling use cases such as supporting multiple back stacks where the same entry exists in both but requires separate state. ([Ibbbfe](https://android-review.googlesource.com/#/q/Ibbbfe2e140be936eddcdf925076b025b95553475), [b/503420425](https://issuetracker.google.com/issues/503420425))
+- Prevent premature clearance of shared `ViewModels` when a sibling provider is removed from the composition. ([Ib321a](https://android-review.googlesource.com/#/q/Ib321a6d3efeecda89852935d1e489e43a6bb8c09))
+
+**Bug Fixes**
+
+- Require Compose UI 1.7.0+ to use `LocalLifecycleOwner`. This removes internal reflection fallbacks, improving performance but enforcing a strict dependency upgrade for clients. ([I48e65](https://android-review.googlesource.com/#/q/I48e65eafaa32b285c08c17975c14b3d7c2517790))
+- Prevent symbol duplication with older JetBrains fork versions when upgrading to Compose Multiplatform 1.11.0. ([Iccd64](https://android-review.googlesource.com/#/q/Iccd64a783bd089a2953ce50815176c5ccc2c1b38))
+- Fix an issue where `ViewModels` were incorrectly cleared during recomposition when using `rememberViewModelStoreProvider` with unstable default parameters. The provider now only recreates when the parent owner or the explicit key changes. ([Ibe296](https://android-review.googlesource.com/#/q/Ibe2967e374f26a709a129a54ea1e39aa359422cd), [b/501792448](https://issuetracker.google.com/issues/501792448))
+
+### Version 2.11.0-beta01
+
+April 22, 2026
+
+`androidx.lifecycle:lifecycle-*:2.11.0-beta01` is released. Version 2.11.0-beta01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/3268ea760d665cee25941f7245395b2ebdf5bb50..35ca96cc1f129a6cc9d6650029cd6155668f4e7a/lifecycle).
+
+**API Changes**
+
+- Split `rememberViewModelStoreOwner` and `rememberViewModelStoreProvider` into separate functions for with-key and without-key use cases. ([Ifd154](https://android-review.googlesource.com/#/q/Ifd1548b5ac97acb765133fcdd2b7f3bea9ffddaf), [b/500802788](https://issuetracker.google.com/issues/500802788))
+
+**Bug Fixes**
+
+- Updated Compose `compileSdk` to API 37. This means that a minimum AGP version of 9.2.0 is required when using Compose. ([Id45cd](https://android-review.googlesource.com/#/q/Id45cdca34ef948e06259b2dd9adc901b7c930492), [b/413674743](https://issuetracker.google.com/issues/413674743))
+
+### Version 2.11.0-alpha03
+
+March 25, 2026
+
+`androidx.lifecycle:lifecycle-*:2.11.0-alpha03` is released. Version 2.11.0-alpha03 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/bd862928108d81f550188a7da80f932d5c6039b4..3268ea760d665cee25941f7245395b2ebdf5bb50/lifecycle).
+
+**API Changes**
+
+- Make `parentKey` an optional parameter in `ViewModelStoreProvider` constructors, defaulting to `null`, and move it after `parentStore` or `parentOwner`. This simplifies instantiation when a shared scope key is not needed. ([I66b67](https://android-review.googlesource.com/#/q/I66b67a475a9df59e2d4b7ebf7ca8c41e5ff62adc))
+- `ViewModelStoreNavEntryDecorator` now accepts a `ViewModelStoreOwner` instead of a `ViewModelStore`. This allows Navigation3 to propagate the parent's default `CreationExtras` and `ViewModelProvider.Factory` to nested ViewModels, ensuring support for application-level dependencies. ([Ia6018](https://android-review.googlesource.com/#/q/Ia601870901e167997fc456b8d56e63c256226a9e), [b/434651920](https://issuetracker.google.com/issues/434651920))
+- Isolate `ViewModelStoreProvider` state using a unique key. This prevents sibling providers from unintentionally clearing each other's ViewModels during disposal. ([I59c0b](https://android-review.googlesource.com/#/q/I59c0bf1a836702a756bb2f7584d6c7d41086728c), [b/434651920](https://issuetracker.google.com/issues/434651920))
+- Add `ViewModelProvider.get<VM>(key: String)` extension function. This enables developers to more cleanly retrieve ViewModels using a custom `key` with Kotlin reified type parameters, removing the need to explicitly pass the class type. ([Ic1f59](https://android-review.googlesource.com/#/q/Ic1f591ef8f849d62359ea9ad9e0b1a5260dd28af))
+- Add `defaultArgs` support to `ViewModelStoreProvider` to allow initializing ViewModels with default `SavedState` values. ([I1e933](https://android-review.googlesource.com/#/q/I1e93307590753da3c5da8a2f1b47ca1f5daa9d73), [b/434651920](https://issuetracker.google.com/issues/434651920), [b/165642391](https://issuetracker.google.com/issues/165642391))
+- Deprecate `removeViewModelStoreOnPop` and the associated `ViewModelStoreNavEntryDecoratorDefaults`. This API was a workaround for configuration changes, which are now handled internally. All decorator state, including ViewModels, must now be cleared at the same time on pop. To keep decorator state around outside of when that back stack is passed to a NavDisplay, use the `rememberDecoratedNavEntries` API. ([I852d9](https://android-review.googlesource.com/#/q/I852d9064f47684fef8cefc2427035d9982295412))
+
+**Bug Fixes**
+
+- Add `toString()` to `CreationExtras.Key` to display the class name. ([I5de52](https://android-review.googlesource.com/#/q/I5de52311acd87c527657bcf3ad6ecc630aaee66f))
 
 ### Version 2.11.0-alpha02
 

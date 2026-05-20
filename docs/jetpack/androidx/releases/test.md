@@ -6,14 +6,7 @@ source: md.txt
 
 # Test
 
-[User Guide](https://developer.android.com/training/testing) [Code Sample](https://github.com/android/testing-samples)  
-API Reference  
-[androidx.test.core.app](https://developer.android.com/reference/kotlin/androidx/test/core/app/package-summary)  
-[androidx.test.espresso](https://developer.android.com/reference/kotlin/androidx/test/espresso/package-summary)  
-
-<br />
-
-Testing in Android.  
+[User Guide](https://developer.android.com/training/testing) [Code Sample](https://github.com/android/testing-samples) Testing in Android.
 
 
 This table lists all the artifacts in the `androidx.test` group.
@@ -25,15 +18,18 @@ This table lists all the artifacts in the `androidx.test` group.
 | espresso | [3.7.0](https://developer.android.com/jetpack/androidx/releases/test#espresso-3.7.0) | [3.7.0-rc01](https://developer.android.com/jetpack/androidx/releases/test#espresso-3.7.0-rc01) | - | - |
 | espresso-device | [1.1.0](https://developer.android.com/jetpack/androidx/releases/test#espresso-device-1.1.0) | [1.1.0-rc01](https://developer.android.com/jetpack/androidx/releases/test#espresso-device-1.1.0-rc01) | - | - |
 | ext.junit | [1.3.0](https://developer.android.com/jetpack/androidx/releases/test#ext.junit-1.3.0) | [1.3.0-rc01](https://developer.android.com/jetpack/androidx/releases/test#ext.junit-1.3.0-rc01) | - | - |
-| ext:junit-gtest | - | - | - | [1.0.0-alpha01](https://developer.android.com/jetpack/androidx/releases/test#ext:junit-gtest-1.0.0-alpha01) |
+| ext:junit-gtest | - | - | - | [1.0.0-alpha03](https://developer.android.com/jetpack/androidx/releases/test#ext:junit-gtest-1.0.0-alpha03) |
 | ext.truth | [1.7.0](https://developer.android.com/jetpack/androidx/releases/test#ext.truth-1.7.0) | [1.7.0-rc01](https://developer.android.com/jetpack/androidx/releases/test#ext.truth-1.7.0-rc01) | - | - |
-| monitor | [1.8.0](https://developer.android.com/jetpack/androidx/releases/test#monitor-1.8.0) | [1.8.0-rc01](https://developer.android.com/jetpack/androidx/releases/test#monitor-1.8.0-rc01) | - | - |
+| monitor | [1.8.0](https://developer.android.com/jetpack/androidx/releases/test#monitor-1.8.0) | - | - | [1.9.0-alpha01](https://developer.android.com/jetpack/androidx/releases/test#monitor-1.9.0-alpha01) |
 | orchestrator | [1.6.1](https://developer.android.com/jetpack/androidx/releases/test#orchestrator-1.6.1) | [1.6.0-rc01](https://developer.android.com/jetpack/androidx/releases/test#orchestrator-1.6.0-rc01) | - | - |
 | runner | [1.7.0](https://developer.android.com/jetpack/androidx/releases/test#runner-1.7.0) | [1.7.0-rc01](https://developer.android.com/jetpack/androidx/releases/test#runner-1.7.0-rc01) | - | - |
 | rules | [1.7.0](https://developer.android.com/jetpack/androidx/releases/test#rules-1.7.0) | [1.7.0-rc01](https://developer.android.com/jetpack/androidx/releases/test#rules-1.7.0-rc01) | - | - |
 | services | [1.6.0](https://developer.android.com/jetpack/androidx/releases/test#services-1.6.0) | [1.6.0-rc01](https://developer.android.com/jetpack/androidx/releases/test#services-1.6.0-rc01) | - | - |
 
-This library was last updated on: July 31, 2025 **Note:** This page includes release notes for Test components that shipped in the AndroidX library. For earlier updates that appeared in the support library see the [archive page](https://developer.android.com/jetpack/androidx/releases/archive/test).
+This library was last updated on: January 14, 2026
+
+> [!NOTE]
+> **Note:** This page includes release notes for Test components that shipped in the AndroidX library. For earlier updates that appeared in the support library see the [archive page](https://developer.android.com/jetpack/androidx/releases/archive/test).
 
 ## Declaring dependencies
 
@@ -42,7 +38,7 @@ project. Read [Google's Maven repository](https://developer.android.com/studio/b
 for more information.
 
 Add the dependencies for the artifacts you need in the `build.gradle` file for
-your app or module:  
+your app or module:
 
 ### Groovy
 
@@ -2194,7 +2190,25 @@ Aug 23, 2021
 
 - Add BundleSubject#doubleFloat
 
-## Monitor 1.8.0
+## Monitor 1.9.0
+
+### monitor 1.9.0-alpha01
+
+January 14, 2026
+
+`androidx.test:monitor:1.9.0-alpha01` is released.
+
+**Bug Fixes**
+
+- Fixes missing IntentMonitor for startActivity with user overload. Now it's
+  possible to intercept intents started with startActivityAsUser.
+
+- Adds missing override of an existing callActivityOnCreate method with
+  PersistableBundle.
+
+**API Changes**
+
+- Update to minSdkVersion 23 and remove all related logic for SDKs \< 23
 
 ### monitor 1.8.0
 

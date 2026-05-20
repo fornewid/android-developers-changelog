@@ -6,7 +6,7 @@ source: md.txt
 
 ## 1
 
-post ![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)
+post ![](https://developer.android.com/static/blog/assets/Jean_Pierre_Pralle_2bf889a65a_2buQLX.webp)
 
 # Jean-Pierre Pralle
 

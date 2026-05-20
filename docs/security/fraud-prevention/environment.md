@@ -191,9 +191,9 @@ time. Contact Google Play developer support if the feature is not available in
 your Google Play Console and you would like to express interest in getting
 access.
 
-You can either turn on protection when creating a release or on the [App
-integrity](https://play.google.com/console/developers/app/app-integrity/overview) page (Release \> App integrity). Automatic integrity
-protection requires your app to use [Play App Signing](https://support.google.com/googleplay/android-developer/answer/9842756).
+You can either turn on protection when creating a release or on the
+[Protected with Play](https://play.google.com/console/developers/app/protect-with-play) page. Automatic integrity protection
+requires your app to use [Play App Signing](https://support.google.com/googleplay/android-developer/answer/9842756).
 
 **Be sure to test your protected app before promoting the release to
 production**.

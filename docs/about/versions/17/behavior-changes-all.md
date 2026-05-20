@@ -33,6 +33,9 @@ apps being killed. While we anticipate minimal impact on the vast majority of
 app sessions, we recommend the [following memory best practices](https://developer.android.com/topic/performance/memory),
 including establishing a baseline for memory.
 
+> [!NOTE]
+> **Note:** Memory limits are only imposed on a subset of Android devices.
+
 You can determine if your app session was impacted by calling
 [`getDescription`](https://developer.android.com/reference/android/app/ApplicationExitInfo#getDescription%28%29) in [`ApplicationExitInfo`](https://developer.android.com/reference/android/app/ApplicationExitInfo); if your app was
 affected, the exit reason will be [`REASON_OTHER`](https://developer.android.com/reference/android/app/ApplicationExitInfo#REASON_OTHER) and
@@ -40,11 +43,46 @@ the description will contain the string `"MemoryLimiter:AnonSwap"` along with
 other information. You can also use [trigger-based profiling](https://developer.android.com/topic/performance/tracing/profiling-manager/trigger-based-capture) with
 [`TRIGGER_TYPE_ANOMALY`](https://developer.android.com/about/versions/17/features#anomaly-profiling-trigger) to get heap dumps that are collected when the
 memory limit is hit.
-![](https://developer.android.com/static/about/versions/17/images/leak-canary-screenshot.png) The LeakCanary task in the Android Studio Profiler.
 
-To help you find memory leaks, Android Studio Panda adds LeakCanary integration
-directly in the Android Studio Profiler as a dedicated task, contextualized
-within the IDE and fully integrated with your source code.
+The [Manage your app's memory](https://developer.android.com/topic/performance/memory) documentation gives information
+to help you diagnose your app's memory issues and optimize its resource
+consumption.
+
+#### Test your app's behavior under the memory constraints
+
+You can use [Android Debug Bridge (`adb`)](https://developer.android.com/tools/adb) to adjust or disable the
+memory limits on any device that imposes them. The shell command `am`
+provides three subcommands to adjust the memory limits. (These commands have
+no effect on a device which does not impose memory limits.)
+
+- `am memory-limiter ignore <uid>|none|all`
+- `am memory-limiter manual <pid> <limit>|max|none`
+- `am memory-limiter status`
+
+`ignore`
+
+:   Instructs the memory limiter to ignore some or all processes.
+    Passing a UID instructs the memory limiter to ignore all
+    processes associated with that UID. You can also pass `all` (ignore
+    all processes) or `none` (do not ignore any processes). Passing `none`
+    overrides any previous calls to `am memory-limiter ignore`.
+
+:   If you instruct the memory limiter to ignore a process, you can still apply
+    a manual memory limit to the process by calling `am memory-limiter manual`.
+
+`manual`
+
+:   Instructs the system to impose a memory constraint on the process with the
+    specified PID. The memory constraint is specified as an integer number of MB;
+    for example, passing `30` specifies that the process is limited to 30 MB of
+    memory. Passing `max` removes all memory limits on that process. Passing
+    `none` removes any manual limits set on the process, restoring the system's
+    default limit (if any).
+
+`status`
+
+:   Reports the current status of the memory limiter. The status includes the
+    memory limits imposed on visible and non-visible processes.
 
 ## Privacy
 

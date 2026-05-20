@@ -7,7 +7,8 @@ source: md.txt
 <br />
 
 
-Applicable XR devices This guidance helps you build experiences for these types of XR devices. [Learn about XR device types →](https://developer.android.com/develop/xr/devices) ![](https://developer.android.com/static/images/develop/xr/ai-glasses-icon.svg) AI Glasses [](https://developer.android.com/develop/xr/devices#ai-glasses) [Learn about XR device types →](https://developer.android.com/develop/xr/devices)
+Applicable XR devices This guidance helps you build experiences for these types of XR devices. [Learn about XR device types →](https://developer.android.com/develop/xr/devices) ![](https://developer.android.com/static/images/develop/xr/ai-glasses-icon.svg) Audio \&  
+Display Glasses [](https://developer.android.com/develop/xr/devices#audio-display) [Learn about XR device types →](https://developer.android.com/develop/xr/devices)
 
 <br />
 
@@ -19,9 +20,9 @@ features using the [`TextToSpeech`](https://developer.android.com/reference/kotl
 
 ### Instantiate TextToSpeech
 
-We recommend instantiating the `TextToSpeech` class on your AI glasses
-activity's [`onCreate()`](https://developer.android.com/reference/kotlin/android/app/Activity#onCreate(android.os.Bundle)) method so that it's available for the lifetime of
-the [`Activity`](https://developer.android.com/reference/kotlin/android/app/Activity):
+We recommend instantiating the `TextToSpeech` class on your [projected
+activity's](https://developer.android.com/develop/xr/jetpack-xr-sdk/glasses/support-different-types#activity-lifecycle) [`onCreate`](https://developer.android.com/reference/kotlin/android/app/Activity#onCreate(android.os.Bundle)) method so that it's available for the lifetime
+of the [`Activity`](https://developer.android.com/reference/kotlin/android/app/Activity):
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,7 +40,7 @@ the [`Activity`](https://developer.android.com/reference/kotlin/android/app/Acti
 ## Notify the user when TTS starts
 
 For displayless (audio-only) experiences, let the user know that your app
-successfully launched by notifying them in the [`onStart()`](https://developer.android.com/reference/kotlin/android/app/Activity#onStart()) method:
+successfully launched by notifying them in the [`onStart`](https://developer.android.com/reference/kotlin/android/app/Activity#onStart()) method:
 
     override fun onStart() {
       super.onStart()
@@ -58,7 +59,7 @@ successfully launched by notifying them in the [`onStart()`](https://developer.a
 
 ## Interrupt TTS
 
-If your app ever needs to interrupt TTS, call the [stop()](https://developer.android.com/reference/kotlin/android/speech/tts/TextToSpeech#stop) method:
+If your app ever needs to interrupt TTS, call the [`stop`](https://developer.android.com/reference/kotlin/android/speech/tts/TextToSpeech#stop) method:
 
     // This interrupts the current utterance and discards other utterances in the queue.
     tts?.stop()
@@ -67,7 +68,7 @@ If your app ever needs to interrupt TTS, call the [stop()](https://developer.and
 ### Clean up TTS resources
 
 You should clean up resources when your activity is destroyed by calling the
-[shutdown()](https://developer.android.com/reference/kotlin/android/speech/tts/TextToSpeech#shutdown) method within the activity's [`onDestroy()`](https://developer.android.com/reference/kotlin/android/app/Activity#onDestroy()) method:
+[`shutdown`](https://developer.android.com/reference/kotlin/android/speech/tts/TextToSpeech#shutdown) method within the activity's [`onDestroy`](https://developer.android.com/reference/kotlin/android/app/Activity#onDestroy()) method:
 
     override fun onDestroy() {
         super.onDestroy()

@@ -24,9 +24,9 @@ levels for games and graphic-intensive apps.
   estimates and threshold notifications to your game so it can stay at optimal
   levels that avoid LMKs.
 
-- [Game Mode API](https://developer.android.com/games/gamemode): Optimize gameplay by prioritizing
-  characteristics, such as performance or battery life based on users settings
-  or game specific configurations.
+- [Game Mode API](https://developer.android.com/games/optimize/adpf/gamemode/gamemode-api): Optimize
+  gameplay by prioritizing characteristics, such as performance or battery life
+  based on user settings or game-specific configurations.
 
 - [Perfetto](https://perfetto.dev/docs/): Collects system-wide
   performance information and displays it in a web-based UI.

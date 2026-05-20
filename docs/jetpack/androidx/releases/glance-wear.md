@@ -10,7 +10,7 @@ Glance Wear is a library for building Widgets for Wear OS
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| May 06, 2026 | - | - | - | [1.0.0-alpha09](https://developer.android.com/jetpack/androidx/releases/glance-wear#1.0.0-alpha09) |
+| May 19, 2026 | - | - | - | [1.0.0-alpha10](https://developer.android.com/jetpack/androidx/releases/glance-wear#1.0.0-alpha10) |
 
 ## Declaring dependencies
 
@@ -25,9 +25,9 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.glance.wear:wear:1.0.0-alpha09"
+    implementation "androidx.glance.wear:wear:1.0.0-alpha10"
 
-    implementation "androidx.glance.wear:wear-core:1.0.0-alpha09"
+    implementation "androidx.glance.wear:wear-core:1.0.0-alpha10"
 }
 ```
 
@@ -35,9 +35,9 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.glance.wear:wear:1.0.0-alpha09")
+    implementation("androidx.glance.wear:wear:1.0.0-alpha10")
 
-    implementation("androidx.glance.wear:wear-core:1.0.0-alpha09")
+    implementation("androidx.glance.wear:wear-core:1.0.0-alpha10")
 }
 ```
 
@@ -57,6 +57,20 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Glance Wear Version 1.0
+
+### Version 1.0.0-alpha10
+
+May 19, 2026
+
+`androidx.glance.wear:wear:1.0.0-alpha10`, `androidx.glance.wear:wear-core:1.0.0-alpha10`, and `androidx.glance.wear:wear-tooling-preview:1.0.0-alpha10` are released. Version 1.0.0-alpha10 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/e29a10982f4299b1fa812e229d76792092a62814..376d4304794a4ceb62b09f6b61dd88688bda018d/glance/wear).
+
+**API Changes**
+
+- Expose `glance.wear.health.DataType` APIs in Wear Widget. These APIs can be used by developers to access system health data.
+
+**Bug Fixes**
+
+- Fixed a crash loop happening in the *alpha09* version on Wear 7 emulator or devices running 1.6 renderer by not allowing empty font axis to be send to the Player for Glance Wear Widget.
 
 ### Version 1.0.0-alpha09
 

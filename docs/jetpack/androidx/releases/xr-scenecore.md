@@ -10,7 +10,7 @@ source: md.txt
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| May 06, 2026 | - | - | - | [1.0.0-alpha14](https://developer.android.com/jetpack/androidx/releases/xr-scenecore#1.0.0-alpha14) |
+| May 19, 2026 | - | - | - | [1.0.0-alpha15](https://developer.android.com/jetpack/androidx/releases/xr-scenecore#1.0.0-alpha15) |
 
 ## Declaring dependencies
 
@@ -25,10 +25,10 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.xr.scenecore:scenecore:1.0.0-alpha14"
+    implementation "androidx.xr.scenecore:scenecore:1.0.0-alpha15"
 
     // Use to write unit tests
-    testImplementation "androidx.xr.scenecore:scenecore-testing:1.0.0-alpha14"
+    testImplementation "androidx.xr.scenecore:scenecore-testing:1.0.0-alpha15"
 }
 ```
 
@@ -36,10 +36,10 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.xr.scenecore:scenecore:1.0.0-alpha14")
+    implementation("androidx.xr.scenecore:scenecore:1.0.0-alpha15")
 
     // Use to write unit tests
-    testImplementation("androidx.xr.scenecore:scenecore-testing:1.0.0-alpha14")
+    testImplementation("androidx.xr.scenecore:scenecore-testing:1.0.0-alpha15")
 }
 ```
 
@@ -59,6 +59,41 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.0
+
+### Version 1.0.0-alpha15
+
+May 19, 2026
+
+`androidx.xr.scenecore:scenecore-*:1.0.0-alpha15` is released. Version 1.0.0-alpha15 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/c335dd6f34a8575245fc6d8139e95871bea35e9f..581011b7bddfd705223b2db47dc1abde16055506/xr/scenecore).
+
+**API Changes**
+
+- `Entity.dispose()` is now removed as public API. Instead of calling `dispose()` on Entity instances, apps can make instances cleanable by setting the `parent` to `null` and by clearing any strong references to those instances. ([I396c9](https://android-review.googlesource.com/#/q/I396c9b9d0472b1ff1a07336c830ecd9cab958e71))
+- `SoundEffectPool`'s `set/clearOnLoadCompleteListener` methods have been deleted. Use `add/removeLoadCompleteListener` instead. ([Iae78d](https://android-review.googlesource.com/#/q/Iae78df658401d7bd908efeb59894066c8f602769))
+- Scene's `set/clearSpatialVisibilityChangedListener` was replaced with `add/removeSpatialVisibilityChangedListener`. ([I67dff](https://android-review.googlesource.com/#/q/I67dff8728c2ddd127a8f091337f23c3a794573a2))
+- All SceneCore `add/removeOnFooListener` methods have been renamed `add/removeFooListener`, removing `On` from the name. ([Ibe50b](https://android-review.googlesource.com/#/q/Ibe50bf749270afbbd2af1f902ec4efe2c6c223d6))
+- `AnchorEntity.setOnOriginChangedListener` and `AnchorEntity.setOnStateChangedListener` methods have been replaced with `add/removeFooListener` methods, to support multiple simultaneous Listeners. ([I13749](https://android-review.googlesource.com/#/q/I137494e69eb9d575c440f0aab4227ebef28416c2))
+- Renamed `AnchorEntity.State.TIMEDOUT` to `State.TIMED_OUT`. ([Id2b8d](https://android-review.googlesource.com/#/q/Id2b8d573def3211846827259e598f40b04762b3c))
+- The Component API has been refactored for improved safety and extensibility. `Component` is now an abstract class. The `onAttach()` and `onDetach()` methods are now `protected` to prevent direct calls. Please use `Entity.addComponent()` and `Entity.removeComponent()` to manage component lifecycles. ([Id04e8](https://android-review.googlesource.com/#/q/Id04e8b9863eb027b18118616609ab1928350f81f))
+- SceneCore's `PlaneSemanticType` `PlaneOrientation` constants have been migrated from Ints to custom types. Their `ANY` constants will be removed, clients should explicitly enumerate all desired constants instead, or use the new `.ALL` immutable Set constants. The `AnchorEntity` factory method now accepts a Set of these types, instead of a single value. ([Ib1033](https://android-review.googlesource.com/#/q/Ib10339399d6255907dad0ed135c20f245c967c48))
+- Added support for skeletal animation (skinning) to the experimental Custom Mesh API. Developers can now animate custom meshes by specifying a `boneCount` when creating a `MeshEntity` and updating the animation in real-time using `MeshEntity.setBoneTransforms()`. ([Id8ba2](https://android-review.googlesource.com/#/q/Id8ba2c7e9a6f817535d7664fdfece2d254dd9438), [b/496692490](https://issuetracker.google.com/issues/496692490))
+- Introduced the experimental `CustomMesh` API. Developers can now programmatically create and render 3D geometry in their scenes using `CustomMesh`, `MeshBuffer`, and `MeshEntity`. ([I94617](https://android-review.googlesource.com/#/q/I946174656bae1f0cbc72078aa04263e2c726d4c5))
+- Removed `androidx.xr.scenecore.SpatializerConstants.SourceType.SOURCE_TYPE_SOUND_FIELD`. Use `SourceType.SOUND_FIELD` instead. ([Ia68b9](https://android-review.googlesource.com/#/q/Ia68b9e4e0b3a5bddb8cd30e180e672ca1ac40de9))
+- Adding spatial audio components: `PositionalAudioComponent`, `SoundEffectPoolComponent` and `SoundFieldAudioComponent` ([Ieda89](https://android-review.googlesource.com/#/q/Ieda8940773fed0362142f7137592f31e6b18d66e))
+- `AnchorEntity.getAnchor` was replaced with `AnchorEntity.anchor` and will now return an `Anchor` when the `AnchorEntity` was created from an ARCore `Anchor` ([I5c7c8](https://android-review.googlesource.com/#/q/I5c7c8c9457e4590d4652dd0199c079fa24b3066f))
+- The default value for the `parent` parameter in the `ActivityPanelEntity`, `GltfModelEntity`, `GroupEntity`, `PanelEntity`, and `SurfaceEntity` factory methods has been changed from `ActivitySpace` to `null`. To attach an entity to the scene graph and render it visible, developers must now explicitly set its parent during instantiation or via `Entity.parent = ...` ([Ie7cc1](https://android-review.googlesource.com/#/q/Ie7cc180a57771230d2cf2362c1b891fa18fb8103))
+
+**Bug Fixes**
+
+- `SceneCore` now automatically reclaims `Entity` instances when they become phantom reachable, removing the need for developers to explicitly invoke `dispose()` to free resources. To ensure an \[Entity\] instance is properly reclaimed, developers should:
+  - Detach it from the scene graph by setting its `parent` to `null`.
+  - Relinquish all strong references to the instance in their code.
+  - Note on Special Entity Types: For entities that cannot be parented (such as `AnchorEntity`), developers must maintain a strong reference while the instance is in use. If all references are released, these instances will become phantom reachable and will be automatically reclaimed. ([I83fe4](https://android-review.googlesource.com/#/q/I83fe4ff089e4d324c0a1fb20527a7d3e11127b86))
+- Narrowed Proguard keep rules for all `SceneCore` libraries. ([I98447](https://android-review.googlesource.com/#/q/I9844789d80bcbe0465712a48db271654912b305f))
+
+**Known Issues**
+
+- Attaching a `PositionalAudioComponent` to an `Entity` with an inactive `ExoPlayer` instance will cause a crash. Do not call `setPointSourceParams` or attach/detach the spatial audio components while ExoPlayer is stopped. This will be fixed in the next release.
 
 ### Version 1.0.0-alpha14
 

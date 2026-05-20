@@ -27,8 +27,8 @@ paths.
 ### What's the best way to get the SHA-256 fingerprint for the assetlinks.json file?
 
 The most reliable way is to get it from the Google Play Console. Navigate to
-your app's **Setup \> App integrity** page. Under
-**App signing key certificate** , you will find the SHA-256 certificate
-fingerprint. This is the same key that Google Play uses to sign your app
-release. Alternatively, for local builds, you can use the `keytool`
+your app's **Protected with Play -\> Play Store protection -\> Manage Play app
+signing** . Under **App signing key certificate** , you will find the SHA-256
+certificate fingerprint. This is the same key that Google Play uses to sign
+your app release. Alternatively, for local builds, you can use the `keytool`
 command-line utility on your keystore file.

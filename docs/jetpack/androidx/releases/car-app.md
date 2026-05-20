@@ -10,7 +10,7 @@ source: md.txt
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| April 22, 2026 | [1.7.0](https://developer.android.com/jetpack/androidx/releases/car-app#1.7.0) | - | [1.8.0-beta01](https://developer.android.com/jetpack/androidx/releases/car-app#1.8.0-beta01) | - |
+| May 19, 2026 | [1.7.0](https://developer.android.com/jetpack/androidx/releases/car-app#1.7.0) | - | [1.8.0-beta01](https://developer.android.com/jetpack/androidx/releases/car-app#1.8.0-beta01) | [1.9.0-alpha01](https://developer.android.com/jetpack/androidx/releases/car-app#1.9.0-alpha01) |
 
 ## Declaring dependencies
 
@@ -69,6 +69,34 @@ clicking the star button.
 
 See the [Issue Tracker documentation](https://developers.google.com/issue-tracker)
 for more information.
+
+## Version 1.9
+
+### Version 1.9.0-alpha01
+
+May 19, 2026
+
+`androidx.car.app:app-*:1.9.0-alpha01` is released. New features added for more flexibility using templates:
+
+- **Spotlight Section**: Showcases featured content collections or editorial recommendations by pairing a prominent hero image with adjacent condensed items.
+- **Condensed Items**: Displays compact visual components that restrict text to one line, allowing more content to fit on the screen without overwhelming the driver.
+- **Chips**: Provides compact, interactive elements used to filter content or trigger quick actions, supporting customizable shapes, borders, and colors.
+- **Minimized Control Panel**: Implements a persistent, responsive, and condensed version of the Now Playing View (NPV) that automatically appears during active playback.
+- **Banners**: Showcases special app experiences, new features, or important messages with distinct visual prominence through customizable background fills and corner radii.
+- **Section Header**: Defines interactive titles, overlines, brand icons, and trailing action buttons for individual content groups within the sectioned item template.
+- **Expanded Header Layout**: Upgrades standard headers within the sectioned item template to support rich layouts, such as background images that collapse on scroll and secondary actions.
+
+Version 1.9.0-alpha01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/df4b49eda6f6834b6bc4c8aa30a581fa577a511e..a056e8a54b6e77aecf81199c7986794dfddbfa8c/car/app).
+
+**API Changes**
+
+- Added `Banner` and `BannerSection` which allows `Banners` to be added to `SectionedItemTemplate`. ([Id5dd2](https://android-review.googlesource.com/#/q/Id5dd246efebea883901eb4147ae80b9d1512db65), [b/505494611](https://issuetracker.google.com/issues/505494611))
+- Added `NavigationManager.setVoiceAssistantCapabilities` to allow navigation apps to send their voice assistant capabilities and consent status to the host. ([I34c93](https://android-review.googlesource.com/#/q/I34c93990dab6b5c560bc07dd463131b2feed2585), [b/489625791](https://issuetracker.google.com/issues/489625791), [b/486967456](https://issuetracker.google.com/issues/486967456))
+- Added `NavigationVoiceAssistantCapabilities` API for navigation apps to declare supported voice actions, disruptions, and voice assistant consent status. ([I79d3e](https://android-review.googlesource.com/#/q/I79d3ed19cc7ab683937af12a18e18aaa140043ca), [b/489625791](https://issuetracker.google.com/issues/489625791), [b/486967456](https://issuetracker.google.com/issues/486967456))
+- Introduce `CarAppApiLevel` 9 ([I87656](https://android-review.googlesource.com/#/q/I87656fbeeedfa26a57fab56dbdfbb493c04bf5a0), [b/501233317](https://issuetracker.google.com/issues/501233317))
+- Add an API to set the Shape of a `Chip` or `ChipSection` via `ChipStyle` ([I1fcfc](https://android-review.googlesource.com/#/q/I1fcfc7a93476c1ce79e972bb0a29e880c74ae76d), [b/505086379](https://issuetracker.google.com/issues/505086379))
+- Added new `CondensedItem` and `CondensedSection` APIs to support high-density layouts in `SectionedItemTemplate`. ([Iabaa8](https://android-review.googlesource.com/#/q/Iabaa8ec8931db3b8b91da5db63c469434bd1109c), [b/499350859](https://issuetracker.google.com/issues/499350859))
+- Added experimental support for subtitles in Header and a new Background model. ([I66b5b](https://android-review.googlesource.com/#/q/I66b5b6dbea58075b54e998c0d243341d6edb3803))
 
 ## Version 1.8
 

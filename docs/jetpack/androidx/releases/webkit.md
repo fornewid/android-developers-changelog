@@ -10,7 +10,7 @@ source: md.txt
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| May 06, 2026 | [1.16.0](https://developer.android.com/jetpack/androidx/releases/webkit#1.16.0) | - | - | - |
+| May 19, 2026 | [1.16.0](https://developer.android.com/jetpack/androidx/releases/webkit#1.16.0) | - | - | [1.17.0-alpha01](https://developer.android.com/jetpack/androidx/releases/webkit#1.17.0-alpha01) |
 
 ## Declaring dependencies
 
@@ -51,6 +51,24 @@ clicking the star button.
 
 See the [Issue Tracker documentation](https://developers.google.com/issue-tracker)
 for more information.
+
+## Webkit Version 1.17
+
+### Version 1.17.0-alpha01
+
+May 19, 2026
+
+`androidx.webkit:webkit:1.17.0-alpha01` is released. Version 1.17.0-alpha01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/5744fa6296a0f6147952e836b3d92dd87ff7d4dd..b5d2acb5ad0a36c9d2aba8feb4c7951165f30fbe/webkit/webkit).
+
+**API Changes**
+
+- Added `WebViewCompat#navigate`, an enhanced version of `WebView#loadUrl`. Like `loadUrl`, this method will load the specified url in the `WebView`, but offers the following additional capabilities:
+  - Allows replacing the current page in the navigation history.
+  - Returns a Navigation object, allowing the developer to match between the navigate call and navigation callbacks.
+  - Handles extra headers in a more consistent and understandable manner, including saving and restoring them when using save state. ([Iedefd](https://android-review.googlesource.com/#/q/Iedefd179043f289d6dc905995c979119adf1d0df), [b/408128748](https://issuetracker.google.com/issues/408128748))
+- Deprecated `SpeculativeLoadingParameters`. Apps should migrate to the more specific `PrerenderParameters` or `PrefetchParameters` for controlling speculative loading features. [(I8afed)](https://android-review.git.corp.google.com/q/I8afed51cd6b037a9907f10015fbbc02f7c23a3a8)
+- Added new methods to `Profile` to manage prerendering behavior: `Profile#getMaxPrerenders()` to get the current limit and `Profile#clearMaxPrerenders()` to reset it to the default. ([I696ed](https://android-review.googlesource.com/#/q/I696eddc59807ba85890583fe83066a260aadffb3))
+- Removed the experimental `Profile#setOriginMatchedHeader` and associated methods. The APIs have been superseded by [Profile#addCustomHeader](https://developer.android.com/reference/androidx/webkit/Profile#addCustomHeader(androidx.webkit.CustomHeader)), which was released as a stable API in `1.15.0`. ([Ia7f5c](https://android-review.googlesource.com/#/q/Ia7f5cff673f5bfc152e575c660aaa57736161072), [b/485235632](https://issuetracker.google.com/issues/485235632))
 
 ## Webkit Version 1.16
 

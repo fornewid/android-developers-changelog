@@ -10,7 +10,7 @@ source: md.txt
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| May 06, 2026 | - | - | - | [1.0.0-alpha13](https://developer.android.com/jetpack/androidx/releases/xr-compose#1.0.0-alpha13) |
+| May 19, 2026 | - | - | - | [1.0.0-alpha14](https://developer.android.com/jetpack/androidx/releases/xr-compose#1.0.0-alpha14) |
 
 ## Declaring dependencies
 
@@ -25,10 +25,10 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.xr.compose:compose:1.0.0-alpha13"
+    implementation "androidx.xr.compose:compose:1.0.0-alpha14"
 
     // Use to write unit tests
-    testImplementation "androidx.xr.compose:compose-testing:1.0.0-alpha13"
+    testImplementation "androidx.xr.compose:compose-testing:1.0.0-alpha14"
 }
 ```
 
@@ -36,10 +36,10 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.xr.compose:compose:1.0.0-alpha13")
+    implementation("androidx.xr.compose:compose:1.0.0-alpha14")
 
     // Use to write unit tests
-    testImplementation("androidx.xr.compose:compose-testing:1.0.0-alpha13")
+    testImplementation("androidx.xr.compose:compose-testing:1.0.0-alpha14")
 }
 ```
 
@@ -59,6 +59,21 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.0
+
+### Version 1.0.0-alpha14
+
+May 19, 2026
+
+`androidx.xr.compose:compose:1.0.0-alpha14` and `androidx.xr.compose:compose-testing:1.0.0-alpha14` are released. Version 1.0.0-alpha14 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/27d0d096d63fb669b5bb4658ca4ce53ecb44e8d5..618d7807a412756a751a7ad875c655a3bd51b9cc/xr/compose).
+
+**API Changes**
+
+- Introduced `transformingMovable` for default system-handled 3D movement and introduced a new overload for `movable` to handle custom movement behaviors. ([I50960](https://android-review.googlesource.com/#/q/I50960f49e700b093b0ab4a7b6986f68b9f2822fe))
+- `SpatialGltfModel.fromData()` was removed. ([I4d083](https://android-review.googlesource.com/#/q/I4d0834d0a80879ca0e5a8b672451a0dd6f25bf6a))
+- Added a new modifier node interface, `SubspaceMeasuredSizeAwareModifierNode`, which provides an `onRemeasured` callback after the measure pass. `SubspaceLayoutAwareModifierNode` now extends this new interface. The `onSizeChanged` modifier has been updated to use `onRemeasured`, ensuring the callback is triggered right after measurement, not after placement. ([Iafbae](https://android-review.googlesource.com/#/q/Iafbaee534960c2d6556ccc12aeccc86fc6836fcb))
+- Updated `InteractionPolicy` to an `Interface` ([I0ff30](https://android-review.googlesource.com/#/q/I0ff30555d2835d29ce75cd7d729dd5b936bf6631))
+- Updated Compose `compileSdk` to API 37. This means that a minimum AGP version of 9.2.0 is required when using Compose. ([Id45cd](https://android-review.googlesource.com/#/q/Id45cdca34ef948e06259b2dd9adc901b7c930492))
+- Updated `Size` kdocs ([Iefa9a](https://android-review.googlesource.com/#/q/Iefa9aea16f0719e66dab6146de3790d106476896))
 
 ### Version 1.0.0-alpha13
 

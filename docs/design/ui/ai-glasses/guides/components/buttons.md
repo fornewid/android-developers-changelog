@@ -36,7 +36,7 @@ Use progressive disclosure to reveal less relevant actions. ![](https://develope
 
 ### Don't
 
-Overwhelm the user's view with too many buttons. ![](https://developer.android.com/static/images/design/ui/glasses/guides/glasses_components_buttons_action_do.png)
+Overwhelm the user's view with too many buttons. Use a button group instead. ![](https://developer.android.com/static/images/design/ui/glasses/guides/glasses_components_buttons_action_do.png)
 
 ### Do
 
@@ -44,31 +44,107 @@ Use buttons to prompt an action. Or use a title chip for a static element. ![](h
 
 ### Don't
 
-use a button as a static decorative element.
+Use a button as a static decorative element.
+
+### Icon buttons
+
+Icon buttons are available to reduce content density. Use icon buttons when the
+icon clearly illustrates an action, otherwise include a button label.
+![](https://developer.android.com/static/images/design/ui/glasses/guides/glasses_components_buttons_icon_do.png)
+
+### Do
+
+Use an icon button for common highly recognizable actions. ![](https://developer.android.com/static/images/design/ui/glasses/guides/glasses_components_buttons_icon_dont.png)
+
+### Don't
+
+Use an icon button for very obscure actions.
+
+### Toggable
+
+For actions with boolean states, like favorite, a toggle variant is available
+for each button type. Swapping icons in between toggle states makes the
+interaction glanceable and responsive.
+![](https://developer.android.com/static/images/design/ui/glasses/guides/glasses_components_buttons_toggle_do.png)
+
+### Do
+
+Use a toggle button if there are boolean options for an action. Like start/stop. ![](https://developer.android.com/static/images/design/ui/glasses/guides/glasses_components_buttons_toggle_dont.png)
+
+### Don't
+
+Use a toggle button for non binary actions.
 
 ## Anatomy
+
+Buttons are composed of a label and optional icon leading or trailing icon.
+
+![Default buttons](https://developer.android.com/static/images/design/ui/glasses/guides/glasses_components_buttons_anatomy.png)
+
+Icon buttons are composed of only a recognizable icon.
+
+Both have a togglable variant.
 
 ### Default
 
 
-![Default buttons](https://developer.android.com/static/images/design/ui/glasses/guides/glasses_components_buttons_default.png)
-**1.** Enabled: Default state.
-**2.** Hover
-**3.** Tap
+![Default buttons](https://developer.android.com/static/images/design/ui/glasses/guides/glasses_components_buttons_anatomy_default.png)
+**1.** Rest  
+
+**2.** Focused  
+
+**3.** Pressed  
+
+**4.** Disabled  
+
+**5.** Disabled \& focused
 
 ### Large
 
 ![Large button style](https://developer.android.com/static/images/design/ui/glasses/guides/glasses_components_buttons_large.png)
-**1.** Enabled: Default state.
-**2.** Hover
-**3.** Tap
+**1.** Rest  
+
+**2.** Focused  
+
+**3.** Pressed  
+
+**4.** Disabled  
+
+**5.** Disabled \& focused
+
+### Icon
+
+![Icon buttons](https://developer.android.com/static/images/design/ui/glasses/guides/glasses_components_buttons_anatomy_icon.png)
+**1.** Rest  
+
+**2.** Focused  
+
+**3.** Pressed  
+
+**4.** Disabled  
+
+**5.** Disabled \& focused
+
+### Icon
+
+![Icon buttons](https://developer.android.com/static/images/design/ui/glasses/guides/glasses_components_buttons_anatomy_toggle.png)
+**1.** Rest  
+
+**2.** Focused  
+
+**3.** Pressed  
+
+**4.** Disabled  
+
+**5.** Disabled \& focused
 
 ## Customization
 
-Buttons contain a default and large variation, along with default, focused, and
-pressed states for each. Icons can be used to give greater emphasis,
-clarification, and recognition to the button. Button size can help emphasize
+Buttons contain a default and large style. Large size can help emphasize
 importance.
+
+Icons can be used to give greater emphasis, clarification, and recognition to
+the button in a trailing or leading position.
 
 ### Default
 
@@ -77,12 +153,13 @@ importance.
 |---|---|---|
 | Shape | Yes | Large, Circle |
 | Padding | Yes | 16 dp, 8 dp |
-| Border | Yes | 2 dp, #606460 |
+| Border | Yes | Default, 2 dp, #606460 |
 | Text | Yes | Body Small |
-| Leading icon | Yes | 40 dp |
-| Trailing icon | Yes | 40 dp |
-| Size | Yes | 56 dp min height |
+| Leading icon | Yes | 32 dp |
+| Trailing icon | Yes | 32 dp |
+| Size | Yes | 48 dp min height |
 | Depth | Yes | 0 |
+| Gap | Yes | Between label and icon: Extra small |
 
 <br />
 
@@ -92,13 +169,53 @@ importance.
 | Properties | Customization | Defaults |
 |---|---|---|
 | Shape | Yes | Large, Circle |
-| Padding | Yes | 20 dp, 8 dp |
+| Padding | Yes | 16 dp, 16 dp |
 | Border | Yes | 2 dp, #606460 |
 | Text | Yes | Body Small |
-| Leading icon | Yes | 56 dp |
-| Trailing icon | Yes | 56 dp |
+| Leading icon | Yes | 32 dp |
+| Trailing icon | Yes | 32 dp |
 | Size | Yes | 72 dp min height |
 | Depth | Yes | 0 |
-| Surface | No |   |
+| Gap | Yes | Between label and icon: Extra small |
+
+<br />
+
+### Icon
+
+
+| Properties | Customization | Defaults |
+|---|---|---|
+| Shape | Yes | Large, Circle |
+| Padding | Yes | Small, Small |
+| Border | Yes | Default |
+| Icon | Yes | Default = 32 dp, On Surface |
+| Size | Yes | 48 dp min height |
+| Depth | Yes | 0 |
+
+<br />
+
+### Toggable
+
+
+| Properties | Customization | Defaults |
+|---|---|---|
+| Selected | Yes | Boolean |
+| Default corners | Yes | 16 dp, 8 dp |
+| Selected corners | Yes | Default focus |
+| Selected Surface color | Yes | Outline |
+| All other properties | Yes | Same as buttons |
+
+<br />
+
+### Toggable icon
+
+
+| Properties | Customization | Defaults |
+|---|---|---|
+| Selected | Yes | Boolean |
+| Default corners | Yes | 100 dp |
+| Selected corners | Yes | 20 dp |
+| Selected Surface color | Yes | Outline |
+| All other properties | Yes | Same as buttons |
 
 <br />

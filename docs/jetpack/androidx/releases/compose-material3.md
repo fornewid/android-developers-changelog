@@ -10,7 +10,7 @@ source: md.txt
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| May 06, 2026 | [1.4.0](https://developer.android.com/jetpack/androidx/releases/compose-material3#1.4.0) | - | - | [1.5.0-alpha19](https://developer.android.com/jetpack/androidx/releases/compose-material3#1.5.0-alpha19) |
+| May 19, 2026 | [1.4.0](https://developer.android.com/jetpack/androidx/releases/compose-material3#1.4.0) | - | - | [1.5.0-alpha20](https://developer.android.com/jetpack/androidx/releases/compose-material3#1.5.0-alpha20) |
 
 > [!NOTE]
 > **Note:** To develop UIs for Wear OS apps using Material 3 Expressive, use the [Wear Compose Material 3](https://developer.android.com/jetpack/androidx/releases/wear-compose-m3) library instead of this one.
@@ -48,7 +48,7 @@ your app or module:
 dependencies {
     implementation "androidx.compose.material3:material3:1.4.0"
     implementation "androidx.compose.material3:material3-window-size-class:1.4.0"
-    implementation "androidx.compose.material3:material3-adaptive-navigation-suite:1.5.0-alpha19"
+    implementation "androidx.compose.material3:material3-adaptive-navigation-suite:1.5.0-alpha20"
 }
 
 android {
@@ -72,7 +72,7 @@ android {
 dependencies {
     implementation("androidx.compose.material3:material3:1.4.0")
     implementation("androidx.compose.material3:material3-window-size-class:1.4.0")
-    implementation("androidx.compose.material3:material3-adaptive-navigation-suite:1.5.0-alpha19")
+    implementation("androidx.compose.material3:material3-adaptive-navigation-suite:1.5.0-alpha20")
 }
 
 android {
@@ -317,6 +317,25 @@ Material3 adaptive pane scaffold APIs:
   - [AnimatedPane](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/package-summary#(androidx.compose.material3.adaptive.ThreePaneScaffoldScope).AnimatedPane(androidx.compose.ui.Modifier,kotlin.Function2))
 
 ## Compose Material3 Version 1.5
+
+### Version 1.5.0-alpha20
+
+May 19, 2026
+
+`androidx.compose.material3:material3-*:1.5.0-alpha20` is released. Version 1.5.0-alpha20 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/e29a10982f4299b1fa812e229d76792092a62814..b87ea811dfddc793c6d02cb27381fb9dbe6db09c/compose/material3).
+
+**API Changes**
+
+- Removed `shouldUsePrecisionPointerComponentSizing` function ([I882c3](https://android-review.googlesource.com/#/q/I882c34bf096bf1b50f71b0b9e69895d7ec5dea0c), [b/498698039](https://issuetracker.google.com/issues/498698039))
+- Fixed an issue where the tooltip caret would appear on the wrong side when the tooltip flipped due to screen edges. ([Idc314](https://android-review.googlesource.com/#/q/Idc314432c7cf7159cd53cf20cdf1f9da9be352d3), [b/479224210](https://issuetracker.google.com/issues/479224210))
+- Introduced `rememberBottomSheetState` as the unified API for `BottomSheet` state. Deprecated `rememberModalBottomSheetState` and `rememberStandardBottomSheetState` in favor of the new unified API. ([I2724e](https://android-review.googlesource.com/#/q/I2724e00fd21f52c1653d2c893135e88c7ec73ac5), [b/500005697](https://issuetracker.google.com/issues/500005697))
+- Remove deprecated experimental `WideNavigationRail` APIs ([Iaadd6](https://android-review.googlesource.com/#/q/Iaadd6b4dd693681120311d99c10da81268c85889), [b/497891040](https://issuetracker.google.com/issues/497891040))
+- Graduate `SplitButton` APIs to non-experimental. ([I4d395](https://android-review.googlesource.com/#/q/I4d395e295a27518724f07cb56c6b30381b6cd690), [b/497876691](https://issuetracker.google.com/issues/497876691))
+- Deprecate the `DropdownMenuItem` APIs with checked and selected params that have `supportingText` as a trailing lambda. Moved `supportingText` to be a parameter right after `trailingIcon`. ([Icaf79](https://android-review.googlesource.com/#/q/Icaf79546bc0223f828147e24bfc6fc86c6919ad9), [b/503047115](https://issuetracker.google.com/issues/503047115))
+
+**Bug Fixes**
+
+- Update Navigation Drawer predictive back handler to allow going back while drawer is opening instead of only when fully opened ([I714ae](https://android-review.googlesource.com/#/q/I714ae1ff710b8514a18a4b9191cf55d3709baadd), [b/418556231](https://issuetracker.google.com/issues/418556231))
 
 ### Version 1.5.0-alpha19
 

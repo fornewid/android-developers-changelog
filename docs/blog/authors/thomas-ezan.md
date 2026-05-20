@@ -4,7 +4,7 @@ url: https://developer.android.com/blog/authors/thomas-ezan
 source: md.txt
 ---
 
-## 5
+## 6
 
 posts ![](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d0_l9O72.webp)
 
@@ -12,6 +12,17 @@ posts ![](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d
 
 ###### Senior Developer Relations Engineer
 
+- 04 May 2026 04 May 2026 ![](https://developer.android.com/static/blog/assets/AANDDM_KARROT_Strapi_eed79b0e1b_cCxXk.webp)
+
+  #### [Case Studies](https://developer.android.com/blog/categories/case-studies)
+
+  ## [Gemini and Firebase AI Logic enabled Karrot to increase sales with a translation feature built in under 2 weeks](https://developer.android.com/blog/posts/gemini-and-firebase-ai-logic-enabled-karrot-to-increase-sales-with-a-translation-feature)
+
+  [arrow_forward](https://developer.android.com/blog/posts/gemini-and-firebase-ai-logic-enabled-karrot-to-increase-sales-with-a-translation-feature) Karrot is a hyperlocal, community-driven peer-to-peer marketplace app that enables users to buy, sell, and trade items with other verified users. Since launching in South Korea in 2015, the platform has expanded into global markets, amassing over 43 million registered users.
+
+  ###### 2 min read
+
+  - [#Android](https://developer.android.com/blog/topics/android)
 - 17 Apr 2026 17 Apr 2026 ![](https://developer.android.com/static/blog/assets/Hybrid_inference_solution_for_Android_Blog_1_518db36e12_gOJm.webp)
 
   #### [Product News](https://developer.android.com/blog/categories/product-news)

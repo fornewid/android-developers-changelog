@@ -9,7 +9,8 @@ source: md.txt
 Android XR is an extension of the Android platform and ecosystem. To start
 building, you'll use the Android XR SDK, which includes all the tools and
 libraries that you need to build incredible experiences for a growing set of XR
-devices, including XR headsets, wired XR glasses, and AI glasses.
+devices, including XR headsets, wired XR glasses, audio glasses, and display
+glasses.
 
 <br />
 
@@ -25,7 +26,7 @@ XR headsets \| Wired XR glasses
 
 ### [Build immersive experiences](https://developer.android.com/develop/xr/explore/immersive)
 
-Build helpful and delightful immersive experiences that transport users to a fully-virtual space, or blend semi-immersive digital content with the user's environment to unlock real-world multi-tasking. [Go explore](https://developer.android.com/develop/xr/explore/immersive) AI glasses
+Build helpful and delightful immersive experiences that transport users to a fully-virtual space, or blend semi-immersive digital content with the user's environment to unlock real-world multi-tasking. [Go explore](https://developer.android.com/develop/xr/explore/immersive) Audio glasses \| Display glasses
 
 ### [Build augmented experiences](https://developer.android.com/develop/xr/explore/augmented)
 

@@ -10,7 +10,7 @@ Remote Compose is a framework to create UI for remote surfaces
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| May 06, 2026 | - | - | - | [1.0.0-alpha010](https://developer.android.com/jetpack/androidx/releases/compose-remote#1.0.0-alpha010) |
+| May 19, 2026 | - | - | - | [1.0.0-alpha11](https://developer.android.com/jetpack/androidx/releases/compose-remote#1.0.0-alpha11) |
 
 ## Declaring dependencies
 
@@ -25,20 +25,20 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.compose.remote:remote-core:1.0.0-alpha010"
+    implementation "androidx.compose.remote:remote-core:1.0.0-alpha11"
 
     // Use to create Remote Compose documents
-    implementation "androidx.compose.remote:remote-creation:1.0.0-alpha010"
-    implementation "androidx.compose.remote:remote-creation-core:1.0.0-alpha010"
-    implementation "androidx.compose.remote:remote-creation-android:1.0.0-alpha010"
-    implementation "androidx.compose.remote:remote-creation-jvm:1.0.0-alpha010"
-    implementation "androidx.compose.remote:remote-creation-compose:1.0.0-alpha010"
+    implementation "androidx.compose.remote:remote-creation:1.0.0-alpha11"
+    implementation "androidx.compose.remote:remote-creation-core:1.0.0-alpha11"
+    implementation "androidx.compose.remote:remote-creation-android:1.0.0-alpha11"
+    implementation "androidx.compose.remote:remote-creation-jvm:1.0.0-alpha11"
+    implementation "androidx.compose.remote:remote-creation-compose:1.0.0-alpha11"
 
     // Use to render a Remote Compose document
-    implementation "androidx.compose.remote:remote-player-core:1.0.0-alpha010"
-    implementation "androidx.compose.remote:remote-player-view:1.0.0-alpha010"
+    implementation "androidx.compose.remote:remote-player-core:1.0.0-alpha11"
+    implementation "androidx.compose.remote:remote-player-view:1.0.0-alpha11"
 
-    implementation "androidx.compose.remote:remote-tooling-preview:1.0.0-alpha010"
+    implementation "androidx.compose.remote:remote-tooling-preview:1.0.0-alpha11"
 }
 ```
 
@@ -46,20 +46,20 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.compose.remote:remote-core:1.0.0-alpha010")
+    implementation("androidx.compose.remote:remote-core:1.0.0-alpha11")
 
     // Use to create Remote Compose documents
-    implementation("androidx.compose.remote:remote-creation:1.0.0-alpha010")
-    implementation("androidx.compose.remote:remote-creation-core:1.0.0-alpha010")
-    implementation("androidx.compose.remote:remote-creation-android:1.0.0-alpha010")
-    implementation("androidx.compose.remote:remote-creation-jvm:1.0.0-alpha010")
-    implementation("androidx.compose.remote:remote-creation-compose:1.0.0-alpha010")
+    implementation("androidx.compose.remote:remote-creation:1.0.0-alpha11")
+    implementation("androidx.compose.remote:remote-creation-core:1.0.0-alpha11")
+    implementation("androidx.compose.remote:remote-creation-android:1.0.0-alpha11")
+    implementation("androidx.compose.remote:remote-creation-jvm:1.0.0-alpha11")
+    implementation("androidx.compose.remote:remote-creation-compose:1.0.0-alpha11")
 
     // Use to render a Remote Compose document
-    implementation("androidx.compose.remote:remote-player-core:1.0.0-alpha010")
-    implementation("androidx.compose.remote:remote-player-view:1.0.0-alpha010")
+    implementation("androidx.compose.remote:remote-player-core:1.0.0-alpha11")
+    implementation("androidx.compose.remote:remote-player-view:1.0.0-alpha11")
 
-    implementation("androidx.compose.remote:remote-tooling-preview:1.0.0-alpha010")
+    implementation("androidx.compose.remote:remote-tooling-preview:1.0.0-alpha11")
 }
 ```
 
@@ -79,6 +79,20 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.0
+
+### Version 1.0.0-alpha11
+
+May 19, 2026
+
+`androidx.compose.remote:remote-*:1.0.0-alpha11` is released. Version 1.0.0-alpha11 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/e29a10982f4299b1fa812e229d76792092a62814..b5d2acb5ad0a36c9d2aba8feb4c7951165f30fbe/compose/remote).
+
+**API Changes**
+
+- Expose `RemoteInt` static factory. ([Ic0096](https://android-review.googlesource.com/#/q/Ic009609d00b699eabc71f96bc49df7c5fa481123), [b/484137042](https://issuetracker.google.com/issues/484137042))
+- Expose `RemoteState` static factories ([I544f0](https://android-review.googlesource.com/#/q/I544f0fc816ce073606a98911261876de43e76cd1), [b/484137042](https://issuetracker.google.com/issues/484137042))
+- `RemoteLong` now supports a limited subset of arithmetic operators (addition, subtraction, multiplication and a truncating conversion to `RemoteInt`). ([I1d416](https://android-review.googlesource.com/#/q/I1d41634d0e1107ed87593e45de59d53c2cab0a5f))
+- Update `RemoteText` to use `RemoteFontFamily` instead of `FontFamily` ([Ib76b6](https://android-review.googlesource.com/#/q/Ib76b66464b97b40f914639aef783a3e26a6a6964), [b/502907551](https://issuetracker.google.com/issues/502907551))
+- Modifiers alpha, rotate and scale were added. ([I5d682](https://android-review.googlesource.com/#/q/I5d682270235fa1f9f656d6ad1d43ca56660c70f2), [b/505427444](https://issuetracker.google.com/issues/505427444))
 
 ### Version 1.0.0-alpha010
 

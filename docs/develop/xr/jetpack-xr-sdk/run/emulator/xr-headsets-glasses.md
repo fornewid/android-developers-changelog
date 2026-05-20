@@ -12,14 +12,14 @@ Applicable XR devices This guidance helps you build experiences for these types 
 <br />
 
 As you test your app, use the Android XR Emulator to extend your testing
-capacity beyond your physical test devices.
-You can use the emulator controls to help you test how your app behaves in
-common scenarios with AI glasses. See the following sections for details about
-running your [virtual Android XR devices](https://developer.android.com/develop/xr/jetpack-xr-sdk/run/create-avds/xr-headsets-glasses) in the emulator and the emulator
-controls you can use.
+capacity beyond your physical test devices. You can use the emulator controls to
+help you test how your app behaves in common scenarios with XR headsets and
+XR glasses. See the following sections for details about running your
+[virtual Android XR devices](https://developer.android.com/develop/xr/jetpack-xr-sdk/run/create-avds/xr-headsets-glasses) in the emulator and the emulator controls you
+can use.
 
 > [!IMPORTANT]
-> **Important:** Check that you're using the latest Canary build of Android Studio. Other versions might not include Android XR tools. For more information, see [Install and configure Android Studio for XR development](https://developer.android.com/develop/xr/jetpack-xr-sdk/get-studio).
+> **Important:** Check that you're using the latest Canary build of Android Studio. Other versions might not include the latest Android XR tools. For more information, see [Install and configure Android Studio for XR development](https://developer.android.com/develop/xr/jetpack-xr-sdk/get-studio).
 
 [![](https://developer.android.com/static/images/picto-icons/plus.svg) See also If this your first time using an emulator with Android Studio, review the Android Emulator documentation.](https://developer.android.com/studio/run/emulator)
 

@@ -4,7 +4,7 @@ url: https://developer.android.com/blog/authors/matthew-mccullough
 source: md.txt
 ---
 
-## 14
+## 15
 
 posts ![](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)
 
@@ -12,6 +12,17 @@ posts ![](https://developer.android.com/static/blog/assets/matthew_mccullough_dc
 
 ###### Vice President, Product Management, Android Developer
 
+- 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Text_Strapi_2000x1000_2d4221d884_ZtW7eg.webp)
+
+  #### [Product News](https://developer.android.com/blog/categories/product-news)
+
+  ## [17 Things to know for Android developers at Google I/O!](https://developer.android.com/blog/posts/17-things-to-know-for-android-developers-at-google-i-o)
+
+  [arrow_forward](https://developer.android.com/blog/posts/17-things-to-know-for-android-developers-at-google-i-o) Google I/O '26 features 17 key announcements for Android developers focusing on agent-led productivity, Compose First as our UI standard, and high-performance media and adaptive development for the expanding ecosystem.
+
+  ###### 8 min read
+
+  - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
 - 12 May 2026 12 May 2026 ![](https://developer.android.com/static/blog/assets/Tas_Developers_cut_Strapi_3636223c9c_Z2pmmBN.webp)
 
   #### [Product News](https://developer.android.com/blog/categories/product-news)
@@ -65,16 +76,6 @@ posts ![](https://developer.android.com/static/blog/assets/matthew_mccullough_dc
   [arrow_forward](https://developer.android.com/blog/posts/the-second-beta-of-android-17) Today we're releasing the second beta of Android 17, continuing our work to build a platform that prioritizes privacy, security, and refined performance.
 
   ###### 6 min read
-
-- 25 Feb 2026 25 Feb 2026 ![](https://developer.android.com/static/blog/assets/intelligent_OS_215691a288_G81Rr.webp)
-
-  #### [Product News](https://developer.android.com/blog/categories/product-news)
-
-  ## [The Intelligent OS: Making AI agents more helpful for Android apps](https://developer.android.com/blog/posts/the-intelligent-os-making-ai-agents-more-helpful-for-android-apps)
-
-  [arrow_forward](https://developer.android.com/blog/posts/the-intelligent-os-making-ai-agents-more-helpful-for-android-apps) User expectations for AI on their devices are fundamentally shifting how they interact with their apps.
-
-  ###### 3 min read
 
 <button class="adb--button adb--standard adb--outlined adb--disabled adb--global-hover-button astro-vnzlvqnm" disabled=""> arrow_back </button>
 

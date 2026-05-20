@@ -5,37 +5,30 @@ source: md.txt
 ---
 
 Working with images can quickly introduce performance issues if you aren't
-careful. You can quite easily run into an `OutOfMemoryError` when working
-with large bitmaps. Follow these best practices to ensure your app performs at
-its best.
+careful. Even a small graphic in a compressed format like JPG or PNG can turn
+into a large bitmap when it's decoded for display.If you aren't efficient
+with how you use graphics, you can run into memory problems
+which can hurt the performance of your app and other apps on the device.
+Follow these best practices to ensure your app performs at its best.
 
-## Only load the size of the bitmap you need
+## Use image loading libraries
 
-Most smartphones have high resolution cameras that produce large image files. If
-you're showing an image on screen, you must either reduce the resolution of the
-image or only load the image up to the size of your image container. The
-constant loading of larger than needed images can exhaust GPU caches, leading to
-less performant UI rendering.
+You can improve your app's efficiency by using image loading libraries
+like [Coil](https://coil-kt.github.io/coil/api/coil-core/coil3.request/-image-request/) (for Kotlin-first projects) or [Glide](https://bumptech.github.io/glide/javadocs/470/com/bumptech/glide/load/DecodeFormat.html) (for Java projects).
+These libraries reduce your app's memory usage by doing things like caching
+images, resizing graphics when needed, and recycling graphic objects.
 
-To manage image sizes:
+## Resize images when appropriate
 
-- Scale down your image files to be as small as possible (without affecting output image).
-- Consider [converting your images to WEBP](https://developer.android.com/studio/write/convert-webp) format instead of JPEG or PNGs.
-- Supply smaller images for different screen resolutions (see [Tip #3](https://developer.android.com/develop/ui/compose/graphics/images/optimization#screen-sizes)),
-- Use an [image loading library](https://developer.android.com/develop/ui/compose/graphics/images/loading#load_an_image_from_the_internet), which scales down your image to fit the size of your view on screen. This can help improve the loading performance of your screen.
+Make sure to use the appropriate image size for your needs. For example, you
+should never load a large image into a small thumbnail. Instead, use a method
+like [`inSampleSize`](https://developer.android.com/reference/android/graphics/BitmapFactory.Options#inSampleSize) to load a resampled version of the image.
 
-> [!CAUTION]
-> **Caution:** Using `painterResource` will **not** scale your image to the size of the Composable that is visible on screen. If you have a large image in a small Composable, be sure to use an image loading library which scales the image down for you to fit the bounds.
+Image-loading libraries like Coil and Glide handle this resampling for you
+automatically by default. You can configure their downsampling strategies by
+using [`ImageLoader`](https://coil-kt.github.io/coil/image_loaders/) (for Coil) or [`DownsampleStrategy`](https://bumptech.github.io/glide/javadocs/470/com/bumptech/glide/load/resource/bitmap/DownsampleStrategy.html) (for Glide).
 
-#### Use vectors over bitmaps where possible
-
-When representing something visually on screen, you need to decide if it can be
-represented as a vector or not. Prefer vector images over bitmaps, as they
-don't pixelate when you scale them to different sizes. However, not everything
-can be represented as a vector - images taken with a camera can't be converted
-into a vector.
-
-#### Supply alternative resources for different screen sizes
+### Supply alternative resources for different screen sizes
 
 If you are shipping images with your app, consider supplying different sized
 assets for different device resolutions. This can help reduce the download size
@@ -44,7 +37,66 @@ resolution image on a lower resolution device. For more information on providing
 alternative bitmaps for different device sizes, [check out the alternative
 bitmap documentation](https://developer.android.com/training/multiscreen/screendensities#TaskProvideAltBmp).
 
-#### When using `ImageBitmap`, call `prepareToDraw` before drawing
+## Don't apply padding directly
+
+Sometimes you might need to add padding to an image. For example, you might
+want to have the image surrounded by a transparent border for letterboxing.
+In those situations, *don't* add the padding directly to the image, changing
+the image's dimensions. Instead, leave the image's dimensions as they are,
+and adjust the image's location on the screen by using [`InsetDrawable`](https://developer.android.com/reference/android/graphics/drawable/InsetDrawable).
+Alternatively, you can add padding into the Composable or View holding the
+image.
+
+## Choose the right pixel format
+
+Balance memory and quality by choosing the right pixel format. Use `RGB_565`
+when you don't need transparency; this format uses half the memory of the
+default `ARGB_8888` format.
+
+In Glide you can configure this by using [`DecodeFormat`](https://bumptech.github.io/glide/javadocs/470/com/bumptech/glide/load/DecodeFormat.html). In Coil, you can
+use the [`bitmapConfig`](https://coil-kt.github.io/coil/api/coil-core/coil3.request/-image-request/) property.
+
+## Use vectors where possible
+
+For images made up of geometric shapes, a vector graphic is much smaller than a
+bitmap and scales smoothly for any display density. When suitable, use elements
+like [`ShapeDrawable`](https://developer.android.com/reference/android/graphics/drawable/ShapeDrawable) to represent graphics.
+
+## Release and reuse bitmaps when you can
+
+Large graphic files can take up a lot of memory. To reduce their impact, you
+should release or reuse the graphic objects whenever you can.
+
+If you use an image loading library, make sure to release
+bitmaps to the library's managed pool when you no longer need them. The
+library can reuse the objects when needed, and keeps a memory buffer available
+for future needs.
+
+If you're managing graphics manually, you should release
+bitmaps when you're done with them by calling [`Bitmap.recycle`](https://developer.android.com/reference/android/graphics/Bitmap#recycle())
+and immediately discarding the `Bitmap` reference, instead
+of relying on garbage collection.
+
+## Other tips and tricks
+
+This section lists a few other ways to improve your app's performance when
+handling graphics.
+
+### Don't package large images with your AAB/APK file
+
+One of the top causes for large app download size is graphics that are
+packaged inside the AAB or APK file. Use the [APK analyzer](https://developer.android.com/studio/debug/apk-analyzer) tool to ensure
+that you aren't packaging larger than required image files. Reduce the sizes or
+consider placing the images on a server and only downloading them when required.
+
+### Find redundant bitmaps
+
+If you have several copies of the same image, that wastes memory. You can use
+the Android Studio profiler to identify redundant graphics. Use the [heap dump
+analyzer](https://developer.android.com/studio/profile/capture-heap-dump) to capture a heap dump, and filter the results by choosing the
+**duplicate bitmaps** setting.
+
+### When using `ImageBitmap`, call `prepareToDraw` before drawing
 
 When using `ImageBitmap`, to start the process of uploading the texture to the
 GPU, call [`ImageBitmap#prepareToDraw()`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/ImageBitmap#prepareToDraw()) before actually drawing it. This
@@ -53,15 +105,15 @@ visual on screen. Most image loading libraries already do this optimization, but
 if you are working with the `ImageBitmap` class yourself, it is something to
 keep in mind.
 
-#### Prefer passing a `Int` `DrawableRes` or URL as parameters into your composable instead of `Painter`
+### Prefer passing a `Int` `DrawableRes` or URL as parameters into your composable instead of `Painter`
 
 Due to the complexities of dealing with images (for example, writing an equals
 function for `Bitmaps` would be computationally expensive), the `Painter` API is
-explicitly not marked as a [Stable](https://medium.com/androiddevelopers/jetpack-compose-stability-explained-79c10db270c8) class. Unstable classes can
-lead to unnecessary recompositions because the compiler cannot easily infer if
-the data has changed.
+explicitly not marked as stable with the [`@Stable`](https://medium.com/androiddevelopers/jetpack-compose-stability-explained-79c10db270c8)
+annotation. Unstable classes can lead to unnecessary recompositions because the
+compiler cannot easily infer if the data has changed.
 
-Therefore, it is preferable to pass a URL or drawable resource ID as parameters
+Therefore, we recommend passing a URL or drawable resource ID as parameters
 to your composable, instead of passing a `Painter` as a parameter.
 
     // Prefer this:
@@ -75,23 +127,9 @@ to your composable, instead of passing a `Painter` as a parameter.
 
     }
 
-## Don't store a bitmap in memory longer than you need it
-
-The more bitmaps you load into memory, the more likely it is that you could run
-out of memory on the device. For instance, if loading a large list of Image
-composables on screen, use `LazyColumn` or `LazyRow` to ensure that memory is
-freed up when scrolling a large list.
-
-## Don't package large images with your AAB/APK file
-
-One of the top causes for large app download size is due to graphics that are
-packaged inside the AAB or APK file. Use the [APK analyzer](https://developer.android.com/studio/debug/apk-analyzer) tool to ensure
-that you aren't packaging larger than required image files. Reduce the sizes or
-consider placing the images on a server and only downloading them when required.
-
 ## Recommended for you
 
 - Note: link text is displayed when JavaScript is off
-- [ImageBitmap vs ImageVector {:#bitmap-vs-vector}](https://developer.android.com/develop/ui/compose/graphics/images/compare)
+- [ImageBitmap versus ImageVector {:#bitmap-vs-vector}](https://developer.android.com/develop/ui/compose/graphics/images/compare)
 - [Save UI state in Compose](https://developer.android.com/develop/ui/compose/state-saving)
 - [Jetpack Compose Phases](https://developer.android.com/develop/ui/compose/phases)

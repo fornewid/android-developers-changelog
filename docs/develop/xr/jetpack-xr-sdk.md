@@ -4,7 +4,8 @@ url: https://developer.android.com/develop/xr/jetpack-xr-sdk
 source: md.txt
 ---
 
-Applicable XR devices This guidance helps you build experiences for these types of XR devices. [Learn about XR device types →](https://developer.android.com/develop/xr/devices) ![](https://developer.android.com/static/images/develop/xr/xr-headsets-icon.svg) XR Headsets [](https://developer.android.com/develop/xr/devices#xr-headsets) ![](https://developer.android.com/static/images/develop/xr/xr-glasses-icon.svg) Wired XR Glasses [](https://developer.android.com/develop/xr/devices#xr-glasses) ![](https://developer.android.com/static/images/develop/xr/ai-glasses-icon.svg) AI Glasses [](https://developer.android.com/develop/xr/devices#ai-glasses) [Learn about XR device types →](https://developer.android.com/develop/xr/devices)
+Applicable XR devices This guidance helps you build experiences for these types of XR devices. [Learn about XR device types →](https://developer.android.com/develop/xr/devices) ![](https://developer.android.com/static/images/develop/xr/xr-headsets-icon.svg) XR Headsets [](https://developer.android.com/develop/xr/devices#xr-headsets) ![](https://developer.android.com/static/images/develop/xr/xr-glasses-icon.svg) Wired XR Glasses [](https://developer.android.com/develop/xr/devices#xr-glasses) ![](https://developer.android.com/static/images/develop/xr/ai-glasses-icon.svg) Audio \&  
+Display Glasses [](https://developer.android.com/develop/xr/devices#audio-display) [Learn about XR device types →](https://developer.android.com/develop/xr/devices)
 
 <br />
 
@@ -29,24 +30,24 @@ video](https://developer.android.com/static/images/develop/xr/jetpack-xr-sdk/ind
 
 ## Build augmented and helpful experiences
 
-Target lightweight and stylish AI glasses. Use modern Android development tools
-like [Kotlin](https://developer.android.com/develop/ui/compose/kotlin) and [Jetpack Compose Glimmer](https://developer.android.com/develop/xr/jetpack-xr-sdk/jetpack-compose-glimmer). Use APIs that facilitate
-projected app experiences from a phone to AI glasses.
-[![](https://developer.android.com/static/images/picto-icons/set-square.svg) Go build augmented Get started building augmented experiences for AI glasses.](https://developer.android.com/develop/xr/jetpack-xr-sdk/ai-glasses/build) Alas, your browser doesn't support HTML5 video. That's OK! You can still [download the
+Target lightweight and stylish audio glasses and display glasses. Use modern
+Android development tools like [Kotlin](https://developer.android.com/develop/ui/compose/kotlin) and [Jetpack Compose Glimmer](https://developer.android.com/develop/xr/jetpack-xr-sdk/jetpack-compose-glimmer). Use
+APIs that facilitate projected app experiences from a phone to the glasses.
+[![](https://developer.android.com/static/images/picto-icons/set-square.svg) Go build augmented Get started building augmented experiences for audio glasses and display glasses.](https://developer.android.com/develop/xr/jetpack-xr-sdk/glasses/build) Alas, your browser doesn't support HTML5 video. That's OK! You can still [download the
 video](https://developer.android.com/static/videos/xr/augmented-experiences.mp4) and watch it with a video player.
 
 ## Use Jetpack libraries
 
-The Jetpack XR SDK libraries provide a comprehensive toolkit for building rich,
-[immersive experiences](https://developer.android.com/design/ui/xr/guides/foundations), lightweight, [augmented experiences](https://developer.android.com/design/ui/ai-glasses) and
+The Jetpack XR SDK libraries provide a comprehensive toolkit for building [rich,
+immersive experiences](https://developer.android.com/design/ui/xr/guides/foundations), [lightweight, augmented experiences](https://developer.android.com/design/ui/ai-glasses) and
 everything in between. The following libraries are part of the Jetpack XR SDK:
 
 - [**Jetpack Compose for XR**](https://developer.android.com/develop/xr/jetpack-xr-sdk#jetpack-compose): Declaratively build spatial UI layouts that take advantage of Android XR's spatial capabilities.
 - [**Material Design for XR**](https://developer.android.com/develop/xr/jetpack-xr-sdk#material-design): Build with Material components and layouts that adapt for XR.
 - [**Jetpack SceneCore**](https://developer.android.com/develop/xr/jetpack-xr-sdk#jetpack-scenecore): Build and manipulate the Android XR scene graph with 3D content.
 - [**ARCore for Jetpack XR**](https://developer.android.com/develop/xr/jetpack-xr-sdk#arcore-jetpack): Bring digital content into the real world with perception capabilities.
-- [**Jetpack Compose Glimmer**](https://developer.android.com/develop/xr/jetpack-xr-sdk#jetpack-compose-glimmer): A UI toolkit for building augmented Android XR experiences, optimized for display AI Glasses.
-- [**Jetpack Projected**](https://developer.android.com/develop/xr/jetpack-xr-sdk#jetpack-projected): APIs that facilitate projected app experiences from a phone to AI glasses.
+- [**Jetpack Compose Glimmer**](https://developer.android.com/develop/xr/jetpack-xr-sdk#jetpack-compose-glimmer): A UI toolkit for building augmented Android XR experiences, optimized for display glasses.
+- [**Jetpack Projected**](https://developer.android.com/develop/xr/jetpack-xr-sdk#jetpack-projected): APIs that facilitate projected app experiences from a phone to audio glasses or display glasses.
 
 ### API development during Developer Preview
 
@@ -90,8 +91,8 @@ for more detailed information.
 **Applicable XR devices**: XR headsets, wired XR glasses
 
 Material Design provides components and layouts that adapt for XR. If you're
-building with [adaptive layouts](https://developer.android.com/develop/ui/compose/layouts/adaptive). [Learn more about implementing
-Material Design for XR](https://developer.android.com/develop/xr/jetpack-xr-sdk/material-design).
+building with [adaptive layouts](https://developer.android.com/develop/ui/compose/layouts/adaptive). [Learn more about implementing Material
+Design for XR](https://developer.android.com/develop/xr/jetpack-xr-sdk/material-design).
 
 ### Jetpack SceneCore
 
@@ -116,7 +117,8 @@ View the [API reference](https://developer.android.com/reference/kotlin/androidx
 
 ### ARCore for Jetpack XR
 
-**Applicable XR devices**: XR headsets, wired XR glasses, AI glasses
+**Applicable XR devices**: XR headsets, wired XR glasses, audio glasses, display
+glasses
 
 Inspired by the existing [ARCore library](https://developers.google.com/ar), the ARCore for
 Jetpack XR library provides capabilities for blending digital content with the
@@ -133,10 +135,10 @@ View [Work with ARCore for Jetpack XR](https://developer.android.com/develop/xr/
 
 ### Jetpack Compose Glimmer
 
-**Applicable XR devices**: AI glasses
+**Applicable XR devices**: Display glasses
 
 Jetpack Compose Glimmer is a UI toolkit for building augmented Android XR
-experiences, optimized for display AI Glasses. Build beautiful, minimal, and
+experiences, optimized for display glasses. Build beautiful, minimal, and
 comfortable UI for devices that are worn all day.
 
 - **Built for glanceability and legibility** : Unlike phones, the primary canvas is an optical see-through display---it's transparent. Jetpack Compose Glimmer provides [glasses-specific theming](https://developer.android.com/develop/xr/jetpack-xr-sdk/jetpack-compose-glimmer/whats-included#theme), [simplified color
@@ -149,18 +151,15 @@ comfortable UI for devices that are worn all day.
 
 ### Jetpack Projected
 
-**Applicable XR devices**: AI glasses
+**Applicable XR devices**: Audio glasses, display glasses
 
-When you [build for AI glasses](https://developer.android.com/develop/xr/jetpack-xr-sdk/ai-glasses/build), your app runs on a companion *host device*,
-such as an Android phone, that projects your app's XR experiences. Jetpack
-Projected lets these Android host devices communicate with AI glasses if the
-host devices have XR projected capabilities.
+When you [build for audio glasses and display glasses](https://developer.android.com/develop/xr/jetpack-xr-sdk/glasses/build), your app runs on a
+companion *host device*, such as an Android phone, that projects your app's XR
+experiences. Jetpack Projected lets these Android host devices communicate with
+audio or display glasses if the host devices have XR projected capabilities.
 
-- **Access projected device hardware** : A device context tied to the projected device (AI glasses). This [projected context](https://developer.android.com/develop/xr/jetpack-xr-sdk/ai-glasses/support-different-types#projected-context) provides access to projected device hardware, such as the camera. Dedicated activities created specifically to display on AI glasses [already function as a projected
-  context](https://developer.android.com/develop/xr/jetpack-xr-sdk/access-hardware-projected-context#glasses-activity). If another part of your app (such as a phone activity or a service) needs to access the AI glasses hardware, it can [obtain a projected
-  context](https://developer.android.com/develop/xr/jetpack-xr-sdk/access-hardware-projected-context#phone-activity-service).
-- **Simplify permission requests** : AI glasses follow the [standard Android
-  permission model](https://developer.android.com/guide/topics/permissions/overview), with glasses-specific permissions that must be [requested at runtime](https://developer.android.com/develop/xr/jetpack-xr-sdk/request-hardware-permissions#request-permissions) before your app can access device hardware, such as the camera. Permission helper streamlines these permission request mechanisms across both phone and AI glasses interfaces to provide a consistent request experience.
+- **Access projected device hardware** : A device context tied to the projected device (audio glasses or display glasses). This [projected context](https://developer.android.com/develop/xr/jetpack-xr-sdk/glasses/support-different-types#projected-context) provides access to projected device hardware, such as the camera. Dedicated activities created specifically to display on audio or display glasses [already function as a projected context](https://developer.android.com/develop/xr/jetpack-xr-sdk/access-hardware-projected-context#glasses-activity). If another part of your app (such as a phone activity or a service) needs to access the glasses' hardware, it can [obtain a projected context](https://developer.android.com/develop/xr/jetpack-xr-sdk/access-hardware-projected-context#phone-activity-service).
+- **Simplify permission requests** : Audio glasses and display glasses follow the [standard Android permission model](https://developer.android.com/guide/topics/permissions/overview), with glasses-specific permissions that must be [requested at runtime](https://developer.android.com/develop/xr/jetpack-xr-sdk/request-hardware-permissions#request-permissions) before your app can access device hardware, such as the camera. Permission helper streamlines these permission request mechanisms across both the phone and glasses interfaces to provide a consistent request experience.
 - **Check device and display capabilities**: Check if the projected device has a display and the state of the display to present visuals. Adapt your app based on capabilities of the device. For example, you might want to provide more audio context if the device has no display or the display is off.
 - **Access app camera actions**: Your app can access user camera actions, for example to turn the camera on or off in a video streaming app.
 

@@ -10,7 +10,7 @@ Write Widgets and other Remote UI for Wear OS using the Material 3 Expressive de
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| May 06, 2026 | - | - | - | [1.0.0-alpha03](https://developer.android.com/jetpack/androidx/releases/wear-compose-remote#1.0.0-alpha03) |
+| May 19, 2026 | - | - | - | [1.0.0-alpha04](https://developer.android.com/jetpack/androidx/releases/wear-compose-remote#1.0.0-alpha04) |
 
 ## Declaring dependencies
 
@@ -25,7 +25,7 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.wear.compose.remote:remote-material3:1.0.0-alpha03"
+    implementation "androidx.wear.compose.remote:remote-material3:1.0.0-alpha04"
 }
 ```
 
@@ -33,7 +33,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.wear.compose.remote:remote-material3:1.0.0-alpha03")
+    implementation("androidx.wear.compose.remote:remote-material3:1.0.0-alpha04")
 }
 ```
 
@@ -53,6 +53,17 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.0
+
+### Version 1.0.0-alpha04
+
+May 19, 2026
+
+`androidx.wear.compose.remote:remote-material3:1.0.0-alpha04` is released. Version 1.0.0-alpha04 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/e29a10982f4299b1fa812e229d76792092a62814..b5d2acb5ad0a36c9d2aba8feb4c7951165f30fbe/wear/compose/remote/remote-material3).
+
+**API Changes**
+
+- Expose `RemoteState` static factories ([I544f0](https://android-review.googlesource.com/#/q/I544f0fc816ce073606a98911261876de43e76cd1), [b/484137042](https://issuetracker.google.com/issues/484137042))
+- Update `RemoteText` to use `RemoteFontFamily` instead of `FontFamily` ([Ib76b6](https://android-review.googlesource.com/#/q/Ib76b66464b97b40f914639aef783a3e26a6a6964), [b/502907551](https://issuetracker.google.com/issues/502907551))
 
 ### Version 1.0.0-alpha03
 

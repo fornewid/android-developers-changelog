@@ -42,7 +42,7 @@ Use the following dependency specification in your `build.gradle` file:
 
 ```groovy
 dependencies {
-    implementation "androidx.xr.arcore:arcore-play-services:1.0.0-alpha13"
+    implementation "androidx.xr.arcore:arcore-play-services:1.0.0-alpha14"
     implementation "com.google.ar:core:1.51.0"
 }
 ```
@@ -51,7 +51,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.xr.arcore:arcore-play-services:1.0.0-alpha13")
+    implementation("androidx.xr.arcore:arcore-play-services:1.0.0-alpha14")
     implementation("com.google.ar:core:1.51.0")
 }
 ```
@@ -65,7 +65,7 @@ directly:
 
 ```kotlin
 val arCoreRuntime = session.runtimes.firstNotNullOfOrNull { it as? ArCoreRuntime } ?: return
-val originalSession = arCoreRuntime.lifecycleManager.session()
+val originalSession = arCoreRuntime.session()
 val originalFrame = arCoreRuntime.perceptionManager.lastFrame()
 ```
 

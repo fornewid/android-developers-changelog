@@ -7,7 +7,8 @@ source: md.txt
 <br />
 
 
-Applicable XR devices This guidance helps you build experiences for these types of XR devices. [Learn about XR device types →](https://developer.android.com/develop/xr/devices) ![](https://developer.android.com/static/images/develop/xr/xr-headsets-icon.svg) XR Headsets [](https://developer.android.com/develop/xr/devices#xr-headsets) ![](https://developer.android.com/static/images/develop/xr/xr-glasses-icon.svg) Wired XR Glasses [](https://developer.android.com/develop/xr/devices#xr-glasses) ![](https://developer.android.com/static/images/develop/xr/ai-glasses-icon.svg) AI Glasses [](https://developer.android.com/develop/xr/devices#ai-glasses) [Learn about XR device types →](https://developer.android.com/develop/xr/devices)
+Applicable XR devices This guidance helps you build experiences for these types of XR devices. [Learn about XR device types →](https://developer.android.com/develop/xr/devices) ![](https://developer.android.com/static/images/develop/xr/xr-headsets-icon.svg) XR Headsets [](https://developer.android.com/develop/xr/devices#xr-headsets) ![](https://developer.android.com/static/images/develop/xr/xr-glasses-icon.svg) Wired XR Glasses [](https://developer.android.com/develop/xr/devices#xr-glasses) ![](https://developer.android.com/static/images/develop/xr/ai-glasses-icon.svg) Audio \&  
+Display Glasses [](https://developer.android.com/develop/xr/devices#audio-display) [Learn about XR device types →](https://developer.android.com/develop/xr/devices)
 
 <br />
 
@@ -43,11 +44,11 @@ Then, add the necessary dependencies to your app's `build.gradle.kts` file:
 
 ```groovy
 dependencies {
-    implementation "androidx.xr.runtime:runtime:1.0.0-alpha13"
-    implementation "androidx.xr.scenecore:scenecore:1.0.0-alpha14"
-    implementation "androidx.xr.compose:compose:1.0.0-alpha13"
-    implementation "androidx.xr.compose.material3:material3:1.0.0-alpha16"
-    implementation "androidx.xr.arcore:arcore:1.0.0-alpha13"
+    implementation "androidx.xr.runtime:runtime:1.0.0-alpha14"
+    implementation "androidx.xr.scenecore:scenecore:1.0.0-alpha15"
+    implementation "androidx.xr.compose:compose:1.0.0-alpha14"
+    implementation "androidx.xr.compose.material3:material3:1.0.0-alpha17"
+    implementation "androidx.xr.arcore:arcore:1.0.0-alpha14"
 }
 ```
 
@@ -55,11 +56,11 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.xr.runtime:runtime:1.0.0-alpha13")
-    implementation("androidx.xr.scenecore:scenecore:1.0.0-alpha14")
-    implementation("androidx.xr.compose:compose:1.0.0-alpha13")
-    implementation("androidx.xr.compose.material3:material3:1.0.0-alpha16")
-    implementation("androidx.xr.arcore:arcore:1.0.0-alpha13")
+    implementation("androidx.xr.runtime:runtime:1.0.0-alpha14")
+    implementation("androidx.xr.scenecore:scenecore:1.0.0-alpha15")
+    implementation("androidx.xr.compose:compose:1.0.0-alpha14")
+    implementation("androidx.xr.compose.material3:material3:1.0.0-alpha17")
+    implementation("androidx.xr.arcore:arcore:1.0.0-alpha14")
 }
 ```
 
@@ -108,7 +109,7 @@ Then, add the necessary dependencies to your app's `build.gradle.kts` file:
 ### Groovy
 
     dependencies {
-        implementation "androidx.xr.runtime:runtime:1.0.0-alpha13"
+        implementation "androidx.xr.runtime:runtime:1.0.0-alpha14"
         implementation "androidx.xr.glimmer:glimmer:1.0.0-alpha12"
         implementation "androidx.xr.glimmer:glimmer-google-fonts:1.0.0-alpha12"
         implementation "androidx.xr.projected:projected:1.0.0-alpha07"
@@ -118,7 +119,7 @@ Then, add the necessary dependencies to your app's `build.gradle.kts` file:
 ### Kotlin
 
     dependencies {
-        implementation("androidx.xr.runtime:runtime:1.0.0-alpha13")
+        implementation("androidx.xr.runtime:runtime:1.0.0-alpha14")
         implementation("androidx.xr.glimmer:glimmer:1.0.0-alpha12")
         implementation("androidx.xr.glimmer:glimmer-google-fonts:1.0.0-alpha12")
         implementation("androidx.xr.projected:projected:1.0.0-alpha07")

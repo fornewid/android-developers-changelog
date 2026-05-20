@@ -137,6 +137,12 @@ in the chip. The text displays depending on the following criteria:
 - If less than half of the text will display, show the icon only.
 - If more than half of the text will display, show as much text as possible.
 
+### Wear OS
+
+Live Updates are bridged to some connected Wear OS devices. For guidance on this
+bridging behavior, as well as guidance on how to create local Live Updates for
+Wear OS, see the [Wear OS Live Update guide](https://developer.android.com/training/wearables/notifications/live-updates).
+
 ## Dismissal
 
 Users can control notification visibility in the notification shade. Posting

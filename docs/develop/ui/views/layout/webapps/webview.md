@@ -500,7 +500,7 @@ public boolean onKeyDown(int keyCode, KeyEvent event) {
 }
 ```
 
-If you app uses AndroidX `AppCompat` 1.6.0+, you can simplify the previous
+If your app uses AndroidX `AppCompat` 1.6.0+, you can simplify the previous
 snippet even more:
 
 ### Kotlin

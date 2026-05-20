@@ -62,21 +62,41 @@ of depth estimates.
 > [!NOTE]
 > **Note:** Enabling any depth estimation mode requires the `android.permission.SCENE_UNDERSTANDING_FINE` [runtime permission](https://developer.android.com/training/permissions/requesting) to be granted to your app.
 
+## Check for depth map capabilities
+
+Different devices have different capabilities. Devices with a stereo camera
+configuration may provide depth estimation maps for the left and right cameras.
+Likewise, devices with a singular camera can only provide depth estimation maps
+for the mono camera.
+
+To check which depth maps are supported by the device, use
+`XrDevice.isRenderingModeSupported`:
+
+
+```kotlin
+val xrDevice = XrDevice.getCurrentDevice(context)
+val hasMonoDepth = xrDevice.isRenderingModeSupported(RenderingMode.MONO)
+val hasStereoDepth = xrDevice.isRenderingModeSupported(RenderingMode.STEREO)
+```
+
+<br />
+
 ## Retrieve depth data
 
 To obtain depth data for a given camera, use [`DepthMap`](https://developer.android.com/reference/kotlin/androidx/xr/arcore/DepthMap):
 
 
 ```kotlin
-val depthMap = DepthMap.left(session) ?: return
+if (hasStereoDepth) {
+    val depthMap = Depth.left(session)
+}
 ```
 
 <br />
 
-Different devices have different capabilities. Devices with a stereo camera
-configuration return non-null depth maps for the `left` and `right` cameras.
-Likewise, devices with a singular camera return a non-null depth map using
-`mono`.
+> [!NOTE]
+> **Note:** Accessing an unsupported depth map will throw `IllegalStateException`. Before calling `Depth.left` or a similar function, [check for supported depth
+> capabilities](https://developer.android.com/develop/xr/jetpack-xr-sdk/arcore/depth#check-depth-capabilities).
 
 ## Calculate depth values
 
@@ -84,7 +104,9 @@ You can obtain depth and confidence values from the resulting depth map:
 
 
 ```kotlin
-val depthMap = DepthMap.left(session) ?: return
+if (hasStereoDepth) {
+    val depthMap = Depth.left(session)
+}
 ```
 
 <br />

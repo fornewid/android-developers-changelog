@@ -26,9 +26,8 @@ the Google Play Store, see [Package and distribute Wear OS Apps](https://develop
 
 For new apps, the target API level must be 34 or higher. For more information, see
 [Meet Google Play's target API
-level requirement](https://developer.android.com/google/play/requirements/target-sdk). Set the
-`targetSdkVersion` to API level 30 (Wear OS 3) to help ensure that your app works well
-on the latest platform version.
+level requirement](https://developer.android.com/google/play/requirements/target-sdk). Targeting the most recent available API level helps ensure that your app works well
+on current platform versions.
 
 
 For information about network requests and high-bandwidth network access,
@@ -220,7 +219,7 @@ phone app. Follow these steps:
    opening of the App Store.
 
 
-**Note** : Use the `RemoteActivityHelper` API previously described to
+**Note** : Use the `RemoteActivityHelper` API as described in the preceding section to
 specify that any URL be opened on the phone from the watch,
 and that no phone app is required.
 
@@ -240,7 +239,7 @@ method is one of the following:
 
 | **Return value** | **Description** |
 |---|---|
-| [`DEVICE_TYPE_ANDROID`](https://developer.android.com/reference/kotlin/androidx/wear/phone/interactions/PhoneTypeHelper#DEVICE_TYPE_ANDROID()) | The companion phone is an Android device. |
+| [`DEVICE_TYPE_ANDROID`](https://developer.android.com/reference/kotlin/androidx/wear/phone/interactions/PhoneTypeHelper#DEVICE_TYPE_ANDROID()) | The companion phone is an Android-powered device. |
 | [`DEVICE_TYPE_IOS`](https://developer.android.com/reference/kotlin/androidx/wear/phone/interactions/PhoneTypeHelper#DEVICE_TYPE_IOS()) | The companion phone is an iOS device. |
 | [`DEVICE_TYPE_UNKNOWN`](https://developer.android.com/reference/kotlin/androidx/wear/phone/interactions/PhoneTypeHelper#DEVICE_TYPE_UNKNOWN()) | The companion phone is an unknown device. |
 | [`DEVICE_TYPE_ERROR`](https://developer.android.com/reference/kotlin/androidx/wear/phone/interactions/PhoneTypeHelper#DEVICE_TYPE_ERROR()) | An error occurred in determining the type of the paired phone; another check should be made later. |

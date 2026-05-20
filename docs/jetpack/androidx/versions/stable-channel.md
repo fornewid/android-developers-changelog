@@ -19,6 +19,17 @@ see the [versions page](https://developer.android.com/jetpack/androidx/versions)
 The first stable release of AndroidX 1.0.0 suitable for use in
 production was released on September 21, 2018.
 
+## May 19, 2026
+
+- [Compose Animation Version 1.11.2](https://developer.android.com/jetpack/androidx/releases/compose-animation#1.11.2)
+- [Compose Foundation Version 1.11.2](https://developer.android.com/jetpack/androidx/releases/compose-foundation#1.11.2)
+- [Compose Material Version 1.11.2](https://developer.android.com/jetpack/androidx/releases/compose-material#1.11.2)
+- [Compose Runtime Version 1.11.2](https://developer.android.com/jetpack/androidx/releases/compose-runtime#1.11.2)
+- [Compose UI Version 1.11.2](https://developer.android.com/jetpack/androidx/releases/compose-ui#1.11.2)
+- [Navigation3 Version 1.1.2](https://developer.android.com/jetpack/androidx/releases/navigation3#1.1.2)
+- [Savedstate Version 1.5.0](https://developer.android.com/jetpack/androidx/releases/savedstate#1.5.0)
+- [Wear Compose Version 1.6.2](https://developer.android.com/jetpack/androidx/releases/wear-compose#1.6.2)
+
 ### May 16, 2026
 
 - [Media3 Version 1.9.4](https://developer.android.com/jetpack/androidx/releases/media3#1.9.4)

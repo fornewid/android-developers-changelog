@@ -16,7 +16,7 @@ APIs. Because Android ships at a slower cadence than WebView, Android APIs might
 not cover every available WebView feature. This leads to slower feature rollout
 and increased testing costs.
 
-Jetpack Webkit solves these problem by acting as a compatibility layer and
+Jetpack Webkit solves these problems by acting as a compatibility layer and
 leveraging the up-to-date WebView APK on the user's device. It also contains new
 and modern APIs that are exclusively available in this library.
 

@@ -45,9 +45,10 @@ Google Play Console to enable additional features and request increased
 daily API quota.
 
 1. Open the [Google Play Console](https://play.google.com/console/developers) and select your app.
-2. Navigate to **Test and release** \> **[App integrity](https://play.google.com/console/developers/app/app-integrity/overview)**.
-3. Under **Play Integrity API** click **Link a Cloud project**.
-4. Choose the Google Cloud project you plan to use with the Play Integrity API; if the Play Integrity API is not already enabled for the project, it will be enabled automatically upon linking.
+2. Navigate to **[Protected with Play](https://play.google.com/console/developers/app/protect-with-play)**.
+3. Next to **Play Integrity API** , click the **Get started** button to go to **Play Integrity API settings**.
+4. Click the **Link Cloud project** button.
+5. Choose the Google Cloud project you plan to use with the Play Integrity API; if the Play Integrity API is not already enabled for the project, it will be enabled automatically upon linking.
 
 ### For SDK providers on Play SDK Console
 
@@ -271,9 +272,7 @@ If you have linked your Cloud project in the Play Console or
 Play SDK Console, you can opt in to receive additional information.
 
 To make changes, visit the Play Console and navigate to
-**Test and release** \> **App integrity** . Next to **Play Integrity API** click
-**[Settings](https://play.google.com/console/developers/app/app-integrity/integrity-api-settings)** . Click **Change responses**, edit and save your
-changes.
+**Protected with Play** . Next to **Play Integrity API** , click **[Manage](https://play.google.com/console/developers/app/app-integrity/integrity-api-settings)** . Click **Change responses**, edit and save your changes.
 
 > [!CAUTION]
 > **Caution:** Changes to integrity responses take effect immediately, including for apps and SDKs in production. Make sure your server is prepared to accept new responses before saving changes.
@@ -390,8 +389,8 @@ integrity tokens on Google Play's servers to avoid disruption.
 ### Switch between Google-managed and self-managed encryption keys
 
 1. Open the **Play Console** and select your app .
-2. Go to **Test and release** \> **App integrity**.
-3. Next to **Play Integrity API** , click **[Settings](https://play.google.com/console/developers/app/app-integrity/integrity-api-settings)**.
+2. Go to **Protected with Play**.
+3. Next to **Play Integrity API** , click **[Manage](https://play.google.com/console/developers/app/app-integrity/integrity-api-settings)**.
 4. Under **Classic requests** , next to **Response encryption** , click **Edit**.
 
 To switch to self-managed keys:

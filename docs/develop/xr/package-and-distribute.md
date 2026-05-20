@@ -4,6 +4,13 @@ url: https://developer.android.com/develop/xr/package-and-distribute
 source: md.txt
 ---
 
+<br />
+
+
+Applicable XR devices This guidance helps you build experiences for these types of XR devices. [Learn about XR device types →](https://developer.android.com/develop/xr/devices) ![](https://developer.android.com/static/images/develop/xr/xr-headsets-icon.svg) XR Headsets [](https://developer.android.com/develop/xr/devices#xr-headsets) ![](https://developer.android.com/static/images/develop/xr/xr-glasses-icon.svg) Wired XR Glasses [](https://developer.android.com/develop/xr/devices#xr-glasses) [Learn about XR device types →](https://developer.android.com/develop/xr/devices)
+
+<br />
+
 Through Google Play, Android XR brings a wide variety of apps and experiences to
 XR headsets, ranging from the existing catalog of mobile apps to spatialized and
 immersive XR experiences.
@@ -13,8 +20,8 @@ users through Google Play. Be sure to read the [Android XR app quality
 guidelines](https://developer.android.com/docs/quality-guidelines/android-xr) for information on usability and quality standards.
 
 > [!IMPORTANT]
-> **Important:** App distribution through the Google Play Store is only available for [immersive app experiences](https://developer.android.com/develop/xr/explore/immersive) on XR headsets and wired XR glasses devices. For [augmented experiences on AI glasses](https://developer.android.com/develop/xr/explore/augmented), [get started developing](https://developer.android.com/develop/xr/jetpack-xr-sdk/ai-glasses/build), [run and
-> debug your app](https://developer.android.com/develop/xr/jetpack-xr-sdk/run/augmented) on the Android XR emulator, and stay tuned for more updates on distribution in the future.
+> **Important:** App distribution through the Google Play Store is only available for [immersive app experiences](https://developer.android.com/develop/xr/explore/immersive) on XR headsets and wired XR glasses devices. For [augmented experiences on audio glasses and display glasses](https://developer.android.com/develop/xr/explore/augmented), [get started
+> developing](https://developer.android.com/develop/xr/jetpack-xr-sdk/ai-glasses/build), [run and debug your app](https://developer.android.com/develop/xr/jetpack-xr-sdk/run/augmented) on the Android XR emulator, and stay tuned for more updates on distribution in the future.
 
 Follow this guidance to:
 

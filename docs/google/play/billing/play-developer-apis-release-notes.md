@@ -6,11 +6,21 @@ source: md.txt
 
 This document contains release notes for the Google Play Developer APIs.
 
+## May 19, 2026
+
+### New features
+
+- **Pending order ID** : The [SubscriptionPurchaseV2](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.subscriptionsv2/get) API now includes `onHoldStateContext` and `inGracePeriodStateContext` fields. These fields provide additional details, such as the pending or failed order ID, when a subscription enters the `ON_HOLD` or `IN_GRACE_PERIOD` state due to a declined renewal payment.
+
+### Deprecations
+
+- Some of the subscription APIs are deprecated. For more information, see [May 2026 Subscription API deprecation](https://developer.android.com/google/play/billing/play-developer-apis-deprecations#may19-2026-api-deprecation).
+
 ## January 27, 2026
 
 ### New features
 
-- **Subscription with add-ons deferral:** Previously, the Google Play
+- **Subscription with add-ons deferral** : Previously, the Google Play
   Developer API allowed deferral of billing only for single subscriptions.
   The deferral functionality is now available for both single subscriptions
   and subscriptions with add-ons through the

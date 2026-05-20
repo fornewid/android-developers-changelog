@@ -6,9 +6,10 @@ source: md.txt
 
 # Slidingpanelayout
 
-API Reference  
-[androidx.slidingpanelayout.widget](https://developer.android.com/reference/kotlin/androidx/slidingpanelayout/widget/package-summary)  
 Implement a sliding pane UI pattern.
+
+> [!CAUTION]
+> **Caution:** This library is in maintenance mode and will only receive critical fixes; new features are not planned. We recommend using [Jetpack Compose](https://developer.android.com/jetpack/compose) for building Android UIs. See [Compose-first](https://developer.android.com/develop/ui/compose/first) for more information.
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|

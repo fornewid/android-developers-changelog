@@ -8,6 +8,9 @@ source: md.txt
 
 [User Guide](https://developer.android.com/guide/topics/ui/settings) [Code Sample](https://github.com/android/user-interface-samples/tree/main/Preferences) Build interactive settings screens without needing to interact with device storage or manage the UI.
 
+> [!CAUTION]
+> **Caution:** This library is in maintenance mode and will only receive critical fixes; new features are not planned. We recommend using [Jetpack Compose](https://developer.android.com/jetpack/compose) for building Android UIs. See [Compose-first](https://developer.android.com/develop/ui/compose/first) for more information.
+
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
 | July 26, 2023 | [1.2.1](https://developer.android.com/jetpack/androidx/releases/preference#1.2.1) | - | - | - |

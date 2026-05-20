@@ -78,6 +78,21 @@ The tools are ready, and the users are waiting. We can't wait to see what you bu
 
 ## Continue reading
 
+- [![](https://developer.android.com/static/blog/assets/John_Zoeller_photo_15badd5d35_aN1yx.webp)](https://developer.android.com/blog/authors/john-zoeller) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Developer_Blog_2_1_1440x720_6_64da0326e3_Z1M1YEl.webp)
+
+  #### [Product News](https://developer.android.com/blog/categories/product-news)
+
+  ## [What's New in Wear OS 7](https://developer.android.com/blog/posts/what-s-new-in-wear-os-7)
+
+  [arrow_forward](https://developer.android.com/blog/posts/what-s-new-in-wear-os-7) We are excited to introduce Wear OS 7, a major update that brings a new era of power efficiency and intelligence to users and developers alike.
+
+  ###### [John Zoeller](https://developer.android.com/blog/authors/john-zoeller) •
+  9 min read
+
+  - [#AppFunctions](https://developer.android.com/blog/topics/app-functions)
+  - [#Wear OS](https://developer.android.com/blog/topics/wear-os)
+  - [#Compose](https://developer.android.com/blog/topics/compose)
+  - +1 ↩
 - [![](https://developer.android.com/static/blog/assets/don_bccb8c3f75_1ufD8A.webp)](https://developer.android.com/blog/authors/don-turner) 19 Nov 2025 19 Nov 2025 ![](https://developer.android.com/static/blog/assets/jetpack_navigation_d1257f9ca2_Z1dRNOI.webp)
 
   #### [Product News](https://developer.android.com/blog/categories/product-news)
@@ -101,17 +116,6 @@ The tools are ready, and the users are waiting. We can't wait to see what you bu
 
   ###### [Fahd Imtiaz](https://developer.android.com/blog/authors/fahd-imtiaz), [Miguel Montemayor](https://developer.android.com/blog/authors/miguel-montemayor) •
   3 min read
-
-- [![](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z15U8cx.webp)](https://developer.android.com/blog/authors/fahd-imtiaz) 10 Jun 2025 10 Jun 2025 ![](https://developer.android.com/static/blog/assets/across_Devices_1742e15ff4_ZE5L7I.webp)
-
-  #### [Product News](https://developer.android.com/blog/categories/product-news)
-
-  ## [A product manager's guide to adapting Android apps across devices](https://developer.android.com/blog/posts/product-manager-guide-to-adapting-android-apps-across-devices)
-
-  [arrow_forward](https://developer.android.com/blog/posts/product-manager-guide-to-adapting-android-apps-across-devices) This includes the start of Android 16's rollout, with details for both developers and users, a Developer Preview for enhanced Android desktop experiences with connected displays, and updates for Android users across Google apps and more, plus the June Pixel Drop.
-
-  ###### [Fahd Imtiaz](https://developer.android.com/blog/authors/fahd-imtiaz) •
-  6 min read
 
 # Stay in the loop
 

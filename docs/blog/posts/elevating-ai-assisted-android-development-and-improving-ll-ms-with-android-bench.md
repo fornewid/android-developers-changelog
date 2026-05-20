@@ -59,6 +59,18 @@ We're looking forward to how [Android Bench](http://d.android.com/bench) can imp
 
 ## Continue reading
 
+- [![](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Text_Strapi_2000x1000_2d4221d884_ZtW7eg.webp)
+
+  #### [Product News](https://developer.android.com/blog/categories/product-news)
+
+  ## [17 Things to know for Android developers at Google I/O!](https://developer.android.com/blog/posts/17-things-to-know-for-android-developers-at-google-i-o)
+
+  [arrow_forward](https://developer.android.com/blog/posts/17-things-to-know-for-android-developers-at-google-i-o) Google I/O '26 features 17 key announcements for Android developers focusing on agent-led productivity, Compose First as our UI standard, and high-performance media and adaptive development for the expanding ecosystem.
+
+  ###### [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) •
+  8 min read
+
+  - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
 - [![](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 12 May 2026 12 May 2026 ![](https://developer.android.com/static/blog/assets/Tas_Developers_cut_Strapi_3636223c9c_Z2pmmBN.webp)
 
   #### [Product News](https://developer.android.com/blog/categories/product-news)
@@ -83,19 +95,6 @@ We're looking forward to how [Android Bench](http://d.android.com/bench) can imp
   2 min read
 
   - [#Android Studio](https://developer.android.com/blog/topics/android-studio)
-- [![](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 26 Mar 2026 26 Mar 2026 ![](https://developer.android.com/static/blog/assets/android17banner_359909419a_Z1HMAIH.webp)
-
-  #### [Product News](https://developer.android.com/blog/categories/product-news)
-
-  ## [The Third Beta of Android 17](https://developer.android.com/blog/posts/the-third-beta-of-android-17)
-
-  [arrow_forward](https://developer.android.com/blog/posts/the-third-beta-of-android-17) Android 17 has officially reached platform stability today with Beta 3. That means that the API surface is locked; you can perform final compatibility testing and push your Android 17-targeted apps to the Play Store.
-
-  ###### [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) •
-  5 min read
-
-  - [#Android 17](https://developer.android.com/blog/topics/android-17)
-  - [#beta](https://developer.android.com/blog/topics/beta)
 
 # Stay in the loop
 

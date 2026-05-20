@@ -17,7 +17,7 @@ whether the app contains two DEX files after enabling the Startup Profile.
 Android Studio warns you if the startup classes don't fit in a single DEX file.
 To get diagnostic information that includes the amount of non-startup methods in
 the startup classes, make sure the R8 compiler is updated to at least version
-8.3.36-dev by making the following changes to the `settings.gradle` file when
+8.3.21 by making the following changes to the `settings.gradle` file when
 you apply the Startup Profile:
 
 ### Kotlin
@@ -32,7 +32,7 @@ pluginManagement {
             }
         }
         dependencies {
-            classpath("com.android.tools:r8:8.3.6-dev")
+            classpath("com.android.tools:r8:8.3.21")
         }
     }
 }

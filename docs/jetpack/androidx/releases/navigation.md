@@ -8,9 +8,12 @@ source: md.txt
 
 [User Guide](https://developer.android.com/guide/navigation) [Code Sample](https://github.com/android/architecture-components-samples) [Codelab](https://codelabs.developers.google.com/codelabs/android-navigation) Navigation is a framework for navigating between 'destinations' within an Android application that provides a consistent API whether destinations are implemented as Fragments, Activities, or other components.
 
+> [!CAUTION]
+> **Caution:** This library is in maintenance mode and will only receive critical fixes; new features are not planned. We recommend using [Jetpack Compose](https://developer.android.com/jetpack/compose) for building Android UIs. See [Compose-first](https://developer.android.com/develop/ui/compose/first) for more information.
+
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| May 06, 2026 | [2.9.8](https://developer.android.com/jetpack/androidx/releases/navigation#2.9.8) | - | - | [2.10.0-alpha04](https://developer.android.com/jetpack/androidx/releases/navigation#2.10.0-alpha04) |
+| May 19, 2026 | [2.9.8](https://developer.android.com/jetpack/androidx/releases/navigation#2.9.8) | - | - | [2.10.0-alpha05](https://developer.android.com/jetpack/androidx/releases/navigation#2.10.0-alpha05) |
 
 ## Declaring dependencies
 
@@ -173,6 +176,12 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Navigation Version 2.10
+
+### Version 2.10.0-alpha05
+
+May 19, 2026
+
+`androidx.navigation:navigation-*:2.10.0-alpha05` is released. Version 2.10.0-alpha05 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/0c82232cfb54d1dcc3ad73598fcc81ceff9b88d6..ed0627453f51baab21d30d8ca8f74a50ff1cfa7a/navigation).
 
 ### Version 2.10.0-alpha04
 

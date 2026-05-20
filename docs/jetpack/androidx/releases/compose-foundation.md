@@ -10,7 +10,7 @@ source: md.txt
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| May 06, 2026 | [1.11.1](https://developer.android.com/jetpack/androidx/releases/compose-foundation#1.11.1) | - | - | [1.12.0-alpha02](https://developer.android.com/jetpack/androidx/releases/compose-foundation#1.12.0-alpha02) |
+| May 19, 2026 | [1.11.2](https://developer.android.com/jetpack/androidx/releases/compose-foundation#1.11.2) | - | - | [1.12.0-alpha03](https://developer.android.com/jetpack/androidx/releases/compose-foundation#1.12.0-alpha03) |
 
 ## Structure
 
@@ -43,7 +43,7 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.compose.foundation:foundation:1.11.1"
+    implementation "androidx.compose.foundation:foundation:1.11.2"
 }
 
 android {
@@ -65,7 +65,7 @@ android {
 
 ```kotlin
 dependencies {
-    implementation("androidx.compose.foundation:foundation:1.11.1")
+    implementation("androidx.compose.foundation:foundation:1.11.2")
 }
 
 android {
@@ -99,6 +99,22 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.12
+
+### Version 1.12.0-alpha03
+
+May 19, 2026
+
+`androidx.compose.foundation:foundation-*:1.12.0-alpha03` is released. Version 1.12.0-alpha03 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/e29a10982f4299b1fa812e229d76792092a62814..8dbbb98c1e39cf64f9d1d51bf26d9347a1a5c447/compose/foundation).
+
+**API Changes**
+
+- In the experimental Style API, added support for creating custom style types that can have custom style scopes. This allows subsetting the properties settable by a style (such as removing the graphics layer or text properties entirely) as well as allowing the scope to be extended independently of other styles (such as only supporting the `playing { }` syntax in a `MediaPlayer` composable). This change breaks binary and source compatibility. The primary change that breaks source compatibility is that helper functions in the `StyleScope` have moved to be extension functions (e.g. `fun contentProperty(all: Dp)` is now an extension function). Either importing the required extension functions or by importing all symbols from androidx.compose.foundation.styles should be all that is required get code that calls these methods to compile correctly. ([I1ef27](https://android-review.googlesource.com/#/q/I1ef2747803fb7ee7474aebe21af3968fe25d5c40), [b/493676648](https://issuetracker.google.com/issues/493676648)).
+- `ScrollIndicatorState` implementations now correctly return the scroll offset from the visual start for reversed layouts, ensuring correct visual presentation of indicators. ([Ia3fae](https://android-review.googlesource.com/#/q/Ia3fae3a69fd207a3338f7063bafaefb44b164a69), [b/503604996](https://issuetracker.google.com/issues/503604996))
+- Added flag `isClearNestedScrollCoroutineScopeFixEnabled` to control the fix. ([Ibd394](https://android-review.googlesource.com/#/q/Ibd394d3e330fc12b4ed3e12813118cf791eb743b), [b/505343254](https://issuetracker.google.com/issues/505343254))
+
+**External Contribution**
+
+- Enabled auto-scrolling when dragging text selection beyond the viewport in `SelectionContainer`. ([Ibcb08](https://android-review.googlesource.com/#/q/Ibcb0802936c852a05fc6c7a05786c4fb6b085bff), [b/424433794](https://issuetracker.google.com/issues/424433794))
 
 ### Version 1.12.0-alpha02
 
@@ -140,6 +156,12 @@ April 22, 2026
 - When a user moves the cursor outside the scrollable area, the cursor is now scrolled into the visible space. ([If694c](https://android-review.googlesource.com/#/q/If694c0325af3704dda197b33f027946fcc69e658), [b/266094055](https://issuetracker.google.com/issues/266094055))
 
 ## Version 1.11
+
+### Version 1.11.2
+
+May 19, 2026
+
+`androidx.compose.foundation:foundation-*:1.11.2` is released. Version 1.11.2 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/5d39d0c458dbf0b3791cfaba65f42a27e442c15f..f024db30e2eb34d643af9804ac0650840a49a05c/compose/foundation).
 
 ### Version 1.11.1
 

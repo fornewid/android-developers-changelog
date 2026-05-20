@@ -1,57 +1,42 @@
 ---
-title: Nick Butcher  |  Android Developers' Blog
+title: https://developer.android.com/blog/authors/nick-butcher
 url: https://developer.android.com/blog/authors/nick-butcher
-source: html-scrape
+source: md.txt
 ---
 
-* [Android Developers](https://developer.android.com/)
-* [Android Developers' Blog](https://developer.android.com/)
-* [Blog](https://developer.android.com/blog)
+## 2
 
-Stay organized with collections
-
-Save and categorize content based on your preferences.
-
-
-
-## 1
-
-post
-
-![](/static/blog/assets/Nick_Butcher_5393f4552a_19h6h7.webp)
+posts ![](https://developer.android.com/static/blog/assets/Nick_Butcher_5393f4552a_19h6h7.webp)
 
 # Nick Butcher
 
 ###### Product Manager
 
-* 03
+- 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Compose_first_Meta_04fd0498ba_1T1vC6.webp)
 
-  Dec
-  2025
+  #### [Product News](https://developer.android.com/blog/categories/product-news)
 
-  03
+  ## [Android UI Development is Compose First](https://developer.android.com/blog/posts/android-ui-development-is-compose-first)
 
-  Dec
-  2025
+  [arrow_forward](https://developer.android.com/blog/posts/android-ui-development-is-compose-first) In the almost-5-years since Jetpack Compose launched, we've invested in bringing you all the features, performance and tools that you need to build amazing UIs across the variety of Android devices.
 
-  ![](/static/blog/assets/jetpack_Compose_99733114d6_Z2c0xrB.webp)
+  ###### 2 min read
 
-  #### [Product News](/blog/categories/product-news)
+  - [#Adaptive \& Differentiated](https://developer.android.com/blog/topics/adaptive-and-differentiated)
+- 03 Dec 2025 03 Dec 2025 ![](https://developer.android.com/static/blog/assets/jetpack_Compose_99733114d6_Z2c0xrB.webp)
 
-  ## [What's new in the Jetpack Compose December '25 release](/blog/posts/whats-new-in-the-jetpack-compose-december-release)
+  #### [Product News](https://developer.android.com/blog/categories/product-news)
 
-  [arrow\_forward](/blog/posts/whats-new-in-the-jetpack-compose-december-release)
+  ## [What's new in the Jetpack Compose December '25 release](https://developer.android.com/blog/posts/whats-new-in-the-jetpack-compose-december-release)
 
-  Today, the Jetpack Compose December ‘25 release is stable. This contains version 1.10 of the core Compose modules and version 1.4 of Material 3, adding new features and major performance improvements.
+  [arrow_forward](https://developer.android.com/blog/posts/whats-new-in-the-jetpack-compose-december-release) Today, the Jetpack Compose December '25 release is stable. This contains version 1.10 of the core Compose modules and version 1.4 of Material 3, adding new features and major performance improvements.
 
   ###### 6 min read
 
 # Stay in the loop
 
+
 Get the latest Android development insights delivered to your inbox
 weekly.
-
 [mail
-Subscribe](/subscribe)
-
-![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)

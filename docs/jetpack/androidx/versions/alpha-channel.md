@@ -16,6 +16,40 @@ to 2018.
 To view the current versions for every component,
 see the [versions page](https://developer.android.com/jetpack/androidx/versions).
 
+## May 19, 2026
+
+- [Car App Version 1.9.0-alpha01](https://developer.android.com/jetpack/androidx/releases/car-app#1.9.0-alpha01)
+- [Compose Animation Version 1.12.0-alpha03](https://developer.android.com/jetpack/androidx/releases/compose-animation#1.12.0-alpha03)
+- [Compose Foundation Version 1.12.0-alpha03](https://developer.android.com/jetpack/androidx/releases/compose-foundation#1.12.0-alpha03)
+- [Compose Material 3 Version 1.5.0-alpha20](https://developer.android.com/jetpack/androidx/releases/compose-material3#1.5.0-alpha20)
+- [Compose Material Version 1.12.0-alpha03](https://developer.android.com/jetpack/androidx/releases/compose-material#1.12.0-alpha03)
+- [Compose Remote Version 1.0.0-alpha11](https://developer.android.com/jetpack/androidx/releases/compose-remote#1.0.0-alpha11)
+- [Compose Runtime Version 1.12.0-alpha03](https://developer.android.com/jetpack/androidx/releases/compose-runtime#1.12.0-alpha03)
+- [Compose UI Version 1.12.0-alpha03](https://developer.android.com/jetpack/androidx/releases/compose-ui#1.12.0-alpha03)
+- [Glance Version 1.3.0-alpha01](https://developer.android.com/jetpack/androidx/releases/glance#1.3.0-alpha01)
+- [Ink Version 1.1.0-alpha03](https://developer.android.com/jetpack/androidx/releases/ink#1.1.0-alpha03)
+- [Junit-gtest Version 1.0.0-alpha03](https://developer.android.com/jetpack/androidx/releases/test-ext#junit-gtest-1.0.0-alpha03)
+- [Leanback Version 1.3.0-alpha01](https://developer.android.com/jetpack/androidx/releases/leanback#leanback-1.3.0-alpha01)
+- [Leanback-grid Version 1.1.0-alpha01](https://developer.android.com/jetpack/androidx/releases/leanback#leanback-grid-1.1.0-alpha01)
+- [Navigation Version 2.10.0-alpha05](https://developer.android.com/jetpack/androidx/releases/navigation#2.10.0-alpha05)
+- [Navigation3 Version 1.2.0-alpha03](https://developer.android.com/jetpack/androidx/releases/navigation3#1.2.0-alpha03)
+- [Room3 Version 3.0.0-alpha05](https://developer.android.com/jetpack/androidx/releases/room3#3.0.0-alpha05)
+- [Sqlite Version 2.7.0-alpha05](https://developer.android.com/jetpack/androidx/releases/sqlite#2.7.0-alpha05)
+- [Tracing Version 2.0.0-alpha08](https://developer.android.com/jetpack/androidx/releases/tracing#2.0.0-alpha08)
+- [Uwb Uwb-rxjava3 Version 1.1.0-alpha01](https://developer.android.com/jetpack/androidx/releases/core-uwb#1.1.0-alpha01)
+- [Wear Compose Remote Version 1.0.0-alpha04](https://developer.android.com/jetpack/androidx/releases/wear-compose-remote#1.0.0-alpha04)
+- [Wear Compose Version 1.7.0-alpha03](https://developer.android.com/jetpack/androidx/releases/wear-compose#1.7.0-alpha03)
+- [Wear Wear-core Wear-tooling-preview Version 1.0.0-alpha10](https://developer.android.com/jetpack/androidx/releases/glance-wear#1.0.0-alpha10)
+- [Wear-remote-interactions Version 1.3.0-alpha01](https://developer.android.com/jetpack/androidx/releases/wear#wear-remote-interactions-1.3.0-alpha01)
+- [Webkit Version 1.17.0-alpha01](https://developer.android.com/jetpack/androidx/releases/webkit#1.17.0-alpha01)
+- [Xr Arcore Version 1.0.0-alpha14](https://developer.android.com/jetpack/androidx/releases/xr-arcore#1.0.0-alpha14)
+- [Xr Compose Material3 Version 1.0.0-alpha17](https://developer.android.com/jetpack/androidx/releases/xr-compose-material3#1.0.0-alpha17)
+- [Xr Compose Version 1.0.0-alpha14](https://developer.android.com/jetpack/androidx/releases/xr-compose#1.0.0-alpha14)
+- [Xr Glimmer Version 1.0.0-alpha13](https://developer.android.com/jetpack/androidx/releases/xr-glimmer#1.0.0-alpha13)
+- [Xr Projected Version 1.0.0-alpha08](https://developer.android.com/jetpack/androidx/releases/xr-projected#1.0.0-alpha08)
+- [Xr Runtime Version 1.0.0-alpha14](https://developer.android.com/jetpack/androidx/releases/xr-runtime#1.0.0-alpha14)
+- [Xr Scenecore Version 1.0.0-alpha15](https://developer.android.com/jetpack/androidx/releases/xr-scenecore#1.0.0-alpha15)
+
 ## May 06, 2026
 
 - [Appfunctions Version 1.0.0-alpha09](https://developer.android.com/jetpack/androidx/releases/appfunctions#1.0.0-alpha09)

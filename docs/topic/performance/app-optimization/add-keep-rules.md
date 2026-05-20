@@ -71,7 +71,7 @@ table:
 | Value | Description |
 |---|---|
 | `allowoptimization` | Allows optimization of the specified elements. However, the specified elements are not renamed or removed. |
-| `allowobfucastion` | Allows renaming of the specified elements. However, the elements are not be removed or otherwise optimized. |
+| `allowobfuscation` | Allows renaming of the specified elements. However, the elements are not be removed or otherwise optimized. |
 | `allowshrinking` | Allows removal of the specified elements if R8 finds no references to them. However, the elements are not renamed or otherwise optimized. |
 | `includedescriptorclasses` | Instructs R8 to keep all classes that appear in the descriptors of the methods (parameter types and return types) and fields (field types) being kept. |
 | `allowaccessmodification` | Allows R8 to change (typically widen) the access modifiers (`public`, `private`, `protected`) of classes, methods, and fields during the optimization process. |

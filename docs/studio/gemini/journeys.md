@@ -5,7 +5,7 @@ source: md.txt
 ---
 
 > [!WARNING]
-> **Preview:** Journeys for Android Studio are available as a Studio Labs feature starting from Android Studio Otter 3 Feature Drop \| 2025.2.3. To enable it, go to **Studio Labs** in the settings menu.
+> **Preview:** Journeys for Android Studio is available as a Studio Labs feature starting from Android Studio Otter 3 Feature Drop \| 2025.2.3. To enable it, go to **Studio Labs** in the settings menu. To use Journeys with any agent from the command line, see [Android CLI support for Journeys](https://developer.android.com/tools/agents/android-cli/journeys).
 
 Journeys for Android Studio leverages the vision and reasoning capabilities of
 AI to navigate and test your app based on your natural language instructions.
@@ -178,65 +178,7 @@ updated your app to Android Gradle Plugin 9.0.0 or higher.
 
 ### Run a journey from the command line
 
-You can also run a journey from the command line as a Gradle task.
-
-#### Setup
-
-You will need to authenticate to Google Cloud to use Journeys from the command
-line.
-
-**Note:** These steps use the gcloud CLI to provide user credentials, which
-might not apply to all development environments. For more information about what
-authentication process to use for your needs, see
-[How Application Default Credentials works](https://cloud.google.com/docs/authentication/application-default-credentials).
-
-To install the Google Cloud CLI, follow the steps at
-[Install the gcloud CLI](https://cloud.google.com/sdk/docs/install).
-
-You also need to make sure that the **IAM Service Account Credentials API** is
-enabled for your Google Cloud project. Then, authenticate using one of the
-following methods:
-
-**For user credentials**
-
-You can authorize manually by using the following terminal command:
-
-    gcloud auth application-default login
-
-**For service account credentials**
-
-If you haven't already done so, follow the guide to
-[create service account credentials](https://cloud.google.com/docs/authentication/set-up-adc-local-dev-environment#service-account) for your project.
-
-- Make sure that your admin user and your service account have the `Service Account Token Creator` permission granted.
-
-To authenticate, run the following command:
-
-    gcloud auth application-default login --impersonate-service-account SERVICE_ACCOUNT_EMAIL
-
-#### Run as a Gradle task
-
-Run journeys by directly executing the Gradle task on the command line. After
-running the task, test results will appear in the logs, and HTML and XML test
-result files will be generated.
-
-**To run all journeys**
-You can run all journeys in the test suite with the following command.
-
-    ./gradlew :app:testJourneysTestDefaultDebugTestSuite
-
-**To run a single journey**
-Use the `JOURNEYS_FILTER` to specify the name of the journey you want to run,
-as follows:
-
-    JOURNEYS_FILTER=your_journey_name.journey.xml ./gradlew :app:testJourneysTestDefaultDebugTestSuite
-
-**To run all journeys in a subdirectory**
-Set the `JOURNEYS_FILTER` to the subdirectory name. For example, the following
-command runs all journeys in the `home` subdirectory within the test suite root
-directory.
-
-    JOURNEYS_FILTER=home ./gradlew :app:testJourneysTestDefaultDebugTestSuite
+To run Journeys from the command line, use [Android CLI](https://developer.android.com/tools/agents/android-cli/journeys).
 
 ## View results
 

@@ -24,6 +24,17 @@ Visit [io.google](https://io.google/2026/register/?utm_source=blogpost&utm_mediu
 
 ## Continue reading
 
+- 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Text_Strapi_2000x1000_2d4221d884_ZtW7eg.webp)
+
+  #### [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs)
+
+  ## [Build for the future with the Android XR Developer Catalyst Program --- Apply now!](https://developer.android.com/blog/posts/build-for-the-future-with-the-android-xr-developer-catalyst-program-apply-now)
+
+  [arrow_forward](https://developer.android.com/blog/posts/build-for-the-future-with-the-android-xr-developer-catalyst-program-apply-now) We're opening applications for the Android XR Developer Catalyst Program, a dedicated initiative to accelerate the development of Android XR apps ready to launch within the next year.
+
+  ###### 1 min read
+
+  - [#Android XR](https://developer.android.com/blog/topics/android-xr)
 - 14 Apr 2026 14 Apr 2026 ![](https://developer.android.com/static/blog/assets/Blog_banner_Dark_2000x1000_B_c6418d3a5c_ZbdvH4.webp)
 
   #### [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs)
@@ -46,17 +57,6 @@ Visit [io.google](https://io.google/2026/register/?utm_source=blogpost&utm_mediu
 
   ###### [Maru Ahues Bouza](https://developer.android.com/blog/authors/maru-ahues-bouza) •
   3 min read
-
-- [![](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 08 Dec 2025 08 Dec 2025 ![](https://developer.android.com/static/blog/assets/xr_Week4_07a795cac6_Z1lA8nY.webp)
-
-  #### [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs)
-
-  ## [Start building for glasses, new devices for Android XR and more in The Android Show \| XR Edition](https://developer.android.com/blog/posts/start-building-for-glasses-new-devices-for-android-xr-and-more-in-the-android-show)
-
-  [arrow_forward](https://developer.android.com/blog/posts/start-building-for-glasses-new-devices-for-android-xr-and-more-in-the-android-show) Today, during The Android Show \| XR Edition, we shared a look at the expanding Android XR platform, which is fundamentally evolving to bring a unified developer experience to the entire XR ecosystem.
-
-  ###### [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) •
-  2 min read
 
 # Stay in the loop
 

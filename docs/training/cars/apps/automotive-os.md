@@ -110,6 +110,9 @@ it requires a template host to function properly:
       ...
     </manifest>
 
+> [!IMPORTANT]
+> **Important:** Media apps using the Car App Library for Android Automotive OS should target `android.software.car.templates_host.media` instead. See [templated media apps on AAOS](https://developer.android.com/training/cars/apps/media#automotive-support) for guidance on if this should be marked as `android:required="true"` or `android:required="false"`.
+
 Additionally, ensure that your app [meets the Google Play feature
 requirements](https://developer.android.com/training/cars/platforms/automotive-os#play-feature-requirements) that apply to all apps built for Android Automotive OS.
 

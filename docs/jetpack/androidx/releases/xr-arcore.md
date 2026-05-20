@@ -13,7 +13,7 @@ Bring digital content into the real world with perception capabilities.
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| May 06, 2026 | - | - | - | [1.0.0-alpha13](https://developer.android.com/jetpack/androidx/releases/xr-arcore#1.0.0-alpha13) |
+| May 19, 2026 | - | - | - | [1.0.0-alpha14](https://developer.android.com/jetpack/androidx/releases/xr-arcore#1.0.0-alpha14) |
 
 
 ## Declaring dependencies
@@ -30,7 +30,7 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.xr.arcore:arcore:1.0.0-alpha13"
+    implementation "androidx.xr.arcore:arcore:1.0.0-alpha14"
 }
 ```
 
@@ -38,7 +38,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.xr.arcore:arcore:1.0.0-alpha13")
+    implementation("androidx.xr.arcore:arcore:1.0.0-alpha14")
 }
 ```
 
@@ -58,6 +58,27 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.0
+
+### Version 1.0.0-alpha14
+
+May 19, 2026
+
+`androidx.xr.arcore:arcore-*:1.0.0-alpha14` is released. Version 1.0.0-alpha14 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/0671e372f2168396421338583e76edca824d7d22..9ddf57f5b4ce98e7df261a3de947540f143fe26c/xr/arcore).
+
+**API Changes**
+
+- Deprecating `GeospatialMode.VPS_AND_GPS` in favor of `GeospatialMode.SPATIAL` and introducing a new lower-power tracking mode, `GeospatialMode.INERTIAL`, which uses only IMU and GPS. ([I1e6cd](https://android-review.googlesource.com/#/q/I1e6cde5e98a05f7e52c6c107d596a004d8158022))
+- Custom anchor exception classes: `AnchorInvalidUuidException`, `AnchorNotAuthorizedException`, `AnchorUnsupportedLocationException`, `AnchorRuntimeFailureException`, and `AnchorUnsupportedObjectException` are now `RuntimeException` instances, not intended to be checked. ([I9356e](https://android-review.googlesource.com/#/q/I9356e4ac3a9d0e612e1c21fd319d7c18460f6c30))
+- Added `ArCoreTestRule` API, including `TestArDevice`, `TestAugmentableObject`, `TestDepthMap`, `TestEye`, `TestFace`, `TestGeospatial`, `TestHand`, `TestPlane`, `TestRenderViewpoint`, \& `TestTrackable` ([I0ad3c](https://android-review.googlesource.com/#/q/I0ad3c7a75510b0078696558fa2e275785c0f3cc5))
+- Removes `AnchorLoadInvalidUuid`, `AnchorCreateUnsupportedObject`, `AnchorCreateUnsupportedLocation`, and `AnchorCreateNotAuthorized`. All of these errors are now exceptions in the runtime. Removes `AnchorCreateIllegalState`. This has been replaced with `AnchorCreateTrackingUnavailable` in most cases. Adds `AnchorException` and derived classes `AnchorInvalidUuidException`, `AnchorNotAuthorizedException`, `AnchorUnsupportedLocationException`, `AnchorRuntimeFailureException`, and `AnchorUnsupportedObjectException`. ([I4c4dd](https://android-review.googlesource.com/#/q/I4c4dd34e8154e9a793160c3c081122b178694108))
+
+**Known Issues**
+
+- Geospatial tracking might be lost during challenging connectivity scenarios when using the `arcore-projected` runtime implementation. Removing this runtime implementation from your application and using `arcore-play-services` instead should address the issue. This will be the default configuration in the next release.
+
+**External Contribution**
+
+- Added `AugmentedImage` API for custom marker tracking ([I0cf09](https://android-review.googlesource.com/#/q/I0cf0953c17e691b1501e08182b3d027efa891753))
 
 ### Version 1.0.0-alpha13
 

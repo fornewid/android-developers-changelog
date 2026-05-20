@@ -7,7 +7,8 @@ source: md.txt
 <br />
 
 
-Applicable XR devices This guidance helps you build experiences for these types of XR devices. [Learn about XR device types →](https://developer.android.com/develop/xr/devices) ![](https://developer.android.com/static/images/develop/xr/ai-glasses-icon.svg) AI Glasses [](https://developer.android.com/develop/xr/devices#ai-glasses) [Learn about XR device types →](https://developer.android.com/develop/xr/devices)
+Applicable XR devices This guidance helps you build experiences for these types of XR devices. [Learn about XR device types →](https://developer.android.com/develop/xr/devices) ![](https://developer.android.com/static/images/develop/xr/ai-glasses-icon.svg) Audio \&  
+Display Glasses [](https://developer.android.com/develop/xr/devices#audio-display) [Learn about XR device types →](https://developer.android.com/develop/xr/devices)
 
 <br />
 
@@ -22,8 +23,8 @@ this permission for your app, see [Request hardware permissions](https://develop
 
 ## Instantiate SpeechRecognizer
 
-Instantiate the `SpeechRecognizer` in your AI glasses activity's
-[`onCreate()`](https://developer.android.com/reference/kotlin/android/app/Activity#onCreate(android.os.Bundle)) method so that it's available for the lifetime of the
+Instantiate the `SpeechRecognizer` in your [projected activity's](https://developer.android.com/develop/xr/jetpack-xr-sdk/glasses/support-different-types#activity-lifecycle)
+[`onCreate`](https://developer.android.com/reference/kotlin/android/app/Activity#onCreate(android.os.Bundle)) method so that it's available for the lifetime of the
 activity:
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,8 +39,8 @@ activity:
 
 ## Configure your RecognitionListener
 
-The [`setRecognitionListener()`](https://developer.android.com/reference/kotlin/android/speech/SpeechRecognizer#setRecognitionListener(android.speech.RecognitionListener)) method lets you specify the object where
-important callbacks are made, such as in [`RecognitionListener.onResults()`](https://developer.android.com/reference/kotlin/android/speech/RecognitionListener#onResults(android.os.Bundle)),
+The [`setRecognitionListener`](https://developer.android.com/reference/kotlin/android/speech/SpeechRecognizer#setRecognitionListener(android.speech.RecognitionListener)) method lets you specify the object where
+important callbacks are made, such as in [`RecognitionListener.onResults`](https://developer.android.com/reference/kotlin/android/speech/RecognitionListener#onResults(android.os.Bundle)),
 which the system calls after it recognizes spoken language.
 
     val recognitionListener = object : RecognitionListener {
@@ -88,7 +89,7 @@ you should take is largely dependent on your usecase.
 ## Start listening
 
 To start listening to the user, specify the [`ACTION_RECOGNIZE_SPEECH`](https://developer.android.com/reference/kotlin/android/speech/RecognizerIntent#ACTION_RECOGNIZE_SPEECH:kotlin.String)
-intent when calling [`startListening()`](https://developer.android.com/reference/kotlin/android/speech/SpeechRecognizer#startListening(android.content.Intent)).
+intent when calling [`startListening`](https://developer.android.com/reference/kotlin/android/speech/SpeechRecognizer#startListening(android.content.Intent)).
 
     override fun onStart() {
         super.onStart()

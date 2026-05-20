@@ -30,11 +30,11 @@ your project.
 ```groovy
 dependencies {
     // Core Navigation 3 APIs
-    implementation "androidx.navigation3:navigation3-runtime:1.2.0-alpha02"
-    implementation "androidx.navigation3:navigation3-ui:1.2.0-alpha02"
+    implementation "androidx.navigation3:navigation3-runtime:1.2.0-alpha03"
+    implementation "androidx.navigation3:navigation3-ui:1.2.0-alpha03"
 
     // Wear OS specific Navigation 3 integration
-    implementation "androidx.wear.compose:compose-navigation3:1.6.1"
+    implementation "androidx.wear.compose:compose-navigation3:1.6.2"
 
     // Kotlinx Serialization for type-safe routing
     implementation "org.jetbrains.kotlinx:kotlinx-serialization-json:1.10.0"
@@ -46,11 +46,11 @@ dependencies {
 ```kotlin
 dependencies {
     // Core Navigation 3 APIs
-    implementation("androidx.navigation3:navigation3-runtime:1.2.0-alpha02")
-    implementation("androidx.navigation3:navigation3-ui:1.2.0-alpha02")
+    implementation("androidx.navigation3:navigation3-runtime:1.2.0-alpha03")
+    implementation("androidx.navigation3:navigation3-ui:1.2.0-alpha03")
 
     // Wear OS specific Navigation 3 integration
-    implementation("androidx.wear.compose:compose-navigation3:1.6.1")
+    implementation("androidx.wear.compose:compose-navigation3:1.6.2")
 
     // Kotlinx Serialization for type-safe routing
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.10.0")

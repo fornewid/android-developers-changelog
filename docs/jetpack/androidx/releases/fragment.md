@@ -12,6 +12,9 @@ source: md.txt
 |---|---|---|---|---|
 | August 13, 2025 | [1.8.9](https://developer.android.com/jetpack/androidx/releases/fragment#1.8.9) | - | - | - |
 
+> [!CAUTION]
+> **Caution:** This library is in maintenance mode and will only receive critical fixes; new features are not planned. We recommend using [Jetpack Compose](https://developer.android.com/jetpack/compose) for building Android UIs. See [Compose-first](https://developer.android.com/develop/ui/compose/first) for more information.
+
 ## Declaring dependencies
 
 To add a dependency on Fragment, you must add the Google Maven repository to your

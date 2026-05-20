@@ -37,8 +37,19 @@ vitals measures only one LMK rate: **User-perceived LMK rate**.
 
 The metric reflects the percentage of your daily active users who experienced
 at least one user-perceived LMK. A user-perceived LMK is an LMK that is likely
-to have been noticed by the user. For example, LMKs that happen while your app
-is displaying an activity or running as a foreground service.
+to have been noticed by the user. For example, this includes LMKs that happen
+while your app is displaying an activity or running as a foreground service.
+These terminations result in an immediate, non-graceful process exit.
+To the end user, it looks like the app crashed, often bypassing standard lifecycle
+state-saving mechanisms and resulting in lost user progress.
+
+Android Vitals focuses on these process terminations because they serve as a
+high-fidelity proxy for memory mismanagement issues. An LMK rate above 1%
+indicates a critical need for immediate action. However, a lower LMK rate
+doesn't necessarily mean the app's memory usage is healthy. That lower rate
+might mean that the LMK daemon is frequently killing processes while they are in
+the background, which degrades "warm start" performance and multitasking
+fluidity.
 
 You can find the metric under the **Stability** section in Android vitals:
 ![](https://developer.android.com/static/topic/performance/vitals/images/lmk-in-vital.png) **Figure 2.** Access **User-perceived LMK rate** in Android vitals.

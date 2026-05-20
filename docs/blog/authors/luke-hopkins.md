@@ -1,80 +1,54 @@
 ---
-title: Luke Hopkins  |  Android Developers' Blog
+title: https://developer.android.com/blog/authors/luke-hopkins
 url: https://developer.android.com/blog/authors/luke-hopkins
-source: html-scrape
+source: md.txt
 ---
 
-* [Android Developers](https://developer.android.com/)
-* [Android Developers' Blog](https://developer.android.com/)
-* [Blog](https://developer.android.com/blog)
+## 3
 
-Stay organized with collections
-
-Save and categorize content based on your preferences.
-
-
-
-## 2
-
-posts
-
-![](/static/blog/assets/Luke_Hopkins_9c1e15d778_Z2o9b3q.webp)
+posts ![](https://developer.android.com/static/blog/assets/Luke_Hopkins_9c1e15d778_Z2o9b3q.webp)
 
 # Luke Hopkins
 
 ###### Developer Relations Engineer
 
 Android
+- 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Combo3_Strapi_2000x1000_56726aebea_Z1kvKHr.webp)
 
-* 23
+  #### [Product News](https://developer.android.com/blog/categories/product-news)
 
-  Oct
-  2025
+  ## [Android XR Updates for Unity, Unreal, and Godot](https://developer.android.com/blog/posts/android-xr-updates-for-unity-unreal-and-godot)
 
-  23
+  [arrow_forward](https://developer.android.com/blog/posts/android-xr-updates-for-unity-unreal-and-godot) We are excited to announce that official support for Unreal Engine and Godot has arrived for Android XR. We are also launching new tools designed to boost your productivity and enable new XR capabilities: the Android XR Engine Hub and the Android XR Interaction Framework.
 
-  Oct
-  2025
+  ###### 4 min read
 
-  ![](/static/blog/assets/xr_Week5_985628de53_229QRh.webp)
+  - [#Android XR](https://developer.android.com/blog/topics/android-xr)
+  - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
+- 23 Oct 2025 23 Oct 2025 ![](https://developer.android.com/static/blog/assets/xr_Week5_985628de53_229QRh.webp)
 
-  #### [Product News](/blog/categories/product-news)
+  #### [Product News](https://developer.android.com/blog/categories/product-news)
 
-  ## [Optimizing Performance for Android XR with Unity](/blog/posts/optimizing-performance-for-android-xr-with-unity)
+  ## [Optimizing Performance for Android XR with Unity](https://developer.android.com/blog/posts/optimizing-performance-for-android-xr-with-unity)
 
-  [arrow\_forward](/blog/posts/optimizing-performance-for-android-xr-with-unity)
-
-  Samsung Galaxy XR is here, powered by Android XR! This blog post is part of our Android XR Spotlight Week, where we provide resources—blog posts, videos, sample code, and more—all designed to help you learn, build, and prepare your apps for Android XR.
+  [arrow_forward](https://developer.android.com/blog/posts/optimizing-performance-for-android-xr-with-unity) Samsung Galaxy XR is here, powered by Android XR! This blog post is part of our Android XR Spotlight Week, where we provide resources---blog posts, videos, sample code, and more---all designed to help you learn, build, and prepare your apps for Android XR.
 
   ###### 6 min read
-* 23
 
-  Oct
-  2025
+- 23 Oct 2025 23 Oct 2025 ![](https://developer.android.com/static/blog/assets/xr_Week3_984ec91c60_mkqpQ.webp)
 
-  23
+  #### [How-tos](https://developer.android.com/blog/categories/how-tos)
 
-  Oct
-  2025
+  ## [Getting started with Unity and Android XR](https://developer.android.com/blog/posts/getting-started-with-unity-and-android-xr)
 
-  ![](/static/blog/assets/xr_Week3_984ec91c60_mkqpQ.webp)
-
-  #### [How-tos](/blog/categories/how-tos)
-
-  ## [Getting started with Unity and Android XR](/blog/posts/getting-started-with-unity-and-android-xr)
-
-  [arrow\_forward](/blog/posts/getting-started-with-unity-and-android-xr)
-
-  Samsung Galaxy XR is here, powered by Android XR! This blog post is part of our Android XR Spotlight Week, where we provide resources—blog posts, videos, sample code, and more—all designed to help you learn, build, and prepare your apps for Android XR.
+  [arrow_forward](https://developer.android.com/blog/posts/getting-started-with-unity-and-android-xr) Samsung Galaxy XR is here, powered by Android XR! This blog post is part of our Android XR Spotlight Week, where we provide resources---blog posts, videos, sample code, and more---all designed to help you learn, build, and prepare your apps for Android XR.
 
   ###### 6 min read
 
 # Stay in the loop
 
+
 Get the latest Android development insights delivered to your inbox
 weekly.
-
 [mail
-Subscribe](/subscribe)
-
-![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)

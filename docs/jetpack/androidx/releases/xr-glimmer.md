@@ -10,7 +10,7 @@ Design language and UI toolkit for building augmented Android XR experiences
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| May 06, 2026 | - | - | - | [1.0.0-alpha12](https://developer.android.com/jetpack/androidx/releases/xr-glimmer#1.0.0-alpha12) |
+| May 19, 2026 | - | - | - | [1.0.0-alpha13](https://developer.android.com/jetpack/androidx/releases/xr-glimmer#1.0.0-alpha13) |
 
 ## Declaring dependencies
 
@@ -27,7 +27,7 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.xr.glimmer:glimmer:1.0.0-alpha12"
+    implementation "androidx.xr.glimmer:glimmer:1.0.0-alpha13"
 }
 ```
 
@@ -35,7 +35,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.xr.glimmer:glimmer:1.0.0-alpha12")
+    implementation("androidx.xr.glimmer:glimmer:1.0.0-alpha13")
 }
 ```
 
@@ -55,6 +55,21 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## glimmer and glimmer-google-fonts version 1.0
+
+### Version 1.0.0-alpha13
+
+May 19, 2026
+
+`androidx.xr.glimmer:glimmer:1.0.0-alpha13` and `androidx.xr.glimmer:glimmer-google-fonts:1.0.0-alpha13` are released. Version 1.0.0-alpha13 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/e29a10982f4299b1fa812e229d76792092a62814..b5d2acb5ad0a36c9d2aba8feb4c7951165f30fbe/xr/glimmer).
+
+**API Changes**
+
+- Added an optional `enabled` parameter to `Modifier.surface` which applies a visual overlay when the surface is disabled. ([I8b781](https://android-review.googlesource.com/#/q/I8b781ec1db421ae48252d64692525b2087da0972))
+- Introduced `reverseLayout` in `GlimmerPagerLayoutInfo` ([I73818](https://android-review.googlesource.com/#/q/I73818826ac7a174f5f5148d0fe09aa8918624ccd), [b/481669559](https://issuetracker.google.com/issues/481669559))
+- Rename `animateShape` to `animatedShape` in `ToggleButtonDefaults` and `IconToggleButtonDefaults` ([I15f00](https://android-review.googlesource.com/#/q/I15f00e116bf1f79c0a395d982e7087a86ba24405))
+- Renamed `List`-related components to use the `GlimmerLazyList` prefix. ([If0737](https://android-review.googlesource.com/#/q/If07379f60ac061ed2edcf8b1680f1451c634b089), [b/425919254](https://issuetracker.google.com/issues/425919254), [b/483126735](https://issuetracker.google.com/issues/483126735))
+- Initial implementation of voice indicator for Glimmer ([I446c7](https://android-review.googlesource.com/#/q/I446c740d99cc14927e68b7a0d67246fc8f15e5b4), [b/481998624](https://issuetracker.google.com/issues/481998624))
+- Remove focusable and clickable overloads for 'surface' modifier. Now it's a single modifier that is responsible only for visual effects. Manually add 'focusable' / 'clickable' / other modifiers to create interactive surfaces - see the samples for more information. ([I12dbe](https://android-review.googlesource.com/#/q/I12dbe10738c2a25db50998986b8d999c536c3248))
 
 ### Version 1.0.0-alpha12
 

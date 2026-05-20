@@ -17,7 +17,7 @@ used to create depth.
 ## Color scheme
 
 The glasses color scheme (collection of color tokens or roles to theme the color
-of your app) consists of 3 accent roles, 4 surface (or neutral roles) and their
+of your app) consists of 3 accent roles, 6 surface (or neutral roles), and their
 on-color counterparts. The color roles are similar to their mobile scheme roles
 and should be used in the same manner.
 
@@ -48,6 +48,9 @@ against saturation to be instantly discernible.
 Primary color can be customized to use your brand or primary interaction color.
 Consider the contrast, saturation, and power usage of the chosen color.
 
+> [!NOTE]
+> **Note:** Try out the [Jetpack Compose Glimmer Skill](https://github.com/android/skills/blob/main/xr/display-ai-glasses-with-jetpack-compose-glimmer/SKILL.md) for help with contrast calculation metrics.
+
 
 ![Design elements should be anchored to the bottom of the
 frame.](https://developer.android.com/static/images/design/ui/glasses/guides/glasses_styles_color_customize.png)
@@ -58,6 +61,7 @@ Colors that represent brand, actions, or system alerts must be:
 
 - Bright enough to be legible
 - Saturated enough to be discernible as a color
+- Ensure at least a 66% tone difference between foreground and background using the HCT color space.
 
 Learn more on [Jetpack Compose Glimmer theme](https://developer.android.com/develop/xr/jetpack-xr-sdk/jetpack-compose-glimmer/whats-included#theme).
 
@@ -106,8 +110,9 @@ frame.](https://developer.android.com/static/images/design/ui/glasses/guides/gla
 Containers generally must focus on displaying content that is within them,
 without being distracting:
 
-- Surfaces must be black for highest contrast
-- Outlines should be visible but subtle
+- Surfaces must be black for highest contrast.
+- Surfaces should be no lighter than 34% tone in their focused state to maintain legibility for foreground elements.
+- Outlines should be visible but subtle.
 
 <br />
 
@@ -119,7 +124,23 @@ Use dark surfaces and bright content. ![](https://developer.android.com/static/i
 
 ### Don't
 
-Use bright or filled surfaces.
+Use bright or filled surfaces. ![](https://developer.android.com/static/images/design/ui/glasses/guides/glasses_styles_color_surfacecontrast_do.png)
+
+### Do
+
+Provide contrast between surface and text. Approximate 66 tone difference is suggested to check for. ![](https://developer.android.com/static/images/design/ui/glasses/guides/glasses_styles_color_surfacecontrast_dont.png)
+
+### Don't
+
+Allow surface and text contrast to be too close. ![](https://developer.android.com/static/images/design/ui/glasses/guides/glasses_styles_color_surfacevariant_do.png)
+
+### Do
+
+Make sure Surface and Surface Variants have enough tone difference to create the necessary visual hierarchy. ![](https://developer.android.com/static/images/design/ui/glasses/guides/glasses_styles_color_surfacevariant_dont.png)
+
+### Don't
+
+Make Surface and Surface variant too close in tone (around 20 difference).
 
 **Outline customization is possible to add branding or expressive UI.**
 ![](https://developer.android.com/static/images/design/ui/glasses/guides/glasses_styles_color_outline_do.png)
@@ -144,4 +165,13 @@ Be careful and harmonize custom colors between focus and default state outlines.
 ![Design elements should be anchored to the bottom of the
 frame.](https://developer.android.com/static/images/design/ui/glasses/guides/glasses_styles_color_outline_focus.png)
 Customizing the outline focus with blue: the focus state highlight is made of 2
-outlines, color is applied to layer 2 to tine the focus state.
+outlines, color is applied to layer 2 to tint the focus state.
+![](https://developer.android.com/static/images/design/ui/glasses/guides/glasses_styles_color_states_do.png)
+
+### Do
+
+Make sure there is enough contrast across all interaction states. ![](https://developer.android.com/static/images/design/ui/glasses/guides/glasses_styles_color_states_dont.png)
+
+### Don't
+
+Change the contrast on interaction states to minimal contrast.

@@ -10,7 +10,7 @@ Inspire best-in-class pen apps. Lower the developer barrier to entry for high pe
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| March 11, 2026 | [1.0.0](https://developer.android.com/jetpack/androidx/releases/ink#1.0.0) | - | - | [1.1.0-alpha01](https://developer.android.com/jetpack/androidx/releases/ink#1.1.0-alpha01) |
+| May 19, 2026 | [1.0.0](https://developer.android.com/jetpack/androidx/releases/ink#1.0.0) | - | - | [1.1.0-alpha03](https://developer.android.com/jetpack/androidx/releases/ink#1.1.0-alpha03) |
 
 ## Declaring dependencies
 
@@ -26,16 +26,16 @@ your app or module:
 ```groovy
 dependencies {
   
-    implementation "androidx.ink:ink-authoring:1.1.0-alpha01"
-    implementation "androidx.ink:ink-authoring-compose:1.1.0-alpha01"
-    implementation "androidx.ink:ink-brush:1.1.0-alpha01"
-    implementation "androidx.ink:ink-brush-compose:1.1.0-alpha01"
-    implementation "androidx.ink:ink-geometry:1.1.0-alpha01"
-    implementation "androidx.ink:ink-geometry-compose:1.1.0-alpha01"
-    implementation "androidx.ink:ink-nativeloader:1.1.0-alpha01"
-    implementation "androidx.ink:ink-rendering:1.1.0-alpha01"
-    implementation "androidx.ink:ink-storage:1.1.0-alpha01"
-    implementation "androidx.ink:ink-strokes:1.1.0-alpha01"
+    implementation "androidx.ink:ink-authoring:1.1.0-alpha03"
+    implementation "androidx.ink:ink-authoring-compose:1.1.0-alpha03"
+    implementation "androidx.ink:ink-brush:1.1.0-alpha03"
+    implementation "androidx.ink:ink-brush-compose:1.1.0-alpha03"
+    implementation "androidx.ink:ink-geometry:1.1.0-alpha03"
+    implementation "androidx.ink:ink-geometry-compose:1.1.0-alpha03"
+    implementation "androidx.ink:ink-nativeloader:1.1.0-alpha03"
+    implementation "androidx.ink:ink-rendering:1.1.0-alpha03"
+    implementation "androidx.ink:ink-storage:1.1.0-alpha03"
+    implementation "androidx.ink:ink-strokes:1.1.0-alpha03"
     
 }
 ```
@@ -46,16 +46,16 @@ dependencies {
 dependencies {
 
 
-    implementation("androidx.ink:ink-authoring:1.1.0-alpha01")
-    implementation("androidx.ink:ink-authoring-compose:1.1.0-alpha01")
-    implementation("androidx.ink:ink-brush:1.1.0-alpha01")
-    implementation("androidx.ink:ink-brush-compose:1.1.0-alpha01")
-    implementation("androidx.ink:ink-geometry:1.1.0-alpha01")
-    implementation("androidx.ink:ink-geometry-compose:1.1.0-alpha01")
-    implementation("androidx.ink:ink-nativeloader:1.1.0-alpha01")
-    implementation("androidx.ink:ink-rendering:1.1.0-alpha01")
-    implementation("androidx.ink:ink-storage:1.1.0-alpha01")
-    implementation("androidx.ink:ink-strokes:1.1.0-alpha01")
+    implementation("androidx.ink:ink-authoring:1.1.0-alpha03")
+    implementation("androidx.ink:ink-authoring-compose:1.1.0-alpha03")
+    implementation("androidx.ink:ink-brush:1.1.0-alpha03")
+    implementation("androidx.ink:ink-brush-compose:1.1.0-alpha03")
+    implementation("androidx.ink:ink-geometry:1.1.0-alpha03")
+    implementation("androidx.ink:ink-geometry-compose:1.1.0-alpha03")
+    implementation("androidx.ink:ink-nativeloader:1.1.0-alpha03")
+    implementation("androidx.ink:ink-rendering:1.1.0-alpha03")
+    implementation("androidx.ink:ink-storage:1.1.0-alpha03")
+    implementation("androidx.ink:ink-strokes:1.1.0-alpha03")
 }
 ```
 
@@ -74,7 +74,33 @@ clicking the star button.
 See the [Issue Tracker documentation](https://developers.google.com/issue-tracker)
 for more information.
 
-## Version 1.1
+## Ink Version 1.1
+
+### Version 1.1.0-alpha03
+
+May 19, 2026
+
+`androidx.ink:ink-*:1.1.0-alpha03` is released. Version 1.1.0-alpha03 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/df4b49eda6f6834b6bc4c8aa30a581fa577a511e..e8de700385d9ab9cdeb458e7ff3867b6a03d869e/ink).
+
+**API Changes**
+
+- Make programmatic Ink brush customization API public ([I8e2e1](https://android-review.googlesource.com/#/q/I8e2e12a3f449ce9b553ced187ea8b7c32a47e902))
+- Split `BrushPaint.TextureLayer` into more specific subclasses ([I8848a](https://android-review.googlesource.com/#/q/I8848ae547b17614a567bc5478e2b0aaf7a0729f8))
+
+### Version 1.1.0-alpha02
+
+April 22, 2026
+
+`androidx.ink:ink-*:1.1.0-alpha02` is released. Version 1.1.0-alpha02 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/1a508f033de883ba2853b9f9ae1853eec7010638..f99a4088c23a06cb8f2e113e607ef12853d95f09/ink).
+
+**API Changes**
+
+- Expose an overload of `BrushFamily.decode` that specifies max version compatibility ([I1c7bc](https://android-review.googlesource.com/#/q/I1c7bc469cc79fa4ead6bcf605e2891e456c63b23))
+- Graduate `BrushFamily` serialization API from experimental ([Idd16e](https://android-review.googlesource.com/#/q/Idd16ea9454d944d8daaf3ad719592c9e654df43b))
+
+**Bug Fixes**
+
+- Fix flicker when using `InProgressStrokesView.maskPath` on certain devices ([I1c7bc](https://android-review.googlesource.com/#/q/I1c7bc469cc79fa4ead6bcf605e2891e456c63b23), [b/496920044](https://issuetracker.google.com/issues/496920044))
 
 ### Version 1.1.0-alpha01
 

@@ -13,7 +13,7 @@ This table lists all the artifacts in the `androidx.core` group.
 
 | Artifact | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| core | [1.18.0](https://developer.android.com/jetpack/androidx/releases/core#1.18.0) | - | - | [1.19.0-alpha02](https://developer.android.com/jetpack/androidx/releases/core#1.19.0-alpha02) |
+| core | [1.18.0](https://developer.android.com/jetpack/androidx/releases/core#1.18.0) | [1.19.0-rc01](https://developer.android.com/jetpack/androidx/releases/core#1.19.0-rc01) | - | - |
 | core-animation | [1.0.0](https://developer.android.com/jetpack/androidx/releases/core#core-animation-1.0.0) | - | - | - |
 | core-google-shortcuts | [1.1.0](https://developer.android.com/jetpack/androidx/releases/core#core-google-shortcuts-1.1.0) | - | - | [1.2.0-alpha01](https://developer.android.com/jetpack/androidx/releases/core#core-google-shortcuts-1.2.0-alpha01) |
 | core-performance | [1.0.0](https://developer.android.com/jetpack/androidx/releases/core#1.0.0) | - | - | - |
@@ -21,7 +21,7 @@ This table lists all the artifacts in the `androidx.core` group.
 | core-role | [1.1.0](https://developer.android.com/jetpack/androidx/releases/core#core-role-1.1.0) | - | - | - |
 | core-splashscreen | [1.2.0](https://developer.android.com/jetpack/androidx/releases/core#core-splashscreen-1.2.0) | - | - | - |
 
-This library was last updated on: May 06, 2026
+This library was last updated on: May 19, 2026
 
 ## Declaring dependencies
 
@@ -114,6 +114,12 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Core and Core-ktx Version 1.19
+
+### Version 1.19.0-rc01
+
+May 19, 2026
+
+`androidx.core:core:1.19.0-rc01`, `androidx.core:core-ktx:1.19.0-rc01`, and `androidx.core:core-testing:1.19.0-rc01` are released. Version 1.19.0-rc01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/f5d3df649a48687b0e609c7430ce92e6a66c3fec..5107428e8f35ff24c0988b988e99b5a19ee67643/core).
 
 ### Version 1.19.0-alpha02
 

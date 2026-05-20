@@ -27,6 +27,9 @@ This guide assumes you have already
 [configured Health Connect in your app](https://developer.android.com/health-and-fitness/health-connect/get-started)
 and have an instance of `HealthConnectClient` available.
 
+> [!IMPORTANT]
+> **Important:** All Matchmaking APIs are experimental. You must opt in to use these APIs by annotating any usage with [`@ExperimentalMatchmakingApi`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/ExperimentalMatchmakingApi).
+
 ### Beta setup
 
 The Matchmaking API is available through an update to Health Connect that is

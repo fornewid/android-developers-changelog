@@ -7,6 +7,25 @@ source: md.txt
 This document lists the Google Play Developer APIs and the related
 features which are in a deprecation period.
 
+## Deprecation timeline - May 19, 2026 to August 31, 2028
+
+The features and APIs in this section are deprecated as of May 19, 2026, and
+will be shut down on August 31, 2028. However, you can avail an
+extension for the deprecated items up to November 1, 2028.
+
+> [!NOTE]
+> **Note:** [Client libraries](https://developers.google.com/android-publisher/libraries) released after July 1, 2027, will no longer include these features and APIs. However, existing libraries can still access them until the shutdown date.
+
+### Deprecated subscription APIs
+
+This section lists the API deprecations.
+
+| API | Available replacement |
+|---|---|
+| [subscriptions.cancel](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.subscriptions/cancel) | [subscriptionsv2.cancel](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.subscriptionsv2/cancel) |
+| [subscriptions.defer](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.subscriptions/defer) | [subscriptionsv2.defer](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.subscriptionsv2/defer) |
+| [Order.lineItems.subscriptionDetails.offer_phase](https://developers.google.com/android-publisher/api-ref/rest/v3/orders#Order) | [Order.lineItems.subscriptionDetails.offer_phase_details](https://developers.google.com/android-publisher/api-ref/rest/v3/orders#Order) |
+
 ## Deprecation timeline - May 21, 2025 to August 31, 2027
 
 The features and APIs in this section are deprecated as of May 21, 2025, and
@@ -14,7 +33,7 @@ will be shut down on August 31, 2027. However, you can avail an
 extension for the deprecated items up to November 1, 2027.
 
 > [!NOTE]
-> **Note:** [Client libraries](https://developers.google.com/android-publisher/libraries) released after November 1, 2025, will no longer include these features and APIs. However, existing libraries can still access them until the shutdown date.
+> **Note:** [Client libraries](https://developers.google.com/android-publisher/libraries) released after July 1, 2026, will no longer include these features and APIs. However, existing libraries can still access them until the shutdown date.
 
 ### Deprecated subscription APIs
 
@@ -39,24 +58,15 @@ the legacy subscription endpoint map to corresponding fields in
 | SubscriptionPurchase | SubscriptionPurchaseV2 |
 |---|---|
 | `countryCode` | `regionCode` |
-| `orderId` | `SubscriptionPurchaseLineItem.latest_successful_order_id` |
-| (no equivalent field) | `lineItems.offerPhase` (identifies current phase: free trial, intro price, proration, base price) |
-| (no equivalent field) | `lineItems` (list of SubscriptionPurchaseLineItem) that represents the products acquired with the purchase |
-| (no equivalent field) | `lineItems.offerDetails.basePlanId` |
-| (no equivalent field) | `lineItems.offerDetails.offerId` |
-| (no equivalent field) | `lineItems.offerDetails.offerTags` |
+| `orderId` | `lineItems.latestSuccessfulOrderId` You can get the pending order ID from `inGracePeriodStateContext.renewalDeclined.pendingOrderId` or `onHoldStateContext.renewalDeclined.pendingOrderId`. |
 | `startTimeMillis` | `startTime` |
 | `expiryTimeMillis` | `lineItems.expiryTime` (each subscription acquired in the purchase has its own `expiryTime`) |
-| (no equivalent field) | `subscriptionState` (indicates the state of the subscription) |
-| (no equivalent field) | `pausedStateContext` (only present if the subscription status is `SUBSCRIPTION_STATE_PAUSED`) |
 | `autoResumeTimeMillis` | `pausedStateContext.autoResumeTime` |
-| (no equivalent field) | `canceledStateContext` (only present if the subscription status is `SUBSCRIPTION_STATE_CANCELED`) |
-| (no equivalent field) | `testPurchase` (only present in licensed tester purchases) |
 | `autoRenewing` | `lineItems.autoRenewingPlan.autoRenewEnabled` |
 | `priceCurrenceCode`, `priceAmountMicros` | `lineItems.autoRenewingPlan.recurringPrice` |
 | `introductoryPriceInfo` | `lineItems.offerPhase.introductoryPrice` This information can also be found in the `offer` for each of the subscriptions purchased. |
-| developerPayload | (no equivalent field) developer payload has been deprecated |
-| paymentState | (no equivalent field) You can infer the payment state from `subscriptionState`: - Payment is pending: - `SUBSCRIPTION_STATE_PENDING` (new purchases with pending transaction) - `SUBSCRIPTION_STATE_IN_GRACE_PERIOD` - `SUBSCRIPTION_STATE_ON_HOLD` - Payment has been received: - `SUBSCRIPTION_STATE_ACTIVE` - Free trial: - lineItems.offerPhase.freeTrial - Deferred upgrade / downgrade: - `SUBSCRIPTION_STATE_PENDING` |
+| `developerPayload` | (no equivalent field) developer payload has been deprecated |
+| `paymentState` | (no equivalent field) You can infer the payment state from `subscriptionState`: - Payment is pending: - `SUBSCRIPTION_STATE_PENDING` (new purchases with pending transaction) - `SUBSCRIPTION_STATE_IN_GRACE_PERIOD` - `SUBSCRIPTION_STATE_ON_HOLD` - Payment has been received: - `SUBSCRIPTION_STATE_ACTIVE` - Free trial: - `lineItems.offerPhase.freeTrial` - Deferred upgrade / downgrade: - `lineItems.deferredItemReplacement` |
 | `cancelReason`, `userCancellationTimeMillis`, `cancelSurveyResult` | `canceledStateContext` |
 | `linkedPurchaseToken` | `linkedPurchaseToken` (no change) |
 | `purchaseType` | Test: through `testPurchase` Promotion: `signupPromotion` |
@@ -65,20 +75,3 @@ the legacy subscription endpoint map to corresponding fields in
 | `acknowledgementState` | `acknowledgementState (no change)` |
 | `promotionType`, `promotionCode` | `signupPromotion` |
 | `externalAccountId`, `obfuscatedExternalAccountId`, `obfuscatedExteranlProfileId` | `externalAccountIdentifiers` |
-
-### Other subscription management functions
-
-While
-[`purchases.subscriptions:get`](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.subscriptions/get)
-has been upgraded to
-[`purchases.subscriptionsv2:get`](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.subscriptionsv2/get),
-the rest of the developer subscription management functions remain
-unchanged for now in the `purchases.subscriptions` endpoint,
-so you can continue using
-[`purchases.subscriptions:acknowledge`](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.subscriptions/acknowledge),
-[`purchases.subscriptions:cancel`](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.subscriptions/cancel),
-[`purchases.subscriptions:defer`](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.subscriptions/defer),
-[`purchases.subscriptions:refund`](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.subscriptions/refund),
-and
-[`purchases.subscriptions:revoke`](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.subscriptions/revoke)
-as you did before.

@@ -67,8 +67,8 @@ When you are ready, turn on device recall in the Play Console:
 
 1. Sign in to the Play Console.
 2. Select the app that will use device recall.
-3. In the **Release** section of the left menu, go to **App integrity**.
-4. Next to Play Integrity API, click **Settings**.
+3. Navigate to **Protected with Play** from the left menu.
+4. Next to Play Integrity API, click **Manage**.
 5. In the Responses section of the page, click **Change responses**.
 6. Turn Device recall on.
 7. Click Save changes.

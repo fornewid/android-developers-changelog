@@ -168,6 +168,7 @@ Explore how modern Android architecture is implemented in a real world app [View
 | [startup](https://developer.android.com/jetpack/androidx/releases/startup) | Implement a straightforward, performant way to initialize components at app startup. |
 | [sqlite](https://developer.android.com/jetpack/androidx/releases/sqlite) | Work with local SQLite databases. If possible, use Room instead. |
 | [swiperefreshlayout](https://developer.android.com/jetpack/androidx/releases/swiperefreshlayout) | Implement the swipe-to-refresh UI pattern. |
+| [test.ext](https://developer.android.com/jetpack/androidx/releases/test-ext) | TODO |
 | [test.uiautomator](https://developer.android.com/jetpack/androidx/releases/test-uiautomator) | Framework for cross app functional UI testing |
 | [text-vertical](https://developer.android.com/jetpack/androidx/releases/text-vertical) | TODO |
 | [textclassifier](https://developer.android.com/jetpack/androidx/releases/textclassifier) | Identifies conversations, links, selections, and other similar constructs in text. |

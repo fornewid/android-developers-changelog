@@ -6,9 +6,10 @@ source: md.txt
 
 # Databinding
 
-[User Guide](https://developer.android.com/topic/libraries/data-binding) [Code Sample](https://github.com/android/databinding-samples) [Codelab](https://codelabs.developers.google.com/codelabs/android-databinding) API Reference  
-[android.databinding](https://developer.android.com/reference/android/databinding/package-summary)  
-Bind UI components in your layouts to data sources in your app using a declarative format.
+[User Guide](https://developer.android.com/topic/libraries/data-binding) [Code Sample](https://github.com/android/databinding-samples) [Codelab](https://codelabs.developers.google.com/codelabs/android-databinding) Bind UI components in your layouts to data sources in your app using a declarative format.
+
+> [!CAUTION]
+> **Caution:** This library is in maintenance mode and will only receive critical fixes; new features are not planned. We recommend using [Jetpack Compose](https://developer.android.com/jetpack/compose) for building Android UIs. See [Compose-first](https://developer.android.com/develop/ui/compose/first) for more information.
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
@@ -29,7 +30,8 @@ module's `build.gradle` file, as shown below:
         }
     }
 
-| **Note:** You must enable data binding for all modules that depend on libraries that use data binding, even if the module doesn't directly use data binding.
+> [!NOTE]
+> **Note:** You must enable data binding for all modules that depend on libraries that use data binding, even if the module doesn't directly use data binding.
 
 For more information about data binding,
 see the guide to the [data binding library](https://developer.android.com/topic/libraries/data-binding),

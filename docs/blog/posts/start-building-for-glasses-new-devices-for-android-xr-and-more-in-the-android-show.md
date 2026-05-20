@@ -69,6 +69,17 @@ Thank you for tuning into the [The Android Show \| XR Edition](http://d.android.
 
 ## Continue reading
 
+- 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Text_Strapi_2000x1000_2d4221d884_ZtW7eg.webp)
+
+  #### [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs)
+
+  ## [Build for the future with the Android XR Developer Catalyst Program --- Apply now!](https://developer.android.com/blog/posts/build-for-the-future-with-the-android-xr-developer-catalyst-program-apply-now)
+
+  [arrow_forward](https://developer.android.com/blog/posts/build-for-the-future-with-the-android-xr-developer-catalyst-program-apply-now) We're opening applications for the Android XR Developer Catalyst Program, a dedicated initiative to accelerate the development of Android XR apps ready to launch within the next year.
+
+  ###### 1 min read
+
+  - [#Android XR](https://developer.android.com/blog/topics/android-xr)
 - 14 Apr 2026 14 Apr 2026 ![](https://developer.android.com/static/blog/assets/Blog_banner_Dark_2000x1000_B_c6418d3a5c_ZbdvH4.webp)
 
   #### [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs)
@@ -91,16 +102,6 @@ Thank you for tuning into the [The Android Show \| XR Edition](http://d.android.
 
   ###### [Maru Ahues Bouza](https://developer.android.com/blog/authors/maru-ahues-bouza) •
   3 min read
-
-- 17 Feb 2026 17 Feb 2026 ![](https://developer.android.com/static/blog/assets/O_SVD_DAC_Banner_1600x476_4x1_1_21e5678d22_Z2feGk6.webp)
-
-  #### [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs)
-
-  ## [Get ready for Google I/O May 19-20](https://developer.android.com/blog/posts/get-ready-for-google-io-may)
-
-  [arrow_forward](https://developer.android.com/blog/posts/get-ready-for-google-io-may) Google I/O is back! Join us online as we share our latest AI breakthroughs and updates in products across the company, from Gemini to Android, Chrome, Cloud, and more.
-
-  ###### 1 min read
 
 # Stay in the loop
 

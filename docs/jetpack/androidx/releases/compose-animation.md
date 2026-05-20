@@ -10,7 +10,7 @@ source: md.txt
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| May 06, 2026 | [1.11.1](https://developer.android.com/jetpack/androidx/releases/compose-animation#1.11.1) | - | - | [1.12.0-alpha02](https://developer.android.com/jetpack/androidx/releases/compose-animation#1.12.0-alpha02) |
+| May 19, 2026 | [1.11.2](https://developer.android.com/jetpack/androidx/releases/compose-animation#1.11.2) | - | - | [1.12.0-alpha03](https://developer.android.com/jetpack/androidx/releases/compose-animation#1.12.0-alpha03) |
 
 ## Structure
 
@@ -43,7 +43,7 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.compose.animation:animation:1.11.1"
+    implementation "androidx.compose.animation:animation:1.11.2"
 }
 
 android {
@@ -65,7 +65,7 @@ android {
 
 ```kotlin
 dependencies {
-    implementation("androidx.compose.animation:animation:1.11.1")
+    implementation("androidx.compose.animation:animation:1.11.2")
 }
 
 android {
@@ -100,6 +100,19 @@ for more information.
 
 ## Version 1.12
 
+### Version 1.12.0-alpha03
+
+May 19, 2026
+
+`androidx.compose.animation:animation-*:1.12.0-alpha03` is released. Version 1.12.0-alpha03 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/e29a10982f4299b1fa812e229d76792092a62814..a5046b380f14cd67d25208fa4c58d41bf3b06a1b/compose/animation).
+
+**API Changes**
+
+- `DeferredTargetAnimation` is no longer experimental, please remove opt-in into androidx-main
+- Added `mutableTransform` parameter to `AnimatedVisibility` and `AnimatedContent` to support direct manual property manipulation (e.g., for predictive back gestures) during a deferred transition phase. ([I236e8](https://android-review.googlesource.com/#/q/I236e840eaded1fc5685f27ed6e2211c5b1241b81))
+- `DeferredTargetAnimation` is no longer experimental, please remove opt-in. ([I1e4ae](https://android-review.googlesource.com/#/q/I1e4aeb4d0542a5ef99d7adc3282794e652b0ba49), [b/500030165](https://issuetracker.google.com/issues/500030165))
+- New enum to support triggers in ui-tooling ([I6e198](https://android-review.googlesource.com/#/q/I6e19896c8cea4e5006de7b414bf67ab92cd5e83d), [b/478807872](https://issuetracker.google.com/issues/478807872))
+
 ### Version 1.12.0-alpha02
 
 May 06, 2026
@@ -118,6 +131,12 @@ April 22, 2026
 - End the `SeekableTransitionState` animation before composition ([1bf9dc](https://android-review.googlesource.com/#/q/1bf9dcf), [b/410055849](https://issuetracker.google.com/410055849))
 
 ## Version 1.11
+
+### Version 1.11.2
+
+May 19, 2026
+
+`androidx.compose.animation:animation-*:1.11.2` is released. Version 1.11.2 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/5d39d0c458dbf0b3791cfaba65f42a27e442c15f..f024db30e2eb34d643af9804ac0650840a49a05c/compose/animation).
 
 ### Version 1.11.1
 

@@ -76,28 +76,25 @@ enabled through the plug-in manager.
 
 This image shows an example of where you can enable these feature groups through
 Unity's editor.
-
-![Example of the unity xr plugin management
-screen](https://developer.android.com/static/images/develop/xr/unity/index/xr-plugin-management.png)
+![](https://developer.android.com/static/images/develop/xr/unity/index/xr-plugin-management.png) **Figure 1.** Example of the Unity XR Plug-in Management screen.
 
 #### Unity OpenXR Android XR
 
-The [Unity OpenXR Android XR package](https://docs.unity3d.com/Packages/com.unity.xr.androidxr-openxr@latest/)
-is an XR Plug-in to add Android XR support to Unity. This XR Plug-in provides
-the majority of the Android XR support for Unity, and it enables Android XR
-device support for [AR Foundation](https://docs.unity3d.com/Packages/com.unity.xr.arfoundation@latest) projects. AR Foundation is
-designed for developers who want to create AR or mixed reality experiences. It
-provides the interface for AR features, but doesn't implement any features
-itself. The Unity OpenXR Android XR package provides the implementation. To get
-started with this package view the package manual, which contains a Getting
-Started guide.
+The [Unity OpenXR Android XR package](https://docs.unity3d.com/Packages/com.unity.xr.androidxr-openxr@latest/) is an XR Plug-in to add
+Android XR support to Unity. This XR Plug-in provides the majority of the
+Android XR support for Unity, and it enables Android XR device support for [AR
+Foundation](https://docs.unity3d.com/Packages/com.unity.xr.arfoundation@latest) projects. AR Foundation is designed for developers
+who want to create AR or mixed reality experiences. It provides the interface
+for AR features, but doesn't implement any features itself. The Unity OpenXR
+Android XR package provides the implementation. To get started with this package
+view the package manual, which contains a Getting Started guide.
 
 #### Android XR Extensions for Unity
 
-The [Android XR Extensions for Unity](https://github.com/android/android-xr-unity-package)
-supplements the Unity OpenXR Android XR package, and it includes additional
-features to help you build immersive experiences. It can be used alone or
-together with the Unity OpenXR Android XR package.
+The [Android XR Extensions for Unity](https://github.com/android/android-xr-unity-package) supplements the Unity
+OpenXR Android XR package, and it includes additional features to help you build
+immersive experiences. It can be used alone or together with the Unity OpenXR
+Android XR package.
 
 To get started with this package, follow our [project setup guide](https://developer.android.com/develop/xr/unity/setup) or
 [quickstart for importing Android XR Extensions for Unity](https://developer.android.com/develop/xr/unity/xr-extensions-quickstart).
@@ -209,10 +206,9 @@ by the XR Hands package, enable the **Hand Tracking Subsystem** and **Meta Hand
 Tracking Aim OpenXR** features.
 
 ![Example showing how to enable hand
-tracking](https://developer.android.com/static/images/develop/xr/unity/index/enable-hand-tracking.png)
-
-The XR hands package can be useful if you need more granular hand pose or hand
-joint data or when you need to work with custom gestures.
+tracking](https://developer.android.com/static/images/develop/xr/unity/index/enable-hand-tracking.png) The XR hands
+package can be useful if you need more granular hand pose or hand joint data or
+when you need to work with custom gestures.
 
 For more details, see Unity's [documentation for setting up XR Hands in your
 project](https://docs.unity3d.com/Packages/com.unity.xr.hands@1.6/manual/project-setup/project-setup.html)
@@ -227,9 +223,9 @@ facial regions: upper left, upper right, and lower face. These values, ranging
 from 0 (no confidence) to 1 (highest confidence), indicate the accuracy of the
 face tracking for each region.
 
-You can use these confidence values to progressively disable blendshapes or apply
-visual filters (like blurring) to the corresponding face region. For a basic
-deactivate blendshapes in the corresponding face region.
+You can use these confidence values to progressively disable blendshapes or
+apply visual filters (like blurring) to the corresponding face region. For a
+basic deactivate blendshapes in the corresponding face region.
 
 The "lower face" area represents everything under the eyes, including the mouth,
 chin, cheek, and nose. The two upper regions include the eyes and brow area on
@@ -273,7 +269,8 @@ data in a Unity script:
         }
     }
 
-For more information, see the [Android XR Extensions for Unity documentation](https://github.com/android/android-xr-unity-package).
+For more information, see the
+[Android XR Extensions for Unity documentation](https://github.com/android/android-xr-unity-package).
 
 ### Choose a way to render hands
 

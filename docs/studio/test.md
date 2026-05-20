@@ -8,7 +8,7 @@ This page describes various tools that help you create, configure, and
 run your tests from Android Studio or the command line.
 
 If you want to learn more about the fundamentals of testing and how to write
-tests, see [Test apps on Android](https://developer.android.com/training/testing).
+tests, see [Test apps on Android](https://developer.android.com/training/testing) and [Test your Compose layout](https://developer.android.com/develop/ui/compose/testing).
 
 There are different ways to run and configure your tests:
 
@@ -43,8 +43,8 @@ There are different ways to run and configure your tests:
   configurations for special use cases, see [Advanced test
   setup](https://developer.android.com/studio/test/advanced-test-setup).
 
-  To test how your app behaves when your user interacts with it, you can use
-  tools such as [Espresso Test
-  Recorder](https://developer.android.com/studio/test/other-testing-tools/espresso-test-recorder),
-  [UI Automator](https://developer.android.com/training/testing/other-components/ui-automator), or
-  [Monkey testing](https://developer.android.com/studio/test/other-testing-tools/monkey).
+  To test how your app behaves when users interact with it, Jetpack Compose
+  provides its own dedicated testing APIs, like `ComposeTestRule`. For
+  cross-app interactions, you can use tools like
+  [UI Automator](https://developer.android.com/training/testing/other-components/ui-automator), or use
+  [Monkey](https://developer.android.com/studio/test/other-testing-tools/monkey) for stress testing.

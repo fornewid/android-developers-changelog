@@ -157,12 +157,12 @@ data](https://developer.android.com/topic/performance/tracing/profiling-manager/
 To capture data from before a trigger, the OS periodically starts a background
 trace. If a trigger occurs while this background trace is active and your app is
 registered for it, the system saves the trace profile to your app's directory.
-The will then profile include information that led up to the trigger.
+The profile will then include information that led up to the trigger.
 
 Once the profile is saved, the system notifies your app using the callback
-provided to `registerForAllProfilingResults`. This callback privdes the path to
+provided to `registerForAllProfilingResults`. This callback provides the path to
 the captured profile which can be accessed by calling
-[ProfilingResult#getResultFilePath()](https://developer.android.com/reference/android/os/ProfilingResult#getResultFilePath()).
+[`ProfilingResult#getResultFilePath()`](https://developer.android.com/reference/android/os/ProfilingResult#getResultFilePath()).
 
 > [!NOTE]
 > **Note:** If your app isn't running when a profile is recorded, the system delivers the callback the next time your app starts and registers its listener.
@@ -184,7 +184,7 @@ recent activity leading up to the trigger.
 
 High-frequency triggers can quickly consume your app's rate limiter quota. To
 better understand the rate limiter, we encourage you to look at [How rate
-limiter works](https://developer.android.com/topic/performance/tracing/profiling-manager/%7B/topic/performance/tracing/profiling-manager/will-my-profile-always-be-collected:#how-rate-limiting-works%7D). To prevent a single trigger type from exhausting your quota,
+limiter works](https://developer.android.com/topic/performance/tracing/profiling-manager/will-my-profile-always-be-collected#how-rate-limiting-works). To prevent a single trigger type from exhausting your quota,
 you can implement trigger-specific rate limiting.
 
 `ProfilingManager` supports app-defined trigger-specific rate limiting. This

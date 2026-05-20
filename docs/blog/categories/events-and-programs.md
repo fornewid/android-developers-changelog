@@ -9,6 +9,15 @@ source: md.txt
 # Events \& Programs
 
 Get the details on upcoming webinars, workshops, meetups, and special initiatives designed to help you grow.
+- 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Text_Strapi_2000x1000_2d4221d884_ZtW7eg.webp)
+
+  ## [Build for the future with the Android XR Developer Catalyst Program --- Apply now!](https://developer.android.com/blog/posts/build-for-the-future-with-the-android-xr-developer-catalyst-program-apply-now)
+
+  [arrow_forward](https://developer.android.com/blog/posts/build-for-the-future-with-the-android-xr-developer-catalyst-program-apply-now) We're opening applications for the Android XR Developer Catalyst Program, a dedicated initiative to accelerate the development of Android XR apps ready to launch within the next year.
+
+  ###### 1 min read
+
+  - [#Android XR](https://developer.android.com/blog/topics/android-xr)
 - 14 Apr 2026 14 Apr 2026 ![](https://developer.android.com/static/blog/assets/Blog_banner_Dark_2000x1000_B_c6418d3a5c_ZbdvH4.webp)
 
   ## [Get ready for Google I/O: Livestream schedule revealed](https://developer.android.com/blog/posts/get-ready-for-google-io-livestream-schedule-revealed)
@@ -53,15 +62,6 @@ Get the details on upcoming webinars, workshops, meetups, and special initiative
 
   ###### [Don Turner](https://developer.android.com/blog/authors/don-turner) •
   1 min read
-
-- [![](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2dcD9g.webp)](https://developer.android.com/blog/authors/ben-weiss)[![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](https://developer.android.com/blog/authors/sara-hamilton) 21 Nov 2025 21 Nov 2025 ![](https://developer.android.com/static/blog/assets/performance_Week12_b8eed5b989_2b3WAh.webp)
-
-  ## [Fully Optimized: Wrapping up Performance Spotlight Week](https://developer.android.com/blog/posts/fully-optimized-wrapping-up-performance-spotlight-week)
-
-  [arrow_forward](https://developer.android.com/blog/posts/fully-optimized-wrapping-up-performance-spotlight-week) From the foundational powers of the R8 optimizer and Profile Guided Optimizations, to performance improvements with Jetpack Compose, to a new guide on leveling up your app's performance, we've covered the low effort, high impact tools you need to build a performant app.
-
-  ###### [Ben Weiss](https://developer.android.com/blog/authors/ben-weiss), [Sara Hamilton](https://developer.android.com/blog/authors/sara-hamilton) •
-  3 min read
 
 <button class="adb--button adb--standard adb--outlined adb--disabled adb--global-hover-button astro-vnzlvqnm" disabled=""> arrow_back </button>
 

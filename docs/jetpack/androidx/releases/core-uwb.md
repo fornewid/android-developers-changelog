@@ -10,7 +10,7 @@ Implement UWB (ultra-wideband) on supported devices.
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| May 06, 2026 | [1.0.0](https://developer.android.com/jetpack/androidx/releases/core-uwb#1.0.0) | - | - | - |
+| May 19, 2026 | [1.0.0](https://developer.android.com/jetpack/androidx/releases/core-uwb#1.0.0) | - | - | [1.1.0-alpha01](https://developer.android.com/jetpack/androidx/releases/core-uwb#1.1.0-alpha01) |
 
 ## Declaring dependencies
 
@@ -26,7 +26,7 @@ your app or module:
 ```groovy
 dependencies {
     // Use to implement UWB (ultra-wideband) on supported devices
-    implementation "androidx.core.uwb:uwb:1.0.0"
+    implementation "androidx.core.uwb:uwb:1.1.0-alpha01"
 }
 ```
 
@@ -35,7 +35,7 @@ dependencies {
 ```kotlin
 dependencies {
     // Use to implement UWB (ultra-wideband) on supported devices
-    implementation("androidx.core.uwb:uwb:1.0.0")
+    implementation("androidx.core.uwb:uwb:1.1.0-alpha01")
 }
 ```
 
@@ -53,6 +53,18 @@ clicking the star button.
 
 See the [Issue Tracker documentation](https://developers.google.com/issue-tracker)
 for more information.
+
+## Version 1.1
+
+### Version 1.1.0-alpha01
+
+May 19, 2026
+
+`androidx.core.uwb:uwb:1.1.0-alpha01` and `androidx.core.uwb:uwb-rxjava3:1.1.0-alpha01` are released. Version 1.1.0-alpha01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/77dd3dfa840c9142af3e376b80ba1e5740a0d6ec..92906e864a2b9ada27dee710266d12dc035dbaa2/core/uwb).
+
+**API Changes**
+
+- Add new API `close()` for `UwbManager` to unbound the UWB service. ([I4606f](https://android-review.googlesource.com/#/q/I4606fd5545db1f5eb61d4bd3398e8cb8b5c8e4e5), [b/498499531](https://issuetracker.google.com/issues/498499531))
 
 ## Version 1.0
 

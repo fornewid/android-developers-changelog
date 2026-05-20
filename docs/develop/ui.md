@@ -13,7 +13,7 @@ Jetpack [Compose](https://developer.android.com/jetpack/compose/documentation) i
 Compose provides pre-built UI components so you can implement your app's UI with graphics, animations, and other visual elements with minimal code.  
 
 To maintain any existing views-based UIs in your app, use the [views-based workflows](https://developer.android.com/develop/ui/views/layout/declaring-layout). We recommend migrating your views-based UIs to Compose.
-[Quick Guides](http://developer.android.com/quick-guides) [Tutorial](http://developer.android.com/jetpack/compose/tutorial)
+[Compose docs](http://developer.android.com/develop/ui/compose/documentation) [Tutorial](http://developer.android.com/jetpack/compose/tutorial)
 
 ## Build UI with Android
 

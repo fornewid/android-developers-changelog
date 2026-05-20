@@ -44,6 +44,15 @@ source: md.txt
   2 posts](https://developer.android.com/blog/authors/amrit-sanjeev) ![](https://developer.android.com/static/blog/assets/Amrit_Sanjeev_5215e0d7cc_CrDLy.webp) ![](https://developer.android.com/static/blog/assets/Amrit_Sanjeev_5215e0d7cc_CrDLy.webp)
 -
 
+  ## [Amy Zeppenfeld](https://developer.android.com/blog/authors/amy-zeppenfeld)
+
+  ###### Developer Relations Engineer
+
+  [read_more
+  1 post](https://developer.android.com/blog/authors/amy-zeppenfeld) [read_more
+  1 post](https://developer.android.com/blog/authors/amy-zeppenfeld) ![](https://developer.android.com/static/blog/assets/Amyzeppenfeld_50a8b9e7f8_Z1LAQnM.webp) ![](https://developer.android.com/static/blog/assets/Amyzeppenfeld_50a8b9e7f8_Z1LAQnM.webp)
+-
+
   ## [Andrew Lewis](https://developer.android.com/blog/authors/andrew-lewis)
 
   ###### Software Engineer
@@ -67,8 +76,8 @@ source: md.txt
   ###### Developer Relations Engineer
 
   [read_more
-  1 post](https://developer.android.com/blog/authors/ben-trengrove) [read_more
-  1 post](https://developer.android.com/blog/authors/ben-trengrove) ![](https://developer.android.com/static/blog/assets/Ben_Trengrove_b9e17c8c2e_2uVqlp.webp) ![](https://developer.android.com/static/blog/assets/Ben_Trengrove_b9e17c8c2e_2uVqlp.webp)
+  2 posts](https://developer.android.com/blog/authors/ben-trengrove) [read_more
+  2 posts](https://developer.android.com/blog/authors/ben-trengrove) ![](https://developer.android.com/static/blog/assets/Ben_Trengrove_b9e17c8c2e_2uVqlp.webp) ![](https://developer.android.com/static/blog/assets/Ben_Trengrove_b9e17c8c2e_2uVqlp.webp)
 -
 
   ## [Ben Weiss](https://developer.android.com/blog/authors/ben-weiss)
@@ -78,20 +87,11 @@ source: md.txt
   [read_more
   7 posts](https://developer.android.com/blog/authors/ben-weiss) [read_more
   7 posts](https://developer.android.com/blog/authors/ben-weiss) ![](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2dcD9g.webp) ![](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2dcD9g.webp)
--
-
-  ## [Bennet Manuel](https://developer.android.com/blog/authors/bennet-manuel)
-
-  ###### Group Product Manager
-
-  [read_more
-  2 posts](https://developer.android.com/blog/authors/bennet-manuel) [read_more
-  2 posts](https://developer.android.com/blog/authors/bennet-manuel) ![](https://developer.android.com/static/blog/assets/Bennet_Manuel_4be9960838_MydbH.webp) ![](https://developer.android.com/static/blog/assets/Bennet_Manuel_4be9960838_MydbH.webp)
 <button class="adb--button adb--standard adb--outlined adb--disabled adb--global-hover-button astro-vnzlvqnm" disabled=""> arrow_back </button>
 
 #### Page 1
 
-###### of 11
+###### of 12
 
 [arrow_forward](https://developer.android.com/blog/authors/2)
 

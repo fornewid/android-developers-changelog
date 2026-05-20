@@ -10,7 +10,7 @@ source: md.txt
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| May 06, 2026 | [1.11.1](https://developer.android.com/jetpack/androidx/releases/compose-runtime#1.11.1) | - | - | [1.12.0-alpha02](https://developer.android.com/jetpack/androidx/releases/compose-runtime#1.12.0-alpha02) |
+| May 19, 2026 | [1.11.2](https://developer.android.com/jetpack/androidx/releases/compose-runtime#1.11.2) | - | - | [1.12.0-alpha03](https://developer.android.com/jetpack/androidx/releases/compose-runtime#1.12.0-alpha03) |
 
 ## Structure
 
@@ -43,9 +43,9 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.compose.runtime:runtime:1.11.1"
-    implementation "androidx.compose.runtime:runtime-livedata:1.11.1"
-    implementation "androidx.compose.runtime:runtime-rxjava2:1.11.1"
+    implementation "androidx.compose.runtime:runtime:1.11.2"
+    implementation "androidx.compose.runtime:runtime-livedata:1.11.2"
+    implementation "androidx.compose.runtime:runtime-rxjava2:1.11.2"
 }
 
 android {
@@ -67,9 +67,9 @@ android {
 
 ```kotlin
 dependencies {
-    implementation("androidx.compose.runtime:runtime:1.11.1")
-    implementation("androidx.compose.runtime:runtime-livedata:1.11.1")
-    implementation("androidx.compose.runtime:runtime-rxjava2:1.11.1")
+    implementation("androidx.compose.runtime:runtime:1.11.2")
+    implementation("androidx.compose.runtime:runtime-livedata:1.11.2")
+    implementation("androidx.compose.runtime:runtime-rxjava2:1.11.2")
 }
 
 android {
@@ -103,6 +103,18 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.12
+
+### Version 1.12.0-alpha03
+
+May 19, 2026
+
+`androidx.compose.runtime:runtime-*:1.12.0-alpha03` is released. Version 1.12.0-alpha03 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/0c82232cfb54d1dcc3ad73598fcc81ceff9b88d6..a5046b380f14cd67d25208fa4c58d41bf3b06a1b/compose/runtime).
+
+**Bug Fixes**
+
+- Resolved several issues in the `LinkTable` where diagnostic stack traces would be unpopulated or missing information ([I3918c](https://android-review.googlesource.com/#/q/I3918cccbbcd4c9539582cdbcaea659a19fb84e22))
+- Fixed an issue in an internal data type that could cause an exception in rare cases with movable content. ([Ic478f](https://android-review.googlesource.com/#/q/Ic478fb977ff8d650caa481f33ad0a2f0fa4c9671), [b/507724717](https://issuetracker.google.com/issues/507724717))
+- Fixed an issue in the `LinkComposer`'s skipping behavior that resulted in inconsistent behavior compared to the `GapComposer`, unexpected recalculation of default arguments, and test timeouts. ([I783dc](https://android-review.googlesource.com/#/q/I783dcb968d5af58fe2cfcbb7b7bb8d1dcc158709))
 
 ### Version 1.12.0-alpha02
 
@@ -191,6 +203,16 @@ September 7, 2022
 - `androidx.compose.runtime:runtime-tracing` is a library which - in the presence of tooling supporting it (coming soon) - allows for extended tracing in a Compose app. This initial release is 1.0.0-alpha01.
 
 ## Version 1.11
+
+### Version 1.11.2
+
+May 19, 2026
+
+`androidx.compose.runtime:runtime-*:1.11.2` is released. Version 1.11.2 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/5d39d0c458dbf0b3791cfaba65f42a27e442c15f..f024db30e2eb34d643af9804ac0650840a49a05c/compose/runtime).
+
+**Bug Fixes**
+
+- Fixed an issue in an internal data type that could cause an exception in rare cases with movable content. ([Ic478f](https://android-review.googlesource.com/#/q/Ic478fb977ff8d650caa481f33ad0a2f0fa4c9671), [b/507724717](https://issuetracker.google.com/issues/507724717))
 
 ### Version 1.11.1
 

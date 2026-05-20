@@ -5,10 +5,10 @@ source: md.txt
 ---
 
 This guide assumes you have a media app that plays audio on a phone and that
-your media app conforms to Android media app architecture. You also learn what
-your app needs from `MediaBrowserService` and `MediaSession` to run on Android
-Auto or AAOS. When you complete the core media infrastructure, you can add
-support for Android Auto and AAOS to your media app.
+your media app conforms to Android media app architecture. You will also learn
+what your app needs from `MediaBrowserService` or `MediaLibraryService` and
+`MediaSession` to run on Android Auto or AAOS. When you complete the core media
+infrastructure, you can add support for Android Auto and AAOS to your media app.
 
 > [!CAUTION]
 > **Caution:** Google takes driver distraction seriously. Your app must meet specific design requirements before it can be listed on Google Play for Android Auto or AAOS. By adhering to these requirements, you can make it more straightforward to build and test your app. To learn more, see [Android app quality for cars](https://developer.android.com/docs/quality-guidelines/car-app-quality?category=media).
@@ -38,19 +38,19 @@ can create media apps for cars in one of two ways:
    media browsing and playback experience, including custom actions. To learn
    more, see [Build a templated media app](https://developer.android.com/training/cars/apps/media).
 
-   > [!NOTE]
-   > **Note:** Templated media apps are supported only on Android Auto.
+> [!NOTE]
+> **Note:** The Car App Library templates still require a `MediaSession` and either a `MediaBrowserService` or `MediaLibraryService` to maintain support for voice actions and other smart experiences.
 
 > [!CAUTION]
 > **Caution:** Aside from [voice guidance audio for navigation apps](https://developer.android.com/training/cars/apps/navigation#voice-guidance) and the media apps described here, in-app media playback while driving is **not** permitted.
 
 This guide assumes you have a media app that plays audio on a phone and that
 your media app conforms to Android [media app architecture](https://developer.android.com/guide/topics/media-apps/media-apps-overview). This guide
-describes the required components of a `MediaBrowserService` and `MediaSession`
-needed by your app to be compatible with Android Auto or AAOS. After you
-complete the core media infrastructure, you can
-[add support for Android Auto](https://developer.android.com/training/cars/media/auto) and [add support for AAOS](https://developer.android.com/training/cars/media/automotive-os) to your media
-app.
+describes the required components of a `MediaBrowserService` or
+`MediaLibraryService` and `MediaSession` needed by your app to be compatible
+with Android Auto or AAOS. After you complete the core media infrastructure,
+you can [add support for Android Auto](https://developer.android.com/training/cars/media/auto) and [add support for AAOS](https://developer.android.com/training/cars/media/automotive-os) to
+your media app.
 
 ## Create video media apps
 

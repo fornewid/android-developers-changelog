@@ -18,9 +18,9 @@ This table lists all the artifacts in the `androidx.wear` group.
 | wear-input-testing | [1.2.0](https://developer.android.com/jetpack/androidx/releases/wear#wear-input-testing-1.2.0) | - | - | - |
 | wear-ongoing | [1.1.0](https://developer.android.com/jetpack/androidx/releases/wear#wear-ongoing-1.1.0) | - | - | - |
 | wear-phone-interactions | [1.1.0](https://developer.android.com/jetpack/androidx/releases/wear#wear-phone-interactions-1.1.0) | - | - | - |
-| wear-remote-interactions | [1.2.0](https://developer.android.com/jetpack/androidx/releases/wear#wear-remote-interactions-1.2.0) | - | - | - |
+| wear-remote-interactions | [1.2.0](https://developer.android.com/jetpack/androidx/releases/wear#wear-remote-interactions-1.2.0) | - | - | [1.3.0-alpha01](https://developer.android.com/jetpack/androidx/releases/wear#wear-remote-interactions-1.3.0-alpha01) |
 
-This library was last updated on: May 06, 2026
+This library was last updated on: May 19, 2026
 
 ## Declaring dependencies
 
@@ -87,6 +87,12 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Wear Core Version 1.1
+
+### Version 1.1.0-rc01
+
+May 19, 2026
+
+`androidx.wear:wear-core:1.1.0-rc01` is released with no changes from the previous release. Version 1.1.0-rc01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/e29a10982f4299b1fa812e229d76792092a62814..5ca24911c4ecf7ae5fca3fc5fed1c0f494d20703/wear/wear-core).
 
 ### Version 1.1.0-beta01
 
@@ -366,6 +372,18 @@ September 29, 2021
 **Bug Fixes**
 
 - `ConfirmationOverlay` now pushes the icon up to accommodate longer messages, without the message entering the device's bezel (or off-screen). ([I54bff](https://android-review.googlesource.com/#/q/I54bff6521d0fc8b942056d02351ca48390d04101))
+
+## Wear-Remote-Interactions Version 1.3.0
+
+### Version 1.3.0-alpha01
+
+May 19, 2026
+
+`androidx.wear:wear-remote-interactions:1.3.0-alpha01` is released. Version 1.3.0-alpha01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/55bf42f5cd58f4b0527ed1fccdf579f7e86c9b9e..92906e864a2b9ada27dee710266d12dc035dbaa2/wear/wear-remote-interactions).
+
+**API Changes**
+
+- Added `startRemoteActivityAttemptUnlock` and `startPhoneActivityWithUnlock` to `RemoteActivityHelper`, allowing Wear OS applications to start an activity on the connected phone after unlocking the phone, subject to user enrolling in feature and platform capability. `startRemoteActivityAttemptUnlock` can fall back to existing `startRemoteActivity` when feature not available. ([Ic23ae](https://android-review.googlesource.com/#/q/Ic23ae13d4085542d279f4b2ef2dff4cc8a650f72), [b/468374830](https://issuetracker.google.com/issues/468374830))
 
 ## Wear-Remote-Interactions Version 1.2.0
 

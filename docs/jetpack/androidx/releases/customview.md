@@ -6,11 +6,10 @@ source: md.txt
 
 # Customview
 
-API Reference  
-[androidx.customview.poolingcontainer](https://developer.android.com/reference/kotlin/androidx/customview/poolingcontainer/package-summary)  
-[androidx.customview.view](https://developer.android.com/reference/kotlin/androidx/customview/view/package-summary)  
-[androidx.customview.widget](https://developer.android.com/reference/kotlin/androidx/customview/widget/package-summary)  
-Implement custom views.  
+Implement custom views.
+
+> [!CAUTION]
+> **Caution:** This library is in maintenance mode and will only receive critical fixes; new features are not planned. We recommend using [Jetpack Compose](https://developer.android.com/jetpack/compose) for building Android UIs. See [Compose-first](https://developer.android.com/develop/ui/compose/first) for more information.
 
 
 This table lists all the artifacts in the `androidx.customview` group.
@@ -29,7 +28,7 @@ project. Read [Google's Maven repository](https://developer.android.com/studio/b
 for more information.
 
 Add the dependencies for the artifacts you need in the `build.gradle` file for
-your app or module:  
+your app or module:
 
 ### Groovy
 
@@ -217,7 +216,9 @@ March 4, 2020
 June 13, 2019
 
 `androidx.customview:customview:1.1.0-alpha01` is released. The commits included in this version can be found [here](https://android.googlesource.com/platform/frameworks/support/+log/50a39caa72955aae0c75225fd9805ab537cbf049..f464859d02d59b7975f89c519a9da51d9b8a41d9/customview).
-| **Note:** This version is dependent on the Java 8 programming language. Please read [Use Java 8 language features](https://developer.android.com/studio/write/java8-support) to learn how to use it in your project.
+
+> [!NOTE]
+> **Note:** This version is dependent on the Java 8 programming language. Please read [Use Java 8 language features](https://developer.android.com/studio/write/java8-support) to learn how to use it in your project.
 
 **API changes**
 

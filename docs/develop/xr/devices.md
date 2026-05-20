@@ -52,30 +52,30 @@ build immersive experiences for wired XR glasses:
 - [**OpenXR**](https://developer.android.com/develop/xr/openxr): Streamline development with OpenXR's royalty-free open standard. Build anywhere using a common set of APIs to develop XR apps that work across a range of devices.
 - [**WebXR**](https://developer.android.com/develop/xr/web): Use the power of web technologies to build XR experiences directly in a browser. WebXR makes extended reality available to anyone with a device and a supported web browser.
 
-## AI glasses
+## Audio glasses and display glasses
 
-![A stylized illustration of AI glasses.](https://developer.android.com/static/images/develop/xr/ai-glasses-icon.svg)
+![A stylized illustration of audio glasses or display glasses.](https://developer.android.com/static/images/develop/xr/ai-glasses-icon.svg)
 
-AI Glasses are lightweight and portable for all day wear. With built-in
-speakers, a camera, and microphone; you can build intelligent and hands-free
-augmented experiences.
+Audio glasses and display glasses are types of intelligent eyewear that are
+lightweight and portable for all-day wear. With built-in speakers, a camera, and
+microphone; you can build intelligent and hands-free augmented experiences.
 
-- **Additive color \& transparency**: Some AI glasses feature an additive display, where pure black renders as transparent. Darker colors are rendered by emitting less light, which effectively reduces their opacity.
-- **Mobility**: AI glasses are lightweight and portable, letting the user wear them as they go about daily life.
+- **Additive color \& transparency**: Display glasses feature an additive display, where pure black renders as transparent. Darker colors are rendered by emitting less light, which effectively reduces their opacity.
+- **Mobility**: Both audio glasses and display glasses are lightweight and portable, letting the user wear them as they go about daily life.
 - **Inputs**: Primary inputs often include physical input such as a touchpad and voice input using the microphone array.
-- **AI first**: AI glasses provide a unique opportunity for new interaction
-  design with the overlap of a new, highly-contextual and personal form factor
-  with evolving AI patterns. For AI glasses, you will have access to the
-  device's hardware and features, including camera, microphone, and touchpad,
-  to fully explore new interaction patterns between AI, your app, and glasses
-  with comfort and user safety principles in mind.
+- **AI first**: Audio glasses and display glasses provide a unique opportunity
+  for interaction design that combines a new, highly-contextual and personal
+  form factor with evolving AI patterns in a space that prioritizes both
+  comfort and user safety. Access the device's hardware and features,
+  including camera, microphone, and touchpad, to fully explore new interaction
+  patterns between AI, your app, and the glasses.
 
-  AI glasses bring AI capabilities to the user's eyes and ears. When designing
-  these experiences, consider patterns that recognize AI as an assistant with
-  glanceable visuals.
+  Audio glasses and display glasses bring AI capabilities to the user's eyes
+  and ears. When [designing these experiences](https://developer.android.com/design/ui/ai-glasses), consider patterns that
+  recognize AI as an assistant with glanceable visuals.
 
-### Supported tools and technologies for AI glasses
+### Supported tools and technologies for audio glasses and display glasses
 
 The [**Jetpack XR SDK**](https://developer.android.com/develop/xr/jetpack-xr-sdk) includes all tools you need to build augmented
-experiences for AI glasses. You can use [Jetpack Compose Glimmer](https://developer.android.com/develop/xr/jetpack-xr-sdk/jetpack-compose-glimmer), Android
-Studio, [the emulator](https://developer.android.com/develop/xr/jetpack-xr-sdk/run/create-avds/ai-glasses), and [ARCore for Jetpack XR](https://developer.android.com/develop/xr/jetpack-xr-sdk/arcore).
+experiences for audio glasses and display glasses. You can use [Jetpack Compose
+Glimmer](https://developer.android.com/develop/xr/jetpack-xr-sdk/jetpack-compose-glimmer), Android Studio, [the emulator](https://developer.android.com/develop/xr/jetpack-xr-sdk/run/create-avds/ai-glasses), and [ARCore for Jetpack XR](https://developer.android.com/develop/xr/jetpack-xr-sdk/arcore).

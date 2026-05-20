@@ -4,6 +4,8 @@ url: https://developer.android.com/training/cars/parked/video
 source: md.txt
 ---
 
+The video category is coming to Android Auto in beta Express interest in bringing your video app to Android Auto. [Nominate yourself to be an early access partner →](https://forms.gle/VsXEdDEBidxw8q8u8) ![](https://developer.android.com/static/images/picto-icons/test-tube-2.svg)
+
 In addition to the guidelines described in [Build parked apps for Android
 Automotive OS](https://developer.android.com/training/cars/parked/automotive-os), there are some requirements specific to video apps.
 

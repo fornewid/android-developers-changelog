@@ -23,7 +23,7 @@ guidelines and requirements for creating great experiences on Android for Cars.
 
 | General | Android Auto | Android Automotive OS |
 |---|---|---|
-| See [Build media apps for cars](https://developer.android.com/training/cars/media). | - [Add support for Android Auto to your media app](https://developer.android.com/training/cars/media/auto). | - [Add Android Automotive OS support to your media app](https://developer.android.com/training/cars/media/automotive-os). - Publish your app using a [dedicated Android Automotive OS track](https://developer.android.com/training/cars/distribute#choose-track-aaos). |
+| - See [Build media apps for cars](https://developer.android.com/training/cars/media). - For templated media apps, see [Build templated media apps for cars](https://developer.android.com/training/cars/apps/media). | - [Add support for Android Auto to your media app](https://developer.android.com/training/cars/media/auto). | - [Add Android Automotive OS support to your media app](https://developer.android.com/training/cars/media/automotive-os). - Publish your app using a [dedicated Android Automotive OS track](https://developer.android.com/training/cars/distribute#choose-track-aaos). |
 
 ### Communication apps
 
@@ -35,7 +35,7 @@ guidelines and requirements for creating great experiences on Android for Cars.
 
 | General | Android Auto | Android Automotive OS |
 |---|---|---|
-| - See [Use the Android for Cars App Library](https://developer.android.com/training/cars/apps). - For point of interest apps, see [Build point of interest apps for cars](https://developer.android.com/training/cars/apps/poi). - For internet of things apps, see [Build internet of things apps for cars](https://developer.android.com/training/cars/apps/iot). - For navigation apps, see [Build navigation apps for cars](https://developer.android.com/training/cars/apps/navigation). - For weather apps, see [Build weather apps for cars](https://developer.android.com/training/cars/apps/weather). | - [Add support for Android Auto to your templated app](https://developer.android.com/training/cars/apps/auto). | - [Add support for Android Automotive OS to your templated app](https://developer.android.com/training/cars/apps/automotive-os). - Publish your app using a [dedicated Android Automotive OS track](https://developer.android.com/training/cars/distribute#choose-track-aaos). |
+| - See [Use the Android for Cars App Library](https://developer.android.com/training/cars/apps). - For templated media apps, see [Build templated media apps for cars](https://developer.android.com/training/cars/apps/media). - For point of interest apps, see [Build point of interest apps for cars](https://developer.android.com/training/cars/apps/poi). - For internet of things apps, see [Build internet of things apps for cars](https://developer.android.com/training/cars/apps/iot). - For navigation apps, see [Build navigation apps for cars](https://developer.android.com/training/cars/apps/navigation). - For weather apps, see [Build weather apps for cars](https://developer.android.com/training/cars/apps/weather). | - [Add support for Android Auto to your templated app](https://developer.android.com/training/cars/apps/auto). | - [Add support for Android Automotive OS to your templated app](https://developer.android.com/training/cars/apps/automotive-os). - Publish your app using a [dedicated Android Automotive OS track](https://developer.android.com/training/cars/distribute#choose-track-aaos). |
 
 ### Parked apps
 

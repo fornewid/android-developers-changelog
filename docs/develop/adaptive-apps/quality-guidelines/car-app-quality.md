@@ -41,7 +41,7 @@ Android Auto
 | [Supported categories](https://developer.android.com/training/cars#supported-app-categories) | Android Auto | Android Automotive OS |
 |---|---|---|
 | Media | ✔ | ✔ |
-| Media (templated) labs | ✔ |   |
+| Media (templated) labs | ✔ | ✔ |
 | Communication - messaging notifications | ✔ |   |
 | Communication - templated messaging labs | ✔ |   |
 | Communication - calling labs | ✔ |   |
@@ -135,13 +135,14 @@ they are Tier 3 requirements only for [parked apps](https://developer.android.co
 | Visual Information on Phone | `VI-1` | Media, Messaging (templated), Calling, Navigation, POI, IOT, Weather | **Android Auto only:** If the user must go to the phone screen---for example, to act on a permission request---then the app must display a message instructing the user to only look at their phone screen when it's safe to do so. For more information, see [Handle general errors](https://developer.android.com/training/cars/media/errors) for media, and [Handle user input](https://developer.android.com/training/cars/apps#handle-user-input) for navigation, point of interest, internet of things, and weather apps. |
 | App Doesn't Crash | `AC-1` | Messaging (templated), Calling, Navigation, POI, IOT, Weather | Users must be able to complete tasks in the app using five screens or fewer. For more information, see [Template restrictions](https://developer.android.com/training/cars/apps#template-restrictions). |
 | Scrolling Text | `ST-1` | Media, Messaging, Calling, Navigation, POI, IOT, Weather | The app must not display automatically scrolling text. |
-| Voice Commands | `VC-1` | Media, Navigation | The app must support Google Assistant voice commands. For more information, see [Support voice actions](https://developer.android.com/training/cars/media/voice-actions) for media, and [Support navigation intents](https://developer.android.com/training/cars/apps/navigation#support-navigation-intents) for navigation. |
+| Voice Commands | `VC-1` | Media, Navigation | The app must support Gemini and Google Assistant voice commands. For more information, see [Support voice actions](https://developer.android.com/training/cars/media/voice-actions) for media, and [Support navigation intents](https://developer.android.com/training/cars/apps/navigation#support-navigation-intents) for navigation. |
 | Delayed Response | `DR-1` | Media, Messaging (templated), Calling, Navigation, POI, IOT, Weather | App-specific buttons must respond to user actions with no more than a two-second delay. |
 | Delayed Response | `DR-2` | Media, Messaging (templated), Calling, Navigation, POI, IOT, Weather | The app must launch in no more than 10 seconds. |
 | Delayed Response | `DR-3` | Media, Messaging (templated), Calling, Navigation, POI, IOT, Weather | The app must load content in no more than 10 seconds. |
 | Contrast | `VD-1` | Media, Messaging, Calling, Navigation, POI, IOT, Weather | The app must provide icons and colors that meet Android Auto's contrast requirements. For more information, see [Contrast](https://developers.google.com/cars/design/android-auto/design-system/color#contrast). |
 | Contrast | `VD-2` | Media | The app must provide white icon sets that the system colorizes to provide automatic contrast compensation. |
 | Contrast | `VD-3` | Media | The app must provide colors that the system can optimize for easy in-vehicle readability. |
+| Theming | `TH-1` | Messaging (templated), Navigation, POI, IOT, Weather | Apps that add custom theming to Car App Library components with version 1.9 or higher must support light and dark mode theming. See [Contrast](https://developer.android.com/develop/ui/compose/styles/theming)for more information. |
 | Grey Buttons | `GB-1` | Media | Interactive elements that are intentionally greyed-out must be nonfunctional. |
 | Driver Distraction | `DD-1` | Navigation | The navigation audio channel can only be used by navigation apps and for navigation instructions. For more information, see [Voice guidance](https://developer.android.com/training/cars/apps/navigation#voice-guidance). |
 | Driver Distraction | `DD-2` | Video, Games, Browsers | While driving, the app must not be launchable and the app's UI must not be visible. The app's audio must stop when the user starts driving and cannot be unpaused while driving. For more information, see [Meet driver distraction requirements](https://developer.android.com/training/cars/parked/automotive-os#driver-distraction). **Exception:** Video apps that support audio while driving can continue playback on supported devices. See [`DD-4`](https://developer.android.com/develop/adaptive-apps/quality-guidelines/car-app-quality#DD-4) . |
@@ -171,7 +172,8 @@ they are Tier 3 requirements only for [parked apps](https://developer.android.co
 | Map Rendering | `MR-1` | Navigation, POI, Weather | By default, apps that [draw maps](https://developer.android.com/training/cars/apps#draw-maps) must draw a light-themed or dark-themed map when instructed to do so. For more information, see [Support dark theme](https://developer.android.com/training/cars/apps#dark-theme). Apps can let users choose to always display the app in either light or dark theme. |
 | Media Controls | `MC-1` | Video | The app integrates with media session. Depending on the content, the app must support either the play/pause or stop playback commands. Additionally, the app must provide title and thumbnail metadata for every media item. See [Control and advertise playback using a MediaSession](https://developer.android.com/media/media3/session/control-playback). |
 | Deep Links | `DL-1` | Video, Games, Browsers | **Android Automotive OS only:** The app supports deep links. See [Handling Android App Links](https://developer.android.com/training/app-links). |
-| Media Functionality (templated) | `MFT-1` | Media (templated) | User must be able to navigate to the `MediaPlaybackTemplate` from media browsing views. See [Build templated media apps](https://developer.android.com/training/cars/apps/media) for more details. |
+| Media Functionality (templated) | `MFT-1` | Media (templated) | User must be able to navigate to the `MediaPlaybackTemplate` from media browsing views or support the minimized control panel for apps using the Car App Library Version 1.9 or higher. See [Build templated media apps](https://developer.android.com/training/cars/apps/media) for more details. |
+| Media Functionality (templated) | `MFT-3` | Media (templated) | Handle `SHOW_MEDIA_PLAYBACK` intents: Templated Media apps must handle the `androidx.car.app.media.action.SHOW_MEDIA_PLAYBACK` intent action to direct the user to the `MediaPlaybackTemplate`. See [handle system media playback intents](https://developer.android.com/training/cars/apps/media#sys-media-playback-intents) for more details. |
 
 #### Associated large screen quality guidelines
 

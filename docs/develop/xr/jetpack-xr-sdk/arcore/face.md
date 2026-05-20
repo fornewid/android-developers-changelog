@@ -54,7 +54,7 @@ contains the following:
 
 
 ```kotlin
-val face = Face.getUserFace(session) ?: return
+val face = Face.getUserFace(session)
 face.state.collect { state ->
     if (state.trackingState != TrackingState.TRACKING) return@collect
 

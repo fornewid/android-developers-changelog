@@ -10,7 +10,7 @@ Write trace events to the system trace buffer.
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| May 06, 2026 | [1.3.0](https://developer.android.com/jetpack/androidx/releases/tracing#1.3.0) | - | - | [2.0.0-alpha07](https://developer.android.com/jetpack/androidx/releases/tracing#2.0.0-alpha07) |
+| May 19, 2026 | [1.3.0](https://developer.android.com/jetpack/androidx/releases/tracing#1.3.0) | - | - | [2.0.0-alpha08](https://developer.android.com/jetpack/androidx/releases/tracing#2.0.0-alpha08) |
 
 ## Feedback
 
@@ -26,6 +26,17 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Tracing Version 2.0
+
+### Version 2.0.0-alpha08
+
+May 19, 2026
+
+`androidx.tracing:tracing-*:2.0.0-alpha08` is released. Version 2.0.0-alpha08 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/e29a10982f4299b1fa812e229d76792092a62814..d183e19c77ddcd420f939c1a21cd82c038237f28/tracing).
+
+**API Changes**
+
+- Add the ability to discover and override instances of `TraceDriver` to be used process wide. ([I3f715](https://android-review.googlesource.com/#/q/I3f715bfd9760b206d3f1c0527632f33fe79ec30f))
+- Rename `Tracer.recordException` to `Tracer.recordExceptionAndThrow`. ([I4411f](https://android-review.googlesource.com/#/q/I4411f85f159102c74c52a80c0ec970eef96f423b), [b/503092450](https://issuetracker.google.com/issues/503092450))
 
 ### Version 2.0.0-alpha07
 

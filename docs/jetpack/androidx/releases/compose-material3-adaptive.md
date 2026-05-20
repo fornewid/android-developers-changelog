@@ -12,7 +12,7 @@ Use the Material 3 adaptive library to create adaptive UIs that will adapt thems
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| May 06, 2026 | [1.2.0](https://developer.android.com/jetpack/androidx/releases/compose-material3-adaptive#1.2.0) | - | [1.3.0-beta01](https://developer.android.com/jetpack/androidx/releases/compose-material3-adaptive#1.3.0-beta01) | - |
+| May 19, 2026 | [1.2.0](https://developer.android.com/jetpack/androidx/releases/compose-material3-adaptive#1.2.0) | - | [1.3.0-beta02](https://developer.android.com/jetpack/androidx/releases/compose-material3-adaptive#1.3.0-beta02) | - |
 
 ## Declaring dependencies
 
@@ -27,9 +27,9 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.compose.material3.adaptive:adaptive:1.3.0-beta01"
-    implementation "androidx.compose.material3.adaptive:adaptive-layout:1.3.0-beta01"
-    implementation "androidx.compose.material3.adaptive:adaptive-navigation:1.3.0-beta01"
+    implementation "androidx.compose.material3.adaptive:adaptive:1.3.0-beta02"
+    implementation "androidx.compose.material3.adaptive:adaptive-layout:1.3.0-beta02"
+    implementation "androidx.compose.material3.adaptive:adaptive-navigation:1.3.0-beta02"
 }
 ```
 
@@ -37,9 +37,9 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.compose.material3.adaptive:adaptive:1.3.0-beta01")
-    implementation("androidx.compose.material3.adaptive:adaptive-layout:1.3.0-beta01")
-    implementation("androidx.compose.material3.adaptive:adaptive-navigation:1.3.0-beta01")
+    implementation("androidx.compose.material3.adaptive:adaptive:1.3.0-beta02")
+    implementation("androidx.compose.material3.adaptive:adaptive-layout:1.3.0-beta02")
+    implementation("androidx.compose.material3.adaptive:adaptive-navigation:1.3.0-beta02")
 }
 ```
 
@@ -92,6 +92,12 @@ We are excited to announce the first alpha release of the `adaptive-navigation3`
 Use scene strategies to implement a canonical list-detail pane scaffold (`ListDetailSceneStrategy`, `rememberListDetailSceneStrategy`) or a supporting pane scaffold (`SupportingPaneSceneStrategy`, `rememberSupportingPaneSceneStrategy`). For more information about scenes, scene strategies, and other new concepts introduced in Navigation 3, refer to the [Navigation3 guide](https://developer.android.com/guide/navigation/navigation-3).
 
 ## Compose Material3 Adaptive Version 1.3
+
+### Version 1.3.0-beta02
+
+May 19, 2026
+
+`androidx.compose.material3.adaptive:adaptive-*:1.3.0-beta02` is released. Version 1.3.0-beta02 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/e29a10982f4299b1fa812e229d76792092a62814..5cca2035282c9395b74887282cdaa8abecd088e0/compose/material3/adaptive).
 
 ### Version 1.3.0-beta01
 

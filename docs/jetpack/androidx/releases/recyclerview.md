@@ -6,11 +6,10 @@ source: md.txt
 
 # Recyclerview
 
-[User Guide](https://developer.android.com/guide/topics/ui/layout/recyclerview) [Code Sample](https://github.com/android/views-widgets-samples/tree/main/RecyclerView)  
-API Reference  
-[androidx.recyclerview.selection](https://developer.android.com/reference/kotlin/androidx/recyclerview/selection/package-summary)  
-[androidx.recyclerview.widget](https://developer.android.com/reference/kotlin/androidx/recyclerview/widget/package-summary)  
-Display large sets of data in your UI while minimizing memory usage.  
+[User Guide](https://developer.android.com/guide/topics/ui/layout/recyclerview) [Code Sample](https://github.com/android/views-widgets-samples/tree/main/RecyclerView) Display large sets of data in your UI while minimizing memory usage.
+
+> [!CAUTION]
+> **Caution:** This library is in maintenance mode and will only receive critical fixes; new features are not planned. We recommend using [Jetpack Compose](https://developer.android.com/jetpack/compose) for building Android UIs. See [Compose-first](https://developer.android.com/develop/ui/compose/first) for more information.
 
 
 This table lists all the artifacts in the `androidx.recyclerview` group.
@@ -29,7 +28,7 @@ project. Read [Google's Maven repository](https://developer.android.com/studio/b
 for more information.
 
 Add the dependencies for the artifacts you need in the `build.gradle` file for
-your app or module:  
+your app or module:
 
 ### Groovy
 

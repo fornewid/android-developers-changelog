@@ -7,7 +7,8 @@ source: md.txt
 <br />
 
 
-Applicable XR devices This guidance helps you build experiences for these types of XR devices. [Learn about XR device types →](https://developer.android.com/develop/xr/devices) ![](https://developer.android.com/static/images/develop/xr/ai-glasses-icon.svg) AI Glasses [](https://developer.android.com/develop/xr/devices#ai-glasses) [Learn about XR device types →](https://developer.android.com/develop/xr/devices)
+Applicable XR devices This guidance helps you build experiences for these types of XR devices. [Learn about XR device types →](https://developer.android.com/develop/xr/devices) ![](https://developer.android.com/static/images/develop/xr/ai-glasses-icon.svg) Audio \&  
+Display Glasses [](https://developer.android.com/develop/xr/devices#audio-display) [Learn about XR device types →](https://developer.android.com/develop/xr/devices)
 
 <br />
 
@@ -20,7 +21,7 @@ output in a seamless way. The Gemini Live API does require a persistent internet
 connection, incur cost, supports a [limited number of concurrent connections per
 project](https://firebase.google.com/docs/ai-logic/live-api/limits-and-specs)
 and might not be ideal for handling error conditions or other critical user
-communication, especially on AI glasses with no display.
+communication, especially on audio glasses because they have no display.
 
 In addition to supporting audio interfaces, you can also use the Gemini Live API
 to build agentic experiences.

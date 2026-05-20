@@ -16,9 +16,12 @@ across the user interface, enabling features like the tappable icon at the
 bottom of the watch face. This keeps users aware of the background task, and
 provides a one-tap way to return to the app.
 
-An ongoing activity also keeps your app visible for longer, preventing the
+An Ongoing Activity also keeps your app visible for longer, preventing the
 system from returning to the watch face after a period of inactivity. For more
 information, see [Keep your app visible on Wear](https://developer.android.com/training/wearables/always-on#background).
+
+> [!NOTE]
+> **Note:** You can use a [Live Update](https://developer.android.com/training/wearables/notifications/live-updates) in place of an Ongoing Activity For Wear OS 7 and greater. For backwards compatibility on Wear OS 6 and earlier, use an Ongoing Activity.
 
 For example, in this workout app, the information can appear on the user's watch
 face as a tappable running icon:
@@ -36,7 +39,7 @@ the status of their task and re-engage with the app:
 **Figure 2.** Global launcher.
 
 The following are good situations to use an ongoing notification tied to an
-ongoing activity:
+Ongoing Activity:
 
 ![timer](https://developer.android.com/static/wear/images/ongoing_activity_2.png)
 
@@ -54,10 +57,10 @@ navigation.
 **Figure 5.** **Media:** Plays music throughout a session. Ends immediately
 after the user pauses the session.
 
-Wear creates ongoing activities automatically for media apps.
+Wear creates Ongoing Activities automatically for media apps.
 
 See the [Ongoing Activity codelab](https://developer.android.com/codelabs/ongoing-activity) for an in-depth example of creating
-ongoing activities for other kinds of apps.
+Ongoing Activities for other kinds of apps.
 
 ## Setup
 
@@ -69,13 +72,13 @@ dependencies to your app's `build.gradle` file:
       implementation "androidx.core:core:1.18.0"
     }
 
-## Create an ongoing activity
+## Create an Ongoing Activity
 
 The process involves three steps:
 
 1. Create a standard [`NotificationCompat.Builder`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder) and configure it as ongoing.
 2. Create and configure an [`OngoingActivity`](https://developer.android.com/reference/androidx/wear/ongoing/OngoingActivity) object, passing the notification builder to it.
-3. Apply the ongoing activity to the notification builder and post the resulting notification.
+3. Apply the Ongoing Activity to the notification builder and post the resulting notification.
 
 ### Create and configure the notification
 
@@ -118,7 +121,7 @@ Next, create an instance of `OngoingActivity` using its builder. The
 Configure the key properties that will be displayed on the new UI surfaces:
 
 - **Animated and static icons**: Provide icons that are displayed on the watch face in active and ambient modes.
-- **Touch intent** : A `PendingIntent` that brings the user back to your app when they tap the ongoing activity icon. You can reuse the `pendingIndent` created in the previous step.
+- **Touch intent** : A `PendingIntent` that brings the user back to your app when they tap the Ongoing Activity icon. You can reuse the `pendingIndent` created in the previous step.
 
 
 ```kotlin
@@ -206,13 +209,13 @@ val ongoingActivity =
 
 ## Additional customizations
 
-Beyond `Status`, you can customize your ongoing activity or notifications in the
+Beyond `Status`, you can customize your Ongoing Activity or notifications in the
 following ways. However, these customizations might not be used, based on the
 OEM's implementation.
 
 **Ongoing Notification**
 
-- The **category** set determines the priority of the ongoing activity.
+- The **category** set determines the priority of the Ongoing Activity.
   - **`CATEGORY_CALL`:** an incoming voice or video call or a similar synchronous communication request
   - **`CATEGORY_NAVIGATION`:** a map or turn-by-turn navigation
   - **`CATEGORY_TRANSPORT`:** media transport control for playback
@@ -239,7 +242,7 @@ OEM's implementation.
   *"context text"* is used.
 
 - **Touch Intent:** a `PendingIntent` used to switch back to the app if the
-  user taps on the ongoing activity icon. Displays on the watch face or on the
+  user taps on the Ongoing Activity icon. Displays on the watch face or on the
   launcher item. It can be different from the original intent used to launch
   the app. If not provided, the notification's content intent is used. If
   neither is set, an exception is thrown.
@@ -248,26 +251,19 @@ OEM's implementation.
   activity corresponds to. Displays on the launcher in the **Recents** section
   while the activity is ongoing. If not provided, the launcher hides all app
   items in the **Recents** section from the same package and only shows the
-  ongoing activity.
+  Ongoing Activity.
 
 - **Ongoing Activity ID:** ID used to disambiguate calls to
   [`fromExistingOngoingActivity()`](https://developer.android.com/reference/androidx/wear/ongoing/OngoingActivity#fromExistingOngoingActivity(android.content.Context)) when an application has more than one
-  ongoing activity.
+  Ongoing Activity.
 
-## Update an ongoing activity
+## Update an Ongoing Activity
 
-In most cases, developers create a new ongoing notification and a new ongoing
-activity when they need to update the data on the screen. However, the Ongoing
-Activity API also offers helper methods to update an `OngoingActivity` if you
-want to retain an instance rather than recreate it.
-
-If the app is running in the background, it can send updates to the Ongoing
-Activity API. However, don't do this too frequently, because the update method
-ignores calls that are too close to each other. A few updates per minute is
-reasonable.
-
-To update the ongoing activity and the posted notification, use the object you
-created before and call `update()`, as shown in the following example:
+You should update the Ongoing Activity for the existing notification when you
+need to change the status, instead of creating a new notification and Ongoing
+Activity. To update the Ongoing Activity and the posted notification, use the
+object you created before and call `update()`, as shown in the following
+example:
 
 
 ```kotlin
@@ -276,7 +272,9 @@ ongoingActivity.update(context, newStatus)
 
 <br />
 
-As a convenience, there is a static method to create an ongoing activity.
+In the cases where it is not possible to store a reference to the Ongoing
+Activity, there is a static method to recover the Ongoing Activity. However,
+this is less preferred:
 
 
 ```kotlin
@@ -286,18 +284,18 @@ OngoingActivity.recoverOngoingActivity(context)
 
 <br />
 
-## Stop an ongoing activity
+## Stop an Ongoing Activity
 
-When the app is finished running as an ongoing activity, it only needs to cancel
+When the app is finished running as an Ongoing Activity, it only needs to cancel
 the ongoing notification.
 
-You can also choose to cancel the notification or ongoing activity when it comes
+You can also choose to cancel the notification or Ongoing Activity when it comes
 to the foreground, then recreate them when going back into the background, but
 this is not required.
 
-### Pause an ongoing activity
+### Pause an Ongoing Activity
 
-If your app has an explicit stop action, continue the ongoing activity after it
+If your app has an explicit stop action, continue the Ongoing Activity after it
 is unpaused. For an app without an explicit stop action, end the activity when
 it is paused.
 
@@ -311,13 +309,13 @@ Remember the following things when working with the Ongoing Activity API:
 
 - Use black and white vector icons with transparent backgrounds.
 
-- Set a touch intent for your ongoing activity, either [explicitly](https://developer.android.com/reference/androidx/wear/ongoing/OngoingActivity.Builder#setTouchIntent(android.app.PendingIntent)) or as
+- Set a touch intent for your Ongoing Activity, either [explicitly](https://developer.android.com/reference/androidx/wear/ongoing/OngoingActivity.Builder#setTouchIntent(android.app.PendingIntent)) or as
   a fallback using the [notification](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder#setContentIntent(android.app.PendingIntent)). If you don't, you get an
   `IllegalArgumentException`.
 
 - If your app has more than one `MAIN LAUNCHER` activity declared in the
   manifest, publish a [dynamic shortcut](https://developer.android.com/guide/topics/ui/shortcuts/creating-shortcuts#dynamic) and associate it with your
-  ongoing activity using `LocusId`.
+  Ongoing Activity using `LocusId`.
 
 ## Publish media notifications when playing media on Wear OS devices
 

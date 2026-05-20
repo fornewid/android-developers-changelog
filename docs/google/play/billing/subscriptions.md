@@ -769,35 +769,6 @@ If a user cancels a subscription at any time during the free trial, the
 subscription remains active until the end of the trial, and they aren't charged
 when the free trial period ends.
 
-## Cancel or revoke
-
-You can use the
-[Google Play Developer API](https://developers.google.com/android-publisher/api-ref/purchases/subscriptions)
-to
-[cancel](https://developers.google.com/android-publisher/api-ref/purchases/subscriptions/cancel)
-or
-[revoke](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.subscriptionsv2/revoke)
-a subscription. This functionality is also available in the [Google Play Console](https://support.google.com/googleplay/android-developer/answer/2741495).
-
-- **Cancel** : Users can cancel a subscription on Google Play. You can also
-  provide an option for users to cancel in your app or on your website. Your
-  app should handle these cancellations as described in
-  [Cancellations](https://developer.android.com/google/play/billing/lifecycle/subscriptions#cancel).
-
-- **Revoke** : When you revoke, the user immediately loses access to the
-  subscription. This can be used if, for example, there was a technical error
-  that prevented the user from accessing your product, and the user does not
-  want to continue using the product. Your app should handle these
-  cancellations as described in
-  [Revocations](https://developer.android.com/google/play/billing/lifecycle/subscriptions#revoke).
-
-The following table illustrates the differences between cancel and revoke.
-
-|---|---|---|
-|   | **Stops renewal** | **Revoke access** |
-| **[Cancel](https://developers.google.com/android-publisher/api-ref/purchases/subscriptions/cancel)** | **Yes** | No |
-| **[Revoke](https://developers.google.com/android-publisher/api-ref/purchases/subscriptions/revoke)** | **Yes** | **Yes** |
-
 ## Defer billing for a subscriber
 
 You can extend the entitlement period for a subscription by
@@ -825,7 +796,7 @@ May 15, which is six weeks after her previously scheduled billing date of April
 When deferring, you might want to notify the user by email or within the app to
 notify them that their billing date has changed.
 
-## Handling payment declines
+## Handle payment declines
 
 If there are payment issues with a subscription renewal, Google will
 periodically attempt to renew the subscription for some time before canceling.
@@ -857,28 +828,34 @@ hold](https://developer.android.com/google/play/billing/lifecycle/subscriptions#
 you can implement the in-app messaging API, where Google shows a message to
 users in your app.
 
+When there is a payment issue, Google Play can display a notification to your
+users. To facilitate this, you can use the in-app messaging feature to
+inform them about any pending payments. If you have enabled in-app messaging,
+message for payment issues is shown during grace period and account hold
+once per day. This provides users an opportunity to fix their payment without
+leaving the app. For more information, see [in-app messaging](https://developer.android.com/google/play/billing/subscriptions#in-app-messaging).
+
 > [!NOTE]
 > **Note:** You can use [Play Billing Lab Subscription State Transition](https://developer.android.com/google/play/billing/test#subscription-state-transition) feature to test payment decline scenarios.
 
-### In-app messaging
+## In-app messaging
 
 If you've enabled in-app messaging with
 [`InAppMessageCategoryId.TRANSACTIONAL`](https://developer.android.com/reference/com/android/billingclient/api/InAppMessageParams.InAppMessageCategoryId#TRANSACTIONAL),
-Google Play will show users messaging during grace period and account hold once
-per day and provide them an opportunity to fix their payment without leaving the
-app.
+Google Play will show a message to users when there is a payment issue or an
+outstanding opt-in price increase.
 ![Snackbar notifying the user to fix their payment](https://developer.android.com/static/images/google/play/billing/subscriptions-in-app-messaging-snackbar.png) **Figure 20.** Snackbar notifying the user to fix their payment.
 
 We recommend that you call this API whenever the user opens the app to determine
 whether the message should be shown.
 
-If the user successfully recovered their subscription, you will receive a
-response code of
+If the user successfully recovered their subscription or confirmed the price
+increase, you will receive a response code of
 [`SUBSCRIPTION_STATUS_UPDATED`](https://developer.android.com/reference/com/android/billingclient/api/InAppMessageResult.InAppMessageResponseCode#SUBSCRIPTION_STATUS_UPDATED)
 along with a purchase token. You should then use this purchase token to call the
 Google Play Developer API and refresh the subscription status in your app.
 
-#### Integrate in-app messaging
+### Integrate in-app messaging
 
 To show in-app messaging to user, use
 [`BillingClient.showInAppMessages()`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient#showInAppMessages).
@@ -906,10 +883,10 @@ billingClient.showInAppMessages(activity,
                 } else if (inAppMessageResult.responseCode
                         == InAppMessageResponseCode.SUBSCRIPTION_STATUS_UPDATED) {
                     // The subscription status changed. For example, a subscription
-                    // has been recovered from a suspend state. Developers should
-                    // expect the purchase token to be returned with this response
-                    // code and use the purchase token with the Google Play
-                    // Developer API.
+                    // is recovered from a suspended state, or a user confirms a
+                    // price increase. Developers should expect the purchase
+                    // token to be returned with this response code and use
+                    // the purchase token with the Google Play Developer API.
                 }
             }
         })
@@ -938,16 +915,51 @@ billingClient.showInAppMessages(activity,
                 } else if (inAppMessageResult.responseCode
                         == InAppMessageResponseCode.SUBSCRIPTION_STATUS_UPDATED) {
                     // The subscription status changed. For example, a subscription
-                    // has been recovered from a suspend state. Developers should
-                    // expect the purchase token to be returned with this response
-                    // code and use the purchase token with the Google Play
-                    // Developer API.
+                    // is recovered from a suspended state, or a user confirms a
+                    // price increase. Developers should expect the purchase
+                    // token to be returned with this response code and use
+                    // the purchase token with the Google Play Developer API.
                 }
             }
         });
 ```
 
-## Handle subscription pending transactions
+## Handle cancellations and pending states
+
+This section explains how to handle subscriptions that are cancelled or
+revoked, as well as how to manage subscriptions that enter a pending
+state during the purchase process.
+
+### Cancel or revoke
+
+You can use the
+[Google Play Developer API](https://developers.google.com/android-publisher/api-ref/purchases/subscriptions)
+to
+[cancel](https://developers.google.com/android-publisher/api-ref/purchases/subscriptions/cancel)
+or
+[revoke](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.subscriptionsv2/revoke)
+a subscription. This functionality is also available in the [Google Play Console](https://support.google.com/googleplay/android-developer/answer/2741495).
+
+- **Cancel** : Users can cancel a subscription on Google Play. You can also
+  provide an option for users to cancel in your app or on your website. Your
+  app should handle these cancellations as described in
+  [Cancellations](https://developer.android.com/google/play/billing/lifecycle/subscriptions#cancel).
+
+- **Revoke** : When you revoke, the user immediately loses access to the
+  subscription. This can be used if, for example, there was a technical error
+  that prevented the user from accessing your product, and the user does not
+  want to continue using the product. Your app should handle these
+  cancellations as described in
+  [Revocations](https://developer.android.com/google/play/billing/lifecycle/subscriptions#revoke).
+
+The following table illustrates the differences between cancel and revoke.
+
+|---|---|---|
+|   | **Stops renewal** | **Revoke access** |
+| **[Cancel](https://developers.google.com/android-publisher/api-ref/purchases/subscriptions/cancel)** | **Yes** | No |
+| **[Revoke](https://developers.google.com/android-publisher/api-ref/purchases/subscriptions/revoke)** | **Yes** | **Yes** |
+
+### Handle subscription pending transactions
 
 > [!NOTE]
 > **Note:** Pending transactions are only available for purchasing prepaid plan with Google Play Billing Library versions 7.0 and higher. You need to support and enable pending transactions **explicitly**.
