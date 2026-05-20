@@ -1,0 +1,15 @@
+diff --git a/docs/jetpack/androidx/versions/all-channel.md b/docs/jetpack/androidx/versions/all-channel.md
+index 33ae7c91..e9dba44c 100644
+--- a/docs/jetpack/androidx/versions/all-channel.md
++++ b/docs/jetpack/androidx/versions/all-channel.md
+@@ -31,6 +31,10 @@ To get the latest product updates delivered to you in an RSS feed, add the URL o
+ 
+ These Jetpack libraries have been recently updated.
+ 
++### May 21, 2026
++
++- [Media3 Version 1.8.1](https://developer.android.com/jetpack/androidx/releases/media3#1.8.1)
++
+ ## May 19, 2026
+ 
+ - [Car App Version 1.9.0-alpha01](https://developer.android.com/jetpack/androidx/releases/car-app#1.9.0-alpha01)
