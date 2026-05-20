@@ -1,3 +1,4 @@
+{% raw %}
 ---
 title: https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_geospatial
 url: https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_geospatial
@@ -780,3 +781,4 @@ The [XrVPSAvailabilityCheckCompletionANDROID](https://developer.android.com/deve
 - Revision 1, 2025-12-18 (Ben King)
 
   - Initial extension description.
+{% endraw %}

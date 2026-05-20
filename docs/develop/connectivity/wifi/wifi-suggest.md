@@ -1,3 +1,4 @@
+{% raw %}
 ---
 title: https://developer.android.com/develop/connectivity/wifi/wifi-suggest
 url: https://developer.android.com/develop/connectivity/wifi/wifi-suggest
@@ -210,3 +211,4 @@ A user declining the network suggestion notification removes the
 later by going into the Wi-Fi control menu (**Settings** \>
 **Apps \& notifications** \> **Special App
 access** \> **Wi-Fi Control** \> <var translate="no">App name</var>).
+{% endraw %}
