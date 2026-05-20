@@ -1,0 +1,15 @@
+diff --git a/docs/training/wearables/versions/6-1.md b/docs/training/wearables/versions/6-1.md
+index cf49b2e6..433ea713 100644
+--- a/docs/training/wearables/versions/6-1.md
++++ b/docs/training/wearables/versions/6-1.md
+@@ -4,9 +4,7 @@ url: https://developer.android.com/training/wearables/versions/6-1
+ source: md.txt
+ ---
+ 
+-Explore the latest version of Wear OS, available on select devices and in the
+-official emulator in Android Studio. Wear OS 6.1 is based on a Quarterly
+-Platform Release (QPR) of Android 16 (API level 36.1).
++Explore Wear OS 6.1, available on select devices and in the official emulator in Android Studio. It is based on a Quarterly Platform Release (QPR) of Android 16 (API level 36.1).
+ 
+ > [!NOTE]
+ > **Note:** To help you adopt the latest features more smoothly, this version of Wear OS doesn't introduce any behavior changes.

@@ -1,0 +1,13 @@
+diff --git a/docs/develop/xr/jetpack-xr-sdk/arcore/face.md b/docs/develop/xr/jetpack-xr-sdk/arcore/face.md
+index dbb81970..213971dc 100644
+--- a/docs/develop/xr/jetpack-xr-sdk/arcore/face.md
++++ b/docs/develop/xr/jetpack-xr-sdk/arcore/face.md
+@@ -54,7 +54,7 @@ contains the following:
+ 
+ 
+ ```kotlin
+-val face = Face.getUserFace(session) ?: return
++val face = Face.getUserFace(session)
+ face.state.collect { state ->
+     if (state.trackingState != TrackingState.TRACKING) return@collect
+ 

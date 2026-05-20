@@ -1,0 +1,40 @@
+diff --git a/docs/google/play/billing/getting-ready.md b/docs/google/play/billing/getting-ready.md
+index 89b3bc24..a6b52a03 100644
+--- a/docs/google/play/billing/getting-ready.md
++++ b/docs/google/play/billing/getting-ready.md
+@@ -52,7 +52,7 @@ The Google Play Billing Library is available from [Google's Maven repository](ht
+ 
+ ```groovy
+ dependencies {
+-    def billing_version = "8.3.0"
++    def billing_version = "9.0.0"
+ 
+     implementation "com.android.billingclient:billing:$billing_version"
+ }
+@@ -62,7 +62,7 @@ dependencies {
+ 
+ ```kotlin
+ dependencies {
+-    val billing_version = "8.3.0"
++    val billing_version = "9.0.0"
+ 
+     implementation("com.android.billingclient:billing:$billing_version")
+ }
+@@ -78,7 +78,7 @@ extensions in your project, add the following dependency to your app's
+ 
+ ```groovy
+ dependencies {
+-    def billing_version = "8.3.0"
++    def billing_version = "9.0.0"
+ 
+     implementation "com.android.billingclient:billing-ktx:$billing_version"
+ }
+@@ -88,7 +88,7 @@ dependencies {
+ 
+ ```kotlin
+ dependencies {
+-    val billing_version = "8.3.0"
++    val billing_version = "9.0.0"
+ 
+     implementation("com.android.billingclient:billing-ktx:$billing_version")
+ }

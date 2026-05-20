@@ -1,0 +1,18 @@
+diff --git a/docs/jetpack/androidx/releases/slidingpanelayout.md b/docs/jetpack/androidx/releases/slidingpanelayout.md
+index 749fcf74..b96a6dc2 100644
+--- a/docs/jetpack/androidx/releases/slidingpanelayout.md
++++ b/docs/jetpack/androidx/releases/slidingpanelayout.md
+@@ -6,10 +6,11 @@ source: md.txt
+ 
+ # Slidingpanelayout
+ 
+-API Reference  
+-[androidx.slidingpanelayout.widget](https://developer.android.com/reference/kotlin/androidx/slidingpanelayout/widget/package-summary)  
+ Implement a sliding pane UI pattern.
+ 
++> [!CAUTION]
++> **Caution:** This library is in maintenance mode and will only receive critical fixes; new features are not planned. We recommend using [Jetpack Compose](https://developer.android.com/jetpack/compose) for building Android UIs. See [Compose-first](https://developer.android.com/develop/ui/compose/first) for more information.
++
+ | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
+ |---|---|---|---|---|
+ | January 26, 2022 | [1.2.0](https://developer.android.com/jetpack/androidx/releases/slidingpanelayout#1.2.0) | - | - | - |

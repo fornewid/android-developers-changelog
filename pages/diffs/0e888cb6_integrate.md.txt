@@ -1,0 +1,40 @@
+diff --git a/docs/google/play/billing/integrate.md b/docs/google/play/billing/integrate.md
+index 0d0649cc..30049fcb 100644
+--- a/docs/google/play/billing/integrate.md
++++ b/docs/google/play/billing/integrate.md
+@@ -48,7 +48,7 @@ file as shown:
+ 
+ ```groovy
+ dependencies {
+-    def billing_version = "8.3.0"
++    def billing_version = "9.0.0"
+ 
+     implementation "com.android.billingclient:billing:$billing_version"
+ }
+@@ -58,7 +58,7 @@ dependencies {
+ 
+ ```kotlin
+ dependencies {
+-    val billing_version = "8.3.0"
++    val billing_version = "9.0.0"
+ 
+     implementation("com.android.billingclient:billing:$billing_version")
+ }
+@@ -74,7 +74,7 @@ extensions in your project, add the following dependency to your app's
+ 
+ ```groovy
+ dependencies {
+-    def billing_version = "8.3.0"
++    def billing_version = "9.0.0"
+ 
+     implementation "com.android.billingclient:billing-ktx:$billing_version"
+ }
+@@ -84,7 +84,7 @@ dependencies {
+ 
+ ```kotlin
+ dependencies {
+-    val billing_version = "8.3.0"
++    val billing_version = "9.0.0"
+ 
+     implementation("com.android.billingclient:billing-ktx:$billing_version")
+ }
