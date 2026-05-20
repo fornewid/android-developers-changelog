@@ -314,8 +314,8 @@
     },
     "jetpack/androidx/versions/all-channel.md": {
       "original_url": "https://developer.android.com/jetpack/androidx/versions/all-channel",
-      "hash": "3c0dedafb72849ffe4e0d2ad44ed372b2ea56651f8e2789ce1561916bf8d21d0",
-      "last_updated": "2026-05-20T10:37:10.241930",
+      "hash": "6b56a657d1df70f3574ba193838285217f80c82fa6b8beff6b0e6b08930ec918",
+      "last_updated": "2026-05-20T16:15:23.980538",
       "fetch_method": "md.txt"
     },
     "topic/performance/tracing/profiling-manager/querying-profiles.md": {
@@ -2630,8 +2630,8 @@
     },
     "jetpack/androidx/versions/stable-channel.md": {
       "original_url": "https://developer.android.com/jetpack/androidx/versions/stable-channel",
-      "hash": "be94fb448f270f53e461165493b0fec68cd6a68e161ad0525c471bb1dc7b6796",
-      "last_updated": "2026-05-20T10:35:17.846544",
+      "hash": "c5fca497586905a269331a62eba92a2ae9458988c9c0647e96ce48719a63305a",
+      "last_updated": "2026-05-20T16:13:21.433036",
       "fetch_method": "md.txt"
     },
     "courses/quizzes/android-week1-people-identity/android-11-week-1.md": {
@@ -22658,8 +22658,8 @@
     },
     "jetpack/androidx/releases/media3.md": {
       "original_url": "https://developer.android.com/jetpack/androidx/releases/media3",
-      "hash": "223c195455aeddbc945c20fcd8dce8504359b452feb72cd3befab716f864aaa5",
-      "last_updated": "2026-05-14T15:50:44.797787",
+      "hash": "73663df419b956fe265d72b241f5232e399f05cd42b908a9babd6bb7c49afb4d",
+      "last_updated": "2026-05-20T16:13:51.358349",
       "fetch_method": "md.txt"
     },
     "multidevice.md": {
@@ -24890,8 +24890,8 @@
     },
     "google/play/billing/play-developer-apis-deprecations.md": {
       "original_url": "https://developer.android.com/google/play/billing/play-developer-apis-deprecations",
-      "hash": "756db088bdd395454c5125c9e6bee51bb5ed4682f32660c4729350bc27039003",
-      "last_updated": "2026-05-20T10:35:52.439825",
+      "hash": "e3104ad71a5fc4029e5e997894d7ee751fd18fd4903747ad8f0e549a36c23e27",
+      "last_updated": "2026-05-20T16:13:50.384034",
       "fetch_method": "md.txt"
     },
     "about/versions/15.md": {
@@ -29870,8 +29870,8 @@
     },
     "training/wearables/versions/7/setup.md": {
       "original_url": "https://developer.android.com/training/wearables/versions/7/setup",
-      "hash": "32982d09d61c77da47132809eb389b78cae1e83d36d5d0cb1e965fc60f34c750",
-      "last_updated": "2026-05-20T10:34:04.026684",
+      "hash": "b5c6d72642bb6196044ebe9be86f6198ef7f20a44fd855dd1aecf81d3f10c5d0",
+      "last_updated": "2026-05-20T16:11:48.684822",
       "fetch_method": "md.txt"
     },
     "google/play/billing/migrate-gpblv9.md": {
@@ -30373,5 +30373,5 @@
       "fetch_method": "md.txt"
     }
   },
-  "last_updated": "2026-05-20T10:39:08.802480"
+  "last_updated": "2026-05-20T16:17:31.538755"
 }

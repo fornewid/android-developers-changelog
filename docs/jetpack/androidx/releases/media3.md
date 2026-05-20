@@ -652,6 +652,16 @@ Use the 1.9.0 [stable version](https://developer.android.com/jetpack/androidx/re
 
 ## Version 1.8.0
 
+### 1.8.1
+
+May 21, 2026
+
+Version 1.8.1 contains the following
+[commits](https://github.com/androidx/media/commits/1.8.1).
+
+- Effect:
+  - Explicitly set `GL_DRAW_BUFFER` and `GL_READ_BUFFER` when transitioning from surfaceless context.
+
 ### Version 1.8.0
 
 July 30, 2025

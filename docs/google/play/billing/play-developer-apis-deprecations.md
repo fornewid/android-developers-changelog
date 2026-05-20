@@ -10,8 +10,9 @@ features which are in a deprecation period.
 ## Deprecation timeline - May 19, 2026 to August 31, 2028
 
 The features and APIs in this section are deprecated as of May 19, 2026, and
-will be shut down on August 31, 2028. However, you can avail an
-extension for the deprecated items up to November 1, 2028.
+will be shut down on August 31, 2028. For deprecated items, you may request
+an extension until November 1, 2028 by submitting a support ticket through
+the [Play Console \> Help](https://play.google.com/console/u/0/developers/help-and-support).
 
 > [!NOTE]
 > **Note:** [Client libraries](https://developers.google.com/android-publisher/libraries) released after July 1, 2027, will no longer include these features and APIs. However, existing libraries can still access them until the shutdown date.
@@ -29,8 +30,9 @@ This section lists the API deprecations.
 ## Deprecation timeline - May 21, 2025 to August 31, 2027
 
 The features and APIs in this section are deprecated as of May 21, 2025, and
-will be shut down on August 31, 2027. However, you can avail an
-extension for the deprecated items up to November 1, 2027.
+will be shut down on August 31, 2027. For deprecated
+items, you may request an extension until November 1, 2027 by submitting a
+support ticket through the [Play Console \> Help](https://play.google.com/console/u/0/developers/help-and-support).
 
 > [!NOTE]
 > **Note:** [Client libraries](https://developers.google.com/android-publisher/libraries) released after July 1, 2026, will no longer include these features and APIs. However, existing libraries can still access them until the shutdown date.
@@ -41,10 +43,10 @@ This section lists the API deprecations.
 
 | API | Available replacement |
 |---|---|
-| [subscriptions.get](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.subscriptions/get) | [subscriptionsv2.get](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.subscriptionsv2/get) |
-| [subscriptions.refund](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.subscriptions/refund) | Call [subscriptionsv2.get](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.subscriptionsv2/get) to get SubscriptionPurchaseLineItem. latest_successful_order_id, and then call [Orders.refund](https://developers.google.com/android-publisher/api-ref/rest/v3/orders/refund) to refund the orders. |
-| [subscriptions.revoke](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.subscriptions/revoke) | [subscriptionsv2.revoke](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.subscriptionsv2/revoke) |
-| [SubscriptionPurchaseV2. latestOrderId](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.subscriptionsv2#resource:-subscriptionpurchasev2) | [SubscriptionPurchaseLineItem. latest_successful_order_id](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.subscriptionsv2#subscriptionpurchaselineitem) |
+| [subscriptions.get](https://developers.google.com/android-publisher/deprecated-apis/purchases.subscriptions/get) | [subscriptionsv2.get](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.subscriptionsv2/get) |
+| [subscriptions.refund](https://developers.google.com/android-publisher/deprecated-apis/purchases.subscriptions/refund) | Call [subscriptionsv2.get](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.subscriptionsv2/get) to get SubscriptionPurchaseLineItem. latest_successful_order_id, and then call [Orders.refund](https://developers.google.com/android-publisher/api-ref/rest/v3/orders/refund) to refund the orders. |
+| [subscriptions.revoke](https://developers.google.com/android-publisher/deprecated-apis/purchases.subscriptions/revoke) | [subscriptionsv2.revoke](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.subscriptionsv2/revoke) |
+| [SubscriptionPurchaseV2. latestOrderId](https://developers.google.com/android-publisher/deprecated-apis/latestOrderId.subscription.purchasev2) | [SubscriptionPurchaseLineItem. latest_successful_order_id](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.subscriptionsv2#subscriptionpurchaselineitem) |
 | [RealTimeDeveloperNotification. SubscriptionNotification.subscriptionId]() | No replacement |
 | [RealTimeDeveloperNotification. SubscriptionNotification. notificationType SUBSCRIPTION_PRICE_CHANGE_CONFIRMED](https://developer.android.com/google/play/billing/rtdn-reference#sub) | SUBSCRIPTION_PRICE _CHANGE_UPDATED |
 

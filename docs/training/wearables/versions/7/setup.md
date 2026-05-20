@@ -16,8 +16,10 @@ To set up the Wear OS 7 emulator, follow the instructions to
 [Create a Wear OS virtual device](https://developer.android.com/training/wearables/get-started/creating), taking note of the following
 requirements:
 
-- Use [Android Studio Canary](https://developer.android.com/studio/preview).
+- Use [Android Studio Canary](https://developer.android.com/studio/preview). Accessing Canary versions of the Wear OS 7 emulator requires an Android Studio release from the Canary channel.
 - Select the **Wear OS 7.0 - Preview** system image when creating the virtual device.
+
+![Android Studio showing the Wear OS 7 system image selection](https://developer.android.com/static/training/wearables/versions/7/images/emulator-setup.png) Select the Wear OS 7.0 --- Preview system image in Android Studio.
 
 ### Pre-installed experiences
 

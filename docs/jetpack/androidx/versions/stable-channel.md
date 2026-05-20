@@ -19,6 +19,10 @@ see the [versions page](https://developer.android.com/jetpack/androidx/versions)
 The first stable release of AndroidX 1.0.0 suitable for use in
 production was released on September 21, 2018.
 
+### May 21, 2026
+
+- [Media3 Version 1.8.1](https://developer.android.com/jetpack/androidx/releases/media3#1.8.1)
+
 ## May 19, 2026
 
 - [Compose Animation Version 1.11.2](https://developer.android.com/jetpack/androidx/releases/compose-animation#1.11.2)
