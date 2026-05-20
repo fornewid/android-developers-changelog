@@ -218,13 +218,27 @@ def fetch_content(session: requests.Session, url: str) -> Tuple[str, str, str]:
         logger.error(f"Failed to fetch/convert HTML for {url}: {e}")
         return str(file_path), "", 'failed'
 
+def wrap_liquid_raw(content: str) -> str:
+    """Wrap content with {% raw %}/{% endraw %} if it contains Liquid-like syntax.
+
+    Jekyll's Liquid engine treats ``{{`` as variable markers. Documentation
+    files that embed C/C++ struct initializers, JSX, or inline styles
+    (e.g. ``XrPosef p = {{0,0,0,1},{0,0,0}};``) trigger fatal parse errors
+    during the GitHub Pages build. Wrapping the entire file in raw tags
+    tells Liquid to skip it.
+    """
+    if '{{' in content:
+        return '{% raw %}\n' + content.rstrip('\n') + '\n{% endraw %}\n'
+    return content
+
 def save_markdown_file(docs_dir: Path, rel_path: str, content: str) -> str:
     """Save markdown content and return its hash."""
     file_path = docs_dir / rel_path
     file_path.parent.mkdir(parents=True, exist_ok=True)
     try:
-        file_path.write_text(content, encoding='utf-8')
-        return hashlib.sha256(content.encode('utf-8')).hexdigest()
+        content_hash = hashlib.sha256(content.encode('utf-8')).hexdigest()
+        file_path.write_text(wrap_liquid_raw(content), encoding='utf-8')
+        return content_hash
     except Exception as e:
         logger.error(f"Failed to save {rel_path}: {e}")
         raise
