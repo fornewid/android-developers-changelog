@@ -343,13 +343,52 @@ def main():
             
     if updates:
         update_json_data(updates, args.commit_hash)
-        
-        # Generate Release Body for GitHub
+
+        # Collect ALL input files by status (independent of Gemini's trivial-change filter)
+        # so the release body lists every modified/deleted file, not only those that
+        # produced a non-trivial summary.
+        base_url = "https://developer.android.com"
+        modified_paths = []
+        deleted_paths = []
+        for file_arg in args.files:
+            if ':' in file_arg:
+                file_status, file_path = file_arg.split(':', 1)
+            else:
+                file_status, file_path = 'M', file_arg
+            if not file_path.endswith('.md'):
+                continue
+            rel_path = file_path.split('docs/', 1)[1] if 'docs/' in file_path else file_path
+            url = f"{base_url}/{rel_path[:-3]}"  # strip .md
+            if file_status == 'M':
+                modified_paths.append((rel_path, url))
+            elif file_status == 'D':
+                deleted_paths.append((rel_path, url))
+
+        # Keep NEW entries with full AI-generated summaries; render MODIFIED and DELETED
+        # as compact lists to stay under GitHub's 125,000-char release body limit.
+        new_entries = [u for u in updates if u.get('tag_class') == 'new']
+
         release_body_path = ROOT_DIR / 'release_body.md'
         release_content = "## Android Docs Updates\n\n"
-        for update in updates:
-            path_str = f"`{update['path']}`\n" if 'path' in update else ""
-            release_content += f"### {update['tag_text']} {update['title']}\n{path_str}{update['summary']}\n\n"
+
+        if new_entries:
+            release_content += f"### NEW ({len(new_entries)})\n\n"
+            for u in new_entries:
+                path_str = f"`{u['path']}`\n" if 'path' in u else ""
+                release_content += f"#### {u['title']}\n{path_str}{u['summary']}\n\n"
+
+        if modified_paths:
+            release_content += f"### UPDATED ({len(modified_paths)})\n\n"
+            for rel_path, url in modified_paths:
+                release_content += f"- [`{rel_path}`]({url})\n"
+            release_content += "\n"
+
+        if deleted_paths:
+            release_content += f"### DELETED ({len(deleted_paths)})\n\n"
+            for rel_path, _url in deleted_paths:
+                release_content += f"- `{rel_path}`\n"
+            release_content += "\n"
+
         release_body_path.write_text(release_content, encoding='utf-8')
 
 if __name__ == '__main__':
