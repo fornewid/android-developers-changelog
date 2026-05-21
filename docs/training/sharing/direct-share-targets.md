@@ -401,21 +401,21 @@ in AndroidX:
 <activity
     android:name=".SendMessageActivity"
     android:label="@string/app_name"
-    android:theme="@style/Sha>ringS<hortcutsDialogTheme"
-    !-- This activity can resp>ond t<o Intents of >type SEND< --
-    intent-filter
-        action android:name=>"and<roid.intent.action.SEND" /
-        category android:>name=&quo<t;android.intent.category.DEFAULT&qu>ot; /<
-        data >andro<id:mimeType="text/plain" /
-    /intent-filter
-    !-- Only needed if you import the sharetarget AndroidX library that
+    android:theme="@style/SharingShortcutsDialogTheme">
+    <!-- This activity can respond to Intents of type SEND -->
+    <intent-filter>
+        <action android:name="android.intent.action.SEND" />
+        <category android:name="android.intent.category.DEFAULT" />
+        <data android:mimeType="text/plain" />
+    </intent-filter>
+    <!-- Only needed if you import the sharetarget AndroidX library that
          provides backwards compatibility with the old DirectShare API.
          The activity that receives the Sharing Shortcut intent needs to be
-     >    t<aken into account with this chooser target provider. --
-    meta-data
+         taken into account with this chooser target provider. -->
+    <meta-data
         android:name="android.service.chooser.chooser_target_service"
-   > <    android:value="androidx.sharetarget.ChooserTargetServiceCompat" /
-/activity
+        android:value="androidx.sharetarget.ChooserTargetServiceCompat" />
+</activity>
 ```
 
 ## Sharing Shortcuts FAQ

@@ -106,20 +106,20 @@ We believe these changes will make for a stronger Android ecosystem with even mo
 
   - [#Android XR](https://developer.android.com/blog/topics/android-xr)
   - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
-- [![](https://developer.android.com/static/blog/assets/Paul_Lammertsma_2f7e1baf32_Z28iSTy.webp)](https://developer.android.com/blog/authors/paul-lammertsma) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Text_Strapi_2000x1000_2d4221d884_ZtW7eg.webp)
+- [![](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z15U8cx.webp)](https://developer.android.com/blog/authors/fahd-imtiaz) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Combo_IO_Strapi_2000x1000_0370ff6d2c_ZQaFMJ.webp)
 
   #### [Product News](https://developer.android.com/blog/categories/product-news)
 
-  ## [Increasing app discovery and engagement on Google TV](https://developer.android.com/blog/posts/increasing-app-discovery-and-engagement-on-google-tv)
+  ## [Adaptive development for the expanding Android ecosystem](https://developer.android.com/blog/posts/adaptive-development-for-the-expanding-android-ecosystem)
 
-  [arrow_forward](https://developer.android.com/blog/posts/increasing-app-discovery-and-engagement-on-google-tv) We're excited to share Google TV features and developer tools designed to increase the discoverability of your content and prepare your app for future TV experiences.
+  [arrow_forward](https://developer.android.com/blog/posts/adaptive-development-for-the-expanding-android-ecosystem) With the release of Android 17, we are transitioning into an adaptive first development standard. Your users no longer rely on a single form factor; they transition between phones, foldables, tablets, laptops, automotive displays, and immersive XR environments throughout their day.
 
-  ###### [Paul Lammertsma](https://developer.android.com/blog/authors/paul-lammertsma) •
+  ###### [Fahd Imtiaz](https://developer.android.com/blog/authors/fahd-imtiaz) •
   4 min read
 
-  - [#Gemini features](https://developer.android.com/blog/topics/gemini-features)
+  - [#Adaptive development](https://developer.android.com/blog/topics/adaptive-development)
+  - [#Adaptive apps](https://developer.android.com/blog/topics/adaptive-apps)
   - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
-  - [#Engage SDK](https://developer.android.com/blog/topics/engage-sdk)
   - +1 ↩
 
 # Stay in the loop

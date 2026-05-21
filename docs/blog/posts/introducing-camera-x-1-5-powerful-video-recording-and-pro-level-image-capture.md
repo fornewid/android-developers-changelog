@@ -252,17 +252,17 @@ camerax = "1.5.1"
 
 ..
 
-androidx-camera-core = { module = "androidx.camera:camera-core", version.ref = "camerax" }
+androidx-came{ module = "androidx.camera:camera-core", version.ref = "camerax" }ra-core = 
 
-androidx-camera-compose = { module = "androidx.camera:camera-compose", version.ref = "camerax" }
+androidx-camera-{ module = "androidx.camera:camera-compose", version.ref = "camerax" }compose = 
 
-androidx-camera-view = { module = "androidx.camera:camera-view", version.ref = "camerax" }
+androidx-came{ module = "androidx.camera:camera-view", version.ref = "camerax" }ra-view = 
 
-androidx-camera-lifecycle = { group = "androidx.camera", name = "camera-lifecycle", version.ref = "camerax" }
+androidx-camera-li{ group = "androidx.camera", name = "camera-lifecycle", version.ref = "camerax" }fecycle = 
 
-androidx-camera-camera2 = { module = "androidx.camera:camera-camera2", version.ref = "camerax" }
+androidx-camera-{ module = "androidx.camera:camera-camera2", version.ref = "camerax" }camera2 = 
 
-androidx-camera-extensions = { module = "androidx.camera:camera-extensions", version.ref = "camerax" }
+androidx-camera-ext{ module = "androidx.camera:camera-extensions", version.ref = "camerax" }ensions = 
 ```
 
 And then add these to your module build.gradle.kts dependencies:

@@ -191,7 +191,6 @@ AnimatedContent(
     ...
 
 }
-
 ```
 
 ## **Upcoming changes**
@@ -236,7 +235,6 @@ fun myTest() = runTest(testDispatcher) {
     composeRule.setContent { /* ... */ }
 
 }
-
 ```
 
 ## **Tools**

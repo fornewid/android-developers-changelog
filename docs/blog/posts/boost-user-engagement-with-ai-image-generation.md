@@ -128,7 +128,6 @@ val model = Firebase.ai(backend = GenerativeBackend.googleAI()).generativeModel(
         ResponseModality.IMAGE)
     }
 )
-
 ```
 
 To achieve a similar outcome to the mask-based Imagen method described above, we can utilize the `chat` API to initiate a conversation with Gemini 2.5 Flash Image.
@@ -163,7 +162,6 @@ var generatedImageAsBitmap = response
 response = chat.sendMessage("Now, center the omelet in the pan")
 generatedImageAsBitmap = response
     .candidates.first().content.parts.filterIsInstance<ImagePart>().firstOrNull()?.image
-
 ```
 
 You can see it in action in the [Gemini Image Chat sample](https://github.com/android/ai-samples/tree/main/samples/gemini-image-chat) in the Android AI Sample catalog and read more about it in the [Android documentation](https://developer.android.com/ai/gemini/developer-api#generate-images).

@@ -12,7 +12,7 @@ source: md.txt
 
 ![](https://developer.android.com/static/blog/assets/yt_adaptive_b9097334d4_Z1poFG.webp) 20 May 2025 [![](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z15U8cx.webp)](https://developer.android.com/blog/authors/fahd-imtiaz) [##### Fahd Imtiaz](https://developer.android.com/blog/authors/fahd-imtiaz)
 
-###### Senior Product Manager
+###### Senior Product Manager, Android Developer Experience
 
 [Video](https://www.youtube.com/watch?v=15oPNK1W0Tw)
 
@@ -98,6 +98,21 @@ Explore this announcement and all Google I/O 2025 updates on [io.google](https:/
 
 ## Continue reading
 
+- [![](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z15U8cx.webp)](https://developer.android.com/blog/authors/fahd-imtiaz) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Combo_IO_Strapi_2000x1000_0370ff6d2c_ZQaFMJ.webp)
+
+  #### [Product News](https://developer.android.com/blog/categories/product-news)
+
+  ## [Adaptive development for the expanding Android ecosystem](https://developer.android.com/blog/posts/adaptive-development-for-the-expanding-android-ecosystem)
+
+  [arrow_forward](https://developer.android.com/blog/posts/adaptive-development-for-the-expanding-android-ecosystem) With the release of Android 17, we are transitioning into an adaptive first development standard. Your users no longer rely on a single form factor; they transition between phones, foldables, tablets, laptops, automotive displays, and immersive XR environments throughout their day.
+
+  ###### [Fahd Imtiaz](https://developer.android.com/blog/authors/fahd-imtiaz) •
+  4 min read
+
+  - [#Adaptive development](https://developer.android.com/blog/topics/adaptive-development)
+  - [#Adaptive apps](https://developer.android.com/blog/topics/adaptive-apps)
+  - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
+  - +1 ↩
 - [![](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z15U8cx.webp)](https://developer.android.com/blog/authors/fahd-imtiaz) 19 Dec 2025 19 Dec 2025 ![](https://developer.android.com/static/blog/assets/Android_adaptives_festivity_01_blog_f70d48134f_Z2lMDgd.webp)
 
   #### [Product News](https://developer.android.com/blog/categories/product-news)
@@ -124,17 +139,6 @@ Explore this announcement and all Google I/O 2025 updates on [io.google](https:/
 
   ###### [Fahd Imtiaz](https://developer.android.com/blog/authors/fahd-imtiaz), [Miguel Montemayor](https://developer.android.com/blog/authors/miguel-montemayor) •
   3 min read
-
-- [![](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z15U8cx.webp)](https://developer.android.com/blog/authors/fahd-imtiaz) 10 Jun 2025 10 Jun 2025 ![](https://developer.android.com/static/blog/assets/across_Devices_1742e15ff4_ZE5L7I.webp)
-
-  #### [Product News](https://developer.android.com/blog/categories/product-news)
-
-  ## [A product manager's guide to adapting Android apps across devices](https://developer.android.com/blog/posts/product-manager-guide-to-adapting-android-apps-across-devices)
-
-  [arrow_forward](https://developer.android.com/blog/posts/product-manager-guide-to-adapting-android-apps-across-devices) This includes the start of Android 16's rollout, with details for both developers and users, a Developer Preview for enhanced Android desktop experiences with connected displays, and updates for Android users across Google apps and more, plus the June Pixel Drop.
-
-  ###### [Fahd Imtiaz](https://developer.android.com/blog/authors/fahd-imtiaz) •
-  6 min read
 
 # Stay in the loop
 

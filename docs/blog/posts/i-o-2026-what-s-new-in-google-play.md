@@ -140,38 +140,33 @@ Learn more about these announcements and all other Google I/O 2026 updates on [i
 
   - [#Android XR](https://developer.android.com/blog/topics/android-xr)
   - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
-- [![](https://developer.android.com/static/blog/assets/Paul_Lammertsma_2f7e1baf32_Z28iSTy.webp)](https://developer.android.com/blog/authors/paul-lammertsma) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Text_Strapi_2000x1000_2d4221d884_ZtW7eg.webp)
+- [![](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z15U8cx.webp)](https://developer.android.com/blog/authors/fahd-imtiaz) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Combo_IO_Strapi_2000x1000_0370ff6d2c_ZQaFMJ.webp)
 
   #### [Product News](https://developer.android.com/blog/categories/product-news)
 
-  ## [Increasing app discovery and engagement on Google TV](https://developer.android.com/blog/posts/increasing-app-discovery-and-engagement-on-google-tv)
+  ## [Adaptive development for the expanding Android ecosystem](https://developer.android.com/blog/posts/adaptive-development-for-the-expanding-android-ecosystem)
 
-  [arrow_forward](https://developer.android.com/blog/posts/increasing-app-discovery-and-engagement-on-google-tv) We're excited to share Google TV features and developer tools designed to increase the discoverability of your content and prepare your app for future TV experiences.
+  [arrow_forward](https://developer.android.com/blog/posts/adaptive-development-for-the-expanding-android-ecosystem) With the release of Android 17, we are transitioning into an adaptive first development standard. Your users no longer rely on a single form factor; they transition between phones, foldables, tablets, laptops, automotive displays, and immersive XR environments throughout their day.
 
-  ###### [Paul Lammertsma](https://developer.android.com/blog/authors/paul-lammertsma) •
+  ###### [Fahd Imtiaz](https://developer.android.com/blog/authors/fahd-imtiaz) •
   4 min read
 
-  - [#Gemini features](https://developer.android.com/blog/topics/gemini-features)
+  - [#Adaptive development](https://developer.android.com/blog/topics/adaptive-development)
+  - [#Adaptive apps](https://developer.android.com/blog/topics/adaptive-apps)
   - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
-  - [#Engage SDK](https://developer.android.com/blog/topics/engage-sdk)
   - +1 ↩
-- [![](https://developer.android.com/static/blog/assets/Amyzeppenfeld_50a8b9e7f8_Z1LAQnM.webp)](https://developer.android.com/blog/authors/amy-zeppenfeld)[![](https://developer.android.com/static/blog/assets/Stevan_Silva_7661118077_V4WGm.webp)](https://developer.android.com/blog/authors/stevan-silva) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Text_Strapi_2000x1000_2d4221d884_ZtW7eg.webp)
+- [![](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Text_Strapi_2000x1000_2d4221d884_ZtW7eg.webp)
 
   #### [Product News](https://developer.android.com/blog/categories/product-news)
 
-  ## [Updates to the Android XR SDK: Introducing Developer Preview 4](https://developer.android.com/blog/posts/updates-to-the-android-xr-sdk-introducing-developer-preview-4)
+  ## [17 Things to know for Android developers at Google I/O!](https://developer.android.com/blog/posts/17-things-to-know-for-android-developers-at-google-i-o)
 
-  [arrow_forward](https://developer.android.com/blog/posts/updates-to-the-android-xr-sdk-introducing-developer-preview-4) We're excited to launch Developer Preview 4 of the Android XR SDK, continuing our focus on unifying cross-device development for headsets, wired XR glasses, and intelligent eyewear.
+  [arrow_forward](https://developer.android.com/blog/posts/17-things-to-know-for-android-developers-at-google-i-o) Google I/O '26 features 17 key announcements for Android developers focusing on agent-led productivity, Compose First as our UI standard, and high-performance media and adaptive development for the expanding ecosystem.
 
-  ###### [Amy Zeppenfeld](https://developer.android.com/blog/authors/amy-zeppenfeld), [Stevan Silva](https://developer.android.com/blog/authors/stevan-silva) •
-  5 min read
+  ###### [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) •
+  8 min read
 
-  - [#Android XR](https://developer.android.com/blog/topics/android-xr)
-  - [#Android XR SDK](https://developer.android.com/blog/topics/android-xr-sdk)
-  - [#Developer Preview](https://developer.android.com/blog/topics/developer-preview)
-  - [#Unity](https://developer.android.com/blog/topics/unity)
   - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
-  - +3 ↩
 
 # Stay in the loop
 

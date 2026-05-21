@@ -31,9 +31,9 @@ To use it, add the `firebase-ai-ondevice` dependencies to your app along with Fi
 
 ```kotlin
 dependencies {
- [...] 
- implementation("com.google.firebase:firebase-ai:17.10.1")
- implementation("com.google.firebase:firebase-ai-ondevice:16.0.0-beta01")
+ [...] 
+ implementation("com.google.firebase:firebase-ai:17.10.1")
+ implementation("com.google.firebase:firebase-ai-ondevice:16.0.0-beta01")
 }
 ```
 

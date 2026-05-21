@@ -16,7 +16,7 @@ Get everything you need to develop and deliver games on Android: tools, download
 
 ### [Introducing the Google Play Games Level Up program](https://play.google.com/console/about/levelup/)
 
-Google Play Games Level Up, a new way we're leveling up the player experience and unlocking greater success for your business. [Read More](https://play.google.com/console/about/levelup/)
+Google Play Games Level Up, a new way we're elevating the player experience and unlocking greater success for your business. [Read More](https://play.google.com/console/about/levelup/)
 
 ## 2026 GDC Highlights
 

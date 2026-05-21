@@ -12,7 +12,7 @@ source: md.txt
 
 ![](https://developer.android.com/static/blog/assets/Android_adaptives_festivity_01_blog_f70d48134f_Z2lMDgd.webp) 19 Dec 2025 [![](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z15U8cx.webp)](https://developer.android.com/blog/authors/fahd-imtiaz) [##### Fahd Imtiaz](https://developer.android.com/blog/authors/fahd-imtiaz)
 
-###### Senior Product Manager
+###### Senior Product Manager, Android Developer Experience
 
 ### **Goodbye Mobile Only, Hello Adaptive: Three essential updates from 2025 for building adaptive apps**
 
@@ -78,6 +78,21 @@ The tools are ready, and the users are waiting. We can't wait to see what you bu
 
 ## Continue reading
 
+- [![](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z15U8cx.webp)](https://developer.android.com/blog/authors/fahd-imtiaz) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Combo_IO_Strapi_2000x1000_0370ff6d2c_ZQaFMJ.webp)
+
+  #### [Product News](https://developer.android.com/blog/categories/product-news)
+
+  ## [Adaptive development for the expanding Android ecosystem](https://developer.android.com/blog/posts/adaptive-development-for-the-expanding-android-ecosystem)
+
+  [arrow_forward](https://developer.android.com/blog/posts/adaptive-development-for-the-expanding-android-ecosystem) With the release of Android 17, we are transitioning into an adaptive first development standard. Your users no longer rely on a single form factor; they transition between phones, foldables, tablets, laptops, automotive displays, and immersive XR environments throughout their day.
+
+  ###### [Fahd Imtiaz](https://developer.android.com/blog/authors/fahd-imtiaz) •
+  4 min read
+
+  - [#Adaptive development](https://developer.android.com/blog/topics/adaptive-development)
+  - [#Adaptive apps](https://developer.android.com/blog/topics/adaptive-apps)
+  - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
+  - +1 ↩
 - [![](https://developer.android.com/static/blog/assets/John_Zoeller_photo_15badd5d35_aN1yx.webp)](https://developer.android.com/blog/authors/john-zoeller) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Developer_Blog_2_1_1440x720_6_64da0326e3_Z1M1YEl.webp)
 
   #### [Product News](https://developer.android.com/blog/categories/product-news)
@@ -106,16 +121,6 @@ The tools are ready, and the users are waiting. We can't wait to see what you bu
 
   - [#Nav3](https://developer.android.com/blog/topics/nav3)
   - [#Jetpack Navigation](https://developer.android.com/blog/topics/jetpack-navigation)
-- [![](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z15U8cx.webp)](https://developer.android.com/blog/authors/fahd-imtiaz)[![](https://developer.android.com/static/blog/assets/miguel_montemayor_552207c1c6_Z1tItyG.webp)](https://developer.android.com/blog/authors/miguel-montemayor) 03 Sep 2025 03 Sep 2025 ![](https://developer.android.com/static/blog/assets/yt_MBG_2_a56f169e60_ZSoFHF.webp)
-
-  #### [Product News](https://developer.android.com/blog/categories/product-news)
-
-  ## [Unfold new possibilities with Compose Adaptive Layouts 1.2 beta](https://developer.android.com/blog/posts/unfold-new-possibilities-with-compose-adaptive-layouts)
-
-  [arrow_forward](https://developer.android.com/blog/posts/unfold-new-possibilities-with-compose-adaptive-layouts) With new form factors like the Pixel 10 Pro Fold joining the Android ecosystem, adaptive app development is essential for creating high-quality user experiences across phones, tablets, and foldables.
-
-  ###### [Fahd Imtiaz](https://developer.android.com/blog/authors/fahd-imtiaz), [Miguel Montemayor](https://developer.android.com/blog/authors/miguel-montemayor) •
-  3 min read
 
 # Stay in the loop
 

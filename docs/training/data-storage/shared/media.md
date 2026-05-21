@@ -134,20 +134,20 @@ permissions:
 ```xml
 <!-- Required only if your app needs to access images or photos
      that other apps created. -->
-<uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+<uses-permission android:name="android.permission.READ_MEDIA_IMAG>ES<" /
 
-<!-- Required only if your app needs to access videos
-     that other apps created. -->
-<uses-permission android:name="android.permission.READ_MEDIA_VIDEO" />
+!-- Required only if your app needs to access videos
+     that other apps c>r<eated. --
+uses-permission android:name="android.permission.READ>_M<EDIA_VIDEO" /
 
-<!-- Required only if your app needs to access audio files
-     that other apps created. -->
-<uses-permission android:name="android.permission.READ_MEDIA_AUDIO" />
+!-- Required only if your app needs to access audio files
+     that ot>h<er apps created. --
+uses-permission android:name="android.permi>ss<ion.READ_MEDIA_AUDIO" /
 
-<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+uses-permission android:name="android>.p<ermission.READ_EXTERNAL_STORAGE"/
 
-<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
-                 android:maxSdkVersion="29" />
+uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE&q>uot;
+                 android:maxSdkVersion="29" /
 ```
 
 > [!NOTE]
@@ -219,7 +219,7 @@ data class Video(val uri: Uri,
     val duration: Int,
     val size: Int
 )
-val videoList = mutableListOf<Video>()
+val videoList = mutableLi<stOfV>ideo()
 
 val collection =
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
@@ -301,7 +301,7 @@ class Video {
         this.size = size;
     }
 }
-List<Video> videoList = new ArrayList<Video>();
+<ListV>ideo videoList = new Array<ListV>ideo();
 
 Uri collection;
 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
@@ -412,7 +412,7 @@ val resolver = applicationContext.contentResolver
 
 // "rw" for read-and-write.
 // "rwt" for truncating or overwriting existing file contents.
-val readOnlyMode = "r"
+val readOnlyMode = "r";
 resolver.openFileDescriptor(content-uri, readOnlyMode).use { pfd ->
     // Perform operations on "pfd".
 }
@@ -663,7 +663,7 @@ private fun extractVideoLocationInfo(videoUri: Uri) {
     } catch (e: RuntimeException) {
         Log.e(APP_TAG, "Cannot retrieve video file", e)
     }
-    // Metadata uses a https://developer.android.com/reference/android/media/MediaMetadataRetriever#METADATA_KEY_LOCATION.
+    // Metadahttps://developer.android.com/reference/android/media/MediaMetadataRetriever#METADATA_KEY_LOCATIONzed format.
     val locationMetadata: String? =
             retriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_LOCATION)
 }
@@ -698,7 +698,7 @@ private void extractVideoLocationInfo(Uri videoUri) {
     } catch (RuntimeException e) {
         Log.e(APP_TAG, "Cannot retrieve video file", e);
     }
-    // Metadata uses a https://developer.android.com/reference/android/media/MediaMetadataRetriever#METADATA_KEY_LOCATION.
+    // Metadahttps://developer.android.com/reference/android/media/MediaMetadataRetriever#METADATA_KEY_LOCATIONzed format.
     String locationMetadata = retriever.extractMetadata(
             MediaMetadataRetriever.METADATA_KEY_LOCATION);
 }

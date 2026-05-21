@@ -100,15 +100,13 @@ May 19, 2026
 **API Changes**
 
 - Add non-composable `Modifier.oneHandedGesture()` if developer wants to provide the key manually. ([I191e1](https://android-review.googlesource.com/#/q/I191e1f1b463ecf44b942d577aa63822bed6d9486), [b/504712626](https://issuetracker.google.com/issues/504712626))
-- Expose `RemoteState` static factories ([I544f0](https://android-review.googlesource.com/#/q/I544f0fc816ce073606a98911261876de43e76cd1), [b/484137042](https://issuetracker.google.com/issues/484137042))
 - Remove gesture indicators from `OneHandedGestureDefaults` and add color support to one-handed gestures ([I7934f](https://android-review.googlesource.com/#/q/I7934f80bead49c5c1ae136ad8479163ba3b6c340), [b/505009712](https://issuetracker.google.com/issues/505009712), [b/504712626](https://issuetracker.google.com/issues/504712626))
 - Added explicit handling for one-handed dismiss gestures in `AlertDialog`. ([Id71e8](https://android-review.googlesource.com/#/q/Id71e888bae326c3e111868a3b426e8bcb9ed24ac), [b/509675781](https://issuetracker.google.com/issues/509675781))
-- Update `RemoteText` to use `RemoteFontFamily` instead of `FontFamily` ([Ib76b6](https://android-review.googlesource.com/#/q/Ib76b66464b97b40f914639aef783a3e26a6a6964), [b/502907551](https://issuetracker.google.com/issues/502907551))
 - `DeferredTargetAnimation` is no longer experimental, please remove opt-in. ([I1e4ae](https://android-review.googlesource.com/#/q/I1e4aeb4d0542a5ef99d7adc3282794e652b0ba49), [b/500030165](https://issuetracker.google.com/issues/500030165))
 
 **Bug Fixes**
 
-- Fix concurency issue when triggering one-handed gestures ([I7b95f](https://android-review.googlesource.com/#/q/I7b95fdc4d94a32ef9088cabbe53cf63b06fcbe4f), [b/512086558](https://issuetracker.google.com/issues/512086558))
+- Fix concurrency issue when triggering one-handed gestures ([I7b95f](https://android-review.googlesource.com/#/q/I7b95fdc4d94a32ef9088cabbe53cf63b06fcbe4f), [b/512086558](https://issuetracker.google.com/issues/512086558))
 - Fixed that one-handed gesture indicators are mirrored based on wrist orientation rather than `LayoutDirection`. ([I6db5d](https://android-review.googlesource.com/#/q/I6db5d2b2f03db95354baf8393bf91563a4337fdc), [b/512003346](https://issuetracker.google.com/issues/512003346))
 - Fix border drawing on TLC items ([I0c3c1](https://android-review.googlesource.com/#/q/I0c3c1a9c04ddc0e99477c28867bf884a7a14708a), [b/510772213](https://issuetracker.google.com/issues/510772213))
 - Added inline image previews for samples in Kdoc for `SurfaceTransformation`.kt, `SwitchButton`.kt and `TextButton`.kt. These images will now render in the documentation for Wear Compose Material 3 DAC pages, providing developers with immediate visual context for each button variant and example. ([Ib53ae](https://android-review.googlesource.com/#/q/Ib53ae7447954e5e0565cbf8c79cab32408911437), [b/484905061](https://issuetracker.google.com/issues/484905061))

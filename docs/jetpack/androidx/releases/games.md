@@ -376,7 +376,7 @@ August 7, 2024
 
 - Fixed functionality of deletion with and without text selection.
 
-## Games-Activity Version 4
+## Games-Activity Version 4.4
 
 ### Version 4.4.2
 

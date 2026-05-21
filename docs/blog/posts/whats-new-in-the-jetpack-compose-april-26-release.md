@@ -44,12 +44,12 @@ LookaheadAnimationVisualDebugging(
     isShowKeylabelEnabled = false,
     unmatchedElementColor = Color.Red,
 ) {
-    SharedTransitionLayout {
-        CompositionLocalProvider(
-            LocalSharedTransitionScope provides this,
-        ) {
-            // your content
-        }
+    SharedTransitionLayout {
+        CompositionLocalProvider(
+            LocalSharedTransitionScope provides this,
+        ) {
+            // your content
+        }
     }
 }
 ```
@@ -77,11 +77,11 @@ By implementing the `PreviewWrapperProvider` interface and applying the new `@Pr
 
 ```kotlin
 class ThemeWrapper: PreviewWrapper {
-    @Composable
-    override fun Wrap(content: @Composable (() -> Unit)) {
-        JetsnackTheme {
-            content()
-        }
+    @Composable
+    override fun Wrap(content: @Composable (() -> Unit)) {
+        JetsnackTheme {
+            content()
+        }
     }
 }
 
@@ -89,10 +89,10 @@ class ThemeWrapper: PreviewWrapper {
 @Preview
 @Composable
 private fun ButtonPreview() {
-    // JetsnackTheme in effect
-    Button(onClick = {}) {
-        Text(text = "Demo")
-    }
+    // JetsnackTheme in effect
+    Button(onClick = {}) {
+        Text(text = "Demo")
+    }
 }
 ```
 
@@ -116,35 +116,35 @@ A basic example of overriding a pressed state style background:
 ```kotlin
 @Composable
 fun LoginButton(modifier: Modifier = Modifier) {
-    Button(
-        onClick = {
-            // Login logic
-        },
+    Button(
+        onClick = {
+            // Login logic
+        },
         modifier = modifier,
         style = {
-            background(
-                Brush.linearGradient(
-                    listOf(lightPurple, lightBlue)
-                )
-            )
-            width(75.dp)
-            height(50.dp)
-            textAlign(TextAlign.Center)
-            externalPadding(16.dp)
+            background(
+                Brush.linearGradient(
+                    listOf(lightPurple, lightBlue)
+                )
+            )
+            width(75.dp)
+            height(50.dp)
+            textAlign(TextAlign.Center)
+            externalPadding(16.dp)
 
-            pressed {
-                background(
-                    Brush.linearGradient(
-                        listOf(Color.Magenta, Color.Red)
-                    )
-                )
-            }
+            pressed {
+                background(
+                    Brush.linearGradient(
+                        listOf(Color.Magenta, Color.Red)
+                    )
+                )
+            }
         }
     ){
-        Text(
-            text = "Login",
-        )
-    }
+        Text(
+            text = "Login",
+        )
+    }
 }
 ```
 ![styles.webp](https://developer.android.com/static/blog/assets/styles_dccbb26cfe_Z3sMfB.webp)
@@ -162,17 +162,17 @@ With support for a wide range of environmental signals---from device capabilitie
 fun isTabletopPosture(
     context: Context = LocalContext.current
 ): Boolean {
-    val windowLayoutInfo by
-        WindowInfoTracker
-            .getOrCreate(context)
-            .windowLayoutInfo(context)
-            .collectAsStateWithLifecycle(null)
+    val windowLayoutInfo by
+        WindowInfoTracker
+            .getOrCreate(context)
+            .windowLayoutInfo(context)
+            .collectAsStateWithLifecycle(null)
 
-    return windowLayoutInfo.displayFeatures.any { displayFeature ->
-        displayFeature is FoldingFeature &&
-            displayFeature.state == FoldingFeature.State.HALF_OPENED &&
-            displayFeature.orientation == FoldingFeature.Orientation.HORIZONTAL
-    }
+    return windowLayoutInfo.displayFeatures.any { displayFeature ->
+        displayFeature is FoldingFeature &&
+            displayFeature.state == FoldingFeature.State.HALF_OPENED &&
+            displayFeature.orientation == FoldingFeature.Orientation.HORIZONTAL
+    }
 }
 
 @Composable
@@ -180,8 +180,8 @@ fun VideoPlayer() {
     if(isTabletopPosture()) {
         TabletopLayout()
     } else {
-        FlatLayout()
-    }
+        FlatLayout()
+    }
 }
 ```
 
@@ -191,11 +191,11 @@ Now, with `UIMediaQuery`, you can add the `mediaQuery` syntax to query device pr
 @OptIn(ExperimentalMediaQueryApi::class)
 @Composable
 fun VideoPlayer() {
-    if (mediaQuery { windowPosture == UiMediaScope.Posture.Tabletop }) {
+    if (mediaQuery { windowPosture == UiMediaScope.Posture.Tabletop }) {
         TabletopLayout()
     } else {
-        FlatLayout()
-    }
+        FlatLayout()
+    }
 }
 ```
 
@@ -209,18 +209,18 @@ Check out the [documentation](https://developer.android.com/develop/ui/compose/l
 @OptIn(ExperimentalGridApi::class)
 @Composable
 fun GridExample() {
-    Grid(
-        config = {
-            repeat(4) { column(0.25f) }
+    Grid(
+        config = {
+            repeat(4) { column(0.25f) }
             repeat(2) { row(0.5f) }
             gap(16.dp)
         }
     ) {
-        Card1(modifier = Modifier.gridItem(rowSpan = 2)
-        Card2(modifier = Modifier.gridItem(colmnSpan = 3)
-        Card3(modifier = Modifier.gridItem(columnSpan = 2)
-        Card4()
-    }
+        Card1(modifier = Modifier.gridItem(rowSpan = 2)
+        Card2(modifier = Modifier.gridItem(colmnSpan = 3)
+        Card3(modifier = Modifier.gridItem(columnSpan = 2)
+        Card4()
+    }
 }
 ```
 
@@ -236,15 +236,15 @@ Check out the [documentation](https://developer.android.com/develop/ui/compose/l
 ```kotlin
 @OptIn(ExperimentalFlexBoxApi::class)
 fun FlexBoxWrapping(){
-    FlexBox(
-        config = {
-            wrap(FlexWrap.Wrap)
-            gap(8.dp)
-        }
+    FlexBox(
+        config = {
+            wrap(FlexWrap.Wrap)
+            gap(8.dp)
+        }
     ) {
-        RedRoundedBox()
-        BlueRoundedBox()
-        GreenRoundedBox(modifier = Modifier.width(350.dp).flex { grow(1.0f) })
+        RedRoundedBox()
+        BlueRoundedBox()
+        GreenRoundedBox(modifier = Modifier.width(350.dp).flex { grow(1.0f) })
         OrangeRoundedBox(modifier = Modifier.width(200.dp).flex { grow(0.7f) })
         PinkRoundedBox(modifier = Modifier.width(200.dp).flex { grow(0.3f) })
     }
@@ -306,20 +306,20 @@ With so many exciting new APIs in Jetpack Compose, and many more coming up, it's
 
   - [#Android XR](https://developer.android.com/blog/topics/android-xr)
   - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
-- [![](https://developer.android.com/static/blog/assets/Paul_Lammertsma_2f7e1baf32_Z28iSTy.webp)](https://developer.android.com/blog/authors/paul-lammertsma) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Text_Strapi_2000x1000_2d4221d884_ZtW7eg.webp)
+- [![](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z15U8cx.webp)](https://developer.android.com/blog/authors/fahd-imtiaz) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Combo_IO_Strapi_2000x1000_0370ff6d2c_ZQaFMJ.webp)
 
   #### [Product News](https://developer.android.com/blog/categories/product-news)
 
-  ## [Increasing app discovery and engagement on Google TV](https://developer.android.com/blog/posts/increasing-app-discovery-and-engagement-on-google-tv)
+  ## [Adaptive development for the expanding Android ecosystem](https://developer.android.com/blog/posts/adaptive-development-for-the-expanding-android-ecosystem)
 
-  [arrow_forward](https://developer.android.com/blog/posts/increasing-app-discovery-and-engagement-on-google-tv) We're excited to share Google TV features and developer tools designed to increase the discoverability of your content and prepare your app for future TV experiences.
+  [arrow_forward](https://developer.android.com/blog/posts/adaptive-development-for-the-expanding-android-ecosystem) With the release of Android 17, we are transitioning into an adaptive first development standard. Your users no longer rely on a single form factor; they transition between phones, foldables, tablets, laptops, automotive displays, and immersive XR environments throughout their day.
 
-  ###### [Paul Lammertsma](https://developer.android.com/blog/authors/paul-lammertsma) •
+  ###### [Fahd Imtiaz](https://developer.android.com/blog/authors/fahd-imtiaz) •
   4 min read
 
-  - [#Gemini features](https://developer.android.com/blog/topics/gemini-features)
+  - [#Adaptive development](https://developer.android.com/blog/topics/adaptive-development)
+  - [#Adaptive apps](https://developer.android.com/blog/topics/adaptive-apps)
   - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
-  - [#Engage SDK](https://developer.android.com/blog/topics/engage-sdk)
   - +1 ↩
 
 # Stay in the loop

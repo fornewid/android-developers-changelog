@@ -4,31 +4,25 @@ url: https://developer.android.com/agents/skills/wear/jetpack-compose-m3/skill
 source: md.txt
 ---
 
-## Prerequisites \& Compatibility
+## Prerequisites and compatibility
 
 1. **Wear OS Compose Material3 version:** If an internal tool is available to establish the **latest stable version** `{VERSION}` of `androidx.wear.compose:compose-material3`, use that tool.
-   - Otherwise, fetch the [official Maven metadata XML](https://dl.google.com/dl/android/maven2/androidx/wear/compose/compose-material3/maven-metadata.xml) to identify `{VERSION}` (highest number, ignoring `-alpha`, `-beta`, or `-rc`)
-     1. **Strict Compliance:** If a version is listed as stable, you MUST use it, unless overridden by the user. Do not downgrade based on initial "Unresolved reference" errors in the editor or outdated web search results.
-2. **Kotlin Version:** For Wear Compose Material3, use Kotlin **2.0.0 or
+   - Otherwise, fetch the [official Maven metadata XML](https://dl.google.com/dl/android/maven2/androidx/wear/compose/compose-material3/maven-metadata.xml) to identify `{VERSION}` (highest number, ignoring `-alpha`, `-beta`, or `-rc`).
+2. **Strict compliance:** If a version is listed as stable, you MUST use it, unless overridden by the user. Do not downgrade based on initial "Unresolved reference" errors in the editor or outdated web search results.
+3. **Kotlin version:** For Wear Compose Material3, use Kotlin **2.0.0 or
    higher**.
-3. **Compose Compiler:**
+4. **Compose compiler:**
    - If Kotlin version is **2.0.0+** , the project must use the `org.jetbrains.kotlin.plugin.compose` Gradle plugin.
-   - If Kotlin version is **\< 2.0.0** , the project must use `kotlinCompilerExtensionVersion` in `composeOptions`, matching the [Compose to Kotlin Compatibility
-     Map](https://developer.android.com/jetpack/androidx/releases/compose-kotlin).
-     1. **Min SDK:** Ensure `minSdk` is at least **25** (Wear OS 2.0).
-4. **Sample Extraction Mandate**: Wear Compose libraries ship with an
-   additional JAR file which contains individual samples for each and every
-   component. You MUST NOT propose code changes until the samples in Capability
-
-   files are incomplete and NOT a substitute for these samples; bypassing
-   extraction is an environment setup failure.
+   - If Kotlin version is **\< 2.0.0** , the project must use `kotlinCompilerExtensionVersion` in `composeOptions`, matching the [Compose to Kotlin Compatibility Map](https://developer.android.com/jetpack/androidx/releases/compose-kotlin).
+5. **Min SDK:** Ensure `minSdk` is at least **25** (Wear OS 2.0).
+6. **Sample extraction mandate**: Wear Compose libraries ship with an additional JAR file which contains individual samples for each and every component. You MUST NOT propose code changes until the samples in Capability #2 are extracted to the local cache. Library source files are incomplete and NOT a substitute for these samples; bypassing extraction is an environment setup failure.
 
 ## Gotchas
 
-1. **Mandatory Sync \& Validation:** After updating versions in `libs.versions.toml` or `build.gradle.kts`, you **must** perform a Gradle sync before refactoring any code. This ensures the environment has resolved the libraries correctly.
-2. **Prohibition of Guessing (Error Protocol):** If you encounter an 'Unresolved Reference' or API mismatch after a successful sync, do not attempt to 'fix' it by downgrading the library version.
+1. **Mandatory sync and validation:** After updating versions in `libs.versions.toml` or `build.gradle.kts`, you **must** perform a Gradle sync before refactoring any code. This ensures the environment has resolved the libraries correctly.
+2. **Prohibition of guessing (error protocol):** If you encounter an 'Unresolved Reference' or API mismatch after a successful sync, do not attempt to 'fix' it by downgrading the library version.
 
-## Capabilities and Tools
+## Capabilities and tools
 
 ### Capability 1: Migration
 
@@ -36,9 +30,9 @@ Use this guidance when migrating from an older version of Wear OS Compose or
 Horologist.
 
 1. Unless otherwise indicated by the developer, use the latest stable version of Wear Compose Material3 from `{VERSION}`.
-2. Read the [migration guide](https://developer.android.com/training/wearables/compose/migrate-to-material3)
+2. Read the [migration guide](https://developer.android.com/training/wearables/compose/migrate-to-material3).
 3. Use the official component mappings from the migration guide.
-4. Before refactoring any component (e.g., `Chip` -\> `Button`), check the parameter names, slot types, and "Expressive" design tokens.
+4. Before refactoring any component (for example, `Chip` -\> `Button`), check the parameter names, slot types, and "Expressive" design tokens.
 5. Do not use the Horologist Composables, Compose Layout, or Compose Material libraries.
 6. **Always** check against the component guidance in Capability #3.
 7. Expect screenshot tests to fail when a migration has been performed: Even when migrating to very similar components, expected defaults for padding and positioning will have changed. Do not seek to artificially match the pre-migration screenshot, but give preference to the Material3 defaults.
@@ -64,17 +58,17 @@ before proceeding.
 1. Check the `build.gradle.kts` or `libs.versions.toml` to ensure the Wear Compose version matches `{VERSION}`.
 2. Ensure that the necessary dependencies are downloaded by doing a Gradle sync.
 
-#### Step 2: Check the Local Cache
+#### Step 2: Check the local cache
 
 1. Define the cache directory path: `<SKILL_ROOT>/samples/{VERSION}/`. Do NOT choose your own different location.
 2. Check if this directory exists and contains subdirectories with `.kt` files.
-   - **IF YES (Cache Hit):** Proceed to **Step 4**.
-   - **IF NO (Cache Miss):** Proceed to **Step 3**.
+   - **IF YES (cache hit):** Proceed to **Step 4**.
+   - **IF NO (cache miss):** Proceed to **Step 3**.
 
-#### Step 3: Check the Gradle Cache
+#### Step 3: Check the Gradle cache
 
 1. Sample sources are stored in the Gradle cache. To avoid slow, brute-force searches:
-   - Determine the Gradle User Home (usually `~/.gradle`, or check `$GRADLE_USER_HOME`).
+   - Determine the Gradle user home (usually `~/.gradle`, or check `$GRADLE_USER_HOME`).
    - The cache root is `<GRADLE_USER_HOME>/caches`. Call this `<CACHE_ROOT>`.
 2. Define `{ARTIFACT}` as the items in the list `["material3", "foundation"]`. Also include "navigation3" in the list if the `androidx.wear.compose.navigation3` library is being used.
 3. For each `{ARTIFACT}` in the list:
@@ -94,14 +88,14 @@ before proceeding.
 
 6. Proceed **directly to step 4**.
 
-#### Step 4: Read Samples and Implement
+#### Step 4: Read samples and implement
 
 1. Read the relevant `.kt` sample files.
 2. Use these official, version-matched samples as the for:
    - Required parameters and slot names.
    - Default styling and typography tokens.
-   - Interactive behaviors (e.g., `onClick`, `onLongClick`).
-   - Component nesting (e.g., `AppScaffold` -\> `ScreenScaffold`).
+   - Interactive behaviors (for example: `onClick`, `onLongClick`).
+   - Component nesting (for example: `AppScaffold` -\> `ScreenScaffold`).
 
 ### Capability 3: Component guidance
 
@@ -113,9 +107,7 @@ the component syntax.
    - \[ \] Use `AppScaffold` as the outer container, with `ScreenScaffold` children.
    - \[ \] Use only **ONE** `AppScaffold` and any number of `ScreenScaffold`.
 2. `ScalingLazyColumn` - Use `TransformingLazyColumn` instead.
-3. `TransformingLazyColumn`
-
-   You will need the following imports:
+3. `TransformingLazyColumn` - You will need the following imports:
 
 
    ```kotlin
@@ -182,7 +174,7 @@ the component syntax.
 
    <br />
 
-   - \[ \] Use `TransformingLazyColumn` instead of `ScalingLazyColumn`
+   - \[ \] Use `TransformingLazyColumn` instead of `ScalingLazyColumn`.
    - \[ \] You must pass the `contentPadding` parameter from `ScreenScaffold` to the `TransformingLazyColumn`.
    - \[ \] Use the `minimumVerticalContentPadding` modifier to achieve required padding top and bottom.
      - This expects a value from defaults, such as `ButtonDefaults`, `CardDefaults`, \`ListHeaderDefaults.
@@ -211,7 +203,7 @@ the component syntax.
 
 4. `ScreenScaffold`
 
-   - \[ \] Guard the `scrollIndicator` with `!LocalScrollCaptureInProgress.current`
+   - \[ \] Guard the `scrollIndicator` with `!LocalScrollCaptureInProgress.current`.
 5. `EdgeButton`
 
    - \[ \] Do **NOT** use as the final item within a `TransformingLazyColumn`. Instead, use the slot in `ScreenScaffold`.
@@ -257,11 +249,11 @@ the component syntax.
 
    - \[ \] Do **NOT** hard-code text sizes, use `typography` from `MaterialTheme`.
    - \[ \] Do **NOT** hard-code colors, use `colorScheme` from `MaterialTheme`.
-8. Use component defaults
+8. Use component defaults:
 
    - \[ \] Components such as `Button` have a corresponding `ButtonDefaults` object.
    - Check for and use the `*Defaults` object for any component when working with padding and styling values, in preference to hard-coded values.
-9. Use Wear specific previews
+9. Use Wear specific previews:
 
    - \[ \] `WearPreviewDevices`
    - \[ \] `WearPreviewFontScales`

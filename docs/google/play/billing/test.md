@@ -496,41 +496,19 @@ is notified.
 
 ## Test the purchase experience in different regions
 
-You can test the purchase experience with or without the Play Billing Lab:
-
-### Test
-with
-
-The [Play Billing Lab](https://developer.android.com/google/play/billing/test#play-billing-lab) Android app lets you test the purchase flow in
-any region. However, to use the Play Billing Lab, you must be a license
-tester. Use the following steps to test:
+You can test the purchase experience in different regions with the
+[Play Billing Lab](https://developer.android.com/google/play/billing/test#play-billing-lab) app. To use the Play Billing Lab, you must be a
+license tester. Use the following steps to test:
 
 1. Register the app billing user as a license tester.
 2. Log into Play Billing Lab app with the same user.
 3. Select the required country and apply the change in Play Billing Lab.
 4. Launch the purchase flow in the app under testing.
 
-![test purchase experience in different regions](https://developer.android.com/static/images/google/play/billing/play-billing-lab-country.png) **Figure 10.** Test purchase experience in different regions.
+   ![test purchase experience in different regions](https://developer.android.com/static/images/google/play/billing/play-billing-lab-country.png) **Figure 10.** Test purchase experience in different regions.
 
-### Test
-without
-
-You can also test the purchase flow in any region without using the Play
-Billing Lab. Use the following steps to test:
-
-1. Create a new Gmail account. The account can be created in any country.
-2. Optionally, you can set up the user a license tester.
-3. VPN into the required country to test.
-4. Launch the purchase flow.
-
-You can clear Play Store data and cache, and then repeat steps #3 and #4
-with any country you would like to test. After switching to a new
-country, you will need to Clear Data for the Google Play Store to remove
-data related to the previous country.
-
-Both these methods for testing purchases let you test offer regional eligibility
-and the user experience in any region, regardless of where you are physically
-testing.
+[Play Billing Lab](https://developer.android.com/google/play/billing/test#play-billing-lab) lets you test offer regional eligibility and the user
+experience in any region, regardless of where you are physically testing.
 
 > [!NOTE]
 > **Note:** Gmail accounts created for testing purposes shouldn't be used to make purchases using real instruments on Google Play. This includes other apps and purchases such as Google Books.

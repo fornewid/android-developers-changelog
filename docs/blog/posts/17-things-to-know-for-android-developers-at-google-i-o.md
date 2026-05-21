@@ -35,13 +35,13 @@ Developers and creators can now [build native Android apps, starting with a prom
 #### 4: Convert iOS apps to Android with the Migration Assistant in Android Studio
 
 The Migration Assistant in Android Studio is designed to port apps from platforms like iOS, React Native, or web frameworks to native Android. By simply selecting an existing project, developers can have the agent intelligently map features, convert assets like storyboards and SVGs, and implement Android best practices using Jetpack Compose and our recommended Jetpack libraries. This will effectively transform what used to be weeks of manual porting into a streamlined agentic workflow that only takes hours. We shared a preview of this upcoming feature in the [developer keynote](https://www.youtube.com/watch?v=aqmpZocmR8o&list=PLOU2XLYxmsIKL_eEgkKJWDRhYUEvS9eYz&index=23).
-![IO26_DEV_Android_MOD_v29_27.gif](https://developer.android.com/static/blog/assets/IO_26_DEV_Android_MOD_v29_27_b98c4933a4_8nolT.webp) A sneak peek of the Migration Assistant converting an iOS app into a native Android app
+![IO26_DEV_Android_MOD_v29_27hi.gif](https://developer.android.com/static/blog/assets/IO_26_DEV_Android_MOD_v29_27hi_c2728b60bd_1uJVdJ.webp) A sneak peek of the Migration Assistant converting an iOS app into a native Android app
 
 ## Building AI into your apps
 
 #### 5: Building Intelligent Apps with generative AI
 
-Generative AI enables you to create apps that are more intelligent, personalized, and agentic than ever before. This year, we introduced the latest advancements in on-device intelligence with a preview of Gemini Nano 4 for tasks like data extraction and summarization. We also expanded cloud capabilities via Firebase AI Logic, allowing developers to leverage Gemini models with robust grounding (including URL, Maps, and web search) to build smarter, more capable assistants. Furthermore, we unveiled our hybrid inference approach and the new [Agent Development Kit (ADK) for Android](https://goo.gle/ADK_IO26), alongside communication protocols like AG-UI and A2UI that simplify the creation of autonomous, agentic experiences. To start integrating these powerful features, explore the [developer documentation](https://developer.android.com/ai), and watch the technical deep dive session where we showcase all these technologies.
+Generative AI enables you to create apps that are more intelligent, personalized, and agentic than ever before. This year, we introduced the latest advancements in on-device intelligence with a preview of Gemini Nano 4 for tasks like data extraction and summarization. We also expanded cloud capabilities via Firebase AI Logic, allowing developers to leverage Gemini models with robust grounding (including URL, Maps, and web search) to build smarter, more capable assistants. Furthermore, we unveiled our hybrid inference approach and the new Agent Development Kit (ADK) for Android, alongside communication protocols like AG-UI and A2UI that simplify the creation of autonomous, agentic experiences. To start integrating these powerful features, explore the [developer documentation](https://developer.android.com/ai), and watch the technical deep dive session where we showcase all these technologies.
 
 #### 6: Experiment with AppFunctions today
 
@@ -157,20 +157,20 @@ This was just a preview of some of the updates for Android developers at Google 
 
   - [#Android XR](https://developer.android.com/blog/topics/android-xr)
   - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
-- [![](https://developer.android.com/static/blog/assets/Paul_Lammertsma_2f7e1baf32_Z28iSTy.webp)](https://developer.android.com/blog/authors/paul-lammertsma) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Text_Strapi_2000x1000_2d4221d884_ZtW7eg.webp)
+- [![](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z15U8cx.webp)](https://developer.android.com/blog/authors/fahd-imtiaz) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Combo_IO_Strapi_2000x1000_0370ff6d2c_ZQaFMJ.webp)
 
   #### [Product News](https://developer.android.com/blog/categories/product-news)
 
-  ## [Increasing app discovery and engagement on Google TV](https://developer.android.com/blog/posts/increasing-app-discovery-and-engagement-on-google-tv)
+  ## [Adaptive development for the expanding Android ecosystem](https://developer.android.com/blog/posts/adaptive-development-for-the-expanding-android-ecosystem)
 
-  [arrow_forward](https://developer.android.com/blog/posts/increasing-app-discovery-and-engagement-on-google-tv) We're excited to share Google TV features and developer tools designed to increase the discoverability of your content and prepare your app for future TV experiences.
+  [arrow_forward](https://developer.android.com/blog/posts/adaptive-development-for-the-expanding-android-ecosystem) With the release of Android 17, we are transitioning into an adaptive first development standard. Your users no longer rely on a single form factor; they transition between phones, foldables, tablets, laptops, automotive displays, and immersive XR environments throughout their day.
 
-  ###### [Paul Lammertsma](https://developer.android.com/blog/authors/paul-lammertsma) •
+  ###### [Fahd Imtiaz](https://developer.android.com/blog/authors/fahd-imtiaz) •
   4 min read
 
-  - [#Gemini features](https://developer.android.com/blog/topics/gemini-features)
+  - [#Adaptive development](https://developer.android.com/blog/topics/adaptive-development)
+  - [#Adaptive apps](https://developer.android.com/blog/topics/adaptive-apps)
   - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
-  - [#Engage SDK](https://developer.android.com/blog/topics/engage-sdk)
   - +1 ↩
 
 # Stay in the loop

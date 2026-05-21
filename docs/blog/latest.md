@@ -18,20 +18,6 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
   ###### 1 min read
 
   - [#Android XR](https://developer.android.com/blog/topics/android-xr)
-- [![](https://developer.android.com/static/blog/assets/matthew_warner_67a99317e4_Z2c1VNu.webp)](https://developer.android.com/blog/authors/matthew-warner) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Combo_Strapi_2000x1000_5793c01e36_ZVoYvg.webp)
-
-  ## [Android Studio I/O Edition: What's new in Android Developer tools](https://developer.android.com/blog/posts/android-studio-i-o-edition-what-s-new-in-android-developer-tools)
-
-  [arrow_forward](https://developer.android.com/blog/posts/android-studio-i-o-edition-what-s-new-in-android-developer-tools) This year at Google I/O we are going beyond iterative changes, towards a fundamental shift in how apps are built. Our newest tools are built for the agentic era with features that boost productivity for you as an Android developer AND supercharge the AI agents you deploy in your codebase.
-
-  ###### [Matthew Warner](https://developer.android.com/blog/authors/matthew-warner) •
-  8 min read
-
-  - [#Agent Skills](https://developer.android.com/blog/topics/agent-skills)
-  - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
-  - [#Android](https://developer.android.com/blog/topics/android)
-  - [#Android Studio](https://developer.android.com/blog/topics/android-studio)
-  - +2 ↩
 - [![](https://developer.android.com/static/blog/assets/paul_feng_759ac95845_spvRU.webp)](https://developer.android.com/blog/authors/paul-feng) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/IO_26_Blog_Strapi_Icons_2000x1000px_0a8b06b49b_Z1e2APA.webp)
 
   #### [Product News](https://developer.android.com/blog/categories/product-news)
@@ -61,6 +47,33 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
 
   - [#Android XR](https://developer.android.com/blog/topics/android-xr)
   - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
+- [![](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z15U8cx.webp)](https://developer.android.com/blog/authors/fahd-imtiaz) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Combo_IO_Strapi_2000x1000_0370ff6d2c_ZQaFMJ.webp)
+
+  #### [Product News](https://developer.android.com/blog/categories/product-news)
+
+  ## [Adaptive development for the expanding Android ecosystem](https://developer.android.com/blog/posts/adaptive-development-for-the-expanding-android-ecosystem)
+
+  [arrow_forward](https://developer.android.com/blog/posts/adaptive-development-for-the-expanding-android-ecosystem) With the release of Android 17, we are transitioning into an adaptive first development standard. Your users no longer rely on a single form factor; they transition between phones, foldables, tablets, laptops, automotive displays, and immersive XR environments throughout their day.
+
+  ###### [Fahd Imtiaz](https://developer.android.com/blog/authors/fahd-imtiaz) •
+  4 min read
+
+  - [#Adaptive development](https://developer.android.com/blog/topics/adaptive-development)
+  - [#Adaptive apps](https://developer.android.com/blog/topics/adaptive-apps)
+  - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
+  - +1 ↩
+- [![](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Text_Strapi_2000x1000_2d4221d884_ZtW7eg.webp)
+
+  #### [Product News](https://developer.android.com/blog/categories/product-news)
+
+  ## [17 Things to know for Android developers at Google I/O!](https://developer.android.com/blog/posts/17-things-to-know-for-android-developers-at-google-i-o)
+
+  [arrow_forward](https://developer.android.com/blog/posts/17-things-to-know-for-android-developers-at-google-i-o) Google I/O '26 features 17 key announcements for Android developers focusing on agent-led productivity, Compose First as our UI standard, and high-performance media and adaptive development for the expanding ecosystem.
+
+  ###### [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) •
+  8 min read
+
+  - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
 - [![](https://developer.android.com/static/blog/assets/Paul_Lammertsma_2f7e1baf32_Z28iSTy.webp)](https://developer.android.com/blog/authors/paul-lammertsma) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Text_Strapi_2000x1000_2d4221d884_ZtW7eg.webp)
 
   #### [Product News](https://developer.android.com/blog/categories/product-news)
@@ -76,6 +89,22 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
   - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
   - [#Engage SDK](https://developer.android.com/blog/topics/engage-sdk)
   - +1 ↩
+- [![](https://developer.android.com/static/blog/assets/matthew_warner_67a99317e4_Z2c1VNu.webp)](https://developer.android.com/blog/authors/matthew-warner) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Combo_Strapi_2000x1000_5793c01e36_ZVoYvg.webp)
+
+  #### [Product News](https://developer.android.com/blog/categories/product-news)
+
+  ## [Android Studio I/O Edition: What's new in Android Developer tools](https://developer.android.com/blog/posts/android-studio-i-o-edition-what-s-new-in-android-developer-tools)
+
+  [arrow_forward](https://developer.android.com/blog/posts/android-studio-i-o-edition-what-s-new-in-android-developer-tools) This year at Google I/O we are going beyond iterative changes, towards a fundamental shift in how apps are built. Our newest tools are built for the agentic era with features that boost productivity for you as an Android developer AND supercharge the AI agents you deploy in your codebase.
+
+  ###### [Matthew Warner](https://developer.android.com/blog/authors/matthew-warner) •
+  8 min read
+
+  - [#Agent Skills](https://developer.android.com/blog/topics/agent-skills)
+  - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
+  - [#Android](https://developer.android.com/blog/topics/android)
+  - [#Android Studio](https://developer.android.com/blog/topics/android-studio)
+  - +2 ↩
 - [![](https://developer.android.com/static/blog/assets/Amyzeppenfeld_50a8b9e7f8_Z1LAQnM.webp)](https://developer.android.com/blog/authors/amy-zeppenfeld)[![](https://developer.android.com/static/blog/assets/Stevan_Silva_7661118077_V4WGm.webp)](https://developer.android.com/blog/authors/stevan-silva) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Text_Strapi_2000x1000_2d4221d884_ZtW7eg.webp)
 
   #### [Product News](https://developer.android.com/blog/categories/product-news)
@@ -93,18 +122,6 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
   - [#Unity](https://developer.android.com/blog/topics/unity)
   - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
   - +3 ↩
-- [![](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Text_Strapi_2000x1000_2d4221d884_ZtW7eg.webp)
-
-  #### [Product News](https://developer.android.com/blog/categories/product-news)
-
-  ## [17 Things to know for Android developers at Google I/O!](https://developer.android.com/blog/posts/17-things-to-know-for-android-developers-at-google-i-o)
-
-  [arrow_forward](https://developer.android.com/blog/posts/17-things-to-know-for-android-developers-at-google-i-o) Google I/O '26 features 17 key announcements for Android developers focusing on agent-led productivity, Compose First as our UI standard, and high-performance media and adaptive development for the expanding ecosystem.
-
-  ###### [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) •
-  8 min read
-
-  - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
 - [![](https://developer.android.com/static/blog/assets/unnamed_2_feee4f83eb_13HwUT.webp)](https://developer.android.com/blog/authors/blog-author) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Combo_Strapi_2000x1000_5793c01e36_ZVoYvg.webp)
 
   #### [Product News](https://developer.android.com/blog/categories/product-news)
@@ -249,17 +266,6 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
   2 min read
 
   - [#Android](https://developer.android.com/blog/topics/android)
-- [![](https://developer.android.com/static/blog/assets/meghan_d663ed9c69_e0a5b5a564_Z21FLk.webp)](https://developer.android.com/blog/authors/meghan-mehta) 22 Apr 2026 22 Apr 2026 ![](https://developer.android.com/static/blog/assets/0420_Compose_1_11_Strapi_9c17b19a5e_1zjMqo.webp)
-
-  #### [Product News](https://developer.android.com/blog/categories/product-news)
-
-  ## [What's new in the Jetpack Compose April '26 release](https://developer.android.com/blog/posts/whats-new-in-the-jetpack-compose-april-26-release)
-
-  [arrow_forward](https://developer.android.com/blog/posts/whats-new-in-the-jetpack-compose-april-26-release) The Jetpack Compose April '26 release is stable. This release contains version 1.11 of core Compose modules (see the full BOM mapping), shared element debug tools, trackpad events, and more.
-
-  ###### [Meghan Mehta](https://developer.android.com/blog/authors/meghan-mehta) •
-  5 min read
-
 <button class="adb--button adb--standard adb--outlined adb--disabled adb--global-hover-button astro-vnzlvqnm" disabled=""> arrow_back </button>
 
 #### Page 1
@@ -277,6 +283,7 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
 - [#Android XR](https://developer.android.com/blog/topics/android-xr)
 - [#Jetpack Navigation](https://developer.android.com/blog/topics/jetpack-navigation)
 - [#Mobile App Development](https://developer.android.com/blog/topics/mobile-app-development)
+- [#Adaptive apps](https://developer.android.com/blog/topics/adaptive-apps)
 - [#Android 17](https://developer.android.com/blog/topics/android-17)
 - [#Wear OS](https://developer.android.com/blog/topics/wear-os)
 - [#Adaptive \& Differentiated](https://developer.android.com/blog/topics/adaptive-and-differentiated)
@@ -286,7 +293,6 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
 - [#Performance](https://developer.android.com/blog/topics/performance)
 - [#R8](https://developer.android.com/blog/topics/r8)
 - [#identity](https://developer.android.com/blog/topics/identity)
-- [#Adaptive apps](https://developer.android.com/blog/topics/adaptive-apps)
 - [#Android 16](https://developer.android.com/blog/topics/android-16)
 - [#Automotive OS](https://developer.android.com/blog/topics/automotive-os)
 - [#beta](https://developer.android.com/blog/topics/beta)
@@ -301,6 +307,7 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
 - [#Agent Skills](https://developer.android.com/blog/topics/agent-skills)
 - [#Gemini features](https://developer.android.com/blog/topics/gemini-features)
 - [#Engage SDK](https://developer.android.com/blog/topics/engage-sdk)
+- [#Adaptive development](https://developer.android.com/blog/topics/adaptive-development)
 - [#authentication](https://developer.android.com/blog/topics/authentication)
 - [#CredentialManager](https://developer.android.com/blog/topics/credential-manager)
 - [#Foldables](https://developer.android.com/blog/topics/foldables)

@@ -64,6 +64,22 @@ Google Play is committed to helping you grow your business while keeping users s
 
 ## Continue reading
 
+- [![](https://developer.android.com/static/blog/assets/matthew_warner_67a99317e4_Z2c1VNu.webp)](https://developer.android.com/blog/authors/matthew-warner) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Combo_Strapi_2000x1000_5793c01e36_ZVoYvg.webp)
+
+  #### [Product News](https://developer.android.com/blog/categories/product-news)
+
+  ## [Android Studio I/O Edition: What's new in Android Developer tools](https://developer.android.com/blog/posts/android-studio-i-o-edition-what-s-new-in-android-developer-tools)
+
+  [arrow_forward](https://developer.android.com/blog/posts/android-studio-i-o-edition-what-s-new-in-android-developer-tools) This year at Google I/O we are going beyond iterative changes, towards a fundamental shift in how apps are built. Our newest tools are built for the agentic era with features that boost productivity for you as an Android developer AND supercharge the AI agents you deploy in your codebase.
+
+  ###### [Matthew Warner](https://developer.android.com/blog/authors/matthew-warner) •
+  8 min read
+
+  - [#Agent Skills](https://developer.android.com/blog/topics/agent-skills)
+  - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
+  - [#Android](https://developer.android.com/blog/topics/android)
+  - [#Android Studio](https://developer.android.com/blog/topics/android-studio)
+  - +2 ↩
 - [![](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 12 May 2026 12 May 2026 ![](https://developer.android.com/static/blog/assets/Tas_Developers_cut_Strapi_3636223c9c_Z2pmmBN.webp)
 
   #### [Product News](https://developer.android.com/blog/categories/product-news)
@@ -86,18 +102,6 @@ Google Play is committed to helping you grow your business while keeping users s
 
   ###### [Matthew Forsythe](https://developer.android.com/blog/authors/matthew-forsythe) •
   2 min read
-
-  - [#Android](https://developer.android.com/blog/topics/android)
-- [![](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 20 May 2025 20 May 2025 ![](https://developer.android.com/static/blog/assets/IO_25_Blog_Hero_Template_Art_Long_01_126026f6a9_Z2cQC8F.webp)
-
-  #### [Product News](https://developer.android.com/blog/categories/product-news)
-
-  ## [Updates to the Android XR SDK: Introducing Developer Preview 2](https://developer.android.com/blog/posts/updates-to-the-android-xr-sdk-introducing-developer-preview-2)
-
-  [arrow_forward](https://developer.android.com/blog/posts/updates-to-the-android-xr-sdk-introducing-developer-preview-2) Since launching the Android XR SDK Developer Preview alongside Samsung, Qualcomm, and Unity last year, we've been blown away by all of the excitement we've been hearing from the broader Android community.
-
-  ###### [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) •
-  4 min read
 
   - [#Android](https://developer.android.com/blog/topics/android)
 

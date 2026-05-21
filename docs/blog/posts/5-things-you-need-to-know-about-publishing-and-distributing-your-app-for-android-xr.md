@@ -78,7 +78,7 @@ if (hasHandTracking) {
 
 } else {
 
-    // Provide a fallback experience
+    // Provide a fallback experience
 
 }
 ```

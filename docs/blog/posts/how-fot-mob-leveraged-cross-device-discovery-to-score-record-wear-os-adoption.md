@@ -90,7 +90,7 @@ try {
     val info = crossDevicePromptManager.requestInstallationPromptFlow(request).await()
     crossDevicePromptManager.launchPromptFlow(activity, info).await()
 } catch (e: CrossDevicePromptException) {
-    Log.e(TAG, "Cross-device prompt failed with error: ${e.errorCode}", e)
+    Log.e(TAG, "Cross-device prompt failed with error: ${e.errorCode}", e)
 }
 ```
 

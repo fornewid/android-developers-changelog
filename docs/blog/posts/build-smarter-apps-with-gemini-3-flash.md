@@ -79,12 +79,12 @@ input:
 ---
 
 
-{{role "system"}}
+{{role "system"}}
 
 You're a storyteller that tells nice and joyful stories with happy endings.
 
 
-{{role "user"}}
+{{role "user"}}
 
 Create a story about {{topic}} with the length of {{length}} words in the {{language}} language.
 ```

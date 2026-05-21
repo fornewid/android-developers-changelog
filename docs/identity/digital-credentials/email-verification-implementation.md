@@ -4,6 +4,10 @@ url: https://developer.android.com/identity/digital-credentials/email-verificati
 source: md.txt
 ---
 
+> [!IMPORTANT]
+> **Important:** We released an agent skill to help you implement email verification with the Digital Credentials API. Try out the skill from the [Android skills
+> repository](https://github.com/android/skills).
+
 This guide describes how to implement verified email retrieval using the
 [Digital Credentials Verifier API](https://developer.android.com/identity/digital-credentials/credential-verifier) through an [OpenID for Verifiable
 Presentations (OpenID4VP)](https://openid.net/specs/openid-4-verifiable-presentations-1_0.html) request.

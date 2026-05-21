@@ -12,10 +12,10 @@ source: md.txt
 AppFunctions is an [Android platform API](https://developer.android.com/reference/android/app/appfunctions/package-summary) with an accompanying [Jetpack
 library](https://developer.android.com/jetpack/androidx/releases/appfunctions) to simplify Android MCP integration. It empowers your apps to behave
 like on device MCP servers, contributing functions that act as tools for use by
-proactive features along with agents and assistants, like Google Gemini.
-As of May 2026, AppFunctions integration with Gemini is in a private preview
-with trusted testers. You can begin preparing your apps now to use AppFunctions
-and development tools.
+proactive features along with agents and assistants, like Google Gemini. As of
+May 2026, AppFunctions integration with Gemini is in a private preview with
+trusted testers. You can begin preparing your apps now to use AppFunctions and
+development tools.
 
 By defining these AppFunctions, you enable your app to provide services, data,
 and actions to the registry built into the Android OS, allowing users to
@@ -31,6 +31,9 @@ discover and execute AppFunctions, and can include agents, apps, and AI
 assistants like Gemini.
 
 AppFunctions is available on devices running Android 16 or higher.
+
+> [!IMPORTANT]
+> **Important:** We released an agent skill for AppFunctions. You can use it to analyzes your app's key workflows to generate the required Kotlin code for the Android intelligence system. It also optimizes your KDocs for AI agents and provides ADB commands for testing and debugging. Try out the skill, located in the [AppFunctions skill repository](https://github.com/android/skills/tree/main/device-ai/appfunctions).
 
 ## Example use cases
 
@@ -173,15 +176,15 @@ Here's an example of AppFunctions for a note-taking app with capabilities to
 create, edit, and list notes:
 
     /**
-     * A note app's [AppFunction]s.
+     *   A note app's [AppFunction]s.
      */
     class NoteFunctions(
         private val noteRepository: NoteRepository
     ) {
         /**
-         * Lists all available notes.
+         *   Lists all available notes.
          *
-         * @param appFunctionContext The context in which the AppFunction is executed.
+         *   @param appFunctionContext The context in which the AppFunction is executed.
          */
         @AppFunction(isDescribedByKDoc = true)
         suspend fun listNotes(appFunctionContext: AppFunctionContext): List<Note>? {
@@ -189,11 +192,11 @@ create, edit, and list notes:
         }
 
         /**
-         * Adds a new note to the app.
+         *   Adds a new note to the app.
          *
-         * @param appFunctionContext The context in which the AppFunction is executed.
-         * @param title The title of the note.
-         * @param content The note's content.
+         *   @param appFunctionContext The context in which the AppFunction is executed.
+         *   @param title The title of the note.
+         *   @param content The note's content.
          */
         @AppFunction(isDescribedByKDoc = true)
         suspend fun createNote(
@@ -205,12 +208,12 @@ create, edit, and list notes:
         }
 
         /**
-         * Edits a single note.
+         *   Edits a single note.
          *
-         * @param appFunctionContext The context in which the AppFunction is executed.
-         * @param noteId The target note's ID.
-         * @param title The note's title if it should be updated.
-         * @param content The new content if it should be updated.
+         *   @param appFunctionContext The context in which the AppFunction is executed.
+         *   @param noteId The target note's ID.
+         *   @param title The note's title if it should be updated.
+         *   @param content The new content if it should be updated.
          */
         @AppFunction(isDescribedByKDoc = true)
         suspend fun editNote(
@@ -224,7 +227,7 @@ create, edit, and list notes:
     }
 
     /**
-     * A note.
+     *   A note.
      */
     @AppFunctionSerializable(isDescribedByKDoc = true)
     data class Note(
@@ -235,6 +238,14 @@ create, edit, and list notes:
         /** The note's content */
         val content: String
     )
+
+## Samples, skill, and test agent
+
+We've made the following available to help you upskill in AppFunctions:
+
+- Explore the [AppFunctions sample](https://github.com/android/appfunctions) to verify and explore how everything works on your devices.
+- The [AppFunctions skill](https://github.com/android/skills/tree/main/device-ai/appfunctions) discovers and recommends features of your app that could be implemented as AppFunctions. It can also implement and refine existing AppFunctions for you.
+- For testing end-to end, use the [sample agent app](https://github.com/android/appfunctions/releases).
 
 ## Frequently asked questions (FAQs)
 
