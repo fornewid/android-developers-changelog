@@ -344,30 +344,32 @@ def main():
     if updates:
         update_json_data(updates, args.commit_hash)
 
-        # Collect ALL input files by status (independent of Gemini's trivial-change filter)
-        # so the release body lists every modified/deleted file, not only those that
-        # produced a non-trivial summary.
-        base_url = "https://developer.android.com"
-        modified_paths = []
-        deleted_paths = []
-        for file_arg in args.files:
-            if ':' in file_arg:
-                file_status, file_path = file_arg.split(':', 1)
-            else:
-                file_status, file_path = 'M', file_arg
-            if not file_path.endswith('.md'):
-                continue
-            rel_path = file_path.split('docs/', 1)[1] if 'docs/' in file_path else file_path
-            url = f"{base_url}/{rel_path[:-3]}"  # strip .md
-            if file_status == 'M':
-                modified_paths.append((rel_path, url))
-            elif file_status == 'D':
-                deleted_paths.append((rel_path, url))
+    # Collect ALL input files by status (independent of Gemini's trivial-change filter)
+    # so the release body lists every modified/deleted file, not only those that
+    # produced a non-trivial summary. Runs even when `updates` is empty (all-trivial
+    # batch) so the audit trail is preserved.
+    base_url = "https://developer.android.com"
+    modified_paths = []
+    deleted_paths = []
+    for file_arg in args.files:
+        if ':' in file_arg:
+            file_status, file_path = file_arg.split(':', 1)
+        else:
+            file_status, file_path = 'M', file_arg
+        if not file_path.endswith('.md'):
+            continue
+        rel_path = file_path.split('docs/', 1)[1] if 'docs/' in file_path else file_path
+        url = f"{base_url}/{rel_path[:-3]}"  # strip .md
+        if file_status == 'M':
+            modified_paths.append((rel_path, url))
+        elif file_status == 'D':
+            deleted_paths.append((rel_path, url))
 
-        # Keep NEW entries with full AI-generated summaries; render MODIFIED and DELETED
-        # as compact lists to stay under GitHub's 125,000-char release body limit.
-        new_entries = [u for u in updates if u.get('tag_class') == 'new']
+    # Keep NEW entries with full AI-generated summaries; render MODIFIED and DELETED
+    # as compact lists to stay under GitHub's 125,000-char release body limit.
+    new_entries = [u for u in updates if u.get('tag_class') == 'new']
 
+    if new_entries or modified_paths or deleted_paths:
         release_body_path = ROOT_DIR / 'release_body.md'
         release_content = "## Android Docs Updates\n\n"
 
