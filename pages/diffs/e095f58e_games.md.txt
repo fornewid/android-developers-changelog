@@ -1,0 +1,13 @@
+diff --git a/docs/jetpack/androidx/releases/games.md b/docs/jetpack/androidx/releases/games.md
+index 377a3a29..5274141d 100644
+--- a/docs/jetpack/androidx/releases/games.md
++++ b/docs/jetpack/androidx/releases/games.md
+@@ -376,7 +376,7 @@ August 7, 2024
+ 
+ - Fixed functionality of deletion with and without text selection.
+ 
+-## Games-Activity Version 4
++## Games-Activity Version 4.4
+ 
+ ### Version 4.4.2
+ 

@@ -1,0 +1,20 @@
+diff --git a/docs/blog/posts/whats-new-in-the-jetpack-compose-december-release.md b/docs/blog/posts/whats-new-in-the-jetpack-compose-december-release.md
+index 53775c13..25c3aafc 100644
+--- a/docs/blog/posts/whats-new-in-the-jetpack-compose-december-release.md
++++ b/docs/blog/posts/whats-new-in-the-jetpack-compose-december-release.md
+@@ -191,7 +191,6 @@ AnimatedContent(
+     ...
+ 
+ }
+-
+ ```
+ 
+ ## **Upcoming changes**
+@@ -236,7 +235,6 @@ fun myTest() = runTest(testDispatcher) {
+     composeRule.setContent { /* ... */ }
+ 
+ }
+-
+ ```
+ 
+ ## **Tools**

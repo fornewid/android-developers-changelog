@@ -1,0 +1,13 @@
+diff --git a/docs/blog/posts/how-fot-mob-leveraged-cross-device-discovery-to-score-record-wear-os-adoption.md b/docs/blog/posts/how-fot-mob-leveraged-cross-device-discovery-to-score-record-wear-os-adoption.md
+index 7ae5b51f..d05baa8d 100644
+--- a/docs/blog/posts/how-fot-mob-leveraged-cross-device-discovery-to-score-record-wear-os-adoption.md
++++ b/docs/blog/posts/how-fot-mob-leveraged-cross-device-discovery-to-score-record-wear-os-adoption.md
+@@ -90,7 +90,7 @@ try {
+     val info = crossDevicePromptManager.requestInstallationPromptFlow(request).await()
+     crossDevicePromptManager.launchPromptFlow(activity, info).await()
+ } catch (e: CrossDevicePromptException) {
+-    Log.e(TAG, "Cross-device prompt failed with error: ${e.errorCode}", e)
++    Log.e(TAG, "Cross-device prompt failed with error: ${e.errorCode}", e)
+ }
+ ```
+ 

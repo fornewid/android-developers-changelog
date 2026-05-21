@@ -1,0 +1,17 @@
+diff --git a/docs/blog/posts/experimental-hybrid-inference-and-new-gemini-models-for-android.md b/docs/blog/posts/experimental-hybrid-inference-and-new-gemini-models-for-android.md
+index fd011e5a..cdab00af 100644
+--- a/docs/blog/posts/experimental-hybrid-inference-and-new-gemini-models-for-android.md
++++ b/docs/blog/posts/experimental-hybrid-inference-and-new-gemini-models-for-android.md
+@@ -31,9 +31,9 @@ To use it, add the `firebase-ai-ondevice` dependencies to your app along with Fi
+ 
+ ```kotlin
+ dependencies {
+- [...] 
+- implementation("com.google.firebase:firebase-ai:17.10.1")
+- implementation("com.google.firebase:firebase-ai-ondevice:16.0.0-beta01")
++ [...] 
++ implementation("com.google.firebase:firebase-ai:17.10.1")
++ implementation("com.google.firebase:firebase-ai-ondevice:16.0.0-beta01")
+ }
+ ```
+ 

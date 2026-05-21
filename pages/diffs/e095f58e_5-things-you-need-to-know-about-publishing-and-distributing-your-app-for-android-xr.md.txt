@@ -1,0 +1,13 @@
+diff --git a/docs/blog/posts/5-things-you-need-to-know-about-publishing-and-distributing-your-app-for-android-xr.md b/docs/blog/posts/5-things-you-need-to-know-about-publishing-and-distributing-your-app-for-android-xr.md
+index 14f0259c..41c38a1a 100644
+--- a/docs/blog/posts/5-things-you-need-to-know-about-publishing-and-distributing-your-app-for-android-xr.md
++++ b/docs/blog/posts/5-things-you-need-to-know-about-publishing-and-distributing-your-app-for-android-xr.md
+@@ -78,7 +78,7 @@ if (hasHandTracking) {
+ 
+ } else {
+ 
+-    // Provide a fallback experience
++    // Provide a fallback experience
+ 
+ }
+ ```

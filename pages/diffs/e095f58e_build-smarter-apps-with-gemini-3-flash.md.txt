@@ -1,0 +1,19 @@
+diff --git a/docs/blog/posts/build-smarter-apps-with-gemini-3-flash.md b/docs/blog/posts/build-smarter-apps-with-gemini-3-flash.md
+index 16a5edf4..982c3fe6 100644
+--- a/docs/blog/posts/build-smarter-apps-with-gemini-3-flash.md
++++ b/docs/blog/posts/build-smarter-apps-with-gemini-3-flash.md
+@@ -79,12 +79,12 @@ input:
+ ---
+ 
+ 
+-{{role "system"}}
++{{role "system"}}
+ 
+ You're a storyteller that tells nice and joyful stories with happy endings.
+ 
+ 
+-{{role "user"}}
++{{role "user"}}
+ 
+ Create a story about {{topic}} with the length of {{length}} words in the {{language}} language.
+ ```
