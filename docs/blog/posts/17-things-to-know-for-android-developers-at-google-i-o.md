@@ -41,11 +41,11 @@ The Migration Assistant in Android Studio is designed to port apps from platform
 
 #### 5: Building Intelligent Apps with generative AI
 
-Generative AI enables you to create apps that are more intelligent, personalized, and agentic than ever before. This year, we introduced the latest advancements in on-device intelligence with a preview of Gemini Nano 4 for tasks like data extraction and summarization. We also expanded cloud capabilities via Firebase AI Logic, allowing developers to leverage Gemini models with robust grounding (including URL, Maps, and web search) to build smarter, more capable assistants. Furthermore, we unveiled our hybrid inference approach and the new Agent Development Kit (ADK) for Android, alongside communication protocols like AG-UI and A2UI that simplify the creation of autonomous, agentic experiences. To start integrating these powerful features, explore the [developer documentation](https://developer.android.com/ai), and watch the technical deep dive session where we showcase all these technologies.
+Generative AI enables you to create apps that are more intelligent, personalized, and agentic than ever before. This year, we introduced the latest advancements in on-device intelligence with a preview of Gemini Nano 4 for tasks like data extraction and summarization. We also expanded cloud capabilities via Firebase AI Logic, allowing developers to leverage Gemini models with robust grounding (including URL, Maps, and web search) to build smarter, more capable assistants. Furthermore, we unveiled our hybrid inference approach and the new [Agent Development Kit (ADK) for Android](https://goo.gle/ADK_IO26), alongside communication protocols like AG-UI and A2UI that simplify the creation of autonomous, agentic experiences. To start integrating these powerful features, explore the [developer documentation](https://developer.android.com/ai), and watch the technical deep dive session where we showcase all these technologies.
 
 #### 6: Experiment with AppFunctions today
 
-AppFunctions is an [Android platform API](https://developer.android.com/reference/android/app/appfunctions/package-summary) with an accompanying [Jetpack library](https://developer.android.com/jetpack/androidx/releases/appfunctions) to simplify building Android MCP integrations. It empowers your apps to behave like on device MCP servers, contributing functions that act as tools for use by agents and assistants. AppFunctions integration with Gemini is currently in a private preview with trusted testers, and you can begin preparing your apps already. You can sign up for the [Early Access Program](http://goo.gle/eap-af) and start experimenting using the [API guidance](http://d.android.com/ai/appfunctions), [sample](http://github.com/android/app-functions), and [skill](https://github.com/android/skills/blob/main/device-ai/appfunctions/SKILL.md) today.
+AppFunctions is an [Android platform API](https://developer.android.com/reference/android/app/appfunctions/package-summary) with an accompanying [Jetpack library](https://developer.android.com/jetpack/androidx/releases/appfunctions) to simplify building Android MCP integrations. It empowers your apps to behave like on device MCP servers, contributing functions that act as tools for use by agents and assistants. AppFunctions integration with Gemini is currently in a private preview with trusted testers, and you can begin preparing your apps already. You can sign up for the [Early Access Program](http://goo.gle/eap-af) and start experimenting using the [API guidance](http://d.android.com/ai/appfunctions), [sample](https://github.com/android/appfunctions), and [skill](https://github.com/android/skills/blob/main/device-ai/appfunctions/SKILL.md) today.
 
 ## The Future is Adaptive
 
@@ -128,22 +128,6 @@ This was just a preview of some of the updates for Android developers at Google 
 
 ## Continue reading
 
-- [![](https://developer.android.com/static/blog/assets/paul_feng_759ac95845_spvRU.webp)](https://developer.android.com/blog/authors/paul-feng) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/IO_26_Blog_Strapi_Icons_2000x1000px_0a8b06b49b_Z1e2APA.webp)
-
-  #### [Product News](https://developer.android.com/blog/categories/product-news)
-
-  ## [I/O 2026: What's new in Google Play](https://developer.android.com/blog/posts/i-o-2026-what-s-new-in-google-play)
-
-  [arrow_forward](https://developer.android.com/blog/posts/i-o-2026-what-s-new-in-google-play) At this year's Google I/O, we talked about our evolving business model that offers more choice and new ways for your apps and content to be discovered on and off the store. We also unveiled advanced tools and insights that will help scale your business with less complexity.
-
-  ###### [Paul Feng](https://developer.android.com/blog/authors/paul-feng) •
-  6 min read
-
-  - [#Google Play](https://developer.android.com/blog/topics/google-play)
-  - [#Play Console](https://developer.android.com/blog/topics/play-console)
-  - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
-  - [#Android Developers](https://developer.android.com/blog/topics/android-developers)
-  - +2 ↩
 - [![](https://developer.android.com/static/blog/assets/Luke_Hopkins_9c1e15d778_Z2o9b3q.webp)](https://developer.android.com/blog/authors/luke-hopkins) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Combo3_Strapi_2000x1000_56726aebea_Z1kvKHr.webp)
 
   #### [Product News](https://developer.android.com/blog/categories/product-news)
@@ -171,6 +155,21 @@ This was just a preview of some of the updates for Android developers at Google 
   - [#Adaptive development](https://developer.android.com/blog/topics/adaptive-development)
   - [#Adaptive apps](https://developer.android.com/blog/topics/adaptive-apps)
   - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
+  - +1 ↩
+- [![](https://developer.android.com/static/blog/assets/Paul_Lammertsma_2f7e1baf32_Z28iSTy.webp)](https://developer.android.com/blog/authors/paul-lammertsma) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Text_Strapi_2000x1000_2d4221d884_ZtW7eg.webp)
+
+  #### [Product News](https://developer.android.com/blog/categories/product-news)
+
+  ## [Increasing app discovery and engagement on Google TV](https://developer.android.com/blog/posts/increasing-app-discovery-and-engagement-on-google-tv)
+
+  [arrow_forward](https://developer.android.com/blog/posts/increasing-app-discovery-and-engagement-on-google-tv) We're excited to share Google TV features and developer tools designed to increase the discoverability of your content and prepare your app for future TV experiences.
+
+  ###### [Paul Lammertsma](https://developer.android.com/blog/authors/paul-lammertsma) •
+  4 min read
+
+  - [#Gemini features](https://developer.android.com/blog/topics/gemini-features)
+  - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
+  - [#Engage SDK](https://developer.android.com/blog/topics/engage-sdk)
   - +1 ↩
 
 # Stay in the loop

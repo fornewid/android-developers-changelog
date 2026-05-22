@@ -7,6 +7,22 @@ source: md.txt
 > [!WARNING]
 > **Experimental:** Compose Preview Screenshot Testing is still in development. Its features and APIs are subject to change substantially during the alpha phase. Report any feedback and issues through the [issue tracker](https://issuetracker.google.com/issues/new?component=192708&template=840533).
 
+### 0.0.1-alpha15
+
+This release includes the following bug fixes:
+
+| Issue | Description |
+|---|---|
+| [issue #500417360](https://issuetracker.google.com/issues/500417360) | Fixed an initialization crash (`NoClassDefFoundError`) when running previews with Kotlin 2.1+ due to a missing `kotlin-stdlib` dependency in the `Layoutlib` framework's isolated class loader. |
+| [issue #384188032](https://issuetracker.google.com/issues/384188032) | Fixed a rendering crash when inflating a `ViewHolder` object inside a Composable `AndroidView` factory. |
+| [issue #351302272](https://issuetracker.google.com/issues/351302272) | Resolved drawable resource loading failures inside previews where resources reside in sibling or dependent project modules. |
+| [issue #482664893](https://issuetracker.google.com/issues/482664893) | Ensured that validation tasks fail appropriately when screenshot tests throw exceptions, rather than incorrectly succeeding with a stale screenshot. |
+| [issue #497675618](https://issuetracker.google.com/issues/497675618) | Supported instrumentation of composable classes by JVM coverage agents (such as JaCoCo). |
+| [issue #498545960](https://issuetracker.google.com/issues/498545960) | Stripped internal filenames (for example, `ImageVerifier.kt`) from JUnit console error stack traces to clarify debugging output. |
+| [issue #385613865](https://issuetracker.google.com/issues/385613865) | Removed absolute path usage for images in the test results XML file, replacing them with relative paths. |
+| [issue #513276596](https://issuetracker.google.com/issues/513276596) | Ensured rendering failures correctly fail the screenshot test tasks rather than passing silently with a blank screenshot. |
+| [issue #340639802](https://issuetracker.google.com/issues/340639802) | Resolved preview method resolution conflicts where tests were incorrectly matched to matching fully-qualified method names in the main sourceset. |
+
 ### 0.0.1-alpha14
 
 This release includes the following bug fixes and performance improvements:

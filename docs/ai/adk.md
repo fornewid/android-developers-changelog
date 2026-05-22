@@ -169,7 +169,8 @@ of `Gemini`, as shown in the following code example:
 
 You can also combine cloud and on-device models in a multi-agent system: use a
 cloud-based `Gemini` for the root orchestrator and on-device `GenaiPrompt`
-models for sub-agents that handle privacy-sensitive tasks.
+models for sub-agents that handle privacy-sensitive tasks. For more on this
+pattern, see the ADK for Kotlin and Android [blog post](https://developers.googleblog.com/adk-kotlin-android-building-ai-agents/).
 
 For a complete working Activity and more examples, see the ADK Kotlin examples
 on [GitHub](https://github.com/google/adk-kotlin/tree/main/examples).

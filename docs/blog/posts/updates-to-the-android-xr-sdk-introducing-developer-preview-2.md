@@ -108,18 +108,6 @@ Explore this announcement and all Google I/O 2025 updates on [io.google](https:/
   4 min read
 
   - [#Android](https://developer.android.com/blog/topics/android)
-- [![](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Text_Strapi_2000x1000_2d4221d884_ZtW7eg.webp)
-
-  #### [Product News](https://developer.android.com/blog/categories/product-news)
-
-  ## [17 Things to know for Android developers at Google I/O!](https://developer.android.com/blog/posts/17-things-to-know-for-android-developers-at-google-i-o)
-
-  [arrow_forward](https://developer.android.com/blog/posts/17-things-to-know-for-android-developers-at-google-i-o) Google I/O '26 features 17 key announcements for Android developers focusing on agent-led productivity, Compose First as our UI standard, and high-performance media and adaptive development for the expanding ecosystem.
-
-  ###### [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) •
-  8 min read
-
-  - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
 - [![](https://developer.android.com/static/blog/assets/matthew_warner_67a99317e4_Z2c1VNu.webp)](https://developer.android.com/blog/authors/matthew-warner) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Combo_Strapi_2000x1000_5793c01e36_ZVoYvg.webp)
 
   #### [Product News](https://developer.android.com/blog/categories/product-news)
@@ -136,6 +124,18 @@ Explore this announcement and all Google I/O 2025 updates on [io.google](https:/
   - [#Android](https://developer.android.com/blog/topics/android)
   - [#Android Studio](https://developer.android.com/blog/topics/android-studio)
   - +2 ↩
+- [![](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Text_Strapi_2000x1000_2d4221d884_ZtW7eg.webp)
+
+  #### [Product News](https://developer.android.com/blog/categories/product-news)
+
+  ## [17 Things to know for Android developers at Google I/O!](https://developer.android.com/blog/posts/17-things-to-know-for-android-developers-at-google-i-o)
+
+  [arrow_forward](https://developer.android.com/blog/posts/17-things-to-know-for-android-developers-at-google-i-o) Google I/O '26 features 17 key announcements for Android developers focusing on agent-led productivity, Compose First as our UI standard, and high-performance media and adaptive development for the expanding ecosystem.
+
+  ###### [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) •
+  8 min read
+
+  - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
 
 # Stay in the loop
 

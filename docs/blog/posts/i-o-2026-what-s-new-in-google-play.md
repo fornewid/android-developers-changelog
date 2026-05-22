@@ -16,7 +16,13 @@ source: md.txt
 
 At Google Play, we're passionate about helping people connect with the experiences they'll love, while empowering developers like you to turn great ideas into lasting business success.
 
-At this year's Google I/O, we talked about our [evolving business model](https://android-developers.googleblog.com/2026/03/a-new-era-for-choice-and-openness.html) that offers more choice and new ways for your apps and content to be discovered on and off the store. We also unveiled advanced tools and insights that will help scale your business with less complexity.
+At this year's Google I/O, we talked about our [evolving business model](https://android-developers.googleblog.com/2026/03/a-new-era-for-choice-and-openness.html) that offers more choice and new ways for your apps and content to be discovered on and off the store. We also unveiled advanced tools and insights that will help scale your business with less complexity. Watch the keynote video below, or keep reading for the biggest updates from this year's event.
+
+<br />
+
+[Video](https://www.youtube.com/watch?v=fwLiTPtPHjw)
+
+<br />
 
 ## Expanding your reach by meeting users where they are
 
@@ -78,7 +84,7 @@ We're using Gemini models to handle the heavy lifting of localizing your store c
 
 We're building tools to maximize your revenue at every stage---with zero developer work required. When a user decides to buy, our platform helps ensure that the transaction completes at the point of conversion, renewal, and retention.
 
-- **Optimizing conversion with delayed charging:** When a payment initially fails, our risk models evaluate the transaction. If it's low-risk, we grant the user access to your paid content while we retry the charge in the background. This means your lowest-risk subscribers get the best experience and you are less likely to lose them due to a temporary glitch.
+- **Optimizing conversion with delayed charging:**When a payment initially fails, our risk models evaluate the transaction. If it's low-risk, we grant the user access to your paid content while we retry the charge in the background. This means your lowest-risk subscribers get the best experience and you are less likely to lose them due to a temporary glitch.
 - **Boosting renewals with extended recovery periods:** To prevent involuntary churn, we've extended the default account recovery period from 30 to 60 days to give subscribers more time to fix failed payments, like expired credit cards. This shift has driven up to an 18% reduction in involuntary churn and a 9% reduction in total churn for top developers**.**
 - **Maximizing retention with flexible flows:**A rigid experience makes retention nearly impossible. Coming soon, our new in-app subscription management API lets subscribers change plans or accept a downgrade offer the moment they hit "cancel." Combined with replacement modes that automate prorated refunds, you'll have a powerful toolkit to save at-risk subscribers.
 
@@ -155,18 +161,21 @@ Learn more about these announcements and all other Google I/O 2026 updates on [i
   - [#Adaptive apps](https://developer.android.com/blog/topics/adaptive-apps)
   - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
   - +1 ↩
-- [![](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Text_Strapi_2000x1000_2d4221d884_ZtW7eg.webp)
+- [![](https://developer.android.com/static/blog/assets/Paul_Lammertsma_2f7e1baf32_Z28iSTy.webp)](https://developer.android.com/blog/authors/paul-lammertsma) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Text_Strapi_2000x1000_2d4221d884_ZtW7eg.webp)
 
   #### [Product News](https://developer.android.com/blog/categories/product-news)
 
-  ## [17 Things to know for Android developers at Google I/O!](https://developer.android.com/blog/posts/17-things-to-know-for-android-developers-at-google-i-o)
+  ## [Increasing app discovery and engagement on Google TV](https://developer.android.com/blog/posts/increasing-app-discovery-and-engagement-on-google-tv)
 
-  [arrow_forward](https://developer.android.com/blog/posts/17-things-to-know-for-android-developers-at-google-i-o) Google I/O '26 features 17 key announcements for Android developers focusing on agent-led productivity, Compose First as our UI standard, and high-performance media and adaptive development for the expanding ecosystem.
+  [arrow_forward](https://developer.android.com/blog/posts/increasing-app-discovery-and-engagement-on-google-tv) We're excited to share Google TV features and developer tools designed to increase the discoverability of your content and prepare your app for future TV experiences.
 
-  ###### [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) •
-  8 min read
+  ###### [Paul Lammertsma](https://developer.android.com/blog/authors/paul-lammertsma) •
+  4 min read
 
+  - [#Gemini features](https://developer.android.com/blog/topics/gemini-features)
   - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
+  - [#Engage SDK](https://developer.android.com/blog/topics/engage-sdk)
+  - +1 ↩
 
 # Stay in the loop
 

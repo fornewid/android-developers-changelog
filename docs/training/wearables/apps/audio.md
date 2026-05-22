@@ -62,7 +62,7 @@ experience, choose how users engage with your app's audio output.
 ### Let user choose media output device
 
 Starting with Wear OS 5, the system provides a UI that lets users choose which
-device plays media and shows information about the currently playing media
+device plays media and shows information about the playing media
 content.
 
 If your app detects that there isn't a Bluetooth headset connected when you want
@@ -71,7 +71,7 @@ the user directly to the media output switcher. On devices that don't support
 the media output switcher, invoke the `ACTION_BLUETOOTH_SETTINGS` [intent](https://developer.android.com/reference/android/provider/Settings#ACTION_BLUETOOTH_SETTINGS)
 action, which takes the user to the Bluetooth page in system settings.
 
-The `launchOutputSelection()` [method](https://github.com/google/horologist/blob/v0.5.26/media/audio/src/main/java/com/google/android/horologist/audio/SystemAudioRepository.kt#L108), part of the [Horologist](https://github.com/google/horolo) library
+The `launchOutputSelection()` [method](https://github.com/google/horologist/blob/v0.5.26/media/audio/src/main/java/com/google/android/horologist/audio/SystemAudioRepository.kt#L108), part of the [Horologist](https://github.com/google/horologist) library
 on GitHub, demonstrates how to let users choose their media output device.
 
 ### Bluetooth headset
@@ -204,5 +204,5 @@ unintended media playback on built-in watch speakers.
   - [`AudioDeviceInfo.TYPE_BLE_BROADCAST`](https://developer.android.com/reference/android/media/AudioDeviceInfo#TYPE_BLE_BROADCAST)
   - [`AudioDeviceInfo.TYPE_BLE_HEADSET`](https://developer.android.com/reference/android/media/AudioDeviceInfo#TYPE_BLE_HEADSET)
   - [`AudioDeviceInfo.TYPE_BLE_SPEAKER`](https://developer.android.com/reference/android/media/AudioDeviceInfo#TYPE_BLE_SPEAKER)
-- Pause playback if [AudioManager](https://developer.android.com/reference/android/media/AudioManager) notifies your app that an external audio output device [disconnects from the watch](https://developer.android.com/reference/android/media/AudioDeviceCallback#onAudioDevicesRemoved(android.media.AudioDeviceInfo%5B%5D)).
+- If the [`AudioManager`](https://developer.android.com/reference/android/media/AudioManager) notifies your app that an external audio output device [disconnects from the watch](https://developer.android.com/reference/android/media/AudioDeviceCallback#onAudioDevicesRemoved(android.media.AudioDeviceInfo%5B%5D)), pause playback.
 - When the user attempts to initiate media playback but hasn't connected an external audio device, [prompt them to connect](https://developer.android.com/training/wearables/apps/audio#prompt-the-user-to-connect-a-headset) a device to their watch.

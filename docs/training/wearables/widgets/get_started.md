@@ -107,7 +107,6 @@ intentionally using these new, evolving features. This requirement is temporary
 and will be removed once the APIs are finalized in a future stable release.
 
 ```kotlin
-@SuppressLint("RestrictedApi")
 class HelloWidgetService : GlanceWearWidgetService() {
     override val widget: GlanceWearWidget = HelloWidget()
 }
@@ -118,7 +117,6 @@ class HelloWidgetService : GlanceWearWidgetService() {
 The widget class provides the data and layout for the widget.
 
 ```kotlin
-@SuppressLint("RestrictedApi")
 class HelloWidget : GlanceWearWidget() {
     override suspend fun provideWidgetData(
         context: Context,
@@ -136,7 +134,6 @@ class HelloWidget : GlanceWearWidget() {
 The content is built using Remote Compose components.
 
 ```kotlin
-@SuppressLint("RestrictedApi")
 @RemoteComposable @Composable
 fun HelloWidgetContent() {
     RemoteBox(
@@ -144,7 +141,7 @@ fun HelloWidgetContent() {
         contentAlignment = RemoteAlignment.Center,
     ) {
         RemoteText(
-            text = "Hello World",
+            text = "Hello World".rs,
             color = Color.White.rc
         )
     }

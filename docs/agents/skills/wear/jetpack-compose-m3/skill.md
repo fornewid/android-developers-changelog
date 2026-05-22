@@ -15,7 +15,7 @@ source: md.txt
    - If Kotlin version is **2.0.0+** , the project must use the `org.jetbrains.kotlin.plugin.compose` Gradle plugin.
    - If Kotlin version is **\< 2.0.0** , the project must use `kotlinCompilerExtensionVersion` in `composeOptions`, matching the [Compose to Kotlin Compatibility Map](https://developer.android.com/jetpack/androidx/releases/compose-kotlin).
 5. **Min SDK:** Ensure `minSdk` is at least **25** (Wear OS 2.0).
-6. **Sample extraction mandate**: Wear Compose libraries ship with an additional JAR file which contains individual samples for each and every component. You MUST NOT propose code changes until the samples in Capability #2 are extracted to the local cache. Library source files are incomplete and NOT a substitute for these samples; bypassing extraction is an environment setup failure.
+6. **Sample extraction mandate**: Wear Compose libraries ship with an additional JAR file which contains individual samples for each and every component. You MUST NOT propose code changes until the samples in Capability 2 are extracted to the local cache. Library source files are incomplete and NOT a substitute for these samples; bypassing extraction is an environment setup failure.
 
 ## Gotchas
 
@@ -34,7 +34,7 @@ Horologist.
 3. Use the official component mappings from the migration guide.
 4. Before refactoring any component (for example, `Chip` -\> `Button`), check the parameter names, slot types, and "Expressive" design tokens.
 5. Do not use the Horologist Composables, Compose Layout, or Compose Material libraries.
-6. **Always** check against the component guidance in Capability #3.
+6. **Always** check against the component guidance in Capability 3.
 7. Expect screenshot tests to fail when a migration has been performed: Even when migrating to very similar components, expected defaults for padding and positioning will have changed. Do not seek to artificially match the pre-migration screenshot, but give preference to the Material3 defaults.
 
 ### Capability 2: Component samples

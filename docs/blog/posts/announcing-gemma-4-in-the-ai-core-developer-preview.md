@@ -127,22 +127,19 @@ Ready to see what Gemma 4 can do for your users?
   ###### [Caren Chang](https://developer.android.com/blog/authors/caren-chang), [Chengji Yan](https://developer.android.com/blog/authors/chengji-yan), [Penny Li](https://developer.android.com/blog/authors/penny-li) •
   2 min read
 
-- [![](https://developer.android.com/static/blog/assets/paul_feng_759ac95845_spvRU.webp)](https://developer.android.com/blog/authors/paul-feng) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/IO_26_Blog_Strapi_Icons_2000x1000px_0a8b06b49b_Z1e2APA.webp)
+- [![](https://developer.android.com/static/blog/assets/Luke_Hopkins_9c1e15d778_Z2o9b3q.webp)](https://developer.android.com/blog/authors/luke-hopkins) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Combo3_Strapi_2000x1000_56726aebea_Z1kvKHr.webp)
 
   #### [Product News](https://developer.android.com/blog/categories/product-news)
 
-  ## [I/O 2026: What's new in Google Play](https://developer.android.com/blog/posts/i-o-2026-what-s-new-in-google-play)
+  ## [Android XR Updates for Unity, Unreal, and Godot](https://developer.android.com/blog/posts/android-xr-updates-for-unity-unreal-and-godot)
 
-  [arrow_forward](https://developer.android.com/blog/posts/i-o-2026-what-s-new-in-google-play) At this year's Google I/O, we talked about our evolving business model that offers more choice and new ways for your apps and content to be discovered on and off the store. We also unveiled advanced tools and insights that will help scale your business with less complexity.
+  [arrow_forward](https://developer.android.com/blog/posts/android-xr-updates-for-unity-unreal-and-godot) We are excited to announce that official support for Unreal Engine and Godot has arrived for Android XR. We are also launching new tools designed to boost your productivity and enable new XR capabilities: the Android XR Engine Hub and the Android XR Interaction Framework.
 
-  ###### [Paul Feng](https://developer.android.com/blog/authors/paul-feng) •
-  6 min read
+  ###### [Luke Hopkins](https://developer.android.com/blog/authors/luke-hopkins) •
+  4 min read
 
-  - [#Google Play](https://developer.android.com/blog/topics/google-play)
-  - [#Play Console](https://developer.android.com/blog/topics/play-console)
+  - [#Android XR](https://developer.android.com/blog/topics/android-xr)
   - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
-  - [#Android Developers](https://developer.android.com/blog/topics/android-developers)
-  - +2 ↩
 
 # Stay in the loop
 

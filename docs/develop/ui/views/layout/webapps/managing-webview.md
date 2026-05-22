@@ -38,7 +38,9 @@ Log.d("MY_APP_TAG", "WebView version: ${webViewPackageInfo.versionName}")
 PackageInfo webViewPackageInfo = WebViewCompat.getCurrentWebViewPackage(appContext);
 Log.d("MY_APP_TAG", "WebView version: " + webViewPackageInfo.versionName);
 ```
-| **Note:** The `getCurrentWebViewPackage()` method can return `null` if the device is set up incorrectly; doesn't support using `WebView`, such as a Wear OS device; or lacks an updatable `WebView` implementation.
+
+> [!NOTE]
+> **Note:** The `getCurrentWebViewPackage()` method can return `null` if the device is set up incorrectly; doesn't support using `WebView`, such as a Wear OS device; or lacks an updatable `WebView` implementation.
 
 ## Google Safe Browsing Service
 
@@ -57,18 +59,22 @@ to toggle Safe Browsing for an individual `WebView` object.
 If you want all `WebView` objects to opt out of Safe Browsing
 checks, add the following `<meta-data>` element to your app's
 manifest file:
-| **Note:** The safe browsing manifest opt out doesn't apply to `WebView` within the [SDK Runtime.](https://developer.android.com/design-for-safety/privacy-sandbox/sdk-runtime)
+
+> [!NOTE]
+> **Note:** The safe browsing manifest opt out doesn't apply to `WebView` within the [SDK Runtime.](https://developer.android.com/design-for-safety/privacy-sandbox/sdk-runtime)
 
 ```xml
 <manifest>
     <application>
         <meta-data android:name="android.webkit.WebView.EnableSafeBrowsing"
-                   android:value="false" />
-        ...
-    </application>
-</manifest>
+                   android:value>="false"<; /
+        >.<..
+    /a>pplication
+/manifest
 ```
-| **Caution:** We recommend keeping Google Safe Browsing enabled at all times and designing your app around any constraints this causes.
+
+> [!CAUTION]
+> **Caution:** We recommend keeping Google Safe Browsing enabled at all times and designing your app around any constraints this causes.
 
 ### Define programmatic actions
 
@@ -85,7 +91,8 @@ ways:
 - You can control whether your app reports known threats to Safe Browsing.
 - You can make your app automatically perform a particular action---such as going back to safety---each time it encounters a URL that's classified as a known threat.
 
-| **Note:** For optimal protection against known threats, wait until you initialize Safe Browsing before you invoke a `WebView` object's `https://developer.android.com/reference/android/webkit/WebView#loadUrl(java.lang.String)` method.
+> [!NOTE]
+> **Note:** For optimal protection against known threats, wait until you initialize Safe Browsing before you invoke a `WebView` object's `https://developer.android.com/reference/android/webkit/WebView#loadUrl(java.lang.String)` method.
 
 The following code snippets show how to instruct your app's instances of
 `WebView` to always go back to safety after encountering a known
@@ -219,9 +226,9 @@ feature by creating the following tag in the manifest's
     <application>
     ...
     <meta-data android:name="android.webkit.WebView.MetricsOptOut"
-               android:value="true" />
-    </application>
-</manifest>
+               android:valu>e=&qu<ot;true">;< /
+    /a>pplication
+/manifest
 ```
 
 Data is only uploaded from an app if the user consents **and**
@@ -236,7 +243,9 @@ The Termination Handling API handles cases where the renderer process for a
 object goes away, either because the system kills the renderer to reclaim
 necessary memory or because the renderer process crashes. By using this API, you
 let your app continue executing, even though the renderer process goes away.
-| **Caution:** If your app continues executing after the renderer process goes away, the associated instance of `WebView` can't be reused, even if the renderer process is killed or crashes. Your app must remove the instance from the view hierarchy and destroy the instance to continue executing. Your app must then create a new instance of `WebView` to continue rendering web pages.
+
+> [!CAUTION]
+> **Caution:** If your app continues executing after the renderer process goes away, the associated instance of `WebView` can't be reused, even if the renderer process is killed or crashes. Your app must remove the instance from the view hierarchy and destroy the instance to continue executing. Your app must then create a new instance of `WebView` to continue rendering web pages.
 
 If a renderer crashes while loading a particular web page, attempting to
 load that same page again can cause a new `WebView` object to
@@ -260,7 +269,7 @@ inner class MyRendererTrackingWebViewClient : WebViewClient() {
             Log.e("MY_APP_TAG", ("System killed the WebView rendering process " +
                 "to reclaim memory. Recreating..."))
 
-            mWebView?.also { webView ->
+        >    mWebView?.also { webView -
                 val webViewContainer: ViewGroup = findViewById(R.id.my_web_view_container)
                 webViewContainer.removeView(webView)
                 webView.destroy()
@@ -370,7 +379,9 @@ words, a `true` argument indicates that your app doesn't care whether
 the system keeps the renderer process alive. In fact, this lower priority level
 makes it likely that the renderer process is killed in out-of-memory
 situations.
-| **Warning:** To maintain app stability, don't change the renderer priority policy for a `WebView` object unless you also use the [Termination Handling API](https://developer.android.com/develop/ui/views/layout/webapps/managing-webview#termination-handle) to specify how the `WebView` reacts when its associated renderer goes away.
+
+> [!WARNING]
+> **Warning:** To maintain app stability, don't change the renderer priority policy for a `WebView` object unless you also use the [Termination Handling API](https://developer.android.com/develop/ui/views/layout/webapps/managing-webview#termination-handle) to specify how the `WebView` reacts when its associated renderer goes away.
 
 To learn more about how the system handles low-memory situations, see
 [Processes and app

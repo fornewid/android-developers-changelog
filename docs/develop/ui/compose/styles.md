@@ -20,6 +20,10 @@ they do act as a replacement for styling parameters, such as padding and colors.
 We recommend transitioning to using Styles over parameters for increased
 flexibility and performance.
 
+> [!IMPORTANT]
+> **Important:** We released an agent skill to help you use the new Styles API in your apps. Try out the skill from the [Android skills
+> repository](https://github.com/android/skills).
+
 ## Benefits of Styles
 
 - **Simplifies state-based styling:** The API provides a more concise and declarative way to define styles that change based on different states (e.g., hovered, focused, pressed), significantly reducing boilerplate code compared to the modifier system.

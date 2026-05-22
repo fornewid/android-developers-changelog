@@ -102,22 +102,6 @@ Explore this announcement and all Google I/O 2026 updates on [io.google](https:/
 
 ## Continue reading
 
-- [![](https://developer.android.com/static/blog/assets/paul_feng_759ac95845_spvRU.webp)](https://developer.android.com/blog/authors/paul-feng) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/IO_26_Blog_Strapi_Icons_2000x1000px_0a8b06b49b_Z1e2APA.webp)
-
-  #### [Product News](https://developer.android.com/blog/categories/product-news)
-
-  ## [I/O 2026: What's new in Google Play](https://developer.android.com/blog/posts/i-o-2026-what-s-new-in-google-play)
-
-  [arrow_forward](https://developer.android.com/blog/posts/i-o-2026-what-s-new-in-google-play) At this year's Google I/O, we talked about our evolving business model that offers more choice and new ways for your apps and content to be discovered on and off the store. We also unveiled advanced tools and insights that will help scale your business with less complexity.
-
-  ###### [Paul Feng](https://developer.android.com/blog/authors/paul-feng) •
-  6 min read
-
-  - [#Google Play](https://developer.android.com/blog/topics/google-play)
-  - [#Play Console](https://developer.android.com/blog/topics/play-console)
-  - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
-  - [#Android Developers](https://developer.android.com/blog/topics/android-developers)
-  - +2 ↩
 - [![](https://developer.android.com/static/blog/assets/Luke_Hopkins_9c1e15d778_Z2o9b3q.webp)](https://developer.android.com/blog/authors/luke-hopkins) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Combo3_Strapi_2000x1000_56726aebea_Z1kvKHr.webp)
 
   #### [Product News](https://developer.android.com/blog/categories/product-news)
@@ -146,6 +130,22 @@ Explore this announcement and all Google I/O 2026 updates on [io.google](https:/
   - [#Adaptive apps](https://developer.android.com/blog/topics/adaptive-apps)
   - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
   - +1 ↩
+- [![](https://developer.android.com/static/blog/assets/matthew_warner_67a99317e4_Z2c1VNu.webp)](https://developer.android.com/blog/authors/matthew-warner) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Combo_Strapi_2000x1000_5793c01e36_ZVoYvg.webp)
+
+  #### [Product News](https://developer.android.com/blog/categories/product-news)
+
+  ## [Android Studio I/O Edition: What's new in Android Developer tools](https://developer.android.com/blog/posts/android-studio-i-o-edition-what-s-new-in-android-developer-tools)
+
+  [arrow_forward](https://developer.android.com/blog/posts/android-studio-i-o-edition-what-s-new-in-android-developer-tools) This year at Google I/O we are going beyond iterative changes, towards a fundamental shift in how apps are built. Our newest tools are built for the agentic era with features that boost productivity for you as an Android developer AND supercharge the AI agents you deploy in your codebase.
+
+  ###### [Matthew Warner](https://developer.android.com/blog/authors/matthew-warner) •
+  8 min read
+
+  - [#Agent Skills](https://developer.android.com/blog/topics/agent-skills)
+  - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
+  - [#Android](https://developer.android.com/blog/topics/android)
+  - [#Android Studio](https://developer.android.com/blog/topics/android-studio)
+  - +2 ↩
 
 # Stay in the loop
 

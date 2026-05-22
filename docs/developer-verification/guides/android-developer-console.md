@@ -64,7 +64,7 @@ identity. Complete the following in the Android Developer Console to register:
 
 1. **Enter the package name:** Provide the unique package name you want to register.
 2. **Add your key:** Enter the SHA-256 certificate fingerprint from your app's signing key pair. The status will then become ***In review***.
-3. **Prove ownership:** For existing package names, you must sign an APK with your private key and upload it. The Android Developer Console provides a snippet to add to the APK's asset folder for this challenge. Once registered, you will be notified by email and the package status in the Developer Console will update to ***Registered***.
+3. **Prove ownership:** For existing package names, you must sign an APK with your private key and upload it. The Android Developer Console provides a snippet to add to the APK's asset folder for this challenge. Once registered, you will be notified by email and the package name status in the Developer Console will update to ***Registered***.
 
 > [!NOTE]
 > **Note:** Developers who are not eligible to register a package name can request to share it through an appeal-like process by providing proof of ownership and a legitimate reason for use.
@@ -81,10 +81,10 @@ transfer:
 
 ## Handle duplicate package names
 
-If multiple developers use the same package name, the right to register it is
-determined by package claim rules. The following rules aim to allocate the
-package name to the developer whose signing key accounts for over 50% of total
-known installs:
+If multiple developers use the same package name, the right to register is
+determined by package name registration rules. The following rules aim to
+allocate the package name to the developer whose signing key accounts for over
+50% of total known installs:
 
 - **Majority cluster**: If a developer's keys account for more than 50% of all installs, that developer holds priority for registration.
 - **Sizeable cluster**: If no single key has over 50% installs, any developer with a "sizeable cluster" (50 or more installs) can register the package name.
@@ -127,10 +127,10 @@ different package name, or request permission to use this one.
 
 **First-come, first-served for keys under 50 installs**:
 
-If no keys meet the 50-install threshold, all known keys are eligible for
-registration on a first-come, first-served basis. As soon as one developer
-registers the package name, the other developers would need to use a different
-name for their packages (or request exceptions).
+If no keys meet the 50-install threshold, any key can be registered on a
+first-come, first-served basis. As soon as one developer registers the package
+name, the other developers would need to use a different name for their package
+names (or request exceptions).
 
 |---|---|---|---|
 | **Developer** | **Package name** | **Key** | **Installs** |

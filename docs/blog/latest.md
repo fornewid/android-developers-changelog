@@ -18,22 +18,6 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
   ###### 1 min read
 
   - [#Android XR](https://developer.android.com/blog/topics/android-xr)
-- [![](https://developer.android.com/static/blog/assets/paul_feng_759ac95845_spvRU.webp)](https://developer.android.com/blog/authors/paul-feng) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/IO_26_Blog_Strapi_Icons_2000x1000px_0a8b06b49b_Z1e2APA.webp)
-
-  #### [Product News](https://developer.android.com/blog/categories/product-news)
-
-  ## [I/O 2026: What's new in Google Play](https://developer.android.com/blog/posts/i-o-2026-what-s-new-in-google-play)
-
-  [arrow_forward](https://developer.android.com/blog/posts/i-o-2026-what-s-new-in-google-play) At this year's Google I/O, we talked about our evolving business model that offers more choice and new ways for your apps and content to be discovered on and off the store. We also unveiled advanced tools and insights that will help scale your business with less complexity.
-
-  ###### [Paul Feng](https://developer.android.com/blog/authors/paul-feng) •
-  6 min read
-
-  - [#Google Play](https://developer.android.com/blog/topics/google-play)
-  - [#Play Console](https://developer.android.com/blog/topics/play-console)
-  - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
-  - [#Android Developers](https://developer.android.com/blog/topics/android-developers)
-  - +2 ↩
 - [![](https://developer.android.com/static/blog/assets/Luke_Hopkins_9c1e15d778_Z2o9b3q.webp)](https://developer.android.com/blog/authors/luke-hopkins) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Combo3_Strapi_2000x1000_56726aebea_Z1kvKHr.webp)
 
   #### [Product News](https://developer.android.com/blog/categories/product-news)
@@ -62,18 +46,6 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
   - [#Adaptive apps](https://developer.android.com/blog/topics/adaptive-apps)
   - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
   - +1 ↩
-- [![](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Text_Strapi_2000x1000_2d4221d884_ZtW7eg.webp)
-
-  #### [Product News](https://developer.android.com/blog/categories/product-news)
-
-  ## [17 Things to know for Android developers at Google I/O!](https://developer.android.com/blog/posts/17-things-to-know-for-android-developers-at-google-i-o)
-
-  [arrow_forward](https://developer.android.com/blog/posts/17-things-to-know-for-android-developers-at-google-i-o) Google I/O '26 features 17 key announcements for Android developers focusing on agent-led productivity, Compose First as our UI standard, and high-performance media and adaptive development for the expanding ecosystem.
-
-  ###### [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) •
-  8 min read
-
-  - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
 - [![](https://developer.android.com/static/blog/assets/Paul_Lammertsma_2f7e1baf32_Z28iSTy.webp)](https://developer.android.com/blog/authors/paul-lammertsma) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Text_Strapi_2000x1000_2d4221d884_ZtW7eg.webp)
 
   #### [Product News](https://developer.android.com/blog/categories/product-news)
@@ -194,6 +166,34 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
 
   ###### [Simona Milanovic](https://developer.android.com/blog/authors/simona-milanovic), [Ben Trengrove](https://developer.android.com/blog/authors/ben-trengrove) •
   5 min read
+
+  - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
+- [![](https://developer.android.com/static/blog/assets/paul_feng_759ac95845_spvRU.webp)](https://developer.android.com/blog/authors/paul-feng) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/IO_26_Blog_Strapi_Icons_2000x1000px_0a8b06b49b_Z1e2APA.webp)
+
+  #### [Product News](https://developer.android.com/blog/categories/product-news)
+
+  ## [I/O 2026: What's new in Google Play](https://developer.android.com/blog/posts/i-o-2026-what-s-new-in-google-play)
+
+  [arrow_forward](https://developer.android.com/blog/posts/i-o-2026-what-s-new-in-google-play) At this year's Google I/O, we talked about our evolving business model that offers more choice and new ways for your apps and content to be discovered on and off the store. We also unveiled advanced tools and insights that will help scale your business with less complexity.
+
+  ###### [Paul Feng](https://developer.android.com/blog/authors/paul-feng) •
+  6 min read
+
+  - [#Google Play](https://developer.android.com/blog/topics/google-play)
+  - [#Play Console](https://developer.android.com/blog/topics/play-console)
+  - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
+  - [#Android Developers](https://developer.android.com/blog/topics/android-developers)
+  - +2 ↩
+- [![](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Text_Strapi_2000x1000_2d4221d884_ZtW7eg.webp)
+
+  #### [Product News](https://developer.android.com/blog/categories/product-news)
+
+  ## [17 Things to know for Android developers at Google I/O!](https://developer.android.com/blog/posts/17-things-to-know-for-android-developers-at-google-i-o)
+
+  [arrow_forward](https://developer.android.com/blog/posts/17-things-to-know-for-android-developers-at-google-i-o) Google I/O '26 features 17 key announcements for Android developers focusing on agent-led productivity, Compose First as our UI standard, and high-performance media and adaptive development for the expanding ecosystem.
+
+  ###### [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) •
+  8 min read
 
   - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
 - [![](https://developer.android.com/static/blog/assets/Garan_Jenkin_0529dbfef9_Z2crRat.webp)](https://developer.android.com/blog/authors/garan-jenkin) 15 May 2026 15 May 2026 ![](https://developer.android.com/static/blog/assets/cross_device_discovery_to_score_record_Wear_OS_adoption_Strapi_2f9244f1db_Z23QTbE.webp)

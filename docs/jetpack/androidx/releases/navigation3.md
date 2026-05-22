@@ -64,20 +64,44 @@ May 19, 2026
 
 `androidx.navigation3:navigation3-*:1.2.0-alpha03` is released. Version 1.2.0-alpha03 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/26c899ea5b979b9ccfa4661a8e5482de3f13bcab..ed0627453f51baab21d30d8ca8f74a50ff1cfa7a/navigation3).
 
-**API Changes**
+**New Features**
 
-- `UriMatchResult` now extends Comparable to sort multiple match results. ([I2f65b](https://android-review.googlesource.com/#/q/I2f65b6e5037c0158ba7dc49d4c7f487bed73da9f), [b/470282247](https://issuetracker.google.com/issues/470282247))
-- All deep link related APIs are now repackaged to `androidx.navigation3.runtime.deeplink`. ([I114e9](https://android-review.googlesource.com/#/q/I114e9b285453312ce5bf17cf425a6588a9840fd2), [b/470282247](https://issuetracker.google.com/issues/470282247))
-- Add abstract `DeepLinkMatcher` class that represents a single deep link that can be matched with a `DeepLinkRequest`. Calling `DeepLinkMatcher.match` will return a `MatchResult` that contains the associated navigation key if match succeeds. There are two default `DeepLinkMatcher` implementations for matching deep links based on Uri, and for matching deep links with only filters that match by a `Boolean`. ([I3798e](https://android-review.googlesource.com/#/q/I3798e89108f17fcde2ff80be6bed9fc4e7a039ef), [b/470282247](https://issuetracker.google.com/issues/470282247))
-- Introduced `rememberBottomSheetState` as the unified API for `BottomSheet` state. Deprecated `rememberModalBottomSheetState` and `rememberStandardBottomSheetState` in favor of the new unified API. ([I2724e](https://android-review.googlesource.com/#/q/I2724e00fd21f52c1653d2c893135e88c7ec73ac5), [b/500005697](https://issuetracker.google.com/issues/500005697))
-- Added these functions to `DeepLinkUri` classes: `getScheme`, `isHierarhical`, and `getAuthority`. ([Ie949a](https://android-review.googlesource.com/#/q/Ie949a77f2f84797b46860a42297e00745161e95c), [b/470282247](https://issuetracker.google.com/issues/470282247))
-- Added the `DeepLinkRequest` class to store the components of a requested deep link. Along with the new class is companion functions to create an instance with either a uri, a `mimeType`, or an action. The android platform also has a helper to build a request from an Intent. ([Iaaac9](https://android-review.googlesource.com/#/q/Iaaac9c02bc9ae16b5127256ad4ef2910c93f84b5), [b/470282247](https://issuetracker.google.com/issues/470282247))
+Navigation 3 now supports deep links with `DeepLinkRequest` and `DeepLinkMatcher`:
+
+- `DeepLinkRequest` a requested deep link containing a `DeepLinkUri` and an optional mimeType or action(Android only). Along with the new class are companion functions to create an instance with either a `uri`, a `mimeType`, or an `action`. The android platform also has a helper to build a request from an Intent. ([Iaaac9](https://android-review.googlesource.com/#/q/Iaaac9c02bc9ae16b5127256ad4ef2910c93f84b5), [b/470282247](https://issuetracker.google.com/issues/470282247))
+
+      val uriOnlyRequest = DeepLinkRequest.fromUriString("https://sampledeeplink.com/home")
+      val uriAndMimeRequest = DeepLinkRequest.fromUriString(
+        "https://sampledeeplink.com/user/profile?id=123",
+        "image/png"
+      )
+
+- `DeepLinkMatcher` represents a deep link that can be matched with a `DeepLinkRequest`. Each matcher instance is associated with the navigation key that supports this deep link. A navigation key can be associated with multiple matchers. Calling `DeepLinkMatcher.match` will return a `MatchResult` that contains the associated navigation key if match succeeds. There are two default `DeepLinkMatcher` implementations: `UriDeepLinkMatcher` for matching deep links based on Uri, and `StaticKeyDeepLinkMatcher` for matching deep links with only `DeepLinkMatcher.Filter` that match by a `Boolean`. ([I3798e](https://android-review.googlesource.com/#/q/I3798e89108f17fcde2ff80be6bed9fc4e7a039ef), [b/470282247](https://issuetracker.google.com/issues/470282247))
+
+- `UriDeepLinkMatcher` an opinionated implementation of `DeepLinkMatcher` that handles deep link by matching `DeepLinkUri` to a Serializable navigation key. It supports deep link arguments of Primitive types or Collection of primitives such as Lists, Arrays, and Sets. ([I1520b](https://android-review.googlesource.com/#/q/I1520b129d23f79f51843501a0468c02dc453b566), [b/470282247](https://issuetracker.google.com/issues/470282247))
+
+      @Serializable
+      data class UserKey(val id: Int): NavKey
+
+      // declare a deep link supported by UserKey
+      val userMatcher = UriDeepLinkMatcher(
+        uriPattern = "www.sampledeeplink.com/user?userId={id}",
+        serializer = serializer<UserKey>()
+      )
+
+      // handle a requested deep link with fallback key
+      val key = userMatcher.match(deepLinkRequest)?.key ?: HomeKey
+
 - Added `DeepLinkUri` which is a kotlin-multiplatform version of `android.net.Uri` ([Id4725](https://android-review.googlesource.com/#/q/Id47259e21dafd72dd7ef127cc75713a886a93844), [b/470282247](https://issuetracker.google.com/issues/470282247))
+
+**Api Changes**
+
+- Bumped to `compileSdk 37` to match Compose's compileSdk
 
 **Bug Fixes**
 
-- `UriDeepLinkMatcher` now suppports deep link arguments of primitive Collection types such as Lists, Arrays, and Sets. ([I1520b](https://android-review.googlesource.com/#/q/I1520b129d23f79f51843501a0468c02dc453b566), [b/470282247](https://issuetracker.google.com/issues/470282247))
 - Fixed `AnimatedBottomSheetSample`'s `IllegalArgumentException` when displaying multiple overlays. The sample `SceneStrategy` will now correctly calculate the last non-`OverlayScene` and display it under all the overlay scenes. ([If2281](https://android-review.googlesource.com/#/q/If2281f0e4b7f1d5995dc49fa08a76f38b96fcdd3), [b/506733412](https://issuetracker.google.com/issues/506733412))
+- Bumped `NavigationEvent` dependency to 1.1.1 which removes the no-op NavigationEventHandler when in inspection mode to enable Predictive Back in Android Studio Previews. ([I487fd](https://android-review.googlesource.com/c/platform/frameworks/support/+/4064962))
 
 ### Version 1.2.0-alpha02
 

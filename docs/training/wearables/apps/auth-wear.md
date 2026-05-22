@@ -91,7 +91,7 @@ Wear OS:
 
 - Credential Manager is available on Wear OS 3 and higher.
 - Credentials cannot be created on Wear OS
-- Neither "restore credentials" nor hybrid sign-in flows are supported.
+- Neither [restore credentials](https://developer.android.com/identity/sign-in/restore-credentials) nor hybrid sign-in flows are supported.
 - Only Credential Providers with Wear OS integrations can be reused from mobile.
 
 ### Passkeys on Wear OS

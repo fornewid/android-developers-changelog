@@ -16,7 +16,3 @@ The following pages describe how to integrate Compose with your existing apps:
 
 > [!IMPORTANT]
 > **Important:** We released an agent skill to help you migrate from legacy XML layouts to modern Jetpack Compose UI. Try out the skill from the [Android skills repository](https://github.com/android/skills).
-
-#### Samples
-
-The following samples demonstrate Jetpack Compose and View interoperability:

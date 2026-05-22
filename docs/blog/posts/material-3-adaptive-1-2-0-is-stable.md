@@ -83,22 +83,6 @@ To learn more about how to leverage these new adaptive strategies, see the [Mate
 
 ## Continue reading
 
-- [![](https://developer.android.com/static/blog/assets/paul_feng_759ac95845_spvRU.webp)](https://developer.android.com/blog/authors/paul-feng) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/IO_26_Blog_Strapi_Icons_2000x1000px_0a8b06b49b_Z1e2APA.webp)
-
-  #### [Product News](https://developer.android.com/blog/categories/product-news)
-
-  ## [I/O 2026: What's new in Google Play](https://developer.android.com/blog/posts/i-o-2026-what-s-new-in-google-play)
-
-  [arrow_forward](https://developer.android.com/blog/posts/i-o-2026-what-s-new-in-google-play) At this year's Google I/O, we talked about our evolving business model that offers more choice and new ways for your apps and content to be discovered on and off the store. We also unveiled advanced tools and insights that will help scale your business with less complexity.
-
-  ###### [Paul Feng](https://developer.android.com/blog/authors/paul-feng) •
-  6 min read
-
-  - [#Google Play](https://developer.android.com/blog/topics/google-play)
-  - [#Play Console](https://developer.android.com/blog/topics/play-console)
-  - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
-  - [#Android Developers](https://developer.android.com/blog/topics/android-developers)
-  - +2 ↩
 - [![](https://developer.android.com/static/blog/assets/Luke_Hopkins_9c1e15d778_Z2o9b3q.webp)](https://developer.android.com/blog/authors/luke-hopkins) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Combo3_Strapi_2000x1000_56726aebea_Z1kvKHr.webp)
 
   #### [Product News](https://developer.android.com/blog/categories/product-news)
@@ -126,6 +110,21 @@ To learn more about how to leverage these new adaptive strategies, see the [Mate
   - [#Adaptive development](https://developer.android.com/blog/topics/adaptive-development)
   - [#Adaptive apps](https://developer.android.com/blog/topics/adaptive-apps)
   - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
+  - +1 ↩
+- [![](https://developer.android.com/static/blog/assets/Paul_Lammertsma_2f7e1baf32_Z28iSTy.webp)](https://developer.android.com/blog/authors/paul-lammertsma) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Text_Strapi_2000x1000_2d4221d884_ZtW7eg.webp)
+
+  #### [Product News](https://developer.android.com/blog/categories/product-news)
+
+  ## [Increasing app discovery and engagement on Google TV](https://developer.android.com/blog/posts/increasing-app-discovery-and-engagement-on-google-tv)
+
+  [arrow_forward](https://developer.android.com/blog/posts/increasing-app-discovery-and-engagement-on-google-tv) We're excited to share Google TV features and developer tools designed to increase the discoverability of your content and prepare your app for future TV experiences.
+
+  ###### [Paul Lammertsma](https://developer.android.com/blog/authors/paul-lammertsma) •
+  4 min read
+
+  - [#Gemini features](https://developer.android.com/blog/topics/gemini-features)
+  - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
+  - [#Engage SDK](https://developer.android.com/blog/topics/engage-sdk)
   - +1 ↩
 
 # Stay in the loop

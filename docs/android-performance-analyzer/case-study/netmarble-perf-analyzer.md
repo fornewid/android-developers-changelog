@@ -22,7 +22,7 @@ actionable visibility into rendering pipelines and GPU workloads. Key
 capabilities include:
 
 - **Visual screenshot scrubbing:** Rapidly navigate through trace frames visually on the timeline to locate specific rendering events or frame drops.
-- **Custom Perfetto SQL queries:** Extract tailored performance metrics (such as ratios, minimum or maximum values) specific to your game's unique architecture without manual data parsing.
+- **AI-assisted custom Perfetto SQL queries:** Extract tailored performance metrics (such as ratios, minimum, or maximum values) specific to your game's unique architecture without manual data parsing.
 - **Side-by-side A/B testing:** Compare multiple traces directly within the IDE using side-by-side tabs to seamlessly validate optimization efforts.
 - **Vulkan CPU timing layer integration:** Gain granular insights into CPU execution time of [Vulkan](https://developer.android.com/games/develop/vulkan/overview) API calls.
 - **In-depth GPU workload profiling:** Conduct sophisticated analysis of GPU loads through a broad range of hardware-level render stage timings and counters for precise performance tuning.
