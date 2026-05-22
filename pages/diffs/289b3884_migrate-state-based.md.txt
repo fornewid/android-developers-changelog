@@ -1,0 +1,15 @@
+diff --git a/docs/develop/ui/compose/text/migrate-state-based.md b/docs/develop/ui/compose/text/migrate-state-based.md
+index a88b3ba3..a20a6f34 100644
+--- a/docs/develop/ui/compose/text/migrate-state-based.md
++++ b/docs/develop/ui/compose/text/migrate-state-based.md
+@@ -423,8 +423,8 @@ fun LoginForm(
+         TextField(usernameState)
+ 
+         val passwordState = rememberTextFieldState(initialUiState.password)
+-        LaunchedEffect(usernameState) {
+-            snapshotFlow { usernameState.text.toString() }.collectLatest {
++        LaunchedEffect(passwordState) {
++            snapshotFlow { passwordState.text.toString() }.collectLatest {
+                 loginViewModel.updatePassword(it)
+             }
+         }
