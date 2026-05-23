@@ -4,6 +4,10 @@ url: https://developer.android.com/games/playgames/native-pc/setup
 source: md.txt
 ---
 
+and initializing the Play Games PC SDK into both Native C++ and Unity C# game
+projects.
+keywords_public: android,games,playgames,native-pc,setup,sdk,c++,c#,initialization,google play games for pc
+
 With the Play Games PC SDK you can access Google Play services to build and
 monetize your game on PCs. Sell digital content using Play Billing, seamlessly
 sign-in using Play Games, and verify your users have a valid entitlement to your
@@ -44,9 +48,12 @@ Ready to get started?
 
 - Download the [Play Games PC Unity SDK](https://developer.android.com/games/playgames/native-pc/downloads/unity) as a tarball (.tgz) file.
 
-- The SDK is distributed as a tarball (.tgz) compatible with the **Unity Package Manager (UPM)** . To import the package, see [Install a UPM package from a local tar file](https://docs.unity3d.com/6000.3/Documentation/Manual/upm-ui-tarball.html)
+- The SDK is distributed as a tarball (.tgz) compatible with the
+  **Unity Package Manager (UPM)** . To import the package, see
+  [Install a UPM package from a local tar file](https://docs.unity3d.com/6000.3/Documentation/Manual/upm-ui-tarball.html)
 
-- For detailed documentation, setup instructions, and additional guidance, please refer to the [Play PC Unity Package](https://developer.android.com/games/playgames/native-pc/unity) page.
+- For detailed documentation, setup instructions, and additional guidance,
+  please refer to the [Play PC Unity Package](https://developer.android.com/games/playgames/native-pc/unity) page.
 
 ## **Step 2**: Add a manifest file
 
@@ -79,8 +86,8 @@ Example `manifest.xml` placement:
 > [!TIP]
 > **Tip:** Developers can skip this step during local development by enabling [developer mode](https://developer.android.com/games/playgames/native-pc/setup/developer_mode).
 
-Before your game can use the SDK, the game's executable must be digitally signed
-using an
+Before your game can use the SDK, the game's executable must be digitally
+signed using an
 [Authenticode Digital Signature](https://learn.microsoft.com/en-us/windows-hardware/drivers/install/authenticode).
 For instructions on how to sign an executable see the
 [documentation on the SignTool](https://learn.microsoft.com/en-us/windows/win32/seccrypto/signtool) .
@@ -170,13 +177,13 @@ called and have the continuation callback complete with `InitializeResult::ok()`
       }
 
 If the initialization fails with the code `kActionRequiredShutdownClientProcess`
-(C++) / `InitializationError.ActionRequiredShutdownClientProcess` (C#), **exit
-the game process as soon as possible**. The SDK's runtime will attempt to assist
-the user with no additional action required by your game. For example if the
-user does not own a valid license to the game, Google Play Games will prompt the
-user to purchase a copy. For other errors, you should also exit the game process
-because you won't be able to use the SDK to perform critical operations, such as
-verifying the user owns a valid license to your game.
+(C++) / `InitializationError.ActionRequiredShutdownClientProcess` (C#),
+**exit the game process as soon as possible**. The SDK's runtime will attempt
+to assist the user with no additional action required by your game. For example
+if the user does not own a valid license to the game, Google Play Games will
+prompt the user to purchase a copy. For other errors, you should also exit the
+game process because you won't be able to use the SDK to perform critical
+operations, such as verifying the user owns a valid license to your game.
 
 A non-successful response may indicate one of the following conditions:
 
@@ -187,8 +194,8 @@ A non-successful response may indicate one of the following conditions:
   game. This could be due to an invalid `manifest.xml` or using the SDK
   without enabling [developer mode](https://developer.android.com/games/playgames/native-pc/setup/developer_mode)
   when developing. Without this your game's executable is required to be
-  digitally signed with the digital certificate registered to your Play package
-  name.
+  digitally signed with the digital certificate registered to your Play
+  package name.
 
 - The game executable was not launched through the Google Play games client.
 
@@ -198,10 +205,10 @@ A non-successful response may indicate one of the following conditions:
 ## **Step 5**: (Optional) Supporting multiple game-processes
 
 Complete these additional integration steps if your game uses multiple
-processes, and the Play Games PC SDK is used by a different process than the one
-that is launched by Google Play Games on PC. For example, if Google Play Games
-on PC launches your game's launcher, and then your launcher starts the game
-process that will interact with the SDK.
+processes, and the Play Games PC SDK is used by a different process than the
+one that is launched by Google Play Games on PC. For example, if Google Play
+Games on PC launches your game's launcher, and then your launcher starts the
+game process that will interact with the SDK.
 
 1. The process directly launched by Google Play Games for PC must
    verify a successful [initialization of the Play Games PC SDK](https://developer.android.com/games/playgames/native-pc/setup#step-4).
@@ -223,9 +230,9 @@ process that will interact with the SDK.
    In this example we see a process hierarchy where Google Play Games for PC
    (`GooglePlayGames.exe`) launches the game (`YourGameLauncher.exe`) with some
    example parameters (`--gpg_args=abc --your_args=123`). The game then spawns a
-   child-process (`YourGame.exe`) which uses the Play Games PC SDK. To allow this
-   the game process launched by Google Play Games for PC forwards the command
-   line parameters it was given to the child-process.
+   child-process (`YourGame.exe`) which uses the Play Games PC SDK. To allow
+   this the game process launched by Google Play Games for PC forwards the
+   command line parameters it was given to the child-process.
 
    > [!WARNING]
    > **Warning:** You must pass all command-line arguments received from `GooglePlayGames.exe` to all your child processes that are using Play Games PC SDK, such as `YourGame.exe`. Otherwise, all SDK functions fail.
@@ -235,8 +242,65 @@ process that will interact with the SDK.
    When a user closes your game or the game exits due to a SDK initialization
    failure, such as `kActionRequiredShutdownClientProcess`, close all processes
    your game has spawned. This makes certain that the next time your game is
-   launched by the Google Play Games for PC client, new changes such as switching
-   to a different active account will take effect.
+   launched by the Google Play Games for PC client, new changes such as
+   switching to a different active account will take effect.
+
+## **Step 6**: Enabling Auto-Play upon installation of your PC Native Games
+
+Google Play Games on PC (GPG) allows developers to enable an "auto-play"
+feature, which automatically launches your game immediately after the
+installation process completes. This feature allows for a seamless user
+experience by transitioning the player directly into the game, fully
+authenticated within the GPG ecosystem.
+
+### How it works
+
+When you enable the feature, GPG will pass a GPG session token to your
+third-party (3P) installer process via command-line arguments. Your installer is
+then responsible for extracting this token and using it to launch the game
+executable in an authenticated context.
+
+#### Prerequisites
+
+To use this feature, your 3P installer must be capable of handling command-line
+arguments.
+
+### Implementation Steps
+
+1. Enable Auto-Play in Publishing Config
+
+   To opt-in to this feature, add the `acceptsCommandLineArguments` attribute to
+   the `<installer>` element in your `play_publishing_config.xml`.
+
+   Example `manifest.xml` contents:
+
+       <installer requiresElevation="true" acceptsCommandLineArguments="true">
+         <path>path/to/installer.exe</path>
+         <installation-path-registry-location>
+           <key-name>SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\key</key-name>
+           <value-name>InstallPath</value-name>
+         </installation-path-registry-location>
+       </installer>
+
+   - Attribute: `acceptsCommandLineArguments`
+   - Type: `Boolean`
+   - Default: `false`
+   - Behavior: When you set it to true, GPG will append the session token to the command-line arguments when executing your installer.
+2. Handle the Session Token in Your Installer
+
+   When your installer is launched by the GPG client, it will receive the session
+   token as a command-line argument.
+   - Argument Format: `--g_session_token=<TOKEN>`
+
+   What you must do:
+   - Extraction: Your installer must parse the command-line arguments to retrieve the token string.
+   - Propagation: If your installation flow involves launching a secondary launcher or game process, your installer is responsible for securely passing the session token to the final game process that uses the SDK.
+   - Launch: Use the provided session token to start the game executable. This ensures the game runs within an authenticated GPG context. Otherwise, [InitializeSDK](https://developer.android.com/games/playgames/native-pc/setup#step-4) will fail and your player will need to restart your game.
+3. Error Handling and Fallbacks
+
+- Token Retrieval: If, for any reason, GPG cannot generate or pass a session token (e.g., token generation failure), the installation process will still proceed. However, your installer will be launched without the --g_session_token argument.
+- Robustness: Your installer should be designed to handle scenarios where the session token is absent. In such cases, the installer should proceed with a standard installation; you should not trigger automatic game launch as [InitializeSDK](https://developer.android.com/games/playgames/native-pc/setup#step-4) will fail anyway.
+- Installer Errors: You are responsible for the robustness and error handling of your installer and the game launch sequence it initiates. GPG does not have control over processes that occur within the installer after it has been launched.
 
 ## Next steps
 

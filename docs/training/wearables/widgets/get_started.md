@@ -100,11 +100,6 @@ extending [`GlanceWearWidget`](https://developer.android.com/reference/kotlin/an
 The service is the entry point that the system binds to.
 
 To define your widget, create a service that extends `GlanceWearWidgetService`.
-Because this library is in active development, certain APIs are restricted while
-their final names and structures are being polished. Using the
-`@SuppressLint("RestrictedApi")` annotation tells your compiler that you are
-intentionally using these new, evolving features. This requirement is temporary
-and will be removed once the APIs are finalized in a future stable release.
 
 ```kotlin
 class HelloWidgetService : GlanceWearWidgetService() {

@@ -13,13 +13,13 @@ Applicable XR devices This guidance helps you build experiences for these types 
 
 As you test your app, use the Android XR Emulator to extend your testing
 capacity beyond your physical test devices. You can use the emulator controls to
-help you test how your app behaves in common scenarios with XR headsets and
-XR glasses. See the following sections for details about running your
-[virtual Android XR devices](https://developer.android.com/develop/xr/jetpack-xr-sdk/run/create-avds/xr-headsets-glasses) in the emulator and the emulator controls you
-can use.
+help you test how your app behaves in common scenarios with XR headsets and XR
+glasses. See the following sections for details about running your [virtual
+Android XR devices](https://developer.android.com/develop/xr/jetpack-xr-sdk/run/create-avds/xr-headsets-glasses) in the emulator and the emulator controls you can use.
 
 > [!IMPORTANT]
-> **Important:** Check that you're using the latest Canary build of Android Studio. Other versions might not include the latest Android XR tools. For more information, see [Install and configure Android Studio for XR development](https://developer.android.com/develop/xr/jetpack-xr-sdk/get-studio).
+> **Important:** Check that you're [using the latest Canary build of Android Studio](https://developer.android.com/studio/preview) and that you've [configured
+> Studio for XR development](https://developer.android.com/develop/xr/jetpack-xr-sdk/get-studio) with the latest versions of all the required tools.
 
 [![](https://developer.android.com/static/images/picto-icons/plus.svg) See also If this your first time using an emulator with Android Studio, review the Android Emulator documentation.](https://developer.android.com/studio/run/emulator)
 
@@ -32,13 +32,13 @@ can use.
    The emulator opens in the side panel.
 
    ![Android Studio emulator screen](https://developer.android.com/static/images/develop/xr/jetpack-xr-sdk/run/xr-headset-emulator-loaded.png)
-2. To launch your app in the emulator, click **Run** in the Android
-   Studio main toolbar.
+2. To launch your app in the emulator, click **Run** in the Android Studio main
+   toolbar.
 
    ![Android Studio run app configurtion](https://developer.android.com/static/images/develop/xr/jetpack-xr-sdk/run/xr-device-avd-run-app.png)
 
 > [!CAUTION]
-> **Caution:** In rare cases for Windows users, using the Android XR Emulator with either a XR headset or XR glasses AVD might result in system freezes or crashes on some Windows configurations. Save all your data before running the emulator. As a workaround, [enable WHPX](https://developer.android.com/studio/run/emulator-acceleration#vm-windows-whpx). See [release notes](https://developer.android.com/studio/preview/features) for more known issues.
+> **Caution:** In rare cases for Windows users, using the Android XR Emulator with either an XR headset or XR glasses AVD might result in system freezes or crashes on some Windows configurations. Save all your data before running the emulator. As a workaround, [enable WHPX](https://developer.android.com/studio/run/emulator-acceleration#vm-windows-whpx). See [release notes](https://developer.android.com/studio/preview/features) for more known issues.
 
 ## Use emulator controls for XR headsets and XR glasses
 
@@ -49,8 +49,8 @@ figure 1. Use the controls in this menu to interact with the emulator.
 ### Enable the mouse and keyboard
 
 The emulator supports interaction through a mouse and keyboard. When you want to
-interact with the system or an Android app in the emulator, select
-the interaction controls option:
+interact with the system or an Android app in the emulator, select the
+interaction controls option:
 ![Icon for the Android XR Emulator interaction option](https://developer.android.com/static/images/develop/xr/jetpack-xr-sdk/run/emulator-interaction-icon.png)
 
 After selecting this, you can start interacting with elements within the virtual
@@ -86,8 +86,8 @@ The menu at the top of the emulator includes the Toggle Passthrough option to
 enable or disable a simulated passthrough environment.
 ![](https://developer.android.com/static/images/develop/xr/jetpack-xr-sdk/run/emulator-toggle-passthrough.png) **Figure 2.** Toggle passthrough to see a simulated passthrough environment.
 
-When enabled, passthrough mode displays a simulated indoor environment. Use
-this mode to test apps in mixed reality.
+When enabled, passthrough mode displays a simulated indoor environment. Use this
+mode to test apps in mixed reality.
 ![](https://developer.android.com/static/images/develop/xr/jetpack-xr-sdk/run/xr-headset-emulator-passthrough.png) **Figure 3.** A simulated passthrough environment shows spatial UI elements anchored within a room.
 
 ### Other emulator controls

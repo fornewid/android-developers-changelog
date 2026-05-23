@@ -66,20 +66,24 @@ and debug your app:
    Device Manager \> Add a new device
    ![](https://developer.android.com/static/studio/images/buttons/ic_plus.png) \> Create Virtual Device**.
 
-   ![The Device Manager panel in Android
-   Studio.](https://developer.android.com/static/images/develop/xr/jetpack-xr-sdk/run/xr-avds.png)
+   ![The Device Manager panel in Android Studio.](https://developer.android.com/static/images/develop/xr/jetpack-xr-sdk/run/xr-avds.png)
 2. In the **Add Device** window, in the **Form Factor** section, select **XR**.
 
-3. From the list, select whichever type of XR device you want to create, and
-   then click **Next**.
+3. From the list, select the type of XR device you want to create (**XR
+   Headset** or **XR Glasses** ), and then click **Next**.
 
-4. In the **Configure Virtual Device** tab in the **Select system
-   image** section, select the appropriate Android XR system image for your
-   chosen virtual device that is compatible with your local system.
+4. In the **Configure Virtual Device** tab in the **Select system image**
+   section, select a system image depending on the type of virtual device
+   you're creating:
 
-   ![Android Studio "Configure virtual device"
-   window.](https://developer.android.com/static/images/develop/xr/jetpack-xr-sdk/run/xr-headsets-glasses-avd-system-image.png)
-5. Click **Finish**.
+   - **XR glasses** : You must use the **Preview API** version of the system image, as shown in the following example:
+
+   ![Android Studio](https://developer.android.com/static/images/develop/xr/jetpack-xr-sdk/run/xr-glasses-avd-system-image.png)
+   - **XR headset**: Use whichever version matches the configuration that you want for your testing environment.
+
+   ![Android Studio](https://developer.android.com/static/images/develop/xr/jetpack-xr-sdk/run/xr-headsets-avd-system-image.png)
+5. Click **Finish** , and also click **Yes** if prompted to download the system
+   image that you selected.
 
 ## Next steps
 

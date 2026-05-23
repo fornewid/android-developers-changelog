@@ -32,21 +32,19 @@ Android XR:
 4. In the **Welcome to Android Studio** dialog, click **More Actions** , and
    then select **SDK Manager**.
 
-   ![Android studio welcome
-   screen](https://developer.android.com/static/images/develop/xr/jetpack-xr-sdk/studio-welcome.png)
+   ![Android studio welcome screen](https://developer.android.com/static/images/develop/xr/jetpack-xr-sdk/studio-welcome.png)
 5. In the **Android SDK** settings, click the **SDK Tools** tab, and then
-   select the following tools to install:
+   select the latest versions of the following tools:
 
    - Android SDK Build-Tools
    - Android Emulator
    - Android SDK Platform-Tools
    - Layout Inspector for API 31 - 36
 
-   ![Android studio SDK Tools
-   tab](https://developer.android.com/static/images/develop/xr/jetpack-xr-sdk/studio-sdk-tools.png)
+   > [!IMPORTANT]
+   > **Important:** If you had a previous version of any of these tools installed, then re-select each tool that had a previous version, and then click **Apply** to download the most-recent versions.
 
-   > [!NOTE]
-   > **Note:** If you had a previous version of Android Studio installed, you might need to re-select each option, and then click **Apply** to download the latest updates to these tools.
+   ![Android studio SDK Tools tab](https://developer.android.com/static/images/develop/xr/jetpack-xr-sdk/studio-sdk-tools.png)
 
 ## Create virtual devices to run on the Android XR Emulator
 

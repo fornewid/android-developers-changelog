@@ -12,6 +12,9 @@ This page includes details for optional widget enhancements that are available
 starting in Android 12 (API level 31). These features are optional, but they're
 straightforward to implement and improve your users' widget experience.
 
+For additional ways to see how to enhance your widget, see the Compose guide
+[Enhance your Widget](https://developer.android.com/develop/ui/compose/glance/enhance).
+
 ## Use dynamic colors
 
 Starting in Android 12, a widget can use the device theme colors
@@ -126,40 +129,6 @@ ExampleApp?"*
 There are dozens of BIIs covering several categories of user interaction,
 letting almost any Android app enhance their widgets for voice. To get started,
 see [Integrate App Actions with Android widgets](https://developer.android.com/guide/app-actions/widgets).
-
-## Add a name to your widget
-
-Widgets need to have a unique name when they are displayed in the widget picker.
-
-Widgets' names are loaded from the `label` attribute of the widget's `receiver`
-element in the AndroidManifest.xml file.
-
-    <receiver
-        ....
-       android:label="Memories">
-         ....
-    </receiver>
-
-## Add a description for your widget
-
-Starting in Android 12, provide a description for the widget
-picker to display for your widget.
-![An image showing a widget picker showing a widget and its description](https://developer.android.com/static/images/appwidgets/description.png) **Figure 3.** Sample widget picker showing a widget and its description.
-
-Provide a description for your widget using the `description` attribute of the
-`&lt;appwidget-provider&gt;` element:
-
-    <appwidget-provider
-        android:description="@string/my_widget_description">
-    </appwidget-provider>
-
-> [!NOTE]
-> **Note:** Be concise. There is no character limit, but the representation and available space for the description might differ depending on the device.
-
-You can use the
-[`descriptionRes`](https://developer.android.com/reference/android/appwidget/AppWidgetProviderInfo#descriptionRes)
-attribute on previous versions of Android, but it is ignored by the widget
-picker.
 
 ## Enable smoother transitions
 

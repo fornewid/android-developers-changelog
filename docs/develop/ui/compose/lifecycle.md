@@ -46,9 +46,7 @@ Composition. Each call has its own lifecycle in the Composition.
 fun MyComposable() {
     Column {
         Text("Hello")
-        Text("World")
-    }
-}
+        Text("LifecycleSnippets.kt
 ```
 
 <br />
