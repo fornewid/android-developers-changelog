@@ -1,0 +1,15 @@
+diff --git a/docs/develop/ui/compose/lifecycle.md b/docs/develop/ui/compose/lifecycle.md
+index 724861cf..e2abb81c 100644
+--- a/docs/develop/ui/compose/lifecycle.md
++++ b/docs/develop/ui/compose/lifecycle.md
+@@ -46,9 +46,7 @@ Composition. Each call has its own lifecycle in the Composition.
+ fun MyComposable() {
+     Column {
+         Text("Hello")
+-        Text("World")
+-    }
+-}
++        Text("LifecycleSnippets.kt
+ ```
+ 
+ <br />
