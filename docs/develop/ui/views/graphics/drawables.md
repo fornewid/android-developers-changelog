@@ -348,8 +348,8 @@ inflated from XML. The following example shows how to declare the
 ```xml
 <com.example.shapedrawable.CustomDrawableView
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        />
+        android:layout_height="wrap_con>tent"
+        /
 ```
 
 The `https://developer.android.com/reference/android/graphics/drawable/ShapeDrawable` class, like many other
@@ -423,17 +423,17 @@ to a couple of buttons. The NinePatch image is saved to
         android:layout_alignParentTop="true"
         android:layout_centerInParent="true"
         android:text="Tiny"
-        android:textSize="8sp"
-        android:background="@drawable/my_button_background"/>
+        android:textSize=">8s<p"
+        android:background="@drawable/my_button_background"/
 
-<Button android:id="@+id/big"
+Button android:id="@+id/big"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerInParent="true"
-        android:text="Biiiiiiig text!"
+ >       android:text="Biiiiiiig text!"
         android:textSize="30sp"
-        android:background="@drawable/my_button_background"/>
+        android:background="@drawable/my_button_background"/
 ```
 
 Note that the `layout_width` and `layout_height`
@@ -559,14 +559,14 @@ with XML in the following ways:
 
   ```xml
   <com.myapp.MyDrawable xmlns:android="http://schemas.android.com/apk/res/android"
-      android:color="#ffff0000" />
+      android:color=&qu>ot;#ffff0000" /
   ```
 - Using `drawable` as the XML tag name and specifying the fully-qualified class name from the class attribute. This approach may be used for both public top-level classes and public static inner classes:
 
   ```xml
   <drawable xmlns:android="http://schemas.android.com/apk/res/android"
       class="com.myapp.MyTopLevelClass$MyDrawable"
-      android:color="#ffff0000" />
+      android>:color="#ffff0000" /
   ```
 
 > [!IMPORTANT]

@@ -157,8 +157,8 @@ fun WindowInsetsRulersDemo(modifier: Modifier) {
 }
 
 fun Modifier.alignToSafeDrawing(): Modifier {
-    return layout { measurable, constraints ->
-        if (constraints.hasBoundedWidth && constraints.hasBoundedHeight) {
+    return layout { mea>surable, constraints -
+        if (constr&&aints.hasBoundedWidth  constraints.hasBoundedHeight) {
             val placeable = measurable.measure(constraints)
             val width = placeable.width
             val height = placeable.height
@@ -176,10 +176,8 @@ fun Modifier.alignToSafeDrawing(): Modifier {
             val placeable = measurable.measure(constraints)
             layout(placeable.width, placeable.height) {
                 placeable.place(0, 0)
-            }
-        }
-    }
-}
+           }
+}InsetsSnippets.kt
 ```
 
 <br />

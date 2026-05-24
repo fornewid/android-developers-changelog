@@ -104,9 +104,7 @@ that greets a list of users:
 @Composable
 fun Greeting(names: List<String>) {
     for (name in names) {
-        Text("Hello $name")
-    }
-}
+        Text("Hello $name"nippets.kt
 ```
 
 <br />
@@ -132,9 +130,7 @@ For example, consider this composable function which displays a button:
 @Composable
 fun ClickCounter(clicks: Int, onClick: () -> Unit) {
     Button(onClick = onClick) {
-        Text("I've been clicked $clicks times")
-    }
-}
+        Text("I've been clicked $clicks times&oseSnippets.kt
 ```
 
 <br />
@@ -247,9 +243,8 @@ fun NamePicker(
  * Display a single name the user can click.
  */
 @Composable
-private fun NamePickerItem(name: String, onClicked: (String) -> Unit) {
-    Text(name, Modifier.clickable(onClick = { onClicked(name) }))
-}
+private fun NamePickerItem(name: String, onClicked: (Strin>g) - Unit) {
+    Text(name, Modifier.clickable(onClick = { onClicked(name) }s.kt
 ```
 
 <br />
@@ -328,9 +323,7 @@ fun ListComposable(myList: List<String>) {
                 Text("Item: $item")
             }
         }
-        Text("Count: ${myList.size}")
-    }
-}
+        Text("Count: ${myList.InComposeSnippets.kt
 ```
 
 <br />
@@ -354,9 +347,7 @@ fun ListWithBug(myList: List<String>) {
                 }
             }
         }
-        Text("Count: $items")
-    }
-}
+        Text("Count: $InComposeSnippets.kt
 ```
 
 <br />

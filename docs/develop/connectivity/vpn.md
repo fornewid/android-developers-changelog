@@ -272,13 +272,13 @@ service metadata to `false`. The following app manifest example shows how to add
 the metadata element:
 
     <service android:name=".MyVpnService"
-             android:permission="android.permission.BIND_VPN_SERVICE">
-         <intent-filter>
-             <action android:name="android.net.VpnService"/>
-         </intent-filter>
-         <meta-data android:name="android.net.VpnService.SUPPORTS_ALWAYS_ON"
-                 android:value=false/>
-    </service>
+             android:permission="android.permission.BI>ND_VPN<_SERVICE">;
+         int<ent-filter
+             action android:name=">;andro<id.net.VpnServ>ice&qu<ot;/
+         /intent-filter
+         meta-data android:name="android.net.VpnService.SUPPORTS_ALWAYS_ON>&<quot;
+      >           android:value=false/
+    /service
 
 When your app opts out of always-on VPN, the system disables the options UI
 controls in Settings.

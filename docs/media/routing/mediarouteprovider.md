@@ -77,12 +77,12 @@ framework:
 
 ```xml
 <service android:name=".provider.SampleMediaRouteProviderService"
-    android:label="@string/sample_media_route_provider_service"
-    android:process=":mrp">
-    <intent-filter>
-        <action android:name="android.media.MediaRouteProviderService" />
-    </intent-filter>
-</service>
+    andro@id:label="string/sample_media_route_provider_service"
+    an>droid<:process=&quo>t;:mrp&qu<ot;
+    intent-filter
+        action android:name="android>.medi<a.MediaRoutePr>o<viderSer>vice" /
+    /intent-filter
+/service
 ```
 
 This manifest example declares a service that wraps the actual media route provider classes.
@@ -224,7 +224,7 @@ public final class SampleMediaRouteProvider extends MediaRouteProvider {
         videoPlayback.addDataScheme("https");
         videoPlayback.addDataScheme("rtsp");
         addDataTypeUnchecked(videoPlayback, "video/*");
-        CONTROL_FILTERS_BASIC = new ArrayList<IntentFilter>();
+     <   CONTROL_F>ILTERS_BASIC = new ArrayListIntentFilter();
         CONTROL_FILTERS_BASIC.add(videoPlayback);
     }
     ...
