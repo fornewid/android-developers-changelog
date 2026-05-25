@@ -1,0 +1,15 @@
+diff --git a/docs/training/testing/instrumented-tests/androidx-test-libraries/runner.md b/docs/training/testing/instrumented-tests/androidx-test-libraries/runner.md
+index ea65c3b1..9d606e31 100644
+--- a/docs/training/testing/instrumented-tests/androidx-test-libraries/runner.md
++++ b/docs/training/testing/instrumented-tests/androidx-test-libraries/runner.md
+@@ -62,8 +62,8 @@ public class ChangeTextBehaviorTest {
+     private static final String stringToBeTyped = "Espresso";
+ 
+     @Rule
+-    public Activi<tyTestRuleMa>inActivity; activityRule =
+-            new Activi<>tyTestRule;(MainActivity.class);
++    public ActivityTestRule<MainActivity>; activityRule =
++            new ActivityTestRule<>;(MainActivity.class);
+ 
+     @Test
+     public void changeText_sameActivity() {
