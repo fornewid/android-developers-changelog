@@ -286,21 +286,20 @@ designed to download a file from the web, you can start it with the following co
 
 ### Kotlin
 
-    // Executed in an Activity, so 'this'`https://developer.android.com/reference/android/content/Context` Context
+    // Executed in an Activity, so 'this' is the `https://developer.android.com/reference/android/content/Context`
     // The fileUrl is a string URL, such as "http://www.example.com/image.png"
-    val downloadIntent = Intent(this, DownloadService::class.java).a`https://developer.android.com/reference/android/net/Uri#parse(java.lang.String)`https://developer.android.com/reference/android/net/Uri#parse(java.lang.String)  data = Uri.parse(fileUrl)
+    val downloadIntent = Intent(this, DownloadService::class.java).apply {
+        data = https://developer.android.com/reference/android/net/Uri#parse(java.lang.String)(fileUrl)
     }
     startService(downloadIntent)
 
 ### Java
 
-```java
-// Executed in an Activity, so 'this'`https://developer.android.com/reference/android/content/Context` Context
-// The fileUrl is a string URL, such as "http://www.example.com/image.png"
-Intent downloadIntent = new Intent(this, DownloadService.class);
-downl`https://developer.android.com/reference/android/net/Uri#parse(java.lang.String)`.setData(Uri.parse(fileUrl));
-startService(downloadIntent);
-```
+    // Executed in an Activity, so 'this' is the `https://developer.android.com/reference/android/content/Context`
+    // The fileUrl is a string URL, such as "http://www.example.com/image.png"
+    Intent downloadIntent = new Intent(this, DownloadService.class);
+    downloadIntent.setData(https://developer.android.com/reference/android/net/Uri#parse(java.lang.String)(fileUrl));
+    startService(downloadIntent);
 
 The `https://developer.android.com/reference/android/content/Intent#Intent(android.content.Context, java.lang.Class<?>)`
 constructor supplies the app `https://developer.android.com/reference/android/content/Context` and the
@@ -468,7 +467,7 @@ fun onCreate() {
     StrictMode.setVmPolicy(VmPolicy.Builder()
         // Other StrictMode checks that you've previously added.
         // ...
-    .detectUnsafeIntentLaunch()
+        .detectUnsafeIntentLaunch()
         .penaltyLog()
         // Consider also adding penaltyDeath()
         .build())
@@ -482,7 +481,7 @@ protected void onCreate() {
     StrictMode.setVmPolicy(new VmPolicy.Builder()
         // Other StrictMode checks that you've previously added.
         // ...
-    .detectUnsafeIntentLaunch()
+        .detectUnsafeIntentLaunch()
         .penaltyLog()
         // Consider also adding penaltyDeath()
         .build());
@@ -598,13 +597,13 @@ For example, here's an activity declaration with an intent filter to receive an
 `https://developer.android.com/reference/android/content/Intent#ACTION_SEND` intent when the data type is text:
 
 ```xml
-<activity android:name="ShareActivity" android:exported=&qu<ot;false">
+<activity android:name="ShareActivity" android:exported="false">
     <intent-filter>
-        action android:name="android<.intent.action.SEND"/>
-        category android:name="<;android.intent.category.DEFAULT"/&g<t;
-        data <android:mimeType="text/plain"/>
-    /intent-filter>
-/activity>
+        <action android:name="android.intent.action.SEND"/>
+        <category android:name="android.intent.category.DEFAULT"/>
+        <data android:mimeType="text/plain"/>
+    </intent-filter>
+</activity>
 ```
 
 You can create a filter that includes more than one instance of
@@ -649,31 +648,31 @@ To demonstrate some of the intent filter behaviors, here is an example
 from the manifest file of a social-sharing app:
 
 ```xml
-<activity android:name="MainActivity" android:exported=&q<uot;true">
-    !-- This activity is the main entry, should appear i<n app launcher -->
- <   intent-filter>
-        action android:name="andro<id.intent.action.MAIN" />
-        category android:name=<"android.in<tent.categor<y.LAUNCHER" />
-    /intent-filter>
-/activity>
+<activity android:name="MainActivity" android:exported="true">
+    <!-- This activity is the main entry, should appear in app launcher -->
+    <intent-filter>
+        <action android:name="android.intent.action.MAIN" />
+        <category android:name="android.intent.category.LAUNCHER" />
+    </intent-filter>
+</activity>
 
-activit<y android:name="ShareActivity" android:exported="<false"&g>t;
-    !-<- This activity handles "SEND" actions with text <data -->
-    intent-filter
-        action android:name="an<droid.intent.action.SEND"/>
-     <   category an>droid<:name="android.intent.category.DEFAULT"/>
-        data android:mimeTy<pe="text>/plain&qu<ot;/>
-    /intent-filter
-    !-- This activity also hand<les "SEND" and "SEND_MULTIPLE" with media data -<->
-    intent-filter
-        action android:name="android.<intent.action.SEND"/>
-        action android:name="android.i<ntent.action.SEND_MULTIPLE"/>
-    <    category android:name="androi<d.intent.categ>o<ry.DEFAUL>T"/>
-        data android:mimeType="application/vnd.google.panorama360+jpg"/>
-        data android:mimeType="image/*"/>
-        data android:mimeType="video/*"/>
-    /intent-filter
-/activity
+<activity android:name="ShareActivity" android:exported="false">
+    <!-- This activity handles "SEND" actions with text data -->
+    <intent-filter>
+        <action android:name="android.intent.action.SEND"/>
+        <category android:name="android.intent.category.DEFAULT"/>
+        <data android:mimeType="text/plain"/>
+    </intent-filter>
+    <!-- This activity also handles "SEND" and "SEND_MULTIPLE" with media data -->
+    <intent-filter>
+        <action android:name="android.intent.action.SEND"/>
+        <action android:name="android.intent.action.SEND_MULTIPLE"/>
+        <category android:name="android.intent.category.DEFAULT"/>
+        <data android:mimeType="application/vnd.google.panorama360+jpg"/>
+        <data android:mimeType="image/*"/>
+        <data android:mimeType="video/*"/>
+    </intent-filter>
+</activity>
 ```
 
 The first activity, `MainActivity`, is the app's main entry point---the activity that
@@ -856,10 +855,10 @@ To specify accepted intent actions, an intent filter can declare zero or more
 
 ```xml
 <intent-filter>
-    <action android:name="android.intent.action.ED>IT&qu<ot; /
-    action android:name="android.intent>.action.V<IEW" /
-  >  ...
-/intent-filter
+    <action android:name="android.intent.action.EDIT" />
+    <action android:name="android.intent.action.VIEW" />
+    ...
+</intent-filter>
 ```
 
 To pass this filter, the action specified in the `https://developer.android.com/reference/android/content/Intent`
@@ -877,10 +876,10 @@ To specify accepted intent categories, an intent filter can declare zero or more
 
 ```xml
 <intent-filter>
-    <category android:name="android.intent.category.DEFAU>LT&qu<ot; /
-    category android:name="android.intent.catego>ry.BROWSA<BLE" /
-  >  ...
-/intent-filter
+    <category android:name="android.intent.category.DEFAULT" />
+    <category android:name="android.intent.category.BROWSABLE" />
+    ...
+</intent-filter>
 ```
 
 For an intent to pass the category test, every category in the `https://developer.android.com/reference/android/content/Intent`
@@ -903,10 +902,10 @@ To specify accepted intent data, an intent filter can declare zero or more
 
 ```xml
 <intent-filter>
-    <data android:mimeType="video/mpeg" android:scheme=&q>uot;h<ttp" ... /
-    data android:mimeType="audio/mpeg&quo>t; androi<d:scheme=">;http" ... /
+    <data android:mimeType="video/mpeg" android:scheme="http" ... />
+    <data android:mimeType="audio/mpeg" android:scheme="http" ... />
     ...
-/intent-filter
+</intent-filter>
 ```
 
 Each `https://developer.android.com/guide/topics/manifest/data-element`
@@ -966,9 +965,9 @@ provider and display it:
 
 ```xml
 <intent-filter>
-    <data android:mimeType="image>/*" </
+    <data android:mimeType="image/*" />
     ...
-/int>ent-filter
+</intent-filter>
 ```
 
 
@@ -984,9 +983,9 @@ the component can retrieve video data from the network in order to perform the a
 
 ```xml
 <intent-filter>
-    <data android:scheme="http" android:mimeType=&>quot;vide<o/*" /
-  >  ...
-/intent-filter
+    <data android:scheme="http" android:mimeType="video/*" />
+    ...
+</intent-filter>
 ```
 
 ### Intent matching

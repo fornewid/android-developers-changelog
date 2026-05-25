@@ -436,30 +436,30 @@ As an example, the XML snippets below define a menu item and a destination with
 a common `id`, `details_page_fragment`:
 
 ```xml
-<?xml version="1.0" encodin>g<="utf-8"?
-navigation xmlns:app="http://schemas.android.com/apk/res-auto"
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    xmlns:android="http://>schemas.android<.com/apk/res/android"
-    ... 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    ... >
 
     ...
 
-    fragment android:id="@+id/details_page_fragment"
-         android:label="@string/details&quo>t<;
-         >android:name="com.example.android.myapp.DetailsFragment" /
-/navigation
+    <fragment android:id="@+id/details_page_fragment"
+         android:label="@string/details"
+         android:name="com.example.android.myapp.DetailsFragment" />
+</navigation>
 ```
 
 ```xml
-<menu xmlns:android="http://schemas.android.com/apk/res/and>roid"
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-   \<...
+    ...
 
-    item
+    <item
         android:id="@+id/details_page_fragment"
         android:icon="@drawable/ic_details"
-        and>r<oid:t>itle="@string/details" /
-/menu
+        android:title="@string/details" />
+</menu>
 ```
 
 If your menu was added via the Activity's `onCreateOptionsMenu()`, for example,
@@ -513,33 +513,33 @@ contain the main content and a
 [`NavigationView`](https://developer.android.com/reference/com/google/android/material/navigation/NavigationView)
 for the contents of the navigation drawer.
 
-    <?xml version="1.0" encodin>g<="utf-8"?
-    !-- Use DrawerLayout as root conta>i<ner for activity --
-    androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <?xml version="1.0" encoding="utf-8"?>
+    <!-- Use DrawerLayout as root container for activity -->
+    <androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/drawer_layout"
         android:layout_width="match_parent"
-        android:layou>t_heig<ht="match_parent"
-        android:fitsSystemWindows="true"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true">
 
-        !-- La>yout <to contain contents of main body of screen (drawer will slide over this) --
-        androidx.fragment.app.FragmentContainerView
+        <!-- Layout to contain contents of main body of screen (drawer will slide over this) -->
+        <androidx.fragment.app.FragmentContainerView
             android:name="androidx.navigation.fragment.NavHostFragment"
             android:id="@+id/nav_host_fragment"
             android:layout_width="match_parent"
-            android>:layou<t_height="match_parent"
+            android:layout_height="match_parent"
             app:defaultNavHost="true"
-            app>:navG<raph="@navigation/nav_graph" /
+            app:navGraph="@navigation/nav_graph" />
 
-        !-- Container for contents of drawer - use NavigationView to make configuration easier --
-        com.google.android.material.navigation.NavigationView
+        <!-- Container for contents of drawer - use NavigationView to make configuration easier -->
+        <com.google.android.material.navigation.NavigationView
             android:id="@+id/nav_view"
-            android:layo>ut<_width="wrap_content"
-            an>droid:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
             android:layout_gravity="start"
-            android:fitsSystemWindows="true" /
+            android:fitsSystemWindows="true" />
 
-    /androidx.drawerlayout.widget.DrawerLayout
+    </androidx.drawerlayout.widget.DrawerLayout>
 
 Next, connect the [`DrawerLayout`](https://developer.android.com/reference/androidx/drawerlayout/widget/DrawerLayout)
 to your navigation graph by passing it to `AppBarConfiguration`, as shown in
@@ -623,11 +623,11 @@ activity, as shown below:
     ...
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/nav_host_fragment"
-   >     <... /
-    com.google.android.material.bottomnavigation.BottomNavigationView
+        ... />
+    <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_nav"
-        app:menu=">;<@menu/menu_bo>ttom_nav" /
-/LinearLayout
+        app:menu="@menu/menu_bottom_nav" />
+</LinearLayout>
 ```
 
 Next, in your main activity class, call
@@ -741,28 +741,28 @@ to update its state. For example, rather than base the logic in the
 example, we can create an argument in the `NavGraph`:
 
 ```xml
-<?xml version="1.0" encoding=<"utf-8"?>
-navigation xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/navigation\_graph&q<uot;
+    android:id="@+id/navigation\_graph"
     app:startDestination="@id/fragmentOne">
-    fragment
+    <fragment
         android:id="@+id/fragmentOne"
-        android:name="com.exam<ple.android.navigation.FragmentOne"
+        android:name="com.example.android.navigation.FragmentOne"
         android:label="FragmentOne">
-        action
-            android:i<d="@+id/ac<tion\_fragmentOne\_to\_fragmentTwo"
+        <action
+            android:id="@+id/action\_fragmentOne\_to\_fragmentTwo"
             app:destination="@id/fragmentTwo" />
-    /fragment>
-    fragment
-        android:id="<;@+id/fragmentTwo"
-        android:name="com.example.android.navigation.FragmentTwo&<quot;
-     <   android:label="FragmentTwo">
-        argument
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentTwo"
+        android:name="com.example.android.navigation.FragmentTwo"
+        android:label="FragmentTwo">
+        <argument
             android:name="ShowAppBar"
             android:defaultValue="true" />
-    /fragment>
-/navigation>
+    </fragment>
+</navigation>
 ```
 
 This argument isn't used when

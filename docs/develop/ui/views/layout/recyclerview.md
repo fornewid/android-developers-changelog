@@ -237,15 +237,15 @@ In this case, the app has a `text_row_item.xml` file like this:
         android:layout_width="match_parent"
         android:layout_height="@dimen/list_item_height"
         android:layout_marginLeft="@dimen/margin_medium"
-        android:layout_marginRight="@dimen/margin_>medium<"
-        android:gravity="center_vertical"
+        android:layout_marginRight="@dimen/margin_medium"
+        android:gravity="center_vertical">
 
-        TextView
+        <TextView
             android:id="@+id/textView"
             android:layout_width="wrap_content"
-            a>n<droid:layout>_height="wrap_content"
-            android:text="@string/element_text"/
-    /FrameLayout
+            android:layout_height="wrap_content"
+            android:text="@string/element_text"/>
+    </FrameLayout>
 
 ## Next steps
 
@@ -352,7 +352,7 @@ The `RecyclerView` XML:
         android:id="@+id/my_recycler_view"
         android:clipToPadding="false"
         android:layout_width="match_parent"
-        android:>layout_height="match_parent" /
+        android:layout_height="match_parent" />
 
 ## Additional resources
 

@@ -43,8 +43,10 @@ fun GetContentExample() {
         }
         Image(
             painter = rememberAsyncImagePainter(imageUri),
-            contentDescription = "My
-}ComposeWithOtherLibraries.kt
+            contentDescription = "My Image"
+        )
+    }
+}
 ```
 
 <br />
@@ -329,13 +331,15 @@ fun MyApp() {
     val navController = rememberNavController()
     val startRoute = "example"
     NavHost(navController, startDestination = startRoute) {
-        composable("example">) { backStackEntry -
+        composable("example") { backStackEntry ->
             // Creates a ViewModel from the current BackStackEntry
             // Available in the androidx.hilt:hilt-navigation-compose artifact
-            val viewM<odel = hilt>ViewModelMyViewModel()
+            val viewModel = hiltViewModel<MyViewModel>()
             MyScreen(viewModel)
         }
-     ithOtherLibraries.kt
+        /* ... */
+    }
+}
 ```
 
 <br />
@@ -359,15 +363,16 @@ fun MyApp() {
     NavHost(navController, startDestination = startRoute) {
         navigation(startDestination = innerStartRoute, route = "Parent") {
             // ...
-            composable("ex>ampleWithRoute") { backStackEntry -
+            composable("exampleWithRoute") { backStackEntry ->
                 val parentEntry = remember(backStackEntry) {
                     navController.getBackStackEntry("Parent")
                 }
- <               >val parentViewModel = hiltViewModelParentViewModel(parentEntry)
-                ExampleWithRouteScree   }
+                val parentViewModel = hiltViewModel<ParentViewModel>(parentEntry)
+                ExampleWithRouteScreen(parentViewModel)
+            }
         }
     }
-}ComposeWithOtherLibraries.kt
+}
 ```
 
 <br />
@@ -396,7 +401,9 @@ fun MyScreen(flow: Flow<PagingData<String>>) {
         ) { index ->
             val item = lazyPagingItems[index]
             Text("Item is $item")
-       braries.kt
+        }
+    }
+}
 ```
 
 <br />
@@ -424,7 +431,10 @@ fun MapsExample() {
         Marker(
             state = remember { MarkerState(position = singapore) },
             title = "Singapore",
-            snippet = "Marker in Singapore&quoithOtherLibraries.kt
+            snippet = "Marker in Singapore"
+        )
+    }
+}
 ```
 
 <br />

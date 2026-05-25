@@ -178,7 +178,9 @@ or localized content in an icon.
 
 This section tells you how to create leaderboards for new or existing games.
 
-### Create a leaderboard for a new game
+### Create a leaderboard
+
+for a new game
 
 To create a leaderboard for a new and unpublished game, go to
 Google Play Console entry for your game, and navigate to **Grow users \> Play Games
@@ -193,7 +195,9 @@ Click **Save as draft**, and your leaderboard will be available in the "Draft"
 state. Once you publish your game, all of your game's leaderboards are published
 with it.
 
-### Create a leaderboard for a published game
+### Create a leaderboard
+
+for a published game
 
 To create an additional leaderboard for a game that has already been published,
 follow the same steps as above. For more information on testing an updated

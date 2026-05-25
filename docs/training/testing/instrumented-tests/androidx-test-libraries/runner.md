@@ -62,8 +62,8 @@ public class ChangeTextBehaviorTest {
     private static final String stringToBeTyped = "Espresso";
 
     @Rule
-    public Activi<tyTestRuleMa>inActivity; activityRule =
-            new Activi<>tyTestRule;(MainActivity.class);
+    public ActivityTestRule<MainActivity>; activityRule =
+            new ActivityTestRule<>;(MainActivity.class);
 
     @Test
     public void changeText_sameActivity() {

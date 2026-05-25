@@ -159,7 +159,7 @@ this update by adding the `android:targetSandboxVersion` attribute to your app's
     <manifest
        xmlns:android="http://schemas.android.com/apk/res/android"
       ...
-       android:targetSandboxVersion="2" ...>
+       android:targetSandboxVersi>on="2" ...
 
 For more information, see documentation on the
 [`targetSandboxVersion`](https://developer.android.com/guide/topics/manifest/manifest-element#targetSandboxVersion)
@@ -181,10 +181,10 @@ the following methods:
 
   Android Studio adds the following declaration to the module's manifest:
 
-      <manifest ... xmlns:dist="http://schemas.android.com/apk/distribution">
-          <dist:module dist:instant="true" />
+      <manifest ... xmlns:dist="http://schemas.android.com/apk/distribu>tion&<quot;
+          dist:module dist:instan>t="t<rue"> /
           ...
-      </manifest>
+      /manifest
 
   > [!NOTE]
   > **Note:** By default, the base module of an app bundle is called `app`.

@@ -61,16 +61,16 @@ The rest of this lesson describes each of the options in more detail.
 
 If your app transfers data from a server and the server data changes frequently, you can use
 a sync adapter to do downloads in response to data changes. To run the sync adapter, have
-the server send a special message to a [BroadcastReceiver](https://developer.android.com/reference/android/content/BroadcastReceiver) in your app.
-In response to this message, call [ContentResolver.requestSync()](https://developer.android.com/reference/android/content/ContentResolver#requestSync(android.accounts.Account, java.lang.String, android.os.Bundle)) to signal the sync adapter framework to run your
+the server send a special message to a `https://developer.android.com/reference/android/content/BroadcastReceiver` in your app.
+In response to this message, call `https://developer.android.com/reference/android/content/ContentResolver#requestSync(android.accounts.Account, java.lang.String, android.os.Bundle)` to signal the sync adapter framework to run your
 sync adapter.
 
 
 [Google Cloud Messaging](https://developer.android.com/google/gcm) (GCM) provides both the
 server and device components you need to make this messaging system work. Using GCM to trigger
 transfers is more reliable and more efficient than polling servers for status. While polling
-requires a [Service](https://developer.android.com/reference/android/app/Service) that is always active, GCM uses a
-[BroadcastReceiver](https://developer.android.com/reference/android/content/BroadcastReceiver) that's activated when a message arrives. While polling
+requires a `https://developer.android.com/reference/android/app/Service` that is always active, GCM uses a
+`https://developer.android.com/reference/android/content/BroadcastReceiver` that's activated when a message arrives. While polling
 at regular intervals uses battery power even if no updates are available, GCM only sends
 messages when needed.
 
@@ -84,8 +84,8 @@ that's unique for each device.
 
 
 The following code snippet shows you how to run
-[requestSync()](https://developer.android.com/reference/android/content/ContentResolver#requestSync(android.accounts.Account, java.lang.String, android.os.Bundle)) in response to an
-incoming GCM message:  
+`https://developer.android.com/reference/android/content/ContentResolver#requestSync(android.accounts.Account, java.lang.String, android.os.Bundle)` in response to an
+incoming GCM message:
 
 ### Kotlin
 
@@ -116,8 +116,8 @@ class GcmBroadcastReceiver : BroadcastReceiver() {
          * The following code tests for a a boolean flag indicating
          * that the message is requesting a transfer from the device.
          */
-        if (GoogleCloudMessaging.MESSAGE_TYPE_MESSAGE == messageType
-            && intent.getBooleanExtra(KEY_SYNC_REQUEST, false)) {
+        if (GoogleCloudMessaging.MESS&&AGE_TYPE_MESSAGE == messageType
+             intent.getBooleanExtra(KEY_SYNC_REQUEST, false)) {
             /*
              * Signal the framework to run your sync adapter. Assume that
              * app initialization has already created the account.
@@ -162,8 +162,8 @@ public class GcmBroadcastReceiver extends BroadcastReceiver {
          * The following code tests for a a boolean flag indicating
          * that the message is requesting a transfer from the device.
          */
-        if (GoogleCloudMessaging.MESSAGE_TYPE_MESSAGE.equals(messageType)
-            &&
+        if (GoogleCloudMessaging.MESSAGE_T&&YPE_MESSAGE.equals(messageType)
+            
             intent.getBooleanExtra(KEY_SYNC_REQUEST)) {
             /*
              * Signal the framework to run your sync adapter. Assume that
@@ -185,37 +185,37 @@ If your app collects data in a content provider, and you want to update the serv
 you update the provider, you can set up your app to run your sync adapter automatically. To do
 this, you register an observer for the content provider. When data in your content provider
 changes, the content provider framework calls the observer. In the observer, call
-[requestSync()](https://developer.android.com/reference/android/content/ContentResolver#requestSync(android.accounts.Account, java.lang.String, android.os.Bundle)) to tell the framework to run
+`https://developer.android.com/reference/android/content/ContentResolver#requestSync(android.accounts.Account, java.lang.String, android.os.Bundle)` to tell the framework to run
 your sync adapter.
 
 
 **Note:** If you're using a stub content provider, you don't have any data in
-the content provider and [onChange()](https://developer.android.com/reference/android/database/ContentObserver#onChange(boolean)) is
+the content provider and `https://developer.android.com/reference/android/database/ContentObserver#onChange(boolean)` is
 never called. In this case, you have to provide your own mechanism for detecting changes to
 device data. This mechanism is also responsible for calling
-[requestSync()](https://developer.android.com/reference/android/content/ContentResolver#requestSync(android.accounts.Account, java.lang.String, android.os.Bundle)) when the data changes.
+`https://developer.android.com/reference/android/content/ContentResolver#requestSync(android.accounts.Account, java.lang.String, android.os.Bundle)` when the data changes.
 
 
 To create an observer for your content provider, extend the class
-[ContentObserver](https://developer.android.com/reference/android/database/ContentObserver) and implement both forms of its
-[onChange()](https://developer.android.com/reference/android/database/ContentObserver#onChange(boolean)) method. In
-[onChange()](https://developer.android.com/reference/android/database/ContentObserver#onChange(boolean)), call
-[requestSync()](https://developer.android.com/reference/android/content/ContentResolver#requestSync(android.accounts.Account, java.lang.String, android.os.Bundle)) to start the sync adapter.
+`https://developer.android.com/reference/android/database/ContentObserver` and implement both forms of its
+`https://developer.android.com/reference/android/database/ContentObserver#onChange(boolean)` method. In
+`https://developer.android.com/reference/android/database/ContentObserver#onChange(boolean)`, call
+`https://developer.android.com/reference/android/content/ContentResolver#requestSync(android.accounts.Account, java.lang.String, android.os.Bundle)` to start the sync adapter.
 
 
 To register the observer, pass it as an argument in a call to
-[registerContentObserver()](https://developer.android.com/reference/android/content/ContentResolver#registerContentObserver(android.net.Uri, boolean, android.database.ContentObserver)). In
+`https://developer.android.com/reference/android/content/ContentResolver#registerContentObserver(android.net.Uri, boolean, android.database.ContentObserver)`. In
 this call, you also have to pass in a content URI for the data you want to watch. The content
 provider framework compares this watch URI to content URIs passed in as arguments to
-[ContentResolver](https://developer.android.com/reference/android/content/ContentResolver) methods that modify your provider, such as
-[ContentResolver.insert()](https://developer.android.com/reference/android/content/ContentResolver#insert(android.net.Uri, android.content.ContentValues)). If there's a match, your
-implementation of [ContentObserver.onChange()](https://developer.android.com/reference/android/database/ContentObserver#onChange(boolean))
+`https://developer.android.com/reference/android/content/ContentResolver` methods that modify your provider, such as
+`https://developer.android.com/reference/android/content/ContentResolver#insert(android.net.Uri, android.content.ContentValues)`. If there's a match, your
+implementation of `https://developer.android.com/reference/android/database/ContentObserver#onChange(boolean)`
 is called.
 
 
-The following code snippet shows you how to define a [ContentObserver](https://developer.android.com/reference/android/database/ContentObserver)
-that calls [requestSync()](https://developer.android.com/reference/android/content/ContentResolver#requestSync(android.accounts.Account, java.lang.String, android.os.Bundle)) when a table
-changes:  
+The following code snippet shows you how to define a `https://developer.android.com/reference/android/database/ContentObserver`
+that calls `https://developer.android.com/reference/android/content/ContentResolver#requestSync(android.accounts.Account, java.lang.String, android.os.Bundle)` when a table
+changes:
 
 ### Kotlin
 
@@ -397,32 +397,32 @@ resources.
 
 
 To run your sync adapter at regular intervals, call
-[addPeriodicSync()](https://developer.android.com/reference/android/content/ContentResolver#addPeriodicSync(android.accounts.Account, java.lang.String, android.os.Bundle, long)). This schedules your
+`https://developer.android.com/reference/android/content/ContentResolver#addPeriodicSync(android.accounts.Account, java.lang.String, android.os.Bundle, long)`. This schedules your
 sync adapter to run after a certain amount of time has elapsed. Since the sync adapter framework
 has to account for other sync adapter executions and tries to maximize battery efficiency, the
 elapsed time may vary by a few seconds. Also, the framework won't run your sync adapter if the
 network is not available.
 
 
-Notice that [addPeriodicSync()](https://developer.android.com/reference/android/content/ContentResolver#addPeriodicSync(android.accounts.Account, java.lang.String, android.os.Bundle, long)) doesn't
+Notice that `https://developer.android.com/reference/android/content/ContentResolver#addPeriodicSync(android.accounts.Account, java.lang.String, android.os.Bundle, long)` doesn't
 run the sync adapter at a particular time of day. To run your sync adapter at roughly the
 same time every day, use a repeating alarm as a trigger. Repeating alarms are described in more
-detail in the reference documentation for [AlarmManager](https://developer.android.com/reference/android/app/AlarmManager). If you use the
-method [setInexactRepeating()](https://developer.android.com/reference/android/app/AlarmManager#setInexactRepeating(int, long, long, android.app.PendingIntent)) to set
+detail in the reference documentation for `https://developer.android.com/reference/android/app/AlarmManager`. If you use the
+method `https://developer.android.com/reference/android/app/AlarmManager#setInexactRepeating(int, long, long, android.app.PendingIntent)` to set
 time-of-day triggers that have some variation, you should still randomize the start time to
 ensure that sync adapter runs from different devices are staggered.
 
 
-The method [addPeriodicSync()](https://developer.android.com/reference/android/content/ContentResolver#addPeriodicSync(android.accounts.Account, java.lang.String, android.os.Bundle, long)) doesn't
-disable [setSyncAutomatically()](https://developer.android.com/reference/android/content/ContentResolver#setSyncAutomatically(android.accounts.Account, java.lang.String, boolean)),
+The method `https://developer.android.com/reference/android/content/ContentResolver#addPeriodicSync(android.accounts.Account, java.lang.String, android.os.Bundle, long)` doesn't
+disable `https://developer.android.com/reference/android/content/ContentResolver#setSyncAutomatically(android.accounts.Account, java.lang.String, boolean)`,
 so you may get multiple sync runs in a relatively short period of time. Also, only a few
 sync adapter control flags are allowed in a call to
-[addPeriodicSync()](https://developer.android.com/reference/android/content/ContentResolver#addPeriodicSync(android.accounts.Account, java.lang.String, android.os.Bundle, long)); the flags that are
+`https://developer.android.com/reference/android/content/ContentResolver#addPeriodicSync(android.accounts.Account, java.lang.String, android.os.Bundle, long)`; the flags that are
 not allowed are described in the referenced documentation for
-[addPeriodicSync()](https://developer.android.com/reference/android/content/ContentResolver#addPeriodicSync(android.accounts.Account, java.lang.String, android.os.Bundle, long)).
+`https://developer.android.com/reference/android/content/ContentResolver#addPeriodicSync(android.accounts.Account, java.lang.String, android.os.Bundle, long)`.
 
 
-The following code snippet shows you how to schedule periodic sync adapter runs:  
+The following code snippet shows you how to schedule periodic sync adapter runs:
 
 ### Kotlin
 
@@ -518,19 +518,19 @@ use other signals to trigger a sync or schedule them at regular intervals, witho
 
 However, if you still want to run the sync adapter on demand, set the sync adapter flags for a
 manual sync adapter run, then call
-[ContentResolver.requestSync()](https://developer.android.com/reference/android/content/ContentResolver#requestSync(android.accounts.Account, java.lang.String, android.os.Bundle)).
+`https://developer.android.com/reference/android/content/ContentResolver#requestSync(android.accounts.Account, java.lang.String, android.os.Bundle)`.
 
 
 Run on demand transfers with the following flags:
 
 
-[SYNC_EXTRAS_MANUAL](https://developer.android.com/reference/android/content/ContentResolver#SYNC_EXTRAS_MANUAL)
+`https://developer.android.com/reference/android/content/ContentResolver#SYNC_EXTRAS_MANUAL`
 :
     Forces a manual sync. The sync adapter framework ignores the existing settings,
-    such as the flag set by [setSyncAutomatically()](https://developer.android.com/reference/android/content/ContentResolver#setSyncAutomatically(android.accounts.Account, java.lang.String, boolean)).
+    such as the flag set by `https://developer.android.com/reference/android/content/ContentResolver#setSyncAutomatically(android.accounts.Account, java.lang.String, boolean)`.
 
 
-[SYNC_EXTRAS_EXPEDITED](https://developer.android.com/reference/android/content/ContentResolver#SYNC_EXTRAS_EXPEDITED)
+`https://developer.android.com/reference/android/content/ContentResolver#SYNC_EXTRAS_EXPEDITED`
 :
     Forces the sync to start immediately. If you don't set this, the system may wait several
     seconds before running the sync request, because it tries to optimize battery use by
@@ -538,8 +538,8 @@ Run on demand transfers with the following flags:
 
 
 The following code snippet shows you how to call
-[requestSync()](https://developer.android.com/reference/android/content/ContentResolver#requestSync(android.accounts.Account, java.lang.String, android.os.Bundle)) in response to a button
-click:  
+`https://developer.android.com/reference/android/content/ContentResolver#requestSync(android.accounts.Account, java.lang.String, android.os.Bundle)` in response to a button
+click:
 
 ### Kotlin
 

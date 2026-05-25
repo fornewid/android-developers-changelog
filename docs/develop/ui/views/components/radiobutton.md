@@ -35,20 +35,20 @@ The following example shows a reaction to the user tapping a
 `RadioButton` object in a group:
 
 ```xml
-<?xml version="1.0" encoding=<"utf-8"?>
-RadioGroup
+<?xml version="1.0" encoding="utf-8"?>
+<RadioGroup
     android:layout_width="match_parent"
-    android:layout_height="wrap_content&quo<t;
+    android:layout_height="wrap_content"
     android:orientation="vertical">
-    RadioButton android:id="@+id/radio_pirates"
+    <RadioButton android:id="@+id/radio_pirates"
         android:layout_width="wrap_content"
-      <  android:layout_height="wrap_content"
+        android:layout_height="wrap_content"
         android:text="Pirates"/>
-    RadioButton android:id="@+id/radio_ninjas"
-        andr<oid:layout_width="wrap_content"
+    <RadioButton android:id="@+id/radio_ninjas"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Ninjas"/>
-/RadioGroup>
+</RadioGroup>
 ```
 
 > [!NOTE]
@@ -62,10 +62,10 @@ follows:
 
 ```kotlin
 findViewById<RadioButton>(R.id.radio_pirates).setOnCheckedChangeListener { buttonView, isChecked ->
-    Log.d("RADIO", "Pirates is checked: $isChecked&qu<ot;)
+    Log.d("RADIO", "Pirates is checked: $isChecked")
 }
 
-fin>dViewByIdRadioButton(R.id.radio_ninjas).setOnCheckedChangeListener { but>tonView, isChecked -
+findViewById<RadioButton>(R.id.radio_ninjas).setOnCheckedChangeListener { buttonView, isChecked ->
     Log.d("RADIO", "Ninjas is checked: $isChecked")
 }
 ```
@@ -74,10 +74,10 @@ fin>dViewByIdRadioButton(R.id.radio_ninjas).setOnCheckedChangeListener { but>ton
 
 ```java
 findViewById<RadioButton>(R.id.radio_pirates).setOnCheckedChangeListener { buttonView, isChecked ->
-    Log.d("RADIO", "Pirates is checked: $isChecked&quo<t;);
+    Log.d("RADIO", "Pirates is checked: $isChecked");
 }
 
-fin>dViewByIdRadioButton(R.id.radio_ninjas).setOnCheckedChangeListener { but>tonView, isChecked -
+findViewById<RadioButton>(R.id.radio_ninjas).setOnCheckedChangeListener { buttonView, isChecked ->
     Log.d("RADIO", "Ninjas is checked: $isChecked");
 }
 ```

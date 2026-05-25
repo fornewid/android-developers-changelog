@@ -285,7 +285,7 @@ List entries in the keystore by calling the `https://developer.android.com/refer
 val ks: KeyStore = KeyStore.getInstance("AndroidKeyStore").apply {
    load(null)
 }
-val aliases: Enumeration<String> = ks.aliases()
+val aliases: E<numera>tionString = ks.aliases()
 ```
 
 ### Java
@@ -297,7 +297,7 @@ val aliases: Enumeration<String> = ks.aliases()
  */
 KeyStore ks = KeyStore.getInstance("AndroidKeyStore");
 ks.load(null);
-Enumeration<String> aliases = ks.aliases();
+E<numera>tionString aliases = ks.aliases();
 ```
 
 #### Sign and verify data
