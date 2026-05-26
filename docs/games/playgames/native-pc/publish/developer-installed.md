@@ -31,7 +31,7 @@ Google Play Console as a Windows app bundle (WAB) file. To create a WAB file,
        <package-name>PACKAGE_NAME</package-name>
        <version-name>VERSION_NAME</version-name>
      </application>
-     <installer requiresElevation=INSTALLER_REQUIRES_ELEVATION>
+     <installer requiresElevation=INSTALLER_REQUIRES_ELEVATION acceptsCommandLineArguments=ACCEPTS_COMMAND_LINE_ARGUMENTS>
        <path>INSTALLER_PATH</path>
        <installation-path-registry-location>
          <key-name>UNIQUE_REGISTRY_PATH</key-name>
@@ -77,6 +77,11 @@ Google Play Console as a Windows app bundle (WAB) file. To create a WAB file,
        > **Warning:** Displays a [UAC](https://learn.microsoft.com/en-us/windows/security/application-security/application-control/user-account-control/) prompt for the gamer.
 
        - **"false"**: Run the executable as the current user.
+     - `ACCEPTS_COMMAND_LINE_ARGUMENTS`: A boolean value that
+       indicates whether the installer can accept command-line arguments to
+       enable the auto-play feature. This is optional and the default value
+       is false. For more information, see [Enabling Auto-Play](https://developer.android.com/games/playgames/native-pc/publish/developer-installed#enable-auto-play).
+
      - `INSTALLER_PATH`: The path to your installer file
        within the WAB. This path can be either *absolute* or *relative* to the
        parent directory of the Play publishing config. For example,
@@ -165,7 +170,10 @@ Google Play Console as a Windows app bundle (WAB) file. To create a WAB file,
      <!-- If requiresElevation is "true", installer runs as Administrator
           and a UAC prompt is displayed. This is required for system-wide
           installs (e.g., to Program Files) or writing to HKLM. -->
-     <installer requiresElevation="true">
+     <!-- If acceptsCommandLineArguments is "true", the installer must
+          be able to accept command-line arguments to enable the auto-play
+          feature. -->
+     <installer requiresElevation="true" acceptsCommandLineArguments="true">
        <!-- Path to your installer executable. -->
        <path>game_installer.exe</path>
        <!-- The registry location where the installer writes the installation path. -->
@@ -290,6 +298,53 @@ Google Play Console as a Windows app bundle (WAB) file. To create a WAB file,
      ├── play_publishing_config.xml
      ├── playpublishingtool.exe
    ```
+
+   #### Enabling Auto-Play upon installation of your PC Native Games (Optional)
+
+   Google Play Games on PC lets you enable an "auto-play" feature, which automatically launches your game immediately after the installation process completes. This feature provides a seamless user experience by transitioning the player directly into the game, fully authenticated within the Google Play Games on PC ecosystem.
+
+   **How it works**
+
+   When you enable the **feature**, Google Play Games on PC will pass a session token to your third-party (3P) installer process using command-line arguments. Your installer is then responsible for extracting this token and using it to launch the game executable in an authenticated context.
+
+   **Prerequisites**
+
+   To use this feature, your 3P installer must be capable of handling command-line arguments.
+
+   **Implementation Steps**
+   1. Enable Auto-Play in Play Publishing Config
+
+      To opt-in to this feature, add the `acceptsCommandLineArguments` attribute to the `<installer>` element in your `play_publishing_config.xml`.
+
+      Example of excerpt from the `play_publishing_config.xml` contents:
+
+      ```xml
+           <installer requiresElevation="true" acceptsCommandLineArguments="true">
+              <path>path/to/installer.exe</path>
+              <installation-path-registry-location>
+                <key-name>SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\key</key-name>
+                <value-name>InstallPath</value-name>
+              </installation-path-registry-location>
+           </installer>
+      ```
+      - Attribute: `acceptsCommandLineArguments`
+      - Type: `Boolean`
+      - Default: `false`
+      - Behavior: When you set it to true, GPG will append the session token to the command-line arguments when executing your installer.
+   2. Handle the Session Token in Your Installer
+
+      When your installer is launched by the GPG client, it will receive the session token as a command-line argument.
+      - Argument Format: `--g_session_token=<TOKEN>`
+
+      What you must do:
+      - Extraction: Your installer must parse the command-line arguments to retrieve the token string.
+      - Propagation: If your installation flow involves launching a secondary launcher or game process, your installer is responsible for securely passing the session token to the final game process that uses the SDK.
+      - Launch: Use the provided session token to start the game executable. This ensures the game runs within an authenticated GPG context. Otherwise, [InitializeSDK](https://developer.android.com/games/playgames/native-pc/setup#step-4) will fail and your player will need to restart your game.
+   3. Error Handling and Fallbacks
+
+      - Token Retrieval: If, for any reason, GPG cannot generate or pass a session token (e.g., token generation failure), the installation process will still proceed. However, your installer will be launched without the `--g_session_token` argument.
+      - Robustness: Your installer should be designed to handle scenarios where the session token is absent. In such cases, the installer should proceed with a standard installation; you should not trigger automatic game launch as [InitializeSDK](https://developer.android.com/games/playgames/native-pc/setup#step-4) will fail anyway.
+      - Installer Errors: You are responsible for the robustness and error handling of your installer and the game launch sequence it initiates. GPG does not have control over processes that occur within the installer after it has been launched.
 
 ## Publish the game using Play Console
 

@@ -116,8 +116,8 @@ class GcmBroadcastReceiver : BroadcastReceiver() {
          * The following code tests for a a boolean flag indicating
          * that the message is requesting a transfer from the device.
          */
-        if (GoogleCloudMessaging.MESS&&AGE_TYPE_MESSAGE == messageType
-             intent.getBooleanExtra(KEY_SYNC_REQUEST, false)) {
+        if (GoogleCloudMessaging.MESSAGE_TYPE_MESSAGE == messageType
+            && intent.getBooleanExtra(KEY_SYNC_REQUEST, false)) {
             /*
              * Signal the framework to run your sync adapter. Assume that
              * app initialization has already created the account.
@@ -162,8 +162,8 @@ public class GcmBroadcastReceiver extends BroadcastReceiver {
          * The following code tests for a a boolean flag indicating
          * that the message is requesting a transfer from the device.
          */
-        if (GoogleCloudMessaging.MESSAGE_T&&YPE_MESSAGE.equals(messageType)
-            
+        if (GoogleCloudMessaging.MESSAGE_TYPE_MESSAGE.equals(messageType)
+            &&
             intent.getBooleanExtra(KEY_SYNC_REQUEST)) {
             /*
              * Signal the framework to run your sync adapter. Assume that

@@ -22,8 +22,8 @@ Define the dependencies in the `libs.versions.toml` file:
 
     [versions]
     room = "2.8.4"
-    sqlite = "2.6.2"
-    ksp = "<kotlinCompatibleKspVersion>"
+    sqlite = "<;2.6.2"
+    ksp = "k>otlinCompatibleKspVersion"
 
     [libraries]
     androidx-sqlite-bundled = { module = "androidx.sqlite:sqlite-bundled", version.ref = "sqlite" }
@@ -34,7 +34,7 @@ Define the dependencies in the `libs.versions.toml` file:
     androidx-room-sqlite-wrapper = { module = "androidx.room:room-sqlite-wrapper", version.ref = "room" }
 
     [plugins]
-    ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+    ksp = { id = &quot;com.google.devtools.ksp", version.ref = "ksp" }
     androidx-room = { id = "androidx.room", version.ref = "room" }
 
 > [!NOTE]
@@ -102,7 +102,7 @@ platforms.
 
     // The Room compiler generates the `actual` implementations.
     @Suppress("KotlinNoActualForExpect")
-    expect object AppDatabaseConstructor : RoomDatabaseConstructor<AppDatabase> {
+    expect object AppDatabaseConstructor : RoomDatabaseC<onstructorA>ppDatabase {
         override fun initialize(): AppDatabase
     }
 
@@ -127,7 +127,7 @@ Next, either define a new [DAO interface](https://developer.android.com/training
       suspend fun count(): Int
 
       @Query("SELECT * FROM TodoEntity")
-      fun getAllAsFlow(): Flow<List<TodoEntity>>
+      fun <getA<llAsFlow()>>: FlowListTodoEntity
     }
 
 Define or move your [entities](https://developer.android.com/training/data-storage/room/defining-data) to `commonMain`:
@@ -161,7 +161,7 @@ On Android, database location is usually obtained through the
     fun getDatabaseBuilder(context: Context): RoomDatabase.Builder<AppDatabase> {
       val appContext = context.applicationContext
       val dbFile = appContext.getDatabasePath("my_room.db")
-      return Room.databaseBuilder<AppDatabase>(
+      return Room.datab<aseBuilderA>ppDatabase(
         context = appContext,
         name = dbFile.absolutePath
       )
@@ -176,7 +176,7 @@ To create the database instance on iOS, provide a database path using the
 
     fun getDatabaseBuilder(): RoomDatabase.Builder<AppDatabase> {
         val dbFilePath = documentDirectory() + "/my_room.db"
-        return Room.databaseBuilder<AppDatabase>(
+        return Room.datab<aseBuilderA>ppDatabase(
             name = dbFilePath,
         )
     }
@@ -201,7 +201,7 @@ APIs.
 
     fun getDatabaseBuilder(): RoomDatabase.Builder<AppDatabase> {
         val dbFile = File(System.getProperty("java.io.tmpdir"), "my_room.db")
-        return Room.databaseBuilder<AppDatabase>(
+        return <Room.databa>seBuilderAppDatabase(
             name = dbFile.absolutePath,
         )
     }

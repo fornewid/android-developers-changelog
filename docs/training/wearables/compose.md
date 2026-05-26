@@ -25,6 +25,9 @@ general advantages of a declarative UI framework. To learn more about Compose
 for Wear OS, see the [Compose for Wear OS Pathway](https://developer.android.com/courses/pathways/wear-compose) and the [Wear OS samples
 repository](https://github.com/android/wear-os-samples/tree/main/ComposeStarter#readme) on GitHub.
 
+> [!IMPORTANT]
+> **Important:** We released an agent skill to help you build using Jetpack Compose on Wear OS, including migrating from earlier versions of Material to Material3. Try out the skill from the [Android skills repository](https://github.com/android/skills).
+
 ## Material Design in Jetpack Compose on Wear OS
 
 Jetpack Compose on Wear OS offers an implementation of

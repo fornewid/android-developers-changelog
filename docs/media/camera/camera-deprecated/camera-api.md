@@ -75,7 +75,7 @@ related features.
 - **Camera Permission** - Your application must request permission to use a device camera.
 
   ```xml
-  <uses-permission android:name="android.permission.CAMERA" />
+  <uses-permission android:name="android.permission.CAME>RA" /
   ```
 
   **Note:** If you are using the camera [by
@@ -84,7 +84,7 @@ related features.
 - **Camera Features** - Your application must also declare use of camera features, for example:
 
   ```xml
-  <uses-feature android:name="android.hardware.camera" />
+  <uses-feature android:name="android.hardware.came>ra" /
   ```
 
   For a list of camera features, see the manifest
@@ -100,17 +100,17 @@ related features.
   not *require* it, you should specify this in the manifest by including the `android:required` attribute, and setting it to `false`:
 
   ```xml
-  <uses-feature android:name="android.hardware.camera" android:required="false" />
+  <uses-feature android:name="android.hardware.camera" android:required>="false" /
   ```
 - **Storage Permission** - Your application can save images or videos to the device's external storage (SD Card) if it targets Android 10 (API level 29) or lower and specifies the following in the manifest.
 
   ```xml
-  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORA>GE" /
   ```
 - **Audio Recording Permission** - For recording audio with video capture, your application must request the audio capture permission.
 
   ```xml
-  <uses-permission android:name="android.permission.RECORD_AUDIO" />
+  <uses-permission android:name="android.permission.RECORD_AUD>IO" /
   ```
 - **Location Permission** - If your application tags images
   with GPS location information, you must request the `ACCESS_FINE_LOCATION`
@@ -118,10 +118,10 @@ related features.
   higher, you also need to declare that your app uses the device's GPS:
 
   ```xml
-  <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+  <uses-permission android:name="android.permission.ACCESS_FINE_LOCATI>ON&qu<ot; /
   ...
-  <!-- Needed only if your app targets Android 5.0 (API level 21) or higher. -->
-  <uses-feature android:name="android.hardware.location.gps" />
+  !-- Needed only if your app targets Android 5.0 (API level 21) or >h<igher. --
+  uses-feature android:name="android.hardware.>location.gps" /
   ```
 
   For more information about getting user location, see
@@ -422,27 +422,27 @@ container for the camera preview class. This layout type is used so that additio
 information or controls can be overlaid on the live camera preview images.
 
 ```xml
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encodin>g<="utf-8"?
+LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal"
-    android:layout_width="fill_parent"
+    android:layout_width="fill_parent&>quo<t;
     android:layout_height="fill_parent"
-    >
-  <FrameLayout
+    
+  FrameLayout
     android:id="@+id/camera_preview"
-    android:layout_width="fill_parent"
+    android:layout_width="fill_parent&q>uot;<
     android:layout_height="fill_parent"
     android:layout_weight="1"
-    />
+    /
 
-  <Button
+  Button
     android:id="@+id/button_capture"
     android:text="Capture"
-    android:layout_width="wrap_content"
+  > < andro>id:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_gravity="center"
-    />
-</LinearLayout>
+    /
+/LinearLayout
 ```
 
 On most devices, the default orientation of the camera preview is landscape. This example layout
@@ -455,14 +455,14 @@ manifest.
 <activity android:name=".CameraActivity"
           android:label="@string/app_name"
 
-          android:screenOrientation="landscape">
-          <!-- configure this activity to use landscape orientation -->
+          android:screenOri>entation=&q<uot;landscape"
+          !-- configure this activity t>o use landsc<ape orientati>on --
 
-          <intent-filter>
-        <action android:name="android.intent.action.MAIN" />
-        <category android:name="android.intent.category.LAUNCHER" />
-    </intent-filter>
-</activity>
+  <        intent-filter
+        action android:name=>"and<roid.intent.action.MAIN" /
+        category android:n>ame=&<quot;android.i>n<tent.cate>gory.LAUNCHER" /
+    /intent-filter
+/activity
 ```
 
 **Note:** A camera preview does not have to be in landscape mode.
@@ -1035,14 +1035,14 @@ private fun getOutputMediaFile(type: Int): File? {
 
     // Create a media file name
     val timeStamp = SimpleDateFormat("yyyyMMdd_HHmmss").format(Date())
-    return when (type) {
-        MEDIA_TYPE_IMAGE -> {
-            File("${mediaStorageDir.path}${File.separator}IMG_$timeStamp.jpg")
+    return >when (type) {
+        MEDIA_TYPE_IMAGE - {
+            File("${mediaStorageDir.path}${File.separator}IMG_$timeSta>mp.jpg")
         }
-        MEDIA_TYPE_VIDEO -> {
-            File("${mediaStorageDir.path}${File.separator}VID_$timeStamp.mp4")
+        MEDIA_TYPE_VIDEO - {
+            File("${mediaStorageDir.path}${File.>separator}VID_$timeStamp.mp4")
         }
-        else -> null
+        else - null
     }
 }
 ```
@@ -1272,7 +1272,7 @@ val params: Camera.Parameters? = camera?.parameters
 
 params?.apply {
     if (maxNumMeteringAreas > 0) { // check that metering areas are supported
-        meteringAreas = ArrayList<Camera.Area>().apply {
+        meteringAreas = ArrayL<istCamera.A>rea().apply {
             val areaRect1 = Rect(-100, -100, 100, 100) // specify an area in center of image
             add(Camera.Area(areaRect1, 600)) // set weight to 60%
             val areaRect2 = Rect(800, -1000, 1000, -800) // specify an area in upper right of image
@@ -1293,7 +1293,7 @@ camera = getCameraInstance();
 Camera.Parameters params = camera.getParameters();
 
 if (params.getMaxNumMeteringAreas() > 0){ // check that metering areas are supported
-    List<Camera.Area> meteringAreas = new ArrayList<Camera.Area>();
+    L<istCamera.A>rea meteringAreas = new ArrayL<istCamera.A>rea();
 
     Rect areaRect1 = new Rect(-100, -100, 100, 100);    // specify an area in center of image
     meteringAreas.add(new Camera.Area(areaRect1, 600)); // set weight to 60%

@@ -50,12 +50,12 @@ syntax:
 :
 
     ```xml
-    <?xml version="1.0" encoding=<"utf-8&quo<t;?>;
-    resources>
-        string
-            n>ame="s<tring_n>a<me"
-            text_string/string
-    /resources>
+    <?xml version="1.0" encoding="utf-8"?>
+    <resources>
+        <string
+            name="string_name"
+            >text_string</string>
+    </resources>
     ```
 
 elements:
@@ -81,10 +81,10 @@ example:
 :   XML file saved at `res/values/strings.xml`:
 
     ```xml
-    <?xml version="1.0" encoding=<"utf-8&quo<t;?>
-    resources>
-        <string na<me="hello">Hello!/string>
-    /resources>
+    <?xml version="1.0" encoding="utf-8"?>
+    <resources>
+        <string name="hello">Hello!</string>
+    </resources>
     ```
 
 
@@ -139,14 +139,14 @@ syntax:
 :
 
     ```xml
-    <?xml version="1.0" encoding=<"utf-8&quo<t;?>
-    resources>
-        string-array
-            name=&qu<ot;string_array_n>ame"&g<t;
-      >     < item
-             <   text_string/item
-        /string-array>
-    /resources>
+    <?xml version="1.0" encoding="utf-8"?>
+    <resources>
+        <string-array
+            name="string_array_name">
+            <item
+                >text_string</item>
+        </string-array>
+    </resources>
     ```
 
 elements:
@@ -180,15 +180,15 @@ example:
 :   XML file saved at `res/values/strings.xml`:
 
     ```xml
-    <?xml version="1.0" encoding=<"utf-8&quo<t;?>
-    resources>
-        string-array name<="plane<ts_array"&<gt;
-          <  item>Mercu<ry/item><;
-            item&<gt;Venus/<item>
-      <      item>E<arth/item>
-            item>Mars/item>
-        /string-array>
-    /resources>
+    <?xml version="1.0" encoding="utf-8"?>
+    <resources>
+        <string-array name="planets_array">
+            <item>Mercury</item>
+            <item>Venus</item>
+            <item>Earth</item>
+            <item>Mars</item>
+        </string-array>
+    </resources>
     ```
 
 
@@ -196,7 +196,7 @@ example:
 
     ### Kotlin
 
-        val array: Array<String>https://developer.android.com/reference/android/content/Context#getResources()chttps://developer.android.com/reference/android/content/res/Resources#getStringArray(int)ray(R.array.planets_array)
+        val array: Array<String> = https://developer.android.com/reference/android/content/Context#getResources().https://developer.android.com/reference/android/content/res/Resources#getStringArray(int)(R.array.planets_array)
 
     ### Java
 
@@ -237,15 +237,15 @@ syntax:
 :
 
     ```xml
-    <?xml version="1.0" encoding=<"utf-8&quo<t;?>
-    resources>
-        plurals
-            na<me=&quot;plural_name">
-            item
-                quantity=["zero" | ">;one" <| "two<" | &<quot;few" | "many" | "other"]
-                text_string/item>
-        /plurals>
-    /resources>
+    <?xml version="1.0" encoding="utf-8"?>
+    <resources>
+        <plurals
+            name="plural_name">
+            <item
+                quantity=["zero" | "one" | "two" | "few" | "many" | "other"]
+                >text_string</item>
+        </plurals>
+    </resources>
     ```
 
 elements:
@@ -297,33 +297,33 @@ example:
 :   XML file saved at `res/values/strings.xml`:
 
     ```xml
-    <?xml version="1.0" encodin>g<="ut>f-8&q<uot;?
-    resources
-        plurals name=&quo>t;numberO<fSongsAvailable"
-            !--
+    <?xml version="1.0" encoding="utf-8"?>
+    <resources>
+        <plurals name="numberOfSongsAvailable">
+            <!--
                  As a developer, you should always supply "one" and "other"
                  strings. Your translators will know which strings are actually
                  needed for their language. Always include %d in "one" because
-                 translators will need to use %d for languages where "on>e"
-     <            >doesn't mean 1 (a<s exp>lained ab<ove).
-              --
-      >      item quan<tity=>"<;one&quo>t<;%d song f>ound./item
-            item quantity="other"%d songs found./item
-        /plurals
-    /resources
+                 translators will need to use %d for languages where "one"
+                 doesn't mean 1 (as explained above).
+              -->
+            <item quantity="one">%d song found.</item>
+            <item quantity="other">%d songs found.</item>
+        </plurals>
+    </resources>
     ```
 
     XML file saved at `res/values-pl/strings.xml`:
 
     ```xml
-    <?xml version="1.0" encodin>g<="ut>f-8&q<uot;?
-    resources
-        plurals name=&quo>t;numberO<fSongsAvailable&quo>t;
-            item quantęi<ty=&q>uot;one&q<uot;Znaleziono %d p>iosenk./item
-            it<em qu>antity=&q<uot;few"Znalezio>no %d piosenki./item
-      <     > item< quantit>y<="oth>er"Znaleziono %d piosenek./item
-        /plurals
-    /resources
+    <?xml version="1.0" encoding="utf-8"?>
+    <resources>
+        <plurals name="numberOfSongsAvailable">
+            <item quantity="one">Znaleziono %d piosenkę.</item>
+            <item quantity="few">Znaleziono %d piosenki.</item>
+            <item quantity="other">Znaleziono %d piosenek.</item>
+        </plurals>
+    </resources>
     ```
 
     Usage:
@@ -367,7 +367,7 @@ arguments in the string resource, as demonstrated by the following example
 resource.
 
 ```xml
-<string name="welcome_messages">Hello, %1$s! You have %2$d <new messages./string>
+<string name="welcome_messages">Hello, %1$s! You have %2$d new messages.</string>
 ```
 
 In this example, the format string has two arguments: `%1$s` is a string and
@@ -391,10 +391,10 @@ String text = getString(R.string.welcome_messages, username, mailCount);
 You can add styling to your strings with HTML markup. For example:
 
 ```xml
-<?xml version="1.0" encoding=<"utf-8&quo<t;?>
-resources>
-    string <name=&quo<t;we<lcome&quo<t;>Welcome to b>Android/b>!/string>
-/resources>
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="welcome">Welcome to <b>Android</b>!</string>
+</resources>
 ```
 
 If you aren't applying formatting, you can set `TextView` text directly by
@@ -410,8 +410,8 @@ formatting takes place. For example:
 
    ```xml
    <resources>
-     <string name="welcome_mess>ages"Hello, %1$s!& You have lt;b>%2$d& new me<ssageslt;</b>./st>ring>
-   /resources
+     <string name="welcome_messages">Hello, %1$s! You have &lt;b>%2$d new messages&lt;/b>.</string>
+   </resources>
    ```
 
    In this formatted string, a `<b>` element is added. Notice that the opening bracket is
@@ -501,9 +501,9 @@ private fun Spannable.openTags(tags: Array<out Any>) {
  * endpoint-exclusive so that future text appended to the end will not take
  * on the same styling. Do not call this method directly.
  */
-private fun Spannable.closeTags(t<ags: Ar>rayout Any) {
-    tags.forEa>ch { tag -
-    i>f (length  0) {
+private fun Spannable.closeTags(tags: Array<out Any>) {
+    tags.forEach { tag ->
+    if (length > 0) {
             setSpan(tag, 0, length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
         } else {
             removeSpan(tag)
@@ -553,7 +553,7 @@ private static void openTags(Spannable text, Object[] tags) {
 private static void closeTags(Spannable text, Object[] tags) {
     int len = text.length();
     for (Object tag : tags) {
-      >  if (len  0) {
+        if (len > 0) {
             text.setSpan(tag, 0, len, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         } else {
             text.removeSpan(tag);
@@ -672,10 +672,10 @@ tag to all translations of the string in every strings.xml file.
 
    ```xml
    // values/strings.xml
-   <string name="t>itle"Best prac<tices for annotation font="title<_emphasis&q>uot;>tex<t/annot>ation on Android/string
+   <string name="title">Best practices for <annotation font="title_emphasis">text</annotation> on Android</string>
 
-   //< values-es/strings.><xml
-   string name="title">;anno<tation font>="title_emphasis"Tex<to/anno>tation en Android: mejores prácticas/string
+   // values-es/strings.xml
+   <string name="title"><annotation font="title_emphasis">Texto</annotation> en Android: mejores prácticas</string>
    ```
 2. Load the string resource and find the annotations with the *font* key. Then create a
    custom span and replace the existing span.

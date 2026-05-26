@@ -8,8 +8,8 @@ This document describes how to migrate from Google Play Billing Library (PBL) 6
 or 7 to PBL 8 and how to integrate with the new optional subscription
 capabilities.
 
-For a full list of the changes in version 8.0.0, refer to the [release
-notes](https://developer.android.com/google/play/billing/release-notes).
+For a full list of the changes in version 8.0.0, refer to the \[release
+notes\]\[1\].
 
 
 **Important:** You can now use an agent skill to migrate
@@ -27,7 +27,7 @@ APIs for one-time products.
 ## Backward-compatibility for PBL upgrade
 
 To migrate to PBL 8, you need to update or remove some of your existing API
-references from your app, as described in the [release notes](https://developer.android.com/google/play/billing/release-notes) and later
+references from your app, as described in the \[release notes\]\[8\] and later
 in this migration guide.
 
 ## Upgrade from PBL 6 or 7 to PBL 8
@@ -54,13 +54,13 @@ To upgrade from PBL 6 or 7 to PBL 8, do the following steps:
    | setReplaceProrationMode | [setSubscriptionReplacementMode](https://developer.android.com/reference/com/android/billingclient/api/BillingFlowParams.SubscriptionUpdateParams.Builder#setSubscriptionReplacementMode) |
    | setReplaceSkusProrationMode | [setSubscriptionReplacementMode](https://developer.android.com/reference/com/android/billingclient/api/BillingFlowParams.SubscriptionUpdateParams.Builder#setSubscriptionReplacementMode) |
 
-3. Update the implementation of the [`queryProductDetailsAsync`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient#queryProductDetailsAsync) method.
+3. Update the implementation of the \[`queryProductDetailsAsync`\]\[9\] method.
 
    There is a change in the signature of the
-   [`ProductDetailsResponseListener.onProductDetailsResponse`](https://developer.android.com/reference/com/android/billingclient/api/ProductDetailsResponseListener#onProductDetailsResponse(com.android.billingclient.api.BillingResult,java.util.List%3Ccom.android.billingclient.api.ProductDetails%3E)) method, which
-   requires changes in your app for the [`queryProductDetailsAsync`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient#queryProductDetailsAsync)
+   \[`ProductDetailsResponseListener.onProductDetailsResponse`\]\[2\] method, which
+   requires changes in your app for the \[`queryProductDetailsAsync`\]\[9\]
    implementation. For more information, see
-   [Show products available to buy](https://developer.android.com/google/play/billing/integrate#show-products).
+   \[Show products available to buy\]\[3\].
 4. Handle the removed APIs.
 
    ### Upgrade from
@@ -102,11 +102,20 @@ To upgrade from PBL 6 or 7 to PBL 8, do the following steps:
    The Play Billing Library can attempt to automatically re-establish the
    service connection if an API call is made while the service is
    disconnected. For more information,
-   see [Enable automatic service reconnection](https://developer.android.com/google/play/billing/integrate#automatic-service-reconnection).
+   see \[Enable automatic service reconnection\]\[6\].
 6. Optional changes.
 
    - Support pending purchases for prepaid plans. For more information, see
-     [Handle Subscriptions and Pending Transactions](https://developer.android.com/google/play/billing/subscriptions#pending).
+     \[Handle Subscriptions and Pending Transactions\]\[4\].
 
    - Virtual installment subscriptions. For more information, see
-     [Installment Subscriptions Integration](https://developer.android.com/google/play/billing/subscriptions#installments).
+     \[Installment Subscriptions Integration\]\[5\].
+
+\[1\]: /google/play/billing/release-notes
+\[2\]: /reference/com/android/billingclient/api/ProductDetailsResponseListener#onProductDetailsResponse(com.android.billingclient.api.BillingResult,java.util.List%3Ccom.android.billingclient.api.ProductDetails%3E)
+\[3\]: /google/play/billing/integrate#show-products
+\[4\]: /google/play/billing/subscriptions#pending
+\[5\]: /google/play/billing/subscriptions#installments
+\[6\]: /google/play/billing/integrate#automatic-service-reconnection
+\[8\]: /google/play/billing/release-notes
+\[9\]: /reference/com/android/billingclient/api/BillingClient#queryProductDetailsAsync

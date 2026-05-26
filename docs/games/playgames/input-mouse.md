@@ -42,9 +42,9 @@ still be installed on phones and tablets without a mouse. For example:
     <manifest ...>
       <uses-feature
           android:name="android.hardware.type.pc"
-          android:required>="<false&quo>t; /
+          android:required="false" />
       ...
-    /manifest
+    </manifest>
 
 The production version of Google Play Games on PC switches to the correct
 mode when a game launches. When running in the developer emulator, you need to
@@ -102,8 +102,8 @@ gameView.setOnGenericMotionListener { _, motionEvent ->
    if (motionEvent.isFromSource(InputDevice.SOURCE_CLASS_POINTER)) {
        when(motionEvent.action) {
            MotionEvent.ACTION_HOVER_ENTER -> Log.d("MA", "Mouse entered at ${motionEvent.x}, ${motionEvent.y}")
-           MotionEvent>.ACTION_HOVER_EXIT - Log.d("MA", "Mouse exited at ${motionEvent.x}, ${motionEvent.y}")
-  >         MotionEvent.ACTION_HOVER_MOVE - Log.d("MA", "Mouse hovered at ${motionEvent.x}, ${motionEvent.y}")
+           MotionEvent.ACTION_HOVER_EXIT -> Log.d("MA", "Mouse exited at ${motionEvent.x}, ${motionEvent.y}")
+           MotionEvent.ACTION_HOVER_MOVE -> Log.d("MA", "Mouse hovered at ${motionEvent.x}, ${motionEvent.y}")
        }
        handled = true
    }
@@ -206,7 +206,7 @@ gameView.setOnGenericMotionListener { _, motionEvent ->
                "MA",
                "${MouseButton.fromMotionEvent(motionEvent)} pressed at ${motionEvent.x}, ${motionEvent.y}"
            )
-           MotionEvent.ACT>ION_BUTTON_RELEASE - Log.d(
+           MotionEvent.ACTION_BUTTON_RELEASE -> Log.d(
                "MA",
                "${MouseButton.fromMotionEvent(motionEvent)} released at ${motionEvent.x}, ${motionEvent.y}"
            )
