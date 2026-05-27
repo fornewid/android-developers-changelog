@@ -32,7 +32,7 @@ development of apps that adapt to any display size.
 
 ## Development environment
 
-- [Android Studio with Compose](https://developer.android.com/develop/ui/compose/setup): How to et up your development environment to use Compose.
+- [Android Studio with Compose](https://developer.android.com/develop/ui/compose/setup): How to set up your development environment to use Compose.
 - [Tooling for Compose](https://developer.android.com/develop/ui/compose/tooling): Android Studio's new features to support Compose.
 - [Kotlin for Compose](https://developer.android.com/develop/ui/compose/kotlin): Kotlin-specific idioms work with Compose.
 - [Compare Compose and view metrics](https://developer.android.com/develop/ui/compose/migrate/compare-metrics): How migrating to Compose can affect your app's APK size and runtime performance.

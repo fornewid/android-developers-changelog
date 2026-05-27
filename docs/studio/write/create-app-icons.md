@@ -197,4 +197,4 @@ To remove an icon from a project:
 
 ## Additional resources
 
-- [Create app icons (Views)](https://developer.android.com/studio/write/views/create-app-icons-views)
+- [Create app icons (Views)](https://developer.android.com/studio/views/create-app-icons-views)

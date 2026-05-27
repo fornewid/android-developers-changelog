@@ -42,6 +42,9 @@ Join us online May 19--20, followed by a fresh drop of on-demand sessions and co
   ###### 1 min read
 
   - [#Android XR](https://developer.android.com/blog/topics/android-xr)
+  - [#intelligent eyewear](https://developer.android.com/blog/topics/intelligent-eyewear)
+  - [#Wired XR glasses](https://developer.android.com/blog/topics/wired-xr-glasses)
+  - +1 ↩
 - [![](https://developer.android.com/static/blog/assets/maru_ahues_7598dede84_Zr7Omv.webp)](https://developer.android.com/blog/authors/maru-ahues-bouza) 11 Mar 2026 11 Mar 2026 ![](https://developer.android.com/static/blog/assets/Google_Play_Level_Up_metadata_banner_2048x1323_33658d545a_ZDM8Sn.webp)
 
   #### [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs)

@@ -574,9 +574,8 @@ the composable. This way, you don't need to preview the composable that uses the
 
 ## Additional resources
 
-To read more about how Android Studio promotes `@Preview` ease of use, and learn
-more Tooling tips, check out the blog [Compose
-Tooling](https://medium.com/androiddevelopers/compose-tooling-42621bd8719b).
+- To read more about how Android Studio promotes `@Preview` ease of use, and learn more tooling tips, check out the blog [Compose Tooling](https://medium.com/androiddevelopers/compose-tooling-42621bd8719b).
+- For the legacy Views guidance, see [Develop a layout with Views](https://developer.android.com/studio/views/layout-editor).
 
 ## Recommended for you
 

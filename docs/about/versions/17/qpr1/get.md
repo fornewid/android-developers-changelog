@@ -9,6 +9,7 @@ source: md.txt
 You can get Android 17 QPR 1 in any of the following ways:
 
 - [Get Android 17 QPR 1 on a Google Pixel device](https://developer.android.com/about/versions/17/qpr1/get#on_pixel)
+- [Get Android 17 QPR 1 Beta on a partner device](https://developer.android.com/about/versions/17/qpr1/get#on_partner)
 - [Set up the Android Emulator](https://developer.android.com/about/versions/17/qpr1/get#on_emulator)
 - [Get a generic system image (GSI)](https://developer.android.com/about/versions/17/qpr1/get#on_gsi)
 
@@ -72,6 +73,25 @@ Tool](https://flash.android.com/preview/cinnamonbun-qpr1-beta3). If you need to 
 
 > [!NOTE]
 > **Note:** After you've flashed a Beta build to a supported Pixel device, you're automatically enrolled in over-the-air updates of all subsequent Beta builds through the final release.
+
+## Get Android 17 Beta on a partner device
+
+The following device-maker partners are offering Android 17 Beta for you to try
+on some of their top devices:
+
+You can learn how to install Android 17 Beta by visiting each partner's site.
+Each partner provides a system image that you can download and flash. Some
+partners might also support over-the-air (OTA) delivery. Each partner provides
+support resources to guide you through the installation process---use the
+**Get the Beta** link on the [Android 17 Beta devices](https://developer.android.com/about/versions/17/devices) page to jump to the
+partner's download and OTA information.
+
+Each Android 17 Beta partner provides its own channel for reporting issues found
+on their supported Beta devices. We highly recommend using each partner's
+feedback channel to report bugs and feedback that are specific to their devices.
+
+
+[Go to partners list](https://developer.android.com/about/versions/17/devices)
 
 ## Set up the Android Emulator
 

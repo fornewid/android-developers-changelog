@@ -212,4 +212,4 @@ For more information, see
 
 ### Views content
 
-- [Tools attributes reference (Views)](https://developer.android.com/studio/write/views/tool-attributes-views)
+- [Tools attributes reference (Views)](https://developer.android.com/studio/views/tool-attributes-views)

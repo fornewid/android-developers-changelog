@@ -60,7 +60,7 @@ callback---an event that requests the value to be changed to a new one. Compose
 defines the `State` object as a value holder, and changes to the state value
 trigger a recomposition. You can hold the state in a
 `remember { mutableStateOf(value) }` or a
-`rememberSaveable { mutableStateOf(value)` depending on how long you need to
+`rememberSaveable { mutableStateOf(value) }` depending on how long you need to
 remember the value for.
 
 The type of the `TextField` composable's value is `String`, so this can come

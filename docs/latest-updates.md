@@ -148,11 +148,11 @@ The latest updated popular libraries. [See all Jetpack library updates](https://
 
 ## ![](https://developer.android.com/static/images/logos/android-studio.svg) Android Studio
 
-Recent updates to Android Studio and tools [See more about Android Studio](https://developer.android.com/studio) Canary
+Recent updates to Android Studio and tools [See more about Android Studio](https://developer.android.com/studio) RC
 
-### [Quail 2 \| 2026.1.2 Canary 2](https://developer.android.com/studio/preview)
+### [Quail 1 \| 2026.1.1 RC 2](https://developer.android.com/studio/preview)
 
-May 21, 2026 Stable
+May 26, 2026 Stable
 
 ### [Panda 4 \| 2025.3.4 Patch 1](https://developer.android.com/studio/releases)
 

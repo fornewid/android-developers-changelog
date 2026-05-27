@@ -98,7 +98,7 @@ val LocalCustomSystem = staticCompositionLocalOf {
 ## Theme function
 
 The theme function is the entry point and primary API. It constructs instances
-of the theme system `CompositionLocal`s --- using real values any logic
+of the theme system `CompositionLocal`s --- using real values and any logic
 required --- that are provided to the composition tree with
 [`CompositionLocalProvider`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/package-summary#compositionlocalprovider).
 The `content` parameter allows nested composables to access theming values

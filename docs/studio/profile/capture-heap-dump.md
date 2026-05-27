@@ -174,4 +174,4 @@ example:
 
 ## Additional resources
 
-- [Capture a heap dump (Views)](https://developer.android.com/studio/profile/views/capture-heap-dump-views)
+- [Capture a heap dump (Views)](https://developer.android.com/studio/views/capture-heap-dump-views)

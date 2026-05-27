@@ -62,7 +62,7 @@ fun AnnotatedStringWithLinkSample() {
 ### Key points about the code
 
 - Uses the [`buildAnnotatedString`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/package-summary#buildAnnotatedString(kotlin.Function1)) function to create an annotated string of text.
-- Specifies the the link and text styling by passing them as arguments of the [`LinkAnnotation.Url()`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/LinkAnnotation.Url) function (itself passed as an argument of the [`withLink()`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/AnnotatedString.Builder#(androidx.compose.ui.text.AnnotatedString.Builder).withLink(androidx.compose.ui.text.LinkAnnotation,kotlin.Function1)) function). A click listener is built into `LinkAnnotation.Url()`.
+- Specifies the link and text styling by passing them as arguments of the [`LinkAnnotation.Url()`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/LinkAnnotation.Url) function (itself passed as an argument of the [`withLink()`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/AnnotatedString.Builder#(androidx.compose.ui.text.AnnotatedString.Builder).withLink(androidx.compose.ui.text.LinkAnnotation,kotlin.Function1)) function). A click listener is built into `LinkAnnotation.Url()`.
 - Adds text using [`append()`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/AnnotatedString.Builder#append(kotlin.CharSequence,kotlin.Int,kotlin.Int)) in the body of the `withLink` function.
 - Repeats this process to add another linked text segment.
 

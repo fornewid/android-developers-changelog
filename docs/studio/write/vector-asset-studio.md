@@ -673,4 +673,4 @@ resources:
 
 ### Views content
 
-- [Add multi-density vector graphics (Views)](https://developer.android.com/studio/write/views/vector-asset-studio-views)
+- [Add multi-density vector graphics (Views)](https://developer.android.com/studio/views/vector-asset-studio-views)

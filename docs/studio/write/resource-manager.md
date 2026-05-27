@@ -161,4 +161,4 @@ the documentation on [Resources in Compose](https://developer.android.com/develo
 
 ### Views content
 
-- [Manage your app's UI resources with Resource Manager (Views)](https://developer.android.com/studio/write/views/resource-manager-views)
+- [Manage your app's UI resources with Resource Manager (Views)](https://developer.android.com/studio/views/resource-manager-views)

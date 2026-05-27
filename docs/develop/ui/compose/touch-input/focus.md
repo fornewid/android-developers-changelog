@@ -110,7 +110,7 @@ second, and navigating down from the first `Row` moves the focus to the one
 below it.
 
 > [!NOTE]
-> **Note:** Focus properties are a special case, in which the parents always win in case of collisions or duplicates.This is something to keep in mind when working with focus.
+> **Note:** Focus properties are a special case, in which the parents always win in case of collisions or duplicates. This is something to keep in mind when working with focus.
 
 ## Recommended for you
 

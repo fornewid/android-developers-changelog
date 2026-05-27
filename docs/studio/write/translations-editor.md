@@ -329,4 +329,4 @@ For information about how to use pseudolocales, see
 
 ### Views content
 
-- [Localize the UI with Translations Editor (Views)](https://developer.android.com/studio/write/views/translations-editor-views)
+- [Localize the UI with Translations Editor (Views)](https://developer.android.com/studio/views/translations-editor-views)

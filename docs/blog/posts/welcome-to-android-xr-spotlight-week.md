@@ -74,6 +74,9 @@ We're excited for you to join us this week on our journey with XR. The opportuni
   ###### 1 min read
 
   - [#Android XR](https://developer.android.com/blog/topics/android-xr)
+  - [#intelligent eyewear](https://developer.android.com/blog/topics/intelligent-eyewear)
+  - [#Wired XR glasses](https://developer.android.com/blog/topics/wired-xr-glasses)
+  - +1 ↩
 - 14 Apr 2026 14 Apr 2026 ![](https://developer.android.com/static/blog/assets/Blog_banner_Dark_2000x1000_B_c6418d3a5c_ZbdvH4.webp)
 
   #### [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs)

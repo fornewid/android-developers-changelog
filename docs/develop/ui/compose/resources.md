@@ -14,8 +14,8 @@ resources overview guide](https://developer.android.com/guide/topics/resources/p
 
 ## Strings
 
-The most common type of resource are your Strings. Use the `stringResource` API
-to retrieve a string statically defined in your XML resources.
+The most common type of resource is strings. Use the `stringResource` API
+to retrieve a string statically defined in XML resources.
 
 
 ```kotlin

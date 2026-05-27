@@ -18,6 +18,9 @@ Get the details on upcoming webinars, workshops, meetups, and special initiative
   ###### 1 min read
 
   - [#Android XR](https://developer.android.com/blog/topics/android-xr)
+  - [#intelligent eyewear](https://developer.android.com/blog/topics/intelligent-eyewear)
+  - [#Wired XR glasses](https://developer.android.com/blog/topics/wired-xr-glasses)
+  - +1 ↩
 - 14 Apr 2026 14 Apr 2026 ![](https://developer.android.com/static/blog/assets/Blog_banner_Dark_2000x1000_B_c6418d3a5c_ZbdvH4.webp)
 
   ## [Get ready for Google I/O: Livestream schedule revealed](https://developer.android.com/blog/posts/get-ready-for-google-io-livestream-schedule-revealed)

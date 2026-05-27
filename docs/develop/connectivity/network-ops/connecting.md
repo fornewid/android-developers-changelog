@@ -7,8 +7,8 @@ source: md.txt
 To perform network operations in your application, your manifest must include
 the following permissions:
 
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERN>E<T" /
+    uses-permission android:name="android.permission.ACCESS_N>ETWORK_STATE" /
 
 > [!NOTE]
 > **Note:** Both the [`INTERNET`](https://developer.android.com/reference/android/Manifest.permission#INTERNET) and [`ACCESS_NETWORK_STATE`](https://developer.android.com/reference/android/Manifest.permission#ACCESS_NETWORK_STATE) permissions are [normal
@@ -83,8 +83,8 @@ interface UserService {
 
 ```java
 public interface UserService {
-    @GET("/user/{id}")
-    Call<User> getUserById(@Path("id") String id);
+    @GET("/user/{id}"<)
+  >  CallUser getUserById(@Path("id") String id);
 }
 ```
 
@@ -163,8 +163,8 @@ class MainViewModel constructor(
     private val userId: String = savedStateHandle["uid"] ?:
         throw IllegalArgumentException("Missing user ID")
 
-    private val _user = MutableLiveData<User>()
-    val user = _user as LiveData<User>
+    private val _us<er => MutableLiveDataUser()
+    val user< = _>user as LiveDataUser
 
     init {
         viewModelScope.launch {
@@ -195,17 +195,17 @@ class MainViewModel extends ViewModel {
             UserRepository userRepository
     ) {
         String userId = savedStateHandle.get("uid");
-        Call<User> userCall = userRepository.getUserById(userId);
-        userCall.enqueue(new Callback<User>() {
+  <    >  CallUser userCall = userRepository.getUserById(userId);
+        userCall.enqueue(ne<w Ca>llbackUser() {
             @Override
-            public void onResponse(Call<User> call, Response<User> response) {
+            public void onRes<pons>e(CallUser call<, Re>sponseUser response) {
                 if (response.isSuccessful()) {
                     _user.setValue(response.body());
                 }
             }
 
             @Override
-            public void onFailure(Call<User> call, Throwable t) {
+            public void onFa<ilur>e(CallUser call, Throwable t) {
                 // Show error message to user
             }
         });

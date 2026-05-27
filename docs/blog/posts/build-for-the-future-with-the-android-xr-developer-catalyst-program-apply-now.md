@@ -33,6 +33,8 @@ Once you have your concept ready, be sure to [submit your application](http://de
 Explore this announcement and all Google I/O 2026 updates on [io.google](https://io.google/2026/?utm_source=blogpost&utm_medium=pr&utm_campaign=devblogs&utm_content).
 
 - [#Android XR](https://developer.android.com/blog/topics/android-xr)
+- [#intelligent eyewear](https://developer.android.com/blog/topics/intelligent-eyewear)
+- [#Wired XR glasses](https://developer.android.com/blog/topics/wired-xr-glasses)
 
 ## Continue reading
 

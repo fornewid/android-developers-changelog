@@ -256,7 +256,7 @@ Image(
 
 <br />
 
-![A a dog with a green tint applied using BlendMode.Darken, resulting in darker green shades.](https://developer.android.com/static/develop/ui/compose/images/graphics-blendmode.png) **Figure 8** . `Color.Green tint` with `BlendMode.Darken`.
+![A dog with a green tint applied using BlendMode.Darken, resulting in darker green shades.](https://developer.android.com/static/develop/ui/compose/images/graphics-blendmode.png) **Figure 8** . `Color.Green tint` with `BlendMode.Darken`.
 
 See the [`BlendMode` reference documentation](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/BlendMode) for more information on the
 different blend modes available.

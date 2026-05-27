@@ -4,7 +4,9 @@ url: https://developer.android.com/media/legacy/audio/mediabrowserservice
 source: md.txt
 ---
 
-Your app must declare the `MediaBrowserService` with an intent-filter in its manifest. You can choose your own service name; in the following example, it is "MediaPlaybackService."  
+Your app must declare the `MediaBrowserService` with an intent-filter in its
+manifest. You can choose your own service name. In the following example, the
+chosen service name is `MediaPlaybackService`.
 
     <service android:name=".MediaPlaybackService">
       <intent-filter>
@@ -12,26 +14,16 @@ Your app must declare the `MediaBrowserService` with an intent-filter in its man
       </intent-filter>
     </service>
 
-<br />
-
-**Note:** The recommended implementation of `MediaBrowserService`
-is [MediaBrowserServiceCompat](https://developer.android.com/reference/androidx/media/MediaBrowserServiceCompat).
-which is defined in the
-[media-compat support library](https://developer.android.com/topic/libraries/support-library/features.html#v4-media-compat).
-Throughout this page the term "MediaBrowserService" refers to an instance of
-of `MediaBrowserServiceCompat`.
-
-<br />
-
 ## Initialize the media session
 
-When the service receives the `onCreate()` lifecycle callback method it should perform these steps:
+When the service receives the `onCreate()` lifecycle callback method it should
+perform these steps:
 
 - Create and [initialize the media session](https://developer.android.com/guide/topics/media-apps/working-with-a-media-session#init-session)
 - Set the media session callback
 - Set the media session token
 
-The `onCreate()` code below demonstrates these steps:  
+The following `onCreate()` code demonstrates these steps:
 
 ### Kotlin
 
@@ -113,9 +105,9 @@ public class MediaPlaybackService extends MediaBrowserServiceCompat {
 ## Manage client connections
 
 A `MediaBrowserService` has two methods that handle client connections:
-[onGetRoot()](https://developer.android.com/reference/androidx/media/MediaBrowserServiceCompat#onGetRoot(java.lang.String, int, android.os.Bundle)) controls
+`https://developer.android.com/reference/androidx/media/MediaBrowserServiceCompat#onGetRoot(java.lang.String, int, android.os.Bundle)` controls
 access to the service, and
-[onLoadChildren()](https://developer.android.com/reference/androidx/media/MediaBrowserServiceCompat#onLoadChildren(java.lang.String, android.support.v4.media.MediaBrowserServiceCompat.Result<java.util.List<android.support.v4.media.MediaBrowserCompat.MediaItem>>))
+`https://developer.android.com/reference/androidx/media/MediaBrowserServiceCompat#onLoadChildren(java.lang.String, android.support.v4.media.MediaBrowserServiceCompat.Result<java.util.List<android.support.v4.media.MediaBrowserCompat.MediaItem>>)`
 provides the ability for a client to build and display a menu of the `MediaBrowserService`'s content hierarchy.
 
 ### Controlling client connections with `onGetRoot()`
@@ -124,14 +116,14 @@ The `onGetRoot()` method returns the root node of the content hierarchy. If the
 method returns null, the connection is refused.
 
 To allow clients to connect to your service and browse its media content,
-onGetRoot() must return a non-null BrowserRoot which is a root ID that
+`onGetRoot()` must return a non-null BrowserRoot which is a root ID that
 represents your content hierarchy.
 
-To allow clients to connect to your MediaSession without browsing, onGetRoot()
+To allow clients to connect to your MediaSession without browsing, `onGetRoot()`
 must still return a non-null BrowserRoot, but the root ID should represent an
 empty content hierarchy.
 
-A typical implementation of `onGetRoot()` might look like this:  
+A typical implementation of `onGetRoot()` might look like this:
 
 ### Kotlin
 
@@ -176,17 +168,19 @@ public BrowserRoot onGetRoot(String clientPackageName, int clientUid,
     }
 }
 ```
-| **Note:** The `onGetRoot()` method should quickly return a non-null value. User authentication and other slow processes should not run in `onGetRoot()`. Most business logic should be handled in the `onLoadChildren()` method, described in the next section.
 
-In some cases, you might want to control who can connect
-to your `MediaBrowserService`. One way is to use an access control list (ACL)
-that specifies which connections are allowed, or alternatively enumerates
-which connections should be forbidden. For an example of how to implement an ACL
-that allows specific connections, see the
-[PackageValidator](https://github.com/android/uamp/blob/890ad26978f30125578b2502037025d48d4304f6/common/src/main/java/com/example/android/uamp/media/PackageValidator.kt)
-class in the [Universal Android Music Player](https://github.com/android/uamp)
-sample app.
-| **Note:** If you build an ACL, consider collecting telemetry when a forbidden client attempts to connect to the `MediaBrowserService`. Such telemetry could indicate if an allowed client inadvertently becomes forbidden due to a bug in the ACL logic.
+> [!NOTE]
+> **Note:** The `onGetRoot()` method should quickly return a non-null value. User authentication and other slow processes shouldn't run in `onGetRoot()`. Most business logic should be handled in the `onLoadChildren()` method, described in the next section.
+
+In some cases, you might want to control who can connect to your
+`MediaBrowserService`. One way is to use an access control list (ACL) that
+specifies which connections are allowed, or alternatively enumerates which
+connections should be forbidden. For an example of how to implement an ACL that
+allows specific connections, see the [PackageValidator](https://github.com/android/uamp/blob/890ad26978f30125578b2502037025d48d4304f6/common/src/main/java/com/example/android/uamp/media/PackageValidator.kt) class in the
+[Universal Android Music Player](https://github.com/android/uamp) sample app.
+
+> [!NOTE]
+> **Note:** If you build an ACL, consider collecting telemetry when a forbidden client attempts to connect to the `MediaBrowserService`. Such telemetry could indicate if an allowed client inadvertently becomes forbidden due to a bug in the ACL logic.
 
 You should consider providing different content hierarchies depending on
 what type of client is making the query. In particular, Android Auto limits how
@@ -198,11 +192,18 @@ if any).
 
 ### Communicating content with `onLoadChildren()`
 
-After the client connects, it can traverse the content hierarchy by making repeated calls to `MediaBrowserCompat.subscribe()` to build a local representation of the UI. The `subscribe()` method sends the callback `onLoadChildren()` to the service, which returns a list of [MediaBrowser.MediaItem](https://developer.android.com/reference/android/media/browse/MediaBrowser.MediaItem) objects.
+After the client connects, it can traverse the content hierarchy by making
+repeated calls to `MediaBrowserCompat.subscribe()` to build a local
+representation of the UI. The `subscribe()` method sends the callback
+`onLoadChildren()` to the service, which returns a list of `https://developer.android.com/reference/android/media/browse/MediaBrowser.MediaItem`
+objects.
 
-Each MediaItem has a unique ID string, which is an opaque token. When a client wants to open a submenu or play an item, it passes the ID. Your service is responsible for associating the ID with the appropriate menu node or content item.
+Each MediaItem has a unique ID string, which is an opaque token. When a client
+wants to open a submenu or play an item, it passes the ID. Your service is
+responsible for associating the ID with the appropriate menu node or content
+item.
 
-A simple implementation of `onLoadChildren()` might look like this:  
+A simple implementation of `onLoadChildren()` might look like this:
 
 ### Kotlin
 
@@ -266,28 +267,43 @@ public void onLoadChildren(final String parentMediaId,
 
 **Note:** `MediaItem` objects delivered by the MediaBrowserService
 should not contain icon bitmaps. Use a `Uri` instead by calling
-[setIconUri()](https://developer.android.com/reference/android/media/MediaDescription.Builder#setIconUri(android.net.Uri))
-when you build the [MediaDescription](https://developer.android.com/reference/android/media/MediaDescription) for each item.
+`https://developer.android.com/reference/android/media/MediaDescription.Builder#setIconUri(android.net.Uri)`
+when you build the `https://developer.android.com/reference/android/media/MediaDescription` for each item.
 
 <br />
 
-For an example of how to implement `onLoadChildren()`, see the [Universal Android Music Player](https://github.com/android/uamp) sample app.
+For an example of how to implement `onLoadChildren()`, see the [Universal
+Android Music Player](https://github.com/android/uamp) sample app.
 
 ## The media browser service lifecycle
 
-The behavior of an Android [service](https://developer.android.com/guide/components/services.html) depends on whether it is *started* or *bound* to one or more clients. After a service is created, it can be started, bound, or both. In all of these states, it is fully functional and can perform the work it's designed to do. The difference is how long the service will exist. A bound service is not destroyed until all its bound clients unbind. A started service can be explicitly stopped and destroyed (assuming it is no longer bound to any clients).
+The behavior of an Android [service](https://developer.android.com/guide/components/services.html) depends on whether it is *started* or
+*bound* to one or more clients. After a service is created, it can be started,
+bound, or both. In all of these states, it is fully functional and can perform
+the work it's designed to do. The difference is how long the service will exist.
+A bound service is not destroyed until all its bound clients unbind. A started
+service can be explicitly stopped and destroyed (assuming it is no longer bound
+to any clients).
 
-When a `MediaBrowser` running in another activity connects to a `MediaBrowserService`, it binds the activity to the service, making the service bound (but not started). This default behavior is built into the `MediaBrowserServiceCompat` class.
+When a `MediaBrowser` running in another activity connects to a
+`MediaBrowserService`, it binds the activity to the service, making the service
+bound (but not started). This default behavior is built into the
+`MediaBrowserServiceCompat` class.
 
-A service that is only bound (and not started) is destroyed when all of its clients unbind. If your UI activity disconnects at this point, the service is destroyed. This isn't a problem if you haven't played any music yet. However, when playback starts, the user probably expects to continue listening even after switching apps. You don't want to destroy the player when you unbind the UI to work with another app.
+A service that is only bound (and not started) is destroyed when all of its
+clients unbind. If your UI activity disconnects at this point, the service is
+destroyed. This isn't a problem if you haven't played any music yet. However,
+when playback starts, the user probably expects to continue listening even after
+switching apps. You don't want to destroy the player when you unbind the UI to
+work with another app.
 
 For this reason, you need to be sure that the service is started when it begins
-to play by calling [startService()](https://developer.android.com/reference/android/content/Context#startService(android.content.Intent)). A
+to play by calling `https://developer.android.com/reference/android/content/Context#startService(android.content.Intent)`. A
 started service must be explicitly stopped, whether or not it's bound. This
 ensures that your player continues to perform even if the controlling UI
 activity unbinds.
 
-To stop a started service, call [Context.stopService()](https://developer.android.com/reference/android/content/Context#stopService(android.content.Intent)) or [stopSelf()](https://developer.android.com/reference/android/app/Service#stopSelf()). The system stops and destroys the service as soon as possible. However, if one or more clients are still bound to the service, the call to stop the service is delayed until all its clients unbind.
+To stop a started service, call `https://developer.android.com/reference/android/content/Context#stopService(android.content.Intent)` or `https://developer.android.com/reference/android/app/Service#stopSelf()`. The system stops and destroys the service as soon as possible. However, if one or more clients are still bound to the service, the call to stop the service is delayed until all its clients unbind.
 
 The lifecycle of the `MediaBrowserService` is controlled by the way it is created, the number of clients that are bound to it, and the calls it receives from media session callbacks. To summarize:
 
@@ -308,10 +324,10 @@ When a service runs in the foreground, it must display a [notification](https://
 Build and display the notification when the player starts playing. The best place to do this is inside the `MediaSessionCompat.Callback.onPlay()` method.
 
 The example below uses the
-[NotificationCompat.MediaStyle](https://developer.android.com/reference/androidx/media/app/NotificationCompat.MediaStyle),
+`https://developer.android.com/reference/androidx/media/app/NotificationCompat.MediaStyle`,
 which is designed for media apps. It shows how to build a notification that displays metadata and transport controls. The convenience method
-[getController()](https://developer.android.com/reference/android/support/v4/media/session/MediaSessionCompat#getController())
-allows you to create a media controller directly from your media session.  
+`https://developer.android.com/reference/android/support/v4/media/session/MediaSessionCompat#getController()`
+allows you to create a media controller directly from your media session.
 
 ### Kotlin
 
@@ -440,16 +456,49 @@ startForeground(id, builder.build());
 When using MediaStyle notifications, be aware of the behavior of these
 NotificationCompat settings:
 
-- When you use [setContentIntent()](https://developer.android.com/reference/android/app/Notification.Builder#setContentIntent(android.app.PendingIntent)), your service starts automatically when the notification is clicked, a handy feature.
-- In an "untrusted" situation like the lockscreen, the default visibility for notification contents is [VISIBILITY_PRIVATE](https://developer.android.com/reference/android/app/Notification#VISIBILITY_PRIVATE). You probably want to see the transport controls on the lockscreen, so [VISIBILITY_PUBLIC](https://developer.android.com/reference/android/app/Notification#VISIBILITY_PUBLIC) is the way to go.
+- When you use `https://developer.android.com/reference/android/app/Notification.Builder#setContentIntent(android.app.PendingIntent)`, your service starts automatically when the notification is clicked, a handy feature.
+- In an "untrusted" situation like the lockscreen, the default visibility for notification contents is `https://developer.android.com/reference/android/app/Notification#VISIBILITY_PRIVATE`. You probably want to see the transport controls on the lockscreen, so `https://developer.android.com/reference/android/app/Notification#VISIBILITY_PUBLIC` is the way to go.
 - Be careful when you set the background color. In an ordinary notification in Android version 5.0 or later, the color is applied only to the background of the small app icon. But for MediaStyle notifications prior to Android 7.0, the color is used for the entire notification background. Test your background color. Go gentle on the eyes and avoid extremely bright or fluorescent colors.
 
 These settings are available only when you are using NotificationCompat.MediaStyle:
 
-- Use [setMediaSession()](https://developer.android.com/reference/androidx/media/app/NotificationCompat.MediaStyle#setMediaSession(android.support.v4.media.session.MediaSessionCompat.Token)) to associate the notification with your session. This allows third-party apps and companion devices to access and control the session.
-- Use [setShowActionsInCompactView()](https://developer.android.com/reference/androidx/media/app/NotificationCompat.MediaStyle#setShowActionsInCompactView(int...)) to add up to 3 actions to be shown in the notification's standard-sized contentView. (Here the pause button is specified.)
-- In Android 5.0 (API level 21) and later you can swipe away a notification to stop the player once the service is no longer running in the foreground. You can't do this in earlier versions. To allow users to remove the notification and stop playback before Android 5.0 (API level 21), you can add a cancel button in the upper-right corner of the notification by calling [setShowCancelButton(true)](https://developer.android.com/reference/androidx/media/app/NotificationCompat.MediaStyle#setShowCancelButton(boolean)) and [setCancelButtonIntent()](https://developer.android.com/reference/androidx/media/app/NotificationCompat.MediaStyle#setCancelButtonIntent(android.app.PendingIntent)).
+- Use `https://developer.android.com/reference/androidx/media/app/NotificationCompat.MediaStyle#setMediaSession(android.support.v4.media.session.MediaSessionCompat.Token)` to associate the notification with your session. This allows third-party apps and companion devices to access and control the session.
+- Use `https://developer.android.com/reference/androidx/media/app/NotificationCompat.MediaStyle#setShowActionsInCompactView(int...)` to add up to 3 actions to be shown in the notification's standard-sized contentView. (Here the pause button is specified.)
+- In Android 5.0 (API level 21) and later you can swipe away a notification to stop the player once the service is no longer running in the foreground. You can't do this in earlier versions. To allow users to remove the notification and stop playback before Android 5.0 (API level 21), you can add a cancel button in the upper-right corner of the notification by calling `https://developer.android.com/reference/androidx/media/app/NotificationCompat.MediaStyle#setShowCancelButton(boolean)` and `https://developer.android.com/reference/androidx/media/app/NotificationCompat.MediaStyle#setCancelButtonIntent(android.app.PendingIntent)`.
 
 When you add the pause and cancel buttons, you'll need a PendingIntent to attach
-to the playback action. The method [MediaButtonReceiver.buildMediaButtonPendingIntent()](https://developer.android.com/reference/androidx/media/session/MediaButtonReceiver#buildMediaButtonPendingIntent(android.content.Context, long)) does the job of converting
+to the playback action. The method `https://developer.android.com/reference/androidx/media/session/MediaButtonReceiver#buildMediaButtonPendingIntent(android.content.Context, long)` does the job of converting
 a PlaybackState action into a PendingIntent.
+
+## Enable AVRCP media browsing
+
+In addition to custom apps like Android Auto, the system's Bluetooth layer also
+acts as a client to your `MediaBrowserService` to facilitate wireless remote
+catalog browsing (AVRCP).
+
+On Android 16 and Android 17, the platform requires that apps not using Media3
+expose a specific activity with an intent filter to be validated for browsing.
+
+Add this specific intent filter to an exported activity in your
+`AndroidManifest.xml`. Note that `CATEGORY_DEFAULT` is intentionally omitted to
+prevent your app from appearing in generic "Open with" menus for local audio
+files:
+
+    <activity
+        android:name=".BluetoothValidationActivity"
+        android:exported="true"
+        android:theme="@android:style/Theme.NoDisplay"
+        android:excludeFromRecents="true"
+        android:noHistory="true">
+      <intent-filter>
+        <action android:name="android.intent.action.VIEW" />
+        <data android:scheme="content" />
+        <data android:host="media" />
+        <!-- Specific path check used by Bluetooth stack for validation -->
+        <data android:pathPrefix="/internal/audio/media/" />
+        <data android:mimeType="audio/*" />
+      </intent-filter>
+    </activity>
+
+> [!NOTE]
+> **Note:** If you are using Media3, the library handles this validation automatically starting with version 1.11.0, and you don't need to add this manually.

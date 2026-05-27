@@ -390,7 +390,7 @@ There are three levels available in Do Not Disturb mode:
 ![](https://developer.android.com/static/images/ui/notifications/do-not-disturb-filter-settings_2x.png)
 
 
-**Figure 13.**Users can can allow notifications through based on
+**Figure 13.**Users can allow notifications through based on
 system-wide categories (left) and sender or caller (right).
 
 <br />

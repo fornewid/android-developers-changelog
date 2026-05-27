@@ -25,6 +25,8 @@ Android
 
   - [#Android XR](https://developer.android.com/blog/topics/android-xr)
   - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
+  - [#Game engine development](https://developer.android.com/blog/topics/game-engine-development)
+  - +1 ↩
 - 23 Oct 2025 23 Oct 2025 ![](https://developer.android.com/static/blog/assets/xr_Week5_985628de53_229QRh.webp)
 
   #### [Product News](https://developer.android.com/blog/categories/product-news)
