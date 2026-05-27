@@ -1,0 +1,12 @@
+diff --git a/docs/studio/write/tool-attributes.md b/docs/studio/write/tool-attributes.md
+index a29c0464..ddfdd2b1 100644
+--- a/docs/studio/write/tool-attributes.md
++++ b/docs/studio/write/tool-attributes.md
+@@ -212,4 +212,4 @@ For more information, see
+ 
+ ### Views content
+ 
+-- [Tools attributes reference (Views)](https://developer.android.com/studio/write/views/tool-attributes-views)
+\ No newline at end of file
++- [Tools attributes reference (Views)](https://developer.android.com/studio/views/tool-attributes-views)
+\ No newline at end of file

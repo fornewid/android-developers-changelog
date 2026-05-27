@@ -1,0 +1,14 @@
+diff --git a/docs/blog/posts/use-r8-to-shrink-optimize-and-fast-track-your-app.md b/docs/blog/posts/use-r8-to-shrink-optimize-and-fast-track-your-app.md
+index 0913634f..32c8ce28 100644
+--- a/docs/blog/posts/use-r8-to-shrink-optimize-and-fast-track-your-app.md
++++ b/docs/blog/posts/use-r8-to-shrink-optimize-and-fast-track-your-app.md
+@@ -177,6 +177,9 @@ Use the social tag #AskAndroid to bring any performance questions. Throughout th
+   ###### 1 min read
+ 
+   - [#Android XR](https://developer.android.com/blog/topics/android-xr)
++  - [#intelligent eyewear](https://developer.android.com/blog/topics/intelligent-eyewear)
++  - [#Wired XR glasses](https://developer.android.com/blog/topics/wired-xr-glasses)
++  - +1 ↩
+ - 14 Apr 2026 14 Apr 2026 ![](https://developer.android.com/static/blog/assets/Blog_banner_Dark_2000x1000_B_c6418d3a5c_ZbdvH4.webp)
+ 
+   #### [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs)

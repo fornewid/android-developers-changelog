@@ -1,0 +1,13 @@
+diff --git a/docs/develop/ui/compose/architecture.md b/docs/develop/ui/compose/architecture.md
+index 11357a4d..4069ea08 100644
+--- a/docs/develop/ui/compose/architecture.md
++++ b/docs/develop/ui/compose/architecture.md
+@@ -60,7 +60,7 @@ callback---an event that requests the value to be changed to a new one. Compose
+ defines the `State` object as a value holder, and changes to the state value
+ trigger a recomposition. You can hold the state in a
+ `remember { mutableStateOf(value) }` or a
+-`rememberSaveable { mutableStateOf(value)` depending on how long you need to
++`rememberSaveable { mutableStateOf(value) }` depending on how long you need to
+ remember the value for.
+ 
+ The type of the `TextField` composable's value is `String`, so this can come

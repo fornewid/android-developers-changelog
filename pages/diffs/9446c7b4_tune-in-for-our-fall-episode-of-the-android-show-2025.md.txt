@@ -1,0 +1,14 @@
+diff --git a/docs/blog/posts/tune-in-for-our-fall-episode-of-the-android-show-2025.md b/docs/blog/posts/tune-in-for-our-fall-episode-of-the-android-show-2025.md
+index aa63c14d..4a1d13f2 100644
+--- a/docs/blog/posts/tune-in-for-our-fall-episode-of-the-android-show-2025.md
++++ b/docs/blog/posts/tune-in-for-our-fall-episode-of-the-android-show-2025.md
+@@ -32,6 +32,9 @@ The Android Show is your conversation with the Android developer community, and
+   ###### 1 min read
+ 
+   - [#Android XR](https://developer.android.com/blog/topics/android-xr)
++  - [#intelligent eyewear](https://developer.android.com/blog/topics/intelligent-eyewear)
++  - [#Wired XR glasses](https://developer.android.com/blog/topics/wired-xr-glasses)
++  - +1 ↩
+ - 14 Apr 2026 14 Apr 2026 ![](https://developer.android.com/static/blog/assets/Blog_banner_Dark_2000x1000_B_c6418d3a5c_ZbdvH4.webp)
+ 
+   #### [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs)

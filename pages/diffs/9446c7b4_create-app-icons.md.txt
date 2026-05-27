@@ -1,0 +1,12 @@
+diff --git a/docs/studio/write/create-app-icons.md b/docs/studio/write/create-app-icons.md
+index 3e86cbd2..6af62b04 100644
+--- a/docs/studio/write/create-app-icons.md
++++ b/docs/studio/write/create-app-icons.md
+@@ -197,4 +197,4 @@ To remove an icon from a project:
+ 
+ ## Additional resources
+ 
+-- [Create app icons (Views)](https://developer.android.com/studio/write/views/create-app-icons-views)
+\ No newline at end of file
++- [Create app icons (Views)](https://developer.android.com/studio/views/create-app-icons-views)
+\ No newline at end of file

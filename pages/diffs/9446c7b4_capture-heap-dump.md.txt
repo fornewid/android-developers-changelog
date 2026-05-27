@@ -1,0 +1,12 @@
+diff --git a/docs/studio/profile/capture-heap-dump.md b/docs/studio/profile/capture-heap-dump.md
+index 668cf420..aee79bbd 100644
+--- a/docs/studio/profile/capture-heap-dump.md
++++ b/docs/studio/profile/capture-heap-dump.md
+@@ -174,4 +174,4 @@ example:
+ 
+ ## Additional resources
+ 
+-- [Capture a heap dump (Views)](https://developer.android.com/studio/profile/views/capture-heap-dump-views)
+\ No newline at end of file
++- [Capture a heap dump (Views)](https://developer.android.com/studio/views/capture-heap-dump-views)
+\ No newline at end of file

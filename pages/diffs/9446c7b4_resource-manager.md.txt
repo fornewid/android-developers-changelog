@@ -1,0 +1,12 @@
+diff --git a/docs/studio/write/resource-manager.md b/docs/studio/write/resource-manager.md
+index a3782214..c012844c 100644
+--- a/docs/studio/write/resource-manager.md
++++ b/docs/studio/write/resource-manager.md
+@@ -161,4 +161,4 @@ the documentation on [Resources in Compose](https://developer.android.com/develo
+ 
+ ### Views content
+ 
+-- [Manage your app's UI resources with Resource Manager (Views)](https://developer.android.com/studio/write/views/resource-manager-views)
+\ No newline at end of file
++- [Manage your app's UI resources with Resource Manager (Views)](https://developer.android.com/studio/views/resource-manager-views)
+\ No newline at end of file

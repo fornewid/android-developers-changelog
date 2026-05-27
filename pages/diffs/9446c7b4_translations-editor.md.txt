@@ -1,0 +1,12 @@
+diff --git a/docs/studio/write/translations-editor.md b/docs/studio/write/translations-editor.md
+index fc934cb4..4a8763ef 100644
+--- a/docs/studio/write/translations-editor.md
++++ b/docs/studio/write/translations-editor.md
+@@ -329,4 +329,4 @@ For information about how to use pseudolocales, see
+ 
+ ### Views content
+ 
+-- [Localize the UI with Translations Editor (Views)](https://developer.android.com/studio/write/views/translations-editor-views)
+\ No newline at end of file
++- [Localize the UI with Translations Editor (Views)](https://developer.android.com/studio/views/translations-editor-views)
+\ No newline at end of file
