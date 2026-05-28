@@ -1,0 +1,27 @@
+diff --git a/docs/training/wearables/views/confirm.md b/docs/training/wearables/views/confirm.md
+index 2af893ca..1ebc3824 100644
+--- a/docs/training/wearables/views/confirm.md
++++ b/docs/training/wearables/views/confirm.md
+@@ -47,14 +47,14 @@ To use `ConfirmationActivity` in your app, first declare this activity in your
+ manifest file, as shown in the following example:
+ 
+ ```xml
+-<manifest><
+-  application>
+-    ..<.
+-    activity
+-        android:name="androidx.wear.activity.ConfirmationActi<vity"><;
+-    /activit<y>
+-  /application>
+-/manifest>
++<manifest>
++  <application>
++    ...
++    <activity
++        android:name="androidx.wear.activity.ConfirmationActivity">
++    </activity>
++  </application>
++</manifest>
+ ```
+ 
+ Determine the result of the user action, start the activity with an intent, and
