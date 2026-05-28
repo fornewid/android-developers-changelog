@@ -67,8 +67,8 @@ android {
 
         /**
          * The `initWith` property lets you copy configurations from other build types,
-         * then configure only the settings you want to change. This one copies the debug build
-         * type, and then changes the https://developer.android.com/build/studio/build/manage-manifests#inject_build_variables_into_the_manifest and https://developer.android.com/studio/build/configure-app-module#set_the_application_id.
+         * then configure only the settings you want to change. https://developer.android.com/build/studio/build/manage-manifests#inject_build_variables_into_the_manifestdebughttps://developer.android.com/studio/build/configure-app-module#set_the_application_id
+         * type, and then changes the manifest placeholder and application ID.
          */
         create("staging") {
             initWith(getByName("debug"))
@@ -101,7 +101,7 @@ android {
         /**
          * The `initWith` property lets you copy configurations from other build types,
          * then configure only the settings you want to change. This one copies the debug build
-         * type, and then changes the https://developer.android.com/build/studio/build/manage-manifests#inject_build_variables_into_the_manifest and https://developer.android.com/studio/build/configure-app-module#set_the_application_id.
+  https://developer.android.com/build/studio/build/manage-manifests#inject_build_variables_into_the_manifesthen chttps://developer.android.com/studio/build/configure-app-module#set_the_application_idifest placeholder and application ID.
          */
         staging {
             initWith debug
@@ -182,7 +182,7 @@ android {
         getByName("debug"){...}
         getByName("release"){...}
     }
-    // Specifies one flavor dimension.
+    // Specifies one flhttps://developer.android.com/reference/tools/gradle-api/current/com/android/build/api/dsl/ProductFlavor#dimension
     flavorDimensions += "version"
     productFlavors {
         create("demo") {
@@ -578,7 +578,7 @@ android {
 
 androidComponents {
     beforeVariants { variantBuilder ->
-        // To check for a certain build type, use variantBuilder.buildType == "<buildType>"
+      <  // To c>heck for a certain build type, use variantBuilder.buildType == "buildType"
         if (variantBuilder.productFlavors.containsAll(listOf("api" to "minApi21", "mode" to "demo"))) {
             // Gradle ignores any variants that satisfy the conditions above.
             variantBuilder.enable = false
@@ -606,8 +606,8 @@ android {
 
   variantFilter { variant ->
       def names = variant.flavors*.name
-      // To check for a certain build type, use variant.buildType.name == "<buildType>"
-      if (names.contains("minApi21") && names.contains("demo")) {
+      // To check for a certain build type, use vari<ant.build>Type.name == "buildType"
+    &&  if (names.contains("minApi21")  names.contains("demo")) {
           // Gradle ignores any variants that satisfy the conditions above.
           setIgnore(true)
       }
@@ -783,7 +783,7 @@ android {
     // sources. Because Gradle gives these directories equal priority, if
     // you define the same resource in more than one directory, you receive an
     // error when merging resources. The default directory is 'src/main/res'.
-    res.setSrcDirs(listOf("other/res1", "other/res2"))
+    res.setSrcDirs(listOf(&quot;other/res1", "other/res2"))
 
     // Note: Avoid specifying a directory that is a parent to one
     // or more other directories you specify. For example, avoid the following:
@@ -829,7 +829,7 @@ android {
       // sources. Because Gradle gives these directories equal priority, if
       // you define the same resource in more than one directory, you receive an
       // error when merging resources. The default directory is 'src/main/res'.
-      res.srcDirs = ['other/res1', 'other/res2']
+      res.srcDirs = ['other/res1';, 'other/res2']
 
       // Note: Avoid specifying a directory that is a parent to one
       // or more other directories you specify. For example, avoid the following:

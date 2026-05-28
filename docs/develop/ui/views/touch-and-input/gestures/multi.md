@@ -4,10 +4,7 @@ url: https://developer.android.com/develop/ui/views/touch-and-input/gestures/mul
 source: md.txt
 ---
 
-Try the Compose way  
-Jetpack Compose is the recommended UI toolkit for Android. Learn how to use touch and input in Compose.  
-[Multi-touch gestures →](https://developer.android.com/develop/ui/compose/touch-input/pointer-input/multi-touch)  
-![](https://developer.android.com/static/images/android-compose-ui-logo.png)
+Try the Compose way Jetpack Compose is the recommended UI toolkit for Android. Learn how to use touch and input in Compose. [Multi-touch gestures →](https://developer.android.com/develop/ui/compose/touch-input/pointer-input/multi-touch) ![](https://developer.android.com/static/images/android-compose-ui-logo.png)
 
 A multi-touch gesture is when multiple pointers (fingers) tap the screen at
 the same time. This document describes how to detect gestures that involve
@@ -18,12 +15,12 @@ multiple pointers.
 When multiple pointers tap the screen at the same time, the system generates
 the following touch events:
 
-- [ACTION_DOWN](https://developer.android.com/reference/android/view/MotionEvent#ACTION_DOWN): sent when the first pointer taps the screen. This starts the gesture. The pointer data for this pointer is always at index `0` in the [MotionEvent](https://developer.android.com/reference/android/view/MotionEvent).
-- [ACTION_POINTER_DOWN](https://developer.android.com/reference/android/view/MotionEvent#ACTION_POINTER_DOWN): sent when extra pointers enter the screen after the first. You can obtain the index of the pointer that just went down using [getActionIndex()](https://developer.android.com/reference/android/view/MotionEvent#getActionIndex()).
-- [ACTION_MOVE](https://developer.android.com/reference/android/view/MotionEvent#ACTION_MOVE): sent when a change occurs in a gesture, involving any number of pointers.
-- [ACTION_POINTER_UP](https://developer.android.com/reference/android/view/MotionEvent#ACTION_POINTER_UP): sent when a non-primary pointer goes up. You can obtain the index of the pointer that just went up using `getActionIndex()`.
-- [ACTION_UP](https://developer.android.com/reference/android/view/MotionEvent#ACTION_UP): sent when the last pointer leaves the screen.
-- [ACTION_CANCEL](https://developer.android.com/reference/android/view/MotionEvent#ACTION_CANCEL): indicates that the entire gesture, including all pointers, is canceled.
+- `https://developer.android.com/reference/android/view/MotionEvent#ACTION_DOWN`: sent when the first pointer taps the screen. This starts the gesture. The pointer data for this pointer is always at index `0` in the `https://developer.android.com/reference/android/view/MotionEvent`.
+- `https://developer.android.com/reference/android/view/MotionEvent#ACTION_POINTER_DOWN`: sent when extra pointers enter the screen after the first. You can obtain the index of the pointer that just went down using `https://developer.android.com/reference/android/view/MotionEvent#getActionIndex()`.
+- `https://developer.android.com/reference/android/view/MotionEvent#ACTION_MOVE`: sent when a change occurs in a gesture, involving any number of pointers.
+- `https://developer.android.com/reference/android/view/MotionEvent#ACTION_POINTER_UP`: sent when a non-primary pointer goes up. You can obtain the index of the pointer that just went up using `getActionIndex()`.
+- `https://developer.android.com/reference/android/view/MotionEvent#ACTION_UP`: sent when the last pointer leaves the screen.
+- `https://developer.android.com/reference/android/view/MotionEvent#ACTION_CANCEL`: indicates that the entire gesture, including all pointers, is canceled.
 
 ### Start and end gestures
 
@@ -46,12 +43,12 @@ Individual pointers appear within a motion event in an undefined order. Thus,
 the index of a pointer can change from one event to the next, but the pointer ID
 of a pointer is guaranteed to remain constant as long as the pointer remains
 active. Use the
-[getPointerId()](https://developer.android.com/reference/android/view/MotionEvent#getPointerId(int))
+`https://developer.android.com/reference/android/view/MotionEvent#getPointerId(int)`
 method to obtain a pointer's ID to track the pointer across all subsequent
 motion events in a gesture. Then, for successive motion events, use the
-[findPointerIndex()](https://developer.android.com/reference/android/view/MotionEvent#findPointerIndex(int))
+`https://developer.android.com/reference/android/view/MotionEvent#findPointerIndex(int)`
 method to obtain the pointer index for a given pointer ID in that motion event.
-For example:  
+For example:
 
 ### Kotlin
 
@@ -104,9 +101,9 @@ their `ACTION_POINTER_UP` and `ACTION_UP`events. You might
 find these cached IDs helpful to handle other action events correctly. For
 example, when processing an `ACTION_MOVE` event, find the index for
 each cached active pointer ID, retrieve the pointer's coordinates using the
-[getX()](https://developer.android.com/reference/android/view/MotionEvent#getX(int))
+`https://developer.android.com/reference/android/view/MotionEvent#getX(int)`
 and
-[getY()](https://developer.android.com/reference/android/view/MotionEvent#getY(int))
+`https://developer.android.com/reference/android/view/MotionEvent#getY(int)`
 functions, then compare these coordinates with your cached coordinates to
 discover which pointers moved.
 
@@ -118,17 +115,19 @@ always returns `0`.
 ## Retrieve `MotionEvent` actions
 
 Use the
-[getActionMasked()](https://developer.android.com/reference/android/view/MotionEvent#getActionMasked())
+`https://developer.android.com/reference/android/view/MotionEvent#getActionMasked()`
 method or the compatibility version
-[MotionEventCompat.getActionMasked()](https://developer.android.com/reference/androidx/core/view/MotionEventCompat#getActionMasked(android.view.MotionEvent))
+`https://developer.android.com/reference/androidx/core/view/MotionEventCompat#getActionMasked(android.view.MotionEvent)`
 to retrieve the action of a `MotionEvent`. Unlike the earlier
-[getAction()](https://developer.android.com/reference/android/view/MotionEvent#getAction())
+`https://developer.android.com/reference/android/view/MotionEvent#getAction()`
 method, `getActionMasked()` is designed to work with multiple
 pointers. It returns the action without the pointer indices. For actions with a
 valid pointer index, use `getActionIndex()` to return the index of
 the pointers associated with the action as shown in the following snippet:
-| **Note:** This example uses the [MotionEventCompat](https://developer.android.com/reference/androidx/core/view/MotionEventCompat) class, a class in the [Support
-Library](https://developer.android.com/tools/support-library). Use `MotionEventCompat` to provide the best support for a wide range of platforms. `MotionEventCompat` is *not* a replacement for the `MotionEvent` class. Rather, it provides static utility methods to which you pass your `MotionEvent` object to receive the desired action associated with that event.  
+
+> [!NOTE]
+> **Note:** This example uses the `https://developer.android.com/reference/androidx/core/view/MotionEventCompat` class, a class in the [Support
+> Library](https://developer.android.com/tools/support-library). Use `MotionEventCompat` to provide the best support for a wide range of platforms. `MotionEventCompat` is *not* a replacement for the `MotionEvent` class. Rather, it provides static utility methods to which you pass your `MotionEvent` object to receive the desired action associated with that event.
 
 ### Kotlin
 

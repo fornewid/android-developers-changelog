@@ -63,13 +63,15 @@ Here are some examples of data that we *don't* collect:
 - We don't collect responses of the CLI when a command is run.
 - We don't collect user-created inputs or external identifiers passed to the CLI, such as specific Maven coordinates, local file paths, or custom project names. For example, if the command `android create --name=com.company.internal.app` is executed, we record that `android create` was executed using the `--name` argument but we don't store the value `com.company.internal.app`.
 
+## Feedback and issues
+
+If you encounter any issues or want to provide feedback,
+[report a bug](https://issuetracker.google.com/issues/new?component=2091212).
+
 ## Known issues
 
 - The `android emulator` command for Windows is currently disabled.
 - Downloading Android CLI from Windows PowerShell isn't currently supported.
-
-If you encounter any issues or wish to provide feedback, please
-[report a bug](https://issuetracker.google.com/issues/new?component=2091212).
 
 ## Configure Android CLI
 

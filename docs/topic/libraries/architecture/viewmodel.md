@@ -31,16 +31,22 @@ guidance.
 The alternative to a ViewModel is a plain class that holds the data you display
 in your UI. This can become a problem when navigating between activities or
 Navigation destinations. Doing so destroys that data if you don't store it
-using the [saving instance state mechanism](https://developer.android.com/topic/libraries/architecture/saving-states#onsaveinstancestate). ViewModel provides a convenient
+using the [saved instance state mechanism](https://developer.android.com/topic/libraries/architecture/saving-states#onsaveinstancestate). ViewModel provides a convenient
 API for data persistence that resolves this issue.
+
+Alternatively, for pure state holders, Compose offers `retain` capabilities that
+allow plain classes to survive configuration changes without the full
+infrastructure of a ViewModel. While both mechanisms help with state retention,
+it is generally safer to provide a ViewModel to a retained instance rather than
+the other way around, as their lifecycles and cleanup behaviors differ.
 
 The key benefits of the ViewModel class are essentially two:
 
-- It allows you to persist UI state.
+- It lets you persist UI state.
 - It provides access to business logic.
 
 > [!NOTE]
-> **Note:** ViewModel fully supports integration with key Jetpack libraries such as [Hilt](https://developer.android.com/training/dependency-injection/hilt-android) and [Navigation](https://developer.android.com/guide/navigation), as well as [Compose](https://developer.android.com/jetpack/compose).
+> **Note:** ViewModel fully supports integration with [Jetpack Compose](https://developer.android.com/compose) and other key Jetpack libraries such as [Hilt](https://developer.android.com/training/dependency-injection/hilt-android) and [Navigation](https://developer.android.com/guide/navigation).
 
 ### Persistence
 
@@ -53,28 +59,38 @@ rotation.
 
 When you instantiate a ViewModel, you pass it an object that implements the
 [`ViewModelStoreOwner`](https://developer.android.com/reference/kotlin/androidx/lifecycle/ViewModelStoreOwner) interface. This may be a Navigation destination,
-Navigation graph, activity, fragment, or any other type that implements the
-interface. Your ViewModel is then scoped to the [Lifecycle](https://developer.android.com/reference/androidx/lifecycle/Lifecycle) of the
+Navigation graph, activity, or any other type that implements the
+interface. You also can scope a ViewModel directly to a composable using
+the [`rememberViewModelStoreOwner`](https://developer.android.com/reference/kotlin/androidx/lifecycle/viewmodel/compose/rememberViewModelStoreOwner.composable) API.
+Your ViewModel is then scoped to the [Lifecycle](https://developer.android.com/reference/androidx/lifecycle/Lifecycle) of the
 `ViewModelStoreOwner`. It remains in memory until its `ViewModelStoreOwner`
-goes away permanently.
+goes away permanently (like when the composable owner exits the Composition).
 
 A range of classes are either direct or indirect subclasses of the
 `ViewModelStoreOwner` interface. The direct subclasses are
-[`ComponentActivity`](https://developer.android.com/reference/androidx/activity/ComponentActivity), [`Fragment`](https://developer.android.com/reference/androidx/fragment/app/Fragment), and [`NavBackStackEntry`](https://developer.android.com/reference/androidx/navigation/NavBackStackEntry).
+[`ComponentActivity`](https://developer.android.com/reference/androidx/activity/ComponentActivity) and [`NavBackStackEntry`](https://developer.android.com/reference/androidx/navigation/NavBackStackEntry).
 For a full list of indirect subclasses, see the
-[`ViewModelStoreOwner` reference](https://developer.android.com/reference/kotlin/androidx/lifecycle/ViewModelStoreOwner).
+[`ViewModelStoreOwner` reference](https://developer.android.com/reference/kotlin/androidx/lifecycle/ViewModelStoreOwner). To scope ViewModels to individual items
+in a `LazyList` or `Pager`, use `rememberViewModelStoreProvider()` to hoist
+the owner management to the parent.
 
-When the fragment or activity to which the ViewModel is scoped is destroyed,
-asynchronous work continues in the ViewModel that is scoped to it. This is the
-key to persistence.
+When the host activity undergoes a configuration change,
+asynchronous work continues
+in the ViewModel, whether it is scoped to the activity or to specific
+composable. This is the key to persistence.
 
-For more information, see the section below on [ViewModel lifecycle](https://developer.android.com/topic/libraries/architecture/viewmodel#lifecycle).
+For more information, see the [ViewModel lifecycle](https://developer.android.com/topic/libraries/architecture/viewmodel#lifecycle) section that follows,
+[ViewModel Scoping APIs](https://developer.android.com/topic/libraries/architecture/viewmodel/viewmodel-apis#vm-api-composable),
+and the guide on [state hoisting](https://developer.android.com/jetpack/compose/state-hoisting#viewmodels-as-state-owner) for Jetpack Compose.
 
 #### SavedStateHandle
 
-[SavedStateHandle](https://developer.android.com/topic/libraries/architecture/viewmodel/viewmodel-savedstate) allows you to persist data not just through configuration
-changes, but across process recreation. That is, it enables you to keep the UI
+[SavedStateHandle](https://developer.android.com/topic/libraries/architecture/viewmodel/viewmodel-savedstate) lets you persist data not just through configuration
+changes, but across process death. That is, it lets you keep the UI
 state intact even when the user closes the app and opens it at a later time.
+
+For more information about saving UI state,
+see [Save UI state in Compose](https://developer.android.com/develop/ui/compose/state-saving).
 
 ### Access to business logic
 
@@ -88,38 +104,13 @@ ViewModel is also in charge of handling events and delegating them to other
 layers of the hierarchy when business logic needs to be applied to modify
 application data.
 
-## Jetpack Compose
-
-When using Jetpack Compose, ViewModel is the primary means of exposing screen UI
-state to your composables. In a hybrid app, activities and fragments simply host
-your composable functions. This is a shift from past approaches, where it wasn't
-that simple and intuitive to create reusable pieces of UI with activities and
-fragments, which caused them to be much more active as UI controllers.
-
-The most important thing to keep in mind when using ViewModel with Compose is
-that you cannot scope a ViewModel to a composable. This is because a composable
-is not a `ViewModelStoreOwner`. Two instances of the same composable in the
-Composition, or two different composables accessing the same ViewModel type
-under the same `ViewModelStoreOwner` would receive the *same* instance of the
-ViewModel, which often is not the expected behavior.
-
-To get the [benefits](https://developer.android.com/topic/libraries/architecture/viewmodel#viewmodel-benefits) of ViewModel in Compose, host each screen in a Fragment
-or Activity, or use Compose Navigation and use ViewModels in composable
-functions as close as possible to the Navigation destination. That is because
-you can scope a ViewModel to Navigation destinations, Navigation graphs,
-Activities, and Fragments.
-
-For more information, see the guide on [state hoisting](https://developer.android.com/jetpack/compose/state-hoisting#viewmodels-as-state-owner) for Jetpack Compose.
-
 ## Implement a ViewModel
 
 The following is an example implementation of a ViewModel for a screen that
 allows the user to roll dice.
 
 > [!IMPORTANT]
-> **Important:** In this example, the responsibility of acquiring and holding the list of users sits with the ViewModel, not an Activity or Fragment directly.
-
-### Kotlin
+> **Important:** In this example, the responsibility of acquiring and holding the list of users sits with the ViewModel, not an Activity directly.
 
     data class DiceUiState(
         val firstDieValue: Int? = null,
@@ -145,77 +136,7 @@ allows the user to roll dice.
         }
     }
 
-### Java
-
-    public class DiceUiState {
-        private final Integer firstDieValue;
-        private final Integer secondDieValue;
-        private final int numberOfRolls;
-
-        // ...
-    }
-
-    public class DiceRollViewModel extends ViewModel {
-
-        private final MutableLiveData<DiceUiState> uiState =
-            new MutableLiveData(new DiceUiState(null, null, 0));
-        public LiveData<DiceUiState> getUiState() {
-            return uiState;
-        }
-
-        public void rollDice() {
-            Random random = new Random();
-            uiState.setValue(
-                new DiceUiState(
-                    random.nextInt(7) + 1,
-                    random.nextInt(7) + 1,
-                    uiState.getValue().getNumberOfRolls() + 1
-                )
-            );
-        }
-    }
-
-You can then access the ViewModel from an activity as follows:
-
-### Kotlin
-
-    import androidx.activity.viewModels
-
-    class DiceRollActivity : AppCompatActivity() {
-
-        override fun onCreate(savedInstanceState: Bundle?) {
-            // Create a ViewModel the first time the system calls an activity's onCreate() method.
-            // Re-created activities receive the same DiceRollViewModel instance created by the first activity.
-
-            // Use the 'by viewModels()' Kotlin property delegate
-            // from the activity-ktx artifact
-            val viewModel: DiceRollViewModel by viewModels()
-            lifecycleScope.launch {
-                repeatOnLifecycle(Lifecycle.State.STARTED) {
-                    viewModel.uiState.collect {
-                        // Update UI elements
-                    }
-                }
-            }
-        }
-    }
-
-### Java
-
-    public class MyActivity extends AppCompatActivity {
-        public void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-
-            // Create a ViewModel the first time the system calls an activity's onCreate() method.
-            // Re-created activities receive the same MyViewModel instance created by the first activity.
-            DiceRollViewModel model = new ViewModelProvider(this).get(DiceRollViewModel.class);
-            model.getUiState().observe(this, uiState -> {
-                // update UI
-            });
-        }
-    }
-
-### Jetpack Compose
+You can then access the ViewModel from a screen-level composable as follows:
 
     import androidx.lifecycle.viewmodel.compose.viewModel
 
@@ -227,12 +148,6 @@ You can then access the ViewModel from an activity as follows:
         val uiState by viewModel.uiState.collectAsStateWithLifecycle()
         // Update UI elements
     }
-
-> [!CAUTION]
-> **Caution:** A [`ViewModel`](https://developer.android.com/reference/androidx/lifecycle/ViewModel) usually shouldn't reference a view, [`Lifecycle`](https://developer.android.com/reference/androidx/lifecycle/Lifecycle), or any class that may hold a reference to the activity context. Because the ViewModel lifecycle is larger than the UI's, holding a lifecycle-related API in the ViewModel could cause memory leaks.
-
-> [!NOTE]
-> **Note:** To import [`ViewModel`](https://developer.android.com/reference/androidx/lifecycle/ViewModel) into your Android project, see the instructions for declaring dependencies in the [Lifecycle release notes](https://developer.android.com/jetpack/androidx/releases/lifecycle#declaring_dependencies).
 
 ### Use coroutines with ViewModel
 
@@ -249,8 +164,8 @@ remains in memory until the [`ViewModelStoreOwner`](https://developer.android.co
 disappears. This may occur in the following contexts:
 
 - In the case of an activity, when it finishes.
-- In the case of a fragment, when it detaches.
 - In the case of a Navigation entry, when it's removed from the back stack.
+- In the case of a composable, when it exits the Composition. You can use `rememberViewModelStoreOwner` to scope a ViewModel directly to an arbitrary part of your UI (like a `Pager` or `LazyList`).
 
 This makes ViewModels a great solution for storing data that survives
 configuration changes.
@@ -258,10 +173,8 @@ configuration changes.
 Figure 1 illustrates the various lifecycle states of an activity as it undergoes
 a rotation and then is finished. The illustration also shows the lifetime of the
 [`ViewModel`](https://developer.android.com/reference/androidx/lifecycle/ViewModel) next to the associated activity lifecycle. This particular
-diagram illustrates the states of an activity. The same basic states apply to
-the lifecycle of a fragment.
-
-![Illustrates the lifecycle of a ViewModel as an activity changes state.](https://developer.android.com/static/images/topic/libraries/architecture/viewmodel-lifecycle.png)
+diagram illustrates the states of an activity.
+![Illustrates the lifecycle of a ViewModel as an activity changes state.](https://developer.android.com/static/images/topic/libraries/architecture/viewmodel-lifecycle.png) **Figure 1.** Lifecycle states of an activity and a ViewModel.
 
 You usually request a [`ViewModel`](https://developer.android.com/reference/androidx/lifecycle/ViewModel) the first time the system calls an
 activity object's [`onCreate()`](https://developer.android.com/reference/android/app/Activity#onCreate(android.os.Bundle)) method. The system may call
@@ -273,7 +186,7 @@ first request a [`ViewModel`](https://developer.android.com/reference/androidx/l
 
 The ViewModel calls the [`onCleared`](https://developer.android.com/reference/androidx/lifecycle/ViewModel#onCleared()) method when the `ViewModelStoreOwner`
 destroys it in the course of its lifecycle. This allows you to clean up any work
-or dependencies that follows the ViewModel's lifecycle.
+or dependencies that follow the ViewModel's lifecycle.
 
 The following example shows an alternative to [`viewModelScope`](https://developer.android.com/topic/libraries/architecture/coroutines#viewmodelscope).
 `viewModelScope` is a built-in [`CoroutineScope`](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/-coroutine-scope/) that
@@ -296,7 +209,8 @@ ViewModel also cancels the `CoroutineScope`.
         }
     }
 
-From lifecycle [version 2.5](https://developer.android.com/jetpack/androidx/releases/lifecycle#version_25_2) and above, you can pass one or more `Closeable`
+From lifecycle [version 2.5](https://developer.android.com/jetpack/androidx/releases/lifecycle#version_25_2) and above,
+you can pass one or more `Closeable`
 objects to the ViewModel's constructor that automatically closes when the
 ViewModel instance is cleared.
 
@@ -323,7 +237,7 @@ ViewModel:
 - Because of [their scoping](https://developer.android.com/topic/libraries/architecture/viewmodel#lifecycle), use ViewModels as implementation details of a screen level state holder. Don't use them as state holders of reusable UI components such as chip groups or forms. Otherwise, you'd get the same ViewModel instance in different usages of the same UI component under the same ViewModelStoreOwner unless you use an explicit view model key per chip.
 - ViewModels shouldn't know about the UI implementation details. Keep the names of the methods the ViewModel API exposes and those of the UI state fields as generic as possible. In this way, your ViewModel can accommodate any type of UI: a mobile phone, foldable, tablet, or even a Chromebook!
 - As they can potentially live longer than the `ViewModelStoreOwner`, ViewModels shouldn't hold any references of lifecycle-related APIs such as the `Context` or `Resources` to prevent memory leaks.
-- Don't pass ViewModels to other classes, functions or other UI components. Because the platform manages them, you should keep them as close to it as you can. Close to your Activity, fragment, or screen level composable function. This prevents lower level components from accessing more data and logic than they need.
+- Don't pass ViewModels to other classes, functions or other UI components. Because the platform manages them, you should keep them as close to it as you can---close to your Activity, screen level composable function, or Navigation destination. This prevents lower level components from accessing more data and logic than they need.
 
 ## Further information
 
@@ -348,6 +262,10 @@ resources.
 - [State holders and UI State](https://developer.android.com/topic/architecture/ui-layer/stateholders)
 - [State production](https://developer.android.com/topic/architecture/ui-layer/state-production)
 - [Data layer](https://developer.android.com/topic/architecture/data-layer)
+
+### Views content
+
+- [ViewModel overview (Views)](https://developer.android.com/topic/libraries/architecture/views/viewmodel)
 
 ### Samples
 

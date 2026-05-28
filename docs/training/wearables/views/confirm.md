@@ -47,14 +47,14 @@ To use `ConfirmationActivity` in your app, first declare this activity in your
 manifest file, as shown in the following example:
 
 ```xml
-<manifest><
-  application>
-    ..<.
-    activity
-        android:name="androidx.wear.activity.ConfirmationActi<vity"><;
-    /activit<y>
-  /application>
-/manifest>
+<manifest>
+  <application>
+    ...
+    <activity
+        android:name="androidx.wear.activity.ConfirmationActivity">
+    </activity>
+  </application>
+</manifest>
 ```
 
 Determine the result of the user action, start the activity with an intent, and

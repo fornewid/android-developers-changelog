@@ -4,26 +4,41 @@ url: https://developer.android.com/develop/ui/views/touch-and-input/swipe/respon
 source: md.txt
 ---
 
-# Respond to a refresh request
+Try the Compose way Jetpack Compose is the recommended UI toolkit for Android. Learn how to pull to refresh in Compose. [Pull to refresh in Compose →](https://developer.android.com/develop/ui/compose/components/pull-to-refresh) ![](https://developer.android.com/static/images/android-compose-ui-logo.png)
 
-Try the Compose way  
-Jetpack Compose is the recommended UI toolkit for Android. Learn how to pull to refresh in Compose.  
-[Pull to refresh in Compose →](https://developer.android.com/develop/ui/compose/components/pull-to-refresh)  
-![](https://developer.android.com/static/images/android-compose-ui-logo.png)
-
-This document shows how to update your app when the user requests a manual refresh, whether they trigger it with a swipe gesture or use the action bar refresh action.
+This document shows how to update your app when the user requests a manual
+refresh, whether they trigger it with a swipe gesture or use the action bar
+refresh action.
 
 ## Respond to the refresh gesture
 
-When the user makes the swipe-to-refresh gesture, the system displays the progress indicator and calls your app's callback method. Your callback method is responsible for updating the app's data.
+When the user makes the swipe-to-refresh gesture, the system displays the
+progress indicator and calls your app's callback method. Your callback method is
+responsible for updating the app's data.
 
-To respond to the refresh gesture in your app, implement the[SwipeRefreshLayout.OnRefreshListener](https://developer.android.com/reference/androidx/swiperefreshlayout/widget/SwipeRefreshLayout.OnRefreshListener)interface and its[onRefresh()](https://developer.android.com/reference/androidx/swiperefreshlayout/widget/SwipeRefreshLayout.OnRefreshListener#onRefresh())method. The`onRefresh()`method is invoked when the user performs a swipe gesture.
+To respond to the refresh gesture in your app, implement the
+`https://developer.android.com/reference/androidx/swiperefreshlayout/widget/SwipeRefreshLayout.OnRefreshListener`
+interface and its
+`https://developer.android.com/reference/androidx/swiperefreshlayout/widget/SwipeRefreshLayout.OnRefreshListener#onRefresh()`
+method. The `onRefresh()` method is invoked when the user performs a
+swipe gesture.
 
-Put the code for the actual update operation in a separate method, preferably in a`ViewModel`, and call that update method from your`onRefresh()`implementation. That way, you can use the same update method to perform the update when the user triggers a refresh from the action bar.
+Put the code for the actual update operation in a separate method, preferably
+in a `ViewModel`, and call that update method from your
+`onRefresh()` implementation. That way, you can use the same update
+method to perform the update when the user triggers a refresh from the action
+bar.
 
-In your update method, call[setRefreshing(false)](https://developer.android.com/reference/androidx/swiperefreshlayout/widget/SwipeRefreshLayout#setRefreshing(boolean))when it finishes updating the data. Calling this method instructs the[SwipeRefreshLayout](https://developer.android.com/reference/androidx/swiperefreshlayout/widget/SwipeRefreshLayout)to remove the progress indicator and update the view contents.
+In your update method, call
+`https://developer.android.com/reference/androidx/swiperefreshlayout/widget/SwipeRefreshLayout#setRefreshing(boolean)`
+when it finishes updating the data. Calling this method instructs the
+`https://developer.android.com/reference/androidx/swiperefreshlayout/widget/SwipeRefreshLayout`
+to remove the progress indicator and update the view contents.
 
-For example, the following code implements`onRefresh()`and invokes the method`myUpdateOperation()`to update the data displayed by a[ListView](https://developer.android.com/reference/android/widget/ListView):  
+For example, the following code implements `onRefresh()` and
+invokes the method `myUpdateOperation()` to update the data displayed
+by a
+`https://developer.android.com/reference/android/widget/ListView`:
 
 ### Kotlin
 
@@ -58,11 +73,21 @@ mySwipeRefreshLayout.setOnRefreshListener(() -> {
 
 ## Respond to the refresh action
 
-If the user requests a refresh by using the action bar, the system calls the[onOptionsItemSelected()](https://developer.android.com/reference/androidx/fragment/app/Fragment#onOptionsItemSelected(android.view.MenuItem))method. Your app responds to this call by displaying the progress indicator and refreshing the app's data.
+If the user requests a refresh by using the action bar, the system calls the
+`https://developer.android.com/reference/androidx/fragment/app/Fragment#onOptionsItemSelected(android.view.MenuItem)`
+method. Your app responds to this call by displaying the progress indicator and
+refreshing the app's data.
 
-To respond to the refresh action, override`onOptionsItemSelected()`. In your override method, trigger the`SwipeRefreshLayout`progress indicator by calling`setRefreshing()`with the value`true`, then perform the update operation. Perform the actual update in a separate method, so the same method can be called whether the user triggers the update with a swipe or uses the action bar. When the update finishes, call`setRefreshing(false)`to remove the refresh progress indicator.
+To respond to the refresh action, override
+`onOptionsItemSelected()`. In your override method, trigger the
+`SwipeRefreshLayout` progress indicator by calling
+`setRefreshing()` with the value `true`, then perform the
+update operation. Perform the actual update in a separate method, so the same
+method can be called whether the user triggers the update with a swipe or uses
+the action bar. When the update finishes, call `setRefreshing(false)`
+to remove the refresh progress indicator.
 
-The following code shows how to respond to the request action:  
+The following code shows how to respond to the request action:
 
 ### Kotlin
 

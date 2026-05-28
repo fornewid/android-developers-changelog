@@ -4,10 +4,7 @@ url: https://developer.android.com/training/wearables/views/layouts
 source: md.txt
 ---
 
-Try the Compose way  
-Jetpack Compose on Wear OS is the recommended UI toolkit for Wear OS.  
-[Try Compose on Wear OS →](https://developer.android.com/training/wearables/compose)  
-![](https://developer.android.com/static/images/android-compose-ui-logo.png)
+Try the Compose way Jetpack Compose on Wear OS is the recommended UI toolkit for Wear OS. [Try Compose on Wear OS →](https://developer.android.com/training/wearables/compose) ![](https://developer.android.com/static/images/android-compose-ui-logo.png)
 
 
 Apps on Wear OS use the same layout techniques as other Android devices
@@ -25,7 +22,7 @@ provide a bad user experience.
 
 
 If you use the following settings for your layout, text displays incorrectly on devices
-with round screens:  
+with round screens:
 
 ```xml
 <androidx.constraintlayout.widget.ConstraintLayout
@@ -52,7 +49,7 @@ with round screens:
 To solve this problem, use layouts in the [Wear OS UI Library](https://developer.android.com/training/wearables/views) that support round devices.
 
 - You can use a [`BoxInsetLayout`](https://developer.android.com/reference/androidx/wear/widget/BoxInsetLayout) to prevent views from being cropped near the edges of round screens.
-- You can use a [WearableRecyclerView](https://developer.android.com/reference/androidx/wear/widget/WearableRecyclerView) to create a curved layout when you want to display and manipulate a vertical list of items optimized for round screens.
+- You can use a `https://developer.android.com/reference/androidx/wear/widget/WearableRecyclerView` to create a curved layout when you want to display and manipulate a vertical list of items optimized for round screens.
 
 
 For more information about designing apps, read the
@@ -81,7 +78,7 @@ views specify the `layout_boxedEdges` attribute with the following values:
 
 
 The layout shown in figure 2 uses the `<BoxInsetLayout>`
-element and works on round screens:  
+element and works on round screens:
 
 ```xml
 <androidx.wear.widget.BoxInsetLayout
@@ -151,7 +148,7 @@ Notice the parts of the layout marked in bold:
 
 ## Use a curved layout
 
-The [WearableRecyclerView](https://developer.android.com/reference/androidx/wear/widget/WearableRecyclerView) class in the Wear OS UI Library
+The `https://developer.android.com/reference/androidx/wear/widget/WearableRecyclerView` class in the Wear OS UI Library
 lets you opt-in to a curved layout optimized for round screens.
 To enable a curved layout for scrollable lists in your
 app, see [Create lists on Wear OS](https://developer.android.com/training/wearables/ui/lists#creating).

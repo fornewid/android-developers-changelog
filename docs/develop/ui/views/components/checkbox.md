@@ -4,22 +4,23 @@ url: https://developer.android.com/develop/ui/views/components/checkbox
 source: md.txt
 ---
 
-# Add checkboxes to your app
+Try the Compose way Jetpack Compose is the recommended UI toolkit for Android. Learn how to add components in Compose. [Checkbox →](https://developer.android.com/develop/ui/compose/components/checkbox) ![](https://developer.android.com/static/images/android-compose-ui-logo.png)
 
-Try the Compose way  
-Jetpack Compose is the recommended UI toolkit for Android. Learn how to add components in Compose.  
-[Checkbox →](https://developer.android.com/develop/ui/compose/components/checkbox)  
-![](https://developer.android.com/static/images/android-compose-ui-logo.png)
-| **Note:** For a better user experience, see the[Material Design Checkbox](https://m3.material.io/components/checkbox/overview)documentation.
+> [!NOTE]
+> **Note:** For a better user experience, see the [Material Design Checkbox](https://m3.material.io/components/checkbox/overview) documentation.
 
-Checkboxes let the user select one or more options from a set. Typically, you present checkbox options in a vertical list.
-![An image showing an example of checkboxes from material.io](https://lh3.googleusercontent.com/5myEkgWrS1SEYui5V_VRDXNyYFr25CRPVAKm5sCPhapurUx9EgorjTWNx8s-Sj1Mb4mHw9stQ6Bo6Nkg3LpF0NRZRH1qVOU2r-Nbjr27S3CT=s0)**Figure 1.** An example of checkboxes from[Material Design Checkbox](https://m3.material.io/components/checkbox/guidelines).
+Checkboxes let the user select one or more options from a set. Typically, you present checkbox
+options in a vertical list.
+![An image showing an example of checkboxes from material.io](https://lh3.googleusercontent.com/5myEkgWrS1SEYui5V_VRDXNyYFr25CRPVAKm5sCPhapurUx9EgorjTWNx8s-Sj1Mb4mHw9stQ6Bo6Nkg3LpF0NRZRH1qVOU2r-Nbjr27S3CT=s0) **Figure 1.** An example of checkboxes from [Material Design Checkbox](https://m3.material.io/components/checkbox/guidelines).
 
-To create each checkbox option, create a[CheckBox](https://developer.android.com/reference/android/widget/CheckBox)in your layout. Because a set of checkbox options lets the user select multiple items, each checkbox is managed separately, and you must register a click listener for each one.
+To create each checkbox option, create a
+`https://developer.android.com/reference/android/widget/CheckBox` in your layout. Because
+a set of checkbox options lets the user select multiple items, each checkbox is managed separately,
+and you must register a click listener for each one.
 
 ## Respond to click events
 
-Begin by creating a layout with`CheckBox`objects in a list:  
+Begin by creating a layout with `CheckBox` objects in a list:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -38,7 +39,8 @@ Begin by creating a layout with`CheckBox`objects in a list:
 </LinearLayout>
 ```
 
-Once your layout is ready, head to your`Activity`or`Fragment`, find your`CheckBox`views, and set a change listener, as in the following example:  
+Once your layout is ready, head to your `Activity` or `Fragment`, find your
+`CheckBox` views, and set a change listener, as in the following example:
 
 ### Kotlin
 
@@ -69,4 +71,6 @@ findViewById<CheckBox>(R.id.checkbox_cheese)
 ```
 
 The previous code prints a message in Logcat every time the checkboxes change status.
-| **Tip:** If you need to change the checkbox state yourself, use the[setChecked(boolean)](https://developer.android.com/reference/android/widget/CompoundButton#setChecked(boolean))or[toggle()](https://developer.android.com/reference/android/widget/CompoundButton#toggle())method.
+
+> [!TIP]
+> **Tip:** If you need to change the checkbox state yourself, use the `https://developer.android.com/reference/android/widget/CompoundButton#setChecked(boolean)` or `https://developer.android.com/reference/android/widget/CompoundButton#toggle()` method.

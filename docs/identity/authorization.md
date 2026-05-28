@@ -91,7 +91,7 @@ version of the Google Identity Services library.
     dependencies {
       // ... other dependencies
 
-      implementation "com.google.android.gms:play-services-auth:21.5.1"
+      implementation "com.google.android.gms:play-services-auth:21.6.0"
     }
 
 ## Request permissions required by user actions

@@ -4,20 +4,18 @@ url: https://developer.android.com/develop/ui/views/layout/binding
 source: md.txt
 ---
 
-# AdapterView
+Try the Compose way Jetpack Compose is the recommended UI toolkit for Android. Learn how to work with layouts in Compose. [Lists and Grids →](https://developer.android.com/jetpack/compose/lists#lazy) ![](https://developer.android.com/static/images/android-compose-ui-logo.png)
 
-Try the Compose way  
-Jetpack Compose is the recommended UI toolkit for Android. Learn how to work with layouts in Compose.  
-[Lists and Grids →](https://developer.android.com/jetpack/compose/lists#lazy)  
-![](https://developer.android.com/static/images/android-compose-ui-logo.png)
+`AdapterView` is a [`ViewGroup`](https://developer.android.com/reference/android/view/ViewGroup) that displays items loaded into an adapter. The
+most common type of adapter comes from an array-based data source.
 
-`AdapterView`is a[`ViewGroup`](https://developer.android.com/reference/android/view/ViewGroup)that displays items loaded into an adapter. The most common type of adapter comes from an array-based data source.
-
-This guide shows how to complete several key steps related to setting up an adapter.
+This guide shows how to complete several key steps related to setting up
+an adapter.
 
 ## Fill the layout with data
 
-To add data into the layout that you create in your app's UI, add code similar to the following:  
+To add data into the layout that you create in your app's UI, add code
+similar to the following:
 
 ### Kotlin
 
@@ -82,15 +80,23 @@ adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 s2.setAdapter(adapter2);
 ```
 
-Note that it is necessary to have the People._ID column in projection used with CursorAdapter or else you will get an exception.
+Note that it is necessary to have the People._ID column in projection used with CursorAdapter
+or else you will get an exception.
 
-If, during the course of your application's life, you change the underlying data that is read by your Adapter, you should call[notifyDataSetChanged()](https://developer.android.com/reference/android/widget/ArrayAdapter#notifyDataSetChanged()). This will notify the attached View that the data has been changed and it should refresh itself.
+If, during the course of your application's life, you change the underlying data that is read by your Adapter,
+you should call `https://developer.android.com/reference/android/widget/ArrayAdapter#notifyDataSetChanged()`. This will notify the attached View
+that the data has been changed and it should refresh itself.
 
-**Note:** With Android Studio 3.6 and higher, the[view binding](https://developer.android.com/topic/libraries/view-binding)feature can replace`findViewById()`calls and provides compile-time type safety for code that interacts with views. Consider using view binding instead of`findViewById()`.
+**Note:** With Android Studio 3.6 and higher, the
+[view binding](https://developer.android.com/topic/libraries/view-binding) feature can replace
+`findViewById()` calls and provides compile-time type safety for
+code that interacts with views. Consider using view binding instead of
+`findViewById()`.
 
 ## Handle user selections
 
-You handle the user's selection by setting the class's[AdapterView.OnItemClickListener](https://developer.android.com/reference/android/widget/AdapterView.OnItemClickListener)member to a listener and catching the selection changes.  
+You handle the user's selection by setting the class's `https://developer.android.com/reference/android/widget/AdapterView.OnItemClickListener` member to a listener and
+catching the selection changes.
 
 ### Kotlin
 
@@ -117,5 +123,5 @@ private OnItemClickListener messageClickedHandler = new OnItemClickListener() {
 // to our class handler object.
 historyView = (ListView)findViewById(R.id.history);
 historyView.setOnItemClickListener(messageClickedHandler);
-```  
-For more discussion see the[Spinner](https://developer.android.com/guide/topics/ui/controls/spinner)topic.
+```
+For more discussion see the [Spinner](https://developer.android.com/guide/topics/ui/controls/spinner) topic.

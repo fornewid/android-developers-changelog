@@ -202,7 +202,9 @@ public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float ve
     return true;
 }
 ```
-| **Note:** Although the velocity calculated by `GestureDetector` is physically accurate, many developers feel that using this value makes the fling animation too fast. It's common to divide the *x* and *y* velocity by a factor of four to eight.
+
+> [!NOTE]
+> **Note:** Although the velocity calculated by `GestureDetector` is physically accurate, many developers feel that using this value makes the fling animation too fast. It's common to divide the *x* and *y* velocity by a factor of four to eight.
 
 The call to `fling()` sets up the physics model for the fling
 gesture. Afterward, update the `Scroller` by calling

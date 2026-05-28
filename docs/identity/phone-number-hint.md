@@ -40,7 +40,7 @@ which is commonly `app/build.gradle`:
       ...
 
       dependencies {
-        implementation 'com.google.android.gms:play-services-auth:21.5.1'
+        implementation 'com.google.android.gms:play-services-auth:21.6.0'
       }
 
 ### Create a GetPhoneNumbeHintIntentRequest object

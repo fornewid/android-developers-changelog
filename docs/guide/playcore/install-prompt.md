@@ -35,9 +35,8 @@ The prompt won't show if any of these checks fail:
 
 ## Integrate in-app install prompts in your app
 
-Learn how to integrate in-app install prompts in your app, see:
-
-- [Kotlin or Java](https://developer.android.com/guide/playcore/install-prompt/kotlin-java)
+Learn how to integrate in-app install prompts in your app, see
+[Integrate in-app install prompts](https://developer.android.com/guide/playcore/install-prompt/kotlin-java).
 
 ### User privacy
 

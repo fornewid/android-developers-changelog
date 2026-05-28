@@ -47,7 +47,10 @@ These steps describe how to set up a `Toolbar` as your activity's app bar:
      // ...
    }
    ```
-   | **Note:** Make this change for every activity in your app that uses a `Toolbar` as an app bar.
+
+   > [!NOTE]
+   > **Note:** Make this change for every activity in your app that uses a `Toolbar` as an app bar.
+
 3. In the app manifest, set the [`<application>`](https://developer.android.com/guide/topics/manifest/application-element) element to use one of AppCompat's `https://developer.android.com/reference/android/R.style#Theme_DeviceDefault_Light_NoActionBar` themes, as shown in the following example. Using one of these themes prevents the app from using the native `ActionBar` class to provide the app bar.
 
    ```xml

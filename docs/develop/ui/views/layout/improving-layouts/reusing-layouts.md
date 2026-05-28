@@ -40,7 +40,9 @@ example, here's a layout that defines a title bar to include in each activity
 
 The root `View` must be exactly how you want it to appear in each
 layout where you plan to add this layout.
-| **Note:** The [`tools:showIn`](https://developer.android.com/studio/write/tool-attributes#toolsshowin) attribute in the preceding XML file is a special attribute that is used only at design time in Android Studio and is removed during compilation. It specifies a layout that *includes* this file, so you can preview and edit this file as it appears while embedded in a parent layout.
+
+> [!NOTE]
+> **Note:** The [`tools:showIn`](https://developer.android.com/studio/write/tool-attributes#toolsshowin) attribute in the preceding XML file is a special attribute that is used only at design time in Android Studio and is removed during compilation. It specifies a layout that *includes* this file, so you can preview and edit this file as it appears while embedded in a parent layout.
 
 ## Use the \<include\> tag
 

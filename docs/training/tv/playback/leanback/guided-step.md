@@ -4,8 +4,11 @@ url: https://developer.android.com/training/tv/playback/leanback/guided-step
 source: md.txt
 ---
 
-Build better with Compose Create beautiful UIs with minimal code using Jetpack Compose for Android TV OS. [Compose for TV →](https://developer.android.com/training/tv/playback/compose) ![](https://developer.android.com/static/images/android-compose-tv-logo.png) **Warning:** The Leanback library is deprecated. Use [Jetpack Compose for
-| Android TV OS](https://developer.android.com/training/tv/playback/compose) instead.
+Build better with Compose Create beautiful UIs with minimal code using Jetpack Compose for Android TV OS. [Compose for TV →](https://developer.android.com/training/tv/playback/compose) ![](https://developer.android.com/static/images/android-compose-tv-logo.png)
+
+> [!WARNING]
+> **Warning:** The Leanback library is deprecated. Use [Jetpack Compose for
+> Android TV OS](https://developer.android.com/training/tv/playback/compose) instead.
 
 
 Your application might have multi-step tasks for users. For example, your app might need to guide

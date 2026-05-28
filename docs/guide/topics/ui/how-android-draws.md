@@ -20,7 +20,9 @@ requesting that each of its children be drawn, using the
 method, and each `View` is responsible for drawing itself. Because the tree is traversed
 pre-order, the framework draws parents before---in other words, *behind*---their
 children, and it draws siblings in the order they appear in the tree.
-| **Note:** The framework doesn't draw `View` objects that aren't in a valid region. It also takes care of drawing the `View` background for you. You can force a `View` to draw by calling `https://developer.android.com/reference/android/view/View#invalidate()`.
+
+> [!NOTE]
+> **Note:** The framework doesn't draw `View` objects that aren't in a valid region. It also takes care of drawing the `View` background for you. You can force a `View` to draw by calling `https://developer.android.com/reference/android/view/View#invalidate()`.
 
 The Android framework draws the layout in a two-pass process: a measure pass and a layout pass. The
 framework performs the measure pass in

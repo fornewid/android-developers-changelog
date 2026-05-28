@@ -47,7 +47,7 @@ Add the [Google Play services](http://developer.google.com/android) dependency f
 [module's Gradle build file](https://developer.android.com/studio/build#module-level), which is commonly `app/build.gradle`:
 
     dependencies {
-      implementation 'com.google.android.gms:play-services-auth:21.5.1'
+      implementation 'com.google.android.gms:play-services-auth:21.6.0'
       implementation 'com.google.android.gms:play-services-auth-api-phone:18.3.0'
     }
 
