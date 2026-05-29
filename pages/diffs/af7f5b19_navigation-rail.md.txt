@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/compose/components/navigation-rail.md b/docs/develop/ui/compose/components/navigation-rail.md
+index 5bf08eee..ceb3b3d0 100644
+--- a/docs/develop/ui/compose/components/navigation-rail.md
++++ b/docs/develop/ui/compose/components/navigation-rail.md
+@@ -91,4 +91,4 @@ The following image shows the result of the previous snippet:
+ ## Additional resources
+ 
+ - [Material 3 - Navigation rail](https://m3.material.io/components/navigation-rail/overview)
+-- [Navigation with Compose](https://developer.android.com/develop/ui/compose/navigation)
+\ No newline at end of file
++- [Navigation with Compose](https://developer.android.com/guide/navigation#framework-options)
+\ No newline at end of file

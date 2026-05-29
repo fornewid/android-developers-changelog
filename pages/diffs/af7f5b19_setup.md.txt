@@ -1,0 +1,13 @@
+diff --git a/docs/develop/ui/compose/setup.md b/docs/develop/ui/compose/setup.md
+index cb3e35e3..1d846bf1 100644
+--- a/docs/develop/ui/compose/setup.md
++++ b/docs/develop/ui/compose/setup.md
+@@ -59,6 +59,6 @@ To use Jetpack Compose for Wear OS, see [Set up Jetpack Compose on Wear OS](http
+ ## Recommended for you
+ 
+ - Note: link text is displayed when JavaScript is off
+-- [Navigating with Compose](https://developer.android.com/develop/ui/compose/navigation)
++- [Navigation overview](https://developer.android.com/guide/navigation#framework-options)
+ - [Testing your Compose layout](https://developer.android.com/develop/ui/compose/testing)
+ - [React to focus](https://developer.android.com/develop/ui/compose/touch-input/focus/react-to-focus)
+\ No newline at end of file

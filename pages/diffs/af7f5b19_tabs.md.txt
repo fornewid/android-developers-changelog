@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/compose/components/tabs.md b/docs/develop/ui/compose/components/tabs.md
+index 268e9d0c..66dfc614 100644
+--- a/docs/develop/ui/compose/components/tabs.md
++++ b/docs/develop/ui/compose/components/tabs.md
+@@ -91,4 +91,4 @@ The following image shows the result of the previous snippet:
+ ## Additional resources
+ 
+ - [Material 3 - Tabs](https://m3.material.io/components/tabs/guidelines)
+-- [Navigation with Compose](https://developer.android.com/develop/ui/compose/navigation)
+\ No newline at end of file
++- [Navigation with Compose](https://developer.android.com/guide/navigation#framework-options)
+\ No newline at end of file

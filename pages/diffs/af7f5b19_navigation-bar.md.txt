@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/compose/components/navigation-bar.md b/docs/develop/ui/compose/components/navigation-bar.md
+index 50c1b326..b9c18d0b 100644
+--- a/docs/develop/ui/compose/components/navigation-bar.md
++++ b/docs/develop/ui/compose/components/navigation-bar.md
+@@ -95,4 +95,4 @@ snippet:
+ ## Additional resources
+ 
+ - [Material 3 - Navigation Bar](https://m3.material.io/components/navigation-bar/overview)
+-- [Navigation with Compose](https://developer.android.com/develop/ui/compose/navigation)
+\ No newline at end of file
++- [Navigation with Compose](https://developer.android.com/guide/navigation#framework-options)
+\ No newline at end of file

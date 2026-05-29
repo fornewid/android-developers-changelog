@@ -1,0 +1,12 @@
+diff --git a/docs/training/wearables/compose/navigation.md b/docs/training/wearables/compose/navigation.md
+index 8c863dc1..0b8d7d72 100644
+--- a/docs/training/wearables/compose/navigation.md
++++ b/docs/training/wearables/compose/navigation.md
+@@ -126,5 +126,5 @@ To learn more about Jetpack Navigation, see
+ 
+ - Note: link text is displayed when JavaScript is off
+ - [Migrate Jetpack Navigation to Navigation Compose](https://developer.android.com/develop/ui/compose/migrate/migration-scenarios/navigation)
+-- [Navigation with Compose](https://developer.android.com/develop/ui/compose/navigation)
++- [Navigation with Compose](https://developer.android.com/guide/navigation#framework-options)
+ - [Navigate between screens with Compose](https://developer.android.com/codelabs/basic-android-kotlin-compose-navigation/index.lab)
+\ No newline at end of file
