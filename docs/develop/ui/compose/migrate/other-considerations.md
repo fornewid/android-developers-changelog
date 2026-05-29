@@ -47,7 +47,7 @@ See [Design systems in Compose](https://developer.android.com/develop/ui/compose
 ## Navigation
 
 If you use the [Navigation component](https://developer.android.com/guide/navigation/get-started) in your app, see
-the [Navigating with Compose - Interoperability](https://developer.android.com/develop/ui/compose/navigation#interoperability) and
+the [Navigate from Compose in a Fragment-based app](https://developer.android.com/guide/navigation/use-graph/navigate#compose-interop) and
 [Migrate Jetpack Navigation to Navigation Compose](https://developer.android.com/develop/ui/compose/migrate/migration-scenarios/navigation) for more information.
 
 ## Test your mixed Compose/Views UI

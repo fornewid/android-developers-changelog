@@ -207,7 +207,7 @@ also called the *bottom-up* approach.
 
 ## Removing Fragments and Navigation component
 
-You can migrate to [Navigation Compose](https://developer.android.com/develop/ui/compose/navigation) once you're able to remove all of
+You can migrate to [Navigation Compose](https://developer.android.com/guide/navigation#framework-options) once you're able to remove all of
 your Fragments and replace with corresponding screen-level composables. Screen-level
 composables can contain a [mix of Compose and View content](https://developer.android.com/develop/ui/compose/migrate/interoperability-apis/views-in-compose), but all
 navigation destinations must be composables to enable Navigation Compose

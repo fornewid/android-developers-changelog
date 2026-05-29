@@ -105,7 +105,7 @@ Inside `onTileRequest()`, you can check this ID using
 
 **Example: Launching an activity with a deep link**
 
-This pattern is ideal for launching an activity with a [deep link](https://developer.android.com/develop/ui/compose/navigation#deeplinks). The user
+This pattern is ideal for launching an activity with a [deep link](https://developer.android.com/guide/navigation/design/deep-link#compose-implicit). The user
 tap reloads the tile, your service inspects the ID, and then launches the new
 activity. To control the back stack, use a `TaskStackBuilder` to provide a
 better navigation experience for the user. When the user taps the element, they
@@ -168,7 +168,7 @@ AppScaffold {
 Use `TaskStackBuilder` to provide a better navigation experience for the user.
 When the user taps the element, they are taken directly to the deep-linked
 screen---in this example, that's the `message_detail/1` screen. Because
-[`.addNextIntentWithParentStack()`](https://developer.android.com/develop/ui/compose/navigation#deeplinks) was used, the parent activity is also
+[`.addNextIntentWithParentStack()`](https://developer.android.com/guide/navigation/design/deep-link#compose-implicit) was used, the parent activity is also
 added to the back stack. This means if the user swipes back, they will navigate
 up to the app's main screen---`MessageList` in the example---instead of immediately
 exiting to the tile. Swiping back a second time returns them to the tile.

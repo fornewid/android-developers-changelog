@@ -95,4 +95,4 @@ snippet:
 ## Additional resources
 
 - [Material 3 - Navigation Bar](https://m3.material.io/components/navigation-bar/overview)
-- [Navigation with Compose](https://developer.android.com/develop/ui/compose/navigation)
+- [Navigation with Compose](https://developer.android.com/guide/navigation#framework-options)

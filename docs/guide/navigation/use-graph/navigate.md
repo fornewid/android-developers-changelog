@@ -146,6 +146,41 @@ your destinations connect to each other.
 > [!NOTE]
 > **Note:** To handle other common UI components, such as the top app bar and bottom navigation, see [Update UI components with NavigationUI](https://developer.android.com/guide/navigation/integrations/ui).
 
+### Navigate from Compose in a Fragment-based app
+
+If you are using Jetpack Compose within a Fragment-based Navigation
+architecture (for example, in a mixed Views and Compose app), you cannot use
+type-safe Compose routes to navigate directly. Instead, you must use integer
+IDs (actions) defined in your XML navigation graph.
+
+To change destinations from Compose code, expose an event (lambda) from your
+composable:
+
+    @Composable
+    fun MyScreen(onNavigateToProfile: () -> Unit) {
+        Button(onClick = { onNavigateToProfile() }) {
+            Text("Go to Profile")
+        }
+    }
+
+In your fragment, bridge Compose and the Fragment-based Navigation component
+by calling the Fragment's `NavController` when the event is triggered:
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        return ComposeView(requireContext()).apply {
+            setContent {
+                MyScreen(onNavigateToProfile = { findNavController().navigate(R.id.nav_profile) })
+            }
+        }
+    }
+
+This approach keeps your composables reusable and testable, as they don't
+depend directly on the Fragment's `NavController`.
+
 ## Navigate using NavDeepLinkRequest
 
 To navigate to an [implicit deep link destination](https://developer.android.com/guide/navigation/design/deep-link), use the

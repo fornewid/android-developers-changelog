@@ -262,7 +262,7 @@ information.
 ## Navigation
 
 The [Navigation component](https://developer.android.com/guide/navigation/get-started) provides support for Jetpack Compose applications.
-See [Navigating with Compose](https://developer.android.com/develop/ui/compose/navigation) and
+See [Navigating with Compose](https://developer.android.com/guide/navigation#framework-options) and
 [Migrate Jetpack Navigation to Navigation Compose](https://developer.android.com/develop/ui/compose/migrate/migration-scenarios/navigation) for more information.
 
 ## Hilt
@@ -345,8 +345,8 @@ fun MyApp() {
 <br />
 
 If you need to retrieve the instance of a `ViewModel` scoped to
-[navigation routes](https://developer.android.com/develop/ui/compose/navigation#nested-nav) or [the
-navigation graph](https://developer.android.com/guide/navigation/navigation-programmatic#share_ui-related_data_between_destinations_with_viewmodel)
+[navigation routes](https://developer.android.com/guide/navigation/design/nested-graphs#compose) or [the
+navigation graph](https://developer.android.com/guide/navigation/use-graph/programmatic#share-ui-related-data-between-destinations-with-viewmodel)
 instead, use the `hiltViewModel` composable function and pass the corresponding
 `backStackEntry` as a parameter:
 

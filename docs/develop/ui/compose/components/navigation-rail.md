@@ -91,4 +91,4 @@ The following image shows the result of the previous snippet:
 ## Additional resources
 
 - [Material 3 - Navigation rail](https://m3.material.io/components/navigation-rail/overview)
-- [Navigation with Compose](https://developer.android.com/develop/ui/compose/navigation)
+- [Navigation with Compose](https://developer.android.com/guide/navigation#framework-options)

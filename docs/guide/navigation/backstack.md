@@ -135,18 +135,6 @@ For example:
 To enable saving and restoring state in XML, define `popUpToSaveState` as `true`
 and `restoreState` as `true` respectively in the associated `action`.
 
-### XML example
-
-Here is an example of `popUpTo` in XML, using an action:
-
-    <action
-      android:id="@+id/action_a_to_b"
-      app:destination="@id/b"
-      app:popUpTo="@+id/a"
-      app:popUpToInclusive="true"
-      app:restoreState="true"
-      app:popUpToSaveState="true"/>
-
 ### Compose example
 
 The following is a complete example of the same in Compose:
@@ -216,6 +204,18 @@ following ways:
 
 For general information about passing options to `NavController.navigate()`, see
 the [Navigate with options guide](https://developer.android.com/guide/navigation/use-graph/navoptions).
+
+### XML example
+
+Here is an example of `popUpTo` in XML, using an action:
+
+    <action
+      android:id="@+id/action_a_to_b"
+      app:destination="@id/b"
+      app:popUpTo="@+id/a"
+      app:popUpToInclusive="true"
+      app:restoreState="true"
+      app:popUpToSaveState="true"/>
 
 ## Pop using actions
 

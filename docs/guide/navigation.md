@@ -53,6 +53,19 @@ including the following:
 > [!NOTE]
 > **Note:** Android 13 introduces predictive back navigation, which works with the Navigation component for Android devices. Implement predictive back navigation in your app as soon as possible. Otherwise, users might experience unexpected behavior in a future Android release.
 
+## Framework options
+
+The Navigation component supports two primary frameworks for implementing your
+navigation graph, depending on your app's UI architecture:
+
+- **Compose**: If your app is built entirely with Jetpack Compose, use Navigation Compose. Destinations in your graph are composables.
+- **Fragments**: If your app uses Views or a mix of Views and Compose, use the Fragment-based Navigation component. Destinations in your graph are fragments that can host standard Views, Compose content, or a combination of both.
+
+For applications migrating from Views to Compose, the recommended strategy is
+to continue using the Fragment-based Navigation component while converting
+individual screens to Compose. Once all fragments have been replaced with
+composables, you can migrate the navigation graph to Navigation Compose.
+
 ## Set up your environment
 
 To include navigation support in your project, add the following dependencies to

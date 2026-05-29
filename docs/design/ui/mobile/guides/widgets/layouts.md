@@ -46,7 +46,7 @@ quick access to frequently used functions.
 **Toolbar**
 
 
-Toolbars presents app branding followed by buttons for the most used tasks
+Toolbars present app branding followed by buttons for the most used tasks
 that are ideal for toggleable settings or task links. When resizing, less
 commonly used options can be hidden in favor of more common actions. Use
 [Breakpoints](https://developer.android.com/design/ui/mobile/guides/widgets/sizing#breakpoints)

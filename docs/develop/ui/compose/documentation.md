@@ -68,8 +68,7 @@ development of apps that adapt to any display size.
   - [Other considerations](https://developer.android.com/develop/ui/compose/migrate/other-considerations): Theming, architecture, testing, and other considerations while migrating your view-based app to Compose.
 - [Compose and other libraries](https://developer.android.com/develop/ui/compose/libraries): How to use view-based libraries in your Compose content.
 - [Compose architecture](https://developer.android.com/develop/ui/compose/architecture): Implement the unidirectional flow pattern in Compose, implement events and state holders, and work with `ViewModel` in Compose.
-- [Navigation](https://developer.android.com/develop/ui/compose/navigation): Use `NavController` to integrate the [Navigation
-  component](https://developer.android.com/guide/navigation) with your Compose UI.
+- [Navigation](https://developer.android.com/guide/navigation#framework-options): Use `NavController` to integrate the Navigation component with your Compose UI.
 - [Resources](https://developer.android.com/develop/ui/compose/resources): Work with your app's resources in your Compose code.
 - [Accessibility](https://developer.android.com/develop/ui/compose/accessibility): Accommodate users with accessibility requirements.
 - [Testing](https://developer.android.com/develop/ui/compose/testing): Test your Compose code.

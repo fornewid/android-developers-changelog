@@ -146,15 +146,74 @@ configuration file and you don't need to set `usesCleartextTraffic`.
 ### Restrict implicit URI grants
 
 Currently, if an app launches an intent with a URI that has the action
-[`ACTION_SEND`](https://developer.android.com/reference/android/content/Intent#ACTION_SEND),
-[`SEND_MULTIPLE`](https://developer.android.com/reference/android/content/Intent#ACTION_SEND_MULTIPLE),
-or
-[`ACTION_IMAGE_CAPTURE`](https://developer.android.com/reference/android/provider/MediaStore#ACTION_IMAGE_CAPTURE),
-the system automatically grants the read and
-write URI permissions to the target app. We plan to change this behavior in
-Android 18. For this reason, we recommend that apps explicitly
-grant the relevant URI permissions instead of relying on the system to grant
-them.
+[`ACTION_SEND`](https://developer.android.com/reference/android/content/Intent#ACTION_SEND), [`ACTION_SEND_MULTIPLE`](https://developer.android.com/reference/android/content/Intent#ACTION_SEND_MULTIPLE), or
+[`ACTION_IMAGE_CAPTURE`](https://developer.android.com/reference/android/provider/MediaStore#ACTION_IMAGE_CAPTURE), the system automatically grants the read and
+write URI permissions to the target app. Starting in Android 18, the system will
+no longer automatically grant these permissions. For this reason, we recommend
+that apps explicitly grant the
+relevant URI permissions instead of relying on the system to grant them.
+
+To detect the usage of these intents in your app, use [`StrictMode`](https://developer.android.com/reference/android/os/StrictMode) with
+[`detectImplicitUriPermissionGrant()`](https://developer.android.com/reference/android/os/StrictMode.VmPolicy.Builder#detectImplicitUriPermissionGrant()) to trigger a violation:
+
+### Kotlin
+
+```kotlin
+val policy = StrictMode.VmPolicy.Builder()
+    .detectImplicitUriPermissionGrant()
+    .penaltyLog()
+    .build()
+StrictMode.setVmPolicy(policy)
+```
+
+### Java
+
+```java
+StrictMode.VmPolicy policy = new StrictMode.VmPolicy.Builder()
+    .detectImplicitUriPermissionGrant()
+    .penaltyLog()
+    .build();
+StrictMode.setVmPolicy(policy);
+```
+
+Alternatively, you can monitor for logged exceptions containing the message
+`Please set the grant explicitly in the app` that appears when system implicitly
+sets the grant. You can monitor for these logs
+using the following `adb` command:
+
+    adb logcat | grep "Please set the grant explicitly in the app"
+
+To explicitly grant the necessary permissions, add the
+[`FLAG_GRANT_READ_URI_PERMISSION`](https://developer.android.com/reference/android/content/Intent#FLAG_GRANT_READ_URI_PERMISSION) flag to [`ACTION_SEND`](https://developer.android.com/reference/android/content/Intent#ACTION_SEND) and
+[`ACTION_SEND_MULTIPLE`](https://developer.android.com/reference/android/content/Intent#ACTION_SEND_MULTIPLE) intents:
+
+### Kotlin
+
+```kotlin
+intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+```
+
+### Java
+
+```java
+intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+```
+
+Include both [`FLAG_GRANT_READ_URI_PERMISSION`](https://developer.android.com/reference/android/content/Intent#FLAG_GRANT_READ_URI_PERMISSION) and
+[`FLAG_GRANT_WRITE_URI_PERMISSION`](https://developer.android.com/reference/android/content/Intent#FLAG_GRANT_WRITE_URI_PERMISSION) flags for
+[`ACTION_IMAGE_CAPTURE`](https://developer.android.com/reference/android/provider/MediaStore#ACTION_IMAGE_CAPTURE) intents:
+
+### Kotlin
+
+```kotlin
+intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION or Intent.FLAG_GRANT_WRITE_URI_PERMISSION)
+```
+
+### Java
+
+```java
+intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION | Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
+```
 
 ### Per-app keystore limits
 

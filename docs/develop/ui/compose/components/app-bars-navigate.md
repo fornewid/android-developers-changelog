@@ -8,7 +8,7 @@ This guide demonstrates how you can make the navigation icon in a [top app
 bar](https://m3.material.io/components/top-app-bar/overview) perform navigation actions.
 
 > [!NOTE]
-> **Note:** The example on this page uses `CenterAlignedTopAppBar`, but this is applicable to any app bar component with a `NavigationIcon` parameter.
+> **Note:** The example on this page uses `CenterAlignedTopAppBar`, but this is applicable to any app bar component with a `navigationIcon` parameter.
 
 ## Example
 
@@ -84,7 +84,7 @@ navigation](https://developer.android.com/guide/navigation/design#compose) graph
 For more information on how to implement navigation in your app, see the
 following series of guides:
 
-- [Navigation with Compose](https://developer.android.com/develop/ui/compose/navigation)
-- [Create a NavController](https://developer.android.com/develop/ui/compose/navigation#navcontroller)
+- [Navigation with Compose](https://developer.android.com/guide/navigation#framework-options)
+- [Create a NavController](https://developer.android.com/guide/navigation/navcontroller)
 - [Design your navigation graph](https://developer.android.com/guide/navigation/design#compose)
-- [Navigate to a composable](https://developer.android.com/develop/ui/compose/navigation#nav-to-composable)
+- [Navigate to a composable](https://developer.android.com/guide/navigation/use-graph/navigate#composable)

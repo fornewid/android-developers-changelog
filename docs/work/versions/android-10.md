@@ -193,6 +193,9 @@ or taps an NFC tag, the device automatically authenticates to a local Wi-Fi
 network using EAP and starts the provisioning process without any additional
 manual input.
 
+> [!NOTE]
+> **Note:** Size limits for QR codes may prohibit setting `EXTRA_PROVISIONING_WIFI_CA_CERTIFICATE` or `EXTRA_PROVISIONING_WIFI_USER_CERTIFICATE` for larger certificates.
+
 To authenticate Wi-Fi using EAP, add an
 [`EXTRA_PROVISIONING_WIFI_SECURITY_TYPE`](https://developer.android.com/reference/android/app/admin/DevicePolicyManager#EXTRA_PROVISIONING_WIFI_SECURITY_TYPE)
 extra with the value `"EAP"`. To specify the EAP authentication, you can add the

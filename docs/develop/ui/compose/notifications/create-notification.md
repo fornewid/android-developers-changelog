@@ -72,11 +72,18 @@ create a notification with the following:
   Android 8.0 and later, instead set the channel importance as shown in the
   next section.
 
-    val builder = NotificationCompat.Builder(context, CHANNEL_ID)
-            .setSmallIcon(R.drawable.notification_icon)
-            .setContentTitle(textTitle)
-            .setContentText(textContent)
-            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+
+```kotlin
+val textTitle = "Title"
+val textContent = "Content"
+val builder = NotificationCompat.Builder(context, CHANNEL_ID)
+    .setSmallIcon(R.drawable.ic_logo)
+    .setContentTitle(textTitle)
+    .setContentText(textContent)
+    .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+```
+
+<br />
 
 The `NotificationCompat.Builder` constructor requires you to provide a channel
 ID. This is required for compatibility with Android 8.0 (API level 26) and
@@ -96,13 +103,18 @@ If you want your notification to be longer, you can enable an expandable
 notification by adding a style template with [`setStyle()`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder#setStyle(androidx.core.app.NotificationCompat.Style)). For example,
 the following code creates a larger text area:
 
-    val builder = NotificationCompat.Builder(context, CHANNEL_ID)
-            .setSmallIcon(R.drawable.notification_icon)
-            .setContentTitle("My notification")
-            .setContentText("Much longer text that cannot fit one line...")
-            .setStyle(NotificationCompat.BigTextStyle()
-                    .bigText("Much longer text that cannot fit one line..."))
-            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+
+```kotlin
+val builder = NotificationCompat.Builder(context, CHANNEL_ID)
+    .setSmallIcon(R.drawable.ic_logo)
+    .setContentTitle("My notification")
+    .setContentText("Much longer text that cannot fit one line...")
+    .setStyle(NotificationCompat.BigTextStyle()
+        .bigText("Much longer text that cannot fit one line..."))
+    .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+```
+
+<br />
 
 For more information about other large notification styles, including how to add
 an image and media playback controls, see
@@ -115,22 +127,27 @@ app's [notification channel](https://developer.android.com/develop/ui/compose/no
 [`NotificationChannel`](https://developer.android.com/reference/android/app/NotificationChannel) to [`createNotificationChannel()`](https://developer.android.com/reference/android/app/NotificationManager#createNotificationChannel(android.app.NotificationChannel)). The
 following code is blocked by a condition on the [`SDK_INT`](https://developer.android.com/reference/android/os/Build.VERSION#SDK_INT) version:
 
-    private fun createNotificationChannel(context: Context) {
-        // Create the NotificationChannel, but only on API 26+ because
-        // the NotificationChannel class is not in the Support Library.
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            val name = context.getString(R.string.channel_name)
-            val descriptionText = context.getString(R.string.channel_description)
-            val importance = NotificationManager.IMPORTANCE_DEFAULT
-            val channel = NotificationChannel(CHANNEL_ID, name, importance).apply {
-                description = descriptionText
-            }
-            // Register the channel with the system.
-            val notificationManager: NotificationManager =
-                context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-            notificationManager.createNotificationChannel(channel)
+
+```kotlin
+fun createNotificationChannel(context: Context) {
+    // Create the NotificationChannel, but only on API 26+ because
+    // the NotificationChannel class is not in the Support Library.
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+        val name = context.getString(R.string.channel_name)
+        val descriptionText = context.getString(R.string.channel_description)
+        val importance = NotificationManager.IMPORTANCE_DEFAULT
+        val channel = NotificationChannel(CHANNEL_ID, name, importance).apply {
+            description = descriptionText
         }
+        // Register the channel with the system.
+        val notificationManager: NotificationManager =
+            context.getSystemService(NotificationManager::class.java) as NotificationManager
+        notificationManager.createNotificationChannel(channel)
     }
+}
+```
+
+<br />
 
 Because you must create the notification channel before posting any
 notifications on Android 8.0 and later, execute this code as soon as your app
@@ -162,21 +179,26 @@ defined with a [`PendingIntent`](https://developer.android.com/reference/android
 The following snippet shows how to create a basic intent to open an activity
 when the user taps the notification:
 
-    // Create an explicit intent for an Activity in your app.
-    val intent = Intent(context, AlertDetails::class.java).apply {
-        flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-    }
-    val pendingIntent: PendingIntent =
-        PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_IMMUTABLE)
 
-    val builder = NotificationCompat.Builder(context, CHANNEL_ID)
-            .setSmallIcon(R.drawable.notification_icon)
-            .setContentTitle("My notification")
-            .setContentText("Hello World!")
-            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-            // Set the intent that fires when the user taps the notification.
-            .setContentIntent(pendingIntent)
-            .setAutoCancel(true)
+```kotlin
+// Create an explicit intent for an Activity in your app.
+val intent = Intent(context, AlertDetails::class.java).apply {
+    flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+}
+val pendingIntent: PendingIntent =
+    PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_IMMUTABLE)
+
+val builder = NotificationCompat.Builder(context, CHANNEL_ID)
+    .setSmallIcon(R.drawable.ic_logo)
+    .setContentTitle("My notification")
+    .setContentText("Hello World!")
+    .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+    // Set the intent that fires when the user taps the notification.
+    .setContentIntent(pendingIntent)
+    .setAutoCancel(true)
+```
+
+<br />
 
 This code calls [`setAutoCancel()`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder#setAutoCancel(boolean)), which automatically [removes the
 notification](https://developer.android.com/develop/ui/compose/notifications/create-notification#Removing) when the user taps it.
@@ -203,24 +225,28 @@ To make the notification appear, call
 notification and the result of [`NotificationCompat.Builder.build()`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder#build()). This
 is shown in the following example:
 
-    with(NotificationManagerCompat.from(context)) {
-        if (ActivityCompat.checkSelfPermission(
-                context,
-                Manifest.permission.POST_NOTIFICATIONS
-            ) != PackageManager.PERMISSION_GRANTED
-        ) {
-            // TODO: Consider calling ActivityCompat#requestPermissions here
-            // to request the missing permissions, and then overriding
-            // public fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>,
-            //                                        grantResults: IntArray)
-            // to handle the case where the user grants the permission. See the documentation
-            // for ActivityCompat#requestPermissions for more details.
 
-            return@with
-        }
-        // notificationId is a unique int for each notification that you must define.
-        notify(NOTIFICATION_ID, builder.build())
+```kotlin
+with(NotificationManagerCompat.from(context)) {
+    if (ActivityCompat.checkSelfPermission(
+            context,
+            Manifest.permission.POST_NOTIFICATIONS
+        ) != PackageManager.PERMISSION_GRANTED
+    ) {
+        // TODO: Consider calling ActivityCompat#requestPermissions here
+        // to request the missing permissions, and then overriding
+        // public fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>,
+        //                                        grantResults: IntArray)
+        // to handle the case where the user grants the permission. See the documentation
+        // for ActivityCompat#requestPermissions for more details.
+
+        return@with
     }
+    // notificationId is a unique int for each notification that you must define.
+    notify(notificationId, builder.build())
+```
+
+<br />
 
 Save the notification ID that you pass to `NotificationManagerCompat.notify()`,
 because you need it when you want to [update](https://developer.android.com/develop/ui/compose/notifications/create-notification#Updating) or
@@ -256,22 +282,26 @@ action doesn't interrupt the app that's already open.
 For example, the following code shows how to send a broadcast to a specific
 receiver:
 
-    val ACTION_SNOOZE = "snooze"
 
-    val snoozeIntent = Intent(context, MyBroadcastReceiver::class.java).apply {
-        action = ACTION_SNOOZE
-        putExtra(EXTRA_NOTIFICATION_ID, 0)
-    }
-    val snoozePendingIntent: PendingIntent =
-        PendingIntent.getBroadcast(context, 0, snoozeIntent, PendingIntent.FLAG_IMMUTABLE)
-    val builder = NotificationCompat.Builder(context, CHANNEL_ID)
-            .setSmallIcon(R.drawable.notification_icon)
-            .setContentTitle("My notification")
-            .setContentText("Hello World!")
-            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-            .setContentIntent(pendingIntent)
-            .addAction(R.drawable.ic_snooze, context.getString(R.string.snooze),
-                    snoozePendingIntent)
+```kotlin
+val ACTION_SNOOZE = "snooze"
+val snoozeIntent = Intent(context, MyBroadcastReceiver::class.java).apply {
+    action = ACTION_SNOOZE
+    putExtra(EXTRA_NOTIFICATION_ID, 0)
+}
+val snoozePendingIntent: PendingIntent =
+    PendingIntent.getBroadcast(context, 0, snoozeIntent, PendingIntent.FLAG_IMMUTABLE)
+val builder = NotificationCompat.Builder(context, CHANNEL_ID)
+    .setSmallIcon(R.drawable.ic_logo)
+    .setContentTitle("My notification")
+    .setContentText("Hello World!")
+    .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+    .setContentIntent(pendingIntent)
+    .addAction(R.drawable.snooze, context.getString(R.string.snooze),
+        snoozePendingIntent)
+```
+
+<br />
 
 For more information about building a `BroadcastReceiver` to run background
 work, see the [Broadcasts overview](https://developer.android.com/guide/components/broadcasts).
@@ -312,22 +342,31 @@ that you can add to your notification action. This class's constructor accepts
 a string that the system uses as the key for the text input. Your app later uses
 that key to retrieve the text of the input.
 
-    // Key for the string that's delivered in the action's intent.
-    private val KEY_TEXT_REPLY = "key_text_reply"
-    val replyLabel: String = context.resources.getString(R.string.reply_label)
-    val remoteInput: RemoteInput = RemoteInput.Builder(KEY_TEXT_REPLY).run {
-        setLabel(replyLabel)
-        build()
-    }
+
+```kotlin
+// Key for the string that's delivered in the action's intent.
+val replyLabel: String = context.resources.getString(R.string.reply_label)
+val remoteInput: RemoteInput = RemoteInput.Builder(KEY_TEXT_REPLY).run {
+    setLabel(replyLabel)
+    build()
+}
+```
+
+<br />
 
 Create a `PendingIntent` for the reply action.
 
-    // Build a PendingIntent for the reply action to trigger.
-    val replyPendingIntent: PendingIntent =
-        PendingIntent.getBroadcast(context,
-            conversation.getConversationId(),
-            getMessageReplyIntent(conversation.getConversationId()),
-            PendingIntent.FLAG_MUTABLE)
+
+```kotlin
+// Build a PendingIntent for the reply action to trigger.
+val replyPendingIntent: PendingIntent =
+    PendingIntent.getBroadcast(context,
+        conversationId,
+        getMessageReplyIntent(conversationId),
+        PendingIntent.FLAG_MUTABLE)
+```
+
+<br />
 
 > [!CAUTION]
 > **Caution:** If you reuse a `PendingIntent`, a user might reply to a different conversation than the one they intend. You must provide a request code that is different for each conversation or provide an intent that doesn't return `true` when you call `https://developer.android.com/reference/android/app/PendingIntent#equals(java.lang.Object)` on the reply intent of any other conversation. The conversation ID is frequently passed as part of the intent's extras bundle, but is ignored when you call `equals()`.
@@ -335,12 +374,17 @@ Create a `PendingIntent` for the reply action.
 Attach the [`RemoteInput`](https://developer.android.com/reference/androidx/core/app/RemoteInput) object to an action using
 [`addRemoteInput()`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Action.Builder#addRemoteInput(androidx.core.app.RemoteInput)).
 
-    // Create the reply action and add the remote input.
-    val action: NotificationCompat.Action =
-        NotificationCompat.Action.Builder(R.drawable.ic_reply_icon,
-            context.getString(R.string.label), replyPendingIntent)
-            .addRemoteInput(remoteInput)
-            .build()
+
+```kotlin
+// Create the reply action and add the remote input.
+val action: NotificationCompat.Action =
+    NotificationCompat.Action.Builder(R.drawable.reply,
+        context.getString(R.string.reply_label), replyPendingIntent)
+        .addRemoteInput(remoteInput)
+        .build()
+```
+
+<br />
 
 Apply the action to a notification and issue the notification.
 
@@ -364,60 +408,81 @@ To receive user input from the notification's reply UI, call
 [`RemoteInput.getResultsFromIntent()`](https://developer.android.com/reference/androidx/core/app/RemoteInput#getResultsFromIntent(android.content.Intent)), passing it the `Intent` received by
 your `BroadcastReceiver`:
 
-    private fun getMessageText(intent: Intent): CharSequence? {
-        return RemoteInput.getResultsFromIntent(intent)?.getCharSequence(KEY_TEXT_REPLY)
-    }
+
+```kotlin
+private fun getMessageText(intent: Intent): CharSequence? {
+    return RemoteInput.getResultsFromIntent(intent)?.getCharSequence(KEY_TEXT_REPLY)
+}
+```
+
+<br />
 
 After you process the text, update the notification by calling
 `NotificationManagerCompat.notify()` with the same ID and tag, if used. This is
 necessary to hide the direct reply UI and confirm to the user that their reply
 is received and processed correctly.
 
-    // Build a new notification, which informs the user that the system
-    // handled their interaction with the previous notification.
-    val repliedNotification = NotificationCompat.Builder(context, CHANNEL_ID)
-            .setSmallIcon(R.drawable.ic_message)
-            .setContentText(context.getString(R.string.replied))
-            .build()
 
-    // Issue the new notification.
-    NotificationManagerCompat.from(context).notify(notificationId, repliedNotification)
+```kotlin
+// Build a new notification, which informs the user that the system
+// handled their interaction with the previous notification.
+val repliedNotification = NotificationCompat.Builder(context, CHANNEL_ID)
+    .setSmallIcon(R.drawable.message)
+    .setContentText(context.getString(R.string.replied))
+    .build()
+
+// Issue the new notification.
+NotificationManagerCompat.from(context).notify(notificationId, repliedNotification)
+```
+
+<br />
 
 ### Retrieve other data
 
 Handling other data types works similarly with `RemoteInput`. The following
 example uses image as input.
 
-    val KEY_REPLY = "key_reply"
-    val replyLabel: String = context.resources.getString(R.string.reply_label)
-    val remoteInput: RemoteInput = RemoteInput.Builder(KEY_REPLY).run {
-        setLabel(replyLabel)
-        // Allow for image data types in the input.
-        // This method can be used again to allow for other data types.
-        setAllowDataType("image/*", true)
-        build()
-    }
+
+```kotlin
+val replyLabel: String = context.resources.getString(R.string.reply_label)
+val remoteInput: RemoteInput = RemoteInput.Builder(KEY_REPLY).run {
+    setLabel(replyLabel)
+    // Allow for image data types in the input.
+    // This method can be used again to allow for other data types.
+    setAllowDataType("image/*", true)
+    build()
+}
+```
+
+<br />
 
 Call `RemoteInput#getDataResultsFromIntent` and extract the corresponding data.
 
-    class ReplyReceiver : BroadcastReceiver() {
-        override fun onReceive(context: Context, intent: Intent) {
-            val dataResults = RemoteInput.getDataResultsFromIntent(intent, KEY_REPLY)
-            val imageUri: Uri? = dataResults?.get("image/*") as? Uri
 
-            if (imageUri != null) {
-                // Extract the image
-                try {
-                    val inputStream = context.contentResolver.openInputStream(imageUri)
-                    val bitmap = BitmapFactory.decodeStream(inputStream)
-                    // Display the image
-                    // ...
-                } catch (e: Exception) {
-                    Log.e("ReplyReceiver", "Failed to process image URI", e)
-                }
+```kotlin
+class ReplyReceiver : BroadcastReceiver() {
+    override fun onReceive(context: Context, intent: Intent) {
+        val dataResults = RemoteInput.getDataResultsFromIntent(intent, KEY_REPLY)
+        val imageUri: Uri? = dataResults?.get("image/*") as? Uri
+
+        if (imageUri != null) {
+            // Extract the image
+            context.contentResolver.openInputStream(imageUri)?.use { inputStream ->
+                val bitmap = BitmapFactory.decodeStream(inputStream)
+                // Display the image
+                // ...
             }
         }
     }
+
+    companion object {
+        const val KEY_REPLY = "key_reply"
+        const val KEY_TEXT_REPLY = "key_text_reply"
+    }
+}
+```
+
+<br />
 
 When working with this new notification, use the context that's passed to the
 receiver's [`onReceive()`](https://developer.android.com/reference/android/content/BroadcastReceiver#onReceive(android.content.Context,%20android.content.Intent)) method.
@@ -451,16 +516,21 @@ the device's lock status:
 The following code snippet demonstrates how to associate your notification with
 a full-screen intent:
 
-    val fullScreenIntent = Intent(context, ImportantActivity::class.java)
-    val fullScreenPendingIntent = PendingIntent.getActivity(context, 0,
-        fullScreenIntent, PendingIntent.FLAG_IMMUTABLE)
 
-    val builder = NotificationCompat.Builder(context, CHANNEL_ID)
-            .setSmallIcon(R.drawable.notification_icon)
-            .setContentTitle("My notification")
-            .setContentText("Hello World!")
-            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-            .setFullScreenIntent(fullScreenPendingIntent, true)
+```kotlin
+val fullScreenIntent = Intent(context, ImportantActivity::class.java)
+val fullScreenPendingIntent = PendingIntent.getActivity(context, 0,
+    fullScreenIntent, PendingIntent.FLAG_IMMUTABLE)
+
+val builder = NotificationCompat.Builder(context, CHANNEL_ID)
+    .setSmallIcon(R.drawable.ic_logo)
+    .setContentTitle("My notification")
+    .setContentText("Hello World!")
+    .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+    .setFullScreenIntent(fullScreenPendingIntent, true)
+```
+
+<br />
 
 ## Set lock screen visibility
 
@@ -529,20 +599,29 @@ additional messages, and the content view for the notification.
 The following code snippet demonstrates how to customize a notification's style
 using the `MessagingStyle` class.
 
-    val user = Person.Builder()
-        .setIcon(userIcon)
-        .setName(userName)
-        .build()
 
-    val notification = NotificationCompat.Builder(context, CHANNEL_ID)
-        .setContentTitle("2 new messages with $sender")
-        .setContentText(subject)
-        .setSmallIcon(R.drawable.new_message)
-        .setStyle(NotificationCompat.MessagingStyle(user)
-            .addMessage(messages[1].getText(), messages[1].getTime(), messages[1].getPerson())
-            .addMessage(messages[2].getText(), messages[2].getTime(), messages[2].getPerson())
-        )
-        .build()
+```kotlin
+val message1 = NotificationCompat.MessagingStyle.Message(
+    messages[0].text,
+    messages[0].time,
+    messages[0].sender
+)
+val message2 = NotificationCompat.MessagingStyle.Message(
+    messages[1].text,
+    messages[1].time,
+    messages[1].sender
+)
+notification = NotificationCompat.Builder(context, CHANNEL_ID)
+    .setSmallIcon(R.drawable.ic_logo)
+    .setStyle(
+        NotificationCompat.MessagingStyle(Person.Builder().setName("Me").build())
+            .addMessage(message1)
+            .addMessage(message2)
+    )
+    .build()
+```
+
+<br />
 
 Starting in Android 9.0 (API level 28), It is also required to use the
 [`Person`](https://developer.android.com/reference/kotlin/android/app/Person) class in order to get an optimal rendering of the notification

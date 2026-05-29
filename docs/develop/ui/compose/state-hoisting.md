@@ -373,7 +373,7 @@ likely to pass composables only the parameters they need, which is a [best
 practice](https://developer.android.com/develop/ui/compose/architecture#composable-parameters).
 
 The same best practice applies if these events are navigation events, you can
-learn more about that in the [navigation docs](https://developer.android.com/develop/ui/compose/navigation#nav-calls-best-practices).
+learn more about that in the [navigation docs](https://developer.android.com/guide/navigation/use-graph/navigate#events).
 
 If you have identified a performance issue, you may also choose to defer reading
 of state. You can check the [performance docs](https://developer.android.com/develop/ui/compose/performance/bestpractices#defer-reads) to learn more.

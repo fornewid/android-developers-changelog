@@ -59,6 +59,6 @@ To use Jetpack Compose for Wear OS, see [Set up Jetpack Compose on Wear OS](http
 ## Recommended for you
 
 - Note: link text is displayed when JavaScript is off
-- [Navigating with Compose](https://developer.android.com/develop/ui/compose/navigation)
+- [Navigation overview](https://developer.android.com/guide/navigation#framework-options)
 - [Testing your Compose layout](https://developer.android.com/develop/ui/compose/testing)
 - [React to focus](https://developer.android.com/develop/ui/compose/touch-input/focus/react-to-focus)

@@ -28,7 +28,7 @@ in your app.
 In Jetpack Compose, you can handle custom back navigation using the
 [`BackHandler`](https://developer.android.com/reference/kotlin/androidx/activity/compose/package-summary#BackHandler(kotlin.Boolean,kotlin.Function0)) composable.
 
-When using [Navigation Compose](https://developer.android.com/develop/ui/compose/navigation), you typically use
+When using [Navigation Compose](https://developer.android.com/guide/navigation#framework-options), you typically use
 [`NavController.navigateUp()`](https://developer.android.com/reference/kotlin/androidx/navigation/NavController#navigateUp()) or [`NavController.popBackStack()`](https://developer.android.com/reference/kotlin/androidx/navigation/NavController#popBackStack())
 to navigate to the previous screen in the back stack. However, `BackHandler`
 is useful for cases where you want to implement custom behavior when the user
