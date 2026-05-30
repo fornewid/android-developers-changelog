@@ -12,7 +12,7 @@ For a list of [methods](https://developer.android.com/games/services/publishing/
 
 This is a JSON template for an leaderboard configuration resource.
 
-```text
+```
 {
   "kind": "gamesConfiguration#leaderboardConfiguration",
   "token": string,

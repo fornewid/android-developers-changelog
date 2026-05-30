@@ -62,4 +62,8 @@ Explore our design kit for the Android for Cars App Library. [Go to the Figma ki
 
 ### [Widgets](https://www.figma.com/community/file/1478519017421157788)
 
-Design widgets using our canonical layouts. [Go to the Figma kit](https://www.figma.com/community/file/1478519017421157788)
+Design widgets using our canonical layouts. [Go to the Figma kit](https://www.figma.com/community/file/1478519017421157788) [![](http://developer.android.com/static/images/design/ui/card-cover-wide_onboard.png)](https://www.figma.com/community/file/1638424504350167811/android-onboarding-kit)
+
+### [Android onboarding kit](https://www.figma.com/community/file/1638424504350167811/android-onboarding-kit)
+
+Get started with our comprehensive onboarding figma kit. [Go to the Figma kit](https://www.figma.com/community/file/1638424504350167811/android-onboarding-kit)

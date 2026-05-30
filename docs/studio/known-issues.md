@@ -4,11 +4,9 @@ url: https://developer.android.com/studio/known-issues
 source: md.txt
 ---
 
-This page tracks known issues with
-Android Studio
-Panda 4 and Android Gradle plugin
-9.2.0. If you experience an issue not already included
-here, please [report a bug](https://developer.android.com/studio/report-bugs).
+This page tracks known issues with Android Studio and the Android Gradle
+plugin. If you experience an issue not already included here, please
+[report a bug](https://developer.android.com/studio/report-bugs).
 
 
 **Upgrade to preview:** Each release of Android Studio and the Android
@@ -19,6 +17,18 @@ To experience the benefits of upcoming releases now, download and install
 ## Known Issues with Android Studio
 
 This section describes known issues that exist in Android Studio.
+
+### Android Studio Quail 1 parallel Gradle Sync execution issue
+
+In Android Studio Quail 1, the `org.gradle.parallel=true` property in
+`gradle.properties` no longer enables parallel model fetching during Gradle
+Sync. This will result in a large sync time regression for large projects.
+
+To enable parallel sync in Quail 1, set `org.gradle.tooling.parallel=true` in
+your project's `gradle.properties` file.
+
+> [!CAUTION]
+> **Caution:** The `org.gradle.tooling.parallel=true` property only works for projects that are compatible with Gradle project isolation.
 
 ### Android Studio Panda 3 not compatible with IntelliJ Develocity plugin 1.2.0
 

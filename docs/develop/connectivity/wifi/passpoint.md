@@ -8,7 +8,7 @@ Passpoint is a Wi-Fi Alliance (WFA) protocol that enables mobile devices to
 discover and authenticate to Wi-Fi hotspots that provide internet access.
 
 For information on the Wi-Fi suggestion API for Passpoint, see [Wi-Fi suggestion
-API for internet connectivity](https://developer.android.com/develop/connectivity/wifi-suggest) and
+API for internet connectivity](https://developer.android.com/develop/connectivity/wifi/wifi-suggest) and
 [`WifiNetworkSuggestion.Builder`](https://developer.android.com/reference/android/net/wifi/WifiNetworkSuggestion.Builder#setPasspointConfig(android.net.wifi.hotspot2.PasspointConfiguration)).
 
 For details about how Passpoint is implemented in Android, see [Passpoint

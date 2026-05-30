@@ -20,8 +20,9 @@ of properties.
 | Grouping | Properties | Inherited by children |
 |---|---|---|
 | **Layout and sizing** |   |   |
-| Padding | `contentPadding` (inner) and `externalPadding` (outer). Available in directional, horizontal, vertical, and all-side variants. | No |
-| Dimensions | `fillWidth/Height/Size()` and `width`, `height`, and `size` (supports `Dp`, `DpSize`, or `Float` fractions). | No |
+| Content Padding (inner) | - `contentPadding(all: Dp)` - `contentPadding(horizontal: Dp, vertical: Dp)` - `contentPadding(start: Dp, top: Dp, end: Dp, bottom: Dp)` - `contentPaddingHorizontal(value: Dp)` / `contentPaddingVertical(value: Dp)` - `contentPaddingStart(value: Dp)` / `contentPaddingTop(value: Dp)` / `contentPaddingEnd(value: Dp)` / `contentPaddingBottom(value: Dp)` | No |
+| External Padding (outer) | - `externalPadding(all: Dp)` - `externalPadding(horizontal: Dp, vertical: Dp)` - `externalPadding(start: Dp, top: Dp, end: Dp, bottom: Dp)` - `externalPaddingHorizontal(value: Dp)` / `externalPaddingVertical(value: Dp)` - `externalPaddingStart(value: Dp)` / `externalPaddingTop(value: Dp)` / `externalPaddingEnd(value: Dp)` / `externalPaddingBottom(value: Dp)` | No |
+| Dimensions | `fillWidth()/fillHeight()/fillSize()` and `width`, `height`, and `size` (supports `Dp`, `DpSize`, or `Float` fractions). | No |
 | Positioning | `left/top/right/bottom` offsets. | No |
 | **Visual Appearance** |   |   |
 | Fills | `background` and `foreground` (supports `Color` or `Brush`). | No |
@@ -29,7 +30,7 @@ of properties.
 | Shape | `shape` | No - but used in conjunction with other properties. `clip` and `border` use this defined shape. |
 | Shadows | `dropShadow`, `innerShadow` | No |
 | **Transformations** |   |   |
-| Graphics layer spatial movement | `translationX`, `translationY`, `scaleX/Y`, `rotationX/Y/Z` | No |
+| Graphics layer spatial movement | `translationX`, `translationY`, `scaleX/scaleY`, `rotationX/rotationY/rotationZ` | No |
 | Control | `alpha`, `zIndex` (stacking order), and `transformOrigin` (pivot point) | No |
 | **Typography** |   |   |
 | Styling | `textStyle`, `fontSize`, `fontWeight`, `fontStyle`, and `fontFamily` | Yes |
@@ -88,8 +89,8 @@ Row(
 
 <br />
 
-Similar to the `style` parameter, you can include properties like `background`
-or `padding` inside the lambda.
+Similar to the `style` parameter, you can include properties like `background`,
+`contentPadding`, or `externalPadding` inside the lambda.
 
 
 ```kotlin

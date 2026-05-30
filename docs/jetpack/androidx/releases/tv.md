@@ -8,9 +8,15 @@ source: md.txt
 
 Provides developers with Compose and Material design functionalities in order to write applications for TV
 
-| Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
+
+This table lists all the artifacts in the `androidx.tv` group.
+
+| Artifact | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| May 06, 2026 | [1.0.1](https://developer.android.com/jetpack/androidx/releases/tv#1.0.1) | - | [1.1.0-beta01](https://developer.android.com/jetpack/androidx/releases/tv#1.1.0-beta01) | - |
+| tv-material | [1.1.0](https://developer.android.com/jetpack/androidx/releases/tv#tv-material-1.1.0) | - | - | - |
+| tv-foundation | [1.0.0](https://developer.android.com/jetpack/androidx/releases/tv#tv-foundation-1.0.0) | - | - | - |
+
+This library was last updated on: May 06, 2026
 
 ## Declaring dependencies
 
@@ -25,8 +31,8 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.tv:tv-foundation:1.0.0"
     implementation "androidx.tv:tv-material:1.1.0"
+    implementation "androidx.tv:tv-foundation:1.0.0"
 }
 ```
 
@@ -34,8 +40,8 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.tv:tv-foundation:1.0.0")
     implementation("androidx.tv:tv-material:1.1.0")
+    implementation("androidx.tv:tv-foundation:1.0.0")
 }
 ```
 
@@ -56,15 +62,23 @@ for more information.
 
 There are no release notes for this artifact.
 
-## Tv-Material Version 1.1
+## Tv-Material
 
-### Version 1.1.0-rc01
+### Version 1.1
+
+#### Version 1.1.0
+
+May 06, 2026
+
+`androidx.tv:tv-material:1.1.0` is released. Version 1.1.0 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/362dfa0918241714146398df26a837a8304472e0..1b97e977a33b52672b68b052fe671ede5798bae1/tv/tv-material).
+
+#### Version 1.1.0-rc01
 
 April 08, 2026
 
 `androidx.tv:tv-material:1.1.0-rc01` is released. Version 1.1.0-rc01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/1a508f033de883ba2853b9f9ae1853eec7010638..35ab9cbc7736d5ed0b59d3ece0d2c7ca9531db72/tv/tv-material).
 
-### Version 1.1.0-beta01
+#### Version 1.1.0-beta01
 
 March 11, 2026
 
@@ -79,7 +93,7 @@ March 11, 2026
 - `androidx.compose.ui.graphics.NativePaint` typealias is deprecated, use `android.graphics.Paint` directly instead ([I6303c](https://android-review.googlesource.com/#/q/I6303c742f80887649d1a77e837ab0ff93ddff212), [b/477394763](https://issuetracker.google.com/issues/477394763))
 - Replace `Paint.asFrameworkPaint()` to `Paint.nativePaint` extension to avoid exposing platform type into `commonMain` sourceset via `typealias` ([I6303c](https://android-review.googlesource.com/#/q/I6303c742f80887649d1a77e837ab0ff93ddff212), [b/477394763](https://issuetracker.google.com/issues/477394763))
 
-### Version 1.1.0-alpha01
+#### Version 1.1.0-alpha01
 
 January 15, 2025
 
@@ -96,15 +110,9 @@ January 15, 2025
 - Fixed broken focus management in Carousel ([Ie508b721375](https://android-review.googlesource.com/q/Ie508b721375dd62b23007e9b0bbb7375bc458e51))
 - Surface (non-interactive) has a simplified implementation as compared to the interactive ones. ([I7ea545150](https://android-review.googlesource.com/q/I7ea545150dfce518ba280247843140530c3d1ecd))
 
-## Tv-Material Version 1.0
+### Version 1.0
 
-### Version 1.0.0
-
-May 06, 2026
-
-`androidx.tv:tv-foundation:1.0.0` is released. Version 1.0.0 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/362dfa0918241714146398df26a837a8304472e0..f829d50dbd135871f0a43a3eb73e1644cb976e6d/tv/tv-foundation).
-
-### Version 1.0.1
+#### Version 1.0.1
 
 July 16, 2025
 
@@ -115,13 +123,13 @@ July 16, 2025
 - Updated the `NavigationDrawerItem`'s height to match the specifications. ([cf9a3ce](https://android-review.googlesource.com/c/platform/frameworks/support/+/3442504))
 - Moved compositing strategy configuration from Surface composable to the Text composable. This fixes the bug where Exoplayer wasn't rendering on the Surface composables on lower Android API versions. ([9858ffb](https://android-review.googlesource.com/c/platform/frameworks/support/+/3427222))
 
-### Version 1.0.0
+#### Version 1.0.0
 
 August 21, 2024
 
 `androidx.tv:tv-material:1.0.0` is released. Version 1.0.0 is the first stable release of `androidx.tv:tv-material`.
 
-### Version 1.0.0-rc02
+#### Version 1.0.0-rc02
 
 August 7, 2024
 
@@ -131,13 +139,13 @@ August 7, 2024
 
 - Fixed Jittery text animation in Surface composable. ([3163319](https://android-review.googlesource.com/c/platform/frameworks/support/+/3163319))
 
-### Version 1.0.0-rc01
+#### Version 1.0.0-rc01
 
 July 10, 2024
 
 `androidx.tv:tv-material:1.0.0-rc01` is released. Version 1.0.0-rc01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/fbd1ac175922f44c69a13545d194066ee428b342..4237f41666396b1ff39ffba3563807151fed2313/tv/tv-material).
 
-### Version 1.0.0-beta01
+#### Version 1.0.0-beta01
 
 May 1, 2024
 
@@ -183,21 +191,23 @@ May 1, 2024
 - Some carousel features have been dropped for the beta launch due to necessary APIs being experimental ([I0e755d4](https://android-review.googlesource.com/#/q/I0e755d4d2200553e6196e74bb0a40ce7aa7d541b))
 - Changing `contentColor` in `Surface` no longer animates between states ([I436e794f](https://android-review.googlesource.com/#/q/I436e794f32ef2f9dbe28c5dc854330ce34023b9d))
 
-## Tv-Foundation Version 1.0.0
+## Tv-Foundation
 
-### Version 1.1.0
+### Version 1.0
+
+#### Version 1.0.0
 
 May 06, 2026
 
-`androidx.tv:tv-material:1.1.0` is released. Version 1.1.0 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/362dfa0918241714146398df26a837a8304472e0..1b97e977a33b52672b68b052fe671ede5798bae1/tv/tv-material).
+`androidx.tv:tv-foundation:1.0.0` is released. Version 1.0.0 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/362dfa0918241714146398df26a837a8304472e0..f829d50dbd135871f0a43a3eb73e1644cb976e6d/tv/tv-foundation).
 
-### Version 1.0.0-rc01
+#### Version 1.0.0-rc01
 
 April 08, 2026
 
 `androidx.tv:tv-foundation:1.0.0-rc01` is released. Version 1.0.0-rc01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/1a508f033de883ba2853b9f9ae1853eec7010638..6c5f3bbffc0257ceeb4050a57712b2d37dccb38f/tv/tv-foundation).
 
-### Version 1.0.0-beta01
+#### Version 1.0.0-beta01
 
 March 11, 2026
 
@@ -207,7 +217,7 @@ March 11, 2026
 
 - Projects released with Kotlin 2.0 require KGP 2.0.0 or newer to be consumed ([Idb6b5](https://android-review.googlesource.com/#/q/Idb6b5d6ae1625ab870ffe74f9790ffabc82a63b4), [b/344563182](https://issuetracker.google.com/issues/344563182))
 
-### Version 1.0.0-alpha12
+#### Version 1.0.0-alpha12
 
 January 15, 2025
 
@@ -217,7 +227,7 @@ January 15, 2025
 
 - Cleanup lazy layouts from tv-foundation. Refer to 1.0.0-alpha11 release notes to migrate away from tv-foundation lazy layouts. ([I2fdd3](https://android-review.googlesource.com/#/q/I2fdd36cddca3e2beeec20e48746f8980efb1c385), [b/358913893](https://issuetracker.google.com/issues/358913893))
 
-### Version 1.0.0-alpha11
+#### Version 1.0.0-alpha11
 
 July 10, 2024
 
@@ -228,7 +238,7 @@ July 10, 2024
 - Tv Lazy Layouts have been deprecated from tv-foundation library. Refer to [this ticket](https://issuetracker.google.com/issues/348896032) to learn how to migrate away from the tv lazy layouts. ([I0855f](https://android-review.googlesource.com/#/q/I0855f36b41cf8bc374e8e69ac5faeabfefc97aa9), [b/332674072](https://issuetracker.google.com/issues/332674072))
 - `PlatformImeOptions` is now a concrete class instead of an interface. ([If40a4](https://android-review.googlesource.com/#/q/If40a4c3e832e7852f214e18af469f5ce68e798b7))
 
-### Version 1.0.0-alpha10
+#### Version 1.0.0-alpha10
 
 October 4, 2023
 
@@ -253,7 +263,7 @@ October 4, 2023
 - Removed background padding in Modal Navigation Drawer. ([69965b2](https://android-review.googlesource.com/#/q/Ied625de5fca8a190835b0aa8297e6ec60cd63855))
 - Fix Scrim in Navigation Drawer to be drawn above background content instead of behind it. ([d4bbefb](https://android-review.googlesource.com/#/q/I8cdd020234b214988b8f7644e7011a668131e358))
 
-### Version 1.0.0-alpha09
+#### Version 1.0.0-alpha09
 
 September 6, 2023
 
@@ -268,7 +278,7 @@ September 6, 2023
 - Add `rememberCarouselState` to remember `CarouselState` with `Saver` to TV Compose Material. ([Id7275](https://android-review.googlesource.com/#/q/Id72754d77017118d18190d900e63ddd32e8e7d21))
 - Changing the `scrimColor: Color` parameter to `scrimBrush:Brush` parameter to allow users to add gradients to the scrim. ([I254d4](https://android-review.googlesource.com/#/q/I254d4fa8c517abfbd34838d3e7c4a0bdf13346a9))
 
-### Version 1.0.0-alpha08
+#### Version 1.0.0-alpha08
 
 July 26, 2023
 
@@ -285,7 +295,7 @@ July 26, 2023
 - Marked public tv-material APIs as Experimental. ([I632e7](https://android-review.googlesource.com/#/q/I632e7c1d1aa6cb61a82d582985cb9328caa0dd2f))
 - Introduced `TabRowScope` to share state from `TabRow` composable with Tab composable and renamed `TabColors` properties. ([Ief587](https://android-review.googlesource.com/#/q/Ief5874a34a8319d8a600e9a494e28c10bf4713c0))
 
-### Version 1.0.0-alpha07
+#### Version 1.0.0-alpha07
 
 June 7, 2023
 
@@ -303,7 +313,7 @@ June 7, 2023
 - Introduced non-interactable Surface in TV Material. ([Ic5f85](https://android-review.googlesource.com/#/q/Ic5f85d30abe661505c6e02017319f3d7c589bed4))
 - Make indications internal. ([Ibff82](https://android-review.googlesource.com/#/q/Ibff82ae4798c7e890d683e223271160666a37348))
 
-### Version 1.0.0-alpha06
+#### Version 1.0.0-alpha06
 
 April 19, 2023
 
@@ -329,7 +339,7 @@ April 19, 2023
 
 - Handle back DPAD button when focused on `NavigationDrawer`. ([d654f4](https://android.googlesource.com/platform/frameworks/support/+/d654f4d2e2b7b5af6d45d756c8faf206b844a17c))
 
-### Version 1.0.0-alpha05
+#### Version 1.0.0-alpha05
 
 March 22, 2023
 
@@ -342,7 +352,7 @@ March 22, 2023
 - Introducing Surface composable to `tv-material` with indications such as Border, Glow and Scale, which can be used to build components that clearly highlight the focused element on the TV screen. ([I4a6d8](https://android-review.googlesource.com/#/q/I4a6d8a4ae15d9d038fa27f4c8ffbba90bb494b49)), ([Iceea1](https://android-review.googlesource.com/#/q/Iceea10dee7a9f27cff0e81c43054571f165dbcb5)), ([Iee4d4](https://android-review.googlesource.com/#/q/Iee4d4129f752bdcaff37c587868f190d2f41cdc0)), ([I79edf](https://android-review.googlesource.com/#/q/I79edfb3a936ee85ab07a87fbd4bce96d534b367a)), ([Icb376](https://android-review.googlesource.com/#/q/Icb3762b71b1338ee350176847098061b41b93606))
 - Update `CarouselItem` to `CarouselSlide` to match the `slideCount` param name in 'Carousel' API ([Ic4299](https://android-review.googlesource.com/#/q/Ic42996abbc0e95c0110b0acd688c0f0118e6e2c4))
 
-### Version 1.0.0-alpha04
+#### Version 1.0.0-alpha04
 
 February 8, 2023
 
@@ -375,7 +385,7 @@ February 8, 2023
 - Carousel does not lose focus on long key-presses. ([b2cf37e](https://android.googlesource.com/platform/frameworks/support/+/b2cf37e19ad2d33fa0f9507e4985c7f8b56a1629))
 - Addressed crashes when carousel slide-count changes. ([b261247](https://android.googlesource.com/platform/frameworks/support/+/b261247aa43ae317aed022705f66d614370fe311))
 
-### Version 1.0.0-alpha03
+#### Version 1.0.0-alpha03
 
 December 7, 2022
 
@@ -386,7 +396,7 @@ December 7, 2022
 - `TabRow` is now available as an experimental API allowing users to add top navigation bars to their apps. Generally, TV devices expect tabs to load when the tab-title is focused on in the tab-row.
 - TV specific indicators like underline indicator and pill indicator are offered out of the box. Sample usages can be found in [tv-samples](https://cs.android.com/androidx/platform/frameworks/support/+/androidx-main:tv/samples/src/main/java/androidx/tv/samples/TabRowSamples.kt)
 
-### Version 1.0.0-alpha02
+#### Version 1.0.0-alpha02
 
 November 9, 2022
 
@@ -396,7 +406,7 @@ November 9, 2022
 
 - Improved scrolling performance when scrolling through a collection of `TvLazyRows/TvLazyColumns` by reducing the focus search space.([I723a3](https://android-review.googlesource.com/c/platform/frameworks/support/+/2255266))
 
-### Version 1.0.0-alpha01
+#### Version 1.0.0-alpha01
 
 October 5, 2022
 
