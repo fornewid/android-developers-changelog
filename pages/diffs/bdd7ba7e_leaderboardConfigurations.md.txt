@@ -1,0 +1,13 @@
+diff --git a/docs/games/services/publishing/api/leaderboardConfigurations.md b/docs/games/services/publishing/api/leaderboardConfigurations.md
+index ec402d38..fb2d48c7 100644
+--- a/docs/games/services/publishing/api/leaderboardConfigurations.md
++++ b/docs/games/services/publishing/api/leaderboardConfigurations.md
+@@ -12,7 +12,7 @@ For a list of [methods](https://developer.android.com/games/services/publishing/
+ 
+ This is a JSON template for an leaderboard configuration resource.
+ 
+-```text
++```
+ {
+   "kind": "gamesConfiguration#leaderboardConfiguration",
+   "token": string,
