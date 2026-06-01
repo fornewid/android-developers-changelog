@@ -74,9 +74,11 @@ clicking the star button.
 See the [Issue Tracker documentation](https://developers.google.com/issue-tracker)
 for more information.
 
-## Leanback-Grid Version 1.1
+## Leanback-Grid
 
-### Version 1.1.0-alpha01
+### Version 1.1
+
+#### Version 1.1.0-alpha01
 
 May 19, 2026
 
@@ -94,9 +96,60 @@ May 19, 2026
 - Fix leaking child views after adapter is reset. ([I636a0](https://android-review.googlesource.com/#/q/I636a02fab7fc1e8506bd97212507a98a0409598c))
 - Moving the default `minSdk` from API 21 to API 23 ([Ibdfca](https://android-review.googlesource.com/#/q/Ibdfca5942dbb414ca07594ba240093db14aad4df), [b/380448311](https://issuetracker.google.com/issues/380448311), [b/435705964](https://issuetracker.google.com/issues/435705964), [b/435705223](https://issuetracker.google.com/issues/435705223))
 
-## Leanback Leanback-Preference Version Version 1.3
+### Version 1.0
 
-### Version 1.3.0-alpha01
+#### Version 1.0.0
+
+April 23, 2025
+
+`androidx.leanback:leanback-grid:1.0.0` is released. The version does not contain any change, it just moves it to stable.
+
+#### Version 1.0.0-rc01
+
+April 9, 2025
+
+`androidx.leanback:leanback-grid:1.0.0-rc01` is released. This does not have any major commits, and only moves the library to stable.
+
+#### Version 1.0.0-alpha03
+
+November 15, 2023
+
+`androidx.leanback:leanback-grid:1.0.0-alpha03` is released. [Version 1.0.0-alpha03 contains these commits.](https://android.googlesource.com/platform/frameworks/support/+log/9ce75ea1baa2af10dda8f787f69c40c6654bcac1..312eb9f1ddece3a18317f18515a877e0e745cb2c/leanback/leanback-grid)
+
+**Dependency Updates**
+
+- Update to depend on [RecyclerView `1.3.2`](https://developer.android.com/jetpack/androidx/releases/recyclerview#recyclerview-1.3.2) to fix a common crash in TV apps ([I2c3a0](https://android-review.googlesource.com/#/q/I2c3a0f7ae43f72bd6a1dbbe30c269148f824a885), [b/292114537](https://issuetracker.google.com/issues/292114537))
+
+#### Version 1.0.0-alpha02
+
+September 6, 2023
+
+`androidx.leanback:leanback-grid:1.0.0-alpha02` is released. [Version 1.0.0-alpha02 contains these commits.](https://android.googlesource.com/platform/frameworks/support/+log/cc1240d00b28657ee0c1a937f60430eaf1b03b09..9ce75ea1baa2af10dda8f787f69c40c6654bcac1/leanback/leanback-grid)
+
+**API Changes**
+
+- Made `setFocusOutAllowed` public to allow the focus out properties to be set programmatically. ([Iebd99](https://android-review.googlesource.com/#/q/Iebd996b00e7b04903261a025d77ddbbd9be81f90))
+
+**Bug Fixes**
+
+- Ensure grids are treated as grids by a11y services by setting an a11y node info class name. ([I12812](https://android-review.googlesource.com/#/q/I128122352a3fc4898cc6ba76d7da8166519bd648))
+- Add missing navigation sound when falling to smooth scroll. ([f49767](https://android.googlesource.com/platform/frameworks/support/+/f4976759c48f5a0dd78b14c4e8b3f77645576e98))
+
+#### Version 1.0.0-alpha01
+
+November 17, 2021
+
+`androidx.leanback:leanback-grid:1.0.0-alpha01` is released. [Version 1.0.0-alpha01 contains these commits.](https://android.googlesource.com/platform/frameworks/support/+log/cc1240d00b28657ee0c1a937f60430eaf1b03b09/leanback/leanback-grid)
+
+**New Features**
+
+- Moved following classes/interfaces from `leanback` to new `leanback-grid` library: `BaseGridView`, `FacetProvider`, `FacetProviderAdapter`, `GridLayoutManager`, `HorizontalGridView`, `ItemAlignmentFacet`, `OnChildLaidOutListener`, `OnChildSelectedListener`, `OnChildViewHolderSelectedListener`, `VerticalGridView`, `ViewHolderTask`, `Visibility`. This change preserves binary compatibility. Anyone willing to use just the grid view components of leanback can directly use `leanback-grid` as a dependency. ([If1e49](https://android-review.googlesource.com/#/q/If1e490c6a36ba9e8b2e6de7aa0774c5bc374e50d))
+
+## Leanback
+
+### Version 1.3
+
+#### Version 1.3.0-alpha01
 
 May 19, 2026
 
@@ -113,70 +166,35 @@ May 19, 2026
 - Fix leaking child views after adapter is reset. ([I636a0](https://android-review.googlesource.com/#/q/I636a02fab7fc1e8506bd97212507a98a0409598c))
 - Moving the default `minSdk` from API 21 to API 23 ([Ibdfca](https://android-review.googlesource.com/#/q/Ibdfca5942dbb414ca07594ba240093db14aad4df), [b/380448311](https://issuetracker.google.com/issues/380448311), [b/435705964](https://issuetracker.google.com/issues/435705964), [b/435705223](https://issuetracker.google.com/issues/435705223))
 
-## Leanback-Grid Version 1.0.0
+### Version 1.1
 
-### Version 1.0.0
+#### Version 1.1.0-rc02
 
-April 23, 2025
+July 21, 2021
 
-`androidx.leanback:leanback-grid:1.0.0` is released. The version does not contain any change, it just moves it to stable.
-
-### Version 1.0.0-rc01
-
-April 9, 2025
-
-`androidx.leanback:leanback-grid:1.0.0-rc01` is released. This does not have any major commits, and only moves the library to stable.
-
-### Version 1.0.0-alpha03
-
-November 15, 2023
-
-`androidx.leanback:leanback-grid:1.0.0-alpha03` is released. [Version 1.0.0-alpha03 contains these commits.](https://android.googlesource.com/platform/frameworks/support/+log/9ce75ea1baa2af10dda8f787f69c40c6654bcac1..312eb9f1ddece3a18317f18515a877e0e745cb2c/leanback/leanback-grid)
-
-**Dependency Updates**
-
-- Update to depend on [RecyclerView `1.3.2`](https://developer.android.com/jetpack/androidx/releases/recyclerview#recyclerview-1.3.2) to fix a common crash in TV apps ([I2c3a0](https://android-review.googlesource.com/#/q/I2c3a0f7ae43f72bd6a1dbbe30c269148f824a885), [b/292114537](https://issuetracker.google.com/issues/292114537))
-
-### Version 1.0.0-alpha02
-
-September 6, 2023
-
-`androidx.leanback:leanback-grid:1.0.0-alpha02` is released. [Version 1.0.0-alpha02 contains these commits.](https://android.googlesource.com/platform/frameworks/support/+log/cc1240d00b28657ee0c1a937f60430eaf1b03b09..9ce75ea1baa2af10dda8f787f69c40c6654bcac1/leanback/leanback-grid)
-
-**API Changes**
-
-- Made `setFocusOutAllowed` public to allow the focus out properties to be set programmatically. ([Iebd99](https://android-review.googlesource.com/#/q/Iebd996b00e7b04903261a025d77ddbbd9be81f90))
+`androidx.leanback:leanback:1.1.0-rc02` is released. [Version 1.1.0-rc02 contains these commits.](https://android.googlesource.com/platform/frameworks/support/+log/bf8af1081ee3ce8c6dbea9e75c37f53dd8c0553b..634cd131d8f496ae5f0471629cfb1aaadd65ae06/leanback/leanback)
 
 **Bug Fixes**
 
-- Ensure grids are treated as grids by a11y services by setting an a11y node info class name. ([I12812](https://android-review.googlesource.com/#/q/I128122352a3fc4898cc6ba76d7da8166519bd648))
-- Add missing navigation sound when falling to smooth scroll. ([f49767](https://android.googlesource.com/platform/frameworks/support/+/f4976759c48f5a0dd78b14c4e8b3f77645576e98))
+- Fixed details fragment background bug. ([40d8e3](https://android.googlesource.com/platform/frameworks/support/+/40d8e3cd2f78a1622d1a806cf910c7c961837ed9))
 
-### Version 1.0.0-alpha01
+## Leanback-Preference
 
-November 17, 2021
+### Version 1.2
 
-`androidx.leanback:leanback-grid:1.0.0-alpha01` is released. [Version 1.0.0-alpha01 contains these commits.](https://android.googlesource.com/platform/frameworks/support/+log/cc1240d00b28657ee0c1a937f60430eaf1b03b09/leanback/leanback-grid)
-
-**New Features**
-
-- Moved following classes/interfaces from `leanback` to new `leanback-grid` library: `BaseGridView`, `FacetProvider`, `FacetProviderAdapter`, `GridLayoutManager`, `HorizontalGridView`, `ItemAlignmentFacet`, `OnChildLaidOutListener`, `OnChildSelectedListener`, `OnChildViewHolderSelectedListener`, `VerticalGridView`, `ViewHolderTask`, `Visibility`. This change preserves binary compatibility. Anyone willing to use just the grid view components of leanback can directly use `leanback-grid` as a dependency. ([If1e49](https://android-review.googlesource.com/#/q/If1e490c6a36ba9e8b2e6de7aa0774c5bc374e50d))
-
-## Leanback Leanback-Preference Version 1.2.0
-
-### Version 1.2.0
+#### Version 1.2.0
 
 April 23, 2025
 
 `androidx.leanback:leanback:1.2.0` and `androidx.leanback:leanback-preference:1.2.0` are released. The version does not contain any change, it just moves it to stable.
 
-### Version 1.2.0-rc01
+#### Version 1.2.0-rc01
 
 April 9, 2025
 
 `androidx.leanback:leanback:1.2.0-rc01` and `androidx.leanback:leanback-preference:1.2.0-rc01` are released. This does not have any major commits, and only moves the library to stable.
 
-### Version 1.2.0-alpha04
+#### Version 1.2.0-alpha04
 
 November 15, 2023
 
@@ -190,7 +208,7 @@ November 15, 2023
 
 - Update recyclerview requirement to 1.3.2 to fix a common crash in TV apps
 
-### Version 1.2.0-alpha03
+#### Version 1.2.0-alpha03
 
 September 6, 2023
 
@@ -200,7 +218,7 @@ September 6, 2023
 
 - Added `GuidedActionAppCompatEditText` to better support the AppCompat theme. ([ab7cf1](https://android.googlesource.com/platform/frameworks/support/+/ab7cf168c7f76e45b2d2923ee6646b403b37a9a4), [dc954d](https://android.googlesource.com/platform/frameworks/support/+/dc954d0176dcdf6d37ee0ad6f9b1fb95d80b3540))
 
-### Version 1.2.0-alpha02
+#### Version 1.2.0-alpha02
 
 November 17, 2021
 
@@ -210,7 +228,7 @@ November 17, 2021
 
 - Moved following classes/interfaces from `leanback` to new `leanback-grid` library: `BaseGridView`, `FacetProvider`, `FacetProviderAdapter`, `GridLayoutManager`, `HorizontalGridView`, `ItemAlignmentFacet`, `OnChildLaidOutListener`, `OnChildSelectedListener`, `OnChildViewHolderSelectedListener`, `VerticalGridView`, `ViewHolderTask`, `Visibility`. This change preserves binary compatibility. Anyone willing to use just the grid view components of leanback can directly use `leanback-grid` as a dependency. ([If1e49](https://android-review.googlesource.com/#/q/If1e490c6a36ba9e8b2e6de7aa0774c5bc374e50d))
 
-### Version 1.2.0-alpha01
+#### Version 1.2.0-alpha01
 
 July 21, 2021
 
@@ -224,37 +242,9 @@ July 21, 2021
 
 - Made leanback GridLayoutManager public and exchangeable in BaseGridView. ([f316b5](https://android.googlesource.com/platform/frameworks/support/+/f316b5dc1f24099be9115c6c39ab62b78e33a6d0))
 
-## Version 1.1.0
+### Version 1.1
 
-### Version 1.1.0-alpha01
-
-May 19, 2026
-
-`androidx.leanback:leanback-grid:1.1.0-alpha01` is released. Version 1.1.0-alpha01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/b7d439a209d4081f77ac6e05350e1f5f88a7db2b..32daa2dc7166667bee1833519b0a0b2b9319029d/leanback/leanback-grid).
-
-**API Changes**
-
-- add `setSelectedPositionToUnalignedChild` and `setSelectedPositionToAlignedChild` to change selected position without triggering scrolling. ([If53ab](https://android-review.googlesource.com/#/q/If53aba3d98c3e1c9af1d8c79de112c3f46c8a8bf), [b/499067714](https://issuetracker.google.com/issues/499067714))
-- Provides setFocusScrollStrategy(FOCUS_SCROLL_ALIGNED_AND_SNAP) to support snapping in touch mode. ([I55fbc](https://android-review.googlesource.com/#/q/I55fbcb516701c9c82d3d8d13a4b2844b4e118096))
-- support SpanSizeLookup with the ability to occupy all spans and padding area. ([I7f87c](https://android-review.googlesource.com/#/q/I7f87c09c7c36ea27ae26f663ba85f9afe82fc17d))
-- Expose getNumColumns() and getNumRows() ([Icd8c0](https://android-review.googlesource.com/#/q/Icd8c02a71de4dd511e6b5b5beef8d4238c5355b4), [b/138276997](https://issuetracker.google.com/issues/138276997))
-
-**Bug Fixes**
-
-- fix leaking child views after adapter is reset. ([I636a0](https://android-review.googlesource.com/#/q/I636a02fab7fc1e8506bd97212507a98a0409598c))
-- Moving the default minSdk from API 21 to API 23 ([Ibdfca](https://android-review.googlesource.com/#/q/Ibdfca5942dbb414ca07594ba240093db14aad4df), [b/380448311](https://issuetracker.google.com/issues/380448311), [b/435705964](https://issuetracker.google.com/issues/435705964), [b/435705223](https://issuetracker.google.com/issues/435705223))
-
-### Leanback Version 1.1.0-rc02
-
-July 21, 2021
-
-`androidx.leanback:leanback:1.1.0-rc02` is released. [Version 1.1.0-rc02 contains these commits.](https://android.googlesource.com/platform/frameworks/support/+log/bf8af1081ee3ce8c6dbea9e75c37f53dd8c0553b..634cd131d8f496ae5f0471629cfb1aaadd65ae06/leanback/leanback)
-
-**Bug Fixes**
-
-- Fixed details fragment background bug. ([40d8e3](https://android.googlesource.com/platform/frameworks/support/+/40d8e3cd2f78a1622d1a806cf910c7c961837ed9))
-
-### Leanback Leanback-Preference Version 1.1.0-rc01
+#### Version 1.1.0-rc01
 
 April 7, 2021
 
@@ -263,27 +253,29 @@ April 7, 2021
 - Fixed view leaks in `SearchSupportFragment()` ([6c47a1](https://android.googlesource.com/platform/frameworks/support/+/6c47a1e08882d4932ace063ff2d1ed11f0fe37da), [b/171909417](https://issuetracker.google.com/issues/171909417))
 - Made speech recognizer optional for `SearchSupportFragment` ([4ff949](https://android.googlesource.com/platform/frameworks/support/+/4ff949b813f4954533390ed87672771c45d60bc4),[b/169936953](https://issuetracker.google.com/issues/169936953))
 
-## Leanback-Paging Version 1.1
+## Leanback-Paging
 
-### Version 1.1.0
+### Version 1.1
+
+#### Version 1.1.0
 
 April 23, 2025
 
 `androidx.leanback:leanback-paging:1.1.0` and `androidx.leanback:leanback-tab:1.1.0` are released. The version does not contain any change, it just moves it to stable.
 
-### Version 1.1.0-rc01
+#### Version 1.1.0-rc01
 
 April 9, 2025
 
 `androidx.leanback:leanback-paging:1.1.0-rc01` and `androidx.leanback:leanback-tab:1.1.0-rc01` are released. This does not have any major commits, and only moves the library to stable.
 
-### Version 1.1.0-alpha11
+#### Version 1.1.0-alpha11
 
 November 15, 2023
 
 `androidx.leanback:leanback-paging:1.1.0-alpha11` is released with no changes. [Version 1.1.0-alpha11 contains these commits.](https://android.googlesource.com/platform/frameworks/support/+log/9ce75ea1baa2af10dda8f787f69c40c6654bcac1..312eb9f1ddece3a18317f18515a877e0e745cb2c/leanback/leanback-paging)
 
-### Version 1.1.0-alpha10
+#### Version 1.1.0-alpha10
 
 September 6, 2023
 
@@ -293,7 +285,7 @@ September 6, 2023
 
 - Update leanback-paging to Paging 3.1.0. ([882ed1](https://android.googlesource.com/platform/frameworks/support/+/882ed18ddf35bf0189622c10ec4205261fdfa1f6))
 
-### Leanback-Paging Version 1.1.0-alpha09
+#### Version 1.1.0-alpha09
 
 November 17, 2021
 
@@ -303,7 +295,7 @@ November 17, 2021
 
 - Updated to use latest paging APIs.
 
-### Leanback-Paging Version 1.1.0-alpha08
+#### Version 1.1.0-alpha08
 
 July 21, 2021
 
@@ -313,7 +305,7 @@ July 21, 2021
 
 - Added `.peek()` and `.snapshot()` APIs to PagingDataAdapter, allowing inspection of presented data without triggering page fetch. ([Ic8917](https://android-review.googlesource.com/#/q/Ic89171a55a10a73b585f130d2a9eb1b8927db1fd))
 
-### Leanback-Paging Version 1.1.0-alpha07
+#### Version 1.1.0-alpha07
 
 January 13, 2021
 
@@ -323,7 +315,7 @@ January 13, 2021
 
 - Updated the convenience properties, `CombinedLoadStates.refresh`, `CombinedLoadStates.prepend`, `CombinedLoadStates.append` to only transition from `Loading` to `NotLoading` after both mediator and source load states are `NotLoading` to ensure the remote update has been applied. ([I65619](https://android-review.googlesource.com/#/q/I656192632c4ce073ac8e54a3f1c597bbbae77002))
 
-### Leanback Leanback-Preference Leanback-Tab Version 1.1.0-beta01
+#### Leanback Leanback-Preference Leanback-Tab Version 1.1.0-beta01
 
 December 2, 2020
 
@@ -339,7 +331,7 @@ December 2, 2020
 - Fix IllegalArgumentException when restoring GuidedStepSupportFragment ([Ic829f](https://android-review.googlesource.com/#/q/Ic829f9256c1bd825a04bdeb81e673aa2a75527db), [b/172000115](https://issuetracker.google.com/issues/172000115))
 - Fix GridLayoutManager NullPointerException in findContainingItemView() when clearFocus() ([Id0e42](https://android-review.googlesource.com/#/q/Id0e42555cfe720eb291f0c80dc3dab340845783e))
 
-### Leanback-Paging Version 1.1.0-alpha06
+#### Version 1.1.0-alpha06
 
 December 2, 2020
 
@@ -358,7 +350,7 @@ December 2, 2020
 - Full deprecate dataRefreshFlow / Listener methods with a
   replaceWith clause. ([I6e2dd](https://android-review.googlesource.com/#/q/I6e2dd23b100bc1186dc652e5076b2d15b191c436))
 
-### Version 1.1.0-alpha05
+#### Version 1.1.0-alpha05
 
 October 1, 2020
 
@@ -375,7 +367,7 @@ October 1, 2020
 - leanback-tab: Javadoc improvements and minor code refactoring ([aosp/1393383](https://android-review.googlesource.com/c/platform/frameworks/support/+/1393383))
 - Remove setRecyclerView method from API which was added when same method was deprecated on RecyclerView. Update leanback lib to use RecyclerView's new addRecyclerListener API method. ([I14798](https://android-review.googlesource.com/#/q/I14798462b11be3ac2bd0b73fcfe28711effa4379))
 
-### Version 1.1.0-alpha04
+#### Version 1.1.0-alpha04
 
 August 11, 2020
 
@@ -392,7 +384,7 @@ August 11, 2020
 - Added adapter based on asyncpagingdatadiffer for leanback widgets ([If0dfe](https://android-review.googlesource.com/#/q/If0dfed7c38fd4a20271e9a12d45ab71d3eba0c26))
 - Adding a customized TabLayout to be used as the top navigation bar in leanback ([I1e304](https://android-review.googlesource.com/#/q/I1e3048d300106ad0b0f9ef55f14e7070793a579a))
 
-### Version 1.1.0-alpha03
+#### Version 1.1.0-alpha03
 
 December 18, 2019
 
@@ -418,7 +410,7 @@ December 18, 2019
 
 - Leanback-preference: pinned the dependency of `androidx.preference` to `1.1.0` ([aosp/1181902](https://android-review.googlesource.com/c/1181902))
 
-### Version 1.1.0-alpha02
+#### Version 1.1.0-alpha02
 
 May 7, 2019
 
@@ -437,7 +429,7 @@ May 7, 2019
 - Fixed broken leanback-preference Fragments theme due to a change in preference library.
 - Fix navigation bug when BACK key is pressed on SearchEditText
 
-### Version 1.1.0-alpha01
+#### Version 1.1.0-alpha01
 
 January 30, 2019
 

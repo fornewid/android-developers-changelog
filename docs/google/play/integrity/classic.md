@@ -256,8 +256,9 @@ IEnumerator RequestIntegrityTokenCoroutine() {
     // Receive the nonce from the secure server.
     var nonce = ...
 
-    // Create an instance of a manager.
-    var integrityManager = new IntegrityManager();
+    // Initialize the V2 manager. Requires Play Integrity Unity Plugin v2.0.0
+    // or higher.
+    var integrityManager = new IntegrityManagerV2();
 
     // Request the integrity token by providing a nonce.
     var tokenRequest = new IntegrityTokenRequest(nonce);
@@ -268,10 +269,11 @@ IEnumerator RequestIntegrityTokenCoroutine() {
     yield return requestIntegrityTokenOperation;
 
     // Check the resulting https://developer.android.com/google/play/integrity/error-codes.
-    if (requestIntegrityTokenOperation.Error != IntegrityErrorCode.NoError)
+    if (requestIntegrityTokenOperation.Error != null &&
+        requestIntegrityTokenOperation.Error.ErrorCode != IntegrityErrorCode.NoError)
     {
         AppendStatusLog("IntegrityAsyncOperation failed with error: " +
-                requestIntegrityTokenOperation.Error);
+                requestIntegrityTokenOperation.Error.ErrorCode);
         yield break;
     }
 

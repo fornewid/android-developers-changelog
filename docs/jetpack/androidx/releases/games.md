@@ -170,15 +170,17 @@ clicking the star button.
 See the [Issue Tracker documentation](https://developers.google.com/issue-tracker)
 for more information.
 
-## Games-Memory-Advice version 2.1
+## Games-Memory-Advice
 
-### Version 2.1.0-beta01
+### Version 2.1
+
+#### Version 2.1.0-beta01
 
 November 29, 2023
 
 `androidx.games:games-memory-advice:2.1.0-beta01` is released. [Version 2.1.0-beta01 contains these commits.](https://android.googlesource.com/platform/frameworks/opt/gamesdk/+log/d1f9f40d22248179ba6612beb8acec847bc5880d..3b94fe082e0e95399ed99b5a16ef8eeea307eee2/games-memory-advice)
 
-### Version 2.1.0-alpha01
+#### Version 2.1.0-alpha01
 
 November 15, 2023
 
@@ -192,7 +194,7 @@ November 15, 2023
 
 - Added a new API `getAvailableMemory()` that returns an estimate for the amount of memory that can safely be allocated, in bytes.
 
-### Version 2.1.0-alpha01
+#### Version 2.1.0-alpha01
 
 July 26, 2023
 
@@ -207,9 +209,9 @@ July 26, 2023
 - Update Memory Advice model
 - Fix shared `memory_advice` build target
 
-## Games-Memory-Advice version 2.0
+### Version 2.0
 
-### Version 2.0.1
+#### Version 2.0.1
 
 September 20, 2023
 
@@ -219,7 +221,7 @@ September 20, 2023
 
 - Fix the crash happening in the state watcher thread due to the thread not being attached to the JVM.
 
-### Version 2.0.0
+#### Version 2.0.0
 
 September 6, 2023
 
@@ -230,7 +232,7 @@ September 6, 2023
 - A new ML model has been trained and released in this version.
 - An API to predict the amount of free memory is implemented.
 
-### Version 2.0.0-rc01
+#### Version 2.0.0-rc01
 
 July 26, 2023
 
@@ -244,7 +246,7 @@ July 26, 2023
 
 - Fixed Memory Advice not working with a shared STL.
 
-### Version 2.0.0-beta04
+#### Version 2.0.0-beta04
 
 May 24, 2023
 
@@ -254,7 +256,7 @@ May 24, 2023
 
 - Updated the machine learning model powering the library which'll allow improved results for newer phones
 
-### Version 2.0.0-beta03
+#### Version 2.0.0-beta03
 
 April 5, 2023
 
@@ -264,7 +266,7 @@ April 5, 2023
 
 - Fixed a bug where the library couldn't load the required tensorflow lite assets properly
 
-### Version 2.0.0-beta02
+#### Version 2.0.0-beta02
 
 March 22, 2023
 
@@ -274,7 +276,7 @@ March 22, 2023
 
 - Fixed a bug that prevented the static version of the library to be linked properly
 
-### Version 2.0.0-beta01
+#### Version 2.0.0-beta01
 
 February 22, 2023
 
@@ -284,7 +286,7 @@ February 22, 2023
 
 - No new changes
 
-### Version 2.0.0-alpha01
+#### Version 2.0.0-alpha01
 
 February 8, 2023
 
@@ -298,9 +300,9 @@ February 8, 2023
 
 - Incorrect configuration of library assets now gives an error instead of crashing.
 
-## Games-Memory-Advice version 1.0.0
+### Version 1.0.0
 
-### Version 1.0.0-beta03
+#### Version 1.0.0-beta03
 
 November 9, 2022
 
@@ -310,7 +312,7 @@ November 9, 2022
 
 - No new changes
 
-### Version 1.0.0-beta01
+#### Version 1.0.0-beta01
 
 March 9, 2022
 
@@ -318,7 +320,7 @@ March 9, 2022
 
 - No changes since 1.0.0-alpha01.
 
-### Version 1.0.0-alpha01
+#### Version 1.0.0-alpha01
 
 February 23, 2022
 
@@ -336,27 +338,29 @@ February 23, 2022
 
 - The library depends on tensorflow, whose license and those of transitive dependencies can be found at <https://github.com/tensorflow/tensorflow>.
 
-## Games-Text-Input Version 4.3
+## Games-Text-Input
 
-### Version 4.3.1
+### Version 4.3
+
+#### Version 4.3.1
 
 May 06, 2026
 
 `androidx.games:games-text-input:4.3.1` is released. Version 4.3.1 contains [these commits](https://android.googlesource.com/platform/frameworks/opt/gamesdk/+log/007a00cd01d5cbe6d75566d3fcd6b7b19050d2f3..38611794fe1b1287ec6ae0c973fad524ddfd2a81/game-text-input).
 
-### Version 4.3.0
+#### Version 4.3.0
 
 March 11, 2026
 
 `androidx.games:games-text-input:4.3.0` is released. Version 4.3.0 contains [these commits](https://android.googlesource.com/platform/frameworks/opt/gamesdk/+log/f81f888fe11e9540dd580edf5993232172ed3cbe..d8d6dc333c8ff9524e565b1d12636b23cb79cc0a/game-text-input).
 
-### Version 4.3.0-rc01
+#### Version 4.3.0-rc01
 
 January 28, 2026
 
 `androidx.games:games-text-input:4.3.0-rc01` is released. Version 4.3.0-rc01 contains [these commits](https://android.googlesource.com/platform/frameworks/opt/gamesdk/+log/8f89733591eaa8e79de6ddbbb5936c8ac8904ec0..3450aac6bad7ff5ecdf68d518d3bc0c9183641d9/game-text-input).
 
-### Version 4.3.0-beta01
+#### Version 4.3.0-beta01
 
 November 19, 2025
 
@@ -364,9 +368,9 @@ November 19, 2025
 
 - This release transitions `androidx.games:games-text-input` from alpha to beta.
 
-## Games-Text-Input Version 3.0
+### Version 3.0
 
-### Version 3.0.4
+#### Version 3.0.4
 
 August 7, 2024
 
@@ -376,33 +380,168 @@ August 7, 2024
 
 - Fixed functionality of deletion with and without text selection.
 
-## Games-Activity Version 4.4
+### Version 2.1
 
-### Version 4.4.2
+#### Version 2.1.0-alpha01
+
+July 26, 2023
+
+`androidx.games:games-text-input:2.1.0-alpha01` is released. [Version 2.1.0-alpha01 contains these commits.](https://android.googlesource.com/platform/frameworks/opt/gamesdk/+log/61b7df48b84d37584f6a2d706d892a1f592d43a6..6d48478dde57eed989d8910c3d91a0f6bce2bcc4/game-text-input)
+
+**New Features**
+
+- Add a support of multi-line and single-line modes
+
+**API Changes**
+
+- Add `isSoftwareKeyboardVisible` function
+- Add bitfield definitions for `GameActivity_setImeEditorInfo`
+- Add `onEditorAction` callback
+
+**Bug Fixes**
+
+- Fix for hardware and software keyboards being out of sync
+- Clear focus when soft keyboard is hidden
+
+### Version 2.0
+
+#### Version 2.0.0
+
+March 8, 2023
+
+`androidx.games:games-text-input:2.0.0` is released. [Version 2.0.0 contains these commits.](https://android.googlesource.com/platform/frameworks/opt/gamesdk/+log/c1b2d4ff92af5ccfa4d345a21f67f1690fba1eaf..e1e20061358fd38e7f014d4d02b9e2878c2169a9/games-text-input)
+
+**Important changes since 1.1.1**
+
+- Major version update due to the changes to the build system, there are no updates to the library/API itself.
+
+### Version 1.1
+
+#### Version 1.1.2-alpha01
+
+November 9, 2022
+
+`androidx.games:games-text-input:1.1.2-alpha01` is released. [Version 1.1.2-alpha01 contains these commits.](https://android.googlesource.com/platform/frameworks/opt/gamesdk/+log/df59ba84ac245cfd9db805acc925afd4b19c5566..c1b2d4ff92af5ccfa4d345a21f67f1690fba1eaf/game-text-input)
+
+**New Features**
+
+- No new changes
+
+#### Version 1.1.1
+
+July 13, 2022
+
+`androidx.games:games-text-input:1.1.1` is released. [Version 1.1.1 contains these commits.](https://android.googlesource.com/platform/frameworks/opt/gamesdk/+log/4f851ef851998ea2cb65dad519f595377fd73fcf..df59ba84ac245cfd9db805acc925afd4b19c5566/GameTextInput)
+
+**Bug Fixes**
+
+- Fixed issues with missing .aar file in previous release.
+
+#### Version 1.1.0
+
+February 9, 2022
+
+`androidx.games:games-text-input:1.1.0` is released. [Version 1.1.0 contains these commits.](https://android.googlesource.com/platform/frameworks/opt/gamesdk/+log/60b0ddc9b45463685713d52558c2fa62c4ca50bb..4f851ef851998ea2cb65dad519f595377fd73fcf/GameTextInput)
+
+**Important changes since 1.0.0**
+- Added WindowInsets listening and querying functionality to GameTextInput
+- Add missing `gamecommon.h` header
+
+#### Version 1.1.0-rc01
+
+January 26, 2022
+
+`androidx.games:games-text-input:1.1.0-rc01` is released. [Version 1.1.0-rc01 contains these commits.](https://android.googlesource.com/platform/frameworks/opt/gamesdk/+log/e8e9971ec507a219142344409f5176cc4aea8b3f..60b0ddc9b45463685713d52558c2fa62c4ca50bb/GameTextInput)
+
+#### Version 1.1.0-beta01
+
+December 15, 2021
+
+`androidx.games:games-text-input:1.1.0-beta01` is released. [Version 1.1.0-beta01 contains these commits.](https://android.googlesource.com/platform/frameworks/opt/gamesdk/+log/91cc404409d0e732941ce0d13bbaf12739bb14a8..e8e9971ec507a219142344409f5176cc4aea8b3f/GameTextInput)
+
+**Bug Fixes**
+
+- Fix waterfall and IME insets
+- Add missing gamecommon.h header
+
+#### Version 1.1.0-alpha01
+
+October 13, 2021
+
+`androidx.games:games-text-input:1.1.0-alpha01` is released. [Version 1.1.0-alpha01 contains these commits.](https://android.googlesource.com/platform/frameworks/opt/gamesdk/+log/565cb7b2f1f88bc527c07a1512ab6ae719b7990d..91cc404409d0e732941ce0d13bbaf12739bb14a8/GameTextInput)
+
+**API Changes**
+
+- Added IME insets functionality to GameTextInput
+
+### Version 1.0
+
+#### Version 1.0.0
+
+August 4, 2021
+
+`androidx.games:games-activity:1.0.0`, `androidx.games:games-controller:1.0.0`, and `androidx.games:games-text-input:1.0.0` are released. [Version 1.0.0 contains these commits.](https://android.googlesource.com/platform/frameworks/opt/gamesdk/+log/c6508fc0745ecbc0bccc6e55bcc47aefc0ada7a8..565cb7b2f1f88bc527c07a1512ab6ae719b7990d/GameTextInput)
+
+**Major features of 1.0.0**
+
+This is the initial release to stable of Games-Activity, Games-Controller and Games-Text-Input. See the [AGDK Home Page](https://developer.android.com/games/agdk) for more information.
+
+#### Version 1.0.0-rc01
+
+July 12, 2021
+
+`androidx.games:games-text-input:1.0.0-rc01` is released with no changes. [Version 1.0.0-rc01 contains these commits.](https://android.googlesource.com/platform/frameworks/opt/gamesdk/+log/66204fc44cbcee003287d7a37f98eefd22bca9dc..c6508fc0745ecbc0bccc6e55bcc47aefc0ada7a8/GameTextInput)
+
+#### Version 1.0.0-beta01
+
+June 30, 2021
+
+`androidx.games:games-text-input:1.0.0-beta01` is released. [Version 1.0.0-beta01 contains these commits.](https://android.googlesource.com/platform/frameworks/opt/gamesdk/+log/c94374d6b144787f79e7202316388a97077c6c34..66204fc44cbcee003287d7a37f98eefd22bca9dc/GameTextInput)
+
+**API Changes**
+
+- Improved ownership model of GameTextInputState objects.
+- Tidying of types to be consistent with NDK.
+
+#### Version 1.0.0-alpha01
+
+June 16, 2021
+
+`androidx.games:games-text-input:1.0.0-alpha01` is released.
+
+**New Features**
+
+- Games-Text-Input is a new library to help game developers use Android soft keyboard input from C/C++.
+
+## Games-Activity
+
+### Version 4.4
+
+#### Version 4.4.2
 
 May 06, 2026
 
 `androidx.games:games-activity:4.4.2` is released. Version 4.4.2 contains [these commits](https://android.googlesource.com/platform/frameworks/opt/gamesdk/+log/007a00cd01d5cbe6d75566d3fcd6b7b19050d2f3..abacb92361432e5c93a3f99729eb1247406cdbd5/game-activity).
 
-### Version 4.4.1
+#### Version 4.4.1
 
 April 08, 2026
 
 `androidx.games:games-activity:4.4.1` is released. Version 4.4.1 contains [these commits](https://android.googlesource.com/platform/frameworks/opt/gamesdk/+log/d8d6dc333c8ff9524e565b1d12636b23cb79cc0a..007a00cd01d5cbe6d75566d3fcd6b7b19050d2f3/game-activity).
 
-### Version 4.4.0
+#### Version 4.4.0
 
 March 11, 2026
 
 `androidx.games:games-activity:4.4.0` is released. Version 4.4.0 contains [these commits](https://android.googlesource.com/platform/frameworks/opt/gamesdk/+log/f81f888fe11e9540dd580edf5993232172ed3cbe..541587a073871a9d2659f90335dcae345007eeed/game-activity).
 
-### Version 4.4.0-rc01
+#### Version 4.4.0-rc01
 
 January 28, 2026
 
 `androidx.games:games-activity:4.4.0-rc01` is released. Version 4.4.0-rc01 contains [these commits](https://android.googlesource.com/platform/frameworks/opt/gamesdk/+log/8f89733591eaa8e79de6ddbbb5936c8ac8904ec0..a0843d96af70d1044505bfb95f9ec3b2a68c5f99/game-activity).
 
-### Version 4.4.0-beta01
+#### Version 4.4.0-beta01
 
 November 19, 2025
 
@@ -410,7 +549,7 @@ November 19, 2025
 
 - This release transitions `androidx.games:games-activity` from alpha to beta.
 
-### Version 4.4.0-alpha01
+#### Version 4.4.0-alpha01
 
 October 22, 2025
 
@@ -421,7 +560,9 @@ October 22, 2025
 - Improved ANR protection in `native_app_glue`.
 - Migrated from deprecated `ALooper_pollAll` to `ALooper_pollOnce`.
 
-### Version 4.3.0-alpha01
+### Version 4.3
+
+#### Version 4.3.0-alpha01
 
 August 13, 2025
 
@@ -439,7 +580,9 @@ August 13, 2025
 - Improved `GameActivity` touch handling.
 - Fixed `GameTextInput` generating as a shared library incorrectly.
 
-### Version 4.2.0-alpha01
+### Version 4.2
+
+#### Version 4.2.0-alpha01
 
 March 26, 2025
 
@@ -456,7 +599,9 @@ March 26, 2025
 - Fix a bug in `GameActivity` which caused us to misreport software keyboard open-close events. ([a63ecca](https://android.googlesource.com/platform/frameworks/opt/gamesdk/+/a63ecca))
 - Fix a bug in `GameTextInput` with multibyte emoji handling ([9d54c68](https://android.googlesource.com/platform/frameworks/opt/gamesdk/+/9d54c68))
 
-### Version 4.0.0
+### Version 4.0
+
+#### Version 4.0.0
 
 February 12, 2025
 
@@ -471,13 +616,13 @@ February 12, 2025
 
 - Numerous bugs in `GameTextInput` have been fixed. The library is now more stable and works with many popular software and hardware keyboards.
 
-### Version 4.0.0-rc01
+#### Version 4.0.0-rc01
 
 January 29, 2025
 
 `androidx.games:games-activity:4.0.0-rc01` and `androidx.games:games-text-input:4.0.0-rc01` are released. Version 4.0.0-rc01 contains [these commits](https://android.googlesource.com/platform/frameworks/opt/gamesdk/+log/f7656b84151dbc1570c8730861b7b5d3ed6be1db..ec59a905b064856c71d43d731354de52b080e260/game-activity).
 
-### Version 4.0.0-beta01
+#### Version 4.0.0-beta01
 
 January 15, 2025
 
@@ -488,7 +633,7 @@ January 15, 2025
 - Better documented newly added locale-related functionality.
 - Added backing types to all enumeration types.
 
-### Version 4.0.0-alpha01
+#### Version 4.0.0-alpha01
 
 October 16, 2024
 
@@ -510,9 +655,9 @@ October 16, 2024
 - Fixed handling of special characters on hardware keyboards.
 - Fixed a rare null pointer access in `GameActivity`.
 
-## Games-Activity Version 3.0
+### Version 3.0
 
-### Version 3.0.5
+#### Version 3.0.5
 
 August 7, 2024
 
@@ -522,7 +667,7 @@ August 7, 2024
 
 - New release of `GameActivity` to match the 3.0.4 release of `GameTextInput` (fixed functionality of text deletion in inputs).
 
-### Version 3.0.4
+#### Version 3.0.4
 
 July 10, 2024
 
@@ -533,7 +678,7 @@ July 10, 2024
 - Fixed handling of null pointers.
 - Fixed missing state updates for some states in `onConfiguration()` callback.
 
-### Version 3.0.3
+#### Version 3.0.3
 
 April 17, 2024
 
@@ -543,7 +688,7 @@ April 17, 2024
 
 - Fixed compatibility issues with some software keyboards.
 
-### Version 3.0.2
+#### Version 3.0.2
 
 April 3, 2024
 
@@ -553,7 +698,7 @@ April 3, 2024
 
 - We made several fixes to `GamesTextInput` which are aimed to improve software and hardware keyboards support. Also a bug has been fixed that was preventing `GameTextInput` from being used without `GameActivity`.
 
-### Version 3.0.1
+#### Version 3.0.1
 
 March 20, 2024
 
@@ -563,7 +708,7 @@ March 20, 2024
 
 - Fixed a problem with special characters being typed and displayed.
 
-### Version 3.0.0
+#### Version 3.0.0
 
 March 6, 2024
 
@@ -579,7 +724,7 @@ March 6, 2024
 - Fixed compatibility issues with old NDKs
 - Fixed Windows build problems
 
-### Version 3.0.0-rc01
+#### Version 3.0.0-rc01
 
 February 21, 2024
 
@@ -589,13 +734,13 @@ February 21, 2024
 
 - Fixed the freeze where keyboard events were not properly handled by the looper.
 
-### Version 3.0.0-beta01
+#### Version 3.0.0-beta01
 
 November 29, 2023
 
 `androidx.games:games-activity:3.0.0-beta01` and `androidx.games:games-text-input:3.0.0-beta01` are released. [Version 3.0.0-beta01 contains these commits.](https://android.googlesource.com/platform/frameworks/opt/gamesdk/+log/d1f9f40d22248179ba6612beb8acec847bc5880d..3b94fe082e0e95399ed99b5a16ef8eeea307eee2/game-activity)
 
-### Version 3.0.0-alpha01
+#### Version 3.0.0-alpha01
 
 November 15, 2023
 
@@ -609,9 +754,9 @@ November 15, 2023
 - internal functions of `GameActivityEvents` are moved into `GameActivityEvents_internal.h`.
 - `GameTextInput`'s input types are also enumerations, not integers.
 
-## Games-Activity Version 2.1
+### Version 2.1
 
-### Version 2.1.0-alpha02
+#### Version 2.1.0-alpha02
 
 September 6, 2023
 
@@ -621,7 +766,7 @@ September 6, 2023
 
 - 32 bit devices compatibility has been improved.
 
-### Version 2.1.0-alpha01
+#### Version 2.1.0-alpha01
 
 July 26, 2023
 
@@ -645,9 +790,9 @@ July 26, 2023
 - Fix `GameActivityMotionEvent_getHistoricalAxisValue` index calculation
 - Fix bitmasks for the motion filter
 
-## Games-Activity Version 2.0
+### Version 2.0
 
-### Version 2.0.2
+#### Version 2.0.2
 
 May 24, 2023
 
@@ -657,7 +802,7 @@ May 24, 2023
 
 - Stability fixes in `GameActivityEvents` ([b/278017467](https://issuetracker.google.com/issues/278017467))
 
-### Version 2.0.1
+#### Version 2.0.1
 
 April 5, 2023
 
@@ -668,7 +813,7 @@ April 5, 2023
 - Fixed early freeing of memory with `historicalEventTimes`.
 - Fixed issue with `historicalEventTimesNanos` overflowing on 32bit systems
 
-### Version 2.0.0
+#### Version 2.0.0
 
 March 8, 2023
 
@@ -683,13 +828,13 @@ March 8, 2023
 - Fixed default OS handling of touch events, like handling system buttons.
 - Optimized out most JNI calls in touch event handling; this used to affect performance.
 
-### Version 2.0.0-rc01
+#### Version 2.0.0-rc01
 
 February 22, 2023
 
 `androidx.games:games-activity:2.0.0-rc01` is released. [Version 2.0.0-rc01 contains these commits.](https://android.googlesource.com/platform/frameworks/opt/gamesdk/+log/27573e27acd71cc7ba80ce592c76611edc3b6328..83d676655ca28ed426bdaf0602bb3046cbf79ce8/game-activity)
 
-### Version 2.0.0-beta01
+#### Version 2.0.0-beta01
 
 February 8, 2023
 
@@ -699,15 +844,15 @@ February 8, 2023
 
 - Fixed system buttons handling. ([2a103e](https://android.googlesource.com/platform/frameworks/opt/gamesdk/+/2a103e9985159a32bbe6db58ad69d6f4ed59a709))
 
-### Version 2.0.0-alpha01
+#### Version 2.0.0-alpha01
 
 January 11, 2023
 
 `androidx.games:games-activity:2.0.0-alpha01` is released with no changes. [Version 2.0.0-alpha01 contains these commits.](https://android.googlesource.com/platform/frameworks/opt/gamesdk/+log/c1b2d4ff92af5ccfa4d345a21f67f1690fba1eaf..fd1ddaa12b110384031f09fb8fb6b96d80f896c4/game-activity)
 
-## Games-Activity Version 1.2
+### Version 1.2
 
-### Version 1.2.2
+#### Version 1.2.2
 
 December 7, 2022
 
@@ -717,7 +862,7 @@ December 7, 2022
 
 - The maximum number of motion events can now be set at runtime.
 
-### Version 1.2.2-alpha01
+#### Version 1.2.2-alpha01
 
 November 9, 2022
 
@@ -733,7 +878,7 @@ November 9, 2022
 - Fixed events buffer overflow. Both `inputBuffer`-\>`keyEvents` and `motionEvents` are now dynamically-allocated buffers. ([Ic00f6](https://android-review.googlesource.com/#/q/Ic00f68043e72b80ed3a6aee80fac04b9e20aaac1))
 - Fails gracefully if out of memory. Added handling of `realloc()` errors during buffers resizing.
 
-### Version 1.2.1
+#### Version 1.2.1
 
 July 13, 2022
 
@@ -743,7 +888,7 @@ July 13, 2022
 
 - Fixed issues with missing .aar file in previous release.
 
-### Version 1.2.0
+#### Version 1.2.0
 
 June 15, 2022
 
@@ -755,9 +900,9 @@ June 15, 2022
 - Always load the native library in GameActivity.onCreate.
 - Fallback to loading library with name "main" if no other library found.
 
-## Games-Activity Version 1.1
+### Version 1.1
 
-### Version 1.1.0
+#### Version 1.1.0
 
 February 23, 2022
 
@@ -774,13 +919,13 @@ Games Activity:
   - Fix signature of onNativeWindowResized
   - Fix input event losses
 
-### Version 1.1.0-rc01
+#### Version 1.1.0-rc01
 
 February 9, 2022
 
 `androidx.games:games-activity:1.1.0-rc01` and `androidx.games:games-controller:1.1.0-rc01` are released. [Version 1.1.0-rc01 contains these commits.](https://android.googlesource.com/platform/frameworks/opt/gamesdk/+log/60b0ddc9b45463685713d52558c2fa62c4ca50bb..4f851ef851998ea2cb65dad519f595377fd73fcf/GameActivity)
 
-### Version 1.1.0-beta03
+#### Version 1.1.0-beta03
 
 January 26, 2022
 
@@ -791,7 +936,7 @@ January 26, 2022
 - Fix signature of `onNativeWindowResized`
 - Maintain handle to native window in `onSurfaceChanged`
 
-### Version 1.1.0-beta02
+#### Version 1.1.0-beta02
 
 December 15, 2021
 
@@ -801,7 +946,7 @@ December 15, 2021
 
 - Fix race condition in event filter setting.
 
-### Version 1.1.0-beta01
+#### Version 1.1.0-beta01
 
 November 17, 2021
 
@@ -821,7 +966,7 @@ November 17, 2021
 
 - Avoid consuming all key events: volume, camera, etc. are now passed through to the system.
 
-### Version 1.1.0-alpha01
+#### Version 1.1.0-alpha01
 
 September 29, 2021
 
@@ -837,9 +982,59 @@ September 29, 2021
   - `APP_CMD_CONTENT_RECT_CHANGED`
   - `APP_CMD_WINDOW_REDRAW_NEEDED`
 
-## Games Performance Tuner 2.0
+### Version 1.0.0
 
-### Version 2.0.0
+#### Version 1.0.0
+
+August 4, 2021
+
+`androidx.games:games-activity:1.0.0`, `androidx.games:games-controller:1.0.0`, and `androidx.games:games-text-input:1.0.0` are released. [Version 1.0.0 contains these commits.](https://android.googlesource.com/platform/frameworks/opt/gamesdk/+log/c6508fc0745ecbc0bccc6e55bcc47aefc0ada7a8..565cb7b2f1f88bc527c07a1512ab6ae719b7990d/GameActivity)
+
+**Major features of 1.0.0**
+
+This is the initial release to stable of Games-Activity, Games-Controller and Games-Text-Input. See the [AGDK Home Page](https://developer.android.com/games/agdk) for more information.
+
+#### Version 1.0.0-rc01
+
+July 12, 2021
+
+`androidx.games:games-activity:1.0.0-rc01` is released. [Version 1.0.0-rc01 contains these commits.](https://android.googlesource.com/platform/frameworks/opt/gamesdk/+log/66204fc44cbcee003287d7a37f98eefd22bca9dc..c6508fc0745ecbc0bccc6e55bcc47aefc0ada7a8/GameActivity)
+
+**Bug Fixes**
+
+- Fix return type of `GameActivityCallbacks::onSaveInstanceState`
+
+#### Version 1.0.0-beta01
+
+June 30, 2021
+
+`androidx.games:games-activity:1.0.0-beta01` is released. [Version 1.0.0-beta01 contains these commits.](https://android.googlesource.com/platform/frameworks/opt/gamesdk/+log/c94374d6b144787f79e7202316388a97077c6c34..66204fc44cbcee003287d7a37f98eefd22bca9dc/GameActivity)
+
+**API Changes**
+
+- Rename `GameActivityInputInfo` to `GameActivityPointerAxes`.
+- `onNativeWindowResized` callback now gives width and height of window.
+- `onContentRectChanged` callback has been removed.
+- `onLowMemory` was renamed to `onTrimMemory`.
+- `GameActivity_setWindowFormat` removed.
+- Improved ownership model for `GameActivityMotionEvents` and `GameActivityMotionEvent` pointers.
+- Improved ownership model of user state in `onSaveInstanceState` callback.
+
+#### Version 1.0.0-alpha01
+
+June 16, 2021
+
+`androidx.games:games-activity:1.0.0-alpha01` is released.
+
+**New Features**
+
+- Games-Activity is a new library that replaces NativeActivity as the recommended way to integrate a C/C++ game with Android.
+
+## Games-Performance-Tuner
+
+### Version 2.0
+
+#### Version 2.0.0
 
 August 7, 2024
 
@@ -849,13 +1044,19 @@ August 7, 2024
 
 - No major changes since 2.0.0beta01, we're just marking this release as stable.
 
-### Version 2.0.0-beta01
+#### Version 2.0.0-rc01
+
+July 24, 2024
+
+`androidx.games:games-performance-tuner:2.0.0-rc01` is released. Version 2.0.0-rc01 contains [these commits](https://android.googlesource.com/platform/frameworks/opt/gamesdk/+log/12ef8dab8ec4a03116abce11081601d883d8170e..17ce5e87964a3fd53662850262c2740b9b70cee8/games-performance-tuner).
+
+#### Version 2.0.0-beta01
 
 January 10, 2024
 
 `androidx.games:games-performance-tuner:2.0.0-beta01` is released with no changes from the last alpha release. [Version 2.0.0-beta01 contains these commits.](https://android.googlesource.com/platform/frameworks/opt/gamesdk/+log/3b94fe082e0e95399ed99b5a16ef8eeea307eee2..12ef8dab8ec4a03116abce11081601d883d8170e/games-performance-tuner)
 
-### Version 2.0.0-alpha07
+#### Version 2.0.0-alpha07
 
 November 29, 2023
 
@@ -865,13 +1066,13 @@ November 29, 2023
 
 - Fixed memory telemetry reporting sometimes reporting wrong values
 
-### Version 2.0.0-alpha06
+#### Version 2.0.0-alpha06
 
 November 1, 2023
 
 `androidx.games:games-performance-tuner:2.0.0-alpha06` is released. [Version 2.0.0-alpha06 contains these commits.](https://android.googlesource.com/platform/frameworks/opt/gamesdk/+log/d10c609303f8e9f75167e727b0f8fd58715117f3..e7cc630a269be37ff70185e013845ebd93bced9f/games-performance-tuner)
 
-### Version 2.0.0-alpha05
+#### Version 2.0.0-alpha05
 
 August 23, 2023
 
@@ -885,7 +1086,7 @@ August 23, 2023
 
 - Fixed issues with dangling pointer.
 
-### Version 2.0.0-alpha04
+#### Version 2.0.0-alpha04
 
 April 19, 2023
 
@@ -899,7 +1100,7 @@ April 19, 2023
 
 - Fixed a bug where the library crashes if max instrumentation keys are more than histogram count.
 
-### Version 2.0.0-alpha03
+#### Version 2.0.0-alpha03
 
 February 22, 2023
 
@@ -909,7 +1110,7 @@ February 22, 2023
 
 - Games-Performance-Tuner has been moved to a new release process. There should be no behavior changes.
 
-### Version 2.0.0-alpha02
+#### Version 2.0.0-alpha02
 
 February 8, 2023
 
@@ -919,9 +1120,9 @@ February 8, 2023
 
 - `TuningFork_predictQualityLevels` API added; which will help predict the correct quality level/fidelity parameters to use.
 
-## Games Performance Tuner 1.6
+### Version 1.6
 
-### Version 1.6.1-alpha01
+#### Version 1.6.1-alpha01
 
 November 9, 2022
 
@@ -931,7 +1132,7 @@ November 9, 2022
 
 - No new changes
 
-### Version 1.6.0
+#### Version 1.6.0
 
 June 15, 2022
 
@@ -942,9 +1143,9 @@ June 15, 2022
 - Fixed getpid returning 0 while trying to get memory telemetry.
 - Stopped StopLoadingGroup from executing without an active loading group.
 
-## Games Performance Tuner 1.5.0
-
 ### Version 1.5.0
+
+#### Version 1.5.0
 
 February 9, 2022
 
@@ -956,7 +1157,7 @@ February 9, 2022
   - Added function: `TuningFork_setAggregationStrategyInterval`
 - Fix for memory corruption in API key on `API<=23`
 
-### Version 1.5.0-rc01
+#### Version 1.5.0-rc01
 
 January 26, 2022
 
@@ -966,7 +1167,7 @@ January 26, 2022
 
 - Fix for memory corruption in API key on API\<=23
 
-### Version 1.5.0-beta02
+#### Version 1.5.0-beta02
 
 December 15, 2021
 
@@ -976,7 +1177,7 @@ December 15, 2021
 
 - Remove ABI-breaking change from `TuningFork_Settings`.
 
-### Version 1.5.0-beta01
+#### Version 1.5.0-beta01
 
 September 29, 2021
 
@@ -993,7 +1194,7 @@ September 29, 2021
   - New function: `TuningFork_setAggregationStrategyInterval`
   - New field in `TuningFork_Settings: aggregation_strategy_intervalms_or_count`
 
-### Version 1.5.0-alpha01
+#### Version 1.5.0-alpha01
 
 August 18, 2021
 
@@ -1008,57 +1209,59 @@ August 18, 2021
 - Added function: `TuningFork_setAggregationStrategyInterval`
 - Added field to TuningFork_Settings struct: `aggregation_strategy_intervalms_or_count`
 
-## Games-Activity Version 1.0.0
+### Version 1.4
 
-### Version 1.0.0
-
-August 4, 2021
-
-`androidx.games:games-activity:1.0.0`, `androidx.games:games-controller:1.0.0`, and `androidx.games:games-text-input:1.0.0` are released. [Version 1.0.0 contains these commits.](https://android.googlesource.com/platform/frameworks/opt/gamesdk/+log/c6508fc0745ecbc0bccc6e55bcc47aefc0ada7a8..565cb7b2f1f88bc527c07a1512ab6ae719b7990d/GameActivity)
-
-**Major features of 1.0.0**
-
-This is the initial release to stable of Games-Activity, Games-Controller and Games-Text-Input. See the [AGDK Home Page](https://developer.android.com/games/agdk) for more information.
-
-### Version 1.0.0-rc01
+### Version 1.4.3
 
 July 12, 2021
 
-`androidx.games:games-activity:1.0.0-rc01` is released. [Version 1.0.0-rc01 contains these commits.](https://android.googlesource.com/platform/frameworks/opt/gamesdk/+log/66204fc44cbcee003287d7a37f98eefd22bca9dc..c6508fc0745ecbc0bccc6e55bcc47aefc0ada7a8/GameActivity)
+`androidx.games:games-performance-tuner:1.4.3` is released. [Version 1.4.3 contains these commits.](https://android.googlesource.com/platform/frameworks/opt/gamesdk/+log/66204fc44cbcee003287d7a37f98eefd22bca9dc..c6508fc0745ecbc0bccc6e55bcc47aefc0ada7a8/src/tuningfork)
 
-**Bug Fixes**
+**Important changes since 1.1.0**
 
-- Fix return type of `GameActivityCallbacks::onSaveInstanceState`
+- Updated to match internal versioning scheme.
 
-### Version 1.0.0-beta01
+### Version 1.1
+
+#### Version 1.1.0
 
 June 30, 2021
 
-`androidx.games:games-activity:1.0.0-beta01` is released. [Version 1.0.0-beta01 contains these commits.](https://android.googlesource.com/platform/frameworks/opt/gamesdk/+log/c94374d6b144787f79e7202316388a97077c6c34..66204fc44cbcee003287d7a37f98eefd22bca9dc/GameActivity)
+`androidx.games:games-performance-tuner:1.1.0` is released. [Version 1.1.0 contains these commits.](https://android.googlesource.com/platform/frameworks/opt/gamesdk/+log/11d9f8ed1ee4f04f87dd8ab0ef7c0690e63e1078..66204fc44cbcee003287d7a37f98eefd22bca9dc/src/tuningfork)
 
-**API Changes**
+#### Version 1.1.0-rc01
 
-- Rename `GameActivityInputInfo` to `GameActivityPointerAxes`.
-- `onNativeWindowResized` callback now gives width and height of window.
-- `onContentRectChanged` callback has been removed.
-- `onLowMemory` was renamed to `onTrimMemory`.
-- `GameActivity_setWindowFormat` removed.
-- Improved ownership model for `GameActivityMotionEvents` and `GameActivityMotionEvent` pointers.
-- Improved ownership model of user state in `onSaveInstanceState` callback.
+June 2, 2021
 
-### Version 1.0.0-alpha01
+`androidx.games:games-performance-tuner:1.1.0-rc01` is released. Version 1.1.0-rc01 contains these commits.
 
-June 16, 2021
+#### Version 1.1.0-beta03
 
-`androidx.games:games-activity:1.0.0-alpha01` is released.
+April 21, 2021
 
-**New Features**
+`androidx.games:games-performance-tuner:1.1.0-beta03` is released.
 
-- Games-Activity is a new library that replaces NativeActivity as the recommended way to integrate a C/C++ game with Android.
+#### Version 1.1.0-beta02
 
-## Games-Controller Version 2.3
+February 24, 2021
 
-### Version 2.3.0-alpha01
+`androidx.games:games-performance-tuner:1.1.0-beta02` is released.
+
+#### Version 1.1.0-beta01
+
+December 16, 2020
+
+`androidx.games:games-performance-tuner:1.1.0-beta01` is released.
+
+#### Version 1.1.0-alpha01
+
+androidx.games:games-performance-tuner:1.1.0-alpha01 is released.
+
+## Games-Controller
+
+### Version 2.3
+
+#### Version 2.3.0-alpha01
 
 August 13, 2025
 
@@ -1068,9 +1271,9 @@ August 13, 2025
 
 - Support 16kb page sizes by default.
 
-## Games-Controller Version 2.2
+### Version 2.2
 
-### Version 2.2.0-alpha01
+#### Version 2.2.0-alpha01
 
 March 26, 2025
 
@@ -1082,9 +1285,9 @@ March 26, 2025
 - Upgrade to Java 17 ([1ed0153](https://android.googlesource.com/platform/frameworks/opt/gamesdk/+/1ed0153))
 - Change `targetSdk` to 35 ([eddf605](https://android.googlesource.com/platform/frameworks/opt/gamesdk/+/eddf605))
 
-## Games-Controller Version 2.0
+### Version 2.0
 
-### Version 2.0.2
+#### Version 2.0.2
 
 June 12, 2024
 
@@ -1096,7 +1299,7 @@ June 12, 2024
 - Fixed issue where game controller touchpads were not registering touchpad presses in `Paddleboat_processGameActivityMotionInputEvent` without manually enabling the pressure axis.
 - Fixed issue where game controller touchpad events were not being marked as consumed by `Paddleboat_processGameActivityMotionInputEvent`.
 
-### Version 2.0.1
+#### Version 2.0.1
 
 September 20, 2023
 
@@ -1107,7 +1310,7 @@ Games Controller Bug fixes:
 - Fix rare `NullReferenceException` condition in `onInputDeviceChanged` handler.
 - Fix to prevent certain USB keyboards from improperly registering as game controllers.
 
-### Version 2.0.0
+#### Version 2.0.0
 
 March 8, 2023
 
@@ -1119,7 +1322,7 @@ March 8, 2023
 - Added ability to report motion data (accelerometer/gyroscope) from the main device (i.e. handset) as well as controllers.
 - Changed API and format for the controller definition database to reduce memory footprint and support additional features.
 
-### Version 2.0.0-alpha01
+#### Version 2.0.0-alpha01
 
 January 11, 2023
 
@@ -1142,9 +1345,9 @@ January 11, 2023
 
 - Fixed compatibility issue with motion events from GameActivity 1.2.2 and higher
 
-## Games-Controller Version 1.1.0
+### Version 1.1
 
-### Version 1.1.0
+#### Version 1.1.0
 
 February 23, 2022
 
@@ -1161,19 +1364,19 @@ Games Activity:
   - Fix signature of onNativeWindowResized
   - Fix input event losses
 
-### Version 1.1.0-rc01
+#### Version 1.1.0-rc01
 
 February 9, 2022
 
 `androidx.games:games-controller:1.1.0-rc01` is released. [Version 1.1.0-rc01 contains these commits.](https://android.googlesource.com/platform/frameworks/opt/gamesdk/+log/60b0ddc9b45463685713d52558c2fa62c4ca50bb..4f851ef851998ea2cb65dad519f595377fd73fcf/GameActivity)
 
-### Version 1.1.0-beta01
+#### Version 1.1.0-beta01
 
 January 26, 2022
 
 `androidx.games:games-controller:1.1.0-beta01` is released with no changes since `1.1.0-alpha01`. [Version 1.1.0-beta01 contains these commits.](https://android.googlesource.com/platform/frameworks/opt/gamesdk/+log/e8e9971ec507a219142344409f5176cc4aea8b3f..60b0ddc9b45463685713d52558c2fa62c4ca50bb/src/paddleboat)
 
-### Version 1.1.0-alpha01
+#### Version 1.1.0-alpha01
 
 December 15, 2021
 
@@ -1207,9 +1410,9 @@ Added support for battery status, dual-motor vibration, light control and motion
 - Added alternate deviceId database entry for PS4 controller
 - Added API \>=31 database entry for PS5 controller
 
-## Games-Controller Version 1.0.0
+### Version 1.0
 
-### Version 1.0.0
+#### Version 1.0.0
 
 August 4, 2021
 
@@ -1219,7 +1422,7 @@ August 4, 2021
 
 This is the initial release to stable of Games-Activity, Games-Controller and Games-Text-Input. See the [AGDK Home Page](https://developer.android.com/games/agdk) for more information.
 
-### Version 1.0.0-rc02
+#### Version 1.0.0-rc02
 
 July 21, 2021
 
@@ -1229,7 +1432,7 @@ July 21, 2021
 
 - Fixed packaging error that caused Prefab import to fail on empty, unused architecture/version permutations.
 
-### Version 1.0.0-rc01
+#### Version 1.0.0-rc01
 
 July 12, 2021
 
@@ -1239,7 +1442,7 @@ July 12, 2021
 
 - Fixed an incompatibility issue with the latest `GameActivity`
 
-### Version 1.0.0-beta01
+#### Version 1.0.0-beta01
 
 June 30, 2021
 
@@ -1260,7 +1463,7 @@ June 30, 2021
 
 - Fixed an issue where a controller that doesn't initially report itself as a controller, but later on does via an onInputDeviceChanged message, wasn't being properly detected as a controller connection.
 
-### Version 1.0.0-alpha01
+#### Version 1.0.0-alpha01
 
 June 16, 2021
 
@@ -1270,142 +1473,11 @@ June 16, 2021
 
 - Games-Controller is a new library that provides a C API for detecting, reading input from, and interacting with game controller devices.
 
-## Games-Text-Input 2.1
+## Games-Frame-Pacing
 
-### Version 2.1.0-alpha01
+### Version 2.3
 
-July 26, 2023
-
-`androidx.games:games-text-input:2.1.0-alpha01` is released. [Version 2.1.0-alpha01 contains these commits.](https://android.googlesource.com/platform/frameworks/opt/gamesdk/+log/61b7df48b84d37584f6a2d706d892a1f592d43a6..6d48478dde57eed989d8910c3d91a0f6bce2bcc4/game-text-input)
-
-**New Features**
-
-- Add a support of multi-line and single-line modes
-
-**API Changes**
-
-- Add `isSoftwareKeyboardVisible` function
-- Add bitfield definitions for `GameActivity_setImeEditorInfo`
-- Add `onEditorAction` callback
-
-**Bug Fixes**
-
-- Fix for hardware and software keyboards being out of sync
-- Clear focus when soft keyboard is hidden
-
-## Games-Text-Input 2.0
-
-### Version 2.0.0
-
-March 8, 2023
-
-`androidx.games:games-text-input:2.0.0` is released. [Version 2.0.0 contains these commits.](https://android.googlesource.com/platform/frameworks/opt/gamesdk/+log/c1b2d4ff92af5ccfa4d345a21f67f1690fba1eaf..e1e20061358fd38e7f014d4d02b9e2878c2169a9/games-text-input)
-
-**Important changes since 1.1.1**
-
-- Major version update due to the changes to the build system, there are no updates to the library/API itself.
-
-## Games-Text-Input Version 1.1
-
-### Version 1.1.2-alpha01
-
-November 9, 2022
-
-`androidx.games:games-text-input:1.1.2-alpha01` is released. [Version 1.1.2-alpha01 contains these commits.](https://android.googlesource.com/platform/frameworks/opt/gamesdk/+log/df59ba84ac245cfd9db805acc925afd4b19c5566..c1b2d4ff92af5ccfa4d345a21f67f1690fba1eaf/game-text-input)
-
-**New Features**
-
-- No new changes
-
-### Version 1.1.1
-
-July 13, 2022
-
-`androidx.games:games-text-input:1.1.1` is released. [Version 1.1.1 contains these commits.](https://android.googlesource.com/platform/frameworks/opt/gamesdk/+log/4f851ef851998ea2cb65dad519f595377fd73fcf..df59ba84ac245cfd9db805acc925afd4b19c5566/GameTextInput)
-
-**Bug Fixes**
-
-- Fixed issues with missing .aar file in previous release.
-
-### Version 1.1.0
-
-February 9, 2022
-
-`androidx.games:games-text-input:1.1.0` is released. [Version 1.1.0 contains these commits.](https://android.googlesource.com/platform/frameworks/opt/gamesdk/+log/60b0ddc9b45463685713d52558c2fa62c4ca50bb..4f851ef851998ea2cb65dad519f595377fd73fcf/GameTextInput)
-
-**Important changes since 1.0.0**
-- Added WindowInsets listening and querying functionality to GameTextInput
-- Add missing `gamecommon.h` header
-
-### Version 1.1.0-rc01
-
-January 26, 2022
-
-`androidx.games:games-text-input:1.1.0-rc01` is released. [Version 1.1.0-rc01 contains these commits.](https://android.googlesource.com/platform/frameworks/opt/gamesdk/+log/e8e9971ec507a219142344409f5176cc4aea8b3f..60b0ddc9b45463685713d52558c2fa62c4ca50bb/GameTextInput)
-
-### Version 1.1.0-beta01
-
-December 15, 2021
-
-`androidx.games:games-text-input:1.1.0-beta01` is released. [Version 1.1.0-beta01 contains these commits.](https://android.googlesource.com/platform/frameworks/opt/gamesdk/+log/91cc404409d0e732941ce0d13bbaf12739bb14a8..e8e9971ec507a219142344409f5176cc4aea8b3f/GameTextInput)
-
-**Bug Fixes**
-
-- Fix waterfall and IME insets
-- Add missing gamecommon.h header
-
-### Version 1.1.0-alpha01
-
-October 13, 2021
-
-`androidx.games:games-text-input:1.1.0-alpha01` is released. [Version 1.1.0-alpha01 contains these commits.](https://android.googlesource.com/platform/frameworks/opt/gamesdk/+log/565cb7b2f1f88bc527c07a1512ab6ae719b7990d..91cc404409d0e732941ce0d13bbaf12739bb14a8/GameTextInput)
-
-**API Changes**
-
-- Added IME insets functionality to GameTextInput
-
-## Games-Text-Input Version 1.0
-
-### Version 1.0.0
-
-August 4, 2021
-
-`androidx.games:games-activity:1.0.0`, `androidx.games:games-controller:1.0.0`, and `androidx.games:games-text-input:1.0.0` are released. [Version 1.0.0 contains these commits.](https://android.googlesource.com/platform/frameworks/opt/gamesdk/+log/c6508fc0745ecbc0bccc6e55bcc47aefc0ada7a8..565cb7b2f1f88bc527c07a1512ab6ae719b7990d/GameTextInput)
-
-**Major features of 1.0.0**
-
-This is the initial release to stable of Games-Activity, Games-Controller and Games-Text-Input. See the [AGDK Home Page](https://developer.android.com/games/agdk) for more information.
-
-### Version 1.0.0-rc01
-
-July 12, 2021
-
-`androidx.games:games-text-input:1.0.0-rc01` is released with no changes. [Version 1.0.0-rc01 contains these commits.](https://android.googlesource.com/platform/frameworks/opt/gamesdk/+log/66204fc44cbcee003287d7a37f98eefd22bca9dc..c6508fc0745ecbc0bccc6e55bcc47aefc0ada7a8/GameTextInput)
-
-### Version 1.0.0-beta01
-
-June 30, 2021
-
-`androidx.games:games-text-input:1.0.0-beta01` is released. [Version 1.0.0-beta01 contains these commits.](https://android.googlesource.com/platform/frameworks/opt/gamesdk/+log/c94374d6b144787f79e7202316388a97077c6c34..66204fc44cbcee003287d7a37f98eefd22bca9dc/GameTextInput)
-
-**API Changes**
-
-- Improved ownership model of GameTextInputState objects.
-- Tidying of types to be consistent with NDK.
-
-### Version 1.0.0-alpha01
-
-June 16, 2021
-
-`androidx.games:games-text-input:1.0.0-alpha01` is released.
-
-**New Features**
-
-- Games-Text-Input is a new library to help game developers use Android soft keyboard input from C/C++.
-
-## Games Frame Pacing Version 2.3
-
-### Version 2.3.0-alpha01
+#### Version 2.3.0-alpha01
 
 March 26, 2025
 
@@ -1421,9 +1493,9 @@ March 26, 2025
 
 - Various bug fixes ([List of fixes](https://android.googlesource.com/platform/frameworks/opt/gamesdk/+log/a29e855e6f39df2ba1ef83eb7897c257ee717d66..044fd03c4a7d3b75aeb6ca2bd7fb6155d2cdb787/games-frame-pacing))
 
-## Games Frame Pacing Version 2.1
+### Version 2.1
 
-### Version 2.1.3
+#### Version 2.1.3
 
 July 2, 2025
 
@@ -1433,7 +1505,7 @@ July 2, 2025
 
 - Enables support for 16KB page size.
 
-### Version 2.1.2
+#### Version 2.1.2
 
 July 24, 2024
 
@@ -1443,7 +1515,7 @@ July 24, 2024
 
 - Swappy now uses `AChoreographer_postVsyncCallback` from API 33 to calculate the presentation time more accurately. This fixes a bug on 120hz devices where frames are dropped.
 
-### Version 2.1.1
+#### Version 2.1.1
 
 July 10, 2024
 
@@ -1454,19 +1526,19 @@ July 10, 2024
 - Properly unregister display listener from swappy to avoid a hang.
 - Fix a crash in `ChoreographerFilter::onSettingsChanged` using destroyed mutex.
 
-### Version 2.1.0
+#### Version 2.1.0
 
 November 15, 2023
 
 `androidx.games:games-frame-pacing:2.1.0` is released. [Version 2.1.0 contains these commits.](https://android.googlesource.com/platform/frameworks/opt/gamesdk/+log/408e113fbcd92d04fc5bd273bc2ba1f3a1109488..4880f53064c0abc7f2adaa4895e0c9e1c0ade08b/games-frame-pacing)
 
-### Version 2.1.0-rc01
+#### Version 2.1.0-rc01
 
 September 20, 2023
 
 `androidx.games:games-frame-pacing:2.1.0-rc01` is released. [Version 2.1.0-rc01 contains these commits.](https://android.googlesource.com/platform/frameworks/opt/gamesdk/+log/3643862ac9c7c2fe01ab511cc602e158db1dd21b..408e113fbcd92d04fc5bd273bc2ba1f3a1109488/games-frame-pacing)
 
-### Version 2.1.0-beta01
+#### Version 2.1.0-beta01
 
 May 24, 2023
 
@@ -1477,7 +1549,7 @@ May 24, 2023
 - Timeout in case `NDKChoreographer` initialization fails ([ef466d](https://android-review.googlesource.com/#/q/I02d718cb655ddf3d6a4fbf0ad74e5956dd3eeded))
 - When using `SwappyGL_getSupportedRefreshPeriodsNS` query refresh rates explicitly from the system ([c85235](https://android-review.googlesource.com/#/q/I9e31c9ac4790c75e64338f497b67d2a72c33f301))
 
-### Version 2.1.0-alpha01
+#### Version 2.1.0-alpha01
 
 April 5, 2023
 
@@ -1498,9 +1570,9 @@ April 5, 2023
 
 - Performance improvements are made for GPU bound cases when using Swappy GL API.
 
-## Games Frame Pacing Version 2.0
+### Version 2.0
 
-### Version 2.0.0
+#### Version 2.0.0
 
 March 8, 2023
 
@@ -1513,7 +1585,7 @@ March 8, 2023
 - A new API for clearing frame statistics is added.
 - The logs are all silent in release mode, they can be enabled in debug mode.
 
-### Version 2.0.0-rc01
+#### Version 2.0.0-rc01
 
 February 22, 2023
 
@@ -1523,7 +1595,7 @@ February 22, 2023
 
 - Logging is now hidden behind a compile flag. By default release build of the library has no logging, and debug release of the library has all the logging turned on.
 
-### Version 2.0.0-beta01
+#### Version 2.0.0-beta01
 
 February 8, 2023
 
@@ -1537,7 +1609,7 @@ February 8, 2023
 
 - Added `SwappyGL_clearStats` and `SwappyGL_clearStats` APIs.
 
-### Version 2.0.0-alpha01
+#### Version 2.0.0-alpha01
 
 January 11, 2023
 
@@ -1556,9 +1628,9 @@ January 11, 2023
 
 - Apply threshold only in auto swap mode ([Ic0786](https://android-review.googlesource.com/c/platform/frameworks/opt/gamesdk/+/2281447))
 
-## Games Frame Pacing 1.10
+### Version 1.10
 
-### Version 1.10.2-alpha01
+#### Version 1.10.2-alpha01
 
 November 9, 2022
 
@@ -1568,7 +1640,7 @@ November 9, 2022
 
 - No new changes
 
-### Version 1.10.1
+#### Version 1.10.1
 
 June 15, 2022
 
@@ -1579,7 +1651,7 @@ June 15, 2022
 - Fix for swappy not building with ndk \<23 and \>17.
 - Exposed API to retrieve the refresh rates supported by the display.
 
-### Version 1.10.0
+#### Version 1.10.0
 
 February 23, 2022
 
@@ -1590,19 +1662,19 @@ February 23, 2022
 - Ignore polluting choreographer filter inputs and smooth more to prevent freezes on emulator
 - Add \*_uninjectTracer functions.
 
-### Version 1.10.0-rc01
+#### Version 1.10.0-rc01
 
 February 9, 2022
 
 `androidx.games:games-frame-pacing:1.10.0-rc01` is released. [Version 1.10.0-rc01 contains these commits.](https://android.googlesource.com/platform/frameworks/opt/gamesdk/+log/60b0ddc9b45463685713d52558c2fa62c4ca50bb..4f851ef851998ea2cb65dad519f595377fd73fcf/src/swappy)
 
-### Version 1.10.0-beta01
+#### Version 1.10.0-beta01
 
 January 26, 2022
 
 `androidx.games:games-frame-pacing:1.10.0-beta01` is released. [Version 1.10.0-beta01 contains these commits.](https://android.googlesource.com/platform/frameworks/opt/gamesdk/+log/e8e9971ec507a219142344409f5176cc4aea8b3f..60b0ddc9b45463685713d52558c2fa62c4ca50bb/src/swappy)
 
-### Version 1.10.0-alpha01
+#### Version 1.10.0-alpha01
 
 December 15, 2021
 
@@ -1616,9 +1688,9 @@ December 15, 2021
 
 - Remove callbacks that were previously added using `SwappyGL_injectTracer` by using `SwappyGL_uninjectTracer(const SwappyTracer *t)` API.
 
-## Games Frame Pacing 1.9
+### Version 1.9
 
-### Version 1.9.1
+#### Version 1.9.1
 
 October 13, 2021
 
@@ -1628,7 +1700,7 @@ October 13, 2021
 
 - Fixed [b/199487756](https://issuetracker.google.com/199487756)
 
-### Version 1.9.0
+#### Version 1.9.0
 
 July 12, 2021
 
@@ -1638,85 +1710,31 @@ July 12, 2021
 
 - Updated to match internal versioning scheme.
 
-## Games Frame Pacing 1.7.0
+### Version 1.7
 
-### Version 1.7.0
+#### Version 1.7.0
 
 June 30, 2021
 
 `androidx.games:games-frame-pacing:1.7.0` is released. [Version 1.7.0 contains these commits.](https://android.googlesource.com/platform/frameworks/opt/gamesdk/+log/11d9f8ed1ee4f04f87dd8ab0ef7c0690e63e1078..66204fc44cbcee003287d7a37f98eefd22bca9dc/src/swappy)
 
-### Version 1.7.0-rc01
+#### Version 1.7.0-rc01
 
 June 2, 2021
 
 `androidx.games:games-frame-pacing:1.7.0-rc01` is released. Version 1.7.0-rc01 contains these commits.
 
-### Version 1.7.0-beta02
+#### Version 1.7.0-beta02
 
 February 24, 2021
 
 `androidx.games:games-frame-pacing:1.7.0-beta02` is released.
 
-### Version 1.7.0-beta01
+#### Version 1.7.0-beta01
 
 December 16, 2020
 
 `androidx.games:games-frame-pacing:1.7.0-beta01` is released.
-
-## Games Performance Tuner 1.4.3
-
-### Version 2.0.0-rc01
-
-July 24, 2024
-
-`androidx.games:games-performance-tuner:2.0.0-rc01` is released. Version 2.0.0-rc01 contains [these commits](https://android.googlesource.com/platform/frameworks/opt/gamesdk/+log/12ef8dab8ec4a03116abce11081601d883d8170e..17ce5e87964a3fd53662850262c2740b9b70cee8/games-performance-tuner).
-
-### Version 1.4.3
-
-July 12, 2021
-
-`androidx.games:games-performance-tuner:1.4.3` is released. [Version 1.4.3 contains these commits.](https://android.googlesource.com/platform/frameworks/opt/gamesdk/+log/66204fc44cbcee003287d7a37f98eefd22bca9dc..c6508fc0745ecbc0bccc6e55bcc47aefc0ada7a8/src/tuningfork)
-
-**Important changes since 1.1.0**
-
-- Updated to match internal versioning scheme.
-
-## Games Performance Tuner 1.1.0
-
-### Version 1.1.0
-
-June 30, 2021
-
-`androidx.games:games-performance-tuner:1.1.0` is released. [Version 1.1.0 contains these commits.](https://android.googlesource.com/platform/frameworks/opt/gamesdk/+log/11d9f8ed1ee4f04f87dd8ab0ef7c0690e63e1078..66204fc44cbcee003287d7a37f98eefd22bca9dc/src/tuningfork)
-
-### Version 1.1.0-rc01
-
-June 2, 2021
-
-`androidx.games:games-performance-tuner:1.1.0-rc01` is released. Version 1.1.0-rc01 contains these commits.
-
-### Version 1.1.0-beta03
-
-April 21, 2021
-
-`androidx.games:games-performance-tuner:1.1.0-beta03` is released.
-
-### Version 1.1.0-beta02
-
-February 24, 2021
-
-`androidx.games:games-performance-tuner:1.1.0-beta02` is released.
-
-### Version 1.1.0-beta01
-
-December 16, 2020
-
-`androidx.games:games-performance-tuner:1.1.0-beta01` is released.
-
-### Version 1.1.0-alpha01
-
-androidx.games:games-performance-tuner:1.1.0-alpha01 is released.
 
 ## Version 1.0.0
 

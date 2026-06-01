@@ -46,9 +46,7 @@ All models Open weight models Closed weight models
 | ![](https://developer.android.com/static/images/bench/icons/openai.png) GPT OSS 20B | **2.4** | 1.2 --- 3.9 | 3.8 | 12.0 | $0.2 | 2026-05-11 |
 
 **Latest results as of May 18th 2026:** This refresh includes [open-weight models](https://developer.android.com/bench/methodology#benchmarking-open-weight-models), adding new columns for [latency, tokens, and cost](https://developer.android.com/bench/methodology#new-leaderboard-dimensions).  
-**Check back periodically for updates!**   
-
-![](http://developer.android.com/static/images/picto-icons/badge.svg)
+**Check back periodically for updates!** ![](http://developer.android.com/static/images/picto-icons/badge.svg)
 
 ## Learn more about Android Bench
 

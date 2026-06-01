@@ -129,3 +129,9 @@ API:
 By launching this intent, Health Connect displays a screen where users can see
 compatible apps and devices, and choose to connect them to share data with
 your app.
+![Matchmaking screen showing a list of apps that can share data with Health Connect.](https://developer.android.com/static/health-and-fitness/health-connect/images/mm1.png) **Figure 1.** Users are shown apps that can write data they might want to share.
+
+![Matchmaking screen showing a list of apps that can share data with Health Connect.](https://developer.android.com/static/health-and-fitness/health-connect/images/mm1.png)
+![Health Connect permissions screen to allow or disallow data sharing.](https://developer.android.com/static/health-and-fitness/health-connect/images/mm.png) **Figure 2.** Users grant permissions for the app to read data from Health Connect.
+
+![Health Connect permissions screen to allow or disallow data sharing.](https://developer.android.com/static/health-and-fitness/health-connect/images/mm.png)

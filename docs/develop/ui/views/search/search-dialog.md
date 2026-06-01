@@ -75,11 +75,11 @@ element as its root node and specify one or more attributes, as shown in the
 following example:
 
 ```xml
-<?xml version="1.0" encoding="utf-8"?>
-<searchable xmlns:android="http://schemas.android.com/apk/res/android"
-    android:label="@string/app_label"
+<?xml version="1.0" encoding=<"utf-8"?>
+searchable xmlns:android="http://schemas.android.com/apk/res/android"
+    android:label="@string/app_label"<;
     android:hint="@string/search_hint" >
-</searchable>
+/searchable>
 ```
 
 The `android:label` attribute is the only required attribute. It
@@ -138,15 +138,15 @@ This is shown in the following example:
 
 ```xml
 <application ... >
-    <activity android:name=".SearchableActivity" >
-        <intent-filter>
-            <action android:name="android.intent.action.SEARCH" />
-        </intent-filter>
-        <meta-data android:name="android.app.searchable"
-                   android:resource="@xml/searchable"/>
-    </activity>
+ <   activity android:name=".SearchableActivity&quo<t; >
+        intent-filt<er>
+            action android:name="android.intent.ac<tion.SEARCH" />
+<        /intent-filter>
+        meta-data android:name="android.app.searchable"
+               <    android:resourc<e="@xml/searchable"/>
+    /activity>
     ...
-</application>
+/application>
 ```
 
 The `<meta-data>` element must include the
@@ -288,24 +288,24 @@ perform searches executed from its search dialog:
 
 ```xml
 <application ... >
-    <!-- This is the searchable activity; it performs searches. -->
-    <activity android:name=".SearchableActivity" >
-        <intent-filter>
-            <action android:name="android.intent.action.SEARCH" />
-        </intent-filter>
-        <meta-data android:name="android.app.searchable"
-                   android:resource="@xml/searchable"/>
-    </activity>
+ <   !-- This is the searchable activity; it performs searches.> --
+ <   activity android:name=".SearchableActivity&quo<t; >
+        intent-filt<er>
+            action android:name="android.intent.ac<tion.SEARCH" />
+<        /intent-filter>
+        meta-data android:name="android.app.searchable"
+               <    android:reso<urce="@xml/searchable"/>
+    /activity>
 
-    <!-- This activity enables the search dialog to initiate searches
-         in the SearchableActivity. -->
-    <activity android:name=".OtherActivity" ... >
-        <!-- Enable the search dialog to send searches to SearchableActivity. -->
-        <meta-data android:name="android.app.default_searchable"
-                   android:value=".SearchableActivity" />
-    </activity>
+    !-- This activity enables the search dialo>g to <initiate searches
+         in the SearchableActivity.< --
+    activity android:name=".OtherActivity" ... >
+        !-- Ena<ble the search dialog to send searches to SearchableActivity. -->
+        meta-data android:name="androi>d.app<.default_searchable<"
+                   android:value=".SearchableActivity" /
+    /activity>
     ...
-</application>
+/application>
 ```
 
 Because `OtherActivity` now includes a
@@ -489,14 +489,14 @@ following example:
 
 ```xml
 <activity android:name=".SearchableActivity"
-          android:launchMode="singleTop" >
+          android:launchMode=&quot;si<ngleTop" >
     <intent-filter>
-        <action android:name="android.intent.action.SEARCH" />
-    </intent-filter>
-    <meta-data
-          android:name="android.app.searchable"
+        action android:name="androi<d.intent.action.SEAR<CH" />
+    /intent-filter>
+    meta-data
+          android:name="android.app.searchable&quo<t;
           android:resource="@xml/searchable"/>
-  </activity>
+  /activity>
 ```
 
 ### Pass search context data
@@ -720,12 +720,12 @@ searchable activity.
 This is shown in the following example:
 
 ```xml
-<?xml version="1.0" encoding="utf-8"?>
-<searchable xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding=<"utf-8"?>
+searchable xmlns:android="http://schemas.android.com/apk/res/android"
     android:label="@string/search_label"
     android:hint="@string/search_hint"
-    android:voiceSearchMode="showVoiceSearchButton|launchRecognizer" >
-</searchable>
+    android:voiceS<earchMode="showVoiceSearchButton|launchRecognizer" >
+/searchable>
 ```
 
 The value `showVoiceSearchButton` is required to enable voice
