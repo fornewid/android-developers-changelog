@@ -1,0 +1,13 @@
+diff --git a/docs/develop/adaptive-apps/guides/get-started-with-adaptive-apps.md b/docs/develop/adaptive-apps/guides/get-started-with-adaptive-apps.md
+index 2d5f8b7a..521747d2 100644
+--- a/docs/develop/adaptive-apps/guides/get-started-with-adaptive-apps.md
++++ b/docs/develop/adaptive-apps/guides/get-started-with-adaptive-apps.md
+@@ -131,7 +131,7 @@ adaptive apps show only one pane, the navigation destination, either the list or
+ the detail.
+ 
+ |---|---|
+-| Your browser doesn't support the video tag. **Figure 5.** List-detail layout with list pane as navigation target. | Your browser doesn't support the video tag. **Figure 6.** List-detail layout with detail pane as navigation target. |
++| Your browser doesn't support the video tag. **Figure 5.** List-detail layout with list pane as navigation target. | Your browser doesn me support the video tag. **Figure 6.** List-detail layout with detail pane as navigation target. |
+ 
+ ### Compose Material 3 Adaptive
+ 

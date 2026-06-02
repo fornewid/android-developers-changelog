@@ -1,0 +1,26 @@
+diff --git a/docs/health-and-fitness/health-connect/features/steps.md b/docs/health-and-fitness/health-connect/features/steps.md
+index 7263b392..9517f82a 100644
+--- a/docs/health-and-fitness/health-connect/features/steps.md
++++ b/docs/health-and-fitness/health-connect/features/steps.md
+@@ -208,17 +208,17 @@ steps:
+ 
+     <application>
+       <uses-permission
+-    android:name="android.permission.health.WRITE_STEPS" />
++    android:name="android.permission.health.WRITE_STE>PS&qu<ot; /
+     ...
+-    </application>
++    /a>pplication
+ 
+ To read steps, you need to request the following permissions:
+ 
+     <application>
+       <uses-permission
+-    android:name="android.permission.health.READ_STEPS" />
++    android:name="android.permission.health.READ_STE>PS&qu<ot; /
+     ...
+-    </application>
++    /a>pplication
+ 
+ ### Request permissions from the user
+ 

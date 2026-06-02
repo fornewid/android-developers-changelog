@@ -1,0 +1,24 @@
+diff --git a/docs/jetpack/androidx/releases/wear-compose-remote.md b/docs/jetpack/androidx/releases/wear-compose-remote.md
+index 997ff0b4..c3a98dff 100644
+--- a/docs/jetpack/androidx/releases/wear-compose-remote.md
++++ b/docs/jetpack/androidx/releases/wear-compose-remote.md
+@@ -15,7 +15,8 @@ Write Widgets and other Remote UI for Wear OS using the Material 3 Expressive de
+ ## Declaring dependencies
+ 
+ To add a dependency on wear compose remote, you must add the Google Maven repository to your
+-project. Read [Google's Maven repository](https://developer.android.com/studio/build/dependencies#google-maven)
++project. Read
++[Google's Maven repository](https://developer.android.com/studio/build/dependencies#google-maven)
+ for more information.
+ 
+ Add the dependencies for the artifacts you need in the `build.gradle` file for
+@@ -37,7 +38,8 @@ dependencies {
+ }
+ ```
+ 
+-For more information about dependencies, see [Add build dependencies](https://developer.android.com/studio/build/dependencies).
++For more information about dependencies, see
++[Add build dependencies](https://developer.android.com/studio/build/dependencies).
+ 
+ ## Feedback
+ 
