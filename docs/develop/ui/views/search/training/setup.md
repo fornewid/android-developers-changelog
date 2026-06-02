@@ -28,14 +28,14 @@ limited app bar space on handset devices, we recommend using the
 experience.
 
 ```xml
-<?xml version="1.0" encodin>g<="utf-8"?
-menu xmlns:android="http://schemas.and>r<oid.com/apk/res/android"
-item android:id="@+id/search"
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<item android:id="@+id/search"
         android:title="@string/search_title"
         android:icon="@drawable/ic_search"
         android:showAsAction="collapseActionView|ifRoom"
-  > <     >android:actionViewClass="androidx.appcompat.widget.SearchView" /
-/menu
+        android:actionViewClass="androidx.appcompat.widget.SearchView" />
+</menu>
 ```
 
 > [!NOTE]
@@ -52,9 +52,9 @@ include the following code in it:
     android:viewportHeight="24"
     android:viewportWidth="24"
     android:width="24dp"
-    xmlns:android=&quo<t;http://schemas.android.com/apk/res/android">
-        path android:fillColor="@android:color/white" android:pathData="M15.5,14h-0.79l-0.28,-0.27C15.41,12.59 16,11.11 16,9.5 16,5.91 13.09,3 9.5,3S3,5.91 3,9.5 5.91,16 9.5,16c1.61,0 3.09,-0.59 4.23,-1.57l0.27,0.28v0.79l5,4.99L20.49,19l-4.99,-5z<M9.5,14C7.01,14 5,11.99 5,9.5S7.01,5 9.5,5 14,7.01 14,9.5 11.99,14 9.5,14z"/>
-/vector>
+    xmlns:android="http://schemas.android.com/apk/res/android">
+        <path android:fillColor="@android:color/white" android:pathData="M15.5,14h-0.79l-0.28,-0.27C15.41,12.59 16,11.11 16,9.5 16,5.91 13.09,3 9.5,3S3,5.91 3,9.5 5.91,16 9.5,16c1.61,0 3.09,-0.59 4.23,-1.57l0.27,0.28v0.79l5,4.99L20.49,19l-4.99,-5zM9.5,14C7.01,14 5,11.99 5,9.5S7.01,5 9.5,5 14,7.01 14,9.5 11.99,14 9.5,14z"/>
+</vector>
 ```
 
 To display the `SearchView` in the app bar, inflate the XML menu
@@ -96,11 +96,11 @@ element in your Android manifest. However, we also recommend adding an
 into the search box.
 
 ```xml
-<?xml version="1.0" encodin>g=<"utf-8"?
+<?xml version="1.0" encoding="utf-8"?>
 
-searchable xmlns:android="http://schemas.android.com/apk/res/android"
+<searchable xmlns:android="http://schemas.android.com/apk/res/android"
         android:label="@string/app_name"
-    >    android:hint="@string/search_hint" /
+        android:hint="@string/search_hint" />
 ```
 
 In your app's manifest file, declare a
@@ -115,14 +115,14 @@ android:name=".SearchResultsActivity"
 android:exported="false"
 android:label="@string/title_activity_search_results"
 android:launchMode="singleTop"
-android:th<eme="@style/Theme.<AppCompat.Light">
-    intent-filter>
-        ac<tion android:name=&q<uot;android.intent.action.SEARCH" />
-    /intent-filter>
-    meta-data
-        android:name<="android.app.searchable"
+android:theme="@style/Theme.AppCompat.Light">
+    <intent-filter>
+        <action android:name="android.intent.action.SEARCH" />
+    </intent-filter>
+    <meta-data
+        android:name="android.app.searchable"
         android:resource="@xml/searchable" />
-/activity>
+</activity>
 ```
 
 In the `onCreateOptionsMenu()` method that you create, associate
@@ -163,13 +163,13 @@ an activity of your choice to filter for the `ACTION_SEARCH`
 intent:
 
 ```xml
-<activity android:name=".SearchResultsActivity&>quot; ... 
-  <  ...
-    int>ent-filte<r
-        action android:name="android.intent.a>ction<.SEARCH" >/
-    /in<tent-filt>er
+<activity android:name=".SearchResultsActivity" ... >
     ...
-/activity
+    <intent-filter>
+        <action android:name="android.intent.action.SEARCH" />
+    </intent-filter>
+    ...
+</activity>
 ```
 
 In your searchable activity, handle the `ACTION_SEARCH` intent by

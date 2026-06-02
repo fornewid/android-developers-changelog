@@ -74,8 +74,8 @@ Connect your device over USB, then, depending on the type of system image you
 want to flash, navigate to Android Flash Tool using one of the following links
 and follow the onscreen guidance:
 
-- **ARM64 GSI with GMS** : <https://flash.android.com/preview/cinnamonbun-beta4-gsi-gms>
-- **ARM64 GSI** : <https://flash.android.com/preview/cinnamonbun-beta4-gsi>
+- **ARM64 GSI with GMS** : <https://flash.android.com/preview/cinnamonbun-beta4.1-gsi-gms>
+- **ARM64 GSI** : <https://flash.android.com/preview/cinnamonbun-beta4.1-gsi>
 
 ## Known issues
 
@@ -645,6 +645,6 @@ This is the Early Access Google Mobile Services and Android 17 GSI License Agree
 
 10.7 The License Agreement, and your relationship with Google under the License Agreement, shall be governed by the laws of the State of California without regard to its conflict of laws provisions. You and Google agree to submit to the exclusive jurisdiction of the courts located within the county of Santa Clara, California to resolve any legal matter arising from the License Agreement. Notwithstanding this, you agree that Google shall still be allowed to apply for injunctive remedies (or an equivalent type of urgent legal relief) in any jurisdiction.  
 
-I have read and agree with the above terms and conditions <button class="button button-disabled"> Download Android 17 GSI Release </button> [Download Android 17 GSI Release](https://dl.google.com/developers/android/cinnamonbun/images/gsi/aosp_x86_64-exp-CP21.260330.008-15199860-401fffe1.zip)
+I have read and agree with the above terms and conditions <button class="button button-disabled"> Download Android 17 GSI Release </button> [Download Android 17 GSI Release](https://dl.google.com/developers/android/cinnamonbun/images/gsi/aosp_x86_64-exp-CP21.260330.011-15499021-02236122.zip)
 
 *aosp_x86_64-exp-CP31.260508.005-15421345-86e7f54b.zip*

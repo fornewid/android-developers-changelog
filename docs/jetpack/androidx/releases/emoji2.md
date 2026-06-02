@@ -6,11 +6,7 @@ source: md.txt
 
 # Emoji2
 
-[User Guide](https://developer.android.com/guide/topics/ui/look-and-feel/emoji-compat) [Code Sample](https://github.com/android/user-interface-samples) API Reference  
-[androidx.emoji2.text](https://developer.android.com/reference/kotlin/androidx/emoji2/text/package-summary)  
-[androidx.emoji2.viewshelper](https://developer.android.com/reference/kotlin/androidx/emoji2/viewshelper/package-summary)  
-[androidx.emoji2.widget](https://developer.android.com/reference/kotlin/androidx/emoji2/widget/package-summary)  
-Display emoji in current and older devices.
+[User Guide](https://developer.android.com/guide/topics/ui/look-and-feel/emoji-compat) [Code Sample](https://github.com/android/user-interface-samples) Display emoji in current and older devices.
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
@@ -63,65 +59,6 @@ clicking the star button.
 
 See the [Issue Tracker documentation](https://developers.google.com/issue-tracker)
 for more information.
-
-## Emoji2 Emojipicker Version 1.0
-
-### Version 1.5.0
-
-September 4, 2024
-
-`androidx.emoji2:emoji2-*:1.5.0` is released. Version 1.5.0 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/0adbbe89afc8940ce38426fa770f2b800023143f..d54bd534b3505f8abf050634eb0fdd0d7219707b/emoji2).
-
-**Important changes since 1.4.0**
-
-- Support emoji 15.1 and bidirectional emoji selector UI. A simple click on the bidirectional switcher allows users to toggle between left- and right-facing versions of emojis.
-- Support multi-skintone emoji selector. Long-pressing couple emojis reveals a multi-person emoji selector for the zero state. When the user taps on the left half of an emoji, the emoji preview on the bottom right will be updated accordingly. When the user selects both halves of an emoji, the emoji preview on the bottom right will show the entire emoji and the user can then input it.
-
-### Version 1.0.0-alpha03
-
-March 8, 2023
-
-`androidx.emoji2:emoji2-emojipicker:1.0.0-alpha03` is released. [Version 1.0.0-alpha03 contains these commits.](https://android.googlesource.com/platform/frameworks/support/+log/87533b4ff06971ed59028936cd9b6da988cd4522..bf83b7ca1e086138c9ffa3ed2a530db3b038c79a/emoji2/emoji2-emojipicker)
-
-**Bug Fixes**
-
-- Removed unnecessary resources and reduced library size by \~0.3M.
-
-### Version 1.0.0-alpha02
-
-February 22, 2023
-
-`androidx.emoji2:emoji2-emojipicker:1.0.0-alpha02` is released. [Version 1.0.0-alpha02 contains these commits.](https://android.googlesource.com/platform/frameworks/support/+log/e5dad1e7d1c225f89f7c2d5a39a7a0de8d637d7b..87533b4ff06971ed59028936cd9b6da988cd4522/emoji2/emoji2-emojipicker)
-
-**API Changes**
-
-- Added new API for java clients to be able to provide recent emojis. ([I39d10](https://android-review.googlesource.com/#/q/I39d1054670ddadeba062810de9b36418843d7c19))
-
-**Bug Fixes**
-
-- Update emoji resources to support emoji 15.0 ([Ib4eb3](https://android-review.googlesource.com/#/q/Ib4eb3565f7cf2f4c4f72268e5b04001b181136e7))
-- When picking an emoji from the popup window, update all identical emojis to the newly picked emoji (except the recent emoji row). Also announce the emoji when clicking. ([I892c6](https://android-review.googlesource.com/#/q/I892c6e734ee5be608b2dd632234553bb0d2093f9))
-- Wait for emojicompat to load before showing the `EmojiPickerView`. ([I29e03](https://android-review.googlesource.com/#/q/I29e030aa682ddb59add4280d27cac241cbdcdbe2))
-
-### Version 1.0.0-alpha01
-
-January 25, 2023
-
-`androidx.emoji2:emoji2-emojipicker:1.0.0-alpha01` is released. [Version 1.0.0-alpha01 contains these commits.](https://android.googlesource.com/platform/frameworks/support/+log/e5dad1e7d1c225f89f7c2d5a39a7a0de8d637d7b/emoji2/emoji2-emojipicker)
-
-**New Features**
-
-- Introduced an emoji picker which provides consistent user experience with the latest emojis across Android OS OEM devices and apps. It provides the latest emoji support and emoji picker UI including skin-tone variants and emoji compat support.
-
-**API Changes**
-
-- Introduced `EmojiPickerView` class that provides up-to-date emojis in a vertical scrollable view with a clickable horizontal header.
-- The emoji picker grid columns can be set via XML attribute `emojiGridColumns` or function `setEmojiGridColumns()`.
-- The emoji picker grid rows can be set via XML attribute `emojiGridRows` or function `setEmojiGridRows()`.
-- The emoji picked listener can be set via `setOnEmojiPickedListener()` and the listener will be notified whenever the user clicked any emoji.
-- The recent emoji provider can be provided with `setRecentEmojiProvider()`. This is an optional function. If the recent emoji provider isn't set, a default recent emoji provider will be used by the library. The default behavior is defined as follows: 1) all selected emojis will be saved per-app level in shared preferences. 2) the picker will display at most 3 rows of selected emojis, deduped, in reverse chronological order.
-- Introduced `EmojiViewItem` class that holds the displayed emoji and its emoji variants.
-- Introduced `RecentEmojiProvider` interface that can be implemented to provide a recent emoji list. The `recentEmojiProvider` is responsible for providing emojis in the "Recently Used" category.
 
 ## Version 1.6
 
@@ -815,3 +752,51 @@ The `emoji2` artifact introduces a new automatic configuration using the `androi
        </provider>
 
 - This disables automatic configuration, and you can then pass a custom configuration to `EmojiCompat.init`. The default configuration for the system may be retrieved `DefaultEmojiCompatConfig.create(context)` for further configuration before passing to `EmojiCompat.init`.
+
+## Emoji2 Emojipicker Version 1.0
+
+### Version 1.0.0-alpha03
+
+March 8, 2023
+
+`androidx.emoji2:emoji2-emojipicker:1.0.0-alpha03` is released. [Version 1.0.0-alpha03 contains these commits.](https://android.googlesource.com/platform/frameworks/support/+log/87533b4ff06971ed59028936cd9b6da988cd4522..bf83b7ca1e086138c9ffa3ed2a530db3b038c79a/emoji2/emoji2-emojipicker)
+
+**Bug Fixes**
+
+- Removed unnecessary resources and reduced library size by \~0.3M.
+
+### Version 1.0.0-alpha02
+
+February 22, 2023
+
+`androidx.emoji2:emoji2-emojipicker:1.0.0-alpha02` is released. [Version 1.0.0-alpha02 contains these commits.](https://android.googlesource.com/platform/frameworks/support/+log/e5dad1e7d1c225f89f7c2d5a39a7a0de8d637d7b..87533b4ff06971ed59028936cd9b6da988cd4522/emoji2/emoji2-emojipicker)
+
+**API Changes**
+
+- Added new API for java clients to be able to provide recent emojis. ([I39d10](https://android-review.googlesource.com/#/q/I39d1054670ddadeba062810de9b36418843d7c19))
+
+**Bug Fixes**
+
+- Update emoji resources to support emoji 15.0 ([Ib4eb3](https://android-review.googlesource.com/#/q/Ib4eb3565f7cf2f4c4f72268e5b04001b181136e7))
+- When picking an emoji from the popup window, update all identical emojis to the newly picked emoji (except the recent emoji row). Also announce the emoji when clicking. ([I892c6](https://android-review.googlesource.com/#/q/I892c6e734ee5be608b2dd632234553bb0d2093f9))
+- Wait for emojicompat to load before showing the `EmojiPickerView`. ([I29e03](https://android-review.googlesource.com/#/q/I29e030aa682ddb59add4280d27cac241cbdcdbe2))
+
+### Version 1.0.0-alpha01
+
+January 25, 2023
+
+`androidx.emoji2:emoji2-emojipicker:1.0.0-alpha01` is released. [Version 1.0.0-alpha01 contains these commits.](https://android.googlesource.com/platform/frameworks/support/+log/e5dad1e7d1c225f89f7c2d5a39a7a0de8d637d7b/emoji2/emoji2-emojipicker)
+
+**New Features**
+
+- Introduced an emoji picker which provides consistent user experience with the latest emojis across Android OS OEM devices and apps. It provides the latest emoji support and emoji picker UI including skin-tone variants and emoji compat support.
+
+**API Changes**
+
+- Introduced `EmojiPickerView` class that provides up-to-date emojis in a vertical scrollable view with a clickable horizontal header.
+- The emoji picker grid columns can be set via XML attribute `emojiGridColumns` or function `setEmojiGridColumns()`.
+- The emoji picker grid rows can be set via XML attribute `emojiGridRows` or function `setEmojiGridRows()`.
+- The emoji picked listener can be set via `setOnEmojiPickedListener()` and the listener will be notified whenever the user clicked any emoji.
+- The recent emoji provider can be provided with `setRecentEmojiProvider()`. This is an optional function. If the recent emoji provider isn't set, a default recent emoji provider will be used by the library. The default behavior is defined as follows: 1) all selected emojis will be saved per-app level in shared preferences. 2) the picker will display at most 3 rows of selected emojis, deduped, in reverse chronological order.
+- Introduced `EmojiViewItem` class that holds the displayed emoji and its emoji variants.
+- Introduced `RecentEmojiProvider` interface that can be implemented to provide a recent emoji list. The `recentEmojiProvider` is responsible for providing emojis in the "Recently Used" category.

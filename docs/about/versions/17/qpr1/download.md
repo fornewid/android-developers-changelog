@@ -77,10 +77,10 @@ time.
 ### Device factory images
 
 |---|---|
-| **Release date** | April 16, 2026 |
-| **Builds** | CP21.260330.008 |
+| **Release date** | June 1, 2026 |
+| **Builds** | CP21.260330.011 |
 | **Emulator support** | x86 (64-bit), ARM (v8-A) |
-| **Security patch level** | 2026-04-05 |
+| **Security patch level** | 2026-05-05 |
 | **Google Play services** | 26.11.36 |
 
 | Device | Download Link and SHA-256 Checksum |

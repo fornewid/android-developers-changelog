@@ -32,7 +32,7 @@ Build quality into your app from the ground up with the [adaptive app quality gu
 
 ## Maximized ROI
 
-Reach more users on more devices. Capture the attention of more than 300 million large screen device users. Cash in on the 14x in‑app spending of foldable users. Connect with Chromebook users in 93% of U.S. school districts. Be seen by millions of Android Auto and Android TV users. ![](http://developer.android.com/static/develop/adaptive-apps/images/differentiated-experiences-icon.svg)
+Reach more users on more devices. Capture the attention of more than 580 million large screen device users. Cash in on the 14x in‑app spending of foldable users. Connect with Chromebook users in 93% of U.S. school districts. Be seen by millions of Android Auto and Android TV users. ![](http://developer.android.com/static/develop/adaptive-apps/images/differentiated-experiences-icon.svg)
 
 ## Differentiated experiences
 

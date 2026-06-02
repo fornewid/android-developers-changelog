@@ -8,7 +8,7 @@ source: md.txt
 
 # Compose Material 3 Adaptive
 
-Use the Material 3 adaptive library to create adaptive UIs that will adapt themselves automatically according to the current window configurations like window size classes or device postures. The library provides both default scaffold implementations and necessary building block composables to create your own custom experiences.
+Use the Material 3 adaptive library to create adaptive UIs that adapt automatically according to window configurations like window size classes or device postures. The library provides default scaffold implementations and building block composables to create your own custom experiences.
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
@@ -30,6 +30,7 @@ dependencies {
     implementation "androidx.compose.material3.adaptive:adaptive:1.3.0-beta02"
     implementation "androidx.compose.material3.adaptive:adaptive-layout:1.3.0-beta02"
     implementation "androidx.compose.material3.adaptive:adaptive-navigation:1.3.0-beta02"
+    implementation "androidx.compose.material3.adaptive:adaptive-navigation3:1.3.0-beta02"
 }
 ```
 
@@ -40,6 +41,7 @@ dependencies {
     implementation("androidx.compose.material3.adaptive:adaptive:1.3.0-beta02")
     implementation("androidx.compose.material3.adaptive:adaptive-layout:1.3.0-beta02")
     implementation("androidx.compose.material3.adaptive:adaptive-navigation:1.3.0-beta02")
+    implementation("androidx.compose.material3.adaptive:adaptive-navigation3:1.3.0-beta02")
 }
 ```
 
@@ -59,37 +61,6 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 <br />
-
-## Compose Material3 Adaptive Navigation3 Version 1.0
-
-### Version 1.0.0-alpha03
-
-September 24, 2025
-
-`androidx.compose.material3.adaptive:adaptive-navigation3:1.0.0-alpha03` is released. Version 1.0.0-alpha03 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/cf0316e0a0fa7e872bbfc1f6ecf667c8622db2c7..eda15c8d8b0e8a4cdb256c81b44499364dbf0fcd/compose/material3/adaptive/adaptive-navigation3).
-
-**API Changes**
-
-- Add KMP stubs so JetBrains can fork and fill these targets to enable CMP. ([I75714](https://android-review.googlesource.com/#/q/I757148e2b77c5ebfe8230daceaa1d16da29fb6c2))
-- Move `adaptive-navigation3` to `commonMain` to enable multiplatform use. ([I58aa9](https://android-review.googlesource.com/#/q/I58aa9e9359477ec5963a88e98a754c0e76db806b))
-
-### Version 1.0.0-alpha02
-
-September 10, 2025
-
-`androidx.compose.material3.adaptive:adaptive-navigation3:1.0.0-alpha02` and `androidx.compose.material3.adaptive:adaptive-navigation3-android:1.0.0-alpha02` are released. Version 1.0.0-alpha02 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/21ec49263b1dfef28abcfedd25d83950ca381c13..cf0316e0a0fa7e872bbfc1f6ecf667c8622db2c7/compose/material3/adaptive/adaptive-navigation3).
-
-### Version 1.0.0-alpha01
-
-August 27, 2025
-
-`androidx.compose.material3.adaptive:adaptive-navigation3:1.0.0-alpha01` and `androidx.compose.material3.adaptive:adaptive-navigation3-android:1.0.0-alpha01` are released. Version 1.0.0-alpha01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/21ec49263b1dfef28abcfedd25d83950ca381c13/compose/material3/adaptive/adaptive-navigation3).
-
-**New Features**
-
-We are excited to announce the first alpha release of the `adaptive-navigation3` library. This new library, part of the Material Adaptive and Navigation3 ecosystem, is designed to help you build adaptive Material UIs integrated with the Navigation3 library.
-
-Use scene strategies to implement a canonical list-detail pane scaffold (`ListDetailSceneStrategy`, `rememberListDetailSceneStrategy`) or a supporting pane scaffold (`SupportingPaneSceneStrategy`, `rememberSupportingPaneSceneStrategy`). For more information about scenes, scene strategies, and other new concepts introduced in Navigation 3, refer to the [Navigation3 guide](https://developer.android.com/guide/navigation/navigation-3).
 
 ## Compose Material3 Adaptive Version 1.3
 
@@ -436,6 +407,40 @@ March 12, 2025
 - Introduce `PaneScaffoldScope.preferredHeight` modifier for devs to provide pane preferred heights that will be applied with new adapt strategies we are going to introduce. ([I957dd](https://android-review.googlesource.com/#/q/I957dd252b2bd154e3b0be048c092147fb6d1b2b8), [b/220960090](https://issuetracker.google.com/issues/220960090))
 - Rename `ComponentOverride` types to `Override`, and `ComponentOverrideContext` types to `OverrideScope`. ([Id973c](https://android-review.googlesource.com/#/q/Id973c0d2fd806e8d5f53375690e0e487afb7fd91))
 - Rename some component override methods. ([I222b3](https://android-review.googlesource.com/#/q/I222b3cbee858e60464f5f6a527c3f7d7fadc602c))
+
+## Compose Material3 Adaptive Navigation3 Version 1.0
+
+> [!NOTE]
+> **Note:** The versioning scheme for the `adaptive-navigation3` was subsequently updated to `1.3.0-alpha01` (from `1.0.0-alpha03`) to align with the versions of the other Compose Material 3 Adaptive artifacts.
+
+### Version 1.0.0-alpha03
+
+September 24, 2025
+
+`androidx.compose.material3.adaptive:adaptive-navigation3:1.0.0-alpha03` is released. Version 1.0.0-alpha03 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/cf0316e0a0fa7e872bbfc1f6ecf667c8622db2c7..eda15c8d8b0e8a4cdb256c81b44499364dbf0fcd/compose/material3/adaptive/adaptive-navigation3).
+
+**API Changes**
+
+- Add KMP stubs so JetBrains can fork and fill these targets to enable CMP. ([I75714](https://android-review.googlesource.com/#/q/I757148e2b77c5ebfe8230daceaa1d16da29fb6c2))
+- Move `adaptive-navigation3` to `commonMain` to enable multiplatform use. ([I58aa9](https://android-review.googlesource.com/#/q/I58aa9e9359477ec5963a88e98a754c0e76db806b))
+
+### Version 1.0.0-alpha02
+
+September 10, 2025
+
+`androidx.compose.material3.adaptive:adaptive-navigation3:1.0.0-alpha02` and `androidx.compose.material3.adaptive:adaptive-navigation3-android:1.0.0-alpha02` are released. Version 1.0.0-alpha02 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/21ec49263b1dfef28abcfedd25d83950ca381c13..cf0316e0a0fa7e872bbfc1f6ecf667c8622db2c7/compose/material3/adaptive/adaptive-navigation3).
+
+### Version 1.0.0-alpha01
+
+August 27, 2025
+
+`androidx.compose.material3.adaptive:adaptive-navigation3:1.0.0-alpha01` and `androidx.compose.material3.adaptive:adaptive-navigation3-android:1.0.0-alpha01` are released. Version 1.0.0-alpha01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/21ec49263b1dfef28abcfedd25d83950ca381c13/compose/material3/adaptive/adaptive-navigation3).
+
+**New Features**
+
+We are excited to announce the first alpha release of the `adaptive-navigation3` library. This new library, part of the Material Adaptive and Navigation3 ecosystem, is designed to help you build adaptive Material UIs integrated with the Navigation3 library.
+
+Use scene strategies to implement a canonical list-detail pane scaffold (`ListDetailSceneStrategy`, `rememberListDetailSceneStrategy`) or a supporting pane scaffold (`SupportingPaneSceneStrategy`, `rememberSupportingPaneSceneStrategy`). For more information about scenes, scene strategies, and other new concepts introduced in Navigation 3, refer to the [Navigation3 guide](https://developer.android.com/guide/navigation/navigation-3).
 
 ## Compose Material3 Adaptive Version 1.1
 

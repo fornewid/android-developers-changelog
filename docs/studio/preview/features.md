@@ -30,9 +30,8 @@ respective channels.
 
 | Version | Channel |
 |---|---|
-| Android Studio Panda 4 | Stable |
+| Android Studio Quail 1 | Stable |
 | Android Gradle plugin 9.2.0 | Stable |
-| Android Studio Quail 1 | RC |
 | Android Studio Quail 2 | Canary |
 
 <br />
@@ -69,65 +68,6 @@ The following are features currently available in Studio Labs.
 | Feature | Description | Docs |
 |---|---|---|
 | Journeys for Android Studio | Use natural language to describe steps and assertions for end-to-end tests. | [Journeys for Android Studio](https://developer.android.com/studio/gemini/journeys) |
-
-## Android Studio Quail 1
-
-The following are new features in Android Studio Quail 1.
-
-To see what's been fixed in this version of Android Studio, see the [closed
-issues](https://developer.android.com/studio/releases/fixed-bugs/studio/2026.1.1).
-
-### Material symbols support in Android Studio
-
-Add and customize the latest Material symbols in your app with Android
-Studio Otter 2 Feature Drop. The [Vector Asset Studio](https://developer.android.com/studio/write/vector-asset-studio) is
-now fully integrated with the [Material symbols](https://fonts.google.com/icons)
-library from Google Fonts, giving you access to the complete catalog
-right inside the IDE.
-
-You can now customize icon attributes like weight, grade, and optical size
-directly in the studio to perfectly match your design. Try it out in the
-latest canary build!
-![](https://developer.android.com/static/studio/images/design/material-symbols.gif) Material Symbol support in Vector Asset Studio
-
-### Recomposition state reads in the Layout Inspector
-
-We've made it easier to diagnose high
-[recomposition](https://developer.android.com/develop/ui/compose/mental-model#recomposition) counts by adding
-Recomposition state reads to the [Layout
-Inspector](https://developer.android.com/studio/debug/layout-inspector). Available in Panda 3 canary, this
-feature helps you identify the state variables that triggered a recomposition by
-providing a detailed list of state reads performed during that cycle. To use
-this feature, use `compose.ui:ui:1.10.0 (BOM 2025.12.01)` or higher.
-
-**Key capabilities**
-
-Key capabilities of this feature are the following:
-
-- **Trace state invalidation**: When a node recomposes, click the recomposition count link in the Component Tree to open the State Inspection panel.
-- **Detailed stack traces** : Identify the specific state variables being read, including as counts, lists, or elevation values. Check which ones were `invalidated` (changed) to trigger the update.
-- **Navigate recomposition history**: Use the navigation arrows in the panel header to cycle through the state data of previous recompositions for a specific node.
-- **AI-powered explanations** : Click **Explain with AI** in the State Inspection panel to display a natural-language breakdown of the state read and why it caused a recomposition.
-
-**Get started**
-
-Follow these steps to try out these features.
-
-1. Open the Layout Inspector.
-2. Right-click the recomposition column and do one of the following:
-
-   - For all nodes, select **Observe Recomposition \> Observe
-     All**.
-   - For specific notes, select **Recomposition \> Observe Node**.
-
-   ![](https://developer.android.com/static/studio/images/design/compose-state-inspector-entry.png) Turn on recomposition state reads in the Layout Inspector
-3. Interact with your app. When recompositions occur, click the blue count
-   links in the Component Tree to inspect the state.
-
-   ![](https://developer.android.com/static/studio/images/design/compose-state-inspector.png) Sample result of recomposition state reads in the Layout Inspector
-4. Click "Explain with AI" to get a breakdown analysis of why recomposition happened.
-
-   ![](https://developer.android.com/static/studio/images/design/explain-with-ai-state.png) Sample result of "Explain with AI" for state reads in Layout Inspector
 
 ## Android Studio Quail 2
 
@@ -257,3 +197,42 @@ analysis for further processing with Gemini. This can dramatically increase your
 productivity and improve your workflow during the development phase.
 ![](https://developer.android.com/static/studio/preview/features/images/leakcanary-analysis.png) LeakCanary memory leak analysis contextualized with **Go to
 declaration** for debugging
+
+### Recomposition state reads in the Layout Inspector
+
+We've made it easier to diagnose high
+[recomposition](https://developer.android.com/develop/ui/compose/mental-model#recomposition) counts by adding
+Recomposition state reads to the [Layout
+Inspector](https://developer.android.com/studio/debug/layout-inspector). Available in Panda 3 canary, this
+feature helps you identify the state variables that triggered a recomposition by
+providing a detailed list of state reads performed during that cycle. To use
+this feature, use `compose.ui:ui:1.10.0 (BOM 2025.12.01)` or higher.
+
+**Key capabilities**
+
+Key capabilities of this feature are the following:
+
+- **Trace state invalidation**: When a node recomposes, click the recomposition count link in the Component Tree to open the State Inspection panel.
+- **Detailed stack traces** : Identify the specific state variables being read, including as counts, lists, or elevation values. Check which ones were `invalidated` (changed) to trigger the update.
+- **Navigate recomposition history**: Use the navigation arrows in the panel header to cycle through the state data of previous recompositions for a specific node.
+- **AI-powered explanations** : Click **Explain with AI** in the State Inspection panel to display a natural-language breakdown of the state read and why it caused a recomposition.
+
+**Get started**
+
+Follow these steps to try out these features.
+
+1. Open the Layout Inspector.
+2. Right-click the recomposition column and do one of the following:
+
+   - For all nodes, select **Observe Recomposition \> Observe
+     All**.
+   - For specific notes, select **Recomposition \> Observe Node**.
+
+   ![](https://developer.android.com/static/studio/images/design/compose-state-inspector-entry.png) Turn on recomposition state reads in the Layout Inspector
+3. Interact with your app. When recompositions occur, click the blue count
+   links in the Component Tree to inspect the state.
+
+   ![](https://developer.android.com/static/studio/images/design/compose-state-inspector.png) Sample result of recomposition state reads in the Layout Inspector
+4. Click "Explain with AI" to get a breakdown analysis of why recomposition happened.
+
+   ![](https://developer.android.com/static/studio/images/design/explain-with-ai-state.png) Sample result of "Explain with AI" for state reads in Layout Inspector

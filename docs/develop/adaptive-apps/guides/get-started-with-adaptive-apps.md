@@ -131,7 +131,7 @@ adaptive apps show only one pane, the navigation destination, either the list or
 the detail.
 
 |---|---|
-| Your browser doesn't support the video tag. **Figure 5.** List-detail layout with list pane as navigation target. | Your browser doesn't support the video tag. **Figure 6.** List-detail layout with detail pane as navigation target. |
+| Your browser doesn't support the video tag. **Figure 5.** List-detail layout with list pane as navigation target. | Your browser doesn me support the video tag. **Figure 6.** List-detail layout with detail pane as navigation target. |
 
 ### Compose Material 3 Adaptive
 

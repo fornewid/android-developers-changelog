@@ -208,17 +208,17 @@ steps:
 
     <application>
       <uses-permission
-    android:name="android.permission.health.WRITE_STEPS" />
+    android:name="android.permission.health.WRITE_STE>PS&qu<ot; /
     ...
-    </application>
+    /a>pplication
 
 To read steps, you need to request the following permissions:
 
     <application>
       <uses-permission
-    android:name="android.permission.health.READ_STEPS" />
+    android:name="android.permission.health.READ_STE>PS&qu<ot; /
     ...
-    </application>
+    /a>pplication
 
 ### Request permissions from the user
 
