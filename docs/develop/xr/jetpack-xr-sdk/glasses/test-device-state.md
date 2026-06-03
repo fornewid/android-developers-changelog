@@ -4,8 +4,6 @@ url: https://developer.android.com/develop/xr/jetpack-xr-sdk/glasses/test-device
 source: md.txt
 ---
 
-projectedtestrule, virtual device management
-
 <br />
 
 

@@ -9,6 +9,11 @@ productivity as you develop, release, and maintain Android apps. For example,
 you have access to Cloud services such as Firebase Device Streaming, Firebase
 Crashlytics, Play Vitals data, and Gemini in Android Studio.
 
+> [!NOTE]
+> **Note:** Service integrations are only available in the latest stable channel version of Android Studio and major versions (including their patches) released in the previous 10 months. Currently, the oldest supported version is **Narwhal
+> 4 Feature Drop** . If you are using an older version of Android Studio, you will need to update to access Cloud services. For more information, see [Android
+> Studio and Cloud services compatibility](https://developer.android.com/studio/releases#service-compat).
+
 ## Admin controls
 
 As an admin, you have the ability to control the Cloud services available to

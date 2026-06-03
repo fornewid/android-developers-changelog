@@ -12,7 +12,8 @@ mobile, and tablet.
 
 ## Prerequisites
 
-| **Important:** [Express interest in integrating with the Video Discovery API](http://g.co/tv/vda).
+> [!IMPORTANT]
+> **Important:** [Express interest in developing with Engage](http://g.co/tv/vda).
 
 Onboarding the media actions feed is required before you can use the device
 entitlement API. If you haven't already done so, complete the [media actions
@@ -47,14 +48,16 @@ content, provide these essential details:
    - `SUBSCRIPTION_TYPE_ACTIVE_TRIAL`: User has a trial subscription.
    - `SUBSCRIPTION_TYPE_INACTIVE`: User has an account but no active subscription or trial.
 
-   | **Important:** Only users with `SUBSCRIPTION_TYPE_ACTIVE` or `SUBSCRIPTION_TYPE_ACTIVE_TRIAL` are eligible for personalized content recommendations based on their subscription.
+   > [!IMPORTANT]
+   > **Important:** Only users with `SUBSCRIPTION_TYPE_ACTIVE` or `SUBSCRIPTION_TYPE_ACTIVE_TRIAL` are eligible for personalized content recommendations based on their subscription.
+
 2. `ExpirationTimeMillis`: Optional time in milliseconds. Specify when the
    subscription is set to expire.
 
 3. `ProviderPackageName`: Specify the package name of the app that handles the
    subscription.
 
-Example for the sample media provider feed.  
+Example for the sample media provider feed.
 
     "actionAccessibilityRequirement": [
       {
@@ -72,7 +75,7 @@ Example for the sample media provider feed.
         "commonTier": true
       }
 
-The following example creates a `SubscriptionEntity` for a user:  
+The following example creates a `SubscriptionEntity` for a user:
 
     val subscription = SubscriptionEntity.Builder()
       setSubscriptionType(
@@ -96,7 +99,7 @@ This entitlement has the following fields:
 2. `Name`: This is auxiliary information and is used for entitlement matching. While optional, providing a human readable entitlement name enhances understanding of user entitlements for both developers and support teams. For example: Sling Orange.
 3. `ExpirationTimeMillis`: Optionally specify the expiration time in milliseconds for this entitlement, if it differs from the subscription expiration time. By default, the entitlement will expire with the expiry of subscription.
 
-For the following sample media provider feed snippet:  
+For the following sample media provider feed snippet:
 
     "actionAccessibilityRequirement": [
       {
@@ -118,7 +121,7 @@ For the following sample media provider feed snippet:
         "identifier": "example.com:entitlementString1"
       }
 
-The following example creates a `SubscriptionEntity` for a subscribed user:  
+The following example creates a `SubscriptionEntity` for a subscribed user:
 
     // Subscription with entitlements.
     // The entitlement expires at the same time as its subscription.
@@ -165,7 +168,7 @@ While subscriptions typically belong to the originating app's media provider, a
 subscription can be attributed to a linked service package by specifying the
 linked service package name within the subscription.
 
-Following code sample demonstrate how to create user subscription.  
+Following code sample demonstrate how to create user subscription.
 
     // Subscription for linked service package
     val subscription = SubscriptionEntity.Builder()
@@ -179,7 +182,7 @@ Following code sample demonstrate how to create user subscription.
       .build()
 
 In addition, if the user has another subscription to a subsidiary service, add
-another subscription and set the linked service package name accordingly.  
+another subscription and set the linked service package name accordingly.
 
     // Subscription for linked service package
     val linkedSubscription = Subscription.Builder()
@@ -218,7 +221,7 @@ Use the `publishSubscriptionCluster()` method, from the
 `AppEngagePublishClient` class, to publish a `SubscriptionCluster` object.
 
 Make sure to initialize the client and check for service availability as
-described in the [Getting Started guide](https://developer.android.com/guide/playcore/engage/tv/getting-started#common-integration).  
+described in the [Getting Started guide](https://developer.android.com/guide/playcore/engage/tv/getting-started#common-integration).
 
     client.publishSubscription(
       PublishSubscriptionRequest.Builder()
@@ -248,17 +251,19 @@ maintained.
 2. To provide regular validation for ongoing accuracy, call
    `publishSubscriptionCluster` at least once per month.
 
-   | **Note:** As Google TV automatically deletes historical data beyond 60 days to safeguard user privacy, publishing user subscription data at least once per month verify the validity of data. Unlike `publishContinuationCluster` for continue watching data, don't set `syncAcrossDevices` flag, as subscription information is by default used to provide content across all devices.
-3. To delete the Video discovery data, manually delete a user's data from the
+   > [!NOTE]
+   > **Note:** As Google TV automatically deletes historical data beyond 60 days to safeguard user privacy, publishing user subscription data at least once per month verify the validity of data. Unlike `publishContinuationCluster` for continue watching data, don't set `syncAcrossDevices` flag, as subscription information is by default used to provide content across all devices.
+
+3. To delete the Engage data, manually delete a user's data from the
    Google TV server before the standard 60-day retention period, use the
-   `client.deleteClusters` method. This deletes all existing video discovery
+   `client.deleteClusters` method. This deletes all existing Engage
    data for the account profile, or for the entire account depending on the
    given [`DeleteReason`](https://developer.android.com/reference/com/google/android/engage/service/DeleteReason).
 
-   The following code snippet shows how to remove a user subscription:  
+   The following code snippet shows how to remove a user subscription:
 
        // If the user logs out from your media app, you must make the following call
-       // to remove subscription and other video discovery data from the current
+       // to remove subscription and other Engage data from the current
        // google TV device.
        client.deleteClusters(
          new DeleteClustersRequest.Builder()
@@ -268,10 +273,10 @@ maintained.
          )
 
    The following code snippet demonstrates removal of user subscription
-   when user revokes the consent:  
+   when user revokes the consent:
 
        // If the user revokes the consent to share across device, make the call
-       // to remove subscription and other video discovery data from all google
+       // to remove subscription and other Engage data from all google
        // TV devices.
        client.deleteClusters(
          new DeleteClustersRequest.Builder()
@@ -281,10 +286,10 @@ maintained.
        )
 
    Following code demonstrates how to remove subscription data on user profile
-   deletion.  
+   deletion.
 
        // If the user delete a specific profile, you must make the following call
-       // to remove subscription data and other video discovery data.
+       // to remove subscription data and other Engage data.
        client.deleteClusters(
          new DeleteClustersRequest.Builder()
          .setAccountProfile(accountProfile)
@@ -316,7 +321,9 @@ implementation. Verify data accuracy and proper functionality before launch.
    should display subscription as a separate row. When the publish API is
    invoked, the data should show up in the verification app.
 
-   | **Important:** Verify that the [Engage Service Flag](https://developer.android.com/guide/playcore/engage/workflow#switch-to-prod) is **not** set to production.
+   > [!IMPORTANT]
+   > **Important:** Verify that the [Engage Service Flag](https://developer.android.com/guide/playcore/engage/workflow#switch-to-prod) is **not** set to production.
+
 5. Go to app and perform each of the following actions:
 
    - Sign in.

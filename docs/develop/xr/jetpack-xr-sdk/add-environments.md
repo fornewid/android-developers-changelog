@@ -89,7 +89,7 @@ assets](https://developer.android.com/develop/xr/jetpack-xr-sdk/optimize-environ
 
 
 ```kotlin
-val lightingForSkybox = ImageBasedLightingAsset.createFromZip(session, Paths.get("BlueSkyboxLighting.zip"))
+val lightingForSkybox = ExrImage.createFromZip(session, Paths.get("BlueSkyboxLighting.zip"))
 ```
 
 <br />

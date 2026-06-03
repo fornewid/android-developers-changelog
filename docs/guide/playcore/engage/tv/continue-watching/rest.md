@@ -12,7 +12,7 @@ non-Android platforms.
 ## Prerequisites
 
 > [!IMPORTANT]
-> **Important:** [Express interest in developing the Video Discovery API](http://g.co/tv/vda).
+> **Important:** [Express interest in developing with Engage](http://g.co/tv/vda).
 
 - You must first finish the [on-device Engage SDK-based](https://developer.android.com/guide/playcore/engage/tv/continue-watching-client) integration. This critical step establishes the necessary association between Google's user ID and your app's `AccountProfile`.
 - API Access and Authentication: To view and enable the API in your Google Cloud Project, you must go through an allowlist process. All API requests require authentication.
@@ -33,7 +33,7 @@ your account needs to be enrolled.
 
 ## Publish Continuation Cluster
 
-To publish the video discovery data, perform a POST request to the
+To publish the Engage data, perform a POST request to the
 `publishContinuationCluster` API using the following syntax.
 
     https://tvvideodiscovery.googleapis.com/v1/packages/{package_name}/accounts/{account_id}/profiles/{profile_id}/publishContinuationCluster
@@ -115,9 +115,9 @@ The following code snippet showcases the request body payload for the
       ]
     }
 
-## Delete the video discovery data
+## Delete the Engage data
 
-Use the `clearClusters` API to remove the video discovery data.
+Use the `clearClusters` API to remove the Engage data.
 
 To delete the continuation cluster data, perform a POST request to the
 `clearClusters` API using the following syntax.
@@ -141,8 +141,8 @@ removing data.
 ## Testing
 
 After successfully posting data, use a user test account to verify that the
-expected content appears in the "Continue Watching" row on target Google
-surfaces such as Google TV and the Android and iOS Google TV mobile apps.
+expected content appears in the continue watching row on target Google surfaces
+such as Google TV and the Android and iOS Google TV mobile apps.
 
 In testing, allow a reasonable propagation delay of a few minutes and adhere to
 the watch requirements, such as watching part of a movie or finishing an

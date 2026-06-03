@@ -1,85 +1,46 @@
 ---
-title: Paul Feng  |  Android Developers' Blog
+title: https://developer.android.com/blog/authors/paul-feng
 url: https://developer.android.com/blog/authors/paul-feng
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [Android Developers' Blog](https://developer.android.com/)
-* [Blog](https://developer.android.com/blog)
-
-Stay organized with collections
-
-Save and categorize content based on your preferences.
-
-
 
 ## 2
 
-posts
-
-![](/static/blog/assets/paul_feng_759ac95845_spvRU.webp)
+posts ![](https://developer.android.com/static/blog/assets/paul_feng_759ac95845_spvRU.webp)
 
 # Paul Feng
 
 ###### VP, Google Play Eng, Product, UX
 
-* 19
+- 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/IO_26_Blog_Strapi_Icons_2000x1000px_0a8b06b49b_Z1e2APA.webp)
 
-  May
-  2026
+  #### [Product News](https://developer.android.com/blog/categories/product-news)
 
-  19
+  ## [I/O 2026: What's new in Google Play](https://developer.android.com/blog/posts/i-o-2026-what-s-new-in-google-play)
 
-  May
-  2026
-
-  ![](/static/blog/assets/IO_26_Blog_Strapi_Icons_2000x1000px_0a8b06b49b_Z1e2APA.webp)
-
-  #### [Product News](/blog/categories/product-news)
-
-  ## [I/O 2026: What's new in Google Play](/blog/posts/i-o-2026-what-s-new-in-google-play)
-
-  [arrow\_forward](/blog/posts/i-o-2026-what-s-new-in-google-play)
-
-  At this year’s Google I/O, we talked about our evolving business model that offers more choice and new ways for your apps and content to be discovered on and off the store. We also unveiled advanced tools and insights that will help scale your business with less complexity.
+  [arrow_forward](https://developer.android.com/blog/posts/i-o-2026-what-s-new-in-google-play) At this year's Google I/O, we talked about our evolving business model that offers more choice and new ways for your apps and content to be discovered on and off the store. We also unveiled advanced tools and insights that will help scale your business with less complexity.
 
   ###### 6 min read
 
-  + [#Google Play](/blog/topics/google-play)
-  + [#Play Console](/blog/topics/play-console)
-  + [#Google I/O](/blog/topics/google-i-o)
-  + [#Android Developers](/blog/topics/android-developers)
-  + +2
-    ↩
-* 30
+  - [#Google Play](https://developer.android.com/blog/topics/google-play)
+  - [#Play Console](https://developer.android.com/blog/topics/play-console)
+  - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
+  - [#Android Developers](https://developer.android.com/blog/topics/android-developers)
+  - +2 ↩
+- 30 Oct 2025 30 Oct 2025 ![](https://developer.android.com/static/blog/assets/platime_53a39a9cc7_ZmGlDX.webp)
 
-  Oct
-  2025
+  #### [How-tos](https://developer.android.com/blog/categories/how-tos)
 
-  30
+  ## [New tools and programs to accelerate your success on Google Play](https://developer.android.com/blog/posts/new-tools-and-programs-to-accelerate-your-success-on-google-play)
 
-  Oct
-  2025
-
-  ![](/static/blog/assets/platime_53a39a9cc7_ZmGlDX.webp)
-
-  #### [How-tos](/blog/categories/how-tos)
-
-  ## [New tools and programs to accelerate your success on Google Play](/blog/posts/new-tools-and-programs-to-accelerate-your-success-on-google-play)
-
-  [arrow\_forward](/blog/posts/new-tools-and-programs-to-accelerate-your-success-on-google-play)
-
-  Last month, we shared new updates showcasing our evolving vision for Google Play: a place where people can discover the content and experiences they love and where you can build and grow sustainable businesses. Our commitment to your success is at the heart of our continued investments.
+  [arrow_forward](https://developer.android.com/blog/posts/new-tools-and-programs-to-accelerate-your-success-on-google-play) Last month, we shared new updates showcasing our evolving vision for Google Play: a place where people can discover the content and experiences they love and where you can build and grow sustainable businesses. Our commitment to your success is at the heart of our continued investments.
 
   ###### 4 min read
 
 # Stay in the loop
 
+
 Get the latest Android development insights delivered to your inbox
 weekly.
-
 [mail
-Subscribe](/subscribe)
-
-![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)

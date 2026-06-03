@@ -10,7 +10,7 @@ using the Engage SDK.
 ## Pre-work
 
 > [!IMPORTANT]
-> **Important:** [Express interest in developing the Video Discovery API](http://g.co/tv/vda).
+> **Important:** [Express interest in developing with Engage](http://g.co/tv/vda).
 
 Complete the [Pre-work](https://developer.android.com/guide/playcore/engage/tv/getting-started#pre-work) instructions in the Getting Started guide.
 
@@ -270,7 +270,7 @@ only when the account profile belongs to an adult.
 
 #### Cross-device syncing
 
-`SyncAcrossDevices` flag controls whether a user's `ContinuationCluster` data is
+`setSyncAcrossDevices` controls whether a user's `ContinuationCluster` data is
 synchronized across devices such as TV, phone, tablets, etc. Cross-device
 syncing is disabled by default.
 
@@ -278,6 +278,10 @@ Values:
 
 - `true`: Continuation cluster data is shared across all the user's devices for a seamless viewing experience. We strongly recommend this option for the best cross-device experience.
 - `false`: Continuation cluster data is restricted to the current device.
+
+Additionally, you must provide an `AccountProfile` with an account ID in order
+for the content to be synchronized between devices. See
+[Create an account profile](https://developer.android.com/guide/playcore/engage/tv/getting-started#common-integration).
 
 #### Obtain Consent
 
@@ -305,11 +309,11 @@ increased engagement. For example, a partner who implemented this saw a 40%
 increase in "continue watching" clicks because their content was surfaced on
 multiple devices.
 
-#### Delete the Video discovery data
+#### Delete the Engage data
 
 To manually delete a user's data from the Google TV server before the standard
 60-day retention period, use the `deleteClusters` method. Upon receiving the
-request, the service will delete all existing video discovery data for the
+request, the service will delete all existing Engage data for the
 account profile, or for the entire account.
 
 > [!IMPORTANT]

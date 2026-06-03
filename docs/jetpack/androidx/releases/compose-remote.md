@@ -15,7 +15,8 @@ Remote Compose is a framework to create UI for remote surfaces
 ## Declaring dependencies
 
 To add a dependency on compose-remote, you must add the Google Maven repository to your
-project. Read [Google's Maven repository](https://developer.android.com/studio/build/dependencies#google-maven)
+project. Read
+[Google's Maven repository](https://developer.android.com/studio/build/dependencies#google-maven)
 for more information.
 
 Add the dependencies for the artifacts you need in the `build.gradle` file for
@@ -63,7 +64,8 @@ dependencies {
 }
 ```
 
-For more information about dependencies, see [Add build dependencies](https://developer.android.com/studio/build/dependencies).
+For more information about dependencies, see
+[Add build dependencies](https://developer.android.com/studio/build/dependencies).
 
 ## Feedback
 

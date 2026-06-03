@@ -87,7 +87,7 @@ Non-recoupable grants are awarded at different levels based on stated need and a
 
 If you are building for [audio or display glasses](https://developer.android.com/develop/xr/devices#ai-glasses), you can create augmented experiences with the [Jetpack XR SDK](https://developer.android.com/develop/xr/jetpack-xr-sdk) and [Android Studio](https://developer.android.com/studio). Game engine support is not currently available for audio or display glasses.   
 If you are building for [wired XR glasses
-(XREAL's Project Aura)](https://developer.android.com/develop/xr/devices#xr-glasses), you can create immersive experiences with [Jetpack XR SDK](https://developer.android.com/develop/xr/jetpack-xr-sdk) and [Android Studio](https://developer.android.com/studio), [Unity](https://developer.android.com/develop/xr/unity), [Godot](https://developer.android.com/develop/xr/godot) or [Unreal
+(XREAL's Project Aura)](https://developer.android.com/develop/xr/devices#xr-glasses), you can create immersive experiences with [Jetpack XR SDK](https://developer.android.com/develop/xr/jetpack-xr-sdk) and [Android Studio](https://developer.android.com/studio), [XR Blocks SDK](https://xrblocks.github.io/), [Unity](https://developer.android.com/develop/xr/unity), [Godot](https://developer.android.com/develop/xr/godot) or [Unreal
 Engine](https://developer.android.com/develop/xr/unreal).
 
 ### Where can I learn more about building for Android XR?

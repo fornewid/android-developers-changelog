@@ -12,7 +12,12 @@ Hybrid inference provides two primary advantages for your Android app:
 - **Maximize reach**: Cloud models serve as a critical fallback when on-device models, such as Gemini Nano, are unavailable due to device hardware or OS constraints. This helps ensure that your AI features remain functional across the widest possible range of user devices.
 - **Cost and offline capabilities**: On-device models help ensure that your AI features work seamlessly when the user is offline. Additionally, offloading routine tasks to the local device helps reduce cloud inference costs.
 
-![Diagram showing the rationale for on-device inference versus cloud inference.](https://developer.android.com/static/ai/assets/images/hybrid_matrix.png) **Figure 1**: The respective benefits of on-device inference and cloud inference.
+Here are the benefits of on-device inference and cloud inference, respectively:
+
+| On-device inference | Cloud inference |
+|---|---|
+| **Available offline** | **Compatible with any device** |
+| **No inference cost** | **Advanced model capabilities** |
 
 ## Implementation options
 
@@ -31,15 +36,19 @@ It includes a `onDeviceConfig` parameter providing simple controls to define the
 - `ONLY_ON_DEVICE`: attempts to use the on-device model, but throws an exception if it is unavailable or unsupported for the request.
 - `ONLY_IN_CLOUD`: attempts to use the cloud-hosted model when the device is online and the model is available, throwing an exception in all other cases.
 
-    val model = Firebase.ai(backend = GenerativeBackend.googleAI())
-        .generativeModel(
-            modelName = "gemini-2.5-flash",
-            onDeviceConfig = OnDeviceConfig(mode = InferenceMode.PREFER_ON_DEVICE)
-        )
 
+```kotlin
+val model = Firebase.ai(backend = GenerativeBackend.Companion.googleAI())
+    .generativeModel(
+        modelName = "gemini-2.5-flash",
+        onDeviceConfig = OnDeviceConfig(mode = InferenceMode.Companion.PREFER_ON_DEVICE)
+    )
 
-    val response = model.generateContent("Write a story about a green robot.")
-    print(response.text)
+val response = model.generateContent("Write a story about a green robot.")
+print(response.text)
+```
+
+<br />
 
 For implementation details, review the [Firebase documentation](https://firebase.google.com/docs/ai-logic/hybrid/android/get-started?api=dev) and explore
 the [Hybrid AI sample in the AI catalog](https://github.com/android/ai-samples/tree/main/samples/gemini-hybrid).

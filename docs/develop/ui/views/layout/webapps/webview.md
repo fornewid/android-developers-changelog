@@ -70,8 +70,8 @@ activity's layout XML file:
 <WebView
     android:id="@+id/webview"
     android:layout_width="match_parent"
-    android:layout_hei>ght="match_parent"
-/
+    android:layout_height="match_parent"
+/>
 ```
 
 To load a web page in the `WebView`, use [`loadUrl()`](https://developer.android.com/reference/android/webkit/WebView#loadUrl(java.lang.String)), as shown in the
@@ -132,7 +132,7 @@ Or load the URL from an HTML string:
 // Create an unencoded HTML string, then convert the unencoded HTML string into
 // bytes. Encode it with base64 and load the data.
 val unencodedHtml =
-     &<quot><;htm>lbody'%23' is the percent <code ><for '>#' /body/html";
+     "<html><body>'%23' is the percent code for '#' </body></html>";
 val encodedHtml = Base64.encodeToString(unencodedHtml.toByteArray(), Base64.NO_PADDING)
 myWebView.loadData(encodedHtml, "text/html", "base64")
 ```
@@ -143,7 +143,7 @@ myWebView.loadData(encodedHtml, "text/html", "base64")
 // Create an unencoded HTML string, then convert the unencoded HTML string into
 // bytes. Encode it with base64 and load the data.
 String unencodedHtml =
-     &<quot><;htm>lbody'%23' is the percent <code ><for '>#' /body/html";
+     "<html><body>'%23' is the percent code for '#' </body></html>";
 String encodedHtml = Base64.encodeToString(unencodedHtml.getBytes(),
         Base64.NO_PADDING);
 myWebView.loadData(encodedHtml, "text/html", "base64");
@@ -158,9 +158,9 @@ example:
 
 ```xml
 <manifest ... >
-    <uses-permission android:name="android.permission.INTERN>ET" </
-    ...>
-/manifest
+    <uses-permission android:name="android.permission.INTERNET" />
+    ...
+</manifest>
 ```
 
 You can customize your `WebView` by doing any of the following:
@@ -291,13 +291,13 @@ This creates an interface called `Android` for JavaScript running in the
 creates a toast message using the new interface when the user taps a button:
 
 ```javascript
-<input type="button" value="Say hello" onClick="showAndroidT>oa<st('Hello Android!')&>quot; /
+<input type="button" value="Say hello" onClick="showAndroidToast('Hello Android!')" />
 
-script type="text/javascript"
-    function showAndroidToast(t<oast) {>
+<script type="text/javascript">
+    function showAndroidToast(toast) {
         Android.showToast(toast);
     }
-/script
+</script>
 ```
 
 There's no need to initialize the `Android` interface from JavaScript. The
@@ -402,7 +402,7 @@ that use a custom URL scheme. For example, if you implement callbacks such as
 For example, `WebView` might not call your `shouldOverrideUrlLoading()` method
 for links like this:
 
-    <a href="showPro>file"Sh<ow> Profile/a
+    <a href="showProfile">Show Profile</a>
 
 Invalid URLs, like the one shown in the preceding example, are handled
 inconsistently in `WebView`, so we recommend using a well-formed URL instead.
@@ -412,7 +412,7 @@ controls.
 Instead of using a simple string in a link, as in the previous example, you can
 use a custom scheme such as the following:
 
-    <a href="example-app:showPro>file"Sh<ow> Profile/a
+    <a href="example-app:showProfile">Show Profile</a>
 
 You can then handle this URL in your `shouldOverrideUrlLoading()` method like
 this:
@@ -474,7 +474,7 @@ button to navigate backward:
 ```kotlin
 override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
     // Check whether the key event is the Back button and if there's history.
-    if (keyCode == KeyEvent.KEYCODE_B&&ACK  myWebView.canGoBack()) {
+    if (keyCode == KeyEvent.KEYCODE_BACK && myWebView.canGoBack()) {
         myWebView.goBack()
         return true
     }
@@ -490,7 +490,7 @@ override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
 @Override
 public boolean onKeyDown(int keyCode, KeyEvent event) {
     // Check whether the key event is the Back button and if there's history.
-    if ((keyCode == KeyEvent.KEYCODE_BA&&CK)  myWebView.canGoBack()) {
+    if ((keyCode == KeyEvent.KEYCODE_BACK) && myWebView.canGoBack()) {
         myWebView.goBack();
         return true;
     }

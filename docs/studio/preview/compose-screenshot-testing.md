@@ -98,7 +98,7 @@ Preview Screenshot Testing plugin. To set up the plugin, follow these steps:
 
           [versions]
           agp = "9.0.0-rc03"
-          kotlin = "2.1.20"
+          kotlin = "2.2.10"
           screenshot = "0.0.1-alpha15"
 
           [plugins]

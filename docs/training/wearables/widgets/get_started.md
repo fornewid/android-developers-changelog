@@ -224,7 +224,7 @@ purposes. As a result, the `adb` commands require the
       --ecn component <your_package_name>/.HelloWidgetService
 
 > [!NOTE]
-> **Note:** The preceding command adds a FULLSCREEN tile by default. You can also specify LARGE and SMALL sizes by passing `--ei type [0|1|2]` to the command (where type 0 is FULLSCREEN).
+> **Note:** The preceding command adds a FULLSCREEN tile by default. You can also specify LARGE and SMALL sizes by passing `--ei type [0|1|2]` to the command (where type 0 is FULLSCREEN). Depending on the device state, app-triggered content updates using `triggerUpdate()` might fail for non-fullscreen types when using Wear Widget library versions up to `1.0.0-alpha10` (this is fixed starting in `1.0.0-alpha11`).
 
 **2. Show the widget:**
 

@@ -16,9 +16,6 @@ follow the [Android TV design guidelines](https://developer.android.com/design/t
 fundamental implementation requirements for a TV app, also review the [Build TV
 Apps](https://developer.android.com/training/tv/start) training.
 
-For information about how to publish your TV apps in Google Play, see
-[Distribute to Android TV](https://developer.android.com/training/tv/publishing/checklist#distribute-to-android-tv).
-
 ## TV app compatibility checklists
 
 The compatibility checklists define criteria to help you assess the level of
@@ -49,7 +46,7 @@ Android TV OS capabilities.
 ## Tier 3 - TV Ready
 
 | Type | Test | Description |
-|---|---|---|
+|---|---|---|---|
 | Launcher | TV-LM | The app displays a launcher icon in the Android TV Launcher after installation. For more information, see [Declare a TV activity](https://developer.android.com/training/tv/start/start#tv-activity). |
 | Launcher | TV-LB | The app displays both a 320x180 pixel full-size banner and at least a 160x160 pixel (at xhdpi density) app icon as its launcher icons in the Android TV Launcher. For more information, see [Android TV app icon and banner guidelines](https://developer.android.com/design/ui/tv/guides/system/tv-app-icon-guidelines). |
 | Launcher | TV-BN | The app launch banner contains the name of the app. |
@@ -72,42 +69,42 @@ Android TV OS capabilities.
 | Advertising | TV-AD | For advertising that displays full screen, non-video ads, the app lets the user immediately dismiss the ad with D-pad or gamepad controls. |
 | Advertising | TV-AU | For advertising that uses clickable, non-fullscreen, non-video ads, the app does not let ads link to a web URL. |
 | Advertising | TV-AA | For advertising that uses clickable, non-fullscreen, non-video ads, the app does not let ads link to another app that is not available on TV devices. |
-| Web Content | TV-WB | For web content, the app must only use [WebView](https://developer.android.com/reference/android/webkit/WebView) components. The app must not attempt to launch a web browser app. |
-| Media Playback | TV-NP | If the app continues to play audio after the user returns to the home screen or switches to another app, the app provides a Now Playing card on the home screen recommendation row so users can return to the app to control playback. For more information, see [Display a Now Playing card](https://developer.android.com/training/tv/playback/now-playing). Video apps must not use the Now Playing card, and video must be paused when the user switches out of the app. |
-| Media Playback | TV-PA | If the app provides a Now Playing card, selecting this card takes the user to a screen that lets them pause playback. |
-| Media Playback | TV-PN | Items added to the Watch Next adhere to the [Watch Next guidelines for app developers](https://developer.android.com/training/tv/discovery/guidelines-app-developers). |
+| Web Content | TV-WB | For web content, the app must only use [`WebView`](https://developer.android.com/reference/android/webkit/WebView) components. The app must not attempt to launch a web browser app. |
+| Media Playback | TV-NP | If the app continues to play audio after the user returns to the home screen or switches to another app, the app provides media controls in the system UI (such as a card or notification) so users can return to the app to control playback. For more information, see [Display a Now Playing card](https://developer.android.com/training/tv/playback/now-playing). Video apps must not use these media controls, and video must be paused when the user switches out of the app. |
+| Media Playback | TV-PA | If the app provides media controls on the system UI, selecting them takes the user to a screen that lets the user pause playback. |
+| Media Playback | TV-PN | Items added for resumed watching adhere to the [guidelines for app developers](https://developer.android.com/training/tv/discovery/guidelines-app-developers). |
 | Media Playback | TV-PC | While a video or audio is playing, pressing the D-pad center button pauses the media that is playing. When playback is paused, pressing the D-pad center button resumes playback. The D-pad left and right buttons fast-forward and rewind the current track, respectively. For more information, see [Media events](https://developer.android.com/training/tv/start/controllers#media-events). |
 | Media Playback | TV-PP | If the app plays video or music content, the app toggles between playing and pausing media playback when a play or pause key event is sent during playback. For more information, see [`KEYCODE_MEDIA_PLAY_PAUSE`](https://developer.android.com/reference/android/view/KeyEvent#KEYCODE_MEDIA_PLAY_PAUSE). |
 | Ambient Mode | TV-BU | When there is user-initiated active video playback, the app prevents the device from going into Ambient Mode. For more information, see [Ambient Mode](https://developer.android.com/training/tv/playback/ambient-mode). |
 | Ambient Mode | TV-BY | When there is no user-initiated active video playback or animation, the app does not prevent the device from going into Ambient Mode. |
 | Ambient Mode | TV-BA | For audio-only playback, the app does not prevent the device from going into Ambient Mode unless the app implements an experience of non-static imagery, such as music videos or images, while music is playing. |
-| PiP | TV-IC | If the app uses picture-in-picture, it sets the proper metadata to categorize its usage of picture-in-picture to one of the permitted usage types. It also declares a title and subtitle that accurately represent what this PIP is being used for. For more information, see [Multitasking on TV](https://developer.android.com/training/tv/start/multitasking#usage-types). |
-| PiP | TV-IP | While in picture-in-picture, the app does not display promotional material or advertising that is not inherently part of the content source. |
-| PiP | TV-IQ | While in picture-in-picture mode, the app does not degrade the experience of another fullscreen activity. The app shouldn't use excessive resources, take over audio focus, interfere with the active MediaSession, or request a disproportionate number of decoder sessions. |
-| PiP | TV-IH | While in picture-in-picture mode, the app does not show any UI controls or navigable elements. Apps may expose certain user controls directly in the PiP window. |
-| PiP | TV-IE | Entering picture-in picture mode requires explicit and intentional action by the user within the app. The app does not automatically enter PiP ([`setAutoEnterEnabled`](https://developer.android.com/reference/android/app/PictureInPictureParams.Builder#setAutoEnterEnabled(boolean)) set to `false`) unless the user is in an ongoing call. |
-| PiP | TV-IS | The app must not show any UI to enter PiP if picture-in-picture mode is disabled on a device. |
-| PiP | TV-IX | The app uses picture-in-picture mode only for the continuation of an ongoing activity. The picture-in-picture experience does not incentivize or encourage users to return to the fullscreen view of the app during the ongoing or after the activity has concluded. |
+| Picture-in-Picture | TV-IC | If the app uses picture-in-picture, it sets the proper metadata to categorize its usage of picture-in-picture to one of the permitted usage types. It also declares a title and subtitle that accurately represent what this PIP is being used for. For more information, see [Multitasking on TV](https://developer.android.com/training/tv/start/multitasking#usage-types). |
+| Picture-in-Picture | TV-IP | While in picture-in-picture, the app does not display promotional material or advertising that is not inherently part of the content source. |
+| Picture-in-Picture | TV-IQ | While in picture-in-picture mode, the app does not degrade the experience of another fullscreen activity. The app shouldn't use excessive resources, take over audio focus, interfere with the active MediaSession, or request a disproportionate number of decoder sessions. |
+| Picture-in-Picture | TV-IH | While in picture-in-picture mode, the app does not show any UI controls or navigable elements. Apps may expose certain user controls directly in the PiP window. |
+| Picture-in-Picture | TV-IE | Entering picture-in picture mode requires explicit and intentional action by the user within the app. The app does not automatically enter PiP ([`setAutoEnterEnabled`](https://developer.android.com/reference/android/app/PictureInPictureParams.Builder#setAutoEnterEnabled(boolean)) set to `false`) unless the user is in an ongoing call. |
+| Picture-in-Picture | TV-IS | The app must not show any UI to enter PiP if picture-in-picture mode is disabled on a device. |
+| Picture-in-Picture | TV-IX | The app uses picture-in-picture mode only for the continuation of an ongoing activity. The picture-in-picture experience does not incentivize or encourage users to return to the fullscreen view of the app during the ongoing or after the activity has concluded. |
 | Memory | TV-ME | For low RAM devices (where [`ActivityManager.isLowRamDevice()`](https://developer.android.com/reference/android/app/ActivityManager#isLowRamDevice()) returns `true`), the maximum memory usage (Anon+Swap + Graphics + File Memory) of a foreground app must remain within the limits (including specific measurement mechanisms and caveats) defined in [Optimize memory usage.](https://developer.android.com/training/tv/playback/memory) |
 | Google Play | TV-G1 | The use of Android App Bundles is mandatory for all new and existing TV apps in the Google Play Store. |
 | Google Play | TV-G2 | The app must follow the Play Developer Policy Center requirements. |
-| Google Play | TV-G6 | From August 1, 2026, TV apps must support 64-bit architectures. |
-| Google Play | TV-G7 | From August 1, 2026, TV apps must support 16 KB page sizes. |
-| App Details Page | TV-G3 | App functionality works as expected or as described in the app's Google Play Store listing |
-| App Details Page | TV-G4 | App submission has uploaded at least one unaltered, high resolution screenshot that accurately depicts the current version of the TV app experience. |
+| Google Play | TV-G6 | From August 1, 2026, TV apps must support 64-bit architectures and comply with [16 KB page size](https://developer.android.com/guide/practices/page-sizes) requirements. |
+| Google Play | App Details Page | TV-G3 | App functionality works as expected or as described in the app's Google Play Store listing. |
+| TV-G4 | App Details Page | App submission has uploaded at least one unaltered, high resolution screenshot that accurately depicts the current version of the TV app experience. |
 | Login Credentials | TV-G5 | For apps requiring users to sign in, you must provide login credentials in the Google Play Console for testing of the full app experience. For more information, see [App Access in Prepare your app for review](https://support.google.com/googleplay/android-developer/answer/9859455). |
 
 ## Tier 2 - TV Optimized
 
 | Type | Test | Description |
 |---|---|---|
-| UI | TV-4K | The app includes 4k UI assets, including the application icon. |
+| Performance | TV-BP | The app includes [Baseline Profiles](https://developer.android.com/topic/performance/baselineprofiles/overview) to improve overall performance, such as app startup and reducing jank. |
+| UI | TV-4K | The app is compatible with 4K by providing high-resolution assets within the app, including the app icon, banner, content cards, and other assets in the app. |
 | Connectivity | TV-CT | If the app has a mobile counterpart that supports Cast, the TV app integrates with [TV Cast Receiver (Cast Connect)](https://developer.android.com/guide/topics/media/cast/connect/tv-receiver) to allow users to cast content from their phone or tablet to the TV. |
 | Login | TV-LI | Login interface: Users are able to login using mobile or Google Account for seamless login. |
 | Login | TV-LC | The app securely stores user credentials or automatically logs in returning users through token-based authentication or secure storage methods. This significantly reduces friction for subsequent uses after the initial setup. |
-| Voice | TV-VS | The app integrates voice search capabilities for natural language content discovery. |
-| Voice | TV-VC | The app integrates voice commands for playback and navigation. |
-| Performance | TV-BP | The app includes [Baseline Profiles](https://developer.android.com/topic/performance/baselineprofiles/overview) to improve overall performance, such as app startup and reducing jank. |
+| Voice | TV-VS | The app integrates voice search capabilities for natural language content discovery. Integration helps users input search queries without needing to use a software keyboard, especially if the app uses a custom keyboard that does not support voice input. For example, the app can enable Gboard for voice input or provide a microphone button next to the search text field to trigger voice recognition. |
+| Voice | TV-VC | The app integrates voice commands for playback and navigation by [implementing `MediaSession`](https://developer.android.com/media/media3/session/control-playback). |
+| Game Controllers | TV-GF | The game fully supports both physical game controllers and virtual gamepads. |
 
 ## Tier 1 - TV Differentiated
 
@@ -120,7 +117,6 @@ Android TV OS capabilities.
 | Device Capabilities | TV-FR | The app supports requesting the framerate of the content, such that the display may switch to the correct playback mode and avoid jitter (e.g. 50 Hz for 50 fps content) |
 | Device Capabilities | TV-TO | The app supports touch and click to enable compatibility with pointer remotes and touchscreen displays. UI components display a hover state when the cursor is above a component that can be interacted with, components can be clicked and scrollable containers can be scrolled vertically and horizontally. |
 | Device Capabilities | TV-SA | The app supports spatial audio for an immersive listening experience. For example, the app may use the [IAMF](https://aomediacodec.github.io/iamf/) codec. |
-| Game Controllers | TV-GF | The game fully supports a variety of game controllers. |
 | Accessibility | TV-AX | The app implements enhanced accessibility options, such as audio descriptions, subtitle display (including preferred subtitle styles and high-contrast mode), general high-contrast UI mode, simplified navigation modes and adjustable playback speed. Demonstrates a deep commitment to inclusivity, ensuring a premium experience that's accessible and enjoyable for all. |
 | AI | TV-AI | The app implements experiences featuring AppFunctions or in-app AI. |
 
@@ -138,6 +134,9 @@ Play Store team will contact you through the email address specified in the
 
 > [!CAUTION]
 > **Caution:** Make sure your app includes the [required manifest entries](https://developer.android.com/training/tv/start/start#tv-activity) for TV devices. Otherwise, your app won't be considered a TV app and won't be reviewed for TV usability requirements.
+
+> [!NOTE]
+> **Note:** For information about how to publish your app on Google Play, see [Distribute to Android TV](https://developer.android.com/training/tv/publishing/checklist#distribute-to-android-tv).
 
 **My app targets form factors other than just TV devices. If my app does not
 meet the TV device requirements, will my new or updated app still appear on
@@ -167,6 +166,12 @@ devices immediately.
 
     In-app search is no longer required as we recommend integrating with
     Engage SDK ([`TV-EC`](https://developer.android.com/docs/quality-guidelines/tv-app-quality#TV-EC), [`TV-ER`](https://developer.android.com/docs/quality-guidelines/tv-app-quality#TV-ER)).
+- Play Policies
+
+  - Removed criterion `TV-G7` and updated criterion [TV-G6](https://developer.android.com/docs/quality-guidelines/tv-app-quality#TV-G6):
+
+    Included
+    [16 KB page sizes](https://developer.android.com/guide/practices/page-sizes) as part of 64-bit requirements.
 
 ### January 2026
 
@@ -176,7 +181,7 @@ devices immediately.
 
     From August 1, 2026, your app must
     [support 64-bit architectures](https://developer.android.com/google/play/requirements/64-bit).
-  - New criterion, [`TV-G7`](https://developer.android.com/docs/quality-guidelines/tv-app-quality#TV-G7):
+  - New criterion, `TV-G7`:
 
     From August 1, 2026, your app must
     [support 16 KB page sizes](https://developer.android.com/guide/practices/page-sizes).

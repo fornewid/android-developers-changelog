@@ -4,6 +4,15 @@ url: https://developer.android.com/about/versions/17/release-notes
 source: md.txt
 ---
 
+### Beta 4.1
+
+|---|---|
+| **Release date** | June 1, 2026 |
+| **Builds** | CP21.260330.011 |
+| **Emulator support** | x86 (64-bit), ARM (v8-A) |
+| **Security patch level** | 2026-05-05 |
+| **Google Play services** | 26.11.36 |
+
 ### Beta 4
 
 |---|---|
@@ -39,6 +48,21 @@ source: md.txt
 | **Emulator support** | x86 (64-bit), ARM (v8-A) |
 | **Security patch level** | 2026-01-05 |
 | **Google Play services** | 25.47.33 |
+
+**Android 17 Beta 4.1 (June 2026)**
+
+
+This minor update to Android 17 Beta 4 includes the following fixes:
+
+- An issue where the status bar incorrectly displayed zero signal bars despite active connectivity. ([Issue #488358813](https://issuetracker.google.com/issues/488358813))
+- A UI synchronization issue where the mobile data Quick Settings icon remained active during Airplane mode. ([Issue #501368569](https://issuetracker.google.com/issues/501368569), [Issue #505757076](https://issuetracker.google.com/issues/505757076), [Issue #512828669](https://issuetracker.google.com/issues/512828669))
+- An issue where external displays would go black when selecting high resolutions. ([Issue #504952465](https://issuetracker.google.com/issues/504952465))
+- A Bluetooth audio routing issue that caused playback silence after system interruptions like timers. ([Issue #497181008](https://issuetracker.google.com/issues/497181008))
+- An issue causing hearing aids to be automatically forgotten from paired devices after inactivity or charging. ([Issue #504968772](https://issuetracker.google.com/issues/504968772), [Issue #504395613](https://issuetracker.google.com/issues/504395613), [Issue #493347800](https://issuetracker.google.com/issues/493347800), [Issue #504696777](https://issuetracker.google.com/issues/504696777))
+
+All eligible devices enrolled in the
+[Android Beta for Pixel program](https://g.co/androidbeta)
+will be offered an over-the-air (OTA) update to Beta 4.1.
 
 ### Android 17 Beta 4 (April 2026)
 

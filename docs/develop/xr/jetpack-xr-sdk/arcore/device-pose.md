@@ -36,7 +36,7 @@ app to retrieve device pose information, configure the session and set the
 ```kotlin
 // Define the configuration object to enable tracking device pose.
 val newConfig = session.config.copy(
-    deviceTracking = DeviceTrackingMode.SPATIAL
+    deviceTracking = DeviceTrackingMode.SPATIAL_LAST_KNOWN
 )
 // Apply the configuration to the session.
 try {

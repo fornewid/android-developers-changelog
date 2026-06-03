@@ -19,7 +19,7 @@ upgrade Play Billing Library to the latest version."
      Version"** ---defined as the version where those specific APIs were **last
      available**, not when they were introduced.
    - **Example** : If `SkuDetails` is present, treat the baseline as **PBL v7** or earlier (regardless of the version string in `build.gradle`).
-4. **Identify Target \& Path:** Access the version tool or release notes to find the latest stable version and calculate a \[Direct/Stepped\] migration path based on the **Effective Version** baseline.
+4. **Identify Target \& Path** : Access the version tool or release notes to find the latest stable version and calculate a \[Direct/Stepped\] migration path based on the **Effective Version** baseline.
 
 - **Calculate Migration Path** :
   - If the **Effective Version** is within 2 major versions of the target: Plan a **Direct Migration**.
@@ -45,7 +45,7 @@ accomplished afterwards.*
 
 ### Step 1: SDK \& Environment Alignment
 
-- **Action** : Update `build.gradle` to meet SDK requirements (e.g., "PBL 8 requires `compileSdk` 35").
+- **Action** : Update `build.gradle` to meet SDK requirements (e.g., "PBL 9 requires `compileSdk` 35").
 - **Gradle Version**: Verify if the new library requires a newer Android Gradle Plugin (AGP) or Kotlin version.
 
 ### Step 2: Intent-based Refactoring
@@ -64,7 +64,7 @@ string replacement.
 
 ### Step 4: Final Validation Checklist
 
-1. **Smart Checklist Verification:**
+1. **Smart Checklist Verification**:
 2. Open [references/version-checklist.md](https://developer.android.com/agents/skills/play/play-billing-library-version-upgrade/references/version-checklist) and locate the **Smart Version-Specific Checklist**.
 3. **Action**: For every version between your \[Detected Effective Version\] and \[Detected New Version\], verify that every item has been addressed in the code using "Find in Files" or structural analysis.
 4. **Tests** : Run all unit and implementation tests (`./gradlew test`).

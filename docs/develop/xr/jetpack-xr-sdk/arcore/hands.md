@@ -54,7 +54,7 @@ Hand data is available for left and right hands separately. Use each hand's
 
 
 ```kotlin
-Hand.left(session).state.collect { handState -> // or Hand.right(session)
+Hand.left(session)?.state?.collect { handState -> // or Hand.right(session)
     // Hand state has been updated.
     // Use the state of hand joints to update an entity's position.
     renderPlanetAtHandPalm(handState)
@@ -182,7 +182,7 @@ custom gestures to avoid conflicts with system navigation gestures:
 ```kotlin
 val handedness = Hand.getPrimaryHandSide(activity.contentResolver)
 val secondaryHand = if (handedness == HandSide.LEFT) Hand.right(session) else Hand.left(session)
-val handState = secondaryHand.state
+val handState = secondaryHand?.state ?: return
 detectGesture(handState)
 ```
 

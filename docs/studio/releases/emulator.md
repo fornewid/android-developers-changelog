@@ -24,6 +24,23 @@ Emulator, see the
 
 For known issues and troubleshooting, please see [Emulator Troubleshooting](https://developer.android.com/studio/run/emulator-troubleshooting).
 
+## 36.6.11 Stable (Jun 2, 2026)
+
+- Starting at API 37, the minimum memory (RAM) used by the VM of the AVD has
+  been raised to 4 GBytes.
+
+  To support the higher memory demands of Android 17 (API 37), Phone's Android
+  Virtual Devices (AVDs) now require a strict minimum of 4GB of RAM. If your AVD
+  is configured with less memory, the Emulator will automatically overwrite the
+  setting to allocate at least 4GB, preventing potential runtime issues.
+- Added "environment" camera mode to the Emulator for configurable virtual scene
+  backgrounds. These scenes are defined in the AVD's environment.ini file and
+  can be dynamically reloaded at runtime.
+
+- Fixed a bug where the snapshot preview in the standalone emulator was not cleared after the snapshot was deleted.
+
+- \[Bug Fix\][Issue #506475581](https://issuetracker.google.com/506475581) Emulator audio severely distorted on macOS when using audio interface with \>2 channels (loopback, multi-output)
+
 ## 36.5.11 Patch (Apr 23, 2026)
 
 - \[Bug Fix\][Issue #492228020](https://issuetracker.google.com/492228020) Android Emulator displays black screen when using Hardware/Auto Graphics Rendering on Intel GPU

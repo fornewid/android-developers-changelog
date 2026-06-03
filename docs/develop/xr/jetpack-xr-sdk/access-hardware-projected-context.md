@@ -147,8 +147,10 @@ audioRecord.startRecording()
   define a sample rate of 16kHz and a channel configuration of either mono or
   stereo (using [`CHANNEL_IN_MONO`](https://developer.android.com/reference/kotlin/android/media/AudioFormat#channel_in_mono) or [`CHANNEL_IN_STEREO`](https://developer.android.com/reference/kotlin/android/media/AudioFormat#channel_in_stereo)).
 
-- While there is no fixed requirement for buffer size, [get the minimum buffer
-  size](https://developer.android.com/reference/kotlin/android/media/AudioRecord#getminbuffersize) to minimize perceived latency.
+- Use [`AudioRecord.getMinBufferSize()`](https://developer.android.com/reference/kotlin/android/media/AudioRecord#getminbuffersize) to determine the minimum buffer
+  size to create the `AudioRecord` object. However, to prevent audio drops
+  from the glasses, you should read from this buffer in short, frequent chunks
+  (ideally 20ms slices) rather than waiting for the entire buffer to fill.
 
 > [!WARNING]
 > **Preview:** Support for using the [`MediaRecorder`](https://developer.android.com/reference/kotlin/android/media/MediaRecorder) API with a projected context will be available in an upcoming Android Beta release.
