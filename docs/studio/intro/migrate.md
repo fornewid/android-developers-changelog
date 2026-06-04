@@ -288,7 +288,7 @@ Settings \> Version Control** menu option to set up and modify the version
 control.
 
 For more information about working with version control, see
-[IntelliJ's Version control reference](https://www.jetbrains.com/help/idea/2025.3/version-control-integration.html).
+[IntelliJ's Version control reference](https://www.jetbrains.com/help/idea/2026.1/version-control-integration.html).
 
 ### App signing
 

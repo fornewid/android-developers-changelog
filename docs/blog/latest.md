@@ -7,6 +7,38 @@ source: md.txt
 # The Latest
 
 Stay up to date with the latest announcements, feature rollouts, and updates across Android tools, libraries, and platforms.
+- [![](https://developer.android.com/static/blog/assets/Ataul_Munim_cf0796f68c_r1HY2.webp)](https://developer.android.com/blog/authors/ataul-munim) 02 Jun 2026 02 Jun 2026 ![](https://developer.android.com/static/blog/assets/MM_Differentiated_Experiences_Strapi_bbe8e7618b_19k3ww.webp)
+
+  #### [Product News](https://developer.android.com/blog/categories/product-news)
+
+  ## [Building Premium Android Experiences at Google I/O '26](https://developer.android.com/blog/posts/building-premium-android-experiences-at-google-i-o-26)
+
+  [arrow_forward](https://developer.android.com/blog/posts/building-premium-android-experiences-at-google-i-o-26) At Google I/O '26, we showcased how the latest advancements in the Android ecosystem can help you elevate your app's quality while maximizing development efficiency.
+
+  ###### [Ataul Munim](https://developer.android.com/blog/authors/ataul-munim) •
+  3 min read
+
+  - [#Performance](https://developer.android.com/blog/topics/performance)
+  - [#Memory](https://developer.android.com/blog/topics/memory)
+  - [#R8](https://developer.android.com/blog/topics/r8)
+  - [#Wear OS](https://developer.android.com/blog/topics/wear-os)
+  - [#Automotive OS](https://developer.android.com/blog/topics/automotive-os)
+  - +3 ↩
+- 3 Authors 02 Jun 2026 02 Jun 2026 ![](https://developer.android.com/static/blog/assets/Engineering_Memory_Blog_Strapi_3_bfd74f43e5_Z2i8kF7.webp)
+
+  #### [How-tos](https://developer.android.com/blog/categories/how-tos)
+
+  ## [Prioritizing Memory Efficiency: Essential Steps for Android 17](https://developer.android.com/blog/posts/prioritizing-memory-efficiency-essential-steps-for-android-17)
+
+  [arrow_forward](https://developer.android.com/blog/posts/prioritizing-memory-efficiency-essential-steps-for-android-17) While app performance is often equated with a smooth UI and fast start times, memory serves as the silent foundation upon which these visible metrics are built. It's no secret that we're seeing a shift where device memory is more important than ever.
+
+  ###### [Alice Yuan](https://developer.android.com/blog/authors/alice-yuan), [Ajesh Pai](https://developer.android.com/blog/authors/ajesh-pai), [Fung Lam](https://developer.android.com/blog/authors/fung-lam) •
+  10 min read
+
+  - [#Memory](https://developer.android.com/blog/topics/memory)
+  - [#Android](https://developer.android.com/blog/topics/android)
+  - [#Performance](https://developer.android.com/blog/topics/performance)
+  - +1 ↩
 - [![](https://developer.android.com/static/blog/assets/Jingyu_Shi_ab6f01bd32_ZXPVGC.webp)](https://developer.android.com/blog/authors/jingyu-shi) 26 May 2026 26 May 2026 ![](https://developer.android.com/static/blog/assets/Blog_hero_Strapi_2x_0147a8b012_1yD2LQ.webp)
 
   #### [Product News](https://developer.android.com/blog/categories/product-news)
@@ -252,29 +284,6 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
   4 min read
 
   - [#Android](https://developer.android.com/blog/topics/android)
-- [![](https://developer.android.com/static/blog/assets/Amrit_Sanjeev_5215e0d7cc_CrDLy.webp)](https://developer.android.com/blog/authors/amrit-sanjeev)[![](https://developer.android.com/static/blog/assets/ash_32bd9f9ed7_Zhh9o0.webp)](https://developer.android.com/blog/authors/ash-nohe) 08 May 2026 08 May 2026 ![](https://developer.android.com/static/blog/assets/AANDDM_Gratitude_2000x1000_7d5a00e6c2_Z2vwfIA.webp)
-
-  #### [Case Studies](https://developer.android.com/blog/categories/case-studies)
-
-  ## [Gratitude saw 25% higher retention for widget users](https://developer.android.com/blog/posts/gratitude-saw-25-higher-retention-for-widget-users)
-
-  [arrow_forward](https://developer.android.com/blog/posts/gratitude-saw-25-higher-retention-for-widget-users) The mindfulness app Gratitude encourages consistency through micro daily journaling, affirmations, and vision boards. The app has over 6 million downloads, 150 thousand 5 star ratings, and 100 million journal entries logged.
-
-  ###### [Amrit Sanjeev](https://developer.android.com/blog/authors/amrit-sanjeev), [Ash Nohe](https://developer.android.com/blog/authors/ash-nohe) •
-  3 min read
-
-- [![](https://developer.android.com/static/blog/assets/Vijaya_Kaza_38a0089092_1sYB49.webp)](https://developer.android.com/blog/authors/vijaya-kaza) 07 May 2026 07 May 2026 ![](https://developer.android.com/static/blog/assets/260429_A_look_ahead_to_2026_Banner_Strapi_2000_x_1000_px_b302a5104a_1L2cA4.webp)
-
-  #### [Product News](https://developer.android.com/blog/categories/product-news)
-
-  ## [A look ahead: Making it easier and faster to publish safer apps](https://developer.android.com/blog/posts/a-look-ahead-making-it-easier-and-faster-to-publish-safer-apps)
-
-  [arrow_forward](https://developer.android.com/blog/posts/a-look-ahead-making-it-easier-and-faster-to-publish-safer-apps) The mobile ecosystem is always evolving, bringing both new opportunities and new threats. Through these changes, Android and Google Play remain committed to ensuring that billions of users can continue to enjoy their apps with confidence and developer innovation can thrive.
-
-  ###### [Vijaya Kaza](https://developer.android.com/blog/authors/vijaya-kaza) •
-  3 min read
-
-  - [#Android](https://developer.android.com/blog/topics/android)
 <button class="adb--button adb--standard adb--outlined adb--disabled adb--global-hover-button astro-vnzlvqnm" disabled=""> arrow_back </button>
 
 #### Page 1
@@ -289,22 +298,23 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
 - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
 - [#Android Studio](https://developer.android.com/blog/topics/android-studio)
 - [#Compose](https://developer.android.com/blog/topics/compose)
+- [#Performance](https://developer.android.com/blog/topics/performance)
+- [#Wear OS](https://developer.android.com/blog/topics/wear-os)
 - [#Android XR](https://developer.android.com/blog/topics/android-xr)
 - [#Jetpack Navigation](https://developer.android.com/blog/topics/jetpack-navigation)
+- [#R8](https://developer.android.com/blog/topics/r8)
 - [#Mobile App Development](https://developer.android.com/blog/topics/mobile-app-development)
 - [#Adaptive apps](https://developer.android.com/blog/topics/adaptive-apps)
+- [#Automotive OS](https://developer.android.com/blog/topics/automotive-os)
 - [#Android 17](https://developer.android.com/blog/topics/android-17)
-- [#Wear OS](https://developer.android.com/blog/topics/wear-os)
 - [#Adaptive \& Differentiated](https://developer.android.com/blog/topics/adaptive-and-differentiated)
 - [#AppFunctions](https://developer.android.com/blog/topics/app-functions)
+- [#Memory](https://developer.android.com/blog/topics/memory)
 - [#Nav3](https://developer.android.com/blog/topics/nav3)
 - [#Now In Android](https://developer.android.com/blog/topics/now-in-android)
 - [#Idling Resources](https://developer.android.com/blog/topics/idling-resources)
-- [#Performance](https://developer.android.com/blog/topics/performance)
-- [#R8](https://developer.android.com/blog/topics/r8)
 - [#identity](https://developer.android.com/blog/topics/identity)
 - [#Android 16](https://developer.android.com/blog/topics/android-16)
-- [#Automotive OS](https://developer.android.com/blog/topics/automotive-os)
 - [#beta](https://developer.android.com/blog/topics/beta)
 - [#Generative AI](https://developer.android.com/blog/topics/generative-ai)
 - [#Android XR SDK](https://developer.android.com/blog/topics/android-xr-sdk)

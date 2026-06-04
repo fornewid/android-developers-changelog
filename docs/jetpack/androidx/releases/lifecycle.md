@@ -13,10 +13,10 @@ This table lists all the artifacts in the `androidx.lifecycle` group.
 
 | Artifact | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| lifecycle-\* | [2.10.0](https://developer.android.com/jetpack/androidx/releases/lifecycle#2.10.0) | - | [2.11.0-beta02](https://developer.android.com/jetpack/androidx/releases/lifecycle#2.11.0-beta02) | - |
-| lifecycle-viewmodel-navigation3 | [2.10.0](https://developer.android.com/jetpack/androidx/releases/lifecycle#2.10.0) | - | [2.11.0-beta02](https://developer.android.com/jetpack/androidx/releases/lifecycle#2.11.0-beta02) | - |
+| lifecycle-\* | [2.10.0](https://developer.android.com/jetpack/androidx/releases/lifecycle#2.10.0) | [2.11.0-rc01](https://developer.android.com/jetpack/androidx/releases/lifecycle#2.11.0-rc01) | - | - |
+| lifecycle-viewmodel-navigation3 | [2.10.0](https://developer.android.com/jetpack/androidx/releases/lifecycle#2.10.0) | [2.11.0-rc01](https://developer.android.com/jetpack/androidx/releases/lifecycle#2.11.0-rc01) | - | - |
 
-This library was last updated on: May 19, 2026
+This library was last updated on: June 03, 2026
 
 ## Declaring dependencies
 
@@ -54,7 +54,7 @@ your app or module:
         implementation "androidx.lifecycle:lifecycle-viewmodel-savedstate:$lifecycle_version"
 
         // ViewModel integration with Navigation3
-        implementation "androidx.lifecycle:lifecycle-viewmodel-navigation3:2.11.0-beta02"
+        implementation "androidx.lifecycle:lifecycle-viewmodel-navigation3:2.11.0-rc01"
 
         // Annotation processor
         kapt "androidx.lifecycle:lifecycle-compiler:$lifecycle_version"
@@ -101,7 +101,7 @@ your app or module:
         implementation("androidx.lifecycle:lifecycle-viewmodel-savedstate:$lifecycle_version")
 
         // ViewModel integration with Navigation3
-        implementation("androidx.lifecycle:lifecycle-viewmodel-navigation3:2.11.0-beta02")
+        implementation("androidx.lifecycle:lifecycle-viewmodel-navigation3:2.11.0-rc01")
 
         // Annotation processor
         kapt("androidx.lifecycle:lifecycle-compiler:$lifecycle_version")
@@ -224,6 +224,12 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 2.11
+
+### Version 2.11.0-rc01
+
+June 03, 2026
+
+`androidx.lifecycle:lifecycle-*:2.11.0-rc01` is released. Version 2.11.0-rc01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/2539c25fdfa11866cf01ef266f0ddc10b0143658..1acbc411583af0e0f1acc3a641afb771352fd43f/lifecycle).
 
 ### Version 2.11.0-beta02
 

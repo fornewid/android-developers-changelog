@@ -171,7 +171,7 @@ injected annotations.
 
 **Note:** When adding nullness annotations, autocomplete may
 suggest the IntelliJ [`@Nullable` and
-`@NotNull`](https://www.jetbrains.com/help/idea/2025.3/nullable-and-notnull-annotations.html) annotations instead of the Android null annotations
+`@NotNull`](https://www.jetbrains.com/help/idea/2026.1/nullable-and-notnull-annotations.html) annotations instead of the Android null annotations
 and may auto-import the corresponding library. However, the Android Studio
 lint checker only looks for the Android null annotations. When verifying your
 annotations, confirm that your project uses the Android null annotations so the

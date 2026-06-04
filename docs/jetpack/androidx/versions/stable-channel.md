@@ -19,6 +19,11 @@ see the [versions page](https://developer.android.com/jetpack/androidx/versions)
 The first stable release of AndroidX 1.0.0 suitable for use in
 production was released on September 21, 2018.
 
+## June 03, 2026
+
+- [Core Core-ktx Core-testing Version 1.19.0](https://developer.android.com/jetpack/androidx/releases/core#1.19.0)
+- [Wear-core Version 1.1.0](https://developer.android.com/jetpack/androidx/releases/wear#wear-core-1.1.0)
+
 ### May 21, 2026
 
 - [Media3 Version 1.8.1](https://developer.android.com/jetpack/androidx/releases/media3#1.8.1)

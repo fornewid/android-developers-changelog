@@ -18,7 +18,7 @@ while harnessing the full power of SQLite.
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| May 19, 2026 | [2.6.2](https://developer.android.com/jetpack/androidx/releases/sqlite#2.6.2) | - | - | [2.7.0-alpha05](https://developer.android.com/jetpack/androidx/releases/sqlite#2.7.0-alpha05) |
+| June 03, 2026 | [2.6.2](https://developer.android.com/jetpack/androidx/releases/sqlite#2.6.2) | - | - | [2.7.0-alpha06](https://developer.android.com/jetpack/androidx/releases/sqlite#2.7.0-alpha06) |
 
 ## Declaring dependencies
 
@@ -79,6 +79,14 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 2.7
+
+### Version 2.7.0-alpha06
+
+June 03, 2026
+
+`androidx.sqlite:sqlite-*:2.7.0-alpha06` is released. Version 2.7.0-alpha06 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/ed0627453f51baab21d30d8ca8f74a50ff1cfa7a..d0d5e8b902b1ded8854df7d27fa1d1ee14e3bb4c/sqlite).
+
+No significant changes since version 2.7.0-alpha05.
 
 ### Version 2.7.0-alpha05
 

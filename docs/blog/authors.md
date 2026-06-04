@@ -22,8 +22,8 @@ source: md.txt
   ###### Developer Relations Engineer
 
   [read_more
-  2 posts](https://developer.android.com/blog/authors/ajesh-pai) [read_more
-  2 posts](https://developer.android.com/blog/authors/ajesh-pai) ![](https://developer.android.com/static/blog/assets/Ajesh_R_Pai_fc75c62777_Z1G5g2B.webp) ![](https://developer.android.com/static/blog/assets/Ajesh_R_Pai_fc75c62777_Z1G5g2B.webp)
+  3 posts](https://developer.android.com/blog/authors/ajesh-pai) [read_more
+  3 posts](https://developer.android.com/blog/authors/ajesh-pai) ![](https://developer.android.com/static/blog/assets/Ajesh_R_Pai_fc75c62777_Z1G5g2B.webp) ![](https://developer.android.com/static/blog/assets/Ajesh_R_Pai_fc75c62777_Z1G5g2B.webp)
 -
 
   ## [Alice Yuan](https://developer.android.com/blog/authors/alice-yuan)
@@ -31,8 +31,8 @@ source: md.txt
   ###### Developer Relations Engineer
 
   [read_more
-  3 posts](https://developer.android.com/blog/authors/alice-yuan) [read_more
-  3 posts](https://developer.android.com/blog/authors/alice-yuan) ![](https://developer.android.com/static/blog/assets/Alice_Yuan_552a4dd4ee_ZlDEgJ.webp) ![](https://developer.android.com/static/blog/assets/Alice_Yuan_552a4dd4ee_ZlDEgJ.webp)
+  4 posts](https://developer.android.com/blog/authors/alice-yuan) [read_more
+  4 posts](https://developer.android.com/blog/authors/alice-yuan) ![](https://developer.android.com/static/blog/assets/Alice_Yuan_552a4dd4ee_ZlDEgJ.webp) ![](https://developer.android.com/static/blog/assets/Alice_Yuan_552a4dd4ee_ZlDEgJ.webp)
 -
 
   ## [Amrit Sanjeev](https://developer.android.com/blog/authors/amrit-sanjeev)
@@ -71,6 +71,15 @@ source: md.txt
   1 post](https://developer.android.com/blog/authors/ash-nohe) ![](https://developer.android.com/static/blog/assets/ash_32bd9f9ed7_Zhh9o0.webp) ![](https://developer.android.com/static/blog/assets/ash_32bd9f9ed7_Zhh9o0.webp)
 -
 
+  ## [Ataul Munim](https://developer.android.com/blog/authors/ataul-munim)
+
+  ###### Developer Relations Engineer
+
+  [read_more
+  1 post](https://developer.android.com/blog/authors/ataul-munim) [read_more
+  1 post](https://developer.android.com/blog/authors/ataul-munim) ![](https://developer.android.com/static/blog/assets/Ataul_Munim_cf0796f68c_r1HY2.webp) ![](https://developer.android.com/static/blog/assets/Ataul_Munim_cf0796f68c_r1HY2.webp)
+-
+
   ## [Ben Trengrove](https://developer.android.com/blog/authors/ben-trengrove)
 
   ###### Developer Relations Engineer
@@ -78,15 +87,6 @@ source: md.txt
   [read_more
   2 posts](https://developer.android.com/blog/authors/ben-trengrove) [read_more
   2 posts](https://developer.android.com/blog/authors/ben-trengrove) ![](https://developer.android.com/static/blog/assets/Ben_Trengrove_b9e17c8c2e_2uVqlp.webp) ![](https://developer.android.com/static/blog/assets/Ben_Trengrove_b9e17c8c2e_2uVqlp.webp)
--
-
-  ## [Ben Weiss](https://developer.android.com/blog/authors/ben-weiss)
-
-  ###### Developer Relations Engineer
-
-  [read_more
-  7 posts](https://developer.android.com/blog/authors/ben-weiss) [read_more
-  7 posts](https://developer.android.com/blog/authors/ben-weiss) ![](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2dcD9g.webp) ![](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2dcD9g.webp)
 <button class="adb--button adb--standard adb--outlined adb--disabled adb--global-hover-button astro-vnzlvqnm" disabled=""> arrow_back </button>
 
 #### Page 1

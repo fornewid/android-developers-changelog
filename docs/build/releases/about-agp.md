@@ -182,6 +182,7 @@ Android Studio.
 
 | Android Studio version | Required AGP version |
 |---|---|
+| Quail 1 \| 2026.1.1 | 4.0-9.2 |
 | Panda 4 \| 2025.3.4 | 4.0-9.2 |
 | Panda 3 \| 2025.3.3 | 4.0-9.1 |
 | Panda 2 \| 2025.3.2 | 4.0-9.1 |

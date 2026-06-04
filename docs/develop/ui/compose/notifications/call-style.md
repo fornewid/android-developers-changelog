@@ -1,23 +1,11 @@
 ---
-title: Create a call style notification for call apps  |  Jetpack Compose  |  Android Developers
+title: https://developer.android.com/develop/ui/compose/notifications/call-style
 url: https://developer.android.com/develop/ui/compose/notifications/call-style
-source: html-scrape
+source: md.txt
 ---
 
-* [Android Developers](https://developer.android.com/)
-* [Develop](https://developer.android.com/develop)
-* [Core areas](https://developer.android.com/develop/core-areas)
-* [UI](https://developer.android.com/develop/ui)
-* [Docs](https://developer.android.com/develop/ui/compose/documentation)
-
-# Create a call style notification for call apps Stay organized with collections Save and categorize content based on your preferences.
-
-
-
-
-
 On Android 12.0 (API level 31) and later, the system provides the
-[`CallStyle`](/reference/android/app/Notification.CallStyle) notification template to distinguish call notifications from
+[`CallStyle`](https://developer.android.com/reference/android/app/Notification.CallStyle) notification template to distinguish call notifications from
 other types of notifications. Use this template to create incoming or
 ongoing call notifications. The template supports large-format notifications
 that include caller information and required actions such as answering or
@@ -29,19 +17,15 @@ system to forward these prioritized calls to other devices.
 
 The `CallStyle` notification template includes the following required actions:
 
-* **Answer** or **Decline** for incoming calls.
-* **Hang up** for ongoing calls.
-* **Answer** or **Hang up** for call screening.
+- **Answer** or **Decline** for incoming calls.
+- **Hang up** for ongoing calls.
+- **Answer** or **Hang up** for call screening.
 
 Actions in this style appear as buttons, with the system automatically adding
 appropriate icons and text. Manual labeling of the buttons is not supported.
 For more information about notification design principles, see
-[Notifications](/design/ui/mobile/guides/home-screen/notifications).
-
-![Call style notifications with labelled buttons](/static/images/ui/notifications/CallStyle.png)
-
-
-**Figure 1.** CallStyle template for incoming and ongoing calls.
+[Notifications](https://developer.android.com/design/ui/mobile/guides/home-screen/notifications).
+![Call style notifications with labelled buttons](https://developer.android.com/static/images/ui/notifications/CallStyle.png) **Figure 1.** CallStyle template for incoming and ongoing calls.
 
 The required actions are passed as intents, such as `hangupIntent` and
 `answerIntent` in the following sections. Each of these are a reference to a
@@ -53,68 +37,87 @@ running. When you give another app a `PendingIntent`, you are granting
 it the permission to perform the operation specified, such as decline or answer.
 This permission is granted even if the app that created the intent is not
 running. For more information, see the reference documentation for
-[`PendingIntent`](/reference/android/app/PendingIntent).
+[`PendingIntent`](https://developer.android.com/reference/android/app/PendingIntent).
 
 Starting in Android 14 (API level 34), you can configure call notifications
 to be non-dismissible. To do so, use `CallStyle` notifications with the
-[`Notification.FLAG_ONGOING_EVENT`](/reference/android/app/Notification#FLAG_ONGOING_EVENT) through
-[`Notification.Builder#setOngoing(true)`](/reference/android/app/Notification.Builder#setOngoing(boolean)).
+[`Notification.FLAG_ONGOING_EVENT`](https://developer.android.com/reference/android/app/Notification#FLAG_ONGOING_EVENT) through
+[`Notification.Builder#setOngoing(true)`](https://developer.android.com/reference/android/app/Notification.Builder#setOngoing(boolean)).
 
 The following are examples of using various methods with the `CallStyle`
 notification.
 
+
+```kotlin
+// Create a new call, setting incoming caller.
+val incomingCaller = Person.Builder()
+    .setName("Jane Doe")
+    .setImportant(true)
+    .build()
 ```
-  // Create a new call, setting the user as the caller.
-  val incomingCaller = Person.Builder()
-      .setName("Jane Doe")
-      .setImportant(true)
-      .build()
-```
+
+<br />
 
 ## Incoming call
 
 Use the `forIncomingCall()` method to create a call style notification for an
 incoming call.
 
+
+```kotlin
+// For demonstrative purposes only, should use a well-defined Intents.
+val contentIntent =
+    PendingIntent.getActivity(context, 0, Intent(), PendingIntent.FLAG_IMMUTABLE)
+val declineIntent =
+    PendingIntent.getActivity(context, 0, Intent(), PendingIntent.FLAG_IMMUTABLE)
+val hangupIntent = PendingIntent.getActivity(context, 0, Intent(), PendingIntent.FLAG_IMMUTABLE)
+val answerIntent = PendingIntent.getActivity(context, 0, Intent(), PendingIntent.FLAG_IMMUTABLE)
+// Create a call style notification for an incoming call.
+val builderForIncomingCall = NotificationCompat.Builder(context, CHANNEL_ID)
+    .setContentIntent(contentIntent)
+    .setSmallIcon(R.drawable.ic_logo)
+    .setStyle(
+        NotificationCompat.CallStyle.forIncomingCall(incomingCaller, declineIntent, answerIntent))
+    .addPerson(incomingCaller)
 ```
-  // Create a call style notification for an incoming call.
-  val builder = Notification.Builder(context, CHANNEL_ID)
-      .setContentIntent(contentIntent)
-      .setSmallIcon(smallIcon)
-      .setStyle(
-           Notification.CallStyle.forIncomingCall(caller, declineIntent, answerIntent))
-      .addPerson(incomingCaller)
-```
+
+<br />
 
 ## Ongoing call
 
 Use the `forOngoingCall()` method to create a call style notification for an
 ongoing call.
 
+
+```kotlin
+// Create a call style notification for an ongoing call.
+val builderForOngoingCall = NotificationCompat.Builder(context, CHANNEL_ID)
+    .setContentIntent(contentIntent)
+    .setSmallIcon(R.drawable.ic_logo)
+    .setStyle(
+        NotificationCompat.CallStyle.forOngoingCall(callerAtOtherEnd, hangupIntent))
+    .addPerson(caller)
 ```
-  // Create a call style notification for an ongoing call.
-  val builder = Notification.Builder(context, CHANNEL_ID)
-      .setContentIntent(contentIntent)
-      .setSmallIcon(smallIcon)
-      .setStyle(
-           Notification.CallStyle.forOngoingCall(caller, hangupIntent))
-      .addPerson(second_caller)
-```
+
+<br />
 
 ## Screen a call
 
 Use the `forScreeningCall()` method to create a call style notification for
 screening a call.
 
+
+```kotlin
+// Create a call style notification for screening a call.
+val builder = NotificationCompat.Builder(context, CHANNEL_ID)
+    .setContentIntent(contentIntent)
+    .setSmallIcon(R.drawable.ic_logo)
+    .setStyle(
+        NotificationCompat.CallStyle.forScreeningCall(caller, hangupIntent, answerIntent))
+    .addPerson(caller)
 ```
-  // Create a call style notification for screening a call.
-  val builder = Notification.Builder(context, CHANNEL_ID)
-      .setContentIntent(contentIntent)
-      .setSmallIcon(smallIcon)
-      .setStyle(
-           Notification.CallStyle.forScreeningCall(caller, hangupIntent, answerIntent))
-      .addPerson(second_caller)
-```
+
+<br />
 
 ## Provide compatibility across more Android versions
 
@@ -122,7 +125,7 @@ Associate `CallStyle` notifications on API versions 30 or earlier with a
 foreground service in order to assign them the high rank they are given in API
 level 31 or later. Additionally, `CallStyle` notifications on API version 30
 or earlier can achieve a similar ranking by marking the notification as
-colorized, using the [`setColorized()`](/reference/android/app/Notification.Builder#setColorized(boolean)) method.
+colorized, using the [`setColorized()`](https://developer.android.com/reference/android/app/Notification.Builder#setColorized(boolean)) method.
 
 Use the Telecom APIs with `CallStyle` notifications. For more information, see
-[Telecom framework overview](/guide/topics/connectivity/telecom).
+[Telecom framework overview](https://developer.android.com/guide/topics/connectivity/telecom).

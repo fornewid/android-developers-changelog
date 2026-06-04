@@ -63,6 +63,7 @@ Android 17 OTAs and downloads are available for the following Pixel devices:
 - Pixel 10 Pro
 - Pixel 10 Pro XL
 - Pixel 10 Pro Fold
+- Pixel 10a
 
 ### Flash or manually install a system image
 

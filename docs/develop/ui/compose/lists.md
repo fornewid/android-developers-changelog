@@ -355,17 +355,17 @@ LazyVerticalGrid(
 ## Item keys
 
 By default, each item's state is keyed against the position of the item in the
-list or grid. However, this can cause issues if the data set changes, since items which
-change position effectively lose any remembered state. If you imagine the
-scenario of `LazyRow` within a `LazyColumn`, if the row changes item position,
-the user would then lose their scroll position within the row.
+list or grid. However, this can cause issues if the dataset changes, since
+items which change position effectively lose any remembered state. If you
+imagine the scenario of `LazyRow` within a `LazyColumn`, if the row changes
+item position, the user would then lose their scroll position within the row.
 
 > [!NOTE]
 > **Note:** For more information on how Compose remembers state, see the [State](https://developer.android.com/develop/ui/compose/state) documentation
 
 To combat this, you can provide a stable and unique key for each item, providing
 a block to the `key` parameter. Providing a stable key enables item state to be
-consistent across data-set changes:
+consistent across dataset changes:
 
 
 ```kotlin
@@ -756,7 +756,8 @@ and
 [`firstVisibleItemScrollOffset`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/LazyListState#firstVisibleItemScrollOffset())
 properties.
 
-If we use the example of a showing and hiding a button based on if the user has scrolled past the first item:
+If we use the example of showing and hiding a button based on if the user has
+scrolled past the first item:
 
 
 ```kotlin
@@ -1057,11 +1058,11 @@ performance issues, putting more elements in one item will also interfere
 with `scrollToItem()` \& `animateScrollToItem()`.
 
 However, there are valid use cases for putting multiple elements in one item,
-like having dividers inside a list. You do not want dividers to change scrolling
-indices, as they shouldn't be considered independent elements. Also, performance
-will not be affected as dividers are small. A divider will likely need to be
-visible when the item before it is visible, so they can be part of the previous
-item:
+like having dividers inside a list. You don't want dividers to change
+scrolling indexes, as they shouldn't be considered independent elements.
+Also, performance is not affected as dividers are small. A divider likely
+needs to be visible when the item before it is visible, so it can be
+part of the previous item:
 
 
 ```kotlin

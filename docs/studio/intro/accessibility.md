@@ -10,7 +10,7 @@ including keyboard navigation.
 IntelliJ IDEA updated accessibility features in release 2021.1, which is the
 basis of Android Studio Bumblebee, so all versions of Android Studio from
 Bumblebee onward also benefit from these updates. The
-[IntelliJ documentation](https://www.jetbrains.com/help/idea/2025.3/accessibility.html)
+[IntelliJ documentation](https://www.jetbrains.com/help/idea/2026.1/accessibility.html)
 contains full details of accessibility features such as setting up screen
 readers and customizing the IDE for greater accessibility.
 

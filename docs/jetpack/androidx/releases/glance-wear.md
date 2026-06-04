@@ -10,7 +10,7 @@ Glance Wear is a library for building Widgets for Wear OS
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| May 19, 2026 | - | - | - | [1.0.0-alpha10](https://developer.android.com/jetpack/androidx/releases/glance-wear#1.0.0-alpha10) |
+| June 03, 2026 | - | - | - | [1.0.0-alpha11](https://developer.android.com/jetpack/androidx/releases/glance-wear#1.0.0-alpha11) |
 
 ## Declaring dependencies
 
@@ -25,9 +25,9 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.glance.wear:wear:1.0.0-alpha10"
+    implementation "androidx.glance.wear:wear:1.0.0-alpha11"
 
-    implementation "androidx.glance.wear:wear-core:1.0.0-alpha10"
+    implementation "androidx.glance.wear:wear-core:1.0.0-alpha11"
 }
 ```
 
@@ -35,9 +35,9 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.glance.wear:wear:1.0.0-alpha10")
+    implementation("androidx.glance.wear:wear:1.0.0-alpha11")
 
-    implementation("androidx.glance.wear:wear-core:1.0.0-alpha10")
+    implementation("androidx.glance.wear:wear-core:1.0.0-alpha11")
 }
 ```
 
@@ -57,6 +57,23 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Glance Wear Version 1.0
+
+### Version 1.0.0-alpha11
+
+June 03, 2026
+
+`androidx.glance.wear:wear:1.0.0-alpha11`, `androidx.glance.wear:wear-core:1.0.0-alpha11`, and `androidx.glance.wear:wear-tooling-preview:1.0.0-alpha11` are released. Version 1.0.0-alpha11 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/b5d2acb5ad0a36c9d2aba8feb4c7951165f30fbe..59d7db8fc3c97056707d1f7a4b415c80d9a8688a/glance/wear).
+
+**API Changes**
+
+- We have added `WearWidgetPreview` for previewing Wear Widgets in Android Studio. ([I36504](https://android-review.googlesource.com/#/q/I36504163576c4869ecd67732321dc7535edf3467), [b/485147770](https://issuetracker.google.com/issues/485147770))
+- Expose `is*Available` (`isDailyStepsAvailable`, etc.) variables to verify if the related health data type is available and valid. ([Ib98a7](https://android-review.googlesource.com/#/q/Ib98a78eec469c425b2ab8f3b231e9fae562437e0), [b/498179656](https://issuetracker.google.com/issues/498179656))
+- Added `triggerUpdateAll` API to `GlanceWearWidget` to trigger update on all widgets of the given app. ([I6ab20](https://android-review.googlesource.com/#/q/I6ab20fe37b23d531d38c622e31acdbe4e1b83f3c), [b/510896410](https://issuetracker.google.com/issues/510896410))
+
+**Bug Fixes**
+
+- Include Renderer version information in the `WearWidgetParams` as internal field to prevent breakage in the document generated with the alpha10 version. ([Idcf8e](https://android-review.googlesource.com/#/q/Idcf8e6e180db390b74d2b283920d1f81dfb797b2), [b/511263591](https://issuetracker.google.com/issues/511263591), [b/512830184](https://issuetracker.google.com/issues/512830184))
+- Trigger force pull update flow in debug mode or emulator for Wear Widgets.
 
 ### Version 1.0.0-alpha10
 

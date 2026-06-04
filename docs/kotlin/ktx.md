@@ -125,7 +125,7 @@ To include this module, add the following to your app's `build.gradle` file:
 
 ```groovy
 dependencies {
-    implementation "androidx.core:core-ktx:1.18.0"
+    implementation "androidx.core:core-ktx:1.19.0"
 }
 ```
 
@@ -133,7 +133,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.core:core-ktx:1.18.0")
+    implementation("androidx.core:core-ktx:1.19.0")
 }
 ```
 

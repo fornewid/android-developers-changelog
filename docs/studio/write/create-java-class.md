@@ -53,7 +53,7 @@ these steps:
    - For macOS, select **Android Studio \> Preferences \> Editor \> File and Code
      Templates \> Files**.
 
-   In the [template list](https://www.jetbrains.com/help/idea/2025.3/settings-file-and-code-templates.html),
+   In the [template list](https://www.jetbrains.com/help/idea/2026.1/settings-file-and-code-templates.html),
    internal template names are in bold font. Customized template names are
    displayed in a highlight color, such as blue.
 2. Customize the file templates as needed.
@@ -63,8 +63,8 @@ these steps:
 
 
 For more information about file templates, including VTL, see [File
-and Code Templates](https://www.jetbrains.com/help/idea/2025.3/file-and-code-templates.html) and [File
-and Code Templates Dialog](https://www.jetbrains.com/help/idea/2025.3/settings-file-and-code-templates.html).
+and Code Templates](https://www.jetbrains.com/help/idea/2026.1/file-and-code-templates.html) and [File
+and Code Templates Dialog](https://www.jetbrains.com/help/idea/2026.1/settings-file-and-code-templates.html).
 
 ## Creating a Java class or type
 
@@ -89,7 +89,7 @@ To create a new Java class or type, follow these steps:
    - **Visibility** - Select whether the class or type is visible to all classes, or just to those in its own package.
    - **Modifiers** - Select the **Abstract** or **Final** modifier for a **Class**, or neither.
    - **Show Select Overrides Dialog** - For a **Kind** of **Class** , check this option to open the [Select
-     Methods to Override/Implement dialog](https://www.jetbrains.com/help/idea/2025.3/overriding-methods-of-a-superclass.html) after you click **OK**. In this dialog, you can select methods that you would like to override or implement, and Android Studio will generate skeleton code for these methods.
+     Methods to Override/Implement dialog](https://www.jetbrains.com/help/idea/2026.1/overriding-methods-of-a-superclass.html) after you click **OK**. In this dialog, you can select methods that you would like to override or implement, and Android Studio will generate skeleton code for these methods.
 5. Any fields that don't apply to the **Kind** are hidden.
 6. Click **OK**.
 7. Android Studio creates a Java file with skeleton code that you can modify. It opens the file in the Code Editor.

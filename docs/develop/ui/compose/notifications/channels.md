@@ -65,18 +65,22 @@ To create a notification channel, follow these steps:
 
 The following example shows how to create and register a notification channel:
 
-      if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-          // Create the NotificationChannel.
-          val name = getString(R.string.channel_name)
-          val descriptionText = getString(R.string.channel_description)
-          val importance = NotificationManager.IMPORTANCE_DEFAULT
-          val mChannel = NotificationChannel(CHANNEL_ID, name, importance)
-          mChannel.description = descriptionText
-          // Register the channel with the system. You can't change the importance
-          // or other notification behaviors after this.
-          val notificationManager = getSystemService(NOTIFICATION_SERVICE) as NotificationManager
-          notificationManager.createNotificationChannel(mChannel)
-      }
+
+```kotlin
+if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+    // Create the NotificationChannel.
+    val importance = NotificationManager.IMPORTANCE_DEFAULT
+    val mChannel = NotificationChannel(CHANNEL_ID, name, importance)
+    mChannel.description = descriptionText
+    // Register the channel with the system. You can't change the importance
+    // or other notification behaviors after this.
+    val notificationManager =
+        context.getSystemService(NotificationManager::class.java)
+    notificationManager?.createNotificationChannel(mChannel)
+}
+```
+
+<br />
 
 Recreating an existing notification channel with its original values performs no
 operation, so it's safe to call this code when starting an app.
@@ -165,11 +169,20 @@ action.
 For example, the following sample code shows how you can redirect a user to the
 settings for a notification channel:
 
-      val intent = Intent(Settings.ACTION_CHANNEL_NOTIFICATION_SETTINGS).apply {
-          putExtra(Settings.EXTRA_APP_PACKAGE, packageName)
-          putExtra(Settings.EXTRA_CHANNEL_ID, myNotificationChannel.getId())
-      }
-      startActivity(intent)
+
+```kotlin
+val intent = Intent(Settings.ACTION_CHANNEL_NOTIFICATION_SETTINGS).apply {
+    putExtra(Settings.EXTRA_APP_PACKAGE, context.packageName)
+    putExtra(Settings.EXTRA_CHANNEL_ID, CHANNEL_ID)
+}
+Button(onClick = {
+    context.startActivity(intent)
+}) {
+    Text("Open Channel Settings")
+}
+```
+
+<br />
 
 Notice that the intent requires two extras that specify your app's package name
 (also known as the application ID) and the channel to edit.
@@ -180,10 +193,14 @@ You can delete notification channels by calling
 [`deleteNotificationChannel()`](https://developer.android.com/reference/android/app/NotificationManager#deleteNotificationChannel(java.lang.String)).
 The following sample code demonstrates how to complete this process:
 
-      // The id of the channel.
-      val notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-      val id: String = "my_channel_01"
-      notificationManager.deleteNotificationChannel(id)
+
+```kotlin
+val notificationManager =
+    ContextCompat.getSystemService<NotificationManager>(context, NotificationManager::class.java)
+notificationManager?.deleteNotificationChannel(channelId)
+```
+
+<br />
 
 > [!NOTE]
 > **Note:** The notification settings screen displays the number of deleted channels, as a spam prevention mechanism. You can clear test channels on development devices by reinstalling the app or clearing the data associated with your copy of the app.
@@ -226,12 +243,16 @@ Each notification channel group requires an ID, which must be unique within your
 package, as well as a user-visible name. The following snippet demonstrates how
 to create a notification channel group.
 
-      // The id of the group.
-      val groupId = "my_group_01"
-      // The user-visible name of the group.
-      val groupName = getString(R.string.group_name)
-      val notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-      <b>notificationManager.createNotificationChannelGroup(NotificationChannelGroup(groupId, groupName))</b>
+
+```kotlin
+fun createNotificationChannelGroup(context: Context, groupId: String, groupName: String) {
+    val notificationManager =
+        ContextCompat.getSystemService(context, NotificationManager::class.java)
+    notificationManager?.createNotificationChannelGroup(NotificationChannelGroup(groupId, groupName))
+}
+```
+
+<br />
 
 After you create a new group, you can call
 [`setGroup()`](https://developer.android.com/reference/android/app/NotificationChannel#setGroup(java.lang.String))

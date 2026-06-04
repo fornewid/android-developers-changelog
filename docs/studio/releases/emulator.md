@@ -41,6 +41,10 @@ For known issues and troubleshooting, please see [Emulator Troubleshooting](http
 
 - \[Bug Fix\][Issue #506475581](https://issuetracker.google.com/506475581) Emulator audio severely distorted on macOS when using audio interface with \>2 channels (loopback, multi-output)
 
+- \[Bug Fix\][Issue #516455370](https://issuetracker.google.com/516455370)
+  Fixed a significant memory leak on macOS 26.3 when closing the emulator,
+  related to the cleanup of resources used by Hypervisor.framework APIs.
+
 ## 36.5.11 Patch (Apr 23, 2026)
 
 - \[Bug Fix\][Issue #492228020](https://issuetracker.google.com/492228020) Android Emulator displays black screen when using Hardware/Auto Graphics Rendering on Intel GPU

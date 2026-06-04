@@ -10,7 +10,7 @@ The Room persistence library provides an abstraction layer over SQLite to allow 
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| May 19, 2026 | - | - | - | [3.0.0-alpha05](https://developer.android.com/jetpack/androidx/releases/room3#3.0.0-alpha05) |
+| June 03, 2026 | - | - | - | [3.0.0-alpha06](https://developer.android.com/jetpack/androidx/releases/room3#3.0.0-alpha06) |
 
 ## Declaring dependencies
 
@@ -121,6 +121,16 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 3.0
+
+### Version 3.0.0-alpha06
+
+June 03, 2026
+
+`androidx.room3:room3-*:3.0.0-alpha06` is released. Version 3.0.0-alpha06 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/3301965961089ff8ab504bdda95cc8992393d5d0..40de3d755751fba59277168d32c60d70350ea98d/room3).
+
+**API Changes**
+
+- Add a new annotation property in `@Entity` called `withoutRowId` that when set to true will create the backing SQLite table using the `WITHOUT ROWID` option. ([Idb48e](https://android-review.googlesource.com/#/q/Idb48efe8710d42bb2d9e225c693af92280973421), [b/472790803](https://issuetracker.google.com/issues/472790803))
 
 ### Version 3.0.0-alpha05
 

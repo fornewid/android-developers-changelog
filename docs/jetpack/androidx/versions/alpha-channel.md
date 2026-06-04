@@ -16,6 +16,18 @@ to 2018.
 To view the current versions for every component,
 see the [versions page](https://developer.android.com/jetpack/androidx/versions).
 
+## June 03, 2026
+
+- [Compose Material 3 Version 1.5.0-alpha21](https://developer.android.com/jetpack/androidx/releases/compose-material3#1.5.0-alpha21)
+- [Compose Remote Version 1.0.0-alpha12](https://developer.android.com/jetpack/androidx/releases/compose-remote#1.0.0-alpha12)
+- [Glimmer Glimmer-google-fonts Version 1.0.0-alpha14](https://developer.android.com/jetpack/androidx/releases/xr-glimmer#1.0.0-alpha14)
+- [Navigation3 Version 1.2.0-alpha04](https://developer.android.com/jetpack/androidx/releases/navigation3#1.2.0-alpha04)
+- [Room3 Version 3.0.0-alpha06](https://developer.android.com/jetpack/androidx/releases/room3#3.0.0-alpha06)
+- [Sqlite Version 2.7.0-alpha06](https://developer.android.com/jetpack/androidx/releases/sqlite#2.7.0-alpha06)
+- [Wear Compose Remote Version 1.0.0-alpha05](https://developer.android.com/jetpack/androidx/releases/wear-compose-remote#1.0.0-alpha05)
+- [Wear Compose Version 1.7.0-alpha04](https://developer.android.com/jetpack/androidx/releases/wear-compose#1.7.0-alpha04)
+- [Wear Wear-core Wear-tooling-preview Version 1.0.0-alpha11](https://developer.android.com/jetpack/androidx/releases/glance-wear#1.0.0-alpha11)
+
 ## May 19, 2026
 
 - [Car App Version 1.9.0-alpha01](https://developer.android.com/jetpack/androidx/releases/car-app#1.9.0-alpha01)

@@ -12,7 +12,7 @@ templates to suit your development process as described on this page.
 
 For more information, also see the following IntelliJ documentation:
 
-- [Run/Debug Configurations](https://www.jetbrains.com/help/idea/2025.3/run-debug-configurations.html)
+- [Run/Debug Configurations](https://www.jetbrains.com/help/idea/2026.1/run-debug-configurations.html)
 
 ## About run/debug configurations
 
@@ -84,7 +84,7 @@ window to automatically create a configuration specific to that item. For
 example, if you want to run a particular activity, you can right-click the
 activity Java file and select **Run** . Depending on the item,
 Android Studio uses an [Android App](https://developer.android.com/studio/run/rundebugconfig#android-application),
-[Android Instrumented Tests](https://developer.android.com/studio/run/rundebugconfig#android-tests), or [JUnit](https://www.jetbrains.com/help/idea/2025.3/run-debug-configuration-junit.html)
+[Android Instrumented Tests](https://developer.android.com/studio/run/rundebugconfig#android-tests), or [JUnit](https://www.jetbrains.com/help/idea/2026.1/run-debug-configuration-junit.html)
 configuration template to create the configuration.
 
 
@@ -99,7 +99,7 @@ in the project before Android Studio starts to remove them. To change this
 default, open Android Studio settings, and change
 **Advanced Settings \> Run/Debug \> Temporary configurations limit** .
 For more information about temporary configurations, see
-[Creating and Saving Temporary Run/Debug Configurations](https://www.jetbrains.com/help/idea/2025.3/creating-and-saving-temporary-run-debug-configurations.html).
+[Creating and Saving Temporary Run/Debug Configurations](https://www.jetbrains.com/help/idea/2026.1/creating-and-saving-temporary-run-debug-configurations.html).
 
 ### Start a configuration based on a template
 
@@ -139,8 +139,8 @@ displayed in the **Project** window. The configuration is based on
 a configuration template, as follows:
 
 - Activity Java file: The [Android App](https://developer.android.com/studio/run/rundebugconfig#android-application) template.
-- Package: [Android Instrumented Tests](https://developer.android.com/studio/run/rundebugconfig#android-tests) or [Android JUnit](https://www.jetbrains.com/help/idea/2025.3/run-debug-configuration-junit.html) template, depending on your [source set](https://developer.android.com/studio/build/build-variants#sourcesets). If you select an [instrumented test](https://developer.android.com/training/testing/unit-testing), then it uses the Android Instrumented Tests template. If you select a [local unit test](https://developer.android.com/training/testing/unit-testing), then it uses the Android JUnit template. For a local unit test, you can optionally run with code coverage. For more information, see [Code
-  Coverage](https://www.jetbrains.com/help/idea/2025.3/code-coverage.html).
+- Package: [Android Instrumented Tests](https://developer.android.com/studio/run/rundebugconfig#android-tests) or [Android JUnit](https://www.jetbrains.com/help/idea/2026.1/run-debug-configuration-junit.html) template, depending on your [source set](https://developer.android.com/studio/build/build-variants#sourcesets). If you select an [instrumented test](https://developer.android.com/training/testing/unit-testing), then it uses the Android Instrumented Tests template. If you select a [local unit test](https://developer.android.com/training/testing/unit-testing), then it uses the Android JUnit template. For a local unit test, you can optionally run with code coverage. For more information, see [Code
+  Coverage](https://www.jetbrains.com/help/idea/2026.1/code-coverage.html).
 
 
 To create a run/debug configuration for an item in your project, follow these steps:
@@ -168,10 +168,10 @@ rest of the project to make sure that your new code doesn't break anything
 somewhere else.
 
 
-Android Studio uses the [Android Instrumented Tests](https://developer.android.com/studio/run/rundebugconfig#android-tests) or [Android JUnit](https://www.jetbrains.com/help/idea/2025.3/run-debug-configuration-junit.html)
+Android Studio uses the [Android Instrumented Tests](https://developer.android.com/studio/run/rundebugconfig#android-tests) or [Android JUnit](https://www.jetbrains.com/help/idea/2026.1/run-debug-configuration-junit.html)
 template, depending on your [source
 set](https://developer.android.com/studio/build/build-variants#sourcesets). For a local unit test, you can optionally run with [code
-coverage](https://www.jetbrains.com/help/idea/2025.3/code-coverage.html).
+coverage](https://www.jetbrains.com/help/idea/2026.1/code-coverage.html).
 
 
 To create a run/debug configuration for a class or method in your Java code, follow these steps:
@@ -182,7 +182,7 @@ To create a run/debug configuration for a class or method in your Java code, fol
 3. Select a class or method in the code, and then press Control+Shift+T (Command+Shift+T).
 4. Select **Create New Test** from the menu that appears.
 5. In the **[Create
-   Test](https://www.jetbrains.com/help/idea/2025.3/create-test.html)** dialog, optionally change or set the values and click **OK**.
+   Test](https://www.jetbrains.com/help/idea/2026.1/create-test.html)** dialog, optionally change or set the values and click **OK**.
 6. In the **Choose Destination Directory** dialog, select where in the project you want Android Studio to place the test. You can specify the location by directory structure or by selecting a neighboring class.
 7. Click **OK** .
 
@@ -294,7 +294,7 @@ operations
 
      This option is deselected by
      default.
-  5. Select **Active tool window** if you want the [Run](https://www.jetbrains.com/help/idea/2025.3/run-tool-window.html) or [Debug](https://www.jetbrains.com/help/idea/2025.3/debug-tool-window.html) tool window to be activated when you run or debug your app.
+  5. Select **Active tool window** if you want the [Run](https://www.jetbrains.com/help/idea/2026.1/run-tool-window.html) or [Debug](https://www.jetbrains.com/help/idea/2026.1/debug-tool-window.html) tool window to be activated when you run or debug your app.
 
 
      This option is selected by default.
@@ -309,13 +309,13 @@ operations
 
 | Task | Description |
 |---|---|
-| Run External tool | Run an application that's external to Android Studio. In the **[External Tools](https://www.jetbrains.com/help/idea/2025.3/create-edit-copy-tool-dialog.html)** dialog, select one or more applications that you want to run and then click **OK** . If the application isn't defined in Android Studio yet, add its definition in the **[Create Tools](https://www.jetbrains.com/help/idea/2025.3/create-edit-copy-tool-dialog.html)** dialog. For more information, see [Configuring Third-Party Tools](https://www.jetbrains.com/help/idea/2025.3/configuring-third-party-tools.html) and [External Tools](https://www.jetbrains.com/help/idea/2025.3/external-tools.html). |
+| Run External tool | Run an application that's external to Android Studio. In the **[External Tools](https://www.jetbrains.com/help/idea/2026.1/create-edit-copy-tool-dialog.html)** dialog, select one or more applications that you want to run and then click **OK** . If the application isn't defined in Android Studio yet, add its definition in the **[Create Tools](https://www.jetbrains.com/help/idea/2026.1/create-edit-copy-tool-dialog.html)** dialog. For more information, see [Configuring Third-Party Tools](https://www.jetbrains.com/help/idea/2026.1/configuring-third-party-tools.html) and [External Tools](https://www.jetbrains.com/help/idea/2026.1/external-tools.html). |
 | Run Another Configuration | Execute one of the existing run/debug configurations. In the **Choose Configuration to Execute** dialog, select a configuration to execute and then click **OK**. |
-| Make | Compile the project or the module. Android Studio executes the [Make Module command](https://www.jetbrains.com/help/idea/2025.3/compilation-types.html#make_module) if the run/debug configuration specifies a particular module, or it executes the [Make Project command](https://www.jetbrains.com/help/idea/2025.3/compilation-types.html#make_project) if no modules are specified. |
-| Make Project | Compile the project. Android Studio executes the [Make Project command](https://www.jetbrains.com/help/idea/2025.3/compilation-types.html#make_project). |
+| Make | Compile the project or the module. Android Studio executes the [Make Module command](https://www.jetbrains.com/help/idea/2026.1/compilation-types.html#make_module) if the run/debug configuration specifies a particular module, or it executes the [Make Project command](https://www.jetbrains.com/help/idea/2026.1/compilation-types.html#make_project) if no modules are specified. |
+| Make Project | Compile the project. Android Studio executes the [Make Project command](https://www.jetbrains.com/help/idea/2026.1/compilation-types.html#make_project). |
 | Make, no error check | This option is the same as **Make**, except that Android Studio executes the run/debug configuration irrespective of the compilation result. |
 | Build Artifacts | Unsupported in Android Studio. |
-| Run Gradle task | Run a Gradle task. In the [dialog](https://www.jetbrains.com/help/idea/2025.3/create-run-debug-configuration-for-gradle-tasks.html) that opens, specify the details and then click **OK** . For more information, see [Gradle](https://www.jetbrains.com/help/idea/2025.3/gradle.html). |
+| Run Gradle task | Run a Gradle task. In the [dialog](https://www.jetbrains.com/help/idea/2026.1/create-run-debug-configuration-for-gradle-tasks.html) that opens, specify the details and then click **OK** . For more information, see [Gradle](https://www.jetbrains.com/help/idea/2026.1/gradle.html). |
 | Gradle-aware Make | Compile the project and run Gradle. |
 | App Engine Gradle builder | The App Engine Gradle builder task syncs the project and then builds the module. |
 
@@ -333,25 +333,25 @@ operations
 ### Unsupported templates
 
 - The following unsupported templates come from IntelliJ IDEA and aren't specific to Android development with Android Studio. For information about using these templates, follow the links to the IntelliJ IDEA documentation.
-  - [Application](https://www.jetbrains.com/help/idea/2025.3/run-debug-configuration-application.html)
-  - [Compound](https://www.jetbrains.com/help/idea/2025.3/run-debug-configuration-compound.html)
-  - [Gradle](https://www.jetbrains.com/help/idea/2025.3/run-debug-configuration-gradle.html)
-  - [Groovy](https://www.jetbrains.com/help/idea/2025.3/run-debug-configuration-groovy.html)
+  - [Application](https://www.jetbrains.com/help/idea/2026.1/run-debug-configuration-application.html)
+  - [Compound](https://www.jetbrains.com/help/idea/2026.1/run-debug-configuration-compound.html)
+  - [Gradle](https://www.jetbrains.com/help/idea/2026.1/run-debug-configuration-gradle.html)
+  - [Groovy](https://www.jetbrains.com/help/idea/2026.1/run-debug-configuration-groovy.html)
   - [JAR
-    Application](https://www.jetbrains.com/help/idea/2025.3/run-debug-configuration-jar-application.html)
+    Application](https://www.jetbrains.com/help/idea/2026.1/run-debug-configuration-jar-application.html)
   - [Java
-    Scratch](https://www.jetbrains.com/help/idea/2025.3/run-debug-configuration-java-scratch.html)
-  - [JUnit](https://www.jetbrains.com/help/idea/2025.3/run-debug-configuration-junit.html)
-  - [Kotlin](https://www.jetbrains.com/help/idea/2025.3/run-debug-configuration-kotlin.html)
-  - [Kotlin Script](https://www.jetbrains.com/help/idea/2025.3/run-debug-configuration-kotlin-script.html)
-  - [Remote Debug](https://www.jetbrains.com/help/idea/2025.3/run-debug-configuration-remote.html)
-  - [Shell Script](https://www.jetbrains.com/help/idea/2025.3/run-debug-configuration-shell-script.html)
-  - [TestNG](https://www.jetbrains.com/help/idea/2025.3/run-debug-configuration-testng.html)
+    Scratch](https://www.jetbrains.com/help/idea/2026.1/run-debug-configuration-java-scratch.html)
+  - [JUnit](https://www.jetbrains.com/help/idea/2026.1/run-debug-configuration-junit.html)
+  - [Kotlin](https://www.jetbrains.com/help/idea/2026.1/run-debug-configuration-kotlin.html)
+  - [Kotlin Script](https://www.jetbrains.com/help/idea/2026.1/run-debug-configuration-kotlin-script.html)
+  - [Remote Debug](https://www.jetbrains.com/help/idea/2026.1/run-debug-configuration-remote.html)
+  - [Shell Script](https://www.jetbrains.com/help/idea/2026.1/run-debug-configuration-shell-script.html)
+  - [TestNG](https://www.jetbrains.com/help/idea/2026.1/run-debug-configuration-testng.html)
 
 ### Common configuration options
 
 - The **Name** , **Allow parallel run** , and **Store as project file** options are common to multiple configuration templates. To learn more about them, see [Common settings](https://www.jetbrains.com/help/webstorm/run-debug-configurations-dialog.html#common).
-- Android Studio stores the shared run/debug configuration in individual XML files under the `project_directory/.idea/runConfigurations/` folder. For more information, see [Directory-based format](https://www.jetbrains.com/help/idea/2025.3/creating-and-managing-projects.html#directory-based) in the IntelliJ projects documentation.
+- Android Studio stores the shared run/debug configuration in individual XML files under the `project_directory/.idea/runConfigurations/` folder. For more information, see [Directory-based format](https://www.jetbrains.com/help/idea/2026.1/creating-and-managing-projects.html#directory-based) in the IntelliJ projects documentation.
 
 ### Android App
 
@@ -420,7 +420,7 @@ operations
 - **Note:** If you're using Firebase Test Lab to test on a variety of devices, you can use the Android JUnit template to define your instrumented tests. For more information, see [Run Your Tests
   with Firebase Test Lab](https://developer.android.com/training/testing/unit-testing/instrumented-unit-tests#run-ctl).
 - The following tab descriptions cover the tabs and fields for the Android Instrumented test template. For information about the tabs and fields for the Android JUnit test template, see the IntelliJ [Run/Debug
-  Configuration: JUnit](https://www.jetbrains.com/help/idea/2025.3/run-debug-configuration-junit.html) page.
+  Configuration: JUnit](https://www.jetbrains.com/help/idea/2026.1/run-debug-configuration-junit.html) page.
 
 #### General tab
 
@@ -473,7 +473,7 @@ operations
 
 - This run/debug configuration applies to the Google Cloud Platform. When you follow these steps and sync your project to the `build.gradle` file, Android Studio creates an App Engine DevAppServer configuration for you.
 - Note that the IntellJ IDEA [App
-  Engine Server](https://www.jetbrains.com/help/pycharm/2025.3/run-debug-configuration-app-engine-server.html) template is a different template that's not available in Android Studio.
+  Engine Server](https://www.jetbrains.com/help/pycharm/2026.1/run-debug-configuration-app-engine-server.html) template is a different template that's not available in Android Studio.
 
 | Field | Description |
 |---|---|

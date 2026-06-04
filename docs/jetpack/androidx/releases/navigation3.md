@@ -10,7 +10,7 @@ Navigation 3 is a new navigation library designed to work with Compose.
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| May 19, 2026 | [1.1.2](https://developer.android.com/jetpack/androidx/releases/navigation3#1.1.2) | - | - | [1.2.0-alpha03](https://developer.android.com/jetpack/androidx/releases/navigation3#1.2.0-alpha03) |
+| June 03, 2026 | [1.1.2](https://developer.android.com/jetpack/androidx/releases/navigation3#1.1.2) | - | - | [1.2.0-alpha04](https://developer.android.com/jetpack/androidx/releases/navigation3#1.2.0-alpha04) |
 
 ## Declaring dependencies
 
@@ -25,8 +25,8 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.navigation3:navigation3-runtime:1.2.0-alpha03"
-    implementation "androidx.navigation3:navigation3-ui:1.2.0-alpha03"
+    implementation "androidx.navigation3:navigation3-runtime:1.2.0-alpha04"
+    implementation "androidx.navigation3:navigation3-ui:1.2.0-alpha04"
 }
 ```
 
@@ -34,8 +34,8 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.navigation3:navigation3-runtime:1.2.0-alpha03")
-    implementation("androidx.navigation3:navigation3-ui:1.2.0-alpha03")
+    implementation("androidx.navigation3:navigation3-runtime:1.2.0-alpha04")
+    implementation("androidx.navigation3:navigation3-ui:1.2.0-alpha04")
 }
 ```
 
@@ -57,6 +57,16 @@ for more information.
 There are no release notes for this artifact.
 
 ## Navigation3 Version 1.2
+
+### Version 1.2.0-alpha04
+
+June 03, 2026
+
+`androidx.navigation3:navigation3-*:1.2.0-alpha04` is released. Version 1.2.0-alpha04 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/ed0627453f51baab21d30d8ca8f74a50ff1cfa7a..d0d5e8b902b1ded8854df7d27fa1d1ee14e3bb4c/navigation3).
+
+**Bug Fixes**
+
+- Fixed overlay animation issue where nested overlays such as `ModalBottomSheet` are re-aniamting unexpectedly when the overlays above it are popped. ([Ia2b9e](https://android-review.googlesource.com/#/q/Ia2b9e35ce6873dce20a8c9c8c7a51fa549174c9e), [b/502624496](https://issuetracker.google.com/issues/502624496))
 
 ### Version 1.2.0-alpha03
 

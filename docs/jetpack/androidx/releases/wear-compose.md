@@ -12,7 +12,7 @@ Write Jetpack Compose applications for Wear OS devices by providing functionalit
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| May 19, 2026 | [1.6.2](https://developer.android.com/jetpack/androidx/releases/wear-compose#1.6.2) | - | - | [1.7.0-alpha03](https://developer.android.com/jetpack/androidx/releases/wear-compose#1.7.0-alpha03) |
+| June 03, 2026 | [1.6.2](https://developer.android.com/jetpack/androidx/releases/wear-compose#1.6.2) | - | - | [1.7.0-alpha04](https://developer.android.com/jetpack/androidx/releases/wear-compose#1.7.0-alpha04) |
 
 > [!NOTE]
 > **Note:** The `androidx.wear.compose:compose-material` library is superseded by the [`androidx.wear.compose:compose-material3`](https://developer.android.com/jetpack/androidx/releases/wear-compose-m3) library. We recommend that developers use the Wear Compose Material 3 library to get the latest features, including [Material 3 Expressive design](https://android-developers.googleblog.com/2025/05/whats-new-in-wear-os-6.html).
@@ -90,6 +90,29 @@ for more information.
 <br />
 
 ## Version 1.7
+
+### Version 1.7.0-alpha04
+
+June 03, 2026
+
+`androidx.wear.compose:compose-*:1.7.0-alpha04` is released. Version 1.7.0-alpha04 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/ba1ad80843e7ebc1cd4308ee040181e82066ba73..9b1298adf7e57b8ba7d6b360e5101ab73973afdb/wear/compose).
+
+**API Changes**
+
+- Added `RevealState`.drag(), `SwipeToRevealDragScope`, and exposed custom `flingBehavior` in `SwipeToReveal` to enable programmatic control over swipe gestures, offsets, and settling animations. ([Ibfe56](https://android-review.googlesource.com/#/q/Ibfe560061482f812fdcf4034502ef28298fad1f0), \[b/484185090\]
+- Expanded `OneHandedGestureIndicator` to support both Primary and Dismiss actions, migrating its binding architecture to `InteractionSource` for automated lifecycle management. ([I7e893](https://android-review.googlesource.com/#/q/I7e893bf4d2361009e1191a6f067f2a49eddf9b52), \[b/512836472\]
+- Added new gesture-based scrolling for ScalingLazyColumn-based components and Alert Dialogs. This update introduces a default 50% screen scroll for better predictability and includes an optional snap-to-item mode for precise navigation. ([Ie9cfb](https://android-review.googlesource.com/#/q/Ie9cfb41d40d8768f7efd2e5b6b79891d9268252d), \[b/509639667\]
+- Replace Wear Compose Material3's `isOneHandedGesturesInAlertDialogEnabled` flag with `LocalOneHandedGestureEnabled` `CompositionLocal`, which can be used to disable one-handed gestures across component hierarchies. ([Ib9240](https://android-review.googlesource.com/#/q/Ib9240dbca32f4ec7e530366d72159f653985b94e), \[b/516777416\]
+- Deprecated `ButtonDefaults`.`ExtraSmallIconSize` and `ButtonDefaults`.`SmallIconSize`. These defaults were specific to `CompactButton` and have been moved to `CompactButtonDefaults`.`ExtraSmallIconSize` and `CompactButtonDefaults`.`SmallIconSize` respectively. ([Id747c](https://android-review.googlesource.com/#/q/Id747c86188b7f7df01c58f77a7d12e532fbe76d1), \[b/513588028\]
+
+**Bug Fixes**
+
+- Fix `EdgeButton` animation on fast fling. ([I88215](https://android-review.googlesource.com/#/q/I88215003236bed78f01f7976b749dd73b25246f9), \[b/512700520\]
+- Fix `AppScaffold` `TimeText` not updating on recomposition. ([Iecea5](https://android-review.googlesource.com/#/q/Iecea5050f981342ad18034a2bf800647f5a1b019), \[b/512439755\]
+- `ScreenScaffold` should explicitly use the `PaddingValues` provided by the inner content lambda. ([I20d71](https://android-review.googlesource.com/#/q/I20d71f391cd7a44a7efc583a5b563efc191dcc36), \[b/512355364\]
+- Introduced @`FrequentlyChangingValue` and @`RememberInComposition` annotations to provide lint warnings to prevent performance issues caused by reading high-frequency state updates or failing to remember objects during composition. ([I955f4](https://android-review.googlesource.com/#/q/I955f46838ba9be2cb45ef156f2f5b56bd7a3cf15), \[b/409488336\]
+- Ensure the ripple effect originates from the center of the button when a one-handed gesture is triggered for `Button` composables. ([Ie61ec](https://android-review.googlesource.com/#/q/Ie61ec20ba4c34f6cc1cd9cf9ce1e8df2ced4be03), \[b/514600304\]
+- Resolved a key collision issue in `Modifier.oneHandedGesture` by incorporating gesture action and priority into the auto-generated key. ([I49760](https://android-review.googlesource.com/#/q/I4976095af42d4f44383840972bc6a3ae6ba9b279), \[b/517045657\]
 
 ### Version 1.7.0-alpha03
 

@@ -10,7 +10,7 @@ Design language and UI toolkit for building augmented Android XR experiences
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| May 19, 2026 | - | - | - | [1.0.0-alpha13](https://developer.android.com/jetpack/androidx/releases/xr-glimmer#1.0.0-alpha13) |
+| June 03, 2026 | - | - | - | [1.0.0-alpha14](https://developer.android.com/jetpack/androidx/releases/xr-glimmer#1.0.0-alpha14) |
 
 ## Declaring dependencies
 
@@ -27,7 +27,7 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.xr.glimmer:glimmer:1.0.0-alpha13"
+    implementation "androidx.xr.glimmer:glimmer:1.0.0-alpha14"
 }
 ```
 
@@ -35,7 +35,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.xr.glimmer:glimmer:1.0.0-alpha13")
+    implementation("androidx.xr.glimmer:glimmer:1.0.0-alpha14")
 }
 ```
 
@@ -53,6 +53,14 @@ clicking the star button.
 
 See the [Issue Tracker documentation](https://developers.google.com/issue-tracker)
 for more information.
+
+## Version 1.0
+
+### Version 1.0.0-alpha14
+
+June 03, 2026
+
+`androidx.xr.glimmer:glimmer:1.0.0-alpha14` and `androidx.xr.glimmer:glimmer-google-fonts:1.0.0-alpha14` are released. Version 1.0.0-alpha14 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/b5d2acb5ad0a36c9d2aba8feb4c7951165f30fbe..7a823b9c87199a8590f9279bc70102656ba758d4/xr/glimmer).
 
 ## glimmer and glimmer-google-fonts version 1.0
 

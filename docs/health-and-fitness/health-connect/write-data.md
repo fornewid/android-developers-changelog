@@ -294,7 +294,7 @@ the app datastore:
 
 
 ```kotlin
-suspend fun pullStepsFromDatastore(startTime: Instant, endTime: Instant) : ArrayList<StepsRecord> {
+ fun pullStepsFromDatastore(startTime: Instant, endTime: Instant) : ArrayList<StepsRecord> {
     val appStepsRecords = arrayListOf<StepsRecord>()
     // Pull data from app datastore
     // ...

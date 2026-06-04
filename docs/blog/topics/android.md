@@ -6,6 +6,21 @@ source: md.txt
 
 # #Android
 
+- 3 Authors 02 Jun 2026 02 Jun 2026 ![](https://developer.android.com/static/blog/assets/Engineering_Memory_Blog_Strapi_3_bfd74f43e5_Z2i8kF7.webp)
+
+  #### [How-tos](https://developer.android.com/blog/categories/how-tos)
+
+  ## [Prioritizing Memory Efficiency: Essential Steps for Android 17](https://developer.android.com/blog/posts/prioritizing-memory-efficiency-essential-steps-for-android-17)
+
+  [arrow_forward](https://developer.android.com/blog/posts/prioritizing-memory-efficiency-essential-steps-for-android-17) While app performance is often equated with a smooth UI and fast start times, memory serves as the silent foundation upon which these visible metrics are built. It's no secret that we're seeing a shift where device memory is more important than ever.
+
+  ###### [Alice Yuan](https://developer.android.com/blog/authors/alice-yuan), [Ajesh Pai](https://developer.android.com/blog/authors/ajesh-pai), [Fung Lam](https://developer.android.com/blog/authors/fung-lam) •
+  10 min read
+
+  - [#Memory](https://developer.android.com/blog/topics/memory)
+  - [#Android](https://developer.android.com/blog/topics/android)
+  - [#Performance](https://developer.android.com/blog/topics/performance)
+  - +1 ↩
 - [![](https://developer.android.com/static/blog/assets/Jingyu_Shi_ab6f01bd32_ZXPVGC.webp)](https://developer.android.com/blog/authors/jingyu-shi) 26 May 2026 26 May 2026 ![](https://developer.android.com/static/blog/assets/Blog_hero_Strapi_2x_0147a8b012_1yD2LQ.webp)
 
   #### [Product News](https://developer.android.com/blog/categories/product-news)
@@ -71,18 +86,6 @@ source: md.txt
   [arrow_forward](https://developer.android.com/blog/posts/gemini-and-firebase-ai-logic-enabled-karrot-to-increase-sales-with-a-translation-feature) Karrot is a hyperlocal, community-driven peer-to-peer marketplace app that enables users to buy, sell, and trade items with other verified users. Since launching in South Korea in 2015, the platform has expanded into global markets, amassing over 43 million registered users.
 
   ###### [Thomas Ezan](https://developer.android.com/blog/authors/thomas-ezan), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang) •
-  2 min read
-
-  - [#Android](https://developer.android.com/blog/topics/android)
-- [![](https://developer.android.com/static/blog/assets/matthew_9c798f0c1d_Z1m5WWD.webp)](https://developer.android.com/blog/authors/matthew-forsythe) 19 Mar 2026 19 Mar 2026 ![](https://developer.android.com/static/blog/assets/android_Verification2_b4044e9b89_1tLhzE.webp)
-
-  #### [Product News](https://developer.android.com/blog/categories/product-news)
-
-  ## [Android developer verification: Balancing openness and choice with safety](https://developer.android.com/blog/posts/android-developer-verification-balancing-openness-and-choice-with-safety)
-
-  [arrow_forward](https://developer.android.com/blog/posts/android-developer-verification-balancing-openness-and-choice-with-safety) Android proves you don't have to choose between an open ecosystem and a secure one. Since announcing updated verification requirements, we've worked with the community to ensure these protections are robust yet respectful of platform freedom.
-
-  ###### [Matthew Forsythe](https://developer.android.com/blog/authors/matthew-forsythe) •
   2 min read
 
   - [#Android](https://developer.android.com/blog/topics/android)

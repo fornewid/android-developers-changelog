@@ -159,6 +159,9 @@ visual overlap in button mode, as shown in figure 4:
 The same applies to gesture navigation mode, as shown in figure 5:
 ![edge-to-edge with gesture navigation](https://developer.android.com/static/images/guide/navigation/e2e-system-bars-bottom.png) **Figure 5.** Resolving visual overlap in gesture navigation mode.
 
+> [!NOTE]
+> **Note:** In [desktop windowing mode](https://developer.android.com/develop/ui/compose/layouts/adaptive/support-desktop-windowing), the system-drawn caption bar is always visible at the top of the window, even for game apps in immersive mode. If your app targets games or other full-screen experiences, you must use either `WindowInsetsCompat.Type.systemBars()` (which includes the caption bar) or `WindowInsetsCompat.Type.captionBar()` to avoid your UI being obscured by the window controls.
+
 ### Display cutout insets
 
 Some devices have display cutouts. Typically, the cutout is at the top of the

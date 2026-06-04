@@ -68,39 +68,47 @@ To send a notification bubble, follow these steps:
 
 These steps are shown in the following example:
 
-      // Create a bubble intent.
-      val target = Intent(context, BubbleActivity::class.java)
-      val bubbleIntent = PendingIntent.getActivity(context, 0, target, 0 /* flags */)
-      val category = "com.example.category.IMG_SHARE_TARGET"
 
-      val chatPartner = Person.Builder()
-          .setName("Chat partner")
-          .setImportant(true)
-          .build()
+```kotlin
+// Create a bubble intent.
+val target = Intent(context, BubbleActivity::class.java)
+val bubbleIntent =
+    PendingIntent.getActivity(context, 0, target, PendingIntent.FLAG_IMMUTABLE /* flags */)
+val category = "com.example.category.IMG_SHARE_TARGET"
 
-      // Create a sharing shortcut.
-      val shortcutId = generateShortcutId()
-      val shortcut =
-         ShortcutInfo.Builder(context, shortcutId)
-             .setCategories(setOf(category))
-             .setIntent(Intent(Intent.ACTION_DEFAULT))
-             .setLongLived(true)
-             .setShortLabel(chatPartner.name)
-             .build()
+val chatPartner = Person.Builder()
+    .setName("Chat partner")
+    .setImportant(true)
+    .build()
 
-      // Create a bubble metadata.
-      val bubbleData = Notification.BubbleMetadata.Builder(bubbleIntent,
-                  Icon.createWithResource(context, R.drawable.icon))
-          .setDesiredHeight(600)
-          .build()
+// Create a sharing shortcut.
+val shortcutId = generateShortcutId()
+val shortcut =
+    ShortcutInfoCompat.Builder(context, shortcutId)
+        .setCategories(setOf(category))
+        .setIntent(Intent(Intent.ACTION_DEFAULT))
+        .setLongLived(true)
+        .setShortLabel("Chat partner name")
+        .build()
+// Publish the shortcut, otherwise the bubble metadata will not apply.
+ShortcutManagerCompat.pushDynamicShortcut(context, shortcut)
 
-      // Create a notification, referencing the sharing shortcut.
-      val builder = Notification.Builder(context, CHANNEL_ID)
-          .setContentIntent(contentIntent)
-          .setSmallIcon(smallIcon)
-          .setBubbleMetadata(bubbleData)
-          .setShortcutId(shortcutId)
-          .addPerson(chatPartner)
+// Create a bubble metadata.
+val bubbleData = NotificationCompat.BubbleMetadata.Builder(bubbleIntent,
+    IconCompat.createWithResource(context, R.drawable.ic_logo))
+    .setDesiredHeight(600)
+    .build()
+
+// Create a notification, referencing the sharing shortcut.
+val builder = NotificationCompat.Builder(context, CHANNEL_ID)
+    .setContentIntent(contentIntent)
+    .setSmallIcon(R.drawable.chat)
+    .setBubbleMetadata(bubbleData)
+    .setShortcutId(shortcutId)
+    .addPerson(chatPartner)
+```
+
+<br />
 
 > [!NOTE]
 > **Note:** The first time you send the notification to display a bubble, make sure it's in a notification channel with [`IMPORTANCE_MIN`](https://developer.android.com/reference/android/app/NotificationManager#IMPORTANCE_MIN) or higher.
@@ -125,12 +133,17 @@ and
 The following example shows how to configure a bubble to automatically present
 in an expanded state:
 
-      val bubbleMetadata = Notification.BubbleMetadata.Builder()
-          .setDesiredHeight(600)
-          .setIntent(bubbleIntent)
-          .setAutoExpandBubble(true)
-          .setSuppressNotification(true)
-          .build()
+
+```kotlin
+val bubbleMetadata = NotificationCompat.BubbleMetadata.Builder()
+    .setDesiredHeight(600)
+    .setIntent(bubbleIntent)
+    .setAutoExpandBubble(true)
+    .setSuppressNotification(true)
+    .build()
+```
+
+<br />
 
 ### Bubble content lifecycle
 

@@ -25,7 +25,7 @@ expand various core capabilities of the Android system.
 ### App memory limits
 
 Android 17 introduces app memory limits based on the device's total RAM
-to create a more stable and deterministic environment for your applications and
+to create a more stable and deterministic environment for your apps and
 Android users. In Android 17, limits are set conservatively to establish system
 baselines, targeting extreme memory leaks and other outliers before they trigger
 system-wide instability resulting in UI stuttering, higher battery drain, and
@@ -62,22 +62,24 @@ no effect on a device which does not impose memory limits.)
 `ignore`
 
 :   Instructs the memory limiter to ignore some or all processes.
-    Passing a UID instructs the memory limiter to ignore all
-    processes associated with that UID. You can also pass `all` (ignore
-    all processes) or `none` (do not ignore any processes). Passing `none`
-    overrides any previous calls to `am memory-limiter ignore`.
+    Passing a [UID (Android User ID)](https://developer.android.com/tools/dumpsys#uid_stats) instructs the memory limiter to
+    ignore enforcement on all processes associated with that UID.
+    You can also pass `all` (ignore all apps) or `none`
+    (do not ignore any apps).
+    Passing `none` overrides any previous calls to `am memory-limiter ignore`.
 
-:   If you instruct the memory limiter to ignore a process, you can still apply
-    a manual memory limit to the process by calling `am memory-limiter manual`.
+:   If you instruct the memory limiter to ignore a UID, you can still apply
+    a manual memory limit to a process within the app
+    by calling `am memory-limiter manual`.
 
 `manual`
 
 :   Instructs the system to impose a memory constraint on the process with the
-    specified PID. The memory constraint is specified as an integer number of MB;
-    for example, passing `30` specifies that the process is limited to 30 MB of
-    memory. Passing `max` removes all memory limits on that process. Passing
-    `none` removes any manual limits set on the process, restoring the system's
-    default limit (if any).
+    specified PID (Process ID). The memory constraint is specified as an integer
+    number of MB; for example, passing `30` specifies that the process is limited
+    to 30 MB of memory. Passing `max` removes all memory limits on that process.
+    Passing `none` removes any manual limits set on the process, restoring the
+    system's default limit (if any).
 
 `status`
 
@@ -95,7 +97,7 @@ for SMS messages containing one-time passwords (OTP).
 
 In previous versions of Android, this protection was primarily focused on the
 SMS Retriever format. Delivery of messages containing an SMS retriever hash was
-delayed for most apps for three hours. However, certain certain apps (like the
+delayed for most apps for three hours. However, certain apps (like the
 default SMS handler) were exempt from the delay, and the app that owned the hash
 was also exempted.
 

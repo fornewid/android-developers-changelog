@@ -98,6 +98,7 @@ been validated on the following Pixel devices:
 - Pixel 10 Pro
 - Pixel 10 Pro XL
 - Pixel 10 Pro Fold
+- Pixel 10a
 
     Date: May 19, 2026
     Build: CP31.260508.005
@@ -691,6 +692,7 @@ been validated on the following Pixel devices:
 - Pixel 10 Pro
 - Pixel 10 Pro XL
 - Pixel 10 Pro Fold
+- Pixel 10a
 
     Date: June 1, 2026
     Build: CP21.260330.011

@@ -207,7 +207,7 @@ To view the available generated data files:
 
 Whenever you compile your program, Android Studio automatically runs configured
 [lint](https://developer.android.com/studio/write/lint) checks and other
-[IDE inspections](https://www.jetbrains.com/help/idea/2025.3/code-inspection.html) to help you easily
+[IDE inspections](https://www.jetbrains.com/help/idea/2026.1/code-inspection.html) to help you easily
 identify and correct problems with the structural quality of your code.
 
 The lint tool checks your Android project source files for potential bugs and

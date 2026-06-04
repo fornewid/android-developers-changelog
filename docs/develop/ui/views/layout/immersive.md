@@ -19,6 +19,9 @@ causes users to lose easy access to system navigation, use immersive mode only
 when the benefit to the user experience goes beyond simply using extra screen
 space.
 
+> [!NOTE]
+> **Note:** In [desktop windowing mode](https://developer.android.com/develop/ui/compose/layouts/adaptive/support-desktop-windowing), the system-drawn caption bar is always visible at the top of the window, even for games in immersive mode. If your app targets games or other full-screen experiences, you must use either `WindowInsetsCompat.Type.systemBars()` (which includes the caption bar) or `WindowInsetsCompat.Type.captionBar()` to avoid your UI being obscured by the window controls.
+
 Use [`WindowInsetsControllerCompat.hide()`](https://developer.android.com/reference/androidx/core/view/WindowInsetsControllerCompat#hide(int))
 to hide the system bars and [`WindowInsetsControllerCompat.show()`](https://developer.android.com/reference/androidx/core/view/WindowInsetsControllerCompat#show(int))
 to bring them back.

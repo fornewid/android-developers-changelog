@@ -13,7 +13,7 @@ This table lists all the artifacts in the `androidx.core` group.
 
 | Artifact | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| core | [1.18.0](https://developer.android.com/jetpack/androidx/releases/core#1.18.0) | [1.19.0-rc01](https://developer.android.com/jetpack/androidx/releases/core#1.19.0-rc01) | - | - |
+| core | [1.19.0](https://developer.android.com/jetpack/androidx/releases/core#1.19.0) | - | - | - |
 | core-animation | [1.0.0](https://developer.android.com/jetpack/androidx/releases/core#core-animation-1.0.0) | - | - | - |
 | core-google-shortcuts | [1.1.0](https://developer.android.com/jetpack/androidx/releases/core#core-google-shortcuts-1.1.0) | - | - | [1.2.0-alpha01](https://developer.android.com/jetpack/androidx/releases/core#core-google-shortcuts-1.2.0-alpha01) |
 | core-performance | [1.0.0](https://developer.android.com/jetpack/androidx/releases/core#1.0.0) | - | - | - |
@@ -21,7 +21,7 @@ This table lists all the artifacts in the `androidx.core` group.
 | core-role | [1.1.0](https://developer.android.com/jetpack/androidx/releases/core#core-role-1.1.0) | - | - | - |
 | core-splashscreen | [1.2.0](https://developer.android.com/jetpack/androidx/releases/core#core-splashscreen-1.2.0) | - | - | - |
 
-This library was last updated on: May 19, 2026
+This library was last updated on: June 03, 2026
 
 ## Declaring dependencies
 
@@ -36,7 +36,7 @@ your app or module:
 
 ```groovy
 dependencies {
-    def core_version = "1.18.0"
+    def core_version = "1.19.0"
 
     // Java language implementation
     implementation "androidx.core:core:$core_version"
@@ -69,7 +69,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    val core_version = "1.18.0"
+    val core_version = "1.19.0"
 
     // Java language implementation
     implementation("androidx.core:core:$core_version")
@@ -114,6 +114,14 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Core and Core-ktx Version 1.19
+
+### Version 1.19.0
+
+June 03, 2026
+
+`androidx.core:core:1.19.0`, `androidx.core:core-ktx:1.19.0`, and `androidx.core:core-testing:1.19.0` are released. Version 1.19.0 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/d0311626e34d3399038ccd85c9ea91f7297de350..ee961773bd6a83b5a65e1eded92c3ac09e4fe81f/core).
+
+**Important changes since 1.18.0:**
 
 ### Version 1.19.0-rc01
 

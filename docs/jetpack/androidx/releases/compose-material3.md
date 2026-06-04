@@ -10,7 +10,7 @@ source: md.txt
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| May 19, 2026 | [1.4.0](https://developer.android.com/jetpack/androidx/releases/compose-material3#1.4.0) | - | - | [1.5.0-alpha20](https://developer.android.com/jetpack/androidx/releases/compose-material3#1.5.0-alpha20) |
+| June 03, 2026 | [1.4.0](https://developer.android.com/jetpack/androidx/releases/compose-material3#1.4.0) | - | - | [1.5.0-alpha21](https://developer.android.com/jetpack/androidx/releases/compose-material3#1.5.0-alpha21) |
 
 > [!NOTE]
 > **Note:** To develop UIs for Wear OS apps using Material 3 Expressive, use the [Wear Compose Material 3](https://developer.android.com/jetpack/androidx/releases/wear-compose-m3) library instead of this one.
@@ -48,7 +48,7 @@ your app or module:
 dependencies {
     implementation "androidx.compose.material3:material3:1.4.0"
     implementation "androidx.compose.material3:material3-window-size-class:1.4.0"
-    implementation "androidx.compose.material3:material3-adaptive-navigation-suite:1.5.0-alpha20"
+    implementation "androidx.compose.material3:material3-adaptive-navigation-suite:1.5.0-alpha21"
 }
 
 android {
@@ -72,7 +72,7 @@ android {
 dependencies {
     implementation("androidx.compose.material3:material3:1.4.0")
     implementation("androidx.compose.material3:material3-window-size-class:1.4.0")
-    implementation("androidx.compose.material3:material3-adaptive-navigation-suite:1.5.0-alpha20")
+    implementation("androidx.compose.material3:material3-adaptive-navigation-suite:1.5.0-alpha21")
 }
 
 android {
@@ -317,6 +317,32 @@ Material3 adaptive pane scaffold APIs:
   - [AnimatedPane](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/package-summary#(androidx.compose.material3.adaptive.ThreePaneScaffoldScope).AnimatedPane(androidx.compose.ui.Modifier,kotlin.Function2))
 
 ## Compose Material3 Version 1.5
+
+### Version 1.5.0-alpha21
+
+June 03, 2026
+
+`androidx.compose.material3:material3-*:1.5.0-alpha21` is released. Version 1.5.0-alpha21 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/b5d2acb5ad0a36c9d2aba8feb4c7951165f30fbe..bd4a359dc5de8a63e1994022d4282b98de45c418/compose/material3).
+
+**API Changes**
+
+- Add shapes to timepicker component API ([I57f28](https://android-review.googlesource.com/#/q/I57f28998a4d9e8712394b45bdd3d2e79bf78cb55), [b/441573791](https://issuetracker.google.com/issues/441573791))
+- Added `compressionLimit` to `animateWidth` that specifies the padding of the item being compressed which indicates the maximum compression that the item can be squished by. Deprecating the `animateWidth` API without this `compressionLimit` parameter. ([I4a725](https://android-review.googlesource.com/#/q/I4a7253bd1fb8b95a70958a4c8fb154324d566f20), [b/418822334](https://issuetracker.google.com/issues/418822334), [b/403281052](https://issuetracker.google.com/issues/403281052))
+- `BottomSheet` and `ModalBottomSheet` `PartiallyExpanded` anchor is no longer programmatically removed based on layout conditions. Users now explicitly control this anchor via `rememberBottomSheetState`. Legacy behavior for these components can be enabled via disabling `isBottomSheetPartiallyExpandedDeterministicEnabled` feature flag or by leveraging deprecated `rememberModalBottomSheetState` and `rememberStandardBottomSheetState` functions. `isAnchoredDraggableComponentsAnchorRecoveryEnabled` has now been removed from feature flags. ([Ia4167](https://android-review.googlesource.com/#/q/Ia416719592d05f705e67eb7351a70d1aaf335363), [b/478210200](https://issuetracker.google.com/issues/478210200), [b/512076811](https://issuetracker.google.com/issues/512076811))
+- Reintroduces experimental tag for `PullToRefreshDefaults.loadingIndicatorColor` and `PullToRefreshDefaults.loadingIndicatorContainerColor` ([Ib9d15](https://android-review.googlesource.com/#/q/Ib9d151f52ab743a1124335010579aff6d5812824), [b/513225663](https://issuetracker.google.com/issues/513225663))
+- Updated the `SelectableChipColors` parameters to be public ([I559e0](https://android-review.googlesource.com/#/q/I559e07e6fd666b9bcce01bbcbcc3bed91d82a921), [b/512576750](https://issuetracker.google.com/issues/512576750))
+- Add `horizontalArrangement` parameter to `MenuItems` ([Ie8088](https://android-review.googlesource.com/#/q/Ie8088baa0340f3455f69380071cd23614eb98032), [b/497891817](https://issuetracker.google.com/issues/497891817))
+- Re-mark Button's `contentPaddingFor` function as experimental. ([I07d3e](https://android-review.googlesource.com/#/q/I07d3ee89337f467552e6053dbfc5588c345e81ee), [b/500355872](https://issuetracker.google.com/issues/500355872))
+- Introduced `roundedShape` and `tonalColors()` in both `TextFieldDefaults` and `OutlinedTextFieldDefaults`, which are the visual configurations for expressive style. ([Id9185](https://android-review.googlesource.com/#/q/Id9185e6356df12f82e08953120846a6a1a34515a), [b/448728288](https://issuetracker.google.com/issues/448728288))
+- Deprecated `TextFieldLabelPosition.Attached`, and introduced `Inside` and `Cutout` subtypes, which allows more customizability like an `OutlinedTextField` with inside label placement. Also deprecated `OutlinedTextFieldDefaults.contentPadding()`, and introduced `OutlinedTextFieldDefaults.contentPaddingWithLabel()` and `OutlinedTextFieldDefaults.contentPaddingWithoutLabel()` to support both label positions. ([I40f62](https://android-review.googlesource.com/#/q/I40f625168c7da2ffb815a8ba8c79cac00567ad8b), [b/448728288](https://issuetracker.google.com/issues/448728288))
+
+**Bug Fixes**
+
+- Fixed an accessibility issue in `TimePicker` where keyboard focus was lost when switching from hours to minutes on the dial. Improved accessibility of keyboard focus. ([I7dd81](https://android-review.googlesource.com/#/q/I7dd813b7f601da51cb6f1494b6b861f367d3a235), [b/498361169](https://issuetracker.google.com/issues/498361169))
+
+**External Contribution**
+
+- Improved BottomSheet dismiss gesture physics for a smoother experience. ([I21df5](https://android-review.googlesource.com/#/q/I21df57847dc0f9d20132109032e46351e34b1a7d))
 
 ### Version 1.5.0-alpha20
 

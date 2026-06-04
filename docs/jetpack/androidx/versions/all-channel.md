@@ -31,6 +31,22 @@ To get the latest product updates delivered to you in an RSS feed, add the URL o
 
 These Jetpack libraries have been recently updated.
 
+## June 03, 2026
+
+- [Compose Material 3 Version 1.5.0-alpha21](https://developer.android.com/jetpack/androidx/releases/compose-material3#1.5.0-alpha21)
+- [Compose Remote Version 1.0.0-alpha12](https://developer.android.com/jetpack/androidx/releases/compose-remote#1.0.0-alpha12)
+- [Core Core-ktx Core-testing Version 1.19.0](https://developer.android.com/jetpack/androidx/releases/core#1.19.0)
+- [Glimmer Glimmer-google-fonts Version 1.0.0-alpha14](https://developer.android.com/jetpack/androidx/releases/xr-glimmer#1.0.0-alpha14)
+- [Hilt Version 1.4.0-rc01](https://developer.android.com/jetpack/androidx/releases/hilt#1.4.0-rc01)
+- [Lifecycle Version 2.11.0-rc01](https://developer.android.com/jetpack/androidx/releases/lifecycle#2.11.0-rc01)
+- [Navigation3 Version 1.2.0-alpha04](https://developer.android.com/jetpack/androidx/releases/navigation3#1.2.0-alpha04)
+- [Room3 Version 3.0.0-alpha06](https://developer.android.com/jetpack/androidx/releases/room3#3.0.0-alpha06)
+- [Sqlite Version 2.7.0-alpha06](https://developer.android.com/jetpack/androidx/releases/sqlite#2.7.0-alpha06)
+- [Wear Compose Remote Version 1.0.0-alpha05](https://developer.android.com/jetpack/androidx/releases/wear-compose-remote#1.0.0-alpha05)
+- [Wear Compose Version 1.7.0-alpha04](https://developer.android.com/jetpack/androidx/releases/wear-compose#1.7.0-alpha04)
+- [Wear Wear-core Wear-tooling-preview Version 1.0.0-alpha11](https://developer.android.com/jetpack/androidx/releases/glance-wear#1.0.0-alpha11)
+- [Wear-core Version 1.1.0](https://developer.android.com/jetpack/androidx/releases/wear#wear-core-1.1.0)
+
 ### May 21, 2026
 
 - [Media3 Version 1.8.1](https://developer.android.com/jetpack/androidx/releases/media3#1.8.1)

@@ -170,174 +170,6 @@ clicking the star button.
 See the [Issue Tracker documentation](https://developers.google.com/issue-tracker)
 for more information.
 
-## Games-Memory-Advice
-
-### Version 2.1
-
-#### Version 2.1.0-beta01
-
-November 29, 2023
-
-`androidx.games:games-memory-advice:2.1.0-beta01` is released. [Version 2.1.0-beta01 contains these commits.](https://android.googlesource.com/platform/frameworks/opt/gamesdk/+log/d1f9f40d22248179ba6612beb8acec847bc5880d..3b94fe082e0e95399ed99b5a16ef8eeea307eee2/games-memory-advice)
-
-#### Version 2.1.0-alpha01
-
-November 15, 2023
-
-`androidx.games:games-memory-advice:2.1.0-alpha01` is released. [Version 2.1.0-alpha01 contains these commits.](https://android.googlesource.com/platform/frameworks/opt/gamesdk/+log/77508803835f68c459c7191e2c741468fc0b7cc7..d1f9f40d22248179ba6612beb8acec847bc5880d/games-memory-advice)
-
-**New Features**
-
-- Updated the memory model of the library for better predictions.
-
-**API Changes**
-
-- Added a new API `getAvailableMemory()` that returns an estimate for the amount of memory that can safely be allocated, in bytes.
-
-#### Version 2.1.0-alpha01
-
-July 26, 2023
-
-`androidx.games:games-memory-advice:2.1.0-alpha01` is released. [Version 2.1.0-alpha01 contains these commits.](https://android.googlesource.com/platform/frameworks/opt/gamesdk/+log/61b7df48b84d37584f6a2d706d892a1f592d43a6..6d48478dde57eed989d8910c3d91a0f6bce2bcc4/games-memory-advice)
-
-**API Changes**
-
-- Add`GetAvailableMemory` function
-
-**Bug Fixes**
-
-- Update Memory Advice model
-- Fix shared `memory_advice` build target
-
-### Version 2.0
-
-#### Version 2.0.1
-
-September 20, 2023
-
-`androidx.games:games-memory-advice:2.0.1` is released. [Version 2.0.1 contains these commits.](https://android.googlesource.com/platform/frameworks/opt/gamesdk/+log/b0863eacb073497891e5e368a6152eb193191743..77508803835f68c459c7191e2c741468fc0b7cc7/games-memory-advice)
-
-**Bug Fixes**
-
-- Fix the crash happening in the state watcher thread due to the thread not being attached to the JVM.
-
-#### Version 2.0.0
-
-September 6, 2023
-
-`androidx.games:games-memory-advice:2.0.0` is released. [Version 2.0.0 contains these commits.](https://android.googlesource.com/platform/frameworks/opt/gamesdk/+log/f6ea10b7a71d1b3b451b3022e3171d182bbc2fdb..b0863eacb073497891e5e368a6152eb193191743/games-memory-advice)
-
-**Major features of 2.0.0**
-
-- A new ML model has been trained and released in this version.
-- An API to predict the amount of free memory is implemented.
-
-#### Version 2.0.0-rc01
-
-July 26, 2023
-
-`androidx.games:games-memory-advice:2.0.0-rc01` is released. [Version 2.0.0-rc01 contains these commits.](https://android.googlesource.com/platform/frameworks/opt/gamesdk/+log/3643862ac9c7c2fe01ab511cc602e158db1dd21b..f6ea10b7a71d1b3b451b3022e3171d182bbc2fdb/games-memory-advice)
-
-**New Features**
-
-- Included a new model to better predict remaining memory.
-
-**Bug Fixes**
-
-- Fixed Memory Advice not working with a shared STL.
-
-#### Version 2.0.0-beta04
-
-May 24, 2023
-
-`androidx.games:games-memory-advice:2.0.0-beta04` is released. [Version 2.0.0-beta04 contains these commits.](https://android.googlesource.com/platform/frameworks/opt/gamesdk/+log/5262617d2206673e2e8548596331ead5c0ec41a8..3643862ac9c7c2fe01ab511cc602e158db1dd21b/games-memory-advice)
-
-**New Features**
-
-- Updated the machine learning model powering the library which'll allow improved results for newer phones
-
-#### Version 2.0.0-beta03
-
-April 5, 2023
-
-`androidx.games:games-memory-advice:2.0.0-beta03` is released. [Version 2.0.0-beta03 contains these commits.](https://android.googlesource.com/platform/frameworks/opt/gamesdk/+log/50bffff2cdd7305b4d245d1c222f808d8b8fc476..5262617d2206673e2e8548596331ead5c0ec41a8/games-memory-advice)
-
-**Bug Fixes**
-
-- Fixed a bug where the library couldn't load the required tensorflow lite assets properly
-
-#### Version 2.0.0-beta02
-
-March 22, 2023
-
-`androidx.games:games-memory-advice:2.0.0-beta02` is released. [Version 2.0.0-beta02 contains these commits.](https://android.googlesource.com/platform/frameworks/opt/gamesdk/+log/23a89ddabbe1a83ff9e70c106c1a7693537dad60..50bffff2cdd7305b4d245d1c222f808d8b8fc476/games-memory-advice)
-
-**Bug Fixes**
-
-- Fixed a bug that prevented the static version of the library to be linked properly
-
-#### Version 2.0.0-beta01
-
-February 22, 2023
-
-`androidx.games:games-memory-advice:2.0.0-beta01` is released. [Version 2.0.0-beta01 contains these commits.](https://android.googlesource.com/platform/frameworks/opt/gamesdk/+log/27573e27acd71cc7ba80ce592c76611edc3b6328..23a89ddabbe1a83ff9e70c106c1a7693537dad60/games-memory-advice)
-
-**New Features**
-
-- No new changes
-
-#### Version 2.0.0-alpha01
-
-February 8, 2023
-
-`androidx.games:games-memory-advice:2.0.0-alpha01` is released. [Version 2.0.0-alpha01 contains these commits.](https://android.googlesource.com/platform/frameworks/opt/gamesdk/+log/c1b2d4ff92af5ccfa4d345a21f67f1690fba1eaf..27573e27acd71cc7ba80ce592c76611edc3b6328/games-memory-advice)
-
-**API Changes**
-
-- Major version increase due to build files refactoring.
-
-**Bug Fixes**
-
-- Incorrect configuration of library assets now gives an error instead of crashing.
-
-### Version 1.0.0
-
-#### Version 1.0.0-beta03
-
-November 9, 2022
-
-`androidx.games:games-memory-advice:1.0.0-beta03` is released. [Version 1.0.0-beta03 contains these commits.](https://android.googlesource.com/platform/frameworks/opt/gamesdk/+log/1b8430a9c2955e29d8ea667cfcc0612a9896f01d..c1b2d4ff92af5ccfa4d345a21f67f1690fba1eaf/games-memory-advice)
-
-**New Features**
-
-- No new changes
-
-#### Version 1.0.0-beta01
-
-March 9, 2022
-
-`androidx.games:games-memory-advice:1.0.0-beta01` is released. [Version 1.0.0-beta01 contains these commits.](https://android.googlesource.com/platform/frameworks/opt/gamesdk/+log/e6bb74379ccaa6df74c4e6dff9479c244e5e8249..1b8430a9c2955e29d8ea667cfcc0612a9896f01d/src/memory_advice)
-
-- No changes since 1.0.0-alpha01.
-
-#### Version 1.0.0-alpha01
-
-February 23, 2022
-
-`androidx.games:games-memory-advice:1.0.0-alpha01` is released. [Version 1.0.0-alpha01 contains these commits.](https://android.googlesource.com/platform/frameworks/opt/gamesdk/+log/ac44a0dd8d5c0a5919346be5df11d473fdb87151/src/memory_advice)
-
-**New Features**
-
-- This C library gives the facility to query and receive callbacks for changes in the memory state of a device which is running a game.
-
-**API Changes**
-
-- This is the initial release of the memory advice library. See the header at include/memory_advice/memory_advice.h for the full API.
-
-**External Contribution**
-
-- The library depends on tensorflow, whose license and those of transitive dependencies can be found at <https://github.com/tensorflow/tensorflow>.
-
 ## Games-Text-Input
 
 ### Version 4.3
@@ -1029,6 +861,174 @@ June 16, 2021
 **New Features**
 
 - Games-Activity is a new library that replaces NativeActivity as the recommended way to integrate a C/C++ game with Android.
+
+## Games-Memory-Advice
+
+### Version 2.1
+
+#### Version 2.1.0-beta01
+
+November 29, 2023
+
+`androidx.games:games-memory-advice:2.1.0-beta01` is released. [Version 2.1.0-beta01 contains these commits.](https://android.googlesource.com/platform/frameworks/opt/gamesdk/+log/d1f9f40d22248179ba6612beb8acec847bc5880d..3b94fe082e0e95399ed99b5a16ef8eeea307eee2/games-memory-advice)
+
+#### Version 2.1.0-alpha01
+
+November 15, 2023
+
+`androidx.games:games-memory-advice:2.1.0-alpha01` is released. [Version 2.1.0-alpha01 contains these commits.](https://android.googlesource.com/platform/frameworks/opt/gamesdk/+log/77508803835f68c459c7191e2c741468fc0b7cc7..d1f9f40d22248179ba6612beb8acec847bc5880d/games-memory-advice)
+
+**New Features**
+
+- Updated the memory model of the library for better predictions.
+
+**API Changes**
+
+- Added a new API `getAvailableMemory()` that returns an estimate for the amount of memory that can safely be allocated, in bytes.
+
+#### Version 2.1.0-alpha01
+
+July 26, 2023
+
+`androidx.games:games-memory-advice:2.1.0-alpha01` is released. [Version 2.1.0-alpha01 contains these commits.](https://android.googlesource.com/platform/frameworks/opt/gamesdk/+log/61b7df48b84d37584f6a2d706d892a1f592d43a6..6d48478dde57eed989d8910c3d91a0f6bce2bcc4/games-memory-advice)
+
+**API Changes**
+
+- Add`GetAvailableMemory` function
+
+**Bug Fixes**
+
+- Update Memory Advice model
+- Fix shared `memory_advice` build target
+
+### Version 2.0
+
+#### Version 2.0.1
+
+September 20, 2023
+
+`androidx.games:games-memory-advice:2.0.1` is released. [Version 2.0.1 contains these commits.](https://android.googlesource.com/platform/frameworks/opt/gamesdk/+log/b0863eacb073497891e5e368a6152eb193191743..77508803835f68c459c7191e2c741468fc0b7cc7/games-memory-advice)
+
+**Bug Fixes**
+
+- Fix the crash happening in the state watcher thread due to the thread not being attached to the JVM.
+
+#### Version 2.0.0
+
+September 6, 2023
+
+`androidx.games:games-memory-advice:2.0.0` is released. [Version 2.0.0 contains these commits.](https://android.googlesource.com/platform/frameworks/opt/gamesdk/+log/f6ea10b7a71d1b3b451b3022e3171d182bbc2fdb..b0863eacb073497891e5e368a6152eb193191743/games-memory-advice)
+
+**Major features of 2.0.0**
+
+- A new ML model has been trained and released in this version.
+- An API to predict the amount of free memory is implemented.
+
+#### Version 2.0.0-rc01
+
+July 26, 2023
+
+`androidx.games:games-memory-advice:2.0.0-rc01` is released. [Version 2.0.0-rc01 contains these commits.](https://android.googlesource.com/platform/frameworks/opt/gamesdk/+log/3643862ac9c7c2fe01ab511cc602e158db1dd21b..f6ea10b7a71d1b3b451b3022e3171d182bbc2fdb/games-memory-advice)
+
+**New Features**
+
+- Included a new model to better predict remaining memory.
+
+**Bug Fixes**
+
+- Fixed Memory Advice not working with a shared STL.
+
+#### Version 2.0.0-beta04
+
+May 24, 2023
+
+`androidx.games:games-memory-advice:2.0.0-beta04` is released. [Version 2.0.0-beta04 contains these commits.](https://android.googlesource.com/platform/frameworks/opt/gamesdk/+log/5262617d2206673e2e8548596331ead5c0ec41a8..3643862ac9c7c2fe01ab511cc602e158db1dd21b/games-memory-advice)
+
+**New Features**
+
+- Updated the machine learning model powering the library which'll allow improved results for newer phones
+
+#### Version 2.0.0-beta03
+
+April 5, 2023
+
+`androidx.games:games-memory-advice:2.0.0-beta03` is released. [Version 2.0.0-beta03 contains these commits.](https://android.googlesource.com/platform/frameworks/opt/gamesdk/+log/50bffff2cdd7305b4d245d1c222f808d8b8fc476..5262617d2206673e2e8548596331ead5c0ec41a8/games-memory-advice)
+
+**Bug Fixes**
+
+- Fixed a bug where the library couldn't load the required tensorflow lite assets properly
+
+#### Version 2.0.0-beta02
+
+March 22, 2023
+
+`androidx.games:games-memory-advice:2.0.0-beta02` is released. [Version 2.0.0-beta02 contains these commits.](https://android.googlesource.com/platform/frameworks/opt/gamesdk/+log/23a89ddabbe1a83ff9e70c106c1a7693537dad60..50bffff2cdd7305b4d245d1c222f808d8b8fc476/games-memory-advice)
+
+**Bug Fixes**
+
+- Fixed a bug that prevented the static version of the library to be linked properly
+
+#### Version 2.0.0-beta01
+
+February 22, 2023
+
+`androidx.games:games-memory-advice:2.0.0-beta01` is released. [Version 2.0.0-beta01 contains these commits.](https://android.googlesource.com/platform/frameworks/opt/gamesdk/+log/27573e27acd71cc7ba80ce592c76611edc3b6328..23a89ddabbe1a83ff9e70c106c1a7693537dad60/games-memory-advice)
+
+**New Features**
+
+- No new changes
+
+#### Version 2.0.0-alpha01
+
+February 8, 2023
+
+`androidx.games:games-memory-advice:2.0.0-alpha01` is released. [Version 2.0.0-alpha01 contains these commits.](https://android.googlesource.com/platform/frameworks/opt/gamesdk/+log/c1b2d4ff92af5ccfa4d345a21f67f1690fba1eaf..27573e27acd71cc7ba80ce592c76611edc3b6328/games-memory-advice)
+
+**API Changes**
+
+- Major version increase due to build files refactoring.
+
+**Bug Fixes**
+
+- Incorrect configuration of library assets now gives an error instead of crashing.
+
+### Version 1.0.0
+
+#### Version 1.0.0-beta03
+
+November 9, 2022
+
+`androidx.games:games-memory-advice:1.0.0-beta03` is released. [Version 1.0.0-beta03 contains these commits.](https://android.googlesource.com/platform/frameworks/opt/gamesdk/+log/1b8430a9c2955e29d8ea667cfcc0612a9896f01d..c1b2d4ff92af5ccfa4d345a21f67f1690fba1eaf/games-memory-advice)
+
+**New Features**
+
+- No new changes
+
+#### Version 1.0.0-beta01
+
+March 9, 2022
+
+`androidx.games:games-memory-advice:1.0.0-beta01` is released. [Version 1.0.0-beta01 contains these commits.](https://android.googlesource.com/platform/frameworks/opt/gamesdk/+log/e6bb74379ccaa6df74c4e6dff9479c244e5e8249..1b8430a9c2955e29d8ea667cfcc0612a9896f01d/src/memory_advice)
+
+- No changes since 1.0.0-alpha01.
+
+#### Version 1.0.0-alpha01
+
+February 23, 2022
+
+`androidx.games:games-memory-advice:1.0.0-alpha01` is released. [Version 1.0.0-alpha01 contains these commits.](https://android.googlesource.com/platform/frameworks/opt/gamesdk/+log/ac44a0dd8d5c0a5919346be5df11d473fdb87151/src/memory_advice)
+
+**New Features**
+
+- This C library gives the facility to query and receive callbacks for changes in the memory state of a device which is running a game.
+
+**API Changes**
+
+- This is the initial release of the memory advice library. See the header at include/memory_advice/memory_advice.h for the full API.
+
+**External Contribution**
+
+- The library depends on tensorflow, whose license and those of transitive dependencies can be found at <https://github.com/tensorflow/tensorflow>.
 
 ## Games-Performance-Tuner
 

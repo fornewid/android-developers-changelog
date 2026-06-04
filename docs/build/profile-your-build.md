@@ -97,7 +97,7 @@ example, you can create scenarios:
     }
 
     clean_build_G1GC_4gb {
-        tasks = [":app:assembleDebug"]
+        tasks = [":app:assembleDebug";]
         jvm-args = ["-Xmx4096m", "-XX:+UseG1GC"]
         cleanup-tasks = ["clean"]
     }
@@ -165,7 +165,7 @@ instance, you can create incremental scenarios like this:
     }
 
     abi_change {
-        tasks = [":app:assembleDebug"]
+        tasks = [":app:assembleDebug&quot;]
         apply-abi-change-to = ["app/src/main/java/com/example/your_app/your_code_file.java,
                                   "app/src/main/java/com/example/your_app/your_code_file.kt"]
     }
@@ -203,7 +203,7 @@ number of workers, or Gradle version:
 
     non_abi_change_3g_gradle67 {
         tasks = [":app:assembleDebug"]
-        apply-non-abi-change-to ["app/src/main/java/com/example/your_app/your_code_file.java,
+        apply-non-abi-change-to [&quot;app/src/main/java/com/example/your_app/your_code_file.java,
                                   "app/src/main/java/com/example/your_app/your_code_file.kt"]
         jvm-args = ["-Xmx3072m"]
         version = ["6.7"]
@@ -217,7 +217,7 @@ used to drive the gradle-profiler execution:
     # <root-project>/scenarios.txt
     clean_build {
         tasks = [":app:assembleDebug"]
-        cleanup-tasks = ["clean"]
+        cleanup-tasks = [&quot;clean"]
     }
 
 To run this scenario, use the following command:

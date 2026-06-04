@@ -85,6 +85,9 @@ where system bars are hidden. You can hide system bars using
     // Show the system bars.
     windowInsetsController.show(WindowInsetsCompat.Type.systemBars()) For example, use either `Scaffold`,
 
+> [!NOTE]
+> **Note:** All apps running in [desktop windowing](https://developer.android.com/develop/ui/compose/layouts/adaptive/support-desktop-windowing) have a caption bar, even in immersive mode. For games and other immersive apps, this means you must use either `WindowInsets.systemBars` (which includes the caption bar) or `WindowInsets.captionBar` to ensure your UI isn't covered by the system bars.
+
 ### System bar colors and icons
 
 When going edge-to-edge, your app's background might be visible behind the

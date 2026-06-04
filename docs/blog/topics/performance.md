@@ -1,54 +1,61 @@
 ---
-title: #Performance  |  Android Developers' Blog
+title: https://developer.android.com/blog/topics/performance
 url: https://developer.android.com/blog/topics/performance
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [Android Developers' Blog](https://developer.android.com/)
-* [Blog](https://developer.android.com/blog)
-
-Stay organized with collections
-
-Save and categorize content based on your preferences.
-
-
 
 # #Performance
 
-* [![](/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2dcD9g.webp)](/blog/authors/ben-weiss)
+- 3 Authors 02 Jun 2026 02 Jun 2026 ![](https://developer.android.com/static/blog/assets/Engineering_Memory_Blog_Strapi_3_bfd74f43e5_Z2i8kF7.webp)
 
-  17
+  #### [How-tos](https://developer.android.com/blog/categories/how-tos)
 
-  Nov
-  2025
+  ## [Prioritizing Memory Efficiency: Essential Steps for Android 17](https://developer.android.com/blog/posts/prioritizing-memory-efficiency-essential-steps-for-android-17)
 
-  17
+  [arrow_forward](https://developer.android.com/blog/posts/prioritizing-memory-efficiency-essential-steps-for-android-17) While app performance is often equated with a smooth UI and fast start times, memory serves as the silent foundation upon which these visible metrics are built. It's no secret that we're seeing a shift where device memory is more important than ever.
 
-  Nov
-  2025
+  ###### [Alice Yuan](https://developer.android.com/blog/authors/alice-yuan), [Ajesh Pai](https://developer.android.com/blog/authors/ajesh-pai), [Fung Lam](https://developer.android.com/blog/authors/fung-lam) •
+  10 min read
 
-  ![](/static/blog/assets/performance_Week9_2c643934fa_p8Pb2.webp)
+  - [#Memory](https://developer.android.com/blog/topics/memory)
+  - [#Android](https://developer.android.com/blog/topics/android)
+  - [#Performance](https://developer.android.com/blog/topics/performance)
+  - +1 ↩
+- [![](https://developer.android.com/static/blog/assets/Ataul_Munim_cf0796f68c_r1HY2.webp)](https://developer.android.com/blog/authors/ataul-munim) 02 Jun 2026 02 Jun 2026 ![](https://developer.android.com/static/blog/assets/MM_Differentiated_Experiences_Strapi_bbe8e7618b_19k3ww.webp)
 
-  #### [How-tos](/blog/categories/how-tos)
+  #### [Product News](https://developer.android.com/blog/categories/product-news)
 
-  ## [Get your app on the fast track with Android Performance Spotlight Week!](/blog/posts/get-your-app-on-the-fast-track-with-android-performance-spotlight-week)
+  ## [Building Premium Android Experiences at Google I/O '26](https://developer.android.com/blog/posts/building-premium-android-experiences-at-google-i-o-26)
 
-  [arrow\_forward](/blog/posts/get-your-app-on-the-fast-track-with-android-performance-spotlight-week)
+  [arrow_forward](https://developer.android.com/blog/posts/building-premium-android-experiences-at-google-i-o-26) At Google I/O '26, we showcased how the latest advancements in the Android ecosystem can help you elevate your app's quality while maximizing development efficiency.
 
-  When working on new features, app performance often takes a back seat. However, while it's not always top of mind for developers, users can see exactly where your app's performance lags behind.
+  ###### [Ataul Munim](https://developer.android.com/blog/authors/ataul-munim) •
+  3 min read
 
-  ###### [Ben Weiss](/blog/authors/ben-weiss) • 3 min read
+  - [#Performance](https://developer.android.com/blog/topics/performance)
+  - [#Memory](https://developer.android.com/blog/topics/memory)
+  - [#R8](https://developer.android.com/blog/topics/r8)
+  - [#Wear OS](https://developer.android.com/blog/topics/wear-os)
+  - [#Automotive OS](https://developer.android.com/blog/topics/automotive-os)
+  - +3 ↩
+- [![](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2dcD9g.webp)](https://developer.android.com/blog/authors/ben-weiss) 17 Nov 2025 17 Nov 2025 ![](https://developer.android.com/static/blog/assets/performance_Week9_2c643934fa_p8Pb2.webp)
 
-  + [#Performance](/blog/topics/performance)
-  + [#R8](/blog/topics/r8)
+  #### [How-tos](https://developer.android.com/blog/categories/how-tos)
+
+  ## [Get your app on the fast track with Android Performance Spotlight Week!](https://developer.android.com/blog/posts/get-your-app-on-the-fast-track-with-android-performance-spotlight-week)
+
+  [arrow_forward](https://developer.android.com/blog/posts/get-your-app-on-the-fast-track-with-android-performance-spotlight-week) When working on new features, app performance often takes a back seat. However, while it's not always top of mind for developers, users can see exactly where your app's performance lags behind.
+
+  ###### [Ben Weiss](https://developer.android.com/blog/authors/ben-weiss) •
+  3 min read
+
+  - [#Performance](https://developer.android.com/blog/topics/performance)
+  - [#R8](https://developer.android.com/blog/topics/r8)
 
 # Stay in the loop
 
+
 Get the latest Android development insights delivered to your inbox
 weekly.
-
 [mail
-Subscribe](/subscribe)
-
-![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)

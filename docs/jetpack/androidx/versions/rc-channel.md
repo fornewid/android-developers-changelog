@@ -16,6 +16,11 @@ prior to 2018.
 To view the current versions for every component,
 see the [versions page](https://developer.android.com/jetpack/androidx/versions).
 
+## June 03, 2026
+
+- [Hilt Version 1.4.0-rc01](https://developer.android.com/jetpack/androidx/releases/hilt#1.4.0-rc01)
+- [Lifecycle Version 2.11.0-rc01](https://developer.android.com/jetpack/androidx/releases/lifecycle#2.11.0-rc01)
+
 ## May 19, 2026
 
 - [Core Core-ktx Core-testing Version 1.19.0-rc01](https://developer.android.com/jetpack/androidx/releases/core#1.19.0-rc01)

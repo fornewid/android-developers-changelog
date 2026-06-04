@@ -20,7 +20,7 @@ This table lists all the artifacts in the `androidx.wear` group.
 | wear-phone-interactions | [1.1.0](https://developer.android.com/jetpack/androidx/releases/wear#wear-phone-interactions-1.1.0) | - | - | - |
 | wear-remote-interactions | [1.2.0](https://developer.android.com/jetpack/androidx/releases/wear#wear-remote-interactions-1.2.0) | - | - | [1.3.0-alpha01](https://developer.android.com/jetpack/androidx/releases/wear#wear-remote-interactions-1.3.0-alpha01) |
 
-This library was last updated on: May 19, 2026
+This library was last updated on: June 03, 2026
 
 ## Declaring dependencies
 
@@ -87,6 +87,15 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Wear Core Version 1.1
+
+### Version 1.1.0
+
+June 03, 2026
+
+`androidx.wear:wear-core:1.1.0` is released. Version 1.1.0 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/03bb121e9d4df29b8df0088d71c9091a9b55d1f2..76ea36d68e54cfab01f698cd2f5de4dd4950ba3e/wear/wear-core).
+
+**Major features of 1.1.0:**
+\* Added `CINNAMON_BUN` in `WearApiVersionHelper` for API compatibility checks against the SDK 37.
 
 ### Version 1.1.0-rc01
 

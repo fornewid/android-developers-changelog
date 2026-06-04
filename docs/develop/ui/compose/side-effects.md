@@ -238,7 +238,7 @@ in its block of code. Otherwise, the IDE displays a build-time error.
 
 ### `SideEffect`: publish Compose state to non-Compose code
 
-To share Compose state with objects not managed by compose, use the
+To share Compose state with objects not managed by Compose, use the
 [`SideEffect`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/SideEffect.composable#SideEffect(kotlin.Function0))
 composable. Using a `SideEffect` guarantees that the effect executes after every
 successful recomposition. On the other hand, it is incorrect to

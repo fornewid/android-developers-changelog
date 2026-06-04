@@ -154,7 +154,7 @@ these steps:
 
 The following `idea.properties` file includes commonly customized IDE
 properties. For a complete list of properties, read about the
-[`idea.properties` file for IntelliJ IDEA](https://www.jetbrains.com/help/idea/2025.3/file-idea-properties.html).
+[`idea.properties` file for IntelliJ IDEA](https://www.jetbrains.com/help/idea/2026.1/file-idea-properties.html).
 
     #---
     # Uncomment this option if you want to customize path to user installed plugins folder. Make sure
@@ -290,7 +290,7 @@ a firewall or secure network. To set the HTTP proxy settings in Android Studio:
 1. From the menu bar, click **File \> Settings** (on macOS, click **Android Studio \> Preferences**).
 2. In the left pane, click **Appearance \& Behavior \> System Settings \> HTTP
    Proxy**. The HTTP Proxy page appears.
-3. Select **Auto-detect proxy settings** to use an automatic proxy configuration URL for the proxy settings or **Manual proxy configuration** to enter each of the settings yourself. For a detailed explanation of these settings, see [HTTP Proxy](https://www.jetbrains.com/help/idea/2025.3/http-proxy.html).
+3. Select **Auto-detect proxy settings** to use an automatic proxy configuration URL for the proxy settings or **Manual proxy configuration** to enter each of the settings yourself. For a detailed explanation of these settings, see [HTTP Proxy](https://www.jetbrains.com/help/idea/2026.1/http-proxy.html).
 4. Click **Apply** or **OK** for your changes to take effect.
 
 ### Android plugin for Gradle HTTP proxy settings
