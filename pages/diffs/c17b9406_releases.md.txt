@@ -1,0 +1,20 @@
+diff --git a/docs/topic/generic-system-image/releases.md b/docs/topic/generic-system-image/releases.md
+index d44aad29..b137f088 100644
+--- a/docs/topic/generic-system-image/releases.md
++++ b/docs/topic/generic-system-image/releases.md
+@@ -98,6 +98,7 @@ been validated on the following Pixel devices:
+ - Pixel 10 Pro
+ - Pixel 10 Pro XL
+ - Pixel 10 Pro Fold
++- Pixel 10a
+ 
+     Date: May 19, 2026
+     Build: CP31.260508.005
+@@ -691,6 +692,7 @@ been validated on the following Pixel devices:
+ - Pixel 10 Pro
+ - Pixel 10 Pro XL
+ - Pixel 10 Pro Fold
++- Pixel 10a
+ 
+     Date: June 1, 2026
+     Build: CP21.260330.011

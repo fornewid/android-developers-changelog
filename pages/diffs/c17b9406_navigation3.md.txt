@@ -1,0 +1,26 @@
+diff --git a/docs/training/wearables/compose/navigation3.md b/docs/training/wearables/compose/navigation3.md
+index 452cc4c3..567ff3e0 100644
+--- a/docs/training/wearables/compose/navigation3.md
++++ b/docs/training/wearables/compose/navigation3.md
+@@ -30,8 +30,8 @@ your project.
+ ```groovy
+ dependencies {
+     // Core Navigation 3 APIs
+-    implementation "androidx.navigation3:navigation3-runtime:1.2.0-alpha03"
+-    implementation "androidx.navigation3:navigation3-ui:1.2.0-alpha03"
++    implementation "androidx.navigation3:navigation3-runtime:1.2.0-alpha04"
++    implementation "androidx.navigation3:navigation3-ui:1.2.0-alpha04"
+ 
+     // Wear OS specific Navigation 3 integration
+     implementation "androidx.wear.compose:compose-navigation3:1.6.2"
+@@ -46,8 +46,8 @@ dependencies {
+ ```kotlin
+ dependencies {
+     // Core Navigation 3 APIs
+-    implementation("androidx.navigation3:navigation3-runtime:1.2.0-alpha03")
+-    implementation("androidx.navigation3:navigation3-ui:1.2.0-alpha03")
++    implementation("androidx.navigation3:navigation3-runtime:1.2.0-alpha04")
++    implementation("androidx.navigation3:navigation3-ui:1.2.0-alpha04")
+ 
+     // Wear OS specific Navigation 3 integration
+     implementation("androidx.wear.compose:compose-navigation3:1.6.2")

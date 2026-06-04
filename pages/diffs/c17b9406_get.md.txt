@@ -1,0 +1,12 @@
+diff --git a/docs/about/versions/17/qpr1/get.md b/docs/about/versions/17/qpr1/get.md
+index 424361ab..9a61877f 100644
+--- a/docs/about/versions/17/qpr1/get.md
++++ b/docs/about/versions/17/qpr1/get.md
+@@ -63,6 +63,7 @@ Android 17 QPR 1 OTAs and downloads are available for the following Pixel device
+ - Pixel 10 Pro
+ - Pixel 10 Pro XL
+ - Pixel 10 Pro Fold
++- Pixel 10a
+ 
+ ### Flash or manually install a system image
+ 

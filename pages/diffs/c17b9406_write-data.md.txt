@@ -1,0 +1,13 @@
+diff --git a/docs/health-and-fitness/health-connect/write-data.md b/docs/health-and-fitness/health-connect/write-data.md
+index 7040a857..4c89d0a8 100644
+--- a/docs/health-and-fitness/health-connect/write-data.md
++++ b/docs/health-and-fitness/health-connect/write-data.md
+@@ -294,7 +294,7 @@ the app datastore:
+ 
+ 
+ ```kotlin
+-suspend fun pullStepsFromDatastore(startTime: Instant, endTime: Instant) : ArrayList<StepsRecord> {
++ fun pullStepsFromDatastore(startTime: Instant, endTime: Instant) : ArrayList<StepsRecord> {
+     val appStepsRecords = arrayListOf<StepsRecord>()
+     // Pull data from app datastore
+     // ...
