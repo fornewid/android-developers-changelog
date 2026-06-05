@@ -1,14 +1,19 @@
 ---
-title: https://developer.android.com/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/stackstate-source
+title: API source code for Stack State for Glimmer Stack component  |  Android Developers
 url: https://developer.android.com/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/stackstate-source
-source: md.txt
+source: html-scrape
 ---
+
+# API source code for Stack State for Glimmer Stack component Stay organized with collections Save and categorize content based on your preferences.
+
+
+
+
 
 When creating a Glimmer Stack component, refer to the following source code in
 `StackState.kt` for creating a state for the stack:
 
-
-```kotlin
+```
 /*
  * Copyright 2025 The Android Open Source Project
  *
@@ -326,6 +331,6 @@ internal constructor(private val pagerState: PagerState, private val topItemStat
  * the next item.
  */
 private const val FocusMoveThreshold = 0.6f
-```
 
-<br />
+StackState.kt
+```

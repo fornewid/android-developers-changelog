@@ -6,7 +6,7 @@ source: md.txt
 
 # Leanback
 
-[User Guide](https://developer.android.com/training/tv/start/start#leanback-req) [Code Sample](https://github.com/android/tv-samples) Use Compose for TV instead of this artifact.
+[User Guide](https://developer.android.com/training/tv/start/start#leanback-req) [Code Sample](https://github.com/android/tv-samples) **This artifact and its classes are deprecated.** Use [Compose for TV](https://developer.android.com/jetpack/androidx/releases/tv) instead.
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
