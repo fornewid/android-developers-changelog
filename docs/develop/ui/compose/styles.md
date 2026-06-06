@@ -47,9 +47,9 @@ release of Jetpack Compose foundation. In your `settings.gradle.kts` file, add
 the snapshot maven repository to the list of repositories to use.
 
 Either in your `libs.versions.toml` or directly in your `app/build.gradle.kts`
-file, set the version of Compose to `1.11.0-alpha06`:
+file, set the version of Compose to `1.12.0-alpha03`:
 
-    compose = "1.11.0-alpha06"
+    compose = "1.12.0-alpha03"
 
     androidx-compose-runtime = { group = "androidx.compose.runtime", name = "runtime", version.ref = "compose" }
     androidx-compose-ui = { group = "androidx.compose.ui", name = "ui", version.ref = "compose" }

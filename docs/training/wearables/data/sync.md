@@ -56,8 +56,7 @@ keywords_public: Wear OS, Data Layer API, Assets, Bluetooth data transfer, data 
 
 To share large binary objects over the Bluetooth transport, such as a voice
 recording from another device, you can attach an [`Asset`](https://developers.google.com/android/reference/com/google/android/gms/wearable/Asset) to a data
-item and then put the data item into the replicated datastore. However, if the exchange is a one-off exchange between two connected devices,
-consider whether a simpler [direct transfer](https://developer.android.com/training/wearables/data/transfer-data) is more appropriate.
+item and then put the data item into the replicated datastore.
 
 **Note:** The Data Layer API can send messages and synchronize data only with
 phones that run Android or Wear OS watches. If a Wear OS device is paired with
@@ -143,8 +142,8 @@ private fun Context.sendImagePutDataMapRequest(): Task<DataItem> {
 ### Receive assets
 
 After you create an asset, you typically read and extract it on the other side
-of the connection. The following example shows how to implement the callback to detect an asset
-change and extract the asset:
+of the connection. The following example shows how to implement the callback to
+detect an asset change and extract the asset:
 
 <br />
 

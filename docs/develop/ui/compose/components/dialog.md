@@ -173,7 +173,7 @@ main app content beneath it appears darkened and grayed out:
 
 The following is a more advanced implementation of the `Dialog` composable. In
 this case, the component manually implements a similar interface to the
-`AlertDialog` example above.
+preceding `AlertDialog` example.
 
 > [!CAUTION]
 > **Caution:** If you only need to display a two-button dialog as in this example, you should use `AlertDialog` and its more convenient API. However, if you want to create a more complex dialog, perhaps with forms and multiple buttons, you should use `Dialog` with custom content, as in the following example.
@@ -240,7 +240,7 @@ fun DialogWithImage(
 <br />
 
 This implementation appears as follows:
-![A dialog with a photo of Mount Feathertop, Victoria. Below the image are a dismiss button and a confirm button.](https://developer.android.com/static/develop/ui/compose/images/components/dialog-image.png) **Figure 4.** A dialog that includes an image.
+![A dialog displaying Mount Feathertop, Victoria, with a dismiss button and a confirm button.](https://developer.android.com/static/develop/ui/compose/images/components/dialog-image.png) **Figure 4.** A dialog that includes an image.
 
 ## Additional resources
 

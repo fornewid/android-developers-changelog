@@ -7,9 +7,10 @@ source: md.txt
 [Video](https://www.youtube.com/watch?v=HNSKJIQtb4c)
 
 Compose has many built-in animation mechanisms and it can be overwhelming to
-know which one to choose. Below is a list of common animation use cases. For
-more detailed information about the full set of different API options available
-to you, read the full [Compose Animation documentation](https://developer.android.com/develop/ui/compose/animation/introduction).
+know which one to choose. The following is a list of common animation use
+cases. For more detailed information about the full set of different API options
+available to you, read the full [Compose Animation
+documentation](https://developer.android.com/develop/ui/compose/animation/introduction).
 
 ## Animate common composable properties
 
@@ -331,7 +332,7 @@ different values per state.
 
 ### Animate text scale, translation or rotation
 
-![Text composable saying](https://developer.android.com/static/develop/ui/compose/images/animations/animated_text.gif) **Figure 9.** Text animating smoothly between two sizes
+![Text composable saying Hello animating between a small and larger size.](https://developer.android.com/static/develop/ui/compose/images/animations/animated_text.gif) **Figure 9.** Text animating smoothly between two sizes
 
 When animating scale, translation, or rotation of text, set the `textMotion`
 parameter on `TextStyle` to [`TextMotion.Animated`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/style/TextMotion). This ensures smoother
@@ -368,7 +369,7 @@ Box(modifier = Modifier.fillMaxSize()) {
 
 ### Animate text color
 
-![The words](https://developer.android.com/static/develop/ui/compose/images/animations/animated_text_color.gif) **Figure 10.** Example showing animating text color
+![The words Hello Compose animating its color between green and blue](https://developer.android.com/static/develop/ui/compose/images/animations/animated_text_color.gif) **Figure 10.** Example showing animating text color
 
 To animate text color, use the `color` lambda on the `BasicText` composable:
 
@@ -395,7 +396,7 @@ BasicText(
 
 ## Switch between different types of content
 
-![Green screen saying](https://developer.android.com/static/develop/ui/compose/images/animations/animated_content_slower.gif) **Figure 11.** Using AnimatedContent to animate changes between different composables (slowed down)
+![Green screen saying Loading, blue screen saying Loaded and white screen saying Error, the different composables are being iterated between, with a simple animation.](https://developer.android.com/static/develop/ui/compose/images/animations/animated_content_slower.gif) **Figure 11.** Using AnimatedContent to animate changes between different composables (slowed down)
 
 Use [`AnimatedContent`](https://developer.android.com/reference/kotlin/androidx/compose/animation/AnimatedContent.composable) to animate between different composables, if you
 just want a standard fade between composables, use `Crossfade`.
@@ -618,8 +619,8 @@ LaunchedEffect("animationKey") {
 <br />
 
 You could use the [`updateTransition`](https://developer.android.com/reference/kotlin/androidx/compose/animation/core/updateTransition.composable#updateTransition(kotlin.Any,kotlin.String)) API to use the same state to drive
-many different property animations at the same time. The example below animates
-two properties controlled by a state change, `rect` and `borderWidth`:
+many different property animations at the same time. The following example
+animates two properties controlled by a state change, `rect` and `borderWidth`:
 
 
 ```kotlin
@@ -666,9 +667,10 @@ the performance documentation.
 Compose by default uses **spring** animations for most animations. Springs, or
 physics-based animations, feel more natural. They are also interruptible as
 they take into account the object's current velocity, instead of a fixed time.
-If you want to override the default, all the animation APIs demonstrated above
-have the ability to set an `animationSpec` to customize how an animation runs,
-whether you'd like it to execute over a certain duration or be more bouncy.
+If you want to override the default, all the animation APIs demonstrated
+previously have the ability to set an `animationSpec` to customize how an
+animation runs, whether you'd like it to execute over a certain duration or be
+more bouncy.
 
 The following is a summary of the different `animationSpec` options:
 
@@ -679,7 +681,7 @@ The following is a summary of the different `animationSpec` options:
 - [`infiniteRepeatable`](https://developer.android.com/develop/ui/compose/animation/customize#infiniterepeatable): Duration-based spec that runs forever.
 - [`snap`](https://developer.android.com/develop/ui/compose/animation/customize#snap): Instantly snaps to the end value without any animation.
 
-![Write your alt text here](https://developer.android.com/static/develop/ui/compose/images/animations/animated_spec_set.gif) **Figure 16.** No spec set vs Custom Spring spec set
+![Two animations demonstrating no spec set versus a custom Spring spec set.](https://developer.android.com/static/develop/ui/compose/images/animations/animated_spec_set.gif) **Figure 16.** No spec set versus Custom Spring spec set
 
 Read the full documentation for more information about [animationSpecs](https://developer.android.com/develop/ui/compose/animation/customize#animationspec).
 

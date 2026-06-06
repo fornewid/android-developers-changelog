@@ -26,11 +26,11 @@ cohesive cross-device layouts while keeping content optimized for the wrist.
 Developers can adapt existing UI logic from the `mainSlot` of a legacy
 full-screen Tile into a 2x2 Widget.
 
-For more information on building widgets, see the [Wear Widgets guide](https://developer.android.com/training/wearables/widget).
+For more information on building widgets, see the [Wear Widgets guide](https://developer.android.com/training/wearables/widgets).
 
 ## Live Updates
 
-Wear OS 7 introduces highly glanceable [Live Updates](https://developer.android.com/develop/ui/views/notifications/live-update) to the wrist, letting
+Wear OS 7 introduces highly glanceable [Live Updates](https://developer.android.com/design/ui/mobile/guides/home-screen/live-updates) to the wrist, letting
 developers surface critical, real-time progress directly to users. Whether
 tracking an active workout, monitoring a rideshare, or displaying step-by-step
 navigation, Live Updates provide persistent visibility without requiring users

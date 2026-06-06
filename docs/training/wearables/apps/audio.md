@@ -156,7 +156,7 @@ After you detect and choose a suitable audio output, playing audio on Wear OS is
 the same as on mobile or other devices. For more information, see [MediaPlayer
 overview](https://developer.android.com/guide/topics/media/mediaplayer). For easier access to advanced features, for example, streaming and
 downloading media, use [ExoPlayer](https://developer.android.com/guide/topics/media/exoplayer). Follow best practices for audio apps, for
-example, [managing audio focus](https://developer.android.com/guide/topics/media/media-apps/audio-focus).
+example, [managing audio focus](https://developer.android.com/media/optimize/audio-focus).
 
 ### Prevent unintended media playback through built-in speakers
 

@@ -324,11 +324,11 @@ var MutableStyleState.playerState
     get() = this[playerStateKey]
     set(value) { this[playerStateKey] = value }
 
-fun StyleScope.playerPlaying(value: Style) {
-    state(playerStateKey, value, { key, state -> state[key] == PlayerState.Playing })
+fun StyleScope.playerPlaying(block: () -> Unit) {
+    state(playerStateKey, block, { key, state -> state[key] == PlayerState.Playing })
 }
-fun StyleScope.playerPaused(value: Style) {
-    state(playerStateKey, value, { key, state -> state[key] == PlayerState.Paused })
+fun StyleScope.playerPaused(block: () -> Unit) {
+    state(playerStateKey, block, { key, state -> state[key] == PlayerState.Paused })
 }
 ```
 
@@ -409,11 +409,11 @@ var MutableStyleState.playerState
     get() = this[playerStateKey]
     set(value) { this[playerStateKey] = value }
 
-fun StyleScope.playerPlaying(value: Style) {
-    state(playerStateKey, value, { key, state -> state[key] == PlayerState.Playing })
+fun StyleScope.playerPlaying(block: () -> Unit) {
+    state(playerStateKey, block, { key, state -> state[key] == PlayerState.Playing })
 }
-fun StyleScope.playerPaused(value: Style) {
-    state(playerStateKey, value, { key, state -> state[key] == PlayerState.Paused })
+fun StyleScope.playerPaused(block: () -> Unit) {
+    state(playerStateKey, block, { key, state -> state[key] == PlayerState.Paused })
 
 }
 

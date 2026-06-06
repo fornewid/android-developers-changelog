@@ -4,7 +4,7 @@ url: https://developer.android.com/jetpack/androidx/releases/tv
 source: md.txt
 ---
 
-# tv
+# Compose for TV
 
 Provides developers with Compose and Material design functionalities in order to write applications for TV
 

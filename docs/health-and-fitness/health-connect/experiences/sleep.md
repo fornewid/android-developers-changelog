@@ -135,47 +135,43 @@ To do so, create a set of permissions for the required data types.
 Make sure that the permissions in the set are declared in your Android
 manifest first.
 
-    // Create a set of permissions for required data types
-    val PERMISSIONS =
-        setOf(
-      HealthPermission.getReadPermission(SleepSessionRecord::class),
-      HealthPermission.getWritePermission(SleepSessionRecord::class),
-      HealthPermission.getReadPermission(HeartRateRecord::class),
-      HealthPermission.getWritePermission(HeartRateRecord::class),
-      HealthPermission.getReadPermission(OxygenSaturationRecord::class),
-      HealthPermission.getWritePermission(OxygenSaturationRecord::class),
-      HealthPermission.getReadPermission(RespiratoryRateRecord::class),
-      HealthPermission.getWritePermission(RespiratoryRateRecord::class)
+
+```kotlin
+val permissions =
+    setOf(
+        HealthPermission.getReadPermission(SleepSessionRecord::class),
+        HealthPermission.getWritePermission(SleepSessionRecord::class),
+        HealthPermission.getReadPermission(HeartRateRecord::class),
+        HealthPermission.getWritePermission(HeartRateRecord::class),
+        HealthPermission.getReadPermission(OxygenSaturationRecord::class),
+        HealthPermission.getWritePermission(OxygenSaturationRecord::class),
+        HealthPermission.getReadPermission(RespiratoryRateRecord::class),
+        HealthPermission.getWritePermission(RespiratoryRateRecord::class)
+    )
+```
+Use [`getGrantedPermissions`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/PermissionController#getGrantedPermissions()) to see if your app already has the required permissions granted. If not, use [`createRequestPermissionResultContract`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/PermissionController#createRequestPermissionResultContract(kotlin.String)) to request those permissions. This displays the Health Connect permissions screen.
+
+```kotlin
+val permissions = setOf(
+        HealthPermission.getReadPermission(StepsRecord::class),
+        HealthPermission.getWritePermission(StepsRecord::class),
+        HealthPermission.getReadPermission(HeartRateRecord::class),
+        HealthPermission.getWritePermission(HeartRateRecord::class)
     )
 
-Use [`getGrantedPermissions`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/PermissionController#getGrantedPermissions()) to see if your app already has the
-required permissions granted. If not, use
-[`createRequestPermissionResultContract`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/PermissionController#createRequestPermissionResultContract(kotlin.String)) to request
-those permissions. This displays the Health Connect permissions screen.
-
-    // Create the permissions launcher
-    val requestPermissionActivityContract = PermissionController.createRequestPermissionResultContract()
-
-    val requestPermissions = registerForActivityResult(requestPermissionActivityContract) { granted ->
-      if (granted.containsAll(PERMISSIONS)) {
-        // Permissions successfully granted
-      } else {
-        // Lack of required permissions
-      }
+val requestPermissionsLauncher = rememberLauncherForActivityResult(
+    contract = PermissionController.createRequestPermissionResultContract()
+) { grantedPermissions ->
+    if (grantedPermissions.containsAll(permissions)) {
+        coroutineScope.launch { snackbarHostState.showSnackbar("Permissions granted!") }
+    } else {
+        coroutineScope.launch { snackbarHostState.showSnackbar("Permissions denied.") }
     }
+}
+```
+Because users can grant or revoke permissions at any time, your app needs to check for permissions every time before using them and handle scenarios where permission is lost.
 
-    suspend fun checkPermissionsAndRun(healthConnectClient: HealthConnectClient) {
-      val granted = healthConnectClient.permissionController.getGrantedPermissions()
-      if (granted.containsAll(PERMISSIONS)) {
-        // Permissions already granted; proceed with inserting or reading data
-      } else {
-        requestPermissions.launch(PERMISSIONS)
-      }
-    }
-
-Because users can grant or revoke permissions at any time, your app needs to
-check for permissions every time before using them and handle scenarios where
-permission is lost.
+<br />
 
 ## Implement a sleep session
 

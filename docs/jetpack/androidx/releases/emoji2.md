@@ -305,8 +305,8 @@ To use the library, an app developer should
         <androidx.emoji2.emojipicker.EmojiPickerView
          android:id="@+id/emoji_picker"
          android:layout_width="match_parent"
-         android:layout_height="match_parent">;
-         app:emojiGridColumns="9" /
+         android:layout_height="match_parent"
+         app:emojiGridColumns="9" />
 
 in code
 

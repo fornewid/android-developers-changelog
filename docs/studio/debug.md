@@ -11,7 +11,7 @@ Android Studio provides a debugger that lets you do the following and more:
 - Examine variables and evaluate expressions at runtime.
 
 This page includes instructions for basic debugger operations. For more documentation, also
-see the [IntelliJ IDEA debugging docs](https://www.jetbrains.com/help/idea/2025.3/debugging.html).
+see the [IntelliJ IDEA debugging docs](https://www.jetbrains.com/help/idea/2026.1/debugging.html).
 
 ## Enable debugging
 

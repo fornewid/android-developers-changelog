@@ -204,7 +204,7 @@ changes:
 - **`Activity` recreation:** Configuration changes result in `Activity` recreation by default. This is a built-in mechanism to re-initialize app state for the new configuration.
 - **`Activity` destruction:** `Activity` recreation causes the system to destroy the old `Activity` instance and create a new one in its place. The old instance is now obsolete. Avoid retaining references to lifecycle-scoped objects beyond their intended scope.
 - **State:** State in the old `Activity` instance is not present in the new `Activity` instance, because they are two different object instances. Instead of tying state to the Activity, use recommended APIs to preserve the app and user's state as described in [Save UI states](https://developer.android.com/topic/libraries/architecture/saving-states).
-- **Opt-out:** Opting out of activity recreation for a type of configuration change requires that your app properly update in reaction to the new configuration. For most Compose apps, this isn't recommended.
+- **Opt-out:** Opting out of activity recreation for a type of configuration change requires that your app properly update in reaction to the new configuration.
 
 To provide a good user experience, observe the following best practices:
 

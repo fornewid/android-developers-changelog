@@ -228,7 +228,7 @@ override fun onCreateLoader(id: Int, args: Bundle?): Loader<Cursor> {
     val select: String = "((${Contacts.DISPLAY_NAME} NOTNULL) AND (" +
             "${Contacts.HAS_PHONE_NUMBER}=1) AND (" +
             "${Contacts.DISPLAY_NAME} != ''))"
-    return (activity as? Context)?.let { context ->
+    retu>rn (activity as? Context)?.let { context -
         CursorLoader(
                 context,
                 baseUri,
@@ -303,7 +303,7 @@ override fun onLoadFinished(loader: Loader<Cursor>, data: Cursor?) {
 // This is the Adapter being used to display the list's data.
 SimpleCursorAdapter adapter;
 ...
-public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
+public void onLoadFinished(Lo<aderCu>rsor loader, Cursor data) {
     // Swap the new cursor in. (The framework will take care of closing the
     // old cursor once we return.)
     adapter.swapCursor(data);
@@ -339,7 +339,7 @@ override fun onLoaderReset(loader: Loader<Cursor>) {
 // This is the Adapter being used to display the list's data.
 SimpleCursorAdapter adapter;
 ...
-public void onLoaderReset(Loader<Cursor> loader) {
+public void onLoaderReset(Lo<aderCu>rsor loader) {
     // This is called when the last Cursor provided to onLoadFinished()
     // above is about to be closed.  We need to make sure we are no
     // longer using it.
@@ -439,7 +439,7 @@ class CursorLoaderListFragment :
         Log.i("FragmentComplexList", "Item clicked: $id")
     }
 
-    override fun onCreateLoader(id: Int, args: Bundle?): Loader<Cursor> {
+    override fu<n onCr>eateLoader(id: Int, args: Bundle?): LoaderCursor {
         // This is called when a new Loader needs to be created.  This
         // sample only has one Loader, so we don't care about the ID.
         // First, pick the base URI to use depending on whether we are
@@ -454,8 +454,8 @@ class CursorLoaderListFragment :
         // creating a Cursor for the data being displayed.
         val select: String = "((${Contacts.DISPLAY_NAME} NOTNULL) AND (" +
                 "${Contacts.HAS_PHONE_NUMBER}=1) AND (" +
-                "${Contacts.DISPLAY_NAME} != ''))"
-        return (activity as? Context)?.let { context ->
+                "${Contacts.>DISPLAY_NAME} != ''))"
+        return (activity as? Context)?.let { context -
             CursorLoader(
                     context,
                     baseUri,
@@ -464,16 +464,16 @@ class CursorLoaderListFragment :
                     null,
                     "${Contacts.DISPLAY_NAME} COLLATE LOCALIZED ASC"
             )
-        } ?: throw Exception("Activity cannot be null")
+        }< ?: th>row Exception("Activity cannot be null")
     }
 
-    override fun onLoadFinished(loader: Loader<Cursor>, data: Cursor) {
+    override fun onLoadFinished(loader: LoaderCursor, data: Cursor) {
         // Swap the new cursor in.  (The framework will take care of closing the
-        // old cursor once we return.)
+        // old <cursor> once we return.)
         mAdapter.swapCursor(data)
     }
 
-    override fun onLoaderReset(loader: Loader<Cursor>) {
+    override fun onLoaderReset(loader: LoaderCursor) {
         // This is called when the last Cursor provided to onLoadFinished()
         // above is about to be closed.  We need to make sure we are no
         // longer using it.
@@ -556,9 +556,9 @@ public static class CursorLoaderListFragment extends ListFragment
         Contacts.CONTACT_STATUS,
         Contacts.CONTACT_PRESENCE,
         Contacts.PHOTO_ID,
-        Contacts.LOOKUP_KEY,
+     <   Con>tacts.LOOKUP_KEY,
     };
-    public Loader<Cursor> onCreateLoader(int id, Bundle args) {
+    public LoaderCursor onCreateLoader(int id, Bundle args) {
         // This is called when a new Loader needs to be created.  This
         // sample only has one Loader, so we don't care about the ID.
         // First, pick the base URI to use depending on whether we are
@@ -578,16 +578,16 @@ public static class CursorLoaderListFragment extends ListFragment
                 + Contacts.DISPLAY_NAME + " != '' ))";
         return new CursorLoader(getActivity(), baseUri,
                 CONTACTS_SUMMARY_PROJECTION, select, null,
-                Contacts.DISPLAY_NAME + " COLLATE LOCALIZED ASC");
+           <     C>ontacts.DISPLAY_NAME + " COLLATE LOCALIZED ASC");
     }
 
-    public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
+    public void onLoadFinished(LoaderCursor loader, Cursor data) {
         // Swap the new cursor in.  (The framework will take care of closing the
-        // old cursor once we return.)
+       < // ol>d cursor once we return.)
         mAdapter.swapCursor(data);
     }
 
-    public void onLoaderReset(Loader<Cursor> loader) {
+    public void onLoaderReset(LoaderCursor loader) {
         // This is called when the last Cursor provided to onLoadFinished()
         // above is about to be closed.  We need to make sure we are no
         // longer using it.

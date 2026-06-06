@@ -45,7 +45,7 @@ Android Studio. You can view warnings and errors in two ways:
 - In the lint **Inspection Results** window when you click **Code \> Inspect Code**.
 
 **Note:** When your code is compiled in Android Studio, additional
-[IntelliJ code inspections](https://www.jetbrains.com/help/idea/2025.3/code-inspection.html) run to streamline code
+[IntelliJ code inspections](https://www.jetbrains.com/help/idea/2026.1/code-inspection.html) run to streamline code
 review. Keep [Android Studio](https://developer.android.com/studio) as up-to-date as possible to ensure
 the latest lint rules and inspections are available.
 
@@ -569,7 +569,7 @@ inspections you want to run (the inspection *profile*) as follows:
 
    To change what to inspect, select
    one of the other radio buttons. See
-   [Specify Inspection Scope dialog](https://www.jetbrains.com/help/idea/2025.3/specify-inspection-scope-dialog.html) for a description of all
+   [Specify Inspection Scope dialog](https://www.jetbrains.com/help/idea/2026.1/specify-inspection-scope-dialog.html) for a description of all
    possible fields on the **Specify Inspection Scope** dialog.
 4. Under **Inspection profile**, select the profile you want to use.
 5. Click **OK** to run the inspection.
@@ -598,7 +598,7 @@ inspections you want to run (the inspection *profile*) as follows:
 
 
 For descriptions of the toolbar buttons, context menu items, and inspection
-report fields, see [Inspection Results tool window](https://www.jetbrains.com/help/idea/2025.3/inspection-tool-window.html).
+report fields, see [Inspection Results tool window](https://www.jetbrains.com/help/idea/2026.1/inspection-tool-window.html).
 
 ### Use a custom scope
 
@@ -698,7 +698,7 @@ To access the **Inspections** settings:
    **Project Default** (the active project) inspections.
 
    For more information, see the IntelliJ
-   [Manage profiles](https://www.jetbrains.com/help/idea/2025.3/inspections-settings.html#profile_management) page.
+   [Manage profiles](https://www.jetbrains.com/help/idea/2026.1/inspections-settings.html#profile_management) page.
 5. In the **Inspections** list in the left pane, select a top-level profile category or
    expand a group and select a specific profile.
 

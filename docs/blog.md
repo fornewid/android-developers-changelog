@@ -22,6 +22,38 @@ Tools and resources to help you build faster and easier.
 
 ## The Latest
 
+- [![](https://developer.android.com/static/blog/assets/Ataul_Munim_cf0796f68c_r1HY2.webp)](https://developer.android.com/blog/authors/ataul-munim) 02 Jun 2026 02 Jun 2026 ![](https://developer.android.com/static/blog/assets/MM_Differentiated_Experiences_Strapi_bbe8e7618b_19k3ww.webp)
+
+  #### [Product News](https://developer.android.com/blog/categories/product-news)
+
+  ## [Building Premium Android Experiences at Google I/O '26](https://developer.android.com/blog/posts/building-premium-android-experiences-at-google-i-o-26)
+
+  At Google I/O '26, we showcased how the latest advancements in the Android ecosystem can help you elevate your app's quality while maximizing development efficiency.
+
+  ###### [Ataul Munim](https://developer.android.com/blog/authors/ataul-munim) •
+  3 min read
+
+  - [#Performance](https://developer.android.com/blog/topics/performance)
+  - [#Memory](https://developer.android.com/blog/topics/memory)
+  - [#R8](https://developer.android.com/blog/topics/r8)
+  - [#Wear OS](https://developer.android.com/blog/topics/wear-os)
+  - [#Automotive OS](https://developer.android.com/blog/topics/automotive-os)
+  - +3 ↩
+- 3 Authors 02 Jun 2026 02 Jun 2026 ![](https://developer.android.com/static/blog/assets/Engineering_Memory_Blog_Strapi_3_bfd74f43e5_Z2i8kF7.webp)
+
+  #### [How-tos](https://developer.android.com/blog/categories/how-tos)
+
+  ## [Prioritizing Memory Efficiency: Essential Steps for Android 17](https://developer.android.com/blog/posts/prioritizing-memory-efficiency-essential-steps-for-android-17)
+
+  While app performance is often equated with a smooth UI and fast start times, memory serves as the silent foundation upon which these visible metrics are built. It's no secret that we're seeing a shift where device memory is more important than ever.
+
+  ###### [Alice Yuan](https://developer.android.com/blog/authors/alice-yuan), [Ajesh Pai](https://developer.android.com/blog/authors/ajesh-pai), [Fung Lam](https://developer.android.com/blog/authors/fung-lam) •
+  10 min read
+
+  - [#Memory](https://developer.android.com/blog/topics/memory)
+  - [#Android](https://developer.android.com/blog/topics/android)
+  - [#Performance](https://developer.android.com/blog/topics/performance)
+  - +1 ↩
 - [![](https://developer.android.com/static/blog/assets/Jingyu_Shi_ab6f01bd32_ZXPVGC.webp)](https://developer.android.com/blog/authors/jingyu-shi) 26 May 2026 26 May 2026 ![](https://developer.android.com/static/blog/assets/Blog_hero_Strapi_2x_0147a8b012_1yD2LQ.webp)
 
   #### [Product News](https://developer.android.com/blog/categories/product-news)
@@ -82,38 +114,6 @@ Tools and resources to help you build faster and easier.
   - [#Adaptive apps](https://developer.android.com/blog/topics/adaptive-apps)
   - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
   - +1 ↩
-- [![](https://developer.android.com/static/blog/assets/Paul_Lammertsma_2f7e1baf32_Z28iSTy.webp)](https://developer.android.com/blog/authors/paul-lammertsma) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Text_Strapi_2000x1000_2d4221d884_ZtW7eg.webp)
-
-  #### [Product News](https://developer.android.com/blog/categories/product-news)
-
-  ## [Increasing app discovery and engagement on Google TV](https://developer.android.com/blog/posts/increasing-app-discovery-and-engagement-on-google-tv)
-
-  We're excited to share Google TV features and developer tools designed to increase the discoverability of your content and prepare your app for future TV experiences.
-
-  ###### [Paul Lammertsma](https://developer.android.com/blog/authors/paul-lammertsma) •
-  4 min read
-
-  - [#Gemini features](https://developer.android.com/blog/topics/gemini-features)
-  - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
-  - [#Engage SDK](https://developer.android.com/blog/topics/engage-sdk)
-  - +1 ↩
-- [![](https://developer.android.com/static/blog/assets/Amyzeppenfeld_50a8b9e7f8_Z1LAQnM.webp)](https://developer.android.com/blog/authors/amy-zeppenfeld)[![](https://developer.android.com/static/blog/assets/Stevan_Silva_7661118077_V4WGm.webp)](https://developer.android.com/blog/authors/stevan-silva) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Text_Strapi_2000x1000_2d4221d884_ZtW7eg.webp)
-
-  #### [Product News](https://developer.android.com/blog/categories/product-news)
-
-  ## [Updates to the Android XR SDK: Introducing Developer Preview 4](https://developer.android.com/blog/posts/updates-to-the-android-xr-sdk-introducing-developer-preview-4)
-
-  We're excited to launch Developer Preview 4 of the Android XR SDK, continuing our focus on unifying cross-device development for headsets, wired XR glasses, and intelligent eyewear.
-
-  ###### [Amy Zeppenfeld](https://developer.android.com/blog/authors/amy-zeppenfeld), [Stevan Silva](https://developer.android.com/blog/authors/stevan-silva) •
-  5 min read
-
-  - [#Android XR](https://developer.android.com/blog/topics/android-xr)
-  - [#Android XR SDK](https://developer.android.com/blog/topics/android-xr-sdk)
-  - [#Developer Preview](https://developer.android.com/blog/topics/developer-preview)
-  - [#Unity](https://developer.android.com/blog/topics/unity)
-  - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
-  - +3 ↩
 [arrow_forward
 See all latest posts](https://developer.android.com/blog/latest) ![](https://developer.android.com/static/blog/assets/product_news_droid_599a11ad69_d4ee764ece_1mQM4e.webp)
 

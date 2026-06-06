@@ -26,7 +26,7 @@ development of apps that adapt to any display size.
 
 ## Adaptive UI
 
-- [Build adaptive apps](https://developer.android.com/develop/adaptive-apps/guides/build-adaptive-apps): Learn the core principles of creating layouts optimized for any display size, including phones, tablets, foldables, and more.
+- [Build adaptive apps](https://developer.android.com/develop/adaptive-apps): Learn the core principles of creating layouts optimized for any display size, including phones, tablets, foldables, and more.
 - [Apply proven layouts](https://developer.android.com/develop/adaptive-apps/guides/canonical-layouts): Use canonical layouts like list-detail and supporting pane for optimized apps on large screens.
 - [Adaptive navigation](https://developer.android.com/guide/topics/large-screens/navigation-for-responsive-uis): Implement navigation patterns that automatically adjust to the available display space.
 

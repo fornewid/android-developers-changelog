@@ -113,45 +113,41 @@ To do so, create a set of permissions for the required data types.
 Make sure that the permissions in the set are declared in your Android
 manifest first.
 
-    // Create a set of permissions for required data types
-    val PERMISSIONS =
-        setOf(
-      HealthPermission.getReadPermission(HeartRateRecord::class),
-      HealthPermission.getWritePermission(HeartRateRecord::class),
-      HealthPermission.getReadPermission(PlannedExerciseSessionRecord::class),
-      HealthPermission.getWritePermission(PlannedExerciseSessionRecord::class),
-      HealthPermission.getReadPermission(ExerciseSessionRecord::class),
-      HealthPermission.getWritePermission(ExerciseSessionRecord::class)
+
+```kotlin
+val permissions =
+    setOf(
+        HealthPermission.getReadPermission(HeartRateRecord::class),
+        HealthPermission.getWritePermission(HeartRateRecord::class),
+        HealthPermission.getReadPermission(PlannedExerciseSessionRecord::class),
+        HealthPermission.getWritePermission(PlannedExerciseSessionRecord::class),
+        HealthPermission.getReadPermission(ExerciseSessionRecord::class),
+        HealthPermission.getWritePermission(ExerciseSessionRecord::class)
+    )
+```
+Use [`getGrantedPermissions`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/PermissionController#getGrantedPermissions()) to see if your app already has the required permissions granted. If not, use [`createRequestPermissionResultContract`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/PermissionController#createRequestPermissionResultContract(kotlin.String)) to request those permissions. This displays the Health Connect permissions screen.
+
+```kotlin
+val permissions = setOf(
+        HealthPermission.getReadPermission(StepsRecord::class),
+        HealthPermission.getWritePermission(StepsRecord::class),
+        HealthPermission.getReadPermission(HeartRateRecord::class),
+        HealthPermission.getWritePermission(HeartRateRecord::class)
     )
 
-Use [`getGrantedPermissions`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/PermissionController#getGrantedPermissions()) to see if your app already has the
-required permissions granted. If not, use
-[`createRequestPermissionResultContract`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/PermissionController#createRequestPermissionResultContract(kotlin.String)) to request
-those permissions. This displays the Health Connect permissions screen.
-
-    // Create the permissions launcher
-    val requestPermissionActivityContract = PermissionController.createRequestPermissionResultContract()
-
-    val requestPermissions = registerForActivityResult(requestPermissionActivityContract) { granted ->
-      if (granted.containsAll(PERMISSIONS)) {
-        // Permissions successfully granted
-      } else {
-        // Lack of required permissions
-      }
+val requestPermissionsLauncher = rememberLauncherForActivityResult(
+    contract = PermissionController.createRequestPermissionResultContract()
+) { grantedPermissions ->
+    if (grantedPermissions.containsAll(permissions)) {
+        coroutineScope.launch { snackbarHostState.showSnackbar("Permissions granted!") }
+    } else {
+        coroutineScope.launch { snackbarHostState.showSnackbar("Permissions denied.") }
     }
+}
+```
+Because users can grant or revoke permissions at any time, your app needs to check for permissions every time before using them and handle scenarios where permission is lost.
 
-    suspend fun checkPermissionsAndRun(healthConnectClient: HealthConnectClient) {
-      val granted = healthConnectClient.permissionController.getGrantedPermissions()
-      if (granted.containsAll(PERMISSIONS)) {
-        // Permissions already granted; proceed with inserting or reading data
-      } else {
-        requestPermissions.launch(PERMISSIONS)
-      }
-    }
-
-Because users can grant or revoke permissions at any time, your app needs to
-check for permissions every time before using them and handle scenarios where
-permission is lost.
+<br />
 
 ### Related permissions
 
@@ -252,47 +248,69 @@ A snippet like this may be found in the form handler for an app that logs
 planned exercise sessions to Health Connect. It could also be found in the
 ingest point for integrations, say with a service that offers training.
 
-    // Verify the user has granted all necessary permissions for this task
-    val grantedPermissions =
-        healthConnectClient.permissionController.getGrantedPermissions()
-    if (!grantedPermissions.contains(
-          HealthPermission.getWritePermission(PlannedExerciseSessionRecord::class))) {
-        // The user hasn't granted the app permission to write planned exercise session data.
-        return
+
+```kotlin
+// Verify the user has granted all necessary permissions for this task
+val grantedPermissions =
+    healthConnectClient.permissionController.getGrantedPermissions()
+
+if (!grantedPermissions.contains(
+        HealthPermission.getWritePermission(PlannedExerciseSessionRecord::class))) {
+    // The user hasn't granted the app permission to write planned exercise session data.
+    Log.w("HealthConnect", "Write permission for PlannedExerciseSessionRecord not granted.")
+    return
+}
+
+val plannedExerciseSessionRecord = PlannedExerciseSessionRecord(
+    startTime = startTime,
+    endTime = endTime,
+    exerciseType = ExerciseSessionRecord.EXERCISE_TYPE_RUNNING,
+    blocks = listOf(
+        PlannedExerciseBlock(
+            repetitions = 1, steps = listOf(
+                PlannedExerciseStep(
+                    exerciseType = ExerciseSegment.EXERCISE_SEGMENT_TYPE_RUNNING,
+                    exercisePhase = PlannedExerciseStep.EXERCISE_PHASE_ACTIVE,
+                    completionGoal = ExerciseCompletionGoal.RepetitionsGoal(repetitions = 3),
+                    performanceTargets = listOf(
+                        ExercisePerformanceTarget.HeartRateTarget(
+                            minHeartRate = 90.0, maxHeartRate = 110.0
+                        )
+                    )
+                ),
+            ), description = "Three laps around the lake"
+        )
+    ),
+    title = "Run at lake",
+    notes = null,
+    metadata = Metadata(
+        device = Device(type = Device.Companion.TYPE_PHONE),
+    ),
+    startZoneOffset = null,
+    endZoneOffset = null,
+)
+
+try {
+    // Attempt to insert the record
+    val response = healthConnectClient.insertRecords(listOf(plannedExerciseSessionRecord))
+
+    // If execution reaches here, the insert succeeded.
+    // Safely extract the ID using firstOrNull()
+    val insertedPlannedExerciseSessionId = response.recordIdsList.firstOrNull()
+
+    if (insertedPlannedExerciseSessionId != null) {
+        Log.d("HealthConnect", "Successfully inserted planned exercise session ID: $insertedPlannedExerciseSessionId")
+    } else {
+        Log.w("HealthConnect", "Insertion succeeded but no record IDs were returned.")
     }
 
-    val plannedDuration = Duration.ofMinutes(90)
-    val plannedStartDate = LocalDate.now().plusDays(2)
+} catch (e: Exception) {
+    // Handle API failures, database errors, or system issues safely without crashing
+    Log.e("HealthConnect", "Failed to insert planned exercise session record", e)
+}
+```
 
-    val plannedExerciseSessionRecord = PlannedExerciseSessionRecord(
-        startDate = plannedStartDate,
-        duration = plannedDuration,
-        exerciseType = ExerciseSessionRecord.EXERCISE_TYPE_RUNNING,
-        blocks = listOf(
-            PlannedExerciseBlock(
-                repetitions = 1, steps = listOf(
-                    PlannedExerciseStep(
-                        exerciseType = ExerciseSegment.EXERCISE_SEGMENT_TYPE_RUNNING,
-                        exercisePhase = PlannedExerciseStep.EXERCISE_PHASE_ACTIVE,
-                        completionGoal = ExerciseCompletionGoal.RepetitionsGoal(repetitions = 3),
-                        performanceTargets = listOf(
-                            ExercisePerformanceTarget.HeartRateTarget(
-                                minHeartRate = 90.0, maxHeartRate = 110.0
-                            )
-                        )
-                    ),
-                ), description = "Three laps around the lake"
-            )
-        ),
-        title = "Run at lake",
-        notes = null,
-        metadata = Metadata.manualEntry(
-          device = Device(type = Device.Companion.TYPE_PHONE)
-        )
-    )
-    val insertedPlannedExerciseSessions =
-        healthConnectClient.insertRecords(listOf(plannedExerciseSessionRecord)).recordIdsList
-    val insertedPlannedExerciseSessionId = insertedPlannedExerciseSessions.first()
+<br />
 
 ### Log exercise and activity data
 
@@ -311,41 +329,46 @@ sessions.
 a real app, the ID would be determined by the user selecting a planned exercise
 session from a list of existing sessions.
 
-    // Verify the user has granted all necessary permissions for this task
-    val grantedPermissions =
-        healthConnectClient.permissionController.getGrantedPermissions()
-    if (!grantedPermissions.contains(
-          HealthPermission.getWritePermission(ExerciseSessionRecord::class))) {
-        // The user doesn't granted the app permission to write exercise session data.
-        return
-    }
 
-    val sessionDuration = Duration.ofMinutes(90)
-    val sessionEndTime = Instant.now()
-    val sessionStartTime = sessionEndTime.minus(sessionDuration)
+```kotlin
+// Verify the user has granted all necessary permissions for this task
+val grantedPermissions =
+    healthConnectClient.permissionController.getGrantedPermissions()
+if (!grantedPermissions.contains(
+        HealthPermission.getWritePermission(ExerciseSessionRecord::class))) {
+    // The user doesn't granted the app permission to write exercise session data.
+    return
+}
 
-    val exerciseSessionRecord = ExerciseSessionRecord(
-        startTime = sessionStartTime,
-        startZoneOffset = ZoneOffset.UTC,
-        endTime = sessionEndTime,
-        endZoneOffset = ZoneOffset.UTC,
-        exerciseType = ExerciseSessionRecord.EXERCISE_TYPE_RUNNING,
-        segments = listOf(
-            ExerciseSegment(
-                startTime = sessionStartTime,
-                endTime = sessionEndTime,
-                repetitions = 3,
-                segmentType = ExerciseSegment.EXERCISE_SEGMENT_TYPE_RUNNING
-            )
-        ),
-        title = "Run at lake",
-        plannedExerciseSessionId = insertedPlannedExerciseSessionId,
-        metadata = Metadata.manualEntry(
-          device = Device(type = Device.Companion.TYPE_PHONE)
+val sessionDuration = Duration.ofMinutes(90)
+val sessionEndTime = Instant.now()
+val sessionStartTime = sessionEndTime.minus(sessionDuration)
+
+val exerciseSessionRecord = ExerciseSessionRecord(
+    startTime = sessionStartTime,
+    startZoneOffset = ZoneOffset.UTC,
+    endTime = sessionEndTime,
+    endZoneOffset = ZoneOffset.UTC,
+    exerciseType = ExerciseSessionRecord.EXERCISE_TYPE_RUNNING,
+    segments = listOf(
+        ExerciseSegment(
+            startTime = sessionStartTime,
+            endTime = sessionEndTime,
+            repetitions = 3,
+            segmentType = ExerciseSegment.EXERCISE_SEGMENT_TYPE_RUNNING
         )
+    ),
+    title = "Run at lake",
+    plannedExerciseSessionId = insertedPlannedExerciseSessionId,
+    metadata = Metadata(
+        device = Device(type = Device.Companion.TYPE_PHONE)
     )
-    val insertedExerciseSessions =
-        healthConnectClient.insertRecords(listOf(exerciseSessionRecord))
+)
+val insertedExerciseSessions =
+    healthConnectClient.insertRecords(listOf(exerciseSessionRecord))
+```
+
+<br />
 
 A wearable also logs their heart rate throughout the run. The following snippet
 could be used to generate records within the target range.
@@ -354,38 +377,43 @@ In a real app, the primary pieces of this snippet might be found in the handler
 for a message from a wearable, which would write measurement to Health Connect
 upon collection.
 
-    // Verify the user has granted all necessary permissions for this task
-    val grantedPermissions =
-        healthConnectClient.permissionController.getGrantedPermissions()
-    if (!grantedPermissions.contains(
-          HealthPermission.getWritePermission(HeartRateRecord::class))) {
-        // The user doesn't granted the app permission to write heart rate record data.
-        return
-    }
 
-    val samples = mutableListOf<HeartRateRecord.Sample>()
-    var currentTime = sessionStartTime
-    while (currentTime.isBefore(sessionEndTime)) {
-        val bpm = Random.nextInt(21) + 90
-        val heartRateRecord = HeartRateRecord.Sample(
-            time = currentTime,
-            beatsPerMinute = bpm.toLong(),
-        )
-        samples.add(heartRateRecord)
-        currentTime = currentTime.plusSeconds(180)
-    }
+```kotlin
+// Verify the user has granted all necessary permissions for this task
+val grantedPermissions =
+    healthConnectClient.permissionController.getGrantedPermissions()
+if (!grantedPermissions.contains(
+        HealthPermission.getWritePermission(HeartRateRecord::class))) {
+    // The user doesn't granted the app permission to write heart rate record data.
+    return
+}
 
-    val heartRateRecord = HeartRateRecord(
-        startTime = sessionStartTime,
-        startZoneOffset = ZoneOffset.UTC,
-        endTime = sessionEndTime,
-        endZoneOffset = ZoneOffset.UTC,
-        samples = samples,
-        metadata = Metadata.autoRecorded(
-          device = Device(type = Device.Companion.TYPE_WATCH)
-        )
+val samples = mutableListOf<HeartRateRecord.Sample>()
+var currentTime = sessionStartTime
+while (currentTime.isBefore(sessionEndTime)) {
+    val bpm = Random.nextInt(21) + 90
+    val heartRateRecord = HeartRateRecord.Sample(
+        time = currentTime,
+        beatsPerMinute = bpm.toLong(),
     )
-    val insertedHeartRateRecords = healthConnectClient.insertRecords(listOf(heartRateRecord))
+    samples.add(heartRateRecord)
+    currentTime = currentTime.plusSeconds(180)
+}
+
+val heartRateRecord = HeartRateRecord(
+    startTime = sessionStartTime,
+    startZoneOffset = ZoneOffset.UTC,
+    endTime = sessionEndTime,
+    endZoneOffset = ZoneOffset.UTC,
+    samples = samples,
+    metadata = Metadata(
+        device = Device(type = Device.Companion.TYPE_WATCH)
+    )
+)
+val insertedHeartRateRecords = healthConnectClient.insertRecords(listOf(heartRateRecord))
+```
+
+<br />
 
 ### Evaluate performance targets
 
@@ -397,9 +425,11 @@ A snippet like this would likely be found in a periodic job to evaluate
 performance targets or when loading a list of exercises and displaying a
 notification about performance targets in an app.
 
+
+```kotlin
     // Verify the user has granted all necessary permissions for this task
     val grantedPermissions =
-         healthConnectClient.permissionController.getGrantedPermissions()
+        healthConnectClient.permissionController.getGrantedPermissions()
     if (!grantedPermissions.containsAll(
             listOf(
                 HealthPermission.getReadPermission(ExerciseSessionRecord::class),
@@ -449,11 +479,10 @@ notification about performance targets in an app.
                                     if(
                                         minBpm >= minTarget && maxBpm <= maxTarget
                                     ) {
-                                      // Success!
+                                        // Success!
                                     }
                                 }
                                 // Handle more target types
-                                }
                             }
                         }
                     }
@@ -461,6 +490,10 @@ notification about performance targets in an app.
             }
         }
     }
+}
+```
+
+<br />
 
 ## Exercise sessions
 

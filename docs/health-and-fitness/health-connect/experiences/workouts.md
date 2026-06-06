@@ -150,61 +150,60 @@ To do so, create a set of permissions for the required data types.
 Make sure that the permissions in the set are declared in your Android
 manifest first.
 
-    // Create a set of permissions for required data types
-    val PERMISSIONS =
-        setOf(
-      HealthPermission.getReadPermission(ExerciseSessionRecord::class),
-      HealthPermission.getWritePermission(ExerciseSessionRecord::class),
-      HealthPermission.getReadPermission(ExerciseRoute::class),
-      HealthPermission.getWritePermission(ExerciseRoute::class),
-      HealthPermission.getReadPermission(HeartRateRecord::class),
-      HealthPermission.getWritePermission(HeartRateRecord::class),
-      HealthPermission.getReadPermission(SpeedRecord::class),
-      HealthPermission.getWritePermission(SpeedRecord::class),
-      HealthPermission.getReadPermission(DistanceRecord::class),
-      HealthPermission.getWritePermission(DistanceRecord::class),
-      HealthPermission.getReadPermission(TotalCaloriesBurnedRecord::class),
-      HealthPermission.getWritePermission(TotalCaloriesBurnedRecord::class),
-      HealthPermission.getReadPermission(StepsRecord::class),
-      HealthPermission.getWritePermission(StepsRecord::class)
+
+```kotlin
+val permissions =
+    setOf(
+        HealthPermission.getReadPermission(ExerciseSessionRecord::class),
+        HealthPermission.getWritePermission(ExerciseSessionRecord::class),
+        HealthPermission.getReadPermission(HeartRateRecord::class),
+        HealthPermission.getWritePermission(HeartRateRecord::class),
+        HealthPermission.getReadPermission(SpeedRecord::class),
+        HealthPermission.getWritePermission(SpeedRecord::class),
+        HealthPermission.getReadPermission(DistanceRecord::class),
+        HealthPermission.getWritePermission(DistanceRecord::class),
+        HealthPermission.getReadPermission(TotalCaloriesBurnedRecord::class),
+        HealthPermission.getWritePermission(TotalCaloriesBurnedRecord::class),
+        HealthPermission.getReadPermission(StepsRecord::class),
+        HealthPermission.getWritePermission(StepsRecord::class)
+    )
+```
+Use [`getGrantedPermissions`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/PermissionController#getGrantedPermissions()) to see if your app already has the required permissions granted. If not, use [`createRequestPermissionResultContract`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/PermissionController#createRequestPermissionResultContract(kotlin.String)) to request those permissions. This displays the Health Connect permissions screen.
+
+```kotlin
+val permissions = setOf(
+        HealthPermission.getReadPermission(StepsRecord::class),
+        HealthPermission.getWritePermission(StepsRecord::class),
+        HealthPermission.getReadPermission(HeartRateRecord::class),
+        HealthPermission.getWritePermission(HeartRateRecord::class)
     )
 
-Use [`getGrantedPermissions`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/PermissionController#getGrantedPermissions()) to see if your app already has the
-required permissions granted. If not, use
-[`createRequestPermissionResultContract`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/PermissionController#createRequestPermissionResultContract(kotlin.String)) to request
-those permissions. This displays the Health Connect permissions screen.
-
-    // Create the permissions launcher
-    val requestPermissionActivityContract = PermissionController.createRequestPermissionResultContract()
-
-    val requestPermissions = registerForActivityResult(requestPermissionActivityContract) { granted ->
-      if (granted.containsAll(PERMISSIONS)) {
-        // Permissions successfully granted
-      } else {
-        // Lack of required permissions
-      }
+val requestPermissionsLauncher = rememberLauncherForActivityResult(
+    contract = PermissionController.createRequestPermissionResultContract()
+) { grantedPermissions ->
+    if (grantedPermissions.containsAll(permissions)) {
+        coroutineScope.launch { snackbarHostState.showSnackbar("Permissions granted!") }
+    } else {
+        coroutineScope.launch { snackbarHostState.showSnackbar("Permissions denied.") }
     }
+}
+```
+Because users can grant or revoke permissions at any time, your app needs to check for permissions every time before using them and handle scenarios where permission is lost.
 
-    suspend fun checkPermissionsAndRun(healthConnectClient: HealthConnectClient) {
-      val granted = healthConnectClient.permissionController.getGrantedPermissions()
-      if (granted.containsAll(PERMISSIONS)) {
-        // Permissions already granted; proceed with inserting or reading data
-      } else {
-        requestPermissions.launch(PERMISSIONS)
-      }
-    }
-
-Because users can grant or revoke permissions at any time, your app needs to
-check for permissions every time before using them and handle scenarios where
-permission is lost.
+<br />
 
 To request permissions, call the `checkPermissionsAndRun` function:
 
-    if (!granted.containsAll(PERMISSIONS)) {
-        requestPermissions.launch(PERMISSIONS)
-        // Check if required permissions are not granted, and return
-      }
-    // Permissions already granted; proceed with inserting or reading data
+
+```kotlin
+if (!granted.containsAll(permissions)) {
+    // Check if required permissions are not granted, and return
+    return emptySet()
+}
+// Permissions already granted; proceed with inserting or reading data
+```
+
+<br />
 
 If you only need to request permissions for a single data type, such as heart
 rate, include only that data type in your permissions set:
@@ -249,18 +248,24 @@ To create a new workout:
 
 Example:
 
-    val sessionId = UUID.randomUUID().toString()
-    val sessionClientId = UUID.randomUUID().toString()
 
-    val session = ExerciseSessionRecord(
-        id = sessionId,
-        exerciseType = ExerciseType.EXERCISE_TYPE_RUNNING,
-        startTime = Instant.now(),
-        endTime = null,
-        metadata = Metadata(clientRecordId = sessionClientId),
-    )
+```kotlin
+val sessionClientId = UUID.randomUUID().toString()
+val zoneOffset = ZoneOffset.systemDefault().rules.getOffset(startTime)
 
-    healthConnectClient.insertRecords(listOf(session))
+val session =   ExerciseSessionRecord(
+    startTime = startTime,
+    startZoneOffset = zoneOffset,
+    endTime = startTime.plusSeconds(3600),
+    endZoneOffset = zoneOffset,
+    exerciseType = ExerciseSessionRecord.EXERCISE_TYPE_RUNNING,
+    metadata = Metadata(clientRecordId = sessionClientId),
+)
+
+healthConnectClient.insertRecords(listOf(session))
+```
+
+<br />
 
 ### Record exercise routes
 

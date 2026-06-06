@@ -9,6 +9,21 @@ source: md.txt
 # Product News
 
 Stay in the loop with the latest updates, feature releases, and behind-the-scenes looks at how we're evolving.
+- [![](https://developer.android.com/static/blog/assets/Ataul_Munim_cf0796f68c_r1HY2.webp)](https://developer.android.com/blog/authors/ataul-munim) 02 Jun 2026 02 Jun 2026 ![](https://developer.android.com/static/blog/assets/MM_Differentiated_Experiences_Strapi_bbe8e7618b_19k3ww.webp)
+
+  ## [Building Premium Android Experiences at Google I/O '26](https://developer.android.com/blog/posts/building-premium-android-experiences-at-google-i-o-26)
+
+  [arrow_forward](https://developer.android.com/blog/posts/building-premium-android-experiences-at-google-i-o-26) At Google I/O '26, we showcased how the latest advancements in the Android ecosystem can help you elevate your app's quality while maximizing development efficiency.
+
+  ###### [Ataul Munim](https://developer.android.com/blog/authors/ataul-munim) •
+  3 min read
+
+  - [#Performance](https://developer.android.com/blog/topics/performance)
+  - [#Memory](https://developer.android.com/blog/topics/memory)
+  - [#R8](https://developer.android.com/blog/topics/r8)
+  - [#Wear OS](https://developer.android.com/blog/topics/wear-os)
+  - [#Automotive OS](https://developer.android.com/blog/topics/automotive-os)
+  - +3 ↩
 - [![](https://developer.android.com/static/blog/assets/Jingyu_Shi_ab6f01bd32_ZXPVGC.webp)](https://developer.android.com/blog/authors/jingyu-shi) 26 May 2026 26 May 2026 ![](https://developer.android.com/static/blog/assets/Blog_hero_Strapi_2x_0147a8b012_1yD2LQ.webp)
 
   ## [Top AI on Android updates for building intelligent experiences from Google I/O '26](https://developer.android.com/blog/posts/top-ai-on-android-updates-for-building-intelligent-experiences-from-google-i-o-26)
@@ -76,20 +91,6 @@ Stay in the loop with the latest updates, feature releases, and behind-the-scene
   - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
   - [#Engage SDK](https://developer.android.com/blog/topics/engage-sdk)
   - +1 ↩
-- [![](https://developer.android.com/static/blog/assets/paul_feng_759ac95845_spvRU.webp)](https://developer.android.com/blog/authors/paul-feng) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/IO_26_Blog_Strapi_Icons_2000x1000px_0a8b06b49b_Z1e2APA.webp)
-
-  ## [I/O 2026: What's new in Google Play](https://developer.android.com/blog/posts/i-o-2026-what-s-new-in-google-play)
-
-  [arrow_forward](https://developer.android.com/blog/posts/i-o-2026-what-s-new-in-google-play) At this year's Google I/O, we talked about our evolving business model that offers more choice and new ways for your apps and content to be discovered on and off the store. We also unveiled advanced tools and insights that will help scale your business with less complexity.
-
-  ###### [Paul Feng](https://developer.android.com/blog/authors/paul-feng) •
-  6 min read
-
-  - [#Google Play](https://developer.android.com/blog/topics/google-play)
-  - [#Play Console](https://developer.android.com/blog/topics/play-console)
-  - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
-  - [#Android Developers](https://developer.android.com/blog/topics/android-developers)
-  - +2 ↩
 <button class="adb--button adb--standard adb--outlined adb--disabled adb--global-hover-button astro-vnzlvqnm" disabled=""> arrow_back </button>
 
 #### Page 1

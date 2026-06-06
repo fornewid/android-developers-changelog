@@ -29,7 +29,7 @@ Represents the response received from Play Games Services when requesting a serv
 ```c#
  AuthResponse(
   string authCode,
-  List&lhttps://developer.android.com/games/services/unity/v2/api/namespace/google-play-games/basic-api#namespace_google_play_games_1_1_basic_api_1ab5415b6b4ad0724108f447b203380e44 AuthScope > grantedScopes
+  List< AuthScope > grantedScopes
 )
 ```
 Constructs an `https://developer.android.com/games/services/unity/v2/api/class/google-play-games/basic-api/auth-response#class_google_play_games_1_1_basic_api_1_1_auth_response` with the provided granted scopes and authentication code.
@@ -67,7 +67,7 @@ This code is a short-lived credential that should be sent securely to your serve
 ### GetGrantedScopes
 
 ```c#
-List&lhttps://developer.android.com/games/services/unity/v2/api/namespace/google-play-games/basic-api#namespace_google_play_games_1_1_basic_api_1ab5415b6b4ad0724108f447b203380e44 AuthScope > GetGrantedScopes()
+List< AuthScope > GetGrantedScopes()
 ```
 Gets the list of `AuthScope` permissions that the user has granted.
 

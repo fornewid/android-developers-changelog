@@ -69,7 +69,7 @@ dependencies to your app's `build.gradle` file:
 
     dependencies {
       implementation "androidx.wear:wear-ongoing:1.1.0"
-      implementation "androidx.core:core:1.18.0"
+      implementation "androidx.core:core:1.19.0"
     }
 
 ## Create an Ongoing Activity
