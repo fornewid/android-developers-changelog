@@ -1,0 +1,189 @@
+diff --git a/docs/android-performance-analyzer/analyze/frame-times.md b/docs/android-performance-analyzer/analyze/frame-times.md
+index 1902cdf2..972ee214 100644
+--- a/docs/android-performance-analyzer/analyze/frame-times.md
++++ b/docs/android-performance-analyzer/analyze/frame-times.md
+@@ -1,24 +1,13 @@
+ ---
+-title: Analyze frame processing times  |  Android Performance Analyzer  |  Android Developers
++title: https://developer.android.com/android-performance-analyzer/analyze/frame-times
+ url: https://developer.android.com/android-performance-analyzer/analyze/frame-times
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Home](https://developer.android.com/)
+-* [Android Performance Analyzer](https://developer.android.com/apa-home)
+-* [Google Play](https://developer.android.com/distribute)
+-* [Guides](https://developer.android.com/games/guides)
+-
+-# Analyze frame processing times Stay organized with collections Save and categorize content based on your preferences.
+-
+-
+-
+-
+-
+-Estimating CPU and GPU frame processing times (or *frame times*) is essential
++Estimating CPU and GPU frame processing times (or *frame times* ) is essential
+ for understanding your app's performance and finding potential bottlenecks.
+-When you use the System Profiler in Android Performance Analyzer to [record a system trace](/android-performance-analyzer/run), the
+-[resulting trace view](/android-performance-analyzer/view) provides data that you can use to estimate
++When you use the System Profiler in Android Performance Analyzer to [record a system trace](https://developer.android.com/android-performance-analyzer/run), the
++[resulting trace view](https://developer.android.com/android-performance-analyzer/view) provides data that you can use to estimate
+ frame times.
+ 
+ ## Measure CPU frame times
+@@ -28,15 +17,10 @@ process tracks.
+ 
+ ### Total CPU time
+ 
+-To measure the total CPU time for a frame, [select the time range](/android-performance-analyzer/view#select-range)
++To measure the total CPU time for a frame, [select the time range](https://developer.android.com/android-performance-analyzer/view#select-range)
+ between successive frame submission events. For Vulkan, the frame submission
+ events are named `vkQueuePresentKHR`.
+-
+-![](/static/android-performance-analyzer/images/frame-vk-events.png)
+-
+-
+-**Figure 1**: A screenshot of a highlighted time range between
+-two `vkQueuePresentKHR` events on a thread track.
++![](https://developer.android.com/static/android-performance-analyzer/images/frame-vk-events.png) **Figure 1** : A screenshot of a highlighted time range between two `vkQueuePresentKHR` events on a thread track.
+ 
+ This measurement is an estimate of the total CPU time, but doesn't necessarily
+ represent the active CPU time. For example, in GPU-bound apps, the CPU might
+@@ -53,25 +37,13 @@ To measure the active CPU time, view the `Running` slices in the thread track
+ just above the CPU events. Count all portions of the trace that are in a
+ `Running` state between the two frame submission events. Make sure you include
+ working threads.
+-
+-![](/static/android-performance-analyzer/images/running-slices.png)
+-
+-
+-**Figure 2**: A screenshot showing `Running` slices
+-used to measure the active CPU time.
+-
+-
+-![](/static/android-performance-analyzer/images/parallel-threads.png)
+-
+-
+-**Figure 3**: A screenshot showing thread tracks in a
+-multithreaded app.
++![](https://developer.android.com/static/android-performance-analyzer/images/running-slices.png) **Figure 2** : A screenshot showing `Running` slices used to measure the active CPU time. ![](https://developer.android.com/static/android-performance-analyzer/images/parallel-threads.png) **Figure 3**: A screenshot showing thread tracks in a multithreaded app.
+ 
+ ## Estimate GPU frame times
+ 
+ The most accurate way to estimate GPU frame times is to [use GPU
+-slices](#gpu-slices), but if tracing GPU slices isn't supported for your test
+-device, then you can also [use GPU counters](#gpu-counters). The System Profiler in Android Performance Analyzer
++slices](https://developer.android.com/android-performance-analyzer/analyze/frame-times#gpu-slices), but if tracing GPU slices isn't supported for your test
++device, then you can also [use GPU counters](https://developer.android.com/android-performance-analyzer/analyze/frame-times#gpu-counters). The System Profiler in Android Performance Analyzer
+ supports both approaches.
+ 
+ ### Estimate with GPU slices
+@@ -86,26 +58,15 @@ On Adreno devices, GPU slices appear in the **GPU Queue 0**track and are
+ always represented sequentially, so you can look at all the slices that
+ represent the render passes for a frame and use them to measure GPU frame
+ times.
+-
+-![](/static/android-performance-analyzer/images/adreno-sequential.png)
+-
+-
+-**Figure 4**: A screenshot showing the **GPU Queue 0**
+-track with multiple frames being executed in sequence.
++![](https://developer.android.com/static/android-performance-analyzer/images/adreno-sequential.png) **Figure 4** : A screenshot showing the **GPU Queue 0** track with multiple frames being executed in sequence.
+ 
+ ### Mali
+ 
+-On Mali devices, GPU slices have **fragment**, **non-fragment**, and sometimes
++On Mali devices, GPU slices have **fragment** , **non-fragment** , and sometimes
+ **supplementary non-fragment** tracks. The **fragment** and **non-fragment**
+ work is sequential for less complex frames, so distinguishing one frame's work
+ from another can be done by looking for gaps between active GPU work.
+-
+-![](/static/android-performance-analyzer/images/mali-sequential.png)
+-
+-
+-**Figure 5**: A screenshot showing the **fragment** and
+-**non-fragment** tracks with multiple frames being executed in
+-sequence.
++![](https://developer.android.com/static/android-performance-analyzer/images/mali-sequential.png) **Figure 5** : A screenshot showing the **fragment** and **non-fragment** tracks with multiple frames being executed in sequence.
+ 
+ For apps and games that have a more heavily-parallelized GPU workflow, you
+ can get the GPU frame times by looking for all of the frames that have the
+@@ -115,18 +76,12 @@ For Vulkan-based apps, multiple submissions can be used to compose a frame. Keep
+ track of the submission IDs by using the **Vulkan Events** track, which contains
+ a slice for each submission. Selecting a submission slice highlights all the GPU
+ activity slices that correspond to the submission.
+-
+-![](/static/android-performance-analyzer/images/vulkan-submissions.png)
+-
+-
+-**Figure 6**: A screenshot of a **Vulkan Events** track with
+-a submission slice selected and the corresponding GPU activity slices
+-highlighted.
++![](https://developer.android.com/static/android-performance-analyzer/images/vulkan-submissions.png) **Figure 6** : A screenshot of a **Vulkan Events** track with a submission slice selected and the corresponding GPU activity slices highlighted.
+ 
+ To trace complex submissions back to specific engine subsystems, assign
+ distinct, descriptive names to your render pass objects using object naming
+ extensions like `vkSetDebugUtilsObjectNameEXT`. Then, enable the **Render Pass
+-Debug Names (Experimental)** [Vulkan layer](/android-performance-analyzer/run#vulkan) when configuring your trace.
++Debug Names (Experimental)** [Vulkan layer](https://developer.android.com/android-performance-analyzer/run#vulkan) when configuring your trace.
+ 
+ ### Estimate with GPU counters
+ 
+@@ -141,11 +96,7 @@ counter track to estimate the GPU frame time. When apps are less GPU
+ intensive, they have regular periods of high and low GPU activity, instead of
+ consistently high activity. To estimate the GPU frame times using this track,
+ measure the duration of high activity periods in the track.
+-
+-![](/static/android-performance-analyzer/images/adreno-spikes.png)
+-
+-
+-**Figure 7**: A screenshot showing the **GPU %
++![](https://developer.android.com/static/android-performance-analyzer/images/adreno-spikes.png) **Figure 7** : A screenshot showing the **GPU %
+ Utilization** track with pronounced higher-intensity periods.
+ 
+ For apps or games that *are* GPU intensive, the GPU utilization can be
+@@ -154,12 +105,8 @@ Instructions/Second** and **Fragment Instructions/Second** counter tracks to
+ monitor GPU activity and estimate GPU frame times. By looking for patterns in
+ these tracks, you can get a rough estimate of where the boundaries of the
+ frame are.
+-
+-![](/static/android-performance-analyzer/images/adreno-gpu-intensive.png)
+-
+-
+-**Figure 8**: A screenshot showing the **GPU %
+-Utilization**, **Vertex Instructions/Second**, and **Fragment
++![](https://developer.android.com/static/android-performance-analyzer/images/adreno-gpu-intensive.png) **Figure 8** : A screenshot showing the **GPU %
++Utilization** , **Vertex Instructions/Second** , and **Fragment
+ Instructions/Second** counter tracks.
+ 
+ ### Mali
+@@ -169,12 +116,7 @@ counter track to estimate the GPU frame time. When apps are less GPU
+ intensive, they have regular periods of high and low GPU activity, instead of
+ consistently high activity. To estimate the GPU frame times using this track,
+ measure the duration of high activity periods in the track.
+-
+-![](/static/android-performance-analyzer/images/mali-spikes.png)
+-
+-
+-**Figure 9**: A screenshot showing the **GPU utilization**
+-track with pronounced higher-intensity periods.
++![](https://developer.android.com/static/android-performance-analyzer/images/mali-spikes.png) **Figure 9** : A screenshot showing the **GPU utilization** track with pronounced higher-intensity periods.
+ 
+ For apps or games that are GPU intensive, the GPU utilization can be
+ consistently very high. In this case, you can use the **Fragment queue
+@@ -182,10 +124,5 @@ utilization** and **Non-fragment queue utilization** counter tracks to monitor
+ GPU activity and estimate GPU frame times. By looking for patterns in these
+ tracks, you can get a rough estimate of where the boundaries of the frame
+ are.
+-
+-![](/static/android-performance-analyzer/images/mali-gpu-intensive.png)
+-
+-
+-**Figure 10**: A screenshot showing the **Fragment queue
+-utilization** and **Non-fragment queue utilization** counter
+-tracks.
+\ No newline at end of file
++![](https://developer.android.com/static/android-performance-analyzer/images/mali-gpu-intensive.png) **Figure 10** : A screenshot showing the **Fragment queue
++utilization** and **Non-fragment queue utilization** counter tracks.
+\ No newline at end of file

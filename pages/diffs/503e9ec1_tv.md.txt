@@ -1,0 +1,13 @@
+diff --git a/docs/jetpack/androidx/releases/tv.md b/docs/jetpack/androidx/releases/tv.md
+index bc43d9e8..9019b9d2 100644
+--- a/docs/jetpack/androidx/releases/tv.md
++++ b/docs/jetpack/androidx/releases/tv.md
+@@ -4,7 +4,7 @@ url: https://developer.android.com/jetpack/androidx/releases/tv
+ source: md.txt
+ ---
+ 
+-# tv
++# Compose for TV
+ 
+ Provides developers with Compose and Material design functionalities in order to write applications for TV
+ 
