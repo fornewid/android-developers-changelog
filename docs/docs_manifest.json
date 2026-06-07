@@ -8030,8 +8030,8 @@
     },
     "games/pgs/savedgames.md": {
       "original_url": "https://developer.android.com/games/pgs/savedgames",
-      "hash": "c61cc987485c4e5c198ae3277747978890927ba8bd470deebe352d50d9be541a",
-      "last_updated": "2026-05-07T15:46:33.224118",
+      "hash": "9cadea571e526816a1202dbe963adad418859a3be83fb1db013eb5669d4dc9dc",
+      "last_updated": "2026-06-07T15:29:37.261123",
       "fetch_method": "md.txt"
     },
     "health-and-fitness.md": {
@@ -11204,8 +11204,8 @@
     },
     "jetpack/androidx.md": {
       "original_url": "https://developer.android.com/jetpack/androidx",
-      "hash": "7310bfc1ace63465b29603d80d965ccbf285770aca668681923ea557ea8f8cc4",
-      "last_updated": "2026-04-10T15:17:53.461118",
+      "hash": "2d77880326332218e029e3299e5a07c3e577ff002899dd16437929ba7d4456d5",
+      "last_updated": "2026-06-07T15:33:11.439292",
       "fetch_method": "md.txt"
     },
     "studio/releases/past-releases/as-narwhal-4-feature-drop-release-notes.md": {
@@ -30703,5 +30703,5 @@
       "fetch_method": "md.txt"
     }
   },
-  "last_updated": "2026-06-06T15:31:34.370528"
+  "last_updated": "2026-06-07T15:34:28.988445"
 }

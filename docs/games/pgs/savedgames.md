@@ -39,12 +39,14 @@ ID](https://developer.android.com/games/pgs/platform-authentication#player-id) w
 progress, your game might accidentally overwrite significant historical data. If
 a player has a local guest account with significant progress and a cloud backup
 of the last played In-Game Account (IGA) linked to Play Games Services, your game
-shouldn't automatically overwrite the local data. Instead, prompt the player to
-choose between the two states.
+shouldn't automatically overwrite any data. A game should prioritize the best
+possible player experience, thus it is recommended that the game informs the
+player of this choice before making it for the player or explicitly ask the
+player to choose from the options.
 
 Considering this, you have two options:
 
-- **Option 1:** Maintain the current flow where cloud progress is restored. A warning message is displayed to indicate an existing account was detected, and its progress will be used.
+- **Option 1:** Maintain the current flow where cloud or a local progress is restored. A warning message is displayed to indicate an existing account was detected, and its progress will be used.
 - **Option 2 (Recommended):** Display a message informing the player that an existing account with progress was detected. Linking the guest account replaces the cloud progress with the current guest progress. The message displayed for both local and cloud-saved progress so the player can make an informed decision.
 
 ![Conflict resolution flow between Cloud Save and Guest account progress](https://developer.android.com/static/images/games/pgs/new/conflict.png) Conflict resolution flow between Cloud Save and Guest account progress.
@@ -142,7 +144,7 @@ The structured metadata for a saved game contains these these properties:
 | **Played time** | A developer-supplied time (in milliseconds) to display on the saved game. This value should represent how long the player has played the corresponding save game. For example, a played time value of 3600000 will be displayed by Google Play Games Services as "1 hr". |
 | **Cover image** | This is an optional, developer-supplied property that contains information about the [cover image](https://developer.android.com/games/pgs/savedgames#cover-images). |
 
-## Client implementations
+### Client implementations
 
 To learn how to implement saved game for your platform, see the following
 resources:
