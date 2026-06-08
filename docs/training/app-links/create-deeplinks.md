@@ -42,10 +42,7 @@ have registered to handle a deep link intent. The user can also select an app as
 the default for this type of link. Once the user sets a default, the system no
 longer shows the dialog for that specific intent, and the chosen app will open
 automatically.
-
-![](https://developer.android.com/static/training/app-links/images/app-disambiguation_2x.png)
-
-**Figure 1.** The disambiguation dialog
+![The Android system disambiguation dialog showing app options for a link.](https://developer.android.com/static/training/app-links/images/app-disambiguation_2x.png) **Figure 1.** The disambiguation dialog
 
 The behavior of the disambiguation dialog has evolved across Android versions.
 For example, on Android 12 and higher, web links that are not verified App
@@ -53,10 +50,8 @@ Links will generally open in a web browser by default, whereas on previous
 versions, a disambiguation dialog might have appeared if an app could handle the
 web link.
 
-**Note**: Starting in Android 12 (API level 31), a generic web intent resolves
-to an activity in your app only if your app is approved for the specific domain
-contained in that web intent. If your app isn't approved for the domain, the web
-intent resolves to the user's default browser app instead.
+> [!NOTE]
+> **Note:** Starting in Android 12 (API level 31), a generic web intent resolves to an activity in your app only if your app is approved for the specific domain contained in that web intent. If your app isn't approved for the domain, the web intent resolves to the user's default browser app instead.
 
 ## Types of deep links
 
@@ -84,7 +79,7 @@ resolves to the activity. At minimum, the [`<data>`](https://developer.android.c
 
 You can add more attributes to further refine the type of URI that the activity
 accepts. For example, you might have multiple activities that accept similar
-URIs, but which differ simply based on the path name. In this case, use the
+URIs, but which differ based on the path. In this case, use the
 [`android:path`](https://developer.android.com/guide/topics/manifest/data-element#path) attribute or its `pathPattern` or `pathPrefix` variants to
 differentiate which activity the system should open for different URI paths.
 
@@ -143,9 +138,8 @@ It might seem as though this supports only `https://www.example.com` and
 `app://open.my.app`. However, it actually supports those two, plus these:
 `app://www.example.com` and `https://open.my.app`.
 
-**Caution**: If multiple activities contain intent filters that resolve to the
-same verified Android App Link, then there's no guarantee as to which activity
-handles the link.
+> [!CAUTION]
+> **Caution:** If multiple activities contain intent filters that resolve to the same verified Android App Link, then there's no guarantee as to which activity handles the link.
 
 Once you've added intent filters with URIs for activity content to your app
 manifest, Android is able to route any [`Intent`](https://developer.android.com/reference/android/content/Intent) that has matching URIs to
@@ -161,7 +155,7 @@ provided by the [`Intent`](https://developer.android.com/reference/android/conte
 [`getData()`](https://developer.android.com/reference/android/content/Intent#getData()) and [`getAction()`](https://developer.android.com/reference/android/content/Intent#getAction()) methods to retrieve the data and
 action associated with the incoming [`Intent`](https://developer.android.com/reference/android/content/Intent). You can call these methods
 at any time during the lifecycle of the activity, but you should generally do so
-during early callbacks such as [`onCreate()`](https://developer.android.com/reference/android/app/Activity#onCreate(android.os.Bundle)) or [`onStart`](https://developer.android.com/reference/android/app/Activity#onStart())().
+during early callbacks such as [`onCreate()`](https://developer.android.com/reference/android/app/Activity#onCreate(android.os.Bundle)) or [`onStart`](https://developer.android.com/reference/android/app/Activity#onStart()).
 
 Here's a snippet that shows how to retrieve data from an [`Intent`](https://developer.android.com/reference/android/content/Intent):
 
@@ -212,12 +206,8 @@ associated with the specified URI.
             -W -a android.intent.action.VIEW
             -d "example://gizmos" com.example.android
 
-**Note** : When defining a collection of primitive types in a route, such as
-`**@Serializable data class Product(val colors: List)**`, the automatically
-generated deep link URL format is `**basePath?colors={value**}`. If you attempt
-to specify a URI with multiple query params (for example,
-`**basepath?colors=red&colors=blue**`), you must escape the ampersand
-(for example, `**basepath?colors=red\&colors=blue**`).
+> [!NOTE]
+> **Note:** When defining a collection of primitive types in a route, such as **`@Serializable data class Product(val colors: List)`** , the automatically generated deep link URL format is **`basePath?colors={value}`** . If you attempt to specify a URI with multiple query params (for example, **`basepath?colors=red&colors=blue`** ), you must escape the ampersand (for example, **`basepath?colors=red\&colors=blue`**).
 
 The manifest declaration and intent handler you set define the connection
 between your app and a website and what to do with incoming links. However, in

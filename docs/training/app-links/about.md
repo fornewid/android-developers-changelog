@@ -14,9 +14,9 @@ association, Android can automatically route your deep links to your website
 directly to your app for handling.
 
 Starting with Android 15, App Links are even more powerful with the introduction
-of [Dynamic App Links](https://developer.android.com/training/app-links/about#dynamic-app-links). With the new dynamic capabilities,
-you can refine your app's deep link behaviors on the fly, with more control, and
-without needing to release a new version of your app.
+of [Dynamic App Links](https://developer.android.com/training/app-links/about#dynamic-app-links). With the new dynamic capabilities, you can refine
+your app's deep link behaviors on the fly, with more control, and without
+needing to release a new version of your app.
 
 ## Why you should use App Links:
 

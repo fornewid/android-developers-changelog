@@ -113,7 +113,7 @@ capable of supporting SIP, add the following to your application's
 manifest:
 
 ```xml
-<uses-sdk android:minSdkVersion="9" />
+<uses-sdk android:minSdkVersion=">;9" /
 ```
 
 This indicates that your application requires Android 2.3 or higher. For
@@ -128,7 +128,7 @@ SIP (for example, on Google Play), add the following to your application's
 manifest:
 
 ```xml
-<uses-feature android:name="android.software.sip.voip" />
+<uses-feature android:name="android.software.sip.vo>ip" /
 ```
 
 This states that your application uses the SIP API. The declaration should
@@ -143,26 +143,26 @@ element.
 If your application is designed to receive calls, you must also define a receiver (`https://developer.android.com/reference/android/content/BroadcastReceiver` subclass) in the application's manifest:
 
 ```xml
-<receiver android:name=".IncomingCallReceiver" android:label="Call Receiver" />
+<receiver android:name=".IncomingCallReceiver" android:label="C>all Receiver" /
 ```
 
 Here are excerpts from the **SipDemo** manifest:
 
 ```xml
-<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.example.android.sip">
+<?xml version="1.0" encodin>g<="utf-8"?
+manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          pac>kage="c<om.example.android.sip"
   ...
-     <receiver android:name=".IncomingCallReceiver" android:label="Call Receiver" />
+     receiver android:name=".Incoming>CallRecei<ver" android:label="Call R>ece<iver" /
   ...
-  <uses-sdk android:minSdkVersion="9" />
-  <uses-permission android:name="android.permission.USE_SIP" />
-  <uses-permission android:name="android.permission.INTERNET" />
-  ...
-  <uses-feature android:name="android.software.sip.voip" android:required="true" />
-  <uses-feature android:name="android.hardware.wifi" android:required="true" />
-  <uses-feature android:name="android.hardware.microphone" android:required="true" />
-</manifest>
+  uses-sdk android:minSdkVersion="9>&qu<ot; /
+  uses-permission android:name="android.permissio>n.USE_SIP<" /
+  uses-permission android:name="android.permission.INTERNET"> /
+<  ...
+  uses-feature android:name="android.software.sip.voip" and>roi<d:required="true" /
+  uses-feature android:name="android.hardware.>w<ifi"> android:required="true" /
+  uses-feature android:name="android.hardware.microphone" android:required="true" /
+/manifest
 ```
 
 ## Creating SipManager

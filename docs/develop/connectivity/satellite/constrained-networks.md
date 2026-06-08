@@ -39,7 +39,7 @@ them, update your [app manifest file](https://developer.android.com/guide/topics
 [`<meta-data>`](https://developer.android.com/guide/topics/manifest/meta-data-element) element as follows:
 
     <meta-data android:name="android.telephony.PROPERTY_SATELLITE_DATA_OPTIMIZED"
-              android:value=&quot;>PACKAGE_NAME" /
+              android:value="PACKAGE_NAME" />
 
 This element allows your app to use a constrained satellite network when it's
 the only network available. It also notifies the system that your app is

@@ -9,8 +9,7 @@ functionality to make sure the system can associate your app with your websites,
 and handle URL requests, as you expect.
 
 To test an existing statement file, you can use the [Statement List Generator
-and Tester](https://developers.google.com/digital-asset-links/tools/generator)
-tool.
+and Tester](https://developers.google.com/digital-asset-links/tools/generator) tool.
 
 The following sections describe how to test your App Links verification
 manually. If you prefer, you can test verification from Play Deep Links tool or
@@ -146,4 +145,4 @@ preceding manifest is:
     map.example.com (it does not have android.intent.category.BROWSABLE)
     market://example.com (it does not have either an "http" or "https" scheme)
 
-To learn more about statement lists, see [Creating a Statement List](https://developers.google.com/digital-asset-links/v1/create-statement)
+To learn more about statement lists, see [Creating a Statement List](https://developers.google.com/digital-asset-links/v1/create-statement).

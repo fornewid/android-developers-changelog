@@ -7,8 +7,8 @@ source: md.txt
 To provide a more enriched user experience, many apps let users contribute
 and access media that's available on an external storage volume. The framework
 provides an optimized index into media collections, called the *media store*,
-that lets users retrieve and update these media files more easily. Even
-after your app is uninstalled, these files remain on the user's device.
+that lets users retrieve and update these media files. Even after your app is
+uninstalled, these files remain on the user's device.
 
 > [!NOTE]
 > **Note:** If your app works with media files that provide value to the user only within your app, it's best to store them in [app-specific directories within
@@ -19,10 +19,12 @@ after your app is uninstalled, these files remain on the user's device.
 As an alternative to using the media store, the Android photo picker tool
 provides a safe, built-in way for users to select media files without needing
 to grant your app access to their entire media library. This is only available
-on supported devices. For more information, see the
-[photo picker](https://developer.android.com/training/data-storage/shared/photopicker) guide.
+on supported devices. For more information, see the [photo picker](https://developer.android.com/training/data-storage/shared/photopicker) guide.
 
 ## Media store
+
+> [!CAUTION]
+> **Caution:** The `READ_MEDIA_IMAGES` and `READ_MEDIA_VIDEO` permissions are restricted to specific use cases outlined in the [Google Play policy](https://support.google.com/googleplay/android-developer/answer/15800983). We recommend using the [photo picker](https://developer.android.com/training/data-storage/shared/photopicker) instead for a more privacy-preserving experience.
 
 To interact with the media store abstraction, use a
 [`ContentResolver`](https://developer.android.com/reference/android/content/ContentResolver) object that you

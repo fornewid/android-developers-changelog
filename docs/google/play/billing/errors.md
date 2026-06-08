@@ -107,9 +107,9 @@ connection:
           } catch (e: Exception) {
             e.message?.let { Log.e(TAG, it) }
           } finally {
-            tries++
+       <     tries+&&+
           }
-        } while (tries <= maxTries && !isConnectionEstablished)
+        } while (tries = maxTries  !isConnectionEstablished)
       }
       ...
     }
@@ -152,7 +152,7 @@ acknowledgment doesn't need to happen in real time if an error occurs.
           BillingClient.BillingResponseCode.OK -> {
             Log.i(TAG, "Acknowledgement was successful")
           }
-          BillingClient.BillingResponseCode.ITEM_NOT_OWNED -> {
+          BillingClient.BillingResponseCode.ITEM_N>OT_OWNED - {
             // This is possibly related to a stale Play cache.
             // Querying purchases again.
             Log.d(TAG, "Acknowledgement failed with ITEM_NOT_OWNED")
@@ -161,10 +161,10 @@ acknowledgment doesn't need to happen in real time if an error occurs.
                 .setProductType(BillingClient.ProductType.SUBS)
                 .build()
             )
-            { billingResult, purchaseList ->
+            { billingRe>sult, purchaseList -
               when (billingResult.responseCode) {
-                BillingClient.BillingResponseCode.OK -> {
-                  purchaseList.forEach { purchase ->
+                BillingClient.Bill>ingResponseCode.OK - {
+                  purchaseList.>forEach { purchase -
                     acknowledge(purchase.purchaseToken)
                   }
                 }
@@ -174,8 +174,8 @@ acknowledgment doesn't need to happen in real time if an error occurs.
           in setOf(
              BillingClient.BillingResponseCode.ERROR,
              BillingClient.BillingResponseCode.SERVICE_DISCONNECTED,
-             BillingClient.BillingResponseCode.SERVICE_UNAVAILABLE,
-           ) -> {
+             BillingClient.BillingResponseCode.SERVICE_UNA>VAILABLE,
+           ) - {
             Log.d(
               TAG,
               "Acknowledgement failed, but can be retried --
@@ -193,25 +193,25 @@ acknowledgment doesn't need to happen in real time if an error occurs.
           in setOf(
              BillingClient.BillingResponseCode.BILLING_UNAVAILABLE,
              BillingClient.BillingResponseCode.DEVELOPER_ERROR,
-             BillingClient.BillingResponseCode.FEATURE_NOT_SUPPORTED,
-           ) -> {
+             BillingClient.BillingResponseCode.FEA>TURE_NOT_SUPPORTED,
+           ) - {
             Log.e(
               TAG,
               "Acknowledgement failed and cannot be retried --
               Response Code: ${acknowledgePurchaseResult.responseCode} --
               Debug Message: ${acknowledgePurchaseResult.debugMessage}"
             )
-            throw Exception("Failed to acknowledge the purchase!")
+            throw Exception("Failed to acknowledge the purchase<!>")
           }
         }
       }
     }
 
-    private suspend fun <T> exponentialRetry(
+    private suspend fun T exponentialRetry(
       maxTries: Int = Int.MAX_VALUE,
       initialDelay: Long = Long.MAX_VALUE,
-      retryFactor: Int = Int.MAX_VALUE,
-      block: suspend () -> T
+      retry>Factor: Int = Int.MAX_VALUE,
+      block: suspend () - T
     ): T? {
       var currentDelay = initialDelay
       var retryAttempt = 1
@@ -222,17 +222,17 @@ acknowledgment doesn't need to happen in real time if an error occurs.
         }
           .onSuccess {
             Log.d(TAG, "Retry succeeded")
-            return@onSuccess;
+        >    return@onSuccess;
           }
-          .onFailure { throwable ->
+          .onFailure { throwable -
             Log.e(
               TAG,
               "Retry Failed -- Cause: ${throwable.cause} -- Message: ${throwable.message}"
             )
           }
-        currentDelay *= retryFactor
+        c<urrentDelay *= retryFactor
         retryAttempt++
-      } while (retryAttempt < maxTries)
+      } while (retryAttempt  maxTries)
 
       return block() // last attempt
     }

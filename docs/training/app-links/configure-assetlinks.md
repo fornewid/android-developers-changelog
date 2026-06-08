@@ -163,14 +163,15 @@ dynamic rules:
 - If any of the fields in the file are malformed or empty, Android discards the dynamic rules and the device falls back to the rules that are statically defined in the app's manifest.
 
 Dynamic rules can only specify rules that apply within the scope of the domains
-that you declare in your app's manifest file. See below.
+that you declare in your app's manifest file. See the
+[Declare dynamic rules](https://developer.android.com/training/app-links/configure-assetlinks#declaring-dynamic) section.
 
 ### Declare dynamic rules
 
 Dynamic App Links supports a new `dynamic_app_link_components` relation
 extension, which holds an array of rules objects. Each rule is defined using
 pattern matchers for paths, fragments, and query parameters that will open your
-app. Matchers can also be individually excluded so that they will not open your
+app. Matchers can also be individually excluded so that they won't open your
 app. All of these are optional.
 
 - Path matching

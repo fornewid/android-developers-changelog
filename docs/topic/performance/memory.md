@@ -13,7 +13,7 @@ environment, and it's even more valuable for a mobile operating system where
 physical memory is often constrained. Although both the Android Runtime (ART)
 and Dalvik virtual machine perform routine garbage collection, this doesn't mean
 you can ignore when and where your app allocates and releases memory. You still
-need to avoid introducing [memory leaks](https://developer.android.com/topic/performance/memory-leaks)---usually caused by holding onto
+need to avoid introducing memory leaks---usually caused by holding onto
 object references in static member variables---and release any [`Reference`](https://developer.android.com/reference/java/lang/ref/Reference)
 objects at the appropriate time as defined by lifecycle callbacks.
 
@@ -428,8 +428,6 @@ readme](https://android.googlesource.com/platform/external/protobuf/+/master/jav
 Improper reference management can lead to memory leaks where objects outlive
 their useful lifespans, preventing the garbage collector from reclaiming the
 leaked object's memory. To avoid memory leaks, implement lifecycle-aware design.
-
-For more information, see [Memory leaks](https://developer.android.com/topic/performance/memory-leaks).
 
 ### Avoid memory churn
 

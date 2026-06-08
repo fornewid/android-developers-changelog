@@ -93,9 +93,9 @@ manifest tag:
 ```xml
 <manifest ... >
     <uses-feature android:name="android.hardware.sensor.compass"
-                  android:required="true" />
+                  android:require>d="t<rue"> /
     ...
-</manifest>
+/manifest
 ```
 
 Google Play Store compares the features that your app requires to the

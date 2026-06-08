@@ -47,7 +47,7 @@ fun CustomView() {
 
             // As selectedItem is read here, AndroidView will recompose
             // whenever the state changes
-            // Example of Compo>se - View communication
+            // Example of Compose -> View communication
             view.selectedItem = selectedItem
         }
     )
@@ -57,7 +57,9 @@ fun CustomView() {
 fun ContentExample() {
     Column(Modifier.fillMaxSize()) {
         Text("Look at this CustomView!")
-        CustomVPIsSnippets.kt
+        CustomView()
+    }
+}
 ```
 
 <br />
@@ -195,7 +197,9 @@ fun ToastGreetingButton(greeting: String) {
     Button(onClick = {
         Toast.makeText(context, greeting, Toast.LENGTH_SHORT).show()
     }) {
-        Text("Greet"nippets.kt
+        Text("Greet")
+    }
+}
 ```
 
 <br />
