@@ -1,0 +1,15 @@
+diff --git a/docs/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/glimmersansflextypography-source.md b/docs/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/glimmersansflextypography-source.md
+index 007c10f6..807cecba 100644
+--- a/docs/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/glimmersansflextypography-source.md
++++ b/docs/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/glimmersansflextypography-source.md
+@@ -270,7 +270,8 @@ private val DefaultLineHeightStyle: LineHeightStyle =
+     )
+ 
+ private fun FontFamily(font: GoogleFont, variationSettings: FontVariation.Settings): FontFamily =
+-    FontFamily(Font(googleFont = font, variationSettings = variationSettings))
++    FontFt, variationSettings = variationSettings))
++GoogleSansFlexTypography.kt
+ ```
+ 
+ <br />
+\ No newline at end of file

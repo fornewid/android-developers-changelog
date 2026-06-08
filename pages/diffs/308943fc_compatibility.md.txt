@@ -1,0 +1,16 @@
+diff --git a/docs/guide/practices/compatibility.md b/docs/guide/practices/compatibility.md
+index b62bf502..89bfa2bc 100644
+--- a/docs/guide/practices/compatibility.md
++++ b/docs/guide/practices/compatibility.md
+@@ -93,9 +93,9 @@ manifest tag:
+ ```xml
+ <manifest ... >
+     <uses-feature android:name="android.hardware.sensor.compass"
+-                  android:required="true" />
++                  android:require>d="t<rue"> /
+     ...
+-</manifest>
++/manifest
+ ```
+ 
+ Google Play Store compares the features that your app requires to the
