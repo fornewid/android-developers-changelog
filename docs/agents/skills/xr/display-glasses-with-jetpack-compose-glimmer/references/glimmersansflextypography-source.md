@@ -270,8 +270,7 @@ private val DefaultLineHeightStyle: LineHeightStyle =
     )
 
 private fun FontFamily(font: GoogleFont, variationSettings: FontVariation.Settings): FontFamily =
-    FontFt, variationSettings = variationSettings))
-GoogleSansFlexTypography.kt
+    FontFamily(Font(googleFont = font, variationSettings = variationSettings))
 ```
 
 <br />

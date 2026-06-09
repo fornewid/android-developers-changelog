@@ -76,7 +76,7 @@ Find the business logic handling user attributes and account creation, account
 recovery:
 
 - **Keywords** : `SignUpViewModel`, `AuthViewModel`, `RegistrationRepository`.
-- **Code Pattern** : Look for methods like `onCrea teAccount`, `onRecoverAccount`, or `validateEmail`.
+- **Code Pattern** : Look for methods like `onCreateAccount`, `onRecoverAccount`, or `validateEmail`.
 
 ### 3. Find instances of reauthentication for sensitive actions
 

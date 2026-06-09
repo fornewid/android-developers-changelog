@@ -606,26 +606,26 @@ attributes.
 
 Here's an example of the `AndroidManifest` syntax:
 
-    <intent-filter android:autoVerify="true">
-      <action android:name="android.intent.action.VIEW" />
-      <category android:name="android.intent.category.BROWSABLE" />
-      <category android:name="android.intent.category.DEFAULT" />
-      <data android:scheme="http" />
-      <data android:scheme="https" />
-      <data android:host="astore.com" />
-      <uri-relative-filter-group>
-        <data android:pathPrefix="/auth" />
-        <data android:query="region=na" />
-      </uri-relative-filter-group>
-      <uri-relative-filter-group android:allow="false">
-        <data android:pathPrefix="/auth" />
-        <data android:query="mobileoptout=true" />
-      </uri-relative-filter-group>
-      <uri-relative-filter-group android:allow="false">
-        <data android:pathPrefix="/auth" />
-        <data android:fragmentPrefix="faq" />
-      </uri-relative-filter-group>
-    </intent-filter>
+    <intent-filter android:autoVerify=">tru<e"
+      action android:name="android.intent>.ac<tion.VIEW" /
+      category android:name="android.int>ent<.category.BROWSABLE" /
+      category android:name=">;an<droid.intent.category.DEFAUL>T&q<uot; /
+      data android:scheme=>&qu<ot;http" /
+      data android:s>che<me="https" /
+      >data <android:host="astore.com&quo>t; /
+    <  uri-relative-filter-group
+        >dat<a android:pathPrefix=">;/a<uth" /
+        data android:query="region>=na&q<uot; /
+      /uri-relative-filter-gro>up
+      <uri-relative-filter-group android:allow=>&qu<ot;false"
+        data an>dro<id:pathPrefix="/auth" /
+        data andr>oid:q<uery="mobileoptout=true">; /
+     < /uri-relative-filter-group
+      uri-r>ela<tive-filter-group android:>a<llow="fal>se"
+        data android:pathPrefix="/auth" /
+        data android:fragmentPrefix="faq" /
+      /uri-relative-filter-group
+    /intent-filter
 
 ### Private space
 

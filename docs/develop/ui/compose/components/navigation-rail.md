@@ -86,7 +86,7 @@ fun NavigationRailExample(modifier: Modifier = Modifier) {
 ### Result
 
 The following image shows the result of the previous snippet:
-![A vertical navigation rail with 3 destinations with associated icons: Songs, Album, and Playlist. Icons visually indicate the purpose of each navigation button in the rail. Each destination has a relevant icon paired with it (e.g., a music note for](https://developer.android.com/static/develop/ui/compose/images/components/navigation-rail-result.png) **Figure 2.** A navigation rail that contains 3 destinations with associated icons: Songs, Album, and Playlist.
+![A vertical navigation rail with 3 destinations with associated icons: Songs, Album, and Playlist. Icons visually indicate the purpose of each navigation button in the rail. Each destination has a relevant icon paired with it (e.g., a music note for 'Songs').](https://developer.android.com/static/develop/ui/compose/images/components/navigation-rail-result.png) **Figure 2.** A navigation rail that contains 3 destinations with associated icons: Songs, Album, and Playlist.
 
 ## Additional resources
 

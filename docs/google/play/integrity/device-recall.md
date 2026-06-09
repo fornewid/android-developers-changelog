@@ -96,9 +96,9 @@ Setting a bit to `false` will reset its write date to empty. Any bits that are
 unspecified in a request will remain unchanged. There is a small propagation
 delay between writing bits and being able to read them back in the verdict. This
 delay can be as long as 30 seconds, though it is generally much shorter. Device
-recall write requests should be less frequent than your integrity token
-requests. They are not counted in your integrity token request quota but are
-subject to non-public, defensive rate limits.
+recall write requests should be less frequent than integrity token
+requests. They don't count toward your integrity token request quota but are
+subject to separate rate limits.
 
 ```
 playintegrity.googleapis.com/v1/PACKAGE_NAME/deviceRecall:write -d \
@@ -112,7 +112,7 @@ playintegrity.googleapis.com/v1/PACKAGE_NAME/deviceRecall:write -d \
 ```
 
 > [!NOTE]
-> **Note:** The integrity token should be validated during a user action (i.e. you should verify the nonce or request hash) and then used for writing recall bits. It will be valid for up to 14 days.
+> **Note:** The integrity token should be validated during a user action; in other words, you should verify the nonce or request hash, the current device recall values, and other relevant fields. The token can then be used to write recall bits for up to 14 days. Attempting to modify device recall values using an integrity token with unevaluated device recall (for example, because the user account was not licensed) returns an error.
 
 > > [!TIP]
 > > **Tip:** If you are using the [Golang library for the Play Integrity API](https://pkg.go.dev/google.golang.org/api/playintegrity/v1), remember to add the field name to [ForceSendFields](https://pkg.go.dev/google.golang.org/api#hdr-ForceSendFields) when setting a bit value to false, as in the following snippet.

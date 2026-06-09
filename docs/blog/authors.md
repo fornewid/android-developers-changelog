@@ -31,8 +31,8 @@ source: md.txt
   ###### Developer Relations Engineer
 
   [read_more
-  4 posts](https://developer.android.com/blog/authors/alice-yuan) [read_more
-  4 posts](https://developer.android.com/blog/authors/alice-yuan) ![](https://developer.android.com/static/blog/assets/Alice_Yuan_552a4dd4ee_ZlDEgJ.webp) ![](https://developer.android.com/static/blog/assets/Alice_Yuan_552a4dd4ee_ZlDEgJ.webp)
+  5 posts](https://developer.android.com/blog/authors/alice-yuan) [read_more
+  5 posts](https://developer.android.com/blog/authors/alice-yuan) ![](https://developer.android.com/static/blog/assets/Alice_Yuan_552a4dd4ee_ZlDEgJ.webp) ![](https://developer.android.com/static/blog/assets/Alice_Yuan_552a4dd4ee_ZlDEgJ.webp)
 -
 
   ## [Amrit Sanjeev](https://developer.android.com/blog/authors/amrit-sanjeev)
@@ -62,6 +62,15 @@ source: md.txt
   1 post](https://developer.android.com/blog/authors/andrew-lewis) ![](https://developer.android.com/static/blog/assets/andrew_lewis_1f4294eade_ZLA0xp.webp) ![](https://developer.android.com/static/blog/assets/andrew_lewis_1f4294eade_ZLA0xp.webp)
 -
 
+  ## [Arti Arutiunov](https://developer.android.com/blog/authors/arti-arutiunov)
+
+  ###### Product Manager
+
+  [read_more
+  1 post](https://developer.android.com/blog/authors/arti-arutiunov) [read_more
+  1 post](https://developer.android.com/blog/authors/arti-arutiunov) ![](https://developer.android.com/static/blog/assets/arti_a_profile_blog_bbf00f0087_1Nh5K.webp) ![](https://developer.android.com/static/blog/assets/arti_a_profile_blog_bbf00f0087_1Nh5K.webp)
+-
+
   ## [Ash Nohe](https://developer.android.com/blog/authors/ash-nohe)
 
   ###### Sr. Android Developer Relations Engineer
@@ -78,15 +87,6 @@ source: md.txt
   [read_more
   1 post](https://developer.android.com/blog/authors/ataul-munim) [read_more
   1 post](https://developer.android.com/blog/authors/ataul-munim) ![](https://developer.android.com/static/blog/assets/Ataul_Munim_cf0796f68c_r1HY2.webp) ![](https://developer.android.com/static/blog/assets/Ataul_Munim_cf0796f68c_r1HY2.webp)
--
-
-  ## [Ben Trengrove](https://developer.android.com/blog/authors/ben-trengrove)
-
-  ###### Developer Relations Engineer
-
-  [read_more
-  2 posts](https://developer.android.com/blog/authors/ben-trengrove) [read_more
-  2 posts](https://developer.android.com/blog/authors/ben-trengrove) ![](https://developer.android.com/static/blog/assets/Ben_Trengrove_b9e17c8c2e_2uVqlp.webp) ![](https://developer.android.com/static/blog/assets/Ben_Trengrove_b9e17c8c2e_2uVqlp.webp)
 <button class="adb--button adb--standard adb--outlined adb--disabled adb--global-hover-button astro-vnzlvqnm" disabled=""> arrow_back </button>
 
 #### Page 1

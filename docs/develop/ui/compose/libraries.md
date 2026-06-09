@@ -69,7 +69,7 @@ and in other common patterns. You can also create your own
 this technique.
 
 > [!CAUTION]
-> **Caution:** This example shows how to launch a request from a user interaction. In this case from an `onClick()` listener. If you attempt to launch a request from inside the composable you'll get a runtime error because the [`ActivityResultLauncher`](https://developer.android.com/reference/androidx/activity/result/ActivityResultLauncher) has not been initialised at this point. If you need to trigger the launch following composition you'll need to call the [`launch()`](https://developer.android.com/reference/androidx/activity/result/ActivityResultLauncher#launch(I)) method from inside a [`LaunchedEffect`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/LaunchedEffect.composable#LaunchedEffect(kotlin.Any,kotlin.coroutines.SuspendFunction1)) or [`DisposableEffect`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/DisposableEffect.composable#DisposableEffect(kotlin.Any,kotlin.Function1)) block.
+> **Caution:** This example shows how to launch a request from a user interaction. In this case from an `onClick()` listener. If you attempt to launch a request from inside the composable you'll get a runtime error because the [`ActivityResultLauncher`](https://developer.android.com/reference/androidx/activity/result/ActivityResultLauncher) has not been initialized at this point. If you need to trigger the launch following composition you'll need to call the [`launch()`](https://developer.android.com/reference/androidx/activity/result/ActivityResultLauncher#launch(I)) method from inside a [`LaunchedEffect`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/LaunchedEffect.composable#LaunchedEffect(kotlin.Any,kotlin.coroutines.SuspendFunction1)) or [`DisposableEffect`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/DisposableEffect.composable#DisposableEffect(kotlin.Any,kotlin.Function1)) block.
 
 ### Requesting runtime permissions
 
@@ -85,8 +85,8 @@ contract for multiple permissions.
 
 The
 [Accompanist Permissions library](https://google.github.io/accompanist/permissions/)
-can also be used a layer above those APIs to map the current granted state for
-permissions into State that your Compose UI can use.
+can also be used as a layer above those APIs to map the current granted state
+for permissions into State that your Compose UI can use.
 
 ### Handling the system back button
 

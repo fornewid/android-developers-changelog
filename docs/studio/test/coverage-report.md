@@ -12,6 +12,9 @@ You can generate coverage reports for each test type (unit and instrumentation)
 for each variant. You can also generate unified coverage reports across
 different test types, modules, and build variants.
 
+> [!NOTE]
+> **Note:** Coverage reports are not generated if any of the relevant tests fail.
+
 ## Enable code coverage
 
 Code coverage must be enabled by setting `enableAndroidTestCoverage` and
@@ -100,7 +103,8 @@ single dashboard.
 
 ### Prerequisites
 
-- Android Gradle Plugin 9.2.0-alpha07 or higher
+- Android Gradle Plugin 9.3.0-alpha09 or higher
+- [Enable code coverage](https://developer.android.com/studio/test/coverage-report#enable-coverage)
 
 To generate a unified report, run one of the following tasks from the command
 line:

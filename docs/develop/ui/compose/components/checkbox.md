@@ -172,11 +172,11 @@ This example produces the following component when all checkboxes are unchecked.
 
 Likewise, this is how the component appears when all options are checked, as
 when the user taps select all:
-![A series of checked labeled checkboxes checkbox with a label. The first is marked 'select all'. There is a text component beneath them that reads 'all options selected.'](https://developer.android.com/static/develop/ui/compose/images/components/checkbox-parent-checked.png) **Figure 5.** Checked checkboxes
+![A series of checked labeled checkboxes with a label. The first is marked 'select all'. There is a text component beneath them that reads 'all options selected.'](https://developer.android.com/static/develop/ui/compose/images/components/checkbox-parent-checked.png) **Figure 5.** Checked checkboxes
 
 When only one option is checked the parent checkbox displays the indeterminate
 state:
-![A series of unchecked labeled checkboxes checkbox with a label. All but one is unchecked. The checkbox labeled 'select all' is indeterminate, displaying a dash.](https://developer.android.com/static/develop/ui/compose/images/components/checkbox-parent-indeterminate.png) **Figure 6.** Indeterminate checkbox
+![A series of unchecked labeled checkboxes with a label. All but one is unchecked. The checkbox labeled 'select all' is indeterminate, displaying a dash.](https://developer.android.com/static/develop/ui/compose/images/components/checkbox-parent-indeterminate.png) **Figure 6.** Indeterminate checkbox
 
 ### Additional resources
 

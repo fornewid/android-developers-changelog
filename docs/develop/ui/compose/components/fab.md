@@ -55,7 +55,7 @@ fun Example(onClick: () -> Unit) {
 <br />
 
 This implementation appears as follows:
-![A standard floating action button with rounded corner, a shadow, and an 'add' icon.](https://developer.android.com/static/develop/ui/compose/images/components/fab.png) **Figure 2.** A floating action button.
+![A standard floating action button with rounded corners, a shadow, and an 'add' icon.](https://developer.android.com/static/develop/ui/compose/images/components/fab.png) **Figure 2.** A floating action button.
 
 ## Small button
 

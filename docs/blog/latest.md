@@ -7,6 +7,21 @@ source: md.txt
 # The Latest
 
 Stay up to date with the latest announcements, feature rollouts, and updates across Android tools, libraries, and platforms.
+- 3 Authors 08 Jun 2026 08 Jun 2026 ![](https://developer.android.com/static/blog/assets/ANDDM_TITLE_Strapi_b83ae0beee_i9nEs.webp)
+
+  #### [Case Studies](https://developer.android.com/blog/categories/case-studies)
+
+  ## [Datadog delivers millions of in-depth performance insights with ProfilingManager](https://developer.android.com/blog/posts/datadog-delivers-millions-of-in-depth-performance-insights-with-profiling-manager)
+
+  [arrow_forward](https://developer.android.com/blog/posts/datadog-delivers-millions-of-in-depth-performance-insights-with-profiling-manager) Performance regressions are notoriously hard to reproduce, making regressions a massive bottleneck for mobile developers.
+
+  ###### [Alice Yuan](https://developer.android.com/blog/authors/alice-yuan), [Arti Arutiunov](https://developer.android.com/blog/authors/arti-arutiunov), [Nikita Ogorodnikov](https://developer.android.com/blog/authors/nikita-ogorodnikov) •
+  4 min read
+
+  - [#Profiling Manager](https://developer.android.com/blog/topics/profiling-manager)
+  - [#Android](https://developer.android.com/blog/topics/android)
+  - [#Performance](https://developer.android.com/blog/topics/performance)
+  - +1 ↩
 - [![](https://developer.android.com/static/blog/assets/Ataul_Munim_cf0796f68c_r1HY2.webp)](https://developer.android.com/blog/authors/ataul-munim) 02 Jun 2026 02 Jun 2026 ![](https://developer.android.com/static/blog/assets/MM_Differentiated_Experiences_Strapi_bbe8e7618b_19k3ww.webp)
 
   #### [Product News](https://developer.android.com/blog/categories/product-news)
@@ -272,18 +287,6 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
   ###### [Nataraj K R](https://developer.android.com/blog/authors/nataraj-k-r) •
   2 min read
 
-- [![](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 12 May 2026 12 May 2026 ![](https://developer.android.com/static/blog/assets/Tas_Developers_cut_Strapi_3636223c9c_Z2pmmBN.webp)
-
-  #### [Product News](https://developer.android.com/blog/categories/product-news)
-
-  ## [Building for the Intelligence System on Android](https://developer.android.com/blog/posts/building-for-the-intelligence-system-on-android)
-
-  [arrow_forward](https://developer.android.com/blog/posts/building-for-the-intelligence-system-on-android) Announced today during The Android Show, Android is transitioning from an operating system to an intelligence system, creating more opportunities for engagement with your apps.
-
-  ###### [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) •
-  4 min read
-
-  - [#Android](https://developer.android.com/blog/topics/android)
 <button class="adb--button adb--standard adb--outlined adb--disabled adb--global-hover-button astro-vnzlvqnm" disabled=""> arrow_back </button>
 
 #### Page 1
@@ -331,6 +334,7 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
 - [#Game engine development](https://developer.android.com/blog/topics/game-engine-development)
 - [#intelligent eyewear](https://developer.android.com/blog/topics/intelligent-eyewear)
 - [#Wired XR glasses](https://developer.android.com/blog/topics/wired-xr-glasses)
+- [#Profiling Manager](https://developer.android.com/blog/topics/profiling-manager)
 - [#authentication](https://developer.android.com/blog/topics/authentication)
 - [#CredentialManager](https://developer.android.com/blog/topics/credential-manager)
 - [#Foldables](https://developer.android.com/blog/topics/foldables)

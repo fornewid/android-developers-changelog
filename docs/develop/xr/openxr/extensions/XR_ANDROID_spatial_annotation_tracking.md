@@ -948,13 +948,13 @@ The following example code demonstrates how to discover and query annotations.
 
       // Poll for the XR_TYPE_EVENT_DATA_SPATIAL_DISCOVERY_RECOMMENDED_EXT event
       XrEventDataBuffer event = {XR_TYPE_EVENT_DATA_BUFFER};
-      XrResult result = xrPollEvent(instan&ce, event);
+      XrResult result = xrPollEvent(instance, &event);
       if (result == XR_SUCCESS) {
         switch (event.type) {
         case XR_TYPE_EVENT_DATA_SPATIAL_ANNOTATION_TRACKING_ANDROID: {
-          const XrEventDataSpatialAnnotationTrackingANDR&OID eventdata =
-              *reinterpret_<castXrEventDataSpatialAnnotationTrackingANDRO>ID *(
-              &    event);
+          const XrEventDataSpatialAnnotationTrackingANDROID &eventdata =
+              *reinterpret_cast<XrEventDataSpatialAnnotationTrackingANDROID *>(
+                  &event);
           if (eventdata.initializationResult != XR_SUCCESS) {
             // handle initialization failure.
             // e.g. CHK_XR(xrDestroySpatialContextEXT(spatialContext));
@@ -962,9 +962,9 @@ The following example code demonstrates how to discover and query annotations.
           break;
         }
         case XR_TYPE_EVENT_DATA_SPATIAL_DISCOVERY_RECOMMENDED_EXT: {
-          const XrEventDataSpatialDiscoveryRecommended&EXT eventdata =
-              *reinterpret_<castXrEventDataSpatialDiscoveryRecommendedE>XT *(
-              &    event);
+          const XrEventDataSpatialDiscoveryRecommendedEXT &eventdata =
+              *reinterpret_cast<XrEventDataSpatialDiscoveryRecommendedEXT *>(
+                  &event);
           // Discover spatial entities for the context that we received the
           // "discovery recommended" event for.
           //discoverSpatialEntities(eventdata.spatialContext, time, space);

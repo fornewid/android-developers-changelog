@@ -4,7 +4,7 @@ url: https://developer.android.com/blog/authors/alice-yuan
 source: md.txt
 ---
 
-## 4
+## 5
 
 posts ![](https://developer.android.com/static/blog/assets/Alice_Yuan_552a4dd4ee_ZlDEgJ.webp)
 
@@ -13,6 +13,20 @@ posts ![](https://developer.android.com/static/blog/assets/Alice_Yuan_552a4dd4ee
 ###### Developer Relations Engineer
 
 Android
+- 08 Jun 2026 08 Jun 2026 ![](https://developer.android.com/static/blog/assets/ANDDM_TITLE_Strapi_b83ae0beee_i9nEs.webp)
+
+  #### [Case Studies](https://developer.android.com/blog/categories/case-studies)
+
+  ## [Datadog delivers millions of in-depth performance insights with ProfilingManager](https://developer.android.com/blog/posts/datadog-delivers-millions-of-in-depth-performance-insights-with-profiling-manager)
+
+  [arrow_forward](https://developer.android.com/blog/posts/datadog-delivers-millions-of-in-depth-performance-insights-with-profiling-manager) Performance regressions are notoriously hard to reproduce, making regressions a massive bottleneck for mobile developers.
+
+  ###### 4 min read
+
+  - [#Profiling Manager](https://developer.android.com/blog/topics/profiling-manager)
+  - [#Android](https://developer.android.com/blog/topics/android)
+  - [#Performance](https://developer.android.com/blog/topics/performance)
+  - +1 ↩
 - 02 Jun 2026 02 Jun 2026 ![](https://developer.android.com/static/blog/assets/Engineering_Memory_Blog_Strapi_3_bfd74f43e5_Z2i8kF7.webp)
 
   #### [How-tos](https://developer.android.com/blog/categories/how-tos)

@@ -92,7 +92,7 @@ which is an observable type integrated with the compose runtime.
         override var value: T
     }
 
-Any changes to `value` schedules recomposition of any composable functions
+Any changes to `value` schedule recomposition of any composable functions
 that read `value`.
 
 There are three ways to declare a `MutableState` object in a composable:

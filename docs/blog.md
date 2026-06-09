@@ -22,6 +22,21 @@ Tools and resources to help you build faster and easier.
 
 ## The Latest
 
+- 3 Authors 08 Jun 2026 08 Jun 2026 ![](https://developer.android.com/static/blog/assets/ANDDM_TITLE_Strapi_b83ae0beee_i9nEs.webp)
+
+  #### [Case Studies](https://developer.android.com/blog/categories/case-studies)
+
+  ## [Datadog delivers millions of in-depth performance insights with ProfilingManager](https://developer.android.com/blog/posts/datadog-delivers-millions-of-in-depth-performance-insights-with-profiling-manager)
+
+  Performance regressions are notoriously hard to reproduce, making regressions a massive bottleneck for mobile developers.
+
+  ###### [Alice Yuan](https://developer.android.com/blog/authors/alice-yuan), [Arti Arutiunov](https://developer.android.com/blog/authors/arti-arutiunov), [Nikita Ogorodnikov](https://developer.android.com/blog/authors/nikita-ogorodnikov) •
+  4 min read
+
+  - [#Profiling Manager](https://developer.android.com/blog/topics/profiling-manager)
+  - [#Android](https://developer.android.com/blog/topics/android)
+  - [#Performance](https://developer.android.com/blog/topics/performance)
+  - +1 ↩
 - [![](https://developer.android.com/static/blog/assets/Ataul_Munim_cf0796f68c_r1HY2.webp)](https://developer.android.com/blog/authors/ataul-munim) 02 Jun 2026 02 Jun 2026 ![](https://developer.android.com/static/blog/assets/MM_Differentiated_Experiences_Strapi_bbe8e7618b_19k3ww.webp)
 
   #### [Product News](https://developer.android.com/blog/categories/product-news)
@@ -98,21 +113,6 @@ Tools and resources to help you build faster and easier.
   - [#Android XR](https://developer.android.com/blog/topics/android-xr)
   - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
   - [#Game engine development](https://developer.android.com/blog/topics/game-engine-development)
-  - +1 ↩
-- [![](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z15U8cx.webp)](https://developer.android.com/blog/authors/fahd-imtiaz) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Combo_IO_Strapi_2000x1000_0370ff6d2c_ZQaFMJ.webp)
-
-  #### [Product News](https://developer.android.com/blog/categories/product-news)
-
-  ## [Adaptive development for the expanding Android ecosystem](https://developer.android.com/blog/posts/adaptive-development-for-the-expanding-android-ecosystem)
-
-  With the release of Android 17, we are transitioning into an adaptive first development standard. Your users no longer rely on a single form factor; they transition between phones, foldables, tablets, laptops, automotive displays, and immersive XR environments throughout their day.
-
-  ###### [Fahd Imtiaz](https://developer.android.com/blog/authors/fahd-imtiaz) •
-  4 min read
-
-  - [#Adaptive development](https://developer.android.com/blog/topics/adaptive-development)
-  - [#Adaptive apps](https://developer.android.com/blog/topics/adaptive-apps)
-  - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
   - +1 ↩
 [arrow_forward
 See all latest posts](https://developer.android.com/blog/latest) ![](https://developer.android.com/static/blog/assets/product_news_droid_599a11ad69_d4ee764ece_1mQM4e.webp)

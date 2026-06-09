@@ -284,7 +284,7 @@ fun LargeTopAppBarExample() {
 <br />
 
 This implementation appears as follows:
-![A screen in an app with a bottom app bar that holds for action icons on the left side, and a floating action button on the right.](https://developer.android.com/static/develop/ui/compose/images/components/appbar-large.png) **Figure 5.** An example implementation of a large top app bar.
+![A screen in an app with a bottom app bar that holds four action icons on the left side, and a floating action button on the right.](https://developer.android.com/static/develop/ui/compose/images/components/appbar-large.png) **Figure 5.** An example implementation of a large top app bar.
 
 ## Bottom app bar
 

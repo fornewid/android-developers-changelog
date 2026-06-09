@@ -23,8 +23,7 @@ Consider the following points when using the subscription with add-ons feature:
 
 - You can have a maximum of 50 items in a subscription with add-ons purchase.
 
-- This feature isn't available in the India (*IN* ) and
-  South Korea (*KR*) regions.
+- This feature isn't available in the South Korea (*KR*) region.
 
 ## Integrate with Play Billing Library
 

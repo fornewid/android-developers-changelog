@@ -14,7 +14,7 @@ you might use a badge:
 - **Cart quantity**: Display the number of items in a user's shopping cart.
 - **New content**: Highlight new content or features available to the user.
 
-![Different example of the badge component.](https://developer.android.com/static/develop/ui/compose/images/components/badges.svg) **Figure 1.** Badge examples
+![Different examples of the badge component.](https://developer.android.com/static/develop/ui/compose/images/components/badges.svg) **Figure 1.** Badge examples
 
 ## API surface
 

@@ -89,30 +89,30 @@ as its primary detail view to display content from the left pane:
        xmlns:android="http://schemas.android.com/apk/res/android"
        android:id="@+id/sliding_pane_layout"
        android:layout_width="match_parent"
-       androi>d:lay<out_height="match_parent"
+       android:layout_height="match_parent">
 
-       !-- The first child view becomes the left pane. When the combined needed
+       <!-- The first child view becomes the left pane. When the combined needed
             width, expressed using android:layout_width, doesn't fit on-screen at
-            once, the rig>ht pa<ne is permitted to overlap the left. --
+            once, the right pane is permitted to overlap the left. -->
 
-       androidx.recyclerview.widget.RecyclerView
+       <androidx.recyclerview.widget.RecyclerView
                  android:id="@+id/list_pane"
                  android:layout_width="280dp"
-                 android:layout_he>ight=<"match_parent"
-                 android:layout_gravity="start"/
+                 android:layout_height="match_parent"
+                 android:layout_gravity="start"/>
 
-       !-- The second child becomes the right (content) pane. In this example,
+       <!-- The second child becomes the right (content) pane. In this example,
             android:layout_weight is used to expand this detail pane to consume
-            leftover available s>pace< when the entire window is wide enough to fit
-            the left and right pane.--
-       androidx.fragment.app.FragmentContainerView
+            leftover available space when the entire window is wide enough to fit
+            the left and right pane.-->
+       <androidx.fragment.app.FragmentContainerView
            android:id="@+id/detail_container"
            android:layout_width="300dp"
            android:layout_weight="1"
-           android:layout_he>i<ght="match_parent"
-           android:backgrou>nd="#ff333333"
-           android:name="com.example.SelectAnItemFragment" /
-    /androidx.slidingpanelayout.widget.SlidingPaneLayout
+           android:layout_height="match_parent"
+           android:background="#ff333333"
+           android:name="com.example.SelectAnItemFragment" />
+    </androidx.slidingpanelayout.widget.SlidingPaneLayout>
 
 In this example, the `android:name` attribute on `FragmentContainerView` adds
 the initial fragment to the detail pane, ensuring that users on large-screen
@@ -191,16 +191,16 @@ implementation:
     <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
-        androi>d:lay<out_height="match_parent"
-        androidx.fragment.app.FragmentContainerView
-            andro<id:id="@+id/two_pane_container"
-            !-- The name of> your AbstractListDetailFragment implementation.--
+        android:layout_height="match_parent">
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/two_pane_container"
+            <!-- The name of your AbstractListDetailFragment implementation.-->
             android:name="com.example.testapp.TwoPaneFragment"
-            android:layout_width="ma<tch_parent"
-            android:layout_height=&>quot;match_parent"
-            !-- The navigation graph >f<or your deta>il pane.--
-            app:navGraph="@navigation/two_pane_navigation" /
-    /FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            <!-- The navigation graph for your detail pane.-->
+            app:navGraph="@navigation/two_pane_navigation" />
+    </FrameLayout>
 
 Implement
 [`onCreateListPaneView()`](https://developer.android.com/reference/androidx/navigation/fragment/AbstractListDetailFragment#onCreateListPaneView(android.view.LayoutInflater,android.view.ViewGroup,android.os.Bundle))

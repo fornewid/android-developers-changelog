@@ -382,7 +382,7 @@ fun textCopyThenPost(textCopied:String) {
     // When setting the clipboard text.
     clipboardManager.setPrimaryClip(ClipData.newPlainText   ("", textCopied))
     // Only show a toast for Android 12 and lower.
-    if (Build.VERSIO<N.SDK_INT = Build.VERSION_CODES.S_V2)
+    if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.S_V2)
         Toast.makeText(context, "Copied", Toast.LENGTH_SHORT).show()
 }
 ```
@@ -455,15 +455,15 @@ the following procedure:
    // If the clipboard doesn't contain data, disable the paste menu item.
    // If it does contain data, decide whether you can handle the data.
    pasteItem.isEnabled = when {
-       !clipboard.hasP>rimaryClip() - {
+       !clipboard.hasPrimaryClip() -> {
            false
        }
-       !(clipboard.primaryClipDescription.hasMimeType(MIMETYPE_>TEXT_PLAIN)) - {
+       !(clipboard.primaryClipDescription.hasMimeType(MIMETYPE_TEXT_PLAIN)) -> {
            // Disables the paste menu item, since the clipboard has data but it
            // isn't plain text.
-           fals>e
+           false
        }
-       else - {
+       else -> {
            // Enables the paste menu item, since the clipboard contains plain text.
            true
        }
@@ -690,7 +690,7 @@ provider.
            }?.apply {
 
                // Get the data from the content provider.
-               cr.query(pasteUri, null, null, null, null)?.use { pasteCurs>or -
+               cr.query(pasteUri, null, null, null, null)?.use { pasteCursor ->
 
                    // If the Cursor contains data, move to the first record.
                    if (pasteCursor.moveToFirst()) {
@@ -1049,16 +1049,16 @@ The following snippets demonstrate how to set up your application to copy comple
    // Sets up your provider's query() method.
    override fun query(
            uri: Uri,
-           projection: A<rrayout St>ring?,
+           projection: Array<out String>?,
            selection: String?,
-           selectionArgs: A<rrayout St>ring?,
+           selectionArgs: Array<out String>?,
            sortOrder: String?
    ): Cursor? {
        ...
        // When based on the incoming content URI:
        when(sUriMatcher.match(uri)) {
 
-           GET_SINGLE_CONTA>CT - {
+           GET_SINGLE_CONTACT -> {
 
                // Queries and returns the contact for the requested name. Decodes
                // the incoming URI, queries the data model based on the last name,
@@ -1097,7 +1097,7 @@ The following snippets demonstrate how to set up your application to copy comple
    override fun getType(uri: Uri): String? {
        ...
        return when(sUriMatcher.match(uri)) {
-           GET_SINGLE_CONTA>CT - MIME_TYPE_CONTACT
+           GET_SINGLE_CONTACT -> MIME_TYPE_CONTACT
            ...
        }
    }
