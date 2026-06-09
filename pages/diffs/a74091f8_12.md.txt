@@ -1,0 +1,29 @@
+diff --git a/docs/blog/authors/12.md b/docs/blog/authors/12.md
+index 6892bc24..a824b389 100644
+--- a/docs/blog/authors/12.md
++++ b/docs/blog/authors/12.md
+@@ -6,6 +6,24 @@ source: md.txt
+ 
+ # Authors
+ 
++-
++
++  ## [Tor Norbye](https://developer.android.com/blog/authors/tor-norbye)
++
++  ###### Senior Director of Engineering
++
++  [read_more
++  1 post](https://developer.android.com/blog/authors/tor-norbye) [read_more
++  1 post](https://developer.android.com/blog/authors/tor-norbye) ![](https://developer.android.com/static/blog/assets/Tor_Norbye_7b1b17eb31_ZSRUB7.webp) ![](https://developer.android.com/static/blog/assets/Tor_Norbye_7b1b17eb31_ZSRUB7.webp)
++-
++
++  ## [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang)
++
++  ###### Product Marketing Manager
++
++  [read_more
++  8 posts](https://developer.android.com/blog/authors/tracy-agyemang) [read_more
++  8 posts](https://developer.android.com/blog/authors/tracy-agyemang) ![](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_1hBimO.webp) ![](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_1hBimO.webp)
+ -
+ 
+   ## [Trevor Johns](https://developer.android.com/blog/authors/trevor-johns)

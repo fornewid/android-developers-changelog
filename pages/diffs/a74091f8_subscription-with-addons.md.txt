@@ -1,0 +1,14 @@
+diff --git a/docs/google/play/billing/subscription-with-addons.md b/docs/google/play/billing/subscription-with-addons.md
+index f8e2e39a..3e2b1b83 100644
+--- a/docs/google/play/billing/subscription-with-addons.md
++++ b/docs/google/play/billing/subscription-with-addons.md
+@@ -23,8 +23,7 @@ Consider the following points when using the subscription with add-ons feature:
+ 
+ - You can have a maximum of 50 items in a subscription with add-ons purchase.
+ 
+-- This feature isn't available in the India (*IN* ) and
+-  South Korea (*KR*) regions.
++- This feature isn't available in the South Korea (*KR*) region.
+ 
+ ## Integrate with Play Billing Library
+ 

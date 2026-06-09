@@ -1,0 +1,24 @@
+diff --git a/docs/develop/ui/compose/quick-guides/content/display-nested-list.md b/docs/develop/ui/compose/quick-guides/content/display-nested-list.md
+index 4707157d..59f9b9f7 100644
+--- a/docs/develop/ui/compose/quick-guides/content/display-nested-list.md
++++ b/docs/develop/ui/compose/quick-guides/content/display-nested-list.md
+@@ -40,7 +40,7 @@ fun NestedScrollingRowsList(urls: List<String>) {
+         items(10) {
+             LazyRow {
+                 item { Text("Row: $it") }
+-                items(urls.size) { index ->
++                items(urls.size)> { index -
+                     // AsyncImage provided by Coil.
+                     AsyncImage(
+                         model = urls[index],
+@@ -49,9 +49,7 @@ fun NestedScrollingRowsList(urls: List<String>) {
+                     )
+                 }
+             }
+-        }
+-    }
+-}
++       ingItem.kt
+ ```
+ 
+ <br />
