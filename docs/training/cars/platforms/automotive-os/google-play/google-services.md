@@ -19,7 +19,7 @@ Android Automotive OS cars with Google built-in:
 | API | Available packages |
 |---|---|
 | [App set ID](https://developer.android.com/identity/app-set-id) | `https://developers.google.com/android/reference/com/google/android/gms/appset/package-summary` |
-| [Android Advertising ID (AAID)](https://developers.google.com/android/reference/com/google/android/gms/ads/identifier/AdvertisingIdClient) | `https://developers.google.com/android/reference/com/google/android/gms/ads/identifier/package-summary` |
+| [Android Advertising ID (AdID)](https://developers.google.com/android/reference/com/google/android/gms/ads/identifier/AdvertisingIdClient) | `https://developers.google.com/android/reference/com/google/android/gms/ads/identifier/package-summary` |
 | [AppSearch](https://developer.android.com/develop/ui/views/search/appsearch) | `https://developers.google.com/android/reference/com/google/android/gms/appsearch/package-summary` |
 | Auth | `https://developers.google.com/android/reference/com/google/android/gms/auth/package-summary` `https://developers.google.com/android/reference/com/google/android/gms/auth/account/package-summary` |
 | Auth API | `https://developers.google.com/android/reference/com/google/android/gms/auth/api/package-summary` `https://developers.google.com/android/reference/com/google/android/gms/auth/api/credentials/package-summary` `https://developers.google.com/android/reference/com/google/android/gms/auth/api/signin/package-summary` |

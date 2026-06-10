@@ -4,10 +4,6 @@ url: https://developer.android.com/games/playgames/native-pc/setup
 source: md.txt
 ---
 
-and initializing the Play Games PC SDK into both Native C++ and Unity C# game
-projects.
-keywords_public: android,games,playgames,native-pc,setup,sdk,c++,c#,initialization,google play games for pc
-
 With the Play Games PC SDK you can access Google Play services to build and
 monetize your game on PCs. Sell digital content using Play Billing, seamlessly
 sign-in using Play Games, and verify your users have a valid entitlement to your
@@ -68,11 +64,11 @@ same directory as your game's executable.
 Example `manifest.xml` contents:
 
     <?xml version="1.0" encoding="utf-8"?>
-    <?Manifest version="1">
-       <?Application>
-         <?PackageName>com.example.package<?/PackageName>
-       <?/Application>
-    <?/Manifest>
+    <Manifest version="1">
+        <Application>
+            <PackageName>com.example.package</PackageName>
+        </Application>
+    </Manifest>
 
 Example `manifest.xml` placement:
 

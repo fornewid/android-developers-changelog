@@ -115,9 +115,7 @@ more CPU cycles and RAM, and can cause a noticeable lag when the app launches.
 
 When using dependency injection, be careful to avoid memory leaks by ensuring
 that objects are scoped appropriately. Retaining objects longer than necessary
-by binding them to the wrong lifecycle can lead to memory leaks. For more
-information, see the guidance on [avoiding memory leaks with scoped
-objects](https://developer.android.com/topic/performance/memory-leaks#singleton-ui-scoped).
+by binding them to the wrong lifecycle can lead to memory leaks.
 
 ### Be intentional with image loading
 

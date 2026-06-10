@@ -80,12 +80,33 @@ The following code snippet showcases the request body payload for the
             "watch_next_type": "WATCH_NEXT_TYPE_CONTINUE",
             "name": "Movie1",
             "platform_specific_playback_uris": [
-              "https://www.example.com/entity_uri_for_android",
-              "https://www.example.com/entity_uri_for_iOS"
+            {
+              "uri": "https://www.example.com/entity_uri_for_android",
+              "platforms": [
+                "PLATFORM_ANDROID_TV",
+                "PLATFORM_ANDROID"
+              ]
+            },
+            {
+              "uri": "https://www.example.com/entity_uri_for_iOS",
+              "platforms": [
+                "PLATFORM_IOS"
+              ]
+            }
             ],
             "poster_images": [
-              "http://www.example.com/movie1_img1.png",
-              "http://www.example.com/movie1_imag2.png"
+              {
+                "url": "http://www.example.com/movie1_img1.png",
+                "width": 1920,
+                "height": 1080,
+                "accessibility_text": "Movie 1 HD poster"
+              },
+              {
+                "url": "http://www.example.com/movie1_imag2.png",
+                "width": 640,
+                "height": 360,
+                "accessibility_text": "Movie 1 SD poster"
+              }
             ],
             "last_engagement_time_millis": 864600000,
             "duration_millis": 5400000,
@@ -97,12 +118,37 @@ The following code snippet showcases the request body payload for the
             "watch_next_type": "WATCH_NEXT_TYPE_CONTINUE",
             "name": "TV SERIES EPISODE 1",
             "platform_specific_playback_uris": [
-              "https://www.example.com/entity_uri_for_android",
-              "https://www.example.com/entity_uri_for_iOS"
-            ],
+            {
+              "uri": "https://www.example.com/entity_uri_for_android_mobile",
+              "platforms": [
+                "PLATFORM_ANDROID"
+              ]
+            },
+            {
+              "uri": "https://www.example.com/entity_uri_for_android_tv",
+              "platforms": [
+                "PLATFORM_ANDROID_TV"
+              ]
+            },
+            {
+              "uri": "https://www.example.com/entity_uri_for_iOS",
+              "platforms": [
+                "PLATFORM_IOS"
+              ]
+            }
             "poster_images": [
-              "http://www.example.com/episode1_img1.png",
-              "http://www.example.com/episode1_imag2.png"
+              {
+                "url": "http://www.example.com/episode1_img1.png",
+                "width": 1920,
+                "height": 1080,
+                "accessibility_text": "Episode 1 HD poster"
+              },
+              {
+                "url": "http://www.example.com/episode1_imag2.png",
+                "width": 640,
+                "height": 360,
+                "accessibility_text": "Episode 1 SD poster"
+              }
             ],
             "last_engagement_time_millis": 864600000,
             "duration_millis": 1800000,

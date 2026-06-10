@@ -29,50 +29,46 @@ transfer sensitive information to an app that they trust.
 
 ### Kotlin
 
-```kotlin
-val intent = Intent(Intent.ACTION_SEND)
-val possibleActivitiesList: List<ResolveInfo> =
-        packageManager.queryIntentActivities(intent, PackageManager.MATCH_ALL)
+    val intent = Intent(Intent.ACTION_SEND)
+    val possibleActivitiesList: List&lt;ResolveInfo&gt; =
+            packageManager.queryIntentActivities(intent, PackageManager.MATCH_ALL)
 
-// Verify that an activity in at least two apps on the user's device
-// can handle the intent. Otherwise, start the intent only if an app
-// on the user's device can handle the intent.
-if (possibleActivitiesList.size > 1) {
+    // Verify that an activity in at least two apps on the user's device
+    // can handle the intent. Otherwise, start the intent only if an app
+    // on the user's device can handle the intent.
+    if (possibleActivitiesList.size > 1) {
 
-    // Create intent to show chooser.
-    // Title is something similar to "Share this photo with."
+        // Create intent to show chooser.
+        // Title is something similar to "Share this photo with."
 
-    val chooser = resources.getString(R.string.chooser_title).let { title ->
-        Intent.createChooser(intent, title)
+        <b>val chooser = resources.getString(R.string.chooser_title).let { title ->
+            Intent.createChooser(intent, title)
+        }
+        startActivity(chooser)</b>
+    } else if (intent.resolveActivity(packageManager) != null) {
+        startActivity(intent)
     }
-    startActivity(chooser)
-} else if (intent.resolveActivity(packageManager) != null) {
-    startActivity(intent)
-}
-```
 
 ### Java
 
-```java
-Intent intent = new Intent(Intent.ACTION_SEND);
-List<ResolveInfo> possibleActivitiesList = getPackageManager()
-        .queryIntentActivities(intent, PackageManager.MATCH_ALL);
+    Intent intent = new Intent(Intent.ACTION_SEND);
+    List&lt;ResolveInfo&gt; possibleActivitiesList = getPackageManager()
+            .queryIntentActivities(intent, PackageManager.MATCH_ALL);
 
-// Verify that an activity in at least two apps on the user's device
-// can handle the intent. Otherwise, start the intent only if an app
-// on the user's device can handle the intent.
-if (possibleActivitiesList.size() > 1) {
+    // Verify that an activity in at least two apps on the user's device
+    // can handle the intent. Otherwise, start the intent only if an app
+    // on the user's device can handle the intent.
+    if (possibleActivitiesList.size() > 1) {
 
-    // Create intent to show chooser.
-    // Title is something similar to "Share this photo with."
+        // Create intent to show chooser.
+        // Title is something similar to "Share this photo with."
 
-    String title = getResources().getString(R.string.chooser_title);
-    Intent chooser = Intent.createChooser(intent, title);
-    startActivity(chooser);
-} else if (intent.resolveActivity(getPackageManager()) != null) {
-    startActivity(intent);
-}
-```
+        <b>String title = getResources().getString(R.string.chooser_title);
+        Intent chooser = Intent.createChooser(intent, title);
+        startActivity(chooser);</b>
+    } else if (intent.resolveActivity(getPackageManager()) != null) {
+        startActivity(intent);
+    }
 
 **Related info:**
 
@@ -153,23 +149,19 @@ following:
 
 ### Kotlin
 
-```kotlin
-val url = URL("https://www.google.com")
-val urlConnection = url.openConnection() as HttpsURLConnection
-urlConnection.connect()
-urlConnection.inputStream.use {
-    ...
-}
-```
+    val url = URL("https://www.google.com")
+    val urlConnection = url.openConnection() as HttpsURLConnection
+    urlConnection.connect()
+    urlConnection.inputStream.use {
+        ...
+    }
 
 ### Java
 
-```java
-URL url = new URL("https://www.google.com");
-HttpsURLConnection urlConnection = (HttpsURLConnection) url.openConnection();
-urlConnection.connect();
-InputStream in = urlConnection.getInputStream();
-```
+    URL url = new URL("https://www.google.com");
+    HttpsURLConnection urlConnection = (HttpsURLConnection) url.openConnection();
+    urlConnection.connect();
+    InputStream in = urlConnection.getInputStream();
 
 #### Add a network security configuration
 
@@ -270,45 +262,41 @@ snippet:
 
 ### Kotlin
 
-```kotlin
-val myWebView: WebView = findViewById(R.id.webview)
+    val myWebView: WebView = findViewById(R.id.webview)
 
-// channel[0] and channel[1] represent the two ports.
-// They are already entangled with each other and have been started.
-val channel: Array<out WebMessagePort> = myWebView.createWebMessageChannel()
+    // channel[0] and channel[1] represent the two ports.
+    // They are already entangled with each other and have been started.
+    val channel: Array&lt;out WebMessagePort&gt; = myWebView.createWebMessageChannel()
 
-// Create handler for channel[0] to receive messages.
-channel[0].setWebMessageCallback(object : WebMessagePort.WebMessageCallback() {
+    // Create handler for channel[0] to receive messages.
+    channel[0].setWebMessageCallback(object : WebMessagePort.WebMessageCallback() {
 
-    override fun onMessage(port: WebMessagePort, message: WebMessage) {
-        Log.d(TAG, "On port $port, received this message: $message")
-    }
-})
+        override fun onMessage(port: WebMessagePort, message: WebMessage) {
+            Log.d(TAG, "On port $port, received this message: $message")
+        }
+    })
 
-// Send a message from channel[1] to channel[0].
-channel[1].postMessage(WebMessage("My secure message"))
-```
+    // Send a message from channel[1] to channel[0].
+    channel[1].postMessage(WebMessage("My secure message"))
 
 ### Java
 
-```java
-WebView myWebView = (WebView) findViewById(R.id.webview);
+    WebView myWebView = (WebView) findViewById(R.id.webview);
 
-// channel[0] and channel[1] represent the two ports.
-// They are already entangled with each other and have been started.
-WebMessagePort[] channel = myWebView.createWebMessageChannel();
+    // channel[0] and channel[1] represent the two ports.
+    // They are already entangled with each other and have been started.
+    WebMessagePort[] channel = myWebView.createWebMessageChannel();
 
-// Create handler for channel[0] to receive messages.
-channel[0].setWebMessageCallback(new WebMessagePort.WebMessageCallback() {
-    @Override
-    public void onMessage(WebMessagePort port, WebMessage message) {
-         Log.d(TAG, "On port " + port + ", received this message: " + message);
-    }
-});
+    // Create handler for channel[0] to receive messages.
+    channel[0].setWebMessageCallback(new WebMessagePort.WebMessageCallback() {
+        @Override
+        public void onMessage(WebMessagePort port, WebMessage message) {
+             Log.d(TAG, "On port " + port + ", received this message: " + message);
+        }
+    });
 
-// Send a message from channel[1] to channel[0].
-channel[1].postMessage(new WebMessage("My secure message"));
-```
+    // Send a message from channel[1] to channel[0].
+    channel[1].postMessage(new WebMessage("My secure message"));
 
 **Related info:**
 
@@ -334,32 +322,28 @@ contacts app instead of requesting the
 
 ### Kotlin
 
-```kotlin
-// Delegates the responsibility of creating the contact to a contacts app,
-// which has already been granted the appropriate WRITE_CONTACTS permission.
-Intent(Intent.ACTION_INSERT).apply {
-    type = ContactsContract.Contacts.CONTENT_TYPE
-}.also { intent ->
-    // Make sure that the user has a contacts app installed on their device.
-    intent.resolveActivity(packageManager)?.run {
-        startActivity(intent)
+    // Delegates the responsibility of creating the contact to a contacts app,
+    // which has already been granted the appropriate WRITE_CONTACTS permission.
+    Intent(Intent.ACTION_INSERT).apply {
+        type = ContactsContract.Contacts.CONTENT_TYPE
+    }.also { intent ->
+        // Make sure that the user has a contacts app installed on their device.
+        intent.resolveActivity(packageManager)?.run {
+            startActivity(intent)
+        }
     }
-}
-```
 
 ### Java
 
-```java
-// Delegates the responsibility of creating the contact to a contacts app,
-// which has already been granted the appropriate WRITE_CONTACTS permission.
-Intent insertContactIntent = new Intent(Intent.ACTION_INSERT);
-insertContactIntent.setType(ContactsContract.Contacts.CONTENT_TYPE);
+    // Delegates the responsibility of creating the contact to a contacts app,
+    // which has already been granted the appropriate WRITE_CONTACTS permission.
+    Intent insertContactIntent = new Intent(Intent.ACTION_INSERT);
+    insertContactIntent.setType(ContactsContract.Contacts.CONTENT_TYPE);
 
-// Make sure that the user has a contacts app installed on their device.
-if (insertContactIntent.resolveActivity(getPackageManager()) != null) {
-    startActivity(insertContactIntent);
-}
-```
+    // Make sure that the user has a contacts app installed on their device.
+    if (insertContactIntent.resolveActivity(getPackageManager()) != null) {
+        startActivity(insertContactIntent);
+    }
 
 In addition, if your app needs to perform file-based I/O---such as
 accessing storage or choosing a file---it doesn't need special permissions
@@ -387,36 +371,32 @@ viewer app:
 
 ### Kotlin
 
-```kotlin
-// Create an Intent to launch a PDF viewer for a file owned by this app.
-Intent(Intent.ACTION_VIEW).apply {
-    data = Uri.parse("content://com.example/personal-info.pdf")
+    // Create an Intent to launch a PDF viewer for a file owned by this app.
+    Intent(Intent.ACTION_VIEW).apply {
+        data = Uri.parse("<b>content:</b>//com.example/personal-info.pdf")
 
-    // This flag gives the started app read access to the file.
-    addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
-}.also { intent ->
-    // Make sure that the user has a PDF viewer app installed on their device.
-    intent.resolveActivity(packageManager)?.run {
-        startActivity(intent)
+        // This flag gives the started app read access to the file.
+        <b>addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)</b>
+    }.also { intent ->
+        // Make sure that the user has a PDF viewer app installed on their device.
+        intent.resolveActivity(packageManager)?.run {
+            startActivity(intent)
+        }
     }
-}
-```
 
 ### Java
 
-```java
-// Create an Intent to launch a PDF viewer for a file owned by this app.
-Intent viewPdfIntent = new Intent(Intent.ACTION_VIEW);
-viewPdfIntent.setData(Uri.parse("content://com.example/personal-info.pdf"));
+    // Create an Intent to launch a PDF viewer for a file owned by this app.
+    Intent viewPdfIntent = new Intent(Intent.ACTION_VIEW);
+    viewPdfIntent.setData(Uri.parse("<b>content://</b>com.example/personal-info.pdf"));
 
-// This flag gives the started app read access to the file.
-viewPdfIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+    // This flag gives the started app read access to the file.
+    <b>viewPdfIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);</b>
 
-// Make sure that the user has a PDF viewer app installed on their device.
-if (viewPdfIntent.resolveActivity(getPackageManager()) != null) {
-    startActivity(viewPdfIntent);
-}
-```
+    // Make sure that the user has a PDF viewer app installed on their device.
+    if (viewPdfIntent.resolveActivity(getPackageManager()) != null) {
+        startActivity(viewPdfIntent);
+    }
 
 **Note:** Executing files from the writable app home
 directory is a
@@ -452,64 +432,56 @@ storage:
 
 ### Kotlin
 
-```kotlin
-// Creates a file with this name, or replaces an existing file
-// that has the same name. Note that the file name cannot contain
-// path separators.
-val FILE_NAME = "sensitive_info.txt"
-val fileContents = "This is some top-secret information!"
-File(filesDir, FILE_NAME).bufferedWriter().use { writer ->
-    writer.write(fileContents)
-}
-```
+    // Creates a file with this name, or replaces an existing file
+    // that has the same name. Note that the file name cannot contain
+    // path separators.
+    val FILE_NAME = "sensitive_info.txt"
+    val fileContents = "This is some top-secret information!"
+    File(filesDir, FILE_NAME).bufferedWriter().use { writer ->
+        writer.write(fileContents)
+    }
 
 ### Java
 
-```java
-// Creates a file with this name, or replaces an existing file
-// that has the same name. Note that the file name cannot contain
-// path separators.
-final String FILE_NAME = "sensitive_info.txt";
-String fileContents = "This is some top-secret information!";
-try (BufferedWriter writer =
-             new BufferedWriter(new FileWriter(new File(getFilesDir(), FILE_NAME)))) {
-    writer.write(fileContents);
-} catch (IOException e) {
-    // Handle exception.
-}
-```
+    // Creates a file with this name, or replaces an existing file
+    // that has the same name. Note that the file name cannot contain
+    // path separators.
+    final String FILE_NAME = "sensitive_info.txt";
+    String fileContents = "This is some top-secret information!";
+    try (BufferedWriter writer =
+                 new BufferedWriter(new FileWriter(new File(getFilesDir(), FILE_NAME)))) {
+        writer.write(fileContents);
+    } catch (IOException e) {
+        // Handle exception.
+    }
 
 The following code snippet shows the inverse operation, reading data from
 internal storage:
 
 ### Kotlin
 
-```kotlin
-val FILE_NAME = "sensitive_info.txt"
-val contents = File(filesDir, FILE_NAME).bufferedReader().useLines { lines ->
-    lines.fold("") { working, line ->
-        "$working\n$line"
+    val FILE_NAME = "sensitive_info.txt"
+    val contents = File(filesDir, FILE_NAME).bufferedReader().useLines { lines ->
+        lines.fold("") { working, line ->
+            "$working\n$line"
+        }
     }
-}
-```
 
 ### Java
 
-```java
-final String FILE_NAME = "sensitive_info.txt";
-StringBuffer stringBuffer = new StringBuffer();
-try (BufferedReader reader =
-             new BufferedReader(new FileReader(new File(getFilesDir(), FILE_NAME)))) {
+    final String FILE_NAME = "sensitive_info.txt";
+    StringBuffer stringBuffer = new StringBuffer();
+    try (BufferedReader reader =
+                 new BufferedReader(new FileReader(new File(getFilesDir(), FILE_NAME)))) {
 
-    String line = reader.readLine();
-    while (line != null) {
-        stringBuffer.append(line).append('\n');
-        line = reader.readLine();
+        String line = reader.readLine();
+        while (line != null) {
+            stringBuffer.append(line).append('\n');
+            line = reader.readLine();
+        }
+    } catch (IOException e) {
+        // Handle exception.
     }
-} catch (IOException e) {
-    // Handle exception.
-}
-```
 
 **Related info:**
 
@@ -554,110 +526,105 @@ The following code snippet includes an example of a hash verifier:
 
 ### Kotlin
 
-```kotlin
-val hash = calculateHash(stream)
-// Store "expectedHash" in a secure location.
-if (hash == expectedHash) {
-    // Work with the content.
-}
-
-// Calculating the hash code can take quite a bit of time, so it shouldn't
-// be done on the main thread.
-suspend fun calculateHash(stream: InputStream): String {
-    return withContext(Dispatchers.IO) {
-        val digest = MessageDigest.getInstance("SHA-512")
-        val digestStream = DigestInputStream(stream, digest)
-        while (digestStream.read() != -1) {
-            // The DigestInputStream does the work; nothing for us to do.
-        }
-        digest.digest().joinToString(":") { "%02x".format(it) }
-    }
-}
-```
-
-### Java
-
-```java
-Executor threadPoolExecutor = Executors.newFixedThreadPool(4);
-private interface HashCallback {
-    void onHashCalculated(@Nullable String hash);
-}
-
-boolean hashRunning = calculateHash(inputStream, threadPoolExecutor, hash -> {
-    if (Objects.equals(hash, expectedHash)) {
+    val hash = calculateHash(stream)
+    // Store "expectedHash" in a secure location.
+    if (hash == <var>expectedHash</var>) {
         // Work with the content.
-    }
-});
-
-if (!hashRunning) {
-    // There was an error setting up the hash function.
-}
-
-private boolean calculateHash(@NonNull InputStream stream,
-                              @NonNull Executor executor,
-                              @NonNull HashCallback hashCallback) {
-    final MessageDigest digest;
-    try {
-        digest = MessageDigest.getInstance("SHA-512");
-    } catch (NoSuchAlgorithmException nsa) {
-        return false;
     }
 
     // Calculating the hash code can take quite a bit of time, so it shouldn't
     // be done on the main thread.
-    executor.execute(() -> {
-        String hash;
-        try (DigestInputStream digestStream =
-                new DigestInputStream(stream, digest)) {
+    suspend fun calculateHash(stream: InputStream): String {
+        return withContext(Dispatchers.IO) {
+            val digest = MessageDigest.getInstance("SHA-512")
+            val digestStream = DigestInputStream(stream, digest)
             while (digestStream.read() != -1) {
                 // The DigestInputStream does the work; nothing for us to do.
             }
-            StringBuilder builder = new StringBuilder();
-            for (byte aByte : digest.digest()) {
-                builder.append(String.format("%02x", aByte)).append(':');
-            }
-            hash = builder.substring(0, builder.length() - 1);
-        } catch (IOException e) {
-            hash = null;
+            digest.digest().joinToString(":") { "%02x".format(it) }
+        }
+    }
+
+### Java
+
+    Executor threadPoolExecutor = Executors.newFixedThreadPool(4);
+    private interface HashCallback {
+        void onHashCalculated(@Nullable String hash);
+    }
+
+    boolean hashRunning = calculateHash(inputStream, threadPoolExecutor, hash -&gt; {
+        if (Objects.equals(hash, <var>expectedHash</var>)) {
+            // Work with the content.
+        }
+    });
+
+    if (!hashRunning) {
+        // There was an error setting up the hash function.
+    }
+
+    private boolean calculateHash(@NonNull InputStream stream,
+                                  @NonNull Executor executor,
+                                  @NonNull HashCallback hashCallback) {
+        final MessageDigest digest;
+        try {
+            digest = MessageDigest.getInstance("SHA-512");
+        } catch (NoSuchAlgorithmException nsa) {
+            return false;
         }
 
-        final String calculatedHash = hash;
-        runOnUiThread(() -> hashCallback.onHashCalculated(calculatedHash));
-    });
-    return true;
-}
-```
+        // Calculating the hash code can take quite a bit of time, so it shouldn't
+        // be done on the main thread.
+        executor.execute(() -&gt; {
+            String hash;
+            try (DigestInputStream digestStream =
+                    new DigestInputStream(stream, digest)) {
+                while (digestStream.read() != -1) {
+                    // The DigestInputStream does the work; nothing for us to do.
+                }
+                StringBuilder builder = new StringBuilder();
+                for (byte aByte : digest.digest()) {
+                    builder.append(String.format("%02x", aByte)).append(':');
+                }
+                hash = builder.substring(0, builder.length() - 1);
+            } catch (IOException e) {
+                hash = null;
+            }
 
-### Store only non-sensitive data in cache files
+            final String calculatedHash = hash;
+            runOnUiThread(() -> hashCallback.onHashCalculated(calculatedHash));
+        });
+        return true;
+    }
 
-To provide faster access to non-sensitive app data, store it in the device's
-cache. For caches larger than 1 MB, use
-`https://developer.android.com/reference/android/content/Context#getExternalCacheDir()`.
-For caches 1 MB or smaller, use
+### Use internal storage for sensitive cache data
+
+To provide faster access to app data, store it in the device's
+cache. For caches 1 MB or smaller, use
 `https://developer.android.com/reference/android/content/Context#getCacheDir()`.
+For caches larger than 1 MB, use
+`https://developer.android.com/reference/android/content/Context#getExternalCacheDir()`.
 Both methods provide you with the
 `https://developer.android.com/reference/java/io/File` object that
 contains your app's cached data.
+
+While the internal cache directory (provided by `getCacheDir()`)
+is private to your app, the external cache directory is not.
 
 The following code snippet shows how to cache a file that your app recently
 downloaded:
 
 ### Kotlin
 
-```kotlin
-val cacheFile = File(myDownloadedFileUri).let { fileToCache ->
-    File(cacheDir.path, fileToCache.name)
-}
-```
+    val cacheFile = File(myDownloadedFileUri).let { fileToCache ->
+        File(cacheDir.path, fileToCache.name)
+    }
 
 ### Java
 
-```java
-File cacheDir = getCacheDir();
-File fileToCache = new File(myDownloadedFileUri);
-String fileToCacheName = fileToCache.getName();
-File cacheFile = new File(cacheDir.getPath(), fileToCacheName);
-```
+    File cacheDir = getCacheDir();
+    File fileToCache = new File(myDownloadedFileUri);
+    String fileToCacheName = fileToCache.getName();
+    File cacheFile = new File(cacheDir.getPath(), fileToCacheName);
 
 **Note:** If you use
 `https://developer.android.com/reference/android/content/Context#getExternalCacheDir()` to
@@ -665,7 +632,8 @@ place your app's cache within shared storage, the user might eject the media
 containing this storage while your app is running. Include logic to
 gracefully handle the cache miss that this user behavior causes.
 
-**Caution:** There is no security enforced on these files.
+**Caution:** There is no security enforced on files
+in the **external cache directory** .
 Therefore, any app that targets Android 10 (API level 29) or lower and has the
 `https://developer.android.com/reference/android/Manifest.permission#WRITE_EXTERNAL_STORAGE` permission can access
 the contents of this cache.

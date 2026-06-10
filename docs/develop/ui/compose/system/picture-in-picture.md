@@ -16,7 +16,7 @@ are hidden and video playback continues when the activity is in PiP mode.
 
 ## Implement PiP with Jetpack
 
-Use the [Jetpack Picture-in-Picture library](https://developer.android.com/jetpack/androidx/releases/core#core-pip_version_10_2) to implement
+Use the [Jetpack Picture-in-Picture library](https://developer.android.com/develop/ui/views/pip-jetpack) to implement
 picture-in-picture experience as it streamlines integration and reduces common
 in-app issues. Refer to our [platform sample app](https://github.com/android/platform-samples/tree/main/samples/user-interface/picture-in-picture) to see an
 example of its usage. However, if you prefer to implement PiP using the

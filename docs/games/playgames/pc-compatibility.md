@@ -15,7 +15,7 @@ cross-device play requirements. For more information, see the
 When making the PC compatibility and optimization changes (other than x86-64
 support), you can set up your game to
 [detect Google Play Games on PC](https://developer.android.com/games/playgames/pc-compatibility#detect-hpe) and then disable or enable
-platform-specific features. This allows you to use the same APK or App bundle
+platform-specific features. This lets you to use the same APK or App bundle
 for your Android mobile and PC releases.
 
 > [!NOTE]
@@ -23,7 +23,7 @@ for your Android mobile and PC releases.
 
 Here's a summary of the requirements and recommendations on this page:
 
-- [Include x86-64 ABI](https://developer.android.com/games/playgames/pc-compatibility#x86-requirement) (required)
+- [Include x86-64 ABI](https://developer.android.com/games/playgames/pc-compatibility#x86-requirement) (recommended)
 - [Detect Google Play Games at runtime](https://developer.android.com/games/playgames/pc-compatibility#detect-hpe) (recommended)
 - [Handle the onPause event](https://developer.android.com/games/playgames/pc-compatibility#lifecycle-events) (recommended)
 - [Update UI elements](https://developer.android.com/games/playgames/pc-compatibility#ui-compatibility) (required)
@@ -39,15 +39,9 @@ Here's a summary of the requirements and recommendations on this page:
 
 ## Include x86-64 ABI architecture
 
-*Required by the [release process](https://developer.android.com/games/playgames/checklist)*
-
-All the libraries included in your game require x86-64 ABI compatible versions
-to ensure the best performance and stability on the platform.
-
-If it's technically infeasible for your game to ship a 64 bit x86 executable,
-you must reach out to the review team for an exception. Your game can't reach
-[full certification](https://developer.android.com/games/playgames/pc-compatibility#target_architecture_in_unity) with an
-exception, but can be placed into the catalog as a "playable" game.
+If possible, ensure that all the libraries included in your game are built for
+the x86-64. This helps you ensure the best performance and stability by avoiding
+any translation layers.
 
 ### Library compilation
 

@@ -49,6 +49,8 @@ By centralizing high-fidelity telemetry within a unified observability API, Prof
 
 ## Processing millions of weekly profiles to optimize real-world apps
 
+![datadog-profiling-blogpost-final.png](https://developer.android.com/static/blog/assets/datadog_profiling_blogpost_final_971624974a_jE6t9.webp) An example of Datadog's time to initial display measurement with stack sampling powered by ProfilingManager
+
 Integrating a system-level profiling API into a global monitoring SDK required solving infrastructure challenges. Because ProfilingManager generates highly detailed performance traces, the Datadog engineering team had to build a pipeline capable of parsing and analyzing these profiles on the server side at scale. Beyond profile collection, Datadog also emphasizes the importance of balancing sampling frequency with collecting enough data to generate meaningful insights about your application. Datadog relies on ProfilingManager's built-in rate limiting as a critical stability safeguard, preventing excessive telemetry requests from overburdening user devices.
 
 The team has been profiling Datadog's own native Android application and a number of early adopters' applications for months, gathering millions of profiles to ensure a fast, error-free launch experience and to refine their performance-detection algorithms. Today, the production integration seamlessly scales across a variety of Android devices.

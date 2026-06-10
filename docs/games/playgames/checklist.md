@@ -56,7 +56,7 @@ To be badged as playable, builds must meet these requirements:
   - [Disabling unsupported Google APIs](https://developer.android.com/games/playgames/pc-compatibility#unsupported-google-apis)
   - [Using scoped storage for file system access](https://developer.android.com/games/playgames/pc-compatibility#scoped-storage)
 
-Games with ARM-only builds are available on Intel CPU machines only.
+Games with ARM-only builds are available on machines Intel- or AMD-based CPUs.
 Providing an x86-64 build is strongly encouraged, but not required
 (See [Include x86-64 ABI architecture](https://developer.android.com/games/playgames/pc-compatibility#x86-requirement)).
 
@@ -75,8 +75,6 @@ The review team runs through the following requirements
 to ensure your game meets our quality standards for the
 best possible gameplay experience.
 
-- Platform Requirements
-  - [Support x86-64 ABI](https://developer.android.com/games/playgames/pc-compatibility#x86-requirement)
 - PC Compatibility
   - [Support mouse and keyboard](https://developer.android.com/games/playgames/input#input-support)
   - [Integrate the Input SDK](https://developer.android.com/games/playgames/input-sdk)

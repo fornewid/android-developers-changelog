@@ -98,7 +98,7 @@ for the unsupported features:
 - **Data binding and View binding**
 
   These are Android-specific UI framework features tightly coupled to the
-  Android View system and XML layouts. In the new Android-KMP library plugin we
+  Android View system and XML layouts. With the new Android-KMP library plugin, we
   recommend that you handle the UI using a multiplatform framework like
   [Compose Multiplatform](https://www.jetbrains.com/compose-multiplatform/). Data binding and View binding
   are considered implementation details of a final Android app, not a shareable
@@ -309,7 +309,7 @@ This guide helps you migrate from the legacy `com.android.library` plugin to the
 > [!NOTE]
 > **Note:** For Android Gradle Plugin versions below 8.12.0, the configuration block for the Android target is `androidLibrary{}`. Starting with AGP 8.12.0, a new `android{}` block was introduced to replace `androidLibrary{}`. `androidLibrary{}` is deprecated since AGP 9.1.0-alpha09 and will be removed in a future release. If you are using AGP 8.12.0 or higher, use `android{}`, otherwise use `androidLibrary{}`.
 
-### 1. Moving Sources
+### 1. Move sources
 
 The legacy plugin allowed you to use `src/main`, `src/test`,
 and `src/androidTest` sourcesets,
@@ -320,7 +320,54 @@ you will need to move sources from `src/main` to `src/androidMain`, from
 `src/test` to `src/androidHostTest`, and from
 `src/androidTest` to `src/androidDeviceTest`.
 
-### 2. Declaring Dependencies
+### 2. Configure custom source and resource directories
+
+If you have sources or resources in non-standard directories, you previously
+configured them using the `sourceSets` block. With the new plugin, use the
+`androidComponents` extension to add static source directories to the variant.
+
+Note that with the new plugin, the `addStaticSourceDirectory` method **adds**
+the directory to the existing list of source directories. With the legacy
+plugin, the `setSrcDirs` method **replaces** the list, while the `srcDir` method
+**adds** to it.
+
+### Android-KMP
+
+With the new plugin, use the `onVariants` block to interact with the
+variant's sources.
+
+    // build.gradle.kts
+
+    androidComponents {
+        onVariants { variant ->
+            // Add a directory for Kotlin sources
+            variant.sources.kotlin?.addStaticSourceDirectory("other/kotlin")
+
+            // Add a directory for Android assets
+            variant.sources.assets?.addStaticSourceDirectory("other/assets")
+        }
+    }
+
+### Legacy Plugin
+
+With the `com.android.library` plugin, the `sourceSets` block was used to
+set or add source directories.
+
+    // build.gradle.kts
+
+    android {
+        sourceSets {
+            getByName("main") {
+                // Replaces the directory for Kotlin sources.
+                kotlin.setSrcDirs(listOf("other/kotlin"))
+
+                // Appends a directory for assets.
+                assets.srcDir("other/assets")
+            }
+        }
+    }
+
+### 3. Declare dependencies
 
 A common task is declaring dependencies for Android-specific source sets. The
 new plugin requires these to be explicitly placed within the `sourceSets` block,
@@ -370,8 +417,8 @@ build script like so:
 
 ### Legacy Plugin
 
-With the old plugin, you could declare Android-specific dependencies in the
-top-level dependencies block, which could sometimes be confusing in a
+With the legacy plugin, you could declare Android-specific dependencies in
+the top-level dependencies block, which could sometimes be confusing in a
 multiplatform module.
 
     // build.gradle.kts
@@ -391,9 +438,9 @@ multiplatform module.
       implementation("com.google.android.material:material:1.11.0")
     }
 
-### 3. Enabling Android Resources
+### 4. Enable Android resources
 
-Support for Android Resources (`res` folders) is not enabled by default in the
+Support for Android Resources (`res` folders) is not enabled by default with the
 new plugin to optimize build performance. You must opt-in to use them. This
 change helps ensure that projects not requiring Android-specific resources are
 not burdened by the associated build overhead.
@@ -446,11 +493,11 @@ Resource processing was enabled by default. You could immediately add a
     //             └── drawable
     //                 └── icon.xml
 
-### 4. Configuring Host and Device Tests
+### 5. Configure host and device tests
 
-A significant change in the new plugin is that **Android host-side (unit) and
-device-side (instrumented) tests are disabled by default**. You must explicitly
-opt-in to create the test source sets and configurations, whereas the old plugin
+By default, the new plugin disables **Android host-side (unit) and
+device-side (instrumented) tests**. You must explicitly
+opt-in to create the test source sets and configurations, whereas the legacy plugin
 created them automatically.
 
 This opt-in model helps verify that your project remains lean and only includes
@@ -458,7 +505,7 @@ the build logic and source sets that you actively use.
 
 ### Android-KMP
 
-In the new plugin, you enable and configure tests inside the
+With the new plugin, you enable and configure tests inside the
 `kotlin.android` block. This makes the setup more explicit and avoids
 creating unused test components. The `androidUnitTest` source set becomes
 `androidHostTest` (the test directory changes from `src/androidUnitTest` to
@@ -519,7 +566,7 @@ configure their behavior inside the `android` block, typically using the
     //     ├── test
     //     └── androidTest
 
-### 5. Enable Java source compilation
+### 6. Enable Java source compilation
 
 If your KMP library needs to compile Java sources for its Android target, you
 must explicitly enable this functionality with the new plugin. Note that this
@@ -579,7 +626,7 @@ Kotlin sources was set in the android block using compileOptions.
       }
     }
 
-### 6. Interact with build variants using `androidComponents`
+### 7. Interact with build variants using `androidComponents`
 
 The `androidComponents` extension is still available for interacting with build
 artifacts programmatically. While much of the `Variant` API remains the same,
@@ -616,7 +663,7 @@ configure tasks.
       }
     }
 
-### 7. Select variants of Android library dependencies
+### 8. Select variants of Android library dependencies
 
 Your KMP library produces a single variant for Android. However, you might
 depend on a standard Android library (`com.android.library`) that has multiple
@@ -656,7 +703,7 @@ or `matchingFallbacks` within a specific flavor to define a search order.
 Refer to [Resolve Matching Errors](https://developer.android.com/build/build-variants#resolve_matching_errors) for more
 detailed information on the API usage.
 
-### 8. Compose preview dependencies
+### 9. Add Compose preview dependencies
 
 Usually, we want to have specific libraries scoped to our local development
 environment to prevent internal tools from leaking into the final published
@@ -693,7 +740,7 @@ from being included in the library's release variant used by the consumers.
       debugImplementation(libs.androidx.compose.ui.tooling)
     }
 
-### 9. Configure the JVM target for the KMP Android target
+### 10. Configure the JVM target for the KMP Android target
 
 The KMP Android plugin sets the JVM target using
 `android.compilerOptions.jvmTarget`, which applies to both Java and
@@ -803,10 +850,10 @@ targets using separate blocks for Java and Kotlin.
         }
     }
 
-### 10. Publish consumer keep rules
+### 11. Publish consumer keep rules
 
 If your KMP library needs to ship consumer keep rules (such as ProGuard rules
-for R8) for its consumers, you need to explicitly enable publishing in the new
+for R8) for its consumers, you need to explicitly enable publishing with the new
 plugin. Previously, consumer keep rules were published by default if specified.
 
 ### Android-KMP
@@ -840,7 +887,7 @@ the library's artifacts by default.
       }
     }
 
-### 11. Publish your library to Maven
+### 12. Publish your library to Maven
 
 If you plan to publish your KMP library to Maven for consumption by other
 projects, the process differs depending on whether you are using the new
@@ -876,7 +923,7 @@ detailed information on the new DSL and interfaces, see the API references:
 - [`KotlinMultiplatformAndroidHostTest`](https://developer.android.com/reference/tools/gradle-api/8.11/com/android/build/api/dsl/KotlinMultiplatformAndroidHostTest)
 - [`KotlinMultiplatformAndroidVariant`](https://developer.android.com/reference/tools/gradle-api/8.11/com/android/build/api/variant/KotlinMultiplatformAndroidVariant)
 
-## Known issues in Android-KMP library plugin
+## Known issues with the Android-KMP library plugin
 
 These are the known issues that might occur when you apply the new
 `com.android.kotlin.multiplatform.library` plugin:

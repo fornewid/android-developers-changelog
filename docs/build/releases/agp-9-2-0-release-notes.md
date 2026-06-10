@@ -11,7 +11,7 @@ features and improvements.
 
 ## Compatibility
 
-The maximum API level that Android Gradle plugin 9.2 supports is API level 36.1.
+The maximum API level that Android Gradle plugin 9.2 supports is API level 37.0.
 Here is other compatibility info:
 
 
@@ -89,32 +89,19 @@ wildcards cannot be back-referenced in the `-if` consequent rule.
 ## Fixed issues
 
 
-### Android Gradle plugin 9.2.0-alpha04
+### Android Gradle plugin 9.2.1
 
 | Fixed Issues ||
 |---|---|
-| **Android Gradle Plugin** | |---| | [Issue #480062612](https://issuetracker.google.com/issues/480062612) Renaming APK using new AGP DSL | | [Issue #461382865](https://issuetracker.google.com/issues/461382865) Error when accessing (but not evaluating) bootClasspath IllegalStateException: targetCompatibility is not yet finalized | |
+| **Android Gradle Plugin** | |---| | [Issue #504996348](https://issuetracker.google.com/issues/504996348) java.lang.ClassNotFoundException: Didn't find class "com.android.tools.r8.RecordTag" after upgrading gradle to 9.2.0 | |
 
-### Android Gradle plugin 9.2.0-alpha03
-
-| Fixed Issues ||
-|---|---|
-| **Android Gradle Plugin** | |---| | [Issue #486844145](https://issuetracker.google.com/issues/486844145) JdkImageTransform failure with JDK 26 | | [Issue #474084303](https://issuetracker.google.com/issues/474084303) Automatically encode minAgpVersion in the AAR metadata in AGP 10.0 | |
-| **Lint** | |---| | [Issue #488736407](https://issuetracker.google.com/issues/488736407) Truncated context window in Lint SARIF reports due to stuck offset pointer in \`SarifReporter.kt\` | | [Issue #484887319](https://issuetracker.google.com/issues/484887319) Lint Gradle client is missing a critical feature making it unreliable at best | |
-| **Lint Integration** | |---| | [Issue #468928427](https://issuetracker.google.com/issues/468928427) Lint Gradle tasks ignore --quiet flag | |
-
-### Android Gradle plugin 9.2.0-alpha02
+### Android Gradle plugin 9.2.0
 
 | Fixed Issues ||
 |---|---|
-| **Android Gradle Plugin** | |---| | [Issue #477562205](https://issuetracker.google.com/issues/477562205) AGP 9.0 No androidComponents.onVariant equivalent for applicationVariants.all.mergeAssetsProvider | | [Issue #398173037](https://issuetracker.google.com/issues/398173037) \`\*.xml.flat\` files contain absolute file paths | | [Issue #437828055](https://issuetracker.google.com/issues/437828055) R8D8ThreadPoolBuildService not registered | |
-| **Lint Integration** | |---| | [Issue #314101896](https://issuetracker.google.com/issues/314101896) Android Lint fails with custom lint checks compiled to Java 21 bytecode | |
-
-### Android Gradle plugin 9.2.0-alpha01
-
-| Fixed Issues ||
-|---|---|
-| **Android Gradle Plugin** | |---| | [Issue #459878951](https://issuetracker.google.com/issues/459878951) Warn users if they have commonTest but forget withHostTestBuilder | | [Issue #482839660](https://issuetracker.google.com/issues/482839660) \[fused lib - public\] OkHttp includes sources | | [Issue #482293927](https://issuetracker.google.com/issues/482293927) Cannot run androidDeviceTest with manifest placeholders in library (AGP 9.0.0 with com.android.kotlin.multiplatform.library plugin) | | [Issue #460469730](https://issuetracker.google.com/issues/460469730) AGP should warn if user has src/androidDeviceTest/java with java disabled | |
-| **Lint** | |---| | [Issue #483413438](https://issuetracker.google.com/issues/483413438) Lint typo in message | |
+| **Android Gradle Plugin** | |---| | [Issue #459878951](https://issuetracker.google.com/issues/459878951) Warn users if they have commonTest but forget withHostTestBuilder | | [Issue #482839660](https://issuetracker.google.com/issues/482839660) \[fused lib - public\] OkHttp includes sources | | [Issue #482293927](https://issuetracker.google.com/issues/482293927) Cannot run androidDeviceTest with manifest placeholders in library (AGP 9.0.0 with com.android.kotlin.multiplatform.library plugin) | | [Issue #460469730](https://issuetracker.google.com/issues/460469730) AGP should warn if user has src/androidDeviceTest/java with java disabled | | [Issue #477562205](https://issuetracker.google.com/issues/477562205) AGP 9.0 No androidComponents.onVariant equivalent for applicationVariants.all.mergeAssetsProvider | | [Issue #398173037](https://issuetracker.google.com/issues/398173037) \`\*.xml.flat\` files contain absolute file paths | | [Issue #437828055](https://issuetracker.google.com/issues/437828055) R8D8ThreadPoolBuildService not registered | | [Issue #486844145](https://issuetracker.google.com/issues/486844145) JdkImageTransform failure with JDK 26 | | [Issue #474084303](https://issuetracker.google.com/issues/474084303) Automatically encode minAgpVersion in the AAR metadata in AGP 10.0 | | [Issue #480062612](https://issuetracker.google.com/issues/480062612) Renaming APK using new AGP DSL | | [Issue #461382865](https://issuetracker.google.com/issues/461382865) Error when accessing (but not evaluating) bootClasspath IllegalStateException: targetCompatibility is not yet finalized | | [Issue #492282040](https://issuetracker.google.com/issues/492282040) keepRules sourceset not working for libraries | | [Issue #492140753](https://issuetracker.google.com/issues/492140753) Embed CC compatibility declaration in AGP | | [Issue #483083119](https://issuetracker.google.com/issues/483083119) Update Kotlin Gradle plugin dependency to 2.3.10 | | [Issue #359963589](https://issuetracker.google.com/issues/359963589) Allow higher compileSdk for tests than main | |
+| **Lint** | |---| | [Issue #483413438](https://issuetracker.google.com/issues/483413438) Lint typo in message | | [Issue #488736407](https://issuetracker.google.com/issues/488736407) Truncated context window in Lint SARIF reports due to stuck offset pointer in \`SarifReporter.kt\` | | [Issue #484887319](https://issuetracker.google.com/issues/484887319) Lint Gradle client is missing a critical feature making it unreliable at best | | [Issue #492589793](https://issuetracker.google.com/issues/492589793) Lint error when resource shrinking is disabled | | [Issue #478779827](https://issuetracker.google.com/issues/478779827) AGP 9 Lint reports WrongConstant when using nested IntDef constants | | [Issue #492589793](https://issuetracker.google.com/issues/492589793) Lint error when resource shrinking is disabled | |
+| **Lint Integration** | |---| | [Issue #314101896](https://issuetracker.google.com/issues/314101896) Android Lint fails with custom lint checks compiled to Java 21 bytecode | | [Issue #468928427](https://issuetracker.google.com/issues/468928427) Lint Gradle tasks ignore --quiet flag | |
+| **Shrinker (R8)** | |---| | [Issue #490426424](https://issuetracker.google.com/issues/490426424) Targeting Java 11 seems to break d8 | |
 
 <br />

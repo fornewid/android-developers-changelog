@@ -30,14 +30,6 @@ and have an instance of `HealthConnectClient` available.
 > [!IMPORTANT]
 > **Important:** All Matchmaking APIs are experimental. You must opt in to use these APIs by annotating any usage with [`@ExperimentalMatchmakingApi`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/ExperimentalMatchmakingApi).
 
-### Beta setup
-
-The Matchmaking API is available through an update to Health Connect that is
-gradually rolling out to production devices, with 100% availability
-expected by early June 2026. To test matchmaking features before this
-update is broadly available, enroll your test device in the
-[Android Beta program](https://www.google.com/android/beta) for early access.
-
 ### Check Health Connect availability
 
 Before attempting to use Health Connect, your app should verify that Health

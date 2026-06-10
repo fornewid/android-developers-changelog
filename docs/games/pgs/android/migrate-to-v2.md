@@ -13,7 +13,8 @@ You can use any preferred IDE, such as Android Studio, to migrate your game.
 Complete the following steps before you migrate to games v2:
 
 - [Download and install Android Studio](https://developer.android.com/codelabs/basic-android-kotlin-compose-install-android-studio)
-- Your game must use the games v1 SDK
+- Your game must use the games v1 SDK.
+- You can upgrade your game to use the games v1 SDK to `com.google.android.gms:play-services-games:24.0.0`. You shouldn't upgrade to `com.google.android.gms:play-services-games:25.0.0` because the games v1 API has been removed.
 
 ## Update the dependencies
 
@@ -63,6 +64,256 @@ following steps:
          <!-- Replace 0000000000 with your game's project id. Example value shown above.  -->
          <string translatable="false"  name="game_services_project_id"> 0000000000 </string>
        </resources>
+
+## Migration paths
+
+The correct migration path for your game depends on how it implements Play Games Services v1 and
+handles player identity. To ensure a smooth transition and prevent player data
+loss, identify the scenario that best matches your existing setup and follow the
+corresponding steps.
+
+### Option 1: For Games where IGA is bound to Play Games Services Player ID
+
+This scenario applies to games that have used the Play Games Services `Player ID` as the only
+identifier for a player's In-Game Account (IGA) and have not previously
+requested or stored an `OpenID`. The central challenge is to link the existing
+IGA to a primary identifier (the `OpenID`) without losing the connection to the
+player's progress.
+
+The migration flow includes the following steps:
+
+1. When the game launches, the Play Games Services v2 SDK automatically and silently authenticates the platform.
+2. Present a login screen that features a [**Sign in with Google**](https://developer.android.com/identity/sign-in/credential-manager-siwg#use-sign) button,
+   replacing the **Google Play** button.
+   For example, see [CredManBridge.java](https://github.com/android/games-samples/blob/wickedcube/multi-login-credman/trivialkart/trivialkart-unity/Assets/Plugins/Android/CredManBridge.java).
+
+   ##### CredManBridge.java
+
+
+       package com.wickedcube.trivialkart;
+       import android.accounts.Account;
+       import android.content.Context;
+       import android.util.Log;
+       import android.os.CancellationSignal;
+       import androidx.credentials.CredentialManager;
+       import androidx.credentials.GetCredentialRequest;
+       import androidx.credentials.GetCredentialResponse;
+       import androidx.credentials.exceptions.GetCredentialException;
+       import androidx.credentials.exceptions.NoCredentialException;
+       import com.google.android.libraries.identity.googleid.GetGoogleIdOption;
+       import com.google.android.libraries.identity.googleid.GoogleIdTokenCredential;
+       import com.google.android.gms.auth.api.identity.AuthorizationClient;
+       import com.google.android.gms.auth.api.identity.AuthorizationRequest;
+       import com.google.android.gms.auth.api.identity.AuthorizationResult;
+       import com.google.android.gms.common.api.ApiException;
+       import com.google.android.gms.auth.api.identity.Identity;
+       import com.google.android.gms.common.api.Scope;
+       import com.unity3d.player.UnityPlayer;
+       import java.util.Collections;
+       import java.util.List;
+       import java.util.concurrent.Executor;
+       import java.util.concurrent.Executors;
+
+       <br />
+
+
+
+
+
+       public class CredManBridge {
+
+
+
+       // --- MODE 1: SILENT SIGN-IN (Called on Awake) ---
+       // Tries to auto-select an authorized account. If it fails, it does NOT show UI.
+       public static void signInSilent(Context context, String webClientId) {
+           CredentialManager credentialManager = CredentialManager.create(context);
+           CancellationSignal cancellationSignal = new CancellationSignal();
+           Executor executor = Executors.newSingleThreadExecutor();
+
+
+           Log.d("CredMan", "Attempting Silent Sign-In...");
+
+           GetGoogleIdOption silentOption = new GetGoogleIdOption.Builder()
+               .setFilterByAuthorizedAccounts(true) // Strict: Only authorized accounts
+               .setServerClientId(webClientId)
+               .setAutoSelectEnabled(true)          // Auto-select if possible
+               .build();
+
+           GetCredentialRequest silentRequest = new GetCredentialRequest.Builder()
+               .addCredentialOption(silentOption)
+               .build();
+
+           credentialManager.getCredentialAsync(
+               context,
+               silentRequest,
+               cancellationSignal,
+               executor,
+               new androidx.credentials.CredentialManagerCallback<GetCredentialResponse, GetCredentialException>() {
+                   @Override
+                   public void onResult(GetCredentialResponse result) {
+                       Log.d("CredMan", "Silent Sign-In Successful!");
+                       handleSignInResult(context, result, webClientId);
+                   }
+
+                   @Override
+                   public void onError(GetCredentialException e) {
+                       // Send a specific error code so Unity knows to just stay on the Start Screen
+                       Log.d("CredMan", "Silent sign-in failed. Keeping UI hidden.");
+                       UnityPlayer.UnitySendMessage("AuthManager", "OnSignInError", "SilentFailed");
+                   }
+               }
+           );
+
+
+
+
+       }
+
+
+
+       // --- MODE 2: INTERACTIVE SIGN-IN (Called on Button Click) ---
+       // Forces the Account Selection / "Add Account" sheet to appear.
+       public static void signInInteractive(Context context, String webClientId) {
+           CredentialManager credentialManager = CredentialManager.create(context);
+           CancellationSignal cancellationSignal = new CancellationSignal();
+           Executor executor = Executors.newSingleThreadExecutor();
+
+
+           Log.d("CredMan", "Starting Interactive Sign-In...");
+
+           GetGoogleIdOption interactiveOption = new GetGoogleIdOption.Builder()
+               .setFilterByAuthorizedAccounts(false) // Show ALL accounts (and "Add Account")
+               .setServerClientId(webClientId)
+               .setAutoSelectEnabled(false)          // Force the UI to show
+               .build();
+
+           GetCredentialRequest interactiveRequest = new GetCredentialRequest.Builder()
+               .addCredentialOption(interactiveOption)
+               .build();
+
+           credentialManager.getCredentialAsync(
+               context,
+               interactiveRequest,
+               cancellationSignal,
+               executor,
+               new androidx.credentials.CredentialManagerCallback<GetCredentialResponse, GetCredentialException>() {
+                   @Override
+                   public void onResult(GetCredentialResponse result) {
+                       Log.d("CredMan", "Interactive Sign-In Successful!");
+                       handleSignInResult(context, result, webClientId);
+                   }
+
+                   @Override
+                   public void onError(GetCredentialException e) {
+                       Log.e("CredMan", "Interactive Sign-In Canceled or Failed", e);
+                       UnityPlayer.UnitySendMessage("AuthManager", "OnSignInError", "Canceled");
+                   }
+               }
+           );
+
+
+
+
+       }
+
+
+
+       private static void handleSignInResult(Context context, GetCredentialResponse result, String webClientId) {
+           try {
+               GoogleIdTokenCredential credential = GoogleIdTokenCredential.createFrom(result.getCredential().getData());
+               String email = credential.getId();
+
+
+               Account account = new Account(email, "com.google");
+               // Requesting GAMES_LITE scope to check for pre-existing V1 grants
+               List<Scope> requestedScopes = Collections.singletonList(new Scope("https://www.googleapis.com/auth/games_lite"));
+
+               AuthorizationRequest authRequest = new AuthorizationRequest.Builder()
+                   .setRequestedScopes(requestedScopes)
+                   .setAccount(account)
+                   .requestOfflineAccess(webClientId)
+                   .build();
+
+               AuthorizationClient authClient = Identity.getAuthorizationClient(context);
+
+               authClient.authorize(authRequest)
+                   .addOnSuccessListener(authorizationResult -> {
+                       if (authorizationResult.getServerAuthCode() != null) {
+                           // CASE 1: RETURNING USER (Success)
+                           // The user has already granted GAMES_LITE in the past.
+                           // We got the code directly without showing UI.
+                           Log.i("CredMan", "PGS v1: Existing grant found. Returning user detected. Auth Code retrieved.");
+                           UnityPlayer.UnitySendMessage("AuthManager", "OnSignInSuccess", authorizationResult.getServerAuthCode());
+                       }
+                       else if (authorizationResult.hasResolution()) {
+                           // CASE 2: NEW USER (PendingIntent)
+                           // The user has NOT granted GAMES_LITE before. The API returned a PendingIntent
+                           // (authorizationResult.getPendingIntent()) to show the consent screen.
+                           // As per your flow, we DISCARD this intent and do not show UI.
+                           Log.i("CredMan", "PGS v1: No existing grant (PendingIntent returned). This is a NEW user or they revoked access.");
+                           Log.i("CredMan", "PGS v1: Discarding PendingIntent. Proceeding as New User.");
+
+                           // Notify Unity that this is a "New User" so it can trigger V2 logic instead of failing
+                           UnityPlayer.UnitySendMessage("AuthManager", "OnSignInError", "NewUser_NoGrant");
+                       }
+                       else {
+                           // Edge Case: No code and no resolution?
+                           Log.e("CredMan", "PGS v1: Authorization success but no Auth Code or Resolution returned.");
+                           UnityPlayer.UnitySendMessage("AuthManager", "OnSignInError", "No Auth Code returned");
+                       }
+                   })
+                   .addOnFailureListener(e -> {
+                       // CASE 3: GENERIC FAILURE
+                       Log.e("CredMan", "PGS v1: Authorization failed completely.", e);
+                       UnityPlayer.UnitySendMessage("AuthManager", "OnSignInError", "Authorization Failed: " + e.getMessage());
+                   });
+
+           } catch (Exception e) {
+               UnityPlayer.UnitySendMessage("AuthManager", "OnSignInError", "Parsing Error: " + e.getMessage());
+           }
+
+
+
+       `}
+       }
+       `
+
+   <br />
+
+3. Retrieve two distinct identifiers when the player taps the **Sign in with
+   Google** button and selects a Google Account:
+
+   - The `OpenID`, which is the primary identifier for binding the IGA.
+   - The Play Games Services `Player ID`, retrieved by using the `GAMES_LITE` scope, to look up the player's IGA in your backend system and perform the binding. For more information, see [Retrieve `Player ID`](https://developer.android.com/games/pgs/android/migrate-to-v2#retrieve-playerid).
+4. Access the IGA by the **Sign in with Google** flow in subsequent game
+   launches, without requiring games to use `Player ID` as a primary
+   identifier.
+
+#### Retrieve `Player ID`
+
+You can perform step 3 using a game client-side implementation.
+
+1. Call the Android Credential Manager API to sign the user in with a Google Account.
+2. After the user completes the Sign in with Google flow and selects a Google Account, receive a result object containing the ID token and the email address.
+3. Construct an Account object from the email address.
+4. Call the Authorization API with the `GAMES_LITE` scope and the Account.
+5. If the account has a pre-existing grant on the `GAMES_LITE` scope, the Authorization API returns a token directly in the response object:
+   1. Use the response token to call Play Games Services servers and retrieve the Play Games Services `Player
+      ID`.
+   2. Verify if the Play Games Services `Player ID` is linked with an in-game account.
+      1. This indicates a returning user from Play Games Services v1.
+   3. Link the new gaia ID with the previous Play Games Services v1 account.
+6. If the account doesn't have a pre-existing grant on the `GAMES_LITE` scope, the Authorization API returns a `PendingIntent`:
+   1. This indicates the user doesn't have an existing account from Play Games Services v1.
+   2. Safely discard the `PendingIntent` without showing any UI.
+
+### Option 2: For Games already binding IGA to OpenID
+
+Developers in this group have the most straightforward migration path. If your
+game's in-game account is already primarily bound to the OpenID, you only need
+to perform the standard technical SDK migration from v1 to v2 as outlined in the
+steps.
 
 ## Migrate from deprecated Google Sign-In
 
