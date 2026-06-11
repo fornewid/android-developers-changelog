@@ -53,6 +53,10 @@ per-domain customization).
 ### Configure a custom CA
 
 
+**Note:**Certificate transparency verification isn't performed on connections that
+use custom trust anchors.
+
+
 You might want to connect to a host that uses a self-signed SSL certificate or to a host whose
 SSL certificate is issued by a non-public CA that you trust, such as your company's internal
 CA. The following code excerpt demonstrates how to configure your app for a custom CA in

@@ -235,8 +235,8 @@ You can also define a path interpolator as an XML resource:
     <pathInterpolator xmlns:android="http://schemas.android.com/apk/res/android"
         android:controlX1="0.5"
         android:controlY1="0.7"
-        android:controlX2="0.1f"
-        android:controlY2="1.0f"/>
+        android:controlX2=">0.1f"
+        android:controlY2="1.0f"/
 
 Once you create a `PathInterpolator` object, you can pass it to the
 [`Animator.setInterpolator()`](https://developer.android.com/reference/android/animation/Animator#setInterpolator(android.animation.TimeInterpolator))

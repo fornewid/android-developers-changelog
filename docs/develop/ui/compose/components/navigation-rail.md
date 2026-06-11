@@ -76,7 +76,7 @@ fun NavigationRailExample(modifier: Modifier = Modifier) {
 - `NavigationRail` displays a vertical column of rail items, with each item corresponding to a `Destination`.
 - `val navController = rememberNavController()` creates and remembers an instance of [`NavHostController`](https://developer.android.com/reference/androidx/navigation/NavHostController), which manages the navigation within a [`NavHost`](https://developer.android.com/reference/androidx/navigation/NavHost).
 - `var selectedDestination by rememberSaveable {
-  mutableIntStateOf(startDestination.ordinal) }` manages the state of the currently selected rail item.
+  mutableIntStateOf(startDestination.ordinal) }` manages the state of the selected rail item.
   - `startDestination.ordinal` gets the numerical index (position) of the `Destination.SONGS` enum entry.
 - When a rail item is clicked, `navController.navigate(route =
   destination.route)` is called to navigate to the corresponding screen.

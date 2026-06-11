@@ -190,7 +190,7 @@ minimal code setup.
 The `saveable` API supports primitive types out of the box and receives a
 `stateSaver` parameter to use custom savers, just like `rememberSaveable()`.
 
-In the following snippet, `message` stores the user input types into a
+In the following snippet, `message` stores the user input typed into a
 `TextField`:
 
 
@@ -233,8 +233,8 @@ using the `saveable` API.
 #### `StateFlow`
 
 Use [`getStateFlow()`](https://developer.android.com/reference/androidx/lifecycle/SavedStateHandle#getStateFlow(kotlin.String,kotlin.Any)) to store UI element state and consume it as a flow
-from the [`SavedStateHandle`](https://developer.android.com/reference/androidx/lifecycle/SavedStateHandle). The [`StateFlow`](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/-state-flow/) is read
-only, and the API requires you to specify a key so you can replace the flow to
+from the [`SavedStateHandle`](https://developer.android.com/reference/androidx/lifecycle/SavedStateHandle). The [`StateFlow`](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/-state-flow/) is read-only,
+and the API requires you to specify a key so you can replace the flow to
 emit a new value. With the key you configured, you can retrieve the `StateFlow`
 and collect the latest value.
 

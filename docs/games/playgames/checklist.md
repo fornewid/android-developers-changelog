@@ -87,10 +87,8 @@ best possible gameplay experience.
   - [Scale UI elements appropriately for a larger screen](https://developer.android.com/games/playgames/graphics#ui-scaling)
   - [Render at 60Hz](https://developer.android.com/games/playgames/graphics#increase-max-frame-rate)
   - Audio playback is smooth and in sync
-- Google Play Games Services sign in and game sync for the PC
-  - [Automatically sign-in with Google Play Games Services on PC](https://developer.android.com/games/playgames/identity#game-identity)
-  - [Automatically sync save games on PC](https://developer.android.com/games/playgames/identity#cloud-save)
-  - The production version of your mobile build must use Google Play Games Services V2.
+- Game progress sync
+  - Implement any cloud sync solution that works across PC, Android, and iOS.
 
 Optimized games represented to the users with the following message
 and icon:

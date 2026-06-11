@@ -19,7 +19,8 @@ Compose:
   - Guidance for `@Composable` functions and APIs that build on the Compose runtime capabilities
   - Guidelines for APIs that use and extend the Compose UI toolkit
   - Patterns for addressing use cases when designing a Compose API
-- [API Guidelines for `@Composable` components in Jetpack Compose](https://android.googlesource.com/platform/frameworks/support/+/androidx-main/compose/docs/compose-component-api-guidelines.md): Provides a set of guidelines and recommendations for creating and using `@Composable` UI components, including the following topics:
+- [API Guidelines for `@Composable` components in Jetpack
+  Compose](https://android.googlesource.com/platform/frameworks/support/+/androidx-main/compose/docs/compose-component-api-guidelines.md): Provides a set of guidelines and recommendations for creating and using `@Composable` UI components, including the following topics:
   - Creating and layering components
   - Naming a new component
   - Expressing component dependencies

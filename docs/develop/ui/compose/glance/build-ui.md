@@ -139,7 +139,7 @@ shows how to specify an `itemId`:
 
 
 ```kotlin
-items(items = peopleList, key = { person -> person.id }) { person ->
+items(items = peopleList, itemId = { person -> person.id.hashCode().toLong() }) { person ->
     Text(person.name)
 }
 ```

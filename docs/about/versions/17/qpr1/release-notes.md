@@ -4,6 +4,15 @@ url: https://developer.android.com/about/versions/17/qpr1/release-notes
 source: md.txt
 ---
 
+### Beta 4
+
+|---|---|
+| **Release date** | June 10, 2026 |
+| **Builds** | CP31.260522.006 |
+| **Emulator support** | x86 (64-bit), ARM (v8-A) |
+| **Security patch level** | 2026-05-05 |
+| **Google Play services** | 26.18.35 |
+
 ### Beta 3
 
 |---|---|
@@ -31,7 +40,7 @@ source: md.txt
 | **Security patch level** | 2026-04-05 |
 | **Google Play services** | 26.11.36 |
 
-### Android 17 QPR 1 Beta 3 (May 2026)
+### Android 17 QPR 1 Beta 4 (June 2026)
 
 Building on the [initial release of Android 17](https://developer.android.com/about/versions/17), we continue to
 update the platform with fixes and improvements that are then rolled out to
@@ -46,6 +55,16 @@ user experience of your app).
 
 Unlike developer previews and betas for unreleased, major versions of Android,
 these builds are suitable for general use.
+
+### Top Issues fixed in Beta 4 (June 2026)
+
+- *An issue where the mouse pointer becomes invisible on external displays when Work profile or FLAG_SECURE applications are active. ([**Issue #446715557**](https://issuetracker.google.com/issues/446715557))*
+- *A Settings app crash occurring when launching credential provider settings from a Private Space. ([**Issue #499908921**](https://issuetracker.google.com/issues/499908921))*
+- *An issue where screenshot sounds were coupled with the ringer volume, preventing silent captures while maintaining call alerts. ([**Issue #336098340**](https://issuetracker.google.com/issues/336098340))*
+- *An issue where video recording at 5x zoom would exhibit frame jumps and jitter during panning. ([**Issue #447867142**](https://issuetracker.google.com/issues/447867142))*
+- *An issue where Back Tap gestures failed to trigger on the interactive lock screen. ([**Issue #476775220**](https://issuetracker.google.com/issues/476775220))*
+- *A graphics driver regression that caused severe 3D performance drops in OpenGL ES applications on newer hardware. ([**Issue #476585209**](https://issuetracker.google.com/issues/476585209))*
+- *A regression where Wireless ADB and local network-dependent apps failed to connect. ([**Issue #506418219**](https://issuetracker.google.com/issues/506418219))*
 
 ### Top Issues fixed in Beta 3 (May 2026)
 

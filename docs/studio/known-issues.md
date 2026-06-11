@@ -28,7 +28,7 @@ To enable parallel sync in Quail 1, set `org.gradle.tooling.parallel=true` in
 your project's `gradle.properties` file.
 
 > [!CAUTION]
-> **Caution:** The `org.gradle.tooling.parallel=true` property only works for projects that are compatible with Gradle project isolation.
+> **Caution:** Adding `org.gradle.tooling.parallel=true` to your project in Quail 1 will enable IDEA parallel model fetching, which only works for projects that are compatible with Gradle project isolation.
 
 ### Android Studio Panda 3 not compatible with IntelliJ Develocity plugin 1.2.0
 

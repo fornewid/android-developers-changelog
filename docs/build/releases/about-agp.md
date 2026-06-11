@@ -182,13 +182,13 @@ Android Studio.
 
 | Android Studio version | Required AGP version |
 |---|---|
-| Quail 1 \| 2026.1.1 | 4.0-9.2 |
-| Panda 4 \| 2025.3.4 | 4.0-9.2 |
-| Panda 3 \| 2025.3.3 | 4.0-9.1 |
-| Panda 2 \| 2025.3.2 | 4.0-9.1 |
-| Panda 1 \| 2025.3.1 | 4.0-9.0 |
-| Otter 3 Feature Drop \| 2025.2.3 | 4.0-9.0 |
-| Otter 2 Feature Drop \| 2025.2.2 | 4.0-8.13 |
+| Quail 1 \| 2026.1.1 | 7.1-9.2 |
+| Panda 4 \| 2025.3.4 | 7.1-9.2 |
+| Panda 3 \| 2025.3.3 | 7.0-9.1 |
+| Panda 2 \| 2025.3.2 | 7.0-9.1 |
+| Panda 1 \| 2025.3.1 | 7.0-9.0 |
+| Otter 3 Feature Drop \| 2025.2.3 | 4.2-9.0 |
+| Otter 2 Feature Drop \| 2025.2.2 | 4.1-8.13 |
 | Otter \| 2025.2.1 | 4.0-8.13 |
 | Narwhal 4 Feature Drop \| 2025.1.4 | 4.0-8.13 |
 | Narwhal 3 Feature Drop \| 2025.1.3 | 4.0-8.13 |

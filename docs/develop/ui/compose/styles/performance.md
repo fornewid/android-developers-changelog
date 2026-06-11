@@ -5,7 +5,7 @@ source: md.txt
 ---
 
 By design, Styles operate in the layout and drawing phase of Compose. This
-avoids the need to create lambda-based modifiers as Styles always skips the
+avoids the need to create lambda-based modifiers as Styles always skip the
 composition phase.
 ![Phases of Compose and where Styles
 run](https://developer.android.com/static/develop/ui/compose/styles/images/phases_compose_styles_skips.png) **Figure 1.** Phases of Compose and where Styles run.
@@ -17,7 +17,7 @@ optimizations:
 - **Lazy allocation**: Styles defer animation resource allocation until an animation actually starts. This reduces the work required during initial composition.
 - **Reduced object overhead**: Chained modifiers allocate an object for every property (e.g., padding, border). Styles use a single lambda to apply multiple properties, significantly reducing memory allocations. If a Style is defined in a theme, that lambda is shared across all components using that theme.
 
-The following table shows illustrative results of an internal [performance
+The following table shows illustrative results of internal [performance
 benchmarks](https://cs.android.com/androidx/platform/frameworks/support/+/androidx-main:compose/foundation/foundation/benchmark/src/androidTest/java/androidx/compose/foundation/benchmark/StyleBenchmark.kt) for Compose 1.11.0-alpha06 of Styles, in comparison
 to an implementation in Compose without Styles.
 

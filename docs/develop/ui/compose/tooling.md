@@ -6,9 +6,9 @@ source: md.txt
 
 Android Studio provides a collection of tools to help you speed up UI design
 using Jetpack Compose libraries. With the AI agent in Android Studio, you can
-quickly go from a UI mock to a working prototype. Start working with the tools by first adding
-the necessary dependencies to your Gradle file through the Bill of Materials
-(BOM).
+quickly go from a UI mock to a working prototype. Start working with the
+tools by first adding the necessary dependencies to your Gradle file through
+the Bill of Materials (BOM).
 [![](https://developer.android.com/static/images/spot-icons/jetpack-compose.svg) Quick Start Add the Compose BOM and library dependencies using the quick start guide](https://developer.android.com/develop/ui/compose/setup)
 
 ## Tools for designing your UI

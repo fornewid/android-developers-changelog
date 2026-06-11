@@ -29,7 +29,7 @@ flexibility and performance.
 - **Simplifies state-based styling:** The API provides a more concise and declarative way to define styles that change based on different states (e.g., hovered, focused, pressed), significantly reducing boilerplate code compared to the modifier system.
 - **Improves animated state transitions:** The Style API allows for built-in animation of style properties between states with ideal performance characteristics, avoiding recompositions that occur with the current `animateColorAsState` approach.
 - **Streamlines component APIs:** By introducing a single Style parameter for customization, component APIs are dramatically simplified and offer greater flexibility.
-- **Less recompositions leading to better performance over modifiers:** Styles run in the Draw and Layout phases of Compose, skipping out on the Composition phase.
+- **Fewer recompositions leading to better performance over modifiers:** Styles run in the Draw and Layout phases of Compose, skipping out on the Composition phase.
 - **More standardized set of APIs:** A standard set of stylistic properties makes any component styleable.
 
 ## Core concepts

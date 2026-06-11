@@ -43,8 +43,7 @@ sessions and durations.
 > **Note:** Android vitals gives some exemptions to partial wake lock usage in scenarios where there is a clear user benefit of the partial wake lock, and there's no better way to achieve that result without the partial wake lock. For example, if an app is playing audio for the user, there's a clear benefit to keeping the device awake and there's no way to play the audio without keeping the device awake. In that case, the partial wake lock time is not counted against the Android vitals.
 
 If excessive partial wake locks occur in more than 5% of app sessions across all
-devices in a 28-day period, it can affect your app's visibility on Play once the
-metric is out of beta.
+devices in a 28-day period, it can affect your app's visibility on Play.
 
 Once you're aware that your app has excessive partial wake locks,
 your next step is to address the issue.

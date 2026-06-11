@@ -77,15 +77,18 @@ these steps:
    around the trace; if you are unfamiliar with navigating a trace, see the
    [Record traces](https://developer.android.com/studio/profile/record-traces#ui-shortcuts) documentation.
 
-   ![System trace](https://developer.android.com/static/develop/ui/compose/images/performance/tracing-4.png) **Figure 5**. System trace
+   ![An example of a system trace visualization in Android Studio.](https://developer.android.com/static/develop/ui/compose/images/performance/tracing-4.png) **Figure 5**. System trace
 
    Double-clicking on a composable in the chart takes you to its source code.
 5. You can also see composables in the Flame Chart along with the file and line
    number:
 
-   ![Flame chart](https://developer.android.com/static/develop/ui/compose/images/performance/tracing-5.png) **Figure 6**. Flame chart
+   ![An example of a flame chart displaying composable functions.](https://developer.android.com/static/develop/ui/compose/images/performance/tracing-5.png) **Figure 6**. Flame chart
 
 ## Caveats
+
+When using composition tracing, consider the following caveats regarding APK
+size and performance.
 
 ### APK size overhead
 

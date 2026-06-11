@@ -58,7 +58,7 @@ hoist as required.
 ### No state hoisting needed
 
 Hoisting state isn't always required. State can be kept internal in a composable
-when no other composable need to control it.
+when no other composable needs to control it.
 In this snippet, there is a composable that expands and collapses on tap:
 
 
@@ -422,13 +422,13 @@ class ConversationViewModel(/*...*/) : ViewModel() {
 user types in new input, the app calls business logic to produce `suggestions`.
 
 > [!NOTE]
-> **Note:** if this variable wasn't needed for business logic as it is needed now to produce user suggestions, it shouldn't be hoisted to the screen level state holder. It should be defined and stored in the UI, closer to the composable function that needs it.
+> **Note:** If this variable wasn't needed for business logic as it is needed now to produce user suggestions, it shouldn't be hoisted to the screen level state holder. It should be defined and stored in the UI, closer to the composable function that needs it.
 
 `suggestions` is screen UI state and is consumed from Compose UI by collecting
 from the [`StateFlow`](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/-state-flow/).
 
 > [!NOTE]
-> **Note:** it's possible for a screen-level composable to have both a `ViewModel` that provides access to business logic AND a plain state holder class that manages its UI logic and UI elements' state.
+> **Note:** It's possible for a screen-level composable to have both a `ViewModel` that provides access to business logic AND a plain state holder class that manages its UI logic and UI elements' state.
 
 #### Caveat
 
@@ -455,7 +455,7 @@ To fix this, use a `CoroutineScope` scoped to the Composition. It provides a
 suspend functions to work.
 
 > [!WARNING]
-> **Warning:** Calling some suspend functions exposed from Compose UI element state that trigger animations throw exceptions if called from a `CoroutineScope` that's not scoped to the Composition. For example, [`LazyListState.animateScrollTo()`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/LazyListState#animateScrollToItem(kotlin.Int,kotlin.Int)) and [`DrawerState.close()`](https://developer.android.com/reference/kotlin/androidx/compose/material/DrawerState#close()).
+> **Warning:** Calling some suspend functions exposed from Compose UI element state that trigger animations throws exceptions if called from a `CoroutineScope` that's not scoped to the Composition. For example, [`LazyListState.animateScrollTo()`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/LazyListState#animateScrollToItem(kotlin.Int,kotlin.Int)) and [`DrawerState.close()`](https://developer.android.com/reference/kotlin/androidx/compose/material/DrawerState#close()).
 
 To fix this crash, switch the `CoroutineContext` of the coroutine in the
 `ViewModel` to one that is scoped to the Composition. It could look like this:

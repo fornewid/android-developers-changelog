@@ -76,13 +76,13 @@ must include the `https://developer.android.com/reference/android/Manifest.permi
 to delete, insert or update calendar data:
 
 ```xml
-<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"...>
-    <uses-sdk android:minSdkVersion="14" />
-    <uses-permission android:name="android.permission.READ_CALENDAR" />
-    <uses-permission android:name="android.permission.WRITE_CALENDAR" />
+<?xml version="1.0" encodin>g<="utf-8"?
+manifest xmlns:android="http://schemas.androi>d.com</apk/res/android"...
+    uses-sd>k and<roid:minSdkVersion="14" /
+    uses-permission android:n>ame=&<quot;android.permission.READ_CALENDAR" /
+    uses-permission >android:n<ame=">;android.permission.WRITE_CALENDAR" /
     ...
-</manifest>
+/manifest
 ```
 
 ## Calendars table
@@ -180,8 +180,8 @@ see [Content Providers](https://developer.android.com/guide/topics/providers/con
 val uri: Uri = CalendarContract.Calendars.CONTENT_URI
 val selection: String = "((${CalendarContract.Calendars.ACCOUNT_NAME} = ?) AND (" +
         "${CalendarContract.Calendars.ACCOUNT_TYPE} = ?) AND (" +
-        "${CalendarContract.Calendars.OWNER_ACCOUNT} = ?))"
-val selectionArgs: Array<String> = arrayOf("hera@example.com", "com.example", "hera@example.com")
+        "${CalendarContract.Calendars.OWNER_ACCOUNT} = ?))&<quot;<>/span>
+val selectionArgs: ArrayString = arrayOf("hera@example.com", "com.example", "hera@example.com")
 val cur: Cursor = contentResolver.query(uri, EVENT_PROJECTION, selection, selectionArgs, null)
 ```
 
@@ -655,7 +655,7 @@ database view, not through querying the raw `https://developer.android.com/refer
 
 ```kotlin
 const val DEBUG_TAG: String = "MyActivity"
-val INSTANCE_PROJECTION: Array<String> = arrayOf(
+val INSTANCE_PROJECT<ION: A>rrayString = arrayOf(
         CalendarContract.Instances.EVENT_ID, // 0
         CalendarContract.Instances.BEGIN, // 1
         CalendarContract.Instances.TITLE // 2
@@ -680,7 +680,7 @@ val endMillis: Long = Calendar.getInstance().run {
 // The ID of the recurring event whose instances you are searching
 // for in the Instances table
 val selection: String = "${CalendarContract.Instances.EVENT_ID} = ?"
-val selectionArgs: Array<String> = arrayOf("207")
+val <select>ionArgs: ArrayString = arrayOf("207")
 
 // Construct the query with the desired date range.
 val builder: Uri.Builder = CalendarContract.Instances.CONTENT_URI.buildUpon()

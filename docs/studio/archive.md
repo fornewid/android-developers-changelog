@@ -11,4 +11,4 @@ However, we recommend that you download the
 
 For Android Emulator downloads, see the
 [Emulator download archives](https://developer.android.com/studio/emulator_archive).
-<iframe src="https://android.devsite.google/frame/studio/archive_34a5cccd6b4454b22fcac025252f2e254e71ab9fd0df384fa21ceb79f18d6e9b.frame" class="framebox inherit-locale scroll" allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+<iframe src="https://android.devsite.google/frame/studio/archive_b985d64940fd5c72edc8c72872dbddea5f27de0f3bf413ff2a00421ee90cd794.frame" class="framebox inherit-locale scroll" allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>

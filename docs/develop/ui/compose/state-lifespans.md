@@ -47,7 +47,7 @@ composition hierarchy has its own set of remembered values.
 
 When a remembered value is no longer used, it is *forgotten* and its record is
 discarded. Remembered values are forgotten when they are removed from the
-composition hierarchy (Including when a value is removed and re-added to move to
+composition hierarchy (including when a value is removed and re-added to move to
 a different location without the use of the `key` composable or
 `MovableContent`), or called with different `key` parameters.
 
@@ -133,7 +133,7 @@ being serialized, but cannot survive process death. If a value is not used after
 the composition hierarchy is recreated, the retained value is *retired* (which
 is `retain`'s equivalent of being forgotten).
 
-In exchange for this shorter-than-`rememberSaveable` lifecycle, retain is able
+In exchange for this shorter-than-`rememberSaveable` lifecycle, `retain` is able
 to persist values that can't be serialized, like lambda expressions, flows, and
 large objects like bitmaps. For example, you can use `retain` to manage a media
 player (such as ExoPlayer) to prevent interruptions to media playback during
@@ -171,14 +171,14 @@ fun MediaPlayer() {
 > **Note:** The `retain` API is available in the `androidx.compose.runtime:runtime-retain` artifact starting in Compose 1.10. Support for retaining values across configuration changes is provided in `androidx.compose.ui:ui:1.10.0`.
 >
 >
-> We are also working on adding retain support to
+> We are also working on adding \`retain\` support to
 > `androidx.navigation` and
 > `androidx.navigation3`, which will be available in future releases
 > of the libraries.
 
 #### `retain` versus `ViewModel`
 
-At their cores, both `retain` and `ViewModel` offer similar functionality in
+At their core, both `retain` and `ViewModel` offer similar functionality in
 their most commonly used ability to persist object instances across
 configuration changes. The choice to reach for `retain` or `ViewModel` lies in
 the type of value you're persisting, how it should be scoped, and whether you
@@ -233,7 +233,7 @@ Sometimes, an object needs to have a hybrid lifespan of both `retained` and
 object should be a `ViewModel`, which can support saved state as described in
 the [Saved State module for ViewModel guide](https://developer.android.com/topic/libraries/architecture/viewmodel/viewmodel-savedstate).
 
-it is possible to use `retain` and `rememberSaveable` or `rememberSerializable`
+It is possible to use `retain` and `rememberSaveable` or `rememberSerializable`
 simultaneously. Correctly combining both lifecycles adds significant complexity.
 We recommend employing this pattern as part of more advanced and custom
 architecture patterns, and only when all of the following are true:
@@ -298,7 +298,7 @@ how this pattern may be implemented.
 > [!NOTE]
 > **Note:** Don't `retain` an object that was created by `remember`, `rememberSaveable`, or `rememberSerializable`. Retaining and remembering the same object is an antipattern and violates two broader recommendations:
 >
-> - Don't retain an object that has a shorter lifespan from retain
+> - Don't retain an object that has a shorter lifespan than `retain`
 > - Don't remember an object twice
 >
 >

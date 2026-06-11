@@ -25,9 +25,11 @@ clicking the star button.
 See the [Issue Tracker documentation](https://developers.google.com/issue-tracker)
 for more information.
 
-## Tracing Version 2.0
+## Tracing
 
-### Version 2.0.0-alpha08
+### Version 2.0
+
+#### Version 2.0.0-alpha08
 
 May 19, 2026
 
@@ -38,7 +40,7 @@ May 19, 2026
 - Add the ability to discover and override instances of `TraceDriver` to be used process wide. ([I3f715](https://android-review.googlesource.com/#/q/I3f715bfd9760b206d3f1c0527632f33fe79ec30f))
 - Rename `Tracer.recordException` to `Tracer.recordExceptionAndThrow`. ([I4411f](https://android-review.googlesource.com/#/q/I4411f85f159102c74c52a80c0ec970eef96f423b), [b/503092450](https://issuetracker.google.com/issues/503092450))
 
-### Version 2.0.0-alpha07
+#### Version 2.0.0-alpha07
 
 May 06, 2026
 
@@ -55,7 +57,7 @@ May 06, 2026
 - Fixed a keep rule for the Perfetto SDK (`tracing-perfetto`) which ensures that the Perfetto SDK can be enabled. ([I1d227](https://android-review.googlesource.com/#/q/I1d2277c09195c168298cd03d9577997e37a1b40c))
 - Add the ability to trace `flush()` events. ([I38014](https://android-review.googlesource.com/#/q/I380149a36b78de8cb9f7e60bf0e680494cf6ea31), [b/495852704](https://issuetracker.google.com/issues/495852704))
 
-### Version 2.0.0-alpha06
+#### Version 2.0.0-alpha06
 
 April 22, 2026
 
@@ -71,7 +73,7 @@ April 22, 2026
 
 - Improve documentation for `AttributeEntry.reset()`. ([I5d3a1](https://android-review.googlesource.com/#/q/I5d3a14f867f229964c4ce1320bc7f6a647b64797), [b/496079439](https://issuetracker.google.com/issues/496079439))
 
-### Version 2.0.0-alpha05
+#### Version 2.0.0-alpha05
 
 April 08, 2026
 
@@ -88,7 +90,7 @@ April 08, 2026
 - Process threads and counter tracks are now synchronized. This fixes exceptions of the form: `java.lang.NullPointerException: Cannot invoke "androidx.tracing.ThreadTrack.flush$tracing()" because "threadTrack" is null`
 - Avoid emitting sink events when tracing is disabled.
 
-### Version 2.0.0-alpha04
+#### Version 2.0.0-alpha04
 
 March 25, 2026
 
@@ -99,7 +101,7 @@ March 25, 2026
 - Make `AbstractTraceDriver` really abstract, and move the `Perfetto` implementation into the `tracing-wire` module. ([Ie2f59](https://android-review.googlesource.com/#/q/Ie2f5910ced640fa038598c04aa0f1a6286cd25b5))
 - Give more descriptive names to base implementations to avoid using the wrong one. For developers previously extending `androidx.tracing.Trace{Sink|Driver}` they will now need to switch to using `AbstractTrace{Sink|Driver}`. ([I9b46d](https://android-review.googlesource.com/#/q/I9b46d82d87e0cfc573057872ad8822551803e424))
 
-### Version 2.0.0-alpha03
+#### Version 2.0.0-alpha03
 
 March 11, 2026
 
@@ -114,7 +116,7 @@ March 11, 2026
 
 - `androidx.tracing` no longer attempts to draw connections from parent to child coroutines in traces by default. This has been confusing, since the underlying trace format doesn't support `1:N` and `N:1` connections, resulting in a nest of arrows due to ambiguity about which coroutine slice connects to what. You can still manually opt-in to propagation with the `tokenForManualPropagation()` API when it's important for your use case. ([Ib2cf9](https://android-review.googlesource.com/#/q/Ib2cf9d39bff63c8584da36e32e43f244c817794b))
 
-### Version 2.0.0-alpha02
+#### Version 2.0.0-alpha02
 
 February 25, 2026
 
@@ -124,7 +126,7 @@ February 25, 2026
 
 - Improved performance for the Perfetto Trace Sink implementation by using the `suspendCoroutineUninterceptedOrReturn` intrinsic ([2ea97b](https://r.android.com/3955484)).
 
-### Version 2.0.0-alpha01
+#### Version 2.0.0-alpha01
 
 January 28, 2026
 
@@ -198,9 +200,9 @@ This initial alpha is only meant for in-process tracing workflows, and does not 
 - Make it possible to construct an instance of `WireTraceSink` with a `File` / `OutputStream`. ([Iecea0](https://android-review.googlesource.com/#/q/Iecea0d0f72b8a31ca68dd1c6d046bd06249cae94))
 - Removing obsolete `@RequiresApi(21)` annotations ([Ic4792](https://android-review.googlesource.com/#/q/Ic47923dcc82f4b7c4638fadb10c2c0268b414fcd))
 
-## Version 1.3
+### Version 1.3
 
-### Version 1.3.0
+#### Version 1.3.0
 
 April 23, 2025
 
@@ -211,13 +213,13 @@ April 23, 2025
 - Converted `androidx.tracing.Trace` class to Kotlin, and moved all code from the `tracing-ktx`module to `tracing`.
 - Remove crossinline from trace to allow using in a `@Composable`. ([I53882](https://android-review.googlesource.com/#/q/I53882249cba8931140b96291457d8e99abe22633), [b/248344805](https://issuetracker.google.com/issues/248344805))
 
-### Version 1.3.0-rc01
+#### Version 1.3.0-rc01
 
 April 9, 2025
 
 `androidx.tracing:tracing:1.3.0-rc01`, `androidx.tracing:tracing-android:1.3.0-rc01`, and `androidx.tracing:tracing-ktx:1.3.0-rc01` are released with no changes since the last beta. Version 1.3.0-rc01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/c7c2a80dc6576c43cb049b40c7c250b6cbf34f4e..9eda98421361ea345fb9c84976278706ca6e84ac/tracing).
 
-### Version 1.3.0-beta01
+#### Version 1.3.0-beta01
 
 February 12, 2025
 
@@ -232,13 +234,13 @@ February 12, 2025
 
 - Removed manual outlining of access to new platform APIs since this happens automatically via API modeling when using R8 with AGP 7.3 or later (e.g. R8 version 3.3) and for all builds when using AGP 8.1 or later (e.g. D8 version 8.1). Clients who are not using AGP are advised to update to D8 version 8.1 or later. See [this article](https://medium.com/androiddevelopers/mitigating-soft-verification-issues-in-r8-and-d8-7e9e06827dfd) for more details. ([Ia60e0](https://android-review.googlesource.com/#/q/Ia60e0ab9f0fd613883a772c8aa34e27cc986cae8), [b/345472586](https://issuetracker.google.com/issues/345472586))
 
-### Version 1.3.0-alpha02
+#### Version 1.3.0-alpha02
 
 June 21, 2023
 
 `androidx.tracing:tracing:1.3.0-alpha02` and `androidx.tracing:tracing-ktx:1.3.0-alpha02` are released with no changes from previous alpha. [Version 1.3.0-alpha02 contains these commits.](https://android.googlesource.com/platform/frameworks/support/+log/8423c3f497cfbf2bf7b87006ca05f38626060135..3b5b931546a48163444a9eddc533489fcddd7494/tracing)
 
-### Version 1.3.0-alpha01
+#### Version 1.3.0-alpha01
 
 June 7, 2023
 
@@ -248,9 +250,9 @@ June 7, 2023
 
 - Remove crossinline from trace to allow using in a `@Composable`. ([I53882](https://android-review.googlesource.com/#/q/I53882249cba8931140b96291457d8e99abe22633), [b/248344805](https://issuetracker.google.com/issues/248344805))
 
-## Version 1.2
+### Version 1.2
 
-### Version 1.2.0
+#### Version 1.2.0
 
 November 29, 2023
 
@@ -260,7 +262,7 @@ November 29, 2023
 
 - Add `trace()` and `traceAsync()` variants with lazy string and cookie computation. Also now correctly skips `Trace.end` if `Trace.begin` throws.
 
-### Version 1.2.0-rc01
+#### Version 1.2.0-rc01
 
 May 24, 2023
 
@@ -270,31 +272,31 @@ May 24, 2023
 
 - Prevent crashes when long trace section names are passed by truncating automatically ([Iaf6e2](https://android-review.googlesource.com/#/q/Iaf6e2f42c56326ca99faff21e3efee86fc047953))
 
-### Version 1.2.0-beta04
+#### Version 1.2.0-beta04
 
 May 3, 2023
 
 `androidx.tracing:tracing:1.2.0-beta04` and `androidx.tracing:tracing-ktx:1.2.0-beta04` are released with no changes. [Version 1.2.0-beta04 contains these commits.](https://android.googlesource.com/platform/frameworks/support/+log/a200cb82769634cecdb118ec4f0bfdf0b086e597..6f3ac2bd197d5e61ab2708125b57d6ae4003ad68/tracing)
 
-### Version 1.2.0-beta03
+#### Version 1.2.0-beta03
 
 April 5, 2023
 
 `androidx.tracing:tracing:1.2.0-beta03` and `androidx.tracing:tracing-ktx:1.2.0-beta03` are released with no new changes. [Version 1.2.0-beta03 contains these commits.](https://android.googlesource.com/platform/frameworks/support/+log/5e7d256f82fbafb6d059ab7b18fddd87c7531553..a200cb82769634cecdb118ec4f0bfdf0b086e597/tracing)
 
-### Version 1.2.0-beta02
+#### Version 1.2.0-beta02
 
 March 22, 2023
 
 `androidx.tracing:tracing:1.2.0-beta02` and `androidx.tracing:tracing-ktx:1.2.0-beta02` are released with no changes since the previous beta. [Version 1.2.0-beta02 contains these commits.](https://android.googlesource.com/platform/frameworks/support/+log/bf83b7ca1e086138c9ffa3ed2a530db3b038c79a..5e7d256f82fbafb6d059ab7b18fddd87c7531553/tracing)
 
-### Version 1.2.0-beta01
+#### Version 1.2.0-beta01
 
 March 8, 2023
 
 `androidx.tracing:tracing:1.2.0-beta01` and `androidx.tracing:tracing-ktx:1.2.0-beta01` are released with no changes since the last alpha. [Version 1.2.0-beta01 contains these commits.](https://android.googlesource.com/platform/frameworks/support/+log/87533b4ff06971ed59028936cd9b6da988cd4522..bf83b7ca1e086138c9ffa3ed2a530db3b038c79a/tracing)
 
-### Version 1.2.0-alpha02
+#### Version 1.2.0-alpha02
 
 February 23, 2023
 
@@ -304,7 +306,7 @@ February 23, 2023
 
 - This release will fix a `Could not find androidx.tracing:tracing-ktx:1.2.0-alpha02` error when upgrading to `androidx.tracing: tracing-perfetto-common:1.0.0-alpha11`
 
-### Version 1.2.0-alpha01
+#### Version 1.2.0-alpha01
 
 October 5, 2022
 
@@ -314,9 +316,9 @@ October 5, 2022
 
 - Add `trace()` and `traceAsync()` variants with lazy string and cookie computation. Also now correctly skips `Trace.end` if `Trace.begin` throws. ([I31421](https://android-review.googlesource.com/#/q/I314210e79d91f7e71140208c61c8672591aef88b), [b/175233952](https://issuetracker.google.com/issues/175233952), [b/247066503](https://issuetracker.google.com/issues/247066503))
 
-## Tracing Version 1.1
+### Version 1.1
 
-### Version 1.1.0
+#### Version 1.1.0
 
 May 11, 2022
 
@@ -327,13 +329,13 @@ May 11, 2022
 - Added `Trace.forceEnableAppTracing()` an API to force-enable app trace section capture (i.e. android.os.Trace / androidx.tracing APIs) on non-debuggable builds. Call this at the beginning of startup to enable non-debuggable accurate system tracing before the introduction of the [profileable manifest tag](https://developer.android.com/guide/topics/manifest/profileable-element) in API 29. ([I3a309](https://android-review.googlesource.com/#/q/I3a30949580d8db6777302a759b041f9480e04e72))
 - Avoid class verification errors when Trace.java is loaded for the first time ([05f6b4](https://android.googlesource.com/platform/frameworks/support/+/b19fac01b2a7f4d55ca777397c5719892905f6b4) and [cb101f](https://android.googlesource.com/platform/frameworks/support/+/4474e187d25886eca264463b7c834c5353cb101f))
 
-### Version 1.1.0-rc01
+#### Version 1.1.0-rc01
 
 April 20, 2022
 
 `androidx.tracing:tracing:1.1.0-rc01` and `androidx.tracing:tracing-ktx:1.1.0-rc01` are released, with no changes since `beta01`. [Version 1.1.0-rc01 contains these commits.](https://android.googlesource.com/platform/frameworks/support/+log/75784ce6dbac6faa5320e5898e9472f02ab8710c..b5954e1f49c8e5ba7511565c978c6c08df7df2cd/tracing)
 
-### Version 1.1.0-beta01
+#### Version 1.1.0-beta01
 
 December 1, 2021
 
@@ -341,7 +343,7 @@ December 1, 2021
 
 No changes since `1.1.0-alpha02`.
 
-### Version 1.1.0-alpha02
+#### Version 1.1.0-alpha02
 
 November 17, 2021
 
@@ -351,7 +353,7 @@ November 17, 2021
 
 - Added Trace.forceEnableAppTracing() an API to force-enable app trace section capture (i.e. android.os.Trace / andoridx.tracing APIs) on non-debuggable builds. Call this at the beginning of startup to enable non-debuggable accurate system tracing before the introduction of the profileable manifest tag in API 29. ([I3a309](https://android-review.googlesource.com/#/q/I3a30949580d8db6777302a759b041f9480e04e72))
 
-### Version 1.1.0-alpha01
+#### Version 1.1.0-alpha01
 
 November 3, 2021
 
@@ -361,9 +363,47 @@ November 3, 2021
 
 - Avoid class verification errors when Trace.java is loaded for the first time ([05f6b4](https://android.googlesource.com/platform/frameworks/support/+/b19fac01b2a7f4d55ca777397c5719892905f6b4) and [cb101f](https://android.googlesource.com/platform/frameworks/support/+/4474e187d25886eca264463b7c834c5353cb101f))
 
-## Tracing Perfetto Version 1.0.0
+### Version 1.0
 
-### Version 1.0.1
+#### Version 1.0.0
+
+October 28, 2020
+
+`androidx.tracing:tracing:1.0.0` and `androidx.tracing:tracing-ktx:1.0.0` are released. [Version 1.0.0 contains these commits.](https://android.googlesource.com/platform/frameworks/support/+log/b2995ba8dcdac5063b10225f6de18d766b19e609..2a518b53bb3172e4945cba723ae628e9c18bcd23/tracing)
+
+**Major features of 1.0.0**
+
+Helps write trace events to the system trace buffer. This can be visualized using tools like Systrace and Perfetto. This library replaces the deprecated `androidx.core.os.TraceCompat` class.
+
+#### Version 1.0.0-rc01
+
+October 14, 2020
+
+`androidx.tracing:tracing:1.0.0-rc01` and `androidx.tracing:tracing-ktx:1.0.0-rc01` are released. [Version 1.0.0-rc01 contains these commits.](https://android.googlesource.com/platform/frameworks/support/+log/b6054a1a7396b962ac2c6d80d21053cf9d2f02db..b2995ba8dcdac5063b10225f6de18d766b19e609/tracing)
+
+This release is identical to `1.0.0-beta01`.
+
+#### Version 1.0.0-beta01
+
+June 24, 2020
+
+`androidx.tracing:tracing:1.0.0-beta01` and `androidx.tracing:tracing-ktx:1.0.0-beta01` are released with no changes since `1.0.0-alpha01`. [Version 1.0.0-beta01 contains these commits.](https://android.googlesource.com/platform/frameworks/support/+log/945594abd75f83bd14daf4fbcd8621796161281e..b6054a1a7396b962ac2c6d80d21053cf9d2f02db/tracing)
+
+#### Version 1.0.0-alpha01
+
+June 10, 2020
+
+`androidx.tracing:tracing:1.0.0-alpha01` and `androidx.tracing:tracing-ktx:1.0.0-alpha01` are released. [Version 1.0.0-alpha01 contains these commits.](https://android.googlesource.com/platform/frameworks/support/+log/945594abd75f83bd14daf4fbcd8621796161281e/tracing)
+
+**New Features**
+
+androidx.tracing is a library which helps write trace events to the system trace buffer. This can be visualized using tools like Systrace and Perfetto. This library replaces the deprecated [androidx.core.os.TraceCompat](https://developer.android.com/reference/kotlin/androidx/core/os/TraceCompat) class. This initial release is 1.0.0-alpha01.
+
+## Tracing Perfetto
+
+### Version 1.0
+
+#### Version 1.0.1
 
 November 19, 2025
 
@@ -375,7 +415,7 @@ November 19, 2025
 - Removed manual outlining of access to new platform APIs since this happens automatically via API modeling when using R8 with AGP 7.3 or later (e.g. R8 version 3.3) and for all builds when using AGP 8.1 or later (e.g. D8 version 8.1). Clients who are not using AGP are advised to update to D8 version 8.1 or later. See [this article](https://medium.com/androiddevelopers/mitigating-soft-verification-issues-in-r8-and-d8-7e9e06827dfd) for more details. ([Ia60e0](https://android-review.googlesource.com/#/q/Ia60e0ab9f0fd613883a772c8aa34e27cc986cae8), [b/345472586](https://issuetracker.google.com/issues/345472586))
 - Avoid bundling copies of `FastNative/CriticalNative` in the library, and use the stable platform copies. ([I8238a](https://android-review.googlesource.com/#/q/I8238a3ec6e2f3563ee6262857e4978de1d176768), [b/35664282](https://issuetracker.google.com/issues/35664282), [b/280878596](https://issuetracker.google.com/issues/280878596))
 
-### Version 1.0.0
+#### Version 1.0.0
 
 October 4, 2023
 
@@ -385,13 +425,13 @@ October 4, 2023
 
 - This is the first stable release of the Tracing-perfetto libraries.
 
-### Version 1.0.0-rc01
+#### Version 1.0.0-rc01
 
 September 20, 2023
 
 `androidx.tracing:tracing-perfetto:1.0.0-rc01`, `androidx.tracing:tracing-perfetto-binary:1.0.0-rc01`, and `androidx.tracing:tracing-perfetto-handshake:1.0.0-rc01` are released with no changes since the last beta. [Version 1.0.0-rc01 contains these commits.](https://android.googlesource.com/platform/frameworks/support/+log/119f68768b14c444b7ba65b4b44abd0ed7d21002..fc9d0ceb0cf1daabde110d9965d3dd87319b575c/tracing)
 
-### Version 1.0.0-beta03
+#### Version 1.0.0-beta03
 
 August 30, 2023
 
@@ -399,7 +439,7 @@ August 30, 2023
 
 - Version bump to match androidx.benchmark release.
 
-### Version 1.0.0-beta02
+#### Version 1.0.0-beta02
 
 August 23, 2023
 
@@ -409,7 +449,7 @@ August 23, 2023
 
 - Enabled support for tracing at app startup (cold start).
 
-### Version 1.0.0-beta01
+#### Version 1.0.0-beta01
 
 July 18, 2023
 
@@ -426,55 +466,55 @@ July 18, 2023
 - Making `enableTracingColdStart` parameters match `enableTracingImmediate` ([I54126](https://android-review.googlesource.com/#/q/I541269228ee33cfc73fe53e64032ddd00d62997f))
 - Removed `killProcess` argument in `enableTracingColdStart` ([I81c4d](https://android-review.googlesource.com/#/q/I81c4de80f211ad49bc46e6fe8255491850609252))
 
-### Version 1.0.0-alpha17
+#### Version 1.0.0-alpha17
 
 June 21, 2023
 
 `androidx.tracing:tracing-perfetto:1.0.0-alpha17`, `androidx.tracing:tracing-perfetto-binary:1.0.0-alpha17`, and `androidx.tracing:tracing-perfetto-handshake:1.0.0-alpha17` are released with no changes from previous alpha. [Version 1.0.0-alpha17 contains these commits.](https://android.googlesource.com/platform/frameworks/support/+log/3b5b931546a48163444a9eddc533489fcddd7494/tracing)
 
-### Version 1.0.0-alpha16
+#### Version 1.0.0-alpha16
 
 June 7, 2023
 
 `androidx.tracing:tracing-perfetto:1.0.0-alpha16`, `androidx.tracing:tracing-perfetto-binary:1.0.0-alpha16`, and `androidx.tracing:tracing-perfetto-common:1.0.0-alpha16` are released with no changes from previous alpha. [Version 1.0.0-alpha16 contains these commits.](https://android.googlesource.com/platform/frameworks/support/+log/6f3ac2bd197d5e61ab2708125b57d6ae4003ad68..8423c3f497cfbf2bf7b87006ca05f38626060135/tracing)
 
-### Version 1.0.0-alpha15
+#### Version 1.0.0-alpha15
 
 May 3, 2023
 
 `androidx.tracing:tracing-perfetto:1.0.0-alpha15`, `androidx.tracing:tracing-perfetto-binary:1.0.0-alpha15`, and `androidx.tracing:tracing-perfetto-common:1.0.0-alpha15` are released with no changes. [Version 1.0.0-alpha15 contains these commits.](https://android.googlesource.com/platform/frameworks/support/+log/a200cb82769634cecdb118ec4f0bfdf0b086e597..6f3ac2bd197d5e61ab2708125b57d6ae4003ad68/tracing)
 
-### Version 1.0.0-alpha14
+#### Version 1.0.0-alpha14
 
 April 5, 2023
 
 `androidx.tracing:tracing-perfetto:1.0.0-alpha14`, `androidx.tracing:tracing-perfetto-binary:1.0.0-alpha14`, and `androidx.tracing:tracing-perfetto-common:1.0.0-alpha14` are released with no new changes. [Version 1.0.0-alpha14 contains these commits.](https://android.googlesource.com/platform/frameworks/support/+log/5e7d256f82fbafb6d059ab7b18fddd87c7531553..a200cb82769634cecdb118ec4f0bfdf0b086e597/tracing)
 
-### Version 1.0.0-alpha13
+#### Version 1.0.0-alpha13
 
 March 22, 2023
 
 `androidx.tracing:tracing-perfetto:1.0.0-alpha13`, `androidx.tracing:tracing-perfetto-binary:1.0.0-alpha13`, and `androidx.tracing:tracing-perfetto-common:1.0.0-alpha13` are released with no changes since the last release. [Version 1.0.0-alpha13 contains these commits.](https://android.googlesource.com/platform/frameworks/support/+log/bf83b7ca1e086138c9ffa3ed2a530db3b038c79a..5e7d256f82fbafb6d059ab7b18fddd87c7531553/tracing)
 
-### Version 1.0.0-alpha12
+#### Version 1.0.0-alpha12
 
 March 8, 2023
 
 `androidx.tracing:tracing-perfetto:1.0.0-alpha12`, `androidx.tracing:tracing-perfetto-binary:1.0.0-alpha12`, and `androidx.tracing:tracing-perfetto-common:1.0.0-alpha12` are released with no changes since previous alpha. [Version 1.0.0-alpha12 contains these commits.](https://android.googlesource.com/platform/frameworks/support/+log/87533b4ff06971ed59028936cd9b6da988cd4522..bf83b7ca1e086138c9ffa3ed2a530db3b038c79a/tracing)
 
-### Version 1.0.0-alpha11
+#### Version 1.0.0-alpha11
 
 February 22, 2023
 
 `androidx.tracing:tracing-perfetto:1.0.0-alpha11`, `androidx.tracing:tracing-perfetto-binary:1.0.0-alpha11`, and `androidx.tracing:tracing-perfetto-common:1.0.0-alpha11` are released with no changes. [Version 1.0.0-alpha11 contains these commits.](https://android.googlesource.com/platform/frameworks/support/+log/7d3ac1ab1206c01fae3ebb500b5b942636070155..87533b4ff06971ed59028936cd9b6da988cd4522/tracing)
 
-### Version 1.0.0-alpha10
+#### Version 1.0.0-alpha10
 
 February 8, 2023
 
 `androidx.tracing:tracing-perfetto:1.0.0-alpha10`, `androidx.tracing:tracing-perfetto-binary:1.0.0-alpha10` and `androidx.tracing:tracing-perfetto-common:1.0.0-alpha10` are released with no changes. [Version 1.0.0-alpha10 contains these commits.](https://android.googlesource.com/platform/frameworks/support/+log/adf1c279a86ab3886e1666c08e2c3efba783367b..7d3ac1ab1206c01fae3ebb500b5b942636070155/tracing)
 
-### Version 1.0.0-alpha09
+#### Version 1.0.0-alpha09
 
 February 10, 2023
 
@@ -488,7 +528,7 @@ January 11, 2023
 
 `androidx.tracing:tracing-perfetto:1.0.0-alpha09` and `androidx.tracing:tracing-perfetto-common:1.0.0-alpha09` are released with no changes. [Version 1.0.0-alpha09 contains these commits.](https://android.googlesource.com/platform/frameworks/support/+log/4a2f5e696614339c1ac21f706c1a17c0285780e7..adf1c279a86ab3886e1666c08e2c3efba783367b/tracing)
 
-### Version 1.0.0-alpha08
+#### Version 1.0.0-alpha08
 
 December 7, 2022
 
@@ -502,7 +542,7 @@ December 7, 2022
 
 - Added a proguard rule preventing methods of `PerfettoNative` from being pruned if the class is used at all (prevents a crash in a niche case when tracing is initialised, but no tracing calls are present in the app).
 
-### Version 1.0.0-alpha07
+#### Version 1.0.0-alpha07
 
 November 9, 2022
 
@@ -510,7 +550,7 @@ November 9, 2022
 
 - Reduced JNI overhead of `androidx.tracing:tracing-perfetto` APIs.
 
-### Version 1.0.0-alpha06
+#### Version 1.0.0-alpha06
 
 October 24, 2022
 
@@ -518,19 +558,19 @@ October 24, 2022
 
 - This update includes no changes, just updating version number to sync with androidx.benchmark.
 
-### Version 1.0.0-alpha05
+#### Version 1.0.0-alpha05
 
 October 5, 2022
 
 `androidx.tracing:tracing-perfetto:1.0.0-alpha05`, `androidx.tracing:tracing-perfetto-binary:1.0.0-alpha05`, and `androidx.tracing:tracing-perfetto-common:1.0.0-alpha05` are released. [Version 1.0.0-alpha05 contains these commits.](https://android.googlesource.com/platform/frameworks/support/+log/bdce26bd7556b92d2d4d2af3de881dd8e2c51459..4586cf6e518f0c59410ef2b291e34ff9fdcff4e1/tracing)
 
-### Version 1.0.0-alpha04
+#### Version 1.0.0-alpha04
 
 September 21, 2022
 
 `androidx.tracing:tracing-perfetto:1.0.0-alpha04`, `androidx.tracing:tracing-perfetto-binary:1.0.0-alpha04`, and `androidx.tracing:tracing-perfetto-common:1.0.0-alpha04` are released. [Version 1.0.0-alpha04 contains these commits.](https://android.googlesource.com/platform/frameworks/support/+log/cce7b70f6a5ebf955cf748a73c18b63228b22c74..bdce26bd7556b92d2d4d2af3de881dd8e2c51459/tracing)
 
-### Version 1.0.0-alpha03
+#### Version 1.0.0-alpha03
 
 September 7, 2022
 
@@ -540,7 +580,7 @@ September 7, 2022
 
 - No new features from the 1.0.0-alpha02.
 
-### Version 1.0.0-alpha02
+#### Version 1.0.0-alpha02
 
 August 24, 2022
 
@@ -553,7 +593,7 @@ August 24, 2022
 - Improved handling of parsing errors.
 - Made `EnableTracingResponse.requiredVersion` nullable, as we cannot know the version if we cannot communicate with the package. ([I5ba20](https://android-review.googlesource.com/#/q/I5ba2094686f11fcd5f548b6b528e7699aafcba10))
 
-### Version 1.0.0-alpha01
+#### Version 1.0.0-alpha01
 
 July 27, 2022
 
@@ -570,39 +610,3 @@ July 27, 2022
 - `androidx.tracing:tracing-perfetto-binary` is a set of binary dependencies required for androidx.tracing:tracing-perfetto.
 
 - `androidx.tracing:tracing-perfetto-common` is an internal dependency of androidx.tracing:tracing-perfetto and can be used by tooling to integrate with androidx.tracing:tracing-perfetto.
-
-## Tracing Version 1.0.0
-
-### Version 1.0.0
-
-October 28, 2020
-
-`androidx.tracing:tracing:1.0.0` and `androidx.tracing:tracing-ktx:1.0.0` are released. [Version 1.0.0 contains these commits.](https://android.googlesource.com/platform/frameworks/support/+log/b2995ba8dcdac5063b10225f6de18d766b19e609..2a518b53bb3172e4945cba723ae628e9c18bcd23/tracing)
-
-**Major features of 1.0.0**
-
-Helps write trace events to the system trace buffer. This can be visualized using tools like Systrace and Perfetto. This library replaces the deprecated `androidx.core.os.TraceCompat` class.
-
-### Version 1.0.0-rc01
-
-October 14, 2020
-
-`androidx.tracing:tracing:1.0.0-rc01` and `androidx.tracing:tracing-ktx:1.0.0-rc01` are released. [Version 1.0.0-rc01 contains these commits.](https://android.googlesource.com/platform/frameworks/support/+log/b6054a1a7396b962ac2c6d80d21053cf9d2f02db..b2995ba8dcdac5063b10225f6de18d766b19e609/tracing)
-
-This release is identical to `1.0.0-beta01`.
-
-### Version 1.0.0-beta01
-
-June 24, 2020
-
-`androidx.tracing:tracing:1.0.0-beta01` and `androidx.tracing:tracing-ktx:1.0.0-beta01` are released with no changes since `1.0.0-alpha01`. [Version 1.0.0-beta01 contains these commits.](https://android.googlesource.com/platform/frameworks/support/+log/945594abd75f83bd14daf4fbcd8621796161281e..b6054a1a7396b962ac2c6d80d21053cf9d2f02db/tracing)
-
-### Version 1.0.0-alpha01
-
-June 10, 2020
-
-`androidx.tracing:tracing:1.0.0-alpha01` and `androidx.tracing:tracing-ktx:1.0.0-alpha01` are released. [Version 1.0.0-alpha01 contains these commits.](https://android.googlesource.com/platform/frameworks/support/+log/945594abd75f83bd14daf4fbcd8621796161281e/tracing)
-
-**New Features**
-
-androidx.tracing is a library which helps write trace events to the system trace buffer. This can be visualized using tools like Systrace and Perfetto. This library replaces the deprecated [androidx.core.os.TraceCompat](https://developer.android.com/reference/kotlin/androidx/core/os/TraceCompat) class. This initial release is 1.0.0-alpha01.

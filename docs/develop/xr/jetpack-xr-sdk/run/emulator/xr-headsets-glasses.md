@@ -90,6 +90,19 @@ When enabled, passthrough mode displays a simulated indoor environment. Use this
 mode to test apps in mixed reality.
 ![](https://developer.android.com/static/images/develop/xr/jetpack-xr-sdk/run/xr-headset-emulator-passthrough.png) **Figure 3.** A simulated passthrough environment shows spatial UI elements anchored within a room.
 
+### Adjust the environment dimming levels on XR glasses
+
+[XR Glasses](https://developer.android.com/design/ui/xr/guides/get-started#xr-glasses-wired) utilize additive displays on semi-transparent lenses and can
+also include dimming technology. By darkening the physical background, these
+lenses ensure that digital content remains crisp and legible, even in bright
+physical environments.
+
+Use the emulator's environment dimming controls to accurately preview immersive
+content on XR glasses. To adjust the dimming levels, click the **Environment
+Visibility** icon and use the environment dimming slider to pick a level between
+fully transparent and maximum opacity.
+![](https://developer.android.com/static/images/develop/xr/jetpack-xr-sdk/run/xr-glasses-environment-dimming.webp) **Figure 4.** By adjusting the dimming levels, you can accurately preview how your digital content blends with or stands out against the physical world.
+
 ### Other emulator controls
 
 You can also use the following emulator controls:

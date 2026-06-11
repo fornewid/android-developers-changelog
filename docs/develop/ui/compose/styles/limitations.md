@@ -12,7 +12,7 @@ This page describes some functional limitations of the Styles API.
 - **Property scoping:** There is no support for custom properties that extend beyond standard style attributes.
 - **Shapes:** Custom shapes are not supported; this will be fixed in future versions. Shape animations are also not supported yet.
 - **Interop with View system themes and styles:** There is no support for pulling a style from your existing `themes.xml` or `styles.xml`. Styles will never support this directly.
-- **Interop with Ripple/Indication:** Using `pressed` without setting `indication = null` on `clickable` modifier will result in both being shown at once.
+- **Interop with Ripple/Indication:** Using `pressed` without setting `indication = null` on the `clickable` modifier will result in both being shown at once.
 
 ## Material integration status
 

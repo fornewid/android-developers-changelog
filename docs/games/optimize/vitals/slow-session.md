@@ -4,9 +4,8 @@ url: https://developer.android.com/games/optimize/vitals/slow-session
 source: md.txt
 ---
 
-Slow Sessions is a new Android vitals metric in Google Play console. A slow
-session is a session in which more than 25% of the frames are slow. A frame
-is slow if it is not presented less than 50ms after the previous frame
+A slow session is a session in which more than 25% of the frames are slow. A
+frame is slow if it is not presented less than 50ms after the previous frame
 (equivalent to 20 FPS). Android vitals also reports a second Slow Sessions
 metric with a target of 34ms (equivalent to 30FPS). Using Slow Sessions, you
 can understand the frame-rate performance of your game, which impacts how

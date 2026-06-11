@@ -154,13 +154,13 @@ Recent updates to Android Studio and tools [See more about Android Studio](https
 
 June 7, 2026 Stable
 
-### [Quail 1 \| 2026.1.1](https://developer.android.com/studio/releases)
+### [Quail 1 \| 2026.1.1 Patch 1](https://developer.android.com/studio/releases)
 
-June 2, 2026 Stable
+June 11, 2026 Stable
 
 ### [Android Gradle Plugin 9.2.0](https://developer.android.com/build/releases/gradle-plugin)
 
-June 2, 2026
+June 11, 2026
 
 ## ![](https://developer.android.com/static/images/picto-icons/platform.svg) Platform
 

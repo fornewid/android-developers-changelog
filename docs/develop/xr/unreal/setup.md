@@ -28,7 +28,7 @@ install the following applications and tools:
 
 3. Install the [.NET 8.0 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/8.0).
 
-4. Install [Android Studio](https://developer.android.com/studio) (Quail 1 \| 2026.1.1 or higher).
+4. Install [Android Studio](https://developer.android.com/studio) (Quail 1 \| 2026.1.1 Patch 1 or higher).
 
 ## Install Android build support
 
