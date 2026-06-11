@@ -1,0 +1,13 @@
+diff --git a/docs/develop/ui/compose/styles/state-animations.md b/docs/develop/ui/compose/styles/state-animations.md
+index 30e13e5c..1da3f5fd 100644
+--- a/docs/develop/ui/compose/styles/state-animations.md
++++ b/docs/develop/ui/compose/styles/state-animations.md
+@@ -362,7 +362,7 @@ fun MediaPlayer(
+ 
+ <br />
+ 
+-Within the `style` lambda, you can apply state based styling for custom states,
++Within the `style` lambda, you can apply state-based styling for custom states,
+ using the previously defined extension functions.
+ 
+ 

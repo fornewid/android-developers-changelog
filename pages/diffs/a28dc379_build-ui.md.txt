@@ -1,0 +1,13 @@
+diff --git a/docs/develop/ui/compose/glance/build-ui.md b/docs/develop/ui/compose/glance/build-ui.md
+index 8758f1e1..f5770338 100644
+--- a/docs/develop/ui/compose/glance/build-ui.md
++++ b/docs/develop/ui/compose/glance/build-ui.md
+@@ -139,7 +139,7 @@ shows how to specify an `itemId`:
+ 
+ 
+ ```kotlin
+-items(items = peopleList, key = { person -> person.id }) { person ->
++items(items = peopleList, itemId = { person -> person.id.hashCode().toLong() }) { person ->
+     Text(person.name)
+ }
+ ```
