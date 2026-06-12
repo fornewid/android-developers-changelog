@@ -1,0 +1,13 @@
+diff --git a/docs/develop/ui/compose/state-hoisting.md b/docs/develop/ui/compose/state-hoisting.md
+index d09cb53a..4e9e9255 100644
+--- a/docs/develop/ui/compose/state-hoisting.md
++++ b/docs/develop/ui/compose/state-hoisting.md
+@@ -52,7 +52,7 @@ Below is a description of both solutions and explanation of when to use which.
+ ### Composables as state owner
+ 
+ Having UI logic and UI element state in composables is a good approach if the
+-state and logic is simple. You can leave your state internal to a composable or
++state and logic are simple. You can leave your state internal to a composable or
+ hoist as required.
+ 
+ ### No state hoisting needed

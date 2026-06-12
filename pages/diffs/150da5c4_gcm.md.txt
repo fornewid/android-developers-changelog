@@ -1,0 +1,22 @@
+diff --git a/docs/develop/background-work/background-tasks/persistent/migrate-from-legacy/gcm.md b/docs/develop/background-work/background-tasks/persistent/migrate-from-legacy/gcm.md
+index 017156f2..aac38fce 100644
+--- a/docs/develop/background-work/background-tasks/persistent/migrate-from-legacy/gcm.md
++++ b/docs/develop/background-work/background-tasks/persistent/migrate-from-legacy/gcm.md
+@@ -27,7 +27,7 @@ val myTask = OneoffTask.Builder()
+     .setService(MyUploadService::class.java)
+     // Don't run the task unless device is charging
+     .setRequiresCharging(true)
+-    // Run the task betwee&n 5  15 minutes from now
++    // Run the task between 5 & 15 minutes from now
+     .setExecutionWindow(5 * DateUtil.MINUTE_IN_SECONDS,
+             15 * DateUtil.MINUTE_IN_SECONDS)
+     // Define a unique tag for the task
+@@ -47,7 +47,7 @@ OneoffTask myTask = new OneoffTask.Builder()
+     .setService(MyUploadService.class)
+     // Don't run the task unless device is charging
+     .setRequiresCharging(true)
+-    // Run the task betwee&n 5  15 minutes from now
++    // Run the task between 5 & 15 minutes from now
+     .setExecutionWindow(
+         5 * DateUtil.MINUTE_IN_SECONDS,
+         15 * DateUtil.MINUTE_IN_SECONDS)

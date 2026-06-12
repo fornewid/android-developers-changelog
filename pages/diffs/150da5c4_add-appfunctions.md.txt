@@ -1,0 +1,15 @@
+diff --git a/docs/ai/appfunctions/add-appfunctions.md b/docs/ai/appfunctions/add-appfunctions.md
+index 5f9bf3c8..34c504d5 100644
+--- a/docs/ai/appfunctions/add-appfunctions.md
++++ b/docs/ai/appfunctions/add-appfunctions.md
+@@ -26,8 +26,8 @@ Add the required library dependencies to your module's `build.gradle.kts` (or
+ build.gradle) file, and configure the KSP plugin in your top-level app module as
+ shown:
+ 
+-    # Add this to your app module at the top level. For multi module applications,
+-    # you only need to specify this once.
++    // Add this to your app module at the top level. For multi module applications,
++    // you only need to specify this once.
+     ksp {
+       arg("appfunctions:aggregateAppFunctions", "true")
+     }
