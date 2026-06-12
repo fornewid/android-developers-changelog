@@ -61,9 +61,9 @@ moves to a connected display, ensuring the preview stream adapts without
 stuttering or stretching.
 
 Components like [`PreviewView`](https://developer.android.com/reference/kotlin/androidx/camera/view/PreviewView) intelligently manage the aspect ratio and
-scale types across different states, such as a foldable transitioning from cover
-screen to inner screen, allowing you to support a diverse range of hardware with
-a single, consistent implementation rather than an intricate collection of
+scale types across different states, such as a foldable transitioning from
+cover screen to inner screen, letting you support a diverse range of hardware
+with a single, consistent implementation rather than an intricate collection of
 device-specific edge cases.
 
 ### Compose
@@ -127,14 +127,14 @@ impossible on nonfoldable devices.
 
 ### Tabletop mode (hands-free capture)
 
-[Tabletop mode](https://developer.android.com/develop/ui/compose/layouts/adaptive/foldables/make-your-app-fold-aware#tabletop_posture) allows users to half fold the device and set it on a surface
+[Tabletop mode](https://developer.android.com/develop/ui/compose/layouts/adaptive/foldables/make-your-app-fold-aware#tabletop_posture) lets users half fold the device and set it on a surface
 for extended video calls, time-lapse photography, and long-exposure night
 photography.
 ![](https://developer.android.com/static/develop/ui/compose/images/layouts/adaptive/camera/tabletop-videocall.png) **Figure 5.** A communication app in tabletop mode: the camera viewfinder is on the top of the hinge, and the controls at the bottom.
 
 ### Rear-display mode (high-quality selfies)
 
-- On foldables, rear cameras are typically higher quality than user-facing cameras. [Rear display mode](https://developer.android.com/develop/ui/compose/layouts/adaptive/foldables/support-foldable-display-modes#rear-display-mode) allows the user to unfold the device and turn it around, using the small cover screen as a live viewfinder for the main rear camera.
+- On foldables, rear cameras are typically higher quality than user-facing cameras. [Rear display mode](https://developer.android.com/develop/ui/compose/layouts/adaptive/foldables/support-foldable-display-modes#rear-display-mode) lets the user unfold the device and turn it around, using the small cover screen as a live viewfinder for the main rear camera.
 - Rear-display mode enables 50MP+ selfies, ultra-wide group shots, and high-quality vlogging without carrying extra gear.
 
 ### Dual-screen mode (subject preview)

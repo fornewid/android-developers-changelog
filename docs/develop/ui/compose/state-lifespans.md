@@ -207,7 +207,7 @@ instances and don't require reuse or sharing between sibling composables. Where
 `ViewModel` acts as a good place to store UI state and perform background tasks,
 `retain` is a good candidate for storing objects for UI plumbing like caches,
 impression tracking and analytics, dependencies on `AndroidView`s, and other
-objects that interact with the Android OS or manage third party libraries like
+objects that interact with the Android OS or manage third-party libraries like
 payment processors or advertising.
 
 For advanced users designing custom app architecture patterns outside of the

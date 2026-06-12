@@ -841,6 +841,18 @@ The following are features currently available in Studio Labs.
 |---|---|---|
 | Journeys for Android Studio | Use natural language to describe steps and assertions for end-to-end tests. | [Journeys for Android Studio](https://developer.android.com/studio/gemini/journeys) |
 
+
+## Patch releases
+
+The following is a list of the patch releases in Android Studio Quail 1.
+
+### Android Studio Quail 1 \| 2026.1.1 Patch 1 (June 2026)
+
+This minor update includes
+[these bug fixes](https://developer.android.com/studio/releases/fixed-bugs/studio/2026.1.1#android-studio-quail-1-|-2026.1.1-patch-1).
+
+<br />
+
 The following are new features in Android Studio Quail 1.
 
 ## Suggested fixes for crashes with Agent integration in AQI

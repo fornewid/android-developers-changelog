@@ -68,7 +68,7 @@ class MainActivity : Activity() {
     override fun onTouchEvent(event: MotionEvent): Boolean {
 
         when (event.actionMasked) {
-            MotionEvent.ACT>ION_DOWN - {
+            MotionEvent.ACTION_DOWN -> {
                 // Reset the velocity tracker back to its initial state.
                 mVelocityTracker?.clear()
                 // If necessary, retrieve a new VelocityTracker object to watch
@@ -77,7 +77,7 @@ class MainActivity : Activity() {
                 // Add a user's movement to the tracker.
                 mVelocityTracker?.addMovement(event)
             }
-            MotionEvent>.ACTION_MOVE - {
+            MotionEvent.ACTION_MOVE -> {
                 mVelocityTracker?.apply {
                     val pointerId: Int = event.getPointerId(event.actionIndex)
                     addMovement(event)
@@ -92,7 +92,7 @@ class MainActivity : Activity() {
                     Log.d("", "Y velocity: ${getYVelocity(pointerId)}")
                 }
             }
-    >        MotionEvent.ACTION_UP, MotionEvent.ACTION_CANCEL - {
+            MotionEvent.ACTION_UP, MotionEvent.ACTION_CANCEL -> {
                 // Return a VelocityTracker object back to be re-used by others.
                 mVelocityTracker?.recycle()
                 mVelocityTracker = null

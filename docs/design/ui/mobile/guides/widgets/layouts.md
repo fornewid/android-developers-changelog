@@ -10,7 +10,7 @@ your widget. Android offers several prebuilt layouts for toolbars, text, list
 and grid-type widgets to streamline this process.
 
 > [!NOTE]
-> **Note:** View detailed layout specs in our [Figma Widget Canonical Builder](https://goo.gle/widget-canonical), and find the code samples using Jetpack Glance in the [Android Platform Samples GitHub repository](https://github.com/android/platform-samples/tree/main/samples/user-interface/appwidgets/src/main/java/com/example/platform/ui/appwidgets/glance).
+> **Note:** View detailed layout specs in our [Figma Widget Canonical Builder](https://goo.gle/widget-canonical), and find the code samples using Jetpack Glance in the [Android Platform Samples GitHub repository](https://github.com/android/platform-samples/tree/main/samples/user-interface/appwidgets).
 
 ## Text
 
@@ -20,9 +20,7 @@ appeal of your widget by optionally including an image alongside the text.
 
 
 Ideal for titles, status updates, short descriptions, or any scenario
-where a single line of text effectively conveys the message. Refer to the
-[Canonical layout sample](https://github.com/android/platform-samples/tree/main/samples/user-interface/appwidgets/src/main/java/com/example/platform/ui/appwidgets/glance)
-for guidance on dynamically scaling text content based on widget size.
+where a single line of text effectively conveys the message.
 ![](https://developer.android.com/static/images/design/ui/mobile/widgets/01_Text_only.jpg) **Text and image**
 
 
@@ -99,3 +97,20 @@ optimal presentation.
 You can also incorporate text labels and descriptions, enriching your
 image grid content with additional context and information.
 ![](https://developer.android.com/static/images/design/ui/mobile/widgets/02_Image_and_Text.jpg)
+
+## Code samples
+
+The following table maps each canonical layout to its corresponding Jetpack
+Glance implementation in the [Android Platform Samples GitHub repository](https://github.com/android/platform-samples/tree/main/samples/user-interface/appwidgets).
+
+| Canonical Layout | Layout Category | Sample Implementation File |
+|---|---|---|
+| **Text only** | Text | [LongTextAppWidget.kt](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/java/com/example/platform/ui/appwidgets/glance/layout/text/LongTextAppWidget.kt) |
+| **Text and image** | Text | [TextWithImageAppWidget.kt](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/java/com/example/platform/ui/appwidgets/glance/layout/text/TextWithImageAppWidget.kt) |
+| **Search Toolbar** | Toolbars | [SearchToolBarAppWidget.kt](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/java/com/example/platform/ui/appwidgets/glance/layout/toolbars/SearchToolBarAppWidget.kt) |
+| **Toolbar** (Standard) | Toolbars | [ToolBarAppWidget.kt](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/java/com/example/platform/ui/appwidgets/glance/layout/toolbars/ToolBarAppWidget.kt) |
+| **Text and image list** | Lists | [ImageTextListAppWidget.kt](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/java/com/example/platform/ui/appwidgets/glance/layout/collections/ImageTextListAppWidget.kt) |
+| **Checklist** | Lists | [CheckListAppWidget.kt](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/java/com/example/platform/ui/appwidgets/glance/layout/collections/CheckListAppWidget.kt) |
+| **Action list** | Lists | [ActionListAppWidget.kt](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/java/com/example/platform/ui/appwidgets/glance/layout/collections/ActionListAppWidget.kt) |
+| **Image only** | Grid | [ImageGridAppWidget.kt](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/java/com/example/platform/ui/appwidgets/glance/layout/collections/ImageGridAppWidget.kt) |
+| **Image and text** | Grid | [ImageGridAppWidget.kt](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/java/com/example/platform/ui/appwidgets/glance/layout/collections/ImageGridAppWidget.kt) |

@@ -11,11 +11,11 @@ specific recommendations.
 
 It's common to use a library to load up an image asynchronously, such as when
 using [Coil's `AsyncImage` composable](https://coil-kt.github.io/coil/compose/).
-For it to work seamlessly between two composables, its recommended to set the
-`placeholderMemoryCacheKey()` and `memoryCacheKey()` to the same key as a string
-derived from the shared element key, such that the cache key is the same for the
-matched shared elements. The new shared element will be using its match's cache
-as the placeholder until it loads the new image.
+For it to work seamlessly between two composables, it is recommended to set
+the `placeholderMemoryCacheKey()` and `memoryCacheKey()` to the same key as
+a string derived from the shared element key, so that the cache key is the
+same for the matched shared elements. The new shared element will be using its
+match's cache as the placeholder until it loads the new image.
 
 The typical usage for `AsyncImage` is as follows:
 

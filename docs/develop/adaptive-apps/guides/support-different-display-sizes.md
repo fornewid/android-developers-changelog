@@ -292,7 +292,7 @@ To learn more about adaptive layouts in Compose, see the following resources:
 
 **Sample apps**
 
-- [CanonicalLayouts](https://github.com/android/user-interface-samples/tree/main/CanonicalLayouts) is a repository of proven design patterns that provide an optimal user experience on large displays
+- [CanonicalLayouts](https://github.com/android/adaptive-apps-samples) is a repository of proven design patterns that provide an optimal user experience on large displays
 - [JetNews](https://github.com/android/compose-samples/tree/main/JetNews) shows how to design an app that adapts its UI to make use of available display space
 - [Reply](https://github.com/android/compose-samples/tree/main/Reply) is an adaptive sample for supporting mobile, tablets, and foldables
 - [Now in Android](https://github.com/android/nowinandroid) is an app that uses adaptive layouts to support different display sizes

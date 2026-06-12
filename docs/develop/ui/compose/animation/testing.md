@@ -4,9 +4,9 @@ url: https://developer.android.com/develop/ui/compose/animation/testing
 source: md.txt
 ---
 
-Compose offers `ComposeTestRule` that allows you to write tests for animations
-in a deterministic manner with full control over the test clock. This allows you
-to verify intermediate animation values. In addition, a test can run quicker
+Compose offers `ComposeTestRule` that lets you write tests for animations
+in a deterministic manner with full control over the test clock. This lets you
+verify intermediate animation values. In addition, a test can run quicker
 than the actual duration of the animation.
 
 `ComposeTestRule` exposes its test clock as `mainClock`. You can set the
@@ -55,4 +55,4 @@ fun testAnimationWithClock() {
 - Note: link text is displayed when JavaScript is off
 - [Testing your Compose layout](https://developer.android.com/develop/ui/compose/testing)
 - [Other considerations](https://developer.android.com/develop/ui/compose/migrate/other-considerations)
-- [Customize animations {:#customize-animations}](https://developer.android.com/develop/ui/compose/animation/customize)
+- [Customize animations](https://developer.android.com/develop/ui/compose/animation/customize)

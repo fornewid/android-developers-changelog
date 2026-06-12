@@ -11,6 +11,11 @@ it down or killing it altogether. You can learn more about these optimizations
 in the topic
 [Memory allocation among processes](https://developer.android.com/topic/performance/memory-management).
 
+To ensure device stability, starting in Android 17 (API level 37), the system
+begins [enforcing app memory limits](https://android-developers.googleblog.com/2026/06/prioritizing-memory-efficiency-steps-for-android-17.html) based on the device's total RAM. If
+an app exceeds those limits, Android kills the process with no associated
+stack trace.
+
 This page explains the steps you can take to avoid low memory conditions
 affecting your game.
 
@@ -121,7 +126,7 @@ the following ways:
 - Use the [`MemoryInfo`](https://developer.android.com/reference/android/os/Debug.MemoryInfo) call from the Android Debug API.
 
 The [`PrivateDirty`](https://developer.android.com/studio/command-line/dumpsys#meminfo) statistic shows the
-amount of RAM inside the process that can not be paged to disk and is not shared
+amount of RAM inside the process that can't be paged to disk and is not shared
 with any other processes. The bulk of this amount becomes available to the
 system when that process is killed.
 

@@ -133,7 +133,7 @@ SharedTransitionLayout {
 
 By default, if a shared element is disabled during an ongoing animation, it
 still completes the current in-progress animation to prevent accidentally
-removing in-flight animations. If you need to remove the element whilst the
+removing in-flight animations. If you need to remove the element while the
 animation is in progress, you can override
 `shouldKeepEnabledForOngoingAnimation` in the `SharedContentConfig` interface to
 return false.

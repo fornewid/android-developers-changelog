@@ -61,19 +61,31 @@ app's manifest file for the system to see and run it.
 
     <application>
       <activity
-          android:name="com.example.xr.projected.GlassesMainActivity"
+          android:name="com.example.xr.projected.ProjectedMainActivity"
           android:exported="true"
-          android:requiredDisplayCategory="xr_projected"
+          android:requiredDisplayCategory="android.hardware.display.category.XR_PROJECTED"
           android:label="Example activity for audio glasses and display glasses">
           <intent-filter>
               <action android:name="android.intent.action.MAIN" />
+              <category android:name="android.intent.category.XR_PROJECTED_LAUNCHER"/>
           </intent-filter>
       </activity>
     </application>
 
 ### Key points about the code
 
-- Specifies `xr_projected` for the `android:requiredDisplayCategory` attribute to tell the system that this activity should use a [projected context](https://developer.android.com/develop/xr/jetpack-xr-sdk/glasses/support-different-types#projected-context) to access hardware from a connected device.
+- Specifies `android.hardware.display.category.XR_PROJECTED` for the `android:requiredDisplayCategory` attribute to tell the system that this is a projected activity and can be projected onto audio and display glasses.
+- `android.intent.action.MAIN` sets this activity as the default launch activity.
+- `android.intent.category.XR_PROJECTED_LAUNCHER` is a specialized category
+  that makes your projected activity discoverable by Gemini voice commands.
+
+  When a user issues a voice command using the app's name (for example, "Open
+  the AI catalog sample", "Launch the AI catalog sample", or "Start the AI
+  catalog sample"), the system uses this category to locate and start the
+  designated activity on the audio or display glasses.
+
+> [!NOTE]
+> **Note:** If multiple projected activities are defined with this category, Gemini selects the first one found in the manifest file.
 
 ## Create your activity
 

@@ -4,7 +4,8 @@ url: https://developer.android.com/develop/ui/compose/animation/choose-api
 source: md.txt
 ---
 
-The following diagram helps you decide what API to use to implement your animation.
+The following diagram helps you decide what API to use to implement your
+animation.
 
 
 ![Flowchart describing the decision tree for choosing the appropriate animation API](https://developer.android.com/static/develop/ui/compose/images/animations/compose_animation_decision_tree_v2.jpg) **Figure 1.** Decision tree describing how to choose the appropriate animation API.

@@ -323,7 +323,7 @@ private fun updateTransitionData(boxState: BoxState): TransitionData {
 but the animations start running as soon as they enter the composition and don't
 stop unless they're removed. You can create an instance of `InfiniteTransition`
 with `rememberInfiniteTransition`, and add child animations with `animateColor`,
-`animatedFloat`, or `animatedValue`. You also need to specify an
+`animateFloat`, or `animateValue`. You also need to specify an
 `infiniteRepeatable` to specify the animation specifications.
 
 

@@ -36,10 +36,10 @@ running a Gradle task with a build enabled with R8.
 For example, use the following command to generate the HTML report in the
 `/tmp/r8analysis` directory:
 
-    // To create the /tmp/r8analysis folder.
+    # To create the /tmp/r8analysis folder.
     mkdir -p /tmp/r8analysis
 
-    // To generate the report in the /tmp/r8analysis folder.
+    # To generate the report in the /tmp/r8analysis folder.
     ./gradlew assembleRelease \
         -Dcom.android.tools.r8.dumpkeepradiushtmltodirectory=/tmp/r8analysis
 

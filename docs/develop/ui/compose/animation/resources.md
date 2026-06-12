@@ -9,8 +9,8 @@ additional resources:
 
 ## Animation cheat sheet
 
-The Compose animation cheat sheet is a quick reference of some of the most useful
-Compose animation APIs. The cheat sheet is also [downloadable in PDF
+The Compose animation cheat sheet is a quick reference of some of the most
+useful Compose animation APIs. The cheat sheet is also [downloadable in PDF
 format](https://storage.googleapis.com/android-stories/compose/Compose_Animation_Cheat_Sheet.pdf).
 
 [![Useful Compose testing APIs](https://developer.android.com/static/develop/ui/compose/images/compose_animation_cheat_sheet.png)](https://developer.android.com/static/develop/ui/compose/images/compose_animation_cheat_sheet.png)

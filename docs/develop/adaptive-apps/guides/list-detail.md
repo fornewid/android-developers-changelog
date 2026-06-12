@@ -130,7 +130,8 @@ Consider the following examples:
 
 Use this when you want users to perceive distinct layout transitions with each
 back action.
-![Navigation value change.](https://developer.android.com/static/develop/ui/compose/images/layouts/adaptive/navigation_valueChange.png)
+![Illustration showing navigation value changes across different
+layout panes.](https://developer.android.com/static/develop/ui/compose/images/layouts/adaptive/navigation_valueChange.png)
 
 ##### `PopUntilContentChange`
 

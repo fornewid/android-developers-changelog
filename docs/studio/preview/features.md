@@ -236,3 +236,14 @@ Follow these steps to try out these features.
 4. Click "Explain with AI" to get a breakdown analysis of why recomposition happened.
 
    ![](https://developer.android.com/static/studio/images/design/explain-with-ai-state.png) Sample result of "Explain with AI" for state reads in Layout Inspector
+
+### Publish to Google Play for testing
+
+Android Studio now gives you the ability to upload new releases of your app
+directly to Google Play Console test tracks. You can do this by selecting
+a new option to continue to 'Publish for Testing' at the end of the Generate
+Signed App Bundle flow. This integration supports uploading an initial
+release of a brand-new app to a Play Console internal test track. You can
+also use this feature to upload releases of existing apps to other types of
+test tracks. You need to be registered on Google Play Console to take
+advantage of this functionality.

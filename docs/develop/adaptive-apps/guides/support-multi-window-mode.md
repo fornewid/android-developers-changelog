@@ -612,4 +612,4 @@ full-screen mode.
 
 For further information about multi-window support in Android, see:
 
-- Android [MultiWindowPlayground](https://github.com/android/views-widgets-samples/tree/main/MultiWindowPlayground) sample
+- Android [MultiWindowPlayground](https://github.com/googlesamples/android-MultiWindowPlayground) sample

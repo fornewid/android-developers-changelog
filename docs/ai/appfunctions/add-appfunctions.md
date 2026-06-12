@@ -26,8 +26,8 @@ Add the required library dependencies to your module's `build.gradle.kts` (or
 build.gradle) file, and configure the KSP plugin in your top-level app module as
 shown:
 
-    # Add this to your app module at the top level. For multi module applications,
-    # you only need to specify this once.
+    // Add this to your app module at the top level. For multi module applications,
+    // you only need to specify this once.
     ksp {
       arg("appfunctions:aggregateAppFunctions", "true")
     }

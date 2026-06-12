@@ -14,7 +14,7 @@ to use the shared element APIs with both the [Navigation 3](https://developer.an
 The following snippet includes `DetailsScreen` and `HomeScreen` composables that
 serve as the destinations users can navigate between. Within each screen, the
 [`sharedElement`](https://developer.android.com/reference/kotlin/androidx/compose/animation/SharedTransitionScope#(androidx.compose.ui.Modifier).sharedElement(androidx.compose.animation.SharedTransitionScope.SharedContentState,androidx.compose.animation.AnimatedVisibilityScope,androidx.compose.animation.BoundsTransform,androidx.compose.animation.SharedTransitionScope.PlaceholderSize,kotlin.Boolean,kotlin.Float,androidx.compose.animation.SharedTransitionScope.OverlayClip)) modifier is used on both the image and the text so that
-each of those elements independently animate between screens.
+each of those elements independently animates between screens.
 
 
 ```kotlin

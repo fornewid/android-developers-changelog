@@ -112,7 +112,7 @@ the device:
       <ImageView
           android:layout_height="wrap_content"
           android:layout_width="wrap_content"
-          android:src=&>quot;@drawable/myimage" /
+          android:src="@drawable/myimage" />
 
   The following Java code retrieves the image as a
   [`Drawable`](https://developer.android.com/reference/android/graphics/drawable/Drawable):
@@ -139,7 +139,7 @@ the device:
       <ImageView
           android:layout_height="wrap_content"
           android:layout_width="wrap_content"
-          app:srcCompat=&>quot;@drawable/myimage" /
+          app:srcCompat="@drawable/myimage" />
 
 You can access image resources from the main thread only.
 

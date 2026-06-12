@@ -52,7 +52,7 @@ Below is a description of both solutions and explanation of when to use which.
 ### Composables as state owner
 
 Having UI logic and UI element state in composables is a good approach if the
-state and logic is simple. You can leave your state internal to a composable or
+state and logic are simple. You can leave your state internal to a composable or
 hoist as required.
 
 ### No state hoisting needed

@@ -4,6 +4,8 @@ url: https://developer.android.com/agents/skills/navigation/navigation-3/skill
 source: md.txt
 ---
 
+*** ** * ** ***
+
 ## Migration guide
 
 - *[Navigation 2 to Navigation 3 migration guide](https://developer.android.com/guide/navigation/navigation-3/migration-guide)*: Step-by-step guide to migrate an Android application from Navigation 2 to Navigation 3, covering dependency updates, route changes, state management, and UI component replacements.
@@ -14,7 +16,7 @@ source: md.txt
 
 ## Developer documentation
 
-- \*[Navigation 3](https://developer.android.com/guide/navigation/navigation-3). Search documentation for more information on basics, saving and managing navigation state, modularizing navigation code, creating custom layouts using Scenes, animating between destinations, or applying logic or wrappers to destinations.
+- *[Navigation 3](https://developer.android.com/guide/navigation/navigation-3)*. Search documentation for more information on basics, saving and managing navigation state, modularizing navigation code, creating custom layouts using Scenes, animating between destinations, or applying logic or wrappers to destinations.
 
 ## Recipes
 

@@ -81,7 +81,8 @@ Android 16 (API level 36) and lower.
 ## Implement video capture
 
 To record Eclipsa video from a device, your camera pipeline must be configured
-to generate AGTM metadata by assigning a compatible dynamic range profile.
+to generate SMPTE 2094-50 metadata by assigning a compatible dynamic range
+profile.
 
 After device support is validated using `CameraCharacteristics`, route the
 stream to your encoder surface using the
@@ -89,9 +90,9 @@ stream to your encoder surface using the
 query and configure dynamic range profiles in camera sessions, see
 [HDR video capture](https://developer.android.com/media/camera/camera2/hdr-video-capture).
 
-No explicit codec configuration is required for AGTM metadata. The Android media
-framework automatically attaches and passes the metadata down if it exists in
-the active dynamic profile.
+No explicit codec configuration is required for SMPTE 2094-50 metadata. The
+Android media framework automatically attaches and passes the metadata down if
+it exists in the active dynamic profile.
 
 ## Compatibility and performance considerations
 

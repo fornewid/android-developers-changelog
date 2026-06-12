@@ -4,28 +4,35 @@ url: https://developer.android.com/training/tv/accessibility/system-caption-sett
 source: md.txt
 ---
 
-On Android TV, settings are provided for users to define their own caption style.
-This guide demonstrates how an app can obtain and apply the system-provided
-caption style.
+Android TV provides settings that let the user set caption preferences centrally
+to create a cohesive experience across media apps.
 
-The caption options can be found under **Settings \> System \> Accessibility \> Caption**:
+These settings let users enable captions, select a preferred language, and
+define a custom caption style based on their needs. Users can also specify
+whether they prefer simplified captions at about a third-grade reading level,
+known as "Easy Reader."
 
-![ATV_Caption_Settings](https://developer.android.com/training/tv/images/tv-caption-settings.png)
+This guide shows how to get and apply system-provided caption settings to the
+captions in your app.
 
-## Obtain the CaptioningManager
+Find the caption options, including a preview of the selected captions style,
+under **Settings \> Accessibility \> Captions**:
+![The captions settings menu on Android TV.](https://developer.android.com/static/training/tv/images/tv-caption-settings.png) Figure 1. Captions settings page.
 
-From an activity, you can get the caption service from its `Context` using
-[`CaptioningManager`](https://developer.android.com/reference/android/view/accessibility/CaptioningManager):
+## Get the CaptioningManager
 
-    CaptioningManager captioningManager = (CaptioningManager)context.getSystemService(Context.CAPTIONING_SERVICE);
+From an activity, get the [`CaptioningManager`](https://developer.android.com/reference/android/view/accessibility/CaptioningManager) service from the `Context`:
 
-## Handle caption style changes
+    CaptioningManager captioningManager = (CaptioningManager) context.getSystemService(Context.CAPTIONING_SERVICE);
 
-You can then handle caption style changes by implementing [`CaptioningChangeListener`](https://developer.android.com/reference/android/view/accessibility/CaptioningManager.CaptioningChangeListener):
+## Handle caption settings changes
+
+Handle caption settings changes by implementing the
+[`CaptioningChangeListener`](https://developer.android.com/reference/android/view/accessibility/CaptioningManager.CaptioningChangeListener) class:
 
     if (captioningManager != null) {
       // Define a class to store the CaptionStyle details.
-      CurrentCaptionStyle currentCaptionStyle = new CurrentCaptionStyle;
+      CurrentCaptionStyle currentCaptionStyle = new CurrentCaptionStyle();
       // Define the listeners.
       captioningManager.addCaptioningChangeListener(new CaptioningChangeListener() {
 
@@ -41,6 +48,11 @@ You can then handle caption style changes by implementing [`CaptioningChangeList
           super.onLocaleChanged(locale);
           Log.d(TAG, "onLocaleChanged");
           currentCaptionStyle.locale = locale;
+          if (locale == null) {
+            currentCaptionStyle.isEasyReaderEnabled = false;
+          } else {
+            currentCaptionStyle.isEasyReaderEnabled = locale.getVariant().contains("simple");
+          }
         }
 
         @Override
@@ -56,13 +68,13 @@ You can then handle caption style changes by implementing [`CaptioningChangeList
           Log.d(TAG, "onUserStyleChanged");
           currentCaptionStyle.hasBackgroundColor = userStyle.hasBackgroundColor();
           currentCaptionStyle.backgroundColor = userStyle.backgroundColor;
-          currentCaptionStyle.backgroundOpcity = userStyle.backgroundColor >>> 24;
+          currentCaptionStyle.backgroundOpacity = userStyle.backgroundColor >>> 24;
           currentCaptionStyle.hasForegroundColor = userStyle.hasForegroundColor();
           currentCaptionStyle.foregroundColor = userStyle.foregroundColor;
           currentCaptionStyle.foregroundOpacity = userStyle.foregroundColor >>> 24;
           currentCaptionStyle.hasWindowColor = userStyle.hasWindowColor();
           currentCaptionStyle.windowColor = userStyle.windowColor;
-          currentCaptionStyle.windowOpcity = userStyle.windowColor >>> 24;
+          currentCaptionStyle.windowOpacity = userStyle.windowColor >>> 24;
           currentCaptionStyle.hasEdgeColor = userStyle.hasEdgeColor();
           currentCaptionStyle.edgeColor = userStyle.edgeColor;
           currentCaptionStyle.hasEdgeType = userStyle.hasEdgeType();
@@ -71,8 +83,8 @@ You can then handle caption style changes by implementing [`CaptioningChangeList
         }
 
       });
+    }
 
-To obtain the system `CaptionStyle`, you can call `getUserStyle()`
-directly:
+Alternatively, call the `getUserStyle` method directly:
 
     CaptionStyle systemCaptionStyle = captioningManager.getUserStyle();

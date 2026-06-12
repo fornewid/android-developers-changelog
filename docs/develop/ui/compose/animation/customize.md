@@ -61,7 +61,7 @@ AnimationSpec by many animation APIs, such as `animate*AsState` and
 `updateTransition`.
 
 For example, if we apply a `spring` config to the following animation that is
-driven by user touch, when interrupting the animation as its progressing, you
+driven by user touch, when interrupting the animation as it is progressing, you
 can see that using `tween` doesn't respond as smoothly as using `spring`.
 **Figure 3** . Setting `tween` versus `spring` specs for animation, and interrupting it.
 
@@ -152,7 +152,7 @@ should follow.
 
 As you can see, the spline-based keyframes offer smoother transitions between
 points, as they use bezier curves to smoothly animate between items. This spec
-is useful for a preset animation. However,if you're working with user-driven
+is useful for a preset animation. However, if you're working with user-driven
 points, it's preferable to use springs to achieve a similar smoothness between
 points because those are interruptible.
 
@@ -221,7 +221,7 @@ val value by animateFloatAsState(
 <br />
 
 > [!NOTE]
-> **Note:** In the View system, you needed to use `ObjectAnimator` for duration-based animations, and `SpringAnimation` for physics-based animation. It was not straightforward to use these two different animation APIs simultaneously. `AnimationSpec` in Compose allows for to handling these in a unified manner.
+> **Note:** In the View system, you needed to use `ObjectAnimator` for duration-based animations, and `SpringAnimation` for physics-based animation. It was not straightforward to use these two different animation APIs simultaneously. `AnimationSpec` in Compose allows you to handle these in a unified manner.
 
 ## Set a custom easing function
 

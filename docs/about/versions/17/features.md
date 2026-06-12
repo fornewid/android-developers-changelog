@@ -291,12 +291,17 @@ The following example shows how to apply semantic styles to text in a notificati
 
 ### UWB Downlink-TDoA API for Android 17
 
-Downlink Time Difference of Arrival (DL-TDoA) ranging lets a device determine
-its position relative to multiple anchors by measuring the relative arrival
-times of signals.
+Downlink Time Difference of Arrival (DL-TDoA) ranging lets a device determine its position relative to multiple anchors by measuring the relative arrival times of signals.
 
-The following snippet demonstrates how to initialize the [Ranging Manager](https://developer.android.com/reference/android/ranging/RangingManager),
-verify device capabilities, and start a DL-TDoA session:
+<br />
+
+> [!NOTE]
+> **Note:** To use DL-TDoA ranging, the calling app must request and be granted location permissions (such as `Manifest.permission.ACCESS_FINE_LOCATION` and `Manifest.permission.ACCESS_BACKGROUND_LOCATION` if ranging is required while the app is in the background). For details on requesting location permissions, see [Request location
+> permissions](https://developer.android.com/develop/sensors-and-location/location/permissions).
+
+The following snippet demonstrates how to initialize the
+\[Ranging Manager\]\[ranging-manager-ref\], verify device capabilities, and start a
+DL-TDoA session:
 
 ### Kotlin
 
@@ -449,8 +454,9 @@ Wi-Fi and BLE:
 
 If you can't use an OOB configuration because it is missing, or if you need to
 change default values that aren't in the OOB config, you can build parameters
-with `DlTdoaRangingParams.Builder` as shown in the following snippet. You can use
-these parameters in place of `DlTdoaRangingParams.createFromFiraConfigPacket()`:
+with `DlTdoaRangingParams.Builder` as shown in the following snippet. You can
+use these parameters in place of
+`DlTdoaRangingParams.createFromFiraConfigPacket()`:
 
 ### Kotlin
 
@@ -477,3 +483,5 @@ these parameters in place of `DlTdoaRangingParams.createFromFiraConfigPacket()`:
         .setSlotsPerRangingRound(20)
         .setRangingRoundIndexes(new byte[]{0x01, 0x05})
         .build();
+
+\[ranging-manager-ref\]: /reference/android/ranging/RangingManager

@@ -174,7 +174,7 @@ property inside the content lambda for `AnimatedVisibility`. Any animation
 states added to the Transition instance will run simultaneously with the enter
 and exit animations of `AnimatedVisibility`. `AnimatedVisibility` waits until
 all animations in the `Transition` have finished before removing its content.
-For exit animations created independent of `Transition` (such as using
+For exit animations created independently of `Transition` (such as using
 `animate*AsState`), `AnimatedVisibility` wouldn't be able to account for them,
 and therefore might remove the content composable before they finish.
 
@@ -378,7 +378,7 @@ composables.
 The `animateContentSize` modifier animates a size change.
 
 > [!NOTE]
-> **Note:** The ordering of where `animateContentSize` is placed in your modifier chain matters. For smooth animations, place it *before* any size modifiers such as `size` or `defaultMinSize` to confirm that `animateContentSize` reports the animated value change to the layout.
+> **Note:** The ordering of where `animateContentSize` is placed in your modifier chain matters. For smooth animations, place it *before* any size modifiers such as `size` or `defaultMinSize` to ensure that `animateContentSize` reports the animated value change to the layout.
 
 
 ```kotlin

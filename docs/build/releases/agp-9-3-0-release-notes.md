@@ -27,6 +27,13 @@ Here is other compatibility info:
 ## Fixed issues
 
 
+### Android Gradle plugin 9.3.0-alpha12
+
+| Fixed Issues ||
+|---|---|
+| **Android Gradle Plugin** | |---| | [Issue #483853092](https://issuetracker.google.com/issues/483853092) Build Failure: File handle leak on classes.jar in compile_library_classes_jar prevents rebuilds on Windows until IDE restart | |
+| **Lint** | |---| | [Issue #404190661](https://issuetracker.google.com/issues/404190661) Lint treats imported Java library as Android project, ignoring compile SDK version | |
+
 ### Android Gradle plugin 9.3.0-alpha11
 
 | Fixed Issues ||

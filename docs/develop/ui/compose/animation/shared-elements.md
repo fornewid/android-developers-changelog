@@ -15,7 +15,7 @@ For example, in the following video, you can see the image and title of the
 snack are shared from the listing page, to the detail page.
 **Figure 1.** Jetsnack shared element demo.
 
-In Compose, there are a few high level APIs that help you create shared
+In Compose, there are a few high-level APIs that help you create shared
 elements:
 
 - [`SharedTransitionLayout`](https://developer.android.com/reference/kotlin/androidx/compose/animation/SharedTransitionLayout.composable#SharedTransitionLayout(androidx.compose.ui.Modifier,kotlin.Function1)): The outermost layout required to implement shared element transitions. It provides a `SharedTransitionScope`. Composables need to be in a `SharedTransitionScope` to use the shared element modifiers.
@@ -242,8 +242,8 @@ private fun DetailsContent(
 
 To use `Modifier.sharedElement()`, the composable needs to be in a
 `SharedTransitionScope`. The `SharedTransitionLayout` composable provides the
-`SharedTransitionScope`. Make sure to place at the same top-level point in your
-UI hierarchy that contains the elements you want to share.
+`SharedTransitionScope`. Make sure to place it at the same top-level point
+in your UI hierarchy that contains the elements you want to share.
 
 Generally, the composables should also be placed inside an
 `AnimatedVisibilityScope`. This is typically provided by using `AnimatedContent`
@@ -518,7 +518,7 @@ fun SharedElementUniqueKey() {
 <br />
 
 Data classes are recommended for keys since they implement `hashCode()` and
-`isEquals()`.
+`equals()`.
 
 > [!IMPORTANT]
 > **Important:** When working with lists of content, you need to either append the item number to the key, or use a different unique identifier.
