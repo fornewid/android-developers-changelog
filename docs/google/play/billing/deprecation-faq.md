@@ -4,12 +4,12 @@ url: https://developer.android.com/google/play/billing/deprecation-faq
 source: md.txt
 ---
 
-As announced at Google I/O in 2019 and the
-[Meet Google Play Billing Library Version 3](https://android-developers.googleblog.com/2020/06/meet-google-play-billing-library.html "Play Billing Library Version 3 Blog") blog post, all versions of Play
-Billing Library will follow a two year deprecation cycle.
+All versions of the Google Play Billing Library have a two-year deprecation
+cycle. Google announced this deprecation cycle at Google I/O 2019 and in the
+[Meet Google Play Billing Library Version 3](https://android-developers.googleblog.com/2020/06/meet-google-play-billing-library.html "Play Billing Library Version 3 Blog") blog post.
 
-This topic answers common questions regarding Billing Library version
-deprecation and migrating to newer versions.
+This page answers common questions about the Google Play
+Billing Library version deprecation and migrating to higher versions.
 
 
 **Important:** You can now use an agent skill to migrate
@@ -18,51 +18,48 @@ to the latest Play Billing Library (PBL) version. Explore the
 
 <br />
 
-## Support timeline For different versions
+## Support timeline for different versions
 
-| Version (including minor versions) | Last date version can be used to release new apps or updates to existing apps | Extension request can be made up to date |
+The following table shows the deprecation and extension deadlines for each
+Google Play Billing Library version.
+
+| Version | New app and update deadline | Extension deadline |
 |---|---|---|
-| 5 | Aug-31-2024 | Nov-1-2024 |
-| 6 | Aug-31-2025 | Nov-1-2025 |
-| 7 | Aug-31-2026 | Nov-1-2026 |
-| 8 | Aug-31-2027 | Nov-1-2027 |
+| 5 | August 31, 2024 | November 1, 2024 |
+| 6 | August 31, 2025 | November 1, 2025 |
+| 7 | August 31, 2026 | November 1, 2026 |
+| 8 | August 31, 2027 | November 1, 2027 |
+| 9 | August 31, 2028 | November 1, 2028 |
 
-**How can I find which APK or App Bundle is triggering a deprecation warning?**
-:   Review your project's imported dependencies (for example, those found
-    in your project's `build.gradle` file). To be compliant, apps
-    must import a supported version as indicated in the table. Note that
-    Billing dependencies would be found only in APKs that require the
+**How do you find which APKs use a deprecated Play Billing Library version?**
+:   Check your `build.gradle` file. Apps must use a supported version from the
+    table. These dependencies only appear in APKs that require the
     `com.android.vending.BILLING` permission.
 
-**An APK or App Bundle that I no longer maintain is using a deprecated version of the Play Billing Library. Do I need to update?**
-:   We strongly recommend updating all APKs to the latest version of the
-    Play Billing Library. However, if an APK is no longer maintained, then
-    no action is required for the APK at this time. This deprecation
-    prevents only new apps and updates from using older versions of the
-    Play Billing Library. Existing apps that use a deprecated version of
-    the library will continue to function as expected. Please ensure that all
-    actively maintained APKs are updated.
+**Do you need to update unmaintained APKs?**
+:   We recommend updating maintained APKs. Unmaintained APKs don't need updates;
+    existing apps still work, but new apps and updates must use supported
+    versions.
 
-**How to fix APK or App Bundle updated to latest Play Billing Library but still triggering deprecation warning?**
-:   Make sure your `AndroidManifest.xml` contains an entry with name
-    `com.google.android.play.billingclient.version`. If the entry
-    isn't present, check your
-    [manifest merge settings](https://developer.android.com/studio/build/manage-manifests#merge-manifests)
-    to see if the manifest attribute is being dropped during manifest merging.
+\*\*How do you fix a deprecation warning if you've already updated your
+app to a supported version?\*\*
+:   Make sure your `AndroidManifest.xml` file contains
+    `com.google.android.play.billingclient.version`. If it's missing,
+    check whether [manifest merging](https://developer.android.com/studio/build/manage-manifests#merge-manifests) removes this attribute.
 
-**How can I upgrade from an earlier version of Play Billing Library?**
+\*\*How do you upgrade from a lower version of the Google Play Billing
+Library?\*\*
 
-:   Update the dependency in your release to use a supported version as indicated
-    in the table. To see what changed between releases, read the
+:   Update the dependency in your release to use a supported version from
+    the table. To learn what changed between releases, see the
     [release notes](https://developer.android.com/google/play/billing/release-notes).
 
-    In addition, we have an in-depth guide for migrating
-    [to PBL 8](https://developer.android.com/google/play/billing/migrate-gpblv8).
+    To migrate, see the [migration guide for version 9](https://developer.android.com/google/play/billing/migrate-gpblv9).
 
-**Where can I find the extension form to continue distributing to all Google
-Play users until 1 November?**
+\*\*Where do you find the extension form to continue distributing to users
+until the extension deadline?\*\*
 
-If your app is still using an out of date Play Billing Library version, you'll
-receive a warning and an inbox message in Play Console. The extension form is
-available through the details page of the warning or issue on the
-[Policy status](https://play.google.com/console/developers/app/policy-center "Policy Center") page in Play Console.
+:   If your app uses an unsupported Google Play Billing Library version, you'll
+    receive a warning in the Google Play Console. On the warning's details page
+    on the [**Policy status**](https://play.google.com/console/developers/app/policy-center "Policy Center") page,
+    open the extension form.

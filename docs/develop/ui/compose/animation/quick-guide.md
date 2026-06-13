@@ -294,7 +294,7 @@ Box(
 
 To animate the elevation of a composable, use `animateDpAsState` combined with
 `Modifier.graphicsLayer{ }`. For once-off elevation changes, use
-`Modifier.shadow()`. If you are animating the shadow, using
+`Modifier.shadow()`. If you are animating the shadow, using the
 `Modifier.graphicsLayer{ }` modifier is the more performant option.
 
 
@@ -446,7 +446,7 @@ exit transitions. For more information, read the documentation on
 [`AnimatedContent`](https://developer.android.com/develop/ui/compose/animation/composables-modifiers#animatedcontent) or read this [blog post on](https://medium.com/androiddevelopers/customizing-animatedcontent-in-jetpack-compose-629c67b45894)
 [`AnimatedContent`](https://medium.com/androiddevelopers/customizing-animatedcontent-in-jetpack-compose-629c67b45894).
 
-## Animate whilst navigating to different destinations
+## Animate while navigating to different destinations
 
 ![Two composables, one green saying Landing and one blue saying Detail, animating by sliding the detail composable over the landing composable.](https://developer.android.com/static/develop/ui/compose/images/animations/navigation_compose_animation.gif) **Figure 12.** Animating between composables using navigation-compose
 
@@ -575,7 +575,7 @@ Box(
 
 Use the `Animatable` coroutine APIs to perform sequential or concurrent
 animations. Calling `animateTo` on the `Animatable` one after the other causes
-each animation to wait for the previous animations to finish before proceeding .
+each animation to wait for the previous animations to finish before proceeding.
 This is because it is a suspend function.
 
 
@@ -652,7 +652,7 @@ frame-by-frame to create the illusion of movement.
 Consider the [different phases of Compose](https://developer.android.com/develop/ui/compose/phases): composition, layout and draw. If
 your animation changes the layout phase, it requires all affected composables to
 relayout and redraw. If your animation occurs in the draw phase, it is by
-default be more performant than if you were to run the animation in the layout
+default more performant than if you were to run the animation in the layout
 phase, as it would have less work to do overall.
 
 To ensure your app does as little as possible while animating, choose the lambda

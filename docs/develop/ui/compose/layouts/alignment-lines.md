@@ -80,7 +80,7 @@ can align to the maximum and minimum data value of the chart. Two text elements,
 ![BarChart composable with Text aligned to the maximum and
 minimum data value.](https://developer.android.com/static/develop/ui/compose/images/layouts/alignmentlines-chart.png) **Figure 2.** `BarChart` composable with Text aligned to the maximum and minimum data value.
 
-Custom alignment lines are defined as top level variables in your project.
+Custom alignment lines are defined as top-level variables in your project.
 
 
 ```kotlin
@@ -108,7 +108,7 @@ parameter in case multiple layouts provide a value for these alignment lines. As
 the Compose layout system coordinates and the [`Canvas`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/Canvas.composable)
 coordinates represent `[0, 0]`, the top left corner and the `x` and `y` axis are
 positive downwards, so the `MaxChartValue` value will always be smaller than
-`MinChartValue`. Therefore, the merger policy is `min` for the maximum chart
+`MinChartValue`. Therefore, the merge policy is `min` for the maximum chart
 data value baseline, and `max` for the minimum chart data value baseline.
 
 When creating a custom `Layout` or `LayoutModifier`, specify custom alignment

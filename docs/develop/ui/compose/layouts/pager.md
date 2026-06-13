@@ -273,7 +273,7 @@ HorizontalPager(state = pagerState) { page ->
 
 ## Custom page sizes
 
-By default, `HorizontalPager` and `VerticalPager` takes up the full width or
+By default, `HorizontalPager` and `VerticalPager` take up the full width or
 full height, respectively. You can set the `pageSize` variable to either have a
 [`Fixed`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/pager/PageSize.Fixed), [`Fill`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/pager/PageSize.Fill) (default), or a custom size calculation.
 
@@ -525,7 +525,7 @@ snippets:
 
 <br />
 
-**Figure 8**. An auto-advancing pager with a two second delay between each page progression.
+**Figure 8**. An auto-advancing pager with a two-second delay between each page progression.
 
 <br />
 

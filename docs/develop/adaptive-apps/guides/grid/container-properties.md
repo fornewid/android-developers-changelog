@@ -118,7 +118,7 @@ You can specify the size of a grid track using one of the following methods:
 - **Fixed** (`Dp`): Allocates a specific size (e.g., `column(180.dp)`).
 - **Percentage** (`Float`): Allocates a percentage of the total available space from `0.0f` to `1.0f` (e.g., `row(0.5f)` for 50%).
 - **Flexible** ([`Fr`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/Fr)): Distributes remaining space proportionally after fixed and percentage tracks are calculated. For example, if two rows are set to `1.fr` and `3.fr`, the latter receives 75% of the remaining height.
-- **Intrinsic** : Sizes the track based on the content inside it. For more information, see [Determine grid track size intrinsically](https://developer.android.com/develop/adaptive-apps/guides/grid/container-properties#intrisic-grid-track-size).
+- **Intrinsic** : Sizes the track based on the content inside it. For more information, see [Determine grid track size intrinsically](https://developer.android.com/develop/adaptive-apps/guides/grid/container-properties#intrinsic-grid-track-size).
 
 The following example uses the different track sizing options
 to define the row heights:
@@ -137,6 +137,11 @@ Grid(
     modifier = Modifier.height(480.dp)
 ) {
     PastelRedCard("Fixed(100.dp)")
+        PastelGreenCard("Percentage(0.2f)")
+    PastelBlueCard("Flex(1.fr)")
+        PastelYellowCard("Auto")
+
+}
 ```
 
 <br />
@@ -169,8 +174,8 @@ Grid(
     },
     modifier = Modifier.width(480.dp)
 ) {
-    Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras imperdiet." )
-    Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras imperdiet." )
+    Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras imperdiet.")
+    Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras imperdiet.")
 }
 ```
 

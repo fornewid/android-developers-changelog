@@ -71,5 +71,5 @@ Text(
 <br />
 
 `TextAlign` changes are **not** animated by default. Instead, use
-`Modifier.wrapContentSize()` or `Modifier.wrapContentWidth()` over using different
-`TextAlign` for shared transitions.
+`Modifier.wrapContentSize()` or `Modifier.wrapContentWidth()` over using
+different `TextAlign` for shared transitions.

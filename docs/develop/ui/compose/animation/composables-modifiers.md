@@ -234,8 +234,10 @@ Row {
 > **Note:** You must always use the lambda parameter and reflect it to the content. The API uses this value as a key to identify the content that's currently being shown.
 
 By default, the initial content fades out and then the target content fades in
-(this behavior is called [fade through](https://material.io/design/motion/the-motion-system.html#fade-through)). You
-can customize this animation behavior by specifying a [`ContentTransform`](https://developer.android.com/reference/kotlin/androidx/compose/animation/ContentTransform)
+(this behavior is called
+[fade through](https://material.io/design/motion/the-motion-system.html#fade-through)).
+You can customize this animation behavior by specifying a
+[`ContentTransform`](https://developer.android.com/reference/kotlin/androidx/compose/animation/ContentTransform)
 object to the `transitionSpec` parameter. You can create an
 instance of `ContentTransform` by combining an
 [`EnterTransition`](https://developer.android.com/reference/kotlin/androidx/compose/animation/EnterTransition) object

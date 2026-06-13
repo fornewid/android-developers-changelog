@@ -9,6 +9,9 @@ measurements for your Android app or game. This guide provides in-depth
 information about how to configure and run a system trace that meets your
 needs.
 
+> [!NOTE]
+> **Note:** Make sure your computer, test device, and app under test meet the listed [requirements](https://developer.android.com/android-performance-analyzer/quickstart#requirements) before attempting to record a trace.
+
 ## Record a trace
 
 After you've created a new project or opened an existing one, you can click the

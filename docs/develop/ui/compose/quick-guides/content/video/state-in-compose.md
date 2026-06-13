@@ -14,7 +14,7 @@ how to structure your composables for optimal data flow.
 
 ## Key points
 
-- If your app's state is internal to a composable, use [`remember`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/remember.composable#remember(kotlin.Function0)) to persist the state across re-composition.
+- If your app's state is internal to a composable, use [`remember`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/remember.composable#remember(kotlin.Function0)) to persist the state across recomposition.
 - Use [`rememberSaveable`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/saveable/rememberSaveable.composable#rememberSaveable(kotlin.Array,androidx.compose.runtime.saveable.Saver,kotlin.String,kotlin.Function0)) to persist the state across configuration changes.
 - *State hoisting* is a programming pattern where you move the state to the caller of a composable. Where possible, use state hoisting to make the composable more reusable and testable.
 - Use the [`ViewModel`](https://developer.android.com/reference/androidx/lifecycle/ViewModel) class to hold an exposed state in an observable state holder, better encapsulating the state and creating a single source of truth for the UI.

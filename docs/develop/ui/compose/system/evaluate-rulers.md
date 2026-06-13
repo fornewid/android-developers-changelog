@@ -7,10 +7,10 @@ source: md.txt
 [`WindowInsets`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/WindowInsets) is the standard API in Jetpack Compose for handling
 areas of the screen that are partially or fully obscured by the system UI. These
 areas include the status bar, navigation bar, and on-screen keyboard. You can
-alternatively pass predefined [`WindowInsetsRulers`](https://developer.android.com/reference/kotlin/androidx/compose/ui/layout/WindowInsetsRulers) like [`SafeDrawing`](https://developer.android.com/reference/kotlin/androidx/compose/ui/layout/WindowInsetsRulers#SafeDrawing()) to
-[`Modifier.fitInside`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier#(androidx.compose.ui.Modifier).fitInside(androidx.compose.ui.layout.RectRulers)) or [`Modifier.fitOutside`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier#(androidx.compose.ui.Modifier).fitOutside(androidx.compose.ui.layout.RectRulers)) to align your content
-with the system bars and the display cutout or create custom
-`WindowInsetsRulers`.
+alternatively pass predefined [`WindowInsetsRulers`](https://developer.android.com/reference/kotlin/androidx/compose/ui/layout/WindowInsetsRulers) like
+[`SafeDrawing`](https://developer.android.com/reference/kotlin/androidx/compose/ui/layout/WindowInsetsRulers#SafeDrawing()) to [`Modifier.fitInside`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier#(androidx.compose.ui.Modifier).fitInside(androidx.compose.ui.layout.RectRulers)) or [`Modifier.fitOutside`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier#(androidx.compose.ui.Modifier).fitOutside(androidx.compose.ui.layout.RectRulers))
+to align your content with the system bars and the display cutout or create
+custom `WindowInsetsRulers`.
 
 ## Advantages of `WindowInsetsRulers`
 
@@ -24,9 +24,9 @@ with the system bars and the display cutout or create custom
 
 ## Align your content with Modifier methods
 
-[`Modifier.fitInside`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier#(androidx.compose.ui.Modifier).fitInside(androidx.compose.ui.layout.RectRulers)) allows apps to align content to system bars and display
-cutouts. It can be used instead of `WindowInsets`. [`Modifier.fitOutside`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier#(androidx.compose.ui.Modifier).fitOutside(androidx.compose.ui.layout.RectRulers)) is
-usually the inverse of `Modifier.fitInside`.
+[`Modifier.fitInside`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier#(androidx.compose.ui.Modifier).fitInside(androidx.compose.ui.layout.RectRulers)) allows apps to align content to system bars and
+display cutouts. It can be used instead of `WindowInsets`.
+[`Modifier.fitOutside`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier#(androidx.compose.ui.Modifier).fitOutside(androidx.compose.ui.layout.RectRulers)) is usually the inverse of `Modifier.fitInside`.
 
 For example, to verify that app content avoids the system bars and display
 cutout, you can use `fitInside(WindowInsetsRulers.safeDrawing.current)`.

@@ -26,10 +26,9 @@ to `false`.
 
 ## Backward compatible inset dispatching for views
 
-If your app contains Views code, you may need to confirm that insets are dispatched
-to sibling views on devices that run Android 10 (API level 29) or lower. See the
-[edge-to-edge Views guide](https://developer.android.com/develop/ui/views/layout/edge-to-edge#backward-compatible-dispatching)
-for more information.
+If your app contains Views code, you may need to confirm that insets are
+dispatched to sibling views on devices that run Android 10 (API level 29) or
+lower. See the [edge-to-edge Views guide](https://developer.android.com/develop/ui/views/layout/edge-to-edge#backward-compatible-dispatching) for more information.
 
 ## System bar icons
 

@@ -38,7 +38,7 @@ change the overall layout of your app on large displays.
 > **Key terms:**
 >
 > - **App-level composable:** The single, root composable that occupies all space given to your app and contains all other composables.
-> - **content-level composable:** A composable contained within the app-level composable thats occupies all space given to your app. Each content-level composable generally represents a particular destination when navigating through the app.
+> - **content-level composable:** A composable contained within the app-level composable that occupies all space given to your app. Each content-level composable generally represents a particular destination when navigating through the app.
 > - **Individual composables:** All other composables. These could be individual elements, reusable groups of content, or composables hosted within content-level composables.
 
 **Avoid using physical hardware values for making layout decisions.** It might

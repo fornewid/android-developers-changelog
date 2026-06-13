@@ -4,7 +4,7 @@ url: https://developer.android.com/android-performance-analyzer/view
 source: md.txt
 ---
 
-You can view any system traces that you've recorded previously in the
+You can view any system traces that you've [recorded previously](https://developer.android.com/android-performance-analyzer/run) in the
 System Profiler in Android Performance Analyzer. This guide demonstrates how to use the trace view to interact with
 recorded data. For a detailed description of the data presented in the trace
 view, see [Understand trace data](https://developer.android.com/android-performance-analyzer/view/data).

@@ -232,4 +232,4 @@ to deal with the space surrounding a composable, such as:
 - `ChainStyle.Packed`: Space is distributed before the first and after the last composable, composables are packed together without space in between each other.
 
 > [!WARNING]
-> **Warning:** Consider using `Rows` and `Columns` with different[Arrangements](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/Arrangement) to achieve a similar effect to chains in `ConstraintLayout`.
+> **Warning:** Consider using `Rows` and `Columns` with different [Arrangements](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/Arrangement) to achieve a similar effect to chains in `ConstraintLayout`.

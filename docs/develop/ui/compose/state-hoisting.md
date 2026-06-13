@@ -247,7 +247,7 @@ description of this can be found in the [UI logic and its state holder page](htt
 
 ## Business logic
 
-If composables and plain state holders classes are in charge of the UI logic and
+If composables and plain state holder classes are in charge of the UI logic and
 UI element state, a screen level state holder is in charge of the following
 tasks:
 

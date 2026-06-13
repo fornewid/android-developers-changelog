@@ -179,7 +179,7 @@ Starting from Android 15, you can use
 
 ### Manage app instances with dragging gestures
 
-In multi-window mode, users can start a new app instance by dragging an UI
+In multi-window mode, users can start a new app instance by dragging a UI
 element (like a tab or a document) out of the app's window. Users can also move
 elements between different instances of the same app.
 Your browser doesn't support the video tag. **Figure 7.** Start a new instance of Chrome by dragging a tab out of the desktop window.

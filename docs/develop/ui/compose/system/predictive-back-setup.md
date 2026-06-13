@@ -75,9 +75,12 @@ This code produces the following result:
 **Figure 3.** A custom in-app animation in SociaLite.
 
 `popEnterTransition` and `popExitTransition` specifically control animations
-when popping the back stack, with a back gesture, for example. You can also use `enterTransition` and `exitTransition` to define animations for entering and
-exiting composables in general, not only for predictive back. If you only set `enterTransition` and `exitTransition`, they are used for both regular
-navigation and popping the back stack. However, using `popEnterTransition` and `popExitTransition` lets you create distinct animations for back navigation.
+when popping the back stack, with a back gesture, for example. You can also use
+`enterTransition` and `exitTransition` to define animations for entering and
+exiting composables in general, not only for predictive back. If you only set
+`enterTransition` and `exitTransition`, they are used for both regular
+navigation and popping the back stack. However, using `popEnterTransition` and
+`popExitTransition` lets you create distinct animations for back navigation.
 
 ## Integrate with shared element transitions
 
@@ -92,7 +95,8 @@ To use shared elements with Navigation Compose, see
 
 Many components in the Material Compose library are designed to work seamlessly
 with predictive back gestures. To enable predictive back animations in these
-components, include the latest [Material3](https://developer.android.com/jetpack/androidx/releases/compose-material3) dependency (`androidx.compose.material3:material3-*:1.3.0` or higher) in your project.
+components, include the latest [Material3](https://developer.android.com/jetpack/androidx/releases/compose-material3) dependency
+(`androidx.compose.material3:material3-*:1.3.0` or higher) in your project.
 
 The Material components that support predictive back animations include:
 

@@ -270,9 +270,9 @@ ensures that items in the same column or row take up the same width or height as
 the biggest item in the column/row.
 
 For example, this example uses `FlowColumn` to display the list of Android
-desserts. You can see the difference in each items widths when
-`Modifier.fillMaxColumnWidth()` is applied to the items versus when its not and
-the items wrap.
+desserts. You can see the difference in each item's width when
+`Modifier.fillMaxColumnWidth()` is applied to the items versus when it's not
+and the items wrap.
 
 
 ```kotlin

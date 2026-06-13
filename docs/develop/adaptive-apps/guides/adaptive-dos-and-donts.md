@@ -27,7 +27,7 @@ higher, large screens support multi‑window mode regardless of the
 attribute. For more information, see [Support multi-window mode](https://developer.android.com/develop/ui/compose/layouts/adaptive/support-multi-window-mode).
 ✓ Do
 
-Enable your app to participant in multi‑window, multitasking scenarios for
+Enable your app to participate in multi‑window, multitasking scenarios for
 increased user productivity and satisfaction.
 
 Set `resizeableActivity="true"` if your app targets API levels lower than 24;

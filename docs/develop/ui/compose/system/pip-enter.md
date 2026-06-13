@@ -4,7 +4,7 @@ url: https://developer.android.com/develop/ui/compose/system/pip-enter
 source: md.txt
 ---
 
-Your app should not enter PiP mode in the following situations:
+Your app shouldn't enter PiP mode in the following situations:
 
 - If the video is stopped or paused.
 - If you are on a different page of the app than the video player.
@@ -101,7 +101,7 @@ VideoPlayer(pipModifier)
 
 <br />
 
-## Use `setSourceRectHint` to implement a smooth animation
+## Use `setSourceRectHint` for a smooth animation
 
 The [`setSourceRectHint`](https://developer.android.com/reference/android/app/PictureInPictureParams.Builder#setSourceRectHint(android.graphics.Rect)) API creates a smoother animation for entering PiP
 mode. In Android 12+, it also creates a smoother animation for exiting PiP mode.

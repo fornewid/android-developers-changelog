@@ -13,12 +13,16 @@ receive periodic updates.
 Glance provides a set of composables to help you build responsive widgets for
 the home screen quickly and with less code. The pages in this doc set describe
 how to use Glance to build app widgets.
-| **Note:** Jetpack Glance is in active development. File any issues on the [issue
-| tracker](https://b.corp.google.com/issues/new?component=1097239&template=1611667).
+
+> [!NOTE]
+> **Note:** Jetpack Glance is in active development. File any issues on the [issue
+> tracker](https://b.corp.google.com/issues/new?component=1097239&template=1611667).
 
 ## Additional resources
 
 For more information on canonical layouts visit [Canonical widget layouts](https://developer.android.com/design/ui/mobile/guides/widgets/layouts).
 For more information on making your widget high quality and discoverable,
 see [Widget quality](https://developer.android.com/docs/quality-guidelines/widget-quality).
-| **Caution:** Glance requires Compose to be enabled and depends on Runtime, Graphics, and Unit [UI Compose layers](https://developer.android.com/develop/ui/compose/layering), but it's *not directly interoperable* with other existing Jetpack Compose UI elements. Avoid mixing the two.
+
+> [!CAUTION]
+> **Caution:** Glance requires Compose to be enabled and depends on Runtime, Graphics, and Unit [UI Compose layers](https://developer.android.com/develop/ui/compose/layering), but it's *not directly interoperable* with other existing Jetpack Compose UI elements. Avoid mixing the two.

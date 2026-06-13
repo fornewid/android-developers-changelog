@@ -7,7 +7,7 @@ source: md.txt
 Once your app targets SDK 35 or later, [edge-to-edge is enforced](https://developer.android.com/about/versions/15/behavior-changes-15#edge-to-edge). The
 system status bar and gesture navigation bars are transparent, but the
 three-button navigation bar is translucent. Call `enableEdgeToEdge` to make this
-backwards compatible.
+backward compatible.
 
 However, the system defaults might not work for all use cases. Consult the
 [Android system bars design guidance](https://developer.android.com/design/ui/mobile/guides/foundations/system-bars) and [edge-to-edge design

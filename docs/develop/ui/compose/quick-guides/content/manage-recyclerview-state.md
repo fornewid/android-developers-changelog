@@ -56,7 +56,7 @@ changes. Add the policy specification to the adapter constructor:
 
     class MyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
-        public Adapter() {
+        public MyAdapter() {
             setStateRestorationPolicy(StateRestorationPolicy.PREVENT_WHEN_EMPTY);
         }
         ...

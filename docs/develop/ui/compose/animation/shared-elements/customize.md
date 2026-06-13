@@ -59,7 +59,8 @@ and reflowing of text onto different lines. `RemeasureToBounds` is recommended
 for bounds that are different aspect ratios, and if you'd like fluid continuity
 between the two shared elements.
 
-The difference between the two resize modes can be seen in the examples that follow:
+The difference between the two resize modes can be seen in the examples that
+follow:
 
 | `ScaleToBounds` | `RemeasureToBounds` |
 |---|---|
@@ -158,9 +159,9 @@ as it grows.
 
 In order for shared elements to share between different composables,
 **the rendering of the composable is elevated** into a layer overlay when the
-transition is started to its match in the destination. The effect of this is that
-it'll escape the parent's bounds and its layer transformations (for example, the
-alpha and scale).
+transition is started to its match in the destination. The effect of this is
+that it'll escape the parent's bounds and its layer transformations (for
+example, the alpha and scale).
 
 It will render on top of other non-shared UI elements. Once the transition is
 finished, the element will be dropped from the overlay to its own `DrawScope`.

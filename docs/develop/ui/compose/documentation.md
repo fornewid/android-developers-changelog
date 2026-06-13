@@ -45,7 +45,7 @@ development of apps that adapt to any display size.
   - [Material Components and layouts](https://developer.android.com/develop/ui/compose/components): Material components and layouts in Compose.
   - [Custom layouts](https://developer.android.com/develop/ui/compose/layouts/custom): Take control of your app's layout and design a custom layout of your own.
   - [Alignment lines](https://developer.android.com/develop/ui/compose/layouts/alignment-lines): Create custom alignment guides to precisely align and position your UI elements.
-  - [Intrinsic measurements](https://developer.android.com/develop/ui/compose/layouts/intrinsic-measurements): How to query for information about child elements before measuring them because Compose measure UI elements only once per pass.
+  - [Intrinsic measurements](https://developer.android.com/develop/ui/compose/layouts/intrinsic-measurements): How to query for information about child elements before measuring them because Compose measures UI elements only once per pass.
   - [ConstraintLayout](https://developer.android.com/develop/ui/compose/layouts/constraintlayout): Use `ConstraintLayout` in your Compose UI.
 - [Design Systems](https://developer.android.com/develop/ui/compose/designsystems): Implement a design system and give your app a consistent look and feel.
   - [Material Design 3](https://developer.android.com/develop/ui/compose/designsystems/material3): Implement Material You with the Compose implementation of [Material Design 3](https://m3.material.io/).

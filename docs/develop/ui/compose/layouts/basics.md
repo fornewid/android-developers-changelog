@@ -207,7 +207,7 @@ In the `SearchResult` example, the UI tree layout follows this order:
 6. The first `Text` node is a leaf node, so it reports a size and returns placement instructions.
 7. The `Column` node asks its second `Text` child to measure.
 8. The second `Text` node is a leaf node, so it reports a size and returns placement instructions.
-9. Now that the `Column` node has measured, sized, and, placed its children, it can determine its own size and placement.
+9. Now that the `Column` node has measured, sized, and placed its children, it can determine its own size and placement.
 10. Now that the root node `Row` has measured, sized, and placed its children, it can determine its own size and placement.
 
 ![Ordering of measuring, sizing, and placement in Search Result UI tree](https://developer.android.com/static/develop/ui/compose/images/search-result-layout.svg)
@@ -226,7 +226,7 @@ in [Intrinsic measurements in Compose
 layouts](https://developer.android.com/develop/ui/compose/layouts/intrinsic-measurements).
 
 Since measurement and placement are distinct sub-phases of the layout pass, any
-changes that only affects placement of items, not measurement, can be executed
+changes that only affect placement of items, not measurement, can be executed
 separately.
 
 ## Using modifiers in your layouts

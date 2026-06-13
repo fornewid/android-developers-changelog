@@ -10,7 +10,7 @@ cutout, you can simulate common cutout configurations on any device or emulator
 running Android 9 or higher by doing the following:
 
 1. Enable [**Developer options**](https://developer.android.com/studio/debug/dev-options).
-2. In the **Developer options** screen, scroll down to the **Drawing** section and select **Simulate a display with a cutout**.
+2. In the **Developer options** screen, go to the **Drawing** section and select **Simulate a display with a cutout**.
 3. Select the cutout type. ![simulating a display cutout in the emulator](https://developer.android.com/static/develop/ui/compose/images/system/cutouts_testing_developer_options.png) **Figure 3** . Use **Developer options** to test how your content renders.
 
 ## Recommended for you
