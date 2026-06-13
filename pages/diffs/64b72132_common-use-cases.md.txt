@@ -1,0 +1,14 @@
+diff --git a/docs/develop/ui/compose/animation/shared-elements/common-use-cases.md b/docs/develop/ui/compose/animation/shared-elements/common-use-cases.md
+index 0e8d6661..f3af8f37 100644
+--- a/docs/develop/ui/compose/animation/shared-elements/common-use-cases.md
++++ b/docs/develop/ui/compose/animation/shared-elements/common-use-cases.md
+@@ -71,5 +71,5 @@ Text(
+ <br />
+ 
+ `TextAlign` changes are **not** animated by default. Instead, use
+-`Modifier.wrapContentSize()` or `Modifier.wrapContentWidth()` over using different
+-`TextAlign` for shared transitions.
+\ No newline at end of file
++`Modifier.wrapContentSize()` or `Modifier.wrapContentWidth()` over using
++different `TextAlign` for shared transitions.
+\ No newline at end of file

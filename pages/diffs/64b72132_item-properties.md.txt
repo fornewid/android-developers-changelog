@@ -1,0 +1,21 @@
+diff --git a/docs/develop/adaptive-apps/guides/grid/item-properties.md b/docs/develop/adaptive-apps/guides/grid/item-properties.md
+index c14c822a..0193e72a 100644
+--- a/docs/develop/adaptive-apps/guides/grid/item-properties.md
++++ b/docs/develop/adaptive-apps/guides/grid/item-properties.md
+@@ -143,7 +143,7 @@ A UI element in `Grid`
+ that has no position specification undergoes auto-placement.
+ This example shows how you can mix auto-placed elements
+ and the UI elements with specified grid cells.
+-Card **#2** and card **#4** are specified grid cells,
++Card **#2** and Card **#4** are placed in specified grid cells,
+ and the other items are auto-placed.
+ 
+ 
+@@ -171,4 +171,4 @@ Grid(
+ 
+ <br />
+ 
+-![Card #3 is placed next to card <b>#1</b>, as it is an auto-placement.](https://developer.android.com/static/develop/ui/compose/images/layouts/adaptive/grid/autoplacement-mixed-with-placement.png) **Figure 4** . Card **#3** is placed next to card **#1**, as it is an auto-placement.
+\ No newline at end of file
++![Card #3 is placed next to Card <b>#1</b>, as it is an auto-placement.](https://developer.android.com/static/develop/ui/compose/images/layouts/adaptive/grid/autoplacement-mixed-with-placement.png) **Figure 4** . Card **#3** is placed next to Card **#1**, as it is an auto-placement.
+\ No newline at end of file

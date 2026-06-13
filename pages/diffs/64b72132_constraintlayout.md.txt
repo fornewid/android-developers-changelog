@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/compose/layouts/constraintlayout.md b/docs/develop/ui/compose/layouts/constraintlayout.md
+index 1bb9c839..de1f5d33 100644
+--- a/docs/develop/ui/compose/layouts/constraintlayout.md
++++ b/docs/develop/ui/compose/layouts/constraintlayout.md
+@@ -232,4 +232,4 @@ to deal with the space surrounding a composable, such as:
+ - `ChainStyle.Packed`: Space is distributed before the first and after the last composable, composables are packed together without space in between each other.
+ 
+ > [!WARNING]
+-> **Warning:** Consider using `Rows` and `Columns` with different[Arrangements](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/Arrangement) to achieve a similar effect to chains in `ConstraintLayout`.
+\ No newline at end of file
++> **Warning:** Consider using `Rows` and `Columns` with different [Arrangements](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/Arrangement) to achieve a similar effect to chains in `ConstraintLayout`.
+\ No newline at end of file

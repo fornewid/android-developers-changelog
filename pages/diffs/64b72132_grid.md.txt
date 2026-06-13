@@ -1,0 +1,13 @@
+diff --git a/docs/develop/adaptive-apps/guides/grid.md b/docs/develop/adaptive-apps/guides/grid.md
+index ec6cfc5b..7314cdbc 100644
+--- a/docs/develop/adaptive-apps/guides/grid.md
++++ b/docs/develop/adaptive-apps/guides/grid.md
+@@ -31,7 +31,7 @@ of which layouts are suitable for each API:
+ 
+ | Component | Purpose |
+ |---|---|
+-| `LazyVerticalGrid`, `LazyStaggeredGrid`, `LazyHorizontalGrid` | Visualization of large, homogeneous data sets that requires lazy loading. |
++| `LazyVerticalGrid`, `LazyStaggeredGrid`, `LazyHorizontalGrid` | Visualization of large, homogeneous data sets that require lazy loading. |
+ | `Row`, `Column`, `FlexBox` | One-dimensional layout |
+ | `Grid` | Two-dimensional layout |
+ 

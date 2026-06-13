@@ -1,0 +1,13 @@
+diff --git a/docs/develop/ui/compose/state-hoisting.md b/docs/develop/ui/compose/state-hoisting.md
+index 4e9e9255..3f6e823f 100644
+--- a/docs/develop/ui/compose/state-hoisting.md
++++ b/docs/develop/ui/compose/state-hoisting.md
+@@ -247,7 +247,7 @@ description of this can be found in the [UI logic and its state holder page](htt
+ 
+ ## Business logic
+ 
+-If composables and plain state holders classes are in charge of the UI logic and
++If composables and plain state holder classes are in charge of the UI logic and
+ UI element state, a screen level state holder is in charge of the following
+ tasks:
+ 
