@@ -4,6 +4,8 @@ url: https://developer.android.com/develop/ui/compose/accessibility
 source: md.txt
 ---
 
+[Video](https://www.youtube.com/watch?v=80qkStdDWXQ)
+
 Developing with accessibility in mind means making your apps usable for
 everyone, including people with accessibility needs, who may use Android devices
 in many different ways. Compose provides a foundation for building more
@@ -20,7 +22,8 @@ There are several key and supporting concepts in Compose accessibility:
 - [**Inspect and debug**](https://developer.android.com/develop/ui/compose/accessibility/inspect-debug): Inspect your composables' accessibility semantics with tools and debug unexpected behaviors when using Android's assistive technologies.
 - [**Testing**](https://developer.android.com/develop/ui/compose/accessibility/testing): Detect common accessibility issues and automate some aspects of testing with Compose accessibility checks.
 
-| **Important:** For more information about accessibility in Android generally, see the [accessibility guides](https://developer.android.com/guide/topics/ui/accessibility).
+> [!IMPORTANT]
+> **Important:** For more information about accessibility in Android generally, see the [accessibility guides](https://developer.android.com/guide/topics/ui/accessibility).
 
 ## Additional resources
 
@@ -28,6 +31,5 @@ There are several key and supporting concepts in Compose accessibility:
 - **[What's new in accessibility for developers](https://www.youtube.com/watch?v=6LsaP6oKxMY):** IO '22 talk.
 - **[Build accessible apps](https://developer.android.com/guide/topics/ui/accessibility):** Essential concepts and techniques common to all Android app development.
 - **[Make apps more accessible](https://developer.android.com/guide/topics/ui/accessibility/apps):** Key steps you can take to make your app more accessible.
-- **[Principles for improving app
-  accessibility](https://developer.android.com/guide/topics/ui/accessibility/principles):** Key principles to keep in mind when working to make your app more accessible.
+- **[Principles for improving app accessibility](https://developer.android.com/guide/topics/ui/accessibility/principles):** Key principles to keep in mind when working to make your app more accessible.
 - **[Testing for Accessibility](https://developer.android.com/guide/topics/ui/accessibility/testing):** Testing principles and tools for Android accessibility.

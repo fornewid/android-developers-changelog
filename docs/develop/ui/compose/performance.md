@@ -64,9 +64,9 @@ For more details, see the [best practices](https://developer.android.com/develop
 If you are working with views instead of Compose, see the dedicated [Improve
 layout performance](https://developer.android.com/develop/ui/views/layout/improving-layouts) guide.
 
-## Additional Resources
+## Additional resources
 
-- **[App performance guide](https://developer.android.com/topic/performance/overview)**: Discover best practices, libraries, and tools to improve performance on Android.
+- **[App performance guide](https://developer.android.com/topic/performance/overview):** Discover best practices, libraries, and tools to improve performance on Android.
 - **[Inspect Performance](https://developer.android.com/topic/performance/inspecting-overview):** Inspect app performance.
 - **[Benchmarking](https://developer.android.com/topic/performance/benchmarking/benchmarking-overview):** Benchmark app performance.
 - **[App startup](https://developer.android.com/topic/performance/appstartup/analysis-optimization):** Optimize app startup.

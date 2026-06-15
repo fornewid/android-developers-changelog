@@ -7,8 +7,10 @@ source: md.txt
 When faced with an [unstable class](https://developer.android.com/develop/ui/compose/performance/stability/diagnose) that causes performance
 issues, you should make it stable. This document outlines several techniques you
 can use to do so.
-| **Important:** Before you fix stability issues, you should learn to properly diagnose them. For information, see the [Diagnose stability
-| issues](https://developer.android.com/develop/ui/compose/performance/stability/diagnose) guide.
+
+> [!IMPORTANT]
+> **Important:** Before you fix stability issues, you should learn to properly diagnose them. For information, see the [Diagnose stability
+> issues](https://developer.android.com/develop/ui/compose/performance/stability/diagnose) guide.
 
 ## Enable strong skipping
 
@@ -28,7 +30,8 @@ You can also try to make an unstable class completely immutable.
   - If this is impossible, then you must use Compose state for any mutable properties.
 - **Stable**: Indicates a type that is mutable. The Compose runtime does not become aware if and when any of the type's public properties or method behavior would yield different results from a previous invocation.
 
-| **Important:** In practice, this means you should use Compose state for any mutable property. For example, `mutableStateOf(...)`.
+> [!IMPORTANT]
+> **Important:** In practice, this means you should use Compose state for any mutable property. For example, `mutableStateOf(...)`.
 
 ## Immutable collections
 
@@ -39,11 +42,11 @@ truly immutable and therefore marks them as unstable.
 
 To resolve this, you can use immutable collections. The Compose compiler
 includes support for [Kotlinx Immutable Collections](https://github.com/Kotlin/kotlinx.collections.immutable). These
-collections are guaranteed to be immutable, and the Compose compiler treats them
+collections are designed to be immutable, and the Compose compiler treats them
 as such. This library is still in alpha, so expect possible changes to its API.
 
 Consider again this unstable class from the [Diagnose stability
-issues](https://developer.android.com/develop/ui/compose/performance/stability/diagnose) guide:  
+issues](https://developer.android.com/develop/ui/compose/performance/stability/diagnose) guide:
 
     unstable class Snack {
       ...
@@ -51,10 +54,11 @@ issues](https://developer.android.com/develop/ui/compose/performance/stability/d
       ...
     }
 
-| **Note:** This is snippet is the output from the Compose compiler, not the class definition. For more information, see the stability guide.
+> [!NOTE]
+> **Note:** This is snippet is the output from the Compose compiler, not the class definition. For more information, see the stability guide.
 
 You can make `tags` stable using an immutable collection. In the class, change
-type of `tags` to `ImmutableSet<String>`:  
+type of `tags` to `ImmutableSet<String>`:
 
     data class Snack{
         ...
@@ -69,7 +73,9 @@ compiler marks the class as stable.
 
 A possible path to resolving stability issues is to annotate unstable classes
 with either `@Stable` or `@Immutable`.
-| **Warning:** These annotations don't make a class immutable or stable on its own. Instead, by using these annotations you opting in to a contract with the compiler. Incorrectly annotating a class could cause recomposition to break.
+
+> [!WARNING]
+> **Warning:** These annotations don't make a class immutable or stable on its own. Instead, by using these annotations you opting in to a contract with the compiler. Incorrectly annotating a class could cause recomposition to break.
 
 Annotating a class is overriding what the compiler would otherwise
 [infer](https://developer.android.com/develop/ui/compose/performance/stability) about your class. It is similar to the
@@ -82,7 +88,7 @@ If it is possible to make your class stable without an annotation, you should
 strive to achieve stability that way.
 
 The following snippet provides a minimal example of a data class annotated as
-immutable:  
+immutable:
 
     @Immutable
     data class Snack(
@@ -94,7 +100,7 @@ marks the `Snack` class as stable.
 
 ### Annotated classes in collections
 
-Consider a composable that includes a parameter of type `List<Snack>`:  
+Consider a composable that includes a parameter of type `List<Snack>`:
 
     restartable scheme("[androidx.compose.ui.UiComposable]") fun HighlightedSnacks(
       ...
@@ -125,7 +131,7 @@ file](https://developer.android.com/develop/ui/compose/performance/stability/fix
 #### Immutable collection
 
 For compile time safety of immutability, you can use a kotlinx immutable
-collection, instead of `List`.  
+collection, instead of `List`.
 
     @Composable
     private fun HighlightedSnacks(
@@ -138,14 +144,14 @@ collection, instead of `List`.
 
 If you cannot use an immutable collection, you could make your own. To do so,
 wrap the `List` in an annotated stable class. A generic wrapper is likely the
-best choice for this, depending on your requirements.  
+best choice for this, depending on your requirements.
 
     @Immutable
     data class SnackCollection(
        val snacks: List<Snack>
     )
 
-You can then use this as the type of the parameter in your composable.  
+You can then use this as the type of the parameter in your composable.
 
     @Composable
     private fun HighlightedSnacks(
@@ -158,7 +164,7 @@ You can then use this as the type of the parameter in your composable.
 #### Solution
 
 After taking either of these approaches, the Compose compiler now marks the
-`HighlightedSnacks` Composable as both `skippable` and `restartable`.  
+`HighlightedSnacks` Composable as both `skippable` and `restartable`.
 
     restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun HighlightedSnacks(
       stable index: Int
@@ -176,13 +182,17 @@ Beginning with Compose Compiler 1.5.5, a configuration file of classes to
 consider stable can be provided at compile time. This allows for considering
 classes you don't control, such as standard library classes like
 `LocalDateTime`, as stable.
-| **Warning:** These configurations don't make a class stable on its own. Instead, by using these configurations, you opt in to a contract with the compiler. Incorrectly configuring a class could cause recomposition to break.
+
+> [!WARNING]
+> **Warning:** These configurations don't make a class stable on its own. Instead, by using these configurations, you opt in to a contract with the compiler. Incorrectly configuring a class could cause recomposition to break.
 
 The configuration file is a plain text file with one class per row. Comments,
 single, and double wildcards are supported.
-| **Note:** Unlike proguard configuration, wildcards can only indicate full symbol name (package, class name, etc). Partial matches, such as `*ClassName` or `*Model*`, are not supported.
 
-An example configuration:  
+> [!NOTE]
+> **Note:** Unlike proguard configuration, wildcards can only indicate full symbol name (package, class name, etc). Partial matches, such as `*ClassName` or `*Model*`, are not supported.
+
+An example configuration:
 
     // Consider LocalDateTime stable
     java.time.LocalDateTime
@@ -195,7 +205,7 @@ An example configuration:
 
 To enable this feature, pass the path of the configuration file to the
 `composeCompiler` options block of the [Compose compiler Gradle plugin](https://developer.android.com/develop/ui/compose/compiler)
-configuration.  
+configuration.
 
     composeCompiler {
       stabilityConfigurationFile = rootProject.layout.projectDirectory.file("stability_config.conf")
