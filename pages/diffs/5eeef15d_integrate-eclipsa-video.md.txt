@@ -1,0 +1,13 @@
+diff --git a/docs/media/platform/integrate-eclipsa-video.md b/docs/media/platform/integrate-eclipsa-video.md
+index 543314bc..4d3ba466 100644
+--- a/docs/media/platform/integrate-eclipsa-video.md
++++ b/docs/media/platform/integrate-eclipsa-video.md
+@@ -46,7 +46,7 @@ mechanism ensures that when SDR and HDR layers are composited together on
+ screen, they maintain their intended visual relationship without washing each
+ other out.
+ 
+-### Headroom-adaptive gain curves (AGTM)
++### Headroom-adaptive gain curves
+ 
+ Instead of forcing a static tone-mapping curve, creators embed parametric
+ metadata that instructs the display pipeline exactly how to scale when limited
