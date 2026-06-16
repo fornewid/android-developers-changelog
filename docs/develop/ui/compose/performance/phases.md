@@ -31,9 +31,9 @@ general:
 - **Whenever possible, move calculations out of your composable functions.** Composable functions might need to be rerun whenever the UI changes. Any code you put in the composable gets re-executed, potentially for every frame of an animation. Limit the composable's code to only what it needs to build the UI.
 - **Defer state reads for as long as possible.** By moving state reading to a child composable or a later phase, you can minimize recomposition or skip the composition phase entirely. You can do this by passing lambda functions instead of the state value for frequently changing state and by preferring lambda-based modifiers when you pass in frequently changing state. You can see an example of this technique in the [Defer reads as long as possible](https://developer.android.com/develop/ui/compose/performance/bestpractices#defer-reads) section of [Follow best practices](https://developer.android.com/develop/ui/compose/performance/bestpractices).
 
-## Additional Resources
+## Additional resources
 
-- **[App performance guide](https://developer.android.com/topic/performance/overview)**: Discover best practices, libraries, and tools to improve performance on Android.
+- **[App performance guide](https://developer.android.com/topic/performance/overview):** Discover best practices, libraries, and tools to improve performance on Android.
 - **[Inspect Performance](https://developer.android.com/topic/performance/inspecting-overview):** Inspect app performance.
 - **[Benchmarking](https://developer.android.com/topic/performance/benchmarking/benchmarking-overview):** Benchmark app performance.
 - **[App startup](https://developer.android.com/topic/performance/appstartup/analysis-optimization):** Optimize app startup.

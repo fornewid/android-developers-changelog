@@ -4,10 +4,6 @@ url: https://developer.android.com/games/pgs/platform-authentication
 source: md.txt
 ---
 
-> [!NOTE]
-> **Note:** This guide is for the Play Games Services v2 SDK. For information on the previous version of this SDK, see the [Play Games Services v1
-> documentation](https://developer.android.com/games/pgs/v1/signin).
-
 The first step in integrating your game with Google Play Games Services (PGS) is
 implementing Platform Authentication. This is required to access all other
 features such as achievements, leaderboards, and events.

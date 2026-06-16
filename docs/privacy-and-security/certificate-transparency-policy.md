@@ -7,11 +7,10 @@ source: md.txt
 *Please direct any questions about this Policy to the CT Policy forum:
 [ct-policy@chromium.org](https://groups.google.com/a/chromium.org/forum/#!forum/ct-policy)*
 
-When a connection's Transport Layer Security (TLS) certificate is validated in
-an app that [opts-in to Certificate Transparency](https://developer.android.com/privacy-and-security/security-config#CertificateTransparencySummary), it is evaluated for
-compliance against the Android Certificate Transparency (CT) Policy.
-Certificates that are accompanied by Signed Certificate Timestamp (SCTs) that
-satisfy this Policy are said to be CT Compliant.
+When a connection's Transport Layer Security (TLS) certificate is validated, it
+is evaluated for compliance against the Android Certificate Transparency (CT)
+Policy. Certificates that are accompanied by Signed Certificate Timestamp (SCTs)
+that satisfy this Policy are said to be CT Compliant.
 
 CT Compliance is achieved by a certificate and set of accompanying SCTs meeting
 a set of technical requirements enforced by popular TLS libraries
@@ -59,7 +58,6 @@ achieved by meeting one of the following criteria:
 1. At least one Embedded SCT from a CT Log that was `Qualified`, `Usable`, or `ReadOnly` at the time of check; and
 2. There are Embedded SCTs from at least N distinct CT Logs that were `Qualified`, `Usable`, `ReadOnly`, or `Retired` at the time of check, where N is defined in the following table; and
 3. Among the SCTs satisfying requirement 2, at least two SCTs must be issued from distinct CT Log Operators as recognized by Android; and
-4. Among the SCTs satisfying requirement 2, at least one SCT must be issued from a log recognized by Android as being [RFC 6962-compliant](https://datatracker.ietf.org/doc/html/rfc6962).
 
 | Certificate Lifetime | Number of SCTs from distinct CT Logs |
 |---|---|
@@ -70,7 +68,6 @@ achieved by meeting one of the following criteria:
 
 1. At least two SCTs from a CT Log that was `Qualified`, `Usable`, or `ReadOnly` at the time of check; and
 2. Among the SCTs satisfying requirement 1, at least two SCTs must be issued from distinct CT Log Operators as recognized by Android; and
-3. Among the SCTs satisfying requirement 1, at least one SCT must be issued from a CT log recognized by Android as being RFC6962-compliant.
 
 For both embedded SCTs and those delivered using OCSP or TLS, Log Operator
 uniqueness is defined as having separate entries within the operators section
@@ -122,7 +119,7 @@ becoming `Qualified`.
 
 ## Android log list
 
-The Android log list is published in [log_list.json](https://www.gstatic.com/android/certificate_transparency/v2/log_list.json), which is updated daily.
+The Android log list is published in [log_list.json](https://www.gstatic.com/android/certificate_transparency/v3/log_list.json), which is updated daily.
 This log list is offered without a stable API, SLA or availability
 guarantees.
 

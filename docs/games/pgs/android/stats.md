@@ -4,10 +4,6 @@ url: https://developer.android.com/games/pgs/android/stats
 source: md.txt
 ---
 
-> [!NOTE]
-> **Note:** This guide is for the Play Games Services v2 SDK. For information on the previous version of this SDK, see the [Play Games Services v1
-> documentation](https://developer.android.com/games/pgs/v1/android/stats).
-
 This guide shows you how to use the player stats API for Google Play Games Services. You can
 use the player stats API to retrieve data about a player's in-game activity.
 

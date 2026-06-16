@@ -105,8 +105,12 @@ Google Play Console as a Windows app bundle (WAB) file. To create a WAB file,
        launcher, and the value in the registry entry specified by `launch-path-registry-location` must point to the launcher's
        directory.
 
-       This path must be unique on the user's machine. For example:
-       `SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\YourUniqueName`.
+       > [!IMPORTANT]
+       > **Important:** Ensure the primary installer process remains active until all required registry keys are fully created and registered. Exiting prematurely will cause installation verification to fail.
+
+       This path must be unique on the user's machine. For example: `SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\YourUniqueName`.
+
+       <br />
 
        If your game installer is a 32-bit application running on 64-bit
        Windows, Windows uses [registry redirection](https://learn.microsoft.com/en-us/windows/win32/winprog64/registry-redirector) to write registry

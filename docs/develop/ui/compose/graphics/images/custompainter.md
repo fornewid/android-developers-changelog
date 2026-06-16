@@ -9,9 +9,10 @@ drawn (a replacement to the `Drawable` APIs defined in Android) and influence
 measurement and layout of the corresponding composable that is using it . A
 `BitmapPainter` takes an `ImageBitmap` that can draw a `Bitmap` on screen.
 
-For most use cases, using the `painterResource()` above returns the correct
-painter for the asset (i.e. `BitmapPainter` or `VectorPainter`). For more
-information on the differences between the two - read the [ImageBitmap vs ImageVector](https://developer.android.com/develop/ui/compose/graphics/images/compare) section.
+For most use cases, using the `painterResource()` function returns the correct
+painter for the asset (such as `BitmapPainter` or `VectorPainter`). For more
+information on the differences between the two, read the
+[ImageBitmap versus ImageVector](https://developer.android.com/develop/ui/compose/graphics/images/compare) section.
 
 A `Painter` is different from a `DrawModifier`, which strictly draws within the
 bounds that are given to it and has no influence on the measurement or layout of
@@ -98,7 +99,8 @@ Image(
 
 <br />
 
-The output of combining the two images with a custom painter can be seen below:
+The following figure shows the output of combining the two images with a custom
+painter:
 ![Custom Painter that overlays two images on top of each other](https://developer.android.com/static/develop/ui/compose/images/graphics-rainbowoverlay.jpg) **Figure 1**: Custom Painter that overlays two images on top of each other
 
 A custom painter can also be used with the [`Modifier.paint(customPainter)`](https://developer.android.com/reference/kotlin/androidx/compose/ui/draw/paint.modifier#(androidx.compose.ui.Modifier).paint(androidx.compose.ui.graphics.painter.Painter,kotlin.Boolean,androidx.compose.ui.Alignment,androidx.compose.ui.layout.ContentScale,kotlin.Float,androidx.compose.ui.graphics.ColorFilter))
@@ -123,11 +125,11 @@ Box(
 <br />
 
 > [!NOTE]
-> **Note:** The above custom Painter can also be implemented using a `DrawModifier`. If you need to influence measurement or layout, then you should use a `Painter`. If you are only expecting to render in the bounds you are given, then you should use a `DrawModifier` instead.
+> **Note:** The preceding custom Painter can also be implemented using a `DrawModifier`. If you need to influence measurement or layout, then you should use a `Painter`. If you are only expecting to render in the bounds you are given, then you should use a `DrawModifier` instead.
 
 ## Recommended for you
 
 - Note: link text is displayed when JavaScript is off
-- [ImageBitmap vs ImageVector {:#bitmap-vs-vector}](https://developer.android.com/develop/ui/compose/graphics/images/compare)
+- [ImageBitmap versus ImageVector {:#bitmap-vs-vector}](https://developer.android.com/develop/ui/compose/graphics/images/compare)
 - [Graphics in Compose](https://developer.android.com/develop/ui/compose/graphics/draw/overview)
 - [Loading images {:#loading-images}](https://developer.android.com/develop/ui/compose/graphics/images/loading)

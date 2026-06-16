@@ -164,10 +164,10 @@ layer provides a few different functions, such as:
 
 #### Transformations
 
-`Modifier.graphicsLayer` provides isolation for its drawing instructions; for
-instance, various transformations can be applied using `Modifier.graphicsLayer`.
-These can be animated or modified without needing to re-execute the drawing
-lambda.
+`Modifier.graphicsLayer` provides isolation for its drawing instructions;
+for example, various transformations can be applied using
+`Modifier.graphicsLayer`. These can be animated or modified without needing to
+re-execute the drawing lambda.
 
 `Modifier.graphicsLayer` does not change the measured size or placement of your
 composable, as it only affects the draw phase. This means that your composable
@@ -314,7 +314,7 @@ Column(modifier = Modifier.padding(16.dp)) {
 
 <br />
 
-The contents of the first box (the text saying "Hello Compose") are clipped to
+The contents of the first box (the text saying 'Hello Compose') are clipped to
 the circle shape:
 ![Clip applied to Box composable](https://developer.android.com/static/develop/ui/compose/images/graphics/modifiers/clip_applied.png) **Figure 8**: Clip applied to Box composable
 
@@ -388,9 +388,9 @@ Image(
 
 #### Compositing strategy
 
-Working with alpha and transparency might not be as simple as changing a single
-alpha value. In addition to changing an alpha, there is also the option to set a
-[`CompositingStrategy`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/CompositingStrategy) on a `graphicsLayer`. A `CompositingStrategy` determines how the
+Working with alpha and transparency is not always as straightforward as
+changing a single alpha value. In addition to changing an alpha, there is
+also the option to set a [`CompositingStrategy`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/CompositingStrategy) on a `graphicsLayer`. A `CompositingStrategy` determines how the
 content of the composable is composited (put together) with the other
 content already drawn on screen.
 
@@ -416,11 +416,11 @@ texture or bitmap before rendering to the destination. This is useful for
 applying [`BlendMode`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/BlendMode) operations to mask content, and for performance when
 rendering complex sets of drawing instructions.
 
-An example of using [`CompositingStrategy.Offscreen`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/CompositingStrategy#Offscreen()) is with `BlendModes`. Taking a look at the example below,
-say you want to remove parts of an `Image` composable by issuing a draw command that
-uses `BlendMode.Clear`. If you do not set the `compositingStrategy` to
-`CompositingStrategy.Offscreen`, the `BlendMode` interacts with all the contents
-below it.
+An example of using [`CompositingStrategy.Offscreen`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/CompositingStrategy#Offscreen()) is with `BlendModes`.
+In the following example, say you want to remove parts of an `Image`
+composable by issuing a draw command that uses `BlendMode.Clear`. If you don't
+set the `compositingStrategy` to `CompositingStrategy.Offscreen`, the
+`BlendMode` interacts with all the background content.
 
 
 ```kotlin
@@ -490,8 +490,9 @@ rendered on screen, not affecting the content already drawn.
 ![Modifier.drawWithContent on an Image showing a circle indication, with the BlendMode.Clear inside app](https://developer.android.com/static/develop/ui/compose/images/graphics/modifiers/complex_modifier_example_drawWithCache_background.png) **Figure 12**: Modifier.drawWithContent on an Image showing a circle indication, with the BlendMode.Clear and CompositingStrategy.Offscreen inside app
 
 If you didn't use `CompositingStrategy.Offscreen`, the results of applying
-`BlendMode.Clear` clears all the pixels in the destination, regardless of what
-was already set-- leaving the window's rendering buffer (black) visible. Many of
+`BlendMode.Clear` clears all the pixels in the destination, regardless of
+what was already set - leaving the window's rendering buffer (black)
+visible. Many of
 the `BlendModes` that involve alpha won't work as expected without an
 offscreen buffer. Note the black ring around the red circle indicator:
 ![Modifier.drawWithContent on an Image showing a circle indication, with the BlendMode.Clear and no CompositingStrategy set](https://developer.android.com/static/develop/ui/compose/images/graphics/modifiers/blendmode_without_compositing_strategy.png) **Figure 13**: Modifier.drawWithContent on an Image showing a circle indication, with the BlendMode.Clear and no CompositingStrategy set
@@ -505,8 +506,8 @@ the app or wallpaper underneath, as in this example:
 It's worth noting that when using `CompositingStrategy.Offscreen`, an offscreen
 texture that is the size of the drawing area is created and rendered back on
 screen. Any drawing commands that are done with this strategy, are by default be
-clipped to this region. The below code snippet illustrates the differences when
-switching to using offscreen textures:
+clipped to this region. The following code snippet illustrates the differences
+when switching to using offscreen textures:
 
 
 ```kotlin
@@ -552,21 +553,21 @@ fun CompositingStrategyExamples() {
 
 <br />
 
-![CompositingStrategy.Auto vs CompositingStrategy.Offscreen - offscreen clips to the region, where auto doesn’t](https://developer.android.com/static/develop/ui/compose/images/graphics/modifiers/graphics_compositing_strategy.png) **Figure 15**: CompositingStrategy.Auto vs CompositingStrategy.Offscreen - offscreen clips to the region, where auto doesn't
+![CompositingStrategy.Auto versus CompositingStrategy.Offscreen - offscreen clips to the region, where auto doesn't](https://developer.android.com/static/develop/ui/compose/images/graphics/modifiers/graphics_compositing_strategy.png) **Figure 15**: CompositingStrategy.Auto versus CompositingStrategy.Offscreen - offscreen clips to the region, where auto doesn't
 
 ##### `ModulateAlpha`
 
 This [composition strategy](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/CompositingStrategy#ModulateAlpha()) modulates the alpha for each of the drawing
 instructions recorded within the `graphicsLayer`. It won't create an
-offscreen buffer for alpha below 1.0f unless a `RenderEffect` is set, so it can
-be more efficient for alpha rendering. However, it can provide different results
-for overlapping content. For use cases where it is known in advance that content
-is not overlapping, this can provide better performance than
+offscreen buffer for alpha less than 1.0f unless a `RenderEffect` is set, so
+it can be more efficient for alpha rendering. However, it can provide different
+results for overlapping content. For use cases where it is known in advance
+that content is not overlapping, this can provide better performance than
 `CompositingStrategy.Auto` with alpha values less than 1.
 
-Another example of different composition strategies is below - applying different
-alphas to different parts of the composables, and applying a `Modulate`
-strategy:
+The following example demonstrates different composition strategies - applying
+different alphas to different parts of the composables, and applying a
+`Modulate` strategy:
 
 
 ```kotlin

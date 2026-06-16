@@ -60,33 +60,32 @@ before proceeding.
 
 #### Step 2: Check the local cache
 
-1. Define the cache directory path: `<SKILL_ROOT>/samples/{VERSION}/`. Do NOT choose your own different location.
+1. Define the cache directory path: `/tmp/wear-compose-samples/{VERSION}/`. Do NOT choose your own different location.
 2. Check if this directory exists and contains subdirectories with `.kt` files.
    - **IF YES (cache hit):** Proceed to **Step 4**.
    - **IF NO (cache miss):** Proceed to **Step 3**.
 
-#### Step 3: Check the Gradle cache
+#### Step 3: Network-based sample retrieval
 
-1. Sample sources are stored in the Gradle cache. To avoid slow, brute-force searches:
-   - Determine the Gradle user home (usually `~/.gradle`, or check `$GRADLE_USER_HOME`).
-   - The cache root is `<GRADLE_USER_HOME>/caches`. Call this `<CACHE_ROOT>`.
-2. Define `{ARTIFACT}` as the items in the list `["material3", "foundation"]`. Also include "navigation3" in the list if the `androidx.wear.compose.navigation3` library is being used.
-3. For each `{ARTIFACT}` in the list:
+Google Maven publishes a `-samples-sources.jar` alongside every library release.
+Download and extract it directly without needing a local Gradle sync or cache
+lookup.
 
-   - Construct the expected relative path segment for the library: `androidx.wear.compose/compose-{ARTIFACT}/{VERSION}`.
-   - Run a targeted `find` command. Here is an example which is constructed
-     for efficiency:
+1. Determine the `{VERSION}` of `androidx.wear.compose:compose-material3` from `build.gradle.kts` or `libs.versions.toml`.
+2. Define `{ARTIFACT}` as the items in the list `["material3", "foundation"]`. Also include `navigation3` if `androidx.wear.compose.navigation3` is used.
+3. For each `{ARTIFACT}`, run the following commands to download and extract
+   the samples:
 
-         find <CACHE_ROOT>/modules-2/files-2.1/androidx.wear.compose/compose-{ARTIFACT}/{VERSION}/ \
-           -name "*samples-sources.jar"
+       # Download the samples-sources JAR
+       curl -sSL "https://dl.google.com/dl/android/maven2/androidx/wear/compose/compose-{ARTIFACT}/{VERSION}/compose-{ARTIFACT}-{VERSION}-samples-sources.jar" -o {ARTIFACT}-{VERSION}-samples.jar
 
-4. Use this JAR as the official sample sources.
+       # Extract and flatten into the cache directory
+       unzip -q -o {ARTIFACT}-{VERSION}-samples.jar -d /tmp/wear-compose-samples/{VERSION}/{ARTIFACT}/
 
-5. Extract the contents of each JAR to
-   `<SKILL_ROOT>/samples/{VERSION}/{ARTIFACT}/` using `unzip -j` to flatten the
-   structure.
+       # Clean up
+       rm {ARTIFACT}-{VERSION}-samples.jar
 
-6. Proceed **directly to step 4**.
+4. If this works, proceed directly to step 4.
 
 #### Step 4: Read samples and implement
 

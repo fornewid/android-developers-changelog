@@ -4,8 +4,6 @@ url: https://developer.android.com/develop/ui/compose/glance/create-app-widget
 source: md.txt
 ---
 
-manifest, metadata
-
 The following sections describe how to create a basic app widget with Glance.
 
 > [!IMPORTANT]
@@ -200,7 +198,7 @@ to qualities other than widget sizing.
 
 You've now configured an `AppWidget` using Glance.
 
-## Use the AppWidgetProvider class to handle widget broadcasts
+## Use the GlanceAppWidgetReceiver class to handle widget broadcasts
 
 The `GlanceAppWidgetReceiver` coordinates widget broadcasts and platform state
 updates by extending the underlying [`AppWidgetProvider`](https://developer.android.com/guide/topics/appwidgets). It receives
@@ -229,7 +227,7 @@ The `<meta-data>` element must identify its name as
 `android.appwidget.provider`, and the `android:resource` attribute must point to
 your AppWidgetProviderInfo XML metadata resource (`@xml/my_app_widget_info`).
 
-### Implement the AppWidgetProvider class
+### Implement the GlanceAppWidgetReceiver class
 
 In Glance, you extend **`GlanceAppWidgetReceiver`** instead of
 `AppWidgetProvider` directly. Implement it by linking your receiver to your

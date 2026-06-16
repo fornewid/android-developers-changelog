@@ -4,10 +4,6 @@ url: https://developer.android.com/topic/performance/startupprofiles/dex-layout-
 source: md.txt
 ---
 
-Understand requirements, creation, and best practices.
-keywords_public: Startup Profiles, Baseline Profiles, app performance, APK
-optimization, DEX layout, Android Studio, Jetpack Macrobenchmark
-
 Startup Profiles are a subset of Baseline Profiles. Startup Profiles are used by
 the build system to further optimize the classes and methods they contain by
 improving the layout of code in your APK's DEX files. With Startup Profiles,

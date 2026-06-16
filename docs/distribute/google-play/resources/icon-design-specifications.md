@@ -32,9 +32,8 @@ your app's listing on Google Play. For example, because Google Play dynamically
 renders rounded corners and drop shadows for your app icons, you should omit
 them from your original assets.
 
-**Important:** If instead you're interested in learning more about creating APK
-launcher icons, which are separate from the Google Play icons described on this
-page, see the resources below:
+> [!IMPORTANT]
+> **Important:** If instead you're interested in learning more about creating APK launcher icons, which are separate from the Google Play icons described on this page, see the resources below:
 
 - [Android Adaptive Icons](https://developer.android.com/guide/practices/ui_guidelines/icon_design_adaptive)  
   Follow these APK icon guidelines to learn how to create adaptive launcher icons introduced in Android 8.0 (API level 26).
@@ -45,6 +44,9 @@ page, see the resources below:
 
 This section describes some guidelines you should follow when creating visual
 assets for your app on Google Play.
+
+> [!IMPORTANT]
+> **Important:** Icons for watch faces have specific requirements. See WO-G4 in the [Wear OS App quality guidelines](https://developer.android.com/docs/quality-guidelines/wear-app-quality#google-play) for full details.
 
 ### Attributes
 

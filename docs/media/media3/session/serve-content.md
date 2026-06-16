@@ -99,7 +99,7 @@ Remember to declare your `Service` and required permissions in the manifest file
         android:foregroundServiceType="mediaPlayback"
         android:exported="true">
         <intent-filter>
-            <action android:name="androidx.media3.session.MediaSessionService"/>
+            <action android:name="androidx.media3.session.MediaLibraryService"/>
             <action android:name="android.media.browse.MediaBrowserService"/>
         </intent-filter>
     </service>
@@ -107,8 +107,22 @@ Remember to declare your `Service` and required permissions in the manifest file
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK" />
 
-> [!NOTE]
-> **Note:** For compatibility with clients using the platform media session APIs, it is recommended to include `<action android:name="android.media.browse.MediaBrowserService"/>` in the `intent-filter` element.
+It's recommended to register your service as both, the platform and the Media3
+service interface:
+
+- For compatibility with clients using the platform media session APIs, it is
+  recommended to include `<action
+  android:name="android.media.browse.MediaBrowserService"/>` in the
+  `intent-filter` element. Media3 automatically provides backwards
+  compatibility to this service interface.
+
+- As a future-proof setup and to ensure apps that use Media3 can talk to your
+  service by using the Media3 API, `<action
+  android:name="androidx.media3.session.MediaLibraryService"/>` should be
+  provided alongside the platform option.
+
+This allows apps to find your service through `PackageManager` and to connect
+with a `MediaBrowser` through either of these interfaces.
 
 ## Use a `MediaLibrarySession`
 
@@ -189,7 +203,8 @@ MediaSession session =
 <br />
 
 > [!NOTE]
-> **Note:** The Android media controls that are available through the media notification aren't using command buttons for media items. Use [media button preferences](https://developer.android.com/media/media3/session/control-playback#commands) to declare preferences for these media controls.
+> **Note:** The Android media controls that are available through the media notification aren't using command buttons for media items. Use [media button
+> preferences](https://developer.android.com/media/media3/session/control-playback#commands) to declare preferences for these media controls.
 
 When building a media item, a session app can add a set of supported command IDs
 that reference session commands of command buttons that have been setup when
@@ -335,9 +350,9 @@ ListenableFuture<MediaBrowser> browserFuture =
 > [!NOTE]
 > **Note:** By default, the number of commands is set to 0 (zero) which advises the session app to not advertise command buttons for that browser or controller.
 
-When connected to the session, the controller app can receive the
-command buttons that are supported by the media item and for which the
-controller has the [available command granted by the session app](https://developer.android.com/media/media3/session/control-playback#available-commands):
+When connected to the session, the controller app can receive the command
+buttons that are supported by the media item and for which the controller has
+the [available command granted by the session app](https://developer.android.com/media/media3/session/control-playback#available-commands):
 
 
 ### Kotlin

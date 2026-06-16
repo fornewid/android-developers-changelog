@@ -4,11 +4,6 @@ url: https://developer.android.com/games/playgames/native-pc/unity/unity_start
 source: md.txt
 ---
 
-project, covering steps from SDK download to initialization and build
-configuration.
-keywords_public: Google Play Games PC, Unity, SDK integration, native PC,
-game development, IL2CPP, manifest, Play Games PC Unity SDK
-
 This guide provides step-by-step instructions for integrating the
 Google Play Games PC SDK into your Unity project.
 

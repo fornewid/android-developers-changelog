@@ -18,7 +18,7 @@ its bounds. By default, if you don't specify a `contentScale` option,
 
 In the following example, the `Image` composable is restricted to a 150dp size
 with a border, and the background is set to yellow on the `Image` composable to
-showcase the different `ContentScale` options in the table below.
+showcase the different `ContentScale` options in the following table.
 
 
 ```kotlin

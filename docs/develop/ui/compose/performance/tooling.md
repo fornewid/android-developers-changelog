@@ -9,6 +9,8 @@ optimizing. Start by using tools to help narrow down where your issue is.
 
 ## Layout Inspector
 
+[Video](https://www.youtube.com/watch?v=SWBN0y0lFNY)
+
 Use the [Layout Inspector](https://developer.android.com/develop/ui/compose/tooling/debug#layout_inspector) to inspect your layout and see recomposition
 counts.
 
@@ -31,9 +33,9 @@ trace. Traces are often the best source of information when first looking into a
 performance issue. They allow you to form a hypothesis of what the issue is and
 where to start looking.
 
-## Additional Resources
+## Additional resources
 
-- **[App performance guide](https://developer.android.com/topic/performance/overview)**: Discover best practices, libraries, and tools to improve performance on Android.
+- **[App performance guide](https://developer.android.com/topic/performance/overview):** Discover best practices, libraries, and tools to improve performance on Android.
 - **[Inspect Performance](https://developer.android.com/topic/performance/inspecting-overview):** Inspect app performance.
 - **[Benchmarking](https://developer.android.com/topic/performance/benchmarking/benchmarking-overview):** Benchmark app performance.
 - **[App startup](https://developer.android.com/topic/performance/appstartup/analysis-optimization):** Optimize app startup.

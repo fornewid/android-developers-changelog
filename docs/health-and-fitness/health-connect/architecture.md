@@ -5,8 +5,7 @@ source: md.txt
 ---
 
 SDK, client apps, and permissions management.
-keywords_public: Health Connect, architecture, Android SDK, client app, APK,
-permissions management, data management, CRUD, aggregation
+keywords_public: Health Connect, architecture, Android SDK, client app, APK,permissions management, data management, CRUD, aggregation
 
 Health Connect is designed to facilitate fast, convenient integration
 between client apps and the Health Connect API.
@@ -71,7 +70,9 @@ permission to display data.
 
 It also provides a list of existing user permissions, allowing users to
 control access to data across multiple applications.
-| **Note:** Health Connect requires you to request the user's permission to read and write their health and fitness data on a per-app basis.
+
+> [!NOTE]
+> **Note:** Health Connect requires you to request the user's permission to read and write their health and fitness data on a per-app basis.
 
 ### 5. Data management
 

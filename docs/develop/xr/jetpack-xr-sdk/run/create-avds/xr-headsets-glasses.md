@@ -66,7 +66,7 @@ and debug your app:
    Device Manager \> Add a new device
    ![](https://developer.android.com/static/studio/images/buttons/ic_plus.png) \> Create Virtual Device**.
 
-   ![The Device Manager panel in Android Studio.](https://developer.android.com/static/images/develop/xr/jetpack-xr-sdk/run/xr-avds.png)
+   ![The Device Manager panel in Android Studio.](https://developer.android.com/static/images/develop/xr/jetpack-xr-sdk/run/xr-avds-xr-headsets-glasses.png)
 2. In the **Add Device** window, in the **Form Factor** section, select **XR**.
 
 3. From the list, select the type of XR device you want to create (**XR

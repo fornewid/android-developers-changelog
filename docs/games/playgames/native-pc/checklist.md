@@ -61,6 +61,7 @@ practices before you submit it for review on Google Play Games on PC.
 - **Publish for user environment testing:** Select **Publish** in the Google Play Console. Unlike the Android version, selecting **Publish** on the WAB doesn't trigger a public release. Instead, it makes the app searchable for your shared test accounts to conduct tests in a user environment after Google's review process.
 - **Launch officially:** Google controls the launch based on the official launch date you shared with your Play partner.
 - **Test during pre-registration:** During the pre-registration phase, you must conduct internal testing in a country that is not included in your selected pre-registration regions.
+- **Verify installer process termination:** confirm that the primary installer process remains active until all of the required registry keys are created and registered. If the process exits prematurely, then installation verification fails. For more information, see [Installer publishing](https://developer.android.com/games/playgames/native-pc/publish/developer-installed).
 
 ## Migrate from the API to the SDK
 

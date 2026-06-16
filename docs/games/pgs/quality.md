@@ -4,9 +4,6 @@ url: https://developer.android.com/games/pgs/quality
 source: md.txt
 ---
 
-> [!NOTE]
-> **Note:** This guide is for the Play Games Services v2 SDK. For information on the previous SDK, see the [Play Games Services v1 documentation](https://developers.google.com/games/services/v1/checklist).
-
 The quality of your game influences the long-term success of your game -- in
 terms of installs, player rating and reviews, engagement and player retention.
 Before publishing your game, it's important to make sure that your game meets

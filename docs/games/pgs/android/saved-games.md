@@ -4,10 +4,6 @@ url: https://developer.android.com/games/pgs/android/saved-games
 source: md.txt
 ---
 
-> [!NOTE]
-> **Note:** This guide is for the Play Games Services v2 SDK. For information on the previous version of this SDK, see the [Play Games Services v1
-> documentation](https://developer.android.com/games/pgs/v1/android/saved-games).
-
 This guide shows you how to implement saved games using the snapshots API
 provided by Google Play Games Services. The APIs can be found in the
 [`com.google.android.gms.games.snapshot`](https://developers.google.com/android/reference/com/google/android/gms/games/SnapshotsClient.DataOrConflict#isConflict())

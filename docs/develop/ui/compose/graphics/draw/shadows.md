@@ -27,7 +27,7 @@ create [gradient shadows](https://developer.android.com/develop/ui/compose/graph
 ## Create basic shadows
 
 [`Modifier.shadow()`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier#(androidx.compose.ui.Modifier).shadow(androidx.compose.ui.unit.Dp,androidx.compose.ui.graphics.Shape,kotlin.Boolean,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color)) creates a basic shadow following [Material Design
-guidelines](https://m3.material.io/styles/elevation/applying-elevation#93fa8972-65fe-4073-9f03-7de12d47db8d) that simulates a light source from above. The shadow
+guidelines](https://m3.material.io/styles/elevation/applying-elevation#93fa8972-65fe-4073-9f03-7de12d47db8d) that simulates an overhead light source. The shadow
 depth is based on an `elevation` value, and the cast shadow is clipped to the
 shape of the composable.
 

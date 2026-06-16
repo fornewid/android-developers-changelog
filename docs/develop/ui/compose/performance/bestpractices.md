@@ -389,9 +389,9 @@ out of date, and so schedules another recomposition.
 Composition.** If at all possible, always write to state in response to an event
 and in a lambda like in the preceding `onClick` example.
 
-## Additional Resources
+## Additional resources
 
-- **[App performance guide](https://developer.android.com/topic/performance/overview)**: Discover best practices, libraries, and tools to improve performance on Android.
+- **[App performance guide](https://developer.android.com/topic/performance/overview):** Discover best practices, libraries, and tools to improve performance on Android.
 - **[Inspect Performance](https://developer.android.com/topic/performance/inspecting-overview):** Inspect app performance.
 - **[Benchmarking](https://developer.android.com/topic/performance/benchmarking/benchmarking-overview):** Benchmark app performance.
 - **[App startup](https://developer.android.com/topic/performance/appstartup/analysis-optimization):** Optimize app startup.

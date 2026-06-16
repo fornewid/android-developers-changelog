@@ -4,10 +4,6 @@ url: https://developer.android.com/games/pgs/android/leaderboards
 source: md.txt
 ---
 
-> [!NOTE]
-> **Note:** This guide is for the Play Games Services v2 SDK. For information on the previous version of this SDK, see the [Play Games Services v1
-> documentation](https://developer.android.com/games/pgs/v1/android/leaderboards).
-
 This guide shows you how to use leaderboards APIs in an Android app
 to create visual leaderboards, record a player's score, and compare the score
 against the player's score from previous game sessions. The APIs can be found

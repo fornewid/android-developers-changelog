@@ -60,6 +60,84 @@ Stutters)**
 
 ## Measurement
 
+To effectively measure average FPS, P90, and P99 FPS, you can use the following
+two methods. The first method is analyzing system traces using the [Android
+Performance Analyzer (APA)](https://developer.android.com/android-performance-analyzer), a performance profiling tool. The second
+method is using the existing `adb dumpsys SurfaceFlinger --timestats` command.
+
+### 1. Measure using APA
+
+Using the APA, you can record a system trace and precisely analyze frame data
+through SQL queries. Follow these steps to measure your metrics:
+
+1. **Capture the trace with APA**: Run your game and use APA to capture a
+   system trace during the segment you want to analyze (for example, a point
+   during gameplay where you suspect frame drops). Once the device is connected
+   and the trace recording is complete, the trace data will load in the APA
+   interface.
+
+   ![](https://developer.android.com/static/images/games/framerate_apa_2.png) Trace capture screen or the loaded trace screen
+2. **Click the SQL tab in APA** : Once the trace analysis screen is open, click
+   the **SQL** tab in the top or side navigation area of the UI to open the
+   trace processor environment, where you can query the data directly.
+
+3. **Paste the SQL query in the APA SQL tab**: Copy the following SQL query and
+   paste it into the query input field. This query identifies the
+   SurfaceFlinger process, calculates the frame intervals based on actual
+   display update timestamps, and derives the average FPS, bottom 10% (P90)
+   FPS, and bottom 1% (P99) FPS.
+
+       WITH target_process AS (
+       -- 1. Get SurfaceFlinger process ID where frames were identified in debugging step 3
+       SELECT upid
+       FROM process
+       WHERE name = '/system/bin/surfaceflinger'
+       ),
+       actual_present_times AS (
+       -- 2. Calculate the hardware display timestamps when SurfaceFlinger actually updated the screen
+       SELECT
+           (ts + dur) AS present_ts
+       FROM actual_frame_timeline_slice
+       WHERE upid IN (SELECT upid FROM target_process)
+           AND dur > 0
+       ),
+       present_intervals AS (
+       -- 3. Calculate intervals between physical screen refreshes
+       SELECT
+           (LEAD(present_ts) OVER (ORDER BY present_ts ASC) - present_ts) / 1000000.0 AS p2p_ms
+       FROM actual_present_times
+       ),
+       valid_intervals AS (
+       -- 4. Filter for valid frame intervals
+       SELECT p2p_ms
+       FROM present_intervals
+       WHERE p2p_ms IS NOT NULL AND p2p_ms > 0
+       ),
+       ordered_frames AS (
+       -- 5. Sort in ascending order to calculate percentiles
+       SELECT
+           p2p_ms,
+           ROW_NUMBER() OVER (ORDER BY p2p_ms ASC) AS row_num,
+           COUNT(1) OVER () AS total_frames
+       FROM valid_intervals
+       )
+       -- 6. Output final metrics
+       SELECT
+       (SELECT COUNT(1) FROM valid_intervals) AS total_presented_frames,
+       ROUND(1000.0 / NULLIF((SELECT AVG(p2p_ms) FROM valid_intervals), 0), 2) AS average_fps,
+       ROUND(1000.0 / NULLIF((SELECT p2p_ms FROM ordered_frames WHERE row_num = CAST(total_frames * 0.90 AS INT)), 0), 2) AS low_10_fps,
+       ROUND(1000.0 / NULLIF((SELECT p2p_ms FROM ordered_frames WHERE row_num = CAST(total_frames * 0.99 AS INT)), 0), 2) AS low_1_fps;
+
+4. **Click 'Run Query'** : Click the **Run Query** button (or the execute icon)
+   near the query input field. Once the query execution is complete, the
+   measured total frames (`total_presented_frames`), average frame rate
+   (`average_fps`), bottom 10% FPS (`low_10_fps`), and bottom 1% FPS
+   (`low_1_fps`) will be displayed in a table in the results pane.
+
+   ![](https://developer.android.com/static/images/games/framerate_apa_2.png) Screen showing the executed SQL query and the four resulting metrics displayed in a table
+
+### 2. Measure using adb (dumpsys SurfaceFlinger)
+
 To effectively measure Average FPS, P90, and P99, you can use the Android
 [dumpsys](https://developer.android.com/tools/dumpsys) [surfaceflinger](https://source.android.com/docs/core/graphics/surfaceflinger-windowmanager) timestats command. This tool provides the
 average FPS and a `presentToPresent` timing histogram for all layers that are
@@ -184,4 +262,4 @@ API, and engine-specific optimization strategies, check out the official Android
 developer documentation:
 
 - **[Android Vitals: Slow sessions](https://developer.android.com/games/optimize/vitals/slow-session)**: Understand how Google Play measures and reports sustained periods of slow rendering, which directly impacts the user experience. A "slow session" is defined as a user session where more than 25% of the frames are slow (for example, taking more than 50ms, equivalent to 20 FPS).
-- **[Android Developers: Optimize Game Performance](https://developer.android.com/games/optimize/gameperformance)** : Explore the central hub for Android game optimization. This comprehensive guide covers best practices, profiling tools (like [Android Performance Analyzer(APA)](https://developer.android.com/android-performance-analyzer) and [Perfetto](https://perfetto.dev/)) to help you maximize your game's overall performance.
+- **[Android Developers: Optimize Game Performance](https://developer.android.com/games/optimize/gameperformance)** : Explore the central hub for Android game optimization. This comprehensive guide covers best practices, profiling tools (like [APA](https://developer.android.com/android-performance-analyzer) and [Perfetto](https://perfetto.dev/)) to help you maximize your game's overall performance.

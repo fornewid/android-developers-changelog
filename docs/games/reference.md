@@ -4,7 +4,7 @@ url: https://developer.android.com/games/reference
 source: md.txt
 ---
 
-![](http://developer.android.com/static/images/cluster-illustrations/agdk-hero-16-9.svg)  
+![](http://developer.android.com/static/images/cluster-illustrations/agdk-hero-16-9.svg)
 
 ### Android games API reference
 
@@ -12,7 +12,7 @@ Develop, optimize, and deliver your Android games with the Android Games and Goo
 
 *** ** * ** ***
 
-![](http://developer.android.com/static/images/logos/agdk.svg)  
+![](http://developer.android.com/static/images/logos/agdk.svg)
 
 ## Android Games Development Kit (AGDK)
 
@@ -61,7 +61,7 @@ device models.
 
 
 Integrates Android Performance Tuner with Unity.
-![](http://developer.android.com/static/images/logos/google-play-games.svg)  
+![](http://developer.android.com/static/images/logos/google-play-games.svg)
 
 ## Game development with Google Play
 
@@ -91,11 +91,6 @@ Enables custom service calls as an alternative to the client libraries.
 
 Enables integration with the native SDK (beta) version 2.
 
-#### [C++ API (v1)](https://developer.android.com/games/services/cpp/api)
-
-
-Enables integration with the native SDK version 1.
-
 #### [Management API](https://developer.android.com/games/services/management/api)
 
 
@@ -105,7 +100,7 @@ Enables programmatic control of underlying metadata for PGS features.
 
 
 Automates frequent tasks related to game production and distribution.
-![](http://developer.android.com/static/images/cluster-illustrations/apis.svg)  
+![](http://developer.android.com/static/images/cluster-illustrations/apis.svg)
 
 ## Additional games related APIs
 

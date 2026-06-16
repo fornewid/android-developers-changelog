@@ -17,10 +17,10 @@ designed for XR app development. It lets you test and debug your XR apps within
 the familiar environment of Android Studio.
 
 Before you can run your app in the Android XR Emulator, you need to set it up.
-Create Android Virtual Devices (AVDs) for audio glasses and display glasses to use with the Android XR
-Emulator as you test and debug your app. The emulator for audio glasses and display glasses acts as a
-separate, virtual device that you can pair with an emulator instance running a
-phone AVD.
+Create Android Virtual Devices (AVDs) for audio glasses and display glasses to
+use with the Android XR Emulator as you test and debug your app. The emulator
+for audio glasses and display glasses acts as a separate, virtual device that
+you can pair with an emulator instance running a phone AVD.
 
 Follow the steps in the following sections to set up everything you need for
 these virtual devices.
@@ -28,8 +28,8 @@ these virtual devices.
 
 ## Check system requirements
 
-Before you start creating Android Virtual Devices (AVDs) for audio glasses and display glasses, review
-the following system requirements.
+Before you start creating Android Virtual Devices (AVDs) for audio glasses and
+display glasses, review the following system requirements.
 
 > [!NOTE]
 > **Note:** The Android XR Emulator is designed for developing Android apps in Android Studio and doesn't support Unity or OpenXR apps.
@@ -41,31 +41,35 @@ the following system requirements.
 
 ## Create an Android Virtual Device for audio glasses or display glasses
 
-Follow these steps to create an AVD for audio glasses or display glasses that you can use as you test
-and debug your app:
+Follow these steps to create an AVD for audio glasses or display glasses that
+you can use as you test and debug your app:
 
 1. Open the latest Canary build of Android Studio, and then click **Tools \>
    Device Manager \> Add a new device
    ![](https://developer.android.com/static/studio/images/buttons/ic_plus.png) \> Create Virtual Device**.
 
-   ![The Device Manager panel in Android
-   Studio.](https://developer.android.com/static/images/develop/xr/jetpack-xr-sdk/run/xr-avds.png)
+   ![The Device Manager panel in Android Studio.](https://developer.android.com/static/images/develop/xr/jetpack-xr-sdk/run/xr-avds-audio-display-glasses.png)
 2. In the **Add Device** window, in the **Form Factor** section, select **XR**.
 
-3. From the list, select **AI Glasses** , and then click **Next**.
+3. From the list, select either **Audio Glasses** or **Display Glasses** , and
+   then click **Next**.
 
 4. In the **Configure Virtual Device** tab in the **Select system image**
-   section, select the most-recent AI Glasses system image that is compatible
-   with your system from the list of system images.
+   section, select the most-recent system image that is compatible with your
+   system from the list of system images.
 
-   ![Android Studio "Configure virtual device"
-   window.](https://developer.android.com/static/images/develop/xr/jetpack-xr-sdk/run/ai-glasses-avd-system-image.png)
+   ![Android Studio](https://developer.android.com/static/images/develop/xr/jetpack-xr-sdk/run/audio-glasses-avd-system-image.png)
 5. Click **Finish** , and also click **Yes** if prompted to download the system
    image that you selected.
 
 ## Create a phone AVD to act as the host device
 
-Audio glasses and display glasses AVDs also require a phone AVD to act as the host device for your app.
+Audio glasses and display glasses AVDs also require a phone AVD to act as the
+host device for your app.
+
+> [!NOTE]
+> **Note:** Each audio glasses or display glasses AVD needs a separate, phone AVD to act as a host device. A single phone AVD can't be paired to multiple audio or display glasses AVDs.
+
 First, create a phone AVD to act as the host device for the glasses:
 
 1. In Android Studio, return to the Device Manager and click **Add a new device
@@ -74,16 +78,14 @@ First, create a phone AVD to act as the host device for the glasses:
 3. Select any phone device (this example uses a Pixel 9 Pro), and then click **Next**.
 4. From the **API** drop-down menu, select **API CANARY Preview**.
 
-   ![The AVD API level configuration for the phone host
-   device.](https://developer.android.com/static/images/develop/xr/jetpack-xr-sdk/run/host-device-avd-api.png)
+   ![The AVD API level configuration for the phone host device.](https://developer.android.com/static/images/develop/xr/jetpack-xr-sdk/run/host-device-avd-api.png)
 5. In the **Select system image** section, select the most-recent system image
    that is compatible with your system from the list of system images:
 
    - Pre-Release 16 KB Page Size Google Play ARM 64 v8a System Image (macOS)
    - Pre-Release 16 KB Page Size Google Play Intel x86_64 Atom System Image (Windows and Linux)
 
-   ![The AVD system image configuration for the phone host
-   device.](https://developer.android.com/static/images/develop/xr/jetpack-xr-sdk/run/host-device-avd-system-image.png)
+   ![The AVD system image configuration for the phone host device.](https://developer.android.com/static/images/develop/xr/jetpack-xr-sdk/run/host-device-avd-system-image.png)
 6. Click **Finish** , and also click **Yes** if prompted to download the system
    image that you selected.
 
@@ -91,39 +93,35 @@ First, create a phone AVD to act as the host device for the glasses:
 
 Finally, pair the devices:
 
-1. In the Device Manager, find the glasses AVD and select **Pair Glasses**
-   from the overflow menu.
+1. In the Device Manager, find the audio glasses or display glasses AVD and
+   select **Pair Glasses** from the overflow menu.
 
-   ![The Pair Glasses option in the Device Manager launches the Pairing
-   Assistant.](https://developer.android.com/static/images/develop/xr/jetpack-xr-sdk/run/ai-glasses-avd-pair-glasses.png)
+   ![The Pair Glasses option in the Device Manager launches the Pairing Assistant.](https://developer.android.com/static/images/develop/xr/jetpack-xr-sdk/run/audio-display-glasses-avd-pair.png)
 
    > [!NOTE]
    > **Note:** If you encounter issues while pairing the devices using the Pairing Assistant, you can also try to [pair manually](https://developer.android.com/develop/xr/jetpack-xr-sdk/run/emulator/glasses-troubleshoot#pairing-assistant).
 
 2. Select the phone AVD from the list of compatible devices.
 
-   ![The list of compatible host devices that can be
-   paired.](https://developer.android.com/static/images/develop/xr/jetpack-xr-sdk/run/pairing-assistant-select-device.png)
+   ![The list of compatible host devices that can be paired.](https://developer.android.com/static/images/develop/xr/jetpack-xr-sdk/run/pairing-assistant-select-device.png)
 
    The Pairing Assistant launches both AVDs in the emulator and initiates
    pairing.
 3. On the phone AVD, accept the permission requests to associate the devices.
 
-   ![The Pairing Assistant uses the phone AVD to present association
-   requests.](https://developer.android.com/static/images/develop/xr/jetpack-xr-sdk/run/pairing-assistant-accept-requests.png)
+   ![The Pairing Assistant uses the phone AVD to present association requests.](https://developer.android.com/static/images/develop/xr/jetpack-xr-sdk/run/pairing-assistant-accept-requests.png)
 
    The Pairing Assistant completes pairing.
 
-   ![The Pairing Assistant completes pairing after the association requests are
-   accepted.](https://developer.android.com/static/images/develop/xr/jetpack-xr-sdk/run/pairing-assistant-complete.png)
+   ![The Pairing Assistant completes pairing after the association requests are accepted.](https://developer.android.com/static/images/develop/xr/jetpack-xr-sdk/run/pairing-assistant-complete.png)
 
 > [!NOTE]
 > **Note:** After you've completed pairing the first time, the emulators automatically reconnect the devices to each other whenever you launch them. If the emulators fail to reconnect the devices, see the [troubleshooting steps](https://developer.android.com/develop/xr/jetpack-xr-sdk/run/emulator/glasses-troubleshoot#emulators-dont-reconnect).
 
 ## Next steps
 
-Now that you've created your AVDs for audio glasses and display glasses, [run your app on the AVDs
-using the emulator](https://developer.android.com/develop/xr/jetpack-xr-sdk/run/emulator/glasses).
+After you've created your AVDs for audio glasses and display glasses, you can
+[run your app on the AVDs using the emulator](https://developer.android.com/develop/xr/jetpack-xr-sdk/run/emulator/glasses).
 
 *** ** * ** ***
 

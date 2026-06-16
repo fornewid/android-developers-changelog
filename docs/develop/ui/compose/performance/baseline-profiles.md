@@ -48,9 +48,9 @@ app and check the test results as you write and revise your Baseline Profile.
 For an example of how to write Macrobenchmark tests for your Compose UI, see the
 [Macrobenchmark Compose sample](https://github.com/android/performance-samples/tree/main/MacrobenchmarkSample).
 
-## Additional Resources
+## Additional resources
 
-- **[App performance guide](https://developer.android.com/topic/performance/overview)**: Discover best practices, libraries, and tools to improve performance on Android.
+- **[App performance guide](https://developer.android.com/topic/performance/overview):** Discover best practices, libraries, and tools to improve performance on Android.
 - **[Inspect Performance](https://developer.android.com/topic/performance/inspecting-overview):** Inspect app performance.
 - **[Benchmarking](https://developer.android.com/topic/performance/benchmarking/benchmarking-overview):** Benchmark app performance.
 - **[App startup](https://developer.android.com/topic/performance/appstartup/analysis-optimization):** Optimize app startup.

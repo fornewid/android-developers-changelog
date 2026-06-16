@@ -41,6 +41,12 @@ Learn more about the user-facing changes in this [Help Center article](https://s
 
 As of September 15, 2026, all Wear OS apps must [support 64-bit devices](https://developer.android.com/google/play/requirements/64-bit).
 
+### Watch face play listing icon
+
+As of July 15, 2026, all watch face apps must comply with the updated
+policy (WO-G4) for Play listing icons. This includes featuring a centered,
+circular watch face as the icon asset.
+
 *** ** * ** ***
 
 To filter for guidelines that are relevant to your app, select the **Apps** and
@@ -104,7 +110,7 @@ and classifications on Google Play:
 | Play policies | Play policies | `WO-G1` | Your app must follow the [Play Developer Policy Center requirements](https://play.google.com/about/developer-content-policy/). |
 | App details page | Play listing description | `WO-G2` | Your app listing on Google Play Store must adhere to the following: - List main features of the app. - Do not mention Android Wear. - Mention tile or complication if the respective surface is included in your app. - Be localized in languages offered by the app. |
 | App details page | Play listing icons (apps) | `WO-G3` | Use the [Google Play icon design specifications](https://developer.android.com/distribute/google-play/resources/icon-design-specifications) for creating app icons. |
-| App details page | Play listing icons (watch faces) | `WO-G4` | For single watch faces, the icon must do the following: - Accurately represent the watch face. - Not include text, graphics, or device frames that are not part of the watch face experience. Apps that include more than one watch face, or apps that are not solely watch faces, are exempt from this requirement. However, apps are more discoverable on the Play Store if they only have a single watch face. Use the [Google Play icon design specifications](https://developer.android.com/distribute/google-play/resources/icon-design-specifications) for creating app icons. |
+| App details page | Play listing icons (watch faces) | `WO-G4` | For single watch faces, the icon must do the following: - Accurately represent the watch face. - Not include text, graphics, or device frames that are not part of the watch face experience. - Feature a centered, circular watch face scaled to touch the outer edges of the icon asset. Apps that include more than one watch face, or apps that are not solely watch faces, are exempt from this requirement. However, apps are more discoverable on the Play Store if they only have a single watch face. Use the [Google Play icon design specifications](https://developer.android.com/distribute/google-play/resources/icon-design-specifications) for creating app icons. |
 | App details page | Play listing screenshots (apps) | `WO-G5` | Your app listing on Google Play Store must do the following: - Contain at least one screenshot that accurately depicts the current version of the app on Wear OS. - Provide screenshots showing only the app interface. - Not include transparent backgrounds or masking. - Not position the screenshots within device frames, or include additional text or graphics that are not part of the interface of the app. - Include screenshots with a 1:1 aspect ratio. If your app offers Tiles, then we recommend sharing a screenshot of Tiles functionality. For more information, see [Add preview assets to showcase your app](https://support.google.com/googleplay/android-developer/answer/9866151). **Note:** Android Studio (Hedgehog onwards) provides [Play-compatible screenshot functionality](https://developer.android.com/studio/run/emulator-take-screenshots). In the **Take screenshot** dialog, select **Play Store Compatible** in the drop-down menu to provide compatible screenshots for your app's review. |
 | App details page | Play listing screenshots (watch faces) | `WO-G6` | Your watch face listing on Google Play Store must do the following: - Contain at least one screenshot that accurately depicts the current version of the watch face. - Show more than one of the available permutations, if the watch face is customizable. - Provide screenshots showing only the watch face experience. - Not position the screenshots within device frames, or include additional text, graphics, or backgrounds that are not part of the interface of the app. - Include screenshots with a 1:1 aspect ratio. For more information, see [Add preview assets to showcase your app](https://support.google.com/googleplay/android-developer/answer/9866151). |
 | App publishing | App packaging | `WO-G7` | If your Wear OS app has an accompanying phone app, you must use the same package name and app signing key for your Wear app and phone app. For more information, see [Package and distribute Wear apps](https://developer.android.com/training/wearables/packaging#specifying-app-as-standalone). |
@@ -169,6 +175,7 @@ The following table provides a summary of changed content on this page:
 
 | Date | Description of change |
 |---|---|
+| June 15, 2026 | Added upcoming requirement for Watch Face Play listing icons (WO-G4). |
 | April 1, 2026 | Several updates: - Added upcoming requirement to support [64-bit architectures](https://developer.android.com/docs/quality-guidelines/wear-app-quality#support-64-bit). - Rearranged beginning sections of this page to group all app configuration requirements together, and to move the **Apps** and **Watch faces** checkbox buttons closer to the requirement tables that show detailed guidelines for each of these Wear OS experiences. |
 | March 12, 2026 | Removed requirement to mention Wear OS in Play listing description (WO-G2). |
 | May 15, 2024 | Several updates: - Specified a limit to the number of watch face shapes within a watch face source file (`res/xml/watch_face_shapes.xml`). - Clarified the total size limit of a watch face source file. |

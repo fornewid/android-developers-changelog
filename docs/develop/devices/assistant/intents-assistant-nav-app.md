@@ -4,14 +4,15 @@ url: https://developer.android.com/develop/devices/assistant/intents-assistant-n
 source: md.txt
 ---
 
-Gemini uses three different formats of intents that your
+Gemini and Google Assistant uses three different formats of intents that your
 navigation app can support.
-You can achieve interoperability and integrate your app and Gemini by
-declaring the intent filters detailed in this page in your app's manifest.
-To learn more about intents, see
+You can achieve interoperability and integrate your app and Gemini or Google
+Assistant by declaring the intent filters detailed in this page in your app's
+manifest. To learn more about intents, see
 [`Intent`](https://developer.android.com/reference/android/content/Intent).
 
-The Gemini navigation app `Intent` class supports the following intents:
+The Gemini or Google Assistant navigation app `Intent` class supports the
+following intents:
 
 - Navigation intent
 - Search intent
@@ -75,7 +76,8 @@ user is asked to choose from multiple options.
 ### Manifest intent filters
 
 Declare the following intent format in your app's manifest file so that
-Gemini knows that your navigation app can receive navigation intents.
+Gemini or Google Assistant knows that your navigation app can receive navigation
+intents.
 
 **All form factors except Android Auto and Android Automotive OS:**
 
@@ -229,7 +231,8 @@ The `Intent` class uses the following format for search intents:
 ### Manifest intent filters
 
 Declare the following intent format in your app's manifest file so that
-Gemini knows that your navigation app can receive search intents:
+Gemini or Google Assistant knows that your navigation app can receive search
+intents:
 
     <intent-filter>
       <action android:name="android.intent.action.VIEW" />
@@ -278,8 +281,8 @@ The `Intent` class uses the following format for custom action intent:
 ### Manifest intent filters
 
 Declare the following intent format in your app's manifest file to let
-Gemini know that your navigation app can receive custom action
-intents.
+Gemini or Google Assistant know that your navigation app can receive custom
+action intents.
 
     <intent-filter>
       <action android:name="android.intent.action.VIEW" />
@@ -339,8 +342,8 @@ The key `accident_type` can support two values, `minor` and `major`.
 
 **Possible values**
 
-The table lists possible values that Gemini can pass as the action
-the user is trying to fulfill on the navigation app.
+The table lists possible values that Gemini or Google Assistant can pass as the
+action the user is trying to fulfill on the navigation app.
 
 > [!NOTE]
 > **Note:** If your app supports only a subset of these actions, it must inform the user whenever they request an unsupported action.
@@ -405,10 +408,14 @@ the user is trying to fulfill on the navigation app.
 | `time_to_next_turn` | Show ETA to next turn. |   |   |
 | `unmute` | Unmute voice guidance. |   |   |
 
-## Retrieve navigation status
+## Retrieve navigation status (Gemini only)
 
-To help ensure that Gemini can provide accurate, real-time information to the user
-when they ask about their trip status, your app must provide navigation metadata using the
+To help ensure that Gemini can provide accurate, real-time information to the
+user when they ask about their trip status, your app must provide navigation
+metadata using the
 [`NavigationManager`](https://developer.android.com/reference/androidx/car/app/navigation/NavigationManager)
-car service. For implementation guidance, see
+car service. In particular, your app needs to provide the capabilities and the
+user consent to share the information with Gemini using
+[`NavigationManager.setVoiceAssistantCapabilities`](https://developer.android.com/reference/androidx/car/app/navigation/NavigationManager#setVoiceAssistantCapabilities(androidx.car.app.navigation.model.NavigationVoiceAssistantCapabilities)).
+For implementation guidance, see
 [Communicate navigation metadata](https://developer.android.com/training/cars/apps/navigation#communicate-navigation-metadata).

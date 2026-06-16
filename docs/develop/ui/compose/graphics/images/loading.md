@@ -23,13 +23,13 @@ Image(
 
 <br />
 
-To ensure that your app is [accessible](https://developer.android.com/develop/ui/compose/accessibility), supply a `contentDescription` for
-visual elements on screen. TalkBack reads out the content description, so you
-must ensure that the text is meaningful if read out loud and translated. In the
-above example, a `stringResource()` is used to load up the translated content
-description from the `strings.xml` file. If your visual element on screen is
-purely for visual decoration, set your `contentDescription` to `null` for the
-screen reader to ignore it.
+To ensure that your app is [accessible](https://developer.android.com/develop/ui/compose/accessibility), supply a `contentDescription` for visual
+elements on screen. TalkBack reads out the content description, so you must
+ensure that the text is meaningful if read out loud and translated. In the
+preceding example, a `stringResource()` is used to load up the translated
+content description from the `strings.xml` file. If your visual element on
+screen is purely for visual decoration, set your `contentDescription` to `null`
+for the screen reader to ignore it.
 
 If you need lower-level `ImageBitmap` specific functionality, you can use
 `ImageBitmap.imageResource()` to load up a Bitmap. For more information on
@@ -37,7 +37,7 @@ ImageBitmaps, read the [ImageBitmap versus ImageVector](https://developer.androi
 
 ### Drawable support
 
-`painterResource` currently supports the following drawable types:
+`painterResource` supports the following drawable types:
 
 - [`AnimatedVectorDrawable`](https://developer.android.com/reference/android/graphics/drawable/AnimatedVectorDrawable)
 - [`BitmapDrawable`](https://developer.android.com/reference/android/graphics/drawable/BitmapDrawable) (PNG, JPG, WEBP)

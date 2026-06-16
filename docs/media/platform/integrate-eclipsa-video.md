@@ -46,7 +46,7 @@ mechanism ensures that when SDR and HDR layers are composited together on
 screen, they maintain their intended visual relationship without washing each
 other out.
 
-### Headroom-adaptive gain curves (AGTM)
+### Headroom-adaptive gain curves
 
 Instead of forcing a static tone-mapping curve, creators embed parametric
 metadata that instructs the display pipeline exactly how to scale when limited

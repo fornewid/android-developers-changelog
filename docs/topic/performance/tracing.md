@@ -103,3 +103,7 @@ To learn more about system tracing tools, see the following guides:
 [**Define custom events**](https://developer.android.com/topic/performance/tracing/custom-events)
 :   Describes how you can apply custom labels to specific sections of your code,
     allowing for easier root-cause analysis in Systrace or Perfetto.
+
+[**Use AI-powered analysis features**](https://developer.android.com/android-performance-analyzer/analyze/ai)
+:   Explains how to use AI-assisted features with your preferred AI agent
+    to explore Perfetto traces and build custom SQL queries.

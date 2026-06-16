@@ -4,10 +4,6 @@ url: https://developer.android.com/games/pgs/android/friends
 source: md.txt
 ---
 
-> [!NOTE]
-> **Note:** This guide is for the Play Games Services v2 SDK. For information on the previous version of this SDK, see the [Play Games Services v1
-> documentation](https://developer.android.com/games/pgs/v1/android/friends).
-
 This guide describes how to use the [Friends](https://developer.android.com/games/pgs/friends) APIs in
 Android Studio projects.
 

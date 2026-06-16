@@ -4,10 +4,6 @@ url: https://developer.android.com/design/ui/gallery/social/laptop-input
 source: md.txt
 ---
 
-media, creativity, and social apps.
-keywords_public: keyboard shortcuts, pointer input, desktop layouts, hover
-states, Android large screens, adaptive UI, input controls
-
 <br />
 
 Laptops provide precise and productive input controls with more interaction

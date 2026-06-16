@@ -4,10 +4,6 @@ url: https://developer.android.com/games/pgs/android/achievements
 source: md.txt
 ---
 
-> [!NOTE]
-> **Note:** This guide is for the Play Games Services v2 SDK. For information about the previous version of this SDK, see the [Play Games Services v1
-> documentation](https://developer.android.com/games/pgs/v1/android/achievements).
-
 This guide shows you how to use the achievements APIs in an Android application
 to unlock and display achievements in your game. The APIs can be found
 in the [`com.google.android.gms.games`](https://developers.google.com//android/reference/com/google/android/gms/games/package-summary)

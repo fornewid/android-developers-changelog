@@ -63,6 +63,11 @@ deploy your debuggable app to multiple remote devices without physically
 connecting your device via USB and contending with common USB connection issues,
 such as driver installation.
 
+Android 17, alongside [adb 37.0.0](https://developer.android.com/tools/releases/platform-tools) introduces
+adb Wi-Fi 2.0 which solves many of the usability issues with the previous
+version. Notably, the device will automatically connect to the workstation when
+the device connects to a wireless debugging trusted network.
+
 To use wireless debugging, you need to pair your device to your workstation
 using a pairing code. To begin, complete the following steps:
 
@@ -70,28 +75,60 @@ using a pairing code. To begin, complete the following steps:
 2. Ensure that your device is running Android 11 or higher. For more information, see [Check \& update your Android
    version](https://support.google.com/android/answer/7680439).
 3. Ensure that you have the latest version of Android Studio installed. [Download it here](https://developer.android.com/studio).
-4. On your workstation, update to the latest version of the [SDK Platform Tools](https://developer.android.com/studio/releases/platform-tools).
+4. On your workstation, update to the latest version of the [SDK Platform Tools](https://developer.android.com/tools/releases/platform-tools).
 
-To connect to your device, follow these steps:
+To pair to your device, follow these steps:
 
-1. Open Android Studio and select **Pair Devices Using Wi-Fi** from the run configurations menu. ![Run configurations drop-down](https://developer.android.com/static/studio/images/run/adb_wifi-pair_device.png) **Figure 1.** Run configurations menu.   
-   The **Pair devices over Wi-Fi** dialog appears, as shown in figure 2. ![Screenshot of the pair devices over Wi-Fi popup window](https://developer.android.com/static/studio/images/run/adb_wifi-qr_code_scan.png) **Figure 2.** Dialog to pair devices using QR code or pairing code.
-2. Enable [developer
-   options](https://developer.android.com/studio/debug/dev-options) on your device.
-3. Enable [debugging over
-   Wi-Fi](https://developer.android.com/studio/command-line/adb#connect-to-a-device-over-wi-fi) on your device. ![Screenshot of a pixel phone showing the Wireless debugging
-   systems setting.](https://developer.android.com/static/studio/images/run/adb_wifi-wireless_debugging.png) **Figure 3.** The **Wireless debugging** setting on a Google Pixel phone.
-4. Tap **Wireless debugging** and pair your device:
-   1. To pair your device with a QR code, select **Pair device with QR code** and scan the QR code, shown in figure 2.
+> [!NOTE]
+> **Note:** You only need to pair your device to your workstation once. The device will remain paired with your workstation until you explicitly forget it or revoke adb debugging authorizations on your device. The device and the workstation will automatically connect when they are on the same network.
+
+1. Enable [developer options](https://developer.android.com/studio/debug/dev-options) on your device.
+2. On your device, tap Wireless Debugging.
+
+   ![pixel phone showing the Wireless debugging prompt.](https://developer.android.com/static/studio/images/run/adb_wifi-wireless_debugging_prompt.png) **Figure 1.** The **Wireless debugging** prompt on a Google Pixel phone.
+
+   <br />
+
+3. Allow wireless debugging on your network. Note that clicking the
+   **always allow on this network** checkbox makes the network a trusted
+   wireless debugging network. Your device will always allow wireless debugging
+   on this network as soon as the device connects to the network.
+
+   ![pixel phone showing the Wireless debugging systems setting.](https://developer.android.com/static/studio/images/run/adb_wifi-wireless_debugging_setting.png) **Figure 2.** The **Wireless debugging** setting on a Google Pixel phone.
+
+   <br />
+
+4. Open Android Studio and select **Pair Devices Using Wi-Fi** from the run
+   configurations menu.
+
+   ![Run configurations drop down](https://developer.android.com/static/studio/images/run/adb_wifi-pair_device.png) **Figure 3.** Run configurations menu.   
+
+   <br />
+
+5. The **Pair devices over Wi-Fi** dialog appears, as shown in figure 4.
+
+   ![Pair devices over Wi-Fi popup window](https://developer.android.com/static/studio/images/run/adb_wifi-pairing_dialog.png) **Figure 4.** Dialog to pair devices over Wi-Fi.
+
+   <br />
+
+   Alternatively, you can pair the device from **Device Manager** .
+   For example `My Pixel`.
+   ![Device Manager with device available for Wi-Fi pairing](https://developer.android.com/static/studio/images/run/adb_wifi-device_manager_entry.png) **Figure 5.** Device Manager with device available for Wi-Fi pairing.   
+
+   <br />
+
+6. Click `Pair` on the device you want to pair. The device pairing dialog appears.
+
+   1. To pair your device with a QR code, select **Pair device with QR code** and scan the QR code. ![Pair devices over Wi-Fi popup window](https://developer.android.com/static/studio/images/run/adb_wifi-qr_code.png) **Figure 6.** Dialog to pair device using QR code.
    2. To pair your device with a pairing code, select **Pair device with
-      pairing code** from the **Pair new devices over Wi-Fi** dialog. On your device, select **Pair using pairing code** . A six-digit code appears. Once your device appears on the **Pair devices over Wi-Fi** window, enter the six-digit code shown on your device and select **Pair** . ![Screenshot of example pairing code entry](https://developer.android.com/static/studio/images/run/adb_wifi-pin_code_entry.png) **Figure 4.** Example of six-digit pairing code entry.
-5. After pairing, you can attempt to deploy your app to your device.
+      pairing code** from the **Pair new devices over Wi-Fi** dialog. On your device, select **Pair using pairing code** . A six-digit code appears. Once your device appears on the **Pair devices over Wi-Fi** window, enter the six-digit code shown on your device and select **Pair** . ![Example pairing code entry](https://developer.android.com/static/studio/images/run/adb_wifi-pin_code.png) **Figure 7.** Example of six-digit pairing code entry.
+7. After pairing, you can attempt to deploy your app to your device.
 
-To pair a different device or to forget this device on your workstation:
-
-1. Navigate to **Wireless debugging** on your device.
-2. Tap your workstation name under **Paired devices**.
-3. Select **Forget**.
+To unpair your workstation, navigate to **Wireless debugging** on your device.
+Tap your workstation name under **Paired devices** and select **Forget** .
+Alternatively, you can click the **Revoke adb debugging authorizations**
+on your device Settings page to unpair your workstation and all other
+previously paired workstations.
 
 ## Device mirroring
 
@@ -222,26 +259,18 @@ steps:
 
 ### Resolve wireless connection issues
 
-If you are having issues connecting to your device wirelessly, you can try
-the following troubleshooting steps to resolve the issue:
+If you are having issues connecting to your device wirelessly, try the following
+troubleshooting steps to resolve the issue:
 
 #### Check whether your workstation and device meet the prerequisites
 
-To meet the prerequisites for wireless debugging, ensure that:
+Check that the workstation and device meet the
+[prerequisites](https://developer.android.com/studio/run/device#wireless).
 
-- Your workstation and device are connected to the same wireless network.
-- Your device is running Android 11 or higher. For more information, see [Check \& update your Android
-  version](https://support.google.com/android/answer/7680439).
-- You have the latest version of Android Studio. You can download it from [the main Android Studio page](https://developer.android.com/studio).
-- You have the latest version of the [SDK Platform Tools](https://developer.android.com/studio/releases/platform-tools) on your workstation.
+#### Check adb troubleshooting guide
 
-#### Check for other known issues
-
-The following is a list of current known issues with wireless debugging in
-Android Studio and how to resolve them:
-
-- **Wi-Fi is not connecting**: Some Wi-Fi networks, such as corporate Wi-Fi networks, may block p2p connections and not let you connect over Wi-Fi. Try connecting with a cable or another Wi-Fi network.
-- **ADB over Wi-Fi sometimes turns off automatically**: This can happen if the device either switches Wi-Fi networks or disconnects from the network.
+Follow the adb troubleshooting
+[guide](https://developer.android.com/tools/adb#wireless-android11-troubleshoot).
 
 ## RSA security key
 
