@@ -15,7 +15,7 @@ objects more effectively, improving your app's stability and security.
 
 Starting in Android 7.0 (API level 24), users can choose among several
 different packages for displaying web content in a `WebView` object.
-The [AndroidX.webkit](https://developer.android.com/reference/androidx/webkit/package-summary)
+The [Jetpack Webkit](https://developer.android.com/reference/androidx/webkit/package-summary)
 library includes the
 `https://developer.android.com/reference/androidx/webkit/WebViewCompat#getCurrentWebViewPackage(android.content.Context)`
 method for fetching information related to the package that is displaying web

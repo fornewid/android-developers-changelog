@@ -36,8 +36,9 @@ After you've flashed a beta build to your Pixel device, your device is automatic
 <br />
 
 Use the following links and instructions to update your supported device to the
-latest build. See [Get Android 17](https://developer.android.com/about/versions/17/get) for
-other ways to get Android 17 for testing and development.
+latest build. See [Get
+Android 17 QPR beta builds](https://developer.android.com/about/versions/17/get-qpr) for other ways to get
+QPR1 for testing and development.
 
 > [!WARNING]
 > **Warning:** Flashing to a beta build from a production build---or going back to a production build from a beta build---requires a full device reset that removes all user data on the device. Make sure to [back up the data from your

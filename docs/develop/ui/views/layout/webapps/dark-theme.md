@@ -86,7 +86,7 @@ If your app uses Force Dark, we recommend
 ### Allow algorithmic darkening (apps targeting Android 13 or higher)
 
 For apps that aren't using app-level Force Dark and target Android 13 (API level
-33) or higher, use the AndroidX
+33) or higher, use the Jetpack Webkit
 [`setAlgorithmicDarkeningAllowed()`](https://developer.android.com/reference/androidx/webkit/WebSettingsCompat#setAlgorithmicDarkeningAllowed(android.webkit.WebSettings,%20boolean))
 method and pass in `true` to specify that a WebView should allow algorithmic
 darkening. This method has backward compatibility with previous Android
@@ -172,8 +172,9 @@ if (WebViewFeature.isFeatureSupported(WebViewFeature.FORCE_DARK)) {
 
 You can also use the
 [ForceDarkStrategy API](https://developer.android.com/reference/androidx/webkit/WebSettingsCompat#setForceDarkStrategy(android.webkit.WebSettings,%20int))
-in AndroidX to control how darkening is applied to a given WebView. This API is
-applicable only if force dark is set to `FORCE_DARK_ON` or `FORCE_DARK_AUTO`.
+in the Jetpack library to control how darkening is applied to a given WebView.
+This API is applicable only if force dark is set to `FORCE_DARK_ON` or
+`FORCE_DARK_AUTO`.
 
 Using the API, your app can use either web theme darkening or user-agent
 darkening:

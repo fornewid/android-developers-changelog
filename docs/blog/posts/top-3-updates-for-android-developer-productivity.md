@@ -33,9 +33,7 @@ Additionally, Google Antigravity now officially supports Android development, wi
 You can either install the bundle during onboarding after installation, or later from the **Settings \> Customizations \> Build With Google Plugins** menu. This provides Antigravity with all the powerful tools and knowledge of Android CLI to enable it to perform core tasks---from creating projects to deploying your app on a new virtual device---much more easily and efficiently.
 ![1_agy-android-cli.png](https://developer.android.com/static/blog/assets/1_agy_android_cli_3aaba89633_Z1HGk2s.webp) Google Antigravity now offers the Android resources bundle
 
-Android CLI is now available through more package managers: like npm and homebrew.
-
-For more information, check out the [Android CLI blog post](https://android-developers.googleblog.com/2026/05/android-cli-stable-1-0-agent-development.html) and [official documentation.](https://developer.android.com/tools/agents/android-cli)
+Android CLI is now available through more package managers: like npm and homebrew. For more information, check out the [Android CLI blog post](https://android-developers.googleblog.com/2026/05/android-cli-stable-1-0-agent-development.html) and [official documentation.](https://developer.android.com/tools/agents/android-cli)
 
 ### **2. Android skills keep growing**
 
@@ -72,7 +70,7 @@ Earlier this year, we launched [Android Bench](https://developer.android.com/ben
 
 You asked us to evaluate open models. So, at I/O, we added more commonly used ones, including our local model **Gemma 4** , to the leaderboard. We also added the latest models including **Gemini 3.5 Flash.**
 
-We are also working on increasing the difficulty of challenges we're giving LLMs, including creating long running tasks, to continue encouraging improvements. These tasks will be coming soon to Android Bench. Checkout the [Android Bench leaderboard](https://developer.android.com/bench) to see the latest results.
+We are also working on increasing the difficulty of challenges we're giving LLMs, including creating long running tasks, to continue encouraging improvements. These tasks will be coming soon to Android Bench. Check out the [Android Bench leaderboard](https://developer.android.com/bench) to see the latest results.
 
 ### **Android development anywhere**
 
@@ -107,6 +105,19 @@ Check out the full [Developer productivity at Google I/O 2026 YouTube playlist](
   5 min read
 
   - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
+- [![](https://developer.android.com/static/blog/assets/Stevan_Silva_7661118077_V4WGm.webp)](https://developer.android.com/blog/authors/stevan-silva)[![](https://developer.android.com/static/blog/assets/unnamed_5_cdab7ecfba_2kh65s.webp)](https://developer.android.com/blog/authors/vinny-da-silva) 15 Jun 2026 15 Jun 2026 ![](https://developer.android.com/static/blog/assets/MM_D_Android_XR_Strapi_39d27725e6_Zhwmdd.webp)
+
+  #### [Product News](https://developer.android.com/blog/categories/product-news)
+
+  ## [What's New in Android XR: Tooling, Engine Support, and Ecosystem Updates](https://developer.android.com/blog/posts/what-s-new-in-android-xr-tooling-engine-support-and-ecosystem-updates)
+
+  [arrow_forward](https://developer.android.com/blog/posts/what-s-new-in-android-xr-tooling-engine-support-and-ecosystem-updates) From augmented overlays to fully immersive environments, the Android XR ecosystem is expanding rapidly, with the Samsung Galaxy XR already available today.
+
+  ###### [Stevan Silva](https://developer.android.com/blog/authors/stevan-silva), [Vinny DaSilva](https://developer.android.com/blog/authors/vinny-da-silva) •
+  3 min read
+
+  - [#Android XR](https://developer.android.com/blog/topics/android-xr)
+  - [#Developer Preview 4](https://developer.android.com/blog/topics/developer-preview-4)
 - [![](https://developer.android.com/static/blog/assets/Ataul_Munim_cf0796f68c_r1HY2.webp)](https://developer.android.com/blog/authors/ataul-munim) 02 Jun 2026 02 Jun 2026 ![](https://developer.android.com/static/blog/assets/MM_Differentiated_Experiences_Strapi_bbe8e7618b_19k3ww.webp)
 
   #### [Product News](https://developer.android.com/blog/categories/product-news)
@@ -124,22 +135,6 @@ Check out the full [Developer productivity at Google I/O 2026 YouTube playlist](
   - [#Wear OS](https://developer.android.com/blog/topics/wear-os)
   - [#Automotive OS](https://developer.android.com/blog/topics/automotive-os)
   - +3 ↩
-- [![](https://developer.android.com/static/blog/assets/Jingyu_Shi_ab6f01bd32_ZXPVGC.webp)](https://developer.android.com/blog/authors/jingyu-shi) 26 May 2026 26 May 2026 ![](https://developer.android.com/static/blog/assets/Blog_hero_Strapi_2x_0147a8b012_1yD2LQ.webp)
-
-  #### [Product News](https://developer.android.com/blog/categories/product-news)
-
-  ## [Top AI on Android updates for building intelligent experiences from Google I/O '26](https://developer.android.com/blog/posts/top-ai-on-android-updates-for-building-intelligent-experiences-from-google-i-o-26)
-
-  [arrow_forward](https://developer.android.com/blog/posts/top-ai-on-android-updates-for-building-intelligent-experiences-from-google-i-o-26) At Google I/O 2026, we introduced Android's shift from an operating system to an intelligence system. We also demonstrated how you can build intelligent experiences natively with the system and bring the power of Google's AI into your apps.
-
-  ###### [Jingyu Shi](https://developer.android.com/blog/authors/jingyu-shi) •
-  2 min read
-
-  - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
-  - [#Android](https://developer.android.com/blog/topics/android)
-  - [#AppFunctions](https://developer.android.com/blog/topics/app-functions)
-  - [#On-device](https://developer.android.com/blog/topics/on-device)
-  - +2 ↩
 
 # Stay in the loop
 

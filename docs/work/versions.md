@@ -10,6 +10,19 @@ policy controller](https://developers.google.com/android/work/build-dpc) or apps
 this section to review the new APIs, features, and behavior changes introduced
 in each version of Android.
 
+## Android 17
+
+Some of the new enterprise [features and updates in Android 17](https://developer.android.com/work/versions/android-17) include:
+
+- Agentic Automation on Android
+- Localhost Restriction
+- Local Network Protection
+- Enable Certificate Transparency by default
+- Android Contacts Picker
+- Android HID API
+- USB4 and Thunderbolt Support
+- Device State for LLMs
+
 ## Android 16
 
 Some of the new enterprise [features and updates in Android 16](https://developer.android.com/work/versions/android-16) include the

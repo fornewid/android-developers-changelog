@@ -6,9 +6,9 @@ source: md.txt
 
 Working with images can quickly introduce performance issues if you aren't
 careful. Even a small graphic in a compressed format like JPG or PNG can turn
-into a large bitmap when it's decoded for display.If you aren't efficient
+into a large bitmap when it's decoded for display. If you aren't efficient
 with how you use graphics, you can run into memory problems
-which can hurt the performance of your app and other apps on the device.
+that can hurt the performance of your app and other apps on the device.
 Follow these best practices to ensure your app performs at its best.
 
 ## Use image loading libraries
@@ -16,17 +16,52 @@ Follow these best practices to ensure your app performs at its best.
 You can improve your app's efficiency by using image loading libraries
 like [Coil](https://coil-kt.github.io/coil/api/coil-core/coil3.request/-image-request/) (for Kotlin-first projects) or [Glide](https://bumptech.github.io/glide/javadocs/470/com/bumptech/glide/load/DecodeFormat.html) (for Java projects).
 These libraries reduce your app's memory usage by doing things like caching
-images, resizing graphics when needed, and recycling graphic objects.
+images, downsampling graphics when needed, and recycling graphic objects.
 
-## Resize images when appropriate
+## Downsample images
 
-Make sure to use the appropriate image size for your needs. For example, you
-should never load a large image into a small thumbnail. Instead, use a method
-like [`inSampleSize`](https://developer.android.com/reference/android/graphics/BitmapFactory.Options#inSampleSize) to load a resampled version of the image.
+Make sure to use the appropriate image size for your needs. You should avoid
+loading a large, high-resolution image into a small container
+(such as a thumbnail). Instead, use downsampling to scale the image down before
+decoding it into memory.
 
-Image-loading libraries like Coil and Glide handle this resampling for you
-automatically by default. You can configure their downsampling strategies by
-using [`ImageLoader`](https://coil-kt.github.io/coil/image_loaders/) (for Coil) or [`DownsampleStrategy`](https://bumptech.github.io/glide/javadocs/470/com/bumptech/glide/load/resource/bitmap/DownsampleStrategy.html) (for Glide).
+### Client-side downsampling
+
+Image loading libraries like Coil and Glide handle downsampling for you
+automatically. You can configure their downsampling strategies
+by using [`ImageLoader`](https://coil-kt.github.io/coil/image_loaders/) (for Coil) or [`DownsampleStrategy`](https://bumptech.github.io/glide/javadocs/470/com/bumptech/glide/load/resource/bitmap/DownsampleStrategy.html)
+(for Glide). If you're managing bitmaps manually, you can use
+[`inSampleSize`](https://developer.android.com/reference/android/graphics/BitmapFactory.Options#inSampleSize) to decode a smaller version. To do this safely, you should
+first set [`inJustDecodeBounds`](https://developer.android.com/reference/android/graphics/BitmapFactory.Options#inJustDecodeBounds) to `true` to read the image dimensions
+without allocating memory, calculate the sample size, set `inSampleSize` to
+that value, set `inJustDecodeBounds` to `false`, and then decode the image.
+
+### Prefer server-side resizing
+
+Where possible, request the exact image dimensions you need directly from your
+backend server. This reduces network usage and your disk cache footprint, while
+providing lighter memory usage by avoiding the memory overhead of resizing
+images on the device.
+
+You can configure libraries to dynamically append the target view size to the
+image URL. For example, Coil allows this using custom interceptors, and Glide
+supports it using custom model loaders (such as `BaseGlideUrlLoader`).
+
+### Avoid unconstrained layout sizes
+
+For image loaders to downsample (client-side or server-side) effectively, they
+must know the target size *before* executing the request.
+
+Avoid using `wrapContentSize` or leaving dimensions unconstrained on
+composables that load remote images. If these libraries cannot infer the target
+bounds, they fall back to loading the original full-size image.
+This can lead to loading a substantially larger image than necessary, increasing
+memory usage and latency.
+
+Instead, set explicit dimensions on your image composable (for example, using
+`Modifier.size`) or define an aspect ratio. This allows the layout engine to
+calculate the exact pixel target upfront, which the image loader can then use to
+request and decode the correctly sized asset.
 
 ### Supply alternative resources for different screen sizes
 

@@ -31,7 +31,7 @@ handle page navigation, and how to manage windows when using `WebView`.
 ## Work with WebView on earlier versions of Android
 
 To safely use more-recent `WebView` capabilities on the device your app is
-running on, add the [AndroidX Webkit](https://developer.android.com/reference/androidx/webkit/package-summary) library. This is a static library you
+running on, add the [Jetpack Webkit](https://developer.android.com/reference/androidx/webkit/package-summary) library. This is a static library you
 can add to your application to use `android.webkit` APIs that aren't available
 for earlier platform versions.
 
@@ -500,7 +500,7 @@ public boolean onKeyDown(int keyCode, KeyEvent event) {
 }
 ```
 
-If your app uses AndroidX `AppCompat` 1.6.0+, you can simplify the previous
+If your app uses Jetpack `AppCompat` 1.6.0+, you can simplify the previous
 snippet even more:
 
 ### Kotlin

@@ -4,7 +4,7 @@ url: https://developer.android.com/blog/authors/stevan-silva
 source: md.txt
 ---
 
-## 2
+## 3
 
 posts ![](https://developer.android.com/static/blog/assets/Stevan_Silva_7661118077_V4WGm.webp)
 
@@ -12,6 +12,18 @@ posts ![](https://developer.android.com/static/blog/assets/Stevan_Silva_76611180
 
 ###### Group Product Manager
 
+- 15 Jun 2026 15 Jun 2026 ![](https://developer.android.com/static/blog/assets/MM_D_Android_XR_Strapi_39d27725e6_Zhwmdd.webp)
+
+  #### [Product News](https://developer.android.com/blog/categories/product-news)
+
+  ## [What's New in Android XR: Tooling, Engine Support, and Ecosystem Updates](https://developer.android.com/blog/posts/what-s-new-in-android-xr-tooling-engine-support-and-ecosystem-updates)
+
+  [arrow_forward](https://developer.android.com/blog/posts/what-s-new-in-android-xr-tooling-engine-support-and-ecosystem-updates) From augmented overlays to fully immersive environments, the Android XR ecosystem is expanding rapidly, with the Samsung Galaxy XR already available today.
+
+  ###### 3 min read
+
+  - [#Android XR](https://developer.android.com/blog/topics/android-xr)
+  - [#Developer Preview 4](https://developer.android.com/blog/topics/developer-preview-4)
 - 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Text_Strapi_2000x1000_2d4221d884_ZtW7eg.webp)
 
   #### [Product News](https://developer.android.com/blog/categories/product-news)

@@ -12,15 +12,12 @@ on Android 17.
 ## Get Android Studio
 
 The Android 17 SDK includes changes that are not compatible with some lower
-versions of Android Studio. For the best
-development experience with the Android 17 SDK, use the [latest preview
-version](https://developer.android.com/studio/preview) of Android Studio. Remember that you can keep your existing version
-of Android Studio installed, as you can [install multiple versions
-side-by-side](https://developer.android.com/studio/preview/install-preview).
+versions of Android Studio. For the best development experience with the Android
+17 SDK, use Android Studio Meerkat \| 2024.3.1 or higher.
 
 <br />
 
-[Get Android Studio](https://developer.android.com/studio/preview)
+[Get Android Studio](https://developer.android.com/studio)
 
 ## Update your app's build configuration
 
@@ -78,7 +75,7 @@ Within Android Studio, you can install the Android 17 SDK as follows:
 
 1. Click **Tools \> SDK Manager**.
 2. In the **SDK Platforms tab** , expand the **Android Cinnamon Bun Preview** section and select the **Android SDK Platform Cinnamon Bun** package.
-3. In the **SDK Tools** tab, expand the **Android SDK Build-Tools 37** section and select the latest `37.x.x` version. These labels might have a suffix such as **rc1** or **rc2**.
+3. In the **SDK Tools** tab, expand the **Android SDK Build-Tools 37** section and select the latest `37.x.x` version.
 4. Click **OK** to install the SDK.
 
 ## Next steps

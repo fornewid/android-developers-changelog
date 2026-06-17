@@ -4,7 +4,7 @@ url: https://developer.android.com/blog/authors/matthew-mccullough
 source: md.txt
 ---
 
-## 15
+## 16
 
 posts ![](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)
 
@@ -12,6 +12,15 @@ posts ![](https://developer.android.com/static/blog/assets/matthew_mccullough_dc
 
 ###### Vice President, Product Management, Android Developer
 
+- 16 Jun 2026 16 Jun 2026 ![](https://developer.android.com/static/blog/assets/Strapi_Hero_White_e4dbee04d8_Z1qQbv3.webp)
+
+  ## [Android 17 is Here](https://developer.android.com/blog/posts/android-17-is-here)
+
+  [arrow_forward](https://developer.android.com/blog/posts/android-17-is-here) Today we're releasing Android 17 and making it available on most supported Pixel devices. Look for new devices running Android 17 in the coming months.
+
+  ###### 13 min read
+
+  - [#Android 17](https://developer.android.com/blog/topics/android-17)
 - 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Text_Strapi_2000x1000_2d4221d884_ZtW7eg.webp)
 
   #### [Product News](https://developer.android.com/blog/categories/product-news)
@@ -66,16 +75,6 @@ posts ![](https://developer.android.com/static/blog/assets/matthew_mccullough_dc
   [arrow_forward](https://developer.android.com/blog/posts/elevating-ai-assisted-android-development-and-improving-ll-ms-with-android-bench) We want to make it faster and easier for you to build high-quality Android apps, and one way we're helping you be more productive is by putting AI at your fingertips.
 
   ###### 2 min read
-
-- 26 Feb 2026 26 Feb 2026 ![](https://developer.android.com/static/blog/assets/android17banner_359909419a_Z1HMAIH.webp)
-
-  #### [Product News](https://developer.android.com/blog/categories/product-news)
-
-  ## [The Second Beta of Android 17](https://developer.android.com/blog/posts/the-second-beta-of-android-17)
-
-  [arrow_forward](https://developer.android.com/blog/posts/the-second-beta-of-android-17) Today we're releasing the second beta of Android 17, continuing our work to build a platform that prioritizes privacy, security, and refined performance.
-
-  ###### 6 min read
 
 <button class="adb--button adb--standard adb--outlined adb--disabled adb--global-hover-button astro-vnzlvqnm" disabled=""> arrow_back </button>
 

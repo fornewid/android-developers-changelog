@@ -347,6 +347,9 @@ media browsing screens featuring the `Expanded Header`,
 For more details about how to design your media app's user interface using these
 templates, see [Media apps](https://developers.google.com/cars/design/create-apps/app-types/media).
 
+> [!NOTE]
+> **Note:** To test your application with the new Car App Library 1.9 features, you must enable the **Enable CAL Beta Features** flag. To access this setting, first [enable Android Auto developer mode](https://developer.android.com/training/cars/testing#developer-mode). Once developer mode is active, open the **Developer settings** from the overflow menu and scroll to the bottom to find the **Enable CAL Beta Features** toggle.
+
 ## Navigating to the playback controls
 
 When browsing through media it is important that the user is able to quickly

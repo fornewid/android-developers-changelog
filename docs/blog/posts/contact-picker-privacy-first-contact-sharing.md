@@ -155,6 +155,19 @@ To provide the best user experience and maintain high security standards, we rec
   ###### [Roxanna Aliabadi Walker](https://developer.android.com/blog/authors/roxanna-walker), [Yacine Rezgui](https://developer.android.com/blog/authors/yacine-rezgui) •
   8 min read
 
+- [![](https://developer.android.com/static/blog/assets/Stevan_Silva_7661118077_V4WGm.webp)](https://developer.android.com/blog/authors/stevan-silva)[![](https://developer.android.com/static/blog/assets/unnamed_5_cdab7ecfba_2kh65s.webp)](https://developer.android.com/blog/authors/vinny-da-silva) 15 Jun 2026 15 Jun 2026 ![](https://developer.android.com/static/blog/assets/MM_D_Android_XR_Strapi_39d27725e6_Zhwmdd.webp)
+
+  #### [Product News](https://developer.android.com/blog/categories/product-news)
+
+  ## [What's New in Android XR: Tooling, Engine Support, and Ecosystem Updates](https://developer.android.com/blog/posts/what-s-new-in-android-xr-tooling-engine-support-and-ecosystem-updates)
+
+  [arrow_forward](https://developer.android.com/blog/posts/what-s-new-in-android-xr-tooling-engine-support-and-ecosystem-updates) From augmented overlays to fully immersive environments, the Android XR ecosystem is expanding rapidly, with the Samsung Galaxy XR already available today.
+
+  ###### [Stevan Silva](https://developer.android.com/blog/authors/stevan-silva), [Vinny DaSilva](https://developer.android.com/blog/authors/vinny-da-silva) •
+  3 min read
+
+  - [#Android XR](https://developer.android.com/blog/topics/android-xr)
+  - [#Developer Preview 4](https://developer.android.com/blog/topics/developer-preview-4)
 - [![](https://developer.android.com/static/blog/assets/Screenshot_2026_05_19_at_9_30_31_AM_4ebf3b750d_ZDTMlF.webp)](https://developer.android.com/blog/authors/simona-milanovic) 09 Jun 2026 09 Jun 2026 ![](https://developer.android.com/static/blog/assets/MM_Dev_Productivity_Strapi_b7e79722e6_45umk.webp)
 
   #### [Product News](https://developer.android.com/blog/categories/product-news)
@@ -165,24 +178,6 @@ To provide the best user experience and maintain high security standards, we rec
 
   ###### [Simona Milanovic](https://developer.android.com/blog/authors/simona-milanovic) •
   2 min read
-
-- [![](https://developer.android.com/static/blog/assets/Ataul_Munim_cf0796f68c_r1HY2.webp)](https://developer.android.com/blog/authors/ataul-munim) 02 Jun 2026 02 Jun 2026 ![](https://developer.android.com/static/blog/assets/MM_Differentiated_Experiences_Strapi_bbe8e7618b_19k3ww.webp)
-
-  #### [Product News](https://developer.android.com/blog/categories/product-news)
-
-  ## [Building Premium Android Experiences at Google I/O '26](https://developer.android.com/blog/posts/building-premium-android-experiences-at-google-i-o-26)
-
-  [arrow_forward](https://developer.android.com/blog/posts/building-premium-android-experiences-at-google-i-o-26) At Google I/O '26, we showcased how the latest advancements in the Android ecosystem can help you elevate your app's quality while maximizing development efficiency.
-
-  ###### [Ataul Munim](https://developer.android.com/blog/authors/ataul-munim) •
-  3 min read
-
-  - [#Performance](https://developer.android.com/blog/topics/performance)
-  - [#Memory](https://developer.android.com/blog/topics/memory)
-  - [#R8](https://developer.android.com/blog/topics/r8)
-  - [#Wear OS](https://developer.android.com/blog/topics/wear-os)
-  - [#Automotive OS](https://developer.android.com/blog/topics/automotive-os)
-  - +3 ↩
 
 # Stay in the loop
 

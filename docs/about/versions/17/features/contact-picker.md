@@ -17,13 +17,14 @@ having to build or maintain the UI.
 
 ## Integrate the Contact Picker
 
-To integrate the Contact Picker, use the `Intent.ACTION_PICK_CONTACTS` intent.
+To integrate the Contact Picker, use the
+`ContactsPickerSessionContract.ACTION_PICK_CONTACTS` intent.
 This intent launches the picker and returns the selected contacts to your app.
 
 Unlike the legacy `ACTION_PICK`, the Contact Picker lets you specify multiple
 data fields your app requires at the same time. You do this using
-`Intent.EXTRA_REQUESTED_DATA_FIELDS`, passing an `ArrayList<String>` of MIME
-types defined in `ContactsContract.CommonDataKinds`.
+`ContactsPickerSessionContract.EXTRA_REQUESTED_DATA_FIELDS`, passing an
+`ArrayList<String>` of MIME types defined in `ContactsContract.CommonDataKinds`.
 
 Common MIME types include:
 
@@ -195,7 +196,8 @@ If your app already uses `ACTION_PICK`, you don't need to change your code to
 receive the new UI. However, to take advantage of new features, such as
 receiving a single `Uri` to query contact data, switching between personal \&
 work profiles or multiple data field requests, you must update your
-implementation to use `Intent.ACTION_PICK_CONTACTS` or the new intent extras.
+implementation to use `ContactsPickerSessionContract.ACTION_PICK_CONTACTS` or
+the new intent extras.
 
 ### Testing on older target SDKs
 

@@ -10,8 +10,6 @@ reinstalling the game, removing the friction of a login screen.
 Ideally, a game should restore the latest played in-game account by the player
 in the scenarios where seamless restore is applicable.
 
-Seamless restore is a recommended guideline for the [Level Up](https://play.google.com/console/about/levelup/) program.
-
 A game restores the player's latest played in-game account in the following
 scenarios:
 

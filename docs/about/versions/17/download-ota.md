@@ -4,12 +4,6 @@ url: https://developer.android.com/about/versions/17/download-ota
 source: md.txt
 ---
 
-Applying an OTA image can help you recover a device that received an OTA update
-for an Android 17 Beta build but wouldn't start up
-after the update was installed. If you are trying to get Android 17 on your
-device but you aren't trying to recover from a failed OTA update, see [Get
-Android 17](https://developer.android.com/about/versions/17/get) instead.
-
 OTA images are available for the following Pixel devices:
 
 - Pixel 6
@@ -40,8 +34,9 @@ We also deliver flashable images at each milestone, so you can choose the
 approach that works best for your test environment.
 
 Use the following links and instructions to update your supported device to the
-latest build. See [Get Android 17](https://developer.android.com/about/versions/17/get) for
-other ways to get Android 17 for testing and development.
+latest build. See [Get
+Android 17 QPR beta builds](https://developer.android.com/about/versions/17/get-qpr) for other ways to get
+QPR1 for testing and development.
 
 ## Apply an OTA image
 

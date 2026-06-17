@@ -13,31 +13,17 @@ You can get Android 17 in any of the following ways:
 - [Set up the Android Emulator](https://developer.android.com/about/versions/17/get#on_emulator)
 - [Get a generic system image (GSI)](https://developer.android.com/about/versions/17/get#on_gsi)
 
-## Get Android 17 Beta on a Google Pixel device
+## Get Android 17 on a Google Pixel device
 
-To get Android 17 on a supported Google Pixel device, [enroll your device in the
-Android Beta for Pixel program](https://g.co/androidbeta).
+If you have a [supported Pixel device](https://developer.android.com/about/versions/17/get#google-pixel-devices), you can [check and update your
+Android version](https://support.google.com/pixelphone/answer/7680439) to receive Android 17 over the air.
 
 <br />
 
-Enrolling is a simple and fast process, and it's highly recommended for early
-adopters and developers. In most cases, you don't need to do a full reset of
-your data to move to the Android 17 Beta, but it's recommended that you back up
-data before enrolling your device.
+In most cases, you don't need to do a full reset of your data to move to Android
+17, but it's recommended that you back up data before installing Android 17 on
+your device.
 
-Once enrolled, your device will receive regular over-the-air (OTA) updates for
-the duration of the platform's release cycle---including Quarterly Platform
-Releases (QPRs)---unless you opt out earlier.
-
-During the Android Beta for Pixel program's release cycle, there are four stable
-releases to the public (the official platform release followed by three
-Quarterly Platform Releases). When you apply a stable release update, you can
-opt out of future Beta updates **without a data wipe** for a limited time (until
-you apply the next Beta update, if you choose to do so).
-
-
-[Enroll in Android 17 Beta for
-Pixel](https://www.google.com/android/beta)
 
 ### Supported Google Pixel devices
 
@@ -67,13 +53,16 @@ Android 17 OTAs and downloads are available for the following Pixel devices:
 
 ### Flash or manually install a system image
 
-Alternatively, if you'd rather flash your device, we recommend using the [Android Flash
-Tool](https://flash.android.com/preview/cinnamonbun-beta4.1). If you need to flash your device manually for some other reason, you can get an Android 17 system image for your device on the [Pixel downloads page](https://developer.android.com/about/versions/17/download). See the general instructions on the downloads page for how to flash a system image to your device. This approach can be useful when you need more control over testing, such as for automated testing or regression testing. Android 17 Beta images are available for [supported Pixel devices](https://developer.android.com/about/versions/17/get#google-pixel-devices).
+Alternatively, if you'd rather flash your device, we recommend using the [Android Flash Tool](https://flash.android.com/release/17.0.0).
 
 <br />
 
-> [!NOTE]
-> **Note:** After you've flashed a Beta build to a supported Pixel device, you're automatically enrolled in over-the-air updates of all subsequent Beta builds through the final release.
+If you need to flash your device manually for some other reason, you can get the
+Android 17 system image for your device on the [Pixel downloads page](https://developers.google.com/android/images). Read
+the general instructions for how to [flash a system image](https://developers.google.com/android/images#instructions) to your device.
+This approach can be useful when you need more control over testing, such as for
+automated testing or regression testing.
+
 
 ## Get Android 17 Beta on a partner device
 

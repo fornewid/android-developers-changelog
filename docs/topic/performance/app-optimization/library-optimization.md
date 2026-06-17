@@ -153,7 +153,7 @@ include the following:
   and class merging techniques. For more information, see [R8 optimization
   overview](https://developer.android.com/topic/performance/app-optimization/keep-rules-best-practices).
 
-- **Bypassing optimization of obfuscated librariess** : A common error is to
+- **Bypassing optimization of obfuscated libraries** : A common error is to
   omit a library from optimization, because the library was optimized or
   obfuscated when it was compiled to an AAR (Android Archive) or JAR (Java
   Archive). The optimizations during library build time are limited, and your
