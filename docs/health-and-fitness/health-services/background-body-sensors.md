@@ -11,7 +11,9 @@ that introduced [background location access in Android 10 (API level 29)](https:
 If your app needs to access body sensor information in background, such as when
 [monitoring Health Services data in the background](https://developer.android.com/health-and-fitness/guides/health-services/monitor-background), you must request the
 [`BODY_SENSORS_BACKGROUND`](https://developer.android.com/reference/android/Manifest.permission#BODY_SENSORS_BACKGROUND) permission.
-| **Note:** `BODY_SENSORS_BACKGROUND` is a restricted permission which cannot be held by your app until the installer adds your app to an allowlist, or until the user lets your app have the permission.
+
+> [!NOTE]
+> **Note:** `BODY_SENSORS_BACKGROUND` is a restricted permission which cannot be held by your app until the installer adds your app to an allowlist, or until the user lets your app have the permission.
 
 As described on the [privacy best practices](https://developer.android.com/privacy/best-practices) page, apps should only ask for
 the `BODY_SENSORS_BACKGROUND` permission when it is critical to the user-facing
@@ -23,10 +25,10 @@ version.
 ## App targets Android 13 or higher
 
 In addition to the existing [`BODY_SENSORS`](https://developer.android.com/reference/android/Manifest.permission#BODY_SENSORS) permission, declare the
-`BODY_SENSORS_BACKGROUND` permission in your manifest file:  
+`BODY_SENSORS_BACKGROUND` permission in your manifest file:
 
-    <uses-permission android:name="android.permission.BODY_SENSORS">
-    <uses-permission android:name="android.permission.BODY_SENSORS_BACKGROUND">
+    <uses-permission android:name="android.permission.BODY_SENSORS" />
+    <uses-permission android:name="android.permission.BODY_SENSORS_BACKGROUND" />
 
 Then, your app must [request](https://developer.android.com/training/permissions/requesting) the permissions in separate operations:
 
@@ -34,8 +36,7 @@ Then, your app must [request](https://developer.android.com/training/permissions
 2. Check if `BODY_SENSORS_BACKGROUND` is granted. If not, request the permission.
 
 ![The all-the-time option is the first list item on the settings screen](https://developer.android.com/static/training/wearables/images/system-sensors.svg) **Figure 1.** Sensors setting includes an option called **All the
-time**, which grants background sensor data access.  
-**Caution:** If your app requests both body sensor permissions at the
+time**, which grants background sensor data access. **Caution:** If your app requests both body sensor permissions at the
 same time, the system ignores the request and doesn't grant your app either
 permission.
 

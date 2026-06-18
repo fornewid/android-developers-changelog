@@ -25,7 +25,7 @@ To set up the KMP ViewModel in your project, define the dependency in the
 `libs.versions.toml` file:
 
     [versions]
-    androidx-viewmodel = 2.10.0
+    androidx-viewmodel = 2.11.0
 
     [libraries]
     androidx-lifecycle-viewmodel = { module = "androidx.lifecycle:lifecycle-viewmodel", version.ref = "androidx-viewmodel" }

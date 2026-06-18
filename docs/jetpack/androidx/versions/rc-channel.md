@@ -16,6 +16,13 @@ prior to 2018.
 To view the current versions for every component,
 see the [versions page](https://developer.android.com/jetpack/androidx/versions).
 
+## June 17, 2026
+
+- [Compose Material3 Adaptive Version 1.3.0-rc01](https://developer.android.com/jetpack/androidx/releases/compose-material3-adaptive#1.3.0-rc01)
+- [Room3 Version 3.0.0-rc01](https://developer.android.com/jetpack/androidx/releases/room3#3.0.0-rc01)
+- [Sqlite Version 2.7.0-rc01](https://developer.android.com/jetpack/androidx/releases/sqlite#2.7.0-rc01)
+- [Test Uiautomator Version 2.4.0-rc01](https://developer.android.com/jetpack/androidx/releases/test-uiautomator#2.4.0-rc01)
+
 ## June 03, 2026
 
 - [Hilt Version 1.4.0-rc01](https://developer.android.com/jetpack/androidx/releases/hilt#1.4.0-rc01)

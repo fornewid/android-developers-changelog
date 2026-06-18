@@ -37,7 +37,7 @@ glasses](https://developer.android.com/develop/xr/jetpack-xr-sdk/set-up-sdk#augm
 ### Groovy
 
     dependencies {
-        implementation "androidx.xr.runtime:runtime:1.0.0-alpha14"
+        implementation "androidx.xr.runtime:runtime:1.0.0-alpha15"
         implementation "androidx.xr.glimmer:glimmer:1.0.0-alpha13"
         implementation "androidx.xr.glimmer:glimmer-google-fonts:1.0.0-alpha13"
         implementation "androidx.xr.projected:projected:1.0.0-alpha08"
@@ -47,7 +47,7 @@ glasses](https://developer.android.com/develop/xr/jetpack-xr-sdk/set-up-sdk#augm
 ### Kotlin
 
     dependencies {
-        implementation("androidx.xr.runtime:runtime:1.0.0-alpha14")
+        implementation("androidx.xr.runtime:runtime:1.0.0-alpha15")
         implementation("androidx.xr.glimmer:glimmer:1.0.0-alpha13")
         implementation("androidx.xr.glimmer:glimmer-google-fonts:1.0.0-alpha13")
         implementation("androidx.xr.projected:projected:1.0.0-alpha08")

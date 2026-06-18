@@ -10,7 +10,7 @@ source: md.txt
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| May 19, 2026 | - | - | - | [1.0.0-alpha14](https://developer.android.com/jetpack/androidx/releases/xr-compose#1.0.0-alpha14) |
+| June 17, 2026 | - | - | - | [1.0.0-alpha15](https://developer.android.com/jetpack/androidx/releases/xr-compose#1.0.0-alpha15) |
 
 ## Declaring dependencies
 
@@ -25,10 +25,10 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.xr.compose:compose:1.0.0-alpha14"
+    implementation "androidx.xr.compose:compose:1.0.0-alpha15"
 
     // Use to write unit tests
-    testImplementation "androidx.xr.compose:compose-testing:1.0.0-alpha14"
+    testImplementation "androidx.xr.compose:compose-testing:1.0.0-alpha15"
 }
 ```
 
@@ -36,10 +36,10 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.xr.compose:compose:1.0.0-alpha14")
+    implementation("androidx.xr.compose:compose:1.0.0-alpha15")
 
     // Use to write unit tests
-    testImplementation("androidx.xr.compose:compose-testing:1.0.0-alpha14")
+    testImplementation("androidx.xr.compose:compose-testing:1.0.0-alpha15")
 }
 ```
 
@@ -59,6 +59,22 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.0
+
+### Version 1.0.0-alpha15
+
+June 17, 2026
+
+`androidx.xr.compose:compose:1.0.0-alpha15` and `androidx.xr.compose:compose-testing:1.0.0-alpha15` are released. Version 1.0.0-alpha15 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/618d7807a412756a751a7ad875c655a3bd51b9cc..6843009ab4a83565ff22c97fa2b27471b6c5c5d7/xr/compose).
+
+**API Changes**
+
+- Deprecated `ResizePolicy` and the old resizable modifier, replacing it with a new `SubspaceModifier.resizable` overload and `SubspaceModifier.transformingResizable`. ([I9e4bc](https://android-review.googlesource.com/#/q/I9e4bc9d09bfe3403584598201b1ca06169553660))
+- Updated `SpatialGltfModel` APIs: Added support for loading models from resources via `SpatialGltfModelSource`.`fromResource`. Renamed speed to `playbackSpeed` in `SpatialGltfModelAnimation` and added a resume() method. `SpatialGltfModelStatus`.Loaded and Loading are now objects. ([I523de](https://android-review.googlesource.com/#/q/I523de803df338f924f9d9f06da14daee6aca9d2b))
+- Marked `rotateToLookAtUser` as an experimental API. ([I86c16](https://android-review.googlesource.com/#/q/I86c16750ea50dbb1ef9444b7f7f0511c7fb0281a))
+- Moved and renamed protected variable `targetCurrentPose` to local variable `currentTargetPoseMeter`. ([Ia557c](https://android-review.googlesource.com/#/q/Ia557c44db6ce1a619b9fcde6ea38d64dfabcf9e2))
+- Update `SpatialPanel` and `SpatialExternalSurface` kdocs to include where the object is rendered within its layout size ([I72104](https://android-review.googlesource.com/#/q/I72104f8e1043bf5f9331e9957595e754efc9a05f))
+- Encapsulated `SpatialGltfModel` loading logic within `SpatialGltfModelState` and clarified failure behavior. ([Ibe98b](https://android-review.googlesource.com/#/q/Ibe98bb04b109f5b415ca129bf29e260191b30205))
+- Clarified `depth` in `SubspaceModifer.size` kdocs ([I0f84f](https://android-review.googlesource.com/#/q/I0f84f1a3b39c1594e85afebf76d2872041e54dc3))
 
 ### Version 1.0.0-alpha14
 

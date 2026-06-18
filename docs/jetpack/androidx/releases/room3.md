@@ -10,7 +10,7 @@ The Room persistence library provides an abstraction layer over SQLite to allow 
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| June 03, 2026 | - | - | - | [3.0.0-alpha06](https://developer.android.com/jetpack/androidx/releases/room3#3.0.0-alpha06) |
+| June 17, 2026 | - | [3.0.0-rc01](https://developer.android.com/jetpack/androidx/releases/room3#3.0.0-rc01) | - | - |
 
 ## Declaring dependencies
 
@@ -121,6 +121,22 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 3.0
+
+### Version 3.0.0-rc01
+
+June 17, 2026
+
+`androidx.room3:room3-*:3.0.0-rc01` is released. Version 3.0.0-rc01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/d0d5e8b902b1ded8854df7d27fa1d1ee14e3bb4c..640800e451c095d1f2a2542027735e19aa8b8ae4/room3).
+
+**New Features**
+
+- Added support for parameters with default values in data classes used in DAO query results. A property that represents a column and is part of a constructor with a default value will be considered optional and a column in the result won't be required for it. ([34279a](https://android-review.googlesource.com/#/q/34279ac0537b29f0be6c73ee5d4c5c8d973c8ea7), [b/70762008](https://issuetracker.google.com/issues/70762008), [b/193531601](https://issuetracker.google.com/issues/193531601))
+
+**API Changes**
+
+- Rename `@TypeConverter` to `@ColumnTypeConverter` to better distinguish the scope of the conversion and to have symmetry with `@DaoReturnTypeConverter`. ([I24420](https://android-review.googlesource.com/#/q/I24420e0c78a8a928dd148071185ade700e1ac8b2), [b/438041176](https://issuetracker.google.com/issues/438041176))
+- Added an API for provided custom DAO return types `@ProvidedDaoReturnTypeConveter`. ([I2a8ad](https://android-review.googlesource.com/#/q/I2a8ad54ddf5cb1adccb41dcd64fbfc57786ff7e7), [b/517485682](https://issuetracker.google.com/issues/517485682))
+- Added the `PrimaryKey.algorihtm` property to specify the primary key generating algorithm when `PrimaryKey.autoGenerate` is set to true. ([I57944](https://android-review.googlesource.com/#/q/I57944a499ed7d66dc6eac4616039e1989b5254b0), [b/70053837](https://issuetracker.google.com/issues/70053837))
 
 ### Version 3.0.0-alpha06
 

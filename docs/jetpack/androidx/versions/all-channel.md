@@ -31,6 +31,46 @@ To get the latest product updates delivered to you in an RSS feed, add the URL o
 
 These Jetpack libraries have been recently updated.
 
+## June 17, 2026
+
+- [Compose Animation Version 1.11.3](https://developer.android.com/jetpack/androidx/releases/compose-animation#1.11.3)
+- [Compose Animation Version 1.12.0-beta01](https://developer.android.com/jetpack/androidx/releases/compose-animation#1.12.0-beta01)
+- [Compose Compose-testing Version 1.0.0-alpha15](https://developer.android.com/jetpack/androidx/releases/xr-compose#1.0.0-alpha15)
+- [Compose Foundation Version 1.11.3](https://developer.android.com/jetpack/androidx/releases/compose-foundation#1.11.3)
+- [Compose Foundation Version 1.12.0-beta01](https://developer.android.com/jetpack/androidx/releases/compose-foundation#1.12.0-beta01)
+- [Compose Material 3 Version 1.5.0-alpha22](https://developer.android.com/jetpack/androidx/releases/compose-material3#1.5.0-alpha22)
+- [Compose Material Version 1.11.3](https://developer.android.com/jetpack/androidx/releases/compose-material#1.11.3)
+- [Compose Material Version 1.12.0-beta01](https://developer.android.com/jetpack/androidx/releases/compose-material#1.12.0-beta01)
+- [Compose Material3 Adaptive Version 1.3.0-rc01](https://developer.android.com/jetpack/androidx/releases/compose-material3-adaptive#1.3.0-rc01)
+- [Compose Remote Version 1.0.0-alpha13](https://developer.android.com/jetpack/androidx/releases/compose-remote#1.0.0-alpha13)
+- [Compose Runtime Version 1.11.3](https://developer.android.com/jetpack/androidx/releases/compose-runtime#1.11.3)
+- [Compose Runtime Version 1.12.0-beta01](https://developer.android.com/jetpack/androidx/releases/compose-runtime#1.12.0-beta01)
+- [Compose UI Version 1.11.3](https://developer.android.com/jetpack/androidx/releases/compose-ui#1.11.3)
+- [Compose UI Version 1.12.0-beta01](https://developer.android.com/jetpack/androidx/releases/compose-ui#1.12.0-beta01)
+- [Core-location-altitude Core-location-altitude-external-protobuf Core-location-altitude-proto Version 1.0.0](https://developer.android.com/jetpack/androidx/releases/core#1.0.0)
+- [Core-telecom Version 1.1.0-alpha06](https://developer.android.com/jetpack/androidx/releases/core#core-telecom-1.1.0-alpha06)
+- [Fragment Version 1.9.0-alpha01](https://developer.android.com/jetpack/androidx/releases/fragment#1.9.0-alpha01)
+- [Glance Wear Version 1.0.0-alpha12](https://developer.android.com/jetpack/androidx/releases/glance-wear#1.0.0-alpha12)
+- [Ink Version 1.1.0-alpha04](https://developer.android.com/jetpack/androidx/releases/ink#1.1.0-alpha04)
+- [Leanback Version 1.3.0-alpha02](https://developer.android.com/jetpack/androidx/releases/leanback#leanback-1.3.0-alpha02)
+- [Leanback-grid Version 1.1.0-alpha02](https://developer.android.com/jetpack/androidx/releases/leanback#leanback-grid-1.1.0-alpha02)
+- [Lifecycle Version 2.11.0](https://developer.android.com/jetpack/androidx/releases/lifecycle#2.11.0)
+- [Lint Version 1.0.0](https://developer.android.com/jetpack/androidx/releases/lint#1.0.0)
+- [Locationbutton Locationbutton-compose Locationbutton-testing Version 1.0.0-alpha01](https://developer.android.com/jetpack/androidx/releases/core-locationbutton#1.0.0-alpha01)
+- [Navigation3 Version 1.1.3](https://developer.android.com/jetpack/androidx/releases/navigation3#1.1.3)
+- [Navigationevent Version 1.1.2](https://developer.android.com/jetpack/androidx/releases/navigationevent#1.1.2)
+- [Room3 Version 3.0.0-rc01](https://developer.android.com/jetpack/androidx/releases/room3#3.0.0-rc01)
+- [Security-state Version 1.1.0-beta02](https://developer.android.com/jetpack/androidx/releases/security#security-state-1.1.0-beta02)
+- [Sqlite Version 2.7.0-rc01](https://developer.android.com/jetpack/androidx/releases/sqlite#2.7.0-rc01)
+- [Test Uiautomator Version 2.4.0-rc01](https://developer.android.com/jetpack/androidx/releases/test-uiautomator#2.4.0-rc01)
+- [Wear Compose Remote Version 1.0.0-alpha06](https://developer.android.com/jetpack/androidx/releases/wear-compose-remote#1.0.0-alpha06)
+- [Webkit Version 1.17.0-alpha02](https://developer.android.com/jetpack/androidx/releases/webkit#1.17.0-alpha02)
+- [Window Version 1.6.0-alpha05](https://developer.android.com/jetpack/androidx/releases/window#1.6.0-alpha05)
+- [Xr Arcore Version 1.0.0-alpha15](https://developer.android.com/jetpack/androidx/releases/xr-arcore#1.0.0-alpha15)
+- [Xr Projected Version 1.0.0-alpha09](https://developer.android.com/jetpack/androidx/releases/xr-projected#1.0.0-alpha09)
+- [Xr Runtime Version 1.0.0-alpha15](https://developer.android.com/jetpack/androidx/releases/xr-runtime#1.0.0-alpha15)
+- [Xr Scenecore Version 1.0.0-alpha16](https://developer.android.com/jetpack/androidx/releases/xr-scenecore#1.0.0-alpha16)
+
 ## June 03, 2026
 
 - [Compose Material 3 Version 1.5.0-alpha21](https://developer.android.com/jetpack/androidx/releases/compose-material3#1.5.0-alpha21)

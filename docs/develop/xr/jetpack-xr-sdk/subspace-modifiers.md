@@ -62,11 +62,48 @@ the Y-axis while still remaining upright and aligned with gravity. To do this,
 combine the [`rotateToLookAtUser`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/layout/SubspaceModifier#(androidx.xr.compose.subspace.layout.SubspaceModifier).rotateToLookAtUser(androidx.xr.runtime.math.Vector3)) modifier with
 the [`gravityAligned`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/layout/package-summary#(androidx.xr.compose.subspace.layout.SubspaceModifier).gravityAligned()) modifier.
 
-This modifier requires your app to [configure](https://developer.android.com/develop/xr/jetpack-xr-sdk/arcore#configure-session) the
-[current session's](https://developer.android.com/develop/xr/jetpack-xr-sdk/add-session#localsession) object with
-[`DeviceTrackingMode.LAST_KNOWN`](https://developer.android.com/reference/kotlin/androidx/xr/runtime/DeviceTrackingMode#LAST_KNOWN()).
+> [!NOTE]
+> **Note:** This modifier requires your app to [configure](https://developer.android.com/develop/xr/jetpack-xr-sdk/arcore#configure-session) the [current session's](https://developer.android.com/develop/xr/jetpack-xr-sdk/add-session#localsession) object with [`DeviceTrackingMode.SPATIAL_LAST_KNOWN`](https://developer.android.com/reference/kotlin/androidx/xr/runtime/DeviceTrackingMode#SPATIAL_LAST_KNOWN()).
 
-[`HeadTrackingMode.LAST_KNOWN`](https://developer.android.com/reference/kotlin/androidx/xr/runtime/HeadTrackingMode#LAST_KNOWN()).
+## Move and Resize with composables
+
+Let users directly manipulate the position and size of objects in 3D space. You
+can add these modifiers to individual components (like `SpatialPanel`),
+subspaces, and spatial layout components (like `SpatialRow` or `SpatialColumn`).
+
+### Move elements
+
+Movable modifiers let users grab and reposition subspace elements.
+
+- [`transformingMovable`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/layout/SubspaceModifier#(androidx.xr.compose.subspace.layout.SubspaceModifier).transformingMovable(kotlin.Boolean,kotlin.Boolean,kotlin.Function1)): Use this modifier
+  for standard movement. This modifier configures the element to be interactive
+  and movable by the user. The system automatically calculates and applies the new
+  pose and scale based on user input.
+
+- [`movable`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/layout/SubspaceModifier#(androidx.xr.compose.subspace.layout.SubspaceModifier).movable(kotlin.Boolean,kotlin.Boolean,kotlin.Function1)): Use this modifier to define custom movement behavior.
+  While the system supplies the move affordance, you must use the
+  required `onMove` event and apply the result. This is useful for restricting
+  movement or creating custom movement in your app.
+
+> [!NOTE]
+> **Note:** Don't use `movable` and `transformingMovable` together.
+
+### Resize elements
+
+Resizable modifiers let users grab and resize subspace elements.
+
+- [`transformingResizable`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/layout/SubspaceModifier#(androidx.xr.compose.subspace.layout.SubspaceModifier).transformingResizable(kotlin.Boolean,androidx.xr.compose.unit.DpVolumeSize,androidx.xr.compose.unit.DpVolumeSize,kotlin.Boolean,kotlin.Function1)): Use this modifier for
+  system-managed resizing. This modifier automatically handles the resize gesture
+  and applies the new dimensions that the user specifies.
+
+- [`resizable`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/layout/SubspaceModifier#(androidx.xr.compose.subspace.layout.SubspaceModifier).resizable(androidx.xr.compose.unit.DpVolumeSize,androidx.xr.compose.unit.DpVolumeSize,kotlin.Boolean,kotlin.Function1)): Use this modifier for custom resizing logic. While
+  the system provides the resize affordance, you must use the
+  `onResize` event and apply the result. This modifier is useful for complex
+  scenarios, such as maintaining a specific aspect ratio or readjusting the
+  overall layout of other components after a resize ends.
+
+> [!NOTE]
+> **Note:** Don't use `resizable` and `transformingResizable` together.
 
 ## Change the appearance of composables
 

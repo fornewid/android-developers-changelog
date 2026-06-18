@@ -6,13 +6,11 @@ source: md.txt
 
 # Wear Watch Face Push
 
-API Reference  
-[androidx.wear.watchfacepush](https://developer.android.com/reference/kotlin/androidx/wear/watchfacepush/package-summary)  
 Watch Face Push allows a Wear OS app to install a watch face on a watch programmatically.
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| March 11, 2026 | - | [1.0.0-rc01](https://developer.android.com/jetpack/androidx/releases/wear-watchfacepush#1.0.0-rc01) | - | - |
+| April 08, 2026 | [1.0.0](https://developer.android.com/jetpack/androidx/releases/wear-watchfacepush#1.0.0) | - | - | - |
 
 ## Declaring dependencies
 
@@ -31,7 +29,7 @@ repositories {
     google() // For the watchfacepush library itself
 }
 dependencies {
-    implementation "androidx.wear.watchfacepush:watchfacepush:1.0.0-rc01"
+    implementation "androidx.wear.watchfacepush:watchfacepush:1.0.0"
 }
 ```
 
@@ -43,7 +41,7 @@ repositories {
 }
 
 dependencies {
-    implementation("androidx.wear.watchfacepush:watchfacepush:1.0.0-rc01")
+    implementation("androidx.wear.watchfacepush:watchfacepush:1.0.0")
 }
 ```
 Additionally, if the app needs to generate tokens for a watch face at runtime, add the following dependency:
@@ -100,6 +98,25 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.0
+
+### Version 1.0.0
+
+April 08, 2026
+
+`androidx.wear.watchfacepush:watchfacepush:1.0.0` is released. Version 1.0.0 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/e8af6ab7417811bf386c52a59ab5d0b94d194eeb..c741092999557dd138c1cc256f77f3b1482332b8/wear/watchfacepush/watchfacepush).
+
+**Major features of 1.0.0:**
+
+- This is the first major release of Watch Face Push ([read more](https://developer.android.com/training/wearables/watch-face-push)).
+- Watch Face Push is an API which allows a Wear OS app to add, update, or remove watch faces directly. It is designed to support use-cases where a user might select, create, or edit a watch face on their phone, and wish to add it to their connected watch.
+
+### Version 1.0.0-rc02
+
+March 25, 2026
+
+`androidx.wear.watchfacepush:watchfacepush:1.0.0-rc02` is released. Version 1.0.0-rc02 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/17bd646a50810d4ad3ef4974404f4d7047eff303..c27c590bb2fe7d4c6c309ef19ade06d146b103da/wear/watchfacepush/watchfacepush).
+
+- Updates the Guava dependency version to resolve security vulnerability CVE-2023-2976.
 
 ### Version 1.0.0-rc01
 

@@ -10,7 +10,7 @@ source: md.txt
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| May 19, 2026 | [1.16.0](https://developer.android.com/jetpack/androidx/releases/webkit#1.16.0) | - | - | [1.17.0-alpha01](https://developer.android.com/jetpack/androidx/releases/webkit#1.17.0-alpha01) |
+| June 17, 2026 | [1.16.0](https://developer.android.com/jetpack/androidx/releases/webkit#1.16.0) | - | - | [1.17.0-alpha02](https://developer.android.com/jetpack/androidx/releases/webkit#1.17.0-alpha02) |
 
 ## Declaring dependencies
 
@@ -53,6 +53,27 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Webkit Version 1.17
+
+### Version 1.17.0-alpha02
+
+June 17, 2026
+
+`androidx.webkit:webkit:1.17.0-alpha02` is released. Version 1.17.0-alpha02
+contains [these
+commits](https://android.googlesource.com/platform/frameworks/support/+log/b5d2acb5ad0a36c9d2aba8feb4c7951165f30fbe..14c2f2ed81d0f61a3227641684cd875e95dd6529/webkit/webkit).
+
+**New Features**
+
+- Added new APIs: `getDownloadFaviconsEnabled` and `setDownloadFaviconsEnabled`. These APIs will allow you to control whether Favicons will be downloaded automatically. ([If9224](https://android-review.googlesource.com/#/q/If922448ab7e6ade223c241ce429f7213c436e931), [b/510229667](https://issuetracker.google.com/issues/510229667))
+
+**API Changes**
+
+- Update the `prefetchUrlAsync` API that accepts `PrefetchResult` as a callback type to report users if there is a duplicate prefetch request. ([Icc796](https://android-review.googlesource.com/#/q/Icc79674269aeba0f42746109f17b455217e19218), [b/483041824](https://issuetracker.google.com/issues/483041824))
+- `ExpectedNoVarySearchData` is deprecated and updated to `ExpectedNoVarySearchHint`. `ignoredQueryParameters` and `consideredQueryParameters` are made immutable lists. ([I7bb8c](https://android-review.googlesource.com/#/q/I7bb8cbb22fcd6f2ba77ad1d7ae15c3d874ba0bd9), [b/491718321](https://issuetracker.google.com/issues/491718321))
+
+**Bug Fixes**
+
+- Corrected `RequiresFeature` annotations on `ProcessGlobalConfig` to reference `isStartupFeatureSupported` instead of the incorrect `isConfigFeatureSupported`. ([I6370b](https://android-review.googlesource.com/#/q/I6370bc2413fdb443c1231a84ea581e2c5702a118))
 
 ### Version 1.17.0-alpha01
 

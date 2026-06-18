@@ -10,7 +10,7 @@ source: md.txt
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| May 19, 2026 | - | - | - | [1.0.0-alpha15](https://developer.android.com/jetpack/androidx/releases/xr-scenecore#1.0.0-alpha15) |
+| June 17, 2026 | - | - | - | [1.0.0-alpha16](https://developer.android.com/jetpack/androidx/releases/xr-scenecore#1.0.0-alpha16) |
 
 ## Declaring dependencies
 
@@ -25,10 +25,10 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.xr.scenecore:scenecore:1.0.0-alpha15"
+    implementation "androidx.xr.scenecore:scenecore:1.0.0-alpha16"
 
     // Use to write unit tests
-    testImplementation "androidx.xr.scenecore:scenecore-testing:1.0.0-alpha15"
+    testImplementation "androidx.xr.scenecore:scenecore-testing:1.0.0-alpha16"
 }
 ```
 
@@ -36,10 +36,10 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.xr.scenecore:scenecore:1.0.0-alpha15")
+    implementation("androidx.xr.scenecore:scenecore:1.0.0-alpha16")
 
     // Use to write unit tests
-    testImplementation("androidx.xr.scenecore:scenecore-testing:1.0.0-alpha15")
+    testImplementation("androidx.xr.scenecore:scenecore-testing:1.0.0-alpha16")
 }
 ```
 
@@ -59,6 +59,52 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.0
+
+### Version 1.0.0-alpha16
+
+June 17, 2026
+
+`androidx.xr.scenecore:scenecore-*:1.0.0-alpha16` is released. Version 1.0.0-alpha16 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/581011b7bddfd705223b2db47dc1abde16055506..fc052f5a502bd14589b077e9b2ac185512f8cf5f/xr/scenecore).
+
+**API Changes**
+
+- Added overloads for `addVertexData`, `setIndexData`, and `addSubset` to `CustomMesh.BuilderFromMeshData` and `CustomMesh.BuilderFromMeshBuffer`. These overloads allow developers to pass raw data and parameters directly (e.g., `ByteBuffer`, `offset`, `size`, `topology`, `indexOffset`, `indexCount`) without needing to wrap them in intermediary objects like `ByteBufferRegion` or `MeshSubset`. ([I84d5c](https://android-review.googlesource.com/#/q/I84d5cb5d04daacbb6d97f98ad99e70ea4c24d94d))
+- `Scene.requestFullSpaceMode()` and `Scene.requestHomeSpaceMode()` have been renamed to `requestFullSpace()` and `requestHomeSpace()`, respectively. Other methods and documentation referring to "Home Space Mode" and "Full Space Mode" have been similarly updated. ([I45751](https://android-review.googlesource.com/#/q/I457519e36cf4dcfc2f839c522eaefe1cccaf8922))
+- Provides public test API `PanelEntityTester` and `MainPanelEntityTester` ([I961e4](https://android-review.googlesource.com/#/q/I961e4f650fe916d6aca259d7ac567d735cefb44f))
+- Adding `pointSourceParams` property to `SoundEffectPoolComponent` ([I4a750](https://android-review.googlesource.com/#/q/I4a750ee3f920f6562b7e5710b3f8849d48b0b1cb))
+- Provides public test API `MovableComponentTester` ([I0c972](https://android-review.googlesource.com/#/q/I0c97202e5d9691ed7b72268015b530ff5041eb88))
+- Provides public test API `PointerCaptureComponentTester` ([Ic0d4f](https://android-review.googlesource.com/#/q/Ic0d4f0c5240679ff1cf5edf915b9e253e06108e1))
+- Provides public test API `ActivityPanelEntityTester` ([I837c4](https://android-review.googlesource.com/#/q/I837c4f5edcc673946734bcf56d32c6acbe5aea95))
+- Provides public test API `ResizableComponentTester` ([I0a3a4](https://android-review.googlesource.com/#/q/I0a3a4af9ec6c5edcd544faeb33ede40ef990550d))
+- Provides public test API `BoundsComponentTester.` ([Iefd53](https://android-review.googlesource.com/#/q/Iefd53522cdc82019d20965f52e3154fb2608acb3))
+- Provides public test API `SpatialMediaPlayerTester` ([Ia3e09](https://android-review.googlesource.com/#/q/Ia3e0998962fbd316b85643fca44afaf9d36daf33))
+- Provides public test API `SpatialEnvironmentTester` ([Icf60f](https://android-review.googlesource.com/#/q/Icf60f62baca225034f63b00665d13c0b620aee71))
+- Provides public test API `GltfModelTester` and `SceneCoreTestRule.getGltfModelTester`. ([I33fcb](https://android-review.googlesource.com/#/q/I33fcbeec53f319846b82453b188c14d814c3622b))
+- Provides public test API `InteractableComponentTester`. ([Ia7096](https://android-review.googlesource.com/#/q/Ia70961c70e4e228a11d1288f4faf38b9a6faa9a6))
+- Provides public test API `SurfaceEntityTester`. ([Ic0740](https://android-review.googlesource.com/#/q/Ic0740e9e4a32530877e4d40de97d8290db83a4ba))
+- Provides public test API `GltfModelEntityTester`, `TestGltfModelNode` and `TestGltfAnimation`. ([I72c4d](https://android-review.googlesource.com/#/q/I72c4d5243a2d8acfe4d8aaaa287b0bd909c195a6))
+- Provides public test API `SceneTester` and `SceneCoreTestRule.sceneTester`. ([Ib4ec5](https://android-review.googlesource.com/#/q/Ib4ec524143a66b573076b8216194c39fabadad69))
+- Provides public test API `PerceptionSpaceTester` and `SceneCoreTestRule.perceptionSpaceTester`. ([Icf739](https://android-review.googlesource.com/#/q/Icf7398cd3dc3377fa3257ed9e1f7c8e43c26a42c))
+- Provides public test API `MeshEntityTester`. ([I63801](https://android-review.googlesource.com/#/q/I63801080fc0da6267c105b057dac7e0d5338d221))
+- Provides public test API `ImageBasedLightingAssetTester` and `SceneCoreTestRule.getTester` overloads. ([I57ec4](https://android-review.googlesource.com/#/q/I57ec4d727a1221af62d3c156fe439c30af731206))
+- Provides public test API `TextureTester` ([Ia865b](https://android-review.googlesource.com/#/q/Ia865b483a42abcbe2307a4c581cc89acb5e89c6c))
+- Provides public test API `PositionalAudioComponentTester` ([Icd96e](https://android-review.googlesource.com/#/q/Icd96e67c7e7b12cd0d269785e648061dfcb48e98))
+- Provides public test API `SpatialSoundPoolTester` ([Ia3531](https://android-review.googlesource.com/#/q/Ia3531a40c1d34be1fcbde1a08ed7784defa9a5b3))
+- Provides public test API `SoundEffectPoolTester` ([If349a](https://android-review.googlesource.com/#/q/If349a4ddba15773c6ee9fbf639253fb243c714c4))
+- Provides public test API `ActivitySpaceTester` and `SceneCoreTestRule.activitySpaceTester`. ([I2d5c2](https://android-review.googlesource.com/#/q/I2d5c2da89432a33177e92c456b521c33e7f096ed))
+- Provides public test API `SpatialWindowTester` ([I41837](https://android-review.googlesource.com/#/q/I41837933243b373fca425091d1470cddda05f25b))
+- Provides public test API `AnchorEntityTester` ([I68404](https://android-review.googlesource.com/#/q/I68404e27d534414c54c06c2c963ceae24a06cd03))
+- Provides the public test API interface `SceneCoreTestRule`. ([Ic72d3](https://android-review.googlesource.com/#/q/Ic72d3d535ba618c725716e41f476ee9588c241b9))
+- Added `PixelDensity` class and exposed it via `Scene#virtualPixelDensity` to provide a hardware-based pixel-per-meter ratio for accurate physical dimension mapping in `ActivitySpace`. ([I0e3ac](https://android-review.googlesource.com/#/q/I0e3ac02d66f74d1096a5cfdd0a29003829501ea1))
+- Added public APIs for creating and rendering Custom Meshes. ([I7ad2f](https://android-review.googlesource.com/#/q/I7ad2fc781c8cb50c16a553f78d795295c518860d))
+- The `VertexLayout` API has been updated to use a list of `VertexBufferLayout`s, where each `VertexBufferLayout` describes the attributes within a single vertex buffer. This allows for more flexible vertex data arrangements, including interleaved attributes with custom strides and offsets. ([Ic426b](https://android-review.googlesource.com/#/q/Ic426ba50be6a06997c52ba6d4274770048ddfaeb))
+- Provides `MovableComponent.createTrackingMovable` to transform an ARCore Trackable to a pose relative to Activity Space. ([I12249](https://android-review.googlesource.com/#/q/I122491aae36dcb415247da6bcb7076ef62461405))
+- The default value for the parent in `Entity.create` has been updated to null. ([Ic3145](https://android-review.googlesource.com/#/q/Ic3145a464ed7b422179ed5d54e1715e28620571f))
+- `Entity` was updated to be a class instead of an interface and is now the base class for all Entity types. As part of this change `BaseEntity` was removed. ([I7fbc9](https://android-review.googlesource.com/#/q/I7fbc96497e6318e6bc8fdc16f2c242f28e60733e))
+- `GltfModel`, `ExrImage`, and `ImageBasedLightingAsset` now implement `AutoCloseable` to allow for idiomatic resource management using Kotlin's `use` block. ([I1ac79](https://android-review.googlesource.com/#/q/I1ac79656d8b710bd46cbb30bf115cd10fa584f22))
+- Introduced the `ImageBasedLightingAsset` class to replace `ExrImage` for defining spatial environment lighting. `ExrImage` has been deprecated and removed from the public API. `SpatialEnvironmentPreference` has been updated to use `ImageBasedLightingAsset`. ([I6c92a](https://android-review.googlesource.com/#/q/I6c92a9fde5425069eb8e769a00d477decd47a046))
+- Renamed the `skybox` parameter in `SpatialEnvironment` to `imageBasedLightingAsset` to better reflect its purpose, and clarified that visual skybox textures should be included in the geometry parameter. ([I24d4a](https://android-review.googlesource.com/#/q/I24d4aba70303dff0742f955e9df6f2e2917f0ab0))
+- Spatial entities now use a stable device density for pixel-to-meter calculations on Spatial API levels 1 and 2, ensuring consistent sizing regardless of system display density changes. ([I37051](https://android-review.googlesource.com/#/q/I37051988437749eaaf89306389d6ed915749e6ba))
 
 ### Version 1.0.0-alpha15
 

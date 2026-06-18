@@ -27,6 +27,12 @@ Here is other compatibility info:
 ## Fixed issues
 
 
+### Android Gradle plugin 9.3.0-rc01
+
+| Fixed Issues ||
+|---|---|
+| No public issues were marked as fixed in AGP 9.3.0-rc01 ||
+
 ### Android Gradle plugin 9.3.0-alpha12
 
 | Fixed Issues ||

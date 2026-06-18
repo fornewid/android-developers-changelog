@@ -10,7 +10,7 @@ Framework for cross app functional UI testing
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| March 11, 2026 | [2.3.0](https://developer.android.com/jetpack/androidx/releases/test-uiautomator#2.3.0) | - | [2.4.0-beta02](https://developer.android.com/jetpack/androidx/releases/test-uiautomator#2.4.0-beta02) | - |
+| June 17, 2026 | [2.3.0](https://developer.android.com/jetpack/androidx/releases/test-uiautomator#2.3.0) | [2.4.0-rc01](https://developer.android.com/jetpack/androidx/releases/test-uiautomator#2.4.0-rc01) | - | - |
 
 ## Declaring dependencies
 
@@ -26,7 +26,7 @@ your app or module:
 ```groovy
 dependencies {
     // Use to implement UIAutomator tests
-    androidTestImplementation "androidx.test.uiautomator:uiautomator:2.4.0-beta02"
+    androidTestImplementation "androidx.test.uiautomator:uiautomator:2.4.0-rc01"
 }
 ```
 
@@ -35,7 +35,7 @@ dependencies {
 ```kotlin
 dependencies {
     // Use to implement UIAutomator tests
-    androidTestImplementation("androidx.test.uiautomator:uiautomator:2.4.0-beta02")
+    androidTestImplementation("androidx.test.uiautomator:uiautomator:2.4.0-rc01")
 }
 ```
 
@@ -84,6 +84,12 @@ June 18, 2025
 - First alpha version of the ui-automator shell library to execute shell commands as shell user. This library allows reading stdout, stderr and writing in the stdin of a sh process launched by shell. De facto, it backports `UiAutomation#executeShellCommandRwe` introduced in api 34.
 
 ## Version 2.4
+
+### Version 2.4.0-rc01
+
+June 17, 2026
+
+`androidx.test.uiautomator:uiautomator:2.4.0-rc01`, `androidx.test.uiautomator:uiautomator-shell:2.4.0-rc01`, and `androidx.test.uiautomator:uiautomator-shell-android:2.4.0-rc01` are released. Version 2.4.0-rc01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/1a508f033de883ba2853b9f9ae1853eec7010638..17189aed3d0407f465998947a9ea3754571de53b/test/uiautomator).
 
 ### Version 2.4.0-beta02
 

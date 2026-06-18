@@ -10,6 +10,7 @@ This document contains release notes for the Engage SDK.
 
 | Release Version | Date |
 |---|---|
+| 1.6.0 | 2026-06-15 |
 | 1.5.12 | 2026-03-31 |
 | 1.5.11 | 2025-12-15 |
 | 1.5.10 | 2025-10-14 |
@@ -29,6 +30,14 @@ This document contains release notes for the Engage SDK.
 | 1.2.0 | 2023-07-19 |
 | 1.1.0 | 2023-06-29 |
 | 1.0.0 | 2023-06-08 |
+
+## Engage SDK 1.6.0 Release (2026-06-15)
+
+This version contains the following changes.
+
+### Summary of changes
+
+- Added a new version of the `isServiceAvailable` API that accepts a `ServiceAvailabilityRequest` parameter.
 
 ## Engage SDK 1.5.12 Release (2026-04-01)
 

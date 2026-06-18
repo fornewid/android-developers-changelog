@@ -32,7 +32,7 @@ respective channels.
 |---|---|
 | Android Studio Quail 1 | Stable |
 | Android Gradle plugin 9.2.0 | Stable |
-| Android Studio Quail 2 | Canary |
+| Android Studio Quail 2 | RC |
 
 <br />
 
@@ -91,16 +91,6 @@ cover common workflows, such as XML to Compose migration, edge-to-edge
 support, Navigation 3, and more.
 ![The agent showing available and active skills in the chat interface.](https://developer.android.com/static/studio/images/more-agent-skills.png) The agent showing available and active skills in the chat interface.
 
-### Build full-stack apps with Firebase in Agent Mode
-
-Firebase services like Authentication and Cloud Firestore databases can be
-[enabled and configured directly in Agent Mode](https://firebase.blog/posts/2026/05/google-io-2026-announcements) in
-Android Studio using [Firebase agent skills](https://firebase.google.com/docs/ai-assistance/agent-skills).
-The agent can help you complete Firebase integration and configure backend
-services. This integration lets you build robust, full-stack Android apps without
-leaving your IDE.
-![The agent guiding a user through Firebase Auth and Firestore setup in the IDE.](https://developer.android.com/static/studio/images/build-full-stack-apps-with-firebase-agent-mode.png) The agent guiding a user through Firebase integration in the chat interface.
-
 ### Parallel conversations
 
 You can run multiple conversations in Agent Mode in parallel, enabling you to
@@ -109,73 +99,6 @@ task like generating tests in one conversation, use a second conversation to
 plan a new feature, and use a third conversation to draft documentation---all at
 the same time.
 ![Android Studio showing multiple active chat threads in the tool window.](https://developer.android.com/static/studio/images/parallel-conversations.png) Multiple active chat threads in the tool window.
-
-### More capabilities when creating a new project with AI
-
-The ability to create new projects with AI has evolved into a full-stack
-development tool: it uses a multi-step execution plan and an autonomous
-"generation loop" that can automatically configure dependencies across multiple
-files and self-correct build errors during project setup.
-
-The capability is further enhanced by its integration with Firebase agent skills,
-which lets you build, debug, and deploy complete full-stack apps from
-a single prompt.
-![Creating and configuring a full-stack Firebase app from a single prompt.](https://developer.android.com/static/studio/images/new-project-agent-v2.png) Creating and configuring a full-stack Firebase app from a single prompt.
-
-Additionally, the AI-assisted new project creation workflow supports large
-screen optimizations. You can specify that you want your project scaffolded with
-layouts, navigation, and components optimized for tablets, foldables, and large
-screen devices. The agent in Android Studio can also configure and launch large-screen
-emulators to test your new layout immediately.
-![An app scaffolded for tablets and foldables.](https://developer.android.com/static/studio/images/new-project-agent-large-screen.png) Scaffolding and testing a tablet-optimized project.
-
-### Build Android apps in Google AI Studio
-
-[Google AI Studio](https://ai.dev/apps?features=build_android_app) supports [full Android app
-development capabilities](http://android-developers.googleblog.com/2026/05/build-android-apps-google-ai-studio.html). You can generate new Android
-apps from natural language prompts, preview them instantly using an embedded Android
-Emulator, and deploy them directly to your physical devices over USB using ADB.
-
-When you're ready to test with users, Google AI Studio can publish directly to the
-Google Play Console. The tool automatically handles the app record creation,
-bundles the package, and uploads it to an internal testing track.
-
-For advanced editing and production readiness, you can export your Google AI Studio
-project as a ZIP file and open it seamlessly in Android Studio.
-![The Google AI Studio interface with an embedded emulator showing a generated app.](https://developer.android.com/static/studio/images/build-android-app-ai-studio.png) Google AI Studio with build mode and embedded Android Emulator.
-
-### Android CLI
-
-Android CLI enables you to build apps using any AI agent, LLM, or development
-environment of your choice. It is [designed to help AI agents build
-faster](https://android-developers.googleblog.com/2026/04/build-android-apps-3x-faster-using-any-agent.html) and use fewer tokens compared to generic LLM tools.
-
-You can ground your agent with the Android Knowledge Base and Android skills to
-ensure they follow recommended best practices. Furthermore, Android CLI enables
-your agent to call into the IDE to do advanced tasks such as find symbol
-declarations and analyze files for issues.
-
-In addition, Android CLI is integrated into
-[Google Antigravity 2.0](http://d.android.com/tools/agents).
-![Diagram of an agent using the Android CLI to interact with the Android Studio IDE.](https://developer.android.com/static/studio/images/android-cli-quail-2-c1.png) Using the Android CLI to bridge agents with Android Studio tools and knowledge.
-
-### Suggested fixes for crashes with Agent integration in AQI
-
-The [App Quality Insights](https://developer.android.com/studio/debug/app-quality-insights) tool
-window is now integrated with the AI agent to analyze crash data along with
-your source code to provide detailed explanations and suggest potential fixes.
-After selecting a crash in the App Quality Insights tool window, navigate to
-the **Insights** tab and click **See more** to see a detailed explanation of
-the crash. Click **Fix with AI** to have the agent suggest code changes that
-you can review and accept.
-![](https://developer.android.com/static/studio/images/agent-integration-aqi.png) New agent integration in AQI with options to "See more" and "Fix with AI"
-
-### Compose Preview Screenshot Testing tool
-
-Use the Compose Preview Screenshot Testing tool to test your Compose UIs and
-prevent regressions. The new tool helps you generate HTML reports that let you
-visually detect any changes to your app's UI. Learn more at [Compose Preview
-Screenshot Testing](https://developer.android.com/studio/preview/compose-screenshot-testing).
 
 ### LeakCanary in Android Studio Profiler
 
@@ -197,53 +120,3 @@ analysis for further processing with Gemini. This can dramatically increase your
 productivity and improve your workflow during the development phase.
 ![](https://developer.android.com/static/studio/preview/features/images/leakcanary-analysis.png) LeakCanary memory leak analysis contextualized with **Go to
 declaration** for debugging
-
-### Recomposition state reads in the Layout Inspector
-
-We've made it easier to diagnose high
-[recomposition](https://developer.android.com/develop/ui/compose/mental-model#recomposition) counts by adding
-Recomposition state reads to the [Layout
-Inspector](https://developer.android.com/studio/debug/layout-inspector). Available in Panda 3 canary, this
-feature helps you identify the state variables that triggered a recomposition by
-providing a detailed list of state reads performed during that cycle. To use
-this feature, use `compose.ui:ui:1.10.0 (BOM 2025.12.01)` or higher.
-
-**Key capabilities**
-
-Key capabilities of this feature are the following:
-
-- **Trace state invalidation**: When a node recomposes, click the recomposition count link in the Component Tree to open the State Inspection panel.
-- **Detailed stack traces** : Identify the specific state variables being read, including as counts, lists, or elevation values. Check which ones were `invalidated` (changed) to trigger the update.
-- **Navigate recomposition history**: Use the navigation arrows in the panel header to cycle through the state data of previous recompositions for a specific node.
-- **AI-powered explanations** : Click **Explain with AI** in the State Inspection panel to display a natural-language breakdown of the state read and why it caused a recomposition.
-
-**Get started**
-
-Follow these steps to try out these features.
-
-1. Open the Layout Inspector.
-2. Right-click the recomposition column and do one of the following:
-
-   - For all nodes, select **Observe Recomposition \> Observe
-     All**.
-   - For specific notes, select **Recomposition \> Observe Node**.
-
-   ![](https://developer.android.com/static/studio/images/design/compose-state-inspector-entry.png) Turn on recomposition state reads in the Layout Inspector
-3. Interact with your app. When recompositions occur, click the blue count
-   links in the Component Tree to inspect the state.
-
-   ![](https://developer.android.com/static/studio/images/design/compose-state-inspector.png) Sample result of recomposition state reads in the Layout Inspector
-4. Click "Explain with AI" to get a breakdown analysis of why recomposition happened.
-
-   ![](https://developer.android.com/static/studio/images/design/explain-with-ai-state.png) Sample result of "Explain with AI" for state reads in Layout Inspector
-
-### Publish to Google Play for testing
-
-Android Studio now gives you the ability to upload new releases of your app
-directly to Google Play Console test tracks. You can do this by selecting
-a new option to continue to 'Publish for Testing' at the end of the Generate
-Signed App Bundle flow. This integration supports uploading an initial
-release of a brand-new app to a Play Console internal test track. You can
-also use this feature to upload releases of existing apps to other types of
-test tracks. You need to be registered on Google Play Console to take
-advantage of this functionality.

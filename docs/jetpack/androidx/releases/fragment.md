@@ -10,7 +10,7 @@ source: md.txt
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| August 13, 2025 | [1.8.9](https://developer.android.com/jetpack/androidx/releases/fragment#1.8.9) | - | - | - |
+| June 17, 2026 | [1.8.9](https://developer.android.com/jetpack/androidx/releases/fragment#1.8.9) | - | - | [1.9.0-alpha01](https://developer.android.com/jetpack/androidx/releases/fragment#1.9.0-alpha01) |
 
 > [!CAUTION]
 > **Caution:** This library is in maintenance mode and will only receive critical fixes; new features are not planned. We recommend using [Jetpack Compose](https://developer.android.com/jetpack/compose) for building Android UIs. See [Compose-first](https://developer.android.com/develop/ui/compose/first) for more information.
@@ -73,6 +73,41 @@ clicking the star button.
 
 See the [Issue Tracker documentation](https://developers.google.com/issue-tracker)
 for more information.
+
+## Version 1.9
+
+### Version 1.9.0-alpha01
+
+June 17, 2026
+
+`androidx.fragment:fragment-*:1.9.0-alpha01` is released. Version 1.9.0-alpha01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/f39ca3510efb2347ebfef231e25a3e804922450d..14c2f2ed81d0f61a3227641684cd875e95dd6529/fragment).
+
+**API Changes**
+
+- Fragment now implements the `ContextAware` interface and can be used to execute code when the fragment is attached. ([I38019](https://android-review.googlesource.com/#/q/I38019669dd4bfb7973f28da371427ec8098fce86), [b/477255355](https://issuetracker.google.com/issues/477255355))
+
+**Bug Fixes**
+
+- Fixed a crash in Fragment that was caused when the Activity is sent to the background during a predictive back gesture. ([I55734](https://android-review.googlesource.com/#/q/I55734af5e6f1e4ef8c25f64a762a048871cae364), [b/389589678](https://issuetracker.google.com/issues/389589678))
+- UnsafeFragmentLifecycleObserverDetector no longer runs within composition. ([Ic4176](https://android-review.googlesource.com/#/q/Ic4176cf196952a82776dd1b27f3b2002b79a3b29), [b/501504696](https://issuetracker.google.com/issues/501504696))
+- \[From [Fragment 1.8.9](https://developer.android.com/jetpack/androidx/releases/fragment#1.8.9)\] Fixed an issue where cancelling a predictive back gesture that pops a hide operation will cause the subsequent gesture not to animate correctly when using animators. ([I0a400](https://android-review.googlesource.com/#/q/I0a4003096caf30f8185e1a9bd2b493f7d1d0c875), [b/384765586](https://issuetracker.google.com/issues/384765586))
+- \[From [Fragment 1.8.9](https://developer.android.com/jetpack/androidx/releases/fragment#1.8.9)\] Fixed an error where a combination of setMaxLifecycle and popBackStack could fail to move the top fragment to RESUMED. ([I3448b](https://android-review.googlesource.com/#/q/I3448b3c372f318b399ce93f74326fbfda87475d9), [b/406127576](https://issuetracker.google.com/issues/406127576))
+- \[From [Fragment 1.8.8](https://developer.android.com/jetpack/androidx/releases/fragment#1.8.8)\] Fixed an issue where FragmentManager would crash while trying to save the state of Fragments that were added with `setMaxLifecycle(Lifecycle.State.INITIALIZED)`. These fragments, since they never when through `onCreate()`, no longer have any state saved or `onSaveInstanceState()` called. ([I6e37a](https://android-review.googlesource.com/#/q/I6e37a01551008636d6b5ccafa65f03fcbd19321f), [b/408163315](https://issuetracker.google.com/issues/408163315))
+- \[From [Fragment 1.8.7](https://developer.android.com/jetpack/androidx/releases/fragment#1.8.7)\] Fixed an issue with FragmentManager no being in the proper state after pop and replace operations in the same frame that could cause a crash in conjunction with predictive back. ([I50ad1](https://android-review.googlesource.com/#/q/I50ad1d46b1bb080b2006883874ee68ae27e98cc7), [b/380288461](https://issuetracker.google.com/issues/380288461))
+- \[From [Fragment 1.8.6](https://developer.android.com/jetpack/androidx/releases/fragment#1.8.6)\] FragmentContainerView's `setOnApplyWindowInsetsListener` override now takes a null listener. ([I575f0](https://android-review.googlesource.com/#/q/I575f0b5da72d096b14393afd9819ab66e061b002), [b/282790626](https://issuetracker.google.com/issues/282790626))
+- \[From [Fragment 1.8.5](https://developer.android.com/jetpack/androidx/releases/fragment#1.8.5)\] Fixed an `IllegalStateException` triggered by `saveBackStack` only after a Predictive Back gesture was cancelled or interrupted. ([I3387d](https://android-review.googlesource.com/#/q/I3387d9d02495112f211448d7f3c9f862299da697), [b/342419080](https://issuetracker.google.com/issues/342419080))
+- \[From [Fragment 1.8.4](https://developer.android.com/jetpack/androidx/releases/fragment#1.8.4)\] Fixed an `UninitializedPropertyAccessException` in `AndroidFragment` when dynamically swapping out the Class your `AndroidFragment` instance is using. ([I12dea](https://android-review.googlesource.com/#/q/I12dea04016d1f68583acb1265ca0a937a7ebd75d), [b/365578408](https://issuetracker.google.com/issues/365578408))
+- \[From [Fragment 1.8.4](https://developer.android.com/jetpack/androidx/releases/fragment#1.8.4)\] Fixed an issue where quickly pressing system back or doing fast gesture back will cause Fragments to crash. ([Ibc038](https://android-review.googlesource.com/#/q/Ibc038d8db7c3e7903a4dc8bfa556883705d27ee8), [b/364804225](https://issuetracker.google.com/issues/364804225), [b/364914301](https://issuetracker.google.com/issues/364914301))
+- \[From [Fragment 1.8.4](https://developer.android.com/jetpack/androidx/releases/fragment#1.8.4)\] Fixed an issue in fragments where interrupting a predictive back gesture would send the fragment manager into an undefined state and even up showing the wrong fragment. ([If82e2](https://android-review.googlesource.com/#/q/If82e2cd540a5319faa2e40d4a28ce31026e2e19d), [b/338624457](https://issuetracker.google.com/issues/338624457))
+- \[From [Fragment 1.8.3](https://developer.android.com/jetpack/androidx/releases/fragment#1.8.3)\] `AndroidFragment` no longer crashes if it is added to composition while the containing activity/fragment's state is already saved. ([I985e9](https://android-review.googlesource.com/#/q/I985e91e6d654815c99e97927154d0fd8f2228c0b), [b/356643968](https://issuetracker.google.com/issues/356643968))
+- \[From [Fragment 1.8.2](https://developer.android.com/jetpack/androidx/releases/fragment#1.8.2)\] Triggering a system back while the FragmentManager has pending operations will no longer cause an out of bound exception. ([I9ba32](https://android-review.googlesource.com/#/q/I9ba32fe0583d13618c1eac3f13fdbd8992a3b7ad), [b/342316801](https://issuetracker.google.com/issues/342316801))
+- \[From [Fragment 1.8.2](https://developer.android.com/jetpack/androidx/releases/fragment#1.8.2)\] `AndroidFragment` now properly handles cases where the parent fragment is put on the Fragment back stack, avoiding 'No view found for id' issues when popping back to that fragment. ([I94608](https://android-review.googlesource.com/#/q/I94608fed9ada006e5e601ede8adb8be81fae29a0), [b/347706985](https://issuetracker.google.com/issues/347706985))
+- \[From [Fragment 1.8.2](https://developer.android.com/jetpack/androidx/releases/fragment#1.8.2)\] Fragments added via the `FragmentTransaction.add` method that takes a `ViewGroup` now wait for `onContainerAvailable` before progressing to `onStart()`. This affects users of that API, such as `AndroidFragment`, which now waits for the `AndroidFragment` to re-enter composition before moving it through `onStart()`. ([I94608](https://android-review.googlesource.com/#/q/I94608fed9ada006e5e601ede8adb8be81fae29a0), [b/347706985](https://issuetracker.google.com/issues/347706985))
+- \[From [Fragment 1.8.1](https://developer.android.com/jetpack/androidx/releases/fragment#1.8.1)\] Fixed an issue where fragment without a container were immediately DESTROYED when starting a predictive back gesture. ([If6b83](https://android-review.googlesource.com/#/q/If6b83f7dbb655e0bebc99c3c769625626a7c4e8d), [b/345244539](https://issuetracker.google.com/issues/345244539))
+
+**External Contribution**
+
+- Merge fragment-ktx into the fragment library. All Kotlin extensions are now part of the main fragment artifact. fragment-ktx is now an empty artifact for compatibility. Thank you Jake Wharton! ([Idabaa](https://android-review.googlesource.com/#/q/Idabaa63ce89a664f40767c5034cafa69d18c4156))
 
 ## Version 1.8
 

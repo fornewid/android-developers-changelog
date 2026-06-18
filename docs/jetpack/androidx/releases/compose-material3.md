@@ -10,7 +10,7 @@ source: md.txt
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| June 03, 2026 | [1.4.0](https://developer.android.com/jetpack/androidx/releases/compose-material3#1.4.0) | - | - | [1.5.0-alpha21](https://developer.android.com/jetpack/androidx/releases/compose-material3#1.5.0-alpha21) |
+| June 17, 2026 | [1.4.0](https://developer.android.com/jetpack/androidx/releases/compose-material3#1.4.0) | - | - | [1.5.0-alpha22](https://developer.android.com/jetpack/androidx/releases/compose-material3#1.5.0-alpha22) |
 
 > [!NOTE]
 > **Note:** To develop UIs for Wear OS apps using Material 3 Expressive, use the [Wear Compose Material 3](https://developer.android.com/jetpack/androidx/releases/wear-compose-m3) library instead of this one.
@@ -48,7 +48,7 @@ your app or module:
 dependencies {
     implementation "androidx.compose.material3:material3:1.4.0"
     implementation "androidx.compose.material3:material3-window-size-class:1.4.0"
-    implementation "androidx.compose.material3:material3-adaptive-navigation-suite:1.5.0-alpha21"
+    implementation "androidx.compose.material3:material3-adaptive-navigation-suite:1.5.0-alpha22"
 }
 
 android {
@@ -72,7 +72,7 @@ android {
 dependencies {
     implementation("androidx.compose.material3:material3:1.4.0")
     implementation("androidx.compose.material3:material3-window-size-class:1.4.0")
-    implementation("androidx.compose.material3:material3-adaptive-navigation-suite:1.5.0-alpha21")
+    implementation("androidx.compose.material3:material3-adaptive-navigation-suite:1.5.0-alpha22")
 }
 
 android {
@@ -317,6 +317,30 @@ Material3 adaptive pane scaffold APIs:
   - [AnimatedPane](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/package-summary#(androidx.compose.material3.adaptive.ThreePaneScaffoldScope).AnimatedPane(androidx.compose.ui.Modifier,kotlin.Function2))
 
 ## Compose Material3 Version 1.5
+
+### Version 1.5.0-alpha22
+
+June 17, 2026
+
+`androidx.compose.material3:material3-*:1.5.0-alpha22` is released. Version 1.5.0-alpha22 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/d0d5e8b902b1ded8854df7d27fa1d1ee14e3bb4c..14c2f2ed81d0f61a3227641684cd875e95dd6529/compose/material3).
+
+**API Changes**
+
+- Added a public `snapAnimationSpec` getter to `TopAppBarDefaults` to expose the default snap animation spec. ([Ic7b37](https://android-review.googlesource.com/#/q/Ic7b37cfb5c5f5105235171f18ab3b5f36eee97d7), [b/519193808](https://issuetracker.google.com/issues/519193808))
+- Add shapes to internal and private methods of TimePicker.kt API ([I9d09e](https://android-review.googlesource.com/#/q/I9d09ee1830bddfbd3a4f168e249d2ffa726c391b), [b/441573791](https://issuetracker.google.com/issues/441573791))
+- Support shapes in `AnimatedPane` ([Ie7c60](https://android-review.googlesource.com/#/q/Ie7c6030333bd11075483ef9ceedfcad931f6c5a4), [b/470517507](https://issuetracker.google.com/issues/470517507))
+- Fix contrast of AM/PM toggle buttons for TimePicker ([Ifc0b7](https://android-review.googlesource.com/#/q/Ifc0b721cca8d4e9cea20e9ac8b93b42e8c785a8c), [b/339079853](https://issuetracker.google.com/issues/339079853))
+- Graduate Expressive `FloatingToolbar` APIs to non-experimental. ([I5a4d8](https://android-review.googlesource.com/#/q/I5a4d868d9a027f3244b8c025c67e6bc15fe373f0), [b/497887216](https://issuetracker.google.com/issues/497887216))
+- Remove deprecated `transformOriginState` from `DropdownMenuPopupPositionProvider`. ([I0d5b0](https://android-review.googlesource.com/#/q/I0d5b0247483cceec8e5b0a73ef1b4a71cd9948a3), [b/505481611](https://issuetracker.google.com/issues/505481611))
+- Updated `pinnedScrollBehavior` and `enterAlwaysScrollBehavior` to accept a `ScrollableState`, which automatically handles edge cases like reversed layouts and pre-scrolled content. Legacy overloads are deprecated. Migrate usages of `isScrollingContentAtStart` to the new overloads with `scrollableState` param. Promoted `TopAppBarScrollBehavior` and related APIs to stable. ([Ib83cf](https://android-review.googlesource.com/#/q/Ib83cf8b83214590b8bf46bf9b0ab9401915b13a6), [b/519193808](https://issuetracker.google.com/issues/519193808))
+- Updated `pinnedScrollBehavior` and `enterAlwaysScrollBehavior` to accept a `ScrollableState`, which automatically handles edge cases like reversed layouts and pre-scrolled content. Promoted `TopAppBarScrollBehavior` and related APIs to stable. ([Ieda4b](https://android-review.googlesource.com/#/q/Ieda4b3ff37ab9aa4aade303d1a38927d5fc9b440), [b/405129274](https://issuetracker.google.com/issues/405129274))
+- Update `DropdownMenuPositionProvider` to remove `MutableState` from `transformOrigin`. Collapse `MenuAnchorPosition` from a sealed interface into a single class. Introduces `MenuAnchorPositionScope` that contains information that can be used to create custom x and y candidates. ([I21f2b](https://android-review.googlesource.com/#/q/I21f2b22e19f347a30800ce0b732e69b27050a3ef), [b/505481611](https://issuetracker.google.com/issues/505481611))
+- Promote `ButtonGroup` APIs to stable. Remove deprecated experimental APIs that were introduced in a 1.5.0-alpha. ([Idaf96](https://android-review.googlesource.com/#/q/Idaf96db31dff21c0c262fb9fbfd414c6657c6032), [b/497876828](https://issuetracker.google.com/issues/497876828))
+
+**Bug Fixes**
+
+- Fixed a bug where `ButtonGroup`'s compression animation did not correctly handle asymmetric button paddings or RTL layout directions, and could crash with `IllegalArgumentException` under certain display densities. ([I35074](https://android-review.googlesource.com/#/q/I35074ef11ee26c417730b77109eca8c404085aeb), [b/516743181](https://issuetracker.google.com/issues/516743181))
+- Fix TimePicker text input mode error handling mechanism ([If4541](https://android-review.googlesource.com/#/q/If4541f5b62e43dc847c6f0e89307a10016d3c5da), [b/405054265](https://issuetracker.google.com/issues/405054265))
 
 ### Version 1.5.0-alpha21
 

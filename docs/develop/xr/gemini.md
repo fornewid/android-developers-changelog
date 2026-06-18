@@ -20,8 +20,8 @@ behalf.
 
 You can access [Gemini APIs using Firebase AI Logic](https://firebase.google.com/docs/ai-logic), which is
 available for both native Android apps (with Kotlin) and for Unity. Use these
-APIs to build AI-powered features that integrate with cloud-based Gemini and
-Imagen models.
+APIs to build AI-powered features that integrate with cloud-based Gemini
+models.
 
 ## Choose a model
 
@@ -36,7 +36,7 @@ After you've determined the model that fits your use case, consider these other
 ways to enhance your app:
 
 - **Provide a voice interface** : Android XR uses natural inputs like hands, gaze, and voice to navigate the system. To let your users navigate your app using their voice, use the [Gemini live API](https://developer.android.com/ai/gemini/live) along with [function calling](https://developer.android.com/ai/gemini/live#function).
-- **Generate images with multimodal support** : generate images using Gemini or Imagen models with the [Gemini Developer API](https://developer.android.com/ai/gemini/developer-api).
+- **Generate images with multimodal support** : generate images using Gemini models with the [Gemini Developer API](https://developer.android.com/ai/gemini/developer-api).
 - **Enrich game interactions in Unity apps** : Generate [structured
   output](https://firebase.google.com/docs/ai-logic/generate-structured-output?api=dev#generate-json-basic) using the [Gemini Developer API](https://developer.android.com/ai/gemini/developer-api) or [Vertex AI
   Gemini API](https://developer.android.com/ai/vertex-ai-firebase).

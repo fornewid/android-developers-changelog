@@ -21,7 +21,7 @@ This table lists all the artifacts in the `androidx.core` group.
 | core-role | [1.1.0](https://developer.android.com/jetpack/androidx/releases/core#core-role-1.1.0) | - | - | - |
 | core-splashscreen | [1.2.0](https://developer.android.com/jetpack/androidx/releases/core#core-splashscreen-1.2.0) | - | - | - |
 
-This library was last updated on: June 03, 2026
+This library was last updated on: June 17, 2026
 
 ## Declaring dependencies
 
@@ -2654,6 +2654,27 @@ July 26, 2023
 
 ### Version 1.0
 
+### Version 1.0.0
+
+June 17, 2026
+
+`androidx.core:core-location-altitude:1.0.0`, `androidx.core:core-location-altitude-external-protobuf:1.0.0`, and `androidx.core:core-location-altitude-proto:1.0.0` are released. Version 1.0.0 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/ee961773bd6a83b5a65e1eded92c3ac09e4fe81f..a95266623bd2e6b286cbd12c2eefec5b9845316a/core).
+
+**Major features of 1.0.0:**
+
+**Bug Fixes**
+
+- Moves libraries to use Java 11 target. This means produced bytecode will be Java 11 (class file version 55) and might require desugaring to use the library ([If4c2a](https://android-review.googlesource.com/#/q/If4c2a6fdda1278f42ea080fa365e8b437b2c2ae6), [b/457821470](https://issuetracker.google.com/issues/457821470))
+- Add ViewBoundsTracker class to continuously track the view bounds for setting sourceRectHint in PictureInPictureParamsCompat ([Id203a](https://android-review.googlesource.com/#/q/Id203aa25cb63addc6585c6eb721d99e5b195177b), [b/474454111](https://issuetracker.google.com/issues/474454111))
+- Add PictureInPictureParamsValidator class to validate the app provided PictureInPictureParamsCompat ([I89b4d](https://android-review.googlesource.com/#/q/I89b4d813f42c42687eb10bb45005f6765c210990), [b/470149490](https://issuetracker.google.com/issues/470149490))
+- Add the Pixel Dec release to the list of fixed build fingerprints in KI_398591036 ([I65f51](https://android-review.googlesource.com/#/q/I65f51f92c528ca7483476bb5ab9d0f0e7f603ca1), [b/398591036](https://issuetracker.google.com/issues/398591036))
+- Add the Pixel Nov release to the list of fixed build fingerprints in KI_398591036 ([I60c10](https://android-review.googlesource.com/#/q/I60c10c18a5cbe68a2a5aaa45aae6caf314de0179), [b/398591036](https://issuetracker.google.com/issues/398591036))
+- Add the Pixel Oct release to the list of fixed build fingerprints in KI_398591036 ([I6438c](https://android-review.googlesource.com/#/q/I6438cbd8db15b8ad545eff1c3b492385a1002a5f), [b/398591036](https://issuetracker.google.com/issues/398591036))
+- Removed references to FingerprintManager class from FingerprintManagerCompat and updated all methods to return false or no-op. ([I0360b](https://android-review.googlesource.com/#/q/I0360b3ef856865097df80d3d98953978d1e86de7), [b/330524057](https://issuetracker.google.com/issues/330524057))
+- Fix the code links in documentation for KI_452390376 ([I9a554](https://android-review.googlesource.com/#/q/I9a554376ca3be01cc6a79cda3349d0d4fb23c070), [b/454020407](https://issuetracker.google.com/issues/454020407))
+- Mark specifig pixel builds as fixed. ([I4c751](https://android-review.googlesource.com/#/q/I4c7519189c6fd1a792333925e0a1bd3cbb37c712), [b/398591036](https://issuetracker.google.com/issues/398591036))
+- Add support for specifying a list of manually tested build fingerprints for a KnownIssue. ([Iea9f9](https://android-review.googlesource.com/#/q/Iea9f9f14a4c81a66689552d59ecaf2b41f02c494), [b/453691379](https://issuetracker.google.com/issues/453691379))
+
 #### Version 1.0.0-rc01
 
 March 11, 2026
@@ -2820,6 +2841,25 @@ July 2, 2019
 ## Core-telecom
 
 ### Version 1.1
+
+### Version 1.1.0-alpha06
+
+June 17, 2026
+
+`androidx.core:core-telecom:1.1.0-alpha06` is released. Version 1.1.0-alpha06 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/3edf226b37ade9712d8cb1590622d1c4500f5f0d..36e054a434241b1a13950458560fac44bac6ba35/core/core-telecom).
+
+**API Changes**
+
+- Remove the `ExperimentalAppActions` annotation from stable extensions ([I25ab2](https://android-review.googlesource.com/#/q/I25ab240a315affc39c7b694242a05766c6d519dd), [b/501448256](https://issuetracker.google.com/issues/501448256))
+
+**Bug Fixes**
+
+- Fix video calls route to earpiece instead of speaker bug when using the backwards compat path on sdk=34+ ([I9f2bd](https://android-review.googlesource.com/#/q/I9f2bd0ac012555277e189543fe6eda3a6bbd0854), [b/519599698](https://issuetracker.google.com/issues/519599698))
+- Fixed an issue where incoming audio-only `VoIP` calls were incorrectly treated as video calls by the platform, causing them to route to the speakerphone instead of the earpiece ([I95902](https://android-review.googlesource.com/#/q/I959025dfd4231ca7beea7287a19e8094608a7d3a), [b/517616475](https://issuetracker.google.com/issues/517616475))
+- Fixed a bug in Core-Telecom where an intentional user switch to speakerphone during call initialization would be incorrectly reverted to the earpiece. ([I9e251](https://android-review.googlesource.com/#/q/I9e251ce4c81b60e3e1712984483981682eb837e7), [b/478022476](https://issuetracker.google.com/issues/478022476))
+- Fixed an issue where redundant audio state updates in core-telecom could lead to main thread congestion and potential ANRs. ([Ibd794](https://android-review.googlesource.com/#/q/Ibd794ea1e1c326a7e17075293142170d35fc74e8), [b/491873537](https://issuetracker.google.com/issues/491873537))
+- Fix NPE in `BlueoothProfileListener#onServiceConnected` ([Idbd57](https://android-review.googlesource.com/#/q/Idbd57d31151d1d30f7190c305b91d13408e40485), [b/513341034](https://issuetracker.google.com/issues/513341034))
+- Fixed a test failure in CallSessionTest on Android 17 (SDK 37) by suppressing version-specific bug mitigation tests on unaffected platform versions. ([I970a7](https://android-review.googlesource.com/#/q/I970a73a2cf0d0240f3b24dc0c58d2720d86298b6), [b/502732317](https://issuetracker.google.com/issues/502732317))
 
 #### Version 1.1.0-alpha05
 

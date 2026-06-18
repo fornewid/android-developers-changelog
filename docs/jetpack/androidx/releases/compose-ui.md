@@ -10,7 +10,7 @@ source: md.txt
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| May 19, 2026 | [1.11.2](https://developer.android.com/jetpack/androidx/releases/compose-ui#1.11.2) | - | - | [1.12.0-alpha03](https://developer.android.com/jetpack/androidx/releases/compose-ui#1.12.0-alpha03) |
+| June 17, 2026 | [1.11.3](https://developer.android.com/jetpack/androidx/releases/compose-ui#1.11.3) | - | [1.12.0-beta01](https://developer.android.com/jetpack/androidx/releases/compose-ui#1.12.0-beta01) | - |
 
 ## Structure
 
@@ -43,7 +43,7 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.compose.ui:ui:1.11.2"
+    implementation "androidx.compose.ui:ui:1.11.3"
 }
 
 android {
@@ -65,7 +65,7 @@ android {
 
 ```kotlin
 dependencies {
-    implementation("androidx.compose.ui:ui:1.11.2")
+    implementation("androidx.compose.ui:ui:1.11.3")
 }
 
 android {
@@ -99,6 +99,32 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.12
+
+### Version 1.12.0-beta01
+
+June 17, 2026
+
+`androidx.compose.ui:ui-*:1.12.0-beta01` is released. Version 1.12.0-beta01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/b5d2acb5ad0a36c9d2aba8feb4c7951165f30fbe..40b1610b08564489b3f6a426cd8833f8615bfc68/compose/ui).
+
+**API Changes**
+
+- N/A (moving internal developer feature flag) ([Iaf2c4](https://android-review.googlesource.com/#/q/Iaf2c42807e373e7d647893dc012bac68f30a5590), [b/368702588](https://issuetracker.google.com/issues/368702588))
+- N/A - Moved a feature flag. ([I24668](https://android-review.googlesource.com/#/q/I24668ffd2667645ef468412e452ff288190a24a1), [b/521811270](https://issuetracker.google.com/issues/521811270))
+- Added experimental feature flag `ComposeUiFlags`.`isTrackpadPinchReinterpretationEnabled` to re-interpret trackpad pinch gestures as mouse events with scale factors. ([Id3477](https://android-review.googlesource.com/#/q/Id3477870fc26b8d516044a0a9ab015a3ff21e3f9), [b/478053727](https://issuetracker.google.com/issues/478053727))
+- Renames test function for triggering indirect pointer events ([I3ee35](https://android-review.googlesource.com/#/q/I3ee350b89fa866f7d4446eacd0ccaa76c31008a7), [b/509618414](https://issuetracker.google.com/issues/509618414))
+- Add optimisation to the `BasicText` and `BasicTextField` where setting a line height for a text with softwrap=false is now calculating more optimally ([I2150a](https://android-review.googlesource.com/#/q/I2150ac694edc14244437fc72ee356cc761e53cda))
+
+**Bug Fixes**
+
+- Optimized scroll capture state propagation across subcompositions to prevent unnecessary UI recomposition. ([I05830](https://android-review.googlesource.com/#/q/I05830c14f2e9ea6d51bb1a10d4e9a54c6264df63))
+- Enabled experimental feature flag `ComposeUiFlags`.`isTrackpadPinchReinterpretationEnabled` by default. ([I35ab8](https://android-review.googlesource.com/#/q/I35ab87bdf9e09007f8f01dd6a65413b0770c5910), [b/478053727](https://issuetracker.google.com/issues/478053727))
+- Fixed an issue in vector drawable resource parsing where parent `<clip-path>` elements were ignored if they contained nested `<group>` elements. ([Id4ea9](https://android-review.googlesource.com/#/q/Id4ea9691c41bf48ee1a30e828a6d895cffdda8ca), [b/474530439](https://issuetracker.google.com/issues/474530439))
+- Added support for standard JUnit 4 test retry rules in `AndroidComposeTestRule` by regenerating the internal test environment and coroutine scope between execution attempts. ([Iafaa7](https://android-review.googlesource.com/#/q/Iafaa7adb1f56931803f08f85114df3b6ab2c2df2), [b/235383900](https://issuetracker.google.com/issues/235383900))
+
+**External Contribution**
+
+- Expose `AndroidClipboard` interface for testing to provide a way to mock clipboard implementation ([Ie4d72](https://android-review.googlesource.com/#/q/Ie4d72947de357862f85a963066b06021a5342441), [b/512924975](https://issuetracker.google.com/issues/512924975))
+- Add backwards compatibility for `TextAttribute` variants of `commitText()` and `setComposingText()`. For SDK\>=37, accessibility services will be able to announce whether or not a suggestion replacement text is selected. For SDK\<37, will not affect spoken feedback (i.e. existing behavior). ([I90e3d](https://android-review.googlesource.com/#/q/I90e3d069dd377326b72516fd1c5a8dc8c4734660), [b/439879822](https://issuetracker.google.com/issues/439879822))
 
 ### Version 1.12.0-alpha03
 
@@ -195,6 +221,12 @@ April 22, 2026
 - Setting `ContentDataType.None` in semantics now prevents autofill events from being sent by Compose. This should prevent initialization costs associated with requesting autofill services. ([I8fbda](https://android-review.googlesource.com/#/q/I8fbda79955e6f83135bcfee5450cb4d0da07f6d2), [b/487947860](https://issuetracker.google.com/issues/487947860))
 
 ## Version 1.11
+
+### Version 1.11.3
+
+June 17, 2026
+
+`androidx.compose.ui:ui-*:1.11.3` is released. Version 1.11.3 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/f024db30e2eb34d643af9804ac0650840a49a05c..b3fb8849de357e09c2efc963c36a1012543ca411/compose/ui).
 
 ### Version 1.11.2
 

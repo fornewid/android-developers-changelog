@@ -13,7 +13,7 @@ Bring digital content into the real world with perception capabilities.
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| May 19, 2026 | - | - | - | [1.0.0-alpha14](https://developer.android.com/jetpack/androidx/releases/xr-arcore#1.0.0-alpha14) |
+| June 17, 2026 | - | - | - | [1.0.0-alpha15](https://developer.android.com/jetpack/androidx/releases/xr-arcore#1.0.0-alpha15) |
 
 
 ## Declaring dependencies
@@ -30,7 +30,7 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.xr.arcore:arcore:1.0.0-alpha14"
+    implementation "androidx.xr.arcore:arcore:1.0.0-alpha15"
 }
 ```
 
@@ -38,7 +38,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.xr.arcore:arcore:1.0.0-alpha14")
+    implementation("androidx.xr.arcore:arcore:1.0.0-alpha15")
 }
 ```
 
@@ -58,6 +58,23 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.0
+
+### Version 1.0.0-alpha15
+
+June 17, 2026
+
+`androidx.xr.arcore:arcore-*:1.0.0-alpha15` is released. Version 1.0.0-alpha15 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/9ddf57f5b4ce98e7df261a3de947540f143fe26c..1790799be76c86764f97a92871414dfdd08154a2/xr/arcore).
+
+**API Changes**
+
+- `HitResult.createAnchor` was removed. Developers can create an anchor representing the `HitResult` if the trackable of the result is an `Anchorable` by supplying the hit position to the `createAnchor` function of the `Anchorable`. ([Ia851e](https://android-review.googlesource.com/#/q/Ia851e1865dc7080f960d616965a845aafa56e8e9))
+- `AnchorUnsupportedObject` was removed. It is no longer thrown by a JXR ARCore runtime. ([Ia851e](https://android-review.googlesource.com/#/q/Ia851e1865dc7080f960d616965a845aafa56e8e9))
+- `androidx.xr.arcore.Anchor` and `androidx.xr.arcore.ArDevice` now implement `androidx.xr.arcore.Trackable`. ([I57b65](https://android-review.googlesource.com/#/q/I57b6519a710bf277345c332201a01d96aa9b9606))
+- `Depth.left`, `Depth.right`, and `Depth.mono` are now non-nullable ([I1fc5e](https://android-review.googlesource.com/#/q/I1fc5e42404477122af26dd2a541483934aa327ad))
+- `Face.getUserFace` is now non-nullable ([I0eac1](https://android-review.googlesource.com/#/q/I0eac1729355d684f7565c0e06a8f75f44c4603a0))
+- `RenderViewpoint.left`, `RenderViewpoint.right`, `RenderViewpoint.mono` are now non-nullable ([Icf7fa](https://android-review.googlesource.com/#/q/Icf7faa4690d6d36ef43efb4544071b7f58face12))
+- `Hand.left` and `Hand.right` are non non-nullable ([Icef37](https://android-review.googlesource.com/#/q/Icef37cb8599c6a1ca83ef2f4cb45f1e8ed0331dc))
+- Added `QrCode` API ([Ia0bbe](https://android-review.googlesource.com/#/q/Ia0bbe0444195922efdf6ebd76ee91b44a600e3ee))
 
 ### Version 1.0.0-alpha14
 

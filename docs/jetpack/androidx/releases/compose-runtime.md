@@ -10,7 +10,7 @@ source: md.txt
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| May 19, 2026 | [1.11.2](https://developer.android.com/jetpack/androidx/releases/compose-runtime#1.11.2) | - | - | [1.12.0-alpha03](https://developer.android.com/jetpack/androidx/releases/compose-runtime#1.12.0-alpha03) |
+| June 17, 2026 | [1.11.3](https://developer.android.com/jetpack/androidx/releases/compose-runtime#1.11.3) | - | [1.12.0-beta01](https://developer.android.com/jetpack/androidx/releases/compose-runtime#1.12.0-beta01) | - |
 
 ## Structure
 
@@ -43,9 +43,9 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.compose.runtime:runtime:1.11.2"
-    implementation "androidx.compose.runtime:runtime-livedata:1.11.2"
-    implementation "androidx.compose.runtime:runtime-rxjava2:1.11.2"
+    implementation "androidx.compose.runtime:runtime:1.11.3"
+    implementation "androidx.compose.runtime:runtime-livedata:1.11.3"
+    implementation "androidx.compose.runtime:runtime-rxjava2:1.11.3"
 }
 
 android {
@@ -67,9 +67,9 @@ android {
 
 ```kotlin
 dependencies {
-    implementation("androidx.compose.runtime:runtime:1.11.2")
-    implementation("androidx.compose.runtime:runtime-livedata:1.11.2")
-    implementation("androidx.compose.runtime:runtime-rxjava2:1.11.2")
+    implementation("androidx.compose.runtime:runtime:1.11.3")
+    implementation("androidx.compose.runtime:runtime-livedata:1.11.3")
+    implementation("androidx.compose.runtime:runtime-rxjava2:1.11.3")
 }
 
 android {
@@ -103,6 +103,23 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.12
+
+### Version 1.12.0-beta01
+
+June 17, 2026
+
+`androidx.compose.runtime:runtime-*:1.12.0-beta01` is released. Version 1.12.0-beta01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/ed0627453f51baab21d30d8ca8f74a50ff1cfa7a..40b1610b08564489b3f6a426cd8833f8615bfc68/compose/runtime).
+
+**Bug Fixes**
+
+- Fixed an issue where snapshot apply observers were not notified if a state object was created in one snapshot and then modified in a concurrent snapshot before the first one was applied. ([Ide27f](https://android-review.googlesource.com/#/q/Ide27f443a221c18387d02dd55a94d55091a2dcdb), [b/451479063](https://issuetracker.google.com/issues/451479063))
+- Fixed a potential memory leak in how `derivedStateOf()` values are tracked in composition. Forward writes to objects read by a derived state caused the `derivedStateOf()` instance to be retained by the composition until the composition is disposed. If the `derivedStateOf()` is not remembered correctly this leak can be significant as each composition may create a new one. ([Ib5d87](https://android-review.googlesource.com/#/q/Ib5d87d722b40fd65697babab124771e1736eee19), [b/516904513](https://issuetracker.google.com/issues/516904513))
+- Fixed an issue in the `LinkComposer` that could cause composables to skip instead of recompose when invalidated during composition. ([Ie29fe](https://android-review.googlesource.com/#/q/Ie29fe654c682ea4307d411104dcb5bfa87017b18))
+- Fixed an issue with the vararg overload of `remember` that would prevent the remembered value from being invalidated and cause an incorrect value to be returned from remember. This occurred when `remember` is recomposed with fewer keys that are the same as the previous keys minus elements from the end of the array. Affected code must be recompiled to receive this fix. ([I0736b](https://android-review.googlesource.com/#/q/I0736b2f93a4f9d147876eae5714afb6e1e32ac09))
+
+**External Contribution**
+
+- Added verbose tracing for `DisposableEffect` and `SideEffect` work in Compose runtime. ([Ie451f](https://android-review.googlesource.com/#/q/Ie451f3df34dc893a480cc0e37163c3963e8c528f))
 
 ### Version 1.12.0-alpha03
 
@@ -203,6 +220,12 @@ September 7, 2022
 - `androidx.compose.runtime:runtime-tracing` is a library which - in the presence of tooling supporting it (coming soon) - allows for extended tracing in a Compose app. This initial release is 1.0.0-alpha01.
 
 ## Version 1.11
+
+### Version 1.11.3
+
+June 17, 2026
+
+`androidx.compose.runtime:runtime-*:1.11.3` is released. Version 1.11.3 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/f024db30e2eb34d643af9804ac0650840a49a05c..b3fb8849de357e09c2efc963c36a1012543ca411/compose/runtime).
 
 ### Version 1.11.2
 

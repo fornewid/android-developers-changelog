@@ -8,15 +8,16 @@ Inputs, content, or other actions may appear relative to each other or
 constrained to a parent container. Layouts can be more custom, but make sure to
 follow consistent grouping, columns, and spacing.
 
-Authentication is a common relative layout, as shown in the following figure. Where a custom layout is described by how the UI elements in relation to each other.
+Authentication is a common relative layout, as shown in the following figure.
+A custom layout describes how UI elements relate to each other.
 
-![](https://developer.android.com/static/images/design/ui/mobile/layout-basics-13-containment-boundaries.png)
+![containment](https://developer.android.com/static/images/design/ui/mobile/layout-basics-13-containment-boundaries.png)
 
-Layouts can also use a combination of layout types. For example, you might pair a
-carousel or horizontal scroll with vertical cards. Or, you could present a
+Layouts can also use a combination of layout types. For example, you might pair
+a carousel or horizontal scroll with vertical cards, or you can present a
 custom chart with vertical list data.
 
-![](https://developer.android.com/static/images/design/ui/mobile/layout-basics-27-combo-of-groupings-grids.png)
+![grouping grid](https://developer.android.com/static/images/design/ui/mobile/layout-basics-27-combo-of-groupings-grids.png)
 
 You can present content in scrolling rows or columns with lazy rows and lazy
 columns.

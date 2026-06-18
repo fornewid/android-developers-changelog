@@ -32,7 +32,7 @@ Before you begin, complete the following steps:
    ### Mobile
 
        dependencies {
-         implementation 'com.google.android.engage:engage-core:1.5.12'
+         implementation 'com.google.android.engage:engage-core:1.6.0'
        }
 
    ### TV

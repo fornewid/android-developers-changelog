@@ -10,7 +10,7 @@ source: md.txt
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| May 19, 2026 | [1.11.2](https://developer.android.com/jetpack/androidx/releases/compose-animation#1.11.2) | - | - | [1.12.0-alpha03](https://developer.android.com/jetpack/androidx/releases/compose-animation#1.12.0-alpha03) |
+| June 17, 2026 | [1.11.3](https://developer.android.com/jetpack/androidx/releases/compose-animation#1.11.3) | - | [1.12.0-beta01](https://developer.android.com/jetpack/androidx/releases/compose-animation#1.12.0-beta01) | - |
 
 ## Structure
 
@@ -43,7 +43,7 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.compose.animation:animation:1.11.2"
+    implementation "androidx.compose.animation:animation:1.11.3"
 }
 
 android {
@@ -65,7 +65,7 @@ android {
 
 ```kotlin
 dependencies {
-    implementation("androidx.compose.animation:animation:1.11.2")
+    implementation("androidx.compose.animation:animation:1.11.3")
 }
 
 android {
@@ -100,6 +100,24 @@ for more information.
 
 ## Version 1.12
 
+### Version 1.12.0-beta01
+
+June 17, 2026
+
+`androidx.compose.animation:animation-*:1.12.0-beta01` is released. Version 1.12.0-beta01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/b5d2acb5ad0a36c9d2aba8feb4c7951165f30fbe..40b1610b08564489b3f6a426cd8833f8615bfc68/compose/animation).
+
+**API Changes**
+
+- Introduced `permitTransformDuringDeferredTransition` parameter to `SharedContentConfig` to control whether shared elements should visually transform with their parent container during the deferred phase of a `DeferredTransition`. ([I4b67b](https://android-review.googlesource.com/#/q/I4b67ba8bc4ab94f4430ac01ac1f83da35ec48c86))
+- Refactored Transition to a sealed class and improved `DeferredTransition` API documentation and safety. ([Iecb8f](https://android-review.googlesource.com/#/q/Iecb8fdf7370d37cc404b3fdab272e768044a5212))
+- Added `inactiveElementColor` to `LookaheadAnimationVisualDebugging`" into androidx-main
+- Added `inactiveElementColor` to `LookaheadAnimationVisualDebugging` ([I5454b](https://android-review.googlesource.com/#/q/I5454ba0fd32c6ce411bc6747e7c2cc71d829013b), [b/501193322](https://issuetracker.google.com/issues/501193322))
+- Removed `ExperimentalAnimatableApi` annotation. ([I4e670](https://android-review.googlesource.com/#/q/I4e670a34f56e1123bc60dbe4068c60f832350f64), [b/500030165](https://issuetracker.google.com/issues/500030165))
+
+**Bug Fixes**
+
+- Fixed an issue in the `LinkComposer` that could cause composables to skip instead of recompose when invalidated during composition. ([Ie29fe](https://android-review.googlesource.com/#/q/Ie29fe654c682ea4307d411104dcb5bfa87017b18))
+
 ### Version 1.12.0-alpha03
 
 May 19, 2026
@@ -131,6 +149,12 @@ April 22, 2026
 - End the `SeekableTransitionState` animation before composition ([1bf9dc](https://android-review.googlesource.com/#/q/1bf9dcf), [b/410055849](https://issuetracker.google.com/410055849))
 
 ## Version 1.11
+
+### Version 1.11.3
+
+June 17, 2026
+
+`androidx.compose.animation:animation-*:1.11.3` is released. Version 1.11.3 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/f024db30e2eb34d643af9804ac0650840a49a05c..b3fb8849de357e09c2efc963c36a1012543ca411/compose/animation).
 
 ### Version 1.11.2
 

@@ -13,7 +13,7 @@ Start your custom AR or 3D session with our native runtime.
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| May 19, 2026 | - | - | - | [1.0.0-alpha14](https://developer.android.com/jetpack/androidx/releases/xr-runtime#1.0.0-alpha14) |
+| June 17, 2026 | - | - | - | [1.0.0-alpha15](https://developer.android.com/jetpack/androidx/releases/xr-runtime#1.0.0-alpha15) |
 
 
 ## Declaring dependencies
@@ -30,10 +30,10 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.xr.runtime:runtime:1.0.0-alpha14"
+    implementation "androidx.xr.runtime:runtime:1.0.0-alpha15"
 
     // Use in environments that do not support OpenXR
-    testImplementation "androidx.xr.runtime:runtime-testing:1.0.0-alpha14"
+    testImplementation "androidx.xr.runtime:runtime-testing:1.0.0-alpha15"
 }
 ```
 
@@ -41,10 +41,10 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.xr.runtime:runtime:1.0.0-alpha14")
+    implementation("androidx.xr.runtime:runtime:1.0.0-alpha15")
 
     // Use in environments that do not support OpenXR
-    testImplementation("androidx.xr.runtime:runtime-testing:1.0.0-alpha14")
+    testImplementation("androidx.xr.runtime:runtime-testing:1.0.0-alpha15")
 }
 ```
 
@@ -64,6 +64,24 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.0
+
+#### Version 1.0.0-alpha15
+
+June 17, 2026
+
+`androidx.xr.runtime:runtime-*:1.0.0-alpha15` is released. Version 1.0.0-alpha15 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/e2cf81ac79d4a2cf6fe7d512d38c94b6b01ee384..a3db25aa1e59086c8e0c4d2eb2f2e9186211080b/xr/runtime).
+
+**API Changes**
+
+- Added test API for `isProjectedServiceAvailable()` ([I44ba1](https://android-review.googlesource.com/#/q/I44ba170691c5102f8bbe9d7a46d1b61ddc790056))
+- Exposed `DeviceTrackingMode.INERTIAL` as a public experimental API under the new `@ExperimentalInertialTrackingApi` annotation. ([Ic3df3](https://android-review.googlesource.com/#/q/Ic3df319bd6944fe290e373d8581d9c397f3f689f))
+- Added `Config.Builder`. Apps can create custom configurations by calling setter functions on the builder object and then calling `Builder.build`. ([I13142](https://android-review.googlesource.com/#/q/I13142e0a11c7a5f1d9db365d97c01f9b7f1b69b7))
+- `androidx.xr.runtime.FieldOfView` has been removed. Apps should use `androidx.xr.runtime.math.FieldOfView` instead. ([I621ef](https://android-review.googlesource.com/#/q/I621ef48eb638845dfb6a36193722efcf27357e48))
+- `Session.create` is now required to be ran on a `@WorkerThread`. ([I2169e](https://android-review.googlesource.com/#/q/I2169e3575fed27264c837e3fc2256fca090ec515))
+- Added `isProjectedServiceAvailable()` to the `XrDevice` ([I507e9](https://android-review.googlesource.com/#/q/I507e9d75d9f33b4e53c6b07cc91ecf7a8662dd01))
+- Renaming `DeviceTrackingMode.SPATIAL_LAST_KNOWN` to `DeviceTrackingMode.SPATIAL` and `DeviceTrackingMode.INERTIAL_LAST_KNOWN` to `DeviceTrackingMode.INERTIAL` ([I96f8b](https://android-review.googlesource.com/#/q/I96f8bd1ce16f796985e53385804cef8d443d6e9f))
+- `Vector3.angleBetween` and `Vector4.angleBetween` now return degrees rather than radians. ([Ica8bc](https://android-review.googlesource.com/#/q/Ica8bce542cce3ff43c77ee428e7ac846e096aa8c))
+- Added `QrCode` API ([Ia0bbe](https://android-review.googlesource.com/#/q/Ia0bbe0444195922efdf6ebd76ee91b44a600e3ee))
 
 ### Version 1.0.0-alpha14
 

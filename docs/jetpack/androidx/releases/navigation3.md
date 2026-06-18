@@ -10,7 +10,7 @@ Navigation 3 is a new navigation library designed to work with Compose.
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| June 03, 2026 | [1.1.2](https://developer.android.com/jetpack/androidx/releases/navigation3#1.1.2) | - | - | [1.2.0-alpha04](https://developer.android.com/jetpack/androidx/releases/navigation3#1.2.0-alpha04) |
+| June 17, 2026 | [1.1.3](https://developer.android.com/jetpack/androidx/releases/navigation3#1.1.3) | - | - | [1.2.0-alpha04](https://developer.android.com/jetpack/androidx/releases/navigation3#1.2.0-alpha04) |
 
 ## Declaring dependencies
 
@@ -140,6 +140,18 @@ April 08, 2026
 - Accessing `LocalNavAnimatedContentScope` from an `OverlayScene` will no longer cause an `IllegalStateException` as `OverlayScenes` are now provided with a no-op `LocalAnimatedContentScope`. ([I2f00c](https://android-review.googlesource.com/#/q/I2f00c9c916cb77cfb85bb736ed8efc9ccedbd512), [b/486067688](https://issuetracker.google.com/issues/486067688))
 
 ## Navigation3 Version 1.1
+
+### Version 1.1.3
+
+June 17, 2026
+
+`androidx.navigation3:navigation3-*:1.1.3` is released. Version 1.1.3 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/de2178359512aff61888c40fa499bbf88d5593eb..258497755004be3f071eb9572543a052b665b407/navigation3).
+
+**Bug Fixes**
+
+- Fixed overlay animation issue where nested overlays such as `ModalBottomSheet` are re-aniamting unexpectedly when the overlays above it are popped. ([Ia2b9e](https://android-review.googlesource.com/#/q/Ia2b9e35ce6873dce20a8c9c8c7a51fa549174c9e), [b/502624496](https://issuetracker.google.com/issues/502624496))
+
+- Bumped `NavigationEvent` dependency to 1.1.2 which removed the no-op `NavigationEventHandler` when in inspection mode to enable Predictive Back in Android Studio Previews.
 
 ### Version 1.1.2
 

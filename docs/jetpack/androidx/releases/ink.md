@@ -10,7 +10,7 @@ Inspire best-in-class pen apps. Lower the developer barrier to entry for high pe
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| May 19, 2026 | [1.0.0](https://developer.android.com/jetpack/androidx/releases/ink#1.0.0) | - | - | [1.1.0-alpha03](https://developer.android.com/jetpack/androidx/releases/ink#1.1.0-alpha03) |
+| June 17, 2026 | [1.0.0](https://developer.android.com/jetpack/androidx/releases/ink#1.0.0) | - | - | [1.1.0-alpha04](https://developer.android.com/jetpack/androidx/releases/ink#1.1.0-alpha04) |
 
 ## Declaring dependencies
 
@@ -26,16 +26,16 @@ your app or module:
 ```groovy
 dependencies {
   
-    implementation "androidx.ink:ink-authoring:1.1.0-alpha03"
-    implementation "androidx.ink:ink-authoring-compose:1.1.0-alpha03"
-    implementation "androidx.ink:ink-brush:1.1.0-alpha03"
-    implementation "androidx.ink:ink-brush-compose:1.1.0-alpha03"
-    implementation "androidx.ink:ink-geometry:1.1.0-alpha03"
-    implementation "androidx.ink:ink-geometry-compose:1.1.0-alpha03"
-    implementation "androidx.ink:ink-nativeloader:1.1.0-alpha03"
-    implementation "androidx.ink:ink-rendering:1.1.0-alpha03"
-    implementation "androidx.ink:ink-storage:1.1.0-alpha03"
-    implementation "androidx.ink:ink-strokes:1.1.0-alpha03"
+    implementation "androidx.ink:ink-authoring:1.1.0-alpha04"
+    implementation "androidx.ink:ink-authoring-compose:1.1.0-alpha04"
+    implementation "androidx.ink:ink-brush:1.1.0-alpha04"
+    implementation "androidx.ink:ink-brush-compose:1.1.0-alpha04"
+    implementation "androidx.ink:ink-geometry:1.1.0-alpha04"
+    implementation "androidx.ink:ink-geometry-compose:1.1.0-alpha04"
+    implementation "androidx.ink:ink-nativeloader:1.1.0-alpha04"
+    implementation "androidx.ink:ink-rendering:1.1.0-alpha04"
+    implementation "androidx.ink:ink-storage:1.1.0-alpha04"
+    implementation "androidx.ink:ink-strokes:1.1.0-alpha04"
     
 }
 ```
@@ -46,16 +46,16 @@ dependencies {
 dependencies {
 
 
-    implementation("androidx.ink:ink-authoring:1.1.0-alpha03")
-    implementation("androidx.ink:ink-authoring-compose:1.1.0-alpha03")
-    implementation("androidx.ink:ink-brush:1.1.0-alpha03")
-    implementation("androidx.ink:ink-brush-compose:1.1.0-alpha03")
-    implementation("androidx.ink:ink-geometry:1.1.0-alpha03")
-    implementation("androidx.ink:ink-geometry-compose:1.1.0-alpha03")
-    implementation("androidx.ink:ink-nativeloader:1.1.0-alpha03")
-    implementation("androidx.ink:ink-rendering:1.1.0-alpha03")
-    implementation("androidx.ink:ink-storage:1.1.0-alpha03")
-    implementation("androidx.ink:ink-strokes:1.1.0-alpha03")
+    implementation("androidx.ink:ink-authoring:1.1.0-alpha04")
+    implementation("androidx.ink:ink-authoring-compose:1.1.0-alpha04")
+    implementation("androidx.ink:ink-brush:1.1.0-alpha04")
+    implementation("androidx.ink:ink-brush-compose:1.1.0-alpha04")
+    implementation("androidx.ink:ink-geometry:1.1.0-alpha04")
+    implementation("androidx.ink:ink-geometry-compose:1.1.0-alpha04")
+    implementation("androidx.ink:ink-nativeloader:1.1.0-alpha04")
+    implementation("androidx.ink:ink-rendering:1.1.0-alpha04")
+    implementation("androidx.ink:ink-storage:1.1.0-alpha04")
+    implementation("androidx.ink:ink-strokes:1.1.0-alpha04")
 }
 ```
 
@@ -75,6 +75,33 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Ink Version 1.1
+
+### Version 1.1.0-alpha04
+
+June 17, 2026
+
+`androidx.ink:ink-*:1.1.0-alpha04` is released. Version 1.1.0-alpha04 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/b5d2acb5ad0a36c9d2aba8feb4c7951165f30fbe..54300995fb997ea31a64ab9de0daf6580692612d/ink).
+
+**API Changes**
+
+- Fix floating point precision issues leading to visual artifacts in finished strokes, affecting certain devices after OS upgrades
+
+- Add KMP-common API for storage module (going to/from `ByteArray` instead
+  of Java `InputStream`/`OutputStream`).
+
+- Add a `BrushBehavior.developerComment` property to hold metadata
+  explaining a custom brush family's design. This is intended to support
+  Brush Designer UI.
+
+- Fix a bug in threading consistency checks in
+  `CanvasInProgressStrokesRenderHelperV33`.
+
+- Fix some bugs in handling of `MotionEvent` optional fields (e.g. tilt,
+  pressure).
+
+- Improve documentation for custom brush API.
+
+- Add new `BrushPaint.ColorFunction` types.
 
 ### Version 1.1.0-alpha03
 

@@ -10,7 +10,7 @@ Glance Wear is a library for building Widgets for Wear OS
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| June 03, 2026 | - | - | - | [1.0.0-alpha11](https://developer.android.com/jetpack/androidx/releases/glance-wear#1.0.0-alpha11) |
+| June 17, 2026 | - | - | - | [1.0.0-alpha12](https://developer.android.com/jetpack/androidx/releases/glance-wear#1.0.0-alpha12) |
 
 ## Declaring dependencies
 
@@ -25,9 +25,9 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.glance.wear:wear:1.0.0-alpha11"
+    implementation "androidx.glance.wear:wear:1.0.0-alpha12"
 
-    implementation "androidx.glance.wear:wear-core:1.0.0-alpha11"
+    implementation "androidx.glance.wear:wear-core:1.0.0-alpha12"
 }
 ```
 
@@ -35,9 +35,9 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.glance.wear:wear:1.0.0-alpha11")
+    implementation("androidx.glance.wear:wear:1.0.0-alpha12")
 
-    implementation("androidx.glance.wear:wear-core:1.0.0-alpha11")
+    implementation("androidx.glance.wear:wear-core:1.0.0-alpha12")
 }
 ```
 
@@ -57,6 +57,36 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Glance Wear Version 1.0
+
+### Version 1.0.0-alpha12
+
+June 17, 2026
+
+`androidx.glance.wear:wear:1.0.0-alpha12`, `androidx.glance.wear:wear-core:1.0.0-alpha12`, and `androidx.glance.wear:wear-tooling-preview:1.0.0-alpha12` are released. Version 1.0.0-alpha12 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/3fad9a116191a476216752005ae5752c236e4faf..14c2f2ed81d0f61a3227641684cd875e95dd6529/glance/wear).
+
+**New features**
+
+- **Added `AssociateWithGlanceWearWidget` that *must* be used on the `GlanceWearWidgetService` to provide which implementation of `GlanceWearWidget` it is associated to.** ([Ifcabb](https://android-review.googlesource.com/#/q/Ifcabb316a0dc3fcd5fc0d5a5878fe8ad281ed8ad), [b/514679763](https://issuetracker.google.com/issues/514679763))
+
+  - For example:
+
+       @AssociateWithGlanceWearWidget(MyGlanceWearWidget::class)
+       class MyGlanceWearWidgetService : GlanceWearWidgetService() {
+         override val widget = MyGlanceWearWidget()
+       }
+       ```
+
+- We have added `image` brush to `WearWidgetBrush` to support bitmap backgrounds in Wear Widgets. ([I9a228](https://android-review.googlesource.com/#/q/I9a22801ae1d5e5d5fe473a51b153f3e0e8e97312), [b/513481558](https://issuetracker.google.com/issues/513481558))
+
+- We have introduced a `@Composable` helper function, `WearWidgetPreview`, to simplify the development of Glance Wear widgets by removing the boilerplate required for IDE previews.
+
+**API Changes**
+
+- Renamed `androidx.glance.wear.health.DataType` to `androidx.glance.wear.health.HealthData` ([I4cb0b](https://android-review.googlesource.com/#/q/I4cb0b961829680053b1611b153d0c5ce9f5dcb0c), [b/516746689](https://issuetracker.google.com/issues/516746689))
+- `isHeartRateBpmAvailable` is exposed to determine if `heartRateBpm` is available on the host. ([I5999d](https://android-review.googlesource.com/#/q/I5999d40f4cd432e921a7b10ecdff67d566f0d06c), [b/514641567](https://issuetracker.google.com/issues/514641567))
+- Exposed `RemoteInt` compare operators. ([I5fe3d](https://android-review.googlesource.com/#/q/I5fe3d4e06e25650003dcea04cdef1c252612bf06), [b/513228889](https://issuetracker.google.com/issues/513228889))
+- Exposed `captureRemoteDocument` Flow API and a new `captureSingleRemoteDocument` overload (which takes `RemoteCreationDisplayInfo`) as public APIs. ([I87b0e](https://android-review.googlesource.com/#/q/I87b0ef46ca9cbaae9375053ab8d0618921aa1957), [b/513228889](https://issuetracker.google.com/issues/513228889))
+- We have added `@CallSuper` to `GlanceWearWidgetService` lifecycle methods
 
 ### Version 1.0.0-alpha11
 

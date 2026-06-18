@@ -13,10 +13,10 @@ This table lists all the artifacts in the `androidx.lifecycle` group.
 
 | Artifact | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| lifecycle-\* | [2.10.0](https://developer.android.com/jetpack/androidx/releases/lifecycle#2.10.0) | [2.11.0-rc01](https://developer.android.com/jetpack/androidx/releases/lifecycle#2.11.0-rc01) | - | - |
-| lifecycle-viewmodel-navigation3 | [2.10.0](https://developer.android.com/jetpack/androidx/releases/lifecycle#2.10.0) | [2.11.0-rc01](https://developer.android.com/jetpack/androidx/releases/lifecycle#2.11.0-rc01) | - | - |
+| lifecycle-\* | [2.11.0](https://developer.android.com/jetpack/androidx/releases/lifecycle#2.11.0) | - | - | - |
+| lifecycle-viewmodel-navigation3 | [2.11.0](https://developer.android.com/jetpack/androidx/releases/lifecycle#2.11.0) | - | - | - |
 
-This library was last updated on: June 03, 2026
+This library was last updated on: June 17, 2026
 
 ## Declaring dependencies
 
@@ -36,7 +36,7 @@ your app or module:
 
 ```groovy
     dependencies {
-        def lifecycle_version = "2.10.0"
+        def lifecycle_version = "2.11.0"
         def arch_version = "2.2.0"
 
         // ViewModel
@@ -54,7 +54,7 @@ your app or module:
         implementation "androidx.lifecycle:lifecycle-viewmodel-savedstate:$lifecycle_version"
 
         // ViewModel integration with Navigation3
-        implementation "androidx.lifecycle:lifecycle-viewmodel-navigation3:2.11.0-rc01"
+        implementation "androidx.lifecycle:lifecycle-viewmodel-navigation3:2.11.0"
 
         // Annotation processor
         kapt "androidx.lifecycle:lifecycle-compiler:$lifecycle_version"
@@ -83,7 +83,7 @@ your app or module:
 
 ```kotlin
     dependencies {
-        val lifecycle_version = "2.10.0"
+        val lifecycle_version = "2.11.0"
         val arch_version = "2.2.0"
 
         // ViewModel
@@ -101,7 +101,7 @@ your app or module:
         implementation("androidx.lifecycle:lifecycle-viewmodel-savedstate:$lifecycle_version")
 
         // ViewModel integration with Navigation3
-        implementation("androidx.lifecycle:lifecycle-viewmodel-navigation3:2.11.0-rc01")
+        implementation("androidx.lifecycle:lifecycle-viewmodel-navigation3:2.11.0")
 
         // Annotation processor
         kapt("androidx.lifecycle:lifecycle-compiler:$lifecycle_version")
@@ -132,7 +132,7 @@ your app or module:
 
 ```groovy
     dependencies {
-        def lifecycle_version = "2.10.0"
+        def lifecycle_version = "2.11.0"
         def arch_version = "2.2.0"
 
         // ViewModel
@@ -172,7 +172,7 @@ your app or module:
 
 ```kotlin
     dependencies {
-        val lifecycle_version = "2.10.0"
+        val lifecycle_version = "2.11.0"
         val arch_version = "2.2.0"
 
         // ViewModel
@@ -224,6 +224,24 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 2.11
+
+### Version 2.11.0
+
+June 17, 2026
+
+`androidx.lifecycle:lifecycle-*:2.11.0` is released. Version 2.11.0 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/ee621bea3237b1eab3c48eef4cf7ef7c7943b4bb..a01f1a6c29523dd9b046b7f2a383d7d24559e316/lifecycle).
+
+**Important changes since 2.10.0:**
+
+**Scoped ViewModels in Compose** - Introduction of `ViewModelStoreProvider`, `rememberViewModelStoreProvider`, and `rememberViewModelStoreOwner` to tie ViewModels to specific UI scopes (like Pager pages). These survive configuration changes and automatically clear when the Composable is removed from the hierarchy.
+
+**KMP Support** - `ViewModel-Compose` and `ViewModel-Navigation3` now support all Kotlin Multiplatform targets.
+
+**Navigation3 Integration** - `ViewModelStoreNavEntryDecorator` now accepts a `ViewModelStoreOwner` to propagate `CreationExtras` and factories to nested ViewModels. You can also hoist providers using the new `rememberViewModelStoreNavEntryDecorator` overload to support multiple back stacks. `removeViewModelStoreOnPop` is deprecated.
+
+**Lifecycle Utilities** - Added a reified `ViewModelProvider.get<VM>(key)` extension, a lambda-based `Lifecycle.addObserver`, and default factory extensions for `ViewModelStoreOwner`. `ViewModel.onCleared` is now annotated with `@EmptySuper`.
+
+**Other Changes** - Compose UI `1.7.0+` is now required for `LocalLifecycleOwner` to remove reflection fallbacks. Updates to the Compose `compileSdk` require a minimum AGP version of `9.2.0`.
 
 ### Version 2.11.0-rc01
 

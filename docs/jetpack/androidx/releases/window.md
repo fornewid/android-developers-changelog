@@ -8,17 +8,11 @@ source: md.txt
 
 # WindowManager
 
-[Code Sample](https://github.com/android/platform-samples/tree/main/samples/user-interface/windowmanager) [Codelab](https://developer.android.com/codelabs/android-window-manager-dual-screen-foldables) API Reference  
-[androidx.window](https://developer.android.com/reference/kotlin/androidx/window/package-summary)  
-[androidx.window.core](https://developer.android.com/reference/kotlin/androidx/window/core/package-summary)  
-[androidx.window.embedding](https://developer.android.com/reference/kotlin/androidx/window/embedding/package-summary)  
-[androidx.window.layout](https://developer.android.com/reference/kotlin/androidx/window/layout/package-summary)  
-[androidx.window.testing.layout](https://developer.android.com/reference/kotlin/androidx/window/testing/layout/package-summary)  
-The Jetpack WindowManager library enables application developers to support new device form factors and multi-window environments. The initial release targets foldable devices, but future versions will extend to more display types and window features.
+[Code Sample](https://github.com/android/platform-samples/tree/main/samples/user-interface/windowmanager) [Codelab](https://developer.android.com/codelabs/android-window-manager-dual-screen-foldables) The Jetpack WindowManager library enables application developers to support new device form factors and multi-window environments. The initial release targets foldable devices, but future versions will extend to more display types and window features.
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| November 19, 2025 | [1.5.1](https://developer.android.com/jetpack/androidx/releases/window#1.5.1) | - | - | [1.6.0-alpha01](https://developer.android.com/jetpack/androidx/releases/window#1.6.0-alpha01) |
+| June 17, 2026 | [1.5.1](https://developer.android.com/jetpack/androidx/releases/window#1.5.1) | - | - | [1.6.0-alpha05](https://developer.android.com/jetpack/androidx/releases/window#1.6.0-alpha05) |
 
 ## Declaring dependencies
 
@@ -86,6 +80,39 @@ for more information.
 <br />
 
 ## Version 1.6
+
+### Version 1.6.0-alpha05
+
+June 17, 2026
+
+`androidx.window:window-*:1.6.0-alpha05` is released. Version 1.6.0-alpha05 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/df4b49eda6f6834b6bc4c8aa30a581fa577a511e..b02d0e27599e3509a8bac35b0902665cf3150ab8/window).
+
+**API Changes**
+
+- Add new `EngagementMode.PRECISE_POINTER` API in `WindowEngagementInfo` ([I7e4d7](https://android-review.googlesource.com/#/q/I7e4d7b7a6cca4050ae2b679558e643b519038df5), [b/474545085](https://issuetracker.google.com/issues/474545085))
+- Deprecated `WindowLayoutInfo.engagementModes`. Use the new `WindowInfoTracker.windowEngagementInfo()` method to observe engagement mode changes. ([I500d1](https://android-review.googlesource.com/#/q/I500d14bbc0916c45ecb4bfdb56318985e679b383), [b/491562425](https://issuetracker.google.com/issues/491562425))
+
+### Version 1.6.0-alpha03
+
+April 22, 2026
+
+`androidx.window:window-*:1.6.0-alpha03` is released. Version 1.6.0-alpha03 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/4d752a0684fb1bf991cd0d15ebd3649ee8684ca1..df4b49eda6f6834b6bc4c8aa30a581fa577a511e/window).
+
+**API Changes**
+
+- Add APIs for engagement state control. ([I98a09](https://android-review.googlesource.com/#/q/I98a09d045a5d3d2aa33ec76d742e0ede625ace14), [b/489793703](https://issuetracker.google.com/issues/489793703))
+- Renamed `transferActivityToWindowArea` to `transferToWindowArea` to be clearer about the behavior when triggering the feature. This also removes the session based behavior for this method as it's an operation that outlives the process that requests it. ([Ie7d6f](https://android-review.googlesource.com/#/q/Ie7d6fa7258d323363748e25fade8d658c1f0f510), [b/271644150](https://issuetracker.google.com/issues/271644150), [b/273807246](https://issuetracker.google.com/issues/273807246), [b/272064992](https://issuetracker.google.com/issues/272064992), [b/473870239](https://issuetracker.google.com/issues/473870239))
+- Add safe method to get `WindowMetrics` ([I2adf8](https://android-review.googlesource.com/#/q/I2adf80fd88226210735c4c2c168ef5d94dc4a782), [b/449386176](https://issuetracker.google.com/issues/449386176))
+- Update methods in WM extensions for engagement mode for clarity. ([I219a4](https://android-review.googlesource.com/#/q/I219a4993d190e12c25db4d5d4aa1f410de3813a3), [b/454438323](https://issuetracker.google.com/issues/454438323))
+- Add helper methods to construct `WindowSizeClassSets` in a grid form. ([I4d623](https://android-review.googlesource.com/#/q/I4d6236961e51ed10b3007941bb777401edaabc39), [b/444174274](https://issuetracker.google.com/issues/444174274))
+- Add API to get engagement mode. ([I9fef2](https://android-review.googlesource.com/#/q/I9fef211338328f8901ceea7c2254471d320bb0ba), [b/423990404](https://issuetracker.google.com/issues/423990404))
+- Add callback-based listeners directly to `WindowLayoutInfo` and deprecate `WindowInfoTrackerCallbackAdapter`. ([I1ff17](https://android-review.googlesource.com/#/q/I1ff174d41234a38bb9ce1c1ddea95335d9d91e28), [b/423990404](https://issuetracker.google.com/issues/423990404))
+- Deprecate `WindowLayoutInfo` constructor in Extensions. ([I6ab65](https://android-review.googlesource.com/#/q/I6ab65dbcd6c79320234d10ddee2a20724af2725c), [b/423990404](https://issuetracker.google.com/issues/423990404))
+- Add extensions support for reporting engagement mode. ([I66211](https://android-review.googlesource.com/#/q/I66211deee702eb826a298c37fe06da67970d329f), [b/423990404](https://issuetracker.google.com/issues/423990404))
+
+**Bug Fixes**
+
+- Updated Compose `compileSdk` to API 37. This means that a minimum AGP version of 9.2.0 is required when using Compose. ([Id45cd](https://android-review.googlesource.com/#/q/Id45cdca34ef948e06259b2dd9adc901b7c930492), [b/413674743](https://issuetracker.google.com/issues/413674743))
 
 ### Version 1.6.0-alpha01
 

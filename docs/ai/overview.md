@@ -21,13 +21,13 @@ factors: the type of data (text, images, audio, video), the task's complexity
 (simple summarization to complex tasks needing specialized knowledge), and the
 data size (short inputs versus large documents). This will help you decide
 between using Gemini Nano on your device or Firebase's cloud-based AI (Gemini
-Flash, Gemini Pro, or Imagen).
+Flash or Gemini Pro).
 [![Decision flowchart for GenAI use cases. Criteria include Modality
 (text, image versus audio, video, image generation), Complexity
 (summarize, rewrite versus domain knowledge), and Context Window
 (short input/output versus extensive documents/media), leading to
 either On-device GenAI (Gemini Nano) or Firebase AI Logic (Gemini
-Flash, Pro, Imagen).](https://developer.android.com/static/ai/assets/images/genai-use-cases.svg)](https://developer.android.com/ai/overview#ai-solution-guide) **Figure 1** : This illustration represents a high-level solutions guide to help you find the right AI/ML solution for your Android app. For a more detailed breakdown of your AI and ML options, refer to the [solutions guide](https://developer.android.com/ai/overview#ai-solution-guide) found later in this document.
+Flash, Pro).](https://developer.android.com/static/ai/assets/images/genai-use-cases.svg)](https://developer.android.com/ai/overview#ai-solution-guide) **Figure 1** : This illustration represents a high-level solutions guide to help you find the right AI/ML solution for your Android app. For a more detailed breakdown of your AI and ML options, refer to the [solutions guide](https://developer.android.com/ai/overview#ai-solution-guide) found later in this document.
 
 ## Harness the power of on-device inference
 
@@ -72,7 +72,7 @@ Gemini models may be necessary.
 ## Integrate advanced Gemini models
 
 Android developers can integrate Google's advanced generative AI capabilities,
-including the powerful Gemini Pro, Gemini Flash, and Imagen models, into their
+including the powerful Gemini Pro and Gemini Flash models, into their
 applications using the [Firebase AI Logic SDK](https://developer.android.com/ai/vertex-ai-firebase). This SDK is designed for
 larger data needs and provides expanded capabilities and adaptability by
 enabling access to these high-performing, multimodal AI models.
@@ -308,10 +308,6 @@ of generative task and performance profile do you need?**
   reasoning, advanced NLU, or instruction following?**
   - **→ Use: [Firebase AI Logic SDK with Gemini Pro](https://developer.android.com/ai/vertex-ai-firebase)**
   - *Why*: More powerful text model for demanding tasks, accessed through Firebase.
-- **C) Need sophisticated *image generation* or advanced image
-  understanding or manipulation based on text prompts?**
-  - **→ Use: [Firebase AI Logic SDK with Imagen 3](https://developer.android.com/ai/imagen)**
-  - *Why*: State-of-the-art image generation model accessed using the managed Firebase environment.
 
 *** ** * ** ***
 

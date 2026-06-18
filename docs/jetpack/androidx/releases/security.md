@@ -18,7 +18,7 @@ This table lists all the artifacts in the `androidx.security` group.
 | security-app-authenticator-testing | [1.0.0](https://developer.android.com/jetpack/androidx/releases/security#security-app-authenticator-testing-1.0.0) | - | - | - |
 | security-identity-credential | - | - | - | [1.0.0-alpha03](https://developer.android.com/jetpack/androidx/releases/security#security-identity-credential-1.0.0-alpha03) |
 
-This library was last updated on: May 06, 2026
+This library was last updated on: June 17, 2026
 
 ## Declaring dependencies
 
@@ -44,9 +44,11 @@ clicking the star button.
 See the [Issue Tracker documentation](https://developers.google.com/issue-tracker)
 for more information.
 
-## Security-State-Provider Version 1.0
+## Security-State-Provider
 
-### Version 1.0.0-beta01
+### Version 1.0
+
+#### Version 1.0.0-beta01
 
 May 06, 2026
 
@@ -56,7 +58,7 @@ May 06, 2026
 
 - Added `ListenableFuture` support for `SecurityPatchState` and `UpdateInfoService`. ([b91f15ae](https://android.googlesource.com/platform/frameworks/support/+/b91f15aedf0a396437dfd232ca14fd21901739b1))
 
-### Version 1.0.0-alpha04
+#### Version 1.0.0-alpha04
 
 April 22, 2026
 
@@ -66,7 +68,7 @@ April 22, 2026
 
 - Updated `UpdateInfo` to expose a strongly-typed `SecurityPatchLevel` object instead of a raw `String`. This provides better API ergonomics while maintaining safe IPC compatibility across different library versions. ([I0736d](https://android-review.googlesource.com/#/q/I0736d71fa4d01443a1374588db455769b01c5f41))
 
-### Version 1.0.0-alpha03
+#### Version 1.0.0-alpha03
 
 March 25, 2026
 
@@ -79,7 +81,7 @@ March 25, 2026
   - **Session Management:** Introducing a dedicated, per-client session interface to safely handle update queries and manage concurrent teardown requests.
   - **Automatic Cleanup:** Automatically detecting when a client application crashes or terminates unexpectedly, ensuring resources are freed and disconnection telemetry is reliably triggered. ([I2cf65](https://android-review.googlesource.com/#/q/I2cf65bab8bd53329697af1553d1e547bb1c90be5))
 
-### Version 1.0.0-alpha02
+#### Version 1.0.0-alpha02
 
 February 11, 2026
 
@@ -96,7 +98,7 @@ February 11, 2026
 - Added Telemetry Classes: `UpdateCheckTelemetry` and `UpdateFetchOutcome`. ([I9d852](https://android-review.googlesource.com/#/q/I9d85227424dcd98b6cf883fd7669bb13e9f136e6))
 - Moved the `UpdateInfo` class from the `security-state-provider` module to the `security-state module`. ([I23ea2](https://android-review.googlesource.com/#/q/I23ea2d18f55203ec47bcbed64da43d2f3a874061))
 
-### Version 1.0.0-alpha01
+#### Version 1.0.0-alpha01
 
 September 24, 2025
 
@@ -111,9 +113,17 @@ September 24, 2025
 - Includes `UpdateInfoManager`: Manages the storage and retrieval of `UpdateInfo` objects, using `SharedPreferences` for persistence.
 - Includes `UpdateInfo`: A data class to represent information about an available update for a component, including URI, component name, Security Patch Level (SPL), and published date.
 
-## Security-State Version 1.1
+## Security-State
 
-### Version 1.1.0-beta01
+### Version 1.1
+
+#### Version 1.1.0-beta02
+
+June 17, 2026
+
+`androidx.security:security-state:1.1.0-beta02` is released. Version 1.1.0-beta02 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/e29a10982f4299b1fa812e229d76792092a62814..f540a7f8b2beca84e6ff98dc6316299a2c2b5c2e/security/security-state).
+
+#### Version 1.1.0-beta01
 
 May 06, 2026
 
@@ -127,7 +137,7 @@ May 06, 2026
 
 - Fixed kernel version branch comparison in `isDeviceFullyUpdated()`. ([164b537](https://android.googlesource.com/platform/frameworks/support/+/164b537dff05d4a3d2f33491c4440718a3526f1b))
 
-### Version 1.1.0-alpha04
+#### Version 1.1.0-alpha04
 
 April 22, 2026
 
@@ -141,7 +151,7 @@ April 22, 2026
 
 - Refactored the client-side IPC logic in `SecurityPatchState` to use Kotlin coroutines instead of raw Java threads. This introduces a bounded thread pool bulkhead to safely handle deadlocked remote providers and prevents unbounded thread explosions. ([Iaa398](https://android-review.googlesource.com/#/q/Iaa39812dc602dde3647dc19f10b2ddfcf8473a95))
 
-### Version 1.1.0-alpha03
+#### Version 1.1.0-alpha03
 
 March 25, 2026
 
@@ -155,7 +165,7 @@ March 25, 2026
 
 - Updated the client-side discovery logic to enforce a stricter security boundary when identifying trusted update providers. `SecurityPatchState` now explicitly verifies that hosts hold the `android.permission.READ_PRIVILEGED_PHONE_STATE` permission. This prevents potential spoofing by unprivileged third-party apps preloaded on the system partition, guaranteeing the provider is a legitimate system component. ([I3464b](https://android-review.googlesource.com/#/q/I3464b8305b9f93c953b7aae3a6ca7931133c68d9))
 
-### Version 1.1.0-alpha02
+#### Version 1.1.0-alpha02
 
 March 11, 2026
 
@@ -165,7 +175,7 @@ March 11, 2026
 
 - Fixed System Published SPL ([Ic3504](https://android-review.googlesource.com/#/q/Ic350446a6944804469a8b86b7bdabc54d20f0fc4)) and System Modules (Mainline) SPL ([If3c29](https://android-review.googlesource.com/#/q/If3c294b2037ae6cc00f024e6a3d9df8315b77a09)) to use the "global max" Android Security Bulletin date, to support the new "Risk Based Update System" (RBUS).
 
-### Version 1.1.0-alpha01
+#### Version 1.1.0-alpha01
 
 February 11, 2026
 
@@ -182,9 +192,9 @@ February 11, 2026
 - Added `fetchAvailableSecurityPatchLevel` API to `SecurityPatchState`. This API aggregates results and returns the latest available `SecurityPatchLevel`. ([Ib7bcf](https://android-review.googlesource.com/#/q/Ib7bcf5a0ca121eb5f26adaf59a0e84ad5ef1e9c7))
 - Moved the `UpdateInfo` class from the `security-state-provider` module to the `security-state` module. ([I23ea2](https://android-review.googlesource.com/#/q/I23ea2d18f55203ec47bcbed64da43d2f3a874061))
 
-## Security-State Version 1.0.0
+### Version 1.0
 
-### Version 1.0.0-beta01
+#### Version 1.0.0-beta01
 
 February 26, 2025
 
@@ -194,7 +204,7 @@ February 26, 2025
 
 - Fixed an issue that prevented `getPatchedCves()` from returning patched CVEs for `COMPONENT_SYSTEM_MODULES`. ([Ice5e2](https://android-review.googlesource.com/#/q/Ice5e211448ddaade95e0dafd815b5f17a79ab199))
 
-### Version 1.0.0-alpha05
+#### Version 1.0.0-alpha05
 
 January 29, 2025
 
@@ -215,7 +225,7 @@ January 29, 2025
 
 - Fixed a crash that occurred when trying to get the Published SPL for Kernel on older versions of Android where published Kernel LTS versions aren't available. ([I93dff](https://android-review.googlesource.com/#/q/I93dff60460799818203a1272e5b1e1a0df970f00))
 
-### Version 1.0.0-alpha04
+#### Version 1.0.0-alpha04
 
 August 7, 2024
 
@@ -229,7 +239,7 @@ August 7, 2024
 
 - Breaking change: Component enum was replaced with string constants for extensibility. ([Ia3283](https://android-review.googlesource.com/#/q/Ia32836e46ac3997026f08ff890a8c7ed0361427b))
 
-### Version 1.0.0-alpha03
+#### Version 1.0.0-alpha03
 
 July 10, 2024
 
@@ -239,7 +249,7 @@ July 10, 2024
 
 - Fixing ASB-A- pattern for Android security bulletin bugs, JSON parsing for additional components, and `Webview` packaged retrieval. ([Ide86a](https://android-review.googlesource.com/#/q/Ide86ae11b67041db6aeca40ea1c54a08d3b8109d))
 
-### Version 1.0.0-alpha02
+#### Version 1.0.0-alpha02
 
 June 26, 2024
 
@@ -249,7 +259,7 @@ June 26, 2024
 
 - Fixed logic of getting kernel version. ([I5602a](https://android-review.googlesource.com/#/q/I5602a8e1eaa48985d704622195f147a81828e4f0))
 
-### Version 1.0.0-alpha01
+#### Version 1.0.0-alpha01
 
 June 12, 2024
 
@@ -259,27 +269,52 @@ June 12, 2024
 
 - Security State is a new library developers can use to get actionable data about versions of updateable system components, security updates and applied fixes.
 
-## Security-App-Authenticator-Testing Version 1.0.0
+## Security-App-Authenticator
 
-### Version 1.0.0
+### Version 1.0
+
+#### Version 1.0.0
 
 July 30, 2025
 
 `androidx.security:security-app-authenticator:1.0.0` and `androidx.security:security-app-authenticator-testing:1.0.0` are released. Version 1.0.0 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/5a63cd1b3ff7a88c2b3df6bbe7dcf4c4290a9e8e..12e7f8e66c5e70ca5c59342b4fb6c82e6e50a37c/security).
 
-### Version 1.0.0-rc01
+#### Version 1.0.0-rc01
 
 May 20, 2025
 
 `androidx.security:security-app-authenticator:1.0.0-rc01` and `androidx.security:security-app-authenticator-testing:1.0.0-rc01` are released. Version 1.0.0-rc01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/638a8d3a474af45f6ad5fdc3d6d1836ea42d1778..5a63cd1b3ff7a88c2b3df6bbe7dcf4c4290a9e8e/security).
 
-### Version 1.0.0-beta01
+#### Version 1.0.0-rc01
+
+May 20, 2025
+
+`androidx.security:security-app-authenticator:1.0.0-rc01` and `androidx.security:security-app-authenticator-testing:1.0.0-rc01` are released. Version 1.0.0-rc01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/638a8d3a474af45f6ad5fdc3d6d1836ea42d1778..5a63cd1b3ff7a88c2b3df6bbe7dcf4c4290a9e8e/security).
+
+#### Version 1.0.0-beta01
 
 March 6, 2024
 
 `androidx.security:security-app-authenticator:1.0.0-beta01` and `androidx.security:security-app-authenticator-testing:1.0.0-beta01` are released. Version 1.0.0-beta01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/9174577f8a57ba4ae4958cc31787ea4db3b2b44a..638a8d3a474af45f6ad5fdc3d6d1836ea42d1778/security).
 
-### Version 1.0.0-alpha02
+#### Version 1.0.0-beta01
+
+March 6, 2024
+
+`androidx.security:security-app-authenticator:1.0.0-beta01` and `androidx.security:security-app-authenticator-testing:1.0.0-beta01` are released. Version 1.0.0-beta01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/9174577f8a57ba4ae4958cc31787ea4db3b2b44a..638a8d3a474af45f6ad5fdc3d6d1836ea42d1778/security).
+
+#### Version 1.0.0-alpha03
+
+December 13, 2023
+
+`androidx.security:security-app-authenticator:1.0.0-alpha03` is released. [Version 1.0.0-alpha03 contains these commits.](https://android.googlesource.com/platform/frameworks/support/+log/86ff5b4bb956431ec884586ce0aea0127e189ec4..9174577f8a57ba4ae4958cc31787ea4db3b2b44a/security/security-app-authenticator)
+
+**API Changes**
+
+- Added support for use cases where the UID / PID of the package to be verified is not available; the APIs now support cases such as `startActivityForResult` and activities / receivers where the calling app's identity is shared via `[Activity|Broadcast]Options#setShareIdentityEnabled`.
+- The behavior of `[check|enforce]CallingAppIdentity(String, String)` has been updated to support these new use cases; these methods will no longer default to using `Binder#getCalling[Uid|Pid]` but will instead skip verification of the calling package's UID if it is not explicitly provided. ([I1851b](https://android-review.googlesource.com/#/q/I1851bd20049e5be1d208a24633423080c5e38f7c))
+
+#### Version 1.0.0-alpha02
 
 December 13, 2023
 
@@ -289,7 +324,21 @@ December 13, 2023
 
 - Updated test for new API behavior that no longer assumes `Binder#getCalling[Uid|Pid]` when not provided to the `[check|enforce]CallingAppIdentity` APIs. ([I1851b](https://android-review.googlesource.com/#/q/I1851bd20049e5be1d208a24633423080c5e38f7c))
 
-### Version 1.0.0-alpha01
+#### Version 1.0.0-alpha02
+
+June 2, 2021
+
+`androidx.security:security-app-authenticator:1.0.0-alpha02` is released. [Version 1.0.0-alpha02 contains these commits.](https://android.googlesource.com/platform/frameworks/support/+log/3d6f168394d1dd14e1d6f5b6dc4a0d405cb1a26a..86ff5b4bb956431ec884586ce0aea0127e189ec4/security/security-app-authenticator)
+
+**API Changes**
+
+- In preparation to support the new `knownSigner` permission protection flag introduced in Android 12, the digestAlgorithm attribute can no longer be specified in the configuration; instead all certificate digests should be computed using SHA-256.
+
+**Bug Fixes**
+
+- All certificate digests provided in the configuration are now normalized to ensure a successful signature match can be reported both when the digest is computed at runtime as well as when an explicit signing identity is defined when using the testing library.
+
+#### Version 1.0.0-alpha01
 
 June 2, 2021
 
@@ -304,46 +353,7 @@ This testing library provides a builder that can be used to configure an injecta
 - Explicit signing identities can be set for each package; the resulting AppAuthenticator will then only report a signature match if the provided identity matches the declaration in the configuration file.
 - Packages can also be treated as not installed or having an explicit uid.
 
-## Security-App-Authenticator Version 1.0.0
-
-### Version 1.0.0-rc01
-
-May 20, 2025
-
-`androidx.security:security-app-authenticator:1.0.0-rc01` and `androidx.security:security-app-authenticator-testing:1.0.0-rc01` are released. Version 1.0.0-rc01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/638a8d3a474af45f6ad5fdc3d6d1836ea42d1778..5a63cd1b3ff7a88c2b3df6bbe7dcf4c4290a9e8e/security).
-
-### Version 1.0.0-beta01
-
-March 6, 2024
-
-`androidx.security:security-app-authenticator:1.0.0-beta01` and `androidx.security:security-app-authenticator-testing:1.0.0-beta01` are released. Version 1.0.0-beta01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/9174577f8a57ba4ae4958cc31787ea4db3b2b44a..638a8d3a474af45f6ad5fdc3d6d1836ea42d1778/security).
-
-### Version 1.0.0-alpha03
-
-December 13, 2023
-
-`androidx.security:security-app-authenticator:1.0.0-alpha03` is released. [Version 1.0.0-alpha03 contains these commits.](https://android.googlesource.com/platform/frameworks/support/+log/86ff5b4bb956431ec884586ce0aea0127e189ec4..9174577f8a57ba4ae4958cc31787ea4db3b2b44a/security/security-app-authenticator)
-
-**API Changes**
-
-- Added support for use cases where the UID / PID of the package to be verified is not available; the APIs now support cases such as `startActivityForResult` and activities / receivers where the calling app's identity is shared via `[Activity|Broadcast]Options#setShareIdentityEnabled`.
-- The behavior of `[check|enforce]CallingAppIdentity(String, String)` has been updated to support these new use cases; these methods will no longer default to using `Binder#getCalling[Uid|Pid]` but will instead skip verification of the calling package's UID if it is not explicitly provided. ([I1851b](https://android-review.googlesource.com/#/q/I1851bd20049e5be1d208a24633423080c5e38f7c))
-
-### Version 1.0.0-alpha02
-
-June 2, 2021
-
-`androidx.security:security-app-authenticator:1.0.0-alpha02` is released. [Version 1.0.0-alpha02 contains these commits.](https://android.googlesource.com/platform/frameworks/support/+log/3d6f168394d1dd14e1d6f5b6dc4a0d405cb1a26a..86ff5b4bb956431ec884586ce0aea0127e189ec4/security/security-app-authenticator)
-
-**API Changes**
-
-- In preparation to support the new `knownSigner` permission protection flag introduced in Android 12, the digestAlgorithm attribute can no longer be specified in the configuration; instead all certificate digests should be computed using SHA-256.
-
-**Bug Fixes**
-
-- All certificate digests provided in the configuration are now normalized to ensure a successful signature match can be reported both when the digest is computed at runtime as well as when an explicit signing identity is defined when using the testing library.
-
-### Version 1.0.0-alpha01
+#### Version 1.0.0-alpha01
 
 May 5, 2021
 
@@ -353,59 +363,23 @@ May 5, 2021
 
 AppAuthenticator is a new library aimed at simplifying verification of app trust based on signing identity. An app just needs to specify an XML configuration file containing the package names and signing identities of trusted apps, and the library will take care of verifying the signing identity of apps at runtime.
 
-## Security-Identity-Credential Version 1.0.0
+## Security-Crypto
 
-### Version 1.0.0-alpha03
+### Version 1.1
 
-September 1, 2021
-
-`androidx.security:security-identity-credential:1.0.0-alpha03` is released. [Version 1.0.0-alpha03 contains these commits.](https://android.googlesource.com/platform/frameworks/support/+log/5c90131a69042a6a3e13952e1da9e7ffc571c31d..47e81d1c497b8a57534a460c277855db1b0257ae/security/security-identity-credential)
-
-**New Features**
-
-- Added support for hardware-backed Identity Credential features in Android 12.
-
-### Version 1.0.0-alpha02
-
-February 24, 2021
-
-`androidx.security:security-identity-credential:1.0.0-alpha02` is released. [Version 1.0.0-alpha02 contains these commits.](https://android.googlesource.com/platform/frameworks/support/+log/96eb302ee1740ba656c90c9fb27df3723a1a89c1..5c90131a69042a6a3e13952e1da9e7ffc571c31d/security/identity-credential)
-
-**Bug Fixes**
-
-- Update Identity Credential API to match Android 12 plans ([Iff83e](https://android-review.googlesource.com/#/q/Iff83e3fe9501e6a3a3c5239ba013f0a3703ce014))
-
-### Version 1.0.0-alpha01
-
-August 19, 2020
-
-`androidx.security:security-identity-credential:1.0.0-alpha01` is released. [Version 1.0.0-alpha01 contains these commits.](https://android.googlesource.com/platform/frameworks/support/+log/96eb302ee1740ba656c90c9fb27df3723a1a89c1/security/identity-credential)
-
-**New Features**
-
-This Jetpack release features a Jetpack version of the Identity Credential APIs which was added to Android 11 and API level 30. If running on Android 11 and the device has hardware-backed Identity Credential support then this Jetpack simply forwards calls to the platform API. Otherwise, an Android Keystore-backed implementation will be used. While the Android Keystore-backed implementation does not provide the same level of security and privacy it is perfectly adequate for both holders and issuers in cases where all data is issuer-signed. This library requires API level 24 or later.
-
-The Identity Credential APIs provide an interface to a secure store for user identity documents. These APIs are deliberately fairly general and abstract. To the extent possible, specification of the message formats and semantics of communication with credential verification devices and Issuing Authorities (IAs) is out of scope for these APIs. The data structures that the APIs do depend on are compatible with the data structures in the soon to be released ISO/IEC IS 18013-5 Personal identification --- ISO-compliant driving licence --- Part 5: Mobile driving licence (mDL) application standard.
-
-**API Changes**
-
-- Added Identity Credential Jetpack. ([Icf90b](https://android-review.googlesource.com/#/q/Icf90bf39c485c00acb4485c1b402c894cde3e317))
-
-## Security-Crypto Version 1.1.0
-
-### Version 1.1.0
+#### Version 1.1.0
 
 July 30, 2025
 
 `androidx.security:security-crypto:1.1.0` and `androidx.security:security-crypto-ktx:1.1.0` are released. Version 1.1.0 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/e716aa82e6b27956a442460a66e512a8e7376ccd..12e7f8e66c5e70ca5c59342b4fb6c82e6e50a37c/security).
 
-### Version 1.1.0-rc01
+#### Version 1.1.0-rc01
 
 July 2, 2025
 
 `androidx.security:security-crypto:1.1.0-rc01` and `androidx.security:security-crypto-ktx:1.1.0-rc01` are released. Version 1.1.0-rc01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/786176dc2284c87a0e620477608e0aca9adeff15..e716aa82e6b27956a442460a66e512a8e7376ccd/security).
 
-### Version 1.1.0-beta01
+#### Version 1.1.0-beta01
 
 June 4, 2025
 
@@ -415,7 +389,7 @@ June 4, 2025
 
 - Deprecated all APIs in favour of existing platform APIs and direct use of Android Keystore.
 
-### Version 1.1.0-alpha07
+#### Version 1.1.0-alpha07
 
 April 9, 2025
 
@@ -425,7 +399,7 @@ April 9, 2025
 
 - Deprecated all APIs in favour of existing platform APIs and direct use of Android Keystore.
 
-### Version 1.1.0-alpha06
+#### Version 1.1.0-alpha06
 
 April 19, 2023
 
@@ -435,7 +409,7 @@ April 19, 2023
 
 - Updated Tink dependency to 1.8.0
 
-### Version 1.1.0-alpha05
+#### Version 1.1.0-alpha05
 
 February 22, 2023
 
@@ -445,7 +419,7 @@ February 22, 2023
 
 - Fixed a race condition in `MasterKeys.getOrCreate` ([I3391e](https://android-review.googlesource.com/#/q/I3391e7ba62acfa942432eba402e74d64e2e5e98a), [b/268572037](https://issuetracker.google.com/issues/268572037))
 
-### Version 1.1.0-alpha04
+#### Version 1.1.0-alpha04
 
 November 9, 2022
 
@@ -471,7 +445,7 @@ November 9, 2022
 
 - Received a fix for `EncryptedSharedPreferences.Editor#remove` from chr.ibbotson@gmail.com ([b/224994760](https://issuetracker.google.com/issues/224994760), [b/134197835](https://issuetracker.google.com/issues/134197835), [f44d44d](https://android-review.googlesource.com/c/platform/frameworks/support/+/2163645))
 
-### Security-Crypto-Ktx Version 1.1.0-alpha03
+#### Security-Crypto-Ktx Version 1.1.0-alpha03
 
 May 18, 2021
 
@@ -479,7 +453,7 @@ May 18, 2021
 
 Updated to match `androidx.security:security-crypto:1.1.0-alpha03`.
 
-### Version 1.1.0-alpha03
+#### Version 1.1.0-alpha03
 
 December 2, 2020
 
@@ -489,7 +463,7 @@ December 2, 2020
 
 - Updated Tink to stable release `1.5.0`
 
-### Version 1.1.0-alpha02
+#### Version 1.1.0-alpha02
 
 August 5, 2020
 
@@ -508,7 +482,7 @@ August 5, 2020
 
 - clear `mKeysChanged` on apply, fix for EncryptedSharedPreferences ([aosp/1323026](https://android-review.googlesource.com/c/platform/frameworks/support/+/1323026))
 
-### Version 1.1.0-alpha01
+#### Version 1.1.0-alpha01
 
 June 10, 2020
 
@@ -519,9 +493,9 @@ June 10, 2020
 - Lollipop (API Level 21+) is now supported. Please note that the AndroidKeyStore is *not* used for API 21 and 22. ([I7c12d](https://android-review.googlesource.com/#/q/I7c12d205273e4b652271865e53ff6c406632f407), [b/132325342](https://issuetracker.google.com/issues/132325342))
 - New MasterKey class provides more options for keys, also deprecating MasterKeys to support new features and versions of Android that do not have KeyGenParamSpec.
 
-## Security-Crypto Version 1.0.0
+### Version 1.0
 
-### Version 1.0.0
+#### Version 1.0.0
 
 April 21, 2021
 
@@ -536,7 +510,7 @@ April 21, 2021
 - Provides simple key generation via MasterKeys.
 - Relies on Tink 1.5.0 for increased stability.
 
-### Version 1.0.0-rc04
+#### Version 1.0.0-rc04
 
 January 13, 2021
 
@@ -546,7 +520,7 @@ January 13, 2021
 
 - Upgraded Tink to 1.5.0 for increased stability.
 
-### Version 1.0.0-rc03
+#### Version 1.0.0-rc03
 
 August 5, 2020
 
@@ -565,7 +539,7 @@ August 5, 2020
 
 - clear `mKeysChanged` on apply, fix for EncryptedSharedPreferences ([aosp/1323026](https://android-review.googlesource.com/c/platform/frameworks/support/+/1323026))
 
-### Version 1.0.0-rc02
+#### Version 1.0.0-rc02
 
 May 20, 2020
 
@@ -576,7 +550,7 @@ May 20, 2020
 - Updated to Tink version 1.4.0-rc2, which shades the proto buf lite dep. This solves the widely reported issue of clashing with other android sdks. ([I8a831](https://android-review.googlesource.com/#/q/I8a831b2068b8eec5642244c164882ddc312b496a))
 - Fixed `apply()` in `EncryptedSharedPreferences`. ([I29069](https://android-review.googlesource.com/#/q/I2906984118a5cf4e200b5a011b9addd16de710b7), [b/154366606](https://issuetracker.google.com/issues/154366606))
 
-### Version 1.0.0-rc01
+#### Version 1.0.0-rc01
 
 April 15, 2020
 
@@ -586,13 +560,13 @@ April 15, 2020
 
 - Added checks to ensure that if a `KeyGenParamSpec` is passed in to `MasterKeys.getOrCreate` that if `getUserAuthenticationRequired` returns `true` that `getUserAuthenticationValidityDurationSeconds` returns a value \>0. ([I911f5](https://android-review.googlesource.com/#/q/I911f5742c926977c80784d353d0ede65e4c07d41)) ([b/152644939](https://issuetracker.google.com/issues/152644939))
 
-### Version 1.0.0-beta01
+#### Version 1.0.0-beta01
 
 March 18, 2020
 
 `androidx.security:security-crypto:1.0.0-beta01` is released with no changes since `1.0.0-alpha02`. [Version 1.0.0-beta01 contains these commits](https://android.googlesource.com/platform/frameworks/support/+log/a1aa570607371188c68469577de50a2505d27eb7..8744680798c115f612a99148c5a5c3ad4bd6fbf5/security/crypto).
 
-### Version 1.0.0-alpha02
+#### Version 1.0.0-alpha02
 
 May 23, 2019
 
@@ -605,7 +579,7 @@ The commits included in this version can be found in this [commit log](https://a
 - Blocked usage of restricted preference keys.
 - Minor Javadoc updates.
 
-### Version 1.0.0-alpha01
+#### Version 1.0.0-alpha01
 
 May 7, 2019
 
@@ -617,3 +591,43 @@ included in this version can be found [here](https://android.googlesource.com/pl
 - `EncryptedFile`, provides encrypted input and output streams to read/write encrypted data to a File.
 - `EncryptedSharedPreferences`, provides an implementation of `SharedPreferences` that automatically encrypts/decrypts all keys and values.
 - Provides simple key generation via MasterKeys.
+
+## Security-Identity-Credential
+
+### Version 1.0
+
+#### Version 1.0.0-alpha03
+
+September 1, 2021
+
+`androidx.security:security-identity-credential:1.0.0-alpha03` is released. [Version 1.0.0-alpha03 contains these commits.](https://android.googlesource.com/platform/frameworks/support/+log/5c90131a69042a6a3e13952e1da9e7ffc571c31d..47e81d1c497b8a57534a460c277855db1b0257ae/security/security-identity-credential)
+
+**New Features**
+
+- Added support for hardware-backed Identity Credential features in Android 12.
+
+#### Version 1.0.0-alpha02
+
+February 24, 2021
+
+`androidx.security:security-identity-credential:1.0.0-alpha02` is released. [Version 1.0.0-alpha02 contains these commits.](https://android.googlesource.com/platform/frameworks/support/+log/96eb302ee1740ba656c90c9fb27df3723a1a89c1..5c90131a69042a6a3e13952e1da9e7ffc571c31d/security/identity-credential)
+
+**Bug Fixes**
+
+- Update Identity Credential API to match Android 12 plans ([Iff83e](https://android-review.googlesource.com/#/q/Iff83e3fe9501e6a3a3c5239ba013f0a3703ce014))
+
+#### Version 1.0.0-alpha01
+
+August 19, 2020
+
+`androidx.security:security-identity-credential:1.0.0-alpha01` is released. [Version 1.0.0-alpha01 contains these commits.](https://android.googlesource.com/platform/frameworks/support/+log/96eb302ee1740ba656c90c9fb27df3723a1a89c1/security/identity-credential)
+
+**New Features**
+
+This Jetpack release features a Jetpack version of the Identity Credential APIs which was added to Android 11 and API level 30. If running on Android 11 and the device has hardware-backed Identity Credential support then this Jetpack simply forwards calls to the platform API. Otherwise, an Android Keystore-backed implementation will be used. While the Android Keystore-backed implementation does not provide the same level of security and privacy it is perfectly adequate for both holders and issuers in cases where all data is issuer-signed. This library requires API level 24 or later.
+
+The Identity Credential APIs provide an interface to a secure store for user identity documents. These APIs are deliberately fairly general and abstract. To the extent possible, specification of the message formats and semantics of communication with credential verification devices and Issuing Authorities (IAs) is out of scope for these APIs. The data structures that the APIs do depend on are compatible with the data structures in the soon to be released ISO/IEC IS 18013-5 Personal identification --- ISO-compliant driving licence --- Part 5: Mobile driving licence (mDL) application standard.
+
+**API Changes**
+
+- Added Identity Credential Jetpack. ([Icf90b](https://android-review.googlesource.com/#/q/Icf90bf39c485c00acb4485c1b402c894cde3e317))

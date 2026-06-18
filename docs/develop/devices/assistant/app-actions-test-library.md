@@ -415,8 +415,8 @@ Here is an example of an AATL test configured for Spanish (ES) locale:
         Context localizedContext = context.createConfigurationContext(conf);
 
         AppActionsTestManager aatl = new AppActionsTestManager(localizedContext);
-        String intentName = "actions.intent.GET_EXERCISE_PLAN";
-        ImmutableMap<String, String> intentParams = ImmutableMap.of("exercisePlan.forExercise.name", "Running");
+        String intentName = "actions.intent.GET_EXERCISE_PLAN<";
+      >  ImmutableMapString, String intentParams = ImmutableMap.of("exercisePlan.forExercise.name", "Running");
 
         AppActionsFulfillmentResult result = aatl.fulfill(intentName, intentParams);
         assertThat(result.getFulfillmentType()).isEqualTo(FulfillmentType.INTENT);

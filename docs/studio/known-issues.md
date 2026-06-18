@@ -24,11 +24,11 @@ In Android Studio Quail 1, the `org.gradle.parallel=true` property in
 `gradle.properties` no longer enables parallel model fetching during Gradle
 Sync. This will result in a large sync time regression for large projects.
 
-To enable parallel sync in Quail 1, set `org.gradle.tooling.parallel=true` in
+To enable parallel sync in Android Studio Quail 1, set `org.gradle.tooling.parallel=true` in
 your project's `gradle.properties` file.
 
 > [!CAUTION]
-> **Caution:** Adding `org.gradle.tooling.parallel=true` to your project in Quail 1 will enable IDEA parallel model fetching, which only works for projects that are compatible with Gradle project isolation.
+> **Caution:** Adding `org.gradle.tooling.parallel=true` to your project in Android Studio Quail 1 will enable IDEA parallel model fetching, which only works for projects that are compatible with Gradle project isolation. This restriction has been lifted in the [Android Studio Quail 1 Patch 1 release](https://developer.android.com/studio/releases#parallel-sync-change).
 
 ### Android Studio Panda 3 not compatible with IntelliJ Develocity plugin 1.2.0
 

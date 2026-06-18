@@ -10,7 +10,7 @@ Lint checks to verify usage of Gradle APIs
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| May 19, 2026 | - | [1.0.0-rc01](https://developer.android.com/jetpack/androidx/releases/lint#1.0.0-rc01) | - | - |
+| June 17, 2026 | [1.0.0](https://developer.android.com/jetpack/androidx/releases/lint#1.0.0) | - | - | - |
 
 ## Declaring dependencies
 
@@ -28,7 +28,7 @@ plugins {
     id("com.android.lint")
 }
 dependencies {
-    lintChecks "androidx.lint:lint-gradle:1.0.0-rc01"
+    lintChecks "androidx.lint:lint-gradle:1.0.0"
 }
 ```
 
@@ -39,7 +39,7 @@ plugins {
     id("com.android.lint")
 }
 dependencies {
-    lintChecks("androidx.lint:lint-gradle:1.0.0-rc01")
+    lintChecks("androidx.lint:lint-gradle:1.0.0")
 }
 ```
 
@@ -61,6 +61,26 @@ for more information.
 There are no release notes for this artifact.
 
 ## Lint Version 1.0
+
+### Version 1.0.0
+
+June 17, 2026
+
+`androidx.lint:lint-gradle:1.0.0` is released. Version 1.0.0 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/e1b82c49c59d8e976ce558aba5586f6c61bc9054..df2b9da6fcff9fb5520d8564e517dc1f822c5615/lint/lint-gradle).
+
+**Major features of 1.0.0:**
+
+`lint-gradle` ships the following checks to help Gradle plugin authors:
+
+- Eager configuration check to defer creating and configuring objects until they are needed
+- Project Isolation violations check
+- Likely bugs check for calling `Provider.toString`
+- Performance check that flags calls to APIs that are unexpectedly expensive
+- Overly broad configuration cache inputs check
+- Check to discourage usage of `Property<File>`
+- Internal Gradle, Android Gradle Plugin and Kotlin Gradle plugin API usage check
+- Call to `withType` without `.configureEach` check
+- Usage of `GradleRunner.withPluginClasspath` check
 
 ### Version 1.0.0-rc01
 

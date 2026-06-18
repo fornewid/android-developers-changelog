@@ -247,7 +247,7 @@ To include this module, add the following to your app's `build.gradle` file:
 
 ```groovy
 dependencies {
-    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.10.0"
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.11.0"
 }
 ```
 
@@ -255,7 +255,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.10.0")
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.11.0")
 }
 ```
 
@@ -288,7 +288,7 @@ To include this module, add the following to your app's `build.gradle` file:
 
 ```groovy
 dependencies {
-    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.10.0"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.11.0"
 }
 ```
 
@@ -296,7 +296,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.10.0")
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.11.0")
 }
 ```
 
@@ -401,7 +401,7 @@ To include this module, add the following to your app's `build.gradle` file:
 
 ```groovy
 dependencies {
-    implementation "androidx.lifecycle:lifecycle-reactivestreams-ktx:2.10.0"
+    implementation "androidx.lifecycle:lifecycle-reactivestreams-ktx:2.11.0"
 }
 ```
 
@@ -409,7 +409,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.lifecycle:lifecycle-reactivestreams-ktx:2.10.0")
+    implementation("androidx.lifecycle:lifecycle-reactivestreams-ktx:2.11.0")
 }
 ```
 
@@ -508,7 +508,7 @@ To include this module, add the following to your app's `build.gradle` file:
 
 ```groovy
 dependencies {
-    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.10.0"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.11.0"
 }
 ```
 
@@ -516,7 +516,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.10.0")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.11.0")
 }
 ```
 

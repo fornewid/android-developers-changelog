@@ -16,6 +16,26 @@ to 2018.
 To view the current versions for every component,
 see the [versions page](https://developer.android.com/jetpack/androidx/versions).
 
+## June 17, 2026
+
+- [Compose Compose-testing Version 1.0.0-alpha15](https://developer.android.com/jetpack/androidx/releases/xr-compose#1.0.0-alpha15)
+- [Compose Material 3 Version 1.5.0-alpha22](https://developer.android.com/jetpack/androidx/releases/compose-material3#1.5.0-alpha22)
+- [Compose Remote Version 1.0.0-alpha13](https://developer.android.com/jetpack/androidx/releases/compose-remote#1.0.0-alpha13)
+- [Core-telecom Version 1.1.0-alpha06](https://developer.android.com/jetpack/androidx/releases/core#core-telecom-1.1.0-alpha06)
+- [Fragment Version 1.9.0-alpha01](https://developer.android.com/jetpack/androidx/releases/fragment#1.9.0-alpha01)
+- [Glance Wear Version 1.0.0-alpha12](https://developer.android.com/jetpack/androidx/releases/glance-wear#1.0.0-alpha12)
+- [Ink Version 1.1.0-alpha04](https://developer.android.com/jetpack/androidx/releases/ink#1.1.0-alpha04)
+- [Leanback Version 1.3.0-alpha02](https://developer.android.com/jetpack/androidx/releases/leanback#leanback-1.3.0-alpha02)
+- [Leanback-grid Version 1.1.0-alpha02](https://developer.android.com/jetpack/androidx/releases/leanback#leanback-grid-1.1.0-alpha02)
+- [Locationbutton Locationbutton-compose Locationbutton-testing Version 1.0.0-alpha01](https://developer.android.com/jetpack/androidx/releases/core-locationbutton#1.0.0-alpha01)
+- [Wear Compose Remote Version 1.0.0-alpha06](https://developer.android.com/jetpack/androidx/releases/wear-compose-remote#1.0.0-alpha06)
+- [Webkit Version 1.17.0-alpha02](https://developer.android.com/jetpack/androidx/releases/webkit#1.17.0-alpha02)
+- [Window Version 1.6.0-alpha05](https://developer.android.com/jetpack/androidx/releases/window#1.6.0-alpha05)
+- [Xr Arcore Version 1.0.0-alpha15](https://developer.android.com/jetpack/androidx/releases/xr-arcore#1.0.0-alpha15)
+- [Xr Projected Version 1.0.0-alpha09](https://developer.android.com/jetpack/androidx/releases/xr-projected#1.0.0-alpha09)
+- [Xr Runtime Version 1.0.0-alpha15](https://developer.android.com/jetpack/androidx/releases/xr-runtime#1.0.0-alpha15)
+- [Xr Scenecore Version 1.0.0-alpha16](https://developer.android.com/jetpack/androidx/releases/xr-scenecore#1.0.0-alpha16)
+
 ## June 03, 2026
 
 - [Compose Material 3 Version 1.5.0-alpha21](https://developer.android.com/jetpack/androidx/releases/compose-material3#1.5.0-alpha21)

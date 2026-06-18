@@ -1303,11 +1303,11 @@ dependencies {
 
 ```groovy
 dependencies {
-    implementation "androidx.lifecycle:lifecycle-livedata-core-ktx:2.10.0"
-    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.10.0"
-    implementation "androidx.lifecycle:lifecycle-reactivestreams-ktx:2.10.0"
-    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.10.0"
-    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.10.0"
+    implementation "androidx.lifecycle:lifecycle-livedata-core-ktx:2.11.0"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.11.0"
+    implementation "androidx.lifecycle:lifecycle-reactivestreams-ktx:2.11.0"
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.11.0"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.11.0"
 }
 ```
 
@@ -1315,11 +1315,11 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.lifecycle:lifecycle-livedata-core-ktx:2.10.0")
-    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.10.0")
-    implementation("androidx.lifecycle:lifecycle-reactivestreams-ktx:2.10.0")
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.10.0")
-    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.10.0")
+    implementation("androidx.lifecycle:lifecycle-livedata-core-ktx:2.11.0")
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.11.0")
+    implementation("androidx.lifecycle:lifecycle-reactivestreams-ktx:2.11.0")
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.11.0")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.11.0")
 }
 ```
 

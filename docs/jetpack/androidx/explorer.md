@@ -53,6 +53,7 @@ Select a category:
 | [constraintlayout](https://developer.android.com/jetpack/androidx/releases/constraintlayout) | Position and size widgets in a flexible way with relative positioning. |
 | [contentpager](https://developer.android.com/jetpack/androidx/releases/contentpager) | Load and page across ContentProvider data in a background thread. |
 | [coordinatorlayout](https://developer.android.com/jetpack/androidx/releases/coordinatorlayout) | Position top-level application widgets, such as AppBarLayout and FloatingActionButton. |
+| [locationbutton](https://developer.android.com/jetpack/androidx/releases/locationbutton) |   |
 | [core](https://developer.android.com/jetpack/androidx/releases/core) | Target the latest platform features and APIs while also supporting older devices. |
 | [core.uwb](https://developer.android.com/jetpack/androidx/releases/core-uwb) | Implement UWB (ultra-wideband) on supported devices. |
 | [credentials](https://developer.android.com/jetpack/androidx/releases/credentials) | This library provides unified access to a user's credentials. This can include passwords, passkeys and federated credentials. This library should be used to provide seamless and secure sign-in experiences. |

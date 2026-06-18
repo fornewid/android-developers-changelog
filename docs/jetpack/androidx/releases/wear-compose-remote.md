@@ -10,7 +10,7 @@ Write Widgets and other Remote UI for Wear OS using the Material 3 Expressive de
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| June 03, 2026 | - | - | - | [1.0.0-alpha05](https://developer.android.com/jetpack/androidx/releases/wear-compose-remote#1.0.0-alpha05) |
+| June 17, 2026 | - | - | - | [1.0.0-alpha06](https://developer.android.com/jetpack/androidx/releases/wear-compose-remote#1.0.0-alpha06) |
 
 ## Declaring dependencies
 
@@ -26,7 +26,7 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.wear.compose.remote:remote-material3:1.0.0-alpha05"
+    implementation "androidx.wear.compose.remote:remote-material3:1.0.0-alpha06"
 }
 ```
 
@@ -34,7 +34,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.wear.compose.remote:remote-material3:1.0.0-alpha05")
+    implementation("androidx.wear.compose.remote:remote-material3:1.0.0-alpha06")
 }
 ```
 
@@ -55,6 +55,19 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.0
+
+### Version 1.0.0-alpha06
+
+June 17, 2026
+
+`androidx.wear.compose.remote:remote-material3:1.0.0-alpha06` is released. Version 1.0.0-alpha06 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/d0d5e8b902b1ded8854df7d27fa1d1ee14e3bb4c..14c2f2ed81d0f61a3227641684cd875e95dd6529/wear/compose/remote/remote-material3).
+
+**API Changes**
+
+- Update `containerPainter` method to take `RemoteImageBitmap` instead ([I68a92](https://android-review.googlesource.com/#/q/I68a92331857f100fc37288e76af270d2ceb39d25), [b/494562308](https://issuetracker.google.com/issues/494562308))
+- Rename `RemoteBitmap` to `RemoteImageBitmap` to improve naming consistency. ([I4fde1](https://android-review.googlesource.com/#/q/I4fde13afb0f60eae9e47e651d02c964ec7773433), [b/513228889](https://issuetracker.google.com/issues/513228889))
+- Exposed `captureRemoteDocument` Flow API and a new `captureSingleRemoteDocument` overload (which takes `RemoteCreationDisplayInfo`) as public APIs. ([I87b0e](https://android-review.googlesource.com/#/q/I87b0ef46ca9cbaae9375053ab8d0618921aa1957), [b/513228889](https://issuetracker.google.com/issues/513228889))
+- Renamed existing `ValueChange` factory functions to lowercase `valueChange`. ([I812b9](https://android-review.googlesource.com/#/q/I812b92fed6b9edfb9e489dbf6ceb5382cd68a80e), [b/513228889](https://issuetracker.google.com/issues/513228889))
 
 ### Version 1.0.0-alpha05
 

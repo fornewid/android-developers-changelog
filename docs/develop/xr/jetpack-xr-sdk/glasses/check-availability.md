@@ -32,6 +32,7 @@ The following table lists how device availability signals map to the
 | `CREATED` | Inactive | The service is connected, but the user is not wearing the device. |
 | `STARTED` | Active | The user is wearing the device. |
 | `DESTROYED` | Disconnected | The device is disconnected or the service connection is lost. |
+| `RESUMED` | N/A | The device lifecycle doesn't currently use or emit this state. |
 
 ## Check and monitor device availability
 

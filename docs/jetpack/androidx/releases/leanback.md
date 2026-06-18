@@ -10,7 +10,7 @@ source: md.txt
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| May 19, 2026 | [1.2.0](https://developer.android.com/jetpack/androidx/releases/leanback#1.2.0) | - | - | [1.3.0-alpha01](https://developer.android.com/jetpack/androidx/releases/leanback#1.3.0-alpha01) |
+| June 17, 2026 | [1.2.0](https://developer.android.com/jetpack/androidx/releases/leanback#1.2.0) | - | - | [1.3.0-alpha02](https://developer.android.com/jetpack/androidx/releases/leanback#1.3.0-alpha02) |
 
 ## Declaring dependencies
 
@@ -25,7 +25,7 @@ your app or module:
 
 ```groovy
 dependencies {
-    def leanback_version = "1.3.0-alpha01"
+    def leanback_version = "1.3.0-alpha02"
 
     implementation "androidx.leanback:leanback:$leanback_version"
 
@@ -44,7 +44,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    val leanback_version = "1.3.0-alpha01"
+    val leanback_version = "1.3.0-alpha02"
 
     implementation("androidx.leanback:leanback:$leanback_version")
 
@@ -77,6 +77,12 @@ for more information.
 ## Leanback-Grid
 
 ### Version 1.1
+
+### Version 1.1.0-alpha02
+
+June 17, 2026
+
+`androidx.leanback:leanback-grid:1.1.0-alpha02` is released. Version 1.1.0-alpha02 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/b5d2acb5ad0a36c9d2aba8feb4c7951165f30fbe..75dd8c1a8287fd3324c8c3fe2c6bf0f376c41ef0/leanback/leanback-grid).
 
 #### Version 1.1.0-alpha01
 
@@ -148,6 +154,12 @@ November 17, 2021
 ## Leanback
 
 ### Version 1.3
+
+#### Version 1.3.0-alpha02
+
+June 17, 2026
+
+`androidx.leanback:leanback:1.3.0-alpha02` is released. Version 1.3.0-alpha02 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/b5d2acb5ad0a36c9d2aba8feb4c7951165f30fbe..ef1fe5fb3a6f1ba5ecfb6f1d56189249df0abe7f/leanback/leanback).
 
 #### Version 1.3.0-alpha01
 

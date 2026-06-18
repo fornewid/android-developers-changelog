@@ -10,7 +10,7 @@ source: md.txt
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| May 19, 2026 | [1.11.2](https://developer.android.com/jetpack/androidx/releases/compose-foundation#1.11.2) | - | - | [1.12.0-alpha03](https://developer.android.com/jetpack/androidx/releases/compose-foundation#1.12.0-alpha03) |
+| June 17, 2026 | [1.11.3](https://developer.android.com/jetpack/androidx/releases/compose-foundation#1.11.3) | - | [1.12.0-beta01](https://developer.android.com/jetpack/androidx/releases/compose-foundation#1.12.0-beta01) | - |
 
 ## Structure
 
@@ -43,7 +43,7 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.compose.foundation:foundation:1.11.2"
+    implementation "androidx.compose.foundation:foundation:1.11.3"
 }
 
 android {
@@ -65,7 +65,7 @@ android {
 
 ```kotlin
 dependencies {
-    implementation("androidx.compose.foundation:foundation:1.11.2")
+    implementation("androidx.compose.foundation:foundation:1.11.3")
 }
 
 android {
@@ -99,6 +99,31 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.12
+
+### Version 1.12.0-beta01
+
+June 17, 2026
+
+`androidx.compose.foundation:foundation-*:1.12.0-beta01` is released. Version 1.12.0-beta01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/b5d2acb5ad0a36c9d2aba8feb4c7951165f30fbe..40b1610b08564489b3f6a426cd8833f8615bfc68/compose/foundation).
+
+**API Changes**
+
+- Renames test function for triggering indirect pointer events ([I3ee35](https://android-review.googlesource.com/#/q/I3ee350b89fa866f7d4446eacd0ccaa76c31008a7), [b/509618414](https://issuetracker.google.com/issues/509618414))
+- Renamed `TextObfuscationMode.Default` to `System`. `TextObfuscationMode.RevealLastTyped` now acts as an absolute override and always reveals the last typed character. The default argument of `BasicSecureTextField` is updated to `System`. ([If26d3](https://android-review.googlesource.com/#/q/If26d388fdefadc7626cd60fa8e4a8cc375941311), [b/425658491](https://issuetracker.google.com/issues/425658491), [b/453647378](https://issuetracker.google.com/issues/453647378))
+- Updated `getSpanStyles` and `getParagraphStyles` to take a `TextRange` instead of separate start/end indices. Relaxed bounds checking on style queries to no longer throw exceptions, and prevented crashes when querying properties of invalidated `TrackedRanges`. ([I62a9a](https://android-review.googlesource.com/#/q/I62a9a619da7f19ce8d97466c8555326e1df88e87), [b/514404697](https://issuetracker.google.com/issues/514404697))
+- Added Named Areas feature to Grid layout. Developers can now define semantic areas using `GridConfigurationScope.area()` and place items into them using the new `Modifier.gridItem(area)` overload, decoupling semantic intent from physical coordinates. ([Id9303](https://android-review.googlesource.com/#/q/Id93037b0f8048754d39f4326b32c465cd78070ba), [b/487503921](https://issuetracker.google.com/issues/487503921))
+- Added then operators and combination factory functions for `FlexBoxConfig` and `FlexConfig` to allow merging and overriding of layout configurations. ([Icfdd8](https://android-review.googlesource.com/#/q/Icfdd86d161acfde2cae9bd46f5564ecbb56fb24d), [b/475491619](https://issuetracker.google.com/issues/475491619))
+- Added `RevealState`.drag(), `SwipeToRevealDragScope`, and exposed custom `flingBehavior` in `SwipeToReveal` to enable programmatic control over swipe gestures, offsets, and settling animations. ([Ibfe56](https://android-review.googlesource.com/#/q/Ibfe560061482f812fdcf4034502ef28298fad1f0), [b/484185090](https://issuetracker.google.com/issues/484185090))
+
+**Bug Fixes**
+
+- Fixed an issue where the text selection toolbar might fail to update its position or items. ([Ib2566](https://android-review.googlesource.com/#/q/Ib25668aa15122fe0c26fc0b00fa5aedb3a47b318))
+
+**External Contribution**
+
+- In `SelectionContainer`, allow selection (via the mouse) to start in empty areas between `Text` selectables. ([I93f69](https://android-review.googlesource.com/#/q/I93f69ba5eebf95c8830749cf5a8f033b915f0df1), [b/502151445](https://issuetracker.google.com/issues/502151445))
+- Expose `AndroidClipboard` interface for testing to provide a way to mock clipboard implementation ([Ie4d72](https://android-review.googlesource.com/#/q/Ie4d72947de357862f85a963066b06021a5342441), [b/512924975](https://issuetracker.google.com/issues/512924975))
+- Add backwards compatibility for `TextAttribute` variants of `commitText()` and `setComposingText()`. For SDK\>=37, accessibility services will be able to announce whether or not a suggestion replacement text is selected. For SDK\<37, will not affect spoken feedback (i.e. existing behavior). ([I90e3d](https://android-review.googlesource.com/#/q/I90e3d069dd377326b72516fd1c5a8dc8c4734660), [b/439879822](https://issuetracker.google.com/issues/439879822))
 
 ### Version 1.12.0-alpha03
 
@@ -156,6 +181,12 @@ April 22, 2026
 - When a user moves the cursor outside the scrollable area, the cursor is now scrolled into the visible space. ([If694c](https://android-review.googlesource.com/#/q/If694c0325af3704dda197b33f027946fcc69e658), [b/266094055](https://issuetracker.google.com/issues/266094055))
 
 ## Version 1.11
+
+### Version 1.11.3
+
+June 17, 2026
+
+`androidx.compose.foundation:foundation-*:1.11.3` is released. Version 1.11.3 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/f024db30e2eb34d643af9804ac0650840a49a05c..b3fb8849de357e09c2efc963c36a1012543ca411/compose/foundation).
 
 ### Version 1.11.2
 

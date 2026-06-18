@@ -58,7 +58,7 @@ dependencies {
   // ... other androidx dependencies
 
   // Import the BoM for the Firebase platform
-  implementation(platform("com.google.firebase:firebase-bom:34.14.1"))
+  implementation(platform("com.google.firebase:firebase-bom:34.15.0"))
 
   // Add the dependency for the Firebase AI Logic library When using the BoM,
   // you don't specify versions in Firebase library dependencies
@@ -72,7 +72,7 @@ dependencies {
 ```java
 dependencies {
   // Import the BoM for the Firebase platform
-  implementation(platform("com.google.firebase:34.14.1"))
+  implementation(platform("com.google.firebase:34.15.0"))
 
   // Add the dependency for the Firebase AI Logic library When using the BoM,
   // you don't specify versions in Firebase library dependencies
@@ -419,16 +419,10 @@ relevant images, seamlessly blending or interleaving text and image outputs. It
 can also generate accurate visuals with long text sequences and supports
 conversational image editing while maintaining context.
 
-As an alternative to Gemini, you can use Imagen models, especially for
-high-quality image generation that requires photorealism, artistic detail, or
-specific styles. However, for the majority of client-side use cases for Android
-apps, Gemini will be more than sufficient.
-
 This guide describes how to use the Gemini 2.5 Flash Image model (Nano Banana)
 using the Firebase AI Logic SDK for Android. For more details on generating
 images with Gemini, see the [Generate images with Gemini on
-Firebase](https://firebase.google.com/docs/ai-logic/generate-images-gemini?api=dev) documentation. If you're interested in using [Imagen
-models](https://developer.android.com/ai/imagen), check out the documentation.
+Firebase](https://firebase.google.com/docs/ai-logic/generate-images-gemini?api=dev) documentation.
 
 > [!NOTE]
 > **Note:** Using Gemini models for image generation using the Firebase AI Logic SDK is in Preview. This means the feature isn't subject to any SLA or deprecation policy and could change in backward-incompatible ways.

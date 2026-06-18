@@ -62,18 +62,19 @@ that the `SceneStrategy` might need, such as an `onBack` callback.
 ## How Scenes and scene strategies work together
 
 The `NavDisplay` is the central composable that observes your back stack and
-uses a `SceneStrategy` to determine and render the appropriate `Scene`.
+uses one or more `SceneStrategy`s to determine and render the appropriate
+`Scene`.
 
-The `NavDisplay's sceneStrategy` parameter expects a `SceneStrategy` that is
-responsible for calculating the `Scene` to display. If no `Scene` is calculated
-by the provided strategy (or chain of strategies), `NavDisplay` automatically
+The `NavDisplay`'s `sceneStrategies` parameter expects a list of `SceneStrategy`
+instances that are responsible for calculating the `Scene` to display. If no
+`Scene` is calculated by the provided strategies, `NavDisplay` automatically
 falls back to using a `SinglePaneSceneStrategy` by default.
 
 Here's a breakdown of the interaction:
 
 - When you add or remove keys from your back stack (e.g., using `backStack.add()` or `backStack.removeLastOrNull()`), the `NavDisplay` observes these changes.
-- The `NavDisplay` passes the current list of `NavEntrys` (derived from the back stack keys) to the configured `SceneStrategy's calculateScene` method.
-- If the `SceneStrategy` successfully returns a `Scene`, the `NavDisplay` then renders the `content` of that `Scene`. The `NavDisplay` also manages animations and predictive back based on the `Scene`'s properties.
+- The `NavDisplay` passes the current list of `NavEntry`s (derived from the back stack keys) to the configured `sceneStrategies` in order, calling `calculateScene` on each until a `Scene` is returned.
+- When a `SceneStrategy` successfully returns a `Scene`, the `NavDisplay` then renders the `content` of that `Scene`. The `NavDisplay` also manages animations and predictive back based on the `Scene`'s properties.
 
 ## Example: Single pane layout (default behavior)
 

@@ -10,7 +10,7 @@ Build experiences that leverage the unique capabilities of connected XR devices.
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| May 19, 2026 | - | - | - | [1.0.0-alpha08](https://developer.android.com/jetpack/androidx/releases/xr-projected#1.0.0-alpha08) |
+| June 17, 2026 | - | - | - | [1.0.0-alpha09](https://developer.android.com/jetpack/androidx/releases/xr-projected#1.0.0-alpha09) |
 
 ## Declaring dependencies
 
@@ -26,7 +26,7 @@ your app or module:
 ```groovy
 dependencies {
     // Use to implement xr projecteds
-    implementation "androidx.xr.projected:projected:1.0.0-alpha08"
+    implementation "androidx.xr.projected:projected:1.0.0-alpha09"
 }
 ```
 
@@ -35,20 +35,20 @@ dependencies {
 ```kotlin
 dependencies {
     // Use to implement xr projecteds
-    implementation("androidx.xr.projected:projected:1.0.0-alpha08")
+    implementation("androidx.xr.projected:projected:1.0.0-alpha09")
 
     // Use to implement xr projected complications
-    implementation "androidx.xr.projected:projected-complications-data-source:1.0.0-alpha08"
+    implementation "androidx.xr.projected:projected-complications-data-source:1.0.0-alpha09"
     // (Kotlin-specific extensions)
-    implementation "androidx.xr.projected:projected-complications-data-source-ktx:1.0.0-alpha08"
+    implementation "androidx.xr.projected:projected-complications-data-source-ktx:1.0.0-alpha09"
 
     // Use to implement a projected style and complication editor
-    implementation("androidx.xr.projected:projected-editor:1.0.0-alpha08")
+    implementation("androidx.xr.projected:projected-editor:1.0.0-alpha09")
 
     // Can use to render complications.
     // This library is optional and projecteds may have custom implementation for rendering
     // complications.
-    implementation "androidx.xr.projected:projected-complications-rendering:1.0.0-alpha08"
+    implementation "androidx.xr.projected:projected-complications-rendering:1.0.0-alpha09"
 }
 ```
 
@@ -68,6 +68,19 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.0
+
+### Version 1.0.0-alpha09
+
+June 17, 2026
+
+`androidx.xr.projected:projected:1.0.0-alpha09`, `androidx.xr.projected:projected-binding:1.0.0-alpha09`, and `androidx.xr.projected:projected-testing:1.0.0-alpha09` are released. Version 1.0.0-alpha09 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/326d73f28026a67b1a67b91d525146cb1128068f..dd34e9d11afb54183d16f86d530f3775b4caeb0d/xr/projected).
+
+**API Changes**
+
+- Added support for battery state to `ProjectedTestRule` ([I6b28e](https://android-review.googlesource.com/#/q/I6b28efb2f85e3fa7e7e57adc07cbf676ead9398a))
+- Added listening to battery state changes to the `ProjectedDeviceController` ([If8966](https://android-review.googlesource.com/#/q/If89664837057f6fbca0f32c1d9c130644b3c4c35))
+- Added support for audio devices to `ProjectedTestRule` ([I5d1c9](https://android-review.googlesource.com/#/q/I5d1c916e167672ce7f4ac895b35e9082d1a36a04))
+- Added support for audio devices to the `ProjectedDeviceController` ([I7681d](https://android-review.googlesource.com/#/q/I7681d1db5ed8a7fdc2213ff91cd6445735411b78))
 
 ### Version 1.0.0-alpha08
 

@@ -10,7 +10,7 @@ Remote Compose is a framework to create UI for remote surfaces
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| June 03, 2026 | - | - | - | [1.0.0-alpha12](https://developer.android.com/jetpack/androidx/releases/compose-remote#1.0.0-alpha12) |
+| June 17, 2026 | - | - | - | [1.0.0-alpha13](https://developer.android.com/jetpack/androidx/releases/compose-remote#1.0.0-alpha13) |
 
 ## Declaring dependencies
 
@@ -26,20 +26,20 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.compose.remote:remote-core:1.0.0-alpha12"
+    implementation "androidx.compose.remote:remote-core:1.0.0-alpha13"
 
     // Use to create Remote Compose documents
-    implementation "androidx.compose.remote:remote-creation:1.0.0-alpha12"
-    implementation "androidx.compose.remote:remote-creation-core:1.0.0-alpha12"
-    implementation "androidx.compose.remote:remote-creation-android:1.0.0-alpha12"
-    implementation "androidx.compose.remote:remote-creation-jvm:1.0.0-alpha12"
-    implementation "androidx.compose.remote:remote-creation-compose:1.0.0-alpha12"
+    implementation "androidx.compose.remote:remote-creation:1.0.0-alpha13"
+    implementation "androidx.compose.remote:remote-creation-core:1.0.0-alpha13"
+    implementation "androidx.compose.remote:remote-creation-android:1.0.0-alpha13"
+    implementation "androidx.compose.remote:remote-creation-jvm:1.0.0-alpha13"
+    implementation "androidx.compose.remote:remote-creation-compose:1.0.0-alpha13"
 
     // Use to render a Remote Compose document
-    implementation "androidx.compose.remote:remote-player-core:1.0.0-alpha12"
-    implementation "androidx.compose.remote:remote-player-view:1.0.0-alpha12"
+    implementation "androidx.compose.remote:remote-player-core:1.0.0-alpha13"
+    implementation "androidx.compose.remote:remote-player-view:1.0.0-alpha13"
 
-    implementation "androidx.compose.remote:remote-tooling-preview:1.0.0-alpha12"
+    implementation "androidx.compose.remote:remote-tooling-preview:1.0.0-alpha13"
 }
 ```
 
@@ -47,20 +47,20 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.compose.remote:remote-core:1.0.0-alpha12")
+    implementation("androidx.compose.remote:remote-core:1.0.0-alpha13")
 
     // Use to create Remote Compose documents
-    implementation("androidx.compose.remote:remote-creation:1.0.0-alpha12")
-    implementation("androidx.compose.remote:remote-creation-core:1.0.0-alpha12")
-    implementation("androidx.compose.remote:remote-creation-android:1.0.0-alpha12")
-    implementation("androidx.compose.remote:remote-creation-jvm:1.0.0-alpha12")
-    implementation("androidx.compose.remote:remote-creation-compose:1.0.0-alpha12")
+    implementation("androidx.compose.remote:remote-creation:1.0.0-alpha13")
+    implementation("androidx.compose.remote:remote-creation-core:1.0.0-alpha13")
+    implementation("androidx.compose.remote:remote-creation-android:1.0.0-alpha13")
+    implementation("androidx.compose.remote:remote-creation-jvm:1.0.0-alpha13")
+    implementation("androidx.compose.remote:remote-creation-compose:1.0.0-alpha13")
 
     // Use to render a Remote Compose document
-    implementation("androidx.compose.remote:remote-player-core:1.0.0-alpha12")
-    implementation("androidx.compose.remote:remote-player-view:1.0.0-alpha12")
+    implementation("androidx.compose.remote:remote-player-core:1.0.0-alpha13")
+    implementation("androidx.compose.remote:remote-player-view:1.0.0-alpha13")
 
-    implementation("androidx.compose.remote:remote-tooling-preview:1.0.0-alpha12")
+    implementation("androidx.compose.remote:remote-tooling-preview:1.0.0-alpha13")
 }
 ```
 
@@ -81,6 +81,32 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.0
+
+### Version 1.0.0-alpha13
+
+June 17, 2026
+
+`androidx.compose.remote:remote-*:1.0.0-alpha13` is released. Version 1.0.0-alpha13 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/d0d5e8b902b1ded8854df7d27fa1d1ee14e3bb4c..14c2f2ed81d0f61a3227641684cd875e95dd6529/compose/remote).
+
+**API Changes**
+
+- Rename `RemoteBitmap` to `RemoteImageBitmap` to improve naming consistency. ([I4fde1](https://android-review.googlesource.com/#/q/I4fde13afb0f60eae9e47e651d02c964ec7773433), [b/513228889](https://issuetracker.google.com/issues/513228889))
+- Rename `RemoteBitmapShader` to `RemoteImageBrush` and expose to public API. ([I7adaf](https://android-review.googlesource.com/#/q/I7adaf75ee3225dce51717908a24e190d727ca894), [b/513228889](https://issuetracker.google.com/issues/513228889))
+- Expose `RemoteInt` compare operators. ([I5fe3d](https://android-review.googlesource.com/#/q/I5fe3d4e06e25650003dcea04cdef1c252612bf06), [b/513228889](https://issuetracker.google.com/issues/513228889))
+- Exposed `captureRemoteDocument` Flow API and a new `captureSingleRemoteDocument` overload (which takes `RemoteCreationDisplayInfo`) as public APIs. ([I87b0e](https://android-review.googlesource.com/#/q/I87b0ef46ca9cbaae9375053ab8d0618921aa1957), [b/513228889](https://issuetracker.google.com/issues/513228889))
+- Rename comparison operators (eq, ne) on `RemoteBoolean` to `isEqualTo`, `isNotEqualTo`. ([Ia05b9](https://android-review.googlesource.com/#/q/Ia05b9b0f78834764994b42cfaf42d3232ff4f966), [b/513228889](https://issuetracker.google.com/issues/513228889))
+- Expose `RemoteEnum` and `RemoteStateLayout` as public APIs ([I5c6ec](https://android-review.googlesource.com/#/q/I5c6ec503db7681b1024ee650b6f9a5fc41f1b32f))
+- Exposed `fontVariationSettings` property in the `RemotePaint` interface as public API. ([Ic3c46](https://android-review.googlesource.com/#/q/Ic3c4624c749d2983012f084508037aa7597498e4), [b/513228889](https://issuetracker.google.com/issues/513228889))
+- Remove `RemoteInt` and `RemoteFloat` `toRemoteString` methods. ([I62a6b](https://android-review.googlesource.com/#/q/I62a6b5ea0e50352409a374a430764cd14e626820), [b/513228889](https://issuetracker.google.com/issues/513228889))
+- Exposed `RemoteTypeface` API. ([Iadfdb](https://android-review.googlesource.com/#/q/Iadfdb9f55fd7f5d7c5523971c8bc6d816a6a6964), [b/502907551](https://issuetracker.google.com/issues/502907551))
+- Renamed existing `ValueChange` factory functions to lowercase `valueChange`. ([I812b9](https://android-review.googlesource.com/#/q/I812b92fed6b9edfb9e489dbf6ceb5382cd68a80e), [b/513228889](https://issuetracker.google.com/issues/513228889))
+- Made `PendingIntentAction` safe for IDE previews by deferring `PendingIntent` access via a lambda and returning a no-op action in preview mode. ([I43b37](https://android-review.googlesource.com/#/q/I43b37f5d603065a63f99e3e41d0e0a1b76ad6c53), [b/512403924](https://issuetracker.google.com/issues/512403924))
+
+**Bug Fixes**
+
+- Introduce `TypefaceResolver` and `DefaultTypefaceResolver` internal abstractions to modularize font resolution. ([Ia1df7](https://android-review.googlesource.com/#/q/Ia1df709e611b334567beeee93887fe33779f02f3), [b/513228889](https://issuetracker.google.com/issues/513228889))
+- Removed obsolete `RemoteIntReference` and `RemoteStringList` APIs, and added `RemoteStringArray` to support arrays of remote strings. ([I12931](https://android-review.googlesource.com/#/q/I129313120535c1cd48aae1fb17583253c6442311))
+- Propagate `LocalInspectionMode` to Remote Compose capture phase ([I6a56b](https://android-review.googlesource.com/#/q/I6a56b8d53fd8b094bbd40db648b9dd116b129859), [b/512403924](https://issuetracker.google.com/issues/512403924))
 
 ### Version 1.0.0-alpha12
 
