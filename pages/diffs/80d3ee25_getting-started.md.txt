@@ -1,0 +1,13 @@
+diff --git a/docs/guide/playcore/engage/tv/getting-started.md b/docs/guide/playcore/engage/tv/getting-started.md
+index 102ff35c..085919d9 100644
+--- a/docs/guide/playcore/engage/tv/getting-started.md
++++ b/docs/guide/playcore/engage/tv/getting-started.md
+@@ -32,7 +32,7 @@ Before you begin, complete the following steps:
+    ### Mobile
+ 
+        dependencies {
+-         implementation 'com.google.android.engage:engage-core:1.5.12'
++         implementation 'com.google.android.engage:engage-core:1.6.0'
+        }
+ 
+    ### TV

@@ -1,0 +1,13 @@
+diff --git a/docs/training/wearables/compose.md b/docs/training/wearables/compose.md
+index a3c83f35..84e1ebe6 100644
+--- a/docs/training/wearables/compose.md
++++ b/docs/training/wearables/compose.md
+@@ -132,7 +132,7 @@ dependencies {
+     // General compose dependencies
+     implementation(composeBom)
+     implementation("androidx.activity:activity-compose:1.13.0")
+-    implementation("androidx.compose.ui:ui-tooling-preview:1.11.2")
++    implementation("androidx.compose.ui:ui-tooling-preview:1.11.3")
+     // Other compose dependencies
+ 
+     // Compose for Wear OS dependencies
