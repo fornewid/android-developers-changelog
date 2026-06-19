@@ -1,0 +1,29 @@
+diff --git a/docs/training/wearables/tiles/update.md b/docs/training/wearables/tiles/update.md
+index 536473ea..76c16123 100644
+--- a/docs/training/wearables/tiles/update.md
++++ b/docs/training/wearables/tiles/update.md
+@@ -130,8 +130,6 @@ remove a meeting from their calendar, and if the tile wasn't refreshed, then the
+ tile would still show that deleted meeting. In this case, request a refresh from
+ any place in your application code, as shown in the following code sample:
+ 
+-### Kotlin
+-
+ ```kotlin
+ fun eventDeletedCallback() {
+      TileService.getUpdater(context)
+@@ -139,15 +137,6 @@ fun eventDeletedCallback() {
+ }
+ ```
+ 
+-### Java
+-
+-```java
+-public void eventDeletedCallback() {
+-   TileService.getUpdater(context)
+-           .requestUpdate(MyTileService.class);
+-}
+-```
+-
+ ## Choose an update workflow
+ 
+ Use these best practices to determine how to configure your tile updates:
