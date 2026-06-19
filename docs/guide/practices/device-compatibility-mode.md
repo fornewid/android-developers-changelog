@@ -2118,8 +2118,8 @@ Set property flag
 #### How to optimize apps
 
 You can avoid this issue if your app handles multiple orientations and
-configuration changes well. Make your app large screen ready by following the
-[Large screen app quality](https://developer.android.com/docs/quality-guidelines/large-screen-app-quality) guidelines.
+configuration changes well. Enable your app to support all device form factors
+and app windowing modes by following the [Adaptive app quality guidelines](https://developer.android.com/docs/quality-guidelines/adaptive-app-quality).
 
 If you run the Unity game engine, upgrade to version 2019.4.40 or later and
 re‑export your game. Keep the **Resizable Window** option checked in
@@ -2151,17 +2151,13 @@ To remove the override:
 
 ### OVERRIDE_EXCLUDE_CAPTION_INSETS_FROM_APP_BOUNDS
 
-When the override is enabled, the activity receives configuration coupled with
-caption bar insets. Normally, caption bar insets are decoupled from
+When the override is enabled, the activity receives configuration that includes
+caption bar insets. Normally, caption bar insets are not included in the
 configuration.
-
-> [!NOTE]
-> **Note:** The override applies only if the activity targets Android 14 (SDK level 34) or lower. See [Behavior changes: Apps targeting Android 15 or higher](https://developer.android.com/about/versions/15/behavior-changes-15#stable-configuration).
 
 #### How apps can achieve same result as override
 
-Enable edge‑to‑edge display or update the app's target SDK to API
-level 35 or higher. See the following:
+Enable edge‑to‑edge display. See the following:
 
 - Compose: [About window insets](https://developer.android.com/develop/ui/compose/system/insets)
 - Views: [Display content edge-to-edge in views](https://developer.android.com/develop/ui/views/layout/edge-to-edge)
@@ -2169,16 +2165,18 @@ level 35 or higher. See the following:
 
 #### How to optimize apps
 
-You can avoid this issue if your app enables edge‑to‑edge display or
-targets API level 35 or higher.
+You can avoid this issue if your app enables edge‑to‑edge display.
 
 #### How to disable or opt out of override
 
-Enable edge‑to‑edge display or target API level 35 or higher.
+Set property flag
+[`PROPERTY_COMPAT_ALLOW_EXCLUDE_CAPTION_INSETS`](https://developer.android.com/reference/android/view/WindowManager#PROPERTY_COMPAT_ALLOW_EXCLUDE_CAPTION_INSETS) to
+`false`.
 
 #### Property flags to adjust override
 
-None.
+    <property android:name="android.window.PROPERTY_COMPAT_ALLOW_EXCLUDE_CAPTION_INSETS"
+      android:value="true|false"/>
 
 #### adb commands to test override
 
@@ -2194,8 +2192,8 @@ To remove the override:
 
 ## Additional resources
 
-- [Large screen app quality](https://developer.android.com/docs/quality-guidelines/large-screen-app-quality) guidelines
-- [Core app quality](https://developer.android.com/docs/quality-guidelines/core-app-quality) guidelines
+- [Adaptive app quality guidelines](https://developer.android.com/docs/quality-guidelines/adaptive-app-quality)
+- [Core app quality guidelines](https://developer.android.com/docs/quality-guidelines/core-app-quality)
 
 *** ** * ** ***
 

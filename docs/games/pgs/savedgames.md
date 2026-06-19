@@ -12,7 +12,7 @@ your game.
 To meet the Google Play Games Level Up [user experience guidelines](https://developer.android.com/games/guidelines),
 your game needs to implement a cloud save solution which has two parts:
 
-1. **Cloud Save**
+1. **Cloud save**
 
    Save your player's game state to the cloud. Retrieve it when they start the
    game. Play Games Services [Saved Games](https://developer.android.com/games/pgs/savedgames#saved-games) provides a service for
@@ -49,7 +49,7 @@ Considering this, you have two options:
 - **Option 1:** Maintain the current flow where cloud or a local progress is restored. A warning message is displayed to indicate an existing account was detected, and its progress will be used.
 - **Option 2 (Recommended):** Display a message informing the player that an existing account with progress was detected. Linking the guest account replaces the cloud progress with the current guest progress. The message displayed for both local and cloud-saved progress so the player can make an informed decision.
 
-![Conflict resolution flow between Cloud Save and Guest account progress](https://developer.android.com/static/images/games/pgs/new/conflict.png) Conflict resolution flow between Cloud Save and Guest account progress.
+![Conflict resolution flow between Cloud save and Guest account progress](https://developer.android.com/static/images/games/pgs/new/conflict.png) Conflict resolution flow between Cloud save and Guest account progress.
 
 ## Saved Games
 

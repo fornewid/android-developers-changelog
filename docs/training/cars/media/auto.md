@@ -8,7 +8,7 @@ You need to make a few changes to your app's manifest so that Android Auto
 can discover and interact with your app's media browser service.
 
 > [!IMPORTANT]
-> **Important:** This guide assumes that you have already [built a media browser service](https://developer.android.com/training/cars/media#implement_browser) and you want to add support for Android Auto to your existing project. If you are new to app development for cars, see the [Android for Cars overview page](https://developer.android.com/training/cars).
+> **Important:** This guide assumes that you have already [built a media browser service](https://developer.android.com/training/cars/media/create-media-browser/content-hierarchy) and you want to add support for Android Auto to your existing project. If you are new to app development for cars, see the [Android for Cars overview page](https://developer.android.com/training/cars).
 
 ## Declare media support for Android Auto
 
@@ -40,7 +40,7 @@ Be sure to fill out all the requested information in the issue template.
 
 [Create a new issue](https://issuetracker.google.com/issues/new?component=192643)
 
-Before filing a new issue, please check whether it is already reported in the issues
-list. You can subscribe to and vote for issues by clicking the star for an issue in
-the tracker. For more information, see
+Before filing a new issue, check whether it is already reported in the
+issues list. You can subscribe to and vote for issues by clicking the star
+for an issue in the tracker. For more information, see
 [Subscribing to an Issue](https://developers.google.com/issue-tracker/guides/subscribe#starring_an_issue).

@@ -89,10 +89,6 @@ May 19, 2026
 - Added `ArCoreTestRule` API, including `TestArDevice`, `TestAugmentableObject`, `TestDepthMap`, `TestEye`, `TestFace`, `TestGeospatial`, `TestHand`, `TestPlane`, `TestRenderViewpoint`, \& `TestTrackable` ([I0ad3c](https://android-review.googlesource.com/#/q/I0ad3c7a75510b0078696558fa2e275785c0f3cc5))
 - Removes `AnchorLoadInvalidUuid`, `AnchorCreateUnsupportedObject`, `AnchorCreateUnsupportedLocation`, and `AnchorCreateNotAuthorized`. All of these errors are now exceptions in the runtime. Removes `AnchorCreateIllegalState`. This has been replaced with `AnchorCreateTrackingUnavailable` in most cases. Adds `AnchorException` and derived classes `AnchorInvalidUuidException`, `AnchorNotAuthorizedException`, `AnchorUnsupportedLocationException`, `AnchorRuntimeFailureException`, and `AnchorUnsupportedObjectException`. ([I4c4dd](https://android-review.googlesource.com/#/q/I4c4dd34e8154e9a793160c3c081122b178694108))
 
-**Known Issues**
-
-- Geospatial tracking might be lost during challenging connectivity scenarios when using the `arcore-projected` runtime implementation. Removing this runtime implementation from your application and using `arcore-play-services` instead should address the issue. This will be the default configuration in the next release.
-
 **External Contribution**
 
 - Added `AugmentedImage` API for custom marker tracking ([I0cf09](https://android-review.googlesource.com/#/q/I0cf0953c17e691b1501e08182b3d027efa891753))

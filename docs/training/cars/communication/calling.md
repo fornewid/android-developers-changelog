@@ -64,7 +64,7 @@ filter of its [`CarAppService`](https://developer.android.com/reference/androidx
     <application>
 
 > [!IMPORTANT]
-> **Important:** If your app supports both calling and [messaging](https://developer.android.com/training/cars/communication/messaging), include both `androidx.car.app.category.CALLING` and `androidx.car.app.category.MESSAGING` `<category>` elements in the same intent filter.
+> **Important:** If your app supports both calling and [messaging](https://developer.android.com/training/cars/communication/templated-messaging), include both `androidx.car.app.category.CALLING` and `androidx.car.app.category.MESSAGING` `<category>` elements in the same intent filter.
 
 ## Distribute calling apps
 

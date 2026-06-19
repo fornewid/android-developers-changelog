@@ -68,14 +68,14 @@ providing an implementation of the [`MediaSessionCompat.Callback`](https://devel
 class for your app. The next section discusses how to implement this object.
 
 > [!NOTE]
-> **Note:** To inspect the media session run `adb shell dumpsys media_session`
+> **Note:** To inspect the media session, run `adb shell dumpsys media_session`.
 
 ## Implement play commands
 
 When a user requests playback for a media item from your app, Android Automotive
 OS and Android Auto use the [`MediaSessionCompat.Callback`](https://developer.android.com/reference/android/support/v4/media/session/MediaSessionCompat.Callback)
-class from your app's [`MediaSessionCompat`](https://developer.android.com/reference/android/support/v4/media/session/MediaSessionCompat) object that they obtained from
-your app's media browser service. When a user wants to control content playback,
+class from your app's [`MediaSessionCompat`](https://developer.android.com/reference/android/support/v4/media/session/MediaSessionCompat) object, which the system
+obtains from your media browser service. When a user wants to control playback,
 such as pausing playback or skipping to the next track, Android Auto and Android
 Automotive OS invoke one of the callback object's methods.
 
@@ -101,7 +101,7 @@ offered by your app:
 [`onPlayFromMediaId`](https://developer.android.com/reference/android/support/v4/media/session/MediaSessionCompat.Callback#onPlayFromMediaId(java.lang.String,android.os.Bundle))
 
 :   Invoked when the user chooses to play a specific item. The method receives
-    the [ID](https://developer.android.com/cars/media/create-media-browser/content-hierarchy#onLoadChildren) that your media browser service assigned to the media item in the
+    the [ID](https://developer.android.com/training/cars/media/create-media-browser/content-hierarchy#onLoadChildren) that your media browser service assigned to the media item in the
     content hierarchy.
 
 [`onPlayFromSearch`](https://developer.android.com/reference/android/support/v4/media/session/MediaSessionCompat.Callback#onPlayFromSearch(java.lang.String,android.os.Bundle))
@@ -124,10 +124,10 @@ offered by your app:
 [`onStop`](https://developer.android.com/reference/android/support/v4/media/session/MediaSessionCompat.Callback#onStop())
 
 :   Invoked when the user chooses to stop play. Override these methods in your
-    app to provide the chosen result. You needn't implement a method if its purpose
-    isn't supported by your app. For example, if your app plays a livestream, such
-    as a sports broadcast, you needn't implement `onSkipToNext`. Instead, use the
-    default implementation of `onSkipToNext`.
+    app to provide the chosen result. You don't need to implement a method if your
+    app doesn't support its purpose. For example, if your app plays a livestream,
+    such as a sports broadcast, you don't need to implement `onSkipToNext`.
+    Instead, use the default implementation of `onSkipToNext`.
 
 Your app doesn't need any special logic to play content through the car's
 speakers. When your app receives a request to play content, it plays audio
@@ -135,8 +135,8 @@ in the same way that content is played through a user's phone speakers or
 headphones. Android Auto and AAOS automatically send the audio
 content to the car's system to play over the car's speakers.
 
-To learn more about playing audio content, see [Media Player overview](https://developer.android.com/guide/topics/media/mediaplayer),
-[Audio app overview](https://developer.android.com/training/managing-audio), and the ExoPlayer [overview](https://developer.android.com/guide/topics/media/exoplayer).
+To learn more about playing audio content, see [Media Player overview](https://developer.android.com/media/platform/mediaplayer),
+[Audio app overview](https://developer.android.com/media/legacy/audio), and the ExoPlayer [overview](https://developer.android.com/media/media3/exoplayer).
 
 ## Set standard playback actions
 
@@ -156,7 +156,7 @@ the app's content:
 - [`ACTION_SKIP_TO_PREVIOUS`](https://developer.android.com/reference/android/support/v4/media/session/PlaybackStateCompat#ACTION_SKIP_TO_PREVIOUS())
 - [`ACTION_SKIP_TO_NEXT`](https://developer.android.com/reference/android/support/v4/media/session/PlaybackStateCompat#ACTION_SKIP_TO_NEXT())
 
-In addition, you can optionally create a play queue for display to for the user.
+You can also create a play queue to display to the user.
 To do this, call the [`setQueue`](https://developer.android.com/reference/android/support/v4/media/session/MediaSessionCompat#setQueue(java.util.List%3Candroid.support.v4.media.session.MediaSessionCompat.QueueItem%3E)) and [`setQueueTitle`](https://developer.android.com/reference/android/support/v4/media/session/MediaSessionCompat#setQueueTitle(java.lang.CharSequence)) methods, enable
 the [`ACTION_SKIP_TO_QUEUE_ITEM`](https://developer.android.com/reference/android/support/v4/media/session/PlaybackStateCompat#ACTION_SKIP_TO_QUEUE_ITEM()) action, and define the callback
 [`onSkipToQueueItem`](https://developer.android.com/reference/android/support/v4/media/session/MediaSessionCompat.Callback#onSkipToQueueItem(long)).
@@ -176,8 +176,8 @@ corresponding callback from [`MediaSessionCompat.Callback`](https://developer.an
 ### Reserve unused space
 
 Android Auto and AAOS reserve space in the UI for the
-`ACTION_SKIP_TO_PREVIOUS` and `ACTION_SKIP_TO_NEXT` actions. If your app does
-not support one of these functions, Android Auto and AAOS use
+`ACTION_SKIP_TO_PREVIOUS` and `ACTION_SKIP_TO_NEXT` actions. If your app doesn't
+support one of these functions, Android Auto and AAOS use
 the space to display any custom actions you create.
 
 If you don't want to fill those spaces with custom actions, you can reserve
@@ -213,8 +213,8 @@ Media sessions within Android Auto and AAOS only last for the
 duration of the drive, so users start and stop these sessions frequently. To
 promote a seamless experience between drives, keep track of the user's previous
 session state, so that when the media app receives a resume request, the user
-can automatically pick up where they left off. For example, the last played
-media item, the `PlaybackStateCompat`, and the queue.
+can automatically pick up where they left off. This state includes the last
+played media item, the `PlaybackStateCompat` object, and the queue.
 
 ## Add custom playback actions
 
@@ -307,7 +307,7 @@ your action and other playback actions.
 
 You must also specify an icon resource. Apps in cars can run on many different
 screen sizes and densities, so icons that you provide must be
-[vector drawables](https://developer.android.com/guide/topics/graphics/vector-drawable-resources). Use a vector drawable to scale assets without
+[vector drawables](https://developer.android.com/develop/ui/views/graphics/vector-drawable-resources). Use a vector drawable to scale assets without
 losing detail. A vector drawable can align edges and corners to pixel boundaries
 at smaller resolutions.
 

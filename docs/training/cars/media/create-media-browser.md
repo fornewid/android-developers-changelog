@@ -21,7 +21,7 @@ phone, or they can be other remote clients.
 
 These pages detail how to work with the media browser:
 
-- [Media browser lifecycle](https://developer.android.com/training/cars/media/create-media-browsers/workflow)
+- [Media browser lifecycle](https://developer.android.com/training/cars/media/create-media-browser/lifecycle)
 - [Build content hierarchy](https://developer.android.com/training/cars/media/create-media-browser/content-hierarchy)
 - [Apply content styles](https://developer.android.com/training/cars/media/create-media-browser/content-styles)
 - [Display media artwork](https://developer.android.com/training/cars/media/create-media-browser/media-artwork)
@@ -32,5 +32,5 @@ These pages detail how to work with the media browser:
 
 To learn more about design guidelines, see:
 
-- [Plan navigation tabs](https://developers.google.com/cars/design/create-apps/media-apps/navigation-tabs)
-- [Plan browsing views](https://developers.google.com/cars/design/create-apps/media-apps/browsing-views)
+- [Plan navigation tabs](https://developer.android.com/design/ui/cars/guides/app-types/plan-navigation-tabs)
+- [Plan browsing views](https://developer.android.com/design/ui/cars/guides/app-types/plan-browsing-views)

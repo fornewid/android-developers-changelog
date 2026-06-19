@@ -36,6 +36,6 @@ The following are common use cases for a limited distribution account:
 
 ## Sign up for early access
 
-We are offering an early preview of the experience to a small number of
-developers. You can [sign up](https://google.qualtrics.com/jfe/form/SV_4N7NGE06NjJJdl4) for early access to limited distribution
-account here. Early access is expected to begin in June 2026.
+We're offering an early preview of the experience to a small number of
+developers. You can [sign up](https://google.qualtrics.com/jfe/form/SV_4N7NGE06NjJJdl4) for early access to a limited distribution
+account. We expect early access to begin in July 2026.

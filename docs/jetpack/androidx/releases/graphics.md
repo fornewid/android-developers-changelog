@@ -65,21 +65,23 @@ for more information.
 
 There are no release notes for this artifact.
 
-## Graphics Shapes Version 1.1
+## Graphics-Shapes
 
-### Version 1.1.0
+### Version 1.1
+
+#### Version 1.1.0
 
 October 22, 2025
 
 `androidx.graphics:graphics-shapes:1.1.0` is released. Version 1.1.0 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/e4b672d6ee0029b3ab664d3c70b7f97b01376f8b..cb163bee53214245ad7a23367396a21b7f85ae82/graphics/graphics-shapes).
 
-### Version 1.1.0-rc01
+#### Version 1.1.0-rc01
 
 September 10, 2025
 
 `androidx.graphics:graphics-shapes:1.1.0-rc01` is released. Version 1.1.0-rc01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/def3e53c2013cff4f8a9ddd8e8be7b016a9d2c42..a1575365889263a8ae455c8127adea239f056f80/graphics/graphics-shapes).
 
-### Version 1.1.0-beta01
+#### Version 1.1.0-beta01
 
 July 30, 2025
 
@@ -90,7 +92,7 @@ July 30, 2025
 - Projects released with Kotlin 2.0 require KGP 2.0.0 or newer to be consumed ([Idb6b5](https://android-review.googlesource.com/#/q/Idb6b5d6ae1625ab870ffe74f9790ffabc82a63b4))
 - Add `mingwX64`, js and wasm compilation targets. ([I2c46a](https://android-review.googlesource.com/#/q/I2c46afdeff9feb294cd7957103b992ef458d6c6f))
 
-### Version 1.1.0-alpha01
+#### Version 1.1.0-alpha01
 
 December 11, 2024
 
@@ -119,27 +121,27 @@ December 11, 2024
 - Fix a bug on `RoundedPolygon` initialization. ([I83ddb](https://android-review.googlesource.com/#/q/I83ddb2f481dc6cdbbe77f03f7b9ecd4be9462026))
 - Fix an error in the algorithm to estimate the center of the polygon. ([Ida147](https://android-review.googlesource.com/#/q/Ida1477637391618c3437521f53809dd140e10c36))
 
-## Graphics Shapes Version 1.0
+### Version 1.0
 
-### Version 1.0.1
+#### Version 1.0.1
 
 September 4, 2024
 
 `androidx.graphics:graphics-shapes:1.0.1`, `androidx.graphics:graphics-shapes-android:1.0.1`, and `androidx.graphics:graphics-shapes-desktop:1.0.1` are released. Version 1.0.1 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/217941670a79c16dcfa827977fc9ace001bbfe3a..594e7b6ae3c328df6be79b67ea06fd32ae2af648/graphics/graphics-shapes).
 
-### Version 1.0.0
+#### Version 1.0.0
 
 August 21, 2024
 
 `androidx.graphics:graphics-shapes:1.0.0`, `androidx.graphics:graphics-shapes-android:1.0.0`, and `androidx.graphics:graphics-shapes-desktop:1.0.0` are released. Version 1.0.0 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/217941670a79c16dcfa827977fc9ace001bbfe3a..594e7b6ae3c328df6be79b67ea06fd32ae2af648/graphics/graphics-shapes).
 
-### Version 1.0.0-rc01
+#### Version 1.0.0-rc01
 
 July 24, 2024
 
 `androidx.graphics:graphics-shapes:1.0.0-rc01`, `androidx.graphics:graphics-shapes-android:1.0.0-rc01`, and `androidx.graphics:graphics-shapes-desktop:1.0.0-rc01` are released. Version 1.0.0-rc01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/fbd1ac175922f44c69a13545d194066ee428b342..217941670a79c16dcfa827977fc9ace001bbfe3a/graphics/graphics-shapes).
 
-### Version 1.0.0-beta01
+#### Version 1.0.0-beta01
 
 May 1, 2024
 
@@ -150,7 +152,7 @@ May 1, 2024
 - Allow shapes to be pre-rotated to start at a different point. This change allows `pillStar` shapes to start their curves from a non-default point on the perimeter. This can be useful when animating the stroking of the shape's path, to start drawing from a specific location on the shape's outline. ([Ifbb4d](https://android-review.googlesource.com/#/q/Ifbb4dd34cfa414430829533613fda13b8916535e), [b/324303807](https://issuetracker.google.com/issues/324303807))
 - Added `calculateBounds()` functions to Morph, which parallel the same functions on `RoundedPolygon`. ([I8a3b6](https://android-review.googlesource.com/#/q/I8a3b6c37807effcc3919d73266fc83a721fb2866), [b/325463575](https://issuetracker.google.com/issues/325463575))
 
-### Version 1.0.0-alpha05
+#### Version 1.0.0-alpha05
 
 February 7, 2024
 
@@ -168,7 +170,7 @@ February 7, 2024
 
 - There were occasional rendering artifacts when drawing these shapes as stroked paths, due to a low-level rendering issue related to zero-length curves. This bug was fixed by eliminating all zero-length curves (which the shapes do not need, thus also saving on the overhead of the paths produced by the shapes).
 
-### Version 1.0.0-alpha04
+#### Version 1.0.0-alpha04
 
 December 13, 2023
 
@@ -194,7 +196,7 @@ December 13, 2023
 
 - Fixed bug when creating big shapes. ([I4fd66](https://android-review.googlesource.com/#/q/I4fd6696643cc3725425cf7b55536a1242fa896c6), [b/313497325](https://issuetracker.google.com/issues/313497325))
 
-### Version 1.0.0-alpha03
+#### Version 1.0.0-alpha03
 
 June 7, 2023
 
@@ -210,7 +212,7 @@ June 7, 2023
 - Fixed bug on smoothing ([Ibf894](https://android-review.googlesource.com/#/q/Ibf894671e193a041390a13069389649e53eff846))
 - Fixed a bug that occured when start and end shape were the same. Better distribute available space on side for cuts, first using available space for rounding, then for smoothing if there is space left. ([Ibd320](https://android-review.googlesource.com/#/q/Ibd32074f9a01c17501f77e330e70346677ba1b41), [b/277936300](https://issuetracker.google.com/issues/277936300))
 
-### Version 1.0.0-alpha02
+#### Version 1.0.0-alpha02
 
 April 19, 2023
 
@@ -222,7 +224,7 @@ April 19, 2023
 - The Star function (which still returns a `RoundedPolygon`, as before) now takes an `innerRadius` value, instead of the previous `innerRadiusRatio` parameter. This is in the same units as the existing radius parameter, making things simpler and more consistent. Also, the `numOuterVertices` parameter was renamed to `numVerticesPerRadius` to clarify that the same number is applied to both inner and outer radii.
 - `CornerRounding.radius` was previously documented to be relative to the size of the polygon, but it was (and should be) an absolute, not relative, value. The docs were updated and the annotation limiting it to a max value of 1.0 was fixed.
 
-### Version 1.0.0-alpha01
+#### Version 1.0.0-alpha01
 
 April 5, 2023
 
@@ -236,29 +238,31 @@ Graphics-Shapes is a new library which allows easy creation and rendering of rou
 - Use optional `CornerRounding` parameters to specify the rounding radius and smoothing parameters for the corners, resulting in polygonal shapes with rounded corners.
 - Use the new `Morph(Polygon, Polygon)` API to automatically calculate a "morph" shape whose progress can be set from 0 to 1 to animate between the starting and ending shapes. Animate that progress over time, drawing the result on every frame, to create a smooth animation between these new rounded shapes.
 
-## Graphics Path Version 1.1
+## Graphics-Path
 
-### Version 1.1.0
+### Version 1.1
+
+#### Version 1.1.0
 
 May 06, 2026
 
 `androidx.graphics:graphics-path:1.1.0` is released. Version 1.1.0 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/7620069dd1c615be201490afe981639f04cec40f..1c44f0be720ff16cd30357ad2375239bf97a1da8/graphics/graphics-path).
 
-### Version 1.1.0-rc01
+#### Version 1.1.0-rc01
 
 March 11, 2026
 
 `androidx.graphics:graphics-path:1.1.0-rc01` is released. Version 1.1.0-rc01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/7978b337b99d48895d0f93c8058c5ef4d46adacc..30b984ce6280d296f47db0e9ddf5fc77b8c1039c/graphics/graphics-path).
 
-### Version 1.1.0-beta01
+#### Version 1.1.0-beta01
 
 December 17, 2025
 
 `androidx.graphics:graphics-path:1.1.0-beta01` is released. Version 1.1.0-beta01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/c359e97fece91f3767a7d017e9def23c7caf1f53..7978b337b99d48895d0f93c8058c5ef4d46adacc/graphics/graphics-path).
 
-## Graphics Path Version 1.0
+### Version 1.0
 
-### Version 1.1.0-alpha01
+#### Version 1.1.0-alpha01
 
 August 13, 2025
 
@@ -268,7 +272,7 @@ August 13, 2025
 
 - Add implementation for conversion from conic to quadratic and use it on host platforms. [f059b1](https://android.googlesource.com/platform/frameworks/support/+/f059b1080eb84c623ac43156c5361b53020156de)
 
-### Version 1.0.1
+#### Version 1.0.1
 
 May 1, 2024
 
@@ -278,13 +282,13 @@ May 1, 2024
 
 - Improvements to compiler flags.
 
-### Version 1.0.0
+#### Version 1.0.0
 
 March 6, 2024
 
 `androidx.graphics:graphics-path:1.0.0` is released.
 
-### Version 1.0.0-rc01
+#### Version 1.0.0-rc01
 
 February 21, 2024
 
@@ -294,7 +298,7 @@ February 21, 2024
 
 - Improve performance of PathIterator on API \< 34 ([Id4629](https://android-review.googlesource.com/#/q/Id46291003fc89095abaff8eb38f672cd26b8c6a4))
 
-### Version 1.0.0-beta02
+#### Version 1.0.0-beta02
 
 January 10, 2024
 
@@ -308,7 +312,7 @@ The changes in this release were all about reducing the size of the library, whi
 - Reduce the size of `libandroidx.graphics.path.so` by 5%. ([I2da7c](https://android-review.googlesource.com/#/q/I2da7ccea714765b87bba26a408a1056c9bd5f556))
 - Shrunk the native components of `androidx.graphics:graphics-path` by 43%. ([I8e40d](https://android-review.googlesource.com/#/q/I8e40d0eefc449b5fed7eaebbdfeb05252947735d))
 
-### Version 1.0.0-beta01
+#### Version 1.0.0-beta01
 
 November 29, 2023
 
@@ -322,7 +326,7 @@ November 29, 2023
 
 - Various fixes and performance improvements, including how the library deals with conics.
 
-### Version 1.0.0-alpha02
+#### Version 1.0.0-alpha02
 
 June 7, 2023
 
@@ -335,7 +339,7 @@ June 7, 2023
 
 - Fixed problem with internal platform version check which caused problems when running on Android 14 previews (the version check would fail, but the mechanism for doing things on previous releases doesn't work correctly on Android 14 in particular).
 
-### Version 1.0.0-alpha01
+#### Version 1.0.0-alpha01
 
 March 22, 2023
 
@@ -346,9 +350,11 @@ March 22, 2023
 - This new library allows querying of Path data via the new `PathIterator` API. Using this API, callers can iterate through all segments of a Path object to determine the operation and data for those segments.
 - The library uses similar APIs introduced in Android 14 preview, but this AndroidX version of the API also works on versions back to API 21.
 
-## Graphics Core Version 1.0
+## Graphics-Core
 
-### Version 1.0.4
+### Version 1.0
+
+#### Version 1.0.4
 
 December 03, 2025
 
@@ -358,7 +364,7 @@ December 03, 2025
 
 - Improve compatibility and performance for particular devices.
 
-### Version 1.0.3
+#### Version 1.0.3
 
 March 26, 2025
 
@@ -368,7 +374,7 @@ March 26, 2025
 
 - Fix for full-screen flickers while drawing on certain devices with API\<33.
 
-### Version 1.0.2
+#### Version 1.0.2
 
 October 16, 2024
 
@@ -380,7 +386,7 @@ October 16, 2024
 - Fixed issue where the currently presented `HardwareBuffer` instance would not be released after low latency dependencies were disposed
 - Fixed flickering issue on certain Android 14+ devices that did not support the front buffer usage flag
 
-### Version 1.0.1
+#### Version 1.0.1
 
 September 4, 2024
 
@@ -390,7 +396,7 @@ September 4, 2024
 
 - Fixed issue where memory resources would occasionally not be released.
 
-### Version 1.0.0
+#### Version 1.0.0
 
 May 29, 2024
 
@@ -400,7 +406,7 @@ May 29, 2024
 
 - Official stable release of the graphics-core library. Includes minor bug fixes and performance improvements from 1.0.0-rc01
 
-### Version 1.0.0-rc01
+#### Version 1.0.0-rc01
 
 April 17, 2024
 
@@ -411,7 +417,7 @@ April 17, 2024
 - Fixed issue leading to potential double closure of file descriptors with the `CanvasBufferedRendererAPI` with certain Android devices running Android 14.
 - Fixed issue where `FrameBuffer` would not properly delete framebuffer instances.
 
-### Version 1.0.0-beta01
+#### Version 1.0.0-beta01
 
 December 13, 2023
 
@@ -434,7 +440,7 @@ December 13, 2023
 - Create `LowLatencyCanvasView` to support a simple use case of rendering content with low latency that gets synchronized with the View hierarchy rendering. This mitigates the complexities associated with `SurfaceView` management by internally managing the `SurfaceView` instance that gets translated off/on screen for synchronized and low latency rendering respectively. ([I9253b](https://android-review.googlesource.com/#/q/I9253bd3e42cfd24e5396a9d1117868cfd91d1909))
 - Added colorspace configuration support to `CanvasFrontBufferedRenderer` API. Updated multibuffered callbacks to also include the back buffered `SurfaceControl` ([I24bd9](https://android-review.googlesource.com/#/q/I24bd949fd100317663346bf12c866a358011f38c))
 
-### Version 1.0.0-alpha05
+#### Version 1.0.0-alpha05
 
 September 6, 2023
 
@@ -453,7 +459,7 @@ September 6, 2023
 - Updated `setBuffer` API on `SurfaceControl` transactions to provide a release fence. ([Ice1bb](https://android-review.googlesource.com/#/q/Ice1bb2399bf9801d7790382e180b2ea12a00a95f))
 - Added `SurfaceControlCompat.Transaction` APIs to configure the data space as well as set the extended brightness range. ([Ic378d](https://android-review.googlesource.com/#/q/Ic378dc22438a7a7d63a8b11c716a0012ebca7232))
 
-### Version 1.0.0-alpha04
+#### Version 1.0.0-alpha04
 
 June 7, 2023
 
@@ -475,7 +481,7 @@ June 7, 2023
 - Fixed issue where front buffered content would be cleared prematurely.
 - Fixed issue where `SurfaceHolder.Callbacks` would not be removed after low latency graphics APIs were released.
 
-### Version 1.0.0-alpha03
+#### Version 1.0.0-alpha03
 
 March 22, 2023
 
@@ -501,7 +507,7 @@ March 22, 2023
 - Added `EGL_ANDROID_get_native_client_buffer` extension constant to query whether the Android device supports importing of `HardwareBuffer` instances into `EGLClientBuffer` objects that can be consumed as an `EGLImage` instance. ([Iad767](https://android-review.googlesource.com/#/q/Iad767d0af10b10b2ce6b9d3c4bcced4345d0d5be))
 - Adding `@JvmDefaultWithCompatibility` annotation ([I8f206](https://android-review.googlesource.com/#/q/I8f2067bb0754a5e9dc70c934403366ca8d319c36))
 
-### Version 1.0.0-alpha02
+#### Version 1.0.0-alpha02
 
 November 9, 2022
 
@@ -520,7 +526,7 @@ November 9, 2022
 - Increased support for emulators and ChromeOS devices.
 - Fixed issue where the front buffered layer maybe hidden prematurely.
 
-### Version 1.0.0-alpha01
+#### Version 1.0.0-alpha01
 
 October 24, 2022
 

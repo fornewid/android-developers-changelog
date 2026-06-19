@@ -75,21 +75,15 @@ for Android developer verification. [Learn more](https://docs.google.com/forms/d
 
 ## Timeline
 
-We're announcing the changes early and proactively getting developer feedback to ensure our solutions are balanced.
-
-| Date | Update |
-|---|---|
-| Aug 2025 | [Announced](https://android-developers.googleblog.com/2025/08/elevating-android-security.html) new developer verification requirements. |
-| Nov 2025 | Early access began for both Android Developer Console and Play Console. |
-| Mar 2026 | Verification opens for all developers. |
-| Jun 2026 | Early access starts for limited distribution accounts. |
-| Aug 2026 | [Limited distribution account](https://developer.android.com/developer-verification/guides/limited-distribution) launches globally. [Advanced flow](https://android-developers.googleblog.com/2026/03/android-developer-verification.html) for users launches globally. |
-| Sep 2026 | The verification requirement goes into effect in Brazil, Indonesia, Singapore, and Thailand. At this point, any app installed on a certified device in these regions must be registered by a verified developer. |
-| 2027 and beyond | We will continue to roll out this requirement globally. |
+We're announcing the changes early and proactively getting developer feedback to ensure our solutions are balanced. ![](http://developer.android.com/static/developer-verification/assets/adv-timeline.svg)
 
 ## Latest News
 
-[![](http://developer.android.com/static/developer-verification/assets/blogicon.png)](https://android-developers.googleblog.com/2026/03/android-developer-verification-rolling-out-to-all-developers.html) Blog
+[![](http://developer.android.com/static/developer-verification/assets/blogicon.png)](http://android-developers.googleblog.com/2026/06/android-developer-verification.html) Blog
+
+### [Android developer verification: Building a safer ecosystem together](http://android-developers.googleblog.com/2026/06/android-developer-verification.html)
+
+An update on developer verification, including regional enforcement details starting September 30, 2026, for select stores, and new APIs to automate workflows. [![](http://developer.android.com/static/developer-verification/assets/blogicon.png)](https://android-developers.googleblog.com/2026/03/android-developer-verification-rolling-out-to-all-developers.html) Blog
 
 ### [Rolling out to all developers on Play and Android consoles](https://android-developers.googleblog.com/2026/03/android-developer-verification-rolling-out-to-all-developers.html)
 

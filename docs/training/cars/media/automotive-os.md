@@ -203,8 +203,9 @@ buildscript {
 
 ## Implement settings and sign-in activities
 
-In addition to your media browser service, you can also provide [vehicle-optimized](https://developer.android.com/training/cars/media#tc-vehicle-optimized)
-settings and sign-in activities for your Android Automotive OS app.
+In addition to your media browser service, you can also provide
+[vehicle-optimized](https://developer.android.com/training/cars/media#tc-vehicle-optimized) settings and sign-in activities for your Android
+Automotive OS app.
 These activities let you provide app functionality that isn't included in the
 Android Media APIs.
 
@@ -229,7 +230,7 @@ sign-in activities using Android Automotive OS:
 
 ### Discourage distractions in your settings and sign-in activities
 
-To ensure your settings and/or sign-in activities are only available for use
+To ensure your settings and sign-in activities are only available for use
 while the user's vehicle is parked, verify that the `<activity>` element(s)
 don't include the following `<meta-data>` element. Your app will be rejected
 during review if such an element is present.
@@ -246,7 +247,7 @@ that users can configure settings for your app in their car. Your settings
 activity can also provide other workflows, like signing in or out of a user's
 account or switching user accounts. Remember that this activity is only
 triggered by an app running on Android Automotive OS. Phone apps connected to
-Android Auto do not use it.
+Android Auto don't use it.
 
 #### Declare a settings activity
 
@@ -274,14 +275,15 @@ the following code snippet:
 When a user launches your app, Android Automotive OS detects the
 settings activity that you declared and displays an affordance, such as an icon.
 The user can tap or select this affordance using their car's display to navigate
-to the activity. Android Automotive OS sends the [`ACTION_APPLICATION_PREFERENCES`](https://developer.android.com/reference/android/content/Intent#ACTION_APPLICATION_PREFERENCES)
-intent that tells your app to start your settings activity.
+to the activity. Android Automotive OS sends the
+[`ACTION_APPLICATION_PREFERENCES`](https://developer.android.com/reference/android/content/Intent#ACTION_APPLICATION_PREFERENCES) intent that tells your app to start
+your settings activity.
 
 > [!NOTE]
 > **Note:** Your settings activity must provide an affordance that lets the user return to Android Automotive OS. Your app can do this by calling the activity's [`finish()`](https://developer.android.com/reference/android/app/Activity#finish()) method.
 
-The rest of this section shows how you can adapt code from the [Universal
-Android Music Player (UAMP) sample app](https://github.com/android/uamp)
+The rest of this section shows how you can adapt code from the
+[Universal Android Music Player (UAMP) sample app](https://github.com/android/uamp)
 to implement a settings activity for your app.
 
 To begin, download the sample code:
@@ -301,8 +303,8 @@ To implement your activity, follow these steps:
 2. Define a preferences tree as in `automotive/src/main/res/xml/preferences.xml`.
 3. Implement a [`PreferenceFragmentCompat`](https://developer.android.com/reference/androidx/preference/PreferenceFragmentCompat)
    that your settings activity displays. See the `SettingsFragment.kt` and
-   `SettingsActivity.kt` files in UAMP and the [Android Settings
-   guide](https://developer.android.com/guide/topics/ui/settings) for more information.
+   `SettingsActivity.kt` files in UAMP and the
+   [Android Settings guide](https://developer.android.com/develop/ui/views/components/settings) for more information.
 
    > [!NOTE]
    > **Note:** Using a `PreferenceFragmentCompat` also ensures your settings persist in [`SharedPreferences`](https://developer.android.com/reference/android/content/SharedPreferences).
@@ -330,7 +332,7 @@ some of the components in the Preference library:
     - Include a `min`, `max`, and `defaultValue`.
   - [`EditTextPreference`](https://developer.android.com/reference/androidx/preference/EditTextPreference)
     - Include `dialogTitle`, `positiveButtonText`, and `negativeButtonText`.
-    - Can have `dialogMessage` and/or `dialogLayoutResource`.
+    - Can have one or both of `dialogMessage` and `dialogLayoutResource`.
   - `com.example.android.uamp.automotive.lib.ListPreference`
     - Derives mostly from `ListPreference`.
     - Used to display a single-choice list of `Preference` objects.
@@ -348,7 +350,7 @@ handles signing in and out of your app. You can also add sign-in and sign-out
 workflows to a [settings activity](https://developer.android.com/training/cars/media/automotive-os#settings-activity), but use a
 dedicated sign-in activity if your app can't be used until a user
 signs in. Remember that this activity is only triggered by an app running on
-Android Automotive OS. Phone apps connected to Android Auto do not use it.
+Android Automotive OS. Phone apps connected to Android Auto don't use it.
 
 #### Require sign in at app start
 
@@ -449,21 +451,21 @@ experience for users who have previously signed in on another device:
 
 - **One Tap Sign-in and Sign-up:** if you already implemented [One Tap](https://developers.google.com/identity/one-tap/android) for other devices, such as your phone app, implement it for your Android Automotive OS app to support existing One Tap users.
 - **Google Sign-in:** if you already implemented [Google Sign-in](https://developers.google.com/identity/) for other devices, such as your phone app, implement Google Sign-in for your Android Automotive OS app to support existing Google Sign-in users.
-- **Autofill with Google:** if users have opted into Autofill with Google on their other Android devices, their credentials are saved to the [Google password manager](https://passwords.google.com/?pli=1). When those users sign in to your Android Automotive OS app, Autofill with Google suggests relevant saved credentials. Using Autofill with Google requires no application development effort. However, application developers can [optimize their apps for better quality results](https://developer.android.com/guide/topics/text/autofill-optimize). Autofill with Google is supported by all devices running Android 8.0 (API level 26) or higher, including Android Automotive OS.
+- **Autofill with Google:** if users have opted into Autofill with Google on their other Android devices, their credentials are saved to the [Google password manager](https://passwords.google.com/?pli=1). When those users sign in to your Android Automotive OS app, Autofill with Google suggests relevant saved credentials. Using Autofill with Google requires no application development effort. However, application developers can [optimize their apps for better quality results](https://developer.android.com/identity/autofill/autofill-optimize). Autofill with Google is supported by all devices running Android 8.0 (API level 26) or higher, including Android Automotive OS.
 
-#### Use AccountManager
+#### Use `AccountManager`
 
 Android Automotive OS apps that have authentication must use
-[AccountManager](https://developer.android.com/training/id-auth/custom_auth), for the following reasons:
+[`AccountManager`](https://developer.android.com/reference/android/accounts/AccountManager), for the following reasons:
 
-- **Better UX and ease of account management:** users can easily manage all their accounts from the accounts menu in the system settings, including sign-in and sign-out.
+- **Better UX and ease of account management:** users can manage all their accounts from the accounts menu in the system settings, including sign-in and sign-out.
 - **"Guest" experiences:** cars are shared devices, which means OEMs can enable "guest" experiences in the vehicle, where accounts cannot be added. This restriction is achieved using [`DISALLOW_MODIFY_ACCOUNTS`](https://developer.android.com/reference/android/os/UserManager#DISALLOW_MODIFY_ACCOUNTS) for `AccountManager`.
 
 #### Permissions
 
 If you need to request permissions from the user, use the same flow as the
-authentication activity or the settings activity in the [activity workflows
-diagram](https://developer.android.com/training/cars/media/automotive-os#activity-workflows) shown in a previous section.
+authentication activity or the settings activity in the
+[activity workflows diagram](https://developer.android.com/training/cars/media/automotive-os#activity-workflows) shown in a previous section.
 
 ## Start the media host app
 
@@ -534,7 +536,7 @@ phone using [Quick Share](https://support.google.com/android/answer/9286773).
 
 To inform the OS that your app is able to handle deep links, it needs to have
 activities with the appropriate intent filters. See [Add intent filters for
-incoming links](https://developer.android.com/training/app-links/deep-linking#adding-filters) for guidance on the format of the intent filters used for
+incoming links](https://developer.android.com/training/app-links/create-deeplinks#add-intent) for guidance on the format of the intent filters used for
 deep links.
 
 For the best user experience, support all deep links that your
@@ -549,7 +551,7 @@ can use a trampoline activity as described later in this section.
 
 ### Handle deep link intents
 
-See [Read data from incoming intents](https://developer.android.com/training/app-links/deep-linking#handling-intents) for guidance on how to read and react
+See [Read data from incoming intents](https://developer.android.com/training/app-links/create-deeplinks#read-data) for guidance on how to read and react
 to the intent that was used to start your app's activity.
 
 #### Handle media playback and browsing deep links
@@ -595,39 +597,39 @@ your media browser service, your application may receive the following extras:
 
 - In [`MediaBrowserServiceCompat#onGetRoot`](https://developer.android.com/reference/androidx/media/MediaBrowserServiceCompat#onGetRoot(java.lang.String,int,android.os.Bundle)):
 
-  - [KEY_ROOT_HINT_MEDIA_HOST_VERSION](https://developer.android.com/reference/kotlin/androidx/car/app/mediaextensions/MediaBrowserExtras#KEY_ROOT_HINT_MEDIA_HOST_VERSION())
-  - [KEY_ROOT_HINT_MEDIA_SESSION_API](https://developer.android.com/reference/kotlin/androidx/car/app/mediaextensions/MediaBrowserExtras#KEY_ROOT_HINT_MEDIA_SESSION_API())
-  - [BROWSER_ROOT_HINTS_KEY_MEDIA_ART_SIZE_PIXELS](https://developer.android.com/reference/androidx/media/utils/MediaConstants#BROWSER_ROOT_HINTS_KEY_MEDIA_ART_SIZE_PIXELS())
-  - [BROWSER_ROOT_HINTS_KEY_CUSTOM_BROWSER_ACTION_LIMIT](https://developer.android.com/reference/androidx/media/utils/MediaConstants#BROWSER_ROOT_HINTS_KEY_CUSTOM_BROWSER_ACTION_LIMIT())
-  - [BROWSER_ROOT_HINTS_KEY_ROOT_CHILDREN_LIMIT](https://developer.android.com/reference/androidx/media/utils/MediaConstants#BROWSER_ROOT_HINTS_KEY_ROOT_CHILDREN_LIMIT())
-  - [KEY_ROOT_HINT_MAX_QUEUE_ITEMS_WHILE_RESTRICTED](https://developer.android.com/reference/kotlin/androidx/car/app/mediaextensions/MediaBrowserExtras#KEY_ROOT_HINT_MAX_QUEUE_ITEMS_WHILE_RESTRICTED())
+  - [`KEY_ROOT_HINT_MEDIA_HOST_VERSION`](https://developer.android.com/reference/kotlin/androidx/car/app/mediaextensions/MediaBrowserExtras#KEY_ROOT_HINT_MEDIA_HOST_VERSION())
+  - [`KEY_ROOT_HINT_MEDIA_SESSION_API`](https://developer.android.com/reference/kotlin/androidx/car/app/mediaextensions/MediaBrowserExtras#KEY_ROOT_HINT_MEDIA_SESSION_API())
+  - [`BROWSER_ROOT_HINTS_KEY_MEDIA_ART_SIZE_PIXELS`](https://developer.android.com/reference/androidx/media/utils/MediaConstants#BROWSER_ROOT_HINTS_KEY_MEDIA_ART_SIZE_PIXELS())
+  - [`BROWSER_ROOT_HINTS_KEY_CUSTOM_BROWSER_ACTION_LIMIT`](https://developer.android.com/reference/androidx/media/utils/MediaConstants#BROWSER_ROOT_HINTS_KEY_CUSTOM_BROWSER_ACTION_LIMIT())
+  - [`BROWSER_ROOT_HINTS_KEY_ROOT_CHILDREN_LIMIT`](https://developer.android.com/reference/androidx/media/utils/MediaConstants#BROWSER_ROOT_HINTS_KEY_ROOT_CHILDREN_LIMIT())
+  - [`KEY_ROOT_HINT_MAX_QUEUE_ITEMS_WHILE_RESTRICTED`](https://developer.android.com/reference/kotlin/androidx/car/app/mediaextensions/MediaBrowserExtras#KEY_ROOT_HINT_MAX_QUEUE_ITEMS_WHILE_RESTRICTED())
 - In [`MediaBrowserServiceCompat#onLoadChildren`](https://developer.android.com/reference/androidx/media/MediaBrowserServiceCompat#onLoadChildren(java.lang.String,androidx.media.MediaBrowserServiceCompat.Result%3Cjava.util.List%3Candroid.support.v4.media.MediaBrowserCompat.MediaItem%3E%3E,android.os.Bundle))
   and in [`MediaBrowserServiceCompat#onSearch`](https://developer.android.com/reference/androidx/media/MediaBrowserServiceCompat#onSearch(java.lang.String,android.os.Bundle,androidx.media.MediaBrowserServiceCompat.Result%3Cjava.util.List%3Candroid.support.v4.media.MediaBrowserCompat.MediaItem%3E%3E)):
 
-  - [KEY_HINT_VIEW_MAX_ITEMS_WHILE_RESTRICTED](https://developer.android.com/reference/kotlin/androidx/car/app/mediaextensions/MediaBrowserExtras#KEY_ROOT_HINT_MEDIA_SESSION_API())
-  - [KEY_HINT_VIEW_MAX_LIST_ITEMS_COUNT_PER_ROW](https://developer.android.com/reference/kotlin/androidx/car/app/mediaextensions/MediaBrowserExtras#KEY_HINT_VIEW_MAX_LIST_ITEMS_COUNT_PER_ROW())
-  - [KEY_HINT_VIEW_MAX_CATEGORY_LIST_ITEMS_COUNT_PER_ROW](https://developer.android.com/reference/kotlin/androidx/car/app/mediaextensions/MediaBrowserExtras#KEY_HINT_VIEW_MAX_CATEGORY_LIST_ITEMS_COUNT_PER_ROW())
-  - [KEY_HINT_VIEW_MAX_GRID_ITEMS_COUNT_PER_ROW](https://developer.android.com/reference/kotlin/androidx/car/app/mediaextensions/MediaBrowserExtras#KEY_HINT_VIEW_MAX_GRID_ITEMS_COUNT_PER_ROW())
-  - [KEY_HINT_VIEW_MAX_CATEGORY_GRID_ITEMS_COUNT_PER_ROW](https://developer.android.com/reference/kotlin/androidx/car/app/mediaextensions/MediaBrowserExtras#KEY_HINT_VIEW_MAX_CATEGORY_GRID_ITEMS_COUNT_PER_ROW())
+  - [`KEY_HINT_VIEW_MAX_ITEMS_WHILE_RESTRICTED`](https://developer.android.com/reference/kotlin/androidx/car/app/mediaextensions/MediaBrowserExtras#KEY_HINT_VIEW_MAX_ITEMS_WHILE_RESTRICTED())
+  - [`KEY_HINT_VIEW_MAX_LIST_ITEMS_COUNT_PER_ROW`](https://developer.android.com/reference/kotlin/androidx/car/app/mediaextensions/MediaBrowserExtras#KEY_HINT_VIEW_MAX_LIST_ITEMS_COUNT_PER_ROW())
+  - [`KEY_HINT_VIEW_MAX_CATEGORY_LIST_ITEMS_COUNT_PER_ROW`](https://developer.android.com/reference/kotlin/androidx/car/app/mediaextensions/MediaBrowserExtras#KEY_HINT_VIEW_MAX_CATEGORY_LIST_ITEMS_COUNT_PER_ROW())
+  - [`KEY_HINT_VIEW_MAX_GRID_ITEMS_COUNT_PER_ROW`](https://developer.android.com/reference/kotlin/androidx/car/app/mediaextensions/MediaBrowserExtras#KEY_HINT_VIEW_MAX_GRID_ITEMS_COUNT_PER_ROW())
+  - [`KEY_HINT_VIEW_MAX_CATEGORY_GRID_ITEMS_COUNT_PER_ROW`](https://developer.android.com/reference/kotlin/androidx/car/app/mediaextensions/MediaBrowserExtras#KEY_HINT_VIEW_MAX_CATEGORY_GRID_ITEMS_COUNT_PER_ROW())
 
-## Error Handling
+## Error handling
 
-Errors in media apps on Android Automotive OS are communicated via the media
+Errors in media apps on Android Automotive OS are communicated using the media
 session's `PlaybackStateCompat`. For all errors, set an appropriate error
-code and error message in the `PlaybackStateCompat`. This causes a `Toast` to appear
-in the UI.
+code and error message in the `PlaybackStateCompat`. This causes a `Toast` to
+appear in the UI.
 
-When an error occurs but playback can continue, issue a [non-fatal
-error](https://developer.android.com/guide/topics/media-apps/working-with-a-media-session#errors).
+When an error occurs but playback can continue, issue a
+[nonfatal error](https://developer.android.com/media/legacy/mediasession#errors).
 For example, a user might be able to play music in an app before signing in, but
-they must sign in before they can skip a song. When you use a non-fatal error,
-the system can suggest that the user log in without interrupting playback for
+they must sign in before they can skip a song. When you use a nonfatal error,
+the system can suggest that the user sign in without interrupting playback for
 the current media item.
 
-When you issue a non-fatal error, preserve the rest of the
-`PlaybackStateCompat` as-is, aside from the error code and error message. Using this
-approach lets playback for the current media item to continue while the user
-decides whether to sign in.
+When you issue a nonfatal error, preserve the rest of the
+`PlaybackStateCompat` as-is, aside from the error code and error message. Using
+this approach lets playback for the current media item to continue while the
+user decides whether to sign in.
 
 When playback is not possible, such as when there is no internet connection and
 no offline content, set the `PlaybackStateCompat` state to `STATE_ERROR`.
@@ -677,8 +679,8 @@ Here are a few things to keep in mind as you consider your offline support
 strategy:
 
 - The best time to download content is while your app is in use.
-- Do not assume that WiFi is available. A car might never come into WiFi range, or the OEM might have disabled WiFi in favor of a cellular network.
-- While it is okay to smartly cache the content expect users to use, we recommend that you let the user change this behavior through your settings activity.
+- Don't assume that WiFi is available. A car might never come into WiFi range, or the OEM might have disabled WiFi in favor of a mobile network.
+- While it's okay to cache the content you expect users to use, we recommend that you let the user change this behavior through your settings activity.
 - The disk space on cars varies, so give users a way to delete offline content, such as through an option in your settings activity.
 
 ### WebView support
@@ -692,15 +694,14 @@ Here are some examples of acceptable use-cases for WebViews:
 - Displaying your privacy policy, terms of service, or other legal-related links in your settings activity.
 - A web-based flow in your sign-in activity.
 
-When using a WebView, you can [enable
-Javascript](https://developer.android.com/guide/webapps/webview#EnablingJavaScript).
+When using a WebView, you can [enable Javascript](https://developer.android.com/develop/ui/views/layout/webapps/webview#EnablingJavaScript).
 
 > [!IMPORTANT]
-> **Important:** Videos are not allowed.
+> **Important:** Videos aren't allowed.
 
 #### Secure your WebView
 
-Take all precautions possible to help ensure that your WebView is not an
+Take all precautions possible to help ensure that your WebView isn't an
 entry point into the greater internet. See the following code snippet for an
 example on how to lock the WebView to the URL used in the
 [`loadUrl()`](https://developer.android.com/reference/android/webkit/WebView#loadUrl(java.lang.String))
@@ -756,17 +757,17 @@ public boolean shouldOverrideUrlLoading(WebView webView, WebResourceRequest webR
 
 ### Package names
 
-Because you distribute a separate Android Package Kit (APK) for Android Automotive OS, you can
-reuse the package name from your mobile app or create a new package
-name. If you use a different package name, your app has two separate Play Store
-listings. If you reuse your current package name, your app has a
+Because you distribute a separate Android Package Kit (APK) for Android
+Automotive OS, you can reuse the package name from your mobile app or create a
+new package name. If you use a different package name, your app has two separate
+Play Store listings. If you reuse your current package name, your app has a
 single listing across both platforms.
 
-This is predominantly a business decision. For example, if you have one team working on
-the mobile app, and a separate team working on your Android Automotive
-OS app, then it might make sense to have separate package names and let each
-team manage its own Play Store listing. There is not a large difference in the
-technical effort required to use either approach.
+This is predominantly a business decision. For example, if you have one team
+working on the mobile app, and a separate team working on your Android
+Automotive OS app, then it might make sense to have separate package names and
+let each team manage its own Play Store listing. There is not a large difference
+in the technical effort required to use either approach.
 
 The following table summarizes some other key differences between keeping your
 current package name and using a new package name:
@@ -789,9 +790,9 @@ Android Automotive OS.
 
 #### Can my app get access to the microphone
 
-For apps targeting Android 10 (API level 29) or higher, refer to the [sharing
-audio input](https://developer.android.com/guide/topics/media/sharing-audio-input) documentation. This is not
-feasible prior to API level 29.
+For apps targeting Android 10 (API level 29) or higher, refer to the
+[sharing audio input](https://developer.android.com/media/platform/sharing-audio-input) documentation. This is not feasible prior to API
+level 29.
 
 #### Which car APIs can we get access to and how?
 
@@ -827,9 +828,9 @@ for complying with all the car app quality requirements.
 #### Can I use a foreground service?
 
 The only allowed use-case for a foreground service is downloading content for
-offline use. If you have another use-case for a foreground service that you want
-to see support for, get in touch with us using the [Android Automotive OS
-discussion group](https://g.co/automotive-developers).
+offline use. If you have another use-case for a foreground service that you
+want to see support for, get in touch with us using the
+[Android Automotive OS discussion group](https://g.co/automotive-developers).
 
 ### Publishing Android Automotive OS apps
 
@@ -839,8 +840,7 @@ For details on how to publish your Android Automotive OS app using the Google
 Play Console, see [Distribute to cars](https://developer.android.com/training/cars/distribute).
 
 > [!WARNING]
-> **Warning:** Because a media app artifact cannot support both mobile and Android Automotive OS experiences, you [must use the dedicated Android Automotive OS
-> track](https://developer.android.com/training/cars/distribute#choose-track-aaos) to distribute your media app to Android Automotive OS devices.
+> **Warning:** Because a media app artifact can't support both mobile and Android Automotive OS experiences, you [must use the dedicated Android Automotive OS track](https://developer.android.com/training/cars/distribute#choose-track-aaos) to distribute your media app to Android Automotive OS devices.
 
 ## Additional resources
 
@@ -854,7 +854,7 @@ resources.
 ### Guides
 
 - [Design for Driving](http://g.co/automotive-design)
-- [Using the media controller test app](https://developer.android.com/guide/topics/media-apps/audio-app/media-controller-test)
+- [Using the media controller test app](https://developer.android.com/media/optimize/mct)
 - [Notifications on Android Automotive OS](https://developer.android.com/training/cars/platforms/automotive-os/notifications)
 - [Android app quality for cars](https://developer.android.com/docs/quality-guidelines/car-app-quality)
 
@@ -868,7 +868,7 @@ resources.
 - [How to Build Media Apps for Cars (Android Dev Summit '19)](https://www.youtube.com/watch?v=Ujwy_AoJnZs)
 - [How to Build Android Apps for Cars (Google I/O'19)](https://www.youtube.com/watch?v=AHHERLwjUGo)
 
-## Report an Android Automotive OS Media issue
+## Report an Android Automotive OS media issue
 
 If you run into an issue while developing your media app for Android Automotive
 OS, you can report it using the

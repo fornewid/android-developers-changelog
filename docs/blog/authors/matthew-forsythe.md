@@ -4,13 +4,23 @@ url: https://developer.android.com/blog/authors/matthew-forsythe
 source: md.txt
 ---
 
-## 5
+## 6
 
 posts ![](https://developer.android.com/static/blog/assets/matthew_9c798f0c1d_Z1m5WWD.webp)
 
 # Matthew Forsythe
 
 ###### Director, Product Management
+
+- 18 Jun 2026 18 Jun 2026 ![](https://developer.android.com/static/blog/assets/Strapi_2x_325a484212_1BGPPB.webp)
+
+  #### [Product News](https://developer.android.com/blog/categories/product-news)
+
+  ## [Android developer verification: Building a safer ecosystem together](https://developer.android.com/blog/posts/android-developer-verification-building-a-safer-ecosystem-together)
+
+  [arrow_forward](https://developer.android.com/blog/posts/android-developer-verification-building-a-safer-ecosystem-together) Last year, we introduced Android developer verification to strengthen ecosystem security and stop malicious actors from hiding behind anonymity to release harmful apps.
+
+  ###### 2 min read
 
 - 30 Mar 2026 30 Mar 2026 ![](https://developer.android.com/static/blog/assets/android_Verification2_40caaf2e67_NyvEj.webp)
 

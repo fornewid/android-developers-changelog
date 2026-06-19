@@ -23,6 +23,31 @@ A safer, more trusted ecosystem benefits the entire developer community.
 - **Makes it harder to spread harm** by linking bad apps to their developers. This helps us hold developers accountable, enforce safety policies, and remove malicious networks.
 - **Boosts user confidence**, helping you build relationships with new users and establish trust.
 
+## Where changes are in effect
+
+Starting September 30, 2026, these new developer verification protections will
+go live for users in Brazil, Indonesia, Singapore, and Thailand. This rollout is
+a collective effort across the mobile industry to make the ecosystem a safe
+place where users can confidently download apps and developers' business can
+thrive. We've worked closely with consumers and developers to design this
+experience and have partnered with Android ecosystem leaders to refine the
+process. To support the introduction of the developer verification in these four
+countries, the system will start by verifying app installations from the
+following app stores:
+
+- Google (Google Play)
+- Honor (HONOR App Market)
+- OPlus (OPPO App Market)
+- Samsung (Galaxy Store)
+- Transsion (Palm Store)
+- vivo (V-Appstore)
+- Xiaomi (GetApps)
+
+Following this initial phase with our partners, we will expand these
+protections globally for all apps on certified Android devices in 2027. The
+verification capability will soon be expanded to all third-party Android app
+stores.
+
 ## What you need to do
 
 Complete these steps:
@@ -46,20 +71,16 @@ Complete these steps:
 | **Distribution** | Distribute from any app store or channels you choose (your company website, etc.) | Distribute to up to 20 devices | Distribute from any channels you choose (outside of app stores that require verification). |
 | **Your users' experience** | Nothing changes from today's experience | Accept invitation to install from a developer you know | Use advanced flow to sideload unregistered apps with extra safeguards that gives critical time and space needed to break the cycle of potential coercion. |
 
-## Timelines and milestones
+## Key milestones
 
 We're taking time to incorporate your feedback and give you time to prepare.
 Here's what to focus on at each stage:
-
-| Date | Milestone | Developer focus <br /> |
-|---|---|---|
-| August 2025 | New Android developer verification requirements [announced](https://android-developers.googleblog.com/2025/08/elevating-android-security.html) | Learn about the new requirements and sign up for early access. |
-| November 2025 | Early access began | If invited, start your identity verification and app registration. |
-| March 2026 | Registration opens for all developers | Begin your identity verification and app registration for all apps you want to remain installable on certified Android devices. <br /> Sign up for early access to limited distribution accounts. |
-| June 2026 | Early access starts for limited distribution accounts | If invited, create your account and share your feedback. |
-| August 2026 | Limited distribution account launches globally <br /> Advanced flow for users launches globally | If limited distribution accounts are for you, create your account and register your apps. |
-| September 2026 | Regional enforcement begins | Verify compliance to avoid installation blocks on your apps in Brazil, Indonesia, Singapore, and Thailand. |
-| 2027 and beyond | Global enforcement | The rollout continues worldwide. |
+![Timeline diagram showing key milestones: June 2026 system service
+rollout and limited distribution early access; July 2026 Status API global
+launch, Console API and limited distribution early access; August 2026
+global Console API, limited distribution, and advanced flow; September 30,
+2026 regional enforcement in Brazil, Indonesia, Singapore, and Thailand;
+2027 and beyond global rollout.](https://developer.android.com/static/developer-verification/assets/adv-timeline.svg) **Figure 1:** Android developer verification rollout timeline and key milestones.
 
 ## Key concepts
 

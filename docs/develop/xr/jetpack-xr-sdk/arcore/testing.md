@@ -28,7 +28,7 @@ file:
 
 ```kotlin
 dependencies {
-    testImplementation("androidx.xr.arcore:arcore-testing:1.0.0-alpha14")
+    testImplementation("androidx.xr.arcore:arcore-testing:1.0.0-alpha15")
 }
 ```
 
@@ -36,7 +36,7 @@ dependencies {
 
 ```groovy
 dependencies {
-    testImplementation "androidx.xr.arcore:arcore-testing:1.0.0-alpha14"
+    testImplementation "androidx.xr.arcore:arcore-testing:1.0.0-alpha15"
 }
 ```
 
@@ -47,7 +47,7 @@ If your app depends on [XR SceneCore](https://developer.android.com/jetpack/andr
 
 ```kotlin
 dependencies {
-    testImplementation("androidx.xr.scenecore:scenecore-testing:1.0.0-alpha15")
+    testImplementation("androidx.xr.scenecore:scenecore-testing:1.0.0-alpha16")
 }
 ```
 
@@ -55,7 +55,7 @@ dependencies {
 
 ```groovy
 dependencies {
-    testImplementation "androidx.xr.scenecore:scenecore-testing:1.0.0-alpha15"
+    testImplementation "androidx.xr.scenecore:scenecore-testing:1.0.0-alpha16"
 }
 ```
 
@@ -85,11 +85,11 @@ fun setUp() {
 
     activityController.create().start().resume()
 
-    val sessionCreateResult = Session.create(activity = activity, coroutineContext = testDispatcher)
+    val sessionCreateResult = Session.create(context = activity, coroutineContext = testDispatcher)
     session = (sessionCreateResult as SessionCreateSuccess).session
 
     // Configure the session.
-    session.configure(session.config.copy(handTracking = HandTrackingMode.BOTH))
+    session.configure(Config.Builder(session.config).setHandTracking(HandTrackingMode.BOTH).build())
 }
 ```
 
@@ -108,10 +108,10 @@ works with our test data:
 ```kotlin
 @Test
 fun test_thumbsUp() = runTest(testDispatcher) {
-    arCoreTestRule.rightHand.isVisible = true
-    arCoreTestRule.rightHand.handJointMap = gestureThumbsUp
+    arCoreTestRule.rightHandTester.isVisible = true
+    arCoreTestRule.rightHandTester.handJointMap = gestureThumbsUp
     advanceUntilIdle()
-    val handState = Hand.right(session)?.state?.value ?: fail("Did not detect a right hand")
+    val handState = Hand.right(session).state.value
 
     val isThumbsUp = detectThumbsUp(handState)
     assertThat(isThumbsUp).isTrue()

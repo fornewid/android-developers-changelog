@@ -5,10 +5,11 @@ source: md.txt
 ---
 
 This guide assumes you have a media app that plays audio on a phone and that
-your media app conforms to Android media app architecture. You will also learn
+your media app conforms to Android media app architecture. You'll also learn
 what your app needs from `MediaBrowserService` or `MediaLibraryService` and
-`MediaSession` to run on Android Auto or AAOS. When you complete the core media
-infrastructure, you can add support for Android Auto and AAOS to your media app.
+`MediaSession` to run on Android Auto or AAOS. Once you've completed the core
+media infrastructure, you can add support for Android Auto and AAOS to your
+media app.
 
 > [!CAUTION]
 > **Caution:** Google takes driver distraction seriously. Your app must meet specific design requirements before it can be listed on Google Play for Android Auto or AAOS. By adhering to these requirements, you can make it more straightforward to build and test your app. To learn more, see [Android app quality for cars](https://developer.android.com/docs/quality-guidelines/car-app-quality?category=media).
@@ -42,10 +43,10 @@ can create media apps for cars in one of two ways:
 > **Note:** The Car App Library templates still require a `MediaSession` and either a `MediaBrowserService` or `MediaLibraryService` to maintain support for voice actions and other smart experiences.
 
 > [!CAUTION]
-> **Caution:** Aside from [voice guidance audio for navigation apps](https://developer.android.com/training/cars/apps/navigation#voice-guidance) and the media apps described here, in-app media playback while driving is **not** permitted.
+> **Caution:** Aside from [voice guidance audio for navigation apps](https://developer.android.com/training/cars/apps/navigation#voice-guidance) and the media apps described here, in-app media playback while driving isn't permitted.
 
 This guide assumes you have a media app that plays audio on a phone and that
-your media app conforms to Android [media app architecture](https://developer.android.com/guide/topics/media-apps/media-apps-overview). This guide
+your media app conforms to Android [media app architecture](https://developer.android.com/media/legacy). This guide
 describes the required components of a `MediaBrowserService` or
 `MediaLibraryService` and `MediaSession` needed by your app to be compatible
 with Android Auto or AAOS. After you complete the core media infrastructure,
@@ -63,8 +64,8 @@ If the primary content provided by your app is video, see:
 
 Be sure to consult:
 
-- [Android media API documentation](https://developer.android.com/guide/topics/media-apps/media-apps-overview)
-- Design guidance: [Create media apps](https://developers.google.com/cars/design/create-apps/app-types/media)
+- [Android media API documentation](https://developer.android.com/media/legacy)
+- Design guidance: [Create media apps](https://developer.android.com/design/ui/cars/guides/app-types/create-media-apps)
 - Terminology: [Key terms and concepts](https://developer.android.com/training/cars/media#terms-concepts)
 
 ## Learn key terms and concepts
@@ -84,7 +85,7 @@ Media browser service
 Media item
 
 :   The media browser organizes content in a tree of [`MediaItem`](https://developer.android.com/training/cars/parked/video) objects. A
-    media item can have either or both of these flags. A media item that can
+    media item can have one or both of these flags. A media item that can
     be browsed for **and** played operates like a playlist. You can select the item
     to play all of its descendants, or you can browse its descendants.
 
@@ -101,5 +102,5 @@ Media item
 For additional information, see:
 
 - [Universal Media Player sample](https://github.com/googlesamples/android-UniversalMusicPlayer)
-- [Audio app overview](https://developer.android.com/training/managing-audio)
-- [ExoPlayer overview](https://developer.android.com/guide/topics/media/exoplayer)
+- [Audio app overview](https://developer.android.com/media/legacy/audio)
+- [ExoPlayer overview](https://developer.android.com/media/media3/exoplayer)

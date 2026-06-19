@@ -104,6 +104,17 @@ With a strong foundation in hardware-backed security and new automated remediati
 
 ## Continue reading
 
+- [![](https://developer.android.com/static/blog/assets/matthew_9c798f0c1d_Z1m5WWD.webp)](https://developer.android.com/blog/authors/matthew-forsythe) 18 Jun 2026 18 Jun 2026 ![](https://developer.android.com/static/blog/assets/Strapi_2x_325a484212_1BGPPB.webp)
+
+  #### [Product News](https://developer.android.com/blog/categories/product-news)
+
+  ## [Android developer verification: Building a safer ecosystem together](https://developer.android.com/blog/posts/android-developer-verification-building-a-safer-ecosystem-together)
+
+  [arrow_forward](https://developer.android.com/blog/posts/android-developer-verification-building-a-safer-ecosystem-together) Last year, we introduced Android developer verification to strengthen ecosystem security and stop malicious actors from hiding behind anonymity to release harmful apps.
+
+  ###### [Matthew Forsythe](https://developer.android.com/blog/authors/matthew-forsythe) •
+  2 min read
+
 - [![](https://developer.android.com/static/blog/assets/Stevan_Silva_7661118077_V4WGm.webp)](https://developer.android.com/blog/authors/stevan-silva)[![](https://developer.android.com/static/blog/assets/unnamed_5_cdab7ecfba_2kh65s.webp)](https://developer.android.com/blog/authors/vinny-da-silva) 15 Jun 2026 15 Jun 2026 ![](https://developer.android.com/static/blog/assets/MM_D_Android_XR_Strapi_39d27725e6_Zhwmdd.webp)
 
   #### [Product News](https://developer.android.com/blog/categories/product-news)
@@ -127,24 +138,6 @@ With a strong foundation in hardware-backed security and new automated remediati
 
   ###### [Simona Milanovic](https://developer.android.com/blog/authors/simona-milanovic) •
   2 min read
-
-- [![](https://developer.android.com/static/blog/assets/Ataul_Munim_cf0796f68c_r1HY2.webp)](https://developer.android.com/blog/authors/ataul-munim) 02 Jun 2026 02 Jun 2026 ![](https://developer.android.com/static/blog/assets/MM_Differentiated_Experiences_Strapi_bbe8e7618b_19k3ww.webp)
-
-  #### [Product News](https://developer.android.com/blog/categories/product-news)
-
-  ## [Building Premium Android Experiences at Google I/O '26](https://developer.android.com/blog/posts/building-premium-android-experiences-at-google-i-o-26)
-
-  [arrow_forward](https://developer.android.com/blog/posts/building-premium-android-experiences-at-google-i-o-26) At Google I/O '26, we showcased how the latest advancements in the Android ecosystem can help you elevate your app's quality while maximizing development efficiency.
-
-  ###### [Ataul Munim](https://developer.android.com/blog/authors/ataul-munim) •
-  3 min read
-
-  - [#Performance](https://developer.android.com/blog/topics/performance)
-  - [#Memory](https://developer.android.com/blog/topics/memory)
-  - [#R8](https://developer.android.com/blog/topics/r8)
-  - [#Wear OS](https://developer.android.com/blog/topics/wear-os)
-  - [#Automotive OS](https://developer.android.com/blog/topics/automotive-os)
-  - +3 ↩
 
 # Stay in the loop
 

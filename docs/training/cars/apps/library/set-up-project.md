@@ -4,7 +4,7 @@ url: https://developer.android.com/training/cars/apps/library/set-up-project
 source: md.txt
 ---
 
-This page describes how to install the Car App library and now to configure
+This page describes how to install the Car App library and how to configure
 the manifest file for your app.
 
 ## Install the Car App library
@@ -12,7 +12,9 @@ the manifest file for your app.
 To add the library to your app, see the Jetpack library [release page](https://developer.android.com/jetpack/androidx/releases/car-app#declaring_dependencies).
 
 > [!IMPORTANT]
-> **Important:** When depending on alpha and beta releases of the library, take extra caution when using newly introduced or experimental APIs. Specifically, new APIs in alpha releases and APIs that are annotated as experimental can change --- and potentially break --- your app when the hosts are updated. \*\*We strongly recommend that you don't refer to these categories of APIs in your production APKs.
+> **Important:** When depending on alpha and beta releases of the library, take extra caution when using newly introduced or experimental APIs. Specifically, new APIs in alpha releases and APIs that are annotated as experimental can change---and potentially break---your app when the hosts are updated. **We strongly
+> recommend that you don't refer to these categories of APIs in your production
+> APKs.**
 
 ## Configure your app's manifest files
 
@@ -25,7 +27,7 @@ The host connects to your app through your [`CarAppService`](https://developer.a
 You declare this service in your manifest to let the host discover and connect
 to your app.
 
-You also need to declare your app's category in the [`<category>`](https://developer.android.com/guide/topics/manifest/category-element) element of
+You must also declare your app's category in the [`<category>`](https://developer.android.com/guide/topics/manifest/category-element) element of
 your app's intent filter. See the list of [supported app categories](https://developer.android.com/training/cars/apps/library/set-up-project#supported-app-categories) for the
 values allowed for this element.
 
@@ -48,7 +50,7 @@ interest app in your manifest:
     <application>
 
 > [!CAUTION]
-> **Caution:** You might see a lint warning because the service is exported, but doesn't require a [permission](https://developer.android.com/guide/topics/manifest/service-element#prmsn). It's generally safe to ignore this warning because you must override the [`createHostValidator()`](https://developer.android.com/reference/androidx/car/app/CarAppService#createHostValidator()) method, which gives you more granular control over which host apps can connect to your app.
+> **Caution:** You might see a lint warning because the service is exported, but doesn't require a [permission](https://developer.android.com/guide/topics/manifest/service-element#prmsn). It's generally safe to ignore this warning because you must override the [`createHostValidator`](https://developer.android.com/reference/androidx/car/app/CarAppService#createHostValidator()) method, which gives you more granular control over which host apps can connect to your app.
 
 ### Supported app categories
 
@@ -77,7 +79,7 @@ adding one or more of these values in the intent filter.
 
 - `androidx.car.app.category.MESSAGING`: Lets users communicate
   with short-form text messages. See
-  [Build templated messaging experiences for Android Auto](https://developer.android.com/training/cars/communication/messaging).
+  [Build templated messaging experiences for Android Auto](https://developer.android.com/training/cars/communication/templated-messaging).
 
 - `androidx.car.app.category.CALLING`: Lets users communicate
   with voice calling. See
@@ -140,7 +142,7 @@ To set a custom theme for your car app:
 The Car App Library defines its own API levels so that you can know which
 library features are supported by the template host on a vehicle.
 To retrieve the highest Car App API level supported by a host, use the
-[`getCarAppApiLevel()`](https://developer.android.com/reference/androidx/car/app/CarContext#getCarAppApiLevel())
+[`getCarAppApiLevel`](https://developer.android.com/reference/androidx/car/app/CarContext#getCarAppApiLevel())
 method.
 
 Declare the minimum Car App API level supported by your app in your

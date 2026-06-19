@@ -130,21 +130,10 @@ remove a meeting from their calendar, and if the tile wasn't refreshed, then the
 tile would still show that deleted meeting. In this case, request a refresh from
 any place in your application code, as shown in the following code sample:
 
-### Kotlin
-
 ```kotlin
 fun eventDeletedCallback() {
      TileService.getUpdater(context)
              .requestUpdate(MyTileService::class.java)
-}
-```
-
-### Java
-
-```java
-public void eventDeletedCallback() {
-   TileService.getUpdater(context)
-           .requestUpdate(MyTileService.class);
 }
 ```
 

@@ -50,106 +50,11 @@ clicking the star button.
 See the [Issue Tracker documentation](https://developers.google.com/issue-tracker)
 for more information.
 
-## Health Connect Client Version 1.0
+## Health-Services-Client
 
-### Version 1.0.0-alpha04
+### Version 1.1
 
-August 24, 2022
-
-As of 1.0.0-alpha04, `androidx.health:health-connect-client` was migrated to
-`androidx.health.connect:connect-client`. For future, releases please use
-`androidx.health.connect:connect-client` and the associated release notes on our
-[Health Connect](https://developer.android.com/jetpack/androidx/releases/health-connect) page.
-
-To migrate, simply change your dependency import from
-`androidx.health:health-connect-client:1.0.0-alpha03` to
-`androidx.health.connect:connect-client:1.0.0-alpha04`.
-
-### Version 1.0.0-alpha03
-
-July 27, 2022
-
-`androidx.health:health-connect-client:1.0.0-alpha03` is released. [Version 1.0.0-alpha03 contains these commits.](https://android.googlesource.com/platform/frameworks/support/+log/7cbb37cc779160b89644d03e042c129d0ce025d2..a7f0710ad21f556f0dde9bf7bdab6d2135170fd4/health/health-connect-client)
-
-**New Features**
-
-- Summary of new API changes: a set of units have been added to the read, write, aggregate APIs. Apps can now retrieve or write records with their unit of choice, such as grams or milligrams for `NutritionRecord` nutrients.
-
-**API Changes**
-
-- Fix `List<DataOrigin>` to be `Set<DataOrigin>` across various request response objects. ([I42342](https://android-review.googlesource.com/#/q/I4234240b3986e042df1140bf02171cab25312542))
-- Fix unit of basal total calories from Power-\>Energy. ([I0b429](https://android-review.googlesource.com/#/q/I0b429388ac68305a95396f89c754a2206dc3264c))
-- Moved series sample classes inside series records ([Ica9bb](https://android-review.googlesource.com/#/q/Ica9bb4656889d300d6d71ff811a283dfd195bf67)):
-  - `CyclingPedalingCadence` -\> `CyclingPedalingCadenceRecord.Sample`
-  - `HeartRate` -\> `HeartRateRecord.Sample`
-  - `StepsCadence` -\> `StepsCadenceRecord.Sample`
-- Deprecate `HealthDataRequestPermission` class, in favor of `PermissionController.createRequestPermissionActivityContract`; This promotes better discoverability and unified parameterization. ([I81e7f](https://android-review.googlesource.com/#/q/I81e7f5cf104f6fdd35cc943b0a975027049e69af))
-- Added US fluid ounces to Volume. ([I5f03d](https://android-review.googlesource.com/#/q/I5f03d96f1f328232c0672952adcfc56206ff28ea))
-- Added Speed unit type ([I1d574](https://android-review.googlesource.com/#/q/I1d574f1585da182bc8ec648adecebc313fdf470a))
-- Added Percentage unit type ([I08f23](https://android-review.googlesource.com/#/q/I08f23783bafb653ec4476e3c88fdd93435213538))
-- Added Pressure unit type ([Ifb01f](https://android-review.googlesource.com/#/q/Ifb01f75c5455ebecdbd5816005592a7c55a180cd))
-- Added Mass unit type ([Ifd81a](https://android-review.googlesource.com/#/q/Ifd81ae024e2eae061b1046c556823d57c2bb80ec))
-- Added Volume unit type ([I59ad1](https://android-review.googlesource.com/#/q/I59ad1e9394b76b8405fad4163e9871c47a852499))
-- Added Power unit type. Moved Power series sample class inside `PowerRecord` class. ([I5b1e5](https://android-review.googlesource.com/#/q/I5b1e51373afa05aad5d21bac5cf8e48a16ce3805))
-- Added Energy unit type ([I983ae](https://android-review.googlesource.com/#/q/I983ae2f3f282aee332697c012a1fcf20b9c91419))
-- Added Temperature unit type ([I4cdb5](https://android-review.googlesource.com/#/q/I4cdb50de23e0374bf2bffe455ec61dcf9e7fffdb))
-- Rename references of Activity to be specific to Exercise, including ([I3f936](https://android-review.googlesource.com/#/q/I3f93615765a41d3aacac2eafb8d3b2930c8af414)):
-  - Renamed `ActivityLap` -\> `ExerciseLapRecord`
-  - Renamed `ActivityEvent` -\> `ExerciseEventRecord`
-  - Renamed `Repetitions` -\> `ExerciseRepetitionsRecord`
-  - Renamed `ActivitySession` -\> `ExerciseSessionRecord`
-- Moved package metadata nested under records. ([Ie0835](https://android-review.googlesource.com/#/q/Ie08355e7debbdf391aa689e6cad239b5cdab72e9))
-- Used Length unit in all remaining records ([Ib10dd](https://android-review.googlesource.com/#/q/Ib10dd02e742b188bfed63d8f2be99f3c1df02887)):
-  - `ActivityLapRecord`
-  - `ElevationGainedRecord`
-  - `HeightRecord`
-  - `HipCircumferenceRecord`
-  - `WaistCircumferenceRecord`
-- Added Length unit type ([Idae39](https://android-review.googlesource.com/#/q/Idae39b675aa6ee8816f281755bceb048e1a3a6f4))
-- Update `CervicalMucus` description terminology ([I25a2b](https://android-review.googlesource.com/#/q/I25a2b19e13184f111666113923638396f56f2cff)):
-  - `CervicalMucus.Amount` -\> `CervicalMucusRecord.Texture`
-  - `CervicalMucus.Appearance` -\> `CervicalMucusRecord.Sensation`
-- Added 'Record' suffix to all record class names ([I1ffc2](https://android-review.googlesource.com/#/q/I1ffc272c9d271bb71a3f7ae3fad3b63c28492939))
-
-**Bug Fixes**
-
-- Fix proguard issues when lib built with release flavor and `minifyEnabled` true. ([I78933](https://android-review.googlesource.com/#/q/I78933cdcf910688d2acd825fccbbb0ada643b959))
-- Hides documentation not intended for public usage. ([I7a08f](https://android-review.googlesource.com/#/q/I7a08f4e0ff3bd685e123427cee23787507ee0680))
-- Fixes the issue in clients who may have their own protobuf dependencies.(https://android-review.googlesource.com/c/platform/frameworks/support/+/2105430)
-
-### Version 1.0.0-alpha02
-
-June 1, 2022
-
-`androidx.health:health-connect-client:1.0.0-alpha02` is released. [Version 1.0.0-alpha02 contains these commits.](https://android.googlesource.com/platform/frameworks/support/+log/b18424ac8b7d47a65751381a4f8ad4777f537107..7cbb37cc779160b89644d03e042c129d0ce025d2/health/health-connect-client)
-
-**API Changes**
-
-- Deprecated `hasMetric` and `getMetric` in `AggregationResult`, added contains and get operators ([I7cc7c](https://android-review.googlesource.com/#/q/I7cc7c118e6fab03b7eaa9e551072ca3a59e5027c))
-- Adds `OvulationTest.Result.HIGH` and `OvulationTest.Result.INCONCLUSIVE`. ([I9f9c4](https://android-review.googlesource.com/#/q/I9f9c41787ae40aa245821e4c48b339296df4a781))
-
-**Bug Fixes**
-
-- Reduce SDK requirements to 26. ([I6d201](https://android-review.googlesource.com/#/q/I6d20121096fdaa0a5e72436c4e1888678dc61eae))
-
-### Version 1.0.0-alpha01
-
-May 11, 2022
-
-`androidx.health:health-connect-client:1.0.0-alpha01` is released. [Version 1.0.0-alpha01 contains these commits.](https://android.googlesource.com/platform/frameworks/support/+log/b18424ac8b7d47a65751381a4f8ad4777f537107/health/health-connect-client)
-
-**New Features**
-
-- API for reading fitness and health records shared by other apps.
-- API for writing fitness and health records to share with other apps.
-- API to retrieve aggregated metrics for accessible records.
-- API to retrieve incremental changes (insert, update or delete) of records by other apps.
-- API to prompt users for health permissions.
-- API to check for permissions or revoke granted health permissions.
-
-## Health Services Client Version 1.1
-
-### Version 1.1.0-rc02
+#### Version 1.1.0-rc02
 
 May 06, 2026
 
@@ -159,19 +64,19 @@ May 06, 2026
 
 - Relax swimming pool length requirement to just when you request distance ([2dc7a2e](https://android.googlesource.com/platform/frameworks/support/+/2dc7a2e173a807c9b179c155dcd80f0e2ee5ceed))
 
-### Version 1.1.0-rc01
+#### Version 1.1.0-rc01
 
 February 25, 2026
 
 `androidx.health:health-services-client:1.1.0-rc01`, `androidx.health:health-services-client-external-protobuf:1.1.0-rc01`, and `androidx.health:health-services-client-proto:1.1.0-rc01` are released. Version 1.1.0-rc01 contains no changes since the prior beta release.
 
-### Version 1.1.0-beta01
+#### Version 1.1.0-beta01
 
 February 11, 2026
 
 `androidx.health:health-services-client:1.1.0-beta01`, `androidx.health:health-services-client-external-protobuf:1.1.0-beta01`, and `androidx.health:health-services-client-proto:1.1.0-beta01` are released. Version 1.1.0-beta01 contains [no changes](https://android.googlesource.com/platform/frameworks/support/+log/46295bc0b75a16f452e8e0090e8de41073d4dbb6..2e98d140740558dc55710bde96311d2e0e8d5cfd/health/health-services-client) since the prior alpha release.
 
-### Version 1.1.0-alpha05
+#### Version 1.1.0-alpha05
 
 December 11, 2024
 
@@ -185,7 +90,7 @@ December 11, 2024
 
 - This library now uses [JSpecify nullness annotations](https://jspecify.dev/), which are type-use. Kotlin developers should use the following compiler argument to enforce correct usage: `-Xjspecify-annotations=strict` (this is the default starting with version 2.1.0 of the Kotlin compiler). ([Iaf73a](https://android-review.googlesource.com/#/q/Iaf73a787b8b07034e55d1ec8e3495728849dc127), [b/326456246](https://issuetracker.google.com/issues/326456246))
 
-### Version 1.1.0-alpha04
+#### Version 1.1.0-alpha04
 
 October 16, 2024
 
@@ -195,7 +100,7 @@ October 16, 2024
 
 - As of [this change](https://android-review.googlesource.com/q/topic:%22protobuf-4.28.2%22), androidx compiles against protobuf 4.28.2 in order to address [CVE-2024-7254](https://nvd.nist.gov/vuln/detail/CVE-2024-7254). Upgrade your dependency on `androidx.health:health-services-client` to the latest 1.1.0-alpha04 to address the vulnerability risk.
 
-### Version 1.1.0-alpha02
+#### Version 1.1.0-alpha02
 
 December 13, 2023
 
@@ -209,7 +114,7 @@ December 13, 2023
 
 - Minor bug fixes and documentation improvements.
 
-### Version 1.1.0-alpha01
+#### Version 1.1.0-alpha01
 
 August 9, 2023
 
@@ -227,9 +132,9 @@ August 9, 2023
 
 - Instead of aggressively throwing exceptions on seeing unknown exercise event capabilities, filter it out from the list. ([I06afc](https://android-review.googlesource.com/#/q/I06afc9ee967ea39453118ff9695d645a707c2659))
 
-## Health Services Client Version 1.0
+### Version 1.0
 
-### Version 1.0.0
+#### Version 1.0.0
 
 May 7, 2025
 
@@ -239,7 +144,7 @@ May 7, 2025
 
 - This is the promotion of 1.0.0-rc02 to be the stable release of Health Services Client. There are no changes from 1.0.0-rc02.
 
-### Version 1.1.0-alpha03
+#### Version 1.1.0-alpha03
 
 May 14, 2024
 
@@ -263,7 +168,7 @@ May 14, 2024
 
 - Fixed various issues to improve IPC reliability.
 
-### Version 1.0.0-rc02
+#### Version 1.0.0-rc02
 
 April 3, 2024
 
@@ -275,7 +180,7 @@ April 3, 2024
 - Fixed an issue where calling `startExercise` at the same time as `prepareExercise` could lead to a `ConcurrentModificationException` ([4e37773](https://android.googlesource.com/platform/frameworks/support/+/4e377730de43743cf73c8c090bf61b5a24084976))
 - Improved documentation
 
-### Version 1.0.0-rc01
+#### Version 1.0.0-rc01
 
 July 26, 2023
 
@@ -290,7 +195,7 @@ July 26, 2023
 - Merged public and experimental API files for h- thru m-paths. ([Ic4630](https://android-review.googlesource.com/#/q/Ic46302e01e1352d8b4d37cb2468ef61474e79df3), [b/278769092](https://issuetracker.google.com/issues/278769092))
 - N/A, API file changes are just reordering methods. ([I5fa95](https://android-review.googlesource.com/#/q/I5fa95ca42073461bed8e5020c91b4c0894b70753))
 
-### Version 1.0.0-beta03
+#### Version 1.0.0-beta03
 
 April 5, 2023
 
@@ -310,7 +215,7 @@ April 5, 2023
 
 - `DataType` and `ExerciseUpdate` small fixes ([5e185f](https://android-review.googlesource.com/#/q/a88dc75ff88fdda9d5306287add55842f25e185f))
 
-### Version 1.0.0-beta02
+#### Version 1.0.0-beta02
 
 January 11, 2023
 
@@ -334,7 +239,7 @@ January 11, 2023
 - Add to kdoc for clarity ([Ide285](https://android-review.googlesource.com/#/q/Ide2859c52cac07e6c4184ade52b578bdd5a08b73))
 - Allow passive monitoring tracking for goals only if the same data types are also tracked ([Ibed8d](https://android-review.googlesource.com/#/q/Ibed8da24bafb1786c47e72c069e9cec6ac9ee564))
 
-### Version 1.0.0-beta01
+#### Version 1.0.0-beta01
 
 October 24, 2022
 
@@ -394,7 +299,7 @@ October 24, 2022
 
 - General improvements to IPC reliability ([I3b1e2](https://android-review.googlesource.com/#/q/I3b1e2a66a652a0882d06d4353cbf015a6a637004))
 
-### Version 1.0.0-alpha03
+#### Version 1.0.0-alpha03
 
 November 3, 2021
 
@@ -408,7 +313,7 @@ November 3, 2021
 
 - minSdkVersion of the SDK library bumped to API level 30 since the Health Services Client is currently only supported on Wear3.
 
-### Version 1.0.0-alpha02
+#### Version 1.0.0-alpha02
 
 September 29, 2021
 
@@ -426,7 +331,7 @@ September 29, 2021
 
 - Migrates to proto-backed IPC transport for better backwards compatibility support
 
-### Version 1.0.0-alpha01
+#### Version 1.0.0-alpha01
 
 May 18, 2021
 
@@ -447,3 +352,102 @@ The `PassiveMonitoringClient` is a great choice if your application tracks the u
 **MeasureClient**
 
 Sometimes the user needs to measure e.g. their heart rate in the moment, not during an exercise and not throughout the day. In those moments the `MeasureClient` is the perfect choice.You just register your callback with supported `DataType`s to receive a stream of data, unregistering your callback when it's no longer needed.
+
+## Health Connect Client
+
+### Version 1.0
+
+#### Version 1.0.0-alpha04
+
+August 24, 2022
+
+As of 1.0.0-alpha04, `androidx.health:health-connect-client` was migrated to
+`androidx.health.connect:connect-client`. For future, releases please use
+`androidx.health.connect:connect-client` and the associated release notes on our
+[Health Connect](https://developer.android.com/jetpack/androidx/releases/health-connect) page.
+
+To migrate, simply change your dependency import from
+`androidx.health:health-connect-client:1.0.0-alpha03` to
+`androidx.health.connect:connect-client:1.0.0-alpha04`.
+
+#### Version 1.0.0-alpha03
+
+July 27, 2022
+
+`androidx.health:health-connect-client:1.0.0-alpha03` is released. [Version 1.0.0-alpha03 contains these commits.](https://android.googlesource.com/platform/frameworks/support/+log/7cbb37cc779160b89644d03e042c129d0ce025d2..a7f0710ad21f556f0dde9bf7bdab6d2135170fd4/health/health-connect-client)
+
+**New Features**
+
+- Summary of new API changes: a set of units have been added to the read, write, aggregate APIs. Apps can now retrieve or write records with their unit of choice, such as grams or milligrams for `NutritionRecord` nutrients.
+
+**API Changes**
+
+- Fix `List<DataOrigin>` to be `Set<DataOrigin>` across various request response objects. ([I42342](https://android-review.googlesource.com/#/q/I4234240b3986e042df1140bf02171cab25312542))
+- Fix unit of basal total calories from Power-\>Energy. ([I0b429](https://android-review.googlesource.com/#/q/I0b429388ac68305a95396f89c754a2206dc3264c))
+- Moved series sample classes inside series records ([Ica9bb](https://android-review.googlesource.com/#/q/Ica9bb4656889d300d6d71ff811a283dfd195bf67)):
+  - `CyclingPedalingCadence` -\> `CyclingPedalingCadenceRecord.Sample`
+  - `HeartRate` -\> `HeartRateRecord.Sample`
+  - `StepsCadence` -\> `StepsCadenceRecord.Sample`
+- Deprecate `HealthDataRequestPermission` class, in favor of `PermissionController.createRequestPermissionActivityContract`; This promotes better discoverability and unified parameterization. ([I81e7f](https://android-review.googlesource.com/#/q/I81e7f5cf104f6fdd35cc943b0a975027049e69af))
+- Added US fluid ounces to Volume. ([I5f03d](https://android-review.googlesource.com/#/q/I5f03d96f1f328232c0672952adcfc56206ff28ea))
+- Added Speed unit type ([I1d574](https://android-review.googlesource.com/#/q/I1d574f1585da182bc8ec648adecebc313fdf470a))
+- Added Percentage unit type ([I08f23](https://android-review.googlesource.com/#/q/I08f23783bafb653ec4476e3c88fdd93435213538))
+- Added Pressure unit type ([Ifb01f](https://android-review.googlesource.com/#/q/Ifb01f75c5455ebecdbd5816005592a7c55a180cd))
+- Added Mass unit type ([Ifd81a](https://android-review.googlesource.com/#/q/Ifd81ae024e2eae061b1046c556823d57c2bb80ec))
+- Added Volume unit type ([I59ad1](https://android-review.googlesource.com/#/q/I59ad1e9394b76b8405fad4163e9871c47a852499))
+- Added Power unit type. Moved Power series sample class inside `PowerRecord` class. ([I5b1e5](https://android-review.googlesource.com/#/q/I5b1e51373afa05aad5d21bac5cf8e48a16ce3805))
+- Added Energy unit type ([I983ae](https://android-review.googlesource.com/#/q/I983ae2f3f282aee332697c012a1fcf20b9c91419))
+- Added Temperature unit type ([I4cdb5](https://android-review.googlesource.com/#/q/I4cdb50de23e0374bf2bffe455ec61dcf9e7fffdb))
+- Rename references of Activity to be specific to Exercise, including ([I3f936](https://android-review.googlesource.com/#/q/I3f93615765a41d3aacac2eafb8d3b2930c8af414)):
+  - Renamed `ActivityLap` -\> `ExerciseLapRecord`
+  - Renamed `ActivityEvent` -\> `ExerciseEventRecord`
+  - Renamed `Repetitions` -\> `ExerciseRepetitionsRecord`
+  - Renamed `ActivitySession` -\> `ExerciseSessionRecord`
+- Moved package metadata nested under records. ([Ie0835](https://android-review.googlesource.com/#/q/Ie08355e7debbdf391aa689e6cad239b5cdab72e9))
+- Used Length unit in all remaining records ([Ib10dd](https://android-review.googlesource.com/#/q/Ib10dd02e742b188bfed63d8f2be99f3c1df02887)):
+  - `ActivityLapRecord`
+  - `ElevationGainedRecord`
+  - `HeightRecord`
+  - `HipCircumferenceRecord`
+  - `WaistCircumferenceRecord`
+- Added Length unit type ([Idae39](https://android-review.googlesource.com/#/q/Idae39b675aa6ee8816f281755bceb048e1a3a6f4))
+- Update `CervicalMucus` description terminology ([I25a2b](https://android-review.googlesource.com/#/q/I25a2b19e13184f111666113923638396f56f2cff)):
+  - `CervicalMucus.Amount` -\> `CervicalMucusRecord.Texture`
+  - `CervicalMucus.Appearance` -\> `CervicalMucusRecord.Sensation`
+- Added 'Record' suffix to all record class names ([I1ffc2](https://android-review.googlesource.com/#/q/I1ffc272c9d271bb71a3f7ae3fad3b63c28492939))
+
+**Bug Fixes**
+
+- Fix proguard issues when lib built with release flavor and `minifyEnabled` true. ([I78933](https://android-review.googlesource.com/#/q/I78933cdcf910688d2acd825fccbbb0ada643b959))
+- Hides documentation not intended for public usage. ([I7a08f](https://android-review.googlesource.com/#/q/I7a08f4e0ff3bd685e123427cee23787507ee0680))
+- Fixes the issue in clients who may have their own protobuf dependencies.(https://android-review.googlesource.com/c/platform/frameworks/support/+/2105430)
+
+#### Version 1.0.0-alpha02
+
+June 1, 2022
+
+`androidx.health:health-connect-client:1.0.0-alpha02` is released. [Version 1.0.0-alpha02 contains these commits.](https://android.googlesource.com/platform/frameworks/support/+log/b18424ac8b7d47a65751381a4f8ad4777f537107..7cbb37cc779160b89644d03e042c129d0ce025d2/health/health-connect-client)
+
+**API Changes**
+
+- Deprecated `hasMetric` and `getMetric` in `AggregationResult`, added contains and get operators ([I7cc7c](https://android-review.googlesource.com/#/q/I7cc7c118e6fab03b7eaa9e551072ca3a59e5027c))
+- Adds `OvulationTest.Result.HIGH` and `OvulationTest.Result.INCONCLUSIVE`. ([I9f9c4](https://android-review.googlesource.com/#/q/I9f9c41787ae40aa245821e4c48b339296df4a781))
+
+**Bug Fixes**
+
+- Reduce SDK requirements to 26. ([I6d201](https://android-review.googlesource.com/#/q/I6d20121096fdaa0a5e72436c4e1888678dc61eae))
+
+#### Version 1.0.0-alpha01
+
+May 11, 2022
+
+`androidx.health:health-connect-client:1.0.0-alpha01` is released. [Version 1.0.0-alpha01 contains these commits.](https://android.googlesource.com/platform/frameworks/support/+log/b18424ac8b7d47a65751381a4f8ad4777f537107/health/health-connect-client)
+
+**New Features**
+
+- API for reading fitness and health records shared by other apps.
+- API for writing fitness and health records to share with other apps.
+- API to retrieve aggregated metrics for accessible records.
+- API to retrieve incremental changes (insert, update or delete) of records by other apps.
+- API to prompt users for health permissions.
+- API to check for permissions or revoke granted health permissions.

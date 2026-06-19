@@ -49,18 +49,6 @@ with your operating system, you can run simple tests to determine which
 antivirus software has a greater performance effect on emulator load and save
 operations.
 
-Some antivirus software may be incompatible with the Android Emulator.
-
-If you're using Avast software and are having trouble running the Android
-Emulator, disable **Use nested virtualization when available**
-and **Enable Hardware assisted virtualization** in the Avast **Troubleshooting**
-settings. In addition, after Avast hardware virtualization is disabled, ensure
-that HAXM is set up properly again with a full reinstallation of the latest
-HAXM from the SDK Manager.
-
-On Windows, sometimes the AVD freezes with HAXM and the issue can be resolved by
-uninstalling McAfee completely.
-
 ## Windows: Free RAM and commit charge
 
 When the emulator starts, it needs to initialize the Android guest operating

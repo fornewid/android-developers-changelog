@@ -15,11 +15,11 @@ Auto module. For Android Automotive OS, add a dependency on
 `androidx.car.app:app-automotive` to the `build.gradle` file for your Android
 Automotive OS module.
 
-Additionally, in your `AndroidManifest.xml` file, you need to [declare the
-relevant permissions](https://developer.android.com/training/permissions/declaring) needed to request the car data you want to use. These
-permissions must also be [granted](https://developer.android.com/training/permissions/requesting) to you by the user. You can use
-the [same code](https://developer.android.com/training/cars/apps/car-apps-library/request-permissions) on Android Auto and Android Automotive OS, rather than
-creating platform-dependent flows. However, the permissions needed differ.
+Additionally, in your `AndroidManifest.xml` file, you must [declare the relevant
+permissions](https://developer.android.com/training/permissions/declaring) to request the car data you want to use. The user must also
+[grant](https://developer.android.com/training/permissions/requesting) these permissions to you. You can use the [same code](https://developer.android.com/training/cars/apps/library/request-permissions) on Android
+Auto and Android Automotive OS, rather than creating platform-dependent flows.
+However, the required permissions differ.
 
 ## CarInfo
 
@@ -30,7 +30,7 @@ permissions you must request to use them.
 |---|---|---|---|---|
 | [`fetchModel`](https://developer.android.com/reference/androidx/car/app/hardware/info/CarInfo#fetchModel(java.util.concurrent.Executor,%20androidx.car.app.hardware.common.OnCarDataAvailableListener<androidx.car.app.hardware.info.Model>)) | Make, model, year |   | `android.car.permission.CAR_INFO` | 3 |
 | [`fetchEnergyProfile`](https://developer.android.com/reference/androidx/car/app/hardware/info/CarInfo#fetchEnergyProfile(java.util.concurrent.Executor,%20androidx.car.app.hardware.common.OnCarDataAvailableListener<androidx.car.app.hardware.info.EnergyProfile>)) | EV connector types, fuel types | `com.google.android.gms.permission.CAR_FUEL` | `android.car.permission.CAR_INFO` | 3 |
-| [`fetchExteriorDimensions`](https://developer.android.com/reference/androidx/car/app/hardware/info/CarInfo#fetchExteriorDimensions(java.util.concurrent.Executor,%20androidx.car.app.hardware.common.OnCarDataAvailableListener<androidx.car.app.hardware.info.ExteriorDimensions>)) *Data available only on some AAOS vehicles that run API 30 or later.* | Exterior dimensions | N/A | `android.car.permission.CAR_INFO` | 7 |
+| [`fetchExteriorDimensions`](https://developer.android.com/reference/androidx/car/app/hardware/info/CarInfo#fetchExteriorDimensions(java.util.concurrent.Executor,%20androidx.car.app.hardware.common.OnCarDataAvailableListener<androidx.car.app.hardware.info.ExteriorDimensions>)) *Data available only on some AAOS vehicles that run API 30 or higher.* | Exterior dimensions | N/A | `android.car.permission.CAR_INFO` | 7 |
 | [`addTollListener`](https://developer.android.com/reference/androidx/car/app/hardware/info/CarInfo#addTollListener(java.util.concurrent.Executor,%20androidx.car.app.hardware.common.OnCarDataAvailableListener<androidx.car.app.hardware.info.TollCard>)) [`removeTollListener`](https://developer.android.com/reference/androidx/car/app/hardware/info/CarInfo#removeTollListener(androidx.car.app.hardware.common.OnCarDataAvailableListener<androidx.car.app.hardware.info.TollCard>)) | Toll card state, toll card type |   |   | 3 |
 | [`addEnergyLevelListener`](https://developer.android.com/reference/androidx/car/app/hardware/info/CarInfo#addEnergyLevelListener(java.util.concurrent.Executor,%20androidx.car.app.hardware.common.OnCarDataAvailableListener<androidx.car.app.hardware.info.EnergyLevel>)) [`removeEnergyLevelListener`](https://developer.android.com/reference/androidx/car/app/hardware/info/CarInfo#removeEnergyLevelListener(androidx.car.app.hardware.common.OnCarDataAvailableListener<androidx.car.app.hardware.info.EnergyLevel>)) | Battery level, fuel level, fuel level low, range remaining | `com.google.android.gms.permission.CAR_FUEL` | `android.car.permission.CAR_ENERGY` `android.car.permission.CAR_ENERGY_PORTS` `android.car.permission.READ_CAR_DISPLAY_UNITS` | 3 |
 | [`addSpeedListener`](https://developer.android.com/reference/androidx/car/app/hardware/info/CarInfo#addSpeedListener(java.util.concurrent.Executor,%20androidx.car.app.hardware.common.OnCarDataAvailableListener<androidx.car.app.hardware.info.Speed>)) [`removeSpeedListener`](https://developer.android.com/reference/androidx/car/app/hardware/info/CarInfo#removeSpeedListener(androidx.car.app.hardware.common.OnCarDataAvailableListener<androidx.car.app.hardware.info.Speed>)) | Raw speed, display speed (shown on car's cluster display) | `com.google.android.gms.permission.CAR_SPEED` | `android.car.permission.CAR_SPEED` `android.car.permission.READ_CAR_DISPLAY_UNITS` | 3 |
@@ -73,15 +73,15 @@ For example, to get the remaining range, instantiate a
     // Unregister the listener when you no longer need updates
     carInfo.removeEnergyLevelListener(listener);
 
-Don't assume that the data from the car is available at all times. If you get an
-error, check the[status](https://developer.android.com/reference/androidx/car/app/hardware/common/CarValue#getStatus()) of the value you requested to better understand why
-the data you requested couldn't be retrieved. To learn more about the `CarInfo`
+Don't assume that the car's data is available at all times. If you get an error,
+check the [status](https://developer.android.com/reference/androidx/car/app/hardware/common/CarValue#getStatus()) of the value you requested to better understand why the
+data you requested couldn't be retrieved. To learn more about the `CarInfo`
 class definition, see the [reference documentation](https://developer.android.com/reference/androidx/car/app/hardware/info/CarInfo).
 
 ## CarSensors
 
 The [`CarSensors`](https://developer.android.com/reference/androidx/car/app/hardware/info/CarSensors) class gives you access to the vehicle's accelerometer,
-gyroscope, compass, and location data. The availability of these values may
+gyroscope, compass, and location data. The availability of these values might
 depend on the OEM. The format for the data from the accelerometer, gyroscope,
 and compass is the same as you would get from the [`SensorManager` API](https://developer.android.com/reference/android/hardware/SensorManager).
 
@@ -122,7 +122,7 @@ For example, to check the vehicle's heading:
     // Unregister the listener when you no longer need updates
     carSensors.removeCompassListener(listener);
 
-To access location data from the car, you also need to declare and request the
+To access location data from the car, you must also declare and request the
 `android.permission.ACCESS_FINE_LOCATION` permission.
 
 > [!CAUTION]
@@ -132,5 +132,5 @@ To access location data from the car, you also need to declare and request the
 
 To simulate sensor data when testing on Android Auto, see the
 [Sensors](https://developer.android.com/training/cars/testing/dhu#sensors) and [Sensor configuration](https://developer.android.com/training/cars/testing/dhu#sensor-configuration) sections of the Desktop Head Unit
-guide. To simulate sensor data when testing on Android Automotive OS, refer to
+guide. To simulate sensor data when testing on Android Automotive OS, see
 [Emulate hardware state](https://developer.android.com/training/cars/testing/emulator#emulate-state) in the Android Automotive OS emulator guide.

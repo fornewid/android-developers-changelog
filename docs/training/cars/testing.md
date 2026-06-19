@@ -4,7 +4,7 @@ url: https://developer.android.com/training/cars/testing
 source: md.txt
 ---
 
-While developing your app, there are a variety of tools available to run Android
+While developing your app, use the tools available to run Android
 Auto and Android Automotive OS:
 
 - See [Test your app using the Desktop Head Unit](https://developer.android.com/training/cars/testing/dhu) for details on how to install and use the Desktop Head Unit to run Android Auto apps.
@@ -35,16 +35,15 @@ the [Android for Cars App Library](https://developer.android.com/training/cars/a
 
 ## Enable Android Auto developer mode
 
-In addition to the [Android developer options](https://developer.android.com/studio/debug/dev-options) (usable on both Android Auto
-and Android Automotive OS), Android Auto has its own developer mode. To enable
-it, follow these steps:
+In addition to the [Android developer options](https://developer.android.com/studio/debug/dev-options), which you can use on both
+Android Auto and Android Automotive OS, Android Auto has its own developer
+mode. To enable it, follow these steps:
 
 1. Open the Android Auto settings.
 
-   - Android 10 or higher: on the device, tap **Settings \> Apps \&
-     notifications \> See all apps \> Android Auto \> Advanced \> Additional
-     settings in the app**.
-   - Android 9 or lower: in the Android Auto app, tap the menu, then tap **Settings**.
+   - Android 10 (API level 29) or higher: on the device, tap **Settings \> Apps \& notifications \> See all apps \> Android Auto \>
+     Advanced \> Additional settings in the app**.
+   - Android 9 (API level 28) or lower: in the Android Auto app, tap the menu, then tap **Settings**.
 2. Go to the **About** section near the bottom and tap **Version** to display
    the version and permission information.
 
@@ -53,15 +52,15 @@ it, follow these steps:
    The **Allow development settings?** dialog appears.
 4. Tap **OK**.
 
-   Developer mode is now enabled, and you can access developer options in the
-   overflow menu. You only need to enable developer mode once. To quit
-   developer mode, use the option from the drop-down menu in the app bar.
+   You've enabled developer mode, and you can access developer options in the
+   overflow menu. You only need to enable developer mode once. To quit developer
+   mode, use the option from the drop-down menu in the app bar.
 
 ## Additional testing requirements for media apps
 
-If you are testing a [media app](https://developer.android.com/training/cars#media), test for the scenarios that are covered in
-this section in addition to testing your app on Android Auto, Android Automotive
-OS, or both.
+If you're testing a [media app](https://developer.android.com/training/cars#media), test for the scenarios covered in this
+section in addition to testing your app on Android Auto, Android Automotive OS,
+or both.
 
 ### Test MediaBrowserService startup scenarios
 
@@ -72,9 +71,9 @@ your app must handle.
 
 Test your app to make sure it can handle each of the following scenarios:
 
-- The `MediaBrowserService` is run before any `Activity` is opened.
-- The `MediaBrowserService` is run when no `Activity` can be shown.
-- The `MediaBrowserService` is run when the user is not signed in.
+- The `MediaBrowserService` runs before any `Activity` opens.
+- The `MediaBrowserService` runs when no `Activity` can be shown.
+- The `MediaBrowserService` runs when the user isn't signed in.
 
 While testing for these scenarios, be sure to try the following methods:
 
@@ -87,4 +86,4 @@ Also make sure to [set an appropriate error message](https://developer.android.c
 
 The [Media Controller Test](https://github.com/googlesamples/android-media-controller) app lets you test the intricacies of media
 playback on Android and helps verify your media session implementation. To get
-started with this tool, see [Using the media controller test app](https://developer.android.com/guide/topics/media-apps/audio-app/media-controller-test).
+started with this tool, see [Using the media controller test app](https://developer.android.com/media/optimize/mct).

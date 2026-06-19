@@ -26,7 +26,7 @@ requirements vary based on whether you register as an individual or an
 organization. Completing this process typically takes about 10 minutes if you
 have all of the required information ready.
 
-#### Required information for all accounts
+#### Required information for full distribution accounts
 
 - **Legal name and address**: Individuals must submit a government-issued
   photo ID and proof of address document as part of the verification program.
@@ -68,6 +68,17 @@ identity. Complete the following in the Android Developer Console to register:
 
 > [!NOTE]
 > **Note:** Developers who are not eligible to register a package name can request to share it through an appeal-like process by providing proof of ownership and a legitimate reason for use.
+
+## Automate your workflow
+
+You can automate developer verification and package registration using our APIs:
+
+- **Android Developer ID Status API**: Lets you check if a package name has already been registered and verify eligibility.
+- **Android Developer Console API**: Lets you register and manage package names and keys directly within your development environment or CI/CD pipeline.
+
+Both APIs support **OAuth delegation**, allowing third-party platforms (such as
+alternative Android app stores) to perform these operations securely on your
+behalf.
 
 ## Transfer your package names
 
