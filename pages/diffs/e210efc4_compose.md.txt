@@ -1,0 +1,13 @@
+diff --git a/docs/training/wearables/compose.md b/docs/training/wearables/compose.md
+index 84e1ebe6..76ddc4b0 100644
+--- a/docs/training/wearables/compose.md
++++ b/docs/training/wearables/compose.md
+@@ -127,7 +127,7 @@ dependencies:
+ ```kotlin
+ dependencies {
+ 
+-    val composeBom = platform("androidx.compose:compose-bom:2026.05.00")
++    val composeBom = platform("androidx.compose:compose-bom:2026.06.00")
+ 
+     // General compose dependencies
+     implementation(composeBom)

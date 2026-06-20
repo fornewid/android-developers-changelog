@@ -1,0 +1,25 @@
+diff --git a/docs/develop/xr/jetpack-xr-sdk/transition-home-space-to-full-space.md b/docs/develop/xr/jetpack-xr-sdk/transition-home-space-to-full-space.md
+index 94ebd965..7be1f1c2 100644
+--- a/docs/develop/xr/jetpack-xr-sdk/transition-home-space-to-full-space.md
++++ b/docs/develop/xr/jetpack-xr-sdk/transition-home-space-to-full-space.md
+@@ -40,9 +40,9 @@ space using the [`LocalSession`](https://developer.android.com/reference/kotlin/
+ 
+ ```kotlin
+ val session = LocalSession.current ?: return
+-session.scene.requestHomeSpaceMode()
++session.scene.requestHomeSpace()
+ // or
+-session.scene.requestFullSpaceMode()
++session.scene.requestFullSpace()
+ ```
+ 
+ <br />
+@@ -53,7 +53,7 @@ SceneCore](https://developer.android.com/develop/xr/jetpack-xr-sdk/add-session#a
+ 
+ 
+ ```kotlin
+-xrSession.scene.requestHomeSpaceMode()
++xrSession.scene.requestHomeSpace()
+ ```
+ 
+ <br />
