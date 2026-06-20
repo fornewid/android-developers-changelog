@@ -20,7 +20,7 @@ higher.
 
 ### Dependencies
 
-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/enable-snap-scrolling_5894090c2946f8a04762cc86492aa1d8e0a2fa6e1cf7a4edd9eff49e6d31b52a.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/enable-snap-scrolling_25db4cb5478f8f64b5842826373117869cc8fc398f2e4876b12a04342955ee0d.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
 
 ## Create a button to enable snap scrolling
 

@@ -211,24 +211,24 @@ and register your broadcast receiver, and begin using the Wi-Fi P2P APIs.
    your application to have the correct minimum SDK version in the Android
    manifest:
 
-       <uses-sdk android:minSdkVersion=">1<4" /
-       uses-permission android:name="android.permission.ACCES>S<_WIFI_STATE" /
-       uses-permission android:name="android.permis>s<ion.CHANGE_WIFI_STATE" /
-       uses-permission android:name="android>.<permission.CHANGE_NETWORK_STATE" /
-       uses-permission andr>o<id:name="android.permission.INTERNET" /
-       uses-permission androi>d<:name="android.permission. ACCESS_NETWOR K_STATE" /
-       !-- If your app targets Android13 (API level33)
-            or hig>h<er, you must declare the NEARBY_WIFI_DEVICES permission. --
-       uses-permission android:nam<e="android.permission.NEARBY_WIFI_DEVICES"
-                        !-- If your app derives location information from
-                             Wi-Fi APIs, don&#>39;t include the "usesPermissionFlags"
-                        > <    attribute. --
-                        android:usesPermissionFlags="neverForLocation&qu<ot; /
-       uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"
-                        !-- If any feature in your app relies on precise location
-       >                      information, don't i>nclude the "maxSdkVersion"
-                             attribute. --
-                        android:maxSdkVersion="32" /
+       <uses-sdk android:minSdkVersion="14" />
+       <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+       <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+       <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+       <uses-permission android:name="android.permission.INTERNET" />
+       <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+       <!-- If your app targets Android 13 (API level 33)
+            or higher, you must declare the NEARBY_WIFI_DEVICES permission. -->
+       <uses-permission android:name="android.permission.NEARBY_WIFI_DEVICES"
+                        <!-- If your app derives location information from
+                             Wi-Fi APIs, don't include the "usesPermissionFlags"
+                             attribute. -->
+                        android:usesPermissionFlags="neverForLocation" />
+       <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"
+                        <!-- If any feature in your app relies on precise location
+                             information, don't include the "maxSdkVersion"
+                             attribute. -->
+                        android:maxSdkVersion="32" />
 
    > [!NOTE]
    > **Note:** On apps that target Android 13 (API level 33) and higher, both `discoverPeers()` and `connect()` require the [`android.permission.NEARBY_WIFI_DEVICES`](https://developer.android.com/reference/android/Manifest.permission#NEARBY_WIFI_DEVICES) permission. On apps that target earlier versions of Android, these methods require the `ACCESS_FINE_LOCATION` permission instead. Since these permissions are [dangerous

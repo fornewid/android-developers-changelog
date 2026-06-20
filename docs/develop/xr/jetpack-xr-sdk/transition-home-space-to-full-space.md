@@ -40,9 +40,9 @@ space using the [`LocalSession`](https://developer.android.com/reference/kotlin/
 
 ```kotlin
 val session = LocalSession.current ?: return
-session.scene.requestHomeSpaceMode()
+session.scene.requestHomeSpace()
 // or
-session.scene.requestFullSpaceMode()
+session.scene.requestFullSpace()
 ```
 
 <br />
@@ -53,7 +53,7 @@ SceneCore](https://developer.android.com/develop/xr/jetpack-xr-sdk/add-session#a
 
 
 ```kotlin
-xrSession.scene.requestHomeSpaceMode()
+xrSession.scene.requestHomeSpace()
 ```
 
 <br />

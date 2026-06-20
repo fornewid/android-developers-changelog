@@ -76,8 +76,8 @@ Subspace {
         SubspaceModifier
             .height(824.dp)
             .width(1400.dp)
-            .transformingMovable(),
-        resizePolicy = ResizePolicy(),
+            .transformingMovable()
+            .transformingResizable(),
     ) {
         SpatialPanelContent()
     }
@@ -146,7 +146,7 @@ Subspace {
         SubspaceModifier
             .height(824.dp)
             .width(1400.dp)
-            .resizable()
+            .transformingResizable()
             .transformingMovable(),
     ) {
         SpatialPanelContent()

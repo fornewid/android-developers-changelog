@@ -34,9 +34,9 @@ map retrieval, configure the session and set a
 
 
 ```kotlin
-val newConfig = session.config.copy(
-    depthEstimation = DepthEstimationMode.SMOOTH_ONLY,
-)
+val newConfig = Config.Builder(session.config)
+    .setDepthEstimation(DepthEstimationMode.SMOOTH_ONLY)
+    .build()
 when (val result = session.configure(newConfig)) {
     is SessionConfigureSuccess -> TODO(/* Success! */)
     else ->

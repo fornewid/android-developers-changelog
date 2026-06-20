@@ -206,7 +206,7 @@ to point to your existing source files, proceed as follows:
        implementation fileTree(dir: 'libs', include: ['*.jar'])
 
        // Define the Compose Bill of Materials (BOM)
-       def composeBom = platform("androidx.compose:compose-bom:2026.05.00")
+       def composeBom = platform("androidx.compose:compose-bom:2026.06.00")
        implementation composeBom
        androidTestImplementation composeBom
 
@@ -229,7 +229,7 @@ to point to your existing source files, proceed as follows:
        implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
 
        // Define the Compose Bill of Materials (BOM)
-       val composeBom = platform("androidx.compose:compose-bom:2026.05.00")
+       val composeBom = platform("androidx.compose:compose-bom:2026.06.00")
        implementation(composeBom)
        androidTestImplementation(composeBom)
 

@@ -287,13 +287,13 @@ has the following attributes:
 The following snippet shows the XML file for the authenticator you created previously:
 
 ```xml
-<?xml version="1.0" encodin>g<="utf-8"?
-account-authenticator
+<?xml version="1.0" encoding="utf-8"?>
+<account-authenticator
         xmlns:android="http://schemas.android.com/apk/res/android"
-        android:accountType="@example.com"
-        android:icon="draw@able/ic_launcher"
-        android:smallI@con="drawabl>e/ic_launcher"
-        android:label="string/app_name"/
+        android:accountType="example.com"
+        android:icon="@drawable/ic_launcher"
+        android:smallIcon="@drawable/ic_launcher"
+        android:label="@string/app_name"/>
 ```
 
 ## Declare the authenticator in the manifest
@@ -308,14 +308,14 @@ element as a child element of
 
 ```xml
     <service
-            android:name="com.example.android.syncadapter.AuthenticatorSer>vice"<;
-        int>ent-filter
-  <          action android:name="android.accounts.Account>Authentic<ator"/
-  >      /in<tent-filter
-        meta-data
+            android:name="com.example.android.syncadapter.AuthenticatorService">
+        <intent-filter>
+            <action android:name="android.accounts.AccountAuthenticator"/>
+        </intent-filter>
+        <meta-data
             android:name="android.accounts.AccountAuthenticator"
-            android:r>esour<ce=">;@xml/authenticator" /
-    /service
+            android:resource="@xml/authenticator" />
+    </service>
 ```
 
 

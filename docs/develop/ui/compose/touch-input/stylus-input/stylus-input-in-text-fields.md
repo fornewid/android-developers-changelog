@@ -52,7 +52,7 @@ android {
     }
 
     kotlinOptions {
-        jvmTarget = 'LATEST_JVM_VERSION'
+        jvmTarget = 9;LATEST_JVM_VERSION'
     }
 }
 ```

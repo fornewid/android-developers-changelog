@@ -32,9 +32,9 @@ and load anchors from local storage, configure the session and set the
 
 
 ```kotlin
-val newConfig = session.config.copy(
-    anchorPersistence = AnchorPersistenceMode.LOCAL,
-)
+val newConfig = Config.Builder(session.config)
+    .setAnchorPersistence(AnchorPersistenceMode.LOCAL)
+    .build()
 when (val result = session.configure(newConfig)) {
     is SessionConfigureSuccess -> TODO(/* Success! */)
     else ->

@@ -206,7 +206,7 @@ Some of the most commonly used icons are available as part of the
 add the `material-icons-extended` dependency to the `build.gradle` file.
 
     dependencies {
-      def composeBom = platform('androidx.compose:compose-bom:2026.05.00')
+      def composeBom = platform('androidx.compose:compose-bom:2026.06.00')
       implementation composeBom
 
       implementation 'androidx.compose.material:material-icons-extended'

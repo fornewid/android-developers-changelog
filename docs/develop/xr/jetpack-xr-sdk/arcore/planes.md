@@ -31,9 +31,9 @@ tracking, configure the session and set the
 
 
 ```kotlin
-val newConfig = session.config.copy(
-    planeTracking = PlaneTrackingMode.HORIZONTAL_AND_VERTICAL,
-)
+val newConfig = Config.Builder(session.config)
+    .setPlaneTracking(PlaneTrackingMode.HORIZONTAL_AND_VERTICAL)
+    .build()
 when (val result = session.configure(newConfig)) {
     is SessionConfigureSuccess -> TODO(/* Success! */)
     else ->

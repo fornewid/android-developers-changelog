@@ -29,9 +29,9 @@ configure the session and set the
 
 
 ```kotlin
-val newConfig = session.config.copy(
-    faceTracking = FaceTrackingMode.BLEND_SHAPES,
-)
+val newConfig = Config.Builder(session.config)
+    .setFaceTracking(FaceTrackingMode.BLEND_SHAPES)
+    .build()
 when (val result = session.configure(newConfig)) {
     is SessionConfigureSuccess -> TODO(/* Success! */)
     else ->
@@ -54,7 +54,7 @@ contains the following:
 
 
 ```kotlin
-val face = Face.getUserFace(session) ?: return
+val face = Face.getUserFace(session)
 face.state.collect { state ->
     if (state.trackingState != TrackingState.TRACKING) return@collect
 

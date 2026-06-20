@@ -46,7 +46,7 @@ method, as shown in the following example:
 
 
 ```kotlin
-when (val result = Session.create(this)) {
+when (val result = Session.create(context)) {
     is SessionCreateSuccess -> {
         val xrSession = result.session
         // ...
