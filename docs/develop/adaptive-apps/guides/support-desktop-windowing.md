@@ -36,8 +36,35 @@ windowing and runs apps full screen again.
 To return to desktop windowing, tap or click the desktop space tile in the
 Recents screen.
 
-> [!NOTE]
-> **Note:** Desktop windowing is available starting from Android 15 QPR1 as a developer preview for Pixel Tablet (and emulator). Other premium tablets and foldable phones are expected to support the feature in following releases.
+## Optimize your app layout for a desktop-like environment
+
+Designing for a desktop experience can differ significantly from mobile design
+because of the increased screen space, the precision of mouse and keyboard
+input, and the expectation of high productivity.
+
+[Jetpack WindowManager](https://developer.android.com/jetpack/androidx/releases/window) provides an opinionated API to help developers decide
+when to show a desktop UI, which typically has higher information density,
+different navigation patterns, and optimized mouse interactions.
+
+
+```kotlin
+lifecycleScope.launch(Dispatchers.Main) {
+    lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
+        windowInfoTracker.windowEngagementInfo(this@DesktopWindowingActivity)
+            .collect { windowEngagementInfo ->
+                if(windowEngagementInfo.hasEngagementMode(WindowEngagementInfo.EngagementMode.PRECISE_POINTER)){
+                    showDesktopOptimizedUI()
+                }else {
+                    showTouchOptimizedUI()
+                }
+        }
+    }
+}
+```
+
+<br />
+
+To learn more, see [Design for desktop](https://developer.android.com/design/ui/desktop).
 
 ## Resizability and compatibility mode
 

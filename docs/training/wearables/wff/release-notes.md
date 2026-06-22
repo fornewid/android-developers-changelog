@@ -16,6 +16,21 @@ All versions of the Watch Face Format offer the following capabilities:
 - **Tag expressions:** Add tags with date, time, battery, step count
   information, and more.
 
+## Version 5
+
+Version 5 of the Watch Face Format adds several capabilities, including the
+following:
+
+- Support for [blend mode](https://developer.android.com/reference/wear-os/wff/common/attributes/blend-mode) on [`Group`](https://developer.android.com/reference/wear-os/wff/group/group) and [`ComplicationSlot`](https://developer.android.com/reference/wear-os/wff/complication/complication-slot) elements.
+- Support for line spacing and vertical alignment on [`Text`](https://developer.android.com/reference/wear-os/wff/group/part/text/text) elements.
+- Support for auto-sizing and vertical alignment on [`TextCircular`](https://developer.android.com/reference/wear-os/wff/group/part/text/text-circular) elements.
+- Support for a minimum font size ([`minSize`](https://developer.android.com/reference/wear-os/wff/group/part/text/font)) on [`Font`](https://developer.android.com/reference/wear-os/wff/group/part/text/font) elements when auto-sizing is enabled.
+- Support for corner rendering control (`join` attribute) on [`Stroke`](https://developer.android.com/reference/wear-os/wff/group/part/draw/style/stroke) and [`WeightedStroke`](https://developer.android.com/reference/wear-os/wff/group/part/draw/style/weighted-stroke) elements.
+- Support for nested settings and dynamic complications on [`ListOption`](https://developer.android.com/reference/wear-os/wff/group/configuration/list-configuration) elements.
+
+To view features from version 5 in the [XML reference](https://developer.android.com/reference/wear-os/wff/watch-face), check that the
+**Version 5** button is selected at the top of the documentation page.
+
 ## Version 4
 
 Version 4 of the Watch Face Format adds several capabilities, including the
