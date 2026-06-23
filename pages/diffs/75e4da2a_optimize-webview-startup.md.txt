@@ -1,0 +1,327 @@
+diff --git a/docs/develop/ui/views/layout/webapps/optimize-webview-startup.md b/docs/develop/ui/views/layout/webapps/optimize-webview-startup.md
+index 73f1e151..078ebd9d 100644
+--- a/docs/develop/ui/views/layout/webapps/optimize-webview-startup.md
++++ b/docs/develop/ui/views/layout/webapps/optimize-webview-startup.md
+@@ -1,21 +1,9 @@
+ ---
+-title: Optimize WebView startup  |  Views  |  Android Developers
++title: https://developer.android.com/develop/ui/views/layout/webapps/optimize-webview-startup
+ url: https://developer.android.com/develop/ui/views/layout/webapps/optimize-webview-startup
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-* [Develop](https://developer.android.com/develop)
+-* [Core areas](https://developer.android.com/develop/core-areas)
+-* [UI](https://developer.android.com/develop/ui)
+-* [Views](https://developer.android.com/develop/ui/views/layout/declaring-layout)
+-
+-# Optimize WebView startup Stay organized with collections Save and categorize content based on your preferences.
+-
+-
+-
+-
+-
+ When your app first uses a WebView, the system performs specific startup tasks.
+ This startup process is heavy. By default, it happens implicitly on the UI
+ thread the first time the application calls many APIs within the
+@@ -28,19 +16,18 @@ Because this implicit startup happens entirely on the main thread, it blocks
+ your app from processing user input and drastically increases the risk of
+ Application Not Responding (ANR) errors. For more information about how Android
+ handles the single-threaded execution model, see [Processes and threads
+-overview](/guide/components/processes-and-threads).
++overview](https://developer.android.com/guide/components/processes-and-threads).
+ 
+ ### Triggers for implicit startup
+ 
+ Implicit startup can be triggered in the following ways:
+ 
+-* **Programmatically**: Calling APIs like `WebSettings.getUserAgentString()`.
+-* **Using layouts**: Calling `setContentView()` or `layoutInflater.inflate()`
+-  on an XML resource that includes a `<WebView>`.
++- **Programmatically** : Calling APIs like `WebSettings.getUserAgentString()`.
++- **Using layouts** : Calling `setContentView()` or `layoutInflater.inflate()` on an XML resource that includes a `<WebView>`.
+ 
+ Implicit startup can also negatively affect your business metrics, such as [app
+-startup time](/topic/performance/vitals/launch-time) and time-to-first-display. If implicit initialization isn't
+-optimal for your app, use [`startUpWebView`](/reference/androidx/webkit/WebViewCompat#startUpWebView(android.content.Context,androidx.webkit.WebViewStartUpConfig,androidx.webkit.WebViewCompat.WebViewStartUpCallback)) instead.
++startup time](https://developer.android.com/topic/performance/vitals/launch-time) and time-to-first-display. If implicit initialization isn't
++optimal for your app, use [`startUpWebView`](https://developer.android.com/reference/androidx/webkit/WebViewCompat#startUpWebView(android.content.Context,androidx.webkit.WebViewStartUpConfig,androidx.webkit.WebViewCompat.WebViewStartUpCallback)) instead.
+ 
+ This page discusses how to optimize WebView startup performance using the
+ `startUpWebView` API.
+@@ -61,11 +48,9 @@ track successful initializations.
+ To use this API, add the Jetpack Webkit library to your `build.gradle` file.
+ Ensure you use version 1.16.0 or higher:
+ 
+-```
+-dependencies {
+-    implementation("androidx.webkit:webkit:1.16.0")
+-}
+-```
++    dependencies {
++        implementation("androidx.webkit:webkit:1.16.0")
++    }
+ 
+ ## Use the `startUpWebView` API
+ 
+@@ -89,7 +74,7 @@ the background work already completed, but not the maximum benefit.
+ If your app's core user journey requires a WebView immediately, you probably
+ can't afford to wait for WebView startup to complete. In this scenario, you
+ should still call `startUpWebView` as early as possible in the app lifecycle
+-(such as in [`Application.onCreate`](/reference/android/app/Application#onCreate())), but don't wait for the callback to
++(such as in [`Application.onCreate`](https://developer.android.com/reference/android/app/Application#onCreate())), but don't wait for the callback to
+ trigger. Instead, use WebView APIs directly when they are required.
+ 
+ To get the maximum benefit from asynchronous startup, crucially defer
+@@ -125,86 +110,82 @@ The following code sample demonstrates how to use the
+ 
+ ### Kotlin
+ 
+-```
+-import android.content.Context
+-import android.util.Log
+-import androidx.webkit.WebViewCompat
+-import androidx.webkit.WebViewOutcomeReceiver
+-import androidx.webkit.WebViewStartUpConfig
+-import androidx.webkit.WebViewStartUpResult
+-import androidx.webkit.WebViewStartupException
+-import java.util.concurrent.Executors
+-
+-fun initializeWebView(context: Context) {
+-    // 1. Create a startup configuration specifying the background thread
+-    // that WebView will use to run its initialization tasks.
+-    val startUpConfig = WebViewStartUpConfig.Builder(
+-        Executors.newSingleThreadExecutor()
+-    ).build()
+-
+-    // 2. Trigger WebView startup asynchronously
+-    WebViewCompat.startUpWebView(
+-        context,
+-        startUpConfig,
+-        object : WebViewOutcomeReceiver<WebViewStartUpResult, WebViewStartupException> {
+-
+-            override fun onResult(result: WebViewStartUpResult) {
+-                // Success: The WebView has finished its background initialization.
+-                // This callback is guaranteed to be invoked on the UI thread.
+-                setupWebView()
+-            }
+-
+-            override fun onError(error: WebViewStartupException) {
+-                // Failure: The initialization encountered a startup exception.
+-                Log.e("WebViewStartup", "Failed to initialize WebView", error)
+-            }
+-        }
+-    )
+-}
+-```
+-
+-### Java
+-
+-```
+-import android.content.Context;
+-import android.util.Log;
+-import androidx.annotation.NonNull;
+-import androidx.webkit.WebViewCompat;
+-import androidx.webkit.WebViewOutcomeReceiver;
+-import androidx.webkit.WebViewStartUpConfig;
+-import androidx.webkit.WebViewStartUpResult;
+-import androidx.webkit.WebViewStartupException;
+-import java.util.concurrent.Executors;
+-
+-public void initializeWebView(Context context) {
+-    // 1. Create the startup configuration specifying the background thread pool
+-    // to handle internal non-UI initialization processes.
+-    WebViewStartUpConfig startUpConfig = new WebViewStartUpConfig.Builder(
++    import android.content.Context
++    import android.util.Log
++    import androidx.webkit.WebViewCompat
++    import androidx.webkit.WebViewOutcomeReceiver
++    import androidx.webkit.WebViewStartUpConfig
++    import androidx.webkit.WebViewStartUpResult
++    import androidx.webkit.WebViewStartupException
++    import java.util.concurrent.Executors
++
++    fun initializeWebView(context: Context) {
++        // 1. Create a startup configuration specifying the background thread
++        // that WebView will use to run its initialization tasks.
++        val startUpConfig = WebViewStartUpConfig.Builder(
+             Executors.newSingleThreadExecutor()
+-    ).build();
++        ).build()
+ 
+-    // 2. Trigger WebView startup asynchronously
+-    WebViewCompat.startUpWebView(
++        // 2. Trigger WebView startup asynchronously
++        WebViewCompat.startUpWebView(
+             context,
+             startUpConfig,
+-            new WebViewOutcomeReceiver<WebViewStartUpResult, WebViewStartupException>() {
++            object : WebViewOutcomeReceiver<WebViewStartUpResult, WebViewStartupException> {
+ 
+-                @Override
+-                public void onResult(@NonNull WebViewStartUpResult result) {
++                override fun onResult(result: WebViewStartUpResult) {
+                     // Success: The WebView has finished its background initialization.
+-                    // This callback is invoked directly on the UI thread.
+-                    setupWebView();
++                    // This callback is guaranteed to be invoked on the UI thread.
++                    setupWebView()
+                 }
+ 
+-                @Override
+-                public void onError(@NonNull WebViewStartupException error) {
+-                    // Failure: Handled using the concrete WebViewStartupException
+-                    Log.e("WebViewStartup", "Failed to initialize WebView", error);
++                override fun onError(error: WebViewStartupException) {
++                    // Failure: The initialization encountered a startup exception.
++                    Log.e("WebViewStartup", "Failed to initialize WebView", error)
+                 }
+             }
+-    );
+-}
+-```
++        )
++    }
++
++### Java
++
++    import android.content.Context;
++    import android.util.Log;
++    import androidx.annotation.NonNull;
++    import androidx.webkit.WebViewCompat;
++    import androidx.webkit.WebViewOutcomeReceiver;
++    import androidx.webkit.WebViewStartUpConfig;
++    import androidx.webkit.WebViewStartUpResult;
++    import androidx.webkit.WebViewStartupException;
++    import java.util.concurrent.Executors;
++
++    public void initializeWebView(Context context) {
++        // 1. Create the startup configuration specifying the background thread pool
++        // to handle internal non-UI initialization processes.
++        WebViewStartUpConfig startUpConfig = new WebViewStartUpConfig.Builder(
++                Executors.newSingleThreadExecutor()
++        ).build();
++
++        // 2. Trigger WebView startup asynchronously
++        WebViewCompat.startUpWebView(
++                context,
++                startUpConfig,
++                new WebViewOutcomeReceiver<WebViewStartUpResult, WebViewStartupException>() {
++
++                    @Override
++                    public void onResult(@NonNull WebViewStartUpResult result) {
++                        // Success: The WebView has finished its background initialization.
++                        // This callback is invoked directly on the UI thread.
++                        setupWebView();
++                    }
++
++                    @Override
++                    public void onError(@NonNull WebViewStartupException error) {
++                        // Failure: Handled using the concrete WebViewStartupException
++                        Log.e("WebViewStartup", "Failed to initialize WebView", error);
++                    }
++                }
++        );
++    }
+ 
+ ## Debug asynchronous startup issues
+ 
+@@ -212,20 +193,23 @@ If `startUpWebView` doesn't yield expected performance benefits, it's often
+ because WebView is being initialized implicitly elsewhere in your app before
+ your call executes. This could be due to the following reasons:
+ 
+-* **Third-party libraries** or SDKs initialized early in the app lifecycle.
+-* **`ContentProviders`** injected into your APK that trigger WebView APIs during
++- **Third-party libraries** or SDKs initialized early in the app lifecycle.
++
++- **`ContentProviders`** injected into your APK that trigger WebView APIs during
+   app startup.
+-* **Layout inflations** or programmatic calls (like fetching user agent strings)
++
++- **Layout inflations** or programmatic calls (like fetching user agent strings)
+   that occur unexpectedly early.
+ 
+ To help you diagnose where and why these unexpected initializations are
+ happening, the `WebViewStartUpResult` object provides built-in auditing
+ capabilities:
+ 
+-* `getUiThreadBlockingStartUpLocations()`: Returns a list of `StartUpLocation`
++- `getUiThreadBlockingStartUpLocations()`: Returns a list of `StartUpLocation`
+   objects representing locations where WebView startup tasks blocked the main UI
+   thread.
+-* `getNonUiThreadBlockingStartUpLocations()`: Returns specific call sites where
++
++- `getNonUiThreadBlockingStartUpLocations()`: Returns specific call sites where
+   running startup tasks blocked background threads.
+ 
+ Each `StartUpLocation` contains a stack trace that you can log or inspect to
+@@ -236,39 +220,38 @@ find the exact class and method that triggered the initialization.
+ You can inspect these locations inside your `onResult` callback to audit your
+ startup path:
+ 
+-```
+-override fun onResult(result: WebViewStartUpResult) {
+-    // Check if WebView startup was blocked on the UI thread prior to or during initialization
+-    val uiBlockingLocations = result.getUiThreadBlockingStartUpLocations()
+-    if (!uiBlockingLocations.isNullOrEmpty()) {
+-        for (location in uiBlockingLocations) {
+-            // Log the stack trace of the call site that triggered the UI-blocking startup
+-            Log.w("WebViewDebug", "WebView startup blocked the UI thread here:", location.getStack())
++    override fun onResult(result: WebViewStartUpResult) {
++        // Check if WebView startup was blocked on the UI thread prior to or during initialization
++        val uiBlockingLocations = result.getUiThreadBlockingStartUpLocations()
++        if (!uiBlockingLocations.isNullOrEmpty()) {
++            for (location in uiBlockingLocations) {
++                // Log the stack trace of the call site that triggered the UI-blocking startup
++                Log.w("WebViewDebug", "WebView startup blocked the UI thread here:", location.getStack())
++            }
++        } else {
++            Log.i("WebViewDebug", "Excellent! No UI-blocking WebView startup detected.")
+         }
+-    } else {
+-        Log.i("WebViewDebug", "Excellent! No UI-blocking WebView startup detected.")
+-    }
+ 
+-    // Check where background initialization tasks were executed
+-    val backgroundLocations = result.getNonUiThreadBlockingStartUpLocations()
+-    backgroundLocations?.forEach { location ->
+-        Log.d("WebViewDebug", "WebView background startup occurred at: ${location.getStack()}")
+-    }
++        // Check where background initialization tasks were executed
++        val backgroundLocations = result.getNonUiThreadBlockingStartUpLocations()
++        backgroundLocations?.forEach { location ->
++            Log.d("WebViewDebug", "WebView background startup occurred at: ${location.getStack()}")
++        }
+ 
+-    setupWebView()
+-}
+-```
++        setupWebView()
++    }
+ 
+ ## How to use this data during an audit
+ 
+ When auditing your app's WebView startup, use the following strategies to
+ analyze the diagnostic data and address performance bottlenecks:
+ 
+-* **Look for unexpected stack traces:** If
++- **Look for unexpected stack traces:** If
+   `getUiThreadBlockingStartUpLocations()` isn't empty, look at the printed
+   stack traces. If you see classes belonging to third-party SDKs or unexpected
+   components, you have found an implicit initialization bottleneck.
+-* **Verify call order:** If your log outputs show that an implicit
++
++- **Verify call order:** If your log outputs show that an implicit
+   initialization occurred before your manual `startUpWebView` call, you should
+   move your `startUpWebView` initialization earlier in your app or configure the
+   offending SDK to delay its WebView-dependent tasks.
+@@ -292,4 +275,4 @@ performance parity with manual workarounds. This lets you adopt modern startup
+ benefits on newer devices without incurring a performance penalty on older ones.
+ 
+ If you encounter issues or have feedback about the `startUpWebView` API, file a
+-bug on the [public issue tracker](//issuetracker.google.com/issues/new?component=460423).
+\ No newline at end of file
++bug on the [public issue tracker](https://issuetracker.google.com/issues/new?component=460423).
+\ No newline at end of file

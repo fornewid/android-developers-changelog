@@ -1,0 +1,22 @@
+diff --git a/docs/google/play/billing/migrate-gpblv9.md b/docs/google/play/billing/migrate-gpblv9.md
+index 0d335609..7277d7d2 100644
+--- a/docs/google/play/billing/migrate-gpblv9.md
++++ b/docs/google/play/billing/migrate-gpblv9.md
+@@ -36,7 +36,7 @@ To upgrade from PBL 7 or 8 to PBL 9, do the following steps:
+    `build.gradle` file.
+ 
+        dependencies {
+-         def billing_version = "9.0.0"
++         def billing_version = "9.1.0"
+          implementation "com.android.billingclient:billing:$billing_version"
+        }
+ 
+@@ -47,7 +47,7 @@ To upgrade from PBL 7 or 8 to PBL 9, do the following steps:
+    `build.gradle` file as shown:
+ 
+        dependencies {
+-         val billing_version = "9.0.0"
++         val billing_version = "9.1.0"
+          implementation("com.android.billingclient:billing-ktx:$billing_version")
+        }
+ 

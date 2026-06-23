@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/compose/first.md b/docs/develop/ui/compose/first.md
+index fd956633..29a3be16 100644
+--- a/docs/develop/ui/compose/first.md
++++ b/docs/develop/ui/compose/first.md
+@@ -63,6 +63,7 @@ not receive significant updates beyond critical fixes:
+ - [`CardView`](https://developer.android.com/jetpack/androidx/releases/cardview)
+ - [`ConstraintLayout`](https://developer.android.com/jetpack/androidx/releases/constraintlayout)
+ - [`CoordinatorLayout`](https://developer.android.com/jetpack/androidx/releases/coordinatorlayout)
++- [`Cursoradapter`](https://developer.android.com/jetpack/androidx/releases/cursoradapter)
+ - [`CustomView`](https://developer.android.com/jetpack/androidx/releases/customview)
+ - [`Databinding`](https://developer.android.com/jetpack/androidx/releases/databinding)
+ - [`DragAndDrop`](https://developer.android.com/jetpack/androidx/releases/draganddrop)
