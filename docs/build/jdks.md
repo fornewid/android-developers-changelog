@@ -287,26 +287,25 @@ chosen by the Android Gradle plugin (for example, Java 8 or higher).
 
 ## Which Java binary features can be used when I compile my Kotlin or Java source?
 
-The `targetCompatibility` and `jvmTarget` properties determine the Java
+The `targetCompatibility` property determines the Java
 class-format version used when generating bytecode for compiled Java and Kotlin
 source, respectively.
 
 Some Kotlin features existed before equivalent Java features were added.
 Early Kotlin compilers had to create their own way to represent those Kotlin
 features. Some of these features were later added to Java.
-With later `jvmTarget` levels, the Kotlin compiler might directly use
+With later `targetCompatibility` levels, the Kotlin compiler might directly use
 the Java feature, which might result in better performance.
 
 Different versions of Android support different versions of Java. You can
 take advantage of additional Java features by increasing
-`targetCompatibility` and `jvmTarget`, but this might force you to also
+`targetCompatibility`, but this might force you to also
 increase your
 [minimum Android SDK version](https://developer.android.com/studio/publish/versioning#minsdk) to ensure
 the feature is available.
 
 Note that `targetCompatibility` must be greater than or equal to
-`sourceCompatibility`. In practice, `sourceCompatibility`,
-`targetCompatibility`, and `jvmTarget` should generally use the same value.
+`sourceCompatibility`. In practice, `sourceCompatibility` and `targetCompatibility` should generally use the same value.
 You can set them as follows:
 
 <br />
@@ -319,9 +318,6 @@ You can set them as follows:
         compileOptions {
             sourceCompatibility = JavaVersion.VERSION_17
             targetCompatibility = JavaVersion.VERSION_17
-        }
-        kotlinOptions {
-            jvmTarget = "17"
         }
     }
 
@@ -336,8 +332,36 @@ You can set them as follows:
             sourceCompatibility JavaVersion.VERSION_17
             targetCompatibility JavaVersion.VERSION_17
         }
+    }
+
+<br />
+
+<br />
+
+If you're using a version of Kotlin lower than 2.2, then you also need to set
+`kotlinOptions`:
+
+<br />
+
+### Kotlin
+
+<br />
+
+    android {
         kotlinOptions {
-            jvmTarget '17'
+            jvmTarget = "17"
+        }
+    }
+
+<br />
+
+### Groovy
+
+<br />
+
+    android {
+        kotlinOptions {
+            jvmTarget = "17"
         }
     }
 

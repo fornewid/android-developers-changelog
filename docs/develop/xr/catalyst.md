@@ -96,7 +96,7 @@ To get started with technical guides, API documentation, and design best practic
 
 ### What regions are eligible to receive development kits from XREAL?
 
-At this time, development kits can only be shipped to developers located in the United States, Japan, the United Kingdom, and the European Union. Please ensure your shipping address falls within one of these supported regions before submitting your application. ![](http://developer.android.com/static/images/develop/xr/catalyst/xr-icon.svg)
+At this time, development kits can only be shipped to developers located in the United States, Canada, Japan, the United Kingdom, and the European Union. Please ensure your shipping address falls within one of these supported regions before submitting your application. ![](http://developer.android.com/static/images/develop/xr/catalyst/xr-icon.svg)
 
 ## Ready to build for Android XR?
 

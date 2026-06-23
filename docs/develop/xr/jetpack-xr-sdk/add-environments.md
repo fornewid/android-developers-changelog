@@ -80,12 +80,13 @@ val environmentGeometry = GltfModel.create(session, Paths.get("DayGeometry.glb")
 
 <br />
 
-### Create an EXR image resource
+### Create an image based lighting resource
 
-An EXR image resource can be created as an [`ExrImage`](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/ExrImage), where the EXR is
-loaded from a local file. An `ExrImage` can be used with `cmgen` to create a ZIP
-file of the IBL for your skyboxes. See [our guide on optimizing environment
-assets](https://developer.android.com/develop/xr/jetpack-xr-sdk/optimize-environment-assets) for more details.
+An image-based lighting resource can be created as an
+[`ImageBasedLightingAsset`](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/ImageBasedLightingAsset), where the lighting is loaded from a local file.
+An `ImageBasedLightingAsset` can be used with `cmgen` to create a ZIP file of
+the IBL for your skyboxes. See [our guide on optimizing environment assets](https://developer.android.com/develop/xr/jetpack-xr-sdk/optimize-environment-assets)
+for more details.
 
 
 ```kotlin

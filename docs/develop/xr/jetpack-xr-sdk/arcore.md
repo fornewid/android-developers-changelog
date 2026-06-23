@@ -83,7 +83,7 @@ experiences for different XR devices:
 - [Detect planes using ARCore for Jetpack XR](https://developer.android.com/develop/xr/jetpack-xr-sdk/arcore/anchors)
 - [Create anchors with ARCore for Jetpack XR](https://developer.android.com/develop/xr/jetpack-xr-sdk/arcore/planes)
 - [Work with hands using ARCore for Jetpack XR](https://developer.android.com/develop/xr/jetpack-xr-sdk/arcore/hands)
-- [Incorporate the head position in your app with ARCore for Jetpack XR](https://developer.android.com/develop/xr/jetpack-xr-sdk/arcore/head)
+- \[Incorporate the head position in your app with ARCore for Jetpack XR\]\[11\]
 - [Incorporate face tracking in your app with ARCore for Jetpack XR](https://developer.android.com/develop/xr/jetpack-xr-sdk/arcore/face)
 - [Retrieve depth information in your app with ARCore for Jetpack XR](https://developer.android.com/develop/xr/jetpack-xr-sdk/arcore/depth)
 - [Track a device's pose using ARCore for Jetpack XR](https://developer.android.com/develop/xr/jetpack-xr-sdk/arcore/device-pose)

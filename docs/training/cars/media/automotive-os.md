@@ -363,10 +363,11 @@ service must do the following things:
 4. Set the media session's `PlaybackStateCompat` error message using the [`setErrorMessage()`](https://developer.android.com/reference/android/support/v4/media/session/PlaybackStateCompat.Builder#setErrorMessage(int,%20java.lang.CharSequence)) method. Because this error message is user-facing, localize it for the user's current locale.
 5. Set the media session's `PlaybackStateCompat`
    extras using the [`setExtras()`](https://developer.android.com/reference/android/support/v4/media/session/PlaybackStateCompat.Builder#setExtras(android.os.Bundle))
-   method. Include the following two keys:
+   method. Include the following two or three keys:
 
-   - [`PLAYBACK_STATE_EXTRAS_KEY_ERROR_RESOLUTION_ACTION_LABEL`](https://developer.android.com/reference/androidx/media/utils/MediaConstants#PLAYBACK_STATE_EXTRAS_KEY_ERROR_RESOLUTION_ACTION_LABEL()): a string that is displayed on the button that begins the sign-in workflow. Because this string is user-facing, localize it for the user's current locale.
-   - [`PLAYBACK_STATE_EXTRAS_KEY_ERROR_RESOLUTION_ACTION_INTENT`](https://developer.android.com/reference/androidx/media/utils/MediaConstants#PLAYBACK_STATE_EXTRAS_KEY_ERROR_RESOLUTION_ACTION_INTENT()): a [`PendingIntent`](https://developer.android.com/reference/android/app/PendingIntent) that directs the user to your sign-in activity when the user taps the button referred to by the `PLAYBACK_STATE_EXTRAS_KEY_ERROR_RESOLUTION_ACTION_LABEL`.
+   - [`PLAYBACK_STATE_EXTRAS_KEY_ERROR_RESOLUTION_ACTION_LABEL`](https://github.com/androidx/media/blob/release/libraries/session/src/main/java/androidx/media3/session/legacy/MediaConstants.java): a string that is displayed on the button that begins the sign-in workflow. Because this string is user-facing, localize it for the user's current locale.
+   - [`PLAYBACK_STATE_EXTRAS_KEY_ERROR_RESOLUTION_ACTION_INTENT`](https://github.com/androidx/media/blob/release/libraries/session/src/main/java/androidx/media3/session/legacy/MediaConstants.java): a [`PendingIntent`](https://developer.android.com/reference/android/app/PendingIntent) that directs the user to your sign-in activity when the user taps the button referred to by the `PLAYBACK_STATE_EXTRAS_KEY_ERROR_RESOLUTION_ACTION_LABEL`.
+   - [`PLAYBACK_STATE_EXTRAS_KEY_ERROR_RESOLUTION_USING_CAR_APP_LIBRARY_INTENT`](https://github.com/androidx/media/blob/release/libraries/session/src/main/java/androidx/media3/session/legacy/MediaConstants.java): a [`PendingIntent`](https://developer.android.com/reference/android/app/PendingIntent) that directs the user to your Car App Library sign-in activity. Because the Car App Library host is driving-optimized, the intent automatically bypasses the error resolution screen and immediately displays your sign-in screen. If you set this extra, also set the previous two extras to ensure backwards compatibility with older vehicles.
 
 The following code snippet shows how your app can require the user to sign in
 before using your app:
@@ -466,6 +467,13 @@ Android Automotive OS apps that have authentication must use
 If you need to request permissions from the user, use the same flow as the
 authentication activity or the settings activity in the
 [activity workflows diagram](https://developer.android.com/training/cars/media/automotive-os#activity-workflows) shown in a previous section.
+
+### Implement sign-out
+
+Regardless of how you've chosen to implement sign in, when the user signs out,
+you **must** call `MediaBrowserServiceCompat#notifyChildrenChanged(rootId)` to
+invalidate your browse tree so that the media host app clears any user-related
+information (such as the most recent search query).
 
 ## Start the media host app
 
@@ -648,8 +656,8 @@ error with the error message set in the `PlaybackStateCompat`.
 If an error is actionable, additionally set the following two extras in the
 `PlaybackStateCompat`:
 
-- [`PLAYBACK_STATE_EXTRAS_KEY_ERROR_RESOLUTION_ACTION_LABEL`](https://developer.android.com/reference/androidx/media/utils/MediaConstants#PLAYBACK_STATE_EXTRAS_KEY_ERROR_RESOLUTION_ACTION_LABEL()): a label for the button to click to resolve the error. Because this string is user-facing, localize it for the user's current locale.
-- [`PLAYBACK_STATE_EXTRAS_KEY_ERROR_RESOLUTION_ACTION_INTENT`](https://developer.android.com/reference/androidx/media/utils/MediaConstants#PLAYBACK_STATE_EXTRAS_KEY_ERROR_RESOLUTION_ACTION_INTENT()): the `PendingIntent` that the button runs to resolve the error, such as by launching your sign-in activity.
+- [`PLAYBACK_STATE_EXTRAS_KEY_ERROR_RESOLUTION_ACTION_LABEL`](https://github.com/androidx/media/blob/release/libraries/session/src/main/java/androidx/media3/session/legacy/MediaConstants.java): a label for the button to click to resolve the error. Because this string is user-facing, localize it for the user's current locale.
+- [`PLAYBACK_STATE_EXTRAS_KEY_ERROR_RESOLUTION_ACTION_INTENT`](https://github.com/androidx/media/blob/release/libraries/session/src/main/java/androidx/media3/session/legacy/MediaConstants.java): the `PendingIntent` that the button runs to resolve the error, such as by launching your sign-in activity.
 
 Actionable errors appear as a `Dialog` and can resolved by users only when
 the car is stopped.

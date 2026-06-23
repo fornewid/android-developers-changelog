@@ -63,6 +63,7 @@ not receive significant updates beyond critical fixes:
 - [`CardView`](https://developer.android.com/jetpack/androidx/releases/cardview)
 - [`ConstraintLayout`](https://developer.android.com/jetpack/androidx/releases/constraintlayout)
 - [`CoordinatorLayout`](https://developer.android.com/jetpack/androidx/releases/coordinatorlayout)
+- [`Cursoradapter`](https://developer.android.com/jetpack/androidx/releases/cursoradapter)
 - [`CustomView`](https://developer.android.com/jetpack/androidx/releases/customview)
 - [`Databinding`](https://developer.android.com/jetpack/androidx/releases/databinding)
 - [`DragAndDrop`](https://developer.android.com/jetpack/androidx/releases/draganddrop)

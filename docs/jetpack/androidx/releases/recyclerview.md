@@ -65,9 +65,11 @@ clicking the star button.
 See the [Issue Tracker documentation](https://developers.google.com/issue-tracker)
 for more information.
 
-## Version 1.4
+## Recyclerview
 
-### Version 1.4.0
+### Version 1.4
+
+#### Version 1.4.0
 
 January 15, 2025
 
@@ -77,13 +79,13 @@ January 15, 2025
 
 - `Adaptive` refresh rate support: `RecyclerView` now calls `setFrameContentVelocity` when it is scrolling via `OverScroller` (such as settling from a fling or smooth scroll). ([I8f8a4](https://android.googlesource.com/platform/frameworks/support/+/a1e9ab3e5fd52e885731bd762ff7dd4a64b25505))
 
-### Version 1.4.0-rc01
+#### Version 1.4.0-rc01
 
 September 18, 2024
 
 `androidx.recyclerview:recyclerview:1.4.0-rc01` is released, with no changes since [1.4.0-alpha02](https://developer.android.com/jetpack/androidx/releases/recyclerview#recyclerview-1.4.0-alpha02)/. Version 1.4.0-rc01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/8c4071562bd7e22b937284d71fb7aca9c4cd662c..dfd74da8dfb752e0d0981903430e71ecb70097e1/recyclerview/recyclerview).
 
-### Changes since 1.3.2
+#### Changes since 1.3.2
 
 **Compatibility note**: This version will only compile against the API 35 (Vanilla Ice Cream) SDK or higher. If you see AGP (Android Gradle Plugin) warnings when you upgrade, you can suppress them.
 
@@ -101,7 +103,7 @@ September 18, 2024
 - Add item view type to `RecyclerView` bind/create trace sections, and label RV prefetches as 'forced - needed next frame' if they are expected to be used by the next frame, and thus should start work as soon as possible. ([I8ec3e](https://android-review.googlesource.com/#/q/I8ec3edb569d892fcb100c86e401d95a32e844d29), [b/309523615](https://issuetracker.google.com/issues/309523615))
 - Update `compileSdk` to 35 (see "Compatibility note" above for details). [5dc41be](https://android.googlesource.com/platform/frameworks/support/+/5dc41be792a8fa6b2488df3e780da1c0805b202f)
 
-### Version 1.4.0-beta01
+#### Version 1.4.0-beta01
 
 August 21, 2024
 
@@ -109,7 +111,7 @@ August 21, 2024
 
 **Compatibility note**: This version will only compile against the API 35 (Vanilla Ice Cream) SDK or higher. If you see AGP (Android Gradle Plugin) warnings when you upgrade, you can suppress them.
 
-### Version 1.4.0-alpha02
+#### Version 1.4.0-alpha02
 
 August 7, 2024
 
@@ -136,7 +138,7 @@ August 7, 2024
 
 - `GestureDetectorCompat` is now deprecated as `GestureDetector` is available from the `minSdk`. ([Icc4cd](https://android-review.googlesource.com/#/q/Icc4cd9df0b358863ac36d059dc6b997775321be6))
 
-### Version 1.4.0-alpha01
+#### Version 1.4.0-alpha01
 
 October 18, 2023
 
@@ -150,9 +152,9 @@ October 18, 2023
 
 - Fix a bug causing sporadic crashes during animations ([I42f22b](https://android-review.googlesource.com/c/platform/frameworks/support/+/2672255)) (also included in 1.3.2)
 
-## Version 1.3.2
+### Version 1.3
 
-### Version 1.3.2
+#### Version 1.3.2
 
 October 18, 2023
 
@@ -162,9 +164,7 @@ October 18, 2023
 
 - Fix a bug causing sporadic crashes during animations. ([I42f22b](https://android-review.googlesource.com/c/platform/frameworks/support/+/2672255))
 
-## Version 1.3.1
-
-### Version 1.3.1
+#### Version 1.3.1
 
 July 26, 2023
 
@@ -172,7 +172,7 @@ July 26, 2023
 
 For release notes of previous release, refer to our [Release Notes page](https://developer.android.com/jetpack/androidx/releases/recyclerview)
 
-### Version 1.3.1-rc01
+#### Version 1.3.1-rc01
 
 May 24, 2023
 
@@ -188,9 +188,7 @@ May 24, 2023
 
 - Fix crashes for users of `ViewTreeLifecycleOwner` (including `ComposeView`) by temporarily re-attaching temporarily detached views when calling `onBind`. ([I7244f2c](https://android-review.googlesource.com/c/platform/frameworks/support/+/2366713), [b/265347515](https://issuetracker.google.com/265347515), [b/283288295](https://issuetracker.google.com/283288295))
 
-## Version 1.3.0
-
-### Version 1.3.0
+#### Version 1.3.0
 
 March 8, 2023
 
@@ -201,7 +199,7 @@ March 8, 2023
 - This release contains performance improvements (previously included in [1.3.0-alpha02](https://developer.android.com/jetpack/androidx/releases/recyclerview#recyclerview-1.3.0-alpha02) and [1.3.0-beta01](https://developer.android.com/jetpack/androidx/releases/recyclerview#recyclerview-1.3.0-beta01)) when used with Jetpack Compose. If you are using Compose `1.2.0-beta02` or higher and were using the `MyComposeAdapter` and `DisposeOnViewTreeLifecycleDestroyed` `ViewCompositionStrategy` described in the previous interoperability guidelines, **you should remove these**, as they are no longer an improvement over the default state.
 - New `ConcatAdapter.getWrappedAdapterAndPosition` method added to allow for retrieving wrapped adapter information in situations where you don't have a `ViewHolder`, such as a `SpanSizeLookup` ([I2bd4c](https://android-review.googlesource.com/#/q/I2bd4c99ee4417f0b3ed74d471ed732af24a2d1b3), [b/191543920](https://issuetracker.google.com/issues/191543920))
 
-### Version 1.3.0-rc01
+#### Version 1.3.0-rc01
 
 September 21, 2022
 
@@ -209,7 +207,7 @@ September 21, 2022
 
 - No changes since last release
 
-### Version 1.3.0-beta02
+#### Version 1.3.0-beta02
 
 August 10, 2022
 
@@ -219,7 +217,7 @@ August 10, 2022
 
 - Removed nullability annotations added in 1.3.0-beta01 due to the fact that they represented a significant source-incompatible change for Kotlin users ([I7a258](https://android-review.googlesource.com/#/q/I7a25874d17e40de21c6bd2f50192c79746d6b7e5),[I1557e6](https://android-review.googlesource.com/c/platform/frameworks/support/+/2171631),[I8db76](https://android-review.googlesource.com/#/q/I8db7687f652539c6ee5c0be8410dac45fb244f29))
 
-### Version 1.3.0-beta01
+#### Version 1.3.0-beta01
 
 June 29, 2022
 
@@ -237,7 +235,7 @@ June 29, 2022
 
 - Ensure grids are treated as grids by a11y services by setting an a11y node info class name. ([I12812](https://android-review.googlesource.com/#/q/I128122352a3fc4898cc6ba76d7da8166519bd648))
 
-### Version 1.3.0-alpha02
+#### Version 1.3.0-alpha02
 
 April 6, 2022
 
@@ -253,7 +251,7 @@ April 6, 2022
 - Integration with the new AndroidX PoolingContainer library ([Ib89d2](https://android-review.googlesource.com/#/q/Ib89d2ecf78a27bda3786734aabd0c23fdba9a7a8))
 - Adjusts the scroll distance for accessibility action ([If74ae](https://android-review.googlesource.com/#/q/If74ae6f6d204f2b238998a31154abf61f8167d11))
 
-### Version 1.3.0-alpha01
+#### Version 1.3.0-alpha01
 
 September 15, 2021
 
@@ -263,68 +261,9 @@ September 15, 2021
 
 - Added support for stretch overscroll RecyclerView. ([Iab877](https://android.googlesource.com/platform/frameworks/support/+/4a1e1cf8a231240732d8323bed277870bca33d53))
 
-## RecyclerView-Selection Version 1.3.0
+### Version 1.2
 
-### Version 1.3.0-alpha01
-
-December 17, 2025
-
-`androidx.recyclerview:recyclerview-selection:1.3.0-alpha01` is released. Version 1.3.0-alpha01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/6a54c887072ebcf6798d5a7e7ef3efed99b04e77..ec985eed3cba8444e5aaa52a748333397a1298f3/recyclerview/recyclerview-selection).
-
-**API Changes**
-
-- Let in-selection-hotspot clear existing selection ([I0eae7](https://android-review.googlesource.com/#/q/I0eae7dca16cbddb795dd8b730105e643fa6fb796), [b/389814214](https://issuetracker.google.com/issues/389814214)) This gives developers greater control over, when tapping or clicking on a `RecyclerView` to select an item, whether any other already-selected items stay selected or are deselected.
-
-## RecyclerView-Selection Version 1.2.0
-
-### Version 1.2.0
-
-May 20, 2025
-
-`androidx.recyclerview:recyclerview-selection:1.2.0` is released. Version 1.2.0 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/2d771fbb0d3b9774c2513f1f7244f17b0c96735f..6a54c887072ebcf6798d5a7e7ef3efed99b04e77/recyclerview/recyclerview-selection).
-
-**Important changes since 1.1.0**
-
-- Fix small mouse moves turning clicks into drags.
-- Fix an issue where key/position mapping in KeyProvider was lost while entry was not yet recycled.
-
-### Version 1.2.0-rc01
-
-May 7, 2025
-
-`androidx.recyclerview:recyclerview-selection:1.2.0-rc01` is released. Version 1.2.0-rc01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/b22977a837281f01683d3fa7c8703e97de2518a4..2d771fbb0d3b9774c2513f1f7244f17b0c96735f/recyclerview/recyclerview-selection).
-
-**Bug Fixes**
-
-- Fix small mouse moves turning clicks into drags. ([Ie9106](https://android-review.googlesource.com/#/q/Ie91064a473e28247ebc23fe370791f74b146ccd4))
-
-### Version 1.2.0-beta01
-
-April 9, 2025
-
-`androidx.recyclerview:recyclerview-selection:1.2.0-beta01` is released. Version 1.2.0-beta01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/3d6f168394d1dd14e1d6f5b6dc4a0d405cb1a26a..b22977a837281f01683d3fa7c8703e97de2518a4/recyclerview/recyclerview-selection).
-
-**API Changes**
-
-- Deprecated `ViewCompat.LAYOUT_DIRECTION_` APIs ([I51710](https://android-review.googlesource.com/#/q/I5171051c40ebe77a9ac6690abfe18810d794d99d), [b/317055535](https://issuetracker.google.com/issues/317055535))
-
-**Bug Fixes**
-
-- This library now uses [JSpecify nullness annotations](https://jspecify.dev/), which are type-use. Kotlin developers should use the following compiler argument to enforce correct usage: `-Xjspecify-annotations=strict` (this is the default starting with version 2.1.0 of the Kotlin compiler). ([I03b80](https://android-review.googlesource.com/#/q/I03b80dbabc45393ade3436280e82f17ee050b9b7), [b/326456246](https://issuetracker.google.com/issues/326456246))
-
-### Version 1.2.0-alpha01
-
-May 5, 2021
-
-`androidx.recyclerview:recyclerview-selection:1.2.0-alpha01` is released. [Version 1.2.0-alpha01 contains these commits.](https://android.googlesource.com/platform/frameworks/support/+log/563bff8d5f42c831ddfa3a732ad82d97d0c60d99..3d6f168394d1dd14e1d6f5b6dc4a0d405cb1a26a/recyclerview/recyclerview-selection)
-
-**Bug Fixes**
-
-- Fix an issue where key/position mapping in KeyProvider was lost while entry was not yet recycled. ([b/145767095](https://issuetracker.google.com/issues/145767095))
-
-## Version 1.2.1
-
-### Version 1.2.1
+#### Version 1.2.1
 
 June 2, 2021
 
@@ -334,9 +273,7 @@ June 2, 2021
 
 - `ViewHolder`s inside a `ConcatAdapter` now return the correct adapter position when queried in `onViewRecycled` callback. ([b/187339376](https://issuetracker.google.com/issues/187339376))
 
-## Version 1.2.0
-
-### Version 1.2.0
+#### Version 1.2.0
 
 April 7, 2021
 
@@ -352,7 +289,7 @@ April 7, 2021
 
 **Lazy State Restoration** : RecyclerView Adapter can now delay state restoration until its contents are loaded. See the [documentation](https://developer.android.com/reference/kotlin/androidx/recyclerview/widget/RecyclerView.Adapter#setstaterestorationpolicy) for more details.
 
-### Version 1.2.0-rc01
+#### Version 1.2.0-rc01
 
 March 24, 2021
 
@@ -362,7 +299,7 @@ March 24, 2021
 
 - `ConcatAdapter.Config.Builder` now has default values that match `Config.DEFAULT` ([b/157169835](https://issuetracker.google.com/issues/157169835))
 
-### Version 1.2.0-beta02
+#### Version 1.2.0-beta02
 
 February 24, 2021
 
@@ -372,13 +309,13 @@ February 24, 2021
 
 - Fixed issue where top padding was causing the right overscroll glow to move upward into the padded area, instead of downward in order to respect the padding. ([I6b61d](https://android-review.googlesource.com/#/q/I6b61d12af161feb1b84a9906f015d9a3edf0ef93), [b/118399122](https://issuetracker.google.com/issues/118399122))
 
-### Version 1.2.0-beta01
+#### Version 1.2.0-beta01
 
 December 2, 2020
 
 `androidx.recyclerview:recyclerview:1.2.0-beta01` is released with no change since `1.2.0-alpha06`. [Version 1.2.0-beta01 contains these commits.](https://android.googlesource.com/platform/frameworks/support/+log/3d49666a20b830dcb9d6cc82517eac86daea88d7..38a668d3ef95f40ad28d6e735a2c3eb95ae4cf63/recyclerview/recyclerview)
 
-### Version 1.2.0-alpha06
+#### Version 1.2.0-alpha06
 
 October 1, 2020
 
@@ -392,7 +329,7 @@ October 1, 2020
 
 - Deprecated RecyclerView.setRecyclerListener(RecyclerListener). ([I70ad8](https://android-review.googlesource.com/#/q/I70ad8f9bcf25c2c00fbf5f71d5a991287bef1606), [b/145767095](https://issuetracker.google.com/issues/145767095))
 
-### Version 1.2.0-alpha05
+#### Version 1.2.0-alpha05
 
 July 22, 2020
 
@@ -408,7 +345,7 @@ July 22, 2020
 
 - Thanks to Kolin Krewinkel on behalf of Facebook for the [contribution](https://android.googlesource.com/platform/frameworks/support/+/49b601979ebccb8fcc6b8d670b79ae1c5f818dbf)!
 
-### Version 1.2.0-alpha04
+#### Version 1.2.0-alpha04
 
 June 24, 2020
 
@@ -422,7 +359,7 @@ June 24, 2020
 
 - Improvements to automatic scrolling when all visible items are removed ([fe8670](https://android.googlesource.com/platform/frameworks/support/+/fe867028214a364167c893083065eddcd709e223), [b/154124815](https://issuetracker.google.com/issues/154124815))
 
-### Version 1.2.0-alpha03
+#### Version 1.2.0-alpha03
 
 April 29, 2020
 
@@ -432,7 +369,7 @@ April 29, 2020
 
 - RecyclerView now has a `nestedScrollBy` method that allows programmatic scrolling that cooperates with nested scrolling: ([Ibaa58](https://android-review.googlesource.com/#/q/Ibaa58076fb521bc75b16f071b426038c1d2b59b5))
 
-### Version 1.2.0-alpha02
+#### Version 1.2.0-alpha02
 
 April 1, 2020
 
@@ -472,7 +409,7 @@ This and higher versions of RecyclerView are not compatible with lower versions 
 - RecyclerView now avoids anchoring on Views outside the viewport when the viewport size has changed
 - Fixed a bug in DiffUtil where it might compute the diff wrong when an original item in the first list is duplicated multiple times in the second list. ([b/123376278](https://issuetracker.google.com/issues/123376278))
 
-### Version 1.2.0-alpha01
+#### Version 1.2.0-alpha01
 
 December 18, 2019
 
@@ -483,9 +420,9 @@ December 18, 2019
 - Fixed minor issues with FastScroller related to RTL drawing and touch accuracy ([b/143789932](https://issuetracker.google.com/issues/143789932), [aosp/1130438](https://android-review.googlesource.com/c/1130438))
 - Fixed crash in ItemTouchHelper when removed from RecyclerView while ItemTouchHelper animations are running ([b/140447176](https://issuetracker.google.com/issues/140447176), [aosp/1167575](https://android-review.googlesource.com/c/1167575))
 
-## Version 1.1.0
+### Version 1.1
 
-### Version 1.1.0
+#### Version 1.1.0
 
 November 20, 2019
 
@@ -501,7 +438,7 @@ November 20, 2019
 - `LinearLayoutManager.calculateExtraLayoutSpace(RecyclerView.State, int[])` can be overridden to customize how much extra layout space should be added to either side of the associated RecyclerView. ([aosp/931259](https://android-review.googlesource.com/c/931259))
 - Added a new overload of smoothScrollBy: `RecyclerView#smoothScrollBy(@Px int, @Px int, @Nullable Interpolator, int duration)`, that allows you to specify a duration in milliseconds for how long the animation should take. ([aosp/952807](https://android-review.googlesource.com/c/952807))
 
-### Version 1.1.0-rc01
+#### Version 1.1.0-rc01
 
 October 23, 2019
 
@@ -511,7 +448,7 @@ October 23, 2019
 
 - Fixed an "Application Not Responding" when overriding `RecyclerViewAccessibilityDelegate.ItemDelegate` ([aosp/1138057](https://android-review.googlesource.com/c/platform/frameworks/support/+/1138057/), [aosp/1133434](https://android-review.googlesource.com/c/platform/frameworks/support/+/1133434/))
 
-### Version 1.1.0-beta05
+#### Version 1.1.0-beta05
 
 October 9, 2019
 
@@ -527,7 +464,7 @@ October 9, 2019
 - Fixed an issue where Virtual Accessibility Hierarchies in RecyclerViews didn't work.
 - Fixed an issue where custom ItemDelegates weren't used.
 
-### Version 1.1.0-beta04
+#### Version 1.1.0-beta04
 
 September 5, 2019
 
@@ -541,7 +478,7 @@ September 5, 2019
 - Nested pre-scrolling is no longer performed before the gesture exceeds touch slop ([b/139530818](https://issuetracker.google.com/139530818), [aosp/1105373](https://android-review.googlesource.com/1105373))
 - `dx` and `dy` arguments dispatched to nested pre-scrolls are zeroed when RecyclerView can't scroll in that direction ([aosp/1105373](https://android-review.googlesource.com/1105373))
 
-### Version 1.1.0-beta03
+#### Version 1.1.0-beta03
 
 August 15, 2019
 
@@ -555,7 +492,7 @@ August 15, 2019
 
 - Fixed a major bug stack overflow bug related to RecyclerView and accessibility. ([aosp/1099577](https://android-review.googlesource.com/c/platform/frameworks/support/+/1099577))
 
-### Version 1.1.0-beta02
+#### Version 1.1.0-beta02
 
 August 7, 2019
 
@@ -569,7 +506,7 @@ August 7, 2019
 
 - Fixed a bug where RecyclerView was not disallowing touch intercept when scrolling it caused a NestedScrollingParent to scroll. ([b/131115697](https://issuetracker.google.com/issues/131115697), [aosp/1055911](https://android-review.googlesource.com/c/1055911/))
 
-### Version 1.1.0-beta01
+#### Version 1.1.0-beta01
 
 July 2, 2019
 
@@ -579,7 +516,7 @@ July 2, 2019
 
 - `RecyclerView` now participates in nested scrolling when a scroll is initiated via accessibility events. ([aosp/973584](https://android-review.googlesource.com/973584))
 
-### Version 1.1.0-alpha06
+#### Version 1.1.0-alpha06
 
 June 5, 2019
 
@@ -599,7 +536,7 @@ June 5, 2019
 - Fixed a bug where `RecyclerView` was flinging with incorrect velocities while in a nested scrolling situation. ([aosp/961642](https://android-review.googlesource.com/c/platform/frameworks/support/+/961642))
 - Added stability improvements to `recyclerview-selection` ([aosp/960213](https://android-review.googlesource.com/c/platform/frameworks/support/+/960213), [aosp/926296](https://android-review.googlesource.com/c/platform/frameworks/support/+/926296))
 
-### Version 1.1.0-alpha05
+#### Version 1.1.0-alpha05
 
 May 7, 2019
 
@@ -619,7 +556,7 @@ May 7, 2019
 - Cleaned up Gesture selection ([aosp/940781](https://android-review.googlesource.com/c/940781/))
 - Preserve order of selection (by creation time) ([b/128455535](https://issuetracker.google.com/issues/128455535))
 
-### Version 1.1.0-alpha04
+#### Version 1.1.0-alpha04
 
 April 3rd, 2019
 
@@ -629,7 +566,7 @@ April 3rd, 2019
 
 - RV OnItemTouchListener's previously couldn't intercept on ACTION_UP, preventing OnItemTouchListener's from blocking other code from responding to ACTION_UP. This is now fixed: ([aosp/916137](https://android-review.googlesource.com/c/916137/))
 
-### Version 1.1.0-alpha03
+#### Version 1.1.0-alpha03
 
 March 13th, 2019
 
@@ -646,7 +583,7 @@ March 13th, 2019
 
 - Accessibility: There was a bug where once a ViewHolder was recycled and then rebound, the ItemDelegate associated with the RecyclerView's `RecyclerViewAccessibilityDelegate` was not being associated with the ViewHolder's itemView, breaking Accessibility. This is now fixed ([aosp/917740](https://android-review.googlesource.com/c/917740)).
 
-### Version 1.1.0-alpha02
+#### Version 1.1.0-alpha02
 
 January 30, 2019
 
@@ -662,13 +599,13 @@ January 30, 2019
 - Fix bug in RV where `SmoothScroller` is never stopped ([aosp/843741](https://android-review.googlesource.com/843741))
 - Bug fixed where `SCROLL_STATE_IDLE` may not be called at the end of a scrolling animation. ([aosp/812576](https://android-review.googlesource.com/812576))
 
-### Version 1.1.0-alpha01
+#### Version 1.1.0-alpha01
 
 December 3, 2018
 
 `androidx.recyclerview 1.1.0-alpha01` and `androidx.recyclerview-selection 1.1.0-alpha01` are released.
 
-### androidx.recyclerview 1.1.0-alpha01
+#### androidx.recyclerview 1.1.0-alpha01
 
 **API changes**
 
@@ -681,15 +618,76 @@ December 3, 2018
 - Fixed few edge case bugs related to smooth scrolling ([aosp/729718](https://android-review.googlesource.com/c/platform/frameworks/support/+/729718), [aosp/747168](https://android-review.googlesource.com/c/platform/frameworks/support/+/747168), [aosp/812576](https://android-review.googlesource.com/c/platform/frameworks/support/+/812576))
 - Fixed snap strategy in `PagerSnapHelper` to deal with non-typical child views ([aosp/795752](https://android-review.googlesource.com/c/platform/frameworks/support/+/795752))
 
-### androidx.recyclerview-selection 1.1.0-alpha01
+#### androidx.recyclerview-selection 1.1.0-alpha01
 
 **Bug fixes**
 
 - Fixed `ConcurrentModificationException` when data set changed with removing selection.
 
-## RecyclerView-Selection Version 1.1.0
+## RecyclerView-Selection
 
-### RecyclerView-Selection Version 1.1.0
+### Version 1.3
+
+#### Version 1.3.0-alpha01
+
+December 17, 2025
+
+`androidx.recyclerview:recyclerview-selection:1.3.0-alpha01` is released. Version 1.3.0-alpha01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/6a54c887072ebcf6798d5a7e7ef3efed99b04e77..ec985eed3cba8444e5aaa52a748333397a1298f3/recyclerview/recyclerview-selection).
+
+**API Changes**
+
+- Let in-selection-hotspot clear existing selection ([I0eae7](https://android-review.googlesource.com/#/q/I0eae7dca16cbddb795dd8b730105e643fa6fb796), [b/389814214](https://issuetracker.google.com/issues/389814214)) This gives developers greater control over, when tapping or clicking on a `RecyclerView` to select an item, whether any other already-selected items stay selected or are deselected.
+
+### Version 1.2
+
+#### Version 1.2.0
+
+May 20, 2025
+
+`androidx.recyclerview:recyclerview-selection:1.2.0` is released. Version 1.2.0 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/2d771fbb0d3b9774c2513f1f7244f17b0c96735f..6a54c887072ebcf6798d5a7e7ef3efed99b04e77/recyclerview/recyclerview-selection).
+
+**Important changes since 1.1.0**
+
+- Fix small mouse moves turning clicks into drags.
+- Fix an issue where key/position mapping in KeyProvider was lost while entry was not yet recycled.
+
+#### Version 1.2.0-rc01
+
+May 7, 2025
+
+`androidx.recyclerview:recyclerview-selection:1.2.0-rc01` is released. Version 1.2.0-rc01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/b22977a837281f01683d3fa7c8703e97de2518a4..2d771fbb0d3b9774c2513f1f7244f17b0c96735f/recyclerview/recyclerview-selection).
+
+**Bug Fixes**
+
+- Fix small mouse moves turning clicks into drags. ([Ie9106](https://android-review.googlesource.com/#/q/Ie91064a473e28247ebc23fe370791f74b146ccd4))
+
+#### Version 1.2.0-beta01
+
+April 9, 2025
+
+`androidx.recyclerview:recyclerview-selection:1.2.0-beta01` is released. Version 1.2.0-beta01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/3d6f168394d1dd14e1d6f5b6dc4a0d405cb1a26a..b22977a837281f01683d3fa7c8703e97de2518a4/recyclerview/recyclerview-selection).
+
+**API Changes**
+
+- Deprecated `ViewCompat.LAYOUT_DIRECTION_` APIs ([I51710](https://android-review.googlesource.com/#/q/I5171051c40ebe77a9ac6690abfe18810d794d99d), [b/317055535](https://issuetracker.google.com/issues/317055535))
+
+**Bug Fixes**
+
+- This library now uses [JSpecify nullness annotations](https://jspecify.dev/), which are type-use. Kotlin developers should use the following compiler argument to enforce correct usage: `-Xjspecify-annotations=strict` (this is the default starting with version 2.1.0 of the Kotlin compiler). ([I03b80](https://android-review.googlesource.com/#/q/I03b80dbabc45393ade3436280e82f17ee050b9b7), [b/326456246](https://issuetracker.google.com/issues/326456246))
+
+#### Version 1.2.0-alpha01
+
+May 5, 2021
+
+`androidx.recyclerview:recyclerview-selection:1.2.0-alpha01` is released. [Version 1.2.0-alpha01 contains these commits.](https://android.googlesource.com/platform/frameworks/support/+log/563bff8d5f42c831ddfa3a732ad82d97d0c60d99..3d6f168394d1dd14e1d6f5b6dc4a0d405cb1a26a/recyclerview/recyclerview-selection)
+
+**Bug Fixes**
+
+- Fix an issue where key/position mapping in KeyProvider was lost while entry was not yet recycled. ([b/145767095](https://issuetracker.google.com/issues/145767095))
+
+### Version 1.1
+
+#### Version 1.1.0
 
 January 27, 2021
 
@@ -700,7 +698,7 @@ January 27, 2021
 - Numerous stability improvements.
 - Deprecated `withGestureTooltypes` and `withPointerTooltypes` methods on `SelectionTracker.Builder`. These methods will be removed in a future release.
 
-### RecyclerView-Selection Version 1.1.0-rc03
+#### Version 1.1.0-rc03
 
 October 1, 2020
 
@@ -713,7 +711,7 @@ Thanks to Stefan Kiesler for testing fixes and feedback.
 - Fixed issue where child view OnClickListeners were called unexpectedly during active selection.
 - Mouse handler (band-selection) \> Handle unexpected scrolls gracefully. ([b/167821507](https://issuetracker.google.com/issues/167821507))
 
-### RecyclerView-Selection Version 1.1.0-rc02
+#### Version 1.1.0-rc02
 
 September 2, 2020
 
@@ -733,7 +731,7 @@ September 2, 2020
 - Fixed issue where `"Cannot call this method in a scroll callback"` seen during mouse scrolling on Q
 - Updated docs (especially in `StableIdKeyProvider`) to clearly state requirements of RecyclerView instance
 
-### Recyclerview-Selection Version 1.1.0-rc01
+#### Version 1.1.0-rc01
 
 February 5, 2020
 
@@ -743,7 +741,7 @@ February 5, 2020
 
 - Fixed an issue where RecyclerView is hard to scroll with a gesture selection if it interacts with a scrollable AppBarLayout ([aosp/1193934](https://android-review.googlesource.com/c/1193934))
 
-### RecyclerView-Selection Version 1.1.0-beta01
+#### Version 1.1.0-beta01
 
 December 4, 2019
 

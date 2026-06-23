@@ -135,7 +135,7 @@ and whether it implements `AmbientLifecycleCallback`.
 The following sections describe how to manage how long your app stays on the
 screen.
 
-### Prevent returning to the watch face with an Ongoing Activity
+### Prevent returning to the watch face with an Ongoing Activity or Live Update
 
 After a period of time in the *Ambient* state (Timeout #2), the system will
 typically return to the watch face. The user can configure the timeout duration
@@ -146,8 +146,12 @@ On Wear OS 5 and higher, you can prevent this by implementing an **Ongoing
 Activity** . If your app is displaying information about an ongoing user task,
 such as a workout session, you can use the [Ongoing Activity API](https://developer.android.com/training/wearables/notifications/ongoing-activity) to keep
 your app visible until the task ends. If a user manually returns to the
-watchface, the ongoing activity indicator provides one-tap way for them to
-return to your app
+watchface, the ongoing activity indicator provides a one-tap way for them to
+return to your app.
+
+Alternatively, on Wear OS 7 and higher, you can use a [Live Update](https://developer.android.com/training/wearables/notifications/live-updates) in
+place of an Ongoing Activity. For backward compatibility, continue to support
+Ongoing Activity on devices that run Wear OS 6 or lower.
 
 > [!NOTE]
 > **Note:** If media is playing on the Wear OS device, an ongoing activity will automatically be created. In this case, you don't need to create another ongoing activity to keep your app visible.
@@ -246,7 +250,7 @@ To achieve this, the developer should do the following:
 
 1. Implement an `AmbientLifecycleObserver` to handle UI changes between *Interactive* and *Ambient* states, such as dimming the screen and removing non-essential data.
 2. Create [a new low-powered layout](https://developer.android.com/training/wearables/always-on#ambient-appearance) for the *Ambient* state that follows the best practices.
-3. Use the [Ongoing Activity API](https://developer.android.com/training/wearables/notifications/ongoing-activity) for the duration of the workout to prevent the system from returning to the watch face.
+3. Use the [Ongoing Activity API](https://developer.android.com/training/wearables/notifications/ongoing-activity) (or [Live Updates](https://developer.android.com/training/wearables/notifications/live-updates) on Wear OS 7 and higher) for the duration of the workout to prevent the system from returning to the watch face.
 
 For a complete implementation, see the compose-based [Exercise sample](https://github.com/android/health-samples/tree/main/health-services/ExerciseSampleCompose) on
 GitHub. This sample also demonstrates the use of the [`AmbientAware`](https://google.github.io/horologist/compose-layout/#ambientaware-composable)

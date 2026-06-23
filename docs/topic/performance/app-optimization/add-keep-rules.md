@@ -28,7 +28,7 @@ keep option, `allowoptimization` as the modifier, and keeps
 The keep option is the first part of your keep rule. It specifies what aspects
 of a class to preserve. There are six different keep options, namely `keep`,
 `keepclassmembers`, `keepclasseswithmembers`, `keepnames`,
-`keepclassmembernames`, `keepclasseswithmembernames`.
+`keepclassmembernames`, and `keepclasseswithmembernames`.
 
 The following table describes these keep options:
 
@@ -71,7 +71,7 @@ table:
 | Value | Description |
 |---|---|
 | `allowoptimization` | Allows optimization of the specified elements. However, the specified elements are not renamed or removed. |
-| `allowobfuscation` | Allows renaming of the specified elements. However, the elements are not be removed or otherwise optimized. |
+| `allowobfuscation` | Allows renaming of the specified elements. However, the elements are not removed or otherwise optimized. |
 | `allowshrinking` | Allows removal of the specified elements if R8 finds no references to them. However, the elements are not renamed or otherwise optimized. |
 | `includedescriptorclasses` | Instructs R8 to keep all classes that appear in the descriptors of the methods (parameter types and return types) and fields (field types) being kept. |
 | `allowaccessmodification` | Allows R8 to change (typically widen) the access modifiers (`public`, `private`, `protected`) of classes, methods, and fields during the optimization process. |
@@ -167,7 +167,7 @@ following rule keeps only the `public static` methods of a `Utils` class:
     }
 
 > [!NOTE]
-> **Note:** You can use `!` to invert the scope of the modifier, however it is not recommended because you could unintentionally apply a rule to almost every class in your app.
+> **Note:** You can use `!` to invert the scope of the modifier. However, it is not recommended because you could unintentionally apply a rule to almost every class in your app.
 
 #### Kotlin-specific modifiers
 
@@ -265,17 +265,17 @@ is as follows:
 
     [<access_modifier>] [<return_type>] <method_name>(<parameter_types>);
 
-For example, the following keep rule keeps a public method called `setLabel()`
-that returns void and takes a `String`.
+For example, the following keep rule keeps a public method called `getUserId()`
+that returns a `String`.
 
-    -keep class com.example.MyView {
-        public void setLabel(java.lang.String);
+    -keep class com.example.model.UserData {
+        public java.lang.String getUserId();
     }
 
 You can use `<methods>` as a shortcut to match all methods in a class as
 follows:
 
-    -keep class com.example.MyView {
+    -keep class com.example.model.UserData {
         <methods>;
     }
 
@@ -289,16 +289,17 @@ in the member specification for a keep rule is as follows:
 
     [<access_modifier>] <init>(parameter_types);
 
-For example, the following keep rule keeps a custom `View` constructor that
-takes a `Context` and an `AttributeSet`.
+For example, the following keep rule keeps a constructor for a
+[UI state holder](https://developer.android.com/topic/architecture/ui-layer/stateholders) that
+takes a [repository](https://developer.android.com/topic/architecture/data-layer#architecture) instance.
 
-    -keep class com.example.ui.MyCustomView {
-        public <init>(android.content.Context, android.util.AttributeSet);
+    -keep class com.example.ui.state.UserViewModel {
+        public <init>(com.example.repository.UserDataRepository);
     }
 
 To keep all public constructors, use the following example as a reference:
 
-    -keep class com.example.ui.MyCustomView {
+    -keep class com.example.ui.state.UserViewModel {
         public <init>(...);
     }
 
@@ -413,8 +414,8 @@ You can use a keep rule with `includedescriptorclasses` to preserve both the
     }
 
 To keep a specific function that processes a list of objects, you need to write
-a rule that precisely matches the function's signature. Note that because generic
-types are erased, a parameter like `List<Product>` is seen as
+a rule that precisely matches the function's signature. Note that because
+generic types are erased, a parameter like `List<Product>` is seen as
 `java.util.List`.
 
 For example, if you have a utility class with a function that processes a list
@@ -563,7 +564,7 @@ classes or members that match a certain pattern.
 | ? | Both | Matches any single character in a class or member name. |
 | \*\*\* | Members | Matches any type, including primitive types (like `int`), class types (like `java.lang.String`), and array types of any dimension (like `byte[][]`). |
 | ... | Members | Matches any list of parameters for a method. |
-| % | Members | Matches any primitive type (such as \`int\`, \`float\`, \`boolean\`, or others). |
+| % | Members | Matches any primitive type (such as `int`, `float`, `boolean`, or others). |
 
 Here are some examples of how to use the special wildcards:
 
@@ -631,7 +632,7 @@ backreferences: `<1>` refers to the string captured by the first wildcard,
 `<2>` refers to the string captured by the second wildcard, and so on.
 
 For example, the Jetpack Navigation component generates `NavArgs` classes for
-type-safe argument passing between destinations. When using `NavArgsLazy`
+type-safe argument passing between destinations. When using the `NavArgsLazy`
 delegate, it uses reflection to find and invoke a static `fromBundle` method on
 the generated `NavArgs` class to deserialize arguments. If your app uses
 `NavArgs`, you only need to keep the `fromBundle` method for classes that
@@ -709,9 +710,10 @@ need it.
 ## Inspect generated Java names
 
 When writing keep rules, you must specify classes and other reference types
-using their names after they're compiled into Java bytecode (see [Class
-specification](https://developer.android.com/topic/performance/app-optimization/add-keep-rules#class-spec) and [Types](https://developer.android.com/topic/performance/app-optimization/add-keep-rules#types) for examples). To check what the generated Java
-names for your code are, use either of the following tools in Android Studio:
+using their names after they're compiled into Java bytecode (see
+[Class specification](https://developer.android.com/topic/performance/app-optimization/add-keep-rules#class-spec) and [Types](https://developer.android.com/topic/performance/app-optimization/add-keep-rules#types) for examples). To check what the
+generated Java names for your code are, use either of the following tools in
+Android Studio:
 
 - [APK Analyzer](https://developer.android.com/studio/debug/apk-analyzer#show_bytecode_find_usages_and_generate_keep_rule)
 - With the Kotlin source file open, inspect the bytecode by going to **Tools \>
