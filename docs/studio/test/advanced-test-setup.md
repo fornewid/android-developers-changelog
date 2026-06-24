@@ -58,12 +58,12 @@ instrumentation test files
 
 | Path to app class | Path to matching instrumentation test class |
 |---|---|
-| `src/main/java/Example.java` | `src/androidTest/java/AndroidExampleTest.java` |
-| `src/myFlavor/java/Example.java` | `src/androidTestMyFlavor/java/AndroidExampleTest.java` |
+| `src/main/kotlin+java/Example.kt` | `src/androidTest/java/AndroidExampleTest.kt` |
+| `src/myFlavor/kotlin+java/Example.kt` | `src/androidTestMyFlavor/java/AndroidExampleTest.kt` |
 
 Just as it does for your app source sets, the Gradle build merges and
 overrides files from different test source sets. In this case, the
-`AndroidExampleTest.java` file in the `androidTestMyFlavor` source set overrides
+`AndroidExampleTest.kt` file in the `androidTestMyFlavor` source set overrides
 the version in the `androidTest` source set. This is because
 the product flavor source set has priority over the main source set.
 
@@ -78,8 +78,8 @@ selected:
 ![OtherFlavor variant selected and androidTestMyFlavor folder is not
 shown in Android view](https://developer.android.com/static/studio/images/test/test-otherflavor-android-test-android-view.png) **Figure 2.** `OtherFlavor` variant selected; the `androidTestMyFlavor` folder does not show in the **Android** view.
 
-This looks slightly different if you are using the **Project** view, but the same
-principle applies:
+This looks slightly different if you are using the **Project** view, but the
+same principle applies:
 ![MyFlavor variant selected and androidTestMyFlavor folder is active
 in Project view](https://developer.android.com/static/studio/images/test/test-myflavor-android-test-project-view.png) **Figure 3.** `MyFlavor` variant selected; the `androidTestMyFlavor` folder is active in the **Project** view.
 
@@ -109,21 +109,6 @@ the following code sample. The full list of options can be found in the
 [`BaseFlavor`](https://developer.android.com/reference/tools/gradle-api/7.1/com/android/build/api/dsl/BaseFlavor)
 API reference.
 
-### Groovy
-
-```groovy
-android {
-    ...
-    defaultConfig {
-        ...
-        testApplicationId "com.example.test"
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        testHandleProfiling true
-        testFunctionalTest true
-    }
-}
-```
-
 ### Kotlin
 
 ```kotlin
@@ -135,6 +120,21 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         testHandleProfiling = true
         testFunctionalTest = true
+    }
+}
+```
+
+### Groovy
+
+```groovy
+android {
+    ...
+    defaultConfig {
+        ...
+        testApplicationId "com.example.test"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        testHandleProfiling true
+        testFunctionalTest true
     }
 }
 ```
@@ -160,21 +160,21 @@ property in your module-level `build.gradle` file. For example, if you want
 to run your tests against your `staging` build type, edit the file as
 shown in the following snippet:
 
-### Groovy
-
-```groovy
-android {
-    ...
-    testBuildType "staging"
-}
-```
-
 ### Kotlin
 
 ```kotlin
 android {
     ...
     testBuildType = "staging"
+}
+```
+
+### Groovy
+
+```groovy
+android {
+    ...
+    testBuildType "staging"
 }
 ```
 
@@ -186,6 +186,19 @@ module-level `build.gradle` file, use the
 [`testOptions`](https://developer.android.com/reference/tools/gradle-api/7.0/com/android/build/api/dsl/TestOptions)
 block to specify options that change how Gradle runs all your tests:
 
+### Kotlin
+
+```kotlin
+android {
+    ...
+    // Encapsulates options for running tests.
+    testOptions {
+        reportDir = "$rootDir/test-reports"
+        resultsDir = "$rootDir/test-results"
+    }
+}
+```
+
 ### Groovy
 
 ```groovy
@@ -195,19 +208,6 @@ android {
     testOptions {
         reportDir "$rootDir/test-reports"
         resultsDir "$rootDir/test-results"
-    }
-}
-```
-
-### Kotlin
-
-```kotlin
-android {
-    ...
-    // Encapsulates options for running tests.
-    testOptions {
-        reportDir "$rootDir/test-reports"
-        resultsDir = "$rootDir/test-results"
     }
 }
 ```
@@ -228,30 +228,6 @@ To specify options for only local unit tests, configure the
 [`unitTests`](https://developer.android.com/reference/tools/gradle-api/7.0/com/android/build/api/dsl/UnitTestOptions)
 block inside `testOptions`.
 
-### Groovy
-
-```groovy
-android {
-    ...
-    testOptions {
-        ...
-        // Encapsulates options for local unit tests.
-        unitTests {
-            returnDefaultValues true
-
-            all {
-                jvmArgs '-XX:MaxPermSize=256m'
-
-                if (it.name == 'testDebugUnitTest') {
-                    systemProperty 'debug', 'true'
-                }
-                ...
-            }
-        }
-    }
-}
-```
-
 ### Kotlin
 
 ```kotlin
@@ -268,6 +244,30 @@ android {
 
                  if (it.name == "testDebugUnitTest") {
                     systemProperty = mapOf("debug" to "true")
+                }
+                ...
+            }
+        }
+    }
+}
+```
+
+### Groovy
+
+```groovy
+android {
+    ...
+    testOptions {
+        ...
+        // Encapsulates options for local unit tests.
+        unitTests {
+            returnDefaultValues true
+
+            all {
+                jvmArgs '-XX:MaxPermSize=256m'
+
+                if (it.name == 'testDebugUnitTest') {
+                    systemProperty 'debug', 'true'
                 }
                 ...
             }
@@ -307,29 +307,16 @@ To create a test module, proceed as follows:
 3. Click **Sync Project** ![](https://developer.android.com/static/studio/images/buttons/toolbar-sync-gradle.png).
 
 After you create your test module, you can include your test code in the
-main or variant source set (for example, `src/main/java` or
-`src/variant/java`). If your app module defines
-multiple product flavors, you can re-create those flavors in your test module.
-Using [variant-aware dependency
-management](https://developer.android.com/studio/build/build-variants#variant_aware),
+main or variant source set (for example, `src/main/kotlin+java` or
+`src/variant/kotlin+java`). If your app module
+defines multiple product flavors, you can re-create those flavors in your test
+module. Using [variant-aware dependency management](https://developer.android.com/studio/build/build-variants#variant_aware),
 the test module attempts to test the matching flavor in the target module.
 
 By default, test modules contain and test only a debug variant. However,
 you can create new build types to match the tested app project. To make the
 test module test a different build type and not the debug one, use
 `VariantFilter` to disable the debug variant in the test project, as shown:
-
-### Groovy
-
-```groovy
-android {
-    variantFilter { variant ->
-        if (variant.buildType.name.equals('debug')) {
-            variant.setIgnore(true);
-        }
-    }
-}
-```
 
 ### Kotlin
 
@@ -338,6 +325,18 @@ android {
     variantFilter {
         if (buildType.name == "debug") {
             ignore = true
+        }
+    }
+}
+```
+
+### Groovy
+
+```groovy
+android {
+    variantFilter { variant ->
+        if (variant.buildType.name.equals('debug')) {
+            variant.setIgnore(true);
         }
     }
 }

@@ -31,7 +31,7 @@ higher.
 ## Implement a switch
 
 The following example is a minimal implementation of the `Switch` composable:
-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/add-toggle-switch_d7967bb411ad1c72317d6b2cb01b78b381cef3062e10a1d5cf0d583e01d38a6a.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/add-toggle-switch_816847dc5eccc505392c5b13900e51da110476f33d488e33de01b6db60cd61cb.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
 
 ### Results
 
@@ -42,7 +42,7 @@ The following example is a minimal implementation of the `Switch` composable:
 You can pass any composable for the `thumbContent` parameter to create a custom
 thumb. The following is an example of a switch that uses a custom icon for its
 thumb:
-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/add-toggle-switch_91fbdb465f3739a69afaf96ce7e82f55409a6810d16f9e6c11d3dca662f9bfe0.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/add-toggle-switch_bd318c7368d7e5b609cd8200757c6359cbed13a377e133c45fe82176ae857107.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
 
 ### Results
 
@@ -56,7 +56,7 @@ follows:
 Use the `colors` parameter to
 change the color of a switch's thumb and track, taking into account whether the
 switch is checked.
-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/add-toggle-switch_0a76e2c95ef053fcee18195db314cdd6962f55d683510c5de2bd33a649225884.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/add-toggle-switch_a364a25fffede3ce4edccbd9935d19f66267108141b3658bcf5591507df6ff6b.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
 
 ### Results
 

@@ -13,7 +13,7 @@ post ![](https://developer.android.com/static/blog/assets/Coco_Fatus_78a5f60501_
 ###### UX Designer
 
 Android XR
-- 18 Jun 2026 18 Jun 2026 ![](https://developer.android.com/static/blog/assets/MM_Android_XR_Geospatial_V02_Strapi_acccdca10d_Z1skkVv.webp)
+- 22 Jun 2026 22 Jun 2026 ![](https://developer.android.com/static/blog/assets/MM_Android_XR_Geospatial_V02_Strapi_5c55395a9c_UkzvN.webp)
 
   ## [Building a Mixed-Reality Tour Guide with Android XR, the Geospatial API, and Gemini](https://developer.android.com/blog/posts/building-a-mixed-reality-tour-guide-with-android-xr-the-geospatial-api-and-gemini)
 

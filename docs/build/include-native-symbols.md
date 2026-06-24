@@ -41,7 +41,7 @@ Select the debug symbol level from the following:
 - Use `FULL` to get function names, files, and line numbers in the Play Console's symbolicated stack traces.
 
 > [!NOTE]
-> **Note:** There is a 300 MB limit for the native debug symbols file. If your debug symbols footprint is too large, use `SYMBOL_TABLE` instead of `FULL` to decrease the file size.
+> **Note:** There is a 1.6 GB limit for the native debug symbols file. If your debug symbols footprint is too large, use `SYMBOL_TABLE` instead of `FULL` to decrease the file size.
 
 If your project builds an APK, use the
 `android.buildTypes.release.ndk.debugSymbolLevel` setting shown earlier to
@@ -54,6 +54,13 @@ As part of the build process, the Android Gradle plugin outputs this file in the
 following project location:
 
 `app/build/outputs/native-debug-symbols/<var>variant-name</var>/native-debug-symbols.zip`
+
+If your dependencies contain native libraries, the debug information is likely
+stripped to reduce size. You can verify this by running a build with the `info`
+log level and setting `debugSymbolLevel = { SYMBOL_TABLE | FULL }`.
+Then look for the following line in the build output:
+
+`Unable to extract native debug metadata from ... because the native debug metadata has already been stripped.`
 
 ### Android Gradle plugin version 4.0 or earlier (and other build systems)
 

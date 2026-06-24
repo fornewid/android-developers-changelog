@@ -10,7 +10,7 @@ Write trace events to the system trace buffer.
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| May 19, 2026 | [1.3.0](https://developer.android.com/jetpack/androidx/releases/tracing#1.3.0) | - | - | [2.0.0-alpha08](https://developer.android.com/jetpack/androidx/releases/tracing#2.0.0-alpha08) |
+| June 23, 2026 | [1.3.0](https://developer.android.com/jetpack/androidx/releases/tracing#1.3.0) | - | - | [2.0.0-alpha09](https://developer.android.com/jetpack/androidx/releases/tracing#2.0.0-alpha09) |
 
 ## Feedback
 
@@ -28,6 +28,21 @@ for more information.
 ## Tracing
 
 ### Version 2.0
+
+#### Version 2.0.0-alpha09
+
+June 23, 2026
+
+`androidx.tracing:tracing-*:2.0.0-alpha09` is released. Version 2.0.0-alpha09 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/d183e19c77ddcd420f939c1a21cd82c038237f28..65732fbdb79496ec54ef16ed4ce396304774e8d0/tracing).
+
+**API Changes**
+
+- Minor API change in `Tracer` to diambiguate between `instant(...)` and `writeInstant(...)`. ([I0935a](https://android-review.googlesource.com/#/q/I0935a1832723ddc85b0798c51545782db9762cf5))
+- Add support for propagation tokens in instant events. ([I99f81](https://android-review.googlesource.com/#/q/I99f81e73bd26b0287c5d41e414ad1678e7f31092))
+- Allow full usage of Perfetto flows in the experimental manual context propagation API. ([I20cb6](https://android-review.googlesource.com/#/q/I20cb6d7f4c99b9e29760ca9efd336ed0e25136d8))
+- Defer creation of the `BufferedSink` and `ProtoWriter` in `TraceSink`. ([Ibd098](https://android-review.googlesource.com/#/q/Ibd098a1dc6d115863edaf64f85c1e5750617c04e))
+- Make `Tracer` discovery simple and pluggable for both Java and Android Libraries. ([I99111](https://android-review.googlesource.com/#/q/I9911157291453ab72a37b2a91a0d59d14eb907f8))
+- Make it easy for library developers to discover an instance of `TraceDriver` that can be used for in-process tracing. ([Ia503e](https://android-review.googlesource.com/#/q/Ia503e1bfdd00e81150422c8aed98f600f392cba1))
 
 #### Version 2.0.0-alpha08
 

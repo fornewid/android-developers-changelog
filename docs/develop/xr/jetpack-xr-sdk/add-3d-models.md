@@ -164,7 +164,7 @@ For more information on the interactivity options for Scene Viewer, refer to our
 
 ## glTF extensions
 
-Jetpack XR SDK supports several gfTF extensions that expand the capabilities of
+Jetpack XR SDK supports several glTF extensions that expand the capabilities of
 3D models. These capabilities are available through both the
 [`GltfModelEntity`](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/GltfModelEntity) and Scene Viewer.
 

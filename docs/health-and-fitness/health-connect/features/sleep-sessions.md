@@ -167,7 +167,8 @@ suspend fun writeSleepSession(healthConnectClient: HealthConnectClient) {
                 startZoneOffset = ZoneOffset.of("-08:00"),
                 endTime = Instant.parse("2022-05-11T07:00:00.000Z"),
                 endZoneOffset = ZoneOffset.of("-08:00"),
-                title = "My Sleep"
+                title = "My Sleep",
+                metadata = Metadata.activelyRecorded(device = Device(type = Device.TYPE_WATCH))
             ),
         )
     )
@@ -214,6 +215,7 @@ SleepSessionRecord(
     endTime = endTime,
     startZoneOffset = ZoneOffset.UTC,
     endZoneOffset = ZoneOffset.UTC,
+    metadata = Metadata.activelyRecorded(device = Device(type = Device.TYPE_WATCH))
 )
 ```
 

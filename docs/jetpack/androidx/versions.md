@@ -155,7 +155,7 @@ release notes to view the version updates for all of the artifacts.
 | [loader](https://developer.android.com/jetpack/androidx/releases/loader) | October 9, 2019 | [1.1.0](https://developer.android.com/jetpack/androidx/releases/loader#1.1.0) | - | - | - |
 | [localbroadcastmanager](https://developer.android.com/jetpack/androidx/releases/localbroadcastmanager) | January 12, 2022 | [1.1.0](https://developer.android.com/jetpack/androidx/releases/localbroadcastmanager#1.1.0) | - | - | - |
 | [media](https://developer.android.com/jetpack/androidx/releases/media) | May 06, 2026 | [1.8.0](https://developer.android.com/jetpack/androidx/releases/media#1.8.0) | - | - | - |
-| [media3](https://developer.android.com/jetpack/androidx/releases/media3) | May 12, 2026 | [1.10.1](https://developer.android.com/jetpack/androidx/releases/media3#1.10.1) | - | - | - |
+| [media3](https://developer.android.com/jetpack/androidx/releases/media3) | June 24, 2026 | [1.10.1](https://developer.android.com/jetpack/androidx/releases/media3#1.10.1) | - | - | [1.11.0-alpha01](https://developer.android.com/jetpack/androidx/releases/media3#1.11.0-alpha01) |
 | [mediarouter](https://developer.android.com/jetpack/androidx/releases/mediarouter) | February 11, 2026 | [1.8.1](https://developer.android.com/jetpack/androidx/releases/mediarouter#1.8.1) | - | - | [1.9.0-alpha01](https://developer.android.com/jetpack/androidx/releases/mediarouter#1.9.0-alpha01) |
 | [multidex](https://developer.android.com/jetpack/androidx/releases/multidex) | December 17, 2018 | [2.0.1](https://developer.android.com/jetpack/androidx/releases/multidex#2.0.1) | - | - | - |
 | [metrics](https://developer.android.com/jetpack/androidx/releases/metrics) | October 8, 2025 | [1.0.0](https://developer.android.com/jetpack/androidx/releases/metrics#1.0.0) | - | - | - |
@@ -196,7 +196,7 @@ release notes to view the version updates for all of the artifacts.
 | [test.uiautomator](https://developer.android.com/jetpack/androidx/releases/test-uiautomator) | June 17, 2026 | [2.3.0](https://developer.android.com/jetpack/androidx/releases/test-uiautomator#2.3.0) | [2.4.0-rc01](https://developer.android.com/jetpack/androidx/releases/test-uiautomator#2.4.0-rc01) | - | - |
 | [text-vertical](https://developer.android.com/jetpack/androidx/releases/text-vertical) | April 22, 2026 | - | - | - | [1.0.0-alpha05](https://developer.android.com/jetpack/androidx/releases/text-vertical#1.0.0-alpha05) |
 | [textclassifier](https://developer.android.com/jetpack/androidx/releases/textclassifier) | March 23, 2022 | - | - | - | [1.0.0-alpha04](https://developer.android.com/jetpack/androidx/releases/textclassifier#1.0.0-alpha04) |
-| [tracing](https://developer.android.com/jetpack/androidx/releases/tracing) | May 19, 2026 | [1.3.0](https://developer.android.com/jetpack/androidx/releases/tracing#1.3.0) | - | - | [2.0.0-alpha08](https://developer.android.com/jetpack/androidx/releases/tracing#2.0.0-alpha08) |
+| [tracing](https://developer.android.com/jetpack/androidx/releases/tracing) | June 23, 2026 | [1.3.0](https://developer.android.com/jetpack/androidx/releases/tracing#1.3.0) | - | - | [2.0.0-alpha09](https://developer.android.com/jetpack/androidx/releases/tracing#2.0.0-alpha09) |
 | [transition](https://developer.android.com/jetpack/androidx/releases/transition) | January 14, 2026 | [1.7.0](https://developer.android.com/jetpack/androidx/releases/transition#1.7.0) | - | - | - |
 | [tv (\*)](https://developer.android.com/jetpack/androidx/releases/tv) | May 06, 2026 | [1.1.0](https://developer.android.com/jetpack/androidx/releases/tv#1.1.0) | - | - | - |
 | [tvprovider](https://developer.android.com/jetpack/androidx/releases/tvprovider) | May 7, 2025 | [1.1.0](https://developer.android.com/jetpack/androidx/releases/tvprovider#1.1.0) | - | - | - |
@@ -229,4 +229,4 @@ release notes to view the version updates for all of the artifacts.
 
 (\*) This library has multiple artifacts. See its release notes for more information.  
 
-Last updated: June 17, 2026
+Last updated: June 23, 2026

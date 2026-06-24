@@ -110,6 +110,22 @@ line in the source code.
 
 ![](https://developer.android.com/static/studio/images/profiler-heap-dump-instance-details.png) The **Instances** , **Fields** , and **References** views in the Heap Dump tool window.
 
+## Detect duplicate bitmaps
+
+You can also detect redundant bitmaps in the Heap Dump view
+starting with Android Studio Narwhal 4.
+
+Here is how to hunt them down:
+
+1. Open the Profiler tab in Android Studio
+2. Click **Heap Dump** (or **Analyze Memory Usage**) and click record to take a snapshot of your app's current memory state.
+3. Scan the analysis results for the yellow warning triangle ⚠️, which Android Studio uses to flag duplicate bitmaps being stored multiple times.
+   - Alternatively, navigate to the profiler header, choose **Filter by:** and pick the **Duplicate Bitmaps** setting.
+4. Click any flagged entry to open the **Bitmap Preview** pane, allowing you to see exactly which image is the repeat offender.
+5. Use that visual confirmation to track down the redundant loading logic in your code and implement a better caching strategy.
+
+![](https://developer.android.com/static/studio/images/dup-bitmaps-memory-profiler.jpg) Look for duplicate bitmaps using the yellow warning triangle ⚠️.
+
 ## Find memory leaks
 
 To quickly filter to classes that might be associated with memory leaks, open

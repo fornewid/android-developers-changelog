@@ -259,7 +259,7 @@ val session =   ExerciseSessionRecord(
     endTime = startTime.plusSeconds(3600),
     endZoneOffset = zoneOffset,
     exerciseType = ExerciseSessionRecord.EXERCISE_TYPE_RUNNING,
-    metadata = Metadata(clientRecordId = sessionClientId),
+    metadata = Metadata.activelyRecorded(clientRecordId = sessionClientId, device = Device(type = Device.TYPE_PHONE)),
 )
 
 healthConnectClient.insertRecords(listOf(session))

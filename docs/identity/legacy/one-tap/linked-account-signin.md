@@ -4,13 +4,16 @@ url: https://developer.android.com/identity/legacy/one-tap/linked-account-signin
 source: md.txt
 ---
 
-| **Caution:** One Tap for Android is deprecated. To ensure the continued security and usability of your app, [migrate to
-| Credential Manager](https://developer.android.com/identity/sign-in/credential-manager). Credential Manager supports passkey, password, and federated identity authentication (such as Sign-in with Google), stronger security, and a more consistent user experience.
+> [!CAUTION]
+> **Caution:** One Tap for Android is deprecated. To ensure the continued security and usability of your app, [migrate to
+> Credential Manager](https://developer.android.com/identity/sign-in/credential-manager). Credential Manager supports passkey, password, and federated identity authentication (such as Sign-in with Google), stronger security, and a more consistent user experience.
 
 [Google Account Linking](https://developers.google.com/identity/account-linking) enables Google Account holders to quickly, seamlessly and safely connect to your services and share data with Google.
 
 Linked Account Sign-In enables [One Tap Sign-In With Google](https://developers.google.com/identity/one-tap/android/legacy-get-saved-credentials) for users that already have their Google Account linked to your service. This improves the experience for users as they can sign in with one click, without re-entering their username and password. It also reduces the chances of users creating duplicate accounts on your service.
-| **Note:** Linked Account Sign-In is only available on Android.
+
+> [!NOTE]
+> **Note:** Linked Account Sign-In is only available on Android.
 
 ## Requirements
 
@@ -32,7 +35,9 @@ Prerequisite : The user has previously linked their Google Account with their ac
 4. You exchange the Google authorization code for a Google ID token which contains information about the user's Google account.
 5. Your app also receives an ID token when the flow finishes and you match this against the user identifier in the ID token that was received by your server in order to sign the user into your app.
 
-| **Note:** Steps 3 \& 4 are done the first time the user attempts to sign in with a linked account. The steps are skipped for subsequent sign-ins with the same account.
+> [!NOTE]
+> **Note:** Steps 3 \& 4 are done the first time the user attempts to sign in with a linked account. The steps are skipped for subsequent sign-ins with the same account.
+
 ![Linked Account Sign-In.](https://developer.android.com/static/identity/legacy/one-tap/images/linked-account-signin.png) **Figure 1.** Linked Account Sign-In Flow. If the user has multiple signed-in accounts on their device, the user may see an account chooser and is only taken to the Linked Account Sign-In view if they select a linked account.
 
 ## Implement Linked Account Sign-In in your Android app
@@ -41,7 +46,8 @@ To support Linked Account Sign-In on your Android app, follow the instructions i
 
 ## Handle authorization code requests from Google
 
-| **Note:** You must have [registered your OAuth2 endpoints](https://developers.google.com/identity/account-linking/registration) with Google before proceeding with the below steps.
+> [!NOTE]
+> **Note:** You must have [registered your OAuth2 endpoints](https://developers.google.com/identity/account-linking/registration) with Google before proceeding with the below steps.
 
 Google makes a POST request to your token endpoint to save an authorization code which you exchange for the user's ID token. The request contains the user's access token and a Google issued OAuth2 authorization code.
 
@@ -62,7 +68,9 @@ Before saving the authorization code, you must verify the access token was grant
     &access_token=ACCESS_TOKEN
 
 Your token exchange endpoint must be able to handle the following request parameters:
-| **Note:** This requires an update to your token endpoint. In the [Google Account Linking OAuth token request](https://developers.google.com/identity/account-linking/oauth-linking?oauth=code#handle_token_exchange_requests), Google calls your token endpoint to exchange an authorization code provided by you for an access or refresh token. In the Linked Account Sign-In token request, Google calls your token endpoint to save an authorization code.
+
+> [!NOTE]
+> **Note:** This requires an update to your token endpoint. In the [Google Account Linking OAuth token request](https://developers.google.com/identity/account-linking/oauth-linking?oauth=code#handle_token_exchange_requests), Google calls your token endpoint to exchange an authorization code provided by you for an access or refresh token. In the Linked Account Sign-In token request, Google calls your token endpoint to save an authorization code.
 
 | Token endpoint parameters ||
 |---|---|
@@ -175,13 +183,13 @@ The response contains the following fields:
     }
 
 
-    POST /oauth2/v4/token HTTP/1.1
+    POST /oauth2/v4/token HTTP&/1.1
     Host: www.googleapis.com
-    Content-Type: application/x-www-form-urlencoded
+    &Content-Type: application/x&-www-form-urlencoded
 
     code=Google authorization code
-    &grant_type=authorization_code
-    &client_id=Google client id
-    &client_secret=Google client secret
+    grant_type=authorization_code
+    client_id=Google client id
+    client_secret=Google client secret
 
 ## Validate the ID Token response

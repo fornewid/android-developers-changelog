@@ -23,12 +23,12 @@ These new developer verification protections will take effect on September 30, 2
 This rollout is an **industry-wide effort to create a safer ecosystem**. We will begin by verifying app installations from the following stores:
 
 - **Google** (Google Play)
-- **Honor (HONOR App Market)**
-- **OPlus (OPPO App Market)**
-- **Samsung (Galaxy Store)**
-- **Transsion (Palm Store)**
-- **vivo (V-Appstore)**
-- **Xiaomi (GetApps)**
+- **Honor**(HONOR App Market)
+- **OPlus**(OPPO App Market)
+- **Samsung**(Galaxy Store)
+- **Transsion**(Palm Store)
+- **vivo**(V-Appstore)
+- **Xiaomi**(GetApps)
 
 Following this initial phase with our partners, we will expand these protections globally for all apps on certified Android devices in 2027.
 
@@ -48,7 +48,7 @@ We'll launch these APIs over the next few months.
 
 ![260604_Blog in line asset - “ADV June”.png](https://developer.android.com/static/blog/assets/260604_Blog_in_line_asset_ADV_June_d63356d9c8_ZloU9h.webp)
 
-### **Get started with Android Developer Verification**
+### **Get started with Android developer verification**
 
 If you distribute apps in Brazil, Indonesia, Singapore, or Thailand via the stores listed above, please ensure your verification is complete by the September deadline.
 

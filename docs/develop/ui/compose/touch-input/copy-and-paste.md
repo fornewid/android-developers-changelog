@@ -168,7 +168,7 @@ Refer to [Copy data streams](https://developer.android.com/develop/ui/views/touc
 ## Paste a rich content
 
 With the [`contentReceiver`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier#(androidx.compose.ui.Modifier).contentReceiver(androidx.compose.foundation.content.ReceiveContentListener)) modifier, you can handle pasting rich content
-to [`BasicTextField`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/text/BasicTextField.composable(androidx.compose.foundation.text.input.TextFieldState,androidx.compose.ui.Modifier,kotlin.Boolean,kotlin.Boolean,androidx.compose.foundation.text.input.InputTransformation,androidx.compose.ui.text.TextStyle,androidx.compose.foundation.text.KeyboardOptions,androidx.compose.foundation.text.input.KeyboardActionHandler,androidx.compose.foundation.text.input.TextFieldLineLimits,kotlin.Function2,androidx.compose.foundation.interaction.MutableInteractionSource,androidx.compose.ui.graphics.Brush,androidx.compose.foundation.text.input.OutputTransformation,androidx.compose.foundation.text.input.TextFieldDecorator,androidx.compose.foundation.ScrollState)) in the modified component.
+to [`BasicTextField`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/text/BasicTextField.composable) in the modified component.
 The following code snippet adds the pasted URI of an image data
 to a list of [`Uri`](https://developer.android.com/reference/android/net/Uri) objects.
 

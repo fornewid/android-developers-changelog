@@ -8,7 +8,7 @@ source: md.txt
 
 # What's new in the Jetpack Compose April '26 release
 
-###### 5-min read
+###### 6-min read
 
 ![](https://developer.android.com/static/blog/assets/0420_Compose_1_11_Strapi_9c17b19a5e_1zjMqo.webp) 22 Apr 2026 [![](https://developer.android.com/static/blog/assets/meghan_d663ed9c69_e0a5b5a564_Z21FLk.webp)](https://developer.android.com/blog/authors/meghan-mehta) [##### Meghan Mehta](https://developer.android.com/blog/authors/meghan-mehta)
 
@@ -76,7 +76,7 @@ We introduced [`HostDefaultProvider`](https://developer.android.com/reference/ko
 By implementing the `PreviewWrapperProvider` interface and applying the new `@PreviewWrapper` annotation, you can easily inject custom logic, such as applying a specific `Theme`. The annotation can be applied to a function annotated with `@Composable` and `@Preview` or `@MultiPreview`, offering a generic, easy-to-use solution that works across preview features and significantly reduces repetitive code.
 
 ```kotlin
-class ThemeWrapper: PreviewWrapper {
+class ThemeWrapper: PreviewWrapperProvider {
     @Composable
     override fun Wrap(content: @Composable (() -> Unit)) {
         JetsnackTheme {
@@ -85,7 +85,8 @@ class ThemeWrapper: PreviewWrapper {
     }
 }
 
-@PreviewWrapperProvider(ThemeWrapper::class)
+
+@PreviewWrapper(ThemeWrapper::class)
 @Preview
 @Composable
 private fun ButtonPreview() {
@@ -288,7 +289,7 @@ With so many exciting new APIs in Jetpack Compose, and many more coming up, it's
   ###### [Matthew Forsythe](https://developer.android.com/blog/authors/matthew-forsythe) •
   2 min read
 
-- [![](https://developer.android.com/static/blog/assets/Stevan_Silva_7661118077_V4WGm.webp)](https://developer.android.com/blog/authors/stevan-silva)[![](https://developer.android.com/static/blog/assets/unnamed_5_cdab7ecfba_2kh65s.webp)](https://developer.android.com/blog/authors/vinny-da-silva) 15 Jun 2026 15 Jun 2026 ![](https://developer.android.com/static/blog/assets/MM_D_Android_XR_Strapi_39d27725e6_Zhwmdd.webp)
+- [![](https://developer.android.com/static/blog/assets/Stevan_Silva_7661118077_V4WGm.webp)](https://developer.android.com/blog/authors/stevan-silva)[![](https://developer.android.com/static/blog/assets/unnamed_5_cdab7ecfba_2kh65s.webp)](https://developer.android.com/blog/authors/vinny-da-silva) 15 Jun 2026 15 Jun 2026 ![](https://developer.android.com/static/blog/assets/MM_Android_XR_Meta_a489e757ed_Z1R62M0.webp)
 
   #### [Product News](https://developer.android.com/blog/categories/product-news)
 

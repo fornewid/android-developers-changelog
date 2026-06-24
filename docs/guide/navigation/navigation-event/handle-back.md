@@ -201,8 +201,8 @@ fun ScreenB(
         (widthDp.value / 20f) - 8
     }
     val offsetX = when (swipeEdge) {
-        EDGE_LEFT -> (backProgress * maxShift).dp
-        EDGE_RIGHT -> (-backProgress * maxShift).dp
+        NavigationEvent.EDGE_LEFT -> (backProgress * maxShift).dp
+        NavigationEvent.EDGE_RIGHT -> (-backProgress * maxShift).dp
         else -> 0.dp
     }
     NavigationBackHandler(

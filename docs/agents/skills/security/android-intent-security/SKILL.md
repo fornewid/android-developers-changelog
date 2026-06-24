@@ -4,14 +4,6 @@ url: https://developer.android.com/agents/skills/security/android-intent-securit
 source: md.txt
 ---
 
-description: Best practices for Android Intent security. Use this skill when
-auditing component configurations in AndroidManifest.xml (activities, services,
-receivers) or source code handling incoming Intents (getIntent,
-getParcelableExtra) to prevent Intent Redirection and unauthorized access.
-keywords_public: recipe, Android, Security, Intent, Redirection, PendingIntent,
-ContentProvider, Service ,Signature, Verification, Sanitizer, Vulnerability,
-Best Practices
-
 This skill provides guidelines and patterns to secure Android components
 (Activities, Services, Broadcast Receivers, Content Providers) and handle
 Intents safely, preventing privilege escalation and unauthorized access.

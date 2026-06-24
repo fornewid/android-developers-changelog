@@ -28,6 +28,14 @@ The following targets have builds available on the `git_udc-car-release` branch:
 | `tangorpro_car_ext-user` |   | ✔ | ✔ | ✔ | ✔ | ✔ | ✔ |
 | `tangorpro_car_ext-userdebug` | ✔ | ✔ | ✔ |   |   |   |   |
 
+The following targets have builds available on the
+`git_internal-android15-automotiveos-release` branch:
+
+| Target | `adb` root | [Google Play services](https://developer.android.com/training/cars/platforms/automotive-os/google-play/google-services) | [Google Automotive App Host](https://play.google.com/store/apps/details?id=com.google.android.apps.automotive.templates.host) | Google Play Store | Google Maps | Gemini | [Android Auto](https://developer.android.com/training/cars/testing/aaos-on-pixel#android-auto) |
+|---|---|---|---|---|---|---|---|
+| `tangorpro_car_ext-user` |   | ✔ | ✔ | ✔ | ✔ | ✔ | ✔ |
+| `tangorpro_car_ext-userdebug` | ✔ |   |   |   |   |   |   |
+
 ## Flash your device
 
 To flash your device, follow the steps detailed in [Flash with Android Flash
@@ -62,15 +70,15 @@ state.
 
 ### Simulate driving
 
-#### Simulate driving using a quick setting
+#### Simulate driving using Quick Settings
 
-On `userdebug` images (UAA1.250207.001 or later), you can simulate driving by
-using a quick setting menu:
+On `userdebug` images (UAA1.250207.001 or higher), you can simulate driving
+by using the Quick Settings menu:
 
 1. Enable [Developer options](https://developer.android.com/studio/debug/dev-options).
-2. Toggle *Set driving* in the quick setting menu, as shown in the following image:
+2. In the Quick Settings menu, toggle **Set driving**, as shown in the following image:
 
-![Quick setting](https://developer.android.com/static/training/cars/images/quick-setting.png) Quick setting
+![Simulate driving with the Quick Settings menu](https://developer.android.com/static/training/cars/images/quick-setting.png) Quick Settings menu
 
 #### Simulate driving using adb
 
@@ -181,13 +189,29 @@ instructions.
 
 ## Release notes
 
+### AAI5.260516.001.A2 (May 16, 2026)
+
+This release has builds available on the
+`git_internal-android15-automotiveos-release` branch.
+
+#### Updates
+
+- The first Android 15 images for the `tangorpro_car_ext-user` and `tangorpro_car_ext-userdebug` targets.
+- The `tangorpro_car_ext-user` build adds support for [media apps built using
+  the Car App Library templates](https://developer.android.com/training/cars/apps/media).
+- The `tangorpro_car_ext-user` build adds support for Gemini.
+
 ### UAA1.250513.001 (May 13, 2025)
+
+This release has builds available on the `git_udc-car-release` branch.
 
 #### Updates
 
 - The `tangorpro_car_ext-user` build now supports acting as an Android Auto receiver.
 
 ### UAA1.250207.001 (Feb 7, 2025)
+
+This release has builds available on the `git_udc-car-release` branch.
 
 #### Updates
 

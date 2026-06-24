@@ -109,7 +109,7 @@ value when accessing the `current` property of the `CompositionLocal`. When a
 new value is provided, Compose recomposes parts of the Composition that read
 the `CompositionLocal`.
 
-As an example of this, the [`LocalContentColor`](https://developer.android.com/reference/kotlin/androidx/compose/material3/LocalContentColor) `CompositionLocal` contains
+As an example of this, the [`LocalContentColor`](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#LocalContentColor()) `CompositionLocal` contains
 the preferred content color used for text and
 iconography to ensure it contrasts against the current background color. In the
 following example, `CompositionLocalProvider` is used to provide different
@@ -153,7 +153,7 @@ In the last example, the `CompositionLocal` instances were internally used
 by Material composables. To access the current value of a `CompositionLocal`,
 use its [`current`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/CompositionLocal#current())
 property. In the following example, the current [`Context`](https://developer.android.com/reference/android/content/Context) value of the
-[`LocalContext`](https://developer.android.com/reference/kotlin/androidx/compose/ui/platform/LocalContext) `CompositionLocal` that is commonly used in Android apps is
+[`LocalContext`](https://developer.android.com/reference/kotlin/androidx/compose/ui/platform/package-summary#LocalContext()) `CompositionLocal` that is commonly used in Android apps is
 used to format the text:
 
 

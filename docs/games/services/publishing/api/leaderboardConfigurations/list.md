@@ -42,14 +42,13 @@ Do not supply a request body with this method.
 
 If successful, this method returns a response body with the following structure:
 
-```objective-c
+```
 {
   "kind": "gamesConfiguration#leaderboardConfigurationListResponse",
-  "nextPageToken": string,
+  &quot;nextPageToken&quot;: string,
   "items": [
-    leaderboardConfigurations Resource
+   } leaderboardConfigurations Resource
   ]
-}
 ```
 
 | Property name | Value | Description | Notes |

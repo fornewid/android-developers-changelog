@@ -23,7 +23,7 @@ app to control screen reader traversal order.
 
 ## Group elements for traversal
 
-`isTraversalGroup` is a boolean property that defines whether a [semantics](https://developer.android.com/develop/ui/compose/semantics)
+`isTraversalGroup` is a boolean property that defines whether a [semantics](https://developer.android.com/develop/ui/compose/accessibility/semantics)
 node is a traversal group. This type of node is one whose function is to serve
 as a boundary or border in organizing the node's children.
 

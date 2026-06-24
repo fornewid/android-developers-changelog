@@ -5,8 +5,8 @@ source: md.txt
 ---
 
 Android Studio is the official Integrated Development Environment (IDE) for
-Android app development. Based on the powerful code editor and developer tools from
-[IntelliJ IDEA](https://www.jetbrains.com/idea/), Android
+Android app development. Based on the powerful code editor and developer tools
+from [IntelliJ IDEA](https://www.jetbrains.com/idea/), Android
 Studio offers even more features that enhance your productivity when building
 Android apps, such as:
 
@@ -45,8 +45,8 @@ the top level, under **Gradle Scripts**.
 Each app module contains the following folders:
 
 - **manifests** : Contains the `AndroidManifest.xml` file.
-- **java**: Contains the Kotlin and Java source code files, including JUnit test code.
-- **res**: Contains all non-code resources such as UI strings and bitmap images.
+- **kotlin+java**: Contains the Kotlin and Java source code files, including JUnit test code.
+- **res**: Contains all non-code resources such as UI strings and images.
 
 The Android project structure on disk differs from this flattened
 representation. To see the actual file structure of the project, select
@@ -95,31 +95,18 @@ different device configurations on Google Play.
 For more information about configuring build variants, see
 [Configure build variants](https://developer.android.com/build/build-variants).
 
-### Multiple APK support
-
-Multiple APK support lets you efficiently create multiple APKs based on screen
-density or ABI. For example, you can create separate APKs of an app for the
-`hdpi` and `mdpi` screen densities, while still considering them a single
-variant and letting them share test APK, `javac`, `dx`, and ProGuard settings.
-
-For more information about multiple APK support, read
-[Build multiple APKs](https://developer.android.com/build/configure-apk-splits).
-
 ### Resource shrinking
 
 Resource shrinking in Android Studio automatically removes unused resources
-from your packaged app and library dependencies. For example, if your
-app uses
-[Google Play services](https://developers.google.com/android/guides/overview)
-to access Google Drive functionality, and you are not currently using
-[Google Sign-In](https://developer.android.com/training/sign-in), then resource shrinking can
-remove the various drawable assets for the `SignInButton` buttons.
+from your packaged app and library dependencies. For example, if you add an
+image or string to your project but never actually reference it in your UI,
+resource shrinking safely removes that asset from your packaged app.
 
-**Note:** Resource shrinking works in conjunction
-with code shrinking tools, such as ProGuard.
+> [!NOTE]
+> **Note:** Resource shrinking works in conjunction with code shrinking tools, such as R8.
 
 For more information on shrinking code and resources, see
-[Shrink, obfuscate, and optimize your app](https://developer.android.com/build/shrink-code).
+[Enable app optimization with R8](https://developer.android.com/topic/performance/app-optimization/enable-app-optimization).
 
 ### Manage dependencies
 
@@ -156,6 +143,22 @@ Inline debug information includes:
 To enable inline debugging, in the **Debug** window, click **Settings**
 ![](https://developer.android.com/static/studio/images/studio-debug-settings-icon.png) and select **Show Variable Values in Editor**.
 
+### Layout Inspector
+
+Layout Inspector lets you inspect a Compose layout inside a running app in an
+emulator or physical device. You can use the Layout Inspector to check how
+often a composable is recomposed or skipped, which can help identify issues
+with your app.
+
+To start the Layout Inspector, [run your app](https://developer.android.com/studio/run), go to the
+**Running Devices** window, and click **Toggle Layout Inspector**
+![](https://developer.android.com/static/studio/images/design/start-embedded-layout-inspector.png).
+If you switch among multiple devices or projects, the Layout Inspector
+automatically connects to the debuggable processes running in the foreground of
+the connected device.
+
+For more information, see [Layout Inspector](https://developer.android.com/studio/debug/layout-inspector).
+
 ### Performance profilers
 
 Android Studio provides performance profilers so you can easily track your
@@ -187,18 +190,16 @@ optimize your app's performance and memory use by adjusting the
 method calls related to those actions.
 
 For information about tracking and analyzing allocations, see
-[View memory allocations](https://developer.android.com/studio/profile/memory-profiler#record-allocations).
+[Heap dump overview](https://developer.android.com/studio/profile/capture-heap-dump#heap-dump-overview).
 
 ### Data file access
 
-The Android SDK tools, such as
-[Systrace](https://developer.android.com/topic/performance/tracing/command-line)
-and [Logcat](https://developer.android.com/studio/debug/am-logcat),
+The Android SDK tools, such as [Systrace](https://developer.android.com/topic/performance/tracing/command-line) and [Logcat](https://developer.android.com/studio/debug/am-logcat),
 generate performance and debugging data for detailed app analysis.
 
 To view the available generated data files:
 
-1. Open the Captures tool window.
+1. Open the Android Profile and select Past Recordings.
 2. In the list of the generated files, double-click a file to view the data.
 3. Right-click any HPROF files to convert them to the standard.
 4. Investigate your RAM usage file format.
@@ -206,8 +207,7 @@ To view the available generated data files:
 ### Code inspections
 
 Whenever you compile your program, Android Studio automatically runs configured
-[lint](https://developer.android.com/studio/write/lint) checks and other
-[IDE inspections](https://www.jetbrains.com/help/idea/2026.1/code-inspection.html) to help you easily
+[lint](https://developer.android.com/studio/write/lint) checks and other [IDE inspections](https://www.jetbrains.com/help/idea/2026.1/code-inspection.html) to help you easily
 identify and correct problems with the structural quality of your code.
 
 The lint tool checks your Android project source files for potential bugs and

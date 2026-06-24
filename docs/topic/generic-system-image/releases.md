@@ -78,6 +78,8 @@ sources as the [corresponding Google Pixel builds](https://developer.android.com
 These binaries contain the same API and SDK, have a similar CTS result, and have
 been validated on the following Pixel devices:
 
+- Pixel 6
+- Pixel 6 Pro
 - Pixel 6a
 - Pixel 7
 - Pixel 7 Pro

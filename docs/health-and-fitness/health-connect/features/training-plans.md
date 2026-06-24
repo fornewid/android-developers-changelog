@@ -283,7 +283,7 @@ val plannedExerciseSessionRecord = PlannedExerciseSessionRecord(
     ),
     title = "Run at lake",
     notes = null,
-    metadata = Metadata(
+    metadata = Metadata.activelyRecorded(
         device = Device(type = Device.Companion.TYPE_PHONE),
     ),
     startZoneOffset = null,
@@ -360,7 +360,7 @@ val exerciseSessionRecord = ExerciseSessionRecord(
     ),
     title = "Run at lake",
     plannedExerciseSessionId = insertedPlannedExerciseSessionId,
-    metadata = Metadata(
+    metadata = Metadata.activelyRecorded(
         device = Device(type = Device.Companion.TYPE_PHONE)
     )
 )
@@ -406,7 +406,7 @@ val heartRateRecord = HeartRateRecord(
     endTime = sessionEndTime,
     endZoneOffset = ZoneOffset.UTC,
     samples = samples,
-    metadata = Metadata(
+    metadata = Metadata.activelyRecorded(
         device = Device(type = Device.Companion.TYPE_WATCH)
     )
 )

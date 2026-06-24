@@ -240,7 +240,6 @@ class ScheduleWorker(appContext: Context, workerParams: WorkerParameters) :
 ```
 
 ```kotlin
-@OptIn(ExperimentalFeatureAvailabilityApi::class)
 fun enqueueBackgroundReadWorker(context: Context, healthConnectClient: HealthConnectClient) {
     if (healthConnectClient
             .features

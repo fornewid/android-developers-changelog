@@ -856,8 +856,8 @@ The following mappings are recommended as a starting point:
 
 | M2 | M3 |
 |---|---|
-| `onSurface` with [`ContentAlpha.high`](https://developer.android.com/reference/kotlin/androidx/compose/material/ContentAlpha#high()) | `onSurface` in general, [`FontWeight.Medium`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/font/FontWeight.Companion#Medium()) - [`FontWeight.Black`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/font/FontWeight.Companion#Black()) for text |
-| `onSurface` with [`ContentAlpha.medium`](https://developer.android.com/reference/kotlin/androidx/compose/material/ContentAlpha#medium()) | `onSurfaceVariant` in general, [`FontWeight.Thin`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/font/FontWeight.Companion#Thin()) - [`FontWeight.Normal`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/font/FontWeight.Companion#Normal()) for text |
+| `onSurface` with [`ContentAlpha.high`](https://developer.android.com/reference/kotlin/androidx/compose/material/ContentAlpha#high()) | `onSurface` in general, [`FontWeight.Medium`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/font/FontWeight#Medium()) - [`FontWeight.Black`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/font/FontWeight#Black()) for text |
+| `onSurface` with [`ContentAlpha.medium`](https://developer.android.com/reference/kotlin/androidx/compose/material/ContentAlpha#medium()) | `onSurfaceVariant` in general, [`FontWeight.Thin`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/font/FontWeight#Thin()) - [`FontWeight.Normal`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/font/FontWeight#Normal()) for text |
 | `onSurface` with [`ContentAlpha.disabled`](https://developer.android.com/reference/kotlin/androidx/compose/material/ContentAlpha#high()) | `onSurface.copy(alpha = 0.38f)` |
 
 Here's an example of icon emphasis in M2 versus M3:

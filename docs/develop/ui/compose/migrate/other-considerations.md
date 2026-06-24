@@ -502,11 +502,11 @@ By default, each `ComposeView` consumes all insets at the
 [`ComposeView.consumeWindowInsets`](https://developer.android.com/reference/kotlin/androidx/compose/ui/platform/ComposeView#(androidx.compose.ui.platform.ComposeView).consumeWindowInsets())
 to `false`.
 
-For more information, read the [`WindowInsets` in Compose](https://developer.android.com/develop/ui/compose/layouts/insets) documentation.
+For more information, read the [`WindowInsets` in Compose](https://developer.android.com/develop/ui/compose/system/insets) documentation.
 
 ## Recommended for you
 
 - Note: link text is displayed when JavaScript is off
 - [Display emoji](https://developer.android.com/develop/ui/compose/text/emoji)
 - [Material Design 2 in Compose](https://developer.android.com/develop/ui/compose/designsystems/material)
-- [Window insets in Compose](https://developer.android.com/develop/ui/compose/layouts/insets)
+- [Window insets in Compose](https://developer.android.com/develop/ui/compose/system/insets)

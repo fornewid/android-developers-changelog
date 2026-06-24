@@ -31,6 +31,14 @@ To get the latest product updates delivered to you in an RSS feed, add the URL o
 
 These Jetpack libraries have been recently updated.
 
+### June 24, 2026
+
+- [Media3 Version 1.11.0-alpha01](https://developer.android.com/jetpack/androidx/releases/media3#1.11.0-alpha01)
+
+## June 23, 2026
+
+- [Tracing Version 2.0.0-alpha09](https://developer.android.com/jetpack/androidx/releases/tracing#2.0.0-alpha09)
+
 ## June 17, 2026
 
 - [Compose Animation Version 1.11.3](https://developer.android.com/jetpack/androidx/releases/compose-animation#1.11.3)

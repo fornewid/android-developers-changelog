@@ -227,4 +227,8 @@ Box(
 
 <br />
 
+<br />
+
 **Figure 5.** Animated mesh gradient with points to show the animation.
+
+<br />

@@ -226,7 +226,7 @@ use `TextStyle` or `SpanStyle`, you can now also use `Brush`.
 ### Use a brush for text styling
 
 Configure your text using a built-in brush within `TextStyle`. For example, you
-can configure a [`linearGradient`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/Brush.Companion#linearGradient(kotlin.Array,androidx.compose.ui.geometry.Offset,androidx.compose.ui.geometry.Offset,androidx.compose.ui.graphics.TileMode)) brush to your text as follows:
+can configure a [`linearGradient`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/Brush#linearGradient(kotlin.Array,androidx.compose.ui.geometry.Offset,androidx.compose.ui.geometry.Offset,androidx.compose.ui.graphics.TileMode)) brush to your text as follows:
 
 
 ```kotlin

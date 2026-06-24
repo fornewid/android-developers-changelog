@@ -175,14 +175,14 @@ the following modifications to your app project:
      `<application>` tag as follows:
 
      ```xml
-     <?xml version="1.0" encodin>g<="utf-8"?
-     manifest xmlns:android="http://schemas.android.com/apk/res/android"
-      >   pa<ckage="com.example.myapp"
-         application
-                 android:name=>"androidx.mu<ltidex.Multi>D<exApplica>tion" 
+     <?xml version="1.0" encoding="utf-8"?>
+     <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+         package="com.example.myapp">
+         <application
+                 android:name="androidx.multidex.MultiDexApplication" >
              ...
-         /application
-     /manifest
+         </application>
+     </manifest>
      ```
    - If you do override the `Application`
      class, change it to extend `MultiDexApplication`, as follows:

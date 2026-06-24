@@ -18,7 +18,7 @@ within this module are:
 ## Geometry
 
 The [Geometry](https://developer.android.com/reference/kotlin/androidx/ink/geometry/package-summary) module supports geometric operations on primitive shapes (using
-dedicated classes like [Box](https://developer.android.com/reference/kotlin/androidx/ink/geometry/Box&sa=D&source=docs&ust=1761326799140765&usg=AOvVaw1pQKRdqNKmIbX_E3mu9XBG) and [Vec](https://developer.android.com/reference/kotlin/androidx/ink/geometry/Vec)), as well as arbitrary shapes (using
+dedicated classes like [Box](https://developer.android.com/reference/kotlin/androidx/ink/geometry/Box) and [Vec](https://developer.android.com/reference/kotlin/androidx/ink/geometry/Vec)), as well as arbitrary shapes (using
 [PartitionedMesh](https://developer.android.com/reference/kotlin/androidx/ink/geometry/PartitionedMesh)), including intersection detection and transformation.
 [PartitionedMesh](https://developer.android.com/reference/kotlin/androidx/ink/geometry/PartitionedMesh) can also hold additional data to support rendering.
 

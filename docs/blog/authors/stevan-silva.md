@@ -12,7 +12,7 @@ posts ![](https://developer.android.com/static/blog/assets/Stevan_Silva_76611180
 
 ###### Group Product Manager
 
-- 15 Jun 2026 15 Jun 2026 ![](https://developer.android.com/static/blog/assets/MM_D_Android_XR_Strapi_39d27725e6_Zhwmdd.webp)
+- 15 Jun 2026 15 Jun 2026 ![](https://developer.android.com/static/blog/assets/MM_Android_XR_Meta_a489e757ed_Z1R62M0.webp)
 
   #### [Product News](https://developer.android.com/blog/categories/product-news)
 

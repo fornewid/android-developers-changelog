@@ -52,7 +52,7 @@ val currentTime: Long = System.currentTimeMillis()
 val lastModified: Long = conn.getHeaderFieldDate("Last-Modified", currentTime)
 
 // lastUpdateTime represents when the cache was last updated.
-if (lastModified < lastUpdateTime) {
+if (las<tModified  lastUpdateTime) {
     // Skip update
 } else {
     // Parse update
@@ -69,7 +69,7 @@ long currentTime = System.currentTimeMillis();
 long lastModified = conn.getHeaderFieldDate("Last-Modified", currentTime);
 
 // lastUpdateTime represents when the cache was last updated.
-if (lastModified < lastUpdateTime) {
+if (las<tModified  lastUpdateTime) {
     // Skip update
 } else {
     // Parse update

@@ -43,9 +43,8 @@ val stepsRecord = StepsRecord(
     endTime = endTime,
     startZoneOffset = zoneOffset,
     endZoneOffset = zoneOffset,
-    metadata = Metadata(
-        device = Device(type = Device.TYPE_WATCH),
-        recordingMethod = Metadata.RECORDING_METHOD_AUTOMATICALLY_RECORDED
+    metadata = Metadata.autoRecorded(
+        device = Device(type = Device.TYPE_WATCH)
     )
 )
 healthConnectClient.insertRecords(listOf(stepsRecord))
@@ -91,7 +90,7 @@ val banana = NutritionRecord(
     endTime = endTime,
     startZoneOffset = ZoneOffset.UTC,
     endZoneOffset = ZoneOffset.UTC,
-    metadata = Metadata(
+    metadata = Metadata.activelyRecorded(
         device = Device(type = Device.TYPE_PHONE)
     )
 )
@@ -128,7 +127,7 @@ val heartRateRecord = HeartRateRecord(
             beatsPerMinute = 100 + index.toLong(),
         )
     },
-    metadata = Metadata(
+    metadata = Metadata.activelyRecorded(
         device = Device(type = Device.TYPE_WATCH)
     ))
 ```
@@ -194,9 +193,8 @@ val stepsRecord = StepsRecord(
     endTime = endTime,
     startZoneOffset = zoneOffset,
     endZoneOffset = zoneOffset,
-    metadata = Metadata(
-        device = Device(type = Device.TYPE_WATCH),
-        recordingMethod = Metadata.RECORDING_METHOD_AUTOMATICALLY_RECORDED
+    metadata = Metadata.autoRecorded(
+        device = Device(type = Device.TYPE_WATCH)
     )
 )
 healthConnectClient.insertRecords(listOf(stepsRecord))
@@ -299,8 +297,9 @@ the app datastore:
     // Store data in appStepsRecords
     // ...
     var sr = StepsRecord(
-        metadata = Metadata(
+        metadata = Metadata.activelyRecorded(
             clientRecordId = "Your client record ID",
+            clientRecordVersion = 0L,
             device = Device(type = Device.TYPE_WATCH)
         ),
         startTime = startTime,
@@ -363,7 +362,7 @@ val stepsRecord = StepsRecord(
     startZoneOffset = ZoneOffset.UTC,
     endTime = endTime,
     endZoneOffset = ZoneOffset.UTC,
-    metadata = Metadata(
+    metadata = Metadata.activelyRecorded(
         clientRecordId = "Your supplied record ID",
         clientRecordVersion = 0L, // Your supplied record version
         device = Device(type = Device.TYPE_WATCH)
@@ -436,7 +435,7 @@ while (sampleTime < endTime) {
         endTime = sampleTime,
         endZoneOffset = zoneOffset,
         count = Random.nextLong(1, 100),
-        metadata = Metadata(),
+        metadata = Metadata.activelyRecorded(device = Device(type = Device.TYPE_WATCH)),
     )
     sampleTime = sampleTime.plus(Duration.ofMinutes(minutesBetweenSamples))
 }
@@ -573,7 +572,7 @@ val heartRateRecord = HeartRateRecord(
             beatsPerMinute = 85,
         )
     ),
-    metadata = Metadata(
+    metadata = Metadata.activelyRecorded(
         device = Device(type = Device.TYPE_WATCH)
     ))
 ```
@@ -682,7 +681,7 @@ val swimSession = ExerciseSessionRecord(
     startTime = swimStartTime,
     endTime = swimEndTime,
     exerciseType = ExerciseSessionRecord.EXERCISE_TYPE_SWIMMING_OPEN_WATER,
-    metadata = Metadata(
+    metadata = Metadata.activelyRecorded(
         device = Device(type = Device.TYPE_WATCH)
     ),
     startZoneOffset = null,
@@ -693,7 +692,7 @@ val bikeSession = ExerciseSessionRecord(
     startTime = bikeStartTime,
     endTime = bikeEndTime,
     exerciseType = ExerciseSessionRecord.EXERCISE_TYPE_BIKING,
-    metadata = Metadata(
+    metadata = Metadata.activelyRecorded(
         device = Device(type = Device.TYPE_WATCH)
     ),
     startZoneOffset = null,
@@ -704,7 +703,7 @@ val runSession = ExerciseSessionRecord(
     startTime = runStartTime,
     endTime = runEndTime,
     exerciseType = ExerciseSessionRecord.EXERCISE_TYPE_RUNNING,
-    metadata = Metadata(
+    metadata = Metadata.activelyRecorded(
         device = Device(type = Device.TYPE_WATCH)
     ),
     startZoneOffset = null,

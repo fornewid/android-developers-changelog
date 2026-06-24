@@ -105,7 +105,7 @@ The custom alignment lines to create our example are of type
 [`HorizontalAlignmentLine`](https://developer.android.com/reference/kotlin/androidx/compose/ui/layout/HorizontalAlignmentLine), as
 they're used to align children vertically. A merge policy is passed as a
 parameter in case multiple layouts provide a value for these alignment lines. As
-the Compose layout system coordinates and the [`Canvas`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/Canvas.composable)
+the Compose layout system coordinates and the [`Canvas`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/Canvas.composable)
 coordinates represent `[0, 0]`, the top left corner and the `x` and `y` axis are
 positive downwards, so the `MaxChartValue` value will always be smaller than
 `MinChartValue`. Therefore, the merge policy is `min` for the maximum chart

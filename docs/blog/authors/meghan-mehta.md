@@ -20,7 +20,7 @@ post ![](https://developer.android.com/static/blog/assets/meghan_d663ed9c69_e0a5
 
   [arrow_forward](https://developer.android.com/blog/posts/whats-new-in-the-jetpack-compose-april-26-release) The Jetpack Compose April '26 release is stable. This release contains version 1.11 of core Compose modules (see the full BOM mapping), shared element debug tools, trackpad events, and more.
 
-  ###### 5 min read
+  ###### 6 min read
 
 # Stay in the loop
 

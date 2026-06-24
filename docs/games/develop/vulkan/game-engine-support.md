@@ -57,7 +57,7 @@ plugin](https://developer.android.com/games/engines/unity/unity-vkquality) to sa
 ### Unreal
 
 Check the Android device's `vk_deqp_level` in Unreal Engine using the
-[DEQP_UPL.xml](https://github.com/android/games-samples/commit/b802ef22d72a81b8aa1d0ad98932d76a42da87dd) file.
+[DEQP_UPL.xml](https://github.com/android/games-samples/blob/main/trivialkart/trivialkart_unreal/Source/TrivialKart_Unreal/DEQP_UPL.xml) file.
 
 To use the file, download `DEQP_UPL.xml` and register it in your project's
 `Build.cs` file:

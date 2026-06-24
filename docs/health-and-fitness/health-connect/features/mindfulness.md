@@ -190,7 +190,7 @@ if (isAvailable == HealthConnectFeatures.FEATURE_STATUS_AVAILABLE) {
         mindfulnessSessionType = MindfulnessSessionRecord.MINDFULNESS_SESSION_TYPE_MEDITATION,
         title = "Lake meditation",
         notes = "Meditation by the lake",
-        metadata = Metadata(
+        metadata = Metadata.activelyRecorded(
             clientRecordId = "myid",
             clientRecordVersion = 1L,
             device = Device(type = Device.TYPE_PHONE)

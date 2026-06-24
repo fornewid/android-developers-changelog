@@ -58,7 +58,7 @@ To feed data into Health Connect, carry out the following steps:
    val clientRecordId = "<your-record-id>"
 
    val record = WeightRecord(
-       metadata = Metadata(
+       metadata = Metadata.activelyRecorded(
            clientRecordId = clientRecordId,
            clientRecordVersion = recordVersion,
            device = Device(type = Device.TYPE_SCALE)

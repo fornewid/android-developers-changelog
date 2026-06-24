@@ -4,6 +4,15 @@ url: https://developer.android.com/about/versions/17/qpr1/release-notes
 source: md.txt
 ---
 
+### Beta 5
+
+|---|---|
+| **Release date** | June 23, 2026 |
+| **Builds** | CP31.260608.007 |
+| **Emulator support** | x86 (64-bit), ARM (v8-A) |
+| **Security patch level** | 2026-06-05 |
+| **Google Play services** | 26.18.35 |
+
 ### Beta 4
 
 |---|---|
@@ -40,7 +49,7 @@ source: md.txt
 | **Security patch level** | 2026-04-05 |
 | **Google Play services** | 26.11.36 |
 
-### Android 17 QPR 1 Beta 4 (June 2026)
+### Android 17 QPR 1 Beta 5 (June 2026)
 
 Building on the [initial release of Android 17](https://developer.android.com/about/versions/17), we continue to
 update the platform with fixes and improvements that are then rolled out to
@@ -55,6 +64,19 @@ user experience of your app).
 
 Unlike developer previews and betas for unreleased, major versions of Android,
 these builds are suitable for general use.
+
+### Top Issues fixed in Beta 5 (June 2026)
+
+- *An issue in the Game Dashboard where users were unable to stop screen recordings or save video files. ([**Issue #296368569**](https://issuetracker.google.com/issues/296368569), [**Issue #328539170**](https://issuetracker.google.com/issues/328539170))*
+- *An issue where the camera app temporarily freezes or stutters shortly after being opened from an idle state. ([**Issue #330488811**](https://issuetracker.google.com/issues/330488811))*
+- *An issue that caused the screen to freeze with a pixelated bottom bar when waking the device from Always-On Display. ([**Issue #515393542**](https://issuetracker.google.com/issues/515393542), [**Issue #515497396**](https://issuetracker.google.com/issues/515497396))*
+- *A timeout issue where the Download Manager failed to complete downloads when excluded from an active VPN connection. ([**Issue #475985649**](https://issuetracker.google.com/issues/475985649))*
+- *An issue causing inconsistent charging completion time estimates to display on the lock screen versus the charging screensaver. ([**Issue #489503595**](https://issuetracker.google.com/issues/489503595))*
+- *An issue causing the Private Space UI to crash and locked private apps to improperly appear in launcher search results. ([**Issue #515631415**](https://issuetracker.google.com/issues/515631415))*
+- *A system crash and device hang that occurred when downloading games. ([**Issue #515364954**](https://issuetracker.google.com/issues/515364954))*
+- *An issue where a non-functional bubble option incorrectly appeared in the context menu of archived apps. ([**Issue #514585702**](https://issuetracker.google.com/issues/514585702))*
+- *A system-level WebView rendering regression that caused Monopoly Go to freeze and crash when attempting to open mini-games. ([**Issue #516576731**](https://issuetracker.google.com/issues/516576731))*
+- *Home screen widgets would disappear or become unavailable in the widget picker after a device reboot. ([**Issue #488125748**](https://issuetracker.google.com/issues/488125748), [**Issue #505117543**](https://issuetracker.google.com/issues/505117543), [**Issue #505671079**](https://issuetracker.google.com/issues/505671079), [**Issue #497140330**](https://issuetracker.google.com/issues/497140330), [**Issue #506685943**](https://issuetracker.google.com/issues/506685943), [**Issue #510967059**](https://issuetracker.google.com/issues/510967059))*
 
 ### Top Issues fixed in Beta 4 (June 2026)
 

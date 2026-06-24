@@ -7,7 +7,7 @@ source: md.txt
 In Jetpack Compose, an object can implement [`RememberObserver`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/RememberObserver) to receive
 callbacks when it's used with `remember` to know when it starts and stops being
 remembered in the composition hierarchy. Similarly, you can use
-[`RetainObserver`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/RetainObserver) to receive information about the state of an object used
+[`RetainObserver`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/retain/RetainObserver) to receive information about the state of an object used
 with `retain`.
 
 For objects that use this lifecycle information from the composition hierarchy,

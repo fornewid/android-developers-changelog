@@ -90,7 +90,6 @@ The main function to check for feature availability is
 
 
 ```kotlin
-@OptIn(ExperimentalFeatureAvailabilityApi::class)
 fun enqueueBackgroundReadWorker(context: Context, healthConnectClient: HealthConnectClient) {
     if (healthConnectClient
             .features
@@ -331,9 +330,8 @@ val stepsRecord = StepsRecord(
     endTime = endTime,
     startZoneOffset = zoneOffset,
     endZoneOffset = zoneOffset,
-    metadata = Metadata(
-        device = Device(type = Device.TYPE_WATCH),
-        recordingMethod = Metadata.RECORDING_METHOD_AUTOMATICALLY_RECORDED
+    metadata = Metadata.autoRecorded(
+        device = Device(type = Device.TYPE_WATCH)
     )
 )
 healthConnectClient.insertRecords(listOf(stepsRecord))
@@ -352,9 +350,8 @@ val stepsRecord = StepsRecord(
     endTime = endTime,
     startZoneOffset = zoneOffset,
     endZoneOffset = zoneOffset,
-    metadata = Metadata(
-        device = Device(type = Device.TYPE_WATCH),
-        recordingMethod = Metadata.RECORDING_METHOD_AUTOMATICALLY_RECORDED
+    metadata = Metadata.autoRecorded(
+        device = Device(type = Device.TYPE_WATCH)
     )
 )
 healthConnectClient.insertRecords(listOf(stepsRecord))

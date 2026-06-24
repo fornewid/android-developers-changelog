@@ -30,17 +30,26 @@ Emulator](https://developer.android.com/training/wearables/get-started/emulator)
 ### Physical watch
 
 Debugging on a physical watch helps evaluate the real-world user experience and
-test hardware-specific features like sensors. You can connect to a physical
-watch using Wi-Fi or, on supported watches, a USB connection.
-
-To connect a physical watch:
-
-1. **Prepare the watch:** [Enable ADB debugging](https://developer.android.com/training/wearables/get-started/creating#prepare-watch) in the watch's developer options.
-2. **Connect:** Follow the detailed instructions for USB or Wi-Fi connections, including using `adb pair` and `adb connect`, in [Run apps on a hardware
-   device](https://developer.android.com/studio/run/device). The setup procedure is similar to other Android devices.
+test hardware-specific features like sensors.
 
 > [!NOTE]
 > **Note:** Debugging over Bluetooth is no longer supported as of Wear OS 3.
+
+#### Connect over Wi-Fi
+
+Wear OS supports wireless debugging, which lets you debug your app over a
+Wi-Fi network. To use wireless debugging, enable developer options and wireless debugging on the watch, pair your
+development computer using a pairing code, and then connect to the watch.
+
+For detailed, step-by-step instructions, see [Debug Wear OS over Wi-Fi](https://developer.android.com/training/wearables/get-started/debug-wifi).
+
+#### Connect over USB
+
+On supported watches that have a USB connection, such as a charging cradle
+that supports data transfer, you can connect using a physical USB cable.
+
+To connect over USB, follow the detailed instructions in [Run apps on a hardware
+device](https://developer.android.com/studio/run/device).
 
 ## Additional debugging and setup
 

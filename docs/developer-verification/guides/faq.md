@@ -146,9 +146,8 @@ verification.
 
 ## Advanced flow
 
-- **Can users still sideload apps from unverified
-  developers?** Yes. Android is introducing an advanced flow for power users who want to take educated risks to install apps from unverified developers. It's a **one-time** setup for users to install apps from unverified developers after acknowledging the risks. It's designed to protect user choice while adding in safeguards to protect users from being tricked or coerced into disabling security protections. Preview it in our [video](https://youtube.com/shorts/WcPElxbOeXY) or [blog
-  post](https://goo.gle/advance-flow). *Last updated: March 23, 2026*
+- **Can users still sideload apps from unverified developers?** Yes. Android is introducing an advanced flow for power users who want to take educated risks to install apps from unverified developers. It's a **one-time** setup for users to install apps from unverified developers after acknowledging the risks. It's designed to protect user choice while adding in safeguards to protect users from being tricked or coerced into disabling security protections. Preview it in our [video](https://youtube.com/shorts/WcPElxbOeXY) or [blog post](https://goo.gle/advance-flow). *Last updated:
+  March 23, 2026*
 - **Can I still use independent app stores?** Yes. You can continue to use any alternative app store. For apps distributed from verified developers, users won't see a change in their download experience at all. For apps distributed from unverified developers, users can enable advanced flow with a one-time setup. Last updated: *June 8, 2026*
 - **How does the advanced flow work for users?**
 

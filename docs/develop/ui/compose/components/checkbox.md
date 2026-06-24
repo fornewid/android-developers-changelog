@@ -152,7 +152,7 @@ The following are several points you should note from this example:
 
 - **State management** :
   - `childCheckedStates`: A list of booleans using `mutableStateOf()` to track the checked state of each child checkbox.
-  - `parentState`: A [`ToggleableState`](https://developer.android.com/reference/kotlin/androidx/compose/ui/state/ToggleableState?_gl=1*1nllj9c*_up*MQ..*_ga*MTQ4MjE3NjI1Ny4xNzE1MzM1Nzc0*_ga_6HH9YJMN9M*MTcxNTMzNTc3NC4xLjAuMTcxNTMzNTc3NC4wLjAuMA..) whose value derives from the child checkboxes' states.
+  - `parentState`: A [`ToggleableState`](https://developer.android.com/reference/kotlin/androidx/compose/ui/state/ToggleableState) whose value derives from the child checkboxes' states.
 - **UI components** :
   - [`TriStateCheckbox`](https://developer.android.com/reference/kotlin/androidx/compose/material3/TriStateCheckbox.composable#TriStateCheckbox(androidx.compose.ui.state.ToggleableState,kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.compose.material3.CheckboxColors,androidx.compose.foundation.interaction.MutableInteractionSource)): Is necessary for the parent checkbox as it has a `state` param that lets you set it to indeterminate.
   - [`Checkbox`](https://developer.android.com/reference/kotlin/androidx/compose/material3/Checkbox.composable#Checkbox(kotlin.Boolean,kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.compose.material3.CheckboxColors,androidx.compose.foundation.interaction.MutableInteractionSource)): Used for each child checkbox with its state linked to the corresponding element in `childCheckedStates`.

@@ -16,6 +16,14 @@ to 2018.
 To view the current versions for every component,
 see the [versions page](https://developer.android.com/jetpack/androidx/versions).
 
+### June 24, 2026
+
+- [Media3 Version 1.11.0-alpha01](https://developer.android.com/jetpack/androidx/releases/media3#1.11.0-alpha01)
+
+## June 23, 2026
+
+- [Tracing Version 2.0.0-alpha09](https://developer.android.com/jetpack/androidx/releases/tracing#2.0.0-alpha09)
+
 ## June 17, 2026
 
 - [Compose Material 3 Version 1.5.0-alpha22](https://developer.android.com/jetpack/androidx/releases/compose-material3#1.5.0-alpha22)

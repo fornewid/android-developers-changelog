@@ -552,8 +552,8 @@ In most cases you can rely on the default `Ripple`. If you need to
 configure their appearance, you can use [`RippleTheme`](https://developer.android.com/reference/kotlin/androidx/compose/material/ripple/RippleTheme) to change properties
 like color and alpha.
 
-You can extend `RippleTheme` and make use of the [`defaultRippleColor`](https://developer.android.com/reference/kotlin/androidx/compose/material/ripple/RippleTheme.Companion#defaultRippleColor(androidx.compose.ui.graphics.Color,kotlin.Boolean)) and
-[`defaultRippleAlpha`](https://developer.android.com/reference/kotlin/androidx/compose/material/ripple/RippleTheme.Companion#defaultRippleAlpha(androidx.compose.ui.graphics.Color,kotlin.Boolean)) utility functions. You can then provide your custom
+You can extend `RippleTheme` and make use of the [`defaultRippleColor`](https://developer.android.com/reference/kotlin/androidx/compose/material/ripple/RippleTheme#defaultRippleColor(androidx.compose.ui.graphics.Color,kotlin.Boolean)) and
+[`defaultRippleAlpha`](https://developer.android.com/reference/kotlin/androidx/compose/material/ripple/RippleTheme#defaultRippleAlpha(androidx.compose.ui.graphics.Color,kotlin.Boolean)) utility functions. You can then provide your custom
 ripple theme in your hierarchy using [`LocalRippleTheme`](https://developer.android.com/reference/kotlin/androidx/compose/material/ripple/package-summary#LocalRippleTheme()):
 
 

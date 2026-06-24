@@ -270,8 +270,7 @@ icon](https://developer.android.com/static/studio/images/buttons/deploy-to-devic
 next to the `@Preview` annotation or at the top of the preview, and Android
 Studio deploys that `@Preview` to your connected device or emulator.
 
-![The user clicking the preview's "run preview"
-button](https://developer.android.com/static/develop/ui/compose/images/tooling/run_preview.png)
+![The user clicking the preview's](https://developer.android.com/static/develop/ui/compose/images/tooling/run_preview.png)
 
 ![Video of the user deploying a preview to the
 device](https://developer.android.com/static/develop/ui/compose/images/tooling-deploy-preview-demo.gif)
@@ -409,8 +408,7 @@ class UserPreviewParameterProvider : PreviewParameterProvider<User> {
 
 This renders one preview per data element in the sequence:
 
-![Previews showing Elise, Frank and Julia
-composables](https://developer.android.com/static/develop/ui/compose/images/tooling/preview-sequence.png)
+![Previews showing Elise, Frank and Julia composables](https://developer.android.com/static/develop/ui/compose/images/tooling/preview-sequence.png)
 
 You can use the same provider class for multiple previews. If necessary, limit
 the number of previews by setting the limit parameter.
@@ -458,8 +456,7 @@ class UserAgePreviewParameterProvider : PreviewParameterProvider<User> {
 
 <br />
 
-![Previews with custom display names showing Elise - 30, Frank - 31 and Julia - 40
-composables](https://developer.android.com/static/develop/ui/compose/images/tooling/preview-custom-display-name.png)
+![Previews with custom display names showing Elise - 30, Frank - 31 and Julia - 40 composables](https://developer.android.com/static/develop/ui/compose/images/tooling/preview-custom-display-name.png)
 
 > [!TIP]
 > **Tip:** For better performance, back your `Sequence` with a `List` in the `PreviewParameterProvider`. This provides efficient, index-based access in `getDisplayName()` and avoids slow lookups in large sequences.

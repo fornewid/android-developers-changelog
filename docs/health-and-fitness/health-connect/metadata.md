@@ -56,7 +56,7 @@ For example:
     startZoneOffset = null,
     endTime = Instant.ofEpochMilli(1236L),
     endZoneOffset = null,
-    metadata = Metadata(),
+    metadata = Metadata.activelyRecorded(device = Device(type = Device.TYPE_WATCH)),
     count = 10
 )
 ```
