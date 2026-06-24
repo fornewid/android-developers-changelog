@@ -1,0 +1,13 @@
+diff --git a/docs/develop/xr/jetpack-xr-sdk/add-3d-models.md b/docs/develop/xr/jetpack-xr-sdk/add-3d-models.md
+index a195ea8c..ca4d3b1b 100644
+--- a/docs/develop/xr/jetpack-xr-sdk/add-3d-models.md
++++ b/docs/develop/xr/jetpack-xr-sdk/add-3d-models.md
+@@ -164,7 +164,7 @@ For more information on the interactivity options for Scene Viewer, refer to our
+ 
+ ## glTF extensions
+ 
+-Jetpack XR SDK supports several gfTF extensions that expand the capabilities of
++Jetpack XR SDK supports several glTF extensions that expand the capabilities of
+ 3D models. These capabilities are available through both the
+ [`GltfModelEntity`](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/GltfModelEntity) and Scene Viewer.
+ 

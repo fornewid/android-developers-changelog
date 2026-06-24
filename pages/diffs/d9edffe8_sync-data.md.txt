@@ -1,0 +1,13 @@
+diff --git a/docs/health-and-fitness/health-connect/sync-data.md b/docs/health-and-fitness/health-connect/sync-data.md
+index 2ded6ee4..deac123b 100644
+--- a/docs/health-and-fitness/health-connect/sync-data.md
++++ b/docs/health-and-fitness/health-connect/sync-data.md
+@@ -58,7 +58,7 @@ To feed data into Health Connect, carry out the following steps:
+    val clientRecordId = "<your-record-id>"
+ 
+    val record = WeightRecord(
+-       metadata = Metadata(
++       metadata = Metadata.activelyRecorded(
+            clientRecordId = clientRecordId,
+            clientRecordVersion = recordVersion,
+            device = Device(type = Device.TYPE_SCALE)

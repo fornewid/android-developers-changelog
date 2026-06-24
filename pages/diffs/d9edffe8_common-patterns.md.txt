@@ -1,0 +1,13 @@
+diff --git a/docs/develop/ui/compose/testing/common-patterns.md b/docs/develop/ui/compose/testing/common-patterns.md
+index a2e3f891..cd60a5c6 100644
+--- a/docs/develop/ui/compose/testing/common-patterns.md
++++ b/docs/develop/ui/compose/testing/common-patterns.md
+@@ -27,7 +27,7 @@ can't call `setContent` on a rule created with `createAndroidComposeRule()` if
+ the activity already calls it.
+ 
+ A common pattern to achieve this is to create an `AndroidComposeTestRule` using
+-an empty activity such as [`ComponentActivity`](https://developer.android.com/reference/androidx/activity/ComponentActivity)).
++an empty activity such as [`ComponentActivity`](https://developer.android.com/reference/androidx/activity/ComponentActivity).
+ 
+     class MyComposeTest {
+ 

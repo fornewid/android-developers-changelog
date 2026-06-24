@@ -1,0 +1,13 @@
+diff --git a/docs/health-and-fitness/health-connect/experiences/workouts.md b/docs/health-and-fitness/health-connect/experiences/workouts.md
+index 34e6e847..82aeac3b 100644
+--- a/docs/health-and-fitness/health-connect/experiences/workouts.md
++++ b/docs/health-and-fitness/health-connect/experiences/workouts.md
+@@ -259,7 +259,7 @@ val session =   ExerciseSessionRecord(
+     endTime = startTime.plusSeconds(3600),
+     endZoneOffset = zoneOffset,
+     exerciseType = ExerciseSessionRecord.EXERCISE_TYPE_RUNNING,
+-    metadata = Metadata(clientRecordId = sessionClientId),
++    metadata = Metadata.activelyRecorded(clientRecordId = sessionClientId, device = Device(type = Device.TYPE_PHONE)),
+ )
+ 
+ healthConnectClient.insertRecords(listOf(session))

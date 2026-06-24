@@ -1,0 +1,16 @@
+diff --git a/docs/develop/ui/compose/graphics/draw/mesh-gradient.md b/docs/develop/ui/compose/graphics/draw/mesh-gradient.md
+index de7b4834..07cb59be 100644
+--- a/docs/develop/ui/compose/graphics/draw/mesh-gradient.md
++++ b/docs/develop/ui/compose/graphics/draw/mesh-gradient.md
+@@ -227,4 +227,8 @@ Box(
+ 
+ <br />
+ 
+-**Figure 5.** Animated mesh gradient with points to show the animation.
+\ No newline at end of file
++<br />
++
++**Figure 5.** Animated mesh gradient with points to show the animation.
++
++<br />
+\ No newline at end of file

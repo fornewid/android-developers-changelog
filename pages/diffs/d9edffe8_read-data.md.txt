@@ -1,0 +1,12 @@
+diff --git a/docs/health-and-fitness/health-connect/read-data.md b/docs/health-and-fitness/health-connect/read-data.md
+index a760532b..0876ec4d 100644
+--- a/docs/health-and-fitness/health-connect/read-data.md
++++ b/docs/health-and-fitness/health-connect/read-data.md
+@@ -240,7 +240,6 @@ class ScheduleWorker(appContext: Context, workerParams: WorkerParameters) :
+ ```
+ 
+ ```kotlin
+-@OptIn(ExperimentalFeatureAvailabilityApi::class)
+ fun enqueueBackgroundReadWorker(context: Context, healthConnectClient: HealthConnectClient) {
+     if (healthConnectClient
+             .features

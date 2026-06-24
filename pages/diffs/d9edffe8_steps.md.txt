@@ -1,0 +1,16 @@
+diff --git a/docs/health-and-fitness/health-connect/features/steps.md b/docs/health-and-fitness/health-connect/features/steps.md
+index 15baba1f..5ef8e818 100644
+--- a/docs/health-and-fitness/health-connect/features/steps.md
++++ b/docs/health-and-fitness/health-connect/features/steps.md
+@@ -307,9 +307,8 @@ val stepsRecord = StepsRecord(
+     endTime = endTime,
+     startZoneOffset = zoneOffset,
+     endZoneOffset = zoneOffset,
+-    metadata = Metadata(
+-        device = Device(type = Device.TYPE_WATCH),
+-        recordingMethod = Metadata.RECORDING_METHOD_AUTOMATICALLY_RECORDED
++    metadata = Metadata.autoRecorded(
++        device = Device(type = Device.TYPE_WATCH)
+     )
+ )
+ healthConnectClient.insertRecords(listOf(stepsRecord))

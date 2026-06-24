@@ -1,0 +1,31 @@
+diff --git a/docs/health-and-fitness/health-connect/features/training-plans.md b/docs/health-and-fitness/health-connect/features/training-plans.md
+index fba72320..56319fb3 100644
+--- a/docs/health-and-fitness/health-connect/features/training-plans.md
++++ b/docs/health-and-fitness/health-connect/features/training-plans.md
+@@ -283,7 +283,7 @@ val plannedExerciseSessionRecord = PlannedExerciseSessionRecord(
+     ),
+     title = "Run at lake",
+     notes = null,
+-    metadata = Metadata(
++    metadata = Metadata.activelyRecorded(
+         device = Device(type = Device.Companion.TYPE_PHONE),
+     ),
+     startZoneOffset = null,
+@@ -360,7 +360,7 @@ val exerciseSessionRecord = ExerciseSessionRecord(
+     ),
+     title = "Run at lake",
+     plannedExerciseSessionId = insertedPlannedExerciseSessionId,
+-    metadata = Metadata(
++    metadata = Metadata.activelyRecorded(
+         device = Device(type = Device.Companion.TYPE_PHONE)
+     )
+ )
+@@ -406,7 +406,7 @@ val heartRateRecord = HeartRateRecord(
+     endTime = sessionEndTime,
+     endZoneOffset = ZoneOffset.UTC,
+     samples = samples,
+-    metadata = Metadata(
++    metadata = Metadata.activelyRecorded(
+         device = Device(type = Device.Companion.TYPE_WATCH)
+     )
+ )

@@ -1,0 +1,13 @@
+diff --git a/docs/topic/generic-system-image/releases.md b/docs/topic/generic-system-image/releases.md
+index 3cda66c4..3d223f04 100644
+--- a/docs/topic/generic-system-image/releases.md
++++ b/docs/topic/generic-system-image/releases.md
+@@ -78,6 +78,8 @@ sources as the [corresponding Google Pixel builds](https://developer.android.com
+ These binaries contain the same API and SDK, have a similar CTS result, and have
+ been validated on the following Pixel devices:
+ 
++- Pixel 6
++- Pixel 6 Pro
+ - Pixel 6a
+ - Pixel 7
+ - Pixel 7 Pro

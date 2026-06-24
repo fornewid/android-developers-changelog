@@ -1,0 +1,13 @@
+diff --git a/docs/about/versions/17/qpr1/gsi-release-notes.md b/docs/about/versions/17/qpr1/gsi-release-notes.md
+index 097ac795..a01d1802 100644
+--- a/docs/about/versions/17/qpr1/gsi-release-notes.md
++++ b/docs/about/versions/17/qpr1/gsi-release-notes.md
+@@ -15,6 +15,8 @@ GMS sources as the [corresponding Google Pixel builds](https://developer.android
+ contain the same API and SDK, have a similar CTS result, and have been validated
+ on the following Pixel devices:
+ 
++- Pixel 6
++- Pixel 6 Pro
+ - Pixel 6a
+ - Pixel 7
+ - Pixel 7 Pro

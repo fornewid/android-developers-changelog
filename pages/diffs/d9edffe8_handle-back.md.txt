@@ -1,0 +1,15 @@
+diff --git a/docs/guide/navigation/navigation-event/handle-back.md b/docs/guide/navigation/navigation-event/handle-back.md
+index ca993b5b..4c970450 100644
+--- a/docs/guide/navigation/navigation-event/handle-back.md
++++ b/docs/guide/navigation/navigation-event/handle-back.md
+@@ -201,8 +201,8 @@ fun ScreenB(
+         (widthDp.value / 20f) - 8
+     }
+     val offsetX = when (swipeEdge) {
+-        EDGE_LEFT -> (backProgress * maxShift).dp
+-        EDGE_RIGHT -> (-backProgress * maxShift).dp
++        NavigationEvent.EDGE_LEFT -> (backProgress * maxShift).dp
++        NavigationEvent.EDGE_RIGHT -> (-backProgress * maxShift).dp
+         else -> 0.dp
+     }
+     NavigationBackHandler(

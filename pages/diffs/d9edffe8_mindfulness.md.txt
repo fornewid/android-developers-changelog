@@ -1,0 +1,13 @@
+diff --git a/docs/health-and-fitness/health-connect/features/mindfulness.md b/docs/health-and-fitness/health-connect/features/mindfulness.md
+index 14ce555d..47319770 100644
+--- a/docs/health-and-fitness/health-connect/features/mindfulness.md
++++ b/docs/health-and-fitness/health-connect/features/mindfulness.md
+@@ -190,7 +190,7 @@ if (isAvailable == HealthConnectFeatures.FEATURE_STATUS_AVAILABLE) {
+         mindfulnessSessionType = MindfulnessSessionRecord.MINDFULNESS_SESSION_TYPE_MEDITATION,
+         title = "Lake meditation",
+         notes = "Meditation by the lake",
+-        metadata = Metadata(
++        metadata = Metadata.activelyRecorded(
+             clientRecordId = "myid",
+             clientRecordVersion = 1L,
+             device = Device(type = Device.TYPE_PHONE)
