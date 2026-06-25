@@ -8,11 +8,7 @@ source: md.txt
 
 ### [Android Performance Analyzer (APA)](http://developer.android.com/android-performance-analyzer/quickstart)
 
-Optimize your app or game with Android's new profiler and performance analysis tool for the Android ecosystem. [Quickstart](http://developer.android.com/android-performance-analyzer/quickstart) [Download](http://developer.android.com/android-performance-analyzer#downloads) [Video](https://www.youtube.com/watch?v=peplbYt0Ohg) ![](http://developer.android.com/static/android-performance-analyzer/images/ai-analysis.png) Featured
-
-### AI-powered analysis features
-
-APA is supported by purpose-built agent skills to streamline profiling. Your preferred AI agent can write custom Perfetto SQL queries and suggest starting points for complex trace analysis. ![](http://developer.android.com/static/android-performance-analyzer/images/vulkan-debug-markers.png) Featured
+Optimize your app or game with Android's new profiler and performance analysis tool for the Android ecosystem. [Quickstart](http://developer.android.com/android-performance-analyzer/quickstart) [Download](http://developer.android.com/android-performance-analyzer#downloads) [Video](https://www.youtube.com/watch?v=peplbYt0Ohg) ![](http://developer.android.com/static/android-performance-analyzer/images/vulkan-debug-markers.png) Featured
 
 ### Vulkan debug markers
 

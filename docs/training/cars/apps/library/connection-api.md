@@ -13,48 +13,28 @@ To determine if your app is running on Android Auto or Android Automotive OS,
 use the [`CarConnection` API](https://developer.android.com/reference/androidx/car/app/connection/CarConnection) to retrieve connection information at runtime.
 For example:
 
-1. In your car app's `Session`, initialize a `CarConnection` and subscribe to
-   `LiveData` updates:
+1. In your car app's `Session`, initialize a `CarConnection` and subscribe to `LiveData` updates:
 
-   ### Kotlin
 
-       CarConnection(carContext).type.observe(this, ::onConnectionStateUpdated)
+```kotlin
+CarConnection(carContext).type.observe(this, ::onConnectionStateUpdated)
+```
 
-   ### Java
+<br />
 
-       new CarConnection(getCarContext()).getType().observe(this, this::onConnectionStateUpdated);
+1. In the observer, react to changes in the connection state:
 
-2. In the observer, react to changes in the connection state:
 
-   ### Kotlin
+```kotlin
+fun onConnectionStateUpdated(connectionState: Int) {
+    val message = when (connectionState) {
+        CarConnection.CONNECTION_TYPE_NOT_CONNECTED -> "Not connected to a head unit"
+        CarConnection.CONNECTION_TYPE_NATIVE -> "Connected to Android Automotive OS"
+        CarConnection.CONNECTION_TYPE_PROJECTION -> "Connected to Android Auto"
+        else -> "Unknown car connection type"
+    }
+    CarToast.makeText(carContext, message, CarToast.LENGTH_SHORT).show()
+}
+```
 
-       fun onConnectionStateUpdated(connectionState: Int) {
-         val message = when(connectionState) {
-           CarConnection.CONNECTION_TYPE_NOT_CONNECTED -> "Not connected to a head unit"
-           CarConnection.CONNECTION_TYPE_NATIVE -> "Connected to Android Automotive OS"
-           CarConnection.CONNECTION_TYPE_PROJECTION -> "Connected to Android Auto"
-           else -> "Unknown car connection type"
-         }
-         CarToast.makeText(carContext, message, CarToast.LENGTH_SHORT).show()
-       }
-
-   ### Java
-
-       private void onConnectionStateUpdated(int connectionState) {
-         String message;
-         switch(connectionState) {
-           case CarConnection.CONNECTION_TYPE_NOT_CONNECTED:
-             message = "Not connected to a head unit";
-             break;
-           case CarConnection.CONNECTION_TYPE_NATIVE:
-             message = "Connected to Android Automotive OS";
-             break;
-           case CarConnection.CONNECTION_TYPE_PROJECTION:
-             message = "Connected to Android Auto";
-             break;
-           default:
-             message = "Unknown car connection type";
-             break;
-         }
-         CarToast.makeText(getCarContext(), message, CarToast.LENGTH_SHORT).show();
-       }
+<br />

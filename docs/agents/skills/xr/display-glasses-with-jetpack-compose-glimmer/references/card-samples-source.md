@@ -39,6 +39,7 @@ import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.xr.glimmer.ActionCard
 import androidx.xr.glimmer.Button
 import androidx.xr.glimmer.Card
 import androidx.xr.glimmer.GlimmerTheme
@@ -53,9 +54,9 @@ fun CardSampleUsage() {
         item { CardWithTrailingIconSample() }
         item { CardWithTitleAndSubtitleAndLeadingIconSample() }
         item { CardWithTitleAndHeaderSample() }
-        item { CardWithTitleAndActionSample() }
+        item { ActionCardWithTitleSample() }
         item { CardWithTitleAndLeadingIconAndHeader() }
-        item { CardWithTitleAndLeadingIconAndHeaderAndAction() }
+        item { ActionCardWithTitleAndLeadingIconAndHeader() }
         item { CardWithLongText() }
         item { CardWithTitleAndSubtitleAndLeadingIconLongText() }
         item { CardWithTitleAndSubtitleAndLeadingIconAndTrailingIconLongText() }
@@ -103,8 +104,8 @@ fun CardWithTitleAndHeaderSample() {
 
 @Sampled
 @Composable
-fun CardWithTitleAndActionSample() {
-    Card(action = { Button(onClick = {}) { Text("Send") } }, title = { Text("Title") }) {
+fun ActionCardWithTitleSample() {
+    ActionCard(action = { Button(onClick = {}) { Text("Send") } }, title = { Text("Title") }) {
         Text("This is a card with a title and action")
     }
 }
@@ -164,8 +165,8 @@ fun CardWithTitleAndLeadingIconAndHeader() {
 }
 
 @Composable
-fun CardWithTitleAndLeadingIconAndHeaderAndAction() {
-    Card(
+fun ActionCardWithTitleAndLeadingIconAndHeader() {
+    ActionCard(
         action = {
             Button(onClick = {}, trailingIcon = { Icon(FavoriteIcon, "Localized description") }) {
                 Text("Send")
@@ -245,8 +246,8 @@ private fun CardWithTitleAndHeaderPreview() {
 
 @Preview
 @Composable
-private fun CardWithTitleAndActionPreview() {
-    GlimmerTheme { CardWithTitleAndActionSample() }
+private fun ActionCardWithTitlePreview() {
+    GlimmerTheme { ActionCardWithTitleSample() }
 }
 
 @Preview
@@ -257,8 +258,8 @@ private fun CardWithTitleAndLeadingIconAndHeaderPreview() {
 
 @Preview
 @Composable
-private fun CardWithTitleAndLeadingIconAndHeaderAndActionPreview() {
-    GlimmerTheme { CardWithTitleAndLeadingIconAndHeaderAndAction() }
+private fun ActionCardWithTitleAndLeadingIconAndHeaderPreview() {
+    GlimmerTheme { ActionCardWithTitleAndLeadingIconAndHeader() }
 }
 
 @Preview

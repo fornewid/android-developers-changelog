@@ -39,39 +39,25 @@ permissions you must request to use them.
 For example, to get the remaining range, instantiate a
 `CarInfo` object, then create and register an `OnCarDataAvailableListener`:
 
-### Kotlin
 
-    val carInfo = carContext.getCarService(CarHardwareManager::class.java).carInfo
+```kotlin
+val carInfo = carContext.getCarService(CarHardwareManager::class.java).carInfo
 
-    val listener = OnCarDataAvailableListener<EnergyLevel> { data ->
-        if (data.rangeRemainingMeters.status == CarValue.STATUS_SUCCESS) {
-          val rangeRemaining = data.rangeRemainingMeters.value
-        } else {
-          // Handle error
-        }
-      }
-
-    carInfo.addEnergyLevelListener(carContext.mainExecutor, listener)
-    ...
-    // Unregister the listener when you no longer need updates
-    carInfo.removeEnergyLevelListener(listener)
-
-### Java
-
-    CarInfo carInfo = getCarContext().getCarService(CarHardwareManager.class).getCarInfo();
-
-    OnCarDataAvailableListener<EnergyLevel> listener = (data) -> {
-      if(data.getRangeRemainingMeters().getStatus() == CarValue.STATUS_SUCCESS) {
-        float rangeRemaining = data.getRangeRemainingMeters().getValue();
-      } else {
+val listener = OnCarDataAvailableListener<EnergyLevel> { data ->
+    if (data.rangeRemainingMeters.status == CarValue.STATUS_SUCCESS) {
+        val rangeRemaining = data.rangeRemainingMeters.value
+    } else {
         // Handle error
-      }
-    };
+    }
+}
 
-    carInfo.addEnergyLevelListener(getCarContext().getMainExecutor(), listener);
-    ...
-    // Unregister the listener when you no longer need updates
-    carInfo.removeEnergyLevelListener(listener);
+carInfo.addEnergyLevelListener(carContext.mainExecutor, listener)
+// ...
+// Unregister the listener when you no longer need updates
+carInfo.removeEnergyLevelListener(listener)
+```
+
+<br />
 
 Don't assume that the car's data is available at all times. If you get an error,
 check the [status](https://developer.android.com/reference/androidx/car/app/hardware/common/CarValue#getStatus()) of the value you requested to better understand why the
@@ -87,40 +73,25 @@ and compass is the same as you would get from the [`SensorManager` API](https://
 
 For example, to check the vehicle's heading:
 
-### Kotlin
 
-    val carSensors = carContext.getCarService(CarHardwareManager::class.java).carSensors
+```kotlin
+val carSensors = carContext.getCarService(CarHardwareManager::class.java).carSensors
 
-    val listener = OnCarDataAvailableListener<Compass> { data ->
-        if (data.orientations.status == CarValue.STATUS_SUCCESS) {
-          val orientation = data.orientations.value
-        } else {
-          // Data not available, handle error
-        }
-      }
-
-    carSensors.addCompassListener(CarSensors.UPDATE_RATE_NORMAL, carContext.mainExecutor, listener)
-    ...
-    // Unregister the listener when you no longer need updates
-    carSensors.removeCompassListener(listener)
-
-### Java
-
-    CarSensors carSensors = getCarContext().getCarService(CarHardwareManager.class).getCarSensors();
-
-    OnCarDataAvailableListener<Compass> listener = (data) -> {
-      if (data.getOrientations().getStatus() == CarValue.STATUS_SUCCESS) {
-        List<Float> orientations = data.getOrientations().getValue();
-      } else {
+val listener = OnCarDataAvailableListener<Compass> { data ->
+    if (data.orientations.status == CarValue.STATUS_SUCCESS) {
+        val orientation = data.orientations.value
+    } else {
         // Data not available, handle error
-      }
-    };
+    }
+}
 
-    carSensors.addCompassListener(CarSensors.UPDATE_RATE_NORMAL, getCarContext().getMainExecutor(),
-        listener);
-    ...
-    // Unregister the listener when you no longer need updates
-    carSensors.removeCompassListener(listener);
+carSensors.addCompassListener(CarSensors.UPDATE_RATE_NORMAL, carContext.mainExecutor, listener)
+// ...
+// Unregister the listener when you no longer need updates
+carSensors.removeCompassListener(listener)
+```
+
+<br />
 
 To access location data from the car, you must also declare and request the
 `android.permission.ACCESS_FINE_LOCATION` permission.

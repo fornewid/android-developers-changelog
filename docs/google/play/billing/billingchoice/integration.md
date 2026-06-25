@@ -14,10 +14,10 @@ differ based on who renders the choice screen and where the payment will happen.
 The following table outlines the integration scenarios:
 
 |---|---|---|---|
-|   || Where does the payment happen? ||
-|   || In-app | External web link |
-| Which billing choice screen do you want to render? | Google Play's | **Scenario 1A** Google renders the choice screen and the **alternate billing is handled within your app**. | **Scenario 1B** App developer renders the choice screen and the **alternate billing is handled within your app**. |
-| Which billing choice screen do you want to render? | Your own (in accordance with the UX guidelines) | **Scenario 2A** Google renders the choice screen and the user is **linked outside of your app to your own websites** for purchases. | **Scenario 2B** App developer renders the choice screen and the user is **linked outside of your app to your own websites** for purchases. |
+|   || Which billing choice screen do you want to render? ||
+|   || Google Play's | Your own (in accordance with the UX guidelines) |
+| Where does the payment happen? | In-app | **Scenario 1A** Google renders the choice screen and the **alternate billing is handled within your app**. | **Scenario 1B** App developer renders the choice screen and the **alternate billing is handled within your app**. |
+| Where does the payment happen? | External web link | **Scenario 2A** Google renders the choice screen and the user is **linked outside of your app to your own websites** for purchases. | **Scenario 2B** App developer renders the choice screen and the user is **linked outside of your app to your own websites** for purchases. |
 
 The following illustration elaborates the billing choice flow for each of these
 scenarios:

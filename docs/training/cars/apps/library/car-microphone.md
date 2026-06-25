@@ -28,29 +28,20 @@ to request permissions in your car, see [Request permissions](https://developer.
 After the user gives permission to record, you can record the audio and process
 the recording.
 
-### Kotlin
 
-    val carAudioRecord = CarAudioRecord.create(carContext)
-            carAudioRecord.startRecording()
+```kotlin
+val carAudioRecord = CarAudioRecord.create(carContext)
+carAudioRecord.startRecording()
 
-            val data = ByteArray(CarAudioRecord.AUDIO_CONTENT_BUFFER_SIZE)
-            while(carAudioRecord.read(data, 0, CarAudioRecord.AUDIO_CONTENT_BUFFER_SIZE) >= 0) {
-                // Use data array
-                // Potentially call carAudioRecord.stopRecording() if your processing finds end of speech
-            }
-            carAudioRecord.stopRecording()
+val data = ByteArray(CarAudioRecord.AUDIO_CONTENT_BUFFER_SIZE)
+while (carAudioRecord.read(data, 0, CarAudioRecord.AUDIO_CONTENT_BUFFER_SIZE) >= 0) {
+    // Use data array
+    // Potentially call carAudioRecord.stopRecording() if your processing finds end of speech
+}
+carAudioRecord.stopRecording()
+```
 
-### Java
-
-    CarAudioRecord carAudioRecord = CarAudioRecord.create(getCarContext());
-            carAudioRecord.startRecording();
-
-            byte[] data = new byte[CarAudioRecord.AUDIO_CONTENT_BUFFER_SIZE];
-            while (carAudioRecord.read(data, 0, CarAudioRecord.AUDIO_CONTENT_BUFFER_SIZE) >= 0) {
-                // Use data array
-                // Potentially call carAudioRecord.stopRecording() if your processing finds end of speech
-            }
-            carAudioRecord.stopRecording();
+<br />
 
 ## Acquire audio focus
 
@@ -58,66 +49,39 @@ When recording from the car microphone, you must acquire [audio focus](https://d
 This stops any ongoing media. If you lose audio focus, stop recording. For
 example, to acquire audio focus:
 
-### Kotlin
 
-    val carAudioRecord = CarAudioRecord.create(carContext)
+```kotlin
+val carAudioRecord = CarAudioRecord.create(carContext)
 
-            // Take audio focus so that user's media is not recorded
-            val audioAttributes = AudioAttributes.Builder()
-                .setContentType(AudioAttributes.CONTENT_TYPE_SPEECH)
-                // Use the most appropriate usage type for your use case
-                .setUsage(AudioAttributes.USAGE_ASSISTANCE_NAVIGATION_GUIDANCE)
-                .build()
+// Take audio focus so that user's media is not recorded
+val audioAttributes = AudioAttributes.Builder()
+    .setContentType(AudioAttributes.CONTENT_TYPE_SPEECH)
+    // Use the most appropriate usage type for your use case
+    .setUsage(AudioAttributes.USAGE_ASSISTANCE_NAVIGATION_GUIDANCE)
+    .build()
 
-            val audioFocusRequest =
-                AudioFocusRequest.Builder(AudioManager.AUDIOFOCUS_GAIN_TRANSIENT_EXCLUSIVE)
-                    .setAudioAttributes(audioAttributes)
-                    .setOnAudioFocusChangeListener { state: Int ->
-                        if (state == AudioManager.AUDIOFOCUS_LOSS) {
-                            // Stop recording if audio focus is lost
-                            carAudioRecord.stopRecording()
-                        }
-                    }
-                    .build()
-
-            if (carContext.getSystemService(AudioManager::class.java)
-                    .requestAudioFocus(audioFocusRequest)
-                != AudioManager.AUDIOFOCUS_REQUEST_GRANTED
-            ) {
-                // Don't record if the focus isn't granted
-                return
+val audioFocusRequest =
+    AudioFocusRequest.Builder(AudioManager.AUDIOFOCUS_GAIN_TRANSIENT_EXCLUSIVE)
+        .setAudioAttributes(audioAttributes)
+        .setOnAudioFocusChangeListener { state: Int ->
+            if (state == AudioManager.AUDIOFOCUS_LOSS) {
+                // Stop recording if audio focus is lost
+                carAudioRecord.stopRecording()
             }
+        }
+        .build()
 
-            carAudioRecord.startRecording()
-            // Process the audio and abandon the AudioFocusRequest when done
+val audioManager = carContext.getSystemService(AudioManager::class.java)
+if (audioManager == null ||
+    audioManager.requestAudioFocus(audioFocusRequest)
+    != AudioManager.AUDIOFOCUS_REQUEST_GRANTED
+) {
+    // Don't record if the focus isn't granted
+    return
+}
 
-### Java
+carAudioRecord.startRecording()
+// Process the audio and abandon the AudioFocusRequest when done
+```
 
-    CarAudioRecord carAudioRecord = CarAudioRecord.create(getCarContext());
-            // Take audio focus so that user's media is not recorded
-            AudioAttributes audioAttributes =
-                    new AudioAttributes.Builder()
-                            .setContentType(AudioAttributes.CONTENT_TYPE_SPEECH)
-                            // Use the most appropriate usage type for your use case
-                            .setUsage(AudioAttributes.USAGE_ASSISTANCE_NAVIGATION_GUIDANCE)
-                            .build();
-
-            AudioFocusRequest audioFocusRequest =
-                    new AudioFocusRequest.Builder(AudioManager.AUDIOFOCUS_GAIN_TRANSIENT_EXCLUSIVE)
-                            .setAudioAttributes(audioAttributes)
-                            .setOnAudioFocusChangeListener(state -> {
-                                if (state == AudioManager.AUDIOFOCUS_LOSS) {
-                                    // Stop recording if audio focus is lost
-                                    carAudioRecord.stopRecording();
-                                }
-                            })
-                            .build();
-
-            if (getCarContext().getSystemService(AudioManager.class).requestAudioFocus(audioFocusRequest)
-                    != AUDIOFOCUS_REQUEST_GRANTED) {
-                // Don't record if the focus isn't granted
-                return;
-            }
-
-            carAudioRecord.startRecording();
-            // Process the audio and abandon the AudioFocusRequest when done
+<br />

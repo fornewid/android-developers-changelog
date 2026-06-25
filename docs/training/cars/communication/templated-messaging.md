@@ -54,8 +54,8 @@ category](https://developer.android.com/training/cars/apps#supported-app-categor
 
 #### Set the minimum car app API level
 
-Because the [`ConversationItem`](https://developer.android.com/reference/androidx/car/app/messaging/model/ConversationItem) API is only supported on Car
-API 7 or higher, you should also set the `minCarApiLevel` metadata to that
+Because the [`ConversationItem`](https://developer.android.com/reference/androidx/car/app/messaging/model/ConversationItem) API is only supported on
+Car API 7 or higher, you should also set the `minCarApiLevel` metadata to that
 value. See [Car App API Level](https://developer.android.com/training/cars/apps#api-level) for more information.
 
     <application ...>
@@ -99,48 +99,55 @@ recent or most important conversations, with no more than the 5 most recent
 messages for each conversation. This helps improve loading performance, lets
 users see the most relevant content, and reduces interaction time.
 
-    class MyMessagingScreen() : Screen() {
 
-        override fun onGetTemplate(): Template {
-            val itemListBuilder = ItemList.Builder()
-            val conversations: List<MyConversation> = // Retrieve conversations
+```kotlin
+class MyMessagingScreen(carContext: CarContext) : Screen(carContext) {
+    override fun onGetTemplate(): Template {
+        val itemListBuilder = ItemList.Builder()
+        val conversations: List<MyConversation> = getConversations() // Retrieve conversations
 
-            for (conversation: MyConversation in conversations) {
-                val carMessages: List<CarMessage> = conversation.getMessages()
-                    .map { message ->
-                        // CarMessage supports additional fields such as MIME type and URI,
-                        // which you should set if available
-                        CarMessage.Builder()
-                            .setSender(message.sender)
-                            .setBody(message.body)
-                            .setReceivedTimeEpochMillis(message.receivedTimeEpochMillis)
-                            .setRead(message.isRead)
-                            .build()
-                    }
-
-                itemListBuilder.addItem(
-                    ConversationItem.Builder()
-                        .setConversationCallback { /* Implement your conversation callback logic here */ }
-                        .setId(/* Set conversation ID */)
-                        .setTitle(/* Set conversation title */)
-                        .setIcon(/* Set conversation icon if available */)
-                        .setMessages(carMessages)
-                        /* When the sender of a CarMessage is equal to this Person,
-                        message readout is adjusted to "you said" instead of "<person>
-                        said" */
-                        .setSelf(/* Set self-sender */)
-                        .setGroupConversation(/* Set if the message contains more than 2 participants */)
+        for (conversation: MyConversation in conversations) {
+            val carMessages: List<CarMessage> = conversation.getMessages()
+                .map { message ->
+                    // CarMessage supports additional fields such as MIME type and URI,
+                    // which you should set if available
+                    CarMessage.Builder()
+                        .setSender(message.sender)
+                        .setBody(message.body)
+                        .setReceivedTimeEpochMillis(message.receivedTimeEpochMillis)
+                        .setRead(message.isRead)
                         .build()
-                )
-            }
+                }
 
-            return ListTemplate.Builder()
-                .setTitle("Conversations")
-                .setHeaderAction(Action.APP_ICON)
-                .setSingleList(itemListBuilder.build())
-                .build()
+            itemListBuilder.addItem(
+                ConversationItem.Builder(
+                    conversation.id,
+                    CarText.create(conversation.title),
+                    Person.Builder()
+                        .setName("Me")
+                        .setKey("self_id")
+                        .build(),
+                    carMessages,
+                    myConversationCallback
+                )
+                    .build()
+            )
         }
+
+        val header = Header.Builder()
+            .setStartHeaderAction(Action.APP_ICON)
+            .setTitle("Conversations")
+            .build()
+
+        return ListTemplate.Builder()
+            .setHeader(header)
+            .setSingleList(itemListBuilder.build())
+            .build()
     }
+}
+```
+
+<br />
 
 Each `ConversationItem` automatically displays actions for playing a message
 and marking it as read as and for replying. Those actions are handled by the

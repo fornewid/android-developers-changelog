@@ -12,36 +12,27 @@ components that take a [`CarText`](https://developer.android.com/reference/andro
 You can add text string variants to a `CarText` with the
 [`CarText.Builder.addVariant()`](https://developer.android.com/reference/androidx/car/app/model/CarText.Builder#addVariant(java.lang.CharSequence)) method:
 
-### Kotlin
 
-    val itemTitle = CarText.Builder("This is a very long string")
-        .addVariant("Shorter string")
-        ...
-        .build()
+```kotlin
+val itemTitle = CarText.Builder("This is a very long string")
+    .addVariant("Shorter string")
+    .build()
+```
 
-### Java
-
-    CarText itemTitle = new CarText.Builder("This is a very long string")
-     .addVariant("Shorter string")
-     ...
-     .build();
+<br />
 
 You can then use this `CarText`---for example, as the primary text of a
 [`GridItem`](https://developer.android.com/reference/androidx/car/app/model/GridItem).
 
-### Kotlin
 
-    GridItem.Builder()
-        .addTitle(itemTitle)
-        ...
-        .build()
+```kotlin
+val gridItem = GridItem.Builder()
+    .setTitle(itemTitle)
+    .setImage(CarIcon.APP_ICON)
+    .build()
+```
 
-### Java
-
-    new GridItem.Builder()
-        .addTitle(itemTitle)
-        ...
-        build();
+<br />
 
 Add strings in the order of from most to least preferred. For example, from
 longest to shortest. The host picks the appropriate-length string depending

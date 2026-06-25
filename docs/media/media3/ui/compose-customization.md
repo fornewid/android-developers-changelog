@@ -203,13 +203,12 @@ class SomeButtonState(private val player: Player) {
     player.actionA()
   }
 
-  suspend fun observe(): Nothing =
-    player.listen { events ->
-      if (events.containsAny(EVENT_B_CHANGED, EVENT_C_CHANGED, EVENT_AVAILABLE_COMMANDS_CHANGED)) {
-        someFieldValue = this.someField
-        isEnabled = this.isCommandAvailable(COMMAND_ACTION_A)
-      }
+  suspend fun observe(): Nothing = player.listen { events ->
+    if (events.containsAny(EVENT_B_CHANGED, EVENT_C_CHANGED, EVENT_AVAILABLE_COMMANDS_CHANGED)) {
+      someFieldValue = this.someField
+      isEnabled = this.isCommandAvailable(COMMAND_ACTION_A)
     }
+  }
 }
 ```
 

@@ -8,52 +8,31 @@ Your app must extend the [`CarAppService`](https://developer.android.com/referen
 [`onCreateSession`](https://developer.android.com/reference/androidx/car/app/CarAppService#onCreateSession()) method, which returns a [`Session`](https://developer.android.com/reference/androidx/car/app/Session) instance that
 corresponds to the current connection to the host:
 
-### Kotlin
 
-    class HelloWorldService : CarAppService() {
-      ...
-      override fun onCreateSession(): Session {
-          return HelloWorldSession()
-      }
-      ...
+```kotlin
+class HelloWorldService : CarAppService() {
+    override fun onCreateSession(sessionInfo: SessionInfo): Session {
+        return HelloWorldSession()
     }
+    // ...
+}
+```
 
-### Java
-
-    public final class HelloWorldService extends CarAppService {
-      ...
-      @Override
-      @NonNull
-      public Session onCreateSession() {
-          return new HelloWorldSession();
-      }
-      ...
-    }
+<br />
 
 The `Session` instance returns which [`Screen`](https://developer.android.com/reference/androidx/car/app/Screen) instance to use when the app
 is started for the first time:
 
-### Kotlin
 
-    class HelloWorldSession : Session() {
-      ...
-      override fun onCreateScreen(intent: Intent): Screen {
-          return HelloWorldScreen(carContext)
-      }
-      ...
+```kotlin
+class HelloWorldSession : Session() {
+    override fun onCreateScreen(intent: Intent): Screen {
+        return HelloWorldScreen(carContext)
     }
+}
+```
 
-### Java
-
-    public final class HelloWorldSession extends Session {
-      ...
-      @Override
-      @NonNull
-      public Screen onCreateScreen(@NonNull Intent intent) {
-          return new HelloWorldScreen(getCarContext());
-      }
-      ...
-    }
+<br />
 
 When your car app must start from a screen that isn't the **Home** or
 **Landing** screen, such as when handling deep links, you can use

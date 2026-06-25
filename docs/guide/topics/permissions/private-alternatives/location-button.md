@@ -1,20 +1,8 @@
 ---
-title: Request session-based location access with the location button  |  Privacy  |  Android Developers
+title: https://developer.android.com/guide/topics/permissions/private-alternatives/location-button
 url: https://developer.android.com/guide/topics/permissions/private-alternatives/location-button
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [Design & Plan](https://developer.android.com/design)
-* [Security](https://developer.android.com/security)
-* [Privacy](https://developer.android.com/privacy)
-* [Guides](https://developer.android.com/privacy-and-security/about)
-
-# Request session-based location access with the location button Stay organized with collections Save and categorize content based on your preferences.
-
-
-
-
 
 The Android location button is a customizable system UI element designed to
 simplify how you request session-scoped precise location access. By initiating
@@ -26,11 +14,7 @@ If your app targets Android 17 (API level 37) or later and only contains
 features that require session-based location access to function, Google Play
 policy requires you to use the location button. For more details,
 see the [location button policy](https://support.google.com/googleplay/android-developer/answer/16909972?sjid=11467833839438687533-NA#location-permissions).
-
-![Location button in-app flow demonstration](/static/images/guide/topics/permissions/private-alternatives/location-button-overview.gif)
-
-
-**Figure 1.** Demonstration of the location button user flow.
+![Location button in-app flow demonstration](https://developer.android.com/static/images/guide/topics/permissions/private-alternatives/location-button-overview.gif) **Figure 1.** Demonstration of the location button user flow.
 
 ## When to use the location button
 
@@ -41,38 +25,34 @@ permission prompts.
 
 Common use cases include:
 
-* "Search near me" functions: Finding nearby hotels, stores, or restaurants.
-* Location sharing: Sharing your current location once with friends or family.
-* Social media: Check-ins or location tagging.
-* Ecommerce: Auto-filling an address for deliveries.
+- "Search near me" functions: Finding nearby hotels, stores, or restaurants.
+- Location sharing: Sharing your current location once with friends or family.
+- Social media: Check-ins or location tagging.
+- Ecommerce: Auto-filling an address for deliveries.
 
 ## Customize UI
 
 To ensure the button matches your app's aesthetic while remaining
 recognizable, you can modify the following visual elements:
 
-* Background and icon color scheme.
-* Outline style, size, and shape.
-* Text labels from a predefined list (e.g., "Use precise location", "Share precise location").
+- Background and icon color scheme.
+- Outline style, size, and shape.
+- Text labels from a predefined list (e.g., "Use precise location", "Share precise location").
 
-**Note:** To maintain user trust, the location icon is mandatory and
-non-customizable, and the font size is system-managed to respect user
-accessibility settings.
+> [!NOTE]
+> **Note:** To maintain user trust, the location icon is mandatory and non-customizable, and the font size is system-managed to respect user accessibility settings.
 
-![Location Button demonstration of customization options](/static/images/guide/topics/permissions/private-alternatives/location-button-examples.png)
-
-
-**Figure 2.** Examples of location button customization options.
+![Location Button demonstration of customization options](https://developer.android.com/static/images/guide/topics/permissions/private-alternatives/location-button-examples.png) **Figure 2.** Examples of location button customization options.
 
 ## Implement the location button
 
 To integrate the location button, use the
-[Jetpack Library](/jetpack/androidx/releases/core-locationbutton#1.0.0-alpha01). This library simplifies setup,
+[Jetpack Library](https://developer.android.com/jetpack/androidx/releases/core-locationbutton#1.0.0-alpha01). This library simplifies setup,
 handles secure rendering on newer platforms, and provides a fallback for
 apps targeting Android 16 and lower.
 
-**Note:** Location button is an experimental Jetpack library and is subject to
-change. File any issues on the [issue tracker](https://issuetracker.google.com/components/2162367).
+> [!NOTE]
+> **Note:** Location button is an experimental Jetpack library and is subject to change. File any issues on the [issue tracker](https://issuetracker.google.com/components/2162367).
 
 ### Step 1: Declare permissions in the Android Manifest
 
@@ -80,7 +60,8 @@ You must declare standard location permissions along with the dedicated
 `USE_LOCATION_BUTTON` permission required by the system's remote rendering
 service.
 
-```
+
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <!--
      Copyright 2026 The Android Open Source Project
@@ -133,9 +114,9 @@ service.
         </activity>
     </application>
 </manifest>
-
-AndroidManifest.xml
 ```
+
+<br />
 
 ### Step 2: Implement Kotlin composable
 
@@ -143,7 +124,8 @@ The following is an example implementation of the location button, including
 examples of using available customization options which can be used to make the
 UI match the rest of the app.
 
-```
+
+```kotlin
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.width
@@ -200,9 +182,9 @@ fun LocationPermissionScreen(onPermissionGranted: () -> Unit, onPermissionDenied
         */
     )
 }
-
-LocationButton.kt
 ```
+
+<br />
 
 ### Step 3: Handle backward compatibility
 
@@ -214,15 +196,3 @@ but reverts to triggering the standard location permission prompt.
 Using this approach, you can take advantage of the benefits of adopting the
 location button without maintaining a parallel solution for devices running
 Android 16 or lower.
-
-[Previous
-
-arrow\_back
-
-Request special permissions](/training/permissions/requesting-special)
-
-[Next
-
-Explain access to more sensitive information
-
-arrow\_forward](/training/permissions/explaining-access)

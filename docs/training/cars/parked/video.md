@@ -77,7 +77,15 @@ by default](https://developer.android.com/media/media3/session/background-playba
 To determine if a device supports audio while driving, you can use the
 [`CarFeatures`](https://developer.android.com/reference/androidx/car/app/features/CarFeatures#summary) class from the [`androidx.car.app:app`](https://developer.android.com/jetpack/androidx/releases/car-app) library.
 
-    CarFeatures.isFeatureEnabled(context, CarFeatures.FEATURE_BACKGROUND_AUDIO_WHILE_DRIVING)
+
+```kotlin
+CarFeatures.isFeatureEnabled(
+    context,
+    CarFeatures.FEATURE_BACKGROUND_AUDIO_WHILE_DRIVING
+)
+```
+
+<br />
 
 Use this information to modify your app's behavior depending on the capabilities
 of the device it's running on. On devices that don't support audio while
@@ -85,7 +93,7 @@ driving, your app must still meet the [`DD-2`](https://developer.android.com/doc
 
 ### Test audio while driving
 
-To test your implementation, you can [simulate driving](https://developer.android.com/training/cars/testing/emulator#simulate-driving) can using an
+To test your implementation, you can [simulate driving](https://developer.android.com/training/cars/testing/emulator#simulate-driving) using an
 [emulator image that supports audio while driving](https://developer.android.com/training/cars/testing/emulator?filter=audio-while-driving#generic-images).
 
 > [!CAUTION]

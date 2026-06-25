@@ -29,9 +29,8 @@ following:
 
 To target Android Automotive OS devices, your app must have certain manifest
 entries. After you've opted-in to distributing to Android Automotive OS devices,
-compatible apps are put through a manual review process to help ensure that
-they're safe for use in a car. See [Distribute to
-cars](https://developer.android.com/training/cars/distribute) for more details.
+Google Play reviews compatible apps to help ensure that they're safe for use in
+a car. See [Distribute to cars](https://developer.android.com/training/cars/distribute) for more details.
 
 ### Required Android Automotive OS features
 
@@ -79,7 +78,7 @@ If an activity in your app is *Resumed* when UX restrictions become active, it
 is obscured by an activity owned by the OS.
 
 At the minimum, your app's activity transitions to the
-[*Paused* lifecycle state](https://developer.android.com/guide/components/activities/activity-lifecycle#onpause). This happens as an `onPause()` lifecycle
+[*Paused* lifecycle state](https://developer.android.com/guide/components/activities/activity-lifecycle#onpause). This happens as an `onPause` lifecycle
 callback during which you must pause both video and audio playback from your
 app.
 
@@ -96,7 +95,7 @@ distraction requirements.
 
 If reacting to lifecycle callbacks isn't sufficient for your app, you can listen
 to UX restriction state directly as described in the following section. For
-example, apps that support [picture-in-picture](https://developer.android.com/develop/ui/compose/system/picture-in-picture) may prefer to listen
+example, apps that support [picture-in-picture](https://developer.android.com/develop/ui/compose/system/picture-in-picture) might prefer to listen
 directly rather than have conditional checks in lifecycle callbacks.
 
 #### Listen to user experience restrictions
@@ -116,26 +115,34 @@ attempt to determine the UX restriction state from other hardware state
 such as gear or speed, because UX restrictions may vary from display to display
 within a vehicle.
 
-    val car = Car.createCar(context)
-    val carUxRestrictionsManager =
-        car.getCarManager(Car.CAR_UX_RESTRICTION_SERVICE) as CarUxRestrictionsManager
 
-    // You can either read the state directly ...
-    val currentUxRestrictions = carUxRestrictionsManager.currentUxRestrictions
+```kotlin
+val car = Car.createCar(context) ?: return
+val carUxRestrictionsManager =
+    car.getCarManager(Car.CAR_UX_RESTRICTION_SERVICE) as? CarUxRestrictionsManager ?: return
 
-    // or listen to state changes
-    carUxRestrictionsManager.registerListener { carUxRestrictions: CarUxRestrictions -> ...}
+// You can either read the state directly ...
+val currentUxRestrictions = carUxRestrictionsManager.currentCarUxRestrictions
 
-    // Don't forget to teardown and release resources when they're no longer needed
-    carUxRestrictionsManager.unregisterListener()
-    car.disconnect()
+// or listen to state changes
+carUxRestrictionsManager.registerListener { carUxRestrictions: CarUxRestrictions ->
+    // Handle UX restrictions
+}
+
+// Don't forget to teardown and release resources when they're no longer needed
+carUxRestrictionsManager.unregisterListener()
+car.disconnect()
+```
+
+<br />
 
 > [!TIP]
 > **Tip:** You can use a runtime check to support both Android Automotive OS and other form factors with the same code by only calling `Car.createCar()` on Android Automotive OS devices.
 
-The only value provided by [`CarUxRestrictions`](https://developer.android.com/reference/android/car/drivingstate/CarUxRestrictions) that your app should reference
-is the return value of [`isRequiresDistractionOptimization()`](https://developer.android.com/reference/android/car/drivingstate/CarUxRestrictions#isRequiresDistractionOptimization()). Other values
-are only relevant for activities that are marked as distraction optimized.
+The only value provided by [`CarUxRestrictions`](https://developer.android.com/reference/android/car/drivingstate/CarUxRestrictions) that your app
+refers to is the return value of [`isRequiresDistractionOptimization`](https://developer.android.com/reference/android/car/drivingstate/CarUxRestrictions#isRequiresDistractionOptimization()).
+Other values are only relevant for activities that are marked as distraction
+optimized.
 
 ### Test your implementation
 
@@ -225,7 +232,7 @@ content in the safe area at all.
 
 In addition to rectangular displays, some vehicles may have irregularly shaped
 screens, such as shown in **Figure 1**:
-![A diagram of an Android Automotive OS device with a display that's
+![An Android Automotive OS device with a display that's
 curved on the right side.](https://developer.android.com/static/images/training/cars/aaos-curved.png) **Figure 1**: An Android Automotive OS device with a display that's curved on the right side. The green area is the safe rectangle that doesn't overlap with the bounding box of the curve's display cutout.
 
 If your app doesn't render edge-to-edge, you don't need to do anything for it
@@ -275,33 +282,23 @@ for the
 [`FEATURE_AUTOMOTIVE`](https://developer.android.com/reference/android/content/pm/PackageManager#FEATURE_AUTOMOTIVE)
 feature, as shown in the following example:
 
-### Kotlin
 
 ```kotlin
-val packageManager: PackageManager = ... // Get a PackageManager from a Context
 val isCar = packageManager.hasSystemFeature(PackageManager.FEATURE_AUTOMOTIVE)
 if (isCar) {
-  // Enable or disable a given feature
+    // Enable or disable a given feature
 }
 ```
 
-### Java
-
-```java
-PackageManager packageManager = ... // Get a PackageManager from a Context
-boolean isCar = packageManager.hasSystemFeature(PackageManager.FEATURE_AUTOMOTIVE)
-if (isCar) {
-  // Enable or disable a given feature
-}
-```
+<br />
 
 Alternatively, if your app also has an Android Auto component, you can
 use the [`CarConnection`](https://developer.android.com/training/cars/apps#car-connection) API from the
 [Android for Cars App Library](https://developer.android.com/training/cars/apps) to detect whether the app is
-running on Android Automotive OS or Android Auto---or if it is not connected
-to a car at all.
+running on Android Automotive OS or Android Auto ---or if it is not
+connected to a car at all.
 
-For Picture-in-Picture (PiP), follow the established
+For picture-in-picture (PiP), follow the established
 [best practices](https://developer.android.com/guide/topics/ui/picture-in-picture#best) to check whether the
 feature is available and react appropriately.
 
@@ -321,12 +318,12 @@ networking](https://developer.android.com/docs/quality-guidelines/build-for-bill
 
 ### Use alternate resources
 
-To help adapt your app for cars, you can use the [`car` resource qualifier](https://developer.android.com/guide/topics/resources/providing-resources#UiModeQualifier) to [provide
-alternate resources](https://developer.android.com/guide/topics/resources/providing-resources#AlternativeResources)
+To help adapt your app for cars, you can use the [`car` resource qualifier](https://developer.android.com/guide/topics/resources/providing-resources#UiModeQualifier)
+to [provide alternate resources](https://developer.android.com/guide/topics/resources/providing-resources#AlternativeResources)
 when running on an Android Automotive OS vehicle. For example, if you use
 [Dimension resources](https://developer.android.com/guide/topics/resources/more-resources#Dimension) to store
 padding values, you could use a larger value for the `car` resource set to make
 touch targets larger.
 
 > [!IMPORTANT]
-> **Important:** The `car` resource qualifier is matched when the mode returned by [`UiModeManager.getCurrentModeType()`](https://developer.android.com/reference/android/app/UiModeManager#getCurrentModeType()) is [`UI_MODE_TYPE_CAR`](https://developer.android.com/reference/android/content/res/Configuration#UI_MODE_TYPE_CAR). This is always the case on Android Automotive OS, but can occasionally be the case on other devices (for example, when an app calls [`UiModeManager.enableCarMode()`](https://developer.android.com/reference/android/app/UiModeManager#enableCarMode(int)) itself).
+> **Important:** The `car` resource qualifier is matched when the mode returned by [`UiModeManager.getCurrentModeType`](https://developer.android.com/reference/android/app/UiModeManager#getCurrentModeType()) is [`UI_MODE_TYPE_CAR`](https://developer.android.com/reference/android/content/res/Configuration#UI_MODE_TYPE_CAR). This is always the case on Android Automotive OS, but it can occasionally be the case on other devices, such as when an app calls [`UiModeManager.enableCarMode`](https://developer.android.com/reference/android/app/UiModeManager#enableCarMode(int)) itself.

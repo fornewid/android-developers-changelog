@@ -101,9 +101,13 @@ as for analytics purposes), you can look at two signals:
 The following snippet shows how to combine these signals to detect usage through
 Android Auto:
 
-    val connectionType = ...
-    val displayId = context.display.displayId
-    isRunningOnAndroidAuto = connectionType == CONNECTION_TYPE_PROJECTION and displayId != DEFAULT_DISPLAY
+
+```kotlin
+val displayId = context.display?.displayId ?: DEFAULT_DISPLAY
+isRunningOnAndroidAuto = (connectionType == CONNECTION_TYPE_PROJECTION) && (displayId != DEFAULT_DISPLAY)
+```
+
+<br />
 
 > [!CAUTION]
 > **Caution:** This method might not always be accurate. A device could be connected to both Android Auto and another display, and your app might be running on that other display.

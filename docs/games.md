@@ -14,9 +14,9 @@ Get everything you need to develop and deliver games on Android: tools, download
 
 [![](http://developer.android.com/static/images/spot-icons/Level_Up_Logo_Light_Mode.svg)](https://play.google.com/console/about/levelup/) Blog
 
-### [Introducing the Google Play Games Level Up program](https://play.google.com/console/about/levelup/)
+### [Introducing the Revamped Google Play Games Level Up program](https://play.google.com/console/about/levelup/)
 
-Google Play Games Level Up, a new way we're elevating the player experience and unlocking greater success for your business. [Read More](https://play.google.com/console/about/levelup/)
+Revamped Google Play Games Level Up, a new way we're elevating the player experience and unlocking greater success for your business. [Read More](https://play.google.com/console/about/levelup/)
 
 ## 2026 GDC Highlights
 

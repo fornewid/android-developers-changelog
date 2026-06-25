@@ -68,7 +68,7 @@ Navigation apps can access the following templates, which display a surface in
 the background with the map and, during active navigation, turn-by-turn
 directions.
 
-- [`NavigationTemplate`](https://developer.android.com/reference/androidx/car/app/navigation/model/NavigationTemplate): also displays an optional informational message and travel estimates during active navigation.
+- [`NavigationTemplate`](https://developer.android.com/reference/androidx/car/app/navigation/model/NavigationTemplate): A template that displays an optional informational message and travel estimates during active navigation.
 - [`MapWithContentTemplate`](https://developer.android.com/reference/androidx/car/app/navigation/model/MapWithContentTemplate): A template that allows an app to render map tiles with some sort of content (for example, a list). The content is usually rendered as an overlay on top of the map tiles, with the map visible and stable areas adjusting to the content.
 
 For more details about how to design your navigation app's user interface using
@@ -103,11 +103,9 @@ using the `MapWithContentTemplate`. See the following snippets for examples:
 
 #### MapTemplate
 
-### Kotlin
-
 ```kotlin
 // MapTemplate (deprecated)
-val template = MapTemplate.Builder()
+val templateDeprecated = MapTemplate.Builder()
     .setPane(paneBuilder.build())
     .setActionStrip(actionStrip)
     .setHeader(header)
@@ -119,40 +117,18 @@ val template = MapWithContentTemplate.Builder()
     .setContentTemplate(
         PaneTemplate.Builder(paneBuilder.build())
             .setHeader(header)
-            .build())
+            .build()
+    )
     .setActionStrip(actionStrip)
     .setMapController(mapController)
     .build()
 ```
 
-### Java
-
-```java
-// MapTemplate (deprecated)
-MapTemplate template = new MapTemplate.Builder()
-    .setPane(paneBuilder.build())
-    .setActionStrip(actionStrip)
-    .setHeader(header)
-    .setMapController(mapController)
-    .build();
-
-// MapWithContentTemplate
-MapWithContentTemplate template = new MapWithContentTemplate.Builder()
-    .setContentTemplate(new PaneTemplate.Builder(paneBuilder.build())
-        .setHeader(header)
-        build())
-    .setActionStrip(actionStrip)
-    .setMapController(mapController)
-    .build();
-```
-
 #### PlaceListNavigationTemplate
-
-### Kotlin
 
 ```kotlin
 // PlaceListNavigationTemplate (deprecated)
-val template = PlaceListNavigationTemplate.Builder()
+val templateDeprecated = PlaceListNavigationTemplate.Builder()
     .setItemList(itemListBuilder.build())
     .setHeader(header)
     .setActionStrip(actionStrip)
@@ -165,59 +141,38 @@ val template = MapWithContentTemplate.Builder()
         ListTemplate.Builder()
             .setSingleList(itemListBuilder.build())
             .setHeader(header)
-            .build())
+            .build()
+    )
     .setActionStrip(actionStrip)
     .setMapController(
         MapController.Builder()
             .setMapActionStrip(mapActionStrip)
-            .build())
+            .build()
+    )
     .build()
-```
-
-### Java
-
-```java
-// PlaceListNavigationTemplate (deprecated)
-PlaceListNavigationTemplate template = new PlaceListNavigationTemplate.Builder()
-    .setItemList(itemListBuilder.build())
-    .setHeader(header)
-    .setActionStrip(actionStrip)
-    .setMapActionStrip(mapActionStrip)
-    .build();
-
-// MapWithContentTemplate
-MapWithContentTemplate template = new MapWithContentTemplate.Builder()
-    .setContentTemplate(new ListTemplate.Builder()
-        .setSingleList(itemListBuilder.build())
-        .setHeader(header)
-        .build())
-    .setActionStrip(actionStrip)
-    .setMapController(new MapController.Builder()
-        .setMapActionStrip(mapActionStrip)
-        .build())
-    .build();
 ```
 
 #### RoutePreviewNavigationTemplate
 
-### Kotlin
-
 ```kotlin
 // RoutePreviewNavigationTemplate (deprecated)
-val template = RoutePreviewNavigationTemplate.Builder()
+val templateDeprecated = RoutePreviewNavigationTemplate.Builder()
     .setItemList(
         ItemList.Builder()
             .addItem(
                 Row.Builder()
                     .setTitle(title)
-                    .build())
-            .build())
+                    .build()
+            )
+            .build()
+    )
     .setHeader(header)
     .setNavigateAction(
         Action.Builder()
             .setTitle(actionTitle)
-            .setOnClickListener { ... }
-            .build())
+            .setOnClickListener { /* onClick */ }
+            .build()
+    )
     .setActionStrip(actionStrip)
     .setMapActionStrip(mapActionStrip)
     .build()
@@ -234,58 +189,23 @@ val template = MapWithContentTemplate.Builder()
                             .addAction(
                                 Action.Builder()
                                     .setTitle(actionTitle)
-                                    .setOnClickListener { ... }
-                                    .build())
-                            .build())
-                    .build())
+                                    .setOnClickListener { /* onClick */ }
+                                    .build()
+                            )
+                            .build()
+                    )
+                    .build()
+            )
             .setHeader(header)
-            .build())
+            .build()
+    )
     .setActionStrip(actionStrip)
     .setMapController(
         MapController.Builder()
             .setMapActionStrip(mapActionStrip)
-            .build())
+            .build()
+    )
     .build()
-```
-
-### Java
-
-```java
-// RoutePreviewNavigationTemplate (deprecated)
-RoutePreviewNavigationTemplate template = new RoutePreviewNavigationTemplate.Builder()
-    .setItemList(new ItemList.Builder()
-        .addItem(new Row.Builder()
-            .setTitle(title))
-            .build())
-        .build())
-    .setHeader(header)
-    .setNavigateAction(new Action.Builder()
-        .setTitle(actionTitle)
-        .setOnClickListener(() -> { ... })
-        .build())
-    .setActionStrip(actionStrip)
-    .setMapActionStrip(mapActionStrip)
-    .build();
-
-// MapWithContentTemplate
-MapWithContentTemplate template = new MapWithContentTemplate.Builder()
-    .setContentTemplate(new ListTemplate.Builder()
-        .setSingleList(new ItemList.Builder()
-            .addItem(new Row.Builder()
-                  .setTitle(title))
-                  .addAction(new Action.Builder()
-                      .setTitle(actionTitle)
-                      .setOnClickListener(() -> { ... })
-                      .build())
-                  .build())
-            .build()))
-        .setHeader(header)
-        .build())
-    .setActionStrip(actionStrip)
-    .setMapController(new MapController.Builder()
-        .setMapActionStrip(mapActionStrip)
-        .build())
-    .build();
 ```
 
 ## Communicate navigation metadata
@@ -300,17 +220,12 @@ Navigation metadata is provided through the
 car service accessible from the
 [`CarContext`](https://developer.android.com/reference/androidx/car/app/CarContext):
 
-### Kotlin
 
 ```kotlin
 val navigationManager = carContext.getCarService(NavigationManager::class.java)
 ```
 
-### Java
-
-```java
-NavigationManager navigationManager = carContext.getCarService(NavigationManager.class);
-```
+<br />
 
 ### Start, end, and stop navigation
 
@@ -318,8 +233,8 @@ For the host to manage multiple navigation apps, routing notifications,
 and vehicle cluster data, it needs to be aware of the current state of
 navigation. When a user starts navigation, call
 [`NavigationManager.navigationStarted`](https://developer.android.com/reference/androidx/car/app/navigation/NavigationManager#navigationStarted()).
-Similarly, when navigation ends---for example, when the user arrives at their
-destination or the user cancels navigation---call
+Similarly, when navigation ends --- for example, when the user arrives at
+their destination or the user cancels navigation --- call
 [`NavigationManager.navigationEnded`](https://developer.android.com/reference/androidx/car/app/navigation/NavigationManager#navigationEnded()).
 
 Only call `NavigationManager.navigationEnded`
@@ -345,7 +260,7 @@ heads-up displays. Depending on the particular vehicle being driven, not all
 the information is displayed to the user.
 For example, the Desktop Head Unit (DHU) shows
 the [`Step`](https://developer.android.com/reference/androidx/car/app/navigation/model/Step) added to the
-[`Trip`](https://developer.android.com/reference/androidx/car/app/navigation/model/Trip), but does not show
+[`Trip`](https://developer.android.com/reference/androidx/car/app/navigation/model/Trip), but doesn't show
 the [`Destination`](https://developer.android.com/reference/androidx/car/app/navigation/model/Destination)
 information.
 
@@ -376,22 +291,20 @@ displays, you must add an `androidx.car.app.category.FEATURE_CLUSTER`
 `<category>` element to your `CarAppService`'s `<intent-filter>` as shown in the
 following snippet:
 
-```xml
-<application>
-    ...
-   <service
-       ...
-        android:name=".MyNavigationCarAppService"
-        android:exported="true">
-      <intent-filter>
-        <action android:name="androidx.car.app.CarAppService" />
-        <category android:name="androidx.car.app.category.NAVIGATION"/>
-        <category android:name="androidx.car.app.category.FEATURE_CLUSTER"/>
-      </intent-filter>
-    </service>
-    ...
-</application>
-```
+    <application>
+        ...
+       <service
+           ...
+            android:name=".MyNavigationCarAppService"
+            android:exported="true">
+          <intent-filter>
+            <action android:name="androidx.car.app.CarAppService" />
+            <category android:name="androidx.car.app.category.NAVIGATION"/>
+            <category android:name="androidx.car.app.category.FEATURE_CLUSTER"/>
+          </intent-filter>
+        </service>
+        ...
+    </application>
 
 ### Lifecycle and State Management
 
@@ -406,31 +319,18 @@ Apps have the option to either use the same `Session` class to handle both the
 cluster and main display, or create display-specific `Sessions` to customize
 behavior on each display (as shown in the following snippet).
 
-### Kotlin
 
 ```kotlin
 override fun onCreateSession(sessionInfo: SessionInfo): Session {
-  return if (sessionInfo.displayType == SessionInfo.DISPLAY_TYPE_CLUSTER) {
-    ClusterSession()
-  } else {
-    MainDisplaySession()
-  }
+    return if (sessionInfo.displayType == SessionInfo.DISPLAY_TYPE_CLUSTER) {
+        ClusterSession()
+    } else {
+        MainDisplaySession()
+    }
 }
 ```
 
-### Java
-
-```java
-@Override
-@NonNull
-public Session onCreateSession(@NonNull SessionInfo sessionInfo) {
-  if (sessionInfo.getDisplayType() == SessionInfo.DISPLAY_TYPE_CLUSTER) {
-    return new ClusterSession();
-  } else {
-    return new MainDisplaySession();
-  }
-}
-```
+<br />
 
 There are no guarantees about when or if the cluster display is provided, and
 it's also possible for the cluster `Session` to be the only `Session` (for
@@ -457,7 +357,7 @@ For Android Auto, this is done by [configuring the Desktop Head Unit to emulate
 a secondary cluster display](https://developer.android.com/training/cars/testing/dhu#cluster_display). For
 Android Automotive OS, the
 [generic system images](https://developer.android.com/training/cars/testing/emulator#generic-images) for API
-level 30 and greater emulate a cluster display.
+level 30 and higher emulate a cluster display.
 
 > [!NOTE]
 > **Note:** There is a known issue with the Android Automotive OS emulator which may cause the cluster window to not show up on boot. This can usually be remedied by hiding and then showing the "Running Devices" tool window in Android Studio.
@@ -481,25 +381,22 @@ of arrival, remaining time, and remaining distance.
 The following snippet uses `setTripIcon` and `setTripText` to customize the
 travel estimate:
 
-### Kotlin
 
 ```kotlin
-TravelEstimate.Builder(Distance.create(...), DateTimeWithZone.create(...))
-      ...
-      .setTripIcon(CarIcon.Builder(...).build())
-      .setTripText(CarText.create(...))
-      .build()
+TravelEstimate.Builder(
+    Distance.create(350.0, Distance.UNIT_METERS),
+    arrivalTimeAtDestination
+)
+    .setTripIcon(
+        CarIcon.Builder(
+            IconCompat.createWithResource(carContext, R.drawable.ic_garage)
+        ).build()
+    )
+    .setTripText(CarText.create("Custom Text"))
+    .build()
 ```
 
-### Java
-
-```java
-new TravelEstimate.Builder(Distance.create(...), DateTimeWithZone.create(...))
-      ...
-      .setTripIcon(CarIcon.Builder(...).build())
-      .setTripText(CarText.create(...))
-      .build();
-```
+<br />
 
 ## Provide turn-by-turn notifications
 
@@ -532,53 +429,32 @@ once in the HUN.
 
 The following snippet shows how to build a navigation notification:
 
-### Kotlin
 
 ```kotlin
 NotificationCompat.Builder(context, NOTIFICATION_CHANNEL_ID)
-    ...
     .setOnlyAlertOnce(true)
     .setOngoing(true)
     .setCategory(NotificationCompat.CATEGORY_NAVIGATION)
     .extend(
         CarAppExtender.Builder()
             .setContentTitle(carScreenTitle)
-            ...
             .setContentIntent(
                 PendingIntent.getBroadcast(
                     context,
                     ACTION_OPEN_APP.hashCode(),
                     Intent(ACTION_OPEN_APP).setComponent(
-                        ComponentName(context, MyNotificationReceiver::class.java)),
-                        0))
+                        ComponentName(context, MyNotificationReceiver::class.java)
+                    ),
+                    PendingIntent.FLAG_IMMUTABLE
+                )
+            )
             .setImportance(NotificationManagerCompat.IMPORTANCE_HIGH)
-            .build())
+            .build()
+    )
     .build()
 ```
 
-### Java
-
-```java
-new NotificationCompat.Builder(context, NOTIFICATION_CHANNEL_ID)
-    ...
-    .setOnlyAlertOnce(true)
-    .setOngoing(true)
-    .setCategory(NotificationCompat.CATEGORY_NAVIGATION)
-    .extend(
-        new CarAppExtender.Builder()
-            .setContentTitle(carScreenTitle)
-            ...
-            .setContentIntent(
-                PendingIntent.getBroadcast(
-                    context,
-                    ACTION_OPEN_APP.hashCode(),
-                    new Intent(ACTION_OPEN_APP).setComponent(
-                        new ComponentName(context, MyNotificationReceiver.class)),
-                        0))
-            .setImportance(NotificationManagerCompat.IMPORTANCE_HIGH)
-            .build())
-    .build();
-```
+<br />
 
 Update the TBT notification regularly for distance
 changes, which updates the rail widget, and only show the notification as a HUN.
@@ -605,33 +481,18 @@ to set the listener on the template.
 
 The following snippet shows how to set the listener on the template:
 
-### Kotlin
 
 ```kotlin
 PlaceListNavigationTemplate.Builder()
-    ...
     .setOnContentRefreshListener {
         // Execute any desired logic
-        ...
         // Then call invalidate() so onGetTemplate() is called again
-        invalidate()
+        screen.invalidate()
     }
     .build()
 ```
 
-### Java
-
-```java
-new PlaceListNavigationTemplate.Builder()
-        ...
-        .setOnContentRefreshListener(() -> {
-            // Execute any desired logic
-            ...
-            // Then call invalidate() so onGetTemplate() is called again
-            invalidate();
-        })
-        .build();
-```
+<br />
 
 The refresh button is only shown in the header of the
 `PlaceListNavigationTemplate` if the listener has a value.
@@ -691,8 +552,8 @@ intent to start navigation.
 ## Display in-context navigation alerts
 
 [`Alert`](https://developer.android.com/reference/androidx/car/app/model/Alert) displays important
-information to the driver with optional actions‐without leaving the context of
-the navigation screen. To provide the best experience to the driver,
+information to the driver with optional actions ‐ without leaving the
+context of the navigation screen. To provide the best experience to the driver,
 `Alert` works within the
 [`NavigationTemplate`](https://developer.android.com/reference/androidx/car/app/navigation/model/NavigationTemplate)
 to avoid blocking the navigation route and to minimize driver distraction.
@@ -724,39 +585,23 @@ takes an action, or the app dismisses the `Alert`.
 Use [`Alert.Builder`](https://developer.android.com/reference/androidx/car/app/model/Alert.Builder)
 to create an [`Alert`](https://developer.android.com/reference/androidx/car/app/model/Alert) instance:
 
-### Kotlin
 
 ```kotlin
 Alert.Builder(
-        /*alertId*/ 1,
-        /*title*/ CarText.create("Hello"),
-        /*durationMillis*/ 5000
-    )
+    1, // alertId
+    CarText.create("Hello"), // title
+    5000 // durationMillis
+)
     // The fields below are optional
     .addAction(firstAction)
     .addAction(secondAction)
-    .setSubtitle(CarText.create(...))
+    .setSubtitle(CarText.create("Subtitle"))
     .setIcon(CarIcon.APP_ICON)
-    .setCallback(...)
+    .setCallback(alertCallback)
     .build()
 ```
 
-### Java
-
-```java
-new Alert.Builder(
-        /*alertId*/ 1,
-        /*title*/ CarText.create("Hello"),
-        /*durationMillis*/ 5000
-    )
-    // The fields below are optional
-    .addAction(firstAction)
-    .addAction(secondAction)
-    .setSubtitle(CarText.create(...))
-    .setIcon(CarIcon.APP_ICON)
-    .setCallback(...)
-    .build();
-```
+<br />
 
 If you want to listen for `Alert`
 cancellation or dismissal, create an implementation of the
@@ -775,11 +620,11 @@ The `AlertCallback` call paths are:
   [`Action.OnClickListener`](https://developer.android.com/reference/androidx/car/app/model/OnClickListener)
   and then calls `AlertCallback.onDismiss`.
 
-- If the `Alert` is not supported, the host calls
+- If the `Alert` isn't supported, the host calls
   `AlertCallback.onCancel` with the
   [`AlertCallback.REASON_NOT_SUPPORTED`](https://developer.android.com/reference/androidx/car/app/model/AlertCallback#REASON_NOT_SUPPORTED())
-  value. The host does not call
-  `AlertCallback.onDismiss`, because the `Alert` was not shown.
+  value. The host doesn't call
+  `AlertCallback.onDismiss`, because the `Alert` wasn't shown.
 
 ### Configure alert duration
 
@@ -795,15 +640,19 @@ To show an [`Alert`](https://developer.android.com/reference/androidx/car/app/mo
 method available through your app's
 [`CarContext`](https://developer.android.com/reference/androidx/car/app/CarContext).
 
-    // Show an alert
-    carContext.getCarService(AppManager.class).showAlert(alert)
 
-- Calling `showAlert` with an `Alert` that has an [`alertId`](https://developer.android.com/reference/androidx/car/app/model/Alert.Builder#Builder(int,%20androidx.car.app.model.CarText,%20long)) that is the same as the ID of the `Alert` currently on display does nothing. The `Alert` doesn't update. To update an `Alert`, you must recreate it with a new `alertId`.
-- Calling `showAlert` with an `Alert` that has a different `alertId` than the `Alert` currently on display dismisses the `Alert` currently displayed.
+```kotlin
+carContext.getCarService(AppManager::class.java).showAlert(alert)
+```
+
+<br />
+
+- Calling `showAlert` with an `Alert` that has an [`alertId`](https://developer.android.com/reference/androidx/car/app/model/Alert.Builder#Builder(int,%20androidx.car.app.model.CarText,%20long)) that is the same as the ID of the `Alert` already on display does nothing. The `Alert` doesn't update. To update an `Alert`, you must recreate it with a new `alertId`.
+- Calling `showAlert` with an `Alert` that has a different `alertId` than the `Alert` already on display dismisses the `Alert` displayed alert.
 
 ### Dismiss an alert
 
-While an [`Alert`](https://developer.android.com/reference/androidx/car/app/model/Alert) automatically dismiss
+While an [`Alert`](https://developer.android.com/reference/androidx/car/app/model/Alert) automatically dismisses
 due to timeout or driver interaction, you can also manually dismiss an
 `Alert`, such as if its information becomes outdated. To dismiss an
 `Alert`, call the
@@ -812,8 +661,12 @@ method with the
 [`alertId`](https://developer.android.com/reference/androidx/car/app/model/Alert.Builder#Builder(int,%20androidx.car.app.model.CarText,%20long))
 of the `Alert`.
 
-    // Dismiss the same alert
-    carContext.getCarService(AppManager.class).dismissAlert(alert.getId())
 
-Calling `dismissAlert` with an `alertId` that doesn't match the currently
+```kotlin
+carContext.getCarService(AppManager::class.java).dismissAlert(alert.id)
+```
+
+<br />
+
+Calling `dismissAlert` with an `alertId` that doesn't match the already
 displayed `Alert` does nothing. It doesn't throw an exception.

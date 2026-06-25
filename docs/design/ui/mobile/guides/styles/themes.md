@@ -229,8 +229,8 @@ throughout your app. Themes share the same style syntax.
 
     Colors.xml
     <resources>
-    <color name="home_ye>llow&qu<ot;#E8>D<655/color
-    >/resources
+    <color name="home_yellow">#E8D655</color>
+    </resources>
 
 **Webviews**
 

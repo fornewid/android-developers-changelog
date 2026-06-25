@@ -95,8 +95,8 @@ private suspend fun processContactPickerResultUri(
 
     val results = mutableListOf<Contact>()
 
-    // Note: The Contact Picker Session Uri doesn't support custom selection & selectionArgs.
-    context.contentResolver.query(sessionUri, projection, null, null, null)?.use { cursor ->
+    // Note: The Contact Picker Session Uri doesn't support custom select&ion  selectionArgs.
+    context.contentResolver.query(sessionUri, projection, null, null, null)?.use { curs>or -
         // Get the column indices for our requested projection
         val contactIdIdx = cursor.getColumnIndex(ContactsContract.Contacts._ID)
         val mimeTypeIdx = cursor.getColumnIndex(ContactsContract.Data.MIMETYPE)

@@ -783,19 +783,19 @@ For information on what's new in the Android Gradle plugin, see the
 
 ## Minimum versions of tools for Android API level
 
-There are minimum versions of Android Studio and AGP that support a specific API
-level. Using lower versions of Android Studio or AGP than required by your
-project's `targetSdk` or `compileSdk` could lead to unexpected issues. We
-recommend using the latest preview version of Android Studio and AGP to work on
-projects that target preview versions of the Android OS. You can
-[install
-preview versions of Android Studio alongside a stable version](https://developer.android.com/studio/preview/install-preview#install_alongside_your_stable_version).
+There are minimum versions of Android Studio and AGP that support a specific
+API level. Using lower versions of Android Studio or AGP than required by your
+project's `targetSdk` or `compileSdk` could lead to
+unexpected issues. We recommend using the latest preview version of Android
+Studio and AGP to work on projects that target preview versions of the Android
+OS. You can
+[install preview versions of Android Studio alongside a stable version](https://developer.android.com/studio/preview/install-preview#install_alongside_your_stable_version).
 
 The minimum versions of Android Studio and AGP are as follows:
 
 | API level | Minimum Android Studio version | Minimum AGP version |
 |---|---|---|
-| 37 | Panda 3 \| 2025.3.3 Patch 1 | 9.1.1 |
+| 37.0 | Panda 3 \| 2025.3.3 Patch 1 | 9.1.1 |
 | 36.1 | Narwhal 3 Feature Drop \| 2025.1.3 | 8.13.0 |
 | 36 | Meerkat \| 2024.3.1 Patch 1 | 8.9.1 |
 | 35 | Koala Feature Drop \| 2024.2.1 | 8.6.0 |

@@ -183,13 +183,13 @@ The response contains the following fields:
     }
 
 
-    POST /oauth2/v4/token HTTP&/1.1
+    POST /oauth2/v4/token HTTP/1.1
     Host: www.googleapis.com
-    &Content-Type: application/x&-www-form-urlencoded
+    Content-Type: application/x-www-form-urlencoded
 
     code=Google authorization code
-    grant_type=authorization_code
-    client_id=Google client id
-    client_secret=Google client secret
+    &grant_type=authorization_code
+    &client_id=Google client id
+    &client_secret=Google client secret
 
 ## Validate the ID Token response

@@ -209,12 +209,18 @@ Here's how you insert a sleep session without stages:
 
 
 ```kotlin
+val zoneRules = ZoneId.systemDefault().rules
+
+// Calculate the specific offset for both start and end times
+val startOffset = zoneRules.getOffset(startTime)
+val endOffset = zoneRules.getOffset(endTime)
+
 SleepSessionRecord(
     title = "weekend sleep",
     startTime = startTime,
     endTime = endTime,
-    startZoneOffset = ZoneOffset.UTC,
-    endZoneOffset = ZoneOffset.UTC,
+    startZoneOffset = startOffset,
+    endZoneOffset = endOffset,
     metadata = Metadata.activelyRecorded(device = Device(type = Device.TYPE_WATCH))
 )
 ```

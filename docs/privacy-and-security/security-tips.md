@@ -561,12 +561,8 @@ might use [`sendBroadcast`](https://developer.android.com/reference/android/cont
 intent to a specific application component. For security purposes, explicit
 intents are preferred.
 
-**Caution** : If you use an intent to bind to a [`**Service**`](https://developer.android.com/reference/android/app/Service), use an
-[explicit](https://developer.android.com/guide/components/intents-filters#Types) intent to keep your app secure. Using an implicit intent to start
-a service is a security hazard, because you can't be certain what service will
-respond to the intent and the user can't see which service starts. Beginning
-with Android 5.0 (API level 21), the system throws an exception if you call
-[`**bindService()**`](https://developer.android.com/reference/android/content/Context#bindService(android.content.Intent,%20android.content.ServiceConnection,%20int)) with an implicit intent.
+> [!CAUTION]
+> **Caution:** If you use an intent to bind to a [`Service`](https://developer.android.com/reference/android/app/Service), use an [explicit](https://developer.android.com/guide/components/intents-filters#Types) intent to keep your app secure. Using an implicit intent to start a service is a security hazard, because you can't be certain what service will respond to the intent and the user can't see which service starts. Beginning with Android 5.0 (API level 21), the system throws an exception if you call [`bindService()`](https://developer.android.com/reference/android/content/Context#bindService(android.content.Intent,%20android.content.ServiceConnection,%20int)) with an implicit intent.
 
 Note that ordered broadcasts can be *consumed* by a recipient, so they might not
 be delivered to all applications. If you are sending an intent that must be
@@ -581,10 +577,8 @@ register to receive those messages without appropriate permissions. In those
 circumstances, you might also consider invoking the receiver directly, rather
 than raising a broadcast.
 
-**Note**: Intent filters aren't security features. Components can be invoked
-with explicit intents and might not have data that would conform to the intent
-filter. To confirm that it is properly formatted for the invoked receiver,
-service, or activity, perform input validation within your intent receiver.
+> [!NOTE]
+> **Note:** Intent filters aren't security features. Components can be invoked with explicit intents and might not have data that would conform to the intent filter. To confirm that it is properly formatted for the invoked receiver, service, or activity, perform input validation within your intent receiver.
 
 ### Services
 
@@ -601,17 +595,16 @@ attribute. By doing so, other applications need to declare a corresponding
 [`<uses-permission>`](https://developer.android.com/guide/topics/manifest/uses-permission-element) element in their own manifest to be able to start,
 stop, or bind to the service.
 
-**Note** : If your app targets Android 5.0 (API level 21) or higher, use the
-[`**JobScheduler**`](https://developer.android.com/reference/android/app/job/JobScheduler) to execute background services.
+> [!NOTE]
+> **Note:** If your app targets Android 5.0 (API level 21) or higher, use the [`JobScheduler`](https://developer.android.com/reference/android/app/job/JobScheduler) to execute background services.
 
 A service can protect individual IPC calls that are made into it with
 permissions. This is done by calling [`checkCallingPermission()`](https://developer.android.com/reference/android/content/Context#checkCallingPermission(java.lang.String)) before
 executing the implementation of the call. We recommend using the declarative
 permissions in the manifest, since those are less prone to oversight.
 
-**Caution**: Don't confuse client and server permissions; ensure that the called
-app has appropriate permissions and verify that you grant the same permissions
-to the calling app.
+> [!CAUTION]
+> **Caution:** Don't confuse client and server permissions; ensure that the called app has appropriate permissions and verify that you grant the same permissions to the calling app.
 
 ### Binder and Messenger interfaces
 

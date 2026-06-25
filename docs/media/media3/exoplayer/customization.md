@@ -56,13 +56,12 @@ injecting a custom `DataSource.Factory` into the `DefaultMediaSourceFactory`:
 ### Kotlin
 
 ```kotlin
-val dataSourceFactory =
-  DataSource.Factory {
-    val dataSource = httpDataSourceFactory.createDataSource()
-    // Set a custom authentication request header.
-    dataSource.setRequestProperty("Header", "Value")
-    dataSource
-  }
+val dataSourceFactory = DataSource.Factory {
+  val dataSource = httpDataSourceFactory.createDataSource()
+  // Set a custom authentication request header.
+  dataSource.setRequestProperty("Header", "Value")
+  dataSource
+}
 val player =
   ExoPlayer.Builder(context)
     .setMediaSourceFactory(

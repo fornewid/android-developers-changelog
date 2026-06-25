@@ -15,28 +15,24 @@ car screen or uses the hardware **Back** button available in some cars.
 This code shows how to add a back action to a message template as well as an
 action to push a new screen when selected by the user:
 
-### Kotlin
 
-    val template = MessageTemplate.Builder("Hello world!")
-         .setHeaderAction(Action.BACK)
-         .addAction(
-             Action.Builder()
-                 .setTitle("Next screen")
-                 .setOnClickListener { screenManager.push(NextScreen(carContext)) }
-                 .build())
-         .build()
+```kotlin
+val header = Header.Builder()
+    .setStartHeaderAction(Action.BACK)
+    .build()
 
-### Java
+val template = MessageTemplate.Builder("Hello world!")
+    .setHeader(header)
+    .addAction(
+        Action.Builder()
+            .setTitle("Next screen")
+            .setOnClickListener { screenManager.push(NextScreen(carContext)) }
+            .build()
+    )
+    .build()
+```
 
-    MessageTemplate template = new MessageTemplate.Builder("Hello world!")
-        .setHeaderAction(Action.BACK)
-        .addAction(
-            new Action.Builder()
-                .setTitle("Next screen")
-                .setOnClickListener(
-                    () -> getScreenManager().push(new NextScreen(getCarContext())))
-                .build())
-        .build();
+<br />
 
 The [`Action.BACK`](https://developer.android.com/reference/androidx/car/app/model/Action#BACK()) object is a standard [`Action`](https://developer.android.com/reference/androidx/car/app/model/Action) that automatically
 invokes [`ScreenManager.pop`](https://developer.android.com/reference/androidx/car/app/ScreenManager#pop()). This behavior can be overridden by using the

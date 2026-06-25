@@ -12,45 +12,29 @@ for an overview of how text styling with spans work.
 > [!NOTE]
 > **Note:** On hosts that support a Car App API level of less than five, raw text is rendered instead of the `CarIcon`.
 
-### Kotlin
 
-    val rating = SpannableString("Rating: 4.5 stars")
-    rating.setSpan(
-        CarIconSpan.create(
-            // Create a CarIcon with an image of four and a half stars
-            CarIcon.Builder(...).build(),
-            // Align the CarIcon to the baseline of the text
-            CarIconSpan.ALIGN_BASELINE
-        ),
-        // The start index of the span (index of the character '4')
-        8,
-        // The end index of the span (index of the last 's' in "stars")
-        16,
-        Spanned.SPAN_INCLUSIVE_INCLUSIVE
-    )
+```kotlin
+val rating = SpannableString("Rating: 4.5 stars")
+rating.setSpan(
+    CarIconSpan.create(
+        // Create a CarIcon with an image of four and a half stars
+        CarIcon.Builder(
+            IconCompat.createWithResource(carContext, R.drawable.ic_star)
+        ).build(),
+        // Align the CarIcon to the baseline of the text
+        CarIconSpan.ALIGN_BASELINE
+    ),
+    // The start index of the span (index of the character '4')
+    8,
+    // The end index of the span (exclusive, length of the string)
+    17,
+    Spanned.SPAN_INCLUSIVE_INCLUSIVE
+)
 
-    val row = Row.Builder()
-        ...
-        .addText(rating)
-        .build()
+val row = Row.Builder()
+    .setTitle("Rating Row")
+    .addText(rating)
+    .build()
+```
 
-### Java
-
-    SpannableString rating = new SpannableString("Rating: 4.5 stars");
-    rating.setSpan(
-            CarIconSpan.create(
-                    // Create a CarIcon with an image of four and a half stars
-                    new CarIcon.Builder(...).build(),
-                    // Align the CarIcon to the baseline of the text
-                    CarIconSpan.ALIGN_BASELINE
-            ),
-            // The start index of the span (index of the character '4')
-            8,
-            // The end index of the span (index of the last 's' in "stars")
-            16,
-            Spanned.SPAN_INCLUSIVE_INCLUSIVE
-    );
-    Row row = new Row.Builder()
-            ...
-            .addText(rating)
-            .build();
+<br />
