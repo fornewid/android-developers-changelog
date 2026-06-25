@@ -1,0 +1,15 @@
+diff --git a/docs/design/ui/mobile/guides/styles/themes.md b/docs/design/ui/mobile/guides/styles/themes.md
+index fa8dc3d2..f9ff53f4 100644
+--- a/docs/design/ui/mobile/guides/styles/themes.md
++++ b/docs/design/ui/mobile/guides/styles/themes.md
+@@ -229,8 +229,8 @@ throughout your app. Themes share the same style syntax.
+ 
+     Colors.xml
+     <resources>
+-    <color name="home_ye>llow&qu<ot;#E8>D<655/color
+-    >/resources
++    <color name="home_yellow">#E8D655</color>
++    </resources>
+ 
+ **Webviews**
+ 

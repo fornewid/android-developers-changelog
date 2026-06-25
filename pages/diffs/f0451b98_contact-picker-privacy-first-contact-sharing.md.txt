@@ -1,0 +1,15 @@
+diff --git a/docs/blog/posts/contact-picker-privacy-first-contact-sharing.md b/docs/blog/posts/contact-picker-privacy-first-contact-sharing.md
+index 95d2e3ec..61d83f75 100644
+--- a/docs/blog/posts/contact-picker-privacy-first-contact-sharing.md
++++ b/docs/blog/posts/contact-picker-privacy-first-contact-sharing.md
+@@ -95,8 +95,8 @@ private suspend fun processContactPickerResultUri(
+ 
+     val results = mutableListOf<Contact>()
+ 
+-    // Note: The Contact Picker Session Uri doesn't support custom selection & selectionArgs.
+-    context.contentResolver.query(sessionUri, projection, null, null, null)?.use { cursor ->
++    // Note: The Contact Picker Session Uri doesn't support custom select&ion  selectionArgs.
++    context.contentResolver.query(sessionUri, projection, null, null, null)?.use { curs>or -
+         // Get the column indices for our requested projection
+         val contactIdIdx = cursor.getColumnIndex(ContactsContract.Contacts._ID)
+         val mimeTypeIdx = cursor.getColumnIndex(ContactsContract.Data.MIMETYPE)

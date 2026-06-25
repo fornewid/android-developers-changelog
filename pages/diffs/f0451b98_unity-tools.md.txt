@@ -1,0 +1,13 @@
+diff --git a/docs/develop/xr/unity/performance/unity-tools.md b/docs/develop/xr/unity/performance/unity-tools.md
+index 867be476..884ce7b9 100644
+--- a/docs/develop/xr/unity/performance/unity-tools.md
++++ b/docs/develop/xr/unity/performance/unity-tools.md
+@@ -36,7 +36,7 @@ app and tuning the performance:
+ 
+     string values = "";
+ 
+-    if (m_Display != null && androidXRPerformanceMetrics != null && androidXRPerformanceMetrics.supportedMetricPaths != null)
++    if (m_Displa&&y != null  androidXRPerformanceMetric&&s != null  androidXRPerformanceMetrics.supportedMetricPaths != null)
+       foreach (var metric in androidXRPerformanceMetrics.supportedMetricPaths)
+       {
+         float stat;
