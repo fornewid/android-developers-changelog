@@ -4,55 +4,53 @@ url: https://developer.android.com/training/wearables/user-interfaces
 source: md.txt
 ---
 
-Wear OS makes it easy for users to engage with apps optimized for a watch.
-Ensure that content is displayed on the appropriate surface.
+Wear OS lets users engage with experiences that are optimized for a watch. These
+experiences can appear on a variety of containers, or *surfaces*, within the
+Wear OS system UI.
 
-App surfaces on Wear OS are designed with jobs in mind. For example, if you
-have a single unit of information that users are likely to want to glance at
-multiple times a day, consider providing a complication. If your content is
-high-value and highly contextual, consider a notification instead.
-
-Another useful way to design app content intuitively on Wear OS is to consider
-the priority of information across surfaces, elevating the most valuable content
-to Wear OS's glanceable surfaces.
+When choosing a surface on Wear OS, keep your experience's main job in mind. For
+example, if you have a single unit of information that users are likely to want
+to glance at multiple times a day, consider providing a complication. If your
+content is high-value and highly contextual, consider a notification instead.
 
 Display the highest-priority content in complications and notifications, and
-then use the larger space on tiles and your app to display more content
-appropriately.
+then use the larger space on widgets, tiles, and your app to display more
+content appropriately.
 
 The following sections cover each of these surfaces in more detail.
 
-## App
+## Apps
 
-An app is a focused view that can serve a complex or less-common task or
-a cluster of tasks. An app is immersive, and it's similar to a mobile app's
-main user interface (UI), though there are some differences.
+An app is a focused view that can serve a complex or less-common task or a
+cluster of tasks. An app is immersive, and it's similar to a mobile app's main
+user interface (UI), though there are some differences.
 
 > [!NOTE]
-> **Note:** Consider using [Compose for Wear OS](https://developer.android.com/training/wearables/compose) to create your app. Compose for Wear OS is a modern declarative UI toolkit and is the recommended approach for building apps on Wear OS.
+> **Note:** When you create your app, use [Compose for Wear OS](https://developer.android.com/training/wearables/compose), a modern declarative UI toolkit.
 
-Other surfaces (tiles, complications, and notifications) can link into an
-app to let users carry out more complex tasks.
-
-![apps](https://developer.android.com/static/wear/images/ui_overview_8.png "apps")
-
-**Figure 1.** You can use an app to start a workout, browse a playlist, send
-a message, or review workout data.
+Other surfaces can link into an app to let users carry out more complex tasks.
+![View recent email messages](https://developer.android.com/static/wear/images/design/apps-bestpractices-DOshowtime-cropped.png) ![List of media playlists](https://developer.android.com/static/wear/images/design/apps-bestpractices-DOiconslabels-cropped.png) ![Recommended music genres to listen to](https://developer.android.com/static/wear/images/design/apps-bestpractices-DOcueorient-cropped.png) **Figure 1.** You can use an app to view messages, browse playlists, explore music genres, and more.
 
 ## Tiles
 
-Tiles provide quick, predictable access to information and actions to solve
-user needs.
+Tiles provide quick, predictable access to information and actions to solve user
+needs.
 
 While apps can be immersive, tiles are fast-loading and focus on the user's
 immediate needs. If users want more information, they can tap tiles to open an
 app on the watch.
+![Count of glasses of water](https://developer.android.com/static/wear/images/design/tiles-overview-immediate-cropped.png) ![Start a fitness activity](https://developer.android.com/static/wear/images/design/tiles-overview-predictable-cropped.png) ![Current weather and forecast](https://developer.android.com/static/wear/images/design/tiles-overview-relevant-cropped.png) **Figure 2.** Use tiles to track water consumption progress, quick-start a workout, check the weather, and more.
 
-![tile](https://developer.android.com/static/wear/images/ui_overview_6.gif "tile")
+## Widgets
 
-**Figure 2.** Use tiles to track the user's daily activity progress,
-quick-start a workout, start a recently played song, or send a message to a
-favorite contact.
+Widgets provide flexible, dynamic, and glanceable access to information and
+actions. They offer a more responsive design than tiles.
+
+While tiles are full screen, widgets support different sizes, including small
+and large formats. Widgets are built using [Jetpack Glance](https://developer.android.com/develop/ui/compose/glance) and the [Remote
+Compose](https://developer.android.com/jetpack/androidx/releases/compose-remote) framework. Users can tap widgets to open the corresponding app for a
+deeper experience.
+![Widgets compatibility mode showing one full screen experience](https://developer.android.com/static/wear/images/widgets/widgets-compat.svg) **Figure 3.** Use widgets to show a group of glanceable updates (left), or a full-screen fallback experience on devices that don't support partial-height UI elements or vertical scrolling (right).
 
 ## Notifications
 
@@ -62,11 +60,7 @@ the user. Notifications on Wear OS are similar to mobile notifications.
 > [!NOTE]
 > **Note:** You can combine ongoing notifications that have a background task with an ongoing activity to appear on additional surfaces within the Wear OS user interface. This keeps users more engaged with long running activities.
 
-![notification](https://developer.android.com/static/wear/images/ui_overview_5.gif)
-
-**Figure 4.** Use a notification to show a new message or email, track a
-workout after the user has left the app, or show information on the current
-song playing.
+![notification](https://developer.android.com/static/wear/images/ui_overview_5.gif) **Figure 4.** Use a notification to show a new message or email, track a workout after the user has left the app, or show information on the current song playing.
 
 ## App launcher entries
 
@@ -86,21 +80,13 @@ settings.
 
 Watch faces are dynamic, digital canvases where users can express their style.
 Most apps don't need to create a custom watch face. However, if creating a watch
-face makes sense for your app, Wear OS lets you customize the surface
-as much as you want.
-
-![watch-face](https://developer.android.com/static/wear/images/ui_overview_1.png)
-
-**Figure 7.** Use a custom watch face to show a customized analog timepiece
-or a customized digital timepiece that displays complications.
+face makes sense for your app, Wear OS lets you customize the surface as much as
+you want.
+![watch-face](https://developer.android.com/static/wear/images/ui_overview_1.png) **Figure 7.** Use a custom watch face to show a customized analog timepiece or a customized digital timepiece that displays complications.
 
 ## Complications
 
 A complication is a single, often-repeated action or a highly glanceable unit of
-information on the watch face. As with tiles, users can tap complications to
-open an app on the watch for a deeper experience.
-
-![complication](https://developer.android.com/static/wear/images/ui_overview_3.png "complication")
-
-**Figure 3.** Use complications to track the date, the user's water intake or
-steps, or the current weather.
+information on the watch face. As with tiles and widgets, users can tap
+complications to open an app on the watch for a deeper experience.
+![complication](https://developer.android.com/static/wear/images/ui_overview_3.png) **Figure 8.** Use complications to track the date, the user's water intake or steps, or the current weather.

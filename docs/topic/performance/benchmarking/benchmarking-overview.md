@@ -30,23 +30,16 @@ user.
 The [Microbenchmark](https://developer.android.com/studio/profile/benchmark) library lets you benchmark app code directly in a loop.
 This is designed for measuring CPU work that assesses best-case performance---such
 as warmed up Just in Time (JIT) and disk accesses cached---that you might see with
-an inner-loop or a specific hot function. ​​The library can only measure the
+an inner-loop or a specific hot function. The library can only measure the
 code that you can call directly in isolation.
 
-If your app needs to process a complex data structure, or have some specific
-computation-heavy algorithm that is called multiple times during the app run,
-these might be good cases for benchmarking. You can also measure parts of your
-UI. For example, you can measure the cost of the `RecyclerView` item binding,
-how long it takes to inflate a layout, or how demanding the layout-and-measure
-pass of your `View` class is from a performance perspective.
+These are good cases for benchmarking:
+\* When your app needs to process a complex data structure.
+\* When your app has a specific computation-heavy algorithm that it calls multiple times during the app run.
 
-However, you aren't able to measure how the benchmarked cases contribute to the
-overall user experience. In some scenarios, benchmarking doesn't tell you if
-you're improving a bottleneck like jank or app startup time. For this reason,
-it's crucial to identify those bottlenecks first with the [Android Profiler](https://developer.android.com/studio/profile).
-After you find the code you want to investigate and optimize, the benchmarked
-loop can run repeatedly in a quick and easier fashion to create less noisy
-results, which lets you focus on one area of improvement.
+You can also measure parts of your UI. For example, you can measure the cost of `RecyclerView` item binding, how long it takes to inflate a layout, or the performance of the layout-and-measure pass of your `View` class.
+
+However, you can't measure how the benchmarked cases contribute to the overall user experience. In some scenarios, benchmarking doesn't tell you if you're improving a bottleneck like dropped frames or app startup time. For this reason, it's crucial to identify those bottlenecks first with the [Android Profiler](https://developer.android.com/studio/profile). After you find the code you want to investigate and optimize, the benchmarked loop can run repeatedly to create less noisy results. This lets you focus on one area of improvement.
 
 The Microbenchmark library only reports information about your app, not about
 the system overall. Therefore, it's best at analyzing performance of situations

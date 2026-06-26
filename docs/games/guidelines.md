@@ -443,7 +443,7 @@ guideline:
 #### Additional resources
 
 For additional details on calculating and measuring Level Up
-performance, see [frame rate](https://developer.android.com/games/rewards) documentation. You can also explore
+performance, see [frame rate](https://developer.android.com/games/optimize/framerate). You can also explore
 the [slow sessions documentation](https://developer.android.com/topic/performance/vitals/slow-session) for optimization strategies regarding
 frame smoothness.
 

@@ -4,13 +4,23 @@ url: https://developer.android.com/blog/authors/paul-feng
 source: md.txt
 ---
 
-## 2
+## 3
 
 posts ![](https://developer.android.com/static/blog/assets/paul_feng_759ac95845_spvRU.webp)
 
 # Paul Feng
 
 ###### VP, Google Play Eng, Product, UX
+
+- 24 Jun 2026 24 Jun 2026 ![](https://developer.android.com/static/blog/assets/Apps_Experience_Play_Blog_Header_2000x1000_8c3a95404a_lYfpd.webp)
+
+  #### [Product News](https://developer.android.com/blog/categories/product-news)
+
+  ## [Expanded billing choice and lower fees on Google Play](https://developer.android.com/blog/posts/expanded-billing-choice-and-lower-fees-on-google-play)
+
+  [arrow_forward](https://developer.android.com/blog/posts/expanded-billing-choice-and-lower-fees-on-google-play) At Google Play, we are committed to delivering the best possible experience to users, while ensuring developers have the tools and adaptability to succeed.
+
+  ###### 3 min read
 
 - 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/IO_26_Blog_Strapi_Icons_2000x1000px_0a8b06b49b_Z1e2APA.webp)
 

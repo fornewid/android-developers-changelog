@@ -36,7 +36,7 @@ app and tuning the performance:
 
     string values = "";
 
-    if (m_Displa&&y != null  androidXRPerformanceMetric&&s != null  androidXRPerformanceMetrics.supportedMetricPaths != null)
+    if (m_Display != null && androidXRPerformanceMetrics != null && androidXRPerformanceMetrics.supportedMetricPaths != null)
       foreach (var metric in androidXRPerformanceMetrics.supportedMetricPaths)
       {
         float stat;

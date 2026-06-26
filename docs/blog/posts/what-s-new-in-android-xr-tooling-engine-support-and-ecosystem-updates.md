@@ -123,16 +123,16 @@ For a complete look at all of our technical sessions, browse the full [Android X
   - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
   - [#Game engine development](https://developer.android.com/blog/topics/game-engine-development)
   - +1 ↩
-- [![](https://developer.android.com/static/blog/assets/matthew_9c798f0c1d_Z1m5WWD.webp)](https://developer.android.com/blog/authors/matthew-forsythe) 18 Jun 2026 18 Jun 2026 ![](https://developer.android.com/static/blog/assets/Strapi_2x_325a484212_1BGPPB.webp)
+- [![](https://developer.android.com/static/blog/assets/paul_feng_759ac95845_spvRU.webp)](https://developer.android.com/blog/authors/paul-feng) 24 Jun 2026 24 Jun 2026 ![](https://developer.android.com/static/blog/assets/Apps_Experience_Play_Blog_Header_2000x1000_8c3a95404a_lYfpd.webp)
 
   #### [Product News](https://developer.android.com/blog/categories/product-news)
 
-  ## [Android developer verification: Building a safer ecosystem together](https://developer.android.com/blog/posts/android-developer-verification-building-a-safer-ecosystem-together)
+  ## [Expanded billing choice and lower fees on Google Play](https://developer.android.com/blog/posts/expanded-billing-choice-and-lower-fees-on-google-play)
 
-  [arrow_forward](https://developer.android.com/blog/posts/android-developer-verification-building-a-safer-ecosystem-together) Last year, we introduced Android developer verification to strengthen ecosystem security and stop malicious actors from hiding behind anonymity to release harmful apps.
+  [arrow_forward](https://developer.android.com/blog/posts/expanded-billing-choice-and-lower-fees-on-google-play) At Google Play, we are committed to delivering the best possible experience to users, while ensuring developers have the tools and adaptability to succeed.
 
-  ###### [Matthew Forsythe](https://developer.android.com/blog/authors/matthew-forsythe) •
-  2 min read
+  ###### [Paul Feng](https://developer.android.com/blog/authors/paul-feng) •
+  3 min read
 
 # Stay in the loop
 
