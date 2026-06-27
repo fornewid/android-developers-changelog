@@ -1,0 +1,14 @@
+diff --git a/docs/develop/ui/compose/text/style-text.md b/docs/develop/ui/compose/text/style-text.md
+index f8d9a55f..24cea0b2 100644
+--- a/docs/develop/ui/compose/text/style-text.md
++++ b/docs/develop/ui/compose/text/style-text.md
+@@ -220,9 +220,6 @@ To enable more advanced text styling, you can use the [`Brush`](https://develope
+ [`TextStyle`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/TextStyle) and [`SpanStyle`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/SpanStyle). In any place where you would typically
+ use `TextStyle` or `SpanStyle`, you can now also use `Brush`.
+ 
+-> [!CAUTION]
+-> **Caution:** The current usage of the Brush API in `TextStyle` is experimental. Experimental APIs can change in the future.
+-
+ ### Use a brush for text styling
+ 
+ Configure your text using a built-in brush within `TextStyle`. For example, you

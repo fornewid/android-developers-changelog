@@ -1,0 +1,14 @@
+diff --git a/docs/develop/ui/compose/components/card.md b/docs/develop/ui/compose/components/card.md
+index 1c3da79f..f7a3ca5f 100644
+--- a/docs/develop/ui/compose/components/card.md
++++ b/docs/develop/ui/compose/components/card.md
+@@ -51,9 +51,6 @@ Some key parameters to note are the following:
+ The following example demonstrates how you might use these parameters, as well
+ as other common parameters such as `shape` and `modifier`.
+ 
+-> [!WARNING]
+-> **Beta:** The `Card` overload that defines the `onClick` parameter is experimental.
+-
+ ### Filled card
+ 
+ The following is an example of how you can implement a filled card.
