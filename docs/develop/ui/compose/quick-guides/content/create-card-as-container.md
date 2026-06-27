@@ -49,7 +49,7 @@ call to `Text` in the following minimal example:
 
 The key here is the use of the `colors` property to change the filled
 color:
-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-card-as-container_336da585f60fca41a1ff8ca19da00d2a2c5e5aa948a2fd3f181f65c8a9b6a270.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-card-as-container_50c57f7dc6581f55b60151a070252b58e75790f0cbb46dc7f1e39977c500038b.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
 
 ### Results
 
@@ -62,7 +62,7 @@ dedicated [`ElevatedCard`](https://developer.android.com/reference/kotlin/androi
 
 You can use the `elevation` property to control the appearance of elevation and
 the resulting shadow.
-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-card-as-container_90bc982cae3eb27e2fc298aa8aec73a600213bf1ceb83949fbb3a82df65dd2c5.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-card-as-container_b1e93dde277b79a735e1856965cf0c46e2eb06a4f261fbc983b4605be87460a2.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
 
 ### Results
 
@@ -72,7 +72,7 @@ the resulting shadow.
 
 The following is an example of an outlined card. Use the dedicated
 [`OutlinedCard`](https://developer.android.com/reference/kotlin/androidx/compose/material3/OutlinedCard.composable#OutlinedCard(androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Shape,androidx.compose.material3.CardColors,androidx.compose.material3.CardElevation,androidx.compose.foundation.BorderStroke,kotlin.Function1)) composable.
-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-card-as-container_104ba2e2a796569db8b2cfa0767bfa17ff376dcc955c6243bc2e352d9c7bcb02.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-card-as-container_02154ea7263d0a3623064d47389984242469b82b17be73c621ba49bbdbacab09.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
 
 ### Results
 
@@ -90,9 +90,6 @@ Some key parameters include:
 - **`colors`** : Uses the `CardColors` type to set the default color of both the container and any children.
 - **`enabled`** : If you pass `false` for this parameter, the card appears as disabled and does not respond to user input.
 - **`onClick`** : Ordinarily, a `Card` does not accept click events. As such, the primary overload you would like to note is that which defines an `onClick` parameter. Use this overload when you want your implementation of `Card` to respond to clicks from the user.
-
-> [!WARNING]
-> **Beta:** The `Card` overload that defines the `onClick` parameter is experimental.
 
 Cards don't come with inherent scroll or dismiss actions, but can integrate into
 composables offering these features. For example, to implement swipe to dismiss

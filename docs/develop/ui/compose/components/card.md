@@ -51,9 +51,6 @@ Some key parameters to note are the following:
 The following example demonstrates how you might use these parameters, as well
 as other common parameters such as `shape` and `modifier`.
 
-> [!WARNING]
-> **Beta:** The `Card` overload that defines the `onClick` parameter is experimental.
-
 ### Filled card
 
 The following is an example of how you can implement a filled card.

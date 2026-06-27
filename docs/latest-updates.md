@@ -150,9 +150,9 @@ The latest updated popular libraries. [See all Jetpack library updates](https://
 
 Recent updates to Android Studio and tools [See more about Android Studio](https://developer.android.com/studio) Canary
 
-### [Quail 3 \| 2026.1.3 Canary 1](https://developer.android.com/studio/preview)
+### [Quail 3 \| 2026.1.3 Canary 2](https://developer.android.com/studio/preview)
 
-June 18, 2026 Stable
+June 26, 2026 Stable
 
 ### [Quail 1 \| 2026.1.1 Patch 2](https://developer.android.com/studio/releases)
 

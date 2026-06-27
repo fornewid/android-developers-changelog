@@ -86,7 +86,7 @@ key material in GCP Secret Manager and print it to the console.
     import google_crc32c
 
     # Create a service account key file.
-    service_account_key_file = &<quot;json key file of the service ac>count"
+    service_account_key_file = "<json key file of the service account>"
     credentials = service_account.Credentials.from_service_account_file(service_account_key_file)
 
     # Create the Secret Manager client.
@@ -95,7 +95,7 @@ key material in GCP Secret Manager and print it to the console.
     )
 
     # Build the resource name of the secret version.
-    name = f"projects/prod-play-hsdp-3p-calle<r-auth/se>crets/secret_id/versions/latest"
+    name = f"projects/prod-play-hsdp-3p-caller-auth/secrets/<secret_id>/versions/latest"
 
     # Access the secret version.
     response = client.access_secret_version(request={"name": name})
@@ -110,9 +110,9 @@ key material in GCP Secret Manager and print it to the console.
     # that this keyset has the secret key information in cleartext.
     keyset = response.payload.data.decode("UTF-8")
 
-    # WARNING: Do not print the secret in a production env<ironment. Ple>ase store it
+    # WARNING: Do not print the secret in a production environment. Please store it
     # in a secure storage.
-    with open('key file name', 'w') as f:
+    with open('<key file name>', 'w') as f:
         f.write(keyset)
 
 ### Java example
@@ -332,20 +332,20 @@ with the symmetric key to create the ciphertext:
     inlineInstallData = InlineInstallData.InlineInstallData()
     inlineInstallData.timestamp_ms = int(time.time() * 1000)
     inlineInstallData.target_package_name = "x.y.z"
-    inlineInstallData.calle<r_pack>age_name = "a.b.c"
-    inlineInstallData.ad_network_id = "sdk_id"
+    inlineInstallData.caller_package_name = "a.b.c"
+    inlineInstallData.ad_network_id = "<sdk_id>"
 
     # Use the primitive to encrypt a message. In this case the primary key of the
-    # keyset will be used (which is also the only key in this ex<ample)>.
-    ciphertext = primitive.encrypt(inlineInstallData.SerializeToString(), b'sdk_id')
+    # keyset will be used (which is also the only key in this example).
+    ciphertext = primitive.encrypt(inlineInstallData.SerializeToString(), b'<sdk_id>')
     print(f"InlineInstallData Ciphertext: {ciphertext}")
 
     # Base64 Encoded InlineInstallData Ciphertext
-    enifd = base64.urlsafe_b64encode(ciphertext).decode('utf-8&9;)
-    print(en&ifd)
+    enifd = base64.urlsafe_b64encode(ciphertext).decode('utf-8')
+    print(enifd)
 
-    # Deepli&nk
-    pri&nt(f"https://play.google.com/d?id={inlineInstallData.target_package_name}\inline=true\enifd={enifd}\lft=1\3pAuthCallerId={inlineInstallData.ad_network_id}")
+    # Deeplink
+    print(f"https://play.google.com/d?id={inlineInstallData.target_package_name}\&inline=true\&enifd={enifd}\&lft=1\&3pAuthCallerId={inlineInstallData.ad_network_id}")
 
 Execute the Python script by running the following command:
 
@@ -386,17 +386,17 @@ with the symmetric key to create the ciphertext:
       @FlagSpec(
           name = "third_party_id",
           help = "the identifier associated with the 3p for which to generate the enifd")
-      priva<te sta>tic final FlagString thirdPartyAuthCallerId = Flag.value("");
+      private static final Flag<String> thirdPartyAuthCallerId = Flag.value("");
 
-      @FlagSpec(name = "package_name", help = "the package name of< the t>arget app")
-      private static final FlagString packageName = Flag.value("");
+      @FlagSpec(name = "package_name", help = "the package name of the target app")
+      private static final Flag<String> packageName = Flag.value("");
 
 
-      @FlagSpec(name = "caller_package_name", he<lp = &>quot;the package name of the caller app")
-      private static final FlagString callerPackageName = Flag.value("");
+      @FlagSpec(name = "caller_package_name", help = "the package name of the caller app")
+      private static final Flag<String> callerPackageName = Flag.value("");
 
-      @FlagSpec(name = "secret_file<name&q>uot;, help = "the path to the json file with the secret material")
-      private static final FlagString secretFilename = Flag.value("");
+      @FlagSpec(name = "secret_filename", help = "the path to the json file with the secret material")
+      private static final Flag<String> secretFilename = Flag.value("");
 
       private ThirdPartyEnifdGuide() {}
 
@@ -435,13 +435,13 @@ with the symmetric key to create the ciphertext:
         byte[] ciphertext = aead.encrypt(plaintext, thirdPartyAuthCallerId.get().getBytes(UTF_8));
         String enifd = base64Url().omitPadding().encode(ciphertext);
 
-        // Build deeplink, escaping ampersands (TODO: verify this is necessary while &testing e2e)
-    &    String deeplink =
-            "https://p&lay.goo&gle.com/d?id="
+        // Build deeplink, escaping ampersands (TODO: verify this is necessary while testing e2e)
+        String deeplink =
+            "https://play.google.com/d?id="
                 + packageName.get()
-                + "\\inline=true\\enifd="
+                + "\\&inline=true\\&enifd="
                 + enifd
-                + "\\lft=1\\3pAuthCallerId="
+                + "\\&lft=1\\&3pAuthCallerId="
                 + thirdPartyAuthCallerId.get();
 
         System.out.println(deeplink);
@@ -474,7 +474,7 @@ or Java).
 ### Kotlin
 
     val intent = Intent(Intent.ACTION_VIEW)
-    val deepLinkUrl = &<quot;output_from_the_previous_python_or_java>_code"
+    val deepLinkUrl = "<output_from_the_previous_python_or_java_code>"
     intent.setPackage("com.android.vending")
     intent.data = Uri.parse(deepLinkUrl)
     val packageManager = context.getPackageManager()
@@ -488,7 +488,7 @@ or Java).
 
     Intent intent = new Intent(Intent.ACTION_VIEW);
     String id = "exampleAppToBeInstalledId";
-    String deepL<inkUrl = "output_from_the_previous_pyth>on_or_java_code";
+    String deepLinkUrl = "<output_from_the_previous_python_or_java_code>";
     intent.setPackage("com.android.vending");
     intent.setData(Uri.parse(deepLinkUrl));
     PackageManager packageManager = context.getPackageManager();
@@ -568,7 +568,7 @@ Generation of the `enifd` can be carried out using C++ code as follows:
     #include <memory>
     #include <string>
 
-    #include &<quot;path_to_protoc_o>utput/inline_install_data.proto.h"
+    #include "<path_to_protoc_output>/inline_install_data.proto.h"
     #include "absl/flags/flag.h"
     #include "absl/flags/parse.h"
     #include "absl/strings/escaping.h"
@@ -592,7 +592,7 @@ Generation of the `enifd` can be carried out using C++ code as follows:
     using ::crypto::tink::Aead;
     using ::crypto::tink::AeadConfig;
     using ::crypto::tink::KeysetHandle;
-    using ::crypto::ti&nk::util::Status;
+    using ::crypto::tink::util::Status;
     using ::crypto::tink::util::StatusOr;
 
     }  // namespace
@@ -600,68 +600,68 @@ Generation of the `enifd` can be carried out using C++ code as follows:
     namespace tink_cc_examples {
 
     // AEAD example CLI implementation.
-    void A<<eadCli(const std::string keyset_filename,
+    void AeadCli(const std::string& keyset_filename,
                  absl::string_view associated_data) {
-     < Status result <= AeadConfig>>::Register();
+      Status result = AeadConfig::Register();
       if (!result.ok()) {
-        std::clog  "Failed to register AeadConfig";
+        std::clog << "Failed to register AeadConfig";
         return;
-      <<}
+      }
 
       // Read the keyset from file.
-      StatusOrstd::unique_ptrKeysetHandle keyset_ha<ndle =
-          Re<adJs>>onCleartextKeyset(keyset_filename);
-      if (>!keyset_hand<le.ok()) {
-        std>::clog  "Failed to read json keyset";
+      StatusOr<std::unique_ptr<KeysetHandle>> keyset_handle =
+          ReadJsonCleartextKeyset(keyset_filename);
+      if (!keyset_handle.ok()) {
+        std::clog << "Failed to read json keyset";
         return;
       }
 
       // Get the primitive.
-    <<  StatusOrstd::unique_ptrAead aead =
+      StatusOr<std::unique_ptr<Aead>> aead =
           (*keyset_handle)
-              -GetPrimitivecrypto::tink::Aead(
+              ->GetPrimitive<crypto::tink::Aead>(
                   crypto::tink::ConfigGlobalRegistry());
-      if (!ae<ad.ok()) {
-        std::clog > "Failed to get primitive";
+      if (!aead.ok()) {
+        std::clog << "Failed to get primitive";
         return;
       }
 
       // Instantiate the enifd.
       hsdpexperiments::InlineInstallData iid;
 
-      iid.set_timestamp_ms(st<d::chrono::duration>_caststd::chrono::milliseconds(
-       <                   >     std::chrono::system_cloc<k::now>().time_since_epoch())
-                     <          .>count());
-      iid.set_target_packa>ge_name("TARGET_PACKAGE_NAME");
-      iid.set_caller_package_name("CALLER_PACKAGE_NA<<ME");
-      iid.set_ad_network_id("SDK_ID");
+      iid.set_timestamp_ms(std::chrono::duration_cast<std::chrono::milliseconds>(
+                               std::chrono::system_clock::now().time_since_epoch())
+                               .count());
+      iid.set_target_package_name("<TARGET_PACKAGE_NAME>");
+      iid.set_caller_package_name("<CALLER_PACKAGE_NAME>");
+      iid.set_ad_network_id("<SDK_ID>");
 
-      // Compute the out&put.
-      StatusOrstd::string encrypt_result =
-          (*aead)-Encrypt(iid.SerializeAsString(), a&ssociated_data);
-      if<< (!encrypt_<<result.<<ok()) {
-        std::clog  "Failed to encrypt Inline Install Data";
+      // Compute the output.
+      StatusOr<std::string> encrypt_result =
+          (*aead)->Encrypt(iid.SerializeAsString(), associated_data);
+      if (!encrypt_result.ok()) {
+        std::clog << "Failed to encrypt Inline Install Data";
         return;
       }
-      const std::string output = encrypt_result.value();
+      const std::string& output = encrypt_result.value();
 
       std::string enifd;
-      absl::WebSafeBase64Escape(output, enifd);
+      absl::WebSafeBase64Escape(output, &enifd);
 
-      std::clog  "enifd: "  enifd  '\n';
+      std::clog << "enifd: " << enifd << '\n';
     }
 
-    } << // namespace tink_cc_examp<<les
+    }  // namespace tink_cc_examples
 
-    int main(int argc, char*<<* argv) {
+    int main(int argc, char** argv) {
       absl::ParseCommandLine(argc, argv);
 
-      std::string keyset_filen<<ame = absl::GetFl<<ag(FLA<<GS_keyset_filename);
+      std::string keyset_filename = absl::GetFlag(FLAGS_keyset_filename);
       std::string associated_data = absl::GetFlag(FLAGS_associated_data);
 
-      std::clog  "Using keyset from file "  keyset_filename
-                 " to AEAD-encrypt inline install data with associated data '"
-                 associated_data  "'."  '\n';
+      std::clog << "Using keyset from file " << keyset_filename
+                << " to AEAD-encrypt inline install data with associated data '"
+                << associated_data << "'." << '\n';
 
       tink_cc_examples::AeadCli(keyset_filename, associated_data);
       return 0;

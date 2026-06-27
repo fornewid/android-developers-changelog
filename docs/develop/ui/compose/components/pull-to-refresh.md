@@ -7,9 +7,6 @@ source: md.txt
 The pull to refresh component allows users to drag downwards at the beginning of
 an app's content to refresh the data.
 
-> [!NOTE]
-> **Note:** [`PullToRefreshBox()`](https://developer.android.com/reference/kotlin/androidx/compose/material3/pulltorefresh/PullToRefreshBox.composable) is experimental.
-
 ## API surface
 
 Use the [`PullToRefreshBox`](https://developer.android.com/reference/kotlin/androidx/compose/material3/pulltorefresh/PullToRefreshBox.composable) composable to implement pull-to-refresh, which
