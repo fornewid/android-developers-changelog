@@ -4,19 +4,11 @@ url: https://developer.android.com/blog/posts/gratitude-saw-25-higher-retention-
 source: md.txt
 ---
 
-#### [Case Studies](https://developer.android.com/blog/categories/case-studies)
+[Case Studies](https://developer.android.com/blog/categories/case-studies)
 
 # Gratitude saw 25% higher retention for widget users
 
-###### 3-min read
-
-![](https://developer.android.com/static/blog/assets/AANDDM_Gratitude_2000x1000_7d5a00e6c2_Z2vwfIA.webp) 08 May 2026 [![](https://developer.android.com/static/blog/assets/Amrit_Sanjeev_5215e0d7cc_CrDLy.webp)](https://developer.android.com/blog/authors/amrit-sanjeev)[![](https://developer.android.com/static/blog/assets/ash_32bd9f9ed7_Zhh9o0.webp)](https://developer.android.com/blog/authors/ash-nohe)
-
-##### [Amrit Sanjeev](https://developer.android.com/blog/authors/amrit-sanjeev)
-\&
-[Ash Nohe](https://developer.android.com/blog/authors/ash-nohe)
-
-Practicing gratitude may decrease symptoms of depression and anxiety, and improve mental health and life satisfaction¹. Consistent gratitude practice may lead to sustained improvements that last months². The mindfulness app [Gratitude](https://play.google.com/store/apps/details?id=com.northstar.gratitude) encourages consistency through micro daily journaling, affirmations, and vision boards. The app has over 6 million downloads, 150 thousand 5 star ratings, and 100 million journal entries logged.
+3-min read ![](https://developer.android.com/static/blog/assets/AANDDM_Gratitude_2000x1000_7d5a00e6c2_Z2vwfIA.webp) 08 May 2026 [![View Amrit Sanjeev's profile](https://developer.android.com/static/blog/assets/Amrit_Sanjeev_5215e0d7cc_CrDLy.webp)](https://developer.android.com/blog/authors/amrit-sanjeev)[![View Ash Nohe's profile](https://developer.android.com/static/blog/assets/ash_32bd9f9ed7_Zhh9o0.webp)](https://developer.android.com/blog/authors/ash-nohe) [Amrit Sanjeev](https://developer.android.com/blog/authors/amrit-sanjeev) \& [Ash Nohe](https://developer.android.com/blog/authors/ash-nohe) Practicing gratitude may decrease symptoms of depression and anxiety, and improve mental health and life satisfaction¹. Consistent gratitude practice may lead to sustained improvements that last months². The mindfulness app [Gratitude](https://play.google.com/store/apps/details?id=com.northstar.gratitude) encourages consistency through micro daily journaling, affirmations, and vision boards. The app has over 6 million downloads, 150 thousand 5 star ratings, and 100 million journal entries logged.
 
 Developers Divij Gupta and Narendra Aanjna developed widgets for each of their app's core user journeys. Their goal was to meet users in their everyday moments without requiring the overhead of a full app session.
 
@@ -92,8 +84,7 @@ See other widget case studies:
 1: Diniz, G., Korkes, L., Tristão, L. S., Pelegrini, R., Bellodi, P. L., \& Bernardo, W. M. (2023). The effects of gratitude interventions: a systematic review and meta-analysis. einstein (Sao Paulo)., 21, eRW0371. <https://doi.org/10.31744/einstein_journal/2023RW0371>
 
 2: Bohlmeijer, E., Kraiss, J., Schotanus-Dijkstra, M., \& ten Klooster, P. (2022). Gratitude as mood mediates the effects of a 6-weeks gratitude intervention on mental well-being: post hoc analysis of a randomized controlled trial. Front. Psychol., 12, 799447. <https://doi.org/10.3389/fpsyg.2021.799447>
-
-###### Written by:
+Written by:
 
 -
 
@@ -102,7 +93,7 @@ See other widget case studies:
   ###### Staff Developer Advocate
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/amrit-sanjeev) ![](https://developer.android.com/static/blog/assets/Amrit_Sanjeev_5215e0d7cc_CrDLy.webp) ![](https://developer.android.com/static/blog/assets/Amrit_Sanjeev_5215e0d7cc_CrDLy.webp)
+  View profile](https://developer.android.com/blog/authors/amrit-sanjeev) ![View Amrit Sanjeev's profile](https://developer.android.com/static/blog/assets/Amrit_Sanjeev_5215e0d7cc_CrDLy.webp) ![View Amrit Sanjeev's profile](https://developer.android.com/static/blog/assets/Amrit_Sanjeev_5215e0d7cc_CrDLy.webp)
 -
 
   ## [Ash Nohe](https://developer.android.com/blog/authors/ash-nohe)
@@ -110,50 +101,32 @@ See other widget case studies:
   ###### Sr. Android Developer Relations Engineer
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/ash-nohe) ![](https://developer.android.com/static/blog/assets/ash_32bd9f9ed7_Zhh9o0.webp) ![](https://developer.android.com/static/blog/assets/ash_32bd9f9ed7_Zhh9o0.webp)
-
-## Continue reading
-
-- [![](https://developer.android.com/static/blog/assets/Amrit_Sanjeev_5215e0d7cc_CrDLy.webp)](https://developer.android.com/blog/authors/amrit-sanjeev)[![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](https://developer.android.com/blog/authors/trevor-johns) 08 Jan 2026 08 Jan 2026 ![](https://developer.android.com/static/blog/assets/Ultrahumanx_Gi_AS_Banner_1612731319_Z23acG3.webp)
-
-  #### [Case Studies](https://developer.android.com/blog/categories/case-studies)
+  View profile](https://developer.android.com/blog/authors/ash-nohe) ![View Ash Nohe's profile](https://developer.android.com/static/blog/assets/ash_32bd9f9ed7_Zhh9o0.webp) ![View Ash Nohe's profile](https://developer.android.com/static/blog/assets/ash_32bd9f9ed7_Zhh9o0.webp)
+Continue reading
+- [![View Amrit Sanjeev's profile](https://developer.android.com/static/blog/assets/Amrit_Sanjeev_5215e0d7cc_CrDLy.webp)](https://developer.android.com/blog/authors/amrit-sanjeev)[![View Charles Munger's profile](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](https://developer.android.com/blog/authors/trevor-johns) 08 Jan 2026 08 Jan 2026 ![](https://developer.android.com/static/blog/assets/Ultrahumanx_Gi_AS_Banner_1612731319_Z23acG3.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
 
   ## [Ultrahuman launches features 15% faster with Gemini in Android Studio](https://developer.android.com/blog/posts/ultrahuman-launches-features-faster-with-gemini-in-android-studio)
 
   [arrow_forward](https://developer.android.com/blog/posts/ultrahuman-launches-features-faster-with-gemini-in-android-studio) Ultrahuman is a consumer health-tech startup that provides daily well-being insights to users based on biometric data from the company's wearables, like the RING Air and the M1 Live Continuous Glucose Monitor (CGM).
-
-  ###### [Amrit Sanjeev](https://developer.android.com/blog/authors/amrit-sanjeev), [Trevor Johns](https://developer.android.com/blog/authors/trevor-johns) •
-  2 min read
-
-- 3 Authors 08 Jun 2026 08 Jun 2026 ![](https://developer.android.com/static/blog/assets/ANDDM_TITLE_Strapi_b83ae0beee_i9nEs.webp)
-
-  #### [Case Studies](https://developer.android.com/blog/categories/case-studies)
+  [Amrit Sanjeev](https://developer.android.com/blog/authors/amrit-sanjeev), [Trevor Johns](https://developer.android.com/blog/authors/trevor-johns) • 2 min read
+- 3 Authors 08 Jun 2026 08 Jun 2026 ![](https://developer.android.com/static/blog/assets/ANDDM_TITLE_Strapi_b83ae0beee_i9nEs.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
 
   ## [Datadog delivers millions of in-depth performance insights with ProfilingManager](https://developer.android.com/blog/posts/datadog-delivers-millions-of-in-depth-performance-insights-with-profiling-manager)
 
   [arrow_forward](https://developer.android.com/blog/posts/datadog-delivers-millions-of-in-depth-performance-insights-with-profiling-manager) Performance regressions are notoriously hard to reproduce, making regressions a massive bottleneck for mobile developers.
-
-  ###### [Alice Yuan](https://developer.android.com/blog/authors/alice-yuan), [Arti Arutiunov](https://developer.android.com/blog/authors/arti-arutiunov), [Nikita Ogorodnikov](https://developer.android.com/blog/authors/nikita-ogorodnikov) •
-  4 min read
-
+  [Alice Yuan](https://developer.android.com/blog/authors/alice-yuan), [Arti Arutiunov](https://developer.android.com/blog/authors/arti-arutiunov), [Nikita Ogorodnikov](https://developer.android.com/blog/authors/nikita-ogorodnikov) • 4 min read
   - [#Profiling Manager](https://developer.android.com/blog/topics/profiling-manager)
   - [#Android](https://developer.android.com/blog/topics/android)
   - [#Performance](https://developer.android.com/blog/topics/performance)
   - +1 ↩
-- [![](https://developer.android.com/static/blog/assets/Garan_Jenkin_0529dbfef9_Z2crRat.webp)](https://developer.android.com/blog/authors/garan-jenkin) 15 May 2026 15 May 2026 ![](https://developer.android.com/static/blog/assets/cross_device_discovery_to_score_record_Wear_OS_adoption_Strapi_2f9244f1db_Z23QTbE.webp)
-
-  #### [Case Studies](https://developer.android.com/blog/categories/case-studies)
+- [![View Garan Jenkin's profile](https://developer.android.com/static/blog/assets/Garan_Jenkin_0529dbfef9_Z2crRat.webp)](https://developer.android.com/blog/authors/garan-jenkin) 15 May 2026 15 May 2026 ![](https://developer.android.com/static/blog/assets/cross_device_discovery_to_score_record_Wear_OS_adoption_Strapi_2f9244f1db_Z23QTbE.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
 
   ## [How FotMob leveraged cross-device discovery to score record Wear OS adoption](https://developer.android.com/blog/posts/how-fot-mob-leveraged-cross-device-discovery-to-score-record-wear-os-adoption)
 
   [arrow_forward](https://developer.android.com/blog/posts/how-fot-mob-leveraged-cross-device-discovery-to-score-record-wear-os-adoption) FotMob recently experienced its largest single-day increase on Wear OS among its installed audience in 5 years, at 2-3x the daily average. The secret? A simple cross-device installation flow that helps users discover their Wear OS app directly from their phone.
-
-  ###### [Garan Jenkin](https://developer.android.com/blog/authors/garan-jenkin) •
-  3 min read
-
+  [Garan Jenkin](https://developer.android.com/blog/authors/garan-jenkin) • 3 min read
   - [#Wear OS](https://developer.android.com/blog/topics/wear-os)
-
-# Stay in the loop
+Stay in the loop
 
 
 Get the latest Android development insights delivered to your inbox

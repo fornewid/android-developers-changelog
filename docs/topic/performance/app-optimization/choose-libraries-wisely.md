@@ -123,11 +123,21 @@ used, causing your app to crash. If you are using any other libraries in similar
 ways, you should check that they won't interfere with app optimization, and if
 they do, avoid them.
 
-To define the classes in a manner compatible with Gson's consumer rules, use the
-following snippet as a reference:
+### Use `@SerializedName` with later Gson versions
 
-    class User(@com.google.gson.annotations.SerializedName("name") val name: String)
-    class UserList(@com.google.gson.annotations.SerializedName("users") val users: List<User>)
+To define your data models in a manner compatible with Gson's consumer rules,
+annotate your fields with `@SerializedName`, as shown in the following snippet:
+
+    import com.google.gson.annotations.SerializedName
+
+    class User(@SerializedName("name") val name: String)
+    class UserList(@SerializedName("users") val users: List<User>)
+
+By using the `@SerializedName` annotation, you allow R8 to match your model
+classes against the [keep rules](https://github.com/google/gson/blob/main/gson/src/main/resources/META-INF/proguard/gson.pro) bundled in Gson version 2.11.0 and higher.
+R8 automatically preserves the annotated fields and necessary constructors,
+letting you rely on the library's bundled rules without having to maintain
+manual ProGuard configurations in your project.
 
 Note that [Room](https://developer.android.com/training/data-storage/room), [Hilt](https://developer.android.com/training/dependency-injection/hilt-android), and [Moshi with codegen](https://github.com/square/moshi#codegen) construct
 app-defined types, but use codegen to avoid the need for reflection.

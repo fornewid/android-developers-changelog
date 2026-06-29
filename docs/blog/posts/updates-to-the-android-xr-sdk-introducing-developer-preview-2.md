@@ -4,17 +4,11 @@ url: https://developer.android.com/blog/posts/updates-to-the-android-xr-sdk-intr
 source: md.txt
 ---
 
-#### [Product News](https://developer.android.com/blog/categories/product-news)
+[Product News](https://developer.android.com/blog/categories/product-news)
 
 # Updates to the Android XR SDK: Introducing Developer Preview 2
 
-###### 4-min read
-
-![](https://developer.android.com/static/blog/assets/IO_25_Blog_Hero_Template_Art_Long_01_126026f6a9_Z2cQC8F.webp) 20 May 2025 [![](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) [##### Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough)
-
-###### Vice President, Product Management, Android Developer
-
-Since launching the [Android XR SDK Developer Preview](https://android-developers.googleblog.com/2024/12/introducing-android-xr-sdk-developer-preview.html) alongside Samsung, Qualcomm, and Unity last year, we've been blown away by all of the excitement we've been hearing from the broader Android community. Whether it's through [coding live-streams](https://www.youtube.com/watch?v=AkKjMtBYwDA&t=116s) or local [Google Developer Group talks](https://www.youtube.com/watch?v=RsFL8wvZFK8), it's been an outstanding experience participating in the community to build the future of XR together, and we're just getting started.
+4-min read ![](https://developer.android.com/static/blog/assets/IO_25_Blog_Hero_Template_Art_Long_01_126026f6a9_Z2cQC8F.webp) 20 May 2025 [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) Vice President, Product Management, Android Developer Since launching the [Android XR SDK Developer Preview](https://android-developers.googleblog.com/2024/12/introducing-android-xr-sdk-developer-preview.html) alongside Samsung, Qualcomm, and Unity last year, we've been blown away by all of the excitement we've been hearing from the broader Android community. Whether it's through [coding live-streams](https://www.youtube.com/watch?v=AkKjMtBYwDA&t=116s) or local [Google Developer Group talks](https://www.youtube.com/watch?v=RsFL8wvZFK8), it's been an outstanding experience participating in the community to build the future of XR together, and we're just getting started.
 
 Today we're excited to share an update to the [Android XR SDK](http://developer.android.com/xr): Developer Preview 2, packed with new features and improvements to help you develop helpful and delightful immersive experiences with familiar Android APIs, tools and open standards created for XR.
 
@@ -82,8 +76,7 @@ We welcome your [feedback, suggestions, and ideas](https://developer.android.com
 
 Explore this announcement and all Google I/O 2025 updates on [io.google](https://io.google/2025/?utm_source=blogpost&utm_medium=pr&utm_campaign=event&utm_content) starting May 22.
 - [#Android](https://developer.android.com/blog/topics/android)
-
-###### Written by:
+Written by:
 
 -
 
@@ -92,56 +85,38 @@ Explore this announcement and all Google I/O 2025 updates on [io.google](https:/
   ###### Vice President, Product Management, Android Developer
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/matthew-mccullough) ![](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp) ![](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)
-
-## Continue reading
-
-- [![](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 12 May 2026 12 May 2026 ![](https://developer.android.com/static/blog/assets/Tas_Developers_cut_Strapi_3636223c9c_Z2pmmBN.webp)
-
-  #### [Product News](https://developer.android.com/blog/categories/product-news)
+  View profile](https://developer.android.com/blog/authors/matthew-mccullough) ![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp) ![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)
+Continue reading
+- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 12 May 2026 12 May 2026 ![](https://developer.android.com/static/blog/assets/Tas_Developers_cut_Strapi_3636223c9c_Z2pmmBN.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Building for the Intelligence System on Android](https://developer.android.com/blog/posts/building-for-the-intelligence-system-on-android)
 
   [arrow_forward](https://developer.android.com/blog/posts/building-for-the-intelligence-system-on-android) Announced today during The Android Show, Android is transitioning from an operating system to an intelligence system, creating more opportunities for engagement with your apps.
-
-  ###### [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) •
-  4 min read
-
+  [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) • 4 min read
   - [#Android](https://developer.android.com/blog/topics/android)
-- [![](https://developer.android.com/static/blog/assets/Jingyu_Shi_ab6f01bd32_ZXPVGC.webp)](https://developer.android.com/blog/authors/jingyu-shi) 26 May 2026 26 May 2026 ![](https://developer.android.com/static/blog/assets/Blog_hero_Strapi_2x_0147a8b012_1yD2LQ.webp)
-
-  #### [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Jingyu Shi's profile](https://developer.android.com/static/blog/assets/Jingyu_Shi_ab6f01bd32_ZXPVGC.webp)](https://developer.android.com/blog/authors/jingyu-shi) 26 May 2026 26 May 2026 ![](https://developer.android.com/static/blog/assets/Blog_hero_Strapi_2x_0147a8b012_1yD2LQ.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Top AI on Android updates for building intelligent experiences from Google I/O '26](https://developer.android.com/blog/posts/top-ai-on-android-updates-for-building-intelligent-experiences-from-google-i-o-26)
 
   [arrow_forward](https://developer.android.com/blog/posts/top-ai-on-android-updates-for-building-intelligent-experiences-from-google-i-o-26) At Google I/O 2026, we introduced Android's shift from an operating system to an intelligence system. We also demonstrated how you can build intelligent experiences natively with the system and bring the power of Google's AI into your apps.
-
-  ###### [Jingyu Shi](https://developer.android.com/blog/authors/jingyu-shi) •
-  2 min read
-
+  [Jingyu Shi](https://developer.android.com/blog/authors/jingyu-shi) • 2 min read
   - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
   - [#Android](https://developer.android.com/blog/topics/android)
   - [#AppFunctions](https://developer.android.com/blog/topics/app-functions)
   - [#On-device](https://developer.android.com/blog/topics/on-device)
   - +2 ↩
-- [![](https://developer.android.com/static/blog/assets/matthew_warner_67a99317e4_Z2c1VNu.webp)](https://developer.android.com/blog/authors/matthew-warner) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Combo_Strapi_2000x1000_5793c01e36_ZVoYvg.webp)
-
-  #### [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Matthew Warner's profile](https://developer.android.com/static/blog/assets/matthew_warner_67a99317e4_Z2c1VNu.webp)](https://developer.android.com/blog/authors/matthew-warner) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Combo_Strapi_2000x1000_5793c01e36_ZVoYvg.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Android Studio I/O Edition: What's new in Android Developer tools](https://developer.android.com/blog/posts/android-studio-i-o-edition-what-s-new-in-android-developer-tools)
 
   [arrow_forward](https://developer.android.com/blog/posts/android-studio-i-o-edition-what-s-new-in-android-developer-tools) This year at Google I/O we are going beyond iterative changes, towards a fundamental shift in how apps are built. Our newest tools are built for the agentic era with features that boost productivity for you as an Android developer AND supercharge the AI agents you deploy in your codebase.
-
-  ###### [Matthew Warner](https://developer.android.com/blog/authors/matthew-warner) •
-  8 min read
-
+  [Matthew Warner](https://developer.android.com/blog/authors/matthew-warner) • 8 min read
   - [#Agent Skills](https://developer.android.com/blog/topics/agent-skills)
   - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
   - [#Android](https://developer.android.com/blog/topics/android)
   - [#Android Studio](https://developer.android.com/blog/topics/android-studio)
   - +2 ↩
-
-# Stay in the loop
+Stay in the loop
 
 
 Get the latest Android development insights delivered to your inbox

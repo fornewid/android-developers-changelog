@@ -6,22 +6,17 @@ source: md.txt
 
 # #Wired XR glasses
 
-- 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Text_Strapi_2000x1000_2d4221d884_ZtW7eg.webp)
-
-  #### [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs)
+- 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Text_Strapi_2000x1000_2d4221d884_ZtW7eg.webp) [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs)
 
   ## [Build for the future with the Android XR Developer Catalyst Program --- Apply now!](https://developer.android.com/blog/posts/build-for-the-future-with-the-android-xr-developer-catalyst-program-apply-now)
 
   [arrow_forward](https://developer.android.com/blog/posts/build-for-the-future-with-the-android-xr-developer-catalyst-program-apply-now) We're opening applications for the Android XR Developer Catalyst Program, a dedicated initiative to accelerate the development of Android XR apps ready to launch within the next year.
-
-  ###### 1 min read
-
+  1 min read
   - [#Android XR](https://developer.android.com/blog/topics/android-xr)
   - [#intelligent eyewear](https://developer.android.com/blog/topics/intelligent-eyewear)
   - [#Wired XR glasses](https://developer.android.com/blog/topics/wired-xr-glasses)
   - +1 ↩
-
-# Stay in the loop
+Stay in the loop
 
 
 Get the latest Android development insights delivered to your inbox

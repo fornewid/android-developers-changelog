@@ -4,17 +4,11 @@ url: https://developer.android.com/blog/posts/the-first-beta-of-android-17
 source: md.txt
 ---
 
-#### [Product News](https://developer.android.com/blog/categories/product-news)
+[Product News](https://developer.android.com/blog/categories/product-news)
 
 # The First Beta of Android 17
 
-###### 7-min read
-
-![](https://developer.android.com/static/blog/assets/android17banner_359909419a_Z1HMAIH.webp) 13 Feb 2026 [![](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) [##### Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough)
-
-###### Vice President, Product Management, Android Developer
-
-Today we're releasing the first beta of [Android 17](https://developer.android.com/about/versions), continuing our work to build a platform that prioritizes privacy, security, and refined performance. This build continues our work for more adaptable Android apps, introduces significant enhancements to camera and media capabilities, new tools for optimizing connectivity, and expanded profiles for companion devices. This release also highlights a fundamental shift in the way we're bringing new releases to the developer community, [from the traditional Developer Preview model to the Android Canary program](https://android-developers.googleblog.com/2025/07/android-canary.html)
+7-min read ![](https://developer.android.com/static/blog/assets/android17banner_359909419a_Z1HMAIH.webp) 13 Feb 2026 [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) Vice President, Product Management, Android Developer Today we're releasing the first beta of [Android 17](https://developer.android.com/about/versions), continuing our work to build a platform that prioritizes privacy, security, and refined performance. This build continues our work for more adaptable Android apps, introduces significant enhancements to camera and media capabilities, new tools for optimizing connectivity, and expanded profiles for companion devices. This release also highlights a fundamental shift in the way we're bringing new releases to the developer community, [from the traditional Developer Preview model to the Android Canary program](https://android-developers.googleblog.com/2025/07/android-canary.html)
 
 ## Beyond the Developer Preview
 
@@ -182,8 +176,7 @@ For complete information, visit the [Android 17 developer site](https://develope
 ### **Join the conversation**
 
 As we move toward **Platform Stability** and the final stable release of Android 17 later this year, your feedback remains our most valuable asset. Whether you're an [early adopter on the Canary channel](https://www.reddit.com/r/android_canary/) or an [app developer testing on Beta 1](https://www.reddit.com/r/android_beta/), consider joining our communities and filing feedback. We're listening.
-
-###### Written by:
+Written by:
 
 -
 
@@ -192,48 +185,30 @@ As we move toward **Platform Stability** and the final stable release of Android
   ###### Vice President, Product Management, Android Developer
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/matthew-mccullough) ![](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp) ![](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)
-
-## Continue reading
-
-- [![](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Text_Strapi_2000x1000_2d4221d884_ZtW7eg.webp)
-
-  #### [Product News](https://developer.android.com/blog/categories/product-news)
+  View profile](https://developer.android.com/blog/authors/matthew-mccullough) ![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp) ![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)
+Continue reading
+- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Text_Strapi_2000x1000_2d4221d884_ZtW7eg.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [17 Things to know for Android developers at Google I/O!](https://developer.android.com/blog/posts/17-things-to-know-for-android-developers-at-google-i-o)
 
   [arrow_forward](https://developer.android.com/blog/posts/17-things-to-know-for-android-developers-at-google-i-o) Google I/O '26 features 17 key announcements for Android developers focusing on agent-led productivity, Compose First as our UI standard, and high-performance media and adaptive development for the expanding ecosystem.
-
-  ###### [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) •
-  8 min read
-
+  [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) • 8 min read
   - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
-- [![](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 12 May 2026 12 May 2026 ![](https://developer.android.com/static/blog/assets/Tas_Developers_cut_Strapi_3636223c9c_Z2pmmBN.webp)
-
-  #### [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 12 May 2026 12 May 2026 ![](https://developer.android.com/static/blog/assets/Tas_Developers_cut_Strapi_3636223c9c_Z2pmmBN.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Building for the Intelligence System on Android](https://developer.android.com/blog/posts/building-for-the-intelligence-system-on-android)
 
   [arrow_forward](https://developer.android.com/blog/posts/building-for-the-intelligence-system-on-android) Announced today during The Android Show, Android is transitioning from an operating system to an intelligence system, creating more opportunities for engagement with your apps.
-
-  ###### [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) •
-  4 min read
-
+  [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) • 4 min read
   - [#Android](https://developer.android.com/blog/topics/android)
-- [![](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 02 Apr 2026 02 Apr 2026 ![](https://developer.android.com/static/blog/assets/Gemma_Android_2x1_2x_a6d27254c4_Z10SxJJ.webp)
-
-  #### [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 02 Apr 2026 02 Apr 2026 ![](https://developer.android.com/static/blog/assets/Gemma_Android_2x1_2x_a6d27254c4_Z10SxJJ.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Gemma 4: The new standard for local agentic intelligence on Android](https://developer.android.com/blog/posts/gemma-4-the-new-standard-for-local-agentic-intelligence-on-android)
 
   [arrow_forward](https://developer.android.com/blog/posts/gemma-4-the-new-standard-for-local-agentic-intelligence-on-android) Today, we are enhancing Android development with Gemma 4, our latest state-of-the-art open model designed with complex reasoning and autonomous tool-calling capabilities.
-
-  ###### [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) •
-  2 min read
-
+  [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) • 2 min read
   - [#Android Studio](https://developer.android.com/blog/topics/android-studio)
-
-# Stay in the loop
+Stay in the loop
 
 
 Get the latest Android development insights delivered to your inbox

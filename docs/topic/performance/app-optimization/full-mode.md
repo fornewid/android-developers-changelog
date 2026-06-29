@@ -56,7 +56,9 @@ full mode, attributes are retained only if the associated class, field, or
 method is explicitly kept.
 
 The following example demonstrates why attributes are necessary and what keep
-rules you need to add when migrating from compatibility to full mode.
+rules you need to add when migrating from compatibility to full mode. Besides
+keeping the classes, fields, or methods being reflected upon, you must also
+explicitly keep the attributes they rely on.
 
 > [!NOTE]
 > **Note:** For the specific purpose of this example, Gson is used to demonstrate behavior changes in keep rules for attributes. However, this is for illustrative purposes only and does not represent a best practice. Avoid using Gson as it relies heavily on reflection. For more information about reflection, see [Optimization for libraries](https://developer.android.com/topic/performance/app-optimization/library-optimization#use-codegen).
@@ -125,12 +127,18 @@ further explicit keep rules for this example to work as expected.
 When R8 is enabled in full mode, the `Signature` attribute of the anonymous
 inner class `$GsonRemoteJsonListExample$listType$1` is stripped. Without this
 type information in the `Signature`, Gson cannot find the correct application
-type, which results in an `IllegalStateException`. The keep rules necessary to
+type, which results in an `IllegalStateException`.
+
+> [!NOTE]
+> **Note:** Starting with Gson version 2.11.0, the library [bundles necessary keep
+> rules](https://github.com/google/gson/blob/gson-parent-2.11.0/gson/src/main/resources/META-INF/proguard/gson.pro) required for deserialization in full mode. If you are using Gson 2.11.0 or higher, R8 automatically finds and applies these rules from the library, and you don't need to add them manually.
+
+If you are using a Gson version older than 2.11.0, the keep rules necessary to
 prevent this are:
 
     // keep rule required for full mode
     -keepattributes Signature
-    -keep,allowobfuscation,allowshrinking,allowoptimization class com.google.gson.reflect.TypeToken
+    -keep,allowobfuscation,allowshrinking,allowoptimization class com.google.gson.reflect.TypeToken { *; }
     -keep,allowobfuscation,allowshrinking,allowoptimization class * extends com.google.gson.reflect.TypeToken
 
 - `-keepattributes Signature`: This rule instructs R8 to retain the attribute
@@ -153,21 +161,15 @@ prevent this are:
   R8 in full mode strips the necessary type information, causing
   deserialization to fail.
 
-Starting with Gson version 2.11.0, the library [bundles necessary keep
-rules](https://github.com/google/gson/blob/gson-parent-2.11.0/gson/src/main/resources/META-INF/proguard/gson.pro) required for deserialization in full mode. When you build
-your app with R8 enabled, R8 automatically finds and applies these rules from
-the library. This provides the protection your app needs without you having to
-manually add or maintain these specific rules in your project.
-
-It is important to understand that the rules shared earlier
-only solve the problem of discovering the generic type (e.g., `List<User>`).
-R8 also renames the fields of classes. If you don't use `@SerializedName`
-annotations on your data models, Gson will fail to deserialize JSON because
-the field names will no longer match the JSON keys.
+It is important to understand that the rules shared earlier only solve the
+problem of discovering the generic type (for example, `List<User>`). R8 also
+renames the fields of classes. If you don't use `@SerializedName` annotations on
+your data models, Gson will fail to deserialize JSON because the field names
+will no longer match the JSON keys.
 
 > [!NOTE]
-> **Note:** For Gson versions 2.11 and higher, the rules for keeping fields annotated with `@SerializedName` are bundled within the Gson [library's consumer ProGuard
-> files](https://github.com/google/gson/blob/gson-parent-2.11.0/gson/src/main/resources/META-INF/proguard/gson.pro). Because this example uses `@SerializedName` annotations on the fields, you don't need to specify additional keep rules for the models.
+> **Note:** For Gson versions 2.11 and higher, the rules for keeping fields annotated with `@SerializedName` are also bundled within the Gson [library's consumer
+> ProGuard files](https://github.com/google/gson/blob/gson-parent-2.11.0/gson/src/main/resources/META-INF/proguard/gson.pro). Because this example uses `@SerializedName` annotations on the fields, you don't need to specify additional keep rules for the models.
 
 However, if you are using a Gson version older than 2.11, or if your models
 don't use the `@SerializedName` annotation, you must add explicit keep rules for
@@ -221,7 +223,7 @@ rule is required.
 
 ### Access modification is enabled by default
 
-In compatibility mode, R8 does not alter the visibility of methods and fields
+In compatibility mode, R8 doesn't alter the visibility of methods and fields
 within a class. However, in full mode, R8 enhances optimization by changing the
 visibility of your methods and fields, for example, from private to public.
 This enables more inlining.
@@ -238,3 +240,26 @@ also preserve their original visibility.
 For more information, see this [example](https://developer.android.com/topic/performance/app-optimization/keep-rule-examples#reflection-to-access-private-members) to understand why accessing private
 members using reflection is not advised and the keep rules to retain those
 fields/methods.
+
+### Kotlin-specific metadata
+
+When compiling Kotlin code, the Kotlin compiler stores language-specific
+metadata (such as nullability, extension functions, and coroutine signatures)
+in a `@kotlin.Metadata` annotation on each class file.
+
+If your app or its dependencies use Kotlin reflection (`kotlin.reflect`), the
+reflection library parses this metadata at runtime to inspect class structure.
+In R8 full mode, R8 strips annotations by default if they aren't explicitly
+kept. Also, if R8 minifies or shrinks your classes without preserving and
+updating the metadata, Kotlin reflection will fail at runtime, leading to
+unpredictable behavior or crashes (such as `KotlinReflectionInternalError`).
+
+To prevent unpredictable behavior and ensure Kotlin reflection functions
+correctly after minification, you must keep runtime-visible annotations and
+explicitly preserve the `kotlin.Metadata` class:
+
+    # Preserve runtime-visible annotations required for inspecting metadata
+    -keepattributes RuntimeVisibleAnnotations
+
+    # Keep Kotlin metadata to ensure kotlin.reflect functions correctly
+    -keep class kotlin.Metadata { *; }

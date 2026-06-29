@@ -4,17 +4,11 @@ url: https://developer.android.com/blog/posts/how-calm-reimagined-mindfulness-fo
 source: md.txt
 ---
 
-#### [Case Studies](https://developer.android.com/blog/categories/case-studies)
+[Case Studies](https://developer.android.com/blog/categories/case-studies)
 
 # How Calm Reimagined Mindfulness for Android XR
 
-###### 4-min read
-
-![](https://developer.android.com/static/blog/assets/how_Calm_edf30223a8_kG1yA.webp) 30 Oct 2025 [![](https://developer.android.com/static/blog/assets/Stevan_Silva_7661118077_V4WGm.webp)](https://developer.android.com/blog/authors/stevan-silva) [##### Stevan Silva](https://developer.android.com/blog/authors/stevan-silva)
-
-###### Group Product Manager
-
-[Calm](https://play.google.com/store/apps/details?id=com.calm.android) is a leading mental health and wellness company with over 180 million downloads. When they started their development for[Android XR,](https://developer.android.com/xr) their core engineering team was able to build their first functional XR orbiter menus on Day 1 and a core experience in just two weeks. This demonstrates that building for XR can be an [extension of existing Android development work,](https://developer.android.com/adaptive-apps) not something that has to be started from scratch. As a company dedicated to helping users sleep better, stress less, and live more mindfully, their extensive library has made Calm a trusted source for well-being content on Android.
+4-min read ![](https://developer.android.com/static/blog/assets/how_Calm_edf30223a8_kG1yA.webp) 30 Oct 2025 [![View Stevan Silva's profile](https://developer.android.com/static/blog/assets/Stevan_Silva_7661118077_V4WGm.webp)](https://developer.android.com/blog/authors/stevan-silva) [Stevan Silva](https://developer.android.com/blog/authors/stevan-silva) Group Product Manager [Calm](https://play.google.com/store/apps/details?id=com.calm.android) is a leading mental health and wellness company with over 180 million downloads. When they started their development for[Android XR,](https://developer.android.com/xr) their core engineering team was able to build their first functional XR orbiter menus on Day 1 and a core experience in just two weeks. This demonstrates that building for XR can be an [extension of existing Android development work,](https://developer.android.com/adaptive-apps) not something that has to be started from scratch. As a company dedicated to helping users sleep better, stress less, and live more mindfully, their extensive library has made Calm a trusted source for well-being content on Android.
 [Video](https://www.youtube.com/watch?v=yUx8T06arKQ)
 
 With the introduction of the [Android XR platform](https://android-developers.googleblog.com/2024/12/introducing-android-xr-sdk-developer-preview.html), the Calm team saw an opportunity to not just optimize their existing Android app, but to truly create the next generation of immersive experiences.
@@ -80,8 +74,7 @@ My advice to other developers? Begin by integrating the[Jetpack XR APIs](https:/
 The work the Calm team has done showcases how building on the [Android XR platform](https://developer.android.com/xr) can be a natural extension of your existing Android expertise. By leveraging the [Jetpack XR SDKs](https://developer.android.com/develop/xr/jetpack-xr-sdk), Calm quickly evolved their core mobile features into a stunning spatial experience.
 
 If you're ready to get started, you can find all the resources you need at[developer.android.com/xr](https://developer.android.com/xr). Head over there to download the latest SDK, explore our documentation, and start building today.
-
-###### Written by:
+Written by:
 
 -
 
@@ -90,49 +83,32 @@ If you're ready to get started, you can find all the resources you need at[devel
   ###### Group Product Manager
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/stevan-silva) ![](https://developer.android.com/static/blog/assets/Stevan_Silva_7661118077_V4WGm.webp) ![](https://developer.android.com/static/blog/assets/Stevan_Silva_7661118077_V4WGm.webp)
-
-## Continue reading
-
-- 3 Authors 08 Jun 2026 08 Jun 2026 ![](https://developer.android.com/static/blog/assets/ANDDM_TITLE_Strapi_b83ae0beee_i9nEs.webp)
-
-  #### [Case Studies](https://developer.android.com/blog/categories/case-studies)
+  View profile](https://developer.android.com/blog/authors/stevan-silva) ![View Stevan Silva's profile](https://developer.android.com/static/blog/assets/Stevan_Silva_7661118077_V4WGm.webp) ![View Stevan Silva's profile](https://developer.android.com/static/blog/assets/Stevan_Silva_7661118077_V4WGm.webp)
+Continue reading
+- 3 Authors 08 Jun 2026 08 Jun 2026 ![](https://developer.android.com/static/blog/assets/ANDDM_TITLE_Strapi_b83ae0beee_i9nEs.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
 
   ## [Datadog delivers millions of in-depth performance insights with ProfilingManager](https://developer.android.com/blog/posts/datadog-delivers-millions-of-in-depth-performance-insights-with-profiling-manager)
 
   [arrow_forward](https://developer.android.com/blog/posts/datadog-delivers-millions-of-in-depth-performance-insights-with-profiling-manager) Performance regressions are notoriously hard to reproduce, making regressions a massive bottleneck for mobile developers.
-
-  ###### [Alice Yuan](https://developer.android.com/blog/authors/alice-yuan), [Arti Arutiunov](https://developer.android.com/blog/authors/arti-arutiunov), [Nikita Ogorodnikov](https://developer.android.com/blog/authors/nikita-ogorodnikov) •
-  4 min read
-
+  [Alice Yuan](https://developer.android.com/blog/authors/alice-yuan), [Arti Arutiunov](https://developer.android.com/blog/authors/arti-arutiunov), [Nikita Ogorodnikov](https://developer.android.com/blog/authors/nikita-ogorodnikov) • 4 min read
   - [#Profiling Manager](https://developer.android.com/blog/topics/profiling-manager)
   - [#Android](https://developer.android.com/blog/topics/android)
   - [#Performance](https://developer.android.com/blog/topics/performance)
   - +1 ↩
-- [![](https://developer.android.com/static/blog/assets/Garan_Jenkin_0529dbfef9_Z2crRat.webp)](https://developer.android.com/blog/authors/garan-jenkin) 15 May 2026 15 May 2026 ![](https://developer.android.com/static/blog/assets/cross_device_discovery_to_score_record_Wear_OS_adoption_Strapi_2f9244f1db_Z23QTbE.webp)
-
-  #### [Case Studies](https://developer.android.com/blog/categories/case-studies)
+- [![View Garan Jenkin's profile](https://developer.android.com/static/blog/assets/Garan_Jenkin_0529dbfef9_Z2crRat.webp)](https://developer.android.com/blog/authors/garan-jenkin) 15 May 2026 15 May 2026 ![](https://developer.android.com/static/blog/assets/cross_device_discovery_to_score_record_Wear_OS_adoption_Strapi_2f9244f1db_Z23QTbE.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
 
   ## [How FotMob leveraged cross-device discovery to score record Wear OS adoption](https://developer.android.com/blog/posts/how-fot-mob-leveraged-cross-device-discovery-to-score-record-wear-os-adoption)
 
   [arrow_forward](https://developer.android.com/blog/posts/how-fot-mob-leveraged-cross-device-discovery-to-score-record-wear-os-adoption) FotMob recently experienced its largest single-day increase on Wear OS among its installed audience in 5 years, at 2-3x the daily average. The secret? A simple cross-device installation flow that helps users discover their Wear OS app directly from their phone.
-
-  ###### [Garan Jenkin](https://developer.android.com/blog/authors/garan-jenkin) •
-  3 min read
-
+  [Garan Jenkin](https://developer.android.com/blog/authors/garan-jenkin) • 3 min read
   - [#Wear OS](https://developer.android.com/blog/topics/wear-os)
-- [![](https://developer.android.com/static/blog/assets/Amrit_Sanjeev_5215e0d7cc_CrDLy.webp)](https://developer.android.com/blog/authors/amrit-sanjeev)[![](https://developer.android.com/static/blog/assets/ash_32bd9f9ed7_Zhh9o0.webp)](https://developer.android.com/blog/authors/ash-nohe) 08 May 2026 08 May 2026 ![](https://developer.android.com/static/blog/assets/AANDDM_Gratitude_2000x1000_7d5a00e6c2_Z2vwfIA.webp)
-
-  #### [Case Studies](https://developer.android.com/blog/categories/case-studies)
+- [![View Amrit Sanjeev's profile](https://developer.android.com/static/blog/assets/Amrit_Sanjeev_5215e0d7cc_CrDLy.webp)](https://developer.android.com/blog/authors/amrit-sanjeev)[![View Ash Nohe's profile](https://developer.android.com/static/blog/assets/ash_32bd9f9ed7_Zhh9o0.webp)](https://developer.android.com/blog/authors/ash-nohe) 08 May 2026 08 May 2026 ![](https://developer.android.com/static/blog/assets/AANDDM_Gratitude_2000x1000_7d5a00e6c2_Z2vwfIA.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
 
   ## [Gratitude saw 25% higher retention for widget users](https://developer.android.com/blog/posts/gratitude-saw-25-higher-retention-for-widget-users)
 
   [arrow_forward](https://developer.android.com/blog/posts/gratitude-saw-25-higher-retention-for-widget-users) The mindfulness app Gratitude encourages consistency through micro daily journaling, affirmations, and vision boards. The app has over 6 million downloads, 150 thousand 5 star ratings, and 100 million journal entries logged.
-
-  ###### [Amrit Sanjeev](https://developer.android.com/blog/authors/amrit-sanjeev), [Ash Nohe](https://developer.android.com/blog/authors/ash-nohe) •
-  3 min read
-
-# Stay in the loop
+  [Amrit Sanjeev](https://developer.android.com/blog/authors/amrit-sanjeev), [Ash Nohe](https://developer.android.com/blog/authors/ash-nohe) • 3 min read
+Stay in the loop
 
 
 Get the latest Android development insights delivered to your inbox

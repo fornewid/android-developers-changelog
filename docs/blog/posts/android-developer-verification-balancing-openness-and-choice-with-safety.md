@@ -4,17 +4,11 @@ url: https://developer.android.com/blog/posts/android-developer-verification-bal
 source: md.txt
 ---
 
-#### [Product News](https://developer.android.com/blog/categories/product-news)
+[Product News](https://developer.android.com/blog/categories/product-news)
 
 # Android developer verification: Balancing openness and choice with safety
 
-###### 2-min read
-
-![](https://developer.android.com/static/blog/assets/android_Verification2_b4044e9b89_1tLhzE.webp) 19 Mar 2026 [![](https://developer.android.com/static/blog/assets/matthew_9c798f0c1d_Z1m5WWD.webp)](https://developer.android.com/blog/authors/matthew-forsythe) [##### Matthew Forsythe](https://developer.android.com/blog/authors/matthew-forsythe)
-
-###### Director, Product Management
-
-Android proves you don't have to choose between an open ecosystem and a secure one. Since [announcing](https://android-developers.googleblog.com/2025/08/elevating-android-security.html) updated verification requirements, we've [worked with the community](https://android-developers.googleblog.com/2025/11/android-developer-verification-early.html) to ensure these protections are robust yet respectful of platform freedom. We've heard from power users that they want to take educated risks to install software from unverified developers. Today, we're sharing details on a new advanced flow that provides this option.
+2-min read ![](https://developer.android.com/static/blog/assets/android_Verification2_b4044e9b89_1tLhzE.webp) 19 Mar 2026 [![View Matthew Forsythe's profile](https://developer.android.com/static/blog/assets/matthew_9c798f0c1d_Z1m5WWD.webp)](https://developer.android.com/blog/authors/matthew-forsythe) [Matthew Forsythe](https://developer.android.com/blog/authors/matthew-forsythe) Director, Product Management Android proves you don't have to choose between an open ecosystem and a secure one. Since [announcing](https://android-developers.googleblog.com/2025/08/elevating-android-security.html) updated verification requirements, we've [worked with the community](https://android-developers.googleblog.com/2025/11/android-developer-verification-early.html) to ensure these protections are robust yet respectful of platform freedom. We've heard from power users that they want to take educated risks to install software from unverified developers. Today, we're sharing details on a new advanced flow that provides this option.
 ![large_slide_v3.png](https://developer.android.com/static/blog/assets/large_slide_v3_3465838df6_ZHngJX.webp)
 
 #### Advanced flow safeguards against coercion
@@ -46,8 +40,7 @@ Limited distribution accounts and advanced flow for users will be available in A
 
 Visit our [website](https://developer.android.com/developer-verification) for more details. We look forward to sharing more in the coming days and weeks.
 - [#Android](https://developer.android.com/blog/topics/android)
-
-###### Written by:
+Written by:
 
 -
 
@@ -56,55 +49,37 @@ Visit our [website](https://developer.android.com/developer-verification) for mo
   ###### Director, Product Management
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/matthew-forsythe) ![](https://developer.android.com/static/blog/assets/matthew_9c798f0c1d_Z1m5WWD.webp) ![](https://developer.android.com/static/blog/assets/matthew_9c798f0c1d_Z1m5WWD.webp)
-
-## Continue reading
-
-- [![](https://developer.android.com/static/blog/assets/matthew_9c798f0c1d_Z1m5WWD.webp)](https://developer.android.com/blog/authors/matthew-forsythe) 18 Jun 2026 18 Jun 2026 ![](https://developer.android.com/static/blog/assets/Strapi_2x_325a484212_1BGPPB.webp)
-
-  #### [Product News](https://developer.android.com/blog/categories/product-news)
+  View profile](https://developer.android.com/blog/authors/matthew-forsythe) ![View Matthew Forsythe's profile](https://developer.android.com/static/blog/assets/matthew_9c798f0c1d_Z1m5WWD.webp) ![View Matthew Forsythe's profile](https://developer.android.com/static/blog/assets/matthew_9c798f0c1d_Z1m5WWD.webp)
+Continue reading
+- [![View Matthew Forsythe's profile](https://developer.android.com/static/blog/assets/matthew_9c798f0c1d_Z1m5WWD.webp)](https://developer.android.com/blog/authors/matthew-forsythe) 18 Jun 2026 18 Jun 2026 ![](https://developer.android.com/static/blog/assets/Strapi_2x_325a484212_1BGPPB.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Android developer verification: Building a safer ecosystem together](https://developer.android.com/blog/posts/android-developer-verification-building-a-safer-ecosystem-together)
 
   [arrow_forward](https://developer.android.com/blog/posts/android-developer-verification-building-a-safer-ecosystem-together) Last year, we introduced Android developer verification to strengthen ecosystem security and stop malicious actors from hiding behind anonymity to release harmful apps.
-
-  ###### [Matthew Forsythe](https://developer.android.com/blog/authors/matthew-forsythe) •
-  2 min read
-
-- [![](https://developer.android.com/static/blog/assets/Jingyu_Shi_ab6f01bd32_ZXPVGC.webp)](https://developer.android.com/blog/authors/jingyu-shi) 26 May 2026 26 May 2026 ![](https://developer.android.com/static/blog/assets/Blog_hero_Strapi_2x_0147a8b012_1yD2LQ.webp)
-
-  #### [Product News](https://developer.android.com/blog/categories/product-news)
+  [Matthew Forsythe](https://developer.android.com/blog/authors/matthew-forsythe) • 2 min read
+- [![View Jingyu Shi's profile](https://developer.android.com/static/blog/assets/Jingyu_Shi_ab6f01bd32_ZXPVGC.webp)](https://developer.android.com/blog/authors/jingyu-shi) 26 May 2026 26 May 2026 ![](https://developer.android.com/static/blog/assets/Blog_hero_Strapi_2x_0147a8b012_1yD2LQ.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Top AI on Android updates for building intelligent experiences from Google I/O '26](https://developer.android.com/blog/posts/top-ai-on-android-updates-for-building-intelligent-experiences-from-google-i-o-26)
 
   [arrow_forward](https://developer.android.com/blog/posts/top-ai-on-android-updates-for-building-intelligent-experiences-from-google-i-o-26) At Google I/O 2026, we introduced Android's shift from an operating system to an intelligence system. We also demonstrated how you can build intelligent experiences natively with the system and bring the power of Google's AI into your apps.
-
-  ###### [Jingyu Shi](https://developer.android.com/blog/authors/jingyu-shi) •
-  2 min read
-
+  [Jingyu Shi](https://developer.android.com/blog/authors/jingyu-shi) • 2 min read
   - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
   - [#Android](https://developer.android.com/blog/topics/android)
   - [#AppFunctions](https://developer.android.com/blog/topics/app-functions)
   - [#On-device](https://developer.android.com/blog/topics/on-device)
   - +2 ↩
-- [![](https://developer.android.com/static/blog/assets/matthew_warner_67a99317e4_Z2c1VNu.webp)](https://developer.android.com/blog/authors/matthew-warner) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Combo_Strapi_2000x1000_5793c01e36_ZVoYvg.webp)
-
-  #### [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Matthew Warner's profile](https://developer.android.com/static/blog/assets/matthew_warner_67a99317e4_Z2c1VNu.webp)](https://developer.android.com/blog/authors/matthew-warner) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Combo_Strapi_2000x1000_5793c01e36_ZVoYvg.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Android Studio I/O Edition: What's new in Android Developer tools](https://developer.android.com/blog/posts/android-studio-i-o-edition-what-s-new-in-android-developer-tools)
 
   [arrow_forward](https://developer.android.com/blog/posts/android-studio-i-o-edition-what-s-new-in-android-developer-tools) This year at Google I/O we are going beyond iterative changes, towards a fundamental shift in how apps are built. Our newest tools are built for the agentic era with features that boost productivity for you as an Android developer AND supercharge the AI agents you deploy in your codebase.
-
-  ###### [Matthew Warner](https://developer.android.com/blog/authors/matthew-warner) •
-  8 min read
-
+  [Matthew Warner](https://developer.android.com/blog/authors/matthew-warner) • 8 min read
   - [#Agent Skills](https://developer.android.com/blog/topics/agent-skills)
   - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
   - [#Android](https://developer.android.com/blog/topics/android)
   - [#Android Studio](https://developer.android.com/blog/topics/android-studio)
   - +2 ↩
-
-# Stay in the loop
+Stay in the loop
 
 
 Get the latest Android development insights delivered to your inbox

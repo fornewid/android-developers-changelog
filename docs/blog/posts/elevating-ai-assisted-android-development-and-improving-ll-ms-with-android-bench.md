@@ -4,17 +4,11 @@ url: https://developer.android.com/blog/posts/elevating-ai-assisted-android-deve
 source: md.txt
 ---
 
-#### [Product News](https://developer.android.com/blog/categories/product-news)
+[Product News](https://developer.android.com/blog/categories/product-news)
 
 # Elevating AI-assisted Android development and improving LLMs with Android Bench
 
-###### 2-min read
-
-![](https://developer.android.com/static/blog/assets/android_Bench_f2e4dd4fda_2816Hg.webp) 05 Mar 2026 [![](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) [##### Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough)
-
-###### Vice President, Product Management, Android Developer
-
-We want to make it faster and easier for you to build high-quality Android apps, and one way we're helping you be more productive is by putting AI at your fingertips. We know you want AI that truly understands the nuances of the Android platform, which is why we've been measuring how LLMs perform Android development tasks. Today we released the first version of [**Android Bench**](http://d.android.com/bench), our official leaderboard of LLMs for Android development.
+2-min read ![](https://developer.android.com/static/blog/assets/android_Bench_f2e4dd4fda_2816Hg.webp) 05 Mar 2026 [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) Vice President, Product Management, Android Developer We want to make it faster and easier for you to build high-quality Android apps, and one way we're helping you be more productive is by putting AI at your fingertips. We know you want AI that truly understands the nuances of the Android platform, which is why we've been measuring how LLMs perform Android development tasks. Today we released the first version of [**Android Bench**](http://d.android.com/bench), our official leaderboard of LLMs for Android development.
 
 Our goal is to provide model creators with a benchmark to evaluate LLM capabilities for Android development. By establishing a clear, reliable baseline for what high quality Android development looks like, we're helping model creators identify gaps and accelerate improvements---which empowers developers to work more efficiently with a wider range of helpful models to choose for AI assistance---which ultimately will lead to higher quality apps across the Android ecosystem.
 
@@ -45,8 +39,7 @@ One challenge for any public benchmark is the risk of data contamination, where 
 Looking ahead, we will continue to evolve our methodology to preserve the integrity of the dataset, while also making improvements for future releases of the benchmark---for example, growing the quantity and complexity of tasks.
 
 We're looking forward to how [Android Bench](http://d.android.com/bench) can improve AI assistance long-term. Our vision is to close the gap between concept and quality code. We're building the foundation for a future where no matter what you imagine, you can build it on Android.
-
-###### Written by:
+Written by:
 
 -
 
@@ -55,48 +48,30 @@ We're looking forward to how [Android Bench](http://d.android.com/bench) can imp
   ###### Vice President, Product Management, Android Developer
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/matthew-mccullough) ![](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp) ![](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)
-
-## Continue reading
-
-- [![](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Text_Strapi_2000x1000_2d4221d884_ZtW7eg.webp)
-
-  #### [Product News](https://developer.android.com/blog/categories/product-news)
+  View profile](https://developer.android.com/blog/authors/matthew-mccullough) ![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp) ![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)
+Continue reading
+- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Text_Strapi_2000x1000_2d4221d884_ZtW7eg.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [17 Things to know for Android developers at Google I/O!](https://developer.android.com/blog/posts/17-things-to-know-for-android-developers-at-google-i-o)
 
   [arrow_forward](https://developer.android.com/blog/posts/17-things-to-know-for-android-developers-at-google-i-o) Google I/O '26 features 17 key announcements for Android developers focusing on agent-led productivity, Compose First as our UI standard, and high-performance media and adaptive development for the expanding ecosystem.
-
-  ###### [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) •
-  8 min read
-
+  [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) • 8 min read
   - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
-- [![](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 12 May 2026 12 May 2026 ![](https://developer.android.com/static/blog/assets/Tas_Developers_cut_Strapi_3636223c9c_Z2pmmBN.webp)
-
-  #### [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 12 May 2026 12 May 2026 ![](https://developer.android.com/static/blog/assets/Tas_Developers_cut_Strapi_3636223c9c_Z2pmmBN.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Building for the Intelligence System on Android](https://developer.android.com/blog/posts/building-for-the-intelligence-system-on-android)
 
   [arrow_forward](https://developer.android.com/blog/posts/building-for-the-intelligence-system-on-android) Announced today during The Android Show, Android is transitioning from an operating system to an intelligence system, creating more opportunities for engagement with your apps.
-
-  ###### [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) •
-  4 min read
-
+  [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) • 4 min read
   - [#Android](https://developer.android.com/blog/topics/android)
-- [![](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 02 Apr 2026 02 Apr 2026 ![](https://developer.android.com/static/blog/assets/Gemma_Android_2x1_2x_a6d27254c4_Z10SxJJ.webp)
-
-  #### [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 02 Apr 2026 02 Apr 2026 ![](https://developer.android.com/static/blog/assets/Gemma_Android_2x1_2x_a6d27254c4_Z10SxJJ.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Gemma 4: The new standard for local agentic intelligence on Android](https://developer.android.com/blog/posts/gemma-4-the-new-standard-for-local-agentic-intelligence-on-android)
 
   [arrow_forward](https://developer.android.com/blog/posts/gemma-4-the-new-standard-for-local-agentic-intelligence-on-android) Today, we are enhancing Android development with Gemma 4, our latest state-of-the-art open model designed with complex reasoning and autonomous tool-calling capabilities.
-
-  ###### [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) •
-  2 min read
-
+  [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) • 2 min read
   - [#Android Studio](https://developer.android.com/blog/topics/android-studio)
-
-# Stay in the loop
+Stay in the loop
 
 
 Get the latest Android development insights delivered to your inbox

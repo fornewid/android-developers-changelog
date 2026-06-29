@@ -4,25 +4,18 @@ url: https://developer.android.com/blog/authors/emma-louise-leavey
 source: md.txt
 ---
 
-## 1
-
-post ![](https://developer.android.com/static/blog/assets/Emma_Louise_profile_c6ba45f450_16g0DP.webp)
+1 post ![](https://developer.android.com/static/blog/assets/Emma_Louise_profile_c6ba45f450_16g0DP.webp)
 
 # Emma-Louise Leavey
 
-###### Group Product Manager
-
-- 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Combo2_Strapi_2000x1000_6de0464afd_1KAI63.webp)
-
-  #### [Product News](https://developer.android.com/blog/categories/product-news)
+Group Product Manager
+- 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Combo2_Strapi_2000x1000_6de0464afd_1KAI63.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Build native Android apps in Google AI Studio](https://developer.android.com/blog/posts/build-native-android-apps-in-google-ai-studio)
 
   [arrow_forward](https://developer.android.com/blog/posts/build-native-android-apps-in-google-ai-studio) Native Android app creation capabilities in Google AI Studio using Kotlin and Jetpack Compose. Ability to preview apps in an embedded Android Emulator and deploy it to a physically connected device. Google Play Developers can submit a new app release to an Internal Test Track in Play Console.
-
-  ###### 4 min read
-
-# Stay in the loop
+  4 min read
+Stay in the loop
 
 
 Get the latest Android development insights delivered to your inbox

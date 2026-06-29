@@ -4,19 +4,11 @@ url: https://developer.android.com/blog/posts/deeper-performance-considerations
 source: md.txt
 ---
 
-#### [How-tos](https://developer.android.com/blog/categories/how-tos)
+[How-tos](https://developer.android.com/blog/categories/how-tos)
 
 # Deeper Performance Considerations
 
-###### 8-min read
-
-![](https://developer.android.com/static/blog/assets/performance_Week11_efe6dd10be_Z1PApe6.webp) 19 Nov 2025 3 Authors
-
-##### [Ben Weiss,](https://developer.android.com/blog/authors/ben-weiss)
-[Breana Tate,](https://developer.android.com/blog/authors/breana-tate)
-[Jossi Wolf](https://developer.android.com/blog/authors/jossi-wolf)
-
-Compose yourselves and let us guide you through more background on performance.
+8-min read ![](https://developer.android.com/static/blog/assets/performance_Week11_efe6dd10be_Z1PApe6.webp) 19 Nov 2025 3 Authors [Ben Weiss,](https://developer.android.com/blog/authors/ben-weiss) [Breana Tate,](https://developer.android.com/blog/authors/breana-tate) [Jossi Wolf](https://developer.android.com/blog/authors/jossi-wolf) Compose yourselves and let us guide you through more background on performance.
 
 Welcome to day 3 of Performance Spotlight Week. Today we're continuing to share details and guidance on important areas of app performance. We're covering Profile Guided Optimization, Jetpack Compose performance improvements and considerations on working behind the scenes. Let's dive right in.
 
@@ -275,8 +267,7 @@ Share your startup time improvements on social media using **#optimizationEnable
 You have shrunk your app with R8 and optimized your runtime with Profile Guided Optimization. But how do you *prove* these wins to your stakeholders? And how do you catch regressions before they hit production?
 
 Join us tomorrow for **Day 4: The Performance Leveling Guide**, where we will map out exactly how to measure your success, from field data in Play Vitals to deep local tracing with Perfetto.
-
-###### Written by:
+Written by:
 
 -
 
@@ -285,7 +276,7 @@ Join us tomorrow for **Day 4: The Performance Leveling Guide**, where we will ma
   ###### Developer Relations Engineer
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/ben-weiss) ![](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2dcD9g.webp) ![](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2dcD9g.webp)
+  View profile](https://developer.android.com/blog/authors/ben-weiss) ![View Ben Weiss's profile](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2dcD9g.webp) ![View Ben Weiss's profile](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2dcD9g.webp)
 -
 
   ## [Breana Tate](https://developer.android.com/blog/authors/breana-tate)
@@ -293,7 +284,7 @@ Join us tomorrow for **Day 4: The Performance Leveling Guide**, where we will ma
   ###### Developer Relations Engineer
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/breana-tate) ![](https://developer.android.com/static/blog/assets/Breana_Tate_24c1d03bf2_Z1NRigS.webp) ![](https://developer.android.com/static/blog/assets/Breana_Tate_24c1d03bf2_Z1NRigS.webp)
+  View profile](https://developer.android.com/blog/authors/breana-tate) ![View Breana Tate's profile](https://developer.android.com/static/blog/assets/Breana_Tate_24c1d03bf2_Z1NRigS.webp) ![View Breana Tate's profile](https://developer.android.com/static/blog/assets/Breana_Tate_24c1d03bf2_Z1NRigS.webp)
 -
 
   ## [Jossi Wolf](https://developer.android.com/blog/authors/jossi-wolf)
@@ -301,50 +292,33 @@ Join us tomorrow for **Day 4: The Performance Leveling Guide**, where we will ma
   ###### Software Engineer
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/jossi-wolf) ![](https://developer.android.com/static/blog/assets/Jossi_Wolf_d703979815_1D5j3e.webp) ![](https://developer.android.com/static/blog/assets/Jossi_Wolf_d703979815_1D5j3e.webp)
-
-## Continue reading
-
-- [![](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2dcD9g.webp)](https://developer.android.com/blog/authors/ben-weiss) 17 Nov 2025 17 Nov 2025 ![](https://developer.android.com/static/blog/assets/performance_Week9_2c643934fa_p8Pb2.webp)
-
-  #### [How-tos](https://developer.android.com/blog/categories/how-tos)
+  View profile](https://developer.android.com/blog/authors/jossi-wolf) ![View Jossi Wolf's profile](https://developer.android.com/static/blog/assets/Jossi_Wolf_d703979815_1D5j3e.webp) ![View Jossi Wolf's profile](https://developer.android.com/static/blog/assets/Jossi_Wolf_d703979815_1D5j3e.webp)
+Continue reading
+- [![View Ben Weiss's profile](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2dcD9g.webp)](https://developer.android.com/blog/authors/ben-weiss) 17 Nov 2025 17 Nov 2025 ![](https://developer.android.com/static/blog/assets/performance_Week9_2c643934fa_p8Pb2.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
 
   ## [Get your app on the fast track with Android Performance Spotlight Week!](https://developer.android.com/blog/posts/get-your-app-on-the-fast-track-with-android-performance-spotlight-week)
 
   [arrow_forward](https://developer.android.com/blog/posts/get-your-app-on-the-fast-track-with-android-performance-spotlight-week) When working on new features, app performance often takes a back seat. However, while it's not always top of mind for developers, users can see exactly where your app's performance lags behind.
-
-  ###### [Ben Weiss](https://developer.android.com/blog/authors/ben-weiss) •
-  3 min read
-
+  [Ben Weiss](https://developer.android.com/blog/authors/ben-weiss) • 3 min read
   - [#Performance](https://developer.android.com/blog/topics/performance)
   - [#R8](https://developer.android.com/blog/topics/r8)
-- 3 Authors 02 Jun 2026 02 Jun 2026 ![](https://developer.android.com/static/blog/assets/Engineering_Memory_Blog_Strapi_3_bfd74f43e5_Z2i8kF7.webp)
-
-  #### [How-tos](https://developer.android.com/blog/categories/how-tos)
+- 3 Authors 02 Jun 2026 02 Jun 2026 ![](https://developer.android.com/static/blog/assets/Engineering_Memory_Blog_Strapi_3_bfd74f43e5_Z2i8kF7.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
 
   ## [Prioritizing Memory Efficiency: Essential Steps for Android 17](https://developer.android.com/blog/posts/prioritizing-memory-efficiency-essential-steps-for-android-17)
 
   [arrow_forward](https://developer.android.com/blog/posts/prioritizing-memory-efficiency-essential-steps-for-android-17) While app performance is often equated with a smooth UI and fast start times, memory serves as the silent foundation upon which these visible metrics are built. It's no secret that we're seeing a shift where device memory is more important than ever.
-
-  ###### [Alice Yuan](https://developer.android.com/blog/authors/alice-yuan), [Ajesh Pai](https://developer.android.com/blog/authors/ajesh-pai), [Fung Lam](https://developer.android.com/blog/authors/fung-lam) •
-  10 min read
-
+  [Alice Yuan](https://developer.android.com/blog/authors/alice-yuan), [Ajesh Pai](https://developer.android.com/blog/authors/ajesh-pai), [Fung Lam](https://developer.android.com/blog/authors/fung-lam) • 10 min read
   - [#Memory](https://developer.android.com/blog/topics/memory)
   - [#Android](https://developer.android.com/blog/topics/android)
   - [#Performance](https://developer.android.com/blog/topics/performance)
   - +1 ↩
-- [![](https://developer.android.com/static/blog/assets/niharika_2910f6d612_C99s1.webp)](https://developer.android.com/blog/authors/niharika-arora)[![](https://developer.android.com/static/blog/assets/Jean_Pierre_Pralle_2bf889a65a_2buQLX.webp)](https://developer.android.com/blog/authors/jean-pierre-pralle) 22 Apr 2026 22 Apr 2026 ![](https://developer.android.com/static/blog/assets/Streamline_user_animation_V02_Strapi_abd12985d7_SvAX9.webp)
-
-  #### [How-tos](https://developer.android.com/blog/categories/how-tos)
+- [![View Niharika Arora's profile](https://developer.android.com/static/blog/assets/niharika_2910f6d612_C99s1.webp)](https://developer.android.com/blog/authors/niharika-arora)[![View Jean-Pierre Pralle's profile](https://developer.android.com/static/blog/assets/Jean_Pierre_Pralle_2bf889a65a_2buQLX.webp)](https://developer.android.com/blog/authors/jean-pierre-pralle) 22 Apr 2026 22 Apr 2026 ![](https://developer.android.com/static/blog/assets/Streamline_user_animation_V02_Strapi_abd12985d7_SvAX9.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
 
   ## [Streamline User Journeys with Verified Email via Credential Manager](https://developer.android.com/blog/posts/streamline-user-journeys-with-verified-email-via-credential-manager)
 
   [arrow_forward](https://developer.android.com/blog/posts/streamline-user-journeys-with-verified-email-via-credential-manager) Today, we're excited to announce a new verified email credential issued by Google, which developers can now retrieve directly from Android's Credential Manager Digital Credential API.
-
-  ###### [Niharika Arora](https://developer.android.com/blog/authors/niharika-arora), [Jean-Pierre Pralle](https://developer.android.com/blog/authors/jean-pierre-pralle) •
-  3 min read
-
-# Stay in the loop
+  [Niharika Arora](https://developer.android.com/blog/authors/niharika-arora), [Jean-Pierre Pralle](https://developer.android.com/blog/authors/jean-pierre-pralle) • 3 min read
+Stay in the loop
 
 
 Get the latest Android development insights delivered to your inbox

@@ -4,19 +4,11 @@ url: https://developer.android.com/blog/posts/gemini-and-firebase-ai-logic-enabl
 source: md.txt
 ---
 
-#### [Case Studies](https://developer.android.com/blog/categories/case-studies)
+[Case Studies](https://developer.android.com/blog/categories/case-studies)
 
 # Gemini and Firebase AI Logic enabled Karrot to increase sales with a translation feature built in under 2 weeks
 
-###### 2-min read
-
-![](https://developer.android.com/static/blog/assets/AANDDM_KARROT_Strapi_eed79b0e1b_cCxXk.webp) 04 May 2026 [![](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d0_l9O72.webp)](https://developer.android.com/blog/authors/thomas-ezan)[![](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_1hBimO.webp)](https://developer.android.com/blog/authors/tracy-agyemang)
-
-##### [Thomas Ezan](https://developer.android.com/blog/authors/thomas-ezan)
-\&
-[Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang)
-
-[Karrot](https://play.google.com/store/apps/details?id=com.towneers.www&pcampaignid=web_share) is a hyperlocal, community-driven peer-to-peer marketplace app that enables users to buy, sell, and trade items with other verified users. Since launching in South Korea in 2015, the platform has expanded into global markets, amassing over 43 million registered users.
+2-min read ![](https://developer.android.com/static/blog/assets/AANDDM_KARROT_Strapi_eed79b0e1b_cCxXk.webp) 04 May 2026 [![View Thomas Ezan's profile](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d0_l9O72.webp)](https://developer.android.com/blog/authors/thomas-ezan)[![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_1hBimO.webp)](https://developer.android.com/blog/authors/tracy-agyemang) [Thomas Ezan](https://developer.android.com/blog/authors/thomas-ezan) \& [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang) [Karrot](https://play.google.com/store/apps/details?id=com.towneers.www&pcampaignid=web_share) is a hyperlocal, community-driven peer-to-peer marketplace app that enables users to buy, sell, and trade items with other verified users. Since launching in South Korea in 2015, the platform has expanded into global markets, amassing over 43 million registered users.
 
 After launching in North America, engineers at Karrot observed that 30% of users in the region use a non-English device language, such as Spanish. To make the app more accessible, the team wanted to bring seamless translation functionality to Karrot quickly and at scale. The developers determined that the most efficient way to implement quality translations would be through integrating an AI service directly into the app, so they selected the Firebase AI Logic and its Android SDK to access Gemini Flash Lite, which led to higher purchasing conversion among non-English users.
 ![AndDev_KARROT_Inline.gif](https://developer.android.com/static/blog/assets/And_Dev_KARROT_Inline_29a75f8bf3_25D1By.webp)
@@ -49,8 +41,7 @@ Going forward, the team plans to implement [Server Prompt Templates](https://fir
 
 Learn how to build Gemini-enabled features like AI translations and in-app personalization and more with [Firebase AI Logic](https://firebase.google.com/docs/ai-logic/get-started?api=dev) to deliver better experiences to your users, faster.
 - [#Android](https://developer.android.com/blog/topics/android)
-
-###### Written by:
+Written by:
 
 -
 
@@ -59,7 +50,7 @@ Learn how to build Gemini-enabled features like AI translations and in-app perso
   ###### Senior Developer Relations Engineer
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/thomas-ezan) ![](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d0_l9O72.webp) ![](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d0_l9O72.webp)
+  View profile](https://developer.android.com/blog/authors/thomas-ezan) ![View Thomas Ezan's profile](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d0_l9O72.webp) ![View Thomas Ezan's profile](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d0_l9O72.webp)
 -
 
   ## [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang)
@@ -67,48 +58,31 @@ Learn how to build Gemini-enabled features like AI translations and in-app perso
   ###### Product Marketing Manager
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/tracy-agyemang) ![](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_1hBimO.webp) ![](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_1hBimO.webp)
-
-## Continue reading
-
-- [![](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d0_l9O72.webp)](https://developer.android.com/blog/authors/thomas-ezan)[![](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_1hBimO.webp)](https://developer.android.com/blog/authors/tracy-agyemang) 30 Oct 2025 30 Oct 2025 ![](https://developer.android.com/static/blog/assets/thomas_bc2cd0efa0_19rH0O.webp)
-
-  #### [Case Studies](https://developer.android.com/blog/categories/case-studies)
+  View profile](https://developer.android.com/blog/authors/tracy-agyemang) ![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_1hBimO.webp) ![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_1hBimO.webp)
+Continue reading
+- [![View Thomas Ezan's profile](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d0_l9O72.webp)](https://developer.android.com/blog/authors/thomas-ezan)[![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_1hBimO.webp)](https://developer.android.com/blog/authors/tracy-agyemang) 30 Oct 2025 30 Oct 2025 ![](https://developer.android.com/static/blog/assets/thomas_bc2cd0efa0_19rH0O.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
 
   ## [redBus uses Gemini Flash via Firebase AI Logic to boost the length of customer reviews by 57%](https://developer.android.com/blog/posts/red-bus-uses-gemini-flash-via-firebase-ai-logic-to-boost-the-length-of-customer-reviews-by-57)
 
   [arrow_forward](https://developer.android.com/blog/posts/red-bus-uses-gemini-flash-via-firebase-ai-logic-to-boost-the-length-of-customer-reviews-by-57) As the world's largest online bus ticketing platform, redBus serves millions of travelers across India, Southeast Asia, and Latin America.
-
-  ###### [Thomas Ezan](https://developer.android.com/blog/authors/thomas-ezan), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang) •
-  3 min read
-
-- 3 Authors 08 Jun 2026 08 Jun 2026 ![](https://developer.android.com/static/blog/assets/ANDDM_TITLE_Strapi_b83ae0beee_i9nEs.webp)
-
-  #### [Case Studies](https://developer.android.com/blog/categories/case-studies)
+  [Thomas Ezan](https://developer.android.com/blog/authors/thomas-ezan), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang) • 3 min read
+- 3 Authors 08 Jun 2026 08 Jun 2026 ![](https://developer.android.com/static/blog/assets/ANDDM_TITLE_Strapi_b83ae0beee_i9nEs.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
 
   ## [Datadog delivers millions of in-depth performance insights with ProfilingManager](https://developer.android.com/blog/posts/datadog-delivers-millions-of-in-depth-performance-insights-with-profiling-manager)
 
   [arrow_forward](https://developer.android.com/blog/posts/datadog-delivers-millions-of-in-depth-performance-insights-with-profiling-manager) Performance regressions are notoriously hard to reproduce, making regressions a massive bottleneck for mobile developers.
-
-  ###### [Alice Yuan](https://developer.android.com/blog/authors/alice-yuan), [Arti Arutiunov](https://developer.android.com/blog/authors/arti-arutiunov), [Nikita Ogorodnikov](https://developer.android.com/blog/authors/nikita-ogorodnikov) •
-  4 min read
-
+  [Alice Yuan](https://developer.android.com/blog/authors/alice-yuan), [Arti Arutiunov](https://developer.android.com/blog/authors/arti-arutiunov), [Nikita Ogorodnikov](https://developer.android.com/blog/authors/nikita-ogorodnikov) • 4 min read
   - [#Profiling Manager](https://developer.android.com/blog/topics/profiling-manager)
   - [#Android](https://developer.android.com/blog/topics/android)
   - [#Performance](https://developer.android.com/blog/topics/performance)
   - +1 ↩
-- [![](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2dcD9g.webp)](https://developer.android.com/blog/authors/ben-weiss)[![](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_1hBimO.webp)](https://developer.android.com/blog/authors/tracy-agyemang) 30 Mar 2026 30 Mar 2026 ![](https://developer.android.com/static/blog/assets/monzo_boosts_performance_aff3a37917_6VY99.webp)
-
-  #### [Case Studies](https://developer.android.com/blog/categories/case-studies)
+- [![View Ben Weiss's profile](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2dcD9g.webp)](https://developer.android.com/blog/authors/ben-weiss)[![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_1hBimO.webp)](https://developer.android.com/blog/authors/tracy-agyemang) 30 Mar 2026 30 Mar 2026 ![](https://developer.android.com/static/blog/assets/monzo_boosts_performance_aff3a37917_6VY99.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
 
   ## [Monzo boosts performance metrics by up to 35% with a simple R8 update](https://developer.android.com/blog/posts/monzo-boosts-performance-metrics-by-up-to-35-with-a-simple-r8-update)
 
   [arrow_forward](https://developer.android.com/blog/posts/monzo-boosts-performance-metrics-by-up-to-35-with-a-simple-r8-update) Monzo is a UK digital bank with 15 million customers and growing. As the app scaled, the engineering team identified app startup time as a critical area for improvement but worried it would require significant changes to their codebase.
-
-  ###### [Ben Weiss](https://developer.android.com/blog/authors/ben-weiss), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang) •
-  2 min read
-
-# Stay in the loop
+  [Ben Weiss](https://developer.android.com/blog/authors/ben-weiss), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang) • 2 min read
+Stay in the loop
 
 
 Get the latest Android development insights delivered to your inbox

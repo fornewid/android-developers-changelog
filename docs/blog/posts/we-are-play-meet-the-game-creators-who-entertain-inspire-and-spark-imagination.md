@@ -4,17 +4,11 @@ url: https://developer.android.com/blog/posts/we-are-play-meet-the-game-creators
 source: md.txt
 ---
 
-#### [Community](https://developer.android.com/blog/categories/community)
+[Community](https://developer.android.com/blog/categories/community)
 
 # #WeArePlay: Meet the game creators who entertain, inspire and spark imagination
 
-###### 2-min read
-
-![](https://developer.android.com/static/blog/assets/Android_Devs_Google_Devs_Blog_Header_1200x600_79350b0b52_1w8gkH.webp) 13 Nov 2025 [![](https://developer.android.com/static/blog/assets/Robbie_280bd4586c_2wmcrw.webp)](https://developer.android.com/blog/authors/robbie-mclachlan) [##### Robbie McLachlan](https://developer.android.com/blog/authors/robbie-mclachlan)
-
-###### Brand Marketing Manager , Developer Marketing
-
-In our latest [#WeArePlay](https://play.google.com/console/about/weareplay/) stories, we meet the game creators who entertain, inspire and spark imagination in players around the world on Google Play. From delivering action-packed 3D kart racing to creating a calming, lofi world for plant lovers - here are a few of our favourites:
+2-min read ![](https://developer.android.com/static/blog/assets/Android_Devs_Google_Devs_Blog_Header_1200x600_79350b0b52_1w8gkH.webp) 13 Nov 2025 [![View Robbie McLachlan's profile](https://developer.android.com/static/blog/assets/Robbie_280bd4586c_2wmcrw.webp)](https://developer.android.com/blog/authors/robbie-mclachlan) [Robbie McLachlan](https://developer.android.com/blog/authors/robbie-mclachlan) Brand Marketing Manager , Developer Marketing In our latest [#WeArePlay](https://play.google.com/console/about/weareplay/) stories, we meet the game creators who entertain, inspire and spark imagination in players around the world on Google Play. From delivering action-packed 3D kart racing to creating a calming, lofi world for plant lovers - here are a few of our favourites:
 ![01_USA_VECTOR UNIT_FOUNDERS_ MATT SMALL_RALF KNOESEL_edited.png](https://developer.android.com/static/blog/assets/01_USA_VECTOR_UNIT_FOUNDERS_MATT_SMALL_RALF_KNOESEL_edited_3c2395d27f_Z1ll8KG.webp)
 
 *Ralf and Matt, co-founders of Vector Unit \| San Rafael (CA), U.S.*
@@ -38,8 +32,7 @@ While living with her mother during the pandemic, tech graduate Camilla made the
 Rodrigo started coding at just 12 years old, creating software for his family's businesses. This technical skill later combined with his hobby as an amateur musician. While pursuing a career in programming, he noticed a clear gap: there were no high-quality percussion apps. He united his two passions, technology and rhythm, to create [Real Drum](https://play.google.com/store/apps/details?id=br.com.rodrigokolb.realdrum&gl=br). The result is a realistic, easy-to-use virtual set that has amassed over 437 million downloads, letting people around the world play drums and cymbals without the noise. His game has made learning music accessible to many and inspired new artists. Now, Rodrigo's team plans to launch new apps for children to continue nurturing musical creativity.
 
 Discover other inspiring app and game founders featured in [#WeArePlay](https://play.google.com/console/about/weareplay/).
-
-###### Written by:
+Written by:
 
 -
 
@@ -48,44 +41,27 @@ Discover other inspiring app and game founders featured in [#WeArePlay](https://
   ###### Brand Marketing Manager
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/robbie-mclachlan) ![](https://developer.android.com/static/blog/assets/Robbie_280bd4586c_2wmcrw.webp) ![](https://developer.android.com/static/blog/assets/Robbie_280bd4586c_2wmcrw.webp)
-
-## Continue reading
-
-- [![](https://developer.android.com/static/blog/assets/Robbie_280bd4586c_2wmcrw.webp)](https://developer.android.com/blog/authors/robbie-mclachlan) 25 Mar 2026 25 Mar 2026 ![](https://developer.android.com/static/blog/assets/Meet_The_Class_2_bb4f1ec5bd_Z1MklPk.webp)
-
-  #### [Community](https://developer.android.com/blog/categories/community)
+  View profile](https://developer.android.com/blog/authors/robbie-mclachlan) ![View Robbie McLachlan's profile](https://developer.android.com/static/blog/assets/Robbie_280bd4586c_2wmcrw.webp) ![View Robbie McLachlan's profile](https://developer.android.com/static/blog/assets/Robbie_280bd4586c_2wmcrw.webp)
+Continue reading
+- [![View Robbie McLachlan's profile](https://developer.android.com/static/blog/assets/Robbie_280bd4586c_2wmcrw.webp)](https://developer.android.com/blog/authors/robbie-mclachlan) 25 Mar 2026 25 Mar 2026 ![](https://developer.android.com/static/blog/assets/Meet_The_Class_2_bb4f1ec5bd_Z1MklPk.webp) [Community](https://developer.android.com/blog/categories/community)
 
   ## [Meet the class of 2026 for the Google Play Apps Accelerator](https://developer.android.com/blog/posts/meet-the-class-of-2026-for-the-google-play-apps-accelerator)
 
   [arrow_forward](https://developer.android.com/blog/posts/meet-the-class-of-2026-for-the-google-play-apps-accelerator) The wait is over! We are incredibly excited to share the Google Play Apps Accelerator class of 2026.
-
-  ###### [Robbie McLachlan](https://developer.android.com/blog/authors/robbie-mclachlan) •
-  1 min read
-
-- [![](https://developer.android.com/static/blog/assets/Robbie_280bd4586c_2wmcrw.webp)](https://developer.android.com/blog/authors/robbie-mclachlan) 11 Dec 2025 11 Dec 2025 ![](https://developer.android.com/static/blog/assets/Android_Devs_Google_Devs_Blog_Header_1200x600_79350b0b52_1w8gkH.webp)
-
-  #### [Community](https://developer.android.com/blog/categories/community)
+  [Robbie McLachlan](https://developer.android.com/blog/authors/robbie-mclachlan) • 1 min read
+- [![View Robbie McLachlan's profile](https://developer.android.com/static/blog/assets/Robbie_280bd4586c_2wmcrw.webp)](https://developer.android.com/blog/authors/robbie-mclachlan) 11 Dec 2025 11 Dec 2025 ![](https://developer.android.com/static/blog/assets/Android_Devs_Google_Devs_Blog_Header_1200x600_79350b0b52_1w8gkH.webp) [Community](https://developer.android.com/blog/categories/community)
 
   ## [#WeArePlay: How Matraquina helps non-verbal kids communicate](https://developer.android.com/blog/posts/we-are-play-how-matraquina-helps-non-verbal-kids-communicate)
 
   [arrow_forward](https://developer.android.com/blog/posts/we-are-play-how-matraquina-helps-non-verbal-kids-communicate) In our latest #WeArePlay film, we meet Adriano, Wagner and Grazyelle. The trio are behind Matraquinha, an app helping thousands of non-verbal children in more than 80 countries communicate.
-
-  ###### [Robbie McLachlan](https://developer.android.com/blog/authors/robbie-mclachlan) •
-  2 min read
-
-- [![](https://developer.android.com/static/blog/assets/Robbie_280bd4586c_2wmcrw.webp)](https://developer.android.com/blog/authors/robbie-mclachlan) 08 Dec 2025 08 Dec 2025 ![](https://developer.android.com/static/blog/assets/Android_Devs_Google_Devs_Blog_Header_1200x600_79350b0b52_1w8gkH.webp)
-
-  #### [Community](https://developer.android.com/blog/categories/community)
+  [Robbie McLachlan](https://developer.android.com/blog/authors/robbie-mclachlan) • 2 min read
+- [![View Robbie McLachlan's profile](https://developer.android.com/static/blog/assets/Robbie_280bd4586c_2wmcrw.webp)](https://developer.android.com/blog/authors/robbie-mclachlan) 08 Dec 2025 08 Dec 2025 ![](https://developer.android.com/static/blog/assets/Android_Devs_Google_Devs_Blog_Header_1200x600_79350b0b52_1w8gkH.webp) [Community](https://developer.android.com/blog/categories/community)
 
   ## [#WeArePlay: How Miksapix Interactive is bringing ancient Sámi Mythology to gamers worldwide](https://developer.android.com/blog/posts/we-are-play-how-miksapix-interactive-is-bringing-ancient-sami-mythology-to-gamers-worldwide)
 
   [arrow_forward](https://developer.android.com/blog/posts/we-are-play-how-miksapix-interactive-is-bringing-ancient-sami-mythology-to-gamers-worldwide) In our latest #WeArePlay film, which celebrates the people behind apps and games on Google Play, we meet Mikkel - the founder and CEO of Miksapix Interactive.
-
-  ###### [Robbie McLachlan](https://developer.android.com/blog/authors/robbie-mclachlan) •
-  2 min read
-
-# Stay in the loop
+  [Robbie McLachlan](https://developer.android.com/blog/authors/robbie-mclachlan) • 2 min read
+Stay in the loop
 
 
 Get the latest Android development insights delivered to your inbox

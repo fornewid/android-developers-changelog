@@ -4,19 +4,11 @@ url: https://developer.android.com/blog/posts/datadog-delivers-millions-of-in-de
 source: md.txt
 ---
 
-#### [Case Studies](https://developer.android.com/blog/categories/case-studies)
+[Case Studies](https://developer.android.com/blog/categories/case-studies)
 
 # Datadog delivers millions of in-depth performance insights with ProfilingManager
 
-###### 4-min read
-
-![](https://developer.android.com/static/blog/assets/ANDDM_TITLE_Strapi_b83ae0beee_i9nEs.webp) 08 Jun 2026 3 Authors
-
-##### [Alice Yuan,](https://developer.android.com/blog/authors/alice-yuan)
-[Arti Arutiunov,](https://developer.android.com/blog/authors/arti-arutiunov)
-[Nikita Ogorodnikov](https://developer.android.com/blog/authors/nikita-ogorodnikov)
-
-Performance regressions are notoriously hard to reproduce, making regressions a massive bottleneck for mobile developers. Although signals like ANR rates indicate *what* issues occur in production, pinpointing the specific line of code that resulted in the performance issue has historically necessitated exhaustive manual reproduction or speculative trial-and-error experimentation.
+4-min read ![](https://developer.android.com/static/blog/assets/ANDDM_TITLE_Strapi_b83ae0beee_i9nEs.webp) 08 Jun 2026 3 Authors [Alice Yuan,](https://developer.android.com/blog/authors/alice-yuan) [Arti Arutiunov,](https://developer.android.com/blog/authors/arti-arutiunov) [Nikita Ogorodnikov](https://developer.android.com/blog/authors/nikita-ogorodnikov) Performance regressions are notoriously hard to reproduce, making regressions a massive bottleneck for mobile developers. Although signals like ANR rates indicate *what* issues occur in production, pinpointing the specific line of code that resulted in the performance issue has historically necessitated exhaustive manual reproduction or speculative trial-and-error experimentation.
 
 Datadog collaborated with Google to mitigate this frustration by integrating the ProfilingManager API (available on Android 15+ devices) into its Real User Monitoring (RUM) and Continuous Profiling platforms. This integration transforms the debugging workflow, allowing developers to move beyond surface-level symptoms to being able to detect the *why* behind a performance bottleneck.
 
@@ -65,8 +57,7 @@ To get started using the Datadog real user monitoring feature powered by Profili
 - [#Profiling Manager](https://developer.android.com/blog/topics/profiling-manager)
 - [#Android](https://developer.android.com/blog/topics/android)
 - [#Performance](https://developer.android.com/blog/topics/performance)
-
-###### Written by:
+Written by:
 
 -
 
@@ -75,7 +66,7 @@ To get started using the Datadog real user monitoring feature powered by Profili
   ###### Developer Relations Engineer
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/alice-yuan) ![](https://developer.android.com/static/blog/assets/Alice_Yuan_552a4dd4ee_ZlDEgJ.webp) ![](https://developer.android.com/static/blog/assets/Alice_Yuan_552a4dd4ee_ZlDEgJ.webp)
+  View profile](https://developer.android.com/blog/authors/alice-yuan) ![View Alice Yuan's profile](https://developer.android.com/static/blog/assets/Alice_Yuan_552a4dd4ee_ZlDEgJ.webp) ![View Alice Yuan's profile](https://developer.android.com/static/blog/assets/Alice_Yuan_552a4dd4ee_ZlDEgJ.webp)
 -
 
   ## [Arti Arutiunov](https://developer.android.com/blog/authors/arti-arutiunov)
@@ -83,7 +74,7 @@ To get started using the Datadog real user monitoring feature powered by Profili
   ###### Product Manager
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/arti-arutiunov) ![](https://developer.android.com/static/blog/assets/arti_a_profile_blog_bbf00f0087_1Nh5K.webp) ![](https://developer.android.com/static/blog/assets/arti_a_profile_blog_bbf00f0087_1Nh5K.webp)
+  View profile](https://developer.android.com/blog/authors/arti-arutiunov) ![View Arti Arutiunov's profile](https://developer.android.com/static/blog/assets/arti_a_profile_blog_bbf00f0087_1Nh5K.webp) ![View Arti Arutiunov's profile](https://developer.android.com/static/blog/assets/arti_a_profile_blog_bbf00f0087_1Nh5K.webp)
 -
 
   ## [Nikita Ogorodnikov](https://developer.android.com/blog/authors/nikita-ogorodnikov)
@@ -91,51 +82,33 @@ To get started using the Datadog real user monitoring feature powered by Profili
   ###### Staff Software Engineer
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/nikita-ogorodnikov) ![](https://developer.android.com/static/blog/assets/nickolay_profile_blog_4e456d6b31_Z1NuT0q.webp) ![](https://developer.android.com/static/blog/assets/nickolay_profile_blog_4e456d6b31_Z1NuT0q.webp)
-
-## Continue reading
-
-- [![](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d0_l9O72.webp)](https://developer.android.com/blog/authors/thomas-ezan)[![](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_1hBimO.webp)](https://developer.android.com/blog/authors/tracy-agyemang) 04 May 2026 04 May 2026 ![](https://developer.android.com/static/blog/assets/AANDDM_KARROT_Strapi_eed79b0e1b_cCxXk.webp)
-
-  #### [Case Studies](https://developer.android.com/blog/categories/case-studies)
+  View profile](https://developer.android.com/blog/authors/nikita-ogorodnikov) ![View Nikita Ogorodnikov's profile](https://developer.android.com/static/blog/assets/nickolay_profile_blog_4e456d6b31_Z1NuT0q.webp) ![View Nikita Ogorodnikov's profile](https://developer.android.com/static/blog/assets/nickolay_profile_blog_4e456d6b31_Z1NuT0q.webp)
+Continue reading
+- [![View Thomas Ezan's profile](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d0_l9O72.webp)](https://developer.android.com/blog/authors/thomas-ezan)[![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_1hBimO.webp)](https://developer.android.com/blog/authors/tracy-agyemang) 04 May 2026 04 May 2026 ![](https://developer.android.com/static/blog/assets/AANDDM_KARROT_Strapi_eed79b0e1b_cCxXk.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
 
   ## [Gemini and Firebase AI Logic enabled Karrot to increase sales with a translation feature built in under 2 weeks](https://developer.android.com/blog/posts/gemini-and-firebase-ai-logic-enabled-karrot-to-increase-sales-with-a-translation-feature)
 
   [arrow_forward](https://developer.android.com/blog/posts/gemini-and-firebase-ai-logic-enabled-karrot-to-increase-sales-with-a-translation-feature) Karrot is a hyperlocal, community-driven peer-to-peer marketplace app that enables users to buy, sell, and trade items with other verified users. Since launching in South Korea in 2015, the platform has expanded into global markets, amassing over 43 million registered users.
-
-  ###### [Thomas Ezan](https://developer.android.com/blog/authors/thomas-ezan), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang) •
-  2 min read
-
+  [Thomas Ezan](https://developer.android.com/blog/authors/thomas-ezan), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang) • 2 min read
   - [#Android](https://developer.android.com/blog/topics/android)
-- 3 Authors 02 Jun 2026 02 Jun 2026 ![](https://developer.android.com/static/blog/assets/Engineering_Memory_Blog_Strapi_3_bfd74f43e5_Z2i8kF7.webp)
-
-  #### [How-tos](https://developer.android.com/blog/categories/how-tos)
+- 3 Authors 02 Jun 2026 02 Jun 2026 ![](https://developer.android.com/static/blog/assets/Engineering_Memory_Blog_Strapi_3_bfd74f43e5_Z2i8kF7.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
 
   ## [Prioritizing Memory Efficiency: Essential Steps for Android 17](https://developer.android.com/blog/posts/prioritizing-memory-efficiency-essential-steps-for-android-17)
 
   [arrow_forward](https://developer.android.com/blog/posts/prioritizing-memory-efficiency-essential-steps-for-android-17) While app performance is often equated with a smooth UI and fast start times, memory serves as the silent foundation upon which these visible metrics are built. It's no secret that we're seeing a shift where device memory is more important than ever.
-
-  ###### [Alice Yuan](https://developer.android.com/blog/authors/alice-yuan), [Ajesh Pai](https://developer.android.com/blog/authors/ajesh-pai), [Fung Lam](https://developer.android.com/blog/authors/fung-lam) •
-  10 min read
-
+  [Alice Yuan](https://developer.android.com/blog/authors/alice-yuan), [Ajesh Pai](https://developer.android.com/blog/authors/ajesh-pai), [Fung Lam](https://developer.android.com/blog/authors/fung-lam) • 10 min read
   - [#Memory](https://developer.android.com/blog/topics/memory)
   - [#Android](https://developer.android.com/blog/topics/android)
   - [#Performance](https://developer.android.com/blog/topics/performance)
   - +1 ↩
-- [![](https://developer.android.com/static/blog/assets/Garan_Jenkin_0529dbfef9_Z2crRat.webp)](https://developer.android.com/blog/authors/garan-jenkin) 15 May 2026 15 May 2026 ![](https://developer.android.com/static/blog/assets/cross_device_discovery_to_score_record_Wear_OS_adoption_Strapi_2f9244f1db_Z23QTbE.webp)
-
-  #### [Case Studies](https://developer.android.com/blog/categories/case-studies)
+- [![View Garan Jenkin's profile](https://developer.android.com/static/blog/assets/Garan_Jenkin_0529dbfef9_Z2crRat.webp)](https://developer.android.com/blog/authors/garan-jenkin) 15 May 2026 15 May 2026 ![](https://developer.android.com/static/blog/assets/cross_device_discovery_to_score_record_Wear_OS_adoption_Strapi_2f9244f1db_Z23QTbE.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
 
   ## [How FotMob leveraged cross-device discovery to score record Wear OS adoption](https://developer.android.com/blog/posts/how-fot-mob-leveraged-cross-device-discovery-to-score-record-wear-os-adoption)
 
   [arrow_forward](https://developer.android.com/blog/posts/how-fot-mob-leveraged-cross-device-discovery-to-score-record-wear-os-adoption) FotMob recently experienced its largest single-day increase on Wear OS among its installed audience in 5 years, at 2-3x the daily average. The secret? A simple cross-device installation flow that helps users discover their Wear OS app directly from their phone.
-
-  ###### [Garan Jenkin](https://developer.android.com/blog/authors/garan-jenkin) •
-  3 min read
-
+  [Garan Jenkin](https://developer.android.com/blog/authors/garan-jenkin) • 3 min read
   - [#Wear OS](https://developer.android.com/blog/topics/wear-os)
-
-# Stay in the loop
+Stay in the loop
 
 
 Get the latest Android development insights delivered to your inbox

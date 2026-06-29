@@ -4,17 +4,11 @@ url: https://developer.android.com/blog/posts/high-speed-capture-and-slow-motion
 source: md.txt
 ---
 
-#### [How-tos](https://developer.android.com/blog/categories/how-tos)
+[How-tos](https://developer.android.com/blog/categories/how-tos)
 
 # High-Speed Capture and Slow-Motion Video with CameraX 1.5
 
-###### 6-min read
-
-![](https://developer.android.com/static/blog/assets/25_Android_Camera_X_High_speed_Slomo_Blog_1_fc4509cdb7_1dTrfW.webp) 28 Oct 2025 [![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](https://developer.android.com/blog/authors/leo-huang) [##### Leo Huang](https://developer.android.com/blog/authors/leo-huang)
-
-###### Software Engineer
-
-Capturing fast-moving action with clarity is a key feature for modern camera apps. This is achieved through **high-speed capture** ---the process of acquiring frames at rates like 120 or 240 fps. This high-fidelity capture can be used for two distinct purposes: creating a **high-frame-rate video** for detailed, frame-by-frame analysis, or generating a **slow-motion video** where action unfolds dramatically on screen.
+6-min read ![](https://developer.android.com/static/blog/assets/25_Android_Camera_X_High_speed_Slomo_Blog_1_fc4509cdb7_1dTrfW.webp) 28 Oct 2025 [![View Charles Munger's profile](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](https://developer.android.com/blog/authors/leo-huang) [Leo Huang](https://developer.android.com/blog/authors/leo-huang) Software Engineer Capturing fast-moving action with clarity is a key feature for modern camera apps. This is achieved through **high-speed capture** ---the process of acquiring frames at rates like 120 or 240 fps. This high-fidelity capture can be used for two distinct purposes: creating a **high-frame-rate video** for detailed, frame-by-frame analysis, or generating a **slow-motion video** where action unfolds dramatically on screen.
 
 Previously, implementing these features with the Camera2 API was a more hands-on process. Now, with the new [**high-speed API**](https://developer.android.com/reference/androidx/camera/video/HighSpeedVideoSessionConfig) in CameraX 1.5, the entire process is simplified, giving you the flexibility to create either true high-frame-rate videos or ready-to-play slow-motion clips. This post will show you how to master both. For those new to CameraX, you can get up to speed with the [**CameraX Overview**](https://developer.android.com/media/camera/camerax).
 
@@ -291,8 +285,7 @@ Therefore, it's essential to always use `Recorder.getHighSpeedVideoCapabilities(
 ### Conclusion
 
 The CameraX high-speed video API is both powerful and flexible. Whether you need true high-frame-rate footage for technical analysis or want to add cinematic slow-motion effects to your app, the `HighSpeedVideoSessionConfig` provides a unified and simple solution. By understanding the role of the `setSlowMotionEnabled` flag, you can easily support both use cases and give your users more creative control.
-
-###### Written by:
+Written by:
 
 -
 
@@ -301,48 +294,31 @@ The CameraX high-speed video API is both powerful and flexible. Whether you need
   ###### Software Engineer
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/leo-huang) ![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg) ![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)
-
-## Continue reading
-
-- 3 Authors 02 Jun 2026 02 Jun 2026 ![](https://developer.android.com/static/blog/assets/Engineering_Memory_Blog_Strapi_3_bfd74f43e5_Z2i8kF7.webp)
-
-  #### [How-tos](https://developer.android.com/blog/categories/how-tos)
+  View profile](https://developer.android.com/blog/authors/leo-huang) ![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg) ![View Charles Munger's profile](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)
+Continue reading
+- 3 Authors 02 Jun 2026 02 Jun 2026 ![](https://developer.android.com/static/blog/assets/Engineering_Memory_Blog_Strapi_3_bfd74f43e5_Z2i8kF7.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
 
   ## [Prioritizing Memory Efficiency: Essential Steps for Android 17](https://developer.android.com/blog/posts/prioritizing-memory-efficiency-essential-steps-for-android-17)
 
   [arrow_forward](https://developer.android.com/blog/posts/prioritizing-memory-efficiency-essential-steps-for-android-17) While app performance is often equated with a smooth UI and fast start times, memory serves as the silent foundation upon which these visible metrics are built. It's no secret that we're seeing a shift where device memory is more important than ever.
-
-  ###### [Alice Yuan](https://developer.android.com/blog/authors/alice-yuan), [Ajesh Pai](https://developer.android.com/blog/authors/ajesh-pai), [Fung Lam](https://developer.android.com/blog/authors/fung-lam) •
-  10 min read
-
+  [Alice Yuan](https://developer.android.com/blog/authors/alice-yuan), [Ajesh Pai](https://developer.android.com/blog/authors/ajesh-pai), [Fung Lam](https://developer.android.com/blog/authors/fung-lam) • 10 min read
   - [#Memory](https://developer.android.com/blog/topics/memory)
   - [#Android](https://developer.android.com/blog/topics/android)
   - [#Performance](https://developer.android.com/blog/topics/performance)
   - +1 ↩
-- [![](https://developer.android.com/static/blog/assets/niharika_2910f6d612_C99s1.webp)](https://developer.android.com/blog/authors/niharika-arora)[![](https://developer.android.com/static/blog/assets/Jean_Pierre_Pralle_2bf889a65a_2buQLX.webp)](https://developer.android.com/blog/authors/jean-pierre-pralle) 22 Apr 2026 22 Apr 2026 ![](https://developer.android.com/static/blog/assets/Streamline_user_animation_V02_Strapi_abd12985d7_SvAX9.webp)
-
-  #### [How-tos](https://developer.android.com/blog/categories/how-tos)
+- [![View Niharika Arora's profile](https://developer.android.com/static/blog/assets/niharika_2910f6d612_C99s1.webp)](https://developer.android.com/blog/authors/niharika-arora)[![View Jean-Pierre Pralle's profile](https://developer.android.com/static/blog/assets/Jean_Pierre_Pralle_2bf889a65a_2buQLX.webp)](https://developer.android.com/blog/authors/jean-pierre-pralle) 22 Apr 2026 22 Apr 2026 ![](https://developer.android.com/static/blog/assets/Streamline_user_animation_V02_Strapi_abd12985d7_SvAX9.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
 
   ## [Streamline User Journeys with Verified Email via Credential Manager](https://developer.android.com/blog/posts/streamline-user-journeys-with-verified-email-via-credential-manager)
 
   [arrow_forward](https://developer.android.com/blog/posts/streamline-user-journeys-with-verified-email-via-credential-manager) Today, we're excited to announce a new verified email credential issued by Google, which developers can now retrieve directly from Android's Credential Manager Digital Credential API.
-
-  ###### [Niharika Arora](https://developer.android.com/blog/authors/niharika-arora), [Jean-Pierre Pralle](https://developer.android.com/blog/authors/jean-pierre-pralle) •
-  3 min read
-
-- [![](https://developer.android.com/static/blog/assets/Adarsh_profile_picture_8e88f2831a_1Ut9s6.webp)](https://developer.android.com/blog/authors/adarsh-fernando)[![](https://developer.android.com/static/blog/assets/estebandlc_profile_800x800_1d536f02a7_Z2cAv7x.webp)](https://developer.android.com/blog/authors/esteban-de-la-canal) 16 Apr 2026 16 Apr 2026 ![](https://developer.android.com/static/blog/assets/hours_CLI_Dark_Strapi_2x_427f20cc78_Z1oqB1M.webp)
-
-  #### [How-tos](https://developer.android.com/blog/categories/how-tos)
+  [Niharika Arora](https://developer.android.com/blog/authors/niharika-arora), [Jean-Pierre Pralle](https://developer.android.com/blog/authors/jean-pierre-pralle) • 3 min read
+- [![View Adarsh Fernando's profile](https://developer.android.com/static/blog/assets/Adarsh_profile_picture_8e88f2831a_1Ut9s6.webp)](https://developer.android.com/blog/authors/adarsh-fernando)[![View Esteban de la Canal's profile](https://developer.android.com/static/blog/assets/estebandlc_profile_800x800_1d536f02a7_Z2cAv7x.webp)](https://developer.android.com/blog/authors/esteban-de-la-canal) 16 Apr 2026 16 Apr 2026 ![](https://developer.android.com/static/blog/assets/hours_CLI_Dark_Strapi_2x_427f20cc78_Z1oqB1M.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
 
   ## [Android CLI and skills: Build Android apps 3x faster using any agent](https://developer.android.com/blog/posts/android-cli-build-android-apps-3x-faster-using-any-agent)
 
   [arrow_forward](https://developer.android.com/blog/posts/android-cli-build-android-apps-3x-faster-using-any-agent) Whether you are using Gemini in Android Studio, Gemini CLI, Antigravity, or third-party agents like Claude Code or Codex, our mission is to ensure that high-quality Android development is possible everywhere.
-
-  ###### [Adarsh Fernando](https://developer.android.com/blog/authors/adarsh-fernando), [Esteban de la Canal](https://developer.android.com/blog/authors/esteban-de-la-canal) •
-  4 min read
-
-# Stay in the loop
+  [Adarsh Fernando](https://developer.android.com/blog/authors/adarsh-fernando), [Esteban de la Canal](https://developer.android.com/blog/authors/esteban-de-la-canal) • 4 min read
+Stay in the loop
 
 
 Get the latest Android development insights delivered to your inbox

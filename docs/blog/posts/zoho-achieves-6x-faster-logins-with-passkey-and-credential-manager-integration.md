@@ -4,19 +4,11 @@ url: https://developer.android.com/blog/posts/zoho-achieves-6x-faster-logins-wit
 source: md.txt
 ---
 
-#### [Case Studies](https://developer.android.com/blog/categories/case-studies)
+[Case Studies](https://developer.android.com/blog/categories/case-studies)
 
 # Zoho Achieves 6x Faster Logins with Passkey and Credential Manager Integration
 
-###### 10-min read
-
-![](https://developer.android.com/static/blog/assets/ANDDM_Zoho_Header_6260da2eab_3BTtG.webp) 07 May 2025 [![](https://developer.android.com/static/blog/assets/niharika_2910f6d612_C99s1.webp)](https://developer.android.com/blog/authors/niharika-arora)[![](https://developer.android.com/static/blog/assets/Joseph_Lewis_a7854037dd_qbEP3.webp)](https://developer.android.com/blog/authors/joseph-lewis)
-
-##### [Niharika Arora](https://developer.android.com/blog/authors/niharika-arora)
-\&
-[Joseph Lewis](https://developer.android.com/blog/authors/joseph-lewis)
-
-As an Android developer, you're constantly looking for ways to enhance security, improve user experience, and streamline development. Zoho, a comprehensive cloud-based software suite focused on security and seamless experiences, achieved significant improvements by adopting passkeys in their [OneAuth](https://play.google.com/store/apps/details?id=com.zoho.accounts.oneauth) Android app.
+10-min read ![](https://developer.android.com/static/blog/assets/ANDDM_Zoho_Header_6260da2eab_3BTtG.webp) 07 May 2025 [![View Niharika Arora's profile](https://developer.android.com/static/blog/assets/niharika_2910f6d612_C99s1.webp)](https://developer.android.com/blog/authors/niharika-arora)[![View Joseph Lewis's profile](https://developer.android.com/static/blog/assets/Joseph_Lewis_a7854037dd_qbEP3.webp)](https://developer.android.com/blog/authors/joseph-lewis) [Niharika Arora](https://developer.android.com/blog/authors/niharika-arora) \& [Joseph Lewis](https://developer.android.com/blog/authors/joseph-lewis) As an Android developer, you're constantly looking for ways to enhance security, improve user experience, and streamline development. Zoho, a comprehensive cloud-based software suite focused on security and seamless experiences, achieved significant improvements by adopting passkeys in their [OneAuth](https://play.google.com/store/apps/details?id=com.zoho.accounts.oneauth) Android app.
 
 Since integrating passkeys in 2024, Zoho achieved **login speeds up to 6x faster** than previous methods and a **31% month-over-month (MoM) growth in passkey adoption**.
 
@@ -250,8 +242,7 @@ Passkeys, combined with the [Android Credential Manager API](https://developer.a
 Get hands on with passkeys and Credential Manager on Android using our [public sample code](https://github.com/android/identity-samples/tree/credman-compose).
 
 If you have any questions or issues, you can share with us through the [Android Credentials issues tracker](https://issuetracker.google.com/issues?q=1301097).
-
-###### Written by:
+Written by:
 
 -
 
@@ -260,7 +251,7 @@ If you have any questions or issues, you can share with us through the [Android 
   ###### Developer Relations Engineer
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/niharika-arora) ![](https://developer.android.com/static/blog/assets/niharika_2910f6d612_C99s1.webp) ![](https://developer.android.com/static/blog/assets/niharika_2910f6d612_C99s1.webp)
+  View profile](https://developer.android.com/blog/authors/niharika-arora) ![View Niharika Arora's profile](https://developer.android.com/static/blog/assets/niharika_2910f6d612_C99s1.webp) ![View Niharika Arora's profile](https://developer.android.com/static/blog/assets/niharika_2910f6d612_C99s1.webp)
 -
 
   ## [Joseph Lewis](https://developer.android.com/blog/authors/joseph-lewis)
@@ -268,49 +259,31 @@ If you have any questions or issues, you can share with us through the [Android 
   ###### Staff Technical Writing Manager
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/joseph-lewis) ![](https://developer.android.com/static/blog/assets/Joseph_Lewis_a7854037dd_qbEP3.webp) ![](https://developer.android.com/static/blog/assets/Joseph_Lewis_a7854037dd_qbEP3.webp)
-
-## Continue reading
-
-- [![](https://developer.android.com/static/blog/assets/niharika_2910f6d612_C99s1.webp)](https://developer.android.com/blog/authors/niharika-arora)[![](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_1hBimO.webp)](https://developer.android.com/blog/authors/tracy-agyemang) 18 Nov 2025 18 Nov 2025 ![](https://developer.android.com/static/blog/assets/uber_Credentials_12e7f1f5c4_Zjh724.webp)
-
-  #### [Case Studies](https://developer.android.com/blog/categories/case-studies)
+  View profile](https://developer.android.com/blog/authors/joseph-lewis) ![View Joseph Lewis's profile](https://developer.android.com/static/blog/assets/Joseph_Lewis_a7854037dd_qbEP3.webp) ![View Joseph Lewis's profile](https://developer.android.com/static/blog/assets/Joseph_Lewis_a7854037dd_qbEP3.webp)
+Continue reading
+- [![View Niharika Arora's profile](https://developer.android.com/static/blog/assets/niharika_2910f6d612_C99s1.webp)](https://developer.android.com/blog/authors/niharika-arora)[![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_1hBimO.webp)](https://developer.android.com/blog/authors/tracy-agyemang) 18 Nov 2025 18 Nov 2025 ![](https://developer.android.com/static/blog/assets/uber_Credentials_12e7f1f5c4_Zjh724.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
 
   ## [How Uber is reducing manual logins by 4 million per year with the Restore Credentials API](https://developer.android.com/blog/posts/how-uber-is-reducing-manual-logins-by-4-million-per-year-with-the-restore-credentials-api)
 
   [arrow_forward](https://developer.android.com/blog/posts/how-uber-is-reducing-manual-logins-by-4-million-per-year-with-the-restore-credentials-api) Uber leveraged the Android Restore Credentials API to streamline new device sign-in, projecting a reduction of 4 million manual logins per year and increasing user retention.
-
-  ###### [Niharika Arora](https://developer.android.com/blog/authors/niharika-arora), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang) •
-  5 min read
-
-- [![](https://developer.android.com/static/blog/assets/niharika_2910f6d612_C99s1.webp)](https://developer.android.com/blog/authors/niharika-arora)[![](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_1hBimO.webp)](https://developer.android.com/blog/authors/tracy-agyemang) 21 Nov 2024 21 Nov 2024 ![](https://developer.android.com/static/blog/assets/x_Passkeys_45bf854440_G2vTP.webp)
-
-  #### [Case Studies](https://developer.android.com/blog/categories/case-studies)
+  [Niharika Arora](https://developer.android.com/blog/authors/niharika-arora), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang) • 5 min read
+- [![View Niharika Arora's profile](https://developer.android.com/static/blog/assets/niharika_2910f6d612_C99s1.webp)](https://developer.android.com/blog/authors/niharika-arora)[![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_1hBimO.webp)](https://developer.android.com/blog/authors/tracy-agyemang) 21 Nov 2024 21 Nov 2024 ![](https://developer.android.com/static/blog/assets/x_Passkeys_45bf854440_G2vTP.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
 
   ## [X improved login success rate by 2x after adopting passkeys](https://developer.android.com/blog/posts/x-improved-login-success-rate-after-adopting-passkeys)
 
   [arrow_forward](https://developer.android.com/blog/posts/x-improved-login-success-rate-after-adopting-passkeys) From breaking news and entertainment to sports and politics, X is a social media app that aims to help nearly 500 million users worldwide get the full story with all the live commentary.
-
-  ###### [Niharika Arora](https://developer.android.com/blog/authors/niharika-arora), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang) •
-  3 min read
-
-- 3 Authors 08 Jun 2026 08 Jun 2026 ![](https://developer.android.com/static/blog/assets/ANDDM_TITLE_Strapi_b83ae0beee_i9nEs.webp)
-
-  #### [Case Studies](https://developer.android.com/blog/categories/case-studies)
+  [Niharika Arora](https://developer.android.com/blog/authors/niharika-arora), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang) • 3 min read
+- 3 Authors 08 Jun 2026 08 Jun 2026 ![](https://developer.android.com/static/blog/assets/ANDDM_TITLE_Strapi_b83ae0beee_i9nEs.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
 
   ## [Datadog delivers millions of in-depth performance insights with ProfilingManager](https://developer.android.com/blog/posts/datadog-delivers-millions-of-in-depth-performance-insights-with-profiling-manager)
 
   [arrow_forward](https://developer.android.com/blog/posts/datadog-delivers-millions-of-in-depth-performance-insights-with-profiling-manager) Performance regressions are notoriously hard to reproduce, making regressions a massive bottleneck for mobile developers.
-
-  ###### [Alice Yuan](https://developer.android.com/blog/authors/alice-yuan), [Arti Arutiunov](https://developer.android.com/blog/authors/arti-arutiunov), [Nikita Ogorodnikov](https://developer.android.com/blog/authors/nikita-ogorodnikov) •
-  4 min read
-
+  [Alice Yuan](https://developer.android.com/blog/authors/alice-yuan), [Arti Arutiunov](https://developer.android.com/blog/authors/arti-arutiunov), [Nikita Ogorodnikov](https://developer.android.com/blog/authors/nikita-ogorodnikov) • 4 min read
   - [#Profiling Manager](https://developer.android.com/blog/topics/profiling-manager)
   - [#Android](https://developer.android.com/blog/topics/android)
   - [#Performance](https://developer.android.com/blog/topics/performance)
   - +1 ↩
-
-# Stay in the loop
+Stay in the loop
 
 
 Get the latest Android development insights delivered to your inbox

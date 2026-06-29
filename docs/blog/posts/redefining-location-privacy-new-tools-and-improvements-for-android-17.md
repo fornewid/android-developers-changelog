@@ -4,17 +4,11 @@ url: https://developer.android.com/blog/posts/redefining-location-privacy-new-to
 source: md.txt
 ---
 
-#### [Product News](https://developer.android.com/blog/categories/product-news)
+[Product News](https://developer.android.com/blog/categories/product-news)
 
 # Redefining Location Privacy: New Tools and Improvements for Android 17
 
-###### 3-min read
-
-![](https://developer.android.com/static/blog/assets/Redefining_Location_5e4a362604_Z1wl0mf.webp) 26 Mar 2026 [![](https://developer.android.com/static/blog/assets/robert_clifford_a139ee8d05_N2ze5.webp)](https://developer.android.com/blog/authors/robert-clifford) [##### Robert Clifford](https://developer.android.com/blog/authors/robert-clifford)
-
-###### Developer Relations Engineer
-
-A pillar of the Android ecosystem is our shared commitment to user trust. As the mobile landscape has evolved, so does our approach to protecting sensitive information. In Android 17, we're introducing a suite of new location privacy features designed to give users more control and provide developers elegant solutions for data minimization and product safety. Our strategy focuses on introducing new tools to balance high-quality experiences with robust privacy protections, and improving transparency for users to help manage their data.
+3-min read ![](https://developer.android.com/static/blog/assets/Redefining_Location_5e4a362604_Z1wl0mf.webp) 26 Mar 2026 [![View Robert Clifford's profile](https://developer.android.com/static/blog/assets/robert_clifford_a139ee8d05_N2ze5.webp)](https://developer.android.com/blog/authors/robert-clifford) [Robert Clifford](https://developer.android.com/blog/authors/robert-clifford) Developer Relations Engineer A pillar of the Android ecosystem is our shared commitment to user trust. As the mobile landscape has evolved, so does our approach to protecting sensitive information. In Android 17, we're introducing a suite of new location privacy features designed to give users more control and provide developers elegant solutions for data minimization and product safety. Our strategy focuses on introducing new tools to balance high-quality experiences with robust privacy protections, and improving transparency for users to help manage their data.
 
 #### Introducing the location button: simplified access for one time use
 
@@ -67,8 +61,7 @@ The new location privacy tools are available now in Beta 3. We're looking for yo
 
 Build a smoother, more private experience today.
 - [#Android 17](https://developer.android.com/blog/topics/android-17)
-
-###### Written by:
+Written by:
 
 -
 
@@ -77,46 +70,29 @@ Build a smoother, more private experience today.
   ###### Developer Relations Engineer
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/robert-clifford) ![](https://developer.android.com/static/blog/assets/robert_clifford_a139ee8d05_N2ze5.webp) ![](https://developer.android.com/static/blog/assets/robert_clifford_a139ee8d05_N2ze5.webp)
-
-## Continue reading
-
-- [![](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 26 Mar 2026 26 Mar 2026 ![](https://developer.android.com/static/blog/assets/android17banner_359909419a_Z1HMAIH.webp)
-
-  #### [Product News](https://developer.android.com/blog/categories/product-news)
+  View profile](https://developer.android.com/blog/authors/robert-clifford) ![View Robert Clifford's profile](https://developer.android.com/static/blog/assets/robert_clifford_a139ee8d05_N2ze5.webp) ![View Robert Clifford's profile](https://developer.android.com/static/blog/assets/robert_clifford_a139ee8d05_N2ze5.webp)
+Continue reading
+- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 26 Mar 2026 26 Mar 2026 ![](https://developer.android.com/static/blog/assets/android17banner_359909419a_Z1HMAIH.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [The Third Beta of Android 17](https://developer.android.com/blog/posts/the-third-beta-of-android-17)
 
   [arrow_forward](https://developer.android.com/blog/posts/the-third-beta-of-android-17) Android 17 has officially reached platform stability today with Beta 3. That means that the API surface is locked; you can perform final compatibility testing and push your Android 17-targeted apps to the Play Store.
-
-  ###### [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) •
-  5 min read
-
+  [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) • 5 min read
   - [#Android 17](https://developer.android.com/blog/topics/android-17)
   - [#beta](https://developer.android.com/blog/topics/beta)
-- [![](https://developer.android.com/static/blog/assets/Bennet_Manuel_4be9960838_MydbH.webp)](https://developer.android.com/blog/authors/bennet-manuel)[![](https://developer.android.com/static/blog/assets/robert_clifford_a139ee8d05_N2ze5.webp)](https://developer.android.com/blog/authors/robert-clifford) 11 Dec 2025 11 Dec 2025 ![](https://developer.android.com/static/blog/assets/a11y_rev_37216d57dc_Z211KeA.webp)
-
-  #### [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Bennet Manuel's profile](https://developer.android.com/static/blog/assets/Bennet_Manuel_4be9960838_MydbH.webp)](https://developer.android.com/blog/authors/bennet-manuel)[![View Robert Clifford's profile](https://developer.android.com/static/blog/assets/robert_clifford_a139ee8d05_N2ze5.webp)](https://developer.android.com/blog/authors/robert-clifford) 11 Dec 2025 11 Dec 2025 ![](https://developer.android.com/static/blog/assets/a11y_rev_37216d57dc_Z211KeA.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Enhancing Android security: Stop malware from snooping on your app data](https://developer.android.com/blog/posts/enhancing-android-security-stop-malware-from-snooping-on-your-app-data)
 
   [arrow_forward](https://developer.android.com/blog/posts/enhancing-android-security-stop-malware-from-snooping-on-your-app-data) Security is foundational to Android. We partner with you to keep the platform safe and protect user data by offering powerful security tools and features, like Credential Manager and FLAG_SECURE.
-
-  ###### [Bennet Manuel](https://developer.android.com/blog/authors/bennet-manuel), [Robert Clifford](https://developer.android.com/blog/authors/robert-clifford) •
-  2 min read
-
-- [![](https://developer.android.com/static/blog/assets/paul_feng_759ac95845_spvRU.webp)](https://developer.android.com/blog/authors/paul-feng) 24 Jun 2026 24 Jun 2026 ![](https://developer.android.com/static/blog/assets/Apps_Experience_Play_Blog_Header_2000x1000_8c3a95404a_lYfpd.webp)
-
-  #### [Product News](https://developer.android.com/blog/categories/product-news)
+  [Bennet Manuel](https://developer.android.com/blog/authors/bennet-manuel), [Robert Clifford](https://developer.android.com/blog/authors/robert-clifford) • 2 min read
+- [![View Paul Feng's profile](https://developer.android.com/static/blog/assets/paul_feng_759ac95845_spvRU.webp)](https://developer.android.com/blog/authors/paul-feng) 24 Jun 2026 24 Jun 2026 ![](https://developer.android.com/static/blog/assets/Apps_Experience_Play_Blog_Header_2000x1000_8c3a95404a_lYfpd.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Expanded billing choice and lower fees on Google Play](https://developer.android.com/blog/posts/expanded-billing-choice-and-lower-fees-on-google-play)
 
   [arrow_forward](https://developer.android.com/blog/posts/expanded-billing-choice-and-lower-fees-on-google-play) At Google Play, we are committed to delivering the best possible experience to users, while ensuring developers have the tools and adaptability to succeed.
-
-  ###### [Paul Feng](https://developer.android.com/blog/authors/paul-feng) •
-  3 min read
-
-# Stay in the loop
+  [Paul Feng](https://developer.android.com/blog/authors/paul-feng) • 3 min read
+Stay in the loop
 
 
 Get the latest Android development insights delivered to your inbox

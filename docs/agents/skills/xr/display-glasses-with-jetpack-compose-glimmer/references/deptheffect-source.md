@@ -1,19 +1,14 @@
 ---
-title: API source code for DepthEffect  |  Android Developers
+title: https://developer.android.com/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/deptheffect-source
 url: https://developer.android.com/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/deptheffect-source
-source: html-scrape
+source: md.txt
 ---
-
-# API source code for DepthEffect Stay organized with collections Save and categorize content based on your preferences.
-
-
-
-
 
 When simulating depth on AI glasses using shadows, refer to the following source
 code in `DepthEffect.kt`:
 
-```
+
+```kotlin
 /*
  * Copyright 2025 The Android Open Source Project
  *
@@ -230,6 +225,6 @@ internal class DepthEffectNode(private var depthEffect: DepthEffect, private var
                 .createDropShadowPainter(shape, depthEffect.layer2)
                 .also { layer2ShadowPainter = it }
 }
-
-DepthEffect.kt
 ```
+
+<br />

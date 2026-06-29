@@ -14,7 +14,7 @@ source: md.txt
 
   [read_more
   1 post](https://developer.android.com/blog/authors/adarsh-fernando) [read_more
-  1 post](https://developer.android.com/blog/authors/adarsh-fernando) ![](https://developer.android.com/static/blog/assets/Adarsh_profile_picture_8e88f2831a_1Ut9s6.webp) ![](https://developer.android.com/static/blog/assets/Adarsh_profile_picture_8e88f2831a_1Ut9s6.webp)
+  1 post](https://developer.android.com/blog/authors/adarsh-fernando) ![View Adarsh Fernando's profile](https://developer.android.com/static/blog/assets/Adarsh_profile_picture_8e88f2831a_1Ut9s6.webp) ![View Adarsh Fernando's profile](https://developer.android.com/static/blog/assets/Adarsh_profile_picture_8e88f2831a_1Ut9s6.webp)
 -
 
   ## [Ajesh Pai](https://developer.android.com/blog/authors/ajesh-pai)
@@ -23,7 +23,7 @@ source: md.txt
 
   [read_more
   3 posts](https://developer.android.com/blog/authors/ajesh-pai) [read_more
-  3 posts](https://developer.android.com/blog/authors/ajesh-pai) ![](https://developer.android.com/static/blog/assets/Ajesh_R_Pai_fc75c62777_Z1G5g2B.webp) ![](https://developer.android.com/static/blog/assets/Ajesh_R_Pai_fc75c62777_Z1G5g2B.webp)
+  3 posts](https://developer.android.com/blog/authors/ajesh-pai) ![View Ajesh Pai's profile](https://developer.android.com/static/blog/assets/Ajesh_R_Pai_fc75c62777_Z1G5g2B.webp) ![View Ajesh Pai's profile](https://developer.android.com/static/blog/assets/Ajesh_R_Pai_fc75c62777_Z1G5g2B.webp)
 -
 
   ## [Alice Yuan](https://developer.android.com/blog/authors/alice-yuan)
@@ -32,7 +32,7 @@ source: md.txt
 
   [read_more
   5 posts](https://developer.android.com/blog/authors/alice-yuan) [read_more
-  5 posts](https://developer.android.com/blog/authors/alice-yuan) ![](https://developer.android.com/static/blog/assets/Alice_Yuan_552a4dd4ee_ZlDEgJ.webp) ![](https://developer.android.com/static/blog/assets/Alice_Yuan_552a4dd4ee_ZlDEgJ.webp)
+  5 posts](https://developer.android.com/blog/authors/alice-yuan) ![View Alice Yuan's profile](https://developer.android.com/static/blog/assets/Alice_Yuan_552a4dd4ee_ZlDEgJ.webp) ![View Alice Yuan's profile](https://developer.android.com/static/blog/assets/Alice_Yuan_552a4dd4ee_ZlDEgJ.webp)
 -
 
   ## [Alon Hetzroni](https://developer.android.com/blog/authors/alon-hetzroni)
@@ -41,7 +41,7 @@ source: md.txt
 
   [read_more
   1 post](https://developer.android.com/blog/authors/alon-hetzroni) [read_more
-  1 post](https://developer.android.com/blog/authors/alon-hetzroni) ![](https://developer.android.com/static/blog/assets/ahetzroni_profile_3fbed6e24c_1Th2rE.webp) ![](https://developer.android.com/static/blog/assets/ahetzroni_profile_3fbed6e24c_1Th2rE.webp)
+  1 post](https://developer.android.com/blog/authors/alon-hetzroni) ![View Alon Hetzroni's profile](https://developer.android.com/static/blog/assets/ahetzroni_profile_3fbed6e24c_1Th2rE.webp) ![View Alon Hetzroni's profile](https://developer.android.com/static/blog/assets/ahetzroni_profile_3fbed6e24c_1Th2rE.webp)
 -
 
   ## [Amrit Sanjeev](https://developer.android.com/blog/authors/amrit-sanjeev)
@@ -50,7 +50,7 @@ source: md.txt
 
   [read_more
   2 posts](https://developer.android.com/blog/authors/amrit-sanjeev) [read_more
-  2 posts](https://developer.android.com/blog/authors/amrit-sanjeev) ![](https://developer.android.com/static/blog/assets/Amrit_Sanjeev_5215e0d7cc_CrDLy.webp) ![](https://developer.android.com/static/blog/assets/Amrit_Sanjeev_5215e0d7cc_CrDLy.webp)
+  2 posts](https://developer.android.com/blog/authors/amrit-sanjeev) ![View Amrit Sanjeev's profile](https://developer.android.com/static/blog/assets/Amrit_Sanjeev_5215e0d7cc_CrDLy.webp) ![View Amrit Sanjeev's profile](https://developer.android.com/static/blog/assets/Amrit_Sanjeev_5215e0d7cc_CrDLy.webp)
 -
 
   ## [Amy Zeppenfeld](https://developer.android.com/blog/authors/amy-zeppenfeld)
@@ -59,7 +59,7 @@ source: md.txt
 
   [read_more
   1 post](https://developer.android.com/blog/authors/amy-zeppenfeld) [read_more
-  1 post](https://developer.android.com/blog/authors/amy-zeppenfeld) ![](https://developer.android.com/static/blog/assets/Amyzeppenfeld_50a8b9e7f8_Z1LAQnM.webp) ![](https://developer.android.com/static/blog/assets/Amyzeppenfeld_50a8b9e7f8_Z1LAQnM.webp)
+  1 post](https://developer.android.com/blog/authors/amy-zeppenfeld) ![View Amy Zeppenfeld's profile](https://developer.android.com/static/blog/assets/Amyzeppenfeld_50a8b9e7f8_Z1LAQnM.webp) ![View Amy Zeppenfeld's profile](https://developer.android.com/static/blog/assets/Amyzeppenfeld_50a8b9e7f8_Z1LAQnM.webp)
 -
 
   ## [Andrew Lewis](https://developer.android.com/blog/authors/andrew-lewis)
@@ -68,7 +68,7 @@ source: md.txt
 
   [read_more
   1 post](https://developer.android.com/blog/authors/andrew-lewis) [read_more
-  1 post](https://developer.android.com/blog/authors/andrew-lewis) ![](https://developer.android.com/static/blog/assets/andrew_lewis_1f4294eade_ZLA0xp.webp) ![](https://developer.android.com/static/blog/assets/andrew_lewis_1f4294eade_ZLA0xp.webp)
+  1 post](https://developer.android.com/blog/authors/andrew-lewis) ![View Andrew Lewis's profile](https://developer.android.com/static/blog/assets/andrew_lewis_1f4294eade_ZLA0xp.webp) ![View Andrew Lewis's profile](https://developer.android.com/static/blog/assets/andrew_lewis_1f4294eade_ZLA0xp.webp)
 -
 
   ## [Arti Arutiunov](https://developer.android.com/blog/authors/arti-arutiunov)
@@ -77,7 +77,7 @@ source: md.txt
 
   [read_more
   1 post](https://developer.android.com/blog/authors/arti-arutiunov) [read_more
-  1 post](https://developer.android.com/blog/authors/arti-arutiunov) ![](https://developer.android.com/static/blog/assets/arti_a_profile_blog_bbf00f0087_1Nh5K.webp) ![](https://developer.android.com/static/blog/assets/arti_a_profile_blog_bbf00f0087_1Nh5K.webp)
+  1 post](https://developer.android.com/blog/authors/arti-arutiunov) ![View Arti Arutiunov's profile](https://developer.android.com/static/blog/assets/arti_a_profile_blog_bbf00f0087_1Nh5K.webp) ![View Arti Arutiunov's profile](https://developer.android.com/static/blog/assets/arti_a_profile_blog_bbf00f0087_1Nh5K.webp)
 -
 
   ## [Ash Nohe](https://developer.android.com/blog/authors/ash-nohe)
@@ -86,16 +86,14 @@ source: md.txt
 
   [read_more
   1 post](https://developer.android.com/blog/authors/ash-nohe) [read_more
-  1 post](https://developer.android.com/blog/authors/ash-nohe) ![](https://developer.android.com/static/blog/assets/ash_32bd9f9ed7_Zhh9o0.webp) ![](https://developer.android.com/static/blog/assets/ash_32bd9f9ed7_Zhh9o0.webp)
+  1 post](https://developer.android.com/blog/authors/ash-nohe) ![View Ash Nohe's profile](https://developer.android.com/static/blog/assets/ash_32bd9f9ed7_Zhh9o0.webp) ![View Ash Nohe's profile](https://developer.android.com/static/blog/assets/ash_32bd9f9ed7_Zhh9o0.webp)
 <button class="adb--button adb--standard adb--outlined adb--disabled adb--global-hover-button astro-vnzlvqnm" disabled=""> arrow_back </button>
 
 #### Page 1
 
 ###### of 13
 
-[arrow_forward](https://developer.android.com/blog/authors/2)
-
-# Stay in the loop
+[arrow_forward](https://developer.android.com/blog/authors/2) Stay in the loop
 
 
 Get the latest Android development insights delivered to your inbox

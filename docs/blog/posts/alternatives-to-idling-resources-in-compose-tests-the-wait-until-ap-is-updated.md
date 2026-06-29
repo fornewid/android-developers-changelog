@@ -4,17 +4,11 @@ url: https://developer.android.com/blog/posts/alternatives-to-idling-resources-i
 source: md.txt
 ---
 
-#### [How-tos](https://developer.android.com/blog/categories/how-tos)
+[How-tos](https://developer.android.com/blog/categories/how-tos)
 
 # Alternatives to Idling Resources in Compose tests: the waitUntil APIs (updated)
 
-###### 3-min read
-
-![](https://developer.android.com/static/blog/assets/alternativesto_Idiling_13a59b7d0b_Z1sfmFQ.webp) 22 Apr 2022 [![](https://developer.android.com/static/blog/assets/jose_21a476d0ec_23cCms.webp)](https://developer.android.com/blog/authors/jose-alcerreca) [##### Jose Alcérreca](https://developer.android.com/blog/authors/jose-alcerreca)
-
-###### Developer Relations Engineer
-
-In this article you'll learn how to use the `waitUntil` test API in Compose to wait for certain conditions to be met. This is a good alternative to using Idling Resources in some situations.
+3-min read ![](https://developer.android.com/static/blog/assets/alternativesto_Idiling_13a59b7d0b_Z1sfmFQ.webp) 22 Apr 2022 [![View Jose Alcérreca's profile](https://developer.android.com/static/blog/assets/jose_21a476d0ec_23cCms.webp)](https://developer.android.com/blog/authors/jose-alcerreca) [Jose Alcérreca](https://developer.android.com/blog/authors/jose-alcerreca) Developer Relations Engineer In this article you'll learn how to use the `waitUntil` test API in Compose to wait for certain conditions to be met. This is a good alternative to using Idling Resources in some situations.
 
 \[2023 update\] Tldr: use the [new waitUntil APIs](https://gist.github.com/JoseAlcerreca/c5b94db07f04b15255b1637ded3a3bbd) to synchronize in Compose tests (v1.4.0+).
 
@@ -111,8 +105,7 @@ SPDX-License-Identifier: Apache-2.0
 - [#Android](https://developer.android.com/blog/topics/android)
 - [#Compose](https://developer.android.com/blog/topics/compose)
 - [#Idling Resources](https://developer.android.com/blog/topics/idling-resources)
-
-###### Written by:
+Written by:
 
 -
 
@@ -121,52 +114,35 @@ SPDX-License-Identifier: Apache-2.0
   ###### Developer Relations Engineer
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/jose-alcerreca) ![](https://developer.android.com/static/blog/assets/jose_21a476d0ec_23cCms.webp) ![](https://developer.android.com/static/blog/assets/jose_21a476d0ec_23cCms.webp)
-
-## Continue reading
-
-- [![](https://developer.android.com/static/blog/assets/jolanda_b0e2beee3e_Z1KU2ms.webp)](https://developer.android.com/blog/authors/jolanda-verhoef) 23 Jan 2025 23 Jan 2025 ![](https://developer.android.com/static/blog/assets/camera_X_Jetpack_09bc5a0414_Z1DttIl.webp)
-
-  #### [How-tos](https://developer.android.com/blog/categories/how-tos)
+  View profile](https://developer.android.com/blog/authors/jose-alcerreca) ![View Jose Alcérreca's profile](https://developer.android.com/static/blog/assets/jose_21a476d0ec_23cCms.webp) ![View Jose Alcérreca's profile](https://developer.android.com/static/blog/assets/jose_21a476d0ec_23cCms.webp)
+Continue reading
+- [![View Jolanda Verhoef's profile](https://developer.android.com/static/blog/assets/jolanda_b0e2beee3e_Z1KU2ms.webp)](https://developer.android.com/blog/authors/jolanda-verhoef) 23 Jan 2025 23 Jan 2025 ![](https://developer.android.com/static/blog/assets/camera_X_Jetpack_09bc5a0414_Z1DttIl.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
 
   ## [Create a spotlight effect with CameraX and Jetpack Compose](https://developer.android.com/blog/posts/create-a-spotlight-effect-with-camera-x-and-jetpack-compose)
 
   [arrow_forward](https://developer.android.com/blog/posts/create-a-spotlight-effect-with-camera-x-and-jetpack-compose) In this post, we'll dive into something a bit more visually engaging --- implementing a spotlight effect on top of our camera preview, using face detection as the basis for the effect.
-
-  ###### [Jolanda Verhoef](https://developer.android.com/blog/authors/jolanda-verhoef) •
-  8 min read
-
+  [Jolanda Verhoef](https://developer.android.com/blog/authors/jolanda-verhoef) • 8 min read
   - [#Android](https://developer.android.com/blog/topics/android)
   - [#Compose](https://developer.android.com/blog/topics/compose)
   - [#Mobile App Development](https://developer.android.com/blog/topics/mobile-app-development)
   - +1 ↩
-- 3 Authors 02 Jun 2026 02 Jun 2026 ![](https://developer.android.com/static/blog/assets/Engineering_Memory_Blog_Strapi_3_bfd74f43e5_Z2i8kF7.webp)
-
-  #### [How-tos](https://developer.android.com/blog/categories/how-tos)
+- 3 Authors 02 Jun 2026 02 Jun 2026 ![](https://developer.android.com/static/blog/assets/Engineering_Memory_Blog_Strapi_3_bfd74f43e5_Z2i8kF7.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
 
   ## [Prioritizing Memory Efficiency: Essential Steps for Android 17](https://developer.android.com/blog/posts/prioritizing-memory-efficiency-essential-steps-for-android-17)
 
   [arrow_forward](https://developer.android.com/blog/posts/prioritizing-memory-efficiency-essential-steps-for-android-17) While app performance is often equated with a smooth UI and fast start times, memory serves as the silent foundation upon which these visible metrics are built. It's no secret that we're seeing a shift where device memory is more important than ever.
-
-  ###### [Alice Yuan](https://developer.android.com/blog/authors/alice-yuan), [Ajesh Pai](https://developer.android.com/blog/authors/ajesh-pai), [Fung Lam](https://developer.android.com/blog/authors/fung-lam) •
-  10 min read
-
+  [Alice Yuan](https://developer.android.com/blog/authors/alice-yuan), [Ajesh Pai](https://developer.android.com/blog/authors/ajesh-pai), [Fung Lam](https://developer.android.com/blog/authors/fung-lam) • 10 min read
   - [#Memory](https://developer.android.com/blog/topics/memory)
   - [#Android](https://developer.android.com/blog/topics/android)
   - [#Performance](https://developer.android.com/blog/topics/performance)
   - +1 ↩
-- [![](https://developer.android.com/static/blog/assets/niharika_2910f6d612_C99s1.webp)](https://developer.android.com/blog/authors/niharika-arora)[![](https://developer.android.com/static/blog/assets/Jean_Pierre_Pralle_2bf889a65a_2buQLX.webp)](https://developer.android.com/blog/authors/jean-pierre-pralle) 22 Apr 2026 22 Apr 2026 ![](https://developer.android.com/static/blog/assets/Streamline_user_animation_V02_Strapi_abd12985d7_SvAX9.webp)
-
-  #### [How-tos](https://developer.android.com/blog/categories/how-tos)
+- [![View Niharika Arora's profile](https://developer.android.com/static/blog/assets/niharika_2910f6d612_C99s1.webp)](https://developer.android.com/blog/authors/niharika-arora)[![View Jean-Pierre Pralle's profile](https://developer.android.com/static/blog/assets/Jean_Pierre_Pralle_2bf889a65a_2buQLX.webp)](https://developer.android.com/blog/authors/jean-pierre-pralle) 22 Apr 2026 22 Apr 2026 ![](https://developer.android.com/static/blog/assets/Streamline_user_animation_V02_Strapi_abd12985d7_SvAX9.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
 
   ## [Streamline User Journeys with Verified Email via Credential Manager](https://developer.android.com/blog/posts/streamline-user-journeys-with-verified-email-via-credential-manager)
 
   [arrow_forward](https://developer.android.com/blog/posts/streamline-user-journeys-with-verified-email-via-credential-manager) Today, we're excited to announce a new verified email credential issued by Google, which developers can now retrieve directly from Android's Credential Manager Digital Credential API.
-
-  ###### [Niharika Arora](https://developer.android.com/blog/authors/niharika-arora), [Jean-Pierre Pralle](https://developer.android.com/blog/authors/jean-pierre-pralle) •
-  3 min read
-
-# Stay in the loop
+  [Niharika Arora](https://developer.android.com/blog/authors/niharika-arora), [Jean-Pierre Pralle](https://developer.android.com/blog/authors/jean-pierre-pralle) • 3 min read
+Stay in the loop
 
 
 Get the latest Android development insights delivered to your inbox

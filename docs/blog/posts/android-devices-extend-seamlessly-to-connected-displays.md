@@ -4,17 +4,11 @@ url: https://developer.android.com/blog/posts/android-devices-extend-seamlessly-
 source: md.txt
 ---
 
-#### [Product News](https://developer.android.com/blog/categories/product-news)
+[Product News](https://developer.android.com/blog/categories/product-news)
 
 # Android devices extend seamlessly to connected displays
 
-###### 7-min read
-
-![](https://developer.android.com/static/blog/assets/android_Connected_34a0ae66a4_1A0pVS.webp) 03 Mar 2026 [![](https://developer.android.com/static/blog/assets/unnamed_fd9e15f738_1EHxqW.webp)](https://developer.android.com/blog/authors/francesco-romano) [##### Francesco Romano](https://developer.android.com/blog/authors/francesco-romano)
-
-###### Developer Relations Engineer, Android
-
-We are excited to announce a major milestone in bringing mobile and desktop computing closer together on Android: connected display support has reached general availability with the [Android 16 QPR3](https://developer.android.com/about/versions/16/qpr3/release-notes) release!  
+7-min read ![](https://developer.android.com/static/blog/assets/android_Connected_34a0ae66a4_1A0pVS.webp) 03 Mar 2026 [![View Francesco Romano's profile](https://developer.android.com/static/blog/assets/unnamed_fd9e15f738_1EHxqW.webp)](https://developer.android.com/blog/authors/francesco-romano) [Francesco Romano](https://developer.android.com/blog/authors/francesco-romano) Developer Relations Engineer, Android We are excited to announce a major milestone in bringing mobile and desktop computing closer together on Android: connected display support has reached general availability with the [Android 16 QPR3](https://developer.android.com/about/versions/16/qpr3/release-notes) release!  
 
 As shown at [Google I/O 2025](https://www.youtube.com/watch?v=MmeJSLAnB-M), connected displays allow users to connect their Android devices to an external monitor and instantly access a desktop windowing environment. Apps can be used in free-form or maximized windows and users can multitask just like they would on a desktop OS.
 
@@ -202,8 +196,7 @@ We're committed to making Android a versatile platform that adapts to the many w
 <br />
 
 **\*Note:** At the time the article is written, connected displays are supported on Pixel 8, 9, 10 series and on a wide array of Samsung devices, including S26, Fold7, Flip7, and Tab S11.
-
-###### Written by:
+Written by:
 
 -
 
@@ -212,46 +205,29 @@ We're committed to making Android a versatile platform that adapts to the many w
   ###### Developer Relations Engineer, Android
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/francesco-romano) ![](https://developer.android.com/static/blog/assets/unnamed_fd9e15f738_1EHxqW.webp) ![](https://developer.android.com/static/blog/assets/unnamed_fd9e15f738_1EHxqW.webp)
-
-## Continue reading
-
-- [![](https://developer.android.com/static/blog/assets/unnamed_fd9e15f738_1EHxqW.webp)](https://developer.android.com/blog/authors/francesco-romano) 10 Oct 2025 10 Oct 2025 ![](https://developer.android.com/static/blog/assets/jetpack_Window_Manager_931d67ec18_Z20PMAS.webp)
-
-  #### [Product News](https://developer.android.com/blog/categories/product-news)
+  View profile](https://developer.android.com/blog/authors/francesco-romano) ![View Francesco Romano's profile](https://developer.android.com/static/blog/assets/unnamed_fd9e15f738_1EHxqW.webp) ![View Francesco Romano's profile](https://developer.android.com/static/blog/assets/unnamed_fd9e15f738_1EHxqW.webp)
+Continue reading
+- [![View Francesco Romano's profile](https://developer.android.com/static/blog/assets/unnamed_fd9e15f738_1EHxqW.webp)](https://developer.android.com/blog/authors/francesco-romano) 10 Oct 2025 10 Oct 2025 ![](https://developer.android.com/static/blog/assets/jetpack_Window_Manager_931d67ec18_Z20PMAS.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Jetpack WindowManager 1.5 is stable](https://developer.android.com/blog/posts/jetpack-window-manager-1-5-is-stable)
 
   [arrow_forward](https://developer.android.com/blog/posts/jetpack-window-manager-1-5-is-stable) We're excited to announce that Jetpack WindowManager 1.5.0 is now stable!
 
   This release builds on the strong foundation of adaptability in WindowManager, making it even easier to create polished, adaptive UIs that look great on all screen sizes.
-
-  ###### [Francesco Romano](https://developer.android.com/blog/authors/francesco-romano) •
-  3 min read
-
-- [![](https://developer.android.com/static/blog/assets/paul_feng_759ac95845_spvRU.webp)](https://developer.android.com/blog/authors/paul-feng) 24 Jun 2026 24 Jun 2026 ![](https://developer.android.com/static/blog/assets/Apps_Experience_Play_Blog_Header_2000x1000_8c3a95404a_lYfpd.webp)
-
-  #### [Product News](https://developer.android.com/blog/categories/product-news)
+  [Francesco Romano](https://developer.android.com/blog/authors/francesco-romano) • 3 min read
+- [![View Paul Feng's profile](https://developer.android.com/static/blog/assets/paul_feng_759ac95845_spvRU.webp)](https://developer.android.com/blog/authors/paul-feng) 24 Jun 2026 24 Jun 2026 ![](https://developer.android.com/static/blog/assets/Apps_Experience_Play_Blog_Header_2000x1000_8c3a95404a_lYfpd.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Expanded billing choice and lower fees on Google Play](https://developer.android.com/blog/posts/expanded-billing-choice-and-lower-fees-on-google-play)
 
   [arrow_forward](https://developer.android.com/blog/posts/expanded-billing-choice-and-lower-fees-on-google-play) At Google Play, we are committed to delivering the best possible experience to users, while ensuring developers have the tools and adaptability to succeed.
-
-  ###### [Paul Feng](https://developer.android.com/blog/authors/paul-feng) •
-  3 min read
-
-- [![](https://developer.android.com/static/blog/assets/matthew_9c798f0c1d_Z1m5WWD.webp)](https://developer.android.com/blog/authors/matthew-forsythe) 18 Jun 2026 18 Jun 2026 ![](https://developer.android.com/static/blog/assets/Strapi_2x_325a484212_1BGPPB.webp)
-
-  #### [Product News](https://developer.android.com/blog/categories/product-news)
+  [Paul Feng](https://developer.android.com/blog/authors/paul-feng) • 3 min read
+- [![View Matthew Forsythe's profile](https://developer.android.com/static/blog/assets/matthew_9c798f0c1d_Z1m5WWD.webp)](https://developer.android.com/blog/authors/matthew-forsythe) 18 Jun 2026 18 Jun 2026 ![](https://developer.android.com/static/blog/assets/Strapi_2x_325a484212_1BGPPB.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Android developer verification: Building a safer ecosystem together](https://developer.android.com/blog/posts/android-developer-verification-building-a-safer-ecosystem-together)
 
   [arrow_forward](https://developer.android.com/blog/posts/android-developer-verification-building-a-safer-ecosystem-together) Last year, we introduced Android developer verification to strengthen ecosystem security and stop malicious actors from hiding behind anonymity to release harmful apps.
-
-  ###### [Matthew Forsythe](https://developer.android.com/blog/authors/matthew-forsythe) •
-  2 min read
-
-# Stay in the loop
+  [Matthew Forsythe](https://developer.android.com/blog/authors/matthew-forsythe) • 2 min read
+Stay in the loop
 
 
 Get the latest Android development insights delivered to your inbox

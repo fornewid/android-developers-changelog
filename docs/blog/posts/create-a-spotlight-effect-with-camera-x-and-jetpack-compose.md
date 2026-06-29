@@ -4,17 +4,11 @@ url: https://developer.android.com/blog/posts/create-a-spotlight-effect-with-cam
 source: md.txt
 ---
 
-#### [How-tos](https://developer.android.com/blog/categories/how-tos)
+[How-tos](https://developer.android.com/blog/categories/how-tos)
 
 # Create a spotlight effect with CameraX and Jetpack Compose
 
-###### 8-min read
-
-![](https://developer.android.com/static/blog/assets/camera_X_Jetpack_09bc5a0414_Z1DttIl.webp) 23 Jan 2025 [![](https://developer.android.com/static/blog/assets/jolanda_b0e2beee3e_Z1KU2ms.webp)](https://developer.android.com/blog/authors/jolanda-verhoef) [##### Jolanda Verhoef](https://developer.android.com/blog/authors/jolanda-verhoef)
-
-###### Developer Relations Engineer
-
-Hey there! Welcome back to our series on CameraX and Jetpack Compose. In the previous posts, we've covered the fundamentals of setting up a camera preview and added tap-to-focus functionality.
+8-min read ![](https://developer.android.com/static/blog/assets/camera_X_Jetpack_09bc5a0414_Z1DttIl.webp) 23 Jan 2025 [![View Jolanda Verhoef's profile](https://developer.android.com/static/blog/assets/jolanda_b0e2beee3e_Z1KU2ms.webp)](https://developer.android.com/blog/authors/jolanda-verhoef) [Jolanda Verhoef](https://developer.android.com/blog/authors/jolanda-verhoef) Developer Relations Engineer Hey there! Welcome back to our series on CameraX and Jetpack Compose. In the previous posts, we've covered the fundamentals of setting up a camera preview and added tap-to-focus functionality.
 
 **🧱** [**Part 1**](https://medium.com/androiddevelopers/getting-started-with-camerax-in-jetpack-compose-781c722ca0c4)**:** Building a basic camera preview using the new camera-compose artifact. We covered permission handling and basic integration.
 
@@ -206,8 +200,7 @@ Many thanks to [Nick Butcher](https://medium.com/u/22c02a30ae04?source=post_page
 - [#Android](https://developer.android.com/blog/topics/android)
 - [#Compose](https://developer.android.com/blog/topics/compose)
 - [#Mobile App Development](https://developer.android.com/blog/topics/mobile-app-development)
-
-###### Written by:
+Written by:
 
 -
 
@@ -216,52 +209,35 @@ Many thanks to [Nick Butcher](https://medium.com/u/22c02a30ae04?source=post_page
   ###### Developer Relations Engineer
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/jolanda-verhoef) ![](https://developer.android.com/static/blog/assets/jolanda_b0e2beee3e_Z1KU2ms.webp) ![](https://developer.android.com/static/blog/assets/jolanda_b0e2beee3e_Z1KU2ms.webp)
-
-## Continue reading
-
-- [![](https://developer.android.com/static/blog/assets/jose_21a476d0ec_23cCms.webp)](https://developer.android.com/blog/authors/jose-alcerreca) 22 Apr 2022 22 Apr 2022 ![](https://developer.android.com/static/blog/assets/alternativesto_Idiling_13a59b7d0b_Z1sfmFQ.webp)
-
-  #### [How-tos](https://developer.android.com/blog/categories/how-tos)
+  View profile](https://developer.android.com/blog/authors/jolanda-verhoef) ![View Jolanda Verhoef's profile](https://developer.android.com/static/blog/assets/jolanda_b0e2beee3e_Z1KU2ms.webp) ![View Jolanda Verhoef's profile](https://developer.android.com/static/blog/assets/jolanda_b0e2beee3e_Z1KU2ms.webp)
+Continue reading
+- [![View Jose Alcérreca's profile](https://developer.android.com/static/blog/assets/jose_21a476d0ec_23cCms.webp)](https://developer.android.com/blog/authors/jose-alcerreca) 22 Apr 2022 22 Apr 2022 ![](https://developer.android.com/static/blog/assets/alternativesto_Idiling_13a59b7d0b_Z1sfmFQ.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
 
   ## [Alternatives to Idling Resources in Compose tests: the waitUntil APIs (updated)](https://developer.android.com/blog/posts/alternatives-to-idling-resources-in-compose-tests-the-wait-until-ap-is-updated)
 
   [arrow_forward](https://developer.android.com/blog/posts/alternatives-to-idling-resources-in-compose-tests-the-wait-until-ap-is-updated) In this article you'll learn how to use the waitUntil test API in Compose to wait for certain conditions to be met.
-
-  ###### [Jose Alcérreca](https://developer.android.com/blog/authors/jose-alcerreca) •
-  3 min read
-
+  [Jose Alcérreca](https://developer.android.com/blog/authors/jose-alcerreca) • 3 min read
   - [#Android](https://developer.android.com/blog/topics/android)
   - [#Compose](https://developer.android.com/blog/topics/compose)
   - [#Idling Resources](https://developer.android.com/blog/topics/idling-resources)
   - +1 ↩
-- 3 Authors 02 Jun 2026 02 Jun 2026 ![](https://developer.android.com/static/blog/assets/Engineering_Memory_Blog_Strapi_3_bfd74f43e5_Z2i8kF7.webp)
-
-  #### [How-tos](https://developer.android.com/blog/categories/how-tos)
+- 3 Authors 02 Jun 2026 02 Jun 2026 ![](https://developer.android.com/static/blog/assets/Engineering_Memory_Blog_Strapi_3_bfd74f43e5_Z2i8kF7.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
 
   ## [Prioritizing Memory Efficiency: Essential Steps for Android 17](https://developer.android.com/blog/posts/prioritizing-memory-efficiency-essential-steps-for-android-17)
 
   [arrow_forward](https://developer.android.com/blog/posts/prioritizing-memory-efficiency-essential-steps-for-android-17) While app performance is often equated with a smooth UI and fast start times, memory serves as the silent foundation upon which these visible metrics are built. It's no secret that we're seeing a shift where device memory is more important than ever.
-
-  ###### [Alice Yuan](https://developer.android.com/blog/authors/alice-yuan), [Ajesh Pai](https://developer.android.com/blog/authors/ajesh-pai), [Fung Lam](https://developer.android.com/blog/authors/fung-lam) •
-  10 min read
-
+  [Alice Yuan](https://developer.android.com/blog/authors/alice-yuan), [Ajesh Pai](https://developer.android.com/blog/authors/ajesh-pai), [Fung Lam](https://developer.android.com/blog/authors/fung-lam) • 10 min read
   - [#Memory](https://developer.android.com/blog/topics/memory)
   - [#Android](https://developer.android.com/blog/topics/android)
   - [#Performance](https://developer.android.com/blog/topics/performance)
   - +1 ↩
-- [![](https://developer.android.com/static/blog/assets/niharika_2910f6d612_C99s1.webp)](https://developer.android.com/blog/authors/niharika-arora)[![](https://developer.android.com/static/blog/assets/Jean_Pierre_Pralle_2bf889a65a_2buQLX.webp)](https://developer.android.com/blog/authors/jean-pierre-pralle) 22 Apr 2026 22 Apr 2026 ![](https://developer.android.com/static/blog/assets/Streamline_user_animation_V02_Strapi_abd12985d7_SvAX9.webp)
-
-  #### [How-tos](https://developer.android.com/blog/categories/how-tos)
+- [![View Niharika Arora's profile](https://developer.android.com/static/blog/assets/niharika_2910f6d612_C99s1.webp)](https://developer.android.com/blog/authors/niharika-arora)[![View Jean-Pierre Pralle's profile](https://developer.android.com/static/blog/assets/Jean_Pierre_Pralle_2bf889a65a_2buQLX.webp)](https://developer.android.com/blog/authors/jean-pierre-pralle) 22 Apr 2026 22 Apr 2026 ![](https://developer.android.com/static/blog/assets/Streamline_user_animation_V02_Strapi_abd12985d7_SvAX9.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
 
   ## [Streamline User Journeys with Verified Email via Credential Manager](https://developer.android.com/blog/posts/streamline-user-journeys-with-verified-email-via-credential-manager)
 
   [arrow_forward](https://developer.android.com/blog/posts/streamline-user-journeys-with-verified-email-via-credential-manager) Today, we're excited to announce a new verified email credential issued by Google, which developers can now retrieve directly from Android's Credential Manager Digital Credential API.
-
-  ###### [Niharika Arora](https://developer.android.com/blog/authors/niharika-arora), [Jean-Pierre Pralle](https://developer.android.com/blog/authors/jean-pierre-pralle) •
-  3 min read
-
-# Stay in the loop
+  [Niharika Arora](https://developer.android.com/blog/authors/niharika-arora), [Jean-Pierre Pralle](https://developer.android.com/blog/authors/jean-pierre-pralle) • 3 min read
+Stay in the loop
 
 
 Get the latest Android development insights delivered to your inbox

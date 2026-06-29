@@ -6,15 +6,7 @@ source: md.txt
 
 # Building a Mixed-Reality Tour Guide with Android XR, the Geospatial API, and Gemini
 
-###### 7-min read
-
-![](https://developer.android.com/static/blog/assets/MM_Android_XR_Geospatial_V02_Strapi_5c55395a9c_UkzvN.webp) 22 Jun 2026 3 Authors
-
-##### [Coco Fatus,](https://developer.android.com/blog/authors/coco-fatus)
-[Alon Hetzroni,](https://developer.android.com/blog/authors/alon-hetzroni)
-[Azin Mehrnoosh](https://developer.android.com/blog/authors/blog-author-1)
-
-[At this year's Google I/O](https://www.youtube.com/watch?v=1KOO2lqsdaA), we announced an update for spatial experiences: the [Geospatial API](https://developer.android.com/reference/kotlin/androidx/xr/arcore/Geospatial) is now available as a preview in [ARCore for Jetpack XR](https://developer.android.com/develop/xr/jetpack-xr-sdk/arcore). By bringing Google's Visual Positioning System (VPS) to Android XR, Android XR enables anchoring digital content to the physical world with sub-meter accuracy and precise orientation in supported areas.\* To explore what the Geospatial API could unlock, our team built a demo: the XR Geospatial Tour.
+7-min read ![](https://developer.android.com/static/blog/assets/MM_Android_XR_Geospatial_V02_Strapi_5c55395a9c_UkzvN.webp) 22 Jun 2026 3 Authors [Coco Fatus,](https://developer.android.com/blog/authors/coco-fatus) [Alon Hetzroni,](https://developer.android.com/blog/authors/alon-hetzroni) [Azin Mehrnoosh](https://developer.android.com/blog/authors/blog-author-1) [At this year's Google I/O](https://www.youtube.com/watch?v=1KOO2lqsdaA), we announced an update for spatial experiences: the [Geospatial API](https://developer.android.com/reference/kotlin/androidx/xr/arcore/Geospatial) is now available as a preview in [ARCore for Jetpack XR](https://developer.android.com/develop/xr/jetpack-xr-sdk/arcore). By bringing Google's Visual Positioning System (VPS) to Android XR, Android XR enables anchoring digital content to the physical world with sub-meter accuracy and precise orientation in supported areas.\* To explore what the Geospatial API could unlock, our team built a demo: the XR Geospatial Tour.
 
 Imagine walking into a new city, putting on a pair of wired XR glasses (like the upcoming XREAL Project Aura), and instantly having a knowledgeable, local guide showing you around. You don't need to stare down at a 2D map---instead, 3D models gently guide your path, and an intelligent voice tells you about the historical landmarks right in front of you. We combined the [Geospatial APIs](https://developer.android.com/reference/kotlin/androidx/xr/arcore/Geospatial), [Gemini API using Firebase AI Logic](https://firebase.google.com/docs/ai-logic), [Google Maps Grounding](https://ai.google.dev/gemini-api/docs/maps-grounding), and [Jetpack XR SDK](https://developer.android.com/develop/xr/jetpack-xr-sdk) to create a hands-free, immersive walking tour experience.
 
@@ -171,8 +163,7 @@ Building the XR Geospatial Tour app showed us that the barrier to entry for worl
 To help you get hands-on with Android XR, we are thrilled to open applications for the [Android XR Developer Catalyst Program](https://developer.android.com/develop/xr/catalyst), which includes XREAL Project Aura. Starting today, you can apply to get access to an XREAL Project Aura devkit or our display glasses devkit over the coming months!
 
 \**Disclaimer: Available on select devices. Internet connection required. Works on compatible apps and surfaces. Results may vary.*
-
-###### Written by:
+Written by:
 
 -
 
@@ -181,7 +172,7 @@ To help you get hands-on with Android XR, we are thrilled to open applications f
   ###### UX Designer
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/coco-fatus) ![](https://developer.android.com/static/blog/assets/Coco_Fatus_78a5f60501_1PQrHm.webp) ![](https://developer.android.com/static/blog/assets/Coco_Fatus_78a5f60501_1PQrHm.webp)
+  View profile](https://developer.android.com/blog/authors/coco-fatus) ![View Coco Fatus's profile](https://developer.android.com/static/blog/assets/Coco_Fatus_78a5f60501_1PQrHm.webp) ![View Coco Fatus's profile](https://developer.android.com/static/blog/assets/Coco_Fatus_78a5f60501_1PQrHm.webp)
 -
 
   ## [Alon Hetzroni](https://developer.android.com/blog/authors/alon-hetzroni)
@@ -189,7 +180,7 @@ To help you get hands-on with Android XR, we are thrilled to open applications f
   ###### UX Engineer
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/alon-hetzroni) ![](https://developer.android.com/static/blog/assets/ahetzroni_profile_3fbed6e24c_1Th2rE.webp) ![](https://developer.android.com/static/blog/assets/ahetzroni_profile_3fbed6e24c_1Th2rE.webp)
+  View profile](https://developer.android.com/blog/authors/alon-hetzroni) ![View Alon Hetzroni's profile](https://developer.android.com/static/blog/assets/ahetzroni_profile_3fbed6e24c_1Th2rE.webp) ![View Alon Hetzroni's profile](https://developer.android.com/static/blog/assets/ahetzroni_profile_3fbed6e24c_1Th2rE.webp)
 -
 
   ## [Azin Mehrnoosh](https://developer.android.com/blog/authors/blog-author-1)
@@ -197,43 +188,28 @@ To help you get hands-on with Android XR, we are thrilled to open applications f
   ###### Product Manager
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/blog-author-1) ![](https://developer.android.com/static/blog/assets/unnamed_6_5b79453d9b_Z2cXYIR.webp) ![](https://developer.android.com/static/blog/assets/unnamed_6_5b79453d9b_Z2cXYIR.webp)
-
-## Continue reading
-
-- [![](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 16 Jun 2026 16 Jun 2026 ![](https://developer.android.com/static/blog/assets/Strapi_Hero_White_e4dbee04d8_Z1qQbv3.webp)
+  View profile](https://developer.android.com/blog/authors/blog-author-1) ![View Azin Mehrnoosh's profile](https://developer.android.com/static/blog/assets/unnamed_6_5b79453d9b_Z2cXYIR.webp) ![View Azin Mehrnoosh's profile](https://developer.android.com/static/blog/assets/unnamed_6_5b79453d9b_Z2cXYIR.webp)
+Continue reading
+- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 16 Jun 2026 16 Jun 2026 ![](https://developer.android.com/static/blog/assets/Strapi_Hero_White_e4dbee04d8_Z1qQbv3.webp)
 
   ## [Android 17 is Here](https://developer.android.com/blog/posts/android-17-is-here)
 
   [arrow_forward](https://developer.android.com/blog/posts/android-17-is-here) Today we're releasing Android 17 and making it available on most supported Pixel devices. Look for new devices running Android 17 in the coming months.
-
-  ###### [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) •
-  13 min read
-
+  [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) • 13 min read
   - [#Android 17](https://developer.android.com/blog/topics/android-17)
-- [![](https://developer.android.com/static/blog/assets/paul_feng_759ac95845_spvRU.webp)](https://developer.android.com/blog/authors/paul-feng) 24 Jun 2026 24 Jun 2026 ![](https://developer.android.com/static/blog/assets/Apps_Experience_Play_Blog_Header_2000x1000_8c3a95404a_lYfpd.webp)
-
-  #### [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Paul Feng's profile](https://developer.android.com/static/blog/assets/paul_feng_759ac95845_spvRU.webp)](https://developer.android.com/blog/authors/paul-feng) 24 Jun 2026 24 Jun 2026 ![](https://developer.android.com/static/blog/assets/Apps_Experience_Play_Blog_Header_2000x1000_8c3a95404a_lYfpd.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Expanded billing choice and lower fees on Google Play](https://developer.android.com/blog/posts/expanded-billing-choice-and-lower-fees-on-google-play)
 
   [arrow_forward](https://developer.android.com/blog/posts/expanded-billing-choice-and-lower-fees-on-google-play) At Google Play, we are committed to delivering the best possible experience to users, while ensuring developers have the tools and adaptability to succeed.
-
-  ###### [Paul Feng](https://developer.android.com/blog/authors/paul-feng) •
-  3 min read
-
-- [![](https://developer.android.com/static/blog/assets/matthew_9c798f0c1d_Z1m5WWD.webp)](https://developer.android.com/blog/authors/matthew-forsythe) 18 Jun 2026 18 Jun 2026 ![](https://developer.android.com/static/blog/assets/Strapi_2x_325a484212_1BGPPB.webp)
-
-  #### [Product News](https://developer.android.com/blog/categories/product-news)
+  [Paul Feng](https://developer.android.com/blog/authors/paul-feng) • 3 min read
+- [![View Matthew Forsythe's profile](https://developer.android.com/static/blog/assets/matthew_9c798f0c1d_Z1m5WWD.webp)](https://developer.android.com/blog/authors/matthew-forsythe) 18 Jun 2026 18 Jun 2026 ![](https://developer.android.com/static/blog/assets/Strapi_2x_325a484212_1BGPPB.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Android developer verification: Building a safer ecosystem together](https://developer.android.com/blog/posts/android-developer-verification-building-a-safer-ecosystem-together)
 
   [arrow_forward](https://developer.android.com/blog/posts/android-developer-verification-building-a-safer-ecosystem-together) Last year, we introduced Android developer verification to strengthen ecosystem security and stop malicious actors from hiding behind anonymity to release harmful apps.
-
-  ###### [Matthew Forsythe](https://developer.android.com/blog/authors/matthew-forsythe) •
-  2 min read
-
-# Stay in the loop
+  [Matthew Forsythe](https://developer.android.com/blog/authors/matthew-forsythe) • 2 min read
+Stay in the loop
 
 
 Get the latest Android development insights delivered to your inbox

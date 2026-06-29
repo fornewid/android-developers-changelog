@@ -4,17 +4,11 @@ url: https://developer.android.com/blog/posts/jetpack-window-manager-1-5-is-stab
 source: md.txt
 ---
 
-#### [Product News](https://developer.android.com/blog/categories/product-news)
+[Product News](https://developer.android.com/blog/categories/product-news)
 
 # Jetpack WindowManager 1.5 is stable
 
-###### 3-min read
-
-![](https://developer.android.com/static/blog/assets/jetpack_Window_Manager_931d67ec18_Z20PMAS.webp) 10 Oct 2025 [![](https://developer.android.com/static/blog/assets/unnamed_fd9e15f738_1EHxqW.webp)](https://developer.android.com/blog/authors/francesco-romano) [##### Francesco Romano](https://developer.android.com/blog/authors/francesco-romano)
-
-###### Developer Relations Engineer, Android
-
-We're excited to announce that[Jetpack WindowManager 1.5.0](https://developer.android.com/jetpack/androidx/releases/window#version_15_2) is now stable!
+3-min read ![](https://developer.android.com/static/blog/assets/jetpack_Window_Manager_931d67ec18_Z20PMAS.webp) 10 Oct 2025 [![View Francesco Romano's profile](https://developer.android.com/static/blog/assets/unnamed_fd9e15f738_1EHxqW.webp)](https://developer.android.com/blog/authors/francesco-romano) [Francesco Romano](https://developer.android.com/blog/authors/francesco-romano) Developer Relations Engineer, Android We're excited to announce that[Jetpack WindowManager 1.5.0](https://developer.android.com/jetpack/androidx/releases/window#version_15_2) is now stable!
 
 This release builds on the strong foundation of adaptability in WindowManager, making it even easier to create polished, adaptive UIs that look great on all screen sizes. As the Android ecosystem continues to grow, users are engaging with apps on a wider variety of devices than ever before: from phones and foldables to tablets, connected displays, Chromebooks, and even car displays in parked mode.
 
@@ -123,8 +117,7 @@ dependencies {
 WindowManager 1.5 is another step forward for creating [fully adaptive apps](https://developer.android.com/adaptive-apps) that run across Android form factors. Check out the [official release notes](https://developer.android.com/jetpack/androidx/releases/window#version_15_2) for a complete list of changes and bug fixes.
 
 Happy coding!
-
-###### Written by:
+Written by:
 
 -
 
@@ -133,44 +126,27 @@ Happy coding!
   ###### Developer Relations Engineer, Android
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/francesco-romano) ![](https://developer.android.com/static/blog/assets/unnamed_fd9e15f738_1EHxqW.webp) ![](https://developer.android.com/static/blog/assets/unnamed_fd9e15f738_1EHxqW.webp)
-
-## Continue reading
-
-- [![](https://developer.android.com/static/blog/assets/unnamed_fd9e15f738_1EHxqW.webp)](https://developer.android.com/blog/authors/francesco-romano) 03 Mar 2026 03 Mar 2026 ![](https://developer.android.com/static/blog/assets/android_Connected_34a0ae66a4_1A0pVS.webp)
-
-  #### [Product News](https://developer.android.com/blog/categories/product-news)
+  View profile](https://developer.android.com/blog/authors/francesco-romano) ![View Francesco Romano's profile](https://developer.android.com/static/blog/assets/unnamed_fd9e15f738_1EHxqW.webp) ![View Francesco Romano's profile](https://developer.android.com/static/blog/assets/unnamed_fd9e15f738_1EHxqW.webp)
+Continue reading
+- [![View Francesco Romano's profile](https://developer.android.com/static/blog/assets/unnamed_fd9e15f738_1EHxqW.webp)](https://developer.android.com/blog/authors/francesco-romano) 03 Mar 2026 03 Mar 2026 ![](https://developer.android.com/static/blog/assets/android_Connected_34a0ae66a4_1A0pVS.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Android devices extend seamlessly to connected displays](https://developer.android.com/blog/posts/android-devices-extend-seamlessly-to-connected-displays)
 
   [arrow_forward](https://developer.android.com/blog/posts/android-devices-extend-seamlessly-to-connected-displays) We are excited to announce a major milestone in bringing mobile and desktop computing closer together on Android: connected display support has reached general availability with the Android 16 QPR3 release!
-
-  ###### [Francesco Romano](https://developer.android.com/blog/authors/francesco-romano) •
-  7 min read
-
-- [![](https://developer.android.com/static/blog/assets/paul_feng_759ac95845_spvRU.webp)](https://developer.android.com/blog/authors/paul-feng) 24 Jun 2026 24 Jun 2026 ![](https://developer.android.com/static/blog/assets/Apps_Experience_Play_Blog_Header_2000x1000_8c3a95404a_lYfpd.webp)
-
-  #### [Product News](https://developer.android.com/blog/categories/product-news)
+  [Francesco Romano](https://developer.android.com/blog/authors/francesco-romano) • 7 min read
+- [![View Paul Feng's profile](https://developer.android.com/static/blog/assets/paul_feng_759ac95845_spvRU.webp)](https://developer.android.com/blog/authors/paul-feng) 24 Jun 2026 24 Jun 2026 ![](https://developer.android.com/static/blog/assets/Apps_Experience_Play_Blog_Header_2000x1000_8c3a95404a_lYfpd.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Expanded billing choice and lower fees on Google Play](https://developer.android.com/blog/posts/expanded-billing-choice-and-lower-fees-on-google-play)
 
   [arrow_forward](https://developer.android.com/blog/posts/expanded-billing-choice-and-lower-fees-on-google-play) At Google Play, we are committed to delivering the best possible experience to users, while ensuring developers have the tools and adaptability to succeed.
-
-  ###### [Paul Feng](https://developer.android.com/blog/authors/paul-feng) •
-  3 min read
-
-- [![](https://developer.android.com/static/blog/assets/matthew_9c798f0c1d_Z1m5WWD.webp)](https://developer.android.com/blog/authors/matthew-forsythe) 18 Jun 2026 18 Jun 2026 ![](https://developer.android.com/static/blog/assets/Strapi_2x_325a484212_1BGPPB.webp)
-
-  #### [Product News](https://developer.android.com/blog/categories/product-news)
+  [Paul Feng](https://developer.android.com/blog/authors/paul-feng) • 3 min read
+- [![View Matthew Forsythe's profile](https://developer.android.com/static/blog/assets/matthew_9c798f0c1d_Z1m5WWD.webp)](https://developer.android.com/blog/authors/matthew-forsythe) 18 Jun 2026 18 Jun 2026 ![](https://developer.android.com/static/blog/assets/Strapi_2x_325a484212_1BGPPB.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Android developer verification: Building a safer ecosystem together](https://developer.android.com/blog/posts/android-developer-verification-building-a-safer-ecosystem-together)
 
   [arrow_forward](https://developer.android.com/blog/posts/android-developer-verification-building-a-safer-ecosystem-together) Last year, we introduced Android developer verification to strengthen ecosystem security and stop malicious actors from hiding behind anonymity to release harmful apps.
-
-  ###### [Matthew Forsythe](https://developer.android.com/blog/authors/matthew-forsythe) •
-  2 min read
-
-# Stay in the loop
+  [Matthew Forsythe](https://developer.android.com/blog/authors/matthew-forsythe) • 2 min read
+Stay in the loop
 
 
 Get the latest Android development insights delivered to your inbox

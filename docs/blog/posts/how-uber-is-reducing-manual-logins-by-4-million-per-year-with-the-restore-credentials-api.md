@@ -4,19 +4,11 @@ url: https://developer.android.com/blog/posts/how-uber-is-reducing-manual-logins
 source: md.txt
 ---
 
-#### [Case Studies](https://developer.android.com/blog/categories/case-studies)
+[Case Studies](https://developer.android.com/blog/categories/case-studies)
 
 # How Uber is reducing manual logins by 4 million per year with the Restore Credentials API
 
-###### 5-min read
-
-![](https://developer.android.com/static/blog/assets/uber_Credentials_12e7f1f5c4_Zjh724.webp) 18 Nov 2025 [![](https://developer.android.com/static/blog/assets/niharika_2910f6d612_C99s1.webp)](https://developer.android.com/blog/authors/niharika-arora)[![](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_1hBimO.webp)](https://developer.android.com/blog/authors/tracy-agyemang)
-
-##### [Niharika Arora](https://developer.android.com/blog/authors/niharika-arora)
-\&
-[Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang)
-
-[Uber](https://www.uber.com/in/en/) is the world's largest ridesharing company, getting millions of people from here to there while also supporting food delivery, healthcare transportation, and freight logistics. Simplicity of access is crucial to its success; when users switch to a new device, they expect a seamless transition without needing to log back into the Uber app or go through SMS-based one-time password authentication. This frequent device turnover presents a challenge, as well as an opportunity for strong user retention.
+5-min read ![](https://developer.android.com/static/blog/assets/uber_Credentials_12e7f1f5c4_Zjh724.webp) 18 Nov 2025 [![View Niharika Arora's profile](https://developer.android.com/static/blog/assets/niharika_2910f6d612_C99s1.webp)](https://developer.android.com/blog/authors/niharika-arora)[![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_1hBimO.webp)](https://developer.android.com/blog/authors/tracy-agyemang) [Niharika Arora](https://developer.android.com/blog/authors/niharika-arora) \& [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang) [Uber](https://www.uber.com/in/en/) is the world's largest ridesharing company, getting millions of people from here to there while also supporting food delivery, healthcare transportation, and freight logistics. Simplicity of access is crucial to its success; when users switch to a new device, they expect a seamless transition without needing to log back into the Uber app or go through SMS-based one-time password authentication. This frequent device turnover presents a challenge, as well as an opportunity for strong user retention.
 
 To maintain user continuity, Uber's engineers turned to the [Restore Credentials](https://developer.android.com/identity/sign-in/restore-credentials) feature, an essential tool for a time when 40% of people in the United States replace their smartphone every year. Following an assessment of user demand and code prototyping, they introduced Restore Credentials support in the [Uber rider app](https://play.google.com/store/apps/details?id=com.ubercab). To validate that restoring credentials helps remove friction for re-logins, the Uber team ran a successful A/B experiment for a five-week period. The integration led to a reduction in manual logins that, when projected across Uber's massive user base, is estimated to eliminate 4 million manual logins annually.
 
@@ -91,8 +83,7 @@ In the coming months, Uber plans to expand the integration of Restore Credential
 Learn how to facilitate a seamless login experience when switching devices with [Restore Credentials](https://developer.android.com/identity/sign-in/restore-credentials) and read more in the [blog post](https://android-developers.googleblog.com/2024/11/maintain-strong-user-relationships-with-restore-credentials.html). In the latest canary of the [Android Studio Otter](https://developer.android.com/studio/releases?_gl=1*yzmh3l*_up*MQ..&gclid=CjwKCAiAt8bIBhBpEiwAzH1w6fR90Bfyvr4pM57qxapc5Gqj9O7gQ2V6Jgr9AQjWOEinAJrzTVzg9xoC9E0QAvD_BwE&gclsrc=aw.ds&gbraid=0AAAAAC-IOZl-aH6KKZCkBUS3NwKxqyaUj) you can validate your integration, as new features help mock the backup and restoring mechanisms.
 
 If you are new to Credential Manager, you can refer to our official [documentation](https://developer.android.com/identity/sign-in/credential-manager), [codelab](https://codelabs.developers.google.com/credential-manager-api-for-android#0) and [samples](https://github.com/android/identity-samples) for help with integration
-
-###### Written by:
+Written by:
 
 -
 
@@ -101,7 +92,7 @@ If you are new to Credential Manager, you can refer to our official [documentati
   ###### Developer Relations Engineer
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/niharika-arora) ![](https://developer.android.com/static/blog/assets/niharika_2910f6d612_C99s1.webp) ![](https://developer.android.com/static/blog/assets/niharika_2910f6d612_C99s1.webp)
+  View profile](https://developer.android.com/blog/authors/niharika-arora) ![View Niharika Arora's profile](https://developer.android.com/static/blog/assets/niharika_2910f6d612_C99s1.webp) ![View Niharika Arora's profile](https://developer.android.com/static/blog/assets/niharika_2910f6d612_C99s1.webp)
 -
 
   ## [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang)
@@ -109,45 +100,28 @@ If you are new to Credential Manager, you can refer to our official [documentati
   ###### Product Marketing Manager
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/tracy-agyemang) ![](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_1hBimO.webp) ![](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_1hBimO.webp)
-
-## Continue reading
-
-- [![](https://developer.android.com/static/blog/assets/niharika_2910f6d612_C99s1.webp)](https://developer.android.com/blog/authors/niharika-arora)[![](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_1hBimO.webp)](https://developer.android.com/blog/authors/tracy-agyemang) 21 Nov 2024 21 Nov 2024 ![](https://developer.android.com/static/blog/assets/x_Passkeys_45bf854440_G2vTP.webp)
-
-  #### [Case Studies](https://developer.android.com/blog/categories/case-studies)
+  View profile](https://developer.android.com/blog/authors/tracy-agyemang) ![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_1hBimO.webp) ![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_1hBimO.webp)
+Continue reading
+- [![View Niharika Arora's profile](https://developer.android.com/static/blog/assets/niharika_2910f6d612_C99s1.webp)](https://developer.android.com/blog/authors/niharika-arora)[![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_1hBimO.webp)](https://developer.android.com/blog/authors/tracy-agyemang) 21 Nov 2024 21 Nov 2024 ![](https://developer.android.com/static/blog/assets/x_Passkeys_45bf854440_G2vTP.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
 
   ## [X improved login success rate by 2x after adopting passkeys](https://developer.android.com/blog/posts/x-improved-login-success-rate-after-adopting-passkeys)
 
   [arrow_forward](https://developer.android.com/blog/posts/x-improved-login-success-rate-after-adopting-passkeys) From breaking news and entertainment to sports and politics, X is a social media app that aims to help nearly 500 million users worldwide get the full story with all the live commentary.
-
-  ###### [Niharika Arora](https://developer.android.com/blog/authors/niharika-arora), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang) •
-  3 min read
-
-- [![](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d0_l9O72.webp)](https://developer.android.com/blog/authors/thomas-ezan)[![](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_1hBimO.webp)](https://developer.android.com/blog/authors/tracy-agyemang) 04 May 2026 04 May 2026 ![](https://developer.android.com/static/blog/assets/AANDDM_KARROT_Strapi_eed79b0e1b_cCxXk.webp)
-
-  #### [Case Studies](https://developer.android.com/blog/categories/case-studies)
+  [Niharika Arora](https://developer.android.com/blog/authors/niharika-arora), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang) • 3 min read
+- [![View Thomas Ezan's profile](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d0_l9O72.webp)](https://developer.android.com/blog/authors/thomas-ezan)[![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_1hBimO.webp)](https://developer.android.com/blog/authors/tracy-agyemang) 04 May 2026 04 May 2026 ![](https://developer.android.com/static/blog/assets/AANDDM_KARROT_Strapi_eed79b0e1b_cCxXk.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
 
   ## [Gemini and Firebase AI Logic enabled Karrot to increase sales with a translation feature built in under 2 weeks](https://developer.android.com/blog/posts/gemini-and-firebase-ai-logic-enabled-karrot-to-increase-sales-with-a-translation-feature)
 
   [arrow_forward](https://developer.android.com/blog/posts/gemini-and-firebase-ai-logic-enabled-karrot-to-increase-sales-with-a-translation-feature) Karrot is a hyperlocal, community-driven peer-to-peer marketplace app that enables users to buy, sell, and trade items with other verified users. Since launching in South Korea in 2015, the platform has expanded into global markets, amassing over 43 million registered users.
-
-  ###### [Thomas Ezan](https://developer.android.com/blog/authors/thomas-ezan), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang) •
-  2 min read
-
+  [Thomas Ezan](https://developer.android.com/blog/authors/thomas-ezan), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang) • 2 min read
   - [#Android](https://developer.android.com/blog/topics/android)
-- [![](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2dcD9g.webp)](https://developer.android.com/blog/authors/ben-weiss)[![](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_1hBimO.webp)](https://developer.android.com/blog/authors/tracy-agyemang) 30 Mar 2026 30 Mar 2026 ![](https://developer.android.com/static/blog/assets/monzo_boosts_performance_aff3a37917_6VY99.webp)
-
-  #### [Case Studies](https://developer.android.com/blog/categories/case-studies)
+- [![View Ben Weiss's profile](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2dcD9g.webp)](https://developer.android.com/blog/authors/ben-weiss)[![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_1hBimO.webp)](https://developer.android.com/blog/authors/tracy-agyemang) 30 Mar 2026 30 Mar 2026 ![](https://developer.android.com/static/blog/assets/monzo_boosts_performance_aff3a37917_6VY99.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
 
   ## [Monzo boosts performance metrics by up to 35% with a simple R8 update](https://developer.android.com/blog/posts/monzo-boosts-performance-metrics-by-up-to-35-with-a-simple-r8-update)
 
   [arrow_forward](https://developer.android.com/blog/posts/monzo-boosts-performance-metrics-by-up-to-35-with-a-simple-r8-update) Monzo is a UK digital bank with 15 million customers and growing. As the app scaled, the engineering team identified app startup time as a critical area for improvement but worried it would require significant changes to their codebase.
-
-  ###### [Ben Weiss](https://developer.android.com/blog/authors/ben-weiss), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang) •
-  2 min read
-
-# Stay in the loop
+  [Ben Weiss](https://developer.android.com/blog/authors/ben-weiss), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang) • 2 min read
+Stay in the loop
 
 
 Get the latest Android development insights delivered to your inbox

@@ -4,19 +4,11 @@ url: https://developer.android.com/blog/posts/announcing-gemma-4-in-the-ai-core-
 source: md.txt
 ---
 
-#### [Product News](https://developer.android.com/blog/categories/product-news)
+[Product News](https://developer.android.com/blog/categories/product-news)
 
 # Announcing Gemma 4 in the AICore Developer Preview
 
-###### 3-min read
-
-![](https://developer.android.com/static/blog/assets/announcing_gemma4_aicore_ce479292b9_Z15e7FP.webp) 02 Apr 2026 [![](https://developer.android.com/static/blog/assets/Caren_Chang_e58d793559_1i40VV.webp)](https://developer.android.com/blog/authors/caren-chang)[![](https://developer.android.com/static/blog/assets/David_Chou_226df78370_tqGIk.webp)](https://developer.android.com/blog/authors/david-chou)
-
-##### [Caren Chang](https://developer.android.com/blog/authors/caren-chang)
-\&
-[David Chou](https://developer.android.com/blog/authors/david-chou)
-
-At Google, we're committed to bringing the most capable AI models directly to the Android devices in your pocket. Today, we're thrilled to announce the release of our latest state-of-the-art open model: [**Gemma 4**](https://blog.google/innovation-and-ai/technology/developers-tools/gemma-4/).
+3-min read ![](https://developer.android.com/static/blog/assets/announcing_gemma4_aicore_ce479292b9_Z15e7FP.webp) 02 Apr 2026 [![View Caren Chang's profile](https://developer.android.com/static/blog/assets/Caren_Chang_e58d793559_1i40VV.webp)](https://developer.android.com/blog/authors/caren-chang)[![View David Chou's profile](https://developer.android.com/static/blog/assets/David_Chou_226df78370_tqGIk.webp)](https://developer.android.com/blog/authors/david-chou) [Caren Chang](https://developer.android.com/blog/authors/caren-chang) \& [David Chou](https://developer.android.com/blog/authors/david-chou) At Google, we're committed to bringing the most capable AI models directly to the Android devices in your pocket. Today, we're thrilled to announce the release of our latest state-of-the-art open model: [**Gemma 4**](https://blog.google/innovation-and-ai/technology/developers-tools/gemma-4/).
 
 These models are the foundation for the next generation of Gemini Nano, so code you write today for Gemma 4 will automatically work on Gemini Nano 4-enabled devices that will be available later this year. With Gemini Nano 4, you'll benefit from our additional performance optimizations so you can ship to production across the Android ecosystem with the most efficient on-device inference.
 
@@ -83,8 +75,7 @@ Ready to see what Gemma 4 can do for your users?
 1. **Opt-in:** Sign up for the[AICore Developer Preview](https://developers.google.com/ml-kit/genai/aicore-dev-preview).
 2. **Download:** Once opted in, you can trigger the download of the latest Gemma 4 models directly to your supported test device.
 3. **Build:** Update your ML Kit implementation to target the new models and start building in Android Studio.
-
-###### Written by:
+Written by:
 
 -
 
@@ -93,7 +84,7 @@ Ready to see what Gemma 4 can do for your users?
   ###### Developer Relations Engineer
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/caren-chang) ![](https://developer.android.com/static/blog/assets/Caren_Chang_e58d793559_1i40VV.webp) ![](https://developer.android.com/static/blog/assets/Caren_Chang_e58d793559_1i40VV.webp)
+  View profile](https://developer.android.com/blog/authors/caren-chang) ![View Caren Chang's profile](https://developer.android.com/static/blog/assets/Caren_Chang_e58d793559_1i40VV.webp) ![View Caren Chang's profile](https://developer.android.com/static/blog/assets/Caren_Chang_e58d793559_1i40VV.webp)
 -
 
   ## [David Chou](https://developer.android.com/blog/authors/david-chou)
@@ -101,44 +92,27 @@ Ready to see what Gemma 4 can do for your users?
   ###### Product Manager
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/david-chou) ![](https://developer.android.com/static/blog/assets/David_Chou_226df78370_tqGIk.webp) ![](https://developer.android.com/static/blog/assets/David_Chou_226df78370_tqGIk.webp)
-
-## Continue reading
-
-- 4 Authors 28 Jan 2026 28 Jan 2026 ![](https://developer.android.com/static/blog/assets/Prompt_API_Banner_1_ff0c780828_1kyTTw.webp)
-
-  #### [Product News](https://developer.android.com/blog/categories/product-news)
+  View profile](https://developer.android.com/blog/authors/david-chou) ![View David Chou's profile](https://developer.android.com/static/blog/assets/David_Chou_226df78370_tqGIk.webp) ![View David Chou's profile](https://developer.android.com/static/blog/assets/David_Chou_226df78370_tqGIk.webp)
+Continue reading
+- 4 Authors 28 Jan 2026 28 Jan 2026 ![](https://developer.android.com/static/blog/assets/Prompt_API_Banner_1_ff0c780828_1kyTTw.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [How Automated Prompt Optimization Unlocks Quality Gains for ML Kit's GenAI Prompt API](https://developer.android.com/blog/posts/how-automated-prompt-optimization-unlocks-quality-gains-for-ml-kit-s-gen-ai-prompt-api)
 
   [arrow_forward](https://developer.android.com/blog/posts/how-automated-prompt-optimization-unlocks-quality-gains-for-ml-kit-s-gen-ai-prompt-api) To further help bring your ML Kit Prompt API use cases to production, we are excited to announce Automated Prompt Optimization (APO) targeting On-Device models on Vertex AI. Automated Prompt Optimization is a tool that helps you automatically find the optimal prompt for your use cases.
-
-  ###### [Chetan Tekur](https://developer.android.com/blog/authors/chetan-tekur), [Chao Zhao](https://developer.android.com/blog/authors/chao-zhao), [Paul Zhou](https://developer.android.com/blog/authors/paul-zhou), [Caren Chang](https://developer.android.com/blog/authors/caren-chang) •
-  3 min read
-
-- 3 Authors 30 Oct 2025 30 Oct 2025 ![](https://developer.android.com/static/blog/assets/kakao_8769e675f9_Z1GfWxl.webp)
-
-  #### [Product News](https://developer.android.com/blog/categories/product-news)
+  [Chetan Tekur](https://developer.android.com/blog/authors/chetan-tekur), [Chao Zhao](https://developer.android.com/blog/authors/chao-zhao), [Paul Zhou](https://developer.android.com/blog/authors/paul-zhou), [Caren Chang](https://developer.android.com/blog/authors/caren-chang) • 3 min read
+- 3 Authors 30 Oct 2025 30 Oct 2025 ![](https://developer.android.com/static/blog/assets/kakao_8769e675f9_Z1GfWxl.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [ML Kit's Prompt API: Unlock Custom On-Device Gemini Nano Experiences](https://developer.android.com/blog/posts/ml-kit-s-prompt-api-unlock-custom-on-device-gemini-nano-experiences)
 
   [arrow_forward](https://developer.android.com/blog/posts/ml-kit-s-prompt-api-unlock-custom-on-device-gemini-nano-experiences) AI is making it easier to create personalized app experiences that transform content into the right format for users. We previously enabled developers to integrate with Gemini Nano through ML Kit GenAI APIs tailored for specific use cases like summarization and image description.
-
-  ###### [Caren Chang](https://developer.android.com/blog/authors/caren-chang), [Chengji Yan](https://developer.android.com/blog/authors/chengji-yan), [Penny Li](https://developer.android.com/blog/authors/penny-li) •
-  2 min read
-
-- [![](https://developer.android.com/static/blog/assets/paul_feng_759ac95845_spvRU.webp)](https://developer.android.com/blog/authors/paul-feng) 24 Jun 2026 24 Jun 2026 ![](https://developer.android.com/static/blog/assets/Apps_Experience_Play_Blog_Header_2000x1000_8c3a95404a_lYfpd.webp)
-
-  #### [Product News](https://developer.android.com/blog/categories/product-news)
+  [Caren Chang](https://developer.android.com/blog/authors/caren-chang), [Chengji Yan](https://developer.android.com/blog/authors/chengji-yan), [Penny Li](https://developer.android.com/blog/authors/penny-li) • 2 min read
+- [![View Paul Feng's profile](https://developer.android.com/static/blog/assets/paul_feng_759ac95845_spvRU.webp)](https://developer.android.com/blog/authors/paul-feng) 24 Jun 2026 24 Jun 2026 ![](https://developer.android.com/static/blog/assets/Apps_Experience_Play_Blog_Header_2000x1000_8c3a95404a_lYfpd.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Expanded billing choice and lower fees on Google Play](https://developer.android.com/blog/posts/expanded-billing-choice-and-lower-fees-on-google-play)
 
   [arrow_forward](https://developer.android.com/blog/posts/expanded-billing-choice-and-lower-fees-on-google-play) At Google Play, we are committed to delivering the best possible experience to users, while ensuring developers have the tools and adaptability to succeed.
-
-  ###### [Paul Feng](https://developer.android.com/blog/authors/paul-feng) •
-  3 min read
-
-# Stay in the loop
+  [Paul Feng](https://developer.android.com/blog/authors/paul-feng) • 3 min read
+Stay in the loop
 
 
 Get the latest Android development insights delivered to your inbox

@@ -104,7 +104,7 @@ Dependency injection frameworks can simplify the code you write and provide an
 adaptive environment that's useful for testing and other configuration changes.
 
 If you intend to use a dependency injection framework in your app, consider
-using [Hilt](https://developer.android.com/training/dependency-injection/hilt-android) or [Dagger](http://dagger.dev/). Hilt is a dependency injection library for
+using [Hilt](https://developer.android.com/training/dependency-injection/hilt-android) or [Dagger](https://dagger.dev/). Hilt is a dependency injection library for
 Android that runs on top of Dagger. Dagger doesn't use reflection to scan your
 app's code. You can use Dagger's static compile-time implementation in Android
 apps without needless runtime cost or memory usage.
@@ -338,7 +338,7 @@ Two new triggers [introduced with Android
 useful for spotting memory problems:
 
 - [`TRIGGER_TYPE_OOM`](https://developer.android.com/reference/android/os/ProfilingTrigger#TRIGGER_TYPE_OOM) indicates that the app has thrown an `OutOfMemoryError`. It triggers the next time the app starts *after* the crash, when the app registers for profiling triggers.
-- [`TRIGGER_TYPE_ANOMALY`](https://developer.android.com/reference/android/os/ProfilingTrigger#TRIGGER_TYPE_ANOMALY) triggers when when the system detects anomalous behavior from the app. Among other things, this can be triggered by excessive memory usage. It triggers after the app has exhibited excessive memory usage, and *before* the system takes any action to stop the offending process. For example, if the app exceeds the [memory limits introduced in Android
+- [`TRIGGER_TYPE_ANOMALY`](https://developer.android.com/reference/android/os/ProfilingTrigger#TRIGGER_TYPE_ANOMALY) triggers when the system detects anomalous behavior from the app. Among other things, this can be triggered by excessive memory usage. It triggers after the app has exhibited excessive memory usage, and *before* the system takes any action to stop the offending process. For example, if the app exceeds the [memory limits introduced in Android
   17](https://developer.android.com/about/versions/17/behavior-changes-all#app-memory-limits), `TRIGGER_TYPE_ANOMALY` triggers before the system kills the app.
 
 For more information on using `ProfilingManager` to programmatically register
@@ -415,7 +415,7 @@ language-neutral, platform-neutral, extensible mechanism designed by Google for
 serializing structured data---similar to XML, but smaller, faster, and simpler. If
 you use protobufs for your data, always use lite protobufs in your client-side
 code. Regular protobufs generate extremely verbose code, which increases your
-app's code footprint in RAM (see [Manage and optimize your app's code
+app's code footprint in RAM (see [Reduce your app's code and resource
 footprint](https://developer.android.com/topic/performance/memory#reduce-footprint)) and contributes to APK size increase.
 
 For more information, see the [protobuf

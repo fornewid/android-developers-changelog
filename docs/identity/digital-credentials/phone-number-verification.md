@@ -21,9 +21,10 @@ higher.
 ## Prerequisites
 
 To implement phone number verification with the DigitalCredential API, you need
-an account with an aggregator. An aggregator interacts with carriers and
-provides the necessary API surface for your app, usually as a billable cloud API
-endpoint.
+an account with an aggregator or mobile carrier. An aggregator interacts with
+carriers and provides the necessary API surface for your app, usually as a
+billable cloud API endpoint. In this guide, both aggregators and carriers are
+collectively referred to as **aggregators**.
 
 You also need to add the following dependencies to your Gradle build script:
 

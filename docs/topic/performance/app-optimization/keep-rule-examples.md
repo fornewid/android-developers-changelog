@@ -513,3 +513,119 @@ When using the `kotlin-parcelize` plugin, be aware of the following:
 - The plugin automatically creates `CREATOR` fields during compilation.
 - The `proguard-android-optimize.txt` file contains the necessary `keep` rules to retain these fields for proper functionality.
 - App developers must verify that all required `keep` rules are present, especially for any custom implementations or third-party dependencies.
+
+## Popular libraries
+
+Libraries that use reflection or bytecode transformations access code
+dynamically at runtime. If R8 removes or renames classes, fields, or methods
+that are accessed in this way, your app can crash.
+
+However, popular third-party libraries (such as Gson, Retrofit, and Kotlinx
+Serialization) automatically bundle their own R8 consumer keep rules. When
+using recent versions of these libraries, you don't need to add manual keep
+rules to your project.
+
+> [!NOTE]
+> **Note:** Don't copy the rules shown in the following sections into your project. These libraries already contain these keep rules. The snippets are listed here solely to serve as syntax examples.
+
+### Gson
+
+Gson is a JSON serialization and deserialization library that relies heavily on
+reflection. When you use [full mode](https://developer.android.com/topic/performance/app-optimization/full-mode) to optimize your app, it strips generic
+type signatures, default constructors, and non-annotated fields unless
+explicitly instructed otherwise.
+
+To ensure Gson functions correctly, add specific rules to keep non-transient
+fields in your data model classes and preserve the `TypeToken` hierarchy:
+
+    # Preserve generic type information required for deserialization
+    -keepattributes Signature
+
+    # Keep all non-transient fields in your data model classes for reflection
+    -keepclassmembers class com.example.models.** {
+        !transient <fields>;
+    }
+
+    # Keep TypeToken itself and any anonymous classes extending it
+    -keep,allowobfuscation,allowshrinking,allowoptimization class com.google.gson.reflect.TypeToken { *; }
+    -keep,allowobfuscation,allowshrinking,allowoptimization class * extends com.google.gson.reflect.TypeToken
+
+Fields marked with the `transient` modifier are ignored by Gson during
+serialization and deserialization, which is why the keep rule specifically
+targets non-transient fields (`!transient`).
+
+> [!NOTE]
+> **Note:** Starting with Gson 2.11.0, the library [bundles the necessary keep
+> rules](https://github.com/google/gson/blob/main/gson/src/main/resources/META-INF/proguard/gson.pro) for `TypeToken` and `@SerializedName` fields. If your models use `@SerializedName` and you use Gson 2.11.0 or higher, you don't need to add these rules manually.
+
+### Retrofit
+
+Retrofit is a networking library that inspects service interface methods
+annotated with HTTP annotations (such as `@GET` or `@POST`) using reflection to
+construct network requests and convert responses.
+
+Retrofit dynamically generates implementations of your API interfaces at runtime
+using `Proxy.newProxyInstance()`. Because R8 doesn't see any class statically
+implementing these interfaces, it might strip the methods or their generic
+return types.
+
+#### Bundled keep rules
+
+Retrofit relies on runtime reflection to inspect generic parameters, method
+annotations, and parameter annotations. Without proper configuration, R8 full
+mode can thoroughly strip generic signatures from return types, Kotlin
+continuations, and response classes, or even replace interface values with null
+since Retrofit interfaces are dynamically instantiated with a proxy.
+
+Starting with Retrofit 2.10.0, the library automatically bundles the official
+keep rules required to preserve annotation defaults, service method parameters,
+and necessary class metadata. For more information, see [Rules used by
+Retrofit](https://github.com/square/retrofit/blob/trunk/retrofit/src/main/resources/META-INF/proguard/retrofit2.pro).
+
+#### Preserve generic return types
+
+Retrofit inspects the generic signature of the return type (for example,
+`Observable<Data>`) to correctly deserialize the network response. If R8 strips
+the generic signature, Retrofit will replace the instantiated object with
+`null`.
+
+To prevent R8 full mode from stripping the generic signature of your return
+types, use the following conditional rule:
+
+    # Preserve generic type information for Call/Observable return types
+    -keepattributes Signature
+
+    # If an interface has a Retrofit HTTP annotation, keep its return type (class <3>)
+    -if interface * {
+        @retrofit2.http.* public *** *(...);
+    }
+    -keep,allowoptimization,allowshrinking,allowobfuscation class <3>
+
+The actual data model class being returned (for example, `Data` in
+`Observable<Data>`) must also be kept, as it will be constructed reflectively by
+the converter (like Gson).
+
+> [!NOTE]
+> **Note:** Retrofit starting from [version 2.10.0 bundles rules](https://github.com/square/retrofit/commit/51e81a88ca85f6ac0252de240f7d45af91e2a563) that detect its own HTTP annotations (`@GET`, `@POST`) ([View Retrofit's embedded ProGuard
+> rules](https://github.com/square/retrofit/blob/trunk/retrofit/src/main/resources/META-INF/proguard/retrofit2.pro)). It will automatically keep the method signatures it needs to work.
+
+### Coroutines
+
+When you use Kotlin coroutines, the Kotlin compiler transforms `suspend`
+functions by appending a `Continuation` parameter to the compiled method
+signature.
+
+When libraries like Retrofit reflectively read the generic signature of a
+`suspend` function, they rely on that `Continuation` parameter. When using full
+mode, the `Signature` attribute is only kept for classes that are explicitly
+kept. Since `Continuation` is a synthetic parameter, R8 strips its signature by
+default, breaking the reflection.
+
+To prevent signature stripping and ensure runtime compatibility in full mode,
+include the following rule:
+
+    # Keep the signature attribute globally
+    -keepattributes Signature
+
+    # Explicitly keep the Continuation class so its signature is not stripped
+    -keep class kotlin.coroutines.Continuation

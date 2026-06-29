@@ -4,17 +4,11 @@ url: https://developer.android.com/blog/posts/product-manager-guide-to-adapting-
 source: md.txt
 ---
 
-#### [Product News](https://developer.android.com/blog/categories/product-news)
+[Product News](https://developer.android.com/blog/categories/product-news)
 
 # A product manager's guide to adapting Android apps across devices
 
-###### 6-min read
-
-![](https://developer.android.com/static/blog/assets/across_Devices_1742e15ff4_ZE5L7I.webp) 10 Jun 2025 [![](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z15U8cx.webp)](https://developer.android.com/blog/authors/fahd-imtiaz) [##### Fahd Imtiaz](https://developer.android.com/blog/authors/fahd-imtiaz)
-
-###### Senior Product Manager, Android Developer Experience
-
-*Today, Android is launching a few updates across the platform! This includes the start of Android 16's rollout, with details for both *[*developers*](https://android-developers.googleblog.com/2025/06/android-16-is-here.html)* and *[*users*](https://blog.google/products/android/android-16)*, a *[*Developer Preview for enhanced Android desktop experiences with connected displays*](https://android-developers.googleblog.com/2025/06/developer-preview-enhanced-android-desktop-experiences-connected-displays.html)*, and *[*updates for Android users across Google apps and more*](https://blog.google/products/android/new-android-features-june-2025/)*, plus the *[*June Pixel Drop*](https://blog.google/products/pixel/pixel-drop-june-2025/)*. We're also *[*recapping all the Google I/O updates for Android developers focused on building excellent, adaptive Android apps*](https://android-developers.googleblog.com/2025/06/top-3-updates-for-building-excellent-adaptive-apps-google-io-25.html)*.*
+6-min read ![](https://developer.android.com/static/blog/assets/across_Devices_1742e15ff4_ZE5L7I.webp) 10 Jun 2025 [![View Fahd Imtiaz's profile](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z15U8cx.webp)](https://developer.android.com/blog/authors/fahd-imtiaz) [Fahd Imtiaz](https://developer.android.com/blog/authors/fahd-imtiaz) Senior Product Manager, Android Developer Experience *Today, Android is launching a few updates across the platform! This includes the start of Android 16's rollout, with details for both *[*developers*](https://android-developers.googleblog.com/2025/06/android-16-is-here.html)* and *[*users*](https://blog.google/products/android/android-16)*, a *[*Developer Preview for enhanced Android desktop experiences with connected displays*](https://android-developers.googleblog.com/2025/06/developer-preview-enhanced-android-desktop-experiences-connected-displays.html)*, and *[*updates for Android users across Google apps and more*](https://blog.google/products/android/new-android-features-june-2025/)*, plus the *[*June Pixel Drop*](https://blog.google/products/pixel/pixel-drop-june-2025/)*. We're also *[*recapping all the Google I/O updates for Android developers focused on building excellent, adaptive Android apps*](https://android-developers.googleblog.com/2025/06/top-3-updates-for-building-excellent-adaptive-apps-google-io-25.html)*.*
 
 With new form factors emerging continually, the Android ecosystem is more dynamic than ever.
 
@@ -87,8 +81,7 @@ While there's an upfront investment in adopting adaptive principles (using tools
 The message for my fellow product managers, decision-makers, and businesses is clear: **adaptive design will up-level your app** for high-quality Android experiences in 2025 and beyond. An adaptive, responsive UI is the scalable way to support the many devices in Android without developing on a per-form factor basis. If you ignore the diverse device ecosystem of foldables, tablets, Chromebooks, and emerging form factors like XR and cars, your business is accepting hidden costs from negative user reviews, lower discovery in Play, increased technical debt, and missed opportunities for increased user engagement and user acquisition.
 
 Maximize your apps' impact and unlock new user experiences. Learn more about [building adaptive apps](https://developer.android.com/adaptive-apps) today.
-
-###### Written by:
+Written by:
 
 -
 
@@ -97,53 +90,36 @@ Maximize your apps' impact and unlock new user experiences. Learn more about [bu
   ###### Senior Product Manager
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/fahd-imtiaz) ![](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z15U8cx.webp) ![](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z15U8cx.webp)
-
-## Continue reading
-
-- [![](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z15U8cx.webp)](https://developer.android.com/blog/authors/fahd-imtiaz) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Combo_IO_Strapi_2000x1000_0370ff6d2c_ZQaFMJ.webp)
-
-  #### [Product News](https://developer.android.com/blog/categories/product-news)
+  View profile](https://developer.android.com/blog/authors/fahd-imtiaz) ![View Fahd Imtiaz's profile](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z15U8cx.webp) ![View Fahd Imtiaz's profile](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z15U8cx.webp)
+Continue reading
+- [![View Fahd Imtiaz's profile](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z15U8cx.webp)](https://developer.android.com/blog/authors/fahd-imtiaz) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Combo_IO_Strapi_2000x1000_0370ff6d2c_ZQaFMJ.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Adaptive development for the expanding Android ecosystem](https://developer.android.com/blog/posts/adaptive-development-for-the-expanding-android-ecosystem)
 
   [arrow_forward](https://developer.android.com/blog/posts/adaptive-development-for-the-expanding-android-ecosystem) With the release of Android 17, we are transitioning into an adaptive first development standard. Your users no longer rely on a single form factor; they transition between phones, foldables, tablets, laptops, automotive displays, and immersive XR environments throughout their day.
-
-  ###### [Fahd Imtiaz](https://developer.android.com/blog/authors/fahd-imtiaz) •
-  4 min read
-
+  [Fahd Imtiaz](https://developer.android.com/blog/authors/fahd-imtiaz) • 4 min read
   - [#Adaptive development](https://developer.android.com/blog/topics/adaptive-development)
   - [#Adaptive apps](https://developer.android.com/blog/topics/adaptive-apps)
   - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
   - +1 ↩
-- [![](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z15U8cx.webp)](https://developer.android.com/blog/authors/fahd-imtiaz) 19 Dec 2025 19 Dec 2025 ![](https://developer.android.com/static/blog/assets/Android_adaptives_festivity_01_blog_f70d48134f_Z2lMDgd.webp)
-
-  #### [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Fahd Imtiaz's profile](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z15U8cx.webp)](https://developer.android.com/blog/authors/fahd-imtiaz) 19 Dec 2025 19 Dec 2025 ![](https://developer.android.com/static/blog/assets/Android_adaptives_festivity_01_blog_f70d48134f_Z2lMDgd.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Goodbye Mobile Only, Hello Adaptive: Three essential updates from 2025 for building adaptive apps](https://developer.android.com/blog/posts/goodbye-mobile-only-hello-adaptive)
 
   [arrow_forward](https://developer.android.com/blog/posts/goodbye-mobile-only-hello-adaptive) In 2025 the Android ecosystem has grown far beyond the phone. Today, developers have the opportunity to reach over 500 million active devices, including foldables, tablets, XR, Chromebooks, and compatible cars.
-
-  ###### [Fahd Imtiaz](https://developer.android.com/blog/authors/fahd-imtiaz) •
-  2 min read
-
+  [Fahd Imtiaz](https://developer.android.com/blog/authors/fahd-imtiaz) • 2 min read
   - [#Jetpack Navigation](https://developer.android.com/blog/topics/jetpack-navigation)
   - [#Adaptive apps](https://developer.android.com/blog/topics/adaptive-apps)
   - [#Compose](https://developer.android.com/blog/topics/compose)
   - [#Android 16](https://developer.android.com/blog/topics/android-16)
   - +2 ↩
-- [![](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z15U8cx.webp)](https://developer.android.com/blog/authors/fahd-imtiaz)[![](https://developer.android.com/static/blog/assets/miguel_montemayor_552207c1c6_Z1tItyG.webp)](https://developer.android.com/blog/authors/miguel-montemayor) 03 Sep 2025 03 Sep 2025 ![](https://developer.android.com/static/blog/assets/yt_MBG_2_a56f169e60_ZSoFHF.webp)
-
-  #### [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Fahd Imtiaz's profile](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z15U8cx.webp)](https://developer.android.com/blog/authors/fahd-imtiaz)[![View Miguel Montemayor's profile](https://developer.android.com/static/blog/assets/miguel_montemayor_552207c1c6_Z1tItyG.webp)](https://developer.android.com/blog/authors/miguel-montemayor) 03 Sep 2025 03 Sep 2025 ![](https://developer.android.com/static/blog/assets/yt_MBG_2_a56f169e60_ZSoFHF.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Unfold new possibilities with Compose Adaptive Layouts 1.2 beta](https://developer.android.com/blog/posts/unfold-new-possibilities-with-compose-adaptive-layouts)
 
   [arrow_forward](https://developer.android.com/blog/posts/unfold-new-possibilities-with-compose-adaptive-layouts) With new form factors like the Pixel 10 Pro Fold joining the Android ecosystem, adaptive app development is essential for creating high-quality user experiences across phones, tablets, and foldables.
-
-  ###### [Fahd Imtiaz](https://developer.android.com/blog/authors/fahd-imtiaz), [Miguel Montemayor](https://developer.android.com/blog/authors/miguel-montemayor) •
-  3 min read
-
-# Stay in the loop
+  [Fahd Imtiaz](https://developer.android.com/blog/authors/fahd-imtiaz), [Miguel Montemayor](https://developer.android.com/blog/authors/miguel-montemayor) • 3 min read
+Stay in the loop
 
 
 Get the latest Android development insights delivered to your inbox

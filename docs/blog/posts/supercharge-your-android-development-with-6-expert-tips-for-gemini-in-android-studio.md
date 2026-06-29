@@ -4,17 +4,11 @@ url: https://developer.android.com/blog/posts/supercharge-your-android-developme
 source: md.txt
 ---
 
-#### [Product News](https://developer.android.com/blog/categories/product-news)
+[Product News](https://developer.android.com/blog/categories/product-news)
 
 # Supercharge your Android development with 6 expert tips for Gemini in Android Studio
 
-###### 4-min read
-
-![](https://developer.android.com/static/blog/assets/supercharge_99f4219536_Z2aoaib.webp) 02 Mar 2026 [![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](https://developer.android.com/blog/authors/trevor-johns) [##### Trevor Johns](https://developer.android.com/blog/authors/trevor-johns)
-
-###### Staff Developer Programs Engineer
-
-In January we [announced](https://android-developers.googleblog.com/2026/01/llm-flexibility-agent-mode-improvements.html) Android Studio Otter 3 Feature Drop in stable, including Agent Mode enhancements and many other updates to provide more control and flexibility over using AI to help you build high quality Android apps. To help you get the most out of Gemini in Android Studio and all the new capabilities, we sat down with Google engineers and Google Developer Experts to gather their best practices for working with the latest features---including Agent mode and the New Project Assistant. Here are some useful insights to help you get the best out of your development:
+4-min read ![](https://developer.android.com/static/blog/assets/supercharge_99f4219536_Z2aoaib.webp) 02 Mar 2026 [![View Charles Munger's profile](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](https://developer.android.com/blog/authors/trevor-johns) [Trevor Johns](https://developer.android.com/blog/authors/trevor-johns) Staff Developer Programs Engineer In January we [announced](https://android-developers.googleblog.com/2026/01/llm-flexibility-agent-mode-improvements.html) Android Studio Otter 3 Feature Drop in stable, including Agent Mode enhancements and many other updates to provide more control and flexibility over using AI to help you build high quality Android apps. To help you get the most out of Gemini in Android Studio and all the new capabilities, we sat down with Google engineers and Google Developer Experts to gather their best practices for working with the latest features---including Agent mode and the New Project Assistant. Here are some useful insights to help you get the best out of your development:
 
 <br />
 
@@ -70,8 +64,7 @@ Alternatively, in Android Studio settings, you can also opt out of context shari
 Remember, paid plans never use your code for model training. This includes both users using an AI Studio API Key, and businesses who are subscribed to Gemini Code Assist. - Trevor Johns, Developer Relations Engineer.
 
 Hear more from the Android team and Google Developer Experts about Gemini in Android Studio in our recent [fireside chat](https://www.youtube.com/watch?v=9caMeFQYCLk) and download [Android Studio](https://developer.android.com/studio?utm_source=blog&utm_medium=referral&utm_campaign=gias_firesidediscordfeb26_blog) to get started.
-
-###### Written by:
+Written by:
 
 -
 
@@ -80,44 +73,27 @@ Hear more from the Android team and Google Developer Experts about Gemini in And
   ###### Staff Developer Programs Engineer
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/trevor-johns) ![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg) ![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)
-
-## Continue reading
-
-- [![](https://developer.android.com/static/blog/assets/Sandhya_Mohan_30435468a9_1b689e.webp)](https://developer.android.com/blog/authors/sandhya-mohan)[![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](https://developer.android.com/blog/authors/trevor-johns) 15 Jan 2026 15 Jan 2026 ![](https://developer.android.com/static/blog/assets/as_Otter3feb_2dc12a1b18_Z1VaHAk.webp)
-
-  #### [Product News](https://developer.android.com/blog/categories/product-news)
+  View profile](https://developer.android.com/blog/authors/trevor-johns) ![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg) ![View Charles Munger's profile](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)
+Continue reading
+- [![View Sandhya Mohan's profile](https://developer.android.com/static/blog/assets/Sandhya_Mohan_30435468a9_1b689e.webp)](https://developer.android.com/blog/authors/sandhya-mohan)[![View Charles Munger's profile](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](https://developer.android.com/blog/authors/trevor-johns) 15 Jan 2026 15 Jan 2026 ![](https://developer.android.com/static/blog/assets/as_Otter3feb_2dc12a1b18_Z1VaHAk.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [LLM flexibility, Agent Mode improvements, and new agentic experiences in Android Studio Otter 3 Feature Drop](https://developer.android.com/blog/posts/llm-flexibility-agent-mode-improvements-and-new-agentic-experiences-in-android-studio-otter-3-feature-drop)
 
   [arrow_forward](https://developer.android.com/blog/posts/llm-flexibility-agent-mode-improvements-and-new-agentic-experiences-in-android-studio-otter-3-feature-drop) We are excited to announce that Android Studio Otter 3 Feature Drop is now stable! This feature-packed release brings a huge update to your agentic workflows in Android Studio, and offers you more flexibility and control for how you use AI to help you build Android apps.
-
-  ###### [Sandhya Mohan](https://developer.android.com/blog/authors/sandhya-mohan), [Trevor Johns](https://developer.android.com/blog/authors/trevor-johns) •
-  9 min read
-
-- [![](https://developer.android.com/static/blog/assets/Sandhya_Mohan_30435468a9_1b689e.webp)](https://developer.android.com/blog/authors/sandhya-mohan)[![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](https://developer.android.com/blog/authors/trevor-johns) 04 Dec 2025 04 Dec 2025 ![](https://developer.android.com/static/blog/assets/as_Otter2_96831eedef_Z19EUHu.webp)
-
-  #### [Product News](https://developer.android.com/blog/categories/product-news)
+  [Sandhya Mohan](https://developer.android.com/blog/authors/sandhya-mohan), [Trevor Johns](https://developer.android.com/blog/authors/trevor-johns) • 9 min read
+- [![View Sandhya Mohan's profile](https://developer.android.com/static/blog/assets/Sandhya_Mohan_30435468a9_1b689e.webp)](https://developer.android.com/blog/authors/sandhya-mohan)[![View Charles Munger's profile](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](https://developer.android.com/blog/authors/trevor-johns) 04 Dec 2025 04 Dec 2025 ![](https://developer.android.com/static/blog/assets/as_Otter2_96831eedef_Z19EUHu.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Android Studio Otter 2 Feature Drop is stable!](https://developer.android.com/blog/posts/android-studio-otter-2-feature-drop-is-stable)
 
   [arrow_forward](https://developer.android.com/blog/posts/android-studio-otter-2-feature-drop-is-stable) The Android Studio Otter 2 Feature Drop is here to supercharge your productivity.
-
-  ###### [Sandhya Mohan](https://developer.android.com/blog/authors/sandhya-mohan), [Trevor Johns](https://developer.android.com/blog/authors/trevor-johns) •
-  3 min read
-
-- [![](https://developer.android.com/static/blog/assets/paul_feng_759ac95845_spvRU.webp)](https://developer.android.com/blog/authors/paul-feng) 24 Jun 2026 24 Jun 2026 ![](https://developer.android.com/static/blog/assets/Apps_Experience_Play_Blog_Header_2000x1000_8c3a95404a_lYfpd.webp)
-
-  #### [Product News](https://developer.android.com/blog/categories/product-news)
+  [Sandhya Mohan](https://developer.android.com/blog/authors/sandhya-mohan), [Trevor Johns](https://developer.android.com/blog/authors/trevor-johns) • 3 min read
+- [![View Paul Feng's profile](https://developer.android.com/static/blog/assets/paul_feng_759ac95845_spvRU.webp)](https://developer.android.com/blog/authors/paul-feng) 24 Jun 2026 24 Jun 2026 ![](https://developer.android.com/static/blog/assets/Apps_Experience_Play_Blog_Header_2000x1000_8c3a95404a_lYfpd.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Expanded billing choice and lower fees on Google Play](https://developer.android.com/blog/posts/expanded-billing-choice-and-lower-fees-on-google-play)
 
   [arrow_forward](https://developer.android.com/blog/posts/expanded-billing-choice-and-lower-fees-on-google-play) At Google Play, we are committed to delivering the best possible experience to users, while ensuring developers have the tools and adaptability to succeed.
-
-  ###### [Paul Feng](https://developer.android.com/blog/authors/paul-feng) •
-  3 min read
-
-# Stay in the loop
+  [Paul Feng](https://developer.android.com/blog/authors/paul-feng) • 3 min read
+Stay in the loop
 
 
 Get the latest Android development insights delivered to your inbox

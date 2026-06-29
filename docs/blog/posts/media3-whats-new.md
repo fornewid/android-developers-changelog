@@ -4,17 +4,11 @@ url: https://developer.android.com/blog/posts/media3-whats-new
 source: md.txt
 ---
 
-#### [Product News](https://developer.android.com/blog/categories/product-news)
+[Product News](https://developer.android.com/blog/categories/product-news)
 
 # Media3 1.9.0 - What's new
 
-###### 6-min read
-
-![](https://developer.android.com/static/blog/assets/Android_Evergreen_Hero_Banner_AI_Weband_App_Option_B_627622b909_10sGeD.webp) 19 Dec 2025 [![](https://developer.android.com/static/blog/assets/Kristina_Simakova_0a7a20024f_a9nfE.webp)](https://developer.android.com/blog/authors/kristina-simakova) [##### Kristina Simakova](https://developer.android.com/blog/authors/kristina-simakova)
-
-###### Engineering Manager
-
-Media3 1.9.0 is out! Besides the usual bug fixes and performance improvements, the latest release also contains **four** new or largely rewritten modules:
+6-min read ![](https://developer.android.com/static/blog/assets/Android_Evergreen_Hero_Banner_AI_Weband_App_Option_B_627622b909_10sGeD.webp) 19 Dec 2025 [![View Kristina Simakova's profile](https://developer.android.com/static/blog/assets/Kristina_Simakova_0a7a20024f_a9nfE.webp)](https://developer.android.com/blog/authors/kristina-simakova) [Kristina Simakova](https://developer.android.com/blog/authors/kristina-simakova) Engineering Manager Media3 1.9.0 is out! Besides the usual bug fixes and performance improvements, the latest release also contains **four** new or largely rewritten modules:
 
 - `media3-inspector` - Extract metadata and frames outside of playback
 - `media3-ui-compose-material3` - Build a basic Material3 Compose Media UI in just a few steps
@@ -204,8 +198,7 @@ EditedMediaItemSequence videoOnlySequence =
 ```
 
 Please get in touch via the [Media3 issue Tracker](https://github.com/androidx/media/issues) if you run into any bugs, or if you have questions or feature requests. We look forward to hearing from you!
-
-###### Written by:
+Written by:
 
 -
 
@@ -214,47 +207,29 @@ Please get in touch via the [Media3 issue Tracker](https://github.com/androidx/m
   ###### Engineering Manager
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/kristina-simakova) ![](https://developer.android.com/static/blog/assets/Kristina_Simakova_0a7a20024f_a9nfE.webp) ![](https://developer.android.com/static/blog/assets/Kristina_Simakova_0a7a20024f_a9nfE.webp)
-
-## Continue reading
-
-- [![](https://developer.android.com/static/blog/assets/paul_feng_759ac95845_spvRU.webp)](https://developer.android.com/blog/authors/paul-feng) 24 Jun 2026 24 Jun 2026 ![](https://developer.android.com/static/blog/assets/Apps_Experience_Play_Blog_Header_2000x1000_8c3a95404a_lYfpd.webp)
-
-  #### [Product News](https://developer.android.com/blog/categories/product-news)
+  View profile](https://developer.android.com/blog/authors/kristina-simakova) ![View Kristina Simakova's profile](https://developer.android.com/static/blog/assets/Kristina_Simakova_0a7a20024f_a9nfE.webp) ![View Kristina Simakova's profile](https://developer.android.com/static/blog/assets/Kristina_Simakova_0a7a20024f_a9nfE.webp)
+Continue reading
+- [![View Paul Feng's profile](https://developer.android.com/static/blog/assets/paul_feng_759ac95845_spvRU.webp)](https://developer.android.com/blog/authors/paul-feng) 24 Jun 2026 24 Jun 2026 ![](https://developer.android.com/static/blog/assets/Apps_Experience_Play_Blog_Header_2000x1000_8c3a95404a_lYfpd.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Expanded billing choice and lower fees on Google Play](https://developer.android.com/blog/posts/expanded-billing-choice-and-lower-fees-on-google-play)
 
   [arrow_forward](https://developer.android.com/blog/posts/expanded-billing-choice-and-lower-fees-on-google-play) At Google Play, we are committed to delivering the best possible experience to users, while ensuring developers have the tools and adaptability to succeed.
-
-  ###### [Paul Feng](https://developer.android.com/blog/authors/paul-feng) •
-  3 min read
-
-- [![](https://developer.android.com/static/blog/assets/matthew_9c798f0c1d_Z1m5WWD.webp)](https://developer.android.com/blog/authors/matthew-forsythe) 18 Jun 2026 18 Jun 2026 ![](https://developer.android.com/static/blog/assets/Strapi_2x_325a484212_1BGPPB.webp)
-
-  #### [Product News](https://developer.android.com/blog/categories/product-news)
+  [Paul Feng](https://developer.android.com/blog/authors/paul-feng) • 3 min read
+- [![View Matthew Forsythe's profile](https://developer.android.com/static/blog/assets/matthew_9c798f0c1d_Z1m5WWD.webp)](https://developer.android.com/blog/authors/matthew-forsythe) 18 Jun 2026 18 Jun 2026 ![](https://developer.android.com/static/blog/assets/Strapi_2x_325a484212_1BGPPB.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Android developer verification: Building a safer ecosystem together](https://developer.android.com/blog/posts/android-developer-verification-building-a-safer-ecosystem-together)
 
   [arrow_forward](https://developer.android.com/blog/posts/android-developer-verification-building-a-safer-ecosystem-together) Last year, we introduced Android developer verification to strengthen ecosystem security and stop malicious actors from hiding behind anonymity to release harmful apps.
-
-  ###### [Matthew Forsythe](https://developer.android.com/blog/authors/matthew-forsythe) •
-  2 min read
-
-- [![](https://developer.android.com/static/blog/assets/Stevan_Silva_7661118077_V4WGm.webp)](https://developer.android.com/blog/authors/stevan-silva)[![](https://developer.android.com/static/blog/assets/unnamed_5_cdab7ecfba_2kh65s.webp)](https://developer.android.com/blog/authors/vinny-da-silva) 15 Jun 2026 15 Jun 2026 ![](https://developer.android.com/static/blog/assets/MM_Android_XR_Meta_a489e757ed_Z1R62M0.webp)
-
-  #### [Product News](https://developer.android.com/blog/categories/product-news)
+  [Matthew Forsythe](https://developer.android.com/blog/authors/matthew-forsythe) • 2 min read
+- [![View Stevan Silva's profile](https://developer.android.com/static/blog/assets/Stevan_Silva_7661118077_V4WGm.webp)](https://developer.android.com/blog/authors/stevan-silva)[![View Vinny DaSilva's profile](https://developer.android.com/static/blog/assets/unnamed_5_cdab7ecfba_2kh65s.webp)](https://developer.android.com/blog/authors/vinny-da-silva) 15 Jun 2026 15 Jun 2026 ![](https://developer.android.com/static/blog/assets/MM_Android_XR_Meta_a489e757ed_Z1R62M0.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [What's New in Android XR: Tooling, Engine Support, and Ecosystem Updates](https://developer.android.com/blog/posts/what-s-new-in-android-xr-tooling-engine-support-and-ecosystem-updates)
 
   [arrow_forward](https://developer.android.com/blog/posts/what-s-new-in-android-xr-tooling-engine-support-and-ecosystem-updates) From augmented overlays to fully immersive environments, the Android XR ecosystem is expanding rapidly, with the Samsung Galaxy XR already available today.
-
-  ###### [Stevan Silva](https://developer.android.com/blog/authors/stevan-silva), [Vinny DaSilva](https://developer.android.com/blog/authors/vinny-da-silva) •
-  3 min read
-
+  [Stevan Silva](https://developer.android.com/blog/authors/stevan-silva), [Vinny DaSilva](https://developer.android.com/blog/authors/vinny-da-silva) • 3 min read
   - [#Android XR](https://developer.android.com/blog/topics/android-xr)
   - [#Developer Preview 4](https://developer.android.com/blog/topics/developer-preview-4)
-
-# Stay in the loop
+Stay in the loop
 
 
 Get the latest Android development insights delivered to your inbox

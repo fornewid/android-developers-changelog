@@ -4,19 +4,11 @@ url: https://developer.android.com/blog/posts/whats-new-in-android-for-cars-unif
 source: md.txt
 ---
 
-#### [Product News](https://developer.android.com/blog/categories/product-news)
+[Product News](https://developer.android.com/blog/categories/product-news)
 
 # What's new in Android for Cars: Unifying platforms and unlocking premium experiences
 
-###### 3-min read
-
-![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Text_Strapi_2000x1000_2d4221d884_ZtW7eg.webp) 19 May 2026 3 Authors
-
-##### [Jan Kleinert,](https://developer.android.com/blog/authors/jan-kleinert)
-[Noam Gefen,](https://developer.android.com/blog/authors/noam-gefen)
-[Thomas Weathers](https://developer.android.com/blog/authors/thomas-weathers)
-
-We're thrilled to see developers continuing to bring their apps and experiences to Android for Cars! Over the past year, we've continued to see strong growth and momentum in the app ecosystem on Android Auto and cars with Google built-in. This year at Google I/O, we're introducing [updates](https://draft.blogger.com/u/0/blog/post/edit/6755709643044947179/6014405363386119619#) that benefit both drivers and developers by enabling richer, more differentiated in-car experiences. With new features and templates that allow you to build once to reach users across different infotainment screens and car platforms, it's easier than ever to build for the road.
+3-min read ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Text_Strapi_2000x1000_2d4221d884_ZtW7eg.webp) 19 May 2026 3 Authors [Jan Kleinert,](https://developer.android.com/blog/authors/jan-kleinert) [Noam Gefen,](https://developer.android.com/blog/authors/noam-gefen) [Thomas Weathers](https://developer.android.com/blog/authors/thomas-weathers) We're thrilled to see developers continuing to bring their apps and experiences to Android for Cars! Over the past year, we've continued to see strong growth and momentum in the app ecosystem on Android Auto and cars with Google built-in. This year at Google I/O, we're introducing [updates](https://draft.blogger.com/u/0/blog/post/edit/6755709643044947179/6014405363386119619#) that benefit both drivers and developers by enabling richer, more differentiated in-car experiences. With new features and templates that allow you to build once to reach users across different infotainment screens and car platforms, it's easier than ever to build for the road.
 
 ### What's new in the Car App Library
 
@@ -64,8 +56,7 @@ Stay updated on these features and start building with the latest at [goo.gle/ca
 
 Explore this announcement and all Google I/O 2026 updates on [io.google](https://draft.blogger.com/u/0/blog/post/edit/6755709643044947179/6014405363386119619#).
 - [#Adaptive \& Differentiated](https://developer.android.com/blog/topics/adaptive-and-differentiated)
-
-###### Written by:
+Written by:
 
 -
 
@@ -74,7 +65,7 @@ Explore this announcement and all Google I/O 2026 updates on [io.google](https:/
   ###### Developer Relations Engineer
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/jan-kleinert) ![](https://developer.android.com/static/blog/assets/Jan_Kleinert_044ab3d483_1Ce4cO.webp) ![](https://developer.android.com/static/blog/assets/Jan_Kleinert_044ab3d483_1Ce4cO.webp)
+  View profile](https://developer.android.com/blog/authors/jan-kleinert) ![View Jan Kleinert's profile](https://developer.android.com/static/blog/assets/Jan_Kleinert_044ab3d483_1Ce4cO.webp) ![View Jan Kleinert's profile](https://developer.android.com/static/blog/assets/Jan_Kleinert_044ab3d483_1Ce4cO.webp)
 -
 
   ## [Noam Gefen](https://developer.android.com/blog/authors/noam-gefen)
@@ -82,7 +73,7 @@ Explore this announcement and all Google I/O 2026 updates on [io.google](https:/
   ###### Senior Product Manager
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/noam-gefen) ![](https://developer.android.com/static/blog/assets/PXL_20250405_073558833_2_6db88dff58_1qPfjF.webp) ![](https://developer.android.com/static/blog/assets/PXL_20250405_073558833_2_6db88dff58_1qPfjF.webp)
+  View profile](https://developer.android.com/blog/authors/noam-gefen) ![View Noam Gefen's profile](https://developer.android.com/static/blog/assets/PXL_20250405_073558833_2_6db88dff58_1qPfjF.webp) ![View Noam Gefen's profile](https://developer.android.com/static/blog/assets/PXL_20250405_073558833_2_6db88dff58_1qPfjF.webp)
 -
 
   ## [Thomas Weathers](https://developer.android.com/blog/authors/thomas-weathers)
@@ -90,45 +81,28 @@ Explore this announcement and all Google I/O 2026 updates on [io.google](https:/
   ###### Developer Relations Engineer, Android for Cars
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/thomas-weathers) ![](https://developer.android.com/static/blog/assets/DSC_0714_1_d2ffa1fb8f_ZtqlBA.webp) ![](https://developer.android.com/static/blog/assets/DSC_0714_1_d2ffa1fb8f_ZtqlBA.webp)
-
-## Continue reading
-
-- [![](https://developer.android.com/static/blog/assets/Nick_Butcher_5393f4552a_19h6h7.webp)](https://developer.android.com/blog/authors/nick-butcher) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Compose_first_Meta_04fd0498ba_1T1vC6.webp)
-
-  #### [Product News](https://developer.android.com/blog/categories/product-news)
+  View profile](https://developer.android.com/blog/authors/thomas-weathers) ![View Thomas Weathers's profile](https://developer.android.com/static/blog/assets/DSC_0714_1_d2ffa1fb8f_ZtqlBA.webp) ![View Thomas Weathers's profile](https://developer.android.com/static/blog/assets/DSC_0714_1_d2ffa1fb8f_ZtqlBA.webp)
+Continue reading
+- [![View Nick Butcher's profile](https://developer.android.com/static/blog/assets/Nick_Butcher_5393f4552a_19h6h7.webp)](https://developer.android.com/blog/authors/nick-butcher) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Compose_first_Meta_04fd0498ba_1T1vC6.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Android UI Development is Compose First](https://developer.android.com/blog/posts/android-ui-development-is-compose-first)
 
   [arrow_forward](https://developer.android.com/blog/posts/android-ui-development-is-compose-first) In the almost-5-years since Jetpack Compose launched, we've invested in bringing you all the features, performance and tools that you need to build amazing UIs across the variety of Android devices.
-
-  ###### [Nick Butcher](https://developer.android.com/blog/authors/nick-butcher) •
-  2 min read
-
+  [Nick Butcher](https://developer.android.com/blog/authors/nick-butcher) • 2 min read
   - [#Adaptive \& Differentiated](https://developer.android.com/blog/topics/adaptive-and-differentiated)
-- [![](https://developer.android.com/static/blog/assets/paul_feng_759ac95845_spvRU.webp)](https://developer.android.com/blog/authors/paul-feng) 24 Jun 2026 24 Jun 2026 ![](https://developer.android.com/static/blog/assets/Apps_Experience_Play_Blog_Header_2000x1000_8c3a95404a_lYfpd.webp)
-
-  #### [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Paul Feng's profile](https://developer.android.com/static/blog/assets/paul_feng_759ac95845_spvRU.webp)](https://developer.android.com/blog/authors/paul-feng) 24 Jun 2026 24 Jun 2026 ![](https://developer.android.com/static/blog/assets/Apps_Experience_Play_Blog_Header_2000x1000_8c3a95404a_lYfpd.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Expanded billing choice and lower fees on Google Play](https://developer.android.com/blog/posts/expanded-billing-choice-and-lower-fees-on-google-play)
 
   [arrow_forward](https://developer.android.com/blog/posts/expanded-billing-choice-and-lower-fees-on-google-play) At Google Play, we are committed to delivering the best possible experience to users, while ensuring developers have the tools and adaptability to succeed.
-
-  ###### [Paul Feng](https://developer.android.com/blog/authors/paul-feng) •
-  3 min read
-
-- [![](https://developer.android.com/static/blog/assets/matthew_9c798f0c1d_Z1m5WWD.webp)](https://developer.android.com/blog/authors/matthew-forsythe) 18 Jun 2026 18 Jun 2026 ![](https://developer.android.com/static/blog/assets/Strapi_2x_325a484212_1BGPPB.webp)
-
-  #### [Product News](https://developer.android.com/blog/categories/product-news)
+  [Paul Feng](https://developer.android.com/blog/authors/paul-feng) • 3 min read
+- [![View Matthew Forsythe's profile](https://developer.android.com/static/blog/assets/matthew_9c798f0c1d_Z1m5WWD.webp)](https://developer.android.com/blog/authors/matthew-forsythe) 18 Jun 2026 18 Jun 2026 ![](https://developer.android.com/static/blog/assets/Strapi_2x_325a484212_1BGPPB.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Android developer verification: Building a safer ecosystem together](https://developer.android.com/blog/posts/android-developer-verification-building-a-safer-ecosystem-together)
 
   [arrow_forward](https://developer.android.com/blog/posts/android-developer-verification-building-a-safer-ecosystem-together) Last year, we introduced Android developer verification to strengthen ecosystem security and stop malicious actors from hiding behind anonymity to release harmful apps.
-
-  ###### [Matthew Forsythe](https://developer.android.com/blog/authors/matthew-forsythe) •
-  2 min read
-
-# Stay in the loop
+  [Matthew Forsythe](https://developer.android.com/blog/authors/matthew-forsythe) • 2 min read
+Stay in the loop
 
 
 Get the latest Android development insights delivered to your inbox

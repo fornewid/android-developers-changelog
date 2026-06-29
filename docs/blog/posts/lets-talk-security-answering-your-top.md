@@ -4,17 +4,11 @@ url: https://developer.android.com/blog/posts/lets-talk-security-answering-your-
 source: md.txt
 ---
 
-#### [Community](https://developer.android.com/blog/categories/community)
+[Community](https://developer.android.com/blog/categories/community)
 
 # Let's talk security: Answering your top questions about Android developer verification
 
-###### 2-min read
-
-![](https://developer.android.com/static/blog/assets/lets_Talk_Security_3e0a595955_rfy1m.webp) 30 Sep 2025 [![](https://developer.android.com/static/blog/assets/matthew_9c798f0c1d_Z1m5WWD.webp)](https://developer.android.com/blog/authors/matthew-forsythe) [##### Matthew Forsythe](https://developer.android.com/blog/authors/matthew-forsythe)
-
-###### Director, Product Management
-
-Android recently [announced](https://android-developers.googleblog.com/2025/08/elevating-android-security.html) [developer verification](https://developer.android.com/developer-verification), an extra layer of security that deters bad actors and makes it harder for them to spread harm.
+2-min read ![](https://developer.android.com/static/blog/assets/lets_Talk_Security_3e0a595955_rfy1m.webp) 30 Sep 2025 [![View Matthew Forsythe's profile](https://developer.android.com/static/blog/assets/matthew_9c798f0c1d_Z1m5WWD.webp)](https://developer.android.com/blog/authors/matthew-forsythe) [Matthew Forsythe](https://developer.android.com/blog/authors/matthew-forsythe) Director, Product Management Android recently [announced](https://android-developers.googleblog.com/2025/08/elevating-android-security.html) [developer verification](https://developer.android.com/developer-verification), an extra layer of security that deters bad actors and makes it harder for them to spread harm.
 
 Developer feedback is essential as we build this process. One of the most important themes we hear from the developer community is the need for more lead time to adapt to changes, which is why we announced this requirement more than a year before it takes effect. This extended timeline allows you to ask questions, provide feedback that will help shape the final process, and prepare for the new requirement, ensuring a smooth transition for your workflow.
 
@@ -51,8 +45,7 @@ We recommend you participate in developer verification because, even though veri
 Please let us know if you have any [feedback or questions](https://goo.gle/Android-verification-feedback) about the verification requirements.
 - [#Android](https://developer.android.com/blog/topics/android)
 - [#identity](https://developer.android.com/blog/topics/identity)
-
-###### Written by:
+Written by:
 
 -
 
@@ -61,49 +54,32 @@ Please let us know if you have any [feedback or questions](https://goo.gle/Andro
   ###### Director, Product Management
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/matthew-forsythe) ![](https://developer.android.com/static/blog/assets/matthew_9c798f0c1d_Z1m5WWD.webp) ![](https://developer.android.com/static/blog/assets/matthew_9c798f0c1d_Z1m5WWD.webp)
-
-## Continue reading
-
-- [![](https://developer.android.com/static/blog/assets/dgalpin_30033d2d42_Z1EXpfD.webp)](https://developer.android.com/blog/authors/daniel-galpin) 20 Oct 2025 20 Oct 2025 ![](https://developer.android.com/static/blog/assets/Now_In_Android121_f4ff784252_Z2dFDgg.webp)
-
-  #### [Community](https://developer.android.com/blog/categories/community)
+  View profile](https://developer.android.com/blog/authors/matthew-forsythe) ![View Matthew Forsythe's profile](https://developer.android.com/static/blog/assets/matthew_9c798f0c1d_Z1m5WWD.webp) ![View Matthew Forsythe's profile](https://developer.android.com/static/blog/assets/matthew_9c798f0c1d_Z1m5WWD.webp)
+Continue reading
+- [![View Daniel Galpin's profile](https://developer.android.com/static/blog/assets/dgalpin_30033d2d42_Z1EXpfD.webp)](https://developer.android.com/blog/authors/daniel-galpin) 20 Oct 2025 20 Oct 2025 ![](https://developer.android.com/static/blog/assets/Now_In_Android121_f4ff784252_Z2dFDgg.webp) [Community](https://developer.android.com/blog/categories/community)
 
   ## [Now in Android #121](https://developer.android.com/blog/posts/now-in-android-121)
 
   [arrow_forward](https://developer.android.com/blog/posts/now-in-android-121) Compose 1.9, Media 3 1.8, QPR2 Beta 1, Narwhal Feature Drop, and more!
-
-  ###### [Daniel Galpin](https://developer.android.com/blog/authors/daniel-galpin) •
-  9 min read
-
+  [Daniel Galpin](https://developer.android.com/blog/authors/daniel-galpin) • 9 min read
   - [#Android](https://developer.android.com/blog/topics/android)
   - [#Android Studio](https://developer.android.com/blog/topics/android-studio)
   - [#Now In Android](https://developer.android.com/blog/topics/now-in-android)
   - [#Compose](https://developer.android.com/blog/topics/compose)
   - +2 ↩
-- [![](https://developer.android.com/static/blog/assets/Robbie_280bd4586c_2wmcrw.webp)](https://developer.android.com/blog/authors/robbie-mclachlan) 25 Mar 2026 25 Mar 2026 ![](https://developer.android.com/static/blog/assets/Meet_The_Class_2_bb4f1ec5bd_Z1MklPk.webp)
-
-  #### [Community](https://developer.android.com/blog/categories/community)
+- [![View Robbie McLachlan's profile](https://developer.android.com/static/blog/assets/Robbie_280bd4586c_2wmcrw.webp)](https://developer.android.com/blog/authors/robbie-mclachlan) 25 Mar 2026 25 Mar 2026 ![](https://developer.android.com/static/blog/assets/Meet_The_Class_2_bb4f1ec5bd_Z1MklPk.webp) [Community](https://developer.android.com/blog/categories/community)
 
   ## [Meet the class of 2026 for the Google Play Apps Accelerator](https://developer.android.com/blog/posts/meet-the-class-of-2026-for-the-google-play-apps-accelerator)
 
   [arrow_forward](https://developer.android.com/blog/posts/meet-the-class-of-2026-for-the-google-play-apps-accelerator) The wait is over! We are incredibly excited to share the Google Play Apps Accelerator class of 2026.
-
-  ###### [Robbie McLachlan](https://developer.android.com/blog/authors/robbie-mclachlan) •
-  1 min read
-
-- [![](https://developer.android.com/static/blog/assets/Robbie_280bd4586c_2wmcrw.webp)](https://developer.android.com/blog/authors/robbie-mclachlan) 11 Dec 2025 11 Dec 2025 ![](https://developer.android.com/static/blog/assets/Android_Devs_Google_Devs_Blog_Header_1200x600_79350b0b52_1w8gkH.webp)
-
-  #### [Community](https://developer.android.com/blog/categories/community)
+  [Robbie McLachlan](https://developer.android.com/blog/authors/robbie-mclachlan) • 1 min read
+- [![View Robbie McLachlan's profile](https://developer.android.com/static/blog/assets/Robbie_280bd4586c_2wmcrw.webp)](https://developer.android.com/blog/authors/robbie-mclachlan) 11 Dec 2025 11 Dec 2025 ![](https://developer.android.com/static/blog/assets/Android_Devs_Google_Devs_Blog_Header_1200x600_79350b0b52_1w8gkH.webp) [Community](https://developer.android.com/blog/categories/community)
 
   ## [#WeArePlay: How Matraquina helps non-verbal kids communicate](https://developer.android.com/blog/posts/we-are-play-how-matraquina-helps-non-verbal-kids-communicate)
 
   [arrow_forward](https://developer.android.com/blog/posts/we-are-play-how-matraquina-helps-non-verbal-kids-communicate) In our latest #WeArePlay film, we meet Adriano, Wagner and Grazyelle. The trio are behind Matraquinha, an app helping thousands of non-verbal children in more than 80 countries communicate.
-
-  ###### [Robbie McLachlan](https://developer.android.com/blog/authors/robbie-mclachlan) •
-  2 min read
-
-# Stay in the loop
+  [Robbie McLachlan](https://developer.android.com/blog/authors/robbie-mclachlan) • 2 min read
+Stay in the loop
 
 
 Get the latest Android development insights delivered to your inbox

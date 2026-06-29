@@ -4,17 +4,11 @@ url: https://developer.android.com/blog/posts/level-up-test-sidekick-and-prepare
 source: md.txt
 ---
 
-#### [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs)
+[Events \& Programs](https://developer.android.com/blog/categories/events-and-programs)
 
 # Level Up: Test Sidekick and prepare for upcoming program milestones
 
-###### 3-min read
-
-![](https://developer.android.com/static/blog/assets/Google_Play_Level_Up_metadata_banner_2048x1323_33658d545a_ZDM8Sn.webp) 11 Mar 2026 [![](https://developer.android.com/static/blog/assets/maru_ahues_7598dede84_Zr7Omv.webp)](https://developer.android.com/blog/authors/maru-ahues-bouza) [##### Maru Ahues Bouza](https://developer.android.com/blog/authors/maru-ahues-bouza)
-
-###### PM Director, Games on Google Play
-
-Last September, we shared our vision for the future of Google Play Games grounded in a core belief: the best way to drive your game's success is to deliver a [world-class player experience](https://blog.google/products-and-platforms/platforms/google-play/curation-update-september-2025/). We launched the [Google Play Games Level Up](https://play.google.com/console/about/levelup/) program to recognize and reward great gaming experiences, while providing you with a powerful toolkit and new promotional opportunities to grow your games.
+3-min read ![](https://developer.android.com/static/blog/assets/Google_Play_Level_Up_metadata_banner_2048x1323_33658d545a_ZDM8Sn.webp) 11 Mar 2026 [![View Maru Ahues Bouza's profile](https://developer.android.com/static/blog/assets/maru_ahues_7598dede84_Zr7Omv.webp)](https://developer.android.com/blog/authors/maru-ahues-bouza) [Maru Ahues Bouza](https://developer.android.com/blog/authors/maru-ahues-bouza) PM Director, Games on Google Play Last September, we shared our vision for the future of Google Play Games grounded in a core belief: the best way to drive your game's success is to deliver a [world-class player experience](https://blog.google/products-and-platforms/platforms/google-play/curation-update-september-2025/). We launched the [Google Play Games Level Up](https://play.google.com/console/about/levelup/) program to recognize and reward great gaming experiences, while providing you with a powerful toolkit and new promotional opportunities to grow your games.
 
 The momentum since our announcement has been incredibly positive, with more than 600 million gamers now using Play Games Services every month. Developers are also finding success, with one-third of all game installs on the Play Store now coming from editorially-driven organic discovery. In fact, in 2025, **Level Up features have driven over 2.5 billion incremental acquisitions for featured games, in addition to an average uplift of 25% in installs during the featuring windows**.
 
@@ -60,8 +54,7 @@ By November 2026:
 Last week, [we announced that we're working on an expanded Level Up program](https://android-developers.googleblog.com/2026/03/a-new-era-for-choice-and-openness.html) that builds on our successful foundation to further improve gaming experiences. The update will introduce new requirements that will unlock additional benefits like lower service fees. Engaging with the program now ensures your work is strategically aligned with these future updates. We'll share more details in the coming months.
 
 In the meantime, the path to your first program milestone begins today. By prioritizing these [user experience guidelines](https://play.google.com/console/about/levelup/#user-experience-guidelines) now, you're investing in the long-term value of your game and ensuring it's built to thrive for every player. Head over to Play Console to start testing Sidekick and take the next step in your Level Up journey.
-
-###### Written by:
+Written by:
 
 -
 
@@ -70,47 +63,33 @@ In the meantime, the path to your first program milestone begins today. By prior
   ###### PM Director
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/maru-ahues-bouza) ![](https://developer.android.com/static/blog/assets/maru_ahues_7598dede84_Zr7Omv.webp) ![](https://developer.android.com/static/blog/assets/maru_ahues_7598dede84_Zr7Omv.webp)
-
-## Continue reading
-
-- 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Text_Strapi_2000x1000_2d4221d884_ZtW7eg.webp)
-
-  #### [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs)
+  View profile](https://developer.android.com/blog/authors/maru-ahues-bouza) ![View Maru Ahues Bouza's profile](https://developer.android.com/static/blog/assets/maru_ahues_7598dede84_Zr7Omv.webp) ![View Maru Ahues Bouza's profile](https://developer.android.com/static/blog/assets/maru_ahues_7598dede84_Zr7Omv.webp)
+Continue reading
+- 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Text_Strapi_2000x1000_2d4221d884_ZtW7eg.webp) [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs)
 
   ## [Build for the future with the Android XR Developer Catalyst Program --- Apply now!](https://developer.android.com/blog/posts/build-for-the-future-with-the-android-xr-developer-catalyst-program-apply-now)
 
   [arrow_forward](https://developer.android.com/blog/posts/build-for-the-future-with-the-android-xr-developer-catalyst-program-apply-now) We're opening applications for the Android XR Developer Catalyst Program, a dedicated initiative to accelerate the development of Android XR apps ready to launch within the next year.
-
-  ###### 1 min read
-
+  1 min read
   - [#Android XR](https://developer.android.com/blog/topics/android-xr)
   - [#intelligent eyewear](https://developer.android.com/blog/topics/intelligent-eyewear)
   - [#Wired XR glasses](https://developer.android.com/blog/topics/wired-xr-glasses)
   - +1 ↩
-- 14 Apr 2026 14 Apr 2026 ![](https://developer.android.com/static/blog/assets/Blog_banner_Dark_2000x1000_B_c6418d3a5c_ZbdvH4.webp)
-
-  #### [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs)
+- 14 Apr 2026 14 Apr 2026 ![](https://developer.android.com/static/blog/assets/Blog_banner_Dark_2000x1000_B_c6418d3a5c_ZbdvH4.webp) [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs)
 
   ## [Get ready for Google I/O: Livestream schedule revealed](https://developer.android.com/blog/posts/get-ready-for-google-io-livestream-schedule-revealed)
 
   [arrow_forward](https://developer.android.com/blog/posts/get-ready-for-google-io-livestream-schedule-revealed) The Google I/O schedule is here!
-
-  ###### 1 min read
-
+  1 min read
   - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
   - [#Generative AI](https://developer.android.com/blog/topics/generative-ai)
-- 17 Feb 2026 17 Feb 2026 ![](https://developer.android.com/static/blog/assets/O_SVD_DAC_Banner_1600x476_4x1_1_21e5678d22_Z2feGk6.webp)
-
-  #### [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs)
+- 17 Feb 2026 17 Feb 2026 ![](https://developer.android.com/static/blog/assets/O_SVD_DAC_Banner_1600x476_4x1_1_21e5678d22_Z2feGk6.webp) [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs)
 
   ## [Get ready for Google I/O May 19-20](https://developer.android.com/blog/posts/get-ready-for-google-io-may)
 
   [arrow_forward](https://developer.android.com/blog/posts/get-ready-for-google-io-may) Google I/O is back! Join us online as we share our latest AI breakthroughs and updates in products across the company, from Gemini to Android, Chrome, Cloud, and more.
-
-  ###### 1 min read
-
-# Stay in the loop
+  1 min read
+Stay in the loop
 
 
 Get the latest Android development insights delivered to your inbox

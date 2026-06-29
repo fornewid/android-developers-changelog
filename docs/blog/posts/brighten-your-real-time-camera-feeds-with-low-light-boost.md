@@ -4,17 +4,11 @@ url: https://developer.android.com/blog/posts/brighten-your-real-time-camera-fee
 source: md.txt
 ---
 
-#### [Product News](https://developer.android.com/blog/categories/product-news)
+[Product News](https://developer.android.com/blog/categories/product-news)
 
 # Brighten Your Real-Time Camera Feeds with Low Light Boost
 
-###### 7-min read
-
-![](https://developer.android.com/static/blog/assets/Brighten_Real_Time_0d4c07ef35_U1qMY.webp) 17 Dec 2025 [![](https://developer.android.com/static/blog/assets/Donovan_Mc_Murray_9413499dd8_ZJ6yBx.webp)](https://developer.android.com/blog/authors/donovan-mcmurray) [##### Donovan McMurray](https://developer.android.com/blog/authors/donovan-mcmurray)
-
-###### Developer Relations Engineer
-
-We recently shared[how Instagram enabled users to take stunning low light photos](https://android-developers.googleblog.com/2024/12/instagram-on-android-low-light-photos.html) using Night Mode. That feature is perfect for still images, where there's time to combine multiple exposures to create a high-quality static shot. But what about the moments that happen *between* the photos? Users need to interact with the camera more than just the moment the shutter button is pressed. They also use the preview to compose their scene or scan QR codes.
+7-min read ![](https://developer.android.com/static/blog/assets/Brighten_Real_Time_0d4c07ef35_U1qMY.webp) 17 Dec 2025 [![View Donovan McMurray's profile](https://developer.android.com/static/blog/assets/Donovan_Mc_Murray_9413499dd8_ZJ6yBx.webp)](https://developer.android.com/blog/authors/donovan-mcmurray) [Donovan McMurray](https://developer.android.com/blog/authors/donovan-mcmurray) Developer Relations Engineer We recently shared[how Instagram enabled users to take stunning low light photos](https://android-developers.googleblog.com/2024/12/instagram-on-android-low-light-photos.html) using Night Mode. That feature is perfect for still images, where there's time to combine multiple exposures to create a high-quality static shot. But what about the moments that happen *between* the photos? Users need to interact with the camera more than just the moment the shutter button is pressed. They also use the preview to compose their scene or scan QR codes.
 
 Today, we're diving into [Low Light Boost (LLB)](https://developer.android.com/media/camera/lowlight), a powerful feature designed to brighten real-time camera streams. Unlike Night Mode, which requires a hold-still capture duration, Low Light Boost works instantaneously on your live preview and video recordings. LLB automatically adjusts how much brightening is needed based on available light, so it's optimized for every environment.
 
@@ -238,8 +232,7 @@ Detailed implementation steps for the client and session can be found in the[Goo
 By implementing these two options, you ensure that your users can see clearly, scan reliably, and interact effectively, regardless of the lighting conditions.
 
 To see these features in action within a complete, production-ready codebase, check out the[**Jetpack Camera App**](https://github.com/google/jetpack-camera-app) on GitHub. It implements both [LLB AE Mode](https://github.com/google/jetpack-camera-app/blob/86f89d814ae5076b33a594e9b8f453020da0ed8a/core/camera/src/main/java/com/google/jetpackcamera/core/camera/CameraSession.kt#L460) and [Google LLB](https://github.com/google/jetpack-camera-app/blob/86f89d814ae5076b33a594e9b8f453020da0ed8a/core/camera/src/main/java/com/google/jetpackcamera/core/camera/CameraSession.kt#L184), giving you a reference for your own integration.
-
-###### Written by:
+Written by:
 
 -
 
@@ -248,47 +241,29 @@ To see these features in action within a complete, production-ready codebase, ch
   ###### Developer Relations Engineer
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/donovan-mcmurray) ![](https://developer.android.com/static/blog/assets/Donovan_Mc_Murray_9413499dd8_ZJ6yBx.webp) ![](https://developer.android.com/static/blog/assets/Donovan_Mc_Murray_9413499dd8_ZJ6yBx.webp)
-
-## Continue reading
-
-- [![](https://developer.android.com/static/blog/assets/paul_feng_759ac95845_spvRU.webp)](https://developer.android.com/blog/authors/paul-feng) 24 Jun 2026 24 Jun 2026 ![](https://developer.android.com/static/blog/assets/Apps_Experience_Play_Blog_Header_2000x1000_8c3a95404a_lYfpd.webp)
-
-  #### [Product News](https://developer.android.com/blog/categories/product-news)
+  View profile](https://developer.android.com/blog/authors/donovan-mcmurray) ![View Donovan McMurray's profile](https://developer.android.com/static/blog/assets/Donovan_Mc_Murray_9413499dd8_ZJ6yBx.webp) ![View Donovan McMurray's profile](https://developer.android.com/static/blog/assets/Donovan_Mc_Murray_9413499dd8_ZJ6yBx.webp)
+Continue reading
+- [![View Paul Feng's profile](https://developer.android.com/static/blog/assets/paul_feng_759ac95845_spvRU.webp)](https://developer.android.com/blog/authors/paul-feng) 24 Jun 2026 24 Jun 2026 ![](https://developer.android.com/static/blog/assets/Apps_Experience_Play_Blog_Header_2000x1000_8c3a95404a_lYfpd.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Expanded billing choice and lower fees on Google Play](https://developer.android.com/blog/posts/expanded-billing-choice-and-lower-fees-on-google-play)
 
   [arrow_forward](https://developer.android.com/blog/posts/expanded-billing-choice-and-lower-fees-on-google-play) At Google Play, we are committed to delivering the best possible experience to users, while ensuring developers have the tools and adaptability to succeed.
-
-  ###### [Paul Feng](https://developer.android.com/blog/authors/paul-feng) •
-  3 min read
-
-- [![](https://developer.android.com/static/blog/assets/matthew_9c798f0c1d_Z1m5WWD.webp)](https://developer.android.com/blog/authors/matthew-forsythe) 18 Jun 2026 18 Jun 2026 ![](https://developer.android.com/static/blog/assets/Strapi_2x_325a484212_1BGPPB.webp)
-
-  #### [Product News](https://developer.android.com/blog/categories/product-news)
+  [Paul Feng](https://developer.android.com/blog/authors/paul-feng) • 3 min read
+- [![View Matthew Forsythe's profile](https://developer.android.com/static/blog/assets/matthew_9c798f0c1d_Z1m5WWD.webp)](https://developer.android.com/blog/authors/matthew-forsythe) 18 Jun 2026 18 Jun 2026 ![](https://developer.android.com/static/blog/assets/Strapi_2x_325a484212_1BGPPB.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Android developer verification: Building a safer ecosystem together](https://developer.android.com/blog/posts/android-developer-verification-building-a-safer-ecosystem-together)
 
   [arrow_forward](https://developer.android.com/blog/posts/android-developer-verification-building-a-safer-ecosystem-together) Last year, we introduced Android developer verification to strengthen ecosystem security and stop malicious actors from hiding behind anonymity to release harmful apps.
-
-  ###### [Matthew Forsythe](https://developer.android.com/blog/authors/matthew-forsythe) •
-  2 min read
-
-- [![](https://developer.android.com/static/blog/assets/Stevan_Silva_7661118077_V4WGm.webp)](https://developer.android.com/blog/authors/stevan-silva)[![](https://developer.android.com/static/blog/assets/unnamed_5_cdab7ecfba_2kh65s.webp)](https://developer.android.com/blog/authors/vinny-da-silva) 15 Jun 2026 15 Jun 2026 ![](https://developer.android.com/static/blog/assets/MM_Android_XR_Meta_a489e757ed_Z1R62M0.webp)
-
-  #### [Product News](https://developer.android.com/blog/categories/product-news)
+  [Matthew Forsythe](https://developer.android.com/blog/authors/matthew-forsythe) • 2 min read
+- [![View Stevan Silva's profile](https://developer.android.com/static/blog/assets/Stevan_Silva_7661118077_V4WGm.webp)](https://developer.android.com/blog/authors/stevan-silva)[![View Vinny DaSilva's profile](https://developer.android.com/static/blog/assets/unnamed_5_cdab7ecfba_2kh65s.webp)](https://developer.android.com/blog/authors/vinny-da-silva) 15 Jun 2026 15 Jun 2026 ![](https://developer.android.com/static/blog/assets/MM_Android_XR_Meta_a489e757ed_Z1R62M0.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [What's New in Android XR: Tooling, Engine Support, and Ecosystem Updates](https://developer.android.com/blog/posts/what-s-new-in-android-xr-tooling-engine-support-and-ecosystem-updates)
 
   [arrow_forward](https://developer.android.com/blog/posts/what-s-new-in-android-xr-tooling-engine-support-and-ecosystem-updates) From augmented overlays to fully immersive environments, the Android XR ecosystem is expanding rapidly, with the Samsung Galaxy XR already available today.
-
-  ###### [Stevan Silva](https://developer.android.com/blog/authors/stevan-silva), [Vinny DaSilva](https://developer.android.com/blog/authors/vinny-da-silva) •
-  3 min read
-
+  [Stevan Silva](https://developer.android.com/blog/authors/stevan-silva), [Vinny DaSilva](https://developer.android.com/blog/authors/vinny-da-silva) • 3 min read
   - [#Android XR](https://developer.android.com/blog/topics/android-xr)
   - [#Developer Preview 4](https://developer.android.com/blog/topics/developer-preview-4)
-
-# Stay in the loop
+Stay in the loop
 
 
 Get the latest Android development insights delivered to your inbox

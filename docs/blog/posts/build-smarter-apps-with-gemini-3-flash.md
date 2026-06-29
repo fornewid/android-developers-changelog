@@ -5,17 +5,11 @@ url: https://developer.android.com/blog/posts/build-smarter-apps-with-gemini-3-f
 source: md.txt
 ---
 
-#### [Product News](https://developer.android.com/blog/categories/product-news)
+[Product News](https://developer.android.com/blog/categories/product-news)
 
 # Build smarter apps with Gemini 3 Flash
 
-###### 2-min read
-
-![](https://developer.android.com/static/blog/assets/gemin3flash_d6f3bd27b1_O0qYl.webp) 17 Dec 2025 [![](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d0_l9O72.webp)](https://developer.android.com/blog/authors/thomas-ezan) [##### Thomas Ezan](https://developer.android.com/blog/authors/thomas-ezan)
-
-###### Senior Developer Relations Engineer
-
-Today, we're expanding the Gemini 3 model family with the [release of Gemini 3 Flash](https://blog.google/products/gemini/gemini-3-flash), frontier intelligence built for speed at a fraction of the cost. You can start building with it immediately, as we're officially launching **Gemini 3 Flash** on [Firebase AI Logic](https://firebase.google.com/docs/ai-logic/get-started?platform=android&api=dev). Available globally, you [can securely access the Gemini 3 Flash preview model](https://blog.google/technology/developers/build-with-gemini-3-flash/) directly from your app via the Gemini Developer API or the Vertex AI Gemini API using Firebase AI Logic client SDKs. Gemini 3 Flash's strong performance in reasoning, tool use, and multimodal capabilities is ideal for developers looking to do more complex video analysis, data extraction and visual Q\&A.
+2-min read ![](https://developer.android.com/static/blog/assets/gemin3flash_d6f3bd27b1_O0qYl.webp) 17 Dec 2025 [![View Thomas Ezan's profile](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d0_l9O72.webp)](https://developer.android.com/blog/authors/thomas-ezan) [Thomas Ezan](https://developer.android.com/blog/authors/thomas-ezan) Senior Developer Relations Engineer Today, we're expanding the Gemini 3 model family with the [release of Gemini 3 Flash](https://blog.google/products/gemini/gemini-3-flash), frontier intelligence built for speed at a fraction of the cost. You can start building with it immediately, as we're officially launching **Gemini 3 Flash** on [Firebase AI Logic](https://firebase.google.com/docs/ai-logic/get-started?platform=android&api=dev). Available globally, you [can securely access the Gemini 3 Flash preview model](https://blog.google/technology/developers/build-with-gemini-3-flash/) directly from your app via the Gemini Developer API or the Vertex AI Gemini API using Firebase AI Logic client SDKs. Gemini 3 Flash's strong performance in reasoning, tool use, and multimodal capabilities is ideal for developers looking to do more complex video analysis, data extraction and visual Q\&A.
 
 ## Gemini 3 optimized for low-latency
 
@@ -114,8 +108,7 @@ The new model is rolling out to developers using Gemini in Android Studio at no-
 ## Get started today
 
 You can start experimenting with Gemini 3 Flash via Firebase AI Logic today. Learn more about it in the [Android](https://developer.android.com/ai/gemini) and [Firebase documentation](https://firebase.google.com/docs/ai-logic/get-started?api=dev). Try out any of the new Gemini 3 models in Android Studio for development assistance, and let us know what you think! As always you can follow us across [LinkedIn](https://www.linkedin.com/showcase/androiddev/posts/?feedView=all), [Blog](https://android-developers.googleblog.com/), [YouTube](https://www.youtube.com/user/androiddevelopers), and[X](https://x.com/AndroidDev).
-
-###### Written by:
+Written by:
 
 -
 
@@ -124,44 +117,27 @@ You can start experimenting with Gemini 3 Flash via Firebase AI Logic today. Lea
   ###### Senior Developer Relations Engineer
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/thomas-ezan) ![](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d0_l9O72.webp) ![](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d0_l9O72.webp)
-
-## Continue reading
-
-- [![](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d0_l9O72.webp)](https://developer.android.com/blog/authors/thomas-ezan) 17 Apr 2026 17 Apr 2026 ![](https://developer.android.com/static/blog/assets/Hybrid_inference_solution_for_Android_Blog_1_518db36e12_gOJm.webp)
-
-  #### [Product News](https://developer.android.com/blog/categories/product-news)
+  View profile](https://developer.android.com/blog/authors/thomas-ezan) ![View Thomas Ezan's profile](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d0_l9O72.webp) ![View Thomas Ezan's profile](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d0_l9O72.webp)
+Continue reading
+- [![View Thomas Ezan's profile](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d0_l9O72.webp)](https://developer.android.com/blog/authors/thomas-ezan) 17 Apr 2026 17 Apr 2026 ![](https://developer.android.com/static/blog/assets/Hybrid_inference_solution_for_Android_Blog_1_518db36e12_gOJm.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Experimental hybrid inference and new Gemini models for Android](https://developer.android.com/blog/posts/experimental-hybrid-inference-and-new-gemini-models-for-android)
 
   [arrow_forward](https://developer.android.com/blog/posts/experimental-hybrid-inference-and-new-gemini-models-for-android) If you are an Android developer looking to implement innovative AI features into your app, we recently launched powerful new updates.
-
-  ###### [Thomas Ezan](https://developer.android.com/blog/authors/thomas-ezan) •
-  3 min read
-
-- [![](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d0_l9O72.webp)](https://developer.android.com/blog/authors/thomas-ezan)[![](https://developer.android.com/static/blog/assets/Mozart_Louis_622373dab1_1RaA8T.webp)](https://developer.android.com/blog/authors/mozart-louis) 13 Oct 2025 13 Oct 2025 ![](https://developer.android.com/static/blog/assets/Android_Blog_banners_dd5c7be5f2_ZsFAUM.webp)
-
-  #### [Product News](https://developer.android.com/blog/categories/product-news)
+  [Thomas Ezan](https://developer.android.com/blog/authors/thomas-ezan) • 3 min read
+- [![View Thomas Ezan's profile](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d0_l9O72.webp)](https://developer.android.com/blog/authors/thomas-ezan)[![View Mozart Louis's profile](https://developer.android.com/static/blog/assets/Mozart_Louis_622373dab1_1RaA8T.webp)](https://developer.android.com/blog/authors/mozart-louis) 13 Oct 2025 13 Oct 2025 ![](https://developer.android.com/static/blog/assets/Android_Blog_banners_dd5c7be5f2_ZsFAUM.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Boost user engagement with AI Image Generation](https://developer.android.com/blog/posts/boost-user-engagement-with-ai-image-generation)
 
   [arrow_forward](https://developer.android.com/blog/posts/boost-user-engagement-with-ai-image-generation) Adding custom images to your app can significantly improve and personalize user experience and boost user engagement.
-
-  ###### [Thomas Ezan](https://developer.android.com/blog/authors/thomas-ezan), [Mozart Louis](https://developer.android.com/blog/authors/mozart-louis) •
-  5 min read
-
-- [![](https://developer.android.com/static/blog/assets/paul_feng_759ac95845_spvRU.webp)](https://developer.android.com/blog/authors/paul-feng) 24 Jun 2026 24 Jun 2026 ![](https://developer.android.com/static/blog/assets/Apps_Experience_Play_Blog_Header_2000x1000_8c3a95404a_lYfpd.webp)
-
-  #### [Product News](https://developer.android.com/blog/categories/product-news)
+  [Thomas Ezan](https://developer.android.com/blog/authors/thomas-ezan), [Mozart Louis](https://developer.android.com/blog/authors/mozart-louis) • 5 min read
+- [![View Paul Feng's profile](https://developer.android.com/static/blog/assets/paul_feng_759ac95845_spvRU.webp)](https://developer.android.com/blog/authors/paul-feng) 24 Jun 2026 24 Jun 2026 ![](https://developer.android.com/static/blog/assets/Apps_Experience_Play_Blog_Header_2000x1000_8c3a95404a_lYfpd.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Expanded billing choice and lower fees on Google Play](https://developer.android.com/blog/posts/expanded-billing-choice-and-lower-fees-on-google-play)
 
   [arrow_forward](https://developer.android.com/blog/posts/expanded-billing-choice-and-lower-fees-on-google-play) At Google Play, we are committed to delivering the best possible experience to users, while ensuring developers have the tools and adaptability to succeed.
-
-  ###### [Paul Feng](https://developer.android.com/blog/authors/paul-feng) •
-  3 min read
-
-# Stay in the loop
+  [Paul Feng](https://developer.android.com/blog/authors/paul-feng) • 3 min read
+Stay in the loop
 
 
 Get the latest Android development insights delivered to your inbox

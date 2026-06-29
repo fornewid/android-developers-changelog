@@ -4,19 +4,11 @@ url: https://developer.android.com/blog/posts/under-the-hood-android-17-lock-fre
 source: md.txt
 ---
 
-#### [Product News](https://developer.android.com/blog/categories/product-news)
+[Product News](https://developer.android.com/blog/categories/product-news)
 
 # Under the hood: Android 17's lock-free MessageQueue
 
-###### 16-min read
-
-![](https://developer.android.com/static/blog/assets/Android_17_s_Lock_Free_Message_Queue_Blog_2169eab465_1EHW3E.webp) 17 Feb 2026 [![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](https://developer.android.com/blog/authors/charles-munger)[![](https://developer.android.com/static/blog/assets/shai_1d2925f4dc_ibtbq.webp)](https://developer.android.com/blog/authors/shai-barack)
-
-##### [Charles Munger](https://developer.android.com/blog/authors/charles-munger)
-\&
-[Shai Barack](https://developer.android.com/blog/authors/shai-barack)
-
-In Android 17, apps targeting SDK 37 or higher will receive a new implementation of MessageQueue where the implementation is lock-free. The new implementation improves performance and reduces missed frames, but may break clients that reflect on MessageQueue private fields and methods. To learn more about the behavior change and how you can mitigate impact, [check out the MessageQueue behavior change documentation](http://developer.android.com/about/versions/17/changes/messagequeue). This technical blog post provides an overview of the MessageQueue rearchitecture and how you can analyze lock contention issues using Perfetto.
+16-min read ![](https://developer.android.com/static/blog/assets/Android_17_s_Lock_Free_Message_Queue_Blog_2169eab465_1EHW3E.webp) 17 Feb 2026 [![View Charles Munger's profile](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](https://developer.android.com/blog/authors/charles-munger)[![View Shai Barack's profile](https://developer.android.com/static/blog/assets/shai_1d2925f4dc_ibtbq.webp)](https://developer.android.com/blog/authors/shai-barack) [Charles Munger](https://developer.android.com/blog/authors/charles-munger) \& [Shai Barack](https://developer.android.com/blog/authors/shai-barack) In Android 17, apps targeting SDK 37 or higher will receive a new implementation of MessageQueue where the implementation is lock-free. The new implementation improves performance and reduces missed frames, but may break clients that reflect on MessageQueue private fields and methods. To learn more about the behavior change and how you can mitigate impact, [check out the MessageQueue behavior change documentation](http://developer.android.com/about/versions/17/changes/messagequeue). This technical blog post provides an overview of the MessageQueue rearchitecture and how you can analyze lock contention issues using Perfetto.
 
 The [Looper](https://developer.android.com/reference/android/os/Looper) drives the UI thread of every Android application. It pulls work from a [MessageQueue](https://developer.android.com/reference/android/os/MessageQueue), dispatches it to a [Handler](https://developer.android.com/reference/android/os/Handler), and repeats. For two decades, `MessageQueue` used a single monitor lock (i.e. a `synchronized` code block) to protect its state.
 
@@ -407,8 +399,7 @@ DeliQueue is rolling out to apps in Android 17. App developers should review pre
 \[1\] Treiber, R.K., 1986. Systems programming: Coping with parallelism. International Business Machines Incorporated, Thomas J. Watson Research Center.
 
 \[2\] Goetz, B., Peierls, T., Bloch, J., Bowbeer, J., Holmes, D., \& Lea, D. (2006). Java Concurrency in Practice. Addison-Wesley Professional.
-
-###### Written by:
+Written by:
 
 -
 
@@ -417,7 +408,7 @@ DeliQueue is rolling out to apps in Android 17. App developers should review pre
   ###### Software Engineer
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/charles-munger) ![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg) ![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)
+  View profile](https://developer.android.com/blog/authors/charles-munger) ![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg) ![View Charles Munger's profile](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)
 -
 
   ## [Shai Barack](https://developer.android.com/blog/authors/shai-barack)
@@ -425,47 +416,29 @@ DeliQueue is rolling out to apps in Android 17. App developers should review pre
   ###### Android Platform Performance Lead
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/shai-barack) ![](https://developer.android.com/static/blog/assets/shai_1d2925f4dc_ibtbq.webp) ![](https://developer.android.com/static/blog/assets/shai_1d2925f4dc_ibtbq.webp)
-
-## Continue reading
-
-- [![](https://developer.android.com/static/blog/assets/paul_feng_759ac95845_spvRU.webp)](https://developer.android.com/blog/authors/paul-feng) 24 Jun 2026 24 Jun 2026 ![](https://developer.android.com/static/blog/assets/Apps_Experience_Play_Blog_Header_2000x1000_8c3a95404a_lYfpd.webp)
-
-  #### [Product News](https://developer.android.com/blog/categories/product-news)
+  View profile](https://developer.android.com/blog/authors/shai-barack) ![View Shai Barack's profile](https://developer.android.com/static/blog/assets/shai_1d2925f4dc_ibtbq.webp) ![View Shai Barack's profile](https://developer.android.com/static/blog/assets/shai_1d2925f4dc_ibtbq.webp)
+Continue reading
+- [![View Paul Feng's profile](https://developer.android.com/static/blog/assets/paul_feng_759ac95845_spvRU.webp)](https://developer.android.com/blog/authors/paul-feng) 24 Jun 2026 24 Jun 2026 ![](https://developer.android.com/static/blog/assets/Apps_Experience_Play_Blog_Header_2000x1000_8c3a95404a_lYfpd.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Expanded billing choice and lower fees on Google Play](https://developer.android.com/blog/posts/expanded-billing-choice-and-lower-fees-on-google-play)
 
   [arrow_forward](https://developer.android.com/blog/posts/expanded-billing-choice-and-lower-fees-on-google-play) At Google Play, we are committed to delivering the best possible experience to users, while ensuring developers have the tools and adaptability to succeed.
-
-  ###### [Paul Feng](https://developer.android.com/blog/authors/paul-feng) •
-  3 min read
-
-- [![](https://developer.android.com/static/blog/assets/matthew_9c798f0c1d_Z1m5WWD.webp)](https://developer.android.com/blog/authors/matthew-forsythe) 18 Jun 2026 18 Jun 2026 ![](https://developer.android.com/static/blog/assets/Strapi_2x_325a484212_1BGPPB.webp)
-
-  #### [Product News](https://developer.android.com/blog/categories/product-news)
+  [Paul Feng](https://developer.android.com/blog/authors/paul-feng) • 3 min read
+- [![View Matthew Forsythe's profile](https://developer.android.com/static/blog/assets/matthew_9c798f0c1d_Z1m5WWD.webp)](https://developer.android.com/blog/authors/matthew-forsythe) 18 Jun 2026 18 Jun 2026 ![](https://developer.android.com/static/blog/assets/Strapi_2x_325a484212_1BGPPB.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Android developer verification: Building a safer ecosystem together](https://developer.android.com/blog/posts/android-developer-verification-building-a-safer-ecosystem-together)
 
   [arrow_forward](https://developer.android.com/blog/posts/android-developer-verification-building-a-safer-ecosystem-together) Last year, we introduced Android developer verification to strengthen ecosystem security and stop malicious actors from hiding behind anonymity to release harmful apps.
-
-  ###### [Matthew Forsythe](https://developer.android.com/blog/authors/matthew-forsythe) •
-  2 min read
-
-- [![](https://developer.android.com/static/blog/assets/Stevan_Silva_7661118077_V4WGm.webp)](https://developer.android.com/blog/authors/stevan-silva)[![](https://developer.android.com/static/blog/assets/unnamed_5_cdab7ecfba_2kh65s.webp)](https://developer.android.com/blog/authors/vinny-da-silva) 15 Jun 2026 15 Jun 2026 ![](https://developer.android.com/static/blog/assets/MM_Android_XR_Meta_a489e757ed_Z1R62M0.webp)
-
-  #### [Product News](https://developer.android.com/blog/categories/product-news)
+  [Matthew Forsythe](https://developer.android.com/blog/authors/matthew-forsythe) • 2 min read
+- [![View Stevan Silva's profile](https://developer.android.com/static/blog/assets/Stevan_Silva_7661118077_V4WGm.webp)](https://developer.android.com/blog/authors/stevan-silva)[![View Vinny DaSilva's profile](https://developer.android.com/static/blog/assets/unnamed_5_cdab7ecfba_2kh65s.webp)](https://developer.android.com/blog/authors/vinny-da-silva) 15 Jun 2026 15 Jun 2026 ![](https://developer.android.com/static/blog/assets/MM_Android_XR_Meta_a489e757ed_Z1R62M0.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [What's New in Android XR: Tooling, Engine Support, and Ecosystem Updates](https://developer.android.com/blog/posts/what-s-new-in-android-xr-tooling-engine-support-and-ecosystem-updates)
 
   [arrow_forward](https://developer.android.com/blog/posts/what-s-new-in-android-xr-tooling-engine-support-and-ecosystem-updates) From augmented overlays to fully immersive environments, the Android XR ecosystem is expanding rapidly, with the Samsung Galaxy XR already available today.
-
-  ###### [Stevan Silva](https://developer.android.com/blog/authors/stevan-silva), [Vinny DaSilva](https://developer.android.com/blog/authors/vinny-da-silva) •
-  3 min read
-
+  [Stevan Silva](https://developer.android.com/blog/authors/stevan-silva), [Vinny DaSilva](https://developer.android.com/blog/authors/vinny-da-silva) • 3 min read
   - [#Android XR](https://developer.android.com/blog/topics/android-xr)
   - [#Developer Preview 4](https://developer.android.com/blog/topics/developer-preview-4)
-
-# Stay in the loop
+Stay in the loop
 
 
 Get the latest Android development insights delivered to your inbox

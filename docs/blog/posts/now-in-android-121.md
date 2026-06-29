@@ -4,17 +4,11 @@ url: https://developer.android.com/blog/posts/now-in-android-121
 source: md.txt
 ---
 
-#### [Community](https://developer.android.com/blog/categories/community)
+[Community](https://developer.android.com/blog/categories/community)
 
 # Now in Android #121
 
-###### 9-min read
-
-![](https://developer.android.com/static/blog/assets/Now_In_Android121_f4ff784252_Z2dFDgg.webp) 20 Oct 2025 [![](https://developer.android.com/static/blog/assets/dgalpin_30033d2d42_Z1EXpfD.webp)](https://developer.android.com/blog/authors/daniel-galpin) [##### Daniel Galpin](https://developer.android.com/blog/authors/daniel-galpin)
-
-###### Developer Advocate
-
-Welcome to Now in Android, your ongoing guide to what's new and notable in the world of Android development.
+9-min read ![](https://developer.android.com/static/blog/assets/Now_In_Android121_f4ff784252_Z2dFDgg.webp) 20 Oct 2025 [![View Daniel Galpin's profile](https://developer.android.com/static/blog/assets/dgalpin_30033d2d42_Z1EXpfD.webp)](https://developer.android.com/blog/authors/daniel-galpin) [Daniel Galpin](https://developer.android.com/blog/authors/daniel-galpin) Developer Advocate Welcome to Now in Android, your ongoing guide to what's new and notable in the world of Android development.
 
 Read on for coverage of [Android 16 QPR2 beta 1](http://android-developers.googleblog.com/2025/08/android-16-qpr2-beta-1-is-here.html), the [Android Studio Narwhal feature drop](http://android-developers.googleblog.com/2025/07/android-studio-narwhal-feature-drop-stable-agent-mode.html), [Jetpack Compose 1.9](http://android-developers.googleblog.com/2025/08/whats-new-in-jetpack-compose-august-25-release.html), [Media 3 1.8](http://android-developers.googleblog.com/2025/08/media3-180-whats-new.html), [Shape Morphing](https://www.youtube.com/watch?v=0moEXBqNDZI) and [Autofill in Compose](https://www.youtube.com/watch?v=Tb6bGiha6xg), and much more.
 
@@ -249,8 +243,7 @@ Check back soon for your next update from the Android developer universe!
 - [#Android Studio](https://developer.android.com/blog/topics/android-studio)
 - [#Now In Android](https://developer.android.com/blog/topics/now-in-android)
 - [#Compose](https://developer.android.com/blog/topics/compose)
-
-###### Written by:
+Written by:
 
 -
 
@@ -259,46 +252,29 @@ Check back soon for your next update from the Android developer universe!
   ###### Developer Advocate
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/daniel-galpin) ![](https://developer.android.com/static/blog/assets/dgalpin_30033d2d42_Z1EXpfD.webp) ![](https://developer.android.com/static/blog/assets/dgalpin_30033d2d42_Z1EXpfD.webp)
-
-## Continue reading
-
-- [![](https://developer.android.com/static/blog/assets/matthew_9c798f0c1d_Z1m5WWD.webp)](https://developer.android.com/blog/authors/matthew-forsythe) 30 Sep 2025 30 Sep 2025 ![](https://developer.android.com/static/blog/assets/lets_Talk_Security_3e0a595955_rfy1m.webp)
-
-  #### [Community](https://developer.android.com/blog/categories/community)
+  View profile](https://developer.android.com/blog/authors/daniel-galpin) ![View Daniel Galpin's profile](https://developer.android.com/static/blog/assets/dgalpin_30033d2d42_Z1EXpfD.webp) ![View Daniel Galpin's profile](https://developer.android.com/static/blog/assets/dgalpin_30033d2d42_Z1EXpfD.webp)
+Continue reading
+- [![View Matthew Forsythe's profile](https://developer.android.com/static/blog/assets/matthew_9c798f0c1d_Z1m5WWD.webp)](https://developer.android.com/blog/authors/matthew-forsythe) 30 Sep 2025 30 Sep 2025 ![](https://developer.android.com/static/blog/assets/lets_Talk_Security_3e0a595955_rfy1m.webp) [Community](https://developer.android.com/blog/categories/community)
 
   ## [Let's talk security: Answering your top questions about Android developer verification](https://developer.android.com/blog/posts/lets-talk-security-answering-your-top)
 
   [arrow_forward](https://developer.android.com/blog/posts/lets-talk-security-answering-your-top) Android recently announced developer verification, an extra layer of security that deters bad actors and makes it harder for them to spread harm.
-
-  ###### [Matthew Forsythe](https://developer.android.com/blog/authors/matthew-forsythe) •
-  2 min read
-
+  [Matthew Forsythe](https://developer.android.com/blog/authors/matthew-forsythe) • 2 min read
   - [#Android](https://developer.android.com/blog/topics/android)
   - [#identity](https://developer.android.com/blog/topics/identity)
-- [![](https://developer.android.com/static/blog/assets/Robbie_280bd4586c_2wmcrw.webp)](https://developer.android.com/blog/authors/robbie-mclachlan) 25 Mar 2026 25 Mar 2026 ![](https://developer.android.com/static/blog/assets/Meet_The_Class_2_bb4f1ec5bd_Z1MklPk.webp)
-
-  #### [Community](https://developer.android.com/blog/categories/community)
+- [![View Robbie McLachlan's profile](https://developer.android.com/static/blog/assets/Robbie_280bd4586c_2wmcrw.webp)](https://developer.android.com/blog/authors/robbie-mclachlan) 25 Mar 2026 25 Mar 2026 ![](https://developer.android.com/static/blog/assets/Meet_The_Class_2_bb4f1ec5bd_Z1MklPk.webp) [Community](https://developer.android.com/blog/categories/community)
 
   ## [Meet the class of 2026 for the Google Play Apps Accelerator](https://developer.android.com/blog/posts/meet-the-class-of-2026-for-the-google-play-apps-accelerator)
 
   [arrow_forward](https://developer.android.com/blog/posts/meet-the-class-of-2026-for-the-google-play-apps-accelerator) The wait is over! We are incredibly excited to share the Google Play Apps Accelerator class of 2026.
-
-  ###### [Robbie McLachlan](https://developer.android.com/blog/authors/robbie-mclachlan) •
-  1 min read
-
-- [![](https://developer.android.com/static/blog/assets/Robbie_280bd4586c_2wmcrw.webp)](https://developer.android.com/blog/authors/robbie-mclachlan) 11 Dec 2025 11 Dec 2025 ![](https://developer.android.com/static/blog/assets/Android_Devs_Google_Devs_Blog_Header_1200x600_79350b0b52_1w8gkH.webp)
-
-  #### [Community](https://developer.android.com/blog/categories/community)
+  [Robbie McLachlan](https://developer.android.com/blog/authors/robbie-mclachlan) • 1 min read
+- [![View Robbie McLachlan's profile](https://developer.android.com/static/blog/assets/Robbie_280bd4586c_2wmcrw.webp)](https://developer.android.com/blog/authors/robbie-mclachlan) 11 Dec 2025 11 Dec 2025 ![](https://developer.android.com/static/blog/assets/Android_Devs_Google_Devs_Blog_Header_1200x600_79350b0b52_1w8gkH.webp) [Community](https://developer.android.com/blog/categories/community)
 
   ## [#WeArePlay: How Matraquina helps non-verbal kids communicate](https://developer.android.com/blog/posts/we-are-play-how-matraquina-helps-non-verbal-kids-communicate)
 
   [arrow_forward](https://developer.android.com/blog/posts/we-are-play-how-matraquina-helps-non-verbal-kids-communicate) In our latest #WeArePlay film, we meet Adriano, Wagner and Grazyelle. The trio are behind Matraquinha, an app helping thousands of non-verbal children in more than 80 countries communicate.
-
-  ###### [Robbie McLachlan](https://developer.android.com/blog/authors/robbie-mclachlan) •
-  2 min read
-
-# Stay in the loop
+  [Robbie McLachlan](https://developer.android.com/blog/authors/robbie-mclachlan) • 2 min read
+Stay in the loop
 
 
 Get the latest Android development insights delivered to your inbox

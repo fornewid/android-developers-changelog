@@ -4,13 +4,11 @@ url: https://developer.android.com/blog/authors/alon-hetzroni
 source: md.txt
 ---
 
-## 1
-
-post ![](https://developer.android.com/static/blog/assets/ahetzroni_profile_3fbed6e24c_1Th2rE.webp)
+1 post ![](https://developer.android.com/static/blog/assets/ahetzroni_profile_3fbed6e24c_1Th2rE.webp)
 
 # Alon Hetzroni
 
-###### UX Engineer
+UX Engineer
 
 Android XR
 - 22 Jun 2026 22 Jun 2026 ![](https://developer.android.com/static/blog/assets/MM_Android_XR_Geospatial_V02_Strapi_5c55395a9c_UkzvN.webp)
@@ -18,10 +16,8 @@ Android XR
   ## [Building a Mixed-Reality Tour Guide with Android XR, the Geospatial API, and Gemini](https://developer.android.com/blog/posts/building-a-mixed-reality-tour-guide-with-android-xr-the-geospatial-api-and-gemini)
 
   [arrow_forward](https://developer.android.com/blog/posts/building-a-mixed-reality-tour-guide-with-android-xr-the-geospatial-api-and-gemini) At this year's Google I/O, we announced an update for spatial experiences: the Geospatial API is now available as a preview in ARCore for Jetpack XR.
-
-  ###### 7 min read
-
-# Stay in the loop
+  7 min read
+Stay in the loop
 
 
 Get the latest Android development insights delivered to your inbox

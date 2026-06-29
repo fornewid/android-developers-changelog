@@ -4,17 +4,11 @@ url: https://developer.android.com/blog/posts/use-r8-to-shrink-optimize-and-fast
 source: md.txt
 ---
 
-#### [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs)
+[Events \& Programs](https://developer.android.com/blog/categories/events-and-programs)
 
 # Use R8 to shrink, optimize, and fast-track your app
 
-###### 5-min read
-
-![](https://developer.android.com/static/blog/assets/performance_Week10_467f2693b4_2su32q.webp) 17 Nov 2025 [![](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2dcD9g.webp)](https://developer.android.com/blog/authors/ben-weiss) [##### Ben Weiss](https://developer.android.com/blog/authors/ben-weiss)
-
-###### Developer Relations Engineer
-
-**Use R8 to shrink, optimize, and fast-track your app**
+5-min read ![](https://developer.android.com/static/blog/assets/performance_Week10_467f2693b4_2su32q.webp) 17 Nov 2025 [![View Ben Weiss's profile](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2dcD9g.webp)](https://developer.android.com/blog/authors/ben-weiss) [Ben Weiss](https://developer.android.com/blog/authors/ben-weiss) Developer Relations Engineer **Use R8 to shrink, optimize, and fast-track your app**
 
 Welcome to day one of Android Performance Spotlight Week!
 
@@ -141,8 +135,7 @@ We're confident you'll see a meaningful improvement in your app's performance. U
 ## Bring your questions for the Ask Android session on Friday
 
 Use the social tag #AskAndroid to bring any performance questions. Throughout the week we are monitoring your questions and will answer several in the Ask Android session on performance on Friday, November 21. Stay tuned for tomorrow, where we'll dive even deeper into debugging and troubleshooting. But for now, get started with R8 and get your app on the fast track.
-
-###### Written by:
+Written by:
 
 -
 
@@ -151,49 +144,33 @@ Use the social tag #AskAndroid to bring any performance questions. Throughout th
   ###### Developer Relations Engineer
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/ben-weiss) ![](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2dcD9g.webp) ![](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2dcD9g.webp)
-
-## Continue reading
-
-- [![](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2dcD9g.webp)](https://developer.android.com/blog/authors/ben-weiss)[![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](https://developer.android.com/blog/authors/sara-hamilton) 21 Nov 2025 21 Nov 2025 ![](https://developer.android.com/static/blog/assets/performance_Week12_b8eed5b989_2b3WAh.webp)
-
-  #### [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs)
+  View profile](https://developer.android.com/blog/authors/ben-weiss) ![View Ben Weiss's profile](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2dcD9g.webp) ![View Ben Weiss's profile](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2dcD9g.webp)
+Continue reading
+- [![View Ben Weiss's profile](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2dcD9g.webp)](https://developer.android.com/blog/authors/ben-weiss)[![View Charles Munger's profile](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](https://developer.android.com/blog/authors/sara-hamilton) 21 Nov 2025 21 Nov 2025 ![](https://developer.android.com/static/blog/assets/performance_Week12_b8eed5b989_2b3WAh.webp) [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs)
 
   ## [Fully Optimized: Wrapping up Performance Spotlight Week](https://developer.android.com/blog/posts/fully-optimized-wrapping-up-performance-spotlight-week)
 
   [arrow_forward](https://developer.android.com/blog/posts/fully-optimized-wrapping-up-performance-spotlight-week) From the foundational powers of the R8 optimizer and Profile Guided Optimizations, to performance improvements with Jetpack Compose, to a new guide on leveling up your app's performance, we've covered the low effort, high impact tools you need to build a performant app.
-
-  ###### [Ben Weiss](https://developer.android.com/blog/authors/ben-weiss), [Sara Hamilton](https://developer.android.com/blog/authors/sara-hamilton) •
-  3 min read
-
-- 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Text_Strapi_2000x1000_2d4221d884_ZtW7eg.webp)
-
-  #### [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs)
+  [Ben Weiss](https://developer.android.com/blog/authors/ben-weiss), [Sara Hamilton](https://developer.android.com/blog/authors/sara-hamilton) • 3 min read
+- 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Text_Strapi_2000x1000_2d4221d884_ZtW7eg.webp) [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs)
 
   ## [Build for the future with the Android XR Developer Catalyst Program --- Apply now!](https://developer.android.com/blog/posts/build-for-the-future-with-the-android-xr-developer-catalyst-program-apply-now)
 
   [arrow_forward](https://developer.android.com/blog/posts/build-for-the-future-with-the-android-xr-developer-catalyst-program-apply-now) We're opening applications for the Android XR Developer Catalyst Program, a dedicated initiative to accelerate the development of Android XR apps ready to launch within the next year.
-
-  ###### 1 min read
-
+  1 min read
   - [#Android XR](https://developer.android.com/blog/topics/android-xr)
   - [#intelligent eyewear](https://developer.android.com/blog/topics/intelligent-eyewear)
   - [#Wired XR glasses](https://developer.android.com/blog/topics/wired-xr-glasses)
   - +1 ↩
-- 14 Apr 2026 14 Apr 2026 ![](https://developer.android.com/static/blog/assets/Blog_banner_Dark_2000x1000_B_c6418d3a5c_ZbdvH4.webp)
-
-  #### [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs)
+- 14 Apr 2026 14 Apr 2026 ![](https://developer.android.com/static/blog/assets/Blog_banner_Dark_2000x1000_B_c6418d3a5c_ZbdvH4.webp) [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs)
 
   ## [Get ready for Google I/O: Livestream schedule revealed](https://developer.android.com/blog/posts/get-ready-for-google-io-livestream-schedule-revealed)
 
   [arrow_forward](https://developer.android.com/blog/posts/get-ready-for-google-io-livestream-schedule-revealed) The Google I/O schedule is here!
-
-  ###### 1 min read
-
+  1 min read
   - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
   - [#Generative AI](https://developer.android.com/blog/topics/generative-ai)
-
-# Stay in the loop
+Stay in the loop
 
 
 Get the latest Android development insights delivered to your inbox

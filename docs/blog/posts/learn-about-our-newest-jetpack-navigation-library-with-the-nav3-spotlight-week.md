@@ -4,17 +4,11 @@ url: https://developer.android.com/blog/posts/learn-about-our-newest-jetpack-nav
 source: md.txt
 ---
 
-#### [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs)
+[Events \& Programs](https://developer.android.com/blog/categories/events-and-programs)
 
 # Learn about our newest Jetpack Navigation library with the Nav3 Spotlight Week
 
-###### 1-min read
-
-![](https://developer.android.com/static/blog/assets/Spotlightweek_Blog_banner_2_77cf3dc16b_Z1N257A.webp) 01 Dec 2025 [![](https://developer.android.com/static/blog/assets/don_bccb8c3f75_1ufD8A.webp)](https://developer.android.com/blog/authors/don-turner) [##### Don Turner](https://developer.android.com/blog/authors/don-turner)
-
-###### Developer Relations Engineer
-
-[Jetpack Navigation 3](https://developer.android.com/guide/navigation/navigation-3) is [now stable](https://android-developers.googleblog.com/2025/11/jetpack-navigation-3-is-stable.html), and using it can help you reduce tech debt, provide better separation of concerns, speed up feature development time, and support new form factors. We're dedicating a whole week to providing content to help you learn about Nav3, and start integrating it into your app.
+1-min read ![](https://developer.android.com/static/blog/assets/Spotlightweek_Blog_banner_2_77cf3dc16b_Z1N257A.webp) 01 Dec 2025 [![View Don Turner's profile](https://developer.android.com/static/blog/assets/don_bccb8c3f75_1ufD8A.webp)](https://developer.android.com/blog/authors/don-turner) [Don Turner](https://developer.android.com/blog/authors/don-turner) Developer Relations Engineer [Jetpack Navigation 3](https://developer.android.com/guide/navigation/navigation-3) is [now stable](https://android-developers.googleblog.com/2025/11/jetpack-navigation-3-is-stable.html), and using it can help you reduce tech debt, provide better separation of concerns, speed up feature development time, and support new form factors. We're dedicating a whole week to providing content to help you learn about Nav3, and start integrating it into your app.
 
 You'll learn about the library in detail, how to modularize your navigation code, and lots of code recipes for common use cases. At the end of the week, tune into the "Ask Me Anything" session so you can have the experts answer anything you like about Nav3. Here's the full schedule:
 
@@ -59,8 +53,7 @@ Learn how to [modularize your navigation code](https://developer.android.com/gui
 *Dec 5th, 2025*
 
 Do you have burning questions? We have a panel of experts waiting to provide answers [live at 9am PST on Friday](https://youtube.com/live/JsugLEM6po0?feature=share). Ask your questions using the #AskAndroid tag on [BlueSky](https://bsky.app/hashtag/AskAndroid), [LinkedIn](https://www.linkedin.com/search/results/all/?keywords=%23AskAndroid) and [X](https://x.com/hashtag/AskAndroid).
-
-###### Written by:
+Written by:
 
 -
 
@@ -69,48 +62,33 @@ Do you have burning questions? We have a panel of experts waiting to provide ans
   ###### Developer Relations Engineer
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/don-turner) ![](https://developer.android.com/static/blog/assets/don_bccb8c3f75_1ufD8A.webp) ![](https://developer.android.com/static/blog/assets/don_bccb8c3f75_1ufD8A.webp)
-
-## Continue reading
-
-- 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Text_Strapi_2000x1000_2d4221d884_ZtW7eg.webp)
-
-  #### [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs)
+  View profile](https://developer.android.com/blog/authors/don-turner) ![View Don Turner's profile](https://developer.android.com/static/blog/assets/don_bccb8c3f75_1ufD8A.webp) ![View Don Turner's profile](https://developer.android.com/static/blog/assets/don_bccb8c3f75_1ufD8A.webp)
+Continue reading
+- 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Text_Strapi_2000x1000_2d4221d884_ZtW7eg.webp) [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs)
 
   ## [Build for the future with the Android XR Developer Catalyst Program --- Apply now!](https://developer.android.com/blog/posts/build-for-the-future-with-the-android-xr-developer-catalyst-program-apply-now)
 
   [arrow_forward](https://developer.android.com/blog/posts/build-for-the-future-with-the-android-xr-developer-catalyst-program-apply-now) We're opening applications for the Android XR Developer Catalyst Program, a dedicated initiative to accelerate the development of Android XR apps ready to launch within the next year.
-
-  ###### 1 min read
-
+  1 min read
   - [#Android XR](https://developer.android.com/blog/topics/android-xr)
   - [#intelligent eyewear](https://developer.android.com/blog/topics/intelligent-eyewear)
   - [#Wired XR glasses](https://developer.android.com/blog/topics/wired-xr-glasses)
   - +1 ↩
-- 14 Apr 2026 14 Apr 2026 ![](https://developer.android.com/static/blog/assets/Blog_banner_Dark_2000x1000_B_c6418d3a5c_ZbdvH4.webp)
-
-  #### [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs)
+- 14 Apr 2026 14 Apr 2026 ![](https://developer.android.com/static/blog/assets/Blog_banner_Dark_2000x1000_B_c6418d3a5c_ZbdvH4.webp) [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs)
 
   ## [Get ready for Google I/O: Livestream schedule revealed](https://developer.android.com/blog/posts/get-ready-for-google-io-livestream-schedule-revealed)
 
   [arrow_forward](https://developer.android.com/blog/posts/get-ready-for-google-io-livestream-schedule-revealed) The Google I/O schedule is here!
-
-  ###### 1 min read
-
+  1 min read
   - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
   - [#Generative AI](https://developer.android.com/blog/topics/generative-ai)
-- [![](https://developer.android.com/static/blog/assets/maru_ahues_7598dede84_Zr7Omv.webp)](https://developer.android.com/blog/authors/maru-ahues-bouza) 11 Mar 2026 11 Mar 2026 ![](https://developer.android.com/static/blog/assets/Google_Play_Level_Up_metadata_banner_2048x1323_33658d545a_ZDM8Sn.webp)
-
-  #### [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs)
+- [![View Maru Ahues Bouza's profile](https://developer.android.com/static/blog/assets/maru_ahues_7598dede84_Zr7Omv.webp)](https://developer.android.com/blog/authors/maru-ahues-bouza) 11 Mar 2026 11 Mar 2026 ![](https://developer.android.com/static/blog/assets/Google_Play_Level_Up_metadata_banner_2048x1323_33658d545a_ZDM8Sn.webp) [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs)
 
   ## [Level Up: Test Sidekick and prepare for upcoming program milestones](https://developer.android.com/blog/posts/level-up-test-sidekick-and-prepare-for-upcoming-program-milestones)
 
   [arrow_forward](https://developer.android.com/blog/posts/level-up-test-sidekick-and-prepare-for-upcoming-program-milestones) Last September, we shared our vision for the future of Google Play Games grounded in a core belief: the best way to drive your game's success is to deliver a world-class player experience.
-
-  ###### [Maru Ahues Bouza](https://developer.android.com/blog/authors/maru-ahues-bouza) •
-  3 min read
-
-# Stay in the loop
+  [Maru Ahues Bouza](https://developer.android.com/blog/authors/maru-ahues-bouza) • 3 min read
+Stay in the loop
 
 
 Get the latest Android development insights delivered to your inbox

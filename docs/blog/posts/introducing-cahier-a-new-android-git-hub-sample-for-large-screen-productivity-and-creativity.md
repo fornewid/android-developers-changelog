@@ -4,17 +4,11 @@ url: https://developer.android.com/blog/posts/introducing-cahier-a-new-android-g
 source: md.txt
 ---
 
-#### [How-tos](https://developer.android.com/blog/categories/how-tos)
+[How-tos](https://developer.android.com/blog/categories/how-tos)
 
 # Introducing Cahier: A new Android GitHub sample for large screen productivity and creativity
 
-###### 11-min read
-
-![](https://developer.android.com/static/blog/assets/introducing_Cahier_792458c981_Z15HUkw.webp) 29 Oct 2025 [![](https://developer.android.com/static/blog/assets/Chris_Assigbe_2_a72a1e1687_sAjN.webp)](https://developer.android.com/blog/authors/chris-assigbe) [##### Chris Assigbe](https://developer.android.com/blog/authors/chris-assigbe)
-
-###### Developer Relations Engineer
-
-[Ink API](https://developer.android.com/jetpack/androidx/releases/ink) is now in [beta](https://developer.android.com/jetpack/androidx/releases/ink#1.0.0-beta01) and is ready to be integrated in your app. This milestone was made possible by valuable developer feedback, leading to continuous improvements in the API's performance, stability, and visual quality.
+11-min read ![](https://developer.android.com/static/blog/assets/introducing_Cahier_792458c981_Z15HUkw.webp) 29 Oct 2025 [![View Chris Assigbe's profile](https://developer.android.com/static/blog/assets/Chris_Assigbe_2_a72a1e1687_sAjN.webp)](https://developer.android.com/blog/authors/chris-assigbe) [Chris Assigbe](https://developer.android.com/blog/authors/chris-assigbe) Developer Relations Engineer [Ink API](https://developer.android.com/jetpack/androidx/releases/ink) is now in [beta](https://developer.android.com/jetpack/androidx/releases/ink#1.0.0-beta01) and is ready to be integrated in your app. This milestone was made possible by valuable developer feedback, leading to continuous improvements in the API's performance, stability, and visual quality.
 
 Google apps, such as [Google Docs](https://play.google.com/store/apps/details?id=com.google.android.apps.docs.editors.docs), [Pixel Studio](https://play.google.com/store/apps/details?id=com.google.android.apps.pixel.creativeassistant), [Google Photos](https://play.google.com/store/apps/details?id=com.google.android.apps.photos), [Chrome PDF](https://www.google.com/chrome/?brand=FHFK&ds_kid=10484928882&gclsrc=aw.ds&gad_source=1&gad_campaignid=22668273831&gbraid=0AAAAAoY3CA6P2Qnecu3wa4SGbiQesRxPr&gclid=CjwKCAjwx-zHBhBhEiwA7Kjq65_0B9_-VnywwemCbmR19p7LrWt-Zg8Ych8WNzYj_aF60bs5Xi2PlBoCtWQQAvD_BwE), [Youtube Effect Maker,](https://effects.youtube.com/) and unique features on Android such as [Circle to Search](https://search.google/ways-to-search/circle-to-search/) all use the latest APIs.
 
@@ -387,8 +381,7 @@ Ready to dive in?
 - **Contribute**: We welcome your contributions! Help us make Cahier an even better resource for the Android developer community.
 
 Check out the [official developer guides](https://developer.android.com/develop/ui/compose/touch-input/stylus-input) and start building your next generation productivity and creativity app today. We can't wait to see what you create!
-
-###### Written by:
+Written by:
 
 -
 
@@ -397,48 +390,31 @@ Check out the [official developer guides](https://developer.android.com/develop/
   ###### Developer Relations Engineer
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/chris-assigbe) ![](https://developer.android.com/static/blog/assets/Chris_Assigbe_2_a72a1e1687_sAjN.webp) ![](https://developer.android.com/static/blog/assets/Chris_Assigbe_2_a72a1e1687_sAjN.webp)
-
-## Continue reading
-
-- 3 Authors 02 Jun 2026 02 Jun 2026 ![](https://developer.android.com/static/blog/assets/Engineering_Memory_Blog_Strapi_3_bfd74f43e5_Z2i8kF7.webp)
-
-  #### [How-tos](https://developer.android.com/blog/categories/how-tos)
+  View profile](https://developer.android.com/blog/authors/chris-assigbe) ![View Chris Assigbe's profile](https://developer.android.com/static/blog/assets/Chris_Assigbe_2_a72a1e1687_sAjN.webp) ![View Chris Assigbe's profile](https://developer.android.com/static/blog/assets/Chris_Assigbe_2_a72a1e1687_sAjN.webp)
+Continue reading
+- 3 Authors 02 Jun 2026 02 Jun 2026 ![](https://developer.android.com/static/blog/assets/Engineering_Memory_Blog_Strapi_3_bfd74f43e5_Z2i8kF7.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
 
   ## [Prioritizing Memory Efficiency: Essential Steps for Android 17](https://developer.android.com/blog/posts/prioritizing-memory-efficiency-essential-steps-for-android-17)
 
   [arrow_forward](https://developer.android.com/blog/posts/prioritizing-memory-efficiency-essential-steps-for-android-17) While app performance is often equated with a smooth UI and fast start times, memory serves as the silent foundation upon which these visible metrics are built. It's no secret that we're seeing a shift where device memory is more important than ever.
-
-  ###### [Alice Yuan](https://developer.android.com/blog/authors/alice-yuan), [Ajesh Pai](https://developer.android.com/blog/authors/ajesh-pai), [Fung Lam](https://developer.android.com/blog/authors/fung-lam) •
-  10 min read
-
+  [Alice Yuan](https://developer.android.com/blog/authors/alice-yuan), [Ajesh Pai](https://developer.android.com/blog/authors/ajesh-pai), [Fung Lam](https://developer.android.com/blog/authors/fung-lam) • 10 min read
   - [#Memory](https://developer.android.com/blog/topics/memory)
   - [#Android](https://developer.android.com/blog/topics/android)
   - [#Performance](https://developer.android.com/blog/topics/performance)
   - +1 ↩
-- [![](https://developer.android.com/static/blog/assets/niharika_2910f6d612_C99s1.webp)](https://developer.android.com/blog/authors/niharika-arora)[![](https://developer.android.com/static/blog/assets/Jean_Pierre_Pralle_2bf889a65a_2buQLX.webp)](https://developer.android.com/blog/authors/jean-pierre-pralle) 22 Apr 2026 22 Apr 2026 ![](https://developer.android.com/static/blog/assets/Streamline_user_animation_V02_Strapi_abd12985d7_SvAX9.webp)
-
-  #### [How-tos](https://developer.android.com/blog/categories/how-tos)
+- [![View Niharika Arora's profile](https://developer.android.com/static/blog/assets/niharika_2910f6d612_C99s1.webp)](https://developer.android.com/blog/authors/niharika-arora)[![View Jean-Pierre Pralle's profile](https://developer.android.com/static/blog/assets/Jean_Pierre_Pralle_2bf889a65a_2buQLX.webp)](https://developer.android.com/blog/authors/jean-pierre-pralle) 22 Apr 2026 22 Apr 2026 ![](https://developer.android.com/static/blog/assets/Streamline_user_animation_V02_Strapi_abd12985d7_SvAX9.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
 
   ## [Streamline User Journeys with Verified Email via Credential Manager](https://developer.android.com/blog/posts/streamline-user-journeys-with-verified-email-via-credential-manager)
 
   [arrow_forward](https://developer.android.com/blog/posts/streamline-user-journeys-with-verified-email-via-credential-manager) Today, we're excited to announce a new verified email credential issued by Google, which developers can now retrieve directly from Android's Credential Manager Digital Credential API.
-
-  ###### [Niharika Arora](https://developer.android.com/blog/authors/niharika-arora), [Jean-Pierre Pralle](https://developer.android.com/blog/authors/jean-pierre-pralle) •
-  3 min read
-
-- [![](https://developer.android.com/static/blog/assets/Adarsh_profile_picture_8e88f2831a_1Ut9s6.webp)](https://developer.android.com/blog/authors/adarsh-fernando)[![](https://developer.android.com/static/blog/assets/estebandlc_profile_800x800_1d536f02a7_Z2cAv7x.webp)](https://developer.android.com/blog/authors/esteban-de-la-canal) 16 Apr 2026 16 Apr 2026 ![](https://developer.android.com/static/blog/assets/hours_CLI_Dark_Strapi_2x_427f20cc78_Z1oqB1M.webp)
-
-  #### [How-tos](https://developer.android.com/blog/categories/how-tos)
+  [Niharika Arora](https://developer.android.com/blog/authors/niharika-arora), [Jean-Pierre Pralle](https://developer.android.com/blog/authors/jean-pierre-pralle) • 3 min read
+- [![View Adarsh Fernando's profile](https://developer.android.com/static/blog/assets/Adarsh_profile_picture_8e88f2831a_1Ut9s6.webp)](https://developer.android.com/blog/authors/adarsh-fernando)[![View Esteban de la Canal's profile](https://developer.android.com/static/blog/assets/estebandlc_profile_800x800_1d536f02a7_Z2cAv7x.webp)](https://developer.android.com/blog/authors/esteban-de-la-canal) 16 Apr 2026 16 Apr 2026 ![](https://developer.android.com/static/blog/assets/hours_CLI_Dark_Strapi_2x_427f20cc78_Z1oqB1M.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
 
   ## [Android CLI and skills: Build Android apps 3x faster using any agent](https://developer.android.com/blog/posts/android-cli-build-android-apps-3x-faster-using-any-agent)
 
   [arrow_forward](https://developer.android.com/blog/posts/android-cli-build-android-apps-3x-faster-using-any-agent) Whether you are using Gemini in Android Studio, Gemini CLI, Antigravity, or third-party agents like Claude Code or Codex, our mission is to ensure that high-quality Android development is possible everywhere.
-
-  ###### [Adarsh Fernando](https://developer.android.com/blog/authors/adarsh-fernando), [Esteban de la Canal](https://developer.android.com/blog/authors/esteban-de-la-canal) •
-  4 min read
-
-# Stay in the loop
+  [Adarsh Fernando](https://developer.android.com/blog/authors/adarsh-fernando), [Esteban de la Canal](https://developer.android.com/blog/authors/esteban-de-la-canal) • 4 min read
+Stay in the loop
 
 
 Get the latest Android development insights delivered to your inbox

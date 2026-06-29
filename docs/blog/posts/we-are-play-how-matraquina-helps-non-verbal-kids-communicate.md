@@ -4,17 +4,11 @@ url: https://developer.android.com/blog/posts/we-are-play-how-matraquina-helps-n
 source: md.txt
 ---
 
-#### [Community](https://developer.android.com/blog/categories/community)
+[Community](https://developer.android.com/blog/categories/community)
 
 # #WeArePlay: How Matraquina helps non-verbal kids communicate
 
-###### 2-min read
-
-![](https://developer.android.com/static/blog/assets/Android_Devs_Google_Devs_Blog_Header_1200x600_79350b0b52_1w8gkH.webp) 11 Dec 2025 [![](https://developer.android.com/static/blog/assets/Robbie_280bd4586c_2wmcrw.webp)](https://developer.android.com/blog/authors/robbie-mclachlan) [##### Robbie McLachlan](https://developer.android.com/blog/authors/robbie-mclachlan)
-
-###### Brand Marketing Manager , Developer Marketing
-
-In our latest [#WeArePlay](https://play.google.com/console/about/weareplay/) film, we meet Adriano, Wagner and Grazyelle. The trio are behind [Matraquinha](https://play.google.com/store/apps/details?id=com.phonegap.matraquinha&gl=US), an app helping thousands of non-verbal children in more than 80 countries communicate. Discover more about their inspiring story and the impact on their own son, Gabriel.
+2-min read ![](https://developer.android.com/static/blog/assets/Android_Devs_Google_Devs_Blog_Header_1200x600_79350b0b52_1w8gkH.webp) 11 Dec 2025 [![View Robbie McLachlan's profile](https://developer.android.com/static/blog/assets/Robbie_280bd4586c_2wmcrw.webp)](https://developer.android.com/blog/authors/robbie-mclachlan) [Robbie McLachlan](https://developer.android.com/blog/authors/robbie-mclachlan) Brand Marketing Manager , Developer Marketing In our latest [#WeArePlay](https://play.google.com/console/about/weareplay/) film, we meet Adriano, Wagner and Grazyelle. The trio are behind [Matraquinha](https://play.google.com/store/apps/details?id=com.phonegap.matraquinha&gl=US), an app helping thousands of non-verbal children in more than 80 countries communicate. Discover more about their inspiring story and the impact on their own son, Gabriel.
 [Video](https://www.youtube.com/watch?v=NUR5TtKo9W4)
 
 **Wagner, you developed Matraquinha for a deeply personal reason: your son, Gabriel. Can you tell us what inspired you to create this app for him?**
@@ -40,8 +34,7 @@ Adriano: It's truly incredible for us to be on Google Play because, even without
 We are adding an extra 500 real images to the app, because kids are growing and no longer want drawings as they become teenagers. We're also creating a board that has pronouns, nouns, and verbs. So say, a child wants to let the parents know they like to eat hamburgers, they can tap on the different words and create a sentence. This gives them even more independence. We are also exploring ways to use AI to make the app even more personal and pursuing the same goal: ensuring every child can be heard.
 
 Discover other inspiring app and game founders featured in [#WeArePlay](https://play.google.com/console/about/weareplay/).
-
-###### Written by:
+Written by:
 
 -
 
@@ -50,44 +43,27 @@ Discover other inspiring app and game founders featured in [#WeArePlay](https://
   ###### Brand Marketing Manager
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/robbie-mclachlan) ![](https://developer.android.com/static/blog/assets/Robbie_280bd4586c_2wmcrw.webp) ![](https://developer.android.com/static/blog/assets/Robbie_280bd4586c_2wmcrw.webp)
-
-## Continue reading
-
-- [![](https://developer.android.com/static/blog/assets/Robbie_280bd4586c_2wmcrw.webp)](https://developer.android.com/blog/authors/robbie-mclachlan) 25 Mar 2026 25 Mar 2026 ![](https://developer.android.com/static/blog/assets/Meet_The_Class_2_bb4f1ec5bd_Z1MklPk.webp)
-
-  #### [Community](https://developer.android.com/blog/categories/community)
+  View profile](https://developer.android.com/blog/authors/robbie-mclachlan) ![View Robbie McLachlan's profile](https://developer.android.com/static/blog/assets/Robbie_280bd4586c_2wmcrw.webp) ![View Robbie McLachlan's profile](https://developer.android.com/static/blog/assets/Robbie_280bd4586c_2wmcrw.webp)
+Continue reading
+- [![View Robbie McLachlan's profile](https://developer.android.com/static/blog/assets/Robbie_280bd4586c_2wmcrw.webp)](https://developer.android.com/blog/authors/robbie-mclachlan) 25 Mar 2026 25 Mar 2026 ![](https://developer.android.com/static/blog/assets/Meet_The_Class_2_bb4f1ec5bd_Z1MklPk.webp) [Community](https://developer.android.com/blog/categories/community)
 
   ## [Meet the class of 2026 for the Google Play Apps Accelerator](https://developer.android.com/blog/posts/meet-the-class-of-2026-for-the-google-play-apps-accelerator)
 
   [arrow_forward](https://developer.android.com/blog/posts/meet-the-class-of-2026-for-the-google-play-apps-accelerator) The wait is over! We are incredibly excited to share the Google Play Apps Accelerator class of 2026.
-
-  ###### [Robbie McLachlan](https://developer.android.com/blog/authors/robbie-mclachlan) •
-  1 min read
-
-- [![](https://developer.android.com/static/blog/assets/Robbie_280bd4586c_2wmcrw.webp)](https://developer.android.com/blog/authors/robbie-mclachlan) 08 Dec 2025 08 Dec 2025 ![](https://developer.android.com/static/blog/assets/Android_Devs_Google_Devs_Blog_Header_1200x600_79350b0b52_1w8gkH.webp)
-
-  #### [Community](https://developer.android.com/blog/categories/community)
+  [Robbie McLachlan](https://developer.android.com/blog/authors/robbie-mclachlan) • 1 min read
+- [![View Robbie McLachlan's profile](https://developer.android.com/static/blog/assets/Robbie_280bd4586c_2wmcrw.webp)](https://developer.android.com/blog/authors/robbie-mclachlan) 08 Dec 2025 08 Dec 2025 ![](https://developer.android.com/static/blog/assets/Android_Devs_Google_Devs_Blog_Header_1200x600_79350b0b52_1w8gkH.webp) [Community](https://developer.android.com/blog/categories/community)
 
   ## [#WeArePlay: How Miksapix Interactive is bringing ancient Sámi Mythology to gamers worldwide](https://developer.android.com/blog/posts/we-are-play-how-miksapix-interactive-is-bringing-ancient-sami-mythology-to-gamers-worldwide)
 
   [arrow_forward](https://developer.android.com/blog/posts/we-are-play-how-miksapix-interactive-is-bringing-ancient-sami-mythology-to-gamers-worldwide) In our latest #WeArePlay film, which celebrates the people behind apps and games on Google Play, we meet Mikkel - the founder and CEO of Miksapix Interactive.
-
-  ###### [Robbie McLachlan](https://developer.android.com/blog/authors/robbie-mclachlan) •
-  2 min read
-
-- [![](https://developer.android.com/static/blog/assets/Robbie_280bd4586c_2wmcrw.webp)](https://developer.android.com/blog/authors/robbie-mclachlan) 25 Nov 2025 25 Nov 2025 ![](https://developer.android.com/static/blog/assets/Android_Devs_Google_Devs_Blog_Header_1200x600_79350b0b52_1w8gkH.webp)
-
-  #### [Community](https://developer.android.com/blog/categories/community)
+  [Robbie McLachlan](https://developer.android.com/blog/authors/robbie-mclachlan) • 2 min read
+- [![View Robbie McLachlan's profile](https://developer.android.com/static/blog/assets/Robbie_280bd4586c_2wmcrw.webp)](https://developer.android.com/blog/authors/robbie-mclachlan) 25 Nov 2025 25 Nov 2025 ![](https://developer.android.com/static/blog/assets/Android_Devs_Google_Devs_Blog_Header_1200x600_79350b0b52_1w8gkH.webp) [Community](https://developer.android.com/blog/categories/community)
 
   ## [#WeArePlay: Solving the dinner dilemma - how DELISH KITCHEN empowers 13 million home cooks](https://developer.android.com/blog/posts/we-are-play-solving-the-dinner-dilemma-how-delish-kitchen-empowers-13-million-home-cooks)
 
   [arrow_forward](https://developer.android.com/blog/posts/we-are-play-solving-the-dinner-dilemma-how-delish-kitchen-empowers-13-million-home-cooks) In our latest #WeArePlay film, which celebrates the people behind apps and games on Google Play, we meet Chiharu - a co-founder of DELISH KITCHEN.
-
-  ###### [Robbie McLachlan](https://developer.android.com/blog/authors/robbie-mclachlan) •
-  2 min read
-
-# Stay in the loop
+  [Robbie McLachlan](https://developer.android.com/blog/authors/robbie-mclachlan) • 2 min read
+Stay in the loop
 
 
 Get the latest Android development insights delivered to your inbox

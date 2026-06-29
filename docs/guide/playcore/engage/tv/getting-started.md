@@ -6,6 +6,9 @@ source: md.txt
 
 <br />
 
+[Engage SDK](https://developer.android.com/guide/playcore/engage) lets you deliver personalized recommendations
+and continuation content directly to users on Google TV.
+
 This guide covers how to get started with Engage SDK integrations for TV. After
 you complete the pre-work on this page, you can integrate one or more
 of the TV features:
@@ -18,7 +21,7 @@ of the TV features:
 
 Before you begin, complete the following steps:
 
-1. [Express interest in developing with Engage](http://g.co/tv/vda) to enroll in
+1. [Express interest in developing with Engage SDK](http://g.co/tv/engage) to enroll in
    the program, if eligible.
 
 2. Verify that your app targets Android 4.4 (API level 19) or higher for this

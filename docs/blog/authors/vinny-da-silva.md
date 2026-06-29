@@ -4,29 +4,22 @@ url: https://developer.android.com/blog/authors/vinny-da-silva
 source: md.txt
 ---
 
-## 1
-
-post ![](https://developer.android.com/static/blog/assets/unnamed_5_cdab7ecfba_2kh65s.webp)
+1 post ![](https://developer.android.com/static/blog/assets/unnamed_5_cdab7ecfba_2kh65s.webp)
 
 # Vinny DaSilva
 
-###### Developer Relations Engineer
+Developer Relations Engineer
 
 Android XR
-- 15 Jun 2026 15 Jun 2026 ![](https://developer.android.com/static/blog/assets/MM_Android_XR_Meta_a489e757ed_Z1R62M0.webp)
-
-  #### [Product News](https://developer.android.com/blog/categories/product-news)
+- 15 Jun 2026 15 Jun 2026 ![](https://developer.android.com/static/blog/assets/MM_Android_XR_Meta_a489e757ed_Z1R62M0.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [What's New in Android XR: Tooling, Engine Support, and Ecosystem Updates](https://developer.android.com/blog/posts/what-s-new-in-android-xr-tooling-engine-support-and-ecosystem-updates)
 
   [arrow_forward](https://developer.android.com/blog/posts/what-s-new-in-android-xr-tooling-engine-support-and-ecosystem-updates) From augmented overlays to fully immersive environments, the Android XR ecosystem is expanding rapidly, with the Samsung Galaxy XR already available today.
-
-  ###### 3 min read
-
+  3 min read
   - [#Android XR](https://developer.android.com/blog/topics/android-xr)
   - [#Developer Preview 4](https://developer.android.com/blog/topics/developer-preview-4)
-
-# Stay in the loop
+Stay in the loop
 
 
 Get the latest Android development insights delivered to your inbox

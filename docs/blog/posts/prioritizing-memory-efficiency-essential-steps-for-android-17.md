@@ -4,19 +4,11 @@ url: https://developer.android.com/blog/posts/prioritizing-memory-efficiency-ess
 source: md.txt
 ---
 
-#### [How-tos](https://developer.android.com/blog/categories/how-tos)
+[How-tos](https://developer.android.com/blog/categories/how-tos)
 
 # Prioritizing Memory Efficiency: Essential Steps for Android 17
 
-###### 10-min read
-
-![](https://developer.android.com/static/blog/assets/Engineering_Memory_Blog_Strapi_3_bfd74f43e5_Z2i8kF7.webp) 02 Jun 2026 3 Authors
-
-##### [Alice Yuan,](https://developer.android.com/blog/authors/alice-yuan)
-[Ajesh Pai,](https://developer.android.com/blog/authors/ajesh-pai)
-[Fung Lam](https://developer.android.com/blog/authors/fung-lam)
-
-While app performance is often equated with a smooth UI and fast start times, memory serves as the silent foundation upon which these visible metrics are built. It's no secret that we're seeing a shift where device memory is more important than ever. Not only have we made strides in Android memory optimizations with Android 17, we're providing the tooling and API support to help you stay ahead of stricter memory requirements later this year.
+10-min read ![](https://developer.android.com/static/blog/assets/Engineering_Memory_Blog_Strapi_3_bfd74f43e5_Z2i8kF7.webp) 02 Jun 2026 3 Authors [Alice Yuan,](https://developer.android.com/blog/authors/alice-yuan) [Ajesh Pai,](https://developer.android.com/blog/authors/ajesh-pai) [Fung Lam](https://developer.android.com/blog/authors/fung-lam) While app performance is often equated with a smooth UI and fast start times, memory serves as the silent foundation upon which these visible metrics are built. It's no secret that we're seeing a shift where device memory is more important than ever. Not only have we made strides in Android memory optimizations with Android 17, we're providing the tooling and API support to help you stay ahead of stricter memory requirements later this year.
 
 To ensure device stability, starting in Android 17, the system will begin enforcing app memory limits based on the device's total RAM. If an app exceeds those limits, Android will kill the process with no associated stack trace.
 
@@ -220,8 +212,7 @@ Optimizing bytecode with R8, adopting image loading best practices, and resolvin
 - [#Memory](https://developer.android.com/blog/topics/memory)
 - [#Android](https://developer.android.com/blog/topics/android)
 - [#Performance](https://developer.android.com/blog/topics/performance)
-
-###### Written by:
+Written by:
 
 -
 
@@ -230,7 +221,7 @@ Optimizing bytecode with R8, adopting image loading best practices, and resolvin
   ###### Developer Relations Engineer
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/alice-yuan) ![](https://developer.android.com/static/blog/assets/Alice_Yuan_552a4dd4ee_ZlDEgJ.webp) ![](https://developer.android.com/static/blog/assets/Alice_Yuan_552a4dd4ee_ZlDEgJ.webp)
+  View profile](https://developer.android.com/blog/authors/alice-yuan) ![View Alice Yuan's profile](https://developer.android.com/static/blog/assets/Alice_Yuan_552a4dd4ee_ZlDEgJ.webp) ![View Alice Yuan's profile](https://developer.android.com/static/blog/assets/Alice_Yuan_552a4dd4ee_ZlDEgJ.webp)
 -
 
   ## [Ajesh Pai](https://developer.android.com/blog/authors/ajesh-pai)
@@ -238,7 +229,7 @@ Optimizing bytecode with R8, adopting image loading best practices, and resolvin
   ###### Developer Relations Engineer
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/ajesh-pai) ![](https://developer.android.com/static/blog/assets/Ajesh_R_Pai_fc75c62777_Z1G5g2B.webp) ![](https://developer.android.com/static/blog/assets/Ajesh_R_Pai_fc75c62777_Z1G5g2B.webp)
+  View profile](https://developer.android.com/blog/authors/ajesh-pai) ![View Ajesh Pai's profile](https://developer.android.com/static/blog/assets/Ajesh_R_Pai_fc75c62777_Z1G5g2B.webp) ![View Ajesh Pai's profile](https://developer.android.com/static/blog/assets/Ajesh_R_Pai_fc75c62777_Z1G5g2B.webp)
 -
 
   ## [Fung Lam](https://developer.android.com/blog/authors/fung-lam)
@@ -246,47 +237,29 @@ Optimizing bytecode with R8, adopting image loading best practices, and resolvin
   ###### Developer Relations Engineer
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/fung-lam) ![](https://developer.android.com/static/blog/assets/Fung_Lam_profile_633041f048_Z1o4ef9.webp) ![](https://developer.android.com/static/blog/assets/Fung_Lam_profile_633041f048_Z1o4ef9.webp)
-
-## Continue reading
-
-- [![](https://developer.android.com/static/blog/assets/Alice_Yuan_552a4dd4ee_ZlDEgJ.webp)](https://developer.android.com/blog/authors/alice-yuan) 04 Mar 2026 04 Mar 2026 ![](https://developer.android.com/static/blog/assets/battery_Performance_08d6713f94_Z1IAO0P.webp)
-
-  #### [How-tos](https://developer.android.com/blog/categories/how-tos)
+  View profile](https://developer.android.com/blog/authors/fung-lam) ![View Fung Lam's profile](https://developer.android.com/static/blog/assets/Fung_Lam_profile_633041f048_Z1o4ef9.webp) ![View Fung Lam's profile](https://developer.android.com/static/blog/assets/Fung_Lam_profile_633041f048_Z1o4ef9.webp)
+Continue reading
+- [![View Alice Yuan's profile](https://developer.android.com/static/blog/assets/Alice_Yuan_552a4dd4ee_ZlDEgJ.webp)](https://developer.android.com/blog/authors/alice-yuan) 04 Mar 2026 04 Mar 2026 ![](https://developer.android.com/static/blog/assets/battery_Performance_08d6713f94_Z1IAO0P.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
 
   ## [Battery Technical Quality Enforcement is Here: How to Optimize Common Wake Lock Use Cases](https://developer.android.com/blog/posts/battery-technical-quality-enforcement-is-here-how-to-optimize-common-wake-lock-use-cases)
 
   [arrow_forward](https://developer.android.com/blog/posts/battery-technical-quality-enforcement-is-here-how-to-optimize-common-wake-lock-use-cases) In recognition that excessive battery drain is top of mind for Android users, Google has been taking significant steps to help developers build more power-efficient apps.
-
-  ###### [Alice Yuan](https://developer.android.com/blog/authors/alice-yuan) •
-  8 min read
-
-- [![](https://developer.android.com/static/blog/assets/Alice_Yuan_552a4dd4ee_ZlDEgJ.webp)](https://developer.android.com/blog/authors/alice-yuan) 20 Nov 2025 20 Nov 2025 ![](https://developer.android.com/static/blog/assets/performance_Week8_4d6efcacbe_ZI6a5e.webp)
-
-  #### [How-tos](https://developer.android.com/blog/categories/how-tos)
+  [Alice Yuan](https://developer.android.com/blog/authors/alice-yuan) • 8 min read
+- [![View Alice Yuan's profile](https://developer.android.com/static/blog/assets/Alice_Yuan_552a4dd4ee_ZlDEgJ.webp)](https://developer.android.com/blog/authors/alice-yuan) 20 Nov 2025 20 Nov 2025 ![](https://developer.android.com/static/blog/assets/performance_Week8_4d6efcacbe_ZI6a5e.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
 
   ## [Leveling Guide for your Performance Journey](https://developer.android.com/blog/posts/leveling-guide-for-your-performance-journey)
 
   [arrow_forward](https://developer.android.com/blog/posts/leveling-guide-for-your-performance-journey) The performance leveling guide features 5 levels. We'll start with level 1, which introduces minimal adoption effort performance tooling, and we'll go up to level 5, ideal for apps that have the resourcing to maintain a bespoke performance framework.
-
-  ###### [Alice Yuan](https://developer.android.com/blog/authors/alice-yuan) •
-  9 min read
-
-- [![](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2dcD9g.webp)](https://developer.android.com/blog/authors/ben-weiss) 17 Nov 2025 17 Nov 2025 ![](https://developer.android.com/static/blog/assets/performance_Week9_2c643934fa_p8Pb2.webp)
-
-  #### [How-tos](https://developer.android.com/blog/categories/how-tos)
+  [Alice Yuan](https://developer.android.com/blog/authors/alice-yuan) • 9 min read
+- [![View Ben Weiss's profile](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2dcD9g.webp)](https://developer.android.com/blog/authors/ben-weiss) 17 Nov 2025 17 Nov 2025 ![](https://developer.android.com/static/blog/assets/performance_Week9_2c643934fa_p8Pb2.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
 
   ## [Get your app on the fast track with Android Performance Spotlight Week!](https://developer.android.com/blog/posts/get-your-app-on-the-fast-track-with-android-performance-spotlight-week)
 
   [arrow_forward](https://developer.android.com/blog/posts/get-your-app-on-the-fast-track-with-android-performance-spotlight-week) When working on new features, app performance often takes a back seat. However, while it's not always top of mind for developers, users can see exactly where your app's performance lags behind.
-
-  ###### [Ben Weiss](https://developer.android.com/blog/authors/ben-weiss) •
-  3 min read
-
+  [Ben Weiss](https://developer.android.com/blog/authors/ben-weiss) • 3 min read
   - [#Performance](https://developer.android.com/blog/topics/performance)
   - [#R8](https://developer.android.com/blog/topics/r8)
-
-# Stay in the loop
+Stay in the loop
 
 
 Get the latest Android development insights delivered to your inbox

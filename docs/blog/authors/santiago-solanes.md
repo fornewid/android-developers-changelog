@@ -1,57 +1,24 @@
 ---
-title: Santiago Aboy Solanes  |  Android Developers' Blog
+title: https://developer.android.com/blog/authors/santiago-solanes
 url: https://developer.android.com/blog/authors/santiago-solanes
-source: html-scrape
+source: md.txt
 ---
 
-* [Android Developers](https://developer.android.com/)
-* [Android Developers' Blog](https://developer.android.com/)
-* [Blog](https://developer.android.com/blog)
-
-Stay organized with collections
-
-Save and categorize content based on your preferences.
-
-
-
-## 1
-
-post
-
-![](/static/blog/assets/Santiago_Aboy_Solanes_a5f0203d61_1YKhxs.webp)
+1 post ![](https://developer.android.com/static/blog/assets/Santiago_Aboy_Solanes_a5f0203d61_1YKhxs.webp)
 
 # Santiago Aboy Solanes
 
-###### Software Engineer
+Software Engineer
+- 15 Dec 2025 15 Dec 2025 ![](https://developer.android.com/static/blog/assets/Android_Compile_Speed_d1a7744c0f_ZJfSB.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
-* 15
+  ## [18% Faster Compiles, 0% Compromises](https://developer.android.com/blog/posts/faster-compiles)
 
-  Dec
-  2025
+  [arrow_forward](https://developer.android.com/blog/posts/faster-compiles) The Android Runtime (ART) team has reduced compile time by 18% without compromising the compiled code or any peak memory regressions. This improvement was part of our 2025 initiative to improve compile time without sacrificing memory usage or the quality of the compiled code.
+  8 min read
+Stay in the loop
 
-  15
-
-  Dec
-  2025
-
-  ![](/static/blog/assets/Android_Compile_Speed_d1a7744c0f_ZJfSB.webp)
-
-  #### [Product News](/blog/categories/product-news)
-
-  ## [18% Faster Compiles, 0% Compromises](/blog/posts/faster-compiles)
-
-  [arrow\_forward](/blog/posts/faster-compiles)
-
-  The Android Runtime (ART) team has reduced compile time by 18% without compromising the compiled code or any peak memory regressions. This improvement was part of our 2025 initiative to improve compile time without sacrificing memory usage or the quality of the compiled code.
-
-  ###### 8 min read
-
-# Stay in the loop
 
 Get the latest Android development insights delivered to your inbox
 weekly.
-
 [mail
-Subscribe](/subscribe)
-
-![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)

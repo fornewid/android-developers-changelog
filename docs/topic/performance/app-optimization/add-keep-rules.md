@@ -192,25 +192,40 @@ Use the following guidelines to keep such fields.
         public void m();
       }
 
-- When a `suspend` member is compiled, match its compiled signature in the
-  keep rule.
+- When a `suspend` member is compiled, match its compiled bytecode signature
+  in the keep rule.
 
-  For example, if you have the function `fetchUser` defined as shown in the
-  following snippet:
+  For example, consider a concrete real-world repository class defined in
+  Kotlin as follows:
 
-      suspend fun fetchUser(id: String): User
+      package com.example.repository
 
-  When compiled, its signature in the bytecode looks like the following:
+      import com.example.model.User
+
+      class UserRepository {
+          suspend fun fetchUser(id: String): User {
+              // Implementation details...
+          }
+      }
+
+  When the Kotlin compiler compiles this class into bytecode, `suspend`
+  functions undergo a Continuation-Passing Style (CPS) transformation. The
+  `suspend` modifier is removed, the return type is changed to
+  `java.lang.Object`, and a `kotlin.coroutines.Continuation` parameter is
+  appended to the method signature to manage the asynchronous state machine.
+
+  The compiled method signature in the bytecode appears as follows:
 
       public final Object fetchUser(String id, Continuation<? super User> continuation);
 
-  To write a keep rule for this function, you must match this compiled
-  signature, or use `...`.
+  To write a keep rule for this function, you cannot use the Kotlin `suspend`
+  syntax. Instead, you must match the compiled bytecode signature
+  (specifically referencing `kotlin.coroutines.Continuation`), or use `...`.
 
-  An example of using the compiled signature is as follows:
+  An example matching the precise compiled bytecode signature is as follows:
 
       -keepclassmembers class com.example.repository.UserRepository {
-        public java.lang.Object fetchUser(java.lang.String,  kotlin.coroutines.Continuation);
+        public java.lang.Object fetchUser(java.lang.String, kotlin.coroutines.Continuation);
       }
 
   An example using `...` is as follows:

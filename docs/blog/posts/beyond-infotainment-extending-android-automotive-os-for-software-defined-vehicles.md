@@ -4,17 +4,11 @@ url: https://developer.android.com/blog/posts/beyond-infotainment-extending-andr
 source: md.txt
 ---
 
-#### [Product News](https://developer.android.com/blog/categories/product-news)
+[Product News](https://developer.android.com/blog/categories/product-news)
 
 # Beyond Infotainment: Extending Android Automotive OS for Software-defined Vehicles
 
-###### 3-min read
-
-![](https://developer.android.com/static/blog/assets/AAOS_SDV_Hero_dark_6dfe605408_bCiba.webp) 24 Mar 2026 [![](https://developer.android.com/static/blog/assets/Eser_Blue_ae0cb5cc85_Z1jraMn.webp)](https://developer.android.com/blog/authors/eser-erdem) [##### Eser Erdem](https://developer.android.com/blog/authors/eser-erdem)
-
-###### Engineering Manager
-
-At Google we're deeply committed to the automotive industry--not just as a technology provider, but as a partner in the industry's transformation. We believe that car makers and users should have choice and flexibility, and that open platforms are the best enablers. For over a decade, we have provided Android Automotive OS (AAOS) as an open platform for infotainment, enabling rich innovation and differentiation in the in-vehicle digital experience. However, as vehicles modernize, car makers face new hurdles: fragmented software across compute components, poor portability between architectures, and a lack of granular update capabilities. To address these problems, we are expanding AAOS beyond infotainment with Android Automotive OS for Software Defined Vehicles (AAOS SDV)--an open platform featuring a modular structure, a topology-agnostic communication layer, and the support for granular updates.  
+3-min read ![](https://developer.android.com/static/blog/assets/AAOS_SDV_Hero_dark_6dfe605408_bCiba.webp) 24 Mar 2026 [![View Eser Erdem's profile](https://developer.android.com/static/blog/assets/Eser_Blue_ae0cb5cc85_Z1jraMn.webp)](https://developer.android.com/blog/authors/eser-erdem) [Eser Erdem](https://developer.android.com/blog/authors/eser-erdem) Engineering Manager At Google we're deeply committed to the automotive industry--not just as a technology provider, but as a partner in the industry's transformation. We believe that car makers and users should have choice and flexibility, and that open platforms are the best enablers. For over a decade, we have provided Android Automotive OS (AAOS) as an open platform for infotainment, enabling rich innovation and differentiation in the in-vehicle digital experience. However, as vehicles modernize, car makers face new hurdles: fragmented software across compute components, poor portability between architectures, and a lack of granular update capabilities. To address these problems, we are expanding AAOS beyond infotainment with Android Automotive OS for Software Defined Vehicles (AAOS SDV)--an open platform featuring a modular structure, a topology-agnostic communication layer, and the support for granular updates.  
 
 The transition toward SDVs is an incredible industry transformation, and we are eager to contribute to the broader ecosystem making it happen. Later this year, AAOS SDV will be available in the [Android Open Source Project (AOSP)](https://source.android.com/docs/automotive/start/what_automotive) for uses beyond infotainment. By bringing our SDV platform into the open-source domain, we empower the industry to develop or enhance features that lower costs, accelerate time to market, and provide significant advantages across the automotive landscape.
 ![automotive-os.webp](https://developer.android.com/static/blog/assets/automotive_os_28b164eff1_1dW7YL.webp)
@@ -54,8 +48,7 @@ Qualcomm is scaling the Android Automotive OS SDV platform through our strategic
 
 The power of AAOS comes from its vibrant ecosystem. To prepare for the open source release later this year, we are proactively working with leading industry carmakers, suppliers, silicon platforms, and software vendors to ensure that the AAOS SDV platform is well supported and robustly integrated within the automotive ecosystem. We look forward to sharing more updates with our partners in the months ahead.
 - [#Automotive OS](https://developer.android.com/blog/topics/automotive-os)
-
-###### Written by:
+Written by:
 
 -
 
@@ -64,50 +57,33 @@ The power of AAOS comes from its vibrant ecosystem. To prepare for the open sour
   ###### Engineering Manager
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/eser-erdem) ![](https://developer.android.com/static/blog/assets/Eser_Blue_ae0cb5cc85_Z1jraMn.webp) ![](https://developer.android.com/static/blog/assets/Eser_Blue_ae0cb5cc85_Z1jraMn.webp)
-
-## Continue reading
-
-- [![](https://developer.android.com/static/blog/assets/Ataul_Munim_cf0796f68c_r1HY2.webp)](https://developer.android.com/blog/authors/ataul-munim) 02 Jun 2026 02 Jun 2026 ![](https://developer.android.com/static/blog/assets/MM_Differentiated_Experiences_Strapi_bbe8e7618b_19k3ww.webp)
-
-  #### [Product News](https://developer.android.com/blog/categories/product-news)
+  View profile](https://developer.android.com/blog/authors/eser-erdem) ![View Eser Erdem's profile](https://developer.android.com/static/blog/assets/Eser_Blue_ae0cb5cc85_Z1jraMn.webp) ![View Eser Erdem's profile](https://developer.android.com/static/blog/assets/Eser_Blue_ae0cb5cc85_Z1jraMn.webp)
+Continue reading
+- [![View Ataul Munim's profile](https://developer.android.com/static/blog/assets/Ataul_Munim_cf0796f68c_r1HY2.webp)](https://developer.android.com/blog/authors/ataul-munim) 02 Jun 2026 02 Jun 2026 ![](https://developer.android.com/static/blog/assets/MM_Differentiated_Experiences_Strapi_bbe8e7618b_19k3ww.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Building Premium Android Experiences at Google I/O '26](https://developer.android.com/blog/posts/building-premium-android-experiences-at-google-i-o-26)
 
   [arrow_forward](https://developer.android.com/blog/posts/building-premium-android-experiences-at-google-i-o-26) At Google I/O '26, we showcased how the latest advancements in the Android ecosystem can help you elevate your app's quality while maximizing development efficiency.
-
-  ###### [Ataul Munim](https://developer.android.com/blog/authors/ataul-munim) •
-  3 min read
-
+  [Ataul Munim](https://developer.android.com/blog/authors/ataul-munim) • 3 min read
   - [#Performance](https://developer.android.com/blog/topics/performance)
   - [#Memory](https://developer.android.com/blog/topics/memory)
   - [#R8](https://developer.android.com/blog/topics/r8)
   - [#Wear OS](https://developer.android.com/blog/topics/wear-os)
   - [#Automotive OS](https://developer.android.com/blog/topics/automotive-os)
   - +3 ↩
-- [![](https://developer.android.com/static/blog/assets/paul_feng_759ac95845_spvRU.webp)](https://developer.android.com/blog/authors/paul-feng) 24 Jun 2026 24 Jun 2026 ![](https://developer.android.com/static/blog/assets/Apps_Experience_Play_Blog_Header_2000x1000_8c3a95404a_lYfpd.webp)
-
-  #### [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Paul Feng's profile](https://developer.android.com/static/blog/assets/paul_feng_759ac95845_spvRU.webp)](https://developer.android.com/blog/authors/paul-feng) 24 Jun 2026 24 Jun 2026 ![](https://developer.android.com/static/blog/assets/Apps_Experience_Play_Blog_Header_2000x1000_8c3a95404a_lYfpd.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Expanded billing choice and lower fees on Google Play](https://developer.android.com/blog/posts/expanded-billing-choice-and-lower-fees-on-google-play)
 
   [arrow_forward](https://developer.android.com/blog/posts/expanded-billing-choice-and-lower-fees-on-google-play) At Google Play, we are committed to delivering the best possible experience to users, while ensuring developers have the tools and adaptability to succeed.
-
-  ###### [Paul Feng](https://developer.android.com/blog/authors/paul-feng) •
-  3 min read
-
-- [![](https://developer.android.com/static/blog/assets/matthew_9c798f0c1d_Z1m5WWD.webp)](https://developer.android.com/blog/authors/matthew-forsythe) 18 Jun 2026 18 Jun 2026 ![](https://developer.android.com/static/blog/assets/Strapi_2x_325a484212_1BGPPB.webp)
-
-  #### [Product News](https://developer.android.com/blog/categories/product-news)
+  [Paul Feng](https://developer.android.com/blog/authors/paul-feng) • 3 min read
+- [![View Matthew Forsythe's profile](https://developer.android.com/static/blog/assets/matthew_9c798f0c1d_Z1m5WWD.webp)](https://developer.android.com/blog/authors/matthew-forsythe) 18 Jun 2026 18 Jun 2026 ![](https://developer.android.com/static/blog/assets/Strapi_2x_325a484212_1BGPPB.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Android developer verification: Building a safer ecosystem together](https://developer.android.com/blog/posts/android-developer-verification-building-a-safer-ecosystem-together)
 
   [arrow_forward](https://developer.android.com/blog/posts/android-developer-verification-building-a-safer-ecosystem-together) Last year, we introduced Android developer verification to strengthen ecosystem security and stop malicious actors from hiding behind anonymity to release harmful apps.
-
-  ###### [Matthew Forsythe](https://developer.android.com/blog/authors/matthew-forsythe) •
-  2 min read
-
-# Stay in the loop
+  [Matthew Forsythe](https://developer.android.com/blog/authors/matthew-forsythe) • 2 min read
+Stay in the loop
 
 
 Get the latest Android development insights delivered to your inbox
