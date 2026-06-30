@@ -1610,8 +1610,8 @@
     },
     "guide/topics/connectivity/cross-device-sdk/device-discovery.md": {
       "original_url": "https://developer.android.com/guide/topics/connectivity/cross-device-sdk/device-discovery",
-      "hash": "84a5a40c36fea0bbe1531c69e74a2d344e8aae4e80f51d415f20a30890d93aef",
-      "last_updated": "2026-04-10T15:15:45.374781",
+      "hash": "2d916980fc89b8c746ca58722b34ac1132bd178bc2f9aa0c2593b90f4bdd24fa",
+      "last_updated": "2026-06-30T15:48:30.916236",
       "fetch_method": "md.txt"
     },
     "develop/ui/compose/tooling/tracing.md": {
@@ -8114,8 +8114,8 @@
     },
     "training/app-links/about.md": {
       "original_url": "https://developer.android.com/training/app-links/about",
-      "hash": "7d41b46786ea07f7aeaf76b42b28621df244387169cbc7a12eb4b855b8280bbe",
-      "last_updated": "2026-06-08T16:23:44.766955",
+      "hash": "68efba1e416cb27532bbf16d4791bc51064760f5a849852984f2cb7cd26f9bdf",
+      "last_updated": "2026-06-30T15:49:14.570456",
       "fetch_method": "md.txt"
     },
     "develop/ui/compose/side-effects.md": {
@@ -18056,8 +18056,8 @@
     },
     "develop/ui/compose/quick-guides/content/create-scaffold.md": {
       "original_url": "https://developer.android.com/develop/ui/compose/quick-guides/content/create-scaffold",
-      "hash": "36481c6de09e9e946b466c31f369d4a88a7f73b5bde7b05a8153e12ae4dcde88",
-      "last_updated": "2026-06-29T16:17:24.663230",
+      "hash": "a709fdf452473005a5593885d2c06fe4bce0636c8c52a5bf757fa13f3ed46915",
+      "last_updated": "2026-06-30T15:48:35.456313",
       "fetch_method": "md.txt"
     },
     "develop/ui/compose/text/style-text.md": {
@@ -22154,8 +22154,8 @@
     },
     "topic/performance/appstartup/best-practices.md": {
       "original_url": "https://developer.android.com/topic/performance/appstartup/best-practices",
-      "hash": "b851bbe1c16f075a8f41a98f311d2dbca148fa9ab3f084fe1673871d5a8c6ade",
-      "last_updated": "2026-04-10T15:20:02.101990",
+      "hash": "33f9ac63930c5938ed6e684e08fdf42c392eed4b0c6caa905a24d404a26f2c5f",
+      "last_updated": "2026-06-30T15:48:33.860266",
       "fetch_method": "md.txt"
     },
     "stories/apps/tinder.md": {
@@ -26600,8 +26600,8 @@
     },
     "blog/latest/6.md": {
       "original_url": "https://developer.android.com/blog/latest/6",
-      "hash": "bdf6106d5fd2b6bfd35fc6a7c9c70e97658afd45b87aa3fc57d9b678930b839c",
-      "last_updated": "2026-06-29T16:18:04.185871",
+      "hash": "35830bf0eb1c5114758a15dc166cd15ba9ed1a401ccddeaf4a11c72f62949564",
+      "last_updated": "2026-06-30T15:49:18.808835",
       "fetch_method": "md.txt"
     },
     "blog/authors/daniel-galpin.md": {
@@ -26858,8 +26858,8 @@
     },
     "blog/latest/2.md": {
       "original_url": "https://developer.android.com/blog/latest/2",
-      "hash": "76508b436ae949ee0f7bc74aef630facfa1f91d0df3fc89c8b975980c30b67c4",
-      "last_updated": "2026-06-29T16:17:51.414283",
+      "hash": "0e7e5fd7b4c067d4b86c5c814bdb1baf248728ad4412bd7aaa2b79f6d269d475",
+      "last_updated": "2026-06-30T15:49:24.642368",
       "fetch_method": "md.txt"
     },
     "blog/posts/beyond-the-smartphone-how-jio-hotstar-optimized-its-ux-for-foldables-and-tablets.md": {
@@ -27212,8 +27212,8 @@
     },
     "blog/latest/5.md": {
       "original_url": "https://developer.android.com/blog/latest/5",
-      "hash": "1a981f521cf2408db7ac178329f3b3ad516fe04ac71bac216e5e292962fdcc51",
-      "last_updated": "2026-06-29T16:17:49.656720",
+      "hash": "a76fe6348e98364835b1940cb977673392000fb3c6daf0a288ce10dc679f4283",
+      "last_updated": "2026-06-30T15:49:21.080058",
       "fetch_method": "md.txt"
     },
     "blog/authors/robert-clifford.md": {
@@ -29504,8 +29504,8 @@
     },
     "develop/adaptive-apps/guides/app-orientation-aspect-ratio-resizability.md": {
       "original_url": "https://developer.android.com/develop/adaptive-apps/guides/app-orientation-aspect-ratio-resizability",
-      "hash": "0466f4818c0ef509e5c7a030eb21465b11cd8534a74a505366905c8f6fce379c",
-      "last_updated": "2026-05-17T15:24:18.796927",
+      "hash": "ca944e0fc1949024f7f8c14983021a1d118a5e57ac50aea4e741a6d389d733cc",
+      "last_updated": "2026-06-30T15:48:44.275138",
       "fetch_method": "md.txt"
     },
     "develop/adaptive-apps/quality-guidelines/adaptive-app-quality/experiences/camera-audio.md": {
@@ -29600,8 +29600,8 @@
     },
     "develop/adaptive-apps/quality-guidelines/tv-app-quality.md": {
       "original_url": "https://developer.android.com/develop/adaptive-apps/quality-guidelines/tv-app-quality",
-      "hash": "99ffe46897132fb71d0901324da2c35ec51d98c01ae4d229a142772818cfbf5c",
-      "last_updated": "2026-06-08T16:23:48.867288",
+      "hash": "48536a71412752236d657216fa6c8825c740d08f1aa917750911e227b5d2cd0a",
+      "last_updated": "2026-06-30T15:49:21.702537",
       "fetch_method": "md.txt"
     },
     "develop/adaptive-apps/guides/grid/get-started.md": {
@@ -29858,8 +29858,8 @@
     },
     "blog/latest/8.md": {
       "original_url": "https://developer.android.com/blog/latest/8",
-      "hash": "ea5f7a036e30cbdb93c9aa35d5df721cfa84350b09cb071382079d835bc7f8f1",
-      "last_updated": "2026-06-29T16:17:15.648711",
+      "hash": "c5dcbbc8a4d44bb76ce4b6c4a3ba8baa6225c34697160ee0f63c63040008284d",
+      "last_updated": "2026-06-30T15:48:33.913911",
       "fetch_method": "md.txt"
     },
     "develop/xr/jetpack-xr-sdk/glasses/notifications.md": {
@@ -29888,8 +29888,8 @@
     },
     "blog/authors/12.md": {
       "original_url": "https://developer.android.com/blog/authors/12",
-      "hash": "48ea837be7f7130e9b4065735b315ef5301bf3356d713aebcffd995a8913f663",
-      "last_updated": "2026-06-29T16:17:22.271995",
+      "hash": "7ea1c2572e19c71013efbd411787512dd7371108fb41cb2c40d57723671b08f5",
+      "last_updated": "2026-06-30T15:48:31.944522",
       "fetch_method": "md.txt"
     },
     "develop/xr/jetpack-xr-sdk/glasses/first-activity.md": {
@@ -30800,8 +30800,8 @@
     },
     "blog/posts/android-17-is-here.md": {
       "original_url": "https://developer.android.com/blog/posts/android-17-is-here",
-      "hash": "225ad1c06aef4272f38473b0ad57248fdb82689fd26bdc9f5ae3585fa79ba61b",
-      "last_updated": "2026-06-29T16:18:08.150477",
+      "hash": "9e36f496d8f4b07a484ba0d64704776f38866c813a9669ec289b97efc32fbb0f",
+      "last_updated": "2026-06-30T15:49:36.945703",
       "fetch_method": "md.txt"
     },
     "blog/authors/vinny-da-silva.md": {
@@ -31145,7 +31145,19 @@
       "hash": "94737de0e7d47572cfc8f289b378a735cefc12780d09a8ca84833b29de20c704",
       "last_updated": "2026-06-29T16:20:11.325132",
       "fetch_method": "md.txt"
+    },
+    "blog/posts/eclipsa-video-hdr-that-looks-right-on-every-screen.md": {
+      "original_url": "https://developer.android.com/blog/posts/eclipsa-video-hdr-that-looks-right-on-every-screen",
+      "hash": "afb0d54da3beff54777742ae1a7e3c8e709b5ffc56ba0a8876d864ed5d34ee63",
+      "last_updated": "2026-06-30T15:49:16.024902",
+      "fetch_method": "md.txt"
+    },
+    "agents/skills/camera/camerax/references/expert-blueprints.md": {
+      "original_url": "https://developer.android.com/agents/skills/camera/camerax/references/expert-blueprints",
+      "hash": "5b635cc148df078f8fcbcedca408764460484cfc124bebf832595a8f7fe3c065",
+      "last_updated": "2026-06-30T15:49:32.169015",
+      "fetch_method": "md.txt"
     }
   },
-  "last_updated": "2026-06-29T16:23:04.580388"
+  "last_updated": "2026-06-30T15:51:28.600928"
 }

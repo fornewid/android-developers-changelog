@@ -77,6 +77,10 @@ To opt out for your entire app, set the property in the `<application>` element:
         ...
     </application>
 
+If your app targets Android 16 (API level 36) or higher, this [property
+doesn't lock the display orientation or prevent screen rotation](https://developer.android.com/about/versions/16/behavior-changes-16#ignore-orientation) on
+large displays.
+
 > [!WARNING]
 > **Warning:** The Android framework will eliminate the opt-out capability in API level 37. For apps that target API level 37 or higher, orientation, aspect ratio, and resizability restrictions will always be ignored on displays that are at least sw600dp.
 

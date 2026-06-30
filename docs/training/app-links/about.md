@@ -92,7 +92,7 @@ Here's the conceptual flow for Dynamic App Links:
 1. **Your app's manifest** declares URLs in an intent filter with `android:autoVerify="true`" and points to your website host.
 2. **When the app is installed** , the Android system fetches the `assetlinks.json` file from a known location on your web server.
 3. **The system verifies** that the file is valid and the `sha256_cert_fingerprints` matches your app's signing certificate.
-4. **The system parses** any deep linking rules you've defined within the `dynamic_app_deep_link_components` field in the Digital Asset Links statement, and merges them with the manifest-declared rules.
+4. **The system parses** any deep linking rules you've defined within the `dynamic_app_link_components` field in the Digital Asset Links statement, and merges them with the manifest-declared rules.
    1. **When the user clicks a matching link**, the system directs them to your app directly, without showing a disambiguation dialog.
 5. **The system periodically re-fetches** the `assetlinks.json` file to get the latest rules, allowing you to update your links without an app update. Periodic re-fetching is supported on devices running Android 15 (API level 35) or later that have Google services installed.
 

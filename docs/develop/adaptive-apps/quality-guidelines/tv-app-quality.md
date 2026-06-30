@@ -88,7 +88,7 @@ Android TV OS capabilities.
 | Memory | TV-ME | For low RAM devices (where [`ActivityManager.isLowRamDevice()`](https://developer.android.com/reference/android/app/ActivityManager#isLowRamDevice()) returns `true`), the maximum memory usage (Anon+Swap + Graphics + File Memory) of a foreground app must remain within the limits (including specific measurement mechanisms and caveats) defined in [Optimize memory usage.](https://developer.android.com/training/tv/playback/memory) |
 | Google Play | TV-G1 | The use of Android App Bundles is mandatory for all new and existing TV apps in the Google Play Store. |
 | Google Play | TV-G2 | The app must follow the Play Developer Policy Center requirements. |
-| Google Play | TV-G6 | From August 1, 2026, TV apps must support 64-bit architectures and comply with [16 KB page size](https://developer.android.com/guide/practices/page-sizes) requirements. |
+| Google Play | TV-G6 | From August 1, 2026, TV apps must support both 32- and 64-bit architectures and comply with [16 KB page size](https://developer.android.com/guide/practices/page-sizes) requirements. |
 | App Details Page | TV-G3 | App functionality works as expected or as described in the app's Google Play Store listing. |
 | App Details Page | TV-G4 | App submission has uploaded at least one unaltered, high resolution screenshot that accurately depicts the current version of the TV app experience. |
 | Login Credentials | TV-G5 | For apps requiring users to sign in, you must provide login credentials in the Google Play Console for testing of the full app experience. For more information, see [App Access in Prepare your app for review](https://support.google.com/googleplay/android-developer/answer/9859455). |
