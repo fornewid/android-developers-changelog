@@ -1,0 +1,13 @@
+diff --git a/docs/jetpack/androidx/releases/lint.md b/docs/jetpack/androidx/releases/lint.md
+index ab8437d0..6e8d7280 100644
+--- a/docs/jetpack/androidx/releases/lint.md
++++ b/docs/jetpack/androidx/releases/lint.md
+@@ -43,6 +43,8 @@ dependencies {
+ }
+ ```
+ 
++You can then run these checks with `./gradlew :my-plugin:lint`.
++
+ For more information about dependencies, see [Add build dependencies](https://developer.android.com/studio/build/dependencies).
+ 
+ ## Feedback

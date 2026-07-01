@@ -1,0 +1,13 @@
+diff --git a/docs/guide/topics/manifest/application-element.md b/docs/guide/topics/manifest/application-element.md
+index 1467b23f..83f4484a 100644
+--- a/docs/guide/topics/manifest/application-element.md
++++ b/docs/guide/topics/manifest/application-element.md
+@@ -81,6 +81,8 @@ can contain:
+ 
+     `https://developer.android.com/guide/topics/manifest/uses-native-library-element`
+ 
++    `https://developer.android.com/guide/topics/manifest/property-element`
++
+ description:
+ 
+ :   The declaration of the application. This element contains subelements

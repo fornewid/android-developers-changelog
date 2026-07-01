@@ -1,0 +1,26 @@
+diff --git a/docs/google/play/billing/migrate-gpblv9.md b/docs/google/play/billing/migrate-gpblv9.md
+index 7277d7d2..4b464a54 100644
+--- a/docs/google/play/billing/migrate-gpblv9.md
++++ b/docs/google/play/billing/migrate-gpblv9.md
+@@ -149,11 +149,16 @@ To upgrade from PBL 7 or 8 to PBL 9, do the following steps:
+ 
+    ### Kotlin
+ 
+-       val linkUri = details.getLinkUri()
+-       if (!linkUri.isNullOrEmpty()) {
+-         val intent = Intent(Intent.ACTION_VIEW, Uri.parse(linkUri))
+-         context.startActivity(intent)
+-       }
++
++   ```kotlin
++   val linkUri = details.linkUri
++   if (!linkUri.isNullOrEmpty()) {
++       val intent = Intent(Intent.ACTION_VIEW, linkUri.toUri())
++       context.startActivity(intent)
++   }
++   ```
++
++   <br />
+ 
+    ### Java
+ 

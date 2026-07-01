@@ -1,0 +1,13 @@
+diff --git a/docs/blog/categories/community.md b/docs/blog/categories/community.md
+index 3f3bf291..cb6d6a03 100644
+--- a/docs/blog/categories/community.md
++++ b/docs/blog/categories/community.md
+@@ -4,7 +4,7 @@ url: https://developer.android.com/blog/categories/community
+ source: md.txt
+ ---
+ 
+-![](https://developer.android.com/static/blog/assets/community_droid_6e853eebb1_ee5eeddc02_2ao438.webp)
++![](https://developer.android.com/static/blog/assets/community_droid_6e853eebb1_ee5eeddc02_1CWi4Q.webp)
+ 
+ # Community
+ 
