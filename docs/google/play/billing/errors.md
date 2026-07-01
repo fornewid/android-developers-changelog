@@ -57,62 +57,81 @@ The following example demonstrates a simple retry strategy to handle an error
 when establishing a [`BillingClient`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient)
 connection:
 
-    class BillingClientWrapper(context: Context) : PurchasesUpdatedListener {
-      // Initialize the BillingClient.
-      private val billingClient = BillingClient.newBuilder(context)
-        .setListener(this)
-        .enablePendingPurchases()
-        .build()
 
-      // Establish a connection to Google Play.
-      fun startBillingConnection() {
-        billingClient.startConnection(object : BillingClientStateListener {
-          override fun onBillingSetupFinished(billingResult: BillingResult) {
-            if (billingResult.responseCode == BillingClient.BillingResponseCode.OK) {
-              Log.d(TAG, "Billing response OK")
-              // The BillingClient is ready. You can now query Products Purchases.
-            } else {
-              Log.e(TAG, billingResult.debugMessage)
-              retryBillingServiceConnection()
-            }
-          }
+```kotlin
+// Initialize the BillingClient.
+private val billingClient = BillingClient.newBuilder(context)
+    .setListener(this)
+    .enablePendingPurchases(PendingPurchasesParams.newBuilder().enableOneTimeProducts().build())
+    .build()
 
-          override fun onBillingServiceDisconnected() {
-            Log.e(TAG, "GBPL Service disconnected")
-            retryBillingServiceConnection()
-          }
-        })
-      }
+private val coroutineScope = kotlinx.coroutines.CoroutineScope(
+    kotlinx.coroutines.SupervisorJob() + kotlinx.coroutines.Dispatchers.Main.immediate
+)
 
-      // Billing connection retry logic. This is a simple max retry pattern
-      private fun retryBillingServiceConnection() {
-        val maxTries = 3
-        var tries = 1
-        var isConnectionEstablished = false
-        do {
-          try {
-            billingClient.startConnection(object : BillingClientStateListener {
-              override fun onBillingSetupFinished(billingResult: BillingResult) {
-                if (billingResult.responseCode == BillingClient.BillingResponseCode.OK) {
-                  isConnectionEstablished = true
-                  Log.d(TAG, "Billing connection retry succeeded.")
-                } else {
-                  Log.e(
-                    TAG,
-                    "Billing connection retry failed: ${billingResult.debugMessage}"
-                  )
-                }
-              }
-            })
-          } catch (e: Exception) {
-            e.message?.let { Log.e(TAG, it) }
-          } finally {
-            tries++
-          }
-        } while (tries <= maxTries && !isConnectionEstablished)
-      }
-      ...
+private var connectionJob: kotlinx.coroutines.Job? = null
+
+// Establish a connection to Google Play.
+fun startBillingConnection() {
+    connectionJob?.cancel()
+    connectionJob = coroutineScope.launch {
+        connectWithRetry()
     }
+}
+
+// Suspended helper to perform a single connection attempt
+private suspend fun connectBilling(): BillingResult =
+    kotlinx.coroutines.suspendCancellableCoroutine { continuation ->
+        billingClient.startConnection(object : BillingClientStateListener {
+            override fun onBillingSetupFinished(billingResult: BillingResult) {
+                if (continuation.isActive) {
+                    continuation.resume(billingResult)
+                }
+            }
+
+            override fun onBillingServiceDisconnected() {
+                Log.e(TAG, "Google Play Billing Service disconnected")
+                if (continuation.isActive) {
+                    continuation.resume(
+                        BillingResult.newBuilder()
+                            .setResponseCode(BillingClient.BillingResponseCode.SERVICE_DISCONNECTED)
+                            .setDebugMessage("Service disconnected during connection setup")
+                            .build()
+                    )
+                } else {
+                    startBillingConnection()
+                }
+            }
+        })
+    }
+
+// Billing connection retry logic. This is a simple max retry pattern
+private suspend fun connectWithRetry() {
+    val maxTries = 3
+    var tries = 1
+    var isConnectionEstablished = false
+    while (tries <= maxTries && !isConnectionEstablished) {
+        val billingResult = connectBilling()
+        if (billingResult.responseCode == BillingClient.BillingResponseCode.OK) {
+            isConnectionEstablished = true
+            Log.d(TAG, "Billing response OK")
+        } else {
+            Log.e(TAG, "Billing connection retry failed: ${billingResult.debugMessage}")
+            tries++
+            if (tries <= maxTries) {
+                delay(2000L) // Wait 2 seconds before retrying
+            }
+        }
+    }
+}
+
+fun cleanUp() {
+    coroutineScope.cancel()
+}
+// ...
+```
+
+<br />
 
 ### Exponential backoff retry
 
@@ -124,118 +143,95 @@ For example, it would be appropriate to implement this when acknowledging new
 purchases because this operation can happen in the background, and
 acknowledgment doesn't need to happen in real time if an error occurs.
 
-    private fun acknowledge(purchaseToken: String): BillingResult {
-      val params = AcknowledgePurchaseParams.newBuilder()
-        .setPurchaseToken(purchaseToken)
-        .build()
-      var ackResult = BillingResult()
-      billingClient.acknowledgePurchase(params) { billingResult ->
-        ackResult = billingResult
-      }
-      return ackResult
+
+```kotlin
+private suspend fun acknowledge(purchaseToken: String): BillingResult =
+    kotlinx.coroutines.suspendCancellableCoroutine { continuation ->
+        val params = AcknowledgePurchaseParams.newBuilder()
+            .setPurchaseToken(purchaseToken)
+            .build()
+        billingClient.acknowledgePurchase(params) { billingResult ->
+            continuation.resumeWith(Result.success(billingResult))
+        }
     }
 
-    suspend fun acknowledgePurchase(purchaseToken: String) {
+private suspend fun queryPurchases(productType: String): Pair<BillingResult, List<Purchase>> =
+    kotlinx.coroutines.suspendCancellableCoroutine { continuation ->
+        val params = QueryPurchasesParams.newBuilder()
+            .setProductType(productType)
+            .build()
+        billingClient.queryPurchasesAsync(params) { billingResult, purchaseList ->
+            continuation.resumeWith(Result.success(Pair(billingResult, purchaseList)))
+        }
+    }
 
-      val retryDelayMs = 2000L
-      val retryFactor = 2
-      val maxTries = 3
+suspend fun acknowledgePurchase(purchaseToken: String) {
+    val retryDelayMs = 2000L
+    val retryFactor = 2
+    val maxTries = 3
 
-      withContext(Dispatchers.IO) {
-        acknowledge(purchaseToken)
-      }
+    var tries = 1
+    var currentDelay = retryDelayMs
+    var acknowledgePurchaseResult: BillingResult
 
-      AcknowledgePurchaseResponseListener { acknowledgePurchaseResult ->
-        val playBillingResponseCode =
-        PlayBillingResponseCode(acknowledgePurchaseResult.responseCode)
+    do {
+        acknowledgePurchaseResult = acknowledge(purchaseToken)
+        val playBillingResponseCode = acknowledgePurchaseResult.responseCode
+
         when (playBillingResponseCode) {
-          BillingClient.BillingResponseCode.OK -> {
-            Log.i(TAG, "Acknowledgement was successful")
-          }
-          BillingClient.BillingResponseCode.ITEM_NOT_OWNED -> {
-            // This is possibly related to a stale Play cache.
-            // Querying purchases again.
-            Log.d(TAG, "Acknowledgement failed with ITEM_NOT_OWNED")
-            billingClient.queryPurchasesAsync(
-              QueryPurchasesParams.newBuilder()
-                .setProductType(BillingClient.ProductType.SUBS)
-                .build()
-            )
-            { billingResult, purchaseList ->
-              when (billingResult.responseCode) {
-                BillingClient.BillingResponseCode.OK -> {
-                  purchaseList.forEach { purchase ->
-                    acknowledge(purchase.purchaseToken)
-                  }
+            BillingClient.BillingResponseCode.OK -> {
+                Log.i(TAG, "Acknowledgement was successful")
+                return
+            }
+
+            BillingClient.BillingResponseCode.ITEM_NOT_OWNED -> {
+                Log.d(TAG, "Acknowledgement failed with ITEM_NOT_OWNED")
+                val (billingResult, purchaseList) = queryPurchases(BillingClient.ProductType.SUBS)
+                if (billingResult.responseCode == BillingClient.BillingResponseCode.OK) {
+                    purchaseList.forEach { purchase ->
+                        acknowledge(purchase.purchaseToken)
+                    }
                 }
-              }
+                return
             }
-          }
-          in setOf(
-             BillingClient.BillingResponseCode.ERROR,
-             BillingClient.BillingResponseCode.SERVICE_DISCONNECTED,
-             BillingClient.BillingResponseCode.SERVICE_UNAVAILABLE,
-           ) -> {
-            Log.d(
-              TAG,
-              "Acknowledgement failed, but can be retried --
-              Response Code: ${acknowledgePurchaseResult.responseCode} --
-              Debug Message: ${acknowledgePurchaseResult.debugMessage}"
-            )
-            runBlocking {
-              exponentialRetry(
-                maxTries = maxTries,
-                initialDelay = retryDelayMs,
-                retryFactor = retryFactor
-              ) { acknowledge(purchaseToken) }
+
+            in setOf(
+                BillingClient.BillingResponseCode.ERROR,
+                BillingClient.BillingResponseCode.SERVICE_DISCONNECTED,
+                BillingClient.BillingResponseCode.SERVICE_UNAVAILABLE,
+            ) -> {
+                Log.d(
+                    TAG,
+                    "Acknowledgement failed, but can be retried -- " +
+                        "Response Code: ${acknowledgePurchaseResult.responseCode} -- " +
+                        "Debug Message: ${acknowledgePurchaseResult.debugMessage}"
+                )
+                if (tries < maxTries) {
+                    delay(currentDelay)
+                    currentDelay *= retryFactor
+                    tries++
+                } else {
+                    break
+                }
             }
-          }
-          in setOf(
-             BillingClient.BillingResponseCode.BILLING_UNAVAILABLE,
-             BillingClient.BillingResponseCode.DEVELOPER_ERROR,
-             BillingClient.BillingResponseCode.FEATURE_NOT_SUPPORTED,
-           ) -> {
-            Log.e(
-              TAG,
-              "Acknowledgement failed and cannot be retried --
-              Response Code: ${acknowledgePurchaseResult.responseCode} --
-              Debug Message: ${acknowledgePurchaseResult.debugMessage}"
-            )
-            throw Exception("Failed to acknowledge the purchase!")
-          }
-        }
-      }
-    }
 
-    private suspend fun <T> exponentialRetry(
-      maxTries: Int = Int.MAX_VALUE,
-      initialDelay: Long = Long.MAX_VALUE,
-      retryFactor: Int = Int.MAX_VALUE,
-      block: suspend () -> T
-    ): T? {
-      var currentDelay = initialDelay
-      var retryAttempt = 1
-      do {
-        runCatching {
-          delay(currentDelay)
-          block()
+            else -> {
+                Log.e(
+                    TAG,
+                    "Acknowledgement failed and cannot be retried -- " +
+                        "Response Code: ${acknowledgePurchaseResult.responseCode} -- " +
+                        "Debug Message: ${acknowledgePurchaseResult.debugMessage}"
+                )
+                throw Exception("Failed to acknowledge the purchase!")
+            }
         }
-          .onSuccess {
-            Log.d(TAG, "Retry succeeded")
-            return@onSuccess;
-          }
-          .onFailure { throwable ->
-            Log.e(
-              TAG,
-              "Retry Failed -- Cause: ${throwable.cause} -- Message: ${throwable.message}"
-            )
-          }
-        currentDelay *= retryFactor
-        retryAttempt++
-      } while (retryAttempt < maxTries)
+    } while (tries <= maxTries)
 
-      return block() // last attempt
-    }
+    throw Exception("Failed to acknowledge the purchase after $maxTries attempts!")
+}
+```
+
+<br />
 
 ## Retriable BillingResult responses
 
@@ -296,11 +292,18 @@ disconnected, significantly reducing the occurrences of this error.
 
 ### Kotlin
 
-    val billingClient = BillingClient.newBuilder(context)
-        .setListener(listener)
-        .enablePendingPurchases()
-        .enableAutoServiceReconnection() // Enable automatic service reconnection
-        .build()
+
+```kotlin
+val billingClient = BillingClient.newBuilder(context)
+    .setListener(listener)
+    .enablePendingPurchases(
+        PendingPurchasesParams.newBuilder().enableOneTimeProducts().build()
+    )
+    .enableAutoServiceReconnection() // Enable automatic service reconnection
+    .build()
+```
+
+<br />
 
 ### Java
 
@@ -461,13 +464,20 @@ For example, perhaps some of your users' devices don't support in-app messaging.
 Use [`BillingClient.isFeatureSupported()`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient#isFeatureSupported(java.lang.String)) to check feature support before making the call to the Play Billing
 Library.
 
-    when {
-      billingClient.isReady -> {
-        if (billingClient.isFeatureSupported(BillingClient.FeatureType.IN_APP_MESSAGING)) {
-           // use feature
+
+```kotlin
+when {
+    billingClient.isReady -> {
+        val billingResult =
+            billingClient.isFeatureSupported(BillingClient.FeatureType.IN_APP_MESSAGING)
+        if (billingResult.responseCode == BillingClient.BillingResponseCode.OK) {
+            // use Feature
         }
-      }
     }
+}
+```
+
+<br />
 
 ### [USER_CANCELED](https://developer.android.com/reference/com/android/billingclient/api/BillingClient.BillingResponseCode#USER_CANCELED)
 

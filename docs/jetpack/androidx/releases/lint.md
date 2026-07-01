@@ -43,6 +43,8 @@ dependencies {
 }
 ```
 
+You can then run these checks with `./gradlew :my-plugin:lint`.
+
 For more information about dependencies, see [Add build dependencies](https://developer.android.com/studio/build/dependencies).
 
 ## Feedback

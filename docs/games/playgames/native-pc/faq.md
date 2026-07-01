@@ -77,34 +77,25 @@ This document answers common questions about SDKs and publishing for Google Play
    dialog and associate it with your user's account ID, the SKU being
    purchased, and the current timestamp. For more information, see
    [Associate a purchase with internal data](https://developer.android.com/google/play/billing/developer-payload#associate).
-10. Is a timeout error intended if a user closes the browser without paying
-    during a purchase flow?
-
-    Yes, this is a known issue and intended behavior in the browser-based flow.
-    We are actively working on a seamless purchase feature (WebView-based) that
-    will keep the payment flow inside the game and resolve this timeout
-    inconvenience.
-11. What are the prerequisites for switching from Google billing with OAuth to
-    the native Google billing with DLL?
+10. What are the prerequisites for switching from Google billing with OAuth to
+    the DLL-based Google billing?
 
     Games can continue to use the OAuth sign-in with Google to manage the
     signed-in account, but Google recommends that you stop using the legacy REST
     billing APIs. Switching from the REST billing APIs (with OAuth2 sign-in) to
     the SDK flow can be a feature-flagged operation, so both can coexist for a
     period of time while the game switches over.
-12. Is the Launch Purchase Flow API call processed through a web browser?
+11. Is the Launch Purchase Flow API call processed through a web browser?
 
-    Yes, for now it is processed through a browser. Google plans to complete the
-    entire flow without leaving the game achievable through the SDK.
-13. Does a user need to sign in separately for each game to make a purchase?
+    No, the purchase flow is now completed entirely in-game using a seamless
+    WebView overlay, without leaving the game client.
+12. Does a user need to sign in separately for each game to make a purchase?
 
     The foreground account in Google Play Games is used for each game session,
     so you don't need to sign in again. The account that you use in Google Play
     Games when the game session starts is the account that API calls are issued
-    as. When you launch a purchase flow in the browser, you must be signed in
-    and using the same account as the game session. If the user is signed in
-    with a different account, the web flow prompts them to switch accounts.
-14. Can a game support both the native SDK and legacy payment systems at the
+    as. The purchase flow will use this account automatically.
+13. Can a game support both the PC SDK and legacy payment systems at the
     same time?
 
     The payment system operates under a dual-flow model depending on the game
@@ -149,18 +140,18 @@ This document answers common questions about SDKs and publishing for Google Play
 
 ## PC SDK
 
-1. What are the differences between the Legacy API and Google Play Games on PC
+1. What are the differences between the Legacy API and
+   Google Play Games on PC SDK?
 
-   SDK?
-   - Our Legacy API only offers Billing functionality.
+   - The legacy API only offers billing functionality.
    - The PC SDK supports Google Desktop Service (GDS) and full PC features.
-   - No browser-based Google Sign-in needed is required with the PC SDK.
+   - No browser-based Google Sign-in is required with the PC SDK.
 2. Is there an alternative way to initialize the SDK by launching the game
    directly using the game launcher, without going through Google Play Games on PC?
 
    Your game must be launched through the Google Play Games on PC client. For
    more details, refer to this [developer document](https://developer.android.com/games/playgames/native-pc/setup#step-4).
-3. Does the native PC SDK support multibyte characters in the PEM certification
+3. Does the PC SDK support multibyte characters in the PEM certification
    file?
 
    Yes, the SDK supports multibyte characters for certification.
@@ -310,8 +301,8 @@ This document answers common questions about SDKs and publishing for Google Play
    closed, while others are not?
 
    Google doesn't control the sub processes or processes of the running game.
-   The behavior depends on whether the game is an Android emulated game or a
-   native PC game. Emulated games are installed inside their own environment,
+   The behavior depends on whether the game is an emulated Android game or a
+   PC game. Emulated games are installed inside their own environment,
    so their behavior depends largely on emulator initialization and shutdown.
 7. Should I use Google Play Games uninstallation capability or a custom
    uninstaller?

@@ -81,6 +81,8 @@ can contain:
 
     `https://developer.android.com/guide/topics/manifest/uses-native-library-element`
 
+    `https://developer.android.com/guide/topics/manifest/property-element`
+
 description:
 
 :   The declaration of the application. This element contains subelements

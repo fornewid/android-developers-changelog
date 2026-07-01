@@ -29,9 +29,18 @@ modifications:
 
 ### Kotlin
 
-    val billingClient = BillingClient.newBuilder(context)
-      .enableBillingProgram(BillingProgram.EXTERNAL_OFFER)
-      .build()
+
+```kotlin
+val billingClient = BillingClient.newBuilder(context)
+    .enableBillingProgram(
+        EnableBillingProgramParams.newBuilder()
+            .setBillingProgram(BillingProgram.EXTERNAL_OFFER)
+            .build()
+    )
+    .build()
+```
+
+<br />
 
 ### Java
 
@@ -54,13 +63,15 @@ respond to other response codes.
 ### Kotlin
 
 
-    billingClient.isBillingProgramAvailableAsync(
-      BillingProgram.EXTERNAL_OFFER,
-      object : BillingProgramAvailabilityListener {
+```kotlin
+billingClient.isBillingProgramAvailableAsync(
+    BillingProgram.EXTERNAL_OFFER,
+    object : BillingProgramAvailabilityListener {
         override fun onBillingProgramAvailabilityResponse(
-          billingResult: BillingResult,
-          billingProgramAvailabilityDetails: BillingProgramAvailabilityDetails) {
-            if (billingResult.responseCode !=  BillingResponseCode.OK) {
+            billingResult: BillingResult,
+            billingProgramAvailabilityDetails: BillingProgramAvailabilityDetails
+        ) {
+            if (billingResult.responseCode != BillingResponseCode.OK) {
                 // Handle failures such as retrying due to network errors,
                 // handling external offers unavailable, etc.
                 return
@@ -68,8 +79,12 @@ respond to other response codes.
 
             // External offers are available. Continue with steps in the
             // guide.
-          }
-      })
+        }
+    }
+)
+```
+
+<br />
 
 ### Java
 
@@ -101,18 +116,21 @@ for each external offer. Tokens must not be cached across transactions.
 
 ### Kotlin
 
-    val params =
-      BillingProgramReportingDetailsParams.newBuilder()
-        .setBillingProgram(BillingProgram.EXTERNAL_OFFER)
-        .build();
 
-    billingClient.createBillingProgramReportingDetailsAsync(
-      params,
-      object : BillingProgramReportingDetailsListener {
+```kotlin
+val params =
+    BillingProgramReportingDetailsParams.newBuilder()
+        .setBillingProgram(BillingProgram.EXTERNAL_OFFER)
+        .build()
+
+billingClient.createBillingProgramReportingDetailsAsync(
+    params,
+    object : BillingProgramReportingDetailsListener {
         override fun onCreateBillingProgramReportingDetailsResponse(
-          billingResult: BillingResult,
-          billingProgramReportingDetails: BillingProgramReportingDetails?) {
-            if (billingResult.responseCode !=  BillingResponseCode.OK) {
+            billingResult: BillingResult,
+            billingProgramReportingDetails: BillingProgramReportingDetails?
+        ) {
+            if (billingResult.responseCode != BillingResponseCode.OK) {
                 // Handle failures such as retrying due to network errors.
                 return
             }
@@ -121,7 +139,11 @@ for each external offer. Tokens must not be cached across transactions.
             // Persist the transaction token in your backend. You may pass it
             // to the external website when calling the launchExternalLink API.
         }
-    })
+    }
+)
+```
+
+<br />
 
 ### Java
 
@@ -154,12 +176,17 @@ Alternatively, you can query the suspend function
 [`createBillingProgramReportingDetailsAsync`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient#createBillingProgramReportingDetailsAsync(com.android.billingclient.api.BillingProgramReportingDetailsParams,com.android.billingclient.api.BillingProgramReportingDetailsListener)) with [Kotlin extensions](https://developer.android.com/google/play/billing/integrate#dependency) so
 that you don't need to define a listener:
 
-      val createBillingProgramReportingDetailsResult =
-        withContext(context) {
-          billingClient
+
+```kotlin
+val createBillingProgramReportingDetailsResult =
+    withContext(coroutineContext) {
+        billingClient
             .createBillingProgramReportingDetails(params)
-        }
-      // Process the result
+    }
+// Process the result
+```
+
+<br />
 
 ## Launch external offer flow
 
@@ -191,33 +218,36 @@ personally identifiable information (PII) is passed in the URI.
 ### Kotlin
 
 
-    // An activity reference from which the external offers flow will be launched.
-    val activity = ...;
+```kotlin
+// An activity reference from which the external offers flow will be launched.
+val activity = this.activity
 
-    val params =
-      LaunchExternalLinkParams.newBuilder()
+val params =
+    LaunchExternalLinkParams.newBuilder()
         .setBillingProgram(BillingProgram.EXTERNAL_OFFER)
         // You can pass along the external transaction token from
         // BillingProgramReportingDetails as a URL parameter in the URI
         .setLinkUri(yourLinkUri)
         .setLinkType(LaunchExternalLinkParams.LinkType.LINK_TO_APP_DOWNLOAD)
         .setLaunchMode(
-          LaunchExternalLinkParams.LaunchMode.LAUNCH_IN_EXTERNAL_BROWSER_OR_APP)
+            LaunchExternalLinkParams.LaunchMode.LAUNCH_IN_EXTERNAL_BROWSER_OR_APP
+        )
         .build()
 
-    val listener : LaunchExternalLinkResponseListener =
-      LaunchExternalLinkResponseListener {
-          override fun onLaunchExternalLinkResponse(billingResult: BillingResult) {
+val listener: LaunchExternalLinkResponseListener =
+    LaunchExternalLinkResponseListener { billingResult ->
         if (billingResult.responseCode == BillingResponseCode.OK) {
-          // Proceed with the rest of the external offer flow. If the user
-          // purchases an item, be sure to report the transaction to Google Play.
+            // Proceed with the rest of the external offer flow. If the user
+            // purchases an item, be sure to report the transaction to Google Play.
         } else {
-          // Handle failures such as retrying due to network errors.
+            // Handle failures such as retrying due to network errors.
         }
-      }
     }
 
-    billingClient.launchExternalLink(activity, params, listener)
+billingClient.launchExternalLink(activity, params, listener)
+```
+
+<br />
 
 ### Java
 

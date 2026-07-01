@@ -104,6 +104,9 @@ object, which has a structure similar to the following:
       ]
     }
 
+> [!NOTE]
+> **Note:** To retrieve a phone number, use `number-verification/device-phone-number/ts43`. To verify an existing phone number, use `number-verification/verify/ts43`.
+
 ## Create the OpenID4VP request
 
 First, from your app's backend, create a `dcql_query` object by placing the DCQL

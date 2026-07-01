@@ -35,21 +35,26 @@ modifications:
 
 ### Kotlin
 
-    val purchasesUpdatedListener =
-       PurchasesUpdatedListener { billingResult, purchases ->
-           // Handle new Google Play purchase.
-       }
 
-    val userChoiceBillingListener =
-       UserChoiceBillingListener { userChoiceDetails ->
-           // Handle alternative billing choice.
-       }
+```kotlin
+val purchasesUpdatedListener =
+    PurchasesUpdatedListener { billingResult, purchases ->
+        // Handle new Google Play purchase.
+    }
 
-    val billingClient = BillingClient.newBuilder(context)
-       .setListener(purchasesUpdatedListener)
-       .enablePendingPurchases()
-       .enableUserChoiceBilling(userChoiceBillingListener)
-       .build()
+val userChoiceBillingListener =
+    UserChoiceBillingListener { userChoiceDetails ->
+        // Handle alternative billing choice.
+    }
+
+val billingClient = BillingClient.newBuilder(context)
+    .setListener(purchasesUpdatedListener)
+    .enablePendingPurchases(PendingPurchasesParams.newBuilder().enableOneTimeProducts().build())
+    .enableUserChoiceBilling(userChoiceBillingListener)
+    .build()
+```
+
+<br />
 
 ### Java
 
@@ -146,26 +151,31 @@ The following example demonstrates how to implement the
 
 ### Kotlin
 
-    private val userChoiceBillingListener =
-        UserChoiceBillingListener { userChoiceDetails ->
-            // Get the products being purchased by the user.
-            val products = userChoiceDetails.products
 
-            // Send external transaction token to developer backend server
-            // this devBackend object is for demonstration purposes,
-            // developers can implement this step however best fits their
-            // app to backend communication.
-            devBackend.sendExternalTransactionStarted(
-                userChoiceDetails.externalTransactionToken,
-                user
-            )
+```kotlin
+private val userChoiceBillingListener =
+    UserChoiceBillingListener { userChoiceDetails ->
+        // Get the products being purchased by the user.
+        val products = userChoiceDetails.products
 
-            // Launch alternative billing
-            // ...
-            // The developer backend handles reporting the transaction
-            // to Google Play's backend once the alternative billing
-            // purchase is completed.
-        }
+        // Send external transaction token to developer backend server
+        // this devBackend object is for demonstration purposes,
+        // developers can implement this step however best fits their
+        // app to backend communication.
+        DevBackend.sendExternalTransactionStarted(
+            userChoiceDetails.externalTransactionToken,
+            user
+        )
+
+        // Launch alternative billing
+        // ...
+        // The developer backend handles reporting the transaction
+        // to Google Play's backend once the alternative billing
+        // purchase is completed.
+    }
+```
+
+<br />
 
 ### Java
 
@@ -249,33 +259,38 @@ retrieve from the callback.
 
 ### Kotlin
 
-    // The external transaction ID from the current
-    // alternative billing subscription.
-    val externalTransactionId = //... ;
 
-    val billingFlowParams = BillingFlowParams.newBuilder()
-        .setProductDetailsParamsList(
-            listOf(
-                BillingFlowParams.ProductDetailsParams.newBuilder()
-                    // Fetched using queryProductDetailsAsync.
-                    .setProductDetails(productDetailsNewPlan)
-                    // offerIdToken can be found in
-                    // ProductDetails=>SubscriptionOfferDetails.
-                    .setOfferToken(offerTokenNewPlan)
-                    .build()
-            )
-        )
-        .setSubscriptionUpdateParams(
-            BillingFlowParams.SubscriptionUpdateParams.newBuilder()
-                .setOriginalExternalTransactionId(externalTransactionId)
+```kotlin
+// The external transaction ID from the current
+// alternative billing subscription.
+val externalTransactionId = "your_external_transaction_id"
+
+val billingFlowParams = BillingFlowParams.newBuilder()
+    .setProductDetailsParamsList(
+        listOf(
+            BillingFlowParams.ProductDetailsParams.newBuilder()
+                // Fetched using queryProductDetailsAsync.
+                .setProductDetails(productDetailsNewPlan)
+                // offerIdToken can be found in
+                // ProductDetails=>SubscriptionOfferDetails.
+                .setOfferToken(offerTokenNewPlan)
                 .build()
-            )
-        .build()
+        )
+    )
+    .setSubscriptionUpdateParams(
+        BillingFlowParams.SubscriptionUpdateParams.newBuilder()
+            .setOriginalExternalTransactionId(externalTransactionId)
+            .build()
+    )
+    .build()
 
-    val billingResult = billingClient.launchBillingFlow(activity, billingFlowParams)
+val billingResult = billingClient.launchBillingFlow(activity, billingFlowParams)
 
-    // When the user selects the alternative billing flow,
-    // the UserChoiceBillingListener is triggered.
+// When the user selects the alternative billing flow,
+// the UserChoiceBillingListener is triggered.
+```
+
+<br />
 
 ### Java
 
@@ -324,9 +339,15 @@ Play's billing system:
 
    ### Kotlin
 
-       val offerTokenNewPlan = productDetailsNewPlan
-            .getSubscriptionOfferDetails(selectedOfferIndex)
-            .getOfferToken()
+
+   ```kotlin
+   val offerTokenNewPlan = productDetailsNewPlan.getSubscriptionOfferDetails()
+       ?.getOrNull(selectedOfferIndex)
+       ?.offerToken
+       ?: ""
+   ```
+
+   <br />
 
    ### Java
 
@@ -339,30 +360,42 @@ Play's billing system:
 
    ### Kotlin
 
-       val billingFlowParams =
-           BillingFlowParams.newBuilder()
-               .setProductDetailsParamsList(
-                   listOf(
-                       BillingFlowParams.ProductDetailsParams.newBuilder()
-                           // Fetched using queryProductDetailsAsync
-                           .setProductDetails(productDetailsNewPlan)
-                           // offerIdToken can be found in
-                           // ProductDetails=>SubscriptionOfferDetails.
-                           .setOfferToken(offerTokenNewPlan)
-                           .build()
+
+   ```kotlin
+   val billingFlowParams =
+       BillingFlowParams.newBuilder()
+           .setProductDetailsParamsList(
+               listOf(
+                   BillingFlowParams.ProductDetailsParams.newBuilder()
+                       // Fetched using queryProductDetailsAsync
+                       .setProductDetails(productDetailsNewPlan)
+                       .setSubscriptionProductReplacementParams(
+                           SubscriptionProductReplacementParams.newBuilder()
+                               .setReplacementMode(
+                                   SubscriptionProductReplacementParams.ReplacementMode.CHARGE_FULL_PRICE
+                               )
+                               .setOldProductId("old_product_id")
+                               .build()
                        )
-               )
-               .setSubscriptionUpdateParams(
-                   BillingFlowParams.SubscriptionUpdateParams.newBuilder()
-                       // purchaseToken can be found in
-                       // Purchase#getPurchaseToken
-                       .setOldPurchaseToken(oldToken)
-                       .setReplaceProrationMode(BillingFlowParams.ProrationMode.IMMEDIATE_AND_CHARGE_FULL_PRICE)
+                       // offerIdToken can be found in
+                       // ProductDetails=>SubscriptionOfferDetails.
+                       .setOfferToken(offerTokenNewPlan)
                        .build()
                )
-               .build()
+           )
+           .setSubscriptionUpdateParams(
+               BillingFlowParams.SubscriptionUpdateParams.newBuilder()
+                   // purchaseToken can be found in
+                   // Purchase#getPurchaseToken
+                   .setOldPurchaseToken(oldToken)
+                   .build()
+           )
+           .build()
 
-       val billingResult = billingClient.launchBillingFlow(activity, billingFlowParams)
+   val billingResult = billingClient.launchBillingFlow(activity, billingFlowParams)
+   ```
+
+   <br />
 
    ### Java
 

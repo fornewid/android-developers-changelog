@@ -36,7 +36,8 @@ advanced features and quota increases, you must proceed to the linking step.
 
 ## Link to Google Play (recommended)
 
-Link your app or SDK to Google Play using these instructions.
+You can link your Google Cloud project to your app or SDK using these
+instructions.
 
 ### For apps and games on Google Play
 
@@ -46,9 +47,9 @@ daily API quota.
 
 1. Open the [Google Play Console](https://play.google.com/console/developers) and select your app.
 2. Navigate to **[Protected with Play](https://play.google.com/console/developers/app/protect-with-play)**.
-3. Next to **Play Integrity API** , click the **Get started** button to go to **Play Integrity API settings**.
+3. Next to **Play Integrity API** , select the **Get started** button to go to **Play Integrity API settings**.
 4. Click the **Link Cloud project** button.
-5. Choose the Google Cloud project you plan to use with the Play Integrity API; if the Play Integrity API is not already enabled for the project, it will be enabled automatically upon linking.
+5. Choose the Google Cloud project you plan to use with the Play Integrity API. If the Play Integrity API isn't already enabled for the project, it will be enabled automatically upon linking.
 
 ### For SDK providers on Play SDK Console
 
@@ -62,6 +63,9 @@ is subject to [eligibility criteria](https://support.google.com/googleplay/andro
 2. Navigate to **SDK integrity**
 3. Under **Play Integrity API** click **Link a Cloud project**.
 4. Choose the Google Cloud project you plan to use with the Play Integrity API; if the Play Integrity API is not already enabled for the project, it will be enabled automatically upon linking.
+
+> [!NOTE]
+> **Note:** You can link up to a maximum of five Google Cloud projects to your app or SDK. You should consider linking multiple projects if you need to support different environments for your testing and production.
 
 ## Understand Play Integrity API usage limits
 

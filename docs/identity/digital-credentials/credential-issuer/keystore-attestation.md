@@ -36,7 +36,7 @@ Issuers should perform several validations on the attestation.
 - Verify that the `attestationChallenge` field in the extension matches the `c_nonce` provided by the protocol to prevent replay attacks.
 
 > [!NOTE]
-> **Note:** `attestationChallenge` is an `OCTET_STRING` and is the UTF-8 encoded value of the `c_nonce` string.
+> **Note:** `attestationChallenge` is an `OCTET_STRING` and is the UTF-8 encoded value of the `c_nonce` string. This field can support a maximum of 128 bytes from the `c_nonce` string.
 
 - Verify the value of all assertions in the extensions that you are interested in.
 - Perform a revocation check against the Android Keystore certificates.

@@ -149,11 +149,16 @@ To upgrade from PBL 7 or 8 to PBL 9, do the following steps:
 
    ### Kotlin
 
-       val linkUri = details.getLinkUri()
-       if (!linkUri.isNullOrEmpty()) {
-         val intent = Intent(Intent.ACTION_VIEW, Uri.parse(linkUri))
-         context.startActivity(intent)
-       }
+
+   ```kotlin
+   val linkUri = details.linkUri
+   if (!linkUri.isNullOrEmpty()) {
+       val intent = Intent(Intent.ACTION_VIEW, linkUri.toUri())
+       context.startActivity(intent)
+   }
+   ```
+
+   <br />
 
    ### Java
 

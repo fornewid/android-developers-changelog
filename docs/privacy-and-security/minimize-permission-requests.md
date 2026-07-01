@@ -165,6 +165,18 @@ higher, generate an app-specific token using
 [`createAppSpecificSmsToken()`](https://developer.android.com/reference/android/telephony/SmsManager#createAppSpecificSmsToken(android.app.PendingIntent)). Pass this token to
 another app or service that can send a verification SMS message.
 
+### Verify a user's phone number
+
+In order to allow your app to securely verify a user's phone number, the
+recommended solution is the [Digital Credentials API](https://developer.android.com/identity/digital-credentials/phone-number-verification).
+Using this API either directly, or through a wide range of compatible
+aggregators, lets you reliably verify user account information without
+requesting sensitive device permissions. For a Firebase solution, see
+[Firebase Phone Number Verification](https://firebase.google.com/docs/phone-number-verification).
+
+Alternatively, you can verify a user's phone number using a one-time passcode,
+using the [SMS Retriever API](https://developers.google.com/identity/sms-retriever/overview).
+
 ### Enter the user's phone number automatically
 
 To provide more efficient sales or support, your app might allow the user to

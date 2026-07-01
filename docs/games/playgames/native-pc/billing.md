@@ -118,6 +118,9 @@ history, you must consume the product before they can buy it again.
 When the user shows an intent to buy a product you have showed them you're ready
 to launch the purchase flow.
 
+The purchase flow is completed in-game using a seamless, WebView-based overlay:
+![In-game seamless purchase checkout interface](https://developer.android.com/games/playgames/images/billing_seamless.png) In-game seamless purchase checkout flow
+
 1. Start by calling [`BillingClient::LaunchPurchaseFlow()`](https://developer.android.com/games/playgames/native-pc/reference/class/google/play/billing/billing-client#launchpurchaseflow). Pass in the [`offer_token`](https://developer.android.com/games/playgames/native-pc/reference/struct/google/play/billing/product-offer#offer_token) obtained when querying the product details.
 2. Once the purchase has been completed the continuation function will be called with the result.
 3. If successful, the continuation contains a [`ProductPurchaseDetails`](https://developer.android.com/games/playgames/native-pc/reference/struct/google/play/billing/product-purchase-details). Continue by [processing the purchase](https://developer.android.com/games/playgames/native-pc/billing#process-purchase).
@@ -170,7 +173,7 @@ is the same as done for an Android game that has integrated with Play Billing.
 ### Process without a backend server
 
 > [!NOTE]
-> **Note:** Processing purchases from your client app requires your game to be allow-listed. Please contact your Google Partner if your game requires access.
+> **Note:** Processing purchases from your client app requires your game to be on an allowlist. You can request to be added to the allowlist by submitting a request using the [Google Play Games on PC Support Form](https://support.google.com/googleplay/games-on-pc-developer/contact/new_title_onboarding) or by [filing a support ticket](https://issuetracker.google.com/issues/new?component=175792). You can also contact your Google Partner for assistance.
 
 1. Ensure the user's payment is not pending by checking
    [`ProductPurchaseDetails::purchase_state`](https://developer.android.com/games/playgames/native-pc/reference/struct/google/play/billing/product-purchase-details#purchase_state) is
@@ -273,7 +276,11 @@ is the same as done for an Android game that has integrated with Play Billing.
 ### Client-side purchase verification
 
 > [!NOTE]
-> **Note:** To receive the signature on your [`ProductPurchaseDetails`](https://developer.android.com/games/playgames/native-pc/reference/struct/google/play/billing/product-purchase-details) requires allowlisting. Please contact your Google Partner if your game requires access.
+> **Note:** To receive the signature on your [`ProductPurchaseDetails`](https://developer.android.com/games/playgames/native-pc/reference/struct/google/play/billing/product-purchase-details), your game must be on an allowlist. You can request to be added to the allowlist by submitting a request using the [Google Play Games on PC Support Form](https://support.google.com/googleplay/games-on-pc-developer/contact/new_title_onboarding) or by [filing a support ticket](https://issuetracker.google.com/issues/new?component=175792).
+
+Client-side verification provides an additional layer of security by verifying
+the purchase signature directly in your game client:
+![Client-side purchase signature verification architecture](https://developer.android.com/games/playgames/images/billing_client_verification.png) Client-side purchase verification architecture
 
 You get the `signature` from
 [`ProductPurchaseDetails`](https://developer.android.com/games/playgames/native-pc/reference/struct/google/play/billing/product-purchase-details). The `signature` field is

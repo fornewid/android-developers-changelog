@@ -4,7 +4,7 @@ url: https://developer.android.com/blog/categories/community
 source: md.txt
 ---
 
-![](https://developer.android.com/static/blog/assets/community_droid_6e853eebb1_ee5eeddc02_2ao438.webp)
+![](https://developer.android.com/static/blog/assets/community_droid_6e853eebb1_ee5eeddc02_1CWi4Q.webp)
 
 # Community
 

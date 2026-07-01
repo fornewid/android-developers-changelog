@@ -270,14 +270,14 @@ To potentially improve build performance, we recommend
 [testing your Gradle builds](https://developer.android.com/studio/build/profile-your-build) with the parallel
 garbage collector. In `gradle.properties` set the following:
 
-```text
+```
 org.gradle.jvmargs=-XX:+UseParallelGC
 ```
 
 
 If there are other options already set in this field, add a new option:
 
-```text
+```
 org.gradle.jvmargs=-Xmx1536m -XX:+UseParallelGC
 ```
 
@@ -285,7 +285,8 @@ org.gradle.jvmargs=-Xmx1536m -XX:+UseParallelGC
 To measure build speed with different configurations, see
 [Profile your build](https://developer.android.com/studio/build/profile-your-build#profiling_different_memorycpu_settings).
 
-| **Note:** Be aware of Gradle [issue #19750](https://github.com/gradle/gradle/issues/19750): setting the `org.gradle.jvmargs` property can lead to "Daemon disappeared" failures. Until the bug is fixed you must explicitly set JVM argument defaults. The key JVM arguments that you must explicitly set are the `-XX:MaxMetaspaceSize=256m` and `-XX:+HeapDumpOnOutOfMemoryError` arguments; for the full list of arguments, see the [`java` command documentation](https://docs.oracle.com/javase/8/docs/technotes/tools/windows/java.html).
+> [!NOTE]
+> **Note:** Be aware of Gradle [issue #19750](https://github.com/gradle/gradle/issues/19750): setting the `org.gradle.jvmargs` property can lead to "Daemon disappeared" failures. Until the bug is fixed you must explicitly set JVM argument defaults. The key JVM arguments that you must explicitly set are the `-XX:MaxMetaspaceSize=256m` and `-XX:+HeapDumpOnOutOfMemoryError` arguments; for the full list of arguments, see the [`java` command documentation](https://docs.oracle.com/javase/8/docs/technotes/tools/windows/java.html).
 
 ### Increase the JVM heap size
 
@@ -297,7 +298,7 @@ results, then you should increase the Java Virtual Machine (JVM) heap size.
 In the `gradle.properties` file, set the limit to 4, 6, or 8 gigabytes
 as shown in the following example:
 
-```text
+```
 org.gradle.jvmargs=-Xmx6g
 ```
 
@@ -305,14 +306,16 @@ org.gradle.jvmargs=-Xmx6g
 Then test for build speed improvement. The easiest way to determine the optimal heap
 size is to increase the limit by a small amount and then test for sufficient build
 speed improvement.
-| **Note:** If you change the default memory limit, you also have to set the `-XX:MaxMetaspaceSize=1g` argument due to [Gradle issue #19750](https://github.com/gradle/gradle/issues/19750).
+
+> [!NOTE]
+> **Note:** If you change the default memory limit, you also have to set the `-XX:MaxMetaspaceSize=1g` argument due to [Gradle issue #19750](https://github.com/gradle/gradle/issues/19750).
 
 
 If you also use the
 [JVM parallel garbage collector](https://developer.android.com/studio/build/profile-your-build#experiment-gc),
 then the entire line should look like:
 
-```text
+```
 org.gradle.jvmargs=-Xmx6g -XX:+HeapDumpOnOutOfMemoryError -Dfile.encoding=UTF-8 -XX:+UseParallelGC -XX:MaxMetaspaceSize=1g
 ```
 
@@ -382,7 +385,7 @@ To enable the configuration cache, follow these steps:
 
    <br />
 
-   ```text
+   ```
      org.gradle.configuration-cache=true
      # Use this flag carefully, in case some of the plugins are not fully compatible.
      org.gradle.configuration-cache.problems=warn

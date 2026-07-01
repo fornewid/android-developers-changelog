@@ -96,6 +96,27 @@ exit
 Connection closed by foreign host.
 ```
 
+## Fire-and-forget commands
+
+
+If you don't need the session to be open, use the `adb emu` shortcut, which
+executes the command and immediately returns control to the invoking shell:
+
+```
+    adb emu command commandParameter
+  
+```
+
+
+Invocation with `adb emu` connects to the available emulator. If you have
+multiple emulators running at the same time, you must pass in the serial of the
+specific emulator you're targeting:
+
+```
+    adb -s emulator-serial emu command commandParameter
+  
+```
+
 ## Emulator command reference
 
 
