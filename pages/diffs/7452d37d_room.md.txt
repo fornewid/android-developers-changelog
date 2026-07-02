@@ -1,0 +1,13 @@
+diff --git a/docs/kotlin/multiplatform/room.md b/docs/kotlin/multiplatform/room.md
+index be0222a3..3b7cdbb3 100644
+--- a/docs/kotlin/multiplatform/room.md
++++ b/docs/kotlin/multiplatform/room.md
+@@ -22,7 +22,7 @@ Define the dependencies in the `libs.versions.toml` file:
+ 
+     [versions]
+     room = "2.8.4"
+-    sqlite = "2.6.2"
++    sqlite = "2.7.0"
+     ksp = "<kotlinCompatibleKspVersion>"
+ 
+     [libraries]

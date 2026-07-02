@@ -1,0 +1,88 @@
+diff --git a/docs/guide/topics/manifest/provider-element.md b/docs/guide/topics/manifest/provider-element.md
+index b0ec5a6e..202cea03 100644
+--- a/docs/guide/topics/manifest/provider-element.md
++++ b/docs/guide/topics/manifest/provider-element.md
+@@ -15,6 +15,7 @@ syntax:
+               android:grantUriPermissions=["true" | "false"]
+               android:icon="drawable resource"
+               android:initOrder="integer"
++              android:intentMatchingFlags=["none" | "enforceIntentFilter" | "allowNullAction"]
+               android:label="string resource"
+               android:multiprocess=["true" | "false"]
+               android:name="string"
+@@ -142,6 +143,7 @@ attributes:
+         attribute.
+ 
+     `android:grantUriPermissions`
++
+     :   Whether those who ordinarily don't have permission to
+         access the content provider's data can be granted permission to do so,
+         temporarily overcoming the restriction imposed by the
+@@ -151,8 +153,6 @@ attributes:
+         `https://developer.android.com/guide/topics/manifest/provider-element#exported`
+         attributes.
+ 
+-        <br />
+-
+ 
+         It's `"true"` if permission can be granted, and `"false"` if not.
+         If `"true"`, permission can be granted to any of the content
+@@ -203,6 +203,29 @@ attributes:
+         required by those dependencies. The value is an integer,
+         with higher numbers being initialized first.
+ 
++    `android:intentMatchingFlags`
++
++    :
++        Use this attribute to fine-tune how the system matches incoming intents to app
++        components. By default, no special matching rules are applied.
++
++
++        The value set on a `<provider>` tag overrides the value
++        set on the `<application>` tag.
++
++
++        The value must be one or more of the following flags, separated by '`|`':
++
++        | Flag | Description |
++        |---|---|
++        | `none` | Disables all special matching rules for incoming intents. When specifying multiple flags, conflicting values are resolved by giving precedence to the `none` flag. |
++        | `enforceIntentFilter` | Enforces stricter matching for incoming intents: - Explicit intents must match the target component's intent filter. - Intents without an action don't match any intent filter. |
++        | `allowNullAction` | Relaxes the matching rules to allow intents without an action to match. This flag is used in conjunction with `enforceIntentFilter` to achieve the following behavior: - Explicit intents must match the target component's intent filter. - Intents without an action are allowed to match any intent filter. |
++
++        For more information, see the
++        [Safer Intents](https://developer.android.com/about/versions/16/behavior-changes-16#safer-intents)
++        section in the Android 16 (API level 36) behavior changes.
++
+     `android:label`
+     :   A user-readable label for the content provided.
+         If this attribute isn't set, the label set for the application as a whole is
+@@ -239,6 +262,7 @@ attributes:
+         There is no default. The name must be specified.
+ 
+     `android:permission`
++
+     :   The name of a permission that clients must have to read or write the
+         content provider's data. This attribute is a convenient way of setting a
+         single permission for both reading and writing. However, the
+@@ -246,9 +270,6 @@ attributes:
+         `https://developer.android.com/guide/topics/manifest/provider-element#wprmsn`, and `https://developer.android.com/guide/topics/manifest/provider-element#gprmsn` attributes take precedence
+         over this one.
+ 
+-        <br />
+-
+-
+         If the `readPermission`
+         attribute is also set, it controls access for querying the content provider.
+         If the `writePermission` attribute is set,
+@@ -262,7 +283,9 @@ attributes:
+ 
+     `android:process`
+ 
+-    :   The name of the process in which the content provider runs. Normally, all components of an application run in the default process created for the application. It has the same name as the application package.<br />
++    :   The name of the process in which the content provider runs. Normally,
++        all components of an application run in the default process created for the
++        application. It has the same name as the application package.
+ 
+         The
+         `https://developer.android.com/guide/topics/manifest/application-element` element's

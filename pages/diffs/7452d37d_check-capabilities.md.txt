@@ -1,0 +1,13 @@
+diff --git a/docs/develop/xr/jetpack-xr-sdk/glasses/check-capabilities.md b/docs/develop/xr/jetpack-xr-sdk/glasses/check-capabilities.md
+index 6c046ed9..f90fdfb6 100644
+--- a/docs/develop/xr/jetpack-xr-sdk/glasses/check-capabilities.md
++++ b/docs/develop/xr/jetpack-xr-sdk/glasses/check-capabilities.md
+@@ -25,7 +25,7 @@ following example shows how to check whether a glasses device has a display:
+ 
+ ```kotlin
+ // Check device capabilities
+-val projectedDeviceController = ProjectedDeviceController.create(this@GlassesMainActivity)
++val projectedDeviceController = ProjectedDeviceController.create(this@ProjectedMainActivity)
+ isVisualUiSupported = projectedDeviceController.capabilities.contains(CAPABILITY_VISUAL_UI)
+ ```
+ 
