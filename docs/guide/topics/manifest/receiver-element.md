@@ -12,6 +12,7 @@ syntax:
               android:enabled=["true" | "false"]
               android:exported=["true" | "false"]
               android:icon="drawable resource"
+              android:intentMatchingFlags=["none" | "enforceIntentFilter" | "allowNullAction"]
               android:label="string resource"
               android:name="string"
               android:permission="string"
@@ -126,6 +127,29 @@ attributes:
         `https://developer.android.com/guide/topics/manifest/intent-filter-element` element's
         `https://developer.android.com/guide/topics/manifest/intent-filter-element#icon` attribute.
 
+    `android:intentMatchingFlags`
+
+    :
+        Use this attribute to fine-tune how the system matches incoming intents to app
+        components. By default, no special matching rules are applied.
+
+
+        The value set on a `<receiver>` tag overrides the value
+        set on the `<application>` tag.
+
+
+        The value must be one or more of the following flags, separated by '`|`':
+
+        | Flag | Description |
+        |---|---|
+        | `none` | Disables all special matching rules for incoming intents. When specifying multiple flags, conflicting values are resolved by giving precedence to the `none` flag. |
+        | `enforceIntentFilter` | Enforces stricter matching for incoming intents: - Explicit intents must match the target component's intent filter. - Intents without an action don't match any intent filter. |
+        | `allowNullAction` | Relaxes the matching rules to allow intents without an action to match. This flag is used in conjunction with `enforceIntentFilter` to achieve the following behavior: - Explicit intents must match the target component's intent filter. - Intents without an action are allowed to match any intent filter. |
+
+        For more information, see the
+        [Safer Intents](https://developer.android.com/about/versions/16/behavior-changes-16#safer-intents)
+        section in the Android 16 (API level 36) behavior changes.
+
     `android:label`
     :   A user-readable label for the broadcast receiver. If this attribute isn't
         set, the label set for the application as a whole is
@@ -176,7 +200,9 @@ attributes:
 
     `android:process`
 
-    :   The name of the process in which the broadcast receiver runs. Normally, all components of an application run in the default process created for the application. It has the same name as the application package.<br />
+    :   The name of the process in which the broadcast receiver runs.
+        Normally, all components of an application run in the default process created
+        for the application. It has the same name as the application package.
 
         The
         `https://developer.android.com/guide/topics/manifest/application-element` element's

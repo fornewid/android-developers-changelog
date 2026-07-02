@@ -95,7 +95,7 @@ glasses whenever the display is turned on.
 
 ```kotlin
 @OptIn(ExperimentalProjectedApi::class)
-class GlassesMainActivity : ComponentActivity() {
+class ProjectedMainActivity : ComponentActivity() {
 
     private var displayController: ProjectedDisplayController? = null
     private var isVisualUiSupported by mutableStateOf(false)
@@ -146,13 +146,13 @@ class GlassesMainActivity : ComponentActivity() {
     private fun initializeGlassesFeatures() {
         lifecycleScope.launch {
             // Check device capabilities
-            val projectedDeviceController = ProjectedDeviceController.create(this@GlassesMainActivity)
+            val projectedDeviceController = ProjectedDeviceController.create(this@ProjectedMainActivity)
             isVisualUiSupported = projectedDeviceController.capabilities.contains(CAPABILITY_VISUAL_UI)
 
-            val controller = ProjectedDisplayController.create(this@GlassesMainActivity)
+            val controller = ProjectedDisplayController.create(this@ProjectedMainActivity)
             displayController = controller
             val observer = GlassesLifecycleObserver(
-                context = this@GlassesMainActivity,
+                context = this@ProjectedMainActivity,
                 controller = controller,
                 onVisualsChanged = { visualsOn -> areVisualsOn = visualsOn }
             )
@@ -180,7 +180,7 @@ class GlassesMainActivity : ComponentActivity() {
 ### Key points about the code
 
 - Opts in to using [opt-in APIs](https://developer.android.com/reference/kotlin/androidx/annotation/RequiresOptIn) from the [Jetpack Projected](https://developer.android.com/jetpack/androidx/releases/xr-projected) library.
-- `GlassesMainActivity` extends [`ComponentActivity`](https://developer.android.com/reference/kotlin/androidx/activity/ComponentActivity), just as you would expect in mobile development.
+- `ProjectedMainActivity` extends [`ComponentActivity`](https://developer.android.com/reference/kotlin/androidx/activity/ComponentActivity), just as you would expect in mobile development.
 - Because not all glasses have a display, checks whether the device has a display using [`ProjectedDeviceController`](https://developer.android.com/reference/kotlin/androidx/xr/projected/ProjectedDeviceController).
 - The `setContent` block within the `onCreate` function defines the root of the Composable UI tree for the activity. You'll implement the `HomeScreen` composable using [Jetpack Compose Glimmer](https://developer.android.com/develop/xr/jetpack-xr-sdk/jetpack-compose-glimmer).
 - Initializes the UI during the activity's [`onCreate`](https://developer.android.com/reference/kotlin/android/app/Activity#onCreate(android.os.Bundle)) method (see [projected activity lifecycle](https://developer.android.com/develop/xr/jetpack-xr-sdk/glasses/support-different-types#activity-lifecycle)).
@@ -274,7 +274,7 @@ following code:
 
 ```kotlin
 val options = ProjectedContext.createProjectedActivityOptions(context)
-val intent = Intent(context, GlassesMainActivity::class.java)
+val intent = Intent(context, ProjectedMainActivity::class.java)
 context.startActivity(intent, options.toBundle())
 ```
 

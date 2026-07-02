@@ -30,6 +30,7 @@ syntax:
                  android:hasFragileUserData=["true" | "false"]
                  android:hardwareAccelerated=["true" | "false"]
                  android:icon="drawable resource"
+                 android:intentMatchingFlags=["none" | "enforceIntentFilter" | "allowNullAction"]
                  android:isGame=["true" | "false"]
                  android:isMonitoringTool=["parental_control" | "enterprise_management" |
                  "other"]
@@ -376,6 +377,33 @@ attributes
 
         This attribute is set as a reference to a drawable resource containing
         the image, such as `"@drawable/icon"`. There is no default icon.
+
+    `android:intentMatchingFlags`
+
+    :
+        Use this attribute to fine-tune how the system matches incoming intents to app
+        components. By default, no special matching rules are applied.
+
+
+        This attribute can be specified on the `<application>` tag
+        as well as on component tags, including `<activity>`,
+        `<activity-alias>`, `<receiver>`,
+        `<service>`, and `<provider>`. The value
+        set on a component overrides the value set on the
+        `<application>` tag.
+
+
+        The value must be one or more of the following flags, separated by '`|`':
+
+        | Flag | Description |
+        |---|---|
+        | `none` | Disables all special matching rules for incoming intents. When specifying multiple flags, conflicting values are resolved by giving precedence to the `none` flag. |
+        | `enforceIntentFilter` | Enforces stricter matching for incoming intents: - Explicit intents must match the target component's intent filter. - Intents without an action don't match any intent filter. |
+        | `allowNullAction` | Relaxes the matching rules to allow intents without an action to match. This flag is used in conjunction with `enforceIntentFilter` to achieve the following behavior: - Explicit intents must match the target component's intent filter. - Intents without an action are allowed to match any intent filter. |
+
+        For more information, see the
+        [Safer Intents](https://developer.android.com/about/versions/16/behavior-changes-16#safer-intents)
+        section in the Android 16 (API level 36) behavior changes.
 
     `android:isGame`
     :   Whether the application is a game. The system might group together applications classified

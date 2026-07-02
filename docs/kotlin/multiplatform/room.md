@@ -22,7 +22,7 @@ Define the dependencies in the `libs.versions.toml` file:
 
     [versions]
     room = "2.8.4"
-    sqlite = "2.6.2"
+    sqlite = "2.7.0"
     ksp = "<kotlinCompatibleKspVersion>"
 
     [libraries]

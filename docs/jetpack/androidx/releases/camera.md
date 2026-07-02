@@ -13,20 +13,20 @@ This table lists all the artifacts in the `androidx.camera` group.
 
 | Artifact | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| camera-camera2 | [1.6.1](https://developer.android.com/jetpack/androidx/releases/camera#1.6.1) | - | - | [1.7.0-alpha01](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-alpha01) |
-| camera-core | [1.6.1](https://developer.android.com/jetpack/androidx/releases/camera#1.6.1) | - | - | [1.7.0-alpha01](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-alpha01) |
-| camera-compose | [1.6.1](https://developer.android.com/jetpack/androidx/releases/camera#1.6.1) | - | - | [1.7.0-alpha01](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-alpha01) |
-| camera-effects | [1.6.1](https://developer.android.com/jetpack/androidx/releases/camera#1.6.1) | - | - | [1.7.0-alpha01](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-alpha01) |
-| camera-extensions | [1.6.1](https://developer.android.com/jetpack/androidx/releases/camera#1.6.1) | - | - | [1.7.0-alpha01](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-alpha01) |
+| camera-camera2 | [1.6.1](https://developer.android.com/jetpack/androidx/releases/camera#1.6.1) | - | - | [1.7.0-alpha02](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-alpha02) |
+| camera-core | [1.6.1](https://developer.android.com/jetpack/androidx/releases/camera#1.6.1) | - | - | [1.7.0-alpha02](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-alpha02) |
+| camera-compose | [1.6.1](https://developer.android.com/jetpack/androidx/releases/camera#1.6.1) | - | - | [1.7.0-alpha02](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-alpha02) |
+| camera-effects | [1.6.1](https://developer.android.com/jetpack/androidx/releases/camera#1.6.1) | - | - | [1.7.0-alpha02](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-alpha02) |
+| camera-extensions | [1.6.1](https://developer.android.com/jetpack/androidx/releases/camera#1.6.1) | - | - | [1.7.0-alpha02](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-alpha02) |
 | camera-feature-combination-query | - | - | - | [1.5.0-alpha06](https://developer.android.com/jetpack/androidx/releases/camera#1.5.0-alpha06) |
 | camera-feature-combination-query-play-services | - | - | - | [1.5.0-alpha06](https://developer.android.com/jetpack/androidx/releases/camera#1.5.0-alpha06) |
-| camera-lifecycle | [1.6.1](https://developer.android.com/jetpack/androidx/releases/camera#1.6.1) | - | - | [1.7.0-alpha01](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-alpha01) |
-| camera-mlkit-vision | [1.6.1](https://developer.android.com/jetpack/androidx/releases/camera#1.6.1) | - | - | [1.7.0-alpha01](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-alpha01) |
-| camera-view | [1.6.1](https://developer.android.com/jetpack/androidx/releases/camera#1.6.1) | - | - | [1.7.0-alpha01](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-alpha01) |
+| camera-lifecycle | [1.6.1](https://developer.android.com/jetpack/androidx/releases/camera#1.6.1) | - | - | [1.7.0-alpha02](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-alpha02) |
+| camera-mlkit-vision | [1.6.1](https://developer.android.com/jetpack/androidx/releases/camera#1.6.1) | - | - | [1.7.0-alpha02](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-alpha02) |
+| camera-view | [1.6.1](https://developer.android.com/jetpack/androidx/releases/camera#1.6.1) | - | - | [1.7.0-alpha02](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-alpha02) |
 | camera-viewfinder | - | - | [1.3.0-beta02](https://developer.android.com/jetpack/androidx/releases/camera#1.3.0-beta02) | [1.4.0-alpha07](https://developer.android.com/jetpack/androidx/releases/camera#1.4.0-alpha07) |
-| camera-video | [1.6.1](https://developer.android.com/jetpack/androidx/releases/camera#1.6.1) | - | - | [1.7.0-alpha01](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-alpha01) |
+| camera-video | [1.6.1](https://developer.android.com/jetpack/androidx/releases/camera#1.6.1) | - | - | [1.7.0-alpha02](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-alpha02) |
 
-This library was last updated on: May 06, 2026
+This library was last updated on: July 01, 2026
 
 ## Device testing
 
@@ -49,7 +49,7 @@ your app or module:
 ```groovy
 dependencies {
   // CameraX core library using the camera2 implementation
-  def camerax_version = "1.7.0-alpha01"
+  def camerax_version = "1.7.0-alpha02"
   // The following line is optional, as the core library is included indirectly by camera-camera2
   implementation "androidx.camera:camera-core:${camerax_version}"
   implementation "androidx.camera:camera-camera2:${camerax_version}"
@@ -71,7 +71,7 @@ dependencies {
 ```kotlin
 dependencies {
     // CameraX core library using the camera2 implementation
-    val camerax_version = "1.7.0-alpha01"
+    val camerax_version = "1.7.0-alpha02"
     // The following line is optional, as the core library is included indirectly by camera-camera2
     implementation("androidx.camera:camera-core:${camerax_version}")
     implementation("androidx.camera:camera-camera2:${camerax_version}")
@@ -139,6 +139,41 @@ May 14, 2024
 - Added `ZoomGestureDetector.ZoomEvent` to encapsulates the states of a zoom gesture. ([I84cdf](https://android-review.googlesource.com/#/q/I84cdfd505443171f9910fb0b3fd40fdaf307796b))
 
 ## Version 1.7
+
+### Version 1.7.0-alpha02
+
+July 01, 2026
+
+`androidx.camera:camera-*:1.7.0-alpha02` is released. Version 1.7.0-alpha02 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/1a508f033de883ba2853b9f9ae1853eec7010638..01f3396e92df911805f22836f27c7057324e40ff/camera).
+
+**API Changes**
+
+- `CameraXViewfinder` now supports built-in gestures for pinch-to-zoom and tap-to-focus, and adds support for screen flash and stream state. `FocusState` is now public in viewfinder-core to allow monitoring tap-to-focus results. ([I66a17](https://android-review.googlesource.com/#/q/I66a17527c5faa563006f6807a33c757a6f35588d), [b/522549890](https://issuetracker.google.com/issues/522549890))
+- Added `isAutoRotationEnabled` to `SessionConfig.Builder` , `HighSpeedVideoSessionConfig.Builder`, `ExtensionSessionConfig.Builder` and introduced a Kotlin DSL factory functions for them. This allows setting the appropriate rotation automatically based on device sensors. ([I5b4a3](https://android-review.googlesource.com/#/q/I5b4a358e049ec7b70a8a356941fcd52c423a22eb), [b/510752515](https://issuetracker.google.com/issues/510752515))
+- Added `TransformationMode` property to `TransformationInfo` to support apps to use `OpenGL` pipeline in `EMBEDDED` mode. ([Id1de1](https://android-review.googlesource.com/#/q/Id1de19ff50ddf96e0045e39344c99d08bb773d76), [b/487826941](https://issuetracker.google.com/issues/487826941))
+- Added `isNightModeIndicatorSupported()` and `getNightModeIndicator()` to `CameraInfo` to determine when the environment conditions meet the criteria for Night Mode. ([Iae47b](https://android-review.googlesource.com/#/q/Iae47b9dc4c84a7a28d128a699d70a91f33cbfa10), [b/499389465](https://issuetracker.google.com/issues/499389465))
+- Exposed ImageAnalysis.OUTPUT_IMAGE_FORMAT_PRIVATE and ImageProxy.getHardwareBuffer() as public API to support GPU based ImageAnalysis. ([I41cb3](https://android-review.googlesource.com/#/q/I41cb33fd1088845381917bf1cb1c4549aa1a81f0), [b/496022391](https://issuetracker.google.com/issues/496022391), [b/492934501](https://issuetracker.google.com/issues/492934501))
+- ExtensionsManager#getExtensionEnabledCameraSelector is now deprecated. Please use the new ExtensionSessionConfig API for enabling extension modes. ([I2b336](https://android-review.googlesource.com/#/q/I2b33690421bc67f641e75a07677a44f90ad6415b), [b/473715607](https://issuetracker.google.com/issues/473715607))
+- Added support for visual styling of camera frames during concurrent camera composition. You can now customize:
+- Rounded Corners: Use setRoundedCornerRatio(float) to apply normalized rounding (0.0 to 1.0) to frame edges.
+- Borders: Use setBorderWidthRatio(float) and setBorderColor(int) to add a decorative frame with consistent thickness ([I18a07](https://android-review.googlesource.com/#/q/I18a07232c32cec03c8870af11dff906cc7f0432c), [b/366349205](https://issuetracker.google.com/issues/366349205))
+- Updated CompositionSettings to enforce non-negative z-order and added validation to ConcurrentCamera.setCompositionSettings to ensure it's called with the correct number of settings in a valid composition mode. ([If660d](https://android-review.googlesource.com/#/q/If660d93ccec6bb7b392b8dadd8e31099d6de8462), [b/496951658](https://issuetracker.google.com/issues/496951658))
+- Added getNightModeIndicator() and isNightModeIndicatorAvailable() to CameraExtensionsInfo to allow applications to monitor whether the current environment is in a night mode condition when using camera extensions. ([I62bb4](https://android-review.googlesource.com/#/q/I62bb4fa008ce4741a7d3aaf0c4baf84e2760c3fe), [b/499389465](https://issuetracker.google.com/issues/499389465))
+- Added support for `QHD` video quality in VideoCapture. ([I0ac20](https://android-review.googlesource.com/#/q/I0ac20e49bc483837aa7b75202d66027e35702a0e), [b/501305592](https://issuetracker.google.com/issues/501305592))
+- Added `Recorder.Builder.setTargetAudioChannelCount(int)` and `Recorder.getTargetAudioChannelCount()` to allow developers to set an explicit audio channel count. ([I6bee0](https://android-review.googlesource.com/#/q/I6bee0f5529b0197f29da3d38afe78e1a953f1b11), [b/441895100](https://issuetracker.google.com/issues/441895100))
+- Added `Recorder.Builder.setTargetAudioEncodingBitRate(int)` to allow setting a target audio encoding bitrate. ([I29062](https://android-review.googlesource.com/#/q/I290629fec64c929312b463dff10c1661a321979f), [b/241151504](https://issuetracker.google.com/issues/241151504))
+- Added the ConcurrentCamera.setCompositionSettings API to allow apps to update composition of the current camera dynamically after the lifecycle has been bound. Additionally, a new setZOrder API in CompositionSettings.Builder enables precise control over the rendering order of overlapping camera streams. ([I90528](https://android-review.googlesource.com/#/q/I90528a4854fee1ae1ca35f2ed2c8525041530359), [b/473702287](https://issuetracker.google.com/issues/473702287))
+- Introduced APIs for granular control over encoding formats. Developers can now discover device-supported formats using `Recorder.getSupportedVideoMimeTypes()` and `getSupportedAudioMimeTypes()`, which are currently experimental. Preferred formats can be explicitly configured via `Recorder.Builder.setVideoMimeType()` and `setAudioMimeType()`. Additionally, `Recorder.getVideoCapabilities(CameraInfo, String)` allows querying camera-specific capabilities, such as supported qualities and dynamic ranges, for a chosen codec. ([I4620e](https://android-review.googlesource.com/#/q/I4620ee6da2c7d9dbe9df0d1733ea15ad0f63178b), [b/491319384](https://issuetracker.google.com/issues/491319384))
+- Added CameraController.setAutoRotationEnabled(boolean) to allow disabling the automatic device rotation listener. ([Ia0c03](https://android-review.googlesource.com/#/q/Ia0c03f7f818de36595e55cd437a78e22b9a3eb3b), [b/449573627](https://issuetracker.google.com/issues/449573627))
+- Added AE/AWB locking support in FocusMeteringAction via a new setLockingMode API. This also allows updating 3A regions without locking focus, enabling the camera to remain in continuous autofocus mode while updating the focus area. ([I6416f](https://android-review.googlesource.com/#/q/I6416f818d2c99e2f98ee545be51b8ce38cce6cd2), [b/481624745](https://issuetracker.google.com/issues/481624745))
+
+**Bug Fixes**
+
+- Remove requirement for `compileSdk 37` ([If78b4](https://android-review.googlesource.com/#/q/If78b4fbdec15e6b1d6ad34a487ae10b2e2494325))
+- Fixed `CameraXViewfinder` transformation issues in `EMBEDDED` mode when `OpenGL` pipeline is enabled by `CameraX` for binding more `UseCases` or surface processing. ([I3e637](https://android-review.googlesource.com/#/q/I3e637c4985ff2d82aeea4856cd51cd02b4ae5f39), [b/487826941](https://issuetracker.google.com/issues/487826941))
+- Updated tests and activities to use ExtensionSessionConfig instead of the deprecated getExtensionEnabledCameraSelector API. ([I765d8](https://android-review.googlesource.com/#/q/I765d8a105b98dc5b360a54fa5b9dc912818581b5), [b/473715607](https://issuetracker.google.com/issues/473715607))
+- Fixed a compilation error "Cannot access class 'ListenableFuture'". ([Ic8cba](https://android-review.googlesource.com/#/q/Ic8cba6ae5318d3e6098cc54042c6aebba837996e), [b/497571473](https://issuetracker.google.com/issues/497571473))
+- Updated Compose compileSdk to API 37. This means that a minimum AGP version of 9.2.0 is required when using Compose. ([Id45cd](https://android-review.googlesource.com/#/q/Id45cdca34ef948e06259b2dd9adc901b7c930492), [b/413674743](https://issuetracker.google.com/issues/413674743))
 
 ### Version 1.7.0-alpha01
 

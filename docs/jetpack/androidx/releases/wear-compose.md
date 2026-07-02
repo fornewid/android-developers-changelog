@@ -12,7 +12,7 @@ Write Jetpack Compose applications for Wear OS devices by providing functionalit
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| June 03, 2026 | [1.6.2](https://developer.android.com/jetpack/androidx/releases/wear-compose#1.6.2) | - | - | [1.7.0-alpha04](https://developer.android.com/jetpack/androidx/releases/wear-compose#1.7.0-alpha04) |
+| July 01, 2026 | [1.6.2](https://developer.android.com/jetpack/androidx/releases/wear-compose#1.6.2) | - | - | [1.7.0-alpha05](https://developer.android.com/jetpack/androidx/releases/wear-compose#1.7.0-alpha05) |
 
 > [!NOTE]
 > **Note:** The `androidx.wear.compose:compose-material` library is superseded by the [`androidx.wear.compose:compose-material3`](https://developer.android.com/jetpack/androidx/releases/wear-compose-m3) library. We recommend that developers use the Wear Compose Material 3 library to get the latest features, including [Material 3 Expressive design](https://android-developers.googleblog.com/2025/05/whats-new-in-wear-os-6.html).
@@ -90,6 +90,39 @@ for more information.
 <br />
 
 ## Version 1.7
+
+### Version 1.7.0-alpha05
+
+July 01, 2026
+
+`androidx.wear.compose:compose-*:1.7.0-alpha05` is released. Version 1.7.0-alpha05 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/a69fea942830b4bac43dd1c2bc9346b0a5282b19..ba3014c143b9c9782fe30bc766c5dced55e13453/wear/compose).
+
+**API Changes**
+
+- Added the `TransformingLazyColumnFirstLayoutItemProvider` interface in Foundation to enable customization of content that shifts direction during content updates, accompanied by out-of-the-box `rememberTransformingLazyColumnFirstLayoutItemProvider` and `rememberTransformingLazyColumnFirstVisibleItemProvider` implementations in Material3. ([I54814](https://android-review.googlesource.com/#/q/I54814a394938dadb417e34d16a7a187b92f092fc), [b/503353428](https://issuetracker.google.com/issues/503353428))
+
+- Renamed the fallback parameter from `current` to `centerItem` in `TransformingLazyColumnFirstLayoutItemProvider`. Added `TransformingLazyColumnState` extensions `firstVisibleItemLayoutItemInfo` and `layoutItemInfoOf`, and updated `rememberTransformingLazyColumnFirstLayoutItemProvider` to use a clean, parameter-based lambda. ([I9a8d9](https://android-review.googlesource.com/#/q/I9a8d94990418f580ba59d5e6b4dac6def8c953dd), [b/503353428](https://issuetracker.google.com/issues/503353428))
+
+- Add overloads for multi-slot Material3 Button and Card content, for use with one-handed gestures. ([I74ccb](https://android-review.googlesource.com/#/q/I74ccbf8c9a64e8426559120f1afc83013f92224b), [b/515718015](https://issuetracker.google.com/issues/515718015), [b/490343658](https://issuetracker.google.com/issues/490343658))
+
+- Add accessibility support to one-handed gestures. ([I0054d](https://android-review.googlesource.com/#/q/I0054d69fd9beb16f5833a5bab2dcd5b2117a9bc6), [b/519085906](https://issuetracker.google.com/issues/519085906))
+
+- Rename `OneHandedGestureDefaults.scrollToNextItem()` to `OneHandedGestureDefaults.scrollDownToNextItem` and add `wrapAround` parameter to `OneHandedGestureDefaults` scroll functions ([I940ce](https://android-review.googlesource.com/#/q/I940ce1acf7f723f5949fd71ef427d3b1c8a90650), [b/509639667](https://issuetracker.google.com/issues/509639667))
+
+- Add non-composable `Modifier.oneHandedGesture()` if developer wants to provide the key manually. ([I191e1](https://android-review.googlesource.com/#/q/I191e1f1b463ecf44b942d577aa63822bed6d9486), [b/504712626](https://issuetracker.google.com/issues/504712626))
+
+- Rename `offsetOf` API in `RevealState` to `positionOf`. ([I2675f](https://android-review.googlesource.com/#/q/I2675f234b169c4d7fc9d5f80dd0cee119140f10f), [b/522387997](https://issuetracker.google.com/issues/522387997))
+
+- Introduced `actionContentSpacing` parameter to `SwipeToReveal`, allowing developers to customize the distance between action slots and the content. ([I2abaf](https://android-review.googlesource.com/#/q/I2abaffb3006cb7fce409c1b0d3d8321049e74a81), [b/507073912](https://issuetracker.google.com/issues/507073912))
+
+**Bug Fixes**
+
+- Fixed an issue in `ScreenScaffold` where recompositions could cause un-remembered `ScrollInfoProvider` to reset scroll tracking state. ([I98f6d](https://android-review.googlesource.com/#/q/I98f6d37223f8a89646fc42e69f89fa04616516ab), [b/524620765](https://issuetracker.google.com/issues/524620765))
+- `TransformingLazyColumn` scrollbar color follows gesture indicator background color during indicator animation ([I353fb](https://android-review.googlesource.com/#/q/I353fbc3a69482f1f5f41dc4397134b4d4b83cb40), [b/524915104](https://issuetracker.google.com/issues/524915104))
+- Changed `OneHandedGestureIndicator` default `gestureIndicatorTint` to `LocalContentColor` ([I1abd3](https://android-review.googlesource.com/#/q/I1abd338803b0b4ebda8ae9ecb7ccaa0c52c01e45), [b/524228063](https://issuetracker.google.com/issues/524228063))
+- Parameterize the content description of `DatePicker`'s day and year pickers to support localization. ([I5dcd9](https://android-review.googlesource.com/#/q/I5dcd93282b696aabaf41ef66e0ae4a9178cca4a3), [b/430563857](https://issuetracker.google.com/issues/430563857))
+- Introduce adaptive display frequencies to `GestureIndicators` based on whether an indicator renders inside or outside its host UI component. ([Ic618f](https://android-review.googlesource.com/#/q/Ic618f9bb9d7da96fb83504e4d6c39f843ec6703f), [b/515071642](https://issuetracker.google.com/issues/515071642))
+- Fix concurrency issue when triggering one-handed gestures ([I7b95f](https://android-review.googlesource.com/#/q/I7b95fdc4d94a32ef9088cabbe53cf63b06fcbe4f), [b/512086558](https://issuetracker.google.com/issues/512086558))
 
 ### Version 1.7.0-alpha04
 

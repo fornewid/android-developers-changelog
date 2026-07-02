@@ -19,6 +19,21 @@ see the [versions page](https://developer.android.com/jetpack/androidx/versions)
 The first stable release of AndroidX 1.0.0 suitable for use in
 production was released on September 21, 2018.
 
+## July 01, 2026
+
+- [Compose Animation Version 1.11.4](https://developer.android.com/jetpack/androidx/releases/compose-animation#1.11.4)
+- [Compose Foundation Version 1.11.4](https://developer.android.com/jetpack/androidx/releases/compose-foundation#1.11.4)
+- [Compose Material Version 1.11.4](https://developer.android.com/jetpack/androidx/releases/compose-material#1.11.4)
+- [Compose Runtime Version 1.11.4](https://developer.android.com/jetpack/androidx/releases/compose-runtime#1.11.4)
+- [Compose UI Version 1.11.4](https://developer.android.com/jetpack/androidx/releases/compose-ui#1.11.4)
+- [Hilt Version 1.4.0](https://developer.android.com/jetpack/androidx/releases/hilt#1.4.0)
+- [Navigation3 Version 1.1.4](https://developer.android.com/jetpack/androidx/releases/navigation3#1.1.4)
+- [Room3 Version 3.0.0](https://developer.android.com/jetpack/androidx/releases/room3#3.0.0)
+- [Sqlite Version 2.7.0](https://developer.android.com/jetpack/androidx/releases/sqlite#2.7.0)
+- [Test Uiautomator Version 2.4.0](https://developer.android.com/jetpack/androidx/releases/test-uiautomator#2.4.0)
+- [Wear Protolayout Version 1.4.1](https://developer.android.com/jetpack/androidx/releases/wear-protolayout#1.4.1)
+- [Wear Tiles Version 1.6.1](https://developer.android.com/jetpack/androidx/releases/wear-tiles#1.6.1)
+
 ## June 17, 2026
 
 - [Compose Animation Version 1.11.3](https://developer.android.com/jetpack/androidx/releases/compose-animation#1.11.3)

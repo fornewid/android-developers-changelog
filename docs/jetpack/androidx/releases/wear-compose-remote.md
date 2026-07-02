@@ -10,7 +10,7 @@ Write Widgets and other Remote UI for Wear OS using the Material 3 Expressive de
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| June 17, 2026 | - | - | - | [1.0.0-alpha06](https://developer.android.com/jetpack/androidx/releases/wear-compose-remote#1.0.0-alpha06) |
+| July 01, 2026 | - | - | - | [1.0.0-alpha07](https://developer.android.com/jetpack/androidx/releases/wear-compose-remote#1.0.0-alpha07) |
 
 ## Declaring dependencies
 
@@ -26,7 +26,7 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.wear.compose.remote:remote-material3:1.0.0-alpha06"
+    implementation "androidx.wear.compose.remote:remote-material3:1.0.0-alpha07"
 }
 ```
 
@@ -34,7 +34,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.wear.compose.remote:remote-material3:1.0.0-alpha06")
+    implementation("androidx.wear.compose.remote:remote-material3:1.0.0-alpha07")
 }
 ```
 
@@ -55,6 +55,16 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.0
+
+### Version 1.0.0-alpha07
+
+July 01, 2026
+
+`androidx.wear.compose.remote:remote-material3:1.0.0-alpha07` is released. Version 1.0.0-alpha07 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/14c2f2ed81d0f61a3227641684cd875e95dd6529..19660b9e1b2fec4a9528fe80ce0a432c0fa2f825/wear/compose/remote/remote-material3).
+
+**Bug Fixes**
+
+- An updated release depending on androidx.compose.remote at the same commit to avoid binary incompatibility
 
 ### Version 1.0.0-alpha06
 

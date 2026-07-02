@@ -10,7 +10,7 @@ source: md.txt
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| June 17, 2026 | [1.11.3](https://developer.android.com/jetpack/androidx/releases/compose-foundation#1.11.3) | - | [1.12.0-beta01](https://developer.android.com/jetpack/androidx/releases/compose-foundation#1.12.0-beta01) | - |
+| July 01, 2026 | [1.11.4](https://developer.android.com/jetpack/androidx/releases/compose-foundation#1.11.4) | - | [1.12.0-beta02](https://developer.android.com/jetpack/androidx/releases/compose-foundation#1.12.0-beta02) | - |
 
 ## Structure
 
@@ -43,7 +43,7 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.compose.foundation:foundation:1.11.3"
+    implementation "androidx.compose.foundation:foundation:1.11.4"
 }
 
 android {
@@ -65,7 +65,7 @@ android {
 
 ```kotlin
 dependencies {
-    implementation("androidx.compose.foundation:foundation:1.11.3")
+    implementation("androidx.compose.foundation:foundation:1.11.4")
 }
 
 android {
@@ -99,6 +99,12 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.12
+
+### Version 1.12.0-beta02
+
+July 01, 2026
+
+`androidx.compose.foundation:foundation-*:1.12.0-beta02` is released. Version 1.12.0-beta02 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/40b1610b08564489b3f6a426cd8833f8615bfc68..aa883d8aa3e51057610bdf6e76ff9753350fa02c/compose/foundation).
 
 ### Version 1.12.0-beta01
 
@@ -181,6 +187,12 @@ April 22, 2026
 - When a user moves the cursor outside the scrollable area, the cursor is now scrolled into the visible space. ([If694c](https://android-review.googlesource.com/#/q/If694c0325af3704dda197b33f027946fcc69e658), [b/266094055](https://issuetracker.google.com/issues/266094055))
 
 ## Version 1.11
+
+### Version 1.11.4
+
+July 01, 2026
+
+`androidx.compose.foundation:foundation-*:1.11.4` is released. Version 1.11.4 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/b3fb8849de357e09c2efc963c36a1012543ca411..854220f44ea8ea80fee824a6c5a045f39bede289/compose/foundation).
 
 ### Version 1.11.3
 

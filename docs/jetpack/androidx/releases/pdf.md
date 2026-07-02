@@ -6,13 +6,11 @@ source: md.txt
 
 # pdf
 
-API Reference  
-[androidx.pdf.viewer.fragment](https://developer.android.com/reference/kotlin/androidx/pdf/viewer/fragment/package-summary)  
 A library to add pdf viewing capabilities inside apps.
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| March 11, 2026 | - | - | - | [1.0.0-alpha15](https://developer.android.com/jetpack/androidx/releases/pdf#1.0.0-alpha15) |
+| July 01, 2026 | - | - | - | [1.0.0-alpha19](https://developer.android.com/jetpack/androidx/releases/pdf#1.0.0-alpha19) |
 
 ## Declaring dependencies
 
@@ -27,7 +25,7 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.pdf:pdf-viewer-fragment:1.0.0-alpha15"
+    implementation "androidx.pdf:pdf-viewer-fragment:1.0.0-alpha19"
 }
 ```
 
@@ -35,7 +33,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.pdf:pdf-viewer-fragment:1.0.0-alpha15")
+    implementation("androidx.pdf:pdf-viewer-fragment:1.0.0-alpha19")
 }
 ```
 
@@ -56,7 +54,71 @@ for more information.
 
 There are no release notes for this artifact.
 
-## Version 1.0
+## Pdf Version 1.0
+
+### Version 1.0.0-alpha19
+
+July 01, 2026
+
+`androidx.pdf:pdf-*:1.0.0-alpha19` is released. Version 1.0.0-alpha19 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/df4b49eda6f6834b6bc4c8aa30a581fa577a511e..41275634d9349e095b3315e43a89c309144ec03f/pdf).
+
+**API Changes**
+
+- Make `AnnotationView` public ([I8219f](https://android-review.googlesource.com/#/q/I8219f3ec9aaf1586f8e5bac4a5ec7b69717dfeb1))
+- Make `EditablePdfDocument` and annotations classes public. ([I5b962](https://android-review.googlesource.com/#/q/I5b9620044fb502cdf92ab5faddbc323d48690bf5))
+- Introduced new pdf-core submodule ([Iea331](https://android-review.googlesource.com/#/q/Iea331e51c6f9f068275043fb0a5ab2c1832f8e91))
+- Relocated core pdf apis to new pdf-core artifact to decouple document models from the view implementation. ([I26e1f](https://android-review.googlesource.com/#/q/I26e1f805337a6e8ba23d2a35ab4d450a5962625b))
+- Expose `OcrProvider` APIs to support image-based text recognition ([I5271b](https://android-review.googlesource.com/#/q/I5271b0bc0eb29dc9c1a6aa75948984d458f362a8))
+- Removed the deprecated parameterless `onLoadDocumentSuccess()` method from `PdfViewerFragment` and the deprecated `isLinearized` property from `PdfDocument`. ([I6b7ab](https://android-review.googlesource.com/#/q/I6b7ab5f1d90d1d7c11a223aea1ca39c5a457150b))
+- Autofill support for form filling is enabled.
+
+**Bug Fixes**
+
+- Fixed an issue where horizontal scrolling was unreliable at page edges because scroll direction was not accounted for when managing touch event interception. ([I6bda5](https://android-review.googlesource.com/#/q/I6bda5e7d9d9eed51ebafdf41aeb2a71f20140fa4), [b/505645009](https://issuetracker.google.com/issues/505645009))
+- Fixed an issue to ensure the fast scroller is always displayed when accessibility is enabled. ([Idaf5e](https://android-review.googlesource.com/#/q/Idaf5e67bcccf57cad5a48c986349777b5d6ce091), [b/513082550](https://issuetracker.google.com/issues/513082550))
+
+### Version 1.0.0-alpha18
+
+April 22, 2026
+
+`androidx.pdf:pdf-*:1.0.0-alpha18` is released. Version 1.0.0-alpha18 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/951845221205b7a428a9d779107760fc929863ee..f669f7cf942ac3327e282bdf508822a3947b220a/pdf).
+
+**API Changes**
+
+- The PDF library's read and rendering features have been backported to support android devices down to `minSdk = 28` and `sdk-extension < 13` extends compatibility to an additional 2 billion active Android devices ([I808f8](https://android-review.googlesource.com/#/q/I808f89ebe430ce789db2291aabce02464c54cc67))
+- Added SelectionBoundary-based `getSelectionBounds` API to `PdfDocument`. ([Ida6ea](https://android-review.googlesource.com/#/q/Ida6ea3cae9fa794cea3f58496a99ae60cc38eb8f))
+
+**Bug Fixes**
+
+- Handled `RemoteException` internally in `PageBitmapSource.close()` ([I2c59e](https://android-review.googlesource.com/#/q/I2c59e13085ba571e8661e671d705572351554a7b))
+
+### Version 1.0.0-alpha17
+
+April 08, 2026
+
+`androidx.pdf:pdf-*:1.0.0-alpha17` is released. Version 1.0.0-alpha17 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/4f1927c2c3b66d0c3a6b9118974d818d2dc5a06a..951845221205b7a428a9d779107760fc929863ee/pdf).
+
+**API Changes**
+
+- Add a `contentPadding` API to `PdfViewer` composable. ([Idcfd4](https://android-review.googlesource.com/#/q/Idcfd496e17ec67b5ccfcba0d1fe7c047feec978a), [b/481774503](https://issuetracker.google.com/issues/481774503))
+
+**Bug Fixes**
+
+- Updated Compose `compileSdk` to API 37. This means that a minimum AGP version of 9.2.0 is required when using Compose. ([Id45cd](https://android-review.googlesource.com/#/q/Id45cdca34ef948e06259b2dd9adc901b7c930492), [b/413674743](https://issuetracker.google.com/issues/413674743))
+
+### Version 1.0.0-alpha16
+
+March 25, 2026
+
+`androidx.pdf:pdf-*:1.0.0-alpha16` is released. Version 1.0.0-alpha16 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/1a508f033de883ba2853b9f9ae1853eec7010638..1abcb4178d48853948b9b566cabff9222d90ab69/pdf).
+
+**New Features**
+
+- `EditablePdfViewerFragment` now supports rendering and erasing highlight annotations added from other apps. ([Ic46e4](https://android-review.googlesource.com/#/q/Ic46e4d9eb9dbed85f7bffa7a6032a7a819baa399))
+
+**API Changes**
+
+- Updating `EditablePdfDocument` to interface ([I94f75](https://android-review.googlesource.com/#/q/I94f75e023aa4fdb1318e0e68ea1ed4ebaed1bc11), [b/483065130](https://issuetracker.google.com/issues/483065130))
 
 ### Version 1.0.0-alpha15
 

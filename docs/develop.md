@@ -1,185 +1,319 @@
 ---
-title: https://developer.android.com/develop
+title: Develop for Android  |  Android Developers
 url: https://developer.android.com/develop
-source: md.txt
+source: html-scrape
 ---
 
-[![](http://developer.android.com/static/images/cluster-illustrations/build-apps.svg)](http://developer.android.com/get-started/overview)
+**Your input is important to improve the Android Developer Experience.**
+  
+Sign up to participate in user research studies and influence how we evolve tools, APIs,
+and guidance for millions worldwide. Get rewarded if selected.
 
-### [Develop for Android](http://developer.android.com/get-started/overview)
+[Sign up](https://google.qualtrics.com/jfe/form/SV_ezBhaM4WC0T7g8d?Q_Language=en&utm_campaign=Q3&campaignDate=July2025&referral_code=UXRZtOZ2325116)
 
-The code samples, guides, and API reference you need---whether you're building for phones, watches, tablets, laptops, foldables, TVs, cars, or XR. Take advantage of these resources to develop your app faster and with higher quality.  
+* [Android Developers](https://developer.android.com/)
+* [Develop](https://developer.android.com/develop)
 
-[I'm new to Android](http://developer.android.com/get-started/overview) [![](http://developer.android.com/static/images/cluster-illustrations/samples.svg)](http://developer.android.com/samples)
+Stay organized with collections
 
-### [Download samples](http://developer.android.com/samples)
+Save and categorize content based on your preferences.
 
-Accelerate your app development by example. [See code](http://developer.android.com/samples) [![](http://developer.android.com/static/images/cluster-illustrations/android-studio.svg)](http://developer.android.com/studio/write)
 
-### [Develop with Android Studio](http://developer.android.com/studio/write)
 
-Code in the IDE custom-built for Android. [Write code](http://developer.android.com/studio/write) [![](http://developer.android.com/static/images/picto-icons/code.svg)](http://developer.android.com/reference)
+[![](https://developer.android.com/static/images/cluster-illustrations/build-apps.svg)](https://developer.android.com/get-started/overview)
 
-### [Browse API reference](http://developer.android.com/reference)
+### [Develop for Android](https://developer.android.com/get-started/overview)
 
-Find information about the Android APIs you're using. [Look up code](http://developer.android.com/reference) [![](http://developer.android.com/static/images/logos/gemini.svg)](http://developer.android.com/ai)
+The code samples, guides, and API reference you need—whether you're building for phones, watches, tablets, laptops, foldables, TVs, cars, or XR. Take advantage of these resources to develop your app faster and with higher quality.
 
-### [Integrate AI into your apps](http://developer.android.com/ai)
+[I'm new to Android](https://developer.android.com/get-started/overview)
 
-Use Google's full suite of AI and ML tools to make your apps more useful and intuitive. [Get started with AI on Android](http://developer.android.com/ai)
+[![](https://developer.android.com/static/images/cluster-illustrations/samples.svg)](https://developer.android.com/samples)
+
+### [Download samples](https://developer.android.com/samples)
+
+Accelerate your app development by example.
+
+[See code](https://developer.android.com/samples)
+
+[![](https://developer.android.com/static/images/cluster-illustrations/android-studio.svg)](https://developer.android.com/studio/write)
+
+### [Develop with Android Studio](https://developer.android.com/studio/write)
+
+Code in the IDE custom-built for Android.
+
+[Write code](https://developer.android.com/studio/write)
+
+[![](https://developer.android.com/static/images/picto-icons/code.svg)](https://developer.android.com/reference)
+
+### [Browse API reference](https://developer.android.com/reference)
+
+Find information about the Android APIs you're using.
+
+[Look up code](https://developer.android.com/reference)
+
+[![](https://developer.android.com/static/images/logos/gemini.svg)](https://developer.android.com/ai)
+
+### [Integrate AI into your apps](https://developer.android.com/ai)
+
+Use Google's full suite of AI and ML tools to make your apps more useful and intuitive.
+
+[Get started with AI on Android](https://developer.android.com/ai)
 
 ## Devices
 
-[![](http://developer.android.com/static/images/hero-illustrations/everything-on-android-hero.svg)](http://developer.android.com/develop/adaptive-apps)
+[![](https://developer.android.com/static/images/hero-illustrations/everything-on-android-hero.svg)](https://developer.android.com/develop/adaptive-apps)
 
-### [Adaptive apps](http://developer.android.com/develop/adaptive-apps)
+### [Adaptive apps](https://developer.android.com/develop/adaptive-apps)
 
-Build apps that adapt seamlessly to phones, tablets, foldables, and other device form factors. Learn how to create flexible user interfaces that adjust to different screen sizes, orientations, and device postures. [About adaptive layouts](http://developer.android.com/develop/adaptive-apps) [![](http://developer.android.com/static/images/picto-icons/dual-screen-devices.svg)](http://developer.android.com/guide/topics/large-screens/get-started-with-large-screens)
+Build apps that adapt seamlessly to phones, tablets, foldables, and other device form factors. Learn how to create flexible user interfaces that adjust to different screen sizes, orientations, and device postures.
 
-### [Large screens](http://developer.android.com/guide/topics/large-screens/get-started-with-large-screens)
+[About adaptive layouts](https://developer.android.com/develop/adaptive-apps)
 
-Extend your mobile app to tablets and foldables. [![](http://developer.android.com/static/images/picto-icons/wearable-app.svg)](http://developer.android.com/training/wearables)
+[![](https://developer.android.com/static/images/picto-icons/dual-screen-devices.svg)](https://developer.android.com/guide/topics/large-screens/get-started-with-large-screens)
 
-### [Wear OS](http://developer.android.com/training/wearables)
+### [Large screens](https://developer.android.com/guide/topics/large-screens/get-started-with-large-screens)
 
-Create an app for watches running Wear OS. [![](http://developer.android.com/static/images/spot-icons/tv.svg)](http://developer.android.com/training/tv)
+Extend your mobile app to tablets and foldables.
 
-### [Android TV](http://developer.android.com/training/tv)
+[![](https://developer.android.com/static/images/picto-icons/wearable-app.svg)](https://developer.android.com/training/wearables)
 
-Extend your app for TV viewing. [![](http://developer.android.com/static/images/picto-icons/courses.svg)](http://developer.android.com/chrome-os/intro)
+### [Wear OS](https://developer.android.com/training/wearables)
 
-### [ChromeOS](http://developer.android.com/chrome-os/intro)
+Create an app for watches running Wear OS.
 
-Build and optimize your app for ChromeOS. [![](http://developer.android.com/static/images/spot-icons/car.svg)](http://developer.android.com/training/cars)
+[![](https://developer.android.com/static/images/spot-icons/tv.svg)](https://developer.android.com/training/tv)
 
-### [Android for Cars](http://developer.android.com/training/cars)
+### [Android TV](https://developer.android.com/training/tv)
 
-Extend your app for vehicle dashboard use. [![](http://developer.android.com/static/images/picto-icons/kotlin-friendly-sdk.svg)](http://developer.android.com/guide/topics/connectivity/cross-device-sdk/overview)
+Extend your app for TV viewing.
 
-### [Cross device SDK](http://developer.android.com/guide/topics/connectivity/cross-device-sdk/overview)
+[![](https://developer.android.com/static/images/picto-icons/courses.svg)](https://developer.android.com/chrome-os/intro)
 
-Easily make your app compatible with multiple devices. [![](http://developer.android.com/static/images/picto-icons/heart.svg)](http://developer.android.com/guide/health-and-fitness/health-connect)
+### [ChromeOS](https://developer.android.com/chrome-os/intro)
 
-### [Health Connect](http://developer.android.com/guide/health-and-fitness/health-connect)
+Build and optimize your app for ChromeOS.
 
-Tap into and share on-device health and fitness data. [![](http://developer.android.com/static/images/develop/xr/xr-devices.svg)](http://developer.android.com/develop/xr)
+[![](https://developer.android.com/static/images/spot-icons/car.svg)](https://developer.android.com/training/cars)
 
-### [Android XR](http://developer.android.com/develop/xr)
+### [Android for Cars](https://developer.android.com/training/cars)
 
-Build immersive and augmented experiences for ground-breaking devices. [![](http://developer.android.com/static/images/logos/gemini.svg)](http://developer.android.com/ai/overview)
+Extend your app for vehicle dashboard use.
 
-### [Gemini](http://developer.android.com/ai/overview)
+[![](https://developer.android.com/static/images/picto-icons/kotlin-friendly-sdk.svg)](https://developer.android.com/guide/topics/connectivity/cross-device-sdk/overview)
+
+### [Cross device SDK](https://developer.android.com/guide/topics/connectivity/cross-device-sdk/overview)
+
+Easily make your app compatible with multiple devices.
+
+[![](https://developer.android.com/static/images/picto-icons/heart.svg)](https://developer.android.com/guide/health-and-fitness/health-connect)
+
+### [Health Connect](https://developer.android.com/guide/health-and-fitness/health-connect)
+
+Tap into and share on-device health and fitness data.
+
+[![](https://developer.android.com/static/images/develop/xr/xr-devices.svg)](https://developer.android.com/develop/xr)
+
+### [Android XR](https://developer.android.com/develop/xr)
+
+Build immersive and augmented experiences for ground-breaking devices.
+
+[![](https://developer.android.com/static/images/logos/gemini.svg)](https://developer.android.com/ai/overview)
+
+### [Gemini](https://developer.android.com/ai/overview)
 
 Build AI-powered experiences with Gemini, Google's most capable AI model.
 
 ## Developer centers
 
-[![](http://developer.android.com/static/images/home/productivity.svg)](http://developer.android.com/productivity) New
+[![](https://developer.android.com/static/images/home/productivity.svg)](https://developer.android.com/productivity)
 
-### [Productivity](http://developer.android.com/productivity)
+New
 
-Level up your productivity app with media, adaptive layouts, and more. [Learn more](http://developer.android.com/productivity) [![](http://developer.android.com/static/images/cluster-illustrations/enhance-media-16-9.svg)](http://developer.android.com/media) Dev center
+### [Productivity](https://developer.android.com/productivity)
 
-### [Media apps](http://developer.android.com/media)
+Level up your productivity app with media, adaptive layouts, and more.
 
-Learn how to build and extend engaging media experiences to users across Android's multidevice ecosystem. [Learn more](http://developer.android.com/media) [![](http://developer.android.com/static/images/cluster-illustrations/controllers.svg)](http://developer.android.com/games) Dev center
+[Learn more](https://developer.android.com/productivity)
 
-### [Games](http://developer.android.com/games)
+[![](https://developer.android.com/static/images/cluster-illustrations/enhance-media-16-9.svg)](https://developer.android.com/media)
 
-You use a game engine for most of your game design and development, but you still need to use Android tools to get the job done. [Learn more](http://developer.android.com/games) [![](http://developer.android.com/static/images/picto-icons/health-premium-experience.svg)](http://developer.android.com/health-and-fitness) Dev center
+Dev center
 
-### [Health \& Fitness](http://developer.android.com/health-and-fitness)
+### [Media apps](https://developer.android.com/media)
 
-Take your health and fitness app to the next level using Health Services with Health Connect. [Learn more](http://developer.android.com/health-and-fitness) [![](http://developer.android.com/static/images/picto-icons/chat-bubbles-2.svg)](http://developer.android.com/social-and-messaging) Dev center
+Learn how to build and extend engaging media experiences to users across Android's multidevice ecosystem.
 
-### [Social \& Messaging](http://developer.android.com/social-and-messaging)
+[Learn more](https://developer.android.com/media)
 
-Build apps that connect, communicate, and share information. [Learn more](http://developer.android.com/social-and-messaging)
+[![](https://developer.android.com/static/images/cluster-illustrations/controllers.svg)](https://developer.android.com/games)
+
+Dev center
+
+### [Games](https://developer.android.com/games)
+
+You use a game engine for most of your game design and development, but you still need to use Android tools to get the job done.
+
+[Learn more](https://developer.android.com/games)
+
+[![](https://developer.android.com/static/images/picto-icons/health-premium-experience.svg)](https://developer.android.com/health-and-fitness)
+
+Dev center
+
+### [Health & Fitness](https://developer.android.com/health-and-fitness)
+
+Take your health and fitness app to the next level using Health Services with Health Connect.
+
+[Learn more](https://developer.android.com/health-and-fitness)
+
+[![](https://developer.android.com/static/images/picto-icons/chat-bubbles-2.svg)](https://developer.android.com/social-and-messaging)
+
+Dev center
+
+### [Social & Messaging](https://developer.android.com/social-and-messaging)
+
+Build apps that connect, communicate, and share information.
+
+[Learn more](https://developer.android.com/social-and-messaging)
 
 ## Core areas
 
-![](http://developer.android.com/static/images/cluster-illustrations/ui-guidelines.svg)
+![](https://developer.android.com/static/images/cluster-illustrations/ui-guidelines.svg)
 
 ### User interfaces
 
-The guides you need to write the code for your UI---whether you're using Jetpack Compose or view-based APIs, or migrating from views to Compose. [Develop your UI](http://developer.android.com/develop/ui) Guides
+The guides you need to write the code for your UI—whether you're using Jetpack Compose or view-based APIs, or migrating from views to Compose.
 
-### [Data \& files](http://developer.android.com/guide/topics/data)
+[Develop your UI](https://developer.android.com/develop/ui)
 
-Store, manage, and share data. Security
+Guides
 
-### [Permissions](http://developer.android.com/guide/topics/permissions/overview)
+### [Data & files](https://developer.android.com/guide/topics/data)
 
-Access and protect restricted data and actions. Security
+Store, manage, and share data.
 
-### [User identity](http://developer.android.com/training/sign-in)
+Security
 
-Manage user identity and related data. App architecture
+### [Permissions](https://developer.android.com/guide/topics/permissions/overview)
 
-### [Navigation](http://developer.android.com/guide/navigation/use-graph/navigate)
+Access and protect restricted data and actions.
 
-Navigate between screens and apps. Guides
+Security
 
-### [Intents and intent filters](http://developer.android.com/guide/components/intents-filters)
+### [User identity](https://developer.android.com/training/sign-in)
 
-Request actions from other apps. Guides
+Manage user identity and related data.
 
-### [Background tasks](http://developer.android.com/develop/background-work/background-tasks)
+App architecture
 
-Run app tasks in the background. Guides
+### [Navigation](https://developer.android.com/guide/navigation/use-graph/navigate)
 
-### [Services](http://developer.android.com/guide/components/services)
+Navigate between screens and apps.
 
-Perform long-running background operations. Guides
+Guides
 
-### [Alarms](http://developer.android.com/training/scheduling)
+### [Intents and intent filters](https://developer.android.com/guide/components/intents-filters)
 
-Run scheduled operations in the background. Dev Center
+Request actions from other apps.
 
-### [Audio \& video](http://developer.android.com/guide/topics/media)
+Guides
 
-Play and record audio and video. Dev Center
+### [Background tasks](https://developer.android.com/develop/background-work/background-tasks)
 
-### [Camera](http://developer.android.com/training/camera/choose-camera-library)
+Run app tasks in the background.
 
-Easily use the camera. Guides
+Guides
 
-### [Sensors](http://developer.android.com/guide/topics/sensors/sensors_overview)
+### [Services](https://developer.android.com/guide/components/services)
 
-Orient your app in the real world. Guides
+Perform long-running background operations.
 
-### [User location](http://developer.android.com/training/location)
+Guides
 
-Make your app location aware. Guides
+### [Alarms](https://developer.android.com/training/scheduling)
 
-### [Connectivity](http://developer.android.com/develop/connectivity)
+Run scheduled operations in the background.
 
-Connect your app through various protocols. Guides
+Dev Center
 
-### [App compatibility](http://developer.android.com/guide/app-compatibility)
+### [Audio & video](https://developer.android.com/guide/topics/media)
 
-Maintain backward compatibility. Google Play
+Play and record audio and video.
 
-### [App bundles](http://developer.android.com/guide/app-bundle)
+Dev Center
+
+### [Camera](https://developer.android.com/training/camera/choose-camera-library)
+
+Easily use the camera.
+
+Guides
+
+### [Sensors](https://developer.android.com/guide/topics/sensors/sensors_overview)
+
+Orient your app in the real world.
+
+Guides
+
+### [User location](https://developer.android.com/training/location)
+
+Make your app location aware.
+
+Guides
+
+### [Connectivity](https://developer.android.com/develop/connectivity)
+
+Connect your app through various protocols.
+
+Guides
+
+### [App compatibility](https://developer.android.com/guide/app-compatibility)
+
+Maintain backward compatibility.
+
+Google Play
+
+### [App bundles](https://developer.android.com/guide/app-bundle)
 
 Publish your app to Google Play.
 
 ## Build and test
 
-[![](http://developer.android.com/static/images/cluster-illustrations/new-android-studio.svg)](http://developer.android.com/build) Configure your build Use Android Studio with Gradle to automate and manage the build process. [Configure](http://developer.android.com/build) [![](http://developer.android.com/static/images/cluster-illustrations/build-apps.svg)](http://developer.android.com/training/testing) Test Test your app's correctness, functional behavior, and usability before releasing it publicly. [Test](http://developer.android.com/training/testing)
+[![](https://developer.android.com/static/images/cluster-illustrations/new-android-studio.svg)](https://developer.android.com/build)
+
+Configure your build
+
+Use Android Studio with Gradle to automate and manage the build process.
+
+[Configure](https://developer.android.com/build)
+
+[![](https://developer.android.com/static/images/cluster-illustrations/build-apps.svg)](https://developer.android.com/training/testing)
+
+Test
+
+Test your app's correctness, functional behavior, and usability before releasing it publicly.
+
+[Test](https://developer.android.com/training/testing)
 
 ## Developer stories
 
-How developers are finding success with Android. [View all stories](http://developer.android.com/stories) [![](http://developer.android.com/static/images/develop/googlephotos.png)](http://developer.android.com/stories/apps/google-photos)
+How developers are finding success with Android.
 
-### [Google Photos builds for large screens](http://developer.android.com/stories/apps/google-photos)
+[View all stories](https://developer.android.com/stories)
 
-See how the Google Photos team increased daily active users by investing in developing responsive layouts across across tablets, foldables, and ChromeOS devices. [![](http://developer.android.com/static/images/develop/monzo.png)](http://developer.android.com/stories/apps/monzo-camerax)
+[![](https://developer.android.com/static/images/develop/googlephotos.png)](https://developer.android.com/stories/apps/google-photos)
 
-### [Monzo moves to CameraX](http://developer.android.com/stories/apps/monzo-camerax)
+### [Google Photos builds for large screens](https://developer.android.com/stories/apps/google-photos)
 
-Monzo reduced over 9,000 lines of code and improved registration dropout by 5x with CameraX. [![](http://developer.android.com/static/images/distribute/stories/evernote.png)](http://developer.android.com/stories/apps/evernote)
+See how the Google Photos team increased daily active users by investing in developing responsive layouts across across tablets, foldables, and ChromeOS devices.
 
-### [Evernote users spend more time on large screens](http://developer.android.com/stories/apps/evernote)
+[![](https://developer.android.com/static/images/develop/monzo.png)](https://developer.android.com/stories/apps/monzo-camerax)
+
+### [Monzo moves to CameraX](https://developer.android.com/stories/apps/monzo-camerax)
+
+Monzo reduced over 9,000 lines of code and improved registration dropout by 5x with CameraX.
+
+[![](https://developer.android.com/static/images/distribute/stories/evernote.png)](https://developer.android.com/stories/apps/evernote)
+
+### [Evernote users spend more time on large screens](https://developer.android.com/stories/apps/evernote)
 
 After investing in making their Android app work on ChromeOS, Evernote saw those users tripled the time they spent using the app.

@@ -10,7 +10,7 @@ source: md.txt
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| May 19, 2026 | [1.1.1](https://developer.android.com/jetpack/androidx/releases/glance#1.1.1) | [1.2.0-rc01](https://developer.android.com/jetpack/androidx/releases/glance#1.2.0-rc01) | - | [1.3.0-alpha01](https://developer.android.com/jetpack/androidx/releases/glance#1.3.0-alpha01) |
+| July 01, 2026 | [1.1.1](https://developer.android.com/jetpack/androidx/releases/glance#1.1.1) | [1.2.0-rc01](https://developer.android.com/jetpack/androidx/releases/glance#1.2.0-rc01) | - | [1.3.0-alpha02](https://developer.android.com/jetpack/androidx/releases/glance#1.3.0-alpha02) |
 
 ## Declaring dependencies
 
@@ -26,9 +26,9 @@ your app or module:
 ```groovy
 dependencies {
     // For Glance support
-    implementation "androidx.glance:glance:1.3.0-alpha01"
+    implementation "androidx.glance:glance:1.3.0-alpha02"
     // For AppWidgets support
-    implementation "androidx.glance:glance-appwidget:1.3.0-alpha01"
+    implementation "androidx.glance:glance-appwidget:1.3.0-alpha02"
 
     // For Wear-Tiles support
     implementation "androidx.glance:glance-wear-tiles:1.0.0-alpha07"
@@ -54,10 +54,10 @@ android {
 ```kotlin
 dependencies {
     // For Glance support
-    implementation("androidx.glance:glance:1.3.0-alpha01")
+    implementation("androidx.glance:glance:1.3.0-alpha02")
     
     // For AppWidgets support
-    implementation("androidx.glance:glance-appwidget:1.3.0-alpha01")
+    implementation("androidx.glance:glance-appwidget:1.3.0-alpha02")
 
     // For Wear-Tiles support
     implementation("androidx.glance:glance-wear-tiles:1.0.0-alpha07")
@@ -94,6 +94,33 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.3
+
+### Version 1.3.0-alpha02
+
+July 01, 2026
+
+`androidx.glance:glance-*:1.3.0-alpha02` is released. Version 1.3.0-alpha02 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/b5d2acb5ad0a36c9d2aba8feb4c7951165f30fbe..ba3014c143b9c9782fe30bc766c5dced55e13453/glance).
+
+**API Changes**
+
+- `androidx.benchmark` now has a `minSdk` of 24. ([Ic2a85](https://android-review.googlesource.com/#/q/Ic2a8500af8a2bf092fcc1b27d9a599aa5f3b81d7))
+- Remove permission check from `heartRateAccuracy` ([I14269](https://android-review.googlesource.com/#/q/I14269c1e05223e2b3b851749b40cf24b61e6be15), [b/522444636](https://issuetracker.google.com/issues/522444636))
+- Rename `androidx.glance.wear.health.DataType` to `androidx.glance.wear.health.HealthData` ([I4cb0b](https://android-review.googlesource.com/#/q/I4cb0b961829680053b1611b153d0c5ce9f5dcb0c), [b/516746689](https://issuetracker.google.com/issues/516746689))
+- Added `AssociateWithGlanceWearWidget` that **must** be used on the `GlanceWearWidgetService` to provide which implementation of `GlanceWearWidget` it is associated to. For example: `@AssociateWithGlanceWearWidget(MyGlanceWearWidget::class)\n class MyGlanceWearWidgetService : GlanceWearWidgetService() {\n override val widget = MyGlanceWearWidget()\n }` ([Ifcabb](https://android-review.googlesource.com/#/q/Ifcabb316a0dc3fcd5fc0d5a5878fe8ad281ed8ad), [b/514679763](https://issuetracker.google.com/issues/514679763))
+- Add `image` brush to `WearWidgetBrush` to support bitmap backgrounds in Wear Widgets. ([I9a228](https://android-review.googlesource.com/#/q/I9a22801ae1d5e5d5fe473a51b153f3e0e8e97312), [b/513481558](https://issuetracker.google.com/issues/513481558))
+- Expose `isHeartRateBpmAvailable` to determine if `heartRateBpm` is available on the host. ([I5999d](https://android-review.googlesource.com/#/q/I5999d40f4cd432e921a7b10ecdff67d566f0d06c), [b/514641567](https://issuetracker.google.com/issues/514641567))
+- Expose `RemoteInt` compare operators. ([I5fe3d](https://android-review.googlesource.com/#/q/I5fe3d4e06e25650003dcea04cdef1c252612bf06), [b/513228889](https://issuetracker.google.com/issues/513228889))
+- Exposed `captureRemoteDocument` Flow API and a new `captureSingleRemoteDocument` overload (which takes `RemoteCreationDisplayInfo`) as public APIs. ([I87b0e](https://android-review.googlesource.com/#/q/I87b0ef46ca9cbaae9375053ab8d0618921aa1957), [b/513228889](https://issuetracker.google.com/issues/513228889))
+- Made `PendingIntentAction` safe for IDE previews by deferring `PendingIntent` access via a lambda and returning a no-op action in preview mode. ([I43b37](https://android-review.googlesource.com/#/q/I43b37f5d603065a63f99e3e41d0e0a1b76ad6c53), [b/512403924](https://issuetracker.google.com/issues/512403924))
+- Remove unused snap scrolling constant ([Ib6df6](https://android-review.googlesource.com/#/q/Ib6df66a8a4c18df5aaadb3240c4d2f3669831924))
+- Add `WearWidgetPreview` for previewing Wear Widget in Android Studio ([I36504](https://android-review.googlesource.com/#/q/I36504163576c4869ecd67732321dc7535edf3467), [b/485147770](https://issuetracker.google.com/issues/485147770))
+- Expose `is*Available` variables to verify if the related data type is available and valid. ([Ib98a7](https://android-review.googlesource.com/#/q/Ib98a78eec469c425b2ab8f3b231e9fae562437e0), [b/498179656](https://issuetracker.google.com/issues/498179656))
+- Added `triggerUpdateAll` API to `GlanceWearWidget`. ([I6ab20](https://android-review.googlesource.com/#/q/I6ab20fe37b23d531d38c622e31acdbe4e1b83f3c), [b/510896410](https://issuetracker.google.com/issues/510896410))
+
+**Bug Fixes**
+
+- Propagate LocalInspectionMode to Remote Compose capture phase ([I6a56b](https://android-review.googlesource.com/#/q/I6a56b8d53fd8b094bbd40db648b9dd116b129859), [b/512403924](https://issuetracker.google.com/issues/512403924))
+- Include rendering schema version info in the WearWidgetParams ([Idcf8e](https://android-review.googlesource.com/#/q/Idcf8e6e180db390b74d2b283920d1f81dfb797b2), [b/511263591](https://issuetracker.google.com/issues/511263591), [b/512830184](https://issuetracker.google.com/issues/512830184))
 
 ### Version 1.3.0-alpha01
 

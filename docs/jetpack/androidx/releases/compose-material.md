@@ -10,7 +10,7 @@ source: md.txt
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| June 17, 2026 | [1.11.3](https://developer.android.com/jetpack/androidx/releases/compose-material#1.11.3) | - | [1.12.0-beta01](https://developer.android.com/jetpack/androidx/releases/compose-material#1.12.0-beta01) | - |
+| July 01, 2026 | [1.11.4](https://developer.android.com/jetpack/androidx/releases/compose-material#1.11.4) | - | [1.12.0-beta02](https://developer.android.com/jetpack/androidx/releases/compose-material#1.12.0-beta02) | - |
 
 ## Structure
 
@@ -43,7 +43,7 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.compose.material:material:1.11.3"
+    implementation "androidx.compose.material:material:1.11.4"
 }
 
 android {
@@ -65,7 +65,7 @@ android {
 
 ```kotlin
 dependencies {
-    implementation("androidx.compose.material:material:1.11.3")
+    implementation("androidx.compose.material:material:1.11.4")
 }
 
 android {
@@ -100,6 +100,12 @@ for more information.
 
 ## Version 1.12
 
+### Version 1.12.0-beta02
+
+July 01, 2026
+
+`androidx.compose.material:material-*:1.12.0-beta02` is released. Version 1.12.0-beta02 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/40b1610b08564489b3f6a426cd8833f8615bfc68..aa883d8aa3e51057610bdf6e76ff9753350fa02c/compose/material).
+
 ### Version 1.12.0-beta01
 
 June 17, 2026
@@ -133,6 +139,12 @@ April 22, 2026
 - Updated Compose `compileSdk` to API 37. This means that a minimum AGP version of 9.2.0 is required when using Compose. ([Id45cd](https://android-review.googlesource.com/#/q/Id45cdca34ef948e06259b2dd9adc901b7c930492), [b/413674743](https://issuetracker.google.com/issues/413674743))
 
 ## Version 1.11
+
+### Version 1.11.4
+
+July 01, 2026
+
+`androidx.compose.material:material-*:1.11.4` is released. Version 1.11.4 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/b3fb8849de357e09c2efc963c36a1012543ca411..854220f44ea8ea80fee824a6c5a045f39bede289/compose/material).
 
 ### Version 1.11.3
 

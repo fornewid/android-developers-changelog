@@ -10,7 +10,7 @@ source: md.txt
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| June 03, 2026 | [1.3.0](https://developer.android.com/jetpack/androidx/releases/hilt#1.3.0) | [1.4.0-rc01](https://developer.android.com/jetpack/androidx/releases/hilt#1.4.0-rc01) | - | - |
+| July 01, 2026 | [1.4.0](https://developer.android.com/jetpack/androidx/releases/hilt#1.4.0) | - | - | - |
 
 ## Feedback
 
@@ -24,6 +24,16 @@ clicking the star button.
 
 See the [Issue Tracker documentation](https://developers.google.com/issue-tracker)
 for more information.
+
+## Hilt-Common
+
+### Version 1.4
+
+#### Version 1.4.0
+
+July 01, 2026
+
+`androidx.hilt:hilt-*:1.4.0` is released. Version 1.4.0 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/d697e229a0933b8ef4811164e4b20f24eafafe4b..75d4094b91b0cc2c2b688143f684ec39b7c4172d/hilt).
 
 ## Hilt Version 1.4
 

@@ -10,7 +10,7 @@ Navigation 3 is a new navigation library designed to work with Compose.
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| June 17, 2026 | [1.1.3](https://developer.android.com/jetpack/androidx/releases/navigation3#1.1.3) | - | - | [1.2.0-alpha04](https://developer.android.com/jetpack/androidx/releases/navigation3#1.2.0-alpha04) |
+| July 01, 2026 | [1.1.4](https://developer.android.com/jetpack/androidx/releases/navigation3#1.1.4) | - | - | [1.2.0-alpha05](https://developer.android.com/jetpack/androidx/releases/navigation3#1.2.0-alpha05) |
 
 ## Declaring dependencies
 
@@ -25,8 +25,8 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.navigation3:navigation3-runtime:1.2.0-alpha04"
-    implementation "androidx.navigation3:navigation3-ui:1.2.0-alpha04"
+    implementation "androidx.navigation3:navigation3-runtime:1.2.0-alpha05"
+    implementation "androidx.navigation3:navigation3-ui:1.2.0-alpha05"
 }
 ```
 
@@ -34,8 +34,8 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.navigation3:navigation3-runtime:1.2.0-alpha04")
-    implementation("androidx.navigation3:navigation3-ui:1.2.0-alpha04")
+    implementation("androidx.navigation3:navigation3-runtime:1.2.0-alpha05")
+    implementation("androidx.navigation3:navigation3-ui:1.2.0-alpha05")
 }
 ```
 
@@ -57,6 +57,46 @@ for more information.
 There are no release notes for this artifact.
 
 ## Navigation3 Version 1.2
+
+### Version 1.2.0-alpha05
+
+July 01, 2026
+
+`androidx.navigation3:navigation3-*:1.2.0-alpha05` is released. Version 1.2.0-alpha05 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/d0d5e8b902b1ded8854df7d27fa1d1ee14e3bb4c..98641569d70837298aa655adb1e99af419b8702a/navigation3).
+
+**New API**
+
+- Added a `rememberResultEventBus` api which returns a `ResultEventBus` that can be passed to `rememberResultEventBusNavEntryDecorator`. This allows hoisting a `ResultEventBus` outside the `ResultEventBusNavEntryDecorator`. ([Ia655b](https://android-review.googlesource.com/#/q/Ia655ba3cd739841eb0820db60d089c951ba3b621), [b/516995400](https://issuetracker.google.com/issues/516995400))
+
+DeepLinkRequest
+- Added two KMP-compatible constructors - one that takes a DeepLinkUri and one that takes a raw string uri. ([I3c088](https://android-review.googlesource.com/#/q/I3c088a7b0b9c7e33368a38aef4def31583cb4a22), [b/513200887](https://issuetracker.google.com/issues/513200887), [b/522194187](https://issuetracker.google.com/issues/522194187))
+- (Android only) Added a constructor that takes an `Intent`. ([Ia0498](https://android-review.googlesource.com/#/q/Ia0498ab9209688ccaeb28ebbf8b3da8ef2a9255e), [b/513200887](https://issuetracker.google.com/issues/513200887), [b/522194187](https://issuetracker.google.com/issues/522194187))
+- All constructors have an additional `extras` field for a `Map<String, Any>` to attach additional request information. ([If81d5](https://android-review.googlesource.com/#/q/If81d5766720fd14676d03a817f47a5a91be13260), [b/513200887](https://issuetracker.google.com/issues/513200887))
+- A new `requestExtras` dsl is added as a type safe way to build a map of extras. The dsl provides a `put` function to store pairs of `RequestExtrasKey` to `Any`. The `Map<String, Any>.get(key)` extension function can be used to read from the map with a `RequestExtrasKey`([I5091c](https://android-review.googlesource.com/#/q/I5091c3821acb4fab2b8d908741522a246501fbe8), [b/513200887](https://issuetracker.google.com/issues/513200887))
+- (Android only) Added an `ActionExtrasKey` and `actionExtra` function to create an extras map with `ActionExtrasKey`. ([Id0c90](https://android-review.googlesource.com/#/q/Id0c902d432be2e7f4fd6e23f49ea87444815994e), \[b/513200887\]
+- Added a `MimeTypeExtrasKey` and `mimeTypeExtra` function to create an extras map with `MimeTypeExtrasKey`. ([I85131](https://android-review.googlesource.com/#/q/I85131ce001439654dba5859909bb7b00dfb04b09), [b/513200887](https://issuetracker.google.com/issues/513200887))
+
+DeepLinkMatcher
+- Added `DeepLinkMatcher.mimeTypeFilter` and `DeepLinkMatcher.actionFilter` functions to create `DeepLinkMatcher.Filters` that filter `DeepLinkRequest` by `mimeType` or `action` (Android only). Both filters match by string equality and is case-insensitive. ([Ie7e67](https://android-review.googlesource.com/#/q/Ie7e67577a5be205ed0ed369622afc8231f3ef658), [b/513191950](https://issuetracker.google.com/issues/513191950))
+
+**API Changes**
+
+DeepLinkRequest
+- Remove `fromAction` factory function. To create a request associated with an Action, use the new `DeepLinkRequest.extras` field.([Id0c90](https://android-review.googlesource.com/#/q/Id0c902d432be2e7f4fd6e23f49ea87444815994e), [b/513200887](https://issuetracker.google.com/issues/513200887))
+- Removed `fromMimeType` factory function. To create a request associated with a mimeType, use the new `DeepLinkRequest.extras` field. ([I85131](https://android-review.googlesource.com/#/q/I85131ce001439654dba5859909bb7b00dfb04b09), [b/513200887](https://issuetracker.google.com/issues/513200887))
+- (Android-only) Removed `fromIntent` factory function. Replaced by a new constructor that takes an Intent and extras map. ([Ia0498](https://android-review.googlesource.com/#/q/Ia0498ab9209688ccaeb28ebbf8b3da8ef2a9255e), [b/513200887](https://issuetracker.google.com/issues/513200887), [b/522194187](https://issuetracker.google.com/issues/522194187))
+- Removed factory functions `fromUri` and `fromUriString`. Replaced by new constructors that either take a `DeepLinkUri` or a raw string uri. ([Id5b6f](https://android-review.googlesource.com/#/q/Id5b6ff02d270b377f2c7dc5abd35633ed371d19e), [b/522194187](https://issuetracker.google.com/issues/522194187))
+- `DeepLinkMatcher`, `DeepLinkMatcher.MatchResult` and their subclasses now take a covariant T (out T) so that hierarchical keys will not need type casting with used with Matchers. ([I1e453](https://android-review.googlesource.com/#/q/I1e45364f85d56731a1e11b8975932845f00f03d8), [b/525094876](https://issuetracker.google.com/issues/525094876))
+- The `UriMatchResult` constructor param for arguments map now defaults to an empty map. ([I3acdd](https://android-review.googlesource.com/#/q/I3acdd8c52f289a08dcc980f7ba8bb04fff6b1b21))
+- `DeepLinkMatcher.Filter` abstract class is now a functional interface. The `filter` constructor field is removed and instead should be passed directly in the subclass. ([I9eb7d](https://android-review.googlesource.com/#/q/I9eb7dca74c96b799e4357766434205c5fec1f4c8), [b/522194187](https://issuetracker.google.com/issues/522194187))
+
+**Bug Fixes**
+- Fixed popped entry disappearing immediately when popping to an entry that has a nested metadata containing lambda values. ([Idb872](https://android-review.googlesource.com/#/q/Idb872842a3aa174716e063fb9dd16506b41a031e), [b/520494430](https://issuetracker.google.com/issues/520494430))
+- Fixed `UriDeepLinkMatcher` so that it will return a null `UriMatchResult` instead of throwing `MissingFieldException` when required arguments are missing during matching. ([I5322f](https://android-review.googlesource.com/#/q/I5322fc616c79d5d5f07c7805de49a3e599b31b3d), [b/524663005](https://issuetracker.google.com/issues/524663005))
+- A `UriDeeplinkMatcher` containing uri with https scheme can only be matched with requests that also have https scheme. ([Ibfe22](https://android-review.googlesource.com/#/q/Ibfe229d8d1f87a78bc20a61f636fd2d8546fde40), [b/522304329](https://issuetracker.google.com/issues/522304329))
+- Fix `UriDeepLinkMatcher` to correctly identify `http` scheme as a positive match with `https` when matching a `DeepLinkRequest` to a `UriDeepLinkMatcher`. ([I3a62b](https://android-review.googlesource.com/#/q/I3a62b073c8f0b7011b8d273108c37be619b253b9), [b/518804264](https://issuetracker.google.com/issues/518804264))
+- `DeepLinkMatcher.MatchResult` comparator now returns 0 by default when two results are equal. ([I48ddb](https://android-review.googlesource.com/#/q/I48ddb462bd2cc20c8a5873cd197510544ae20f4c), [b/518841353](https://issuetracker.google.com/issues/518841353))
+- `UriDeepLinkMatcher` will now return a null `UriMatchResult` instead of throwing an exception when match request fails due to missing required arguments. ([I669a7](https://android-review.googlesource.com/#/q/I669a7c413950739664300f55ba3540c79c9e8888), [b/470282247](https://issuetracker.google.com/issues/470282247), [b/512923412](https://issuetracker.google.com/issues/512923412))
 
 ### Version 1.2.0-alpha04
 
@@ -140,6 +180,16 @@ April 08, 2026
 - Accessing `LocalNavAnimatedContentScope` from an `OverlayScene` will no longer cause an `IllegalStateException` as `OverlayScenes` are now provided with a no-op `LocalAnimatedContentScope`. ([I2f00c](https://android-review.googlesource.com/#/q/I2f00c9c916cb77cfb85bb736ed8efc9ccedbd512), [b/486067688](https://issuetracker.google.com/issues/486067688))
 
 ## Navigation3 Version 1.1
+
+### Version 1.1.4
+
+July 01, 2026
+
+`androidx.navigation3:navigation3-*:1.1.4` is released. Version 1.1.4 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/258497755004be3f071eb9572543a052b665b407..a93f4841a72f48f4d873afc522c7f2678e6316ba/navigation3).
+
+**Bug Fixes**
+
+- Fixed popped entry disappearing immediately when popping to an entry that has a nested metadata containing lambda values. ([Idb872](https://android-review.googlesource.com/#/q/Idb872842a3aa174716e063fb9dd16506b41a031e), [b/520494430](https://issuetracker.google.com/issues/520494430))
 
 ### Version 1.1.3
 

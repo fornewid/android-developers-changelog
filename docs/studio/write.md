@@ -1,8 +1,19 @@
 ---
-title: https://developer.android.com/studio/write
+title: Write your app  |  Android Studio  |  Android Developers
 url: https://developer.android.com/studio/write
-source: md.txt
+source: html-scrape
 ---
+
+* [Android Developers](https://developer.android.com/)
+* [Develop](https://developer.android.com/develop)
+* [Android Studio](https://developer.android.com/studio)
+* [IDE guides](https://developer.android.com/studio/intro)
+
+# Write your app Stay organized with collections Save and categorize content based on your preferences.
+
+
+
+
 
 Android Studio includes tools for every stage of development, but what's most
 important is simply writing your app: writing the code, building layouts,
@@ -22,7 +33,7 @@ Code completion speeds up app development by reducing typing errors and the need
 to look up class, method, and variable names. The code editor provides basic
 completion, smart completion, and statement completion.
 
-Learn more about [code completion](https://developer.android.com/studio/intro/user-interface#code_completion) and [AI code completion](https://developer.android.com/studio/gemini/code-completion).
+Learn more about [code completion](/studio/intro/user-interface#code_completion) and [AI code completion](/studio/gemini/code-completion).
 
 ### Create custom code-completion templates
 
@@ -32,11 +43,11 @@ and press the **Tab** key. Android Studio inserts the code snippet associated
 with the template into your code.
 
 For example, the `comp` abbreviation followed by **Tab** inserts the code for a
-new [composable function](https://developer.android.com/develop/ui/compose/mental-model#simple-example). Or type `loge` to find the `Log.e` method and [log
-from your code](https://developer.android.com/studio/command-line/logcat#logClass).
+new [composable function](/develop/ui/compose/mental-model#simple-example). Or type `loge` to find the `Log.e` method and [log
+from your code](/studio/command-line/logcat#logClass).
 
-To see the list of supported live templates and customize them, click **File \>
-Settings \> Editor \> Live Templates** (**Android Studio \> Settings \> Editor \>
+To see the list of supported live templates and customize them, click **File >
+Settings > Editor > Live Templates** (**Android Studio > Settings > Editor >
 Live Templates** on macOS).
 
 Learn more about [Live templates](https://medium.com/google-developers/writing-more-code-by-writing-less-code-with-android-studio-live-templates-244f648d17c7#.h1jn0hq31).
@@ -51,7 +62,7 @@ Every time you build your app, Android Studio runs lint to check your source
 files for potential bugs and looks for optimization improvements in correctness,
 security, performance, usability, accessibility, and internationalization.
 
-Learn more about [lint](https://developer.android.com/studio/write/lint).
+Learn more about [lint](/studio/write/lint).
 
 ### See documentation and resource details
 
@@ -59,8 +70,8 @@ You can view documentation for an API by placing the caret on the
 method/member/class name and pressing **F1**.
 
 Information is also available for other resources, such as images and themes.
-For example, if you place the caret on a Compose [`Modifier`](https://developer.android.com/develop/ui/compose/modifiers) or a [Material
-3](https://developer.android.com/develop/ui/compose/designsystems/material3) `ColorScheme` property, you can see its documentation and default
+For example, if you place the caret on a Compose [`Modifier`](/develop/ui/compose/modifiers) or a [Material
+3](/develop/ui/compose/designsystems/material3) `ColorScheme` property, you can see its documentation and default
 parameters.
 
 ### Quickly create new files
@@ -75,24 +86,24 @@ directory.
 Android Studio includes the following features and tools to help you create and
 manage resource files.
 
-Learn more about [adding resources](https://developer.android.com/studio/write/add-resources).
+Learn more about [adding resources](/studio/write/add-resources).
 
 ### Create images for all screen densities
 
 Android Studio includes a tool called Vector Asset Studio that helps you create
 images and custom UI icons that support each screen density. You can upload your
 own SVG file for editing or select from one of the many Google-provided Material
-Design icons. To get started, click **File \> New \> Vector Asset**.
+Design icons. To get started, click **File > New > Vector Asset**.
 
-Learn more about [Vector Asset Studio](https://developer.android.com/studio/write/vector-asset-studio).
+Learn more about [Vector Asset Studio](/studio/write/vector-asset-studio).
 
 Android Studio also includes a tool called Image Asset Studio that helps you
 create custom launcher and notification icons as well as standard UI icons at
 different resolutions to support each screen density. You can upload your own
 image or text for customization or select from a library of Google-provided
-Material Design icons. To get started, click **File \> New \> Image Asset**.
+Material Design icons. To get started, click **File > New > Image Asset**.
 
-Learn more about [Image Asset Studio](https://developer.android.com/studio/write/create-app-icons).
+Learn more about [Image Asset Studio](/studio/write/create-app-icons).
 
 ### Preview images and colors
 
@@ -106,7 +117,7 @@ details, including all the alternative sizes.
 ### Create new layouts
 
 Android Studio lets you preview your composable layouts when you use the
-[composable preview](https://developer.android.com/develop/ui/compose/tooling/previews) function. Previews of your composables appear in the
+[composable preview](/develop/ui/compose/tooling/previews) function. Previews of your composables appear in the
 **Design** view of the file and update in real time as you edit the composables.
 
 ### Translate UI strings
@@ -117,7 +128,7 @@ translations without opening every version of the `strings.xml` file. You can
 even upload your strings file to order translation services.
 
 To get started, right-click on any copy of your `strings.xml` file, then click
-**Open Translations Editor** . To access translated resources in Compose, use
+**Open Translations Editor**. To access translated resources in Compose, use
 `stringResource(R.string.your_string)`.
 
-Learn more about the [Translations Editor](https://developer.android.com/studio/write/translations-editor).
+Learn more about the [Translations Editor](/studio/write/translations-editor).

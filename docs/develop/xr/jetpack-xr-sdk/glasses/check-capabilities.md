@@ -25,7 +25,7 @@ following example shows how to check whether a glasses device has a display:
 
 ```kotlin
 // Check device capabilities
-val projectedDeviceController = ProjectedDeviceController.create(this@GlassesMainActivity)
+val projectedDeviceController = ProjectedDeviceController.create(this@ProjectedMainActivity)
 isVisualUiSupported = projectedDeviceController.capabilities.contains(CAPABILITY_VISUAL_UI)
 ```
 

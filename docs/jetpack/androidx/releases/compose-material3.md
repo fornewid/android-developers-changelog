@@ -10,7 +10,7 @@ source: md.txt
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| June 17, 2026 | [1.4.0](https://developer.android.com/jetpack/androidx/releases/compose-material3#1.4.0) | - | - | [1.5.0-alpha22](https://developer.android.com/jetpack/androidx/releases/compose-material3#1.5.0-alpha22) |
+| July 01, 2026 | [1.4.0](https://developer.android.com/jetpack/androidx/releases/compose-material3#1.4.0) | - | - | [1.5.0-alpha23](https://developer.android.com/jetpack/androidx/releases/compose-material3#1.5.0-alpha23) |
 
 > [!NOTE]
 > **Note:** To develop UIs for Wear OS apps using Material 3 Expressive, use the [Wear Compose Material 3](https://developer.android.com/jetpack/androidx/releases/wear-compose-m3) library instead of this one.
@@ -48,7 +48,7 @@ your app or module:
 dependencies {
     implementation "androidx.compose.material3:material3:1.4.0"
     implementation "androidx.compose.material3:material3-window-size-class:1.4.0"
-    implementation "androidx.compose.material3:material3-adaptive-navigation-suite:1.5.0-alpha22"
+    implementation "androidx.compose.material3:material3-adaptive-navigation-suite:1.5.0-alpha23"
 }
 
 android {
@@ -72,7 +72,7 @@ android {
 dependencies {
     implementation("androidx.compose.material3:material3:1.4.0")
     implementation("androidx.compose.material3:material3-window-size-class:1.4.0")
-    implementation("androidx.compose.material3:material3-adaptive-navigation-suite:1.5.0-alpha22")
+    implementation("androidx.compose.material3:material3-adaptive-navigation-suite:1.5.0-alpha23")
 }
 
 android {
@@ -317,6 +317,36 @@ Material3 adaptive pane scaffold APIs:
   - [AnimatedPane](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/package-summary#(androidx.compose.material3.adaptive.ThreePaneScaffoldScope).AnimatedPane(androidx.compose.ui.Modifier,kotlin.Function2))
 
 ## Compose Material3 Version 1.5
+
+### Version 1.5.0-alpha23
+
+July 01, 2026
+
+`androidx.compose.material3:material3-*:1.5.0-alpha23` is released. Version 1.5.0-alpha23 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/14c2f2ed81d0f61a3227641684cd875e95dd6529..b65b78b30c22d688ff24192747e67d1acca21fb7/compose/material3).
+
+**Features**
+- *expressive timepicker* component ([Iaa45f](https://android-review.googlesource.com/#/q/Iaa45fd694328fce77fb45628672edb1d33135d8d))
+- Added new non-interactive variants of standard list item and segmented list item which follow Material Expressive specifications. The non-expressive version has been deprecated. ([Ide4de](https://android-review.googlesource.com/#/q/Ide4de27c32c25243b6b0a7d38cabce1a582bc56f), [b/491994186](https://issuetracker.google.com/issues/491994186))
+
+**Behavioral Change**
+- Fix issue where minimum height of expressive list items did not change based on lines of content. The feature flag `isExpressiveListItemHeightBasedOnTextLinesFixEnabled` has been introduced to aid migration. ([Ibbb91](https://android-review.googlesource.com/#/q/Ibbb91f82e91a31eeee578da5f2242f500952ce1a), [b/484693233](https://issuetracker.google.com/issues/484693233))
+
+**API Changes**
+
+- Expressive list item APIs are no longer experimental. ([I2836a](https://android-review.googlesource.com/#/q/I2836a6d2eebbdb98e97eb4038b3b2bd50e8873bd))
+- Remove `ComponentOverride` APIs ([I820c4](https://android-review.googlesource.com/#/q/I820c4aec6fad21ed544189b2dfbaeb6d6a6a6964))
+- Remove unused offset parameter from `DropdownMenuPopup`. Added the default menu properties into the menu defaults. Updated the naming for groups label from `MenuDefaults.Label` to `MenuDefaults.DropdownMenuGroupLabel`. Added `disabledContainerColor` into `MenuDefaults.selectableItemColors` and `MenuDefaults.selectableItemVibrantColors`. Added `Modifier` parameter to composable functions in `MenuDefaults` that return a layout. ([I3d2b1](https://android-review.googlesource.com/#/q/I3d2b19381f46df852d6290b39b199d44fbfde480))
+- Added a public `flingAnimationSpec` getter to `TopAppBarDefaults` to expose the default fling animation spec. ([Ic1daa](https://android-review.googlesource.com/#/q/Ic1daa778e40e6800ceabe55a69934efb9b3e6590))
+- Graduate `TopAppBar`, `MediumFlexibleTopAppBar`,`LargeTopAppBar`,`LargeFlexibleTopAppBar`,`TwoRowsTopAppBar`,`FlexibleBottomAppBar`,`FlexibleContentPadding`,`FlexibleBottomAppBarHeight`,`FlexibleHorizontalArrangement`,`FlexibleFixedHorizontalArrangement` to non-experimental. These APIs and variables no longer require the @`ExperimentalMaterial3ExpressiveApi` opt-in. ([Ia4af6](https://android-review.googlesource.com/#/q/Ia4af6dae6ed1456102e3eaaf785d0d19c37182cb))
+- Graduate `ExpandedDockedSearchBarWithGap` and `ExpandedFullScreenContainedSearchBar` to non-experimental ([Ie152d](https://android-review.googlesource.com/#/q/Ie152d5cd5129bab9c7b103a81c96420d7195f58e))
+
+**Bug Fixes**
+
+- Cleans up API information ([Ia8066](https://android-review.googlesource.com/#/q/Ia8066818f7e33220445aaeafa9ecc0668cc4818b))
+- Fix `Scaffold`'s keyboard navigation order. ([I77194](https://android-review.googlesource.com/#/q/I77194c764667a8299eb6348c62aea118295ecb33), [b/462577176](https://issuetracker.google.com/issues/462577176))
+- Remove requirement for `compileSdk 37` ([If78b4](https://android-review.googlesource.com/#/q/If78b4fbdec15e6b1d6ad34a487ae10b2e2494325))
+- Add a11y support for ScrollField component. More specifically, ScrollField now implements selectable and animates to the selected item on click with selected/unselected announcements in Talkback. ([I7bdb7](https://android-review.googlesource.com/#/q/I7bdb7b4570771b82ddc36eed830c9a797c2b825b))
+- Fix bug where there is extra bottom padding if the nav suite scaffold's content has ime padding set. ([I86d9d](https://android-review.googlesource.com/#/q/I86d9d14f60eb60390e6edf946b9b8c00be8878ac), [b/389467593](https://issuetracker.google.com/issues/389467593))
 
 ### Version 1.5.0-alpha22
 

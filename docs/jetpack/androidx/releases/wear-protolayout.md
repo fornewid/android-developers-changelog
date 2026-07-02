@@ -6,13 +6,11 @@ source: md.txt
 
 # wear protolayout
 
-API Reference  
-[androidx.wear.protolayout](https://developer.android.com/reference/kotlin/androidx/wear/protolayout/package-summary)  
 This library allows defining a set of UI layouts and non-UI expressions to be rendered/evaluated on remote surfaces.
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| March 11, 2026 | [1.3.0](https://developer.android.com/jetpack/androidx/releases/wear-protolayout#1.3.0) | [1.4.0-rc02](https://developer.android.com/jetpack/androidx/releases/wear-protolayout#1.4.0-rc02) | - | - |
+| July 01, 2026 | [1.4.1](https://developer.android.com/jetpack/androidx/releases/wear-protolayout#1.4.1) | - | - | - |
 
 ## Declaring dependencies
 
@@ -28,13 +26,13 @@ your app or module:
 ```groovy
 dependencies {
     // Use to implement support for Wear ProtoLayout Expressions
-    implementation "androidx.wear.protolayout:protolayout-expression:1.3.0"
+    implementation "androidx.wear.protolayout:protolayout-expression:1.4.1"
 
     // Use to implement support for Wear ProtoLayout
-    implementation "androidx.wear.protolayout:protolayout:1.3.0"
+    implementation "androidx.wear.protolayout:protolayout:1.4.1"
 
     // Use to utilize components and layouts with Material design in your ProtoLayout
-    implementation "androidx.wear.protolayout:protolayout-material:1.3.0"
+    implementation "androidx.wear.protolayout:protolayout-material:1.4.1"
 }
 ```
 
@@ -43,13 +41,13 @@ dependencies {
 ```kotlin
 dependencies {
     // Use to implement support for Wear ProtoLayout Expressions
-    implementation("androidx.wear.protolayout:protolayout-expression:1.3.0")
+    implementation("androidx.wear.protolayout:protolayout-expression:1.4.1")
 
     // Use to implement support for Wear ProtoLayout
-    implementation("androidx.wear.protolayout:protolayout:1.3.0")
+    implementation("androidx.wear.protolayout:protolayout:1.4.1")
 
     // Use to utilize components and layouts with Material design in your ProtoLayout
-    implementation("androidx.wear.protolayout:protolayout-material:1.3.0")
+    implementation("androidx.wear.protolayout:protolayout-material:1.4.1")
 }
 ```
 
@@ -69,6 +67,43 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.4
+
+### Version 1.4.1
+
+July 01, 2026
+
+`androidx.wear.protolayout:protolayout-*:1.4.1` is released. Version 1.4.1 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/50d7308cb64d77392a80697500e504863780ca24..81d018cf57252f81bc13a95eb11dc08f2e3bf723/wear/protolayout).
+
+**Vulnerability \& Security Fixes**
+
+- Enforced a `2048px` dimension limit and `20MB` raw size maximum on images to **prevent memory exhaustion**.
+- **Enforced layout depth checks** by fixing a bug that allowed deep layouts to skip depth enforcement during fingerprint optimizations.
+- **Prevented an array bounds exception/crash** caused by unbounded gap parameters in `DashedArcLine`.
+- Replaced uncaught `IllegalArgumentExceptions` with **safer error logging and node invalidation in expression pipeline**.
+- Fixed an uncaught `NullPointerException` when **processing malformed image URIs**.
+
+### Version 1.4.0
+
+March 25, 2026
+
+`androidx.wear.protolayout:protolayout-*:1.4.0` is released. Version 1.4.0 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/90062705131fa122cdd8d9bed30380b183dc48bd..c09828fdac182a17e5c9410b518c3c7e6f35a88a/wear/protolayout).
+
+**Important changes since 1.3.0:**
+
+- For full details of changes since 1.3.0, see [the 1.4.0-beta01 release notes](https://developer.android.com/jetpack/androidx/releases/wear-protolayout#1.4.0-beta01).
+
+**New features**
+
+- The 1.4.0-beta01 release of Wear ProtoLayout indicates that this release of the library is feature-complete and the API is locked (except where marked as experimental). Wear ProtoLayout 1.4 includes the following new functionalities and APIs:
+  - **Inlined Image Resources and performance improvements:** Introduced an improved resource handling concept where `ImageResource` can be directly inlined within the layout itself.
+  - **Material3TileService:** Introduced a new, Kotlin-friendly service for creating tiles. It simplifies development by providing a single suspend function to return both tile layout and resources. It automatically manages the `MaterialScope` and `ProtoLayoutScope` for better resource handling and performance improvements on faster Tiles loading.
+  - **Tile Previews Update:** Tooling for Tile Previews has been updated to support the new `ProtoLayoutScope` automatic resource handling, ensuring previews reflect inlined resources correctly without extra configuration.
+  - **Many Kotlin DSL Improvements:** Added specialized Kotlin helpers for `Tile` and all other APIs needed to build a tile (such as `Timeline`) to improve the developer experience for Kotlin users.
+  - **Dynamic Service Switching:** Introduced `METADATA_GROUP_KEY`, allowing developers to group multiple `TileService` instances in the manifest. This enables dynamic switching between different services that represent the same tile on new OS versions.
+  - **Tile ID in Updates:** Developers can now specify a particular tileId in update requests, allowing for more granular control over which tile instances are refreshed.
+  - **Increased Compile SDK:** To support the new `Material3TileService` and advanced resource handling, the `compileSdk` version requirement has been increased to **35**.
+  - **ANR Prevention:** Moved the unbinding logic during Tile update requests to a background thread to prevent "Application Not Responding" (ANR) errors.
+  - **Proper RequiresPermission annotation for heart rate data:** Starting from API 36, calling `PlatformHealthSources.heartRateBpm` or `PlatformHealthSources.heartRateAccuracy` needs **`android.health.connect.HealthPermissions.READ_HEART_RATE`** permission to be granted to the calling App.
 
 ### Version 1.4.0-rc02
 

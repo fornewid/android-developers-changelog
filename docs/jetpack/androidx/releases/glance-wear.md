@@ -10,7 +10,7 @@ Glance Wear is a library for building Widgets for Wear OS
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| June 17, 2026 | - | - | - | [1.0.0-alpha12](https://developer.android.com/jetpack/androidx/releases/glance-wear#1.0.0-alpha12) |
+| July 01, 2026 | - | - | - | [1.0.0-alpha13](https://developer.android.com/jetpack/androidx/releases/glance-wear#1.0.0-alpha13) |
 
 ## Declaring dependencies
 
@@ -25,9 +25,9 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.glance.wear:wear:1.0.0-alpha12"
+    implementation "androidx.glance.wear:wear:1.0.0-alpha13"
 
-    implementation "androidx.glance.wear:wear-core:1.0.0-alpha12"
+    implementation "androidx.glance.wear:wear-core:1.0.0-alpha13"
 }
 ```
 
@@ -35,9 +35,9 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.glance.wear:wear:1.0.0-alpha12")
+    implementation("androidx.glance.wear:wear:1.0.0-alpha13")
 
-    implementation("androidx.glance.wear:wear-core:1.0.0-alpha12")
+    implementation("androidx.glance.wear:wear-core:1.0.0-alpha13")
 }
 ```
 
@@ -57,6 +57,20 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Glance Wear Version 1.0
+
+### Version 1.0.0-alpha13
+
+July 01, 2026
+
+`androidx.glance.wear:wear:1.0.0-alpha13`, `androidx.glance.wear:wear-core:1.0.0-alpha13`, and `androidx.glance.wear:wear-tooling-preview:1.0.0-alpha13` are released. Version 1.0.0-alpha13 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/14c2f2ed81d0f61a3227641684cd875e95dd6529..ba3014c143b9c9782fe30bc766c5dced55e13453/glance/wear).
+
+**API Changes**
+
+- Removed the permission check from `heartRateAccuracy` ([I14269](https://android-review.googlesource.com/#/q/I14269c1e05223e2b3b851749b40cf24b61e6be15), [b/522444636](https://issuetracker.google.com/issues/522444636))
+
+**Bug fixes**
+
+- We have tweaked the Squircle shaped Wear widget params for preview per UX feedback
 
 ### Version 1.0.0-alpha12
 
