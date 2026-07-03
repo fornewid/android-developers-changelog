@@ -1,100 +1,112 @@
 ---
-title: https://developer.android.com/courses/quizzes/android-basics-compose-unit-4-pathway-2/android-basics-compose-unit-4-pathway-2
+title: Navigation in Jetpack Compose  |  Android Developers
 url: https://developer.android.com/courses/quizzes/android-basics-compose-unit-4-pathway-2/android-basics-compose-unit-4-pathway-2
-source: md.txt
+source: html-scrape
 ---
 
-# Navigation in Jetpack Compose
+Stay organized with collections
+
+Save and categorize content based on your preferences.
+
+
 
 # Navigation in Jetpack Compose
 
-<br />
+Return to pathway
 
-Return to pathway  
-1.
 
-   ## A route is defined with a(n) ___ data type.
 
-   `@Composable`function  
-   `NavHost.Route`  
-   `String`  
-   `NavRoute`  
-2.
+1. ## A route is defined with a(n) \_\_\_ data type.
 
-   ## With a`NavHost`, you must explicitly specify a starting screen.
+   `@Composable` function
 
-   True  
-   False  
-3.
+   `NavHost.Route`
 
-   ## It's considered best practice to not pass a`NavHostController`to individual composables.
+   `String`
 
-   True  
-   False  
-4.
+   `NavRoute`
+2. ## With a `NavHost`, you must explicitly specify a starting screen.
 
-   ## ___ is a composable that manages which screen is displayed based on a given route.
+   True
 
-   `NavController`  
-   `NavHostController`  
-   `NavHost`  
-   `ComposableNavigator`  
-5.
+   False
+3. ## It’s considered best practice to not pass a `NavHostController` to individual composables.
 
-   ## The`composable()`function called in a`NavHost`takes which two parameters?
+   True
 
-   Destination content and a route  
-   A route and composable content  
-   A path and a composable  
-   Composable content and an intent.  
-6.
+   False
+4. ## \_\_\_ is a composable that manages which screen is displayed based on a given route.
 
-   ## You can change the currently displayed route using the ___ method.
+   `NavController`
 
-   `update()`  
-   `composable()`  
-   `transition()`  
-   `navigate()`  
-7.
+   `NavHostController`
 
-   ## The ___ method removes one or more screens from the backstack.
+   `NavHost`
 
-   `popToStartDestination()`  
-   `popBackStack()`  
-   `popComposable()`  
-   `popToBackStack()`  
-8.
+   `ComposableNavigator`
+5. ## The `composable()` function called in a `NavHost` takes which two parameters?
 
-   ## In a multi-screen app, navigating to a new screen puts it on the bottom of the backstack.
+   Destination content and a route
 
-   True  
-   False  
-9.
+   A route and composable content
 
-   ## Intent ___ contain additional data passed to an Intent.
+   A path and a composable
 
-   arguments  
-   extras  
-   parameters  
-   properties  
-10.
+   Composable content and an intent.
+6. ## You can change the currently displayed route using the \_\_\_ method.
 
-    ## `StateFlow`is a data-holder observable flow that emits the current and new state updates.
+   `update()`
 
-    True  
-    False  
-11.
+   `composable()`
 
-    ## Which of the following are true about the Back and Up buttons?
+   `transition()`
 
-    Choose as many answers as you see fit.  
-    The Back button is a system button  
-    The Up button is provided by the system at the bottom of the screen  
-    The Back button is part of the`AppBar`  
-    The Up button in the`AppBar`automatically navigates to the previous screen.  
-    The Back button only appears if you use navigation.  
-    The Up button can be shown or hidden, depending on the current screen.  
+   `navigate()`
+7. ## The \_\_\_ method removes one or more screens from the backstack.
+
+   `popToStartDestination()`
+
+   `popBackStack()`
+
+   `popComposable()`
+
+   `popToBackStack()`
+8. ## In a multi-screen app, navigating to a new screen puts it on the bottom of the backstack.
+
+   True
+
+   False
+9. ## Intent \_\_\_ contain additional data passed to an Intent.
+
+   arguments
+
+   extras
+
+   parameters
+
+   properties
+10. ## `StateFlow` is a data-holder observable flow that emits the current and new state updates.
+
+    True
+
+    False
+11. ## Which of the following are true about the Back and Up buttons?
+
+    Choose as many answers as you see fit.
+
+    The Back button is a system button
+
+    The Up button is provided by the system at the bottom of the screen
+
+    The Back button is part of the `AppBar`
+
+    The Up button in the `AppBar` automatically navigates to the previous screen.
+
+    The Back button only appears if you use navigation.
+
+    The Up button can be shown or hidden, depending on the current screen.
 
 Submit answers
 
-*error_outline*An error occurred when grading the quiz. Please try again.
+*error\_outline*
+An error occurred when grading the quiz. Please try again.
