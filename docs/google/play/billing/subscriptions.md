@@ -417,8 +417,8 @@ the subscription immediately.
 
 ```kotlin
 val billingClient: BillingClient = this.billingClient
-val replacementModeForBasePlan: Int = 1
-val replacementModeForAddon: Int = 1
+val replacementModeForBasePlan: Int = SubscriptionProductReplacementParams.ReplacementMode.KEEP_EXISTING
+val replacementModeForAddon: Int = SubscriptionProductReplacementParams.ReplacementMode.CHARGE_PRORATED_PRICE
 
 val purchaseTokenOfExistingSubscription: String = "your_old_purchase_token"
 
@@ -469,7 +469,7 @@ val billingFlowParams =
         .build()
 
 // To launch the billing flow:
-// billingClient.launchBillingFlow(activity, billingFlowParams)
+billingClient.launchBillingFlow(activity, billingFlowParams)
 ```
 
 ### Java

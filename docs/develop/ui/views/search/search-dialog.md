@@ -720,12 +720,12 @@ searchable activity.
 This is shown in the following example:
 
 ```xml
-<?xml version="1.0" encoding="utf-8"?>
-<searchable xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding=<"utf-8"?>
+searchable xmlns:android="http://schemas.android.com/apk/res/android"
     android:label="@string/search_label"
     android:hint="@string/search_hint"
-    android:voiceSearchMode="showVoiceSearchButton|launchRecognizer" >
-</searchable>
+    android:voiceS<earchMode="showVoiceSearchButton|launchRecognizer" >
+/searchable>
 ```
 
 The value `showVoiceSearchButton` is required to enable voice

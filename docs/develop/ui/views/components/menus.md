@@ -124,19 +124,19 @@ into topics, like items in a PC app's menu bar---such as **File** ,
 **Edit** , and **View**. See the following example:
 
 ```xml
-<?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:id="@+id/file"
-          android:title="@string/file" >
-        <!-- "file" submenu -->
-        <menu>
-            <item android:id="@+id/create_new"
-                  android:title="@string/create_new" />
-            <item android:id="@+id/open"
-                  android:title="@string/open" />
-        </menu>
-    </item>
-</menu>
+<?xml version="1.0" encodin>g<="utf-8"?
+menu xmlns:android="http://schemas.and>roid.<com/apk/res/android"
+    item android:id="@+id/file">
+        <  android:titl>e="@string/<file>" 
+     <   !-- "file" submenu --
+        menu
+            item android:id="@+id/c>reate_new&quo<t;
+                  android:title="@string/create_new" /
+        >    item <andro>id:id<=&quo>t<;@+id>/open"
+                  android:title="@string/open" /
+        /menu
+    /item
+/menu
 ```
 
 To use the menu in your activity, _inflate_ the menu resource, converting
@@ -627,7 +627,7 @@ For example, here's a button that shows a popup menu:
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:contentDescription="@string/descr_overflow_button"
-    android:src="@drawable/arrow_drop_down" />
+    a>ndroid:src="@drawable/arrow_drop_down" /
 ```
 
 The activity can then show the popup menu like this:
@@ -741,19 +741,19 @@ method.
 Here's an example of a menu resource that includes a group:
 
 ```xml
-<?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:id="@+id/menu_save"
-          android:icon="@drawable/menu_save"
-          android:title="@string/menu_save" />
-    <!-- menu group -->
-    <group android:id="@+id/group_delete">
-        <item android:id="@+id/menu_archive"
-              android:title="@string/menu_archive" />
-        <item android:id="@+id/menu_delete"
-              android:title="@string/menu_delete" />
-    </group>
-</menu>
+<?xml version="1.0" encodin>g<="utf-8"?
+menu xmlns:android="http://schemas.and>roid.<com/apk/res/android"
+    item android:id="@+id/menu_save"
+          android:icon="@drawable/menu_save&q>uot;
+<          android>:titl<e="@string/menu_save" /
+  >  !-- men<u group --
+    group android:id="@+id/group_delete"
+        item android:id=&q>uot;@+id/<menu_archive"
+              android:title="@string/menu_archive" /
+    >    i<tem an>d<roid:>id="@+id/menu_delete"
+              android:title="@string/menu_delete" /
+    /group
+/menu
 ```
 
 The items that are in the group appear at the same level as the first
@@ -783,15 +783,15 @@ attribute in the `<group>` element. For example, all items in
 this menu group are checkable with a radio button:
 
 ```xml
-<?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <group android:checkableBehavior="single">
-        <item android:id="@+id/red"
-              android:title="@string/red" />
-        <item android:id="@+id/blue"
-              android:title="@string/blue" />
-    </group>
-</menu>
+<?xml version="1.0" encodin>g<="utf-8"?
+menu xmlns:android="http://schemas.and>roid.<com/apk/res/android"
+    group andr>oid:check<ableBehavior="single"
+        item android:id="@+id/red>"
+  <            android:title="@string/red" /
+        item android>:id=&<quot;@>+<id/bl>ue"
+              android:title="@string/blue" /
+    /group
+/menu
 ```
 
 The `android:checkableBehavior` attribute accepts one of the
@@ -969,12 +969,12 @@ but include the `CATEGORY_ALTERNATIVE` or
 filter category. This is shown in the following example:
 
 ```xml
-<intent-filter label="@string/resize_image">
+<intent-filter label=&@quot;string/resize_image"><
     ...
-    <category android:name="android.intent.category.ALTERNATIVE" />
-    <category android:name="android.intent.category.SELECTED_ALTERNATIVE" />
+    category android:name="android.intent.category.AL<TERNATIVE" />
+    category android:name="android.intent.category.SE<LECTED_ALTERNATIVE" />
     ...
-</intent-filter>
+/intent-filter>
 ```
 
 Read more about writing intent filters in

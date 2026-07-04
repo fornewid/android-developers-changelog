@@ -23,7 +23,7 @@ To add the Navigation 3 library to your existing project, add the following to
 your `libs.versions.toml`:
 
     [versions]
-    nav3Core = "1.1.3"
+    nav3Core = "1.1.4"
     lifecycleViewmodelNav3 = "2.11.0"
     kotlinSerialization = "2.2.21"
     kotlinxSerializationCore = "1.9.0"

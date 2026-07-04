@@ -10,7 +10,7 @@ source: md.txt
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| June 17, 2026 | [1.11.3](https://developer.android.com/jetpack/androidx/releases/compose-animation#1.11.3) | - | [1.12.0-beta01](https://developer.android.com/jetpack/androidx/releases/compose-animation#1.12.0-beta01) | - |
+| July 01, 2026 | [1.11.4](https://developer.android.com/jetpack/androidx/releases/compose-animation#1.11.4) | - | [1.12.0-beta02](https://developer.android.com/jetpack/androidx/releases/compose-animation#1.12.0-beta02) | - |
 
 ## Structure
 
@@ -43,7 +43,7 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.compose.animation:animation:1.11.3"
+    implementation "androidx.compose.animation:animation:1.11.4"
 }
 
 android {
@@ -65,7 +65,7 @@ android {
 
 ```kotlin
 dependencies {
-    implementation("androidx.compose.animation:animation:1.11.3")
+    implementation("androidx.compose.animation:animation:1.11.4")
 }
 
 android {
@@ -99,6 +99,12 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.12
+
+### Version 1.12.0-beta02
+
+July 01, 2026
+
+`androidx.compose.animation:animation-*:1.12.0-beta02` is released. Version 1.12.0-beta02 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/40b1610b08564489b3f6a426cd8833f8615bfc68..aa883d8aa3e51057610bdf6e76ff9753350fa02c/compose/animation).
 
 ### Version 1.12.0-beta01
 
@@ -149,6 +155,12 @@ April 22, 2026
 - End the `SeekableTransitionState` animation before composition ([1bf9dc](https://android-review.googlesource.com/#/q/1bf9dcf), [b/410055849](https://issuetracker.google.com/410055849))
 
 ## Version 1.11
+
+### Version 1.11.4
+
+July 01, 2026
+
+`androidx.compose.animation:animation-*:1.11.4` is released. Version 1.11.4 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/b3fb8849de357e09c2efc963c36a1012543ca411..854220f44ea8ea80fee824a6c5a045f39bede289/compose/animation).
 
 ### Version 1.11.3
 

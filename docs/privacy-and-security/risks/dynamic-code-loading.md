@@ -1,19 +1,10 @@
 ---
-title: Dynamic Code Loading  |  Security  |  Android Developers
+title: https://developer.android.com/privacy-and-security/risks/dynamic-code-loading
 url: https://developer.android.com/privacy-and-security/risks/dynamic-code-loading
-source: html-scrape
+source: md.txt
 ---
 
-* [Android Developers](https://developer.android.com/)
-* [Design & Plan](https://developer.android.com/design)
-* [Security](https://developer.android.com/security)
-* [Guides](https://developer.android.com/privacy-and-security/security-tips)
-
-# Dynamic Code Loading Stay organized with collections Save and categorize content based on your preferences.
-
-
-
-
+<br />
 
 **OWASP category:** [MASVS-CODE: Code Quality](https://mas.owasp.org/MASVS/10-MASVS-CODE)
 
@@ -71,109 +62,105 @@ internal storage.
 
 ### Kotlin
 
-```
-package com.example.myapplication
+    package com.example.myapplication
 
-import java.io.BufferedInputStream
-import java.io.FileInputStream
-import java.io.IOException
-import java.security.MessageDigest
-import java.security.NoSuchAlgorithmException
+    import java.io.BufferedInputStream
+    import java.io.FileInputStream
+    import java.io.IOException
+    import java.security.MessageDigest
+    import java.security.NoSuchAlgorithmException
 
-object FileIntegrityChecker {
-    @Throws(IOException::class, NoSuchAlgorithmException::class)
-    fun getIntegrityHash(filePath: String?): String {
-        val md = MessageDigest.getInstance("SHA-256") // You can choose other algorithms as needed
-        val buffer = ByteArray(8192)
-        var bytesRead: Int
-        BufferedInputStream(FileInputStream(filePath)).use { fis ->
-            while (fis.read(buffer).also { bytesRead = it } != -1) {
-                md.update(buffer, 0, bytesRead)
+    object FileIntegrityChecker {
+        @Throws(IOException::class, NoSuchAlgorithmException::class)
+        fun getIntegrityHash(filePath: String?): String {
+            val md = MessageDigest.getInstance("SHA-256") // You can choose other algorithms as needed
+            val buffer = ByteArray(8192)
+            var bytesRead: Int
+            BufferedInputStream(FileInputStream(filePath)).use { fis ->
+                while (fis.read(buffer).also { bytesRead = it } != -1) {
+                    md.update(buffer, 0, bytesRead)
+                }
+
+        }
+
+        private fun bytesToHex(bytes: ByteArray): String {
+            val sb = StringBuilder(bytes.length * 2)
+            for (b in bytes) {
+                sb.append(String.format("%02x", b))
             }
-
-    }
-
-    private fun bytesToHex(bytes: ByteArray): String {
-        val sb = StringBuilder(bytes.length * 2)
-        for (b in bytes) {
-            sb.append(String.format("%02x", b))
+            return sb.toString()
         }
-        return sb.toString()
-    }
 
-    @Throws(IOException::class, NoSuchAlgorithmException::class)
-    fun verifyIntegrity(filePath: String?, expectedHash: String): Boolean {
-        val actualHash = getIntegrityHash(filePath)
-        return actualHash == expectedHash
-    }
+        @Throws(IOException::class, NoSuchAlgorithmException::class)
+        fun verifyIntegrity(filePath: String?, expectedHash: String): Boolean {
+            val actualHash = getIntegrityHash(filePath)
+            return actualHash == expectedHash
+        }
 
-    @Throws(Exception::class)
-    @JvmStatic
-    fun main(args: Array<String>) {
-        val filePath = "/path/to/your/file"
-        val expectedHash = "your_expected_hash_value"
-        if (verifyIntegrity(filePath, expectedHash)) {
-            println("File integrity is valid!")
-        } else {
-            println("File integrity is compromised!")
+        @Throws(Exception::class)
+        @JvmStatic
+        fun main(args: Array<String>) {
+            val filePath = "/path/to/your/file"
+            val expectedHash = "your_expected_hash_value"
+            if (verifyIntegrity(filePath, expectedHash)) {
+                println("File integrity is valid!")
+            } else {
+                println("File integrity is compromised!")
+            }
         }
     }
-}
-```
 
 ### Java
 
-```
-package com.example.myapplication;
+    package com.example.myapplication;
 
-import java.io.BufferedInputStream;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
+    import java.io.BufferedInputStream;
+    import java.io.FileInputStream;
+    import java.io.IOException;
+    import java.security.MessageDigest;
+    import java.security.NoSuchAlgorithmException;
 
-public class FileIntegrityChecker {
+    public class FileIntegrityChecker {
 
-    public static String getIntegrityHash(String filePath) throws IOException, NoSuchAlgorithmException {
-        MessageDigest md = MessageDigest.getInstance("SHA-256"); // You can choose other algorithms as needed
-        byte[] buffer = new byte[8192];
-        int bytesRead;
+        public static String getIntegrityHash(String filePath) throws IOException, NoSuchAlgorithmException {
+            MessageDigest md = MessageDigest.getInstance("SHA-256"); // You can choose other algorithms as needed
+            byte[] buffer = new byte[8192];
+            int bytesRead;
 
-        try (BufferedInputStream fis = new BufferedInputStream(new FileInputStream(filePath))) {
-            while ((bytesRead = fis.read(buffer)) != -1) {
-                md.update(buffer, 0, bytesRead);
+            try (BufferedInputStream fis = new BufferedInputStream(new FileInputStream(filePath))) {
+                while ((bytesRead = fis.read(buffer)) != -1) {
+                    md.update(buffer, 0, bytesRead);
+                }
+            }
+
+            byte[] digest = md.digest();
+            return bytesToHex(digest);
+        }
+
+        private static String bytesToHex(byte[] bytes) {
+            StringBuilder sb = new StringBuilder(bytes.length * 2);
+            for (byte b : bytes) {
+                sb.append(String.format("%02x", b));
+            }
+            return sb.toString();
+        }
+
+        public static boolean verifyIntegrity(String filePath, String expectedHash) throws IOException, NoSuchAlgorithmException {
+            String actualHash = getIntegrityHash(filePath);
+            return actualHash.equals(expectedHash);
+        }
+
+        public static void main(String[] args) throws Exception {
+            String filePath = "/path/to/your/file";
+            String expectedHash = "your_expected_hash_value";
+
+            if (verifyIntegrity(filePath, expectedHash)) {
+                System.out.println("File integrity is valid!");
+            } else {
+                System.out.println("File integrity is compromised!");
             }
         }
-
-        byte[] digest = md.digest();
-        return bytesToHex(digest);
     }
-
-    private static String bytesToHex(byte[] bytes) {
-        StringBuilder sb = new StringBuilder(bytes.length * 2);
-        for (byte b : bytes) {
-            sb.append(String.format("%02x", b));
-        }
-        return sb.toString();
-    }
-
-    public static boolean verifyIntegrity(String filePath, String expectedHash) throws IOException, NoSuchAlgorithmException {
-        String actualHash = getIntegrityHash(filePath);
-        return actualHash.equals(expectedHash);
-    }
-
-    public static void main(String[] args) throws Exception {
-        String filePath = "/path/to/your/file";
-        String expectedHash = "your_expected_hash_value";
-
-        if (verifyIntegrity(filePath, expectedHash)) {
-            System.out.println("File integrity is valid!");
-        } else {
-            System.out.println("File integrity is compromised!");
-        }
-    }
-}
-```
 
 ### Sign the code
 
@@ -191,7 +178,7 @@ document.
 
 ## Resources
 
-* [Subresource Integrity](https://en.wikipedia.org/wiki/Subresource_Integrity)
-* [Digitally Sign Data](https://developers.google.com/tink/digitally-sign-data#java)
-* [Code Signing](https://en.wikipedia.org/wiki/Code_signing)
-* [Sensitive Data Stored in External Storage](/privacy-and-security/risks/sensitive-data-external-storage)
+- [Subresource Integrity](https://en.wikipedia.org/wiki/Subresource_Integrity)
+- [Digitally Sign Data](https://developers.google.com/tink/digitally-sign-data#java)
+- [Code Signing](https://en.wikipedia.org/wiki/Code_signing)
+- [Sensitive Data Stored in External Storage](https://developer.android.com/privacy-and-security/risks/sensitive-data-external-storage)
