@@ -1,0 +1,24 @@
+diff --git a/docs/develop/xr/catalyst.md b/docs/develop/xr/catalyst.md
+index 0d28b33d..3915c18b 100644
+--- a/docs/develop/xr/catalyst.md
++++ b/docs/develop/xr/catalyst.md
+@@ -8,9 +8,9 @@ source: md.txt
+ Android XR Developer Catalyst Program
+ 
+ **Build the next generation of extended reality experiences for Android XR.**   
+-The Android XR Developer Catalyst Program is designed to empower developers like you. Whether you're an established studio or an independent developer, the program provides the resources, hardware, and funding needed to build and scale innovative experiences across wired XR glasses, like XREAL's Project Aura, and intelligent eyewear (audio and display glasses). [Express interest arrow_forward](https://docs.google.com/forms/d/e/1FAIpQLSesZlBGg010S0K9Xm5ZvxTt2WMzHGnKtBUYEhBrzd0_uwmHEA/viewform)
++The Android XR Developer Catalyst Program is designed to empower developers like you. Whether you're an established studio or an independent developer, the program provides the resources, hardware, and funding needed to build and scale innovative experiences across wired XR glasses, like XREAL's Project Aura, and intelligent eyewear (audio and display glasses). [Express interest arrow_forward](https://docs.google.com/forms/d/e/1FAIpQLSeICgWtvb5xbCR3D11YIEIPE-_axURKsS6MEbN8QmvfiPzMkw/viewform)
+ 
+-Applications close June 30, 2026
++Applications are now closed.
+ ![](http://developer.android.com/static/images/picto-icons/android-backstage.svg)
+ 
+ ## Program overview
+@@ -100,4 +100,4 @@ At this time, development kits can only be shipped to developers located in the
+ 
+ ## Ready to build for Android XR?
+ 
+-[Express interest](https://docs.google.com/forms/d/e/1FAIpQLSesZlBGg010S0K9Xm5ZvxTt2WMzHGnKtBUYEhBrzd0_uwmHEA/viewform)
+\ No newline at end of file
++[Express your interest](https://docs.google.com/forms/d/e/1FAIpQLSeICgWtvb5xbCR3D11YIEIPE-_axURKsS6MEbN8QmvfiPzMkw/viewform)
+\ No newline at end of file

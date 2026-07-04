@@ -1,0 +1,13 @@
+diff --git a/docs/media/media3/ui/compose-customization.md b/docs/media/media3/ui/compose-customization.md
+index 3b0bd797..e4cbe22b 100644
+--- a/docs/media/media3/ui/compose-customization.md
++++ b/docs/media/media3/ui/compose-customization.md
+@@ -132,7 +132,7 @@ fun ContentFrame(
+ ) {
+   val presentationState = rememberPresentationState(player, keepContentOnReset)
+   val scaledModifier =
+-    modifier.resizeWithContentScale(contentScale, presentationState.videoSizeDp)
++    modifier.resizeWithContentScale(contentScale, presentationState.videoAspectRatio)
+ 
+   // Always leave PlayerSurface to be part of the Compose tree because it will be initialized in
+   // the process. If this composable is guarded by some condition, it might never become visible

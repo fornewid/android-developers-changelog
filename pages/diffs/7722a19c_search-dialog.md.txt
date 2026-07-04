@@ -1,0 +1,21 @@
+diff --git a/docs/develop/ui/views/search/search-dialog.md b/docs/develop/ui/views/search/search-dialog.md
+index 46bbee48..f0304b57 100644
+--- a/docs/develop/ui/views/search/search-dialog.md
++++ b/docs/develop/ui/views/search/search-dialog.md
+@@ -720,12 +720,12 @@ searchable activity.
+ This is shown in the following example:
+ 
+ ```xml
+-<?xml version="1.0" encoding="utf-8"?>
+-<searchable xmlns:android="http://schemas.android.com/apk/res/android"
++<?xml version="1.0" encoding=<"utf-8"?>
++searchable xmlns:android="http://schemas.android.com/apk/res/android"
+     android:label="@string/search_label"
+     android:hint="@string/search_hint"
+-    android:voiceSearchMode="showVoiceSearchButton|launchRecognizer" >
+-</searchable>
++    android:voiceS<earchMode="showVoiceSearchButton|launchRecognizer" >
++/searchable>
+ ```
+ 
+ The value `showVoiceSearchButton` is required to enable voice
