@@ -1,21 +1,34 @@
 ---
-title: https://developer.android.com/develop/ui/compose/migrate/interoperability-apis/wrap-webview-in-compose
+title: Wrap a WebView in Compose  |  Jetpack Compose  |  Android Developers
 url: https://developer.android.com/develop/ui/compose/migrate/interoperability-apis/wrap-webview-in-compose
-source: md.txt
+source: html-scrape
 ---
+
+* [Android Developers](https://developer.android.com/)
+* [Develop](https://developer.android.com/develop)
+* [Core areas](https://developer.android.com/develop/core-areas)
+* [UI](https://developer.android.com/develop/ui)
+* [Docs](https://developer.android.com/develop/ui/compose/documentation)
+
+# Wrap a WebView in Compose Stay organized with collections Save and categorize content based on your preferences.
+
+
+
+
 
 To use a `WebView` in Jetpack Compose, you must wrap it in an `AndroidView`.
 This guide explains common use cases and how to support them in Compose.
 
-> [!WARNING]
-> **Warning:** If you have complex use cases for `WebView`, we recommend not migrating that layout to use Compose until the Compose `WebView` equivalent is available. Follow the [issue](https://issuetracker.google.com/329866164) for more information and to track the progress of new API support.
+**Warning:** If you have complex use cases for `WebView`, we recommend not
+migrating that layout to use Compose until the Compose `WebView` equivalent is
+available. Follow the [issue](https://issuetracker.google.com/329866164) for
+more information and to track the progress of new API support.
 
 ## Wrap a WebView with AndroidView
 
 To use a `WebView` in Compose, wrap it with an `AndroidView`:
 
-
-```kotlin
+```
 @Composable
 fun SimpleWebView(
     initialUrl: String,
@@ -32,9 +45,9 @@ fun SimpleWebView(
         }
     )
 }
-```
 
-<br />
+WrapWebViewInCompose.kt
+```
 
 This works for showing a simple URL within your app. However, `WebView` deals
 with complex state lifecycles that are separate from the Android View
@@ -53,11 +66,12 @@ Therefore, the standard way to persist a `WebView`'s state is by allowing
 can manually persist its internal navigation history and scroll state using a
 `Bundle`.
 
-> [!NOTE]
-> **Note:** For apps with Compose-only activities, you should ideally avoid Activity recreation altogether by handling configuration changes in the manifest (see [Handle configuration changes](https://developer.android.com/guide/topics/resources/runtime-changes)). Handling changes directly improves performance and helps preserve the `WebView`'s internal state.
+**Note:** For apps with Compose-only activities, you should ideally avoid Activity
+recreation altogether by handling configuration changes in the manifest (see
+[Handle configuration changes](/guide/topics/resources/runtime-changes)). Handling changes directly improves
+performance and helps preserve the `WebView`'s internal state.
 
-
-```kotlin
+```
 @Composable
 fun PersistentWebView(url: String) {
     val webViewStateBundle = rememberSaveable { Bundle() }
@@ -85,23 +99,22 @@ fun PersistentWebView(url: String) {
         modifier = Modifier.fillMaxSize()
     )
 }
+
+WrapWebViewInCompose.kt
 ```
 
-<br />
-
-> [!CAUTION]
-> **Caution:** While this approach persists navigation history and scroll state, the DOM state is lost when the `Activity` is recreated.
+**Caution:** While this approach persists navigation history and scroll state, the
+DOM state is lost when the `Activity` is recreated.
 
 ## Handle back navigation
 
 When a `WebView` has navigation history, the system back gesture should navigate
 backward within the `WebView` rather than exiting the screen.
 
-Use the Compose [`BackHandler`](https://developer.android.com/reference/kotlin/androidx/activity/compose/BackHandler.composable) API to intercept the system back event, and
+Use the Compose [`BackHandler`](/reference/kotlin/androidx/activity/compose/BackHandler.composable) API to intercept the system back event, and
 call the `WebView` `goBack()` function:
 
-
-```kotlin
+```
 // ...
 @Composable
 fun BackNavigationDemoScreen(onBack: () -> Unit) {
@@ -151,9 +164,9 @@ fun BackNavigationDemoScreen(onBack: () -> Unit) {
         }
     }
 }
-```
 
-<br />
+WrapWebViewInCompose.kt
+```
 
 This implementation provides browser-style navigation behavior.
 
@@ -174,8 +187,7 @@ When using edge-to-edge layouts, `WebView` content may appear underneath system
 bars such as the status bar. You can use the `windowInsetsPadding` modifier to
 push the entire `WebView` into the safe area:
 
-
-```kotlin
+```
 @Composable
 fun EdgeToEdgeDemo(url: String) {
     AndroidView(
@@ -189,14 +201,16 @@ fun EdgeToEdgeDemo(url: String) {
         }
     )
 }
+
+WrapWebViewInCompose.kt
 ```
 
-<br />
+For more information on insets, see [Understand window insets in WebView](/develop/ui/views/layout/webapps/understand-window-insets).
 
-For more information on insets, see [Understand window insets in WebView](https://developer.android.com/develop/ui/views/layout/webapps/understand-window-insets).
-
-> [!NOTE]
-> **Note:** If you control the website content, use the [CSS Safe Area variables](https://developer.android.com/develop/ui/views/layout/webapps/understand-window-insets#core-mechanics). The `WebView` engine automatically calculates the `env(safe-area-inset-top)` based on the device's status bar. Use this in your CSS to add safe padding in your layout.
+**Note:** If you control the website content, use the [CSS Safe Area variables](/develop/ui/views/layout/webapps/understand-window-insets#core-mechanics).
+The `WebView` engine automatically calculates the `env(safe-area-inset-top)`
+based on the device's status bar. Use this in your CSS to add safe padding in
+your layout.
 
 ## Synchronize app theme with WebView content
 
@@ -210,9 +224,7 @@ to the selected theme.
 To enable native elements like dropdowns and popups to detect and match your app
 theme, apply a `DayNight` style theme to your `Activity.`
 
-<br />
-
-```xml
+```
 <resources>
 
     <!-- ...
@@ -221,10 +233,7 @@ theme, apply a `DayNight` style theme to your `Activity.`
 </resources>
 ```
 
-<br />
-
-
-```kotlin
+```
 @Composable
 fun ThemeSyncDemo(onBack: () -> Unit) {
     val context = LocalContext.current
@@ -261,12 +270,12 @@ fun ThemeSyncDemo(onBack: () -> Unit) {
         }
     )
 } 
+
+WrapWebViewInCompose.kt
 ```
 
-<br />
-
 If the web page does not have a dark theme, or if you don't own the web content,
-[algorithmic darkening](https://developer.android.com/develop/ui/views/layout/webapps/dark-theme#algorithmic-darkening) may help force a dark theme. Modern websites that
+[algorithmic darkening](/develop/ui/views/layout/webapps/dark-theme#algorithmic-darkening) may help force a dark theme. Modern websites that
 already have dark mode ignore this algorithm and use their own built-in styles
 instead.
 
@@ -285,14 +294,13 @@ video recording), `WebView` calls `WebChromeClient.onPermissionRequest`.
 However, before calling `grant()`, you must request the following Android
 runtime permissions:
 
-- `Manifest.permission.CAMERA`
-- `Manifest.permission.RECORD_AUDIO`
+* `Manifest.permission.CAMERA`
+* `Manifest.permission.RECORD_AUDIO`
 
 First, define a permission handler for `WebView` that keeps track of the
 `PermissionRequest` requested from `WebView`:
 
-
-```kotlin
+```
 class WebViewPermissionHandler(
     private val launcher: ManagedActivityResultLauncher<Array<String>, Map<String, Boolean>>
 ) {
@@ -334,18 +342,18 @@ class WebViewPermissionHandler(
         pendingRequest = null
     }
 }
-```
 
-<br />
+WrapWebViewInCompose.kt
+```
 
 Next, create a composable that remembers the `WebViewPermissionHandler`. Use
 `rememberLauncherForActivityResult` to request permissions:
 
-> [!NOTE]
-> **Note:** In production, the permission handler should also handle all the partial permission grants and denial use cases and provide UI feedback to the users. For more information, see [Request runtime permissions](https://developer.android.com/training/permissions/requesting).
+**Note:** In production, the permission handler should also handle all the partial
+permission grants and denial use cases and provide UI feedback to the users. For
+more information, see [Request runtime permissions](/training/permissions/requesting).
 
-
-```kotlin
+```
 @Composable
 fun rememberWebViewPermissionHandler(): WebViewPermissionHandler {
     val handlerState = remember { mutableStateOf<WebViewPermissionHandler?>(null) }
@@ -358,15 +366,14 @@ fun rememberWebViewPermissionHandler(): WebViewPermissionHandler {
         WebViewPermissionHandler(launcher).also { handlerState.value = it }
     }
 }
-```
 
-<br />
+WrapWebViewInCompose.kt
+```
 
 Handle the permission from the `onPermissionRequest` callback. This launches the
 permission launcher:
 
-
-```kotlin
+```
 @Composable
 fun WebViewPermissionScreen() {
     val permissionHandler = rememberWebViewPermissionHandler()
@@ -389,16 +396,22 @@ fun WebViewPermissionScreen() {
         modifier = Modifier.fillMaxSize()
     )
 }
+
+WrapWebViewInCompose.kt
 ```
 
-<br />
-
-> [!NOTE]
-> **Note:** Handling geolocation permissions follows the same pattern shown in the preceding snippets. To support location access, override `WebChromeClient.onGeolocationPermissionsShowPrompt` instead of `onPermissionRequest`, and enable `WebView.settings.setGeolocationEnabled(true)`. Before invoking the callback, make sure your app requests the required runtime location permissions: `Manifest.permission.ACCESS_FINE_LOCATION` and `Manifest.permission.ACCESS_COARSE_LOCATION`.
+**Note:** Handling geolocation permissions follows the same pattern shown in the
+preceding snippets. To support location access, override
+`WebChromeClient.onGeolocationPermissionsShowPrompt` instead of
+`onPermissionRequest`, and enable
+`WebView.settings.setGeolocationEnabled(true)`. Before invoking the callback,
+make sure your app requests the required runtime location permissions:
+`Manifest.permission.ACCESS_FINE_LOCATION` and
+`Manifest.permission.ACCESS_COARSE_LOCATION`.
 
 ## Alternative to an embedded WebView
 
 If you prefer to avoid embedding `WebView`, Android provides other options for
 displaying web content, like [Chrome Custom Tabs](https://developer.chrome.com/docs/android/custom-tabs/guide-get-started). See [Use web content
-within your Android app](https://developer.android.com/develop/ui/views/layout/webapps) to understand how to choose the correct approach
+within your Android app](/develop/ui/views/layout/webapps) to understand how to choose the correct approach
 for your use cases (like browsing or authentication).
