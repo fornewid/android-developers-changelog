@@ -256,7 +256,7 @@ private void fling(int velocityX, int velocityY) {
     // Initiates the decay phase of any active edge effects.
     // On Android 12 and later, the edge effect (stretch) must
     // continue.
-    if (Build.VERSION.SDK_I<NT  Build.VERSION_CODES.S) {
+    if (Build.VERSION.SDK_INT < Build.VERSION_CODES.S) {
             releaseEdgeEffects();
     }
     // Flings use math in pixels, as opposed to math based on the viewport.
@@ -343,7 +343,7 @@ override fun computeScroll() {
         val currY: Int = scroller.currY
 
         val (canScrollX: Boolean, canScrollY: Boolean) = currentViewport.run {
-            (l>eft  AXIS_X_MIN || ri<ght  AXIS_X_MAX) to (>top  AXIS_Y_MIN || bot<tom  AXIS_Y_MAX)
+            (left > AXIS_X_MIN || right < AXIS_X_MAX) to (top > AXIS_Y_MIN || bottom < AXIS_Y_MAX)
         }
 
         /*
@@ -353,30 +353,30 @@ override fun computeScroll() {
          * glow edge effect.
          */
         if (canScrollX
-                &<amp;& currX  0
+                && currX < 0
                 && edgeEffectLeft.isFinished
                 && !edgeEffectLeftActive) {
             edgeEffectLeft.onAbsorb(scroller.currVelocity.toInt())
             edgeEffectLeftActive = true
             needsInvalidate = true
-        } else if (canS>crollX
-                && currX  surfaceSize.x - contentRect.width()
+        } else if (canScrollX
+                && currX > surfaceSize.x - contentRect.width()
                 && edgeEffectRight.isFinished
                 && !edgeEffectRightActive) {
             edgeEffectRight.onAbsorb(scroller.currVelocity.toInt())
             edgeEffectRightActive = true
             needsInvalidate = true
-   <     }
+        }
 
         if (canScrollY
-                && currY  0
+                && currY < 0
                 && edgeEffectTop.isFinished
                 && !edgeEffectTopActive) {
             edgeEffectTop.onAbsorb(scroller.currVelocity.toInt())
             edgeEffectTopActive = true
-          >  needsInvalidate = true
+            needsInvalidate = true
         } else if (canScrollY
-                && currY  surfaceSize.y - contentRect.height()
+                && currY > surfaceSize.y - contentRect.height()
                 && edgeEffectBottom.isFinished
                 && !edgeEffectBottomActive) {
             edgeEffectBottom.onAbsorb(scroller.currVelocity.toInt())
@@ -415,10 +415,10 @@ public void computeScroll() {
         int currX = scroller.getCurrX();
         int currY = scroller.getCurrY();
 
-        boolean canScrollX = (currentViewport.l>eft  AXIS_X_MIN
-                || currentViewport.ri<ght  AXIS_X_MAX);
-        boolean canScrollY = (currentViewport.>top  AXIS_Y_MIN
-                || currentViewport.bot<tom  AXIS_Y_MAX);
+        boolean canScrollX = (currentViewport.left > AXIS_X_MIN
+                || currentViewport.right < AXIS_X_MAX);
+        boolean canScrollY = (currentViewport.top > AXIS_Y_MIN
+                || currentViewport.bottom < AXIS_Y_MAX);
 
         /*
          * If you are zoomed in, currX or currY is
@@ -427,30 +427,30 @@ public void computeScroll() {
          * glow edge effect.
          */
         if (canScrollX
-                &<amp;& currX  0
+                && currX < 0
                 && edgeEffectLeft.isFinished()
                 && !edgeEffectLeftActive) {
             edgeEffectLeft.onAbsorb((int)mScroller.getCurrVelocity());
             edgeEffectLeftActive = true;
             needsInvalidate = true;
-        } else if (canS>crollX
-                && currX  (surfaceSize.x - contentRect.width())
+        } else if (canScrollX
+                && currX > (surfaceSize.x - contentRect.width())
                 && edgeEffectRight.isFinished()
                 && !edgeEffectRightActive) {
             edgeEffectRight.onAbsorb((int)mScroller.getCurrVelocity());
             edgeEffectRightActive = true;
             needsInvalidate = true;
-   <     }
+        }
 
         if (canScrollY
-                && currY  0
+                && currY < 0
                 && edgeEffectTop.isFinished()
                 && !edgeEffectTopActive) {
             edgeEffectRight.onAbsorb((int)mScroller.getCurrVelocity());
             edgeEffectTopActive = true;
-           > needsInvalidate = true;
+            needsInvalidate = true;
         } else if (canScrollY
-                && currY  (surfaceSize.y - contentRect.height())
+                && currY > (surfaceSize.y - contentRect.height())
                 && edgeEffectBottom.isFinished()
                 && !edgeEffectBottomActive) {
             edgeEffectRight.onAbsorb((int)mScroller.getCurrVelocity());
@@ -590,8 +590,8 @@ override fun onInterceptTouchEvent(ev: MotionEvent): Boolean {
   when (action and MotionEvent.ACTION_MASK) {
     MotionEvent.ACTION_DOWN ->
       ...
-      isBeingDragged = EdgeEffectCompat.getDistance(edgeEffectBotto>m)  0f ||
-          EdgeEffectCompat.getDistance(edgeEffectTo>p)  0f
+      isBeingDragged = EdgeEffectCompat.getDistance(edgeEffectBottom) > 0f ||
+          EdgeEffectCompat.getDistance(edgeEffectTop) > 0f
       ...
   }
   return isBeingDragged
@@ -639,11 +639,11 @@ override fun onTouchEvent(ev: MotionEvent): Boolean {
       val pullDistance = deltaY / height
       val displacement = x / width
 
-      if (delt<aY  0f && EdgeEffectCompat.getDistance(edge>EffectTop)  0f) {
+      if (deltaY < 0f && EdgeEffectCompat.getDistance(edgeEffectTop) > 0f) {
         deltaY -= height * EdgeEffectCompat.onPullDistance(edgeEffectTop,
             pullDistance, displacement);
       }
-      >if (deltaY  0f && EdgeEffectCompat.getDistance>(edgeEffectBottom)  0f) {
+      if (deltaY > 0f && EdgeEffectCompat.getDistance(edgeEffectBottom) > 0f) {
         deltaY += height * EdgeEffectCompat.onPullDistance(edgeEffectBottom,
             -pullDistance, 1 - displacement);
       }
@@ -667,11 +667,11 @@ public boolean onTouchEvent(MotionEvent ev) {
       float pullDistance = deltaY / getHeight();
       float displacement = x / getWidth();
 
-      if (deltaY < 0 && EdgeEffectCompat.getDistance(edgeEff>ectTop)  0) {
+      if (deltaY < 0 && EdgeEffectCompat.getDistance(edgeEffectTop) > 0) {
         deltaY -= getHeight() * EdgeEffectCompat.onPullDistance(edgeEffectTop,
             pullDistance, displacement);
       }
-      if >(deltaY  0 && EdgeEffectCompat.getDistance(ed>geEffectBottom)  0) {
+      if (deltaY > 0 && EdgeEffectCompat.getDistance(edgeEffectBottom) > 0) {
         deltaY += getHeight() * EdgeEffectCompat.onPullDistance(edgeEffectBottom,
             -pullDistance, 1 - displacement);
       }
@@ -703,9 +703,9 @@ To opt out in your layout file, set `android:overScrollMode` as
 shown in the following example:
 
 ```xml
-<MyCustomView android:overScrollMode="n>ever"<;
+<MyCustomView android:overScrollMode="never">
     ...
-/My>CustomView
+</MyCustomView>
 ```
 
 To opt out programmatically, use code like the following:

@@ -12,8 +12,8 @@ Google Play.
 
 ## Encoding
 
-Each publish made to a Cloud Pub/Sub topic contains a single
-base64-encoded data field.
+Each publish made to a Cloud Pub/Sub topic contains a single base64-encoded data
+field.
 
     {
       "message": {
@@ -39,20 +39,22 @@ contains the following fields:
       "oneTimeProductNotification": OneTimeProductNotification,
       "subscriptionNotification": SubscriptionNotification,
       "voidedPurchaseNotification": VoidedPurchaseNotification,
+      "pendingRefundReviewNotification": PendingRefundReviewNotification,
       "testNotification": TestNotification
     }
 
 These fields are described in the following table.
 
-|---|---|---|
-| **Property name** | **Value** | **Description** |
+| Property name | Value | Description |
 | version | string | The version of this notification. Initially, this is "1.0". This version is distinct from other version fields. |
 | packageName | string | The package name of the application that this notification relates to (for example, \`com.some.thing\`). |
 | eventTimeMillis | long | The timestamp when the event occurred, in milliseconds since the Epoch. |
-| subscriptionNotification | SubscriptionNotification | If this field is present, then this notification is related to a subscription, and this field contains additional information related to the subscription. Note that this field is mutually exclusive with oneTimeProductNotification, voidedPurchaseNotification, and testNotification. |
-| oneTimeProductNotification | OneTimeProductNotification | If this field is present, then this notification is related to a one-time purchase, and this field contains additional information related to the purchase. Note that this field is mutually exclusive with subscriptionNotification, voidedPurchaseNotification, and testNotification. |
-| voidedPurchaseNotification | VoidedPurchaseNotification | If this field is present, then this notification is related to a voided purchase, and this field contains additional information related to the voided purchase. Note that this field is mutually exclusive with oneTimeProductNotification, subscriptionNotification, and testNotification. |
-| testNotification | TestNotification | If this field is present, then this notification is related to a test publish. These are sent only through the Google Play Developer Console. Note that this field is mutually exclusive with oneTimeProductNotification, subscriptionNotification, and voidedPurchaseNotification. |
+| subscriptionNotification | SubscriptionNotification | If this field is present, then this notification is related to a subscription, and this field contains additional information related to the subscription. Note that this field is mutually exclusive with pendingRefundReviewNotification, oneTimeProductNotification, voidedPurchaseNotification, and testNotification. |
+| oneTimeProductNotification | OneTimeProductNotification | If this field is present, then this notification is related to a one-time purchase, and this field contains additional information related to the purchase. Note that this field is mutually exclusive with pendingRefundReviewNotification, subscriptionNotification, voidedPurchaseNotification, and testNotification. |
+| voidedPurchaseNotification | VoidedPurchaseNotification | If this field is present, then this notification is related to a voided purchase, and this field contains additional information related to the voided purchase. Note that this field is mutually exclusive with pendingRefundReviewNotification, oneTimeProductNotification, subscriptionNotification, and testNotification. |
+| pendingRefundReviewNotification | PendingRefundReviewNotification | If this field is present, this notification relates to a chargeback request for which you can suggest a resolution. Respond to this notification by calling the \`ReviewRefund\` API. Note that this field is mutually exclusive with subscriptionNotification, oneTimeProductNotification, voidedPurchaseNotification, and testNotification. |
+| testNotification | TestNotification | If this field is present, then this notification is related to a test publish. These are sent only through the Google Play Developer Console. Note that this field is mutually exclusive with pendingRefundReviewNotification, oneTimeProductNotification, subscriptionNotification, and voidedPurchaseNotification. |
+|---|---|---|
 
 ## SubscriptionNotification
 
@@ -64,11 +66,11 @@ A `SubscriptionNotification` contains the following fields:
       "purchaseToken": string
     }
 
-|---|---|---|
-| **Property name** | **Value** | **Description** |
+| Property name | Value | Description |
 | version | string | The version of this notification. Initially, this is "1.0". This version is distinct from other version fields. |
 | notificationType | int | The notificationType for a subscription can have the following values: - (1) SUBSCRIPTION_RECOVERED - A subscription was recovered from account hold or resumed from pause. - (2) SUBSCRIPTION_RENEWED - An active subscription was renewed. - (3) SUBSCRIPTION_CANCELED - A subscription was either voluntarily or involuntarily cancelled. For voluntary cancellation, sent when the user cancels. - (4) SUBSCRIPTION_PURCHASED - A new subscription was purchased. - (5) SUBSCRIPTION_ON_HOLD - A subscription has entered account hold (if enabled). - (6) SUBSCRIPTION_IN_GRACE_PERIOD - A subscription has entered grace period (if enabled). - (7) SUBSCRIPTION_RESTARTED - User has restored their subscription from **Play \> Account \> Subscriptions** . The subscription was canceled but had not expired yet when the user restores. For more information, see [Restorations](https://developer.android.com/google/play/billing/subscriptions#restore). - (8) SUBSCRIPTION_PRICE_CHANGE_CONFIRMED (DEPRECATED) - A subscription price change has successfully been confirmed by the user. - (9) SUBSCRIPTION_DEFERRED - A subscription's recurrence time has been extended. - (10) SUBSCRIPTION_PAUSED - A subscription has been paused. - (11) SUBSCRIPTION_PAUSE_SCHEDULE_CHANGED - A subscription pause schedule has been changed. - (12) SUBSCRIPTION_REVOKED - A subscription has been revoked from the user before the expiration time. - (13) SUBSCRIPTION_EXPIRED - A subscription has expired. - (17) SUBSCRIPTION_ITEMS_CHANGED - An item in a subscription bundle has been changed. - (18) SUBSCRIPTION_CANCELLATION_SCHEDULED - A cancellation for an installment subscription has been scheduled to take effect at the end of the commitment period. - (19) SUBSCRIPTION_PRICE_CHANGE_UPDATED - A subscription item's price change details are updated. - (20) SUBSCRIPTION_PENDING_PURCHASE_CANCELED - A pending transaction of a subscription has been canceled. - (22) SUBSCRIPTION_PRICE_STEP_UP_CONSENT_UPDATED - A subscription's [consent period for price step-up](https://developer.android.com/google/play/billing/lifecycle/subscriptions#price-stepup-consent) has begun or the user has provided consent for the price step-up. This RTDN is sent only for subscriptions in a region where price step-up is required. |
 | purchaseToken | string | The token provided to the user's device when the subscription was purchased. |
+|---|---|---|
 
 ### Example
 
@@ -101,12 +103,12 @@ A `OneTimeProductNotification` contains the following fields:
       "sku": string
     }
 
-|---|---|---|
-| **Property Name** | **Value** | **Description** |
+| Property Name | Value | Description |
 | version | string | The version of this notification. Initially, this will be "1.0". This version is distinct from other version fields. |
 | notificationType | int | The type of notification. It can have the following values: - (1) ONE_TIME_PRODUCT_PURCHASED - A one-time product was successfully purchased by a user. - (2) ONE_TIME_PRODUCT_CANCELED - A pending one-time product purchase has been canceled by the user. |
 | purchaseToken | string | The token provided to the user's device when purchase was made. |
 | sku | string | The purchased one-time product ID (for example, "sword_001") |
+|---|---|---|
 
 ### Example
 
@@ -129,12 +131,12 @@ Here's an example of a notification for a new one-time purchase:
 
 A `VoidedPurchaseNotification` contains the following fields:
 
-|---|---|---|
-| **Property Name** | **Value** | **Description** |
+| Property Name | Value | Description |
 | `purchaseToken` | `string` | The token associated with the purchase that has been voided. This information is provided to the developer when a new purchase occurs. |
 | `orderId` | `string` | The unique order ID associated with the transaction that has been voided. For one time purchases, this represents the only order ID generated for the purchase. For auto-renewing subscriptions, a new order ID is generated for each renewal transaction. |
 | `productType` | `int` | The `productType` for a voided purchase can have the following values: - (1) `PRODUCT_TYPE_SUBSCRIPTION` - A subscription purchase has been voided. - (2) `PRODUCT_TYPE_ONE_TIME` - A one-time purchase has been voided. |
 | `refundType` | `int` | The `refundType` for a voided purchase can have the following values: - (1) `REFUND_TYPE_FULL_REFUND` - The purchase has been fully voided. - (2) `REFUND_TYPE_QUANTITY_BASED_PARTIAL_REFUND` - The purchase has been partially voided by a quantity-based partial refund, applicable only to multi-quantity purchases. A purchase can be partially voided multiple times. Note when the remaining total quantity of a multi-quantity purchase is refunded, the `refundType` will be `REFUND_TYPE_FULL_REFUND`. |
+|---|---|---|
 
 ### Example
 
@@ -166,10 +168,61 @@ following information:
 - **`refundType`**: Specifies the type of refund that voided the purchase.
 
 > [!TIP]
-> **Tip:** If you only need to locate the right purchase and order for entitlement adjustments, the information provided in the `VoidedPurchaseNotification` is sufficient. For additional data about voided purchases, use the [Google Play Voided Purchases API](https://developers.google.com/android-publisher/voided-purchases). This API provides a pull model for retrieving voided purchase data within a specified timestamp range.
+> **Tip:** If you only need to locate the right purchase and order for entitlement adjustments, the information provided in the `VoidedPurchaseNotification` is sufficient. For additional data about voided purchases, use the [Google Play
+> Voided Purchases API](https://developers.google.com/android-publisher/voided-purchases). This API provides a pull model for retrieving voided purchase data within a specified timestamp range.
 
 > [!NOTE]
 > **Note:** For partially voided multi-quantity purchases, the `refundableQuantity` field provided by [`purchases.productsv2`](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.productsv2) contains the remaining number of purchased products that have not been voided.
+
+## PendingRefundReviewNotification
+
+A `PendingRefundReviewNotification` is sent when a user requests a chargeback
+for a purchase, and the request requires developer review. When you
+receive this notification, you should evaluate the request and provide a refund
+suggestion and purchase usage evidence within 24 hours by calling the
+[`ReviewRefund`](https://developers.google.com/android-publisher/api-ref/rest/v3/orders/reviewrefund) API.
+
+> [!NOTE]
+> **Note:** Pending reviews support only `CHARGEBACK` as the refund reason.
+
+A `PendingRefundReviewNotification` contains the following fields:
+
+    {
+      "version": string,
+      "pendingRefundToken": string,
+      "orderId": string,
+      "refundReason": int,
+      "obfuscatedAccountId": string,
+      "obfuscatedProfileId": string
+    }
+
+| Property name | Value | Description |
+| version | string | The version of this notification. Initially, this is "1.0". This version is distinct from other version fields. |
+| pendingRefundToken | string | A unique token that identifies the pending refund request under review. Pass this token when calling the [ReviewRefund API](https://developers.google.com/android-publisher/api-ref/rest/v3/orders/reviewrefund). |
+| orderId | string | The order ID of the purchase that is subject to the pending refund review. |
+| refundReason | int | The reason for the refund request. Pending reviews support only `CHARGEBACK` (7) as a refund reason. Your code should handle new reasons as they become available. |
+| obfuscatedAccountId | string | (If applicable) The obfuscated developer-specified user account ID that was supplied when the purchase was made. |
+| obfuscatedProfileId | string | (If applicable) The obfuscated developer-specified profile ID that was supplied when the purchase was made. |
+|---|---|---|
+
+### Example
+
+Here's an example of a pending refund review notification:
+
+    {
+      "version":"1.0",
+      "packageName":"com.some.thing",
+      "eventTimeMillis":"1503350156918",
+      "pendingRefundReviewNotification":
+      {
+        "version":"1.0",
+        "pendingRefundToken":"example-token",
+        "orderId":"GPA.1234-5678-9012-34567",
+        "refundReason":7,
+        "obfuscatedAccountId":"user-account-id",
+        "obfuscatedProfileId":"user-profile-id"
+      }
+    }
 
 ## TestNotification
 
@@ -179,9 +232,9 @@ A `TestNotification` contains the following fields:
       "version": string
     }
 
-|---|---|---|
-| **Property name** | **Value** | **Description** |
+| Property name | Value | Description |
 | version | string | The version of this notification. Initially, this is "1.0". This version is distinct from other version fields. |
+|---|---|---|
 
 ### Example
 
