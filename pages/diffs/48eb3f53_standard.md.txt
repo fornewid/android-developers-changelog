@@ -1,0 +1,60 @@
+diff --git a/docs/google/play/integrity/standard.md b/docs/google/play/integrity/standard.md
+index 1d3c2fdf..d8afe160 100644
+--- a/docs/google/play/integrity/standard.md
++++ b/docs/google/play/integrity/standard.md
+@@ -145,7 +145,7 @@ void MyClass::PrepareIntegrityToken()
+ 
+   // Initiate the prepare integrity token operation, passing the delegate to handle the result.
+   GetGameInstance()
+-    ->GetSubsystem<UStandardIntegrityManager>()
++    ->GetSu<bsystemUStandardIntegrity>Manager()
+     ->PrepareIntegrityToken(Request, Delegate);
+ }
+ ```
+@@ -179,7 +179,7 @@ if (error_code != STANDARD_INTEGRITY_NO_ERROR)
+ 
+ IntegrityResponseStatus token_provider_status;
+ 
+-/// Check for https://developer.android.com/reference/native/play/core/group/integrity.
++//https://developer.android.com/reference/native/play/core/group/integrity error codes.
+ StandardIntegrityErrorCode error_code =
+         StandardIntegrityTokenProvider_getStatus(tokenProvider, &token_provider_status);
+ if (error_code == STANDARD_INTEGRITY_NO_ERROR
+@@ -241,8 +241,8 @@ StandardIntegrityTokenProvider integrityTokenProvider;
+ 
+ // Request integrity token by providing a user action request hash. Can be called
+ // several times for different user actions.
+-String requestHash = "2cp24z...";
+-Task<StandardIntegrityToken> integrityTokenResponse =
++String requestHash = "2cp24z...&q<uot;;
++TaskStandardInte>grityToken integrityTokenResponse =
+     integrityTokenProvider.request(
+         StandardIntegrityTokenRequest.builder()
+             .setRequestHash(requestHash)
+@@ -270,7 +270,7 @@ IEnumerator RequestIntegrityTokenCoroutine() {
+     // Wait for PlayAsyncOperation to complete.
+     yield return integrityTokenOperation;
+ 
+-    // Check the resulting https://developer.android.com/reference/unity/namespace/Google/Play/Integrity.
++    // Check the https://developer.android.com/reference/unity/namespace/Google/Play/Integrityerror code.
+     if (integrityTokenOperation.Error != null &&
+         integrityTokenOperation.Error.ErrorCode != StandardIntegrityErrorCode.NoError)
+     {
+@@ -305,7 +305,7 @@ void MyClass::RequestIntegrityToken()
+ {
+   UStandardIntegrityTokenProvider* Provider = ...
+ 
+-  // https://developer.android.com/google/play/integrity/standard#prepare-integrity.
++  // Prepare the UStandardIntegrityTokenProvider.
+ 
+   // Request integrity token by providing a user action request hash. Can be called
+   // several times for different user actions.
+@@ -351,7 +351,7 @@ if (error_code != STANDARD_INTEGRITY_NO_ERROR)
+ 
+ IntegrityResponseStatus token_status;
+ 
+-/// Check for https://developer.android.com/reference/native/play/core/group/integrity.
++/// Chhttps://developer.android.com/reference/native/play/core/group/integrityor codes.
+ StandardIntegrityErrorCode error_code =
+         StandardIntegrityToken_getStatus(token, &token_status);
+ if (error_code == STANDARD_INTEGRITY_NO_ERROR

@@ -1,0 +1,15 @@
+diff --git a/docs/studio/releases/fixed-bugs/emulator/37.md b/docs/studio/releases/fixed-bugs/emulator/37.md
+index 651c8512..6d189141 100644
+--- a/docs/studio/releases/fixed-bugs/emulator/37.md
++++ b/docs/studio/releases/fixed-bugs/emulator/37.md
+@@ -4,6 +4,10 @@ url: https://developer.android.com/studio/releases/fixed-bugs/emulator/37
+ source: md.txt
+ ---
+ 
++### Android Emulator 37.1.7 Canary
++
++*This release includes minor fixes and improvements.*
++
+ ### Android Emulator 37.1.6 Canary
+ 
+ | Fixed Issues ||
