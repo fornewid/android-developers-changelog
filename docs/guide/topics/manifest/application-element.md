@@ -11,6 +11,7 @@ syntax:
     <application android:allowTaskReparenting=["true" | "false"]
                  android:allowBackup=["true" | "false"]
                  android:allowClearUserData=["true" | "false"]
+                 android:allowCrossUidActivitySwitchFromBelow=["true" | "false"]
                  android:allowNativeHeapPointerTagging=["true" | "false"]
                  android:appCategory=["accessibility" | "audio" | "game" |
                  "image" | "maps" | "news" | "productivity" | "social" | "video"]
@@ -23,6 +24,7 @@ syntax:
                  android:enabled=["true" | "false"]
                  android:enableOnBackInvokedCallback=["true" | "false"]
                  android:extractNativeLibs=["true" | "false"]
+                 android:forceQueryable=["true" | "false"]
                  android:fullBackupContent="string"
                  android:fullBackupOnly=["true" | "false"]
                  android:gwpAsanMode=["always" | "never"]
@@ -37,10 +39,12 @@ syntax:
                  android:killAfterRestore=["true" | "false"]
                  android:largeHeap=["true" | "false"]
                  android:label="string resource"
+                 android:localeConfig="xml resource"
                  android:logo="drawable resource"
                  android:manageSpaceActivity="string"
                  android:name="string"
                  android:networkSecurityConfig="xml resource"
+                 android:pageSizeCompat=["true" | "false"]
                  android:permission="string"
                  android:persistent=["true" | "false"]
                  android:process="string"
@@ -149,6 +153,18 @@ attributes
         attribute in their manifest files.
 
         For more information, see [Data backup overview](https://developer.android.com/guide/topics/data/backup).
+
+    `android:allowCrossUidActivitySwitchFromBelow`
+
+    :   Specifies whether activities from other applications in the same task
+        can be launched on top of this application. If set to `"false"`,
+        activity launches that would replace this application in the user's view
+        are blocked.
+
+        The default value is `"true"`.
+
+        For more information, see the guide to
+        [Secure Background Activity Launches](https://developer.android.com/guide/components/activities/secure-bal).
 
     `android:allowNativeHeapPointerTagging`
 
@@ -275,6 +291,17 @@ attributes
         The default value of `extractNativeLibs` depends on `minSdkVersion` and the
         version of AGP you're using. In most cases, the default behavior is probably what you want, and
         you don't have to set this attribute explicitly.
+
+    `android:forceQueryable`
+
+    :   Specifies whether this application is visible to all other applications
+        on the device, regardless of what those other applications declare in the
+        `<queries>` tags in their manifests.
+
+        The default value is `"false"`.
+
+        For more information, see the guide on
+        [automatic package visibility filtering](https://developer.android.com/training/package-visibility/automatic).
 
     `android:fullBackupContent`
     :   This attribute points to an XML file that contains full backup rules for
@@ -467,6 +494,15 @@ attributes
         However, as a convenience while you're developing the application,
         it can also be set as a raw string.
 
+    `android:localeConfig`
+
+    :   A reference to an XML resource that specifies the list of locales
+        supported by the application. This is used by the system to support per-app
+        language preferences.
+
+        For more information, see the guide on
+        [per-app language preferences](https://developer.android.com/guide/topics/resources/app-languages).
+
     `android:logo`
     :   A logo for the application as whole and the default logo for activities.
         This attribute is set as a reference to a drawable resource containing
@@ -497,6 +533,15 @@ attributes
         containing the configuration.
 
         This attribute was added in API level 24.
+
+    `android:pageSizeCompat`
+
+    :   Overrides the user or platform compatibility settings for 16 KB page
+        sizes, which lets you force page-agnostic compatibility mode on or off for
+        this application.
+
+        For more information, see the guide on
+        [supporting 16 KB page sizes](https://developer.android.com/guide/practices/page-sizes).
 
     `android:permission`
     :   The name of a permission that clients need in order to interact

@@ -1,12 +1,28 @@
 ---
-title: https://developer.android.com/identity/legacy/one-tap/create-new-accounts
+title: Create new accounts with one tap  |  Identity  |  Android Developers
 url: https://developer.android.com/identity/legacy/one-tap/create-new-accounts
-source: md.txt
+source: html-scrape
 ---
 
-> [!CAUTION]
-> **Caution:** One Tap for Android is deprecated. To ensure the continued security and usability of your app, [migrate to
-> Credential Manager](https://developer.android.com/identity/sign-in/credential-manager). Credential Manager supports passkey, password, and federated identity authentication (such as Sign-in with Google), stronger security, and a more consistent user experience.
+* [Android Developers](https://developer.android.com/)
+* [Design & Plan](https://developer.android.com/design)
+* [Security](https://developer.android.com/security)
+* [Identity](https://developer.android.com/identity)
+* [Guides](https://developer.android.com/identity/credential-manager)
+
+# Create new accounts with one tap Stay organized with collections Save and categorize content based on your preferences.
+
+
+
+
+
+**Caution:**
+One Tap for Android is deprecated.
+To ensure the continued security and usability of your app,
+[migrate to
+Credential Manager](/identity/sign-in/credential-manager). Credential Manager supports passkey, password, and
+federated identity authentication (such as Sign-in with Google), stronger
+security, and a more consistent user experience.
 
 If you support signing in with Google Accounts, you can use the One Tap sign-in
 client to also give your users a frictionless account creation experience that
@@ -16,14 +32,17 @@ never takes them out of the context of your app.
 
 When you display the One Tap UI, users are prompted to create a new account with
 your app using one of the Google Accounts on their device. If the user chooses
-to continue, you get an ID token with basic profile information---their
-name, profile photo, and their verified email address---which you can use to
+to continue, you get an ID token with basic profile information—their
+name, profile photo, and their verified email address—which you can use to
 create the new account.
 
 Implementing One Tap account creation has two parts:
 
-- Integrating the One Tap client into your app, which is described on this page. This is mostly the same as using One Tap sign-in, but with some differences in configuration.
-- Adding to your backend the ability to create user accounts from Google ID tokens, which is discussed in [Using ID tokens on the backend](https://developer.android.com/identity/legacy/one-tap/idtoken-auth).
+* Integrating the One Tap client into your app, which is described on this page.
+  This is mostly the same as using One Tap sign-in, but with some differences in
+  configuration.
+* Adding to your backend the ability to create user accounts from Google ID
+  tokens, which is discussed in [Using ID tokens on the backend](/identity/legacy/one-tap/idtoken-auth).
 
 ## Where should I use One Tap sign-up?
 
@@ -35,25 +54,29 @@ account for the user.
 ## Before you begin
 
 Set up your Google APIs console project and Android project as described
-in [Get started with One Tap sign-in](https://developer.android.com/identity/legacy/one-tap/legacy-get-started).
+in [Get started with One Tap sign-in](/identity/legacy/one-tap/legacy-get-started).
 
 ## 1. Configure the One Tap client
 
 To configure the One Tap client for account creation, do the following:
 
-- Do not enable password credential requests. (One-tap sign-up is only possible with token-based authentication.)
-- Enable Google ID token requests using `setGoogleIdTokenRequestOptions()` and
+* Do not enable password credential requests. (One-tap sign-up is only possible
+  with token-based authentication.)
+* Enable Google ID token requests using `setGoogleIdTokenRequestOptions()` and
   these settings:
 
-  - Set the server client ID to [the ID you created in the Google APIs
-    console](https://developer.android.com/identity/legacy/one-tap/legacy-get-started#api-console). Note this is your server's client ID, not your Android client ID.
-  - Configure the client to show all Google Accounts on the device---that is, don't filter by authorized accounts.
-  - Optionally, you can also [request the verified phone
-    number](https://developer.android.com/android/reference/com/google/android/gms/auth/api/identity/BeginSignInRequest.GoogleIdTokenRequestOptions.Builder#public-beginsigninrequest.googleidtokenrequestoptions.builder-setrequestverifiedphonenumber-boolean-requestverifiedphonenumber) for the account.
+  + Set the server client ID to [the ID you created in the Google APIs
+    console](/identity/legacy/one-tap/legacy-get-started#api-console). Note this is your server's client ID, not
+    your Android client ID.
+  + Configure the client to show all Google Accounts on the device—that
+    is, don't filter by authorized accounts.
+  + Optionally, you can also [request the verified phone
+    number](/android/reference/com/google/android/gms/auth/api/identity/BeginSignInRequest.GoogleIdTokenRequestOptions.Builder#public-beginsigninrequest.googleidtokenrequestoptions.builder-setrequestverifiedphonenumber-boolean-requestverifiedphonenumber)
+    for the account.
 
 ### Java
 
-```java
+```
 public class YourActivity extends AppCompatActivity {
 
   // ...
@@ -84,7 +107,7 @@ public class YourActivity extends AppCompatActivity {
 
 ### Kotlin
 
-```kotlin
+```
 class YourActivity : AppCompatActivity() {
     // ...
 
@@ -117,14 +140,14 @@ class YourActivity : AppCompatActivity() {
 You should keep track of whether the user has already declined to use One Tap
 sign-up by either closing the prompt or tapping outside of it. This can be as
 simple as a boolean property of your Activity. (See [Stop displaying the One Tap
-UI](https://developer.android.com/identity/legacy/one-tap/create-new-accounts#disable-one-tap), below.)
+UI](#disable-one-tap), below.)
 
 ## 3. Display the One Tap sign-up UI
 
 If the user hasn't declined to use One Tap to create a new account, call the
 client object's `beginSignIn()` method, and attach listeners to the `Task` it
 returns. Apps typically do this step when a One Tap sign-in request doesn't find
-any saved credentials---that is, in the failure listener of the sign-*in*
+any saved credentials—that is, in the failure listener of the sign-*in*
 request.
 
 The One Tap client will call the success listener if the user has one or more
@@ -139,43 +162,47 @@ sign up with your normal account creation flow.
 
 ### Java
 
-    oneTapClient.beginSignIn(signUpRequest)
-            .addOnSuccessListener(this, new OnSuccessListener<BeginSignInResult>() {
-                @Override
-                public void onSuccess(BeginSignInResult result) {
-                    try {
-                        startIntentSenderForResult(
-                                result.getPendingIntent().getIntentSender(), REQ_ONE_TAP,
-                                null, 0, 0, 0);
-                    } catch (IntentSender.SendIntentException e) {
-                        Log.e(TAG, "Couldn't start One Tap UI: " + e.getLocalizedMessage());
-                    }
+```
+oneTapClient.beginSignIn(signUpRequest)
+        .addOnSuccessListener(this, new OnSuccessListener<BeginSignInResult>() {
+            @Override
+            public void onSuccess(BeginSignInResult result) {
+                try {
+                    startIntentSenderForResult(
+                            result.getPendingIntent().getIntentSender(), REQ_ONE_TAP,
+                            null, 0, 0, 0);
+                } catch (IntentSender.SendIntentException e) {
+                    Log.e(TAG, "Couldn't start One Tap UI: " + e.getLocalizedMessage());
                 }
-            })
-            .addOnFailureListener(this, new OnFailureListener() {
-                @Override
-                public void onFailure(@NonNull Exception e) {
-                    // No Google Accounts found. Just continue presenting the signed-out UI.
-                    Log.d(TAG, e.getLocalizedMessage());
-                }
-            });
+            }
+        })
+        .addOnFailureListener(this, new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                // No Google Accounts found. Just continue presenting the signed-out UI.
+                Log.d(TAG, e.getLocalizedMessage());
+            }
+        });
+```
 
 ### Kotlin
 
-    oneTapClient.beginSignIn(signUpRequest)
-        .addOnSuccessListener(this) { result ->
-            try {
-                startIntentSenderForResult(
-                    result.pendingIntent.intentSender, REQ_ONE_TAP,
-                    null, 0, 0, 0)
-            } catch (e: IntentSender.SendIntentException) {
-                Log.e(TAG, "Couldn't start One Tap UI: ${e.localizedMessage}")
-            }
+```
+oneTapClient.beginSignIn(signUpRequest)
+    .addOnSuccessListener(this) { result ->
+        try {
+            startIntentSenderForResult(
+                result.pendingIntent.intentSender, REQ_ONE_TAP,
+                null, 0, 0, 0)
+        } catch (e: IntentSender.SendIntentException) {
+            Log.e(TAG, "Couldn't start One Tap UI: ${e.localizedMessage}")
         }
-        .addOnFailureListener(this) { e ->
-            // No Google Accounts found. Just continue presenting the signed-out UI.
-            Log.d(TAG, e.localizedMessage)
-        }
+    }
+    .addOnFailureListener(this) { e ->
+        // No Google Accounts found. Just continue presenting the signed-out UI.
+        Log.d(TAG, e.localizedMessage)
+    }
+```
 
 ## 4. Handle the user's response
 
@@ -193,14 +220,14 @@ client's `getSignInCredentialFromIntent()` method. The credential will have a
 non-null `googleIdToken` property.
 
 Use the ID token to create an account on your backend (see [Authenticate with a
-backend using ID tokens](https://developer.android.com/identity/legacy/one-tap/idtoken-auth)) and sign the user in.
+backend using ID tokens](/identity/legacy/one-tap/idtoken-auth)) and sign the user in.
 
 The credential also contains any additional details you have requested, such as
 the account's verified phone number if available.
 
 ### Java
 
-```java
+```
 public class YourActivity extends AppCompatActivity {
 
   // ...
@@ -233,7 +260,7 @@ public class YourActivity extends AppCompatActivity {
 
 ### Kotlin
 
-```kotlin
+```
 class YourActivity : AppCompatActivity() {
 
     // ...
@@ -283,12 +310,12 @@ It's important to implement your own rate limiting of One Tap sign-in prompts.
 If you don't, and a user cancels several prompts in a row, the One Tap client
 will not prompt the user for the next 24 hours.
 
-> [!NOTE]
-> **Note:** If you encounter this 24-hour cooldown period during development, you can reset the cooldown by clearing Google Play services' app storage.
+**Note:** If you encounter this 24-hour cooldown period during development, you can
+reset the cooldown by clearing Google Play services' app storage.
 
 ### Java
 
-```java
+```
 public class YourActivity extends AppCompatActivity {
 
   // ...
@@ -329,7 +356,7 @@ public class YourActivity extends AppCompatActivity {
 
 ### Kotlin
 
-```kotlin
+```
 class YourActivity : AppCompatActivity() {
 
     // ...
@@ -373,8 +400,8 @@ class YourActivity : AppCompatActivity() {
 When a user completes the One Tap sign-up flow, you get a Google ID token, which
 includes some basic profile information: the user's email address, full name,
 and profile picture URL. For many apps, this information is enough for you to
-[authenticate the user on backend](https://developer.android.com/identity/legacy/one-tap/idtoken-auth) and create a new account.
+[authenticate the user on backend](/identity/legacy/one-tap/idtoken-auth) and create a new account.
 
-If you require additional information to complete account creation---for instance,
-the user's birth date---present the user with a sign-up details flow, where
+If you require additional information to complete account creation—for instance,
+the user's birth date—present the user with a sign-up details flow, where
 you request this additional info. Then, send it to your backend to complete account creation.

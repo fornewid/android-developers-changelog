@@ -31,6 +31,7 @@ syntax:
               android:excludeFromRecents=["true" | "false"]
               android:exported=["true" | "false"]
               android:finishOnTaskLaunch=["true" | "false"]
+              android:forceQueryable=["true" | "false"]
               android:hardwareAccelerated=["true" | "false"]
               android:icon="drawable resource"
               android:immersive=["true" | "false"]
@@ -50,7 +51,11 @@ syntax:
               android:persistableMode=["persistRootOnly" | 
                                        "persistAcrossReboots" | "persistNever"]
               android:permission="string"
+              android:preferMinimalPostProcessing=["true" | "false"]
               android:process="string"
+              android:recreateOnConfigChanges=["colorMode" | "keyboard" |
+                                               "keyboardHidden" | "mcc" | "mnc" |
+                                               "navigation" | "touchscreen"]
               android:relinquishTaskIdentity=["true" | "false"]
               android:requireContentUriPermissionFromCaller=["none" | "read" | "readAndWrite" |
                                                              "readOrWrite" | "write"] 
@@ -401,6 +406,16 @@ attributes:
 
 
         This attribute is ignored if `https://developer.android.com/reference/android/content/Intent#FLAG_ACTIVITY_RESET_TASK_IF_NEEDED` isn't set.
+
+    `android:forceQueryable`
+
+    :   Specifies whether this activity is visible to all other applications
+        on the device, bypassing normal package visibility restrictions.
+
+        The default value is `"false"`.
+
+        For more information, see the guide on
+        [automatic package visibility filtering](https://developer.android.com/training/package-visibility/automatic).
 
     `android:hardwareAccelerated`
     :   Whether hardware-accelerated rendering is enabled for this
@@ -829,6 +844,18 @@ attributes:
         section of the App manifest overview and
         [Security tips](https://developer.android.com/guide/topics/security/security).
 
+    `android:preferMinimalPostProcessing`
+
+    :   Specifies whether the activity prefers the connected display to perform
+        minimal post-processing (also known as auto low latency mode or game mode).
+        This setting is useful for applications like games or video conferencing
+        where low latency is more important than image enhancement.
+
+        The default value is `"false"`.
+
+        For more information, see the guide on
+        [requesting and checking for low latency support](https://developer.android.com/about/versions/11/features#low_latency).
+
     `android:process`
 
     :   The name of the process in which the activity runs. Normally, all components of an
@@ -851,6 +878,16 @@ attributes:
         The `https://developer.android.com/guide/topics/manifest/application-element` element's
         `https://developer.android.com/guide/topics/manifest/application-element#proc`
         attribute can set a different default process name for all components.
+
+    `android:recreateOnConfigChanges`
+
+    :   Specifies the configuration changes that should trigger the system to
+        recreate the activity. If a configuration change is specified here (and not
+        in `android:configChanges`), the activity is recreated when that
+        change occurs.
+
+        For more information, see the guide on
+        [recreating an activity on configuration changes](https://developer.android.com/guide/topics/resources/runtime-changes#android_17).
 
     `android:relinquishTaskIdentity`
 

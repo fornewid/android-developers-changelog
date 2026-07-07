@@ -81,14 +81,14 @@ The following code snippet showcases the request body payload for the
             "name": "Movie1",
             "platform_specific_playback_uris": [
             {
-              "uri": "https://www.example.com/entity_uri_for_android",
+              "uri": "https://www.example.com/movie_entity_uri_for_android",
               "platforms": [
                 "PLATFORM_ANDROID_TV",
                 "PLATFORM_ANDROID"
               ]
             },
             {
-              "uri": "https://www.example.com/entity_uri_for_iOS",
+              "uri": "https://www.example.com/movie_entity_uri_for_iOS",
               "platforms": [
                 "PLATFORM_IOS"
               ]
@@ -119,23 +119,24 @@ The following code snippet showcases the request body payload for the
             "name": "TV SERIES EPISODE 1",
             "platform_specific_playback_uris": [
             {
-              "uri": "https://www.example.com/entity_uri_for_android_mobile",
+              "uri": "https://www.example.com/episode_entity_uri_for_android_mobile",
               "platforms": [
                 "PLATFORM_ANDROID"
               ]
             },
             {
-              "uri": "https://www.example.com/entity_uri_for_android_tv",
+              "uri": "https://www.example.com/episode_entity_uri_for_android_tv",
               "platforms": [
                 "PLATFORM_ANDROID_TV"
               ]
             },
             {
-              "uri": "https://www.example.com/entity_uri_for_iOS",
+              "uri": "https://www.example.com/episode_entity_uri_for_iOS",
               "platforms": [
                 "PLATFORM_IOS"
               ]
             }
+            ],
             "poster_images": [
               {
                 "url": "http://www.example.com/episode1_img1.png",
@@ -156,6 +157,68 @@ The following code snippet showcases the request body payload for the
             "episode_display_number": "1",
             "season_number": "1",
             "show_title": "title"
+          }
+        },
+        {
+          "liveStreamingVideoEntity": {
+            "name": "Live Sports Championship",
+            "watch_next_type": "WATCH_NEXT_TYPE_CONTINUE",
+            "last_engagement_time_millis": 1780978284000,
+            "last_play_back_position_time_millis": 1800000,
+            "duration_millis": 7200000,
+            "platform_specific_playback_uris": [
+              {
+                "uri": "https://www.example.com/live_streaming_entity_uri_for_android_tv",
+                "platforms": ["PLATFORM_ANDROID_TV"]
+              }
+            ],
+            "poster_images": [
+              {
+                "url": "http://www.example.com/live_stream_image1.png",
+                "width": 1920,
+                "height": 1080,
+                "accessibility_text": "Live Sports Championship Cover Image"
+              }
+            ],
+            "start_time_epoch_millis": 1780976484000,
+            "broadcaster": "Global Sports Network",
+            "broadcaster_icon": {
+              "url": "https://www.example.com/gsports.jpg",
+              "width": 512,
+              "height": 512,
+              "accessibility_text": "Global Sports Network Logo"
+            }
+          }
+        },
+        {
+          "videoClipEntity": {
+            "name": "How to Brew the Perfect Espresso",
+            "watch_next_type": "WATCH_NEXT_TYPE_CONTINUE",
+            "last_engagement_time_millis": 1780978284000,
+            "last_play_back_position_time_millis": 120000,
+            "duration_millis": 600000,
+            "platform_specific_playback_uris": [
+              {
+                "uri": "https://www.example.com/video_clip_entity_uri_for_android_tv",
+                "platforms": ["PLATFORM_ANDROID_TV"]
+              }
+            ],
+            "poster_images": [
+              {
+                "url": "http://www.example.com/video_clip_image1.png",
+                "width": 1920,
+                "height": 1080,
+                "accessibility_text": "Espresso Tutorial Cover Image"
+              }
+            ],
+            "created_time_epoch_millis": 1780900000000,
+            "creator": "Coffee Enthusiast John",
+            "creator_image": {
+              "url": "https://www.example.com/image/thumb/creators/john_avatar.jpg",
+              "width": 256,
+              "height": 256,
+              "accessibility_text": "John's Avatar"
+            }
           }
         }
       ]
