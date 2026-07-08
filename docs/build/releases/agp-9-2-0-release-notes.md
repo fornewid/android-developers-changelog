@@ -1,19 +1,10 @@
 ---
-title: Android Gradle plugin 9.2.0 (April 2026)  |  Android Studio  |  Android Developers
+title: https://developer.android.com/build/releases/agp-9-2-0-release-notes
 url: https://developer.android.com/build/releases/agp-9-2-0-release-notes
-source: html-scrape
+source: md.txt
 ---
 
-* [Android Developers](https://developer.android.com/)
-* [Develop](https://developer.android.com/develop)
-* [Android Studio](https://developer.android.com/studio)
-* [Gradle build guides](https://developer.android.com/build/gradle-build-overview)
-
-# Android Gradle plugin 9.2.0 (April 2026) Stay organized with collections Save and categorize content based on your preferences.
-
-
-
-
+<br />
 
 Android Gradle plugin 9.2 is a minor release that includes a variety of new
 features and improvements.
@@ -23,26 +14,26 @@ features and improvements.
 The maximum API level that Android Gradle plugin 9.2 supports is API level 37.0.
 Here is other compatibility info:
 
-|  | Minimum version | Default version | Notes |
-| --- | --- | --- | --- |
-| Gradle | 9.4.1 | 9.4.1 | To learn more, see [updating Gradle](/build/releases/gradle-plugin?buildsystem=ndk-build#updating-gradle). |
-| SDK Build Tools | 36.0.0 | 36.0.0 | [Install](/studio/intro/update#sdk-manager) or [configure](/tools/releases/build-tools) SDK Build Tools. |
-| NDK | N/A | 28.2.13676358 | [Install](/studio/projects/install-ndk#specific-version) or [configure](/studio/projects/install-ndk#apply-specific-version) a different version of the NDK. |
-| JDK | 17 | 17 | To learn more, see [setting the JDK version](/studio/intro/studio-config#jdk). |
+
+|   | Minimum version | Default version | Notes |
+|---:|:---:|:---:|:---:|
+| Gradle | 9.4.1 | 9.4.1 | To learn more, see [updating Gradle](https://developer.android.com/build/releases/gradle-plugin?buildsystem=ndk-build#updating-gradle). |
+| SDK Build Tools | 36.0.0 | 36.0.0 | [Install](https://developer.android.com/studio/intro/update#sdk-manager) or [configure](https://developer.android.com/tools/releases/build-tools) SDK Build Tools. |
+| NDK | N/A | 28.2.13676358 | [Install](https://developer.android.com/studio/projects/install-ndk#specific-version) or [configure](https://developer.android.com/studio/projects/install-ndk#apply-specific-version) a different version of the NDK. |
+| JDK | 17 | 17 | To learn more, see [setting the JDK version](https://developer.android.com/studio/intro/studio-config#jdk). |
+
+<br />
 
 ## Unified coverage and test reports
 
-**Experimental:** This is an experimental feature. To enable this feature, set
-`android.experimental.reportAggregationSupport=true` in your
-`gradle.properties` file.
+> [!WARNING]
+> **Experimental:** This is an experimental feature. To enable this feature, set `android.experimental.reportAggregationSupport=true` in your `gradle.properties` file.
 
 AGP 9.2.0-alpha07 introduces tasks to generate HTML dashboards that consolidate
 test results and coverage from various test types (unit and instrumentation),
 modules, and build variants, providing a comprehensive overview in a single
-dashboard. For more information, see [Generate unified code coverage reports](/studio/test/coverage-report#unified)
-and [View unified test reports](/studio/test/command-line#view-test-reports).
-
-[](/static/studio/videos/unified-coverage-report.mp4)
+dashboard. For more information, see [Generate unified code coverage reports](https://developer.android.com/studio/test/coverage-report#unified)
+and [View unified test reports](https://developer.android.com/studio/test/command-line#view-test-reports).
 
 ## R8 changes
 
@@ -69,19 +60,15 @@ name is mentioned explicitly without wildcards.
 
 None of the following rules will now keep runtime invisible annotations:
 
-```
--keepattributes *
--keepattributes *Annotation*
--keepattributes *Invisible*
-```
+    -keepattributes *
+    -keepattributes *Annotation*
+    -keepattributes *Invisible*
 
 To keep runtime invisible annotations, use the following rule:
 
-```
--keepattributes RuntimeInvisibleAnnotations,
-                RuntimeInvisibleParameterAnnotations,
-                RuntimeInvisibleTypeAnnotations
-```
+    -keepattributes RuntimeInvisibleAnnotations,
+                    RuntimeInvisibleParameterAnnotations,
+                    RuntimeInvisibleTypeAnnotations
 
 ### Support for negated names in member rules
 
@@ -91,11 +78,9 @@ negated member name patterns.
 For example, to match all methods that don't end in "ForTesting" use the
 following rule:
 
-```
--keepclassmembers class com.example.MyClass {
-  *** !*ForTesting(...);
-}
-```
+    -keepclassmembers class com.example.MyClass {
+      *** !*ForTesting(...);
+    }
 
 Member name patterns can also be negated in the precondition of `-if`
 rules. If a negated member name pattern contains wildcards, such
@@ -103,17 +88,20 @@ wildcards cannot be back-referenced in the `-if` consequent rule.
 
 ## Fixed issues
 
+
 ### Android Gradle plugin 9.2.1
 
-| Fixed Issues | |
-| --- | --- |
-| **Android Gradle Plugin** | |  | | --- | | [Issue #504996348](https://issuetracker.google.com/issues/504996348)  java.lang.ClassNotFoundException: Didn't find class "com.android.tools.r8.RecordTag" after upgrading gradle to 9.2.0 | |
+| Fixed Issues ||
+|---|---|
+| **Android Gradle Plugin** | |---| | [Issue #504996348](https://issuetracker.google.com/issues/504996348) java.lang.ClassNotFoundException: Didn't find class "com.android.tools.r8.RecordTag" after upgrading gradle to 9.2.0 | |
 
 ### Android Gradle plugin 9.2.0
 
-| Fixed Issues | |
-| --- | --- |
-| **Android Gradle Plugin** | |  | | --- | | [Issue #459878951](https://issuetracker.google.com/issues/459878951)  Warn users if they have commonTest but forget withHostTestBuilder | | [Issue #482839660](https://issuetracker.google.com/issues/482839660)  [fused lib - public] OkHttp includes sources | | [Issue #482293927](https://issuetracker.google.com/issues/482293927)  Cannot run androidDeviceTest with manifest placeholders in library (AGP 9.0.0 with com.android.kotlin.multiplatform.library plugin) | | [Issue #460469730](https://issuetracker.google.com/issues/460469730)  AGP should warn if user has src/androidDeviceTest/java with java disabled | | [Issue #477562205](https://issuetracker.google.com/issues/477562205)  AGP 9.0 No androidComponents.onVariant equivalent for applicationVariants.all.mergeAssetsProvider | | [Issue #398173037](https://issuetracker.google.com/issues/398173037)  `\*.xml.flat` files contain absolute file paths | | [Issue #437828055](https://issuetracker.google.com/issues/437828055)  R8D8ThreadPoolBuildService not registered | | [Issue #486844145](https://issuetracker.google.com/issues/486844145)  JdkImageTransform failure with JDK 26 | | [Issue #474084303](https://issuetracker.google.com/issues/474084303)  Automatically encode minAgpVersion in the AAR metadata in AGP 10.0 | | [Issue #480062612](https://issuetracker.google.com/issues/480062612)  Renaming APK using new AGP DSL | | [Issue #461382865](https://issuetracker.google.com/issues/461382865)  Error when accessing (but not evaluating) bootClasspath IllegalStateException: targetCompatibility is not yet finalized | | [Issue #492282040](https://issuetracker.google.com/issues/492282040)  keepRules sourceset not working for libraries | | [Issue #492140753](https://issuetracker.google.com/issues/492140753)  Embed CC compatibility declaration in AGP | | [Issue #483083119](https://issuetracker.google.com/issues/483083119)  Update Kotlin Gradle plugin dependency to 2.3.10 | | [Issue #359963589](https://issuetracker.google.com/issues/359963589)  Allow higher compileSdk for tests than main | |
-| **Lint** | |  | | --- | | [Issue #483413438](https://issuetracker.google.com/issues/483413438)  Lint typo in message | | [Issue #488736407](https://issuetracker.google.com/issues/488736407)  Truncated context window in Lint SARIF reports due to stuck offset pointer in `SarifReporter.kt` | | [Issue #484887319](https://issuetracker.google.com/issues/484887319)  Lint Gradle client is missing a critical feature making it unreliable at best | | [Issue #492589793](https://issuetracker.google.com/issues/492589793)  Lint error when resource shrinking is disabled | | [Issue #478779827](https://issuetracker.google.com/issues/478779827)  AGP 9 Lint reports WrongConstant when using nested IntDef constants | | [Issue #492589793](https://issuetracker.google.com/issues/492589793)  Lint error when resource shrinking is disabled | |
-| **Lint Integration** | |  | | --- | | [Issue #314101896](https://issuetracker.google.com/issues/314101896)  Android Lint fails with custom lint checks compiled to Java 21 bytecode | | [Issue #468928427](https://issuetracker.google.com/issues/468928427)  Lint Gradle tasks ignore --quiet flag | |
-| **Shrinker (R8)** | |  | | --- | | [Issue #490426424](https://issuetracker.google.com/issues/490426424)  Targeting Java 11 seems to break d8 | |
+| Fixed Issues ||
+|---|---|
+| **Android Gradle Plugin** | |---| | [Issue #459878951](https://issuetracker.google.com/issues/459878951) Warn users if they have commonTest but forget withHostTestBuilder | | [Issue #482839660](https://issuetracker.google.com/issues/482839660) \[fused lib - public\] OkHttp includes sources | | [Issue #482293927](https://issuetracker.google.com/issues/482293927) Cannot run androidDeviceTest with manifest placeholders in library (AGP 9.0.0 with com.android.kotlin.multiplatform.library plugin) | | [Issue #460469730](https://issuetracker.google.com/issues/460469730) AGP should warn if user has src/androidDeviceTest/java with java disabled | | [Issue #477562205](https://issuetracker.google.com/issues/477562205) AGP 9.0 No androidComponents.onVariant equivalent for applicationVariants.all.mergeAssetsProvider | | [Issue #398173037](https://issuetracker.google.com/issues/398173037) \`\*.xml.flat\` files contain absolute file paths | | [Issue #437828055](https://issuetracker.google.com/issues/437828055) R8D8ThreadPoolBuildService not registered | | [Issue #486844145](https://issuetracker.google.com/issues/486844145) JdkImageTransform failure with JDK 26 | | [Issue #474084303](https://issuetracker.google.com/issues/474084303) Automatically encode minAgpVersion in the AAR metadata in AGP 10.0 | | [Issue #480062612](https://issuetracker.google.com/issues/480062612) Renaming APK using new AGP DSL | | [Issue #461382865](https://issuetracker.google.com/issues/461382865) Error when accessing (but not evaluating) bootClasspath IllegalStateException: targetCompatibility is not yet finalized | | [Issue #492282040](https://issuetracker.google.com/issues/492282040) keepRules sourceset not working for libraries | | [Issue #492140753](https://issuetracker.google.com/issues/492140753) Embed CC compatibility declaration in AGP | | [Issue #483083119](https://issuetracker.google.com/issues/483083119) Update Kotlin Gradle plugin dependency to 2.3.10 | | [Issue #359963589](https://issuetracker.google.com/issues/359963589) Allow higher compileSdk for tests than main | |
+| **Lint** | |---| | [Issue #483413438](https://issuetracker.google.com/issues/483413438) Lint typo in message | | [Issue #488736407](https://issuetracker.google.com/issues/488736407) Truncated context window in Lint SARIF reports due to stuck offset pointer in \`SarifReporter.kt\` | | [Issue #484887319](https://issuetracker.google.com/issues/484887319) Lint Gradle client is missing a critical feature making it unreliable at best | | [Issue #492589793](https://issuetracker.google.com/issues/492589793) Lint error when resource shrinking is disabled | | [Issue #478779827](https://issuetracker.google.com/issues/478779827) AGP 9 Lint reports WrongConstant when using nested IntDef constants | | [Issue #492589793](https://issuetracker.google.com/issues/492589793) Lint error when resource shrinking is disabled | |
+| **Lint Integration** | |---| | [Issue #314101896](https://issuetracker.google.com/issues/314101896) Android Lint fails with custom lint checks compiled to Java 21 bytecode | | [Issue #468928427](https://issuetracker.google.com/issues/468928427) Lint Gradle tasks ignore --quiet flag | |
+| **Shrinker (R8)** | |---| | [Issue #490426424](https://issuetracker.google.com/issues/490426424) Targeting Java 11 seems to break d8 | |
+
+<br />

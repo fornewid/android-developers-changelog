@@ -287,5 +287,3 @@ android:fontProviderCerts="@array/certs"
 
 > [!NOTE]
 > **Note**: If the provider has more than one set of certificates, you can define an array of string arrays.
-
-## Downloadable Fonts in Compose
