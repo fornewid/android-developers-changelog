@@ -37,17 +37,17 @@ device](https://developer.android.com/static/develop/ui/compose/images/tooling-p
 ### Color picker
 
 Whenever a color is defined inside or outside a composable, its preview is shown
-on the gutter. You can change the color via the color picker by clicking on it
-like this:
+on the gutter. You can change the color using the color picker by clicking on
+it like this:
 
 ![The user clicking a color in the gutter, bringing up a color
 picker](https://developer.android.com/static/develop/ui/compose/images/tooling-color-picker.gif)
 
 ### Image resource picker
 
-Whenever a drawable, vector, or image is defined inside or outside a composable,
-its preview is shown on the gutter. You can change it via the image resource
-picker by clicking on it like this:
+Whenever a drawable, vector, or image is defined inside or outside a
+composable, its preview is shown on the gutter. You can change it using the
+image resource picker by clicking on it like this:
 
 ![The user clicking an icon in the gutter, bringing up the resource
 picker](https://developer.android.com/static/develop/ui/compose/images/tooling-resource-picker.gif)

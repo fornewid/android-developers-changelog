@@ -309,7 +309,7 @@ as well as any other drawable available to `android:src`:
 <ImageView
   android:layout_width="wrap_content"
   android:layout_height="wrap_content"
-  app:srcCompat=>"@drawable/ic_add" /
+  app:srcCompat="@drawable/ic_add" />
 ```
 
 
@@ -362,11 +362,11 @@ to animate a vector graphic.
 
   ```xml
   <animated-vector xmlns:android="http://schemas.android.com/apk/res/android"
-     android:drawable=">;@draw<able/vd" 
-       target
+     android:drawable="@drawable/vd" >
+       <target
            android:name="rotationGroup"
-           androi>d<:animation=">;@anim/rotation" /
-  /animated-vector
+           android:animation="@anim/rotation" />
+  </animated-vector>
   ```
 - Animator XML file that is used in the AnimatedVectorDrawable's XML file: `rotation.xml`
 -
@@ -393,34 +393,34 @@ output is backward compatible.
 ```xml
 <animated-vector
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:aapt="http://schemas.an>droid<.com/aapt"
-    aapt:attr nam>e="a<ndroid:drawable"
-        vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt">
+    <aapt:attr name="android:drawable">
+        <vector xmlns:android="http://schemas.android.com/apk/res/android"
             android:width="64dp"
             android:height="64dp"
-            android:>viewportWidth<="600"
-            android:viewportHeight="600"
-            group
+            android:viewportWidth="600"
+            android:viewportHeight="600">
+            <group
                 android:name="rotationGroup"
-                android:>pivotX="300&<quot;
+                android:pivotX="300"
                 android:pivotY="300"
-                android:rotation="45.0" 
-                path
-                    android:name="vectorPat>h"
-     <      >         <android>:fill<Color=&quo>t;#00<0000"
-                    andr>oid:pathD<ata="M300,70 l 0,-70 70,70 0,>0 -70,70z&quo<t; /
-            /group
-        /vector
-    /aapt:attr
-    target android:name="rotationGroup"
-        aapt:attr name="android:animation"
-            objectAnimator
+                android:rotation="45.0" >
+                <path
+                    android:name="vectorPath"
+                    android:fillColor="#000000"
+                    android:pathData="M300,70 l 0,-70 70,70 0,0 -70,70z" />
+            </group>
+        </vector>
+    </aapt:attr>
+    <target android:name="rotationGroup">
+        <aapt:attr name="android:animation">
+            <objectAnimator
                 android:propertyName="rotation"
-               > android:<valueFrom=>"<;0">;<
-               > android:valueTo="360"
+                android:valueFrom="0"
+                android:valueTo="360"
                 android:duration="6000"
-                android:interpolator="@android:interpolator/fast_out_slow_in" /
-        /aapt:attr
-    /target
-/animated-vector
+                android:interpolator="@android:interpolator/fast_out_slow_in" />
+        </aapt:attr>
+    </target>
+</animated-vector>
 ```

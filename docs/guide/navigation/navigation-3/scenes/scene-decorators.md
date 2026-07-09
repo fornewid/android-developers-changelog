@@ -49,7 +49,9 @@ class MySceneDecoratorStrategy<T : Any> : SceneDecoratorStrategy<T> {
 
 }
 
-class MyDecoratingScene<T : Any>(scene: Scene<T>) : Scene<T> {
+data class MyDecoratingScene<T : Any>(
+    val scene: Scene<T>
+) : Scene<T> {
 
     // ...
 
@@ -96,7 +98,9 @@ demonstrates an example of how to do this:
 
 
 ```kotlin
-class CopyingScene<T : Any>(scene: Scene<T>) : Scene<T> {
+data class CopyingScene<T : Any>(
+    val scene: Scene<T>
+) : Scene<T> {
     override val entries = scene.entries
     override val previousEntries = scene.previousEntries
     override val metadata = scene.metadata
@@ -106,6 +110,10 @@ class CopyingScene<T : Any>(scene: Scene<T>) : Scene<T> {
 ```
 
 <br />
+
+> [!TIP]
+> **Tip:** You can use Kotlin's [delegation syntax](https://kotlinlang.org/docs/delegation.html) (`MyScene<T>(...) :
+> Scene<T> by scene`) to automatically delegate properties and methods to the base `Scene`.
 
 ### Maintain animations
 
@@ -124,7 +132,9 @@ derived from the class and `key` of the scene returned by `calculateScene`.
 
 
 ```kotlin
-class DerivedKeyScene<T : Any>(scene: Scene<T>) : Scene<T> {
+data class DerivedKeyScene<T : Any>(
+    val scene: Scene<T>
+) : Scene<T> {
     override val key = scene::class to scene.key
 
     // ...

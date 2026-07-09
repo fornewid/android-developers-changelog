@@ -13,8 +13,7 @@ source: md.txt
 This benchmark evaluates the capabilities of a variety of commonly-used Large Language Models (LLMs) in solving real-world Android development problems. Explore our goals and methodology here.
 
 > [!IMPORTANT]
-> **Important:** We've refreshed our methodology to reflect how we [benchmarked
-> open-weight models](https://developer.android.com/bench/methodology#benchmarking-open-weight-models), and how we calculate the [new dimensions](https://developer.android.com/bench/methodology#new-leaderboard-dimensions) you see on the leaderboard.
+> **Important:** We've refreshed our methodology to reflect our adoption of the [Harbor framework](https://www.harborframework.com), built-in tool calling in [mini-swe-agent v2](https://github.com/SWE-agent/mini-swe-agent), how we [benchmarked open-weight models](https://developer.android.com/bench/methodology#benchmarking-open-weight-models), and how we calculate the [new dimensions](https://developer.android.com/bench/methodology#leaderboard-dimensions) you see on the leaderboard.
 
 *** ** * ** ***
 
@@ -26,7 +25,7 @@ that aren't covered by existing benchmarks, so we created one that focuses on
 Android development. Our goals in publishing this benchmark are:
 
 1. Encourage LLM improvements for Android development.
-2. Empower Android developers to be more productive with a range of helpful models to use for AI assistance.
+2. Enable Android developers to evaluate and select helpful models for AI assistance.
 3. Lead to higher quality apps across the Android ecosystem.
 
 We created a model-agnostic benchmark to accurately evaluate LLM performance on
@@ -41,37 +40,23 @@ issue by presenting them with real-world issues and pull requests from
 open-source software projects. This approach aims to ensure that the tasks are
 representative of the challenges developers face daily.
 
-To establish a performance baseline and have a constant point of comparison, we
-included Gemini 2.5 Flash as the base model. In doing so, we set a minimum for
-all the models in the evaluation.
+To establish a performance baseline, we initially included Gemini 2.5 Flash as
+the base model, with a pass rate of 16.1% in March 2026. In doing so, we had a
+minimum for all the models in the evaluation.
 
-### Safeguards against data contamination
+The capabilities of current models have advanced significantly, including
+built-in and parallel tool calling, streaming events, advanced multi-step
+reasoning, stateful conversations, and multimodal capabilities that lets them
+interpret images, audio, or video.
 
-While sourcing real-world repositories is essential for benchmarks' usefulness,
-we acknowledge that this exposure might lead to data contamination. In the
-current version of the benchmark, we've implemented the following safeguards:
+As LLMs improve, our evaluation standards must adapt. To continue providing you
+with state-of-the-art evaluations that accurately measure the latest model
+capabilities on Android development, we are standardizing our benchmark to the
+[Harbor framework](https://www.harborframework.com).
 
-- **Canary strings:** We include the standard BIG-BENCH canary string to discourage the inclusion of these tasks in the future training.
-- **Trajectory verification:** Our team performed a thorough review of the agent workflow to ensure that successes were not the result of reward hacking or underspecified tests.
+*** ** * ** ***
 
-For future versions, we're working hard to further lower this risk.
-
-### Repository criteria
-
-We selected the repositories and individual pull requests by applying the
-following criteria:
-
-- The repository needed to contain Android app or library code and be popular among the Android development ecosystem, having greater than or equal to 500 favorites.
-- Each pull request needed to be merged, fix a reported issue, and have validation such as unit or instrumentation tests.
-
-Some areas were underrepresented through tasks sourced on GitHub, so we took
-some steps to enrich the dataset and increase coverage of these areas:
-
-- If there was a valid pull request without matching tests, we created tests.
-- If there was a valid pull request with matching tests but no associated issue, we created an issue.
-- In some cases, a pull request had an issue that underspecified what was being done in the change. Because the description is sent to the LLM as a prompt, we rewrote the description of the issue to be more representative of the desired result of the change.
-
-### Defining Android-specific challenges
+## Defining Android-specific challenges
 
 Because Android Bench is designed to be a measure of Android engineering
 competency, we've curated tasks that are closely aligned with Android
@@ -97,16 +82,14 @@ changes, foldable adaptations, and granular runtime permissions.
 By targeting these categories, we aim for better agentic fluency across the
 whole landscape of the Android platform.
 
-*** ** * ** ***
-
-## The Android Bench composition
+### The Android Bench composition
 
 To make sure that Android Bench is a good representation of the current Android
 ecosystem, we included challenges that replicate those you'll often encounter
 during development. The benchmark consists of 100 tasks selected from a pool of
 38,989 pull requests.
 
-[You can explore the full dataset on GitHub](https://github.com/android-bench/android-benchthub.com/android-bench/android-bench).
+[You can explore the full dataset on GitHub](https://github.com/android-bench/android-bench).
 
 We analyzed GitHub repositories and pull requests and found that 71% were
 written in Kotlin and 25% in Java, confirming a shift toward the new programming
@@ -127,35 +110,22 @@ the remaining 21% that exceed 136 lines.
 Across the benchmark, the median task size is 32 changed lines, with the largest
 single change reaching 435 lines.
 
-*** ** * ** ***
+### Repository criteria
 
-## The Android Bench test harness
+We selected the repositories and individual pull requests by applying the
+following criteria:
 
-To facilitate the execution of the benchmark, Android Bench uses a modified
-version of the SWE Bench test harness. It runs in two parts: an Inference Agent
-and a Patch Verifier.
+- The repository needed to contain Android app or library code and be popular among the Android development ecosystem, having greater than or equal to 500 favorites.
+- Each pull request needed to be merged, fix a reported issue, and have validation such as unit or instrumentation tests.
 
-1. The Inference Agent combines the [mini SWE agent](https://github.com/SWE-agent/mini-swe-agent) with a custom Docker
-   image that can build and run Android projects and a base prompt for Android
-   development. Running the agent produces patch files that are then passed to
-   the Patch Verifier.
+Some areas were underrepresented through tasks sourced on GitHub, so we took
+some steps to enrich the dataset and increase coverage of these areas:
 
-2. The Patch Verifier takes those patches, adds them to the codebase, and
-   executes the test suite. It then outputs the data required to assign a score
-   to the execution.
+- If there was a valid pull request without matching tests, we created tests.
+- If there was a valid pull request with matching tests but no associated issue, we created an issue.
+- In some cases, a pull request had an issue that underspecified what was being done in the change. Because the description is sent to the LLM as a prompt, we rewrote the description of the issue to be more representative of the intended result of the change.
 
-The test harness is available in [our GitHub organization](https://github.com/android-bench), allowing anyone
-to independently recreate and verify the benchmark results, or to use the test
-harness for executing your own tasks.
-
-For full transparency, we've published the [experimental settings and
-environment configurations](https://github.com/android-bench/android-benchthub.com/android-bench/android-bench) used to obtain the benchmark results. This allows
-researchers and developers to independently recreate and verify our findings, or
-to use the test harness for executing their own tasks.
-
-*** ** * ** ***
-
-## Task sourcing and filtering
+### Task sourcing and filtering
 
 Tasks came from two pipelines. The first pipeline automated finding pull
 requests that could become tasks. We filtered all the pull requests to ensure
@@ -198,137 +168,83 @@ up-to-date architectural standards. Conversely, the specific tasks we selected
 tend to be simpler and more focused (involved fewer line changes), mirroring the
 small, atomic pull requests with targeted fixes.
 
-## Benchmarking open-weight models
+### Safeguards against data contamination
 
-To evaluate emerging open-weight models on Android Bench, we adapted the test
-harness to support diverse model configurations while preserving the benchmark's
-statistical integrity.
+While sourcing real-world repositories is essential for benchmark utility, this
+exposure introduces potential training contamination risks. Since the initial
+release of the benchmark, we have included the standard BIG-BENCH canary string
+in all task files to discourage their inclusion in training corpora.
 
-### Models and infrastructure
+Our team performs manual audits of agent execution trajectories to verify that
+successful runs result from legitimate code fixes rather than reward hacking or
+underspecified tests. We continue developing additional safeguards to further
+reduce contamination risks.
 
-This section explains how we established a reliable, standardized benchmarking
-setup without managing separate infrastructure for every model.
+*** ** * ** ***
 
-#### Model aggregation with OpenRouter
+## Benchmark execution
 
-To help ensure a reliable and standardized benchmarking environment without
-managing an independent infrastructure for each model, the setup uses
-[OpenRouter](https://openrouter.ai) as the canonical source for model access.
+When we designed Android Bench, we anchored our methodology on the best-in-class
+industry standards available at the time. We used mini-swe-agent, a
+general-purpose benchmarking agent, and adapted it to the nuances of Android
+development.
 
-While this introduces variables typical of multi-provider ecosystems, such as
-routing and load balancing, it reflects realistic deployment scenarios. Future
-iterations focusing strictly on isolated infrastructure variance can use direct
-provider endpoints.
+However, LLM capabilities are continuously and rapidly improving, so we need to
+adapt how we benchmark them. To continue providing state-of-the-art evaluations
+that accurately measure the latest model capabilities on Android development, we
+are standardizing our benchmark to the [Harbor framework](https://www.harborframework.com).
 
-#### Benchmarked models
+Harbor defines standards and integrations that enable anyone to run the
+benchmark, evaluate their preferred set-up, or share results, providing
+additional transparency and visibility.
 
-The following table lists the 13 open-weight models we evaluated, including
-their OpenRouter identifiers and the context windows utilized during the
-benchmark.
+The configuration of our environment is also available in
+[our GitHub organization](https://github.com/android-bench), allowing anyone to independently recreate and
+verify the benchmark results, or to use the setup for executing your own tasks.
 
-| Model | OpenRouter identifier | Context window |
-|---|---|---|
-| Gemma 4-31B-it | `google/gemma-4-31b-it:parasail/bf16` | 262,144 |
-| Gemma 4-26B-A4B-it | `google/gemma-4-26b-a4b-it:parasail/bf16` | 258,044 |
-| Qwen3.6-27B | `qwen/qwen3.6-27b:alibaba` | 262,144 |
-| Qwen3.6-35B-A3B | `qwen/qwen3.6-35b-a3b:parasail/fp8` | 262,144 |
-| Qwen3.5 9B | `qwen/qwen3.5-9b:venice/fp8` | 262,144 |
-| OpenAI GPT OSS 120B | `openai/gpt-oss-120b:deepinfra/turbo` | 131,100 |
-| OpenAI GPT OSS 20B | `openai/gpt-oss-20b:deepinfra/bf16` | 131,100 |
-| Deepseek 4 pro | `deepseek/deepseek-v4-pro:deepseek` | 1,048,576 |
-| Deepseek 4 flash | `deepseek/deepseek-v4-flash:deepseek` | 1,048,576 |
-| Xiaomi MiMo 2.5 | `xiaomi/mimo-v2.5-pro:xiaomi/fp8` | 1,050,000 |
-| Minimax m2.7 | `minimax/minimax-m2.7:minimax/highspeed` | 196,608 |
-| z.ai GLM 5.1 | `z-ai/glm-5.1:z-ai` | 202,800 |
-| Kimi K2.6 | `moonshotai/kimi-k2.6:siliconflow/fp8` | 262,144 |
-| Qwen 3.6 MAX Preview | `qwen/qwen3.6-max-preview:alibaba` | 262,144 |
+For full transparency, we've published the
+[dataset on Harbor Hub](https://github.com/android-bench/android-bench). This allows researchers and developers to
+independently recreate and verify our findings, evaluate their choice of models
+or agents, and share results.
 
-> [!NOTE]
-> **Note:** Qwen 3.6 MAX preview is a closed-weight model by Qwen that we also included as we were benchmarking open-weight models by the same producer.
+### Built-in tool calling and system instructions
 
-#### Providers and deployments
+In `mini-swe-agent` v1, models outputted shell commands as text inside Markdown
+code blocks, and the system extracted them using regular expressions. In v2, the
+execution interface shifted to native tool calling, requiring models to call an
+explicit bash function tool through the provider API.
 
-OpenRouter acts as a closed system where not all model providers support each
-model, and there are many third-party providers with varying server settings,
-such as Parasail, SiliconFlow, DeepInfra, and Venice. The provider manages the
-physical hardware and inference engine, while the deployment refers to the
-specific configuration, such as the model version and quantization level.
+Models prompted with legacy instructions continued formatting commands as
+Markdown code blocks. Because v2 evaluation only executes commands submitted
+through the native tool API, these text blocks were not executed as commands.
 
-We prioritized the highest available precision offered by the provider---for
-example, `bf16` or `fp8`---to minimize performance degradation due to
-quantization.
+To prevent unexecuted commands, we updated the system instructions and Pydantic
+configuration schemas to require native tool invocation. Evaluated models
+receive schema definitions for the bash tool and must invoke the tool using the
+API rather than emitting Markdown text blocks.
 
-We selected providers and model deployments based on reported reliability and
-maximum context window support for each model. We prioritized the highest
-available precision offered by the provider---for example, `bf16` or `fp8`---to
-minimize performance degradation due to quantization.
-
-To reduce costs and latency for large context tasks, we enabled prompt caching
-where supported by the provider and OpenRouter.
+To preserve Android engineering expertise without breaking the core tool-calling
+mechanism, we explicitly changed the baseline system prompt from
+`mini-swe-agent` v2 to include domain-specific Android steering. Otherwise, the
+configuration directly mirrors `swe-bench.yaml`'s latest set up.
 
 ### API configuration and execution
 
-To manage API calls across different models, the benchmark harness (a
-[`mini-swe-agent`](https://mini-swe-agent.com/latest/) fork) relies on the [LiteLLM](https://github.com/BerriAI/litellm) library to provide an
-OpenAI-compatible interface for hundreds of models. We used an interception
-layer to apply specific overrides before API execution to adapt open models to
-the Android Bench harness without invasive modifications to the core execution
-loop.
+To coordinate API calls across different models and inference endpoints (such as
+OpenAI, Anthropic, Gemini, Kimi, MiniMax, DeepSeek, and [OpenRouter](https://openrouter.ai)), we use
+the model interface classes from [`mini-swe-agent`](https://mini-swe-agent.com/latest/) v2.
 
-#### Context window management
+For open-weight models accessed using OpenRouter's, we use `mini-swe-agent`'s
+built-in OpenRouter's model class. For other provider endpoints, we use
+`mini-swe-agent`'s built-in [LiteLLM](https://github.com/BerriAI/litellm) class to provide an OpenAI-compatible
+interface.
 
-LiteLLM defaults unknown models to a conservative context window (often 2,048
-tokens). To support the large contexts required for Android Bench, we
-dynamically registered all target models with their correct context window
-limits and cost parameters.
+We have prioritized accessing all models through their provider's endpoint,
+using OpenRouter in cases where this wasn't accessible.
 
-#### Token management and trimming
+*** ** * ** ***
 
-Android tasks often involve large repositories and long conversation histories.
-The system calculates the maximum allowed input tokens by reserving space for
-the requested output and a safety margin of 1,000 tokens. If the context exceeds
-this limit, the system removes the oldest messages until it fits, preserving the
-system prompt.
-
-Accurate token counting is critical for staying within context limits. One
-challenge with aggregator services is that a service's token counting may
-slightly differ from local tokenizers. Where possible, we used the default
-OpenRouter tokenizer and LiteLLM's default `trim_messages` function.
-
-This relies on LiteLLM's default token counting for those models, which might
-introduce variance in trimming precision compared to models with custom
-tokenizers. It enables the evaluation of a wider variety of emerging models.
-
-In some cases, such as with Gemma or Minimax, LiteLLM's default trimming
-function caused the models to fail all benchmark runs due to missing token
-counts. We used specific tokenizer configurations sourced from the official
-Hugging Face model card for Gemma and Minimax models to ensure precise local
-token counting.
-
-#### Reasoning effort
-
-For models that support explicit reasoning or "thinking" steps, we included the
-requirement for `high` reasoning effort in the request header.
-
-This helped us both maximize the models' full reasoning capacity during the
-benchmark and avoid the penalty of default low-effort settings common in some
-API configurations. As reasoning implementations are model-specific, the
-respective provider determines the precise behavior, reflecting the diverse
-approaches in current state-of-the-art open models.
-
-> [!IMPORTANT]
-> **Key Point:** Examples of these models are DeepSeek, Kimi, GLM, and specific Qwen variants.
-
-#### API errors and retries
-
-To mitigate transient API errors and rate limits from various providers, we
-standardized on 10 retries per request across all open models. Adhering to this
-standard helps to ensure that the benchmark measures the core capabilities and
-intelligence of the models, rather than the transient availability of specific
-API endpoints. This approach prioritized functional evaluation over
-infrastructure reliability.
-
-## New leaderboard dimensions
+## Leaderboard dimensions
 
 We used the following methodology to calculate the cost, token usage, and
 latency dimensions on the Android Bench leaderboard. These metrics provide
@@ -340,10 +256,9 @@ insight into the resource requirements and efficiency of the evaluated models.
 ### Metrics sourcing and calculation
 
 We extracted execution metrics from the output files generated by the evaluation
-harness to provide a comprehensive view of model efficiency beyond pure
-accuracy.
+system to provide a comprehensive view of model efficiency beyond pure accuracy.
 
-Based on the open-source `mini-swe-agent` project, the harness uses `LiteLLM` to
+Based on the open-source `mini-swe-agent` project, the system uses `LiteLLM` to
 interface with various model endpoints, letting us capture standardized usage
 data.
 
@@ -365,6 +280,8 @@ To provide a representative cost and time estimate for a complete benchmark run
 
 This approach accounts for variability across multiple attempts while providing
 a realistic projection of the resources required for a full evaluation.
+
+*** ** * ** ***
 
 ## Methodology limitations and caveats
 
