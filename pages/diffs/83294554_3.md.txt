@@ -1,0 +1,81 @@
+diff --git a/docs/blog/latest/3.md b/docs/blog/latest/3.md
+index 550646d4..0dc8fdf0 100644
+--- a/docs/blog/latest/3.md
++++ b/docs/blog/latest/3.md
+@@ -7,6 +7,27 @@ source: md.txt
+ # The Latest
+ 
+ Stay up to date with the latest announcements, feature rollouts, and updates across Android tools, libraries, and platforms.
++- 14 Apr 2026 14 Apr 2026 ![](https://developer.android.com/static/blog/assets/Blog_banner_Dark_2000x1000_B_c6418d3a5c_ZbdvH4.webp) [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs)
++
++  ## [Get ready for Google I/O: Livestream schedule revealed](https://developer.android.com/blog/posts/get-ready-for-google-io-livestream-schedule-revealed)
++
++  [arrow_forward](https://developer.android.com/blog/posts/get-ready-for-google-io-livestream-schedule-revealed) The Google I/O schedule is here!
++  1 min read
++  - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
++  - [#Generative AI](https://developer.android.com/blog/topics/generative-ai)
++- [![View Steven Jenkins's profile](https://developer.android.com/static/blog/assets/headshot_e042d23f90_2x0LLK.webp)](https://developer.android.com/blog/authors/steven-jenkins) 13 Apr 2026 13 Apr 2026 ![](https://developer.android.com/static/blog/assets/Multi_Device_Interactions_with_Android_Emulator_Strapi_5d6ea711e7_Z1AYEiA.webp) [Product News](https://developer.android.com/blog/categories/product-news)
++
++  ## [Test Multi-Device Interactions with the Android Emulator](https://developer.android.com/blog/posts/test-multi-device-interactions-with-the-android-emulator)
++
++  [arrow_forward](https://developer.android.com/blog/posts/test-multi-device-interactions-with-the-android-emulator) Testing multi-device interactions is now easier than ever with the Android Emulator.
++  [Steven Jenkins](https://developer.android.com/blog/authors/steven-jenkins) • 2 min read
++- [![View Matthew Warner's profile](https://developer.android.com/static/blog/assets/matthew_warner_67a99317e4_Z2c1VNu.webp)](https://developer.android.com/blog/authors/matthew-warner) 02 Apr 2026 02 Apr 2026 ![](https://developer.android.com/static/blog/assets/android_studio_gemma4_73370772af_2lUopR.webp) [Product News](https://developer.android.com/blog/categories/product-news)
++
++  ## [Android Studio supports Gemma 4: our most capable local model for agentic coding](https://developer.android.com/blog/posts/android-studio-supports-gemma-4-our-most-capable-local-model-for-agentic-coding)
++
++  [arrow_forward](https://developer.android.com/blog/posts/android-studio-supports-gemma-4-our-most-capable-local-model-for-agentic-coding) Every developer's AI workflow and needs are unique, and it's important to be able to choose how AI helps your development. In January, we introduced the ability to choose any local or remote AI model to power AI functionality in Android Studio
++  [Matthew Warner](https://developer.android.com/blog/authors/matthew-warner) • 2 min read
++  - [#Android Studio](https://developer.android.com/blog/topics/android-studio)
+ - [![View Matt Dyor's profile](https://developer.android.com/static/blog/assets/matt_dyor_b779fca40e_Z2hl456.webp)](https://developer.android.com/blog/authors/matt-dyor) 02 Apr 2026 02 Apr 2026 ![](https://developer.android.com/static/blog/assets/as_Panda3_385cde5eac_Z1E8IhJ.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+ 
+   ## [Increase Guidance and Control over Agent Mode with Android Studio Panda 3](https://developer.android.com/blog/posts/increase-guidance-and-control-over-agent-mode-with-android-studio-panda-3)
+@@ -116,24 +137,6 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
+ 
+   [arrow_forward](https://developer.android.com/blog/posts/level-up-test-sidekick-and-prepare-for-upcoming-program-milestones) Last September, we shared our vision for the future of Google Play Games grounded in a core belief: the best way to drive your game's success is to deliver a world-class player experience.
+   [Maru Ahues Bouza](https://developer.android.com/blog/authors/maru-ahues-bouza) • 3 min read
+-- [![View Charles Munger's profile](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](https://developer.android.com/blog/authors/yabin-cui) 10 Mar 2026 10 Mar 2026 ![](https://developer.android.com/static/blog/assets/P_Mguide_a86dec5079_EWlMa.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+-
+-  ## [Boosting Android Performance: Introducing AutoFDO for the Kernel](https://developer.android.com/blog/posts/boosting-android-performance-introducing-autofdo-for-the-kernel)
+-
+-  [arrow_forward](https://developer.android.com/blog/posts/boosting-android-performance-introducing-autofdo-for-the-kernel) Today, we're excited to share how we are bringing Automatic Feedback-Directed Optimization (AutoFDO) to the Android kernel to deliver significant performance wins for users.
+-  [Yabin Cui](https://developer.android.com/blog/authors/yabin-cui) • 4 min read
+-- [![View Mayuri Khinvasara Khabya's profile](https://developer.android.com/static/blog/assets/Mayuri_Khinvasara_Khabya_92848b1e1b_1xSr0w.webp)](https://developer.android.com/blog/authors/mayuri-khabya)[![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_1hBimO.webp)](https://developer.android.com/blog/authors/tracy-agyemang) 05 Mar 2026 05 Mar 2026 ![](https://developer.android.com/static/blog/assets/meta_Header_2ac893569c_ZLkD4s.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
+-
+-  ## [Instagram and Facebook deliver instant playback and boost user engagement with Media3 PreloadManager](https://developer.android.com/blog/posts/instagram-and-facebook-deliver-instant-playback-and-boost-user-engagement-with-media3-preload-manager)
+-
+-  [arrow_forward](https://developer.android.com/blog/posts/instagram-and-facebook-deliver-instant-playback-and-boost-user-engagement-with-media3-preload-manager) In the dynamic world of social media, user attention is won or lost quickly. Meta apps (Facebook and Instagram) are among the world's largest social platforms and serve billions of users globally.
+-  [Mayuri Khinvasara Khabya](https://developer.android.com/blog/authors/mayuri-khabya), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang) • 4 min read
+-- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 05 Mar 2026 05 Mar 2026 ![](https://developer.android.com/static/blog/assets/android_Bench_f2e4dd4fda_2816Hg.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+-
+-  ## [Elevating AI-assisted Android development and improving LLMs with Android Bench](https://developer.android.com/blog/posts/elevating-ai-assisted-android-development-and-improving-ll-ms-with-android-bench)
+-
+-  [arrow_forward](https://developer.android.com/blog/posts/elevating-ai-assisted-android-development-and-improving-ll-ms-with-android-bench) We want to make it faster and easier for you to build high-quality Android apps, and one way we're helping you be more productive is by putting AI at your fingertips.
+-  [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) • 2 min read
+ [arrow_back](https://developer.android.com/blog/latest/2)
+ 
+ #### Page 3
+@@ -159,6 +162,7 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
+ - [#Automotive OS](https://developer.android.com/blog/topics/automotive-os)
+ - [#Adaptive \& Differentiated](https://developer.android.com/blog/topics/adaptive-and-differentiated)
+ - [#AppFunctions](https://developer.android.com/blog/topics/app-functions)
++- [#Google Play](https://developer.android.com/blog/topics/google-play)
+ - [#Memory](https://developer.android.com/blog/topics/memory)
+ - [#Nav3](https://developer.android.com/blog/topics/nav3)
+ - [#Now In Android](https://developer.android.com/blog/topics/now-in-android)
+@@ -170,7 +174,6 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
+ - [#Android XR SDK](https://developer.android.com/blog/topics/android-xr-sdk)
+ - [#Developer Preview](https://developer.android.com/blog/topics/developer-preview)
+ - [#Unity](https://developer.android.com/blog/topics/unity)
+-- [#Google Play](https://developer.android.com/blog/topics/google-play)
+ - [#Play Console](https://developer.android.com/blog/topics/play-console)
+ - [#Android Developers](https://developer.android.com/blog/topics/android-developers)
+ - [#Agent Skills](https://developer.android.com/blog/topics/agent-skills)
+@@ -183,6 +186,7 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
+ - [#Wired XR glasses](https://developer.android.com/blog/topics/wired-xr-glasses)
+ - [#Profiling Manager](https://developer.android.com/blog/topics/profiling-manager)
+ - [#Developer Preview 4](https://developer.android.com/blog/topics/developer-preview-4)
++- [#Agentic Android development](https://developer.android.com/blog/topics/agentic-android-development)
+ - [#authentication](https://developer.android.com/blog/topics/authentication)
+ - [#CredentialManager](https://developer.android.com/blog/topics/credential-manager)
+ - [#Foldables](https://developer.android.com/blog/topics/foldables)

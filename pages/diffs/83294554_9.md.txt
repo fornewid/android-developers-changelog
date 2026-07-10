@@ -1,0 +1,217 @@
+diff --git a/docs/blog/categories/product-news/9.md b/docs/blog/categories/product-news/9.md
+index ae360403..436f7b56 100644
+--- a/docs/blog/categories/product-news/9.md
++++ b/docs/blog/categories/product-news/9.md
+@@ -1,179 +1,60 @@
+ ---
+-title: Product News  |  Android Developers' Blog
++title: https://developer.android.com/blog/categories/product-news/9
+ url: https://developer.android.com/blog/categories/product-news/9
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-* [Android Developers' Blog](https://developer.android.com/)
+-* [Blog](https://developer.android.com/blog)
+-
+-Stay organized with collections
+-
+-Save and categorize content based on your preferences.
+-
+-
+-
+-![](/static/blog/assets/product_news_droid_599a11ad69_d4ee764ece_Z1EpVf1.webp)
++![](https://developer.android.com/static/blog/assets/product_news_droid_599a11ad69_d4ee764ece_Z1EpVf1.webp)
+ 
+ # Product News
+ 
+-Stay in the loop with the latest updates, feature releases, and behind-the-scenes looks at how we’re evolving.
+-
+-* [![View Charles Munger's profile](/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](/blog/authors/trevor-johns)
+-
+-  02
+-
+-  Mar
+-  2026
+-
+-  02
+-
+-  Mar
+-  2026
+-
+-  ![](/static/blog/assets/supercharge_99f4219536_Z2aoaib.webp)
+-
+-  ## [Supercharge your Android development with 6 expert tips for Gemini in Android Studio](/blog/posts/supercharge-your-android-development-with-6-expert-tips-for-gemini-in-android-studio)
+-
+-  [arrow\_forward](/blog/posts/supercharge-your-android-development-with-6-expert-tips-for-gemini-in-android-studio)
+-
+-  In January we announced Android Studio Otter 3 Feature Drop in stable, including Agent Mode enhancements and many other updates to provide more control and flexibility over using AI to help you build high quality Android apps.
+-
+-  [Trevor Johns](/blog/authors/trevor-johns)
+-  •
+-  4 min read
+-* [![View Matthew McCullough's profile](/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](/blog/authors/matthew-mccullough)
+-
+-  26
+-
+-  Feb
+-  2026
+-
+-  26
+-
+-  Feb
+-  2026
+-
+-  ![](/static/blog/assets/android17banner_359909419a_Z1HMAIH.webp)
+-
+-  ## [The Second Beta of Android 17](/blog/posts/the-second-beta-of-android-17)
+-
+-  [arrow\_forward](/blog/posts/the-second-beta-of-android-17)
+-
+-  Today we're releasing the second beta of Android 17, continuing our work to build a platform that prioritizes privacy, security, and refined performance.
+-
+-  [Matthew McCullough](/blog/authors/matthew-mccullough)
+-  •
+-  6 min read
+-* [![View Matthew McCullough's profile](/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](/blog/authors/matthew-mccullough)
+-
+-  25
+-
+-  Feb
+-  2026
++Stay in the loop with the latest updates, feature releases, and behind-the-scenes looks at how we're evolving.
++- [![View Charles Munger's profile](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](https://developer.android.com/blog/authors/trevor-johns) 02 Mar 2026 02 Mar 2026 ![](https://developer.android.com/static/blog/assets/supercharge_99f4219536_Z2aoaib.webp)
+ 
+-  25
++  ## [Supercharge your Android development with 6 expert tips for Gemini in Android Studio](https://developer.android.com/blog/posts/supercharge-your-android-development-with-6-expert-tips-for-gemini-in-android-studio)
+ 
+-  Feb
+-  2026
++  [arrow_forward](https://developer.android.com/blog/posts/supercharge-your-android-development-with-6-expert-tips-for-gemini-in-android-studio) In January we announced Android Studio Otter 3 Feature Drop in stable, including Agent Mode enhancements and many other updates to provide more control and flexibility over using AI to help you build high quality Android apps.
++  [Trevor Johns](https://developer.android.com/blog/authors/trevor-johns) • 4 min read
++- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 26 Feb 2026 26 Feb 2026 ![](https://developer.android.com/static/blog/assets/android17banner_359909419a_Z1HMAIH.webp)
+ 
+-  ![](/static/blog/assets/intelligent_OS_215691a288_G81Rr.webp)
++  ## [The Second Beta of Android 17](https://developer.android.com/blog/posts/the-second-beta-of-android-17)
+ 
+-  ## [The Intelligent OS: Making AI agents more helpful for Android apps](/blog/posts/the-intelligent-os-making-ai-agents-more-helpful-for-android-apps)
++  [arrow_forward](https://developer.android.com/blog/posts/the-second-beta-of-android-17) Today we're releasing the second beta of Android 17, continuing our work to build a platform that prioritizes privacy, security, and refined performance.
++  [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) • 6 min read
++- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 25 Feb 2026 25 Feb 2026 ![](https://developer.android.com/static/blog/assets/intelligent_OS_215691a288_G81Rr.webp)
+ 
+-  [arrow\_forward](/blog/posts/the-intelligent-os-making-ai-agents-more-helpful-for-android-apps)
++  ## [The Intelligent OS: Making AI agents more helpful for Android apps](https://developer.android.com/blog/posts/the-intelligent-os-making-ai-agents-more-helpful-for-android-apps)
+ 
+-  User expectations for AI on their devices are fundamentally shifting how they interact with their apps.
++  [arrow_forward](https://developer.android.com/blog/posts/the-intelligent-os-making-ai-agents-more-helpful-for-android-apps) User expectations for AI on their devices are fundamentally shifting how they interact with their apps.
++  [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) • 3 min read
++- [![View Charles Munger's profile](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](https://developer.android.com/blog/authors/charles-munger)[![View Shai Barack's profile](https://developer.android.com/static/blog/assets/shai_1d2925f4dc_ibtbq.webp)](https://developer.android.com/blog/authors/shai-barack) 17 Feb 2026 17 Feb 2026 ![](https://developer.android.com/static/blog/assets/Android_17_s_Lock_Free_Message_Queue_Blog_2169eab465_1EHW3E.webp)
+ 
+-  [Matthew McCullough](/blog/authors/matthew-mccullough)
+-  •
+-  3 min read
+-* [![View Charles Munger's profile](/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](/blog/authors/charles-munger)[![View Shai Barack's profile](/static/blog/assets/shai_1d2925f4dc_ibtbq.webp)](/blog/authors/shai-barack)
++  ## [Under the hood: Android 17's lock-free MessageQueue](https://developer.android.com/blog/posts/under-the-hood-android-17-lock-free-message-queue)
+ 
+-  17
++  [arrow_forward](https://developer.android.com/blog/posts/under-the-hood-android-17-lock-free-message-queue) In Android 17, apps targeting SDK 37 or higher will receive a new implementation of MessageQueue where the implementation is lock-free.
++  [Charles Munger](https://developer.android.com/blog/authors/charles-munger), [Shai Barack](https://developer.android.com/blog/authors/shai-barack) • 16 min read
++- [![View Miguel Montemayor's profile](https://developer.android.com/static/blog/assets/miguel_montemayor_552207c1c6_Z1tItyG.webp)](https://developer.android.com/blog/authors/miguel-montemayor) 13 Feb 2026 13 Feb 2026 ![](https://developer.android.com/static/blog/assets/a17beta_bfff40b895_20Bzrw.webp)
+ 
+-  Feb
+-  2026
++  ## [Prepare your app for the resizability and orientation changes in Android 17](https://developer.android.com/blog/posts/prepare-your-app-for-the-resizability-and-orientation-changes-in-android-17)
+ 
+-  17
++  [arrow_forward](https://developer.android.com/blog/posts/prepare-your-app-for-the-resizability-and-orientation-changes-in-android-17) With the release of Android 16 in 2025, we shared our vision for a device ecosystem where apps adapt seamlessly to any screen---whether it's a phone, foldable, tablet, desktop, car display, or XR. Users expect their apps to work everywhere.
++  [Miguel Montemayor](https://developer.android.com/blog/authors/miguel-montemayor) • 6 min read
++- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 13 Feb 2026 13 Feb 2026 ![](https://developer.android.com/static/blog/assets/android17banner_359909419a_Z1HMAIH.webp)
+ 
+-  Feb
+-  2026
++  ## [The First Beta of Android 17](https://developer.android.com/blog/posts/the-first-beta-of-android-17)
+ 
+-  ![](/static/blog/assets/Android_17_s_Lock_Free_Message_Queue_Blog_2169eab465_1EHW3E.webp)
+-
+-  ## [Under the hood: Android 17’s lock-free MessageQueue](/blog/posts/under-the-hood-android-17-lock-free-message-queue)
+-
+-  [arrow\_forward](/blog/posts/under-the-hood-android-17-lock-free-message-queue)
+-
+-  In Android 17, apps targeting SDK 37 or higher will receive a new implementation of MessageQueue where the implementation is lock-free.
+-
+-  [Charles Munger](/blog/authors/charles-munger),
+-  [Shai Barack](/blog/authors/shai-barack)
+-  •
+-  16 min read
+-* [![View Miguel Montemayor's profile](/static/blog/assets/miguel_montemayor_552207c1c6_Z1tItyG.webp)](/blog/authors/miguel-montemayor)
+-
+-  13
+-
+-  Feb
+-  2026
+-
+-  13
+-
+-  Feb
+-  2026
+-
+-  ![](/static/blog/assets/a17beta_bfff40b895_20Bzrw.webp)
+-
+-  ## [Prepare your app for the resizability and orientation changes in Android 17](/blog/posts/prepare-your-app-for-the-resizability-and-orientation-changes-in-android-17)
+-
+-  [arrow\_forward](/blog/posts/prepare-your-app-for-the-resizability-and-orientation-changes-in-android-17)
+-
+-  With the release of Android 16 in 2025, we shared our vision for a device ecosystem where apps adapt seamlessly to any screen—whether it’s a phone, foldable, tablet, desktop, car display, or XR. Users expect their apps to work everywhere.
+-
+-  [Miguel Montemayor](/blog/authors/miguel-montemayor)
+-  •
+-  6 min read
+-* [![View Matthew McCullough's profile](/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](/blog/authors/matthew-mccullough)
+-
+-  13
+-
+-  Feb
+-  2026
+-
+-  13
+-
+-  Feb
+-  2026
+-
+-  ![](/static/blog/assets/android17banner_359909419a_Z1HMAIH.webp)
+-
+-  ## [The First Beta of Android 17](/blog/posts/the-first-beta-of-android-17)
+-
+-  [arrow\_forward](/blog/posts/the-first-beta-of-android-17)
+-
+-  Today we're releasing the first beta of Android 17, continuing our work to build a platform that prioritizes privacy, security, and refined performance.
+-
+-  [Matthew McCullough](/blog/authors/matthew-mccullough)
+-  •
+-  7 min read
+-
+-[arrow\_back](/blog/categories/product-news/8)
++  [arrow_forward](https://developer.android.com/blog/posts/the-first-beta-of-android-17) Today we're releasing the first beta of Android 17, continuing our work to build a platform that prioritizes privacy, security, and refined performance.
++  [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) • 7 min read
++[arrow_back](https://developer.android.com/blog/categories/product-news/8)
+ 
+ #### Page 9
+ 
+ ###### of 17
+ 
+-[arrow\_forward](/blog/categories/product-news/10)
++[arrow_forward](https://developer.android.com/blog/categories/product-news/10) Stay in the loop
+ 
+-Stay in the loop
+ 
+ Get the latest Android development insights delivered to your inbox
+ weekly.
+-
+ [mail
+-Subscribe](/subscribe)
+-
+-![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file
++Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file

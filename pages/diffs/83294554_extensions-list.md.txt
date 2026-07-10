@@ -1,0 +1,22 @@
+diff --git a/docs/kotlin/ktx/extensions-list.md b/docs/kotlin/ktx/extensions-list.md
+index 3c7d6322..a2843763 100644
+--- a/docs/kotlin/ktx/extensions-list.md
++++ b/docs/kotlin/ktx/extensions-list.md
+@@ -1773,7 +1773,7 @@ dependencies {
+ 
+ ```groovy
+ dependencies {
+-    implementation "androidx.sqlite:sqlite-ktx:2.6.2"
++    implementation "androidx.sqlite:sqlite-ktx:2.7.0"
+ }
+ ```
+ 
+@@ -1781,7 +1781,7 @@ dependencies {
+ 
+ ```kotlin
+ dependencies {
+-    implementation("androidx.sqlite:sqlite-ktx:2.6.2")
++    implementation("androidx.sqlite:sqlite-ktx:2.7.0")
+ }
+ ```
+ 

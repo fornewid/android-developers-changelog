@@ -1,0 +1,13 @@
+diff --git a/docs/blog/categories/how-tos.md b/docs/blog/categories/how-tos.md
+index 2b2c3e59..a62a2303 100644
+--- a/docs/blog/categories/how-tos.md
++++ b/docs/blog/categories/how-tos.md
+@@ -4,7 +4,7 @@ url: https://developer.android.com/blog/categories/how-tos
+ source: md.txt
+ ---
+ 
+-![](https://developer.android.com/static/blog/assets/how_tos_droid_c6d92904ea_f980e65f04_ZS9BlE.webp)
++![](https://developer.android.com/static/blog/assets/how_tos_droid_c6d92904ea_f980e65f04_1vYn1P.webp)
+ 
+ # How-tos
+ 
