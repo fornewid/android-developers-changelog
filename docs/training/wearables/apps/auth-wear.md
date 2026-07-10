@@ -256,7 +256,9 @@ that follow:
 - Device Authorization Grant (DAG), as defined in [RFC 8628](https://datatracker.ietf.org/doc/html/rfc8628)
 
 > [!NOTE]
-> **Note:** To minimize the chance that your app shuts down when the Wear OS device goes into ambient mode, enable Always-on by implementing [`AmbientLifecycleObserver`](https://developer.android.com/reference/kotlin/androidx/wear/ambient/AmbientLifecycleObserver) for your app. For more information about best practices in ambient mode, see [Always-on apps and system ambient mode](https://developer.android.com/training/wearables/always-on).
+> **Note:** To minimize the chance that your app shuts down when the Wear OS device goes into ambient mode, you can [prevent the system from returning to the watch
+> face](https://developer.android.com/training/wearables/always-on#background) in your app. For more information about best practices in ambient mode, see [Always-on apps and system ambient
+> mode](https://developer.android.com/training/wearables/always-on).
 
 ##### Proof Key for Code Exchange (PKCE)
 

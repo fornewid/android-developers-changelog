@@ -24,7 +24,7 @@ Revamped Google Play Games Level Up, a new way we're elevating the player experi
 
 ### [Maximize Performance: Porting, Profiling, and 16KB Page Size Innovations for Android Games](https://www.youtube.com/watch?v=BcyBAzXfItk)
 
-**Optimize for Performance.** Join Google's Android team and Emil Kjær (FunDay Games) to master porting PC titles like Deep Rock Galactic: Survivor to mobile. Get an exclusive first look at our new System and GPU Profiler, explore the state of Vulkan, and learn how 16 KB page size support boosts performance across diverse architectures. Whether you're navigating Unity or Unreal, gain the practical strategies needed to supercharge your high-performance game on Android. [See our latest videos](https://www.youtube.com/playlist?list=PLWz5rJ2EKKc8Qh14aWnL5dy8UAnTp8AGV)
+**Optimize for Performance.** Join Google's Android team and Emil Kjæhr (Funday Games) to master porting PC titles like Deep Rock Galactic: Survivor to mobile. Get an exclusive first look at our new System and GPU Profiler, explore the state of Vulkan, and learn how 16 KB page size support boosts performance across diverse architectures. Whether you're navigating Unity or Unreal, gain the practical strategies needed to supercharge your high-performance game on Android. [See our latest videos](https://www.youtube.com/playlist?list=PLWz5rJ2EKKc8Qh14aWnL5dy8UAnTp8AGV)
 
 ## Priority workstreams
 

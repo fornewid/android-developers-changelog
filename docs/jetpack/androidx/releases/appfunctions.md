@@ -10,7 +10,7 @@ Allows apps to share functionality and data with AI assistants, enabling them to
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| May 06, 2026 | - | - | - | [1.0.0-alpha09](https://developer.android.com/jetpack/androidx/releases/appfunctions#1.0.0-alpha09) |
+| July 01, 2026 | - | - | - | [1.0.0-alpha10](https://developer.android.com/jetpack/androidx/releases/appfunctions#1.0.0-alpha10) |
 
 ## Declaring dependencies
 
@@ -25,11 +25,11 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.appfunctions:appfunctions:1.0.0-alpha09"
-    implementation "androidx.appfunctions:appfunctions-service:1.0.0-alpha09"
+    implementation "androidx.appfunctions:appfunctions:1.0.0-alpha10"
+    implementation "androidx.appfunctions:appfunctions-service:1.0.0-alpha10"
     // Use Kotlin Symbol Processing (KSP) for the appfunctions compiler plugin.
     // See https://kotlinlang.org/docs/ksp-quickstart.html to add KSP to your build
-    ksp "androidx.appfunctions:appfunctions-compiler:1.0.0-alpha09"
+    ksp "androidx.appfunctions:appfunctions-compiler:1.0.0-alpha10"
 }
 ```
 
@@ -37,11 +37,11 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.appfunctions:appfunctions:1.0.0-alpha09")
-    implementation("androidx.appfunctions:appfunctions-service:1.0.0-alpha09")
+    implementation("androidx.appfunctions:appfunctions:1.0.0-alpha10")
+    implementation("androidx.appfunctions:appfunctions-service:1.0.0-alpha10")
     // Use Kotlin Symbol Processing (KSP) for the appfunctions compiler plugin.
     // See https://kotlinlang.org/docs/ksp-quickstart.html to add KSP to your build
-    ksp("androidx.appfunctions:appfunctions-compiler:1.0.0-alpha09")
+    ksp("androidx.appfunctions:appfunctions-compiler:1.0.0-alpha10")
 }
 ```
 
@@ -63,6 +63,26 @@ for more information.
 There are no release notes for this artifact.
 
 ## Version 1.0
+
+### Version 1.0.0-alpha10
+
+July 01, 2026
+
+`androidx.appfunctions:appfunctions:1.0.0-alpha10`, `androidx.appfunctions:appfunctions-compiler:1.0.0-alpha10`, and `androidx.appfunctions:appfunctions-testing:1.0.0-alpha10` are released. Version 1.0.0-alpha10 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/05192460aef562f83eca3446674026b917977615..072655e27a9e07e74cc1493667526ee98f3de919/appfunctions).
+
+**API Changes**
+
+- Added `AppFunctionServiceEntryPoint`. All AppFunction annotation must be declared within the `AppFunctionService` that is annotated with `AppFunctionServiceEntryPoint` ([Idc5d5](https://android-review.googlesource.com/#/q/Idc5d5a5cc0f3a20f5d8f0e4387f8e6dd43a2f260), [b/463909015](https://issuetracker.google.com/issues/463909015))
+- Moved `AppFunction` and `AppFunctionConfiguration` APIs . `AppFunctionConfiguration` will be removed in future release as it will be replaced by `AppFunctionServiceEntryPoint` ([Iaff23](https://android-review.googlesource.com/#/q/Iaff2378a969f282d667f00db5f59ae3bb733de85), [I4cf3e](https://android-review.googlesource.com/#/q/I4cf3efd8a640ad221d2224dae3e09ae5e20b78e4), [b/517876475](https://issuetracker.google.com/issues/517876475))
+- Updated `AppFunctionService` API to support callback ([I6e0d7](https://android-review.googlesource.com/#/q/I6e0d71c9606633315664390e567b66f928fa0189), [b/519880977](https://issuetracker.google.com/issues/519880977))
+- Add `searchAppFunctions` API ([I8c0f9](https://android-review.googlesource.com/#/q/I8c0f99fd6f4c548b23dbbfa95c2bd55b4b995b31), [I1fa27](https://android-review.googlesource.com/#/q/I1fa27e6a02a8c70d7539796c14159f859e3c46f5), [b/494239238](https://issuetracker.google.com/issues/494239238))
+- Added `functionNames` to `AppFunctionSearchSpec` ([I95f53](https://android-review.googlesource.com/#/q/I95f535e4de738e45132eeab61a115d253e369b8a), [b/494239238](https://issuetracker.google.com/issues/494239238))
+- Added `AppFunctionInstruction` annotation ([I21120](https://android-review.googlesource.com/#/q/I21120525ca7f0be0307395ab0aa2f4905fff5c04), [b/488994214](https://issuetracker.google.com/issues/488994214))
+- Added `AppFunctionSignature` annotation and accompanying constants to declare runtime registered app function signatures. ([I82a05](https://android-review.googlesource.com/#/q/I82a0564aa3a8c7c227cd9527b8a2a70db4fe9621), [Ie2361](https://android-review.googlesource.com/#/q/Ie23619350211671447abdcc2f157c67912ada33e), [Ib6bb2](https://android-review.googlesource.com/#/q/Ib6bb2c7263026b537a5a322abaa57e45577847be))
+
+**Bug Fixes**
+
+- Omit `enabledByDefault` from generated XML for `AppFunctionSignatures` ([Ie2996](https://android-review.googlesource.com/#/q/Ie299615ae35eacf4cff5d1ce58e6bae5294962c7), [b/501032667](https://issuetracker.google.com/issues/501032667))
 
 ### Version 1.0.0-alpha09
 

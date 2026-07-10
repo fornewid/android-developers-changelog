@@ -41,7 +41,7 @@ Here are the primary differences for each API provider:
 
 [**Vertex AI Gemini API**](https://developer.android.com/ai/vertex-ai-firebase):
 
-- Granular control over [where you access the model](https://cloud.google.com/compute/docs/regions-zones).
+- Granular control over [where you access the model](https://firebase.google.com/docs/ai-logic/locations?api=vertex).
 - Ideal for developers already embedded in the Vertex AI/Google Cloud ecosystem.
 - Iterate and experiment with prompts and even get code snippets using [Vertex AI Studio](https://cloud.google.com/vertex-ai/generative-ai/docs/start/quickstarts/quickstart).
 
@@ -96,7 +96,7 @@ Futures.addCallback(response, new FutureCallback<GenerateContentResponse>() {
 
 <br />
 
-See the full [list of available generative AI models](https://firebase.google.com/docs/vertex-ai/models) supported
+See the full [list of available generative AI models](https://firebase.google.com/docs/ai-logic/models) supported
 by Firebase AI Logic client SDKs.
 
 ## Firebase services
@@ -107,7 +107,7 @@ ready for production:
 
 ### App Check
 
-[Firebase App Check](https://firebase.google.com/docs/app-check) safeguards app backends from abuse by
+[Firebase App Check](https://firebase.google.com/docs/ai-logic/app-check) safeguards app backends from abuse by
 ensuring only authorized clients access resources. It integrates with Google
 services (including Firebase and Google Cloud) and custom backends. App Check
 uses [Play Integrity](https://developer.android.com/google/play/integrity) to verify that requests originate from the authentic
@@ -116,19 +116,14 @@ app and an untampered device.
 ### Remote Config
 
 Instead of hardcoding the model name in your app, we recommend using a
-server-controlled variable using [Firebase Remote Config](https://firebase.google.com/docs/remote-config). This
+server-controlled variable using [Firebase Remote Config](https://firebase.google.com/docs/ai-logic/solutions/remote-config). This
 lets you dynamically update the model your app uses without having to deploy a
 new version of your app or require your users to pick up a new version. You can
 also use Remote Config to [A/B test](https://firebase.google.com/docs/ab-testing/abtest-config) models and prompts.
 
 ### AI monitoring
 
-To understand how your AI-enabled features are performing you can use the [AI
-monitoring dashboard](https://firebase.google.com/docs/vertex-ai/monitoring) within the Firebase console. You'll get
-valuable insights into usage patterns, performance metrics, and debugging
+To understand how your AI-enabled features are performing you can use the
+[AI monitoring dashboard](https://firebase.google.com/docs/ai-logic/monitoring) within the Firebase console. You'll
+get valuable insights into usage patterns, performance metrics, and debugging
 information for your Gemini API calls.
-
-## Migrate to Firebase AI Logic
-
-If you're already using the Vertex AI in Firebase SDK in your app, read the
-[migration guide](https://firebase.google.com/docs/vertex-ai/migrate-to-latest-sdk).

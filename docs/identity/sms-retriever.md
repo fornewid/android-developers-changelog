@@ -48,7 +48,7 @@ Add the [Google Play services](http://developer.google.com/android) dependency f
 
     dependencies {
       implementation 'com.google.android.gms:play-services-auth:21.6.0'
-      implementation 'com.google.android.gms:play-services-auth-api-phone:18.3.0'
+      implementation 'com.google.android.gms:play-services-auth-api-phone:18.3.1'
     }
 
 ## Obtain the user's phone number

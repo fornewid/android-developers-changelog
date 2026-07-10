@@ -10,7 +10,7 @@ source: md.txt
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| June 17, 2026 | [1.16.0](https://developer.android.com/jetpack/androidx/releases/webkit#1.16.0) | - | - | [1.17.0-alpha02](https://developer.android.com/jetpack/androidx/releases/webkit#1.17.0-alpha02) |
+| July 01, 2026 | [1.16.0](https://developer.android.com/jetpack/androidx/releases/webkit#1.16.0) | - | - | [1.17.0-alpha03](https://developer.android.com/jetpack/androidx/releases/webkit#1.17.0-alpha03) |
 
 ## Declaring dependencies
 
@@ -53,6 +53,21 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Webkit Version 1.17
+
+### Version 1.17.0-alpha03
+
+July 01, 2026
+
+`androidx.webkit:webkit:1.17.0-alpha03` is released. Version 1.17.0-alpha03 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/14c2f2ed81d0f61a3227641684cd875e95dd6529..f7668b81600bdf22bc975d3fc38e6fd22c94b585/webkit/webkit).
+
+**API Changes**
+
+- Added an `HttpCache` API, accessible via `Profile#getHttpCache`, providing the ability to query and manage the HTTP cache quota for a profile. This can benefit the performance and availability of apps which rely heavily on web-served static content, or alternatively reduce cache directory usage where HTTP caching is not needed. This feature requires `WebView` version M151 or higher. ([I40a7f](https://android-review.googlesource.com/#/q/I40a7fcc6370a80afab7e825ec6ec1ce7bca6950f), [b/501449506](https://issuetracker.google.com/issues/501449506))
+- Removed incorrect `@RequiresFeature` annotations on `ScriptHandler` and `UserAgentMetadata#getFormFactors`. ([Ib9550](https://android-review.googlesource.com/#/q/Ib955074b281a2f2f0ea92c31e5a9807ded2c5e4c))
+
+**Lint Checks**
+
+- Introduced a lint warning for unhandled `onRenderProcessGone` callback. This callback gives developers an opportunity to gracefully recover from a render process shutting down rather than crashing their app. A warning will be linted if a `WebViewClient` has been used but it has not overridden this callback. ([Ia4e41](https://android-review.googlesource.com/#/q/Ia4e4117807bfb34dad392d774a4041682059eb73))
 
 ### Version 1.17.0-alpha02
 

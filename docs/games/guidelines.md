@@ -328,7 +328,7 @@ Android form factors** with exemplary quality:
   Auto](https://www.android.com/auto/)
 
 > [!NOTE]
-> **Note:** this does not require distribution on Play on these Android form factors.
+> **Note:** Guidelines and exemptions for XR, TV, and Auto will be published later in 2026. Google Play cannot review exemption requests for XR, TV, and Auto guidelines until details are published.
 
 #### Exemptions
 
@@ -471,7 +471,7 @@ On devices that have updated graphics drivers, where `DEQP`≥`20240301`:
 
 - **Vulkan must be set as the primary graphics API** if you are using **Unity
   version 2021 or newer** , or **Unreal Engine version 4.25 or newer** . Minor OpenGL ES usage (For example, for Adverts, webviews, etc) is acceptable as long as its \<10% of frames.
-  - Instead of using Vulkan directly, games using Unity's Built-in Render Pipeline may opt-in to using ANGLE for Android 17+ devices. These games have until **September 30, 2027** to set Vulkan as the primary graphics API. Transitioning to Unity's Universal Render Pipeline is highly recommended to achieve this but is not the only permissible path.
+  - Instead of using Vulkan directly, games using Unity's Built-in Render Pipeline may opt-in to using [ANGLE](https://github.com/google/angle) for Android 17+ devices. These games have until **September 30, 2027** to set Vulkan as the primary graphics API. Transitioning to Unity's Universal Render Pipeline is highly recommended to achieve this but is not the only permissible path.
 - All other games can decide to either use Vulkan as the primary graphics API
   or opt-in to using ANGLE for Android 17+ devices. To opt in to use ANGLE
   modify the app's manifest file as follows:

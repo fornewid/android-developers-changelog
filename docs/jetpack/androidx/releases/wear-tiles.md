@@ -6,13 +6,11 @@ source: md.txt
 
 # Wear Tiles
 
-[User Guide](https://developer.android.com/training/wearables) [Code Sample](https://github.com/android/wear-os-samples) API Reference  
-[androidx.wear.tiles](https://developer.android.com/reference/kotlin/androidx/wear/tiles/package-summary)  
-Create applications for Wear OS by Google smartwatches.
+[User Guide](https://developer.android.com/training/wearables) [Code Sample](https://github.com/android/wear-os-samples) Create applications for Wear OS by Google smartwatches.
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| March 11, 2026 | [1.5.0](https://developer.android.com/jetpack/androidx/releases/wear-tiles#1.5.0) | [1.6.0-rc02](https://developer.android.com/jetpack/androidx/releases/wear-tiles#1.6.0-rc02) | - | - |
+| July 01, 2026 | [1.6.1](https://developer.android.com/jetpack/androidx/releases/wear-tiles#1.6.1) | - | - | - |
 
 ## Declaring dependencies
 
@@ -28,22 +26,22 @@ your app or module:
 ```groovy
 dependencies {
     // Use to implement support for wear tiles
-    implementation "androidx.wear.tiles:tiles:1.5.0"
+    implementation "androidx.wear.tiles:tiles:1.6.1"
 
     // Use to utilize standard components and layouts in your tiles
-    implementation "androidx.wear.protolayout:protolayout:1.3.0"
+    implementation "androidx.wear.protolayout:protolayout:1.4.1"
 
     // Use to utilize components and layouts with Material Design in your tiles
-    implementation "androidx.wear.protolayout:protolayout-material:1.3.0"
+    implementation "androidx.wear.protolayout:protolayout-material:1.4.1"
 
     // Use to include dynamic expressions in your tiles
-    implementation "androidx.wear.protolayout:protolayout-expression:1.3.0"
+    implementation "androidx.wear.protolayout:protolayout-expression:1.4.1"
 
     // Use to preview wear tiles in your own app
-    debugImplementation "androidx.wear.tiles:tiles-renderer:1.5.0"
+    debugImplementation "androidx.wear.tiles:tiles-renderer:1.6.1"
 
     // Use to fetch tiles from a tile provider in your tests
-    testImplementation "androidx.wear.tiles:tiles-testing:1.5.0"
+    testImplementation "androidx.wear.tiles:tiles-testing:1.6.1"
 }
 ```
 
@@ -52,22 +50,22 @@ dependencies {
 ```kotlin
 dependencies {
     // Use to implement support for wear tiles
-    implementation("androidx.wear.tiles:tiles:1.5.0")
+    implementation("androidx.wear.tiles:tiles:1.6.1")
 
     // Use to utilize standard components and layouts in your tiles
-    implementation("androidx.wear.protolayout:protolayout:1.3.0")
+    implementation("androidx.wear.protolayout:protolayout:1.4.1")
 
     // Use to utilize components and layouts with Material Design in your tiles
-    implementation("androidx.wear.protolayout:protolayout-material:1.3.0")
+    implementation("androidx.wear.protolayout:protolayout-material:1.4.1")
 
     // Use to include dynamic expressions in your tiles
-    implementation("androidx.wear.protolayout:protolayout-expression:1.3.0")
+    implementation("androidx.wear.protolayout:protolayout-expression:1.4.1")
 
     // Use to preview wear tiles in your own app
-    debugImplementation("androidx.wear.tiles:tiles-renderer:1.5.0")
+    debugImplementation("androidx.wear.tiles:tiles-renderer:1.6.1")
 
     // Use to fetch tiles from a tile provider in your tests
-    testImplementation("androidx.wear.tiles:tiles-testing:1.5.0")
+    testImplementation("androidx.wear.tiles:tiles-testing:1.6.1")
 }
 ```
 
@@ -87,6 +85,39 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.6
+
+### Version 1.6.1
+
+July 01, 2026
+
+`androidx.wear.tiles:tiles-*:1.6.1` is released. Version 1.6.1 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/50d7308cb64d77392a80697500e504863780ca24..81d018cf57252f81bc13a95eb11dc08f2e3bf723/wear/tiles).
+
+**Vulnerability \& Security Fixes**
+
+- Fixed a potential `IllegalStateException` race condition in `TilesConnectionBinder` that occurred during service connection callbacks called from unexpected threads.
+
+### Version 1.6.0
+
+March 25, 2026
+
+`androidx.wear.tiles:tiles-*:1.6.0` is released. Version 1.6.0 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/90062705131fa122cdd8d9bed30380b183dc48bd..c09828fdac182a17e5c9410b518c3c7e6f35a88a/wear/tiles).
+
+**Important changes since 1.5.0:**
+
+For full details of changes since 1.5.0, see [the 1.6.0-beta01 release notes](https://developer.android.com/jetpack/androidx/releases/wear-tiles#1.6.0-beta01).
+
+**New features**
+
+The 1.6.0-beta01 release of Wear Tiles indicates that this release of the library is feature-complete and the API is locked (except where marked as experimental). Wear Tiles 1.6 includes the following new functionalities and APIs:
+
+- **Inlined Resource Handling and performance improvements:** Tiles now support automatic resource collection through `ProtoLayoutScope`.
+- **Material3TileService:** Introduced a new, Kotlin-friendly service for creating tiles. It simplifies development by providing a single suspend function to return both tile layout and resources. It automatically manages the `MaterialScope` and `ProtoLayoutScope` for better resource handling and performance improvements on faster Tiles loading.
+- **Tile Previews Update:** Tooling for Tile Previews has been updated to support the new `ProtoLayoutScope` automatic resource handling, ensuring previews reflect inlined resources correctly without extra configuration.
+- **Many Kotlin DSL Improvements:** Added specialized Kotlin helpers for `Tile` and all other APIs needed to build a tile (such as `Timeline`) to improve the developer experience for Kotlin users.
+- **Dynamic Service Switching:** Introduced `METADATA_GROUP_KEY`, allowing developers to group multiple `TileService` instances in the manifest. This enables dynamic switching between different services that represent the same tile on new OS versions.
+- **Tile ID in Updates:** Developers can now specify a particular `tileId` in update requests, allowing for more granular control over which tile instances are refreshed.
+- **Increased Compile SDK:** To support the new `Material3TileService` and advanced resource handling, the `compileSdk` version requirement has been increased to **35**.
+- **ANR Prevention:** Moved the unbinding logic during Tile update requests to a background thread to prevent "Application Not Responding" (ANR) errors.
 
 ### Version 1.6.0-rc02
 

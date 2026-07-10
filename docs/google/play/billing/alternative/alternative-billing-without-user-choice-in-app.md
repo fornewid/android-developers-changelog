@@ -35,9 +35,13 @@ modifications:
 ### Kotlin
 
 
-    var billingClient = BillingClient.newBuilder(context)
-        .enableAlternativeBillingOnly()
-        .build()
+```kotlin
+var billingClient = BillingClient.newBuilder(context)
+    .enableAlternativeBillingOnly()
+    .build()
+```
+
+<br />
 
 ### Java
 
@@ -63,20 +67,25 @@ respond to other response codes.
 ### Kotlin
 
 
-    billingClient.isAlternativeBillingOnlyAvailableAsync(object:
-        AlternativeBillingOnlyAvailabilityListener {
-            override fun onAlternativeBillingOnlyAvailabilityResponse(
-                billingResult: BillingResult) {
-                if (billingResult.responseCode !=  BillingResponseCode.OK) {
-                    // Handle failures such as retrying due to network errors,
-                    // handling alternative billing only being unavailable, etc.
-                    return
-                }
+```kotlin
+billingClient.isAlternativeBillingOnlyAvailableAsync(object :
+    AlternativeBillingOnlyAvailabilityListener {
+    override fun onAlternativeBillingOnlyAvailabilityResponse(
+        billingResult: BillingResult
+    ) {
+        if (billingResult.responseCode != BillingResponseCode.OK) {
+            // Handle failures such as retrying due to network errors,
+            // handling alternative billing only being unavailable, etc.
+            return
+        }
 
-                // Alternative billing only is available. Continue with steps in
-                // the guide.
-            }
-        });
+        // Alternative billing only is available. Continue with steps in
+        // the guide.
+    }
+})
+```
+
+<br />
 
 ### Java
 
@@ -119,21 +128,24 @@ such as if the user clears caches on their device.
 ### Kotlin
 
 
-    // An activity reference from which the alternative billing only information
-    // dialog will be launched.
-    val activity : Activity = ...;
+```kotlin
+// An activity reference from which the alternative billing only information
+// dialog will be launched.
+val activity: Activity = this.activity
 
-    val listener : AlternativeBillingOnlyInformationDialogListener =
-        AlternativeBillingOnlyInformationDialogListener { 
-            override fun onAlternativeBillingOnlyInformationDialogResponse(
-                billingResult: BillingResult) {
-                // check billingResult
-            }
+val listener: AlternativeBillingOnlyInformationDialogListener =
+    AlternativeBillingOnlyInformationDialogListener { billingResult ->
+        // check billingResult
     }
 
-    val billingResult =
-        billingClient.showAlternativeBillingOnlyInformationDialog(activity,
-            listener)
+val billingResult =
+    billingClient.showAlternativeBillingOnlyInformationDialog(
+        activity,
+        listener
+    )
+```
+
+<br />
 
 ### Java
 
@@ -176,24 +188,28 @@ existing subscription. To learn how to report a transaction once an
 
 ### Kotlin
 
-    billingClient.createAlternativeBillingOnlyReportingDetailsAsync(object:
-        AlternativeBillingOnlyReportingDetailsListener {
-            override fun onAlternativeBillingOnlyTokenResponse(
-                billingResult: BillingResult,
-                alternativeBillingOnlyReportingDetails:
-                    AlternativeBillingOnlyReportingDetails?) {
-                if (billingResult.responseCode !=  BillingResponseCode.OK) {
-                    // Handle failures such as retrying due to network errors.
-                    return
-                }
 
-                val externalTransactionToken =
-                    alternativeBillingOnlyReportingDetails?
-                        .externalTransactionToken
+```kotlin
+billingClient.createAlternativeBillingOnlyReportingDetailsAsync(object :
+    AlternativeBillingOnlyReportingDetailsListener {
+    override fun onAlternativeBillingOnlyTokenResponse(
+        billingResult: BillingResult,
+        alternativeBillingOnlyReportingDetails: AlternativeBillingOnlyReportingDetails?
+    ) {
+        if (billingResult.responseCode != BillingResponseCode.OK) {
+            // Handle failures such as retrying due to network errors.
+            return
+        }
 
-                // Send transaction token to backend and report to Google Play.
-            }
-        });
+        val externalTransactionToken =
+            alternativeBillingOnlyReportingDetails?.externalTransactionToken
+
+        // Send transaction token to backend and report to Google Play.
+    }
+})
+```
+
+<br />
 
 ### Java
 

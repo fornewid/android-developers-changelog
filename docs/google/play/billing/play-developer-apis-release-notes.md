@@ -6,6 +6,26 @@ source: md.txt
 
 This document contains release notes for the Google Play Developer APIs.
 
+## July 06, 2026
+
+### New features
+
+- **Updates to chargeback cost responsibility** : Google Play now
+  supports a [collaborative chargeback](https://developer.android.com/google/play/billing/provide-refund-and-chargeback-suggestions)
+  dispute process.
+
+  - **Pending refund review notifications** : A new real-time developer
+    notification (RTDN) type, [`PendingRefundReviewNotification`](https://developer.android.com/google/play/billing/rtdn-reference#pending-refund-review), is
+    sent when a user requests a chargeback that requires your
+    review. Pending reviews support only `CHARGEBACK` as the refund reason.
+
+  - **ReviewRefund API** : You can evaluate these requests and respond within
+    24 hours by calling the new [`orders.reviewrefund`](https://developers.google.com/android-publisher/api-ref/rest/v3/orders/reviewrefund) API. In the API
+    call, you must provide a refund preference (such as `APPROVE`,
+    `DECLINE`, or `NEUTRAL`) and any relevant purchase usage evidence (such
+    as user IP address, cumulative consumption percentage, and coarse
+    geographic location) to help Google Play dispute the chargeback.
+
 ## May 19, 2026
 
 ### New features
@@ -14,25 +34,25 @@ This document contains release notes for the Google Play Developer APIs.
 
 ### Deprecations
 
-- Some of the subscription APIs are deprecated. For more information, see [May 2026 Subscription API deprecation](https://developer.android.com/google/play/billing/play-developer-apis-deprecations#may19-2026-api-deprecation).
+- Some of the subscription APIs are deprecated. For more information, see [May
+  2026 Subscription API deprecation](https://developer.android.com/google/play/billing/play-developer-apis-deprecations#may19-2026-api-deprecation).
 
 ## January 27, 2026
 
 ### New features
 
 - **Subscription with add-ons deferral** : Previously, the Google Play
-  Developer API allowed deferral of billing only for single subscriptions.
-  The deferral functionality is now available for both single subscriptions
-  and subscriptions with add-ons through the
+  Developer API allowed deferral of billing only for single subscriptions. The
+  deferral functionality is now available for both single subscriptions and
+  subscriptions with add-ons through the
   [`purchases.subscriptionsv2.defer`](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.subscriptionsv2/defer) method. When you defer the billing
-  date of a subscription with add-ons, the billing
-  date for all items in the subscription are deferred by the
-  specified duration.
+  date of a subscription with add-ons, the billing date for all items in the
+  subscription are deferred by the specified duration.
 
-- **OfferPhase** : The `OfferPhase` field is now available in
-  the [SubscriptionPurchaseV2](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.subscriptionsv2/get) API. This field provides the current offer
-  phase of the subscription as one of prorated period, free trial,
-  introductory price and base plan price.
+- **OfferPhase** : The `OfferPhase` field is now available in the
+  [SubscriptionPurchaseV2](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.subscriptionsv2/get) API. This field provides the current offer phase
+  of the subscription as one of prorated period, free trial, introductory
+  price and base plan price.
 
 ## November 19, 2025
 

@@ -10,7 +10,7 @@ source: md.txt
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| June 24, 2026 | [1.10.1](https://developer.android.com/jetpack/androidx/releases/media3#1.10.1) | - | - | [1.11.0-alpha01](https://developer.android.com/jetpack/androidx/releases/media3#1.11.0-alpha01) |
+| July 7, 2026 | [1.10.1](https://developer.android.com/jetpack/androidx/releases/media3#1.10.1) | - | [1.11.0-beta01](https://developer.android.com/jetpack/androidx/releases/media3#1.11.0-beta01) | [1.11.0-alpha01](https://developer.android.com/jetpack/androidx/releases/media3#1.11.0-alpha01) |
 
 ## Declaring dependencies
 
@@ -204,6 +204,45 @@ Your feedback helps make Jetpack better. You can use the
 to questions, known issues and feature requests, and to file new issues.
 
 ## Version 1.11.0
+
+### 1.11.0-beta01
+
+July 7, 2026
+
+- ExoPlayer:
+  - Add `Format.selectionPriority` representing the relative preference of the `Format` in track selection ([#3236](https://github.com/androidx/media/pull/3236)).
+- Track Selection:
+  - Fix a timing-dependent concurrency issue where rapid sequential updates to track selection parameters could result in some updates being lost or overwritten.
+- Extractors:
+  - AVI: Fix an issue where playing files without keyframe flags on audio tracks caused audio loss and `OutOfMemoryError`.
+  - MP3: Use gapless-aware durations from Xing/Info headers ([#3183](https://github.com/androidx/media/issues/3183)).
+  - MP3: Adjust LAME/Xing encoder delay and padding metadata to match decoded PCM trimming ([#3200](https://github.com/androidx/media/pull/3200)).
+- Audio:
+  - Remove fallback path of EAC3-JOC to EAC3 for playback on Google Pixel devices as their standard EAC3 decoders cannot decode EAC3-JOC streams ([#3257](https://github.com/androidx/media/pull/3257)).
+- Video:
+  - Fix bug in `VideoFrameReleaseHelper` where display changes could trigger redundant `Choreographer` callbacks and excessive CPU wakeups on the main thread.
+- Session:
+  - Fix double-downscaling of artwork in `MediaSession` when the image size is close to the platform limit, resolving blurriness in notifications ([#3134](https://github.com/androidx/media/issues/3134)).
+  - Fix `ForegroundServiceStartNotAllowedException` crash in `MediaNotificationManager` when an asynchronous artwork bitmap load callback attempts to start the foreground service while the app is in the background ([#3270](https://github.com/androidx/media/issues/3270)).
+  - Fix an issue where `PositionInfo` objects received by a `MediaController` were missing their original `Timeline` UIDs. The session now reliably translates and propagates these UIDs during state updates.
+- UI:
+  - Fix shutter suppression bug in `PlayerView` and Compose `PresentationState` that caused crashes on timelines that do not support period UID lookup ([#3264](https://github.com/androidx/media/issues/3264)).
+- HLS extension:
+  - Parse `SCORE` attribute of `EXT-X-STREAM-INF` and `EXT-X-I-FRAME-STREAM-INF`, and populate it to `Format.selectionPriority` ([#3236](https://github.com/androidx/media/pull/3236)).
+  - Fix bug where scheduled HLS playlist refreshes continue even if the playlist is no longer primary or active ([#3254](https://github.com/androidx/media/issues/3254)).
+- DASH extension:
+  - Add support for parsing multiple `Location` elements from the manifest (MPD) and performing location fallback in `DashMediaSource` when manifest loads fail.
+- Decoder extensions (FFmpeg, VP9, AV1, etc.):
+  - Add monochrome video support to bundled dav1d JNI.
+- Cast extension:
+  - Add `MediaRouteButtonState` and `rememberMediaRouteButtonState` to support observing the visibility state of the media route picker, and add `state` parameter to `MediaRouteButton` ([3172](https://github.com/androidx/media/issues/3172)).
+  - Fix bug where `RemoteCastPlayer` could get permanently stuck in a track-masking state after a track selection, causing it to ignore subsequent track updates from the Cast receiver ([#3237](https://github.com/androidx/media/issues/3237)).
+  - Fix bug where `DefaultMediaItemConverter` throws a `NullPointerException` when trying to join a cast session started from a non-Media3 sender.
+  - Prevent `CastPlayer` from transferring `MediaItems` that are not playable when changing the active player ([#3199](https://github.com/androidx/media/issues/3199)).
+- Test Utilities:
+  - Add `setPlaybackLooper` to `TestExoPlayerBuilder`.
+- Remove deprecated symbols:
+  - Remove `androidx.media3.common.C.generateAudioSessionIdV21`. Use `androidx.media3.common.util.Util.generateAudioSessionId` instead.
 
 ### 1.11.0-alpha01
 

@@ -195,8 +195,8 @@ For most use cases, this is enough for users to have a good experience and save
 battery life.
 
 In some cases, you might need your app to be visible for longer, for example,
-during an entire workout. For these cases, use [`AmbientLifecycleObserver`](https://developer.android.com/reference/androidx/wear/ambient/AmbientLifecycleObserver).
-For more information, see [Keep your app visible on Wear](https://developer.android.com/training/wearables/apps/always-on).
+during an entire workout. For these cases, you can [prevent the system from
+returning to the watch face](https://developer.android.com/training/wearables/always-on#manage-screen-on).
 
 ### Don't hold a wake lock
 

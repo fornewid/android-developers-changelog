@@ -52,6 +52,11 @@ The following devices are known to support MTE:
 - Pixel 9 Pro XL (Komodo)
 - Pixel 9 Pro Fold (Comet)
 - Pixel 9a (Tegu)
+- Pixel 10 (Frankel)
+- Pixel 10 Pro (Blazer)
+- Pixel 10 Pro XL (Mustang)
+- Pixel 10 Pro Fold (Rango)
+- Pixel 10a (Stallion)
 
 ## MTE operating modes
 

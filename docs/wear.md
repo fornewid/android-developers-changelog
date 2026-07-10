@@ -44,9 +44,9 @@ Find out how to assess the quality of your app and fulfill the upcoming requirem
 
 [![](http://developer.android.com/static/wear/images/callouts/wear-new-features.svg)](http://developer.android.com/training/wearables/versions/latest)
 
-### [Wear OS 6.1](http://developer.android.com/training/wearables/versions/latest)
+### [Wear OS 7](http://developer.android.com/training/wearables/versions/latest)
 
-The latest version of Wear OS---complete with location-based time zone detection and enhanced experiences for kids---is here! Test your app using the official emulator in Android Studio. [Get your apps ready](http://developer.android.com/training/wearables/versions/latest)
+The latest version of Wear OS---complete with dynamic Wear OS widgets and Live Updates---is here! Test your app using the official emulator in Android Studio. [Get your apps ready](http://developer.android.com/training/wearables/versions/latest)
 
 ## Highlighted samples \& codelabs
 

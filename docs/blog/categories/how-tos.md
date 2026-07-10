@@ -4,7 +4,7 @@ url: https://developer.android.com/blog/categories/how-tos
 source: md.txt
 ---
 
-![](https://developer.android.com/static/blog/assets/how_tos_droid_c6d92904ea_f980e65f04_ZS9BlE.webp)
+![](https://developer.android.com/static/blog/assets/how_tos_droid_c6d92904ea_f980e65f04_1vYn1P.webp)
 
 # How-tos
 

@@ -10,7 +10,7 @@ Remote Compose is a framework to create UI for remote surfaces
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| June 17, 2026 | - | - | - | [1.0.0-alpha13](https://developer.android.com/jetpack/androidx/releases/compose-remote#1.0.0-alpha13) |
+| July 01, 2026 | - | - | - | [1.0.0-alpha14](https://developer.android.com/jetpack/androidx/releases/compose-remote#1.0.0-alpha14) |
 
 ## Declaring dependencies
 
@@ -26,20 +26,20 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.compose.remote:remote-core:1.0.0-alpha13"
+    implementation "androidx.compose.remote:remote-core:1.0.0-alpha14"
 
     // Use to create Remote Compose documents
-    implementation "androidx.compose.remote:remote-creation:1.0.0-alpha13"
-    implementation "androidx.compose.remote:remote-creation-core:1.0.0-alpha13"
-    implementation "androidx.compose.remote:remote-creation-android:1.0.0-alpha13"
-    implementation "androidx.compose.remote:remote-creation-jvm:1.0.0-alpha13"
-    implementation "androidx.compose.remote:remote-creation-compose:1.0.0-alpha13"
+    implementation "androidx.compose.remote:remote-creation:1.0.0-alpha14"
+    implementation "androidx.compose.remote:remote-creation-core:1.0.0-alpha14"
+    implementation "androidx.compose.remote:remote-creation-android:1.0.0-alpha14"
+    implementation "androidx.compose.remote:remote-creation-jvm:1.0.0-alpha14"
+    implementation "androidx.compose.remote:remote-creation-compose:1.0.0-alpha14"
 
     // Use to render a Remote Compose document
-    implementation "androidx.compose.remote:remote-player-core:1.0.0-alpha13"
-    implementation "androidx.compose.remote:remote-player-view:1.0.0-alpha13"
+    implementation "androidx.compose.remote:remote-player-core:1.0.0-alpha14"
+    implementation "androidx.compose.remote:remote-player-view:1.0.0-alpha14"
 
-    implementation "androidx.compose.remote:remote-tooling-preview:1.0.0-alpha13"
+    implementation "androidx.compose.remote:remote-tooling-preview:1.0.0-alpha14"
 }
 ```
 
@@ -47,20 +47,20 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.compose.remote:remote-core:1.0.0-alpha13")
+    implementation("androidx.compose.remote:remote-core:1.0.0-alpha14")
 
     // Use to create Remote Compose documents
-    implementation("androidx.compose.remote:remote-creation:1.0.0-alpha13")
-    implementation("androidx.compose.remote:remote-creation-core:1.0.0-alpha13")
-    implementation("androidx.compose.remote:remote-creation-android:1.0.0-alpha13")
-    implementation("androidx.compose.remote:remote-creation-jvm:1.0.0-alpha13")
-    implementation("androidx.compose.remote:remote-creation-compose:1.0.0-alpha13")
+    implementation("androidx.compose.remote:remote-creation:1.0.0-alpha14")
+    implementation("androidx.compose.remote:remote-creation-core:1.0.0-alpha14")
+    implementation("androidx.compose.remote:remote-creation-android:1.0.0-alpha14")
+    implementation("androidx.compose.remote:remote-creation-jvm:1.0.0-alpha14")
+    implementation("androidx.compose.remote:remote-creation-compose:1.0.0-alpha14")
 
     // Use to render a Remote Compose document
-    implementation("androidx.compose.remote:remote-player-core:1.0.0-alpha13")
-    implementation("androidx.compose.remote:remote-player-view:1.0.0-alpha13")
+    implementation("androidx.compose.remote:remote-player-core:1.0.0-alpha14")
+    implementation("androidx.compose.remote:remote-player-view:1.0.0-alpha14")
 
-    implementation("androidx.compose.remote:remote-tooling-preview:1.0.0-alpha13")
+    implementation("androidx.compose.remote:remote-tooling-preview:1.0.0-alpha14")
 }
 ```
 
@@ -81,6 +81,33 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.0
+
+### Version 1.0.0-alpha14
+
+July 01, 2026
+
+`androidx.compose.remote:remote-*:1.0.0-alpha14` is released. Version 1.0.0-alpha14 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/14c2f2ed81d0f61a3227641684cd875e95dd6529..19660b9e1b2fec4a9528fe80ce0a432c0fa2f825/compose/remote).
+
+**API Changes**
+
+- Exposed `RemoteDensityBehavior` and density-behavior-aware constructors in `RemoteCreationDisplayInfo` as public APIs. ([Iafca2](https://android-review.googlesource.com/#/q/Iafca2bc0a818adc3221019ae10d231a5b5cff936), [b/524921038](https://issuetracker.google.com/issues/524921038))
+- Exposed `densityBehavior` in `RemoteCreationDisplayInfo` and `RemoteComposeCreationState`. ([Iae938](https://android-review.googlesource.com/#/q/Iae938d26aee08db4a59a6d396432f5a262cb723d), [b/524921038](https://issuetracker.google.com/issues/524921038))
+- Made `RemoteComposeCreationComposeFlags` public. ([I1f899](https://android-review.googlesource.com/#/q/I1f899d3ca7d8a6ab7dfb8af097c09fcd495bad6a), [b/467532762](https://issuetracker.google.com/issues/467532762))
+
+**Bug Fixes**
+
+- Added lint check to warn about usage of standard Compose `CompositionLocals` in @`RemoteComposable`. ([Ic12ba](https://android-review.googlesource.com/#/q/Ic12bac59c6fc1097287169b70f88a5c94fb8feb4))
+- Remove requirement for `compileSdk 37` ([If78b4](https://android-review.googlesource.com/#/q/If78b4fbdec15e6b1d6ad34a487ae10b2e2494325))
+- Removed obsolete `rememberRemoteStringList` documentation. ([I99722](https://android-review.googlesource.com/#/q/I997226c23a46b4ac4de259149f475e5f3b0c1cb0))
+- Fixed font weight adjustment rendering when adjustment is undefined. ([I16704](https://android-review.googlesource.com/#/q/I167040c9f4d0f2ad0b4bb62e9bdba3bf9fe8a990), [b/522050705](https://issuetracker.google.com/issues/522050705))
+- Aligned `BorderModifier` to Compose behavior to draw inside the component bounds. ([Iae36c](https://android-review.googlesource.com/#/q/Iae36c594ac9584e6c22137f333c0777d6a6a6964))
+- Fixed `RemoteComposeWriter` to serialize `DOC_PROFILES` in the constructor. ([I3bbea](https://android-review.googlesource.com/#/q/I3bbead427c7c5912fdf9b814c170e2173c0291e1))
+- Fixed `RemoteModifier.background` native support for dynamic colors. ([If4f04](https://android-review.googlesource.com/#/q/If4f047c8adda89450ba6e3f77610eb47267a607e), [b/499049643](https://issuetracker.google.com/issues/499049643))
+
+**Features**
+- Added `typefaceResolver` parameter to `RemoteDocumentPlayer`. ([Ie7cda](https://android-review.googlesource.com/#/q/Ie7cdaac587f703fd117276d2bd5ef60b6a6a6964), [b/524621320](https://issuetracker.google.com/issues/524621320))
+- Added custom component support for the Compose player. ([Ic0559](https://android-review.googlesource.com/#/q/Ic055912ecb7002f8f8a1c71d59283709c3fc563e))
+- Optimized select operations where both alternatives are the same. ([I55b9e](https://android-review.googlesource.com/#/q/I55b9e1cfeb8f22d841ade26762727eeade54ed01), [b/390355362](https://issuetracker.google.com/issues/390355362))
 
 ### Version 1.0.0-alpha13
 

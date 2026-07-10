@@ -19,7 +19,7 @@ Firebase, another arrow points to Gemini Developer API, which is connected to
 Gemini Pro & Flash, also within the Cloud.](https://developer.android.com/static/ai/assets/images/firebase-ai-logic-gemini-dev.svg) **Figure 1.** Firebase AI Logic integration architecture to access the Gemini Developer API.
 
 > [!NOTE]
-> **Note:** If you have strict [data location](https://cloud.google.com/compute/docs/regions-zones) requirements or are already using Vertex AI, you can look at the support of Vertex AI Gemini API as an API provider for the [Firebase AI Logic](https://firebase.google.com/docs/vertex-ai/get-started?platform=android) SDK.
+> **Note:** If you have strict [data location](https://firebase.google.com/docs/ai-logic/locations?api=vertex) requirements or are already using Vertex AI, you can look at the support of Vertex AI Gemini API as an API provider for the [Firebase AI Logic SDK](https://developer.android.com/ai/vertex-ai-firebase).
 
 ### Getting started
 
@@ -36,7 +36,7 @@ for your app's use cases.
 
 Creating effective prompts for your use case involves extensive experimentation,
 which is a critical part of the process. You can learn more about prompting in
-the [Firebase documentation](https://firebase.google.com/docs/vertex-ai/prompt-design).
+the [Firebase documentation](https://firebase.google.com/docs/ai-logic/prompt-design).
 
 Once you are happy with your prompt, click the **\<\>** button to get code
 snippets that you can add to your code.
@@ -44,55 +44,107 @@ snippets that you can add to your code.
 ### Set up a Firebase project and connect your app to Firebase
 
 Once you're ready to call the API from your app, follow the instructions in
-"Step 1" of the [Firebase AI Logic getting started guide](https://firebase.google.com/docs/vertex-ai/get-started?platform=android) to set up Firebase
-and the SDK in your app.
+"Step 1" of the [Firebase AI Logic getting started guide](https://firebase.google.com/docs/ai-logic/get-started?api=dev#set-up-firebase) to set up Firebase
+and enable required APIs and services.
 
-### Add the Gradle dependency
+### Add the Gradle dependencies
 
-Add the following Gradle dependency to your app module:
+Add the following Gradle dependencies to your app module:
 
 ### Kotlin
 
-```kotlin
-dependencies {
-  // ... other androidx dependencies
+    dependencies {
+      // ... other androidx dependencies
 
-  // Import the BoM for the Firebase platform
-  implementation(platform("com.google.firebase:firebase-bom:34.15.0"))
+      // Import the BoM for the Firebase platform
+      implementation(platform("com.google.firebase:firebase-bom:34.15.0"))
 
-  // Add the dependency for the Firebase AI Logic library When using the BoM,
-  // you don't specify versions in Firebase library dependencies
-  implementation("com.google.firebase:firebase-ai")
-}
-      
-```
+      // Add the dependencies for the Firebase AI Logic and App Check libraries
+      // When using the BoM, you don't specify versions in Firebase library dependencies
+      implementation("com.google.firebase:firebase-ai")
+      implementation("com.google.firebase:firebase-appcheck-debug")
+    }
 
 ### Java
 
-```java
-dependencies {
-  // Import the BoM for the Firebase platform
-  implementation(platform("com.google.firebase:34.15.0"))
+    dependencies {
+      // Import the BoM for the Firebase platform
+      implementation(platform("com.google.firebase:34.15.0"))
 
-  // Add the dependency for the Firebase AI Logic library When using the BoM,
-  // you don't specify versions in Firebase library dependencies
-  implementation("com.google.firebase:firebase-ai")
+      // Add the dependencies for the Firebase AI Logic and App Check libraries
+      // When using the BoM, you don't specify versions in Firebase library dependencies
+      implementation("com.google.firebase:firebase-ai")
+      implementation("com.google.firebase:firebase-appcheck-debug")
 
-  // Required for one-shot operations (to use `ListenableFuture` from Guava
-  // Android)
-  implementation("com.google.guava:guava:31.0.1-android")
+      // Required for one-shot operations (to use `ListenableFuture` from Guava Android)
+      implementation("com.google.guava:guava:31.0.1-android")
 
-  // Required for streaming operations (to use `Publisher` from Reactive
-  // Streams)
-  implementation("org.reactivestreams:reactive-streams:1.0.4")
-}
-      
-```
+      // Required for streaming operations (to use `Publisher` from Reactive Streams)
+      implementation("org.reactivestreams:reactive-streams:1.0.4")
+    }
+
+### Configure the App Check debug provider for local development
+
+Starting early July 2026, as part of the guided setup workflow for AI Logic
+in the Firebase console, Firebase App Check is automatically enforced to protect
+the Gemini API. For local development, you need to configure the
+App Check *debug provider* to bypass attestation while still maintaining the
+enforcement of App Check.
+
+1. In your debug build, configure App Check to use the debug provider
+   factory:
+
+   ### Kotlin
+
+       Firebase.initialize(context = this)
+       Firebase.appCheck.installAppCheckProviderFactory(
+           DebugAppCheckProviderFactory.getInstance(),
+       )
+
+   ### Java
+
+       FirebaseApp.initializeApp(/*context=*/ this);
+       FirebaseAppCheck firebaseAppCheck = FirebaseAppCheck.getInstance();
+       firebaseAppCheck.installAppCheckProviderFactory(
+               DebugAppCheckProviderFactory.getInstance());
+
+2. Obtain your debug token:
+
+   1. Run your app in the emulator or on your test device.
+
+   2. Look for the App Check debug token in your logs. For example:
+
+          D DebugAppCheckProvider: Enter this debug secret into the allow list
+          in the Firebase Console for your project: 123a4567-b89c-12d3-e456-789012345678
+
+   3. Copy the token (for example, `123a4567-b89c-12d3-e456-789012345678`).
+
+3. Register your debug token with App Check:
+
+   1. In the Firebase console, go to the
+      **Security** \> **App Check** \> [**Apps** tab](https://console.firebase.google.com/project/_/appcheck/apps/?useAutoProject=true).
+
+   2. Find your app, click the overflow menu
+      (), and then select
+      **Manage debug tokens**.
+
+   3. Follow the on-screen instructions to register your debug token.
+
+For details about the debug provider (including how to get a new debug token),
+check out the [official App Check docs](https://firebase.google.com/docs/app-check/android/debug-provider).
+
+> [!CAUTION]
+> **Here are some critical points about the
+> App Check debug provider:**
+>
+> - **Keep your debug token and debug build private.** Don't commit your debug token to a public repository, and don't ship your debug token or debug build in production builds of your app.
+> - **Register your app with a production attestation provider before
+>   releasing to end users.** You'll need to [register your app with a production App Check attestation provider](https://firebase.google.com/docs/ai-logic/app-check) (for example, Play Integrity) so that your end-users can use your feature with App Check enforced.
 
 ### Initialize the generative model
 
 > [!NOTE]
-> **Note:** Gemini 3 Flash and Gemini 3.1 Pro are now available in preview. [Learn more about the models supported by Firebase AI Logic](https://firebase.google.com/docs/ai-logic/models).
+> **Note:** Gemini 3 Flash and Gemini 3.1 Flash-Lite are now generally available. [Learn more about the models supported by Firebase AI Logic](https://firebase.google.com/docs/ai-logic/models).
 
 Start by instantiating a `GenerativeModel` and specifying the model name:
 
@@ -116,9 +168,9 @@ GenerativeModelFutures model = GenerativeModelFutures.from(firebaseAI);
 
 <br />
 
-Learn more about the [available models](https://firebase.google.com/docs/vertex-ai/gemini-models) for use with the Gemini
-Developer API. You can also learn more about [configuring model
-parameters](https://firebase.google.com/docs/vertex-ai/model-parameters?platform=android).
+Learn more about the [available models](https://firebase.google.com/docs/ai-logic/models) for use with the Gemini
+Developer API. You can also learn more about
+[configuring model parameters](https://firebase.google.com/docs/ai-logic/model-parameters?api=dev).
 
 ## Interact with the Gemini Developer API from your app
 
@@ -411,7 +463,7 @@ Futures.addCallback(response, new FutureCallback<GenerateContentResponse>() {
 ### Generate images on Android with Nano Banana
 
 > [!NOTE]
-> **Note:** Gemini 3.1 Flash Image (Nano Banana 2) `gemini-3.1-flash-image-preview` and Gemini 3 Pro Image (Nano Banana Pro) `gemini-3-pro-image-preview` are now available in preview. Learn more about the capabilities of [Gemini 3.1 Flash Image](https://deepmind.google/models/gemini-image/flash/) and [Gemini 3 Pro Image](https://deepmind.google/models/gemini-image/pro/).
+> **Note:** Gemini 3.1 Flash Image (`gemini-3.1-flash-image`, Nano Banana 2) and and Gemini 3 Pro Image (`gemini-3-pro-image`, Nano Banana Pro) are now generally available. Learn more about the capabilities of [Gemini 3.1 Flash Image](https://deepmind.google/models/gemini-image/flash/) and [Gemini 3 Pro Image](https://deepmind.google/models/gemini-image/pro/).
 
 The Gemini 2.5 Flash Image model (a.k.a Nano Banana) can generate and edit
 images leveraging world knowledge and reasoning. It generates contextually
@@ -419,10 +471,9 @@ relevant images, seamlessly blending or interleaving text and image outputs. It
 can also generate accurate visuals with long text sequences and supports
 conversational image editing while maintaining context.
 
-This guide describes how to use the Gemini 2.5 Flash Image model (Nano Banana)
-using the Firebase AI Logic SDK for Android. For more details on generating
-images with Gemini, see the [Generate images with Gemini on
-Firebase](https://firebase.google.com/docs/ai-logic/generate-images-gemini?api=dev) documentation.
+This guide describes how to use the Gemini Image models (the Nano Banana models)
+using the Firebase AI Logic SDK for Android. Find more details about
+[generating images with Gemini](https://firebase.google.com/docs/ai-logic/generate-images-gemini?api=dev) in the Firebase documentation.
 
 > [!NOTE]
 > **Note:** Using Gemini models for image generation using the Firebase AI Logic SDK is in Preview. This means the feature isn't subject to any SLA or deprecation policy and could change in backward-incompatible ways.
@@ -678,14 +729,12 @@ Note the following considerations and limitations:
   - The model may generate text as an image. **Try asking for text outputs
     explicitly** (for example, "generate narrative text along with illustrations").
 
-See the [Firebase documentation](https://firebase.google.com/docs/ai-logic/generate-images-gemini?api=dev) for more details.
+For more details, see the [Firebase documentation](https://firebase.google.com/docs/ai-logic/generate-images-gemini?api=dev).
 
 ## Next steps
 
 After setting up your app, consider the following next steps:
 
-- Review the Android Quickstart Firebase [sample app](https://github.com/firebase/quickstart-android/tree/master/vertexai) and the [Android AI Sample Catalog](https://github.com/android/ai-samples) on GitHub.
-- [Prepare your app for production](https://firebase.google.com/docs/vertex-ai/production-checklist), including [setting up
-  Firebase App Check](https://firebase.google.com/docs/vertex-ai/app-check) to protect the Gemini API from abuse by unauthorized clients.
-- Learn more about Firebase AI Logic in the [Firebase
-  documentation](https://firebase.google.com/docs/vertex-ai/).
+- Review the Android Quickstart Firebase [sample app](https://github.com/firebase/quickstart-android/tree/master/firebase-ai) and the [Android AI Sample Catalog](https://github.com/android/ai-samples) on GitHub.
+- [Prepare your app for production](https://firebase.google.com/docs/ai-logic/production-checklist), including [setting up Firebase App Check](https://firebase.google.com/docs/ai-logic/app-check) to protect the Gemini API from abuse by unauthorized clients.
+- Learn more about Firebase AI Logic in the [Firebase documentation](https://github.com/firebase/quickstart-android/tree/master/firebase-ai).

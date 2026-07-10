@@ -9,6 +9,9 @@ monetize your game on PCs. Sell digital content using Play Billing, seamlessly
 sign-in using Play Games, and verify your users have a valid entitlement to your
 application with Play Integrity.
 
+For a high-level view of upcoming features, stable releases, and the integration
+architecture, see the [Play Games PC Roadmap](https://developer.android.com/games/playgames/native-pc/roadmap).
+
 Ready to get started?
 
 ## Prerequisites

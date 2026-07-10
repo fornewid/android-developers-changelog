@@ -10,7 +10,7 @@ source: md.txt
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| May 06, 2026 | [1.4.1](https://developer.android.com/jetpack/androidx/releases/benchmark#1.4.1) | - | - | [1.5.0-alpha06](https://developer.android.com/jetpack/androidx/releases/benchmark#1.5.0-alpha06) |
+| July 01, 2026 | [1.4.1](https://developer.android.com/jetpack/androidx/releases/benchmark#1.4.1) | - | - | [1.5.0-alpha07](https://developer.android.com/jetpack/androidx/releases/benchmark#1.5.0-alpha07) |
 
 ## Declaring dependencies
 
@@ -137,6 +137,23 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.5
+
+### Version 1.5.0-alpha07
+
+July 01, 2026
+
+`androidx.benchmark:benchmark-*:1.5.0-alpha07` is released. Version 1.5.0-alpha07 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/e29a10982f4299b1fa812e229d76792092a62814..9f8ede00031b52b69e66d6e8c646ea5f79999279/benchmark).
+
+**API Changes**
+
+- Simplified Perfetto trace capture on device. ([I48810](https://android-review.googlesource.com/#/q/I488105051127008a7f6f75134b5355746f86d5f2))
+- Move the experimental `TraceProcessor.runServer` extension APIs from `androidx.benchmark:benchmark-macro` to `androidx.benchmark:benchmark-common`, and to the `androidx.benchmark` package. This will enable their use in microbenchmarks in the future. ([Ie25bb](https://android-review.googlesource.com/#/q/Ie25bb43b47988ed2c21cf6ca886a606eb7163ded), [b/393640753](https://issuetracker.google.com/issues/393640753))
+
+**Bug Fixes**
+
+- Update traceprocessor implementation (as well as unbundled Perfetto Trace capture) to use Perfetto v56.0 ([I8fb9d](https://android-review.googlesource.com/#/q/I8fb9d610c519232f0eacb4f8884cb028f831db06))
+- Set `androidx.benchmark.requireAot` and `androidx.benchmark.requireAot` to true by default. These safer defaults ensure that compilation is performed ahead of running microbenchmarks (on by default with the benchmark gradle plugin when using AGP 8.4+), and that `measureRepeated` is not used on the main thread, where it can cause ANRs. ([I1bc3c](https://android-review.googlesource.com/#/q/I1bc3c293625765d568a35fb9efdfec3a59706285), [b/379115078](https://issuetracker.google.com/issues/379115078))
+- Increased perfetto kill timeout from 5 to 30 seconds (for benchmark captured Perfetto sessions only). Added clearer error logging when the issue occurs. ([If188f](https://android-review.googlesource.com/#/q/If188f2f5f9319f7e26c4df1899e7da4ce399988d), [b/435589290](https://issuetracker.google.com/issues/435589290))
 
 ### Version 1.5.0-alpha06
 

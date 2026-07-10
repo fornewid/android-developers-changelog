@@ -18,7 +18,7 @@ while harnessing the full power of SQLite.
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| June 17, 2026 | [2.6.2](https://developer.android.com/jetpack/androidx/releases/sqlite#2.6.2) | [2.7.0-rc01](https://developer.android.com/jetpack/androidx/releases/sqlite#2.7.0-rc01) | - | - |
+| July 01, 2026 | [2.7.0](https://developer.android.com/jetpack/androidx/releases/sqlite#2.7.0) | - | - | - |
 
 ## Declaring dependencies
 
@@ -33,7 +33,7 @@ your app or module:
 
 ```groovy
 dependencies {
-    def sqlite_version = "2.6.2"
+    def sqlite_version = "2.7.0"
 
     // Java language implementation
     implementation "androidx.sqlite:sqlite:$sqlite_version"
@@ -50,7 +50,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    val sqlite_version = "2.6.2"
+    val sqlite_version = "2.7.0"
 
     // Java language implementation
     implementation("androidx.sqlite:sqlite:$sqlite_version")
@@ -79,6 +79,18 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 2.7
+
+### Version 2.7.0
+
+July 01, 2026
+
+`androidx.sqlite:sqlite-*:2.7.0` is released. Version 2.7.0 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/fe30df161d480829efb21f37ff67a9f8cac9c620..190a3431c064ca5e90e451b3443714ae684b8127/sqlite).
+
+**Important changes since 2.6.0:**
+
+- Add js and wasmJs targets to `androidx.sqlite:sqlite` along with asynchronous version of the driver APIs: `SQLiteDriver.open()`, `SQLiteConnection.prepare()` and `SQLiteStatement.step()` for the web targets.
+- Existing projects that don't target web can continue using the synchronous APIs in common code, but once a project targets web then only the asynchronous APIs are available. For convenience a new artifact `andriodx.sqlite:sqlite-async` includes top-level suspend functions that use the synchronous naming scheme (along with `executeSQL`) and are expect / actual declarations that will invoke the right variant based on the platform. It is recommended to use these APIs for common code targeting both web and non-web targets.
+- This release also includes a new artifact `androidx.sqlite:sqlite-web` which contains `WebWorkerSQLiteDriver`, a `SQLiteDriver` implementation for the web that communicates with a Web Worker to perform database operation via a simple messaging protocol. The protocol is documented in the `WebWorkerSQLiteDriver` and even though there is no default worker implementation with the artifact, one can be provided via the constructor. For a more concrete example on how this new artifact can be used, check out the [Room 3.0 release notes](https://developer.android.com/jetpack/androidx/releases/room3#3.0.0-alpha01).
 
 ### Version 2.7.0-rc01
 

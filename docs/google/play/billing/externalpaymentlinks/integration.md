@@ -29,25 +29,31 @@ modifications:
 
 ### Kotlin
 
-    val purchasesUpdatedListener =
-        PurchasesUpdatedListener { billingResult, purchases ->
-            // Handle new Google Play purchase.
-        }
 
-    val developerProvidedBillingListener =
-        DeveloperProvidedBillingListener { details ->
-            // Handle user selection for developer provided billing option.
-        }
+```kotlin
+val purchasesUpdatedListener =
+    PurchasesUpdatedListener { billingResult, purchases ->
+        // Handle new Google Play purchase.
+    }
 
-    val billingClient = BillingClient.newBuilder(context)
-        .setListener(purchasesUpdatedListener)
-        .enablePendingPurchases()
-        .enableBillingProgram(
-            EnableBillingProgramParams.newBuilder()
-                .setBillingProgram(BillingProgram.EXTERNAL_PAYMENTS)
-                .setDeveloperProvidedBillingListener(developerProvidedBillingListener)
-                .build())
-        .build()
+val developerProvidedBillingListener =
+    DeveloperProvidedBillingListener { details ->
+        // Handle user selection for developer provided billing option.
+    }
+
+val billingClient = BillingClient.newBuilder(context)
+    .setListener(purchasesUpdatedListener)
+    .enablePendingPurchases(PendingPurchasesParams.newBuilder().enableOneTimeProducts().build())
+    .enableBillingProgram(
+        EnableBillingProgramParams.newBuilder()
+            .setBillingProgram(BillingProgram.EXTERNAL_PAYMENTS)
+            .setDeveloperProvidedBillingListener(developerProvidedBillingListener)
+            .build()
+    )
+    .build()
+```
+
+<br />
 
 ### Java
 
@@ -92,11 +98,15 @@ The following sample demonstrates how to check eligibility:
 
 ### Kotlin
 
-    billingClient.isBillingProgramAvailableAsync(
-      BillingProgram.EXTERNAL_PAYMENTS,
-      object : BillingProgramAvailabilityListener {
+
+```kotlin
+billingClient.isBillingProgramAvailableAsync(
+    BillingProgram.EXTERNAL_PAYMENTS,
+    object : BillingProgramAvailabilityListener {
         override fun onBillingProgramAvailabilityResponse(
-          billingProgram: Int, billingResult: BillingResult) {
+            billingResult: BillingResult,
+            billingProgramAvailabilityDetails: BillingProgramAvailabilityDetails
+        ) {
             if (billingResult.responseCode != BillingResponseCode.OK) {
                 // Handle failures such as retrying due to network errors,
                 // handling external payments unavailable, etc.
@@ -105,7 +115,12 @@ The following sample demonstrates how to check eligibility:
 
             // External payments are available. Can proceed with generating an
             // external transaction token.
-    })
+        }
+    }
+)
+```
+
+<br />
 
 ### Java
 
@@ -149,17 +164,20 @@ be generated immediately before launchBillingFlow is called.
 
 ### Kotlin
 
-    val params =
-        BillingProgramReportingDetailsParams.newBuilder()
-            .setBillingProgram(BillingProgram.EXTERNAL_PAYMENTS)
-            .build()
 
-    billingClient.createBillingProgramReportingDetailsAsync(
-      params,
-      object : BillingProgramReportingDetailsListener {
+```kotlin
+val params =
+    BillingProgramReportingDetailsParams.newBuilder()
+        .setBillingProgram(BillingProgram.EXTERNAL_PAYMENTS)
+        .build()
+
+billingClient.createBillingProgramReportingDetailsAsync(
+    params,
+    object : BillingProgramReportingDetailsListener {
         override fun onCreateBillingProgramReportingDetailsResponse(
-          billingResult: BillingResult,
-          billingProgramReportingDetails: BillingProgramReportingDetails?) {
+            billingResult: BillingResult,
+            billingProgramReportingDetails: BillingProgramReportingDetails?
+        ) {
             if (billingResult.responseCode != BillingResponseCode.OK) {
                 // Handle failures such as retrying due to network errors.
                 return
@@ -170,7 +188,11 @@ be generated immediately before launchBillingFlow is called.
             // the external website using DeveloperBillingOptionParams when
             // launchBillingFlow is called.
         }
-    })
+    }
+)
+```
+
+<br />
 
 ### Java
 
@@ -237,13 +259,19 @@ The following snippet demonstrates how to construct
 
 ### Kotlin
 
-    val developerBillingOptionParams =
-        DeveloperBillingOptionParams.newBuilder()
-            .setBillingProgram(BillingProgram.EXTERNAL_PAYMENTS)
-            .setLinkUri(Uri.parse("https://www.example.com/external/purchase"))
-            .setLaunchMode(
-                DeveloperBillingOptionParams.LaunchMode.LAUNCH_IN_EXTERNAL_BROWSER_OR_APP)
-            .build()
+
+```kotlin
+val developerBillingOptionParams =
+    DeveloperBillingOptionParams.newBuilder()
+        .setBillingProgram(BillingProgram.EXTERNAL_PAYMENTS)
+        .setLinkUri("https://www.example.com/external/purchase".toUri())
+        .setLaunchMode(
+            DeveloperBillingOptionParams.LaunchMode.LAUNCH_IN_EXTERNAL_BROWSER_OR_APP
+        )
+        .build()
+```
+
+<br />
 
 ### Java
 

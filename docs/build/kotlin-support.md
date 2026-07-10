@@ -19,18 +19,23 @@ or if overriding the bundled version.
 
 | Kotlin version | Required AGP version | Required R8 version |
 |---|---|---|
-| 1.3 | 4.1 | 2.1.86 |
-| 1.4 | 7.0 | 3.0.76 |
-| 1.5 | 7.0 | 3.0.77 |
-| 1.6 | 7.1 | 3.1.51 |
+| 2.4 | 8.5.2+ | 9.1.29 |
+| 2.3 | 8.2.2-8.13 | 8.13.19^[1](https://developer.android.com/build/kotlin-support#fn1)^ |
+| 2.2 | 7.3.1-8.10 | 8.10.21 |
+| 2.1 | 7.4.2-8.7.2 | 8.6.17 |
+| 2.0 | 7.4.2-8.3 | 8.5.10 |
+| 1.9 | 7.4.2-8.2 | 8.0.27 |
+| 1.8 | 4.1.3-7.4 | 4.0.48 |
+
+#### Previous Kotlin versions
+
+| Kotlin version | Required AGP version | Required R8 version |
+|---|---|---|
 | 1.7 | 7.2 | 3.2.47 |
-| 1.8 | 7.4 | 4.0.48 |
-| 1.9 | 8.0 | 8.0.27 |
-| 2.0 | 8.5 | 8.5.10 |
-| 2.1 | 8.6 | 8.6.17 |
-| 2.2 | 8.10 | 8.10.21 |
-| 2.3 | 8.13.2 | 8.13.19^[1](https://developer.android.com/build/kotlin-support#fn1)^ |
-| 2.4 | 9.1.0 | 9.1.29 |
+| 1.6 | 7.1 | 3.1.51 |
+| 1.5 | 7.0 | 3.0.77 |
+| 1.4 | 7.0 | 3.0.76 |
+| 1.3 | 4.1 | 2.1.86 |
 
 The AGP versions listed in the table automatically use the
 specified D8 and R8 compiler versions.

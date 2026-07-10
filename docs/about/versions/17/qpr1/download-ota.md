@@ -87,6 +87,8 @@ You can choose to [return to the latest public build](https://developer.android.
 
 | Device | Download Link and SHA-256 Checksum |
 |---|---|
+| Pixel 6 | <button class="devsite-dialog-button button-white button-regular gc-analytics-event" data-category="Android 17 QPR1 Beta" data-action="download" data-label="oriole" data-modal-dialog-id="oriole_ota_zip">oriole_beta-ota-cp31.260618.005-9485881d.zip</button> `9485881dd953d8ae92f3c70b04af0e2abe02d6ee70749e9e01b21b33fcf74769` |
+| Pixel 6 Pro | <button class="devsite-dialog-button button-white button-regular gc-analytics-event" data-category="Android 17 QPR1 Beta" data-action="download" data-label="raven" data-modal-dialog-id="raven_ota_zip">raven_beta-ota-cp31.260618.005-5bf3392a.zip</button> `5bf3392aad81c599441e2de33906c33aa0aeb1d2e5fdd47f95a0940c311c6acb` |
 | Pixel 6a | <button class="devsite-dialog-button button-white button-regular gc-analytics-event" data-category="Android 17 QPR1 Beta" data-action="download" data-label="bluejay" data-modal-dialog-id="bluejay_ota_zip">bluejay_beta-ota-cp31.260618.005-d3320dd0.zip</button> `d3320dd0ac71c3b21f2eb942c0172b44fcb1a46ed2ae7316fa604115a1f1ac36` |
 | Pixel 7 | <button class="devsite-dialog-button button-white button-regular gc-analytics-event" data-category="Android 17 QPR1 Beta" data-action="download" data-label="panther" data-modal-dialog-id="panther_ota_zip">panther_beta-ota-cp31.260618.005-4bc68bd7.zip</button> `4bc68bd71c46ba8033461bec00324333733fd57c62ed808002ebcce5774403de` |
 | Pixel 7 Pro | <button class="devsite-dialog-button button-white button-regular gc-analytics-event" data-category="Android 17 QPR1 Beta" data-action="download" data-label="cheetah" data-modal-dialog-id="cheetah_ota_zip">cheetah_beta-ota-cp31.260618.005-99506ed1.zip</button> `99506ed15401ba3d6aadd7cf8692c240011770eb2d788648d733ee3122533b9a` |
@@ -116,6 +118,38 @@ page and then manually flash it to the device.
 
 > [!WARNING]
 > **Warning:** Going back to a public build from a preview build (Developer Preview or Beta) requires a full device reset that removes all user data on the device. Make sure to [back up your data first](https://support.google.com/pixelphone/answer/7179901).
+
+## Download Android 17 OTA system image
+
+Before downloading, you must agree to the following terms and conditions.
+
+## Terms and Conditions
+
+By clicking to accept, you hereby agree to the following:  
+
+All use of this development version SDK will be governed by the Android Software Development Kit License Agreement (available at https://developer.android.com/studio/terms and such URL may be updated or changed by Google from time to time), which will terminate when Google issues a final release version.  
+
+Your testing and feedback are important part of the development process and by using the SDK, you acknowledge that (i) implementation of some features are still under development, (ii) you should not rely on the SDK having the full functionality of a stable release; (iii) you agree not to publicly distribute or ship any application using this SDK as this SDK will no longer be supported after the official Android SDK is released; and (iv) you agree that Google may deliver elements of the SDK to your devices via auto-update (OTA or otherwise, in each case as determined by Google).  
+
+WITHOUT LIMITING SECTION 10 OF THE ANDROID SOFTWARE DEVELOPMENT KIT LICENSE AGREEMENT, YOU UNDERSTAND THAT A DEVELOPMENT VERSION OF A SDK IS NOT A STABLE RELEASE AND MAY CONTAIN ERRORS, DEFECTS AND SECURITY VULNERABILITIES THAT CAN RESULT IN SIGNIFICANT DAMAGE, INCLUDING THE COMPLETE, IRRECOVERABLE LOSS OF USE OF YOUR COMPUTER SYSTEM OR OTHER DEVICE. I have read and agree with the above terms and conditions <button class="button button-disabled"> Download Android 17 OTA system image </button> [Download Android 17 OTA system image](https://dl.google.com/developers/android/cinnamonbun/images/ota/oriole_beta-ota-cp31.260618.005-9485881d.zip)
+
+*oriole_beta-ota-cp31.260618.005-9485881d.zip*
+
+## Download Android 17 OTA system image
+
+Before downloading, you must agree to the following terms and conditions.
+
+## Terms and Conditions
+
+By clicking to accept, you hereby agree to the following:  
+
+All use of this development version SDK will be governed by the Android Software Development Kit License Agreement (available at https://developer.android.com/studio/terms and such URL may be updated or changed by Google from time to time), which will terminate when Google issues a final release version.  
+
+Your testing and feedback are important part of the development process and by using the SDK, you acknowledge that (i) implementation of some features are still under development, (ii) you should not rely on the SDK having the full functionality of a stable release; (iii) you agree not to publicly distribute or ship any application using this SDK as this SDK will no longer be supported after the official Android SDK is released; and (iv) you agree that Google may deliver elements of the SDK to your devices via auto-update (OTA or otherwise, in each case as determined by Google).  
+
+WITHOUT LIMITING SECTION 10 OF THE ANDROID SOFTWARE DEVELOPMENT KIT LICENSE AGREEMENT, YOU UNDERSTAND THAT A DEVELOPMENT VERSION OF A SDK IS NOT A STABLE RELEASE AND MAY CONTAIN ERRORS, DEFECTS AND SECURITY VULNERABILITIES THAT CAN RESULT IN SIGNIFICANT DAMAGE, INCLUDING THE COMPLETE, IRRECOVERABLE LOSS OF USE OF YOUR COMPUTER SYSTEM OR OTHER DEVICE. I have read and agree with the above terms and conditions <button class="button button-disabled"> Download Android 17 OTA system image </button> [Download Android 17 OTA system image](https://dl.google.com/developers/android/cinnamonbun/images/ota/raven_beta-ota-cp31.260618.005-5bf3392a.zip)
+
+*raven_beta-ota-cp31.260618.005-5bf3392a.zip*
 
 ## Download Android 17 OTA system image
 

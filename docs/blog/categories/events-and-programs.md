@@ -4,7 +4,7 @@ url: https://developer.android.com/blog/categories/events-and-programs
 source: md.txt
 ---
 
-![](https://developer.android.com/static/blog/assets/events_and_programs_droid_1504f2ddaf_7c6edc9aef_Z1Xui9Y.webp)
+![](https://developer.android.com/static/blog/assets/events_and_programs_droid_1504f2ddaf_7c6edc9aef_ZS7rc9.webp)
 
 # Events \& Programs
 

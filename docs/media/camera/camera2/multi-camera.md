@@ -4,15 +4,16 @@ url: https://developer.android.com/media/camera/camera2/multi-camera
 source: md.txt
 ---
 
-# Multi-camera API
+**Note:** This page refers to the [Camera2](https://developer.android.com/reference/android/hardware/camera2/package-summary) package. Unless your app requires specific, low-level features from Camera2, we recommend using [CameraX](https://developer.android.com/camerax). Both CameraX and Camera2 support Android 5.0 (API level 21) and higher.
 
 <br />
 
-**Note:** This page refers to the[Camera2](https://developer.android.com/reference/android/hardware/camera2/package-summary)package. Unless your app requires specific, low-level features from Camera2, we recommend using[CameraX](https://developer.android.com/camerax). Both CameraX and Camera2 support Android 5.0 (API level 21) and higher.
-
-<br />
-
-Multi-camera was introduced with Android 9 (API level 28). Since its release, devices have come to market that support the API. Many multi-camera use cases are tightly coupled with a specific hardware configuration. In other words, not all use cases are compatible with every device,  which makes multi-camera features a good candidate for[Play Feature Delivery](https://developer.android.com/guide/app-bundle/play-feature-delivery).
+Multi-camera was introduced with Android 9 (API level 28). Since its release,
+devices have come to market that support the API. Many multi-camera use cases
+are tightly coupled with a specific hardware configuration. In other words, not
+all use cases are compatible with every device,  which makes multi-camera
+features a good candidate for [Play Feature
+Delivery](https://developer.android.com/guide/app-bundle/play-feature-delivery).
 
 Some typical use cases include:
 
@@ -22,15 +23,39 @@ Some typical use cases include:
 
 ## The difference between logical and physical cameras
 
-Understanding the multi-camera API requires understanding the difference between logical and physical cameras. For reference, consider a device with three back-facing cameras. In this example, each of the three back cameras is considered a physical camera. A logical camera is then a grouping of two or more of those physical cameras. The output of the logical camera can be a stream that comes from one of the underlying physical cameras, or a fused stream coming from more than one underlying physical camera simultaneously. Either way, the stream is handled by the camera Hardware Abstraction Layer (HAL).
+Understanding the multi-camera API requires understanding the difference between
+logical and physical cameras. For reference, consider a device with three
+back-facing cameras. In this example, each of the three back cameras is
+considered a physical camera. A logical camera is then a grouping of two or more
+of those physical cameras. The output of the logical
+camera can be a stream that comes from one of the underlying physical cameras,
+or a fused stream coming from more than one underlying physical camera
+simultaneously. Either way, the stream is handled by the camera Hardware
+Abstraction Layer (HAL).
 
-Many phone manufacturers develop first-party camera applications, which usually come pre-installed on their devices. To use all of the hardware's capabilities, they may use private or hidden APIs or receive special treatment from the driver implementation that other applications do not have access to. Some devices implement the concept of logical cameras by providing a fused stream of frames from the different physical cameras, but only to certain privileged applications. Often, only one of the physical cameras is exposed to the framework. The situation for third-party developers prior to Android 9 is illustrated in the following diagram:
-![](https://developer.android.com/static/images/training/camera/camera2/multi-camera-1.png)**Figure 1.**Camera capabilities typically only available to privileged applications
+Many phone manufacturers develop first-party camera applications, which usually
+come pre-installed on their devices. To use all of the hardware's capabilities,
+they may use private or hidden APIs or receive special treatment from
+the driver implementation that other applications do not have access to. Some
+devices implement the concept of logical cameras by providing a fused stream of
+frames from the different physical cameras, but only to certain privileged
+applications. Often, only one of the physical cameras is exposed to the
+framework. The situation for third-party developers prior to Android 9 is
+illustrated in the following diagram:
+![](https://developer.android.com/static/images/training/camera/camera2/multi-camera-1.png) **Figure 1.**Camera capabilities typically only available to privileged applications
 
-Beginning with Android 9, private APIs are no longer allowed in Android apps. With the inclusion of multi-camera support in the framework, Android best practices strongly recommend that phone manufacturers expose a logical camera for all physical cameras facing the same direction. The following is what third-party developers should expect to see on devices running Android 9 and higher:
-![](https://developer.android.com/static/images/training/camera/camera2/multi-camera-2.png)**Figure 2.**Full developer access to all camera devices starting in Android 9
+Beginning with Android 9, private APIs are no longer allowed in Android apps.
+With the inclusion of multi-camera support in the framework, Android best
+practices strongly recommend that phone manufacturers expose a logical camera
+for all physical cameras facing the same direction. The following is what
+third-party developers should expect to see on devices running Android 9 and
+higher:
+![](https://developer.android.com/static/images/training/camera/camera2/multi-camera-2.png) **Figure 2.**Full developer access to all camera devices starting in Android 9
 
-What the logical camera provides is entirely dependent on the OEM implementation of the Camera HAL. For example, a device like Pixel 3 implements its logical camera in such a way that it chooses one of its physical cameras based on the requested focal length and crop region.
+What the logical camera provides is entirely dependent on the OEM implementation
+of the Camera HAL. For example, a device like Pixel 3 implements its logical
+camera in such a way that it chooses one of its physical cameras based on the
+requested focal length and crop region.
 
 ## The multi-camera API
 
@@ -41,37 +66,74 @@ The new API adds the following new constants, classes, and methods:
 - [`CameraCharacteristics.getAvailablePhysicalCameraRequestKeys()`](https://developer.android.com/reference/android/hardware/camera2/CameraCharacteristics#getAvailablePhysicalCameraRequestKeys())
 - [`CameraDevice.createCaptureSession(SessionConfiguration config)`](https://developer.android.com/reference/android/hardware/camera2/CameraDevice#createCaptureSession(android.hardware.camera2.params.SessionConfiguration))
 - [`CameraCharacteritics.LOGICAL_MULTI_CAMERA_SENSOR_SYNC_TYPE`](https://developer.android.com/reference/android/hardware/camera2/CameraCharacteristics#LOGICAL_MULTI_CAMERA_SENSOR_SYNC_TYPE)
-- [`OutputConfiguration`](https://developer.android.com/reference/android/hardware/camera2/params/OutputConfiguration)and[`SessionConfiguration`](https://developer.android.com/reference/android/hardware/camera2/params/SessionConfiguration)
+- [`OutputConfiguration`](https://developer.android.com/reference/android/hardware/camera2/params/OutputConfiguration) and [`SessionConfiguration`](https://developer.android.com/reference/android/hardware/camera2/params/SessionConfiguration)
 
-Due to changes to the Android Compatibility Definition Document (CDD), the multi-camera API also comes with certain expectations from developers. Devices with dual cameras existed prior to Android 9, but opening more than one camera simultaneously involved trial and error. On Android 9 and higher, multi-camera gives a set of rules to specify when it is possible to open a pair of physical cameras that are part of the same logical camera.
+Due to changes to the Android Compatibility Definition Document (CDD), the
+multi-camera API also comes with certain expectations from developers. Devices
+with dual cameras existed prior to Android 9, but opening more than one camera
+simultaneously involved trial and error. On Android 9 and higher, multi-camera
+gives a set of rules to specify when it is possible to open a pair of physical
+cameras that are part of the same logical camera.
 
-In most cases, devices running Android 9 and higher expose all physical cameras (except possibly for less-common sensor types like infrared) along with an easier-to-use logical camera. For every combination of streams that are guaranteed to work, one stream belonging to a logical camera can be replaced by two streams from the underlying physical cameras.
+In most cases, devices running Android 9 and higher expose all physical
+cameras (except possibly for less-common sensor types like infrared) along with
+an easier-to-use logical camera. For every combination of streams that are
+guaranteed to work, one stream belonging to a logical camera can be replaced by
+two streams from the underlying physical cameras.
 
 ## Multiple streams simultaneously
 
-[Using multiple camera streams simultaneously](https://developer.android.com/media/camera/camera2/multiple-camera-streams-simultaneously)covers the rules for using multiple streams simultaneously in a single camera. With one notable addition, the same rules apply for multiple cameras.[`CameraMetadata.REQUEST_AVAILABLE_CAPABILITIES_LOGICAL_MULTI_CAMERA`](https://developer.android.com/reference/android/hardware/camera2/CameraMetadata#REQUEST_AVAILABLE_CAPABILITIES_LOGICAL_MULTI_CAMERA)explains how to replace a logical YUV_420_888 or raw stream with two physical streams. That is, each stream of type YUV or RAW can be replaced with two streams of identical type and size. You can start with a camera stream of the following guaranteed configuration for single-camera devices:
+[Using multiple camera streams simultaneously](https://developer.android.com/media/camera/camera2/multiple-camera-streams-simultaneously)
+covers the rules for using multiple streams simultaneously in a single camera.
+With one notable addition, the same rules apply for multiple cameras.
+[`CameraMetadata.REQUEST_AVAILABLE_CAPABILITIES_LOGICAL_MULTI_CAMERA`](https://developer.android.com/reference/android/hardware/camera2/CameraMetadata#REQUEST_AVAILABLE_CAPABILITIES_LOGICAL_MULTI_CAMERA)
+explains how to replace a logical YUV_420_888 or raw stream with two
+physical streams. That is, each stream of type YUV or RAW can be replaced with
+two streams of identical type and size. You can start with a camera stream of
+the following guaranteed configuration for single-camera devices:
 
-- Stream 1: YUV type,`MAXIMUM`size from logical camera`id = 0`
+- Stream 1: YUV type, `MAXIMUM` size from logical camera `id = 0`
 
-Then, a device with multi-camera support allows you to create a session replacing that logical YUV stream with two physical streams:
+Then, a device with multi-camera support allows you to create a session
+replacing that logical YUV stream with two physical streams:
 
-- Stream 1: YUV type,`MAXIMUM`size from physical camera`id = 1`
-- Stream 2: YUV type,`MAXIMUM`size from physical camera`id = 2`
+- Stream 1: YUV type, `MAXIMUM` size from physical camera `id = 1`
+- Stream 2: YUV type, `MAXIMUM` size from physical camera `id = 2`
 
-You can replace a YUV or RAW stream with two equivalent streams if and only if those two cameras are part of a logical camera grouping,  which is listed under[`CameraCharacteristics.getPhysicalCameraIds()`](https://developer.android.com/reference/android/hardware/camera2/CameraCharacteristics#getPhysicalCameraIds()).
+You can replace a YUV or RAW stream with two equivalent streams if and only if
+those two cameras are part of a logical camera grouping,  which is listed under
+[`CameraCharacteristics.getPhysicalCameraIds()`](https://developer.android.com/reference/android/hardware/camera2/CameraCharacteristics#getPhysicalCameraIds()).
 
-The guarantees provided by the framework are just the bare minimum required to get frames from more than one physical camera simultaneously. Additional streams are supported in most devices, sometimes even allowing opening multiple physical camera devices independently. Since it's not a hard guarantee from the framework, doing that requires performing per-device testing and tuning using trial and error.
+The guarantees provided by the framework are just the bare minimum required to
+get frames from more than one physical camera simultaneously. Additional streams
+are supported in most devices, sometimes even allowing opening multiple physical
+camera devices independently. Since it's not a hard guarantee from the
+framework, doing that requires performing per-device testing and tuning using
+trial and error.
 
 ## Creating a session with multiple physical cameras
 
-When using physical cameras on a multi-camera enabled device, open a single`CameraDevice`(the logical camera) and interact with it within a single session. Create the single session using the API`CameraDevice.createCaptureSession(SessionConfiguration config)`, which was added in API level 28. The session configuration has a number of output configurations, each of which has a set of output targets and, optionally, a desired physical camera ID.
-![](https://developer.android.com/static/images/training/camera/camera2/multi-camera-3.png)**Figure 3.**SessionConfiguration and OutputConfiguration model
+When using physical cameras on a multi-camera enabled device, open a single
+`CameraDevice` (the logical camera) and interact with it within a single
+session. Create the single session using the API
+`CameraDevice.createCaptureSession(SessionConfiguration config)`, which was
+added in API level 28. The session configuration has a number of output
+configurations, each of which has a set of output targets and, optionally, a
+desired physical camera ID.
+![](https://developer.android.com/static/images/training/camera/camera2/multi-camera-3.png) **Figure 3.**SessionConfiguration and OutputConfiguration model
 
-Capture requests have an output target associated with them. The framework determines which physical (or logical) camera the requests are sent to based on what output target is attached. If the output target corresponds to one of the output targets that was sent as an output configuration along with a physical camera ID, then that physical camera receives and processes the request.
+Capture requests have an output target associated with them. The framework
+determines which physical (or logical) camera the requests are sent to based on
+what output target is attached. If the output target corresponds to one of the
+output targets that was sent as an output configuration along with a physical
+camera ID, then that physical camera receives and processes the request.
 
 ## Using a pair of physical cameras
 
-Another addition to the camera APIs for multi-camera is the ability to identify logical cameras and find the physical cameras behind them. You can define a function to help identify potential pairs of physical cameras that you can use to replace one of the logical camera streams:  
+Another addition to the camera APIs for multi-camera is the ability to identify
+logical cameras and find the physical cameras behind them. You can define a
+function to help identify potential pairs of physical cameras that you can use
+to replace one of the logical camera streams:
 
 ### Kotlin
 
@@ -182,7 +244,9 @@ return dualCameras;
 }
 ```
 
-State handling of the physical cameras is controlled by the logical camera. To open a "dual camera," open the logical camera corresponding to the physical cameras:  
+State handling of the physical cameras is controlled by the logical camera. To
+open a "dual camera," open the logical camera corresponding to the physical
+cameras:
 
 ### Kotlin
 
@@ -233,7 +297,10 @@ void openDualCamera(CameraManager cameraManager,
     }
 ```
 
-Besides selecting which camera to open, the process is the same as opening a camera in past Android versions. Creating a capture session using the new session configuration API tells the framework to associate certain targets with specific physical camera IDs:  
+Besides selecting which camera to open, the process is the same as opening
+a camera in past Android versions. Creating a capture session using the new
+session configuration API tells the framework to associate certain targets with
+specific physical camera IDs:
 
 ### Kotlin
 
@@ -380,16 +447,30 @@ void createDualCameraSession(CameraManager cameraManager,
     }
 ```
 
-See[`createCaptureSession`](https://developer.android.com/reference/android/hardware/camera2/CameraDevice#createCaptureSession%28android.hardware.camera2.params.SessionConfiguration%29)for information on which combination of streams is supported. Combining streams is for multiple streams on a single logical camera. The compatibility extends to using the same configuration and replacing one of those streams with two streams from two physical cameras that are part of the same logical camera.
+See
+[`createCaptureSession`](https://developer.android.com/reference/android/hardware/camera2/CameraDevice#createCaptureSession%28android.hardware.camera2.params.SessionConfiguration%29)
+for information on which combination of streams is supported. Combining streams
+is for multiple streams on a single logical camera. The compatibility extends to
+using the same configuration and replacing one of those streams with two streams
+from two physical cameras that are part of the same logical camera.
 
-With the[camera session](https://developer.android.com/reference/android/hardware/camera2/CameraCaptureSession)ready, dispatch the desired[capture requests](https://developer.android.com/reference/android/hardware/camera2/CaptureRequest). Each target of the capture request receives its data from its associated physical camera, if any are in use, or fall back to the logical camera.
+With the
+[camera session](https://developer.android.com/reference/android/hardware/camera2/CameraCaptureSession)
+ready, dispatch the desired
+[capture requests](https://developer.android.com/reference/android/hardware/camera2/CaptureRequest). Each
+target of the capture request receives its data from its associated physical
+camera, if any are in use, or fall back to the logical camera.
 
 ## Zoom example use-case
 
-It is possible to use the merging of physical cameras into a single stream so that users can switch between the different physical cameras to experience a different field-of-view, effectively capturing a different "zoom level."
-![](https://developer.android.com/static/images/training/camera/camera2/multi-camera-4.gif)**Figure 4.**Example of swapping cameras for zoom level use-case (from Pixel 3 Ad)
+It is possible to use the merging of physical cameras into a single stream so
+that users can switch between the different physical cameras to experience a
+different field-of-view, effectively capturing a different "zoom level."
+![](https://developer.android.com/static/images/training/camera/camera2/multi-camera-4.gif) **Figure 4.**Example of swapping cameras for zoom level use-case (from Pixel 3 Ad)
 
-Start by selecting the pair of physical cameras to allow users to switch between. For maximum effect, you can choose the pair of cameras that provide the minimum and maximum focal length available.  
+Start by selecting the pair of physical cameras to allow users to switch
+between. For maximum effect, you can choose the pair of cameras that provide
+the minimum and maximum focal length available.
 
 ### Kotlin
 
@@ -474,9 +555,13 @@ DualCamera findShortLongCameraPair(CameraManager manager, Integer facing) {
     }
 ```
 
-A sensible architecture for this would be to have two[`SurfaceViews`](https://developer.android.com/reference/android/view/SurfaceView)---one for each stream. These`SurfaceViews`get swapped based on user interaction so that only one is visible at any given time.
+A sensible architecture for this would be to have two
+[`SurfaceViews`](https://developer.android.com/reference/android/view/SurfaceView)---one for each stream.
+These `SurfaceViews` get swapped based on user interaction so that only one is
+visible at any given time.
 
-The following code shows how to open the logical camera, configure the camera outputs, create a camera session, and start two preview streams:  
+The following code shows how to open the logical camera, configure the camera
+outputs, create a camera session, and start two preview streams:
 
 ### Kotlin
 
@@ -536,13 +621,26 @@ CameraManager manager = ...;
         });
 ```
 
-All that is left to do is provide a UI for the user to switch between the two surfaces, such as a button or double-tapping the`SurfaceView`. You could even perform some form of scene analysis and switch between the two streams automatically.
+All that is left to do is provide a UI for the user to switch between the two
+surfaces, such as a button or double-tapping the `SurfaceView`. You could even
+perform some form of scene analysis and switch between the two streams
+automatically.
 
 ## Lens distortion
 
-All lenses produce a certain amount of distortion. In Android, you can query the distortion created by lenses using[`CameraCharacteristics.LENS_DISTORTION`](https://developer.android.com/reference/android/hardware/camera2/CameraCharacteristics#LENS_DISTORTION), which replaces the now-deprecated[`CameraCharacteristics.LENS_RADIAL_DISTORTION`](https://developer.android.com/reference/android/hardware/camera2/CameraCharacteristics#LENS_RADIAL_DISTORTION). For logical cameras, the distortion is minimal and your application can use the frames more or less as they come from the camera. For physical cameras, there are potentially very different lens configurations, especially on wide lenses.
+All lenses produce a certain amount of distortion. In Android, you can query the
+distortion created by lenses using
+[`CameraCharacteristics.LENS_DISTORTION`](https://developer.android.com/reference/android/hardware/camera2/CameraCharacteristics#LENS_DISTORTION),
+which replaces the now-deprecated
+[`CameraCharacteristics.LENS_RADIAL_DISTORTION`](https://developer.android.com/reference/android/hardware/camera2/CameraCharacteristics#LENS_RADIAL_DISTORTION).
+For logical cameras, the distortion is minimal and your application can use
+the frames more or less as they come from the camera. For physical cameras,
+there are potentially very different lens configurations, especially on wide
+lenses.
 
-Some devices may implement automatic distortion correction via[`CaptureRequest.DISTORTION_CORRECTION_MODE`](https://developer.android.com/reference/android/hardware/camera2/CaptureRequest#DISTORTION_CORRECTION_MODE). Distortion correction defaults to being on for most devices.  
+Some devices may implement automatic distortion correction via
+[`CaptureRequest.DISTORTION_CORRECTION_MODE`](https://developer.android.com/reference/android/hardware/camera2/CaptureRequest#DISTORTION_CORRECTION_MODE).
+Distortion correction defaults to being on for most devices.
 
 ### Kotlin
 
@@ -610,4 +708,6 @@ CameraCaptureSession cameraSession = ...;
         cameraSession.capture(captureRequestBuilder.build(), ...);
 ```
 
-Setting a capture request in this mode can impact the frame rate that can be produced by the camera. You may choose to set the distortion correction on only still image captures.
+Setting a capture request in this mode can impact the frame rate that can be
+produced by the camera. You may choose to set the distortion correction on only
+still image captures.

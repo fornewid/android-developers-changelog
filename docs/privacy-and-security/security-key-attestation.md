@@ -9,10 +9,6 @@ are stored in a device's hardware-backed keystore. The following sections
 describe how to verify the properties of hardware-backed keys and how to
 interpret the attestation certificates' extension data.
 
-> [!IMPORTANT]
-> **Important:** Google is introducing a new root certificate for Android Key Attestation. This change enhances the security and reliability of the attestation process for sensitive applications. A new root key has been generated for Android Key Attestation (KeyMint). The new root is an ECDSA P-384 key. See [Hardware attestation
-> root certificate rotation](https://developer.android.com/privacy-and-security/security-key-attestation#root_certificate_rotation) for details.
-
 ## Before you begin: ensure your device supports hardware-level key attestation
 
 
@@ -306,28 +302,6 @@ If the root certificate doesn't contain the public key on this page, there are t
 - Most likely, the device launched with an Android version less than 7.0 and it doesn't support hardware attestation. In this case, Android has a software implementation of attestation that produces the same sort of attestation certificate, but signed with a key [hardcoded in Android source code](https://android.googlesource.com/platform/system/keymaster/+/android-9.0.0_r30/contexts/soft_attestation_cert.cpp#176). Because this signing key isn't a secret, the attestation might have been created by an attacker pretending to provide secure hardware.
 - The other likely reason is that the device isn't a Google Play device. In that case, the device maker is free to create their own root certificate and to define the meaning of their attestation data. Refer to the device maker's documentation. Note that Google isn't aware of any device makers who have done this.
 
-## Hardware attestation root certificate rotation
-
-
-**Google is introducing a new root certificate for Android Key Attestation**. This change
-enhances the security and reliability of the attestation process for sensitive applications.
-A new root key has been generated for Android Key Attestation (KeyMint). The new root is an ECDSA
-P-384 key.
-
-### What you need to do
-
-- If your app relies on Android Key Attestation, add the new root certificate to your trust stores by March 31, 2026. Download both the new and old certificates from <https://android.googleapis.com/attestation/root>
-- Devices that use [Remote Key Provisioning (RKP)](https://source.android.com/docs/core/ota/modular-system/remote-key-provisioning) will begin receiving certificates rooted in this new certificate in February 2026. RKP-enabled devices will exclusively use the new root by April 10, 2026.
-- Update your attestation processes to trust **both** the new and existing root certificates. Older devices with factory-provisioned keys don't support key rotation and continue to use the old root.
-- The certificate extension schema itself will remain unchanged; only the root is changing.
-- Both human-readable and machine-readable forms of the new root will be publicly available.
-
-### Best Practices
-
-
-Don't query an endpoint for trusted roots at runtime, as this action creates security risks.
-Handle changes to roots of trust through a formal process.
-
 ### Phase out factory keys: Remote Key Provisioning (RKP)
 
 
@@ -342,12 +316,11 @@ revocation to a single device.
 ### Attestation verification libraries
 
 
-Use the attestation verification [Kotlin](https://github.com/android/keyattestation)
-library to verify Key Attestation certificate chains. Moreover, this library already integrates
-the new [root certificates](https://github.com/android/keyattestation/blob/main/roots.json).
+Use the [attestation verification Kotlin
+library](https://github.com/android/keyattestation) to verify Key Attestation certificate chains.
 
 If you are using a different verifier, we recommend moving to the Kotlin library instead.
-It is well-tested, and covers edge cases that are often missed by custom verifiers.
+It's well-tested, and covers edge cases that are often missed by custom verifiers.
 
 ## Certificate revocation status list
 
@@ -362,8 +335,8 @@ the HTTP response determines how often to check for updates so a network request
 for every certificate being verified.
 
 This URL returns a JSON file containing the revocation status for any certificates that don't
-have a normal valid status. The format of the JSON file adheres to the following JSON Schema
-([draft 07](https://tools.ietf.org/html/draft-handrews-json-schema-01)) definition:
+have a normal valid status. The format of the JSON file adheres to the following
+[JSON Schema draft 07](https://tools.ietf.org/html/draft-handrews-json-schema-01) definition:
 
 ```
 {
@@ -431,6 +404,23 @@ Example CRL:
 }
 ```
 
+### Expired factory keys: Still trustworthy
+
+
+Devices launched before 2021 have attestation keys with expired certificates. These keys
+are still trustworthy unless they appear in the
+[certificate revocation list](https://android.googleapis.com/attestation/status). We
+recommend that you continue trusting certificates that chain to the root with the subject
+`SERIALNUMBER=f92009e853b6b045`, regardless of certificate validity period.
+
+It's critical, however, to ensure that Remote Key Provisioning (RKP) certificates continue to
+have their validity period checked. The shorter expiration period for RKP certificates is an
+important consideration of the threat model, and is intended to allow for quicker responses to
+compromises.
+
+The [Kotlin library for key attestation
+verification](https://github.com/android/keyattestation) handles expiration correctly in all cases.
+
 ## Certificate revocation policy
 
 
@@ -458,7 +448,7 @@ Leaks are discoverable in a number of ways, including:
 
 
 Upon discovery, attestation certificates will be revoked by having their serial numbers added to
-the [revocation list](https://android.googleapis.com/attestation/status). Typically
+the [certificate revocation list](https://android.googleapis.com/attestation/status). Typically
 this will happen within several days of discovery, but may take longer in rare cases. For example,
 the revocation of certificates for leaked attestation keys is usually delayed if the devices
 affected by the revocation can be securely re-provisioned. Scale of the impact of the revocation

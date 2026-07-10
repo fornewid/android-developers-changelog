@@ -9,6 +9,13 @@ source: md.txt
 # Community
 
 Discover stories from our users, spotlight features, and the collaborative projects that bring us all together.
+- [![View Steph Pio's profile](https://developer.android.com/static/blog/assets/security_pass_photo_b9ab37d5bf_1fkXBh.webp)](https://developer.android.com/blog/authors/steph-pio) 06 Jul 2026 06 Jul 2026 ![](https://developer.android.com/static/blog/assets/IG_Fund26_Strapi_Header_716b75cbab_1E2Dt5.webp)
+
+  ## [Google Play launches the first Indie Games Fund in Africa](https://developer.android.com/blog/posts/google-play-launches-the-first-indie-games-fund-in-africa)
+
+  [arrow_forward](https://developer.android.com/blog/posts/google-play-launches-the-first-indie-games-fund-in-africa) Google Play is launching the first Indie Games Fund in Africa, investing $1 million to empower 10 indie game studios across Sub-Saharan Africa.
+  [Steph Pio](https://developer.android.com/blog/authors/steph-pio) • 1 min read
+  - [#Google Play](https://developer.android.com/blog/topics/google-play)
 - [![View Robbie McLachlan's profile](https://developer.android.com/static/blog/assets/Robbie_280bd4586c_2wmcrw.webp)](https://developer.android.com/blog/authors/robbie-mclachlan) 25 Mar 2026 25 Mar 2026 ![](https://developer.android.com/static/blog/assets/Meet_The_Class_2_bb4f1ec5bd_Z1MklPk.webp)
 
   ## [Meet the class of 2026 for the Google Play Apps Accelerator](https://developer.android.com/blog/posts/meet-the-class-of-2026-for-the-google-play-apps-accelerator)
@@ -38,12 +45,6 @@ Discover stories from our users, spotlight features, and the collaborative proje
   ## [#WeArePlay: Meet the game creators who entertain, inspire and spark imagination](https://developer.android.com/blog/posts/we-are-play-meet-the-game-creators-who-entertain-inspire-and-spark-imagination)
 
   [arrow_forward](https://developer.android.com/blog/posts/we-are-play-meet-the-game-creators-who-entertain-inspire-and-spark-imagination) In our latest #WeArePlay stories, we meet the game creators who entertain, inspire and spark imagination in players around the world on Google Play.
-  [Robbie McLachlan](https://developer.android.com/blog/authors/robbie-mclachlan) • 2 min read
-- [![View Robbie McLachlan's profile](https://developer.android.com/static/blog/assets/Robbie_280bd4586c_2wmcrw.webp)](https://developer.android.com/blog/authors/robbie-mclachlan) 06 Nov 2025 06 Nov 2025 ![](https://developer.android.com/static/blog/assets/Android_Devs_Google_Devs_Blog_Header_1200x600_79350b0b52_1w8gkH.webp)
-
-  ## [#WeArePlay: Meet the people making apps \& games to improve your health](https://developer.android.com/blog/posts/we-are-play-meet-the-people-making-apps-and-games-to-improve-your-health)
-
-  [arrow_forward](https://developer.android.com/blog/posts/we-are-play-meet-the-people-making-apps-and-games-to-improve-your-health) In our latest #WeArePlay stories, we meet the founders building apps and games that are making health and wellness fun and easy for everyone on Google Play.
   [Robbie McLachlan](https://developer.android.com/blog/authors/robbie-mclachlan) • 2 min read
 <button class="adb--button adb--standard adb--outlined adb--disabled adb--global-hover-button astro-vnzlvqnm" disabled=""> arrow_back </button>
 

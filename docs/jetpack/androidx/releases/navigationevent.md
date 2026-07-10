@@ -10,7 +10,7 @@ The Navigation Event library provides a KMP-first API for handling system back a
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| June 17, 2026 | [1.1.2](https://developer.android.com/jetpack/androidx/releases/navigationevent#1.1.2) | - | - | - |
+| July 01, 2026 | [1.1.2](https://developer.android.com/jetpack/androidx/releases/navigationevent#1.1.2) | - | - | [1.2.0-alpha01](https://developer.android.com/jetpack/androidx/releases/navigationevent#1.2.0-alpha01) |
 
 ## Declaring dependencies
 
@@ -25,7 +25,7 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.navigationevent:navigationevent:1.1.2"
+    implementation "androidx.navigationevent:navigationevent:1.2.0-alpha01"
 }
 ```
 
@@ -33,7 +33,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.navigationevent:navigationevent:1.1.2")
+    implementation("androidx.navigationevent:navigationevent:1.2.0-alpha01")
 }
 ```
 
@@ -51,6 +51,26 @@ clicking the star button.
 
 See the [Issue Tracker documentation](https://developers.google.com/issue-tracker)
 for more information.
+
+## Version 1.2
+
+### Version 1.2.0-alpha01
+
+July 01, 2026
+
+`androidx.navigationevent:navigationevent-*:1.2.0-alpha01` is released. Version 1.2.0-alpha01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/97aec8dd133e0797a82bc84ea401f5d85ccb74f2..ba3014c143b9c9782fe30bc766c5dced55e13453/navigationevent).
+
+**API Changes**
+
+- `androidx.benchmark` now has a `minSdk` of 24. ([Ic2a85](https://android-review.googlesource.com/#/q/Ic2a8500af8a2bf092fcc1b27d9a599aa5f3b81d7))
+- Add onForwardCompletedFallback to TestNavigationEventDispatcherOwner to enable tracking and testing of unhandled forward navigation events. ([I6bbd7](https://android-review.googlesource.com/#/q/I6bbd7eef2bc2f56a10769c377d8f1a0b498d221e))
+- Add navigationEventInput to TestNavigationEventDispatcherOwner to simplify simulating navigation events in tests. ([I3ef48](https://android-review.googlesource.com/#/q/I3ef4851622a1380135c025173fe612547adee466))
+
+**Bug Fixes**
+
+- Cleans up API information ([Ia8066](https://android-review.googlesource.com/#/q/Ia8066818f7e33220445aaeafa9ecc0668cc4818b))
+- Ignore navigation events dispatched to disconnected inputs. Previously, dispatching events to a removed input would throw an `IllegalStateException`. ([I1a8bc](https://android-review.googlesource.com/#/q/I1a8bc17f000b7a0f99ee107c0c09889e14841817), [b/515890298](https://issuetracker.google.com/issues/515890298))
+- Prevent symbol duplication with older JetBrains fork versions when upgrading to Compose Multiplatform 1.11.0. ([I4cc4d](https://android-review.googlesource.com/#/q/I4cc4dce0b07c38f6a624780d012816b5d0e200cd))
 
 There are no release notes for this artifact.
 

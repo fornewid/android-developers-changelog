@@ -24,16 +24,16 @@ Once your team completes the steps to set up Gemini Code Assist, you can start
 using Gemini in Android Studio for businesses in your development workflow:
 
 1. [Download Android Studio](https://developer.android.com/studio). Note that some features are under active development and only available through [Studio Labs](https://developer.android.com/studio/gemini/labs) or a [preview version of Android Studio](https://developer.android.com/studio/preview). See [Features](https://developer.android.com/studio/gemini/features) to check what version of Android Studio you need for the features you're interested in using.
-2. To launch Gemini, open or start an Android Studio project and click **Gemini** ![](https://developer.android.com/static/studio/images/gemini-icon.png). Alternatively, click **View \> Tool Windows \> Gemini**.
+2. To launch Gemini, open or start an Android Studio project and click **Agent** ![](https://developer.android.com/static/studio/images/agent-icon.png). Alternatively, click **View \> Tool Windows \> Agent**.
 3. Sign in to your Google Account when asked, if you aren't already signed in.
 4. Select **Gemini for businesses** when given the choice of product tier.
 
-   ![attempt-right](https://developer.android.com/static/studio/gemini/images/gemini-for-businesses-onboarding.png)
+   ![attempt-right](https://developer.android.com/static/studio/gemini/images/gemini-for-businesses-onboarding.png) Select **Gemini for businesses** in the onboarding flow.
 5. Select the Google Cloud project that has the Gemini for Google Cloud API
    enabled. Ask your admin for the name of the project, if needed. Once you
    select a project the Gemini tool window opens and you can start sending
    queries.
 
 When you're using Gemini in Android Studio for businesses, you should see the
-"Gemini for businesses" label at the bottom of the **Gemini** tool window.
-![](https://developer.android.com/static/studio/gemini/images/gemini-for-businesses-label.png)
+"Gemini for businesses" label at the bottom of the **Agent** tool window.
+![](https://developer.android.com/static/studio/gemini/images/gemini-for-businesses-label.png) Gemini for businesses chat box.

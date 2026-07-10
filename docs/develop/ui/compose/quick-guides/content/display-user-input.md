@@ -37,11 +37,11 @@ The [`AlertDialog`](https://developer.android.com/reference/kotlin/androidx/comp
 Material Design themed dialog. The following example implements two buttons in
 an alert dialog, one that dismisses the dialog, and another that confirms its
 request:
-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/display-user-input_d8da831567d246cb4f5fcb7cf59889a8d142c2dcbec8a38233422b4a23829771.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/display-user-input_e72580de60d8579e069f8640c831a6d78917e3db8c823ae7a5f6ec6e4e95df83.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
 
 This implementation implies a parent composable that passes arguments to the
 child composable in this way:
-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/display-user-input_39d92462938505d0aa49b9f087cde9ed11602db8ab928896bf3bb8681b1ff08d.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/display-user-input_e3c82447812635fee875483392b3083ca7ca7f54955526897ad791937c2f50ba.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
 
 ### Results
 
@@ -86,7 +86,7 @@ parameters of a dialog:
 The following example is a basic implementation of the `Dialog` composable. Note
 that it uses a `Card` as the secondary container. Without the `Card`, the `Text`
 component would appear alone above the main app content.
-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/display-user-input_888adf8185db97c78c73a0362508ca7db20ec7fc6ef31bf715e2239ea3d01335.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/display-user-input_55f6de28fef6184ac6f064925663e1e0c89144da83464b76250103e271a1126d.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
 
 ### Result
 
@@ -103,7 +103,7 @@ case, the component manually implements a similar interface to the preceding
 > [!CAUTION]
 > **Caution:** If you only need to display a two-button dialog as in this example, you should use `AlertDialog` and its more convenient API. However, if you want to create a more complex dialog, perhaps with forms and multiple buttons, you should use `Dialog` with custom content, as in the following example.
 
-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/display-user-input_7852eaa9309c4b5209685f2ec98ff392069e53988bfaf789d8ae6393ee2d69d7.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/display-user-input_14882ee8469d08f7b444ab51783a964555b70168d1fe171d87b29723b2f182b6.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
 
 ### Result
 

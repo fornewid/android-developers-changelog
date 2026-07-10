@@ -25,25 +25,25 @@ syntax:
 :
 
     ```xml
-    <?xml version="1.0" encodin>g<="utf-8"?
-    ViewGroup
-        xmlns:android="http://schemas.android.com/apk/res/android";
-       android:id="@[+][package:]id/resource_name&quot;
-        android:layout_height=["dimension" | "match_parent&quot; | "wrap_content"]
-        android:layout_width=["dimensi>on&qu<ot;| "match_parent" | &quot;wrap_content&quot;]
-        [ViewGroup-specific attributes] 
-        View
+    <?xml version="1.0" encoding="utf-8"?>
+    <ViewGroup
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@[+][package:]id/resource_name"
+        android:layout_height=["dimension" | "match_parent" | "wrap_content"]
+        android:layout_width=["dimension" | "match_parent" | "wrap_content"]
+        [ViewGroup-specific attributes] >
+        <View
             android:id="@[+][package:]id/resource_name"
-            android:layout_height=["dimension" | "match_parent"; >| "w<rap_content&q>uot;]<
-        >    a<ndroid:lay>out_width<=\[\&quo>t;dim<ension&quo>t; | <"match_parent" | "wrap_con>t<ent"]>
-            [View-specific attributes] 
-            requestFocus/
-        /View
-        ViewGroup 
-            View /
-        /ViewGroup
-        include layout="@layout/layout_resource"/
-    /ViewGroup
+            android:layout_height=["dimension" | "match_parent" | "wrap_content"]
+            android:layout_width=["dimension" | "match_parent" | "wrap_content"]
+            [View-specific attributes] >
+            <requestFocus/>
+        </View>
+        <ViewGroup >
+            <View />
+        </ViewGroup>
+        <include layout="@layout/layout_resource"/>
+    </ViewGroup>
     ```
 
     **Note:** The root element can be a
@@ -244,20 +244,20 @@ example:
 :   XML file saved at `res/layout/main_activity.xml`:
 
     ```xml
-    <?xml version="1.0" encoding=<"utf-8"?>
-    LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <?xml version="1.0" encoding="utf-8"?>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
                   android:layout_width="match_parent"
-                  android:layout_height="match_parent"<;
+                  android:layout_height="match_parent"
                   android:orientation="vertical" >
-        TextView android:id="@+id/text"
+        <TextView android:id="@+id/text"
                   android:layout_width="wrap_content"
-                  android:la<yout_height="wrap_content"
+                  android:layout_height="wrap_content"
                   android:text="Hello, I am a TextView" />
-        Button android:id="@+id/button"
-                android:layout_wi<dth="wrap_content"
+        <Button android:id="@+id/button"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Hello, I am a Button" />
-    /LinearLayout>
+    </LinearLayout>
     ```
 
     This application code loads the layout for an `https://developer.android.com/reference/android/app/Activity` in the

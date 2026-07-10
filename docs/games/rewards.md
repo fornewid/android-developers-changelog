@@ -42,7 +42,7 @@ The following are requirements for Play Games Rewards:
 Add, manage, and deliver Play Games Rewards one-time product offers used by
 Google Play as incentives to drive engagement for your game.
 
-### Add a Play Game Reward
+### Add a Play Game Reward (available from September 01, 2026)
 
 Play Games Rewards (for both single use and repeatable rewards) are one-time
 product offers that have been created with the purpose of being distributed by
@@ -57,20 +57,24 @@ steps:
 3. Select one or more available one-time products from the list that represents the entitlement you want to associate and create a new offer that represents the Play Games Rewards for your game.
    1. If you don't have any one-time products showing in this list, then you must first create some by navigating to **Monetise with Play** \> **Products** \> **One time products** and [follow these instructions](https://support.google.com/googleplay/android-developer/answer/16430488).
 
-### Remove a Play Games Reward
+### Remove a Play Games Reward (available from September 01, 2026)
 
 If you no longer want a SKU to be available to be used as a reward:
 
 1. Go to **Monetise with Play** \> **Products \> One-time products**.
 2. Select the specific SKU and associated "Play Game Reward" offer and make that offer inactive.
 
-### Ensure a Play Games Reward is delivered in game
+### Ensure a Play Games Reward is delivered in game (available from September 01, 2026)
 
 Play will grant a player a Play Games Reward after they have successfully
 completed an engagement mechanism, such as a Quest, for your game. At that point
 your game needs to acknowledge the one-time product once the player has claimed
 their Play Games Reward. This should be done using the
 [out of app purchase flow](https://developer.android.com/google/play/billing/integrate#process) for both single use and repeatable rewards.
+
+You can integrate with the out of app purchase flow in advance of September 1,
+2026. However, you can only test the flow fully on or after September 1, 2026,
+once Play Game Rewards have been created.
 
 1. Ensure you have integrated with the [out of app purchase flow](https://developer.android.com/google/play/billing/integrate#process) in your game.
 2. When your game starts, or is foregrounded, it should check if the player has any unacknowledged Play Games Rewards. For more information, follow instructions to call [`queryPurchasesAsync`](https://developer.android.com/google/play/billing/integrate#process). Games should check and grant rewards immediately.

@@ -262,18 +262,19 @@ Continue reading
   [Matthew Forsythe](https://developer.android.com/blog/authors/matthew-forsythe) • 2 min read
   - [#Android](https://developer.android.com/blog/topics/android)
   - [#identity](https://developer.android.com/blog/topics/identity)
+- [![View Steph Pio's profile](https://developer.android.com/static/blog/assets/security_pass_photo_b9ab37d5bf_1fkXBh.webp)](https://developer.android.com/blog/authors/steph-pio) 06 Jul 2026 06 Jul 2026 ![](https://developer.android.com/static/blog/assets/IG_Fund26_Strapi_Header_716b75cbab_1E2Dt5.webp) [Community](https://developer.android.com/blog/categories/community)
+
+  ## [Google Play launches the first Indie Games Fund in Africa](https://developer.android.com/blog/posts/google-play-launches-the-first-indie-games-fund-in-africa)
+
+  [arrow_forward](https://developer.android.com/blog/posts/google-play-launches-the-first-indie-games-fund-in-africa) Google Play is launching the first Indie Games Fund in Africa, investing $1 million to empower 10 indie game studios across Sub-Saharan Africa.
+  [Steph Pio](https://developer.android.com/blog/authors/steph-pio) • 1 min read
+  - [#Google Play](https://developer.android.com/blog/topics/google-play)
 - [![View Robbie McLachlan's profile](https://developer.android.com/static/blog/assets/Robbie_280bd4586c_2wmcrw.webp)](https://developer.android.com/blog/authors/robbie-mclachlan) 25 Mar 2026 25 Mar 2026 ![](https://developer.android.com/static/blog/assets/Meet_The_Class_2_bb4f1ec5bd_Z1MklPk.webp) [Community](https://developer.android.com/blog/categories/community)
 
   ## [Meet the class of 2026 for the Google Play Apps Accelerator](https://developer.android.com/blog/posts/meet-the-class-of-2026-for-the-google-play-apps-accelerator)
 
   [arrow_forward](https://developer.android.com/blog/posts/meet-the-class-of-2026-for-the-google-play-apps-accelerator) The wait is over! We are incredibly excited to share the Google Play Apps Accelerator class of 2026.
   [Robbie McLachlan](https://developer.android.com/blog/authors/robbie-mclachlan) • 1 min read
-- [![View Robbie McLachlan's profile](https://developer.android.com/static/blog/assets/Robbie_280bd4586c_2wmcrw.webp)](https://developer.android.com/blog/authors/robbie-mclachlan) 11 Dec 2025 11 Dec 2025 ![](https://developer.android.com/static/blog/assets/Android_Devs_Google_Devs_Blog_Header_1200x600_79350b0b52_1w8gkH.webp) [Community](https://developer.android.com/blog/categories/community)
-
-  ## [#WeArePlay: How Matraquina helps non-verbal kids communicate](https://developer.android.com/blog/posts/we-are-play-how-matraquina-helps-non-verbal-kids-communicate)
-
-  [arrow_forward](https://developer.android.com/blog/posts/we-are-play-how-matraquina-helps-non-verbal-kids-communicate) In our latest #WeArePlay film, we meet Adriano, Wagner and Grazyelle. The trio are behind Matraquinha, an app helping thousands of non-verbal children in more than 80 countries communicate.
-  [Robbie McLachlan](https://developer.android.com/blog/authors/robbie-mclachlan) • 2 min read
 Stay in the loop
 
 

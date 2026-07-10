@@ -1,33 +1,20 @@
 ---
-title: Load and display paged data (Views)  |  Android Developers
+title: https://developer.android.com/topic/libraries/architecture/views/paging/v3-paged-data-views
 url: https://developer.android.com/topic/libraries/architecture/views/paging/v3-paged-data-views
-source: html-scrape
+source: md.txt
 ---
 
-* [Android Developers](https://developer.android.com/)
-* [Develop](https://developer.android.com/develop)
-* [Core areas](https://developer.android.com/develop/core-areas)
-* [UI](https://developer.android.com/develop/ui)
-* [Views](https://developer.android.com/develop/ui/views/layout/declaring-layout)
-* [Guides](https://developer.android.com/topic/architecture/views/recommendations-views)
-
-# Load and display paged data (Views) Stay organized with collections Save and categorize content based on your preferences.
-
-
-
-
-
-[Concepts and Jetpack Compose implementationarrow\_forward](/topic/libraries/architecture/paging/v3-paged-data)
+[Concepts and Jetpack Compose implementation](https://developer.android.com/topic/libraries/architecture/paging/v3-paged-data)
 
 The Paging library provides powerful capabilities for loading and displaying
 paged data from a larger dataset. This guide demonstrates how to use the Paging
 library to set up a stream of paged data from a network data source and display
-it in a [`RecyclerView`](/guide/topics/ui/layout/recyclerview).
+it in a [`RecyclerView`](https://developer.android.com/guide/topics/ui/layout/recyclerview).
 
 ## Define a data source
 
-The first step is to define a [`PagingSource`](/reference/kotlin/androidx/paging/PagingSource) implementation to identify the
-data source. The `PagingSource` API class includes the [`load`](/reference/kotlin/androidx/paging/PagingSource#load) method,
+The first step is to define a [`PagingSource`](https://developer.android.com/reference/kotlin/androidx/paging/PagingSource) implementation to identify the
+data source. The `PagingSource` API class includes the [`load`](https://developer.android.com/reference/kotlin/androidx/paging/PagingSource#load) method,
 which you override to indicate how to retrieve paged data from the corresponding
 data source.
 
@@ -35,12 +22,11 @@ Use the `PagingSource` class directly to use Kotlin coroutines for async
 loading. The Paging library also provides classes to support other async
 frameworks:
 
-* To use RxJava, implement [`RxPagingSource`](/reference/kotlin/androidx/paging/rxjava2/RxPagingSource) instead.
-* To use `ListenableFuture` from Guava, implement
-  [`ListenableFuturePagingSource`](/reference/kotlin/androidx/paging/ListenableFuturePagingSource) instead.
+- To use RxJava, implement [`RxPagingSource`](https://developer.android.com/reference/kotlin/androidx/paging/rxjava2/RxPagingSource) instead.
+- To use `ListenableFuture` from Guava, implement [`ListenableFuturePagingSource`](https://developer.android.com/reference/kotlin/androidx/paging/ListenableFuturePagingSource) instead.
 
-**Note:** To use the Paging library with RxJava or Guava, you must include
-[additional dependencies](/topic/libraries/architecture/paging/v3-overview#setup).
+> [!NOTE]
+> **Note:** To use the Paging library with RxJava or Guava, you must include [additional dependencies](https://developer.android.com/topic/libraries/architecture/paging/v3-overview#setup).
 
 ### Select key and value types
 
@@ -52,199 +38,192 @@ by passing `Int` page numbers to [Retrofit](https://square.github.io/retrofit/),
 
 ### Define the PagingSource
 
-The following example implements a [`PagingSource`](/reference/kotlin/androidx/paging/PagingSource) that loads pages of items
+The following example implements a [`PagingSource`](https://developer.android.com/reference/kotlin/androidx/paging/PagingSource) that loads pages of items
 by page number. The `Key` type is `Int` and the `Value` type is `User`.
 
-**Note:** We recommend using [Kotlin](/topic/libraries/architecture/paging/v3-paged-data#pagingsource) for Paging 3.
+> [!NOTE]
+> **Note:** We recommend using [Kotlin](https://developer.android.com/topic/libraries/architecture/paging/v3-paged-data#pagingsource) for Paging 3.
 
 ### Java (RxJava)
 
-```
-class ExamplePagingSource extends RxPagingSource<Integer, User> {
-  @NonNull
-  private ExampleBackendService mBackend;
-  @NonNull
-  private String mQuery;
+    class ExamplePagingSource extends RxPagingSource<Integer, User> {
+      @NonNull
+      private ExampleBackendService mBackend;
+      @NonNull
+      private String mQuery;
 
-  ExamplePagingSource(@NonNull ExampleBackendService backend,
-    @NonNull String query) {
-    mBackend = backend;
-    mQuery = query;
-  }
+      ExamplePagingSource(@NonNull ExampleBackendService backend,
+        @NonNull String query) {
+        mBackend = backend;
+        mQuery = query;
+      }
 
-  @NotNull
-  @Override
-  public Single<LoadResult<Integer, User>> loadSingle(
-    @NotNull LoadParams<Integer> params) {
-    // Start refresh at page 1 if undefined.
-    Integer nextPageNumber = params.getKey();
-    if (nextPageNumber == null) {
-      nextPageNumber = 1;
+      @NotNull
+      @Override
+      public Single<LoadResult<Integer, User>> loadSingle(
+        @NotNull LoadParams<Integer> params) {
+        // Start refresh at page 1 if undefined.
+        Integer nextPageNumber = params.getKey();
+        if (nextPageNumber == null) {
+          nextPageNumber = 1;
+        }
+
+        return mBackend.searchUsers(mQuery, nextPageNumber)
+          .subscribeOn(Schedulers.io())
+          .map(this::toLoadResult)
+          .onErrorReturn(LoadResult.Error::new);
+      }
+
+      private LoadResult<Integer, User> toLoadResult(
+        @NonNull SearchUserResponse response) {
+        return new LoadResult.Page<>(
+          response.getUsers(),
+          null, // Only paging forward.
+          response.getNextPageNumber(),
+          LoadResult.Page.COUNT_UNDEFINED,
+          LoadResult.Page.COUNT_UNDEFINED);
+      }
+
+      @Nullable
+      @Override
+      public Integer getRefreshKey(@NotNull PagingState<Integer, User> state) {
+        // Try to find the page key of the closest page to anchorPosition from
+        // either the prevKey or the nextKey; you need to handle nullability
+        // here.
+        //  * prevKey == null -> anchorPage is the first page.
+        //  * nextKey == null -> anchorPage is the last page.
+        //  * both prevKey and nextKey are null -> anchorPage is the
+        //    initial page, so return null.
+        Integer anchorPosition = state.getAnchorPosition();
+        if (anchorPosition == null) {
+          return null;
+        }
+
+        LoadResult.Page<Integer, User> anchorPage = state.closestPageToPosition(anchorPosition);
+        if (anchorPage == null) {
+          return null;
+        }
+
+        Integer prevKey = anchorPage.getPrevKey();
+        if (prevKey != null) {
+          return prevKey + 1;
+        }
+
+        Integer nextKey = anchorPage.getNextKey();
+        if (nextKey != null) {
+          return nextKey - 1;
+        }
+
+        return null;
+      }
     }
-
-    return mBackend.searchUsers(mQuery, nextPageNumber)
-      .subscribeOn(Schedulers.io())
-      .map(this::toLoadResult)
-      .onErrorReturn(LoadResult.Error::new);
-  }
-
-  private LoadResult<Integer, User> toLoadResult(
-    @NonNull SearchUserResponse response) {
-    return new LoadResult.Page<>(
-      response.getUsers(),
-      null, // Only paging forward.
-      response.getNextPageNumber(),
-      LoadResult.Page.COUNT_UNDEFINED,
-      LoadResult.Page.COUNT_UNDEFINED);
-  }
-
-  @Nullable
-  @Override
-  public Integer getRefreshKey(@NotNull PagingState<Integer, User> state) {
-    // Try to find the page key of the closest page to anchorPosition from
-    // either the prevKey or the nextKey; you need to handle nullability
-    // here.
-    //  * prevKey == null -> anchorPage is the first page.
-    //  * nextKey == null -> anchorPage is the last page.
-    //  * both prevKey and nextKey are null -> anchorPage is the
-    //    initial page, so return null.
-    Integer anchorPosition = state.getAnchorPosition();
-    if (anchorPosition == null) {
-      return null;
-    }
-
-    LoadResult.Page<Integer, User> anchorPage = state.closestPageToPosition(anchorPosition);
-    if (anchorPage == null) {
-      return null;
-    }
-
-    Integer prevKey = anchorPage.getPrevKey();
-    if (prevKey != null) {
-      return prevKey + 1;
-    }
-
-    Integer nextKey = anchorPage.getNextKey();
-    if (nextKey != null) {
-      return nextKey - 1;
-    }
-
-    return null;
-  }
-}
-```
 
 ### Java (Guava/LiveData)
 
-```
-class ExamplePagingSource extends ListenableFuturePagingSource<Integer, User> {
-  @NonNull
-  private ExampleBackendService mBackend;
-  @NonNull
-  private String mQuery;
-  @NonNull
-  private Executor mBgExecutor;
+    class ExamplePagingSource extends ListenableFuturePagingSource<Integer, User> {
+      @NonNull
+      private ExampleBackendService mBackend;
+      @NonNull
+      private String mQuery;
+      @NonNull
+      private Executor mBgExecutor;
 
-  ExamplePagingSource(
-    @NonNull ExampleBackendService backend,
-    @NonNull String query, @NonNull Executor bgExecutor) {
-    mBackend = backend;
-    mQuery = query;
-    mBgExecutor = bgExecutor;
-  }
+      ExamplePagingSource(
+        @NonNull ExampleBackendService backend,
+        @NonNull String query, @NonNull Executor bgExecutor) {
+        mBackend = backend;
+        mQuery = query;
+        mBgExecutor = bgExecutor;
+      }
 
-  @NotNull
-  @Override
-  public ListenableFuture<LoadResult<Integer, User>> loadFuture(@NotNull LoadParams<Integer> params) {
-    // Start refresh at page 1 if undefined.
-    Integer nextPageNumber = params.getKey();
-    if (nextPageNumber == null) {
-      nextPageNumber = 1;
+      @NotNull
+      @Override
+      public ListenableFuture<LoadResult<Integer, User>> loadFuture(@NotNull LoadParams<Integer> params) {
+        // Start refresh at page 1 if undefined.
+        Integer nextPageNumber = params.getKey();
+        if (nextPageNumber == null) {
+          nextPageNumber = 1;
+        }
+
+        ListenableFuture<LoadResult<Integer, User>> pageFuture =
+          Futures.transform(mBackend.searchUsers(mQuery, nextPageNumber),
+          this::toLoadResult, mBgExecutor);
+
+        ListenableFuture<LoadResult<Integer, User>> partialLoadResultFuture =
+          Futures.catching(pageFuture, HttpException.class,
+          LoadResult.Error::new, mBgExecutor);
+
+        return Futures.catching(partialLoadResultFuture,
+          IOException.class, LoadResult.Error::new, mBgExecutor);
+      }
+
+      private LoadResult<Integer, User> toLoadResult(@NonNull SearchUserResponse response) {
+        return new LoadResult.Page<>(response.getUsers(),
+        null, // Only paging forward.
+        response.getNextPageNumber(),
+        LoadResult.Page.COUNT_UNDEFINED,
+        LoadResult.Page.COUNT_UNDEFINED);
+      }
+
+      @Nullable
+      @Override
+      public Integer getRefreshKey(@NotNull PagingState<Integer, User> state) {
+        // Try to find the page key of the closest page to anchorPosition from
+        // either the prevKey or the nextKey; you need to handle nullability
+        // here.
+        //  * prevKey == null -> anchorPage is the first page.
+        //  * nextKey == null -> anchorPage is the last page.
+        //  * both prevKey and nextKey are null -> anchorPage is the
+        //    initial page, so return null.
+        Integer anchorPosition = state.getAnchorPosition();
+        if (anchorPosition == null) {
+          return null;
+        }
+
+        LoadResult.Page<Integer, User> anchorPage = state.closestPageToPosition(anchorPosition);
+        if (anchorPage == null) {
+          return null;
+        }
+
+        Integer prevKey = anchorPage.getPrevKey();
+        if (prevKey != null) {
+          return prevKey + 1;
+        }
+
+        Integer nextKey = anchorPage.getNextKey();
+        if (nextKey != null) {
+          return nextKey - 1;
+        }
+
+        return null;
+      }
     }
-
-    ListenableFuture<LoadResult<Integer, User>> pageFuture =
-      Futures.transform(mBackend.searchUsers(mQuery, nextPageNumber),
-      this::toLoadResult, mBgExecutor);
-
-    ListenableFuture<LoadResult<Integer, User>> partialLoadResultFuture =
-      Futures.catching(pageFuture, HttpException.class,
-      LoadResult.Error::new, mBgExecutor);
-
-    return Futures.catching(partialLoadResultFuture,
-      IOException.class, LoadResult.Error::new, mBgExecutor);
-  }
-
-  private LoadResult<Integer, User> toLoadResult(@NonNull SearchUserResponse response) {
-    return new LoadResult.Page<>(response.getUsers(),
-    null, // Only paging forward.
-    response.getNextPageNumber(),
-    LoadResult.Page.COUNT_UNDEFINED,
-    LoadResult.Page.COUNT_UNDEFINED);
-  }
-
-  @Nullable
-  @Override
-  public Integer getRefreshKey(@NotNull PagingState<Integer, User> state) {
-    // Try to find the page key of the closest page to anchorPosition from
-    // either the prevKey or the nextKey; you need to handle nullability
-    // here.
-    //  * prevKey == null -> anchorPage is the first page.
-    //  * nextKey == null -> anchorPage is the last page.
-    //  * both prevKey and nextKey are null -> anchorPage is the
-    //    initial page, so return null.
-    Integer anchorPosition = state.getAnchorPosition();
-    if (anchorPosition == null) {
-      return null;
-    }
-
-    LoadResult.Page<Integer, User> anchorPage = state.closestPageToPosition(anchorPosition);
-    if (anchorPage == null) {
-      return null;
-    }
-
-    Integer prevKey = anchorPage.getPrevKey();
-    if (prevKey != null) {
-      return prevKey + 1;
-    }
-
-    Integer nextKey = anchorPage.getNextKey();
-    if (nextKey != null) {
-      return nextKey - 1;
-    }
-
-    return null;
-  }
-}
-```
 
 A typical PagingSource implementation passes parameters provided in its
 constructor to the `load` method to load appropriate data for a query. In the
 example above, those parameters are:
 
-* `backend`: an instance of the backend service that provides the data
-* `query`: the search query to send to the service indicated by `backend`
+- `backend`: an instance of the backend service that provides the data
+- `query`: the search query to send to the service indicated by `backend`
 
-The [`LoadParams`](/reference/kotlin/androidx/paging/PagingSource.LoadParams) object contains information about the load operation to be
+The [`LoadParams`](https://developer.android.com/reference/kotlin/androidx/paging/PagingSource.LoadParams) object contains information about the load operation to be
 performed. This includes the key to be loaded and the number of items to be
 loaded.
 
-The [`LoadResult`](/reference/kotlin/androidx/paging/PagingSource.LoadResult) object contains the result of the load operation.
+The [`LoadResult`](https://developer.android.com/reference/kotlin/androidx/paging/PagingSource.LoadResult) object contains the result of the load operation.
 `LoadResult` is a sealed class that takes one of two forms, depending on whether
 the `load` call succeeded:
 
-* If the load is successful, return a `LoadResult.Page` object.
-* If the load is not successful, return a `LoadResult.Error` object.
+- If the load is successful, return a `LoadResult.Page` object.
+- If the load is not successful, return a `LoadResult.Error` object.
 
 The following figure illustrates how the `load` function in this example
 receives the key for each load and provides the key for the subsequent load.
-
 ![On each load call, the ExamplePagingSource takes in the current key
-    and returns the next key to load.](/static/topic/libraries/architecture/images/paging3-source-load.svg)
+and returns the next key to load.](https://developer.android.com/static/topic/libraries/architecture/images/paging3-source-load.svg) **Figure 1.** Diagram showing how `load` uses and updates the key.
 
-
-**Figure 1.** Diagram showing how `load` uses and updates the key.
-
-The `PagingSource` implementation must also implement a [`getRefreshKey`](/reference/kotlin/androidx/paging/PagingSource#getrefreshkey)
-method that takes a [`PagingState`](/reference/kotlin/androidx/paging/PagingState) object as a parameter. It returns the
+The `PagingSource` implementation must also implement a [`getRefreshKey`](https://developer.android.com/reference/kotlin/androidx/paging/PagingSource#getrefreshkey)
+method that takes a [`PagingState`](https://developer.android.com/reference/kotlin/androidx/paging/PagingState) object as a parameter. It returns the
 key to pass into the `load` method when the data is refreshed or invalidated
 after the initial load. The Paging Library calls this method automatically on
 subsequent refreshes of the data.
@@ -258,87 +237,81 @@ over a network. Report errors encountered during loading by returning a
 For example, you can catch and report loading errors in `ExamplePagingSource`
 from the previous example by adding the following to the `load` method:
 
-**Note:** We recommend using [Kotlin](/topic/libraries/architecture/paging/v3-paged-data#handle-errors) for Paging 3.
+> [!NOTE]
+> **Note:** We recommend using [Kotlin](https://developer.android.com/topic/libraries/architecture/paging/v3-paged-data#handle-errors) for Paging 3.
 
 ### Java (RxJava)
 
-```
-return backend.searchUsers(searchTerm, nextPageNumber)
-  .subscribeOn(Schedulers.io())
-  .map(this::toLoadResult)
-  .onErrorReturn(LoadResult.Error::new);
-```
+    return backend.searchUsers(searchTerm, nextPageNumber)
+      .subscribeOn(Schedulers.io())
+      .map(this::toLoadResult)
+      .onErrorReturn(LoadResult.Error::new);
 
 ### Java (Guava/LiveData)
 
-```
-ListenableFuture<LoadResult<Integer, User>> pageFuture = Futures.transform(
-  backend.searchUsers(query, nextPageNumber), this::toLoadResult,
-  bgExecutor);
+    ListenableFuture<LoadResult<Integer, User>> pageFuture = Futures.transform(
+      backend.searchUsers(query, nextPageNumber), this::toLoadResult,
+      bgExecutor);
 
-ListenableFuture<LoadResult<Integer, User>> partialLoadResultFuture = Futures.catching(
-  pageFuture, HttpException.class, LoadResult.Error::new,
-  bgExecutor);
+    ListenableFuture<LoadResult<Integer, User>> partialLoadResultFuture = Futures.catching(
+      pageFuture, HttpException.class, LoadResult.Error::new,
+      bgExecutor);
 
-return Futures.catching(partialLoadResultFuture,
-  IOException.class, LoadResult.Error::new, bgExecutor);
-```
+    return Futures.catching(partialLoadResultFuture,
+      IOException.class, LoadResult.Error::new, bgExecutor);
 
 For more information on handling Retrofit errors, see the samples in the
 `PagingSource` API reference.
 
 `PagingSource` collects and delivers `LoadResult.Error` objects to the UI so
 that you can act on them. For more information on exposing the loading state in
-the UI, see [Manage and present loading states](/topic/libraries/architecture/paging/load-state).
+the UI, see [Manage and present loading states](https://developer.android.com/topic/libraries/architecture/paging/load-state).
 
 ## Set up a stream of PagingData
 
 Next, you need a stream of paged data from the `PagingSource` implementation.
-Set up the data stream in your `ViewModel`. The [`Pager`](/reference/kotlin/androidx/paging/Pager) class provides
-methods that expose a reactive stream of [`PagingData`](/reference/kotlin/androidx/paging/PagingData) objects from a
+Set up the data stream in your `ViewModel`. The [`Pager`](https://developer.android.com/reference/kotlin/androidx/paging/Pager) class provides
+methods that expose a reactive stream of [`PagingData`](https://developer.android.com/reference/kotlin/androidx/paging/PagingData) objects from a
 `PagingSource`. The Paging library supports using several stream types,
 including `Flow, LiveData`, and the `Flowable` and `Observable` types from
 RxJava.
 
 When you create a `Pager` instance to set up your reactive stream, you must
-provide the instance with a [`PagingConfig`](/reference/kotlin/androidx/paging/PagingConfig) configuration object and a
+provide the instance with a [`PagingConfig`](https://developer.android.com/reference/kotlin/androidx/paging/PagingConfig) configuration object and a
 function that tells `Pager` how to get an instance of your `PagingSource`
 implementation:
 
-**Note:** We recommend using [Kotlin](/topic/libraries/architecture/paging/v3-paged-data#pagingdata-stream) for Paging 3.
+> [!NOTE]
+> **Note:** We recommend using [Kotlin](https://developer.android.com/topic/libraries/architecture/paging/v3-paged-data#pagingdata-stream) for Paging 3.
 
 ### Java (RxJava)
 
-```
-// CoroutineScope helper provided by the lifecycle-viewmodel-ktx artifact.
-CoroutineScope viewModelScope = ViewModelKt.getViewModelScope(viewModel);
-Pager<Integer, User> pager = Pager<>(
-  new PagingConfig(/* pageSize = */ 20),
-  () -> ExamplePagingSource(backend, query));
+    // CoroutineScope helper provided by the lifecycle-viewmodel-ktx artifact.
+    CoroutineScope viewModelScope = ViewModelKt.getViewModelScope(viewModel);
+    Pager<Integer, User> pager = Pager<>(
+      new PagingConfig(/* pageSize = */ 20),
+      () -> ExamplePagingSource(backend, query));
 
-Flowable<PagingData<User>> flowable = PagingRx.getFlowable(pager);
-PagingRx.cachedIn(flowable, viewModelScope);
-```
+    Flowable<PagingData<User>> flowable = PagingRx.getFlowable(pager);
+    PagingRx.cachedIn(flowable, viewModelScope);
 
 ### Java (Guava/LiveData)
 
-```
-// CoroutineScope helper provided by the lifecycle-viewmodel-ktx artifact.
-CoroutineScope viewModelScope = ViewModelKt.getViewModelScope(viewModel);
-Pager<Integer, User> pager = Pager<>(
-  new PagingConfig(/* pageSize = */ 20),
-  () -> ExamplePagingSource(backend, query));
+    // CoroutineScope helper provided by the lifecycle-viewmodel-ktx artifact.
+    CoroutineScope viewModelScope = ViewModelKt.getViewModelScope(viewModel);
+    Pager<Integer, User> pager = Pager<>(
+      new PagingConfig(/* pageSize = */ 20),
+      () -> ExamplePagingSource(backend, query));
 
-PagingLiveData.cachedIn(PagingLiveData.getLiveData(pager), viewModelScope);
-```
+    PagingLiveData.cachedIn(PagingLiveData.getLiveData(pager), viewModelScope);
 
 The `cachedIn` operator makes the data stream shareable and caches the loaded
 data with the provided `CoroutineScope`. This example uses the `viewModelScope`
 provided by the lifecycle `lifecycle-viewmodel-ktx` artifact.
 
 The `Pager` object calls the `load` method from the `PagingSource` object,
-providing it with the [`LoadParams`](/reference/kotlin/androidx/paging/PagingSource.LoadParams) object and receiving the
-[`LoadResult`](/reference/kotlin/androidx/paging/PagingSource.LoadResult) object in return.
+providing it with the [`LoadParams`](https://developer.android.com/reference/kotlin/androidx/paging/PagingSource.LoadParams) object and receiving the
+[`LoadResult`](https://developer.android.com/reference/kotlin/androidx/paging/PagingSource.LoadResult) object in return.
 
 ## Define a RecyclerView adapter
 
@@ -348,133 +321,121 @@ purpose.
 
 Define a class that extends `PagingDataAdapter`. In the example, `UserAdapter`
 extends `PagingDataAdapter` to provide a `RecyclerView` adapter for list items
-of type `User` and using `UserViewHolder` as a [view holder](/reference/kotlin/androidx/recyclerview/widget/RecyclerView.ViewHolder):
+of type `User` and using `UserViewHolder` as a [view holder](https://developer.android.com/reference/kotlin/androidx/recyclerview/widget/RecyclerView.ViewHolder):
 
 ### Kotlin (Coroutines)
 
-```
-class UserAdapter(diffCallback: DiffUtil.ItemCallback<User>) :
-  PagingDataAdapter<User, UserViewHolder>(diffCallback) {
-  override fun onCreateViewHolder(
-    parent: ViewGroup,
-    viewType: Int
-  ): UserViewHolder {
-    return UserViewHolder(parent)
-  }
+    class UserAdapter(diffCallback: DiffUtil.ItemCallback<User>) :
+      PagingDataAdapter<User, UserViewHolder>(diffCallback) {
+      override fun onCreateViewHolder(
+        parent: ViewGroup,
+        viewType: Int
+      ): UserViewHolder {
+        return UserViewHolder(parent)
+      }
 
-  override fun onBindViewHolder(holder: UserViewHolder, position: Int) {
-    val item = getItem(position)
-    // Note that item can be null. ViewHolder must support binding a
-    // null item as a placeholder.
-    holder.bind(item)
-  }
-}
-```
+      override fun onBindViewHolder(holder: UserViewHolder, position: Int) {
+        val item = getItem(position)
+        // Note that item can be null. ViewHolder must support binding a
+        // null item as a placeholder.
+        holder.bind(item)
+      }
+    }
 
 ### Java (RxJava)
 
-```
-class UserAdapter extends PagingDataAdapter<User, UserViewHolder> {
-  UserAdapter(@NotNull DiffUtil.ItemCallback<User> diffCallback) {
-    super(diffCallback);
-  }
+    class UserAdapter extends PagingDataAdapter<User, UserViewHolder> {
+      UserAdapter(@NotNull DiffUtil.ItemCallback<User> diffCallback) {
+        super(diffCallback);
+      }
 
-  @NonNull
-  @Override
-  public UserViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-    return new UserViewHolder(parent);
-  }
+      @NonNull
+      @Override
+      public UserViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        return new UserViewHolder(parent);
+      }
 
-  @Override
-  public void onBindViewHolder(@NonNull UserViewHolder holder, int position) {
-    User item = getItem(position);
-    // Note that item can be null. ViewHolder must support binding a
-    // null item as a placeholder.
-    holder.bind(item);
-  }
-}
-```
+      @Override
+      public void onBindViewHolder(@NonNull UserViewHolder holder, int position) {
+        User item = getItem(position);
+        // Note that item can be null. ViewHolder must support binding a
+        // null item as a placeholder.
+        holder.bind(item);
+      }
+    }
 
 ### Java (Guava/LiveData)
 
-```
-class UserAdapter extends PagingDataAdapter<User, UserViewHolder> {
-  UserAdapter(@NotNull DiffUtil.ItemCallback<User> diffCallback) {
-    super(diffCallback);
-  }
+    class UserAdapter extends PagingDataAdapter<User, UserViewHolder> {
+      UserAdapter(@NotNull DiffUtil.ItemCallback<User> diffCallback) {
+        super(diffCallback);
+      }
 
-  @NonNull
-  @Override
-  public UserViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-    return new UserViewHolder(parent);
-  }
+      @NonNull
+      @Override
+      public UserViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        return new UserViewHolder(parent);
+      }
 
-  @Override
-  public void onBindViewHolder(@NonNull UserViewHolder holder, int position) {
-    User item = getItem(position);
-    // Note that item can be null. ViewHolder must support binding a
-    // null item as a placeholder.
-    holder.bind(item);
-  }
-}
-```
+      @Override
+      public void onBindViewHolder(@NonNull UserViewHolder holder, int position) {
+        User item = getItem(position);
+        // Note that item can be null. ViewHolder must support binding a
+        // null item as a placeholder.
+        holder.bind(item);
+      }
+    }
 
 Your adapter must also define the `onCreateViewHolder` and
-`onBindViewHolder` methods and specify a [`DiffUtil.ItemCallback`](/reference/kotlin/androidx/recyclerview/widget/DiffUtil.ItemCallback). This
+`onBindViewHolder` methods and specify a [`DiffUtil.ItemCallback`](https://developer.android.com/reference/kotlin/androidx/recyclerview/widget/DiffUtil.ItemCallback). This
 works the same as it normally does when defining `RecyclerView` list adapters:
 
 ### Kotlin (Coroutines)
 
-```
-object UserComparator : DiffUtil.ItemCallback<User>() {
-  override fun areItemsTheSame(oldItem: User, newItem: User): Boolean {
-    // Id is unique.
-    return oldItem.id == newItem.id
-  }
+    object UserComparator : DiffUtil.ItemCallback<User>() {
+      override fun areItemsTheSame(oldItem: User, newItem: User): Boolean {
+        // Id is unique.
+        return oldItem.id == newItem.id
+      }
 
-  override fun areContentsTheSame(oldItem: User, newItem: User): Boolean {
-    return oldItem == newItem
-  }
-}
-```
+      override fun areContentsTheSame(oldItem: User, newItem: User): Boolean {
+        return oldItem == newItem
+      }
+    }
 
 ### Java (RxJava)
 
-```
-class UserComparator extends DiffUtil.ItemCallback<User> {
-  @Override
-  public boolean areItemsTheSame(@NonNull User oldItem,
-    @NonNull User newItem) {
-    // Id is unique.
-    return oldItem.id.equals(newItem.id);
-  }
+    class UserComparator extends DiffUtil.ItemCallback<User> {
+      @Override
+      public boolean areItemsTheSame(@NonNull User oldItem,
+        @NonNull User newItem) {
+        // Id is unique.
+        return oldItem.id.equals(newItem.id);
+      }
 
-  @Override
-  public boolean areContentsTheSame(@NonNull User oldItem,
-    @NonNull User newItem) {
-    return oldItem.equals(newItem);
-  }
-}
-```
+      @Override
+      public boolean areContentsTheSame(@NonNull User oldItem,
+        @NonNull User newItem) {
+        return oldItem.equals(newItem);
+      }
+    }
 
 ### Java (Guava/LiveData)
 
-```
-class UserComparator extends DiffUtil.ItemCallback<User> {
-  @Override
-  public boolean areItemsTheSame(@NonNull User oldItem,
-    @NonNull User newItem) {
-    // Id is unique.
-    return oldItem.id.equals(newItem.id);
-  }
+    class UserComparator extends DiffUtil.ItemCallback<User> {
+      @Override
+      public boolean areItemsTheSame(@NonNull User oldItem,
+        @NonNull User newItem) {
+        // Id is unique.
+        return oldItem.id.equals(newItem.id);
+      }
 
-  @Override
-  public boolean areContentsTheSame(@NonNull User oldItem,
-    @NonNull User newItem) {
-    return oldItem.equals(newItem);
-  }
-}
-```
+      @Override
+      public boolean areContentsTheSame(@NonNull User oldItem,
+        @NonNull User newItem) {
+        return oldItem.equals(newItem);
+      }
+    }
 
 ## Display the paged data in your UI
 
@@ -487,68 +448,58 @@ Perform the following steps in your activity's `onCreate` or fragment's
 `onViewCreated` method:
 
 1. Create an instance of your `PagingDataAdapter` class.
-2. Pass the `PagingDataAdapter` instance to the [`RecyclerView`](/reference/kotlin/androidx/recyclerview/widget/RecyclerView) list that
-   you want to display your paged data.
-3. Observe the `PagingData` stream and pass each generated value to your
-   adapter's `submitData()` method.
+2. Pass the `PagingDataAdapter` instance to the [`RecyclerView`](https://developer.android.com/reference/kotlin/androidx/recyclerview/widget/RecyclerView) list that you want to display your paged data.
+3. Observe the `PagingData` stream and pass each generated value to your adapter's `submitData()` method.
 
 ### Kotlin (Coroutines)
 
-```
-val viewModel by viewModels<ExampleViewModel>()
+    val viewModel by viewModels<ExampleViewModel>()
 
-val pagingAdapter = UserAdapter(UserComparator)
-val recyclerView = findViewById<RecyclerView>(R.id.recycler_view)
-recyclerView.adapter = pagingAdapter
+    val pagingAdapter = UserAdapter(UserComparator)
+    val recyclerView = findViewById<RecyclerView>(R.id.recycler_view)
+    recyclerView.adapter = pagingAdapter
 
-// Activities can use lifecycleScope directly; fragments use
-// viewLifecycleOwner.lifecycleScope.
-lifecycleScope.launch {
-  viewModel.flow.collectLatest { pagingData ->
-    pagingAdapter.submitData(pagingData)
-  }
-}
-```
+    // Activities can use lifecycleScope directly; fragments use
+    // viewLifecycleOwner.lifecycleScope.
+    lifecycleScope.launch {
+      viewModel.flow.collectLatest { pagingData ->
+        pagingAdapter.submitData(pagingData)
+      }
+    }
 
 ### Java (RxJava)
 
-```
-ExampleViewModel viewModel = new ViewModelProvider(this)
-  .get(ExampleViewModel.class);
+    ExampleViewModel viewModel = new ViewModelProvider(this)
+      .get(ExampleViewModel.class);
 
-UserAdapter pagingAdapter = new UserAdapter(new UserComparator());
-RecyclerView recyclerView = findViewById<RecyclerView>(
-  R.id.recycler_view);
-recyclerView.adapter = pagingAdapter
+    UserAdapter pagingAdapter = new UserAdapter(new UserComparator());
+    RecyclerView recyclerView = findViewById<RecyclerView>(
+      R.id.recycler_view);
+    recyclerView.adapter = pagingAdapter
 
-viewModel.flowable
-  // Using AutoDispose to handle subscription lifecycle.
-  // See: https://github.com/uber/AutoDispose.
-  .to(autoDisposable(AndroidLifecycleScopeProvider.from(this)))
-  .subscribe(pagingData -> pagingAdapter.submitData(lifecycle, pagingData));
-```
+    viewModel.flowable
+      // Using AutoDispose to handle subscription lifecycle.
+      // See: https://github.com/uber/AutoDispose.
+      .to(autoDisposable(AndroidLifecycleScopeProvider.from(this)))
+      .subscribe(pagingData -> pagingAdapter.submitData(lifecycle, pagingData));
 
 ### Java (Guava/LiveData)
 
-```
-ExampleViewModel viewModel = new ViewModelProvider(this)
-  .get(ExampleViewModel.class);
+    ExampleViewModel viewModel = new ViewModelProvider(this)
+      .get(ExampleViewModel.class);
 
-UserAdapter pagingAdapter = new UserAdapter(new UserComparator());
-RecyclerView recyclerView = findViewById<RecyclerView>(
-  R.id.recycler_view);
-recyclerView.adapter = pagingAdapter
+    UserAdapter pagingAdapter = new UserAdapter(new UserComparator());
+    RecyclerView recyclerView = findViewById<RecyclerView>(
+      R.id.recycler_view);
+    recyclerView.adapter = pagingAdapter
 
-// Activities can use getLifecycle() directly; fragments use
-// getViewLifecycleOwner().getLifecycle().
-viewModel.liveData.observe(this, pagingData ->
-  pagingAdapter.submitData(getLifecycle(), pagingData));
-```
+    // Activities can use getLifecycle() directly; fragments use
+    // getViewLifecycleOwner().getLifecycle().
+    viewModel.liveData.observe(this, pagingData ->
+      pagingAdapter.submitData(getLifecycle(), pagingData));
 
 The `RecyclerView` list now displays the paged data from the data source and
 automatically loads another page when necessary.
 
-**Caution:** The `submitData` method suspends and does not return until either the
-`PagingSource` is invalidated or the adapter's refresh method is called. This
-means that code after the `submitData` call might execute much later than you
-intend.
+> [!CAUTION]
+> **Caution:** The `submitData` method suspends and does not return until either the `PagingSource` is invalidated or the adapter's refresh method is called. This means that code after the `submitData` call might execute much later than you intend.

@@ -160,9 +160,9 @@ Regarding display resizability, `android:resizeableActivity="false"`,
 
 For apps targeting Android 16 (API level 36), app orientation,
 resizability, and aspect ratio constraints are ignored on large screens by
-default, but every app that isn't fully ready can temporarily override this
-behavior by opting out (which results in the previous behavior of being placed
-in compatibility mode).
+default. Every app that isn't fully ready can temporarily override this
+behavior by opting out, which results in the previous behavior of being placed
+in compatibility mode.
 
 #### Exceptions
 
@@ -311,9 +311,9 @@ improve the security of Android's intent resolution mechanism.
 The goal is to protect apps from malicious actions by adding checks during
 intent processing and filtering intents that don't meet specific criteria.
 
-In [Android 15](https://developer.android.com/about/versions/15/behavior-changes-15#safer-intents) the feature focused on the sending app, now with Android 16,
-shifts control to the receiving app, allowing developers to opt-in to strict
-intent resolution using their app manifest.
+In [Android 15](https://developer.android.com/about/versions/15/behavior-changes-15#safer-intents) the feature focused on the sending app.
+Now with Android 16, control shifts to the receiving app, allowing
+developers to opt-in to strict intent resolution using their app manifest.
 
 Two key changes are being implemented:
 
@@ -353,7 +353,7 @@ carefully managed to address potential compatibility issues with existing apps.
 #### Implementation
 
 Developers need to explicitly enable stricter intent matching using the
-`intentMatchingFlags` attribute in their app manifest.
+[`intentMatchingFlags`](https://developer.android.com/guide/topics/manifest/application-element#intentMatchingFlags) attribute in their app manifest.
 Here is an example where the feature is opt-in for the entire app,
 but disabled/opt-out on a receiver:
 

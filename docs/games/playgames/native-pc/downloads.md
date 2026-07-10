@@ -30,6 +30,16 @@ The Play Games PC Unity SDK provides a Unity interface to the Play Games PC SDK.
 
 *** ** * ** ***
 
+### Play PC developer tool
+
+Use the Play PC Developer Tool to simplify your Google Play Games on PC onboarding. The tool helps you configure game artifact settings and compile the Windows App Bundle (WAB) required for the Google Play Console.
+
+| Name | Version |
+|---|---|
+| [Play PC developer tool](https://developer.android.com/games/playgames/native-pc/downloads/playpcdevelopertool) | 1.0.0 |
+
+*** ** * ** ***
+
 ### Play publishing tool
 
 The Play publishing tool helps you package your game for distribution on Google Play Games on PC.

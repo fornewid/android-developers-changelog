@@ -31,6 +31,52 @@ To get the latest product updates delivered to you in an RSS feed, add the URL o
 
 These Jetpack libraries have been recently updated.
 
+### July 07, 2026
+
+- [Media3 Version 1.11.0-beta01](https://developer.android.com/jetpack/androidx/releases/media3#1.11.0-beta01)
+
+## July 01, 2026
+
+- [Appfunctions Version 1.0.0-alpha10](https://developer.android.com/jetpack/androidx/releases/appfunctions#1.0.0-alpha10)
+- [Benchmark Version 1.5.0-alpha07](https://developer.android.com/jetpack/androidx/releases/benchmark#1.5.0-alpha07)
+- [Camera Featurecombinationquery Version 1.7.0-alpha02](https://developer.android.com/jetpack/androidx/releases/camera-featurecombinationquery#1.7.0-alpha02)
+- [Camera Version 1.7.0-alpha02](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-alpha02)
+- [Camera Viewfinder Version 1.7.0-alpha02](https://developer.android.com/jetpack/androidx/releases/camera-viewfinder#1.7.0-alpha02)
+- [Compose Animation Version 1.11.4](https://developer.android.com/jetpack/androidx/releases/compose-animation#1.11.4)
+- [Compose Animation Version 1.12.0-beta02](https://developer.android.com/jetpack/androidx/releases/compose-animation#1.12.0-beta02)
+- [Compose Foundation Version 1.11.4](https://developer.android.com/jetpack/androidx/releases/compose-foundation#1.11.4)
+- [Compose Foundation Version 1.12.0-beta02](https://developer.android.com/jetpack/androidx/releases/compose-foundation#1.12.0-beta02)
+- [Compose Material 3 Version 1.5.0-alpha23](https://developer.android.com/jetpack/androidx/releases/compose-material3#1.5.0-alpha23)
+- [Compose Material Version 1.11.4](https://developer.android.com/jetpack/androidx/releases/compose-material#1.11.4)
+- [Compose Material Version 1.12.0-beta02](https://developer.android.com/jetpack/androidx/releases/compose-material#1.12.0-beta02)
+- [Compose Remote Version 1.0.0-alpha14](https://developer.android.com/jetpack/androidx/releases/compose-remote#1.0.0-alpha14)
+- [Compose Runtime Version 1.11.4](https://developer.android.com/jetpack/androidx/releases/compose-runtime#1.11.4)
+- [Compose Runtime Version 1.12.0-beta02](https://developer.android.com/jetpack/androidx/releases/compose-runtime#1.12.0-beta02)
+- [Compose UI Version 1.11.4](https://developer.android.com/jetpack/androidx/releases/compose-ui#1.11.4)
+- [Compose UI Version 1.12.0-beta02](https://developer.android.com/jetpack/androidx/releases/compose-ui#1.12.0-beta02)
+- [Core-pip Version 1.0.0-alpha03](https://developer.android.com/jetpack/androidx/releases/core#core-pip-1.0.0-alpha03)
+- [Fragment Version 1.9.0-alpha02](https://developer.android.com/jetpack/androidx/releases/fragment#1.9.0-alpha02)
+- [Glance Version 1.3.0-alpha02](https://developer.android.com/jetpack/androidx/releases/glance#1.3.0-alpha02)
+- [Glance Wear Version 1.0.0-alpha13](https://developer.android.com/jetpack/androidx/releases/glance-wear#1.0.0-alpha13)
+- [Glimmer Glimmer-google-fonts Version 1.0.0-alpha15](https://developer.android.com/jetpack/androidx/releases/xr-glimmer#1.0.0-alpha15)
+- [Hilt Version 1.4.0](https://developer.android.com/jetpack/androidx/releases/hilt#1.4.0)
+- [Loader Version 1.2.0-alpha01](https://developer.android.com/jetpack/androidx/releases/loader#1.2.0-alpha01)
+- [Navigation Version 2.10.0-alpha06](https://developer.android.com/jetpack/androidx/releases/navigation#2.10.0-alpha06)
+- [Navigation3 Version 1.1.4](https://developer.android.com/jetpack/androidx/releases/navigation3#1.1.4)
+- [Navigation3 Version 1.2.0-alpha05](https://developer.android.com/jetpack/androidx/releases/navigation3#1.2.0-alpha05)
+- [Navigationevent Version 1.2.0-alpha01](https://developer.android.com/jetpack/androidx/releases/navigationevent#1.2.0-alpha01)
+- [Palette Version 1.1.0-alpha01](https://developer.android.com/jetpack/androidx/releases/palette#1.1.0-alpha01)
+- [Pdf Version 1.0.0-alpha19](https://developer.android.com/jetpack/androidx/releases/pdf#1.0.0-alpha19)
+- [Photopicker Photopicker-compose Photopicker-testing Version 1.0.0-alpha02](https://developer.android.com/jetpack/androidx/releases/photopicker#1.0.0-alpha02)
+- [Remote-material3 Version 1.0.0-alpha07](https://developer.android.com/jetpack/androidx/releases/wear-compose-remote#remote-material3-1.0.0-alpha07)
+- [Room3 Version 3.0.0](https://developer.android.com/jetpack/androidx/releases/room3#3.0.0)
+- [Sqlite Version 2.7.0](https://developer.android.com/jetpack/androidx/releases/sqlite#2.7.0)
+- [Test Uiautomator Version 2.4.0](https://developer.android.com/jetpack/androidx/releases/test-uiautomator#2.4.0)
+- [Wear Compose Version 1.7.0-alpha05](https://developer.android.com/jetpack/androidx/releases/wear-compose#1.7.0-alpha05)
+- [Wear Protolayout Version 1.4.1](https://developer.android.com/jetpack/androidx/releases/wear-protolayout#1.4.1)
+- [Wear Tiles Version 1.6.1](https://developer.android.com/jetpack/androidx/releases/wear-tiles#1.6.1)
+- [Webkit Version 1.17.0-alpha03](https://developer.android.com/jetpack/androidx/releases/webkit#webkit-1.17.0-alpha03)
+
 ### June 24, 2026
 
 - [Media3 Version 1.11.0-alpha01](https://developer.android.com/jetpack/androidx/releases/media3#1.11.0-alpha01)

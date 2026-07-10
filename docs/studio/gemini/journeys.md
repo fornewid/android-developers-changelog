@@ -198,5 +198,19 @@ there are some differences in how results for journeys are displayed.
 
 ## Known issues
 
+- **Gradle configuration cache issues:** Journeys might behave unexpectedly
+  when the Gradle configuration cache is enabled. For example, this can
+  cause the wrong journey file to be run when multiple journey files are
+  present. It can also cause authentication issues.
+
+  To work around this, you can disable the configuration cache by setting
+  `org.gradle.configuration-cache=false` in your project's
+  `gradle.properties` file.
 - When testing a journey, all permissions for your app are granted by default.
-- When testing a journey on a device running Android 15 (API level 35), you might see a warning on the device that says "**Unsafe App Blocked** " for "**AndroidX Crawler** ". You can click **Install anyway** to bypass this check. Alternatively, you can [Configure on-device developer options](https://developer.android.com/studio/debug/dev-options) and disable the option to **Verify apps over USB**.
+
+- When testing a journey on a device running Android 15 (API level 35), you
+  might see a warning on the device that says "**Unsafe App Blocked** " for
+  "**AndroidX Crawler** ". You can click **Install anyway** to bypass this
+  check. Alternatively, you can
+  [Configure on-device developer options](https://developer.android.com/studio/debug/dev-options) and disable the option
+  to **Verify apps over USB**.

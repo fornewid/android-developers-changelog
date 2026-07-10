@@ -43,6 +43,26 @@ of the tools.
 
 ## Revisions
 
+#### 37.0.1
+
+**Canary: July 2026**
+
+##### adb
+
+- Delete `openscreen` backend. The environment variable `ADB_MDNS_OPENSCREEN` no longer has any effect. The only mDNS backend is `libadbmdns`.
+- Add trace level. `ADB_TRACE` format now accepts a log level (for example: `usb:v, services:w`).
+- **Linux:**
+
+  - Improve USB hotplug system. Rely on udev netlink events instead of kernel to avoid race conditions with udev.
+  - Add blame for the `kill-server` command. The adb server will print out the process command line chain which requested its termination.
+- **Windows:**
+
+  - Improve mDNS backend. Load `wlanapi.dll` lazily to allow adb to run on Windows Server that doesn't include `wlanapi.dll`.
+  - Introduce `libadbusb` to replace `libusb`. `libadbusb` can be disabled by setting the `ADB_USB_LEGACY` environment variable to `1`.
+- **MacOS:**
+
+  - Disable `libusb`. Use legacy USB backend instead. `libusb` can be enabled by setting the `ADB_LIBUSB` environment variable to `1`.
+
 #### 37.0.0 (Feb 2026)
 
 - **adb**

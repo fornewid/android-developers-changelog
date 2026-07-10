@@ -13,11 +13,11 @@ This table lists all the artifacts in the `androidx.camera-viewfinder` group.
 
 | Artifact | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| viewfinder-compose | [1.6.1](https://developer.android.com/jetpack/androidx/releases/camera-viewfinder#1.6.1) | - | - | [1.7.0-alpha01](https://developer.android.com/jetpack/androidx/releases/camera-viewfinder#1.7.0-alpha01) |
-| viewfinder-core | [1.6.1](https://developer.android.com/jetpack/androidx/releases/camera-viewfinder#1.6.1) | - | - | [1.7.0-alpha01](https://developer.android.com/jetpack/androidx/releases/camera-viewfinder#1.7.0-alpha01) |
-| viewfinder-view | [1.6.1](https://developer.android.com/jetpack/androidx/releases/camera-viewfinder#1.6.1) | - | - | [1.7.0-alpha01](https://developer.android.com/jetpack/androidx/releases/camera-viewfinder#1.7.0-alpha01) |
+| viewfinder-compose | [1.6.1](https://developer.android.com/jetpack/androidx/releases/camera-viewfinder#1.6.1) | - | - | [1.7.0-alpha02](https://developer.android.com/jetpack/androidx/releases/camera-viewfinder#1.7.0-alpha02) |
+| viewfinder-core | [1.6.1](https://developer.android.com/jetpack/androidx/releases/camera-viewfinder#1.6.1) | - | - | [1.7.0-alpha02](https://developer.android.com/jetpack/androidx/releases/camera-viewfinder#1.7.0-alpha02) |
+| viewfinder-view | [1.6.1](https://developer.android.com/jetpack/androidx/releases/camera-viewfinder#1.6.1) | - | - | [1.7.0-alpha02](https://developer.android.com/jetpack/androidx/releases/camera-viewfinder#1.7.0-alpha02) |
 
-This library was last updated on: May 06, 2026
+This library was last updated on: July 01, 2026
 
 ## Declaring dependencies
 
@@ -34,9 +34,9 @@ your app or module:
 dependencies {
     // Use to implement camera viewfinders
     
-    implementation "androidx.camera.viewfinder:viewfinder-view:1.7.0-alpha01"
-    implementation "androidx.camera.viewfinder:viewfinder-compose:1.7.0-alpha01"
-    implementation "androidx.camera.viewfinder:viewfinder-core:1.7.0-alpha01"
+    implementation "androidx.camera.viewfinder:viewfinder-view:1.7.0-alpha02"
+    implementation "androidx.camera.viewfinder:viewfinder-compose:1.7.0-alpha02"
+    implementation "androidx.camera.viewfinder:viewfinder-core:1.7.0-alpha02"
 
 }
 ```
@@ -46,9 +46,9 @@ dependencies {
 ```kotlin
 dependencies {
     // Use to implement camera viewfinders
-    implementation("androidx.camera.viewfinder:viewfinder-view:1.7.0-alpha01")
-    implementation("androidx.camera.viewfinder:viewfinder-core:1.7.0-alpha01")
-    implementation("androidx.camera.viewfinder:viewfinder-compose:1.7.0-alpha01")
+    implementation("androidx.camera.viewfinder:viewfinder-view:1.7.0-alpha02")
+    implementation("androidx.camera.viewfinder:viewfinder-core:1.7.0-alpha02")
+    implementation("androidx.camera.viewfinder:viewfinder-compose:1.7.0-alpha02")
 
 
 }
@@ -70,6 +70,21 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.7
+
+### Version 1.7.0-alpha02
+
+July 01, 2026
+
+`androidx.camera.viewfinder:viewfinder-compose:1.7.0-alpha02`, `androidx.camera.viewfinder:viewfinder-core:1.7.0-alpha02`, and `androidx.camera.viewfinder:viewfinder-view:1.7.0-alpha02` are released. Version 1.7.0-alpha02 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/1a508f033de883ba2853b9f9ae1853eec7010638..01f3396e92df911805f22836f27c7057324e40ff/camera/viewfinder).
+
+**API Changes**
+
+- `CameraXViewfinder` now supports built-in gestures for pinch-to-zoom and tap-to-focus, and adds support for screen flash and stream state. `FocusState` is now public in viewfinder-core to allow monitoring tap-to-focus results. ([I66a17](https://android-review.googlesource.com/#/q/I66a17527c5faa563006f6807a33c757a6f35588d), [b/522549890](https://issuetracker.google.com/issues/522549890))
+- Added `TransformationMode` property to `TransformationInfo` to support apps to use `OpenGL` pipeline in `EMBEDDED` mode. ([Id1de1](https://android-review.googlesource.com/#/q/Id1de19ff50ddf96e0045e39344c99d08bb773d76), [b/487826941](https://issuetracker.google.com/issues/487826941))
+
+**Bug Fixes**
+
+- Remove requirement for `compileSdk 37` ([If78b4](https://android-review.googlesource.com/#/q/If78b4fbdec15e6b1d6ad34a487ae10b2e2494325))
 
 ### Version 1.7.0-alpha01
 

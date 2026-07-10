@@ -178,7 +178,7 @@ they are Tier 3 requirements only for [parked apps](https://developer.android.co
 #### Associated large screen quality guidelines
 
 While these guidelines are relevant for all activities implemented by your app,
-they are Tier 2 requirements only for \[parked apps\]\[parked-apps\].
+they are Tier 2 requirements only for [parked apps](https://developer.android.com/training/cars/parked).
 
 | Criteria | ID | Guidance for cars |
 |---|---|---|
@@ -207,7 +207,7 @@ they are Tier 2 requirements only for \[parked apps\]\[parked-apps\].
 #### Associated large screen quality guidelines
 
 While these guidelines are relevant for all activities implemented by your app,
-they are Tier 1 requirements only for \[parked apps\]\[parked-apps\].
+they are Tier 1 requirements only for [parked apps](https://developer.android.com/training/cars/parked).
 
 | Criteria | ID | Guidance for cars |
 |---|---|---|
@@ -410,12 +410,12 @@ creating a separate release from the updates to your car app.
 
     The app supports rendering on cluster displays, and only renders map
     tiles on these displays. See
-    [Drawing to the cluster display](https://developer.android.com/training/cars/apps/navigation#drawing_to_the_cluster_display).
+    [Drawing to the cluster display](https://developer.android.com/training/cars/apps/navigation#drawing-cluster-display).
   - New text:
 
     The app supports rendering on cluster displays, and only renders map
     tiles on these displays. See
-    [Drawing to the cluster display](https://developer.android.com/training/cars/apps/navigation#drawing_to_the_cluster_display).
+    [Drawing to the cluster display](https://developer.android.com/training/cars/apps/navigation#drawing-cluster-display).
 
     Navigation apps that also support weather functionality must not include
     any weather-related information on the cluster display.
@@ -460,15 +460,15 @@ creating a separate release from the updates to your car app.
     [`AR-1`](https://developer.android.com/develop/adaptive-apps/quality-guidelines/car-app-quality#AR-1)
 
     In activities implemented by the app, interactive UI elements must not
-    be obstructed by system bars or display cutouts. See \[Work with window
-    insets and display cutouts\]\[caq-insets-cutouts-guide\].
+    be obstructed by system bars or display cutouts. See [Work with window
+    insets and display cutouts](https://developer.android.com/training/cars/parked/automotive-os#insets-and-cutouts).
   - New criterion:
     [`AR-2`](https://developer.android.com/develop/adaptive-apps/quality-guidelines/car-app-quality#AR-2)
 
     The app renders into display cutouts to fully make use of the screen
     space available while ensuring interactive UI elements remain
     accessible. See
-    \[Adapt to irregularly shaped displays\]\[caq-irregular-displays-guide\] for
+    [Adapt to irregularly shaped displays](https://developer.android.com/training/cars/parked/automotive-os#irregular-displays) for
     more details.
 - Media Controls
 
@@ -514,7 +514,7 @@ creating a separate release from the updates to your car app.
 
     The app supports rendering on cluster displays, and only renders map
     tiles on these displays. See
-    \[Drawing to the cluster display\]\[cluster-display-guide\].
+    [Drawing to the cluster display](https://developer.android.com/training/cars/apps/navigation#drawing-cluster-display).
 - Delayed Response
 
   - Categories affected: Video
@@ -522,7 +522,7 @@ creating a separate release from the updates to your car app.
 
 ### July 2023
 
-- \[App Categories\]\[app-categories-ref\]: "Browsers" has been added
+- [App Categories](https://developer.android.com/develop/adaptive-apps/quality-guidelines/car-app-quality#app-categories): "Browsers" has been added
 - Sensitive Data
 
   - Categories affected: Browsers
@@ -542,7 +542,7 @@ creating a separate release from the updates to your car app.
 
 ### April 2023
 
-- \[App Categories\]\[app-categories-ref\]: "Games" has been added
+- [App Categories](https://developer.android.com/develop/adaptive-apps/quality-guidelines/car-app-quality#app-categories): "Games" has been added
 - Irrelevant Notifications
 
   - Categories affected: Games, Video
@@ -587,7 +587,7 @@ creating a separate release from the updates to your car app.
 
 ### May 2022
 
-- \[App Categories\]\[app-categories-ref\]: "Parking \& Charging" has been replaced with "Point of Interest"
+- [App Categories](https://developer.android.com/develop/adaptive-apps/quality-guidelines/car-app-quality#app-categories): "Parking \& Charging" has been replaced with "Point of Interest"
 - Screen Animation
 
   - Categories affected: Media, Messaging, Navigation, and Point of Interest
@@ -624,8 +624,8 @@ creating a separate release from the updates to your car app.
   - Previous text:
 
     The app does not include games or other features outside the app types
-    intended for cars. For more information, see \[Supported app
-    categories\]\[driving-categories\].
+    intended for cars. For more information, see [Supported app
+    categories](https://developer.android.com/training/cars#supported-app-categories).
   - New text:
 
     The app does not include features outside the app types intended for

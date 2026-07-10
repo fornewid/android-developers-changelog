@@ -156,7 +156,7 @@ otherwise exported -- to the theme you created in the previous step:
 ## Update your starting activity
 
 Install your splash screen in the starting activity before calling
-`super.onCreate()`:
+`super.onCreate()` and loading your composable:
 
 <br />
 

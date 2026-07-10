@@ -4,6 +4,15 @@ url: https://developer.android.com/about/versions/17/qpr1/release-notes
 source: md.txt
 ---
 
+### Beta 6
+
+|---|---|
+| **Release date** | July 1, 2026 |
+| **Builds** | CP31.260618.005 |
+| **Emulator support** | x86 (64-bit), ARM (v8-A) |
+| **Security patch level** | 2026-06-05 |
+| **Google Play services** | 26.20.31 |
+
 ### Beta 5
 
 |---|---|
@@ -49,7 +58,7 @@ source: md.txt
 | **Security patch level** | 2026-04-05 |
 | **Google Play services** | 26.11.36 |
 
-### Android 17 QPR 1 Beta 5 (June 2026)
+### Android 17 QPR 1 Beta 6 (July 2026)
 
 Building on the [initial release of Android 17](https://developer.android.com/about/versions/17), we continue to
 update the platform with fixes and improvements that are then rolled out to
@@ -64,6 +73,19 @@ user experience of your app).
 
 Unlike developer previews and betas for unreleased, major versions of Android,
 these builds are suitable for general use.
+
+Android 17 QPR1 has reached Platform Stability as of Beta 6. The API surface is
+locked, the [API diff report](https://developer.android.com/sdk/api_diff/37.1/changes) reflects the final
+changes, and you can now incorporate new Android 17 QPR1 capabilities
+into your apps.
+
+### Top Issues fixed in Beta 6 (July 2026)
+
+- *Users were unable to select multiple spell checker languages. ([**Issue #147312111**](https://issuetracker.google.com/issues/147312111))*
+- *Pressing the device volume buttons within the Clock app failed to trigger the expected user interface actions. ([**Issue #527400457**](https://issuetracker.google.com/issues/527400457), [**Issue #527395501**](https://issuetracker.google.com/issues/527395501), [**Issue #524895625**](https://issuetracker.google.com/issues/524895625))*
+- *Rapidly swiping through the media carousel caused visual glitches in the Quick Settings layout and settings icon by improving animation and layout state handling during rapid transitions. ([**Issue #514947195**](https://issuetracker.google.com/issues/514947195))*
+- *An issue in WindowManagerGlobal that resulted in app crashes. ([**Issue #516639947**](https://issuetracker.google.com/issues/516639947))*
+- *Enabling the Wi-Fi hotspot displayed a generic default SSID instead of the user's saved custom name. ([**Issue #485168823**](https://issuetracker.google.com/issues/485168823))*
 
 ### Top Issues fixed in Beta 5 (June 2026)
 

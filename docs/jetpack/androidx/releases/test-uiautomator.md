@@ -10,7 +10,7 @@ Framework for cross app functional UI testing
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| June 17, 2026 | [2.3.0](https://developer.android.com/jetpack/androidx/releases/test-uiautomator#2.3.0) | [2.4.0-rc01](https://developer.android.com/jetpack/androidx/releases/test-uiautomator#2.4.0-rc01) | - | - |
+| July 01, 2026 | [2.4.0](https://developer.android.com/jetpack/androidx/releases/test-uiautomator#2.4.0) | - | - | - |
 
 ## Declaring dependencies
 
@@ -26,7 +26,7 @@ your app or module:
 ```groovy
 dependencies {
     // Use to implement UIAutomator tests
-    androidTestImplementation "androidx.test.uiautomator:uiautomator:2.4.0-rc01"
+    androidTestImplementation "androidx.test.uiautomator:uiautomator:2.4.0"
 }
 ```
 
@@ -35,7 +35,7 @@ dependencies {
 ```kotlin
 dependencies {
     // Use to implement UIAutomator tests
-    androidTestImplementation("androidx.test.uiautomator:uiautomator:2.4.0-rc01")
+    androidTestImplementation("androidx.test.uiautomator:uiautomator:2.4.0")
 }
 ```
 
@@ -54,36 +54,26 @@ clicking the star button.
 See the [Issue Tracker documentation](https://developers.google.com/issue-tracker)
 for more information.
 
-## Test Uiautomator Shell Version 1.0
-
-### Version 1.0.0-alpha03
-
-December 03, 2025
-
-`androidx.test.uiautomator:uiautomator-shell:1.0.0-alpha03` is released. Version 1.0.0-alpha03 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/c359e97fece91f3767a7d017e9def23c7caf1f53..deb96499dfe95073f5c1215c1287787683cb1e92/test/uiautomator/uiautomator-shell).
-
-**API Changes**
-
-- Changed `startActivity` wait to wait for new window ([I35da6](https://android-review.googlesource.com/#/q/I35da611a69d95bdbd58830387f4fe423bbb17f84), [b/440021797](https://issuetracker.google.com/issues/440021797))
-- Updated `screenSizePixel` in `RecorderCommands` ([If558c](https://android-review.googlesource.com/#/q/If558cccb893ad6b317ec6817640187d379d585d8), [b/429173157](https://issuetracker.google.com/issues/429173157))
-
-### Version 1.0.0-alpha02
-
-August 13, 2025
-
-`androidx.test.uiautomator:uiautomator-shell:1.0.0-alpha02` is released. Version 1.0.0-alpha02 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/e8af6ab7417811bf386c52a59ab5d0b94d194eeb..c359e97fece91f3767a7d017e9def23c7caf1f53/test/uiautomator/uiautomator-shell).
-
-### Version 1.0.0-alpha01
-
-June 18, 2025
-
-`androidx.test.uiautomator:uiautomator-shell:1.0.0-alpha01` is released. Version 1.0.0-alpha01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/e8af6ab7417811bf386c52a59ab5d0b94d194eeb/test/uiautomator/uiautomator-shell).
-
-**New Features**
-
-- First alpha version of the ui-automator shell library to execute shell commands as shell user. This library allows reading stdout, stderr and writing in the stdin of a sh process launched by shell. De facto, it backports `UiAutomation#executeShellCommandRwe` introduced in api 34.
-
 ## Version 2.4
+
+### Version 2.4.0
+
+July 01, 2026
+
+`androidx.test.uiautomator:uiautomator:2.4.0`, `androidx.test.uiautomator:uiautomator-shell:2.4.0`, and `androidx.test.uiautomator:uiautomator-shell-android:2.4.0` are released. Version 2.4.0 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/4f8d91d904a453dc1b9661cb43ea02b62436a1e6..ec9022d156846f24e22bec3e475d4206d6f321ea/test/uiautomator).
+
+**Important changes since 2.3.0:**
+
+The API surface of UiAutomator has been overhauled to provide:
+
+- A dedicated `uiAutomator` test scope for cleaner and more expressive test code.
+- Methods like `onElement`, `onElements`, and `onElementOrNull` for finding UI elements with clear predicates.
+- Built-in waiting mechanism for conditional elements `onElement*(timeoutMs: Long = 10000)`
+- Explicit app state management such as `waitForStable` and `waitForAppToBeVisible`.
+- Direct interaction with accessibility window nodes for multi-window testing scenarios.
+- Built-in screenshot capabilities and a `ResultsReporter` for visual testing and debugging.
+
+To get started with the new APIs, see [the UiAutomator 2.4+ guide](https://developer.android.com/training/testing/other-components/ui-automator).
 
 ### Version 2.4.0-rc01
 

@@ -16,6 +16,31 @@ to 2018.
 To view the current versions for every component,
 see the [versions page](https://developer.android.com/jetpack/androidx/versions).
 
+## July 01, 2026
+
+- [Appfunctions Version 1.0.0-alpha10](https://developer.android.com/jetpack/androidx/releases/appfunctions#1.0.0-alpha10)
+- [Benchmark Version 1.5.0-alpha07](https://developer.android.com/jetpack/androidx/releases/benchmark#1.5.0-alpha07)
+- [Camera Featurecombinationquery Version 1.7.0-alpha02](https://developer.android.com/jetpack/androidx/releases/camera-featurecombinationquery#1.7.0-alpha02)
+- [Camera Version 1.7.0-alpha02](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-alpha02)
+- [Camera Viewfinder Version 1.7.0-alpha02](https://developer.android.com/jetpack/androidx/releases/camera-viewfinder#1.7.0-alpha02)
+- [Compose Material 3 Version 1.5.0-alpha23](https://developer.android.com/jetpack/androidx/releases/compose-material3#1.5.0-alpha23)
+- [Compose Remote Version 1.0.0-alpha14](https://developer.android.com/jetpack/androidx/releases/compose-remote#1.0.0-alpha14)
+- [Core-pip Version 1.0.0-alpha03](https://developer.android.com/jetpack/androidx/releases/core#core-pip-1.0.0-alpha03)
+- [Fragment Version 1.9.0-alpha02](https://developer.android.com/jetpack/androidx/releases/fragment#1.9.0-alpha02)
+- [Glance Version 1.3.0-alpha02](https://developer.android.com/jetpack/androidx/releases/glance#1.3.0-alpha02)
+- [Glance Wear Version 1.0.0-alpha13](https://developer.android.com/jetpack/androidx/releases/glance-wear#1.0.0-alpha13)
+- [Glimmer Glimmer-google-fonts Version 1.0.0-alpha15](https://developer.android.com/jetpack/androidx/releases/xr-glimmer#1.0.0-alpha15)
+- [Loader Version 1.2.0-alpha01](https://developer.android.com/jetpack/androidx/releases/loader#1.2.0-alpha01)
+- [Navigation Version 2.10.0-alpha06](https://developer.android.com/jetpack/androidx/releases/navigation#2.10.0-alpha06)
+- [Navigation3 Version 1.2.0-alpha05](https://developer.android.com/jetpack/androidx/releases/navigation3#1.2.0-alpha05)
+- [Navigationevent Version 1.2.0-alpha01](https://developer.android.com/jetpack/androidx/releases/navigationevent#1.2.0-alpha01)
+- [Palette Version 1.1.0-alpha01](https://developer.android.com/jetpack/androidx/releases/palette#1.1.0-alpha01)
+- [Pdf Version 1.0.0-alpha19](https://developer.android.com/jetpack/androidx/releases/pdf#1.0.0-alpha19)
+- [Photopicker Photopicker-compose Photopicker-testing Version 1.0.0-alpha02](https://developer.android.com/jetpack/androidx/releases/photopicker#1.0.0-alpha02)
+- [Remote-material3 Version 1.0.0-alpha07](https://developer.android.com/jetpack/androidx/releases/wear-compose-remote#remote-material3-1.0.0-alpha07)
+- [Wear Compose Version 1.7.0-alpha05](https://developer.android.com/jetpack/androidx/releases/wear-compose#1.7.0-alpha05)
+- [Webkit Version 1.17.0-alpha03](https://developer.android.com/jetpack/androidx/releases/webkit#webkit-1.17.0-alpha03)
+
 ### June 24, 2026
 
 - [Media3 Version 1.11.0-alpha01](https://developer.android.com/jetpack/androidx/releases/media3#1.11.0-alpha01)

@@ -16,6 +16,18 @@ to 2018.
 To view the current versions for every component,
 see the [versions page](https://developer.android.com/jetpack/androidx/versions).
 
+### July 07, 2026
+
+- [Media3 Version 1.11.0-beta01](https://developer.android.com/jetpack/androidx/releases/media3#1.11.0-beta01)
+
+## July 01, 2026
+
+- [Compose Animation Version 1.12.0-beta02](https://developer.android.com/jetpack/androidx/releases/compose-animation#1.12.0-beta02)
+- [Compose Foundation Version 1.12.0-beta02](https://developer.android.com/jetpack/androidx/releases/compose-foundation#1.12.0-beta02)
+- [Compose Material Version 1.12.0-beta02](https://developer.android.com/jetpack/androidx/releases/compose-material#1.12.0-beta02)
+- [Compose Runtime Version 1.12.0-beta02](https://developer.android.com/jetpack/androidx/releases/compose-runtime#1.12.0-beta02)
+- [Compose UI Version 1.12.0-beta02](https://developer.android.com/jetpack/androidx/releases/compose-ui#1.12.0-beta02)
+
 ## June 17, 2026
 
 - [Compose Animation Version 1.12.0-beta01](https://developer.android.com/jetpack/androidx/releases/compose-animation#1.12.0-beta01)

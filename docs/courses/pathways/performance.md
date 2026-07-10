@@ -50,7 +50,7 @@ Baseline Profiles improve app startup and runtime performance by reducing the ne
 
 Learn how to apply Baseline Profiles to an Android app.
 
-[Take codelab](https://developer.android.com/android-baseline-profiles-improve)
+[Take codelab](https://developer.android.com/codelabs/android-baseline-profiles-improve)
 
 ## Understand how to fix Application Not Responding errors
 

@@ -4,11 +4,16 @@ url: https://developer.android.com/identity/providers/contacts-provider/modify-d
 source: md.txt
 ---
 
-# Modify contacts using intents
+This lesson shows you how to use an `https://developer.android.com/reference/android/content/Intent` to insert a new contact or
+modify a contact's data. Instead of accessing the Contacts Provider directly, an
+`https://developer.android.com/reference/android/content/Intent` starts the contacts app, which runs the appropriate
+`https://developer.android.com/reference/android/app/Activity`. For the modification actions described in this lesson,
+if you send extended data in the `https://developer.android.com/reference/android/content/Intent` it's entered into the UI of the
+`https://developer.android.com/reference/android/app/Activity` that is started.
 
-This lesson shows you how to use an[Intent](https://developer.android.com/reference/android/content/Intent)to insert a new contact or modify a contact's data. Instead of accessing the Contacts Provider directly, an[Intent](https://developer.android.com/reference/android/content/Intent)starts the contacts app, which runs the appropriate[Activity](https://developer.android.com/reference/android/app/Activity). For the modification actions described in this lesson, if you send extended data in the[Intent](https://developer.android.com/reference/android/content/Intent)it's entered into the UI of the[Activity](https://developer.android.com/reference/android/app/Activity)that is started.
 
-Using an[Intent](https://developer.android.com/reference/android/content/Intent)to insert or update a single contact is the preferred way of modifying the Contacts Provider, for the following reasons:
+Using an `https://developer.android.com/reference/android/content/Intent` to insert or update a single contact is the preferred
+way of modifying the Contacts Provider, for the following reasons:
 
 - It saves you the time and effort of developing your own UI and code.
 - It avoids introducing errors caused by modifications that don't follow the Contacts Provider's rules.
@@ -16,13 +21,28 @@ Using an[Intent](https://developer.android.com/reference/android/content/Intent)
 
 ## Insert a new contact using an intent
 
-You often want to allow the user to insert a new contact when your app receives new data. For example, a restaurant review app can allow users to add the restaurant as a contact as they're reviewing it. To do this using an intent, create the intent using as much data as you have available, and then send the intent to the contacts app.
 
-Inserting a contact using the contacts app inserts a new*raw* contact into the Contacts Provider's[ContactsContract.RawContacts](https://developer.android.com/reference/android/provider/ContactsContract.RawContacts)table. If necessary, the contacts app prompts users for the account type and account to use when creating the raw contact. The contacts app also notifies users if the raw contact already exists. Users then have option of canceling the insertion, in which case no contact is created. To learn more about raw contacts, see the[Contacts Provider](https://developer.android.com/guide/topics/providers/contacts-provider)API guide.
+You often want to allow the user to insert a new contact when your app receives new data. For
+example, a restaurant review app can allow users to add the restaurant as a contact as they're
+reviewing it. To do this using an intent, create the intent using as much data as you have
+available, and then send the intent to the contacts app.
+
+
+Inserting a contact using the contacts app inserts a new *raw* contact into the Contacts
+Provider's `https://developer.android.com/reference/android/provider/ContactsContract.RawContacts` table. If necessary,
+the contacts app prompts users for the account type and account to use when creating the raw
+contact. The contacts app also notifies users if the raw contact already exists. Users then have
+option of canceling the insertion, in which case no contact is created. To learn
+more about raw contacts, see the
+[Contacts Provider](https://developer.android.com/guide/topics/providers/contacts-provider)
+API guide.
 
 ### Create an intent
 
-To start, create a new[Intent](https://developer.android.com/reference/android/content/Intent)object with the action[Intents.Insert.ACTION](https://developer.android.com/reference/android/provider/ContactsContract.Intents.Insert#ACTION). Set the MIME type to[RawContacts.CONTENT_TYPE](https://developer.android.com/reference/android/provider/ContactsContract.RawContacts#CONTENT_TYPE). For example:  
+
+To start, create a new `https://developer.android.com/reference/android/content/Intent` object with the action
+`https://developer.android.com/reference/android/provider/ContactsContract.Intents.Insert#ACTION`.
+Set the MIME type to `https://developer.android.com/reference/android/provider/ContactsContract.RawContacts#CONTENT_TYPE`. For example:
 
 ### Kotlin
 
@@ -45,7 +65,11 @@ Intent intent = new Intent(ContactsContract.Intents.Insert.ACTION);
 intent.setType(ContactsContract.RawContacts.CONTENT_TYPE);
 ```
 
-If you already have details for the contact, such as a phone number or email address, you can insert them into the intent as extended data. For a key value, use the appropriate constant from[Intents.Insert](https://developer.android.com/reference/android/provider/ContactsContract.Intents.Insert). The contacts app displays the data in its insert screen, allowing users to make further edits and additions.  
+
+If you already have details for the contact, such as a phone number or email address, you can
+insert them into the intent as extended data. For a key value, use the appropriate constant from
+`https://developer.android.com/reference/android/provider/ContactsContract.Intents.Insert`. The contacts app
+displays the data in its insert screen, allowing users to make further edits and additions.
 
 ### Kotlin
 
@@ -123,7 +147,9 @@ intent.putExtra(ContactsContract.Intents.Insert.EMAIL, emailAddress.getText())
             ContactsContract.CommonDataKinds.Phone.TYPE_WORK);
 ```
 
-Once you've created the[Intent](https://developer.android.com/reference/android/content/Intent), send it by calling[startActivity()](https://developer.android.com/reference/androidx/fragment/app/Fragment#startActivity(android.content.Intent)).  
+
+Once you've created the `https://developer.android.com/reference/android/content/Intent`, send it by calling
+`https://developer.android.com/reference/androidx/fragment/app/Fragment#startActivity(android.content.Intent)`.
 
 ### Kotlin
 
@@ -141,25 +167,61 @@ Once you've created the[Intent](https://developer.android.com/reference/android/
     startActivity(intent);
 ```
 
-This call opens a screen in the contacts app that allows users to enter a new contact. The account type and account name for the contact is listed at the top of the screen. Once users enter the data and click*Done* , the contacts app's contact list appears. Users return to your app by clicking*Back*.
+
+This call opens a screen in the contacts app that allows users to enter a new contact. The
+account type and account name for the contact is listed at the top of the screen. Once users
+enter the data and click *Done*, the contacts app's contact list appears. Users return to
+your app by clicking *Back*.
 
 ## Edit an existing contact using an intent
 
-Editing an existing contact using an[Intent](https://developer.android.com/reference/android/content/Intent)is useful if the user has already chosen a contact of interest. For example, an app that finds contacts that have postal addresses but lack a postal code could give users the option of looking up the code and then adding it to the contact.
 
-To edit an existing contact using an intent, use a procedure similar to inserting a contact. Create an intent as described in the section[Insert a new contact using an intent](https://developer.android.com/identity/providers/contacts-provider/modify-data#InsertContact), but add the contact's[Contacts.CONTENT_LOOKUP_URI](https://developer.android.com/reference/android/provider/ContactsContract.Contacts#CONTENT_LOOKUP_URI)and the MIME type[Contacts.CONTENT_ITEM_TYPE](https://developer.android.com/reference/android/provider/ContactsContract.Contacts#CONTENT_ITEM_TYPE)to the intent. If you want to edit the contact with details you already have, you can put them in the intent's extended data. Notice that some name columns can't be edited using an intent; these columns are listed in the summary section of the API reference for the class[ContactsContract.Contacts](https://developer.android.com/reference/android/provider/ContactsContract.Contacts)under the heading "Update".
+Editing an existing contact using an `https://developer.android.com/reference/android/content/Intent` is useful if the user
+has already chosen a contact of interest. For example, an app that finds contacts that have
+postal addresses but lack a postal code could give users the option of looking up the code and
+then adding it to the contact.
 
-Finally, send the intent. In response, the contacts app displays an edit screen. When the user finishes editing and saves the edits, the contacts app displays a contact list. When the user clicks*Back*, your app is displayed.
+
+To edit an existing contact using an intent, use a procedure similar to
+inserting a contact. Create an intent as described in the section
+[Insert a new contact using an intent](https://developer.android.com/identity/providers/contacts-provider/modify-data#InsertContact), but add the contact's
+`https://developer.android.com/reference/android/provider/ContactsContract.Contacts#CONTENT_LOOKUP_URI` and the MIME type
+`https://developer.android.com/reference/android/provider/ContactsContract.Contacts#CONTENT_ITEM_TYPE` to the intent. If you want to edit the contact with details you
+already have, you can put them in the intent's extended data. Notice that some
+name columns can't be edited using an intent; these columns are listed in the summary
+section of the API reference for the class `https://developer.android.com/reference/android/provider/ContactsContract.Contacts`
+under the heading "Update".
+
+
+Finally, send the intent. In response, the contacts app displays an edit screen. When the user
+finishes editing and saves the edits, the contacts app displays a contact list. When the user
+clicks *Back*, your app is displayed.
 
 ### Create the intent
 
-To edit a contact, call[Intent(action)](https://developer.android.com/reference/android/content/Intent#Intent())to create an intent with the action[ACTION_EDIT](https://developer.android.com/reference/android/content/Intent#ACTION_EDIT). Call[setDataAndType()](https://developer.android.com/reference/android/content/Intent#setDataAndType(android.net.Uri, java.lang.String))to set the data value for the intent to the contact's[Contacts.CONTENT_LOOKUP_URI](https://developer.android.com/reference/android/provider/ContactsContract.Contacts#CONTENT_LOOKUP_URI)and the MIME type to[Contacts.CONTENT_ITEM_TYPE](https://developer.android.com/reference/android/provider/ContactsContract.Contacts#CONTENT_ITEM_TYPE)MIME type; because a call to[setType()](https://developer.android.com/reference/android/content/Intent#setType(java.lang.String))overwrites the current data value for the[Intent](https://developer.android.com/reference/android/content/Intent), you must set the data and the MIME type at the same time.
 
-To get a contact's[Contacts.CONTENT_LOOKUP_URI](https://developer.android.com/reference/android/provider/ContactsContract.Contacts#CONTENT_LOOKUP_URI), call[Contacts.getLookupUri(id, lookupkey)](https://developer.android.com/reference/android/provider/ContactsContract.Contacts#getLookupUri(android.content.ContentResolver, android.net.Uri))with the contact's[Contacts._ID](https://developer.android.com/reference/android/provider/BaseColumns#_ID)and[Contacts.LOOKUP_KEY](https://developer.android.com/reference/android/provider/ContactsContract.ContactsColumns#LOOKUP_KEY)values as arguments.
+To edit a contact, call `https://developer.android.com/reference/android/content/Intent#Intent()` to
+create an intent with the action `https://developer.android.com/reference/android/content/Intent#ACTION_EDIT`. Call
+`https://developer.android.com/reference/android/content/Intent#setDataAndType(android.net.Uri, java.lang.String)` to set the data value for the
+intent to the contact's `https://developer.android.com/reference/android/provider/ContactsContract.Contacts#CONTENT_LOOKUP_URI` and the MIME type to
+`https://developer.android.com/reference/android/provider/ContactsContract.Contacts#CONTENT_ITEM_TYPE` MIME type; because a call to
+`https://developer.android.com/reference/android/content/Intent#setType(java.lang.String)` overwrites the current data value for the
+`https://developer.android.com/reference/android/content/Intent`, you must set the data and the MIME type at the same time.
 
-**Note:** A contact's[LOOKUP_KEY](https://developer.android.com/reference/android/provider/ContactsContract.ContactsColumns#LOOKUP_KEY)value is the identifier that you should use to retrieve a contact. It remains constant, even if the provider changes the contact's row ID to handle internal operations.
 
-The following snippet shows you how to create an intent:  
+To get a contact's `https://developer.android.com/reference/android/provider/ContactsContract.Contacts#CONTENT_LOOKUP_URI`, call
+`https://developer.android.com/reference/android/provider/ContactsContract.Contacts#getLookupUri(android.content.ContentResolver, android.net.Uri)` with the contact's
+`https://developer.android.com/reference/android/provider/BaseColumns#_ID` and
+`https://developer.android.com/reference/android/provider/ContactsContract.ContactsColumns#LOOKUP_KEY` values as
+arguments.
+
+**Note:** A contact's
+`https://developer.android.com/reference/android/provider/ContactsContract.ContactsColumns#LOOKUP_KEY` value is
+the identifier that you should use to retrieve a contact. It remains constant,
+even if the provider changes the contact's row ID to handle internal operations.
+
+
+The following snippet shows you how to create an intent:
 
 ### Kotlin
 
@@ -245,9 +307,17 @@ The following snippet shows you how to create an intent:
 
 ### Add the navigation flag
 
-In Android 4.0 (API version 14) and later, a problem in the contacts app causes incorrect navigation. When your app sends an edit intent to the contacts app, and users edit and save a contact, when they click*Back* they see the contacts list screen. To navigate back to your app, they have to click*Recents*and choose your app.
 
-To work around this problem in Android 4.0.3 (API version 15) and later, add the extended data key`finishActivityOnSaveCompleted`to the intent, with a value of`true`. Android versions prior to Android 4.0 accept this key, but it has no effect. To set the extended data, do the following:  
+In Android 4.0 (API version 14) and later, a problem in the contacts app causes incorrect
+navigation. When your app sends an edit intent to the contacts app, and users edit and save a
+contact, when they click *Back* they see the contacts list screen. To navigate back to
+your app, they have to click *Recents* and choose your app.
+
+
+To work around this problem in Android 4.0.3 (API version 15) and later, add the extended
+data key `finishActivityOnSaveCompleted` to the intent, with a value of `true`.
+Android versions prior to Android 4.0 accept this key, but it has no effect. To set the
+extended data, do the following:
 
 ### Kotlin
 
@@ -265,11 +335,19 @@ To work around this problem in Android 4.0.3 (API version 15) and later, add the
 
 ### Add other extended data
 
-To add additional extended data to the[Intent](https://developer.android.com/reference/android/content/Intent), call[putExtra()](https://developer.android.com/reference/android/content/Intent#putExtra(java.lang.String, android.os.Bundle))as desired. You can add extended data for common contact fields by using the key values specified in[Intents.Insert](https://developer.android.com/reference/android/provider/ContactsContract.Intents.Insert). Remember that some columns in the[ContactsContract.Contacts](https://developer.android.com/reference/android/provider/ContactsContract.Contacts)table can't be modified. These columns are listed in the summary section of the API reference for the class[ContactsContract.Contacts](https://developer.android.com/reference/android/provider/ContactsContract.Contacts)under the heading "Update".
+
+To add additional extended data to the `https://developer.android.com/reference/android/content/Intent`, call
+`https://developer.android.com/reference/android/content/Intent#putExtra(java.lang.String, android.os.Bundle)` as desired.
+You can add extended data for common contact fields by using the key values specified in
+`https://developer.android.com/reference/android/provider/ContactsContract.Intents.Insert`. Remember that some
+columns in the `https://developer.android.com/reference/android/provider/ContactsContract.Contacts` table can't be modified.
+These columns are listed in the summary section of the API reference for the class
+`https://developer.android.com/reference/android/provider/ContactsContract.Contacts` under the heading "Update".
 
 ### Send the intent
 
-Finally, send the intent you've constructed. For example:  
+
+Finally, send the intent you've constructed. For example:
 
 ### Kotlin
 
@@ -287,9 +365,20 @@ Finally, send the intent you've constructed. For example:
 
 ## Let users choose to insert or edit using an intent
 
-You can allow users to choose whether to insert a contact or edit an existing one by sending an[Intent](https://developer.android.com/reference/android/content/Intent)with the action[ACTION_INSERT_OR_EDIT](https://developer.android.com/reference/android/content/Intent#ACTION_INSERT_OR_EDIT). For example, an email client app could allow users to add an incoming email address to a new contact, or add it as an additional address for an existing contact. Set the MIME type for this intent to[Contacts.CONTENT_ITEM_TYPE](https://developer.android.com/reference/android/provider/ContactsContract.Contacts#CONTENT_ITEM_TYPE), but don't set the data URI.
 
-When you send this intent, the contacts app displays a list of contacts. Users can either insert a new contact or pick an existing contact and edit it. Any extended data fields you add to the intent populates the screen that appears. You can use any of the key values specified in[Intents.Insert](https://developer.android.com/reference/android/provider/ContactsContract.Intents.Insert). The following code snippet shows how to construct and send the intent:  
+You can allow users to choose whether to insert a contact or edit an existing one by sending
+an `https://developer.android.com/reference/android/content/Intent` with the action
+`https://developer.android.com/reference/android/content/Intent#ACTION_INSERT_OR_EDIT`. For example, an email client app could
+allow users to add an incoming email address to a new contact, or add it as an additional
+address for an existing contact. Set the MIME type for this intent to
+`https://developer.android.com/reference/android/provider/ContactsContract.Contacts#CONTENT_ITEM_TYPE`,
+but don't set the data URI.
+
+
+When you send this intent, the contacts app displays a list of contacts.
+Users can either insert a new contact or pick an existing contact and edit it.
+Any extended data fields you add to the intent populates the screen that appears. You can use
+any of the key values specified in `https://developer.android.com/reference/android/provider/ContactsContract.Intents.Insert`. The following code snippet shows how to construct and send the intent:
 
 ### Kotlin
 

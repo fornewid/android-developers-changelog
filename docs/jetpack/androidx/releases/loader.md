@@ -13,7 +13,7 @@ source: md.txt
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| October 9, 2019 | [1.1.0](https://developer.android.com/jetpack/androidx/releases/loader#1.1.0) | - | - | - |
+| July 01, 2026 | [1.1.0](https://developer.android.com/jetpack/androidx/releases/loader#1.1.0) | - | - | [1.2.0-alpha01](https://developer.android.com/jetpack/androidx/releases/loader#1.2.0-alpha01) |
 
 ## Declaring dependencies
 
@@ -54,6 +54,19 @@ clicking the star button.
 
 See the [Issue Tracker documentation](https://developers.google.com/issue-tracker)
 for more information.
+
+## Version 1.2
+
+### Version 1.2.0-alpha01
+
+July 01, 2026
+
+`androidx.loader:loader:1.2.0-alpha01` is released. Version 1.2.0-alpha01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/f9158f48961e6c6fcc619334eb9790561a5d9cdb/loader/loader).
+
+**Bug Fixes**
+
+- This library now uses [JSpecify nullness annotations](https://jspecify.dev/), which are type-use. Kotlin developers should use the following compiler arguments to enforce correct usage: -Xjspecify-annotations=strict, -Xtype-enhancement-improvements-strict-mode ([Ib5eb3](https://android-review.googlesource.com/#/q/Ib5eb3626c41d53cac5bd4175b5c5da6e05f91250), [b/326456246](https://issuetracker.google.com/issues/326456246))
+- Deprecated `androidx.core.os.CancellationSignal`. Usages should be replaced with the platform-provided `android.os.CancellationSignal`. ([Id45f6](https://android-review.googlesource.com/#/q/Id45f69a0b9cee7515d3f5b35dde3b3b037f8bd3a), [b/309499026](https://issuetracker.google.com/issues/309499026), [b/309054079](https://issuetracker.google.com/issues/309054079))
 
 ## Version 1.1.0
 

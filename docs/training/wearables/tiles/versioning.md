@@ -416,12 +416,12 @@ In your app module's build file, make the following changes:
   implementation 'androidx.wear.tiles:tiles-material:version'
 
   // Include additional dependencies
-  implementation "androidx.wear.protolayout:protolayout:1.4.0"
-  implementation "androidx.wear.protolayout:protolayout-material:1.4.0"
-  implementation "androidx.wear.protolayout:protolayout-expression:1.4.0"
+  implementation "androidx.wear.protolayout:protolayout:1.4.1"
+  implementation "androidx.wear.protolayout:protolayout-material:1.4.1"
+  implementation "androidx.wear.protolayout:protolayout-expression:1.4.1"
 
   // Update
-  implementation "androidx.wear.tiles:tiles:1.6.0"
+  implementation "androidx.wear.tiles:tiles:1.6.1"
 ```
 
 ### Kotlin
@@ -431,12 +431,12 @@ In your app module's build file, make the following changes:
   implementation("androidx.wear.tiles:tiles-material:version")
 
   // Include additional dependencies
-  implementation("androidx.wear.protolayout:protolayout:1.4.0")
-  implementation("androidx.wear.protolayout:protolayout-material:1.4.0")
-  implementation("androidx.wear.protolayout:protolayout-expression:1.4.0")
+  implementation("androidx.wear.protolayout:protolayout:1.4.1")
+  implementation("androidx.wear.protolayout:protolayout-material:1.4.1")
+  implementation("androidx.wear.protolayout:protolayout-expression:1.4.1")
 
   // Update
-  implementation("androidx.wear.tiles:tiles:1.6.0")
+  implementation("androidx.wear.tiles:tiles:1.6.1")
 ```
 
 ### Update namespaces

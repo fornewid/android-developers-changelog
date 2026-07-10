@@ -58,12 +58,14 @@ Learn about how ML Kit can help you implement common ML features quickly without
 
 ## Custom on-device ML with LiteRT
 
-<button class="toggle gc-analytics-event" data-category="devsite-playlist: toggle button"> *keyboard_arrow_down* *keyboard_arrow_up* </button>
+<button class="toggle gc-analytics-event" data-category="devsite-playlist: toggle button"> *keyboard_arrow_down* *keyboard_arrow_up* </button> Article
 
 
 Learn how to deploy your own custom machine learning models on Android using LiteRT.
 
 <br />
+
+[Read article](https://developers.google.com/edge/litert)
 
 ## Cloud-based generative AI with Firebase AI Logic SDK
 

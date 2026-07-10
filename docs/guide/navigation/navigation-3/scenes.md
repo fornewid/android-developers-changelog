@@ -24,9 +24,26 @@ The `Scene` interface has the following properties:
 
 - `key: Any`: A unique identifier for this specific `Scene` instance. This key, combined with the `Scene`'s class, ensures distinctness, primarily for animation purposes.
 - `entries: List<NavEntry<T>>`: This is a list of `NavEntry` objects that the `Scene` is responsible for displaying. Importantly, if the same `NavEntry` is displayed in multiple `Scenes` during a transition (e.g., in a shared element transition), its content will only be rendered by the most recent target `Scene` that is displaying it.
-- `previousEntries: List<NavEntry<T>>`: This property defines the `NavEntry`s that would result if a "back" action occurs from the current `Scene`. It's essential for calculating the proper predictive back state, allowing the `NavDisplay` to anticipate and transition to the correct previous state, which may be a Scene with a different class and/or key.
+- `previousEntries: List<NavEntry<T>>`: This property defines the `NavEntry`s that would result if a "back" action occurs from the current `Scene`. It's essential for calculating the proper predictive back state, allowing the `NavDisplay` to anticipate and transition to the correct previous state, which may be a Scene with a different class, key, or both.
 - `content: @Composable () -> Unit`: This is the composable function where you define how the `Scene` renders its `entries` and any surrounding UI elements specific to that `Scene`.
 - `metadata: Map<String, Any>`: Provides scene-specific information to other library components such as `NavDisplay`. By default, returns the `metadata` of the last `NavEntry` in `entries`.
+
+### Implement equals and hashCode in custom Scenes
+
+Custom `Scene` implementations must correctly implement `equals` and `hashCode`
+to support the following:
+
+- **Scene state transitions** : Every time a scene is calculated by the list of scene strategies, `NavDisplay` checks the equality of the new scene and the previous one. If it detects a change, it updates the `SeekableTransition` used to transition between scenes, which in turn affects the lifecycle state of the scenes.
+- **Overlay management** : For `OverlayScene`s (like dialogs), `NavDisplay` uses the scene object itself as a `key` to track overlay lifecycles and exit animations.
+
+Verify that all properties that define the scene's content, such as `key`,
+`entries`, and `previousEntries`, are included in the `equals` and `hashCode`
+implementations. Generally, avoid including callbacks (like `onBack`) in the
+implementation of these methods as they can change instances without changing
+the logical scene state.
+
+> [!TIP]
+> **Tip:** If your custom `Scene` doesn't have any callback properties and otherwise meets the requirements to be marked as [data classes](https://kotlinlang.org/docs/data-classes.html), that can be a straightforward way to meet this requirement.
 
 ## Understand scene strategies
 
@@ -110,7 +127,7 @@ public class SinglePaneSceneStrategy<T : Any> : SceneStrategy<T> {
 
 ## Example: Basic list-detail layout (custom Scene and strategy)
 
-This example demonstrates how to create a simple list-detail layout that is
+This example demonstrates how to create a list-detail layout that is
 activated based on two conditions:
 
 1. The **window width** is sufficiently wide to support two panes (i.e., at least `WIDTH_DP_MEDIUM_LOWER_BOUND`).
@@ -126,7 +143,7 @@ contains both `ListDetailScene` and `ListDetailSceneStrategy`:
  * A [Scene] that displays a list and a detail [NavEntry] side-by-side in a 40/60 split.
  *
  */
-class ListDetailScene<T : Any>(
+data class ListDetailScene<T : Any>(
     override val key: Any,
     override val previousEntries: List<NavEntry<T>>,
     val listEntry: NavEntry<T>,
@@ -279,7 +296,7 @@ panes) and adapts them based on window size and device state.
 To create a Material list-detail `Scene`, follow these steps:
 
 1. **Add the dependency** : Include `androidx.compose.material3.adaptive:adaptive-navigation3` in your project's `build.gradle.kts` file.
-2. **Define your entries with `ListDetailSceneStrategy` metadata** : Use `listPane(), detailPane()`, and `extraPane()` to mark your `NavEntrys` for appropriate pane display. The `listPane()` helper also allows you to specify a `detailPlaceholder` when no item is selected.
+2. **Define your entries with `ListDetailSceneStrategy` metadata** : Use `listPane(), detailPane()`, and `extraPane()` to mark your `NavEntrys` for appropriate pane display. The `listPane()` helper also lets you specify a `detailPlaceholder` when no item is selected.
 3. **Use `rememberListDetailSceneStrategy`** (): This composable function provides a pre-configured `ListDetailSceneStrategy` that can be used by a `NavDisplay`.
 
 The following snippet is a sample `Activity` demonstrating the usage of

@@ -12,7 +12,7 @@ the need for a backend integration. This guide shows you how to use the Gemini
 Live API in your Android app with Firebase AI Logic.
 
 > [!NOTE]
-> **Note:** Using the Gemini Live API with Firebase AI Logic is in developer preview. Non-backward compatible changes are possible, and it has the following [limitations](https://firebase.google.com/docs/ai-logic/live-api/limits-and-specs?api=dev).
+> **Note:** Using the Gemini Live API with Firebase AI Logic is in developer preview. Non-backward compatible changes are possible, and it has the following [limitations](https://firebase.google.com/docs/ai-logic/live-api/limits-and-specs).
 
 ## Get started
 
@@ -23,19 +23,79 @@ Firebase. For details, see the [Firebase AI Logic documentation](https://firebas
 
 ## Set up your Android project
 
-Add the Firebase AI Logic library dependency to your app-level
-`build.gradle.kts` or `build.gradle` file. Use the [Firebase Android
-BoM](https://firebase.google.com/docs/android/learn-more#bom) to manage library versions.
+Add the Firebase AI Logic library and App Check dependencies to your app-level
+`build.gradle.kts` or `build.gradle` file. Use the
+[Firebase Android BoM](https://firebase.google.com/docs/android/learn-more#bom) to manage library versions.
 
     dependencies {
       // Import the Firebase BoM
       implementation(platform("com.google.firebase:firebase-bom:34.15.0"))
-      // Add the dependency for the Firebase AI Logic library
+
+      // Add the dependencies for the Firebase AI Logic and App Check libraries
       // When using the BoM, you don't specify versions in Firebase library dependencies
       implementation("com.google.firebase:firebase-ai")
+      implementation("com.google.firebase:firebase-appcheck-debug")
     }
 
-After adding the dependency, sync your Android project with Gradle.
+After adding the dependencies, sync your Android project with Gradle.
+
+### Configure the App Check debug provider for local development
+
+Starting early July 2026, as part of the guided setup workflow for AI Logic
+in the Firebase console, Firebase App Check is automatically enforced to protect
+the Gemini API. For local development, you need to configure the
+App Check *debug provider* to bypass attestation while still maintaining the
+enforcement of App Check.
+
+1. In your debug build, configure App Check to use the debug provider
+   factory:
+
+   ### Kotlin
+
+       Firebase.initialize(context = this)
+       Firebase.appCheck.installAppCheckProviderFactory(
+           DebugAppCheckProviderFactory.getInstance(),
+       )
+
+   ### Java
+
+       FirebaseApp.initializeApp(/*context=*/ this);
+       FirebaseAppCheck firebaseAppCheck = FirebaseAppCheck.getInstance();
+       firebaseAppCheck.installAppCheckProviderFactory(
+               DebugAppCheckProviderFactory.getInstance());
+
+2. Obtain your debug token:
+
+   1. Run your app in the emulator or on your test device.
+
+   2. Look for the App Check debug token in your logs. For example:
+
+          D DebugAppCheckProvider: Enter this debug secret into the allow list
+          in the Firebase Console for your project: 123a4567-b89c-12d3-e456-789012345678
+
+   3. Copy the token (for example, `123a4567-b89c-12d3-e456-789012345678`).
+
+3. Register your debug token with App Check:
+
+   1. In the Firebase console, go to the
+      **Security** \> **App Check** \> [**Apps** tab](https://console.firebase.google.com/project/_/appcheck/apps/?useAutoProject=true).
+
+   2. Find your app, click the overflow menu
+      (), and then select
+      **Manage debug tokens**.
+
+   3. Follow the on-screen instructions to register your debug token.
+
+For details about the debug provider (including how to get a new debug token),
+check out the [official App Check docs](https://firebase.google.com/docs/app-check/android/debug-provider).
+
+> [!CAUTION]
+> **Here are some critical points about the
+> App Check debug provider:**
+>
+> - **Keep your debug token and debug build private.** Don't commit your debug token to a public repository, and don't ship your debug token or debug build in production builds of your app.
+> - **Register your app with a production attestation provider before
+>   releasing to end users.** You'll need to [register your app with a production App Check attestation provider](https://firebase.google.com/docs/ai-logic/app-check) (for example, Play Integrity) so that your end-users can use your feature with App Check enforced.
 
 ## Integrate Firebase AI Logic and initialize a generative model
 
@@ -47,10 +107,10 @@ application:
 Initialize the Gemini Developer API backend service and access the `LiveModel`.
 Use a model that supports the Live API, like
 `gemini-2.5-flash-native-audio-preview-12-2025`.
-See the Firebase documentation for [available models](https://firebase.google.com/docs/ai-logic/live-api?api=dev#supported-models).
+See the Firebase documentation for [available Live API models](https://firebase.google.com/docs/ai-logic/live-api?api=dev#supported-models).
 
-To specify a voice, set the [voice name](https://firebase.google.com/docs/ai-logic/live-api/configuration?api=dev#specify-response-voice) within the
-`speechConfig` object as part of the [model configuration](https://firebase.google.com/docs/ai-logic/model-parameters?api=dev#config-gemini-live-api). If
+To specify a voice, set the [voice name](https://firebase.google.com/docs/docs/ai-logic/live-api/configuration?api=dev#specify-response-voice) within the
+`speechConfig` object as part of the [model configuration](https://firebase.google.com/docs/docs/ai-logic/model-parameters?api=dev#config-gemini-live-api). If
 you don't specify a voice, the default is `Puck`.
 
 ### Kotlin
@@ -173,8 +233,8 @@ and receive content.
 You can also use the Gemini Live API to generate audio from different input
 modalities:
 
-- [Send text input](https://firebase.google.com/docs/ai-logic/live-api/capabilities?api=dev#text-in-audio-out).
-- Send video input (check out the [Firebase quickstart app](https://github.com/firebase/quickstart-android/tree/master/firebase-ai/app/src/main/java/com/google/firebase/quickstart/ai/feature/live))
+- [Send text and audio input.](https://firebase.google.com/docs/ai-logic/live-api/capabilities?api=dev#text-in-audio-out)
+- Send video input (check out the [Firebase quickstart app](https://github.com/firebase/quickstart-android/tree/master/firebase-ai/app/src/main/java/com/google/firebase/quickstart/ai/feature/live)).
 
 ## Function calling: connect the Gemini Live API to your app
 
@@ -346,8 +406,7 @@ fun functionCallHandler(functionCall: FunctionCallPart): FunctionResponsePart {
 ## Next steps
 
 - Play with the Gemini Live API in the [Android AI catalog sample app](https://github.com/android/ai-samples/tree/main/samples/gemini-live-todo).
-- Read more about the Gemini Live API in the [Firebase AI Logic
-  documentation](https://firebase.google.com/docs/ai-logic/live-api?api=dev).
+- Read more about the Gemini Live API in the [Firebase AI Logic documentation](https://firebase.google.com/docs/ai-logic/live-api?api=dev).
 - Learn more about the available [Gemini models](https://firebase.google.com/docs/ai-logic/models?api=dev).
 - Learn more about [function calling](https://firebase.google.com/docs/ai-logic/function-calling?api=dev).
 - Explore [prompt design strategies](https://firebase.google.com/docs/ai-logic/prompt-design?api=dev).

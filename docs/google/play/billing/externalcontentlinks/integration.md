@@ -30,9 +30,18 @@ modifications:
 
 ### Kotlin
 
-    val billingClient = BillingClient.newBuilder(context)
-      .enableBillingProgram(BillingProgram.EXTERNAL_CONTENT_LINK)
-      .build()
+
+```kotlin
+val billingClient = BillingClient.newBuilder(context)
+    .enableBillingProgram(
+        EnableBillingProgramParams.newBuilder()
+            .setBillingProgram(BillingProgram.EXTERNAL_CONTENT_LINK)
+            .build()
+    )
+    .build()
+```
+
+<br />
 
 ### Java
 
@@ -56,12 +65,16 @@ external content links:
 
 ### Kotlin
 
-    billingClient.isBillingProgramAvailableAsync(
-      BillingProgram.EXTERNAL_CONTENT_LINK,
-      object : BillingProgramAvailabilityListener {
+
+```kotlin
+billingClient.isBillingProgramAvailableAsync(
+    BillingProgram.EXTERNAL_CONTENT_LINK,
+    object : BillingProgramAvailabilityListener {
         override fun onBillingProgramAvailabilityResponse(
-          billingProgram: Int, billingResult: BillingResult) {
-            if (billingResult.responseCode !=  BillingResponseCode.OK) {
+            billingResult: BillingResult,
+            billingProgramAvailabilityDetails: BillingProgramAvailabilityDetails
+        ) {
+            if (billingResult.responseCode != BillingResponseCode.OK) {
                 // Handle failures such as retrying due to network errors,
                 // handling external content links unavailable, etc.
                 return
@@ -69,8 +82,12 @@ external content links:
 
             // External content links are available. Prepare an external
             // transaction token.
-          }
-        })
+        }
+    }
+)
+```
+
+<br />
 
 ### Java
 
@@ -109,18 +126,21 @@ generate a new token each time the user is linked out.
 
 ### Kotlin
 
-    val params =
-        BillingProgramReportingDetailsParams.newBuilder()
-            .setBillingProgram(BillingProgram.EXTERNAL_CONTENT_LINK)
-            .build();
 
-    billingClient.createBillingProgramReportingDetailsAsync(
-      params,
-      object : BillingProgramReportingDetailsListener {
+```kotlin
+val params =
+    BillingProgramReportingDetailsParams.newBuilder()
+        .setBillingProgram(BillingProgram.EXTERNAL_CONTENT_LINK)
+        .build()
+
+billingClient.createBillingProgramReportingDetailsAsync(
+    params,
+    object : BillingProgramReportingDetailsListener {
         override fun onCreateBillingProgramReportingDetailsResponse(
-          billingResult: BillingResult,
-          billingProgramReportingDetails: BillingProgramReportingDetails?) {
-            if (billingResult.responseCode !=  BillingResponseCode.OK) {
+            billingResult: BillingResult,
+            billingProgramReportingDetails: BillingProgramReportingDetails?
+        ) {
+            if (billingResult.responseCode != BillingResponseCode.OK) {
                 // Handle failures such as retrying due to network errors.
                 return
             }
@@ -129,7 +149,11 @@ generate a new token each time the user is linked out.
             // Persist the external transaction token locally. Pass it to the
             // external website when launchExternalLink is called.
         }
-      })
+    }
+)
+```
+
+<br />
 
 ### Java
 
@@ -181,20 +205,24 @@ the following parameters:
 
 ### Kotlin
 
-    val params =
-      LaunchExternalLinkParams.newBuilder()
+
+```kotlin
+val params =
+    LaunchExternalLinkParams.newBuilder()
         .setBillingProgram(BillingProgram.EXTERNAL_CONTENT_LINK)
         .setLinkUri(Uri.parse("https://www.myapprovedsite.com"))
         .setLinkType(LaunchExternalLinkParams.LinkType.LINK_TO_APP_DOWNLOAD)
         .setLaunchMode(
-          LaunchExternalLinkParams.LaunchMode.LAUNCH_IN_EXTERNAL_BROWSER_OR_APP)
+            LaunchExternalLinkParams.LaunchMode.LAUNCH_IN_EXTERNAL_BROWSER_OR_APP
+        )
         .build()
 
-    val listener : LaunchExternalLinkResponseListener =
-        object : LaunchExternalLinkResponseListener {
-          override fun onLaunchExternalLinkResponse(
-            billingResult: BillingResult) {
-            if (billingResult.responseCode !=  BillingResponseCode.OK) {
+val listener: LaunchExternalLinkResponseListener =
+    object : LaunchExternalLinkResponseListener {
+        override fun onLaunchExternalLinkResponse(
+            billingResult: BillingResult
+        ) {
+            if (billingResult.responseCode != BillingResponseCode.OK) {
                 // Handle failures such as retrying due to network errors.
                 return
             }
@@ -209,7 +237,10 @@ the following parameters:
         }
     }
 
-    billingClient.launchExternalLink(activity, params, listener)
+billingClient.launchExternalLink(activity, params, listener)
+```
+
+<br />
 
 ### Java
 

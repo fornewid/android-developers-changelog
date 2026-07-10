@@ -4,7 +4,7 @@ url: https://developer.android.com/develop/ui/compose/tooling/animation-preview
 source: md.txt
 ---
 
-Android Studio allows you to inspect animations from Animation Preview. If an
+Android Studio lets you inspect animations from Animation Preview. If an
 animation is described in a composable preview, you can inspect the exact value
 of each animated value at a given time, pause the animation, loop it,
 fast-forward it, or slow it, to help you debug the animation throughout its
@@ -21,7 +21,7 @@ curve](https://developer.android.com/static/develop/ui/compose/images/animation-
 
 Animation Preview automatically detects inspectable animations, which are
 indicated by the **Start Animation Preview** icon
-![Run icon](https://developer.android.com/static/develop/ui/compose/images/start-animation-inspection-icon.png).
+![Play button to start animation preview](https://developer.android.com/static/develop/ui/compose/images/start-animation-inspection-icon.png).
 
 ![Start Animation Preview icon in Design
 window](https://developer.android.com/static/develop/ui/compose/images/start-animation-inspection-highlight.png)
@@ -38,7 +38,7 @@ pause, scrub, control speed, and coordinate.
 
 ![Pick precise values for animation previews](https://developer.android.com/static/studio/images/compose-animation-preview-picker.gif)
 
-Animation Preview currently supports the
+Animation Preview supports the
 [`updateTransition`](https://developer.android.com/reference/kotlin/androidx/compose/animation/core/updateTransition.composable#updateTransition(kotlin.Any,kotlin.String)),
 [`AnimatedVisibility`](https://developer.android.com/reference/kotlin/androidx/compose/animation/AnimatedVisibility.composable#AnimatedVisibility(androidx.compose.animation.core.MutableTransitionState,androidx.compose.ui.Modifier,androidx.compose.animation.EnterTransition,androidx.compose.animation.ExitTransition,kotlin.String,kotlin.Function1)),
 [`animate*AsState`](https://developer.android.com/develop/ui/compose/animation#animate-as-state),
@@ -46,7 +46,7 @@ Animation Preview currently supports the
 [`rememberInfiniteTransition`](https://developer.android.com/develop/ui/compose/animation#rememberinfinitetransition),
 and [`AnimatedContent`](https://developer.android.com/develop/ui/compose/animation#animatedcontent)
 APIs. To access the latest features, use Animation Preview with
-Android Studio Quail 1 and `compose.animation` 1.11.1 and higher.
+Android Studio Quail 1 and `compose.animation` 1.11.3 and higher.
 
 ## Recommended for you
 

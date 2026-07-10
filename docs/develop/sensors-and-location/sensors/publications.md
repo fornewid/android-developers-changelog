@@ -4,11 +4,20 @@ url: https://developer.android.com/develop/sensors-and-location/sensors/publicat
 source: md.txt
 ---
 
+keywords_public: Android, raw measurements, GNSS, GPS, positioning, jamming, spoofing, sensors, location, publications
+
 This list contains peer-reviewed publications related to Android raw
 measurements.
 
+## Android GNSS measurements explained
+
+- European GNSS Agency (GSA), European Space Agency (ESA), Nottingham Geospatial Institute, \& Airbus Defence and Space. (2017). Using GNSS Raw Measurements on Android Devices: Towards better location performance in mass market applications (White Paper). European GNSS Agency. [using_gnss_raw_measurements_on_android_devices.pdf](https://developer.android.com/static/develop/sensors-and-location/sensors/gnss/downloads/using_gnss_raw_measurements_on_android_devices.pdf)
+- van Diggelen, F. and Khider, M. (2018). GNSS Analysis Tools from Google. Inside GNSS, March-April 2018. [gnss_analysis_tools_from_google.pdf](https://developer.android.com/static/develop/sensors-and-location/sensors/gnss/downloads/gnss_analysis_tools_from_google.pdf)
+
 ## Positioning with raw measurements
 
+- Bisnath, S., \& Aggrey, J. (2024). "Current Limitations and Prospects for Smartphone GNSS Precise Positioning," Proceedings of the 2024 International Technical Meeting of the Institute of Navigation, Long Beach, California, January 2024, pp. 1-24. <https://doi.org/10.33012/2024.19560>
+- C Thu, P., Odolinski, R., Yong, C.Z. et al. (2026). First smartwatch RTK results: performance analysis of instantaneous, single-frequency multi-GNSS cm-level positioning with comparison to Google Pixel 5 smartphones. GPS Solut 30, 3. <https://doi.org/10.1007/s10291-025-01965-y>
 - Crosta, P., Galluzzo, G., Rodriguez, R.L., Otero, X., Zoccarato, P., De Pasquale, G, \& Melara, A. (2019). Galileo Hits the Spot, InsideGNSS, September 29, 2019. <https://insidegnss.com/galileo-hits-the-spot/>
 - Everett, T. (2022). "3rd Place Winner: 2022 Smartphone Decimeter Challenge: An RTKLIB Open-Source Based Solution," Proceedings of the 35th International Technical Meeting of the Satellite Division of The Institute of Navigation (ION GNSS+ 2022), Denver, Colorado, September 2022, pp. 2265-2275. <https://doi.org/10.33012/2022.18376>
 - Fortunato, M., Ravanelli, M., \& Mazzoni, A. (2019). Real-time geophysical applications with Android GNSS raw measurements. Remote Sensing, 11(18), 2113. <https://www.mdpi.com/2072-4292/11/18/2113>

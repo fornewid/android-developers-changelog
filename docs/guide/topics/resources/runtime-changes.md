@@ -151,6 +151,34 @@ the screen orientation and keyboard availability change:
 > [!WARNING]
 > **Warning:** Even when you disable activity recreation for a given configuration change, the change itself continues to occur. Disabling `Activity` recreation transfers the responsibility of handling that configuration change to the `Activity`. Your Compose UI automatically recomposes with the new configuration, but you must update any other code relying on the configuration. Specifically, you must manually update embedded components like `AndroidView` and `AndroidFragment`, which rely on `Activity` recreation to refresh their resources.
 
+### Android 17
+
+Starting with Android 17 (API level 37), the system no longer restarts
+activities by default for several configuration changes that typically don't
+require full UI recreation.
+Instead, activities remain active and receive updates through the
+[`onConfigurationChanged()`](https://developer.android.com/jetpack/compose/compositionlocal) callback.
+The specific configuration changes include:
+
+- [`CONFIG_KEYBOARD`](https://developer.android.com/reference/android/content/pm/ActivityInfo#CONFIG_KEYBOARD)
+- [`CONFIG_KEYBOARD_HIDDEN`](https://developer.android.com/reference/android/content/pm/ActivityInfo#CONFIG_KEYBOARD_HIDDEN)
+- [`CONFIG_NAVIGATION`](https://developer.android.com/reference/android/content/pm/ActivityInfo#CONFIG_NAVIGATION)
+- [`CONFIG_TOUCHSCREEN`](https://developer.android.com/reference/android/content/pm/ActivityInfo#CONFIG_TOUCHSCREEN)
+- [`CONFIG_COLOR_MODE`](https://developer.android.com/reference/android/content/pm/ActivityInfo#CONFIG_COLOR_MODE)
+- [`CONFIG_UI_MODE`](https://developer.android.com/reference/android/content/pm/ActivityInfo#CONFIG_UI_MODE) (only when the UI mode changes to [`UI_MODE_TYPE_DESK`](https://developer.android.com/reference/android/content/res/Configuration#UI_MODE_TYPE_DESK) or from `UI_MODE_TYPE_DESK` to another type)
+
+If your application relies on a full restart to reload resources for these
+changes, you must now explicitly opt-in to the old behavior by using the
+[`android:recreateOnConfigChanges`](https://developer.android.com/reference/android/R.attr#recreateOnConfigChanges) attribute in the manifest file.
+The attribute lets you specify which configuration changes should trigger a
+complete activity stop, destroy, and recreate cycle, for example:
+
+    <activity
+        android:name=".MyActivity"
+        android:recreateOnConfigChanges="keyboard|keyboardHidden|navigation|colorMode|touchscreen|...">
+        ...
+    </activity>
+
 ## React to configuration changes
 
 Jetpack Compose lets your app more easily react to configuration changes.

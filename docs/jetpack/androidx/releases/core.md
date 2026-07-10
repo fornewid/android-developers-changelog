@@ -21,7 +21,7 @@ This table lists all the artifacts in the `androidx.core` group.
 | core-role | [1.1.0](https://developer.android.com/jetpack/androidx/releases/core#core-role-1.1.0) | - | - | - |
 | core-splashscreen | [1.2.0](https://developer.android.com/jetpack/androidx/releases/core#core-splashscreen-1.2.0) | - | - | - |
 
-This library was last updated on: June 17, 2026
+This library was last updated on: July 01, 2026
 
 ## Declaring dependencies
 
@@ -2728,6 +2728,20 @@ July 26, 2023
 ## Core-pip
 
 ### Version 1.0
+
+#### Version 1.0.0-alpha03
+
+July 01, 2026
+
+`androidx.core:core-pip:1.0.0-alpha03` is released. Version 1.0.0-alpha03 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/cdf076c6abd0f3125cb0302756fcb77fe981ab7c..596f5c3c9e4fda91d275bfb53e84702f0bba6e04/core/core-pip).
+
+**API Changes**
+
+- `BasicPictureInPicture` and `VideoPlaybackPictureInPicture` classes now require an Executor in their constructors. A new commit() method has been introduced and must be called to apply parameter changes. ([Ib9150](https://android-review.googlesource.com/#/q/Ib9150d2d4bba801dd10d279fc56dcfdbb5be5ef1), [b/493673311](https://issuetracker.google.com/issues/493673311))
+
+**Bug Fixes**
+
+- Catch exception in `setPictureInPictureParams` ([Ibfeb2](https://android-review.googlesource.com/#/q/Ibfeb29ee777d82e1ee6b2e3a82240bed3d21d61d), [b/519706801](https://issuetracker.google.com/issues/519706801))
 
 #### Version 1.0.0-alpha02
 

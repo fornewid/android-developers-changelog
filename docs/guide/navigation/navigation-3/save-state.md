@@ -90,7 +90,7 @@ custom storage, you need to:
 - **Ensure your keys are serializable** : Just like with `rememberNavBackStack`, your navigation keys must be serializable.
 - **Handle serialization and deserialization manually** : You're responsible for manually saving the serialized representation of each key to, and deserializing it from, persistent storage (e.g., `SharedPreferences`, a database, or a file) when your app is going into the background or being restored.
 
-## Scoping `ViewModel`s to `NavEntry`s
+## Scoping `ViewModel` instances to `NavEntry` objects
 
 `ViewModels` are used to retain UI-related state across configuration changes,
 such as screen rotations. By default, `ViewModels` are scoped to the nearest

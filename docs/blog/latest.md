@@ -7,6 +7,26 @@ source: md.txt
 # The Latest
 
 Stay up to date with the latest announcements, feature rollouts, and updates across Android tools, libraries, and platforms.
+- [![View Zoe Lopez-Latorre 's profile](https://developer.android.com/static/blog/assets/Screenshot_2026_07_07_at_1_15_58_PM_eb87f2f61a_Z1QyLll.webp)](https://developer.android.com/blog/authors/zoe-lopez-latorre) 08 Jul 2026 08 Jul 2026 ![](https://developer.android.com/static/blog/assets/Bench_July_releas_V01_Strapi_6ee24bdb6b_1NrCN7.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+
+  ## [Evolving how LLMs are measured for Android: the next era of Android Bench](https://developer.android.com/blog/posts/evolving-how-ll-ms-are-measured-for-android-the-next-era-of-android-bench)
+
+  [arrow_forward](https://developer.android.com/blog/posts/evolving-how-ll-ms-are-measured-for-android-the-next-era-of-android-bench) Back in March, we introduced Android Bench---our LLM leaderboard for real-world Android development tasks. Since then, we have enhanced the benchmark based on your feedback, including evaluating open-weight models and adding cost and efficiency dimensions to the leaderboard.
+  [Zoe Lopez-Latorre](https://developer.android.com/blog/authors/zoe-lopez-latorre) • 3 min read
+  - [#Agentic Android development](https://developer.android.com/blog/topics/agentic-android-development)
+- [![View Steph Pio's profile](https://developer.android.com/static/blog/assets/security_pass_photo_b9ab37d5bf_1fkXBh.webp)](https://developer.android.com/blog/authors/steph-pio) 06 Jul 2026 06 Jul 2026 ![](https://developer.android.com/static/blog/assets/IG_Fund26_Strapi_Header_716b75cbab_1E2Dt5.webp) [Community](https://developer.android.com/blog/categories/community)
+
+  ## [Google Play launches the first Indie Games Fund in Africa](https://developer.android.com/blog/posts/google-play-launches-the-first-indie-games-fund-in-africa)
+
+  [arrow_forward](https://developer.android.com/blog/posts/google-play-launches-the-first-indie-games-fund-in-africa) Google Play is launching the first Indie Games Fund in Africa, investing $1 million to empower 10 indie game studios across Sub-Saharan Africa.
+  [Steph Pio](https://developer.android.com/blog/authors/steph-pio) • 1 min read
+  - [#Google Play](https://developer.android.com/blog/topics/google-play)
+- [![View Tibian Elsheikh's profile](https://developer.android.com/static/blog/assets/unnamed_7_643878a583_gdebU.webp)](https://developer.android.com/blog/authors/tibian-elsheikh)[![View Jeffrey Jose's profile](https://developer.android.com/static/blog/assets/unnamed_8_3d27b8b0cb_ZRl3Ng.webp)](https://developer.android.com/blog/authors/jeffrey-jose) 29 Jun 2026 29 Jun 2026 ![](https://developer.android.com/static/blog/assets/Eclipsa_Video_V01_White_Strapi_10c5296e18_R3bTD.webp)
+
+  ## [Eclipsa Video: HDR That Looks Right on Every Screen](https://developer.android.com/blog/posts/eclipsa-video-hdr-that-looks-right-on-every-screen)
+
+  [arrow_forward](https://developer.android.com/blog/posts/eclipsa-video-hdr-that-looks-right-on-every-screen) We've all been there: You're scrolling through your favorite social media feed in a dim room, and suddenly an HDR video pops up. It's so intensely bright that you have to squint, or maybe you find yourself turning down your screen brightness just to read the caption.
+  [Tibian Elsheikh](https://developer.android.com/blog/authors/tibian-elsheikh), [Jeffrey Jose](https://developer.android.com/blog/authors/jeffrey-jose) • 2 min read
 - [![View Paul Feng's profile](https://developer.android.com/static/blog/assets/paul_feng_759ac95845_spvRU.webp)](https://developer.android.com/blog/authors/paul-feng) 24 Jun 2026 24 Jun 2026 ![](https://developer.android.com/static/blog/assets/Apps_Experience_Play_Blog_Header_2000x1000_8c3a95404a_lYfpd.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Expanded billing choice and lower fees on Google Play](https://developer.android.com/blog/posts/expanded-billing-choice-and-lower-fees-on-google-play)
@@ -158,26 +178,6 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
   - [#Wear OS](https://developer.android.com/blog/topics/wear-os)
   - [#Compose](https://developer.android.com/blog/topics/compose)
   - +1 ↩
-- [![View Nick Butcher's profile](https://developer.android.com/static/blog/assets/Nick_Butcher_5393f4552a_19h6h7.webp)](https://developer.android.com/blog/authors/nick-butcher) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Compose_first_Meta_04fd0498ba_1T1vC6.webp) [Product News](https://developer.android.com/blog/categories/product-news)
-
-  ## [Android UI Development is Compose First](https://developer.android.com/blog/posts/android-ui-development-is-compose-first)
-
-  [arrow_forward](https://developer.android.com/blog/posts/android-ui-development-is-compose-first) In the almost-5-years since Jetpack Compose launched, we've invested in bringing you all the features, performance and tools that you need to build amazing UIs across the variety of Android devices.
-  [Nick Butcher](https://developer.android.com/blog/authors/nick-butcher) • 2 min read
-  - [#Adaptive \& Differentiated](https://developer.android.com/blog/topics/adaptive-and-differentiated)
-- [![View Emma-Louise Leavey's profile](https://developer.android.com/static/blog/assets/Emma_Louise_profile_c6ba45f450_16g0DP.webp)](https://developer.android.com/blog/authors/emma-louise-leavey)[![View Mike Taylor-Cai's profile](https://developer.android.com/static/blog/assets/michaelct_profile_pic_177ddafb7b_Z1VdIJy.webp)](https://developer.android.com/blog/authors/mike-taylor-cai) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Combo2_Strapi_2000x1000_6de0464afd_1KAI63.webp) [Product News](https://developer.android.com/blog/categories/product-news)
-
-  ## [Build native Android apps in Google AI Studio](https://developer.android.com/blog/posts/build-native-android-apps-in-google-ai-studio)
-
-  [arrow_forward](https://developer.android.com/blog/posts/build-native-android-apps-in-google-ai-studio) Native Android app creation capabilities in Google AI Studio using Kotlin and Jetpack Compose. Ability to preview apps in an embedded Android Emulator and deploy it to a physically connected device. Google Play Developers can submit a new app release to an Internal Test Track in Play Console.
-  [Emma-Louise Leavey](https://developer.android.com/blog/authors/emma-louise-leavey), [Mike Taylor-Cai](https://developer.android.com/blog/authors/mike-taylor-cai) • 4 min read
-- [![View Simona Milanovic's profile](https://developer.android.com/static/blog/assets/Screenshot_2026_05_19_at_9_30_31_AM_4ebf3b750d_ZDTMlF.webp)](https://developer.android.com/blog/authors/simona-milanovic)[![View Ben Trengrove's profile](https://developer.android.com/static/blog/assets/Ben_Trengrove_b9e17c8c2e_2uVqlp.webp)](https://developer.android.com/blog/authors/ben-trengrove) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Combo3_Strapi_2000x1000_56726aebea_Z1kvKHr.webp) [Product News](https://developer.android.com/blog/categories/product-news)
-
-  ## [Android CLI Now Stable 1.0: Accelerate developing for Android using any agent](https://developer.android.com/blog/posts/android-cli-now-stable-1-accelerate-developing-for-android-using-any-agent)
-
-  [arrow_forward](https://developer.android.com/blog/posts/android-cli-now-stable-1-accelerate-developing-for-android-using-any-agent) As Android developers, you have many choices when it comes to the agents, tools, command-line interfaces (CLI), and LLMs you use for app development.
-  [Simona Milanovic](https://developer.android.com/blog/authors/simona-milanovic), [Ben Trengrove](https://developer.android.com/blog/authors/ben-trengrove) • 5 min read
-  - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
 <button class="adb--button adb--standard adb--outlined adb--disabled adb--global-hover-button astro-vnzlvqnm" disabled=""> arrow_back </button>
 
 #### Page 1
@@ -203,6 +203,7 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
 - [#Automotive OS](https://developer.android.com/blog/topics/automotive-os)
 - [#Adaptive \& Differentiated](https://developer.android.com/blog/topics/adaptive-and-differentiated)
 - [#AppFunctions](https://developer.android.com/blog/topics/app-functions)
+- [#Google Play](https://developer.android.com/blog/topics/google-play)
 - [#Memory](https://developer.android.com/blog/topics/memory)
 - [#Nav3](https://developer.android.com/blog/topics/nav3)
 - [#Now In Android](https://developer.android.com/blog/topics/now-in-android)
@@ -214,7 +215,6 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
 - [#Android XR SDK](https://developer.android.com/blog/topics/android-xr-sdk)
 - [#Developer Preview](https://developer.android.com/blog/topics/developer-preview)
 - [#Unity](https://developer.android.com/blog/topics/unity)
-- [#Google Play](https://developer.android.com/blog/topics/google-play)
 - [#Play Console](https://developer.android.com/blog/topics/play-console)
 - [#Android Developers](https://developer.android.com/blog/topics/android-developers)
 - [#Agent Skills](https://developer.android.com/blog/topics/agent-skills)
@@ -227,6 +227,7 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
 - [#Wired XR glasses](https://developer.android.com/blog/topics/wired-xr-glasses)
 - [#Profiling Manager](https://developer.android.com/blog/topics/profiling-manager)
 - [#Developer Preview 4](https://developer.android.com/blog/topics/developer-preview-4)
+- [#Agentic Android development](https://developer.android.com/blog/topics/agentic-android-development)
 - [#authentication](https://developer.android.com/blog/topics/authentication)
 - [#CredentialManager](https://developer.android.com/blog/topics/credential-manager)
 - [#Foldables](https://developer.android.com/blog/topics/foldables)

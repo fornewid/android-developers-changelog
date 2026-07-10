@@ -53,6 +53,23 @@ won't need to change the pre-allocated limit. However, if you anticipate
 a large spike in volume (for example, for an upcoming launch event), you can
 request for additional quota by clicking the **Request more** link.
 
+#### View OAuth rate limits and new user caps
+
+To view quotas specifically related to OAuth user authorization grant rates and
+new user caps:
+
+1. Navigate to [Google Cloud Console](https://console.developers.google.com/apis/library).
+2. Ensure you have the correct project selected.
+3. Go to **APIs \& Services** \> **OAuth consent screen**.
+4. On this page, you can view the current user authorization grant rate (or token grant rate) and the total new user cap.
+
+![Google Cloud UI for viewing OAuth rate limits and user caps](https://developer.android.com/static/games/pgs/console/images/oauth-rate-limits.png) OAuth rate limits and new user caps on the OAuth consent screen.
+
+If you see that your game will reach the rate limit soon, you should take action
+to prevent any player disruption by requesting a [rate limit quota increase](https://support.google.com/code/contact/oauth_quota_increase).
+
+For more information, see [OAuth Application Rate Limits](https://support.google.com/cloud/answer/9028764).
+
 ### Activate other APIs
 
 When you create your client ID in Play Console, the

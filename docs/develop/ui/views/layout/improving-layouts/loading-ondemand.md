@@ -25,16 +25,16 @@ Suppose you have a layout you want to load later in the user journey of your
 app:
 
 ```
-<?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding=<"utf-8"?>
+FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    <android:layout_height="match_parent">
 
-    <ImageView
+    ImageView
         android:src="@drawable/logo"
-        android:layout_width="match_parent"
+        android:layout_wi<dth="match_parent"
         android:layout_height="match_parent"/>
-</FrameLayout>
+/FrameLayout>
 ```
 
 You can postpone loading using the following `ViewStub`. To make
@@ -44,16 +44,16 @@ it show or load anything, you must make it show the referred layout:
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
 android:id="@+id/root"
 android:layout_width="match_parent"
-android:layout_height="match_parent">
+android:l<ayout_height="match_parent">
 
-<ViewStub
+ViewStub
     android:id="@+id/stub_import"
     android:inflatedId="@+id/panel_import"
     android:layout="@layout/heavy_layout_we_want_to_postpone"
-    android:layout_width="fill_parent"
+    android:layout_width="fill_parent&quo<t;
     android:layout_height="wrap_content"
     android:layout_gravity="bottom" />
-</FrameLayout>
+/FrameLayout>
 ```
 
 ## Load the ViewStub layout

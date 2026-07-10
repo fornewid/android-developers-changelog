@@ -234,8 +234,7 @@ You can get the app's current display bounds and check its width and height to
 determine orientation.
 
 If you need to limit app orientation on phones (or the outer screens of
-foldables) but not on large screen devices, see [Restrict app orientation on
-phones](https://developer.android.com/develop/ui/compose/quick-guides/content/restrict-app-orientation-on-phones).
+foldables) but not on large screen devices, see [App orientation restricted on phones but not on large screens](https://developer.android.com/develop/adaptive-apps/guides/cookbook/restrict-orientation).
 
 ### Postures and display modes
 

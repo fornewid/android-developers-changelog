@@ -10,7 +10,7 @@ source: md.txt
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| June 17, 2026 | [1.8.9](https://developer.android.com/jetpack/androidx/releases/fragment#1.8.9) | - | - | [1.9.0-alpha01](https://developer.android.com/jetpack/androidx/releases/fragment#1.9.0-alpha01) |
+| July 01, 2026 | [1.8.9](https://developer.android.com/jetpack/androidx/releases/fragment#1.8.9) | - | - | [1.9.0-alpha02](https://developer.android.com/jetpack/androidx/releases/fragment#1.9.0-alpha02) |
 
 > [!CAUTION]
 > **Caution:** This library is in maintenance mode and will only receive critical fixes; new features are not planned. We recommend using [Jetpack Compose](https://developer.android.com/jetpack/compose) for building Android UIs. See [Compose-first](https://developer.android.com/develop/ui/compose/first) for more information.
@@ -75,6 +75,17 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.9
+
+### Version 1.9.0-alpha02
+
+July 01, 2026
+
+`androidx.fragment:fragment-*:1.9.0-alpha02` is released. Version 1.9.0-alpha02 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/14c2f2ed81d0f61a3227641684cd875e95dd6529..9fc03893cb70909cdef7303e9f1c7dd1fa6d6a63/fragment).
+
+**API Changes**
+
+- Add a `maxLifecycle` parameter to the `AndroidFragment` composable. This allows you to cap the lifecycle state of the embedded `Fragment`, giving you finer control over its behavior in complex UI setups like pagers or tabs. ([Ie99b5](https://android-review.googlesource.com/#/q/Ie99b57c34f67ace9b940096754877e35db0769b3), [b/526109804](https://issuetracker.google.com/issues/526109804))
+- Fragment library now supports system tracing of the lifecycle event via [Jetpack Tracing](https://developer.android.com/jetpack/androidx/releases/jetpack/androidx/releases/tracing). ([Ibc63b](https://android-review.googlesource.com/#/q/Ibc63b1894f2b1c8dc192d45fcf02ef6c8afba54f), [b/112161409](https://issuetracker.google.com/issues/112161409))
 
 ### Version 1.9.0-alpha01
 

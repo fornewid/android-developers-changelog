@@ -17,14 +17,7 @@ Build helpful and delightful immersive experiences that transport users to a ful
 
 ### [Build augmented experiences](https://developer.android.com/develop/xr/explore/augmented)
 
-Build lightweight, additive experiences that help users in everyday life on the go, at home, or at work. [Build augmented](https://developer.android.com/develop/xr/explore/augmented) [![](http://developer.android.com/static/images/develop/xr/android-bot-glasses-looking-left.webp)](http://developer.android.com/develop/xr/catalyst)
-
-### [Accelerate your vision with the Android XR Developer Catalyst Program](http://developer.android.com/develop/xr/catalyst)
-
-Build the next generation of extended reality experiences for Android XR.
-
-The Android XR Developer Catalyst Program is designed to empower developers like you! Whether you're an established studio or an independent developer, the program provides the resources, hardware, and funding needed to build and scale innovative experiences across wired XR glasses, audio glasses, and display glasses.
-[Learn more](http://developer.android.com/develop/xr/catalyst) [![](http://developer.android.com/static/images/cluster-illustrations/material-design-16-9.svg)](http://developer.android.com/develop/xr/tools-technologies)
+Build lightweight, additive experiences that help users in everyday life on the go, at home, or at work. [Build augmented](https://developer.android.com/develop/xr/explore/augmented) [![](http://developer.android.com/static/images/cluster-illustrations/material-design-16-9.svg)](http://developer.android.com/develop/xr/tools-technologies)
 
 ### [Start with the tools you're familiar with](http://developer.android.com/develop/xr/tools-technologies)
 

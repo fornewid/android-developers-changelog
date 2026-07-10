@@ -165,20 +165,20 @@ attributes:
 
     ```xml
     <activity android:name="com.example.ActivityOne"
-        android:windowSoftInputMode="stateU<nchanged">
+        android:windowSoftInputMode="stateUnchanged">
         <intent-filter>
-            action android:name="android.<intent.action.SEND" />
-            category android:name=&q<uot;android.inte<nt.category.DEFAULT" />
-        /intent-filter>
-    /activity>
+            <action android:name="android.intent.action.SEND" />
+            <category android:name="android.intent.category.DEFAULT" />
+        </intent-filter>
+    </activity>
     ```
     High-priority manifest:
 
     ```xml
     <activity android:name="com.example.ActivityOne"
-        android:screenOrientation=";portrait"
-        <tools:node="merge">
-    /activity>
+        android:screenOrientation="portrait"
+        tools:node="merge">
+    </activity>
     ```
 
     Merged manifest result:
@@ -186,12 +186,12 @@ attributes:
     ```xml
     <activity android:name="com.example.ActivityOne"
         android:screenOrientation="portrait"
-        android:windowSoftInputMode=&q<uot;stateUnchanged"<;>
-        intent-filter>
-            action android:name=&quo<t;android.intent.action.SEND" />
-            category andro<id:name="an<droid.intent.category.DEFAULT" />
-        /intent-filter>
-    /activity>
+        android:windowSoftInputMode="stateUnchanged">
+        <intent-filter>
+            <action android:name="android.intent.action.SEND" />
+            <category android:name="android.intent.category.DEFAULT" />
+        </intent-filter>
+    </activity>
     ```
 
 `tools:node="mergeOnlyAttributes"`
@@ -201,21 +201,21 @@ attributes:
 
     ```xml
     <activity android:name="com.example.ActivityOne"
-        android:windowSoftInputMode="stateU<nchanged">
+        android:windowSoftInputMode="stateUnchanged">
         <intent-filter>
-            action android:name="android.<intent.action.SEND" />
+            <action android:name="android.intent.action.SEND" />
             <data android:type="image/*" />
-            category an<droid:name="<;android.intent.category.DEFAULT" />
-        /intent-filter>
-    /activity>
+            <category android:name="android.intent.category.DEFAULT" />
+        </intent-filter>
+    </activity>
     ```
     High-priority manifest:
 
     ```xml
     <activity android:name="com.example.ActivityOne"
-        android:screenOrientation=";portrait"
-        tools:node=&qu<ot;mergeOnlyAttributes">
-    /activity>
+        android:screenOrientation="portrait"
+        tools:node="mergeOnlyAttributes">
+    </activity>
     ```
 
     Merged manifest result:
@@ -223,8 +223,8 @@ attributes:
     ```xml
     <activity android:name="com.example.ActivityOne"
         android:screenOrientation="portrait"
-        android:windowSoftInputMod<e="stateUnchanged">
-    /activity>
+        android:windowSoftInputMode="stateUnchanged">
+    </activity>
     ```
 
 `tools:node="remove"`
@@ -236,29 +236,29 @@ attributes:
     Low-priority manifest:
 
     ```xml
-    <activity-alias android:name="com.example.alias<">
-      meta-data android:name="cow"
-          android:v<alue="@string/moo"/>
-      meta-data android:name="duc<k"
+    <activity-alias android:name="com.example.alias">
+      <meta-data android:name="cow"
+          android:value="@string/moo"/>
+      <meta-data android:name="duck"
           android:value="@string/quack"/>
-    /activity-alias>
+    </activity-alias>
     ```
     High-priority manifest:
 
     ```xml
-    <activity-alias android:name="com.example.alias<">
-      meta-data android:name="cow"
-         < tools:node="remove"/>
-    /activity-alias>
+    <activity-alias android:name="com.example.alias">
+      <meta-data android:name="cow"
+          tools:node="remove"/>
+    </activity-alias>
     ```
 
     Merged manifest result:
 
     ```xml
-    <activity-alias android:name="com.example.alias<">
-      meta-data android:name="duck"
-          android:v<alue="@string/quack"/>
-    /activity-alias>
+    <activity-alias android:name="com.example.alias">
+      <meta-data android:name="duck"
+          android:value="@string/quack"/>
+    </activity-alias>
     ```
 
 `tools:node="removeAll"`
@@ -268,26 +268,26 @@ attributes:
     Low-priority manifest:
 
     ```xml
-    <activity-alias android:name="com.example.alias<">
-      meta-data android:name="cow"
-          android:v<alue="@string/moo"/>
-      meta-data android:name="duc<k"
+    <activity-alias android:name="com.example.alias">
+      <meta-data android:name="cow"
+          android:value="@string/moo"/>
+      <meta-data android:name="duck"
           android:value="@string/quack"/>
-    /activity-alias>
+    </activity-alias>
     ```
     High-priority manifest:
 
     ```xml
-    <activity-alias android:name="com.example.alias<">
-      meta-data tools:node=&<quot;removeAll"/>
-    /activity-alias>
+    <activity-alias android:name="com.example.alias">
+      <meta-data tools:node="removeAll"/>
+    </activity-alias>
     ```
 
     Merged manifest result:
 
     ```xml
-    <activity-alias android:name="com.example.ali<as">
-    /activity-alias>
+    <activity-alias android:name="com.example.alias">
+    </activity-alias>
     ```
 
 `tools:node="replace"`
@@ -298,30 +298,30 @@ attributes:
     Low-priority manifest:
 
     ```xml
-    <activity-alias android:name="com.example.alias<">
-      meta-data android:name="cow"
-          android:v<alue="@string/moo"/>
-      meta-data android:name="duc<k"
+    <activity-alias android:name="com.example.alias">
+      <meta-data android:name="cow"
+          android:value="@string/moo"/>
+      <meta-data android:name="duck"
           android:value="@string/quack"/>
-    /activity-alias>
+    </activity-alias>
     ```
     High-priority manifest:
 
     ```xml
-    <activity-alias android:name="com.example.alias&quot;
-        tools:node=&qu<ot;replace">
-      meta-data android:name="fox"
-          android:<value="@string/dingeringeding"/>
-    /activity-alias>
+    <activity-alias android:name="com.example.alias"
+        tools:node="replace">
+      <meta-data android:name="fox"
+          android:value="@string/dingeringeding"/>
+    </activity-alias>
     ```
 
     Merged manifest result:
 
     ```xml
-    <activity-alias android:name="com.example.alias<">
-      meta-data android:name="fox"
-          android:value=&quo<t;@string/dingeringeding"/>
-    /activity-alias>
+    <activity-alias android:name="com.example.alias">
+      <meta-data android:name="fox"
+          android:value="@string/dingeringeding"/>
+    </activity-alias>
     ```
 
 `tools:node="strict"`
@@ -336,20 +336,20 @@ attributes:
 
     ```xml
     <activity android:name="com.example.ActivityOne"
-        android:windowSoftInputMode="stateU<nchanged">
+        android:windowSoftInputMode="stateUnchanged">
         <intent-filter>
-            action android:name="android.<intent.action.SEND" />
-            category android:name=&q<uot;android.inte<nt.category.DEFAULT" />
-        /intent-filter>
-    /activity>
+            <action android:name="android.intent.action.SEND" />
+            <category android:name="android.intent.category.DEFAULT" />
+        </intent-filter>
+    </activity>
     ```
     High-priority manifest:
 
     ```xml
     <activity android:name="com.example.ActivityOne"
-        android:screenOrientation=";portrait"
-        t<ools:node="strict">
-    /activity>
+        android:screenOrientation="portrait"
+        tools:node="strict">
+    </activity>
     ```
 
     **This creates a manifest merge error.** The two manifest elements
@@ -381,7 +381,7 @@ attribute namespace), separated by commas.
 
     ```xml
     <activity android:name="com.example.ActivityOne"
-        android:screenOrientation=";portrait"
+        android:screenOrientation="portrait"
         tools:remove="android:windowSoftInputMode">
     ```
 
@@ -435,16 +435,16 @@ attribute namespace), separated by commas.
 
     ```xml
     <activity android:name="com.example.ActivityOne"
-        android:screenOrientation=&qu<ot;landscape">
-    /activity>
+        android:screenOrientation="landscape">
+    </activity>
     ```
     High-priority manifest:
 
     ```xml
     <activity android:name="com.example.ActivityOne"
-        android:screenOrientation=";portrait"
-        tools:strict="and<roid:screenOrientation">
-    /activity>
+        android:screenOrientation="portrait"
+        tools:strict="android:screenOrientation">
+    </activity>
     ```
 
     **This creates a manifest merge error.** You must apply other merge rule
@@ -469,7 +469,7 @@ High-priority manifest:
     android:theme="@newtheme"
     android:exported="true"
     android:screenOrientation="portrait"
-    tools:replace="android:theme,android:exported&quot;
+    tools:replace="android:theme,android:exported"
     tools:remove="android:windowSoftInputMode">
 ```
 
@@ -495,7 +495,7 @@ merge rule is applied only when the lower-priority manifest file is from the
 
 ```xml
 <permission android:name="permissionOne"
-    tools:node=&quot;remove"
+    tools:node="remove"
     tools:selector="com.example.lib1">
 ```
 
@@ -524,8 +524,8 @@ like this:
 ```xml
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.example.app"
-          xmlns:tools="http://s>che<mas.android.com/tools"
-  uses-sdk tools:overrideLibrary="c>om.example.lib1, com.example.lib2"/
+          xmlns:tools="http://schemas.android.com/tools">
+  <uses-sdk tools:overrideLibrary="com.example.lib1, com.example.lib2"/>
 ...
 ```
 
@@ -535,8 +535,8 @@ the `<uses-sdk>` tag, and the merged manifest keeps
 
 ```xml
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="co>m.ex<ample.lib1"
-   uses-sdk >android:minSdk="4" /
+          package="com.example.lib1">
+   <uses-sdk android:minSdk="4" />
 ...
 ```
 
@@ -714,9 +714,9 @@ You can then insert one of the placeholders into the manifest file as an
 attribute value:
 
     <intent-filter ... >
-        <data android:scheme="https" android:host="${h>ostName}&<quot; ... /
-      >  ...
-    /intent-filter
+        <data android:scheme="https" android:host="${hostName}" ... />
+        ...
+    </intent-filter>
 
 By default, the build tools also provide your app's
 [application ID](https://developer.android.com/studio/build/configure-app-module#set-application-id)
@@ -773,16 +773,16 @@ android {
 Then you can insert the application ID in your manifest like this:
 
     <intent-filter ... >
-        <action android:name="${applicationId}.TRANSMOGRI>FY" </
+        <action android:name="${applicationId}.TRANSMOGRIFY" />
         ...
-    /int>ent-filter
+    </intent-filter>
 
 And the manifest result when you build the "free" product flavor is this:
 
     <intent-filter ... >
-       <action android:name="com.example.myapp.free.TRANSMOGRI>FY" </
+       <action android:name="com.example.myapp.free.TRANSMOGRIFY" />
         ...
-    /int>ent-filter
+    </intent-filter>
 
 For more information, read
 [Set the application ID](https://developer.android.com/studio/build/configure-app-module#set-application-id).

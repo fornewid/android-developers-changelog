@@ -13,7 +13,7 @@ Android.
 
 - Android Auto makes uses of [virtual device owner overrides](https://developer.android.com/about/versions/16/behavior-changes-all#virtual-device-owner-overrides) to ignore orientation, aspect ratio, and resizability restrictions when running [parked
   apps](https://developer.android.com/training/cars/platforms/android-auto#parked-apps)
-- If your app uses the Android 16 updates for [safer intents](https://developer.android.com/about/versions/16/behavior-changes-16#safer-intents), you might need to specify the [`android:intentMatchingFlags`](https://developer.android.com/reference/android/R.attr#intentMatchingFlags) attribute of the `<service>` element for your `CarAppService` as `allowNullAction` to allow Android Auto and Android Automotive OS to connect to your service.
+- If your app uses the Android 16 updates for [safer intents](https://developer.android.com/about/versions/16/behavior-changes-16#safer-intents), you might need to specify the [`android:intentMatchingFlags`](https://developer.android.com/guide/topics/manifest/service-element#intentMatchingFlags) attribute of the `<service>` element for your `CarAppService` as `allowNullAction` to allow Android Auto and Android Automotive OS to connect to your service.
 
 ## Android 15
 

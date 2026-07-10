@@ -78,6 +78,26 @@ integrity** to generate a verdict.
 > **Tip:** The verdict generated when you tap **Check integrity** on a device contains all default and optional verdicts. Your app will only receive the optional verdicts when it calls Play Integrity API if you [have
 > configured](https://developer.android.com/google/play/integrity/setup#configure-api) them in the Play Console.
 
+### Check integrity on a remote device
+
+You can also initiate an integrity check on a connected Wear OS,
+Android Automotive OS, or Android TV device directly from your primary phone.
+This lets you obtain device integrity verdicts on these form factors.
+
+To perform a remote integrity check:
+
+1. Ensure both your primary phone and the target device, such as a watch, car, or TV, are signed in to the same Google Account.
+2. On your primary phone, open the Play Store app and navigate to **Settings** \> **General** \> **Developer options**.
+3. In the **Play Integrity** section, tap the expander arrow on the **Check
+   integrity** split button to view your connected devices.
+4. Select the target device from the drop-down list.
+
+The phone triggers the check on the remote device and displays the resulting
+verdict once the operation is complete.
+
+> [!NOTE]
+> **Note:** Remote requests time out after 30 seconds if the target device is unreachable. Before you start the check, make sure the remote device is awake and has an active internet connection.
+
 ## Help users fix integrity issues
 
 The Play Integrity API provides various [Play remediation

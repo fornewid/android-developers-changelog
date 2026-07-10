@@ -19,7 +19,7 @@ the `build.gradle.kts` file for your module:
 > **Note:** `androidx.sqlite` supports KMP in version 2.5.0 or higher.
 
     [versions]
-    sqlite = "2.6.2"
+    sqlite = "2.7.0"
 
     [libraries]
     # The SQLite Driver interfaces

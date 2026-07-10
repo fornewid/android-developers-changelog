@@ -1773,7 +1773,7 @@ dependencies {
 
 ```groovy
 dependencies {
-    implementation "androidx.sqlite:sqlite-ktx:2.6.2"
+    implementation "androidx.sqlite:sqlite-ktx:2.7.0"
 }
 ```
 
@@ -1781,7 +1781,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.sqlite:sqlite-ktx:2.6.2")
+    implementation("androidx.sqlite:sqlite-ktx:2.7.0")
 }
 ```
 

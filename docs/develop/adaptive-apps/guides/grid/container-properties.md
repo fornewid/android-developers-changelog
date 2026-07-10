@@ -148,6 +148,83 @@ Grid(
 
 ![Row heights defined using the four primary track sizing options.](https://developer.android.com/static/develop/ui/compose/images/layouts/adaptive/grid/track-sizes.png) **Figure 3** . Row heights defined using the four primary track sizing options in `Grid`.
 
+### Set the minimum size for flexible grid tracks
+
+When a grid container has no remaining space,
+a standard flexible track can shrink to `0.dp`.
+To prevent this and ensure content isn't crushed,
+use [`GridTrackSize.MinMax`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/GridTrackSize#MinMax(androidx.compose.ui.unit.Dp,androidx.compose.foundation.layout.Fr))
+to enforce an explicit minimum size while keeping the track flexible.
+
+The following example allocates at least `100.dp` to the first row:
+
+
+```kotlin
+Grid(
+    config = {
+        column(1f)
+        // The first row has a minimum height of 100.dp and can expand to 
+        // the half of the remaining space.
+        row(GridTrackSize.MinMax(100.dp, 1.fr))
+        // The second row takes the half of the remaining space.
+        row(1.fr)
+        // The third row has a fixed height of 200.dp.
+        row(200.dp)
+    },
+    modifier = Modifier.size(360.dp) // Total grid height is 360.dp
+) {
+    PastelRedCard("MinMax(100.dp, 1.fr)")
+        PastelGreenCard("Flex(1.fr)")
+    PastelBlueCard("Fixed(200.dp)")
+}
+```
+
+<br />
+
+![Row heights defined using the four primary track sizing options.](https://developer.android.com/static/develop/ui/compose/images/layouts/adaptive/grid/track-size-minmax.png) **Figure 4** . The first row has at least `100.dp` height.
+
+### Set the minimum grid track size to place lazy lists
+
+Standard flexible tracks automatically query the intrinsic sizes of
+their children to establish a base size.
+However, Jetpack Compose prohibits querying the intrinsic sizes of
+[`SubcomposeLayout`](https://developer.android.com/reference/kotlin/androidx/compose/ui/layout/SubcomposeLayout.composable#SubcomposeLayout(androidx.compose.ui.Modifier,kotlin.Function2)), which backs components,
+such as [`LazyColumn`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/LazyColumn.composable) and [`LazyRow`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/LazyRow.composable).
+
+Placing a lazy list inside a standard flexible track causes
+an [`IllegalStateException`](https://developer.android.com/reference/java/lang/IllegalStateException) crash.
+To safely place lazy lists inside a flexible grid track,
+use `MinMax` with an explicit minimum size (such as `0.dp`)
+to bypass the intrinsic measurement pass.
+
+
+```kotlin
+Grid(
+    config = {
+        column(1f)
+        // The first row's height is determined by the height of the Text composable.
+        row(GridTrackSize.Auto)
+        // The second row occupies the remaining space, allowing the LazyColumn to scroll.
+        row(GridTrackSize.MinMax(0.dp, 1.fr))
+
+        gap(8.dp)
+    },
+    modifier = Modifier.size(width = 170.dp, height = 240.dp)
+) {
+    Text("Lazy column in a Grid")
+    // The LazyColumn is placed in the second row, filling the remaining space.
+    LazyColumn(verticalArrangement = Arrangement.spacedBy(4.dp)) {
+        items(100) { number ->
+            PastelGreenCard("Card $number")
+        }
+    }
+}
+```
+
+<br />
+
+![Row heights defined using the four primary track sizing options.](https://developer.android.com/static/develop/ui/compose/images/layouts/adaptive/grid/lazy-column-in-grid.png) **Figure 5** . `LazyColumn` in a grid cell.
+
 ### Determine grid track size intrinsically
 
 You can use [intrinsic sizing](https://developer.android.com/develop/ui/compose/layouts/intrinsic-measurements) for a `Grid`
@@ -181,7 +258,7 @@ Grid(
 
 <br />
 
-![Intrinsic sizes specified in the columns.](https://developer.android.com/static/develop/ui/compose/images/layouts/adaptive/grid/intrinsic-size.png) **Figure 4**. Intrinsic sizes specified in the columns.
+![Intrinsic sizes specified in the columns.](https://developer.android.com/static/develop/ui/compose/images/layouts/adaptive/grid/intrinsic-size.png) **Figure 5**. Intrinsic sizes specified in the columns.
 
 ## Set gaps between rows and columns
 
@@ -217,7 +294,7 @@ Grid(
 
 <br />
 
-![Gaps between rows and columns.](https://developer.android.com/static/develop/ui/compose/images/layouts/adaptive/grid/gaps.png) **Figure 5**. Gaps between rows and columns.
+![Gaps between rows and columns.](https://developer.android.com/static/develop/ui/compose/images/layouts/adaptive/grid/gaps.png) **Figure 6**. Gaps between rows and columns.
 
 You can also use the convenience function [`gap`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/GridConfigurationScope#gap(androidx.compose.ui.unit.Dp))
 to define gaps of the same column and row size,

@@ -111,15 +111,20 @@ purchases in your app.
 
 ### Kotlin
 
-    private val purchasesUpdatedListener =
-       PurchasesUpdatedListener { billingResult, purchases ->
-        // To be implemented in a later section.
-       }
 
-    private var billingClient = BillingClient.newBuilder(context)
-      .setListener(purchasesUpdatedListener)
-      // Configure other settings.
-      .build()
+```kotlin
+private val purchasesUpdatedListener =
+    PurchasesUpdatedListener { billingResult, purchases ->
+        // To be implemented in a later section.
+    }
+
+private var billingClient = BillingClient.newBuilder(context)
+    .setListener(purchasesUpdatedListener)
+    // Configure other settings.
+    .build()
+```
+
+<br />
 
 ### Java
 
@@ -160,20 +165,25 @@ ready to use:
 
 ### Kotlin
 
-    billingClient.startConnection(object : BillingClientStateListener {
-      override fun onBillingSetupFinished(billingResult: BillingResult) {
-          if (billingResult.responseCode ==  BillingResponseCode.OK) {
-              // The BillingClient is ready. You can query purchases here.
-          }
-      }
-      override fun onBillingServiceDisconnected() {
-          // If automatic service reconnection is enabled, this can be left empty (no-op)
-          // because the library handles retries. You can still use this for non-retry
-          // tasks like logging or updating the UI to reflect a disconnected state.
-          // Otherwise, try to restart the connection on the next request to
-          // Google Play by calling the startConnection() method.
-      }
-    })
+
+```kotlin
+billingClient.startConnection(object : BillingClientStateListener {
+    override fun onBillingSetupFinished(billingResult: BillingResult) {
+        if (billingResult.responseCode == BillingResponseCode.OK) {
+            // The BillingClient is ready. You can query purchases here.
+        }
+    }
+    override fun onBillingServiceDisconnected() {
+        // If automatic service reconnection is enabled, this can be left empty (no-op)
+        // because the library handles retries. You can still use this for non-retry
+        // tasks like logging or updating the UI to reflect a disconnected state.
+        // Otherwise, try to restart the connection on the next request to
+        // Google Play by calling the startConnection() method.
+    }
+})
+```
+
+<br />
 
 ### Java
 
@@ -221,11 +231,16 @@ enable automatic reconnection.
 
 ### Kotlin
 
-    val billingClient = BillingClient.newBuilder(context)
-        .setListener(listener)
-        .enablePendingPurchases()
-        .enableAutoServiceReconnection() // Add this line to enable reconnection
-        .build()
+
+```kotlin
+val billingClient = BillingClient.newBuilder(context)
+    .setListener(listener)
+    .enablePendingPurchases(PendingPurchasesParams.newBuilder().enableOneTimeProducts().build())
+    .enableAutoServiceReconnection() // Add this line to enable reconnection
+    .build()
+```
+
+<br />
 
 ### Java
 
@@ -256,29 +271,36 @@ listener when the query finishes, as shown in the following example:
 
 ### Kotlin
 
-    val queryProductDetailsParams =
-      QueryProductDetailsParams.newBuilder()
-          .setProductList(
-              listOf(
-                  Product.newBuilder()
-                      .setProductId("product_id_example")
-                      .setProductType(ProductType.SUBS)
-                      .build()))
-          .build()
 
-    billingClient.queryProductDetailsAsync(queryProductDetailsParams) {
-      billingResult,
-      queryProductDetailsResult ->
-        if (billingResult.responseCode == BillingResponseCode.OK) {
-                 for (productDetails in queryProductDetailsResult.productDetailsList) {
-                   // Process successfully retrieved product details here.
-                 }
+```kotlin
+val queryProductDetailsParams =
+    QueryProductDetailsParams.newBuilder()
+        .setProductList(
+            listOf(
+                Product.newBuilder()
+                    .setProductId("product_id_example")
+                    .setProductType(ProductType.SUBS)
+                    .build()
+            )
+        )
+        .build()
 
-                 for (unfetchedProduct in queryProductDetailsResult.unfetchedProductList) {
-                   // Handle any unfetched products as appropriate.
-                 }
-              }
+billingClient.queryProductDetailsAsync(queryProductDetailsParams) {
+        billingResult,
+        queryProductDetailsResult ->
+    if (billingResult.responseCode == BillingResponseCode.OK) {
+        for (productDetails in queryProductDetailsResult.productDetailsList) {
+            // Process successfully retrieved product details here.
+        }
+
+        for (unfetchedProduct in queryProductDetailsResult.unfetchedProductList) {
+            // Handle any unfetched products as appropriate.
+        }
     }
+}
+```
+
+<br />
 
 ### Java
 
@@ -325,23 +347,28 @@ details by calling the `queryProductDetails()` extension function.
 define a separate listener. Instead, the function suspends until the querying
 completes, after which you can process the result:
 
-    suspend fun processPurchases() {
-        val productList = listOf(
-            QueryProductDetailsParams.Product.newBuilder()
-                .setProductId("product_id_example")
-                .setProductType(BillingClient.ProductType.SUBS)
-                .build()
-        )
-        val params = QueryProductDetailsParams.newBuilder()
-        params.setProductList(productList)
 
-        // leverage queryProductDetails Kotlin extension function
-        val productDetailsResult = withContext(Dispatchers.IO) {
-            billingClient.queryProductDetails(params.build())
-        }
+```kotlin
+suspend fun processPurchases() {
+    val productList = listOf(
+        QueryProductDetailsParams.Product.newBuilder()
+            .setProductId("product_id_example")
+            .setProductType(BillingClient.ProductType.SUBS)
+            .build()
+    )
+    val params = QueryProductDetailsParams.newBuilder()
+    params.setProductList(productList)
 
-        // Process the result.
+    // leverage queryProductDetails Kotlin extension function
+    val productDetailsResult = withContext(Dispatchers.IO) {
+        billingClient.queryProductDetails(params.build())
     }
+
+    // Process the result.
+}
+```
+
+<br />
 
 Rarely, some devices are unable to support `ProductDetails` and
 `queryProductDetailsAsync()`, usually due to outdated versions of [Google Play
@@ -478,17 +505,22 @@ following example shows how to override `onPurchasesUpdated()`:
 
 ### Kotlin
 
-    override fun onPurchasesUpdated(billingResult: BillingResult, purchases: List<Purchase>?) {
-     if (billingResult.responseCode == BillingResponseCode.OK && purchases != null) {
-         for (purchase in purchases) {
-             // Process the purchase as described in the next section.
-         }
-     } else if (billingResult.responseCode == BillingResponseCode.USER_CANCELED) {
-         // Handle an error caused by a user canceling the purchase flow.
-     } else {
-         // Handle any other error codes.
-     }
+
+```kotlin
+override fun onPurchasesUpdated(billingResult: BillingResult, purchases: List<Purchase>?) {
+    if (billingResult.responseCode == BillingResponseCode.OK && purchases != null) {
+        for (purchase in purchases) {
+            // Process the purchase as described in the next section.
+        }
+    } else if (billingResult.responseCode == BillingResponseCode.USER_CANCELED) {
+        // Handle an error caused by a user canceling the purchase flow.
+    } else {
+        // Handle any other error codes.
     }
+}
+```
+
+<br />
 
 ### Java
 
@@ -687,13 +719,18 @@ Google Play Billing Library using the associated purchase token:
 
 ### Kotlin
 
-      val consumeParams =
-          ConsumeParams.newBuilder()
-              .setPurchaseToken(purchase.getPurchaseToken())
-              .build()
-      val consumeResult = withContext(Dispatchers.IO) {
-          client.consumePurchase(consumeParams)
-      }
+
+```kotlin
+val consumeParams =
+    ConsumeParams.newBuilder()
+        .setPurchaseToken(purchase.getPurchaseToken())
+        .build()
+val consumeResult = withContext(Dispatchers.IO) {
+    client.consumePurchase(consumeParams)
+}
+```
+
+<br />
 
 ### Java
 
@@ -735,14 +772,17 @@ Google Play Billing Library:
 
 ### Kotlin
 
-    val client: BillingClient = ...
-    val acknowledgePurchaseResponseListener: AcknowledgePurchaseResponseListener = ...
 
-    val acknowledgePurchaseParams = AcknowledgePurchaseParams.newBuilder()
-        .setPurchaseToken(purchase.purchaseToken)
-    val ackPurchaseResult = withContext(Dispatchers.IO) {
-       client.acknowledgePurchase(acknowledgePurchaseParams.build())
-    }
+```kotlin
+val client: BillingClient = billingClient
+val acknowledgePurchaseParams = AcknowledgePurchaseParams.newBuilder()
+    .setPurchaseToken(purchase.purchaseToken)
+val ackPurchaseResult = withContext(Dispatchers.IO) {
+    client.acknowledgePurchase(acknowledgePurchaseParams.build())
+}
+```
+
+<br />
 
 ### Java
 
@@ -901,23 +941,31 @@ Country.
 
 ### Kotlin
 
-    // Use the default GetBillingConfigParams.
-    val getBillingConfigParams = GetBillingConfigParams.newBuilder().build()
-    billingClient.getBillingConfigAsync(getBillingConfigParams,
-      object : BillingConfigResponseListener {
-          override fun onBillingConfigResponse(
-              billingResult: BillingResult,
-              billingConfig: BillingConfig?
-          ) {
-              if (billingResult.responseCode == BillingResponseCode.OK
-                  && billingConfig != null) {
-                  val countryCode = billingConfig.countryCode
-                  ...
-              } else {
-                  // Handle errors
-              }
-          }
-      })
+
+```kotlin
+// Use the default GetBillingConfigParams.
+val getBillingConfigParams = GetBillingConfigParams.newBuilder().build()
+billingClient.getBillingConfigAsync(
+    getBillingConfigParams,
+    object : BillingConfigResponseListener {
+        override fun onBillingConfigResponse(
+            billingResult: BillingResult,
+            billingConfig: BillingConfig?
+        ) {
+            if (billingResult.responseCode == BillingResponseCode.OK &&
+                billingConfig != null
+            ) {
+                val countryCode = billingConfig.countryCode
+                // ...
+            } else {
+                // Handle errors
+            }
+        }
+    }
+)
+```
+
+<br />
 
 ### Java
 
